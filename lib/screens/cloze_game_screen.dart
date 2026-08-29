@@ -22,6 +22,7 @@ import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/speakable.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
@@ -345,12 +346,15 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
             Flexible(
               flex: 3,
               child: SingleChildScrollView(
-                child: ClozePromptCard(
-                  item: item,
-                  lang: lang,
-                  gloss: _vocabByKo[item.answer]?.translationFor(lang),
-                  picked: _picked,
-                  pickedWrong: _picked != null && _picked != item.answer,
+                child: SoriSpeakable(
+                  text: item.fullKo,
+                  child: ClozePromptCard(
+                    item: item,
+                    lang: lang,
+                    gloss: _vocabByKo[item.answer]?.translationFor(lang),
+                    picked: _picked,
+                    pickedWrong: _picked != null && _picked != item.answer,
+                  ),
                 ),
               ),
             ),

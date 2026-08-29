@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/cloze_loader.dart';
-import '../../services/tts_service.dart';
 import 'card.dart';
 import 'game_layout.dart';
 import 'quiz_choice.dart';
+import 'speakable.dart';
 import 'tokens.dart';
 
 /// Ein Textstück der Übersetzung: [emph] = das gesuchte Wort (fett + Akzent).
@@ -173,7 +173,7 @@ class ClozePromptCard extends StatelessWidget {
                 key: const Key('cloze-prompt-speak'),
                 icon: const Icon(Icons.volume_up_rounded, size: 26),
                 tooltip: AppL10n.of(context).ttsListen,
-                onPressed: () => TtsService.speak(item.fullKo),
+                onPressed: () => SoriSpeech.speak(item.fullKo),
               ),
             ),
           ],

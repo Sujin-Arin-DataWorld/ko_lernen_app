@@ -21,7 +21,6 @@ import '../services/analytics_service.dart';
 import '../services/quest_abandon_tracker.dart';
 import '../services/data_loader.dart';
 import '../services/grammar_plan_service.dart';
-import '../services/tts_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/flip_card.dart';
 import '../widgets/app_loading.dart';
@@ -48,6 +47,7 @@ import '../services/liked_content_service.dart';
 import '../widgets/sori/wordbook_add.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/speakable.dart';
 import '../widgets/sori/toast.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -1779,7 +1779,7 @@ class _ListenButton extends StatelessWidget {
       label: t.btnHoeren,
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
-        onTap: () => TtsService.speak(korean),
+        onTap: () => SoriSpeech.speak(korean),
         child: Material(
           color: SoriColors.lightSurfaceRaised,
           shape: const CircleBorder(),

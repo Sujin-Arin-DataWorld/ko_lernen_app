@@ -8,7 +8,6 @@ import '../models/custom_pack.dart';
 import '../models/feedback_completion.dart';
 import '../services/custom_pack_service.dart';
 import '../services/storage_service.dart';
-import '../services/tts_service.dart';
 import '../widgets/flip_card.dart';
 import '../widgets/managed_media_image.dart';
 import '../widgets/sori/button.dart';
@@ -27,6 +26,7 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/scroll_if_needed.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/speakable.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
@@ -525,7 +525,7 @@ class _Front extends StatelessWidget {
                         ),
                         onPressed: () {
                           // ignore: discarded_futures
-                          TtsService.speak(word.korean);
+                          SoriSpeech.speak(word.korean);
                         },
                       ),
                     ],
@@ -623,11 +623,11 @@ class _Back extends StatelessWidget {
                       haptic: SoriHaptic.light,
                       onTap: () {
                         // ignore: discarded_futures
-                        TtsService.speak(word.exampleKorean);
+                        SoriSpeech.speak(word.exampleKorean);
                       },
                       onLongPress: () {
                         // ignore: discarded_futures
-                        TtsService.speakSlow(word.exampleKorean);
+                        SoriSpeech.speakSlow(word.exampleKorean);
                       },
                       child: Column(
                         mainAxisSize: MainAxisSize.min,

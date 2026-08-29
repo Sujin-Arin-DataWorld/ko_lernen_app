@@ -7,7 +7,6 @@ import '../models/vocab.dart';
 import '../models/feedback_completion.dart';
 import '../services/data_loader.dart';
 import '../services/review_deck_service.dart';
-import '../services/tts_service.dart';
 import '../services/culture_notes_service.dart';
 import '../widgets/sori/culture_note_card.dart';
 import '../services/storage_service.dart';
@@ -33,6 +32,7 @@ import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/scroll_if_needed.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/speakable.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tts_speed_control.dart';
@@ -704,8 +704,8 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
       ),
     );
     final listen = SoriPressable(
-      onTap: () => TtsService.speak(v.korean),
-      onLongPress: () => TtsService.speakSlow(v.korean),
+      onTap: () => SoriSpeech.speak(v.korean),
+      onLongPress: () => SoriSpeech.speakSlow(v.korean),
       haptic: SoriHaptic.selection,
       child: Container(
         constraints: const BoxConstraints(minHeight: 44),
@@ -1238,9 +1238,9 @@ class _Back extends StatelessWidget {
                               ),
                               const SizedBox(width: 8),
                               SoriPressable(
-                                onTap: () => TtsService.speak(v.exampleKorean),
+                                onTap: () => SoriSpeech.speak(v.exampleKorean),
                                 onLongPress: () =>
-                                    TtsService.speakSlow(v.exampleKorean),
+                                    SoriSpeech.speakSlow(v.exampleKorean),
                                 haptic: SoriHaptic.selection,
                                 child: Container(
                                   padding: const EdgeInsets.all(6),

@@ -23,6 +23,7 @@ import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/section_header.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/speakable.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/tts_speed_control.dart';
@@ -36,7 +37,6 @@ import '../widgets/flip_card.dart';
 import '../widgets/stroke_canvas.dart';
 import '../services/analytics_service.dart';
 import '../services/quest_abandon_tracker.dart';
-import '../services/tts_service.dart';
 import '../l10n/generated/app_localizations.dart';
 
 class HangulScreen extends StatefulWidget {
@@ -51,7 +51,7 @@ class HangulScreen extends StatefulWidget {
   final math.Random? cardsRandom;
   final Future<bool> Function(String text)? speechPlayer;
 
-  /// 음성 미리받기 주입구(테스트용). 미지정이면 [TtsService.prefetch].
+  /// 음성 미리받기 주입구(테스트용). 미지정이면 [SoriSpeech.prefetch].
   final Future<void> Function(String text)? textPrefetcher;
 
   @override
@@ -120,7 +120,7 @@ class _HangulScreenState extends State<HangulScreen>
   /// 던지면 `unawaited` 된 Future 가 미처리 예외로 새어나온다.
   Future<void> _prefetch(String text) async {
     try {
-      await (widget.textPrefetcher?.call(text) ?? TtsService.prefetch(text));
+      await (widget.textPrefetcher?.call(text) ?? SoriSpeech.prefetch(text));
     } catch (_) {
       // 못 받아도 누르면 평소 경로로 재생된다.
     }
@@ -140,7 +140,7 @@ class _HangulScreenState extends State<HangulScreen>
       unawaited(Future.wait([for (final t in texts) _prefetch(t)]));
       return;
     }
-    unawaited(TtsService.prefetchAll(texts));
+    unawaited(SoriSpeech.prefetchAll(texts));
   }
 
   Future<void> _finishCards(int interactionCount) async {
@@ -216,7 +216,7 @@ class _HangulScreenState extends State<HangulScreen>
 
   Future<bool> _speakJamo(String letter) {
     final text = speakableJamo(letter);
-    return widget.speechPlayer?.call(text) ?? TtsService.speak(text);
+    return widget.speechPlayer?.call(text) ?? SoriSpeech.speak(text);
   }
 
   @override
@@ -937,7 +937,7 @@ class _CardsTabState extends State<_CardsTab> {
                   // 누르면 언제나 낱자 음가다.
                   IconButton(
                     key: ValueKey('hangul-example-speak-${c.letter}'),
-                    onPressed: () => unawaited(TtsService.speak(c.exampleWord)),
+                    onPressed: () => unawaited(SoriSpeech.speak(c.exampleWord)),
                     icon: Icon(
                       Icons.volume_up_rounded,
                       size: soriFillSize(h, 0.05, 16, 28),

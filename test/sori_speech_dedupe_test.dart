@@ -111,19 +111,26 @@ void main() {
     expect(startCount, 1);
   });
 
-  test('서로 다른 텍스트는 독립적으로 해석된다 — 같은 키만 합류한다', () async {
+  test('서로 다른 텍스트는 이전 발화를 정지한 뒤 새 해석을 시작한다', () async {
     final calls = <String>[];
     final completers = <String, Completer<bool>>{};
+    var stopCalls = 0;
     SoriSpeech.speakImpl = (text, voice) {
       calls.add(text);
       final c = Completer<bool>();
       completers[text] = c;
       return c.future;
     };
+    SoriSpeech.stopImpl = () async {
+      stopCalls++;
+    };
 
     final a = SoriSpeech.speak('안녕');
     final b = SoriSpeech.speak('감사합니다');
+    await Future<void>.delayed(Duration.zero);
+
     expect(calls, ['안녕', '감사합니다']);
+    expect(stopCalls, 1);
 
     completers['안녕']!.complete(true);
     completers['감사합니다']!.complete(true);

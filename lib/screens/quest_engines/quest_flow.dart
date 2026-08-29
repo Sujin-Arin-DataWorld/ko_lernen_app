@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/pressable.dart';
+import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/tokens.dart';
 
 enum SoriAnswerState { idle, selected, correct, wrong }
@@ -264,29 +265,39 @@ class SoriPromptCard extends StatelessWidget {
     super.key,
     required this.sentence,
     this.onReplay,
+    this.speakText,
+    this.voice,
     this.compact = false,
   });
 
   final String sentence;
   final VoidCallback? onReplay;
+  final String? speakText;
+  final String? voice;
   final bool compact;
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final surfaces = SoriSurfaces.of(context);
-    final replayable = onReplay != null;
+    final resolvedSpeakText = speakText?.trim();
+    final usesSpeakable = resolvedSpeakText?.isNotEmpty ?? false;
+    final replayable = onReplay != null || usesSpeakable;
     final label = replayable ? '$sentence ${t.questReplayAudio}' : sentence;
     final fontSize = compact ? 20.0 : 22.0;
 
-    return Semantics(
+    final card = Semantics(
       button: replayable,
       enabled: replayable ? true : null,
       label: label,
       excludeSemantics: true,
-      onTap: onReplay,
+      onTap: usesSpeakable
+          ? () => SoriSpeech.speak(resolvedSpeakText!, voice: voice)
+          : onReplay,
       child: SoriPressable(
-        onTap: onReplay,
+        // The outer SoriSpeakable owns pointer taps when [speakText] is set.
+        // Keeping a second recognizer here would race and could speak twice.
+        onTap: usesSpeakable ? null : onReplay,
         haptic: null,
         pressScale: replayable ? 0.99 : 1,
         child: DecoratedBox(
@@ -365,6 +376,8 @@ class SoriPromptCard extends StatelessWidget {
         ),
       ),
     );
+    if (!usesSpeakable) return card;
+    return SoriSpeakable(text: resolvedSpeakText!, voice: voice, child: card);
   }
 }
 

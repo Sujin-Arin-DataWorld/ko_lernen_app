@@ -25,7 +25,6 @@ import '../services/scenario_loader.dart';
 import '../services/scene_asset_resolver.dart';
 import '../services/scenario_writing_check_service.dart';
 import '../services/storage_service.dart';
-import '../services/tts_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/app_bar.dart';
@@ -47,6 +46,7 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/speakable.dart';
 import '../widgets/sori/scenario_write_after_roleplay_card.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
@@ -1069,7 +1069,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                           ),
                           onPressed: () {
                             HapticFeedback.selectionClick();
-                            TtsService.speak(v.korean);
+                            SoriSpeech.speak(v.korean);
                           },
                           icon: const Icon(
                             Icons.volume_up_rounded,
@@ -1180,15 +1180,18 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                   ],
                   Flexible(
                     child: isNarrator
-                        ? Padding(
-                            padding: const EdgeInsets.symmetric(
-                              vertical: Spacing.xs,
-                            ),
-                            child: Text(
-                              line.ko,
-                              style: SoriTextTheme.of(
-                                context,
-                              ).bodySmall.copyWith(fontStyle: FontStyle.italic),
+                        ? SoriSpeakable(
+                            text: line.ko,
+                            voice: 'male',
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: Spacing.xs,
+                              ),
+                              child: Text(
+                                line.ko,
+                                style: SoriTextTheme.of(context).bodySmall
+                                    .copyWith(fontStyle: FontStyle.italic),
+                              ),
                             ),
                           )
                         : SoriCard(
@@ -1200,7 +1203,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                             // SoriCard.onTap 이 SoriPressable+버튼 시맨틱으로 감싼다.
                             onTap: () {
                               HapticFeedback.selectionClick();
-                              TtsService.speak(
+                              SoriSpeech.speak(
                                 line.ko,
                                 voice: line.speaker == 'user'
                                     ? 'female'

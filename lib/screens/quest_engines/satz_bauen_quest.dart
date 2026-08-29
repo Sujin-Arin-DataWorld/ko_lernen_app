@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/sound_service.dart';
-import '../../services/tts_service.dart';
+import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/tokens.dart';
 import 'quest_flow.dart';
 import 'quest_layout.dart';
@@ -280,7 +280,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     if (_audioKo.isNotEmpty) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted) {
-          TtsService.speak(_audioKo);
+          SoriSpeech.speak(_audioKo);
         }
       });
     }
@@ -306,10 +306,6 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
       case SatzError.none:
         return t.questDiagWord;
     }
-  }
-
-  Future<void> _playTts() async {
-    await TtsService.speak(_audioKo);
   }
 
   void _placeTile(_Tile t) {
@@ -441,7 +437,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
         SoriPromptCard(
           key: const ValueKey('quest-prompt-card'),
           sentence: _prompt(langCode),
-          onReplay: _audioKo.isEmpty ? null : _playTts,
+          speakText: _audioKo.isEmpty ? null : _audioKo,
           compact: widget.compact,
         ),
         SizedBox(height: sectionGap),
