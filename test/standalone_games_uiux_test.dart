@@ -709,6 +709,10 @@ void main() {
     _expectButton(tester, find.bySemanticsLabel(en.chosungBackspace));
     _expectButton(tester, find.bySemanticsLabel(en.filterLevel), minHeight: 48);
     final chosungLevelButton = find.byKey(const Key('chosung-level-selector'));
+    // Autofocus can scroll the input into view after the chrome row is laid
+    // out. Let that scroll finish, then reveal and fatally hit-test the chrome
+    // control so a late focus scroll cannot move it back under the app bar.
+    await tester.pumpAndSettle();
     await _tapVisibleFatal(tester, chosungLevelButton);
     await _pumpUntil(tester, find.byKey(const ValueKey('sori-level-sheet-A1')));
     _expectSelectedDisabledChoice(
@@ -717,8 +721,11 @@ void main() {
       minHeight: 48,
     );
     await tester.binding.handlePopRoute();
-    await tester.pump(const Duration(milliseconds: 300));
-    await tester.tap(find.byKey(const Key('chosung-mode-selector')));
+    await tester.pumpAndSettle();
+    await _tapVisibleFatal(
+      tester,
+      find.byKey(const Key('chosung-mode-selector')),
+    );
     await _pumpUntil(tester, find.byKey(const Key('chosung-mode-with-vowels')));
     final selectedMode = find.byKey(const Key('chosung-mode-with-vowels'));
     _expectButton(
