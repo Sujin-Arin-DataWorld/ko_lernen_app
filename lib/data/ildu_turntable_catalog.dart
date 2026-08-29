@@ -98,11 +98,68 @@ final IlDuTurntableSpec kIlDuSotdaeulmunTurntable = IlDuTurntableSpec(
   ],
 );
 
+final IlDuTurntableSpec kIlDuSadangTurntable = IlDuTurntableSpec(
+  anchorId: 'sadang',
+  mapAspectRatio: 1.15,
+  frames: <IlDuTurntableFrame>[
+    _frame('ildu_sadang_00_front.png', 384, 512, 16, 188, 368, 488),
+    _frame('ildu_sadang_01_front_right.png', 384, 512, 22, 188, 362, 488),
+    _frame('ildu_sadang_02_right.png', 384, 512, 59, 188, 324, 488),
+    _frame('ildu_sadang_03_rear_right.png', 384, 512, 30, 188, 353, 488),
+    _frame('ildu_sadang_04_rear.png', 384, 512, 16, 188, 368, 488),
+    _frame('ildu_sadang_05_rear_left.png', 384, 512, 35, 188, 349, 488),
+    _frame('ildu_sadang_06_left.png', 384, 512, 48, 188, 336, 488),
+    _frame('ildu_sadang_07_front_left.png', 384, 512, 32, 188, 352, 488),
+  ],
+);
+
+final IlDuTurntableSpec kIlDuSadangmunTurntable = IlDuTurntableSpec(
+  anchorId: 'sadang-gate',
+  mapAspectRatio: .85,
+  frames: <IlDuTurntableFrame>[
+    _frame('ildu_sadangmun_00_front.png', 384, 512, 16, 87, 368, 488),
+    _frame('ildu_sadangmun_01_front_right.png', 384, 512, 28, 87, 355, 488),
+    _frame('ildu_sadangmun_02_right.png', 384, 512, 103, 87, 281, 488),
+    _frame('ildu_sadangmun_03_rear_right.png', 384, 512, 38, 87, 346, 488),
+    _frame('ildu_sadangmun_04_rear.png', 384, 512, 30, 87, 354, 488),
+    _frame('ildu_sadangmun_05_rear_left.png', 384, 512, 25, 87, 358, 488),
+    _frame('ildu_sadangmun_06_left.png', 384, 512, 102, 87, 282, 488),
+    _frame('ildu_sadangmun_07_front_left.png', 384, 512, 36, 87, 347, 488),
+  ],
+);
+
+List<IlDuTurntableFrame> _sadangHyeopmunFrames() => <IlDuTurntableFrame>[
+  _frame('ildu_sadang_hyeopmun_00_front.png', 384, 512, 37, 57, 347, 488),
+  _frame('ildu_sadang_hyeopmun_01_front_right.png', 384, 512, 33, 40, 350, 488),
+  _frame('ildu_sadang_hyeopmun_02_right.png', 384, 512, 92, 59, 291, 488),
+  _frame('ildu_sadang_hyeopmun_03_rear_right.png', 384, 512, 38, 61, 345, 488),
+  _frame('ildu_sadang_hyeopmun_04_rear.png', 384, 512, 40, 90, 343, 488),
+  _frame('ildu_sadang_hyeopmun_05_rear_left.png', 384, 512, 43, 65, 341, 488),
+  _frame('ildu_sadang_hyeopmun_06_left.png', 384, 512, 96, 65, 287, 488),
+  _frame('ildu_sadang_hyeopmun_07_front_left.png', 384, 512, 34, 50, 349, 488),
+];
+
+final IlDuTurntableSpec kIlDuHyeopmunWestTurntable = IlDuTurntableSpec(
+  anchorId: 'hyeopmun-west',
+  mapAspectRatio: .85,
+  frames: _sadangHyeopmunFrames(),
+);
+
+final IlDuTurntableSpec kIlDuHyeopmunEastTurntable = IlDuTurntableSpec(
+  anchorId: 'hyeopmun-east',
+  mapAspectRatio: .85,
+  frames: _sadangHyeopmunFrames(),
+);
+
 final Map<String, IlDuTurntableSpec> kIlDuTurntables =
     <String, IlDuTurntableSpec>{
       kIlDuSarangchaeTurntable.anchorId: kIlDuSarangchaeTurntable,
       kIlDuAnsarangchaeTurntable.anchorId: kIlDuAnsarangchaeTurntable,
       kIlDuSotdaeulmunTurntable.anchorId: kIlDuSotdaeulmunTurntable,
+      kIlDuSadangTurntable.anchorId: kIlDuSadangTurntable,
+      kIlDuSadangmunTurntable.anchorId: kIlDuSadangmunTurntable,
+      kIlDuHyeopmunWestTurntable.anchorId: kIlDuHyeopmunWestTurntable,
+      kIlDuHyeopmunEastTurntable.anchorId: kIlDuHyeopmunEastTurntable,
     };
 
 IlDuTurntableSpec? ilduTurntableForAnchor(String anchorId) =>

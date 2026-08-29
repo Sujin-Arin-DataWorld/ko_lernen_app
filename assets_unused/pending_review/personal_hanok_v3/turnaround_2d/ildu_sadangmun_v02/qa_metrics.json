@@ -1,0 +1,303 @@
+{
+  "subject": "ildu_sadangmun",
+  "status": "pending_review_only",
+  "camera_elevation_degrees": 28,
+  "azimuth_interval_degrees": 45,
+  "raw_sources": [
+    {
+      "file": "generated_source/individual/ildu_sadangmun_000_front_raw.png",
+      "sha256": "18C05357B6D36BBFBB799850DCFFE821B9B55E8F874E1FB8127CF2DB0F725CE6",
+      "size": [
+        1086,
+        1448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "generated_source/individual/ildu_sadangmun_045_front_right_raw.png",
+      "sha256": "1714C35B2B52D853E9F007C9E02F21E92AC9B59E088247534E1975DE0B2E16C9",
+      "size": [
+        1086,
+        1448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "generated_source/individual/ildu_sadangmun_090_right_raw.png",
+      "sha256": "6E1BF2A9A3181EB7334D234687BD2A4354FE0FC9654E533AB452E181BB8BDC0F",
+      "size": [
+        1086,
+        1448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "generated_source/individual/ildu_sadangmun_135_rear_right_raw.png",
+      "sha256": "31B3B3CCDD7B6B73D873FCED28E2461C3694C1800DCCC9185A73149594E57789",
+      "size": [
+        1086,
+        1448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "generated_source/individual/ildu_sadangmun_180_rear_raw.png",
+      "sha256": "95E4349389D40877F7F4F115669AC4AABAB44EDE084A226EA214896B908B42C5",
+      "size": [
+        1086,
+        1448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "generated_source/individual/ildu_sadangmun_225_rear_left_raw.png",
+      "sha256": "215BB7080D7DC302B4D0017D328DC5C81DB264D09C4B8168D36DA3ADF7A87355",
+      "size": [
+        1086,
+        1448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "generated_source/individual/ildu_sadangmun_270_left_raw.png",
+      "sha256": "A68C484B872D8F0D100C0019BDD45DB521390C492FCFF10A9B648902FF3FB0FE",
+      "size": [
+        1086,
+        1448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "generated_source/individual/ildu_sadangmun_315_front_left_raw.png",
+      "sha256": "EDE6C6A091EAE2D81884DE58A98C8395D2ED7243584FA4731AA8D9C3D8755D44",
+      "size": [
+        1086,
+        1448
+      ],
+      "mode": "RGB"
+    }
+  ],
+  "raw_source_note": "Image generator returned an RGB audit source with a baked preview background; it is not a runtime-ready deliverable.",
+  "sheet": "ildu_sadangmun_turnaround_sheet.png",
+  "sheet_size": [
+    1536,
+    1024
+  ],
+  "sheet_mode": "RGBA",
+  "sheet_sha256": "19181E6DADE8A6F29A19F8AEF8C30CED9983C351601658A660C2BD9E3E5AE8E7",
+  "normalization_mode": "equal_content_height_from_individual_high_resolution_sources",
+  "safe_content_size": [
+    352,
+    448
+  ],
+  "baseline_y": 488,
+  "references": [
+    {
+      "file": "references/imagegen_reference_user_sadangmun_photo.png",
+      "sha256": "6B81E2E28B3911FF72F48E85690F7219A55E2211578D477FC8FE44C857D2FA8F",
+      "role": "imagegen_reference",
+      "used_as_model_input": true
+    },
+    {
+      "file": "references/imagegen_reference_v01_turnaround.png",
+      "sha256": "96884754B34A723694DD3952CA4E5AC9907A727A24D436470432179E91565853",
+      "role": "imagegen_reference",
+      "used_as_model_input": true
+    },
+    {
+      "file": "references/source_sadangmun_try02_small.png",
+      "sha256": "8E3D63BFB411252F7B9356DD98CEA1721135707C45FFB9E3089D8C405D893B7A",
+      "role": "imagegen_reference",
+      "used_as_model_input": true,
+      "canonical_file": "sadangmun_try02_small.png",
+      "canonical_sha256": "8E3D63BFB411252F7B9356DD98CEA1721135707C45FFB9E3089D8C405D893B7A",
+      "exact_copy": true
+    }
+  ],
+  "tiles": [
+    {
+      "degrees": 0,
+      "direction": "front",
+      "file": "transparent_views/ildu_sadangmun_000_front.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 105303,
+      "content_bbox": [
+        16,
+        87,
+        368,
+        488
+      ],
+      "sha256": "95BECB2B49571D34FAA3B3C39709378B755BB6B40D39EEFDE41C060E3B7A430D",
+      "source_scale": 0.3562753036437247
+    },
+    {
+      "degrees": 45,
+      "direction": "front_right",
+      "file": "transparent_views/ildu_sadangmun_045_front_right.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 86785,
+      "content_bbox": [
+        28,
+        87,
+        355,
+        488
+      ],
+      "sha256": "C650FEFF48405BBBB10D7AA51413C8D2CCC2A926609FF316199E8BF2B3FE6490",
+      "source_scale": 0.3161276531937226
+    },
+    {
+      "degrees": 90,
+      "direction": "right",
+      "file": "transparent_views/ildu_sadangmun_090_right.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 37997,
+      "content_bbox": [
+        103,
+        87,
+        281,
+        488
+      ],
+      "sha256": "AAA4FFE4BA52ADC98DD68D949F30F51DF824508DE87B906B7290A888EC5BF83A",
+      "source_scale": 0.3329178356040116
+    },
+    {
+      "degrees": 135,
+      "direction": "rear_right",
+      "file": "transparent_views/ildu_sadangmun_135_rear_right.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 72541,
+      "content_bbox": [
+        38,
+        87,
+        346,
+        488
+      ],
+      "sha256": "20E8FF7A512AF28A68DB3E00ABE1C9E7D33D75575268F9ACD99634A4FAD357C9",
+      "source_scale": 0.3183857078593921
+    },
+    {
+      "degrees": 180,
+      "direction": "rear",
+      "file": "transparent_views/ildu_sadangmun_180_rear.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 99805,
+      "content_bbox": [
+        30,
+        87,
+        354,
+        488
+      ],
+      "sha256": "6C0E615B4D9AB1DE886118577B88BF5DA6A0FA304D51FD09A04C49CA8F9B626A",
+      "source_scale": 0.35313907737925526
+    },
+    {
+      "degrees": 225,
+      "direction": "rear_left",
+      "file": "transparent_views/ildu_sadangmun_225_rear_left.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 82997,
+      "content_bbox": [
+        25,
+        87,
+        358,
+        488
+      ],
+      "sha256": "8A7DA1002E3532C1FEEA1387FCDAABB0DA31A515A00E93A1B478DA75C8398ABB",
+      "source_scale": 0.3422918019648754
+    },
+    {
+      "degrees": 270,
+      "direction": "left",
+      "file": "transparent_views/ildu_sadangmun_270_left.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 39157,
+      "content_bbox": [
+        102,
+        87,
+        282,
+        488
+      ],
+      "sha256": "C8E6968EA247D9ECE7BB9774A42489323942B4DB586912E13EA77B39C1C7A42C",
+      "source_scale": 0.3467294657760017
+    },
+    {
+      "degrees": 315,
+      "direction": "front_left",
+      "file": "transparent_views/ildu_sadangmun_315_front_left.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 78730,
+      "content_bbox": [
+        36,
+        87,
+        347,
+        488
+      ],
+      "sha256": "5C6854D370A3E425AC320A2255CE02465049E79486D2319C1C7D608DFF06841B",
+      "source_scale": 0.30345385166628897
+    }
+  ]
+}

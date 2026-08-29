@@ -11,10 +11,20 @@ void main() {
     () {
       expect(
         kIlDuTurntables.keys,
-        containsAll(<String>['sarangchae', 'ansarang', 'main-gate']),
+        containsAll(<String>[
+          'sarangchae',
+          'ansarang',
+          'main-gate',
+          'sadang',
+          'sadang-gate',
+          'hyeopmun-west',
+          'hyeopmun-east',
+        ]),
       );
 
-      for (final spec in kIlDuTurntables.values) {
+      for (final entry in kIlDuTurntables.entries) {
+        final spec = entry.value;
+        expect(spec.anchorId, entry.key);
         expect(spec.frames, hasLength(8));
         expect(
           spec.frames.map((frame) => frame.assetPath).toSet(),
@@ -65,6 +75,17 @@ void main() {
     expect(spec.directionForDegrees(360), 0);
     expect(spec.directionForDegrees(-45), 7);
     expect(kIlDuSotdaeulmunTurntable.directionForDegrees(3), 0);
+    expect(kIlDuSadangTurntable.directionForDegrees(90), 2);
+    expect(kIlDuSadangmunTurntable.directionForDegrees(315), 7);
+  });
+
+  test('the two manifest hyeopmun anchors reuse the approved shared kit', () {
+    expect(
+      kIlDuHyeopmunWestTurntable.frames.map((frame) => frame.assetPath),
+      orderedEquals(
+        kIlDuHyeopmunEastTurntable.frames.map((frame) => frame.assetPath),
+      ),
+    );
   });
 }
 
