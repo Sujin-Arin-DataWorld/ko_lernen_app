@@ -966,21 +966,21 @@
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations.dart": {
-    "mtime": 1788033525.3956285,
-    "seen": 1788035966.7251854,
-    "ast_hash": "11cfd7a5914ae38b8ba66a7195343a18",
+    "mtime": 1788037169.5636408,
+    "seen": 1788037566.3955922,
+    "ast_hash": "d3a675e48b09adbfe437c3d2fed1ad2d",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_de.dart": {
-    "mtime": 1788033524.9806712,
-    "seen": 1788035966.7251878,
-    "ast_hash": "78fcbbee9f0429b43162d8bb913cb01e",
+    "mtime": 1788037169.568634,
+    "seen": 1788037566.3955994,
+    "ast_hash": "454c3fba6d8e13fee9324d5e42a21838",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_en.dart": {
-    "mtime": 1788033525.169008,
-    "seen": 1788035966.7251904,
-    "ast_hash": "ed3dce6011460457364c709392bff73f",
+    "mtime": 1788037169.573635,
+    "seen": 1788037566.3956048,
+    "ast_hash": "1dd09fdb43dfe3270f5434e02c8819d6",
     "semantic_hash": ""
   },
   "lib/l10n/gye_error_text.dart": {
@@ -1032,9 +1032,9 @@
     "semantic_hash": ""
   },
   "lib/models/course_mastery.dart": {
-    "mtime": 1788031859.268583,
-    "seen": 1788035966.7252138,
-    "ast_hash": "cb67b42c3db0f8d3cb8ae4af5f1667a3",
+    "mtime": 1788037167.259526,
+    "seen": 1788037566.399385,
+    "ast_hash": "0eccde8724eb2feb37879ed48403eee9",
     "semantic_hash": ""
   },
   "lib/models/course_mission_brief.dart": {
@@ -1212,9 +1212,9 @@
     "semantic_hash": ""
   },
   "lib/models/scenario.dart": {
-    "mtime": 1788031859.3407798,
-    "seen": 1788035966.7253125,
-    "ast_hash": "c2be7ccc9b31ee85a48e86f7c02de62c",
+    "mtime": 1788037167.263529,
+    "seen": 1788037566.4189548,
+    "ast_hash": "68aac28087e7bf2c921c1f6c18d26f10",
     "semantic_hash": ""
   },
   "lib/models/scenario_can_do_result.dart": {
@@ -1506,9 +1506,9 @@
     "semantic_hash": ""
   },
   "lib/screens/listening_play_screen.dart": {
-    "mtime": 1788031859.454812,
-    "seen": 1788035966.7254438,
-    "ast_hash": "437101f332a4d2a79670e56b49912c87",
+    "mtime": 1788037167.2739165,
+    "seen": 1788037566.4436345,
+    "ast_hash": "e9b4f5689f3022583a2ce86fc7d9f286",
     "semantic_hash": ""
   },
   "lib/screens/listening_screen.dart": {
@@ -1674,9 +1674,9 @@
     "semantic_hash": ""
   },
   "lib/screens/scenario_player_screen.dart": {
-    "mtime": 1788031859.5309544,
-    "seen": 1788035966.7255535,
-    "ast_hash": "5e08c71cef6e4a1353a6e3ce3628942a",
+    "mtime": 1788037167.276034,
+    "seen": 1788037566.4621325,
+    "ast_hash": "e0ed555415489be7825d71e590579328",
     "semantic_hash": ""
   },
   "lib/screens/scenarios_list_screen.dart": {
@@ -1878,9 +1878,9 @@
     "semantic_hash": ""
   },
   "lib/services/account/account_reconciliation.dart": {
-    "mtime": 1788031859.59841,
-    "seen": 1788035966.7256763,
-    "ast_hash": "87931e6c64b126dc805890621ef8d994",
+    "mtime": 1788037167.2791216,
+    "seen": 1788037566.4795296,
+    "ast_hash": "8052468c51d5404299089eb24b1d1644",
     "semantic_hash": ""
   },
   "lib/services/account/account_transition_coordinator.dart": {
@@ -2130,9 +2130,9 @@
     "semantic_hash": ""
   },
   "lib/services/course_mastery_service.dart": {
-    "mtime": 1788031859.6766956,
-    "seen": 1788035966.7257898,
-    "ast_hash": "44b55e45f7ff5e7f7cfc661b122175ad",
+    "mtime": 1788037167.281256,
+    "seen": 1788037566.502789,
+    "ast_hash": "677fea97b08f6f74bc59a5e64ac17337",
     "semantic_hash": ""
   },
   "lib/services/course_mission_navigation.dart": {
@@ -2172,9 +2172,9 @@
     "semantic_hash": ""
   },
   "lib/services/curriculum_catalog.dart": {
-    "mtime": 1788031859.6917832,
-    "seen": 1788035966.7258077,
-    "ast_hash": "2ef3f68f59804aa51907545b979f1cbb",
+    "mtime": 1788037167.2840457,
+    "seen": 1788037566.5058787,
+    "ast_hash": "e57f8542b9b2984a85cb2b67f7669188",
     "semantic_hash": ""
   },
   "lib/services/custom_pack_corpus_resolver.dart": {
@@ -2298,9 +2298,9 @@
     "semantic_hash": ""
   },
   "lib/services/hanok_experience_projector.dart": {
-    "mtime": 1788031859.7390847,
-    "seen": 1788035966.7258646,
-    "ast_hash": "35eeb860ac7445f7c9e023c662c9b00d",
+    "mtime": 1788037167.286139,
+    "seen": 1788037566.5157435,
+    "ast_hash": "14c582ce47e9f9a6454baf45b4632c82",
     "semantic_hash": ""
   },
   "lib/services/hanok_grant_catalog.dart": {
@@ -2628,9 +2628,9 @@
     "semantic_hash": ""
   },
   "lib/services/storage_service.dart": {
-    "mtime": 1788031859.8444068,
-    "seen": 1788035966.7260318,
-    "ast_hash": "81d9309bc527e4bb12dee20af45e39f3",
+    "mtime": 1788037167.289495,
+    "seen": 1788037566.5474813,
+    "ast_hash": "fb2b1026d90560ee408b68ef10716aff",
     "semantic_hash": ""
   },
   "lib/services/stroke_matcher.dart": {
@@ -3900,9 +3900,9 @@
     "semantic_hash": ""
   },
   "test/cloud_sync_test.dart": {
-    "mtime": 1788031860.387475,
-    "seen": 1788035966.7266166,
-    "ast_hash": "828a57de2cfe8a837eeb7835a00ad43c",
+    "mtime": 1788037167.291497,
+    "seen": 1788037566.661098,
+    "ast_hash": "4c4542e5a3d59eb78b85b799f15c8403",
     "semantic_hash": ""
   },
   "test/cloze_game_screen_ui_test.dart": {
@@ -4032,9 +4032,9 @@
     "semantic_hash": ""
   },
   "test/course_mastery_test.dart": {
-    "mtime": 1788031860.4352238,
-    "seen": 1788035966.7267008,
-    "ast_hash": "23b528f5251b69764fc30f302ef18b5d",
+    "mtime": 1788037167.295513,
+    "seen": 1788037566.671818,
+    "ast_hash": "864fb8f8ad18e7bc9b959586580b3d6f",
     "semantic_hash": ""
   },
   "test/course_mission_brief_production_test.dart": {
@@ -4692,9 +4692,9 @@
     "semantic_hash": ""
   },
   "test/hanok_experience_projector_test.dart": {
-    "mtime": 1788031860.7988358,
-    "seen": 1788035966.7270684,
-    "ast_hash": "993bab652b3362cd4fee945b97fa6f2d",
+    "mtime": 1788037167.2985086,
+    "seen": 1788037566.731626,
+    "ast_hash": "5d1ecf58b6db9e830543a514c0856054",
     "semantic_hash": ""
   },
   "test/hanok_grant_catalog_test.dart": {
@@ -5226,9 +5226,9 @@
     "semantic_hash": ""
   },
   "test/productive_mastery_evidence_test.dart": {
-    "mtime": 1788031860.992225,
-    "seen": 1788035966.7273622,
-    "ast_hash": "020944c43799f95782e980930d4d82cd",
+    "mtime": 1788037167.3065152,
+    "seen": 1788037566.7808485,
+    "ast_hash": "0c3502cc260468a41c146942b5a78963",
     "semantic_hash": ""
   },
   "test/productive_mastery_service_test.dart": {
@@ -5604,9 +5604,9 @@
     "semantic_hash": ""
   },
   "test/services/account/account_reconciliation_test.dart": {
-    "mtime": 1788031861.100037,
-    "seen": 1788035966.7275712,
-    "ast_hash": "3a6cac31d069ee35156822f1b8834de3",
+    "mtime": 1788037167.3110359,
+    "seen": 1788037566.8122284,
+    "ast_hash": "0db902f9b726ed6faba74c5a8dbb6ff9",
     "semantic_hash": ""
   },
   "test/services/account/account_startup_journal_resolver_test.dart": {
@@ -6690,9 +6690,9 @@
     "semantic_hash": ""
   },
   "tool/generate_tts.py": {
-    "mtime": 1788031861.6453013,
-    "seen": 1788035966.7281027,
-    "ast_hash": "1178f6b143744a369348419efec3fc11",
+    "mtime": 1788037167.3144398,
+    "seen": 1788037566.9165363,
+    "ast_hash": "457f6183389097743f523b45f8e800ad",
     "semantic_hash": ""
   },
   "tool/hanok_a1_kit.py": {
@@ -6876,9 +6876,9 @@
     "semantic_hash": ""
   },
   "tool/test_generate_tts.py": {
-    "mtime": 1788031861.755486,
-    "seen": 1788035966.7281883,
-    "ast_hash": "7ecbf4275ccf0e354f4813e66ddb1d19",
+    "mtime": 1788037167.3166015,
+    "seen": 1788037566.9337485,
+    "ast_hash": "b980b959bfa573bd3f1495bd188856a7",
     "semantic_hash": ""
   },
   "tool/test_hanok_a1_kit.py": {
@@ -7164,9 +7164,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/build_tts_stale_manifest.py": {
-    "mtime": 1788031861.9612856,
-    "seen": 1788035966.7283149,
-    "ast_hash": "b5d054e907d1db8ee8bb70789b7e2ac1",
+    "mtime": 1788037167.3230968,
+    "seen": 1788037566.9668229,
+    "ast_hash": "fca086f7fe828428dae598649244aa5c",
     "semantic_hash": ""
   },
   "tools/content_factory/data/batch_10_scene_beats.py": {
@@ -8790,9 +8790,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1788031843.763349,
-    "seen": 1788035966.7293057,
-    "ast_hash": "2672408ca8819e02e6209a1dcc8a00a4",
+    "mtime": 1788037166.2826288,
+    "seen": 1788037567.0992699,
+    "ast_hash": "b74031e9f09941be107158799c231181",
     "semantic_hash": ""
   },
   "BETA_INSTALL_GUIDE.md": {
@@ -10932,9 +10932,9 @@
     "semantic_hash": ""
   },
   "test/listening_play_layout_test.dart": {
-    "mtime": 1788031860.8725433,
-    "seen": 1788035966.727183,
-    "ast_hash": "54c317d5274e65bce85f46a355c43263",
+    "mtime": 1788037167.3045113,
+    "seen": 1788037566.7498295,
+    "ast_hash": "9e24b969f0987bffa0b67e3253ff2791",
     "semantic_hash": ""
   },
   "test/personal_hanok_decode_budget_test.dart": {
@@ -10962,9 +10962,9 @@
     "semantic_hash": ""
   },
   "lib/controllers/listening_playback_controller.dart": {
-    "mtime": 1788031859.1481862,
-    "seen": 1788035966.725056,
-    "ast_hash": "e2d802ddf13eafb0dea18a6d0d975e83",
+    "mtime": 1788037167.2204306,
+    "seen": 1788037566.3740678,
+    "ast_hash": "41f532940216ca87b4cb9e4bb9519701",
     "semantic_hash": ""
   },
   "lib/services/stamp_entitlement_reconciler.dart": {
@@ -11832,8 +11832,8 @@
     "semantic_hash": ""
   },
   "lib/screens/ildu_world_screen.dart": {
-    "mtime": 1788035677.3560197,
-    "seen": 1788035966.7254307,
+    "mtime": 1788037169.576635,
+    "seen": 1788037566.441723,
     "ast_hash": "8cc9aa5327d7b692435f54abc7f0d873",
     "semantic_hash": ""
   },
@@ -11868,8 +11868,8 @@
     "semantic_hash": ""
   },
   "test/ildu_world_screen_test.dart": {
-    "mtime": 1788033972.8720827,
-    "seen": 1788035966.7271345,
+    "mtime": 1788037169.587562,
+    "seen": 1788037566.7417707,
     "ast_hash": "d921e107ac4e5680848a087e4b63397e",
     "semantic_hash": ""
   },
@@ -12078,9 +12078,9 @@
     "semantic_hash": ""
   },
   "lib/data/ildu_turntable_catalog.dart": {
-    "mtime": 1788034253.407628,
-    "seen": 1788035966.7250893,
-    "ast_hash": "a1339a8b8414e06f01dbc67085f9f08c",
+    "mtime": 1788037169.548361,
+    "seen": 1788037566.3790345,
+    "ast_hash": "2c5ea7d351962e1a528a4ab1ae9da7ea",
     "semantic_hash": ""
   },
   "lib/widgets/sori/hanok_turntable_2d.dart": {
@@ -12096,21 +12096,1221 @@
     "semantic_hash": ""
   },
   "test/ildu_turntable_catalog_test.dart": {
-    "mtime": 1788035311.370085,
-    "seen": 1788035966.727125,
-    "ast_hash": "e854f864c37705cfdf048902380457ba",
+    "mtime": 1788037169.5848734,
+    "seen": 1788037566.740656,
+    "ast_hash": "126b968ca28ad907ddd3caeed5b28846",
     "semantic_hash": ""
   },
   "lib/services/ildu_anchor_placement_service.dart": {
-    "mtime": 1788032899.16932,
-    "seen": 1788035966.7258768,
-    "ast_hash": "84015c7fa421c7696b2f38cb059644b0",
+    "mtime": 1788037169.579636,
+    "seen": 1788037566.517616,
+    "ast_hash": "be74808884ad7c32a179575ed083a032",
     "semantic_hash": ""
   },
   "test/ildu_anchor_placement_test.dart": {
-    "mtime": 1788033530.7927496,
-    "seen": 1788035966.727118,
-    "ast_hash": "0b10be82e93f78bc38e76b3ea5f0b8e1",
+    "mtime": 1788037169.5816348,
+    "seen": 1788037566.7401235,
+    "ast_hash": "624c114c467adfedd19a9aee406e7aa4",
+    "semantic_hash": ""
+  },
+  "lib/models/scenario_character.dart": {
+    "mtime": 1788037167.2645247,
+    "seen": 1788037566.4194345,
+    "ast_hash": "5df67a241d2eac2d0005a57fa7b80b78",
+    "semantic_hash": ""
+  },
+  "lib/models/scenario_corpus_generation.dart": {
+    "mtime": 1788037167.2685292,
+    "seen": 1788037566.41944,
+    "ast_hash": "f3dbff001bed3808487ebc0795b42e70",
+    "semantic_hash": ""
+  },
+  "test/scenario_character_contract_test.dart": {
+    "mtime": 1788037167.3075094,
+    "seen": 1788037566.8003948,
+    "ast_hash": "245ec9a68418b747c96d7b8b213b7fc8",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/audit_canonical_scenarios.py": {
+    "mtime": 1788037167.3200772,
+    "seen": 1788037566.9491985,
+    "ast_hash": "a01908d92b499e65546b6c177a146044",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/canonical_scenarios/approvals.json": {
+    "mtime": 1788037167.3254938,
+    "seen": 1788037566.9668283,
+    "ast_hash": "6ca432c0071ae60082a6779fde58b732",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/canonical_scenarios/authored/a1.json": {
+    "mtime": 1788037167.3298943,
+    "seen": 1788037566.9668314,
+    "ast_hash": "76634bbc08f5ab2968c93eaea8bf6396",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/canonical_scenarios/authored/a2.json": {
+    "mtime": 1788037167.3320756,
+    "seen": 1788037566.966834,
+    "ast_hash": "7b5e0d7550d8718a83ab1fb50cdcf6d6",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/canonical_scenarios/authored/b1.json": {
+    "mtime": 1788037167.3337364,
+    "seen": 1788037566.966837,
+    "ast_hash": "11c93fa36355f913b2397fdc460a1466",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/canonical_scenarios/authored/b2.json": {
+    "mtime": 1788037167.336749,
+    "seen": 1788037566.9668405,
+    "ast_hash": "2fdf48aee660fc69356c751b4e9e56e1",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/canonical_scenarios/authored/c1.json": {
+    "mtime": 1788037167.33875,
+    "seen": 1788037566.9668434,
+    "ast_hash": "d6c9f51ba1364cf4b6b893d3c3942ce2",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/canonical_scenarios/authored/c2.json": {
+    "mtime": 1788037167.3418553,
+    "seen": 1788037566.966846,
+    "ast_hash": "9f413e1831fff48a0ec255e24fe771bc",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/canonical_scenarios/authored/regression_a1.json": {
+    "mtime": 1788037167.3428564,
+    "seen": 1788037566.9668486,
+    "ast_hash": "7bb4874b3ffd6fdad3db134443faa48b",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/canonical_scenarios/authored/regression_a2.json": {
+    "mtime": 1788037167.3438592,
+    "seen": 1788037566.9668515,
+    "ast_hash": "31dc40d6cd608c4d3cbf68618711a4f7",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/canonical_scenarios/authored/regression_b1.json": {
+    "mtime": 1788037167.3458567,
+    "seen": 1788037566.9668543,
+    "ast_hash": "bad0331212fe8131a2d6de55c315462c",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/canonical_scenarios/authored/regression_b2.json": {
+    "mtime": 1788037167.3478572,
+    "seen": 1788037566.966858,
+    "ast_hash": "445a812ecfccb4c74d78b23725dd89df",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/canonical_scenarios/authored/regression_c1.json": {
+    "mtime": 1788037167.349856,
+    "seen": 1788037566.9668624,
+    "ast_hash": "48246d5e6b0ef724862cc65cf8498a4c",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/canonical_scenarios/authored/regression_c2.json": {
+    "mtime": 1788037167.35086,
+    "seen": 1788037566.9668663,
+    "ast_hash": "fb98743bfd99b29985734f5742a7e70b",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/canonical_scenarios/character_profiles.json": {
+    "mtime": 1788037167.3545177,
+    "seen": 1788037566.9668689,
+    "ast_hash": "d72d64e3232094deeae6ad85deb8f8b0",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/canonical_scenarios/course_unit_blueprint.json": {
+    "mtime": 1788037167.356522,
+    "seen": 1788037566.9668717,
+    "ast_hash": "64b7de2ea94cf7a61af78044f5e6d4d4",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/canonical_scenarios/level_profiles.json": {
+    "mtime": 1788037167.3578353,
+    "seen": 1788037566.9668753,
+    "ast_hash": "e19c47b9bbe7f61a44a7f636b67a4af6",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/canonical_scenarios/regression_briefs.json": {
+    "mtime": 1788037167.360236,
+    "seen": 1788037566.9668784,
+    "ast_hash": "5a65675a5ea572d515b690799e3b1136",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/canonical_scenarios/scenario_briefs.json": {
+    "mtime": 1788037167.3652332,
+    "seen": 1788037566.9668825,
+    "ast_hash": "1511530f6da31620099a2827fb072849",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/canonical_scenarios/scenario_corpus_manifest.json": {
+    "mtime": 1788037167.3676038,
+    "seen": 1788037566.9668872,
+    "ast_hash": "7287825f01cbbd696789b0d0b23b5bec",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/gemini_audit_canonical_scenarios.py": {
+    "mtime": 1788037167.3686035,
+    "seen": 1788037567.051871,
+    "ast_hash": "b68c32f9e8f865f84cc588a69b9d8fa2",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/manage_scenario_corpus.py": {
+    "mtime": 1788037167.3706062,
+    "seen": 1788037567.0564497,
+    "ast_hash": "790b939b2603eb170524878a665c367c",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/materialize_canonical_scenarios.py": {
+    "mtime": 1788037167.3738022,
+    "seen": 1788037567.056456,
+    "ast_hash": "546a11c0c217af5d15c71780c004a3df",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/a1_preflight.json": {
+    "mtime": 1788037167.385803,
+    "seen": 1788037567.0614843,
+    "ast_hash": "f606435ed289dd94db5b20863e200512",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/a1_tts_pending.json": {
+    "mtime": 1788037167.390509,
+    "seen": 1788037567.0614915,
+    "ast_hash": "2a9c30916580b3886f3638f98b5a9118",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/a1_tts_ready.json": {
+    "mtime": 1788037167.3928273,
+    "seen": 1788037567.061498,
+    "ast_hash": "6ebbf577f8bdc301762ac0c8ee2ec5e8",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/a2_preflight.json": {
+    "mtime": 1788037167.400837,
+    "seen": 1788037567.0615022,
+    "ast_hash": "6080eca663af7c0d5dbd131db69eb462",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/a2_tts_pending.json": {
+    "mtime": 1788037167.412367,
+    "seen": 1788037567.061505,
+    "ast_hash": "9f7449cf97c2899951a8ef29ae069570",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/a2_tts_ready.json": {
+    "mtime": 1788037167.420366,
+    "seen": 1788037567.0615077,
+    "ast_hash": "e1b6f77490507e9ec0af37d86d2fc795",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/b1_preflight.json": {
+    "mtime": 1788037167.4233618,
+    "seen": 1788037567.06151,
+    "ast_hash": "083473ecae7fcbb6b46ebe21c6be95c2",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/b1_tts_pending.json": {
+    "mtime": 1788037167.437362,
+    "seen": 1788037567.061514,
+    "ast_hash": "5f63836969ca8c3247daa9b4c974ef10",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/b1_tts_ready.json": {
+    "mtime": 1788037167.44038,
+    "seen": 1788037567.0615163,
+    "ast_hash": "32ce96bbdd5cefad59b21cd2dbf21d2e",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/b2_preflight.json": {
+    "mtime": 1788037167.442394,
+    "seen": 1788037567.061519,
+    "ast_hash": "3fa419eeee41bf4eabeb15bf24f484fa",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/b2_tts_pending.json": {
+    "mtime": 1788037167.4523916,
+    "seen": 1788037567.0615208,
+    "ast_hash": "97f089c4da4d87bd6dc372001c5365b2",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/b2_tts_ready.json": {
+    "mtime": 1788037167.4551458,
+    "seen": 1788037567.0615232,
+    "ast_hash": "00d4f40d3c4a11e95b816fd10203c29d",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/c1_preflight.json": {
+    "mtime": 1788037167.4571624,
+    "seen": 1788037567.0615258,
+    "ast_hash": "bbddb59d84e8f28373a1add251ffbe8e",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/c1_tts_pending.json": {
+    "mtime": 1788037167.461164,
+    "seen": 1788037567.0615296,
+    "ast_hash": "4f1872d3b7772bbedf0c704378accf3c",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/c1_tts_ready.json": {
+    "mtime": 1788037167.4631603,
+    "seen": 1788037567.0615325,
+    "ast_hash": "ef7f0c81ed6b5aa277dc944d1fcb90aa",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/c2_preflight.json": {
+    "mtime": 1788037167.4651616,
+    "seen": 1788037567.061536,
+    "ast_hash": "d97cabcb85376c4463e2278ba79d4a00",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/c2_tts_pending.json": {
+    "mtime": 1788037167.4691617,
+    "seen": 1788037567.0615392,
+    "ast_hash": "8752bab72e1e2ee7424bba030b246bfa",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/c2_tts_ready.json": {
+    "mtime": 1788037167.4711633,
+    "seen": 1788037567.0615418,
+    "ast_hash": "834b61998993fab5bce50384605d0383",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a1/airport_arrival.json": {
+    "mtime": 1788037167.4746685,
+    "seen": 1788037567.061545,
+    "ast_hash": "024e56fe22f7626b28c3813e72507786",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a1/bakery_payment_bag.json": {
+    "mtime": 1788037167.4766698,
+    "seen": 1788037567.0615482,
+    "ast_hash": "2f0e94a82d7d2b6ff4364d7c6fa349c9",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a1/bakery_queue.json": {
+    "mtime": 1788037167.4796693,
+    "seen": 1788037567.0615513,
+    "ast_hash": "879a258a64270a13f7af13b26550a67c",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a1/break_glass_apology.json": {
+    "mtime": 1788037167.4806695,
+    "seen": 1788037567.0615547,
+    "ast_hash": "1858dc7c337802a54b76063f4931741b",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a1/bunshik_tteokbokki.json": {
+    "mtime": 1788037167.4826732,
+    "seen": 1788037567.0615587,
+    "ast_hash": "e64e7e1b4c0459166f7890c395c37eda",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a1/cafe_dessert_sold_out.json": {
+    "mtime": 1788037167.4846678,
+    "seen": 1788037567.0615635,
+    "ast_hash": "8a92c55ee27bef3f001d05b204286d63",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a1/clarify_repeat.json": {
+    "mtime": 1788037167.4858012,
+    "seen": 1788037567.061566,
+    "ast_hash": "9d4f9dd465e713f02f9cbb16932548b6",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a1/dance_class_register.json": {
+    "mtime": 1788037167.487804,
+    "seen": 1788037567.0615687,
+    "ast_hash": "08a0b341303654622f3433bed3fef157",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a1/favorite_korean_music.json": {
+    "mtime": 1788037167.4888048,
+    "seen": 1788037567.0615728,
+    "ast_hash": "5183b281581b115285300a90619659e3",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a1/first_class_meeting.json": {
+    "mtime": 1788037167.4898036,
+    "seen": 1788037567.0615764,
+    "ast_hash": "f42f69b309aa7a1e220ad8cc5d5a5c91",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a1/home_morning_routine.json": {
+    "mtime": 1788037167.4918025,
+    "seen": 1788037567.0615795,
+    "ast_hash": "954263173e06cdc66d4b9a3e8c451f74",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a1/introduce_yourself.json": {
+    "mtime": 1788037167.493136,
+    "seen": 1788037567.0615847,
+    "ast_hash": "001eda5c8890b22d4bd4ba605255e2b6",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a1/kakao_contact_after_class.json": {
+    "mtime": 1788037167.497159,
+    "seen": 1788037567.0615885,
+    "ast_hash": "aacca0dbba65099b13c2ddfb5a3f147f",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a1/korea_stay_smalltalk.json": {
+    "mtime": 1788037167.499156,
+    "seen": 1788037567.0615933,
+    "ast_hash": "aa309b8693b8e88126bcf44da8ce5539",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a1/mart_grocery.json": {
+    "mtime": 1788037167.5001557,
+    "seen": 1788037567.0615964,
+    "ast_hash": "4a9923467f199481de295d611d98f1a2",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a1/meeting_time.json": {
+    "mtime": 1788037167.5021527,
+    "seen": 1788037567.061599,
+    "ast_hash": "f136ba46b7eadd7fd0f8a45d395ba250",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a1/subway_step_apology.json": {
+    "mtime": 1788037167.5035398,
+    "seen": 1788037567.0616016,
+    "ast_hash": "2b2464ccb1d0d233f55afb709f4aaf49",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a1/survival_day_capstone.json": {
+    "mtime": 1788037167.5055387,
+    "seen": 1788037567.0616052,
+    "ast_hash": "87c69767c50aff9845b056cd004c2a66",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a1/taxi_kakao.json": {
+    "mtime": 1788037167.506541,
+    "seen": 1788037567.061608,
+    "ast_hash": "5eba737fc984130297d80d939acf22ae",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a1/umbrella_weather.json": {
+    "mtime": 1788037167.5086737,
+    "seen": 1788037567.061611,
+    "ast_hash": "8818fe3c86df4a116660edacae79be1b",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a2/clothing_refund_size.json": {
+    "mtime": 1788037167.511183,
+    "seen": 1788037567.0616145,
+    "ast_hash": "2c1b908850f52cf7a992101e7abb15cf",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a2/convenience_parcel_pickup.json": {
+    "mtime": 1788037167.5131958,
+    "seen": 1788037567.061618,
+    "ast_hash": "c7254d2fc38ff19b53e2ea122d8bff2c",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a2/delivery_dinner_spicy.json": {
+    "mtime": 1788037167.5151978,
+    "seen": 1788037567.061622,
+    "ast_hash": "3fbc43c26caee035871460cdc773c418",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a2/email_attachment_twice.json": {
+    "mtime": 1788037167.5161939,
+    "seen": 1788037567.061625,
+    "ast_hash": "3a2c52213fc4bb4c5c8d2d6cafd8452e",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a2/favorite_drama_chat.json": {
+    "mtime": 1788037167.518457,
+    "seen": 1788037567.0616279,
+    "ast_hash": "4d6c3bf4d0c98d06aa8f946f61e9d947",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a2/forgot_house_key.json": {
+    "mtime": 1788037167.519922,
+    "seen": 1788037567.0616322,
+    "ast_hash": "6988790558c17dc0f80db8d71199b61e",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a2/forgot_presentation_cable.json": {
+    "mtime": 1788037167.5221145,
+    "seen": 1788037567.0616364,
+    "ast_hash": "dffa035cdd42451eba1d26b57978611d",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a2/friend_cancelled_plan.json": {
+    "mtime": 1788037167.5232985,
+    "seen": 1788037567.0616393,
+    "ast_hash": "9e08022fa4618a8a584a5044791ebeff",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a2/group_chat_photo_permission.json": {
+    "mtime": 1788037167.5253038,
+    "seen": 1788037567.0616434,
+    "ast_hash": "57cf605af0a602f11851095406c5eb9e",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a2/gym_class_cancel.json": {
+    "mtime": 1788037167.52661,
+    "seen": 1788037567.061648,
+    "ast_hash": "6043974cb93266a9725ffac1ae718534",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a2/jeju_bus_missed.json": {
+    "mtime": 1788037167.5286155,
+    "seen": 1788037567.0616512,
+    "ast_hash": "a65c22053857f1a9b4dcd825334b7272",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a2/library_card_problem.json": {
+    "mtime": 1788037167.5296073,
+    "seen": 1788037567.0616548,
+    "ast_hash": "c7e0da66ef87bc149ee9559e5b40ce21",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a2/package_wrong_door.json": {
+    "mtime": 1788037167.5316074,
+    "seen": 1788037567.0616584,
+    "ast_hash": "77f1c4e4476e302f8507774916973873",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a2/pharmacy_cold_medicine.json": {
+    "mtime": 1788037167.532722,
+    "seen": 1788037567.0616627,
+    "ast_hash": "2715821f7b1ab684fb616e1ab292ee1f",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a2/plans_with_friend.json": {
+    "mtime": 1788037167.5337214,
+    "seen": 1788037567.0616663,
+    "ast_hash": "80136915b6840875e3589b99f16dce6b",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a2/running_late.json": {
+    "mtime": 1788037167.534936,
+    "seen": 1788037567.0616698,
+    "ast_hash": "1ea35b6d514290c00b0acce71a2308f4",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a2/samgyeopsal_first_time.json": {
+    "mtime": 1788037167.5361893,
+    "seen": 1788037567.0616727,
+    "ast_hash": "fe3682b9ce5f4413f60f11d4493e5b33",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a2/shared_document_old_version.json": {
+    "mtime": 1788037167.5373173,
+    "seen": 1788037567.0616765,
+    "ast_hash": "429183fd02cd3a28471cb766aa3e4e50",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a2/taxi_slow_down.json": {
+    "mtime": 1788037167.5383193,
+    "seen": 1788037567.0616798,
+    "ast_hash": "eb34f209e8e732efc8697300aceac1c2",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/a2/train_seat_swap.json": {
+    "mtime": 1788037167.540474,
+    "seen": 1788037567.061683,
+    "ast_hash": "f479c38d4f99442ebbe86e2799af7887",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b1/ai_summary_wrong_fact.json": {
+    "mtime": 1788037167.5424702,
+    "seen": 1788037567.061686,
+    "ast_hash": "b83997234759f7451b2f15f761baa9b9",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b1/apartment_recycling_mixup.json": {
+    "mtime": 1788037167.544474,
+    "seen": 1788037567.06169,
+    "ast_hash": "d91e3ed1a975caf7f7e8db034e0afa84",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b1/birthday_expectation_gap.json": {
+    "mtime": 1788037167.5464747,
+    "seen": 1788037567.0616934,
+    "ast_hash": "67aecd26cf7eb270ed67f3d16664d278",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b1/cancelled_trip_hurt_feelings.json": {
+    "mtime": 1788037167.5476575,
+    "seen": 1788037567.0616965,
+    "ast_hash": "c8b5eb9f2a9d851a89db06fab2417795",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b1/community_festival_shift.json": {
+    "mtime": 1788037167.5486548,
+    "seen": 1788037567.0616996,
+    "ast_hash": "7f76771a8848dcd150bddd97e14de525",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b1/company_instagram_wrong_account.json": {
+    "mtime": 1788037167.550658,
+    "seen": 1788037567.0617027,
+    "ast_hash": "e33bfd1dc75261ac26f94a87b779c562",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b1/date_or_friendly_coffee.json": {
+    "mtime": 1788037167.5516632,
+    "seen": 1788037567.061706,
+    "ast_hash": "6a4d584ce70b10030d86aca6735c0c2c",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b1/food_delivery_wrong_order.json": {
+    "mtime": 1788037167.553657,
+    "seen": 1788037567.0617092,
+    "ast_hash": "439d18d4a73059a38206aa500fa7f3b2",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b1/jeju_rain_plan_change.json": {
+    "mtime": 1788037167.5548766,
+    "seen": 1788037567.0617118,
+    "ast_hash": "58094fc0ec8eeba16e028d07f966f1cf",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b1/ktx_sold_out_alternative.json": {
+    "mtime": 1788037167.5558755,
+    "seen": 1788037567.0617154,
+    "ast_hash": "4ebb6ae390257e41662b2aac86e35184",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b1/noisy_neighbor_evening.json": {
+    "mtime": 1788037167.557877,
+    "seen": 1788037567.0617187,
+    "ast_hash": "3225ae15b6b7de31933d30233244b1a6",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b1/park_pet_manners.json": {
+    "mtime": 1788037167.5588772,
+    "seen": 1788037567.061722,
+    "ast_hash": "11dfeb3a57c7e4a403bfb17487c65b5b",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b1/reel_caption_misunderstanding.json": {
+    "mtime": 1788037167.562877,
+    "seen": 1788037567.0617251,
+    "ast_hash": "d72bfbcea4f828db840d60b7d9864995",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b1/running_injury_training_plan.json": {
+    "mtime": 1788037167.5661964,
+    "seen": 1788037567.06173,
+    "ast_hash": "2084c57552c6c2a4264e27393939762f",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b1/secondhand_hidden_defect.json": {
+    "mtime": 1788037167.5671964,
+    "seen": 1788037567.0617337,
+    "ast_hash": "03019eaa9f20d05114ae83067637109a",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b1/shared_cup_recycling.json": {
+    "mtime": 1788037167.5702,
+    "seen": 1788037567.061737,
+    "ast_hash": "69389a50cb24571b44a3c7715f9f1a1f",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b1/speech_level_after_friendship.json": {
+    "mtime": 1788037167.5711963,
+    "seen": 1788037567.0617409,
+    "ast_hash": "9a8025d49d87f1f5cb928fecc8fc90f9",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b1/subscription_cancel_charge.json": {
+    "mtime": 1788037167.5732,
+    "seen": 1788037567.0617445,
+    "ast_hash": "743ddd61fcae27d3cd75b4f900bf5bef",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b1/team_update_indirect_speech.json": {
+    "mtime": 1788037167.5741973,
+    "seen": 1788037567.0617476,
+    "ast_hash": "4eb44e400d02089c26066edcfaf5b70c",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b1/work_message_too_direct.json": {
+    "mtime": 1788037167.576198,
+    "seen": 1788037567.0617514,
+    "ast_hash": "49ed3f64c18fd2d3e18e8b4f7f4a2888",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b2/accessible_festival_route.json": {
+    "mtime": 1788037167.5781956,
+    "seen": 1788037567.0617542,
+    "ast_hash": "91d94cd99d2e8108c4943d6d618df63b",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b2/ai_image_disclosure.json": {
+    "mtime": 1788037167.5791957,
+    "seen": 1788037567.061757,
+    "ast_hash": "c6f61b8bc3830c9ecae500662eb85552",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b2/brand_private_account_boundary.json": {
+    "mtime": 1788037167.5806758,
+    "seen": 1788037567.0617597,
+    "ast_hash": "fb1af4bdbc6bdbf8689f35edd68f4e8b",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b2/community_event_compromise.json": {
+    "mtime": 1788037167.5821345,
+    "seen": 1788037567.061763,
+    "ast_hash": "fc68f32305304e1dc661423b46c82496",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b2/delivery_refund_evidence.json": {
+    "mtime": 1788037167.5841386,
+    "seen": 1788037567.0617657,
+    "ast_hash": "4b4d88e481c4a327c69dd2215dd54a07",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b2/direct_feedback_misread.json": {
+    "mtime": 1788037167.5861387,
+    "seen": 1788037567.061769,
+    "ast_hash": "d95e6d5d782b2ab1d479c3f42920ea51",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b2/feedback_specific_example.json": {
+    "mtime": 1788037167.5873156,
+    "seen": 1788037567.061772,
+    "ast_hash": "e91f0dde8bc3e28efce299210432a60a",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b2/filming_permission.json": {
+    "mtime": 1788037167.5883176,
+    "seen": 1788037567.0617745,
+    "ast_hash": "66e8592cd7fa3fcb6d38d19d31a59e74",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b2/freelance_scope_change.json": {
+    "mtime": 1788037167.5903168,
+    "seen": 1788037567.0617785,
+    "ast_hash": "14bb7c66bf8b776a92d007c2f7f39294",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b2/fremdschaemen_live.json": {
+    "mtime": 1788037167.5923188,
+    "seen": 1788037567.0617816,
+    "ast_hash": "66a9dfa64ade688d4eb11235222b098d",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b2/library_quiet_zone_conflict.json": {
+    "mtime": 1788037167.5936515,
+    "seen": 1788037567.0617843,
+    "ast_hash": "f1e6587b9fc1dd727a4ab56c2f570151",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b2/meeting_disagreement_evidence.json": {
+    "mtime": 1788037167.5946536,
+    "seen": 1788037567.061788,
+    "ast_hash": "24119a7509143b637a98b612da4d631a",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b2/meeting_opening_context.json": {
+    "mtime": 1788037167.5966616,
+    "seen": 1788037567.0617912,
+    "ast_hash": "c9b0b789a315940387fd5d7c90ed2a3e",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b2/neighborhood_filming_notice.json": {
+    "mtime": 1788037167.5986733,
+    "seen": 1788037567.0617945,
+    "ast_hash": "9674bb433eaf9091396dd21d3a5fd32e",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b2/partner_family_titles.json": {
+    "mtime": 1788037167.5996747,
+    "seen": 1788037567.061798,
+    "ast_hash": "1b0173b2268e8c6f2eaa414f8ddd0398",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b2/portfolio_interview_gap.json": {
+    "mtime": 1788037167.600673,
+    "seen": 1788037567.0618017,
+    "ast_hash": "6990aaa2bb8affebd3fd2d339099128f",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b2/recycling_policy_pilot.json": {
+    "mtime": 1788037167.60213,
+    "seen": 1788037567.061805,
+    "ast_hash": "1a088c4b992062bf4c4d632eaad95f04",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b2/rental_repair_deposit.json": {
+    "mtime": 1788037167.603606,
+    "seen": 1788037567.0618086,
+    "ast_hash": "e220639884e353db20bd16d2fc0424a0",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b2/train_delay_connection.json": {
+    "mtime": 1788037167.6048076,
+    "seen": 1788037567.0618114,
+    "ast_hash": "4b84a6380bc594aafced95833eb28db7",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/b2/wedding_invitation_expectation.json": {
+    "mtime": 1788037167.6068058,
+    "seen": 1788037567.0618145,
+    "ast_hash": "22bf6af86d82b01207b4b41f85826b39",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c1/after_hours_messages.json": {
+    "mtime": 1788037167.6089518,
+    "seen": 1788037567.0618181,
+    "ast_hash": "f102b4198e62185d04782e1527e8c13d",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c1/ai_interview_screening_transparency.json": {
+    "mtime": 1788037167.6109512,
+    "seen": 1788037567.061822,
+    "ast_hash": "e9acf854140be418102c1f87d09eaf90",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c1/ai_translation_voice_loss.json": {
+    "mtime": 1788037167.6123178,
+    "seen": 1788037567.0618253,
+    "ast_hash": "9d8324985397769683b2d75918ea0225",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c1/anonymous_survey_trust.json": {
+    "mtime": 1788037167.6133194,
+    "seen": 1788037567.0618289,
+    "ast_hash": "92bf147bf9f1f59b47c640ddf1aeeaf6",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c1/deepfake_verification.json": {
+    "mtime": 1788037167.6143162,
+    "seen": 1788037567.0618317,
+    "ast_hash": "09c1c381e8dffdaae03491b16a3fa85d",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c1/delivery_rider_safety_tradeoff.json": {
+    "mtime": 1788037167.6153176,
+    "seen": 1788037567.0618348,
+    "ast_hash": "bfef4ea56cb8f6c886078bb33bcb818e",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c1/fan_translation_credit.json": {
+    "mtime": 1788037167.616316,
+    "seen": 1788037567.061838,
+    "ast_hash": "939b92157cf18ab0b9582b22f9628464",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c1/gentrification_storefront.json": {
+    "mtime": 1788037167.617316,
+    "seen": 1788037567.061841,
+    "ast_hash": "61825878314ee31a622b96944ac1d30c",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c1/heatwave_shelter_access.json": {
+    "mtime": 1788037167.6183164,
+    "seen": 1788037567.061844,
+    "ast_hash": "c0eb3a4b4bda4f1be1b52643683ee124",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c1/kiosk_generation_access.json": {
+    "mtime": 1788037167.6193175,
+    "seen": 1788037567.061847,
+    "ast_hash": "e5cb1157e8c3be8ed3725ac18dadf808",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c1/museum_label_multiple_views.json": {
+    "mtime": 1788037167.6213183,
+    "seen": 1788037567.0618498,
+    "ast_hash": "2410c91ec95a5e1cf165e5fbbf57269a",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c1/nightlife_noise_balance.json": {
+    "mtime": 1788037167.6234672,
+    "seen": 1788037567.061853,
+    "ast_hash": "9d0c53211edad9bc550f267ddf643e01",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c1/platform_moderation_appeal.json": {
+    "mtime": 1788037167.624468,
+    "seen": 1788037567.0618553,
+    "ast_hash": "57145ec64e83cfc304dbbb3127bbc981",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c1/public_consultation_access.json": {
+    "mtime": 1788037167.6254632,
+    "seen": 1788037567.061858,
+    "ast_hash": "d9e2cacf91c44b987b33209491eca2d6",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c1/research_limits_presentation.json": {
+    "mtime": 1788037167.6264656,
+    "seen": 1788037567.0618606,
+    "ast_hash": "ec8fb88995bf05a723afcfce6fa9c825",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c1/school_phone_rule.json": {
+    "mtime": 1788037167.6286516,
+    "seen": 1788037567.0618637,
+    "ast_hash": "53ff027c2455472942eaaf279538f826",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c1/tradition_reinterpreted_stage.json": {
+    "mtime": 1788037167.6306536,
+    "seen": 1788037567.0618672,
+    "ast_hash": "f4cedc169fe81b19c17d123d08bf1a5e",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c1/training_data_copyright.json": {
+    "mtime": 1788037167.6316562,
+    "seen": 1788037567.0618699,
+    "ast_hash": "6402207a50d2fcb47faeaf8cdaa961b4",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c1/workload_allocation_hidden_labor.json": {
+    "mtime": 1788037167.6328175,
+    "seen": 1788037567.0618722,
+    "ast_hash": "f54a86769de21c66cba0ecfe67bf6d09",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c1/youth_housing_plain_language.json": {
+    "mtime": 1788037167.6340678,
+    "seen": 1788037567.0618744,
+    "ast_hash": "59ef47fd1827935c49a45c0d7e83cdb1",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c2/ai_hiring_appeal.json": {
+    "mtime": 1788037167.63607,
+    "seen": 1788037567.0618775,
+    "ast_hash": "040b5b0568f501167e493b05cdad4baf",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c2/automated_benefit_denial.json": {
+    "mtime": 1788037167.6370707,
+    "seen": 1788037567.0618804,
+    "ast_hash": "35bd0aed1bc57554604a757252e6ceed",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c2/autonomous_delivery_liability.json": {
+    "mtime": 1788037167.6382558,
+    "seen": 1788037567.0618827,
+    "ast_hash": "6d628324924252a253ae0fc5ed1c9186",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c2/causal_claim_headline.json": {
+    "mtime": 1788037167.6397376,
+    "seen": 1788037567.0618863,
+    "ast_hash": "4a2b6cd418afbf20fdfe987e48f37292",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c2/central_local_disaster_responsibility.json": {
+    "mtime": 1788037167.641163,
+    "seen": 1788037567.0618901,
+    "ast_hash": "1901cf3f445d1dcfb536b6205c371d94",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c2/climate_model_local_decision.json": {
+    "mtime": 1788037167.6421604,
+    "seen": 1788037567.061894,
+    "ast_hash": "aa2d9aa6ff80c3c7dc489b47aeb39f91",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c2/diaspora_name_identity.json": {
+    "mtime": 1788037167.6433263,
+    "seen": 1788037567.0618968,
+    "ast_hash": "add4e42f8a70524fcb0f641078a4a699",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c2/emergency_price_controls.json": {
+    "mtime": 1788037167.6443293,
+    "seen": 1788037567.0618992,
+    "ast_hash": "01fe351baac6b9f273914359d1efbca8",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c2/fact_check_label_power.json": {
+    "mtime": 1788037167.6458097,
+    "seen": 1788037567.0619025,
+    "ast_hash": "78a21f51eb69245f41849d559aa6e690",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c2/family_memory_conflict.json": {
+    "mtime": 1788037167.6468132,
+    "seen": 1788037567.061905,
+    "ast_hash": "2bf00a27b7b6866b374c3a7c8d8a1026",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c2/hidden_gem_local_impact.json": {
+    "mtime": 1788037167.6479943,
+    "seen": 1788037567.0619082,
+    "ast_hash": "8d11f08da12bb4b5be09cfe3960f5ba6",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c2/housing_tax_intergenerational.json": {
+    "mtime": 1788037167.650383,
+    "seen": 1788037567.0619886,
+    "ast_hash": "c195d9116f3e965e547eef526f91193e",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c2/medical_uncertainty_consent.json": {
+    "mtime": 1788037167.6513846,
+    "seen": 1788037567.0619931,
+    "ast_hash": "e0e7e82b958f2e9879830ea9e0f21aeb",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c2/passive_voice_accountability.json": {
+    "mtime": 1788037167.652384,
+    "seen": 1788037567.061997,
+    "ast_hash": "2caf80eab6f2d88b073e9ffaa64b8ee9",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c2/poll_question_framing.json": {
+    "mtime": 1788037167.6533842,
+    "seen": 1788037567.0620008,
+    "ast_hash": "5e0f27beb7712c705c21928bad435f56",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c2/protest_order_and_rights.json": {
+    "mtime": 1788037167.656111,
+    "seen": 1788037567.0620034,
+    "ast_hash": "25ff5b3996ac90c0708259cc43670b38",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c2/relationship_story_reframing.json": {
+    "mtime": 1788037167.6571124,
+    "seen": 1788037567.0620062,
+    "ast_hash": "950d2469d4c00378e3cffe37b3208f8c",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c2/replication_failure_response.json": {
+    "mtime": 1788037167.6602046,
+    "seen": 1788037567.0620096,
+    "ast_hash": "1d8e3cd1dd69a432834610e07e992fe9",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c2/we_translation_identity.json": {
+    "mtime": 1788037167.6612055,
+    "seen": 1788037567.0620124,
+    "ast_hash": "b26e641059ca585ce5e23957cd79786e",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/candidates/c2/welfare_fraud_presumption.json": {
+    "mtime": 1788037167.6632044,
+    "seen": 1788037567.0620177,
+    "ast_hash": "1961843d45cb38ee6ffb46eff8cea63f",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/corpus_preflight.json": {
+    "mtime": 1788037167.6642053,
+    "seen": 1788037567.0620205,
+    "ast_hash": "e67d3b8080fbd3fbf58b79465a1f4f65",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/editorial_audit.json": {
+    "mtime": 1788037167.6662037,
+    "seen": 1788037567.0620244,
+    "ast_hash": "d60f1d6cf8f5ee53a3fdde939bb20c35",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/regression_candidates/a1/reg_digital_a1_kakao.json": {
+    "mtime": 1788037167.6705346,
+    "seen": 1788037567.0620277,
+    "ast_hash": "dff3c11fe37b2192bdcf1a659f0f5f42",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/regression_candidates/a1/reg_mistake_a1_foot.json": {
+    "mtime": 1788037167.672548,
+    "seen": 1788037567.062031,
+    "ast_hash": "db8678b150883de8384e5068a4b320c1",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/regression_candidates/a2/reg_digital_a2_photo.json": {
+    "mtime": 1788037167.6750019,
+    "seen": 1788037567.062034,
+    "ast_hash": "6cc338ba8602b6e3594a686a89bffac5",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/regression_candidates/a2/reg_mistake_a2_attachment.json": {
+    "mtime": 1788037167.6760025,
+    "seen": 1788037567.0620377,
+    "ast_hash": "eb6aad70553a9a61d69cea98d6c7ea10",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/regression_candidates/b1/reg_digital_b1_wrong_channel.json": {
+    "mtime": 1788037167.6780033,
+    "seen": 1788037567.0620413,
+    "ast_hash": "a014c842d12e08390d9fedaff6e5210a",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/regression_candidates/b1/reg_mistake_b1_brand_account.json": {
+    "mtime": 1788037167.6802323,
+    "seen": 1788037567.0620446,
+    "ast_hash": "96161d2d8dcfc54c56139e8fe4c4a050",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/regression_candidates/b2/reg_digital_b2_filming.json": {
+    "mtime": 1788037167.6824176,
+    "seen": 1788037567.062049,
+    "ast_hash": "453e2f4f85605223a687abe94fe4db63",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/regression_candidates/b2/reg_mistake_b2_fremdschaemen.json": {
+    "mtime": 1788037167.683417,
+    "seen": 1788037567.0620518,
+    "ast_hash": "43ee295ce5e5bf98a3a52c68d49811fc",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/regression_candidates/c1/reg_digital_c1_after_hours.json": {
+    "mtime": 1788037167.684417,
+    "seen": 1788037567.0620546,
+    "ast_hash": "1b955eda81aec2197ac6227d5ede3f1c",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/regression_candidates/c1/reg_mistake_c1_postmortem.json": {
+    "mtime": 1788037167.6854172,
+    "seen": 1788037567.0620573,
+    "ast_hash": "b23e5a28c5972583cc6f78b57edd1a8f",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/regression_candidates/c2/reg_digital_c2_automated_accountability.json": {
+    "mtime": 1788037167.687889,
+    "seen": 1788037567.06206,
+    "ast_hash": "fc5ecb5f025809c8dad64c39fb3691f1",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/regression_candidates/c2/reg_mistake_c2_blame_frame.json": {
+    "mtime": 1788037167.6888895,
+    "seen": 1788037567.0620627,
+    "ast_hash": "674748fc1d4f0682d3fd1cc8b862cc34",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/regression_preflight.json": {
+    "mtime": 1788037167.690889,
+    "seen": 1788037567.062067,
+    "ast_hash": "f0af4525509ef708840e482e9da587ba",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/tts_pending_manifest.json": {
+    "mtime": 1788037167.6958883,
+    "seen": 1788037567.0620701,
+    "ast_hash": "b957e72fe59b35e27fe7adda3833e53e",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/tts_ready.json": {
+    "mtime": 1788037167.6968977,
+    "seen": 1788037567.062073,
+    "ast_hash": "591619ad3d39dcc588dd459d9067c5dd",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/scenario_corpus_pipeline.py": {
+    "mtime": 1788037167.6998239,
+    "seen": 1788037567.063403,
+    "ast_hash": "9c3cb1252cb8da5e46ad6a548e37ed47",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/schemas/character_profile.schema.json": {
+    "mtime": 1788037167.7009592,
+    "seen": 1788037567.06373,
+    "ast_hash": "79e24c525e1af59739722c89aae4bf2b",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/schemas/level_profile.schema.json": {
+    "mtime": 1788037167.7029624,
+    "seen": 1788037567.063733,
+    "ast_hash": "8579cb83a74ebf9031fa8fde4a49529d",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/schemas/scenario_brief.schema.json": {
+    "mtime": 1788037167.704276,
+    "seen": 1788037567.0637348,
+    "ast_hash": "23ee5183a640959d5e8b63a1c02f3910",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/schemas/scenario_corpus_manifest.schema.json": {
+    "mtime": 1788037167.7054043,
+    "seen": 1788037567.0637376,
+    "ast_hash": "ae695b862ac1590c190b35ad6ebc92b7",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/test_gemini_audit_canonical_scenarios.py": {
+    "mtime": 1788037167.7064059,
+    "seen": 1788037567.070362,
+    "ast_hash": "851a3ed4db6aff5b189c3a5035831814",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/test_scenario_corpus_pipeline.py": {
+    "mtime": 1788037167.707462,
+    "seen": 1788037567.073161,
+    "ast_hash": "148c43a79d50c073510d88c95be4b0e8",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/specs/2026-08-26-scenario-persona-repair-design.md": {
+    "mtime": 1788037166.916214,
+    "seen": 1788037567.1810021,
+    "ast_hash": "a3d50582549a77eba647c327fbfb3e2f",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/prompts/scenario_corpus_master_v1.md": {
+    "mtime": 1788037167.3758018,
+    "seen": 1788037567.1919181,
+    "ast_hash": "35a235173d6a29629c60dfa08bede9b1",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/JIN_REVIEW_GATE.md": {
+    "mtime": 1788037167.3788054,
+    "seen": 1788037567.1951945,
+    "ast_hash": "942bd7a0351cc95e63063cab068802d3",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/NEXT_SESSION_HANDOFF.md": {
+    "mtime": 1788037167.3828032,
+    "seen": 1788037567.195199,
+    "ast_hash": "801389a017d4ca7fe60870b0465b1258",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/a1_review.md": {
+    "mtime": 1788037167.387802,
+    "seen": 1788037567.1952019,
+    "ast_hash": "da8a40c2404d481e52914fd928336093",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/a2_review.md": {
+    "mtime": 1788037167.4058363,
+    "seen": 1788037567.195204,
+    "ast_hash": "5824e53c365d16135b8dcd22ca246fcb",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/b1_review.md": {
+    "mtime": 1788037167.433371,
+    "seen": 1788037567.1952062,
+    "ast_hash": "c957b47e6aeca758cf423e2f37af06bf",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/b2_review.md": {
+    "mtime": 1788037167.4453955,
+    "seen": 1788037567.1952078,
+    "ast_hash": "035962cf10c4823c2b3fada0839da277",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/c1_review.md": {
+    "mtime": 1788037167.459161,
+    "seen": 1788037567.1952114,
+    "ast_hash": "e6735e44c3322e8911279d04ac5ea5f8",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/c2_review.md": {
+    "mtime": 1788037167.4671648,
+    "seen": 1788037567.1952155,
+    "ast_hash": "a43fc9ae7fceb87ce4955e72f14e879c",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/editorial_audit.md": {
+    "mtime": 1788037167.66735,
+    "seen": 1788037567.1952171,
+    "ast_hash": "42a714c977347e5d6911686ab6e3e14c",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_v1/regression_review.md": {
+    "mtime": 1788037167.6918893,
+    "seen": 1788037567.19522,
+    "ast_hash": "4cefadfb5d903e3a74b9f0abcc6bdd57",
     "semantic_hash": ""
   }
 }
