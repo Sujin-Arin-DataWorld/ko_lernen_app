@@ -212,6 +212,58 @@ final IlDuTurntableSpec kIlDuAraechaeTurntable = IlDuTurntableSpec(
   ],
 );
 
+/// Jin-approved V05 Jungmunganchae turnaround.
+///
+/// The source frames are the approved 28-degree elevated RGBA exports. Their
+/// differing source canvases are cropped only by transparent alpha bounds at
+/// paint time; the authored pixels themselves remain unchanged.
+final IlDuTurntableSpec kIlDuJungmunganchaeTurntable = IlDuTurntableSpec(
+  anchorId: 'jungmunganchae',
+  mapAspectRatio: 2.3,
+  frames: <IlDuTurntableFrame>[
+    _frame('ildu_jungmunganchae_00_front.png', 1792, 878, 157, 98, 1621, 786),
+    _frame(
+      'ildu_jungmunganchae_01_front_right.png',
+      1454,
+      1082,
+      39,
+      58,
+      1434,
+      1050,
+    ),
+    _frame('ildu_jungmunganchae_02_right.png', 1400, 1123, 251, 63, 1149, 1068),
+    _frame(
+      'ildu_jungmunganchae_03_rear_right.png',
+      1453,
+      1082,
+      21,
+      54,
+      1433,
+      1054,
+    ),
+    _frame('ildu_jungmunganchae_04_rear.png', 1791, 878, 93, 100, 1698, 800),
+    _frame(
+      'ildu_jungmunganchae_05_rear_left.png',
+      1571,
+      1001,
+      61,
+      36,
+      1512,
+      964,
+    ),
+    _frame('ildu_jungmunganchae_06_left.png', 1525, 1031, 389, 50, 1120, 982),
+    _frame(
+      'ildu_jungmunganchae_07_front_left.png',
+      1493,
+      1054,
+      48,
+      60,
+      1404,
+      989,
+    ),
+  ],
+);
+
 final IlDuTurntableSpec kIlDuSadangTurntable = IlDuTurntableSpec(
   anchorId: 'sadang',
   mapAspectRatio: 1.15,
@@ -272,6 +324,7 @@ final Map<String, IlDuTurntableSpec> kIlDuTurntables =
       kIlDuChanggoTurntable.anchorId: kIlDuChanggoTurntable,
       kIlDuSotdaeulmunTurntable.anchorId: kIlDuSotdaeulmunTurntable,
       kIlDuAraechaeTurntable.anchorId: kIlDuAraechaeTurntable,
+      kIlDuJungmunganchaeTurntable.anchorId: kIlDuJungmunganchaeTurntable,
       kIlDuSadangTurntable.anchorId: kIlDuSadangTurntable,
       kIlDuSadangmunTurntable.anchorId: kIlDuSadangmunTurntable,
       kIlDuHyeopmunWestTurntable.anchorId: kIlDuHyeopmunWestTurntable,
