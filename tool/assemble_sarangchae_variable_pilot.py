@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import io
 import json
 import shutil
 import tempfile
@@ -19,7 +20,7 @@ from pathlib import Path
 from typing import Iterable
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
 
 try:
     from tool.extract_checkerboard_alpha import recover_alpha
@@ -43,6 +44,18 @@ V2_PILOT = V3_ROOT / "sarangchae_construction_pilot_v2_95pct"
 OUTPUT_DIR = V3_ROOT / "sarangchae_construction_pilot_v3_variable"
 RAW_DIR = OUTPUT_DIR / "raw"
 MASTER = V3_ROOT / "sarangchae_try07_edit.png"
+PLAN_PATH = ROOT / "assets" / "data" / "ildu_sarangchae_construction_plan_v1.json"
+WORLD_MANIFEST_PATH = ROOT / "assets" / "data" / "ildu_world_manifest_v1.json"
+WORLD_ASSET = (
+    ROOT
+    / "assets"
+    / "illustrations"
+    / "personal_hanok_v3"
+    / "world"
+    / "ildu-wall-masterplan-v1.png"
+)
+FONT_REGULAR = ROOT / "assets" / "fonts" / "WantedSans" / "WantedSans-Regular.otf"
+FONT_BOLD = ROOT / "assets" / "fonts" / "WantedSans" / "WantedSans-Bold.otf"
 CANVAS = (2512, 1680)
 TARGET_CENTER_X = 1250.0
 TARGET_GROUND_Y = 1421
@@ -64,6 +77,21 @@ PINNED_REGISTERED_HASHES = {
     "stage_03_posts_floor": "da114a061c46c88bb87c8c20dbafa8bac87e206d8e8a1696f6ed6cbc9a5d4baf",
     "stage_04_beams_purlins": "5bf51ed6064ae6cfb396d2520da3658b635314aac7fb0cad33d732b1c94254c3",
     "stage_05_rafters_sanja": "03f3226743ccc58906512f4a37cce0e40bddbbede4cbccf9edfbfcb3b379ba39",
+}
+
+STAGE_LABELS_KO = {
+    1: "자리 잡기",
+    2: "초석·돌기단",
+    3: "앞뒤 기둥·마루틀",
+    4: "보·도리",
+    5: "서까래·산자",
+    6: "지붕바탕",
+    7: "기와",
+    8: "마루·누마루",
+    9: "벽체",
+    10: "창호 설치 중",
+    11: "현판 설치",
+    12: "완성 V3 사랑채",
 }
 
 
@@ -287,6 +315,232 @@ def place_work_props(
     }
 
 
+def _asset_row(path: Path, *, relative_to: Path) -> dict[str, object]:
+    with Image.open(path) as opened:
+        image = opened.convert("RGBA")
+        bbox = alpha_bbox(image)
+    return {
+        "file": path.relative_to(relative_to).as_posix(),
+        "sha256": sha256(path),
+        "size": list(image.size),
+        "alphaBbox": list(bbox),
+    }
+
+
+def _composite_stage(base: Path, overlays: Iterable[Path]) -> Image.Image:
+    with Image.open(base) as opened:
+        composite = opened.convert("RGBA")
+    if composite.size != CANVAS:
+        raise ValueError(f"stage base must use common canvas: {base}")
+    for overlay in overlays:
+        with Image.open(overlay) as opened:
+            layer = opened.convert("RGBA")
+        if layer.size != CANVAS:
+            raise ValueError(f"stage overlay must use common canvas: {overlay}")
+        composite.alpha_composite(layer)
+    return composite
+
+
+def _encoded_png_sha256(image: Image.Image) -> str:
+    encoded = io.BytesIO()
+    image.save(encoded, format="PNG", optimize=True)
+    return hashlib.sha256(encoded.getvalue()).hexdigest()
+
+
+def _load_review_stages(output_dir: Path) -> list[dict[str, object]]:
+    plan = json.loads(PLAN_PATH.read_text(encoding="utf-8"))
+    buildings = plan.get("buildings")
+    if not isinstance(buildings, list) or len(buildings) != 1:
+        raise ValueError("review plan must contain only the Sarangchae pilot")
+    stages = buildings[0].get("stages")
+    if not isinstance(stages, list) or len(stages) != 12:
+        raise ValueError("review plan must contain exactly twelve Sarangchae stages")
+    if [stage.get("sequence") for stage in stages] != list(range(1, 13)):
+        raise ValueError("review plan sequences must be exactly 1 through 12")
+
+    rows: list[dict[str, object]] = []
+    for stage in stages:
+        sequence = stage["sequence"]
+        base_path = output_dir / stage["baseAsset"]
+        overlay_paths = [output_dir / name for name in stage["overlayAssets"]]
+        for path in (base_path, *overlay_paths):
+            if not path.is_file():
+                raise ValueError(f"review stage asset is missing: {path}")
+        composite = _composite_stage(base_path, overlay_paths)
+        rows.append(
+            {
+                "sequence": sequence,
+                "labelKo": STAGE_LABELS_KO[sequence],
+                "stageId": stage["stageId"],
+                "base": _asset_row(base_path, relative_to=output_dir),
+                "overlays": [
+                    _asset_row(path, relative_to=output_dir)
+                    for path in overlay_paths
+                ],
+                "compositeSha256": _encoded_png_sha256(composite),
+                "compositeAlphaBbox": list(alpha_bbox(composite)),
+                "_image": composite,
+            }
+        )
+    return rows
+
+
+def _render_contact_sheet(
+    rows: list[dict[str, object]],
+    output: Path,
+) -> None:
+    sheet = Image.new("RGB", (3240, 920), (203, 167, 108))
+    draw = ImageDraw.Draw(sheet)
+    title_font = ImageFont.truetype(str(FONT_BOLD), 26)
+    id_font = ImageFont.truetype(str(FONT_REGULAR), 16)
+    cell_width = 540
+    cell_height = 460
+    sprite_size = (500, 334)
+    for index, row in enumerate(rows):
+        column = index % 6
+        line = index // 6
+        left = column * cell_width
+        top = line * cell_height
+        draw.rounded_rectangle(
+            (left + 8, top + 8, left + cell_width - 8, top + cell_height - 8),
+            radius=18,
+            fill=(225, 198, 151),
+            outline=(118, 82, 47),
+            width=2,
+        )
+        image = row["_image"]
+        sprite = resize_premultiplied(image, sprite_size)
+        sheet.paste(sprite, (left + 20, top + 18), sprite)
+        draw.text(
+            (left + 20, top + 365),
+            f"{row['sequence']}. {row['labelKo']}",
+            font=title_font,
+            fill=(54, 35, 23),
+        )
+        draw.text(
+            (left + 20, top + 405),
+            row["stageId"],
+            font=id_font,
+            fill=(85, 60, 42),
+        )
+    output.parent.mkdir(parents=True, exist_ok=True)
+    sheet.save(output, format="PNG", optimize=True)
+
+
+def _render_in_world_previews(
+    completed: Image.Image,
+    *,
+    full_output: Path,
+    detail_output: Path,
+) -> dict[str, object]:
+    world_manifest = json.loads(WORLD_MANIFEST_PATH.read_text(encoding="utf-8"))
+    canvas = world_manifest["canvas"]
+    if (canvas["width"], canvas["height"]) != (2412, 2622):
+        raise ValueError("world review requires the locked 2412x2622 canvas")
+    expected_world_hash = str(canvas["sha256"]).lower()
+    if sha256(WORLD_ASSET) != expected_world_hash:
+        raise ValueError("world masterplan hash changed")
+    building = next(
+        item for item in world_manifest["buildings"] if item["id"] == "sarangchae"
+    )
+    if building["rotation"] != 0:
+        raise ValueError("review renderer currently locks Sarangchae rotation to zero")
+
+    with Image.open(WORLD_ASSET) as opened:
+        world = opened.convert("RGBA")
+    target_width = round(world.width * building["width"] / 100)
+    target_height = round(completed.height * target_width / completed.width)
+    sprite = resize_premultiplied(completed, (target_width, target_height))
+    center_x = round(world.width * building["x"] / 100)
+    center_y = round(world.height * building["y"] / 100)
+    offset = (center_x - target_width // 2, center_y - target_height // 2)
+    world.alpha_composite(sprite, offset)
+
+    full_output.parent.mkdir(parents=True, exist_ok=True)
+    world.convert("RGB").save(full_output, format="PNG", optimize=True)
+    crop_width = 950
+    crop_height = 700
+    crop = world.crop(
+        (
+            center_x - crop_width // 2,
+            center_y - crop_height // 2,
+            center_x + crop_width // 2,
+            center_y + crop_height // 2,
+        )
+    )
+    detail = crop.resize((1900, 1400), Image.Resampling.LANCZOS)
+    detail.convert("RGB").save(detail_output, format="PNG", optimize=True)
+    return {
+        "worldAsset": WORLD_ASSET.relative_to(ROOT).as_posix(),
+        "worldAssetSha256": expected_world_hash,
+        "anchor": {
+            "x": building["x"],
+            "y": building["y"],
+            "width": building["width"],
+            "rotation": building["rotation"],
+        },
+        "renderedSpriteSize": [target_width, target_height],
+        "renderedSpriteOffset": list(offset),
+    }
+
+
+def render_review(output_dir: Path = OUTPUT_DIR) -> dict[str, object]:
+    resolved = output_dir.resolve()
+    if not resolved.is_relative_to(V3_ROOT.resolve()):
+        raise ValueError("review output must remain under pending_review/personal_hanok_v3")
+    if resolved.is_relative_to((ROOT / "assets").resolve()):
+        raise ValueError("review renderer cannot write runtime assets")
+
+    rows = _load_review_stages(output_dir)
+    qa_dir = output_dir / "qa"
+    contact = qa_dir / "sarangchae_12_stage_review.png"
+    world_full = qa_dir / "sarangchae_in_world_hyeonpan_review.png"
+    world_detail = qa_dir / "sarangchae_in_world_hyeonpan_detail.png"
+    _render_contact_sheet(rows, contact)
+    world_report = _render_in_world_previews(
+        rows[-1]["_image"],
+        full_output=world_full,
+        detail_output=world_detail,
+    )
+
+    manifest_rows = []
+    for row in rows:
+        public = dict(row)
+        public.pop("_image")
+        manifest_rows.append(public)
+    manifest = {
+        "schemaVersion": 1,
+        "status": "pending_visual_and_in_world_approval",
+        "estateId": "ildu-gotaek-v3",
+        "buildingId": "sarangchae",
+        "planVersion": "sarangchae-v1",
+        "canvas": list(CANVAS),
+        "registration": {
+            "centerX": TARGET_CENTER_X,
+            "groundY": TARGET_GROUND_Y,
+            "alphaThreshold": ALPHA_THRESHOLD,
+        },
+        "master": {
+            "file": "stage_12_complete_v3_base.png",
+            "sha256": MASTER_SHA256,
+            "source": MASTER.relative_to(ROOT).as_posix(),
+        },
+        "stages": manifest_rows,
+        "worldReview": world_report,
+        "reviewArtifacts": [
+            _asset_row(contact, relative_to=output_dir),
+            _asset_row(world_full, relative_to=output_dir),
+            _asset_row(world_detail, relative_to=output_dir),
+        ],
+    }
+    manifest_path = output_dir / "MANIFEST.json"
+    manifest_path.write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    return manifest
+
+
 def assemble(
     output_dir: Path = OUTPUT_DIR,
     *,
@@ -370,6 +624,7 @@ def main() -> int:
     parser.add_argument("--stage-7", type=Path)
     parser.add_argument("--stage-8", type=Path)
     parser.add_argument("--stage-9", type=Path)
+    parser.add_argument("--render-review", action="store_true")
     args = parser.parse_args()
 
     variables = []
@@ -390,6 +645,8 @@ def main() -> int:
         args.output_dir,
         variable_sources=variables if variables else None,
     )
+    if args.render_review:
+        report["review"] = render_review(args.output_dir)
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return 0
 

@@ -1,4 +1,5 @@
 import hashlib
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -7,12 +8,14 @@ from PIL import Image
 
 from tool.assemble_sarangchae_variable_pilot import (
     CANVAS,
+    MASTER_SHA256,
     OUTPUT_DIR,
     PINNED_GENERATED_HASHES,
     StageSource,
     copy_registered_stage,
     generated_sources,
     place_work_props,
+    sha256,
     verify_pinned_source,
 )
 
@@ -128,6 +131,36 @@ class AssembleSarangchaeVariablePilotTest(unittest.TestCase):
             self.assertGreaterEqual(bbox[2] - bbox[0], 380)
             self.assertLessEqual(bbox[2] - bbox[0], 460)
             self.assertEqual(bbox[3] - bbox[1], 430)
+
+    def test_review_manifest_has_twelve_unique_pending_states(self):
+        manifest_path = OUTPUT_DIR / "MANIFEST.json"
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+
+        self.assertEqual(manifest["status"], "pending_visual_and_in_world_approval")
+        self.assertEqual(
+            [row["sequence"] for row in manifest["stages"]],
+            list(range(1, 13)),
+        )
+        self.assertEqual(
+            len({row["compositeSha256"] for row in manifest["stages"]}),
+            12,
+        )
+        self.assertEqual(manifest["master"]["sha256"], MASTER_SHA256)
+        for row in manifest["stages"]:
+            for asset in (row["base"], *row["overlays"]):
+                path = OUTPUT_DIR / asset["file"]
+                self.assertEqual(sha256(path), asset["sha256"])
+
+    def test_review_outputs_include_full_world_and_detail_previews(self):
+        expected = {
+            "sarangchae_12_stage_review.png": (3240, 920),
+            "sarangchae_in_world_hyeonpan_review.png": (2412, 2622),
+            "sarangchae_in_world_hyeonpan_detail.png": (1900, 1400),
+        }
+        for filename, size in expected.items():
+            path = OUTPUT_DIR / "qa" / filename
+            with Image.open(path) as image:
+                self.assertEqual(image.size, size, filename)
 
 
 if __name__ == "__main__":
