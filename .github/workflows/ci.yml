@@ -602,7 +602,7 @@ jobs:
           cache: pip
 
       - name: Install image pipeline dependencies
-        run: pip install pillow==10.4.0 numpy==2.0.1
+        run: pip install pillow==10.4.0 numpy==2.0.1 scipy==1.14.1
 
       - name: Run tool/ unit tests
         run: python -m unittest discover -s tool -p "test_*.py" -t .
