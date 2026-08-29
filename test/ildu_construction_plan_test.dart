@@ -6,6 +6,8 @@ import 'package:ko_lernen_app/models/ildu_construction_plan.dart';
 import 'package:ko_lernen_app/services/ildu_construction_plan_repository.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   test(
     'accepts a twelve-stage Sarangchae without an eight-stage invariant',
     () {
@@ -82,6 +84,13 @@ void main() {
 
     expect(bundle.requestedKeys, [IlDuConstructionPlanRepository.assetPath]);
     expect(plan.buildingOrder, ['sarangchae']);
+  });
+
+  test('bundled catalog loads through the production repository', () async {
+    final plan = await const IlDuConstructionPlanRepository().load();
+
+    expect(plan.estateId, 'ildu-gotaek-v3');
+    expect(plan.buildingFor('sarangchae').stages, hasLength(12));
   });
 }
 
