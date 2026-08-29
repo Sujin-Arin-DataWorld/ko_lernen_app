@@ -59,10 +59,44 @@ import 'grammar_choice_quiz_screen.dart';
 /// 최소 160 은 필요해 합이 ≈ 454 → 여유를 둬 460.
 const double _studyBodyMinHeight = 460;
 
+class GrammarCheckpointAttempt {
+  const GrammarCheckpointAttempt({
+    required this.targetId,
+    required this.correct,
+    required this.courseContext,
+    required this.conceptId,
+    required this.errorReason,
+  });
+
+  final String targetId;
+  final bool correct;
+  final CoursePracticeContext? courseContext;
+  final String conceptId;
+  final MasteryErrorReason? errorReason;
+}
+
+typedef GrammarCheckpointRecorder =
+    Future<void> Function(GrammarCheckpointAttempt attempt);
+
+Future<void> _recordGrammarCheckpoint(GrammarCheckpointAttempt attempt) async {
+  final update = await CourseActivityReporter.recordContentAttempt(
+    CurriculumContentKind.grammar,
+    attempt.targetId,
+    attempt.correct,
+    courseContext: attempt.courseContext,
+    conceptId: attempt.conceptId,
+    errorReason: attempt.errorReason,
+  );
+  if (update == null) {
+    throw StateError('Grammar checkpoint was not persisted.');
+  }
+}
+
 class GrammarScreen extends StatefulWidget {
-  const GrammarScreen({super.key, this.courseContext});
+  const GrammarScreen({super.key, this.courseContext, this.checkpointRecorder});
 
   final CoursePracticeContext? courseContext;
+  final GrammarCheckpointRecorder? checkpointRecorder;
 
   @override
   State<GrammarScreen> createState() => _GrammarScreenState();
@@ -656,25 +690,39 @@ class _GrammarScreenState extends State<GrammarScreen>
             final isCorrect = isComplete && question.isCorrect(selectedAnswer!);
 
             Future<void> submit(String answerId) async {
-              if (isComplete || isSaving) return;
+              if (isComplete || isSaving || !sheetContext.mounted) {
+                return;
+              }
               setLocal(() => isSaving = true);
-              final update = await CourseActivityReporter.recordContentAttempt(
-                CurriculumContentKind.grammar,
-                target.id,
-                question.isCorrect(answerId),
+              final correct = question.isCorrect(answerId);
+              final attempt = GrammarCheckpointAttempt(
+                targetId: target.id,
+                correct: correct,
                 courseContext: widget.courseContext,
                 conceptId: assessmentLink.conceptIds.single,
-                errorReason: question.isCorrect(answerId)
-                    ? null
-                    : MasteryErrorReason.unknown,
+                errorReason: correct ? null : MasteryErrorReason.unknown,
               );
-              if (!mounted) return;
-              setLocal(() => isSaving = false);
-              if (update != null) {
+              try {
+                await (widget.checkpointRecorder ?? _recordGrammarCheckpoint)(
+                  attempt,
+                );
+              } catch (_) {
+                if (sheetContext.mounted) {
+                  setLocal(() => isSaving = false);
+                }
+                if (mounted) {
+                  _showCheckpointSaveError();
+                }
+                return;
+              }
+              if (mounted) {
                 setState(() => _submittedAnswers[target.id] = answerId);
-                setLocal(() => selectedAnswer = answerId);
-              } else {
-                _showCheckpointSaveError();
+              }
+              if (sheetContext.mounted) {
+                setLocal(() {
+                  isSaving = false;
+                  selectedAnswer = answerId;
+                });
               }
             }
 

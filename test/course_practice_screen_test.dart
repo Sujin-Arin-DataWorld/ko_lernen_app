@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -18,6 +20,7 @@ import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
+import 'package:ko_lernen_app/widgets/sori/sheet.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
 void main() {
@@ -132,6 +135,130 @@ void main() {
       await _disposeCourseScreen(tester);
     },
   );
+
+  testWidgets(
+    'grammar checkpoint completion after sheet dismissal never updates dead sheet state',
+    (tester) async {
+      final fixture = await _b2GrammarCheckpointFixture(tester);
+      final recorder = Completer<void>();
+      var calls = 0;
+      await Storage.setGrammarLastIdx(fixture.targetIndex);
+
+      await tester.pumpWidget(
+        _wrap(
+          GrammarScreen(
+            courseContext: fixture.context,
+            checkpointRecorder: (attempt) {
+              calls++;
+              return recorder.future;
+            },
+          ),
+        ),
+      );
+      await _settleCourseScreen(tester);
+      await tester.tap(find.byType(FlipCard));
+      await tester.pumpAndSettle();
+
+      final correctChoice = find.widgetWithText(SoriButton, 'V-았/었더라면');
+      tester.widget<SoriButton>(correctChoice).onTap!();
+      await tester.pump();
+      expect(calls, 1);
+
+      Navigator.of(tester.element(find.byType(SoriSheetShell))).pop();
+      await tester.pumpAndSettle();
+      expect(find.byType(SoriSheetShell), findsNothing);
+      recorder.complete();
+      await tester.pumpAndSettle();
+
+      expect(tester.takeException(), isNull);
+      await _disposeCourseScreen(tester);
+    },
+  );
+
+  testWidgets('grammar checkpoint blocks duplicate submission while saving', (
+    tester,
+  ) async {
+    final fixture = await _b2GrammarCheckpointFixture(tester);
+    final recorder = Completer<void>();
+    var calls = 0;
+    await Storage.setGrammarLastIdx(fixture.targetIndex);
+
+    await tester.pumpWidget(
+      _wrap(
+        GrammarScreen(
+          courseContext: fixture.context,
+          checkpointRecorder: (attempt) {
+            calls++;
+            return recorder.future;
+          },
+        ),
+      ),
+    );
+    await _settleCourseScreen(tester);
+    await tester.tap(find.byType(FlipCard));
+    await tester.pumpAndSettle();
+
+    final correctChoice = find.widgetWithText(SoriButton, 'V-았/었더라면');
+    final onTap = tester.widget<SoriButton>(correctChoice).onTap!;
+    onTap();
+    onTap();
+    await tester.pump();
+
+    expect(calls, 1);
+    recorder.complete();
+    await tester.pumpAndSettle();
+    expect(
+      find.text('Correct. This mission has recorded evidence.'),
+      findsOneWidget,
+    );
+    expect(tester.takeException(), isNull);
+    await _disposeCourseScreen(tester);
+  });
+
+  testWidgets('grammar checkpoint failure stays localized and retryable', (
+    tester,
+  ) async {
+    final fixture = await _b2GrammarCheckpointFixture(tester);
+    var calls = 0;
+    await Storage.setGrammarLastIdx(fixture.targetIndex);
+
+    await tester.pumpWidget(
+      _wrap(
+        GrammarScreen(
+          courseContext: fixture.context,
+          checkpointRecorder: (attempt) async {
+            calls++;
+            if (calls == 1) {
+              throw StateError('raw checkpoint failure');
+            }
+          },
+        ),
+      ),
+    );
+    await _settleCourseScreen(tester);
+    await tester.tap(find.byType(FlipCard));
+    await tester.pumpAndSettle();
+
+    var correctChoice = find.widgetWithText(SoriButton, 'V-았/었더라면');
+    tester.widget<SoriButton>(correctChoice).onTap!();
+    await tester.pump();
+    final t = AppL10n.of(tester.element(find.byType(GrammarScreen)));
+    expect(find.text(t.courseCheckpointSaveError), findsOneWidget);
+    expect(find.textContaining('raw checkpoint failure'), findsNothing);
+
+    correctChoice = find.widgetWithText(SoriButton, 'V-았/었더라면');
+    expect(tester.widget<SoriButton>(correctChoice).onTap, isNotNull);
+    tester.widget<SoriButton>(correctChoice).onTap!();
+    await tester.pumpAndSettle();
+
+    expect(calls, 2);
+    expect(
+      find.text('Correct. This mission has recorded evidence.'),
+      findsOneWidget,
+    );
+    expect(tester.takeException(), isNull);
+    await _disposeCourseScreen(tester);
+  });
 
   testWidgets('a one-card grammar deck never offers dead navigation', (
     tester,
@@ -385,6 +512,33 @@ void main() {
       await _disposeCourseScreen(tester);
     },
   );
+}
+
+Future<({CoursePracticeContext context, int targetIndex})>
+_b2GrammarCheckpointFixture(WidgetTester tester) async {
+  const targetId = 'grammar_b2_counterfactual_past';
+  final catalog = (await tester.runAsync(CurriculumCatalog.load))!;
+  final link = catalog.contentLinks.singleWhere(
+    (item) =>
+        item.contentKind == CurriculumContentKind.grammar &&
+        item.contentId == targetId &&
+        item.courseUnitId == 'b2_04_complaint_resolution' &&
+        item.role == ContentLinkRole.assess,
+  );
+  final context = CoursePracticeContext.fromLink(link);
+  final scopedIds = courseContentIdsForContext(
+    catalog: catalog,
+    courseContext: context,
+    kind: CurriculumContentKind.grammar,
+  )!;
+  final scopedGrammar = (await DataLoader.loadGrammar())
+      .where((grammar) => scopedIds.contains(grammar.id))
+      .toList(growable: false);
+  final targetIndex = scopedGrammar.indexWhere(
+    (grammar) => grammar.id == targetId,
+  );
+  expect(targetIndex, isNonNegative);
+  return (context: context, targetIndex: targetIndex);
 }
 
 Widget _wrap(
