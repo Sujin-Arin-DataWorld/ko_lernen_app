@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart' show rootBundle;
 
+typedef CultureNotesLoader = Future<void> Function();
+
 /// K-Culture 연결 노트 — 단어에 붙는 문화 배경(장르/문화 수준의 검증 가능한 사실).
 ///
 /// 소스: `assets/data/culture_notes.json`. ⚠️ 특정 곡/드라마 가사 인용은 정확성
