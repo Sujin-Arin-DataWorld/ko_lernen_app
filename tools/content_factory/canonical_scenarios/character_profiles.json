@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "mbtiPolicy": "MBTI는 약한 작가 힌트다. 말투, 행동, 갈등 해결을 결정하는 규칙으로 사용하지 않는다.",
+  "recurringCharacters": [
+    {
+      "id": "christian",
+      "displayNames": {"ko": "크리스티안", "de": "Christian", "en": "Christian"},
+      "voice": "male",
+      "background": {"origin": "독일", "role": "한국의 교환학생", "major": "IT", "relativeAge": "수진보다 세 살 어림"},
+      "personality": ["친절하다", "도움을 주려 한다", "일상에서는 가끔 덤벙댄다", "IT 문제에는 꼼꼼하고 유능하다"],
+      "writerHints": ["모르는 것을 아는 척하지 않는다", "실수하면 변명보다 먼저 인정한다", "기술 문제를 설명할 때만 말이 또렷해진다"],
+      "mbtiHint": {"value": "ISFJ", "weight": "low"},
+      "interests": ["앱 개발", "한국 음악", "기차 여행", "카페"],
+      "relationships": {"sujin": "처음에는 지인, 이후 친구가 되고 천천히 연애 감정이 생긴다", "lena": "같은 독일 교환학생 친구"}
+    },
+    {
+      "id": "sujin",
+      "displayNames": {"ko": "수진", "de": "Sujin", "en": "Sujin"},
+      "voice": "female",
+      "background": {"origin": "한국", "role": "데이터 분석가이자 앱 개발자", "major": "데이터·소프트웨어", "relativeAge": "크리스티안보다 세 살 많음"},
+      "personality": ["관찰력이 좋다", "쓸데없이 돌려 말하지 않는다", "상대가 곤란할 때 조용히 챙긴다", "기준이 분명하다"],
+      "writerHints": ["정답을 강의하듯 설명하지 않는다", "친해질수록 짧은 농담이 늘어난다", "호감은 과장된 고백보다 행동과 말끝에서 보인다"],
+      "mbtiHint": {"value": "INTJ", "weight": "low"},
+      "interests": ["앱 만들기", "데이터 시각화", "디저트 카페", "전시"],
+      "relationships": {"christian": "세 살 어린 지인에서 친구, 절제된 연애 관계로 발전", "maya": "한국 관련 콘텐츠를 만들다 알게 된 친구", "hyuna": "사회·문화 주제를 자주 의논하는 친구"}
+    },
+    {
+      "id": "maya",
+      "displayNames": {"ko": "마야", "de": "Maya", "en": "Maya"},
+      "voice": "female",
+      "background": {"origin": "미국", "role": "K-pop 마케팅 회사 신입", "major": "마케팅·미디어"},
+      "personality": ["사람을 쉽게 사귄다", "아이디어가 빠르다", "일에서 실수하면 크게 배우는 편이다", "과장된 홍보 문구를 경계한다"],
+      "writerHints": ["SNS 용어는 실제 업무 장면에서만 쓴다", "낙천적이지만 실수의 영향을 가볍게 넘기지 않는다"],
+      "mbtiHint": {"value": "ENFP", "weight": "low"},
+      "interests": ["K-pop", "릴스 기획", "공연", "새로운 음식"],
+      "relationships": {"sujin": "한국 관련 콘텐츠를 함께 만들며 친해짐", "daniel": "영상 프로젝트를 종종 함께함"}
+    },
+    {
+      "id": "hyuna",
+      "displayNames": {"ko": "현아", "de": "Hyuna", "en": "Hyuna"},
+      "voice": "female",
+      "background": {"origin": "한국", "role": "도시·문화 연구 대학원생", "major": "도시문화 연구", "experience": "독일 체류 경험이 있음"},
+      "personality": ["맥락을 오래 본다", "단정적인 일반화를 싫어한다", "조용하지만 논쟁을 피하지 않는다"],
+      "writerHints": ["사회 문제에서는 당사자와 제도를 분리해 본다", "친구 대화에서는 논문 말투를 쓰지 않는다"],
+      "mbtiHint": {"value": "INFJ", "weight": "low"},
+      "interests": ["도시 산책", "지역 문화", "독일 맥주", "독립 영화"],
+      "relationships": {"sujin": "오래 대화가 통하는 친구", "andrea": "독일과 한국의 생활 경험을 비교해 보는 지인"}
+    },
+    {
+      "id": "andrea",
+      "displayNames": {"ko": "안드레아", "de": "Andrea", "en": "Andrea"},
+      "voice": "female",
+      "background": {"origin": "독일", "role": "외국계 기업 재무 리더", "experience": "한국 거주 10년", "family": "한국인 남편"},
+      "personality": ["업무 기준이 엄격하다", "겉으로 무심해 보여도 실무적으로 돕는다", "책임과 권한을 구분한다"],
+      "writerHints": ["츤데레는 모욕이나 냉대로 쓰지 않는다", "업무 장면에서 근거 없는 승인 절차를 만들지 않는다"],
+      "mbtiHint": {"value": "ESTJ", "weight": "low"},
+      "interests": ["재무", "와인", "한국 생활 팁", "주말 등산"],
+      "relationships": {"maya": "같은 업계의 선배", "hyuna": "독일·한국 생활 경험을 나누는 지인"}
+    },
+    {
+      "id": "lena",
+      "displayNames": {"ko": "레나", "de": "Lena", "en": "Lena"},
+      "voice": "female",
+      "background": {"origin": "독일", "role": "한국의 교환학생", "major": "글로벌 비즈니스"},
+      "personality": ["사교적이다", "처음 보는 활동도 해보는 편이다", "사람 사이의 어색함을 빨리 눈치챈다"],
+      "writerHints": ["모든 장면을 밝게만 끝내지 않는다", "친근함과 무례함의 경계를 질문할 수 있다"],
+      "mbtiHint": {"value": "ESFP", "weight": "low"},
+      "interests": ["교환학생 모임", "댄스", "한국 드라마", "여행"],
+      "relationships": {"christian": "같은 독일 교환학생 친구", "maya": "음악과 공연 취향을 나누는 친구"}
+    },
+    {
+      "id": "daniel",
+      "displayNames": {"ko": "다니엘", "de": "Daniel", "en": "Daniel"},
+      "voice": "male",
+      "background": {"origin": "스페인", "role": "프리랜서 영상 제작자", "major": "영상·미디어"},
+      "personality": ["쾌활하다", "사람을 편하게 만든다", "작업의 영향에 대해서는 오래 생각한다", "실수를 유머로만 덮지 않는다"],
+      "writerHints": ["촬영 동의와 지역 영향은 실제 선택권으로 다룬다", "인스타그램은 직업과 취미의 맥락에서만 쓴다"],
+      "mbtiHint": {"value": "ENFP", "weight": "low"},
+      "interests": ["달리기", "기차 여행", "인스타그램", "지역 영상"],
+      "relationships": {"maya": "영상 프로젝트 동료", "hyuna": "지역을 찍는 방식에 관해 자주 의견을 나눔"}
+    }
+  ],
+  "runtimeRoleProfiles": {
+    "clerk": {"displayNameKo": "직원", "voice": "female"},
+    "instructor": {"displayNameKo": "강사", "voice": "female"},
+    "customer": {"displayNameKo": "손님", "voice": "male"},
+    "driver": {"displayNameKo": "기사", "voice": "male"},
+    "coworker": {"displayNameKo": "동료", "voice": "female"},
+    "manager": {"displayNameKo": "팀장", "voice": "male"},
+    "professor": {"displayNameKo": "교수", "voice": "female"},
+    "neighbor": {"displayNameKo": "이웃", "voice": "male"},
+    "pharmacist": {"displayNameKo": "약사", "voice": "female"},
+    "server": {"displayNameKo": "식당 직원", "voice": "male"},
+    "landlord": {"displayNameKo": "집주인", "voice": "female"},
+    "moderator": {"displayNameKo": "진행자", "voice": "female"},
+    "official": {"displayNameKo": "담당자", "voice": "male"},
+    "interviewer": {"displayNameKo": "면접관", "voice": "female"},
+    "student": {"displayNameKo": "학생", "voice": "male"},
+    "researcher": {"displayNameKo": "연구자", "voice": "female"},
+    "resident": {"displayNameKo": "주민", "voice": "male"},
+    "editor": {"displayNameKo": "편집자", "voice": "female"}
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "running_late",
+  "scenario": {
+    "id": "running_late",
+    "level": "a2",
+    "emoji": "🚇",
+    "register": "casual",
+    "speechStyle": "casual",
+    "title": {
+      "ko": "늦는다고 카카오톡 보내기",
+      "de": "Per KakaoTalk Bescheid sagen, dass man später kommt",
+      "en": "Texting that you're running late"
+    },
+    "intro": {
+      "ko": "지하철이 멈춰서 약속에 늦게 됐어요.",
+      "de": "Die U-Bahn steht, deshalb kommst du später zu eurer Verabredung.",
+      "en": "The subway has stopped, so you're running late."
+    },
+    "courseUnitId": "a2_03_chat_relationships",
+    "playerCharacterId": "lena",
+    "participantIds": [
+      "lena",
+      "maya"
+    ],
+    "relationshipContext": "친한 레나와 마야",
+    "intent": "늦는 이유와 시간을 알리고 만날 곳을 확인한다",
+    "shelf": "a2_plan",
+    "backdrop": "station",
+    "vocab": [
+      {
+        "korean": "지하철이 늦어서 십 분쯤 늦을 것 같아.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die U-Bahn hat Verspätung. Ich komme wohl etwa zehn Minuten später.",
+          "en": "The subway is delayed. I think I'll be about ten minutes late."
+        }
+      },
+      {
+        "korean": "괜찮아. 나도 아직 가는 중이야.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Kein Problem. Ich bin auch noch unterwegs.",
+          "en": "No problem. I'm still on my way too."
+        }
+      },
+      {
+        "korean": "너도 늦어?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Kommst du auch später?",
+          "en": "Are you running late too?"
+        }
+      },
+      {
+        "korean": "아니, 나도 방금 버스에서 내렸어.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Nein, ich bin auch gerade erst aus dem Bus gestiegen.",
+          "en": "No, I just got off the bus too."
+        }
+      },
+      {
+        "korean": "그럼 카페 앞에서 만나자.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dann treffen wir uns vor dem Café.",
+          "en": "Then let's meet in front of the café."
+        }
+      },
+      {
+        "korean": "응. 천천히 와.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Kein Stress.",
+          "en": "Okay. Take your time."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a2_relationships"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a2_cause_sequence"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-아/어서",
+        "de": "Grund / Reihenfolge",
+        "en": "Reason / sequence"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Weil (Grund) oder und dann (zeitliche Abfolge)",
+        "en": "Because (reason) or and then (time sequence)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "지하철이 늦어서 십 분쯤 늦을 것 같아.",
+        "de": "Die U-Bahn hat Verspätung. Ich komme wohl etwa zehn Minuten später.",
+        "en": "The subway is delayed. I think I'll be about ten minutes late."
+      },
+      {
+        "speaker": "maya",
+        "ko": "괜찮아. 나도 아직 가는 중이야.",
+        "de": "Kein Problem. Ich bin auch noch unterwegs.",
+        "en": "No problem. I'm still on my way too."
+      },
+      {
+        "speaker": "user",
+        "ko": "너도 늦어?",
+        "de": "Kommst du auch später?",
+        "en": "Are you running late too?"
+      },
+      {
+        "speaker": "maya",
+        "ko": "아니, 나도 방금 버스에서 내렸어.",
+        "de": "Nein, ich bin auch gerade erst aus dem Bus gestiegen.",
+        "en": "No, I just got off the bus too."
+      },
+      {
+        "speaker": "user",
+        "ko": "그럼 카페 앞에서 만나자.",
+        "de": "Dann treffen wir uns vor dem Café.",
+        "en": "Then let's meet in front of the café."
+      },
+      {
+        "speaker": "maya",
+        "ko": "응. 천천히 와.",
+        "de": "Ja. Kein Stress.",
+        "en": "Okay. Take your time."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_running_late_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "괜찮아. 나도 아직 가는 중이야.",
+          "options": [
+            {
+              "de": "Kein Problem. Ich bin auch noch unterwegs.",
+              "en": "No problem. I'm still on my way too."
+            },
+            {
+              "de": "Die U-Bahn hat Verspätung. Ich komme wohl etwa zehn Minuten später.",
+              "en": "The subway is delayed. I think I'll be about ten minutes late."
+            },
+            {
+              "de": "Kommst du auch später?",
+              "en": "Are you running late too?"
+            },
+            {
+              "de": "Nein, ich bin auch gerade erst aus dem Bus gestiegen.",
+              "en": "No, I just got off the bus too."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_running_late_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Die U-Bahn hat Verspätung. Ich komme wohl etwa zehn Minuten später.",
+          "promptEn": "The subway is delayed. I think I'll be about ten minutes late.",
+          "options": [
+            {
+              "ko": "지하철이 늦어서 십 분쯤 늦을 것 같아."
+            },
+            {
+              "ko": "괜찮아. 나도 아직 가는 중이야."
+            },
+            {
+              "ko": "너도 늦어?"
+            },
+            {
+              "ko": "아니, 나도 방금 버스에서 내렸어."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_running_late_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "그럼 카페 앞에서 만나자.",
+          "audioKo": "그럼 카페 앞에서 만나자.",
+          "promptDe": "Dann treffen wir uns vor dem Café.",
+          "promptEn": "Then let's meet in front of the café.",
+          "distractors": [
+            "지하철이 늦어서 십 분쯤 늦을 것 같아.",
+            "괜찮아. 나도 아직 가는 중이야.",
+            "너도 늦어?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 110
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

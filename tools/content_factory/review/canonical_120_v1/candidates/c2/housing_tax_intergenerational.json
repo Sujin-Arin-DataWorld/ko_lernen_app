@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "housing_tax_intergenerational",
+  "scenario": {
+    "id": "housing_tax_intergenerational",
+    "level": "c2",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "주택 보유세 논쟁의 세대 프레임",
+      "de": "Den Generationenrahmen in einer Grundsteuerdebatte prüfen",
+      "en": "Examining the generational frame in a property-tax debate"
+    },
+    "intro": {
+      "ko": "보유세 논쟁이 청년 대 노년으로만 편집돼 자산·소득·거주 목적의 차이가 사라져요.",
+      "de": "Eine Grundsteuerdebatte wird als Konflikt Jung gegen Alt erzählt; Vermögen, Einkommen und Wohnzweck verschwinden.",
+      "en": "A property-tax debate is framed as young versus old, erasing differences in wealth, income, and housing purpose."
+    },
+    "courseUnitId": "c2_01_interpretation_institutions",
+    "playerCharacterId": "hyuna",
+    "participantIds": [
+      "hyuna",
+      "moderator"
+    ],
+    "relationshipContext": "진행자와 연구자 현아",
+    "intent": "세대 경험을 인정하면서 단일 집단처럼 묶는 프레임의 한계를 지적한다",
+    "shelf": "c2_discourse",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "오늘 토론은 집 없는 청년과 집 가진 노년의 갈등을 중심으로 보겠습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Heute betrachten wir den Konflikt zwischen jungen Menschen ohne Wohneigentum und älteren Eigentümern.",
+          "en": "Today's debate will focus on young people without homes versus older homeowners."
+        }
+      },
+      {
+        "korean": "세대라는 구분이 설명력을 갖는 부분은 있지만 자산과 소득의 차이까지 대신 설명하지는 못합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die Generationenkategorie erklärt einen Teil des Konflikts, ersetzt aber nicht die Unterschiede bei Vermögen und Einkommen.",
+          "en": "Generational categories explain part of the conflict, but cannot stand in for differences in wealth and income."
+        }
+      },
+      {
+        "korean": "그래도 시청자가 이해하기에는 세대 구도가 가장 분명하지 않나요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ist der Generationenrahmen für das Publikum nicht am verständlichsten?",
+          "en": "Isn't the generational frame clearest for viewers?"
+        }
+      },
+      {
+        "korean": "도입에는 쓸 수 있지만 사례까지 그 틀에 맞추면 저소득 고령자와 다주택 청년 같은 집단이 지워집니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Als Einstieg mag er funktionieren, doch bei den Fällen verschwinden dann etwa einkommensarme Ältere und junge Mehrfacheigentümer.",
+          "en": "It may work as an opening, but applying it to every case erases groups like low-income seniors and young multiple-property owners."
+        }
+      },
+      {
+        "korean": "그럼 어떤 기준을 교차해서 보여 주면 좋을까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Welche Merkmale sollten wir zusätzlich kreuzen?",
+          "en": "What dimensions should we show alongside generation?"
+        }
+      },
+      {
+        "korean": "연령은 유지하되 자산 규모, 현재 소득, 실거주 여부를 함께 보여 주면 프레임의 한계도 드러납니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir können das Alter beibehalten, aber Vermögenshöhe, laufendes Einkommen und Eigennutzung mitzeigen.",
+          "en": "Keep age, but also show asset size, current income, and whether the home is owner-occupied."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c2_discourse_institutions"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_c1_but_not"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-되, N은 V-지 않는다",
+        "de": "Zugeständnis mit Grenze",
+        "en": "Concession with a limit"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Räumt einen Teil ein und zieht im selben Satz die Grenze, bis zu der er gilt.",
+        "en": "Grants one part and draws, in the same sentence, the line where it stops."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "moderator",
+        "ko": "오늘 토론은 집 없는 청년과 집 가진 노년의 갈등을 중심으로 보겠습니다.",
+        "de": "Heute betrachten wir den Konflikt zwischen jungen Menschen ohne Wohneigentum und älteren Eigentümern.",
+        "en": "Today's debate will focus on young people without homes versus older homeowners."
+      },
+      {
+        "speaker": "user",
+        "ko": "세대라는 구분이 설명력을 갖는 부분은 있지만 자산과 소득의 차이까지 대신 설명하지는 못합니다.",
+        "de": "Die Generationenkategorie erklärt einen Teil des Konflikts, ersetzt aber nicht die Unterschiede bei Vermögen und Einkommen.",
+        "en": "Generational categories explain part of the conflict, but cannot stand in for differences in wealth and income."
+      },
+      {
+        "speaker": "moderator",
+        "ko": "그래도 시청자가 이해하기에는 세대 구도가 가장 분명하지 않나요?",
+        "de": "Ist der Generationenrahmen für das Publikum nicht am verständlichsten?",
+        "en": "Isn't the generational frame clearest for viewers?"
+      },
+      {
+        "speaker": "user",
+        "ko": "도입에는 쓸 수 있지만 사례까지 그 틀에 맞추면 저소득 고령자와 다주택 청년 같은 집단이 지워집니다.",
+        "de": "Als Einstieg mag er funktionieren, doch bei den Fällen verschwinden dann etwa einkommensarme Ältere und junge Mehrfacheigentümer.",
+        "en": "It may work as an opening, but applying it to every case erases groups like low-income seniors and young multiple-property owners."
+      },
+      {
+        "speaker": "moderator",
+        "ko": "그럼 어떤 기준을 교차해서 보여 주면 좋을까요?",
+        "de": "Welche Merkmale sollten wir zusätzlich kreuzen?",
+        "en": "What dimensions should we show alongside generation?"
+      },
+      {
+        "speaker": "user",
+        "ko": "연령은 유지하되 자산 규모, 현재 소득, 실거주 여부를 함께 보여 주면 프레임의 한계도 드러납니다.",
+        "de": "Wir können das Alter beibehalten, aber Vermögenshöhe, laufendes Einkommen und Eigennutzung mitzeigen.",
+        "en": "Keep age, but also show asset size, current income, and whether the home is owner-occupied."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_housing_tax_intergenerational_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "오늘 토론은 집 없는 청년과 집 가진 노년의 갈등을 중심으로 보겠습니다.",
+          "options": [
+            {
+              "de": "Heute betrachten wir den Konflikt zwischen jungen Menschen ohne Wohneigentum und älteren Eigentümern.",
+              "en": "Today's debate will focus on young people without homes versus older homeowners."
+            },
+            {
+              "de": "Die Generationenkategorie erklärt einen Teil des Konflikts, ersetzt aber nicht die Unterschiede bei Vermögen und Einkommen.",
+              "en": "Generational categories explain part of the conflict, but cannot stand in for differences in wealth and income."
+            },
+            {
+              "de": "Ist der Generationenrahmen für das Publikum nicht am verständlichsten?",
+              "en": "Isn't the generational frame clearest for viewers?"
+            },
+            {
+              "de": "Als Einstieg mag er funktionieren, doch bei den Fällen verschwinden dann etwa einkommensarme Ältere und junge Mehrfacheigentümer.",
+              "en": "It may work as an opening, but applying it to every case erases groups like low-income seniors and young multiple-property owners."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_housing_tax_intergenerational_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Die Generationenkategorie erklärt einen Teil des Konflikts, ersetzt aber nicht die Unterschiede bei Vermögen und Einkommen.",
+          "promptEn": "Generational categories explain part of the conflict, but cannot stand in for differences in wealth and income.",
+          "options": [
+            {
+              "ko": "세대라는 구분이 설명력을 갖는 부분은 있지만 자산과 소득의 차이까지 대신 설명하지는 못합니다."
+            },
+            {
+              "ko": "오늘 토론은 집 없는 청년과 집 가진 노년의 갈등을 중심으로 보겠습니다."
+            },
+            {
+              "ko": "그래도 시청자가 이해하기에는 세대 구도가 가장 분명하지 않나요?"
+            },
+            {
+              "ko": "도입에는 쓸 수 있지만 사례까지 그 틀에 맞추면 저소득 고령자와 다주택 청년 같은 집단이 지워집니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_housing_tax_intergenerational_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "연령은 유지하되 자산 규모, 현재 소득, 실거주 여부를 함께 보여 주면 프레임의 한계도 드러납니다.",
+          "audioKo": "연령은 유지하되 자산 규모, 현재 소득, 실거주 여부를 함께 보여 주면 프레임의 한계도 드러납니다.",
+          "promptDe": "Wir können das Alter beibehalten, aber Vermögenshöhe, laufendes Einkommen und Eigennutzung mitzeigen.",
+          "promptEn": "Keep age, but also show asset size, current income, and whether the home is owner-occupied.",
+          "distractors": [
+            "오늘 토론은 집 없는 청년과 집 가진 노년의 갈등을 중심으로 보겠습니다.",
+            "세대라는 구분이 설명력을 갖는 부분은 있지만 자산과 소득의 차이까지 대신 설명하지는 못합니다.",
+            "그래도 시청자가 이해하기에는 세대 구도가 가장 분명하지 않나요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 150
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

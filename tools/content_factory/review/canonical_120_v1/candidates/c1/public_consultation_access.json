@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "public_consultation_access",
+  "scenario": {
+    "id": "public_consultation_access",
+    "level": "c1",
+    "emoji": "🏠",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "주민 의견 수렴이 실제 참여가 되려면",
+      "de": "Aus einer Umfrage echte Beteiligung machen",
+      "en": "Turning a survey into meaningful participation"
+    },
+    "intro": {
+      "ko": "온라인 설문 응답은 많았지만 고령 주민과 세입자의 의견은 거의 없어요.",
+      "de": "Die Onlineumfrage hat viele Antworten, bildet aber ältere Bewohner und Mieter kaum ab.",
+      "en": "The online survey received many responses but barely includes older residents or tenants."
+    },
+    "courseUnitId": "c1_01_evidence_public_reasoning",
+    "playerCharacterId": "hyuna",
+    "participantIds": [
+      "hyuna",
+      "official",
+      "resident"
+    ],
+    "relationshipContext": "연구자 현아와 공무원, 주민",
+    "intent": "참여 숫자와 대표성을 구분해 보완 방식을 제안한다",
+    "shelf": "c1_policy",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "설문 응답이 천 건을 넘어서 참여는 충분했다고 보고 있습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Mit mehr als tausend Antworten betrachten wir die Beteiligung als ausreichend.",
+          "en": "With over a thousand responses, we consider participation sufficient."
+        }
+      },
+      {
+        "korean": "응답 수가 많다는 사실만으로 지역 전체의 의견을 대표한다고 보기는 어렵습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Allein aus der hohen Zahl lässt sich nicht ableiten, dass die ganze Nachbarschaft vertreten ist.",
+          "en": "A high response count alone does not mean the whole community is represented."
+        }
+      },
+      {
+        "korean": "저희 건물에서는 설문이 있다는 걸 모르는 세입자도 많았어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "In unserem Haus wussten viele Mieter nicht einmal von der Umfrage.",
+          "en": "Many tenants in my building didn't even know about the survey."
+        }
+      },
+      {
+        "korean": "같은 설문을 더 오래 열어 두면 참여가 늘지 않을까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Würde eine längere Laufzeit der Umfrage nicht helfen?",
+          "en": "Wouldn't keeping the survey open longer increase participation?"
+        }
+      },
+      {
+        "korean": "기간만 늘리기보다 현장 간담회와 전화 의견 창구를 함께 열어야 합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Statt nur die Frist zu verlängern, brauchen wir Vor-Ort-Gespräche und eine telefonische Möglichkeit zur Stellungnahme.",
+          "en": "Rather than only extend the deadline, we should add in-person meetings and a phone option."
+        }
+      },
+      {
+        "korean": "어떤 집단의 응답이 비어 있는지도 결과와 함께 공개해 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Bitte weisen Sie bei den Ergebnissen auch aus, welche Gruppen kaum vertreten sind.",
+          "en": "Please publish which groups are missing alongside the results."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_evidence_reasoning"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b2_rather_than_direct"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-기보다",
+        "de": "Sanftere Alternative zur direkten Aussage",
+        "en": "Softer alternative to a direct move"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Stellt eine weniger direkte Handlung als bessere Wahl gegenüber einer scharfen Antwort dar.",
+        "en": "Presents a less direct action as the better choice against a blunt reply."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "official",
+        "ko": "설문 응답이 천 건을 넘어서 참여는 충분했다고 보고 있습니다.",
+        "de": "Mit mehr als tausend Antworten betrachten wir die Beteiligung als ausreichend.",
+        "en": "With over a thousand responses, we consider participation sufficient."
+      },
+      {
+        "speaker": "user",
+        "ko": "응답 수가 많다는 사실만으로 지역 전체의 의견을 대표한다고 보기는 어렵습니다.",
+        "de": "Allein aus der hohen Zahl lässt sich nicht ableiten, dass die ganze Nachbarschaft vertreten ist.",
+        "en": "A high response count alone does not mean the whole community is represented."
+      },
+      {
+        "speaker": "resident",
+        "ko": "저희 건물에서는 설문이 있다는 걸 모르는 세입자도 많았어요.",
+        "de": "In unserem Haus wussten viele Mieter nicht einmal von der Umfrage.",
+        "en": "Many tenants in my building didn't even know about the survey."
+      },
+      {
+        "speaker": "official",
+        "ko": "같은 설문을 더 오래 열어 두면 참여가 늘지 않을까요?",
+        "de": "Würde eine längere Laufzeit der Umfrage nicht helfen?",
+        "en": "Wouldn't keeping the survey open longer increase participation?"
+      },
+      {
+        "speaker": "user",
+        "ko": "기간만 늘리기보다 현장 간담회와 전화 의견 창구를 함께 열어야 합니다.",
+        "de": "Statt nur die Frist zu verlängern, brauchen wir Vor-Ort-Gespräche und eine telefonische Möglichkeit zur Stellungnahme.",
+        "en": "Rather than only extend the deadline, we should add in-person meetings and a phone option."
+      },
+      {
+        "speaker": "resident",
+        "ko": "어떤 집단의 응답이 비어 있는지도 결과와 함께 공개해 주세요.",
+        "de": "Bitte weisen Sie bei den Ergebnissen auch aus, welche Gruppen kaum vertreten sind.",
+        "en": "Please publish which groups are missing alongside the results."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_public_consultation_access_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "설문 응답이 천 건을 넘어서 참여는 충분했다고 보고 있습니다.",
+          "options": [
+            {
+              "de": "Mit mehr als tausend Antworten betrachten wir die Beteiligung als ausreichend.",
+              "en": "With over a thousand responses, we consider participation sufficient."
+            },
+            {
+              "de": "Allein aus der hohen Zahl lässt sich nicht ableiten, dass die ganze Nachbarschaft vertreten ist.",
+              "en": "A high response count alone does not mean the whole community is represented."
+            },
+            {
+              "de": "In unserem Haus wussten viele Mieter nicht einmal von der Umfrage.",
+              "en": "Many tenants in my building didn't even know about the survey."
+            },
+            {
+              "de": "Würde eine längere Laufzeit der Umfrage nicht helfen?",
+              "en": "Wouldn't keeping the survey open longer increase participation?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_public_consultation_access_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Allein aus der hohen Zahl lässt sich nicht ableiten, dass die ganze Nachbarschaft vertreten ist.",
+          "promptEn": "A high response count alone does not mean the whole community is represented.",
+          "options": [
+            {
+              "ko": "응답 수가 많다는 사실만으로 지역 전체의 의견을 대표한다고 보기는 어렵습니다."
+            },
+            {
+              "ko": "설문 응답이 천 건을 넘어서 참여는 충분했다고 보고 있습니다."
+            },
+            {
+              "ko": "저희 건물에서는 설문이 있다는 걸 모르는 세입자도 많았어요."
+            },
+            {
+              "ko": "같은 설문을 더 오래 열어 두면 참여가 늘지 않을까요?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_public_consultation_access_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "기간만 늘리기보다 현장 간담회와 전화 의견 창구를 함께 열어야 합니다.",
+          "audioKo": "기간만 늘리기보다 현장 간담회와 전화 의견 창구를 함께 열어야 합니다.",
+          "promptDe": "Statt nur die Frist zu verlängern, brauchen wir Vor-Ort-Gespräche und eine telefonische Möglichkeit zur Stellungnahme.",
+          "promptEn": "Rather than only extend the deadline, we should add in-person meetings and a phone option.",
+          "distractors": [
+            "설문 응답이 천 건을 넘어서 참여는 충분했다고 보고 있습니다.",
+            "응답 수가 많다는 사실만으로 지역 전체의 의견을 대표한다고 보기는 어렵습니다.",
+            "저희 건물에서는 설문이 있다는 걸 모르는 세입자도 많았어요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 140
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

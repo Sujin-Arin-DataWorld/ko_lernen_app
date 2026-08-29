@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "research_limits_presentation",
+  "scenario": {
+    "id": "research_limits_presentation",
+    "level": "c1",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "연구 결과의 한계를 발표에서 숨기지 않기",
+      "de": "Die Reichweite kleiner Interviewstudien begrenzen",
+      "en": "Keeping a small interview study within scope"
+    },
+    "intro": {
+      "ko": "한 지역의 소규모 인터뷰를 도시 전체의 변화처럼 발표하려 해요.",
+      "de": "Eine kleine Interviewstudie aus einem Viertel wird im Titel auf die ganze Stadt ausgeweitet.",
+      "en": "A small interview study from one neighborhood is being titled as if it represents the whole city."
+    },
+    "courseUnitId": "c1_01_evidence_public_reasoning",
+    "playerCharacterId": "hyuna",
+    "participantIds": [
+      "hyuna",
+      "professor"
+    ],
+    "relationshipContext": "현아와 지도 교수",
+    "intent": "연구의 가치를 유지하면서 주장 범위를 좁힌다",
+    "shelf": "c1_briefing",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "‘도시 청년의 주거 인식이 바뀌었다’는 제목이 관심을 끌기는 합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Der Titel „Wie sich die Wohnwahrnehmung junger Städter verändert“ weckt durchaus Interesse.",
+          "en": "The title 'Young Urban Residents' Housing Views Have Changed' is certainly attention-grabbing."
+        }
+      },
+      {
+        "korean": "하지만 이 자료로 도시 전체의 변화를 말하기에는 범위가 좁습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Für eine Aussage über die ganze Stadt ist die Datengrundlage jedoch zu schmal.",
+          "en": "But this dataset is too narrow to describe change across the whole city."
+        }
+      },
+      {
+        "korean": "제목을 너무 좁히면 연구의 의미가 약해 보이지 않을까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wirkt die Studie nicht weniger relevant, wenn wir den Titel stark eingrenzen?",
+          "en": "Won't the study seem less significant if we narrow the title too much?"
+        }
+      },
+      {
+        "korean": "범위를 넓게 쓴다고 해서 연구의 의미가 커지는 것은 아닙니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Eine breitere Formulierung macht die Studie nicht automatisch bedeutsamer.",
+          "en": "Broader wording doesn't automatically make the study more meaningful."
+        }
+      },
+      {
+        "korean": "‘특정 지역 청년 세입자의 경험’이라고 쓰면 자료가 실제로 보여 주는 긴장이 드러납니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "„Erfahrungen junger Mieter in einem bestimmten Viertel“ zeigt die tatsächliche Spannung im Material.",
+          "en": "'Experiences of young tenants in one neighborhood' shows the tension the data actually captures."
+        }
+      },
+      {
+        "korean": "좋아요. 제목을 바꾸고 발표 끝에 다른 지역과의 비교가 필요하다고 밝히죠.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gut. Wir ändern den Titel und nennen am Ende den Bedarf an Vergleichen mit anderen Vierteln.",
+          "en": "Good. Let's change the title and state that comparison with other areas is needed."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_evidence_reasoning"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_indirect_speech"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(ㄴ/는)다고 하다",
+        "de": "Indirekte Rede",
+        "en": "Indirect speech"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Sagt dass / hat gesagt dass: indirekte Wiedergabe",
+        "en": "Says that / said that: reporting speech indirectly"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "professor",
+        "ko": "‘도시 청년의 주거 인식이 바뀌었다’는 제목이 관심을 끌기는 합니다.",
+        "de": "Der Titel „Wie sich die Wohnwahrnehmung junger Städter verändert“ weckt durchaus Interesse.",
+        "en": "The title 'Young Urban Residents' Housing Views Have Changed' is certainly attention-grabbing."
+      },
+      {
+        "speaker": "user",
+        "ko": "하지만 이 자료로 도시 전체의 변화를 말하기에는 범위가 좁습니다.",
+        "de": "Für eine Aussage über die ganze Stadt ist die Datengrundlage jedoch zu schmal.",
+        "en": "But this dataset is too narrow to describe change across the whole city."
+      },
+      {
+        "speaker": "professor",
+        "ko": "제목을 너무 좁히면 연구의 의미가 약해 보이지 않을까요?",
+        "de": "Wirkt die Studie nicht weniger relevant, wenn wir den Titel stark eingrenzen?",
+        "en": "Won't the study seem less significant if we narrow the title too much?"
+      },
+      {
+        "speaker": "user",
+        "ko": "범위를 넓게 쓴다고 해서 연구의 의미가 커지는 것은 아닙니다.",
+        "de": "Eine breitere Formulierung macht die Studie nicht automatisch bedeutsamer.",
+        "en": "Broader wording doesn't automatically make the study more meaningful."
+      },
+      {
+        "speaker": "user",
+        "ko": "‘특정 지역 청년 세입자의 경험’이라고 쓰면 자료가 실제로 보여 주는 긴장이 드러납니다.",
+        "de": "„Erfahrungen junger Mieter in einem bestimmten Viertel“ zeigt die tatsächliche Spannung im Material.",
+        "en": "'Experiences of young tenants in one neighborhood' shows the tension the data actually captures."
+      },
+      {
+        "speaker": "professor",
+        "ko": "좋아요. 제목을 바꾸고 발표 끝에 다른 지역과의 비교가 필요하다고 밝히죠.",
+        "de": "Gut. Wir ändern den Titel und nennen am Ende den Bedarf an Vergleichen mit anderen Vierteln.",
+        "en": "Good. Let's change the title and state that comparison with other areas is needed."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_research_limits_presentation_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "‘도시 청년의 주거 인식이 바뀌었다’는 제목이 관심을 끌기는 합니다.",
+          "options": [
+            {
+              "de": "Der Titel „Wie sich die Wohnwahrnehmung junger Städter verändert“ weckt durchaus Interesse.",
+              "en": "The title 'Young Urban Residents' Housing Views Have Changed' is certainly attention-grabbing."
+            },
+            {
+              "de": "Für eine Aussage über die ganze Stadt ist die Datengrundlage jedoch zu schmal.",
+              "en": "But this dataset is too narrow to describe change across the whole city."
+            },
+            {
+              "de": "Wirkt die Studie nicht weniger relevant, wenn wir den Titel stark eingrenzen?",
+              "en": "Won't the study seem less significant if we narrow the title too much?"
+            },
+            {
+              "de": "Eine breitere Formulierung macht die Studie nicht automatisch bedeutsamer.",
+              "en": "Broader wording doesn't automatically make the study more meaningful."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_research_limits_presentation_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Für eine Aussage über die ganze Stadt ist die Datengrundlage jedoch zu schmal.",
+          "promptEn": "But this dataset is too narrow to describe change across the whole city.",
+          "options": [
+            {
+              "ko": "하지만 이 자료로 도시 전체의 변화를 말하기에는 범위가 좁습니다."
+            },
+            {
+              "ko": "‘도시 청년의 주거 인식이 바뀌었다’는 제목이 관심을 끌기는 합니다."
+            },
+            {
+              "ko": "제목을 너무 좁히면 연구의 의미가 약해 보이지 않을까요?"
+            },
+            {
+              "ko": "범위를 넓게 쓴다고 해서 연구의 의미가 커지는 것은 아닙니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_research_limits_presentation_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "‘특정 지역 청년 세입자의 경험’이라고 쓰면 자료가 실제로 보여 주는 긴장이 드러납니다.",
+          "audioKo": "‘특정 지역 청년 세입자의 경험’이라고 쓰면 자료가 실제로 보여 주는 긴장이 드러납니다.",
+          "promptDe": "„Erfahrungen junger Mieter in einem bestimmten Viertel“ zeigt die tatsächliche Spannung im Material.",
+          "promptEn": "'Experiences of young tenants in one neighborhood' shows the tension the data actually captures.",
+          "distractors": [
+            "‘도시 청년의 주거 인식이 바뀌었다’는 제목이 관심을 끌기는 합니다.",
+            "하지만 이 자료로 도시 전체의 변화를 말하기에는 범위가 좁습니다.",
+            "제목을 너무 좁히면 연구의 의미가 약해 보이지 않을까요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 140
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

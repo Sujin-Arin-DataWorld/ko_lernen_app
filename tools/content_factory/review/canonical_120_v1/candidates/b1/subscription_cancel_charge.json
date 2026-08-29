@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "subscription_cancel_charge",
+  "scenario": {
+    "id": "subscription_cancel_charge",
+    "level": "b1",
+    "emoji": "🏠",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "구독을 해지했는데 결제됐을 때",
+      "de": "Trotz Kündigung erneut belastet",
+      "en": "Charged after canceling a subscription"
+    },
+    "intro": {
+      "ko": "구독 해지 완료 화면을 봤는데 이번 달 요금이 결제됐어요.",
+      "de": "Obwohl du eine Kündigungsbestätigung gesehen hast, wurde der Monatsbetrag abgebucht.",
+      "en": "You saw a cancellation confirmation, but this month's fee was still charged."
+    },
+    "courseUnitId": "b1_05_complaint_resolution",
+    "playerCharacterId": "lena",
+    "participantIds": [
+      "lena",
+      "clerk"
+    ],
+    "relationshipContext": "이용자와 상담 직원",
+    "intent": "해지 시점과 결제 내역을 순서대로 설명한다",
+    "shelf": "b1_refund",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "고객센터입니다. 무엇을 확인해 드릴까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Kundenservice. Was kann ich für Sie prüfen?",
+          "en": "Customer support. What can I check for you?"
+        }
+      },
+      {
+        "korean": "지난주에 해지 완료 화면을 봤는데 이번 달 요금이 결제됐어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Letzte Woche wurde mir die Kündigung bestätigt, trotzdem wurde der Monatsbeitrag abgebucht.",
+          "en": "I saw a cancellation confirmation last week, but this month's fee was charged."
+        }
+      },
+      {
+        "korean": "해지한 날짜가 화면에 남아 있나요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ist das Kündigungsdatum auf dem Bildschirm zu sehen?",
+          "en": "Does the screen show the cancellation date?"
+        }
+      },
+      {
+        "korean": "네, 지난주 화요일로 되어 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, dort steht letzter Dienstag.",
+          "en": "Yes, it shows last Tuesday."
+        }
+      },
+      {
+        "korean": "그 날짜와 결제 내역을 먼저 확인해 보겠습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich prüfe zuerst dieses Datum und die Abbuchung.",
+          "en": "I'll first check that date against the payment record."
+        }
+      },
+      {
+        "korean": "네. 왜 결제됐는지 확인해 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Danke. Bitte prüfen Sie, warum trotzdem abgebucht wurde.",
+          "en": "Thank you. Please check why I was charged."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b1_complaint_resolution"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_background_contrast"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-는데",
+        "de": "Hintergrund / Kontrast",
+        "en": "Background / contrast"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Hintergrund geben oder milden Kontrast ausdrücken",
+        "en": "Give background or express mild contrast"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "clerk",
+        "ko": "고객센터입니다. 무엇을 확인해 드릴까요?",
+        "de": "Kundenservice. Was kann ich für Sie prüfen?",
+        "en": "Customer support. What can I check for you?"
+      },
+      {
+        "speaker": "user",
+        "ko": "지난주에 해지 완료 화면을 봤는데 이번 달 요금이 결제됐어요.",
+        "de": "Letzte Woche wurde mir die Kündigung bestätigt, trotzdem wurde der Monatsbeitrag abgebucht.",
+        "en": "I saw a cancellation confirmation last week, but this month's fee was charged."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "해지한 날짜가 화면에 남아 있나요?",
+        "de": "Ist das Kündigungsdatum auf dem Bildschirm zu sehen?",
+        "en": "Does the screen show the cancellation date?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 지난주 화요일로 되어 있어요.",
+        "de": "Ja, dort steht letzter Dienstag.",
+        "en": "Yes, it shows last Tuesday."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "그 날짜와 결제 내역을 먼저 확인해 보겠습니다.",
+        "de": "Ich prüfe zuerst dieses Datum und die Abbuchung.",
+        "en": "I'll first check that date against the payment record."
+      },
+      {
+        "speaker": "user",
+        "ko": "네. 왜 결제됐는지 확인해 주세요.",
+        "de": "Danke. Bitte prüfen Sie, warum trotzdem abgebucht wurde.",
+        "en": "Thank you. Please check why I was charged."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_subscription_cancel_charge_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "고객센터입니다. 무엇을 확인해 드릴까요?",
+          "options": [
+            {
+              "de": "Kundenservice. Was kann ich für Sie prüfen?",
+              "en": "Customer support. What can I check for you?"
+            },
+            {
+              "de": "Letzte Woche wurde mir die Kündigung bestätigt, trotzdem wurde der Monatsbeitrag abgebucht.",
+              "en": "I saw a cancellation confirmation last week, but this month's fee was charged."
+            },
+            {
+              "de": "Ist das Kündigungsdatum auf dem Bildschirm zu sehen?",
+              "en": "Does the screen show the cancellation date?"
+            },
+            {
+              "de": "Ja, dort steht letzter Dienstag.",
+              "en": "Yes, it shows last Tuesday."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_subscription_cancel_charge_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Letzte Woche wurde mir die Kündigung bestätigt, trotzdem wurde der Monatsbeitrag abgebucht.",
+          "promptEn": "I saw a cancellation confirmation last week, but this month's fee was charged.",
+          "options": [
+            {
+              "ko": "지난주에 해지 완료 화면을 봤는데 이번 달 요금이 결제됐어요."
+            },
+            {
+              "ko": "고객센터입니다. 무엇을 확인해 드릴까요?"
+            },
+            {
+              "ko": "해지한 날짜가 화면에 남아 있나요?"
+            },
+            {
+              "ko": "네, 지난주 화요일로 되어 있어요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_subscription_cancel_charge_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네. 왜 결제됐는지 확인해 주세요.",
+          "audioKo": "네. 왜 결제됐는지 확인해 주세요.",
+          "promptDe": "Danke. Bitte prüfen Sie, warum trotzdem abgebucht wurde.",
+          "promptEn": "Thank you. Please check why I was charged.",
+          "distractors": [
+            "고객센터입니다. 무엇을 확인해 드릴까요?",
+            "지난주에 해지 완료 화면을 봤는데 이번 달 요금이 결제됐어요.",
+            "해지한 날짜가 화면에 남아 있나요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 120
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

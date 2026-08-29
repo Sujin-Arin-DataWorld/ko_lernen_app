@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "meeting_disagreement_evidence",
+  "scenario": {
+    "id": "meeting_disagreement_evidence",
+    "level": "b2",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "회의에서 조회 수만으로 성과를 판단할지 논쟁하기",
+      "de": "Reichweite und Käufe gemeinsam bewerten",
+      "en": "Evaluating views and purchases together"
+    },
+    "intro": {
+      "ko": "조회 수가 높은 영상을 성공으로 볼지 의견이 갈려요.",
+      "de": "Ihr seid euch uneinig, ob ein Video mit vielen Aufrufen bereits als Erfolg gilt.",
+      "en": "You disagree on whether a video with many views should count as a success."
+    },
+    "courseUnitId": "b2_02_professional_opinion",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "andrea"
+    ],
+    "relationshipContext": "마야와 안드레아를 포함한 동료",
+    "intent": "조회 수의 장점을 인정하면서 다른 지표도 봐야 한다고 주장한다",
+    "shelf": "b2_meeting",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "이 영상은 조회 수가 가장 높으니 성과가 좋았다고 볼 수 있겠어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dieses Video hat die meisten Aufrufe, also könnten wir es als erfolgreich bewerten.",
+          "en": "This video had the most views, so we could call it a strong result."
+        }
+      },
+      {
+        "korean": "조회 수가 중요하기는 하지만 구매로 이어졌는지도 봐야 해요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die Aufrufe sind wichtig, aber wir sollten auch prüfen, ob daraus Käufe entstanden sind.",
+          "en": "Views matter, but we also need to see whether they led to purchases."
+        }
+      },
+      {
+        "korean": "구매 전환 자료는 아직 일주일치밖에 없어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir haben bisher allerdings nur Daten für eine Woche.",
+          "en": "We only have one week of conversion data so far."
+        }
+      },
+      {
+        "korean": "그래도 조회 수만으로 판단하기는 어려워요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Trotzdem lässt sich die Wirkung nicht allein nach den Aufrufen beurteilen.",
+          "en": "Even so, it's hard to judge performance from views alone."
+        }
+      },
+      {
+        "korean": "이번 보고에는 두 지표를 모두 넣고 결론은 제한해서 쓰죠.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dann nehmen wir beide Kennzahlen in den Bericht auf und formulieren die Schlussfolgerung vorsichtig.",
+          "en": "Let's include both metrics in this report and keep the conclusion limited."
+        }
+      },
+      {
+        "korean": "좋아요. 다음 달에는 전환 자료를 더 모아서 다시 비교해요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gut. Nächsten Monat vergleichen wir erneut mit mehr Konversionsdaten.",
+          "en": "Good. Next month, let's compare again with more conversion data."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b2_opinion"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_indirect_speech"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(ㄴ/는)다고 하다",
+        "de": "Indirekte Rede",
+        "en": "Indirect speech"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Sagt dass / hat gesagt dass: indirekte Wiedergabe",
+        "en": "Says that / said that: reporting speech indirectly"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "andrea",
+        "ko": "이 영상은 조회 수가 가장 높으니 성과가 좋았다고 볼 수 있겠어요.",
+        "de": "Dieses Video hat die meisten Aufrufe, also könnten wir es als erfolgreich bewerten.",
+        "en": "This video had the most views, so we could call it a strong result."
+      },
+      {
+        "speaker": "user",
+        "ko": "조회 수가 중요하기는 하지만 구매로 이어졌는지도 봐야 해요.",
+        "de": "Die Aufrufe sind wichtig, aber wir sollten auch prüfen, ob daraus Käufe entstanden sind.",
+        "en": "Views matter, but we also need to see whether they led to purchases."
+      },
+      {
+        "speaker": "andrea",
+        "ko": "구매 전환 자료는 아직 일주일치밖에 없어요.",
+        "de": "Wir haben bisher allerdings nur Daten für eine Woche.",
+        "en": "We only have one week of conversion data so far."
+      },
+      {
+        "speaker": "user",
+        "ko": "그래도 조회 수만으로 판단하기는 어려워요.",
+        "de": "Trotzdem lässt sich die Wirkung nicht allein nach den Aufrufen beurteilen.",
+        "en": "Even so, it's hard to judge performance from views alone."
+      },
+      {
+        "speaker": "andrea",
+        "ko": "이번 보고에는 두 지표를 모두 넣고 결론은 제한해서 쓰죠.",
+        "de": "Dann nehmen wir beide Kennzahlen in den Bericht auf und formulieren die Schlussfolgerung vorsichtig.",
+        "en": "Let's include both metrics in this report and keep the conclusion limited."
+      },
+      {
+        "speaker": "user",
+        "ko": "좋아요. 다음 달에는 전환 자료를 더 모아서 다시 비교해요.",
+        "de": "Gut. Nächsten Monat vergleichen wir erneut mit mehr Konversionsdaten.",
+        "en": "Good. Next month, let's compare again with more conversion data."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_meeting_disagreement_evidence_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "이 영상은 조회 수가 가장 높으니 성과가 좋았다고 볼 수 있겠어요.",
+          "options": [
+            {
+              "de": "Dieses Video hat die meisten Aufrufe, also könnten wir es als erfolgreich bewerten.",
+              "en": "This video had the most views, so we could call it a strong result."
+            },
+            {
+              "de": "Die Aufrufe sind wichtig, aber wir sollten auch prüfen, ob daraus Käufe entstanden sind.",
+              "en": "Views matter, but we also need to see whether they led to purchases."
+            },
+            {
+              "de": "Wir haben bisher allerdings nur Daten für eine Woche.",
+              "en": "We only have one week of conversion data so far."
+            },
+            {
+              "de": "Trotzdem lässt sich die Wirkung nicht allein nach den Aufrufen beurteilen.",
+              "en": "Even so, it's hard to judge performance from views alone."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_meeting_disagreement_evidence_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Die Aufrufe sind wichtig, aber wir sollten auch prüfen, ob daraus Käufe entstanden sind.",
+          "promptEn": "Views matter, but we also need to see whether they led to purchases.",
+          "options": [
+            {
+              "ko": "조회 수가 중요하기는 하지만 구매로 이어졌는지도 봐야 해요."
+            },
+            {
+              "ko": "이 영상은 조회 수가 가장 높으니 성과가 좋았다고 볼 수 있겠어요."
+            },
+            {
+              "ko": "구매 전환 자료는 아직 일주일치밖에 없어요."
+            },
+            {
+              "ko": "그래도 조회 수만으로 판단하기는 어려워요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_meeting_disagreement_evidence_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "좋아요. 다음 달에는 전환 자료를 더 모아서 다시 비교해요.",
+          "audioKo": "좋아요. 다음 달에는 전환 자료를 더 모아서 다시 비교해요.",
+          "promptDe": "Gut. Nächsten Monat vergleichen wir erneut mit mehr Konversionsdaten.",
+          "promptEn": "Good. Next month, let's compare again with more conversion data.",
+          "distractors": [
+            "이 영상은 조회 수가 가장 높으니 성과가 좋았다고 볼 수 있겠어요.",
+            "조회 수가 중요하기는 하지만 구매로 이어졌는지도 봐야 해요.",
+            "구매 전환 자료는 아직 일주일치밖에 없어요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 130
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

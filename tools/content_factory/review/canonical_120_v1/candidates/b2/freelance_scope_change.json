@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "freelance_scope_change",
+  "scenario": {
+    "id": "freelance_scope_change",
+    "level": "b2",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "수정 요청이 계약 범위를 넘었을 때",
+      "de": "Eine zusätzliche Drehanfrage verhandeln",
+      "en": "Negotiating an extra filming request"
+    },
+    "intro": {
+      "ko": "최종본 직전에 처음부터 다시 촬영해 달라는 요청이 왔어요.",
+      "de": "Kurz vor der finalen Abgabe bittet der Auftraggeber um einen kompletten Neudreh.",
+      "en": "Just before final delivery, the client asks you to reshoot everything."
+    },
+    "courseUnitId": "b2_03_precise_requests",
+    "playerCharacterId": "daniel",
+    "participantIds": [
+      "daniel",
+      "official"
+    ],
+    "relationshipContext": "프리랜서 다니엘과 고객사 담당자",
+    "intent": "가능한 수정과 새 촬영의 차이를 설명하고 일정·비용 재협의를 요청한다",
+    "shelf": "b2_meeting",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "분위기가 생각과 달라서 촬영부터 다시 하면 좋겠습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die Stimmung passt nicht ganz zu unserer Vorstellung. Wir würden gern neu drehen.",
+          "en": "The mood isn't quite what we imagined. We'd like to reshoot."
+        }
+      },
+      {
+        "korean": "기존 수정 범위에는 새 촬영이 포함되어 있지 않습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ein neuer Dreh ist im vereinbarten Korrekturumfang nicht enthalten.",
+          "en": "A new shoot isn't included in the agreed revision scope."
+        }
+      },
+      {
+        "korean": "그럼 현재 일정 안에서 가능한 방법이 있을까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Welche Lösung wäre dann innerhalb des aktuellen Zeitplans möglich?",
+          "en": "What could we do within the current schedule?"
+        }
+      },
+      {
+        "korean": "전체를 다시 찍는 대신 핵심 장면 하나를 추가할 수 있습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Statt alles neu zu drehen, kann ich eine zentrale Szene ergänzen.",
+          "en": "Instead of reshooting everything, I can add one key scene."
+        }
+      },
+      {
+        "korean": "그 장면으로 도입부 분위기도 바꿀 수 있나요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Lässt sich damit auch die Stimmung des Einstiegs verändern?",
+          "en": "Could that scene also shift the mood of the opening?"
+        }
+      },
+      {
+        "korean": "네. 추가 비용과 일정을 먼저 정리해서 보내 드리겠습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Ich schicke Ihnen vorher eine Übersicht zu Kosten und Zeitplan.",
+          "en": "Yes. I'll send you the added cost and schedule first."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b2_precise_requests"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b2_instead_tradeoff"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-는 대신(에)",
+        "de": "Ersatz mit Ausgleich",
+        "en": "Substitution or tradeoff"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Zeigt, dass eine Handlung oder Eigenschaft durch eine andere ersetzt oder durch einen Vor- oder Nachteil ausgeglichen wird.",
+        "en": "Shows that one action or quality replaces another, or that one side is balanced by a benefit or drawback."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "official",
+        "ko": "분위기가 생각과 달라서 촬영부터 다시 하면 좋겠습니다.",
+        "de": "Die Stimmung passt nicht ganz zu unserer Vorstellung. Wir würden gern neu drehen.",
+        "en": "The mood isn't quite what we imagined. We'd like to reshoot."
+      },
+      {
+        "speaker": "user",
+        "ko": "기존 수정 범위에는 새 촬영이 포함되어 있지 않습니다.",
+        "de": "Ein neuer Dreh ist im vereinbarten Korrekturumfang nicht enthalten.",
+        "en": "A new shoot isn't included in the agreed revision scope."
+      },
+      {
+        "speaker": "official",
+        "ko": "그럼 현재 일정 안에서 가능한 방법이 있을까요?",
+        "de": "Welche Lösung wäre dann innerhalb des aktuellen Zeitplans möglich?",
+        "en": "What could we do within the current schedule?"
+      },
+      {
+        "speaker": "user",
+        "ko": "전체를 다시 찍는 대신 핵심 장면 하나를 추가할 수 있습니다.",
+        "de": "Statt alles neu zu drehen, kann ich eine zentrale Szene ergänzen.",
+        "en": "Instead of reshooting everything, I can add one key scene."
+      },
+      {
+        "speaker": "official",
+        "ko": "그 장면으로 도입부 분위기도 바꿀 수 있나요?",
+        "de": "Lässt sich damit auch die Stimmung des Einstiegs verändern?",
+        "en": "Could that scene also shift the mood of the opening?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네. 추가 비용과 일정을 먼저 정리해서 보내 드리겠습니다.",
+        "de": "Ja. Ich schicke Ihnen vorher eine Übersicht zu Kosten und Zeitplan.",
+        "en": "Yes. I'll send you the added cost and schedule first."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_freelance_scope_change_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "분위기가 생각과 달라서 촬영부터 다시 하면 좋겠습니다.",
+          "options": [
+            {
+              "de": "Die Stimmung passt nicht ganz zu unserer Vorstellung. Wir würden gern neu drehen.",
+              "en": "The mood isn't quite what we imagined. We'd like to reshoot."
+            },
+            {
+              "de": "Ein neuer Dreh ist im vereinbarten Korrekturumfang nicht enthalten.",
+              "en": "A new shoot isn't included in the agreed revision scope."
+            },
+            {
+              "de": "Welche Lösung wäre dann innerhalb des aktuellen Zeitplans möglich?",
+              "en": "What could we do within the current schedule?"
+            },
+            {
+              "de": "Statt alles neu zu drehen, kann ich eine zentrale Szene ergänzen.",
+              "en": "Instead of reshooting everything, I can add one key scene."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_freelance_scope_change_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ein neuer Dreh ist im vereinbarten Korrekturumfang nicht enthalten.",
+          "promptEn": "A new shoot isn't included in the agreed revision scope.",
+          "options": [
+            {
+              "ko": "기존 수정 범위에는 새 촬영이 포함되어 있지 않습니다."
+            },
+            {
+              "ko": "분위기가 생각과 달라서 촬영부터 다시 하면 좋겠습니다."
+            },
+            {
+              "ko": "그럼 현재 일정 안에서 가능한 방법이 있을까요?"
+            },
+            {
+              "ko": "전체를 다시 찍는 대신 핵심 장면 하나를 추가할 수 있습니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_freelance_scope_change_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네. 추가 비용과 일정을 먼저 정리해서 보내 드리겠습니다.",
+          "audioKo": "네. 추가 비용과 일정을 먼저 정리해서 보내 드리겠습니다.",
+          "promptDe": "Ja. Ich schicke Ihnen vorher eine Übersicht zu Kosten und Zeitplan.",
+          "promptEn": "Yes. I'll send you the added cost and schedule first.",
+          "distractors": [
+            "분위기가 생각과 달라서 촬영부터 다시 하면 좋겠습니다.",
+            "기존 수정 범위에는 새 촬영이 포함되어 있지 않습니다.",
+            "그럼 현재 일정 안에서 가능한 방법이 있을까요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 130
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

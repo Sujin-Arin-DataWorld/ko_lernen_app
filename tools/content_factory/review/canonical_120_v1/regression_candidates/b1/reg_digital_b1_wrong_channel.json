@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "reg_digital_b1_wrong_channel",
+  "scenario": {
+    "id": "reg_digital_b1_wrong_channel",
+    "level": "b1",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "단체 채팅방에 개인 메시지를 보냈을 때",
+      "de": "Eine private Nachricht im Teamchat senden",
+      "en": "Sending a private message to the team chat"
+    },
+    "intro": {
+      "ko": "한 동료에게 보낼 일정 불만을 팀 전체 채팅방에 올렸어요.",
+      "de": "Eine Beschwerde über den Zeitplan landet statt bei einer Kollegin im gesamten Teamchat.",
+      "en": "A schedule complaint meant for one coworker was sent to the whole team chat."
+    },
+    "courseUnitId": "b1_03_work_softening",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "coworker"
+    ],
+    "relationshipContext": "동료들",
+    "intent": "메시지를 지운 사실만 알리지 않고 영향과 사과 범위를 정한다",
+    "shelf": "b1_incident",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "마야, 방금 메시지 팀 채팅방에 올라왔어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Maya, deine Nachricht ist gerade im Teamchat gelandet.",
+          "en": "Maya, your message just went to the team chat."
+        }
+      },
+      {
+        "korean": "아… 개인 메시지를 팀 채팅방에 잘못 보냈어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Oh nein … Ich habe eine private Nachricht versehentlich an das ganze Team geschickt.",
+          "en": "Oh no… I accidentally sent a private message to the team chat."
+        }
+      },
+      {
+        "korean": "일정이 답답하다는 내용이라 당사자가 보면 상처받을 수도 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Du schreibst, der Zeitplan frustriere dich. Die betreffende Person könnte sich angegriffen fühlen.",
+          "en": "It says the schedule is frustrating. The person involved may feel hurt."
+        }
+      },
+      {
+        "korean": "감정이 없었던 척하기보다 왜 그런 말을 했는지 직접 설명할게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Statt so zu tun, als wäre ich nicht frustriert, erkläre ich der Person direkt, warum ich das geschrieben habe.",
+          "en": "Rather than pretend I wasn't frustrated, I'll explain directly why I wrote it."
+        }
+      },
+      {
+        "korean": "메시지를 지운 뒤 당사자에게 먼저 연락하는 게 좋겠어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Lösch die Nachricht und wende dich zuerst direkt an die betroffene Person.",
+          "en": "Delete the message, then contact the person involved first."
+        }
+      },
+      {
+        "korean": "네. 공개된 방에 쓴 것부터 사과하고 일정 문제는 따로 이야기할게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Ich entschuldige mich zuerst für die öffentliche Nachricht und bespreche den Zeitplan anschließend getrennt.",
+          "en": "Yes. I'll apologize for posting it publicly first, then discuss the schedule separately."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b1_softening"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_whether"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)ㄴ/는지",
+        "de": "Indirekte Frage (ob/was/wer)",
+        "en": "Indirect question (whether)"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Ob/W-Frage als Nebensatz vor 알다/모르다/궁금하다",
+        "en": "Whether/wh-question as clause before 알다/모르다/궁금하다"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "coworker",
+        "ko": "마야, 방금 메시지 팀 채팅방에 올라왔어요.",
+        "de": "Maya, deine Nachricht ist gerade im Teamchat gelandet.",
+        "en": "Maya, your message just went to the team chat."
+      },
+      {
+        "speaker": "user",
+        "ko": "아… 개인 메시지를 팀 채팅방에 잘못 보냈어요.",
+        "de": "Oh nein … Ich habe eine private Nachricht versehentlich an das ganze Team geschickt.",
+        "en": "Oh no… I accidentally sent a private message to the team chat."
+      },
+      {
+        "speaker": "coworker",
+        "ko": "일정이 답답하다는 내용이라 당사자가 보면 상처받을 수도 있어요.",
+        "de": "Du schreibst, der Zeitplan frustriere dich. Die betreffende Person könnte sich angegriffen fühlen.",
+        "en": "It says the schedule is frustrating. The person involved may feel hurt."
+      },
+      {
+        "speaker": "user",
+        "ko": "감정이 없었던 척하기보다 왜 그런 말을 했는지 직접 설명할게요.",
+        "de": "Statt so zu tun, als wäre ich nicht frustriert, erkläre ich der Person direkt, warum ich das geschrieben habe.",
+        "en": "Rather than pretend I wasn't frustrated, I'll explain directly why I wrote it."
+      },
+      {
+        "speaker": "coworker",
+        "ko": "메시지를 지운 뒤 당사자에게 먼저 연락하는 게 좋겠어요.",
+        "de": "Lösch die Nachricht und wende dich zuerst direkt an die betroffene Person.",
+        "en": "Delete the message, then contact the person involved first."
+      },
+      {
+        "speaker": "user",
+        "ko": "네. 공개된 방에 쓴 것부터 사과하고 일정 문제는 따로 이야기할게요.",
+        "de": "Ja. Ich entschuldige mich zuerst für die öffentliche Nachricht und bespreche den Zeitplan anschließend getrennt.",
+        "en": "Yes. I'll apologize for posting it publicly first, then discuss the schedule separately."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_reg_digital_b1_wrong_channel_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "마야, 방금 메시지 팀 채팅방에 올라왔어요.",
+          "options": [
+            {
+              "de": "Maya, deine Nachricht ist gerade im Teamchat gelandet.",
+              "en": "Maya, your message just went to the team chat."
+            },
+            {
+              "de": "Oh nein … Ich habe eine private Nachricht versehentlich an das ganze Team geschickt.",
+              "en": "Oh no… I accidentally sent a private message to the team chat."
+            },
+            {
+              "de": "Du schreibst, der Zeitplan frustriere dich. Die betreffende Person könnte sich angegriffen fühlen.",
+              "en": "It says the schedule is frustrating. The person involved may feel hurt."
+            },
+            {
+              "de": "Statt so zu tun, als wäre ich nicht frustriert, erkläre ich der Person direkt, warum ich das geschrieben habe.",
+              "en": "Rather than pretend I wasn't frustrated, I'll explain directly why I wrote it."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_reg_digital_b1_wrong_channel_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Oh nein … Ich habe eine private Nachricht versehentlich an das ganze Team geschickt.",
+          "promptEn": "Oh no… I accidentally sent a private message to the team chat.",
+          "options": [
+            {
+              "ko": "아… 개인 메시지를 팀 채팅방에 잘못 보냈어요."
+            },
+            {
+              "ko": "마야, 방금 메시지 팀 채팅방에 올라왔어요."
+            },
+            {
+              "ko": "일정이 답답하다는 내용이라 당사자가 보면 상처받을 수도 있어요."
+            },
+            {
+              "ko": "감정이 없었던 척하기보다 왜 그런 말을 했는지 직접 설명할게요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_reg_digital_b1_wrong_channel_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네. 공개된 방에 쓴 것부터 사과하고 일정 문제는 따로 이야기할게요.",
+          "audioKo": "네. 공개된 방에 쓴 것부터 사과하고 일정 문제는 따로 이야기할게요.",
+          "promptDe": "Ja. Ich entschuldige mich zuerst für die öffentliche Nachricht und bespreche den Zeitplan anschließend getrennt.",
+          "promptEn": "Yes. I'll apologize for posting it publicly first, then discuss the schedule separately.",
+          "distractors": [
+            "마야, 방금 메시지 팀 채팅방에 올라왔어요.",
+            "아… 개인 메시지를 팀 채팅방에 잘못 보냈어요.",
+            "일정이 답답하다는 내용이라 당사자가 보면 상처받을 수도 있어요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 120
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

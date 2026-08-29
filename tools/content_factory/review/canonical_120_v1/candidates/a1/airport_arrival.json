@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "airport_arrival",
+  "scenario": {
+    "id": "airport_arrival",
+    "level": "a1",
+    "emoji": "✈️",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "공항에서 첫 인사",
+      "de": "Die erste Frage am Flughafen",
+      "en": "Your first question at the airport"
+    },
+    "intro": {
+      "ko": "입국 심사대에서 여권을 건네요.",
+      "de": "An der Passkontrolle reichst du deinen Reisepass hin.",
+      "en": "At passport control, you hand over your passport."
+    },
+    "courseUnitId": "a1_01_greetings_hangul",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "official"
+    ],
+    "relationshipContext": "처음 만난 입국 담당자와 여행자",
+    "intent": "짧게 대답하고 감사 인사를 한다",
+    "shelf": "a1_transit",
+    "backdrop": "airport",
+    "vocab": [
+      {
+        "korean": "안녕하세요. 여권 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Guten Tag. Ihren Reisepass, bitte.",
+          "en": "Hello. Your passport, please."
+        }
+      },
+      {
+        "korean": "네, 여기 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, hier bitte.",
+          "en": "Yes, here you are."
+        }
+      },
+      {
+        "korean": "한국은 처음이세요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Sind Sie zum ersten Mal in Korea?",
+          "en": "Is this your first time in Korea?"
+        }
+      },
+      {
+        "korean": "죄송해요. 다시 말씀해 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Entschuldigung. Bitte sagen Sie das noch einmal.",
+          "en": "Sorry. Could you say that again?"
+        }
+      },
+      {
+        "korean": "한국이 처음이에요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ist es Ihr erstes Mal in Korea?",
+          "en": "Is this your first time in Korea?"
+        }
+      },
+      {
+        "korean": "네, 한국이 처음이에요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, ich bin zum ersten Mal in Korea.",
+          "en": "Yes, this is my first time in Korea."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_hangul_batchim",
+      "concept_greeting_politeness"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_copula_polite"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N이에요/예요",
+        "de": "Kopula (sein)",
+        "en": "Copula (to be)"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Nach Konsonant: 이에요 · Nach Vokal: 예요",
+        "en": "After a consonant: 이에요 · after a vowel: 예요"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "official",
+        "ko": "안녕하세요. 여권 주세요.",
+        "de": "Guten Tag. Ihren Reisepass, bitte.",
+        "en": "Hello. Your passport, please."
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 여기 있어요.",
+        "de": "Ja, hier bitte.",
+        "en": "Yes, here you are."
+      },
+      {
+        "speaker": "official",
+        "ko": "한국은 처음이세요?",
+        "de": "Sind Sie zum ersten Mal in Korea?",
+        "en": "Is this your first time in Korea?"
+      },
+      {
+        "speaker": "user",
+        "ko": "죄송해요. 다시 말씀해 주세요.",
+        "de": "Entschuldigung. Bitte sagen Sie das noch einmal.",
+        "en": "Sorry. Could you say that again?"
+      },
+      {
+        "speaker": "official",
+        "ko": "한국이 처음이에요?",
+        "de": "Ist es Ihr erstes Mal in Korea?",
+        "en": "Is this your first time in Korea?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 한국이 처음이에요.",
+        "de": "Ja, ich bin zum ersten Mal in Korea.",
+        "en": "Yes, this is my first time in Korea."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_airport_arrival_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "안녕하세요. 여권 주세요.",
+          "options": [
+            {
+              "de": "Guten Tag. Ihren Reisepass, bitte.",
+              "en": "Hello. Your passport, please."
+            },
+            {
+              "de": "Ja, hier bitte.",
+              "en": "Yes, here you are."
+            },
+            {
+              "de": "Sind Sie zum ersten Mal in Korea?",
+              "en": "Is this your first time in Korea?"
+            },
+            {
+              "de": "Entschuldigung. Bitte sagen Sie das noch einmal.",
+              "en": "Sorry. Could you say that again?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_airport_arrival_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ja, hier bitte.",
+          "promptEn": "Yes, here you are.",
+          "options": [
+            {
+              "ko": "네, 여기 있어요."
+            },
+            {
+              "ko": "안녕하세요. 여권 주세요."
+            },
+            {
+              "ko": "한국은 처음이세요?"
+            },
+            {
+              "ko": "죄송해요. 다시 말씀해 주세요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_airport_arrival_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네, 한국이 처음이에요.",
+          "audioKo": "네, 한국이 처음이에요.",
+          "promptDe": "Ja, ich bin zum ersten Mal in Korea.",
+          "promptEn": "Yes, this is my first time in Korea.",
+          "distractors": [
+            "안녕하세요. 여권 주세요.",
+            "네, 여기 있어요.",
+            "한국은 처음이세요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 100
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

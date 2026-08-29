@@ -106,6 +106,7 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
       speak: widget.speechPlayer,
       stop: widget.stopPlayer,
       onCompleted: _finish,
+      voiceForLine: (line) => _scenario.voiceForSpeaker(line.speaker),
     )..addListener(_onPlaybackChanged);
     Analytics.lessonStarted(
       lessonType: 'listening',
@@ -275,7 +276,7 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
     final intro = _scenario.intro.pick(lang);
     final speakers = <String>{
       for (final line in _scenario.dialog)
-        if (line.speaker != 'narrator') _speakerName(t, line.speaker),
+        if (line.speaker != 'narrator') _speakerName(t, line.speaker, lang),
     }.join(', ');
     return Column(
       children: [
@@ -373,7 +374,11 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
               for (var index = 0; index < _playback.revealedCount; index++)
                 _DialogueBubble(
                   line: _scenario.dialog[index],
-                  speakerName: _speakerName(t, _scenario.dialog[index].speaker),
+                  speakerName: _speakerName(
+                    t,
+                    _scenario.dialog[index].speaker,
+                    lang,
+                  ),
                   gloss: _scenario.dialog[index].pick(lang),
                   current: index == _playback.currentIndex,
                   review: review,
@@ -499,19 +504,13 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
     );
   }
 
-  String _speakerName(AppL10n t, String speaker) {
-    if (speaker == 'user') {
-      return t.listeningSpeakerYou;
-    }
-    if (speaker == 'narrator') {
-      return t.listeningNarrator;
-    }
-    final trimmed = speaker.trim();
-    if (trimmed.isEmpty) {
-      return t.listeningNarrator;
-    }
-    return '${trimmed[0].toUpperCase()}${trimmed.substring(1)}';
-  }
+  String _speakerName(AppL10n t, String speaker, String languageCode) =>
+      _scenario.speakerDisplayName(
+        speaker,
+        languageCode: languageCode,
+        fallbackYou: t.listeningSpeakerYou,
+        fallbackNarrator: t.listeningNarrator,
+      );
 }
 
 class _IntroFact extends StatelessWidget {

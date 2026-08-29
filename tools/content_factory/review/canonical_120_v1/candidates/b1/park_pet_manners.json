@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "park_pet_manners",
+  "scenario": {
+    "id": "park_pet_manners",
+    "level": "b1",
+    "emoji": "🏠",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "공원에서 목줄이 긴 강아지를 만났을 때",
+      "de": "Eine lange Hundeleine auf dem Laufweg",
+      "en": "A long dog leash across a running path"
+    },
+    "intro": {
+      "ko": "긴 목줄이 달리기 길을 가로막아 급히 멈췄어요.",
+      "de": "Eine lange Hundeleine versperrt den Laufweg, und du musst abrupt stehen bleiben.",
+      "en": "A long dog leash crosses the running path, and you have to stop suddenly."
+    },
+    "courseUnitId": "b1_06_life_capstone",
+    "playerCharacterId": "daniel",
+    "participantIds": [
+      "daniel",
+      "neighbor"
+    ],
+    "relationshipContext": "러너 다니엘과 반려견을 데리고 나온 이웃",
+    "intent": "놀란 이유와 필요한 행동을 구체적으로 말한다",
+    "shelf": "b1_neighbor",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "죄송한데, 줄이 길어서 넘어질 뻔했어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Entschuldigung, die Leine war so lang, dass ich fast gestürzt wäre.",
+          "en": "Excuse me, the leash was so long that I almost tripped."
+        }
+      },
+      {
+        "korean": "아, 죄송해요. 사람이 오는 걸 못 봤어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Oh, tut mir leid. Ich habe Sie nicht kommen sehen.",
+          "en": "Oh, I'm sorry. I didn't see you coming."
+        }
+      },
+      {
+        "korean": "저도 너무 빨리 달렸네요. 강아지는 괜찮아요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich war auch ziemlich schnell. Geht es dem Hund gut?",
+          "en": "I was running pretty fast too. Is the dog okay?"
+        }
+      },
+      {
+        "korean": "네, 괜찮아요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, alles gut.",
+          "en": "Yes, he's fine."
+        }
+      },
+      {
+        "korean": "사람 많은 구간에서는 줄을 조금 짧게 잡아 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Bitte halten Sie die Leine in den vollen Abschnitten etwas kürzer.",
+          "en": "Please keep the leash a little shorter in crowded sections."
+        }
+      },
+      {
+        "korean": "네, 앞으로 조심할게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, ich passe künftig auf.",
+          "en": "Yes, I'll be more careful."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b1_life"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a2_cause_sequence"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-아/어서",
+        "de": "Grund / Reihenfolge",
+        "en": "Reason / sequence"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Weil (Grund) oder und dann (zeitliche Abfolge)",
+        "en": "Because (reason) or and then (time sequence)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "죄송한데, 줄이 길어서 넘어질 뻔했어요.",
+        "de": "Entschuldigung, die Leine war so lang, dass ich fast gestürzt wäre.",
+        "en": "Excuse me, the leash was so long that I almost tripped."
+      },
+      {
+        "speaker": "neighbor",
+        "ko": "아, 죄송해요. 사람이 오는 걸 못 봤어요.",
+        "de": "Oh, tut mir leid. Ich habe Sie nicht kommen sehen.",
+        "en": "Oh, I'm sorry. I didn't see you coming."
+      },
+      {
+        "speaker": "user",
+        "ko": "저도 너무 빨리 달렸네요. 강아지는 괜찮아요?",
+        "de": "Ich war auch ziemlich schnell. Geht es dem Hund gut?",
+        "en": "I was running pretty fast too. Is the dog okay?"
+      },
+      {
+        "speaker": "neighbor",
+        "ko": "네, 괜찮아요.",
+        "de": "Ja, alles gut.",
+        "en": "Yes, he's fine."
+      },
+      {
+        "speaker": "user",
+        "ko": "사람 많은 구간에서는 줄을 조금 짧게 잡아 주세요.",
+        "de": "Bitte halten Sie die Leine in den vollen Abschnitten etwas kürzer.",
+        "en": "Please keep the leash a little shorter in crowded sections."
+      },
+      {
+        "speaker": "neighbor",
+        "ko": "네, 앞으로 조심할게요.",
+        "de": "Ja, ich passe künftig auf.",
+        "en": "Yes, I'll be more careful."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_park_pet_manners_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "아, 죄송해요. 사람이 오는 걸 못 봤어요.",
+          "options": [
+            {
+              "de": "Oh, tut mir leid. Ich habe Sie nicht kommen sehen.",
+              "en": "Oh, I'm sorry. I didn't see you coming."
+            },
+            {
+              "de": "Entschuldigung, die Leine war so lang, dass ich fast gestürzt wäre.",
+              "en": "Excuse me, the leash was so long that I almost tripped."
+            },
+            {
+              "de": "Ich war auch ziemlich schnell. Geht es dem Hund gut?",
+              "en": "I was running pretty fast too. Is the dog okay?"
+            },
+            {
+              "de": "Ja, alles gut.",
+              "en": "Yes, he's fine."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_park_pet_manners_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Entschuldigung, die Leine war so lang, dass ich fast gestürzt wäre.",
+          "promptEn": "Excuse me, the leash was so long that I almost tripped.",
+          "options": [
+            {
+              "ko": "죄송한데, 줄이 길어서 넘어질 뻔했어요."
+            },
+            {
+              "ko": "아, 죄송해요. 사람이 오는 걸 못 봤어요."
+            },
+            {
+              "ko": "저도 너무 빨리 달렸네요. 강아지는 괜찮아요?"
+            },
+            {
+              "ko": "네, 괜찮아요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_park_pet_manners_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "사람 많은 구간에서는 줄을 조금 짧게 잡아 주세요.",
+          "audioKo": "사람 많은 구간에서는 줄을 조금 짧게 잡아 주세요.",
+          "promptDe": "Bitte halten Sie die Leine in den vollen Abschnitten etwas kürzer.",
+          "promptEn": "Please keep the leash a little shorter in crowded sections.",
+          "distractors": [
+            "죄송한데, 줄이 길어서 넘어질 뻔했어요.",
+            "아, 죄송해요. 사람이 오는 걸 못 봤어요.",
+            "저도 너무 빨리 달렸네요. 강아지는 괜찮아요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 120
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

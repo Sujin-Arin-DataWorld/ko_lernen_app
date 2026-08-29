@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "neighborhood_filming_notice",
+  "scenario": {
+    "id": "neighborhood_filming_notice",
+    "level": "b2",
+    "emoji": "🗺️",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "골목 촬영 전에 주민에게 알리기",
+      "de": "Eine Dreharbeit in einer engen Gasse ankündigen",
+      "en": "Giving notice before filming in a narrow alley"
+    },
+    "intro": {
+      "ko": "삼각대가 골목 통행을 좁히고 집 현관도 화면에 들어갈 수 있어요.",
+      "de": "Das Stativ verengt den Durchgang, und ein Hauseingang könnte im Bild erscheinen.",
+      "en": "The tripod narrows the alley, and a home's entrance may appear on camera."
+    },
+    "courseUnitId": "b2_03_precise_requests",
+    "playerCharacterId": "daniel",
+    "participantIds": [
+      "daniel",
+      "resident"
+    ],
+    "relationshipContext": "영상 제작자 다니엘과 주민",
+    "intent": "촬영 시간과 화면 범위를 설명하고 불편한 지점을 조정한다",
+    "shelf": "b2_public",
+    "backdrop": "directions",
+    "vocab": [
+      {
+        "korean": "여기에 삼각대를 두면 사람들이 지나가기 어렵지 않을까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wird es für Fußgänger nicht schwierig, wenn das Stativ hier steht?",
+          "en": "Won't it be hard for people to pass if the tripod is here?"
+        }
+      },
+      {
+        "korean": "맞습니다. 통행을 막지 않도록 벽 쪽으로 옮기겠습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Sie haben recht. Ich stelle es an die Wand, damit der Durchgang frei bleibt.",
+          "en": "You're right. I'll move it against the wall so it doesn't block the way."
+        }
+      },
+      {
+        "korean": "저희 집 현관도 화면에 들어가는 것 같아요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Unser Hauseingang scheint ebenfalls im Bild zu sein.",
+          "en": "It looks like our front door is in the shot too."
+        }
+      },
+      {
+        "korean": "현관이 화면에 들어가지 않도록 각도를 바꾸겠습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich ändere den Winkel so, dass der Eingang nicht zu sehen ist.",
+          "en": "I'll change the angle so the entrance isn't in frame."
+        }
+      },
+      {
+        "korean": "촬영은 얼마나 하실 예정이에요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie lange möchten Sie filmen?",
+          "en": "How long are you planning to film?"
+        }
+      },
+      {
+        "korean": "필요한 장면만 찍고 20분 안에 끝내겠습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich nehme nur die nötigen Szenen auf und bin in zwanzig Minuten fertig.",
+          "en": "I'll capture only what I need and finish within twenty minutes."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b2_precise_requests"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_nominalizer_gi"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-기",
+        "de": "Nominalisierung (-기)",
+        "en": "Nominalizer (-기)"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Macht Verben zu Nomen: für Listen · Vorlieben · feste Muster (기 전에/기 때문에)",
+        "en": "Turns verbs into nouns: lists · preferences · set patterns (기 전에/기 때문에)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "resident",
+        "ko": "여기에 삼각대를 두면 사람들이 지나가기 어렵지 않을까요?",
+        "de": "Wird es für Fußgänger nicht schwierig, wenn das Stativ hier steht?",
+        "en": "Won't it be hard for people to pass if the tripod is here?"
+      },
+      {
+        "speaker": "user",
+        "ko": "맞습니다. 통행을 막지 않도록 벽 쪽으로 옮기겠습니다.",
+        "de": "Sie haben recht. Ich stelle es an die Wand, damit der Durchgang frei bleibt.",
+        "en": "You're right. I'll move it against the wall so it doesn't block the way."
+      },
+      {
+        "speaker": "resident",
+        "ko": "저희 집 현관도 화면에 들어가는 것 같아요.",
+        "de": "Unser Hauseingang scheint ebenfalls im Bild zu sein.",
+        "en": "It looks like our front door is in the shot too."
+      },
+      {
+        "speaker": "user",
+        "ko": "현관이 화면에 들어가지 않도록 각도를 바꾸겠습니다.",
+        "de": "Ich ändere den Winkel so, dass der Eingang nicht zu sehen ist.",
+        "en": "I'll change the angle so the entrance isn't in frame."
+      },
+      {
+        "speaker": "resident",
+        "ko": "촬영은 얼마나 하실 예정이에요?",
+        "de": "Wie lange möchten Sie filmen?",
+        "en": "How long are you planning to film?"
+      },
+      {
+        "speaker": "user",
+        "ko": "필요한 장면만 찍고 20분 안에 끝내겠습니다.",
+        "de": "Ich nehme nur die nötigen Szenen auf und bin in zwanzig Minuten fertig.",
+        "en": "I'll capture only what I need and finish within twenty minutes."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_neighborhood_filming_notice_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "여기에 삼각대를 두면 사람들이 지나가기 어렵지 않을까요?",
+          "options": [
+            {
+              "de": "Wird es für Fußgänger nicht schwierig, wenn das Stativ hier steht?",
+              "en": "Won't it be hard for people to pass if the tripod is here?"
+            },
+            {
+              "de": "Sie haben recht. Ich stelle es an die Wand, damit der Durchgang frei bleibt.",
+              "en": "You're right. I'll move it against the wall so it doesn't block the way."
+            },
+            {
+              "de": "Unser Hauseingang scheint ebenfalls im Bild zu sein.",
+              "en": "It looks like our front door is in the shot too."
+            },
+            {
+              "de": "Ich ändere den Winkel so, dass der Eingang nicht zu sehen ist.",
+              "en": "I'll change the angle so the entrance isn't in frame."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_neighborhood_filming_notice_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Sie haben recht. Ich stelle es an die Wand, damit der Durchgang frei bleibt.",
+          "promptEn": "You're right. I'll move it against the wall so it doesn't block the way.",
+          "options": [
+            {
+              "ko": "맞습니다. 통행을 막지 않도록 벽 쪽으로 옮기겠습니다."
+            },
+            {
+              "ko": "여기에 삼각대를 두면 사람들이 지나가기 어렵지 않을까요?"
+            },
+            {
+              "ko": "저희 집 현관도 화면에 들어가는 것 같아요."
+            },
+            {
+              "ko": "현관이 화면에 들어가지 않도록 각도를 바꾸겠습니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_neighborhood_filming_notice_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "필요한 장면만 찍고 20분 안에 끝내겠습니다.",
+          "audioKo": "필요한 장면만 찍고 20분 안에 끝내겠습니다.",
+          "promptDe": "Ich nehme nur die nötigen Szenen auf und bin in zwanzig Minuten fertig.",
+          "promptEn": "I'll capture only what I need and finish within twenty minutes.",
+          "distractors": [
+            "여기에 삼각대를 두면 사람들이 지나가기 어렵지 않을까요?",
+            "맞습니다. 통행을 막지 않도록 벽 쪽으로 옮기겠습니다.",
+            "저희 집 현관도 화면에 들어가는 것 같아요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 130
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

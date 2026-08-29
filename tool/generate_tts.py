@@ -14,7 +14,9 @@
 voice: 'female' = ko-KR-Chirp3-HD-Zephyr
        'male'   = ko-KR-Chirp3-HD-Enceladus
 
-시나리오 대화는 화자 역할(user=여성, NPC·narrator=남성)을 보존한다. 그 밖의
+시나리오 대화는 정본 캐릭터 프로필의 음성을 보존한다. `speaker=user`는 해당
+장면의 `playerCharacterId`로 해석하며, 프로필이 없는 구형 장면에만 예전
+user=여성/NPC=남성 규칙을 적용한다. 그 밖의
 고정·동적 학습 문구는 텍스트 SHA-1 기반의 결정적 auto 정책으로 두 음성을 거의
 같은 비율로 배정한다. 같은 문구는 앱·사전생성기에서 항상 같은 음성을 고른다.
 
@@ -30,12 +32,24 @@ voice: 'female' = ko-KR-Chirp3-HD-Zephyr
     python3 tool/generate_tts.py --dry-run  # 인증·합성·업로드 없이 수집 목록 확인
     python3 tool/generate_tts.py --missing-from-storage --workers 4
     python3 tool/generate_tts.py --verify-storage  # 원격 키 완전성만 검사
+
+승인된 정본 시나리오 레벨만 정확히 다룰 때:
+    python3 tool/generate_tts.py --dry-run \
+      --scenario-pending-manifest tools/content_factory/review/canonical_120_v1/a1_tts_pending.json
+    python3 tool/generate_tts.py --verify-storage \
+      --scenario-pending-manifest tools/content_factory/review/canonical_120_v1/a1_tts_pending.json \
+      --verification-output tools/content_factory/review/canonical_120_v1/a1_tts_ready.json
+
+`--scenario-pending-manifest`는 현재 런타임 전체 수집 대신 그 manifest를 정확한
+작업 범위로 사용한다. `--verify-storage`는 합성·업로드 없이 원격 키를 읽기만
+하고, 선택한 레벨의 승격 영수증을 로컬에 쓸 수 있다.
 """
 
 import argparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import base64
 import csv
+from datetime import datetime, timezone
 import hashlib
 import json
 import os
@@ -132,6 +146,98 @@ def cache_relative_path(voice, text):
     return f"tts/{TTS_CACHE_REVISION}/{voice_key}/{digest}.mp3"
 
 
+def _canonical_json_sha256(value):
+    payload = json.dumps(
+        value,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
+def load_scenario_pending_manifest(path):
+    """Load one exact, offline-generated canonical-scenario TTS scope."""
+
+    with open(path, encoding="utf-8") as handle:
+        manifest = json.load(handle)
+    if not isinstance(manifest, dict):
+        raise ValueError("scenario TTS pending manifest must be a JSON object")
+    if manifest.get("schemaVersion") != 1:
+        raise ValueError("unsupported scenario TTS pending manifest schemaVersion")
+    if manifest.get("kind") != "scenario_tts_pending_manifest":
+        raise ValueError("unexpected scenario TTS pending manifest kind")
+    if manifest.get("cacheRevision") != TTS_CACHE_REVISION:
+        raise ValueError("scenario TTS pending manifest cache revision mismatch")
+    if manifest.get("scope") not in {"a1", "a2", "b1", "b2", "c1", "c2", "corpus"}:
+        raise ValueError("scenario TTS pending manifest has an invalid scope")
+    for key in ("generationId", "candidateSetSha256"):
+        if not isinstance(manifest.get(key), str) or not manifest[key].strip():
+            raise ValueError(f"scenario TTS pending manifest requires {key}")
+
+    items = manifest.get("items")
+    if not isinstance(items, list) or manifest.get("count") != len(items):
+        raise ValueError("scenario TTS pending manifest count does not match items")
+    pairs = []
+    seen = set()
+    for index, item in enumerate(items):
+        if not isinstance(item, dict):
+            raise ValueError(f"scenario TTS pending item {index} must be an object")
+        voice = item.get("voice")
+        text = item.get("text")
+        if voice not in VOICES:
+            raise ValueError(f"scenario TTS pending item {index} has an invalid voice")
+        if not isinstance(text, str) or not text.strip():
+            raise ValueError(f"scenario TTS pending item {index} has empty text")
+        normalized_text = text.strip()
+        expected_path = cache_relative_path(voice, normalized_text)
+        if item.get("cachePath") != expected_path:
+            raise ValueError(
+                f"scenario TTS pending item {index} cachePath does not match voice/text"
+            )
+        pair = (voice, normalized_text)
+        if pair in seen:
+            raise ValueError(f"scenario TTS pending item {index} duplicates voice/text")
+        seen.add(pair)
+        pairs.append(pair)
+    return pairs, manifest
+
+
+def build_storage_verification_receipt(manifest, remote_paths):
+    """Create a promotion receipt from a read-only Firebase Storage listing."""
+
+    expected = {item["cachePath"] for item in manifest["items"]}
+    missing = sorted(expected - set(remote_paths))
+    return {
+        "schemaVersion": 1,
+        "kind": "scenario_tts_storage_verification",
+        "generationId": manifest["generationId"],
+        "scope": manifest["scope"],
+        "candidateSetSha256": manifest["candidateSetSha256"],
+        "ttsManifestSha256": _canonical_json_sha256(manifest),
+        "expectedCount": len(expected),
+        "verifiedCachePathCount": len(expected) - len(missing),
+        "missingCount": len(missing),
+        "cacheRevision": TTS_CACHE_REVISION,
+        "verificationMode": "firebase_storage_listing",
+        "bucket": BUCKET,
+        "verifiedAt": datetime.now(timezone.utc).isoformat(),
+    }, missing
+
+
+def write_storage_verification_receipt(path, receipt):
+    target = os.path.abspath(path)
+    parent = os.path.dirname(target)
+    if parent:
+        os.makedirs(parent, exist_ok=True)
+    temporary = target + ".tmp"
+    with open(temporary, "w", encoding="utf-8", newline="\n") as handle:
+        json.dump(receipt, handle, ensure_ascii=False, indent=2)
+        handle.write("\n")
+    os.replace(temporary, target)
+    return target
+
+
 def _auth():
     """API 키가 설정돼 있으면 gcloud 불필요(None 반환). 없으면 gcloud 토큰."""
     return None if API_KEY else token()
@@ -203,6 +309,31 @@ def collect():
             )
         return rows
 
+    def _scenario_character_voices():
+        path = os.path.join(
+            ROOT,
+            "tools",
+            "content_factory",
+            "canonical_scenarios",
+            "character_profiles.json",
+        )
+        if not os.path.exists(path):
+            return {}
+        with open(path, encoding="utf-8") as handle:
+            payload = json.load(handle)
+        voices = {
+            item["id"]: normalize_voice(item.get("voice"))
+            for item in payload.get("recurringCharacters", [])
+            if item.get("id")
+        }
+        voices.update(
+            {
+                role_id: normalize_voice(item.get("voice"))
+                for role_id, item in payload.get("runtimeRoleProfiles", {}).items()
+            }
+        )
+        return voices
+
     # 1. 단어장: 단어 + 예문 (korean, example_korean) — auto 균형 음성.
     with open(
         os.path.join(ROOT, "assets/data/korean_vocab.csv"), encoding="utf-8"
@@ -211,14 +342,23 @@ def collect():
             for col in ("korean", "example_korean"):
                 add_auto(row.get(col))
 
-    # 2. 시나리오 대화 — 화자별 음성.
-    #    user=여(Zephyr), 상대 NPC·narrator=남(Enceladus).
-    #    scenario_player_screen.dart 의 매핑과 반드시 동일하게 유지.
+    # 2. 시나리오 대화 — 캐릭터별 음성. `user`는 실제 플레이어 인물 ID로
+    #    해석한다. 프로필이 없는 구형 장면만 기존 성별 매핑을 유지한다.
+    character_voices = _scenario_character_voices()
     for sc in _load_scenarios():
         for line in sc.get("dialog", []):
             t = (line.get("ko") or "").strip()
             if t:
-                voice = "female" if line.get("speaker") == "user" else "male"
+                speaker = str(line.get("speaker") or "").strip().lower()
+                resolved = (
+                    str(sc.get("playerCharacterId") or "").strip().lower()
+                    if speaker == "user"
+                    else speaker
+                )
+                voice = character_voices.get(
+                    resolved,
+                    "female" if speaker == "user" else "male",
+                )
                 texts[(voice, t)] = None
 
     # 3. 문법 예문 — grammar.csv col4 (exampleKorean), **구절 단위**.
@@ -285,8 +425,9 @@ def collect():
     for item in _load_json("assets/data/satz_sentences.json").get("items", []):
         add_auto(item.get("targetKo"))
 
-    # (Hören/듣기 화면은 별도 소스가 없다 — listening_screen.dart 는 §2 의
-    #  시나리오 대화를 같은 화자→voice 규칙(user=여, 그 외=남)으로 재생한다.)
+    # (Hören/듣기 화면은 별도 소스가 없다 — listening_play_screen.dart 는 §2 의
+    #  시나리오 대화를 같은 캐릭터 프로필→voice 규칙으로 재생한다. 프로필이
+    #  없는 구형 장면에만 user=여성/NPC=남성 호환 규칙이 남아 있다.)
 
     # 8. 발음 스튜디오 — 모든 reviewed Korean reference sentence 는 기본 auto
     #    TTS 로 재생한다. C4 에서 레벨별로 확장될 JSON 이므로 이 수집이 없으면
@@ -652,7 +793,31 @@ def _parse_args(argv=None):
         action="store_true",
         help="Compare the collected corpus with Firebase Storage without synthesis or writes.",
     )
-    return parser.parse_args(argv)
+    parser.add_argument(
+        "--scenario-pending-manifest",
+        help=(
+            "Use this canonical-scenario pending manifest as the exact operation scope "
+            "instead of collecting current runtime content."
+        ),
+    )
+    parser.add_argument(
+        "--verification-output",
+        help=(
+            "Write a local promotion receipt; requires --verify-storage and "
+            "--scenario-pending-manifest."
+        ),
+    )
+    args = parser.parse_args(argv)
+    if args.verification_output and not (
+        args.verify_storage and args.scenario_pending_manifest
+    ):
+        parser.error(
+            "--verification-output requires --verify-storage and "
+            "--scenario-pending-manifest"
+        )
+    if args.demo and args.scenario_pending_manifest:
+        parser.error("--demo cannot be combined with --scenario-pending-manifest")
+    return args
 
 
 def _print_dry_run(pairs):
@@ -683,7 +848,16 @@ def main(argv=None):
         demo(_auth())
         return 0
 
-    pairs = collect()
+    scenario_manifest = None
+    if args.scenario_pending_manifest:
+        try:
+            pairs, scenario_manifest = load_scenario_pending_manifest(
+                args.scenario_pending_manifest
+            )
+        except (OSError, json.JSONDecodeError, ValueError) as error:
+            raise SystemExit(f"TTS 실행 중단: 시나리오 대기 목록이 잘못되었습니다: {error}")
+    else:
+        pairs = collect()
     print(f"발화 {len(pairs)}개 (dedup 후)")
 
     if args.dry_run:
@@ -704,6 +878,20 @@ def main(argv=None):
         remote_paths = remote_cache_paths()
         missing = sorted(expected - remote_paths)
         unexpected = sorted(remote_paths - expected)
+        if scenario_manifest is not None and args.verification_output:
+            receipt, receipt_missing = build_storage_verification_receipt(
+                scenario_manifest,
+                remote_paths,
+            )
+            if receipt_missing != missing:
+                raise SystemExit(
+                    "TTS 실행 중단: 대기 목록과 검증 범위의 캐시 키가 일치하지 않습니다."
+                )
+            receipt_path = write_storage_verification_receipt(
+                args.verification_output,
+                receipt,
+            )
+            print(f"검증 영수증: {receipt_path}")
         print(
             f"Storage verify — expected {len(expected)}, remote {len(remote_paths)}, "
             f"missing {len(missing)}, stale {len(unexpected)}"

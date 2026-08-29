@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "meeting_opening_context",
+  "scenario": {
+    "id": "meeting_opening_context",
+    "level": "b2",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "처음 참석한 회의에서 목적 확인하기",
+      "de": "Zu Beginn eines Meetings das Ziel klären",
+      "en": "Clarifying the goal at the start of a meeting"
+    },
+    "intro": {
+      "ko": "초대 메일이 짧아서 오늘 무엇을 결정할지 알기 어려워요.",
+      "de": "Die Einladung war knapp, deshalb ist unklar, was heute entschieden werden soll.",
+      "en": "The invitation was brief, so it's unclear what needs to be decided today."
+    },
+    "courseUnitId": "b2_01_formal_opening",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "andrea"
+    ],
+    "relationshipContext": "처음 함께 일하는 마야와 안드레아",
+    "intent": "회의를 끊지 않으면서 범위와 기대 결과를 확인한다",
+    "shelf": "b2_meeting",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "저는 이 회의가 처음이라 먼저 확인하고 싶어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich bin heute zum ersten Mal dabei und würde gern kurz etwas klären.",
+          "en": "This is my first time in this meeting, so I'd like to clarify something first."
+        }
+      },
+      {
+        "korean": "오늘 회의에서 어디까지 결정하면 될까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Was genau sollen wir heute entscheiden?",
+          "en": "How far do we need to get in today's meeting?"
+        }
+      },
+      {
+        "korean": "오늘은 캠페인 방향과 대상만 정하면 돼요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Heute legen wir nur die Richtung und die Zielgruppe der Kampagne fest.",
+          "en": "Today, we only need to decide the campaign direction and audience."
+        }
+      },
+      {
+        "korean": "예산도 오늘 확정하는 줄 알았어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich dachte, wir würden heute auch das Budget festlegen.",
+          "en": "I thought we were finalizing the budget today too."
+        }
+      },
+      {
+        "korean": "예산은 필요한 자료를 더 모아서 다음 회의에서 정하죠.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Für das Budget sammeln wir noch die nötigen Zahlen und entscheiden beim nächsten Termin.",
+          "en": "Let's gather the information we need for the budget and decide at the next meeting."
+        }
+      },
+      {
+        "korean": "알겠습니다. 오늘 결정할 범위부터 메모할게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Verstanden. Dann halte ich zuerst den heutigen Entscheidungsrahmen fest.",
+          "en": "Understood. I'll note the scope of today's decision first."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b2_formal_opening"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a2_conditional"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)면",
+        "de": "Konditionalsatz",
+        "en": "Conditional"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Wenn/Falls-Bedingung",
+        "en": "If / in case (a condition)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "저는 이 회의가 처음이라 먼저 확인하고 싶어요.",
+        "de": "Ich bin heute zum ersten Mal dabei und würde gern kurz etwas klären.",
+        "en": "This is my first time in this meeting, so I'd like to clarify something first."
+      },
+      {
+        "speaker": "user",
+        "ko": "오늘 회의에서 어디까지 결정하면 될까요?",
+        "de": "Was genau sollen wir heute entscheiden?",
+        "en": "How far do we need to get in today's meeting?"
+      },
+      {
+        "speaker": "andrea",
+        "ko": "오늘은 캠페인 방향과 대상만 정하면 돼요.",
+        "de": "Heute legen wir nur die Richtung und die Zielgruppe der Kampagne fest.",
+        "en": "Today, we only need to decide the campaign direction and audience."
+      },
+      {
+        "speaker": "user",
+        "ko": "예산도 오늘 확정하는 줄 알았어요.",
+        "de": "Ich dachte, wir würden heute auch das Budget festlegen.",
+        "en": "I thought we were finalizing the budget today too."
+      },
+      {
+        "speaker": "andrea",
+        "ko": "예산은 필요한 자료를 더 모아서 다음 회의에서 정하죠.",
+        "de": "Für das Budget sammeln wir noch die nötigen Zahlen und entscheiden beim nächsten Termin.",
+        "en": "Let's gather the information we need for the budget and decide at the next meeting."
+      },
+      {
+        "speaker": "user",
+        "ko": "알겠습니다. 오늘 결정할 범위부터 메모할게요.",
+        "de": "Verstanden. Dann halte ich zuerst den heutigen Entscheidungsrahmen fest.",
+        "en": "Understood. I'll note the scope of today's decision first."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_meeting_opening_context_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "오늘은 캠페인 방향과 대상만 정하면 돼요.",
+          "options": [
+            {
+              "de": "Heute legen wir nur die Richtung und die Zielgruppe der Kampagne fest.",
+              "en": "Today, we only need to decide the campaign direction and audience."
+            },
+            {
+              "de": "Ich bin heute zum ersten Mal dabei und würde gern kurz etwas klären.",
+              "en": "This is my first time in this meeting, so I'd like to clarify something first."
+            },
+            {
+              "de": "Was genau sollen wir heute entscheiden?",
+              "en": "How far do we need to get in today's meeting?"
+            },
+            {
+              "de": "Ich dachte, wir würden heute auch das Budget festlegen.",
+              "en": "I thought we were finalizing the budget today too."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_meeting_opening_context_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ich bin heute zum ersten Mal dabei und würde gern kurz etwas klären.",
+          "promptEn": "This is my first time in this meeting, so I'd like to clarify something first.",
+          "options": [
+            {
+              "ko": "저는 이 회의가 처음이라 먼저 확인하고 싶어요."
+            },
+            {
+              "ko": "오늘 회의에서 어디까지 결정하면 될까요?"
+            },
+            {
+              "ko": "오늘은 캠페인 방향과 대상만 정하면 돼요."
+            },
+            {
+              "ko": "예산도 오늘 확정하는 줄 알았어요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_meeting_opening_context_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "알겠습니다. 오늘 결정할 범위부터 메모할게요.",
+          "audioKo": "알겠습니다. 오늘 결정할 범위부터 메모할게요.",
+          "promptDe": "Verstanden. Dann halte ich zuerst den heutigen Entscheidungsrahmen fest.",
+          "promptEn": "Understood. I'll note the scope of today's decision first.",
+          "distractors": [
+            "저는 이 회의가 처음이라 먼저 확인하고 싶어요.",
+            "오늘 회의에서 어디까지 결정하면 될까요?",
+            "오늘은 캠페인 방향과 대상만 정하면 돼요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 130
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

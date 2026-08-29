@@ -19,6 +19,7 @@ export 'learner_level.dart';
 
 import 'curriculum.dart' show SpeechStyle, SpeechStyleX;
 import 'learner_level.dart';
+import 'scenario_character.dart';
 
 /// Eine mehrsprachige Zeichenkette aus dem Scenario-JSON.
 class LocalizedText {
@@ -283,6 +284,8 @@ class Scenario {
   final SpeechStyle? speechStyle;
   final String relationshipContext;
   final String intent;
+  final String playerCharacterId;
+  final List<String> participantIds;
 
   /// 책가도 서재의 칸 — `{level}_{slug}` (예 `a1_eat`).  빈 문자열은 아직
   /// 배정되지 않은 시나리오다 (스펙 §5.1).
@@ -318,6 +321,8 @@ class Scenario {
     this.speechStyle,
     this.relationshipContext = '',
     this.intent = '',
+    this.playerCharacterId = '',
+    this.participantIds = const [],
     this.shelf = '',
     this.backdrop = '',
     this.conceptIds = const [],
@@ -347,6 +352,11 @@ class Scenario {
     speechStyle: SpeechStyleX.tryFromCode(j['speechStyle']?.toString()),
     relationshipContext: (j['relationshipContext'] as String?) ?? '',
     intent: (j['intent'] as String?) ?? '',
+    playerCharacterId: ((j['playerCharacterId'] as String?) ?? '').trim(),
+    participantIds: ((j['participantIds'] as List?) ?? const [])
+        .map((item) => item.toString().trim())
+        .where((item) => item.isNotEmpty)
+        .toList(growable: false),
     shelf: ((j['shelf'] as String?) ?? '').trim(),
     backdrop: ((j['backdrop'] as String?) ?? '').trim(),
     conceptIds: ((j['conceptIds'] as List?) ?? const []).cast<String>(),
@@ -366,6 +376,49 @@ class Scenario {
   );
 
   bool get hasExplicitId => id.trim().isNotEmpty;
+
+  /// Resolves the stable `speaker == user` quest contract to the character
+  /// who actually performs the learner turns in this scene.
+  String resolvedCharacterIdForSpeaker(String speaker) {
+    final normalized = speaker.trim().toLowerCase();
+    if (normalized == 'user' && playerCharacterId.isNotEmpty) {
+      return playerCharacterId.trim().toLowerCase();
+    }
+    return normalized;
+  }
+
+  /// Character profiles are authoritative for canonical scenes. The legacy
+  /// fallback preserves the old 413-scene behaviour until each level has Jin
+  /// approval and is promoted.
+  String voiceForSpeaker(String speaker) {
+    final resolved = resolvedCharacterIdForSpeaker(speaker);
+    final profile = ScenarioCharacterCatalog.profileFor(resolved);
+    if (profile != null) return profile.voice;
+    return speaker.trim().toLowerCase() == 'user' ? 'female' : 'male';
+  }
+
+  String speakerDisplayName(
+    String speaker, {
+    required String languageCode,
+    required String fallbackYou,
+    required String fallbackNarrator,
+  }) {
+    final normalized = speaker.trim().toLowerCase();
+    if (normalized == 'narrator' || normalized.isEmpty) {
+      return fallbackNarrator;
+    }
+    final resolved = resolvedCharacterIdForSpeaker(normalized);
+    final profile = ScenarioCharacterCatalog.profileFor(resolved);
+    if (profile != null) {
+      // Character names are Korean learning-world labels even when the app
+      // chrome is German or English. This also prevents honorifics such as
+      // `수진 씨` from becoming a fixed UI identity.
+      final name = profile.nameKo;
+      return normalized == 'user' ? '$name (나)' : name;
+    }
+    if (normalized == 'user') return fallbackYou;
+    return '${resolved[0].toUpperCase()}${resolved.substring(1)}';
+  }
 }
 
 /// 장면 배경은 이제 JSON `backdrop` 필드가 정본이다.  2026-08-17 이전에는 여기

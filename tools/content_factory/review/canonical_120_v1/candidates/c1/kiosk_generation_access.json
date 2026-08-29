@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "kiosk_generation_access",
+  "scenario": {
+    "id": "kiosk_generation_access",
+    "level": "c1",
+    "emoji": "🍽️",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "무인 주문기가 세대별로 다르게 어려울 때",
+      "de": "Kiosk-Effizienz und abgebrochene Bestellungen",
+      "en": "Kiosk efficiency and abandoned orders"
+    },
+    "intro": {
+      "ko": "무인 주문 뒤 평균 대기 시간은 줄었지만 도움 요청과 주문 포기도 늘었어요.",
+      "de": "Nach der Kioskeinführung sank die durchschnittliche Wartezeit, zugleich stiegen Hilfeanfragen und abgebrochene Bestellungen.",
+      "en": "After kiosks were introduced, average wait time fell, but requests for help and abandoned orders rose."
+    },
+    "courseUnitId": "c1_02_inclusive_sustainable_systems",
+    "playerCharacterId": "sujin",
+    "participantIds": [
+      "sujin",
+      "official"
+    ],
+    "relationshipContext": "데이터 분석가 수진과 매장 담당자",
+    "intent": "평균 지표가 가리는 이용자 집단을 찾아 보완 서비스를 제안한다",
+    "shelf": "c1_mediation",
+    "backdrop": "restaurant",
+    "vocab": [
+      {
+        "korean": "무인 주문 전환 뒤 평균 대기 시간이 2분 줄었습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Seit der Umstellung auf Kioske ist die durchschnittliche Wartezeit um zwei Minuten gesunken.",
+          "en": "After switching to kiosks, average wait time dropped by two minutes."
+        }
+      },
+      {
+        "korean": "평균 대기 시간이 줄었어도 주문을 포기한 사람이 늘었다면 효율이 모두에게 좋아진 것은 아닙니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn mehr Menschen ihre Bestellung abbrechen, bedeutet die kürzere Durchschnittszeit nicht für alle eine Verbesserung.",
+          "en": "If more people abandon their orders, a lower average wait doesn't mean efficiency improved for everyone."
+        }
+      },
+      {
+        "korean": "도움 요청이 늘어난 건 초기 적응 문제일 수도 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die zusätzlichen Hilfeanfragen könnten ein vorübergehendes Eingewöhnungsproblem sein.",
+          "en": "The increase in help requests could be a temporary adjustment issue."
+        }
+      },
+      {
+        "korean": "그 가능성은 있지만 연령이나 접근성 문제에 따라 어려움이 달라질 수 있습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Das ist möglich, doch die Schwierigkeit kann je nach Alter und Barrieren unterschiedlich sein.",
+          "en": "That's possible, but difficulty can vary by age and accessibility barriers."
+        }
+      },
+      {
+        "korean": "혼잡 시간에 안내 인력을 두고 쉬운 화면도 함께 시험해 보죠.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dann testen wir zu Stoßzeiten Unterstützungspersonal und zugleich eine vereinfachte Oberfläche.",
+          "en": "Let's test staffed assistance during busy times along with a simpler interface."
+        }
+      },
+      {
+        "korean": "좋습니다. 평균 시간뿐 아니라 주문 포기율이 줄어드는지도 보겠습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gut. Dann messen wir neben der Wartezeit auch, ob weniger Bestellungen abgebrochen werden.",
+          "en": "Good. We'll measure whether abandonment falls, not just average wait time."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_inclusive_systems"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_c1_effect_varies_by"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N에 따라 효과가 달라질 수 있다",
+        "de": "gruppenabhängige Wirkung",
+        "en": "Effects may vary by"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Begrenzt eine Gesamtaussage, indem mögliche Unterschiede zwischen Gruppen benannt werden.",
+        "en": "Qualifies an overall claim by naming possible differences across groups."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "official",
+        "ko": "무인 주문 전환 뒤 평균 대기 시간이 2분 줄었습니다.",
+        "de": "Seit der Umstellung auf Kioske ist die durchschnittliche Wartezeit um zwei Minuten gesunken.",
+        "en": "After switching to kiosks, average wait time dropped by two minutes."
+      },
+      {
+        "speaker": "user",
+        "ko": "평균 대기 시간이 줄었어도 주문을 포기한 사람이 늘었다면 효율이 모두에게 좋아진 것은 아닙니다.",
+        "de": "Wenn mehr Menschen ihre Bestellung abbrechen, bedeutet die kürzere Durchschnittszeit nicht für alle eine Verbesserung.",
+        "en": "If more people abandon their orders, a lower average wait doesn't mean efficiency improved for everyone."
+      },
+      {
+        "speaker": "official",
+        "ko": "도움 요청이 늘어난 건 초기 적응 문제일 수도 있어요.",
+        "de": "Die zusätzlichen Hilfeanfragen könnten ein vorübergehendes Eingewöhnungsproblem sein.",
+        "en": "The increase in help requests could be a temporary adjustment issue."
+      },
+      {
+        "speaker": "user",
+        "ko": "그 가능성은 있지만 연령이나 접근성 문제에 따라 어려움이 달라질 수 있습니다.",
+        "de": "Das ist möglich, doch die Schwierigkeit kann je nach Alter und Barrieren unterschiedlich sein.",
+        "en": "That's possible, but difficulty can vary by age and accessibility barriers."
+      },
+      {
+        "speaker": "official",
+        "ko": "혼잡 시간에 안내 인력을 두고 쉬운 화면도 함께 시험해 보죠.",
+        "de": "Dann testen wir zu Stoßzeiten Unterstützungspersonal und zugleich eine vereinfachte Oberfläche.",
+        "en": "Let's test staffed assistance during busy times along with a simpler interface."
+      },
+      {
+        "speaker": "user",
+        "ko": "좋습니다. 평균 시간뿐 아니라 주문 포기율이 줄어드는지도 보겠습니다.",
+        "de": "Gut. Dann messen wir neben der Wartezeit auch, ob weniger Bestellungen abgebrochen werden.",
+        "en": "Good. We'll measure whether abandonment falls, not just average wait time."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_kiosk_generation_access_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "무인 주문 전환 뒤 평균 대기 시간이 2분 줄었습니다.",
+          "options": [
+            {
+              "de": "Seit der Umstellung auf Kioske ist die durchschnittliche Wartezeit um zwei Minuten gesunken.",
+              "en": "After switching to kiosks, average wait time dropped by two minutes."
+            },
+            {
+              "de": "Wenn mehr Menschen ihre Bestellung abbrechen, bedeutet die kürzere Durchschnittszeit nicht für alle eine Verbesserung.",
+              "en": "If more people abandon their orders, a lower average wait doesn't mean efficiency improved for everyone."
+            },
+            {
+              "de": "Die zusätzlichen Hilfeanfragen könnten ein vorübergehendes Eingewöhnungsproblem sein.",
+              "en": "The increase in help requests could be a temporary adjustment issue."
+            },
+            {
+              "de": "Das ist möglich, doch die Schwierigkeit kann je nach Alter und Barrieren unterschiedlich sein.",
+              "en": "That's possible, but difficulty can vary by age and accessibility barriers."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_kiosk_generation_access_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Wenn mehr Menschen ihre Bestellung abbrechen, bedeutet die kürzere Durchschnittszeit nicht für alle eine Verbesserung.",
+          "promptEn": "If more people abandon their orders, a lower average wait doesn't mean efficiency improved for everyone.",
+          "options": [
+            {
+              "ko": "평균 대기 시간이 줄었어도 주문을 포기한 사람이 늘었다면 효율이 모두에게 좋아진 것은 아닙니다."
+            },
+            {
+              "ko": "무인 주문 전환 뒤 평균 대기 시간이 2분 줄었습니다."
+            },
+            {
+              "ko": "도움 요청이 늘어난 건 초기 적응 문제일 수도 있어요."
+            },
+            {
+              "ko": "그 가능성은 있지만 연령이나 접근성 문제에 따라 어려움이 달라질 수 있습니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_kiosk_generation_access_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "좋습니다. 평균 시간뿐 아니라 주문 포기율이 줄어드는지도 보겠습니다.",
+          "audioKo": "좋습니다. 평균 시간뿐 아니라 주문 포기율이 줄어드는지도 보겠습니다.",
+          "promptDe": "Gut. Dann messen wir neben der Wartezeit auch, ob weniger Bestellungen abgebrochen werden.",
+          "promptEn": "Good. We'll measure whether abandonment falls, not just average wait time.",
+          "distractors": [
+            "무인 주문 전환 뒤 평균 대기 시간이 2분 줄었습니다.",
+            "평균 대기 시간이 줄었어도 주문을 포기한 사람이 늘었다면 효율이 모두에게 좋아진 것은 아닙니다.",
+            "도움 요청이 늘어난 건 초기 적응 문제일 수도 있어요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 140
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

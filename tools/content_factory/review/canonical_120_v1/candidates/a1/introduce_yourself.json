@@ -1,0 +1,243 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "introduce_yourself",
+  "scenario": {
+    "id": "introduce_yourself",
+    "level": "a1",
+    "emoji": "☕",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "처음 만나 자기소개하기",
+      "de": "Sich im Café vorstellen",
+      "en": "Introducing yourself at a café"
+    },
+    "intro": {
+      "ko": "수업 전에 카페에서 수진을 처음 만나요.",
+      "de": "Vor dem Kurs triffst du Sujin zum ersten Mal in einem Café.",
+      "en": "Before class, you meet Sujin for the first time at a café."
+    },
+    "courseUnitId": "a1_02_self_intro_identity",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "sujin"
+    ],
+    "relationshipContext": "처음 만난 크리스티안과 수진",
+    "intent": "이름과 출신을 말한다",
+    "shelf": "a1_greet",
+    "backdrop": "cafe",
+    "vocab": [
+      {
+        "korean": "안녕하세요. 저는 수진이에요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Hallo. Ich bin Sujin.",
+          "en": "Hi. I'm Sujin."
+        }
+      },
+      {
+        "korean": "안녕하세요. 저는 크리스티안이에요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Hallo. Ich bin Christian.",
+          "en": "Hi. I'm Christian."
+        }
+      },
+      {
+        "korean": "어디에서 왔어요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Woher kommst du?",
+          "en": "Where are you from?"
+        }
+      },
+      {
+        "korean": "독일에서 왔어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich komme aus Deutschland.",
+          "en": "I'm from Germany."
+        }
+      },
+      {
+        "korean": "죄송해요. 이름을 다시 말해 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Entschuldigung, sag deinen Namen bitte noch einmal.",
+          "en": "Sorry, please say your name again."
+        }
+      },
+      {
+        "korean": "네, 수진이에요. 수진.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, Sujin. Su-jin.",
+          "en": "Yes, Sujin. Su-jin."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_identity_formal",
+      "concept_identity_polite",
+      "concept_identity_casual"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_direction_time_particle"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N에",
+        "de": "Richtungs-/Ortspartikel",
+        "en": "Direction/time particle"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Richtung (wohin?) oder Zeitpunkt (wann?)",
+        "en": "Direction (to where?) or point in time (when?)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "sujin",
+        "ko": "안녕하세요. 저는 수진이에요.",
+        "de": "Hallo. Ich bin Sujin.",
+        "en": "Hi. I'm Sujin."
+      },
+      {
+        "speaker": "user",
+        "ko": "안녕하세요. 저는 크리스티안이에요.",
+        "de": "Hallo. Ich bin Christian.",
+        "en": "Hi. I'm Christian."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "어디에서 왔어요?",
+        "de": "Woher kommst du?",
+        "en": "Where are you from?"
+      },
+      {
+        "speaker": "user",
+        "ko": "독일에서 왔어요.",
+        "de": "Ich komme aus Deutschland.",
+        "en": "I'm from Germany."
+      },
+      {
+        "speaker": "user",
+        "ko": "죄송해요. 이름을 다시 말해 주세요.",
+        "de": "Entschuldigung, sag deinen Namen bitte noch einmal.",
+        "en": "Sorry, please say your name again."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "네, 수진이에요. 수진.",
+        "de": "Ja, Sujin. Su-jin.",
+        "en": "Yes, Sujin. Su-jin."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_introduce_yourself_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "안녕하세요. 저는 수진이에요.",
+          "options": [
+            {
+              "de": "Hallo. Ich bin Sujin.",
+              "en": "Hi. I'm Sujin."
+            },
+            {
+              "de": "Hallo. Ich bin Christian.",
+              "en": "Hi. I'm Christian."
+            },
+            {
+              "de": "Woher kommst du?",
+              "en": "Where are you from?"
+            },
+            {
+              "de": "Ich komme aus Deutschland.",
+              "en": "I'm from Germany."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_introduce_yourself_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Hallo. Ich bin Christian.",
+          "promptEn": "Hi. I'm Christian.",
+          "options": [
+            {
+              "ko": "안녕하세요. 저는 크리스티안이에요."
+            },
+            {
+              "ko": "안녕하세요. 저는 수진이에요."
+            },
+            {
+              "ko": "어디에서 왔어요?"
+            },
+            {
+              "ko": "독일에서 왔어요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_introduce_yourself_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "죄송해요. 이름을 다시 말해 주세요.",
+          "audioKo": "죄송해요. 이름을 다시 말해 주세요.",
+          "promptDe": "Entschuldigung, sag deinen Namen bitte noch einmal.",
+          "promptEn": "Sorry, please say your name again.",
+          "distractors": [
+            "안녕하세요. 저는 수진이에요.",
+            "안녕하세요. 저는 크리스티안이에요.",
+            "어디에서 왔어요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 100
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

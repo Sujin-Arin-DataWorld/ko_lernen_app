@@ -1,0 +1,258 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "fremdschaemen_live",
+  "scenario": {
+    "id": "fremdschaemen_live",
+    "level": "b2",
+    "emoji": "☕",
+    "register": "casual",
+    "speechStyle": "casual",
+    "title": {
+      "ko": "친구의 과한 라이브 방송을 보며 민망할 때",
+      "de": "Sich bei einem übertriebenen Livestream fremdschämen",
+      "en": "Feeling embarrassed by a friend's over-the-top livestream"
+    },
+    "intro": {
+      "ko": "마야가 라이브 방송에서 직원에게 갑자기 춤을 부탁했어요.",
+      "de": "Maya hat in einem Livestream einen Mitarbeiter spontan zum Tanzen aufgefordert.",
+      "en": "During a livestream, Maya suddenly asked an employee to dance."
+    },
+    "courseUnitId": "b2_06_advanced_capstone",
+    "playerCharacterId": "lena",
+    "participantIds": [
+      "lena",
+      "maya"
+    ],
+    "relationshipContext": "친한 마야와 레나",
+    "intent": "친구를 조롱하지 않으면서 어떤 행동이 불편했는지 말한다",
+    "shelf": "b2_evidence",
+    "backdrop": "cafe",
+    "vocab": [
+      {
+        "korean": "오늘 라이브 어땠어? 분위기 좋았지?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie fandest du den Livestream? Die Stimmung war doch gut, oder?",
+          "en": "How was the livestream? The energy was good, right?"
+        }
+      },
+      {
+        "korean": "솔직히 직원한테 춤춰 달라고 할 때는 내가 다 민망하더라.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ehrlich gesagt habe ich mich richtig fremdgeschämt, als du den Mitarbeiter zum Tanzen aufgefordert hast.",
+          "en": "Honestly, I felt embarrassed for everyone when you asked the employee to dance."
+        }
+      },
+      {
+        "korean": "그 정도였어? 방송을 살리려고 한 건데.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "So schlimm? Ich wollte den Stream nur lebendiger machen.",
+          "en": "Was it that bad? I was trying to liven up the stream."
+        }
+      },
+      {
+        "korean": "직원이 거절도 못 하고 웃는 것 같아서, 보는 내가 다 부끄러웠어.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Der Mitarbeiter wirkte, als könne er nicht Nein sagen und lächle nur deshalb. Mir war das Zuschauen richtig unangenehm.",
+          "en": "The employee looked like he couldn't say no and was just smiling through it. I felt embarrassed just watching."
+        }
+      },
+      {
+        "korean": "맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Stimmt. Nur weil er gelacht hat, heißt das nicht, dass er einverstanden war.",
+          "en": "You're right. He smiled, but that may not have meant he agreed."
+        }
+      },
+      {
+        "korean": "다음에는 카메라를 켜기 전에 먼저 물어봐.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Frag beim nächsten Mal, bevor die Kamera läuft.",
+          "en": "Next time, ask before the camera is rolling."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b2_advanced"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_before"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-기 전에",
+        "de": "Zeitabfolge (bevor)",
+        "en": "Time sequence (before)"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Bevor etwas getan wird",
+        "en": "Before something is done"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "maya",
+        "ko": "오늘 라이브 어땠어? 분위기 좋았지?",
+        "de": "Wie fandest du den Livestream? Die Stimmung war doch gut, oder?",
+        "en": "How was the livestream? The energy was good, right?"
+      },
+      {
+        "speaker": "user",
+        "ko": "솔직히 직원한테 춤춰 달라고 할 때는 내가 다 민망하더라.",
+        "de": "Ehrlich gesagt habe ich mich richtig fremdgeschämt, als du den Mitarbeiter zum Tanzen aufgefordert hast.",
+        "en": "Honestly, I felt embarrassed for everyone when you asked the employee to dance."
+      },
+      {
+        "speaker": "maya",
+        "ko": "그 정도였어? 방송을 살리려고 한 건데.",
+        "de": "So schlimm? Ich wollte den Stream nur lebendiger machen.",
+        "en": "Was it that bad? I was trying to liven up the stream."
+      },
+      {
+        "speaker": "user",
+        "ko": "직원이 거절도 못 하고 웃는 것 같아서, 보는 내가 다 부끄러웠어.",
+        "de": "Der Mitarbeiter wirkte, als könne er nicht Nein sagen und lächle nur deshalb. Mir war das Zuschauen richtig unangenehm.",
+        "en": "The employee looked like he couldn't say no and was just smiling through it. I felt embarrassed just watching."
+      },
+      {
+        "speaker": "maya",
+        "ko": "맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.",
+        "de": "Stimmt. Nur weil er gelacht hat, heißt das nicht, dass er einverstanden war.",
+        "en": "You're right. He smiled, but that may not have meant he agreed."
+      },
+      {
+        "speaker": "user",
+        "ko": "다음에는 카메라를 켜기 전에 먼저 물어봐.",
+        "de": "Frag beim nächsten Mal, bevor die Kamera läuft.",
+        "en": "Next time, ask before the camera is rolling."
+      },
+      {
+        "speaker": "maya",
+        "ko": "응. 다음부터는 재미보다 괜찮은지 먼저 물어볼게.",
+        "de": "Ja. Nächstes Mal frage ich zuerst, ob es für die Person in Ordnung ist, bevor ich an die Unterhaltung denke.",
+        "en": "I will. Next time, I'll ask if the person is okay with it before trying to make it entertaining."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_fremdschaemen_live_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "오늘 라이브 어땠어? 분위기 좋았지?",
+          "options": [
+            {
+              "de": "Wie fandest du den Livestream? Die Stimmung war doch gut, oder?",
+              "en": "How was the livestream? The energy was good, right?"
+            },
+            {
+              "de": "Ehrlich gesagt habe ich mich richtig fremdgeschämt, als du den Mitarbeiter zum Tanzen aufgefordert hast.",
+              "en": "Honestly, I felt embarrassed for everyone when you asked the employee to dance."
+            },
+            {
+              "de": "So schlimm? Ich wollte den Stream nur lebendiger machen.",
+              "en": "Was it that bad? I was trying to liven up the stream."
+            },
+            {
+              "de": "Der Mitarbeiter wirkte, als könne er nicht Nein sagen und lächle nur deshalb. Mir war das Zuschauen richtig unangenehm.",
+              "en": "The employee looked like he couldn't say no and was just smiling through it. I felt embarrassed just watching."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_fremdschaemen_live_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ehrlich gesagt habe ich mich richtig fremdgeschämt, als du den Mitarbeiter zum Tanzen aufgefordert hast.",
+          "promptEn": "Honestly, I felt embarrassed for everyone when you asked the employee to dance.",
+          "options": [
+            {
+              "ko": "솔직히 직원한테 춤춰 달라고 할 때는 내가 다 민망하더라."
+            },
+            {
+              "ko": "오늘 라이브 어땠어? 분위기 좋았지?"
+            },
+            {
+              "ko": "그 정도였어? 방송을 살리려고 한 건데."
+            },
+            {
+              "ko": "직원이 거절도 못 하고 웃는 것 같아서, 보는 내가 다 부끄러웠어."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_fremdschaemen_live_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "다음에는 카메라를 켜기 전에 먼저 물어봐.",
+          "audioKo": "다음에는 카메라를 켜기 전에 먼저 물어봐.",
+          "promptDe": "Frag beim nächsten Mal, bevor die Kamera läuft.",
+          "promptEn": "Next time, ask before the camera is rolling.",
+          "distractors": [
+            "오늘 라이브 어땠어? 분위기 좋았지?",
+            "솔직히 직원한테 춤춰 달라고 할 때는 내가 다 민망하더라.",
+            "그 정도였어? 방송을 살리려고 한 건데."
+          ]
+        }
+      }
+    ],
+    "culturalNote": {
+      "title": {
+        "ko": "fremdschämen을 자연스럽게 말하면",
+        "de": "Wie fremdschämen hier auf Koreanisch klingt",
+        "en": "Natural Korean for fremdschämen"
+      },
+      "body": {
+        "ko": "이 장면에서는 감정 이름을 설명하기보다 ‘내가 다 민망하다’, ‘보는 내가 다 부끄럽다’처럼 말하는 편이 일상적이에요.",
+        "de": "In dieser Szene klingen 내가 다 민망하다 oder 보는 내가 다 부끄럽다 im Alltag natürlicher als eine abstrakte Bezeichnung für das Gefühl.",
+        "en": "In this scene, 내가 다 민망하다 or 보는 내가 다 부끄럽다 sounds more everyday and natural than an abstract label for the feeling."
+      }
+    },
+    "xpReward": 130
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

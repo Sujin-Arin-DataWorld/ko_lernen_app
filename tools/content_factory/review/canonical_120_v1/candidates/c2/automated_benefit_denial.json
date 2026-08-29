@@ -1,0 +1,248 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "automated_benefit_denial",
+  "scenario": {
+    "id": "automated_benefit_denial",
+    "level": "c2",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "복지 신청이 자동으로 거절됐을 때 책임을 묻기",
+      "de": "Verantwortung bei einer automatisierten Ablehnung von Sozialleistungen",
+      "en": "Accountability for automated benefit denial"
+    },
+    "intro": {
+      "ko": "소득 자료가 잠시 맞지 않아 신청이 자동 거절됐지만 통지에는 구체적 이유가 없어요.",
+      "de": "Ein vorübergehender Datenwiderspruch führt zur automatischen Ablehnung; der Bescheid nennt keinen konkreten Grund.",
+      "en": "A temporary income-data mismatch triggers an automatic denial, but the notice gives no specific reason."
+    },
+    "courseUnitId": "c2_02_technology_public_ethics",
+    "playerCharacterId": "sujin",
+    "participantIds": [
+      "sujin",
+      "official",
+      "resident"
+    ],
+    "relationshipContext": "분석가 수진과 기관 담당자, 당사자 대표",
+    "intent": "모델 정확도와 개별 구제 가능성을 분리해 설명 의무와 재검토 절차를 요구한다",
+    "shelf": "c2_automation",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "통지에는 ‘기준 미충족’이라고만 쓰여 있어서 어떤 자료가 문제인지 알 수 없었습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Im Bescheid stand nur „Voraussetzungen nicht erfüllt“. Ich konnte nicht erkennen, welche Angabe problematisch war.",
+          "en": "The notice only said 'criteria not met,' so I couldn't tell which data was the problem."
+        }
+      },
+      {
+        "korean": "자동 선별 덕분에 처리 기간이 크게 줄어든 것은 사실입니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die automatisierte Vorprüfung hat die Bearbeitungszeit deutlich verkürzt.",
+          "en": "Automated screening has significantly reduced processing time."
+        }
+      },
+      {
+        "korean": "처리 속도가 빨라졌다는 성과가 잘못 거절된 사람의 구제 책임을 없애지는 않습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Kürzere Bearbeitungszeiten beseitigen nicht die Verantwortung, fehlerhaft abgelehnte Personen wirksam zu schützen.",
+          "en": "Faster processing does not remove responsibility for remedying wrongful denials."
+        }
+      },
+      {
+        "korean": "모든 자동 결과를 사람이 다시 보면 효율이 사라질 수 있습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn jede automatische Entscheidung erneut von Menschen geprüft wird, geht der Effizienzgewinn verloren.",
+          "en": "If a person rechecks every automated result, the efficiency gain may disappear."
+        }
+      },
+      {
+        "korean": "모든 건을 반복 심사하자는 게 아니라 불이익을 확정하기 전에 오류 신호가 있는 건을 검토하자는 겁니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Nicht jeder Fall soll doppelt geprüft werden. Bei erkennbaren Widersprüchen sollte jedoch vor einer belastenden Entscheidung ein Mensch prüfen.",
+          "en": "I'm not proposing duplicate review of every case. Cases with error signals should get human review before an adverse decision is finalized."
+        }
+      },
+      {
+        "korean": "어떤 자료가 달랐는지 알 수 있다면 저도 바로 고칠 수 있었어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn ich gewusst hätte, welche Daten abweichen, hätte ich sie sofort berichtigen können.",
+          "en": "If I'd known which data differed, I could have corrected it immediately."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c2_accountable_systems"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_before"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-기 전에",
+        "de": "Zeitabfolge (bevor)",
+        "en": "Time sequence (before)"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Bevor etwas getan wird",
+        "en": "Before something is done"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "resident",
+        "ko": "통지에는 ‘기준 미충족’이라고만 쓰여 있어서 어떤 자료가 문제인지 알 수 없었습니다.",
+        "de": "Im Bescheid stand nur „Voraussetzungen nicht erfüllt“. Ich konnte nicht erkennen, welche Angabe problematisch war.",
+        "en": "The notice only said 'criteria not met,' so I couldn't tell which data was the problem."
+      },
+      {
+        "speaker": "official",
+        "ko": "자동 선별 덕분에 처리 기간이 크게 줄어든 것은 사실입니다.",
+        "de": "Die automatisierte Vorprüfung hat die Bearbeitungszeit deutlich verkürzt.",
+        "en": "Automated screening has significantly reduced processing time."
+      },
+      {
+        "speaker": "user",
+        "ko": "처리 속도가 빨라졌다는 성과가 잘못 거절된 사람의 구제 책임을 없애지는 않습니다.",
+        "de": "Kürzere Bearbeitungszeiten beseitigen nicht die Verantwortung, fehlerhaft abgelehnte Personen wirksam zu schützen.",
+        "en": "Faster processing does not remove responsibility for remedying wrongful denials."
+      },
+      {
+        "speaker": "official",
+        "ko": "모든 자동 결과를 사람이 다시 보면 효율이 사라질 수 있습니다.",
+        "de": "Wenn jede automatische Entscheidung erneut von Menschen geprüft wird, geht der Effizienzgewinn verloren.",
+        "en": "If a person rechecks every automated result, the efficiency gain may disappear."
+      },
+      {
+        "speaker": "user",
+        "ko": "모든 건을 반복 심사하자는 게 아니라 불이익을 확정하기 전에 오류 신호가 있는 건을 검토하자는 겁니다.",
+        "de": "Nicht jeder Fall soll doppelt geprüft werden. Bei erkennbaren Widersprüchen sollte jedoch vor einer belastenden Entscheidung ein Mensch prüfen.",
+        "en": "I'm not proposing duplicate review of every case. Cases with error signals should get human review before an adverse decision is finalized."
+      },
+      {
+        "speaker": "resident",
+        "ko": "어떤 자료가 달랐는지 알 수 있다면 저도 바로 고칠 수 있었어요.",
+        "de": "Wenn ich gewusst hätte, welche Daten abweichen, hätte ich sie sofort berichtigen können.",
+        "en": "If I'd known which data differed, I could have corrected it immediately."
+      },
+      {
+        "speaker": "user",
+        "ko": "그렇기 때문에 이해 가능한 사유 통지와 이의 제기 통로를 효율 평가에 포함해야 합니다.",
+        "de": "Darum gehören eine verständliche Begründung und ein zugänglicher Widerspruchsweg in die Effizienzbewertung.",
+        "en": "That's why understandable reasons and an appeal path must be part of how efficiency is evaluated."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_automated_benefit_denial_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "통지에는 ‘기준 미충족’이라고만 쓰여 있어서 어떤 자료가 문제인지 알 수 없었습니다.",
+          "options": [
+            {
+              "de": "Im Bescheid stand nur „Voraussetzungen nicht erfüllt“. Ich konnte nicht erkennen, welche Angabe problematisch war.",
+              "en": "The notice only said 'criteria not met,' so I couldn't tell which data was the problem."
+            },
+            {
+              "de": "Die automatisierte Vorprüfung hat die Bearbeitungszeit deutlich verkürzt.",
+              "en": "Automated screening has significantly reduced processing time."
+            },
+            {
+              "de": "Kürzere Bearbeitungszeiten beseitigen nicht die Verantwortung, fehlerhaft abgelehnte Personen wirksam zu schützen.",
+              "en": "Faster processing does not remove responsibility for remedying wrongful denials."
+            },
+            {
+              "de": "Wenn jede automatische Entscheidung erneut von Menschen geprüft wird, geht der Effizienzgewinn verloren.",
+              "en": "If a person rechecks every automated result, the efficiency gain may disappear."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_automated_benefit_denial_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Kürzere Bearbeitungszeiten beseitigen nicht die Verantwortung, fehlerhaft abgelehnte Personen wirksam zu schützen.",
+          "promptEn": "Faster processing does not remove responsibility for remedying wrongful denials.",
+          "options": [
+            {
+              "ko": "처리 속도가 빨라졌다는 성과가 잘못 거절된 사람의 구제 책임을 없애지는 않습니다."
+            },
+            {
+              "ko": "통지에는 ‘기준 미충족’이라고만 쓰여 있어서 어떤 자료가 문제인지 알 수 없었습니다."
+            },
+            {
+              "ko": "자동 선별 덕분에 처리 기간이 크게 줄어든 것은 사실입니다."
+            },
+            {
+              "ko": "모든 자동 결과를 사람이 다시 보면 효율이 사라질 수 있습니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_automated_benefit_denial_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "그렇기 때문에 이해 가능한 사유 통지와 이의 제기 통로를 효율 평가에 포함해야 합니다.",
+          "audioKo": "그렇기 때문에 이해 가능한 사유 통지와 이의 제기 통로를 효율 평가에 포함해야 합니다.",
+          "promptDe": "Darum gehören eine verständliche Begründung und ein zugänglicher Widerspruchsweg in die Effizienzbewertung.",
+          "promptEn": "That's why understandable reasons and an appeal path must be part of how efficiency is evaluated.",
+          "distractors": [
+            "통지에는 ‘기준 미충족’이라고만 쓰여 있어서 어떤 자료가 문제인지 알 수 없었습니다.",
+            "자동 선별 덕분에 처리 기간이 크게 줄어든 것은 사실입니다.",
+            "처리 속도가 빨라졌다는 성과가 잘못 거절된 사람의 구제 책임을 없애지는 않습니다."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 150
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

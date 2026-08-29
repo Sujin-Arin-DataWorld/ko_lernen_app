@@ -1,0 +1,252 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "filming_permission",
+  "scenario": {
+    "id": "filming_permission",
+    "level": "b2",
+    "emoji": "☕",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "가게 안을 촬영하기 전에 허락받기",
+      "de": "Vor dem Filmen im Laden um Erlaubnis fragen",
+      "en": "Asking permission before filming in a shop"
+    },
+    "intro": {
+      "ko": "릴스 영상을 찍으면 손님 얼굴과 계산대가 화면에 들어갈 수 있어요.",
+      "de": "Bei einem Reel könnten Gesichter von Gästen und der Kassenbereich mit aufgenommen werden.",
+      "en": "A reel might capture customers' faces and the checkout area."
+    },
+    "courseUnitId": "b2_01_formal_opening",
+    "playerCharacterId": "daniel",
+    "participantIds": [
+      "daniel",
+      "clerk"
+    ],
+    "relationshipContext": "영상 제작자 다니엘과 카페 직원",
+    "intent": "촬영 목적과 범위를 설명하고 실제 선택권을 열어 둔 채 허락을 구한다",
+    "shelf": "b2_evidence",
+    "backdrop": "cafe",
+    "vocab": [
+      {
+        "korean": "가게 안을 잠깐 촬영해도 괜찮으세요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wäre es in Ordnung, wenn ich kurz im Laden filme?",
+          "en": "Would it be okay if I filmed briefly inside the shop?"
+        }
+      },
+      {
+        "korean": "어디에 올릴 영상이에요? 가게 어디까지 찍으실 거예요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wo möchten Sie das Video veröffentlichen, und was genau wollen Sie im Laden filmen?",
+          "en": "Where will you post the video, and what exactly would you film in the shop?"
+        }
+      },
+      {
+        "korean": "인스타그램에 올릴 짧은 릴스예요. 손님 얼굴은 안 나오게 찍을게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Es ist ein kurzes Reel für Instagram. Ich filme so, dass keine Gesichter zu sehen sind.",
+          "en": "It's a short reel for Instagram. I'll make sure no customers' faces appear."
+        }
+      },
+      {
+        "korean": "지금은 손님이 많아서 계산대 쪽은 촬영이 어려워요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Im Moment ist es voll, deshalb können Sie im Kassenbereich nicht filmen.",
+          "en": "It's busy right now, so you can't film around the counter."
+        }
+      },
+      {
+        "korean": "그럼 계산대를 찍는 대신 창가 쪽을 5분만 찍을게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dann filme ich statt der Kasse nur fünf Minuten am Fenster.",
+          "en": "Then instead of filming the counter, I'll film by the window for just five minutes."
+        }
+      },
+      {
+        "korean": "네, 그 정도면 괜찮아요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, so ist es in Ordnung.",
+          "en": "Yes, that would be fine."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b2_formal_opening"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b2_instead_tradeoff"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-는 대신(에)",
+        "de": "Ersatz mit Ausgleich",
+        "en": "Substitution or tradeoff"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Zeigt, dass eine Handlung oder Eigenschaft durch eine andere ersetzt oder durch einen Vor- oder Nachteil ausgeglichen wird.",
+        "en": "Shows that one action or quality replaces another, or that one side is balanced by a benefit or drawback."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "가게 안을 잠깐 촬영해도 괜찮으세요?",
+        "de": "Wäre es in Ordnung, wenn ich kurz im Laden filme?",
+        "en": "Would it be okay if I filmed briefly inside the shop?"
+      },
+      {
+        "speaker": "clerk",
+        "ko": "어디에 올릴 영상이에요? 가게 어디까지 찍으실 거예요?",
+        "de": "Wo möchten Sie das Video veröffentlichen, und was genau wollen Sie im Laden filmen?",
+        "en": "Where will you post the video, and what exactly would you film in the shop?"
+      },
+      {
+        "speaker": "user",
+        "ko": "인스타그램에 올릴 짧은 릴스예요. 손님 얼굴은 안 나오게 찍을게요.",
+        "de": "Es ist ein kurzes Reel für Instagram. Ich filme so, dass keine Gesichter zu sehen sind.",
+        "en": "It's a short reel for Instagram. I'll make sure no customers' faces appear."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "지금은 손님이 많아서 계산대 쪽은 촬영이 어려워요.",
+        "de": "Im Moment ist es voll, deshalb können Sie im Kassenbereich nicht filmen.",
+        "en": "It's busy right now, so you can't film around the counter."
+      },
+      {
+        "speaker": "user",
+        "ko": "그럼 계산대를 찍는 대신 창가 쪽을 5분만 찍을게요.",
+        "de": "Dann filme ich statt der Kasse nur fünf Minuten am Fenster.",
+        "en": "Then instead of filming the counter, I'll film by the window for just five minutes."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "네, 그 정도면 괜찮아요.",
+        "de": "Ja, so ist es in Ordnung.",
+        "en": "Yes, that would be fine."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_filming_permission_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "어디에 올릴 영상이에요? 가게 어디까지 찍으실 거예요?",
+          "options": [
+            {
+              "de": "Wo möchten Sie das Video veröffentlichen, und was genau wollen Sie im Laden filmen?",
+              "en": "Where will you post the video, and what exactly would you film in the shop?"
+            },
+            {
+              "de": "Wäre es in Ordnung, wenn ich kurz im Laden filme?",
+              "en": "Would it be okay if I filmed briefly inside the shop?"
+            },
+            {
+              "de": "Es ist ein kurzes Reel für Instagram. Ich filme so, dass keine Gesichter zu sehen sind.",
+              "en": "It's a short reel for Instagram. I'll make sure no customers' faces appear."
+            },
+            {
+              "de": "Im Moment ist es voll, deshalb können Sie im Kassenbereich nicht filmen.",
+              "en": "It's busy right now, so you can't film around the counter."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_filming_permission_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Wäre es in Ordnung, wenn ich kurz im Laden filme?",
+          "promptEn": "Would it be okay if I filmed briefly inside the shop?",
+          "options": [
+            {
+              "ko": "가게 안을 잠깐 촬영해도 괜찮으세요?"
+            },
+            {
+              "ko": "어디에 올릴 영상이에요? 가게 어디까지 찍으실 거예요?"
+            },
+            {
+              "ko": "인스타그램에 올릴 짧은 릴스예요. 손님 얼굴은 안 나오게 찍을게요."
+            },
+            {
+              "ko": "지금은 손님이 많아서 계산대 쪽은 촬영이 어려워요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_filming_permission_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "그럼 계산대를 찍는 대신 창가 쪽을 5분만 찍을게요.",
+          "audioKo": "그럼 계산대를 찍는 대신 창가 쪽을 5분만 찍을게요.",
+          "promptDe": "Dann filme ich statt der Kasse nur fünf Minuten am Fenster.",
+          "promptEn": "Then instead of filming the counter, I'll film by the window for just five minutes.",
+          "distractors": [
+            "가게 안을 잠깐 촬영해도 괜찮으세요?",
+            "어디에 올릴 영상이에요? 가게 어디까지 찍으실 거예요?",
+            "인스타그램에 올릴 짧은 릴스예요. 손님 얼굴은 안 나오게 찍을게요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": {
+      "title": {
+        "ko": "촬영 허락에는 범위가 포함돼요",
+        "de": "Eine Dreherlaubnis gilt für einen bestimmten Rahmen",
+        "en": "Filming permission includes a defined scope"
+      },
+      "body": {
+        "ko": "촬영해도 되는지는 장소만의 문제가 아니에요. 사람 얼굴, 소리, 시간, 공개할 곳을 함께 말해야 상대가 실제로 선택할 수 있어요.",
+        "de": "Eine Dreherlaubnis betrifft nicht nur den Ort. Gesichter, Ton, Dauer und Veröffentlichungsort gehören dazu, damit die andere Seite wirklich entscheiden kann.",
+        "en": "Filming permission is not only about the location. Faces, sound, duration, and where the video will appear all matter to meaningful consent."
+      }
+    },
+    "xpReward": 130
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "work_message_too_direct",
+  "scenario": {
+    "id": "work_message_too_direct",
+    "level": "b1",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "메신저 답장이 너무 딱딱하게 보였을 때",
+      "de": "Wenn eine kurze Arbeitsnachricht wie Druck klingt",
+      "en": "When a short work message sounds pushy"
+    },
+    "intro": {
+      "ko": "마야의 짧은 메시지가 재촉처럼 읽혔어요.",
+      "de": "Mayas kurze Nachricht wirkte auf ihre Kollegin wie Druck.",
+      "en": "Maya's short message came across as pressure."
+    },
+    "courseUnitId": "b1_03_work_softening",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "andrea"
+    ],
+    "relationshipContext": "신입 마야와 선배 안드레아",
+    "intent": "의도와 다르게 들린 부분을 찾아 더 자연스럽게 고친다",
+    "shelf": "b1_team",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "마야, ‘오늘 안에 가능하실까요?’만 보내면 조금 재촉하는 것처럼 들려요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Maya, nur „Schaffen Sie es heute?“ klingt etwas drängend.",
+          "en": "Maya, sending only 'Can you do it today?' sounds a bit pushy."
+        }
+      },
+      {
+        "korean": "일정을 확인하려던 건데 재촉처럼 보였군요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich wollte nur den Zeitplan klären, aber es wirkte wie Druck.",
+          "en": "I was trying to check the schedule, but it came across as rushing them."
+        }
+      },
+      {
+        "korean": "왜 필요한지 쓰고, 어렵다면 언제 가능한지도 물어봐요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Schreib dazu, warum du es brauchst, und frag, wann es sonst möglich wäre.",
+          "en": "Say why you need it, and ask when it would be possible if today doesn't work."
+        }
+      },
+      {
+        "korean": "‘내일 회의에 필요해서 그런데, 오늘 안에 초안 가능하실까요?’는 어때요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie wäre es mit: „Wir brauchen den Entwurf für das morgige Meeting. Wäre er heute noch möglich?“",
+          "en": "How about, 'We need the draft for tomorrow's meeting. Would today be possible?'"
+        }
+      },
+      {
+        "korean": "좋아요. 어려우시면 가능한 시간을 알려 달라는 말도 붙여요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gut. Ergänze noch, dass die Person sonst einen realistischen Zeitpunkt nennen kann.",
+          "en": "Good. Add that they can suggest a realistic time if today is difficult."
+        }
+      },
+      {
+        "korean": "네, 이유랑 선택지를 같이 쓸게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Verstanden. Ich nenne den Grund und lasse eine Alternative offen.",
+          "en": "Got it. I'll include the reason and leave room for an alternative."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b1_softening"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a2_conditional"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)면",
+        "de": "Konditionalsatz",
+        "en": "Conditional"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Wenn/Falls-Bedingung",
+        "en": "If / in case (a condition)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "andrea",
+        "ko": "마야, ‘오늘 안에 가능하실까요?’만 보내면 조금 재촉하는 것처럼 들려요.",
+        "de": "Maya, nur „Schaffen Sie es heute?“ klingt etwas drängend.",
+        "en": "Maya, sending only 'Can you do it today?' sounds a bit pushy."
+      },
+      {
+        "speaker": "user",
+        "ko": "일정을 확인하려던 건데 재촉처럼 보였군요.",
+        "de": "Ich wollte nur den Zeitplan klären, aber es wirkte wie Druck.",
+        "en": "I was trying to check the schedule, but it came across as rushing them."
+      },
+      {
+        "speaker": "andrea",
+        "ko": "왜 필요한지 쓰고, 어렵다면 언제 가능한지도 물어봐요.",
+        "de": "Schreib dazu, warum du es brauchst, und frag, wann es sonst möglich wäre.",
+        "en": "Say why you need it, and ask when it would be possible if today doesn't work."
+      },
+      {
+        "speaker": "user",
+        "ko": "‘내일 회의에 필요해서 그런데, 오늘 안에 초안 가능하실까요?’는 어때요?",
+        "de": "Wie wäre es mit: „Wir brauchen den Entwurf für das morgige Meeting. Wäre er heute noch möglich?“",
+        "en": "How about, 'We need the draft for tomorrow's meeting. Would today be possible?'"
+      },
+      {
+        "speaker": "andrea",
+        "ko": "좋아요. 어려우시면 가능한 시간을 알려 달라는 말도 붙여요.",
+        "de": "Gut. Ergänze noch, dass die Person sonst einen realistischen Zeitpunkt nennen kann.",
+        "en": "Good. Add that they can suggest a realistic time if today is difficult."
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 이유랑 선택지를 같이 쓸게요.",
+        "de": "Verstanden. Ich nenne den Grund und lasse eine Alternative offen.",
+        "en": "Got it. I'll include the reason and leave room for an alternative."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_work_message_too_direct_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "마야, ‘오늘 안에 가능하실까요?’만 보내면 조금 재촉하는 것처럼 들려요.",
+          "options": [
+            {
+              "de": "Maya, nur „Schaffen Sie es heute?“ klingt etwas drängend.",
+              "en": "Maya, sending only 'Can you do it today?' sounds a bit pushy."
+            },
+            {
+              "de": "Ich wollte nur den Zeitplan klären, aber es wirkte wie Druck.",
+              "en": "I was trying to check the schedule, but it came across as rushing them."
+            },
+            {
+              "de": "Schreib dazu, warum du es brauchst, und frag, wann es sonst möglich wäre.",
+              "en": "Say why you need it, and ask when it would be possible if today doesn't work."
+            },
+            {
+              "de": "Wie wäre es mit: „Wir brauchen den Entwurf für das morgige Meeting. Wäre er heute noch möglich?“",
+              "en": "How about, 'We need the draft for tomorrow's meeting. Would today be possible?'"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_work_message_too_direct_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ich wollte nur den Zeitplan klären, aber es wirkte wie Druck.",
+          "promptEn": "I was trying to check the schedule, but it came across as rushing them.",
+          "options": [
+            {
+              "ko": "일정을 확인하려던 건데 재촉처럼 보였군요."
+            },
+            {
+              "ko": "마야, ‘오늘 안에 가능하실까요?’만 보내면 조금 재촉하는 것처럼 들려요."
+            },
+            {
+              "ko": "왜 필요한지 쓰고, 어렵다면 언제 가능한지도 물어봐요."
+            },
+            {
+              "ko": "‘내일 회의에 필요해서 그런데, 오늘 안에 초안 가능하실까요?’는 어때요?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_work_message_too_direct_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네, 이유랑 선택지를 같이 쓸게요.",
+          "audioKo": "네, 이유랑 선택지를 같이 쓸게요.",
+          "promptDe": "Verstanden. Ich nenne den Grund und lasse eine Alternative offen.",
+          "promptEn": "Got it. I'll include the reason and leave room for an alternative.",
+          "distractors": [
+            "마야, ‘오늘 안에 가능하실까요?’만 보내면 조금 재촉하는 것처럼 들려요.",
+            "일정을 확인하려던 건데 재촉처럼 보였군요.",
+            "왜 필요한지 쓰고, 어렵다면 언제 가능한지도 물어봐요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 120
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

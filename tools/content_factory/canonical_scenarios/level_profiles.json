@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "mappingNotice": "한국어 1~6급과 CEFR A1~C2의 대응은 앱 운영용이며 공식 일대일 등가가 아니다.",
+  "levels": [
+    {
+      "code": "a1",
+      "koreanCourseLevel": 1,
+      "contentScope": "나, 내 주변, 지금 당장 필요한 구체적 상황",
+      "socialRange": "처음 만난 사람, 친구, 직원과 한 가지 용건을 짧게 주고받는 범위",
+      "cognitiveTasks": ["인사", "소개", "확인", "짧은 요청", "사과", "선호 말하기"],
+      "allowedLanguage": {
+        "principle": "한 문장에 정보 하나, 고빈도 어휘, 완전한 자연스러운 문장",
+        "grammarRange": ["이에요/예요", "있어요/없어요", "아/어요", "주세요", "안/못", "기초 조사"],
+        "maxKoCharsWarning": 28,
+        "forbid": ["추상적 원인 분석", "복수 논거", "제도 설명", "문학적 수사"]
+      },
+      "portfolio": {"identity_relationships": 4, "daily_home_time_weather": 4, "food_shopping_services": 5, "transport_travel": 3, "school_leisure": 2, "health_mistake_emotion": 2}
+    },
+    {
+      "code": "a2",
+      "koreanCourseLevel": 2,
+      "contentScope": "익숙한 공공장소와 반복되는 생활 문제",
+      "socialRange": "친구, 동료, 서비스 직원과 계획·요청·작은 문제를 해결하는 범위",
+      "cognitiveTasks": ["요청과 허락", "과거와 계획", "한 가지 이유", "간단한 문제 해결"],
+      "allowedLanguage": {
+        "principle": "짧은 문장을 자연스럽게 연결하고 이유나 계획은 한 번만 확장",
+        "grammarRange": ["-고", "-아서/어서", "-(으)려고", "-아/어도 돼요", "과거형", "간단한 간접 인용"],
+        "maxKoCharsWarning": 42,
+        "forbid": ["여러 이해관계 비교", "제도적 책임", "프레이밍 분석"]
+      },
+      "portfolio": {"relationships_emotions_plans": 4, "daily_home_food": 3, "consumer_delivery_public_services": 4, "transport_travel": 3, "study_work_digital_media": 4, "health_leisure": 2}
+    },
+    {
+      "code": "b1",
+      "koreanCourseLevel": 3,
+      "contentScope": "자신의 삶과 연결된 학교, 직장, 관계, 지역 생활",
+      "socialRange": "익숙한 사람과 낯선 담당자에게 경험과 문제의 경위를 설명하는 범위",
+      "cognitiveTasks": ["경험 설명", "조언", "원인과 결과", "실수 수습", "간단한 의견"],
+      "allowedLanguage": {
+        "principle": "사건의 전후와 한두 개 근거를 말하되 전문적 논증으로 확장하지 않음",
+        "grammarRange": ["-기 때문에", "-는 바람에", "-게 되다", "간접화법", "조건과 결과", "완곡한 의견"],
+        "maxKoCharsWarning": 62,
+        "forbid": ["전문 제도 분석", "고도의 함축 해석"]
+      },
+      "portfolio": {"relationships_romance_cultural_difference": 4, "study_work_digital_communication": 4, "consumer_housing_complaint_resolution": 4, "travel_food_sport_media": 4, "familiar_community_environment": 4}
+    },
+    {
+      "code": "b2",
+      "koreanCourseLevel": 4,
+      "contentScope": "친숙한 사회·추상 주제와 기본 업무",
+      "socialRange": "관계와 격식을 조절하며 동료·기관·공동체와 절충하는 범위",
+      "cognitiveTasks": ["비교", "동의와 반대", "보고", "조건", "절충", "격식 조절"],
+      "allowedLanguage": {
+        "principle": "조건과 양보를 실제 선택지에 연결하고 모호한 갈등을 실용적으로 조정",
+        "grammarRange": ["-기는 하지만", "-(으)ㄹ 경우", "-는 대신", "-다고 해서", "격식 있는 완곡화"],
+        "maxKoCharsWarning": 78,
+        "forbid": ["근거 없는 법률·행정 절차 창작", "희귀어로만 만든 난도"]
+      },
+      "portfolio": {"work_education": 5, "media_technology": 4, "housing_consumer_transport": 3, "relationships_culture": 3, "society_community_environment": 5}
+    },
+    {
+      "code": "c1",
+      "koreanCourseLevel": 5,
+      "contentScope": "사회 전반과 업무·학업에서 서로 다른 이해관계가 만나는 문제",
+      "socialRange": "조직·공동체·공적 장면에서 근거의 한계와 숨은 의도를 조정하는 범위",
+      "cognitiveTasks": ["협의", "체계적 정보 전달", "근거 평가", "이해관계 조정", "숨은 의도 읽기"],
+      "allowedLanguage": {
+        "principle": "논거의 한계와 책임 주체를 명확히 하되 행정명사 연쇄를 피함",
+        "grammarRange": ["양보와 제한", "증거 출처", "책임 범위", "조건부 합의", "관점 조절"],
+        "maxKoCharsWarning": 100,
+        "forbid": ["현학적 장문 자체를 고급성으로 취급", "출처 없는 확정"]
+      },
+      "portfolio": {"society_community_institutions": 5, "work_academia": 4, "media_ai_technology": 4, "culture_art_identity": 3, "city_environment_generations": 4}
+    },
+    {
+      "code": "c2",
+      "koreanCourseLevel": 6,
+      "contentScope": "전문·학술·정치·사회문화적 특수성이 있는 문제",
+      "socialRange": "전문가·시민·기관·당사자의 관점과 문체를 전환하며 설득하는 범위",
+      "cognitiveTasks": ["논리적 설득", "추론", "프레이밍 분석", "함축", "관점과 문체 전환"],
+      "allowedLanguage": {
+        "principle": "전제와 책임 배분을 정밀하게 다루되 실제 장르에 맞는 명료한 문장을 사용",
+        "grammarRange": ["다층 전언", "반사실 조건", "논박", "메타화용", "제도적 인과", "문체 전환"],
+        "maxKoCharsWarning": 120,
+        "forbid": ["내용 없는 수사", "모든 사안을 법률체로 표현", "모델이 임의로 만든 권한과 절차"]
+      },
+      "portfolio": {"politics_economy_institutions_ethics": 5, "academic_science_professional": 4, "media_discourse_power": 4, "automation_accountability": 3, "culture_relationships_narrative_identity": 4}
+    }
+  ]
+}

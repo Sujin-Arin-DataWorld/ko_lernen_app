@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "delivery_refund_evidence",
+  "scenario": {
+    "id": "delivery_refund_evidence",
+    "level": "b2",
+    "emoji": "🏠",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "배달 지연 환불 범위를 협의하기",
+      "de": "Eine teilweise Erstattung für verspätetes Essen",
+      "en": "Negotiating a partial refund for delayed food"
+    },
+    "intro": {
+      "ko": "배달이 한 시간 늦었고 음식도 식었지만 일부는 이미 먹었어요.",
+      "de": "Die Lieferung kam eine Stunde zu spät und kalt an, aber ein Teil wurde bereits gegessen.",
+      "en": "The delivery arrived an hour late and cold, but some of it has already been eaten."
+    },
+    "courseUnitId": "b2_04_complaint_resolution",
+    "playerCharacterId": "sujin",
+    "participantIds": [
+      "sujin",
+      "clerk"
+    ],
+    "relationshipContext": "이용자 수진과 상담 직원",
+    "intent": "확인 가능한 지연과 상태를 말하고 합리적인 환불 범위를 묻는다",
+    "shelf": "b2_contract",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "불편을 드려 죄송합니다. 음식은 모두 그대로 있나요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Entschuldigen Sie die Umstände. Ist das gesamte Essen noch unberührt?",
+          "en": "We're sorry for the inconvenience. Is all of the food untouched?"
+        }
+      },
+      {
+        "korean": "일부는 먹었기 때문에 전액 환불을 요구하는 건 아니에요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Da wir einen Teil gegessen haben, verlange ich keine vollständige Erstattung.",
+          "en": "We ate some of it, so I'm not asking for a full refund."
+        }
+      },
+      {
+        "korean": "어떤 메뉴가 남아 있는지 알려 주시겠어요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Welche Gerichte sind noch unberührt?",
+          "en": "Could you tell me which items are untouched?"
+        }
+      },
+      {
+        "korean": "국수는 먹었고 만두와 샐러드는 그대로 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die Nudeln haben wir gegessen; Teigtaschen und Salat sind unberührt.",
+          "en": "We ate the noodles, but the dumplings and salad are untouched."
+        }
+      },
+      {
+        "korean": "그 두 메뉴와 배달비를 기준으로 확인해 보겠습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dann prüfe ich eine Erstattung für diese beiden Gerichte und die Liefergebühr.",
+          "en": "I'll check the refund based on those two items and the delivery fee."
+        }
+      },
+      {
+        "korean": "네, 실제로 먹지 않은 부분만 반영해 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, bitte berücksichtigen Sie nur den Teil, den wir nicht gegessen haben.",
+          "en": "Yes, please reflect only the portion we didn't eat."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b2_complaint"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_whether"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)ㄴ/는지",
+        "de": "Indirekte Frage (ob/was/wer)",
+        "en": "Indirect question (whether)"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Ob/W-Frage als Nebensatz vor 알다/모르다/궁금하다",
+        "en": "Whether/wh-question as clause before 알다/모르다/궁금하다"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "clerk",
+        "ko": "불편을 드려 죄송합니다. 음식은 모두 그대로 있나요?",
+        "de": "Entschuldigen Sie die Umstände. Ist das gesamte Essen noch unberührt?",
+        "en": "We're sorry for the inconvenience. Is all of the food untouched?"
+      },
+      {
+        "speaker": "user",
+        "ko": "일부는 먹었기 때문에 전액 환불을 요구하는 건 아니에요.",
+        "de": "Da wir einen Teil gegessen haben, verlange ich keine vollständige Erstattung.",
+        "en": "We ate some of it, so I'm not asking for a full refund."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "어떤 메뉴가 남아 있는지 알려 주시겠어요?",
+        "de": "Welche Gerichte sind noch unberührt?",
+        "en": "Could you tell me which items are untouched?"
+      },
+      {
+        "speaker": "user",
+        "ko": "국수는 먹었고 만두와 샐러드는 그대로 있어요.",
+        "de": "Die Nudeln haben wir gegessen; Teigtaschen und Salat sind unberührt.",
+        "en": "We ate the noodles, but the dumplings and salad are untouched."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "그 두 메뉴와 배달비를 기준으로 확인해 보겠습니다.",
+        "de": "Dann prüfe ich eine Erstattung für diese beiden Gerichte und die Liefergebühr.",
+        "en": "I'll check the refund based on those two items and the delivery fee."
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 실제로 먹지 않은 부분만 반영해 주세요.",
+        "de": "Ja, bitte berücksichtigen Sie nur den Teil, den wir nicht gegessen haben.",
+        "en": "Yes, please reflect only the portion we didn't eat."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_delivery_refund_evidence_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "불편을 드려 죄송합니다. 음식은 모두 그대로 있나요?",
+          "options": [
+            {
+              "de": "Entschuldigen Sie die Umstände. Ist das gesamte Essen noch unberührt?",
+              "en": "We're sorry for the inconvenience. Is all of the food untouched?"
+            },
+            {
+              "de": "Da wir einen Teil gegessen haben, verlange ich keine vollständige Erstattung.",
+              "en": "We ate some of it, so I'm not asking for a full refund."
+            },
+            {
+              "de": "Welche Gerichte sind noch unberührt?",
+              "en": "Could you tell me which items are untouched?"
+            },
+            {
+              "de": "Die Nudeln haben wir gegessen; Teigtaschen und Salat sind unberührt.",
+              "en": "We ate the noodles, but the dumplings and salad are untouched."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_delivery_refund_evidence_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Da wir einen Teil gegessen haben, verlange ich keine vollständige Erstattung.",
+          "promptEn": "We ate some of it, so I'm not asking for a full refund.",
+          "options": [
+            {
+              "ko": "일부는 먹었기 때문에 전액 환불을 요구하는 건 아니에요."
+            },
+            {
+              "ko": "불편을 드려 죄송합니다. 음식은 모두 그대로 있나요?"
+            },
+            {
+              "ko": "어떤 메뉴가 남아 있는지 알려 주시겠어요?"
+            },
+            {
+              "ko": "국수는 먹었고 만두와 샐러드는 그대로 있어요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_delivery_refund_evidence_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네, 실제로 먹지 않은 부분만 반영해 주세요.",
+          "audioKo": "네, 실제로 먹지 않은 부분만 반영해 주세요.",
+          "promptDe": "Ja, bitte berücksichtigen Sie nur den Teil, den wir nicht gegessen haben.",
+          "promptEn": "Yes, please reflect only the portion we didn't eat.",
+          "distractors": [
+            "불편을 드려 죄송합니다. 음식은 모두 그대로 있나요?",
+            "일부는 먹었기 때문에 전액 환불을 요구하는 건 아니에요.",
+            "어떤 메뉴가 남아 있는지 알려 주시겠어요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 130
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

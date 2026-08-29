@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "jeju_bus_missed",
+  "scenario": {
+    "id": "jeju_bus_missed",
+    "level": "a2",
+    "emoji": "🚇",
+    "register": "casual",
+    "speechStyle": "casual",
+    "title": {
+      "ko": "제주에서 막차를 놓쳤을 때",
+      "de": "Den letzten Bus auf Jeju verpassen",
+      "en": "Missing the last bus on Jeju"
+    },
+    "intro": {
+      "ko": "사진을 찍다가 숙소 방향 막차를 놓쳤어요.",
+      "de": "Beim Fotografieren habt ihr den letzten Bus zu eurer Unterkunft verpasst.",
+      "en": "You missed the last bus to your accommodation while taking photos."
+    },
+    "courseUnitId": "a2_07_travel_repair",
+    "playerCharacterId": "lena",
+    "participantIds": [
+      "lena",
+      "daniel"
+    ],
+    "relationshipContext": "여행 중인 레나와 다니엘",
+    "intent": "지금 가능한 이동 방법 하나를 묻는다",
+    "shelf": "a2_move",
+    "backdrop": "station",
+    "vocab": [
+      {
+        "korean": "다니엘, 우리 막차를 놓쳤어.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Daniel, wir haben den letzten Bus verpasst.",
+          "en": "Daniel, we missed the last bus."
+        }
+      },
+      {
+        "korean": "사진을 찍어서 시간을 못 봤네.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Beim Fotografieren habe ich die Zeit ganz vergessen.",
+          "en": "I lost track of time while taking photos."
+        }
+      },
+      {
+        "korean": "다음 버스는 내일 아침이야.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Der nächste Bus fährt erst morgen früh.",
+          "en": "The next bus isn't until tomorrow morning."
+        }
+      },
+      {
+        "korean": "먼저 숙소에 늦게 도착한다고 연락하자.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Sagen wir zuerst der Unterkunft, dass wir später ankommen.",
+          "en": "Let's tell the accommodation we'll arrive late first."
+        }
+      },
+      {
+        "korean": "응. 그다음에 택시를 찾아보자.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Danach suchen wir ein Taxi.",
+          "en": "Okay. Then let's look for a taxi."
+        }
+      },
+      {
+        "korean": "좋아. 내가 메시지 보낼게.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gut. Ich schicke die Nachricht.",
+          "en": "All right. I'll send the message."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a2_travel_repair"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a2_cause_sequence"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-아/어서",
+        "de": "Grund / Reihenfolge",
+        "en": "Reason / sequence"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Weil (Grund) oder und dann (zeitliche Abfolge)",
+        "en": "Because (reason) or and then (time sequence)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "다니엘, 우리 막차를 놓쳤어.",
+        "de": "Daniel, wir haben den letzten Bus verpasst.",
+        "en": "Daniel, we missed the last bus."
+      },
+      {
+        "speaker": "daniel",
+        "ko": "사진을 찍어서 시간을 못 봤네.",
+        "de": "Beim Fotografieren habe ich die Zeit ganz vergessen.",
+        "en": "I lost track of time while taking photos."
+      },
+      {
+        "speaker": "user",
+        "ko": "다음 버스는 내일 아침이야.",
+        "de": "Der nächste Bus fährt erst morgen früh.",
+        "en": "The next bus isn't until tomorrow morning."
+      },
+      {
+        "speaker": "daniel",
+        "ko": "먼저 숙소에 늦게 도착한다고 연락하자.",
+        "de": "Sagen wir zuerst der Unterkunft, dass wir später ankommen.",
+        "en": "Let's tell the accommodation we'll arrive late first."
+      },
+      {
+        "speaker": "user",
+        "ko": "응. 그다음에 택시를 찾아보자.",
+        "de": "Ja. Danach suchen wir ein Taxi.",
+        "en": "Okay. Then let's look for a taxi."
+      },
+      {
+        "speaker": "daniel",
+        "ko": "좋아. 내가 메시지 보낼게.",
+        "de": "Gut. Ich schicke die Nachricht.",
+        "en": "All right. I'll send the message."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_jeju_bus_missed_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "사진을 찍어서 시간을 못 봤네.",
+          "options": [
+            {
+              "de": "Beim Fotografieren habe ich die Zeit ganz vergessen.",
+              "en": "I lost track of time while taking photos."
+            },
+            {
+              "de": "Daniel, wir haben den letzten Bus verpasst.",
+              "en": "Daniel, we missed the last bus."
+            },
+            {
+              "de": "Der nächste Bus fährt erst morgen früh.",
+              "en": "The next bus isn't until tomorrow morning."
+            },
+            {
+              "de": "Sagen wir zuerst der Unterkunft, dass wir später ankommen.",
+              "en": "Let's tell the accommodation we'll arrive late first."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_jeju_bus_missed_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Daniel, wir haben den letzten Bus verpasst.",
+          "promptEn": "Daniel, we missed the last bus.",
+          "options": [
+            {
+              "ko": "다니엘, 우리 막차를 놓쳤어."
+            },
+            {
+              "ko": "사진을 찍어서 시간을 못 봤네."
+            },
+            {
+              "ko": "다음 버스는 내일 아침이야."
+            },
+            {
+              "ko": "먼저 숙소에 늦게 도착한다고 연락하자."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_jeju_bus_missed_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "응. 그다음에 택시를 찾아보자.",
+          "audioKo": "응. 그다음에 택시를 찾아보자.",
+          "promptDe": "Ja. Danach suchen wir ein Taxi.",
+          "promptEn": "Okay. Then let's look for a taxi.",
+          "distractors": [
+            "다니엘, 우리 막차를 놓쳤어.",
+            "사진을 찍어서 시간을 못 봤네.",
+            "다음 버스는 내일 아침이야."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 110
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

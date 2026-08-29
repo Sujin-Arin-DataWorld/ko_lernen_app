@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "community_festival_shift",
+  "scenario": {
+    "id": "community_festival_shift",
+    "level": "b1",
+    "emoji": "🏠",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "동네 축제 봉사 시간을 바꿔야 할 때",
+      "de": "Eine Schicht beim Nachbarschaftsfest tauschen",
+      "en": "Changing a volunteer shift at a neighborhood festival"
+    },
+    "intro": {
+      "ko": "수업 시간이 바뀌어 맡은 봉사 시간에 갈 수 없어요.",
+      "de": "Deine Kurszeit hat sich geändert, deshalb kannst du deine Schicht beim Fest nicht übernehmen.",
+      "en": "Your class time changed, so you can't make your volunteer shift."
+    },
+    "courseUnitId": "b1_03_work_softening",
+    "playerCharacterId": "lena",
+    "participantIds": [
+      "lena",
+      "official"
+    ],
+    "relationshipContext": "봉사자 레나와 담당자",
+    "intent": "변경 이유를 말하고 다른 시간대를 제안한다",
+    "shelf": "b1_neighbor",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "축제 봉사 담당입니다. 무슨 일이세요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Hier ist die Einsatzplanung für das Fest. Worum geht es?",
+          "en": "This is the festival volunteer coordinator. How can I help?"
+        }
+      },
+      {
+        "korean": "수업 시간이 바뀌는 바람에 그 시간에는 못 갈 것 같아요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Meine Kurszeit wurde geändert, deshalb schaffe ich meine Schicht wahrscheinlich nicht.",
+          "en": "My class time changed, so I don't think I can make that shift."
+        }
+      },
+      {
+        "korean": "토요일 두 시 안내 부스 맞으시죠?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Es geht um den Infostand am Samstag um zwei, richtig?",
+          "en": "That's the information booth at two on Saturday, right?"
+        }
+      },
+      {
+        "korean": "네. 혹시 네 시로 바꿀 수 있을까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Könnte ich vielleicht auf vier Uhr wechseln?",
+          "en": "Yes. Could I possibly switch to four?"
+        }
+      },
+      {
+        "korean": "다른 봉사자에게 먼저 확인해 보고 알려 드릴게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich frage erst die andere Person und gebe Ihnen dann Bescheid.",
+          "en": "I'll check with the other volunteer first and let you know."
+        }
+      },
+      {
+        "korean": "네, 확인되기 전까지는 원래 시간으로 알고 있을게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gut, bis zur Bestätigung gehe ich weiter von der ursprünglichen Zeit aus.",
+          "en": "Okay. Until it's confirmed, I'll keep the original time in mind."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b1_softening"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_nominalizer_gi"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-기",
+        "de": "Nominalisierung (-기)",
+        "en": "Nominalizer (-기)"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Macht Verben zu Nomen: für Listen · Vorlieben · feste Muster (기 전에/기 때문에)",
+        "en": "Turns verbs into nouns: lists · preferences · set patterns (기 전에/기 때문에)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "official",
+        "ko": "축제 봉사 담당입니다. 무슨 일이세요?",
+        "de": "Hier ist die Einsatzplanung für das Fest. Worum geht es?",
+        "en": "This is the festival volunteer coordinator. How can I help?"
+      },
+      {
+        "speaker": "user",
+        "ko": "수업 시간이 바뀌는 바람에 그 시간에는 못 갈 것 같아요.",
+        "de": "Meine Kurszeit wurde geändert, deshalb schaffe ich meine Schicht wahrscheinlich nicht.",
+        "en": "My class time changed, so I don't think I can make that shift."
+      },
+      {
+        "speaker": "official",
+        "ko": "토요일 두 시 안내 부스 맞으시죠?",
+        "de": "Es geht um den Infostand am Samstag um zwei, richtig?",
+        "en": "That's the information booth at two on Saturday, right?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네. 혹시 네 시로 바꿀 수 있을까요?",
+        "de": "Ja. Könnte ich vielleicht auf vier Uhr wechseln?",
+        "en": "Yes. Could I possibly switch to four?"
+      },
+      {
+        "speaker": "official",
+        "ko": "다른 봉사자에게 먼저 확인해 보고 알려 드릴게요.",
+        "de": "Ich frage erst die andere Person und gebe Ihnen dann Bescheid.",
+        "en": "I'll check with the other volunteer first and let you know."
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 확인되기 전까지는 원래 시간으로 알고 있을게요.",
+        "de": "Gut, bis zur Bestätigung gehe ich weiter von der ursprünglichen Zeit aus.",
+        "en": "Okay. Until it's confirmed, I'll keep the original time in mind."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_community_festival_shift_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "축제 봉사 담당입니다. 무슨 일이세요?",
+          "options": [
+            {
+              "de": "Hier ist die Einsatzplanung für das Fest. Worum geht es?",
+              "en": "This is the festival volunteer coordinator. How can I help?"
+            },
+            {
+              "de": "Meine Kurszeit wurde geändert, deshalb schaffe ich meine Schicht wahrscheinlich nicht.",
+              "en": "My class time changed, so I don't think I can make that shift."
+            },
+            {
+              "de": "Es geht um den Infostand am Samstag um zwei, richtig?",
+              "en": "That's the information booth at two on Saturday, right?"
+            },
+            {
+              "de": "Ja. Könnte ich vielleicht auf vier Uhr wechseln?",
+              "en": "Yes. Could I possibly switch to four?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_community_festival_shift_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Meine Kurszeit wurde geändert, deshalb schaffe ich meine Schicht wahrscheinlich nicht.",
+          "promptEn": "My class time changed, so I don't think I can make that shift.",
+          "options": [
+            {
+              "ko": "수업 시간이 바뀌는 바람에 그 시간에는 못 갈 것 같아요."
+            },
+            {
+              "ko": "축제 봉사 담당입니다. 무슨 일이세요?"
+            },
+            {
+              "ko": "토요일 두 시 안내 부스 맞으시죠?"
+            },
+            {
+              "ko": "네. 혹시 네 시로 바꿀 수 있을까요?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_community_festival_shift_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네, 확인되기 전까지는 원래 시간으로 알고 있을게요.",
+          "audioKo": "네, 확인되기 전까지는 원래 시간으로 알고 있을게요.",
+          "promptDe": "Gut, bis zur Bestätigung gehe ich weiter von der ursprünglichen Zeit aus.",
+          "promptEn": "Okay. Until it's confirmed, I'll keep the original time in mind.",
+          "distractors": [
+            "축제 봉사 담당입니다. 무슨 일이세요?",
+            "수업 시간이 바뀌는 바람에 그 시간에는 못 갈 것 같아요.",
+            "토요일 두 시 안내 부스 맞으시죠?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 120
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

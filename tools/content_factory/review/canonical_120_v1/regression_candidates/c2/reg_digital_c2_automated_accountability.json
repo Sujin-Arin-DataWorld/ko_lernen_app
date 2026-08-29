@@ -1,0 +1,248 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "reg_digital_c2_automated_accountability",
+  "scenario": {
+    "id": "reg_digital_c2_automated_accountability",
+    "level": "c2",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "자동 차단 시스템의 책임과 구제",
+      "de": "Verantwortung und Rechtsbehelf bei automatischen Sperren",
+      "en": "Accountability and remedy for automated account bans"
+    },
+    "intro": {
+      "ko": "자동 시스템이 활동가 계정을 반복 차단했지만 회사는 모델의 결정이라고만 설명해요.",
+      "de": "Ein automatisches System sperrt wiederholt das Konto einer Aktivistin; das Unternehmen verweist lediglich auf das Modell.",
+      "en": "An automated system repeatedly blocks an activist's account, while the company says only that the model decided."
+    },
+    "courseUnitId": "c2_03_automation_redress",
+    "playerCharacterId": "sujin",
+    "participantIds": [
+      "sujin",
+      "official",
+      "resident"
+    ],
+    "relationshipContext": "플랫폼 담당자와 이용자 대표",
+    "intent": "도구의 판단과 기관의 책임을 분리하지 못하게 하고 구제 기준을 설계한다",
+    "shelf": "c2_record",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "사기 신고 내용을 공유할 때마다 제 계정이 차단되고 이의 제기는 같은 자동 답변으로 끝납니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Jedes Mal, wenn ich Betrugswarnungen teile, wird mein Konto gesperrt; mein Einspruch endet mit derselben automatischen Antwort.",
+          "en": "Every time I share scam warnings, my account is blocked, and my appeals end with the same automated reply."
+        }
+      },
+      {
+        "korean": "대량의 악용 신고를 처리하려면 모델 판단을 기본으로 둘 수밖에 없습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Um große Mengen an Missbrauch zu bearbeiten, müssen wir die Modellentscheidung als Standard nutzen.",
+          "en": "To process abuse at scale, we have to use model decisions as the default."
+        }
+      },
+      {
+        "korean": "모델이 결정했다는 설명은 그 모델을 배치하고 유지한 기관의 책임을 대신할 수 없습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Der Hinweis, das Modell habe entschieden, ersetzt nicht die Verantwortung der Institution, die es eingesetzt und betrieben hat.",
+          "en": "Saying the model decided cannot replace the responsibility of the institution that deployed and maintained it."
+        }
+      },
+      {
+        "korean": "모든 차단을 독립적으로 다시 보면 악용 대응 속도가 크게 떨어집니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Eine unabhängige Prüfung jeder Sperre würde die Reaktionsgeschwindigkeit gegen Missbrauch stark verringern.",
+          "en": "Independently reviewing every block would greatly slow abuse response."
+        }
+      },
+      {
+        "korean": "모든 건이 아니라 반복 오판, 공익 정보, 큰 불이익이 겹치는 사례를 우선 재검토할 수 있습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Vorrang könnten Fälle mit wiederholten Fehlentscheidungen, Informationen von öffentlichem Interesse und schweren Folgen haben.",
+          "en": "Priority review can focus on repeated errors, public-interest information, and cases with severe consequences."
+        }
+      },
+      {
+        "korean": "같은 자동 답변만 반복되지 않고 누가 어떤 근거를 봤는지 알 수 있어야 합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich brauche mehr als dieselbe automatische Antwort; erkennbar sein muss, wer welche Gründe geprüft hat.",
+          "en": "I need more than the same automated reply; I should be able to see who reviewed what grounds."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c2_automation_redress"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_c1_but_not"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-되, N은 V-지 않는다",
+        "de": "Zugeständnis mit Grenze",
+        "en": "Concession with a limit"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Räumt einen Teil ein und zieht im selben Satz die Grenze, bis zu der er gilt.",
+        "en": "Grants one part and draws, in the same sentence, the line where it stops."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "resident",
+        "ko": "사기 신고 내용을 공유할 때마다 제 계정이 차단되고 이의 제기는 같은 자동 답변으로 끝납니다.",
+        "de": "Jedes Mal, wenn ich Betrugswarnungen teile, wird mein Konto gesperrt; mein Einspruch endet mit derselben automatischen Antwort.",
+        "en": "Every time I share scam warnings, my account is blocked, and my appeals end with the same automated reply."
+      },
+      {
+        "speaker": "official",
+        "ko": "대량의 악용 신고를 처리하려면 모델 판단을 기본으로 둘 수밖에 없습니다.",
+        "de": "Um große Mengen an Missbrauch zu bearbeiten, müssen wir die Modellentscheidung als Standard nutzen.",
+        "en": "To process abuse at scale, we have to use model decisions as the default."
+      },
+      {
+        "speaker": "user",
+        "ko": "모델이 결정했다는 설명은 그 모델을 배치하고 유지한 기관의 책임을 대신할 수 없습니다.",
+        "de": "Der Hinweis, das Modell habe entschieden, ersetzt nicht die Verantwortung der Institution, die es eingesetzt und betrieben hat.",
+        "en": "Saying the model decided cannot replace the responsibility of the institution that deployed and maintained it."
+      },
+      {
+        "speaker": "official",
+        "ko": "모든 차단을 독립적으로 다시 보면 악용 대응 속도가 크게 떨어집니다.",
+        "de": "Eine unabhängige Prüfung jeder Sperre würde die Reaktionsgeschwindigkeit gegen Missbrauch stark verringern.",
+        "en": "Independently reviewing every block would greatly slow abuse response."
+      },
+      {
+        "speaker": "user",
+        "ko": "모든 건이 아니라 반복 오판, 공익 정보, 큰 불이익이 겹치는 사례를 우선 재검토할 수 있습니다.",
+        "de": "Vorrang könnten Fälle mit wiederholten Fehlentscheidungen, Informationen von öffentlichem Interesse und schweren Folgen haben.",
+        "en": "Priority review can focus on repeated errors, public-interest information, and cases with severe consequences."
+      },
+      {
+        "speaker": "resident",
+        "ko": "같은 자동 답변만 반복되지 않고 누가 어떤 근거를 봤는지 알 수 있어야 합니다.",
+        "de": "Ich brauche mehr als dieselbe automatische Antwort; erkennbar sein muss, wer welche Gründe geprüft hat.",
+        "en": "I need more than the same automated reply; I should be able to see who reviewed what grounds."
+      },
+      {
+        "speaker": "user",
+        "ko": "자동 탐지는 유지하되 우선 사례에는 독립 검토와 이유 기록을 두면 속도와 구제를 분리해 설계할 수 있습니다.",
+        "de": "Die automatische Erkennung kann bleiben; unabhängige Prüfung und dokumentierte Gründe für prioritäre Fälle trennen Geschwindigkeit von wirksamem Rechtsschutz.",
+        "en": "Automated detection can remain, while independent review and recorded reasons for priority cases separate speed from meaningful remedy."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_reg_digital_c2_automated_accountability_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "사기 신고 내용을 공유할 때마다 제 계정이 차단되고 이의 제기는 같은 자동 답변으로 끝납니다.",
+          "options": [
+            {
+              "de": "Jedes Mal, wenn ich Betrugswarnungen teile, wird mein Konto gesperrt; mein Einspruch endet mit derselben automatischen Antwort.",
+              "en": "Every time I share scam warnings, my account is blocked, and my appeals end with the same automated reply."
+            },
+            {
+              "de": "Um große Mengen an Missbrauch zu bearbeiten, müssen wir die Modellentscheidung als Standard nutzen.",
+              "en": "To process abuse at scale, we have to use model decisions as the default."
+            },
+            {
+              "de": "Der Hinweis, das Modell habe entschieden, ersetzt nicht die Verantwortung der Institution, die es eingesetzt und betrieben hat.",
+              "en": "Saying the model decided cannot replace the responsibility of the institution that deployed and maintained it."
+            },
+            {
+              "de": "Eine unabhängige Prüfung jeder Sperre würde die Reaktionsgeschwindigkeit gegen Missbrauch stark verringern.",
+              "en": "Independently reviewing every block would greatly slow abuse response."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_reg_digital_c2_automated_accountability_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Der Hinweis, das Modell habe entschieden, ersetzt nicht die Verantwortung der Institution, die es eingesetzt und betrieben hat.",
+          "promptEn": "Saying the model decided cannot replace the responsibility of the institution that deployed and maintained it.",
+          "options": [
+            {
+              "ko": "모델이 결정했다는 설명은 그 모델을 배치하고 유지한 기관의 책임을 대신할 수 없습니다."
+            },
+            {
+              "ko": "사기 신고 내용을 공유할 때마다 제 계정이 차단되고 이의 제기는 같은 자동 답변으로 끝납니다."
+            },
+            {
+              "ko": "대량의 악용 신고를 처리하려면 모델 판단을 기본으로 둘 수밖에 없습니다."
+            },
+            {
+              "ko": "모든 차단을 독립적으로 다시 보면 악용 대응 속도가 크게 떨어집니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_reg_digital_c2_automated_accountability_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "자동 탐지는 유지하되 우선 사례에는 독립 검토와 이유 기록을 두면 속도와 구제를 분리해 설계할 수 있습니다.",
+          "audioKo": "자동 탐지는 유지하되 우선 사례에는 독립 검토와 이유 기록을 두면 속도와 구제를 분리해 설계할 수 있습니다.",
+          "promptDe": "Die automatische Erkennung kann bleiben; unabhängige Prüfung und dokumentierte Gründe für prioritäre Fälle trennen Geschwindigkeit von wirksamem Rechtsschutz.",
+          "promptEn": "Automated detection can remain, while independent review and recorded reasons for priority cases separate speed from meaningful remedy.",
+          "distractors": [
+            "사기 신고 내용을 공유할 때마다 제 계정이 차단되고 이의 제기는 같은 자동 답변으로 끝납니다.",
+            "대량의 악용 신고를 처리하려면 모델 판단을 기본으로 둘 수밖에 없습니다.",
+            "모델이 결정했다는 설명은 그 모델을 배치하고 유지한 기관의 책임을 대신할 수 없습니다."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 150
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

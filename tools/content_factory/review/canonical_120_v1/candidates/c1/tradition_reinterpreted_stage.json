@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "tradition_reinterpreted_stage",
+  "scenario": {
+    "id": "tradition_reinterpreted_stage",
+    "level": "c1",
+    "emoji": "🏠",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "전통 공연을 현대적으로 바꿀 때",
+      "de": "Eine moderne Bearbeitung als solche kenntlich machen",
+      "en": "Making a modern reinterpretation transparent"
+    },
+    "intro": {
+      "ko": "전통 음악을 짧은 댄스 영상으로 바꾸자는 제안이 나왔어요.",
+      "de": "Traditionelle Musik soll für ein kurzes Tanzvideo neu bearbeitet werden.",
+      "en": "A team proposes adapting traditional music into a short dance video."
+    },
+    "courseUnitId": "c1_05_fan_labor_sustainability",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "hyuna"
+    ],
+    "relationshipContext": "기획자 마야와 연구자 현아",
+    "intent": "변화를 반대하지 않으면서 무엇이 원형이고 무엇이 새 해석인지 분명히 하자고 제안한다",
+    "shelf": "c1_attribution",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "젊은 관객에게 닿으려면 도입부를 줄이고 후렴을 더 강하게 만들면 어떨까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie wäre es, wenn wir den Einstieg kürzen und den Refrain verstärken, um ein jüngeres Publikum zu erreichen?",
+          "en": "To reach younger viewers, what if we shorten the intro and make the hook stronger?"
+        }
+      },
+      {
+        "korean": "새롭게 해석하는 건 가능하지만 원래 형식처럼 보이게 하면 오해가 생길 수 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Eine Neuinterpretation ist möglich, sollte aber nicht wie die überlieferte Form erscheinen.",
+          "en": "Reinterpretation is possible, but presenting it as the original form could mislead people."
+        }
+      },
+      {
+        "korean": "영상 안에서 설명을 길게 하면 흐름이 끊길 것 같아요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Eine lange Erklärung im Video würde den Rhythmus stören.",
+          "en": "A long explanation inside the video may break the flow."
+        }
+      },
+      {
+        "korean": "새롭게 해석한 부분과 전승된 형식을 구분해서 보여 주면 좋겠어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dann sollten wir klar zwischen unserer Bearbeitung und der überlieferten Form unterscheiden.",
+          "en": "Then we should clearly distinguish our adaptation from the form that was passed down."
+        }
+      },
+      {
+        "korean": "영상에는 ‘현대적 재해석’이라고 짧게 쓰고 자세한 내용은 소개 페이지로 연결할게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Im Video steht kurz „moderne Neuinterpretation“; ausführliche Informationen verlinken wir auf der Projektseite.",
+          "en": "We'll label it 'modern reinterpretation' in the video and link to more context on the project page."
+        }
+      },
+      {
+        "korean": "그 정도면 관객도 무엇이 바뀌었는지 따라갈 수 있겠어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "So kann das Publikum nachvollziehen, was verändert wurde.",
+          "en": "That should let viewers understand what has changed."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_fan_labor"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_indirect_speech"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(ㄴ/는)다고 하다",
+        "de": "Indirekte Rede",
+        "en": "Indirect speech"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Sagt dass / hat gesagt dass: indirekte Wiedergabe",
+        "en": "Says that / said that: reporting speech indirectly"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "젊은 관객에게 닿으려면 도입부를 줄이고 후렴을 더 강하게 만들면 어떨까요?",
+        "de": "Wie wäre es, wenn wir den Einstieg kürzen und den Refrain verstärken, um ein jüngeres Publikum zu erreichen?",
+        "en": "To reach younger viewers, what if we shorten the intro and make the hook stronger?"
+      },
+      {
+        "speaker": "hyuna",
+        "ko": "새롭게 해석하는 건 가능하지만 원래 형식처럼 보이게 하면 오해가 생길 수 있어요.",
+        "de": "Eine Neuinterpretation ist möglich, sollte aber nicht wie die überlieferte Form erscheinen.",
+        "en": "Reinterpretation is possible, but presenting it as the original form could mislead people."
+      },
+      {
+        "speaker": "user",
+        "ko": "영상 안에서 설명을 길게 하면 흐름이 끊길 것 같아요.",
+        "de": "Eine lange Erklärung im Video würde den Rhythmus stören.",
+        "en": "A long explanation inside the video may break the flow."
+      },
+      {
+        "speaker": "hyuna",
+        "ko": "새롭게 해석한 부분과 전승된 형식을 구분해서 보여 주면 좋겠어요.",
+        "de": "Dann sollten wir klar zwischen unserer Bearbeitung und der überlieferten Form unterscheiden.",
+        "en": "Then we should clearly distinguish our adaptation from the form that was passed down."
+      },
+      {
+        "speaker": "user",
+        "ko": "영상에는 ‘현대적 재해석’이라고 짧게 쓰고 자세한 내용은 소개 페이지로 연결할게요.",
+        "de": "Im Video steht kurz „moderne Neuinterpretation“; ausführliche Informationen verlinken wir auf der Projektseite.",
+        "en": "We'll label it 'modern reinterpretation' in the video and link to more context on the project page."
+      },
+      {
+        "speaker": "hyuna",
+        "ko": "그 정도면 관객도 무엇이 바뀌었는지 따라갈 수 있겠어요.",
+        "de": "So kann das Publikum nachvollziehen, was verändert wurde.",
+        "en": "That should let viewers understand what has changed."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_tradition_reinterpreted_stage_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "새롭게 해석하는 건 가능하지만 원래 형식처럼 보이게 하면 오해가 생길 수 있어요.",
+          "options": [
+            {
+              "de": "Eine Neuinterpretation ist möglich, sollte aber nicht wie die überlieferte Form erscheinen.",
+              "en": "Reinterpretation is possible, but presenting it as the original form could mislead people."
+            },
+            {
+              "de": "Wie wäre es, wenn wir den Einstieg kürzen und den Refrain verstärken, um ein jüngeres Publikum zu erreichen?",
+              "en": "To reach younger viewers, what if we shorten the intro and make the hook stronger?"
+            },
+            {
+              "de": "Eine lange Erklärung im Video würde den Rhythmus stören.",
+              "en": "A long explanation inside the video may break the flow."
+            },
+            {
+              "de": "Dann sollten wir klar zwischen unserer Bearbeitung und der überlieferten Form unterscheiden.",
+              "en": "Then we should clearly distinguish our adaptation from the form that was passed down."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_tradition_reinterpreted_stage_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Wie wäre es, wenn wir den Einstieg kürzen und den Refrain verstärken, um ein jüngeres Publikum zu erreichen?",
+          "promptEn": "To reach younger viewers, what if we shorten the intro and make the hook stronger?",
+          "options": [
+            {
+              "ko": "젊은 관객에게 닿으려면 도입부를 줄이고 후렴을 더 강하게 만들면 어떨까요?"
+            },
+            {
+              "ko": "새롭게 해석하는 건 가능하지만 원래 형식처럼 보이게 하면 오해가 생길 수 있어요."
+            },
+            {
+              "ko": "영상 안에서 설명을 길게 하면 흐름이 끊길 것 같아요."
+            },
+            {
+              "ko": "새롭게 해석한 부분과 전승된 형식을 구분해서 보여 주면 좋겠어요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_tradition_reinterpreted_stage_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "영상에는 ‘현대적 재해석’이라고 짧게 쓰고 자세한 내용은 소개 페이지로 연결할게요.",
+          "audioKo": "영상에는 ‘현대적 재해석’이라고 짧게 쓰고 자세한 내용은 소개 페이지로 연결할게요.",
+          "promptDe": "Im Video steht kurz „moderne Neuinterpretation“; ausführliche Informationen verlinken wir auf der Projektseite.",
+          "promptEn": "We'll label it 'modern reinterpretation' in the video and link to more context on the project page.",
+          "distractors": [
+            "젊은 관객에게 닿으려면 도입부를 줄이고 후렴을 더 강하게 만들면 어떨까요?",
+            "새롭게 해석하는 건 가능하지만 원래 형식처럼 보이게 하면 오해가 생길 수 있어요.",
+            "영상 안에서 설명을 길게 하면 흐름이 끊길 것 같아요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 140
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

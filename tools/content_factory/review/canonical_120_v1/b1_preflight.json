@@ -1,0 +1,18 @@
+{
+  "level": "b1",
+  "generationId": "canonical_120_v1",
+  "candidateCount": 20,
+  "scenarioCounts": {
+    "a1": 87,
+    "a2": 82,
+    "b1": 20,
+    "b2": 73,
+    "c1": 50,
+    "c2": 46
+  },
+  "candidateSetSha256": "9e40fa76f441ec6bc7a383b15d166c52231fa74b624537dbd7182f1a50d9bdeb",
+  "ttsPendingCount": 136,
+  "approvalRecorded": false,
+  "runtimeWritten": false,
+  "releaseReady": false
+}

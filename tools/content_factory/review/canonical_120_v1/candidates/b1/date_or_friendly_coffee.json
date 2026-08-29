@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "date_or_friendly_coffee",
+  "scenario": {
+    "id": "date_or_friendly_coffee",
+    "level": "b1",
+    "emoji": "☕",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "이 커피 약속이 데이트인지 헷갈릴 때",
+      "de": "War das ein Date oder nur ein Kaffee?",
+      "en": "Was that a date or just coffee?"
+    },
+    "intro": {
+      "ko": "친구가 둘이 데이트 중이냐고 물어 분위기가 어색해졌어요.",
+      "de": "Eine Freundin hat gefragt, ob ihr ein Date habt, und plötzlich wird es etwas unangenehm.",
+      "en": "A friend asked if you were on a date, and things suddenly got awkward."
+    },
+    "courseUnitId": "b1_04_relationships",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "sujin"
+    ],
+    "relationshipContext": "친구가 되었지만 서로 호감이 있는 크리스티안과 수진",
+    "intent": "상대를 몰아붙이지 않고 오늘 만남을 어떻게 생각했는지 묻는다",
+    "shelf": "b1_feel",
+    "backdrop": "cafe",
+    "vocab": [
+      {
+        "korean": "아까 친구가 우리 데이트하냐고 물어서 좀 당황했어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Vorhin hat eine Freundin gefragt, ob das hier ein Date ist. Das hat mich kurz überrascht.",
+          "en": "Earlier, a friend asked if this was a date. It caught me off guard."
+        }
+      },
+      {
+        "korean": "저도요. 갑자기 어색해졌네요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Mich auch. Plötzlich war es irgendwie komisch.",
+          "en": "Me too. It suddenly got awkward."
+        }
+      },
+      {
+        "korean": "오늘은 그냥 커피 약속이었죠?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Heute war es einfach nur ein Kaffee, oder?",
+          "en": "Today was just coffee, right?"
+        }
+      },
+      {
+        "korean": "처음에는 그렇게 생각했어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Am Anfang habe ich das auch so gesehen.",
+          "en": "That's how I thought of it at first."
+        }
+      },
+      {
+        "korean": "그래도 저는 오늘 둘이 만나서 좋았어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Trotzdem fand ich es schön, dass wir heute zu zweit waren.",
+          "en": "Still, I liked spending time together today."
+        }
+      },
+      {
+        "korean": "저도 좋았어요. 다음에도 둘이 만나요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich auch. Treffen wir uns wieder zu zweit.",
+          "en": "I liked it too. Let's meet up just the two of us again."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b1_relationships"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_indirect_speech"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(ㄴ/는)다고 하다",
+        "de": "Indirekte Rede",
+        "en": "Indirect speech"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Sagt dass / hat gesagt dass: indirekte Wiedergabe",
+        "en": "Says that / said that: reporting speech indirectly"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "sujin",
+        "ko": "아까 친구가 우리 데이트하냐고 물어서 좀 당황했어요.",
+        "de": "Vorhin hat eine Freundin gefragt, ob das hier ein Date ist. Das hat mich kurz überrascht.",
+        "en": "Earlier, a friend asked if this was a date. It caught me off guard."
+      },
+      {
+        "speaker": "user",
+        "ko": "저도요. 갑자기 어색해졌네요.",
+        "de": "Mich auch. Plötzlich war es irgendwie komisch.",
+        "en": "Me too. It suddenly got awkward."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "오늘은 그냥 커피 약속이었죠?",
+        "de": "Heute war es einfach nur ein Kaffee, oder?",
+        "en": "Today was just coffee, right?"
+      },
+      {
+        "speaker": "user",
+        "ko": "처음에는 그렇게 생각했어요.",
+        "de": "Am Anfang habe ich das auch so gesehen.",
+        "en": "That's how I thought of it at first."
+      },
+      {
+        "speaker": "user",
+        "ko": "그래도 저는 오늘 둘이 만나서 좋았어요.",
+        "de": "Trotzdem fand ich es schön, dass wir heute zu zweit waren.",
+        "en": "Still, I liked spending time together today."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "저도 좋았어요. 다음에도 둘이 만나요.",
+        "de": "Ich auch. Treffen wir uns wieder zu zweit.",
+        "en": "I liked it too. Let's meet up just the two of us again."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_date_or_friendly_coffee_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "아까 친구가 우리 데이트하냐고 물어서 좀 당황했어요.",
+          "options": [
+            {
+              "de": "Vorhin hat eine Freundin gefragt, ob das hier ein Date ist. Das hat mich kurz überrascht.",
+              "en": "Earlier, a friend asked if this was a date. It caught me off guard."
+            },
+            {
+              "de": "Mich auch. Plötzlich war es irgendwie komisch.",
+              "en": "Me too. It suddenly got awkward."
+            },
+            {
+              "de": "Heute war es einfach nur ein Kaffee, oder?",
+              "en": "Today was just coffee, right?"
+            },
+            {
+              "de": "Am Anfang habe ich das auch so gesehen.",
+              "en": "That's how I thought of it at first."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_date_or_friendly_coffee_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Mich auch. Plötzlich war es irgendwie komisch.",
+          "promptEn": "Me too. It suddenly got awkward.",
+          "options": [
+            {
+              "ko": "저도요. 갑자기 어색해졌네요."
+            },
+            {
+              "ko": "아까 친구가 우리 데이트하냐고 물어서 좀 당황했어요."
+            },
+            {
+              "ko": "오늘은 그냥 커피 약속이었죠?"
+            },
+            {
+              "ko": "처음에는 그렇게 생각했어요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_date_or_friendly_coffee_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "그래도 저는 오늘 둘이 만나서 좋았어요.",
+          "audioKo": "그래도 저는 오늘 둘이 만나서 좋았어요.",
+          "promptDe": "Trotzdem fand ich es schön, dass wir heute zu zweit waren.",
+          "promptEn": "Still, I liked spending time together today.",
+          "distractors": [
+            "아까 친구가 우리 데이트하냐고 물어서 좀 당황했어요.",
+            "저도요. 갑자기 어색해졌네요.",
+            "오늘은 그냥 커피 약속이었죠?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 120
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

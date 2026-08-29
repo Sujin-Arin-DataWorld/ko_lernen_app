@@ -1,0 +1,247 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "relationship_story_reframing",
+  "scenario": {
+    "id": "relationship_story_reframing",
+    "level": "c2",
+    "emoji": "🏠",
+    "register": "intimate",
+    "speechStyle": "intimate",
+    "title": {
+      "ko": "연애의 시작을 서로 다르게 말할 때",
+      "de": "Den Anfang einer Beziehung unterschiedlich erinnern",
+      "en": "Remembering the start of a relationship differently"
+    },
+    "intro": {
+      "ko": "크리스티안이 친구들 앞에서 첫눈에 시작됐다고 농담하자 수진은 쌓인 시간이 지워진 것처럼 느껴요.",
+      "de": "Christian scherzt vor Freunden, alles habe mit Liebe auf den ersten Blick begonnen; Sujin fühlt sich um die langsam gewachsene Nähe gebracht.",
+      "en": "Christian jokes that it was love at first sight, while Sujin feels that erases the trust that grew over time."
+    },
+    "courseUnitId": "c2_05_relationship_narratives",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "sujin"
+    ],
+    "relationshipContext": "연인 크리스티안과 수진",
+    "intent": "낭만적 농담의 의도와 상대가 잃었다고 느낀 서사를 조정한다",
+    "shelf": "c2_memory",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "아까 친구들 앞에서 첫눈에 반했다고 말한 거, 저는 조금 불편했어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dein Spruch vorhin, du hättest dich auf den ersten Blick verliebt, war mir etwas unangenehm.",
+          "en": "I felt a little uncomfortable when you told our friends it was love at first sight."
+        }
+      },
+      {
+        "korean": "그냥 이야기를 짧고 재미있게 하려고 한 말이었어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich wollte die Geschichte nur kurz und lustig erzählen.",
+          "en": "I was just trying to make the story short and funny."
+        }
+      },
+      {
+        "korean": "저한테는 처음보다 그 뒤에 천천히 믿게 된 시간이 더 중요해요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Für mich ist die Zeit danach wichtiger, in der Vertrauen langsam gewachsen ist.",
+          "en": "To me, the time afterward, when trust grew slowly, matters more than the first moment."
+        }
+      },
+      {
+        "korean": "첫눈에 시작됐다는 말이 우리 사이에 쌓인 시간을 지우는 것처럼 들렸구나.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "„Liebe auf den ersten Blick“ klang also, als würde es die Zeit auslöschen, die wir miteinander aufgebaut haben.",
+          "en": "Saying it began at first sight sounded like it erased all the time we built together."
+        }
+      },
+      {
+        "korean": "네. 그 기억이 틀렸다는 게 아니라 그게 전부인 것처럼 말하지 않았으면 해요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Deine Erinnerung ist nicht falsch; ich möchte nur nicht, dass sie als die ganze Geschichte gilt.",
+          "en": "Yes. Your memory isn't wrong. I just don't want it told as the whole story."
+        }
+      },
+      {
+        "korean": "다음에는 저는 처음의 설렘을, 수진은 그 뒤의 신뢰를 중요하게 기억한다고 말할게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dann sage ich künftig: Für mich war die erste Aufregung wichtig, für dich das Vertrauen, das danach entstand.",
+          "en": "Next time I'll say I remember the early spark, while you value the trust that came afterward."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c2_relationship_narratives"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_intention"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)려고",
+        "de": "Absicht / Ziel",
+        "en": "Intention / goal"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Um zu (Ziel einer Handlung)",
+        "en": "In order to (the goal of an action)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "sujin",
+        "ko": "아까 친구들 앞에서 첫눈에 반했다고 말한 거, 저는 조금 불편했어요.",
+        "de": "Dein Spruch vorhin, du hättest dich auf den ersten Blick verliebt, war mir etwas unangenehm.",
+        "en": "I felt a little uncomfortable when you told our friends it was love at first sight."
+      },
+      {
+        "speaker": "user",
+        "ko": "그냥 이야기를 짧고 재미있게 하려고 한 말이었어요.",
+        "de": "Ich wollte die Geschichte nur kurz und lustig erzählen.",
+        "en": "I was just trying to make the story short and funny."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "저한테는 처음보다 그 뒤에 천천히 믿게 된 시간이 더 중요해요.",
+        "de": "Für mich ist die Zeit danach wichtiger, in der Vertrauen langsam gewachsen ist.",
+        "en": "To me, the time afterward, when trust grew slowly, matters more than the first moment."
+      },
+      {
+        "speaker": "user",
+        "ko": "첫눈에 시작됐다는 말이 우리 사이에 쌓인 시간을 지우는 것처럼 들렸구나.",
+        "de": "„Liebe auf den ersten Blick“ klang also, als würde es die Zeit auslöschen, die wir miteinander aufgebaut haben.",
+        "en": "Saying it began at first sight sounded like it erased all the time we built together."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "네. 그 기억이 틀렸다는 게 아니라 그게 전부인 것처럼 말하지 않았으면 해요.",
+        "de": "Ja. Deine Erinnerung ist nicht falsch; ich möchte nur nicht, dass sie als die ganze Geschichte gilt.",
+        "en": "Yes. Your memory isn't wrong. I just don't want it told as the whole story."
+      },
+      {
+        "speaker": "user",
+        "ko": "다음에는 저는 처음의 설렘을, 수진은 그 뒤의 신뢰를 중요하게 기억한다고 말할게요.",
+        "de": "Dann sage ich künftig: Für mich war die erste Aufregung wichtig, für dich das Vertrauen, das danach entstand.",
+        "en": "Next time I'll say I remember the early spark, while you value the trust that came afterward."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "그렇게 서로 다른 시작을 같이 말하면 우리 이야기 같아요.",
+        "de": "Wenn beide Anfänge Platz haben, klingt es wirklich nach unserer Geschichte.",
+        "en": "When both beginnings have a place, it feels like our story."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_relationship_story_reframing_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "아까 친구들 앞에서 첫눈에 반했다고 말한 거, 저는 조금 불편했어요.",
+          "options": [
+            {
+              "de": "Dein Spruch vorhin, du hättest dich auf den ersten Blick verliebt, war mir etwas unangenehm.",
+              "en": "I felt a little uncomfortable when you told our friends it was love at first sight."
+            },
+            {
+              "de": "Ich wollte die Geschichte nur kurz und lustig erzählen.",
+              "en": "I was just trying to make the story short and funny."
+            },
+            {
+              "de": "Für mich ist die Zeit danach wichtiger, in der Vertrauen langsam gewachsen ist.",
+              "en": "To me, the time afterward, when trust grew slowly, matters more than the first moment."
+            },
+            {
+              "de": "„Liebe auf den ersten Blick“ klang also, als würde es die Zeit auslöschen, die wir miteinander aufgebaut haben.",
+              "en": "Saying it began at first sight sounded like it erased all the time we built together."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_relationship_story_reframing_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ich wollte die Geschichte nur kurz und lustig erzählen.",
+          "promptEn": "I was just trying to make the story short and funny.",
+          "options": [
+            {
+              "ko": "그냥 이야기를 짧고 재미있게 하려고 한 말이었어요."
+            },
+            {
+              "ko": "아까 친구들 앞에서 첫눈에 반했다고 말한 거, 저는 조금 불편했어요."
+            },
+            {
+              "ko": "저한테는 처음보다 그 뒤에 천천히 믿게 된 시간이 더 중요해요."
+            },
+            {
+              "ko": "첫눈에 시작됐다는 말이 우리 사이에 쌓인 시간을 지우는 것처럼 들렸구나."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_relationship_story_reframing_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "다음에는 저는 처음의 설렘을, 수진은 그 뒤의 신뢰를 중요하게 기억한다고 말할게요.",
+          "audioKo": "다음에는 저는 처음의 설렘을, 수진은 그 뒤의 신뢰를 중요하게 기억한다고 말할게요.",
+          "promptDe": "Dann sage ich künftig: Für mich war die erste Aufregung wichtig, für dich das Vertrauen, das danach entstand.",
+          "promptEn": "Next time I'll say I remember the early spark, while you value the trust that came afterward.",
+          "distractors": [
+            "아까 친구들 앞에서 첫눈에 반했다고 말한 거, 저는 조금 불편했어요.",
+            "그냥 이야기를 짧고 재미있게 하려고 한 말이었어요.",
+            "저한테는 처음보다 그 뒤에 천천히 믿게 된 시간이 더 중요해요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 150
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

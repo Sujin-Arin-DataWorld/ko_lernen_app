@@ -1,0 +1,247 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "reg_digital_a1_kakao",
+  "scenario": {
+    "id": "reg_digital_a1_kakao",
+    "level": "a1",
+    "emoji": "🏠",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "카카오톡으로 연락 방법 정하기",
+      "de": "Nach dem Kurs über KakaoTalk schreiben",
+      "en": "Messaging on KakaoTalk after class"
+    },
+    "intro": {
+      "ko": "마야와 같이 과제를 하기로 해요.",
+      "de": "Du und Maya wollt die Aufgabe gemeinsam machen.",
+      "en": "You and Maya are going to work on the assignment together."
+    },
+    "courseUnitId": "a1_07_contact_address",
+    "playerCharacterId": "lena",
+    "participantIds": [
+      "lena",
+      "maya"
+    ],
+    "relationshipContext": "처음 친해진 학생",
+    "intent": "QR 코드를 찍고 친구 추가가 됐는지 확인한다",
+    "shelf": "a1_repeat",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "우리 과제 같이 해요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Lass uns die Aufgabe zusammen machen.",
+          "en": "Let's work on the assignment together."
+        }
+      },
+      {
+        "korean": "카카오톡으로 연락할까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wollen wir über KakaoTalk schreiben?",
+          "en": "Shall we message each other on KakaoTalk?"
+        }
+      },
+      {
+        "korean": "네, 좋아요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, gern.",
+          "en": "Yes, sounds good."
+        }
+      },
+      {
+        "korean": "여기에 QR 코드가 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Hier ist mein QR-Code.",
+          "en": "My QR code is right here."
+        }
+      },
+      {
+        "korean": "이거 찍으면 돼요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Soll ich den hier scannen?",
+          "en": "Do I scan this?"
+        }
+      },
+      {
+        "korean": "네. 여기 눌러 보세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Tippe dann hier.",
+          "en": "Yes. Then tap here."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a1_contact_address"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_direction_time_particle"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N에",
+        "de": "Richtungs-/Ortspartikel",
+        "en": "Direction/time particle"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Richtung (wohin?) oder Zeitpunkt (wann?)",
+        "en": "Direction (to where?) or point in time (when?)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "maya",
+        "ko": "우리 과제 같이 해요.",
+        "de": "Lass uns die Aufgabe zusammen machen.",
+        "en": "Let's work on the assignment together."
+      },
+      {
+        "speaker": "maya",
+        "ko": "카카오톡으로 연락할까요?",
+        "de": "Wollen wir über KakaoTalk schreiben?",
+        "en": "Shall we message each other on KakaoTalk?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 좋아요.",
+        "de": "Ja, gern.",
+        "en": "Yes, sounds good."
+      },
+      {
+        "speaker": "maya",
+        "ko": "여기에 QR 코드가 있어요.",
+        "de": "Hier ist mein QR-Code.",
+        "en": "My QR code is right here."
+      },
+      {
+        "speaker": "user",
+        "ko": "이거 찍으면 돼요?",
+        "de": "Soll ich den hier scannen?",
+        "en": "Do I scan this?"
+      },
+      {
+        "speaker": "maya",
+        "ko": "네. 여기 눌러 보세요.",
+        "de": "Ja. Tippe dann hier.",
+        "en": "Yes. Then tap here."
+      },
+      {
+        "speaker": "user",
+        "ko": "아, 친구로 추가됐어요.",
+        "de": "Ah, jetzt sind wir verbunden.",
+        "en": "Oh, you're added now."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_reg_digital_a1_kakao_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "우리 과제 같이 해요.",
+          "options": [
+            {
+              "de": "Lass uns die Aufgabe zusammen machen.",
+              "en": "Let's work on the assignment together."
+            },
+            {
+              "de": "Wollen wir über KakaoTalk schreiben?",
+              "en": "Shall we message each other on KakaoTalk?"
+            },
+            {
+              "de": "Ja, gern.",
+              "en": "Yes, sounds good."
+            },
+            {
+              "de": "Hier ist mein QR-Code.",
+              "en": "My QR code is right here."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_reg_digital_a1_kakao_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ja, gern.",
+          "promptEn": "Yes, sounds good.",
+          "options": [
+            {
+              "ko": "네, 좋아요."
+            },
+            {
+              "ko": "우리 과제 같이 해요."
+            },
+            {
+              "ko": "카카오톡으로 연락할까요?"
+            },
+            {
+              "ko": "여기에 QR 코드가 있어요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_reg_digital_a1_kakao_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "아, 친구로 추가됐어요.",
+          "audioKo": "아, 친구로 추가됐어요.",
+          "promptDe": "Ah, jetzt sind wir verbunden.",
+          "promptEn": "Oh, you're added now.",
+          "distractors": [
+            "우리 과제 같이 해요.",
+            "카카오톡으로 연락할까요?",
+            "네, 좋아요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 100
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

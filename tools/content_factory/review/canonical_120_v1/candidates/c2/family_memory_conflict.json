@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "family_memory_conflict",
+  "scenario": {
+    "id": "family_memory_conflict",
+    "level": "c2",
+    "emoji": "🏠",
+    "register": "intimate",
+    "speechStyle": "intimate",
+    "title": {
+      "ko": "가족이 같은 과거를 다르게 기억할 때",
+      "de": "Widersprüchliche Erinnerungen in einer Familie bewahren",
+      "en": "Preserving conflicting memories within a family"
+    },
+    "intro": {
+      "ko": "같은 이사를 수진의 가족은 새 출발로, 한 사람은 강요된 상실로 기억해요.",
+      "de": "Dieselbe Übersiedlung gilt in Sujins Familie teils als Neuanfang, teils als erzwungener Verlust.",
+      "en": "Sujin's family remembers the same move as either a fresh start or a forced loss."
+    },
+    "courseUnitId": "c2_05_relationship_narratives",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "sujin"
+    ],
+    "relationshipContext": "연인 크리스티안과 수진",
+    "intent": "누가 사실을 왜곡한다고 단정하지 않고 기억의 관점과 권력 차이를 묻는다",
+    "shelf": "c2_memory",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "가족 사진 밑에 ‘모두가 기다리던 새 출발’이라고 쓰려고 했어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Unter das Familienfoto wollte ich schreiben: „Der Neuanfang, auf den wir alle gewartet hatten.“",
+          "en": "I was going to caption the family photo, 'The fresh start we'd all been waiting for.'"
+        }
+      },
+      {
+        "korean": "그런데 이모는 그때 친구와 집을 한꺼번에 잃었다고 했죠?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Deine Tante sagte aber, sie habe damals gleichzeitig ihr Zuhause und ihre Freunde verloren, oder?",
+          "en": "But your aunt said she lost her home and her friends at the same time, right?"
+        }
+      },
+      {
+        "korean": "네. 우리에게 좋은 일이었다고 쓰면 이모의 기억을 틀렸다고 만드는 것 같아요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Wenn ich es als gute Zeit für uns alle bezeichne, klingt ihre Erinnerung falsch.",
+          "en": "Yes. If I call it good for all of us, it makes her memory sound wrong."
+        }
+      },
+      {
+        "korean": "같은 일을 기억해도 누구에게 선택권이 있었는지에 따라 이야기가 달라질 수 있겠네요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Auch dieselbe Erfahrung kann anders erzählt werden, je nachdem, wer eine Wahl hatte.",
+          "en": "Even the same event can become a different story depending on who had a choice."
+        }
+      },
+      {
+        "korean": "그럼 하나로 합치지 말고 ‘부모님에게는 새 출발, 이모에게는 떠나야 했던 날’이라고 쓸까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie wäre es dann mit: „Für meine Eltern ein Neuanfang, für meine Tante der Tag, an dem sie gehen musste“?",
+          "en": "Then instead of merging them, how about: 'A fresh start for my parents; the day my aunt had to leave'?"
+        }
+      },
+      {
+        "korean": "좋아요. 같은 사진에 서로 다른 기억이 있다는 게 더 솔직해 보여요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Das ist ehrlicher: ein Foto, aber verschiedene Erinnerungen.",
+          "en": "That feels more honest: one photo, but different memories."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c2_relationship_narratives"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_c1_effect_varies_by"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N에 따라 효과가 달라질 수 있다",
+        "de": "gruppenabhängige Wirkung",
+        "en": "Effects may vary by"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Begrenzt eine Gesamtaussage, indem mögliche Unterschiede zwischen Gruppen benannt werden.",
+        "en": "Qualifies an overall claim by naming possible differences across groups."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "sujin",
+        "ko": "가족 사진 밑에 ‘모두가 기다리던 새 출발’이라고 쓰려고 했어요.",
+        "de": "Unter das Familienfoto wollte ich schreiben: „Der Neuanfang, auf den wir alle gewartet hatten.“",
+        "en": "I was going to caption the family photo, 'The fresh start we'd all been waiting for.'"
+      },
+      {
+        "speaker": "user",
+        "ko": "그런데 이모는 그때 친구와 집을 한꺼번에 잃었다고 했죠?",
+        "de": "Deine Tante sagte aber, sie habe damals gleichzeitig ihr Zuhause und ihre Freunde verloren, oder?",
+        "en": "But your aunt said she lost her home and her friends at the same time, right?"
+      },
+      {
+        "speaker": "sujin",
+        "ko": "네. 우리에게 좋은 일이었다고 쓰면 이모의 기억을 틀렸다고 만드는 것 같아요.",
+        "de": "Ja. Wenn ich es als gute Zeit für uns alle bezeichne, klingt ihre Erinnerung falsch.",
+        "en": "Yes. If I call it good for all of us, it makes her memory sound wrong."
+      },
+      {
+        "speaker": "user",
+        "ko": "같은 일을 기억해도 누구에게 선택권이 있었는지에 따라 이야기가 달라질 수 있겠네요.",
+        "de": "Auch dieselbe Erfahrung kann anders erzählt werden, je nachdem, wer eine Wahl hatte.",
+        "en": "Even the same event can become a different story depending on who had a choice."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "그럼 하나로 합치지 말고 ‘부모님에게는 새 출발, 이모에게는 떠나야 했던 날’이라고 쓸까요?",
+        "de": "Wie wäre es dann mit: „Für meine Eltern ein Neuanfang, für meine Tante der Tag, an dem sie gehen musste“?",
+        "en": "Then instead of merging them, how about: 'A fresh start for my parents; the day my aunt had to leave'?"
+      },
+      {
+        "speaker": "user",
+        "ko": "좋아요. 같은 사진에 서로 다른 기억이 있다는 게 더 솔직해 보여요.",
+        "de": "Das ist ehrlicher: ein Foto, aber verschiedene Erinnerungen.",
+        "en": "That feels more honest: one photo, but different memories."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_family_memory_conflict_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "가족 사진 밑에 ‘모두가 기다리던 새 출발’이라고 쓰려고 했어요.",
+          "options": [
+            {
+              "de": "Unter das Familienfoto wollte ich schreiben: „Der Neuanfang, auf den wir alle gewartet hatten.“",
+              "en": "I was going to caption the family photo, 'The fresh start we'd all been waiting for.'"
+            },
+            {
+              "de": "Deine Tante sagte aber, sie habe damals gleichzeitig ihr Zuhause und ihre Freunde verloren, oder?",
+              "en": "But your aunt said she lost her home and her friends at the same time, right?"
+            },
+            {
+              "de": "Ja. Wenn ich es als gute Zeit für uns alle bezeichne, klingt ihre Erinnerung falsch.",
+              "en": "Yes. If I call it good for all of us, it makes her memory sound wrong."
+            },
+            {
+              "de": "Auch dieselbe Erfahrung kann anders erzählt werden, je nachdem, wer eine Wahl hatte.",
+              "en": "Even the same event can become a different story depending on who had a choice."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_family_memory_conflict_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Deine Tante sagte aber, sie habe damals gleichzeitig ihr Zuhause und ihre Freunde verloren, oder?",
+          "promptEn": "But your aunt said she lost her home and her friends at the same time, right?",
+          "options": [
+            {
+              "ko": "그런데 이모는 그때 친구와 집을 한꺼번에 잃었다고 했죠?"
+            },
+            {
+              "ko": "가족 사진 밑에 ‘모두가 기다리던 새 출발’이라고 쓰려고 했어요."
+            },
+            {
+              "ko": "네. 우리에게 좋은 일이었다고 쓰면 이모의 기억을 틀렸다고 만드는 것 같아요."
+            },
+            {
+              "ko": "같은 일을 기억해도 누구에게 선택권이 있었는지에 따라 이야기가 달라질 수 있겠네요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_family_memory_conflict_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "좋아요. 같은 사진에 서로 다른 기억이 있다는 게 더 솔직해 보여요.",
+          "audioKo": "좋아요. 같은 사진에 서로 다른 기억이 있다는 게 더 솔직해 보여요.",
+          "promptDe": "Das ist ehrlicher: ein Foto, aber verschiedene Erinnerungen.",
+          "promptEn": "That feels more honest: one photo, but different memories.",
+          "distractors": [
+            "가족 사진 밑에 ‘모두가 기다리던 새 출발’이라고 쓰려고 했어요.",
+            "그런데 이모는 그때 친구와 집을 한꺼번에 잃었다고 했죠?",
+            "네. 우리에게 좋은 일이었다고 쓰면 이모의 기억을 틀렸다고 만드는 것 같아요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 150
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

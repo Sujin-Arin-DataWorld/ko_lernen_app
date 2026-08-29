@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "break_glass_apology",
+  "scenario": {
+    "id": "break_glass_apology",
+    "level": "a1",
+    "emoji": "🏠",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "실수로 잔을 깨뜨렸을 때",
+      "de": "Ein Glas zerbrechen",
+      "en": "Breaking a glass"
+    },
+    "intro": {
+      "ko": "물을 따르다가 잔을 떨어뜨려요.",
+      "de": "Beim Einschenken fällt dir ein Glas herunter.",
+      "en": "You drop a glass while pouring water."
+    },
+    "courseUnitId": "a1_10_health_safety",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "sujin"
+    ],
+    "relationshipContext": "아직 조심스러운 친구 크리스티안과 수진",
+    "intent": "바로 사과하고 다친 사람이 없는지 확인한다",
+    "shelf": "a1_body",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "죄송해요. 잔을 깼어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Tut mir leid. Ich habe ein Glas zerbrochen.",
+          "en": "I'm sorry. I broke a glass."
+        }
+      },
+      {
+        "korean": "괜찮아요. 손대지 마세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Schon gut. Fass die Scherben nicht an.",
+          "en": "It's okay. Don't touch the glass."
+        }
+      },
+      {
+        "korean": "괜찮아요? 안 다쳤어요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Alles okay? Du hast dich nicht verletzt, oder?",
+          "en": "Are you okay? You didn't get hurt, did you?"
+        }
+      },
+      {
+        "korean": "네, 안 다쳤어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, ich habe mich nicht verletzt.",
+          "en": "Yes, I'm not hurt."
+        }
+      },
+      {
+        "korean": "빗자루 어디 있어요? 같이 치울게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wo ist der Besen? Ich helfe beim Aufräumen.",
+          "en": "Where's the broom? I'll help clean up."
+        }
+      },
+      {
+        "korean": "그럼 빗자루로 큰 조각만 모아 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dann kehr bitte nur die großen Stücke zusammen.",
+          "en": "Then please sweep up just the large pieces."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a1_health_safety"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_short_negation"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "안 + V",
+        "de": "Kurzverneinung",
+        "en": "Short negation"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Verneinung: 안 direkt vor dem Verb. Schnell und umgangssprachlich",
+        "en": "Negation: place 안 right before the verb. Quick and colloquial"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "죄송해요. 잔을 깼어요.",
+        "de": "Tut mir leid. Ich habe ein Glas zerbrochen.",
+        "en": "I'm sorry. I broke a glass."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "괜찮아요. 손대지 마세요.",
+        "de": "Schon gut. Fass die Scherben nicht an.",
+        "en": "It's okay. Don't touch the glass."
+      },
+      {
+        "speaker": "user",
+        "ko": "괜찮아요? 안 다쳤어요?",
+        "de": "Alles okay? Du hast dich nicht verletzt, oder?",
+        "en": "Are you okay? You didn't get hurt, did you?"
+      },
+      {
+        "speaker": "sujin",
+        "ko": "네, 안 다쳤어요.",
+        "de": "Ja, ich habe mich nicht verletzt.",
+        "en": "Yes, I'm not hurt."
+      },
+      {
+        "speaker": "user",
+        "ko": "빗자루 어디 있어요? 같이 치울게요.",
+        "de": "Wo ist der Besen? Ich helfe beim Aufräumen.",
+        "en": "Where's the broom? I'll help clean up."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "그럼 빗자루로 큰 조각만 모아 주세요.",
+        "de": "Dann kehr bitte nur die großen Stücke zusammen.",
+        "en": "Then please sweep up just the large pieces."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_break_glass_apology_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "괜찮아요. 손대지 마세요.",
+          "options": [
+            {
+              "de": "Schon gut. Fass die Scherben nicht an.",
+              "en": "It's okay. Don't touch the glass."
+            },
+            {
+              "de": "Tut mir leid. Ich habe ein Glas zerbrochen.",
+              "en": "I'm sorry. I broke a glass."
+            },
+            {
+              "de": "Alles okay? Du hast dich nicht verletzt, oder?",
+              "en": "Are you okay? You didn't get hurt, did you?"
+            },
+            {
+              "de": "Ja, ich habe mich nicht verletzt.",
+              "en": "Yes, I'm not hurt."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_break_glass_apology_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Tut mir leid. Ich habe ein Glas zerbrochen.",
+          "promptEn": "I'm sorry. I broke a glass.",
+          "options": [
+            {
+              "ko": "죄송해요. 잔을 깼어요."
+            },
+            {
+              "ko": "괜찮아요. 손대지 마세요."
+            },
+            {
+              "ko": "괜찮아요? 안 다쳤어요?"
+            },
+            {
+              "ko": "네, 안 다쳤어요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_break_glass_apology_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "빗자루 어디 있어요? 같이 치울게요.",
+          "audioKo": "빗자루 어디 있어요? 같이 치울게요.",
+          "promptDe": "Wo ist der Besen? Ich helfe beim Aufräumen.",
+          "promptEn": "Where's the broom? I'll help clean up.",
+          "distractors": [
+            "죄송해요. 잔을 깼어요.",
+            "괜찮아요. 손대지 마세요.",
+            "괜찮아요? 안 다쳤어요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 100
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

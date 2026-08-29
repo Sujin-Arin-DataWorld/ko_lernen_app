@@ -1,0 +1,252 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "we_translation_identity",
+  "scenario": {
+    "id": "we_translation_identity",
+    "level": "c2",
+    "emoji": "💬",
+    "register": "casual",
+    "speechStyle": "casual",
+    "title": {
+      "ko": "‘우리’가 포함하고 배제하는 사람을 번역하기",
+      "de": "Das wechselnde koreanische 우리 übersetzen",
+      "en": "Translating the shifting boundaries of Korean 우리"
+    },
+    "intro": {
+      "ko": "인터뷰의 ‘우리’가 주민 전체와 오래 산 사람, 제작진을 오가는데 자막은 한 집단으로 고정해요.",
+      "de": "Das koreanische 우리 wechselt zwischen allen Bewohnern, Alteingesessenen und dem Filmteam, doch die Untertitel machen daraus eine feste Gruppe.",
+      "en": "The Korean 우리 shifts among all residents, long-time locals, and the film crew, while subtitles flatten it into one group."
+    },
+    "courseUnitId": "c2_05_relationship_narratives",
+    "playerCharacterId": "hyuna",
+    "participantIds": [
+      "hyuna",
+      "daniel"
+    ],
+    "relationshipContext": "서로 편하게 말하는 현아와 다니엘",
+    "intent": "지시 대상을 명확히 하면서 원문의 연대와 거리 효과를 보존한다",
+    "shelf": "c2_memory",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "영어 자막에서는 우리를 계속 ‘we residents’로 통일했어. 더 자연스럽지 않아?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Im englischen Untertitel habe ich 우리 durchgehend als „we residents“ wiedergegeben. Klingt das nicht natürlicher?",
+          "en": "I translated 우리 as 'we residents' throughout. Isn't that more natural?"
+        }
+      },
+      {
+        "korean": "여기서 우리는 앞 문장의 주민 전체와 같은 범위가 아니야.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "An dieser Stelle umfasst 우리 nicht dieselbe Gruppe wie die Bewohner im vorherigen Satz.",
+          "en": "Here, 우리 does not refer to the same group as all residents in the previous sentence."
+        }
+      },
+      {
+        "korean": "이 문장에서는 누구를 가리키는 거야?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wer ist hier dann gemeint?",
+          "en": "Who does it mean in this sentence?"
+        }
+      },
+      {
+        "korean": "‘우리가 이 골목을 기록했다’의 우리는 인터뷰이와 제작진이고, 다음 문장에서는 오래 산 주민들이야.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "In „Wir haben diese Gasse dokumentiert“ meint es die interviewte Person und das Filmteam; im nächsten Satz die langjährigen Bewohner.",
+          "en": "In 'we documented this alley,' it means the interviewee and crew; in the next sentence, long-time residents."
+        }
+      },
+      {
+        "korean": "대명사를 그대로 두면 영어와 독일어에서는 그 전환이 더 안 보이겠네.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn die Pronomen unverändert bleiben, wird der Wechsel auf Deutsch und Englisch noch unsichtbarer.",
+          "en": "If we keep the pronoun unchanged, the shift will be even less visible in English and German."
+        }
+      },
+      {
+        "korean": "전환 지점에서 집단을 한 번만 명시하고 그 뒤에는 자연스러운 대명사로 이어 가자.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Benennen wir die Gruppe jeweils beim Wechsel einmal ausdrücklich und verwenden danach wieder natürliche Pronomen.",
+          "en": "Let's name the group once at each shift, then return to natural pronouns."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c2_relationship_narratives"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a2_conditional"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)면",
+        "de": "Konditionalsatz",
+        "en": "Conditional"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Wenn/Falls-Bedingung",
+        "en": "If / in case (a condition)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "daniel",
+        "ko": "영어 자막에서는 우리를 계속 ‘we residents’로 통일했어. 더 자연스럽지 않아?",
+        "de": "Im englischen Untertitel habe ich 우리 durchgehend als „we residents“ wiedergegeben. Klingt das nicht natürlicher?",
+        "en": "I translated 우리 as 'we residents' throughout. Isn't that more natural?"
+      },
+      {
+        "speaker": "user",
+        "ko": "여기서 우리는 앞 문장의 주민 전체와 같은 범위가 아니야.",
+        "de": "An dieser Stelle umfasst 우리 nicht dieselbe Gruppe wie die Bewohner im vorherigen Satz.",
+        "en": "Here, 우리 does not refer to the same group as all residents in the previous sentence."
+      },
+      {
+        "speaker": "daniel",
+        "ko": "이 문장에서는 누구를 가리키는 거야?",
+        "de": "Wer ist hier dann gemeint?",
+        "en": "Who does it mean in this sentence?"
+      },
+      {
+        "speaker": "user",
+        "ko": "‘우리가 이 골목을 기록했다’의 우리는 인터뷰이와 제작진이고, 다음 문장에서는 오래 산 주민들이야.",
+        "de": "In „Wir haben diese Gasse dokumentiert“ meint es die interviewte Person und das Filmteam; im nächsten Satz die langjährigen Bewohner.",
+        "en": "In 'we documented this alley,' it means the interviewee and crew; in the next sentence, long-time residents."
+      },
+      {
+        "speaker": "daniel",
+        "ko": "대명사를 그대로 두면 영어와 독일어에서는 그 전환이 더 안 보이겠네.",
+        "de": "Wenn die Pronomen unverändert bleiben, wird der Wechsel auf Deutsch und Englisch noch unsichtbarer.",
+        "en": "If we keep the pronoun unchanged, the shift will be even less visible in English and German."
+      },
+      {
+        "speaker": "user",
+        "ko": "전환 지점에서 집단을 한 번만 명시하고 그 뒤에는 자연스러운 대명사로 이어 가자.",
+        "de": "Benennen wir die Gruppe jeweils beim Wechsel einmal ausdrücklich und verwenden danach wieder natürliche Pronomen.",
+        "en": "Let's name the group once at each shift, then return to natural pronouns."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_we_translation_identity_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "영어 자막에서는 우리를 계속 ‘we residents’로 통일했어. 더 자연스럽지 않아?",
+          "options": [
+            {
+              "de": "Im englischen Untertitel habe ich 우리 durchgehend als „we residents“ wiedergegeben. Klingt das nicht natürlicher?",
+              "en": "I translated 우리 as 'we residents' throughout. Isn't that more natural?"
+            },
+            {
+              "de": "An dieser Stelle umfasst 우리 nicht dieselbe Gruppe wie die Bewohner im vorherigen Satz.",
+              "en": "Here, 우리 does not refer to the same group as all residents in the previous sentence."
+            },
+            {
+              "de": "Wer ist hier dann gemeint?",
+              "en": "Who does it mean in this sentence?"
+            },
+            {
+              "de": "In „Wir haben diese Gasse dokumentiert“ meint es die interviewte Person und das Filmteam; im nächsten Satz die langjährigen Bewohner.",
+              "en": "In 'we documented this alley,' it means the interviewee and crew; in the next sentence, long-time residents."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_we_translation_identity_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "An dieser Stelle umfasst 우리 nicht dieselbe Gruppe wie die Bewohner im vorherigen Satz.",
+          "promptEn": "Here, 우리 does not refer to the same group as all residents in the previous sentence.",
+          "options": [
+            {
+              "ko": "여기서 우리는 앞 문장의 주민 전체와 같은 범위가 아니야."
+            },
+            {
+              "ko": "영어 자막에서는 우리를 계속 ‘we residents’로 통일했어. 더 자연스럽지 않아?"
+            },
+            {
+              "ko": "이 문장에서는 누구를 가리키는 거야?"
+            },
+            {
+              "ko": "‘우리가 이 골목을 기록했다’의 우리는 인터뷰이와 제작진이고, 다음 문장에서는 오래 산 주민들이야."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_we_translation_identity_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "전환 지점에서 집단을 한 번만 명시하고 그 뒤에는 자연스러운 대명사로 이어 가자.",
+          "audioKo": "전환 지점에서 집단을 한 번만 명시하고 그 뒤에는 자연스러운 대명사로 이어 가자.",
+          "promptDe": "Benennen wir die Gruppe jeweils beim Wechsel einmal ausdrücklich und verwenden danach wieder natürliche Pronomen.",
+          "promptEn": "Let's name the group once at each shift, then return to natural pronouns.",
+          "distractors": [
+            "영어 자막에서는 우리를 계속 ‘we residents’로 통일했어. 더 자연스럽지 않아?",
+            "여기서 우리는 앞 문장의 주민 전체와 같은 범위가 아니야.",
+            "이 문장에서는 누구를 가리키는 거야?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": {
+      "title": {
+        "ko": "우리는 문맥마다 경계가 달라져요",
+        "de": "Die Grenzen von 우리 wechseln mit dem Kontext",
+        "en": "The boundaries of 우리 shift with context"
+      },
+      "body": {
+        "ko": "한국어 우리는 항상 같은 사람들을 포함하지 않아요. 번역할 때 화자가 누구를 묶고 누구와 거리를 두는지 앞뒤 발화에서 확인해야 해요.",
+        "de": "Das koreanische 우리 bezeichnet nicht immer dieselbe Gruppe. Beim Übersetzen muss aus dem Kontext erschlossen werden, wen die sprechende Person einschließt und von wem sie sich abgrenzt.",
+        "en": "Korean 우리 does not always include the same people. Translation requires checking whom the speaker groups together and whom they distinguish from context."
+      }
+    },
+    "xpReward": 150
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "workload_allocation_hidden_labor",
+  "scenario": {
+    "id": "workload_allocation_hidden_labor",
+    "level": "c1",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "눈에 잘 안 보이는 업무까지 나누기",
+      "de": "Unsichtbare Koordinationsarbeit verteilen",
+      "en": "Sharing invisible coordination work"
+    },
+    "intro": {
+      "ko": "공식 산출물은 고르게 나뉘었지만 회의 정리와 일정 확인은 계속 마야가 해요.",
+      "de": "Die sichtbaren Ergebnisse sind gleich verteilt, doch Protokolle und Terminabstimmung landen immer bei Maya.",
+      "en": "Visible deliverables are evenly split, but meeting notes and scheduling keep falling to Maya."
+    },
+    "courseUnitId": "c1_06_intimacy_safety_design",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "andrea",
+      "coworker"
+    ],
+    "relationshipContext": "팀 리더 안드레아와 마야, 동료",
+    "intent": "개인의 불만이 아니라 반복된 업무 기록으로 부담을 설명한다",
+    "shelf": "c1_briefing",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "업무표를 보면 세 사람의 산출물 수는 거의 같습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Laut Aufgabenliste haben alle drei fast gleich viele Ergebnisse geliefert.",
+          "en": "The task sheet shows that all three people have nearly the same number of deliverables."
+        }
+      },
+      {
+        "korean": "산출물만 보면 비슷하지만 조정 업무는 계속 한 사람에게 몰렸어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Bei den Ergebnissen stimmt das, aber die Koordination ist immer bei einer Person gelandet.",
+          "en": "The deliverables look even, but the coordination work has kept falling to one person."
+        }
+      },
+      {
+        "korean": "회의록과 일정 확인은 표에 없어서 저도 얼마나 많은지 몰랐어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Protokolle und Terminabsprachen standen nicht in der Liste. Mir war der Umfang nicht klar.",
+          "en": "Meeting notes and scheduling weren't on the sheet, so I didn't realize how much there was."
+        }
+      },
+      {
+        "korean": "보이는 결과만으로 업무량을 판단하면 준비와 후속 작업이 빠지겠네요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn wir nur sichtbare Ergebnisse zählen, fehlen Vorbereitung und Nacharbeit.",
+          "en": "If we judge workload only by visible outputs, preparation and follow-up disappear."
+        }
+      },
+      {
+        "korean": "조정 업무도 업무표에 넣고 회의마다 담당을 바꾸면 어떨까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie wäre es, die Koordination in die Liste aufzunehmen und die Zuständigkeit pro Meeting zu wechseln?",
+          "en": "How about adding coordination work to the task sheet and rotating it each meeting?"
+        }
+      },
+      {
+        "korean": "좋아요. 다음 회의록은 제가 맡겠습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gut. Das nächste Protokoll übernehme ich.",
+          "en": "Good. I'll take the next set of meeting notes."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_intimacy_safety"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_whether"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)ㄴ/는지",
+        "de": "Indirekte Frage (ob/was/wer)",
+        "en": "Indirect question (whether)"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Ob/W-Frage als Nebensatz vor 알다/모르다/궁금하다",
+        "en": "Whether/wh-question as clause before 알다/모르다/궁금하다"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "andrea",
+        "ko": "업무표를 보면 세 사람의 산출물 수는 거의 같습니다.",
+        "de": "Laut Aufgabenliste haben alle drei fast gleich viele Ergebnisse geliefert.",
+        "en": "The task sheet shows that all three people have nearly the same number of deliverables."
+      },
+      {
+        "speaker": "user",
+        "ko": "산출물만 보면 비슷하지만 조정 업무는 계속 한 사람에게 몰렸어요.",
+        "de": "Bei den Ergebnissen stimmt das, aber die Koordination ist immer bei einer Person gelandet.",
+        "en": "The deliverables look even, but the coordination work has kept falling to one person."
+      },
+      {
+        "speaker": "coworker",
+        "ko": "회의록과 일정 확인은 표에 없어서 저도 얼마나 많은지 몰랐어요.",
+        "de": "Protokolle und Terminabsprachen standen nicht in der Liste. Mir war der Umfang nicht klar.",
+        "en": "Meeting notes and scheduling weren't on the sheet, so I didn't realize how much there was."
+      },
+      {
+        "speaker": "andrea",
+        "ko": "보이는 결과만으로 업무량을 판단하면 준비와 후속 작업이 빠지겠네요.",
+        "de": "Wenn wir nur sichtbare Ergebnisse zählen, fehlen Vorbereitung und Nacharbeit.",
+        "en": "If we judge workload only by visible outputs, preparation and follow-up disappear."
+      },
+      {
+        "speaker": "user",
+        "ko": "조정 업무도 업무표에 넣고 회의마다 담당을 바꾸면 어떨까요?",
+        "de": "Wie wäre es, die Koordination in die Liste aufzunehmen und die Zuständigkeit pro Meeting zu wechseln?",
+        "en": "How about adding coordination work to the task sheet and rotating it each meeting?"
+      },
+      {
+        "speaker": "coworker",
+        "ko": "좋아요. 다음 회의록은 제가 맡겠습니다.",
+        "de": "Gut. Das nächste Protokoll übernehme ich.",
+        "en": "Good. I'll take the next set of meeting notes."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_workload_allocation_hidden_labor_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "업무표를 보면 세 사람의 산출물 수는 거의 같습니다.",
+          "options": [
+            {
+              "de": "Laut Aufgabenliste haben alle drei fast gleich viele Ergebnisse geliefert.",
+              "en": "The task sheet shows that all three people have nearly the same number of deliverables."
+            },
+            {
+              "de": "Bei den Ergebnissen stimmt das, aber die Koordination ist immer bei einer Person gelandet.",
+              "en": "The deliverables look even, but the coordination work has kept falling to one person."
+            },
+            {
+              "de": "Protokolle und Terminabsprachen standen nicht in der Liste. Mir war der Umfang nicht klar.",
+              "en": "Meeting notes and scheduling weren't on the sheet, so I didn't realize how much there was."
+            },
+            {
+              "de": "Wenn wir nur sichtbare Ergebnisse zählen, fehlen Vorbereitung und Nacharbeit.",
+              "en": "If we judge workload only by visible outputs, preparation and follow-up disappear."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_workload_allocation_hidden_labor_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Bei den Ergebnissen stimmt das, aber die Koordination ist immer bei einer Person gelandet.",
+          "promptEn": "The deliverables look even, but the coordination work has kept falling to one person.",
+          "options": [
+            {
+              "ko": "산출물만 보면 비슷하지만 조정 업무는 계속 한 사람에게 몰렸어요."
+            },
+            {
+              "ko": "업무표를 보면 세 사람의 산출물 수는 거의 같습니다."
+            },
+            {
+              "ko": "회의록과 일정 확인은 표에 없어서 저도 얼마나 많은지 몰랐어요."
+            },
+            {
+              "ko": "보이는 결과만으로 업무량을 판단하면 준비와 후속 작업이 빠지겠네요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_workload_allocation_hidden_labor_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "조정 업무도 업무표에 넣고 회의마다 담당을 바꾸면 어떨까요?",
+          "audioKo": "조정 업무도 업무표에 넣고 회의마다 담당을 바꾸면 어떨까요?",
+          "promptDe": "Wie wäre es, die Koordination in die Liste aufzunehmen und die Zuständigkeit pro Meeting zu wechseln?",
+          "promptEn": "How about adding coordination work to the task sheet and rotating it each meeting?",
+          "distractors": [
+            "업무표를 보면 세 사람의 산출물 수는 거의 같습니다.",
+            "산출물만 보면 비슷하지만 조정 업무는 계속 한 사람에게 몰렸어요.",
+            "회의록과 일정 확인은 표에 없어서 저도 얼마나 많은지 몰랐어요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 140
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

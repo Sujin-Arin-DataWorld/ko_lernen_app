@@ -1,0 +1,247 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "secondhand_hidden_defect",
+  "scenario": {
+    "id": "secondhand_hidden_defect",
+    "level": "b1",
+    "emoji": "🚇",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "중고 거래 물건에 설명 없는 흠집이 있을 때",
+      "de": "Einen nicht erwähnten Kratzer entdecken",
+      "en": "Finding an undisclosed scratch"
+    },
+    "intro": {
+      "ko": "중고 카메라 렌즈에 게시글 사진에는 없던 흠집이 보여요.",
+      "de": "Auf dem gebrauchten Kameraobjektiv ist ein Kratzer, der auf den Fotos im Inserat nicht zu sehen war.",
+      "en": "The used camera lens has a scratch that wasn't visible in the listing photos."
+    },
+    "courseUnitId": "b1_05_complaint_resolution",
+    "playerCharacterId": "daniel",
+    "participantIds": [
+      "daniel",
+      "customer"
+    ],
+    "relationshipContext": "처음 만난 판매자와 다니엘",
+    "intent": "확인한 사실을 말하고 가격 조정이나 거래 취소를 요청한다",
+    "shelf": "b1_refund",
+    "backdrop": "station",
+    "vocab": [
+      {
+        "korean": "잠깐만요. 글에는 이 흠집이 없었는데요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Einen Moment. Dieser Kratzer war im Inserat nicht zu sehen.",
+          "en": "Hold on. This scratch wasn't shown in the listing."
+        }
+      },
+      {
+        "korean": "작아서 사진에는 안 나온 것 같아요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Er ist klein, deshalb war er auf den Fotos wohl nicht zu erkennen.",
+          "en": "It's small, so I don't think it showed in the photos."
+        }
+      },
+      {
+        "korean": "사진을 찍는 데 문제는 없나요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Beeinträchtigt er die Aufnahmen?",
+          "en": "Does it affect the photos?"
+        }
+      },
+      {
+        "korean": "제가 쓸 때는 문제없었어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Bei mir hat alles funktioniert.",
+          "en": "It worked fine when I used it."
+        }
+      },
+      {
+        "korean": "저는 촬영 일에 써야 해서 작은 흠집도 신경이 쓰여요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich brauche es für Aufträge, deshalb ist auch ein kleiner Kratzer für mich wichtig.",
+          "en": "I need it for paid shoots, so even a small scratch matters to me."
+        }
+      },
+      {
+        "korean": "죄송하지만 오늘 거래는 취소할게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Tut mir leid, aber ich werde den Kauf heute nicht abschließen.",
+          "en": "I'm sorry, but I'm not going through with the purchase today."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b1_complaint_resolution"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_background_contrast"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-는데",
+        "de": "Hintergrund / Kontrast",
+        "en": "Background / contrast"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Hintergrund geben oder milden Kontrast ausdrücken",
+        "en": "Give background or express mild contrast"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "잠깐만요. 글에는 이 흠집이 없었는데요.",
+        "de": "Einen Moment. Dieser Kratzer war im Inserat nicht zu sehen.",
+        "en": "Hold on. This scratch wasn't shown in the listing."
+      },
+      {
+        "speaker": "customer",
+        "ko": "작아서 사진에는 안 나온 것 같아요.",
+        "de": "Er ist klein, deshalb war er auf den Fotos wohl nicht zu erkennen.",
+        "en": "It's small, so I don't think it showed in the photos."
+      },
+      {
+        "speaker": "user",
+        "ko": "사진을 찍는 데 문제는 없나요?",
+        "de": "Beeinträchtigt er die Aufnahmen?",
+        "en": "Does it affect the photos?"
+      },
+      {
+        "speaker": "customer",
+        "ko": "제가 쓸 때는 문제없었어요.",
+        "de": "Bei mir hat alles funktioniert.",
+        "en": "It worked fine when I used it."
+      },
+      {
+        "speaker": "user",
+        "ko": "저는 촬영 일에 써야 해서 작은 흠집도 신경이 쓰여요.",
+        "de": "Ich brauche es für Aufträge, deshalb ist auch ein kleiner Kratzer für mich wichtig.",
+        "en": "I need it for paid shoots, so even a small scratch matters to me."
+      },
+      {
+        "speaker": "user",
+        "ko": "죄송하지만 오늘 거래는 취소할게요.",
+        "de": "Tut mir leid, aber ich werde den Kauf heute nicht abschließen.",
+        "en": "I'm sorry, but I'm not going through with the purchase today."
+      },
+      {
+        "speaker": "customer",
+        "ko": "알겠습니다. 설명이 부족했네요.",
+        "de": "Verstanden. Die Beschreibung war wohl nicht ausführlich genug.",
+        "en": "I understand. The listing should have been clearer."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_secondhand_hidden_defect_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "작아서 사진에는 안 나온 것 같아요.",
+          "options": [
+            {
+              "de": "Er ist klein, deshalb war er auf den Fotos wohl nicht zu erkennen.",
+              "en": "It's small, so I don't think it showed in the photos."
+            },
+            {
+              "de": "Einen Moment. Dieser Kratzer war im Inserat nicht zu sehen.",
+              "en": "Hold on. This scratch wasn't shown in the listing."
+            },
+            {
+              "de": "Beeinträchtigt er die Aufnahmen?",
+              "en": "Does it affect the photos?"
+            },
+            {
+              "de": "Bei mir hat alles funktioniert.",
+              "en": "It worked fine when I used it."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_secondhand_hidden_defect_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Einen Moment. Dieser Kratzer war im Inserat nicht zu sehen.",
+          "promptEn": "Hold on. This scratch wasn't shown in the listing.",
+          "options": [
+            {
+              "ko": "잠깐만요. 글에는 이 흠집이 없었는데요."
+            },
+            {
+              "ko": "작아서 사진에는 안 나온 것 같아요."
+            },
+            {
+              "ko": "사진을 찍는 데 문제는 없나요?"
+            },
+            {
+              "ko": "제가 쓸 때는 문제없었어요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_secondhand_hidden_defect_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "죄송하지만 오늘 거래는 취소할게요.",
+          "audioKo": "죄송하지만 오늘 거래는 취소할게요.",
+          "promptDe": "Tut mir leid, aber ich werde den Kauf heute nicht abschließen.",
+          "promptEn": "I'm sorry, but I'm not going through with the purchase today.",
+          "distractors": [
+            "잠깐만요. 글에는 이 흠집이 없었는데요.",
+            "작아서 사진에는 안 나온 것 같아요.",
+            "사진을 찍는 데 문제는 없나요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 120
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

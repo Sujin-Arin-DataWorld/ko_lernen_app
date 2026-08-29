@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "direct_feedback_misread",
+  "scenario": {
+    "id": "direct_feedback_misread",
+    "level": "b2",
+    "emoji": "💬",
+    "register": "casual",
+    "speechStyle": "casual",
+    "title": {
+      "ko": "솔직한 피드백이 무례하게 들렸을 때",
+      "de": "Zu knappes Feedback wieder einordnen",
+      "en": "Repairing feedback that sounded too blunt"
+    },
+    "intro": {
+      "ko": "다니엘의 짧은 피드백이 마야의 작업 전체를 무시하는 말처럼 들렸어요.",
+      "de": "Daniels knappe Rückmeldung klang, als würde er Mayas gesamte Arbeit abwerten.",
+      "en": "Daniel's brief feedback sounded like he was dismissing all of Maya's work."
+    },
+    "courseUnitId": "b2_02_professional_opinion",
+    "playerCharacterId": "daniel",
+    "participantIds": [
+      "daniel",
+      "maya"
+    ],
+    "relationshipContext": "프로젝트 동료 다니엘과 마야",
+    "intent": "의도만 변명하지 않고 어떤 표현이 강했는지 확인한다",
+    "shelf": "b2_friends",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "아까 ‘이건 다시 해야 해’라고만 해서 제 작업이 전부 별로라는 줄 알았어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Als du nur „Das müssen wir neu machen“ gesagt hast, dachte ich, du fändest meine ganze Arbeit schlecht.",
+          "en": "When you only said, 'We need to redo this,' I thought you disliked all of my work."
+        }
+      },
+      {
+        "korean": "수정이 필요하다는 뜻이었는데 작업 전체가 별로라는 말처럼 들렸구나.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich meinte nur, dass eine Überarbeitung nötig ist. Es klang aber, als würde ich alles abwerten.",
+          "en": "I meant it needed revision, but it sounded like I thought the whole thing was bad."
+        }
+      },
+      {
+        "korean": "어느 부분인지 없으니까 더 그렇게 느꼈어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Weil du keine Stelle genannt hast, wirkte es noch pauschaler.",
+          "en": "Without naming a specific part, it felt even more sweeping."
+        }
+      },
+      {
+        "korean": "마감 때문에 짧게 말했지만, 도입부 속도만 조정하면 되고 나머지 구성은 좋아.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wegen der knappen Deadline war ich zu kurz angebunden. Nur das Tempo im Einstieg muss angepasst werden; der Rest ist gut aufgebaut.",
+          "en": "I was too brief because of the deadline. Only the pacing in the opening needs work; the rest is well structured."
+        }
+      },
+      {
+        "korean": "그렇게 범위를 말해 주니까 이해됐어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Mit dieser Eingrenzung verstehe ich die Rückmeldung.",
+          "en": "That makes sense now that you've narrowed it down."
+        }
+      },
+      {
+        "korean": "다음부터는 수정할 부분과 괜찮은 부분을 나눠서 말할게.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Nächstes Mal trenne ich klarer zwischen dem, was geändert werden muss, und dem, was schon gut funktioniert.",
+          "en": "Next time, I'll separate what needs changing from what is already working well."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b2_opinion"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_obligation"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-아/어야 하다",
+        "de": "Obligation",
+        "en": "Obligation"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Müssen / Sollen (Pflicht oder Notwendigkeit)",
+        "en": "Must / should (duty or necessity)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "maya",
+        "ko": "아까 ‘이건 다시 해야 해’라고만 해서 제 작업이 전부 별로라는 줄 알았어요.",
+        "de": "Als du nur „Das müssen wir neu machen“ gesagt hast, dachte ich, du fändest meine ganze Arbeit schlecht.",
+        "en": "When you only said, 'We need to redo this,' I thought you disliked all of my work."
+      },
+      {
+        "speaker": "user",
+        "ko": "수정이 필요하다는 뜻이었는데 작업 전체가 별로라는 말처럼 들렸구나.",
+        "de": "Ich meinte nur, dass eine Überarbeitung nötig ist. Es klang aber, als würde ich alles abwerten.",
+        "en": "I meant it needed revision, but it sounded like I thought the whole thing was bad."
+      },
+      {
+        "speaker": "maya",
+        "ko": "어느 부분인지 없으니까 더 그렇게 느꼈어요.",
+        "de": "Weil du keine Stelle genannt hast, wirkte es noch pauschaler.",
+        "en": "Without naming a specific part, it felt even more sweeping."
+      },
+      {
+        "speaker": "user",
+        "ko": "마감 때문에 짧게 말했지만, 도입부 속도만 조정하면 되고 나머지 구성은 좋아.",
+        "de": "Wegen der knappen Deadline war ich zu kurz angebunden. Nur das Tempo im Einstieg muss angepasst werden; der Rest ist gut aufgebaut.",
+        "en": "I was too brief because of the deadline. Only the pacing in the opening needs work; the rest is well structured."
+      },
+      {
+        "speaker": "maya",
+        "ko": "그렇게 범위를 말해 주니까 이해됐어요.",
+        "de": "Mit dieser Eingrenzung verstehe ich die Rückmeldung.",
+        "en": "That makes sense now that you've narrowed it down."
+      },
+      {
+        "speaker": "user",
+        "ko": "다음부터는 수정할 부분과 괜찮은 부분을 나눠서 말할게.",
+        "de": "Nächstes Mal trenne ich klarer zwischen dem, was geändert werden muss, und dem, was schon gut funktioniert.",
+        "en": "Next time, I'll separate what needs changing from what is already working well."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_direct_feedback_misread_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "아까 ‘이건 다시 해야 해’라고만 해서 제 작업이 전부 별로라는 줄 알았어요.",
+          "options": [
+            {
+              "de": "Als du nur „Das müssen wir neu machen“ gesagt hast, dachte ich, du fändest meine ganze Arbeit schlecht.",
+              "en": "When you only said, 'We need to redo this,' I thought you disliked all of my work."
+            },
+            {
+              "de": "Ich meinte nur, dass eine Überarbeitung nötig ist. Es klang aber, als würde ich alles abwerten.",
+              "en": "I meant it needed revision, but it sounded like I thought the whole thing was bad."
+            },
+            {
+              "de": "Weil du keine Stelle genannt hast, wirkte es noch pauschaler.",
+              "en": "Without naming a specific part, it felt even more sweeping."
+            },
+            {
+              "de": "Wegen der knappen Deadline war ich zu kurz angebunden. Nur das Tempo im Einstieg muss angepasst werden; der Rest ist gut aufgebaut.",
+              "en": "I was too brief because of the deadline. Only the pacing in the opening needs work; the rest is well structured."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_direct_feedback_misread_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ich meinte nur, dass eine Überarbeitung nötig ist. Es klang aber, als würde ich alles abwerten.",
+          "promptEn": "I meant it needed revision, but it sounded like I thought the whole thing was bad.",
+          "options": [
+            {
+              "ko": "수정이 필요하다는 뜻이었는데 작업 전체가 별로라는 말처럼 들렸구나."
+            },
+            {
+              "ko": "아까 ‘이건 다시 해야 해’라고만 해서 제 작업이 전부 별로라는 줄 알았어요."
+            },
+            {
+              "ko": "어느 부분인지 없으니까 더 그렇게 느꼈어요."
+            },
+            {
+              "ko": "마감 때문에 짧게 말했지만, 도입부 속도만 조정하면 되고 나머지 구성은 좋아."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_direct_feedback_misread_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "다음부터는 수정할 부분과 괜찮은 부분을 나눠서 말할게.",
+          "audioKo": "다음부터는 수정할 부분과 괜찮은 부분을 나눠서 말할게.",
+          "promptDe": "Nächstes Mal trenne ich klarer zwischen dem, was geändert werden muss, und dem, was schon gut funktioniert.",
+          "promptEn": "Next time, I'll separate what needs changing from what is already working well.",
+          "distractors": [
+            "아까 ‘이건 다시 해야 해’라고만 해서 제 작업이 전부 별로라는 줄 알았어요.",
+            "수정이 필요하다는 뜻이었는데 작업 전체가 별로라는 말처럼 들렸구나.",
+            "어느 부분인지 없으니까 더 그렇게 느꼈어요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 130
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

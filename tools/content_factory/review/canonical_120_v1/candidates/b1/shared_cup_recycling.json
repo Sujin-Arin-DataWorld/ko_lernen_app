@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "shared_cup_recycling",
+  "scenario": {
+    "id": "shared_cup_recycling",
+    "level": "b1",
+    "emoji": "💬",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "공용 주방 일회용 컵을 줄이기",
+      "de": "Bei internen Meetings weniger Einwegbecher nutzen",
+      "en": "Reducing disposable cups in internal meetings"
+    },
+    "intro": {
+      "ko": "회의가 끝날 때마다 일회용 컵이 많이 남아요.",
+      "de": "Nach jeder Besprechung bleiben viele Einwegbecher zurück.",
+      "en": "A lot of disposable cups are left after every meeting."
+    },
+    "courseUnitId": "b1_06_life_capstone",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "andrea"
+    ],
+    "relationshipContext": "동료 마야와 안드레아",
+    "intent": "실제로 바꿀 수 있는 한 가지 행동과 이유를 말한다",
+    "shelf": "b1_neighbor",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "회의가 끝날 때마다 일회용 컵이 너무 많이 남아요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Nach jedem Meeting bleiben sehr viele Einwegbecher übrig.",
+          "en": "Too many disposable cups are left after every meeting."
+        }
+      },
+      {
+        "korean": "외부 손님이 있을 때는 컵이 필요할 수도 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Bei externen Gästen brauchen wir sie vielleicht weiterhin.",
+          "en": "We may still need them when we have outside guests."
+        }
+      },
+      {
+        "korean": "그럼 내부 회의부터 개인 컵을 써 보면 어때요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie wäre es, wenn wir zunächst bei internen Meetings eigene Becher verwenden?",
+          "en": "How about starting with reusable cups for internal meetings?"
+        }
+      },
+      {
+        "korean": "전면 금지보다 시험해 보는 편이 낫겠네요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ein Test ist besser als ein sofortiges Verbot.",
+          "en": "A trial sounds better than an outright ban."
+        }
+      },
+      {
+        "korean": "한 달 동안 해 보고 남는 컵 수를 비교해요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir testen es einen Monat und vergleichen, wie viele Becher übrig bleiben.",
+          "en": "Let's try it for a month and compare how many cups are left."
+        }
+      },
+      {
+        "korean": "좋아요. 다음 내부 회의부터 시작해 보죠.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gut. Dann fangen wir beim nächsten internen Meeting damit an.",
+          "en": "Good. Let's start with the next internal meeting."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b1_life"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a2_conditional"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)면",
+        "de": "Konditionalsatz",
+        "en": "Conditional"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Wenn/Falls-Bedingung",
+        "en": "If / in case (a condition)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "회의가 끝날 때마다 일회용 컵이 너무 많이 남아요.",
+        "de": "Nach jedem Meeting bleiben sehr viele Einwegbecher übrig.",
+        "en": "Too many disposable cups are left after every meeting."
+      },
+      {
+        "speaker": "andrea",
+        "ko": "외부 손님이 있을 때는 컵이 필요할 수도 있어요.",
+        "de": "Bei externen Gästen brauchen wir sie vielleicht weiterhin.",
+        "en": "We may still need them when we have outside guests."
+      },
+      {
+        "speaker": "user",
+        "ko": "그럼 내부 회의부터 개인 컵을 써 보면 어때요?",
+        "de": "Wie wäre es, wenn wir zunächst bei internen Meetings eigene Becher verwenden?",
+        "en": "How about starting with reusable cups for internal meetings?"
+      },
+      {
+        "speaker": "andrea",
+        "ko": "전면 금지보다 시험해 보는 편이 낫겠네요.",
+        "de": "Ein Test ist besser als ein sofortiges Verbot.",
+        "en": "A trial sounds better than an outright ban."
+      },
+      {
+        "speaker": "user",
+        "ko": "한 달 동안 해 보고 남는 컵 수를 비교해요.",
+        "de": "Wir testen es einen Monat und vergleichen, wie viele Becher übrig bleiben.",
+        "en": "Let's try it for a month and compare how many cups are left."
+      },
+      {
+        "speaker": "andrea",
+        "ko": "좋아요. 다음 내부 회의부터 시작해 보죠.",
+        "de": "Gut. Dann fangen wir beim nächsten internen Meeting damit an.",
+        "en": "Good. Let's start with the next internal meeting."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_shared_cup_recycling_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "외부 손님이 있을 때는 컵이 필요할 수도 있어요.",
+          "options": [
+            {
+              "de": "Bei externen Gästen brauchen wir sie vielleicht weiterhin.",
+              "en": "We may still need them when we have outside guests."
+            },
+            {
+              "de": "Nach jedem Meeting bleiben sehr viele Einwegbecher übrig.",
+              "en": "Too many disposable cups are left after every meeting."
+            },
+            {
+              "de": "Wie wäre es, wenn wir zunächst bei internen Meetings eigene Becher verwenden?",
+              "en": "How about starting with reusable cups for internal meetings?"
+            },
+            {
+              "de": "Ein Test ist besser als ein sofortiges Verbot.",
+              "en": "A trial sounds better than an outright ban."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_shared_cup_recycling_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Nach jedem Meeting bleiben sehr viele Einwegbecher übrig.",
+          "promptEn": "Too many disposable cups are left after every meeting.",
+          "options": [
+            {
+              "ko": "회의가 끝날 때마다 일회용 컵이 너무 많이 남아요."
+            },
+            {
+              "ko": "외부 손님이 있을 때는 컵이 필요할 수도 있어요."
+            },
+            {
+              "ko": "그럼 내부 회의부터 개인 컵을 써 보면 어때요?"
+            },
+            {
+              "ko": "전면 금지보다 시험해 보는 편이 낫겠네요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_shared_cup_recycling_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "한 달 동안 해 보고 남는 컵 수를 비교해요.",
+          "audioKo": "한 달 동안 해 보고 남는 컵 수를 비교해요.",
+          "promptDe": "Wir testen es einen Monat und vergleichen, wie viele Becher übrig bleiben.",
+          "promptEn": "Let's try it for a month and compare how many cups are left.",
+          "distractors": [
+            "회의가 끝날 때마다 일회용 컵이 너무 많이 남아요.",
+            "외부 손님이 있을 때는 컵이 필요할 수도 있어요.",
+            "그럼 내부 회의부터 개인 컵을 써 보면 어때요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 120
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

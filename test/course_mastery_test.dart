@@ -5,10 +5,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/models/course_mastery.dart';
+import 'package:ko_lernen_app/models/can_do_segment.dart';
 import 'package:ko_lernen_app/models/course_practice_context.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/models/grammar.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
+import 'package:ko_lernen_app/models/productive_mastery.dart';
+import 'package:ko_lernen_app/models/scenario_corpus_generation.dart';
 import 'package:ko_lernen_app/models/smalltalk.dart';
 import 'package:ko_lernen_app/services/account/reconciliation_errors.dart';
 import 'package:ko_lernen_app/services/course_mastery_service.dart';
@@ -1919,6 +1922,110 @@ void main() {
       );
     },
   );
+
+  test(
+    'canonical corpus migration resets only course and scenario progress',
+    () async {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('kl_srs_v1', '{"word":"kept"}');
+      await prefs.setString('kl_account_profile_v1', '{"uid":"kept"}');
+      await prefs.setString('kl_purchase_state_v1', '{"premium":true}');
+      await prefs.setString('kl_room_layouts_v3', '{"madang":[]}');
+      await prefs.setString(
+        'kl_bookshelf_v1',
+        '{"page1":{"note":"kept note"}}',
+      );
+      await prefs.setString(
+        'kl_custom_packs_v1',
+        '{"pack1":{"name":"kept pack"}}',
+      );
+      await prefs.setInt('kl_streak_days', 19);
+      expect(
+        await Storage.claimListeningCompletionReward(
+          scenarioId: 'airport_arrival',
+          earnedXp: 25,
+        ),
+        ListeningRewardClaimResult.awarded,
+      );
+      await Storage.setScenarioStars('airport_arrival', 3);
+      await Storage.earnBadge('kept_reward');
+
+      final legacySnapshot = CourseMasterySnapshot(
+        placementLevel: 'a2',
+        currentCourseUnitId: 'b1_01_workplace',
+        completedUnitIds: const ['a2_01_polite_daily'],
+        bypassedPrerequisiteUnitIds: const [
+          'a1_01_greetings_hangul',
+          'a1_02_self_intro_identity',
+          'a1_03_topic_subject_particles',
+          'a1_04_order_request_object',
+        ],
+        evidence: [
+          MasteryEvidence(
+            conceptId: 'concept_a2_polite',
+            contentKind: CurriculumContentKind.grammar,
+            contentId: 'grammar_a2_polite',
+            courseUnitId: 'a2_01_polite_daily',
+            isCorrect: true,
+            occurredAt: _time(1),
+          ),
+        ],
+        scenarioCheckpoints: [
+          ScenarioCheckpointEvidence(
+            scenarioId: 'a2_daily',
+            courseUnitId: 'a2_01_polite_daily',
+            score: 1,
+            occurredAt: _time(2),
+          ),
+        ],
+        productiveEvidence: [_productiveEvidence()],
+      );
+      await Storage.setCourseMasteryRawJson(
+        jsonEncode(legacySnapshot.toJson()),
+      );
+
+      final service = CourseMasteryService(
+        _catalog(
+          scenarioCorpusGeneration: ScenarioCorpusGeneration.canonical120,
+        ),
+      );
+      final migrated = await service.refresh();
+
+      expect(
+        migrated.curriculumGeneration,
+        ScenarioCorpusGeneration.canonical120,
+      );
+      expect(migrated.placementLevel, 'a2');
+      expect(migrated.currentCourseUnitId, 'a2_01_polite_daily');
+      expect(migrated.completedUnitIds, isEmpty);
+      expect(migrated.evidence, isEmpty);
+      expect(migrated.scenarioCheckpoints, isEmpty);
+      expect(migrated.productiveEvidence, isEmpty);
+      expect(migrated.archivedProductiveEvidence, hasLength(1));
+      expect(migrated.rewardProductiveEvidence, hasLength(1));
+      expect(Storage.completedScenarios, isEmpty);
+      expect(Storage.scenarioStars, isEmpty);
+      expect(Storage.xp, 25);
+      expect(Storage.earnedBadges, contains('kept_reward'));
+      expect(prefs.getString('kl_srs_v1'), '{"word":"kept"}');
+      expect(prefs.getString('kl_account_profile_v1'), '{"uid":"kept"}');
+      expect(prefs.getString('kl_purchase_state_v1'), '{"premium":true}');
+      expect(prefs.getString('kl_room_layouts_v3'), '{"madang":[]}');
+      expect(
+        prefs.getString('kl_bookshelf_v1'),
+        '{"page1":{"note":"kept note"}}',
+      );
+      expect(
+        prefs.getString('kl_custom_packs_v1'),
+        '{"pack1":{"name":"kept pack"}}',
+      );
+      expect(prefs.getInt('kl_streak_days'), 19);
+
+      final secondRefresh = await service.refresh();
+      expect(secondRefresh.toJson(), migrated.toJson());
+      expect(Storage.xp, 25);
+    },
+  );
 }
 
 CourseMasterySnapshot _completedSnapshot() => const CourseMasterySnapshot(
@@ -2006,6 +2113,7 @@ CurriculumCatalog _catalog({
   bool firstUnitHasTwoCheckpoints = false,
   bool withSmalltalk = false,
   bool withSmalltalkAssessment = true,
+  String scenarioCorpusGeneration = ScenarioCorpusGeneration.legacy,
 }) {
   final units = <Map<String, dynamic>>[
     {
@@ -2181,6 +2289,7 @@ CurriculumCatalog _catalog({
   };
   final manifest = <String, dynamic>{
     'version': 1,
+    'scenarioCorpusGeneration': scenarioCorpusGeneration,
     'courseUnits': unitList,
     'concepts': concepts,
     'surfaceForms': const [],
@@ -2234,6 +2343,23 @@ CurriculumCatalog _catalog({
     scenarios: scenarios,
   );
 }
+
+ProductiveMasteryEvidence _productiveEvidence() => ProductiveMasteryEvidence(
+  assessmentItemId: 'assessment_a2_kept',
+  canDoSegmentId: 'segment_a2_kept',
+  courseUnitId: 'a2_01_polite_daily',
+  missionContentLinkId: 'productive:a2_01_polite_daily',
+  conceptId: 'concept_a2_polite',
+  evidenceMode: SegmentEvidenceMode.guidedProduction,
+  rubricVersion: 1,
+  score: 1,
+  occurredAt: _time(3),
+  courseEligible: true,
+  definitionFingerprint: 'definition_a2_kept_v1',
+  coverage: ProductiveEvidenceCoverage(
+    matchedCriterionIds: const ['criterion_a2_kept'],
+  ),
+);
 
 Map<String, dynamic> _concept(String id, String level, String kind) => {
   'id': id,

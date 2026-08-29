@@ -1,0 +1,248 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "ai_hiring_appeal",
+  "scenario": {
+    "id": "ai_hiring_appeal",
+    "level": "c2",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "AI 채용 탈락에 이의를 제기할 권리",
+      "de": "Ein begrenztes Recht auf Überprüfung bei KI-Auswahl",
+      "en": "Designing a targeted appeal for AI hiring decisions"
+    },
+    "intro": {
+      "ko": "자동 평가에서 탈락한 지원자는 결정적 항목을 모르고 사람의 검토도 요청할 수 없어요.",
+      "de": "Nach einer automatisierten Ablehnung erfahren Bewerber weder den entscheidenden Faktor noch können sie eine menschliche Prüfung verlangen.",
+      "en": "Applicants rejected by automated screening cannot learn what mattered or request human review."
+    },
+    "courseUnitId": "c2_03_automation_redress",
+    "playerCharacterId": "andrea",
+    "participantIds": [
+      "andrea",
+      "sujin",
+      "resident"
+    ],
+    "relationshipContext": "재무 리더 안드레아와 데이터 분석가 수진, 지원자 대표",
+    "intent": "영업 비밀을 침해하지 않는 범위에서 설명과 재심 기준을 설계한다",
+    "shelf": "c2_automation",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "영상 업로드 오류가 있었는데 결과에는 점수만 나오고 설명은 없었습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Beim Video-Upload trat ein Fehler auf, aber im Ergebnis stand nur eine Punktzahl ohne Erklärung.",
+          "en": "There was a video upload error, but the result only showed a score with no explanation."
+        }
+      },
+      {
+        "korean": "모든 탈락 사례를 다시 심사하면 채용 일정과 비용을 감당하기 어렵습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Eine erneute Prüfung jeder Absage wäre zeitlich und finanziell kaum tragbar.",
+          "en": "Rechecking every rejection would be difficult to sustain in cost and time."
+        }
+      },
+      {
+        "korean": "그렇다고 오류 가능성을 다툴 통로가 전혀 없어도 된다는 결론은 나오지 않습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Daraus folgt jedoch nicht, dass es überhaupt keinen Weg geben darf, einen möglichen Fehler anzufechten.",
+          "en": "That doesn't mean there should be no way to challenge a possible error."
+        }
+      },
+      {
+        "korean": "어떤 경우를 우선 재검토 대상으로 삼을 수 있을까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Welche Fälle sollten vorrangig überprüft werden?",
+          "en": "Which cases should receive priority review?"
+        }
+      },
+      {
+        "korean": "데이터 오류, 접근성 문제, 기준점 근처 사례부터 열면 범위와 비용을 함께 관리할 수 있습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir könnten mit Datenfehlern, Barriereproblemen und Grenzfällen beginnen und so Umfang und Kosten begrenzen.",
+          "en": "Starting with data errors, accessibility issues, and borderline cases would control both scope and cost."
+        }
+      },
+      {
+        "korean": "그렇다면 모든 결정을 다시 하지 않으면서도 다툴 수 있는 기준이 필요하겠군요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dann brauchen wir Kriterien für eine Anfechtung, ohne jede Entscheidung neu aufzurollen.",
+          "en": "Then we need criteria for an appeal without reopening every decision."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c2_automation_redress"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_background_contrast"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-는데",
+        "de": "Hintergrund / Kontrast",
+        "en": "Background / contrast"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Hintergrund geben oder milden Kontrast ausdrücken",
+        "en": "Give background or express mild contrast"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "resident",
+        "ko": "영상 업로드 오류가 있었는데 결과에는 점수만 나오고 설명은 없었습니다.",
+        "de": "Beim Video-Upload trat ein Fehler auf, aber im Ergebnis stand nur eine Punktzahl ohne Erklärung.",
+        "en": "There was a video upload error, but the result only showed a score with no explanation."
+      },
+      {
+        "speaker": "user",
+        "ko": "모든 탈락 사례를 다시 심사하면 채용 일정과 비용을 감당하기 어렵습니다.",
+        "de": "Eine erneute Prüfung jeder Absage wäre zeitlich und finanziell kaum tragbar.",
+        "en": "Rechecking every rejection would be difficult to sustain in cost and time."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "그렇다고 오류 가능성을 다툴 통로가 전혀 없어도 된다는 결론은 나오지 않습니다.",
+        "de": "Daraus folgt jedoch nicht, dass es überhaupt keinen Weg geben darf, einen möglichen Fehler anzufechten.",
+        "en": "That doesn't mean there should be no way to challenge a possible error."
+      },
+      {
+        "speaker": "user",
+        "ko": "어떤 경우를 우선 재검토 대상으로 삼을 수 있을까요?",
+        "de": "Welche Fälle sollten vorrangig überprüft werden?",
+        "en": "Which cases should receive priority review?"
+      },
+      {
+        "speaker": "sujin",
+        "ko": "데이터 오류, 접근성 문제, 기준점 근처 사례부터 열면 범위와 비용을 함께 관리할 수 있습니다.",
+        "de": "Wir könnten mit Datenfehlern, Barriereproblemen und Grenzfällen beginnen und so Umfang und Kosten begrenzen.",
+        "en": "Starting with data errors, accessibility issues, and borderline cases would control both scope and cost."
+      },
+      {
+        "speaker": "user",
+        "ko": "그렇다면 모든 결정을 다시 하지 않으면서도 다툴 수 있는 기준이 필요하겠군요.",
+        "de": "Dann brauchen wir Kriterien für eine Anfechtung, ohne jede Entscheidung neu aufzurollen.",
+        "en": "Then we need criteria for an appeal without reopening every decision."
+      },
+      {
+        "speaker": "resident",
+        "ko": "최소한 제 오류가 평가에 반영됐는지는 확인할 수 있겠네요.",
+        "de": "Dann könnte ich zumindest klären lassen, ob der technische Fehler meine Bewertung beeinflusst hat.",
+        "en": "Then I could at least find out whether the error affected my evaluation."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_ai_hiring_appeal_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "영상 업로드 오류가 있었는데 결과에는 점수만 나오고 설명은 없었습니다.",
+          "options": [
+            {
+              "de": "Beim Video-Upload trat ein Fehler auf, aber im Ergebnis stand nur eine Punktzahl ohne Erklärung.",
+              "en": "There was a video upload error, but the result only showed a score with no explanation."
+            },
+            {
+              "de": "Eine erneute Prüfung jeder Absage wäre zeitlich und finanziell kaum tragbar.",
+              "en": "Rechecking every rejection would be difficult to sustain in cost and time."
+            },
+            {
+              "de": "Daraus folgt jedoch nicht, dass es überhaupt keinen Weg geben darf, einen möglichen Fehler anzufechten.",
+              "en": "That doesn't mean there should be no way to challenge a possible error."
+            },
+            {
+              "de": "Welche Fälle sollten vorrangig überprüft werden?",
+              "en": "Which cases should receive priority review?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_ai_hiring_appeal_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Eine erneute Prüfung jeder Absage wäre zeitlich und finanziell kaum tragbar.",
+          "promptEn": "Rechecking every rejection would be difficult to sustain in cost and time.",
+          "options": [
+            {
+              "ko": "모든 탈락 사례를 다시 심사하면 채용 일정과 비용을 감당하기 어렵습니다."
+            },
+            {
+              "ko": "영상 업로드 오류가 있었는데 결과에는 점수만 나오고 설명은 없었습니다."
+            },
+            {
+              "ko": "그렇다고 오류 가능성을 다툴 통로가 전혀 없어도 된다는 결론은 나오지 않습니다."
+            },
+            {
+              "ko": "어떤 경우를 우선 재검토 대상으로 삼을 수 있을까요?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_ai_hiring_appeal_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "그렇다면 모든 결정을 다시 하지 않으면서도 다툴 수 있는 기준이 필요하겠군요.",
+          "audioKo": "그렇다면 모든 결정을 다시 하지 않으면서도 다툴 수 있는 기준이 필요하겠군요.",
+          "promptDe": "Dann brauchen wir Kriterien für eine Anfechtung, ohne jede Entscheidung neu aufzurollen.",
+          "promptEn": "Then we need criteria for an appeal without reopening every decision.",
+          "distractors": [
+            "영상 업로드 오류가 있었는데 결과에는 점수만 나오고 설명은 없었습니다.",
+            "모든 탈락 사례를 다시 심사하면 채용 일정과 비용을 감당하기 어렵습니다.",
+            "그렇다고 오류 가능성을 다툴 통로가 전혀 없어도 된다는 결론은 나오지 않습니다."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 150
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

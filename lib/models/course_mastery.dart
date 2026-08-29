@@ -1,6 +1,7 @@
 import 'content_id.dart';
 import 'curriculum.dart';
 import 'productive_mastery.dart';
+import 'scenario_corpus_generation.dart';
 
 /// A scored scenario checkpoint. It is separate from answer evidence because
 /// one scenario result may summarize many individual questions.
@@ -99,6 +100,7 @@ class CourseMasterySnapshot {
   static const int currentVersion = 3;
 
   final int version;
+  final String curriculumGeneration;
   final String? placementLevel;
   final String? currentCourseUnitId;
   final List<String> completedUnitIds;
@@ -107,9 +109,13 @@ class CourseMasterySnapshot {
   final List<ScenarioCheckpointEvidence> scenarioCheckpoints;
   final List<ProductiveMasteryEvidence> productiveEvidence;
   final List<ProductiveProjectStepEvidence> productiveProjectStepEvidence;
+  final List<ProductiveMasteryEvidence> archivedProductiveEvidence;
+  final List<ProductiveProjectStepEvidence>
+  archivedProductiveProjectStepEvidence;
 
   const CourseMasterySnapshot({
     this.version = currentVersion,
+    this.curriculumGeneration = ScenarioCorpusGeneration.legacy,
     this.placementLevel,
     this.currentCourseUnitId,
     this.completedUnitIds = const [],
@@ -118,10 +124,13 @@ class CourseMasterySnapshot {
     this.scenarioCheckpoints = const [],
     this.productiveEvidence = const [],
     this.productiveProjectStepEvidence = const [],
+    this.archivedProductiveEvidence = const [],
+    this.archivedProductiveProjectStepEvidence = const [],
   });
 
   const CourseMasterySnapshot.empty()
     : version = currentVersion,
+      curriculumGeneration = ScenarioCorpusGeneration.legacy,
       placementLevel = null,
       currentCourseUnitId = null,
       completedUnitIds = const [],
@@ -129,7 +138,9 @@ class CourseMasterySnapshot {
       evidence = const [],
       scenarioCheckpoints = const [],
       productiveEvidence = const [],
-      productiveProjectStepEvidence = const [];
+      productiveProjectStepEvidence = const [],
+      archivedProductiveEvidence = const [],
+      archivedProductiveProjectStepEvidence = const [];
 
   factory CourseMasterySnapshot.fromJson(Map<String, dynamic> json) =>
       CourseMasterySnapshot.decodeAndMigrate(json);
@@ -155,6 +166,12 @@ class CourseMasterySnapshot {
     final rawProjectStepEvidence = sourceVersion < 3
         ? null
         : json['productiveProjectStepEvidence'];
+    final rawArchivedProductiveEvidence = sourceVersion < 3
+        ? null
+        : json['archivedProductiveEvidence'];
+    final rawArchivedProjectStepEvidence = sourceVersion < 3
+        ? null
+        : json['archivedProductiveProjectStepEvidence'];
     if (rawEvidence != null && rawEvidence is! List) {
       throw const FormatException('Course mastery evidence must be a list.');
     }
@@ -173,8 +190,23 @@ class CourseMasterySnapshot {
         'Course mastery productiveProjectStepEvidence must be a list.',
       );
     }
+    if (rawArchivedProductiveEvidence != null &&
+        rawArchivedProductiveEvidence is! List) {
+      throw const FormatException(
+        'Course mastery archivedProductiveEvidence must be a list.',
+      );
+    }
+    if (rawArchivedProjectStepEvidence != null &&
+        rawArchivedProjectStepEvidence is! List) {
+      throw const FormatException(
+        'Course mastery archivedProductiveProjectStepEvidence must be a list.',
+      );
+    }
     return CourseMasterySnapshot(
       version: currentVersion,
+      curriculumGeneration:
+          _nullableString(json['curriculumGeneration']) ??
+          ScenarioCorpusGeneration.legacy,
       placementLevel: _nullableString(json['placementLevel']),
       currentCourseUnitId: _nullableString(json['currentCourseUnitId']),
       completedUnitIds: _stringList(json['completedUnitIds']),
@@ -206,6 +238,22 @@ class CourseMasterySnapshot {
                 ),
               )
               .toList(growable: false),
+      archivedProductiveEvidence:
+          (rawArchivedProductiveEvidence as List? ?? const [])
+              .map(
+                (item) => ProductiveMasteryEvidence.fromJson(
+                  _map(item, 'archived productive evidence'),
+                ),
+              )
+              .toList(growable: false),
+      archivedProductiveProjectStepEvidence:
+          (rawArchivedProjectStepEvidence as List? ?? const [])
+              .map(
+                (item) => ProductiveProjectStepEvidence.fromJson(
+                  _map(item, 'archived productive project step evidence'),
+                ),
+              )
+              .toList(growable: false),
     );
   }
 
@@ -230,6 +278,7 @@ class CourseMasterySnapshot {
   }
 
   CourseMasterySnapshot copyWith({
+    String? curriculumGeneration,
     String? placementLevel,
     bool clearPlacementLevel = false,
     String? currentCourseUnitId,
@@ -240,8 +289,11 @@ class CourseMasterySnapshot {
     List<ScenarioCheckpointEvidence>? scenarioCheckpoints,
     List<ProductiveMasteryEvidence>? productiveEvidence,
     List<ProductiveProjectStepEvidence>? productiveProjectStepEvidence,
+    List<ProductiveMasteryEvidence>? archivedProductiveEvidence,
+    List<ProductiveProjectStepEvidence>? archivedProductiveProjectStepEvidence,
   }) => CourseMasterySnapshot(
     version: version,
+    curriculumGeneration: curriculumGeneration ?? this.curriculumGeneration,
     placementLevel: clearPlacementLevel
         ? null
         : (placementLevel ?? this.placementLevel),
@@ -256,10 +308,17 @@ class CourseMasterySnapshot {
     productiveEvidence: productiveEvidence ?? this.productiveEvidence,
     productiveProjectStepEvidence:
         productiveProjectStepEvidence ?? this.productiveProjectStepEvidence,
+    archivedProductiveEvidence:
+        archivedProductiveEvidence ?? this.archivedProductiveEvidence,
+    archivedProductiveProjectStepEvidence:
+        archivedProductiveProjectStepEvidence ??
+        this.archivedProductiveProjectStepEvidence,
   );
 
   Map<String, dynamic> toJson() => {
     'version': currentVersion,
+    if (curriculumGeneration != ScenarioCorpusGeneration.legacy)
+      'curriculumGeneration': curriculumGeneration,
     if (placementLevel != null) 'placementLevel': placementLevel,
     if (currentCourseUnitId != null) 'currentCourseUnitId': currentCourseUnitId,
     'completedUnitIds': completedUnitIds,
@@ -274,12 +333,33 @@ class CourseMasterySnapshot {
     'productiveProjectStepEvidence': productiveProjectStepEvidence
         .map((item) => item.toJson())
         .toList(),
+    if (archivedProductiveEvidence.isNotEmpty)
+      'archivedProductiveEvidence': archivedProductiveEvidence
+          .map((item) => item.toJson())
+          .toList(),
+    if (archivedProductiveProjectStepEvidence.isNotEmpty)
+      'archivedProductiveProjectStepEvidence':
+          archivedProductiveProjectStepEvidence
+              .map((item) => item.toJson())
+              .toList(),
   };
+
+  /// Archived proof remains eligible to justify already-earned Hanok grants,
+  /// but course progression and reassessment read only the active lists.
+  List<ProductiveMasteryEvidence> get rewardProductiveEvidence =>
+      List.unmodifiable([...archivedProductiveEvidence, ...productiveEvidence]);
+
+  List<ProductiveProjectStepEvidence> get rewardProductiveProjectStepEvidence =>
+      List.unmodifiable([
+        ...archivedProductiveProjectStepEvidence,
+        ...productiveProjectStepEvidence,
+      ]);
 }
 
 enum CourseMasteryMergeConflictKind {
   placement,
   version,
+  generation,
   evidence,
   checkpoint,
   productiveEvidence,
@@ -409,6 +489,37 @@ void _validateCanonicalV3Shape(Map<String, dynamic> json) {
   _validateCanonicalEntries(
     json['productiveProjectStepEvidence'],
     label: 'productive project step evidence',
+    requiredStringFields: const [
+      'id',
+      'projectId',
+      'stepId',
+      'courseUnitId',
+      'authorityFingerprint',
+      'evaluatorVersion',
+      'resultFingerprint',
+    ],
+    optionalStringFields: const [],
+  );
+  _validateCanonicalEntries(
+    json['archivedProductiveEvidence'],
+    label: 'archived productive evidence',
+    requiredStringFields: const [
+      'id',
+      'assessmentItemId',
+      'canDoSegmentId',
+      'courseUnitId',
+      'missionContentLinkId',
+      'conceptId',
+      'evidenceMode',
+      'definitionFingerprint',
+      'evaluatorVersion',
+      'resultFingerprint',
+    ],
+    optionalStringFields: const [],
+  );
+  _validateCanonicalEntries(
+    json['archivedProductiveProjectStepEvidence'],
+    label: 'archived productive project step evidence',
     requiredStringFields: const [
       'id',
       'projectId',

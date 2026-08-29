@@ -105,6 +105,39 @@ void main() {
     expect(projection.trackProgress.single.total, 86);
   });
 
+  test('archived productive proof keeps an already-earned Hanok grant', () async {
+    final fixture = await _fixture();
+    final service = CourseMasteryService(fixture.curriculum);
+    await service.applyReconciledSnapshot(
+      const CourseMasterySnapshot(
+        placementLevel: 'a1',
+        completedUnitIds: ['a1_01_greetings_hangul'],
+      ),
+      expectedGeneration: null,
+    );
+    final definition = fixture
+        .productive
+        .definitionsById['assess_a1_01_greetings_hangul_guided_production_v1']!;
+    final update = await service.recordProductiveAssessment(
+      result: const ProductiveTextAssessmentEngine().evaluate(
+        definition: definition,
+        input: definition.authoredContextExamples.single,
+        occurredAt: DateTime.utc(2026, 8, 16, 10),
+      ),
+      assessmentCatalog: fixture.productive,
+      segmentCatalog: fixture.segments,
+    );
+    final archived = CourseMasterySnapshot(
+      archivedProductiveEvidence: update.snapshot.productiveEvidence,
+    );
+
+    final projection = fixture.project(archived);
+
+    expect(projection.earnedGrantIds, {'hanok_a1_01_site_setout'});
+    expect(projection.a1ConstructionStep, 1);
+    expect(archived.productiveEvidence, isEmpty);
+  });
+
   test('A1 productive proof and construction rewards advance in order', () async {
     final fixture = await _fixture();
     final service = CourseMasteryService(fixture.curriculum);

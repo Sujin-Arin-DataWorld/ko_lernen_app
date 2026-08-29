@@ -1202,14 +1202,26 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                               HapticFeedback.selectionClick();
                               TtsService.speak(
                                 line.ko,
-                                voice: line.speaker == 'user'
-                                    ? 'female'
-                                    : 'male',
+                                voice: sc.voiceForSpeaker(line.speaker),
                               );
                             },
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                Text(
+                                  sc.speakerDisplayName(
+                                    line.speaker,
+                                    languageCode: lang,
+                                    fallbackYou: t.listeningSpeakerYou,
+                                    fallbackNarrator: t.listeningNarrator,
+                                  ),
+                                  style: SoriTextTheme.of(context).meta
+                                      .copyWith(
+                                        color: bubbleAccent,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                ),
+                                const SizedBox(height: Spacing.xs),
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,

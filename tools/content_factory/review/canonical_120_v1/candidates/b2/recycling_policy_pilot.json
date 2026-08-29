@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "recycling_policy_pilot",
+  "scenario": {
+    "id": "recycling_policy_pilot",
+    "level": "b2",
+    "emoji": "🏠",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "아파트 음식물 쓰레기 방식을 바꾸기",
+      "de": "Ein neues Biomüllsystem zunächst testen",
+      "en": "Piloting a new food-waste system"
+    },
+    "intro": {
+      "ko": "새 배출 기기는 냄새를 줄이지만 사용이 어렵다는 주민도 있어요.",
+      "de": "Das neue Biomüllgerät reduziert Gerüche, ist aber für manche Bewohner schwer zu bedienen.",
+      "en": "The new food-waste machine reduces odors, but some residents find it difficult to use."
+    },
+    "courseUnitId": "b2_06_advanced_capstone",
+    "playerCharacterId": "sujin",
+    "participantIds": [
+      "sujin",
+      "neighbor",
+      "resident"
+    ],
+    "relationshipContext": "주민 수진과 이웃들",
+    "intent": "환경 효과와 접근성 문제를 모두 반영한 시험 운영을 제안한다",
+    "shelf": "b2_public",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "새 기기를 쓰면 냄새는 줄지만 화면이 복잡하다는 의견도 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Das neue Gerät reduziert Gerüche, aber einige finden den Bildschirm zu kompliziert.",
+          "en": "The new machine reduces odors, but some people find the screen too complicated."
+        }
+      },
+      {
+        "korean": "저는 카드 찍는 순서를 몰라서 뒤에 사람이 오면 더 급해져요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich kenne die Reihenfolge beim Scannen nicht und werde nervös, wenn jemand hinter mir wartet.",
+          "en": "I don't know the scanning steps, and I get flustered when someone is waiting behind me."
+        }
+      },
+      {
+        "korean": "그렇다고 예전 방식만 유지하면 냄새 문제는 그대로예요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn wir nur beim alten System bleiben, ändert sich am Geruch nichts.",
+          "en": "But if we keep only the old system, the odor problem remains."
+        }
+      },
+      {
+        "korean": "한 달 동안 두 방식을 같이 운영해 본 뒤 결정하면 어떨까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie wäre es, beide Systeme einen Monat parallel zu testen und danach zu entscheiden?",
+          "en": "How about running both systems for a month and deciding afterward?"
+        }
+      },
+      {
+        "korean": "사용법을 바로 물어볼 사람이 있으면 해 볼 수 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn jemand vor Ort Fragen beantwortet, kann ich es ausprobieren.",
+          "en": "I can try it if someone is there to answer questions."
+        }
+      },
+      {
+        "korean": "좋아요. 전면 도입하는 대신 한 동에서 먼저 시험하죠.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gut. Statt es sofort überall einzuführen, testen wir es zunächst in einem Gebäude.",
+          "en": "Good. Instead of rolling it out everywhere, let's test it in one building first."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b2_advanced"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b2_instead_tradeoff"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-는 대신(에)",
+        "de": "Ersatz mit Ausgleich",
+        "en": "Substitution or tradeoff"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Zeigt, dass eine Handlung oder Eigenschaft durch eine andere ersetzt oder durch einen Vor- oder Nachteil ausgeglichen wird.",
+        "en": "Shows that one action or quality replaces another, or that one side is balanced by a benefit or drawback."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "새 기기를 쓰면 냄새는 줄지만 화면이 복잡하다는 의견도 있어요.",
+        "de": "Das neue Gerät reduziert Gerüche, aber einige finden den Bildschirm zu kompliziert.",
+        "en": "The new machine reduces odors, but some people find the screen too complicated."
+      },
+      {
+        "speaker": "resident",
+        "ko": "저는 카드 찍는 순서를 몰라서 뒤에 사람이 오면 더 급해져요.",
+        "de": "Ich kenne die Reihenfolge beim Scannen nicht und werde nervös, wenn jemand hinter mir wartet.",
+        "en": "I don't know the scanning steps, and I get flustered when someone is waiting behind me."
+      },
+      {
+        "speaker": "neighbor",
+        "ko": "그렇다고 예전 방식만 유지하면 냄새 문제는 그대로예요.",
+        "de": "Wenn wir nur beim alten System bleiben, ändert sich am Geruch nichts.",
+        "en": "But if we keep only the old system, the odor problem remains."
+      },
+      {
+        "speaker": "user",
+        "ko": "한 달 동안 두 방식을 같이 운영해 본 뒤 결정하면 어떨까요?",
+        "de": "Wie wäre es, beide Systeme einen Monat parallel zu testen und danach zu entscheiden?",
+        "en": "How about running both systems for a month and deciding afterward?"
+      },
+      {
+        "speaker": "resident",
+        "ko": "사용법을 바로 물어볼 사람이 있으면 해 볼 수 있어요.",
+        "de": "Wenn jemand vor Ort Fragen beantwortet, kann ich es ausprobieren.",
+        "en": "I can try it if someone is there to answer questions."
+      },
+      {
+        "speaker": "neighbor",
+        "ko": "좋아요. 전면 도입하는 대신 한 동에서 먼저 시험하죠.",
+        "de": "Gut. Statt es sofort überall einzuführen, testen wir es zunächst in einem Gebäude.",
+        "en": "Good. Instead of rolling it out everywhere, let's test it in one building first."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_recycling_policy_pilot_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "저는 카드 찍는 순서를 몰라서 뒤에 사람이 오면 더 급해져요.",
+          "options": [
+            {
+              "de": "Ich kenne die Reihenfolge beim Scannen nicht und werde nervös, wenn jemand hinter mir wartet.",
+              "en": "I don't know the scanning steps, and I get flustered when someone is waiting behind me."
+            },
+            {
+              "de": "Das neue Gerät reduziert Gerüche, aber einige finden den Bildschirm zu kompliziert.",
+              "en": "The new machine reduces odors, but some people find the screen too complicated."
+            },
+            {
+              "de": "Wenn wir nur beim alten System bleiben, ändert sich am Geruch nichts.",
+              "en": "But if we keep only the old system, the odor problem remains."
+            },
+            {
+              "de": "Wie wäre es, beide Systeme einen Monat parallel zu testen und danach zu entscheiden?",
+              "en": "How about running both systems for a month and deciding afterward?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_recycling_policy_pilot_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Das neue Gerät reduziert Gerüche, aber einige finden den Bildschirm zu kompliziert.",
+          "promptEn": "The new machine reduces odors, but some people find the screen too complicated.",
+          "options": [
+            {
+              "ko": "새 기기를 쓰면 냄새는 줄지만 화면이 복잡하다는 의견도 있어요."
+            },
+            {
+              "ko": "저는 카드 찍는 순서를 몰라서 뒤에 사람이 오면 더 급해져요."
+            },
+            {
+              "ko": "그렇다고 예전 방식만 유지하면 냄새 문제는 그대로예요."
+            },
+            {
+              "ko": "한 달 동안 두 방식을 같이 운영해 본 뒤 결정하면 어떨까요?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_recycling_policy_pilot_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "한 달 동안 두 방식을 같이 운영해 본 뒤 결정하면 어떨까요?",
+          "audioKo": "한 달 동안 두 방식을 같이 운영해 본 뒤 결정하면 어떨까요?",
+          "promptDe": "Wie wäre es, beide Systeme einen Monat parallel zu testen und danach zu entscheiden?",
+          "promptEn": "How about running both systems for a month and deciding afterward?",
+          "distractors": [
+            "새 기기를 쓰면 냄새는 줄지만 화면이 복잡하다는 의견도 있어요.",
+            "저는 카드 찍는 순서를 몰라서 뒤에 사람이 오면 더 급해져요.",
+            "그렇다고 예전 방식만 유지하면 냄새 문제는 그대로예요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 130
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

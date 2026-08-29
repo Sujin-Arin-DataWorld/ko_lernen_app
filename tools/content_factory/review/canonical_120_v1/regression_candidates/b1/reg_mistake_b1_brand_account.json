@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "reg_mistake_b1_brand_account",
+  "scenario": {
+    "id": "reg_mistake_b1_brand_account",
+    "level": "b1",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "회사 계정으로 개인 글을 올리기",
+      "de": "Eine private Story über den Firmenaccount posten",
+      "en": "Posting a personal story from the company account"
+    },
+    "intro": {
+      "ko": "개인 계정인 줄 알고 올린 스토리가 회사 계정에 올라갔어요.",
+      "de": "Eine private Story ist versehentlich über den Firmenaccount online gegangen.",
+      "en": "A personal story was accidentally posted from the company account."
+    },
+    "courseUnitId": "b1_03_work_softening",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "coworker"
+    ],
+    "relationshipContext": "신입과 동료",
+    "intent": "경위와 영향을 설명하고 수습 순서를 제안한다",
+    "shelf": "b1_incident",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "큰일 났어요. 회사 인스타그램 계정에 제 개인 스토리를 올렸어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich habe ein Problem. Meine private Story ist über den Firmenaccount online gegangen.",
+          "en": "I've made a mistake. I posted my personal story on the company Instagram account."
+        }
+      },
+      {
+        "korean": "지금은 삭제했어요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Hast du sie inzwischen gelöscht?",
+          "en": "Have you deleted it?"
+        }
+      },
+      {
+        "korean": "네. 개인 계정으로 들어간 줄 알았어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Ich dachte, ich wäre in meinem privaten Account.",
+          "en": "Yes. I thought I was on my personal account."
+        }
+      },
+      {
+        "korean": "본 사람이 있을 수 있으니 팀에는 먼저 알려야겠어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Da es jemand gesehen haben könnte, sollten wir zuerst das Team informieren.",
+          "en": "Someone may have seen it, so we should tell the team first."
+        }
+      },
+      {
+        "korean": "맞아요. 삭제했다고 끝날 일이 아니네요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Stimmt. Mit dem Löschen allein ist es nicht erledigt.",
+          "en": "Right. Deleting it doesn't make the issue go away."
+        }
+      },
+      {
+        "korean": "올라간 시간과 내용을 같이 정리해요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Halten wir fest, wann sie online war und was zu sehen war.",
+          "en": "Let's document when it was up and what it showed."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b1_softening"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_indirect_speech"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(ㄴ/는)다고 하다",
+        "de": "Indirekte Rede",
+        "en": "Indirect speech"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Sagt dass / hat gesagt dass: indirekte Wiedergabe",
+        "en": "Says that / said that: reporting speech indirectly"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "큰일 났어요. 회사 인스타그램 계정에 제 개인 스토리를 올렸어요.",
+        "de": "Ich habe ein Problem. Meine private Story ist über den Firmenaccount online gegangen.",
+        "en": "I've made a mistake. I posted my personal story on the company Instagram account."
+      },
+      {
+        "speaker": "coworker",
+        "ko": "지금은 삭제했어요?",
+        "de": "Hast du sie inzwischen gelöscht?",
+        "en": "Have you deleted it?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네. 개인 계정으로 들어간 줄 알았어요.",
+        "de": "Ja. Ich dachte, ich wäre in meinem privaten Account.",
+        "en": "Yes. I thought I was on my personal account."
+      },
+      {
+        "speaker": "coworker",
+        "ko": "본 사람이 있을 수 있으니 팀에는 먼저 알려야겠어요.",
+        "de": "Da es jemand gesehen haben könnte, sollten wir zuerst das Team informieren.",
+        "en": "Someone may have seen it, so we should tell the team first."
+      },
+      {
+        "speaker": "user",
+        "ko": "맞아요. 삭제했다고 끝날 일이 아니네요.",
+        "de": "Stimmt. Mit dem Löschen allein ist es nicht erledigt.",
+        "en": "Right. Deleting it doesn't make the issue go away."
+      },
+      {
+        "speaker": "coworker",
+        "ko": "올라간 시간과 내용을 같이 정리해요.",
+        "de": "Halten wir fest, wann sie online war und was zu sehen war.",
+        "en": "Let's document when it was up and what it showed."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_reg_mistake_b1_brand_account_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "지금은 삭제했어요?",
+          "options": [
+            {
+              "de": "Hast du sie inzwischen gelöscht?",
+              "en": "Have you deleted it?"
+            },
+            {
+              "de": "Ich habe ein Problem. Meine private Story ist über den Firmenaccount online gegangen.",
+              "en": "I've made a mistake. I posted my personal story on the company Instagram account."
+            },
+            {
+              "de": "Ja. Ich dachte, ich wäre in meinem privaten Account.",
+              "en": "Yes. I thought I was on my personal account."
+            },
+            {
+              "de": "Da es jemand gesehen haben könnte, sollten wir zuerst das Team informieren.",
+              "en": "Someone may have seen it, so we should tell the team first."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_reg_mistake_b1_brand_account_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ich habe ein Problem. Meine private Story ist über den Firmenaccount online gegangen.",
+          "promptEn": "I've made a mistake. I posted my personal story on the company Instagram account.",
+          "options": [
+            {
+              "ko": "큰일 났어요. 회사 인스타그램 계정에 제 개인 스토리를 올렸어요."
+            },
+            {
+              "ko": "지금은 삭제했어요?"
+            },
+            {
+              "ko": "네. 개인 계정으로 들어간 줄 알았어요."
+            },
+            {
+              "ko": "본 사람이 있을 수 있으니 팀에는 먼저 알려야겠어요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_reg_mistake_b1_brand_account_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "맞아요. 삭제했다고 끝날 일이 아니네요.",
+          "audioKo": "맞아요. 삭제했다고 끝날 일이 아니네요.",
+          "promptDe": "Stimmt. Mit dem Löschen allein ist es nicht erledigt.",
+          "promptEn": "Right. Deleting it doesn't make the issue go away.",
+          "distractors": [
+            "큰일 났어요. 회사 인스타그램 계정에 제 개인 스토리를 올렸어요.",
+            "지금은 삭제했어요?",
+            "네. 개인 계정으로 들어간 줄 알았어요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 120
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

@@ -1,0 +1,253 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "samgyeopsal_first_time",
+  "scenario": {
+    "id": "samgyeopsal_first_time",
+    "level": "a2",
+    "emoji": "🍽️",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "삼겹살집에서 굽는 순서 묻기",
+      "de": "Zum ersten Mal Samgyeopsal grillen",
+      "en": "Grilling samgyeopsal for the first time"
+    },
+    "intro": {
+      "ko": "처음으로 삼겹살을 직접 굽고 있어요.",
+      "de": "Du grillst zum ersten Mal selbst Samgyeopsal am Tisch.",
+      "en": "You're grilling samgyeopsal at the table for the first time."
+    },
+    "courseUnitId": "a2_01_haeyo_transition",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "sujin"
+    ],
+    "relationshipContext": "친구 크리스티안과 수진",
+    "intent": "굽는 방법을 묻고 한 가지 선호를 말한다",
+    "shelf": "a2_eat",
+    "backdrop": "restaurant",
+    "vocab": [
+      {
+        "korean": "이제 먹어도 돼요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Kann man das jetzt schon essen?",
+          "en": "Can we eat it now?"
+        }
+      },
+      {
+        "korean": "조금만 더 구워야 돼요. 여기 아직 빨개요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Es muss noch ein bisschen länger grillen. Hier ist es noch rot.",
+          "en": "It needs a little longer. It's still red here."
+        }
+      },
+      {
+        "korean": "이쪽은 괜찮아요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ist dieses Stück fertig?",
+          "en": "Is this side okay?"
+        }
+      },
+      {
+        "korean": "네, 이건 먹어도 돼요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, das kannst du essen.",
+          "en": "Yes, this one is ready."
+        }
+      },
+      {
+        "korean": "마늘도 불판에 올릴까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Sollen wir auch Knoblauch auf den Grill legen?",
+          "en": "Shall we put garlic on the grill too?"
+        }
+      },
+      {
+        "korean": "저는 생마늘이 좋아요. 반만 구워요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich mag Knoblauch roh. Grillen wir nur die Hälfte.",
+          "en": "I like raw garlic. Let's grill only half."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_action_formal",
+      "concept_action_polite"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a2_permission"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-아/어도 되다",
+        "de": "Erlaubnis (dürfen)",
+        "en": "Permission (may)"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Dürfen / Es ist erlaubt: Erlaubnis geben oder erfragen",
+        "en": "May / it's allowed: give or ask for permission"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "이제 먹어도 돼요?",
+        "de": "Kann man das jetzt schon essen?",
+        "en": "Can we eat it now?"
+      },
+      {
+        "speaker": "sujin",
+        "ko": "조금만 더 구워야 돼요. 여기 아직 빨개요.",
+        "de": "Es muss noch ein bisschen länger grillen. Hier ist es noch rot.",
+        "en": "It needs a little longer. It's still red here."
+      },
+      {
+        "speaker": "user",
+        "ko": "이쪽은 괜찮아요?",
+        "de": "Ist dieses Stück fertig?",
+        "en": "Is this side okay?"
+      },
+      {
+        "speaker": "sujin",
+        "ko": "네, 이건 먹어도 돼요.",
+        "de": "Ja, das kannst du essen.",
+        "en": "Yes, this one is ready."
+      },
+      {
+        "speaker": "user",
+        "ko": "마늘도 불판에 올릴까요?",
+        "de": "Sollen wir auch Knoblauch auf den Grill legen?",
+        "en": "Shall we put garlic on the grill too?"
+      },
+      {
+        "speaker": "sujin",
+        "ko": "저는 생마늘이 좋아요. 반만 구워요.",
+        "de": "Ich mag Knoblauch roh. Grillen wir nur die Hälfte.",
+        "en": "I like raw garlic. Let's grill only half."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_samgyeopsal_first_time_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "조금만 더 구워야 돼요. 여기 아직 빨개요.",
+          "options": [
+            {
+              "de": "Es muss noch ein bisschen länger grillen. Hier ist es noch rot.",
+              "en": "It needs a little longer. It's still red here."
+            },
+            {
+              "de": "Kann man das jetzt schon essen?",
+              "en": "Can we eat it now?"
+            },
+            {
+              "de": "Ist dieses Stück fertig?",
+              "en": "Is this side okay?"
+            },
+            {
+              "de": "Ja, das kannst du essen.",
+              "en": "Yes, this one is ready."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_samgyeopsal_first_time_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Kann man das jetzt schon essen?",
+          "promptEn": "Can we eat it now?",
+          "options": [
+            {
+              "ko": "이제 먹어도 돼요?"
+            },
+            {
+              "ko": "조금만 더 구워야 돼요. 여기 아직 빨개요."
+            },
+            {
+              "ko": "이쪽은 괜찮아요?"
+            },
+            {
+              "ko": "네, 이건 먹어도 돼요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_samgyeopsal_first_time_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "마늘도 불판에 올릴까요?",
+          "audioKo": "마늘도 불판에 올릴까요?",
+          "promptDe": "Sollen wir auch Knoblauch auf den Grill legen?",
+          "promptEn": "Shall we put garlic on the grill too?",
+          "distractors": [
+            "이제 먹어도 돼요?",
+            "조금만 더 구워야 돼요. 여기 아직 빨개요.",
+            "이쪽은 괜찮아요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": {
+      "title": {
+        "ko": "같이 구워 먹는 식사",
+        "de": "Gemeinsam am Tisch grillen",
+        "en": "Grilling together at the table"
+      },
+      "body": {
+        "ko": "삼겹살집에서는 일행이 고기를 직접 굽는 곳이 많아요. 누가 굽는지 정해진 규칙은 없으니 익었는지나 취향을 서로 물으면 돼요.",
+        "de": "In vielen Samgyeopsal-Restaurants grillt die Gruppe selbst am Tisch. Es gibt keine feste Regel, wer grillt; fragt einfach, ob das Fleisch gar ist und wie es alle mögen.",
+        "en": "At many samgyeopsal restaurants, the group grills at the table. There is no fixed rule about who cooks; simply ask whether the meat is done and how people like it."
+      }
+    },
+    "xpReward": 110
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

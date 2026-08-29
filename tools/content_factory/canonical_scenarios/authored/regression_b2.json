@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "generationId": "canonical_120_v1",
+  "level": "b2",
+  "regressionOnly": true,
+  "scenarios": [
+    {"id": "reg_mistake_b2_fremdschaemen", "copyFrom": "fremdschaemen_live"},
+    {"id": "reg_digital_b2_filming", "copyFrom": "filming_permission"}
+  ]
+}

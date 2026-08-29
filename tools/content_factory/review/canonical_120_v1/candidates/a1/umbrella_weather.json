@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "umbrella_weather",
+  "scenario": {
+    "id": "umbrella_weather",
+    "level": "a1",
+    "emoji": "🏠",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "비 오는 날 우산 같이 쓰기",
+      "de": "Einen Regenschirm teilen",
+      "en": "Sharing an umbrella"
+    },
+    "intro": {
+      "ko": "밖에 나오자 갑자기 비가 와요.",
+      "de": "Als ihr nach draußen kommt, fängt es plötzlich an zu regnen.",
+      "en": "As you step outside, it suddenly starts raining."
+    },
+    "courseUnitId": "a1_09_home_daily_life",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "sujin"
+    ],
+    "relationshipContext": "친해지는 중인 크리스티안과 수진",
+    "intent": "비가 오는지 확인하고 어떻게 갈지 묻는다",
+    "shelf": "a1_home",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "비 와요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Regnet es?",
+          "en": "Is it raining?"
+        }
+      },
+      {
+        "korean": "네, 많이 와요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, ziemlich stark.",
+          "en": "Yes, quite hard."
+        }
+      },
+      {
+        "korean": "저는 우산이 없어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich habe keinen Regenschirm.",
+          "en": "I don't have an umbrella."
+        }
+      },
+      {
+        "korean": "제 우산 같이 써요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir können meinen teilen.",
+          "en": "We can share mine."
+        }
+      },
+      {
+        "korean": "지하철역에 가요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gehst du zur U-Bahn-Station?",
+          "en": "Are you going to the subway station?"
+        }
+      },
+      {
+        "korean": "네, 같이 가요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, gehen wir zusammen.",
+          "en": "Yes, let's go together."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a1_home_daily"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_direction_time_particle"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N에",
+        "de": "Richtungs-/Ortspartikel",
+        "en": "Direction/time particle"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Richtung (wohin?) oder Zeitpunkt (wann?)",
+        "en": "Direction (to where?) or point in time (when?)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "비 와요?",
+        "de": "Regnet es?",
+        "en": "Is it raining?"
+      },
+      {
+        "speaker": "sujin",
+        "ko": "네, 많이 와요.",
+        "de": "Ja, ziemlich stark.",
+        "en": "Yes, quite hard."
+      },
+      {
+        "speaker": "user",
+        "ko": "저는 우산이 없어요.",
+        "de": "Ich habe keinen Regenschirm.",
+        "en": "I don't have an umbrella."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "제 우산 같이 써요.",
+        "de": "Wir können meinen teilen.",
+        "en": "We can share mine."
+      },
+      {
+        "speaker": "user",
+        "ko": "지하철역에 가요?",
+        "de": "Gehst du zur U-Bahn-Station?",
+        "en": "Are you going to the subway station?"
+      },
+      {
+        "speaker": "sujin",
+        "ko": "네, 같이 가요.",
+        "de": "Ja, gehen wir zusammen.",
+        "en": "Yes, let's go together."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_umbrella_weather_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "네, 많이 와요.",
+          "options": [
+            {
+              "de": "Ja, ziemlich stark.",
+              "en": "Yes, quite hard."
+            },
+            {
+              "de": "Regnet es?",
+              "en": "Is it raining?"
+            },
+            {
+              "de": "Ich habe keinen Regenschirm.",
+              "en": "I don't have an umbrella."
+            },
+            {
+              "de": "Wir können meinen teilen.",
+              "en": "We can share mine."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_umbrella_weather_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Regnet es?",
+          "promptEn": "Is it raining?",
+          "options": [
+            {
+              "ko": "비 와요?"
+            },
+            {
+              "ko": "네, 많이 와요."
+            },
+            {
+              "ko": "저는 우산이 없어요."
+            },
+            {
+              "ko": "제 우산 같이 써요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_umbrella_weather_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "지하철역에 가요?",
+          "audioKo": "지하철역에 가요?",
+          "promptDe": "Gehst du zur U-Bahn-Station?",
+          "promptEn": "Are you going to the subway station?",
+          "distractors": [
+            "비 와요?",
+            "네, 많이 와요.",
+            "저는 우산이 없어요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 100
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

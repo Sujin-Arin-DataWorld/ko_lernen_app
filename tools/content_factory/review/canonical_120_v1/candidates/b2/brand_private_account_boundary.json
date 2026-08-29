@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "brand_private_account_boundary",
+  "scenario": {
+    "id": "brand_private_account_boundary",
+    "level": "b2",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "회사 계정과 개인 계정의 경계를 정하기",
+      "de": "Persönliche Meinung auf einem Firmenaccount",
+      "en": "Personal opinions on a company account"
+    },
+    "intro": {
+      "ko": "개인적인 현장 후기를 회사 계정에 올리자는 제안이 나왔어요.",
+      "de": "Eine persönliche Einschätzung vom Veranstaltungsort soll auf dem Firmenaccount erscheinen.",
+      "en": "Someone suggests posting a personal take from an event on the company account."
+    },
+    "courseUnitId": "b2_03_precise_requests",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "andrea"
+    ],
+    "relationshipContext": "마야와 안드레아",
+    "intent": "친근한 콘텐츠 장점을 인정하면서 승인 대상과 개인 의견 표시를 구분한다",
+    "shelf": "b2_evidence",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "마야가 개인 계정에 올리는 후기처럼 현장감 있게 쓰면 어떨까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie wäre es mit einem lebendigen Ton, ähnlich wie in Mayas Beiträgen auf ihrem privaten Account?",
+          "en": "What if we make it feel immediate, like the posts Maya shares on her personal account?"
+        }
+      },
+      {
+        "korean": "개인 의견처럼 보여도 회사 계정에 올라가면 공식 입장으로 읽힐 수 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Auch wenn es persönlich klingt, kann es auf dem Firmenaccount als offizielle Position verstanden werden.",
+          "en": "Even if it sounds personal, people may read it as an official position when it's on the company account."
+        }
+      },
+      {
+        "korean": "그렇다고 후기를 전부 딱딱하게 만들 필요는 없어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir müssen den Beitrag deshalb aber nicht völlig unpersönlich machen.",
+          "en": "That doesn't mean we have to make the post completely stiff."
+        }
+      },
+      {
+        "korean": "후기 형식은 유지하되 단정적인 평가는 한 번 확인받는 게 좋겠어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir behalten den persönlichen Stil bei, prüfen aber pauschale Bewertungen vorher.",
+          "en": "Let's keep the personal format but review any broad judgments first."
+        }
+      },
+      {
+        "korean": "어떤 문장이 회사 입장처럼 들리는지 표시해 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Markiere bitte die Sätze, die wie eine Unternehmensposition klingen.",
+          "en": "Please flag the lines that sound like a company position."
+        }
+      },
+      {
+        "korean": "네. 개인 경험과 공식 정보도 구분해서 쓰겠습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Ich trenne außerdem persönliche Erfahrung und offizielle Information.",
+          "en": "I will. I'll also separate personal experience from official information."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b2_precise_requests"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_indirect_speech"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(ㄴ/는)다고 하다",
+        "de": "Indirekte Rede",
+        "en": "Indirect speech"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Sagt dass / hat gesagt dass: indirekte Wiedergabe",
+        "en": "Says that / said that: reporting speech indirectly"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "andrea",
+        "ko": "마야가 개인 계정에 올리는 후기처럼 현장감 있게 쓰면 어떨까요?",
+        "de": "Wie wäre es mit einem lebendigen Ton, ähnlich wie in Mayas Beiträgen auf ihrem privaten Account?",
+        "en": "What if we make it feel immediate, like the posts Maya shares on her personal account?"
+      },
+      {
+        "speaker": "user",
+        "ko": "개인 의견처럼 보여도 회사 계정에 올라가면 공식 입장으로 읽힐 수 있어요.",
+        "de": "Auch wenn es persönlich klingt, kann es auf dem Firmenaccount als offizielle Position verstanden werden.",
+        "en": "Even if it sounds personal, people may read it as an official position when it's on the company account."
+      },
+      {
+        "speaker": "andrea",
+        "ko": "그렇다고 후기를 전부 딱딱하게 만들 필요는 없어요.",
+        "de": "Wir müssen den Beitrag deshalb aber nicht völlig unpersönlich machen.",
+        "en": "That doesn't mean we have to make the post completely stiff."
+      },
+      {
+        "speaker": "user",
+        "ko": "후기 형식은 유지하되 단정적인 평가는 한 번 확인받는 게 좋겠어요.",
+        "de": "Wir behalten den persönlichen Stil bei, prüfen aber pauschale Bewertungen vorher.",
+        "en": "Let's keep the personal format but review any broad judgments first."
+      },
+      {
+        "speaker": "andrea",
+        "ko": "어떤 문장이 회사 입장처럼 들리는지 표시해 주세요.",
+        "de": "Markiere bitte die Sätze, die wie eine Unternehmensposition klingen.",
+        "en": "Please flag the lines that sound like a company position."
+      },
+      {
+        "speaker": "user",
+        "ko": "네. 개인 경험과 공식 정보도 구분해서 쓰겠습니다.",
+        "de": "Ja. Ich trenne außerdem persönliche Erfahrung und offizielle Information.",
+        "en": "I will. I'll also separate personal experience from official information."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_brand_private_account_boundary_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "마야가 개인 계정에 올리는 후기처럼 현장감 있게 쓰면 어떨까요?",
+          "options": [
+            {
+              "de": "Wie wäre es mit einem lebendigen Ton, ähnlich wie in Mayas Beiträgen auf ihrem privaten Account?",
+              "en": "What if we make it feel immediate, like the posts Maya shares on her personal account?"
+            },
+            {
+              "de": "Auch wenn es persönlich klingt, kann es auf dem Firmenaccount als offizielle Position verstanden werden.",
+              "en": "Even if it sounds personal, people may read it as an official position when it's on the company account."
+            },
+            {
+              "de": "Wir müssen den Beitrag deshalb aber nicht völlig unpersönlich machen.",
+              "en": "That doesn't mean we have to make the post completely stiff."
+            },
+            {
+              "de": "Wir behalten den persönlichen Stil bei, prüfen aber pauschale Bewertungen vorher.",
+              "en": "Let's keep the personal format but review any broad judgments first."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_brand_private_account_boundary_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Auch wenn es persönlich klingt, kann es auf dem Firmenaccount als offizielle Position verstanden werden.",
+          "promptEn": "Even if it sounds personal, people may read it as an official position when it's on the company account.",
+          "options": [
+            {
+              "ko": "개인 의견처럼 보여도 회사 계정에 올라가면 공식 입장으로 읽힐 수 있어요."
+            },
+            {
+              "ko": "마야가 개인 계정에 올리는 후기처럼 현장감 있게 쓰면 어떨까요?"
+            },
+            {
+              "ko": "그렇다고 후기를 전부 딱딱하게 만들 필요는 없어요."
+            },
+            {
+              "ko": "후기 형식은 유지하되 단정적인 평가는 한 번 확인받는 게 좋겠어요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_brand_private_account_boundary_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네. 개인 경험과 공식 정보도 구분해서 쓰겠습니다.",
+          "audioKo": "네. 개인 경험과 공식 정보도 구분해서 쓰겠습니다.",
+          "promptDe": "Ja. Ich trenne außerdem persönliche Erfahrung und offizielle Information.",
+          "promptEn": "I will. I'll also separate personal experience from official information.",
+          "distractors": [
+            "마야가 개인 계정에 올리는 후기처럼 현장감 있게 쓰면 어떨까요?",
+            "개인 의견처럼 보여도 회사 계정에 올라가면 공식 입장으로 읽힐 수 있어요.",
+            "그렇다고 후기를 전부 딱딱하게 만들 필요는 없어요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 130
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

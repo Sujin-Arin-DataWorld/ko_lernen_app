@@ -1,0 +1,252 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "bakery_queue",
+  "scenario": {
+    "id": "bakery_queue",
+    "level": "a1",
+    "emoji": "🛍️",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "빵집에서 줄을 잘못 섰을 때",
+      "de": "Aus Versehen vordrängeln",
+      "en": "Cutting into a line by mistake"
+    },
+    "intro": {
+      "ko": "빵집이 붐벼서 줄이 잘 안 보여요.",
+      "de": "In der vollen Bäckerei ist die Schlange kaum zu erkennen.",
+      "en": "The bakery is crowded, and the line is hard to see."
+    },
+    "courseUnitId": "a1_08_clarify_repair",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "sujin"
+    ],
+    "relationshipContext": "처음 보는 크리스티안과 수진",
+    "intent": "실수를 알아차리고 짧게 사과한 뒤 뒤로 간다",
+    "shelf": "a1_counter",
+    "backdrop": "market",
+    "vocab": [
+      {
+        "korean": "이 빵 계산해 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich möchte dieses Brot bezahlen.",
+          "en": "I'd like to pay for this bread."
+        }
+      },
+      {
+        "korean": "저기요, 여기 줄 서 있는데요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Entschuldigung, wir stehen hier an.",
+          "en": "Excuse me, there's a line here."
+        }
+      },
+      {
+        "korean": "아, 죄송합니다. 몰랐어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Oh, Entschuldigung. Das wusste ich nicht.",
+          "en": "Oh, sorry. I didn't realize."
+        }
+      },
+      {
+        "korean": "괜찮아요. 줄은 저 뒤예요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Kein Problem. Das Ende ist dort hinten.",
+          "en": "No problem. The end is back there."
+        }
+      },
+      {
+        "korean": "네, 뒤에 설게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Okay, ich stelle mich hinten an.",
+          "en": "Okay, I'll join at the back."
+        }
+      },
+      {
+        "korean": "네, 괜찮아요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Alles gut.",
+          "en": "It's okay."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a1_clarification"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_direction_time_particle"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N에",
+        "de": "Richtungs-/Ortspartikel",
+        "en": "Direction/time particle"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Richtung (wohin?) oder Zeitpunkt (wann?)",
+        "en": "Direction (to where?) or point in time (when?)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "이 빵 계산해 주세요.",
+        "de": "Ich möchte dieses Brot bezahlen.",
+        "en": "I'd like to pay for this bread."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "저기요, 여기 줄 서 있는데요.",
+        "de": "Entschuldigung, wir stehen hier an.",
+        "en": "Excuse me, there's a line here."
+      },
+      {
+        "speaker": "user",
+        "ko": "아, 죄송합니다. 몰랐어요.",
+        "de": "Oh, Entschuldigung. Das wusste ich nicht.",
+        "en": "Oh, sorry. I didn't realize."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "괜찮아요. 줄은 저 뒤예요.",
+        "de": "Kein Problem. Das Ende ist dort hinten.",
+        "en": "No problem. The end is back there."
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 뒤에 설게요.",
+        "de": "Okay, ich stelle mich hinten an.",
+        "en": "Okay, I'll join at the back."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "네, 괜찮아요.",
+        "de": "Alles gut.",
+        "en": "It's okay."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_bakery_queue_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "저기요, 여기 줄 서 있는데요.",
+          "options": [
+            {
+              "de": "Entschuldigung, wir stehen hier an.",
+              "en": "Excuse me, there's a line here."
+            },
+            {
+              "de": "Ich möchte dieses Brot bezahlen.",
+              "en": "I'd like to pay for this bread."
+            },
+            {
+              "de": "Oh, Entschuldigung. Das wusste ich nicht.",
+              "en": "Oh, sorry. I didn't realize."
+            },
+            {
+              "de": "Kein Problem. Das Ende ist dort hinten.",
+              "en": "No problem. The end is back there."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_bakery_queue_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ich möchte dieses Brot bezahlen.",
+          "promptEn": "I'd like to pay for this bread.",
+          "options": [
+            {
+              "ko": "이 빵 계산해 주세요."
+            },
+            {
+              "ko": "저기요, 여기 줄 서 있는데요."
+            },
+            {
+              "ko": "아, 죄송합니다. 몰랐어요."
+            },
+            {
+              "ko": "괜찮아요. 줄은 저 뒤예요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_bakery_queue_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네, 뒤에 설게요.",
+          "audioKo": "네, 뒤에 설게요.",
+          "promptDe": "Okay, ich stelle mich hinten an.",
+          "promptEn": "Okay, I'll join at the back.",
+          "distractors": [
+            "이 빵 계산해 주세요.",
+            "저기요, 여기 줄 서 있는데요.",
+            "아, 죄송합니다. 몰랐어요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": {
+      "title": {
+        "ko": "짧게 사과하고 바로 움직이기",
+        "de": "Kurz entschuldigen und Platz machen",
+        "en": "A brief apology followed by action"
+      },
+      "body": {
+        "ko": "줄을 잘못 섰을 때는 짧게 사과하고 뒤로 가면 자연스러워요. 가벼운 목인사를 곁들일 수도 있어요.",
+        "de": "Wenn du eine Schlange übersehen hast, wirkt eine kurze Entschuldigung mit anschließendem Platzmachen natürlich. Ein leichtes Nicken kann die Entschuldigung begleiten.",
+        "en": "If you missed a line, a brief apology followed by moving to the back feels natural. A small nod can accompany the apology."
+      }
+    },
+    "xpReward": 100
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "korea_stay_smalltalk",
+  "scenario": {
+    "id": "korea_stay_smalltalk",
+    "level": "a1",
+    "emoji": "🍽️",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "한국 생활이 어떤지 묻기",
+      "de": "Über das Leben in Korea sprechen",
+      "en": "Talking about life in Korea"
+    },
+    "intro": {
+      "ko": "점심을 먹으며 한국 생활 이야기를 해요.",
+      "de": "Beim Mittagessen sprecht ihr darüber, wie das Leben in Korea bisher ist.",
+      "en": "Over lunch, you talk about what life in Korea has been like so far."
+    },
+    "courseUnitId": "a1_11_titles_relationships",
+    "playerCharacterId": "lena",
+    "participantIds": [
+      "lena",
+      "maya"
+    ],
+    "relationshipContext": "막 알게 된 레나와 마야",
+    "intent": "온 시기와 느낌 하나를 짧게 말한다",
+    "shelf": "a1_greet",
+    "backdrop": "restaurant",
+    "vocab": [
+      {
+        "korean": "한국에 언제 왔어요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wann bist du nach Korea gekommen?",
+          "en": "When did you come to Korea?"
+        }
+      },
+      {
+        "korean": "두 달 전에 왔어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Vor zwei Monaten.",
+          "en": "Two months ago."
+        }
+      },
+      {
+        "korean": "한국 생활은 어때요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie gefällt dir das Leben in Korea?",
+          "en": "How is life in Korea?"
+        }
+      },
+      {
+        "korean": "재미있어요. 조금 어려워요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Es macht Spaß. Manches ist etwas schwierig.",
+          "en": "It's fun. Some things are a little hard."
+        }
+      },
+      {
+        "korean": "한국 드라마도 봐요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Schaust du auch koreanische Serien?",
+          "en": "Do you watch Korean dramas too?"
+        }
+      },
+      {
+        "korean": "네, 요즘 매일 봐요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, im Moment jeden Tag.",
+          "en": "Yes, every day these days."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a1_titles_relationships"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_direction_time_particle"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N에",
+        "de": "Richtungs-/Ortspartikel",
+        "en": "Direction/time particle"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Richtung (wohin?) oder Zeitpunkt (wann?)",
+        "en": "Direction (to where?) or point in time (when?)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "maya",
+        "ko": "한국에 언제 왔어요?",
+        "de": "Wann bist du nach Korea gekommen?",
+        "en": "When did you come to Korea?"
+      },
+      {
+        "speaker": "user",
+        "ko": "두 달 전에 왔어요.",
+        "de": "Vor zwei Monaten.",
+        "en": "Two months ago."
+      },
+      {
+        "speaker": "maya",
+        "ko": "한국 생활은 어때요?",
+        "de": "Wie gefällt dir das Leben in Korea?",
+        "en": "How is life in Korea?"
+      },
+      {
+        "speaker": "user",
+        "ko": "재미있어요. 조금 어려워요.",
+        "de": "Es macht Spaß. Manches ist etwas schwierig.",
+        "en": "It's fun. Some things are a little hard."
+      },
+      {
+        "speaker": "maya",
+        "ko": "한국 드라마도 봐요?",
+        "de": "Schaust du auch koreanische Serien?",
+        "en": "Do you watch Korean dramas too?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 요즘 매일 봐요.",
+        "de": "Ja, im Moment jeden Tag.",
+        "en": "Yes, every day these days."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_korea_stay_smalltalk_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "한국에 언제 왔어요?",
+          "options": [
+            {
+              "de": "Wann bist du nach Korea gekommen?",
+              "en": "When did you come to Korea?"
+            },
+            {
+              "de": "Vor zwei Monaten.",
+              "en": "Two months ago."
+            },
+            {
+              "de": "Wie gefällt dir das Leben in Korea?",
+              "en": "How is life in Korea?"
+            },
+            {
+              "de": "Es macht Spaß. Manches ist etwas schwierig.",
+              "en": "It's fun. Some things are a little hard."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_korea_stay_smalltalk_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Vor zwei Monaten.",
+          "promptEn": "Two months ago.",
+          "options": [
+            {
+              "ko": "두 달 전에 왔어요."
+            },
+            {
+              "ko": "한국에 언제 왔어요?"
+            },
+            {
+              "ko": "한국 생활은 어때요?"
+            },
+            {
+              "ko": "재미있어요. 조금 어려워요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_korea_stay_smalltalk_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네, 요즘 매일 봐요.",
+          "audioKo": "네, 요즘 매일 봐요.",
+          "promptDe": "Ja, im Moment jeden Tag.",
+          "promptEn": "Yes, every day these days.",
+          "distractors": [
+            "한국에 언제 왔어요?",
+            "두 달 전에 왔어요.",
+            "한국 생활은 어때요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 100
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

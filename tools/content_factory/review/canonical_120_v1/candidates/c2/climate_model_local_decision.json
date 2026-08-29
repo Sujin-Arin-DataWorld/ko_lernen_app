@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "climate_model_local_decision",
+  "scenario": {
+    "id": "climate_model_local_decision",
+    "level": "c2",
+    "emoji": "🏠",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "기후 모델의 불확실성을 지역 결정에 쓰기",
+      "de": "Mit unterschiedlichen Klimamodellen lokal entscheiden",
+      "en": "Making local decisions across uncertain climate models"
+    },
+    "intro": {
+      "ko": "침수 범위 예측은 모델마다 다르지만 제방 투자 결정은 지금 내려야 해요.",
+      "de": "Modelle zeigen unterschiedliche Überflutungsflächen, doch über Deichinvestitionen muss jetzt entschieden werden.",
+      "en": "Flood models disagree on the affected area, but a levee investment decision is needed now."
+    },
+    "courseUnitId": "c2_02_technology_public_ethics",
+    "playerCharacterId": "hyuna",
+    "participantIds": [
+      "hyuna",
+      "official"
+    ],
+    "relationshipContext": "연구자 현아와 도시 담당자",
+    "intent": "불확실성을 무행동의 이유로 쓰지 않고 시나리오별 후회 비용을 비교한다",
+    "shelf": "c2_ethics",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "모델마다 침수 지도가 달라서 어느 결과를 기준으로 삼아야 할지 모르겠습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die Überflutungskarten unterscheiden sich je nach Modell. Uns fehlt eine eindeutige Grundlage.",
+          "en": "The flood maps differ by model, so we don't know which result to use."
+        }
+      },
+      {
+        "korean": "예측 범위가 다르다는 사실이 아무 결정도 하지 말아야 한다는 뜻은 아닙니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Unterschiedliche Prognosespannen bedeuten nicht, dass wir gar nicht entscheiden können.",
+          "en": "Different prediction ranges do not mean we should make no decision."
+        }
+      },
+      {
+        "korean": "가장 큰 침수 범위를 기준으로 하면 과잉 투자가 될 가능성도 있습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn wir die größte Fläche zugrunde legen, riskieren wir Überinvestitionen.",
+          "en": "Using the largest flood range could lead to overinvestment."
+        }
+      },
+      {
+        "korean": "반대로 평균만 택하면 되돌리기 어려운 피해를 과소평가할 수 있습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ein bloßer Mittelwert könnte hingegen schwer umkehrbare Schäden unterschätzen.",
+          "en": "Using only the average could underestimate harm that is hard to reverse."
+        }
+      },
+      {
+        "korean": "그럼 불확실한 상태에서 우선순위를 어떻게 정해야 할까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie setzen wir unter dieser Unsicherheit Prioritäten?",
+          "en": "How should we set priorities under that uncertainty?"
+        }
+      },
+      {
+        "korean": "여러 모델이 공통으로 위험하다고 보는 구간은 먼저 보강하고, 나머지는 되돌릴 수 있는 조치부터 시작해 새 자료에 맞춰 조정하죠.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir verstärken zuerst Abschnitte, die alle Modelle als gefährdet zeigen. In den übrigen Bereichen beginnen wir mit umkehrbaren Maßnahmen und passen sie an neue Daten an.",
+          "en": "Let's reinforce the zones all models identify as high risk first. Elsewhere, we can start with reversible measures and adjust them as new evidence comes in."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c2_accountable_systems"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_indirect_speech"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(ㄴ/는)다고 하다",
+        "de": "Indirekte Rede",
+        "en": "Indirect speech"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Sagt dass / hat gesagt dass: indirekte Wiedergabe",
+        "en": "Says that / said that: reporting speech indirectly"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "official",
+        "ko": "모델마다 침수 지도가 달라서 어느 결과를 기준으로 삼아야 할지 모르겠습니다.",
+        "de": "Die Überflutungskarten unterscheiden sich je nach Modell. Uns fehlt eine eindeutige Grundlage.",
+        "en": "The flood maps differ by model, so we don't know which result to use."
+      },
+      {
+        "speaker": "user",
+        "ko": "예측 범위가 다르다는 사실이 아무 결정도 하지 말아야 한다는 뜻은 아닙니다.",
+        "de": "Unterschiedliche Prognosespannen bedeuten nicht, dass wir gar nicht entscheiden können.",
+        "en": "Different prediction ranges do not mean we should make no decision."
+      },
+      {
+        "speaker": "official",
+        "ko": "가장 큰 침수 범위를 기준으로 하면 과잉 투자가 될 가능성도 있습니다.",
+        "de": "Wenn wir die größte Fläche zugrunde legen, riskieren wir Überinvestitionen.",
+        "en": "Using the largest flood range could lead to overinvestment."
+      },
+      {
+        "speaker": "user",
+        "ko": "반대로 평균만 택하면 되돌리기 어려운 피해를 과소평가할 수 있습니다.",
+        "de": "Ein bloßer Mittelwert könnte hingegen schwer umkehrbare Schäden unterschätzen.",
+        "en": "Using only the average could underestimate harm that is hard to reverse."
+      },
+      {
+        "speaker": "official",
+        "ko": "그럼 불확실한 상태에서 우선순위를 어떻게 정해야 할까요?",
+        "de": "Wie setzen wir unter dieser Unsicherheit Prioritäten?",
+        "en": "How should we set priorities under that uncertainty?"
+      },
+      {
+        "speaker": "user",
+        "ko": "여러 모델이 공통으로 위험하다고 보는 구간은 먼저 보강하고, 나머지는 되돌릴 수 있는 조치부터 시작해 새 자료에 맞춰 조정하죠.",
+        "de": "Wir verstärken zuerst Abschnitte, die alle Modelle als gefährdet zeigen. In den übrigen Bereichen beginnen wir mit umkehrbaren Maßnahmen und passen sie an neue Daten an.",
+        "en": "Let's reinforce the zones all models identify as high risk first. Elsewhere, we can start with reversible measures and adjust them as new evidence comes in."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_climate_model_local_decision_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "모델마다 침수 지도가 달라서 어느 결과를 기준으로 삼아야 할지 모르겠습니다.",
+          "options": [
+            {
+              "de": "Die Überflutungskarten unterscheiden sich je nach Modell. Uns fehlt eine eindeutige Grundlage.",
+              "en": "The flood maps differ by model, so we don't know which result to use."
+            },
+            {
+              "de": "Unterschiedliche Prognosespannen bedeuten nicht, dass wir gar nicht entscheiden können.",
+              "en": "Different prediction ranges do not mean we should make no decision."
+            },
+            {
+              "de": "Wenn wir die größte Fläche zugrunde legen, riskieren wir Überinvestitionen.",
+              "en": "Using the largest flood range could lead to overinvestment."
+            },
+            {
+              "de": "Ein bloßer Mittelwert könnte hingegen schwer umkehrbare Schäden unterschätzen.",
+              "en": "Using only the average could underestimate harm that is hard to reverse."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_climate_model_local_decision_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Unterschiedliche Prognosespannen bedeuten nicht, dass wir gar nicht entscheiden können.",
+          "promptEn": "Different prediction ranges do not mean we should make no decision.",
+          "options": [
+            {
+              "ko": "예측 범위가 다르다는 사실이 아무 결정도 하지 말아야 한다는 뜻은 아닙니다."
+            },
+            {
+              "ko": "모델마다 침수 지도가 달라서 어느 결과를 기준으로 삼아야 할지 모르겠습니다."
+            },
+            {
+              "ko": "가장 큰 침수 범위를 기준으로 하면 과잉 투자가 될 가능성도 있습니다."
+            },
+            {
+              "ko": "반대로 평균만 택하면 되돌리기 어려운 피해를 과소평가할 수 있습니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_climate_model_local_decision_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "여러 모델이 공통으로 위험하다고 보는 구간은 먼저 보강하고, 나머지는 되돌릴 수 있는 조치부터 시작해 새 자료에 맞춰 조정하죠.",
+          "audioKo": "여러 모델이 공통으로 위험하다고 보는 구간은 먼저 보강하고, 나머지는 되돌릴 수 있는 조치부터 시작해 새 자료에 맞춰 조정하죠.",
+          "promptDe": "Wir verstärken zuerst Abschnitte, die alle Modelle als gefährdet zeigen. In den übrigen Bereichen beginnen wir mit umkehrbaren Maßnahmen und passen sie an neue Daten an.",
+          "promptEn": "Let's reinforce the zones all models identify as high risk first. Elsewhere, we can start with reversible measures and adjust them as new evidence comes in.",
+          "distractors": [
+            "모델마다 침수 지도가 달라서 어느 결과를 기준으로 삼아야 할지 모르겠습니다.",
+            "예측 범위가 다르다는 사실이 아무 결정도 하지 말아야 한다는 뜻은 아닙니다.",
+            "가장 큰 침수 범위를 기준으로 하면 과잉 투자가 될 가능성도 있습니다."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 150
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

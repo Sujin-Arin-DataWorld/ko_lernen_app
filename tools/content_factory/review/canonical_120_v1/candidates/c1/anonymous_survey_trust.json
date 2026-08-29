@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "anonymous_survey_trust",
+  "scenario": {
+    "id": "anonymous_survey_trust",
+    "level": "c1",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "익명 직원 설문이 정말 익명인지 묻기",
+      "de": "Anonymität in einem kleinen Team absichern",
+      "en": "Protecting anonymity in a small-team survey"
+    },
+    "intro": {
+      "ko": "이름은 안 받지만 직급과 근속연수를 합치면 응답자를 짐작할 수 있어요.",
+      "de": "Obwohl keine Namen erhoben werden, lassen Position und Betriebszugehörigkeit in einem kleinen Team Rückschlüsse zu.",
+      "en": "No names are collected, but role and tenure can identify people in a small team."
+    },
+    "courseUnitId": "c1_02_inclusive_sustainable_systems",
+    "playerCharacterId": "sujin",
+    "participantIds": [
+      "sujin",
+      "andrea"
+    ],
+    "relationshipContext": "재무 리더 안드레아와 데이터 분석가 수진",
+    "intent": "분석 가치와 재식별 위험을 비교해 항목 축소를 제안한다",
+    "shelf": "c1_briefing",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "이름과 이메일을 받지 않으니 익명 설문이라고 안내해도 되겠죠?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Da wir weder Namen noch E-Mail-Adressen erheben, können wir die Umfrage als anonym bezeichnen, oder?",
+          "en": "Since we don't collect names or emails, can we call the survey anonymous?"
+        }
+      },
+      {
+        "korean": "이 조합이면 이름을 받지 않아도 누군지 짐작할 수 있습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Mit dieser Merkmalskombination lässt sich die Person auch ohne Namen erraten.",
+          "en": "With this combination, people can infer who responded even without a name."
+        }
+      },
+      {
+        "korean": "직급과 근속연수는 분석에 필요한 정보인데 어떻게 하죠?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Position und Betriebszugehörigkeit brauchen wir aber für die Auswertung. Wie gehen wir damit um?",
+          "en": "But role and tenure are important for the analysis. What should we do?"
+        }
+      },
+      {
+        "korean": "작은 팀은 여러 팀을 묶어서 보고 근속연수도 넓은 구간으로 바꿀 수 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Kleine Teams können zusammengefasst und Dienstzeiten in breitere Kategorien eingeteilt werden.",
+          "en": "We can group small teams together and use broader tenure ranges."
+        }
+      },
+      {
+        "korean": "자유 서술에는 본인을 드러낼 내용이 들어갈 수도 있겠네요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "In Freitextantworten könnten Beschäftigte sich trotzdem selbst identifizierbar machen.",
+          "en": "People might still identify themselves in free-text responses."
+        }
+      },
+      {
+        "korean": "맞아요. 식별 가능한 사례를 쓰지 말라는 안내와 실제 보고 방식을 함께 설명해야 신뢰를 얻습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Genau. Vertrauen entsteht erst, wenn wir sowohl vor identifizierenden Details warnen als auch die spätere Darstellung erklären.",
+          "en": "Right. Trust requires both warning against identifying details and explaining how results will be reported."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_inclusive_systems"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_indirect_speech"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(ㄴ/는)다고 하다",
+        "de": "Indirekte Rede",
+        "en": "Indirect speech"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Sagt dass / hat gesagt dass: indirekte Wiedergabe",
+        "en": "Says that / said that: reporting speech indirectly"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "andrea",
+        "ko": "이름과 이메일을 받지 않으니 익명 설문이라고 안내해도 되겠죠?",
+        "de": "Da wir weder Namen noch E-Mail-Adressen erheben, können wir die Umfrage als anonym bezeichnen, oder?",
+        "en": "Since we don't collect names or emails, can we call the survey anonymous?"
+      },
+      {
+        "speaker": "user",
+        "ko": "이 조합이면 이름을 받지 않아도 누군지 짐작할 수 있습니다.",
+        "de": "Mit dieser Merkmalskombination lässt sich die Person auch ohne Namen erraten.",
+        "en": "With this combination, people can infer who responded even without a name."
+      },
+      {
+        "speaker": "andrea",
+        "ko": "직급과 근속연수는 분석에 필요한 정보인데 어떻게 하죠?",
+        "de": "Position und Betriebszugehörigkeit brauchen wir aber für die Auswertung. Wie gehen wir damit um?",
+        "en": "But role and tenure are important for the analysis. What should we do?"
+      },
+      {
+        "speaker": "user",
+        "ko": "작은 팀은 여러 팀을 묶어서 보고 근속연수도 넓은 구간으로 바꿀 수 있어요.",
+        "de": "Kleine Teams können zusammengefasst und Dienstzeiten in breitere Kategorien eingeteilt werden.",
+        "en": "We can group small teams together and use broader tenure ranges."
+      },
+      {
+        "speaker": "andrea",
+        "ko": "자유 서술에는 본인을 드러낼 내용이 들어갈 수도 있겠네요.",
+        "de": "In Freitextantworten könnten Beschäftigte sich trotzdem selbst identifizierbar machen.",
+        "en": "People might still identify themselves in free-text responses."
+      },
+      {
+        "speaker": "user",
+        "ko": "맞아요. 식별 가능한 사례를 쓰지 말라는 안내와 실제 보고 방식을 함께 설명해야 신뢰를 얻습니다.",
+        "de": "Genau. Vertrauen entsteht erst, wenn wir sowohl vor identifizierenden Details warnen als auch die spätere Darstellung erklären.",
+        "en": "Right. Trust requires both warning against identifying details and explaining how results will be reported."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_anonymous_survey_trust_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "이름과 이메일을 받지 않으니 익명 설문이라고 안내해도 되겠죠?",
+          "options": [
+            {
+              "de": "Da wir weder Namen noch E-Mail-Adressen erheben, können wir die Umfrage als anonym bezeichnen, oder?",
+              "en": "Since we don't collect names or emails, can we call the survey anonymous?"
+            },
+            {
+              "de": "Mit dieser Merkmalskombination lässt sich die Person auch ohne Namen erraten.",
+              "en": "With this combination, people can infer who responded even without a name."
+            },
+            {
+              "de": "Position und Betriebszugehörigkeit brauchen wir aber für die Auswertung. Wie gehen wir damit um?",
+              "en": "But role and tenure are important for the analysis. What should we do?"
+            },
+            {
+              "de": "Kleine Teams können zusammengefasst und Dienstzeiten in breitere Kategorien eingeteilt werden.",
+              "en": "We can group small teams together and use broader tenure ranges."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_anonymous_survey_trust_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Mit dieser Merkmalskombination lässt sich die Person auch ohne Namen erraten.",
+          "promptEn": "With this combination, people can infer who responded even without a name.",
+          "options": [
+            {
+              "ko": "이 조합이면 이름을 받지 않아도 누군지 짐작할 수 있습니다."
+            },
+            {
+              "ko": "이름과 이메일을 받지 않으니 익명 설문이라고 안내해도 되겠죠?"
+            },
+            {
+              "ko": "직급과 근속연수는 분석에 필요한 정보인데 어떻게 하죠?"
+            },
+            {
+              "ko": "작은 팀은 여러 팀을 묶어서 보고 근속연수도 넓은 구간으로 바꿀 수 있어요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_anonymous_survey_trust_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "맞아요. 식별 가능한 사례를 쓰지 말라는 안내와 실제 보고 방식을 함께 설명해야 신뢰를 얻습니다.",
+          "audioKo": "맞아요. 식별 가능한 사례를 쓰지 말라는 안내와 실제 보고 방식을 함께 설명해야 신뢰를 얻습니다.",
+          "promptDe": "Genau. Vertrauen entsteht erst, wenn wir sowohl vor identifizierenden Details warnen als auch die spätere Darstellung erklären.",
+          "promptEn": "Right. Trust requires both warning against identifying details and explaining how results will be reported.",
+          "distractors": [
+            "이름과 이메일을 받지 않으니 익명 설문이라고 안내해도 되겠죠?",
+            "이 조합이면 이름을 받지 않아도 누군지 짐작할 수 있습니다.",
+            "직급과 근속연수는 분석에 필요한 정보인데 어떻게 하죠?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 140
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

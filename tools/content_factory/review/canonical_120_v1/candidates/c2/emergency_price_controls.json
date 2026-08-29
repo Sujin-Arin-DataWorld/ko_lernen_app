@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "emergency_price_controls",
+  "scenario": {
+    "id": "emergency_price_controls",
+    "level": "c2",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "재난 시 생필품 가격 제한의 역효과를 논의하기",
+      "de": "Preisobergrenzen im Notfall mit Versorgungssicherheit verbinden",
+      "en": "Pairing emergency price caps with supply safeguards"
+    },
+    "intro": {
+      "ko": "폭우 뒤 생수 가격 상한제가 제안됐지만 공급 감소와 사재기 우려도 있어요.",
+      "de": "Nach Starkregen wird eine Preisobergrenze für Wasser vorgeschlagen, zugleich drohen Lieferengpässe und Hamsterkäufe.",
+      "en": "After severe flooding, a bottled-water price cap is proposed, with concerns about reduced supply and hoarding."
+    },
+    "courseUnitId": "c2_04_sanction_accountability",
+    "playerCharacterId": "andrea",
+    "participantIds": [
+      "andrea",
+      "official"
+    ],
+    "relationshipContext": "재무 전문가 안드레아와 공공 담당자",
+    "intent": "가격 억제 목적을 인정하면서 공급·배급·기간 조건을 함께 설계한다",
+    "shelf": "c2_discourse",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "재난 중 생수 가격이 급등하지 않도록 즉시 상한을 두어야 합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir brauchen sofort eine Preisobergrenze, damit Wasser in der Katastrophe nicht unbezahlbar wird.",
+          "en": "We need an immediate cap to prevent water prices from soaring during the emergency."
+        }
+      },
+      {
+        "korean": "가격만 묶어 두면 필요한 곳에 물건이 도착하지 않는 역효과가 생길 수 있습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn wir nur den Preis deckeln, könnte weniger Ware dort ankommen, wo sie gebraucht wird.",
+          "en": "If we cap only the price, less supply may reach the places that need it."
+        }
+      },
+      {
+        "korean": "그렇다고 급등을 그대로 두면 구매력이 낮은 사람이 먼저 배제됩니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ohne Eingriff werden jedoch Menschen mit geringer Kaufkraft zuerst ausgeschlossen.",
+          "en": "But without intervention, people with less purchasing power will be excluded first."
+        }
+      },
+      {
+        "korean": "상한 자체보다 그것만으로 충분하다는 전제가 문제입니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Nicht die Obergrenze an sich ist das Problem, sondern die Annahme, sie reiche allein aus.",
+          "en": "The problem isn't the cap itself, but the premise that it is sufficient on its own."
+        }
+      },
+      {
+        "korean": "그럼 상한과 함께 어떤 대책을 묶어야 할까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Welche Maßnahmen sollten wir dann mit der Obergrenze verbinden?",
+          "en": "What measures should we pair with the cap, then?"
+        }
+      },
+      {
+        "korean": "단기 상한에 구매 수량 제한과 추가 운송비 지원을 묶고 종료 조건도 정해야 합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir sollten eine befristete Obergrenze mit Mengenbegrenzung und Unterstützung zusätzlicher Transportkosten verbinden und ein Ende definieren.",
+          "en": "We should pair a temporary cap with purchase limits and transport-cost support, and define when it ends."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c2_sanction_accountability"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_indirect_speech"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(ㄴ/는)다고 하다",
+        "de": "Indirekte Rede",
+        "en": "Indirect speech"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Sagt dass / hat gesagt dass: indirekte Wiedergabe",
+        "en": "Says that / said that: reporting speech indirectly"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "official",
+        "ko": "재난 중 생수 가격이 급등하지 않도록 즉시 상한을 두어야 합니다.",
+        "de": "Wir brauchen sofort eine Preisobergrenze, damit Wasser in der Katastrophe nicht unbezahlbar wird.",
+        "en": "We need an immediate cap to prevent water prices from soaring during the emergency."
+      },
+      {
+        "speaker": "user",
+        "ko": "가격만 묶어 두면 필요한 곳에 물건이 도착하지 않는 역효과가 생길 수 있습니다.",
+        "de": "Wenn wir nur den Preis deckeln, könnte weniger Ware dort ankommen, wo sie gebraucht wird.",
+        "en": "If we cap only the price, less supply may reach the places that need it."
+      },
+      {
+        "speaker": "official",
+        "ko": "그렇다고 급등을 그대로 두면 구매력이 낮은 사람이 먼저 배제됩니다.",
+        "de": "Ohne Eingriff werden jedoch Menschen mit geringer Kaufkraft zuerst ausgeschlossen.",
+        "en": "But without intervention, people with less purchasing power will be excluded first."
+      },
+      {
+        "speaker": "user",
+        "ko": "상한 자체보다 그것만으로 충분하다는 전제가 문제입니다.",
+        "de": "Nicht die Obergrenze an sich ist das Problem, sondern die Annahme, sie reiche allein aus.",
+        "en": "The problem isn't the cap itself, but the premise that it is sufficient on its own."
+      },
+      {
+        "speaker": "official",
+        "ko": "그럼 상한과 함께 어떤 대책을 묶어야 할까요?",
+        "de": "Welche Maßnahmen sollten wir dann mit der Obergrenze verbinden?",
+        "en": "What measures should we pair with the cap, then?"
+      },
+      {
+        "speaker": "user",
+        "ko": "단기 상한에 구매 수량 제한과 추가 운송비 지원을 묶고 종료 조건도 정해야 합니다.",
+        "de": "Wir sollten eine befristete Obergrenze mit Mengenbegrenzung und Unterstützung zusätzlicher Transportkosten verbinden und ein Ende definieren.",
+        "en": "We should pair a temporary cap with purchase limits and transport-cost support, and define when it ends."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_emergency_price_controls_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "재난 중 생수 가격이 급등하지 않도록 즉시 상한을 두어야 합니다.",
+          "options": [
+            {
+              "de": "Wir brauchen sofort eine Preisobergrenze, damit Wasser in der Katastrophe nicht unbezahlbar wird.",
+              "en": "We need an immediate cap to prevent water prices from soaring during the emergency."
+            },
+            {
+              "de": "Wenn wir nur den Preis deckeln, könnte weniger Ware dort ankommen, wo sie gebraucht wird.",
+              "en": "If we cap only the price, less supply may reach the places that need it."
+            },
+            {
+              "de": "Ohne Eingriff werden jedoch Menschen mit geringer Kaufkraft zuerst ausgeschlossen.",
+              "en": "But without intervention, people with less purchasing power will be excluded first."
+            },
+            {
+              "de": "Nicht die Obergrenze an sich ist das Problem, sondern die Annahme, sie reiche allein aus.",
+              "en": "The problem isn't the cap itself, but the premise that it is sufficient on its own."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_emergency_price_controls_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Wenn wir nur den Preis deckeln, könnte weniger Ware dort ankommen, wo sie gebraucht wird.",
+          "promptEn": "If we cap only the price, less supply may reach the places that need it.",
+          "options": [
+            {
+              "ko": "가격만 묶어 두면 필요한 곳에 물건이 도착하지 않는 역효과가 생길 수 있습니다."
+            },
+            {
+              "ko": "재난 중 생수 가격이 급등하지 않도록 즉시 상한을 두어야 합니다."
+            },
+            {
+              "ko": "그렇다고 급등을 그대로 두면 구매력이 낮은 사람이 먼저 배제됩니다."
+            },
+            {
+              "ko": "상한 자체보다 그것만으로 충분하다는 전제가 문제입니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_emergency_price_controls_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "단기 상한에 구매 수량 제한과 추가 운송비 지원을 묶고 종료 조건도 정해야 합니다.",
+          "audioKo": "단기 상한에 구매 수량 제한과 추가 운송비 지원을 묶고 종료 조건도 정해야 합니다.",
+          "promptDe": "Wir sollten eine befristete Obergrenze mit Mengenbegrenzung und Unterstützung zusätzlicher Transportkosten verbinden und ein Ende definieren.",
+          "promptEn": "We should pair a temporary cap with purchase limits and transport-cost support, and define when it ends.",
+          "distractors": [
+            "재난 중 생수 가격이 급등하지 않도록 즉시 상한을 두어야 합니다.",
+            "가격만 묶어 두면 필요한 곳에 물건이 도착하지 않는 역효과가 생길 수 있습니다.",
+            "그렇다고 급등을 그대로 두면 구매력이 낮은 사람이 먼저 배제됩니다."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 150
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "heatwave_shelter_access",
+  "scenario": {
+    "id": "heatwave_shelter_access",
+    "level": "c1",
+    "emoji": "🏠",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "폭염 쉼터가 있어도 이용하기 어려울 때",
+      "de": "Wenn Hitzeschutzräume praktisch unerreichbar sind",
+      "en": "When heat shelters are inaccessible in practice"
+    },
+    "intro": {
+      "ko": "쉼터 수는 충분하지만 계단과 짧은 운영 시간 때문에 이용하지 못하는 주민이 있어요.",
+      "de": "Es gibt genug Hitzeschutzräume, doch Treppen und kurze Öffnungszeiten schließen einige Menschen aus.",
+      "en": "There are enough heat shelters, but stairs and short hours keep some residents from using them."
+    },
+    "courseUnitId": "c1_02_inclusive_sustainable_systems",
+    "playerCharacterId": "hyuna",
+    "participantIds": [
+      "hyuna",
+      "resident",
+      "official"
+    ],
+    "relationshipContext": "현아와 주민, 담당자",
+    "intent": "시설 개수보다 실제 접근 조건을 근거로 개선 우선순위를 제안한다",
+    "shelf": "c1_mediation",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "이 지역은 기준보다 많은 폭염 쉼터를 운영하고 있습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "In diesem Gebiet gibt es mehr Hitzeschutzräume als vorgeschrieben.",
+          "en": "This area operates more heat shelters than the benchmark requires."
+        }
+      },
+      {
+        "korean": "가까운 곳은 계단뿐이고, 경사로가 있는 곳은 제가 갈 때 이미 닫혀요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Der nahe Raum ist nur über Treppen erreichbar, und der barrierefreie schließt, bevor ich dort sein kann.",
+          "en": "The nearby one only has stairs, and the accessible one closes before I can get there."
+        }
+      },
+      {
+        "korean": "쉼터가 있다는 것과 실제로 이용할 수 있다는 것은 같은 말이 아닙니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dass ein Schutzraum vorhanden ist, heißt noch nicht, dass er praktisch nutzbar ist.",
+          "en": "Having a shelter is not the same as being able to use it."
+        }
+      },
+      {
+        "korean": "새 시설을 더 지정하는 방안부터 검토하겠습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir könnten zunächst weitere Einrichtungen ausweisen.",
+          "en": "We could begin by designating more facilities."
+        }
+      },
+      {
+        "korean": "시설 수에 국한하면 지금 막히는 시간과 이동 경로가 보이지 않습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn wir uns auf die Anzahl beschränken, bleiben Öffnungszeiten und Zugangswege unsichtbar.",
+          "en": "If we focus only on the number, we miss the hours and routes blocking access."
+        }
+      },
+      {
+        "korean": "운영 시간을 늘리고 경사로가 있는 곳을 먼저 알려 주는 게 더 도움이 됩니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Längere Öffnungszeiten und klare Hinweise auf barrierefreie Orte würden mir mehr helfen.",
+          "en": "Longer hours and clear directions to accessible locations would help more."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_inclusive_systems"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_c1_limited_to"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N에 국한하면",
+        "de": "Geltungsbereich einschränken",
+        "en": "Limiting the scope"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Grenzt eine Aussage auf einen bestimmten Ausschnitt ein und zeigt, dass sie darüber hinaus nicht gilt.",
+        "en": "Restricts a claim to one slice of the data and signals that it does not hold beyond it."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "official",
+        "ko": "이 지역은 기준보다 많은 폭염 쉼터를 운영하고 있습니다.",
+        "de": "In diesem Gebiet gibt es mehr Hitzeschutzräume als vorgeschrieben.",
+        "en": "This area operates more heat shelters than the benchmark requires."
+      },
+      {
+        "speaker": "resident",
+        "ko": "가까운 곳은 계단뿐이고, 경사로가 있는 곳은 제가 갈 때 이미 닫혀요.",
+        "de": "Der nahe Raum ist nur über Treppen erreichbar, und der barrierefreie schließt, bevor ich dort sein kann.",
+        "en": "The nearby one only has stairs, and the accessible one closes before I can get there."
+      },
+      {
+        "speaker": "user",
+        "ko": "쉼터가 있다는 것과 실제로 이용할 수 있다는 것은 같은 말이 아닙니다.",
+        "de": "Dass ein Schutzraum vorhanden ist, heißt noch nicht, dass er praktisch nutzbar ist.",
+        "en": "Having a shelter is not the same as being able to use it."
+      },
+      {
+        "speaker": "official",
+        "ko": "새 시설을 더 지정하는 방안부터 검토하겠습니다.",
+        "de": "Wir könnten zunächst weitere Einrichtungen ausweisen.",
+        "en": "We could begin by designating more facilities."
+      },
+      {
+        "speaker": "user",
+        "ko": "시설 수에 국한하면 지금 막히는 시간과 이동 경로가 보이지 않습니다.",
+        "de": "Wenn wir uns auf die Anzahl beschränken, bleiben Öffnungszeiten und Zugangswege unsichtbar.",
+        "en": "If we focus only on the number, we miss the hours and routes blocking access."
+      },
+      {
+        "speaker": "resident",
+        "ko": "운영 시간을 늘리고 경사로가 있는 곳을 먼저 알려 주는 게 더 도움이 됩니다.",
+        "de": "Längere Öffnungszeiten und klare Hinweise auf barrierefreie Orte würden mir mehr helfen.",
+        "en": "Longer hours and clear directions to accessible locations would help more."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_heatwave_shelter_access_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "이 지역은 기준보다 많은 폭염 쉼터를 운영하고 있습니다.",
+          "options": [
+            {
+              "de": "In diesem Gebiet gibt es mehr Hitzeschutzräume als vorgeschrieben.",
+              "en": "This area operates more heat shelters than the benchmark requires."
+            },
+            {
+              "de": "Der nahe Raum ist nur über Treppen erreichbar, und der barrierefreie schließt, bevor ich dort sein kann.",
+              "en": "The nearby one only has stairs, and the accessible one closes before I can get there."
+            },
+            {
+              "de": "Dass ein Schutzraum vorhanden ist, heißt noch nicht, dass er praktisch nutzbar ist.",
+              "en": "Having a shelter is not the same as being able to use it."
+            },
+            {
+              "de": "Wir könnten zunächst weitere Einrichtungen ausweisen.",
+              "en": "We could begin by designating more facilities."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_heatwave_shelter_access_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Dass ein Schutzraum vorhanden ist, heißt noch nicht, dass er praktisch nutzbar ist.",
+          "promptEn": "Having a shelter is not the same as being able to use it.",
+          "options": [
+            {
+              "ko": "쉼터가 있다는 것과 실제로 이용할 수 있다는 것은 같은 말이 아닙니다."
+            },
+            {
+              "ko": "이 지역은 기준보다 많은 폭염 쉼터를 운영하고 있습니다."
+            },
+            {
+              "ko": "가까운 곳은 계단뿐이고, 경사로가 있는 곳은 제가 갈 때 이미 닫혀요."
+            },
+            {
+              "ko": "새 시설을 더 지정하는 방안부터 검토하겠습니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_heatwave_shelter_access_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "시설 수에 국한하면 지금 막히는 시간과 이동 경로가 보이지 않습니다.",
+          "audioKo": "시설 수에 국한하면 지금 막히는 시간과 이동 경로가 보이지 않습니다.",
+          "promptDe": "Wenn wir uns auf die Anzahl beschränken, bleiben Öffnungszeiten und Zugangswege unsichtbar.",
+          "promptEn": "If we focus only on the number, we miss the hours and routes blocking access.",
+          "distractors": [
+            "이 지역은 기준보다 많은 폭염 쉼터를 운영하고 있습니다.",
+            "가까운 곳은 계단뿐이고, 경사로가 있는 곳은 제가 갈 때 이미 닫혀요.",
+            "쉼터가 있다는 것과 실제로 이용할 수 있다는 것은 같은 말이 아닙니다."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 140
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

@@ -1,0 +1,252 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "taxi_slow_down",
+  "scenario": {
+    "id": "taxi_slow_down",
+    "level": "a2",
+    "emoji": "🚕",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "택시가 무서울 만큼 빠를 때",
+      "de": "Den Taxifahrer bitten, langsamer zu fahren",
+      "en": "Asking a taxi driver to slow down"
+    },
+    "intro": {
+      "ko": "택시가 빠르게 차선을 바꿔서 불안해요.",
+      "de": "Das Taxi wechselt schnell die Spur und du fühlst dich unwohl.",
+      "en": "The taxi is changing lanes quickly, and you feel uneasy."
+    },
+    "courseUnitId": "a2_07_travel_repair",
+    "playerCharacterId": "lena",
+    "participantIds": [
+      "lena",
+      "driver"
+    ],
+    "relationshipContext": "승객과 택시 기사",
+    "intent": "속도를 낮춰 달라고 공손하지만 분명하게 요청한다",
+    "shelf": "a2_move",
+    "backdrop": "taxi",
+    "vocab": [
+      {
+        "korean": "기사님, 천천히 좀 가 주실 수 있을까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Könnten Sie bitte etwas langsamer fahren?",
+          "en": "Could you please drive a little more slowly?"
+        }
+      },
+      {
+        "korean": "아, 네. 죄송합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Oh, ja. Entschuldigung.",
+          "en": "Oh, yes. Sorry."
+        }
+      },
+      {
+        "korean": "차선을 자주 바꿔서 조금 무서워요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die vielen Spurwechsel machen mir etwas Angst.",
+          "en": "The frequent lane changes are making me a little nervous."
+        }
+      },
+      {
+        "korean": "알겠습니다. 천천히 갈게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Verstanden. Ich fahre langsamer.",
+          "en": "Understood. I'll slow down."
+        }
+      },
+      {
+        "korean": "네, 부탁드릴게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, bitte.",
+          "en": "Yes, please."
+        }
+      },
+      {
+        "korean": "네.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Natürlich.",
+          "en": "Of course."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a2_travel_repair"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a2_polite_proposal"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)ㄹ까요?",
+        "de": "Vorschlag / Frage",
+        "en": "Suggestion / wondering"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Sollen wir? / Wie wäre es? / Ich frage mich ob... Vorschlag oder Unsicherheit",
+        "en": "Shall we? / How about? / I wonder if... a suggestion or uncertainty"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "기사님, 천천히 좀 가 주실 수 있을까요?",
+        "de": "Könnten Sie bitte etwas langsamer fahren?",
+        "en": "Could you please drive a little more slowly?"
+      },
+      {
+        "speaker": "driver",
+        "ko": "아, 네. 죄송합니다.",
+        "de": "Oh, ja. Entschuldigung.",
+        "en": "Oh, yes. Sorry."
+      },
+      {
+        "speaker": "user",
+        "ko": "차선을 자주 바꿔서 조금 무서워요.",
+        "de": "Die vielen Spurwechsel machen mir etwas Angst.",
+        "en": "The frequent lane changes are making me a little nervous."
+      },
+      {
+        "speaker": "driver",
+        "ko": "알겠습니다. 천천히 갈게요.",
+        "de": "Verstanden. Ich fahre langsamer.",
+        "en": "Understood. I'll slow down."
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 부탁드릴게요.",
+        "de": "Ja, bitte.",
+        "en": "Yes, please."
+      },
+      {
+        "speaker": "driver",
+        "ko": "네.",
+        "de": "Natürlich.",
+        "en": "Of course."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_taxi_slow_down_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "아, 네. 죄송합니다.",
+          "options": [
+            {
+              "de": "Oh, ja. Entschuldigung.",
+              "en": "Oh, yes. Sorry."
+            },
+            {
+              "de": "Könnten Sie bitte etwas langsamer fahren?",
+              "en": "Could you please drive a little more slowly?"
+            },
+            {
+              "de": "Die vielen Spurwechsel machen mir etwas Angst.",
+              "en": "The frequent lane changes are making me a little nervous."
+            },
+            {
+              "de": "Verstanden. Ich fahre langsamer.",
+              "en": "Understood. I'll slow down."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_taxi_slow_down_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Könnten Sie bitte etwas langsamer fahren?",
+          "promptEn": "Could you please drive a little more slowly?",
+          "options": [
+            {
+              "ko": "기사님, 천천히 좀 가 주실 수 있을까요?"
+            },
+            {
+              "ko": "아, 네. 죄송합니다."
+            },
+            {
+              "ko": "차선을 자주 바꿔서 조금 무서워요."
+            },
+            {
+              "ko": "알겠습니다. 천천히 갈게요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_taxi_slow_down_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네, 부탁드릴게요.",
+          "audioKo": "네, 부탁드릴게요.",
+          "promptDe": "Ja, bitte.",
+          "promptEn": "Yes, please.",
+          "distractors": [
+            "기사님, 천천히 좀 가 주실 수 있을까요?",
+            "아, 네. 죄송합니다.",
+            "차선을 자주 바꿔서 조금 무서워요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": {
+      "title": {
+        "ko": "기사님이라고 부르기",
+        "de": "Den Fahrer mit 기사님 ansprechen",
+        "en": "Addressing the driver as 기사님"
+      },
+      "body": {
+        "ko": "택시 기사에게 요청할 때 기사님이라고 먼저 부르면 자연스러워요. 필요한 요청만 짧고 분명하게 말해도 돼요.",
+        "de": "Bei einer Bitte an einen Taxifahrer ist 기사님 eine natürliche Anrede. Die eigentliche Bitte kann kurz und klar bleiben.",
+        "en": "기사님 is a natural way to address a taxi driver before making a request. The request itself can be brief and clear."
+      }
+    },
+    "xpReward": 110
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

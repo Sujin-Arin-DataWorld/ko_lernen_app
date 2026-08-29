@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "mart_grocery",
+  "scenario": {
+    "id": "mart_grocery",
+    "level": "a1",
+    "emoji": "🛍️",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "마트에서 두부 찾기",
+      "de": "Tofu im Supermarkt finden",
+      "en": "Finding tofu at the supermarket"
+    },
+    "intro": {
+      "ko": "마트에서 두부를 찾고 있어요.",
+      "de": "Du suchst im Supermarkt nach Tofu.",
+      "en": "You're looking for tofu at the supermarket."
+    },
+    "courseUnitId": "a1_03_topic_subject_particles",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "clerk"
+    ],
+    "relationshipContext": "손님과 마트 직원",
+    "intent": "원하는 물건의 위치를 묻는다",
+    "shelf": "a1_counter",
+    "backdrop": "market",
+    "vocab": [
+      {
+        "korean": "저기요. 두부는 어디에 있어요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Entschuldigung, wo finde ich Tofu?",
+          "en": "Excuse me, where is the tofu?"
+        }
+      },
+      {
+        "korean": "저쪽 냉장고 옆에 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dort drüben, neben dem Kühlregal.",
+          "en": "Over there, next to the refrigerated section."
+        }
+      },
+      {
+        "korean": "이거 두부예요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ist das Tofu?",
+          "en": "Is this tofu?"
+        }
+      },
+      {
+        "korean": "아니요, 그건 치즈예요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Nein, das ist Käse.",
+          "en": "No, that's cheese."
+        }
+      },
+      {
+        "korean": "그럼 이거예요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dann ist es das hier?",
+          "en": "Then is it this one?"
+        }
+      },
+      {
+        "korean": "네, 그게 두부예요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, das ist Tofu.",
+          "en": "Yes, that's tofu."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_topic_particle",
+      "concept_subject_particle"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_direction_time_particle"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N에",
+        "de": "Richtungs-/Ortspartikel",
+        "en": "Direction/time particle"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Richtung (wohin?) oder Zeitpunkt (wann?)",
+        "en": "Direction (to where?) or point in time (when?)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "저기요. 두부는 어디에 있어요?",
+        "de": "Entschuldigung, wo finde ich Tofu?",
+        "en": "Excuse me, where is the tofu?"
+      },
+      {
+        "speaker": "clerk",
+        "ko": "저쪽 냉장고 옆에 있어요.",
+        "de": "Dort drüben, neben dem Kühlregal.",
+        "en": "Over there, next to the refrigerated section."
+      },
+      {
+        "speaker": "user",
+        "ko": "이거 두부예요?",
+        "de": "Ist das Tofu?",
+        "en": "Is this tofu?"
+      },
+      {
+        "speaker": "clerk",
+        "ko": "아니요, 그건 치즈예요.",
+        "de": "Nein, das ist Käse.",
+        "en": "No, that's cheese."
+      },
+      {
+        "speaker": "user",
+        "ko": "그럼 이거예요?",
+        "de": "Dann ist es das hier?",
+        "en": "Then is it this one?"
+      },
+      {
+        "speaker": "clerk",
+        "ko": "네, 그게 두부예요.",
+        "de": "Ja, das ist Tofu.",
+        "en": "Yes, that's tofu."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_mart_grocery_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "저쪽 냉장고 옆에 있어요.",
+          "options": [
+            {
+              "de": "Dort drüben, neben dem Kühlregal.",
+              "en": "Over there, next to the refrigerated section."
+            },
+            {
+              "de": "Entschuldigung, wo finde ich Tofu?",
+              "en": "Excuse me, where is the tofu?"
+            },
+            {
+              "de": "Ist das Tofu?",
+              "en": "Is this tofu?"
+            },
+            {
+              "de": "Nein, das ist Käse.",
+              "en": "No, that's cheese."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_mart_grocery_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Entschuldigung, wo finde ich Tofu?",
+          "promptEn": "Excuse me, where is the tofu?",
+          "options": [
+            {
+              "ko": "저기요. 두부는 어디에 있어요?"
+            },
+            {
+              "ko": "저쪽 냉장고 옆에 있어요."
+            },
+            {
+              "ko": "이거 두부예요?"
+            },
+            {
+              "ko": "아니요, 그건 치즈예요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_mart_grocery_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "그럼 이거예요?",
+          "audioKo": "그럼 이거예요?",
+          "promptDe": "Dann ist es das hier?",
+          "promptEn": "Then is it this one?",
+          "distractors": [
+            "저기요. 두부는 어디에 있어요?",
+            "저쪽 냉장고 옆에 있어요.",
+            "이거 두부예요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 100
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

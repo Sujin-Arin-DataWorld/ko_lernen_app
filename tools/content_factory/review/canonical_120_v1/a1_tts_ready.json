@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "kind": "scenario_tts_storage_verification",
+  "generationId": "canonical_120_v1",
+  "scope": "a1",
+  "candidateSetSha256": "51d156bd4aec77bbf88b85b5419fa73bc9b226f637b4facb03f15ec615a455cb",
+  "ttsManifestSha256": "84b9c01ecb157fc71425901473b9932c3d647b1c14217571c0bdffa2b6a87037",
+  "expectedCount": 141,
+  "verifiedCachePathCount": 141,
+  "missingCount": 0,
+  "cacheRevision": "v3",
+  "verificationMode": "firebase_storage_listing",
+  "bucket": "ko-lernen-app.firebasestorage.app",
+  "verifiedAt": "2026-08-27T09:27:58.851906+00:00"
+}

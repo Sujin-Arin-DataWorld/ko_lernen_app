@@ -1,0 +1,243 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "plans_with_friend",
+  "scenario": {
+    "id": "plans_with_friend",
+    "level": "a2",
+    "emoji": "🏠",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "주말에 전시 보러 가기",
+      "de": "Einen Ausstellungsbesuch planen",
+      "en": "Planning an exhibition visit"
+    },
+    "intro": {
+      "ko": "주말에 같이 전시를 보려고 해요.",
+      "de": "Ihr möchtet am Wochenende gemeinsam eine Ausstellung besuchen.",
+      "en": "You want to visit an exhibition together this weekend."
+    },
+    "courseUnitId": "a2_02_plans_proposals",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "sujin"
+    ],
+    "relationshipContext": "친구가 된 크리스티안과 수진",
+    "intent": "가능한 날을 물어 새 약속을 잡는다",
+    "shelf": "a2_plan",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "토요일에 이 전시 보러 갈래요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Möchtest du am Samstag diese Ausstellung sehen?",
+          "en": "Do you want to see this exhibition on Saturday?"
+        }
+      },
+      {
+        "korean": "토요일에는 일이 있어서 안 돼요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Am Samstag muss ich arbeiten, da geht es nicht.",
+          "en": "I have work on Saturday, so I can't."
+        }
+      },
+      {
+        "korean": "그럼 일요일은 어때요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie wäre es dann mit Sonntag?",
+          "en": "How about Sunday, then?"
+        }
+      },
+      {
+        "korean": "일요일 오후는 괜찮아요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Sonntagnachmittag passt.",
+          "en": "Sunday afternoon works."
+        }
+      },
+      {
+        "korean": "두 시에 만날까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Treffen wir uns um zwei?",
+          "en": "Shall we meet at two?"
+        }
+      },
+      {
+        "korean": "좋아요. 입구 앞에서 봐요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gern. Wir treffen uns am Eingang.",
+          "en": "Sounds good. See you by the entrance."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_proposal_formal",
+      "concept_proposal_polite",
+      "concept_proposal_casual"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a2_cause_sequence"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-아/어서",
+        "de": "Grund / Reihenfolge",
+        "en": "Reason / sequence"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Weil (Grund) oder und dann (zeitliche Abfolge)",
+        "en": "Because (reason) or and then (time sequence)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "토요일에 이 전시 보러 갈래요?",
+        "de": "Möchtest du am Samstag diese Ausstellung sehen?",
+        "en": "Do you want to see this exhibition on Saturday?"
+      },
+      {
+        "speaker": "sujin",
+        "ko": "토요일에는 일이 있어서 안 돼요.",
+        "de": "Am Samstag muss ich arbeiten, da geht es nicht.",
+        "en": "I have work on Saturday, so I can't."
+      },
+      {
+        "speaker": "user",
+        "ko": "그럼 일요일은 어때요?",
+        "de": "Wie wäre es dann mit Sonntag?",
+        "en": "How about Sunday, then?"
+      },
+      {
+        "speaker": "sujin",
+        "ko": "일요일 오후는 괜찮아요.",
+        "de": "Sonntagnachmittag passt.",
+        "en": "Sunday afternoon works."
+      },
+      {
+        "speaker": "user",
+        "ko": "두 시에 만날까요?",
+        "de": "Treffen wir uns um zwei?",
+        "en": "Shall we meet at two?"
+      },
+      {
+        "speaker": "sujin",
+        "ko": "좋아요. 입구 앞에서 봐요.",
+        "de": "Gern. Wir treffen uns am Eingang.",
+        "en": "Sounds good. See you by the entrance."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_plans_with_friend_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "토요일에는 일이 있어서 안 돼요.",
+          "options": [
+            {
+              "de": "Am Samstag muss ich arbeiten, da geht es nicht.",
+              "en": "I have work on Saturday, so I can't."
+            },
+            {
+              "de": "Möchtest du am Samstag diese Ausstellung sehen?",
+              "en": "Do you want to see this exhibition on Saturday?"
+            },
+            {
+              "de": "Wie wäre es dann mit Sonntag?",
+              "en": "How about Sunday, then?"
+            },
+            {
+              "de": "Sonntagnachmittag passt.",
+              "en": "Sunday afternoon works."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_plans_with_friend_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Möchtest du am Samstag diese Ausstellung sehen?",
+          "promptEn": "Do you want to see this exhibition on Saturday?",
+          "options": [
+            {
+              "ko": "토요일에 이 전시 보러 갈래요?"
+            },
+            {
+              "ko": "토요일에는 일이 있어서 안 돼요."
+            },
+            {
+              "ko": "그럼 일요일은 어때요?"
+            },
+            {
+              "ko": "일요일 오후는 괜찮아요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_plans_with_friend_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "두 시에 만날까요?",
+          "audioKo": "두 시에 만날까요?",
+          "promptDe": "Treffen wir uns um zwei?",
+          "promptEn": "Shall we meet at two?",
+          "distractors": [
+            "토요일에 이 전시 보러 갈래요?",
+            "토요일에는 일이 있어서 안 돼요.",
+            "그럼 일요일은 어때요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 110
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

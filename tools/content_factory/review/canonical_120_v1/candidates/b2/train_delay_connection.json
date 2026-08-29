@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "train_delay_connection",
+  "scenario": {
+    "id": "train_delay_connection",
+    "level": "b2",
+    "emoji": "🚇",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "기차 지연으로 환승이 어려울 때",
+      "de": "Bei Zugverspätung einen Anschluss klären",
+      "en": "Handling a connection during a train delay"
+    },
+    "intro": {
+      "ko": "첫 기차가 늦어서 따로 예약한 다음 열차를 놓칠 것 같아요.",
+      "de": "Der erste Zug verspätet sich, und dein separat gebuchter Anschluss ist gefährdet.",
+      "en": "Your first train is delayed, putting a separately booked connection at risk."
+    },
+    "courseUnitId": "b2_04_complaint_resolution",
+    "playerCharacterId": "daniel",
+    "participantIds": [
+      "daniel",
+      "clerk"
+    ],
+    "relationshipContext": "여행자 다니엘과 직원",
+    "intent": "현재 확정된 지연과 연결편 조건을 설명하고 가능한 변경을 묻는다",
+    "shelf": "b2_contract",
+    "backdrop": "station",
+    "vocab": [
+      {
+        "korean": "이 지연 때문에 다음 열차를 놓칠 가능성이 큰데 변경할 수 있을까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wegen dieser Verspätung verpasse ich wahrscheinlich meinen Anschluss. Kann ich die Buchung ändern?",
+          "en": "This delay will probably make me miss my next train. Can I change the booking?"
+        }
+      },
+      {
+        "korean": "다음 표는 따로 예약하신 건가요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wurde der Anschluss separat gebucht?",
+          "en": "Was the next ticket booked separately?"
+        }
+      },
+      {
+        "korean": "네. 같은 앱에서 샀지만 예약 번호는 달라요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Ich habe beide in derselben App gekauft, aber die Buchungsnummern sind verschieden.",
+          "en": "Yes. I bought both in the same app, but the booking numbers are different."
+        }
+      },
+      {
+        "korean": "그 경우 보상은 바로 말씀드리기 어렵지만 좌석 변경은 확인할 수 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "In diesem Fall kann ich keine Erstattung zusagen, aber ich kann eine Umbuchung des Sitzplatzes prüfen.",
+          "en": "In that case, I can't promise compensation, but I can check whether the seat can be changed."
+        }
+      },
+      {
+        "korean": "먼저 탈 수 있는 다음 열차가 있는지 확인해 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Bitte prüfen Sie zuerst, welchen späteren Zug ich nehmen könnte.",
+          "en": "Please first check which later train I could take."
+        }
+      },
+      {
+        "korean": "네. 예약 번호 두 개를 같이 보겠습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Ich prüfe beide Buchungsnummern zusammen.",
+          "en": "Certainly. I'll look at both booking numbers."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b2_complaint"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_whether"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)ㄴ/는지",
+        "de": "Indirekte Frage (ob/was/wer)",
+        "en": "Indirect question (whether)"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Ob/W-Frage als Nebensatz vor 알다/모르다/궁금하다",
+        "en": "Whether/wh-question as clause before 알다/모르다/궁금하다"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "이 지연 때문에 다음 열차를 놓칠 가능성이 큰데 변경할 수 있을까요?",
+        "de": "Wegen dieser Verspätung verpasse ich wahrscheinlich meinen Anschluss. Kann ich die Buchung ändern?",
+        "en": "This delay will probably make me miss my next train. Can I change the booking?"
+      },
+      {
+        "speaker": "clerk",
+        "ko": "다음 표는 따로 예약하신 건가요?",
+        "de": "Wurde der Anschluss separat gebucht?",
+        "en": "Was the next ticket booked separately?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네. 같은 앱에서 샀지만 예약 번호는 달라요.",
+        "de": "Ja. Ich habe beide in derselben App gekauft, aber die Buchungsnummern sind verschieden.",
+        "en": "Yes. I bought both in the same app, but the booking numbers are different."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "그 경우 보상은 바로 말씀드리기 어렵지만 좌석 변경은 확인할 수 있어요.",
+        "de": "In diesem Fall kann ich keine Erstattung zusagen, aber ich kann eine Umbuchung des Sitzplatzes prüfen.",
+        "en": "In that case, I can't promise compensation, but I can check whether the seat can be changed."
+      },
+      {
+        "speaker": "user",
+        "ko": "먼저 탈 수 있는 다음 열차가 있는지 확인해 주세요.",
+        "de": "Bitte prüfen Sie zuerst, welchen späteren Zug ich nehmen könnte.",
+        "en": "Please first check which later train I could take."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "네. 예약 번호 두 개를 같이 보겠습니다.",
+        "de": "Ja. Ich prüfe beide Buchungsnummern zusammen.",
+        "en": "Certainly. I'll look at both booking numbers."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_train_delay_connection_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "다음 표는 따로 예약하신 건가요?",
+          "options": [
+            {
+              "de": "Wurde der Anschluss separat gebucht?",
+              "en": "Was the next ticket booked separately?"
+            },
+            {
+              "de": "Wegen dieser Verspätung verpasse ich wahrscheinlich meinen Anschluss. Kann ich die Buchung ändern?",
+              "en": "This delay will probably make me miss my next train. Can I change the booking?"
+            },
+            {
+              "de": "Ja. Ich habe beide in derselben App gekauft, aber die Buchungsnummern sind verschieden.",
+              "en": "Yes. I bought both in the same app, but the booking numbers are different."
+            },
+            {
+              "de": "In diesem Fall kann ich keine Erstattung zusagen, aber ich kann eine Umbuchung des Sitzplatzes prüfen.",
+              "en": "In that case, I can't promise compensation, but I can check whether the seat can be changed."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_train_delay_connection_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Wegen dieser Verspätung verpasse ich wahrscheinlich meinen Anschluss. Kann ich die Buchung ändern?",
+          "promptEn": "This delay will probably make me miss my next train. Can I change the booking?",
+          "options": [
+            {
+              "ko": "이 지연 때문에 다음 열차를 놓칠 가능성이 큰데 변경할 수 있을까요?"
+            },
+            {
+              "ko": "다음 표는 따로 예약하신 건가요?"
+            },
+            {
+              "ko": "네. 같은 앱에서 샀지만 예약 번호는 달라요."
+            },
+            {
+              "ko": "그 경우 보상은 바로 말씀드리기 어렵지만 좌석 변경은 확인할 수 있어요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_train_delay_connection_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "먼저 탈 수 있는 다음 열차가 있는지 확인해 주세요.",
+          "audioKo": "먼저 탈 수 있는 다음 열차가 있는지 확인해 주세요.",
+          "promptDe": "Bitte prüfen Sie zuerst, welchen späteren Zug ich nehmen könnte.",
+          "promptEn": "Please first check which later train I could take.",
+          "distractors": [
+            "이 지연 때문에 다음 열차를 놓칠 가능성이 큰데 변경할 수 있을까요?",
+            "다음 표는 따로 예약하신 건가요?",
+            "네. 같은 앱에서 샀지만 예약 번호는 달라요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 130
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

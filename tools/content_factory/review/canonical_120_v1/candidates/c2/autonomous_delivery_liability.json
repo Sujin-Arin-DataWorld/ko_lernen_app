@@ -1,0 +1,248 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "autonomous_delivery_liability",
+  "scenario": {
+    "id": "autonomous_delivery_liability",
+    "level": "c2",
+    "emoji": "🗺️",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "자율 배송 사고의 책임을 한 사람에게 돌릴 수 있는가",
+      "de": "Entschädigung und Ursachenhaftung bei einem Lieferroboter",
+      "en": "Separating compensation from causal responsibility in a delivery-robot accident"
+    },
+    "intro": {
+      "ko": "배송 로봇이 사람을 피하다 상점 물품을 망가뜨렸고 여러 결정이 사고에 얽혀 있어요.",
+      "de": "Ein Lieferroboter weicht einem Fußgänger aus und beschädigt Waren; Software, Wartung und Einsatzplanung spielen zusammen.",
+      "en": "A delivery robot avoids a pedestrian and damages store goods, with software, maintenance, and deployment decisions all involved."
+    },
+    "courseUnitId": "c2_04_sanction_accountability",
+    "playerCharacterId": "hyuna",
+    "participantIds": [
+      "hyuna",
+      "official",
+      "resident"
+    ],
+    "relationshipContext": "플랫폼 담당자, 운영사, 시민 대표 현아",
+    "intent": "마지막으로 버튼을 누른 운영자만 탓하는 프레임을 비판하고 책임 층위를 나눈다",
+    "shelf": "c2_automation",
+    "backdrop": "directions",
+    "vocab": [
+      {
+        "korean": "가게 입장에서는 로봇 회사든 운영 업체든 한 곳에서 빨리 보상받고 싶습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Als Geschäftsinhaber möchte ich schnell entschädigt werden, unabhängig davon, welches Unternehmen intern verantwortlich ist.",
+          "en": "As the shop owner, I want prompt compensation from one place, regardless of who is responsible internally."
+        }
+      },
+      {
+        "korean": "현장 배치 담당자의 판단 실수로 정리하면 책임자가 명확해집니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn wir den Fall als Fehlentscheidung beim Einsatz einordnen, hätten wir einen klaren Verantwortlichen.",
+          "en": "If we classify this as a deployment error, we'd have a clear responsible party."
+        }
+      },
+      {
+        "korean": "피해 구제 창구를 하나로 두는 것과 원인 책임을 한 주체에게 몰아주는 것은 다른 문제입니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Eine zentrale Entschädigungsstelle ist etwas anderes als die gesamte Ursachenverantwortung einer Stelle zuzuschreiben.",
+          "en": "Having one compensation channel is different from assigning all causal responsibility to one actor."
+        }
+      },
+      {
+        "korean": "원인을 여러 층으로 나누면 오히려 아무도 책임지지 않는 결과가 되지 않을까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Führt eine mehrschichtige Ursachenanalyse nicht dazu, dass am Ende niemand verantwortlich ist?",
+          "en": "Wouldn't a multi-layered cause analysis leave no one responsible?"
+        }
+      },
+      {
+        "korean": "대외 보상 책임은 단일화하되 센서 관리, 소프트웨어 판단, 배치 기준은 각각 추적할 수 있습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die Entschädigung nach außen kann gebündelt werden, während Sensorwartung, Softwareentscheidung und Einsatzkriterien getrennt untersucht werden.",
+          "en": "External compensation can be centralized while sensor maintenance, software decisions, and deployment criteria are traced separately."
+        }
+      },
+      {
+        "korean": "보상 절차 때문에 원인 조사가 늦어지지도 않았으면 합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die Ursachenklärung sollte aber auch nicht die Entschädigung verzögern.",
+          "en": "I also don't want the investigation to delay compensation."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c2_sanction_accountability"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_c1_but_not"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-되, N은 V-지 않는다",
+        "de": "Zugeständnis mit Grenze",
+        "en": "Concession with a limit"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Räumt einen Teil ein und zieht im selben Satz die Grenze, bis zu der er gilt.",
+        "en": "Grants one part and draws, in the same sentence, the line where it stops."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "resident",
+        "ko": "가게 입장에서는 로봇 회사든 운영 업체든 한 곳에서 빨리 보상받고 싶습니다.",
+        "de": "Als Geschäftsinhaber möchte ich schnell entschädigt werden, unabhängig davon, welches Unternehmen intern verantwortlich ist.",
+        "en": "As the shop owner, I want prompt compensation from one place, regardless of who is responsible internally."
+      },
+      {
+        "speaker": "official",
+        "ko": "현장 배치 담당자의 판단 실수로 정리하면 책임자가 명확해집니다.",
+        "de": "Wenn wir den Fall als Fehlentscheidung beim Einsatz einordnen, hätten wir einen klaren Verantwortlichen.",
+        "en": "If we classify this as a deployment error, we'd have a clear responsible party."
+      },
+      {
+        "speaker": "user",
+        "ko": "피해 구제 창구를 하나로 두는 것과 원인 책임을 한 주체에게 몰아주는 것은 다른 문제입니다.",
+        "de": "Eine zentrale Entschädigungsstelle ist etwas anderes als die gesamte Ursachenverantwortung einer Stelle zuzuschreiben.",
+        "en": "Having one compensation channel is different from assigning all causal responsibility to one actor."
+      },
+      {
+        "speaker": "official",
+        "ko": "원인을 여러 층으로 나누면 오히려 아무도 책임지지 않는 결과가 되지 않을까요?",
+        "de": "Führt eine mehrschichtige Ursachenanalyse nicht dazu, dass am Ende niemand verantwortlich ist?",
+        "en": "Wouldn't a multi-layered cause analysis leave no one responsible?"
+      },
+      {
+        "speaker": "user",
+        "ko": "대외 보상 책임은 단일화하되 센서 관리, 소프트웨어 판단, 배치 기준은 각각 추적할 수 있습니다.",
+        "de": "Die Entschädigung nach außen kann gebündelt werden, während Sensorwartung, Softwareentscheidung und Einsatzkriterien getrennt untersucht werden.",
+        "en": "External compensation can be centralized while sensor maintenance, software decisions, and deployment criteria are traced separately."
+      },
+      {
+        "speaker": "resident",
+        "ko": "보상 절차 때문에 원인 조사가 늦어지지도 않았으면 합니다.",
+        "de": "Die Ursachenklärung sollte aber auch nicht die Entschädigung verzögern.",
+        "en": "I also don't want the investigation to delay compensation."
+      },
+      {
+        "speaker": "user",
+        "ko": "그래서 구제와 재발 방지를 병렬로 진행하고 서로의 완료 조건으로 묶지 않는 설계가 필요합니다.",
+        "de": "Darum sollten Entschädigung und Prävention parallel laufen, ohne einander zur Vorbedingung zu machen.",
+        "en": "That's why remedy and prevention should proceed in parallel rather than making one a precondition for the other."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_autonomous_delivery_liability_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "가게 입장에서는 로봇 회사든 운영 업체든 한 곳에서 빨리 보상받고 싶습니다.",
+          "options": [
+            {
+              "de": "Als Geschäftsinhaber möchte ich schnell entschädigt werden, unabhängig davon, welches Unternehmen intern verantwortlich ist.",
+              "en": "As the shop owner, I want prompt compensation from one place, regardless of who is responsible internally."
+            },
+            {
+              "de": "Wenn wir den Fall als Fehlentscheidung beim Einsatz einordnen, hätten wir einen klaren Verantwortlichen.",
+              "en": "If we classify this as a deployment error, we'd have a clear responsible party."
+            },
+            {
+              "de": "Eine zentrale Entschädigungsstelle ist etwas anderes als die gesamte Ursachenverantwortung einer Stelle zuzuschreiben.",
+              "en": "Having one compensation channel is different from assigning all causal responsibility to one actor."
+            },
+            {
+              "de": "Führt eine mehrschichtige Ursachenanalyse nicht dazu, dass am Ende niemand verantwortlich ist?",
+              "en": "Wouldn't a multi-layered cause analysis leave no one responsible?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_autonomous_delivery_liability_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Eine zentrale Entschädigungsstelle ist etwas anderes als die gesamte Ursachenverantwortung einer Stelle zuzuschreiben.",
+          "promptEn": "Having one compensation channel is different from assigning all causal responsibility to one actor.",
+          "options": [
+            {
+              "ko": "피해 구제 창구를 하나로 두는 것과 원인 책임을 한 주체에게 몰아주는 것은 다른 문제입니다."
+            },
+            {
+              "ko": "가게 입장에서는 로봇 회사든 운영 업체든 한 곳에서 빨리 보상받고 싶습니다."
+            },
+            {
+              "ko": "현장 배치 담당자의 판단 실수로 정리하면 책임자가 명확해집니다."
+            },
+            {
+              "ko": "원인을 여러 층으로 나누면 오히려 아무도 책임지지 않는 결과가 되지 않을까요?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_autonomous_delivery_liability_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "그래서 구제와 재발 방지를 병렬로 진행하고 서로의 완료 조건으로 묶지 않는 설계가 필요합니다.",
+          "audioKo": "그래서 구제와 재발 방지를 병렬로 진행하고 서로의 완료 조건으로 묶지 않는 설계가 필요합니다.",
+          "promptDe": "Darum sollten Entschädigung und Prävention parallel laufen, ohne einander zur Vorbedingung zu machen.",
+          "promptEn": "That's why remedy and prevention should proceed in parallel rather than making one a precondition for the other.",
+          "distractors": [
+            "가게 입장에서는 로봇 회사든 운영 업체든 한 곳에서 빨리 보상받고 싶습니다.",
+            "현장 배치 담당자의 판단 실수로 정리하면 책임자가 명확해집니다.",
+            "피해 구제 창구를 하나로 두는 것과 원인 책임을 한 주체에게 몰아주는 것은 다른 문제입니다."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 150
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

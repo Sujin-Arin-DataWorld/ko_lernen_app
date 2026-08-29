@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hangulsori.app/schema/scenario-corpus-manifest-v1.json",
+  "title": "ScenarioCorpusManifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "generationId", "status", "sourceLanguage", "supportLanguages", "expectedScenarioCount", "expectedPerLevel", "promotionOrder", "anchorScenarioIds", "regressionThemes", "files", "gates"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "generationId": {"const": "canonical_120_v1"},
+    "status": {"enum": ["review_only", "partially_promoted", "promoted"]},
+    "sourceLanguage": {"const": "ko"},
+    "supportLanguages": {"const": ["de-DE", "en"]},
+    "expectedScenarioCount": {"const": 120},
+    "expectedPerLevel": {"type": "object"},
+    "promotionOrder": {"const": ["a1", "a2", "b1", "b2", "c1", "c2"]},
+    "anchorScenarioIds": {"type": "object"},
+    "regressionThemes": {"type": "array", "minItems": 2},
+    "files": {"type": "object"},
+    "gates": {"type": "object"}
+  }
+}

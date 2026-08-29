@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "bakery_payment_bag",
+  "scenario": {
+    "id": "bakery_payment_bag",
+    "level": "a1",
+    "emoji": "🛍️",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "빵집에서 봉투 묻고 답하기",
+      "de": "In der Bäckerei auf eine Tüte verzichten",
+      "en": "Saying no to a bag at the bakery"
+    },
+    "intro": {
+      "ko": "빵을 사고 봉투가 필요한지 들어요.",
+      "de": "Beim Bezahlen wirst du gefragt, ob du eine Tüte brauchst.",
+      "en": "At checkout, you're asked whether you need a bag."
+    },
+    "courseUnitId": "a1_14_payment_delivery",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "clerk"
+    ],
+    "relationshipContext": "손님과 직원",
+    "intent": "필요 여부를 짧게 말하고 결제한다",
+    "shelf": "a1_counter",
+    "backdrop": "market",
+    "vocab": [
+      {
+        "korean": "봉투 필요하세요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Brauchen Sie eine Tüte?",
+          "en": "Do you need a bag?"
+        }
+      },
+      {
+        "korean": "아니요, 괜찮아요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Nein, danke.",
+          "en": "No, thank you."
+        }
+      },
+      {
+        "korean": "빵 두 개 맞으세요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Das sind zwei Brötchen, richtig?",
+          "en": "That's two pastries, right?"
+        }
+      },
+      {
+        "korean": "네, 두 개 맞아요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, zwei.",
+          "en": "Yes, two."
+        }
+      },
+      {
+        "korean": "이 빵만 바로 먹을게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Nur dieses hier esse ich gleich.",
+          "en": "I'll eat just this one now."
+        }
+      },
+      {
+        "korean": "그럼 이건 따로 드릴게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dann gebe ich Ihnen dieses separat.",
+          "en": "Then I'll keep this one separate."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a1_payment_delivery"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_only_particle"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N만",
+        "de": "Partikel (nur)",
+        "en": "Particle (only)"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Nur/ausschließlich: ersetzt 이/가 und 을/를 direkt am Nomen",
+        "en": "Only/just: replaces 이/가 and 을/를 right after the noun"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "clerk",
+        "ko": "봉투 필요하세요?",
+        "de": "Brauchen Sie eine Tüte?",
+        "en": "Do you need a bag?"
+      },
+      {
+        "speaker": "user",
+        "ko": "아니요, 괜찮아요.",
+        "de": "Nein, danke.",
+        "en": "No, thank you."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "빵 두 개 맞으세요?",
+        "de": "Das sind zwei Brötchen, richtig?",
+        "en": "That's two pastries, right?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 두 개 맞아요.",
+        "de": "Ja, zwei.",
+        "en": "Yes, two."
+      },
+      {
+        "speaker": "user",
+        "ko": "이 빵만 바로 먹을게요.",
+        "de": "Nur dieses hier esse ich gleich.",
+        "en": "I'll eat just this one now."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "그럼 이건 따로 드릴게요.",
+        "de": "Dann gebe ich Ihnen dieses separat.",
+        "en": "Then I'll keep this one separate."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_bakery_payment_bag_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "봉투 필요하세요?",
+          "options": [
+            {
+              "de": "Brauchen Sie eine Tüte?",
+              "en": "Do you need a bag?"
+            },
+            {
+              "de": "Nein, danke.",
+              "en": "No, thank you."
+            },
+            {
+              "de": "Das sind zwei Brötchen, richtig?",
+              "en": "That's two pastries, right?"
+            },
+            {
+              "de": "Ja, zwei.",
+              "en": "Yes, two."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_bakery_payment_bag_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Nein, danke.",
+          "promptEn": "No, thank you.",
+          "options": [
+            {
+              "ko": "아니요, 괜찮아요."
+            },
+            {
+              "ko": "봉투 필요하세요?"
+            },
+            {
+              "ko": "빵 두 개 맞으세요?"
+            },
+            {
+              "ko": "네, 두 개 맞아요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_bakery_payment_bag_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "이 빵만 바로 먹을게요.",
+          "audioKo": "이 빵만 바로 먹을게요.",
+          "promptDe": "Nur dieses hier esse ich gleich.",
+          "promptEn": "I'll eat just this one now.",
+          "distractors": [
+            "봉투 필요하세요?",
+            "아니요, 괜찮아요.",
+            "빵 두 개 맞으세요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 100
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

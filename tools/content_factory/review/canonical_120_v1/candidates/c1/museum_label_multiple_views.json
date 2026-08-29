@@ -1,0 +1,241 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "museum_label_multiple_views",
+  "scenario": {
+    "id": "museum_label_multiple_views",
+    "level": "c1",
+    "emoji": "🏠",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "박물관 설명문에 누구의 관점을 담을지",
+      "de": "Mehrere Perspektiven in einem Museumstext",
+      "en": "Including multiple perspectives in a museum label"
+    },
+    "intro": {
+      "ko": "생활 도구를 발전의 상징으로만 설명해 강제 이주 경험이 빠졌어요.",
+      "de": "Ein Alltagsgegenstand wird nur als Fortschrittssymbol beschrieben; Erfahrungen erzwungener Umsiedlung fehlen.",
+      "en": "An everyday object is described only as a symbol of progress, leaving out forced relocation."
+    },
+    "courseUnitId": "c1_05_fan_labor_sustainability",
+    "playerCharacterId": "hyuna",
+    "participantIds": [
+      "hyuna",
+      "official"
+    ],
+    "relationshipContext": "현아와 큐레이터 역할의 담당자",
+    "intent": "한 문구에 모든 역사를 넣지 않으면서 상반된 관점을 드러낼 방법을 제안한다",
+    "shelf": "c1_attribution",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "설명문은 짧아야 해서 이 도구가 생활을 편리하게 했다는 점만 남겼습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Der Text muss kurz sein, deshalb haben wir nur erwähnt, wie das Gerät den Alltag erleichterte.",
+          "en": "The label needs to be short, so we kept only how the tool made life easier."
+        }
+      },
+      {
+        "korean": "발전의 상징이라는 설명만 남기면 그 과정에서 밀려난 사람들의 경험이 보이지 않습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Bleibt nur das Fortschrittsnarrativ, verschwinden die Erfahrungen der Menschen, die im Zuge dessen verdrängt wurden.",
+          "en": "If we keep only the symbol-of-progress story, the experiences of those displaced in the process disappear."
+        }
+      },
+      {
+        "korean": "모든 구술 기록을 본문에 넣을 공간은 없습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Für sämtliche Zeitzeugenberichte ist auf dem Schild kein Platz.",
+          "en": "There isn't room for every oral history on the label."
+        }
+      },
+      {
+        "korean": "모두 넣자는 게 아니라 편리함과 강제 이주가 함께 있었다는 긴장을 한 문장으로 밝히자는 겁니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Nicht jeder Bericht muss hinein. Ein Satz sollte aber benennen, dass Komfort und erzwungene Umsiedlung zusammengehörten.",
+          "en": "I'm not suggesting including every account. One sentence should name the tension between convenience and forced relocation."
+        }
+      },
+      {
+        "korean": "개별 경험은 어떻게 연결하면 좋을까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie binden wir die einzelnen Erfahrungen ein?",
+          "en": "How should we connect the individual experiences?"
+        }
+      },
+      {
+        "korean": "본문에서 핵심 긴장을 밝히고 서로 다른 구술 기록은 오디오로 연결할 수 있습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Der Haupttext nennt die Spannung; unterschiedliche Stimmen können über Audio zugänglich werden.",
+          "en": "The label can state the core tension, with different oral accounts linked as audio."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_fan_labor"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_obligation"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-아/어야 하다",
+        "de": "Obligation",
+        "en": "Obligation"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Müssen / Sollen (Pflicht oder Notwendigkeit)",
+        "en": "Must / should (duty or necessity)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "official",
+        "ko": "설명문은 짧아야 해서 이 도구가 생활을 편리하게 했다는 점만 남겼습니다.",
+        "de": "Der Text muss kurz sein, deshalb haben wir nur erwähnt, wie das Gerät den Alltag erleichterte.",
+        "en": "The label needs to be short, so we kept only how the tool made life easier."
+      },
+      {
+        "speaker": "user",
+        "ko": "발전의 상징이라는 설명만 남기면 그 과정에서 밀려난 사람들의 경험이 보이지 않습니다.",
+        "de": "Bleibt nur das Fortschrittsnarrativ, verschwinden die Erfahrungen der Menschen, die im Zuge dessen verdrängt wurden.",
+        "en": "If we keep only the symbol-of-progress story, the experiences of those displaced in the process disappear."
+      },
+      {
+        "speaker": "official",
+        "ko": "모든 구술 기록을 본문에 넣을 공간은 없습니다.",
+        "de": "Für sämtliche Zeitzeugenberichte ist auf dem Schild kein Platz.",
+        "en": "There isn't room for every oral history on the label."
+      },
+      {
+        "speaker": "user",
+        "ko": "모두 넣자는 게 아니라 편리함과 강제 이주가 함께 있었다는 긴장을 한 문장으로 밝히자는 겁니다.",
+        "de": "Nicht jeder Bericht muss hinein. Ein Satz sollte aber benennen, dass Komfort und erzwungene Umsiedlung zusammengehörten.",
+        "en": "I'm not suggesting including every account. One sentence should name the tension between convenience and forced relocation."
+      },
+      {
+        "speaker": "official",
+        "ko": "개별 경험은 어떻게 연결하면 좋을까요?",
+        "de": "Wie binden wir die einzelnen Erfahrungen ein?",
+        "en": "How should we connect the individual experiences?"
+      },
+      {
+        "speaker": "user",
+        "ko": "본문에서 핵심 긴장을 밝히고 서로 다른 구술 기록은 오디오로 연결할 수 있습니다.",
+        "de": "Der Haupttext nennt die Spannung; unterschiedliche Stimmen können über Audio zugänglich werden.",
+        "en": "The label can state the core tension, with different oral accounts linked as audio."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_museum_label_multiple_views_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "설명문은 짧아야 해서 이 도구가 생활을 편리하게 했다는 점만 남겼습니다.",
+          "options": [
+            {
+              "de": "Der Text muss kurz sein, deshalb haben wir nur erwähnt, wie das Gerät den Alltag erleichterte.",
+              "en": "The label needs to be short, so we kept only how the tool made life easier."
+            },
+            {
+              "de": "Bleibt nur das Fortschrittsnarrativ, verschwinden die Erfahrungen der Menschen, die im Zuge dessen verdrängt wurden.",
+              "en": "If we keep only the symbol-of-progress story, the experiences of those displaced in the process disappear."
+            },
+            {
+              "de": "Für sämtliche Zeitzeugenberichte ist auf dem Schild kein Platz.",
+              "en": "There isn't room for every oral history on the label."
+            },
+            {
+              "de": "Nicht jeder Bericht muss hinein. Ein Satz sollte aber benennen, dass Komfort und erzwungene Umsiedlung zusammengehörten.",
+              "en": "I'm not suggesting including every account. One sentence should name the tension between convenience and forced relocation."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_museum_label_multiple_views_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Bleibt nur das Fortschrittsnarrativ, verschwinden die Erfahrungen der Menschen, die im Zuge dessen verdrängt wurden.",
+          "promptEn": "If we keep only the symbol-of-progress story, the experiences of those displaced in the process disappear.",
+          "options": [
+            {
+              "ko": "발전의 상징이라는 설명만 남기면 그 과정에서 밀려난 사람들의 경험이 보이지 않습니다."
+            },
+            {
+              "ko": "설명문은 짧아야 해서 이 도구가 생활을 편리하게 했다는 점만 남겼습니다."
+            },
+            {
+              "ko": "모든 구술 기록을 본문에 넣을 공간은 없습니다."
+            },
+            {
+              "ko": "모두 넣자는 게 아니라 편리함과 강제 이주가 함께 있었다는 긴장을 한 문장으로 밝히자는 겁니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_museum_label_multiple_views_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "본문에서 핵심 긴장을 밝히고 서로 다른 구술 기록은 오디오로 연결할 수 있습니다.",
+          "audioKo": "본문에서 핵심 긴장을 밝히고 서로 다른 구술 기록은 오디오로 연결할 수 있습니다.",
+          "promptDe": "Der Haupttext nennt die Spannung; unterschiedliche Stimmen können über Audio zugänglich werden.",
+          "promptEn": "The label can state the core tension, with different oral accounts linked as audio.",
+          "distractors": [
+            "설명문은 짧아야 해서 이 도구가 생활을 편리하게 했다는 점만 남겼습니다.",
+            "발전의 상징이라는 설명만 남기면 그 과정에서 밀려난 사람들의 경험이 보이지 않습니다.",
+            "모든 구술 기록을 본문에 넣을 공간은 없습니다."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 140
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pass",
+      "notes": [
+        "KO is the locked semantic source; DE and EN were authored per turn."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pass",
+      "notes": [
+        "Editorial candidate pass completed; Jin review remains mandatory."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pass",
+      "notes": [
+        "Speech act, choice, and force were checked against the brief."
+      ]
+    },
+    "relationship": {
+      "verdict": "pass",
+      "notes": [
+        "Register and participant relationship match the locked brief."
+      ]
+    },
+    "cefr": {
+      "verdict": "pass",
+      "notes": [
+        "Content scope and linguistic load were checked against the level profile."
+      ]
+    },
+    "warnings": []
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

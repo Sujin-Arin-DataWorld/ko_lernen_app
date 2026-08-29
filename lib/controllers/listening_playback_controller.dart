@@ -9,6 +9,7 @@ enum ListeningPlaybackPhase { intro, autoplay, paused, review, complete }
 typedef ListeningSpeak =
     Future<bool> Function(String text, {required String voice});
 typedef ListeningStop = Future<void> Function();
+typedef ListeningVoiceForLine = String Function(DialogLine line);
 
 class ListeningPlaybackController extends ChangeNotifier {
   ListeningPlaybackController({
@@ -16,12 +17,14 @@ class ListeningPlaybackController extends ChangeNotifier {
     required this.speak,
     required this.stop,
     required this.onCompleted,
-  });
+    ListeningVoiceForLine? voiceForLine,
+  }) : _voiceForLine = voiceForLine ?? _legacyVoiceForLine;
 
   final List<DialogLine> lines;
   final ListeningSpeak speak;
   final ListeningStop stop;
   final Future<void> Function() onCompleted;
+  final ListeningVoiceForLine _voiceForLine;
 
   ListeningPlaybackPhase phase = ListeningPlaybackPhase.intro;
   int currentIndex = -1;
@@ -180,12 +183,9 @@ class ListeningPlaybackController extends ChangeNotifier {
     await onCompleted();
   }
 
-  String _voiceFor(DialogLine line) =>
-      line.speaker == 'user' ? 'female' : 'male';
-
   Future<bool> _speakLine(DialogLine line) async {
     try {
-      return await speak(line.ko, voice: _voiceFor(line));
+      return await speak(line.ko, voice: _voiceForLine(line));
     } catch (_) {
       return false;
     }
@@ -199,3 +199,6 @@ class ListeningPlaybackController extends ChangeNotifier {
     super.dispose();
   }
 }
+
+String _legacyVoiceForLine(DialogLine line) =>
+    line.speaker == 'user' ? 'female' : 'male';

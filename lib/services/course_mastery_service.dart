@@ -6,6 +6,7 @@ import '../models/course_practice_context.dart';
 import '../models/curriculum.dart';
 import '../models/learner_level.dart';
 import '../models/productive_mastery.dart';
+import '../models/scenario_corpus_generation.dart';
 import 'account/reconciliation_errors.dart';
 import 'curriculum_catalog.dart';
 import 'course_segment_catalog.dart';
@@ -111,11 +112,35 @@ class CourseMasteryService {
       return CourseMasteryMergeResult.conflicted(_sortedConflicts(conflicts));
     }
 
-    if (local != null) _collectSnapshotConflicts(local, conflicts);
-    if (remote != null) _collectSnapshotConflicts(remote, conflicts);
+    final CourseMasterySnapshot? effectiveLocal;
+    final CourseMasterySnapshot? effectiveRemote;
+    try {
+      effectiveLocal = local == null
+          ? null
+          : _migrateForCatalogGeneration(local);
+      effectiveRemote = remote == null
+          ? null
+          : _migrateForCatalogGeneration(remote);
+    } on FormatException {
+      return const CourseMasteryMergeResult.conflicted([
+        CourseMasteryMergeConflict(
+          kind: CourseMasteryMergeConflictKind.generation,
+          id: 'curriculumGeneration',
+        ),
+      ]);
+    }
 
-    final localPlacement = _normalizedPlacement(local?.placementLevel);
-    final remotePlacement = _normalizedPlacement(remote?.placementLevel);
+    if (effectiveLocal != null) {
+      _collectSnapshotConflicts(effectiveLocal, conflicts);
+    }
+    if (effectiveRemote != null) {
+      _collectSnapshotConflicts(effectiveRemote, conflicts);
+    }
+
+    final localPlacement = _normalizedPlacement(effectiveLocal?.placementLevel);
+    final remotePlacement = _normalizedPlacement(
+      effectiveRemote?.placementLevel,
+    );
     if (localPlacement != null &&
         remotePlacement != null &&
         localPlacement != remotePlacement) {
@@ -128,30 +153,44 @@ class CourseMasteryService {
     }
 
     final evidence = _mergeIdentityHistory<MasteryEvidence>(
-      local?.evidence ?? const [],
-      remote?.evidence ?? const [],
+      effectiveLocal?.evidence ?? const [],
+      effectiveRemote?.evidence ?? const [],
       kind: CourseMasteryMergeConflictKind.evidence,
       idOf: (entry) => entry.id,
       bodyOf: (entry) => jsonEncode(entry.toJson()),
       conflicts: conflicts,
     );
     final checkpoints = _mergeIdentityHistory<ScenarioCheckpointEvidence>(
-      local?.scenarioCheckpoints ?? const [],
-      remote?.scenarioCheckpoints ?? const [],
+      effectiveLocal?.scenarioCheckpoints ?? const [],
+      effectiveRemote?.scenarioCheckpoints ?? const [],
       kind: CourseMasteryMergeConflictKind.checkpoint,
       idOf: (entry) => entry.id,
       bodyOf: (entry) => jsonEncode(entry.toJson()),
       conflicts: conflicts,
     );
     final productiveEvidence = _mergeProductiveEvidence(
-      local?.productiveEvidence ?? const [],
-      remote?.productiveEvidence ?? const [],
+      effectiveLocal?.productiveEvidence ?? const [],
+      effectiveRemote?.productiveEvidence ?? const [],
       conflicts: conflicts,
     );
     final productiveProjectStepEvidence =
         _mergeIdentityHistory<ProductiveProjectStepEvidence>(
-          local?.productiveProjectStepEvidence ?? const [],
-          remote?.productiveProjectStepEvidence ?? const [],
+          effectiveLocal?.productiveProjectStepEvidence ?? const [],
+          effectiveRemote?.productiveProjectStepEvidence ?? const [],
+          kind: CourseMasteryMergeConflictKind.productiveProjectStepEvidence,
+          idOf: (entry) => entry.id,
+          bodyOf: (entry) => jsonEncode(entry.toJson()),
+          conflicts: conflicts,
+        );
+    final archivedProductiveEvidence = _mergeProductiveEvidence(
+      effectiveLocal?.archivedProductiveEvidence ?? const [],
+      effectiveRemote?.archivedProductiveEvidence ?? const [],
+      conflicts: conflicts,
+    );
+    final archivedProductiveProjectStepEvidence =
+        _mergeIdentityHistory<ProductiveProjectStepEvidence>(
+          effectiveLocal?.archivedProductiveProjectStepEvidence ?? const [],
+          effectiveRemote?.archivedProductiveProjectStepEvidence ?? const [],
           kind: CourseMasteryMergeConflictKind.productiveProjectStepEvidence,
           idOf: (entry) => entry.id,
           bodyOf: (entry) => jsonEncode(entry.toJson()),
@@ -159,12 +198,12 @@ class CourseMasteryService {
         );
 
     final completed = <String>{
-      ...?local?.completedUnitIds,
-      ...?remote?.completedUnitIds,
+      ...?effectiveLocal?.completedUnitIds,
+      ...?effectiveRemote?.completedUnitIds,
     };
     final bypassed = <String>{
-      ...?local?.bypassedPrerequisiteUnitIds,
-      ...?remote?.bypassedPrerequisiteUnitIds,
+      ...?effectiveLocal?.bypassedPrerequisiteUnitIds,
+      ...?effectiveRemote?.bypassedPrerequisiteUnitIds,
     };
     for (final id in completed.intersection(bypassed)) {
       conflicts.add(
@@ -183,7 +222,8 @@ class CourseMasteryService {
     final resolved = <String>{...completedIds, ...bypassedIds};
     final placement = localPlacement ?? remotePlacement;
     final courseStarted =
-        _hasSequentialCourseState(local) || _hasSequentialCourseState(remote);
+        _hasSequentialCourseState(effectiveLocal) ||
+        _hasSequentialCourseState(effectiveRemote);
     final current = courseStarted
         ? _orderedUnits
               .where(
@@ -201,7 +241,12 @@ class CourseMasteryService {
     checkpoints.sort(_compareCheckpoints);
     productiveEvidence.sort(_compareProductiveEvidence);
     productiveProjectStepEvidence.sort(_compareProductiveProjectStepEvidence);
+    archivedProductiveEvidence.sort(_compareProductiveEvidence);
+    archivedProductiveProjectStepEvidence.sort(
+      _compareProductiveProjectStepEvidence,
+    );
     var merged = CourseMasterySnapshot(
+      curriculumGeneration: catalog.scenarioCorpusGeneration,
       placementLevel: placement,
       currentCourseUnitId: current?.id,
       completedUnitIds: completedIds,
@@ -210,6 +255,9 @@ class CourseMasteryService {
       scenarioCheckpoints: checkpoints,
       productiveEvidence: productiveEvidence,
       productiveProjectStepEvidence: productiveProjectStepEvidence,
+      archivedProductiveEvidence: archivedProductiveEvidence,
+      archivedProductiveProjectStepEvidence:
+          archivedProductiveProjectStepEvidence,
     );
     merged = merged.copyWith(
       evidence: _boundedEvidenceFor(merged.evidence, current),
@@ -283,6 +331,7 @@ class CourseMasteryService {
     }
 
     final nextSnapshot = CourseMasterySnapshot(
+      curriculumGeneration: catalog.scenarioCorpusGeneration,
       placementLevel: level,
       currentCourseUnitId: startingUnit?.id,
       completedUnitIds: completed,
@@ -312,6 +361,9 @@ class CourseMasteryService {
     );
     _snapshot = nextSnapshot;
     _loaded = true;
+    await Storage.migrateScenarioProgressGeneration(
+      catalog.scenarioCorpusGeneration,
+    );
     return _snapshot;
   }
 
@@ -325,12 +377,16 @@ class CourseMasteryService {
         : Storage.legacyCourseMasteryRawJson.trim();
     if (raw.isEmpty) {
       _snapshot = CourseMasterySnapshot(
+        curriculumGeneration: catalog.scenarioCorpusGeneration,
         placementLevel: Storage.placementLevelCode,
         currentCourseUnitId: Storage.courseUnitId,
       );
       _validateSnapshot(_snapshot);
       _loaded = true;
       await _persist();
+      await Storage.migrateScenarioProgressGeneration(
+        catalog.scenarioCorpusGeneration,
+      );
       return _snapshot;
     }
     final decoded = jsonDecode(raw);
@@ -340,14 +396,22 @@ class CourseMasteryService {
     final snapshotJson = decoded.map(
       (key, value) => MapEntry(key.toString(), value),
     );
-    _snapshot = CourseMasterySnapshot.decodeAndMigrate(snapshotJson);
+    final decodedSnapshot = CourseMasterySnapshot.decodeAndMigrate(
+      snapshotJson,
+    );
+    _snapshot = _migrateForCatalogGeneration(decodedSnapshot);
     _validateSnapshot(_snapshot);
     _loaded = true;
     if (canonicalRaw.isEmpty ||
         CourseMasterySnapshot.sourceVersionFor(snapshotJson) !=
-            CourseMasterySnapshot.currentVersion) {
+            CourseMasterySnapshot.currentVersion ||
+        decodedSnapshot.curriculumGeneration !=
+            _snapshot.curriculumGeneration) {
       await _persist();
     }
+    await Storage.migrateScenarioProgressGeneration(
+      catalog.scenarioCorpusGeneration,
+    );
     return _snapshot;
   }
 
@@ -356,7 +420,11 @@ class CourseMasteryService {
   /// a completed course merely because its current unit is null.
   CourseMasterySnapshot? readForDisplay() {
     final snapshot = readForReconciliation();
-    _snapshot = snapshot ?? const CourseMasterySnapshot.empty();
+    _snapshot =
+        snapshot ??
+        CourseMasterySnapshot(
+          curriculumGeneration: catalog.scenarioCorpusGeneration,
+        );
     _loaded = true;
     return snapshot;
   }
@@ -379,14 +447,16 @@ class CourseMasteryService {
       final snapshot = CourseMasterySnapshot.decodeAndMigrate(
         decoded.map((key, value) => MapEntry(key.toString(), value)),
       );
-      _validateSnapshot(snapshot);
-      return snapshot;
+      final migrated = _migrateForCatalogGeneration(snapshot);
+      _validateSnapshot(migrated);
+      return migrated;
     }
 
     final placement = Storage.dedicatedCoursePlacementLevelCode;
     final currentUnit = Storage.courseUnitId;
     if (placement == null && currentUnit == null) return null;
     final snapshot = CourseMasterySnapshot(
+      curriculumGeneration: catalog.scenarioCorpusGeneration,
       placementLevel: placement,
       currentCourseUnitId: currentUnit,
     );
@@ -412,9 +482,18 @@ class CourseMasteryService {
           'Canonical course mastery storage cannot contain a v1 snapshot.',
         );
       }
-      final snapshot = CourseMasterySnapshot.decodeAndMigrate(snapshotJson);
+      final snapshot = _migrateForCatalogGeneration(
+        CourseMasterySnapshot.decodeAndMigrate(snapshotJson),
+      );
       _validateSnapshot(snapshot);
-      if (sourceVersion != CourseMasterySnapshot.currentVersion) {
+      final storedGeneration = snapshotJson['curriculumGeneration']
+          ?.toString()
+          .trim();
+      final generationNeedsPersistence =
+          snapshot.curriculumGeneration != ScenarioCorpusGeneration.legacy &&
+          storedGeneration != snapshot.curriculumGeneration;
+      if (sourceVersion != CourseMasterySnapshot.currentVersion ||
+          generationNeedsPersistence) {
         await _persistSnapshot(snapshot, mirrorLegacyUserLevel: false);
         _snapshot = snapshot;
         _loaded = true;
@@ -425,14 +504,17 @@ class CourseMasteryService {
     final legacyRaw = Storage.legacyCourseMasteryRawJson.trim();
     final CourseMasterySnapshot snapshot;
     if (legacyRaw.isNotEmpty) {
-      snapshot = CourseMasterySnapshot.decodeAndMigrate(
-        _decodeStoredSnapshotJson(legacyRaw),
+      snapshot = _migrateForCatalogGeneration(
+        CourseMasterySnapshot.decodeAndMigrate(
+          _decodeStoredSnapshotJson(legacyRaw),
+        ),
       );
     } else {
       final placement = Storage.dedicatedCoursePlacementLevelCode;
       final currentUnit = Storage.courseUnitId;
       if (placement == null && currentUnit == null) return null;
       snapshot = CourseMasterySnapshot(
+        curriculumGeneration: catalog.scenarioCorpusGeneration,
         placementLevel: placement,
         currentCourseUnitId: currentUnit,
       );
@@ -458,14 +540,18 @@ class CourseMasteryService {
         Storage.courseMasterySnapshotRawJson != expectedGeneration) {
       throw const LocalReconciliationGenerationConflict();
     }
-    _validateSnapshot(snapshot);
+    final migrated = _migrateForCatalogGeneration(snapshot);
+    _validateSnapshot(migrated);
     await _persistSnapshot(
-      snapshot,
+      migrated,
       mirrorLegacyUserLevel: false,
       assertCurrentWrite: assertCurrentWrite,
     );
-    _snapshot = snapshot;
+    _snapshot = migrated;
     _loaded = true;
+    await Storage.migrateScenarioProgressGeneration(
+      catalog.scenarioCorpusGeneration,
+    );
     return _snapshot;
   }
 
@@ -1491,6 +1577,12 @@ class CourseMasteryService {
         'Unsupported course mastery version ${snapshot.version}.',
       );
     }
+    if (snapshot.curriculumGeneration != catalog.scenarioCorpusGeneration) {
+      throw FormatException(
+        'Course mastery generation ${snapshot.curriculumGeneration} does not '
+        'match ${catalog.scenarioCorpusGeneration}.',
+      );
+    }
     if (snapshot.placementLevel != null) {
       _normalizeLevel(snapshot.placementLevel!);
     }
@@ -1540,6 +1632,114 @@ class CourseMasteryService {
       }
       _validateProductiveProjectStepEvidence(evidence);
     }
+    final archivedProductiveIds = <String>{};
+    for (final evidence in snapshot.archivedProductiveEvidence) {
+      if (!archivedProductiveIds.add(evidence.id) ||
+          productiveIds.contains(evidence.id)) {
+        throw const FormatException(
+          'Duplicate archived productive evidence IDs are not allowed.',
+        );
+      }
+      _validateProductiveEvidence(evidence);
+    }
+    for (final evidence in snapshot.archivedProductiveEvidence) {
+      if (!archivedProductiveIds.containsAll(
+        evidence.prerequisiteEvidenceIds,
+      )) {
+        throw FormatException(
+          'Archived productive evidence ${evidence.id} has a missing '
+          'prerequisite.',
+        );
+      }
+    }
+    final archivedProjectStepIds = <String>{};
+    for (final evidence in snapshot.archivedProductiveProjectStepEvidence) {
+      if (!archivedProjectStepIds.add(evidence.id) ||
+          projectStepIds.contains(evidence.id)) {
+        throw const FormatException(
+          'Duplicate archived productive project step evidence is not allowed.',
+        );
+      }
+      _validateProductiveProjectStepEvidence(evidence);
+    }
+  }
+
+  CourseMasterySnapshot _migrateForCatalogGeneration(
+    CourseMasterySnapshot snapshot,
+  ) {
+    final target = catalog.scenarioCorpusGeneration;
+    if (snapshot.curriculumGeneration == target) return snapshot;
+    if (snapshot.curriculumGeneration != ScenarioCorpusGeneration.legacy) {
+      throw FormatException(
+        'Unsupported course mastery generation transition '
+        '${snapshot.curriculumGeneration} -> $target.',
+      );
+    }
+
+    final archivedProductive = <String, ProductiveMasteryEvidence>{};
+    for (final item in [
+      ...snapshot.archivedProductiveEvidence,
+      ...snapshot.productiveEvidence,
+    ]) {
+      final previous = archivedProductive[item.id];
+      if (previous != null &&
+          jsonEncode(previous.toJson()) != jsonEncode(item.toJson())) {
+        throw FormatException(
+          'Conflicting productive evidence while archiving ${item.id}.',
+        );
+      }
+      archivedProductive[item.id] = item;
+    }
+    final archivedProjectSteps = <String, ProductiveProjectStepEvidence>{};
+    for (final item in [
+      ...snapshot.archivedProductiveProjectStepEvidence,
+      ...snapshot.productiveProjectStepEvidence,
+    ]) {
+      final previous = archivedProjectSteps[item.id];
+      if (previous != null &&
+          jsonEncode(previous.toJson()) != jsonEncode(item.toJson())) {
+        throw FormatException(
+          'Conflicting productive project evidence while archiving ${item.id}.',
+        );
+      }
+      archivedProjectSteps[item.id] = item;
+    }
+
+    final placement = snapshot.placementLevel == null
+        ? null
+        : _normalizeLevel(snapshot.placementLevel!);
+    final bypassed = placement == null
+        ? <String>[]
+        : _orderedUnits
+              .where((unit) => _levelRank(unit.level) < _levelRank(placement))
+              .map((unit) => unit.id)
+              .toList(growable: false);
+    final hadCourseState = _hasSequentialCourseState(snapshot);
+    final resolved = bypassed.toSet();
+    final startingUnit = !hadCourseState
+        ? null
+        : _orderedUnits
+              .where(
+                (unit) =>
+                    (placement == null ||
+                        _levelRank(unit.level) >= _levelRank(placement)) &&
+                    unit.prerequisiteUnitIds.every(resolved.contains),
+              )
+              .cast<CourseUnit?>()
+              .firstWhere((unit) => unit != null, orElse: () => null);
+
+    return CourseMasterySnapshot(
+      curriculumGeneration: target,
+      placementLevel: placement,
+      currentCourseUnitId: startingUnit?.id,
+      bypassedPrerequisiteUnitIds: bypassed,
+      archivedProductiveEvidence: archivedProductive.values.toList(
+        growable: false,
+      ),
+      archivedProductiveProjectStepEvidence: archivedProjectSteps.values.toList(
+        growable: false,
+      ),
+    );
   }
 
   void _validateProgressionCoherence(CourseMasterySnapshot snapshot) {
@@ -1985,6 +2185,73 @@ class CourseMasteryService {
       }
     }
     for (final entry in snapshot.productiveProjectStepEvidence) {
+      try {
+        _validateProductiveProjectStepEvidence(entry);
+      } on FormatException {
+        conflicts.add(
+          CourseMasteryMergeConflict(
+            kind: CourseMasteryMergeConflictKind.productiveProjectStepEvidence,
+            id: entry.id,
+          ),
+        );
+      }
+    }
+    final archivedProductiveIds = snapshot.archivedProductiveEvidence
+        .map((entry) => entry.id)
+        .toSet();
+    if (archivedProductiveIds.length !=
+            snapshot.archivedProductiveEvidence.length ||
+        archivedProductiveIds.intersection(productiveIds).isNotEmpty) {
+      conflicts.add(
+        const CourseMasteryMergeConflict(
+          kind: CourseMasteryMergeConflictKind.productiveEvidence,
+          id: 'duplicateArchivedProductiveEvidence',
+        ),
+      );
+    }
+    if (snapshot.curriculumGeneration != catalog.scenarioCorpusGeneration) {
+      conflicts.add(
+        CourseMasteryMergeConflict(
+          kind: CourseMasteryMergeConflictKind.generation,
+          id: snapshot.curriculumGeneration,
+        ),
+      );
+    }
+    for (final entry in snapshot.archivedProductiveEvidence) {
+      try {
+        _validateProductiveEvidence(entry);
+        if (!archivedProductiveIds.containsAll(entry.prerequisiteEvidenceIds)) {
+          throw const FormatException(
+            'Archived productive evidence prerequisite is missing.',
+          );
+        }
+      } on FormatException {
+        conflicts.add(
+          CourseMasteryMergeConflict(
+            kind: CourseMasteryMergeConflictKind.productiveEvidence,
+            id: entry.id,
+          ),
+        );
+      }
+    }
+    final activeProjectStepIds = snapshot.productiveProjectStepEvidence
+        .map((entry) => entry.id)
+        .toSet();
+    final archivedProjectStepIds = snapshot
+        .archivedProductiveProjectStepEvidence
+        .map((entry) => entry.id)
+        .toSet();
+    if (archivedProjectStepIds.length !=
+            snapshot.archivedProductiveProjectStepEvidence.length ||
+        archivedProjectStepIds.intersection(activeProjectStepIds).isNotEmpty) {
+      conflicts.add(
+        const CourseMasteryMergeConflict(
+          kind: CourseMasteryMergeConflictKind.productiveProjectStepEvidence,
+          id: 'duplicateArchivedProductiveProjectStepEvidence',
+        ),
+      );
+    }
+    for (final entry in snapshot.archivedProductiveProjectStepEvidence) {
       try {
         _validateProductiveProjectStepEvidence(entry);
       } on FormatException {
