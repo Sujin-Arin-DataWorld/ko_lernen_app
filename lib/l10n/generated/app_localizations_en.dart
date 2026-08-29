@@ -7314,7 +7314,12 @@ class AppL10nEn extends AppL10n {
   String get ilduWorldPanHint => 'Swipe sideways to see the next courtyard.';
 
   @override
-  String get ilduWorldRotateBuildingHint => 'Swipe the building to rotate it.';
+  String get ilduWorldRotateBuildingHint =>
+      'Drag it on the map to place it; swipe the preview to rotate it.';
+
+  @override
+  String get ilduWorldGateHeritageDetail =>
+      'The exterior keeps the 忠孝傳家 couplets; the inner beam carries five jeongnyeo memorial plaques.';
 
   @override
   String get ilduWorldEvidenceNote =>

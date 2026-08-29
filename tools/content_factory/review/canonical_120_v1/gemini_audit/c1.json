@@ -1,0 +1,342 @@
+{
+  "schemaVersion": 2,
+  "kind": "gemini_canonical_scenario_level_audit",
+  "createdAt": "2026-08-29T20:45:57.472594+00:00",
+  "model": "gemini-3.5-flash",
+  "modelVersion": "gemini-3.5-flash",
+  "responseId": "90STau68Ivnl7M8P3L298Q4",
+  "thinkingLevel": "low",
+  "pricingTier": "free",
+  "level": "c1",
+  "candidateSetSha256": "5c4f36fad55c2112c747d76947119be90e54746a6c75dcbbdf24b2e35449b084",
+  "automatedAuditIsApproval": false,
+  "humanApprovalRequired": true,
+  "usageMetadata": {
+    "promptTokenCount": 51062,
+    "candidatesTokenCount": 3151,
+    "totalTokenCount": 54213,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 51062
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "estimatedActualUsd": 0.0,
+  "verdictCounts": {
+    "pass": 20
+  },
+  "severityCounts": {},
+  "audit": {
+    "level": "c1",
+    "scenarios": [
+      {
+        "scenarioId": "after_hours_messages",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "비즈니스 환경에서 퇴근 후 메신저 연락에 대한 경계 설정 문제를 타당하고 성숙하게 해결하며, C1 레벨의 협의 상황에 적절한 문맥을 지니고 있습니다.",
+          "영어 및 독일어 현역 실제 표현이 억지스럽지 않고 역할별 자연성을 잘 보존합니다."
+        ]
+      },
+      {
+        "scenarioId": "ai_interview_screening_transparency",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "AI 면접이라는 현대적이고 체계적인 정보 전달 상황에서 기술 투명성과 운영 현실의 균형을 잘 조율하고 있습니다."
+        ]
+      },
+      {
+        "scenarioId": "ai_translation_voice_loss",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "화자의 전언과 주관적 확신이 자동 번역으로 인해 왜곡될 때의 미묘한 책임 소재 차이를 높은 격조로 묘사했습니다."
+        ]
+      },
+      {
+        "scenarioId": "anonymous_survey_trust",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "소규모 조직에서 재식별화 위험이라는 데이터 관리의 현실적인 문제를 체계적이고 설득력 있게 대화에 녹였습니다."
+        ]
+      },
+      {
+        "scenarioId": "deepfake_verification",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "보도 가치와 오보 위험의 분리라는 고급 미디어 리터러시 주제가 '확산 현상은 보도하되 발언이 확인됐다고 단정하기는 어렵다'라는 C1 조건부 양보 대사에 긴밀하게 녹아 있습니다."
+        ]
+      },
+      {
+        "scenarioId": "delivery_rider_safety_tradeoff",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "개인의 주의 의무와 시스템적 시간 압박의 유인 구조를 날카롭게 대비시켜 사회적 가치의 협의 양상을 정교하게 구현했습니다."
+        ]
+      },
+      {
+        "scenarioId": "fan_translation_credit",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "자발적 참여와 번역 노동의 시각적 인정이라는 상충적인 가치에 대해 세련된 대안(실명, 활동명, 익명의 선택적 제공)을 제시합니다."
+        ]
+      },
+      {
+        "scenarioId": "gentrification_storefront",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "젠트리피케이션의 명암을 흑백논리로 다루지 않고 도시 계획적 추적 분석과 장기 관점으로 유도하는 합의점을 도출합니다."
+        ]
+      },
+      {
+        "scenarioId": "heatwave_shelter_access",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "행정 지표의 수적 만족이 지닌 한계와 실제 이동 약자의 물리적/시간적 접근성 한계를 명확한 대비구도로 논증하였습니다."
+        ]
+      },
+      {
+        "scenarioId": "kiosk_generation_access",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "평균 지표(대기 시간 단축) 이면의 숨은 실패 사례(주문 포기율)를 지목하며 데이터에 기반한 보완책을 제시합니다."
+        ]
+      },
+      {
+        "scenarioId": "museum_label_multiple_views",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "박물관 텍스트라는 좁은 물리적 한계 내에서 발전의 서사와 이주의 아픔이라는 입체적 긴장감을 조율하는 방법론을 유연하게 합의하고 있습니다."
+        ]
+      },
+      {
+        "scenarioId": "nightlife_noise_balance",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "단순한 이분법적 충돌을 극복하고 시공간적 변수 제어 및 데이터 공개 검증이라는 다각적 정책 대안을 제안합니다."
+        ]
+      },
+      {
+        "scenarioId": "platform_moderation_appeal",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "자동 필터링의 오류 비용과 사용자 보호 사이의 갈등을 '피해 위험이 큰 경고부터의 우선순위 재검토' 및 '검토 상태 표시'라는 합리적 대안으로 푸는 흐름이 훌륭합니다."
+        ]
+      },
+      {
+        "scenarioId": "public_consultation_access",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "단순 수집 숫자의 크기와 표본 대표성 결여의 한계를 준수하게 지적하여 고급 논증 역량을 잘 훈련시킵니다."
+        ]
+      },
+      {
+        "scenarioId": "research_limits_presentation",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "소규모 연구의 가치가 과잉 일반화 없이 실제 자료가 보이는 긴장 상태를 지칭해야 함을 설득력 있게 다루었습니다."
+        ]
+      },
+      {
+        "scenarioId": "school_phone_rule",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "스마트폰 일괄 수거라는 일방적 정책 뒤에 존재하는 의료적 소수 권리 및 디지털 접근성 예외 사례의 필연적 명시 과정을 조화롭게 이끌어냈습니다."
+        ]
+      },
+      {
+        "scenarioId": "tradition_reinterpreted_stage",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "대중적 재해석의 기교와 원형 전승의 경계를 구분하는 메타 설명 방식을 도입해 다층적 의사소통 상황을 효과적으로 살려냅니다."
+        ]
+      },
+      {
+        "scenarioId": "training_data_copyright",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "AI 화풍 모방과 지식재산권의 저촉 우려라는 지극히 현대적인 비즈니스 쟁점을 '출처 미확인에 따른 잠정 대체 보류 조치'라는 합리적 수준에서 풀어냈습니다."
+        ]
+      },
+      {
+        "scenarioId": "workload_allocation_hidden_labor",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "명문화되지 않아 소외되기 쉬운 회의 조율 등 무형의 감정/기획 노동을 정당화하여 균형 있는 할당 방안을 모색하는 훌륭한 비즈니스 파트너십을 보여줍니다."
+        ]
+      },
+      {
+        "scenarioId": "youth_housing_plain_language",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "정보의 누락 없이 사용자의 발견적 이해 경로에 의거해 복잡한 행정 텍스트의 우선순위 재정렬을 설득하는 세련된 구조를 제시합니다."
+        ]
+      }
+    ],
+    "summaryKo": "제시된 C1 레벨의 20개 시나리오는 사회 전반의 다양한 이해관계 갈등 및 제도 조정 문제를 심도 있고 성숙한 어조로 정확히 포착하고 있습니다. 각 시나리오의 독일어와 영어 번역은 한국어 본문의 의도와 화용론적 미세 층위(확신 정도, 전언 출처, 완곡한 권고 등)를 왜곡 없이 충실히 담아내고 있으며, 인물 관계에 적합한 격식 수준을 일관되게 지니고 있어 전반적으로 우수한 완성도를 나타냅니다."
+  },
+  "generationId": "canonical_120_v1",
+  "auditRequestSha256": "e81eef1ca942afde9bc4dd9dc48a1a0adb3514c8f0203418e1f8f66b94864060",
+  "freeTierProjectId": "gen-lang-client-0858328849",
+  "freeTierApiKeyUid": "6455b51d-bd1f-43a4-9cfb-4abfcca72842"
+}

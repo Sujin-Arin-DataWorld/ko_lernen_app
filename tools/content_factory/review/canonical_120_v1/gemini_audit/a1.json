@@ -1,0 +1,342 @@
+{
+  "schemaVersion": 2,
+  "kind": "gemini_canonical_scenario_level_audit",
+  "createdAt": "2026-08-29T20:42:43.429296+00:00",
+  "model": "gemini-3.5-flash",
+  "modelVersion": "gemini-3.5-flash",
+  "responseId": "LUSTaonCIPSekdUPwJHUuAI",
+  "thinkingLevel": "low",
+  "pricingTier": "free",
+  "level": "a1",
+  "candidateSetSha256": "e73b694986f25e19531d24167b42f5e8a10d3cc83072c88edb8b1bd94d06a173",
+  "automatedAuditIsApproval": false,
+  "humanApprovalRequired": true,
+  "usageMetadata": {
+    "promptTokenCount": 37166,
+    "candidatesTokenCount": 3314,
+    "totalTokenCount": 42275,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 37166
+      }
+    ],
+    "thoughtsTokenCount": 1795,
+    "serviceTier": "standard"
+  },
+  "estimatedActualUsd": 0.0,
+  "verdictCounts": {
+    "pass": 20
+  },
+  "severityCounts": {},
+  "audit": {
+    "level": "a1",
+    "scenarios": [
+      {
+        "scenarioId": "airport_arrival",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "처음 입국하여 질문을 이해하지 못했을 때 다시 말해달라고 요청하고, 이에 맞춰 상대방이 더 쉽고 명확한 격식/비격식체 표현(한국이 처음이에요?)으로 바꾸어 대답하는 구성을 정교하게 설계하여 초급 학습자에게 대화의 성취감을 부여합니다."
+        ]
+      },
+      {
+        "scenarioId": "bakery_payment_bag",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "일상 장보기 상황에서 매우 빈번한 봉투 필요 여부 확인 과정을 다루었으며, 조사 '-만'의 문법 제약을 활용해 '이 빵만 바로 먹겠다'는 실제적 발화를 자연스럽게 유도했습니다."
+        ]
+      },
+      {
+        "scenarioId": "bakery_queue",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "줄을 잘못 서서 상대방의 영역을 침범했을 때, 공격적이지 않은 간접적 지적(여기 줄 서 있는데요)과 이에 대해 정중히 사과하는 상호작용이 화용론적으로 탁월하게 기술되었습니다."
+        ]
+      },
+      {
+        "scenarioId": "break_glass_apology",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "가정 내에서 실수로 기물을 깨뜨렸을 때 발생할 수 있는 부상 우려와 도움 제안을 짧고 안전한 수준의 문장(안 다쳤어요?, 손대지 마세요)으로 조화롭게 풀어냈습니다."
+        ]
+      },
+      {
+        "scenarioId": "bunshik_tteokbokki",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "한국의 분식 문화인 떡볶이의 매운맛 단계를 묻고 순한 맛으로 타협하여 주문하는 일상 용건을 짧고 유기적으로 묘사했습니다."
+        ]
+      },
+      {
+        "scenarioId": "cafe_dessert_sold_out",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "원하는 디저트의 품절이라는 부정적 발화 상황에서 대안을 묻고 재주문하는 전형적인 거래 대화를 자연스러운 흐름으로 완수했습니다."
+        ]
+      },
+      {
+        "scenarioId": "clarify_repeat",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "출구 번호 3번과 13번처럼 한국어 숫자 음절이 유사하여 발생할 수 있는 오해를 다루고, 자가 수정을 거쳐 정확한 목적지 출구를 재확인하는 훌륭한 과제 구성을 보여줍니다."
+        ]
+      },
+      {
+        "scenarioId": "dance_class_register",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "공적 인물인 강사의 지시('여기 서세요')와 사적 인물인 친구의 지시('여기 서')를 동일 공간에서 교차 청취하게 함으로써 사회적 거리에 따른 문말 변화를 입체적으로 체험하게 합니다."
+        ]
+      },
+      {
+        "scenarioId": "favorite_korean_music",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "K-pop에 관심을 갖기 시작한 학습자들의 실제 흥미 요소를 수용하면서도 격식성을 크게 깨뜨리지 않는 조심스러운 존댓말 스몰토크의 표본을 제시합니다."
+        ]
+      },
+      {
+        "scenarioId": "first_class_meeting",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "같은 국적의 동료 학생을 만나 교재를 함께 확인하며 대화를 트는 교실 문맥을 군더더기 없는 짧은 문맥으로 설정하였습니다."
+        ]
+      },
+      {
+        "scenarioId": "home_morning_routine",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "친한 친구 사이의 완전한 반말 대화를 바탕으로, 아침 등교 준비 시 바쁘게 물건을 찾는 실제 소통 역동을 현장감 있게 묘사했습니다."
+        ]
+      },
+      {
+        "scenarioId": "introduce_yourself",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "만남 초기 단계에서 이름 확인과 함께 양해를 구하는 화행(이름을 다시 말해 주세요)을 포함하여 일방향적 소개가 아닌 쌍방향적 교류가 일어납니다."
+        ]
+      },
+      {
+        "scenarioId": "kakao_contact_after_class",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "전화번호 노출의 심리적 부담 없이 QR코드를 활용해 현대 한국인들이 첫 접촉을 형성하는 방식을 교육 콘텐츠 안으로 사실감 있게 이식했습니다."
+        ]
+      },
+      {
+        "scenarioId": "korea_stay_smalltalk",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "한국 거주 기간과 감상을 묻는 핵심 스몰토크 질문들에 대해 '재미있어요. 조금 어려워요'와 같이 솔직하고 도식적이지 않은 실제적 답변을 유도한 점이 우수합니다."
+        ]
+      },
+      {
+        "scenarioId": "mart_grocery",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "포장이 비슷한 다른 식재료(치즈)와 헷갈리는 시각적 유발 요소를 두어, 오류를 바로잡고 정확한 식품을 장바구니에 담기까지의 실용적 추론을 잘 이끌어냈습니다."
+        ]
+      },
+      {
+        "scenarioId": "meeting_time",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "고유어 시간 수사(일곱 시)를 활용해 약속 시간에 대한 착오(여섯 시)를 점검하고 정확한 시각을 조율하는 실질적인 생활 정보를 알차게 다룹니다."
+        ]
+      },
+      {
+        "scenarioId": "subway_step_apology",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "지하철 안에서 가볍게 신체가 접촉하는 공공 돌발 상황을 다루었으며, 통증 유무를 정중하게 염려하고 사과를 교환하는 성숙한 공적 질서를 체화하도록 돕습니다."
+        ]
+      },
+      {
+        "scenarioId": "survival_day_capstone",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "주말 장보기를 위해 외출 시간과 구매 품목을 의논하다가, 날씨 변수(비)에 대응해 즉석에서 행동 양식을 수정하는 연대적 소통 능력을 종합적으로 평가하기에 알맞은 시나리오입니다."
+        ]
+      },
+      {
+        "scenarioId": "taxi_kakao",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "앱 목적지 근처에 이르렀을 때 교통 흐름을 감안해 기사가 우회 제안을 하거나, 승객이 보다 안전한 대체 정차 구역을 지정하는 고빈도 운송 수단 화행을 매우 실감나게 표현했습니다."
+        ]
+      },
+      {
+        "scenarioId": "umbrella_weather",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "갑자기 내린 비에 대처하며 지하철역까지 동행을 제안받고 기꺼이 응하는 우호적이고 따뜻한 교우 관계 형성의 초기 국면이 훌륭하게 가닿습니다."
+        ]
+      }
+    ],
+    "summaryKo": "제출된 20개의 A1 시나리오 전반에 걸쳐 치명적이거나 보완이 요구되는 화용론적 결함은 관찰되지 않았습니다. 한국어 원문은 학습 대상 목표 문법인 조사, 부정어, 수사, 종결어미 등의 기틀을 자연스러운 상황적 맥락 내에 유연하게 직조해 넣었습니다. 특히 언어적 공손성과 사회적 거리감에 입각한 화용적 대비, 숫자의 착오, 품절 상황 등의 소통 격차 극복 기제를 대화 구성의 주요 도약점으로 삼아 초급 단계에서 가르쳐야 할 전략적 능력의 기초를 매우 설득력 있고 현지화 품질이 우수한 형태로 완수했습니다."
+  },
+  "generationId": "canonical_120_v1",
+  "auditRequestSha256": "87922f38f4b32914a25efacf6031b6cc86bc402c3c9129d7f7aeb057d874a4b5",
+  "freeTierProjectId": "gen-lang-client-0858328849",
+  "freeTierApiKeyUid": "6455b51d-bd1f-43a4-9cfb-4abfcca72842"
+}

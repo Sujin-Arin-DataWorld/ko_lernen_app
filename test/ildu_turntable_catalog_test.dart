@@ -1,16 +1,23 @@
 import 'dart:io';
+import 'dart:ui';
 
 import 'package:crypto/crypto.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:image/image.dart' as img;
 import 'package:ko_lernen_app/data/ildu_turntable_catalog.dart';
 
 void main() {
   test(
-    'turntable catalog keeps eight authored and bounded frames per building',
+    'turntable catalog keeps eight authored and bounded frames per anchor',
     () {
       expect(
         kIlDuTurntables.keys,
-        containsAll(<String>['sarangchae', 'ansarang', 'jungmunganchae']),
+        containsAll(<String>[
+          'sarangchae',
+          'ansarang',
+          'main-gate',
+          'jungmunganchae',
+        ]),
       );
 
       for (final spec in kIlDuTurntables.values) {
@@ -37,6 +44,20 @@ void main() {
           );
           expect(frame.contentBounds.width, greaterThan(0));
           expect(frame.contentBounds.height, greaterThan(0));
+
+          final image = img.decodePng(File(frame.assetPath).readAsBytesSync());
+          expect(image, isNotNull, reason: frame.assetPath);
+          expect(image!.width, frame.sourceSize.width);
+          expect(image.height, frame.sourceSize.height);
+          expect(
+            _alphaBounds(image),
+            frame.contentBounds,
+            reason: '${frame.assetPath} alpha bounds drifted',
+          );
+          expect(frame.contentBounds.left, greaterThan(0));
+          expect(frame.contentBounds.top, greaterThan(0));
+          expect(frame.contentBounds.right, lessThan(frame.sourceSize.width));
+          expect(frame.contentBounds.bottom, lessThan(frame.sourceSize.height));
         }
       }
     },
@@ -49,6 +70,48 @@ void main() {
     }
     expect(spec.directionForDegrees(360), 0);
     expect(spec.directionForDegrees(-45), 7);
+    expect(kIlDuSotdaeulmunTurntable.directionForDegrees(3), 0);
+  });
+
+  test('Jin-approved Jungmunganchae V05 keeps transparent RGBA canvases', () {
+    for (final frame in kIlDuJungmunganchaeTurntable.frames) {
+      final image = img.decodePng(File(frame.assetPath).readAsBytesSync());
+      expect(image, isNotNull, reason: frame.assetPath);
+      expect(image!.numChannels, 4, reason: '${frame.assetPath} is not RGBA');
+
+      for (final point in <(int, int)>[
+        (0, 0),
+        (image.width - 1, 0),
+        (0, image.height - 1),
+        (image.width - 1, image.height - 1),
+      ]) {
+        expect(
+          image.getPixel(point.$1, point.$2).a,
+          0,
+          reason: '${frame.assetPath} has an opaque canvas corner',
+        );
+      }
+
+      var transparentPixels = 0;
+      var opaquePixels = 0;
+      var partialAlphaPixels = 0;
+      for (final pixel in image) {
+        if (pixel.a == 0) {
+          transparentPixels++;
+        } else if (pixel.a == 255) {
+          opaquePixels++;
+        } else {
+          partialAlphaPixels++;
+        }
+      }
+      expect(transparentPixels, greaterThan(0), reason: frame.assetPath);
+      expect(opaquePixels, greaterThan(0), reason: frame.assetPath);
+      expect(
+        partialAlphaPixels,
+        0,
+        reason: '${frame.assetPath} alpha contract drifted',
+      );
+    }
   });
 
   test('Jin-approved Jungmunganchae V05 runtime bytes stay locked', () async {
@@ -73,4 +136,31 @@ void main() {
       );
     }
   });
+}
+
+Rect _alphaBounds(img.Image image) {
+  var left = image.width;
+  var top = image.height;
+  var right = -1;
+  var bottom = -1;
+  for (var y = 0; y < image.height; y++) {
+    for (var x = 0; x < image.width; x++) {
+      if (image.getPixel(x, y).a == 0) {
+        continue;
+      }
+      if (x < left) left = x;
+      if (y < top) top = y;
+      if (x > right) right = x;
+      if (y > bottom) bottom = y;
+    }
+  }
+  if (right < left || bottom < top) {
+    return Rect.zero;
+  }
+  return Rect.fromLTRB(
+    left.toDouble(),
+    top.toDouble(),
+    (right + 1).toDouble(),
+    (bottom + 1).toDouble(),
+  );
 }

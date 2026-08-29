@@ -11,9 +11,13 @@ from __future__ import annotations
 import argparse
 from collections import Counter
 from datetime import datetime, timezone
+import hashlib
+import hmac
 import json
 import os
 from pathlib import Path
+import shutil
+import subprocess
 import time
 from typing import Any, Mapping, Sequence
 import urllib.error
@@ -29,6 +33,9 @@ DEFAULT_MODEL = "gemini-3.1-pro-preview"
 DEFAULT_THINKING_LEVEL = "medium"
 DEFAULT_MAX_OUTPUT_TOKENS = 12_288
 DEFAULT_MAX_ESTIMATED_USD = 2.0
+DEFAULT_PRICING_TIER = "paid"
+FREE_TIER_MODELS = frozenset(("gemini-3.5-flash", "gemini-3.7-flash"))
+AUDIT_RECEIPT_SCHEMA_VERSION = 2
 API_ROOT = "https://generativelanguage.googleapis.com/v1beta"
 RETRYABLE_STATUS = frozenset((429, 500, 502, 503, 504))
 PERMANENT_QUOTA_MARKERS = (
@@ -55,14 +62,122 @@ ERROR_CODES = (
     "INT",
     "DATA",
 )
+VERDICTS = ("pass", "review", "reject")
+FINDING_SEVERITIES = ("critical", "major", "minor")
+FINDING_SCOPES = ("ko", "de", "en", "multi", "pedagogy", "data")
+SCORE_KEYS = (
+    "koreanNaturalness",
+    "levelFit",
+    "germanLocalization",
+    "englishLocalization",
+    "pragmaticAlignment",
+)
 
 
 class GeminiAuditError(RuntimeError):
-    """Raised when the paid audit cannot produce trustworthy review evidence."""
+    """Raised when the audit cannot produce trustworthy review evidence."""
 
 
 def _utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
+
+
+def _gcloud_output(executable: str, arguments: Sequence[str]) -> str:
+    completed = subprocess.run(
+        [executable, *arguments],
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        check=False,
+    )
+    if completed.returncode != 0:
+        detail = completed.stderr.strip()[:800]
+        raise GeminiAuditError(f"gcloud verification failed: {detail}")
+    return completed.stdout.strip()
+
+
+def verify_free_tier_project(
+    api_key: str,
+    project_id: str,
+    *,
+    gcloud_executable: str | None = None,
+) -> dict[str, Any]:
+    """Prove that the supplied key belongs to a billing-disabled project."""
+    if not api_key.strip():
+        raise GeminiAuditError("GEMINI_API_KEY is empty")
+    if not project_id.strip():
+        raise GeminiAuditError("--free-tier-project-id is required for free mode")
+    executable = gcloud_executable or shutil.which("gcloud")
+    if executable is None:
+        raise GeminiAuditError("gcloud is required to verify free-tier provenance")
+
+    try:
+        billing = json.loads(
+            _gcloud_output(
+                executable,
+                (
+                    "billing",
+                    "projects",
+                    "describe",
+                    project_id,
+                    "--format=json",
+                ),
+            )
+        )
+        keys = json.loads(
+            _gcloud_output(
+                executable,
+                (
+                    "services",
+                    "api-keys",
+                    "list",
+                    "--project",
+                    project_id,
+                    "--format=json",
+                ),
+            )
+        )
+    except json.JSONDecodeError as error:
+        raise GeminiAuditError("gcloud returned invalid verification JSON") from error
+    if not isinstance(billing, dict) or billing.get("billingEnabled") is not False:
+        raise GeminiAuditError(
+            f"project {project_id!r} is not verified as billing-disabled"
+        )
+    if not isinstance(keys, list):
+        raise GeminiAuditError("gcloud API key list must be an array")
+
+    matched_uid: str | None = None
+    for key in keys:
+        if not isinstance(key, dict) or not isinstance(key.get("uid"), str):
+            continue
+        uid = key["uid"]
+        key_string = _gcloud_output(
+            executable,
+            (
+                "services",
+                "api-keys",
+                "get-key-string",
+                uid,
+                "--project",
+                project_id,
+                "--format=value(keyString)",
+            ),
+        )
+        if hmac.compare_digest(key_string, api_key.strip()):
+            matched_uid = uid
+            break
+    if matched_uid is None:
+        raise GeminiAuditError(
+            "GEMINI_API_KEY does not belong to the declared free-tier project"
+        )
+    return {
+        "projectId": project_id,
+        "billingEnabled": False,
+        "apiKeyUid": matched_uid,
+        "verifiedAt": _utc_now(),
+        "verificationMethod": "gcloud billing projects describe + api-keys key match",
+    }
 
 
 def _read_response_json(response: Any) -> dict[str, Any]:
@@ -157,20 +272,19 @@ class GeminiClient:
         )
 
 
-def audit_schema() -> dict[str, Any]:
+def audit_schema(*, relaxed: bool = False) -> dict[str, Any]:
+    object_constraints = {} if relaxed else {"additionalProperties": False}
+
+    def enum_string(values: Sequence[str]) -> dict[str, Any]:
+        return {"type": "string", "enum": list(values)}
+
     finding = {
         "type": "object",
-        "additionalProperties": False,
+        **object_constraints,
         "properties": {
-            "severity": {
-                "type": "string",
-                "enum": ["critical", "major", "minor"],
-            },
-            "code": {"type": "string", "enum": list(ERROR_CODES)},
-            "scope": {
-                "type": "string",
-                "enum": ["ko", "de", "en", "multi", "pedagogy", "data"],
-            },
+            "severity": enum_string(FINDING_SEVERITIES),
+            "code": enum_string(ERROR_CODES),
+            "scope": enum_string(FINDING_SCOPES),
             "path": {"type": "string"},
             "evidence": {"type": "string"},
             "analysisKo": {"type": "string"},
@@ -189,53 +303,28 @@ def audit_schema() -> dict[str, Any]:
     score = {"type": "integer", "minimum": 1, "maximum": 5}
     scenario = {
         "type": "object",
-        "additionalProperties": False,
+        **object_constraints,
         "properties": {
             "scenarioId": {"type": "string"},
-            "verdict": {
-                "type": "string",
-                "enum": ["pass", "review", "reject"],
-            },
+            "verdict": enum_string(VERDICTS),
             "scores": {
                 "type": "object",
-                "additionalProperties": False,
-                "properties": {
-                    "koreanNaturalness": score,
-                    "levelFit": score,
-                    "germanLocalization": score,
-                    "englishLocalization": score,
-                    "pragmaticAlignment": score,
-                },
-                "required": [
-                    "koreanNaturalness",
-                    "levelFit",
-                    "germanLocalization",
-                    "englishLocalization",
-                    "pragmaticAlignment",
-                ],
+                **object_constraints,
+                "properties": {key: score for key in SCORE_KEYS},
+                "required": list(SCORE_KEYS),
             },
-            "findings": {
-                "type": "array",
-                "maxItems": 6,
-                "items": finding,
-            },
-            "strengthsKo": {
-                "type": "array",
-                "maxItems": 3,
-                "items": {"type": "string"},
-            },
+            "findings": {"type": "array", "items": finding},
+            "strengthsKo": {"type": "array", "items": {"type": "string"}},
         },
         "required": ["scenarioId", "verdict", "scores", "findings", "strengthsKo"],
     }
     return {
         "type": "object",
-        "additionalProperties": False,
+        **object_constraints,
         "properties": {
-            "level": {"type": "string", "enum": list(pipeline.LEVELS)},
+            "level": enum_string(pipeline.LEVELS),
             "scenarios": {
                 "type": "array",
-                "minItems": 20,
-                "maxItems": 20,
                 "items": scenario,
             },
             "summaryKo": {"type": "string"},
@@ -330,6 +419,30 @@ def contents_for_level(level: str, payload: Mapping[str, Any]) -> list[dict[str,
     ]
 
 
+def audit_request_hash(
+    *,
+    generation_id: str,
+    model: str,
+    thinking_level: str,
+    max_output_tokens: int,
+    contents: Sequence[Mapping[str, Any]],
+    schema: Mapping[str, Any],
+) -> str:
+    contract = {
+        "generationId": generation_id,
+        "model": model,
+        "thinkingLevel": thinking_level,
+        "maxOutputTokens": max_output_tokens,
+        "contents": list(contents),
+        "responseMimeType": "application/json",
+        "responseJsonSchema": schema,
+    }
+    encoded = json.dumps(
+        contract, ensure_ascii=False, sort_keys=True, separators=(",", ":")
+    ).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()
+
+
 def _extract_text(response: Mapping[str, Any]) -> str:
     candidates = response.get("candidates")
     if not isinstance(candidates, list) or not candidates:
@@ -370,9 +483,49 @@ def validate_model_audit(
         raise GeminiAuditError(f"model audit ID mismatch; missing={missing}, extras={extras}")
     by_id = {str(item["scenarioId"]): item for item in scenarios}
     for scenario_id, item in by_id.items():
+        if not isinstance(item, dict):
+            raise GeminiAuditError(f"{scenario_id} must be an object")
+        if item.get("verdict") not in VERDICTS:
+            raise GeminiAuditError(f"{scenario_id} has an invalid verdict")
+        scores = item.get("scores")
+        if not isinstance(scores, dict) or set(scores) != set(SCORE_KEYS):
+            raise GeminiAuditError(f"{scenario_id} has invalid score fields")
+        if any(
+            isinstance(scores[key], bool)
+            or not isinstance(scores[key], int)
+            or not 1 <= scores[key] <= 5
+            for key in SCORE_KEYS
+        ):
+            raise GeminiAuditError(f"{scenario_id} has a score outside 1..5")
         findings = item.get("findings")
         if not isinstance(findings, list) or len(findings) > 6:
             raise GeminiAuditError(f"{scenario_id} has invalid findings")
+        for finding in findings:
+            if not isinstance(finding, dict):
+                raise GeminiAuditError(f"{scenario_id} has a non-object finding")
+            if finding.get("severity") not in FINDING_SEVERITIES:
+                raise GeminiAuditError(f"{scenario_id} has invalid finding severity")
+            if finding.get("code") not in ERROR_CODES:
+                raise GeminiAuditError(f"{scenario_id} has invalid finding code")
+            if finding.get("scope") not in FINDING_SCOPES:
+                raise GeminiAuditError(f"{scenario_id} has invalid finding scope")
+            for key in (
+                "path",
+                "evidence",
+                "analysisKo",
+                "recommendationKo",
+            ):
+                if not isinstance(finding.get(key), str):
+                    raise GeminiAuditError(
+                        f"{scenario_id} finding {key} must be text"
+                    )
+        strengths = item.get("strengthsKo")
+        if (
+            not isinstance(strengths, list)
+            or len(strengths) > 3
+            or any(not isinstance(value, str) for value in strengths)
+        ):
+            raise GeminiAuditError(f"{scenario_id} has invalid strengthsKo")
         critical = any(
             isinstance(finding, dict) and finding.get("severity") == "critical"
             for finding in findings
@@ -400,7 +553,25 @@ def estimate_cost(
     token_counts: Mapping[str, int],
     *,
     max_output_tokens: int,
+    pricing_tier: str = DEFAULT_PRICING_TIER,
 ) -> dict[str, Any]:
+    if pricing_tier == "free":
+        rows = {
+            level: {
+                "inputTokens": token_counts[level],
+                "inputUsdPerMillion": 0.0,
+                "outputUsdPerMillion": 0.0,
+                "maxOutputTokens": max_output_tokens,
+                "estimatedUpperUsd": 0.0,
+            }
+            for level in pipeline.LEVELS
+        }
+        return {
+            "levels": rows,
+            "totalInputTokens": sum(token_counts.values()),
+            "estimatedUpperUsd": 0.0,
+            "basis": "Gemini Developer API free tier; the API key must belong to a billing-disabled project.",
+        }
     rows: dict[str, Any] = {}
     total = 0.0
     for level in pipeline.LEVELS:
@@ -426,7 +597,11 @@ def estimate_cost(
     }
 
 
-def actual_cost(usage: Mapping[str, Any]) -> float:
+def actual_cost(
+    usage: Mapping[str, Any], *, pricing_tier: str = DEFAULT_PRICING_TIER
+) -> float:
+    if pricing_tier == "free":
+        return 0.0
     prompt = int(usage.get("promptTokenCount") or 0)
     output = int(usage.get("candidatesTokenCount") or 0)
     thoughts = int(usage.get("thoughtsTokenCount") or 0)
@@ -439,6 +614,45 @@ def _usage(response: Mapping[str, Any]) -> dict[str, Any]:
     return dict(value) if isinstance(value, dict) else {}
 
 
+def generate_validated_audit(
+    client: GeminiClient,
+    *,
+    model: str,
+    contents: Sequence[Mapping[str, Any]],
+    schema: Mapping[str, Any],
+    thinking_level: str,
+    max_output_tokens: int,
+    level: str,
+    expected_ids: Sequence[str],
+    validation_attempts: int = 2,
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    last_error: Exception | None = None
+    for attempt in range(1, validation_attempts + 1):
+        response = client.generate(
+            model=model,
+            contents=contents,
+            schema=schema,
+            thinking_level=thinking_level,
+            max_output_tokens=max_output_tokens,
+        )
+        try:
+            model_result = json.loads(_extract_text(response))
+            if not isinstance(model_result, dict):
+                raise GeminiAuditError(f"{level.upper()} result must be an object")
+            normalized = validate_model_audit(
+                model_result, level=level, expected_ids=expected_ids
+            )
+            return response, normalized
+        except (GeminiAuditError, json.JSONDecodeError) as error:
+            last_error = error
+            if attempt == validation_attempts:
+                break
+    raise GeminiAuditError(
+        f"{level.upper()} failed structured-output validation after "
+        f"{validation_attempts} attempts: {last_error}"
+    ) from last_error
+
+
 def render_summary(report: Mapping[str, Any]) -> str:
     summary = report["summary"]
     lines = [
@@ -447,6 +661,7 @@ def render_summary(report: Mapping[str, Any]) -> str:
         "> 이 결과는 자동 승인이나 런타임 승격 근거가 아닙니다. Jin의 120개 전체 검토가 필요합니다.",
         "",
         f"- 모델: `{report['model']}` (`{report['thinkingLevel']}` thinking)",
+        f"- API 요금 모드: `{report['pricingTier']}`",
         f"- 후보 해시: `{report['candidateSetSha256']}`",
         f"- API 호출: {summary['requestCount']}회",
         f"- 입력 토큰: {summary['promptTokenCount']:,}",
@@ -461,6 +676,16 @@ def render_summary(report: Mapping[str, Any]) -> str:
         "| 레벨 | pass | review | reject | critical | major | minor | 비용(추정) |",
         "|---|---:|---:|---:|---:|---:|---:|---:|",
     ]
+    provenance = report.get("freeTierProvenance")
+    if (
+        isinstance(provenance, dict)
+        and provenance.get("projectId")
+        and provenance.get("apiKeyUid")
+    ):
+        lines[6:6] = [
+            f"- 무료 프로젝트: `{provenance['projectId']}` (billing disabled 확인)",
+            f"- API 키 UID: `{provenance['apiKeyUid']}`",
+        ]
     for level in pipeline.LEVELS:
         row = report["levels"][level]
         lines.append(
@@ -482,21 +707,59 @@ def run(
     thinking_level: str,
     max_output_tokens: int,
     max_estimated_usd: float,
+    pricing_tier: str,
     estimate_only: bool,
+    resume: bool,
+    free_tier_provenance: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
+    if pricing_tier == "free" and model not in FREE_TIER_MODELS:
+        raise GeminiAuditError(
+            f"free-tier mode does not allow model {model!r}; "
+            f"allowed={sorted(FREE_TIER_MODELS)}"
+        )
+    if pricing_tier == "free" and (
+        not isinstance(free_tier_provenance, Mapping)
+        or free_tier_provenance.get("billingEnabled") is not False
+        or not free_tier_provenance.get("projectId")
+        or not free_tier_provenance.get("apiKeyUid")
+    ):
+        raise GeminiAuditError("free-tier mode requires verified billing provenance")
+    level_provenance = (
+        {
+            "freeTierProjectId": str(free_tier_provenance["projectId"]),
+            "freeTierApiKeyUid": str(free_tier_provenance["apiKeyUid"]),
+        }
+        if pricing_tier == "free" and free_tier_provenance is not None
+        else {}
+    )
     sources = pipeline.load_sources(ROOT)
     all_candidates = pipeline.load_corpus_candidates(candidate_directory, root=ROOT)
-    prepared: dict[str, tuple[list[dict[str, Any]], list[dict[str, Any]]]] = {}
+    response_schema = audit_schema(relaxed=pricing_tier == "free")
+    prepared: dict[
+        str, tuple[list[dict[str, Any]], list[dict[str, Any]], str]
+    ] = {}
     token_counts: dict[str, int] = {}
     for level in pipeline.LEVELS:
         candidates, payload = level_payload(
             level, candidate_directory=candidate_directory, root=ROOT
         )
         contents = contents_for_level(level, payload)
-        prepared[level] = (candidates, contents)
+        request_hash = audit_request_hash(
+            generation_id=sources.manifest.generation_id,
+            model=model,
+            thinking_level=thinking_level,
+            max_output_tokens=max_output_tokens,
+            contents=contents,
+            schema=response_schema,
+        )
+        prepared[level] = (candidates, contents, request_hash)
         token_counts[level] = client.count_tokens(model, contents)
 
-    estimate = estimate_cost(token_counts, max_output_tokens=max_output_tokens)
+    estimate = estimate_cost(
+        token_counts,
+        max_output_tokens=max_output_tokens,
+        pricing_tier=pricing_tier,
+    )
     if estimate["estimatedUpperUsd"] > max_estimated_usd:
         raise GeminiAuditError(
             "cost gate rejected the run: "
@@ -504,11 +767,13 @@ def run(
         )
     if estimate_only:
         return {
-            "schemaVersion": 1,
+            "schemaVersion": AUDIT_RECEIPT_SCHEMA_VERSION,
             "kind": "gemini_canonical_scenario_audit_estimate",
             "createdAt": _utc_now(),
             "model": model,
             "thinkingLevel": thinking_level,
+            "pricingTier": pricing_tier,
+            "freeTierProvenance": dict(free_tier_provenance or {}),
             "candidateSetSha256": pipeline.candidate_set_hash(all_candidates),
             "estimate": estimate,
             "paidGenerationCalls": 0,
@@ -520,25 +785,59 @@ def run(
     total_usage: Counter[str] = Counter()
     estimated_actual = 0.0
     for level in pipeline.LEVELS:
-        candidates, contents = prepared[level]
-        response = client.generate(
-            model=model,
-            contents=contents,
-            schema=audit_schema(),
-            thinking_level=thinking_level,
-            max_output_tokens=max_output_tokens,
-        )
-        try:
-            model_result = json.loads(_extract_text(response))
-        except json.JSONDecodeError as error:
-            raise GeminiAuditError(f"{level.upper()} returned invalid JSON") from error
-        if not isinstance(model_result, dict):
-            raise GeminiAuditError(f"{level.upper()} result must be an object")
+        candidates, contents, request_hash = prepared[level]
         expected_ids = [str(item["scenarioId"]) for item in candidates]
-        normalized = validate_model_audit(
-            model_result, level=level, expected_ids=expected_ids
-        )
-        usage = _usage(response)
+        level_path = output_directory / f"{level}.json"
+        current_hash = pipeline.candidate_set_hash(candidates)
+        existing: dict[str, Any] | None = None
+        if resume and level_path.exists():
+            value = pipeline.read_json(level_path)
+            if not isinstance(value, dict):
+                raise GeminiAuditError(f"{level.upper()} resume receipt must be an object")
+            existing = value
+            expected_fields = {
+                "schemaVersion": AUDIT_RECEIPT_SCHEMA_VERSION,
+                "kind": "gemini_canonical_scenario_level_audit",
+                "model": model,
+                "thinkingLevel": thinking_level,
+                "pricingTier": pricing_tier,
+                "level": level,
+                "generationId": sources.manifest.generation_id,
+                "candidateSetSha256": current_hash,
+                "auditRequestSha256": request_hash,
+                **level_provenance,
+            }
+            for key, expected in expected_fields.items():
+                if existing.get(key) != expected:
+                    raise GeminiAuditError(
+                        f"{level.upper()} resume receipt {key} does not match"
+                    )
+            if not existing.get("modelVersion") or not existing.get("responseId"):
+                raise GeminiAuditError(
+                    f"{level.upper()} resume receipt lacks model provenance"
+                )
+            model_result = existing.get("audit")
+            if not isinstance(model_result, dict):
+                raise GeminiAuditError(f"{level.upper()} resume audit is missing")
+            normalized = validate_model_audit(
+                model_result, level=level, expected_ids=expected_ids
+            )
+            usage_value = existing.get("usageMetadata")
+            usage = dict(usage_value) if isinstance(usage_value, dict) else {}
+            level_cost = float(existing.get("estimatedActualUsd") or 0.0)
+        else:
+            response, normalized = generate_validated_audit(
+                client,
+                model=model,
+                contents=contents,
+                schema=response_schema,
+                thinking_level=thinking_level,
+                max_output_tokens=max_output_tokens,
+                level=level,
+                expected_ids=expected_ids,
+            )
+            usage = _usage(response)
+            level_cost = actual_cost(usage, pricing_tier=pricing_tier)
         for key in (
             "promptTokenCount",
             "candidatesTokenCount",
@@ -547,7 +846,6 @@ def run(
             "cachedContentTokenCount",
         ):
             total_usage[key] += int(usage.get(key) or 0)
-        level_cost = actual_cost(usage)
         estimated_actual += level_cost
         verdict_counts = Counter(
             str(item["verdict"]) for item in normalized["scenarios"]
@@ -557,31 +855,41 @@ def run(
             for item in normalized["scenarios"]
             for finding in item["findings"]
         )
-        level_report = {
-            "schemaVersion": 1,
-            "kind": "gemini_canonical_scenario_level_audit",
-            "createdAt": _utc_now(),
-            "model": model,
-            "modelVersion": response.get("modelVersion"),
-            "responseId": response.get("responseId"),
-            "thinkingLevel": thinking_level,
-            "level": level,
-            "candidateSetSha256": pipeline.candidate_set_hash(candidates),
-            "automatedAuditIsApproval": False,
-            "humanApprovalRequired": True,
-            "usageMetadata": usage,
-            "estimatedActualUsd": round(level_cost, 6),
-            "verdictCounts": dict(verdict_counts),
-            "severityCounts": dict(severity_counts),
-            "audit": normalized,
-        }
-        (output_directory / f"{level}.json").write_text(
-            pipeline.json_text(level_report), encoding="utf-8"
-        )
+        if existing is None:
+            level_report = {
+                "schemaVersion": AUDIT_RECEIPT_SCHEMA_VERSION,
+                "kind": "gemini_canonical_scenario_level_audit",
+                "createdAt": _utc_now(),
+                "model": model,
+                "modelVersion": response.get("modelVersion"),
+                "responseId": response.get("responseId"),
+                "thinkingLevel": thinking_level,
+                "pricingTier": pricing_tier,
+                "level": level,
+                "generationId": sources.manifest.generation_id,
+                "candidateSetSha256": current_hash,
+                "auditRequestSha256": request_hash,
+                **level_provenance,
+                "automatedAuditIsApproval": False,
+                "humanApprovalRequired": True,
+                "usageMetadata": usage,
+                "estimatedActualUsd": round(level_cost, 6),
+                "verdictCounts": dict(verdict_counts),
+                "severityCounts": dict(severity_counts),
+                "audit": normalized,
+            }
+            level_path.write_text(
+                pipeline.json_text(level_report), encoding="utf-8"
+            )
+        else:
+            level_report = existing
         level_reports[level] = {
             key: level_report[key]
             for key in (
                 "candidateSetSha256",
+                "auditRequestSha256",
+                "modelVersion",
+                "responseId",
                 "usageMetadata",
                 "estimatedActualUsd",
                 "verdictCounts",
@@ -597,11 +905,13 @@ def run(
         for finding in item["findings"]
     )
     report = {
-        "schemaVersion": 1,
+        "schemaVersion": AUDIT_RECEIPT_SCHEMA_VERSION,
         "kind": "gemini_canonical_scenario_corpus_audit",
         "createdAt": _utc_now(),
         "model": model,
         "thinkingLevel": thinking_level,
+        "pricingTier": pricing_tier,
+        "freeTierProvenance": dict(free_tier_provenance or {}),
         "generationId": sources.manifest.generation_id,
         "candidateSetSha256": pipeline.candidate_set_hash(all_candidates),
         "automatedAuditIsApproval": False,
@@ -635,6 +945,15 @@ def parser() -> argparse.ArgumentParser:
     result.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
     result.add_argument("--model", default=DEFAULT_MODEL)
     result.add_argument(
+        "--pricing-tier",
+        choices=("free", "paid"),
+        default=DEFAULT_PRICING_TIER,
+    )
+    result.add_argument(
+        "--free-tier-project-id",
+        help="Billing-disabled Google Cloud project owning GEMINI_API_KEY",
+    )
+    result.add_argument(
         "--thinking-level",
         choices=("low", "medium", "high"),
         default=DEFAULT_THINKING_LEVEL,
@@ -646,6 +965,7 @@ def parser() -> argparse.ArgumentParser:
         "--max-estimated-usd", type=float, default=DEFAULT_MAX_ESTIMATED_USD
     )
     result.add_argument("--estimate-only", action="store_true")
+    result.add_argument("--resume", action="store_true")
     return result
 
 
@@ -653,6 +973,11 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = parser().parse_args(argv)
     api_key = os.environ.get("GEMINI_API_KEY", "")
     client = GeminiClient(api_key)
+    free_tier_provenance = None
+    if args.pricing_tier == "free":
+        free_tier_provenance = verify_free_tier_project(
+            api_key, args.free_tier_project_id or ""
+        )
     report = run(
         client,
         candidate_directory=args.candidates,
@@ -661,7 +986,10 @@ def main(argv: Sequence[str] | None = None) -> int:
         thinking_level=args.thinking_level,
         max_output_tokens=args.max_output_tokens,
         max_estimated_usd=args.max_estimated_usd,
+        pricing_tier=args.pricing_tier,
         estimate_only=args.estimate_only,
+        resume=args.resume,
+        free_tier_provenance=free_tier_provenance,
     )
     if args.estimate_only:
         print(json.dumps(report, ensure_ascii=False, indent=2))
