@@ -3,6 +3,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import '../data/ildu_turntable_catalog.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/ildu_world_manifest.dart';
 import '../models/personal_hanok.dart';
@@ -11,6 +12,7 @@ import '../services/ildu_decoration_placement_service.dart';
 import '../services/ildu_world_projection_adapter.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/app_bar.dart';
+import '../widgets/sori/hanok_turntable_2d.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/toast.dart';
 
@@ -39,6 +41,7 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
   IlDuWorldManifest? _manifest;
   IlDuWorldProjection? _projection;
   List<IlDuDecorationPlacement> _placements = const <IlDuDecorationPlacement>[];
+  Map<String, int> _buildingDirections = const <String, int>{};
   String? _selectedBuildingId;
   bool _decorating = false;
   bool _mapPositioned = false;
@@ -76,6 +79,11 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
           legacyProjection,
         );
         _placements = placements;
+        _buildingDirections = <String, int>{
+          for (final building in manifest.buildings)
+            if (ilduTurntableForBuilding(building.id) case final turntable?)
+              building.id: turntable.directionForDegrees(building.rotation),
+        };
         _selectedBuildingId = manifest.buildings.first.id;
         _mapPositioned = false;
       });
@@ -107,6 +115,21 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
     setState(() {
       _selectedBuildingId = building.id;
       _decorating = false;
+    });
+  }
+
+  void _turnBuilding(String buildingId, int direction) {
+    final turntable = ilduTurntableForBuilding(buildingId);
+    if (turntable == null ||
+        direction < 0 ||
+        direction >= turntable.frames.length) {
+      return;
+    }
+    setState(() {
+      _buildingDirections = <String, int>{
+        ..._buildingDirections,
+        buildingId: direction,
+      };
     });
   }
 
@@ -196,9 +219,11 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
               selectedBuildingId: _selectedBuildingId!,
               decorating: _decorating,
               placements: _placements,
+              buildingDirections: _buildingDirections,
               mapController: _mapController,
               onPositionMap: _positionMapOnce,
               onSelectBuilding: _selectBuilding,
+              onTurnBuilding: _turnBuilding,
               onStartDecorating: () => setState(() => _decorating = true),
               onFinishDecorating: () => setState(() => _decorating = false),
               onAddDecoration: _addDecoration,
@@ -216,9 +241,11 @@ class _WorldBody extends StatelessWidget {
   final String selectedBuildingId;
   final bool decorating;
   final List<IlDuDecorationPlacement> placements;
+  final Map<String, int> buildingDirections;
   final TransformationController mapController;
   final void Function(Size viewport, Size mapSize) onPositionMap;
   final ValueChanged<IlDuWorldBuilding> onSelectBuilding;
+  final void Function(String buildingId, int direction) onTurnBuilding;
   final VoidCallback onStartDecorating;
   final VoidCallback onFinishDecorating;
   final ValueChanged<IlDuWorldDecoration> onAddDecoration;
@@ -237,9 +264,11 @@ class _WorldBody extends StatelessWidget {
     required this.selectedBuildingId,
     required this.decorating,
     required this.placements,
+    required this.buildingDirections,
     required this.mapController,
     required this.onPositionMap,
     required this.onSelectBuilding,
+    required this.onTurnBuilding,
     required this.onStartDecorating,
     required this.onFinishDecorating,
     required this.onAddDecoration,
@@ -298,6 +327,7 @@ class _WorldBody extends StatelessWidget {
                             projection: projection,
                             selectedBuildingId: selectedBuildingId,
                             placements: placements,
+                            buildingDirections: buildingDirections,
                             mapSize: mapSize,
                             onSelectBuilding: onSelectBuilding,
                             onMoveDecoration: onMoveDecoration,
@@ -346,6 +376,9 @@ class _WorldBody extends StatelessWidget {
                   onStartDecorating: onStartDecorating,
                   onFinishDecorating: onFinishDecorating,
                   onAddDecoration: onAddDecoration,
+                  direction: buildingDirections[selected.id],
+                  onDirectionChanged: (direction) =>
+                      onTurnBuilding(selected.id, direction),
                   onOpenRoute: onOpenRoute,
                 ),
               ),
@@ -419,6 +452,7 @@ class _EstateMap extends StatelessWidget {
   final IlDuWorldProjection projection;
   final String selectedBuildingId;
   final List<IlDuDecorationPlacement> placements;
+  final Map<String, int> buildingDirections;
   final Size mapSize;
   final ValueChanged<IlDuWorldBuilding> onSelectBuilding;
   final void Function(IlDuDecorationPlacement, Offset, Size) onMoveDecoration;
@@ -429,6 +463,7 @@ class _EstateMap extends StatelessWidget {
     required this.projection,
     required this.selectedBuildingId,
     required this.placements,
+    required this.buildingDirections,
     required this.mapSize,
     required this.onSelectBuilding,
     required this.onMoveDecoration,
@@ -455,15 +490,7 @@ class _EstateMap extends StatelessWidget {
             available: projection.isAvailable(gate.unlockEra),
             assetPath: manifest.worldAsset(gate.asset),
           ),
-        for (final building in manifest.buildings)
-          _MapAnchor(
-            anchor: building,
-            mapSize: mapSize,
-            available: projection.isAvailable(building.unlockEra),
-            selected: selectedBuildingId == building.id,
-            assetPath: manifest.worldAsset(building.asset),
-            onTap: () => onSelectBuilding(building),
-          ),
+        for (final building in manifest.buildings) _buildingAnchor(building),
         for (final placement in placements)
           _DecorationAnchor(
             placement: placement,
@@ -478,6 +505,26 @@ class _EstateMap extends StatelessWidget {
       ],
     );
   }
+
+  Widget _buildingAnchor(IlDuWorldBuilding building) {
+    final turntable = ilduTurntableForBuilding(building.id);
+    final direction =
+        buildingDirections[building.id] ??
+        turntable?.directionForDegrees(building.rotation);
+    return _MapAnchor(
+      key: ValueKey('ildu-map-turntable-${building.id}-$direction'),
+      anchor: building,
+      mapSize: mapSize,
+      available: projection.isAvailable(building.unlockEra),
+      selected: selectedBuildingId == building.id,
+      assetPath: manifest.worldAsset(building.asset),
+      turntableFrame: turntable == null || direction == null
+          ? null
+          : turntable.frames[direction],
+      turntableAspectRatio: turntable?.mapAspectRatio,
+      onTap: () => onSelectBuilding(building),
+    );
+  }
 }
 
 class _MapAnchor extends StatelessWidget {
@@ -486,13 +533,18 @@ class _MapAnchor extends StatelessWidget {
   final bool available;
   final bool selected;
   final String assetPath;
+  final IlDuTurntableFrame? turntableFrame;
+  final double? turntableAspectRatio;
   final VoidCallback? onTap;
 
   const _MapAnchor({
+    super.key,
     required this.anchor,
     required this.mapSize,
     required this.available,
     required this.assetPath,
+    this.turntableFrame,
+    this.turntableAspectRatio,
     this.selected = false,
     this.onTap,
   });
@@ -500,14 +552,21 @@ class _MapAnchor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = mapSize.width * anchor.width / 100;
-    final image = Image.asset(
-      assetPath,
-      width: width,
-      fit: BoxFit.contain,
-      cacheWidth: onTap == null ? 180 : 360,
-      filterQuality: FilterQuality.medium,
-      errorBuilder: (_, _, _) => const SizedBox.shrink(),
-    );
+    final frame = turntableFrame;
+    final image = frame == null
+        ? Image.asset(
+            assetPath,
+            width: width,
+            fit: BoxFit.contain,
+            cacheWidth: onTap == null ? 180 : 360,
+            filterQuality: FilterQuality.medium,
+            errorBuilder: (_, _, _) => const SizedBox.shrink(),
+          )
+        : SizedBox(
+            width: width,
+            height: width / turntableAspectRatio!,
+            child: HanokTurntableFrameImage(frame: frame, cacheWidth: 360),
+          );
     final visual = AnimatedOpacity(
       opacity: available ? 1 : .18,
       duration: const Duration(milliseconds: 260),
@@ -559,7 +618,7 @@ class _MapAnchor extends StatelessWidget {
       child: FractionalTranslation(
         translation: const Offset(-.5, -.5),
         child: Transform.rotate(
-          angle: anchor.rotation * math.pi / 180,
+          angle: frame == null ? anchor.rotation * math.pi / 180 : 0,
           child: onTap == null
               ? content
               : Semantics(
@@ -644,6 +703,8 @@ class _PlaceSheet extends StatelessWidget {
   final VoidCallback onStartDecorating;
   final VoidCallback onFinishDecorating;
   final ValueChanged<IlDuWorldDecoration> onAddDecoration;
+  final int? direction;
+  final ValueChanged<int> onDirectionChanged;
   final ValueChanged<String> onOpenRoute;
 
   const _PlaceSheet({
@@ -654,6 +715,8 @@ class _PlaceSheet extends StatelessWidget {
     required this.onStartDecorating,
     required this.onFinishDecorating,
     required this.onAddDecoration,
+    required this.direction,
+    required this.onDirectionChanged,
     required this.onOpenRoute,
   });
 
@@ -662,6 +725,11 @@ class _PlaceSheet extends StatelessWidget {
     final t = AppL10n.of(context);
     final hub = manifest.hubFor(building.hubId);
     final available = projection.isAvailable(building.unlockEra);
+    final turntable = ilduTurntableForBuilding(building.id);
+    final turntableDirection =
+        direction ?? turntable?.directionForDegrees(building.rotation);
+    final showsTurntable =
+        available && turntable != null && turntableDirection != null;
     return Material(
       elevation: 18,
       color: Theme.of(context).colorScheme.surface,
@@ -670,7 +738,9 @@ class _PlaceSheet extends StatelessWidget {
       child: SafeArea(
         top: false,
         child: SizedBox(
-          height: Spacing.xxxl * 6,
+          height: showsTurntable
+              ? Spacing.xxxl * 8 + Spacing.sm
+              : Spacing.xxxl * 6,
           child: Padding(
             padding: const EdgeInsets.fromLTRB(
               Spacing.lg,
@@ -728,6 +798,55 @@ class _PlaceSheet extends StatelessWidget {
                           ),
                         ],
                       ),
+                      if (showsTurntable) ...[
+                        const SizedBox(height: Spacing.sm),
+                        SizedBox(
+                          height: 118,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: DecoratedBox(
+                                  decoration: BoxDecoration(
+                                    color: SoriSurfaces.of(context).surfaceAlt,
+                                    borderRadius: SoriRadius.brMd,
+                                    border: Border.all(
+                                      color: SoriColors.primary.withValues(
+                                        alpha: .18,
+                                      ),
+                                    ),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(Spacing.xs),
+                                    child: HanokTurntable2D(
+                                      key: ValueKey(
+                                        'ildu-turntable-${building.id}',
+                                      ),
+                                      frames: turntable.frames,
+                                      direction: turntableDirection,
+                                      onDirectionChanged: onDirectionChanged,
+                                      semanticsLabel:
+                                          '${building.ko}. ${t.ilduWorldRotateBuildingHint}',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: Spacing.sm),
+                              SizedBox(
+                                width: 94,
+                                child: Text(
+                                  t.ilduWorldRotateBuildingHint,
+                                  style: SoriTextTheme.of(context).caption
+                                      .copyWith(
+                                        color: Theme.of(
+                                          context,
+                                        ).colorScheme.onSurfaceVariant,
+                                      ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                       const SizedBox(height: Spacing.sm),
                       if (available)
                         Expanded(

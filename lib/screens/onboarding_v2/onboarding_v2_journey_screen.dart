@@ -233,11 +233,16 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
       if (!mounted) {
         return;
       }
-      _applyState(next);
       _recordJourneyDuration();
       if (next.phase == OnboardingPhase.complete) {
+        _applyState(next);
         _replace(AppShell(firstRunCoordinator: _coordinator));
       } else {
+        // The durable gate journal is already committed. Keep the confirmation
+        // UI mounted behind the route transition instead of rendering the
+        // generic initial-load state. If route replacement is interrupted, the
+        // learner retains a usable retry surface and the next launch resolves
+        // the persisted gate directly.
         _replace(IntroGateScreen(firstRunCoordinator: _coordinator));
       }
     } on OnboardingPlacementHistoryConflictException {
@@ -407,8 +412,11 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
         onChange: () =>
             unawaited(_runTransition(_coordinator.returnToCompanion)),
       ),
-      OnboardingPhase.gate => _OnboardingLoading(
-        message: t.onboardingV2Loading,
+      // A durable gate is executable state, never a loading state. This branch
+      // is the fail-safe for an injected/restored state that reaches the
+      // presentation without going through [_load]'s route replacement.
+      OnboardingPhase.gate => IntroGateScreen(
+        firstRunCoordinator: _coordinator,
       ),
       OnboardingPhase.complete => AppShell(firstRunCoordinator: _coordinator),
     };

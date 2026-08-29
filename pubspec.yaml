@@ -158,6 +158,8 @@ flutter:
     # assets/data/ildu_world_manifest_v1.json and are fixed independently from
     # learner-owned courtyard decorations.
     - assets/illustrations/personal_hanok_v3/world/
+    # Authored 8-direction PNG turntables for the V3 map inspection card.
+    - assets/illustrations/personal_hanok_v3/turnarounds/
     # A1 16 construction states, promoted 2026-08-17 as one approved set.
     # tool/promote_hanok_a1_states.py refuses a partial set, so this stays all-or-nothing.
     - assets/illustrations/personal_hanok_v2/a1/states/

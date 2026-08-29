@@ -7311,6 +7311,9 @@ class AppL10nEn extends AppL10n {
   String get ilduWorldPanHint => 'Swipe sideways to see the next courtyard.';
 
   @override
+  String get ilduWorldRotateBuildingHint => 'Swipe the building to rotate it.';
+
+  @override
   String get ilduWorldEvidenceNote =>
       'Only verified learning makes buildings appear.';
 
