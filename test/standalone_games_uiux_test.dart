@@ -25,6 +25,7 @@ import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/chrome_row.dart';
+import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/text_field.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
@@ -184,6 +185,32 @@ void main() {
     SilbenPuzzleLoader.reset();
   });
 
+  testWidgets('timed games protect home escape only while the round is live', (
+    tester,
+  ) async {
+    await _pumpPhone(
+      tester,
+      KkeunmariScreen(poolLoader: () async => _chainWords),
+      locale: const Locale('de'),
+      textScale: 1,
+    );
+    await _pumpUntil(tester, find.byType(SoriTextField));
+    expect(_homeEscape(tester).confirmWhen, isTrue);
+    await tester.pump(const Duration(seconds: 31));
+    expect(_homeEscape(tester).confirmWhen, isFalse);
+
+    await _pumpPhone(
+      tester,
+      const SpeedMatchScreen(items: _vocab),
+      locale: const Locale('en'),
+      textScale: 1,
+    );
+    await _pumpUntil(tester, find.byKey(const ValueKey('speed-match-left-가방')));
+    expect(_homeEscape(tester).confirmWhen, isTrue);
+    await tester.pump(const Duration(seconds: 61));
+    expect(_homeEscape(tester).confirmWhen, isFalse);
+  });
+
   for (final locale in const [Locale('de'), Locale('en')]) {
     for (final viewport in _viewports) {
       testWidgets('standalone games keep complete outer UI in '
@@ -228,6 +255,11 @@ void main() {
 
           expect(game.ready, findsOneWidget, reason: game.name);
           expect(find.byType(SoriStudyFrame), findsOneWidget);
+          expect(
+            find.byType(SoriHomeAction),
+            findsOneWidget,
+            reason: game.name,
+          );
           final media = MediaQuery.of(
             tester.element(find.byType(SoriStudyFrame)),
           );
@@ -240,6 +272,15 @@ void main() {
           );
 
           final t = AppL10n.of(tester.element(find.byType(SoriStudyFrame)));
+          if (game.name == 'speed') {
+            expect(find.byIcon(Icons.close), findsOneWidget, reason: game.name);
+          } else if (game.name == 'chosung' || game.name == 'silben') {
+            expect(
+              find.byIcon(Icons.arrow_back_ios_new),
+              findsOneWidget,
+              reason: game.name,
+            );
+          }
           if (game.name == 'chosung' && locale.languageCode == 'en') {
             expect(
               _vocab
@@ -965,6 +1006,9 @@ Finder _liveRegionWidget(String label) => find.byWidgetPredicate(
 Finder _soriButton(String label) => find.byWidgetPredicate(
   (widget) => widget is SoriButton && widget.label == label,
 );
+
+SoriHomeEscape _homeEscape(WidgetTester tester) =>
+    tester.widget<SoriHomeAction>(find.byType(SoriHomeAction)).escape;
 
 void _expectLiveRegion(WidgetTester tester, String label) {
   final finder = _liveRegionWidget(label);

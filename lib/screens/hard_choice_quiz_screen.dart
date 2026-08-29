@@ -228,6 +228,7 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
 
     return SoriStudyFrame(
       title: widget.title ?? t.hardQuizTitle,
+      homeEscape: SoriHomeEscape(confirmWhen: !_done && (_idx > 0 || _locked)),
       eyebrow: progress,
       padding: Spacing.page,
       child: _loading

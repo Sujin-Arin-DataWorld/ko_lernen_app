@@ -422,6 +422,9 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     final p = _puzzle;
     return SoriStudyFrame(
       title: t.screenWordleTitle,
+      homeEscape: SoriHomeEscape(
+        confirmWhen: !_solved && (_locked.isNotEmpty || _wrongTick > 0),
+      ),
       leading: IconButton(
         icon: const Icon(Icons.arrow_back_ios_new, size: 20),
         onPressed: () => Navigator.pop(context),

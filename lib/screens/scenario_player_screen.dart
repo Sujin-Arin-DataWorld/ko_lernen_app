@@ -37,6 +37,7 @@ import '../widgets/sori/celebration.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/hanok_header.dart' show SoriPosterLoop;
+import '../widgets/sori/home_action.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/motion.dart' show SoriEntrance;
@@ -1833,6 +1834,14 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         adaptTitleAtNormalScale: true,
         leading: _buildCloseButton(),
         automaticallyImplyLeading: false,
+        actions: [
+          SoriHomeAction(
+            escape: SoriHomeEscape(confirmWhen: _stage > 0 && !_isResultStage),
+            onLeave: () {
+              _loadLifecycle.requestExit();
+            },
+          ),
+        ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(12),
           child: Padding(

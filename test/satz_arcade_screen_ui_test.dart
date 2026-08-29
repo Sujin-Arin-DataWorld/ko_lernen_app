@@ -11,6 +11,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
+import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
@@ -65,6 +66,7 @@ void main() {
         );
         expect(frame.title, t.satzArcadeTitle);
         expect(frame.eyebrow, '1 / 1 · ${t.quizScore(0, 1)}');
+        expect(find.byType(SoriHomeAction), findsOneWidget);
 
         final close = find.byTooltip(t.btnClose);
         expect(close, findsOneWidget);

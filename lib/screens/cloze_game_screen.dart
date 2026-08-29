@@ -323,6 +323,9 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
 
     return SoriStudyFrame(
       title: t.clozeTitle,
+      homeEscape: SoriHomeEscape(
+        confirmWhen: _idx > 0 || _picked != null || _retried,
+      ),
       eyebrow:
           '${_idx + 1} / ${_round.length} · ${t.quizScore(_score, _round.length)}',
       leading: IconButton(

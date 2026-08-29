@@ -32,6 +32,7 @@ enum SatzError { none, order, particle, tooMany, tooFew, word }
 class SatzBauenQuest extends StatefulWidget {
   final Map<String, dynamic> data;
   final void Function(QuestResult) onComplete;
+  final VoidCallback? onAttempt;
   final VoidCallback? onContinue;
   final bool isLast;
   final bool showMascot;
@@ -43,6 +44,7 @@ class SatzBauenQuest extends StatefulWidget {
     super.key,
     required this.data,
     required this.onComplete,
+    this.onAttempt,
     this.onContinue,
     this.isLast = false,
     this.showMascot = false,
@@ -340,6 +342,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     if (_completed || _answer.isEmpty) {
       return;
     }
+    widget.onAttempt?.call();
     final assembled = _answer.map((t) => t.text).toList();
     final punctuationOk = SatzBauenQuest.hasCorrectTerminalPunctuation(
       assembled,
@@ -398,6 +401,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
 
   void _revealAnswer() {
     if (_completed) return;
+    widget.onAttempt?.call();
     HapticFeedback.selectionClick();
     final target = SatzBauenQuest.tokenize(_targetKo);
     setState(() {

@@ -543,6 +543,10 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
 
     return SoriStudyFrame(
       title: t.gameChosungTitle,
+      homeEscape: SoriHomeEscape(
+        confirmWhen:
+            !_roundComplete && (_roundIndex > 0 || _state != _State.waiting),
+      ),
       leading: IconButton(
         icon: const Icon(Icons.arrow_back_ios_new, size: 20),
         onPressed: () => Navigator.pop(context),

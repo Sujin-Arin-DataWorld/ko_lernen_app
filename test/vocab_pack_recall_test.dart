@@ -14,6 +14,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/vocab_recall_evidence.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/text_field.dart';
 
@@ -122,6 +123,52 @@ void main() {
       expect(tester.takeException(), isNull);
     },
   );
+
+  testWidgets('recall protects progress only after the first submission', (
+    tester,
+  ) async {
+    final pack = VocabPack(
+      id: 'a1_recall_1',
+      level: 'A1',
+      words: [_word(1, boss: true)],
+    );
+    await _pumpRecall(
+      tester,
+      pack,
+      recallSession: PackRecallSession.forPack(packId: pack.id),
+    );
+
+    final t = AppL10n.of(tester.element(find.byType(VocabPackRecallScreen)));
+    expect(find.byType(SoriHomeAction), findsOneWidget);
+    expect(find.byTooltip(t.btnClose), findsOneWidget);
+    expect(
+      tester
+          .widget<SoriHomeAction>(find.byType(SoriHomeAction))
+          .escape
+          .confirmWhen,
+      isFalse,
+    );
+    await _submitRecall(tester, '하나');
+    expect(
+      tester
+          .widget<SoriHomeAction>(find.byType(SoriHomeAction))
+          .escape
+          .confirmWhen,
+      isTrue,
+    );
+
+    final next = find.byKey(const Key('vocab-recall-next'));
+    await tester.ensureVisible(next);
+    await tester.tap(next);
+    await tester.pump();
+    expect(
+      tester
+          .widget<SoriHomeAction>(find.byType(SoriHomeAction))
+          .escape
+          .confirmWhen,
+      isFalse,
+    );
+  });
 
   for (final locale in const [Locale('de'), Locale('en')]) {
     testWidgets(

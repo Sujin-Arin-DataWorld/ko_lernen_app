@@ -408,6 +408,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
 
     return SoriStudyFrame(
       title: widget.title ?? t.reviewTitle,
+      homeEscape: SoriHomeEscape(confirmWhen: !_done && _reviewed > 0),
       actions: const [TtsSpeedAction()],
       padding: EdgeInsets.zero,
       // ⚠️ 완료 화면에서는 한지 결을 끈다. `_HanjiPainter` 는 반지름 48~163px

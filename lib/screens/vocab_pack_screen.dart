@@ -191,6 +191,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   int _bossCorrect = 0;
   int _selectedChoice = -1;
   bool _choiceLocked = false;
+  bool _hasSubmittedAssessment = false;
   int _combo = 0; // 연속 정답 (도파민 루프)
   List<String>? _choices; // per-question 4-option cache
 
@@ -350,6 +351,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         _quizQuestions = const [];
         _bossQuestions = const [];
         _assessmentOrdersPrepared = false;
+        _hasSubmittedAssessment = false;
         _loading = false;
       });
       _prepareNextQuestion(); // pre-warm choice cache for stage 1 → 2 transition
@@ -700,6 +702,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     setState(() {
       _selectedChoice = i;
       _choiceLocked = true;
+      _hasSubmittedAssessment = true;
     });
     // Only scored recognition-assessment stages become course evidence. The
     // earlier card self-rating stays in SRS only, so a tap cannot unlock a
@@ -967,6 +970,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
 
     return SoriStudyFrame(
       title: title,
+      homeEscape: SoriHomeEscape(confirmWhen: _hasSubmittedAssessment),
       leading: IconButton(
         icon: const Icon(Icons.close),
         onPressed: () => Navigator.of(context).maybePop(),

@@ -10,6 +10,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/cloze_prompt.dart';
+import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
@@ -87,6 +88,8 @@ void main() {
         expect(translationStyle.fontWeight, type.gloss.fontWeight);
 
         final t = AppL10n.of(tester.element(find.byType(ClozeGameScreen)));
+        expect(find.byType(SoriHomeAction), findsOneWidget);
+        expect(find.byIcon(Icons.close), findsOneWidget);
         final pronunciation = t.ttsListen;
         final speakAction = find.byKey(const Key('cloze-prompt-speak'));
         expect(speakAction, findsOneWidget);

@@ -15,6 +15,7 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_error.dart';
 import 'package:ko_lernen_app/widgets/app_loading.dart';
 import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
+import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
@@ -264,6 +265,33 @@ void main() {
         }
         expect(tester.takeException(), isNull);
       }
+    }
+  });
+
+  testWidgets('home confirmation follows intro, active, and result stages', (
+    tester,
+  ) async {
+    for (final testCase in const <({ScenarioStage stage, bool confirm})>[
+      (stage: ScenarioStage.intro, confirm: false),
+      (stage: ScenarioStage.vocab, confirm: true),
+      (stage: ScenarioStage.result, confirm: false),
+    ]) {
+      await _pumpPreview(
+        tester,
+        stage: testCase.stage,
+        size: const Size(390, 844),
+        textScale: 1,
+      );
+
+      expect(find.byType(SoriHomeAction), findsOneWidget);
+      expect(
+        tester
+            .widget<SoriHomeAction>(find.byType(SoriHomeAction))
+            .escape
+            .confirmWhen,
+        testCase.confirm,
+        reason: testCase.stage.name,
+      );
     }
   });
 

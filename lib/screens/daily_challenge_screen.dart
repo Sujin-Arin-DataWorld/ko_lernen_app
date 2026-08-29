@@ -241,6 +241,9 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
 
     return SoriStudyFrame(
       title: t.dailyTitle,
+      homeEscape: SoriHomeEscape(
+        confirmWhen: _idx > 0 || _picked != null || _retried,
+      ),
       eyebrow:
           '${_idx + 1} / ${_round.length} · ${t.quizScore(_score, _round.length)}',
       leading: IconButton(

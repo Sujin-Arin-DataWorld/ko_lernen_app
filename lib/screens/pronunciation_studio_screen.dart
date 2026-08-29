@@ -19,6 +19,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/dialog.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/home_action.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/page_header.dart';
 import '../widgets/sori/standard_page.dart';
@@ -328,7 +329,12 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
     final phrase = _currentPhrase;
     return SoriStandardFrame(
       appBarTitle: t.pronunciationTitle,
-      actions: const [TtsSpeedAction()],
+      actions: [
+        SoriHomeAction(
+          escape: SoriHomeEscape(confirmWhen: _recording || _assessing),
+        ),
+        const TtsSpeedAction(),
+      ],
       maxWidth: SoriMaxWidth.prose,
       padding: const EdgeInsets.all(Spacing.lg),
       builder: (context, padding) {

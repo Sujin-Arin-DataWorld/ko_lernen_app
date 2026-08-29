@@ -179,6 +179,7 @@ class _VocabNuanceScreenState extends State<VocabNuanceScreen> {
     final question = _questions[_index];
     return SoriStudyFrame(
       title: t.vocabNotebookNuanceTitle,
+      homeEscape: SoriHomeEscape(confirmWhen: _index > 0 || _picked != null),
       eyebrow: '${_index + 1} / ${_questions.length}',
       child: SingleChildScrollView(
         child: Column(

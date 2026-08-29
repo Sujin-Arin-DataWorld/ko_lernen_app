@@ -59,6 +59,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
   List<SatzSentence> _round = const [];
   int _idx = 0;
   int _passed = 0;
+  bool _hasSubmittedAnswer = false;
   GameOutcome? _outcome;
   CoursePracticeContext? _missionContext;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
@@ -134,6 +135,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
       _round = pool.take(_roundSize).toList();
       _idx = 0;
       _passed = 0;
+      _hasSubmittedAnswer = false;
       _outcome = null;
       _feedbackCompletion.reset();
     });
@@ -272,6 +274,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
     final item = _round[_idx];
     return SoriStudyFrame(
       title: t.satzArcadeTitle,
+      homeEscape: SoriHomeEscape(confirmWhen: _hasSubmittedAnswer),
       eyebrow:
           '${_idx + 1} / ${_round.length} · ${t.quizScore(_passed, _round.length)}',
       leading: IconButton(
@@ -290,6 +293,11 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
               child: SatzBauenQuest(
                 key: ValueKey('satz_${_roundId}_$_idx'),
                 data: item.toQuestData(),
+                onAttempt: () {
+                  if (!_hasSubmittedAnswer) {
+                    setState(() => _hasSubmittedAnswer = true);
+                  }
+                },
                 onComplete: _onComplete,
               ),
             ),

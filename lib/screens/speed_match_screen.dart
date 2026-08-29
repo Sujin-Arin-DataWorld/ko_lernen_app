@@ -410,6 +410,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
 
     return SoriStudyFrame(
       title: t.speedMatchTitle,
+      homeEscape: SoriHomeEscape(confirmWhen: _running),
       leading: IconButton(
         icon: const Icon(Icons.close),
         onPressed: () => Navigator.of(context).maybePop(),

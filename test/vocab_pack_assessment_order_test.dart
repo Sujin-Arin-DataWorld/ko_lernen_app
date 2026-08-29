@@ -11,6 +11,7 @@ import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
+import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 
 import 'helpers/deck_actions.dart';
@@ -137,4 +138,60 @@ void main() {
     expect(find.text('순서단어3'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets(
+    'Boss-only pack protects home only after its first submitted assessment',
+    (tester) async {
+      final pack = VocabPack(
+        id: 'a1_order_1',
+        level: 'A1',
+        words: [_word(1, boss: true)],
+      );
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: AppTheme.light,
+          locale: const Locale('de'),
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          home: VocabPackScreen(
+            packId: pack.id,
+            packLoader: (_) async => pack,
+            siblingPacksLoader: (_) async => [pack],
+          ),
+        ),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
+      final t = await AppL10n.delegate.load(const Locale('de'));
+
+      await _revealAndMarkKnown(tester, t);
+      await tester.pump();
+
+      expect(find.byType(QuizChoice), findsWidgets);
+      expect(find.byType(SoriHomeAction), findsOneWidget);
+      expect(find.byIcon(Icons.close), findsOneWidget);
+      expect(
+        tester
+            .widget<SoriHomeAction>(find.byType(SoriHomeAction))
+            .escape
+            .confirmWhen,
+        isFalse,
+      );
+
+      final correct = find.byWidgetPredicate(
+        (widget) => widget is QuizChoice && widget.isCorrect,
+      );
+      tester.widget<QuizChoice>(correct).onSelected!();
+      await tester.pump();
+
+      expect(find.byType(SoriHomeAction), findsOneWidget);
+      expect(
+        tester
+            .widget<SoriHomeAction>(find.byType(SoriHomeAction))
+            .escape
+            .confirmWhen,
+        isTrue,
+      );
+    },
+  );
 }
