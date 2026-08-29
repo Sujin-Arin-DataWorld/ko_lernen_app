@@ -7350,6 +7350,10 @@ class AppL10nDe extends AppL10n {
       'Wische seitwärts, um den nächsten Hof zu sehen.';
 
   @override
+  String get ilduWorldRotateBuildingHint =>
+      'Wische über das Gebäude, um es zu drehen.';
+
+  @override
   String get ilduWorldEvidenceNote =>
       'Nur bestätigtes Lernen lässt Gebäude erscheinen.';
 
