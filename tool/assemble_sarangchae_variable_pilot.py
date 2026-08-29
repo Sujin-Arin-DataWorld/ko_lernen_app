@@ -54,11 +54,6 @@ WORLD_ASSET = (
     / "world"
     / "ildu-wall-masterplan-v1.png"
 )
-WORLD_RUNTIME_DIR = WORLD_ASSET.parent
-BARE_GROUND_SOURCE_V1 = RAW_DIR / "ildu_bare_ground_source_v1.png"
-BARE_GROUND_SOURCE_V1_SHA256 = (
-    "1aea866f345eef9f8ed097bc9fa5017f669781d641a0be02c48dc537a0305c49"
-)
 FONT_REGULAR = ROOT / "assets" / "fonts" / "WantedSans" / "WantedSans-Regular.otf"
 FONT_BOLD = ROOT / "assets" / "fonts" / "WantedSans" / "WantedSans-Bold.otf"
 CANVAS = (2512, 1680)
@@ -98,6 +93,7 @@ STAGE_LABELS_KO = {
     11: "현판 설치",
     12: "완성 V3 사랑채",
 }
+
 
 @dataclass(frozen=True)
 class StageSource:
@@ -488,229 +484,6 @@ def _render_in_world_previews(
     }
 
 
-def _building_asset(
-    output_dir: Path,
-    anchor_id: str,
-    asset_name: str,
-) -> tuple[Image.Image, list[dict[str, object]]]:
-    if anchor_id == "sarangchae":
-        base = output_dir / "stage_12_complete_v3_base.png"
-        overlay = output_dir / "stage_12_hyeonpan_installed.png"
-        return (
-            _composite_stage(base, [overlay]),
-            [
-                _asset_row(base, relative_to=output_dir),
-                _asset_row(overlay, relative_to=output_dir),
-            ],
-        )
-    path = WORLD_RUNTIME_DIR / asset_name
-    with Image.open(path) as opened:
-        asset = opened.convert("RGBA")
-    return asset, [
-        {
-            "file": path.relative_to(ROOT).as_posix(),
-            "sha256": sha256(path),
-            "size": list(asset.size),
-            "alphaBbox": list(alpha_bbox(asset)),
-        }
-    ]
-
-
-def _place_building_anchor(
-    world: Image.Image,
-    asset: Image.Image,
-    anchor: dict[str, object],
-    source_components: list[dict[str, object]],
-) -> dict[str, object]:
-    target_width = round(world.width * float(anchor["width"]) / 100)
-    target_height = round(asset.height * target_width / asset.width)
-    sprite = resize_premultiplied(asset, (target_width, target_height))
-    rotation = float(anchor["rotation"])
-    if rotation:
-        sprite = sprite.rotate(
-            -rotation,
-            resample=Image.Resampling.BICUBIC,
-            expand=True,
-        )
-    center_x = round(world.width * float(anchor["x"]) / 100)
-    center_y = round(world.height * float(anchor["y"]) / 100)
-    offset = (center_x - sprite.width // 2, center_y - sprite.height // 2)
-    world.alpha_composite(sprite, offset)
-    return {
-        **anchor,
-        "sourceComponents": source_components,
-        "renderedSize": [sprite.width, sprite.height],
-        "renderedOffset": list(offset),
-    }
-
-
-def _draw_detail_callout(
-    draw: ImageDraw.ImageDraw,
-    *,
-    point: tuple[int, int],
-    box: tuple[int, int],
-    label: str,
-    color: tuple[int, int, int],
-    font: ImageFont.FreeTypeFont,
-) -> None:
-    text_bbox = draw.textbbox((0, 0), label, font=font)
-    width = text_bbox[2] - text_bbox[0] + 34
-    height = text_bbox[3] - text_bbox[1] + 24
-    left, top = box
-    nearest_x = left if point[0] < left else left + width
-    nearest_y = top + height // 2
-    draw.line((point[0], point[1], nearest_x, nearest_y), fill=color, width=6)
-    draw.ellipse(
-        (point[0] - 10, point[1] - 10, point[0] + 10, point[1] + 10),
-        fill=color,
-    )
-    draw.rounded_rectangle(
-        (left, top, left + width, top + height),
-        radius=18,
-        fill=(42, 31, 23, 230),
-        outline=color,
-        width=4,
-    )
-    draw.text((left + 17, top + 10), label, font=font, fill=(255, 246, 224, 255))
-
-
-def _render_building_placement_v3(output_dir: Path) -> dict[str, object]:
-    if sha256(BARE_GROUND_SOURCE_V1) != BARE_GROUND_SOURCE_V1_SHA256:
-        raise ValueError("pinned bare-ground source changed")
-    with Image.open(BARE_GROUND_SOURCE_V1) as opened:
-        source = opened.convert("RGBA")
-    world = resize_premultiplied(source, (2412, 2622))
-
-    qa_dir = output_dir / "qa"
-    ground_output = qa_dir / "ildu_building_first_ground_v3.png"
-    full_output = qa_dir / "ildu_building_first_layout_v3.png"
-    detail_output = qa_dir / "ildu_building_first_relationship_detail_v3.png"
-    qa_dir.mkdir(parents=True, exist_ok=True)
-    world.convert("RGB").save(ground_output, format="PNG", optimize=True)
-
-    world_manifest = json.loads(WORLD_MANIFEST_PATH.read_text(encoding="utf-8"))
-    pending: list[tuple[str, dict[str, object]]] = []
-    building_ids: list[str] = []
-    for raw_anchor in world_manifest["buildings"]:
-        anchor = dict(raw_anchor)
-        raw_id = str(anchor.pop("id"))
-        anchor_id = "jungmunganchae" if raw_id == "rear-wing" else raw_id
-        anchor["sourceManifestId"] = raw_id
-        pending.append((anchor_id, anchor))
-        building_ids.append(anchor_id)
-    hyeopmun = next(
-        dict(item)
-        for item in world_manifest["gates"]
-        if item["id"] == "hyeopmun-west"
-    )
-    hyeopmun.pop("id")
-    hyeopmun["sourceManifestId"] = "hyeopmun-west"
-    pending.append(("hyeopmun-west", hyeopmun))
-    pending.sort(key=lambda item: float(item[1]["y"]))
-
-    rendered_anchors: dict[str, object] = {}
-    for anchor_id, anchor in pending:
-        asset, components = _building_asset(
-            output_dir,
-            anchor_id,
-            str(anchor["asset"]),
-        )
-        rendered_anchors[anchor_id] = _place_building_anchor(
-            world,
-            asset,
-            anchor,
-            components,
-        )
-    world.convert("RGB").save(full_output, format="PNG", optimize=True)
-
-    crop_box = (350, 790, 1775, 1840)
-    detail = world.crop(crop_box).resize((1900, 1400), Image.Resampling.LANCZOS)
-    draw = ImageDraw.Draw(detail, "RGBA")
-    font = ImageFont.truetype(str(FONT_BOLD), 38)
-    scale_x = detail.width / (crop_box[2] - crop_box[0])
-    scale_y = detail.height / (crop_box[3] - crop_box[1])
-
-    def detail_point(anchor_id: str) -> tuple[int, int]:
-        anchor = rendered_anchors[anchor_id]
-        world_x = 2412 * float(anchor["x"]) / 100
-        world_y = 2622 * float(anchor["y"]) / 100
-        return (
-            round((world_x - crop_box[0]) * scale_x),
-            round((world_y - crop_box[1]) * scale_y),
-        )
-
-    _draw_detail_callout(
-        draw,
-        point=detail_point("changgo"),
-        box=(40, 90),
-        label="창고: 담장은 나중에 측면 중간으로 연결",
-        color=(46, 114, 168),
-        font=font,
-    )
-    _draw_detail_callout(
-        draw,
-        point=detail_point("hyeopmun-west"),
-        box=(45, 1180),
-        label="협문: 창고와 사랑채 사이에 먼저 고정",
-        color=(177, 76, 50),
-        font=font,
-    )
-    _draw_detail_callout(
-        draw,
-        point=detail_point("jungmunganchae"),
-        box=(1240, 70),
-        label="중문간채: 사랑채 뒤에 밀착",
-        color=(80, 120, 68),
-        font=font,
-    )
-    _draw_detail_callout(
-        draw,
-        point=(1190, 1270),
-        box=(1230, 1180),
-        label="건물 앞 공간을 먼저 확보",
-        color=(157, 112, 40),
-        font=font,
-    )
-    detail.convert("RGB").save(detail_output, format="PNG", optimize=True)
-
-    return {
-        "status": "pending_building_placement_approval",
-        "canvas": [2412, 2622],
-        "sequence": ["buildings", "internal-walls", "outer-wall"],
-        "wallLayers": [],
-        "source": {
-            "file": BARE_GROUND_SOURCE_V1.relative_to(output_dir).as_posix(),
-            "sha256": BARE_GROUND_SOURCE_V1_SHA256,
-            "kind": "user-provided-bare-ground",
-        },
-        "requiredRelations": [
-            "changgo-side-midpoint-to-shared-wall",
-            "shared-wall-to-hyeopmun",
-            "hyeopmun-immediately-left-of-sarangchae",
-            "jungmunganchae-immediately-behind-sarangchae",
-        ],
-        "buildingIds": building_ids,
-        "connectionBuildingIds": ["hyeopmun-west"],
-        "anchors": rendered_anchors,
-        "futureInternalWall": {
-            "changgoSideConnectionFraction": 0.5,
-            "connectAfterPlacementApproval": True,
-        },
-        "openSarangYard": {
-            "left": 20,
-            "top": 59,
-            "width": 44,
-            "height": 27,
-            "purpose": "player-decoration-space",
-        },
-        "reviewArtifacts": [
-            _asset_row(ground_output, relative_to=output_dir),
-            _asset_row(full_output, relative_to=output_dir),
-            _asset_row(detail_output, relative_to=output_dir),
-        ],
-    }
-
-
 def render_review(output_dir: Path = OUTPUT_DIR) -> dict[str, object]:
     resolved = output_dir.resolve()
     if not resolved.is_relative_to(V3_ROOT.resolve()):
@@ -721,17 +494,23 @@ def render_review(output_dir: Path = OUTPUT_DIR) -> dict[str, object]:
     rows = _load_review_stages(output_dir)
     qa_dir = output_dir / "qa"
     contact = qa_dir / "sarangchae_12_stage_review.png"
+    world_full = qa_dir / "sarangchae_in_world_hyeonpan_review.png"
+    world_detail = qa_dir / "sarangchae_in_world_hyeonpan_detail.png"
     _render_contact_sheet(rows, contact)
+    world_report = _render_in_world_previews(
+        rows[-1]["_image"],
+        full_output=world_full,
+        detail_output=world_detail,
+    )
 
     manifest_rows = []
     for row in rows:
         public = dict(row)
         public.pop("_image")
         manifest_rows.append(public)
-    building_placement = _render_building_placement_v3(output_dir)
     manifest = {
         "schemaVersion": 1,
-        "status": "pending_building_placement_approval",
+        "status": "pending_visual_and_in_world_approval",
         "estateId": "ildu-gotaek-v3",
         "buildingId": "sarangchae",
         "planVersion": "sarangchae-v1",
@@ -747,14 +526,11 @@ def render_review(output_dir: Path = OUTPUT_DIR) -> dict[str, object]:
             "source": MASTER.relative_to(ROOT).as_posix(),
         },
         "stages": manifest_rows,
-        "buildingPlacementV3": building_placement,
-        "supersededReviewArtifacts": [
-            "qa/sarangchae_in_world_hyeonpan_review.png",
-            "qa/sarangchae_in_world_hyeonpan_detail.png",
-        ],
+        "worldReview": world_report,
         "reviewArtifacts": [
             _asset_row(contact, relative_to=output_dir),
-            *building_placement["reviewArtifacts"],
+            _asset_row(world_full, relative_to=output_dir),
+            _asset_row(world_detail, relative_to=output_dir),
         ],
     }
     manifest_path = output_dir / "MANIFEST.json"
