@@ -10,7 +10,7 @@
 |---|---|
 | UI | `lib/l10n/app_de.arb`, `lib/l10n/app_en.arb`; generated 파일 직접 편집 금지 |
 | 어휘·문법 | `assets/data/korean_vocab.csv`, `assets/data/grammar.csv`와 연결 builder |
-| Cloze | `assets/data/cloze.json`; answer/fullKo/sentenceKo/distractors 계약 |
+| Cloze | `assets/data/cloze.json`; answer/fullKo/sentenceKo/distractors와 선택적 acceptedVariants 계약 |
 | Satz | `assets/data/satz_sentences.json`; targetKo/promptDe/promptEn/distractors 계약 |
 | Smalltalk | `assets/data/smalltalk.json`와 생성 source 동시 확인 |
 | 시나리오 | `assets/data/scenarios_*.json`; 쓰기는 `tools/content_factory/scenario_store.py` 경유 |
@@ -38,6 +38,21 @@ python3 tools/content_factory/validate_content.py
 - 중복 JSON key는 parser가 마지막 값을 읽더라도 hard fail이다.
 - Unicode replacement character U+FFFD는 데이터 손실 신호다. 같은 ID의 정상본, git history, source file로만 복구한다.
 - PDF·교재 기반 작업은 교육적 신호만 일반화하고 원문 문장·ID·페이지·단원 순서를 복제하지 않는다.
+
+## acceptedVariants
+
+공통 JSON 선택 필드는 camelCase `acceptedVariants`다. source에는 정본을 제외한 추가 변형만 둔다.
+
+```json
+{"acceptedVariants": ["추가 허용형"]}
+```
+
+- 필드가 없으면 기존 consumer 동작이 완전히 같아야 한다.
+- 값은 trim된 비어 있지 않은 고유 문자열이고 정본을 반복하지 않는다.
+- Cloze는 `construct_preserving` 변형만 허용하며 distractor와 겹치지 않는다. UI에는 정본 하나만 표시한다.
+- scenario `diktat`는 정본의 문자·형태 순서를 보존하는 띄어쓰기·문장부호 `surface` 변형만 허용한다.
+- 생산형 rubric처럼 consumer가 정본 포함 전체 집합을 요구하면 builder에서 `[canonical, ...additional]`로 투영한다.
+- acceptedVariants는 stable ID, 배열 count, SRS key, TTS·정답 공개 정본을 바꾸지 않는다.
 
 ## 변경 후
 

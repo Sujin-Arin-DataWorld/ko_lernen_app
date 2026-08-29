@@ -50,8 +50,8 @@
   https://www.iso.org/standard/63544.html
 - **국립국어원**: 한국어 규범·학습자 사전·실용 표현과 corpus 접근의 우선 출처다.
   https://www.korean.go.kr/front_eng/main.do
-- **모두의 말뭉치**: 한국어 대화·문어·학습자 자료를 목적과 이용 조건에 맞춰 선택한다.
-  https://kli.korean.go.kr/corpus/main/requestMain.do?lang=en
+- **모두의 말뭉치**: 한국어 대화·문어·학습자 자료를 목적과 이용 조건에 맞춰 선택한다. 2026-08-29 확인 기준으로 포털은 `온라인 게시 자료 말뭉치 2025`, `일상 대화 음성 말뭉치 2025`, `일상 대화 말뭉치 2025`를 제공한다. 문장을 복제하지 않고 장르·관계·분포 검증에 쓴다.
+  https://kli.korean.go.kr/corpus/main/requestMain.do?lang=ko
 - **IDS Mannheim DeReKo**: 독일어 연어·장르별 실제 용례를 확인하는 reference corpus다. corpus 문장을 제품 데이터로 복제하기보다 후보 검증에 쓴다.
   https://www.ids-mannheim.de/digspra/kl/projekte/korpora/
 
