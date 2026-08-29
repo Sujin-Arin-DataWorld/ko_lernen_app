@@ -15,6 +15,7 @@ void main() {
           'sarangchae',
           'ansarang',
           'changgo',
+          'anchae',
           'main-gate',
           'sadang',
           'sadang-gate',
@@ -77,6 +78,7 @@ void main() {
     expect(spec.directionForDegrees(-45), 7);
     expect(kIlDuChanggoTurntable.directionForDegrees(90), 2);
     expect(kIlDuSotdaeulmunTurntable.directionForDegrees(3), 0);
+    expect(kIlDuAnchaeTurntable.directionForDegrees(90), 2);
     expect(kIlDuSadangTurntable.directionForDegrees(90), 2);
     expect(kIlDuSadangmunTurntable.directionForDegrees(315), 7);
   });
