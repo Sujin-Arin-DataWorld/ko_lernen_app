@@ -12708,6 +12708,24 @@ abstract class AppL10n {
   /// **'Ziehe es auf der Karte an seinen Platz; wische über die Vorschau, um es zu drehen.'**
   String get ilduWorldRotateBuildingHint;
 
+  /// No description provided for @ilduWorldBuildingScale.
+  ///
+  /// In de, this message translates to:
+  /// **'Gebäudegröße'**
+  String get ilduWorldBuildingScale;
+
+  /// No description provided for @ilduWorldShrinkBuilding.
+  ///
+  /// In de, this message translates to:
+  /// **'Gebäude verkleinern'**
+  String get ilduWorldShrinkBuilding;
+
+  /// No description provided for @ilduWorldEnlargeBuilding.
+  ///
+  /// In de, this message translates to:
+  /// **'Gebäude vergrößern'**
+  String get ilduWorldEnlargeBuilding;
+
   /// No description provided for @ilduWorldGateHeritageDetail.
   ///
   /// In de, this message translates to:

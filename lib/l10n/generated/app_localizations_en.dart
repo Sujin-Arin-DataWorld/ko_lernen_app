@@ -7318,6 +7318,15 @@ class AppL10nEn extends AppL10n {
       'Drag it on the map to place it; swipe the preview to rotate it.';
 
   @override
+  String get ilduWorldBuildingScale => 'Building size';
+
+  @override
+  String get ilduWorldShrinkBuilding => 'Make building smaller';
+
+  @override
+  String get ilduWorldEnlargeBuilding => 'Make building larger';
+
+  @override
   String get ilduWorldGateHeritageDetail =>
       'The exterior keeps the 忠孝傳家 couplets; the inner beam carries five jeongnyeo memorial plaques.';
 

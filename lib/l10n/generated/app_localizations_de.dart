@@ -7357,6 +7357,15 @@ class AppL10nDe extends AppL10n {
       'Ziehe es auf der Karte an seinen Platz; wische über die Vorschau, um es zu drehen.';
 
   @override
+  String get ilduWorldBuildingScale => 'Gebäudegröße';
+
+  @override
+  String get ilduWorldShrinkBuilding => 'Gebäude verkleinern';
+
+  @override
+  String get ilduWorldEnlargeBuilding => 'Gebäude vergrößern';
+
+  @override
   String get ilduWorldGateHeritageDetail =>
       'Außen bleiben die Spruchtafeln 忠孝傳家 erhalten; innen hängen fünf Jeongnyeo-Gedenktafeln über dem Tor.';
 
