@@ -215,7 +215,9 @@ class SoriSpeech {
   /// 승격이었다면 그 정확한 backing future를 공용 맵에 되돌린다.
   static void _cancelFlightAndRestorePrefetch(String key) {
     final cancelled = _inFlight[key];
-    if (cancelled == null) return;
+    if (cancelled == null) {
+      return;
+    }
     final backing = _promotionPrefetches.remove(cancelled);
     if (backing != null && identical(_pendingPrefetches[key], backing)) {
       _inFlight[key] = backing;
