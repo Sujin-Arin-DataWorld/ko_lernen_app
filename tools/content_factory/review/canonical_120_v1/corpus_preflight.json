@@ -1,0 +1,33 @@
+{
+  "generationId": "canonical_120_v1",
+  "candidateCount": 120,
+  "scenarioCounts": {
+    "a1": 20,
+    "a2": 20,
+    "b1": 20,
+    "b2": 20,
+    "c1": 20,
+    "c2": 20
+  },
+  "candidateSetSha256": "8f9e37b4951fdc969b965ac8214d74baee874b579dab7c56918e6260a0e2614b",
+  "ttsPendingCount": 837,
+  "courseUnitCount": 48,
+  "scenarioLinkCount": 120,
+  "checkpointCount": 48,
+  "questCount": 360,
+  "wireScenarioIds": [
+    "airport_arrival",
+    "bunshik_tteokbokki",
+    "first_class_meeting",
+    "introduce_yourself",
+    "taxi_kakao"
+  ],
+  "wireContentLinkIds": {
+    "introduce_yourself": "link:94c139e887716700674589b2",
+    "bunshik_tteokbokki": "link:e6a9f1197b48c79f58655c9a",
+    "taxi_kakao": "link:49a189a1b8b9e4fa022a4557"
+  },
+  "approvalRecorded": false,
+  "runtimeWritten": false,
+  "releaseReady": false
+}

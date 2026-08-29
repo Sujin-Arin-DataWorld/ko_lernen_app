@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "birthday_expectation_gap",
+  "scenario": {
+    "id": "birthday_expectation_gap",
+    "level": "b1",
+    "emoji": "☕",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "생일을 크게 챙길 줄 몰랐을 때",
+      "de": "Unterschiedliche Erwartungen an einen Geburtstag",
+      "en": "Different birthday expectations"
+    },
+    "intro": {
+      "ko": "조용히 보내고 싶다는 말을 수진이 축하가 싫다는 뜻으로 들었어요.",
+      "de": "Sujin hat deinen Wunsch nach einem ruhigen Geburtstag als Ablehnung ihrer Feierpläne verstanden.",
+      "en": "Sujin took your wish for a quiet birthday to mean you disliked her plans."
+    },
+    "courseUnitId": "b1_01_experience_reasons",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "sujin"
+    ],
+    "relationshipContext": "친한 크리스티안과 수진",
+    "intent": "자기 선호가 상대를 거절한 뜻이 아니었음을 설명한다",
+    "shelf": "b1_feel",
+    "backdrop": "cafe",
+    "vocab": [
+      {
+        "korean": "제가 준비하려던 게 부담스러웠어요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "War das, was ich vorbereiten wollte, zu viel für dich?",
+          "en": "Did what I was planning feel like too much?"
+        }
+      },
+      {
+        "korean": "아니요. 축하가 싫었던 건 아니에요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Nein. Ich wollte nicht sagen, dass ich keine Feier mag.",
+          "en": "No. It wasn't that I didn't want to celebrate."
+        }
+      },
+      {
+        "korean": "사람이 많은 자리가 조금 피곤하거든요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Große Gruppen strengen mich nur etwas an.",
+          "en": "Large gatherings just tire me out a bit."
+        }
+      },
+      {
+        "korean": "저는 제 계획이 싫다는 뜻인 줄 알았어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich dachte, du fändest gerade meinen Plan unangenehm.",
+          "en": "I thought you specifically didn't like my plan."
+        }
+      },
+      {
+        "korean": "수진이랑 저녁 먹는 건 정말 좋아요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Mit dir zu Abend zu essen fände ich wirklich schön.",
+          "en": "I'd really like to have dinner with you."
+        }
+      },
+      {
+        "korean": "그럼 다음에는 먼저 원하는 걸 물어볼게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dann frage ich nächstes Mal vorher, was du möchtest.",
+          "en": "Then next time, I'll ask what you want first."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b1_reasons_experience"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_explanatory_reason"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-거든요",
+        "de": "Begründung (umgangssprachlich)",
+        "en": "Reason (colloquial)"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Weißt du / nämlich: Begründung dem Gegenüber gegenüber",
+        "en": "You see / you know: giving a reason to the listener"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "sujin",
+        "ko": "제가 준비하려던 게 부담스러웠어요?",
+        "de": "War das, was ich vorbereiten wollte, zu viel für dich?",
+        "en": "Did what I was planning feel like too much?"
+      },
+      {
+        "speaker": "user",
+        "ko": "아니요. 축하가 싫었던 건 아니에요.",
+        "de": "Nein. Ich wollte nicht sagen, dass ich keine Feier mag.",
+        "en": "No. It wasn't that I didn't want to celebrate."
+      },
+      {
+        "speaker": "user",
+        "ko": "사람이 많은 자리가 조금 피곤하거든요.",
+        "de": "Große Gruppen strengen mich nur etwas an.",
+        "en": "Large gatherings just tire me out a bit."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "저는 제 계획이 싫다는 뜻인 줄 알았어요.",
+        "de": "Ich dachte, du fändest gerade meinen Plan unangenehm.",
+        "en": "I thought you specifically didn't like my plan."
+      },
+      {
+        "speaker": "user",
+        "ko": "수진이랑 저녁 먹는 건 정말 좋아요.",
+        "de": "Mit dir zu Abend zu essen fände ich wirklich schön.",
+        "en": "I'd really like to have dinner with you."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "그럼 다음에는 먼저 원하는 걸 물어볼게요.",
+        "de": "Dann frage ich nächstes Mal vorher, was du möchtest.",
+        "en": "Then next time, I'll ask what you want first."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_birthday_expectation_gap_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "제가 준비하려던 게 부담스러웠어요?",
+          "options": [
+            {
+              "de": "War das, was ich vorbereiten wollte, zu viel für dich?",
+              "en": "Did what I was planning feel like too much?"
+            },
+            {
+              "de": "Nein. Ich wollte nicht sagen, dass ich keine Feier mag.",
+              "en": "No. It wasn't that I didn't want to celebrate."
+            },
+            {
+              "de": "Große Gruppen strengen mich nur etwas an.",
+              "en": "Large gatherings just tire me out a bit."
+            },
+            {
+              "de": "Ich dachte, du fändest gerade meinen Plan unangenehm.",
+              "en": "I thought you specifically didn't like my plan."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_birthday_expectation_gap_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Nein. Ich wollte nicht sagen, dass ich keine Feier mag.",
+          "promptEn": "No. It wasn't that I didn't want to celebrate.",
+          "options": [
+            {
+              "ko": "아니요. 축하가 싫었던 건 아니에요."
+            },
+            {
+              "ko": "제가 준비하려던 게 부담스러웠어요?"
+            },
+            {
+              "ko": "사람이 많은 자리가 조금 피곤하거든요."
+            },
+            {
+              "ko": "저는 제 계획이 싫다는 뜻인 줄 알았어요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_birthday_expectation_gap_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "수진이랑 저녁 먹는 건 정말 좋아요.",
+          "audioKo": "수진이랑 저녁 먹는 건 정말 좋아요.",
+          "promptDe": "Mit dir zu Abend zu essen fände ich wirklich schön.",
+          "promptEn": "I'd really like to have dinner with you.",
+          "distractors": [
+            "제가 준비하려던 게 부담스러웠어요?",
+            "아니요. 축하가 싫었던 건 아니에요.",
+            "사람이 많은 자리가 조금 피곤하거든요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 120
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

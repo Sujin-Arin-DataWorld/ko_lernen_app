@@ -1,0 +1,243 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "delivery_rider_safety_tradeoff",
+  "scenario": {
+    "id": "delivery_rider_safety_tradeoff",
+    "level": "c1",
+    "emoji": "🏠",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "빠른 배달과 라이더 안전을 함께 논의하기",
+      "de": "Schnelle Lieferung und Fahrersicherheit zusammendenken",
+      "en": "Connecting fast delivery with rider safety"
+    },
+    "intro": {
+      "ko": "‘빠른 배달’ 배지가 주문을 늘리지만 위험한 운전을 부추길 수 있다는 지적이 나와요.",
+      "de": "Ein „Schnell geliefert“-Badge steigert Bestellungen, könnte aber riskantes Fahren fördern.",
+      "en": "A 'fast delivery' badge boosts orders but may encourage risky driving."
+    },
+    "courseUnitId": "c1_02_inclusive_sustainable_systems",
+    "playerCharacterId": "hyuna",
+    "participantIds": [
+      "hyuna",
+      "official",
+      "resident"
+    ],
+    "relationshipContext": "플랫폼 담당자, 라이더, 이용자 대표 현아",
+    "intent": "개인 운전 습관만 탓하지 않고 보상 구조와 표시 방식의 영향을 묻는다",
+    "shelf": "c1_policy",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "‘빠른 배달’ 배지는 고객이 가게를 빨리 고르게 하고 주문도 늘렸습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Das Label ‚Schnelle Lieferung‘ hilft Kunden, sich schneller für ein Restaurant zu entscheiden, und hat die Bestellungen erhöht.",
+          "en": "The 'fast delivery' badge helps customers choose a restaurant quickly and has increased orders."
+        }
+      },
+      {
+        "korean": "그 시간 안에 가려다 인도로 올라오는 오토바이를 자주 봤어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich sehe häufig Motorräder auf dem Gehweg, offenbar um die Zeitvorgabe zu schaffen.",
+          "en": "I often see motorcycles on the sidewalk, apparently trying to meet the time target."
+        }
+      },
+      {
+        "korean": "안전 문제를 개인의 주의만으로 설명하면 배달 시간을 압박하는 구조가 보이지 않습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn wir Sicherheit nur als individuelle Vorsicht behandeln, bleibt der Zeitdruck des Systems unsichtbar.",
+          "en": "If we explain safety only as individual caution, we miss the system that pressures delivery times."
+        }
+      },
+      {
+        "korean": "배지를 없애면 가게와 고객 모두 불편해질 수 있습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ohne das Badge könnten sowohl Geschäfte als auch Kunden Nachteile haben.",
+          "en": "Removing the badge could inconvenience both restaurants and customers."
+        }
+      },
+      {
+        "korean": "단일 도착 시간을 경쟁시키는 대신 안전 운행을 반영한 예상 범위를 시험해 보죠.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Statt um eine einzelne Zielzeit zu konkurrieren, könnten wir ein Zeitfenster testen, das sichere Fahrweise berücksichtigt.",
+          "en": "Instead of competing on one arrival time, let's test a range that accounts for safe riding."
+        }
+      },
+      {
+        "korean": "위험 신고와 실제 도착 시간도 함께 봐야 효과를 판단할 수 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Zur Bewertung sollten wir Gefahrenmeldungen und tatsächliche Lieferzeiten gemeinsam betrachten.",
+          "en": "To judge the effect, we should track hazard reports alongside actual delivery times."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_inclusive_systems"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b2_instead_tradeoff"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-는 대신(에)",
+        "de": "Ersatz mit Ausgleich",
+        "en": "Substitution or tradeoff"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Zeigt, dass eine Handlung oder Eigenschaft durch eine andere ersetzt oder durch einen Vor- oder Nachteil ausgeglichen wird.",
+        "en": "Shows that one action or quality replaces another, or that one side is balanced by a benefit or drawback."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "official",
+        "ko": "‘빠른 배달’ 배지는 고객이 가게를 빨리 고르게 하고 주문도 늘렸습니다.",
+        "de": "Das Label ‚Schnelle Lieferung‘ hilft Kunden, sich schneller für ein Restaurant zu entscheiden, und hat die Bestellungen erhöht.",
+        "en": "The 'fast delivery' badge helps customers choose a restaurant quickly and has increased orders."
+      },
+      {
+        "speaker": "resident",
+        "ko": "그 시간 안에 가려다 인도로 올라오는 오토바이를 자주 봤어요.",
+        "de": "Ich sehe häufig Motorräder auf dem Gehweg, offenbar um die Zeitvorgabe zu schaffen.",
+        "en": "I often see motorcycles on the sidewalk, apparently trying to meet the time target."
+      },
+      {
+        "speaker": "user",
+        "ko": "안전 문제를 개인의 주의만으로 설명하면 배달 시간을 압박하는 구조가 보이지 않습니다.",
+        "de": "Wenn wir Sicherheit nur als individuelle Vorsicht behandeln, bleibt der Zeitdruck des Systems unsichtbar.",
+        "en": "If we explain safety only as individual caution, we miss the system that pressures delivery times."
+      },
+      {
+        "speaker": "official",
+        "ko": "배지를 없애면 가게와 고객 모두 불편해질 수 있습니다.",
+        "de": "Ohne das Badge könnten sowohl Geschäfte als auch Kunden Nachteile haben.",
+        "en": "Removing the badge could inconvenience both restaurants and customers."
+      },
+      {
+        "speaker": "user",
+        "ko": "단일 도착 시간을 경쟁시키는 대신 안전 운행을 반영한 예상 범위를 시험해 보죠.",
+        "de": "Statt um eine einzelne Zielzeit zu konkurrieren, könnten wir ein Zeitfenster testen, das sichere Fahrweise berücksichtigt.",
+        "en": "Instead of competing on one arrival time, let's test a range that accounts for safe riding."
+      },
+      {
+        "speaker": "resident",
+        "ko": "위험 신고와 실제 도착 시간도 함께 봐야 효과를 판단할 수 있어요.",
+        "de": "Zur Bewertung sollten wir Gefahrenmeldungen und tatsächliche Lieferzeiten gemeinsam betrachten.",
+        "en": "To judge the effect, we should track hazard reports alongside actual delivery times."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_delivery_rider_safety_tradeoff_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "‘빠른 배달’ 배지는 고객이 가게를 빨리 고르게 하고 주문도 늘렸습니다.",
+          "options": [
+            {
+              "de": "Das Label ‚Schnelle Lieferung‘ hilft Kunden, sich schneller für ein Restaurant zu entscheiden, und hat die Bestellungen erhöht.",
+              "en": "The 'fast delivery' badge helps customers choose a restaurant quickly and has increased orders."
+            },
+            {
+              "de": "Ich sehe häufig Motorräder auf dem Gehweg, offenbar um die Zeitvorgabe zu schaffen.",
+              "en": "I often see motorcycles on the sidewalk, apparently trying to meet the time target."
+            },
+            {
+              "de": "Wenn wir Sicherheit nur als individuelle Vorsicht behandeln, bleibt der Zeitdruck des Systems unsichtbar.",
+              "en": "If we explain safety only as individual caution, we miss the system that pressures delivery times."
+            },
+            {
+              "de": "Ohne das Badge könnten sowohl Geschäfte als auch Kunden Nachteile haben.",
+              "en": "Removing the badge could inconvenience both restaurants and customers."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_delivery_rider_safety_tradeoff_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Wenn wir Sicherheit nur als individuelle Vorsicht behandeln, bleibt der Zeitdruck des Systems unsichtbar.",
+          "promptEn": "If we explain safety only as individual caution, we miss the system that pressures delivery times.",
+          "options": [
+            {
+              "ko": "안전 문제를 개인의 주의만으로 설명하면 배달 시간을 압박하는 구조가 보이지 않습니다."
+            },
+            {
+              "ko": "‘빠른 배달’ 배지는 고객이 가게를 빨리 고르게 하고 주문도 늘렸습니다."
+            },
+            {
+              "ko": "그 시간 안에 가려다 인도로 올라오는 오토바이를 자주 봤어요."
+            },
+            {
+              "ko": "배지를 없애면 가게와 고객 모두 불편해질 수 있습니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_delivery_rider_safety_tradeoff_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "단일 도착 시간을 경쟁시키는 대신 안전 운행을 반영한 예상 범위를 시험해 보죠.",
+          "audioKo": "단일 도착 시간을 경쟁시키는 대신 안전 운행을 반영한 예상 범위를 시험해 보죠.",
+          "promptDe": "Statt um eine einzelne Zielzeit zu konkurrieren, könnten wir ein Zeitfenster testen, das sichere Fahrweise berücksichtigt.",
+          "promptEn": "Instead of competing on one arrival time, let's test a range that accounts for safe riding.",
+          "distractors": [
+            "‘빠른 배달’ 배지는 고객이 가게를 빨리 고르게 하고 주문도 늘렸습니다.",
+            "그 시간 안에 가려다 인도로 올라오는 오토바이를 자주 봤어요.",
+            "안전 문제를 개인의 주의만으로 설명하면 배달 시간을 압박하는 구조가 보이지 않습니다."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 140
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

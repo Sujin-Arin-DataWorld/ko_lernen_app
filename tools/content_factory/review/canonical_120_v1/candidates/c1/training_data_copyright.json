@@ -1,0 +1,243 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "training_data_copyright",
+  "scenario": {
+    "id": "training_data_copyright",
+    "level": "c1",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "AI 학습 데이터의 출처를 설명해야 할 때",
+      "de": "Ein ungeklärtes KI-Bild vorerst ersetzen",
+      "en": "Replacing an AI image with unclear rights"
+    },
+    "intro": {
+      "ko": "생성 이미지가 특정 작가의 화풍과 매우 비슷하지만 학습 데이터와 권리 상태를 몰라요.",
+      "de": "Ein generiertes Bild ähnelt stark dem Stil einer bestimmten Künstlerin, doch Datengrundlage und Rechte sind unklar.",
+      "en": "A generated image closely resembles a particular artist's style, but the training data and rights status are unknown."
+    },
+    "courseUnitId": "c1_03_media_evidence_literacy",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "daniel",
+      "official"
+    ],
+    "relationshipContext": "마야, 다니엘, 법무가 아닌 프로젝트 담당자",
+    "intent": "법적 결론을 지어내지 않고 출처 확인 전 최종 사용을 보류하자고 제안한다",
+    "shelf": "c1_critique",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "시안 반응이 좋아서 이 이미지를 최종 캠페인에도 쓰고 싶습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Der Entwurf kommt gut an; wir würden das Bild gern in der finalen Kampagne verwenden.",
+          "en": "The draft is getting a good response, so we'd like to use this image in the final campaign."
+        }
+      },
+      {
+        "korean": "특정 작가의 최근 작품과 너무 비슷하다는 의견이 있습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Es gibt Hinweise, dass es den jüngsten Arbeiten einer bestimmten Künstlerin sehr ähnelt.",
+          "en": "There are concerns that it looks very similar to a particular artist's recent work."
+        }
+      },
+      {
+        "korean": "사용한 도구의 학습 데이터와 상업 이용 조건을 팀에서 확인했나요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Hat das Team Trainingsdaten und kommerzielle Nutzungsbedingungen des Werkzeugs geprüft?",
+          "en": "Has the team checked the tool's training data and commercial-use terms?"
+        }
+      },
+      {
+        "korean": "아직 확인하지 못했습니다. 지금 정보만으로 사용 가능하다고 단정하기는 어렵습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Noch nicht. Mit den derzeitigen Informationen können wir die Nutzung nicht als unbedenklich einstufen.",
+          "en": "Not yet. With the information we have, it's hard to conclude that we can use it."
+        }
+      },
+      {
+        "korean": "일정은 지키면서 위험을 줄일 대안이 있나요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gibt es eine Alternative, die das Risiko senkt, ohne den Zeitplan zu gefährden?",
+          "en": "Is there an alternative that reduces risk while keeping the schedule?"
+        }
+      },
+      {
+        "korean": "해당 이미지는 잠시 빼고 권리가 확인된 자체 촬영본으로 교체하겠습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir nehmen das Bild vorerst heraus und ersetzen es durch eigenes Material mit geklärten Rechten.",
+          "en": "We'll remove it for now and replace it with our own footage with verified rights."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_media_evidence"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_indirect_speech"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(ㄴ/는)다고 하다",
+        "de": "Indirekte Rede",
+        "en": "Indirect speech"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Sagt dass / hat gesagt dass: indirekte Wiedergabe",
+        "en": "Says that / said that: reporting speech indirectly"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "official",
+        "ko": "시안 반응이 좋아서 이 이미지를 최종 캠페인에도 쓰고 싶습니다.",
+        "de": "Der Entwurf kommt gut an; wir würden das Bild gern in der finalen Kampagne verwenden.",
+        "en": "The draft is getting a good response, so we'd like to use this image in the final campaign."
+      },
+      {
+        "speaker": "user",
+        "ko": "특정 작가의 최근 작품과 너무 비슷하다는 의견이 있습니다.",
+        "de": "Es gibt Hinweise, dass es den jüngsten Arbeiten einer bestimmten Künstlerin sehr ähnelt.",
+        "en": "There are concerns that it looks very similar to a particular artist's recent work."
+      },
+      {
+        "speaker": "daniel",
+        "ko": "사용한 도구의 학습 데이터와 상업 이용 조건을 팀에서 확인했나요?",
+        "de": "Hat das Team Trainingsdaten und kommerzielle Nutzungsbedingungen des Werkzeugs geprüft?",
+        "en": "Has the team checked the tool's training data and commercial-use terms?"
+      },
+      {
+        "speaker": "user",
+        "ko": "아직 확인하지 못했습니다. 지금 정보만으로 사용 가능하다고 단정하기는 어렵습니다.",
+        "de": "Noch nicht. Mit den derzeitigen Informationen können wir die Nutzung nicht als unbedenklich einstufen.",
+        "en": "Not yet. With the information we have, it's hard to conclude that we can use it."
+      },
+      {
+        "speaker": "official",
+        "ko": "일정은 지키면서 위험을 줄일 대안이 있나요?",
+        "de": "Gibt es eine Alternative, die das Risiko senkt, ohne den Zeitplan zu gefährden?",
+        "en": "Is there an alternative that reduces risk while keeping the schedule?"
+      },
+      {
+        "speaker": "user",
+        "ko": "해당 이미지는 잠시 빼고 권리가 확인된 자체 촬영본으로 교체하겠습니다.",
+        "de": "Wir nehmen das Bild vorerst heraus und ersetzen es durch eigenes Material mit geklärten Rechten.",
+        "en": "We'll remove it for now and replace it with our own footage with verified rights."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_training_data_copyright_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "시안 반응이 좋아서 이 이미지를 최종 캠페인에도 쓰고 싶습니다.",
+          "options": [
+            {
+              "de": "Der Entwurf kommt gut an; wir würden das Bild gern in der finalen Kampagne verwenden.",
+              "en": "The draft is getting a good response, so we'd like to use this image in the final campaign."
+            },
+            {
+              "de": "Es gibt Hinweise, dass es den jüngsten Arbeiten einer bestimmten Künstlerin sehr ähnelt.",
+              "en": "There are concerns that it looks very similar to a particular artist's recent work."
+            },
+            {
+              "de": "Hat das Team Trainingsdaten und kommerzielle Nutzungsbedingungen des Werkzeugs geprüft?",
+              "en": "Has the team checked the tool's training data and commercial-use terms?"
+            },
+            {
+              "de": "Noch nicht. Mit den derzeitigen Informationen können wir die Nutzung nicht als unbedenklich einstufen.",
+              "en": "Not yet. With the information we have, it's hard to conclude that we can use it."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_training_data_copyright_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Es gibt Hinweise, dass es den jüngsten Arbeiten einer bestimmten Künstlerin sehr ähnelt.",
+          "promptEn": "There are concerns that it looks very similar to a particular artist's recent work.",
+          "options": [
+            {
+              "ko": "특정 작가의 최근 작품과 너무 비슷하다는 의견이 있습니다."
+            },
+            {
+              "ko": "시안 반응이 좋아서 이 이미지를 최종 캠페인에도 쓰고 싶습니다."
+            },
+            {
+              "ko": "사용한 도구의 학습 데이터와 상업 이용 조건을 팀에서 확인했나요?"
+            },
+            {
+              "ko": "아직 확인하지 못했습니다. 지금 정보만으로 사용 가능하다고 단정하기는 어렵습니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_training_data_copyright_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "해당 이미지는 잠시 빼고 권리가 확인된 자체 촬영본으로 교체하겠습니다.",
+          "audioKo": "해당 이미지는 잠시 빼고 권리가 확인된 자체 촬영본으로 교체하겠습니다.",
+          "promptDe": "Wir nehmen das Bild vorerst heraus und ersetzen es durch eigenes Material mit geklärten Rechten.",
+          "promptEn": "We'll remove it for now and replace it with our own footage with verified rights.",
+          "distractors": [
+            "시안 반응이 좋아서 이 이미지를 최종 캠페인에도 쓰고 싶습니다.",
+            "특정 작가의 최근 작품과 너무 비슷하다는 의견이 있습니다.",
+            "사용한 도구의 학습 데이터와 상업 이용 조건을 팀에서 확인했나요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 140
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

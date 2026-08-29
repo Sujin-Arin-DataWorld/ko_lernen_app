@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "reel_caption_misunderstanding",
+  "scenario": {
+    "id": "reel_caption_misunderstanding",
+    "level": "b1",
+    "emoji": "💬",
+    "register": "casual",
+    "speechStyle": "casual",
+    "title": {
+      "ko": "릴스 자막이 가게를 비꼰 것처럼 보였을 때",
+      "de": "Wenn eine Reel-Bildunterschrift spöttisch wirkt",
+      "en": "When a reel caption sounds mocking"
+    },
+    "intro": {
+      "ko": "재미로 쓴 자막이 가게를 비꼬는 말처럼 보여요.",
+      "de": "Eine scherzhafte Bildunterschrift wirkt, als würdet ihr das Geschäft verspotten.",
+      "en": "A caption meant as a joke looks like it's mocking the shop."
+    },
+    "courseUnitId": "b1_02_indirect_speech",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "daniel"
+    ],
+    "relationshipContext": "프로젝트 동료 마야와 다니엘",
+    "intent": "의도와 실제 효과의 차이를 인정하고 수정안을 제안한다",
+    "shelf": "b1_delay",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "웃기려고 쓴 건데 가게를 비꼬는 것처럼 보여.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich wollte witzig sein, aber es wirkt, als würde ich den Laden verspotten.",
+          "en": "I meant it to be funny, but it looks like I'm mocking the shop."
+        }
+      },
+      {
+        "korean": "‘기다리다 늙겠다’가 직원한테 하는 말처럼 읽혀.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "„Beim Warten werde ich alt“ klingt, als wäre es gegen das Personal gerichtet.",
+          "en": "'I'll grow old waiting' reads like it's aimed at the staff."
+        }
+      },
+      {
+        "korean": "사실은 우리가 메뉴를 오래 못 고른 걸 말한 거였어.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Eigentlich meinte ich, dass wir uns ewig nicht entscheiden konnten.",
+          "en": "I was actually talking about how long we took to choose."
+        }
+      },
+      {
+        "korean": "그럼 ‘메뉴 못 고르는 우리’라고 대상을 분명히 하면 어때?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie wäre es mit „Wir können uns nicht entscheiden“, damit klar ist, dass der Witz auf uns zielt?",
+          "en": "Then how about making us the target: 'us, unable to pick a menu'?"
+        }
+      },
+      {
+        "korean": "좋다. 농담은 남기고 우리 얘기라는 것만 분명히 하자.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gut. Der Witz bleibt, aber wir machen klar, dass er auf uns zielt.",
+          "en": "Good. Let's keep the joke but make it clear that it's about us."
+        }
+      },
+      {
+        "korean": "좋아. 그렇게 바꾸자.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gut. Dann ändern wir es so.",
+          "en": "Good. Let's change it that way."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b1_indirect_speech"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_intention"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)려고",
+        "de": "Absicht / Ziel",
+        "en": "Intention / goal"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Um zu (Ziel einer Handlung)",
+        "en": "In order to (the goal of an action)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "웃기려고 쓴 건데 가게를 비꼬는 것처럼 보여.",
+        "de": "Ich wollte witzig sein, aber es wirkt, als würde ich den Laden verspotten.",
+        "en": "I meant it to be funny, but it looks like I'm mocking the shop."
+      },
+      {
+        "speaker": "daniel",
+        "ko": "‘기다리다 늙겠다’가 직원한테 하는 말처럼 읽혀.",
+        "de": "„Beim Warten werde ich alt“ klingt, als wäre es gegen das Personal gerichtet.",
+        "en": "'I'll grow old waiting' reads like it's aimed at the staff."
+      },
+      {
+        "speaker": "user",
+        "ko": "사실은 우리가 메뉴를 오래 못 고른 걸 말한 거였어.",
+        "de": "Eigentlich meinte ich, dass wir uns ewig nicht entscheiden konnten.",
+        "en": "I was actually talking about how long we took to choose."
+      },
+      {
+        "speaker": "daniel",
+        "ko": "그럼 ‘메뉴 못 고르는 우리’라고 대상을 분명히 하면 어때?",
+        "de": "Wie wäre es mit „Wir können uns nicht entscheiden“, damit klar ist, dass der Witz auf uns zielt?",
+        "en": "Then how about making us the target: 'us, unable to pick a menu'?"
+      },
+      {
+        "speaker": "user",
+        "ko": "좋다. 농담은 남기고 우리 얘기라는 것만 분명히 하자.",
+        "de": "Gut. Der Witz bleibt, aber wir machen klar, dass er auf uns zielt.",
+        "en": "Good. Let's keep the joke but make it clear that it's about us."
+      },
+      {
+        "speaker": "daniel",
+        "ko": "좋아. 그렇게 바꾸자.",
+        "de": "Gut. Dann ändern wir es so.",
+        "en": "Good. Let's change it that way."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_reel_caption_misunderstanding_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "‘기다리다 늙겠다’가 직원한테 하는 말처럼 읽혀.",
+          "options": [
+            {
+              "de": "„Beim Warten werde ich alt“ klingt, als wäre es gegen das Personal gerichtet.",
+              "en": "'I'll grow old waiting' reads like it's aimed at the staff."
+            },
+            {
+              "de": "Ich wollte witzig sein, aber es wirkt, als würde ich den Laden verspotten.",
+              "en": "I meant it to be funny, but it looks like I'm mocking the shop."
+            },
+            {
+              "de": "Eigentlich meinte ich, dass wir uns ewig nicht entscheiden konnten.",
+              "en": "I was actually talking about how long we took to choose."
+            },
+            {
+              "de": "Wie wäre es mit „Wir können uns nicht entscheiden“, damit klar ist, dass der Witz auf uns zielt?",
+              "en": "Then how about making us the target: 'us, unable to pick a menu'?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_reel_caption_misunderstanding_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ich wollte witzig sein, aber es wirkt, als würde ich den Laden verspotten.",
+          "promptEn": "I meant it to be funny, but it looks like I'm mocking the shop.",
+          "options": [
+            {
+              "ko": "웃기려고 쓴 건데 가게를 비꼬는 것처럼 보여."
+            },
+            {
+              "ko": "‘기다리다 늙겠다’가 직원한테 하는 말처럼 읽혀."
+            },
+            {
+              "ko": "사실은 우리가 메뉴를 오래 못 고른 걸 말한 거였어."
+            },
+            {
+              "ko": "그럼 ‘메뉴 못 고르는 우리’라고 대상을 분명히 하면 어때?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_reel_caption_misunderstanding_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "좋다. 농담은 남기고 우리 얘기라는 것만 분명히 하자.",
+          "audioKo": "좋다. 농담은 남기고 우리 얘기라는 것만 분명히 하자.",
+          "promptDe": "Gut. Der Witz bleibt, aber wir machen klar, dass er auf uns zielt.",
+          "promptEn": "Good. Let's keep the joke but make it clear that it's about us.",
+          "distractors": [
+            "웃기려고 쓴 건데 가게를 비꼬는 것처럼 보여.",
+            "‘기다리다 늙겠다’가 직원한테 하는 말처럼 읽혀.",
+            "사실은 우리가 메뉴를 오래 못 고른 걸 말한 거였어."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 120
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

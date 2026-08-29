@@ -1,0 +1,243 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "community_event_compromise",
+  "scenario": {
+    "id": "community_event_compromise",
+    "level": "b2",
+    "emoji": "🏠",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "동네 행사 시간과 소음을 절충하기",
+      "de": "Lärm und Nutzen eines Abendkinos abwägen",
+      "en": "Balancing noise and benefits of an evening film event"
+    },
+    "intro": {
+      "ko": "야간 영화제가 상권에는 도움이 되지만 주민은 늦은 소음을 걱정해요.",
+      "de": "Ein abendliches Filmfest hilft den Geschäften, aber Anwohner sorgen sich um den Lärm.",
+      "en": "An evening film festival helps local businesses, but residents are worried about late-night noise."
+    },
+    "courseUnitId": "b2_06_advanced_capstone",
+    "playerCharacterId": "hyuna",
+    "participantIds": [
+      "hyuna",
+      "resident",
+      "official"
+    ],
+    "relationshipContext": "행사 기획자와 인근 주민, 참여자 현아",
+    "intent": "행사 취지를 지키면서 종료 시간과 음향 조건을 제안한다",
+    "shelf": "b2_public",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "영화제가 골목 상권에는 도움이 된다는 의견이 많습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Viele sehen einen Nutzen für die Geschäfte in der Straße.",
+          "en": "Many people say the festival helps businesses in the neighborhood."
+        }
+      },
+      {
+        "korean": "취지는 좋지만 영화가 끝난 뒤까지 소음이 이어질까 걱정돼요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die Idee ist gut, aber ich fürchte, dass der Lärm nach dem Film weitergeht.",
+          "en": "I like the idea, but I'm worried the noise will continue after the film."
+        }
+      },
+      {
+        "korean": "행사 취지는 살리되 야외 음향은 아홉 시에 끝내는 게 어떨까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie wäre es, die Veranstaltung beizubehalten, aber den Außenton um neun zu beenden?",
+          "en": "How about keeping the event but ending outdoor sound at nine?"
+        }
+      },
+      {
+        "korean": "처음부터 여러 차례 열기보다 주말 하루만 시험해 볼 수 있습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Statt gleich mehrere Termine anzusetzen, könnten wir zunächst einen Samstag testen.",
+          "en": "Rather than schedule several events right away, we could test it on one weekend day."
+        }
+      },
+      {
+        "korean": "문제가 생겼을 때 바로 알릴 연락 창구도 필요해요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir brauchen auch eine Kontaktstelle, die während der Veranstaltung erreichbar ist.",
+          "en": "We also need a contact point for problems during the event."
+        }
+      },
+      {
+        "korean": "좋아요. 시험 운영 뒤 주민과 상인의 의견을 같이 확인하죠.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gut. Nach dem Test hören wir sowohl Anwohner als auch Geschäftsleute an.",
+          "en": "Good. After the trial, let's review feedback from residents and businesses."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b2_advanced"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b2_rather_than_direct"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-기보다",
+        "de": "Sanftere Alternative zur direkten Aussage",
+        "en": "Softer alternative to a direct move"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Stellt eine weniger direkte Handlung als bessere Wahl gegenüber einer scharfen Antwort dar.",
+        "en": "Presents a less direct action as the better choice against a blunt reply."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "official",
+        "ko": "영화제가 골목 상권에는 도움이 된다는 의견이 많습니다.",
+        "de": "Viele sehen einen Nutzen für die Geschäfte in der Straße.",
+        "en": "Many people say the festival helps businesses in the neighborhood."
+      },
+      {
+        "speaker": "resident",
+        "ko": "취지는 좋지만 영화가 끝난 뒤까지 소음이 이어질까 걱정돼요.",
+        "de": "Die Idee ist gut, aber ich fürchte, dass der Lärm nach dem Film weitergeht.",
+        "en": "I like the idea, but I'm worried the noise will continue after the film."
+      },
+      {
+        "speaker": "user",
+        "ko": "행사 취지는 살리되 야외 음향은 아홉 시에 끝내는 게 어떨까요?",
+        "de": "Wie wäre es, die Veranstaltung beizubehalten, aber den Außenton um neun zu beenden?",
+        "en": "How about keeping the event but ending outdoor sound at nine?"
+      },
+      {
+        "speaker": "official",
+        "ko": "처음부터 여러 차례 열기보다 주말 하루만 시험해 볼 수 있습니다.",
+        "de": "Statt gleich mehrere Termine anzusetzen, könnten wir zunächst einen Samstag testen.",
+        "en": "Rather than schedule several events right away, we could test it on one weekend day."
+      },
+      {
+        "speaker": "resident",
+        "ko": "문제가 생겼을 때 바로 알릴 연락 창구도 필요해요.",
+        "de": "Wir brauchen auch eine Kontaktstelle, die während der Veranstaltung erreichbar ist.",
+        "en": "We also need a contact point for problems during the event."
+      },
+      {
+        "speaker": "user",
+        "ko": "좋아요. 시험 운영 뒤 주민과 상인의 의견을 같이 확인하죠.",
+        "de": "Gut. Nach dem Test hören wir sowohl Anwohner als auch Geschäftsleute an.",
+        "en": "Good. After the trial, let's review feedback from residents and businesses."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_community_event_compromise_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "영화제가 골목 상권에는 도움이 된다는 의견이 많습니다.",
+          "options": [
+            {
+              "de": "Viele sehen einen Nutzen für die Geschäfte in der Straße.",
+              "en": "Many people say the festival helps businesses in the neighborhood."
+            },
+            {
+              "de": "Die Idee ist gut, aber ich fürchte, dass der Lärm nach dem Film weitergeht.",
+              "en": "I like the idea, but I'm worried the noise will continue after the film."
+            },
+            {
+              "de": "Wie wäre es, die Veranstaltung beizubehalten, aber den Außenton um neun zu beenden?",
+              "en": "How about keeping the event but ending outdoor sound at nine?"
+            },
+            {
+              "de": "Statt gleich mehrere Termine anzusetzen, könnten wir zunächst einen Samstag testen.",
+              "en": "Rather than schedule several events right away, we could test it on one weekend day."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_community_event_compromise_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Wie wäre es, die Veranstaltung beizubehalten, aber den Außenton um neun zu beenden?",
+          "promptEn": "How about keeping the event but ending outdoor sound at nine?",
+          "options": [
+            {
+              "ko": "행사 취지는 살리되 야외 음향은 아홉 시에 끝내는 게 어떨까요?"
+            },
+            {
+              "ko": "영화제가 골목 상권에는 도움이 된다는 의견이 많습니다."
+            },
+            {
+              "ko": "취지는 좋지만 영화가 끝난 뒤까지 소음이 이어질까 걱정돼요."
+            },
+            {
+              "ko": "처음부터 여러 차례 열기보다 주말 하루만 시험해 볼 수 있습니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_community_event_compromise_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "좋아요. 시험 운영 뒤 주민과 상인의 의견을 같이 확인하죠.",
+          "audioKo": "좋아요. 시험 운영 뒤 주민과 상인의 의견을 같이 확인하죠.",
+          "promptDe": "Gut. Nach dem Test hören wir sowohl Anwohner als auch Geschäftsleute an.",
+          "promptEn": "Good. After the trial, let's review feedback from residents and businesses.",
+          "distractors": [
+            "영화제가 골목 상권에는 도움이 된다는 의견이 많습니다.",
+            "취지는 좋지만 영화가 끝난 뒤까지 소음이 이어질까 걱정돼요.",
+            "행사 취지는 살리되 야외 음향은 아홉 시에 끝내는 게 어떨까요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 130
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

@@ -1,0 +1,243 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "replication_failure_response",
+  "scenario": {
+    "id": "replication_failure_response",
+    "level": "c2",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "연구 재현에 실패했을 때 원 논문을 평가하기",
+      "de": "Eine fehlgeschlagene Replikation ohne vorschnelles Urteil einordnen",
+      "en": "Interpreting a failed replication without overclaiming"
+    },
+    "intro": {
+      "ko": "유명 연구를 같은 방식으로 반복했지만 효과가 나오지 않았어요.",
+      "de": "Eine Wiederholung einer bekannten Studie findet den ursprünglichen Effekt nicht.",
+      "en": "A repetition of a well-known study fails to find the original effect."
+    },
+    "courseUnitId": "c2_01_interpretation_institutions",
+    "playerCharacterId": "hyuna",
+    "participantIds": [
+      "hyuna",
+      "professor",
+      "researcher"
+    ],
+    "relationshipContext": "연구자 현아와 교수, 동료",
+    "intent": "원 연구가 거짓이라고 단정하지 않고 표본·맥락·방법 차이와 누적 증거를 평가한다",
+    "shelf": "c2_ethics",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "같은 절차를 썼는데 효과가 없었으니 원 연구는 틀렸다고 발표해야 합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir haben dasselbe Verfahren genutzt und keinen Effekt gefunden. Also sollten wir die ursprüngliche Studie als falsch bezeichnen.",
+          "en": "We used the same procedure and found no effect, so we should say the original study was wrong."
+        }
+      },
+      {
+        "korean": "반대로 이번 표본에만 특수한 문제가 있었다고 넘기는 것도 설득력이 없습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Umgekehrt wäre es ebenso wenig überzeugend, das Ergebnis nur unserer Stichprobe zuzuschreiben.",
+          "en": "Conversely, dismissing it as a quirk of our sample isn't persuasive either."
+        }
+      },
+      {
+        "korean": "재현되지 않았다는 결과는 중요하지만 그것만으로 원 연구의 모든 주장이 거짓이라고 결론 내릴 수는 없습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die fehlende Replikation ist wichtig, erlaubt aber nicht, sämtliche Aussagen der ursprünglichen Studie für falsch zu erklären.",
+          "en": "The failed replication matters, but it doesn't let us conclude that every claim in the original study was false."
+        }
+      },
+      {
+        "korean": "그럼 이번 결과의 의미를 어떻게 분명하게 말하죠?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie formulieren wir dann klar, was unser Ergebnis bedeutet?",
+          "en": "Then how do we clearly state what our result means?"
+        }
+      },
+      {
+        "korean": "이 조건과 표본에서는 같은 효과가 확인되지 않았다고 쓰고, 결과가 달라질 수 있는 조건을 비교해야 합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir schreiben, dass sich der Effekt unter diesen Bedingungen und in dieser Stichprobe nicht zeigte, und vergleichen mögliche Moderatoren.",
+          "en": "State that the effect wasn't found in this sample under these conditions, then compare what conditions may account for the difference."
+        }
+      },
+      {
+        "korean": "측정 방식과 표본 구성 차이를 후속 연구의 가설로 명시합시다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dann benennen wir Messverfahren und Stichprobenzusammensetzung als Hypothesen für die Folgestudie.",
+          "en": "Let's name measurement and sample composition as hypotheses for follow-up research."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c2_discourse_institutions"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_background_contrast"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-는데",
+        "de": "Hintergrund / Kontrast",
+        "en": "Background / contrast"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Hintergrund geben oder milden Kontrast ausdrücken",
+        "en": "Give background or express mild contrast"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "researcher",
+        "ko": "같은 절차를 썼는데 효과가 없었으니 원 연구는 틀렸다고 발표해야 합니다.",
+        "de": "Wir haben dasselbe Verfahren genutzt und keinen Effekt gefunden. Also sollten wir die ursprüngliche Studie als falsch bezeichnen.",
+        "en": "We used the same procedure and found no effect, so we should say the original study was wrong."
+      },
+      {
+        "speaker": "professor",
+        "ko": "반대로 이번 표본에만 특수한 문제가 있었다고 넘기는 것도 설득력이 없습니다.",
+        "de": "Umgekehrt wäre es ebenso wenig überzeugend, das Ergebnis nur unserer Stichprobe zuzuschreiben.",
+        "en": "Conversely, dismissing it as a quirk of our sample isn't persuasive either."
+      },
+      {
+        "speaker": "user",
+        "ko": "재현되지 않았다는 결과는 중요하지만 그것만으로 원 연구의 모든 주장이 거짓이라고 결론 내릴 수는 없습니다.",
+        "de": "Die fehlende Replikation ist wichtig, erlaubt aber nicht, sämtliche Aussagen der ursprünglichen Studie für falsch zu erklären.",
+        "en": "The failed replication matters, but it doesn't let us conclude that every claim in the original study was false."
+      },
+      {
+        "speaker": "researcher",
+        "ko": "그럼 이번 결과의 의미를 어떻게 분명하게 말하죠?",
+        "de": "Wie formulieren wir dann klar, was unser Ergebnis bedeutet?",
+        "en": "Then how do we clearly state what our result means?"
+      },
+      {
+        "speaker": "user",
+        "ko": "이 조건과 표본에서는 같은 효과가 확인되지 않았다고 쓰고, 결과가 달라질 수 있는 조건을 비교해야 합니다.",
+        "de": "Wir schreiben, dass sich der Effekt unter diesen Bedingungen und in dieser Stichprobe nicht zeigte, und vergleichen mögliche Moderatoren.",
+        "en": "State that the effect wasn't found in this sample under these conditions, then compare what conditions may account for the difference."
+      },
+      {
+        "speaker": "professor",
+        "ko": "측정 방식과 표본 구성 차이를 후속 연구의 가설로 명시합시다.",
+        "de": "Dann benennen wir Messverfahren und Stichprobenzusammensetzung als Hypothesen für die Folgestudie.",
+        "en": "Let's name measurement and sample composition as hypotheses for follow-up research."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_replication_failure_response_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "같은 절차를 썼는데 효과가 없었으니 원 연구는 틀렸다고 발표해야 합니다.",
+          "options": [
+            {
+              "de": "Wir haben dasselbe Verfahren genutzt und keinen Effekt gefunden. Also sollten wir die ursprüngliche Studie als falsch bezeichnen.",
+              "en": "We used the same procedure and found no effect, so we should say the original study was wrong."
+            },
+            {
+              "de": "Umgekehrt wäre es ebenso wenig überzeugend, das Ergebnis nur unserer Stichprobe zuzuschreiben.",
+              "en": "Conversely, dismissing it as a quirk of our sample isn't persuasive either."
+            },
+            {
+              "de": "Die fehlende Replikation ist wichtig, erlaubt aber nicht, sämtliche Aussagen der ursprünglichen Studie für falsch zu erklären.",
+              "en": "The failed replication matters, but it doesn't let us conclude that every claim in the original study was false."
+            },
+            {
+              "de": "Wie formulieren wir dann klar, was unser Ergebnis bedeutet?",
+              "en": "Then how do we clearly state what our result means?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_replication_failure_response_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Die fehlende Replikation ist wichtig, erlaubt aber nicht, sämtliche Aussagen der ursprünglichen Studie für falsch zu erklären.",
+          "promptEn": "The failed replication matters, but it doesn't let us conclude that every claim in the original study was false.",
+          "options": [
+            {
+              "ko": "재현되지 않았다는 결과는 중요하지만 그것만으로 원 연구의 모든 주장이 거짓이라고 결론 내릴 수는 없습니다."
+            },
+            {
+              "ko": "같은 절차를 썼는데 효과가 없었으니 원 연구는 틀렸다고 발표해야 합니다."
+            },
+            {
+              "ko": "반대로 이번 표본에만 특수한 문제가 있었다고 넘기는 것도 설득력이 없습니다."
+            },
+            {
+              "ko": "그럼 이번 결과의 의미를 어떻게 분명하게 말하죠?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_replication_failure_response_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "이 조건과 표본에서는 같은 효과가 확인되지 않았다고 쓰고, 결과가 달라질 수 있는 조건을 비교해야 합니다.",
+          "audioKo": "이 조건과 표본에서는 같은 효과가 확인되지 않았다고 쓰고, 결과가 달라질 수 있는 조건을 비교해야 합니다.",
+          "promptDe": "Wir schreiben, dass sich der Effekt unter diesen Bedingungen und in dieser Stichprobe nicht zeigte, und vergleichen mögliche Moderatoren.",
+          "promptEn": "State that the effect wasn't found in this sample under these conditions, then compare what conditions may account for the difference.",
+          "distractors": [
+            "같은 절차를 썼는데 효과가 없었으니 원 연구는 틀렸다고 발표해야 합니다.",
+            "반대로 이번 표본에만 특수한 문제가 있었다고 넘기는 것도 설득력이 없습니다.",
+            "재현되지 않았다는 결과는 중요하지만 그것만으로 원 연구의 모든 주장이 거짓이라고 결론 내릴 수는 없습니다."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 150
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

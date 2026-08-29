@@ -1,0 +1,243 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "ai_image_disclosure",
+  "scenario": {
+    "id": "ai_image_disclosure",
+    "level": "b2",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "AI로 만든 이미지를 광고에 쓸 때",
+      "de": "Ein KI-Bild in einem Werbeentwurf kennzeichnen",
+      "en": "Disclosing an AI image in an ad draft"
+    },
+    "intro": {
+      "ko": "광고 시안의 배경이 AI 생성물인데 클라이언트에게 아직 말하지 않았어요.",
+      "de": "Der Hintergrund eines Werbeentwurfs wurde mit KI erstellt, aber der Auftraggeber weiß es noch nicht.",
+      "en": "The background in an ad draft was AI-generated, but the client hasn't been told yet."
+    },
+    "courseUnitId": "b2_02_professional_opinion",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "sujin",
+      "coworker"
+    ],
+    "relationshipContext": "마야와 수진, 프로젝트 동료",
+    "intent": "일정 이점을 인정하면서 출처와 사용 조건을 먼저 확인하자고 제안한다",
+    "shelf": "b2_evidence",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "이 배경은 시안용이니까 굳이 설명하지 않아도 되지 않을까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Der Hintergrund ist nur für den Entwurf. Müssen wir das wirklich erwähnen?",
+          "en": "The background is only for the draft. Do we really need to mention it?"
+        }
+      },
+      {
+        "korean": "AI로 만든 이미지라는 점은 먼저 알려야 하지 않을까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Sollten wir nicht zuerst darauf hinweisen, dass das Bild mit KI erstellt wurde?",
+          "en": "Shouldn't we disclose that the image was made with AI first?"
+        }
+      },
+      {
+        "korean": "임시 시안과 최종 사용은 구분할 필요가 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir sollten zwischen einem vorläufigen Entwurf und der endgültigen Nutzung unterscheiden.",
+          "en": "We need to distinguish between a temporary draft and final use."
+        }
+      },
+      {
+        "korean": "시안에는 표시하고 최종본은 조건을 확인하자는 뜻인가요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Also kennzeichnen wir den Entwurf und prüfen vor der finalen Nutzung die Bedingungen?",
+          "en": "So we label the draft and check the terms before final use?"
+        }
+      },
+      {
+        "korean": "네. 나중에 알리는 대신 지금 선택할 수 있게 해야 해요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Statt es später mitzuteilen, sollten wir jetzt eine echte Entscheidung ermöglichen.",
+          "en": "Yes. Instead of disclosing it later, we should let them decide now."
+        }
+      },
+      {
+        "korean": "좋아요. 표시 문구와 확인할 항목을 나눠서 적죠.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gut. Dann trennen wir den Hinweis von den Punkten, die noch geklärt werden müssen.",
+          "en": "Good. Let's separate the disclosure from the terms that still need review."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b2_opinion"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b2_instead_tradeoff"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-는 대신(에)",
+        "de": "Ersatz mit Ausgleich",
+        "en": "Substitution or tradeoff"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Zeigt, dass eine Handlung oder Eigenschaft durch eine andere ersetzt oder durch einen Vor- oder Nachteil ausgeglichen wird.",
+        "en": "Shows that one action or quality replaces another, or that one side is balanced by a benefit or drawback."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "coworker",
+        "ko": "이 배경은 시안용이니까 굳이 설명하지 않아도 되지 않을까요?",
+        "de": "Der Hintergrund ist nur für den Entwurf. Müssen wir das wirklich erwähnen?",
+        "en": "The background is only for the draft. Do we really need to mention it?"
+      },
+      {
+        "speaker": "user",
+        "ko": "AI로 만든 이미지라는 점은 먼저 알려야 하지 않을까요?",
+        "de": "Sollten wir nicht zuerst darauf hinweisen, dass das Bild mit KI erstellt wurde?",
+        "en": "Shouldn't we disclose that the image was made with AI first?"
+      },
+      {
+        "speaker": "sujin",
+        "ko": "임시 시안과 최종 사용은 구분할 필요가 있어요.",
+        "de": "Wir sollten zwischen einem vorläufigen Entwurf und der endgültigen Nutzung unterscheiden.",
+        "en": "We need to distinguish between a temporary draft and final use."
+      },
+      {
+        "speaker": "coworker",
+        "ko": "시안에는 표시하고 최종본은 조건을 확인하자는 뜻인가요?",
+        "de": "Also kennzeichnen wir den Entwurf und prüfen vor der finalen Nutzung die Bedingungen?",
+        "en": "So we label the draft and check the terms before final use?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네. 나중에 알리는 대신 지금 선택할 수 있게 해야 해요.",
+        "de": "Ja. Statt es später mitzuteilen, sollten wir jetzt eine echte Entscheidung ermöglichen.",
+        "en": "Yes. Instead of disclosing it later, we should let them decide now."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "좋아요. 표시 문구와 확인할 항목을 나눠서 적죠.",
+        "de": "Gut. Dann trennen wir den Hinweis von den Punkten, die noch geklärt werden müssen.",
+        "en": "Good. Let's separate the disclosure from the terms that still need review."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_ai_image_disclosure_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "이 배경은 시안용이니까 굳이 설명하지 않아도 되지 않을까요?",
+          "options": [
+            {
+              "de": "Der Hintergrund ist nur für den Entwurf. Müssen wir das wirklich erwähnen?",
+              "en": "The background is only for the draft. Do we really need to mention it?"
+            },
+            {
+              "de": "Sollten wir nicht zuerst darauf hinweisen, dass das Bild mit KI erstellt wurde?",
+              "en": "Shouldn't we disclose that the image was made with AI first?"
+            },
+            {
+              "de": "Wir sollten zwischen einem vorläufigen Entwurf und der endgültigen Nutzung unterscheiden.",
+              "en": "We need to distinguish between a temporary draft and final use."
+            },
+            {
+              "de": "Also kennzeichnen wir den Entwurf und prüfen vor der finalen Nutzung die Bedingungen?",
+              "en": "So we label the draft and check the terms before final use?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_ai_image_disclosure_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Sollten wir nicht zuerst darauf hinweisen, dass das Bild mit KI erstellt wurde?",
+          "promptEn": "Shouldn't we disclose that the image was made with AI first?",
+          "options": [
+            {
+              "ko": "AI로 만든 이미지라는 점은 먼저 알려야 하지 않을까요?"
+            },
+            {
+              "ko": "이 배경은 시안용이니까 굳이 설명하지 않아도 되지 않을까요?"
+            },
+            {
+              "ko": "임시 시안과 최종 사용은 구분할 필요가 있어요."
+            },
+            {
+              "ko": "시안에는 표시하고 최종본은 조건을 확인하자는 뜻인가요?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_ai_image_disclosure_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네. 나중에 알리는 대신 지금 선택할 수 있게 해야 해요.",
+          "audioKo": "네. 나중에 알리는 대신 지금 선택할 수 있게 해야 해요.",
+          "promptDe": "Ja. Statt es später mitzuteilen, sollten wir jetzt eine echte Entscheidung ermöglichen.",
+          "promptEn": "Yes. Instead of disclosing it later, we should let them decide now.",
+          "distractors": [
+            "이 배경은 시안용이니까 굳이 설명하지 않아도 되지 않을까요?",
+            "AI로 만든 이미지라는 점은 먼저 알려야 하지 않을까요?",
+            "임시 시안과 최종 사용은 구분할 필요가 있어요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 130
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

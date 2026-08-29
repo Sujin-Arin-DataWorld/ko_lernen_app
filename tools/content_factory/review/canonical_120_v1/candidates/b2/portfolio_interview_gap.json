@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "portfolio_interview_gap",
+  "scenario": {
+    "id": "portfolio_interview_gap",
+    "level": "b2",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "면접에서 포트폴리오 공백 설명하기",
+      "de": "Eine Lücke im Portfolio ehrlich erklären",
+      "en": "Explaining a portfolio gap honestly"
+    },
+    "intro": {
+      "ko": "면접관이 포트폴리오의 6개월 공백을 물어요.",
+      "de": "Im Gespräch wirst du nach einer sechsmonatigen Lücke im Portfolio gefragt.",
+      "en": "The interviewer asks about a six-month gap in your portfolio."
+    },
+    "courseUnitId": "b2_05_interview",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "interviewer"
+    ],
+    "relationshipContext": "지원자 마야와 면접관",
+    "intent": "과장 없이 그 기간의 학습과 단기 프로젝트를 업무 역량에 연결한다",
+    "shelf": "b2_meeting",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "이 기간에는 등록된 프로젝트가 없는데, 어떤 일을 하셨나요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Für diesen Zeitraum ist kein Projekt aufgeführt. Woran haben Sie damals gearbeitet?",
+          "en": "There are no listed projects for this period. What were you working on then?"
+        }
+      },
+      {
+        "korean": "정규직으로 일한 기간은 아니지만 프리랜서 협업을 했습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich war in dieser Zeit nicht fest angestellt, habe aber an freien Kooperationen gearbeitet.",
+          "en": "I wasn't employed full-time during that period, but I did freelance collaborations."
+        }
+      },
+      {
+        "korean": "구체적으로 어떤 역할을 맡으셨나요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Welche Aufgaben haben Sie dabei konkret übernommen?",
+          "en": "What did you specifically handle?"
+        }
+      },
+      {
+        "korean": "캠페인 문구와 일정 조율을 맡았습니다. 전체 프로젝트를 이끈 건 아닙니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich war für die Kampagnentexte und die Terminabstimmung zuständig, nicht für die Leitung des gesamten Projekts.",
+          "en": "I handled the campaign copy and scheduling. I didn't lead the entire project."
+        }
+      },
+      {
+        "korean": "결과물을 보여 주실 수 있나요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Können Sie Arbeitsproben davon zeigen?",
+          "en": "Can you show us any of the work?"
+        }
+      },
+      {
+        "korean": "네. 공개 가능한 두 프로젝트와 제 담당 범위를 표시해 두었습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Ich habe zwei freigegebene Projekte und meinen jeweiligen Anteil gekennzeichnet.",
+          "en": "Yes. I've included two projects I can share and marked my contribution."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b2_interview"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_background_contrast"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-는데",
+        "de": "Hintergrund / Kontrast",
+        "en": "Background / contrast"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Hintergrund geben oder milden Kontrast ausdrücken",
+        "en": "Give background or express mild contrast"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "interviewer",
+        "ko": "이 기간에는 등록된 프로젝트가 없는데, 어떤 일을 하셨나요?",
+        "de": "Für diesen Zeitraum ist kein Projekt aufgeführt. Woran haben Sie damals gearbeitet?",
+        "en": "There are no listed projects for this period. What were you working on then?"
+      },
+      {
+        "speaker": "user",
+        "ko": "정규직으로 일한 기간은 아니지만 프리랜서 협업을 했습니다.",
+        "de": "Ich war in dieser Zeit nicht fest angestellt, habe aber an freien Kooperationen gearbeitet.",
+        "en": "I wasn't employed full-time during that period, but I did freelance collaborations."
+      },
+      {
+        "speaker": "interviewer",
+        "ko": "구체적으로 어떤 역할을 맡으셨나요?",
+        "de": "Welche Aufgaben haben Sie dabei konkret übernommen?",
+        "en": "What did you specifically handle?"
+      },
+      {
+        "speaker": "user",
+        "ko": "캠페인 문구와 일정 조율을 맡았습니다. 전체 프로젝트를 이끈 건 아닙니다.",
+        "de": "Ich war für die Kampagnentexte und die Terminabstimmung zuständig, nicht für die Leitung des gesamten Projekts.",
+        "en": "I handled the campaign copy and scheduling. I didn't lead the entire project."
+      },
+      {
+        "speaker": "interviewer",
+        "ko": "결과물을 보여 주실 수 있나요?",
+        "de": "Können Sie Arbeitsproben davon zeigen?",
+        "en": "Can you show us any of the work?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네. 공개 가능한 두 프로젝트와 제 담당 범위를 표시해 두었습니다.",
+        "de": "Ja. Ich habe zwei freigegebene Projekte und meinen jeweiligen Anteil gekennzeichnet.",
+        "en": "Yes. I've included two projects I can share and marked my contribution."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_portfolio_interview_gap_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "이 기간에는 등록된 프로젝트가 없는데, 어떤 일을 하셨나요?",
+          "options": [
+            {
+              "de": "Für diesen Zeitraum ist kein Projekt aufgeführt. Woran haben Sie damals gearbeitet?",
+              "en": "There are no listed projects for this period. What were you working on then?"
+            },
+            {
+              "de": "Ich war in dieser Zeit nicht fest angestellt, habe aber an freien Kooperationen gearbeitet.",
+              "en": "I wasn't employed full-time during that period, but I did freelance collaborations."
+            },
+            {
+              "de": "Welche Aufgaben haben Sie dabei konkret übernommen?",
+              "en": "What did you specifically handle?"
+            },
+            {
+              "de": "Ich war für die Kampagnentexte und die Terminabstimmung zuständig, nicht für die Leitung des gesamten Projekts.",
+              "en": "I handled the campaign copy and scheduling. I didn't lead the entire project."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_portfolio_interview_gap_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ich war in dieser Zeit nicht fest angestellt, habe aber an freien Kooperationen gearbeitet.",
+          "promptEn": "I wasn't employed full-time during that period, but I did freelance collaborations.",
+          "options": [
+            {
+              "ko": "정규직으로 일한 기간은 아니지만 프리랜서 협업을 했습니다."
+            },
+            {
+              "ko": "이 기간에는 등록된 프로젝트가 없는데, 어떤 일을 하셨나요?"
+            },
+            {
+              "ko": "구체적으로 어떤 역할을 맡으셨나요?"
+            },
+            {
+              "ko": "캠페인 문구와 일정 조율을 맡았습니다. 전체 프로젝트를 이끈 건 아닙니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_portfolio_interview_gap_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네. 공개 가능한 두 프로젝트와 제 담당 범위를 표시해 두었습니다.",
+          "audioKo": "네. 공개 가능한 두 프로젝트와 제 담당 범위를 표시해 두었습니다.",
+          "promptDe": "Ja. Ich habe zwei freigegebene Projekte und meinen jeweiligen Anteil gekennzeichnet.",
+          "promptEn": "Yes. I've included two projects I can share and marked my contribution.",
+          "distractors": [
+            "이 기간에는 등록된 프로젝트가 없는데, 어떤 일을 하셨나요?",
+            "정규직으로 일한 기간은 아니지만 프리랜서 협업을 했습니다.",
+            "구체적으로 어떤 역할을 맡으셨나요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 130
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "reg_mistake_c1_postmortem",
+  "scenario": {
+    "id": "reg_mistake_c1_postmortem",
+    "level": "c1",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "실패 회고에서 개인 비난을 넘어서기",
+      "de": "In einer Fehleranalyse über die letzte Person hinausblicken",
+      "en": "Looking beyond the last person in a failure review"
+    },
+    "intro": {
+      "ko": "한 사람이 잘못된 설정을 적용했지만 검토와 알림, 복구 장치도 모두 작동하지 않았어요.",
+      "de": "Eine Person spielte eine falsche Konfiguration ein, doch Prüfung, Alarm und Wiederherstellung versagten ebenfalls.",
+      "en": "One person applied the wrong setting, but review, alerts, and recovery safeguards all failed too."
+    },
+    "courseUnitId": "c1_01_evidence_public_reasoning",
+    "playerCharacterId": "sujin",
+    "participantIds": [
+      "sujin",
+      "andrea"
+    ],
+    "relationshipContext": "개발자와 팀 리더",
+    "intent": "개인의 행위와 시스템 조건을 분리해 재발 방지를 제안한다",
+    "shelf": "c1_facework",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "마지막으로 설정을 바꾼 담당자의 실수가 직접 원인이었습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Der unmittelbare Auslöser war der Fehler der Person, die zuletzt die Konfiguration geändert hat.",
+          "en": "The direct trigger was the mistake made by the person who last changed the setting."
+        }
+      },
+      {
+        "korean": "마지막으로 설정을 바꾼 사람만 보면 검토 장치가 왜 작동하지 않았는지는 놓치게 됩니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn wir nur auf die letzte Person schauen, übersehen wir, warum die Kontrollmechanismen nicht gegriffen haben.",
+          "en": "If we look only at the last person who changed the setting, we miss why the review safeguards failed."
+        }
+      },
+      {
+        "korean": "개인 책임을 흐리자는 뜻으로 들릴 수도 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Das könnte so klingen, als wollten wir die individuelle Verantwortung verwischen.",
+          "en": "That could sound like we're trying to blur individual responsibility."
+        }
+      },
+      {
+        "korean": "개인의 판단은 따로 평가하되 같은 실수가 사고가 되게 만든 조건도 고쳐야 합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die individuelle Entscheidung kann separat bewertet werden; zugleich müssen wir die Bedingungen ändern, die daraus einen Ausfall machten.",
+          "en": "We can evaluate the individual's judgment separately while fixing the conditions that turned the mistake into an outage."
+        }
+      },
+      {
+        "korean": "검토 승인, 경보, 복구 권한이 각각 어디서 끊겼는지 보자는 거군요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dann untersuchen wir getrennt, wo Freigabe, Alarmierung und Wiederherstellungsbefugnis versagten.",
+          "en": "So we trace separately where review approval, alerts, and recovery authority broke down."
+        }
+      },
+      {
+        "korean": "네. 인사 조치와 기술적 재발 방지를 한 결론으로 묶지 않아야 둘 다 제대로 다룰 수 있습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Personalmaßnahme und technische Prävention dürfen nicht zu einer einzigen Schlussfolgerung verschmelzen.",
+          "en": "Yes. Keeping personnel action and technical prevention separate lets us address both properly."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_evidence_reasoning"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_c1_but_not"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-되, N은 V-지 않는다",
+        "de": "Zugeständnis mit Grenze",
+        "en": "Concession with a limit"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Räumt einen Teil ein und zieht im selben Satz die Grenze, bis zu der er gilt.",
+        "en": "Grants one part and draws, in the same sentence, the line where it stops."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "andrea",
+        "ko": "마지막으로 설정을 바꾼 담당자의 실수가 직접 원인이었습니다.",
+        "de": "Der unmittelbare Auslöser war der Fehler der Person, die zuletzt die Konfiguration geändert hat.",
+        "en": "The direct trigger was the mistake made by the person who last changed the setting."
+      },
+      {
+        "speaker": "user",
+        "ko": "마지막으로 설정을 바꾼 사람만 보면 검토 장치가 왜 작동하지 않았는지는 놓치게 됩니다.",
+        "de": "Wenn wir nur auf die letzte Person schauen, übersehen wir, warum die Kontrollmechanismen nicht gegriffen haben.",
+        "en": "If we look only at the last person who changed the setting, we miss why the review safeguards failed."
+      },
+      {
+        "speaker": "andrea",
+        "ko": "개인 책임을 흐리자는 뜻으로 들릴 수도 있어요.",
+        "de": "Das könnte so klingen, als wollten wir die individuelle Verantwortung verwischen.",
+        "en": "That could sound like we're trying to blur individual responsibility."
+      },
+      {
+        "speaker": "user",
+        "ko": "개인의 판단은 따로 평가하되 같은 실수가 사고가 되게 만든 조건도 고쳐야 합니다.",
+        "de": "Die individuelle Entscheidung kann separat bewertet werden; zugleich müssen wir die Bedingungen ändern, die daraus einen Ausfall machten.",
+        "en": "We can evaluate the individual's judgment separately while fixing the conditions that turned the mistake into an outage."
+      },
+      {
+        "speaker": "andrea",
+        "ko": "검토 승인, 경보, 복구 권한이 각각 어디서 끊겼는지 보자는 거군요.",
+        "de": "Dann untersuchen wir getrennt, wo Freigabe, Alarmierung und Wiederherstellungsbefugnis versagten.",
+        "en": "So we trace separately where review approval, alerts, and recovery authority broke down."
+      },
+      {
+        "speaker": "user",
+        "ko": "네. 인사 조치와 기술적 재발 방지를 한 결론으로 묶지 않아야 둘 다 제대로 다룰 수 있습니다.",
+        "de": "Ja. Personalmaßnahme und technische Prävention dürfen nicht zu einer einzigen Schlussfolgerung verschmelzen.",
+        "en": "Yes. Keeping personnel action and technical prevention separate lets us address both properly."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_reg_mistake_c1_postmortem_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "마지막으로 설정을 바꾼 담당자의 실수가 직접 원인이었습니다.",
+          "options": [
+            {
+              "de": "Der unmittelbare Auslöser war der Fehler der Person, die zuletzt die Konfiguration geändert hat.",
+              "en": "The direct trigger was the mistake made by the person who last changed the setting."
+            },
+            {
+              "de": "Wenn wir nur auf die letzte Person schauen, übersehen wir, warum die Kontrollmechanismen nicht gegriffen haben.",
+              "en": "If we look only at the last person who changed the setting, we miss why the review safeguards failed."
+            },
+            {
+              "de": "Das könnte so klingen, als wollten wir die individuelle Verantwortung verwischen.",
+              "en": "That could sound like we're trying to blur individual responsibility."
+            },
+            {
+              "de": "Die individuelle Entscheidung kann separat bewertet werden; zugleich müssen wir die Bedingungen ändern, die daraus einen Ausfall machten.",
+              "en": "We can evaluate the individual's judgment separately while fixing the conditions that turned the mistake into an outage."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_reg_mistake_c1_postmortem_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Wenn wir nur auf die letzte Person schauen, übersehen wir, warum die Kontrollmechanismen nicht gegriffen haben.",
+          "promptEn": "If we look only at the last person who changed the setting, we miss why the review safeguards failed.",
+          "options": [
+            {
+              "ko": "마지막으로 설정을 바꾼 사람만 보면 검토 장치가 왜 작동하지 않았는지는 놓치게 됩니다."
+            },
+            {
+              "ko": "마지막으로 설정을 바꾼 담당자의 실수가 직접 원인이었습니다."
+            },
+            {
+              "ko": "개인 책임을 흐리자는 뜻으로 들릴 수도 있어요."
+            },
+            {
+              "ko": "개인의 판단은 따로 평가하되 같은 실수가 사고가 되게 만든 조건도 고쳐야 합니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_reg_mistake_c1_postmortem_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네. 인사 조치와 기술적 재발 방지를 한 결론으로 묶지 않아야 둘 다 제대로 다룰 수 있습니다.",
+          "audioKo": "네. 인사 조치와 기술적 재발 방지를 한 결론으로 묶지 않아야 둘 다 제대로 다룰 수 있습니다.",
+          "promptDe": "Ja. Personalmaßnahme und technische Prävention dürfen nicht zu einer einzigen Schlussfolgerung verschmelzen.",
+          "promptEn": "Yes. Keeping personnel action and technical prevention separate lets us address both properly.",
+          "distractors": [
+            "마지막으로 설정을 바꾼 담당자의 실수가 직접 원인이었습니다.",
+            "마지막으로 설정을 바꾼 사람만 보면 검토 장치가 왜 작동하지 않았는지는 놓치게 됩니다.",
+            "개인 책임을 흐리자는 뜻으로 들릴 수도 있어요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 140
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

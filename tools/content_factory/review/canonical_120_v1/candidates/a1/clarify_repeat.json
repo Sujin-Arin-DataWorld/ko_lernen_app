@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "clarify_repeat",
+  "scenario": {
+    "id": "clarify_repeat",
+    "level": "a1",
+    "emoji": "🚇",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "지하철 출구를 다시 묻기",
+      "de": "Noch einmal nach dem Ausgang fragen",
+      "en": "Asking about the exit again"
+    },
+    "intro": {
+      "ko": "지하철 출구 번호를 잘 못 들었어요.",
+      "de": "Du hast die Nummer des U-Bahn-Ausgangs nicht richtig verstanden.",
+      "en": "You didn't catch the subway exit number."
+    },
+    "courseUnitId": "a1_08_clarify_repair",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "clerk"
+    ],
+    "relationshipContext": "여행자와 역 직원",
+    "intent": "다시 천천히 말해 달라고 한다",
+    "shelf": "a1_transit",
+    "backdrop": "station",
+    "vocab": [
+      {
+        "korean": "시청은 몇 번 출구예요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Welcher Ausgang führt zum Rathaus?",
+          "en": "Which exit is for City Hall?"
+        }
+      },
+      {
+        "korean": "13번 출구예요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ausgang 13.",
+          "en": "Exit 13."
+        }
+      },
+      {
+        "korean": "3번 출구요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ausgang 3?",
+          "en": "Exit 3?"
+        }
+      },
+      {
+        "korean": "아니요, 13번이요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Nein, Ausgang 13.",
+          "en": "No, exit 13."
+        }
+      },
+      {
+        "korean": "다시 말씀해 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Bitte sagen Sie das noch einmal.",
+          "en": "Could you say that again?"
+        }
+      },
+      {
+        "korean": "십삼 번 출구예요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ausgang dreizehn.",
+          "en": "Exit thirteen."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a1_clarification"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_copula_polite"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N이에요/예요",
+        "de": "Kopula (sein)",
+        "en": "Copula (to be)"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Nach Konsonant: 이에요 · Nach Vokal: 예요",
+        "en": "After a consonant: 이에요 · after a vowel: 예요"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "시청은 몇 번 출구예요?",
+        "de": "Welcher Ausgang führt zum Rathaus?",
+        "en": "Which exit is for City Hall?"
+      },
+      {
+        "speaker": "clerk",
+        "ko": "13번 출구예요.",
+        "de": "Ausgang 13.",
+        "en": "Exit 13."
+      },
+      {
+        "speaker": "user",
+        "ko": "3번 출구요?",
+        "de": "Ausgang 3?",
+        "en": "Exit 3?"
+      },
+      {
+        "speaker": "clerk",
+        "ko": "아니요, 13번이요.",
+        "de": "Nein, Ausgang 13.",
+        "en": "No, exit 13."
+      },
+      {
+        "speaker": "user",
+        "ko": "다시 말씀해 주세요.",
+        "de": "Bitte sagen Sie das noch einmal.",
+        "en": "Could you say that again?"
+      },
+      {
+        "speaker": "clerk",
+        "ko": "십삼 번 출구예요.",
+        "de": "Ausgang dreizehn.",
+        "en": "Exit thirteen."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_clarify_repeat_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "13번 출구예요.",
+          "options": [
+            {
+              "de": "Ausgang 13.",
+              "en": "Exit 13."
+            },
+            {
+              "de": "Welcher Ausgang führt zum Rathaus?",
+              "en": "Which exit is for City Hall?"
+            },
+            {
+              "de": "Ausgang 3?",
+              "en": "Exit 3?"
+            },
+            {
+              "de": "Nein, Ausgang 13.",
+              "en": "No, exit 13."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_clarify_repeat_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Welcher Ausgang führt zum Rathaus?",
+          "promptEn": "Which exit is for City Hall?",
+          "options": [
+            {
+              "ko": "시청은 몇 번 출구예요?"
+            },
+            {
+              "ko": "13번 출구예요."
+            },
+            {
+              "ko": "3번 출구요?"
+            },
+            {
+              "ko": "아니요, 13번이요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_clarify_repeat_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "다시 말씀해 주세요.",
+          "audioKo": "다시 말씀해 주세요.",
+          "promptDe": "Bitte sagen Sie das noch einmal.",
+          "promptEn": "Could you say that again?",
+          "distractors": [
+            "시청은 몇 번 출구예요?",
+            "13번 출구예요.",
+            "3번 출구요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 100
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

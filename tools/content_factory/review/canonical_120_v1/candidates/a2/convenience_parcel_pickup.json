@@ -1,0 +1,254 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "convenience_parcel_pickup",
+  "scenario": {
+    "id": "convenience_parcel_pickup",
+    "level": "a2",
+    "emoji": "📦",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "편의점 택배 찾기",
+      "de": "Ein Paket im Convenience Store abholen",
+      "en": "Picking up a parcel at a convenience store"
+    },
+    "intro": {
+      "ko": "도착 알림을 받고 편의점에 왔어요.",
+      "de": "Nach der Abholbenachrichtigung gehst du zum Convenience Store.",
+      "en": "You received a pickup notice and went to the convenience store."
+    },
+    "courseUnitId": "a2_05_delivery_services",
+    "playerCharacterId": "lena",
+    "participantIds": [
+      "lena",
+      "clerk"
+    ],
+    "relationshipContext": "손님과 편의점 직원",
+    "intent": "알림을 보여 주고 필요한 확인 정보를 말한다",
+    "shelf": "a2_delivery",
+    "backdrop": "convenience",
+    "vocab": [
+      {
+        "korean": "어서 오세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Hallo.",
+          "en": "Hello."
+        }
+      },
+      {
+        "korean": "택배 찾으러 왔어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich möchte ein Paket abholen.",
+          "en": "I'm here to pick up a package."
+        }
+      },
+      {
+        "korean": "도착 알림 보여 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Zeigen Sie mir bitte die Abholbenachrichtigung.",
+          "en": "Please show me the pickup notice."
+        }
+      },
+      {
+        "korean": "네, 여기 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, hier.",
+          "en": "Yes, here it is."
+        }
+      },
+      {
+        "korean": "보관 번호 2841 맞으세요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ist die Abholnummer 2841?",
+          "en": "Is the pickup number 2841?"
+        }
+      },
+      {
+        "korean": "네, 맞아요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, genau.",
+          "en": "Yes, that's right."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a2_services"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a2_cause_sequence"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-아/어서",
+        "de": "Grund / Reihenfolge",
+        "en": "Reason / sequence"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Weil (Grund) oder und dann (zeitliche Abfolge)",
+        "en": "Because (reason) or and then (time sequence)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "clerk",
+        "ko": "어서 오세요.",
+        "de": "Hallo.",
+        "en": "Hello."
+      },
+      {
+        "speaker": "user",
+        "ko": "택배 찾으러 왔어요.",
+        "de": "Ich möchte ein Paket abholen.",
+        "en": "I'm here to pick up a package."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "도착 알림 보여 주세요.",
+        "de": "Zeigen Sie mir bitte die Abholbenachrichtigung.",
+        "en": "Please show me the pickup notice."
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 여기 있어요.",
+        "de": "Ja, hier.",
+        "en": "Yes, here it is."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "보관 번호 2841 맞으세요?",
+        "de": "Ist die Abholnummer 2841?",
+        "en": "Is the pickup number 2841?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 맞아요.",
+        "de": "Ja, genau.",
+        "en": "Yes, that's right."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "확인됐어요. 여기 있습니다.",
+        "de": "Alles bestätigt. Hier ist das Paket.",
+        "en": "That's confirmed. Here's your package."
+      },
+      {
+        "speaker": "user",
+        "ko": "감사합니다.",
+        "de": "Danke.",
+        "en": "Thank you."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_convenience_parcel_pickup_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "어서 오세요.",
+          "options": [
+            {
+              "de": "Hallo.",
+              "en": "Hello."
+            },
+            {
+              "de": "Ich möchte ein Paket abholen.",
+              "en": "I'm here to pick up a package."
+            },
+            {
+              "de": "Zeigen Sie mir bitte die Abholbenachrichtigung.",
+              "en": "Please show me the pickup notice."
+            },
+            {
+              "de": "Ja, hier.",
+              "en": "Yes, here it is."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_convenience_parcel_pickup_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ich möchte ein Paket abholen.",
+          "promptEn": "I'm here to pick up a package.",
+          "options": [
+            {
+              "ko": "택배 찾으러 왔어요."
+            },
+            {
+              "ko": "어서 오세요."
+            },
+            {
+              "ko": "도착 알림 보여 주세요."
+            },
+            {
+              "ko": "네, 여기 있어요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_convenience_parcel_pickup_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "감사합니다.",
+          "audioKo": "감사합니다.",
+          "promptDe": "Danke.",
+          "promptEn": "Thank you.",
+          "distractors": [
+            "어서 오세요.",
+            "택배 찾으러 왔어요.",
+            "도착 알림 보여 주세요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 110
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

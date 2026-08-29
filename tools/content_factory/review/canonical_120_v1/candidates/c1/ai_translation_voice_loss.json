@@ -1,0 +1,253 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "ai_translation_voice_loss",
+  "scenario": {
+    "id": "ai_translation_voice_loss",
+    "level": "c1",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "AI 번역이 인터뷰이의 말투를 지웠을 때",
+      "de": "Unsicherheit und Hörensagen in KI-Untertiteln bewahren",
+      "en": "Preserving uncertainty and reported speech in AI subtitles"
+    },
+    "intro": {
+      "ko": "자동 번역이 인터뷰이의 망설임과 전언을 모두 확정적인 문장으로 바꿨어요.",
+      "de": "Automatische Untertitel verwandeln Zögern und Hörensagen in sichere Behauptungen.",
+      "en": "Automatic subtitles turn hesitation and reported information into firm claims."
+    },
+    "courseUnitId": "c1_03_media_evidence_literacy",
+    "playerCharacterId": "daniel",
+    "participantIds": [
+      "daniel",
+      "hyuna"
+    ],
+    "relationshipContext": "영상 제작자 다니엘과 연구자 현아",
+    "intent": "읽기 쉬움과 화자의 책임 수준을 함께 보존하는 수정 원칙을 제안한다",
+    "shelf": "c1_critique",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "자동 자막은 짧고 읽기 쉬워졌는데 무엇이 문제야?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die automatischen Untertitel sind kürzer und leichter zu lesen. Wo liegt das Problem?",
+          "en": "The automatic subtitles are shorter and easier to read. What's the issue?"
+        }
+      },
+      {
+        "korean": "원문은 ‘주민들한테 들었는데 그런 것 같아요’라고 했어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Im Original heißt es: „Ich habe es von Anwohnern gehört und glaube, dass es so sein könnte.“",
+          "en": "The original says, 'I heard it from residents, and I think that may be the case.'"
+        }
+      },
+      {
+        "korean": "자막은 ‘그렇습니다’로 끝나 있네.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Im Untertitel steht nur: „So ist es.“",
+          "en": "The subtitle just says, 'That is the case.'"
+        }
+      },
+      {
+        "korean": "문장을 매끄럽게 만든다고 화자가 직접 확인한 사실처럼 바꾸면 안 돼요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Glattere Sprache darf aus Hörensagen keine persönlich bestätigte Tatsache machen.",
+          "en": "Smoothing the sentence must not turn reported information into something the speaker verified personally."
+        }
+      },
+      {
+        "korean": "반복은 줄이되 ‘들었다’와 ‘그런 것 같다’는 남겨야겠어.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dann kürzen wir Wiederholungen, behalten aber „gehört“ und „scheint so“ bei.",
+          "en": "Then we'll trim repetition but keep 'heard' and 'seems.'"
+        }
+      },
+      {
+        "korean": "맞아요. 길이보다 정보의 출처와 확신 정도가 먼저예요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Genau. Quelle und Gewissheitsgrad sind wichtiger als maximale Kürze.",
+          "en": "Exactly. Source and degree of certainty matter more than maximum brevity."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_media_evidence"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_background_contrast"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-는데",
+        "de": "Hintergrund / Kontrast",
+        "en": "Background / contrast"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Hintergrund geben oder milden Kontrast ausdrücken",
+        "en": "Give background or express mild contrast"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "자동 자막은 짧고 읽기 쉬워졌는데 무엇이 문제야?",
+        "de": "Die automatischen Untertitel sind kürzer und leichter zu lesen. Wo liegt das Problem?",
+        "en": "The automatic subtitles are shorter and easier to read. What's the issue?"
+      },
+      {
+        "speaker": "hyuna",
+        "ko": "원문은 ‘주민들한테 들었는데 그런 것 같아요’라고 했어요.",
+        "de": "Im Original heißt es: „Ich habe es von Anwohnern gehört und glaube, dass es so sein könnte.“",
+        "en": "The original says, 'I heard it from residents, and I think that may be the case.'"
+      },
+      {
+        "speaker": "user",
+        "ko": "자막은 ‘그렇습니다’로 끝나 있네.",
+        "de": "Im Untertitel steht nur: „So ist es.“",
+        "en": "The subtitle just says, 'That is the case.'"
+      },
+      {
+        "speaker": "hyuna",
+        "ko": "문장을 매끄럽게 만든다고 화자가 직접 확인한 사실처럼 바꾸면 안 돼요.",
+        "de": "Glattere Sprache darf aus Hörensagen keine persönlich bestätigte Tatsache machen.",
+        "en": "Smoothing the sentence must not turn reported information into something the speaker verified personally."
+      },
+      {
+        "speaker": "user",
+        "ko": "반복은 줄이되 ‘들었다’와 ‘그런 것 같다’는 남겨야겠어.",
+        "de": "Dann kürzen wir Wiederholungen, behalten aber „gehört“ und „scheint so“ bei.",
+        "en": "Then we'll trim repetition but keep 'heard' and 'seems.'"
+      },
+      {
+        "speaker": "hyuna",
+        "ko": "맞아요. 길이보다 정보의 출처와 확신 정도가 먼저예요.",
+        "de": "Genau. Quelle und Gewissheitsgrad sind wichtiger als maximale Kürze.",
+        "en": "Exactly. Source and degree of certainty matter more than maximum brevity."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_ai_translation_voice_loss_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "원문은 ‘주민들한테 들었는데 그런 것 같아요’라고 했어요.",
+          "options": [
+            {
+              "de": "Im Original heißt es: „Ich habe es von Anwohnern gehört und glaube, dass es so sein könnte.“",
+              "en": "The original says, 'I heard it from residents, and I think that may be the case.'"
+            },
+            {
+              "de": "Die automatischen Untertitel sind kürzer und leichter zu lesen. Wo liegt das Problem?",
+              "en": "The automatic subtitles are shorter and easier to read. What's the issue?"
+            },
+            {
+              "de": "Im Untertitel steht nur: „So ist es.“",
+              "en": "The subtitle just says, 'That is the case.'"
+            },
+            {
+              "de": "Glattere Sprache darf aus Hörensagen keine persönlich bestätigte Tatsache machen.",
+              "en": "Smoothing the sentence must not turn reported information into something the speaker verified personally."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_ai_translation_voice_loss_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Die automatischen Untertitel sind kürzer und leichter zu lesen. Wo liegt das Problem?",
+          "promptEn": "The automatic subtitles are shorter and easier to read. What's the issue?",
+          "options": [
+            {
+              "ko": "자동 자막은 짧고 읽기 쉬워졌는데 무엇이 문제야?"
+            },
+            {
+              "ko": "원문은 ‘주민들한테 들었는데 그런 것 같아요’라고 했어요."
+            },
+            {
+              "ko": "자막은 ‘그렇습니다’로 끝나 있네."
+            },
+            {
+              "ko": "문장을 매끄럽게 만든다고 화자가 직접 확인한 사실처럼 바꾸면 안 돼요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_ai_translation_voice_loss_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "반복은 줄이되 ‘들었다’와 ‘그런 것 같다’는 남겨야겠어.",
+          "audioKo": "반복은 줄이되 ‘들었다’와 ‘그런 것 같다’는 남겨야겠어.",
+          "promptDe": "Dann kürzen wir Wiederholungen, behalten aber „gehört“ und „scheint so“ bei.",
+          "promptEn": "Then we'll trim repetition but keep 'heard' and 'seems.'",
+          "distractors": [
+            "자동 자막은 짧고 읽기 쉬워졌는데 무엇이 문제야?",
+            "원문은 ‘주민들한테 들었는데 그런 것 같아요’라고 했어요.",
+            "자막은 ‘그렇습니다’로 끝나 있네."
+          ]
+        }
+      }
+    ],
+    "culturalNote": {
+      "title": {
+        "ko": "매끄러움보다 전언과 확신 정도",
+        "de": "Quelle und Sicherheit vor sprachlicher Glätte",
+        "en": "Source and certainty before smoothness"
+      },
+      "body": {
+        "ko": "-다고 들었어요와 -인 것 같아요는 정보 출처와 화자의 확신을 보여 줘요. 자막을 줄일 때 이 층위를 없애면 화자의 책임과 의미가 달라질 수 있어요.",
+        "de": "-다고 들었어요 und -인 것 같아요 zeigen Informationsquelle und Gewissheit. Werden sie beim Kürzen entfernt, verändern sich Aussage und Verantwortung der sprechenden Person.",
+        "en": "-다고 들었어요 and -인 것 같아요 signal source and certainty. Removing them for brevity can change both meaning and the speaker's responsibility."
+      }
+    },
+    "xpReward": 140
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

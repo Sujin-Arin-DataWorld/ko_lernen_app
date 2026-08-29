@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "delivery_dinner_spicy",
+  "scenario": {
+    "id": "delivery_dinner_spicy",
+    "level": "a2",
+    "emoji": "🏠",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "배달 음식이 너무 매울 때",
+      "de": "Wenn das Lieferessen zu scharf ist",
+      "en": "When the delivery food is too spicy"
+    },
+    "intro": {
+      "ko": "배달 음식이 생각보다 훨씬 매워요.",
+      "de": "Das bestellte Essen ist viel schärfer als erwartet.",
+      "en": "The delivery food is much spicier than expected."
+    },
+    "courseUnitId": "a2_04_feelings_health",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "sujin"
+    ],
+    "relationshipContext": "친구 수진과 크리스티안",
+    "intent": "얼마나 매운지 말하고 덜 맵게 먹을 방법을 묻는다",
+    "shelf": "a2_eat",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "와, 생각보다 너무 매워요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wow, das ist viel schärfer als gedacht.",
+          "en": "Wow, this is much spicier than I expected."
+        }
+      },
+      {
+        "korean": "괜찮아요? 물 줄까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Geht es? Möchtest du Wasser?",
+          "en": "Are you okay? Do you want some water?"
+        }
+      },
+      {
+        "korean": "물보다 밥이 있으면 좋겠어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Reis wäre besser als Wasser.",
+          "en": "Rice would be better than water."
+        }
+      },
+      {
+        "korean": "냉장고에 밥 조금 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Im Kühlschrank ist noch etwas Reis.",
+          "en": "There's some rice in the fridge."
+        }
+      },
+      {
+        "korean": "다음에는 덜 맵게 주문할게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Nächstes Mal bestelle ich es weniger scharf.",
+          "en": "Next time, I'll order it less spicy."
+        }
+      },
+      {
+        "korean": "좋아요. 오늘은 밥이랑 먹어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gut. Heute essen wir es mit Reis.",
+          "en": "Good idea. Let's eat it with rice today."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a2_feelings"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a2_conditional"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)면",
+        "de": "Konditionalsatz",
+        "en": "Conditional"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Wenn/Falls-Bedingung",
+        "en": "If / in case (a condition)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "와, 생각보다 너무 매워요.",
+        "de": "Wow, das ist viel schärfer als gedacht.",
+        "en": "Wow, this is much spicier than I expected."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "괜찮아요? 물 줄까요?",
+        "de": "Geht es? Möchtest du Wasser?",
+        "en": "Are you okay? Do you want some water?"
+      },
+      {
+        "speaker": "user",
+        "ko": "물보다 밥이 있으면 좋겠어요.",
+        "de": "Reis wäre besser als Wasser.",
+        "en": "Rice would be better than water."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "냉장고에 밥 조금 있어요.",
+        "de": "Im Kühlschrank ist noch etwas Reis.",
+        "en": "There's some rice in the fridge."
+      },
+      {
+        "speaker": "user",
+        "ko": "다음에는 덜 맵게 주문할게요.",
+        "de": "Nächstes Mal bestelle ich es weniger scharf.",
+        "en": "Next time, I'll order it less spicy."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "좋아요. 오늘은 밥이랑 먹어요.",
+        "de": "Gut. Heute essen wir es mit Reis.",
+        "en": "Good idea. Let's eat it with rice today."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_delivery_dinner_spicy_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "괜찮아요? 물 줄까요?",
+          "options": [
+            {
+              "de": "Geht es? Möchtest du Wasser?",
+              "en": "Are you okay? Do you want some water?"
+            },
+            {
+              "de": "Wow, das ist viel schärfer als gedacht.",
+              "en": "Wow, this is much spicier than I expected."
+            },
+            {
+              "de": "Reis wäre besser als Wasser.",
+              "en": "Rice would be better than water."
+            },
+            {
+              "de": "Im Kühlschrank ist noch etwas Reis.",
+              "en": "There's some rice in the fridge."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_delivery_dinner_spicy_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Wow, das ist viel schärfer als gedacht.",
+          "promptEn": "Wow, this is much spicier than I expected.",
+          "options": [
+            {
+              "ko": "와, 생각보다 너무 매워요."
+            },
+            {
+              "ko": "괜찮아요? 물 줄까요?"
+            },
+            {
+              "ko": "물보다 밥이 있으면 좋겠어요."
+            },
+            {
+              "ko": "냉장고에 밥 조금 있어요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_delivery_dinner_spicy_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "다음에는 덜 맵게 주문할게요.",
+          "audioKo": "다음에는 덜 맵게 주문할게요.",
+          "promptDe": "Nächstes Mal bestelle ich es weniger scharf.",
+          "promptEn": "Next time, I'll order it less spicy.",
+          "distractors": [
+            "와, 생각보다 너무 매워요.",
+            "괜찮아요? 물 줄까요?",
+            "물보다 밥이 있으면 좋겠어요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 110
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

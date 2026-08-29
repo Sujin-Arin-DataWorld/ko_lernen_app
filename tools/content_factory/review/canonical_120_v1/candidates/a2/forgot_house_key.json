@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "forgot_house_key",
+  "scenario": {
+    "id": "forgot_house_key",
+    "level": "a2",
+    "emoji": "🏠",
+    "register": "casual",
+    "speechStyle": "casual",
+    "title": {
+      "ko": "집 열쇠를 두고 나온 날",
+      "de": "Den Zimmerschlüssel liegen lassen",
+      "en": "Leaving your room key behind"
+    },
+    "intro": {
+      "ko": "방 열쇠를 책상에 두고 나왔어요.",
+      "de": "Du hast deinen Zimmerschlüssel auf dem Schreibtisch liegen lassen.",
+      "en": "You left your room key on your desk."
+    },
+    "courseUnitId": "a2_08_home_money",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "lena"
+    ],
+    "relationshipContext": "친한 크리스티안과 레나",
+    "intent": "무엇을 두고 왔는지 말하고 잠깐 기다려 달라고 한다",
+    "shelf": "a2_eat",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "나 큰일 났어. 열쇠를 방에 두고 왔어.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich habe ein Problem. Mein Schlüssel liegt im Zimmer.",
+          "en": "I've got a problem. I left my key in the room."
+        }
+      },
+      {
+        "korean": "가방에도 없어?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ist er auch nicht in deiner Tasche?",
+          "en": "It's not in your bag either?"
+        }
+      },
+      {
+        "korean": "응, 책상 위에 있어.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Nein, er liegt auf dem Schreibtisch.",
+          "en": "No, it's on the desk."
+        }
+      },
+      {
+        "korean": "관리실이 열려 있으면 물어보자.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn das Büro noch offen ist, fragen wir dort.",
+          "en": "If the office is open, let's ask there."
+        }
+      },
+      {
+        "korean": "혼자 가기 좀 어려워. 같이 가 줄래?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Allein ist es etwas schwierig. Kommst du mit?",
+          "en": "It's a little hard to go alone. Will you come with me?"
+        }
+      },
+      {
+        "korean": "응, 지금 같이 가자.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Klar, gehen wir jetzt zusammen.",
+          "en": "Sure, let's go together now."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a2_home_money"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a2_conditional"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)면",
+        "de": "Konditionalsatz",
+        "en": "Conditional"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Wenn/Falls-Bedingung",
+        "en": "If / in case (a condition)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "나 큰일 났어. 열쇠를 방에 두고 왔어.",
+        "de": "Ich habe ein Problem. Mein Schlüssel liegt im Zimmer.",
+        "en": "I've got a problem. I left my key in the room."
+      },
+      {
+        "speaker": "lena",
+        "ko": "가방에도 없어?",
+        "de": "Ist er auch nicht in deiner Tasche?",
+        "en": "It's not in your bag either?"
+      },
+      {
+        "speaker": "user",
+        "ko": "응, 책상 위에 있어.",
+        "de": "Nein, er liegt auf dem Schreibtisch.",
+        "en": "No, it's on the desk."
+      },
+      {
+        "speaker": "lena",
+        "ko": "관리실이 열려 있으면 물어보자.",
+        "de": "Wenn das Büro noch offen ist, fragen wir dort.",
+        "en": "If the office is open, let's ask there."
+      },
+      {
+        "speaker": "user",
+        "ko": "혼자 가기 좀 어려워. 같이 가 줄래?",
+        "de": "Allein ist es etwas schwierig. Kommst du mit?",
+        "en": "It's a little hard to go alone. Will you come with me?"
+      },
+      {
+        "speaker": "lena",
+        "ko": "응, 지금 같이 가자.",
+        "de": "Klar, gehen wir jetzt zusammen.",
+        "en": "Sure, let's go together now."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_forgot_house_key_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "가방에도 없어?",
+          "options": [
+            {
+              "de": "Ist er auch nicht in deiner Tasche?",
+              "en": "It's not in your bag either?"
+            },
+            {
+              "de": "Ich habe ein Problem. Mein Schlüssel liegt im Zimmer.",
+              "en": "I've got a problem. I left my key in the room."
+            },
+            {
+              "de": "Nein, er liegt auf dem Schreibtisch.",
+              "en": "No, it's on the desk."
+            },
+            {
+              "de": "Wenn das Büro noch offen ist, fragen wir dort.",
+              "en": "If the office is open, let's ask there."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_forgot_house_key_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ich habe ein Problem. Mein Schlüssel liegt im Zimmer.",
+          "promptEn": "I've got a problem. I left my key in the room.",
+          "options": [
+            {
+              "ko": "나 큰일 났어. 열쇠를 방에 두고 왔어."
+            },
+            {
+              "ko": "가방에도 없어?"
+            },
+            {
+              "ko": "응, 책상 위에 있어."
+            },
+            {
+              "ko": "관리실이 열려 있으면 물어보자."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_forgot_house_key_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "혼자 가기 좀 어려워. 같이 가 줄래?",
+          "audioKo": "혼자 가기 좀 어려워. 같이 가 줄래?",
+          "promptDe": "Allein ist es etwas schwierig. Kommst du mit?",
+          "promptEn": "It's a little hard to go alone. Will you come with me?",
+          "distractors": [
+            "나 큰일 났어. 열쇠를 방에 두고 왔어.",
+            "가방에도 없어?",
+            "응, 책상 위에 있어."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 110
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

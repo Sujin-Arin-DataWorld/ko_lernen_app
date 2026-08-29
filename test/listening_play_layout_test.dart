@@ -158,6 +158,78 @@ void main() {
     expect(find.text(t.listeningRetry), findsOneWidget);
   });
 
+  testWidgets(
+    'canonical characters show the player name and choose profile voices',
+    (tester) async {
+      final voices = <String>[];
+      final pending = <Completer<bool>>[];
+      final scenario = Scenario(
+        id: 'canonical_speaker_test',
+        level: LearnerLevel.a2,
+        emoji: '💬',
+        register: Register.casual,
+        title: const LocalizedText(ko: '친구 대화', de: 'Gespräch', en: 'Chat'),
+        intro: const LocalizedText(
+          ko: '수진과 다니엘이 이야기해요.',
+          de: 'Sujin und Daniel sprechen.',
+          en: 'Sujin and Daniel talk.',
+        ),
+        vocab: const [],
+        grammarIds: const [],
+        playerCharacterId: 'sujin',
+        participantIds: const ['sujin', 'daniel'],
+        dialog: const [
+          DialogLine(
+            speaker: 'user',
+            ko: '이 영상 봤어?',
+            de: 'Hast du dieses Video gesehen?',
+            en: 'Did you see this video?',
+          ),
+          DialogLine(
+            speaker: 'daniel',
+            ko: '응, 방금 봤어.',
+            de: 'Ja, gerade eben.',
+            en: 'Yes, just now.',
+          ),
+        ],
+        quests: const [],
+      );
+
+      await tester.pumpWidget(
+        _app(
+          ListeningPlayScreen(
+            scenario: scenario,
+            speechPlayer: (text, {required voice}) {
+              voices.add(voice);
+              final completer = Completer<bool>();
+              pending.add(completer);
+              return completer.future;
+            },
+            stopPlayer: () async {},
+          ),
+        ),
+      );
+      await tester.pump();
+      final t = AppL10n.of(tester.element(find.byType(ListeningPlayScreen)));
+      expect(find.textContaining('수진 (나)'), findsOneWidget);
+      expect(find.textContaining('다니엘'), findsOneWidget);
+
+      await tester.tap(find.text(t.listeningDialogueStart));
+      await tester.pump();
+      expect(voices, ['female']);
+      expect(find.text('수진 (나)'), findsOneWidget);
+
+      pending.first.complete(true);
+      await tester.pump();
+
+      expect(voices, ['female', 'male']);
+      expect(find.text('수진 (나)'), findsOneWidget);
+      expect(find.text('다니엘'), findsOneWidget);
+      pending.last.complete(false);
+      await tester.pump();
+    },
+  );
+
   testWidgets('current bubble alone has blue and gold outlines', (
     tester,
   ) async {

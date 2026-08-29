@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "ai_interview_screening_transparency",
+  "scenario": {
+    "id": "ai_interview_screening_transparency",
+    "level": "c1",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "AI 면접 평가를 지원자에게 어떻게 알릴지",
+      "de": "KI-Auswertung im Videointerview transparent machen",
+      "en": "Explaining AI screening in video interviews"
+    },
+    "intro": {
+      "ko": "지원자는 영상 면접에서 어떤 정보가 AI 평가에 쓰이는지 몰라요.",
+      "de": "Bewerber wissen nicht, welche Informationen ein KI-Werkzeug im Videointerview bewertet.",
+      "en": "Applicants don't know what information an AI tool evaluates in video interviews."
+    },
+    "courseUnitId": "c1_03_media_evidence_literacy",
+    "playerCharacterId": "sujin",
+    "participantIds": [
+      "sujin",
+      "andrea"
+    ],
+    "relationshipContext": "리더 안드레아와 데이터 분석가 수진",
+    "intent": "영업 비밀을 공개하지 않아도 평가 범위와 이의 제기 방법은 알려야 한다고 주장한다",
+    "shelf": "c1_critique",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "기술 설명을 길게 넣으면 지원자가 더 혼란스러울 수 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Eine lange technische Erklärung könnte Bewerber eher verwirren.",
+          "en": "A long technical explanation may confuse applicants further."
+        }
+      },
+      {
+        "korean": "모델 구조를 전부 공개하지 않더라도 무엇이 평가되고 누가 최종 판단하는지는 알려야 합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Auch ohne vollständige Offenlegung des Modells müssen wir sagen, was bewertet wird und wer letztlich entscheidet.",
+          "en": "Even without disclosing the full model, we need to say what is evaluated and who makes the final decision."
+        }
+      },
+      {
+        "korean": "표정과 목소리도 평가하는지 묻는 지원자가 많습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Viele Bewerber fragen, ob Mimik und Stimme bewertet werden.",
+          "en": "Many applicants ask whether facial expression and voice are scored."
+        }
+      },
+      {
+        "korean": "그렇다면 실제 평가 항목과 쓰지 않는 항목을 나눠서 적어야 해요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dann sollten wir klar trennen, welche Merkmale verwendet werden und welche nicht.",
+          "en": "Then we should clearly separate what is used from what isn't."
+        }
+      },
+      {
+        "korean": "사람이 다시 검토해 달라고 요청할 수 있는 창구도 넣죠.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir ergänzen außerdem eine Stelle, bei der Bewerbende eine menschliche Überprüfung verlangen können.",
+          "en": "Let's also include a way to request review by a person."
+        }
+      },
+      {
+        "korean": "좋습니다. 기술 홍보보다 지원자의 선택과 이의 제기에 필요한 정보부터 보여 줍시다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gut. Wir stellen die Informationen für Entscheidung und Rückfrage vor die technische Selbstdarstellung.",
+          "en": "Good. Let's prioritize what applicants need for choice and appeal over technical promotion."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_media_evidence"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b2_even_if"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-더라도",
+        "de": "Konzessiv (selbst wenn)",
+        "en": "Concessive (even if)"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Auch wenn / Selbst wenn (trotzdem)",
+        "en": "Even if / even though (regardless)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "andrea",
+        "ko": "기술 설명을 길게 넣으면 지원자가 더 혼란스러울 수 있어요.",
+        "de": "Eine lange technische Erklärung könnte Bewerber eher verwirren.",
+        "en": "A long technical explanation may confuse applicants further."
+      },
+      {
+        "speaker": "user",
+        "ko": "모델 구조를 전부 공개하지 않더라도 무엇이 평가되고 누가 최종 판단하는지는 알려야 합니다.",
+        "de": "Auch ohne vollständige Offenlegung des Modells müssen wir sagen, was bewertet wird und wer letztlich entscheidet.",
+        "en": "Even without disclosing the full model, we need to say what is evaluated and who makes the final decision."
+      },
+      {
+        "speaker": "andrea",
+        "ko": "표정과 목소리도 평가하는지 묻는 지원자가 많습니다.",
+        "de": "Viele Bewerber fragen, ob Mimik und Stimme bewertet werden.",
+        "en": "Many applicants ask whether facial expression and voice are scored."
+      },
+      {
+        "speaker": "user",
+        "ko": "그렇다면 실제 평가 항목과 쓰지 않는 항목을 나눠서 적어야 해요.",
+        "de": "Dann sollten wir klar trennen, welche Merkmale verwendet werden und welche nicht.",
+        "en": "Then we should clearly separate what is used from what isn't."
+      },
+      {
+        "speaker": "andrea",
+        "ko": "사람이 다시 검토해 달라고 요청할 수 있는 창구도 넣죠.",
+        "de": "Wir ergänzen außerdem eine Stelle, bei der Bewerbende eine menschliche Überprüfung verlangen können.",
+        "en": "Let's also include a way to request review by a person."
+      },
+      {
+        "speaker": "user",
+        "ko": "좋습니다. 기술 홍보보다 지원자의 선택과 이의 제기에 필요한 정보부터 보여 줍시다.",
+        "de": "Gut. Wir stellen die Informationen für Entscheidung und Rückfrage vor die technische Selbstdarstellung.",
+        "en": "Good. Let's prioritize what applicants need for choice and appeal over technical promotion."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_ai_interview_screening_transparency_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "기술 설명을 길게 넣으면 지원자가 더 혼란스러울 수 있어요.",
+          "options": [
+            {
+              "de": "Eine lange technische Erklärung könnte Bewerber eher verwirren.",
+              "en": "A long technical explanation may confuse applicants further."
+            },
+            {
+              "de": "Auch ohne vollständige Offenlegung des Modells müssen wir sagen, was bewertet wird und wer letztlich entscheidet.",
+              "en": "Even without disclosing the full model, we need to say what is evaluated and who makes the final decision."
+            },
+            {
+              "de": "Viele Bewerber fragen, ob Mimik und Stimme bewertet werden.",
+              "en": "Many applicants ask whether facial expression and voice are scored."
+            },
+            {
+              "de": "Dann sollten wir klar trennen, welche Merkmale verwendet werden und welche nicht.",
+              "en": "Then we should clearly separate what is used from what isn't."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_ai_interview_screening_transparency_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Auch ohne vollständige Offenlegung des Modells müssen wir sagen, was bewertet wird und wer letztlich entscheidet.",
+          "promptEn": "Even without disclosing the full model, we need to say what is evaluated and who makes the final decision.",
+          "options": [
+            {
+              "ko": "모델 구조를 전부 공개하지 않더라도 무엇이 평가되고 누가 최종 판단하는지는 알려야 합니다."
+            },
+            {
+              "ko": "기술 설명을 길게 넣으면 지원자가 더 혼란스러울 수 있어요."
+            },
+            {
+              "ko": "표정과 목소리도 평가하는지 묻는 지원자가 많습니다."
+            },
+            {
+              "ko": "그렇다면 실제 평가 항목과 쓰지 않는 항목을 나눠서 적어야 해요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_ai_interview_screening_transparency_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "좋습니다. 기술 홍보보다 지원자의 선택과 이의 제기에 필요한 정보부터 보여 줍시다.",
+          "audioKo": "좋습니다. 기술 홍보보다 지원자의 선택과 이의 제기에 필요한 정보부터 보여 줍시다.",
+          "promptDe": "Gut. Wir stellen die Informationen für Entscheidung und Rückfrage vor die technische Selbstdarstellung.",
+          "promptEn": "Good. Let's prioritize what applicants need for choice and appeal over technical promotion.",
+          "distractors": [
+            "기술 설명을 길게 넣으면 지원자가 더 혼란스러울 수 있어요.",
+            "모델 구조를 전부 공개하지 않더라도 무엇이 평가되고 누가 최종 판단하는지는 알려야 합니다.",
+            "표정과 목소리도 평가하는지 묻는 지원자가 많습니다."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 140
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

@@ -1,0 +1,249 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "hidden_gem_local_impact",
+  "scenario": {
+    "id": "hidden_gem_local_impact",
+    "level": "c2",
+    "emoji": "🗺️",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "‘숨은 명소’ 영상이 지역을 바꾼 뒤",
+      "de": "Die Folgen eines Videos über einen „Geheimtipp“",
+      "en": "The local impact of a 'hidden gem' video"
+    },
+    "intro": {
+      "ko": "다니엘의 ‘숨은 명소’ 영상 뒤 매출은 늘었지만 사유지 침입과 소음, 임대료 걱정도 커졌어요.",
+      "de": "Nach Daniels Video über einen „Geheimtipp“ steigen Umsätze, aber auch unerlaubtes Betreten, Lärm und Mietsorgen.",
+      "en": "After Daniel's 'hidden gem' video, sales rise along with trespassing, noise, and rent concerns."
+    },
+    "courseUnitId": "c2_06_fandom_discourse_power",
+    "playerCharacterId": "daniel",
+    "participantIds": [
+      "daniel",
+      "hyuna",
+      "resident"
+    ],
+    "relationshipContext": "영상 제작자 다니엘, 연구자 현아, 주민",
+    "intent": "좋은 의도와 긍정적 효과를 방패로 삼지 않고 영상의 프레이밍과 후속 책임을 논의한다",
+    "shelf": "c2_representation",
+    "backdrop": "directions",
+    "vocab": [
+      {
+        "korean": "영상 덕분에 가게 매출이 늘었다는 연락을 받아서 처음에는 좋은 일이라고만 생각했습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Als die Geschäfte von höheren Umsätzen berichteten, hielt ich die Wirkung zunächst nur für positiv.",
+          "en": "When shops told me sales had risen, I initially saw the impact as entirely positive."
+        }
+      },
+      {
+        "korean": "하지만 영상에 나온 돌계단은 사유지인데 사람들이 사진을 찍으러 계속 들어옵니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die Steintreppe im Video ist jedoch Privatgrund; ständig kommen Menschen für Fotos hinein.",
+          "en": "But the stone steps in the video are private property, and people keep entering to take photos."
+        }
+      },
+      {
+        "korean": "숨은 명소라는 표현이 장소를 발견해야 할 대상으로 만들면서 실제 생활 공간이라는 점을 가렸어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Der Ausdruck „Geheimtipp“ rahmt den Ort als zu entdeckendes Ziel und verdeckt, dass Menschen dort leben.",
+          "en": "The phrase 'hidden gem' frames the place as something to discover and obscures that it is a living space."
+        }
+      },
+      {
+        "korean": "좋은 의도로 만든 영상이라는 설명만으로 이후의 영향을 지울 수는 없습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die gute Absicht hinter dem Video macht seine späteren Folgen nicht ungeschehen.",
+          "en": "Saying the video was well-intentioned cannot erase what happened afterward."
+        }
+      },
+      {
+        "korean": "지역을 통째로 숨겨 달라는 게 아니라 집 앞까지 찾아오는 동선은 막아 달라는 겁니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir verlangen nicht, den ganzen Ort zu verbergen, sondern den Weg direkt zu unseren Häusern nicht weiterzuverbreiten.",
+          "en": "We're not asking you to hide the whole area, only to stop directing people to our doorsteps."
+        }
+      },
+      {
+        "korean": "정확한 위치는 지우고 방문 예절과 혼잡 시간을 넣겠습니다. 수익 환원 방식도 지역과 다시 논의하겠습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich entferne den genauen Standort, ergänze Besuchshinweise und Stoßzeiten und bespreche mit der Nachbarschaft erneut eine Beteiligung an den Einnahmen.",
+          "en": "I'll remove the exact location, add visitor guidance and busy times, and discuss revenue sharing with the community again."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c2_fandom_discourse"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_c2_no_more_than_doing"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-는 데 그치다",
+        "de": "Beschränkung auf einen Minimalschritt",
+        "en": "Doing no more than"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Sagt, dass ein Vorgehen bei einem ersten Schritt stehen bleibt und die eigentliche Wirkung ausbleibt.",
+        "en": "States that an action stopped at a first step and fell short of real effect."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "영상 덕분에 가게 매출이 늘었다는 연락을 받아서 처음에는 좋은 일이라고만 생각했습니다.",
+        "de": "Als die Geschäfte von höheren Umsätzen berichteten, hielt ich die Wirkung zunächst nur für positiv.",
+        "en": "When shops told me sales had risen, I initially saw the impact as entirely positive."
+      },
+      {
+        "speaker": "resident",
+        "ko": "하지만 영상에 나온 돌계단은 사유지인데 사람들이 사진을 찍으러 계속 들어옵니다.",
+        "de": "Die Steintreppe im Video ist jedoch Privatgrund; ständig kommen Menschen für Fotos hinein.",
+        "en": "But the stone steps in the video are private property, and people keep entering to take photos."
+      },
+      {
+        "speaker": "hyuna",
+        "ko": "숨은 명소라는 표현이 장소를 발견해야 할 대상으로 만들면서 실제 생활 공간이라는 점을 가렸어요.",
+        "de": "Der Ausdruck „Geheimtipp“ rahmt den Ort als zu entdeckendes Ziel und verdeckt, dass Menschen dort leben.",
+        "en": "The phrase 'hidden gem' frames the place as something to discover and obscures that it is a living space."
+      },
+      {
+        "speaker": "user",
+        "ko": "좋은 의도로 만든 영상이라는 설명만으로 이후의 영향을 지울 수는 없습니다.",
+        "de": "Die gute Absicht hinter dem Video macht seine späteren Folgen nicht ungeschehen.",
+        "en": "Saying the video was well-intentioned cannot erase what happened afterward."
+      },
+      {
+        "speaker": "resident",
+        "ko": "지역을 통째로 숨겨 달라는 게 아니라 집 앞까지 찾아오는 동선은 막아 달라는 겁니다.",
+        "de": "Wir verlangen nicht, den ganzen Ort zu verbergen, sondern den Weg direkt zu unseren Häusern nicht weiterzuverbreiten.",
+        "en": "We're not asking you to hide the whole area, only to stop directing people to our doorsteps."
+      },
+      {
+        "speaker": "user",
+        "ko": "정확한 위치는 지우고 방문 예절과 혼잡 시간을 넣겠습니다. 수익 환원 방식도 지역과 다시 논의하겠습니다.",
+        "de": "Ich entferne den genauen Standort, ergänze Besuchshinweise und Stoßzeiten und bespreche mit der Nachbarschaft erneut eine Beteiligung an den Einnahmen.",
+        "en": "I'll remove the exact location, add visitor guidance and busy times, and discuss revenue sharing with the community again."
+      },
+      {
+        "speaker": "hyuna",
+        "ko": "영상을 고치는 데 그치지 않고, 수정 뒤 유입과 민원이 어떻게 달라지는지도 함께 확인해야 합니다.",
+        "de": "Wir sollten uns nicht auf die Änderung des Videos beschränken, sondern auch verfolgen, wie sich Besucherzahlen und Beschwerden danach entwickeln.",
+        "en": "We shouldn't stop at editing the video; we also need to track how visitor flow and complaints change afterward."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_hidden_gem_local_impact_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "하지만 영상에 나온 돌계단은 사유지인데 사람들이 사진을 찍으러 계속 들어옵니다.",
+          "options": [
+            {
+              "de": "Die Steintreppe im Video ist jedoch Privatgrund; ständig kommen Menschen für Fotos hinein.",
+              "en": "But the stone steps in the video are private property, and people keep entering to take photos."
+            },
+            {
+              "de": "Als die Geschäfte von höheren Umsätzen berichteten, hielt ich die Wirkung zunächst nur für positiv.",
+              "en": "When shops told me sales had risen, I initially saw the impact as entirely positive."
+            },
+            {
+              "de": "Der Ausdruck „Geheimtipp“ rahmt den Ort als zu entdeckendes Ziel und verdeckt, dass Menschen dort leben.",
+              "en": "The phrase 'hidden gem' frames the place as something to discover and obscures that it is a living space."
+            },
+            {
+              "de": "Die gute Absicht hinter dem Video macht seine späteren Folgen nicht ungeschehen.",
+              "en": "Saying the video was well-intentioned cannot erase what happened afterward."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_hidden_gem_local_impact_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Als die Geschäfte von höheren Umsätzen berichteten, hielt ich die Wirkung zunächst nur für positiv.",
+          "promptEn": "When shops told me sales had risen, I initially saw the impact as entirely positive.",
+          "options": [
+            {
+              "ko": "영상 덕분에 가게 매출이 늘었다는 연락을 받아서 처음에는 좋은 일이라고만 생각했습니다."
+            },
+            {
+              "ko": "하지만 영상에 나온 돌계단은 사유지인데 사람들이 사진을 찍으러 계속 들어옵니다."
+            },
+            {
+              "ko": "숨은 명소라는 표현이 장소를 발견해야 할 대상으로 만들면서 실제 생활 공간이라는 점을 가렸어요."
+            },
+            {
+              "ko": "좋은 의도로 만든 영상이라는 설명만으로 이후의 영향을 지울 수는 없습니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_hidden_gem_local_impact_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "정확한 위치는 지우고 방문 예절과 혼잡 시간을 넣겠습니다. 수익 환원 방식도 지역과 다시 논의하겠습니다.",
+          "audioKo": "정확한 위치는 지우고 방문 예절과 혼잡 시간을 넣겠습니다. 수익 환원 방식도 지역과 다시 논의하겠습니다.",
+          "promptDe": "Ich entferne den genauen Standort, ergänze Besuchshinweise und Stoßzeiten und bespreche mit der Nachbarschaft erneut eine Beteiligung an den Einnahmen.",
+          "promptEn": "I'll remove the exact location, add visitor guidance and busy times, and discuss revenue sharing with the community again.",
+          "distractors": [
+            "영상 덕분에 가게 매출이 늘었다는 연락을 받아서 처음에는 좋은 일이라고만 생각했습니다.",
+            "하지만 영상에 나온 돌계단은 사유지인데 사람들이 사진을 찍으러 계속 들어옵니다.",
+            "숨은 명소라는 표현이 장소를 발견해야 할 대상으로 만들면서 실제 생활 공간이라는 점을 가렸어요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 150
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

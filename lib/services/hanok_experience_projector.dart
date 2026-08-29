@@ -28,8 +28,8 @@ final class HanokExperienceProjector {
       throw const FormatException('Hanok projection requires UTC.');
     }
     final verified = verifiedCanDoSegmentIds(
-      evidence: courseMastery.productiveEvidence,
-      projectStepEvidence: courseMastery.productiveProjectStepEvidence,
+      evidence: courseMastery.rewardProductiveEvidence,
+      projectStepEvidence: courseMastery.rewardProductiveProjectStepEvidence,
       segmentCatalog: segmentCatalog,
       assessmentCatalog: assessmentCatalog,
     );
@@ -124,8 +124,7 @@ final class HanokExperienceProjector {
     final nextGrant = _firstAttainableGrant(
       grantCatalog.grants,
       earnedIds: earnedIds,
-      bypassedCourseUnitIds: courseMastery.bypassedPrerequisiteUnitIds
-          .toSet(),
+      bypassedCourseUnitIds: courseMastery.bypassedPrerequisiteUnitIds.toSet(),
       segmentCatalog: segmentCatalog,
     );
     return HanokExperienceProjection(
@@ -182,7 +181,7 @@ final class HanokExperienceProjector {
     );
     final beforeIds = beforeProjection.earnedGrantIds;
     final trustedEvidence = trustedProductiveMasteryEvidence(
-      evidence: after.productiveEvidence,
+      evidence: after.rewardProductiveEvidence,
       assessmentCatalog: assessmentCatalog,
     );
     final receipts = <HanokGrantReceipt>[];
@@ -298,8 +297,8 @@ double _bestSatisfyingProgress(
   for (final candidateId in candidateIds) {
     final progress = canDoSegmentEvidenceProgress(
       segmentId: candidateId,
-      evidence: courseMastery.productiveEvidence,
-      projectStepEvidence: courseMastery.productiveProjectStepEvidence,
+      evidence: courseMastery.rewardProductiveEvidence,
+      projectStepEvidence: courseMastery.rewardProductiveProjectStepEvidence,
       segmentCatalog: segmentCatalog,
       assessmentCatalog: assessmentCatalog,
     ).fraction;

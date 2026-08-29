@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "kind": "scenario_tts_storage_verification",
+  "generationId": "canonical_120_v1",
+  "scope": "c2",
+  "candidateSetSha256": "0f0e8578ccd206a1fb77cf97f1cc032edcee576297489ac1b601631aea7fb50a",
+  "ttsManifestSha256": "548732c8f09ad5b0487baf8cff778446918360d2d0d51e482478798f9a14a038",
+  "expectedCount": 145,
+  "verifiedCachePathCount": 145,
+  "missingCount": 0,
+  "cacheRevision": "v3",
+  "verificationMode": "firebase_storage_nonempty_mp3_listing",
+  "minimumObjectBytes": 256,
+  "bucket": "ko-lernen-app.firebasestorage.app",
+  "verifiedAt": "2026-08-29T19:04:58.736637+00:00"
+}

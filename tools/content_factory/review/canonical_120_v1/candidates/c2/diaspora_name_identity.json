@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "diaspora_name_identity",
+  "scenario": {
+    "id": "diaspora_name_identity",
+    "level": "c2",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "이름의 발음과 소속감을 스스로 정할 권리",
+      "de": "Namensaussprache und Zugehörigkeit selbst bestimmen",
+      "en": "Letting people choose how their names represent them"
+    },
+    "intro": {
+      "ko": "운영 편의를 위해 한국 이름을 영어식 표기로 통일하려 하지만 참가자마다 선호 표기와 발음이 달라요.",
+      "de": "Für eine einheitliche Verwaltung sollen koreanische Namen anglisiert werden, doch Teilnehmende bevorzugen unterschiedliche Schreibweisen und Aussprachen.",
+      "en": "For administrative consistency, Korean names are to be anglicized, but participants use different spellings and pronunciations."
+    },
+    "courseUnitId": "c2_05_relationship_narratives",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "resident"
+    ],
+    "relationshipContext": "기획자 마야와 참가자 대표",
+    "intent": "검색 가능성과 자기 명명권을 양자택일로 만들지 않는 표시 방식을 제안한다",
+    "shelf": "c2_memory",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "등록 시스템에서는 제 이름을 ‘June’으로 바꾸면 검색이 쉽다고 합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Das Registrierungssystem schlägt „June“ vor, weil mein Name dann leichter zu suchen sei.",
+          "en": "The registration system suggests changing my name to 'June' because it's easier to search."
+        }
+      },
+      {
+        "korean": "평소에도 그 이름으로 불리길 원하세요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Möchtest du im Alltag auch so genannt werden?",
+          "en": "Do you want people to call you that in everyday life too?"
+        }
+      },
+      {
+        "korean": "아니요. 본문에는 ‘준희’를 쓰고, 발음이 어려우면 도움말만 붙이고 싶어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Nein. Im Haupttext soll „Junhee“ stehen; bei Bedarf möchte ich nur eine Aussprachehilfe ergänzen.",
+          "en": "No. I want 'Junhee' in the main text, with a pronunciation guide if needed."
+        }
+      },
+      {
+        "korean": "검색을 쉽게 만드는 표기와 당사자가 불리고 싶은 이름을 같은 칸에 억지로 맞출 필요는 없습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die suchfreundliche Schreibweise und der Name, mit dem jemand angesprochen werden möchte, müssen nicht in dasselbe Feld gezwungen werden.",
+          "en": "We don't need to force a search-friendly spelling and the name someone wants to be called into the same field."
+        }
+      },
+      {
+        "korean": "검색용 표기가 화면에서 제 이름보다 더 크게 보이지만 않았으면 합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die Suchform sollte auf dem Bildschirm nur nicht prominenter erscheinen als mein Name.",
+          "en": "I just don't want the search spelling displayed more prominently than my name."
+        }
+      },
+      {
+        "korean": "선호 이름을 본문에 두고 발음 도움말과 검색용 표기는 별도 정보로 설계하겠습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dann steht der bevorzugte Name im Vordergrund; Aussprachehilfe und Suchform werden separate Metadaten.",
+          "en": "We'll keep the preferred name primary and treat pronunciation help and search spelling as separate metadata."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c2_relationship_narratives"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_indirect_speech"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(ㄴ/는)다고 하다",
+        "de": "Indirekte Rede",
+        "en": "Indirect speech"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Sagt dass / hat gesagt dass: indirekte Wiedergabe",
+        "en": "Says that / said that: reporting speech indirectly"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "resident",
+        "ko": "등록 시스템에서는 제 이름을 ‘June’으로 바꾸면 검색이 쉽다고 합니다.",
+        "de": "Das Registrierungssystem schlägt „June“ vor, weil mein Name dann leichter zu suchen sei.",
+        "en": "The registration system suggests changing my name to 'June' because it's easier to search."
+      },
+      {
+        "speaker": "user",
+        "ko": "평소에도 그 이름으로 불리길 원하세요?",
+        "de": "Möchtest du im Alltag auch so genannt werden?",
+        "en": "Do you want people to call you that in everyday life too?"
+      },
+      {
+        "speaker": "resident",
+        "ko": "아니요. 본문에는 ‘준희’를 쓰고, 발음이 어려우면 도움말만 붙이고 싶어요.",
+        "de": "Nein. Im Haupttext soll „Junhee“ stehen; bei Bedarf möchte ich nur eine Aussprachehilfe ergänzen.",
+        "en": "No. I want 'Junhee' in the main text, with a pronunciation guide if needed."
+      },
+      {
+        "speaker": "user",
+        "ko": "검색을 쉽게 만드는 표기와 당사자가 불리고 싶은 이름을 같은 칸에 억지로 맞출 필요는 없습니다.",
+        "de": "Die suchfreundliche Schreibweise und der Name, mit dem jemand angesprochen werden möchte, müssen nicht in dasselbe Feld gezwungen werden.",
+        "en": "We don't need to force a search-friendly spelling and the name someone wants to be called into the same field."
+      },
+      {
+        "speaker": "resident",
+        "ko": "검색용 표기가 화면에서 제 이름보다 더 크게 보이지만 않았으면 합니다.",
+        "de": "Die Suchform sollte auf dem Bildschirm nur nicht prominenter erscheinen als mein Name.",
+        "en": "I just don't want the search spelling displayed more prominently than my name."
+      },
+      {
+        "speaker": "user",
+        "ko": "선호 이름을 본문에 두고 발음 도움말과 검색용 표기는 별도 정보로 설계하겠습니다.",
+        "de": "Dann steht der bevorzugte Name im Vordergrund; Aussprachehilfe und Suchform werden separate Metadaten.",
+        "en": "We'll keep the preferred name primary and treat pronunciation help and search spelling as separate metadata."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_diaspora_name_identity_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "등록 시스템에서는 제 이름을 ‘June’으로 바꾸면 검색이 쉽다고 합니다.",
+          "options": [
+            {
+              "de": "Das Registrierungssystem schlägt „June“ vor, weil mein Name dann leichter zu suchen sei.",
+              "en": "The registration system suggests changing my name to 'June' because it's easier to search."
+            },
+            {
+              "de": "Möchtest du im Alltag auch so genannt werden?",
+              "en": "Do you want people to call you that in everyday life too?"
+            },
+            {
+              "de": "Nein. Im Haupttext soll „Junhee“ stehen; bei Bedarf möchte ich nur eine Aussprachehilfe ergänzen.",
+              "en": "No. I want 'Junhee' in the main text, with a pronunciation guide if needed."
+            },
+            {
+              "de": "Die suchfreundliche Schreibweise und der Name, mit dem jemand angesprochen werden möchte, müssen nicht in dasselbe Feld gezwungen werden.",
+              "en": "We don't need to force a search-friendly spelling and the name someone wants to be called into the same field."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_diaspora_name_identity_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Möchtest du im Alltag auch so genannt werden?",
+          "promptEn": "Do you want people to call you that in everyday life too?",
+          "options": [
+            {
+              "ko": "평소에도 그 이름으로 불리길 원하세요?"
+            },
+            {
+              "ko": "등록 시스템에서는 제 이름을 ‘June’으로 바꾸면 검색이 쉽다고 합니다."
+            },
+            {
+              "ko": "아니요. 본문에는 ‘준희’를 쓰고, 발음이 어려우면 도움말만 붙이고 싶어요."
+            },
+            {
+              "ko": "검색을 쉽게 만드는 표기와 당사자가 불리고 싶은 이름을 같은 칸에 억지로 맞출 필요는 없습니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_diaspora_name_identity_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "선호 이름을 본문에 두고 발음 도움말과 검색용 표기는 별도 정보로 설계하겠습니다.",
+          "audioKo": "선호 이름을 본문에 두고 발음 도움말과 검색용 표기는 별도 정보로 설계하겠습니다.",
+          "promptDe": "Dann steht der bevorzugte Name im Vordergrund; Aussprachehilfe und Suchform werden separate Metadaten.",
+          "promptEn": "We'll keep the preferred name primary and treat pronunciation help and search spelling as separate metadata.",
+          "distractors": [
+            "등록 시스템에서는 제 이름을 ‘June’으로 바꾸면 검색이 쉽다고 합니다.",
+            "평소에도 그 이름으로 불리길 원하세요?",
+            "아니요. 본문에는 ‘준희’를 쓰고, 발음이 어려우면 도움말만 붙이고 싶어요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 150
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

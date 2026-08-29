@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "generationId": "canonical_120_v1",
+  "level": "c2",
+  "regressionOnly": true,
+  "scenarios": [
+    {
+      "id": "reg_mistake_c2_blame_frame",
+      "title": {"de": "Den Deutungsrahmen „menschliches Versagen“ öffnen", "en": "Opening up the 'human error' blame frame"},
+      "intro": {"ko": "기관이 사고를 인적 오류로 결론 내리면서 설계와 감독, 예산 결정의 역할이 가려졌어요.", "de": "Die Institution erklärt den Unfall mit „menschlichem Versagen“ und verdeckt damit Gestaltung, Aufsicht und Budgetentscheidungen.", "en": "The institution concludes that an accident was human error, obscuring design, supervision, and budget decisions."},
+      "dialog": [
+        {"speaker": "official", "ko": "조작 담당자가 절차를 지키지 않은 인적 오류가 사고의 원인이라는 결론입니다.", "de": "Unsere Schlussfolgerung lautet, dass menschliches Versagen durch die Missachtung des Verfahrens den Unfall verursachte.", "en": "Our conclusion is that human error—an operator failing to follow procedure—caused the accident."},
+        {"speaker": "hyuna", "ko": "인적 오류라는 결론은 설명의 끝이 아니라 어떤 조건이 그 오류를 사고로 만들었는지 묻는 출발점이어야 합니다.", "de": "„Menschliches Versagen“ darf nicht das Ende der Erklärung sein, sondern muss die Frage eröffnen, welche Bedingungen den Fehler zum Unfall machten.", "en": "Human error should not end the explanation; it should begin the inquiry into what conditions turned the error into an accident."},
+        {"speaker": "official", "ko": "그렇게 원인을 넓히면 현장에서 잘못한 사람이 책임을 피하지 않겠습니까?", "de": "Wenn wir die Ursache so ausweiten, entgeht die handelnde Person dann nicht ihrer Verantwortung?", "en": "If we broaden the cause that way, won't the person who acted wrongly avoid responsibility?"},
+        {"speaker": "hyuna", "ko": "개인 행위를 확인하는 것과 설계·감독·인력·예산의 인과를 조사하는 것은 서로 배타적이지 않습니다.", "de": "Die individuelle Handlung zu prüfen und zugleich Ursachen in Gestaltung, Aufsicht, Personal und Budget zu untersuchen, schließt sich nicht aus.", "en": "Examining individual conduct does not exclude investigating causal roles in design, supervision, staffing, and budget."},
+        {"speaker": "official", "ko": "피해자에게는 누가 보상할지가 먼저 중요합니다.", "de": "Für Betroffene ist zunächst entscheidend, wer die Entschädigung übernimmt.", "en": "For those harmed, who provides compensation matters first."},
+        {"speaker": "hyuna", "ko": "그래서 피해 구제 책임은 분명히 유지하되 다층 원인 조사를 그 보상의 선행 조건으로 만들지 말아야 합니다.", "de": "Darum muss die Entschädigungsverantwortung klar bleiben, ohne die mehrschichtige Ursachenanalyse zur Vorbedingung der Hilfe zu machen.", "en": "That's why remedy responsibility should remain clear without making a multi-layered investigation a precondition for compensation."}
+      ]
+    },
+    {
+      "id": "reg_digital_c2_automated_accountability",
+      "title": {"de": "Verantwortung und Rechtsbehelf bei automatischen Sperren", "en": "Accountability and remedy for automated account bans"},
+      "intro": {"ko": "자동 시스템이 활동가 계정을 반복 차단했지만 회사는 모델의 결정이라고만 설명해요.", "de": "Ein automatisches System sperrt wiederholt das Konto einer Aktivistin; das Unternehmen verweist lediglich auf das Modell.", "en": "An automated system repeatedly blocks an activist's account, while the company says only that the model decided."},
+      "dialog": [
+        {"speaker": "resident", "ko": "사기 신고 내용을 공유할 때마다 제 계정이 차단되고 이의 제기는 같은 자동 답변으로 끝납니다.", "de": "Jedes Mal, wenn ich Betrugswarnungen teile, wird mein Konto gesperrt; mein Einspruch endet mit derselben automatischen Antwort.", "en": "Every time I share scam warnings, my account is blocked, and my appeals end with the same automated reply."},
+        {"speaker": "official", "ko": "대량의 악용 신고를 처리하려면 모델 판단을 기본으로 둘 수밖에 없습니다.", "de": "Um große Mengen an Missbrauch zu bearbeiten, müssen wir die Modellentscheidung als Standard nutzen.", "en": "To process abuse at scale, we have to use model decisions as the default."},
+        {"speaker": "sujin", "ko": "모델이 결정했다는 설명은 그 모델을 배치하고 유지한 기관의 책임을 대신할 수 없습니다.", "de": "Der Hinweis, das Modell habe entschieden, ersetzt nicht die Verantwortung der Institution, die es eingesetzt und betrieben hat.", "en": "Saying the model decided cannot replace the responsibility of the institution that deployed and maintained it."},
+        {"speaker": "official", "ko": "모든 차단을 독립적으로 다시 보면 악용 대응 속도가 크게 떨어집니다.", "de": "Eine unabhängige Prüfung jeder Sperre würde die Reaktionsgeschwindigkeit gegen Missbrauch stark verringern.", "en": "Independently reviewing every block would greatly slow abuse response."},
+        {"speaker": "sujin", "ko": "모든 건이 아니라 반복 오판, 공익 정보, 큰 불이익이 겹치는 사례를 우선 재검토할 수 있습니다.", "de": "Vorrang könnten Fälle mit wiederholten Fehlentscheidungen, Informationen von öffentlichem Interesse und schweren Folgen haben.", "en": "Priority review can focus on repeated errors, public-interest information, and cases with severe consequences."},
+        {"speaker": "resident", "ko": "같은 자동 답변만 반복되지 않고 누가 어떤 근거를 봤는지 알 수 있어야 합니다.", "de": "Ich brauche mehr als dieselbe automatische Antwort; erkennbar sein muss, wer welche Gründe geprüft hat.", "en": "I need more than the same automated reply; I should be able to see who reviewed what grounds."},
+        {"speaker": "sujin", "ko": "자동 탐지는 유지하되 우선 사례에는 독립 검토와 이유 기록을 두면 속도와 구제를 분리해 설계할 수 있습니다.", "de": "Die automatische Erkennung kann bleiben; unabhängige Prüfung und dokumentierte Gründe für prioritäre Fälle trennen Geschwindigkeit von wirksamem Rechtsschutz.", "en": "Automated detection can remain, while independent review and recorded reasons for priority cases separate speed from meaningful remedy."}
+      ]
+    }
+  ]
+}

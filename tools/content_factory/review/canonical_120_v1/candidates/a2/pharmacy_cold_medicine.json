@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "pharmacy_cold_medicine",
+  "scenario": {
+    "id": "pharmacy_cold_medicine",
+    "level": "a2",
+    "emoji": "💊",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "약국에서 감기 증상 말하기",
+      "de": "In der Apotheke Erkältungssymptome erklären",
+      "en": "Describing cold symptoms at a pharmacy"
+    },
+    "intro": {
+      "ko": "목이 아프고 기침이 나서 약국에 왔어요.",
+      "de": "Du hast Halsschmerzen und Husten und gehst in eine Apotheke.",
+      "en": "You have a sore throat and a cough, so you go to a pharmacy."
+    },
+    "courseUnitId": "a2_04_feelings_health",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "pharmacist"
+    ],
+    "relationshipContext": "손님과 약사",
+    "intent": "증상과 시작 시점을 말하고 약 복용법을 확인한다",
+    "shelf": "a2_body",
+    "backdrop": "pharmacy",
+    "vocab": [
+      {
+        "korean": "어디가 불편하세요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Was fehlt Ihnen?",
+          "en": "What symptoms do you have?"
+        }
+      },
+      {
+        "korean": "어제부터 목이 아파요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Seit gestern tut mir der Hals weh.",
+          "en": "My throat has hurt since yesterday."
+        }
+      },
+      {
+        "korean": "기침도 조금 나요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich habe auch ein bisschen Husten.",
+          "en": "I have a slight cough too."
+        }
+      },
+      {
+        "korean": "이 약을 먹으면 졸릴 수 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dieses Medikament kann müde machen.",
+          "en": "This medicine may make you drowsy."
+        }
+      },
+      {
+        "korean": "그럼 저녁에 먹어도 돼요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Kann ich es dann abends nehmen?",
+          "en": "Can I take it in the evening, then?"
+        }
+      },
+      {
+        "korean": "네. 식사 후에 드세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Nehmen Sie es nach dem Essen.",
+          "en": "Yes. Take it after a meal."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a2_feelings"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a2_conditional"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)면",
+        "de": "Konditionalsatz",
+        "en": "Conditional"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Wenn/Falls-Bedingung",
+        "en": "If / in case (a condition)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "pharmacist",
+        "ko": "어디가 불편하세요?",
+        "de": "Was fehlt Ihnen?",
+        "en": "What symptoms do you have?"
+      },
+      {
+        "speaker": "user",
+        "ko": "어제부터 목이 아파요.",
+        "de": "Seit gestern tut mir der Hals weh.",
+        "en": "My throat has hurt since yesterday."
+      },
+      {
+        "speaker": "user",
+        "ko": "기침도 조금 나요.",
+        "de": "Ich habe auch ein bisschen Husten.",
+        "en": "I have a slight cough too."
+      },
+      {
+        "speaker": "pharmacist",
+        "ko": "이 약을 먹으면 졸릴 수 있어요.",
+        "de": "Dieses Medikament kann müde machen.",
+        "en": "This medicine may make you drowsy."
+      },
+      {
+        "speaker": "user",
+        "ko": "그럼 저녁에 먹어도 돼요?",
+        "de": "Kann ich es dann abends nehmen?",
+        "en": "Can I take it in the evening, then?"
+      },
+      {
+        "speaker": "pharmacist",
+        "ko": "네. 식사 후에 드세요.",
+        "de": "Ja. Nehmen Sie es nach dem Essen.",
+        "en": "Yes. Take it after a meal."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_pharmacy_cold_medicine_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "어디가 불편하세요?",
+          "options": [
+            {
+              "de": "Was fehlt Ihnen?",
+              "en": "What symptoms do you have?"
+            },
+            {
+              "de": "Seit gestern tut mir der Hals weh.",
+              "en": "My throat has hurt since yesterday."
+            },
+            {
+              "de": "Ich habe auch ein bisschen Husten.",
+              "en": "I have a slight cough too."
+            },
+            {
+              "de": "Dieses Medikament kann müde machen.",
+              "en": "This medicine may make you drowsy."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_pharmacy_cold_medicine_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Seit gestern tut mir der Hals weh.",
+          "promptEn": "My throat has hurt since yesterday.",
+          "options": [
+            {
+              "ko": "어제부터 목이 아파요."
+            },
+            {
+              "ko": "어디가 불편하세요?"
+            },
+            {
+              "ko": "기침도 조금 나요."
+            },
+            {
+              "ko": "이 약을 먹으면 졸릴 수 있어요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_pharmacy_cold_medicine_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "그럼 저녁에 먹어도 돼요?",
+          "audioKo": "그럼 저녁에 먹어도 돼요?",
+          "promptDe": "Kann ich es dann abends nehmen?",
+          "promptEn": "Can I take it in the evening, then?",
+          "distractors": [
+            "어디가 불편하세요?",
+            "어제부터 목이 아파요.",
+            "기침도 조금 나요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 110
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

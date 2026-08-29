@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "team_update_indirect_speech",
+  "scenario": {
+    "id": "team_update_indirect_speech",
+    "level": "b1",
+    "emoji": "💬",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "회의 시간이 바뀌었다고 전달하기",
+      "de": "Eine mögliche Terminänderung weitergeben",
+      "en": "Passing on a possible schedule change"
+    },
+    "intro": {
+      "ko": "다른 팀에서 회의 시간이 바뀔 수 있다고 연락했어요.",
+      "de": "Ein anderes Team hat geschrieben, dass sich die Besprechungszeit möglicherweise ändert.",
+      "en": "Another team said the meeting time might change."
+    },
+    "courseUnitId": "b1_02_indirect_speech",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "coworker"
+    ],
+    "relationshipContext": "신입 마야와 같은 팀 동료",
+    "intent": "출처와 미확정 상태를 구분해 동료에게 전한다",
+    "shelf": "b1_team",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "다른 팀에서 시간이 바뀔 수도 있다고 연락이 왔어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Das andere Team hat geschrieben, dass sich die Uhrzeit vielleicht ändert.",
+          "en": "The other team contacted us to say the time might change."
+        }
+      },
+      {
+        "korean": "그럼 캘린더부터 바꿀까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Sollen wir den Kalendereintrag gleich ändern?",
+          "en": "Should we update the calendar now?"
+        }
+      },
+      {
+        "korean": "아직 확정된 건 아니에요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Es ist noch nicht bestätigt.",
+          "en": "It hasn't been confirmed yet."
+        }
+      },
+      {
+        "korean": "그럼 팀에는 어떻게 알리죠?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie informieren wir dann das Team?",
+          "en": "How should we tell the team, then?"
+        }
+      },
+      {
+        "korean": "변경 가능성만 먼저 남기고, 확정되면 캘린더를 바꿔요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir weisen erst nur auf die mögliche Änderung hin und ändern den Kalender nach der Bestätigung.",
+          "en": "Let's flag the possible change first and update the calendar once it's confirmed."
+        }
+      },
+      {
+        "korean": "좋아요. 아직 미정이라고 분명히 쓸게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gut. Ich schreibe deutlich dazu, dass es noch offen ist.",
+          "en": "Sounds good. I'll clearly say it's still tentative."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b1_indirect_speech"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_indirect_speech"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(ㄴ/는)다고 하다",
+        "de": "Indirekte Rede",
+        "en": "Indirect speech"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Sagt dass / hat gesagt dass: indirekte Wiedergabe",
+        "en": "Says that / said that: reporting speech indirectly"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "다른 팀에서 시간이 바뀔 수도 있다고 연락이 왔어요.",
+        "de": "Das andere Team hat geschrieben, dass sich die Uhrzeit vielleicht ändert.",
+        "en": "The other team contacted us to say the time might change."
+      },
+      {
+        "speaker": "coworker",
+        "ko": "그럼 캘린더부터 바꿀까요?",
+        "de": "Sollen wir den Kalendereintrag gleich ändern?",
+        "en": "Should we update the calendar now?"
+      },
+      {
+        "speaker": "user",
+        "ko": "아직 확정된 건 아니에요.",
+        "de": "Es ist noch nicht bestätigt.",
+        "en": "It hasn't been confirmed yet."
+      },
+      {
+        "speaker": "coworker",
+        "ko": "그럼 팀에는 어떻게 알리죠?",
+        "de": "Wie informieren wir dann das Team?",
+        "en": "How should we tell the team, then?"
+      },
+      {
+        "speaker": "user",
+        "ko": "변경 가능성만 먼저 남기고, 확정되면 캘린더를 바꿔요.",
+        "de": "Wir weisen erst nur auf die mögliche Änderung hin und ändern den Kalender nach der Bestätigung.",
+        "en": "Let's flag the possible change first and update the calendar once it's confirmed."
+      },
+      {
+        "speaker": "coworker",
+        "ko": "좋아요. 아직 미정이라고 분명히 쓸게요.",
+        "de": "Gut. Ich schreibe deutlich dazu, dass es noch offen ist.",
+        "en": "Sounds good. I'll clearly say it's still tentative."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_team_update_indirect_speech_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "그럼 캘린더부터 바꿀까요?",
+          "options": [
+            {
+              "de": "Sollen wir den Kalendereintrag gleich ändern?",
+              "en": "Should we update the calendar now?"
+            },
+            {
+              "de": "Das andere Team hat geschrieben, dass sich die Uhrzeit vielleicht ändert.",
+              "en": "The other team contacted us to say the time might change."
+            },
+            {
+              "de": "Es ist noch nicht bestätigt.",
+              "en": "It hasn't been confirmed yet."
+            },
+            {
+              "de": "Wie informieren wir dann das Team?",
+              "en": "How should we tell the team, then?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_team_update_indirect_speech_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Das andere Team hat geschrieben, dass sich die Uhrzeit vielleicht ändert.",
+          "promptEn": "The other team contacted us to say the time might change.",
+          "options": [
+            {
+              "ko": "다른 팀에서 시간이 바뀔 수도 있다고 연락이 왔어요."
+            },
+            {
+              "ko": "그럼 캘린더부터 바꿀까요?"
+            },
+            {
+              "ko": "아직 확정된 건 아니에요."
+            },
+            {
+              "ko": "그럼 팀에는 어떻게 알리죠?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_team_update_indirect_speech_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "변경 가능성만 먼저 남기고, 확정되면 캘린더를 바꿔요.",
+          "audioKo": "변경 가능성만 먼저 남기고, 확정되면 캘린더를 바꿔요.",
+          "promptDe": "Wir weisen erst nur auf die mögliche Änderung hin und ändern den Kalender nach der Bestätigung.",
+          "promptEn": "Let's flag the possible change first and update the calendar once it's confirmed.",
+          "distractors": [
+            "다른 팀에서 시간이 바뀔 수도 있다고 연락이 왔어요.",
+            "그럼 캘린더부터 바꿀까요?",
+            "아직 확정된 건 아니에요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 120
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

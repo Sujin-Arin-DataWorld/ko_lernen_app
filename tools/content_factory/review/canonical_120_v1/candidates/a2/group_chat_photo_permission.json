@@ -1,0 +1,253 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "group_chat_photo_permission",
+  "scenario": {
+    "id": "group_chat_photo_permission",
+    "level": "a2",
+    "emoji": "☕",
+    "register": "casual",
+    "speechStyle": "casual",
+    "title": {
+      "ko": "단체 사진을 올리기 전에 묻기",
+      "de": "Vor dem Posten eines Gruppenfotos fragen",
+      "en": "Asking before posting a group photo"
+    },
+    "intro": {
+      "ko": "모임 사진을 인스타그램 스토리에 올리려고 해요.",
+      "de": "Maya möchte ein Foto vom Treffen in ihrer Instagram-Story posten.",
+      "en": "Maya wants to post a photo from the gathering to her Instagram story."
+    },
+    "courseUnitId": "a2_03_chat_relationships",
+    "playerCharacterId": "lena",
+    "participantIds": [
+      "lena",
+      "maya"
+    ],
+    "relationshipContext": "친구 마야와 레나",
+    "intent": "자기 얼굴이 나온 사진의 게시 범위를 확인한다",
+    "shelf": "a2_work",
+    "backdrop": "cafe",
+    "vocab": [
+      {
+        "korean": "이 사진 올려도 돼?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Darf ich dieses Foto posten?",
+          "en": "Can I post this photo?"
+        }
+      },
+      {
+        "korean": "이건 내 얼굴이 이상하게 나왔어.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Auf dem sehe ich komisch aus.",
+          "en": "I look strange in this one."
+        }
+      },
+      {
+        "korean": "그럼 이 사진은 어때?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie ist dann dieses hier?",
+          "en": "How about this one, then?"
+        }
+      },
+      {
+        "korean": "응, 이 사진은 괜찮아.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, das ist okay.",
+          "en": "Yes, this one is fine."
+        }
+      },
+      {
+        "korean": "스토리에만 올릴게.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich poste es nur in der Story.",
+          "en": "I'll only post it to my story."
+        }
+      },
+      {
+        "korean": "응. 올리기 전에 물어봐 줘서 고마워.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Okay. Danke, dass du vorher gefragt hast.",
+          "en": "Okay. Thanks for asking first."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a2_relationships"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_direction_time_particle"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N에",
+        "de": "Richtungs-/Ortspartikel",
+        "en": "Direction/time particle"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Richtung (wohin?) oder Zeitpunkt (wann?)",
+        "en": "Direction (to where?) or point in time (when?)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "maya",
+        "ko": "이 사진 올려도 돼?",
+        "de": "Darf ich dieses Foto posten?",
+        "en": "Can I post this photo?"
+      },
+      {
+        "speaker": "user",
+        "ko": "이건 내 얼굴이 이상하게 나왔어.",
+        "de": "Auf dem sehe ich komisch aus.",
+        "en": "I look strange in this one."
+      },
+      {
+        "speaker": "maya",
+        "ko": "그럼 이 사진은 어때?",
+        "de": "Wie ist dann dieses hier?",
+        "en": "How about this one, then?"
+      },
+      {
+        "speaker": "user",
+        "ko": "응, 이 사진은 괜찮아.",
+        "de": "Ja, das ist okay.",
+        "en": "Yes, this one is fine."
+      },
+      {
+        "speaker": "maya",
+        "ko": "스토리에만 올릴게.",
+        "de": "Ich poste es nur in der Story.",
+        "en": "I'll only post it to my story."
+      },
+      {
+        "speaker": "user",
+        "ko": "응. 올리기 전에 물어봐 줘서 고마워.",
+        "de": "Okay. Danke, dass du vorher gefragt hast.",
+        "en": "Okay. Thanks for asking first."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_group_chat_photo_permission_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "이 사진 올려도 돼?",
+          "options": [
+            {
+              "de": "Darf ich dieses Foto posten?",
+              "en": "Can I post this photo?"
+            },
+            {
+              "de": "Auf dem sehe ich komisch aus.",
+              "en": "I look strange in this one."
+            },
+            {
+              "de": "Wie ist dann dieses hier?",
+              "en": "How about this one, then?"
+            },
+            {
+              "de": "Ja, das ist okay.",
+              "en": "Yes, this one is fine."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_group_chat_photo_permission_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Auf dem sehe ich komisch aus.",
+          "promptEn": "I look strange in this one.",
+          "options": [
+            {
+              "ko": "이건 내 얼굴이 이상하게 나왔어."
+            },
+            {
+              "ko": "이 사진 올려도 돼?"
+            },
+            {
+              "ko": "그럼 이 사진은 어때?"
+            },
+            {
+              "ko": "응, 이 사진은 괜찮아."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_group_chat_photo_permission_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "응. 올리기 전에 물어봐 줘서 고마워.",
+          "audioKo": "응. 올리기 전에 물어봐 줘서 고마워.",
+          "promptDe": "Okay. Danke, dass du vorher gefragt hast.",
+          "promptEn": "Okay. Thanks for asking first.",
+          "distractors": [
+            "이 사진 올려도 돼?",
+            "이건 내 얼굴이 이상하게 나왔어.",
+            "그럼 이 사진은 어때?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": {
+      "title": {
+        "ko": "사진마다 허락은 달라질 수 있어요",
+        "de": "Die Zustimmung kann je nach Foto anders ausfallen",
+        "en": "Permission can differ from one photo to another"
+      },
+      "body": {
+        "ko": "단체 사진에 같이 찍혔다고 해서 게시에도 동의한 것은 아니에요. 올릴 사진과 공개 범위를 짧게 확인하면 선택하기 쉬워요.",
+        "de": "Wer auf einem Gruppenfoto zu sehen ist, hat damit nicht automatisch einer Veröffentlichung zugestimmt. Frag kurz nach dem konkreten Foto und dem Veröffentlichungsort.",
+        "en": "Being in a group photo does not automatically mean agreeing to have it posted. Briefly check the specific photo and where it will appear."
+      }
+    },
+    "xpReward": 110
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

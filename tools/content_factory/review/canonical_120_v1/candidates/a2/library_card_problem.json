@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "library_card_problem",
+  "scenario": {
+    "id": "library_card_problem",
+    "level": "a2",
+    "emoji": "🏠",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "도서관 카드가 인식되지 않을 때",
+      "de": "Wenn der Bibliotheksausweis nicht funktioniert",
+      "en": "When your library card doesn't work"
+    },
+    "intro": {
+      "ko": "대출 기계가 카드를 읽지 못해요.",
+      "de": "Der Ausleihautomat erkennt deinen Bibliotheksausweis nicht.",
+      "en": "The checkout machine isn't reading your library card."
+    },
+    "courseUnitId": "a2_08_home_money",
+    "playerCharacterId": "lena",
+    "participantIds": [
+      "lena",
+      "clerk"
+    ],
+    "relationshipContext": "이용자와 도서관 직원",
+    "intent": "무슨 문제가 생겼는지 말하고 다시 사용할 방법을 묻는다",
+    "shelf": "a2_delivery",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "저기요. 카드가 안 돼요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Entschuldigung, meine Karte funktioniert nicht.",
+          "en": "Excuse me, my card isn't working."
+        }
+      },
+      {
+        "korean": "한 번 다시 찍어 보세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Versuchen Sie bitte, sie noch einmal zu scannen.",
+          "en": "Please try scanning it again."
+        }
+      },
+      {
+        "korean": "다시 해도 안 돼요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Auch beim zweiten Versuch geht es nicht.",
+          "en": "It still doesn't work when I try again."
+        }
+      },
+      {
+        "korean": "앱 바코드는 있으세요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Haben Sie den Barcode in der App?",
+          "en": "Do you have the barcode in the app?"
+        }
+      },
+      {
+        "korean": "네. 앱으로 빌려도 돼요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Kann ich das Buch damit ausleihen?",
+          "en": "Yes. Can I borrow the book with that?"
+        }
+      },
+      {
+        "korean": "네, 바코드를 여기 보여 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, zeigen Sie den Barcode bitte hier.",
+          "en": "Yes, show the barcode here."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a2_home_money"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_short_negation"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "안 + V",
+        "de": "Kurzverneinung",
+        "en": "Short negation"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Verneinung: 안 direkt vor dem Verb. Schnell und umgangssprachlich",
+        "en": "Negation: place 안 right before the verb. Quick and colloquial"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "저기요. 카드가 안 돼요.",
+        "de": "Entschuldigung, meine Karte funktioniert nicht.",
+        "en": "Excuse me, my card isn't working."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "한 번 다시 찍어 보세요.",
+        "de": "Versuchen Sie bitte, sie noch einmal zu scannen.",
+        "en": "Please try scanning it again."
+      },
+      {
+        "speaker": "user",
+        "ko": "다시 해도 안 돼요.",
+        "de": "Auch beim zweiten Versuch geht es nicht.",
+        "en": "It still doesn't work when I try again."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "앱 바코드는 있으세요?",
+        "de": "Haben Sie den Barcode in der App?",
+        "en": "Do you have the barcode in the app?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네. 앱으로 빌려도 돼요?",
+        "de": "Ja. Kann ich das Buch damit ausleihen?",
+        "en": "Yes. Can I borrow the book with that?"
+      },
+      {
+        "speaker": "clerk",
+        "ko": "네, 바코드를 여기 보여 주세요.",
+        "de": "Ja, zeigen Sie den Barcode bitte hier.",
+        "en": "Yes, show the barcode here."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_library_card_problem_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "한 번 다시 찍어 보세요.",
+          "options": [
+            {
+              "de": "Versuchen Sie bitte, sie noch einmal zu scannen.",
+              "en": "Please try scanning it again."
+            },
+            {
+              "de": "Entschuldigung, meine Karte funktioniert nicht.",
+              "en": "Excuse me, my card isn't working."
+            },
+            {
+              "de": "Auch beim zweiten Versuch geht es nicht.",
+              "en": "It still doesn't work when I try again."
+            },
+            {
+              "de": "Haben Sie den Barcode in der App?",
+              "en": "Do you have the barcode in the app?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_library_card_problem_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Entschuldigung, meine Karte funktioniert nicht.",
+          "promptEn": "Excuse me, my card isn't working.",
+          "options": [
+            {
+              "ko": "저기요. 카드가 안 돼요."
+            },
+            {
+              "ko": "한 번 다시 찍어 보세요."
+            },
+            {
+              "ko": "다시 해도 안 돼요."
+            },
+            {
+              "ko": "앱 바코드는 있으세요?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_library_card_problem_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네. 앱으로 빌려도 돼요?",
+          "audioKo": "네. 앱으로 빌려도 돼요?",
+          "promptDe": "Ja. Kann ich das Buch damit ausleihen?",
+          "promptEn": "Yes. Can I borrow the book with that?",
+          "distractors": [
+            "저기요. 카드가 안 돼요.",
+            "한 번 다시 찍어 보세요.",
+            "다시 해도 안 돼요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 110
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

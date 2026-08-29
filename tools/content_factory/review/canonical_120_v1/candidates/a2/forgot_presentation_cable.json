@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "forgot_presentation_cable",
+  "scenario": {
+    "id": "forgot_presentation_cable",
+    "level": "a2",
+    "emoji": "🏠",
+    "register": "casual",
+    "speechStyle": "casual",
+    "title": {
+      "ko": "발표 케이블을 안 가져왔을 때",
+      "de": "Das Präsentationskabel vergessen",
+      "en": "Forgetting the presentation cable"
+    },
+    "intro": {
+      "ko": "발표 직전에 케이블이 없다는 걸 알았어요.",
+      "de": "Kurz vor der Präsentation merkst du, dass das Kabel fehlt.",
+      "en": "Right before the presentation, you realize the cable is missing."
+    },
+    "courseUnitId": "a2_06_study_work",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "lena"
+    ],
+    "relationshipContext": "조별 과제 동료 크리스티안과 레나",
+    "intent": "빠뜨린 물건을 말하고 대안을 찾는다",
+    "shelf": "a2_work",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "큰일이야. 케이블을 안 가져왔어.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Mist. Ich habe das Kabel vergessen.",
+          "en": "This is bad. I forgot the cable."
+        }
+      },
+      {
+        "korean": "기숙사에 있어?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Liegt es im Wohnheim?",
+          "en": "Is it at the dorm?"
+        }
+      },
+      {
+        "korean": "응. 책상에 두고 왔어.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Es liegt auf meinem Schreibtisch.",
+          "en": "Yes. I left it on my desk."
+        }
+      },
+      {
+        "korean": "지금 다녀오면 늦을 거야.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn du es jetzt holst, kommst du zu spät.",
+          "en": "If you go back now, you'll be late."
+        }
+      },
+      {
+        "korean": "내가 옆 조에 물어볼게.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich frage die andere Gruppe.",
+          "en": "I'll ask the other group."
+        }
+      },
+      {
+        "korean": "좋아. 나는 발표 파일을 열게.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gut. Ich öffne die Präsentation.",
+          "en": "Good. I'll open the presentation file."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a2_work_study"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a2_future_intention"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)ㄹ 거예요",
+        "de": "Zukunft / Absicht",
+        "en": "Future / intention"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Zukünftige Handlung oder Absicht ausdrücken",
+        "en": "Express a future action or intention"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "큰일이야. 케이블을 안 가져왔어.",
+        "de": "Mist. Ich habe das Kabel vergessen.",
+        "en": "This is bad. I forgot the cable."
+      },
+      {
+        "speaker": "lena",
+        "ko": "기숙사에 있어?",
+        "de": "Liegt es im Wohnheim?",
+        "en": "Is it at the dorm?"
+      },
+      {
+        "speaker": "user",
+        "ko": "응. 책상에 두고 왔어.",
+        "de": "Ja. Es liegt auf meinem Schreibtisch.",
+        "en": "Yes. I left it on my desk."
+      },
+      {
+        "speaker": "lena",
+        "ko": "지금 다녀오면 늦을 거야.",
+        "de": "Wenn du es jetzt holst, kommst du zu spät.",
+        "en": "If you go back now, you'll be late."
+      },
+      {
+        "speaker": "user",
+        "ko": "내가 옆 조에 물어볼게.",
+        "de": "Ich frage die andere Gruppe.",
+        "en": "I'll ask the other group."
+      },
+      {
+        "speaker": "lena",
+        "ko": "좋아. 나는 발표 파일을 열게.",
+        "de": "Gut. Ich öffne die Präsentation.",
+        "en": "Good. I'll open the presentation file."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_forgot_presentation_cable_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "기숙사에 있어?",
+          "options": [
+            {
+              "de": "Liegt es im Wohnheim?",
+              "en": "Is it at the dorm?"
+            },
+            {
+              "de": "Mist. Ich habe das Kabel vergessen.",
+              "en": "This is bad. I forgot the cable."
+            },
+            {
+              "de": "Ja. Es liegt auf meinem Schreibtisch.",
+              "en": "Yes. I left it on my desk."
+            },
+            {
+              "de": "Wenn du es jetzt holst, kommst du zu spät.",
+              "en": "If you go back now, you'll be late."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_forgot_presentation_cable_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Mist. Ich habe das Kabel vergessen.",
+          "promptEn": "This is bad. I forgot the cable.",
+          "options": [
+            {
+              "ko": "큰일이야. 케이블을 안 가져왔어."
+            },
+            {
+              "ko": "기숙사에 있어?"
+            },
+            {
+              "ko": "응. 책상에 두고 왔어."
+            },
+            {
+              "ko": "지금 다녀오면 늦을 거야."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_forgot_presentation_cable_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "내가 옆 조에 물어볼게.",
+          "audioKo": "내가 옆 조에 물어볼게.",
+          "promptDe": "Ich frage die andere Gruppe.",
+          "promptEn": "I'll ask the other group.",
+          "distractors": [
+            "큰일이야. 케이블을 안 가져왔어.",
+            "기숙사에 있어?",
+            "응. 책상에 두고 왔어."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 110
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

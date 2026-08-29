@@ -13,7 +13,8 @@ content files a text edit can touch:
     cloze.json          items[].fullKo                          female
     satz_sentences.json items[].targetKo                        female
     smalltalk.json      every nested "ko" under phrases         female
-    scenarios_{level}   dialog[].ko           speaker user -> female, else male
+    scenarios_{level}   dialog[].ko           character profile voice;
+                                                legacy fallback only
                         quests satzBauen/batchimDrop/hoerverstehen -> data.audioKo
                         quests diktat       -> data.audioKo or data.targetKo
                         quests particlePop  -> prefix + options[correctIndex] + suffix
@@ -92,6 +93,30 @@ def _scenarios_at(rev):
     return rows
 
 
+def _character_voices_at(rev):
+    path = "tools/content_factory/canonical_scenarios/character_profiles.json"
+    result = subprocess.run(
+        ["git", "show", f"{rev}:{path}"],
+        capture_output=True,
+    )
+    if result.returncode != 0:
+        return {}
+    payload = json.loads(result.stdout.decode("utf-8"))
+    voices = {
+        item["id"]: item["voice"]
+        for item in payload.get("recurringCharacters", [])
+        if item.get("id") and item.get("voice") in ("female", "male")
+    }
+    voices.update(
+        {
+            role_id: item["voice"]
+            for role_id, item in payload.get("runtimeRoleProfiles", {}).items()
+            if item.get("voice") in ("female", "male")
+        }
+    )
+    return voices
+
+
 def collect(rev):
     """Return every (voice, text) pair the app would speak at ``rev``."""
     spoken = set()
@@ -123,11 +148,21 @@ def collect(rev):
 
     walk_ko(json.loads(_show(rev, CONTENT_FILES["smalltalk"])).get("phrases", []))
 
+    character_voices = _character_voices_at(rev)
     for scenario in _scenarios_at(rev):
         for line in scenario.get("dialog", []):
             text = (line.get("ko") or "").strip()
             if text:
-                voice = "female" if line.get("speaker") == "user" else "male"
+                speaker = str(line.get("speaker") or "").strip().lower()
+                resolved = (
+                    str(scenario.get("playerCharacterId") or "").strip().lower()
+                    if speaker == "user"
+                    else speaker
+                )
+                voice = character_voices.get(
+                    resolved,
+                    "female" if speaker == "user" else "male",
+                )
                 spoken.add((voice, text))
         for quest in scenario.get("quests", []):
             data = quest.get("data") or {}

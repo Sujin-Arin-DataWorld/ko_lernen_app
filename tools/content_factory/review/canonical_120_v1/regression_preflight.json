@@ -1,0 +1,207 @@
+{
+  "ok": true,
+  "kind": "nonrelease_regression_ladder_preflight",
+  "releaseEligible": false,
+  "lengthIsApprovalCriterion": false,
+  "candidateCount": 12,
+  "themes": {
+    "mistake_embarrassment_repair": [
+      {
+        "level": "a1",
+        "scenarioId": "reg_mistake_a1_foot",
+        "contentScope": "나, 내 주변, 지금 당장 필요한 구체적 상황",
+        "cognitiveTasks": [
+          "인사",
+          "소개",
+          "확인",
+          "짧은 요청",
+          "사과",
+          "선호 말하기"
+        ],
+        "canDoKo": "작은 실수에 바로 사과할 수 있다",
+        "turnCount": 6,
+        "meanKoChars": 9.17,
+        "maxKoChars": 16
+      },
+      {
+        "level": "a2",
+        "scenarioId": "reg_mistake_a2_attachment",
+        "contentScope": "익숙한 공공장소와 반복되는 생활 문제",
+        "cognitiveTasks": [
+          "요청과 허락",
+          "과거와 계획",
+          "한 가지 이유",
+          "간단한 문제 해결"
+        ],
+        "canDoKo": "반복 실수와 해결 행동 하나를 말할 수 있다",
+        "turnCount": 6,
+        "meanKoChars": 20.17,
+        "maxKoChars": 27
+      },
+      {
+        "level": "b1",
+        "scenarioId": "reg_mistake_b1_brand_account",
+        "contentScope": "자신의 삶과 연결된 학교, 직장, 관계, 지역 생활",
+        "cognitiveTasks": [
+          "경험 설명",
+          "조언",
+          "원인과 결과",
+          "실수 수습",
+          "간단한 의견"
+        ],
+        "canDoKo": "디지털 실수의 원인·결과·수습을 설명할 수 있다",
+        "turnCount": 6,
+        "meanKoChars": 23.17,
+        "maxKoChars": 36
+      },
+      {
+        "level": "b2",
+        "scenarioId": "reg_mistake_b2_fremdschaemen",
+        "contentScope": "친숙한 사회·추상 주제와 기본 업무",
+        "cognitiveTasks": [
+          "비교",
+          "동의와 반대",
+          "보고",
+          "조건",
+          "절충",
+          "격식 조절"
+        ],
+        "canDoKo": "민망함과 타인의 선택권을 연결해 말할 수 있다",
+        "turnCount": 7,
+        "meanKoChars": 26.86,
+        "maxKoChars": 37
+      },
+      {
+        "level": "c1",
+        "scenarioId": "reg_mistake_c1_postmortem",
+        "contentScope": "사회 전반과 업무·학업에서 서로 다른 이해관계가 만나는 문제",
+        "cognitiveTasks": [
+          "협의",
+          "체계적 정보 전달",
+          "근거 평가",
+          "이해관계 조정",
+          "숨은 의도 읽기"
+        ],
+        "canDoKo": "실수의 개인 책임과 구조적 조건을 근거로 구분할 수 있다",
+        "turnCount": 6,
+        "meanKoChars": 40.5,
+        "maxKoChars": 53
+      },
+      {
+        "level": "c2",
+        "scenarioId": "reg_mistake_c2_blame_frame",
+        "contentScope": "전문·학술·정치·사회문화적 특수성이 있는 문제",
+        "cognitiveTasks": [
+          "논리적 설득",
+          "추론",
+          "프레이밍 분석",
+          "함축",
+          "관점과 문체 전환"
+        ],
+        "canDoKo": "책임 프레임이 인과와 권력을 어떻게 배분하는지 논증할 수 있다",
+        "turnCount": 6,
+        "meanKoChars": 46.5,
+        "maxKoChars": 60
+      }
+    ],
+    "digital_contact_permission_responsibility": [
+      {
+        "level": "a1",
+        "scenarioId": "reg_digital_a1_kakao",
+        "contentScope": "나, 내 주변, 지금 당장 필요한 구체적 상황",
+        "cognitiveTasks": [
+          "인사",
+          "소개",
+          "확인",
+          "짧은 요청",
+          "사과",
+          "선호 말하기"
+        ],
+        "canDoKo": "간단한 디지털 연락 방법을 정할 수 있다",
+        "turnCount": 7,
+        "meanKoChars": 11.86,
+        "maxKoChars": 15
+      },
+      {
+        "level": "a2",
+        "scenarioId": "reg_digital_a2_photo",
+        "contentScope": "익숙한 공공장소와 반복되는 생활 문제",
+        "cognitiveTasks": [
+          "요청과 허락",
+          "과거와 계획",
+          "한 가지 이유",
+          "간단한 문제 해결"
+        ],
+        "canDoKo": "사진 게시를 허락하거나 거절할 수 있다",
+        "turnCount": 6,
+        "meanKoChars": 14.17,
+        "maxKoChars": 21
+      },
+      {
+        "level": "b1",
+        "scenarioId": "reg_digital_b1_wrong_channel",
+        "contentScope": "자신의 삶과 연결된 학교, 직장, 관계, 지역 생활",
+        "cognitiveTasks": [
+          "경험 설명",
+          "조언",
+          "원인과 결과",
+          "실수 수습",
+          "간단한 의견"
+        ],
+        "canDoKo": "잘못된 디지털 전달의 경위와 수습을 설명할 수 있다",
+        "turnCount": 6,
+        "meanKoChars": 31.5,
+        "maxKoChars": 38
+      },
+      {
+        "level": "b2",
+        "scenarioId": "reg_digital_b2_filming",
+        "contentScope": "친숙한 사회·추상 주제와 기본 업무",
+        "cognitiveTasks": [
+          "비교",
+          "동의와 반대",
+          "보고",
+          "조건",
+          "절충",
+          "격식 조절"
+        ],
+        "canDoKo": "디지털 촬영 권한과 조건을 절충할 수 있다",
+        "turnCount": 6,
+        "meanKoChars": 26.33,
+        "maxKoChars": 37
+      },
+      {
+        "level": "c1",
+        "scenarioId": "reg_digital_c1_after_hours",
+        "contentScope": "사회 전반과 업무·학업에서 서로 다른 이해관계가 만나는 문제",
+        "cognitiveTasks": [
+          "협의",
+          "체계적 정보 전달",
+          "근거 평가",
+          "이해관계 조정",
+          "숨은 의도 읽기"
+        ],
+        "canDoKo": "디지털 연락의 숨은 의도와 관계 효과를 협의할 수 있다",
+        "turnCount": 6,
+        "meanKoChars": 36.5,
+        "maxKoChars": 39
+      },
+      {
+        "level": "c2",
+        "scenarioId": "reg_digital_c2_automated_accountability",
+        "contentScope": "전문·학술·정치·사회문화적 특수성이 있는 문제",
+        "cognitiveTasks": [
+          "논리적 설득",
+          "추론",
+          "프레이밍 분석",
+          "함축",
+          "관점과 문체 전환"
+        ],
+        "canDoKo": "자동화가 책임 주체를 흐리는 프레임을 분석하고 구제 절차를 논증할 수 있다",
+        "turnCount": 7,
+        "meanKoChars": 48.0,
+        "maxKoChars": 60
+      }
+    ]
+  }
+}

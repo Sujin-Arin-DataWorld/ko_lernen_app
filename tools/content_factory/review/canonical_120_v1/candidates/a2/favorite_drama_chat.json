@@ -1,0 +1,243 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "favorite_drama_chat",
+  "scenario": {
+    "id": "favorite_drama_chat",
+    "level": "a2",
+    "emoji": "💬",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "한국 생활과 좋아하는 드라마 이야기하기",
+      "de": "Über das Leben in Korea und Serien sprechen",
+      "en": "Talking about life in Korea and TV shows"
+    },
+    "intro": {
+      "ko": "점심시간에 한국 생활과 요즘 보는 드라마 이야기를 해요.",
+      "de": "In der Mittagspause sprecht ihr über das Leben in Korea und Serien, die ihr gerade schaut.",
+      "en": "At lunch, you talk about life in Korea and shows you're currently watching."
+    },
+    "courseUnitId": "a2_01_haeyo_transition",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "sujin"
+    ],
+    "relationshipContext": "친해지는 중인 마야와 수진",
+    "intent": "한국에 온 기간, 생활 느낌, 좋아하는 작품의 이유 하나를 말한다",
+    "shelf": "a2_plan",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "한국에 온 지 얼마나 됐어요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie lange bist du schon in Korea?",
+          "en": "How long have you been in Korea?"
+        }
+      },
+      {
+        "korean": "이제 세 달 됐어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Seit drei Monaten.",
+          "en": "For three months now."
+        }
+      },
+      {
+        "korean": "한국 생활은 어때요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie gefällt dir das Leben in Korea?",
+          "en": "How do you like life in Korea?"
+        }
+      },
+      {
+        "korean": "재미있어요. 요즘 한국 드라마도 많이 봐요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Es gefällt mir. In letzter Zeit schaue ich auch viele koreanische Serien.",
+          "en": "It's fun. I've also been watching a lot of Korean shows lately."
+        }
+      },
+      {
+        "korean": "좋아하는 드라마 있어요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Hast du eine Lieblingsserie?",
+          "en": "Do you have a favorite show?"
+        }
+      },
+      {
+        "korean": "네, ‘봄밤’을 보고 있어요. 대화가 자연스러워서 좋아요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, ich schaue gerade „Frühlingsnacht“. Ich mag sie, weil die Dialoge natürlich klingen.",
+          "en": "Yes, I'm watching 'One Spring Night.' I like it because the dialogue sounds natural."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_action_formal",
+      "concept_action_polite"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a2_progressive"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-고 있다",
+        "de": "Verlaufsform",
+        "en": "Progressive"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Etwas gerade tun (Progressiv)",
+        "en": "Be doing something right now (progressive)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "sujin",
+        "ko": "한국에 온 지 얼마나 됐어요?",
+        "de": "Wie lange bist du schon in Korea?",
+        "en": "How long have you been in Korea?"
+      },
+      {
+        "speaker": "user",
+        "ko": "이제 세 달 됐어요.",
+        "de": "Seit drei Monaten.",
+        "en": "For three months now."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "한국 생활은 어때요?",
+        "de": "Wie gefällt dir das Leben in Korea?",
+        "en": "How do you like life in Korea?"
+      },
+      {
+        "speaker": "user",
+        "ko": "재미있어요. 요즘 한국 드라마도 많이 봐요.",
+        "de": "Es gefällt mir. In letzter Zeit schaue ich auch viele koreanische Serien.",
+        "en": "It's fun. I've also been watching a lot of Korean shows lately."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "좋아하는 드라마 있어요?",
+        "de": "Hast du eine Lieblingsserie?",
+        "en": "Do you have a favorite show?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네, ‘봄밤’을 보고 있어요. 대화가 자연스러워서 좋아요.",
+        "de": "Ja, ich schaue gerade „Frühlingsnacht“. Ich mag sie, weil die Dialoge natürlich klingen.",
+        "en": "Yes, I'm watching 'One Spring Night.' I like it because the dialogue sounds natural."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_favorite_drama_chat_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "한국에 온 지 얼마나 됐어요?",
+          "options": [
+            {
+              "de": "Wie lange bist du schon in Korea?",
+              "en": "How long have you been in Korea?"
+            },
+            {
+              "de": "Seit drei Monaten.",
+              "en": "For three months now."
+            },
+            {
+              "de": "Wie gefällt dir das Leben in Korea?",
+              "en": "How do you like life in Korea?"
+            },
+            {
+              "de": "Es gefällt mir. In letzter Zeit schaue ich auch viele koreanische Serien.",
+              "en": "It's fun. I've also been watching a lot of Korean shows lately."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_favorite_drama_chat_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Seit drei Monaten.",
+          "promptEn": "For three months now.",
+          "options": [
+            {
+              "ko": "이제 세 달 됐어요."
+            },
+            {
+              "ko": "한국에 온 지 얼마나 됐어요?"
+            },
+            {
+              "ko": "한국 생활은 어때요?"
+            },
+            {
+              "ko": "재미있어요. 요즘 한국 드라마도 많이 봐요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_favorite_drama_chat_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네, ‘봄밤’을 보고 있어요. 대화가 자연스러워서 좋아요.",
+          "audioKo": "네, ‘봄밤’을 보고 있어요. 대화가 자연스러워서 좋아요.",
+          "promptDe": "Ja, ich schaue gerade „Frühlingsnacht“. Ich mag sie, weil die Dialoge natürlich klingen.",
+          "promptEn": "Yes, I'm watching 'One Spring Night.' I like it because the dialogue sounds natural.",
+          "distractors": [
+            "한국에 온 지 얼마나 됐어요?",
+            "이제 세 달 됐어요.",
+            "한국 생활은 어때요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 110
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

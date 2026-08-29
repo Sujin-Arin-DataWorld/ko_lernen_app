@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "accessible_festival_route",
+  "scenario": {
+    "id": "accessible_festival_route",
+    "level": "b2",
+    "emoji": "🏠",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "축제 동선을 휠체어도 이용할 수 있게 바꾸기",
+      "de": "Eine Festivalroute für Rollstühle freihalten",
+      "en": "Keeping a festival route accessible for wheelchairs"
+    },
+    "intro": {
+      "ko": "인기 포토존이 경사로 앞을 막아 휠체어가 지나가기 어려워요.",
+      "de": "Ein beliebter Fotopunkt blockiert die Rampe und erschwert Rollstuhlfahrenden den Weg.",
+      "en": "A popular photo spot blocks the ramp and makes it difficult for wheelchair users to pass."
+    },
+    "courseUnitId": "b2_06_advanced_capstone",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "resident"
+    ],
+    "relationshipContext": "기획자 마야와 주민 참여자",
+    "intent": "홍보 효과를 잃지 않으면서 포토존 위치를 바꾸자고 설득한다",
+    "shelf": "b2_public",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "포토존 줄이 경사로 앞까지 이어져서 지나갈 수가 없어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die Schlange für den Fotopunkt reicht bis vor die Rampe. Ich komme nicht durch.",
+          "en": "The line for the photo spot reaches the ramp, and I can't get through."
+        }
+      },
+      {
+        "korean": "사진 찍는 사람들만 생각하고 이동 공간을 놓쳤네요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir haben nur an die Menschen beim Fotografieren gedacht und den Bewegungsraum übersehen.",
+          "en": "We focused only on the people taking photos and overlooked the space others need to move."
+        }
+      },
+      {
+        "korean": "포토존을 없애 달라는 건 아니에요. 입구만 비워 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich verlange nicht, den Fotopunkt abzubauen. Der Zugang muss nur frei bleiben.",
+          "en": "I'm not asking you to remove the photo spot. Just keep the entrance clear."
+        }
+      },
+      {
+        "korean": "포토존을 유지하되 경사로 앞은 비워야 해요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir behalten den Fotopunkt, müssen aber den Bereich vor der Rampe freihalten.",
+          "en": "We can keep the photo spot, but the area in front of the ramp must stay clear."
+        }
+      },
+      {
+        "korean": "옆 벽으로 옮기고 대기 줄 표지도 새로 두겠습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir versetzen ihn an die Seitenwand und stellen ein neues Schild für die Warteschlange auf.",
+          "en": "We'll move it to the side wall and add a new sign for the queue."
+        }
+      },
+      {
+        "korean": "좋아요. 옮긴 뒤 실제로 지나갈 수 있는지도 확인해 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gut. Prüfen Sie danach bitte auch praktisch, ob der Weg breit genug ist.",
+          "en": "Good. After moving it, please check that the route actually works in practice."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b2_advanced"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_whether"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)ㄴ/는지",
+        "de": "Indirekte Frage (ob/was/wer)",
+        "en": "Indirect question (whether)"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Ob/W-Frage als Nebensatz vor 알다/모르다/궁금하다",
+        "en": "Whether/wh-question as clause before 알다/모르다/궁금하다"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "resident",
+        "ko": "포토존 줄이 경사로 앞까지 이어져서 지나갈 수가 없어요.",
+        "de": "Die Schlange für den Fotopunkt reicht bis vor die Rampe. Ich komme nicht durch.",
+        "en": "The line for the photo spot reaches the ramp, and I can't get through."
+      },
+      {
+        "speaker": "user",
+        "ko": "사진 찍는 사람들만 생각하고 이동 공간을 놓쳤네요.",
+        "de": "Wir haben nur an die Menschen beim Fotografieren gedacht und den Bewegungsraum übersehen.",
+        "en": "We focused only on the people taking photos and overlooked the space others need to move."
+      },
+      {
+        "speaker": "resident",
+        "ko": "포토존을 없애 달라는 건 아니에요. 입구만 비워 주세요.",
+        "de": "Ich verlange nicht, den Fotopunkt abzubauen. Der Zugang muss nur frei bleiben.",
+        "en": "I'm not asking you to remove the photo spot. Just keep the entrance clear."
+      },
+      {
+        "speaker": "user",
+        "ko": "포토존을 유지하되 경사로 앞은 비워야 해요.",
+        "de": "Wir behalten den Fotopunkt, müssen aber den Bereich vor der Rampe freihalten.",
+        "en": "We can keep the photo spot, but the area in front of the ramp must stay clear."
+      },
+      {
+        "speaker": "user",
+        "ko": "옆 벽으로 옮기고 대기 줄 표지도 새로 두겠습니다.",
+        "de": "Wir versetzen ihn an die Seitenwand und stellen ein neues Schild für die Warteschlange auf.",
+        "en": "We'll move it to the side wall and add a new sign for the queue."
+      },
+      {
+        "speaker": "resident",
+        "ko": "좋아요. 옮긴 뒤 실제로 지나갈 수 있는지도 확인해 주세요.",
+        "de": "Gut. Prüfen Sie danach bitte auch praktisch, ob der Weg breit genug ist.",
+        "en": "Good. After moving it, please check that the route actually works in practice."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_accessible_festival_route_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "포토존 줄이 경사로 앞까지 이어져서 지나갈 수가 없어요.",
+          "options": [
+            {
+              "de": "Die Schlange für den Fotopunkt reicht bis vor die Rampe. Ich komme nicht durch.",
+              "en": "The line for the photo spot reaches the ramp, and I can't get through."
+            },
+            {
+              "de": "Wir haben nur an die Menschen beim Fotografieren gedacht und den Bewegungsraum übersehen.",
+              "en": "We focused only on the people taking photos and overlooked the space others need to move."
+            },
+            {
+              "de": "Ich verlange nicht, den Fotopunkt abzubauen. Der Zugang muss nur frei bleiben.",
+              "en": "I'm not asking you to remove the photo spot. Just keep the entrance clear."
+            },
+            {
+              "de": "Wir behalten den Fotopunkt, müssen aber den Bereich vor der Rampe freihalten.",
+              "en": "We can keep the photo spot, but the area in front of the ramp must stay clear."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_accessible_festival_route_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Wir haben nur an die Menschen beim Fotografieren gedacht und den Bewegungsraum übersehen.",
+          "promptEn": "We focused only on the people taking photos and overlooked the space others need to move.",
+          "options": [
+            {
+              "ko": "사진 찍는 사람들만 생각하고 이동 공간을 놓쳤네요."
+            },
+            {
+              "ko": "포토존 줄이 경사로 앞까지 이어져서 지나갈 수가 없어요."
+            },
+            {
+              "ko": "포토존을 없애 달라는 건 아니에요. 입구만 비워 주세요."
+            },
+            {
+              "ko": "포토존을 유지하되 경사로 앞은 비워야 해요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_accessible_festival_route_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "옆 벽으로 옮기고 대기 줄 표지도 새로 두겠습니다.",
+          "audioKo": "옆 벽으로 옮기고 대기 줄 표지도 새로 두겠습니다.",
+          "promptDe": "Wir versetzen ihn an die Seitenwand und stellen ein neues Schild für die Warteschlange auf.",
+          "promptEn": "We'll move it to the side wall and add a new sign for the queue.",
+          "distractors": [
+            "포토존 줄이 경사로 앞까지 이어져서 지나갈 수가 없어요.",
+            "사진 찍는 사람들만 생각하고 이동 공간을 놓쳤네요.",
+            "포토존을 없애 달라는 건 아니에요. 입구만 비워 주세요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 130
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

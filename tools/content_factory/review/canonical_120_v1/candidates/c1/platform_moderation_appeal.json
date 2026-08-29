@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "platform_moderation_appeal",
+  "scenario": {
+    "id": "platform_moderation_appeal",
+    "level": "c1",
+    "emoji": "🏠",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "커뮤니티 글이 자동으로 숨겨졌을 때",
+      "de": "Eine automatisch verborgene Warnung erneut prüfen",
+      "en": "Appealing an automatically hidden warning post"
+    },
+    "intro": {
+      "ko": "사기 경고 글이 공격적인 표현 때문에 숨겨져 중요한 정보도 보이지 않아요.",
+      "de": "Eine Betrugswarnung wurde wegen aggressiver Sprache automatisch verborgen, wodurch auch wichtige Informationen verschwanden.",
+      "en": "A scam warning was automatically hidden for aggressive language, taking important information with it."
+    },
+    "courseUnitId": "c1_01_evidence_public_reasoning",
+    "playerCharacterId": "sujin",
+    "participantIds": [
+      "sujin",
+      "resident"
+    ],
+    "relationshipContext": "운영자 수진과 주민 이용자",
+    "intent": "안전 필터의 목적을 인정하면서 이의 제기와 재검토 경로를 제안한다",
+    "shelf": "c1_policy",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "표현이 거칠었던 건 인정하지만 계좌와 피해 방식까지 전부 가려졌어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die Wortwahl war hart, aber nun sind auch Kontodaten und Betrugsmethode unsichtbar.",
+          "en": "I admit the wording was harsh, but the account details and scam method were hidden too."
+        }
+      },
+      {
+        "korean": "필터가 필요한 이유와 잘못 숨겨졌을 때 다시 볼 수 있는 길은 함께 마련돼야 합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ein notwendiger Filter braucht zugleich einen Weg zur erneuten Prüfung, wenn er falsch greift.",
+          "en": "A necessary filter also needs a path for review when it hides something incorrectly."
+        }
+      },
+      {
+        "korean": "모든 글을 사람이 보면 처리 속도가 너무 느려지지 않나요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Würde eine menschliche Prüfung aller Beiträge nicht zu lange dauern?",
+          "en": "Wouldn't human review of every post take too long?"
+        }
+      },
+      {
+        "korean": "모든 글을 다시 보자는 게 아니라 피해 위험이 큰 경고부터 우선하자는 겁니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Nicht jeder Beitrag muss erneut geprüft werden; Warnungen mit hohem Schadensrisiko sollten Vorrang haben.",
+          "en": "I'm not proposing review for every post, only priority review for high-harm warnings."
+        }
+      },
+      {
+        "korean": "재검토 중이라는 표시라도 있으면 다른 사람이 조심할 수 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Schon ein Hinweis auf die laufende Prüfung könnte andere zur Vorsicht mahnen.",
+          "en": "Even a notice that review is pending could help others be cautious."
+        }
+      },
+      {
+        "korean": "좋아요. 원문 공개와 별개로 검토 상태를 먼저 보여 주는 방안도 넣죠.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gut. Dann prüfen wir auch eine Statusanzeige, unabhängig von der späteren Freigabe des Textes.",
+          "en": "Good. Let's include a review-status notice separate from whether the full post is restored."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_evidence_reasoning"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a2_conditional"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)면",
+        "de": "Konditionalsatz",
+        "en": "Conditional"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Wenn/Falls-Bedingung",
+        "en": "If / in case (a condition)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "resident",
+        "ko": "표현이 거칠었던 건 인정하지만 계좌와 피해 방식까지 전부 가려졌어요.",
+        "de": "Die Wortwahl war hart, aber nun sind auch Kontodaten und Betrugsmethode unsichtbar.",
+        "en": "I admit the wording was harsh, but the account details and scam method were hidden too."
+      },
+      {
+        "speaker": "user",
+        "ko": "필터가 필요한 이유와 잘못 숨겨졌을 때 다시 볼 수 있는 길은 함께 마련돼야 합니다.",
+        "de": "Ein notwendiger Filter braucht zugleich einen Weg zur erneuten Prüfung, wenn er falsch greift.",
+        "en": "A necessary filter also needs a path for review when it hides something incorrectly."
+      },
+      {
+        "speaker": "resident",
+        "ko": "모든 글을 사람이 보면 처리 속도가 너무 느려지지 않나요?",
+        "de": "Würde eine menschliche Prüfung aller Beiträge nicht zu lange dauern?",
+        "en": "Wouldn't human review of every post take too long?"
+      },
+      {
+        "speaker": "user",
+        "ko": "모든 글을 다시 보자는 게 아니라 피해 위험이 큰 경고부터 우선하자는 겁니다.",
+        "de": "Nicht jeder Beitrag muss erneut geprüft werden; Warnungen mit hohem Schadensrisiko sollten Vorrang haben.",
+        "en": "I'm not proposing review for every post, only priority review for high-harm warnings."
+      },
+      {
+        "speaker": "resident",
+        "ko": "재검토 중이라는 표시라도 있으면 다른 사람이 조심할 수 있어요.",
+        "de": "Schon ein Hinweis auf die laufende Prüfung könnte andere zur Vorsicht mahnen.",
+        "en": "Even a notice that review is pending could help others be cautious."
+      },
+      {
+        "speaker": "user",
+        "ko": "좋아요. 원문 공개와 별개로 검토 상태를 먼저 보여 주는 방안도 넣죠.",
+        "de": "Gut. Dann prüfen wir auch eine Statusanzeige, unabhängig von der späteren Freigabe des Textes.",
+        "en": "Good. Let's include a review-status notice separate from whether the full post is restored."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_platform_moderation_appeal_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "표현이 거칠었던 건 인정하지만 계좌와 피해 방식까지 전부 가려졌어요.",
+          "options": [
+            {
+              "de": "Die Wortwahl war hart, aber nun sind auch Kontodaten und Betrugsmethode unsichtbar.",
+              "en": "I admit the wording was harsh, but the account details and scam method were hidden too."
+            },
+            {
+              "de": "Ein notwendiger Filter braucht zugleich einen Weg zur erneuten Prüfung, wenn er falsch greift.",
+              "en": "A necessary filter also needs a path for review when it hides something incorrectly."
+            },
+            {
+              "de": "Würde eine menschliche Prüfung aller Beiträge nicht zu lange dauern?",
+              "en": "Wouldn't human review of every post take too long?"
+            },
+            {
+              "de": "Nicht jeder Beitrag muss erneut geprüft werden; Warnungen mit hohem Schadensrisiko sollten Vorrang haben.",
+              "en": "I'm not proposing review for every post, only priority review for high-harm warnings."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_platform_moderation_appeal_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ein notwendiger Filter braucht zugleich einen Weg zur erneuten Prüfung, wenn er falsch greift.",
+          "promptEn": "A necessary filter also needs a path for review when it hides something incorrectly.",
+          "options": [
+            {
+              "ko": "필터가 필요한 이유와 잘못 숨겨졌을 때 다시 볼 수 있는 길은 함께 마련돼야 합니다."
+            },
+            {
+              "ko": "표현이 거칠었던 건 인정하지만 계좌와 피해 방식까지 전부 가려졌어요."
+            },
+            {
+              "ko": "모든 글을 사람이 보면 처리 속도가 너무 느려지지 않나요?"
+            },
+            {
+              "ko": "모든 글을 다시 보자는 게 아니라 피해 위험이 큰 경고부터 우선하자는 겁니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_platform_moderation_appeal_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "좋아요. 원문 공개와 별개로 검토 상태를 먼저 보여 주는 방안도 넣죠.",
+          "audioKo": "좋아요. 원문 공개와 별개로 검토 상태를 먼저 보여 주는 방안도 넣죠.",
+          "promptDe": "Gut. Dann prüfen wir auch eine Statusanzeige, unabhängig von der späteren Freigabe des Textes.",
+          "promptEn": "Good. Let's include a review-status notice separate from whether the full post is restored.",
+          "distractors": [
+            "표현이 거칠었던 건 인정하지만 계좌와 피해 방식까지 전부 가려졌어요.",
+            "필터가 필요한 이유와 잘못 숨겨졌을 때 다시 볼 수 있는 길은 함께 마련돼야 합니다.",
+            "모든 글을 사람이 보면 처리 속도가 너무 느려지지 않나요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 140
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

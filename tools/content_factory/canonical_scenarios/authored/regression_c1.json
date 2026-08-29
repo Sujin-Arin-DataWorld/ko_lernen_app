@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "generationId": "canonical_120_v1",
+  "level": "c1",
+  "regressionOnly": true,
+  "scenarios": [
+    {
+      "id": "reg_mistake_c1_postmortem",
+      "title": {"de": "In einer Fehleranalyse über die letzte Person hinausblicken", "en": "Looking beyond the last person in a failure review"},
+      "intro": {"ko": "한 사람이 잘못된 설정을 적용했지만 검토와 알림, 복구 장치도 모두 작동하지 않았어요.", "de": "Eine Person spielte eine falsche Konfiguration ein, doch Prüfung, Alarm und Wiederherstellung versagten ebenfalls.", "en": "One person applied the wrong setting, but review, alerts, and recovery safeguards all failed too."},
+      "dialog": [
+        {"speaker": "andrea", "ko": "마지막으로 설정을 바꾼 담당자의 실수가 직접 원인이었습니다.", "de": "Der unmittelbare Auslöser war der Fehler der Person, die zuletzt die Konfiguration geändert hat.", "en": "The direct trigger was the mistake made by the person who last changed the setting."},
+        {"speaker": "sujin", "ko": "마지막으로 설정을 바꾼 사람만 보면 검토 장치가 왜 작동하지 않았는지는 놓치게 됩니다.", "de": "Wenn wir nur auf die letzte Person schauen, übersehen wir, warum die Kontrollmechanismen nicht gegriffen haben.", "en": "If we look only at the last person who changed the setting, we miss why the review safeguards failed."},
+        {"speaker": "andrea", "ko": "개인 책임을 흐리자는 뜻으로 들릴 수도 있어요.", "de": "Das könnte so klingen, als wollten wir die individuelle Verantwortung verwischen.", "en": "That could sound like we're trying to blur individual responsibility."},
+        {"speaker": "sujin", "ko": "개인의 판단은 따로 평가하되 같은 실수가 사고가 되게 만든 조건도 고쳐야 합니다.", "de": "Die individuelle Entscheidung kann separat bewertet werden; zugleich müssen wir die Bedingungen ändern, die daraus einen Ausfall machten.", "en": "We can evaluate the individual's judgment separately while fixing the conditions that turned the mistake into an outage."},
+        {"speaker": "andrea", "ko": "검토 승인, 경보, 복구 권한이 각각 어디서 끊겼는지 보자는 거군요.", "de": "Dann untersuchen wir getrennt, wo Freigabe, Alarmierung und Wiederherstellungsbefugnis versagten.", "en": "So we trace separately where review approval, alerts, and recovery authority broke down."},
+        {"speaker": "sujin", "ko": "네. 인사 조치와 기술적 재발 방지를 한 결론으로 묶지 않아야 둘 다 제대로 다룰 수 있습니다.", "de": "Ja. Personalmaßnahme und technische Prävention dürfen nicht zu einer einzigen Schlussfolgerung verschmelzen.", "en": "Yes. Keeping personnel action and technical prevention separate lets us address both properly."}
+      ]
+    },
+    {
+      "id": "reg_digital_c1_after_hours",
+      "title": {"de": "Erwartungen bei Nachrichten nach Feierabend festlegen", "en": "Setting expectations for after-hours messages"},
+      "intro": {"ko": "퇴근 후 메시지는 가능하지만 언제 답해야 하는지에 대한 기대가 불분명해요.", "de": "Nachrichten nach Feierabend sind möglich, doch die erwartete Antwortzeit bleibt unklar.", "en": "Messages after work are allowed, but expected response times are unclear."},
+      "dialog": [
+        {"speaker": "andrea", "ko": "시차가 있는 팀과 일해서 퇴근 뒤 발송 자체를 금지하기는 어렵습니다.", "de": "Wegen der Zusammenarbeit über Zeitzonen hinweg können wir das Senden nach Feierabend kaum verbieten.", "en": "Because we work across time zones, banning after-hours sending would be difficult."},
+        {"speaker": "maya", "ko": "보내는 시간보다 언제 답해야 한다고 기대하는지가 더 중요합니다.", "de": "Wichtiger als die Sendezeit ist die Erwartung, wann geantwortet werden soll.", "en": "What matters more than when a message is sent is when people are expected to respond."},
+        {"speaker": "andrea", "ko": "그 기대가 보이지 않으니 일반 메시지도 긴급하게 읽히는군요.", "de": "Weil diese Erwartung unsichtbar bleibt, wirkt auch eine normale Nachricht dringend.", "en": "Because that expectation is hidden, even ordinary messages feel urgent."},
+        {"speaker": "maya", "ko": "일반 메시지에는 ‘다음 근무 시간에 확인’이라고 표시하면 어떨까요?", "de": "Wie wäre ein Hinweis „in der nächsten Arbeitszeit prüfen“ für normale Nachrichten?", "en": "How about marking ordinary messages 'check during your next working hours'?"},
+        {"speaker": "andrea", "ko": "실제 긴급 상황은 별도 채널로 보내고 사용 조건도 함께 정해야 합니다.", "de": "Echte Notfälle laufen über einen eigenen Kanal, dessen Nutzungskriterien wir ebenfalls festlegen.", "en": "Actual emergencies can use a separate channel with clear criteria for when to use it."},
+        {"speaker": "maya", "ko": "좋아요. 두 방식을 시험하고 응답 압박이 줄었는지 팀에 다시 묻죠.", "de": "Gut. Wir testen beides und fragen das Team anschließend, ob der Antwortdruck gesunken ist.", "en": "Good. Let's test both and ask the team whether response pressure decreases."}
+      ]
+    }
+  ]
+}

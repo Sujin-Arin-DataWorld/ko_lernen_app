@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "meeting_time",
+  "scenario": {
+    "id": "meeting_time",
+    "level": "a1",
+    "emoji": "🏠",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "약속 시간을 다시 확인하기",
+      "de": "Die Uhrzeit noch einmal klären",
+      "en": "Checking the time again"
+    },
+    "intro": {
+      "ko": "저녁 약속 시간이 헷갈려요.",
+      "de": "Ihr seid euch bei der Uhrzeit für heute Abend nicht sicher.",
+      "en": "You're not sure what time you're meeting tonight."
+    },
+    "courseUnitId": "a1_05_numbers_time",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "sujin"
+    ],
+    "relationshipContext": "아직 존댓말을 쓰는 크리스티안과 수진",
+    "intent": "정확한 시간을 묻고 확인한다",
+    "shelf": "a1_home",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "오늘 몇 시에 만나요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Um wie viel Uhr treffen wir uns heute?",
+          "en": "What time are we meeting today?"
+        }
+      },
+      {
+        "korean": "일곱 시에 만나요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Um sieben Uhr.",
+          "en": "At seven."
+        }
+      },
+      {
+        "korean": "여섯 시 아니에요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Nicht um sechs?",
+          "en": "Isn't it at six?"
+        }
+      },
+      {
+        "korean": "아니요, 일곱 시예요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Nein, um sieben.",
+          "en": "No, at seven."
+        }
+      },
+      {
+        "korean": "아, 일곱 시요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ah, sieben Uhr.",
+          "en": "Oh, seven."
+        }
+      },
+      {
+        "korean": "네. 카페 앞에서 봐요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Genau. Bis dann vor dem Café.",
+          "en": "Right. See you in front of the café."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a1_time_numbers"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_direction_time_particle"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N에",
+        "de": "Richtungs-/Ortspartikel",
+        "en": "Direction/time particle"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Richtung (wohin?) oder Zeitpunkt (wann?)",
+        "en": "Direction (to where?) or point in time (when?)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "오늘 몇 시에 만나요?",
+        "de": "Um wie viel Uhr treffen wir uns heute?",
+        "en": "What time are we meeting today?"
+      },
+      {
+        "speaker": "sujin",
+        "ko": "일곱 시에 만나요.",
+        "de": "Um sieben Uhr.",
+        "en": "At seven."
+      },
+      {
+        "speaker": "user",
+        "ko": "여섯 시 아니에요?",
+        "de": "Nicht um sechs?",
+        "en": "Isn't it at six?"
+      },
+      {
+        "speaker": "sujin",
+        "ko": "아니요, 일곱 시예요.",
+        "de": "Nein, um sieben.",
+        "en": "No, at seven."
+      },
+      {
+        "speaker": "user",
+        "ko": "아, 일곱 시요.",
+        "de": "Ah, sieben Uhr.",
+        "en": "Oh, seven."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "네. 카페 앞에서 봐요.",
+        "de": "Genau. Bis dann vor dem Café.",
+        "en": "Right. See you in front of the café."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_meeting_time_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "일곱 시에 만나요.",
+          "options": [
+            {
+              "de": "Um sieben Uhr.",
+              "en": "At seven."
+            },
+            {
+              "de": "Um wie viel Uhr treffen wir uns heute?",
+              "en": "What time are we meeting today?"
+            },
+            {
+              "de": "Nicht um sechs?",
+              "en": "Isn't it at six?"
+            },
+            {
+              "de": "Nein, um sieben.",
+              "en": "No, at seven."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_meeting_time_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Um wie viel Uhr treffen wir uns heute?",
+          "promptEn": "What time are we meeting today?",
+          "options": [
+            {
+              "ko": "오늘 몇 시에 만나요?"
+            },
+            {
+              "ko": "일곱 시에 만나요."
+            },
+            {
+              "ko": "여섯 시 아니에요?"
+            },
+            {
+              "ko": "아니요, 일곱 시예요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_meeting_time_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "아, 일곱 시요.",
+          "audioKo": "아, 일곱 시요.",
+          "promptDe": "Ah, sieben Uhr.",
+          "promptEn": "Oh, seven.",
+          "distractors": [
+            "오늘 몇 시에 만나요?",
+            "일곱 시에 만나요.",
+            "여섯 시 아니에요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 100
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

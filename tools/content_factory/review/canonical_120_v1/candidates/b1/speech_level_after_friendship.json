@@ -1,0 +1,253 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "speech_level_after_friendship",
+  "scenario": {
+    "id": "speech_level_after_friendship",
+    "level": "b1",
+    "emoji": "🏠",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "친해진 뒤 말을 놓을지 묻기",
+      "de": "Nach einiger Zeit zum Banmal wechseln",
+      "en": "Switching to casual speech after becoming friends"
+    },
+    "intro": {
+      "ko": "친해졌지만 두 사람은 아직 계속 존댓말을 써요.",
+      "de": "Ihr seid inzwischen befreundet, sprecht aber immer noch höflich miteinander.",
+      "en": "You've become friends, but you still use polite speech with each other."
+    },
+    "courseUnitId": "b1_04_relationships",
+    "playerCharacterId": "lena",
+    "participantIds": [
+      "lena",
+      "maya"
+    ],
+    "relationshipContext": "몇 달째 친구로 지낸 레나와 마야",
+    "intent": "말투를 바꾸는 것이 편한지 솔직히 답한다",
+    "shelf": "b1_feel",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "레나, 우리 이제 말 놓을까?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Lena, wollen wir langsam zum Du-Ton auf Koreanisch wechseln?",
+          "en": "Lena, should we start speaking casually in Korean?"
+        }
+      },
+      {
+        "korean": "좋아요. 그런데 갑자기 바꾸면 조금 어색할 것 같아요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gern. Aber wenn wir sofort alles umstellen, fühlt es sich vielleicht etwas komisch an.",
+          "en": "Sure. But changing all at once might feel a little awkward."
+        }
+      },
+      {
+        "korean": "그럼 오늘부터 조금씩 해 보자.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dann probieren wir es ab heute nach und nach.",
+          "en": "Then let's ease into it starting today."
+        }
+      },
+      {
+        "korean": "응… 이렇게 말하면 돼?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja … klingt es so richtig?",
+          "en": "Yeah… is this how I say it?"
+        }
+      },
+      {
+        "korean": "응, 지금 자연스러웠어.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, das klang gerade ganz natürlich.",
+          "en": "Yes, that sounded natural."
+        }
+      },
+      {
+        "korean": "좋아. 오늘부터 편하게 말하기로 하자.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gut. Ab heute reden wir lockerer miteinander.",
+          "en": "Great. Let's speak casually from today."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b1_relationships"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_decision"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-기로 하다",
+        "de": "Entschluss (beschließen)",
+        "en": "Decision (decide to)"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Beschlossen haben etwas zu tun: eine Entscheidung wurde bewusst getroffen",
+        "en": "Have decided to do something: a deliberate decision"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "maya",
+        "ko": "레나, 우리 이제 말 놓을까?",
+        "de": "Lena, wollen wir langsam zum Du-Ton auf Koreanisch wechseln?",
+        "en": "Lena, should we start speaking casually in Korean?"
+      },
+      {
+        "speaker": "user",
+        "ko": "좋아요. 그런데 갑자기 바꾸면 조금 어색할 것 같아요.",
+        "de": "Gern. Aber wenn wir sofort alles umstellen, fühlt es sich vielleicht etwas komisch an.",
+        "en": "Sure. But changing all at once might feel a little awkward."
+      },
+      {
+        "speaker": "maya",
+        "ko": "그럼 오늘부터 조금씩 해 보자.",
+        "de": "Dann probieren wir es ab heute nach und nach.",
+        "en": "Then let's ease into it starting today."
+      },
+      {
+        "speaker": "user",
+        "ko": "응… 이렇게 말하면 돼?",
+        "de": "Ja … klingt es so richtig?",
+        "en": "Yeah… is this how I say it?"
+      },
+      {
+        "speaker": "maya",
+        "ko": "응, 지금 자연스러웠어.",
+        "de": "Ja, das klang gerade ganz natürlich.",
+        "en": "Yes, that sounded natural."
+      },
+      {
+        "speaker": "user",
+        "ko": "좋아. 오늘부터 편하게 말하기로 하자.",
+        "de": "Gut. Ab heute reden wir lockerer miteinander.",
+        "en": "Great. Let's speak casually from today."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_speech_level_after_friendship_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "레나, 우리 이제 말 놓을까?",
+          "options": [
+            {
+              "de": "Lena, wollen wir langsam zum Du-Ton auf Koreanisch wechseln?",
+              "en": "Lena, should we start speaking casually in Korean?"
+            },
+            {
+              "de": "Gern. Aber wenn wir sofort alles umstellen, fühlt es sich vielleicht etwas komisch an.",
+              "en": "Sure. But changing all at once might feel a little awkward."
+            },
+            {
+              "de": "Dann probieren wir es ab heute nach und nach.",
+              "en": "Then let's ease into it starting today."
+            },
+            {
+              "de": "Ja … klingt es so richtig?",
+              "en": "Yeah… is this how I say it?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_speech_level_after_friendship_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Gern. Aber wenn wir sofort alles umstellen, fühlt es sich vielleicht etwas komisch an.",
+          "promptEn": "Sure. But changing all at once might feel a little awkward.",
+          "options": [
+            {
+              "ko": "좋아요. 그런데 갑자기 바꾸면 조금 어색할 것 같아요."
+            },
+            {
+              "ko": "레나, 우리 이제 말 놓을까?"
+            },
+            {
+              "ko": "그럼 오늘부터 조금씩 해 보자."
+            },
+            {
+              "ko": "응… 이렇게 말하면 돼?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_speech_level_after_friendship_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "좋아. 오늘부터 편하게 말하기로 하자.",
+          "audioKo": "좋아. 오늘부터 편하게 말하기로 하자.",
+          "promptDe": "Gut. Ab heute reden wir lockerer miteinander.",
+          "promptEn": "Great. Let's speak casually from today.",
+          "distractors": [
+            "레나, 우리 이제 말 놓을까?",
+            "좋아요. 그런데 갑자기 바꾸면 조금 어색할 것 같아요.",
+            "그럼 오늘부터 조금씩 해 보자."
+          ]
+        }
+      }
+    ],
+    "culturalNote": {
+      "title": {
+        "ko": "말을 놓는 것도 함께 정할 수 있어요",
+        "de": "Den Wechsel zu Banmal gemeinsam absprechen",
+        "en": "Agreeing together to switch to casual speech"
+      },
+      "body": {
+        "ko": "친해졌다고 자동으로 반말로 바뀌는 것은 아니에요. 우리 말 놓을까?처럼 먼저 물으면 관계의 속도를 함께 정할 수 있어요.",
+        "de": "Eine engere Freundschaft führt nicht automatisch zu Banmal. Mit 우리 말 놓을까? könnt ihr den Wechsel gemeinsam absprechen.",
+        "en": "Becoming closer does not automatically switch Korean into casual speech. 우리 말 놓을까? lets both people agree on the change."
+      }
+    },
+    "xpReward": 120
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

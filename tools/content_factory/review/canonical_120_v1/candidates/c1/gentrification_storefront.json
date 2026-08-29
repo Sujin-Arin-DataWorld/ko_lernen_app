@@ -1,0 +1,243 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "gentrification_storefront",
+  "scenario": {
+    "id": "gentrification_storefront",
+    "level": "c1",
+    "emoji": "🗺️",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "골목이 유명해진 뒤 임대료가 오를 때",
+      "de": "Wenn Bekanntheit alte Geschäfte verdrängt",
+      "en": "When popularity pushes out long-time shops"
+    },
+    "intro": {
+      "ko": "골목 방문객과 매출은 늘었지만 임대료 상승으로 오래된 가게가 나가고 있어요.",
+      "de": "Besucherzahlen und Umsatz steigen, doch höhere Mieten verdrängen alteingesessene Geschäfte.",
+      "en": "Visitor numbers and sales are rising, but higher rents are pushing out long-time shops."
+    },
+    "courseUnitId": "c1_02_inclusive_sustainable_systems",
+    "playerCharacterId": "hyuna",
+    "participantIds": [
+      "hyuna",
+      "resident",
+      "official"
+    ],
+    "relationshipContext": "연구자 현아와 가게 운영자, 주민",
+    "intent": "활성화 성공과 퇴출 위험을 같은 인과 안에서 설명한다",
+    "shelf": "c1_mediation",
+    "backdrop": "directions",
+    "vocab": [
+      {
+        "korean": "홍보 이후 방문객과 카드 매출이 모두 늘었습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Seit der Kampagne sind Besucherzahlen und Kartenumsätze gestiegen.",
+          "en": "Since the promotion, both visitors and card sales have increased."
+        }
+      },
+      {
+        "korean": "매출은 늘었지만 옆 가게는 임대료를 못 견디고 지난달에 나갔어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Der Umsatz stieg, aber das Nachbargeschäft musste letzten Monat wegen der Miete schließen.",
+          "en": "Sales went up, but the shop next door left last month because it couldn't afford the rent."
+        }
+      },
+      {
+        "korean": "사람이 많이 찾게 된 성과와 오래 있던 가게가 밀려나는 문제는 동시에 일어날 수 있습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Mehr Besucher und die Verdrängung langjähriger Geschäfte können gleichzeitig stattfinden.",
+          "en": "More visitors and the displacement of long-time shops can happen at the same time."
+        }
+      },
+      {
+        "korean": "그렇다면 홍보를 줄여야 한다는 뜻인가요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Bedeutet das, dass wir die Werbung zurückfahren sollten?",
+          "en": "Does that mean we should scale back promotion?"
+        }
+      },
+      {
+        "korean": "홍보를 중단하느냐로만 좁힐 문제가 아니라 임대 변화와 점포 이탈을 함께 추적해야 합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die Frage lässt sich nicht darauf verengen, ob die Werbung gestoppt wird; wir müssen Mietentwicklung und Geschäftsaufgaben mitverfolgen.",
+          "en": "The issue can't be narrowed to whether promotion stops. We need to track rent changes and business turnover together."
+        }
+      },
+      {
+        "korean": "지원책을 만들 때 새로 들어온 가게뿐 아니라 오래 버틴 가게가 무엇을 필요로 하는지도 살펴봐 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn Sie Unterstützung planen, berücksichtigen Sie bitte nicht nur neue, sondern auch langjährig ansässige Geschäfte und deren Bedarf.",
+          "en": "When you design support, please look at what long-standing shops need, not only what new businesses need."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_inclusive_systems"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_whether"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)ㄴ/는지",
+        "de": "Indirekte Frage (ob/was/wer)",
+        "en": "Indirect question (whether)"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Ob/W-Frage als Nebensatz vor 알다/모르다/궁금하다",
+        "en": "Whether/wh-question as clause before 알다/모르다/궁금하다"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "official",
+        "ko": "홍보 이후 방문객과 카드 매출이 모두 늘었습니다.",
+        "de": "Seit der Kampagne sind Besucherzahlen und Kartenumsätze gestiegen.",
+        "en": "Since the promotion, both visitors and card sales have increased."
+      },
+      {
+        "speaker": "resident",
+        "ko": "매출은 늘었지만 옆 가게는 임대료를 못 견디고 지난달에 나갔어요.",
+        "de": "Der Umsatz stieg, aber das Nachbargeschäft musste letzten Monat wegen der Miete schließen.",
+        "en": "Sales went up, but the shop next door left last month because it couldn't afford the rent."
+      },
+      {
+        "speaker": "user",
+        "ko": "사람이 많이 찾게 된 성과와 오래 있던 가게가 밀려나는 문제는 동시에 일어날 수 있습니다.",
+        "de": "Mehr Besucher und die Verdrängung langjähriger Geschäfte können gleichzeitig stattfinden.",
+        "en": "More visitors and the displacement of long-time shops can happen at the same time."
+      },
+      {
+        "speaker": "official",
+        "ko": "그렇다면 홍보를 줄여야 한다는 뜻인가요?",
+        "de": "Bedeutet das, dass wir die Werbung zurückfahren sollten?",
+        "en": "Does that mean we should scale back promotion?"
+      },
+      {
+        "speaker": "user",
+        "ko": "홍보를 중단하느냐로만 좁힐 문제가 아니라 임대 변화와 점포 이탈을 함께 추적해야 합니다.",
+        "de": "Die Frage lässt sich nicht darauf verengen, ob die Werbung gestoppt wird; wir müssen Mietentwicklung und Geschäftsaufgaben mitverfolgen.",
+        "en": "The issue can't be narrowed to whether promotion stops. We need to track rent changes and business turnover together."
+      },
+      {
+        "speaker": "resident",
+        "ko": "지원책을 만들 때 새로 들어온 가게뿐 아니라 오래 버틴 가게가 무엇을 필요로 하는지도 살펴봐 주세요.",
+        "de": "Wenn Sie Unterstützung planen, berücksichtigen Sie bitte nicht nur neue, sondern auch langjährig ansässige Geschäfte und deren Bedarf.",
+        "en": "When you design support, please look at what long-standing shops need, not only what new businesses need."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_gentrification_storefront_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "홍보 이후 방문객과 카드 매출이 모두 늘었습니다.",
+          "options": [
+            {
+              "de": "Seit der Kampagne sind Besucherzahlen und Kartenumsätze gestiegen.",
+              "en": "Since the promotion, both visitors and card sales have increased."
+            },
+            {
+              "de": "Der Umsatz stieg, aber das Nachbargeschäft musste letzten Monat wegen der Miete schließen.",
+              "en": "Sales went up, but the shop next door left last month because it couldn't afford the rent."
+            },
+            {
+              "de": "Mehr Besucher und die Verdrängung langjähriger Geschäfte können gleichzeitig stattfinden.",
+              "en": "More visitors and the displacement of long-time shops can happen at the same time."
+            },
+            {
+              "de": "Bedeutet das, dass wir die Werbung zurückfahren sollten?",
+              "en": "Does that mean we should scale back promotion?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_gentrification_storefront_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Mehr Besucher und die Verdrängung langjähriger Geschäfte können gleichzeitig stattfinden.",
+          "promptEn": "More visitors and the displacement of long-time shops can happen at the same time.",
+          "options": [
+            {
+              "ko": "사람이 많이 찾게 된 성과와 오래 있던 가게가 밀려나는 문제는 동시에 일어날 수 있습니다."
+            },
+            {
+              "ko": "홍보 이후 방문객과 카드 매출이 모두 늘었습니다."
+            },
+            {
+              "ko": "매출은 늘었지만 옆 가게는 임대료를 못 견디고 지난달에 나갔어요."
+            },
+            {
+              "ko": "그렇다면 홍보를 줄여야 한다는 뜻인가요?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_gentrification_storefront_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "홍보를 중단하느냐로만 좁힐 문제가 아니라 임대 변화와 점포 이탈을 함께 추적해야 합니다.",
+          "audioKo": "홍보를 중단하느냐로만 좁힐 문제가 아니라 임대 변화와 점포 이탈을 함께 추적해야 합니다.",
+          "promptDe": "Die Frage lässt sich nicht darauf verengen, ob die Werbung gestoppt wird; wir müssen Mietentwicklung und Geschäftsaufgaben mitverfolgen.",
+          "promptEn": "The issue can't be narrowed to whether promotion stops. We need to track rent changes and business turnover together.",
+          "distractors": [
+            "홍보 이후 방문객과 카드 매출이 모두 늘었습니다.",
+            "매출은 늘었지만 옆 가게는 임대료를 못 견디고 지난달에 나갔어요.",
+            "사람이 많이 찾게 된 성과와 오래 있던 가게가 밀려나는 문제는 동시에 일어날 수 있습니다."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 140
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

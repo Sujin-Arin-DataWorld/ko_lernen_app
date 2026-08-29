@@ -5,6 +5,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import '../models/curriculum.dart';
 import '../models/grammar.dart';
 import '../models/scenario.dart';
+import '../models/scenario_corpus_generation.dart';
 import '../models/smalltalk.dart';
 import '../models/vocab.dart';
 import 'cloze_loader.dart';
@@ -26,6 +27,7 @@ class CurriculumCatalog {
   final List<ScenarioContext> scenarioContexts;
   final List<ContentLink> contentLinks;
   final List<String> validationIssues;
+  final String scenarioCorpusGeneration;
 
   final Map<String, CourseUnit> _unitById;
   final Map<String, Concept> _conceptById;
@@ -42,6 +44,7 @@ class CurriculumCatalog {
     required this.formFamilies,
     required this.scenarioContexts,
     required this.contentLinks,
+    required this.scenarioCorpusGeneration,
     required List<String> validationIssues,
   }) : validationIssues = List.unmodifiable(validationIssues),
        _unitById = {for (final unit in courseUnits) unit.id: unit},
@@ -126,6 +129,7 @@ class CurriculumCatalog {
       formFamilies: List.unmodifiable(manifest.formFamilies),
       scenarioContexts: List.unmodifiable(contexts),
       contentLinks: List.unmodifiable(build.links),
+      scenarioCorpusGeneration: manifest.scenarioCorpusGeneration,
       validationIssues: _sortedDistinct(issues),
     );
   }
@@ -192,6 +196,7 @@ class CurriculumCatalog {
 }
 
 class _Manifest {
+  final String scenarioCorpusGeneration;
   final List<CourseUnit> courseUnits;
   final List<Concept> concepts;
   final List<SurfaceForm> surfaceForms;
@@ -205,6 +210,7 @@ class _Manifest {
   final List<String> parseIssues;
 
   const _Manifest({
+    required this.scenarioCorpusGeneration,
     required this.courseUnits,
     required this.concepts,
     required this.surfaceForms,
@@ -258,6 +264,10 @@ class _Manifest {
       issues.add('scenarioContexts must live in scenarios.json');
     }
     return _Manifest(
+      scenarioCorpusGeneration:
+          json['scenarioCorpusGeneration']?.toString().trim().isNotEmpty == true
+          ? json['scenarioCorpusGeneration'].toString().trim()
+          : ScenarioCorpusGeneration.legacy,
       courseUnits: _mapList(
         json['courseUnits'],
       ).map(CourseUnit.fromJson).toList(),

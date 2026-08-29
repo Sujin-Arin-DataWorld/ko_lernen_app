@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "fact_check_label_power",
+  "scenario": {
+    "id": "fact_check_label_power",
+    "level": "c2",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "팩트체크 라벨이 논쟁을 끝내는 권력이 될 때",
+      "de": "Die Reichweite eines Faktencheck-Labels begrenzen",
+      "en": "Limiting the reach of a fact-check label"
+    },
+    "intro": {
+      "ko": "복잡한 정책 주장에 ‘거짓’ 표시가 붙어 사실 오류와 가치 판단이 한데 섞여요.",
+      "de": "Ein komplexes politisches Argument erhält das Label „falsch“, wodurch Faktenfehler und Werturteile vermischt werden.",
+      "en": "A complex policy claim receives a 'false' label that blends factual error with value judgment."
+    },
+    "courseUnitId": "c2_06_fandom_discourse_power",
+    "playerCharacterId": "hyuna",
+    "participantIds": [
+      "hyuna",
+      "official"
+    ],
+    "relationshipContext": "연구자 현아와 플랫폼 담당자",
+    "intent": "검증 가능한 명제와 해석·예측을 구분하는 라벨 체계를 제안한다",
+    "shelf": "c2_representation",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "숫자 하나가 틀렸으니 전체 주장에 ‘거짓’ 라벨을 붙이는 편이 명확합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Da eine Zahl falsch ist, wäre ein „Falsch“-Label für die gesamte Aussage am eindeutigsten.",
+          "en": "Because one number is wrong, labeling the entire claim 'false' is clearest."
+        }
+      },
+      {
+        "korean": "검증 가능한 사실과 정책에 대한 가치 판단을 같은 거짓 라벨로 묶어서는 안 됩니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Überprüfbare Tatsachen und normative Politikurteile dürfen nicht unter demselben „Falsch“-Label verschwinden.",
+          "en": "Verifiable facts and value judgments about policy should not be bundled under one false label."
+        }
+      },
+      {
+        "korean": "라벨을 세분화하면 이용자가 결론을 이해하기 어려워질 수 있습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Eine differenziertere Kennzeichnung könnte für Nutzer schwerer verständlich sein.",
+          "en": "A more detailed label may be harder for users to understand."
+        }
+      },
+      {
+        "korean": "단순함을 위해 판정 범위를 넓히면 플랫폼이 논쟁 가능한 부분까지 끝내는 권력을 갖게 됩니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn wir für Einfachheit den Prüfbereich ausweiten, erhält die Plattform die Macht, auch legitime Streitfragen zu beenden.",
+          "en": "Expanding the judgment for simplicity gives the platform power to close off legitimately debatable parts."
+        }
+      },
+      {
+        "korean": "그러면 오류가 있는 문장과 확인되지 않은 부분을 따로 표시하자는 건가요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Sollen wir also den fehlerhaften Satz und die ungesicherten Teile getrennt markieren?",
+          "en": "So should we separately mark the erroneous sentence and the uncertain parts?"
+        }
+      },
+      {
+        "korean": "네. 무엇을 검증했고 무엇은 가치 판단으로 남는지 보여 줘야 라벨의 권한도 드러납니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Sichtbar sein muss, was geprüft wurde und was als Werturteil offenbleibt; so wird auch die Reichweite des Labels transparent.",
+          "en": "Yes. Show what was checked and what remains a value judgment, making the label's authority visible too."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c2_fandom_discourse"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_whether"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)ㄴ/는지",
+        "de": "Indirekte Frage (ob/was/wer)",
+        "en": "Indirect question (whether)"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Ob/W-Frage als Nebensatz vor 알다/모르다/궁금하다",
+        "en": "Whether/wh-question as clause before 알다/모르다/궁금하다"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "official",
+        "ko": "숫자 하나가 틀렸으니 전체 주장에 ‘거짓’ 라벨을 붙이는 편이 명확합니다.",
+        "de": "Da eine Zahl falsch ist, wäre ein „Falsch“-Label für die gesamte Aussage am eindeutigsten.",
+        "en": "Because one number is wrong, labeling the entire claim 'false' is clearest."
+      },
+      {
+        "speaker": "user",
+        "ko": "검증 가능한 사실과 정책에 대한 가치 판단을 같은 거짓 라벨로 묶어서는 안 됩니다.",
+        "de": "Überprüfbare Tatsachen und normative Politikurteile dürfen nicht unter demselben „Falsch“-Label verschwinden.",
+        "en": "Verifiable facts and value judgments about policy should not be bundled under one false label."
+      },
+      {
+        "speaker": "official",
+        "ko": "라벨을 세분화하면 이용자가 결론을 이해하기 어려워질 수 있습니다.",
+        "de": "Eine differenziertere Kennzeichnung könnte für Nutzer schwerer verständlich sein.",
+        "en": "A more detailed label may be harder for users to understand."
+      },
+      {
+        "speaker": "user",
+        "ko": "단순함을 위해 판정 범위를 넓히면 플랫폼이 논쟁 가능한 부분까지 끝내는 권력을 갖게 됩니다.",
+        "de": "Wenn wir für Einfachheit den Prüfbereich ausweiten, erhält die Plattform die Macht, auch legitime Streitfragen zu beenden.",
+        "en": "Expanding the judgment for simplicity gives the platform power to close off legitimately debatable parts."
+      },
+      {
+        "speaker": "official",
+        "ko": "그러면 오류가 있는 문장과 확인되지 않은 부분을 따로 표시하자는 건가요?",
+        "de": "Sollen wir also den fehlerhaften Satz und die ungesicherten Teile getrennt markieren?",
+        "en": "So should we separately mark the erroneous sentence and the uncertain parts?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네. 무엇을 검증했고 무엇은 가치 판단으로 남는지 보여 줘야 라벨의 권한도 드러납니다.",
+        "de": "Ja. Sichtbar sein muss, was geprüft wurde und was als Werturteil offenbleibt; so wird auch die Reichweite des Labels transparent.",
+        "en": "Yes. Show what was checked and what remains a value judgment, making the label's authority visible too."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_fact_check_label_power_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "숫자 하나가 틀렸으니 전체 주장에 ‘거짓’ 라벨을 붙이는 편이 명확합니다.",
+          "options": [
+            {
+              "de": "Da eine Zahl falsch ist, wäre ein „Falsch“-Label für die gesamte Aussage am eindeutigsten.",
+              "en": "Because one number is wrong, labeling the entire claim 'false' is clearest."
+            },
+            {
+              "de": "Überprüfbare Tatsachen und normative Politikurteile dürfen nicht unter demselben „Falsch“-Label verschwinden.",
+              "en": "Verifiable facts and value judgments about policy should not be bundled under one false label."
+            },
+            {
+              "de": "Eine differenziertere Kennzeichnung könnte für Nutzer schwerer verständlich sein.",
+              "en": "A more detailed label may be harder for users to understand."
+            },
+            {
+              "de": "Wenn wir für Einfachheit den Prüfbereich ausweiten, erhält die Plattform die Macht, auch legitime Streitfragen zu beenden.",
+              "en": "Expanding the judgment for simplicity gives the platform power to close off legitimately debatable parts."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_fact_check_label_power_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Überprüfbare Tatsachen und normative Politikurteile dürfen nicht unter demselben „Falsch“-Label verschwinden.",
+          "promptEn": "Verifiable facts and value judgments about policy should not be bundled under one false label.",
+          "options": [
+            {
+              "ko": "검증 가능한 사실과 정책에 대한 가치 판단을 같은 거짓 라벨로 묶어서는 안 됩니다."
+            },
+            {
+              "ko": "숫자 하나가 틀렸으니 전체 주장에 ‘거짓’ 라벨을 붙이는 편이 명확합니다."
+            },
+            {
+              "ko": "라벨을 세분화하면 이용자가 결론을 이해하기 어려워질 수 있습니다."
+            },
+            {
+              "ko": "단순함을 위해 판정 범위를 넓히면 플랫폼이 논쟁 가능한 부분까지 끝내는 권력을 갖게 됩니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_fact_check_label_power_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네. 무엇을 검증했고 무엇은 가치 판단으로 남는지 보여 줘야 라벨의 권한도 드러납니다.",
+          "audioKo": "네. 무엇을 검증했고 무엇은 가치 판단으로 남는지 보여 줘야 라벨의 권한도 드러납니다.",
+          "promptDe": "Ja. Sichtbar sein muss, was geprüft wurde und was als Werturteil offenbleibt; so wird auch die Reichweite des Labels transparent.",
+          "promptEn": "Yes. Show what was checked and what remains a value judgment, making the label's authority visible too.",
+          "distractors": [
+            "숫자 하나가 틀렸으니 전체 주장에 ‘거짓’ 라벨을 붙이는 편이 명확합니다.",
+            "검증 가능한 사실과 정책에 대한 가치 판단을 같은 거짓 라벨로 묶어서는 안 됩니다.",
+            "라벨을 세분화하면 이용자가 결론을 이해하기 어려워질 수 있습니다."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 150
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

@@ -1,0 +1,243 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "after_hours_messages",
+  "scenario": {
+    "id": "after_hours_messages",
+    "level": "c1",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "퇴근 후 연락의 경계를 팀에서 정하기",
+      "de": "Erwartungen bei Nachrichten nach Feierabend klären",
+      "en": "Setting expectations for after-hours messages"
+    },
+    "intro": {
+      "ko": "퇴근 뒤 메시지는 반복되지만 언제 답해야 하는지는 아무도 말하지 않아요.",
+      "de": "Nach Feierabend kommen regelmäßig Nachrichten, doch niemand sagt, wann eine Antwort erwartet wird.",
+      "en": "Messages keep arriving after work, but no one states when a response is expected."
+    },
+    "courseUnitId": "c1_06_intimacy_safety_design",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "andrea",
+      "coworker"
+    ],
+    "relationshipContext": "팀 리더 안드레아와 팀원 마야",
+    "intent": "업무 긴급도와 개인 경계를 구분할 수 있는 규칙을 제안한다",
+    "shelf": "c1_briefing",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "퇴근 뒤 메시지가 오면 급한 건지 내일 봐도 되는 건지 모르겠어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Bei Nachrichten nach Feierabend weiß ich nie, ob sie dringend sind oder bis morgen warten können.",
+          "en": "When a message comes after work, I can't tell if it's urgent or can wait until tomorrow."
+        }
+      },
+      {
+        "korean": "시차가 있는 팀과 일해서 발송 시간을 제한하기는 어렵습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wegen der Zusammenarbeit über Zeitzonen hinweg können wir die Sendezeit kaum begrenzen.",
+          "en": "Because we work across time zones, it's hard to restrict when messages are sent."
+        }
+      },
+      {
+        "korean": "퇴근 후에 연락을 보내는 것과 바로 답해야 한다고 기대하는 것은 구분할 필요가 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir sollten zwischen dem Senden nach Feierabend und der Erwartung einer sofortigen Antwort unterscheiden.",
+          "en": "We need to distinguish sending a message after work from expecting an immediate response."
+        }
+      },
+      {
+        "korean": "그 기대가 표시되지 않으니 모든 메시지가 급하게 느껴져요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Weil diese Erwartung nirgends steht, wirkt jede Nachricht dringend.",
+          "en": "Because that expectation isn't stated, every message feels urgent."
+        }
+      },
+      {
+        "korean": "급하지 않은 메시지에는 ‘내일 확인해도 됩니다’라고 덧붙이고, 정말 급한 일은 별도 채널로 보내죠.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Nicht dringende Nachrichten ergänzen wir um „Kann morgen gelesen werden“; echte Notfälle laufen über einen eigenen Kanal.",
+          "en": "Let's add 'This can wait until tomorrow' to non-urgent messages and use a separate channel for actual emergencies."
+        }
+      },
+      {
+        "korean": "정리하면, 보내는 시간보다 언제 답해야 한다고 기대하는지가 더 중요합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Entscheidend ist also weniger die Sendezeit als die Erwartung, wann geantwortet werden soll.",
+          "en": "So what matters more than the send time is when people are expected to respond."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_intimacy_safety"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_indirect_speech"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(ㄴ/는)다고 하다",
+        "de": "Indirekte Rede",
+        "en": "Indirect speech"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Sagt dass / hat gesagt dass: indirekte Wiedergabe",
+        "en": "Says that / said that: reporting speech indirectly"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "coworker",
+        "ko": "퇴근 뒤 메시지가 오면 급한 건지 내일 봐도 되는 건지 모르겠어요.",
+        "de": "Bei Nachrichten nach Feierabend weiß ich nie, ob sie dringend sind oder bis morgen warten können.",
+        "en": "When a message comes after work, I can't tell if it's urgent or can wait until tomorrow."
+      },
+      {
+        "speaker": "andrea",
+        "ko": "시차가 있는 팀과 일해서 발송 시간을 제한하기는 어렵습니다.",
+        "de": "Wegen der Zusammenarbeit über Zeitzonen hinweg können wir die Sendezeit kaum begrenzen.",
+        "en": "Because we work across time zones, it's hard to restrict when messages are sent."
+      },
+      {
+        "speaker": "user",
+        "ko": "퇴근 후에 연락을 보내는 것과 바로 답해야 한다고 기대하는 것은 구분할 필요가 있어요.",
+        "de": "Wir sollten zwischen dem Senden nach Feierabend und der Erwartung einer sofortigen Antwort unterscheiden.",
+        "en": "We need to distinguish sending a message after work from expecting an immediate response."
+      },
+      {
+        "speaker": "coworker",
+        "ko": "그 기대가 표시되지 않으니 모든 메시지가 급하게 느껴져요.",
+        "de": "Weil diese Erwartung nirgends steht, wirkt jede Nachricht dringend.",
+        "en": "Because that expectation isn't stated, every message feels urgent."
+      },
+      {
+        "speaker": "user",
+        "ko": "급하지 않은 메시지에는 ‘내일 확인해도 됩니다’라고 덧붙이고, 정말 급한 일은 별도 채널로 보내죠.",
+        "de": "Nicht dringende Nachrichten ergänzen wir um „Kann morgen gelesen werden“; echte Notfälle laufen über einen eigenen Kanal.",
+        "en": "Let's add 'This can wait until tomorrow' to non-urgent messages and use a separate channel for actual emergencies."
+      },
+      {
+        "speaker": "andrea",
+        "ko": "정리하면, 보내는 시간보다 언제 답해야 한다고 기대하는지가 더 중요합니다.",
+        "de": "Entscheidend ist also weniger die Sendezeit als die Erwartung, wann geantwortet werden soll.",
+        "en": "So what matters more than the send time is when people are expected to respond."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_after_hours_messages_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "퇴근 뒤 메시지가 오면 급한 건지 내일 봐도 되는 건지 모르겠어요.",
+          "options": [
+            {
+              "de": "Bei Nachrichten nach Feierabend weiß ich nie, ob sie dringend sind oder bis morgen warten können.",
+              "en": "When a message comes after work, I can't tell if it's urgent or can wait until tomorrow."
+            },
+            {
+              "de": "Wegen der Zusammenarbeit über Zeitzonen hinweg können wir die Sendezeit kaum begrenzen.",
+              "en": "Because we work across time zones, it's hard to restrict when messages are sent."
+            },
+            {
+              "de": "Wir sollten zwischen dem Senden nach Feierabend und der Erwartung einer sofortigen Antwort unterscheiden.",
+              "en": "We need to distinguish sending a message after work from expecting an immediate response."
+            },
+            {
+              "de": "Weil diese Erwartung nirgends steht, wirkt jede Nachricht dringend.",
+              "en": "Because that expectation isn't stated, every message feels urgent."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_after_hours_messages_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Wir sollten zwischen dem Senden nach Feierabend und der Erwartung einer sofortigen Antwort unterscheiden.",
+          "promptEn": "We need to distinguish sending a message after work from expecting an immediate response.",
+          "options": [
+            {
+              "ko": "퇴근 후에 연락을 보내는 것과 바로 답해야 한다고 기대하는 것은 구분할 필요가 있어요."
+            },
+            {
+              "ko": "퇴근 뒤 메시지가 오면 급한 건지 내일 봐도 되는 건지 모르겠어요."
+            },
+            {
+              "ko": "시차가 있는 팀과 일해서 발송 시간을 제한하기는 어렵습니다."
+            },
+            {
+              "ko": "그 기대가 표시되지 않으니 모든 메시지가 급하게 느껴져요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_after_hours_messages_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "급하지 않은 메시지에는 ‘내일 확인해도 됩니다’라고 덧붙이고, 정말 급한 일은 별도 채널로 보내죠.",
+          "audioKo": "급하지 않은 메시지에는 ‘내일 확인해도 됩니다’라고 덧붙이고, 정말 급한 일은 별도 채널로 보내죠.",
+          "promptDe": "Nicht dringende Nachrichten ergänzen wir um „Kann morgen gelesen werden“; echte Notfälle laufen über einen eigenen Kanal.",
+          "promptEn": "Let's add 'This can wait until tomorrow' to non-urgent messages and use a separate channel for actual emergencies.",
+          "distractors": [
+            "퇴근 뒤 메시지가 오면 급한 건지 내일 봐도 되는 건지 모르겠어요.",
+            "시차가 있는 팀과 일해서 발송 시간을 제한하기는 어렵습니다.",
+            "퇴근 후에 연락을 보내는 것과 바로 답해야 한다고 기대하는 것은 구분할 필요가 있어요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 140
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}
