@@ -53,6 +53,8 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
   String? _selectedGateId;
   bool _decorating = false;
   bool _mapPositioned = false;
+  bool _anchorSaveInProgress = false;
+  bool _anchorSaveRequested = false;
   Object? _loadError;
 
   @override
@@ -149,16 +151,34 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
     }
   }
 
-  Future<void> _persistAnchorPlacements() async {
-    try {
-      await widget.anchorPlacementStore.save(_anchorPlacements);
-    } catch (_) {
-      if (!mounted) {
-        return;
-      }
-      final t = AppL10n.of(context);
-      soriToast(context, t.ilduWorldSaveError);
+  void _queueAnchorPlacementSave() {
+    _anchorSaveRequested = true;
+    if (_anchorSaveInProgress) {
+      return;
     }
+    _anchorSaveInProgress = true;
+    unawaited(_drainAnchorPlacementSaves());
+  }
+
+  Future<void> _drainAnchorPlacementSaves() async {
+    var saveFailed = false;
+    while (_anchorSaveRequested) {
+      _anchorSaveRequested = false;
+      final snapshot = List<IlDuAnchorPlacement>.unmodifiable(
+        _anchorPlacements,
+      );
+      try {
+        await widget.anchorPlacementStore.save(snapshot);
+      } catch (_) {
+        saveFailed = true;
+      }
+    }
+    _anchorSaveInProgress = false;
+    if (!saveFailed || !mounted) {
+      return;
+    }
+    final t = AppL10n.of(context);
+    soriToast(context, t.ilduWorldSaveError);
   }
 
   void _upsertAnchorPlacement(IlDuAnchorPlacement placement) {
@@ -218,7 +238,7 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
         ),
       );
     });
-    unawaited(_persistAnchorPlacements());
+    _queueAnchorPlacementSave();
   }
 
   void _moveAnchor(IlDuWorldAnchor anchor, Offset delta, Size mapSize) {
@@ -399,7 +419,7 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
               onTurnAnchor: _turnAnchor,
               onMoveAnchor: _moveAnchor,
               onResizeAnchor: _resizeAnchor,
-              onFinishMoveAnchor: () => unawaited(_persistAnchorPlacements()),
+              onFinishMoveAnchor: _queueAnchorPlacementSave,
               onStartDecorating: () => setState(() => _decorating = true),
               onFinishDecorating: () => setState(() => _decorating = false),
               onAddDecoration: _addDecoration,

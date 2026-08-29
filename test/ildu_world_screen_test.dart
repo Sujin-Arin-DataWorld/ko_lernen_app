@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -687,6 +688,64 @@ void main() {
 
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets('transform saves stay ordered and persist the latest snapshot', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(1179, 2556);
+    tester.view.devicePixelRatio = 3;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final anchorStore = _ControlledAnchorStore();
+
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('de'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        home: IlDuWorldScreen(
+          loadManifest: () async => manifest,
+          loadProjection: () async => _verifiedA1Projection(),
+          decorationStore: _MemoryDecorationStore(),
+          anchorPlacementStore: anchorStore,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.drag(
+      find.byKey(const ValueKey('hanok-turntable-drag-area')),
+      const Offset(-40, 0),
+    );
+    await tester.pump();
+    expect(anchorStore.saveSnapshots, hasLength(1));
+    expect(anchorStore.maximumConcurrentSaves, 1);
+
+    final slider = tester.widget<Slider>(
+      find.byKey(const ValueKey('ildu-scale-slider-sarangchae')),
+    );
+    slider.onChanged!(1.35);
+    slider.onChangeEnd!(1.35);
+    await tester.pump();
+
+    expect(
+      anchorStore.saveSnapshots,
+      hasLength(1),
+      reason: 'A newer transform must wait for the active durable write.',
+    );
+    anchorStore.completeNextSave();
+    await tester.pump();
+    expect(anchorStore.saveSnapshots, hasLength(2));
+    expect(anchorStore.maximumConcurrentSaves, 1);
+
+    anchorStore.completeNextSave();
+    await tester.pump();
+
+    expect(anchorStore.placements, hasLength(1));
+    expect(anchorStore.placements.single.direction, 1);
+    expect(anchorStore.placements.single.scale, closeTo(1.35, .001));
+    expect(tester.takeException(), isNull);
+  });
 }
 
 PersonalHanokProjection _verifiedA1Projection() {
@@ -764,5 +823,36 @@ class _MemoryAnchorStore implements IlDuAnchorPlacementStore {
   @override
   Future<void> save(List<IlDuAnchorPlacement> placements) async {
     this.placements = List.unmodifiable(placements);
+  }
+}
+
+class _ControlledAnchorStore implements IlDuAnchorPlacementStore {
+  List<IlDuAnchorPlacement> placements = const [];
+  final List<List<IlDuAnchorPlacement>> saveSnapshots = [];
+  final List<Completer<void>> _pendingSaves = [];
+  int _activeSaves = 0;
+  int maximumConcurrentSaves = 0;
+
+  @override
+  Future<List<IlDuAnchorPlacement>> load(IlDuWorldManifest manifest) async =>
+      placements;
+
+  @override
+  Future<void> save(List<IlDuAnchorPlacement> placements) async {
+    final snapshot = List<IlDuAnchorPlacement>.unmodifiable(placements);
+    final completion = Completer<void>();
+    saveSnapshots.add(snapshot);
+    _pendingSaves.add(completion);
+    _activeSaves++;
+    if (_activeSaves > maximumConcurrentSaves) {
+      maximumConcurrentSaves = _activeSaves;
+    }
+    await completion.future;
+    this.placements = snapshot;
+    _activeSaves--;
+  }
+
+  void completeNextSave() {
+    _pendingSaves.removeAt(0).complete();
   }
 }
