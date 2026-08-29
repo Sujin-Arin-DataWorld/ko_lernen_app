@@ -1,0 +1,620 @@
+{
+  "status": "pending_review_only",
+  "generator": "built_in_imagegen_one_call_per_direction",
+  "postprocess": "boundary_connected_checker_extraction_and_premultiplied_normalization",
+  "camera_elevation_degrees": 28,
+  "azimuth_interval_degrees": 45,
+  "frame_size": [
+    2048,
+    1536
+  ],
+  "safe_content_size": [
+    1856,
+    1376
+  ],
+  "baseline_y": 1472,
+  "source": {
+    "file": "changgo_final.png",
+    "sha256": "867495181C3507A29BCA0EFC43778BF6A958018B05992CABA3FA40A01A3D9488",
+    "mode": "RGBA",
+    "size": [
+      2736,
+      1536
+    ],
+    "palette_mean_rgb_without_green_residue": [
+      92,
+      79,
+      67
+    ]
+  },
+  "blueprints": [
+    {
+      "file": "ildu_Blueprint/도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_창고_앙시도.jpg",
+      "sha256": "F3489A7EECD569862133BEA5D5E6869928BA937C36B7623FD4D9795D5DD1BA6D",
+      "role": "blueprint_evidence_only",
+      "used_as_model_input": false
+    },
+    {
+      "file": "ildu_Blueprint/도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_창고_와복도.jpg",
+      "sha256": "5A307F3CE8483327ECFA9F2A00E0C8C827C4F6F57534358BB8CEF45DFD6372B1",
+      "role": "blueprint_evidence_only",
+      "used_as_model_input": false
+    },
+    {
+      "file": "ildu_Blueprint/도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_창고_우측면도.jpg",
+      "sha256": "20B39D3046BCFE23AB0DD471165EF0FF05ABA4FF85A722DF3EEC2DD38F1AC29F",
+      "role": "blueprint_evidence_only",
+      "used_as_model_input": false
+    },
+    {
+      "file": "ildu_Blueprint/도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_창고_정면도.jpg",
+      "sha256": "92CED89629A3F51A0FC9DCD2D1FAB8229926E618781ACA93D2B4DF9EBA728343",
+      "role": "blueprint_evidence_only",
+      "used_as_model_input": false
+    },
+    {
+      "file": "ildu_Blueprint/도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_창고_종단면도.jpg",
+      "sha256": "E7326BF203157A687B64D7A623301873DB382CA5B6623FC44F34A20A6D870BF6",
+      "role": "blueprint_evidence_only",
+      "used_as_model_input": false
+    },
+    {
+      "file": "ildu_Blueprint/도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_창고_평면도.jpg",
+      "sha256": "0E60D3AA948708A98FF06A3666D6B887BE655577F3230E1DCC397E58C6A8622A",
+      "role": "blueprint_evidence_only",
+      "used_as_model_input": false
+    },
+    {
+      "file": "ildu_Blueprint/도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_창고_횡단면도.jpg",
+      "sha256": "C6B96582ADD630DCDB05B6E740C77E4E614460D8BFF082B4DF96DE6C97E48EAF",
+      "role": "blueprint_evidence_only",
+      "used_as_model_input": false
+    }
+  ],
+  "scale_groups": {
+    "long_axis": [
+      0,
+      4
+    ],
+    "diagonal": [
+      1,
+      3,
+      5,
+      7
+    ],
+    "end_axis": [
+      2,
+      6
+    ]
+  },
+  "group_target_diagonals": {
+    "long_axis": 1518.7968142143013,
+    "diagonal": 1665.7051495900375,
+    "end_axis": 1307.7151857954614
+  },
+  "global_scale": 1.210960122491828,
+  "transparent_sheet": {
+    "file": "ildu_changgo_8view_transparent_sheet.png",
+    "sha256": "199EDC605616EAFF0E1346218F069898675F657811C89AAD627C8424D914113B",
+    "size": [
+      4096,
+      1536
+    ],
+    "mode": "RGBA"
+  },
+  "review_sheet": {
+    "file": "ildu_changgo_8view_review_sheet.png",
+    "sha256": "7456955D8A65039B746A32B29DF7411E455C4DE40B4B871203640C2FEC4F2679",
+    "size": [
+      4096,
+      1536
+    ],
+    "mode": "RGBA"
+  },
+  "tiles": [
+    {
+      "raw_file": "generated_28deg/00_front_000.png",
+      "raw_sha256": "F7D1F765AEC91F8F4E44E69CD1470ABA29D8A9DDB5548946119145244470A6AA",
+      "raw_mode": "RGB",
+      "raw_size": [
+        1536,
+        1024
+      ],
+      "native_content_bbox": [
+        110,
+        271,
+        1426,
+        756
+      ],
+      "native_visible_pixels": 569698,
+      "native_transparent_pixels": 1003166,
+      "native_partial_alpha_pixels": 3920,
+      "fringe_rgb_changed_pixels": 3920,
+      "building_mean_rgb": [
+        87,
+        78,
+        68
+      ],
+      "component_count": 1,
+      "substantial_component_count": 1,
+      "dominant_ratio": 1.0,
+      "degrees": 0,
+      "direction": "front",
+      "output_file": "transparent_28deg/00_front_000.png",
+      "output_sha256": "F308EA48FD27FB3872201DF68DC5EE535A028A583801AD568FF5108CCB7FB127",
+      "output_mode": "RGBA",
+      "output_size": [
+        2048,
+        1536
+      ],
+      "content_bbox": [
+        164,
+        832,
+        1884,
+        1470
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 2170864,
+      "partial_alpha_pixels": 22752,
+      "opaque_pixels": 952112,
+      "green_screen_pixels": 0,
+      "scale_correction_factor": 1.075020359398059,
+      "global_scale": 1.210960122491828,
+      "final_scale": 1.3018067860978826,
+      "output_mean_rgb": [
+        86,
+        77,
+        67
+      ],
+      "source_mean_rgb_delta": [
+        -6,
+        -2,
+        0
+      ]
+    },
+    {
+      "raw_file": "generated_28deg/01_front_right_045.png",
+      "raw_sha256": "951C56A2E73B7730E05B9EF5071C85D64608E12068AC4C21254D4BD98E83E404",
+      "raw_mode": "RGB",
+      "raw_size": [
+        1536,
+        1024
+      ],
+      "native_content_bbox": [
+        42,
+        115,
+        1498,
+        887
+      ],
+      "native_visible_pixels": 731177,
+      "native_transparent_pixels": 841687,
+      "native_partial_alpha_pixels": 4703,
+      "fringe_rgb_changed_pixels": 4703,
+      "building_mean_rgb": [
+        78,
+        68,
+        56
+      ],
+      "component_count": 1,
+      "substantial_component_count": 1,
+      "dominant_ratio": 1.0,
+      "degrees": 45,
+      "direction": "front_right",
+      "output_file": "transparent_28deg/01_front_right_045.png",
+      "output_sha256": "A2D14FC0CC09E6DD4460D972EB08F619D0823562F79702C01B8C0717CEC2E668",
+      "output_mode": "RGBA",
+      "output_size": [
+        2048,
+        1536
+      ],
+      "content_bbox": [
+        136,
+        526,
+        1912,
+        1470
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 2057298,
+      "partial_alpha_pixels": 20725,
+      "opaque_pixels": 1067705,
+      "green_screen_pixels": 0,
+      "scale_correction_factor": 1.0041484035194184,
+      "global_scale": 1.210960122491828,
+      "final_scale": 1.2159836737258485,
+      "output_mean_rgb": [
+        78,
+        67,
+        56
+      ],
+      "source_mean_rgb_delta": [
+        -14,
+        -12,
+        -11
+      ]
+    },
+    {
+      "raw_file": "generated_28deg/02_right_090.png",
+      "raw_sha256": "707D92570AA779FC4F665280CE80F2DC3E682BE4B1C36C7410D34ED85D36D4D3",
+      "raw_mode": "RGB",
+      "raw_size": [
+        1060,
+        1484
+      ],
+      "native_content_bbox": [
+        134,
+        57,
+        925,
+        1384
+      ],
+      "native_visible_pixels": 776866,
+      "native_transparent_pixels": 796174,
+      "native_partial_alpha_pixels": 4872,
+      "fringe_rgb_changed_pixels": 4872,
+      "building_mean_rgb": [
+        87,
+        75,
+        63
+      ],
+      "component_count": 31,
+      "substantial_component_count": 1,
+      "dominant_ratio": 1.0,
+      "degrees": 90,
+      "direction": "right",
+      "output_file": "transparent_28deg/02_right_090.png",
+      "output_sha256": "82843FEE2841605182E6C3AFE370B2F91F08577294F7780DBEAAD11B2E891B20",
+      "output_mode": "RGBA",
+      "output_size": [
+        2048,
+        1536
+      ],
+      "content_bbox": [
+        619,
+        115,
+        1428,
+        1470
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 2335177,
+      "partial_alpha_pixels": 15185,
+      "opaque_pixels": 795366,
+      "green_screen_pixels": 0,
+      "scale_correction_factor": 0.8405224545882173,
+      "global_scale": 1.210960122491828,
+      "final_scale": 1.0178391745652795,
+      "output_mean_rgb": [
+        86,
+        75,
+        63
+      ],
+      "source_mean_rgb_delta": [
+        -6,
+        -4,
+        -4
+      ]
+    },
+    {
+      "raw_file": "generated_28deg/03_rear_right_135.png",
+      "raw_sha256": "334AE96FC758BD803A4AB6A97FAB73EACB78F87894F534E82E9CB1BED6452952",
+      "raw_mode": "RGB",
+      "raw_size": [
+        1672,
+        941
+      ],
+      "native_content_bbox": [
+        102,
+        107,
+        1607,
+        845
+      ],
+      "native_visible_pixels": 682692,
+      "native_transparent_pixels": 890660,
+      "native_partial_alpha_pixels": 4692,
+      "fringe_rgb_changed_pixels": 4692,
+      "building_mean_rgb": [
+        87,
+        77,
+        67
+      ],
+      "component_count": 2,
+      "substantial_component_count": 1,
+      "dominant_ratio": 1.0,
+      "degrees": 135,
+      "direction": "rear_right",
+      "output_file": "transparent_28deg/03_rear_right_135.png",
+      "output_sha256": "54678819A770C8D58794331EE7D8D3442CBC68FE8AC435B7B6761B325BF2CBE4",
+      "output_mode": "RGBA",
+      "output_size": [
+        2048,
+        1536
+      ],
+      "content_bbox": [
+        121,
+        582,
+        1926,
+        1470
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 2162151,
+      "partial_alpha_pixels": 19825,
+      "opaque_pixels": 963752,
+      "green_screen_pixels": 0,
+      "scale_correction_factor": 0.9874263582630214,
+      "global_scale": 1.210960122491828,
+      "final_scale": 1.1957339437538481,
+      "output_mean_rgb": [
+        87,
+        76,
+        66
+      ],
+      "source_mean_rgb_delta": [
+        -5,
+        -3,
+        -1
+      ]
+    },
+    {
+      "raw_file": "generated_28deg/04_rear_180.png",
+      "raw_sha256": "142D881E2208820B35F892BD7E0781B25452C3E87F99544D7B152309CE157141",
+      "raw_mode": "RGB",
+      "raw_size": [
+        1672,
+        941
+      ],
+      "native_content_bbox": [
+        64,
+        240,
+        1599,
+        741
+      ],
+      "native_visible_pixels": 691309,
+      "native_transparent_pixels": 882043,
+      "native_partial_alpha_pixels": 4330,
+      "fringe_rgb_changed_pixels": 4330,
+      "building_mean_rgb": [
+        92,
+        78,
+        65
+      ],
+      "component_count": 1,
+      "substantial_component_count": 1,
+      "dominant_ratio": 1.0,
+      "degrees": 180,
+      "direction": "rear",
+      "output_file": "transparent_28deg/04_rear_180.png",
+      "output_sha256": "CC0BE6F79634A56A67A1A9EF9E6DBA1B8BECAC61D61417E5BAFB550D75353682",
+      "output_mode": "RGBA",
+      "output_size": [
+        2048,
+        1536
+      ],
+      "content_bbox": [
+        152,
+        898,
+        1895,
+        1470
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 2252785,
+      "partial_alpha_pixels": 17020,
+      "opaque_pixels": 875923,
+      "green_screen_pixels": 0,
+      "scale_correction_factor": 0.9347672146108083,
+      "global_scale": 1.210960122491828,
+      "final_scale": 1.1319658207064494,
+      "output_mean_rgb": [
+        91,
+        78,
+        64
+      ],
+      "source_mean_rgb_delta": [
+        -1,
+        -1,
+        -3
+      ]
+    },
+    {
+      "raw_file": "generated_28deg/05_rear_left_225.png",
+      "raw_sha256": "F92E04AB4AFC268993E971991C4BB57355D840D9D524D940BAFDACDAF297374B",
+      "raw_mode": "RGB",
+      "raw_size": [
+        1672,
+        940
+      ],
+      "native_content_bbox": [
+        70,
+        141,
+        1601,
+        788
+      ],
+      "native_visible_pixels": 684012,
+      "native_transparent_pixels": 887668,
+      "native_partial_alpha_pixels": 4600,
+      "fringe_rgb_changed_pixels": 4600,
+      "building_mean_rgb": [
+        87,
+        77,
+        68
+      ],
+      "component_count": 15,
+      "substantial_component_count": 1,
+      "dominant_ratio": 1.0,
+      "degrees": 225,
+      "direction": "rear_left",
+      "output_file": "transparent_28deg/05_rear_left_225.png",
+      "output_sha256": "4323BD74FE299E2A9C6B195DF1344558EAB242D170C596EC05E091BEE6E3AD94",
+      "output_mode": "RGBA",
+      "output_size": [
+        2048,
+        1536
+      ],
+      "content_bbox": [
+        98,
+        684,
+        1950,
+        1470
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 2142938,
+      "partial_alpha_pixels": 20430,
+      "opaque_pixels": 982360,
+      "green_screen_pixels": 0,
+      "scale_correction_factor": 0.9958857317701905,
+      "global_scale": 1.210960122491828,
+      "final_scale": 1.2059779077322936,
+      "output_mean_rgb": [
+        86,
+        76,
+        67
+      ],
+      "source_mean_rgb_delta": [
+        -6,
+        -3,
+        0
+      ]
+    },
+    {
+      "raw_file": "generated_28deg/06_left_270.png",
+      "raw_sha256": "E604E9EDC4ED88C92A97863936F2415E885239D4AE5D483F7444EF111468298D",
+      "raw_mode": "RGB",
+      "raw_size": [
+        1391,
+        1131
+      ],
+      "native_content_bbox": [
+        419,
+        16,
+        967,
+        910
+      ],
+      "native_visible_pixels": 365153,
+      "native_transparent_pixels": 1208068,
+      "native_partial_alpha_pixels": 3103,
+      "fringe_rgb_changed_pixels": 3103,
+      "building_mean_rgb": [
+        78,
+        70,
+        62
+      ],
+      "component_count": 1,
+      "substantial_component_count": 1,
+      "dominant_ratio": 1.0,
+      "degrees": 270,
+      "direction": "left",
+      "output_file": "transparent_28deg/06_left_270.png",
+      "output_sha256": "6C4FA20C39D33920FEF4F38C54CFE9B7FD544E13299819E83AE58EDBC0335C9C",
+      "output_mode": "RGBA",
+      "output_size": [
+        2048,
+        1536
+      ],
+      "content_bbox": [
+        610,
+        126,
+        1437,
+        1470
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 2321417,
+      "partial_alpha_pixels": 21663,
+      "opaque_pixels": 802648,
+      "green_screen_pixels": 0,
+      "scale_correction_factor": 1.2341659753460803,
+      "global_scale": 1.210960122491828,
+      "final_scale": 1.4945257806803358,
+      "output_mean_rgb": [
+        78,
+        70,
+        62
+      ],
+      "source_mean_rgb_delta": [
+        -14,
+        -9,
+        -5
+      ]
+    },
+    {
+      "raw_file": "generated_28deg/07_front_left_315.png",
+      "raw_sha256": "F77A2860051BBA3F9AFE877DE453E6B4B94800CC51EE17FD768AC08229682A17",
+      "raw_mode": "RGB",
+      "raw_size": [
+        1536,
+        1024
+      ],
+      "native_content_bbox": [
+        44,
+        153,
+        1482,
+        875
+      ],
+      "native_visible_pixels": 695026,
+      "native_transparent_pixels": 877838,
+      "native_partial_alpha_pixels": 4587,
+      "fringe_rgb_changed_pixels": 4587,
+      "building_mean_rgb": [
+        90,
+        79,
+        69
+      ],
+      "component_count": 1,
+      "substantial_component_count": 1,
+      "dominant_ratio": 1.0,
+      "degrees": 315,
+      "direction": "front_left",
+      "output_file": "transparent_28deg/07_front_left_315.png",
+      "output_sha256": "2372A85194AC83C74657B986E4C045EED607A73620364F5762613BBECFDDC063",
+      "output_mode": "RGBA",
+      "output_size": [
+        2048,
+        1536
+      ],
+      "content_bbox": [
+        125,
+        565,
+        1922,
+        1470
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 2059718,
+      "partial_alpha_pixels": 21255,
+      "opaque_pixels": 1064755,
+      "green_screen_pixels": 0,
+      "scale_correction_factor": 1.0283274770102295,
+      "global_scale": 1.210960122491828,
+      "final_scale": 1.24526356752202,
+      "output_mean_rgb": [
+        90,
+        79,
+        68
+      ],
+      "source_mean_rgb_delta": [
+        -2,
+        0,
+        1
+      ]
+    }
+  ]
+}
