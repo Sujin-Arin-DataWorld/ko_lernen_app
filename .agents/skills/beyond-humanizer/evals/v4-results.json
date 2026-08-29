@@ -1,0 +1,211 @@
+{
+  "version": "4.0.0",
+  "phase": "RED_GREEN",
+  "baseline_skill": "Beyond Humanizer v3",
+  "baseline_commit": "e9ab5ce4dd071b4e9e5c731b2655563dc6d1c95c",
+  "initial_evaluation_commit": "930d3a1c75f1106bd5136db66b8ef86fad67559b",
+  "upstream_refresh": "origin/main advanced twice during the evaluation. The 29 intended non-Graphify paths had zero overlap with the later a5d07cb..e9ab5ce4 upstream range and were copied with SHA-256 equality into a fresh isolated worktree at e9ab5ce4 before final verification; dirty main and unrelated worktrees were not modified.",
+  "scope": [
+    "AUTHOR, AUDIT, and AUTHOR+AUDIT skill modes",
+    "Korean-first scene authoring with independent en and de-DE localization",
+    "Semantic, construct-preserving, and surface-only accepted-variant tiers",
+    "Optional Cloze and dictation runtime acceptedVariants contracts",
+    "Risk-based evidence gate and model-only QA statuses"
+  ],
+  "protocol": {
+    "evaluator_a": "Independent forward evaluator using the public v4 skill, routed references, and the 16 public behavior rubrics; no implementation diff or gold sentence was supplied.",
+    "evaluator_b": "Independent blind output auditor using only the public skill and rubric plus evaluator A's outputs; implementation history and result files were excluded.",
+    "raw_artifacts": "Original forward/blind outputs and the five-case human-feedback revision outputs were reviewed outside the repository. They are audit evidence, not runtime or promotion authority.",
+    "status_boundary": "Only MODEL_QA_PASS, FLAG, and EVIDENCE_REQUIRED are model-authored states. No human approval state is inferred."
+  },
+  "v3_prechange_observation": {
+    "representative_cases": 6,
+    "strengths": [
+      "Produced generally natural multilingual wording and preserved the existing translation and modality behavior.",
+      "Detected relationship uncertainty in several open scenes."
+    ],
+    "contract_gaps": [
+      "Used a generic PASS label rather than the v4 model-only status vocabulary.",
+      "Did not expose task-specific accepted-variant tiers.",
+      "Could not consistently distinguish a reviewed dictation surface variant from a semantic variant under a product-specific contract."
+    ],
+    "interpretation": "This is a targeted forward baseline, not a claim that the v3 translation matrix failed."
+  },
+  "deterministic_matrix": {
+    "cases_total": 36,
+    "v3_regression_cases": 20,
+    "v4_behavior_cases": 16,
+    "directions": ["de-ko", "en-ko", "ko-de", "ko-en"],
+    "modes": [
+      "audit-triad",
+      "author-ko",
+      "evidence-gate",
+      "interpret",
+      "item-variants",
+      "localize-triad",
+      "translate"
+    ]
+  },
+  "author_forward_test": {
+    "cases_total": 16,
+    "status_counts": {
+      "MODEL_QA_PASS": 13,
+      "FLAG": 1,
+      "EVIDENCE_REQUIRED": 2
+    },
+    "flag_case_ids": ["author-family-relationship-unresolved"],
+    "evidence_required_case_ids": [
+      "author-online-private-vs-public",
+      "evidence-current-slang-required"
+    ],
+    "human_approval_claims": 0
+  },
+  "blind_audit_red": {
+    "cases_total": 16,
+    "verdict_counts": {
+      "CRITICAL": 1,
+      "MINOR": 0,
+      "PASS": 15
+    },
+    "critical_case_id": "variants-cloze-construct",
+    "finding": "A self-generated distractor, 보낼 수 있어요, remained pragmatically coherent in the completed context. A FORCE-label difference alone did not establish answer uniqueness.",
+    "repair": [
+      "The public Cloze audit now requires full-sentence substitution for every distractor.",
+      "Any distractor that is true or pragmatically coherent under a licensed reading is an ITEM critical failure.",
+      "The case was regenerated with three distractors that contradict explicit context facts."
+    ]
+  },
+  "blind_audit_green": {
+    "cases_total": 16,
+    "verdict_counts": {
+      "CRITICAL": 0,
+      "MINOR": 0,
+      "PASS": 16
+    },
+    "final_gate": "MODEL_OUTPUT_AUDIT_PASS",
+    "cloze_uniqueness": "PASS",
+    "human_approval_claim_guard": "PASS",
+    "runtime_verification": "SEPARATE_LOCAL_GATE",
+    "promotion_authority": "NOT_GRANTED"
+  },
+  "human_feedback_revision": {
+    "review_scope": "Direct Korean human review feedback was incorporated as a new rule-and-example revision, not treated as a human approval state.",
+    "case_ids": [
+      "author-friend-takcheongjae-delay",
+      "audit-public-briefing-register",
+      "author-family-relationship-unresolved",
+      "audit-register-drift-triad",
+      "variants-open-semantic"
+    ],
+    "rules_added": [
+      "감정적으로 말하다, 말을 막 하다, and 말이 세게 나가다 can be semantic delivery-risk variants without asserting actual anger.",
+      "자료 is a communicative-artifact referent, not a relationship label; file, report, reference material, and data terminology must follow the supplied referent independently in EN and de-DE.",
+      "확인 versus 검토 and 부탁드립니다 versus 부탁드리겠습니다 are selected by requested task depth, channel, and relationship rather than a single formality ladder.",
+      "나갈 때 문 꼭 잠가 줘, 알지?, and 알겠지? are separated by request force and shared-rule/compliance presupposition; standard 잠가 is retained."
+    ],
+    "independent_reauthor": {
+      "cases_total": 5,
+      "status_counts": {
+        "MODEL_QA_PASS": 4,
+        "FLAG": 1,
+        "EVIDENCE_REQUIRED": 0
+      },
+      "flag_case_ids": ["author-family-relationship-unresolved"],
+      "human_approval_claims": 0
+    },
+    "blind_audit_red": {
+      "verdict_counts": {
+        "CRITICAL": 0,
+        "MINOR": 2,
+        "PASS": 3
+      },
+      "finding": "The friend-scene EN Let me... and de-DE Lass mich... forms added a mild request-for-space force absent from the Korean self-announced pause; the same localization was reused in the semantic-variant case."
+    },
+    "repair": [
+      "EN now states the speaker's own plan: I'll think for a bit, then I'll message you.",
+      "de-DE now states the speaker's own plan: Ich denke kurz nach und melde mich dann.",
+      "The remaining three case blocks and aggregate status counts were preserved."
+    ],
+    "blind_audit_green": {
+      "verdict_counts": {
+        "CRITICAL": 0,
+        "MINOR": 0,
+        "PASS": 5
+      },
+      "final_gate": "MODEL_OUTPUT_HUMAN_FEEDBACK_REVISION_AUDIT_PASS",
+      "human_approval_claim_guard": "PASS",
+      "promotion_authority": "NOT_GRANTED"
+    },
+    "raw_artifacts": [
+      "C:/dev/hangulsori/beyond-humanizer-v4-eval-temp/author-human-revision-output.json",
+      "C:/dev/hangulsori/beyond-humanizer-v4-eval-temp/auditor-human-revision-output.json"
+    ]
+  },
+  "v3_behavior_regression": {
+    "cases_total": 20,
+    "mode_counts": {
+      "translate": 19,
+      "interpret": 1
+    },
+    "direction_counts": {
+      "ko-en": 8,
+      "ko-de": 8,
+      "en-ko": 5,
+      "de-ko": 6
+    },
+    "author_status_counts": {
+      "MODEL_QA_PASS": 20,
+      "FLAG": 0,
+      "EVIDENCE_REQUIRED": 0
+    },
+    "initial_blind_audit": {
+      "CRITICAL": 0,
+      "MINOR": 1,
+      "PASS": 19,
+      "finding": "The first authority-and-cloze-quality repair guaranteed uniqueness by explicitly listing and negating distractor actions, producing an artificial answer-elimination stem."
+    },
+    "repair": [
+      "The public item rubric now rejects stems that enumerate or negate distractor meanings merely to force uniqueness.",
+      "The repaired case uses a compact interaction and validates three grammatical distractors by full-sentence substitution."
+    ],
+    "final_blind_audit": {
+      "CRITICAL": 0,
+      "MINOR": 0,
+      "PASS": 20,
+      "final_gate": "MODEL_OUTPUT_REGRESSION_PASS",
+      "four_translation_directions": "PASS",
+      "simultaneous_interpreting_route": "PASS",
+      "human_approval_claim_guard": "PASS"
+    }
+  },
+  "runtime_red_green": {
+    "red": [
+      "Dart tests initially failed to compile because the optional Cloze and dictation accepted-variant APIs did not exist.",
+      "Python validator and builder tests initially failed because acceptedVariants hygiene and surface-only dictation checks did not exist."
+    ],
+    "green": {
+      "skill_quick_validate": "PASS",
+      "eval_matrix": "PASS: 36 cases, 4 directions, 7 modes",
+      "eval_validator_unit_tests": "PASS: 8",
+      "unicode_guard": "PASS",
+      "rejected_phrase_guard": "PASS",
+      "content_factory_unit_tests": "PASS: 19",
+      "productive_assessment_builder_check": "PASS",
+      "content_factory_full_validation": "PASS",
+      "changed_area_flutter_tests": "PASS: 253",
+      "flutter_analyze": "PASS: no issues"
+    },
+    "non_gate_observation": "A broader content-factory unittest discovery was stopped after two failures in unrelated content-audit/batch-09 paths. It was not used as the v4 gate; the 19 changed-area unit tests, builder check, and full content validator all passed. Stat-only line-ending churn created by that discovery was cleared after proving every affected blob equal to the e9ab5ce4 index."
+  },
+  "residual_limitations": [
+    "The 16-case audit is an independent model audit, not a Korean native-speaker, English localization, German localization, cultural, or educator approval.",
+    "Risky current-language claims remain EVIDENCE_REQUIRED until the cited corpus or another suitable current source is actually inspected.",
+    "Semantic distractor uniqueness cannot be guaranteed by string validators alone and retains a model plus human content-review gate.",
+    "Existing content was not bulk migrated, and Firebase, TTS generation, deployment, store release, and scenario promotion are outside this result."
+  ],
+  "human_gate": {
+    "korean_native_and_education_review": "PENDING",
+    "english_localization_review": "PENDING",
+    "german_de_de_localization_review": "PENDING"
+  }
+}

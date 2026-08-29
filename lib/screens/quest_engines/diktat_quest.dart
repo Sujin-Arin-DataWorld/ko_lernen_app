@@ -23,7 +23,8 @@ import 'quest_models.dart';
 ///   "targetKo": "강남역까지 가주세요.",
 ///   "audioKo":  "강남역까지 가주세요.",
 ///   "promptDe": "Bis zur Gangnam Station, bitte.",
-///   "promptEn": "To Gangnam Station, please."
+///   "promptEn": "To Gangnam Station, please.",
+///   "acceptedVariants": ["강남역까지 가 주세요"]
 /// }
 /// ```
 class DiktatQuest extends StatefulWidget {
@@ -62,6 +63,11 @@ class DiktatQuest extends StatefulWidget {
   /// Exakte Übereinstimmung (Satzzeichen/Randleerraum egal, Wortabstand zählt).
   static bool isExact(String input, String target) {
     return normalize(input) == normalize(target);
+  }
+
+  /// Matches the canonical target or an explicitly reviewed surface variant.
+  static bool isAccepted(String input, Iterable<String> targets) {
+    return targets.any((target) => isExact(input, target));
   }
 
   /// True, wenn der Satz korrekt ist **bis auf** den Wortabstand
@@ -141,6 +147,33 @@ class DiktatQuest extends StatefulWidget {
       return DiktatError.spelling;
     }
     return DiktatError.wrong;
+  }
+
+  /// Diagnoses against the closest reviewed target while preserving the
+  /// existing spacing-first feedback contract.
+  static DiktatError diagnoseAgainstAccepted(
+    String input,
+    Iterable<String> targets,
+  ) {
+    final candidates = targets
+        .where((target) => normalize(target).isNotEmpty)
+        .toList();
+    if (candidates.any((target) => isSpacingOnly(input, target))) {
+      return DiktatError.spacing;
+    }
+    final normalizedInput = normalize(input).replaceAll(RegExp(r'\s+'), '');
+    if (normalizedInput.isEmpty || candidates.isEmpty) {
+      return DiktatError.wrong;
+    }
+    final closestDistance = candidates
+        .map(
+          (target) => jamoEditDistance(
+            normalizedInput,
+            normalize(target).replaceAll(RegExp(r'\s+'), ''),
+          ),
+        )
+        .reduce((left, right) => left < right ? left : right);
+    return closestDistance <= 2 ? DiktatError.spelling : DiktatError.wrong;
   }
 }
 
@@ -284,6 +317,15 @@ class _DiktatQuestState extends State<DiktatQuest> {
       : _targetKo;
   String get _promptDe => (widget.data['promptDe'] as String?) ?? '';
   String get _promptEn => (widget.data['promptEn'] as String?) ?? '';
+  List<String> get _acceptedVariants {
+    final raw = widget.data['acceptedVariants'];
+    if (raw is! List) {
+      return const [];
+    }
+    return raw.whereType<String>().toList(growable: false);
+  }
+
+  List<String> get _acceptedTargets => [_targetKo, ..._acceptedVariants];
   List<String> get _targetTokens => _targetKo
       .trim()
       .split(RegExp(r'\s+'))
@@ -354,7 +396,7 @@ class _DiktatQuestState extends State<DiktatQuest> {
     }
     final input = _ctrl.text;
 
-    if (DiktatQuest.isExact(input, _targetKo)) {
+    if (DiktatQuest.isAccepted(input, _acceptedTargets)) {
       HapticFeedback.lightImpact();
       setState(() {
         _completed = true;
@@ -367,7 +409,7 @@ class _DiktatQuestState extends State<DiktatQuest> {
     HapticFeedback.mediumImpact();
     SoundService.wrong();
     _tries++;
-    final diag = DiktatQuest.diagnose(input, _targetKo);
+    final diag = DiktatQuest.diagnoseAgainstAccepted(input, _acceptedTargets);
 
     if (_tries >= 2) {
       // Lösung aufzeigen.
