@@ -13458,9 +13458,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/trace_canvas.dart": {
-    "mtime": 1788053356.266464,
-    "seen": 1788060351.4826782,
-    "ast_hash": "5eca9ddc2f8933dfda9f9f7c5a0e43ad",
+    "mtime": 1788060912.5038545,
+    "seen": 1788061688.6830006,
+    "ast_hash": "ead96abe24669e54ec70de284e0e5d45",
     "semantic_hash": ""
   },
   "test/scenario_grammar_resolution_test.dart": {
@@ -13476,9 +13476,9 @@
     "semantic_hash": ""
   },
   "test/trace_canvas_test.dart": {
-    "mtime": 1788053356.2694664,
-    "seen": 1788060351.4834826,
-    "ast_hash": "051affad07fe99847ec506673498c083",
+    "mtime": 1788060812.0619576,
+    "seen": 1788061688.820548,
+    "ast_hash": "3a1862c73f321ef58f27b5c1f209df1a",
     "semantic_hash": ""
   },
   "docs/runbooks/pronunciation-assessment.md": {
