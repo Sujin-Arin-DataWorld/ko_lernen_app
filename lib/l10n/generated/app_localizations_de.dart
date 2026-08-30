@@ -7354,7 +7354,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get ilduWorldRotateBuildingHint =>
-      'Verschiebe es auf der Karte. Wische zum Drehen; zoome mit zwei Fingern oder den Tasten.';
+      'Verschiebe es auf der Karte mit einem Finger; ändere seine Größe mit zwei Fingern; wische über die Vorschau, um es zu drehen.';
 
   @override
   String get ilduWorldZoomInBuilding => 'Gebäude vergrößern';

@@ -199,11 +199,8 @@ void main() {
     final mapAnchor = find.byKey(
       const ValueKey('ildu-map-turntable-jungmunganchae-2'),
     );
-    final tapTarget = find.descendant(
-      of: mapAnchor,
-      matching: find.byType(GestureDetector),
-    );
-    tester.widget<GestureDetector>(tapTarget).onTap!();
+    expect(mapAnchor, findsOneWidget);
+    _selectMapAnchor(tester, 'jungmunganchae');
     await tester.pumpAndSettle();
 
     expect(find.text('중문채'), findsOneWidget);
@@ -251,11 +248,8 @@ void main() {
     final gateAnchor = find.byKey(
       const ValueKey('ildu-map-turntable-main-gate-0'),
     );
-    final gateTapTarget = find.descendant(
-      of: gateAnchor,
-      matching: find.byType(GestureDetector),
-    );
-    tester.widget<GestureDetector>(gateTapTarget).onTap!();
+    expect(gateAnchor, findsOneWidget);
+    _selectMapAnchor(tester, 'main-gate');
     await tester.pumpAndSettle();
 
     expect(
@@ -323,11 +317,8 @@ void main() {
     final sadangAnchor = find.byKey(
       const ValueKey('ildu-map-turntable-sadang-2'),
     );
-    final sadangTapTarget = find.descendant(
-      of: sadangAnchor,
-      matching: find.byType(GestureDetector),
-    );
-    tester.widget<GestureDetector>(sadangTapTarget).onTap!();
+    expect(sadangAnchor, findsOneWidget);
+    _selectMapAnchor(tester, 'sadang');
     await tester.pumpAndSettle();
 
     expect(find.byKey(const ValueKey('ildu-turntable-sadang')), findsOneWidget);
@@ -371,13 +362,8 @@ void main() {
     final changoAnchor = find.byKey(
       const ValueKey('ildu-map-turntable-changgo-2'),
     );
-    final changoTapTarget = find.descendant(
-      of: changoAnchor,
-      matching: find.byWidgetPredicate(
-        (widget) => widget is GestureDetector && widget.onTap != null,
-      ),
-    );
-    tester.widget<GestureDetector>(changoTapTarget).onTap!();
+    expect(changoAnchor, findsOneWidget);
+    _selectMapAnchor(tester, 'changgo');
     await tester.pumpAndSettle();
 
     expect(
@@ -428,11 +414,7 @@ void main() {
       const ValueKey('ildu-map-turntable-anchae-2'),
     );
     expect(anchaeAnchor, findsOneWidget);
-    final anchaeTapTarget = find.descendant(
-      of: anchaeAnchor,
-      matching: find.byType(GestureDetector),
-    );
-    tester.widget<GestureDetector>(anchaeTapTarget).onTap!();
+    _selectMapAnchor(tester, 'anchae');
     await tester.pumpAndSettle();
 
     expect(find.byKey(const ValueKey('ildu-turntable-anchae')), findsOneWidget);
@@ -475,13 +457,7 @@ void main() {
       const ValueKey('ildu-map-turntable-araechae-0'),
     );
     expect(araechaeAnchor, findsOneWidget);
-    final tapTarget = find.descendant(
-      of: araechaeAnchor,
-      matching: find.byWidgetPredicate(
-        (widget) => widget is GestureDetector && widget.onTap != null,
-      ),
-    );
-    tester.widget<GestureDetector>(tapTarget).onTap!();
+    _selectMapAnchor(tester, 'araechae');
     await tester.pumpAndSettle();
 
     expect(
@@ -539,11 +515,9 @@ void main() {
     final anchor = find.byKey(
       const ValueKey('ildu-map-turntable-sarangchae-0'),
     );
-    final dragTarget = find.descendant(
-      of: anchor,
-      matching: find.byWidgetPredicate(
-        (widget) => widget is GestureDetector && widget.onPanUpdate != null,
-      ),
+    expect(anchor, findsOneWidget);
+    final dragTarget = find.byKey(
+      const ValueKey('ildu-anchor-gesture-sarangchae'),
     );
     final mapController = tester
         .widget<InteractiveViewer>(find.byType(InteractiveViewer))
@@ -556,14 +530,16 @@ void main() {
     expect(anchorStore.placements.single.anchorId, 'sarangchae');
     expect(anchorStore.placements.single.x, greaterThan(48.2));
     expect(anchorStore.placements.single.y, greaterThan(55.8));
+    expect(anchorStore.placements.single.scale, 1);
+    expect(anchorStore.saveCalls, 1);
     expect(mapController.value, mapTransformBeforeDrag);
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('pinching over a building zooms the map without moving it', (
+  testWidgets('two finger pinch scales one building and saves once', (
     tester,
   ) async {
-    tester.view.physicalSize = const Size(1179, 4000);
+    tester.view.physicalSize = const Size(1500, 2556);
     tester.view.devicePixelRatio = 3;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
@@ -576,7 +552,7 @@ void main() {
         supportedLocales: AppL10n.supportedLocales,
         home: IlDuWorldScreen(
           loadManifest: () async => manifest,
-          loadProjection: () async => _verifiedA1Projection(),
+          loadProjection: () async => _verifiedB2Projection(),
           decorationStore: _MemoryDecorationStore(),
           anchorPlacementStore: anchorStore,
         ),
@@ -584,32 +560,42 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    final anchor = find.byKey(
-      const ValueKey('ildu-map-turntable-sarangchae-0'),
-    );
-    final anchorCenter = tester.getCenter(anchor);
     final mapController = tester
         .widget<InteractiveViewer>(find.byType(InteractiveViewer))
         .transformationController!;
-    final firstFinger = await tester.startGesture(
-      anchorCenter - const Offset(8, 0),
-      pointer: 1,
-    );
-    final secondFinger = await tester.startGesture(
-      anchorCenter + const Offset(8, 0),
-      pointer: 2,
-    );
+    final anchor = find.byKey(const ValueKey('ildu-map-turntable-sadang-2'));
+    final center = tester.getCenter(anchor);
+    final first = await tester.createGesture(pointer: 1);
+    final second = await tester.createGesture(pointer: 2);
+
+    await first.down(center - const Offset(36, 0));
+    await second.down(center - const Offset(12, 0));
     await tester.pump();
-    await firstFinger.moveTo(anchorCenter - const Offset(64, 0));
-    await secondFinger.moveTo(anchorCenter + const Offset(64, 0));
+    await first.moveTo(center - const Offset(60, 0));
+    await second.moveTo(center + const Offset(12, 0));
     await tester.pump();
-    await firstFinger.up();
-    await secondFinger.up();
+    expect(
+      tester
+          .widget<Slider>(
+            find.byKey(const ValueKey('ildu-scale-slider-sadang')),
+          )
+          .value,
+      greaterThan(1),
+    );
+    await first.up();
+    await second.up();
     await tester.pumpAndSettle();
 
-    expect(mapController.value.getMaxScaleOnAxis(), greaterThan(1));
-    expect(anchorStore.saveCount, 0);
-    expect(anchorStore.placements, isEmpty);
+    expect(anchorStore.placements, hasLength(1));
+    expect(anchorStore.saveCalls, 1);
+    expect(anchorStore.placements.single.anchorId, 'sadang');
+    expect(anchorStore.placements.single.direction, 2);
+    expect(anchorStore.placements.single.scale, greaterThan(1));
+    expect(
+      anchorStore.placements.single.scale,
+      lessThanOrEqualTo(IlDuAnchorPlacement.maximumScale),
+    );
+    expect(mapController.value.getMaxScaleOnAxis(), 1);
     expect(tester.takeException(), isNull);
   });
 
@@ -645,15 +631,8 @@ void main() {
       final anchor = find.byKey(
         ValueKey('ildu-map-turntable-$anchorId-$direction'),
       );
-      final dragTarget = find.descendant(
-        of: anchor,
-        matching: find.byWidgetPredicate(
-          (widget) => widget is GestureDetector && widget.onPanUpdate != null,
-        ),
-      );
-      final gesture = tester.widget<GestureDetector>(dragTarget);
-      expect(gesture.onScaleUpdate, isNull);
-      gesture.onTap!();
+      expect(anchor, findsOneWidget);
+      _selectMapAnchor(tester, anchorId);
       await tester.pumpAndSettle();
 
       final sliderFinder = find.byKey(ValueKey('ildu-scale-slider-$anchorId'));
@@ -679,13 +658,8 @@ void main() {
     final sadangAnchor = find.byKey(
       const ValueKey('ildu-map-turntable-sadang-2'),
     );
-    final sadangTapTarget = find.descendant(
-      of: sadangAnchor,
-      matching: find.byWidgetPredicate(
-        (widget) => widget is GestureDetector && widget.onTap != null,
-      ),
-    );
-    tester.widget<GestureDetector>(sadangTapTarget).onTap!();
+    expect(sadangAnchor, findsOneWidget);
+    _selectMapAnchor(tester, 'sadang');
     await tester.pumpAndSettle();
     await tester.drag(
       find.byKey(const ValueKey('hanok-turntable-drag-area')),
@@ -723,13 +697,8 @@ void main() {
       final anchor = find.byKey(
         ValueKey('ildu-map-turntable-$anchorId-$direction'),
       );
-      final tapTarget = find.descendant(
-        of: anchor,
-        matching: find.byWidgetPredicate(
-          (widget) => widget is GestureDetector && widget.onTap != null,
-        ),
-      );
-      tester.widget<GestureDetector>(tapTarget).onTap!();
+      expect(anchor, findsOneWidget);
+      _selectMapAnchor(tester, anchorId);
       await tester.pumpAndSettle();
       expect(
         tester
@@ -850,6 +819,16 @@ void main() {
   });
 }
 
+void _selectMapAnchor(WidgetTester tester, String anchorId) {
+  final tapTarget = find.ancestor(
+    of: find.byKey(ValueKey('ildu-anchor-gesture-$anchorId')),
+    matching: find.byWidgetPredicate(
+      (widget) => widget is GestureDetector && widget.onTap != null,
+    ),
+  );
+  tester.widget<GestureDetector>(tapTarget).onTap!();
+}
+
 PersonalHanokProjection _verifiedA1Projection() {
   const text = CurriculumText(ko: '사랑채', de: 'Sarangchae', en: 'Sarangchae');
   final competence = HanokCompetenceProjection.fromSnapshot(
@@ -917,7 +896,7 @@ class _MemoryDecorationStore implements IlDuDecorationPlacementStore {
 
 class _MemoryAnchorStore implements IlDuAnchorPlacementStore {
   List<IlDuAnchorPlacement> placements = const [];
-  int saveCount = 0;
+  int saveCalls = 0;
 
   @override
   Future<List<IlDuAnchorPlacement>> load(IlDuWorldManifest manifest) async =>
@@ -925,7 +904,7 @@ class _MemoryAnchorStore implements IlDuAnchorPlacementStore {
 
   @override
   Future<void> save(List<IlDuAnchorPlacement> placements) async {
-    saveCount++;
+    saveCalls += 1;
     this.placements = List.unmodifiable(placements);
   }
 }

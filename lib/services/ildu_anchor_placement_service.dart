@@ -7,6 +7,7 @@ import '../models/ildu_world_manifest.dart';
 class IlDuAnchorPlacement {
   static const double minimumScale = .65;
   static const double maximumScale = 1.6;
+  static const double scaleStep = .05;
 
   final String anchorId;
   final double x;
@@ -163,14 +164,30 @@ IlDuAnchorPlacement resizeIlDuAnchor({
   required double proposedScale,
   required double baseWidthPercent,
   required double baseHeightPercent,
+}) => transformIlDuAnchor(
+  placement: placement,
+  proposedX: placement.x,
+  proposedY: placement.y,
+  proposedScale: proposedScale,
+  baseWidthPercent: baseWidthPercent,
+  baseHeightPercent: baseHeightPercent,
+);
+
+IlDuAnchorPlacement transformIlDuAnchor({
+  required IlDuAnchorPlacement placement,
+  required double proposedX,
+  required double proposedY,
+  required double proposedScale,
+  required double baseWidthPercent,
+  required double baseHeightPercent,
 }) {
   final scale = proposedScale
       .clamp(IlDuAnchorPlacement.minimumScale, IlDuAnchorPlacement.maximumScale)
       .toDouble();
   return moveIlDuAnchor(
     placement: placement.copyWith(scale: scale),
-    proposedX: placement.x,
-    proposedY: placement.y,
+    proposedX: proposedX,
+    proposedY: proposedY,
     widthPercent: baseWidthPercent * scale,
     heightPercent: baseHeightPercent * scale,
   );

@@ -49,9 +49,12 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
   Map<String, Offset> _anchorPositions = const <String, Offset>{};
   Map<String, int> _anchorDirections = const <String, int>{};
   Map<String, double> _anchorScales = const <String, double>{};
+  Matrix4? _anchorGestureMapTransform;
+  bool _restoringAnchorMapTransform = false;
   String? _selectedBuildingId;
   String? _selectedGateId;
   bool _decorating = false;
+  bool _anchorGestureActive = false;
   bool _mapPositioned = false;
   bool _anchorSaveInProgress = false;
   bool _anchorSaveRequested = false;
@@ -60,11 +63,13 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
   @override
   void initState() {
     super.initState();
+    _mapController.addListener(_holdMapDuringAnchorGesture);
     _load();
   }
 
   @override
   void dispose() {
+    _mapController.removeListener(_holdMapDuringAnchorGesture);
     _mapController.dispose();
     super.dispose();
   }
@@ -129,6 +134,8 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
         };
         _selectedBuildingId = manifest.buildings.first.id;
         _selectedGateId = null;
+        _anchorGestureActive = false;
+        _anchorGestureMapTransform = null;
         _mapPositioned = false;
       });
     } catch (error) {
@@ -242,40 +249,21 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
     _queueAnchorPlacementSave();
   }
 
-  void _moveAnchor(IlDuWorldAnchor anchor, Offset delta, Size mapSize) {
-    final turntable = ilduTurntableForAnchor(anchor.id);
+  void _transformAnchor(IlDuAnchorPlacement placement) {
+    final turntable = ilduTurntableForAnchor(placement.anchorId);
     if (turntable == null) {
       return;
     }
-    final currentPosition =
-        _anchorPositions[anchor.id] ?? Offset(anchor.x, anchor.y);
-    final direction =
-        _anchorDirections[anchor.id] ??
-        turntable.directionForDegrees(anchor.rotation);
-    final scale = _anchorScales[anchor.id] ?? 1;
-    final baseHeightPercent =
-        (mapSize.width * anchor.width / 100 / turntable.mapAspectRatio) /
-        mapSize.height *
-        100;
-    final moved = moveIlDuAnchor(
-      placement: IlDuAnchorPlacement(
-        anchorId: anchor.id,
-        x: currentPosition.dx,
-        y: currentPosition.dy,
-        direction: direction,
-        scale: scale,
-      ),
-      proposedX: currentPosition.dx + delta.dx / mapSize.width * 100,
-      proposedY: currentPosition.dy + delta.dy / mapSize.height * 100,
-      widthPercent: anchor.width * scale,
-      heightPercent: baseHeightPercent * scale,
-    );
     setState(() {
       _anchorPositions = <String, Offset>{
         ..._anchorPositions,
-        anchor.id: Offset(moved.x, moved.y),
+        placement.anchorId: Offset(placement.x, placement.y),
       };
-      _upsertAnchorPlacement(moved);
+      _anchorScales = <String, double>{
+        ..._anchorScales,
+        placement.anchorId: placement.scale,
+      };
+      _upsertAnchorPlacement(placement);
     });
   }
 
@@ -310,17 +298,53 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
       baseWidthPercent: anchor.width,
       baseHeightPercent: baseHeightPercent,
     );
-    setState(() {
-      _anchorPositions = <String, Offset>{
-        ..._anchorPositions,
-        anchor.id: Offset(resized.x, resized.y),
-      };
-      _anchorScales = <String, double>{
-        ..._anchorScales,
-        anchor.id: resized.scale,
-      };
-      _upsertAnchorPlacement(resized);
-    });
+    _transformAnchor(resized);
+  }
+
+  void _finishAnchorTransform(IlDuAnchorPlacement placement) {
+    _transformAnchor(placement);
+    _queueAnchorPlacementSave();
+  }
+
+  void _startAnchorGesture() {
+    if (mounted && !_anchorGestureActive) {
+      setState(() {
+        _anchorGestureMapTransform = Matrix4.copy(_mapController.value);
+        _anchorGestureActive = true;
+      });
+    }
+  }
+
+  void _finishAnchorGesture() {
+    if (mounted && _anchorGestureActive) {
+      _holdMapDuringAnchorGesture();
+      setState(() {
+        _anchorGestureActive = false;
+        _anchorGestureMapTransform = null;
+      });
+    }
+  }
+
+  void _holdMapDuringAnchorGesture() {
+    final frozen = _anchorGestureMapTransform;
+    if (!_anchorGestureActive ||
+        frozen == null ||
+        _restoringAnchorMapTransform ||
+        _sameMatrix(_mapController.value, frozen)) {
+      return;
+    }
+    _restoringAnchorMapTransform = true;
+    _mapController.value = Matrix4.copy(frozen);
+    _restoringAnchorMapTransform = false;
+  }
+
+  bool _sameMatrix(Matrix4 left, Matrix4 right) {
+    for (var index = 0; index < 16; index += 1) {
+      if (left.storage[index] != right.storage[index]) {
+        return false;
+      }
+    }
+    return true;
   }
 
   void _addDecoration(IlDuWorldDecoration definition) {
@@ -413,12 +437,16 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
               anchorPositions: _anchorPositions,
               anchorDirections: _anchorDirections,
               anchorScales: _anchorScales,
+              anchorGestureActive: _anchorGestureActive,
               mapController: _mapController,
               onPositionMap: _positionMapOnce,
               onSelectBuilding: _selectBuilding,
               onSelectGate: _selectGate,
               onTurnAnchor: _turnAnchor,
-              onMoveAnchor: _moveAnchor,
+              onTransformAnchor: _transformAnchor,
+              onFinishTransformAnchor: _finishAnchorTransform,
+              onStartAnchorGesture: _startAnchorGesture,
+              onFinishAnchorGesture: _finishAnchorGesture,
               onResizeAnchor: _resizeAnchor,
               onFinishMoveAnchor: _queueAnchorPlacementSave,
               onStartDecorating: () => setState(() => _decorating = true),
@@ -442,13 +470,16 @@ class _WorldBody extends StatelessWidget {
   final Map<String, Offset> anchorPositions;
   final Map<String, int> anchorDirections;
   final Map<String, double> anchorScales;
+  final bool anchorGestureActive;
   final TransformationController mapController;
   final void Function(Size viewport, Size mapSize) onPositionMap;
   final ValueChanged<IlDuWorldBuilding> onSelectBuilding;
   final ValueChanged<IlDuWorldGate> onSelectGate;
   final void Function(String anchorId, int direction) onTurnAnchor;
-  final void Function(IlDuWorldAnchor anchor, Offset delta, Size mapSize)
-  onMoveAnchor;
+  final ValueChanged<IlDuAnchorPlacement> onTransformAnchor;
+  final ValueChanged<IlDuAnchorPlacement> onFinishTransformAnchor;
+  final VoidCallback onStartAnchorGesture;
+  final VoidCallback onFinishAnchorGesture;
   final void Function(IlDuWorldAnchor anchor, double scale, Size mapSize)
   onResizeAnchor;
   final VoidCallback onFinishMoveAnchor;
@@ -474,12 +505,16 @@ class _WorldBody extends StatelessWidget {
     required this.anchorPositions,
     required this.anchorDirections,
     required this.anchorScales,
+    required this.anchorGestureActive,
     required this.mapController,
     required this.onPositionMap,
     required this.onSelectBuilding,
     required this.onSelectGate,
     required this.onTurnAnchor,
-    required this.onMoveAnchor,
+    required this.onTransformAnchor,
+    required this.onFinishTransformAnchor,
+    required this.onStartAnchorGesture,
+    required this.onFinishAnchorGesture,
     required this.onResizeAnchor,
     required this.onFinishMoveAnchor,
     required this.onStartDecorating,
@@ -540,6 +575,8 @@ class _WorldBody extends StatelessWidget {
                         constrained: false,
                         minScale: 1,
                         maxScale: 2.2,
+                        panEnabled: !anchorGestureActive,
+                        scaleEnabled: !anchorGestureActive,
                         boundaryMargin: const EdgeInsets.all(Spacing.xxxl * 2),
                         child: SizedBox.fromSize(
                           size: mapSize,
@@ -552,10 +589,13 @@ class _WorldBody extends StatelessWidget {
                             anchorDirections: anchorDirections,
                             anchorScales: anchorScales,
                             mapSize: mapSize,
+                            mapController: mapController,
                             onSelectBuilding: onSelectBuilding,
                             onSelectGate: onSelectGate,
-                            onMoveAnchor: onMoveAnchor,
-                            onFinishMoveAnchor: onFinishMoveAnchor,
+                            onTransformAnchor: onTransformAnchor,
+                            onFinishTransformAnchor: onFinishTransformAnchor,
+                            onStartAnchorGesture: onStartAnchorGesture,
+                            onFinishAnchorGesture: onFinishAnchorGesture,
                             onMoveDecoration: onMoveDecoration,
                             onFinishMove: onFinishMove,
                           ),
@@ -704,11 +744,13 @@ class _EstateMap extends StatelessWidget {
   final Map<String, int> anchorDirections;
   final Map<String, double> anchorScales;
   final Size mapSize;
+  final TransformationController mapController;
   final ValueChanged<IlDuWorldBuilding> onSelectBuilding;
   final ValueChanged<IlDuWorldGate> onSelectGate;
-  final void Function(IlDuWorldAnchor anchor, Offset delta, Size mapSize)
-  onMoveAnchor;
-  final VoidCallback onFinishMoveAnchor;
+  final ValueChanged<IlDuAnchorPlacement> onTransformAnchor;
+  final ValueChanged<IlDuAnchorPlacement> onFinishTransformAnchor;
+  final VoidCallback onStartAnchorGesture;
+  final VoidCallback onFinishAnchorGesture;
   final void Function(IlDuDecorationPlacement, Offset, Size) onMoveDecoration;
   final VoidCallback onFinishMove;
 
@@ -721,10 +763,13 @@ class _EstateMap extends StatelessWidget {
     required this.anchorDirections,
     required this.anchorScales,
     required this.mapSize,
+    required this.mapController,
     required this.onSelectBuilding,
     required this.onSelectGate,
-    required this.onMoveAnchor,
-    required this.onFinishMoveAnchor,
+    required this.onTransformAnchor,
+    required this.onFinishTransformAnchor,
+    required this.onStartAnchorGesture,
+    required this.onFinishAnchorGesture,
     required this.onMoveDecoration,
     required this.onFinishMove,
   });
@@ -764,22 +809,35 @@ class _EstateMap extends StatelessWidget {
     final direction =
         anchorDirections[building.id] ??
         turntable?.directionForDegrees(building.rotation);
+    final position =
+        anchorPositions[building.id] ?? Offset(building.x, building.y);
+    final scale = anchorScales[building.id] ?? 1;
     return _MapAnchor(
       key: ValueKey('ildu-map-turntable-${building.id}-$direction'),
       anchor: building,
       mapSize: mapSize,
+      mapController: mapController,
       available: projection.isAvailable(building.unlockEra),
       selected: selectedAnchorId == building.id,
-      position: anchorPositions[building.id],
-      scale: anchorScales[building.id] ?? 1,
+      placement: direction == null
+          ? null
+          : IlDuAnchorPlacement(
+              anchorId: building.id,
+              x: position.dx,
+              y: position.dy,
+              direction: direction,
+              scale: scale,
+            ),
       assetPath: manifest.worldAsset(building.asset),
       turntableFrame: turntable == null || direction == null
           ? null
           : turntable.frames[direction],
       turntableAspectRatio: turntable?.mapAspectRatio,
       onTap: () => onSelectBuilding(building),
-      onMove: (delta) => onMoveAnchor(building, delta, mapSize),
-      onTransformEnd: onFinishMoveAnchor,
+      onTransform: onTransformAnchor,
+      onTransformEnd: onFinishTransformAnchor,
+      onInteractionStart: onStartAnchorGesture,
+      onInteractionEnd: onFinishAnchorGesture,
     );
   }
 
@@ -788,80 +846,244 @@ class _EstateMap extends StatelessWidget {
     final direction =
         anchorDirections[gate.id] ??
         turntable?.directionForDegrees(gate.rotation);
+    final position = anchorPositions[gate.id] ?? Offset(gate.x, gate.y);
+    final scale = anchorScales[gate.id] ?? 1;
     return _MapAnchor(
       key: ValueKey('ildu-map-turntable-${gate.id}-$direction'),
       anchor: gate,
       mapSize: mapSize,
+      mapController: mapController,
       available: projection.isAvailable(gate.unlockEra),
       selected: selectedAnchorId == gate.id,
-      position: anchorPositions[gate.id],
-      scale: anchorScales[gate.id] ?? 1,
+      placement: direction == null
+          ? null
+          : IlDuAnchorPlacement(
+              anchorId: gate.id,
+              x: position.dx,
+              y: position.dy,
+              direction: direction,
+              scale: scale,
+            ),
       assetPath: manifest.worldAsset(gate.asset),
       turntableFrame: turntable == null || direction == null
           ? null
           : turntable.frames[direction],
       turntableAspectRatio: turntable?.mapAspectRatio,
       onTap: () => onSelectGate(gate),
-      onMove: (delta) => onMoveAnchor(gate, delta, mapSize),
-      onTransformEnd: onFinishMoveAnchor,
+      onTransform: onTransformAnchor,
+      onTransformEnd: onFinishTransformAnchor,
+      onInteractionStart: onStartAnchorGesture,
+      onInteractionEnd: onFinishAnchorGesture,
     );
   }
 }
 
-class _MapAnchor extends StatelessWidget {
+class _MapAnchor extends StatefulWidget {
   final IlDuWorldAnchor anchor;
   final Size mapSize;
+  final TransformationController mapController;
   final bool available;
   final bool selected;
   final String assetPath;
-  final Offset? position;
-  final double scale;
+  final IlDuAnchorPlacement? placement;
   final IlDuTurntableFrame? turntableFrame;
   final double? turntableAspectRatio;
   final VoidCallback? onTap;
-  final ValueChanged<Offset>? onMove;
-  final VoidCallback? onTransformEnd;
+  final ValueChanged<IlDuAnchorPlacement>? onTransform;
+  final ValueChanged<IlDuAnchorPlacement>? onTransformEnd;
+  final VoidCallback? onInteractionStart;
+  final VoidCallback? onInteractionEnd;
 
   const _MapAnchor({
     super.key,
     required this.anchor,
     required this.mapSize,
+    required this.mapController,
     required this.available,
     required this.assetPath,
-    this.position,
-    this.scale = 1,
+    this.placement,
     this.turntableFrame,
     this.turntableAspectRatio,
     this.selected = false,
     this.onTap,
-    this.onMove,
+    this.onTransform,
     this.onTransformEnd,
+    this.onInteractionStart,
+    this.onInteractionEnd,
   });
 
   @override
+  State<_MapAnchor> createState() => _MapAnchorState();
+}
+
+class _MapAnchorState extends State<_MapAnchor> {
+  final _AnchorGestureSession _gestureSession = _AnchorGestureSession();
+
+  @override
+  void dispose() {
+    final onInteractionEnd = widget.onInteractionEnd;
+    if (_gestureSession.interactionActive && onInteractionEnd != null) {
+      scheduleMicrotask(onInteractionEnd);
+    }
+    super.dispose();
+  }
+
+  bool get _canTransform =>
+      widget.available &&
+      widget.placement != null &&
+      widget.turntableAspectRatio != null &&
+      widget.onTransform != null;
+
+  void _trackPointerDown(PointerDownEvent event) {
+    if (_gestureSession.pointerPositions.isEmpty) {
+      _gestureSession.selectionInvoked = true;
+      widget.onTap?.call();
+      if (_canTransform) {
+        _gestureSession.interactionActive = true;
+        widget.onInteractionStart?.call();
+      }
+    }
+    _gestureSession.pointerPositions[event.pointer] = event.position;
+    _rebasePointerSegment();
+  }
+
+  void _handleTap() {
+    if (!_gestureSession.selectionInvoked) {
+      widget.onTap?.call();
+    }
+  }
+
+  void _trackPointerMove(PointerMoveEvent event) {
+    if (!_gestureSession.pointerPositions.containsKey(event.pointer) ||
+        !_canTransform) {
+      return;
+    }
+    _gestureSession.pointerPositions[event.pointer] = event.position;
+    _updatePointerTransform();
+  }
+
+  void _trackPointerDone(PointerEvent event) {
+    if (!_gestureSession.pointerPositions.containsKey(event.pointer)) {
+      return;
+    }
+    _gestureSession.pointerPositions.remove(event.pointer);
+    if (_gestureSession.pointerPositions.isNotEmpty) {
+      _rebasePointerSegment();
+      return;
+    }
+    scheduleMicrotask(() {
+      if (!mounted || _gestureSession.pointerPositions.isNotEmpty) {
+        return;
+      }
+      final finalPlacement = _gestureSession.draft;
+      final changed = _gestureSession.changed;
+      final interactionActive = _gestureSession.interactionActive;
+      _gestureSession.reset();
+      if (changed && finalPlacement != null) {
+        widget.onTransformEnd?.call(finalPlacement);
+      }
+      if (interactionActive) {
+        widget.onInteractionEnd?.call();
+      }
+    });
+  }
+
+  void _rebasePointerSegment() {
+    final start = _gestureSession.draft ?? widget.placement;
+    if (start == null || _gestureSession.pointerPositions.isEmpty) {
+      return;
+    }
+    _gestureSession
+      ..start = start
+      ..draft = start
+      ..focalStart = _pointerCentroid()
+      ..spanStart = _pointerSpan();
+  }
+
+  Offset _pointerCentroid() {
+    var total = Offset.zero;
+    for (final position in _gestureSession.pointerPositions.values) {
+      total += position;
+    }
+    return total / _gestureSession.pointerPositions.length.toDouble();
+  }
+
+  double? _pointerSpan() {
+    if (_gestureSession.pointerPositions.length < 2) {
+      return null;
+    }
+    final positions = _gestureSession.pointerPositions.values.toList(
+      growable: false,
+    );
+    return (positions[0] - positions[1]).distance;
+  }
+
+  void _updatePointerTransform() {
+    final start = _gestureSession.start;
+    final focalStart = _gestureSession.focalStart;
+    final aspectRatio = widget.turntableAspectRatio;
+    if (start == null || focalStart == null || aspectRatio == null) {
+      return;
+    }
+    final zoom = widget.mapController.value.getMaxScaleOnAxis();
+    final safeZoom = zoom.isFinite && zoom > 0 ? zoom : 1.0;
+    final mapDelta = (_pointerCentroid() - focalStart) / safeZoom;
+    final spanStart = _gestureSession.spanStart;
+    final span = _pointerSpan();
+    final scaleFactor = spanStart != null && spanStart > 0 && span != null
+        ? span / spanStart
+        : 1.0;
+    final updated = transformIlDuAnchor(
+      placement: start,
+      proposedX: start.x + mapDelta.dx / widget.mapSize.width * 100,
+      proposedY: start.y + mapDelta.dy / widget.mapSize.height * 100,
+      proposedScale: start.scale * scaleFactor,
+      baseWidthPercent: widget.anchor.width,
+      baseHeightPercent:
+          (widget.mapSize.width * widget.anchor.width / 100 / aspectRatio) /
+          widget.mapSize.height *
+          100,
+    );
+    final previous = _gestureSession.draft;
+    if (previous != null &&
+        updated.x == previous.x &&
+        updated.y == previous.y &&
+        updated.scale == previous.scale) {
+      return;
+    }
+    _gestureSession
+      ..draft = updated
+      ..changed = true;
+    widget.onTransform?.call(updated);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final width = mapSize.width * anchor.width / 100 * scale;
-    final center = position ?? Offset(anchor.x, anchor.y);
-    final frame = turntableFrame;
+    final scale = widget.placement?.scale ?? 1;
+    final width = widget.mapSize.width * widget.anchor.width / 100 * scale;
+    final center = widget.placement == null
+        ? Offset(widget.anchor.x, widget.anchor.y)
+        : Offset(widget.placement!.x, widget.placement!.y);
+    final frame = widget.turntableFrame;
     final image = frame == null
         ? Image.asset(
-            assetPath,
+            widget.assetPath,
             width: width,
             fit: BoxFit.contain,
-            cacheWidth: onTap == null ? 180 : 360,
+            cacheWidth: widget.onTap == null ? 180 : 360,
             filterQuality: FilterQuality.medium,
             errorBuilder: (_, _, _) => const SizedBox.shrink(),
           )
         : SizedBox(
             width: width,
-            height: width / turntableAspectRatio!,
+            height: width / widget.turntableAspectRatio!,
             child: HanokTurntableFrameImage(frame: frame, cacheWidth: 360),
           );
     final visual = AnimatedOpacity(
-      opacity: available ? 1 : .18,
+      opacity: widget.available ? 1 : .18,
       duration: const Duration(milliseconds: 260),
       child: ColorFiltered(
-        colorFilter: available
+        colorFilter: widget.available
             ? const ColorFilter.mode(Colors.transparent, BlendMode.dst)
             : const ColorFilter.mode(Color(0xFF9A8A70), BlendMode.saturation),
         child: image,
@@ -871,7 +1093,7 @@ class _MapAnchor extends StatelessWidget {
       alignment: Alignment.center,
       clipBehavior: Clip.none,
       children: [
-        if (selected)
+        if (widget.selected)
           Positioned.fill(
             child: DecoratedBox(
               decoration: BoxDecoration(
@@ -881,7 +1103,7 @@ class _MapAnchor extends StatelessWidget {
             ),
           ),
         Padding(padding: const EdgeInsets.all(Spacing.xs), child: visual),
-        if (!available && onTap != null)
+        if (!widget.available && widget.onTap != null)
           DecoratedBox(
             decoration: BoxDecoration(
               color: SoriColors.darkBg,
@@ -903,38 +1125,65 @@ class _MapAnchor extends StatelessWidget {
       ],
     );
     return Positioned(
-      left: mapSize.width * center.dx / 100,
-      top: mapSize.height * center.dy / 100,
+      left: widget.mapSize.width * center.dx / 100,
+      top: widget.mapSize.height * center.dy / 100,
       child: FractionalTranslation(
         translation: const Offset(-.5, -.5),
         child: Transform.rotate(
-          angle: frame == null ? anchor.rotation * math.pi / 180 : 0,
-          child: onTap == null
+          angle: frame == null ? widget.anchor.rotation * math.pi / 180 : 0,
+          child: widget.onTap == null
               ? content
               : Semantics(
                   button: true,
-                  label: anchor.ko,
+                  label: widget.anchor.ko,
                   value: '${(scale * 100).round()}%',
+                  onTap: widget.onTap,
+                  excludeSemantics: true,
                   child: GestureDetector(
-                    behavior: HitTestBehavior.opaque,
-                    onTap: onTap,
-                    onPanUpdate: available
-                        ? (details) => onMove?.call(details.delta)
-                        : null,
-                    onPanEnd: available ? (_) => onTransformEnd?.call() : null,
-                    onPanCancel: available ? onTransformEnd : null,
-                    child: ConstrainedBox(
-                      constraints: const BoxConstraints(
-                        minWidth: 48,
-                        minHeight: 48,
+                    behavior: HitTestBehavior.translucent,
+                    onTap: _handleTap,
+                    child: Listener(
+                      key: ValueKey('ildu-anchor-gesture-${widget.anchor.id}'),
+                      behavior: HitTestBehavior.translucent,
+                      onPointerDown: _trackPointerDown,
+                      onPointerMove: _trackPointerMove,
+                      onPointerUp: _trackPointerDone,
+                      onPointerCancel: _trackPointerDone,
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(
+                          minWidth: 48,
+                          minHeight: 48,
+                        ),
+                        child: content,
                       ),
-                      child: content,
                     ),
                   ),
                 ),
         ),
       ),
     );
+  }
+}
+
+class _AnchorGestureSession {
+  final Map<int, Offset> pointerPositions = <int, Offset>{};
+  IlDuAnchorPlacement? start;
+  IlDuAnchorPlacement? draft;
+  Offset? focalStart;
+  double? spanStart;
+  bool changed = false;
+  bool interactionActive = false;
+  bool selectionInvoked = false;
+
+  void reset() {
+    pointerPositions.clear();
+    start = null;
+    draft = null;
+    focalStart = null;
+    spanStart = null;
+    changed = false;
+    interactionActive = false;
+    selectionInvoked = false;
   }
 }
 
@@ -1476,7 +1725,7 @@ class _AnchorScaleControl extends StatelessWidget {
               key: ValueKey('ildu-scale-decrease-$anchorId'),
               tooltip: t.ilduWorldShrinkBuilding,
               onPressed: boundedScale > IlDuAnchorPlacement.minimumScale
-                  ? () => _changeBy(-.05)
+                  ? () => _changeBy(-IlDuAnchorPlacement.scaleStep)
                   : null,
               icon: const Icon(Icons.remove),
             ),
@@ -1498,7 +1747,7 @@ class _AnchorScaleControl extends StatelessWidget {
               key: ValueKey('ildu-scale-increase-$anchorId'),
               tooltip: t.ilduWorldEnlargeBuilding,
               onPressed: boundedScale < IlDuAnchorPlacement.maximumScale
-                  ? () => _changeBy(.05)
+                  ? () => _changeBy(IlDuAnchorPlacement.scaleStep)
                   : null,
               icon: const Icon(Icons.add),
             ),

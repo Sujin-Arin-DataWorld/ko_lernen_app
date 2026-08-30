@@ -3549,7 +3549,7 @@
   "hanokWorldTitle": "Meine Hanok-Welt",
   "ilduWorldTitle": "Mein Ildu Gotaek",
   "ilduWorldPanHint": "Wische seitwärts, um den nächsten Hof zu sehen.",
-  "ilduWorldRotateBuildingHint": "Verschiebe es auf der Karte. Wische zum Drehen; zoome mit zwei Fingern oder den Tasten.",
+  "ilduWorldRotateBuildingHint": "Verschiebe es auf der Karte mit einem Finger; ändere seine Größe mit zwei Fingern; wische über die Vorschau, um es zu drehen.",
   "ilduWorldZoomInBuilding": "Gebäude vergrößern",
   "ilduWorldZoomOutBuilding": "Gebäude verkleinern",
   "ilduWorldResetBuildingZoom": "Zoom zurücksetzen",

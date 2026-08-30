@@ -160,4 +160,27 @@ void main() {
     expect(resized.x, closeTo(23.2, .0001));
     expect(resized.y, 16);
   });
+
+  test('a direct gesture transforms position and scale together', () {
+    const placement = IlDuAnchorPlacement(
+      anchorId: 'sarangchae',
+      x: 48.2,
+      y: 55.8,
+      direction: 4,
+    );
+
+    final transformed = transformIlDuAnchor(
+      placement: placement,
+      proposedX: 54,
+      proposedY: 60,
+      proposedScale: 1.25,
+      baseWidthPercent: 29,
+      baseHeightPercent: 20,
+    );
+
+    expect(transformed.x, 54);
+    expect(transformed.y, 60);
+    expect(transformed.direction, 4);
+    expect(transformed.scale, 1.25);
+  });
 }

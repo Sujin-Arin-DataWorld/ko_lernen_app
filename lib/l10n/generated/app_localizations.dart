@@ -12705,7 +12705,7 @@ abstract class AppL10n {
   /// No description provided for @ilduWorldRotateBuildingHint.
   ///
   /// In de, this message translates to:
-  /// **'Verschiebe es auf der Karte. Wische zum Drehen; zoome mit zwei Fingern oder den Tasten.'**
+  /// **'Verschiebe es auf der Karte mit einem Finger; ändere seine Größe mit zwei Fingern; wische über die Vorschau, um es zu drehen.'**
   String get ilduWorldRotateBuildingHint;
 
   /// No description provided for @ilduWorldZoomInBuilding.
