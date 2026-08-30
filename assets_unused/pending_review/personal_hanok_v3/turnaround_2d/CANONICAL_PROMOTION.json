@@ -1,0 +1,52 @@
+{
+  "schema": "ildu-turnaround-canonical-promotion-v1",
+  "status": "canonical_work_packages_promoted_2026-08-30",
+  "scope": "Track the approved work files, evidence and handoff for three existing runtime turnaround assets without regenerating or replacing runtime PNGs.",
+  "validated_against_origin_main": "a9bad2dca48e1d9dcad45412ae963a02b6621979",
+  "runtime_assets_modified_by_this_promotion": false,
+  "authority": {
+    "structure_and_proportion": "references/blueprints",
+    "visual_identity": "references/canonical_source",
+    "canonical_runtime_frames": "runtime_views",
+    "historical_generation_frames": "transparent_views",
+    "historical_frames_are_runtime_authority": false,
+    "generated_frames_are_pixel_identical_to_source": false
+  },
+  "packages": [
+    {
+      "building_id": "ansarangchae",
+      "package": "ildu_ansarangchae_v03",
+      "canonical_source": "ildu_ansarangchae_v03/references/canonical_source/byeoldang_ansarang_try01 (2).png",
+      "canonical_source_sha256": "58bdc53622eb0e47f874a11fbf0314bccc40aa168dc1b480c00abee60d01ef39",
+      "canonical_runtime_version": "v05",
+      "canonical_runtime_frames": "ildu_ansarangchae_v03/runtime_views",
+      "runtime_frame_count": 8,
+      "runtime_sha256_matches": 8
+    },
+    {
+      "building_id": "sarangchae",
+      "package": "ildu_sarangchae_v01",
+      "canonical_source": "ildu_sarangchae_v01/references/canonical_source/sarangchae_try07_edit.png",
+      "canonical_source_sha256": "f2c01142f465b9353e0b9546a00f167891753039d9c910620d83cd924a077212",
+      "canonical_runtime_version": "v02",
+      "canonical_runtime_frames": "ildu_sarangchae_v01/runtime_views",
+      "runtime_frame_count": 8,
+      "runtime_sha256_matches": 8
+    },
+    {
+      "building_id": "sotdaeulmun",
+      "package": "ildu_sotdaeulmun_v02",
+      "canonical_source": "ildu_sotdaeulmun_v02/references/canonical_source/sotdaeulmun_approved_jin_20260824.png",
+      "canonical_source_sha256": "161d23a981e8c0533f902933ef79c646a95f8d86c210cba48fbd954af7d4d687",
+      "canonical_runtime_version": "v02_registered",
+      "canonical_runtime_frames": "ildu_sotdaeulmun_v02/runtime_views",
+      "runtime_frame_count": 8,
+      "runtime_sha256_matches": 8
+    }
+  ],
+  "human_approval": {
+    "approved_by": "Jin",
+    "approval_date": "2026-08-30",
+    "approval_scope": "Promote only these prepared work packages and evidence to Git/main; existing runtime assets remain unchanged."
+  }
+}
