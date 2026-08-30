@@ -33,6 +33,7 @@ class StyleLockLoaderTest(unittest.TestCase):
                 "F-C-a1states",
                 "F-D-ildoo",
                 "F-D-share",
+                "F-E-scene-poster",
             },
         )
         for name, family in lock["families"].items():
@@ -74,7 +75,73 @@ class StyleLockLoaderTest(unittest.TestCase):
             style_lock.family_for_slug(lock, "16_landscape_move_in.webp"),
             "F-C-a1states",
         )
+        self.assertEqual(
+            style_lock.family_for_slug(lock, "scene_style_anchor_airport.png"),
+            "F-E-scene-poster",
+        )
         self.assertIsNone(style_lock.family_for_slug(lock, "not_a_real_slug"))
+
+    def test_scene_poster_family_is_scene_only_and_generation_reference_only(self) -> None:
+        lock = style_lock.load_style_lock()
+        family = lock["families"]["F-E-scene-poster"]
+        self.assertEqual(
+            family["identifier"],
+            "scene-poster/faceted-heritage-2.5d-v1",
+        )
+        self.assertEqual(
+            family["scope"]["runtimeRoot"],
+            "assets/illustrations/scenes/",
+        )
+        self.assertEqual(
+            family["scope"]["reviewRoot"],
+            "assets_unused/pending_review/scenes/",
+        )
+        self.assertTrue(
+            all(
+                pattern.startswith(
+                    (
+                        family["scope"]["runtimeRoot"],
+                        family["scope"]["reviewRoot"],
+                    )
+                )
+                for pattern in family["scope"]["appliesOnlyTo"]
+            )
+        )
+        self.assertEqual(family["dirs"], ["assets/illustrations/style_lock/"])
+        self.assertEqual(len(family["anchors"]), 3)
+        self.assertEqual(
+            set(family["approvedAnchorByCategory"]),
+            {
+                "office",
+                "home",
+                "cafe",
+                "station",
+                "market",
+                "convenience",
+                "restaurant",
+                "pharmacy",
+                "directions",
+                "hotel",
+                "taxi",
+                "airport",
+                "bank",
+                "salon",
+                "theme_park",
+            },
+        )
+        self.assertTrue(
+            set(family["approvedAnchorByCategory"].values()).issubset(
+                set(family["anchors"])
+            )
+        )
+        for anchor in family["anchors"]:
+            self.assertTrue((ROOT / anchor).is_file(), anchor)
+        pubspec = (ROOT / "pubspec.yaml").read_text(encoding="utf-8")
+        self.assertNotIn(
+            "assets/illustrations/style_lock/",
+            pubspec,
+            "generation anchors must not be bundled as runtime assets",
+        )
 
     def test_gates_for_family_matches_measured_headroom(self) -> None:
         lock = style_lock.load_style_lock()

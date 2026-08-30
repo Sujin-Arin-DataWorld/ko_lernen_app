@@ -24,6 +24,9 @@ class SceneArtManifestTest(unittest.TestCase):
             build_scene_art_manifest.ROOT
         )
         cls.entries = cls.manifest["entries"]
+        cls.family = build_scene_art_manifest._load_scene_style_family(
+            build_scene_art_manifest.ROOT
+        )
 
     def test_exact_419_rows_and_fixed_category_counts(self) -> None:
         self.assertEqual(self.manifest["scenarioCount"], 419)
@@ -118,6 +121,38 @@ class SceneArtManifestTest(unittest.TestCase):
                 generated_from[f"assets/data/{row['sourceShard']}"],
             )
 
+    def test_style_contract_is_the_scene_only_style_lock_family(self) -> None:
+        contract = self.manifest["styleContract"]
+        self.assertEqual(
+            contract["identifier"],
+            "scene-poster/faceted-heritage-2.5d-v1",
+        )
+        self.assertEqual(contract["family"], "F-E-scene-poster")
+        self.assertEqual(contract["path"], "docs/assets/STYLE_LOCK.json")
+        self.assertEqual(
+            contract["sha256"],
+            hashlib.sha256(
+                (build_scene_art_manifest.ROOT / contract["path"]).read_bytes()
+            ).hexdigest(),
+        )
+        self.assertEqual(
+            contract["scope"]["runtimeRoot"],
+            "assets/illustrations/scenes/",
+        )
+        self.assertEqual(
+            contract["scope"]["reviewRoot"],
+            "assets_unused/pending_review/scenes/",
+        )
+        self.assertEqual(contract["canonicalOutput"]["aspectRatio"], "3:2")
+        self.assertEqual(
+            (
+                contract["canonicalOutput"]["width"],
+                contract["canonicalOutput"]["height"],
+            ),
+            (1536, 1024),
+        )
+        self.assertEqual(contract["approvedAnchors"], self.family["anchors"])
+
     def test_every_prompt_has_nonempty_korean_semantic_anchor_and_contract(self) -> None:
         korean = re.compile(r"[가-힣]")
         prompts_by_category: dict[str, list[str]] = defaultdict(list)
@@ -134,6 +169,8 @@ class SceneArtManifestTest(unittest.TestCase):
                         "readable text",
                         "letters or digits",
                         "Hangul or Hanja glyphs",
+                        "signs",
+                        "prices",
                         "brand logos",
                         "watermarks",
                         "UI chrome",
@@ -142,17 +179,32 @@ class SceneArtManifestTest(unittest.TestCase):
                 self.assertEqual(
                     row["styleReferenceIdentifiers"],
                     [
-                        "asset-generation-bible/faceted-minhwa-v2",
-                        f"runtime-scene-category/{row['category']}",
+                        "scene-poster/faceted-heritage-2.5d-v1",
+                        f"approved-scene-anchor/{Path(row['referenceImagePath']).stem}",
                     ],
                 )
-                expected_reference = row["category"]
                 self.assertEqual(
                     row["referenceImagePath"],
-                    f"assets/illustrations/scenes/{expected_reference}.png",
+                    self.family["approvedAnchorByCategory"][row["category"]],
                 )
+                self.assertIn(row["referenceImagePath"], self.family["anchors"])
                 self.assertTrue(
                     (build_scene_art_manifest.ROOT / row["referenceImagePath"]).is_file()
+                )
+                self.assertEqual(row["prompt"].count(row["referenceImagePath"]), 1)
+                self.assertIn(
+                    "scene-poster/faceted-heritage-2.5d-v1",
+                    row["prompt"],
+                )
+                self.assertIn("1536x1024 PNG", row["prompt"])
+                self.assertIn("triangular facets", row["prompt"])
+                self.assertIn("central 60% width and 65% height", row["prompt"])
+                self.assertIn("56px", row["prompt"])
+                self.assertNotIn("Faceted Minhwa v2", row["prompt"])
+                self.assertNotIn(
+                    "canonicalOutput",
+                    row,
+                    "canonical output belongs only to the manifest style contract",
                 )
                 prompts_by_category[row["category"]].append(row["prompt"])
         for category, prompts in prompts_by_category.items():
@@ -214,6 +266,39 @@ class SceneArtManifestTest(unittest.TestCase):
                 build_scene_art_manifest.ROOT,
                 generation_overrides={"not_a_scenario": generation},
             )
+
+    def test_old_profile_result_is_preserved_but_automatically_invalidated(self) -> None:
+        row = self.entries[0]
+        generation = dict(row["generation"])
+        generation.update(
+            {
+                "status": "generated_pending_review",
+                "manifestPromptSha256": "f" * 64,
+                "sourcePromptSha256": "e" * 64,
+                "automatedIssues": [],
+                "visualReview": "pending",
+                "runtimeEligible": False,
+                "reviewNotes": [],
+            }
+        )
+        rebuilt = build_scene_art_manifest.build_manifest(
+            build_scene_art_manifest.ROOT,
+            generation_overrides={row["id"]: generation},
+        )
+        migrated = rebuilt["entries"][0]["generation"]
+        self.assertEqual(migrated["status"], "generated_invalid")
+        self.assertEqual(migrated["previousManifestPromptSha256"], "f" * 64)
+        self.assertEqual(
+            migrated["manifestPromptSha256"],
+            rebuilt["entries"][0]["promptSha256"],
+        )
+        self.assertIn("style_contract_prompt_drift", migrated["automatedIssues"])
+        self.assertEqual(migrated["visualReview"], "invalidated")
+        self.assertFalse(migrated["runtimeEligible"])
+        self.assertIn(
+            "scene-poster/faceted-heritage-2.5d-v1",
+            migrated["reviewNotes"][-1],
+        )
 
     def test_record_result_measures_png_and_keeps_visual_review_pending(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

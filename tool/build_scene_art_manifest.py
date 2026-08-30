@@ -16,11 +16,16 @@ from typing import Iterable, Mapping, Optional
 
 from PIL import Image
 
+import style_lock
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "assets" / "data"
 INVENTORY_PATH = ROOT / "docs" / "data" / "scene_asset_inventory.json"
 DEFAULT_OUTPUT_PATH = ROOT / "docs" / "data" / "scene_art_generation_manifest.json"
-STYLE_CONTRACT_PATH = ROOT / "docs" / "ASSET_GENERATION_BIBLE.md"
+STYLE_CONTRACT_RELATIVE = Path("docs") / "assets" / "STYLE_LOCK.json"
+STYLE_CONTRACT_PATH = ROOT / STYLE_CONTRACT_RELATIVE
+SCENE_STYLE_FAMILY = "F-E-scene-poster"
+SCENE_STYLE_IDENTIFIER = "scene-poster/faceted-heritage-2.5d-v1"
 
 CATEGORY_ORDER = [
     "office",
@@ -75,8 +80,6 @@ CATEGORY_SETTING_KO = {
     "bank": "한국의 은행 내부",
     "salon": "한국의 미용실 내부",
 }
-CATEGORY_REFERENCE_FALLBACKS = {"theme_park": "market"}
-
 SPEAKER_LABEL_KO = {
     "user": "학습자",
     "jieun": "지은",
@@ -89,15 +92,6 @@ SPEAKER_LABEL_KO = {
     "officer": "담당 직원",
     "partner": "대화 상대",
 }
-
-FORBIDDEN_TEXT_AND_LOGOS = [
-    "readable text",
-    "letters or digits",
-    "Hangul or Hanja glyphs",
-    "brand logos",
-    "watermarks",
-    "UI chrome",
-]
 
 _HANGUL = re.compile(r"[가-힣]")
 _QUEST_ANCHOR_KEYS = (
@@ -213,6 +207,99 @@ def _props_ko(scenario: Mapping[str, object]) -> list[str]:
     return values[:5]
 
 
+def _load_scene_style_family(project_root: Path) -> dict:
+    """Load and fail-closed validate the scene-only STYLE_LOCK family."""
+    style_path = project_root / STYLE_CONTRACT_RELATIVE
+    lock = style_lock.load_style_lock(style_path)
+    family = lock["families"].get(SCENE_STYLE_FAMILY)
+    if not isinstance(family, dict):
+        raise ValueError(f"STYLE_LOCK is missing {SCENE_STYLE_FAMILY}")
+    if family.get("identifier") != SCENE_STYLE_IDENTIFIER:
+        raise ValueError(
+            f"{SCENE_STYLE_FAMILY} identifier must be {SCENE_STYLE_IDENTIFIER!r}"
+        )
+
+    scope = family.get("scope")
+    if not isinstance(scope, dict):
+        raise ValueError(f"{SCENE_STYLE_FAMILY}.scope must be an object")
+    expected_scope = {
+        "runtimeRoot": "assets/illustrations/scenes/",
+        "reviewRoot": "assets_unused/pending_review/scenes/",
+    }
+    for key, expected in expected_scope.items():
+        if scope.get(key) != expected:
+            raise ValueError(f"{SCENE_STYLE_FAMILY}.scope.{key} must be {expected!r}")
+    applies_only_to = scope.get("appliesOnlyTo")
+    if not isinstance(applies_only_to, list) or not applies_only_to:
+        raise ValueError(f"{SCENE_STYLE_FAMILY}.scope.appliesOnlyTo must be a list")
+    allowed_prefixes = tuple(expected_scope.values())
+    if any(not str(pattern).startswith(allowed_prefixes) for pattern in applies_only_to):
+        raise ValueError(f"{SCENE_STYLE_FAMILY} may apply only to scene asset roots")
+
+    output = family.get("canonicalOutput")
+    if not isinstance(output, dict):
+        raise ValueError(f"{SCENE_STYLE_FAMILY}.canonicalOutput must be an object")
+    expected_output = {
+        "aspectRatio": "3:2",
+        "width": 1536,
+        "height": 1024,
+        "format": "PNG",
+        "modes": ["RGB", "RGBA"],
+        "generatorFallbackAspectRatio": "4:3",
+    }
+    for key, expected in expected_output.items():
+        if output.get(key) != expected:
+            raise ValueError(
+                f"{SCENE_STYLE_FAMILY}.canonicalOutput.{key} must be {expected!r}"
+            )
+
+    anchors = family.get("anchors")
+    if not isinstance(anchors, list) or len(anchors) != 3 or len(set(anchors)) != 3:
+        raise ValueError(f"{SCENE_STYLE_FAMILY} must declare exactly 3 unique anchors")
+    for relative in anchors:
+        anchor_path = project_root / relative
+        if not anchor_path.is_file():
+            raise ValueError(f"Missing approved scene-style anchor: {relative}")
+        with Image.open(anchor_path) as image:
+            image.load()
+            if image.format != output["format"]:
+                raise ValueError(f"{relative} must be a {output['format']} file")
+            if image.size != (output["width"], output["height"]):
+                raise ValueError(
+                    f"{relative} must be {output['width']}x{output['height']}"
+                )
+            if image.mode not in output["modes"]:
+                raise ValueError(f"{relative} has unsupported mode {image.mode!r}")
+
+    anchor_by_category = family.get("approvedAnchorByCategory")
+    if not isinstance(anchor_by_category, dict):
+        raise ValueError(
+            f"{SCENE_STYLE_FAMILY}.approvedAnchorByCategory must be an object"
+        )
+    if set(anchor_by_category) != set(CATEGORY_ORDER):
+        raise ValueError(
+            f"{SCENE_STYLE_FAMILY}.approvedAnchorByCategory must cover every category"
+        )
+    if not set(anchor_by_category.values()).issubset(set(anchors)):
+        raise ValueError("Every scene category must map to an approved family anchor")
+    if set(anchor_by_category.values()) != set(anchors):
+        raise ValueError("Every approved family anchor must own at least one category")
+
+    skeleton = family.get("promptSkeleton")
+    required_tokens = {"{SUBJECT}", "{REFERENCE_IMAGE}", "{FORBIDDEN}"}
+    if not isinstance(skeleton, str) or any(token not in skeleton for token in required_tokens):
+        raise ValueError(
+            f"{SCENE_STYLE_FAMILY}.promptSkeleton must contain {sorted(required_tokens)}"
+        )
+    content = family.get("content")
+    forbidden = content.get("forbidden") if isinstance(content, dict) else None
+    if not isinstance(forbidden, list) or not forbidden or any(
+        not isinstance(value, str) or not value for value in forbidden
+    ):
+        raise ValueError(f"{SCENE_STYLE_FAMILY}.content.forbidden must be a string list")
+    return family
+
+
 def _prompt(
     *,
     scenario_id: str,
@@ -221,28 +308,28 @@ def _prompt(
     participants: list[dict],
     props_ko: list[str],
     category: str,
+    family: Mapping[str, object],
+    reference_path: str,
 ) -> str:
     participant_labels = ", ".join(item["labelKo"] for item in participants)
     prop_labels = ", ".join(props_ko)
-    forbidden = ", ".join(FORBIDDEN_TEXT_AND_LOGOS)
-    return f"""A wide horizontal 3:2 editorial illustration for the canonical Korean-learning scenario {scenario_id}.
+    subject = f"""Canonical Korean-learning scenario: {scenario_id}.
 
-KOREAN SEMANTIC ANCHOR (depict this exact situation, do not replace it with a generic {category} scene):
+KOREAN SEMANTIC ANCHOR (depict this exact situation, not a generic {category} scene):
 {semantic_summary}
 
 REQUIRED SETTING: {setting_ko}.
-REQUIRED PARTICIPANTS: {participant_labels}. Keep their roles and interaction legible without speech bubbles.
-REQUIRED SCENARIO-SPECIFIC VISUAL CUES: {prop_labels}. Use only cues that make physical sense in the scene.
-
-COMPOSITION: 1536x1024 landscape. Keep the central action and faces inside the central 60% width and middle 65% height so compact, medium, and expanded app crops remain meaningful. Preserve enough setting around the action for context. Clear silhouette at a 56px thumbnail.
-
-STYLE: Hangul Sori Faceted Minhwa v2 — Joseon folk-painting iconography rendered as clean mid-century geometric color facets on subtle aged hanji paper. No drawn outlines, no smooth gradients inside shapes, no watercolor, no glossy 3D, no anime, no photorealism, no cute/chibi treatment. Use a restrained warm/cool palette with matte color planes.
-
-REFERENCE: attach exactly one project-owned image, assets/illustrations/scenes/{category}.png, for palette and illustrated-set identity only. Do not copy its composition and do not return a crop, recolor, or duplicate of it.
-
-FORBIDDEN: {forbidden}. Any papers, screens, signs, labels, menus, tickets, or packaging must be blank or abstract and unreadable.
-
-This is editorial illustration for a premium Korean learning app. Match the geometric faceted style, color palette, paper grain texture, and overall mood of the attached reference image exactly while making this scenario semantically unique."""
+REQUIRED PARTICIPANTS: {participant_labels}. Keep their roles and interaction legible without speech bubbles. A dedicated scenario poster includes only these required participants.
+REQUIRED SCENARIO-SPECIFIC VISUAL CUES: {prop_labels}. Use only cues that make physical sense in the scene."""
+    content = family["content"]
+    forbidden = ", ".join(content["forbidden"])
+    prompt = str(family["promptSkeleton"])
+    prompt = prompt.replace("{SUBJECT}", subject)
+    prompt = prompt.replace("{REFERENCE_IMAGE}", reference_path)
+    prompt = prompt.replace("{FORBIDDEN}", forbidden)
+    if any(token in prompt for token in ("{SUBJECT}", "{REFERENCE_IMAGE}", "{FORBIDDEN}")):
+        raise ValueError("Scene poster prompt skeleton contains unresolved tokens")
+    return prompt
 
 
 def _load_rows(root: Path) -> tuple[list[dict], dict[str, str]]:
@@ -281,6 +368,12 @@ def build_manifest(
     generation_overrides: Optional[Mapping[str, Mapping[str, object]]] = None,
 ) -> dict:
     project_root = Path(root)
+    scene_family = _load_scene_style_family(project_root)
+    scene_scope = scene_family["scope"]
+    scene_output = scene_family["canonicalOutput"]
+    scene_camera = scene_family["camera"]
+    scene_content = scene_family["content"]
+    scene_anchor_by_category = scene_family["approvedAnchorByCategory"]
     source_rows, generated_from = _load_rows(project_root)
     scenario_ids = [
         _clean_text(item["scenario"].get("id"))
@@ -307,13 +400,9 @@ def build_manifest(
             raise ValueError(f"{scenario_id}: unsupported scene category {category!r}")
         if level not in LEVEL_ORDER:
             raise ValueError(f"{scenario_id}: unsupported level {level!r}")
-        reference_key = category
-        direct_reference = project_root / f"assets/illustrations/scenes/{category}.png"
-        if not direct_reference.is_file():
-            reference_key = CATEGORY_REFERENCE_FALLBACKS.get(category, category)
-        reference_path = f"assets/illustrations/scenes/{reference_key}.png"
+        reference_path = scene_anchor_by_category[category]
         if not (project_root / reference_path).is_file():
-            raise ValueError(f"{scenario_id}: missing category reference {reference_path}")
+            raise ValueError(f"{scenario_id}: missing approved scene anchor {reference_path}")
         summary = semantic_summary_ko(scenario)
         participants = _participants(scenario)
         props_ko = _props_ko(scenario)
@@ -325,6 +414,8 @@ def build_manifest(
             participants=participants,
             props_ko=props_ko,
             category=category,
+            family=scene_family,
+            reference_path=reference_path,
         )
         prompt_sha = hashlib.sha256(prompt.encode("utf-8")).hexdigest()
         prepared.append(
@@ -338,16 +429,16 @@ def build_manifest(
                 "requiredSettingKo": setting_ko,
                 "requiredParticipants": participants,
                 "requiredPropsKo": props_ko,
-                "forbiddenTextAndLogos": list(FORBIDDEN_TEXT_AND_LOGOS),
+                "forbiddenTextAndLogos": list(scene_content["forbidden"]),
                 "styleReferenceIdentifiers": [
-                    "asset-generation-bible/faceted-minhwa-v2",
-                    f"runtime-scene-category/{category}",
+                    SCENE_STYLE_IDENTIFIER,
+                    f"approved-scene-anchor/{Path(reference_path).stem}",
                 ],
                 "referenceImagePath": reference_path,
-                "targetPath": f"assets_unused/pending_review/scenes/{scenario_id}.png",
+                "targetPath": f"{scene_scope['reviewRoot']}{scenario_id}.png",
                 "priority": CATEGORY_ORDER.index(category) + 1,
                 "priorityOrder": 0,
-                "focalPoint": {"x": 0.5, "y": 0.5},
+                "focalPoint": copy.deepcopy(scene_camera["focalPointDefault"]),
                 "cropReviewProfiles": ["compact", "medium", "expanded"],
                 "prompt": prompt,
                 "promptSha256": prompt_sha,
@@ -394,11 +485,27 @@ def build_manifest(
             continue
         if not isinstance(override, Mapping):
             raise ValueError(f"Generation override must be an object: {row['id']}")
-        if override.get("manifestPromptSha256") != row["promptSha256"]:
-            raise ValueError(
-                f"Generated art prompt authority drifted for scenario {row['id']}"
+        generation = copy.deepcopy(dict(override))
+        previous_prompt_sha = generation.get("manifestPromptSha256")
+        if previous_prompt_sha != row["promptSha256"]:
+            generation["previousManifestPromptSha256"] = previous_prompt_sha
+            generation["manifestPromptSha256"] = row["promptSha256"]
+            generation["status"] = "generated_invalid"
+            automated_issues = list(generation.get("automatedIssues") or [])
+            if "style_contract_prompt_drift" not in automated_issues:
+                automated_issues.append("style_contract_prompt_drift")
+            generation["automatedIssues"] = automated_issues
+            generation["visualReview"] = "invalidated"
+            generation["runtimeEligible"] = False
+            review_notes = list(generation.get("reviewNotes") or [])
+            note = (
+                f"Invalidated by {SCENE_STYLE_IDENTIFIER}; regenerate from the "
+                "current manifest prompt before visual review."
             )
-        row["generation"] = copy.deepcopy(dict(override))
+            if note not in review_notes:
+                review_notes.append(note)
+            generation["reviewNotes"] = review_notes
+        row["generation"] = generation
 
     category_counts = Counter(row["category"] for row in prepared)
     actual_counts = {
@@ -419,7 +526,7 @@ def build_manifest(
             )
         prompts_by_category[row["category"]].add(prompt)
 
-    style_path = project_root / "docs" / "ASSET_GENERATION_BIBLE.md"
+    style_path = project_root / STYLE_CONTRACT_RELATIVE
     inventory_path = project_root / "docs" / "data" / "scene_asset_inventory.json"
     return {
         "schemaVersion": 1,
@@ -427,9 +534,13 @@ def build_manifest(
             key: generated_from[key] for key in sorted(generated_from)
         },
         "styleContract": {
-            "identifier": "asset-generation-bible/faceted-minhwa-v2",
+            "identifier": SCENE_STYLE_IDENTIFIER,
+            "family": SCENE_STYLE_FAMILY,
             "path": _relative(style_path, project_root),
             "sha256": _sha256_file(style_path),
+            "scope": copy.deepcopy(scene_scope),
+            "canonicalOutput": copy.deepcopy(scene_output),
+            "approvedAnchors": list(scene_family["anchors"]),
         },
         "canonicalInventory": {
             "path": _relative(inventory_path, project_root),
@@ -522,9 +633,16 @@ def record_generation_result(
         alpha = "A" in image.getbands() or "transparency" in image.info
     if image_format != "PNG":
         automated_issues.append("non_png")
-    if (width, height) != (1536, 1024):
+    style_contract = manifest.get("styleContract") or {}
+    canonical_output = style_contract.get("canonicalOutput") or {}
+    expected_size = (
+        canonical_output.get("width"),
+        canonical_output.get("height"),
+    )
+    expected_modes = set(canonical_output.get("modes") or [])
+    if (width, height) != expected_size:
         automated_issues.append("invalid_dimensions")
-    if mode not in {"RGB", "RGBA"}:
+    if mode not in expected_modes:
         automated_issues.append("unexpected_color_mode")
     digest = _sha256_file(path)
     for other in rows:

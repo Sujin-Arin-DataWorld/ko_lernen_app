@@ -13,9 +13,22 @@ from PIL import Image, UnidentifiedImageError
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import scene_poster_normalize  # noqa: E402
+import style_lock  # noqa: E402
 
 
 class ScenePosterNormalizeTest(unittest.TestCase):
+    def test_target_contract_matches_scene_style_lock_ssot(self) -> None:
+        family = style_lock.load_style_lock()["families"]["F-E-scene-poster"]
+        output = family["canonicalOutput"]
+        self.assertEqual(
+            scene_poster_normalize.TARGET_SIZE,
+            (output["width"], output["height"]),
+        )
+        self.assertEqual(output["aspectRatio"], "3:2")
+        self.assertEqual(output["format"], "PNG")
+        self.assertEqual(output["modes"], ["RGB", "RGBA"])
+        self.assertEqual(output["generatorFallbackAspectRatio"], "4:3")
+
     def _image(
         self,
         path: Path,
