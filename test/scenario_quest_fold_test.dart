@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
+import 'package:ko_lernen_app/screens/quest_engines/quest_layout.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/services/scene_asset_resolver.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -123,15 +124,16 @@ void main() {
       );
     }
 
-    // Alle vier Antworten liegen vollständig über der angehefteten Aktion.
-    final submitTop = tester
-        .getRect(find.byKey(const ValueKey('quest-submit')))
-        .top;
+    // Hörverstehen wertet sofort aus: Es gibt keine angeheftete Bestätigungs-
+    // aktion mehr. Alle vier Antworten müssen trotzdem vollständig innerhalb
+    // des Quest-Layouts liegen.
+    expect(find.byKey(const ValueKey('quest-submit')), findsNothing);
+    final questBottom = tester.getRect(find.byType(QuestLayout)).bottom;
     for (var i = 0; i < 4; i++) {
       final rect = tester.getRect(find.byKey(ValueKey('answer-$i')));
       expect(
         rect.bottom,
-        lessThanOrEqualTo(submitTop),
+        lessThanOrEqualTo(questBottom),
         reason: 'answer $i must not be cut at the fold',
       );
     }

@@ -206,8 +206,7 @@ void main() {
     await _tapText(tester, 'Correct response');
     await tester.pump();
     expect(completionCalls, 0);
-    await _tapText(tester, 'Antwort prüfen');
-    await tester.pump();
+    expect(find.text('Antwort prüfen'), findsNothing);
     expect(completionCalls, 0);
     await _tapText(tester, 'Ergebnis ansehen');
     await tester.pump();

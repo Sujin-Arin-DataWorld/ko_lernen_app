@@ -198,8 +198,12 @@ void main() {
 
             expect(find.byType(QuestLayout), findsOneWidget);
             final submit = find.bySemanticsLabel(t.questCheckAnswer);
-            _expectButton(tester, submit, enabled: false, minHeight: 48);
-            _expectVisibleInView(tester, submit, viewport.size);
+            if (engine.name == 'listening') {
+              expect(submit, findsNothing);
+            } else {
+              _expectButton(tester, submit, enabled: false, minHeight: 48);
+              _expectVisibleInView(tester, submit, viewport.size);
+            }
 
             final speed = find.byType(TtsSpeedControl);
             expect(
@@ -233,8 +237,10 @@ void main() {
             }
 
             await _enterCorrectResponse(tester, engine.name);
-            _expectButton(tester, submit, enabled: true, minHeight: 48);
-            await _tapPointerOwned(tester, submit);
+            if (engine.name != 'listening') {
+              _expectButton(tester, submit, enabled: true, minHeight: 48);
+              await _tapPointerOwned(tester, submit);
+            }
             expect(results, hasLength(1), reason: engine.name);
             expect(results.single.passed, isTrue, reason: engine.name);
             _expectLiveRegion(
@@ -268,11 +274,9 @@ void main() {
           viewport: _viewports[2],
         );
 
-        final wrong = find.bySemanticsLabel('Thanks');
+        final wrong = find.byKey(const ValueKey('answer-1'));
         await _tapPointerOwned(tester, wrong);
-        final submit = find.bySemanticsLabel(t.questCheckAnswer);
-        await _tapPointerOwned(tester, submit);
-        await _tapPointerOwned(tester, submit);
+        await _tapPointerOwned(tester, wrong);
 
         final revealedWrong = find.bySemanticsLabel('Thanks, ${t.questWrong}');
         final revealedCorrect = find.bySemanticsLabel(
@@ -375,6 +379,139 @@ void main() {
     },
   );
 
+  testWidgets(
+    'word tiles are icon-free 17.5px controls with explicit state semantics',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      try {
+        final t = lookupAppL10n(const Locale('en'));
+        const states = <(String, SoriWordTileState)>[
+          ('selected', SoriWordTileState.selected),
+          ('correct', SoriWordTileState.correct),
+          ('wrong', SoriWordTileState.wrong),
+        ];
+        await _pumpQuest(
+          tester,
+          Column(
+            children: [
+              for (final entry in states)
+                SoriWordTile(label: entry.$1, state: entry.$2, onTap: () {}),
+            ],
+          ),
+          locale: const Locale('en'),
+          viewport: _viewports[2],
+        );
+
+        final tiles = find.byType(SoriWordTile);
+        expect(tiles, findsNWidgets(states.length));
+        expect(
+          find.descendant(of: tiles, matching: find.byType(Icon)),
+          findsNothing,
+        );
+        for (final entry in states) {
+          final text = tester.widget<Text>(find.text(entry.$1));
+          expect(text.style?.fontSize, 17.5);
+          final status = switch (entry.$2) {
+            SoriWordTileState.selected => t.questAnswerSelected,
+            SoriWordTileState.correct => t.questCorrect,
+            SoriWordTileState.wrong => t.questWrong,
+            _ => throw StateError('Unexpected test state'),
+          };
+          expect(find.bySemanticsLabel('${entry.$1}, $status'), findsOneWidget);
+        }
+      } finally {
+        semantics.dispose();
+      }
+    },
+  );
+
+  testWidgets(
+    'batchim and sentence success each dispatch burst sound and haptic once',
+    (tester) async {
+      for (final engine in const ['batchim', 'sentence']) {
+        var burstCalls = 0;
+        var soundCalls = 0;
+        var hapticCalls = 0;
+        final feedback = SoriQuestCorrectFeedback(
+          burst: (_) => burstCalls++,
+          sound: () => soundCalls++,
+          haptic: () => hapticCalls++,
+        );
+        final quest = engine == 'batchim'
+            ? BatchimDropQuest(
+                data: const {
+                  'audioKo': '안녕',
+                  'targetWord': '안녕',
+                  'targetSyllableIndex': 1,
+                  'correctIndex': 0,
+                  'options': ['ㅇ', 'ㄴ'],
+                },
+                onComplete: (_) {},
+                correctFeedback: feedback,
+              )
+            : SatzBauenQuest(
+                data: const {
+                  'targetKo': '안녕',
+                  'promptDe': 'Hallo',
+                  'promptEn': 'Hello',
+                },
+                onComplete: (_) {},
+                correctFeedback: feedback,
+              );
+        await _pumpQuest(
+          tester,
+          quest,
+          locale: const Locale('en'),
+          viewport: _viewports[2],
+        );
+
+        if (engine == 'batchim') {
+          await _tapPointerOwned(
+            tester,
+            find.byKey(const ValueKey('answer-0')),
+          );
+        } else {
+          await _tapPointerOwned(tester, find.bySemanticsLabel('안녕'));
+        }
+        await _tapPointerOwned(
+          tester,
+          find.byKey(const ValueKey('quest-submit')),
+        );
+        await tester.pump();
+
+        expect(burstCalls, 1, reason: engine);
+        expect(soundCalls, 1, reason: engine);
+        expect(hapticCalls, 1, reason: engine);
+      }
+    },
+  );
+
+  testWidgets(
+    'success keeps a live announcement without a duplicate lower label',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      try {
+        final t = lookupAppL10n(const Locale('en'));
+        await _pumpQuest(
+          tester,
+          ScenarioQuestAction(
+            canSubmit: true,
+            onSubmit: () {},
+            resolved: true,
+            onContinue: () {},
+          ),
+          locale: const Locale('en'),
+          viewport: _viewports[2],
+        );
+
+        expect(find.text(t.questCorrect), findsNothing);
+        _expectLiveRegion(tester, t.questCorrect);
+      } finally {
+        semantics.dispose();
+      }
+    },
+  );
+
   for (final locale in const [Locale('de'), Locale('en')]) {
     testWidgets(
       '${locale.languageCode} choice flow exposes executable selected and live '
@@ -387,13 +524,15 @@ void main() {
           var continueCalls = 0;
           await _pumpQuest(
             tester,
-            _engines.first.build(results.add, () => continueCalls++, false),
+            _engines
+                .singleWhere((engine) => engine.name == 'translation')
+                .build(results.add, () => continueCalls++, false),
             locale: locale,
             viewport: _viewports[2],
           );
 
-          final correctLabel = locale.languageCode == 'de' ? 'Hallo' : 'Hello';
-          final wrongLabel = locale.languageCode == 'de' ? 'Danke' : 'Thanks';
+          const correctLabel = '안녕';
+          const wrongLabel = '감사';
           final wrong = find.bySemanticsLabel(wrongLabel);
           _expectButton(tester, wrong, enabled: true, minHeight: 48);
           _expectBoundaryContrast(tester, wrong);
@@ -422,7 +561,6 @@ void main() {
           expect(results, hasLength(1));
           expect(results.single.passed, isTrue);
           _expectLiveRegion(tester, t.questCorrect);
-          _expectTextContrast(tester, t.questCorrect);
           final resolved = find.bySemanticsLabel(
             '$correctLabel, ${t.questCorrect}',
           );

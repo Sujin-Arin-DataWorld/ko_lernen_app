@@ -133,7 +133,8 @@ void main() {
 
       expect(tester.takeException(), isNull);
       expect(find.text('1 of 7'), findsOneWidget);
-      expect(find.byKey(const ValueKey('quest-submit')), findsOneWidget);
+      expect(find.byKey(const ValueKey('quest-submit')), findsNothing);
+      expect(find.byKey(const ValueKey('answer-1')), findsOneWidget);
     });
   }
 
@@ -145,7 +146,10 @@ void main() {
       );
       await tester.pump();
       expect(tester.takeException(), isNull);
-      expect(find.byKey(const ValueKey('quest-submit')), findsOneWidget);
+      expect(
+        find.byKey(const ValueKey('quest-submit')),
+        questIndex == 0 ? findsNothing : findsOneWidget,
+      );
     });
   }
 
@@ -211,7 +215,8 @@ void main() {
       expect(title.maxLines, isNotNull);
       expect(title.overflow, TextOverflow.clip);
       expect(find.text('1 von 7'), findsOneWidget);
-      expect(find.byKey(const ValueKey('quest-submit')), findsOneWidget);
+      expect(find.byKey(const ValueKey('quest-submit')), findsNothing);
+      expect(find.byKey(const ValueKey('answer-1')), findsOneWidget);
       expect(tester.takeException(), isNull);
     },
   );

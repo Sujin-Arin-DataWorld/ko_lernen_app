@@ -31,6 +31,7 @@ class BatchimDropQuest extends StatefulWidget {
   final VoidCallback? onContinue;
   final bool isLast;
   final bool allowDontKnow;
+  final SoriQuestCorrectFeedback correctFeedback;
 
   const BatchimDropQuest({
     super.key,
@@ -39,6 +40,7 @@ class BatchimDropQuest extends StatefulWidget {
     this.onContinue,
     this.isLast = false,
     this.allowDontKnow = false,
+    this.correctFeedback = const SoriQuestCorrectFeedback(),
   });
 
   @override
@@ -186,7 +188,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
 
     final instant = MediaQuery.disableAnimationsOf(context);
     if (isCorrect) {
-      HapticFeedback.heavyImpact();
+      widget.correctFeedback.play(context);
       setState(() {
         _selected = idx;
         _completed = true;
