@@ -27,10 +27,14 @@ REQUIRED_BANNERS: dict[str, list[str]] = {
     "AGENTS.md": [
         "정정(2026-08-18): 한옥/장식 계열은 위 문장이 stale하다",
         "docs/assets/STYLE_LOCK.json",
+        # F-E-cards (2026-08-30): 정물 카드 계열은 컷아웃 규약이 stale하다.
+        "정정(2026-08-30): 정물 카드 계열",
+        "docs/LISTENING_CARD_RECIPE.md",
     ],
     "docs/ASSET_GENERATION_BIBLE.md": [
         "정정(2026-08-18): 한옥/장식 계열(F-A/F-B/F-C)은 이 절이 stale하다",
         "F-A는 그림자 완전 금지가 정본이다",
+        "정정(2026-08-30): 아래 3번(면내 그라데이션 금지)은 정물 카드 계열",
     ],
     "docs/HANOK_ASSET_INVENTORY_2026-08-17.md": [
         "정정(2026-08-18): 이 절은 F-A 6종만 실측한 스냅샷이다",
@@ -38,6 +42,19 @@ REQUIRED_BANNERS: dict[str, list[str]] = {
     ],
     "docs/README.md": [
         "정정(2026-08-18)**: for hanok/decoration style facts",
+        "정정(2026-08-30)",
+    ],
+    # F-E-cards 문서 계보 (2026-08-30 lock) — 배너 본문은 docs 에이전트가 쓴다.
+    "docs/LISTENING_CARD_ART_SPEC.md": [
+        "우선순위(2026-08-30 lock)",
+    ],
+    "docs/LISTENING_CARD_RECIPE.md": [
+        "범위(2026-08-30 lock)",
+        "tool/check_card_style.py",
+        "F-E-cards",
+    ],
+    "docs/HANDOFF_UI_OVERHAUL_2026-08-14.md": [
+        "정정(2026-08-30):",
     ],
 }
 

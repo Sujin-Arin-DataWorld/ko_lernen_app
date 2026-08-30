@@ -132,4 +132,8 @@ if __name__ == "__main__":
     print(f"families: {sorted(lock['families'])}")
     for name in sorted(lock["families"]):
         gates = gates_for_family(lock, name)
-        print(f"  {name}: satMean={gates['satMean']} valMean={gates['valMean']} neonMax={gates['neonMax']}")
+        # F-E-cards 같은 위임 가족은 satMean 계열이 없다(gates.tool 참조) — .get.
+        print(
+            f"  {name}: satMean={gates.get('satMean')} valMean={gates.get('valMean')} "
+            f"neonMax={gates.get('neonMax')} tool={gates.get('tool')}"
+        )

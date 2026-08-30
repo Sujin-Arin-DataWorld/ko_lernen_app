@@ -30,6 +30,11 @@ history rather than copied into the working tree.
      [assets/STYLE_LOCK.json](assets/STYLE_LOCK.json) first — it outranks
      both the inventory above and the Bible (`tool/style_lock.py` is the
      reader; `tool/check_style_lock_docs.py` enforces this banner exists).
+   - **⛔ 정정(2026-08-30)**: 정물 카드 계열(`packs/`·`activities/`·`listening/`
+     800×600 카드)은 [LISTENING_CARD_RECIPE.md](LISTENING_CARD_RECIPE.md)(생성
+     정본)와 [assets/STYLE_LOCK.json](assets/STYLE_LOCK.json) families F-E-cards
+     (실측 불변값)를 먼저 읽는다 — 둘 다 BIBLE 보다 우선하며, BIBLE §1.2-3(면내
+     그라데이션 금지)은 이 계열에 부적용.
    - Release: [RELEASE_RUNBOOK_2026-08-02.md](RELEASE_RUNBOOK_2026-08-02.md)
 
 ## Maintenance rule

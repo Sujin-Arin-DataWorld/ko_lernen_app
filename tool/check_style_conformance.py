@@ -165,6 +165,17 @@ def check(path: Path, lock: dict, family_name: str | None = None) -> dict:
     result["family"] = family_name
     gates = style_lock.gates_for_family(lock, family_name)
 
+    # 위임 가드: satMean 이 없는 가족(F-E-cards 등)은 컷아웃 게이트 대상이
+    # 아니다 — 전용 도구(gates.tool)가 잰다. 여기서는 ok 로 통과시키고
+    # 어디로 위임됐는지만 남긴다.
+    if "satMean" not in gates:
+        result["ok"] = True
+        result["warnings"].append(
+            f"family {family_name} is gated by its own tool "
+            f"({gates.get('tool', '?')}) — cutout metrics not applicable, skipped"
+        )
+        return result
+
     with Image.open(path) as im:
         rgba = np.array(im.convert("RGBA"))
         chroma = sum(

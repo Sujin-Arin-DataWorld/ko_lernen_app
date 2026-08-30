@@ -39,6 +39,13 @@
 > **작업 게이트가 열리거나 닫히면** 아래 "현재 진행 중인 작업"만 고친다. 완료 항목은 체크리스트에 남기지 말고 지운다.
 > **비주얼 에셋 작업 전** `docs/ASSET_GENERATION_BIBLE.md` **하나만** 읽으면 됨 — 스타일 가이드·디자인 토큰·한옥/장식/도장/스티커/마스코트 프롬프트를 모두 흡수한 자급자족 AI 생성 바이블 (스타일명 **"Faceted Minhwa (모던 면 분할 민화)"**). 일러스트/아이콘/마케팅 자산 신규 제작·이터레이션 시 이 파일을 프롬프트 소스로 사용. (구 `HANGUL_SORI_STYLE_GUIDE.md`·`HANGUL_SORI_DESIGN_TOKENS.md`·`stately-rising-jongga-assets.md`는 상세 레퍼런스로만.)
 > **⛔ 정정(2026-08-18): 한옥/장식 계열은 위 문장이 stale하다.** 실제 우선순위는 `docs/assets/STYLE_LOCK.json` **>** `docs/HANOK_ASSET_INVENTORY_2026-08-17.md` **>** BIBLE — BIBLE §1.3 팔레트는 실측보다 밝고, §3.5는 마당 전용 규약이라 실내(F-A)엔 안 맞는다. 리더: `tool/style_lock.py`.
+> **⛔ 정정(2026-08-30): 정물 카드 계열**(packs·activities·listening 의 800×600 카드
+> 일러스트)도 위 'BIBLE 하나만' 문장이 stale하다. 이 계열의 우선순위는
+> `docs/LISTENING_CARD_RECIPE.md`(생성 절차 정본) > `docs/assets/STYLE_LOCK.json`
+> families `F-E-cards`(실측 불변값·픽셀 게이트 `tool/check_card_style.py`) > BIBLE 이다.
+> BIBLE §1.2-3 '면 안에 그라데이션 없음'을 이 계열에 적용하면 평면 벡터가 나온다
+> (2026-08-30 C1/C2 23장 전량 폐기 실측). 새 프롬프트를 쓰지 말고 RECIPE 고정
+> 프롬프트에서 {SUBJECT}만 바꾼다.
 > **마스코트(2026-06-02 v2)**: 업로드된 앉은 호랑이=`tiger_idle.png`, 갓 까치 비행 2프레임=`magpie_wingup/wingdown.png`가 캐릭터 source of truth. `tiger_sleepy`·`tiger_thinking`은 화풍 이질 → 교체 1순위. 상세는 BIBLE §2.
 
 ---
