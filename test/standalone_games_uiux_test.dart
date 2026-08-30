@@ -88,6 +88,32 @@ const _vocab = <Vocab>[
   ),
 ];
 
+const _mixedLevelVocab = <Vocab>[
+  ..._vocab,
+  Vocab(
+    korean: '마음',
+    romanization: 'maeum',
+    german: 'Gefühl',
+    english: 'feeling',
+    level: 'B1',
+    posDe: 'Nomen',
+    exampleKorean: '마음이 편해요.',
+    exampleGerman: 'Ich fühle mich wohl.',
+    topic: 'test',
+  ),
+  Vocab(
+    korean: '바라다',
+    romanization: 'barada',
+    german: 'hoffen',
+    english: 'to hope',
+    level: 'B1',
+    posDe: 'Verb',
+    exampleKorean: '잘되기를 바라요.',
+    exampleGerman: 'Ich hoffe, dass es gut geht.',
+    topic: 'test',
+  ),
+];
+
 const _chainWords = <KkeunmariWord>[
   KkeunmariWord(
     word: '가나',
@@ -208,6 +234,44 @@ void main() {
     expect(_homeEscape(tester).confirmWhen, isTrue);
     await tester.pump(const Duration(seconds: 61));
     expect(_homeEscape(tester).confirmWhen, isFalse);
+  });
+
+  testWidgets('Speed Match defaults a fresh learner to A1, never all levels', (
+    tester,
+  ) async {
+    await _pumpPhone(
+      tester,
+      SpeedMatchScreen(vocabLoader: () async => _mixedLevelVocab),
+      locale: const Locale('en'),
+      textScale: 1,
+    );
+    await _pumpUntil(tester, find.byType(SoriChromeRow));
+
+    expect(find.text('A1 · 4'), findsOneWidget);
+    expect(find.text('All levels · 6'), findsNothing);
+  });
+
+  testWidgets('Speed Match honors the shared browse-level precedence', (
+    tester,
+  ) async {
+    Storage.resetForTesting();
+    SharedPreferences.setMockInitialValues(<String, Object>{
+      Storage.browseLevelPreferenceKey: 'b1',
+      'kl_user_level': 'a1',
+      'kl_tut_wordbook': true,
+    });
+    await Storage.init();
+
+    await _pumpPhone(
+      tester,
+      SpeedMatchScreen(vocabLoader: () async => _mixedLevelVocab),
+      locale: const Locale('en'),
+      textScale: 1,
+    );
+    await _pumpUntil(tester, find.byType(SoriChromeRow));
+
+    expect(find.text('B1 · 2'), findsOneWidget);
+    expect(find.text('A1 · 4'), findsNothing);
   });
 
   for (final locale in const [Locale('de'), Locale('en')]) {
@@ -779,9 +843,9 @@ void main() {
     final speedLevelButton = find.byIcon(Icons.tune_rounded);
     await tester.ensureVisible(speedLevelButton);
     await tester.tap(speedLevelButton);
-    final allLevels = find.byKey(const ValueKey('sori-level-sheet-'));
-    await _pumpUntil(tester, allLevels);
-    _expectSelectedDisabledChoice(tester, allLevels, minHeight: 48);
+    final defaultLevel = find.byKey(const ValueKey('sori-level-sheet-a1'));
+    await _pumpUntil(tester, defaultLevel);
+    _expectSelectedDisabledChoice(tester, defaultLevel, minHeight: 48);
     await tester.binding.handlePopRoute();
     await tester.pump(const Duration(milliseconds: 300));
     expect(tester.takeException(), isNull);
