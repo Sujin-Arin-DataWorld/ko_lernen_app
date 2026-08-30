@@ -50,7 +50,6 @@ class MyWordsScreen extends StatelessWidget {
             const SizedBox(height: Spacing.lg),
             SoriButton(
               label: t.bookCaptureTitle,
-              icon: Icons.menu_book_outlined,
               variant: SoriButtonVariant.outlined,
               fullWidth: true,
               onTap: () => open('/book'),
@@ -58,7 +57,6 @@ class MyWordsScreen extends StatelessWidget {
             const SizedBox(height: Spacing.sm),
             SoriButton(
               label: t.vocabNotebookTitle,
-              icon: Icons.auto_stories_outlined,
               variant: SoriButtonVariant.outlined,
               fullWidth: true,
               onTap: () => open('/vocab_notebook'),
