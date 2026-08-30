@@ -5042,6 +5042,9 @@ class AppL10nDe extends AppL10n {
   String get consentContinueCta => 'Weiter';
 
   @override
+  String get consentDemoCta => 'App ansehen';
+
+  @override
   String get consentPrivacyCta => 'Datenschutzerklärung';
 
   @override
@@ -5064,6 +5067,87 @@ class AppL10nDe extends AppL10n {
   @override
   String get consentOptionalHint =>
       'Beides ist freiwillig und jederzeit in den Einstellungen änderbar.';
+
+  @override
+  String get reviewDemoAppBarTitle => 'Demo';
+
+  @override
+  String get reviewDemoEyebrow => 'TOUR OHNE SPEICHERN';
+
+  @override
+  String get reviewDemoTitle => 'Entdecke Hangul Sori';
+
+  @override
+  String get reviewDemoBody =>
+      'Öffne ausgewählte App-Ansichten mit einem Beispiel-Lernstand. Du kannst die Bedienung ausprobieren; Einwilligung, Konto und Lernfortschritt bleiben unverändert.';
+
+  @override
+  String get reviewDemoSectionStart => 'ERSTE SCHRITTE';
+
+  @override
+  String get reviewDemoSectionLearn => 'LERNEN & SPRECHEN';
+
+  @override
+  String get reviewDemoSectionHanok => 'DEIN HANOK';
+
+  @override
+  String get reviewDemoSectionExplore => 'ÜBEN & ENTDECKEN';
+
+  @override
+  String get reviewDemoSectionCommunity => 'GEMEINSCHAFT & KONTO';
+
+  @override
+  String get reviewDemoSectionJourney => 'GESAMTER LERNWEG';
+
+  @override
+  String get reviewDemoPanelGoal => 'Ziel und Startpunkt';
+
+  @override
+  String get reviewDemoPanelCompanion => 'Lernbegleitung wählen';
+
+  @override
+  String get reviewDemoPanelToday => 'Heutige Lernbühne';
+
+  @override
+  String get reviewDemoPanelMission => 'Missionsbriefing';
+
+  @override
+  String get reviewDemoPanelListening => 'Hör-Aufgabe';
+
+  @override
+  String get reviewDemoPanelRoleplay => 'Gespräch im Rollenspiel';
+
+  @override
+  String get reviewDemoPanelHanok => 'Persönliche Hanok-Karte';
+
+  @override
+  String get reviewDemoPanelSarangbang => 'Lernraum Sarangbang';
+
+  @override
+  String get reviewDemoPanelPractice => 'Übungsbereich';
+
+  @override
+  String get reviewDemoPanelDiscover => 'Koreanische Kultur entdecken';
+
+  @override
+  String get reviewDemoPanelPath => 'Lernpfad';
+
+  @override
+  String get reviewDemoPanelGye => 'Wöchentliches Gruppenversprechen';
+
+  @override
+  String get reviewDemoPanelProfile => 'Profil und freiwilliges Konto';
+
+  @override
+  String get reviewDemoPanelOffline => 'Lernen ohne Verbindung';
+
+  @override
+  String get reviewDemoPanelJourney => 'Gesamte Lernreise';
+
+  @override
+  String reviewDemoReadOnlyBoundary(String routeName) {
+    return '$routeName ist in der Tour ohne Speichern nicht verfügbar. Kehre zur Übersicht zurück und öffne eine andere Beispielansicht.';
+  }
 
   @override
   String get consentInviteTitle => 'Zeig mir, wo\'s hakt';

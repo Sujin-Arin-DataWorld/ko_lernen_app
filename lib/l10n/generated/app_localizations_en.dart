@@ -5022,6 +5022,9 @@ class AppL10nEn extends AppL10n {
   String get consentContinueCta => 'Continue';
 
   @override
+  String get consentDemoCta => 'View demo';
+
+  @override
   String get consentPrivacyCta => 'Privacy policy';
 
   @override
@@ -5044,6 +5047,87 @@ class AppL10nEn extends AppL10n {
   @override
   String get consentOptionalHint =>
       'Both are optional and can be changed anytime in Settings.';
+
+  @override
+  String get reviewDemoAppBarTitle => 'Demo';
+
+  @override
+  String get reviewDemoEyebrow => 'READ-ONLY TOUR';
+
+  @override
+  String get reviewDemoTitle => 'Explore Hangul Sori';
+
+  @override
+  String get reviewDemoBody =>
+      'Open representative app screens with sample progress. You can try the controls, but this tour never changes your consent, account, or learning progress.';
+
+  @override
+  String get reviewDemoSectionStart => 'GETTING STARTED';
+
+  @override
+  String get reviewDemoSectionLearn => 'LEARN & SPEAK';
+
+  @override
+  String get reviewDemoSectionHanok => 'YOUR HANOK';
+
+  @override
+  String get reviewDemoSectionExplore => 'PRACTISE & EXPLORE';
+
+  @override
+  String get reviewDemoSectionCommunity => 'COMMUNITY & ACCOUNT';
+
+  @override
+  String get reviewDemoSectionJourney => 'FULL LEARNING JOURNEY';
+
+  @override
+  String get reviewDemoPanelGoal => 'Goals and starting point';
+
+  @override
+  String get reviewDemoPanelCompanion => 'Choose a learning companion';
+
+  @override
+  String get reviewDemoPanelToday => 'Today\'s learning stage';
+
+  @override
+  String get reviewDemoPanelMission => 'Mission briefing';
+
+  @override
+  String get reviewDemoPanelListening => 'Listening challenge';
+
+  @override
+  String get reviewDemoPanelRoleplay => 'Conversation role-play';
+
+  @override
+  String get reviewDemoPanelHanok => 'Personal Hanok map';
+
+  @override
+  String get reviewDemoPanelSarangbang => 'Sarangbang study room';
+
+  @override
+  String get reviewDemoPanelPractice => 'Practice hub';
+
+  @override
+  String get reviewDemoPanelDiscover => 'Discover Korean culture';
+
+  @override
+  String get reviewDemoPanelPath => 'Learning path';
+
+  @override
+  String get reviewDemoPanelGye => 'Weekly group promise';
+
+  @override
+  String get reviewDemoPanelProfile => 'Profile and optional account';
+
+  @override
+  String get reviewDemoPanelOffline => 'Offline learning state';
+
+  @override
+  String get reviewDemoPanelJourney => 'Complete learning journey';
+
+  @override
+  String reviewDemoReadOnlyBoundary(String routeName) {
+    return '$routeName is unavailable in the read-only demo. Return to the tour to explore another sample screen.';
+  }
 
   @override
   String get consentInviteTitle => 'Show me where you get stuck';

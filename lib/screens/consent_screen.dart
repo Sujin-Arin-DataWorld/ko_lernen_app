@@ -14,6 +14,7 @@ import '../widgets/sori/toast.dart';
 import '../motion/transitions.dart';
 import '../services/storage_service.dart';
 import '../l10n/generated/app_localizations.dart';
+import 'app_review_demo_screen.dart';
 import 'onboarding_v2/onboarding_v2_journey_screen.dart';
 
 const _privacyUrl = 'https://hangul-sori.com/privacy';
@@ -47,6 +48,18 @@ class ConsentScreen extends StatefulWidget {
 
 class _ConsentScreenState extends State<ConsentScreen> {
   bool _saving = false;
+
+  void _openDemo() {
+    if (_saving) return;
+    HapticFeedback.selectionClick();
+    Navigator.of(context).push<void>(
+      SoriTransitions.firstRun(
+        context,
+        (_) => const AppReviewDemoScreen(),
+        settings: const RouteSettings(name: '/review_demo'),
+      ),
+    );
+  }
 
   Future<void> _accept() async {
     if (_saving) return;
@@ -151,6 +164,16 @@ class _ConsentScreenState extends State<ConsentScreen> {
                           fullWidth: true,
                           onTap: _saving ? null : _accept,
                         ),
+                        if (widget.onPreviewAccepted == null) ...[
+                          const SizedBox(height: Spacing.sm),
+                          SoriButton.outlined(
+                            key: const ValueKey('consent-open-review-demo'),
+                            label: t.consentDemoCta,
+                            icon: Icons.visibility_outlined,
+                            fullWidth: true,
+                            onTap: _saving ? null : _openDemo,
+                          ),
+                        ],
                         const SizedBox(height: 10),
                         Text(
                           t.consentFootnote,
