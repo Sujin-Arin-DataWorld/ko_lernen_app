@@ -219,6 +219,8 @@ void main() {
         isTrue,
       );
     }
+    final t = AppL10n.of(tester.element(find.byType(GameOverCard)));
+    await _expectMyWordsReturn(tester, t.customPackResultBack);
   });
 
   testWidgets('custom matching terminal route exposes feedback context', (
@@ -237,6 +239,8 @@ void main() {
     }
 
     _expectTerminalFeedback(tester);
+    final t = AppL10n.of(tester.element(find.byType(GameOverCard)));
+    await _expectMyWordsReturn(tester, t.btnClose);
   });
 
   testWidgets('custom typing terminal route exposes feedback context', (
@@ -259,6 +263,8 @@ void main() {
     }
 
     _expectTerminalFeedback(tester);
+    final t = AppL10n.of(tester.element(find.byType(GameOverCard)));
+    await _expectMyWordsReturn(tester, t.customPackResultBack);
   });
 }
 
@@ -293,12 +299,37 @@ Widget _wrap(Widget child) {
     locale: const Locale('de'),
     supportedLocales: AppL10n.supportedLocales,
     localizationsDelegates: AppL10n.localizationsDelegates,
+    onGenerateRoute: (settings) => MaterialPageRoute<void>(
+      settings: settings,
+      builder: (_) => Scaffold(
+        body: Text(
+          settings.name ?? '',
+          key: ValueKey('generated-route-${settings.name}'),
+        ),
+      ),
+    ),
     home: ContentFeedbackControllerScope(
       featureGate: const TesterFeedbackFeatureGate(enabled: true),
       submitFeedback: _inertFeedbackSubmitter,
       resumePending: () async => const ContentFeedbackResumeResult(),
       child: child,
     ),
+  );
+}
+
+Future<void> _expectMyWordsReturn(WidgetTester tester, String label) async {
+  await tester.tap(find.text(label));
+  await tester.pump();
+  await tester.pump(const Duration(milliseconds: 400));
+  expect(
+    find.byKey(const ValueKey('generated-route-/my_words')),
+    findsOneWidget,
+  );
+  expect(
+    ModalRoute.of(
+      tester.element(find.byKey(const ValueKey('generated-route-/my_words'))),
+    )?.settings.name,
+    '/my_words',
   );
 }
 

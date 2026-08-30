@@ -195,7 +195,7 @@ current ratchet:
 
 | Measure | Current state | Locked interpretation |
 |---|---:|---|
-| Registered route cases | 74 | Every case is inventoried below |
+| Registered route cases | 75 | Every case is inventoried below |
 | `lib/screens` Dart files | 97 | Includes route, embedded, preview, and quest surfaces |
 | `lib/widgets/sori` Dart files | 128 | Existing system; no parallel system permitted |
 | Test files | 470 | Includes the permanent full-closeout inventory guard |
@@ -282,15 +282,16 @@ listed dependency.
 | `/vocab_notebook/studio` | `VocabNotebookStudioScreen` / Custom | Standard frame/forms/loading | notebook studio service | D studio | H / 4B |
 | `/book/preview` | `BookPreviewScreen` / Std | Standard form/editor hierarchy | OCR document and locale | D book preview | H / 4B |
 | `/book/result` | `BookResultScreen` / Std | Standard results/error/save actions | analysis and pack creation | D book result | H / 4B |
-| `/bookshelf` | `BookshelfScreen` / Std | Retain approved shelf; unify dialogs/fields/state | bookshelf sync/generation | R/G/D bookshelf | H / 4B |
+| `/my_words` | `MyWordsScreen` / Std | Keep Search, Shelf, and Difficult as one keyboard-traversable hub with one photo action | alias settings/back stack, wordbook service, bookshelf storage, wrong-count data | R/D My Words hub | H / 5C |
+| `/bookshelf` | `MyWordsScreen` / Std shelf compatibility alias | Open the Shelf tab while retaining the exact incoming route name and back stack | bookshelf sync/generation | R/G/D My Words + bookshelf | H / 5C |
 | `/bookshelf/page` | `BookshelfPageScreen` / Std | Standard detail hierarchy and edit dialog | stored page and sync | R/D bookshelf | M / 4B |
 | `/custom_pack/play` | `CustomPackPlayScreen` / Study | Preserve Deck/flip gate; shared states | pack contents and SRS | R/D custom deck | H / 3A |
 | `/custom_pack/edit` | `CustomPackEditScreen` / Std | Shared field/dialog/state primitives | import, persistence, language | R/D custom pack | H / 4B |
 | `/custom_pack/quiz` | `CustomPackQuizScreen` / Study | Shared study/result language | pack quiz scoring | R/D study activity | H / 5B |
 | `/custom_pack/matching` | `CustomPackMatchingScreen` / Study | Preserve matching geometry; shared states | matching rules | R/D study activity | H / 5B |
 | `/custom_pack/typing` | `CustomPackTypingScreen` / Study | Shared input/status, preserve answer logic | typing evaluation | R/D study activity | H / 5B |
-| `/wordbook/search` | `WordbookSearchScreen` / Std | Shared field/empty/result language | wordbook service | R/D wordbook | M / 4C |
-| `/hard_words` | `HardWordsScreen` / Std | Standard list/empty/action hierarchy | wrong-count data | R/D hard words | M / 4C |
+| `/wordbook/search` | `MyWordsScreen` / Std search compatibility alias | Open the Search tab while retaining the exact incoming route name and back stack | wordbook service | R/D My Words + wordbook | M / 5C |
+| `/hard_words` | `MyWordsScreen` / Std difficult compatibility alias | Open the Difficult tab while retaining the exact incoming route name and back stack | wrong-count data | R/D My Words + hard words | M / 5C |
 | `/word_web` | `WordWebScreen` / Custom | Standard outer state; preserve study/quiz transition | word relation data | D word web | H / 3D |
 | `/dojangcheop` | `DojangcheopScreen` / Std | Preserve reward room; standard empty/CTA | achievement data | R/D room CTA | M / 4C |
 | `/hanok` | `IlDuWorldScreen` / Custom | Preserve the spacious Ildu estate map, fail-closed learning evidence, and approved assets | grant/evidence projection | R/S/G/D Hanok battery | H / 2D |
@@ -322,6 +323,7 @@ not disappear from phase review.
 | `SoriStageHanokScreen` | safe viewport + shortcut tiles | Preserve approved shortcuts/assets/evidence | R/D Hanok shortcuts | 2D |
 | `SoriStageRewardReceiptSheet` | Sori sheet + semantics | Keep evidence/result hierarchy | dedicated receipt | 2D |
 | `DiscoverScreen` | Std supporting catalog | Keep dormant/supporting surface aligned; do not add a route | R/D discover | 2B |
+| `BookshelfScreen` / `WordbookSearchScreen` / `HardWordsScreen` | Std compatibility wrappers around `BookshelfBody`, `WordbookSearchBody`, and `HardWordsBody` | Keep direct construction usable without duplicating route chrome inside the My Words tabs | D My Words bodies + existing focused suites | 5C |
 | `HanokWorldScreen` | superseded compatibility owner | Keep available for focused legacy projection tests; do not reconnect it to `/hanok` | R/S/G/D Hanok compatibility | 2D |
 | `OnboardingPreviewScreen` / `PlacementDiagnosticScreen` | custom + Std | Align step hierarchy; preserve placement decisions | R/D onboarding/placement | 5C |
 | `ConsentScreen` / `FirstVoiceSuccessScreen` | custom | Shared action/state patterns; preserve consent/evidence | R/D consent/voice | 5C |

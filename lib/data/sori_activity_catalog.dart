@@ -86,6 +86,7 @@ ActivityCatalogEntry _entry({
   required SoriActivityColorRole color,
   required String icon,
   required RewardContract reward,
+  bool ownsRoute = true,
   Object? arguments,
   List<String> detailRouteAliases = const <String>[],
   ActivityUnlockCondition unlock = const ActivityUnlockCondition.unlocked(),
@@ -105,6 +106,7 @@ ActivityCatalogEntry _entry({
   colorRole: color,
   iconName: icon,
   reward: reward,
+  ownsRoute: ownsRoute,
   detailRouteAliases: detailRouteAliases,
   unlock: unlock,
 );
@@ -194,17 +196,23 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     reward: _contract('srs', _finishSession, [_xp, _quest]),
   ),
   _entry(
-    id: 'hard_words',
+    id: 'my_words',
     tab: SoriStageTab.learn,
-    de: 'Schwierige Wörter',
-    en: 'Hard words',
-    descriptionDe: 'Gezielt an deinen Stolperwörtern arbeiten.',
-    descriptionEn: 'Focus on the words that trip you up.',
-    route: '/hard_words',
+    de: 'Meine Wörter',
+    en: 'My words',
+    descriptionDe: 'Suchen, Regal und schwierige Wörter an einem Ort.',
+    descriptionEn: 'Search, shelf, and difficult words in one place.',
+    route: '/my_words',
+    detailRouteAliases: const <String>[
+      '/wordbook/search',
+      '/bookshelf',
+      '/hard_words',
+      '/book',
+    ],
     minutes: 5,
     color: SoriActivityColorRole.review,
-    icon: 'target',
-    reward: _contract('hard_words', _finishSession, [_quest]),
+    icon: 'bookshelf',
+    reward: _contract('my_words', _finishSession, [_noDirectReward]),
   ),
   _entry(
     id: 'word_web',
@@ -273,19 +281,6 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     reward: _contract('smalltalk', _finishSession, [_noDirectReward]),
   ),
   _entry(
-    id: 'book_capture',
-    tab: SoriStageTab.learn,
-    de: 'Buch fotografieren',
-    en: 'Scan a book',
-    descriptionDe: 'Wörter aus deinem Material übernehmen.',
-    descriptionEn: 'Bring words in from your own material.',
-    route: '/book',
-    minutes: 3,
-    color: SoriActivityColorRole.listening,
-    icon: 'camera',
-    reward: _contract('book_capture', _finishSession, [_noDirectReward]),
-  ),
-  _entry(
     id: 'vocab_notebook',
     tab: SoriStageTab.learn,
     de: 'Vokabelheft',
@@ -303,32 +298,6 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
       '/vocab_notebook/nuance',
       '/vocab_notebook/studio',
     ],
-  ),
-  _entry(
-    id: 'bookshelf',
-    tab: SoriStageTab.learn,
-    de: 'Bücherregal',
-    en: 'Bookshelf',
-    descriptionDe: 'Eigene Seiten und Wortlisten verwalten.',
-    descriptionEn: 'Manage your pages and word lists.',
-    route: '/bookshelf',
-    minutes: 2,
-    color: SoriActivityColorRole.completion,
-    icon: 'bookshelf',
-    reward: _contract('bookshelf', _finishSession, [_noDirectReward]),
-  ),
-  _entry(
-    id: 'word_search',
-    tab: SoriStageTab.learn,
-    de: 'Wortsuche',
-    en: 'Word search',
-    descriptionDe: 'Ein Wort und seine Lernwege finden.',
-    descriptionEn: 'Find a word and its learning paths.',
-    route: '/wordbook/search',
-    minutes: 2,
-    color: SoriActivityColorRole.listening,
-    icon: 'search',
-    reward: _contract('word_search', _finishSession, [_noDirectReward]),
   ),
   _entry(
     id: 'daily_game',
@@ -428,7 +397,8 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     en: 'Custom quiz',
     descriptionDe: 'Ein Wortpaket im Bücherregal auswählen.',
     descriptionEn: 'Choose a word pack from your bookshelf.',
-    route: '/bookshelf',
+    route: '/my_words',
+    ownsRoute: false,
     minutes: 5,
     color: SoriActivityColorRole.listening,
     icon: 'quiz',
@@ -441,7 +411,8 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     en: 'Custom matching',
     descriptionDe: 'Deine Wörter als Paare festigen.',
     descriptionEn: 'Strengthen your words as pairs.',
-    route: '/bookshelf',
+    route: '/my_words',
+    ownsRoute: false,
     minutes: 4,
     color: SoriActivityColorRole.completion,
     icon: 'matching',
@@ -454,7 +425,8 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     en: 'Custom typing',
     descriptionDe: 'Deine Wörter aktiv aus dem Gedächtnis holen.',
     descriptionEn: 'Actively recall your own words.',
-    route: '/bookshelf',
+    route: '/my_words',
+    ownsRoute: false,
     minutes: 5,
     color: SoriActivityColorRole.review,
     icon: 'keyboard',
@@ -467,8 +439,9 @@ ActivityCatalogEntry? activityForRoute(String? route) {
     return null;
   }
   for (final activity in soriActivityCatalog) {
-    if (activity.route == route ||
-        activity.detailRouteAliases.contains(route)) {
+    if (activity.ownsRoute &&
+        (activity.route == route ||
+            activity.detailRouteAliases.contains(route))) {
       return activity;
     }
   }

@@ -176,10 +176,9 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
       if (ko.isEmpty || v.translationFor(lang).trim().isEmpty) continue;
       if (seen.add(ko)) usable.add(v);
     }
-    final user = Storage.userLevelCode;
-    final start =
-        (user != null && usable.any((v) => v.level.toLowerCase() == user))
-        ? user
+    final preferredLevel = SoriLevelFilterBar.resolveStartLevel();
+    final start = usable.any((v) => v.level.toLowerCase() == preferredLevel)
+        ? preferredLevel
         : null;
     setState(() {
       _all = usable;

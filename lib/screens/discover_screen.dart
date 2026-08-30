@@ -211,7 +211,7 @@ class _DiscoverPriorityRoutes extends StatelessWidget {
           title: t.discoverPriorityWordsTitle,
           subtitle: t.discoverPriorityWordsBody,
           accent: SoriColors.accent,
-          onTap: () => Navigator.pushNamed(context, '/wordbook/search'),
+          onTap: () => Navigator.pushNamed(context, '/my_words'),
         ),
       ],
     );

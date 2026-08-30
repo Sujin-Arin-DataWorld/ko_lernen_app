@@ -410,7 +410,9 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
             label: t.btnClose,
             variant: SoriButtonVariant.ghost,
             fullWidth: true,
-            onTap: () => Navigator.of(context).maybePop(),
+            onTap: () => Navigator.of(
+              context,
+            ).pushNamedAndRemoveUntil('/my_words', (route) => route.isFirst),
           ),
         ],
       ),

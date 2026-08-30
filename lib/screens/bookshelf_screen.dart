@@ -51,12 +51,10 @@ class BookshelfScreen extends StatefulWidget {
 
 class _BookshelfScreenState extends State<BookshelfScreen>
     with ScreenCoachMixin<BookshelfScreen> {
-  late List<BookPage> _pages;
-  late List<CustomPack> _packs;
-
-  // ── 코치마크 타겟 ──
-  final GlobalKey _createKey = GlobalKey();
-  final GlobalKey _searchKey = GlobalKey();
+  final _bodyKey = GlobalKey<_BookshelfBodyState>();
+  final _createKey = GlobalKey();
+  final _searchKey = GlobalKey();
+  late bool _empty;
 
   @override
   String get coachId => 'bookshelf';
@@ -83,14 +81,141 @@ class _BookshelfScreenState extends State<BookshelfScreen>
   @override
   void initState() {
     super.initState();
-    _reload();
+    _empty =
+        BookshelfService.getAllLocal().isEmpty &&
+        CustomPackService.getAll().isEmpty;
     scheduleCoach();
+  }
+
+  void _updateEmpty(bool empty) {
+    if (!mounted || _empty == empty) {
+      return;
+    }
+    setState(() => _empty = empty);
+  }
+
+  Widget _createAction(AppL10n t) => IconButton(
+    key: _createKey,
+    icon: const Icon(Icons.playlist_add_rounded),
+    tooltip: t.createWordbookCta,
+    onPressed: () {
+      // ignore: discarded_futures
+      _bodyKey.currentState?._createWordbook();
+    },
+  );
+
+  Widget _redeemAction(AppL10n t) => IconButton(
+    icon: const Icon(Icons.download_outlined),
+    tooltip: t.redeemTooltip,
+    onPressed: () {
+      // ignore: discarded_futures
+      _bodyKey.currentState?._openRedeem();
+    },
+  );
+
+  Widget _searchAction(AppL10n t) => IconButton(
+    key: _searchKey,
+    icon: const Icon(Icons.search_rounded),
+    tooltip: t.wbSearchTitle,
+    onPressed: () => Navigator.of(context).pushNamed('/wordbook/search'),
+  );
+
+  Widget _photoAction(AppL10n t) => IconButton(
+    icon: const Icon(Icons.add_a_photo_outlined),
+    tooltip: t.bookshelfAddPage,
+    onPressed: () {
+      // ignore: discarded_futures
+      _bodyKey.currentState?._addPhoto();
+    },
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    return SoriStandardFrame(
+      appBarTitle: t.bookshelfTitle,
+      actions: _empty
+          ? [_createAction(t), _redeemAction(t)]
+          : [
+              _searchAction(t),
+              _createAction(t),
+              _redeemAction(t),
+              _photoAction(t),
+            ],
+      maxWidth: SoriMaxWidth.hub,
+      padding: _empty
+          ? const EdgeInsets.fromLTRB(
+              Spacing.lg,
+              Spacing.md,
+              Spacing.lg,
+              Spacing.xxxl,
+            )
+          : const EdgeInsets.fromLTRB(
+              Spacing.md,
+              Spacing.xs,
+              Spacing.md,
+              Spacing.xxl,
+            ),
+      builder: (context, pagePadding) => BookshelfBody(
+        key: _bodyKey,
+        shareCodeGenerator: widget.shareCodeGenerator,
+        sharedPackRedeemer: widget.sharedPackRedeemer,
+        padding: pagePadding,
+        showEmbeddedActions: false,
+        onEmptyChanged: _updateEmpty,
+      ),
+    );
+  }
+}
+
+/// Shelf content that can be hosted by a route frame or a tab hub.
+class BookshelfBody extends StatefulWidget {
+  const BookshelfBody({
+    super.key,
+    this.shareCodeGenerator,
+    this.sharedPackRedeemer,
+    this.padding = const EdgeInsets.fromLTRB(
+      Spacing.md,
+      Spacing.xs,
+      Spacing.md,
+      Spacing.xxl,
+    ),
+    this.showEmbeddedActions = true,
+    this.showEmbeddedSearchAndPhoto = true,
+    this.onEmptyChanged,
+  });
+
+  final SharePackCodeGenerator? shareCodeGenerator;
+  final SharedPackRedeemer? sharedPackRedeemer;
+  final EdgeInsets padding;
+  final bool showEmbeddedActions;
+  final bool showEmbeddedSearchAndPhoto;
+  final ValueChanged<bool>? onEmptyChanged;
+
+  @override
+  State<BookshelfBody> createState() => _BookshelfBodyState();
+}
+
+class _BookshelfBodyState extends State<BookshelfBody> {
+  late List<BookPage> _pages;
+  late List<CustomPack> _packs;
+
+  @override
+  void initState() {
+    super.initState();
+    _reload();
   }
 
   void _reload() {
     setState(() {
       _pages = BookshelfService.getAllLocal();
       _packs = CustomPackService.getAll();
+    });
+    final empty = _pages.isEmpty && _packs.isEmpty;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        widget.onEmptyChanged?.call(empty);
+      }
     });
   }
 
@@ -140,111 +265,142 @@ class _BookshelfScreenState extends State<BookshelfScreen>
     _reload();
   }
 
+  Future<void> _addPhoto() async {
+    await Navigator.of(context).pushNamed('/book');
+    if (mounted) {
+      _reload();
+    }
+  }
+
   Widget _createAction(AppL10n t) => IconButton(
-    key: _createKey,
     icon: const Icon(Icons.playlist_add_rounded),
     tooltip: t.createWordbookCta,
     onPressed: _createWordbook,
   );
+
+  Widget _searchAction(AppL10n t) => IconButton(
+    icon: const Icon(Icons.search_rounded),
+    tooltip: t.wbSearchTitle,
+    onPressed: () => Navigator.of(context).pushNamed('/wordbook/search'),
+  );
+
+  Widget _photoAction(AppL10n t) => IconButton(
+    icon: const Icon(Icons.add_a_photo_outlined),
+    tooltip: t.bookshelfAddPage,
+    onPressed: _addPhoto,
+  );
+
+  Widget _embeddedActions(AppL10n t) {
+    return Align(
+      alignment: AlignmentDirectional.centerEnd,
+      child: Wrap(
+        spacing: Spacing.xs,
+        runSpacing: Spacing.xs,
+        children: [
+          if (widget.showEmbeddedSearchAndPhoto) _searchAction(t),
+          _createAction(t),
+          _redeemAction(t),
+          if (widget.showEmbeddedSearchAndPhoto) _photoAction(t),
+        ],
+      ),
+    );
+  }
+
+  SoriEmptyState _emptyState(AppL10n t) {
+    return SoriEmptyState(
+      asset: 'assets/illustrations/book/book_empty_shelf.png',
+      icon: Icons.menu_book_outlined,
+      title: t.bookshelfEmptyTitle,
+      body: t.bookshelfEmptyBody,
+      ctaLabel: t.bookshelfEmptyCta,
+      onCta: () =>
+          Navigator.of(context).pushNamed('/book').then((_) => _reload()),
+      secondaryLabel: t.createWordbookCta,
+      onSecondary: _createWordbook,
+    );
+  }
+
+  Widget _populatedContent(
+    AppL10n t,
+    EdgeInsets pagePadding, {
+    bool includeEmbeddedActions = false,
+  }) {
+    return RefreshIndicator(
+      onRefresh: () async => _reload(),
+      color: SoriColors.primary,
+      child: ListView(
+        padding: pagePadding,
+        children: [
+          if (includeEmbeddedActions) ...[
+            _embeddedActions(t),
+            const SizedBox(height: Spacing.sm),
+          ],
+          SoriPageHeader(title: t.bookshelfTitle),
+          const SizedBox(height: Spacing.xl),
+          const HanokHeader(
+            asset: 'assets/illustrations/hanok/calligraphy.png',
+            fallbackIcon: Icons.menu_book_outlined,
+          ),
+          const SizedBox(height: Spacing.md),
+          if (_packs.isNotEmpty) ...[
+            _SectionHeader(label: t.bookshelfSectionCustomPacks),
+            ..._packs.map(
+              (p) => _CustomPackTile(
+                pack: p,
+                onTap: () => Navigator.of(
+                  context,
+                ).pushNamed('/custom_pack/play', arguments: p.id),
+                onEdit: () => Navigator.of(context)
+                    .pushNamed('/custom_pack/edit', arguments: p.id)
+                    .then((_) => _reload()),
+                onShare: () => _sharePack(p),
+                onDelete: () async {
+                  await CustomPackService.delete(p.id);
+                  _reload();
+                },
+              ),
+            ),
+            const SizedBox(height: Spacing.lg),
+          ],
+          if (_pages.isNotEmpty) ...[
+            _SectionHeader(label: t.bookshelfSectionPages),
+            ..._pages.map(
+              (p) => _PageTile(
+                page: p,
+                onTap: () => Navigator.of(context)
+                    .pushNamed('/bookshelf/page', arguments: p.id)
+                    .then((_) => _reload()),
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
 
     if (_pages.isEmpty && _packs.isEmpty) {
-      return SoriStandardPage(
-        appBarTitle: t.bookshelfTitle,
-        headline: t.bookshelfTitle,
-        actions: [_createAction(t), _redeemAction(t)],
-        maxWidth: SoriMaxWidth.hub,
+      return ListView(
+        padding: widget.padding,
         children: [
-          SoriEmptyState(
-            asset: 'assets/illustrations/book/book_empty_shelf.png',
-            icon: Icons.menu_book_outlined,
-            title: t.bookshelfEmptyTitle,
-            body: t.bookshelfEmptyBody,
-            ctaLabel: t.bookshelfEmptyCta,
-            onCta: () =>
-                Navigator.of(context).pushNamed('/book').then((_) => _reload()),
-            secondaryLabel: t.createWordbookCta,
-            onSecondary: _createWordbook,
-          ),
+          if (widget.showEmbeddedActions) ...[
+            _embeddedActions(t),
+            const SizedBox(height: Spacing.sm),
+          ],
+          SoriPageHeader(title: t.bookshelfTitle),
+          const SizedBox(height: Spacing.xl),
+          _emptyState(t),
         ],
       );
     }
 
-    return SoriStandardFrame(
-      appBarTitle: t.bookshelfTitle,
-      actions: [
-        IconButton(
-          key: _searchKey,
-          icon: const Icon(Icons.search_rounded),
-          tooltip: t.wbSearchTitle,
-          onPressed: () => Navigator.of(context).pushNamed('/wordbook/search'),
-        ),
-        _createAction(t),
-        _redeemAction(t),
-        IconButton(
-          icon: const Icon(Icons.add_a_photo_outlined),
-          tooltip: t.bookshelfAddPage,
-          onPressed: () =>
-              Navigator.of(context).pushNamed('/book').then((_) => _reload()),
-        ),
-      ],
-      maxWidth: SoriMaxWidth.hub,
-      padding: const EdgeInsets.fromLTRB(
-        Spacing.md,
-        Spacing.xs,
-        Spacing.md,
-        Spacing.xxl,
-      ),
-      builder: (context, pagePadding) => RefreshIndicator(
-        onRefresh: () async => _reload(),
-        color: SoriColors.primary,
-        child: ListView(
-          padding: pagePadding,
-          children: [
-            SoriPageHeader(title: t.bookshelfTitle),
-            const SizedBox(height: Spacing.xl),
-            const HanokHeader(
-              asset: 'assets/illustrations/hanok/calligraphy.png',
-              fallbackIcon: Icons.menu_book_outlined,
-            ),
-            const SizedBox(height: Spacing.md),
-            if (_packs.isNotEmpty) ...[
-              _SectionHeader(label: t.bookshelfSectionCustomPacks),
-              ..._packs.map(
-                (p) => _CustomPackTile(
-                  pack: p,
-                  onTap: () => Navigator.of(
-                    context,
-                  ).pushNamed('/custom_pack/play', arguments: p.id),
-                  onEdit: () => Navigator.of(context)
-                      .pushNamed('/custom_pack/edit', arguments: p.id)
-                      .then((_) => _reload()),
-                  onShare: () => _sharePack(p),
-                  onDelete: () async {
-                    await CustomPackService.delete(p.id);
-                    _reload();
-                  },
-                ),
-              ),
-              const SizedBox(height: Spacing.lg),
-            ],
-            if (_pages.isNotEmpty) ...[
-              _SectionHeader(label: t.bookshelfSectionPages),
-              ..._pages.map(
-                (p) => _PageTile(
-                  page: p,
-                  onTap: () => Navigator.of(context)
-                      .pushNamed('/bookshelf/page', arguments: p.id)
-                      .then((_) => _reload()),
-                ),
-              ),
-            ],
-          ],
-        ),
-      ),
+    return _populatedContent(
+      t,
+      widget.padding,
+      includeEmbeddedActions: widget.showEmbeddedActions,
     );
   }
 }

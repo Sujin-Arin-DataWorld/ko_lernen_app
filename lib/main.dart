@@ -62,14 +62,12 @@ import 'screens/vocab_notebook_result_screen.dart';
 import 'screens/vocab_notebook_studio_screen.dart';
 import 'screens/vocab_nuance_screen.dart';
 import 'screens/bookshelf_page_screen.dart';
-import 'screens/bookshelf_screen.dart';
 import 'screens/custom_pack_play_screen.dart';
 import 'screens/custom_pack_edit_screen.dart';
 import 'screens/custom_pack_quiz_screen.dart';
 import 'screens/custom_pack_matching_screen.dart';
 import 'screens/custom_pack_typing_screen.dart';
-import 'screens/wordbook_search_screen.dart';
-import 'screens/hard_words_screen.dart';
+import 'screens/my_words_screen.dart';
 import 'screens/word_web_screen.dart';
 import 'screens/bojagi_screen.dart';
 import 'screens/dojangcheop_screen.dart';
@@ -1039,9 +1037,13 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             // Phase 5.1 — Bookshelf + Custom Pack
+            case '/my_words':
+            case '/wordbook/search':
             case '/bookshelf':
+            case '/hard_words':
+              final initialTab = myWordsTabForRoute(settings.name)!;
               return SoriTransitions.fadeScale(
-                (_) => const BookshelfScreen(),
+                (_) => MyWordsScreen(initialTab: initialTab),
                 settings: settings,
               );
             case '/bookshelf/page':
@@ -1078,16 +1080,6 @@ class _KoLernenAppState extends State<KoLernenApp> {
               final id = settings.arguments as String? ?? '';
               return SoriTransitions.fadeScale(
                 (_) => CustomPackTypingScreen(packId: id),
-                settings: settings,
-              );
-            case '/wordbook/search':
-              return SoriTransitions.fadeScale(
-                (_) => const WordbookSearchScreen(),
-                settings: settings,
-              );
-            case '/hard_words':
-              return SoriTransitions.fadeScale(
-                (_) => const HardWordsScreen(),
                 settings: settings,
               );
             case '/word_web':

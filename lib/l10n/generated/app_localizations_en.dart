@@ -4540,6 +4540,24 @@ class AppL10nEn extends AppL10n {
   String get wbSearchTitle => 'My words';
 
   @override
+  String get myWordsTitle => 'My words';
+
+  @override
+  String get myWordsTabSearch => 'Search';
+
+  @override
+  String get myWordsTabShelf => 'Shelf';
+
+  @override
+  String get myWordsTabDifficult => 'Difficult';
+
+  @override
+  String get myWordsPhotoAction => '+ Photo';
+
+  @override
+  String get myWordsPhotoSheetTitle => 'Words from a photo';
+
+  @override
   String get wbSearchHint => 'Search word or meaning…';
 
   @override
