@@ -1,8 +1,8 @@
 """Contract tests for the canonical scenario scene inventory.
 
-The runtime still uses 14 legacy category posters as fallbacks.  The strict
-1536x1024 contract therefore applies to scenario-specific (dedicated) art,
-while a real category fallback remains coverage debt rather than an error.
+Dedicated posters and the 15 approved runtime category fallbacks share the
+1536x1024 PNG contract. Category poster bytes and narrow user-approved content
+exceptions are additionally protected by the manual category lock.
 """
 
 from __future__ import annotations
@@ -30,6 +30,86 @@ class SceneInventoryTest(unittest.TestCase):
         )
         self.assertEqual(audit_scene_assets.DEDICATED_MODES, set(output["modes"]))
         self.assertEqual(output["format"], "PNG")
+
+    def test_live_category_posters_match_the_exact_approval_lock(self) -> None:
+        category_lock = audit_scene_assets.load_category_poster_lock()
+        refs = audit_scene_assets._load_scenario_refs()
+        required_categories = {ref.backdrop for ref in refs if ref.backdrop}
+
+        self.assertEqual(
+            audit_scene_assets.find_category_poster_lock_issues(
+                category_lock,
+                audit_scene_assets.POSTER_DIR,
+                required_categories,
+            ),
+            [],
+        )
+        self.assertEqual(len(category_lock["categories"]), 15)
+        exceptions = {
+            entry["id"]: [item["rule"] for item in entry["approvedContentExceptions"]]
+            for entry in category_lock["categories"]
+            if entry["approvedContentExceptions"]
+        }
+        self.assertEqual(
+            exceptions,
+            {
+                "bank": ["no_readable_text"],
+                "directions": ["no_ui"],
+                "salon": ["no_readable_text"],
+            },
+        )
+        family = style_lock.load_style_lock()["families"]["F-E-scene-poster"]
+        self.assertIn("readable text", family["content"]["forbidden"])
+        self.assertIn("UI chrome", family["content"]["forbidden"])
+
+    def test_category_poster_byte_change_fails_the_approval_lock(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            poster_dir = self._poster_dir(root)
+            poster = poster_dir / "office.png"
+            self._png(poster)
+            category_lock = {
+                "schemaVersion": 1,
+                "profileIdentifier": audit_scene_assets.CATEGORY_POSTER_PROFILE,
+                "runtimeRoot": "assets/illustrations/scenes/",
+                "canonicalOutput": {
+                    "width": 1536,
+                    "height": 1024,
+                    "format": "PNG",
+                    "modes": ["RGB", "RGBA"],
+                },
+                "categories": [
+                    {
+                        "id": "office",
+                        "path": "assets/illustrations/scenes/office.png",
+                        "sha256": audit_scene_assets._sha256_file(poster),
+                        "approvedContentExceptions": [],
+                    }
+                ],
+            }
+            self.assertEqual(
+                audit_scene_assets.find_category_poster_lock_issues(
+                    category_lock,
+                    poster_dir,
+                    {"office"},
+                    project_root=root,
+                ),
+                [],
+            )
+
+            self._png(poster, color=(96, 64, 32))
+            self.assertEqual(
+                [
+                    issue["code"]
+                    for issue in audit_scene_assets.find_category_poster_lock_issues(
+                        category_lock,
+                        poster_dir,
+                        {"office"},
+                        project_root=root,
+                    )
+                ],
+                ["category_poster_hash_drift"],
+            )
 
     def test_generated_data_markdown_is_forced_to_lf(self) -> None:
         attributes = (audit_scene_assets.ROOT / ".gitattributes").read_text(

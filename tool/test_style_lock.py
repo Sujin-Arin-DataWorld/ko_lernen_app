@@ -136,6 +136,12 @@ class StyleLockLoaderTest(unittest.TestCase):
         )
         for anchor in family["anchors"]:
             self.assertTrue((ROOT / anchor).is_file(), anchor)
+        self.assertTrue(
+            any(
+                "docs/data/scene_category_poster_lock.json" in registration
+                for registration in family["registration"]
+            )
+        )
         pubspec = (ROOT / "pubspec.yaml").read_text(encoding="utf-8")
         self.assertNotIn(
             "assets/illustrations/style_lock/",
@@ -169,8 +175,12 @@ class StyleLockLoaderTest(unittest.TestCase):
                 # 실측(F-D-share)이면 스칼라 — 둘 다 게이트 범위 안이어야 한다.
                 sat = measured["satMean"]
                 sat_lo, sat_hi = (sat, sat) if isinstance(sat, (int, float)) else sat
+                val = measured["valMean"]
+                val_lo, val_hi = (val, val) if isinstance(val, (int, float)) else val
                 self.assertLessEqual(gates["satMean"][0], sat_lo)
                 self.assertGreaterEqual(gates["satMean"][1], sat_hi)
+                self.assertLessEqual(gates["valMean"][0], val_lo)
+                self.assertGreaterEqual(gates["valMean"][1], val_hi)
                 self.assertGreaterEqual(gates["neonMax"], measured["neonMax"])
 
     def test_f_a_denies_seedream_and_allows_gpt_image_2(self) -> None:

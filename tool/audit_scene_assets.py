@@ -1,11 +1,11 @@
 """Deterministic audit for canonical scenario scene assets.
 
 The 419 scenario shards are the authority. Every scenario may resolve to a
-scenario-specific poster first and to one of the existing category posters as
-a runtime fallback. Dedicated art is strict: exact canonical filename,
-1536x1024 PNG, RGB/RGBA, readable, unique bytes, and unambiguous scenario ID.
-Category fallbacks remain visible coverage debt and intentionally retain their
-legacy format.
+scenario-specific poster first and to an approved category poster as a runtime
+fallback. Dedicated art is strict: exact canonical filename, 1536x1024 PNG,
+RGB/RGBA, readable, unique bytes, and unambiguous scenario ID. Category
+fallbacks are separately locked to the same technical output contract and to
+their explicitly approved SHA-256 bytes.
 
 Default mode rewrites the canonical JSON inventory and Markdown report.
 `--check` performs the same scan without writing and fails on either strict
@@ -33,12 +33,20 @@ REPORT_PATH = ROOT / "docs" / "data" / "scene_asset_report.md"
 INVENTORY_PATH = ROOT / "docs" / "data" / "scene_asset_inventory.json"
 GENERATION_MANIFEST_PATH = ROOT / "docs" / "data" / "scene_art_generation_manifest.json"
 RESOLVER_PATH = ROOT / "lib" / "services" / "scene_asset_resolver.dart"
+CATEGORY_POSTER_LOCK_PATH = (
+    ROOT / "docs" / "data" / "scene_category_poster_lock.json"
+)
 
 LOOP_SCENE_PREFIX = "scene_"
 DEDICATED_SIZE = (1536, 1024)
 DEDICATED_MODES = frozenset({"RGB", "RGBA"})
 SCHEMA_VERSION = 1
 CATEGORY_POSTER_ALIASES = {"theme_park": "market"}
+CATEGORY_POSTER_PROFILE = "scene-poster/faceted-heritage-2.5d-v1"
+CATEGORY_POSTER_LOCK_SCHEMA_VERSION = 1
+APPROVED_CONTENT_EXCEPTION_RULES = frozenset(
+    {"no_readable_text", "no_ui"}
+)
 
 
 @dataclass(frozen=True)
@@ -184,6 +192,237 @@ def inspect_png(path: Path) -> dict:
         }
 
 
+def load_category_poster_lock(
+    path: Path = CATEGORY_POSTER_LOCK_PATH,
+) -> Mapping[str, object]:
+    """Load the manually approved category-poster byte lock."""
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(data, Mapping):
+        raise ValueError("Category-poster lock must be a JSON object.")
+    return data
+
+
+def find_category_poster_lock_issues(
+    category_lock: Mapping[str, object],
+    poster_dir: Path | str,
+    required_categories: Iterable[str],
+    *,
+    project_root: Path | str = ROOT,
+) -> list[dict]:
+    """Verify canonical category posters against the approved byte lock."""
+    root = Path(project_root)
+    directory = Path(poster_dir)
+    issues: list[dict] = []
+    expected_categories = set(required_categories)
+
+    if category_lock.get("schemaVersion") != CATEGORY_POSTER_LOCK_SCHEMA_VERSION:
+        issues.append(
+            _issue(
+                "category_poster_lock_invalid",
+                "Category-poster lock has an unsupported schema version.",
+                path=_project_path(CATEGORY_POSTER_LOCK_PATH, ROOT),
+            )
+        )
+    if category_lock.get("profileIdentifier") != CATEGORY_POSTER_PROFILE:
+        issues.append(
+            _issue(
+                "category_poster_lock_invalid",
+                "Category-poster lock profile does not match the scene-poster SSoT.",
+                path=_project_path(CATEGORY_POSTER_LOCK_PATH, ROOT),
+            )
+        )
+    if category_lock.get("runtimeRoot") != "assets/illustrations/scenes/":
+        issues.append(
+            _issue(
+                "category_poster_lock_invalid",
+                "Category-poster lock points at an unexpected runtime root.",
+                path=_project_path(CATEGORY_POSTER_LOCK_PATH, ROOT),
+            )
+        )
+    if category_lock.get("canonicalOutput") != {
+        "width": DEDICATED_SIZE[0],
+        "height": DEDICATED_SIZE[1],
+        "format": "PNG",
+        "modes": ["RGB", "RGBA"],
+    }:
+        issues.append(
+            _issue(
+                "category_poster_lock_invalid",
+                "Category-poster lock output contract does not match the canonical scene contract.",
+                path=_project_path(CATEGORY_POSTER_LOCK_PATH, ROOT),
+            )
+        )
+
+    raw_categories = category_lock.get("categories")
+    if not isinstance(raw_categories, list):
+        return _dedupe_issues(
+            [
+                *issues,
+                _issue(
+                    "category_poster_lock_invalid",
+                    "Category-poster lock has no categories list.",
+                    path=_project_path(CATEGORY_POSTER_LOCK_PATH, ROOT),
+                ),
+            ]
+        )
+
+    entries_by_id: dict[str, list[Mapping[str, object]]] = defaultdict(list)
+    for raw_entry in raw_categories:
+        if not isinstance(raw_entry, Mapping):
+            issues.append(
+                _issue(
+                    "category_poster_lock_invalid",
+                    "Category-poster lock contains a non-object entry.",
+                    path=_project_path(CATEGORY_POSTER_LOCK_PATH, ROOT),
+                )
+            )
+            continue
+        category_id = raw_entry.get("id")
+        if not isinstance(category_id, str) or not category_id:
+            issues.append(
+                _issue(
+                    "category_poster_lock_invalid",
+                    "Category-poster lock entry has no valid category ID.",
+                    path=_project_path(CATEGORY_POSTER_LOCK_PATH, ROOT),
+                )
+            )
+            continue
+        entries_by_id[category_id].append(raw_entry)
+
+    locked_categories = set(entries_by_id)
+    if locked_categories != expected_categories:
+        issues.append(
+            _issue(
+                "category_poster_set_drift",
+                "Locked category IDs do not exactly match canonical scenario backdrops.",
+                path=_project_path(CATEGORY_POSTER_LOCK_PATH, ROOT),
+                expected=sorted(expected_categories),
+                actual=sorted(locked_categories),
+            )
+        )
+
+    for category_id in sorted(entries_by_id):
+        entries = entries_by_id[category_id]
+        if len(entries) != 1:
+            issues.append(
+                _issue(
+                    "category_poster_lock_invalid",
+                    f"Category {category_id!r} appears {len(entries)} times in the lock.",
+                    id=category_id,
+                    path=_project_path(CATEGORY_POSTER_LOCK_PATH, ROOT),
+                )
+            )
+            continue
+        entry = entries[0]
+        expected_relative = f"assets/illustrations/scenes/{category_id}.png"
+        if entry.get("path") != expected_relative:
+            issues.append(
+                _issue(
+                    "category_poster_path_drift",
+                    "Locked category poster path does not match its canonical ID.",
+                    id=category_id,
+                    path=str(entry.get("path") or ""),
+                )
+            )
+
+        raw_exceptions = entry.get("approvedContentExceptions")
+        if not isinstance(raw_exceptions, list):
+            issues.append(
+                _issue(
+                    "category_poster_exception_invalid",
+                    "Approved content exceptions must be a list.",
+                    id=category_id,
+                    path=expected_relative,
+                )
+            )
+        else:
+            for exception in raw_exceptions:
+                if (
+                    not isinstance(exception, Mapping)
+                    or exception.get("rule") not in APPROVED_CONTENT_EXCEPTION_RULES
+                    or not isinstance(exception.get("detail"), str)
+                    or not str(exception.get("detail")).strip()
+                ):
+                    issues.append(
+                        _issue(
+                            "category_poster_exception_invalid",
+                            "Content exception is not a narrowly approved rule with a reason.",
+                            id=category_id,
+                            path=expected_relative,
+                        )
+                    )
+
+        path = directory / category_poster_name(category_id)
+        metadata = inspect_png(path)
+        relative = _project_path(path, root)
+        if not metadata["readable"]:
+            issues.append(
+                _issue(
+                    "category_poster_unreadable",
+                    "Locked category poster is missing or cannot be decoded.",
+                    id=category_id,
+                    path=relative,
+                )
+            )
+            continue
+        if not metadata["isPng"]:
+            issues.append(
+                _issue(
+                    "category_poster_format_drift",
+                    "Locked category poster contents are not PNG.",
+                    id=category_id,
+                    path=relative,
+                )
+            )
+        if (metadata["width"], metadata["height"]) != DEDICATED_SIZE:
+            issues.append(
+                _issue(
+                    "category_poster_dimensions_drift",
+                    "Locked category poster is not 1536x1024.",
+                    id=category_id,
+                    path=relative,
+                    actual=[metadata["width"], metadata["height"]],
+                )
+            )
+        if metadata["mode"] not in DEDICATED_MODES:
+            issues.append(
+                _issue(
+                    "category_poster_mode_drift",
+                    "Locked category poster is not RGB/RGBA.",
+                    id=category_id,
+                    path=relative,
+                    actual=metadata["mode"],
+                )
+            )
+        expected_digest = entry.get("sha256")
+        if (
+            not isinstance(expected_digest, str)
+            or len(expected_digest) != 64
+            or any(character not in "0123456789abcdef" for character in expected_digest)
+        ):
+            issues.append(
+                _issue(
+                    "category_poster_lock_invalid",
+                    "Locked SHA-256 must be 64 lowercase hexadecimal characters.",
+                    id=category_id,
+                    path=expected_relative,
+                )
+            )
+        elif metadata["sha256"] != expected_digest:
+            issues.append(
+                _issue(
+                    "category_poster_hash_drift",
+                    "Category poster bytes differ from the explicitly approved lock.",
+                    id=category_id,
+                    path=relative,
+                    expected=expected_digest,
+                    actual=metadata["sha256"],
+                )
+            )
+
+    return _dedupe_issues(issues)
+
+
 def _issue(code: str, message: str, **details: object) -> dict:
     issue = {"code": code}
     for key in ("id", "path", "shard", "duplicateOf", "locations"):
@@ -222,6 +461,7 @@ def scan_scene_inventory(
     project_root: Path | str = ROOT,
     generated_from: Optional[Mapping[str, str]] = None,
     review_mode: bool = False,
+    category_lock: Optional[Mapping[str, object]] = None,
 ) -> dict:
     """Build the canonical poster inventory from explicit, testable inputs."""
     root = Path(project_root)
@@ -297,6 +537,15 @@ def scan_scene_inventory(
         else scenario_ids
     )
     issues: list[dict] = []
+    if category_lock is not None:
+        issues.extend(
+            find_category_poster_lock_issues(
+                category_lock,
+                fallback_directory,
+                backdrops,
+                project_root=root,
+            )
+        )
 
     refs_by_id: dict[str, list[ScenarioRef]] = defaultdict(list)
     for ref in sorted_refs:
@@ -783,11 +1032,28 @@ def _load_scenario_refs(data_dir: Path = DATA_DIR) -> list[ScenarioRef]:
 
 
 def _generated_from() -> dict[str, str]:
-    paths = [*_scenario_shard_paths(), RESOLVER_PATH]
+    paths = [
+        *_scenario_shard_paths(),
+        RESOLVER_PATH,
+        CATEGORY_POSTER_LOCK_PATH,
+    ]
     return {
         _project_path(path, ROOT): _sha256_text_file(path)
         for path in sorted(paths, key=lambda item: _project_path(item, ROOT))
     }
+
+
+def _load_category_lock_with_issues() -> tuple[Optional[Mapping[str, object]], list[dict]]:
+    try:
+        return load_category_poster_lock(), []
+    except (OSError, ValueError, json.JSONDecodeError) as error:
+        return None, [
+            _issue(
+                "category_poster_lock_unreadable",
+                f"Category-poster lock cannot be read ({type(error).__name__}).",
+                path=_project_path(CATEGORY_POSTER_LOCK_PATH, ROOT),
+            )
+        ]
 
 
 def _scan_loop_summary(refs: Iterable[ScenarioRef]) -> dict:
@@ -854,8 +1120,8 @@ def render_report(
         "`python -X utf8 tool/audit_scene_assets.py`로 결정적으로 생성한다. 직접 편집하지 않는다.",
         "",
         "전용 포스터는 시나리오 ID와 같은 파일명, 1536×1024 PNG, RGB/RGBA, 고유",
-        "바이트를 요구한다. 기존 카테고리 포스터는 런타임 폴백이며 전용 아트",
-        "커버리지 부채로만 집계한다.",
+        "바이트를 요구한다. 카테고리 포스터 15장도 같은 기술 규격과 승인된",
+        "SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.",
         "",
         "## 요약",
         "",
@@ -880,7 +1146,7 @@ def render_report(
     lines.extend(["", "## 샤드별 시나리오", ""])
     for shard in sorted(by_shard):
         lines.append(f"- {shard}: {by_shard[shard]}개")
-    lines.extend(["", "## 카테고리 폴백 커버리지 부채", ""])
+    lines.extend(["", "## 카테고리 런타임 폴백", ""])
     if by_backdrop:
         for backdrop in sorted(by_backdrop):
             lines.append(f"- {backdrop}: {by_backdrop[backdrop]}개")
@@ -974,6 +1240,7 @@ def _parser() -> argparse.ArgumentParser:
 def main(argv: Optional[list[str]] = None) -> int:
     args = _parser().parse_args(argv)
     refs = _load_scenario_refs()
+    category_lock, category_lock_issues = _load_category_lock_with_issues()
     if args.pending_review is not None:
         pending_dir = _resolve_cli_path(args.pending_review)
         inventory = scan_scene_inventory(
@@ -983,6 +1250,7 @@ def main(argv: Optional[list[str]] = None) -> int:
             project_root=ROOT,
             generated_from=_generated_from(),
             review_mode=True,
+            category_lock=category_lock,
         )
         try:
             generation_manifest = json.loads(
@@ -1001,7 +1269,11 @@ def main(argv: Optional[list[str]] = None) -> int:
                 )
             ]
         inventory["issues"] = _dedupe_issues(
-            [*inventory["issues"], *manifest_issues]
+            [
+                *inventory["issues"],
+                *category_lock_issues,
+                *manifest_issues,
+            ]
         )
         result = strict_exit_code(inventory)
         print(
@@ -1022,6 +1294,10 @@ def main(argv: Optional[list[str]] = None) -> int:
         POSTER_DIR,
         project_root=ROOT,
         generated_from=_generated_from(),
+        category_lock=category_lock,
+    )
+    inventory["issues"] = _dedupe_issues(
+        [*inventory["issues"], *category_lock_issues]
     )
     loop_summary = _scan_loop_summary(refs)
     json_path = _resolve_cli_path(args.json)

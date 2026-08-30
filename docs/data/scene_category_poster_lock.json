@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "profileIdentifier": "scene-poster/faceted-heritage-2.5d-v1",
+  "approvedBy": "Jin",
+  "approvedOn": "2026-08-30",
+  "runtimeRoot": "assets/illustrations/scenes/",
+  "canonicalOutput": {
+    "width": 1536,
+    "height": 1024,
+    "format": "PNG",
+    "modes": [
+      "RGB",
+      "RGBA"
+    ]
+  },
+  "contentExceptionPolicy": "An exception applies only to the named category and exact locked SHA-256. Replacing any bytes requires explicit review and a lock update; the global generation prohibition remains unchanged.",
+  "categories": [
+    {
+      "id": "airport",
+      "path": "assets/illustrations/scenes/airport.png",
+      "sha256": "2233a48b88afd5a0474f4e49298aa5592d6bf50b09aa110b8742d45af24f6eff",
+      "source": {
+        "kind": "direct"
+      },
+      "approvedContentExceptions": []
+    },
+    {
+      "id": "bank",
+      "path": "assets/illustrations/scenes/bank.png",
+      "sha256": "45dd189bc46130295355e001d61962fa6488701440161e8e664e83ca643e4dbf",
+      "source": {
+        "kind": "normalized_4_3",
+        "sourceSize": [
+          1448,
+          1086
+        ],
+        "cropBox": [
+          0,
+          60,
+          1448,
+          1025
+        ],
+        "normalizer": "tool/scene_poster_normalize.py",
+        "focalPoint": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      "approvedContentExceptions": [
+        {
+          "rule": "no_readable_text",
+          "detail": "The word Bank is explicitly approved for this exact locked poster."
+        }
+      ]
+    },
+    {
+      "id": "cafe",
+      "path": "assets/illustrations/scenes/cafe.png",
+      "sha256": "b68a23266ad4fdbdfd52568ba7e1457d7bf672f1368a0d2ab31c50f5d1e6bfd5",
+      "source": {
+        "kind": "normalized_4_3",
+        "sourceSize": [
+          1448,
+          1086
+        ],
+        "cropBox": [
+          0,
+          60,
+          1448,
+          1025
+        ],
+        "normalizer": "tool/scene_poster_normalize.py",
+        "focalPoint": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      "approvedContentExceptions": []
+    },
+    {
+      "id": "convenience",
+      "path": "assets/illustrations/scenes/convenience.png",
+      "sha256": "917585b44e4d10b9cd5223baae804d6b7b961767574679771df347215f0307d2",
+      "source": {
+        "kind": "direct"
+      },
+      "approvedContentExceptions": []
+    },
+    {
+      "id": "directions",
+      "path": "assets/illustrations/scenes/directions.png",
+      "sha256": "f2500c600eada342bc1a4102996d83d5cfdf068814f5d4247f230bebb66dde9c",
+      "source": {
+        "kind": "direct"
+      },
+      "approvedContentExceptions": [
+        {
+          "rule": "no_ui",
+          "detail": "The phone map UI is explicitly approved for this exact locked poster."
+        }
+      ]
+    },
+    {
+      "id": "home",
+      "path": "assets/illustrations/scenes/home.png",
+      "sha256": "7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d",
+      "source": {
+        "kind": "direct"
+      },
+      "approvedContentExceptions": []
+    },
+    {
+      "id": "hotel",
+      "path": "assets/illustrations/scenes/hotel.png",
+      "sha256": "ff69b18019a2e59ca2f78dbefb6ddc4faad8702d369710e9e6df7c363daff3cb",
+      "source": {
+        "kind": "direct"
+      },
+      "approvedContentExceptions": []
+    },
+    {
+      "id": "market",
+      "path": "assets/illustrations/scenes/market.png",
+      "sha256": "86e36cbee650407d0bff0b4010467290069e78188b2e7194884b09f7f90acf9c",
+      "source": {
+        "kind": "direct"
+      },
+      "approvedContentExceptions": []
+    },
+    {
+      "id": "office",
+      "path": "assets/illustrations/scenes/office.png",
+      "sha256": "b51a3c6075841a871e6da2e18e57f352ec5861a124a8a3fc4701322e2c2943c4",
+      "source": {
+        "kind": "direct"
+      },
+      "approvedContentExceptions": []
+    },
+    {
+      "id": "pharmacy",
+      "path": "assets/illustrations/scenes/pharmacy.png",
+      "sha256": "62771ecbe9cfcdc9653ad24c509200edf728ae5aad194a8209da6e3367055a92",
+      "source": {
+        "kind": "direct"
+      },
+      "approvedContentExceptions": []
+    },
+    {
+      "id": "restaurant",
+      "path": "assets/illustrations/scenes/restaurant.png",
+      "sha256": "61e4aa4e94e01df9cb51e40438ce41c3a260e4b92437608d97a165bf208f61f8",
+      "source": {
+        "kind": "direct"
+      },
+      "approvedContentExceptions": []
+    },
+    {
+      "id": "salon",
+      "path": "assets/illustrations/scenes/salon.png",
+      "sha256": "0c78d6e50434ae7e3ee566997c18936976731608b436919d72a623ab1c0858d9",
+      "source": {
+        "kind": "normalized_4_3",
+        "sourceSize": [
+          1448,
+          1086
+        ],
+        "cropBox": [
+          0,
+          60,
+          1448,
+          1025
+        ],
+        "normalizer": "tool/scene_poster_normalize.py",
+        "focalPoint": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      "approvedContentExceptions": [
+        {
+          "rule": "no_readable_text",
+          "detail": "The word Salon is explicitly approved for this exact locked poster."
+        }
+      ]
+    },
+    {
+      "id": "station",
+      "path": "assets/illustrations/scenes/station.png",
+      "sha256": "bbd8f5b72a1576dde83a000c2608e46b2e3623cdbc2daf426d495ed23a2e158f",
+      "source": {
+        "kind": "direct"
+      },
+      "approvedContentExceptions": []
+    },
+    {
+      "id": "taxi",
+      "path": "assets/illustrations/scenes/taxi.png",
+      "sha256": "0267b90eb07bb40a3141023c21943e643e64295296462bf7736f3534105fe356",
+      "source": {
+        "kind": "direct"
+      },
+      "approvedContentExceptions": []
+    },
+    {
+      "id": "theme_park",
+      "path": "assets/illustrations/scenes/theme_park.png",
+      "sha256": "95b947d5f5631997eb4b777aee5791d9b9ceed9c86cbbaf74e5645bef0d1a434",
+      "source": {
+        "kind": "normalized_4_3",
+        "sourceSize": [
+          1448,
+          1086
+        ],
+        "cropBox": [
+          0,
+          60,
+          1448,
+          1025
+        ],
+        "normalizer": "tool/scene_poster_normalize.py",
+        "focalPoint": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      "approvedContentExceptions": []
+    }
+  ]
+}

@@ -1151,31 +1151,33 @@
       "gates": {
         "satMean": [
           0.24,
-          0.55
+          0.62
         ],
         "valMean": [
           0.4,
           0.75
         ],
-        "neonMax": 0.03,
-        "note": "Calibrated from the three approved scene-style anchors. These color gates supplement, but do not replace, crop and semantic visual review.",
+        "neonMax": 0.045,
+        "note": "Calibrated from all 15 approved runtime category posters. These color gates supplement, but do not replace, crop and semantic visual review; exact approved runtime bytes are separately locked.",
         "measured": {
           "satMean": [
             0.2632,
-            0.5212
+            0.5804
           ],
           "valMean": [
             0.4303,
             0.7161
           ],
-          "neonMax": 0.0211
+          "neonMax": 0.04
         },
-        "measuredAt": "3 approved anchors, 2026-08-30"
+        "measuredAt": "15 approved runtime category posters, 2026-08-30"
       },
       "registration": [
         "docs/assets/STYLE_LOCK.json: families.F-E-scene-poster is the only style and crop SSoT",
         "tool/build_scene_art_manifest.py reads this profile for all 419 scenario prompts",
         "docs/data/scene_art_generation_manifest.json is generated output, never a second SSoT",
+        "docs/data/scene_category_poster_lock.json locks all approved runtime category poster bytes and narrow content exceptions",
+        "tool/audit_scene_assets.py enforces the runtime category lock in CI",
         "assets/illustrations/style_lock/ is generation-reference-only and must not be added to pubspec.yaml"
       ]
     },
