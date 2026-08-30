@@ -57,6 +57,9 @@ class ScenarioStoreTest(unittest.TestCase):
                 [item["id"] for item in scenario_store.load_scenarios(data)],
                 ["a", "b", "c"],
             )
+            raw = (data / "scenarios_a1.json").read_bytes()
+            self.assertTrue(raw.endswith(b"\n"))
+            self.assertNotIn(b"\r\n", raw)
 
     def test_shards_win_over_a_stale_legacy_file(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -81,7 +84,7 @@ class ScenarioStoreTest(unittest.TestCase):
         )
 
     def test_live_corpus_is_readable_and_complete(self) -> None:
-        self.assertEqual(len(scenario_store.load_scenarios()), 413)
+        self.assertEqual(len(scenario_store.load_scenarios()), 419)
 
 
 if __name__ == "__main__":

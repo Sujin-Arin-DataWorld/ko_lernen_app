@@ -143,6 +143,20 @@ class SceneInventoryTest(unittest.TestCase):
             self.assertEqual(inventory["scenarios"][0]["status"], "broken_fallback")
             self.assertIn("broken_category_fallback", self._codes(inventory))
 
+    def test_theme_park_uses_market_category_alias_until_poster_arrives(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self._png(self._poster_dir(root) / "market.png", size=(1086, 1448))
+            inventory = self._scan(
+                root,
+                [self._ref("a1_theme_park_date_choices", backdrop="theme_park")],
+            )
+            row = inventory["scenarios"][0]
+            self.assertEqual(row["status"], "fallback")
+            self.assertTrue(row["resolvedPath"].endswith("market.png"))
+            self.assertTrue(row["runtimeEligible"])
+            self.assertEqual(inventory["issues"], [])
+
     def test_wrong_dedicated_dimensions_are_strict(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

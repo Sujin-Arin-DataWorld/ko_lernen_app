@@ -2477,6 +2477,74 @@ SMALLTALK_REVIEW_APPROVALS.update(
     }
 )
 
+# Theme Park Date route approvals are static fingerprints of the 40 A1-B2
+# learner-facing phrases approved for live integration by Jin on 2026-08-30.
+# C1-C2 content uses the published C-level course-unit route and is outside the
+# A1-B2 phrase-decision ledger below.
+_THEME_PARK_DATE_SMALLTALK_ROUTE_APPROVALS = (
+    ("smalltalk_a1_0091", "b87433dde6613d7a0ff773e510004a59d2ab6e971e658f8a8631c455129cdcf5", "segment_a1_11_titles_relationships", "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b"),
+    ("smalltalk_a1_0092", "a9374e6cc3294ca51233df3e6be4351d226370f7a90f45e8019ccdffc180e652", "segment_a1_11_titles_relationships", "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b"),
+    ("smalltalk_a1_0093", "77cba50b5e94c3cd78ae83438fc4d88bf08a5c0a2282a1fb2c34cc8024123dad", "segment_a1_11_titles_relationships", "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b"),
+    ("smalltalk_a1_0094", "0e0670eb8f51107fdde0c76fa3bbd0352191c3d36859555fcd04c69d10ecc69d", "segment_a1_11_titles_relationships", "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b"),
+    ("smalltalk_a1_0095", "cc3e7a02ecde78ddc395025cdfb7e35792acced390ec25343d93a5db83eefbdb", "segment_a1_11_titles_relationships", "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b"),
+    ("smalltalk_a1_0096", "ccc7b2557b51adb1b8f46a1d773b7822ac9bcbef020eb6f4fb69c8e85123ed51", "segment_a1_11_titles_relationships", "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b"),
+    ("smalltalk_a1_0097", "e451b06be52de4ba17e2c234f2cd5e287f0a1de4e730bf4310681ae317fc280b", "segment_a1_11_titles_relationships", "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b"),
+    ("smalltalk_a1_0098", "f70bfcf99cdbcfdb50e899ddfea62b07dec64a10507293f0a96a920df0c97ded", "segment_a1_11_titles_relationships", "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b"),
+    ("smalltalk_a1_0099", "9f2cfd9a0a17a9147c5f824f55081c0a94081a952c6e09ff3a24231164a7c244", "segment_a1_11_titles_relationships", "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b"),
+    ("smalltalk_a1_0100", "2c410fe792c0a08d7c8ca88d300c9ec858d8277ccdf46834fc4171df6ece2208", "segment_a1_11_titles_relationships", "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b"),
+    ("smalltalk_a2_0084", "ba859ae48fece78f8886fc169314e1f15a5e0234b2633f50f74266d0b40cac8e", "segment_a2_running_late", "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27"),
+    ("smalltalk_a2_0085", "1fc43f0de62a589b0b411fe613900fec43897b9626cdb12e01edc4052086f6f0", "segment_a2_running_late", "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27"),
+    ("smalltalk_a2_0086", "fd56ccbbabc52e1f19a85ed1fd179dd4307c5a05528d9bd91f579f7888649064", "segment_a2_running_late", "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27"),
+    ("smalltalk_a2_0087", "ad795ef7f54ef83010a38f7a2b29325e451bd9e1485963b2044beec8040c360a", "segment_a2_running_late", "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27"),
+    ("smalltalk_a2_0088", "21afbd0d67fc43a077eb0845de02be8a764d7dd0fd27be99b9499eed72231b2b", "segment_a2_running_late", "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27"),
+    ("smalltalk_a2_0089", "cb9ebeb79fcb574965816120dedf3a770d469d6daac37fc081b6612ced5b18bf", "segment_a2_running_late", "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27"),
+    ("smalltalk_a2_0090", "b6cf9af269ee6c744ffab19128fede370129fd305d89a7632589f6583622f0fd", "segment_a2_running_late", "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27"),
+    ("smalltalk_a2_0091", "46c683b7bf9a3288b2129884fcda762dbfbb03def957f1f032616ef99be09082", "segment_a2_running_late", "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27"),
+    ("smalltalk_a2_0092", "1c6e9b4796bdfa577710def6eec671430d52ffc4879240598b36d38637ac36ee", "segment_a2_running_late", "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27"),
+    ("smalltalk_a2_0093", "cb81a45832e150030ae770cf67d4f933420f4c3641820197cdc43b13ab932c8f", "segment_a2_running_late", "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27"),
+    ("smalltalk_b1_0079", "697db0071e71f311b5aa792c768431207dc07a3d7bcbe963cf87ee704850a670", "segment_b1_intimate_feelings", "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651"),
+    ("smalltalk_b1_0080", "da150032a46c40b47612aa8000463ce5151407040fb269185bbcaaa54f6298f0", "segment_b1_intimate_feelings", "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651"),
+    ("smalltalk_b1_0081", "35f373aba5bd41b164edfa95e7164657e43ca517843074c674f74a8a537911a9", "segment_b1_intimate_feelings", "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651"),
+    ("smalltalk_b1_0082", "e75915a8705228203cfcf92be89b7dd7fa913bb40ae2cc6a1e0e93d7e3e66d26", "segment_b1_intimate_feelings", "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651"),
+    ("smalltalk_b1_0083", "3ba118106084a7c16be955d47c35bcb093fbf59d03caf6ec32ea328924e52cb3", "segment_b1_intimate_feelings", "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651"),
+    ("smalltalk_b1_0084", "fb4b7a549061fa035bb76cbaac21022e1433114b0878aa275b28262a093f975d", "segment_b1_intimate_feelings", "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651"),
+    ("smalltalk_b1_0085", "9599563d4cc32a96831e66f01aef8b6c2c10966c2f449ed37a4955fe28d66fae", "segment_b1_intimate_feelings", "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651"),
+    ("smalltalk_b1_0086", "c82bf4dd37ce2c046ad800214ee403e930f50cd5140536d80cc0e7a381c6e023", "segment_b1_intimate_feelings", "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651"),
+    ("smalltalk_b1_0087", "b91e8824d7b8b6571a30761982dc5e22434bd136fe655cd4aeb721ad520f484a", "segment_b1_intimate_feelings", "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651"),
+    ("smalltalk_b1_0088", "387b337cb554c9e7de07c278cd457a1b2bfba3990ce65de19eef57282d60fd5e", "segment_b1_intimate_feelings", "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651"),
+    ("smalltalk_b2_0119", "6631dd154d8c4c779916e916829947fafd2d9dfba8c39bf1ef1904982f8c06a1", "segment_b2_contract_scope", "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a"),
+    ("smalltalk_b2_0120", "eda0ac99b8c74a0223b7816f98cbf93f37b7876b3b05952f8afb31ffa4efe34b", "segment_b2_contract_scope", "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a"),
+    ("smalltalk_b2_0121", "13a77330e2a2ec849fcb81c3cd47af05207ffa96e9760bfd608eaf78b21ffc4c", "segment_b2_contract_scope", "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a"),
+    ("smalltalk_b2_0122", "cea74b6caf69c607422237ab3cb412b09ed6231d1b09cea88cbf5200083ba9b8", "segment_b2_contract_scope", "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a"),
+    ("smalltalk_b2_0123", "8d18e983cb1d3ce5c1760ec353bc60cf36667a769d90e2649fe472fd0bb455d8", "segment_b2_contract_scope", "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a"),
+    ("smalltalk_b2_0124", "622295a96856389c18720bc238393a757768a62e853ae64e65fcaf14399048f5", "segment_b2_contract_scope", "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a"),
+    ("smalltalk_b2_0125", "f2f1c1f1998348036d237b88776d1c14ccb7dee7e88c1ba831439d7fba2d95f5", "segment_b2_contract_scope", "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a"),
+    ("smalltalk_b2_0126", "382fd7a01f3d7f587057afa969bcf189cbbb6321863cbf4c5bf185e3b6a6f6e7", "segment_b2_contract_scope", "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a"),
+    ("smalltalk_b2_0127", "2c54bb563e3a68e498227b27f2896314c003ac25a540615f43a7408e25813cbb", "segment_b2_contract_scope", "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a"),
+    ("smalltalk_b2_0128", "3b6efbeff37b8ca03766521bfe9230b95266124e43988a430a1f33aea8da20c9", "segment_b2_contract_scope", "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a"),
+)
+SMALLTALK_REVIEW_APPROVALS.update(
+    {
+        phrase_id: {
+            "phraseFingerprintSha256": phrase_fingerprint,
+            "canDoSegmentId": segment_id,
+            "canDoFingerprintSha256": segment_fingerprint,
+            "semanticStatus": "approved",
+            "reviewRevision": 1,
+        }
+        for phrase_id, phrase_fingerprint, segment_id, segment_fingerprint
+        in _THEME_PARK_DATE_SMALLTALK_ROUTE_APPROVALS
+    }
+)
+for _theme_park_revised_phrase_id in (
+    "smalltalk_a2_0090",
+    "smalltalk_b1_0082",
+    "smalltalk_b2_0124",
+):
+    SMALLTALK_REVIEW_APPROVALS[_theme_park_revised_phrase_id][
+        "reviewRevision"
+    ] = 2
+
 
 SMALLTALK_CATEGORY_ROUTES: dict[tuple[str, str], str] = {
     ("a1", "partner_family"): "a1_11_titles_relationships",

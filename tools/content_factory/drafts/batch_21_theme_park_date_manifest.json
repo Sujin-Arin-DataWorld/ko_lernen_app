@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "batch": "theme_park_date_v1",
+  "status": "merged",
+  "provenance": {
+    "scope": "Original A1-C2 Theme Park Date content based on Jin's recounted Sujin-Christian date conversation.",
+    "rights": "original_clean_room",
+    "requiresJinReview": true,
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-08-30",
+      "scope": "all 60 smalltalk phrases and 6 scenarios approved for live integration"
+    },
+    "modelLanguageQa": "MODEL_QA_PASS",
+    "humanLanguageQaClaim": false
+  },
+  "artifacts": [
+    {
+      "kind": "smalltalk",
+      "draft": "tools/content_factory/drafts/theme_park_date_smalltalk_v1.json",
+      "review": "tools/content_factory/review/theme_park_date_smalltalk_v1.csv",
+      "collection": "phrases",
+      "count": 60,
+      "levels": {
+        "a1": 10,
+        "a2": 10,
+        "b1": 10,
+        "b2": 10,
+        "c1": 10,
+        "c2": 10
+      }
+    },
+    {
+      "kind": "scenario",
+      "draft": "tools/content_factory/drafts/theme_park_date_scenarios_v1.json",
+      "review": "tools/content_factory/review/theme_park_date_scenarios_v1.csv",
+      "collection": "scenarios",
+      "count": 6,
+      "levels": {
+        "a1": 1,
+        "a2": 1,
+        "b1": 1,
+        "b2": 1,
+        "c1": 1,
+        "c2": 1
+      }
+    }
+  ],
+  "recordCount": 66,
+  "questCount": 31,
+  "smalltalkCategoryMappings": [
+    {
+      "level": "a1",
+      "category": "theme_park_date",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ]
+    },
+    {
+      "level": "a2",
+      "category": "theme_park_date",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ]
+    },
+    {
+      "level": "b1",
+      "category": "theme_park_date",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ]
+    },
+    {
+      "level": "b2",
+      "category": "theme_park_date",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ]
+    },
+    {
+      "level": "c1",
+      "category": "theme_park_date",
+      "courseUnitId": "c1_06_intimacy_safety_design",
+      "conceptIds": [
+        "concept_c1_intimacy_safety"
+      ]
+    },
+    {
+      "level": "c2",
+      "category": "theme_park_date",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ]
+    }
+  ],
+  "visualAsset": {
+    "runtimeKey": "theme_park",
+    "futurePosterPath": "assets/illustrations/scenes/theme_park.png",
+    "currentFallbackKey": "market",
+    "ambientLoopRequired": false
+  },
+  "promotion": {
+    "runtime": true,
+    "listening": true,
+    "tts": "dynamic_runtime",
+    "firebase": false
+  }
+}

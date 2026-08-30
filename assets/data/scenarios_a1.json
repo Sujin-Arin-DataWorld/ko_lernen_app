@@ -20643,6 +20643,248 @@
       },
       "shelf": "a1_transit",
       "backdrop": "station"
+    },
+    {
+      "id": "a1_theme_park_date_choices",
+      "level": "a1",
+      "emoji": "🎢",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "relationshipContext": "romantic_partners",
+      "intent": "choose_the_first_ride_together",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "playerCharacterId": "sujin",
+      "participantIds": [
+        "sujin",
+        "christian"
+      ],
+      "xpReward": 125,
+      "title": {
+        "ko": "뭐부터 탈까?",
+        "de": "Womit fahren wir zuerst?",
+        "en": "What should we ride first?"
+      },
+      "intro": {
+        "ko": "수진과 크리스티안이 놀이공원 데이트를 시작합니다. 첫 놀이기구와 자리를 함께 정합니다.",
+        "de": "Sujin und Christian beginnen ihr Date im Freizeitpark und wählen gemeinsam die erste Fahrt und ihre Plätze.",
+        "en": "Sujin and Christian begin their theme park date and choose their first ride and seats together."
+      },
+      "vocab": [
+        {
+          "korean": "놀이기구"
+        },
+        {
+          "korean": "롤러코스터"
+        },
+        {
+          "korean": "앞자리"
+        },
+        {
+          "korean": "뒷자리"
+        },
+        {
+          "korean": "줄"
+        },
+        {
+          "korean": "츄러스"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_want"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-고 싶다",
+          "de": "V-고 싶다: etwas machen wollen",
+          "en": "V-고 싶다: want to do"
+        },
+        "explanation": {
+          "ko": "하고 싶은 일을 말할 때 동사 뒤에 -고 싶다를 붙인다. 타고 싶어처럼 쓴다.",
+          "de": "Mit -고 싶다 am Verb sagt man, was man machen möchte, etwa 타고 싶어.",
+          "en": "Add -고 싶다 to a verb to say what you want to do, as in 타고 싶어."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "christian",
+          "ko": "수진아, 우리 저거 탈까?",
+          "de": "Sujin, wollen wir mit dem da fahren?",
+          "en": "Sujin, want to go on that one?"
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아. 나는 롤러코스터를 타고 싶어.",
+          "de": "Gern. Ich möchte mit der Achterbahn fahren.",
+          "en": "Sure. I want to ride the roller coaster."
+        },
+        {
+          "speaker": "christian",
+          "ko": "우리 앞에 탈까, 뒤에 탈까?",
+          "de": "Wollen wir vorne oder hinten sitzen?",
+          "en": "Should we sit in the front or the back?"
+        },
+        {
+          "speaker": "user",
+          "ko": "앞에 타자. 더 무서울 것 같아.",
+          "de": "Setzen wir uns nach vorne. Das ist bestimmt gruseliger.",
+          "en": "Let's sit in front. I think it'll be scarier."
+        },
+        {
+          "speaker": "christian",
+          "ko": "와, 줄이 진짜 길다.",
+          "de": "Wow, die Schlange ist wirklich lang.",
+          "en": "Wow, the line is really long."
+        },
+        {
+          "speaker": "user",
+          "ko": "기다리면서 츄러스 먹을까?",
+          "de": "Wollen wir beim Warten Churros essen?",
+          "en": "Want to eat churros while we wait?"
+        },
+        {
+          "speaker": "christian",
+          "ko": "좋아. 우리 사진도 찍자.",
+          "de": "Gern. Lass uns auch ein Foto machen.",
+          "en": "Sure. Let's take a photo too."
+        },
+        {
+          "speaker": "user",
+          "ko": "응. 오늘 정말 재미있겠다!",
+          "de": "Ja. Heute wird bestimmt richtig schön!",
+          "en": "Yeah. Today is going to be so much fun!"
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_theme_park_date_choices_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "audioKo": "우리 앞에 탈까, 뒤에 탈까?",
+            "options": [
+              {
+                "de": "Wollen wir vorne oder hinten sitzen?",
+                "en": "Should we sit in the front or the back?"
+              },
+              {
+                "de": "Wollen wir jetzt nach Hause?",
+                "en": "Should we go home now?"
+              },
+              {
+                "de": "Ist diese Fahrt geschlossen?",
+                "en": "Is this ride closed?"
+              },
+              {
+                "de": "Möchtest du Wasser?",
+                "en": "Would you like some water?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_theme_park_date_choices_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "promptDe": "Ich möchte mit der Achterbahn fahren.",
+            "promptEn": "I want to ride the roller coaster.",
+            "options": [
+              {
+                "ko": "나는 롤러코스터를 타고 싶어."
+              },
+              {
+                "ko": "나는 롤러코스터가 싫어."
+              },
+              {
+                "ko": "나는 츄러스를 사고 싶어."
+              },
+              {
+                "ko": "나는 뒤에 앉았어."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_theme_park_date_choices_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "sentence": "롤러코스터를 타___ 싶어.",
+            "options": [
+              "고",
+              "면",
+              "서",
+              "지만"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_theme_park_date_choices_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "targetKo": "기다리면서 츄러스 먹을까?",
+            "promptDe": "Wollen wir beim Warten Churros essen?",
+            "promptEn": "Want to eat churros while we wait?",
+            "distractors": [
+              "사진을",
+              "뒷자리가"
+            ]
+          }
+        },
+        {
+          "id": "quest_a1_theme_park_date_choices_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "targetKo": "와, 줄이 진짜 길다.",
+            "promptDe": "Wow, die Schlange ist wirklich lang.",
+            "promptEn": "Wow, the line is really long."
+          }
+        },
+        {
+          "id": "quest_a1_theme_park_date_choices_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "prefix": "롤러코스터",
+            "suffix": " 타고 싶어.",
+            "options": [
+              "를",
+              "을",
+              "가",
+              "이",
+              "에",
+              "로"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "롤러코스터 endet auf Vokal, deshalb steht das Objektpartikel 를.",
+            "explanationEn": "롤러코스터 ends in a vowel, so it takes the object particle 를."
+          }
+        }
+      ],
+      "shelf": "a1_dating",
+      "backdrop": "theme_park"
     }
   ]
 }

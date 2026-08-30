@@ -718,6 +718,10 @@
       "level": "a1"
     },
     {
+      "id": "seed_scenario_a1_theme_park_date_choices_v1",
+      "level": "a1"
+    },
+    {
       "id": "seed_scenario_a1_trash_sort_v1",
       "level": "a1"
     },
@@ -1175,6 +1179,46 @@
     },
     {
       "id": "seed_smalltalk_smalltalk_a1_0090_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a1_0091_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a1_0092_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a1_0093_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a1_0094_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a1_0095_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a1_0096_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a1_0097_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a1_0098_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a1_0099_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a1_0100_v1",
       "level": "a1"
     },
     {
@@ -2122,6 +2166,10 @@
       "level": "a2"
     },
     {
+      "id": "seed_scenario_a2_theme_park_date_break_v1",
+      "level": "a2"
+    },
+    {
       "id": "seed_scenario_a2_transfer_limit_v1",
       "level": "a2"
     },
@@ -2527,6 +2575,46 @@
     },
     {
       "id": "seed_smalltalk_smalltalk_a2_0083_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a2_0084_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a2_0085_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a2_0086_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a2_0087_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a2_0088_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a2_0089_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a2_0090_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a2_0091_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a2_0092_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a2_0093_v1",
       "level": "a2"
     },
     {
@@ -3418,6 +3506,10 @@
       "level": "b1"
     },
     {
+      "id": "seed_scenario_b1_theme_park_date_thrill_v1",
+      "level": "b1"
+    },
+    {
       "id": "seed_scenario_b1_typhoon_change_v1",
       "level": "b1"
     },
@@ -3783,6 +3875,46 @@
     },
     {
       "id": "seed_smalltalk_smalltalk_b1_0078_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b1_0079_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b1_0080_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b1_0081_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b1_0082_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b1_0083_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b1_0084_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b1_0085_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b1_0086_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b1_0087_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b1_0088_v1",
       "level": "b1"
     },
     {
@@ -4770,6 +4902,10 @@
       "level": "b2"
     },
     {
+      "id": "seed_scenario_b2_theme_park_date_safety_v1",
+      "level": "b2"
+    },
+    {
       "id": "seed_scenario_b2_time_box_v1",
       "level": "b2"
     },
@@ -5267,6 +5403,46 @@
     },
     {
       "id": "seed_smalltalk_smalltalk_b2_0118_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b2_0119_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b2_0120_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b2_0121_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b2_0122_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b2_0123_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b2_0124_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b2_0125_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b2_0126_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b2_0127_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b2_0128_v1",
       "level": "b2"
     },
     {
@@ -7370,6 +7546,10 @@
       "level": "c1"
     },
     {
+      "id": "seed_scenario_c1_theme_park_date_next_time_v1",
+      "level": "c1"
+    },
+    {
       "id": "seed_scenario_c1_uncertainty_v1",
       "level": "c1"
     },
@@ -7623,6 +7803,46 @@
     },
     {
       "id": "seed_smalltalk_smalltalk_c1_0077_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0078_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0079_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0080_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0081_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0082_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0083_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0084_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0085_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0086_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0087_v1",
       "level": "c1"
     },
     {
@@ -9570,6 +9790,10 @@
       "level": "c2"
     },
     {
+      "id": "seed_scenario_c2_theme_park_date_reflection_v1",
+      "level": "c2"
+    },
+    {
       "id": "seed_scenario_c2_trace_log_v1",
       "level": "c2"
     },
@@ -9827,6 +10051,46 @@
     },
     {
       "id": "seed_smalltalk_smalltalk_c2_0076_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0077_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0078_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0079_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0080_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0081_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0082_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0083_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0084_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0085_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0086_v1",
       "level": "c2"
     },
     {
@@ -11150,6 +11414,13 @@
     },
     {
       "kind": "scenario",
+      "id": "a1_theme_park_date_choices",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_theme_park_date_choices_v1",
+      "courseUnitId": "a1_11_titles_relationships"
+    },
+    {
+      "kind": "scenario",
       "id": "a1_trash_sort",
       "level": "a1",
       "sourceSeedId": "seed_scenario_a1_trash_sort_v1",
@@ -11952,6 +12223,76 @@
       "level": "a1",
       "sourceSeedId": "seed_smalltalk_smalltalk_a1_0090_v1",
       "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0091",
+      "level": "a1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a1_0091_v1",
+      "courseUnitId": "a1_11_titles_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0092",
+      "level": "a1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a1_0092_v1",
+      "courseUnitId": "a1_11_titles_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0093",
+      "level": "a1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a1_0093_v1",
+      "courseUnitId": "a1_11_titles_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0094",
+      "level": "a1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a1_0094_v1",
+      "courseUnitId": "a1_11_titles_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0095",
+      "level": "a1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a1_0095_v1",
+      "courseUnitId": "a1_11_titles_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0096",
+      "level": "a1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a1_0096_v1",
+      "courseUnitId": "a1_11_titles_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0097",
+      "level": "a1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a1_0097_v1",
+      "courseUnitId": "a1_11_titles_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0098",
+      "level": "a1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a1_0098_v1",
+      "courseUnitId": "a1_11_titles_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0099",
+      "level": "a1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a1_0099_v1",
+      "courseUnitId": "a1_11_titles_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0100",
+      "level": "a1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a1_0100_v1",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "kind": "vocabPack",
@@ -13607,6 +13948,13 @@
     },
     {
       "kind": "scenario",
+      "id": "a2_theme_park_date_break",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_theme_park_date_break_v1",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "kind": "scenario",
       "id": "a2_transfer_limit",
       "level": "a2",
       "sourceSeedId": "seed_scenario_a2_transfer_limit_v1",
@@ -14318,6 +14666,76 @@
       "level": "a2",
       "sourceSeedId": "seed_smalltalk_smalltalk_a2_0083_v1",
       "courseUnitId": "a2_08_home_money"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a2_0084",
+      "level": "a2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a2_0084_v1",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a2_0085",
+      "level": "a2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a2_0085_v1",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a2_0086",
+      "level": "a2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a2_0086_v1",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a2_0087",
+      "level": "a2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a2_0087_v1",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a2_0088",
+      "level": "a2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a2_0088_v1",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a2_0089",
+      "level": "a2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a2_0089_v1",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a2_0090",
+      "level": "a2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a2_0090_v1",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a2_0091",
+      "level": "a2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a2_0091_v1",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a2_0092",
+      "level": "a2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a2_0092_v1",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a2_0093",
+      "level": "a2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a2_0093_v1",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "kind": "vocabPack",
@@ -15875,6 +16293,13 @@
     },
     {
       "kind": "scenario",
+      "id": "b1_theme_park_date_thrill",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_theme_park_date_thrill_v1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "kind": "scenario",
       "id": "b1_typhoon_change",
       "level": "b1",
       "sourceSeedId": "seed_scenario_b1_typhoon_change_v1",
@@ -16516,6 +16941,76 @@
       "level": "b1",
       "sourceSeedId": "seed_smalltalk_smalltalk_b1_0078_v1",
       "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b1_0079",
+      "level": "b1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b1_0079_v1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b1_0080",
+      "level": "b1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b1_0080_v1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b1_0081",
+      "level": "b1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b1_0081_v1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b1_0082",
+      "level": "b1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b1_0082_v1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b1_0083",
+      "level": "b1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b1_0083_v1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b1_0084",
+      "level": "b1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b1_0084_v1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b1_0085",
+      "level": "b1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b1_0085_v1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b1_0086",
+      "level": "b1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b1_0086_v1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b1_0087",
+      "level": "b1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b1_0087_v1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b1_0088",
+      "level": "b1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b1_0088_v1",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "kind": "vocabPack",
@@ -18241,6 +18736,13 @@
     },
     {
       "kind": "scenario",
+      "id": "b2_theme_park_date_safety",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_theme_park_date_safety_v1",
+      "courseUnitId": "b2_03_precise_requests"
+    },
+    {
+      "kind": "scenario",
       "id": "b2_time_box",
       "level": "b2",
       "sourceSeedId": "seed_scenario_b2_time_box_v1",
@@ -19113,6 +19615,76 @@
       "level": "b2",
       "sourceSeedId": "seed_smalltalk_smalltalk_b2_0118_v1",
       "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b2_0119",
+      "level": "b2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b2_0119_v1",
+      "courseUnitId": "b2_03_precise_requests"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b2_0120",
+      "level": "b2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b2_0120_v1",
+      "courseUnitId": "b2_03_precise_requests"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b2_0121",
+      "level": "b2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b2_0121_v1",
+      "courseUnitId": "b2_03_precise_requests"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b2_0122",
+      "level": "b2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b2_0122_v1",
+      "courseUnitId": "b2_03_precise_requests"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b2_0123",
+      "level": "b2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b2_0123_v1",
+      "courseUnitId": "b2_03_precise_requests"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b2_0124",
+      "level": "b2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b2_0124_v1",
+      "courseUnitId": "b2_03_precise_requests"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b2_0125",
+      "level": "b2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b2_0125_v1",
+      "courseUnitId": "b2_03_precise_requests"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b2_0126",
+      "level": "b2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b2_0126_v1",
+      "courseUnitId": "b2_03_precise_requests"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b2_0127",
+      "level": "b2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b2_0127_v1",
+      "courseUnitId": "b2_03_precise_requests"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b2_0128",
+      "level": "b2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b2_0128_v1",
+      "courseUnitId": "b2_03_precise_requests"
     },
     {
       "kind": "vocabPack",
@@ -23491,6 +24063,13 @@
     },
     {
       "kind": "scenario",
+      "id": "c1_theme_park_date_next_time",
+      "level": "c1",
+      "sourceSeedId": "seed_scenario_c1_theme_park_date_next_time_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "scenario",
       "id": "c1_uncertainty",
       "level": "c1",
       "sourceSeedId": "seed_scenario_c1_uncertainty_v1",
@@ -24047,6 +24626,76 @@
       "id": "smalltalk_c1_0077",
       "level": "c1",
       "sourceSeedId": "seed_smalltalk_smalltalk_c1_0077_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0078",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0078_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0079",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0079_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0080",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0080_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0081",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0081_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0082",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0082_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0083",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0083_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0084",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0084_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0085",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0085_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0086",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0086_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0087",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0087_v1",
       "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
@@ -28181,6 +28830,13 @@
     },
     {
       "kind": "scenario",
+      "id": "c2_theme_park_date_reflection",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_theme_park_date_reflection_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
       "id": "c2_trace_log",
       "level": "c2",
       "sourceSeedId": "seed_scenario_c2_trace_log_v1",
@@ -28747,6 +29403,76 @@
       "courseUnitId": "c2_01_interpretation_institutions"
     },
     {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0077",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0077_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0078",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0078_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0079",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0079_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0080",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0080_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0081",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0081_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0082",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0082_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0083",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0083_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0084",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0084_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0085",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0085_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0086",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0086_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
       "kind": "vocabPack",
       "id": "c2_2026_social_topics_1",
       "level": "c2",
@@ -28891,8 +29617,8 @@
     "directReferenceCounts": {
       "vocabPack": 223,
       "grammar": 244,
-      "smalltalk": 522,
-      "scenario": 413,
+      "smalltalk": 582,
+      "scenario": 419,
       "cloze": 787,
       "satz": 516,
       "project": 8
@@ -60728,6 +61454,16 @@
         "smalltalk_a1_0088",
         "smalltalk_a1_0089",
         "smalltalk_a1_0090",
+        "smalltalk_a1_0091",
+        "smalltalk_a1_0092",
+        "smalltalk_a1_0093",
+        "smalltalk_a1_0094",
+        "smalltalk_a1_0095",
+        "smalltalk_a1_0096",
+        "smalltalk_a1_0097",
+        "smalltalk_a1_0098",
+        "smalltalk_a1_0099",
+        "smalltalk_a1_0100",
         "smalltalk_a2_0005",
         "smalltalk_a2_0010",
         "smalltalk_a2_0029",
@@ -60738,6 +61474,16 @@
         "smalltalk_a2_0052",
         "smalltalk_a2_0076",
         "smalltalk_a2_0077",
+        "smalltalk_a2_0084",
+        "smalltalk_a2_0085",
+        "smalltalk_a2_0086",
+        "smalltalk_a2_0087",
+        "smalltalk_a2_0088",
+        "smalltalk_a2_0089",
+        "smalltalk_a2_0090",
+        "smalltalk_a2_0091",
+        "smalltalk_a2_0092",
+        "smalltalk_a2_0093",
         "smalltalk_b1_0001",
         "smalltalk_b1_0002",
         "smalltalk_b1_0003",
@@ -60764,6 +61510,16 @@
         "smalltalk_b1_0076",
         "smalltalk_b1_0077",
         "smalltalk_b1_0078",
+        "smalltalk_b1_0079",
+        "smalltalk_b1_0080",
+        "smalltalk_b1_0081",
+        "smalltalk_b1_0082",
+        "smalltalk_b1_0083",
+        "smalltalk_b1_0084",
+        "smalltalk_b1_0085",
+        "smalltalk_b1_0086",
+        "smalltalk_b1_0087",
+        "smalltalk_b1_0088",
         "smalltalk_b2_0041",
         "smalltalk_b2_0042",
         "smalltalk_b2_0101",
@@ -60776,7 +61532,17 @@
         "smalltalk_b2_0112",
         "smalltalk_b2_0114",
         "smalltalk_b2_0117",
-        "smalltalk_b2_0118"
+        "smalltalk_b2_0118",
+        "smalltalk_b2_0119",
+        "smalltalk_b2_0120",
+        "smalltalk_b2_0121",
+        "smalltalk_b2_0122",
+        "smalltalk_b2_0123",
+        "smalltalk_b2_0124",
+        "smalltalk_b2_0125",
+        "smalltalk_b2_0126",
+        "smalltalk_b2_0127",
+        "smalltalk_b2_0128"
       ],
       "legacyCourseUnitOverrides": [],
       "phraseDecisions": [
@@ -61725,6 +62491,106 @@
           "reviewRevision": 1
         },
         {
+          "phraseId": "smalltalk_a1_0091",
+          "phraseFingerprintSha256": "b87433dde6613d7a0ff773e510004a59d2ab6e971e658f8a8631c455129cdcf5",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a1_11_titles_relationships",
+          "canDoFingerprintSha256": "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a1_0092",
+          "phraseFingerprintSha256": "a9374e6cc3294ca51233df3e6be4351d226370f7a90f45e8019ccdffc180e652",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a1_11_titles_relationships",
+          "canDoFingerprintSha256": "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a1_0093",
+          "phraseFingerprintSha256": "77cba50b5e94c3cd78ae83438fc4d88bf08a5c0a2282a1fb2c34cc8024123dad",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a1_11_titles_relationships",
+          "canDoFingerprintSha256": "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a1_0094",
+          "phraseFingerprintSha256": "0e0670eb8f51107fdde0c76fa3bbd0352191c3d36859555fcd04c69d10ecc69d",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a1_11_titles_relationships",
+          "canDoFingerprintSha256": "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a1_0095",
+          "phraseFingerprintSha256": "cc3e7a02ecde78ddc395025cdfb7e35792acced390ec25343d93a5db83eefbdb",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a1_11_titles_relationships",
+          "canDoFingerprintSha256": "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a1_0096",
+          "phraseFingerprintSha256": "ccc7b2557b51adb1b8f46a1d773b7822ac9bcbef020eb6f4fb69c8e85123ed51",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a1_11_titles_relationships",
+          "canDoFingerprintSha256": "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a1_0097",
+          "phraseFingerprintSha256": "e451b06be52de4ba17e2c234f2cd5e287f0a1de4e730bf4310681ae317fc280b",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a1_11_titles_relationships",
+          "canDoFingerprintSha256": "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a1_0098",
+          "phraseFingerprintSha256": "f70bfcf99cdbcfdb50e899ddfea62b07dec64a10507293f0a96a920df0c97ded",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a1_11_titles_relationships",
+          "canDoFingerprintSha256": "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a1_0099",
+          "phraseFingerprintSha256": "9f2cfd9a0a17a9147c5f824f55081c0a94081a952c6e09ff3a24231164a7c244",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a1_11_titles_relationships",
+          "canDoFingerprintSha256": "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a1_0100",
+          "phraseFingerprintSha256": "2c410fe792c0a08d7c8ca88d300c9ec858d8277ccdf46834fc4171df6ece2208",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a1_11_titles_relationships",
+          "canDoFingerprintSha256": "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
           "phraseId": "smalltalk_a2_0001",
           "phraseFingerprintSha256": "d68f9dfa954bd5b192dbf9d19bbbac5bff6b384062b6ae6cd1c50644b961128a",
           "routingSource": "exactOverride",
@@ -62611,6 +63477,106 @@
           "reviewRevision": 1
         },
         {
+          "phraseId": "smalltalk_a2_0084",
+          "phraseFingerprintSha256": "ba859ae48fece78f8886fc169314e1f15a5e0234b2633f50f74266d0b40cac8e",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a2_running_late",
+          "canDoFingerprintSha256": "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a2_0085",
+          "phraseFingerprintSha256": "1fc43f0de62a589b0b411fe613900fec43897b9626cdb12e01edc4052086f6f0",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a2_running_late",
+          "canDoFingerprintSha256": "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a2_0086",
+          "phraseFingerprintSha256": "fd56ccbbabc52e1f19a85ed1fd179dd4307c5a05528d9bd91f579f7888649064",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a2_running_late",
+          "canDoFingerprintSha256": "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a2_0087",
+          "phraseFingerprintSha256": "ad795ef7f54ef83010a38f7a2b29325e451bd9e1485963b2044beec8040c360a",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a2_running_late",
+          "canDoFingerprintSha256": "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a2_0088",
+          "phraseFingerprintSha256": "21afbd0d67fc43a077eb0845de02be8a764d7dd0fd27be99b9499eed72231b2b",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a2_running_late",
+          "canDoFingerprintSha256": "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a2_0089",
+          "phraseFingerprintSha256": "cb9ebeb79fcb574965816120dedf3a770d469d6daac37fc081b6612ced5b18bf",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a2_running_late",
+          "canDoFingerprintSha256": "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a2_0090",
+          "phraseFingerprintSha256": "b6cf9af269ee6c744ffab19128fede370129fd305d89a7632589f6583622f0fd",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a2_running_late",
+          "canDoFingerprintSha256": "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 2
+        },
+        {
+          "phraseId": "smalltalk_a2_0091",
+          "phraseFingerprintSha256": "46c683b7bf9a3288b2129884fcda762dbfbb03def957f1f032616ef99be09082",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a2_running_late",
+          "canDoFingerprintSha256": "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a2_0092",
+          "phraseFingerprintSha256": "1c6e9b4796bdfa577710def6eec671430d52ffc4879240598b36d38637ac36ee",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a2_running_late",
+          "canDoFingerprintSha256": "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a2_0093",
+          "phraseFingerprintSha256": "cb81a45832e150030ae770cf67d4f933420f4c3641820197cdc43b13ab932c8f",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a2_running_late",
+          "canDoFingerprintSha256": "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
           "phraseId": "smalltalk_b1_0001",
           "phraseFingerprintSha256": "b6f63c294e5d8fdfb10838b4ea950be095b73c10585100720272ffb843aa1cc0",
           "routingSource": "courseUnitFallback",
@@ -63418,6 +64384,106 @@
           "routingSource": "courseUnitFallback",
           "canDoSegmentId": "segment_b1_team_role_coordination",
           "canDoFingerprintSha256": "204c1167f432f8c59ac93c44c99bb1caee6adb27e735597f716f8a451e853eef",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b1_0079",
+          "phraseFingerprintSha256": "697db0071e71f311b5aa792c768431207dc07a3d7bcbe963cf87ee704850a670",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b1_intimate_feelings",
+          "canDoFingerprintSha256": "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b1_0080",
+          "phraseFingerprintSha256": "da150032a46c40b47612aa8000463ce5151407040fb269185bbcaaa54f6298f0",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b1_intimate_feelings",
+          "canDoFingerprintSha256": "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b1_0081",
+          "phraseFingerprintSha256": "35f373aba5bd41b164edfa95e7164657e43ca517843074c674f74a8a537911a9",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b1_intimate_feelings",
+          "canDoFingerprintSha256": "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b1_0082",
+          "phraseFingerprintSha256": "e75915a8705228203cfcf92be89b7dd7fa913bb40ae2cc6a1e0e93d7e3e66d26",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b1_intimate_feelings",
+          "canDoFingerprintSha256": "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 2
+        },
+        {
+          "phraseId": "smalltalk_b1_0083",
+          "phraseFingerprintSha256": "3ba118106084a7c16be955d47c35bcb093fbf59d03caf6ec32ea328924e52cb3",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b1_intimate_feelings",
+          "canDoFingerprintSha256": "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b1_0084",
+          "phraseFingerprintSha256": "fb4b7a549061fa035bb76cbaac21022e1433114b0878aa275b28262a093f975d",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b1_intimate_feelings",
+          "canDoFingerprintSha256": "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b1_0085",
+          "phraseFingerprintSha256": "9599563d4cc32a96831e66f01aef8b6c2c10966c2f449ed37a4955fe28d66fae",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b1_intimate_feelings",
+          "canDoFingerprintSha256": "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b1_0086",
+          "phraseFingerprintSha256": "c82bf4dd37ce2c046ad800214ee403e930f50cd5140536d80cc0e7a381c6e023",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b1_intimate_feelings",
+          "canDoFingerprintSha256": "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b1_0087",
+          "phraseFingerprintSha256": "b91e8824d7b8b6571a30761982dc5e22434bd136fe655cd4aeb721ad520f484a",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b1_intimate_feelings",
+          "canDoFingerprintSha256": "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b1_0088",
+          "phraseFingerprintSha256": "387b337cb554c9e7de07c278cd457a1b2bfba3990ce65de19eef57282d60fd5e",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b1_intimate_feelings",
+          "canDoFingerprintSha256": "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
           "reviewRevision": 1
@@ -64634,6 +65700,106 @@
           "routingSource": "courseUnitFallback",
           "canDoSegmentId": "segment_b2_decision_criteria",
           "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b2_0119",
+          "phraseFingerprintSha256": "6631dd154d8c4c779916e916829947fafd2d9dfba8c39bf1ef1904982f8c06a1",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b2_contract_scope",
+          "canDoFingerprintSha256": "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b2_0120",
+          "phraseFingerprintSha256": "eda0ac99b8c74a0223b7816f98cbf93f37b7876b3b05952f8afb31ffa4efe34b",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b2_contract_scope",
+          "canDoFingerprintSha256": "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b2_0121",
+          "phraseFingerprintSha256": "13a77330e2a2ec849fcb81c3cd47af05207ffa96e9760bfd608eaf78b21ffc4c",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b2_contract_scope",
+          "canDoFingerprintSha256": "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b2_0122",
+          "phraseFingerprintSha256": "cea74b6caf69c607422237ab3cb412b09ed6231d1b09cea88cbf5200083ba9b8",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b2_contract_scope",
+          "canDoFingerprintSha256": "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b2_0123",
+          "phraseFingerprintSha256": "8d18e983cb1d3ce5c1760ec353bc60cf36667a769d90e2649fe472fd0bb455d8",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b2_contract_scope",
+          "canDoFingerprintSha256": "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b2_0124",
+          "phraseFingerprintSha256": "622295a96856389c18720bc238393a757768a62e853ae64e65fcaf14399048f5",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b2_contract_scope",
+          "canDoFingerprintSha256": "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 2
+        },
+        {
+          "phraseId": "smalltalk_b2_0125",
+          "phraseFingerprintSha256": "f2f1c1f1998348036d237b88776d1c14ccb7dee7e88c1ba831439d7fba2d95f5",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b2_contract_scope",
+          "canDoFingerprintSha256": "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b2_0126",
+          "phraseFingerprintSha256": "382fd7a01f3d7f587057afa969bcf189cbbb6321863cbf4c5bf185e3b6a6f6e7",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b2_contract_scope",
+          "canDoFingerprintSha256": "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b2_0127",
+          "phraseFingerprintSha256": "2c54bb563e3a68e498227b27f2896314c003ac25a540615f43a7408e25813cbb",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b2_contract_scope",
+          "canDoFingerprintSha256": "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b2_0128",
+          "phraseFingerprintSha256": "3b6efbeff37b8ca03766521bfe9230b95266124e43988a430a1f33aea8da20c9",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b2_contract_scope",
+          "canDoFingerprintSha256": "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
           "reviewRevision": 1

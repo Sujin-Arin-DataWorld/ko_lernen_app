@@ -72,15 +72,16 @@ void main() {
       'salon',
       'station',
       'taxi',
+      'theme_park',
     };
-    // Batch 20 승격까지 반영한 라이브 레벨별 수량이다 (총 413편).
+    // Theme Park Date 승격까지 반영한 라이브 레벨별 수량이다 (총 419편).
     const expectedCounts = <String, int>{
-      'a1': 87,
-      'a2': 82,
-      'b1': 75,
-      'b2': 73,
-      'c1': 50,
-      'c2': 46,
+      'a1': 88,
+      'a2': 83,
+      'b1': 76,
+      'b2': 74,
+      'c1': 51,
+      'c2': 47,
     };
 
     test('레거시 단일 파일은 사라졌다', () {
@@ -92,7 +93,7 @@ void main() {
         final items = scenarioShardRoot(level)['scenarios'] as List;
         expect(items.length, expectedCounts[level], reason: level);
       }
-      expect(allScenarioJson().length, 413);
+      expect(allScenarioJson().length, 419);
     });
 
     test('샤드에는 자기 레벨만 들어 있다', () {

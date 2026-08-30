@@ -16,19 +16,19 @@
     },
     {
       "kind": "scenario",
-      "count": 413,
+      "count": 419,
       "source": "scenarios",
       "requiresExplicitId": true
     },
     {
       "kind": "scenarioQuest",
-      "count": 1734,
+      "count": 1765,
       "source": "scenarios",
       "requiresExplicitId": false
     },
     {
       "kind": "smalltalk",
-      "count": 522,
+      "count": 582,
       "source": "smalltalk.json",
       "requiresExplicitId": true
     },

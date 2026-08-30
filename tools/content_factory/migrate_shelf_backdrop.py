@@ -29,6 +29,7 @@ BACKDROP_KEYS = frozenset(
         "airport", "bank", "cafe", "convenience", "directions", "home",
         "hotel", "market", "office", "pharmacy", "restaurant", "salon",
         "station", "taxi",
+        "theme_park",
     )
 )
 

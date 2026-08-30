@@ -34,6 +34,7 @@ enum SmalltalkRelationshipContext {
   classmate,
   coworker,
   closeFriend,
+  romanticPartner,
   family,
   service,
 }
@@ -49,6 +50,8 @@ extension SmalltalkRelationshipContextCode on SmalltalkRelationshipContext {
         return 'coworker';
       case SmalltalkRelationshipContext.closeFriend:
         return 'close_friend';
+      case SmalltalkRelationshipContext.romanticPartner:
+        return 'romantic_partner';
       case SmalltalkRelationshipContext.family:
         return 'family';
       case SmalltalkRelationshipContext.service:
@@ -70,6 +73,8 @@ extension SmalltalkRelationshipContextCode on SmalltalkRelationshipContext {
         return german ? 'Kollegin oder Kollege' : 'coworker';
       case SmalltalkRelationshipContext.closeFriend:
         return german ? 'enge Freundschaft' : 'close friend';
+      case SmalltalkRelationshipContext.romanticPartner:
+        return german ? 'feste Partnerschaft' : 'romantic partner';
       case SmalltalkRelationshipContext.family:
         return german ? 'Familie' : 'family';
       case SmalltalkRelationshipContext.service:
@@ -244,6 +249,8 @@ SmalltalkRelationshipContext _defaultRelationshipContext(String category) {
       return SmalltalkRelationshipContext.service;
     case 'dating':
       return SmalltalkRelationshipContext.closeFriend;
+    case 'theme_park_date':
+      return SmalltalkRelationshipContext.romanticPartner;
     default:
       return SmalltalkRelationshipContext.peer;
   }
@@ -259,6 +266,8 @@ SmalltalkRelationshipContext? _relationshipContextFromCode(Object? raw) {
       return SmalltalkRelationshipContext.coworker;
     case 'close_friend':
       return SmalltalkRelationshipContext.closeFriend;
+    case 'romantic_partner':
+      return SmalltalkRelationshipContext.romanticPartner;
     case 'family':
       return SmalltalkRelationshipContext.family;
     case 'service':
@@ -308,6 +317,13 @@ SmalltalkTurn _defaultAlternative(
         de: "Wie läuft's bei dir so?",
         en: "How've you been?",
       );
+    case SmalltalkRelationshipContext.romanticPartner:
+      return const SmalltalkTurn(
+        turnKind: SmalltalkTurnKind.question,
+        ko: '우리 뭐부터 할까?',
+        de: 'Womit wollen wir anfangen?',
+        en: 'What should we do first?',
+      );
     case SmalltalkRelationshipContext.family:
       return const SmalltalkTurn(
         turnKind: SmalltalkTurnKind.question,
@@ -334,6 +350,7 @@ SmalltalkTurn _defaultFollowUp(
     case SmalltalkRelationshipContext.coworker:
       return _peerFollowUp;
     case SmalltalkRelationshipContext.closeFriend:
+    case SmalltalkRelationshipContext.romanticPartner:
     case SmalltalkRelationshipContext.family:
       return const SmalltalkTurn(
         turnKind: SmalltalkTurnKind.reaction,

@@ -14463,6 +14463,226 @@
       },
       "shelf": "b2_public",
       "backdrop": "office"
+    },
+    {
+      "id": "b2_theme_park_date_safety",
+      "level": "b2",
+      "emoji": "🎢",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "relationshipContext": "romantic_partners",
+      "intent": "check_ride_safety_and_recover_a_wallet",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "playerCharacterId": "sujin",
+      "participantIds": [
+        "sujin",
+        "christian"
+      ],
+      "xpReward": 185,
+      "title": {
+        "ko": "타기 전에 꼭 확인해",
+        "de": "Vor der Fahrt: alles prüfen",
+        "en": "Check everything before the ride"
+      },
+      "intro": {
+        "ko": "다음 놀이기구를 타기 전 소지품 규정을 확인하던 중 수진이 지갑이 없어진 것을 알아챕니다.",
+        "de": "Vor der nächsten Fahrt prüfen die beiden die Regeln für lose Gegenstände. Dabei bemerkt Sujin, dass ihre Geldbörse fehlt.",
+        "en": "Before the next ride, they check the loose-item rules. Then Sujin realizes her wallet is missing."
+      },
+      "vocab": [
+        {
+          "korean": "주머니"
+        },
+        {
+          "korean": "물품 보관함"
+        },
+        {
+          "korean": "머리띠"
+        },
+        {
+          "korean": "안경"
+        },
+        {
+          "korean": "지갑"
+        },
+        {
+          "korean": "안내 데스크"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_even_if"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-더라도",
+          "de": "V-더라도: selbst wenn",
+          "en": "V-더라도: even if"
+        },
+        "explanation": {
+          "ko": "앞의 상황을 감수해도 뒤의 행동이 더 중요하다고 말할 때 -더라도를 쓴다.",
+          "de": "Mit -더라도 räumt man einen Nachteil ein und hält trotzdem an der wichtigeren Handlung fest.",
+          "en": "Use -더라도 to concede a drawback while keeping the more important action."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "christian",
+          "ko": "출발하기 전에 주머니 다 확인했어?",
+          "de": "Hast du vor dem Start alle Taschen kontrolliert?",
+          "en": "Did you check all your pockets before we set off?"
+        },
+        {
+          "speaker": "user",
+          "ko": "휴대폰이랑 동전은 옆 물품 보관함에 넣었어.",
+          "de": "Handy und Münzen habe ich in das Schließfach daneben gelegt.",
+          "en": "I put my phone and coins in the locker beside us."
+        },
+        {
+          "speaker": "christian",
+          "ko": "머리띠도 넣고, 안경은 어떻게 해야 하는지 직원한테 물어보자.",
+          "de": "Leg auch das Haarband hinein, und fragen wir das Personal, was mit der Brille zu tun ist.",
+          "en": "Put your headband in too, and let's ask the staff what to do with your glasses."
+        },
+        {
+          "speaker": "user",
+          "ko": "맞아. 놀이기구마다 규정이 다를 수 있으니까.",
+          "de": "Stimmt. Die Regeln können je nach Fahrgeschäft unterschiedlich sein.",
+          "en": "Right. The rules can differ from ride to ride."
+        },
+        {
+          "speaker": "christian",
+          "ko": "그런데 네 지갑은 어디 있어?",
+          "de": "Aber wo ist deine Geldbörse?",
+          "en": "But where's your wallet?"
+        },
+        {
+          "speaker": "user",
+          "ko": "잠깐, 지갑이 없어. 아까 커피 마신 자리에 두고 왔나 봐.",
+          "de": "Moment, meine Geldbörse ist weg. Ich muss sie wohl bei unserem Kaffeeplatz liegen gelassen haben.",
+          "en": "Wait, my wallet is gone. I think I left it where we had coffee."
+        },
+        {
+          "speaker": "christian",
+          "ko": "차례를 놓치더라도 먼저 찾으러 가자.",
+          "de": "Auch wenn wir unsere Runde verpassen, suchen wir sie zuerst.",
+          "en": "Even if we miss our turn, let's go find it first."
+        },
+        {
+          "speaker": "user",
+          "ko": "응. 없으면 공원 안내 데스크에 문의해 보자.",
+          "de": "Ja. Wenn sie dort nicht ist, fragen wir bei der Information des Parks nach.",
+          "en": "Yeah. If it isn't there, let's ask at the park information desk."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_theme_park_date_safety_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "audioKo": "차례를 놓치더라도 먼저 찾으러 가자.",
+            "options": [
+              {
+                "de": "Auch wenn wir unsere Runde verpassen, suchen wir sie zuerst.",
+                "en": "Even if we miss our turn, let's go find it first."
+              },
+              {
+                "de": "Wir warten erst auf unsere Runde.",
+                "en": "Let's wait for our turn first."
+              },
+              {
+                "de": "Wir kaufen zuerst eine neue Geldbörse.",
+                "en": "Let's buy a new wallet first."
+              },
+              {
+                "de": "Wir fragen erst nach der Brille.",
+                "en": "Let's ask about the glasses first."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_theme_park_date_safety_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "promptDe": "Fragen wir das Personal, was mit der Brille zu tun ist.",
+            "promptEn": "Let's ask the staff what to do with the glasses.",
+            "options": [
+              {
+                "ko": "안경은 어떻게 해야 하는지 직원한테 물어보자."
+              },
+              {
+                "ko": "안경은 주머니에 넣자."
+              },
+              {
+                "ko": "안경은 꼭 잡고 타자."
+              },
+              {
+                "ko": "안경은 그냥 두고 가자."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_theme_park_date_safety_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "sentence": "차례를 놓치___ 먼저 찾으러 가자.",
+            "options": [
+              "더라도",
+              "는 김에",
+              "는 대신",
+              "고 나서"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_theme_park_date_safety_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "targetKo": "놀이기구마다 규정이 다를 수 있어.",
+            "promptDe": "Die Regeln können je nach Fahrgeschäft unterschiedlich sein.",
+            "promptEn": "The rules can differ from ride to ride.",
+            "distractors": [
+              "물품 보관함을",
+              "지갑이"
+            ]
+          }
+        },
+        {
+          "id": "quest_b2_theme_park_date_safety_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "targetKo": "출발하기 전에 주머니 다 확인했어?",
+            "promptDe": "Hast du vor dem Start alle Taschen kontrolliert?",
+            "promptEn": "Did you check all your pockets before we set off?"
+          }
+        }
+      ],
+      "shelf": "b2_dating",
+      "backdrop": "theme_park"
     }
   ]
 }
