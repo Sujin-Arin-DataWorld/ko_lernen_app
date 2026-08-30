@@ -6,6 +6,8 @@
 *.json text eol=lf
 *.arb text eol=lf
 *.svg text eol=lf
+# 생성 감사기는 출력 바이트까지 비교하므로 Windows autocrlf를 허용하지 않는다.
+docs/data/*.md text eol=lf
 
 # 미디어·서명물은 변환 금지 (2026-08-12) — `* text=auto` 의 휴리스틱이 오탐하면
 # tool/check_home_hero_matte.py 의 sha256 게이트와 check_clip_matte 프레임 검사가
