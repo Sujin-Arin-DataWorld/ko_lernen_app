@@ -259,6 +259,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
 
     return SoriStudyFrame(
       title: t.wbQuiz,
+      homeEscape: SoriHomeEscape(confirmWhen: _qIdx > 0 || _picked != null),
       leading: IconButton(
         tooltip: t.btnClose,
         constraints: const BoxConstraints.tightFor(width: 48, height: 48),

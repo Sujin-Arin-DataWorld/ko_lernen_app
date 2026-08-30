@@ -7,8 +7,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/custom_pack_play_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
-import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/flip_card.dart';
+import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 
 import 'helpers/deck_actions.dart';
 
@@ -81,6 +82,21 @@ void main() {
       child: const CustomPackPlayScreen(packId: packId),
     ),
   );
+
+  testWidgets('cards keep close beside exactly one frame-owned home action', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 800);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(buildScreen());
+    await tester.pump(const Duration(milliseconds: 500));
+
+    expect(find.byType(SoriHomeAction), findsOneWidget);
+    expect(find.byIcon(Icons.close), findsOneWidget);
+  });
 
   testWidgets('앞면(flipped=false) 우측 드래그 → SRS 미기록 (§C-1-1 regression)', (
     tester,

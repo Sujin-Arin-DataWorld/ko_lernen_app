@@ -37,4 +37,38 @@ void main() {
     expect(find.text('Deine Antwort bauen'), findsOneWidget);
     expect(find.byType(SoriDottedAnswerSlot), findsWidgets);
   });
+
+  testWidgets('Satz bauen reports the first submitted attempt to its host', (
+    tester,
+  ) async {
+    var attempts = 0;
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('de'),
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        home: Scaffold(
+          body: SatzBauenQuest(
+            data: const {
+              'targetKo': '우유 어디 있어요?',
+              'promptDe': 'Wo ist die Milch?',
+              'promptEn': 'Where is the milk?',
+              'distractors': <String>[],
+            },
+            onAttempt: () => attempts++,
+            onComplete: (_) {},
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    await tester.tap(find.text('우유'));
+    await tester.pump();
+    final t = AppL10n.of(tester.element(find.byType(SatzBauenQuest)));
+    await tester.tap(find.bySemanticsLabel(t.questCheckAnswer));
+    await tester.pump();
+
+    expect(attempts, 1);
+  });
 }

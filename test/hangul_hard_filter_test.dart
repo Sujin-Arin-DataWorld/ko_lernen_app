@@ -49,8 +49,14 @@ void main() {
 
   const chip = Key('hangul-cards-hard-only');
 
+  Future<void> openModeSheet(WidgetTester tester) async {
+    await tester.tap(find.byKey(const Key('hangul-cards-mode-selector')));
+    await tester.pumpAndSettle();
+  }
+
   testWidgets('모은 글자가 없으면 필터 칩을 띄우지 않는다', (tester) async {
     await pumpCards(tester);
+    await openModeSheet(tester);
     expect(find.byKey(chip), findsNothing);
   });
 
@@ -58,6 +64,7 @@ void main() {
     // 판정이 저장소에 남는 경로를 그대로 쓴다.
     await Storage.markHangulHard('ㄷ');
     await pumpCards(tester);
+    await openModeSheet(tester);
 
     expect(find.byKey(chip), findsOneWidget, reason: '모은 게 있으면 칩이 뜬다');
     expect(tester.widget<SoriChip>(find.byKey(chip)).selected, isFalse);
@@ -68,6 +75,7 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
 
+    await openModeSheet(tester);
     expect(tester.widget<SoriChip>(find.byKey(chip)).selected, isTrue);
     expect(
       find.text('1 / 1'),
@@ -80,6 +88,7 @@ void main() {
     // 마지막 한 글자를 지웠을 때 `_pool[_idx % 0]` 으로 터지면 안 된다.
     await Storage.markHangulHard('ㄷ');
     await pumpCards(tester);
+    await openModeSheet(tester);
     await tester.tap(find.byKey(chip));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));

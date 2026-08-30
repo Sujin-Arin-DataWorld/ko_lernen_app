@@ -20,6 +20,7 @@ import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
+import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/pack_card.dart';
 import '../widgets/sori/responsive.dart';
@@ -306,19 +307,6 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
             tooltip: t.dojangTitle,
             onPressed: () => Navigator.of(context).pushNamed('/dojangcheop'),
           ),
-          if (_courseUnitId == null)
-            PopupMenuButton<String>(
-              icon: const Icon(Icons.swap_horiz),
-              tooltip: t.vocabPacksLevelMenu,
-              onSelected: _switchLevel,
-              itemBuilder: (_) => [
-                for (final level in LearnerLevel.values)
-                  PopupMenuItem(
-                    value: level.display,
-                    child: Text(level.display),
-                  ),
-              ],
-            ),
         ],
       ),
       body: SoriScreenBackground(
@@ -349,6 +337,17 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
                               _missionTitle ?? t.courseMissionTitleShort,
                           step: step,
                         ),
+                      ),
+                    ),
+                  if (_courseUnitId == null)
+                    SliverToBoxAdapter(
+                      child: SoriLevelFilterBar(
+                        selected: _level.toLowerCase(),
+                        onChanged: (level) {
+                          if (level != null) {
+                            _switchLevel(level.toUpperCase());
+                          }
+                        },
                       ),
                     ),
                   SliverToBoxAdapter(
@@ -606,7 +605,12 @@ class _LevelProgressHeader extends StatelessWidget {
                 children: [
                   Expanded(child: progress),
                   const SizedBox(width: Spacing.sm),
-                  _StageLabel(level: level, pct: pct),
+                  ConstrainedBox(
+                    constraints: BoxConstraints(
+                      maxWidth: constraints.maxWidth / 2,
+                    ),
+                    child: _StageLabel(level: level, pct: pct),
+                  ),
                 ],
               );
             },

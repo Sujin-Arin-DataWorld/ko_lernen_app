@@ -342,7 +342,7 @@ void main() {
         findsNothing,
       );
       expect(find.byKey(const Key('grammar-plan-day-header')), findsNothing);
-      await tester.tap(find.byIcon(Icons.tune));
+      await tester.tap(find.byIcon(Icons.filter_list_rounded));
       await tester.pump(const Duration(milliseconds: 500));
       expect(find.text('Filter'), findsOneWidget);
       tester
@@ -360,7 +360,7 @@ void main() {
     await tester.pump(const Duration(milliseconds: 500));
 
     expect(find.byKey(const Key('grammar-filter-row')), findsOneWidget);
-    await tester.tap(find.byIcon(Icons.tune));
+    await tester.tap(find.byIcon(Icons.filter_list_rounded));
     await tester.pump(const Duration(milliseconds: 500));
     expect(find.text('Filter'), findsOneWidget);
     await tester.binding.handlePopRoute();

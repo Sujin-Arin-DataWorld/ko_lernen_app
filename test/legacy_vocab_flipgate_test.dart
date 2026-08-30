@@ -10,6 +10,7 @@ import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
+import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
@@ -172,11 +173,24 @@ void main() {
     tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
     await tester.pumpAndSettle();
     expect(find.text('사과'), findsOneWidget);
+    expect(
+      tester
+          .widget<SoriContentFeed>(find.byType(SoriContentFeed))
+          .judgmentsEnabled,
+      isTrue,
+      reason: '한 번 공개한 카드는 앞면으로 돌아와도 판정 게이트가 열려야 한다.',
+    );
 
-    await tester.drag(find.text('사과'), const Offset(0, -220));
+    tester.widget<SoriContentFeed>(find.byType(SoriContentFeed)).onNext!();
     await tester.pumpAndSettle();
 
     expect(find.text('바나나'), findsOneWidget);
+    await tester.runAsync(() async {
+      for (var attempt = 0; attempt < 50; attempt++) {
+        if (Storage.srsCard('사과')?.reviewCount == 1) return;
+        await Future<void>.delayed(const Duration(milliseconds: 10));
+      }
+    });
     expect(Storage.srsCard('사과')?.reviewCount, 1);
 
     final secondBefore = Storage.srsCard('바나나')?.reviewCount;
@@ -288,23 +302,22 @@ void main() {
         text.caption.copyWith(color: surfaces.textDim),
       );
 
-      await tester.tap(find.byIcon(Icons.tune));
+      expect(find.bySemanticsLabel(t.filterLevel), findsOneWidget);
+      await tester.tap(find.byIcon(Icons.tune_rounded));
       await tester.pumpAndSettle();
 
-      expect(find.text(t.filterLevel), findsOneWidget);
+      expect(find.byKey(const Key('sori-level-sheet-Alle')), findsOneWidget);
+      await tester.binding.handlePopRoute();
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byIcon(Icons.filter_list_rounded));
+      await tester.pumpAndSettle();
       expect(find.text(t.filterTheme), findsOneWidget);
       final dropdowns = find.byType(DropdownButtonFormField<String>);
-      expect(dropdowns, findsNWidgets(2));
+      expect(dropdowns, findsOneWidget);
       expect(
         tester
             .widget<DropdownButtonFormField<String>>(dropdowns.at(0))
-            .decoration
-            .labelStyle,
-        text.label,
-      );
-      expect(
-        tester
-            .widget<DropdownButtonFormField<String>>(dropdowns.at(1))
             .decoration
             .labelStyle,
         text.label,

@@ -10,9 +10,10 @@ import '../services/curriculum_catalog.dart';
 import '../services/satz_loader.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/button.dart';
-import '../widgets/sori/chip.dart';
+import '../widgets/sori/chrome_row.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/game_reward.dart';
+import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/study_frame.dart';
@@ -48,6 +49,7 @@ class SatzArcadeScreen extends StatefulWidget {
 class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
   static const _roundSize = 8;
   static const _levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
+  static const _allLevels = '';
 
   List<SatzSentence> _all = const [];
   bool _loading = true;
@@ -57,6 +59,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
   List<SatzSentence> _round = const [];
   int _idx = 0;
   int _passed = 0;
+  bool _hasSubmittedAnswer = false;
   GameOutcome? _outcome;
   CoursePracticeContext? _missionContext;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
@@ -132,6 +135,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
       _round = pool.take(_roundSize).toList();
       _idx = 0;
       _passed = 0;
+      _hasSubmittedAnswer = false;
       _outcome = null;
       _feedbackCompletion.reset();
     });
@@ -140,6 +144,41 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
   void _setLevel(String? level) {
     _level = level;
     _newRound();
+  }
+
+  int _levelCount(String level) => level == _allLevels
+      ? _all.length
+      : _all.where((item) => item.level == level).length;
+
+  Future<void> _showLevelFilter(AppL10n t) async {
+    final next = await showSoriLevelFilterSheet(
+      context: context,
+      selected: _level ?? _allLevels,
+      levels: const [_allLevels, ..._levels],
+      allLabel: t.clozeLevelAll,
+      countFor: _levelCount,
+    );
+    if (!mounted || next == null) return;
+    _setLevel(next == _allLevels ? null : next);
+  }
+
+  Widget _levelChrome(AppL10n t) {
+    if (widget.courseContext != null || widget.courseUnitId != null) {
+      return const SizedBox.shrink();
+    }
+    final selected = _level ?? _allLevels;
+    final label = _level == null ? t.clozeLevelAll : _level!.toUpperCase();
+    return Padding(
+      padding: const EdgeInsets.only(bottom: Spacing.sm),
+      child: SoriChromeRow(
+        onFilterTap: () => _showLevelFilter(t),
+        filterSemanticLabel: t.clozeLevelLabel,
+        meta: Text(
+          '$label · ${_levelCount(selected)}',
+          style: SoriTextTheme.of(context).meta,
+        ),
+      ),
+    );
   }
 
   void _onComplete(QuestResult result) {
@@ -210,7 +249,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
             if (widget.items == null)
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
-                child: _levelBar(t),
+                child: _levelChrome(t),
               ),
             Expanded(
               child: Center(
@@ -235,6 +274,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
     final item = _round[_idx];
     return SoriStudyFrame(
       title: t.satzArcadeTitle,
+      homeEscape: SoriHomeEscape(confirmWhen: _hasSubmittedAnswer),
       eyebrow:
           '${_idx + 1} / ${_round.length} · ${t.quizScore(_passed, _round.length)}',
       leading: IconButton(
@@ -248,59 +288,22 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            if (widget.items == null) _levelBar(t),
+            if (widget.items == null) _levelChrome(t),
             Expanded(
               child: SatzBauenQuest(
                 key: ValueKey('satz_${_roundId}_$_idx'),
                 data: item.toQuestData(),
+                onAttempt: () {
+                  if (!_hasSubmittedAnswer) {
+                    setState(() => _hasSubmittedAnswer = true);
+                  }
+                },
                 onComplete: _onComplete,
               ),
             ),
           ],
         ),
       ),
-    );
-  }
-
-  Widget _levelBar(AppL10n t) {
-    if (widget.courseContext != null || widget.courseUnitId != null) {
-      return const SizedBox.shrink();
-    }
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Text(t.clozeLevelLabel, style: SoriTextTheme.of(context).label),
-        const SizedBox(height: Spacing.xs),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          padding: const EdgeInsets.only(bottom: Spacing.sm),
-          child: Row(
-            children: [
-              _levelChip(
-                t.clozeLevelAll,
-                _level == null,
-                () => _setLevel(null),
-              ),
-              for (final lv in _levels) ...[
-                const SizedBox(width: Spacing.sm),
-                _levelChip(lv.toUpperCase(), _level == lv, () => _setLevel(lv)),
-              ],
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _levelChip(String label, bool selected, VoidCallback onTap) {
-    return SoriChip(
-      label: label,
-      accent: SoriColors.primary,
-      selected: selected,
-      variant: selected ? SoriChipVariant.filled : SoriChipVariant.soft,
-      maxLines: null,
-      minInteractiveHeight: 48,
-      onTap: onTap,
     );
   }
 

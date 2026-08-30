@@ -23,7 +23,8 @@ import 'package:ko_lernen_app/widgets/app_error.dart';
 import 'package:ko_lernen_app/widgets/app_loading.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
-import 'package:ko_lernen_app/widgets/sori/chip.dart';
+import 'package:ko_lernen_app/widgets/sori/chrome_row.dart';
+import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/text_field.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
@@ -183,6 +184,32 @@ void main() {
     SilbenPuzzleLoader.reset();
   });
 
+  testWidgets('timed games protect home escape only while the round is live', (
+    tester,
+  ) async {
+    await _pumpPhone(
+      tester,
+      KkeunmariScreen(poolLoader: () async => _chainWords),
+      locale: const Locale('de'),
+      textScale: 1,
+    );
+    await _pumpUntil(tester, find.byType(SoriTextField));
+    expect(_homeEscape(tester).confirmWhen, isTrue);
+    await tester.pump(const Duration(seconds: 31));
+    expect(_homeEscape(tester).confirmWhen, isFalse);
+
+    await _pumpPhone(
+      tester,
+      const SpeedMatchScreen(items: _vocab),
+      locale: const Locale('en'),
+      textScale: 1,
+    );
+    await _pumpUntil(tester, find.byKey(const ValueKey('speed-match-left-가방')));
+    expect(_homeEscape(tester).confirmWhen, isTrue);
+    await tester.pump(const Duration(seconds: 61));
+    expect(_homeEscape(tester).confirmWhen, isFalse);
+  });
+
   for (final locale in const [Locale('de'), Locale('en')]) {
     for (final viewport in _viewports) {
       testWidgets('standalone games keep complete outer UI in '
@@ -207,7 +234,7 @@ void main() {
                 'A1': [_puzzle],
               },
             ),
-            ready: find.byKey(const ValueKey('silben-level-A1')),
+            ready: find.byType(SoriChromeRow),
           ),
           (
             name: 'speed',
@@ -227,6 +254,11 @@ void main() {
 
           expect(game.ready, findsOneWidget, reason: game.name);
           expect(find.byType(SoriStudyFrame), findsOneWidget);
+          expect(
+            find.byType(SoriHomeAction),
+            findsOneWidget,
+            reason: game.name,
+          );
           final media = MediaQuery.of(
             tester.element(find.byType(SoriStudyFrame)),
           );
@@ -239,6 +271,15 @@ void main() {
           );
 
           final t = AppL10n.of(tester.element(find.byType(SoriStudyFrame)));
+          if (game.name == 'speed') {
+            expect(find.byIcon(Icons.close), findsOneWidget, reason: game.name);
+          } else if (game.name == 'chosung' || game.name == 'silben') {
+            expect(
+              find.byIcon(Icons.arrow_back_ios_new),
+              findsOneWidget,
+              reason: game.name,
+            );
+          }
           if (game.name == 'chosung' && locale.languageCode == 'en') {
             expect(
               _vocab
@@ -377,7 +418,7 @@ void main() {
     second.complete(const {
       'A1': [_puzzle],
     });
-    await _pumpUntil(tester, find.byKey(const ValueKey('silben-level-A1')));
+    await _pumpUntil(tester, find.byType(SoriChromeRow));
     expect(calls, 2);
 
     await _pumpPhone(
@@ -625,7 +666,7 @@ void main() {
     expect(puzzleReads, 1);
 
     await _tapVisible(tester, find.bySemanticsLabel(t.btnRetry));
-    await _pumpUntil(tester, find.byKey(const ValueKey('silben-level-A1')));
+    await _pumpUntil(tester, find.byType(SoriChromeRow));
     expect(puzzleReads, 2);
     expect(find.byType(AppError), findsNothing);
     await tester.pumpWidget(const SizedBox.shrink());
@@ -658,20 +699,35 @@ void main() {
     );
     await _pumpUntil(tester, find.byType(SoriTextField));
     final en = lookupAppL10n(const Locale('en'));
-    expect(find.bySemanticsLabel(en.chosungCorrectCount(0)), findsOneWidget);
-    expect(find.bySemanticsLabel(en.chosungWrongCount(0)), findsOneWidget);
-    expect(find.bySemanticsLabel(en.gameRoundProgress(1, 10)), findsWidgets);
+    final roundStatus = tester
+        .getSemantics(find.byKey(const ValueKey('chosung-round-status')))
+        .getSemanticsData()
+        .label;
+    expect(roundStatus, contains(en.chosungCorrectCount(0)));
+    expect(roundStatus, contains(en.chosungWrongCount(0)));
+    expect(roundStatus, contains(en.gameRoundProgress(1, 10)));
     _expectButton(tester, find.bySemanticsLabel(en.chosungBackspace));
-    _expectButton(
+    _expectButton(tester, find.bySemanticsLabel(en.filterLevel), minHeight: 48);
+    final chosungLevelButton = find.byKey(const Key('chosung-level-selector'));
+    // Autofocus can scroll the input into view after the chrome row is laid
+    // out. Let that scroll finish, then reveal and fatally hit-test the chrome
+    // control so a late focus scroll cannot move it back under the app bar.
+    await tester.pumpAndSettle();
+    await _tapVisibleFatal(tester, chosungLevelButton);
+    await _pumpUntil(tester, find.byKey(const ValueKey('sori-level-sheet-A1')));
+    _expectSelectedDisabledChoice(
       tester,
-      find.byKey(const ValueKey('chosung-level-A1')),
+      find.byKey(const ValueKey('sori-level-sheet-A1')),
       minHeight: 48,
-      selected: ui.Tristate.isTrue,
     );
-    final selectedMode = find.byWidgetPredicate(
-      (widget) =>
-          widget is SoriChip && widget.label == en.chosungModeWithVowels,
+    await tester.binding.handlePopRoute();
+    await tester.pumpAndSettle();
+    await _tapVisibleFatal(
+      tester,
+      find.byKey(const Key('chosung-mode-selector')),
     );
+    await _pumpUntil(tester, find.byKey(const Key('chosung-mode-with-vowels')));
+    final selectedMode = find.byKey(const Key('chosung-mode-with-vowels'));
     _expectButton(
       tester,
       selectedMode,
@@ -692,12 +748,18 @@ void main() {
     final clue = find.bySemanticsLabel('Ghana. Ich fahre nach Ghana. ◯◯에 가요.');
     await _pumpUntil(tester, clue);
     _expectButton(tester, clue);
-    _expectButton(
+    _expectButton(tester, find.bySemanticsLabel(de.filterLevel), minHeight: 48);
+    final silbenLevelButton = find.byIcon(Icons.tune_rounded);
+    await tester.ensureVisible(silbenLevelButton);
+    await tester.tap(silbenLevelButton);
+    await _pumpUntil(tester, find.byKey(const ValueKey('sori-level-sheet-A1')));
+    _expectSelectedDisabledChoice(
       tester,
-      find.byKey(const ValueKey('silben-level-A1')),
+      find.byKey(const ValueKey('sori-level-sheet-A1')),
       minHeight: 48,
-      selected: ui.Tristate.isTrue,
     );
+    await tester.binding.handlePopRoute();
+    await tester.pump(const Duration(milliseconds: 300));
     _expectButton(tester, find.bySemanticsLabel('1, 1'));
     final syllableTile = find.bySemanticsLabel('가');
     _expectButton(tester, syllableTile);
@@ -713,18 +775,15 @@ void main() {
     await _pumpUntil(tester, tile);
     _expectButton(tester, tile, minHeight: 44);
     expect(find.bySemanticsLabel(en.speedMatchInstruction), findsOneWidget);
-    final allLevels = find.byWidgetPredicate(
-      (widget) => widget is SoriChip && widget.label == en.clozeLevelAll,
-    );
-    await tester.ensureVisible(allLevels);
-    await tester.pump();
-    await _tapWithFatalHitTest(tester, allLevels);
-    _expectButton(
-      tester,
-      allLevels,
-      minHeight: 48,
-      selected: ui.Tristate.isTrue,
-    );
+    _expectButton(tester, find.bySemanticsLabel(en.filterLevel), minHeight: 48);
+    final speedLevelButton = find.byIcon(Icons.tune_rounded);
+    await tester.ensureVisible(speedLevelButton);
+    await tester.tap(speedLevelButton);
+    final allLevels = find.byKey(const ValueKey('sori-level-sheet-'));
+    await _pumpUntil(tester, allLevels);
+    _expectSelectedDisabledChoice(tester, allLevels, minHeight: 48);
+    await tester.binding.handlePopRoute();
+    await tester.pump(const Duration(milliseconds: 300));
     expect(tester.takeException(), isNull);
     await tester.pump(const Duration(milliseconds: 250));
     semantics.dispose();
@@ -914,6 +973,7 @@ Future<void> _pumpUntil(
     }
     await tester.pump(const Duration(milliseconds: 50));
   }
+  fail('Finder did not appear after $attempts pumps: $finder');
 }
 
 Future<void> _tapVisible(WidgetTester tester, Finder finder) async {
@@ -955,6 +1015,9 @@ Finder _liveRegionWidget(String label) => find.byWidgetPredicate(
 Finder _soriButton(String label) => find.byWidgetPredicate(
   (widget) => widget is SoriButton && widget.label == label,
 );
+
+SoriHomeEscape _homeEscape(WidgetTester tester) =>
+    tester.widget<SoriHomeAction>(find.byType(SoriHomeAction)).escape;
 
 void _expectLiveRegion(WidgetTester tester, String label) {
   final finder = _liveRegionWidget(label);
@@ -1001,4 +1064,16 @@ void _expectButton(
   if (minHeight != null) {
     expect(tester.getSize(finder).height, greaterThanOrEqualTo(minHeight));
   }
+}
+
+void _expectSelectedDisabledChoice(
+  WidgetTester tester,
+  Finder finder, {
+  required double minHeight,
+}) {
+  expect(finder, findsOneWidget);
+  final data = tester.getSemantics(finder).getSemanticsData();
+  expect(data.flagsCollection.isSelected, ui.Tristate.isTrue);
+  expect(data.hasAction(ui.SemanticsAction.tap), isFalse);
+  expect(tester.getSize(finder).height, greaterThanOrEqualTo(minHeight));
 }

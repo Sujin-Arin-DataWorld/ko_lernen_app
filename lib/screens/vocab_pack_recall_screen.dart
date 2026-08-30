@@ -298,6 +298,9 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
 
     return SoriStudyFrame(
       title: t.vocabPackRecallTitle,
+      homeEscape: SoriHomeEscape(
+        confirmWhen: !_done && (_index > 0 || _feedback != null),
+      ),
       leading: IconButton(
         icon: const Icon(Icons.close),
         tooltip: MaterialLocalizations.of(context).closeButtonTooltip,

@@ -10,25 +10,42 @@ import 'tokens.dart';
 ///
 /// Navigator 1.0 스택 어디서든 `/`(AppShell)까지 단숨에 돌아간다
 /// (`pushNamedAndRemoveUntil('/', (route) => false)` — 선례:
-/// `gye_tab_screen.dart:178`). [isRoundActive]가 true를 돌려주면 떠나기
-/// 전에 확인 시트를 연다 — 타이머 있는 라운드 중간에 실수로 홈을 눌러
-/// 진행을 잃는 사고를 막는다.
-class SoriHomeAction extends StatelessWidget {
-  const SoriHomeAction({super.key, this.isRoundActive, this.onLeave});
+/// `gye_tab_screen.dart:178`). [SoriHomeEscape.confirmWhen]이 true면 떠나기
+/// 전에 확인 시트를 연다 — 진행 중인 라운드에서 실수로 홈을 눌러 학습
+/// 증거를 잃는 사고를 막는다.
+final class SoriHomeEscape {
+  const SoriHomeEscape({
+    this.confirmWhen = false,
+    this.confirmTitle,
+    this.confirmBody,
+  });
 
-  /// true면 확인 시트를 연다. null이면 항상 무확인 이동(라운드 개념이
-  /// 없는 화면).
-  final bool Function()? isRoundActive;
+  final bool confirmWhen;
+  final String? confirmTitle;
+  final String? confirmBody;
+}
+
+class SoriHomeAction extends StatelessWidget {
+  const SoriHomeAction({
+    super.key,
+    this.escape = const SoriHomeEscape(),
+    this.onLeave,
+  });
+
+  final SoriHomeEscape escape;
 
   /// 확인 뒤(또는 확인이 필요 없을 때) 실제 이동 **직전** 호출 — 화면이
   /// 타이머 정지 등 정리를 할 자리.
   final VoidCallback? onLeave;
 
   Future<void> _leave(BuildContext context) async {
-    if (isRoundActive?.call() ?? false) {
+    if (escape.confirmWhen) {
       final confirmed = await showSoriSheet<bool>(
         context: context,
-        builder: (sheetContext) => const _LeaveConfirmSheet(),
+        builder: (sheetContext) => _LeaveConfirmSheet(
+          title: escape.confirmTitle,
+          body: escape.confirmBody,
+        ),
       );
       if (confirmed != true) {
         return;
@@ -63,7 +80,10 @@ class SoriHomeAction extends StatelessWidget {
 }
 
 class _LeaveConfirmSheet extends StatelessWidget {
-  const _LeaveConfirmSheet();
+  const _LeaveConfirmSheet({this.title, this.body});
+
+  final String? title;
+  final String? body;
 
   @override
   Widget build(BuildContext context) {
@@ -74,9 +94,15 @@ class _LeaveConfirmSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(t.homeActionConfirmTitle, style: SoriTextTheme.of(context).h2),
+          Text(
+            title ?? t.homeActionConfirmTitle,
+            style: SoriTextTheme.of(context).h2,
+          ),
           const SizedBox(height: Spacing.sm),
-          Text(t.homeActionConfirmBody, style: SoriTextTheme.of(context).body),
+          Text(
+            body ?? t.homeActionConfirmBody,
+            style: SoriTextTheme.of(context).body,
+          ),
           const SizedBox(height: Spacing.lg),
           SoriButton.filled(
             label: t.homeActionConfirmLeave,

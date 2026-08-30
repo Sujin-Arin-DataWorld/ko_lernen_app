@@ -25,7 +25,6 @@ import '../services/scenario_loader.dart';
 import '../services/scene_asset_resolver.dart';
 import '../services/scenario_writing_check_service.dart';
 import '../services/storage_service.dart';
-import '../services/tts_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/app_bar.dart';
@@ -38,6 +37,7 @@ import '../widgets/sori/celebration.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/hanok_header.dart' show SoriPosterLoop;
+import '../widgets/sori/home_action.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/motion.dart' show SoriEntrance;
@@ -47,6 +47,7 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/speakable.dart';
 import '../widgets/sori/scenario_write_after_roleplay_card.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
@@ -1069,7 +1070,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                           ),
                           onPressed: () {
                             HapticFeedback.selectionClick();
-                            TtsService.speak(v.korean);
+                            SoriSpeech.speak(v.korean);
                           },
                           icon: const Icon(
                             Icons.volume_up_rounded,
@@ -1091,30 +1092,21 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                         ),
                       ],
                     ),
-                    if (v.aliases.isNotEmpty) ...[
+                    if (v.aliases.isNotEmpty || v.variants.isNotEmpty) ...[
                       const SizedBox(height: Spacing.xs),
                       Wrap(
                         spacing: Spacing.xs,
                         runSpacing: Spacing.xs,
-                        children: v.aliases
-                            .map(
-                              (a) => _MiniChip(
-                                a,
-                                vocabAccent,
-                                foregroundColor: ss.textMuted,
-                              ),
-                            )
-                            .toList(),
-                      ),
-                    ],
-                    if (v.variants.isNotEmpty) ...[
-                      const SizedBox(height: Spacing.xs),
-                      Wrap(
-                        spacing: Spacing.xs,
-                        runSpacing: Spacing.xs,
-                        children: v.variants
-                            .map((vt) => _MiniChip(vt, ss.textMuted))
-                            .toList(),
+                        children: [
+                          for (final alias in v.aliases)
+                            _MiniChip(
+                              alias,
+                              vocabAccent,
+                              foregroundColor: ss.textMuted,
+                            ),
+                          for (final variant in v.variants)
+                            _MiniChip(variant, ss.textMuted),
+                        ],
                       ),
                     ],
                     if (v.note != null) ...[
@@ -1180,15 +1172,18 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                   ],
                   Flexible(
                     child: isNarrator
-                        ? Padding(
-                            padding: const EdgeInsets.symmetric(
-                              vertical: Spacing.xs,
-                            ),
-                            child: Text(
-                              line.ko,
-                              style: SoriTextTheme.of(
-                                context,
-                              ).bodySmall.copyWith(fontStyle: FontStyle.italic),
+                        ? SoriSpeakable(
+                            text: line.ko,
+                            voice: 'male',
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: Spacing.xs,
+                              ),
+                              child: Text(
+                                line.ko,
+                                style: SoriTextTheme.of(context).bodySmall
+                                    .copyWith(fontStyle: FontStyle.italic),
+                              ),
                             ),
                           )
                         : SoriCard(
@@ -1200,7 +1195,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                             // SoriCard.onTap 이 SoriPressable+버튼 시맨틱으로 감싼다.
                             onTap: () {
                               HapticFeedback.selectionClick();
-                              TtsService.speak(
+                              SoriSpeech.speak(
                                 line.ko,
                                 voice: sc.voiceForSpeaker(line.speaker),
                               );
@@ -1844,6 +1839,14 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         adaptTitleAtNormalScale: true,
         leading: _buildCloseButton(),
         automaticallyImplyLeading: false,
+        actions: [
+          SoriHomeAction(
+            escape: SoriHomeEscape(confirmWhen: _stage > 0 && !_isResultStage),
+            onLeave: () {
+              _loadLifecycle.requestExit();
+            },
+          ),
+        ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(12),
           child: Padding(

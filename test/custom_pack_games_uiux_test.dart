@@ -16,6 +16,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
+import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/text_field.dart';
@@ -182,6 +183,7 @@ void main() {
           );
           await _pumpUntil(tester, find.byType(QuizChoice));
           expect(find.byType(SoriStudyFrame), findsOneWidget);
+          expect(find.byType(SoriHomeAction), findsOneWidget);
           _expectTooltipButton(tester, t.btnClose, minHeight: 48);
           final quizKorean = _visibleKorean();
           _expectTooltipButton(
@@ -229,6 +231,7 @@ void main() {
             viewport: viewport,
           );
           await _pumpUntil(tester, _firstVisibleKoreanFinder());
+          expect(find.byType(SoriHomeAction), findsOneWidget);
           _expectTooltipButton(tester, t.btnClose, minHeight: 48);
           final visibleMatchingWords = _words
               .where(
@@ -267,6 +270,7 @@ void main() {
           );
           await _pumpUntil(tester, find.byType(SoriTextField));
           expect(find.byType(SoriTextField), findsOneWidget);
+          expect(find.byType(SoriHomeAction), findsOneWidget);
           _expectTooltipButton(tester, t.btnClose, minHeight: 48);
           expect(
             _words.any(
@@ -342,6 +346,56 @@ void main() {
     expect(find.byType(SoriEmptyState), findsOneWidget);
     expect(find.text('classroom'), findsNothing);
     _expectNoException(tester);
+  });
+
+  testWidgets('quiz, matching, and typing protect submitted progress', (
+    tester,
+  ) async {
+    const locale = Locale('en');
+    final t = await AppL10n.delegate.load(locale);
+
+    await _pumpGame(
+      tester,
+      const CustomPackQuizScreen(packId: _packId, words: _words),
+      locale: locale,
+      viewport: _viewports[2],
+    );
+    await _pumpUntil(tester, find.byType(QuizChoice));
+    expect(_homeEscape(tester).confirmWhen, isFalse);
+    final quizChoice = tester.widget<QuizChoice>(find.byType(QuizChoice).first);
+    await _tapFatal(tester, find.bySemanticsLabel(quizChoice.text));
+    expect(_homeEscape(tester).confirmWhen, isTrue);
+
+    await _pumpGame(
+      tester,
+      const CustomPackMatchingScreen(packId: _packId, words: _words),
+      locale: locale,
+      viewport: _viewports[2],
+    );
+    await _pumpUntil(tester, _firstVisibleKoreanFinder());
+    expect(_homeEscape(tester).confirmWhen, isFalse);
+    final word = _words.firstWhere(
+      (candidate) =>
+          find.bySemanticsLabel(candidate.korean).evaluate().isNotEmpty,
+    );
+    await _tapFatal(tester, find.bySemanticsLabel(word.korean));
+    await _tapFatal(
+      tester,
+      find.bySemanticsLabel(word.translationFor(locale.languageCode)),
+    );
+    expect(_homeEscape(tester).confirmWhen, isTrue);
+
+    await _pumpGame(
+      tester,
+      const CustomPackTypingScreen(packId: _packId, words: _words),
+      locale: locale,
+      viewport: _viewports[2],
+    );
+    await _pumpUntil(tester, find.byType(SoriTextField));
+    expect(_homeEscape(tester).confirmWhen, isFalse);
+    await tester.enterText(find.byType(TextField), 'not-an-answer');
+    await _tapFatal(tester, _soriButton(t.btnSubmit));
+    expect(_homeEscape(tester).confirmWhen, isTrue);
   });
 
   testWidgets('quiz keeps automatic advance when motion is enabled', (
@@ -898,6 +952,9 @@ Future<void> _pumpUntil(
 Finder _soriButton(String label) => find.byWidgetPredicate(
   (widget) => widget is SoriButton && widget.label == label,
 );
+
+SoriHomeEscape _homeEscape(WidgetTester tester) =>
+    tester.widget<SoriHomeAction>(find.byType(SoriHomeAction)).escape;
 
 String _submitLabel(Locale locale) =>
     locale.languageCode == 'de' ? 'Prüfen' : 'Check';

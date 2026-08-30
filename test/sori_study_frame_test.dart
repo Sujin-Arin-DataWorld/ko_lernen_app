@@ -2,13 +2,104 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
+import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 import 'package:ko_lernen_app/widgets/sori/screen_background.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
 void main() {
+  testWidgets('injects exactly one home leading when no leading is supplied', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _host(
+        textScale: 1,
+        child: const SoriStudyFrame(title: 'Review', child: SizedBox.expand()),
+      ),
+    );
+    await tester.pump();
+
+    final appBar = tester.widget<SoriAppBar>(find.byType(SoriAppBar));
+    expect(appBar.leading, isA<SoriHomeAction>());
+    expect(find.byType(SoriHomeAction), findsOneWidget);
+  });
+
+  testWidgets('preserves custom leading and prepends one home action', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _host(
+        textScale: 1,
+        child: const SoriStudyFrame(
+          title: 'Scenario',
+          leading: SizedBox(key: Key('custom-leading')),
+          actions: [SizedBox(key: Key('existing-action'))],
+          child: SizedBox.expand(),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final appBar = tester.widget<SoriAppBar>(find.byType(SoriAppBar));
+    expect(appBar.leading?.key, const Key('custom-leading'));
+    expect(appBar.actions, hasLength(2));
+    expect(appBar.actions!.first, isA<SoriHomeAction>());
+    expect(appBar.actions!.last.key, const Key('existing-action'));
+    expect(find.byType(SoriHomeAction), findsOneWidget);
+  });
+
+  testWidgets('removes explicit home actions and keeps one localized escape', (
+    tester,
+  ) async {
+    final semantics = tester.ensureSemantics();
+
+    await tester.pumpWidget(
+      _host(
+        textScale: 1,
+        child: const SoriStudyFrame(
+          title: 'Game',
+          actions: [
+            SoriHomeAction(),
+            SizedBox(key: Key('remaining-action')),
+            SoriHomeAction(),
+          ],
+          child: SizedBox.expand(),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final t = AppL10n.of(tester.element(find.byType(SoriStudyFrame)));
+    expect(find.byType(SoriHomeAction), findsOneWidget);
+    expect(find.bySemanticsLabel(t.homeActionLabel), findsOneWidget);
+    expect(find.byKey(const Key('remaining-action')), findsOneWidget);
+    semantics.dispose();
+  });
+
+  testWidgets('forwards the active escape policy to its sole home action', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _host(
+        textScale: 1,
+        child: const SoriStudyFrame(
+          title: 'Active quiz',
+          leading: SizedBox(key: Key('close-leading')),
+          homeEscape: SoriHomeEscape(confirmWhen: true),
+          child: SizedBox.expand(),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final home = tester.widget<SoriHomeAction>(find.byType(SoriHomeAction));
+    expect(home.escape.confirmWhen, isTrue);
+    expect(find.byType(SoriHomeAction), findsOneWidget);
+  });
+
   testWidgets('short 100% title preserves the legacy toolbar geometry', (
     tester,
   ) async {
@@ -243,6 +334,9 @@ Widget _host({required double textScale, required Widget child}) {
   return MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: AppTheme.light,
+    locale: const Locale('de'),
+    supportedLocales: AppL10n.supportedLocales,
+    localizationsDelegates: AppL10n.localizationsDelegates,
     builder: (context, appChild) {
       final media = MediaQuery.of(context);
       const safeInsets = EdgeInsets.only(top: 44, bottom: 34);

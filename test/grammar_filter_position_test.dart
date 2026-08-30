@@ -80,7 +80,7 @@ void main() {
     // 있어야 하는" 케이스를 결정적으로 재현한다.
     expect(Storage.grammarHard, isEmpty);
 
-    await tester.tap(find.byIcon(Icons.tune));
+    await tester.tap(find.byIcon(Icons.filter_list_rounded));
     await tester.pumpAndSettle();
     final t = AppL10n.of(tester.element(find.byType(GrammarScreen)));
     await tester.tap(find.widgetWithText(SoriChip, t.grammarEasy));
@@ -103,16 +103,9 @@ void main() {
     await _settle(tester);
 
     // A1 으로 스코프(assets/data/grammar.csv 실측 2026-08-27: 41장).
-    // 개수 라벨 + 앞쪽 CTA 때문에 뒤쪽 레벨 칩이 가로 ListView 클립 끝에
-    // 붙을 수 있다(circular_feedback_widget_test.dart 의 #89/#91 메모와
-    // 같은 사유) — ensureVisible 대신 scrollUntilVisible 로 정착시킨다.
-    final filterRow = find.descendant(
-      of: find.byKey(const Key('grammar-filter-row')),
-      matching: find.byType(Scrollable),
-    );
-    final a1Chip = find.byKey(const Key('grammar-level-A1'));
-    await tester.scrollUntilVisible(a1Chip, 120, scrollable: filterRow);
+    await tester.tap(find.byIcon(Icons.tune_rounded));
     await tester.pumpAndSettle();
+    final a1Chip = find.byKey(const Key('sori-level-sheet-A1'));
     await tester.tap(a1Chip);
     await tester.pumpAndSettle();
 
@@ -125,9 +118,9 @@ void main() {
 
     // A2 는 A1 과 레벨이 겹치지 않는다(패턴마다 level 은 단일 값) — 지금
     // 카드는 새 목록에서 반드시 사라진다.
-    final a2Chip = find.byKey(const Key('grammar-level-A2'));
-    await tester.scrollUntilVisible(a2Chip, 120, scrollable: filterRow);
+    await tester.tap(find.byIcon(Icons.tune_rounded));
     await tester.pumpAndSettle();
+    final a2Chip = find.byKey(const Key('sori-level-sheet-A2'));
     await tester.tap(a2Chip);
     await tester.pumpAndSettle();
 

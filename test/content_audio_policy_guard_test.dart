@@ -8,9 +8,25 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   late String source;
 
+  const targetScreens = <String>[
+    'lib/screens/vocab_pack_screen.dart',
+    'lib/screens/legacy_vocab_screen.dart',
+    'lib/screens/custom_pack_play_screen.dart',
+    'lib/screens/hangul_screen.dart',
+    'lib/screens/grammar_screen.dart',
+    'lib/screens/smalltalk_screen.dart',
+    'lib/screens/quest_engines/quest_flow.dart',
+    'lib/screens/cloze_game_screen.dart',
+    'lib/screens/scenario_player_screen.dart',
+  ];
+
   setUpAll(() {
     final file = File('lib/widgets/sori/speakable.dart');
-    expect(file.existsSync(), isTrue, reason: 'lib/widgets/sori/speakable.dart 가 없다');
+    expect(
+      file.existsSync(),
+      isTrue,
+      reason: 'lib/widgets/sori/speakable.dart 가 없다',
+    );
     source = file.readAsStringSync();
   });
 
@@ -49,8 +65,47 @@ void main() {
     // 인디케이터가 GestureDetector/SoriPressable 로 자기 탭을 직접 처리해야
     // content_feed.dart 의 카드 전체 더블탭 Listener 와 아레나가 섞이지 않는다.
     expect(
-      RegExp(r'class SoriSpeechIndicator[\s\S]*?(onTap|SoriPressable)').hasMatch(source),
+      RegExp(
+        r'class SoriSpeechIndicator[\s\S]*?(onTap|SoriPressable)',
+      ).hasMatch(source),
       isTrue,
+    );
+  });
+
+  test('학습 화면은 저수준 TtsService를 직접 참조하지 않는다', () {
+    final offenders = <String>[];
+    for (final path in targetScreens) {
+      final file = File(path);
+      expect(file.existsSync(), isTrue, reason: '$path 가 없다');
+      if (file.readAsStringSync().contains('TtsService')) {
+        offenders.add(path);
+      }
+    }
+
+    expect(
+      offenders,
+      isEmpty,
+      reason: 'SoriSpeech/SoriSpeakable 계약을 우회한 화면: ${offenders.join(', ')}',
+    );
+  });
+
+  test('quest, cloze, scenario 비플립 콘텐츠는 탭 재생 래퍼를 쓴다', () {
+    const paths = <String>[
+      'lib/screens/quest_engines/quest_flow.dart',
+      'lib/screens/cloze_game_screen.dart',
+      'lib/screens/scenario_player_screen.dart',
+    ];
+    final missing = <String>[];
+    for (final path in paths) {
+      if (!File(path).readAsStringSync().contains('SoriSpeakable(')) {
+        missing.add(path);
+      }
+    }
+
+    expect(
+      missing,
+      isEmpty,
+      reason: '탭 재생 배선이 없는 비플립 표면: ${missing.join(', ')}',
     );
   });
 }

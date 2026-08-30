@@ -7,7 +7,6 @@ import '../models/vocab.dart';
 import '../models/feedback_completion.dart';
 import '../services/data_loader.dart';
 import '../services/review_deck_service.dart';
-import '../services/tts_service.dart';
 import '../services/culture_notes_service.dart';
 import '../widgets/sori/culture_note_card.dart';
 import '../services/storage_service.dart';
@@ -18,19 +17,21 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/chrome_row.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/deck_coach.dart';
 import '../widgets/sori/content_share_recovery.dart';
 import '../services/liked_content_service.dart';
 import '../widgets/sori/empty_state.dart';
-import '../widgets/sori/hanok_header.dart';
+import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/scroll_if_needed.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/speakable.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tts_speed_control.dart';
@@ -78,7 +79,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   ///   - jetzt:  'due' = max 10 neue + max 15 Wiederholung → Tagesziel
   String _mode = 'due';
   Set<String> _dueIds = {};
-  // Stat für die Header-Anzeige — wie viele neue / wie viele Wdh. heute.
+  // Tagesfortschritt in der gemeinsamen Chrome-Zeile.
   int _todayNewCount = 0;
   int _todayReviewCount = 0;
   Set<String> _favorites = {};
@@ -413,10 +414,53 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     return ['Alle', ...s];
   }
 
+  int _levelCount(String level) => level == 'Alle'
+      ? _all.length
+      : _all.where((vocab) => vocab.level == level).length;
+
+  Future<void> _showLevelFilter() async {
+    final t = AppL10n.of(context);
+    final next = await showSoriLevelFilterSheet(
+      context: context,
+      selected: _level,
+      levels: _levels,
+      allLabel: t.filterAll,
+      countFor: _levelCount,
+    );
+    if (!mounted || next == null) return;
+    _level = next;
+    _applyFilters();
+  }
+
+  Widget _levelChrome(AppL10n t) {
+    return SoriChromeRow(
+      onFilterTap: _showLevelFilter,
+      filterSemanticLabel: t.filterLevel,
+      meta: Text(
+        '${_modeLabel(t)} · ${_level == 'Alle' ? t.filterAll : _level} · '
+        '${_levelCount(_level)} · '
+        '${t.vocabTodayBadge(_todayNewCount, _todayReviewCount)}',
+        style: SoriTextTheme.of(context).meta,
+      ),
+      trailing: IconButton(
+        icon: const Icon(Icons.filter_list_rounded),
+        tooltip: t.filterTitle,
+        constraints: const BoxConstraints.tightFor(width: 48, height: 48),
+        onPressed: _showFilterSheet,
+      ),
+    );
+  }
+
   List<String> get _topics {
     final s = _all.map((v) => v.topic).toSet().toList()..sort();
     return ['Alle', ...s];
   }
+
+  String _modeLabel(AppL10n t) => switch (_mode) {
+    'due' => t.vocabModeDue,
+    'favorites' => t.vocabModeFavorites,
+    _ => t.vocabModeAll,
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -462,12 +506,19 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
       return SoriStandardFrame(
         appBarTitle: t.screenVocabTitle,
         maxWidth: SoriMaxWidth.focus,
-        builder: (context, padding) => SoriEmptyState(
-          asset: 'assets/illustrations/mascot/magpie_wave.png',
-          icon: Icons.tune_rounded,
-          title: t.emptyVocab,
-          ctaLabel: t.filterOpenBtn,
-          onCta: _showFilterSheet,
+        builder: (context, padding) => Column(
+          children: [
+            _levelChrome(t),
+            Expanded(
+              child: SoriEmptyState(
+                asset: 'assets/illustrations/mascot/magpie_wave.png',
+                icon: Icons.tune_rounded,
+                title: t.emptyVocab,
+                ctaLabel: t.filterOpenBtn,
+                onCta: _showFilterSheet,
+              ),
+            ),
+          ],
         ),
       );
     }
@@ -485,75 +536,14 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
 
     return SoriStudyFrame(
       title: t.screenVocabTitle,
-      actions: [
-        IconButton(icon: const Icon(Icons.tune), onPressed: _showFilterSheet),
-        const TtsSpeedAction(),
-      ],
+      actions: const [TtsSpeedAction()],
       padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
       child: SoriAdaptiveStudyBody(
         minHeight: 680,
         child: Column(
           children: [
-            // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
-            const HanokHeader(
-              asset: 'assets/illustrations/hanok/study_classroom.png',
-              fallbackIcon: Icons.menu_book_outlined,
-            ),
-            const SizedBox(height: Spacing.md),
-
-            // Mode chips (Tagesziel / Favorites / Alle)
-            //
-            // Phase 1 SRS-UX-Patch (stately-rising-jongga):
-            //   Früher: "🔥 522 fällig" (Schock-UX bei Erstanwendung).
-            //   Jetzt:  "🔥 Heute (N+M)" — N neue + M Wdh., gecapped.
-            Wrap(
-              spacing: Spacing.sm,
-              runSpacing: Spacing.sm,
-              children: [
-                SoriChip(
-                  label: t.vocabTodayBadge(_todayNewCount, _todayReviewCount),
-                  accent: SoriColors.info,
-                  selected: _mode == 'due',
-                  variant: SoriChipVariant.filled,
-                  onTap: () => _setMode('due'),
-                  minInteractiveHeight: 44,
-                ),
-                SoriChip(
-                  label: t.vocabFavoritesBadge(_favorites.length),
-                  // 즐겨찾기는 하트·책갈피와 같은 석간주로 읽혀야 한다.
-                  accent: SoriColors.like,
-                  selected: _mode == 'favorites',
-                  variant: SoriChipVariant.filled,
-                  onTap: () => _setMode('favorites'),
-                  minInteractiveHeight: 44,
-                ),
-                SoriChip(
-                  label: t.vocabModeAll,
-                  accent: SoriColors.info,
-                  selected: _mode == 'all',
-                  variant: SoriChipVariant.filled,
-                  onTap: () => _setMode('all'),
-                  minInteractiveHeight: 44,
-                ),
-              ],
-            ),
+            _levelChrome(t),
             const SizedBox(height: Spacing.sm),
-
-            // 통계는 접근성 배율에서 다음 줄로 흐르며 내용을 숨기지 않는다.
-            Wrap(
-              spacing: Spacing.xs + 2,
-              runSpacing: Spacing.xs,
-              children: [
-                SoriChip(
-                  label: '${_idx + 1}/${_filtered.length}',
-                  accent: SoriColors.info,
-                ),
-                SoriChip(label: '✅ $_correct', accent: SoriColors.success),
-                SoriChip(label: '❌ $_wrong', accent: SoriColors.danger),
-                SoriChip(label: '⏭ $_skipped', accent: SoriColors.info),
-              ],
-            ),
-            const SizedBox(height: 10),
 
             // Card with swipe judgment + favorite star overlay
             // 2026-08-14 §P2: 4방향 덱 — 우=Gewusst, 좌=Nicht gewusst,
@@ -660,8 +650,8 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
       ),
     );
     final listen = SoriPressable(
-      onTap: () => TtsService.speak(v.korean),
-      onLongPress: () => TtsService.speakSlow(v.korean),
+      onTap: () => SoriSpeech.speak(v.korean),
+      onLongPress: () => SoriSpeech.speakSlow(v.korean),
       haptic: SoriHaptic.selection,
       child: Container(
         constraints: const BoxConstraints(minHeight: 44),
@@ -802,11 +792,23 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                 style: SoriTextTheme.of(ctx).h3,
               ),
               const SizedBox(height: Spacing.md),
-              _dropdown(AppL10n.of(ctx).filterLevel, _level, _levels, (v) {
-                setLocal(() => _level = v!);
-                _level = v!;
-              }),
-              const SizedBox(height: Spacing.md),
+              for (final mode in <(String, String)>[
+                ('due', AppL10n.of(ctx).vocabModeDue),
+                ('all', AppL10n.of(ctx).vocabModeAll),
+                ('favorites', AppL10n.of(ctx).vocabModeFavorites),
+              ]) ...[
+                SoriChip(
+                  key: ValueKey('legacy-vocab-mode-${mode.$1}'),
+                  label: mode.$2,
+                  selected: _mode == mode.$1,
+                  minInteractiveHeight: 48,
+                  onTap: () {
+                    _setMode(mode.$1);
+                    setLocal(() {});
+                  },
+                ),
+                const SizedBox(height: Spacing.sm),
+              ],
               _dropdown(AppL10n.of(ctx).filterTheme, _topic, _topics, (v) {
                 setLocal(() => _topic = v!);
                 _topic = v!;
@@ -1199,9 +1201,9 @@ class _Back extends StatelessWidget {
                               ),
                               const SizedBox(width: 8),
                               SoriPressable(
-                                onTap: () => TtsService.speak(v.exampleKorean),
+                                onTap: () => SoriSpeech.speak(v.exampleKorean),
                                 onLongPress: () =>
-                                    TtsService.speakSlow(v.exampleKorean),
+                                    SoriSpeech.speakSlow(v.exampleKorean),
                                 haptic: SoriHaptic.selection,
                                 child: Container(
                                   padding: const EdgeInsets.all(6),

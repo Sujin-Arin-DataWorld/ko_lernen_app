@@ -38,10 +38,12 @@ class SoriChip extends StatelessWidget {
   /// speed presets) can stay on one line inside a 480dp content column.
   final double? horizontalPadding;
 
-  /// Optional minimum hit-target height for an interactive chip.
+  /// Optional minimum row height for a choice chip.
   ///
-  /// These targets keep their intrinsic width so they can remain inline in a
-  /// [Wrap] on wider layouts.
+  /// The height remains in force when the current or zero-count choice is
+  /// disabled. Otherwise a selected 48dp filter row collapses to its 35dp
+  /// visual pill and the sheet jumps vertically. The chip keeps its intrinsic
+  /// width so it can remain inline in a [Wrap] on wider layouts.
   final double? minInteractiveHeight;
 
   const SoriChip({
@@ -124,7 +126,7 @@ class SoriChip extends StatelessWidget {
     );
 
     final minimumHeight = minInteractiveHeight;
-    final content = onTap != null && minimumHeight != null
+    final content = minimumHeight != null
         ? IntrinsicWidth(
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: minimumHeight),
@@ -143,6 +145,7 @@ class SoriChip extends StatelessWidget {
     if (onTap == null) {
       return Semantics(
         label: semanticLabel ?? label,
+        selected: selected,
         child: ExcludeSemantics(child: content),
       );
     }

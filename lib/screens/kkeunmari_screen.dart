@@ -25,8 +25,6 @@ import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
-import '../widgets/sori/hanok_header.dart';
-import '../widgets/sori/home_action.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
@@ -583,17 +581,11 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
 
     return SoriStudyFrame(
       title: t.kkeunmariTitle,
-      leading: SoriHomeAction(
-        // `_remaining` resets to `_turnSeconds` both at a brand-new round
-        // (`_start`, :240) and at the start of every later user turn
-        // (`_tigerMove` → `_startTimer`, :478) — not only once. Gating on
-        // that alone would also flag `_end` (dead_end/tiger_stuck already
-        // resolved, timer just left mid-value) as "round active" and pop an
-        // unneeded leave-confirmation over an already-shown result card.
-        // `_end == _End.none` is the existing round-lifecycle boolean that
-        // closes that gap.
-        isRoundActive: () =>
-            _end == _End.none && _remaining > 0 && _remaining < _turnSeconds,
+      homeEscape: SoriHomeEscape(
+        // The round is live as soon as its initial timer starts. `_end`
+        // distinguishes that state from an already-shown result whose timer
+        // may have stopped with time remaining.
+        confirmWhen: _end == _End.none && _remaining > 0,
       ),
       actions: const [TtsSpeedAction()],
       padding: EdgeInsets.zero,
@@ -606,21 +598,6 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              // ── hero ──
-              // ⚠️ aspectRatio 는 **에셋 실제 비율**이어야 한다.
-              // kkeunmari_hero.png 는 1254×700(≈1.79)인데 10/3(≈3.33)
-              // 프레임에 `BoxFit.cover` 로 넣고 있어 세로의 **46%** 가
-              // 잘려 나갔다 — 호랑이와 까치가 위아래로 잘려 보이던 원인
-              // (Jin 2026-08-07 실기기: "Wortkette에서 동영상이 잘려").
-              // 에셋을 다시 만들 필요 없이 프레임만 맞추면 된다.
-              HanokHeader(
-                asset: 'assets/illustrations/hanok/kkeunmari_hero.png',
-                fallbackIcon: Icons.link_rounded,
-                fallbackTint: SoriColors.accent,
-                aspectRatio: 1254 / 700,
-              ),
-              const SizedBox(height: Spacing.md),
-
               // ── chain 시각화 ──
               _ChainStrip(chain: _chain),
               const SizedBox(height: Spacing.md),
@@ -637,16 +614,19 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
                 )
               else ...[
                 // ── 현재 차례 + 타이머 ──
-                Wrap(
-                  key: _timerRowKey,
-                  alignment: WrapAlignment.spaceBetween,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  spacing: Spacing.sm,
-                  runSpacing: Spacing.xs,
-                  children: [
-                    _TurnIndicator(turn: _turn, t: t),
-                    _Timer(remaining: _remaining, total: _turnSeconds),
-                  ],
+                KeyedSubtree(
+                  key: const ValueKey('kkeunmari-gameplay'),
+                  child: Wrap(
+                    key: _timerRowKey,
+                    alignment: WrapAlignment.spaceBetween,
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    spacing: Spacing.sm,
+                    runSpacing: Spacing.xs,
+                    children: [
+                      _TurnIndicator(turn: _turn, t: t),
+                      _Timer(remaining: _remaining, total: _turnSeconds),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: Spacing.md),
 

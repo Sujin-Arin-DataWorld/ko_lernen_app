@@ -154,6 +154,7 @@ class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
 
     return SoriStudyFrame(
       title: t.wordWebQuizTitle,
+      homeEscape: SoriHomeEscape(confirmWhen: !_done && (_idx > 0 || _locked)),
       eyebrow: progress,
       padding: Spacing.page,
       child: _items.isEmpty

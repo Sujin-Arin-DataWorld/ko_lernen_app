@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'app_bar.dart';
+import 'home_action.dart';
 import 'responsive.dart';
 import 'screen_background.dart';
 import 'tokens.dart';
+
+export 'home_action.dart' show SoriHomeEscape;
 
 /// 집중형 학습·퀴즈 화면의 공용 프레임.
 ///
@@ -24,6 +27,7 @@ class SoriStudyFrame extends StatelessWidget {
     this.noiseAlpha = 0.11,
     this.bottomNavigationBar,
     this.hero,
+    this.homeEscape = const SoriHomeEscape(),
   });
 
   final String title;
@@ -43,17 +47,30 @@ class SoriStudyFrame extends StatelessWidget {
   /// 자리 자체가 없다(0dp) — `hero_placement_guard_test.dart` 가 지키는
   /// "플레이 화면 히어로 0dp"의 유일한 예외 경로가 이 슬롯이다.
   final Widget? hero;
+  final SoriHomeEscape homeEscape;
 
   @override
   Widget build(BuildContext context) {
+    final homeAction = SoriHomeAction(escape: homeEscape);
+    final remainingActions = <Widget>[
+      for (final action in actions ?? const <Widget>[])
+        if (action is! SoriHomeAction) action,
+    ];
+    final hasCustomLeading = leading != null && leading is! SoriHomeAction;
+    final effectiveLeading = hasCustomLeading ? leading : homeAction;
+    final effectiveActions = <Widget>[
+      if (hasCustomLeading) homeAction,
+      ...remainingActions,
+    ];
+
     return Scaffold(
       appBar: SoriAppBar(
         title: title,
         textScale: MediaQuery.textScalerOf(context).scale(1),
         viewportWidth: MediaQuery.sizeOf(context).width,
         eyebrow: eyebrow,
-        actions: actions,
-        leading: leading,
+        actions: effectiveActions.isEmpty ? null : effectiveActions,
+        leading: effectiveLeading,
         automaticallyImplyLeading: automaticallyImplyLeading,
       ),
       body: SoriScreenBackground(
@@ -71,7 +88,9 @@ class SoriStudyFrame extends StatelessWidget {
                         height: SoriLayout.heroCollapsedHeight,
                         child: ClipRect(child: hero!),
                       ),
-                      Expanded(child: Padding(padding: padding, child: child)),
+                      Expanded(
+                        child: Padding(padding: padding, child: child),
+                      ),
                     ],
                   ),
           ),

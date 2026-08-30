@@ -5,7 +5,6 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/study_library_screen.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
-import 'package:ko_lernen_app/widgets/sori/chip.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -30,12 +29,7 @@ void main() {
     await tester.scrollUntilVisible(find.text('-고 있다'), 240);
     expect(find.text('-고 있다'), findsOneWidget);
 
-    await tester.scrollUntilVisible(
-      find.byKey(const ValueKey('study-library-view-saved')),
-      -240,
-    );
-    await tester.tap(find.byKey(const ValueKey('study-library-view-saved')));
-    await tester.pump();
+    await _selectView(tester, StudyLibraryView.saved);
 
     for (final entry in const <String, String>{
       '학교': 'Word',
@@ -49,12 +43,7 @@ void main() {
       expect(find.text(entry.value), findsWidgets);
     }
 
-    await tester.scrollUntilVisible(
-      find.byKey(const ValueKey('study-library-view-due')),
-      -240,
-    );
-    await tester.tap(find.byKey(const ValueKey('study-library-view-due')));
-    await tester.pump();
+    await _selectView(tester, StudyLibraryView.due);
 
     await tester.scrollUntilVisible(find.text('학교'), 240);
     expect(find.text('학교'), findsOneWidget);
@@ -81,8 +70,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    await tester.tap(find.byKey(const ValueKey('study-library-view-due')));
-    await tester.pump();
+    await _selectView(tester, StudyLibraryView.due);
 
     final action = find.byKey(
       const ValueKey('study-library-start-word-review'),
@@ -116,15 +104,9 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      await tester.tap(find.byKey(const ValueKey('study-library-view-saved')));
-      await tester.pump();
+      await _selectView(tester, StudyLibraryView.saved);
 
-      final grammarFilter = find.byKey(
-        const ValueKey('study-library-type-grammar'),
-      );
-      await tester.scrollUntilVisible(grammarFilter, 200);
-      await tester.tap(grammarFilter);
-      await tester.pump();
+      await _selectType(tester, StudyLibraryItemType.grammar);
 
       expect(find.text('-아/어야 하다'), findsOneWidget);
       expect(find.text('학교'), findsNothing);
@@ -149,12 +131,7 @@ void main() {
         tester.element(find.byKey(const ValueKey('grammar-practice-route'))),
       ).pop();
       await tester.pumpAndSettle();
-      final sentenceFilter = find.byKey(
-        const ValueKey('study-library-type-sentence'),
-      );
-      await tester.scrollUntilVisible(sentenceFilter, 200);
-      await tester.tap(sentenceFilter);
-      await tester.pump();
+      await _selectType(tester, StudyLibraryItemType.sentence);
 
       expect(find.text('학교에 가요.'), findsOneWidget);
       expect(find.text('-아/어야 하다'), findsNothing);
@@ -328,25 +305,47 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(tester.takeException(), isNull);
+    await _openViewSheet(tester);
     for (final view in StudyLibraryView.values) {
       final control = find.byKey(ValueKey('study-library-view-${view.name}'));
-      await tester.scrollUntilVisible(control, 160);
       expect(control, findsOneWidget);
       expect(tester.getSize(control).height, greaterThanOrEqualTo(48));
     }
-    tester
-        .widget<SoriChip>(
-          find.byKey(const ValueKey('study-library-view-saved')),
-        )
-        .onTap!();
-    await tester.pump();
+    await tester.tap(find.byKey(const ValueKey('study-library-view-saved')));
+    await tester.pumpAndSettle();
+    await _openTypeSheet(tester);
     for (final type in StudyLibraryItemType.values) {
       final control = find.byKey(ValueKey('study-library-type-${type.name}'));
-      await tester.scrollUntilVisible(control, 160);
       expect(tester.getSize(control).height, greaterThanOrEqualTo(48));
     }
     expect(tester.takeException(), isNull);
   });
+}
+
+Future<void> _openViewSheet(WidgetTester tester) async {
+  final selector = find.byKey(const ValueKey('study-library-view-selector'));
+  await tester.drag(find.byType(ListView), const Offset(0, 1000));
+  await tester.pumpAndSettle();
+  await tester.scrollUntilVisible(selector, 200);
+  await tester.tapAt(tester.getTopLeft(selector) + const Offset(24, 24));
+  await tester.pumpAndSettle();
+}
+
+Future<void> _selectView(WidgetTester tester, StudyLibraryView view) async {
+  await _openViewSheet(tester);
+  await tester.tap(find.byKey(ValueKey('study-library-view-${view.name}')));
+  await tester.pumpAndSettle();
+}
+
+Future<void> _openTypeSheet(WidgetTester tester) async {
+  await tester.tap(find.byKey(const ValueKey('study-library-type-selector')));
+  await tester.pumpAndSettle();
+}
+
+Future<void> _selectType(WidgetTester tester, StudyLibraryItemType type) async {
+  await _openTypeSheet(tester);
+  await tester.tap(find.byKey(ValueKey('study-library-type-${type.name}')));
+  await tester.pumpAndSettle();
 }
 
 Widget _app(
