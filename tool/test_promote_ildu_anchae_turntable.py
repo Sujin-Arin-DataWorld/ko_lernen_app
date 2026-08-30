@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+import hashlib
 import io
 import json
 import unittest
 
-from PIL import Image
+from PIL import Image, ImageChops
 
 from tool.promote_ildu_anchae_turntable import (
     METRICS_PATH,
@@ -18,8 +19,34 @@ from tool.promote_ildu_anchae_turntable import (
 
 
 class PromoteIlDuAnchaeTurntableTest(unittest.TestCase):
+    def assert_png_pixels_equal(self, committed_path, generated_bytes: bytes) -> None:
+        with (
+            Image.open(committed_path) as committed,
+            Image.open(io.BytesIO(generated_bytes)) as generated,
+        ):
+            self.assertEqual(committed.format, "PNG")
+            self.assertEqual(generated.format, "PNG")
+            self.assertEqual(committed.mode, generated.mode)
+            self.assertEqual(committed.size, generated.size)
+            self.assertIsNone(ImageChops.difference(committed, generated).getbbox())
+
+    @staticmethod
+    def without_encoded_png_hashes(metrics: dict[str, object]) -> dict[str, object]:
+        normalized = json.loads(json.dumps(metrics))
+        normalized["sheet"].pop("sha256")
+        for frame in normalized["frames"]:
+            frame.pop("transparent_sha256")
+        for frame in normalized["runtime_frames"]:
+            frame.pop("sha256")
+        return normalized
+
+    def assert_file_sha256(self, path, expected: str) -> None:
+        actual = hashlib.sha256(path.read_bytes()).hexdigest().upper()
+        self.assertEqual(actual, expected)
+
     def test_committed_outputs_match_deterministic_build(self) -> None:
         bundle = build_bundle()
+        committed_metrics = json.loads(METRICS_PATH.read_text(encoding="utf-8"))
 
         self.assertEqual(len(bundle.transparent_frames), 8)
         self.assertEqual(len(bundle.runtime_frames), 8)
@@ -29,20 +56,31 @@ class PromoteIlDuAnchaeTurntableTest(unittest.TestCase):
         )
         self.assertEqual(len({frame.sha256 for frame in bundle.runtime_frames}), 8)
         for frame in bundle.transparent_frames:
-            self.assertEqual(
-                (TRANSPARENT_ROOT / frame.output_name).read_bytes(),
+            self.assert_png_pixels_equal(
+                TRANSPARENT_ROOT / frame.output_name,
                 frame.png_bytes,
             )
         for frame in bundle.runtime_frames:
-            self.assertEqual(
-                (RUNTIME_ROOT / frame.output_name).read_bytes(),
+            self.assert_png_pixels_equal(
+                RUNTIME_ROOT / frame.output_name,
                 frame.png_bytes,
             )
-        self.assertEqual(SHEET_PATH.read_bytes(), bundle.sheet_bytes)
+        self.assert_png_pixels_equal(SHEET_PATH, bundle.sheet_bytes)
         self.assertEqual(
-            json.loads(METRICS_PATH.read_text(encoding="utf-8")),
-            bundle.metrics,
+            self.without_encoded_png_hashes(committed_metrics),
+            self.without_encoded_png_hashes(bundle.metrics),
         )
+        self.assert_file_sha256(SHEET_PATH, committed_metrics["sheet"]["sha256"])
+        for frame in committed_metrics["frames"]:
+            self.assert_file_sha256(
+                METRICS_PATH.parent / frame["transparent_file"],
+                frame["transparent_sha256"],
+            )
+        for frame in committed_metrics["runtime_frames"]:
+            self.assert_file_sha256(
+                RUNTIME_ROOT / frame["file"],
+                frame["sha256"],
+            )
 
     def test_all_frames_have_real_alpha_safe_margins_and_no_matte_fringe(self) -> None:
         bundle = build_bundle()
