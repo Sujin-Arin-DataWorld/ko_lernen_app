@@ -17,6 +17,7 @@ void main() {
     'lib/screens/kkeunmari_screen.dart',
     'lib/screens/legacy_vocab_screen.dart',
     'lib/screens/listening_play_screen.dart',
+    'lib/screens/pronunciation_studio_screen.dart',
     'lib/screens/review_session_screen.dart',
     'lib/screens/satz_arcade_screen.dart',
     'lib/screens/scenario_player_screen.dart',
@@ -48,6 +49,7 @@ void main() {
     'lib/screens/hard_choice_quiz_screen.dart':
         '!_done && (_idx > 0 || _locked)',
     'lib/screens/kkeunmari_screen.dart': '_end == _End.none && _remaining > 0',
+    'lib/screens/pronunciation_studio_screen.dart': '_recording || _assessing',
     'lib/screens/review_session_screen.dart': '!_done && _reviewed > 0',
     'lib/screens/satz_arcade_screen.dart': '_hasSubmittedAnswer',
     'lib/screens/scenario_player_screen.dart': '_stage > 0 && !_isResultStage',
@@ -100,7 +102,7 @@ void main() {
         .toSet();
 
     expect(actual, expectedStudyFrameScreens);
-    expect(expectedStudyFrameScreens, hasLength(25));
+    expect(expectedStudyFrameScreens, hasLength(26));
   });
 
   test('all StudyFrame screens rely on the frame-owned home action', () {
@@ -127,7 +129,7 @@ void main() {
     );
   });
 
-  test('active and static home-escape decisions cover all 25 screens', () {
+  test('active and static home-escape decisions cover all 26 screens', () {
     expect(
       activeConfirmContracts.keys.toSet().intersection(
         staticImmediateEscapeScreens,

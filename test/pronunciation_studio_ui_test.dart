@@ -14,11 +14,12 @@ import 'package:ko_lernen_app/services/pronunciation_recorder.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
-import 'package:ko_lernen_app/widgets/sori/page_header.dart';
-import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
+import 'package:ko_lernen_app/widgets/sori/card.dart';
+import 'package:ko_lernen_app/widgets/sori/mascot.dart';
+import 'package:ko_lernen_app/widgets/sori/speakable.dart';
+import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
-import 'package:ko_lernen_app/widgets/sori/window_class.dart';
 
 const _phrase = PronunciationPhrase(
   id: 'pronunciation_ui_a1',
@@ -68,17 +69,18 @@ void main() {
         final screen = find.byType(PronunciationStudioScreen);
         final context = tester.element(screen);
         final t = AppL10n.of(context);
-        final frame = tester.widget<SoriStandardFrame>(
-          find.byType(SoriStandardFrame),
+        final frame = tester.widget<SoriStudyFrame>(
+          find.byType(SoriStudyFrame),
         );
-        expect(frame.maxWidth, SoriMaxWidth.prose);
-
-        final header = tester.widget<SoriPageHeader>(
-          find.byType(SoriPageHeader),
+        expect(frame.title, t.pronunciationTitle);
+        expect(frame.hero, isNull);
+        expect(find.byType(Mascot), findsNothing);
+        expect(
+          tester
+              .widgetList<SoriCard>(find.byType(SoriCard))
+              .where((card) => card.variant == SoriCardVariant.hero),
+          isEmpty,
         );
-        expect(header.eyebrow, t.pronunciationEyebrow);
-        expect(header.title, t.pronunciationTitle);
-        expect(header.body, t.pronunciationIntro);
 
         final phraseFinder = find.text(_phrase.ko);
         await _scrollUntilBuilt(tester, phraseFinder);
@@ -89,8 +91,19 @@ void main() {
         expect(phraseText.style?.fontFamily, type.koDisplay.fontFamily);
         expect(phraseText.style?.fontWeight, type.koDisplay.fontWeight);
 
+        expect(find.byType(SoriSpeechIndicator), findsOneWidget);
+        expect(
+          tester
+              .widget<SoriSpeechIndicator>(find.byType(SoriSpeechIndicator))
+              .text,
+          _phrase.ko,
+        );
+        expect(
+          find.widgetWithText(SoriButton, t.pronunciationListen),
+          findsNothing,
+        );
+
         for (final label in [
-          t.pronunciationListen,
           t.pronunciationRecord,
           t.pronunciationContinueWithoutScore,
         ]) {
@@ -104,6 +117,17 @@ void main() {
           expect(button.label, label);
           expect(button.maxLines, isNull);
         }
+        final recordAction = tester.widget<SoriButton>(
+          find.byKey(const ValueKey('pronunciation-record-action')),
+        );
+        expect(recordAction.variant, SoriButtonVariant.filled);
+        expect(recordAction.fullWidth, isTrue);
+        expect(
+          tester.widget<Column>(
+            find.byKey(const ValueKey('pronunciation-diagnostic-feed')),
+          ),
+          isA<Column>(),
+        );
         expect(tester.takeException(), isNull);
       });
     }
@@ -182,6 +206,12 @@ void main() {
     final type = SoriTextTheme.of(tester.element(scoreFinder));
     expect(scoreText.style?.fontFamily, type.numeral.fontFamily);
     expect(scoreText.style?.fontWeight, type.numeral.fontWeight);
+    expect(
+      tester
+          .widgetList<SoriCard>(find.byType(SoriCard))
+          .where((card) => card.variant == SoriCardVariant.hero),
+      isEmpty,
+    );
     expect(tester.takeException(), isNull);
   });
 }

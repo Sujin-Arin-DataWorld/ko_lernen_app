@@ -8369,7 +8369,7 @@ class AppL10nDe extends AppL10n {
   String get pronunciationTitle => 'Aussprache-Studio';
 
   @override
-  String get pronunciationEyebrow => 'MIT DEM TIGER SPRECHEN';
+  String get pronunciationEyebrow => 'AUSSPRACHE ÜBEN';
 
   @override
   String get pronunciationIntro =>
@@ -8440,6 +8440,58 @@ class AppL10nDe extends AppL10n {
   @override
   String get pronunciationRateLimited =>
       'Du hast das Bewertungslimit erreicht. Übe weiter und versuche es später erneut.';
+
+  @override
+  String get pronunciationRecordAgain => 'Neu aufnehmen';
+
+  @override
+  String get pronunciationRetrySameRecording =>
+      'Dieselbe Aufnahme erneut bewerten';
+
+  @override
+  String get pronunciationRecorderFailureTitle =>
+      'Aufnahme konnte nicht starten';
+
+  @override
+  String get pronunciationRecorderFailureBody =>
+      'Die Aufnahme konnte nicht gestartet werden. Prüfe dein Mikrofon und versuche es noch einmal.';
+
+  @override
+  String get pronunciationInvalidRequestTitle => 'Neue Aufnahme nötig';
+
+  @override
+  String get pronunciationInvalidRequestBody =>
+      'Diese Aufnahme konnte nicht sicher bewertet werden. Nimm den Satz bitte noch einmal auf.';
+
+  @override
+  String get pronunciationAuthenticationRequiredTitle =>
+      'Sichere Anmeldung noch nicht bereit';
+
+  @override
+  String get pronunciationAuthenticationRequiredBody =>
+      'Für die Bewertung braucht die App ihre anonyme Anmeldung. Deine Aufnahme bleibt hier bereit; versuche es erneut, sobald die Verbindung steht.';
+
+  @override
+  String get pronunciationUnavailableTitle =>
+      'Bewertung gerade nicht erreichbar';
+
+  @override
+  String get pronunciationUnavailableBody =>
+      'Deine Aufnahme bleibt bereit. Sende dieselbe Aufnahme erneut, sobald der Dienst erreichbar ist.';
+
+  @override
+  String get pronunciationRateLimitedTitle => 'Bewertungslimit erreicht';
+
+  @override
+  String get pronunciationRateLimitedBody =>
+      'Deine Aufnahme bleibt auf diesem Bildschirm bereit. Versuche es später erneut oder lerne ohne Bewertung weiter.';
+
+  @override
+  String get pronunciationUnknownTitle => 'Bewertung nicht abgeschlossen';
+
+  @override
+  String get pronunciationUnknownBody =>
+      'Es wurde keine Bewertung gespeichert. Versuche dieselbe Aufnahme noch einmal.';
 
   @override
   String get pronunciationScore => 'Aussprachebewertung';

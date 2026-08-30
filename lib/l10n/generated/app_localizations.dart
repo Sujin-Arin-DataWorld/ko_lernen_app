@@ -14505,7 +14505,7 @@ abstract class AppL10n {
   /// No description provided for @pronunciationEyebrow.
   ///
   /// In de, this message translates to:
-  /// **'MIT DEM TIGER SPRECHEN'**
+  /// **'AUSSPRACHE ÜBEN'**
   String get pronunciationEyebrow;
 
   /// No description provided for @pronunciationIntro.
@@ -14627,6 +14627,90 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Du hast das Bewertungslimit erreicht. Übe weiter und versuche es später erneut.'**
   String get pronunciationRateLimited;
+
+  /// No description provided for @pronunciationRecordAgain.
+  ///
+  /// In de, this message translates to:
+  /// **'Neu aufnehmen'**
+  String get pronunciationRecordAgain;
+
+  /// No description provided for @pronunciationRetrySameRecording.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieselbe Aufnahme erneut bewerten'**
+  String get pronunciationRetrySameRecording;
+
+  /// No description provided for @pronunciationRecorderFailureTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Aufnahme konnte nicht starten'**
+  String get pronunciationRecorderFailureTitle;
+
+  /// No description provided for @pronunciationRecorderFailureBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Aufnahme konnte nicht gestartet werden. Prüfe dein Mikrofon und versuche es noch einmal.'**
+  String get pronunciationRecorderFailureBody;
+
+  /// No description provided for @pronunciationInvalidRequestTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Neue Aufnahme nötig'**
+  String get pronunciationInvalidRequestTitle;
+
+  /// No description provided for @pronunciationInvalidRequestBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Aufnahme konnte nicht sicher bewertet werden. Nimm den Satz bitte noch einmal auf.'**
+  String get pronunciationInvalidRequestBody;
+
+  /// No description provided for @pronunciationAuthenticationRequiredTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Sichere Anmeldung noch nicht bereit'**
+  String get pronunciationAuthenticationRequiredTitle;
+
+  /// No description provided for @pronunciationAuthenticationRequiredBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Für die Bewertung braucht die App ihre anonyme Anmeldung. Deine Aufnahme bleibt hier bereit; versuche es erneut, sobald die Verbindung steht.'**
+  String get pronunciationAuthenticationRequiredBody;
+
+  /// No description provided for @pronunciationUnavailableTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Bewertung gerade nicht erreichbar'**
+  String get pronunciationUnavailableTitle;
+
+  /// No description provided for @pronunciationUnavailableBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Aufnahme bleibt bereit. Sende dieselbe Aufnahme erneut, sobald der Dienst erreichbar ist.'**
+  String get pronunciationUnavailableBody;
+
+  /// No description provided for @pronunciationRateLimitedTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Bewertungslimit erreicht'**
+  String get pronunciationRateLimitedTitle;
+
+  /// No description provided for @pronunciationRateLimitedBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Aufnahme bleibt auf diesem Bildschirm bereit. Versuche es später erneut oder lerne ohne Bewertung weiter.'**
+  String get pronunciationRateLimitedBody;
+
+  /// No description provided for @pronunciationUnknownTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Bewertung nicht abgeschlossen'**
+  String get pronunciationUnknownTitle;
+
+  /// No description provided for @pronunciationUnknownBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Es wurde keine Bewertung gespeichert. Versuche dieselbe Aufnahme noch einmal.'**
+  String get pronunciationUnknownBody;
 
   /// No description provided for @pronunciationScore.
   ///

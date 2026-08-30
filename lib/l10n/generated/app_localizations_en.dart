@@ -8330,7 +8330,7 @@ class AppL10nEn extends AppL10n {
   String get pronunciationTitle => 'Pronunciation studio';
 
   @override
-  String get pronunciationEyebrow => 'SPEAK WITH THE TIGER';
+  String get pronunciationEyebrow => 'PRONUNCIATION PRACTICE';
 
   @override
   String get pronunciationIntro =>
@@ -8399,6 +8399,56 @@ class AppL10nEn extends AppL10n {
   @override
   String get pronunciationRateLimited =>
       'You have reached the assessment limit. Continue practising and try again later.';
+
+  @override
+  String get pronunciationRecordAgain => 'Record again';
+
+  @override
+  String get pronunciationRetrySameRecording => 'Retry same recording';
+
+  @override
+  String get pronunciationRecorderFailureTitle => 'Recording could not start';
+
+  @override
+  String get pronunciationRecorderFailureBody =>
+      'The recorder could not start. Check your microphone and try again.';
+
+  @override
+  String get pronunciationInvalidRequestTitle => 'New recording needed';
+
+  @override
+  String get pronunciationInvalidRequestBody =>
+      'This recording could not be assessed safely. Record the phrase again.';
+
+  @override
+  String get pronunciationAuthenticationRequiredTitle =>
+      'Secure sign-in is not ready';
+
+  @override
+  String get pronunciationAuthenticationRequiredBody =>
+      'The assessment needs the app’s anonymous sign-in. Your recording stays ready here; retry when the connection is ready.';
+
+  @override
+  String get pronunciationUnavailableTitle =>
+      'Assessment service is unavailable';
+
+  @override
+  String get pronunciationUnavailableBody =>
+      'Your recording is still ready. Send the same recording again when the service is available.';
+
+  @override
+  String get pronunciationRateLimitedTitle => 'Assessment limit reached';
+
+  @override
+  String get pronunciationRateLimitedBody =>
+      'Your recording stays ready on this screen. Retry later or continue without a score.';
+
+  @override
+  String get pronunciationUnknownTitle => 'Assessment could not be completed';
+
+  @override
+  String get pronunciationUnknownBody =>
+      'No score was saved. Try the same recording again.';
 
   @override
   String get pronunciationScore => 'Pronunciation score';
