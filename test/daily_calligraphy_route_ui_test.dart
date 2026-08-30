@@ -1,7 +1,10 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:ko_lernen_app/data/hangul_strokes.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/daily_char_sheet.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -11,6 +14,7 @@ import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'package:ko_lernen_app/widgets/stroke_canvas.dart';
+import 'package:ko_lernen_app/widgets/trace_canvas.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -61,7 +65,8 @@ void main() {
         expect(guide.letter, 'ㄷ');
         expect(guide.strokes, isNotEmpty);
 
-        final hint = find.text(t.dailyCharGuideHint);
+        expect(find.byType(TraceCanvas), findsOneWidget);
+        final hint = find.text(t.hangulStrokeNextHint(1));
         final hintText = tester.widget<Text>(hint);
         final type = SoriTextTheme.of(tester.element(hint));
         expect(hintText.maxLines, isNull);
@@ -87,6 +92,7 @@ void main() {
         );
         expect(finish, findsOneWidget);
         expect(tester.getSize(finish).height, greaterThanOrEqualTo(48));
+        expect(tester.widget<SoriButton>(finish).onTap, isNull);
         expect(tester.takeException(), isNull);
       });
     }
@@ -120,6 +126,63 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   }
+
+  testWidgets(
+    'two failures reveal the active stroke hint and tracing gates finish',
+    (tester) async {
+      _configureView(tester, const Size(390, 844));
+      await tester.pumpWidget(
+        _host(
+          locale: const Locale('en'),
+          textScale: 1,
+          child: const DailyCalligraphyRouteScreen(character: 'ㄷ'),
+        ),
+      );
+      await tester.pump();
+      await _scrollUntilBuilt(
+        tester,
+        find.byKey(const Key('daily-calligraphy-content')),
+      );
+      await tester.pump();
+
+      expect(find.byType(TraceCanvas), findsOneWidget);
+      final t = AppL10n.of(
+        tester.element(find.byType(DailyCalligraphyRouteScreen)),
+      );
+      final finish = find.byWidgetPredicate(
+        (widget) => widget is SoriButton && widget.label == t.dailyCharFinish,
+      );
+      expect(tester.widget<SoriButton>(finish).onTap, isNull);
+
+      const wrong = [Offset(175, 195), Offset(210, 210)];
+      await _drawDailyStroke(tester, wrong);
+      expect(
+        find.byKey(const Key('trace-canvas-next-stroke-hint')),
+        findsNothing,
+      );
+      await _drawDailyStroke(tester, wrong);
+      expect(
+        find.byKey(const Key('trace-canvas-next-stroke-hint')),
+        findsOneWidget,
+      );
+
+      await _drawDailyStroke(tester, _pointsFor(hangulStrokes['ㄷ']!.first));
+      expect(
+        find.byKey(const Key('trace-canvas-next-stroke-hint')),
+        findsNothing,
+      );
+      await _drawDailyStroke(tester, wrong);
+      expect(
+        find.byKey(const Key('trace-canvas-next-stroke-hint')),
+        findsNothing,
+        reason: 'a new expected index starts with a fresh failure count',
+      );
+      await _drawDailyStroke(tester, _pointsFor(hangulStrokes['ㄷ']![1]));
+
+      expect(tester.widget<SoriButton>(finish).onTap, isNotNull);
+      expect(tester.takeException(), isNull);
+    },
+  );
 
   testWidgets('route completion keeps the existing daily storage contract', (
     tester,
@@ -198,3 +261,34 @@ Widget _host({
     home: child,
   );
 }
+
+Future<void> _drawDailyStroke(
+  WidgetTester tester,
+  List<Offset> referencePoints,
+) async {
+  final canvas = find.byKey(const Key('daily-character-trace-canvas'));
+  await tester.ensureVisible(canvas);
+  await tester.pump();
+  final bounds = tester.getRect(canvas);
+  Offset at(Offset point) => Offset(
+    bounds.left + point.dx * bounds.width / strokeCanvas.width,
+    bounds.top + point.dy * bounds.height / strokeCanvas.height,
+  );
+  final gesture = await tester.startGesture(at(referencePoints.first));
+  for (final point in referencePoints.skip(1)) {
+    await gesture.moveTo(at(point));
+  }
+  await gesture.up();
+  await tester.pump();
+}
+
+List<Offset> _pointsFor(Stroke stroke) => switch (stroke) {
+  LineStroke(:final points) => points,
+  CircleStroke(:final center, :final radius) => [
+    for (var i = 0; i <= 24; i++)
+      Offset(
+        center.dx + radius * math.cos(i / 24 * 2 * math.pi),
+        center.dy + radius * math.sin(i / 24 * 2 * math.pi),
+      ),
+  ],
+};
