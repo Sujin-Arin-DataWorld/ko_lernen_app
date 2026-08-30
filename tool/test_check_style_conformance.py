@@ -30,6 +30,12 @@ import style_lock  # noqa: E402
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def _closed_temp_png_path() -> Path:
+    """Reserve a temp PNG path without leaking an open Windows file handle."""
+    with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as handle:
+        return Path(handle.name)
+
+
 def _rgb_to_hsv(rgb: np.ndarray) -> np.ndarray:
     """Vectorized RGB[0..1] -> HSV[0..1], same convention as colorsys."""
     r, g, b = rgb[..., 0], rgb[..., 1], rgb[..., 2]
@@ -86,7 +92,7 @@ def _drift_saturation_value(path: Path, sat_mult: float, val_mult: float) -> Pat
     out = _hsv_to_rgb(hsv)
     out_u8 = np.clip(out * 255, 0, 255).astype(np.uint8)
     drifted = np.dstack([out_u8, alpha])
-    tmp = Path(tempfile.mkstemp(suffix=".png")[1])
+    tmp = _closed_temp_png_path()
     Image.fromarray(drifted, mode="RGBA").save(tmp)
     return tmp
 
@@ -173,7 +179,7 @@ class PaletteDistanceIsWarningOnlyTest(unittest.TestCase):
         hsv[..., 0] = (hsv[..., 0] + 0.5) % 1.0  # opposite hue
         out = _hsv_to_rgb(hsv)
         out_u8 = np.clip(out * 255, 0, 255).astype(np.uint8)
-        tmp = Path(tempfile.mkstemp(suffix=".png")[1])
+        tmp = _closed_temp_png_path()
         Image.fromarray(np.dstack([out_u8, alpha]), mode="RGBA").save(tmp)
         try:
             result = gate.check(tmp, lock, "F-A")
