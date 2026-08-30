@@ -2086,6 +2086,86 @@
   "clozeEmptyBody": "Für dieses Level gibt es noch keine Sätze. Wähle ein anderes Level.",
   "clozeLevelLabel": "Lernstufe",
   "clozeLevelAll": "Alle",
+  "clozeGroupAll": "Alle Themen",
+  "@clozeGroupAll": {
+    "description": "Label for the unfiltered cloze topic-group option."
+  },
+  "clozeGroupEverydayHome": "Alltag & Zuhause",
+  "@clozeGroupEverydayHome": {
+    "description": "Label for the cloze group covering everyday life and home."
+  },
+  "clozeGroupEverydayHomeDescription": "Alltag, Einkaufen, Essen, Wohnen, Geld und Termine",
+  "@clozeGroupEverydayHomeDescription": {
+    "description": "Supporting description for the everyday life and home cloze group."
+  },
+  "clozeGroupPeopleRelationships": "Menschen & Beziehungen",
+  "@clozeGroupPeopleRelationships": {
+    "description": "Label for the cloze group covering people and relationships."
+  },
+  "clozeGroupPeopleRelationshipsDescription": "Familie, Beziehungen, Gefühle und höfliche Kommunikation",
+  "@clozeGroupPeopleRelationshipsDescription": {
+    "description": "Supporting description for the people and relationships cloze group."
+  },
+  "clozeGroupTravelServices": "Reisen & Service",
+  "@clozeGroupTravelServices": {
+    "description": "Label for the cloze group covering travel and service situations."
+  },
+  "clozeGroupTravelServicesDescription": "Reisen, Verkehr und praktische Service-Situationen",
+  "@clozeGroupTravelServicesDescription": {
+    "description": "Supporting description for the travel and services cloze group."
+  },
+  "clozeGroupWorkEducation": "Arbeit & Bildung",
+  "@clozeGroupWorkEducation": {
+    "description": "Label for the cloze group covering work and education."
+  },
+  "clozeGroupWorkEducationDescription": "Beruf, Schule, Studium und Zusammenarbeit",
+  "@clozeGroupWorkEducationDescription": {
+    "description": "Supporting description for the work and education cloze group."
+  },
+  "clozeGroupLanguageMedia": "Sprache & Medien",
+  "@clozeGroupLanguageMedia": {
+    "description": "Label for the cloze group covering language and media."
+  },
+  "clozeGroupLanguageMediaDescription": "Sprachgebrauch, Perspektiven, Lesen und Medien",
+  "@clozeGroupLanguageMediaDescription": {
+    "description": "Supporting description for the language and media cloze group."
+  },
+  "clozeGroupSocietyInstitutions": "Gesellschaft & Institutionen",
+  "@clozeGroupSocietyInstitutions": {
+    "description": "Label for the cloze group covering society and institutions."
+  },
+  "clozeGroupSocietyInstitutionsDescription": "Gesellschaftliche Fragen, Regeln, Teilhabe und öffentliche Institutionen",
+  "@clozeGroupSocietyInstitutionsDescription": {
+    "description": "Supporting description for the society and institutions cloze group."
+  },
+  "clozeGroupTechnologyScience": "Technik & Wissenschaft",
+  "@clozeGroupTechnologyScience": {
+    "description": "Label for the cloze group covering technology and science."
+  },
+  "clozeGroupTechnologyScienceDescription": "Technik, Forschung, Belege und verantwortungsvolle Entscheidungen",
+  "@clozeGroupTechnologyScienceDescription": {
+    "description": "Supporting description for the technology and science cloze group."
+  },
+  "clozeGroupHealthNatureLeisure": "Gesundheit, Natur & Freizeit",
+  "@clozeGroupHealthNatureLeisure": {
+    "description": "Label for the cloze group covering health, nature, and leisure."
+  },
+  "clozeGroupHealthNatureLeisureDescription": "Körper, Gesundheit, Natur, Sicherheit und Freizeit",
+  "@clozeGroupHealthNatureLeisureDescription": {
+    "description": "Supporting description for the health, nature, and leisure cloze group."
+  },
+  "clozeGroupFilterLabel": "Themenbereich",
+  "@clozeGroupFilterLabel": {
+    "description": "Accessible name for the cloze topic-group selector."
+  },
+  "clozeGroupEmptyBody": "Für diese Kombination gibt es keine Sätze. Wähle alle Themen oder einen anderen Bereich.",
+  "@clozeGroupEmptyBody": {
+    "description": "Recovery message when the selected cloze level and topic group have no items."
+  },
+  "clozeGroupChooseAnother": "Anderen Bereich wählen",
+  "@clozeGroupChooseAnother": {
+    "description": "Action that reopens the cloze topic-group selector."
+  },
   "speedMatchTitle": "Blitz-Paare",
   "speedMatchDesc": "Auf Zeit zuordnen",
   "speedMatchInstruction": "Tippe ein koreanisches Wort, dann die passende Bedeutung.",

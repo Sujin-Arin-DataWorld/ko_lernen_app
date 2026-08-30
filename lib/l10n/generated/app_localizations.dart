@@ -7411,6 +7411,126 @@ abstract class AppL10n {
   /// **'Alle'**
   String get clozeLevelAll;
 
+  /// Label for the unfiltered cloze topic-group option.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Themen'**
+  String get clozeGroupAll;
+
+  /// Label for the cloze group covering everyday life and home.
+  ///
+  /// In de, this message translates to:
+  /// **'Alltag & Zuhause'**
+  String get clozeGroupEverydayHome;
+
+  /// Supporting description for the everyday life and home cloze group.
+  ///
+  /// In de, this message translates to:
+  /// **'Alltag, Einkaufen, Essen, Wohnen, Geld und Termine'**
+  String get clozeGroupEverydayHomeDescription;
+
+  /// Label for the cloze group covering people and relationships.
+  ///
+  /// In de, this message translates to:
+  /// **'Menschen & Beziehungen'**
+  String get clozeGroupPeopleRelationships;
+
+  /// Supporting description for the people and relationships cloze group.
+  ///
+  /// In de, this message translates to:
+  /// **'Familie, Beziehungen, Gefühle und höfliche Kommunikation'**
+  String get clozeGroupPeopleRelationshipsDescription;
+
+  /// Label for the cloze group covering travel and service situations.
+  ///
+  /// In de, this message translates to:
+  /// **'Reisen & Service'**
+  String get clozeGroupTravelServices;
+
+  /// Supporting description for the travel and services cloze group.
+  ///
+  /// In de, this message translates to:
+  /// **'Reisen, Verkehr und praktische Service-Situationen'**
+  String get clozeGroupTravelServicesDescription;
+
+  /// Label for the cloze group covering work and education.
+  ///
+  /// In de, this message translates to:
+  /// **'Arbeit & Bildung'**
+  String get clozeGroupWorkEducation;
+
+  /// Supporting description for the work and education cloze group.
+  ///
+  /// In de, this message translates to:
+  /// **'Beruf, Schule, Studium und Zusammenarbeit'**
+  String get clozeGroupWorkEducationDescription;
+
+  /// Label for the cloze group covering language and media.
+  ///
+  /// In de, this message translates to:
+  /// **'Sprache & Medien'**
+  String get clozeGroupLanguageMedia;
+
+  /// Supporting description for the language and media cloze group.
+  ///
+  /// In de, this message translates to:
+  /// **'Sprachgebrauch, Perspektiven, Lesen und Medien'**
+  String get clozeGroupLanguageMediaDescription;
+
+  /// Label for the cloze group covering society and institutions.
+  ///
+  /// In de, this message translates to:
+  /// **'Gesellschaft & Institutionen'**
+  String get clozeGroupSocietyInstitutions;
+
+  /// Supporting description for the society and institutions cloze group.
+  ///
+  /// In de, this message translates to:
+  /// **'Gesellschaftliche Fragen, Regeln, Teilhabe und öffentliche Institutionen'**
+  String get clozeGroupSocietyInstitutionsDescription;
+
+  /// Label for the cloze group covering technology and science.
+  ///
+  /// In de, this message translates to:
+  /// **'Technik & Wissenschaft'**
+  String get clozeGroupTechnologyScience;
+
+  /// Supporting description for the technology and science cloze group.
+  ///
+  /// In de, this message translates to:
+  /// **'Technik, Forschung, Belege und verantwortungsvolle Entscheidungen'**
+  String get clozeGroupTechnologyScienceDescription;
+
+  /// Label for the cloze group covering health, nature, and leisure.
+  ///
+  /// In de, this message translates to:
+  /// **'Gesundheit, Natur & Freizeit'**
+  String get clozeGroupHealthNatureLeisure;
+
+  /// Supporting description for the health, nature, and leisure cloze group.
+  ///
+  /// In de, this message translates to:
+  /// **'Körper, Gesundheit, Natur, Sicherheit und Freizeit'**
+  String get clozeGroupHealthNatureLeisureDescription;
+
+  /// Accessible name for the cloze topic-group selector.
+  ///
+  /// In de, this message translates to:
+  /// **'Themenbereich'**
+  String get clozeGroupFilterLabel;
+
+  /// Recovery message when the selected cloze level and topic group have no items.
+  ///
+  /// In de, this message translates to:
+  /// **'Für diese Kombination gibt es keine Sätze. Wähle alle Themen oder einen anderen Bereich.'**
+  String get clozeGroupEmptyBody;
+
+  /// Action that reopens the cloze topic-group selector.
+  ///
+  /// In de, this message translates to:
+  /// **'Anderen Bereich wählen'**
+  String get clozeGroupChooseAnother;
+
   /// No description provided for @speedMatchTitle.
   ///
   /// In de, this message translates to:

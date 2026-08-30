@@ -20,6 +20,16 @@ import audit_scene_assets  # noqa: E402
 
 
 class SceneInventoryTest(unittest.TestCase):
+    def test_generated_data_markdown_is_forced_to_lf(self) -> None:
+        attributes = (audit_scene_assets.ROOT / ".gitattributes").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn(
+            "docs/data/*.md text eol=lf",
+            attributes.splitlines(),
+            "byte-exact generated Markdown checks need LF on Windows checkouts",
+        )
+
     def _ref(
         self,
         scenario_id: str,
