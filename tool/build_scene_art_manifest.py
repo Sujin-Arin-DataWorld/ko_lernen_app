@@ -37,6 +37,7 @@ CATEGORY_ORDER = [
     "airport",
     "bank",
     "salon",
+    "theme_park",
 ]
 LEVEL_ORDER = ["a1", "a2", "b1", "b2", "c1", "c2"]
 EXPECTED_CATEGORY_COUNTS = {
@@ -45,6 +46,7 @@ EXPECTED_CATEGORY_COUNTS = {
     "cafe": 36,
     "station": 27,
     "market": 22,
+    "theme_park": 6,
     "convenience": 14,
     "restaurant": 13,
     "pharmacy": 9,
@@ -62,6 +64,7 @@ CATEGORY_SETTING_KO = {
     "cafe": "한국의 카페 내부",
     "station": "한국의 기차역 또는 지하철역",
     "market": "한국의 전통시장 또는 상점가",
+    "theme_park": "한국의 현대 놀이공원 안",
     "convenience": "한국의 편의점 내부",
     "restaurant": "한국의 식당 내부",
     "pharmacy": "한국의 약국 내부",
@@ -72,6 +75,7 @@ CATEGORY_SETTING_KO = {
     "bank": "한국의 은행 내부",
     "salon": "한국의 미용실 내부",
 }
+CATEGORY_REFERENCE_FALLBACKS = {"theme_park": "market"}
 
 SPEAKER_LABEL_KO = {
     "user": "학습자",
@@ -303,7 +307,11 @@ def build_manifest(
             raise ValueError(f"{scenario_id}: unsupported scene category {category!r}")
         if level not in LEVEL_ORDER:
             raise ValueError(f"{scenario_id}: unsupported level {level!r}")
-        reference_path = f"assets/illustrations/scenes/{category}.png"
+        reference_key = category
+        direct_reference = project_root / f"assets/illustrations/scenes/{category}.png"
+        if not direct_reference.is_file():
+            reference_key = CATEGORY_REFERENCE_FALLBACKS.get(category, category)
+        reference_path = f"assets/illustrations/scenes/{reference_key}.png"
         if not (project_root / reference_path).is_file():
             raise ValueError(f"{scenario_id}: missing category reference {reference_path}")
         summary = semantic_summary_ko(scenario)

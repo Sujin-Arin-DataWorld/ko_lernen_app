@@ -184,6 +184,31 @@ void main() {
       );
     });
 
+    test('theme park uses market until the user poster is bundled', () {
+      SceneAssetResolver.debugSetAssets(<String>{
+        'assets/illustrations/scenes/market.png',
+      });
+      final s = scn('a1_theme_park_date_choices', backdrop: 'theme_park');
+      expect(
+        SceneAssetResolver.posterAsset(s),
+        'assets/illustrations/scenes/market.png',
+      );
+      expect(SceneAssetResolver.loopAsset(s), isNull);
+    });
+
+    test('bundled theme park poster automatically wins over its fallback', () {
+      SceneAssetResolver.debugSetAssets(<String>{
+        'assets/illustrations/scenes/market.png',
+        'assets/illustrations/scenes/theme_park.png',
+      });
+      final s = scn('c2_theme_park_date_reflection', backdrop: 'theme_park');
+      expect(
+        SceneAssetResolver.posterAsset(s),
+        'assets/illustrations/scenes/theme_park.png',
+      );
+      expect(SceneAssetResolver.loopAsset(s), isNull);
+    });
+
     test('unregistered id + empty manifest → null (mascot fallback at UI)', () {
       final s = scn('totally_unknown_xyz');
       expect(SceneAssetResolver.posterAsset(s), isNull);
@@ -206,12 +231,20 @@ void main() {
       }
     });
 
-    test('쓰이는 모든 카테고리에 실제 포스터 PNG 가 있다', () {
+    test('쓰이는 모든 카테고리에 실제 포스터 PNG 또는 승인된 폴백이 있다', () {
       final categories = allScenarioJson()
           .map((raw) => raw['backdrop'] as String)
           .toSet();
       expect(categories, isNotEmpty);
       for (final key in categories) {
+        if (key == 'theme_park') {
+          expect(
+            File('assets/illustrations/scenes/market.png').existsSync(),
+            isTrue,
+            reason: 'theme_park.png 추가 전에는 market.png 폴백이 필요합니다',
+          );
+          continue;
+        }
         expect(
           File('assets/illustrations/scenes/$key.png').existsSync(),
           isTrue,

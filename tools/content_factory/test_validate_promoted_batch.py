@@ -33,8 +33,8 @@ class PromotedBatchValidationTest(unittest.TestCase):
         count, inventory = promoted.validate(REPO_ROOT / BATCH_17)
 
         self.assertEqual(144, count)
-        self.assertEqual(413, inventory["scenario"])
-        self.assertEqual(522, inventory["smalltalk"])
+        self.assertEqual(419, inventory["scenario"])
+        self.assertEqual(582, inventory["smalltalk"])
         self.assertEqual(1805, inventory["cloze"])
         self.assertEqual(2333, inventory["satz"])
         self.assertEqual(84, inventory["pronunciation"])

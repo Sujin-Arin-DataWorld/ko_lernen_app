@@ -1,0 +1,1348 @@
+{
+  "schemaVersion": 1,
+  "status": "approved_for_live_promotion",
+  "scenarios": [
+    {
+      "id": "a1_theme_park_date_choices",
+      "level": "a1",
+      "emoji": "🎢",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "relationshipContext": "romantic_partners",
+      "intent": "choose_the_first_ride_together",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "playerCharacterId": "sujin",
+      "participantIds": [
+        "sujin",
+        "christian"
+      ],
+      "xpReward": 125,
+      "title": {
+        "ko": "뭐부터 탈까?",
+        "de": "Womit fahren wir zuerst?",
+        "en": "What should we ride first?"
+      },
+      "intro": {
+        "ko": "수진과 크리스티안이 놀이공원 데이트를 시작합니다. 첫 놀이기구와 자리를 함께 정합니다.",
+        "de": "Sujin und Christian beginnen ihr Date im Freizeitpark und wählen gemeinsam die erste Fahrt und ihre Plätze.",
+        "en": "Sujin and Christian begin their theme park date and choose their first ride and seats together."
+      },
+      "vocab": [
+        {
+          "korean": "놀이기구"
+        },
+        {
+          "korean": "롤러코스터"
+        },
+        {
+          "korean": "앞자리"
+        },
+        {
+          "korean": "뒷자리"
+        },
+        {
+          "korean": "줄"
+        },
+        {
+          "korean": "츄러스"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_want"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-고 싶다",
+          "de": "V-고 싶다: etwas machen wollen",
+          "en": "V-고 싶다: want to do"
+        },
+        "explanation": {
+          "ko": "하고 싶은 일을 말할 때 동사 뒤에 -고 싶다를 붙인다. 타고 싶어처럼 쓴다.",
+          "de": "Mit -고 싶다 am Verb sagt man, was man machen möchte, etwa 타고 싶어.",
+          "en": "Add -고 싶다 to a verb to say what you want to do, as in 타고 싶어."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "christian",
+          "ko": "수진아, 우리 저거 탈까?",
+          "de": "Sujin, wollen wir mit dem da fahren?",
+          "en": "Sujin, want to go on that one?"
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아. 나는 롤러코스터를 타고 싶어.",
+          "de": "Gern. Ich möchte mit der Achterbahn fahren.",
+          "en": "Sure. I want to ride the roller coaster."
+        },
+        {
+          "speaker": "christian",
+          "ko": "우리 앞에 탈까, 뒤에 탈까?",
+          "de": "Wollen wir vorne oder hinten sitzen?",
+          "en": "Should we sit in the front or the back?"
+        },
+        {
+          "speaker": "user",
+          "ko": "앞에 타자. 더 무서울 것 같아.",
+          "de": "Setzen wir uns nach vorne. Das ist bestimmt gruseliger.",
+          "en": "Let's sit in front. I think it'll be scarier."
+        },
+        {
+          "speaker": "christian",
+          "ko": "와, 줄이 진짜 길다.",
+          "de": "Wow, die Schlange ist wirklich lang.",
+          "en": "Wow, the line is really long."
+        },
+        {
+          "speaker": "user",
+          "ko": "기다리면서 츄러스 먹을까?",
+          "de": "Wollen wir beim Warten Churros essen?",
+          "en": "Want to eat churros while we wait?"
+        },
+        {
+          "speaker": "christian",
+          "ko": "좋아. 우리 사진도 찍자.",
+          "de": "Gern. Lass uns auch ein Foto machen.",
+          "en": "Sure. Let's take a photo too."
+        },
+        {
+          "speaker": "user",
+          "ko": "응. 오늘 정말 재미있겠다!",
+          "de": "Ja. Heute wird bestimmt richtig schön!",
+          "en": "Yeah. Today is going to be so much fun!"
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_theme_park_date_choices_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "audioKo": "우리 앞에 탈까, 뒤에 탈까?",
+            "options": [
+              {
+                "de": "Wollen wir vorne oder hinten sitzen?",
+                "en": "Should we sit in the front or the back?"
+              },
+              {
+                "de": "Wollen wir jetzt nach Hause?",
+                "en": "Should we go home now?"
+              },
+              {
+                "de": "Ist diese Fahrt geschlossen?",
+                "en": "Is this ride closed?"
+              },
+              {
+                "de": "Möchtest du Wasser?",
+                "en": "Would you like some water?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_theme_park_date_choices_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "promptDe": "Ich möchte mit der Achterbahn fahren.",
+            "promptEn": "I want to ride the roller coaster.",
+            "options": [
+              {
+                "ko": "나는 롤러코스터를 타고 싶어."
+              },
+              {
+                "ko": "나는 롤러코스터가 싫어."
+              },
+              {
+                "ko": "나는 츄러스를 사고 싶어."
+              },
+              {
+                "ko": "나는 뒤에 앉았어."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_theme_park_date_choices_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "sentence": "롤러코스터를 타___ 싶어.",
+            "options": [
+              "고",
+              "면",
+              "서",
+              "지만"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_theme_park_date_choices_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "targetKo": "기다리면서 츄러스 먹을까?",
+            "promptDe": "Wollen wir beim Warten Churros essen?",
+            "promptEn": "Want to eat churros while we wait?",
+            "distractors": [
+              "사진을",
+              "뒷자리가"
+            ]
+          }
+        },
+        {
+          "id": "quest_a1_theme_park_date_choices_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "targetKo": "와, 줄이 진짜 길다.",
+            "promptDe": "Wow, die Schlange ist wirklich lang.",
+            "promptEn": "Wow, the line is really long."
+          }
+        },
+        {
+          "id": "quest_a1_theme_park_date_choices_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "prefix": "롤러코스터",
+            "suffix": " 타고 싶어.",
+            "options": [
+              "를",
+              "을",
+              "가",
+              "이",
+              "에",
+              "로"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "롤러코스터 endet auf Vokal, deshalb steht das Objektpartikel 를.",
+            "explanationEn": "롤러코스터 ends in a vowel, so it takes the object particle 를."
+          }
+        }
+      ],
+      "shelf": "a1_dating",
+      "backdrop": "theme_park"
+    },
+    {
+      "id": "a2_theme_park_date_break",
+      "level": "a2",
+      "emoji": "🎢",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "relationshipContext": "romantic_partners",
+      "intent": "take_a_break_and_choose_a_snack",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "playerCharacterId": "sujin",
+      "participantIds": [
+        "sujin",
+        "christian"
+      ],
+      "xpReward": 140,
+      "title": {
+        "ko": "잠깐 쉬었다 갈까?",
+        "de": "Machen wir kurz Pause?",
+        "en": "Should we take a quick break?"
+      },
+      "intro": {
+        "ko": "오래 줄을 선 뒤 둘이 잠깐 쉬며 음료와 간식을 고릅니다.",
+        "de": "Nach langem Anstehen machen die beiden Pause und suchen sich Getränke und Snacks aus.",
+        "en": "After standing in line for a long time, they take a break and pick drinks and snacks."
+      },
+      "vocab": [
+        {
+          "korean": "발바닥"
+        },
+        {
+          "korean": "자리"
+        },
+        {
+          "korean": "달달하다"
+        },
+        {
+          "korean": "제로콜라"
+        },
+        {
+          "korean": "감자튀김"
+        },
+        {
+          "korean": "인형탈"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a2_probability"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-(으)ㄴ/는 것 같다",
+          "de": "A/V-(으)ㄴ/는 것 같다: scheint",
+          "en": "A/V-(으)ㄴ/는 것 같다: seems"
+        },
+        "explanation": {
+          "ko": "보거나 느낀 것을 조심스럽게 판단할 때 -는 것 같다를 쓴다.",
+          "de": "Mit -는 것 같다 formuliert man einen vorsichtigen Eindruck aus dem, was man sieht oder fühlt.",
+          "en": "Use -는 것 같다 for a cautious impression based on what you see or feel."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "christian",
+          "ko": "수진아, 괜찮아? 많이 피곤해 보여.",
+          "de": "Sujin, alles okay? Du siehst ziemlich müde aus.",
+          "en": "Sujin, are you okay? You look pretty tired."
+        },
+        {
+          "speaker": "user",
+          "ko": "너무 오래 서 있었더니 발바닥이 아파.",
+          "de": "Vom langen Stehen tun mir die Fußsohlen weh.",
+          "en": "My feet hurt from standing for so long."
+        },
+        {
+          "speaker": "christian",
+          "ko": "아, 저기 자리가 있다. 저기 앉을까?",
+          "de": "Oh, da ist ein Platz frei. Wollen wir uns dort hinsetzen?",
+          "en": "Oh, there's a seat over there. Want to sit there?"
+        },
+        {
+          "speaker": "user",
+          "ko": "응. 나 지금 당이 당겨. 달달한 것도 마시고 싶어.",
+          "de": "Ja. Ich brauche gerade Zucker und möchte auch etwas Süßes trinken.",
+          "en": "Yeah. I'm craving sugar and want something sweet to drink too."
+        },
+        {
+          "speaker": "christian",
+          "ko": "그럼 제로콜라 두 개랑 감자튀김 하나 살까?",
+          "de": "Dann zwei Cola Zero und einmal Pommes?",
+          "en": "Then how about two Coke Zeros and one fries?"
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아. 그런데 저 인형탈 알바생은 더워서 힘들 것 같아.",
+          "de": "Gern. Aber der Mensch im Maskottchenkostüm hat es bei der Hitze bestimmt schwer.",
+          "en": "Sure. But the worker in that mascot costume must be struggling in this heat."
+        },
+        {
+          "speaker": "christian",
+          "ko": "그래도 우리한테 손을 흔들어 주네.",
+          "de": "Trotzdem winkt die Person uns zu.",
+          "en": "They're still waving at us."
+        },
+        {
+          "speaker": "user",
+          "ko": "와, 너무 귀엽다. 같이 사진 찍을까?",
+          "de": "Ach, wie süß. Wollen wir zusammen ein Foto machen?",
+          "en": "Aw, so cute. Want to take a photo together?"
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a2_theme_park_date_break_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a2_relationships"
+          ],
+          "data": {
+            "audioKo": "많이 피곤해 보여.",
+            "options": [
+              {
+                "de": "Du siehst ziemlich müde aus.",
+                "en": "You look pretty tired."
+              },
+              {
+                "de": "Du siehst sehr glücklich aus.",
+                "en": "You look very happy."
+              },
+              {
+                "de": "Du bist bestimmt hungrig.",
+                "en": "You must be hungry."
+              },
+              {
+                "de": "Deine Schuhe sehen neu aus.",
+                "en": "Your shoes look new."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_theme_park_date_break_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a2_relationships"
+          ],
+          "data": {
+            "promptDe": "Der Mensch im Maskottchenkostüm hat es bei der Hitze bestimmt schwer.",
+            "promptEn": "The worker in that mascot costume must be struggling in this heat.",
+            "options": [
+              {
+                "ko": "저 인형탈 알바생은 더워서 힘들 것 같아."
+              },
+              {
+                "ko": "저 인형탈 알바생은 지금 쉬고 있어."
+              },
+              {
+                "ko": "저 인형탈 알바생은 춥다고 했어."
+              },
+              {
+                "ko": "저 인형탈 알바생은 사진을 싫어해."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_theme_park_date_break_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a2_relationships"
+          ],
+          "data": {
+            "sentence": "많이 피곤해 보이___ 것 같아.",
+            "options": [
+              "는",
+              "고",
+              "면",
+              "지만"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_theme_park_date_break_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a2_relationships"
+          ],
+          "data": {
+            "targetKo": "아, 저기 자리가 있다. 저기 앉을까?",
+            "promptDe": "Oh, da ist ein Platz frei. Wollen wir uns dort hinsetzen?",
+            "promptEn": "Oh, there's a seat over there. Want to sit there?",
+            "distractors": [
+              "감자튀김을",
+              "발바닥이"
+            ]
+          }
+        },
+        {
+          "id": "quest_a2_theme_park_date_break_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a2_relationships"
+          ],
+          "data": {
+            "targetKo": "나 지금 당이 당겨.",
+            "promptDe": "Ich brauche gerade Zucker.",
+            "promptEn": "I'm craving sugar right now."
+          }
+        }
+      ],
+      "shelf": "a2_dating",
+      "backdrop": "theme_park"
+    },
+    {
+      "id": "b1_theme_park_date_thrill",
+      "level": "b1",
+      "emoji": "🎢",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "relationshipContext": "romantic_partners",
+      "intent": "share_a_scary_ride_reaction",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "playerCharacterId": "sujin",
+      "participantIds": [
+        "sujin",
+        "christian"
+      ],
+      "xpReward": 165,
+      "title": {
+        "ko": "두 번이나 돌았어",
+        "de": "Zweimal über Kopf",
+        "en": "It flipped twice"
+      },
+      "intro": {
+        "ko": "수진과 크리스티안이 360도로 두 번 회전하는 롤러코스터에서 내린 직후입니다.",
+        "de": "Sujin und Christian steigen gerade aus einer Achterbahn, die sich zweimal um 360 Grad überschlagen hat.",
+        "en": "Sujin and Christian have just stepped off a roller coaster that flipped through 360 degrees twice."
+      },
+      "vocab": [
+        {
+          "korean": "안전바"
+        },
+        {
+          "korean": "회전하다"
+        },
+        {
+          "korean": "목"
+        },
+        {
+          "korean": "눈물"
+        },
+        {
+          "korean": "놀이기구 사진"
+        },
+        {
+          "korean": "다시 타다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b1_skill"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ 줄 몰랐다",
+          "de": "V-(으)ㄹ 줄 몰랐다: nicht erwartet haben",
+          "en": "V-(으)ㄹ 줄 몰랐다: didn't expect"
+        },
+        "explanation": {
+          "ko": "예상보다 강한 경험을 뒤늦게 깨달았을 때 -을 줄 몰랐다를 쓸 수 있다.",
+          "de": "Mit -을 줄 몰랐다 sagt man im Rückblick, dass etwas stärker oder anders war als erwartet.",
+          "en": "Use -을 줄 몰랐다 when you realize afterward that something was stronger or different than expected."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "christian",
+          "ko": "올라갈 때 탁탁탁탁 나는 소리, 진짜 좋지 않았어?",
+          "de": "War dieses Klack-klack-klack beim Hochfahren nicht großartig?",
+          "en": "Wasn't that click-click-click on the way up amazing?"
+        },
+        {
+          "speaker": "user",
+          "ko": "응. 그런데 360도로 두 번이나 돌 줄은 몰랐어.",
+          "de": "Ja. Aber ich hatte nicht erwartet, dass wir uns gleich zweimal komplett überschlagen.",
+          "en": "Yeah. But I didn't expect us to flip all the way around twice."
+        },
+        {
+          "speaker": "christian",
+          "ko": "너 안전바를 정말 꽉 잡고 있더라.",
+          "de": "Du hast den Sicherheitsbügel wirklich fest umklammert.",
+          "en": "You were gripping the safety bar so tightly."
+        },
+        {
+          "speaker": "user",
+          "ko": "너무 무서워서 눈물까지 났어. 소리도 엄청 질렀고.",
+          "de": "Es war so gruselig, dass mir sogar die Tränen kamen. Und ich habe wahnsinnig geschrien.",
+          "en": "It was so scary I actually teared up. And I screamed so much."
+        },
+        {
+          "speaker": "christian",
+          "ko": "그래서 목이 아픈 거야?",
+          "de": "Tut dir deshalb der Hals weh?",
+          "en": "Is that why your throat hurts?"
+        },
+        {
+          "speaker": "user",
+          "ko": "응. 그래도 생각했던 것보다 훨씬 재미있었어.",
+          "de": "Ja. Trotzdem hat es viel mehr Spaß gemacht als gedacht.",
+          "en": "Yeah. It was still way more fun than I expected."
+        },
+        {
+          "speaker": "christian",
+          "ko": "와, 우리 사진 진짜 웃기게 찍혔다.",
+          "de": "Wow, unser Foto ist wirklich urkomisch geworden.",
+          "en": "Wow, our photo turned out hilarious."
+        },
+        {
+          "speaker": "user",
+          "ko": "그러게. 조금 쉬었다가 한 번 더 탈까?",
+          "de": "Stimmt. Wollen wir kurz Pause machen und dann noch einmal fahren?",
+          "en": "Right? Want to rest a bit and ride it again?"
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_theme_park_date_thrill_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "audioKo": "360도로 두 번이나 돌 줄은 몰랐어.",
+            "options": [
+              {
+                "de": "Ich hatte nicht erwartet, dass wir uns gleich zweimal komplett überschlagen.",
+                "en": "I didn't expect us to flip all the way around twice."
+              },
+              {
+                "de": "Ich wusste, dass die Fahrt zweimal hält.",
+                "en": "I knew the ride would stop twice."
+              },
+              {
+                "de": "Ich wollte zweimal damit fahren.",
+                "en": "I wanted to ride it twice."
+              },
+              {
+                "de": "Ich habe die zwei Runden verpasst.",
+                "en": "I missed both laps."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_theme_park_date_thrill_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "promptDe": "Es war so gruselig, dass mir sogar die Tränen kamen.",
+            "promptEn": "It was so scary I actually teared up.",
+            "options": [
+              {
+                "ko": "너무 무서워서 눈물까지 났어."
+              },
+              {
+                "ko": "너무 재미있어서 계속 웃었어."
+              },
+              {
+                "ko": "별로 무섭지 않아서 잠이 왔어."
+              },
+              {
+                "ko": "눈물이 나서 놀이기구를 못 탔어."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_theme_park_date_thrill_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "sentence": "두 번이나 돌 ___ 몰랐어.",
+            "options": [
+              "줄은",
+              "수는",
+              "때는",
+              "지는"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_theme_park_date_thrill_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "targetKo": "생각했던 것보다 훨씬 재미있었어.",
+            "promptDe": "Es hat viel mehr Spaß gemacht als gedacht.",
+            "promptEn": "It was way more fun than I expected.",
+            "distractors": [
+              "안전바를",
+              "목이"
+            ]
+          }
+        },
+        {
+          "id": "quest_b1_theme_park_date_thrill_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "targetKo": "너 안전바를 정말 꽉 잡고 있더라.",
+            "promptDe": "Du hast den Sicherheitsbügel wirklich fest umklammert.",
+            "promptEn": "You were gripping the safety bar so tightly."
+          }
+        }
+      ],
+      "shelf": "b1_dating",
+      "backdrop": "theme_park"
+    },
+    {
+      "id": "b2_theme_park_date_safety",
+      "level": "b2",
+      "emoji": "🎢",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "relationshipContext": "romantic_partners",
+      "intent": "check_ride_safety_and_recover_a_wallet",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "playerCharacterId": "sujin",
+      "participantIds": [
+        "sujin",
+        "christian"
+      ],
+      "xpReward": 185,
+      "title": {
+        "ko": "타기 전에 꼭 확인해",
+        "de": "Vor der Fahrt: alles prüfen",
+        "en": "Check everything before the ride"
+      },
+      "intro": {
+        "ko": "다음 놀이기구를 타기 전 소지품 규정을 확인하던 중 수진이 지갑이 없어진 것을 알아챕니다.",
+        "de": "Vor der nächsten Fahrt prüfen die beiden die Regeln für lose Gegenstände. Dabei bemerkt Sujin, dass ihre Geldbörse fehlt.",
+        "en": "Before the next ride, they check the loose-item rules. Then Sujin realizes her wallet is missing."
+      },
+      "vocab": [
+        {
+          "korean": "주머니"
+        },
+        {
+          "korean": "물품 보관함"
+        },
+        {
+          "korean": "머리띠"
+        },
+        {
+          "korean": "안경"
+        },
+        {
+          "korean": "지갑"
+        },
+        {
+          "korean": "안내 데스크"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_even_if"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-더라도",
+          "de": "V-더라도: selbst wenn",
+          "en": "V-더라도: even if"
+        },
+        "explanation": {
+          "ko": "앞의 상황을 감수해도 뒤의 행동이 더 중요하다고 말할 때 -더라도를 쓴다.",
+          "de": "Mit -더라도 räumt man einen Nachteil ein und hält trotzdem an der wichtigeren Handlung fest.",
+          "en": "Use -더라도 to concede a drawback while keeping the more important action."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "christian",
+          "ko": "출발하기 전에 주머니 다 확인했어?",
+          "de": "Hast du vor dem Start alle Taschen kontrolliert?",
+          "en": "Did you check all your pockets before we set off?"
+        },
+        {
+          "speaker": "user",
+          "ko": "휴대폰이랑 동전은 옆 물품 보관함에 넣었어.",
+          "de": "Handy und Münzen habe ich in das Schließfach daneben gelegt.",
+          "en": "I put my phone and coins in the locker beside us."
+        },
+        {
+          "speaker": "christian",
+          "ko": "머리띠도 넣고, 안경은 어떻게 해야 하는지 직원한테 물어보자.",
+          "de": "Leg auch das Haarband hinein, und fragen wir das Personal, was mit der Brille zu tun ist.",
+          "en": "Put your headband in too, and let's ask the staff what to do with your glasses."
+        },
+        {
+          "speaker": "user",
+          "ko": "맞아. 놀이기구마다 규정이 다를 수 있으니까.",
+          "de": "Stimmt. Die Regeln können je nach Fahrgeschäft unterschiedlich sein.",
+          "en": "Right. The rules can differ from ride to ride."
+        },
+        {
+          "speaker": "christian",
+          "ko": "그런데 네 지갑은 어디 있어?",
+          "de": "Aber wo ist deine Geldbörse?",
+          "en": "But where's your wallet?"
+        },
+        {
+          "speaker": "user",
+          "ko": "잠깐, 지갑이 없어. 아까 커피 마신 자리에 두고 왔나 봐.",
+          "de": "Moment, meine Geldbörse ist weg. Ich muss sie wohl bei unserem Kaffeeplatz liegen gelassen haben.",
+          "en": "Wait, my wallet is gone. I think I left it where we had coffee."
+        },
+        {
+          "speaker": "christian",
+          "ko": "차례를 놓치더라도 먼저 찾으러 가자.",
+          "de": "Auch wenn wir unsere Runde verpassen, suchen wir sie zuerst.",
+          "en": "Even if we miss our turn, let's go find it first."
+        },
+        {
+          "speaker": "user",
+          "ko": "응. 없으면 공원 안내 데스크에 문의해 보자.",
+          "de": "Ja. Wenn sie dort nicht ist, fragen wir bei der Information des Parks nach.",
+          "en": "Yeah. If it isn't there, let's ask at the park information desk."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_theme_park_date_safety_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "audioKo": "차례를 놓치더라도 먼저 찾으러 가자.",
+            "options": [
+              {
+                "de": "Auch wenn wir unsere Runde verpassen, suchen wir sie zuerst.",
+                "en": "Even if we miss our turn, let's go find it first."
+              },
+              {
+                "de": "Wir warten erst auf unsere Runde.",
+                "en": "Let's wait for our turn first."
+              },
+              {
+                "de": "Wir kaufen zuerst eine neue Geldbörse.",
+                "en": "Let's buy a new wallet first."
+              },
+              {
+                "de": "Wir fragen erst nach der Brille.",
+                "en": "Let's ask about the glasses first."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_theme_park_date_safety_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "promptDe": "Fragen wir das Personal, was mit der Brille zu tun ist.",
+            "promptEn": "Let's ask the staff what to do with the glasses.",
+            "options": [
+              {
+                "ko": "안경은 어떻게 해야 하는지 직원한테 물어보자."
+              },
+              {
+                "ko": "안경은 주머니에 넣자."
+              },
+              {
+                "ko": "안경은 꼭 잡고 타자."
+              },
+              {
+                "ko": "안경은 그냥 두고 가자."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_theme_park_date_safety_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "sentence": "차례를 놓치___ 먼저 찾으러 가자.",
+            "options": [
+              "더라도",
+              "는 김에",
+              "는 대신",
+              "고 나서"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_theme_park_date_safety_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "targetKo": "놀이기구마다 규정이 다를 수 있어.",
+            "promptDe": "Die Regeln können je nach Fahrgeschäft unterschiedlich sein.",
+            "promptEn": "The rules can differ from ride to ride.",
+            "distractors": [
+              "물품 보관함을",
+              "지갑이"
+            ]
+          }
+        },
+        {
+          "id": "quest_b2_theme_park_date_safety_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "targetKo": "출발하기 전에 주머니 다 확인했어?",
+            "promptDe": "Hast du vor dem Start alle Taschen kontrolliert?",
+            "promptEn": "Did you check all your pockets before we set off?"
+          }
+        }
+      ],
+      "shelf": "b2_dating",
+      "backdrop": "theme_park"
+    },
+    {
+      "id": "c1_theme_park_date_next_time",
+      "level": "c1",
+      "emoji": "🎢",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "relationshipContext": "romantic_partners",
+      "intent": "turn_a_closed_ride_into_a_future_date",
+      "courseUnitId": "c1_06_intimacy_safety_design",
+      "conceptIds": [
+        "concept_c1_intimacy_safety"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "playerCharacterId": "sujin",
+      "participantIds": [
+        "sujin",
+        "christian"
+      ],
+      "xpReward": 210,
+      "title": {
+        "ko": "다음에 올 이유",
+        "de": "Ein Grund, wiederzukommen",
+        "en": "A reason to come back"
+      },
+      "intro": {
+        "ko": "꼭 타고 싶었던 놀이기구가 운영하지 않는 듯합니다. 둘은 아쉬움을 다음 데이트 약속으로 바꿉니다.",
+        "de": "Eine Fahrt, die sie unbedingt ausprobieren wollten, scheint heute geschlossen zu sein. Aus der Enttäuschung wird ein Plan fürs nächste Date.",
+        "en": "A ride they really wanted to try seems to be closed. They turn the disappointment into a plan for their next date."
+      },
+      "vocab": [
+        {
+          "korean": "운영하다"
+        },
+        {
+          "korean": "아쉽다"
+        },
+        {
+          "korean": "크리스마스 마켓"
+        },
+        {
+          "korean": "소문"
+        },
+        {
+          "korean": "겨울"
+        },
+        {
+          "korean": "이유"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_quoted_contractions"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "-나 봐·-대·-겠군",
+          "de": "Schluss, Hörensagen und spielerische Folgerung",
+          "en": "Inference, hearsay, and playful realization"
+        },
+        "explanation": {
+          "ko": "-나 봐는 보이는 단서로 추측하고, -대는 전해 들은 말을 줄여 전하며, -겠군은 새롭게 알아챈 결론을 드러낸다.",
+          "de": "-나 봐 markiert einen Schluss aus sichtbaren Hinweisen, -대 knappes Hörensagen und -겠군 eine neu erkannte, hier spielerische Folgerung.",
+          "en": "-나 봐 marks an inference from visible evidence, -대 compact hearsay, and -겠군 a newly realized, here playful, conclusion."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "christian",
+          "ko": "어, 뭐야. 오늘은 운영 안 하나 봐.",
+          "de": "Oh, was ist denn? Die Fahrt scheint heute nicht in Betrieb zu sein.",
+          "en": "Wait, what? It looks like the ride isn't running today."
+        },
+        {
+          "speaker": "user",
+          "ko": "이거 꼭 타고 싶었는데 아쉽다.",
+          "de": "Schade. Damit wollte ich unbedingt fahren.",
+          "en": "That's a shame. I really wanted to ride this one."
+        },
+        {
+          "speaker": "christian",
+          "ko": "괜찮아. 다음에 또 오자. 다시 올 이유가 생겼잖아.",
+          "de": "Macht nichts. Wir kommen wieder. Jetzt haben wir doch einen Grund dafür.",
+          "en": "It's okay. Let's come back. Now we have a reason to."
+        },
+        {
+          "speaker": "user",
+          "ko": "맞아. 여기 크리스마스 마켓도 정말 예쁘대.",
+          "de": "Stimmt. Der Weihnachtsmarkt hier soll auch richtig schön sein.",
+          "en": "Right. I heard the Christmas market here is beautiful too."
+        },
+        {
+          "speaker": "christian",
+          "ko": "그럼 겨울에 다시 데이트하러 올까?",
+          "de": "Dann kommen wir im Winter wieder zu einem Date?",
+          "en": "Then should we come back for another date in winter?"
+        },
+        {
+          "speaker": "user",
+          "ko": "오, 좋아. 그러면 그때 또 츄러스를 먹을 수 있겠군.",
+          "de": "Oh, sehr gut. Dann kann ich also wieder Churros essen.",
+          "en": "Oh, perfect. So that means I get to have churros again."
+        },
+        {
+          "speaker": "christian",
+          "ko": "결국 네 목적은 츄러스였구나.",
+          "de": "Am Ende ging es dir also doch um die Churros.",
+          "en": "So the churros were your real goal all along."
+        },
+        {
+          "speaker": "user",
+          "ko": "그것도 다음에 올 아주 중요한 이유지.",
+          "de": "Das ist eben auch ein sehr wichtiger Grund, wiederzukommen.",
+          "en": "That's also a very important reason to come back."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_theme_park_date_next_time_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "audioKo": "오늘은 운영 안 하나 봐.",
+            "options": [
+              {
+                "de": "Die Fahrt scheint heute nicht in Betrieb zu sein.",
+                "en": "It looks like the ride isn't running today."
+              },
+              {
+                "de": "Die Fahrt schließt morgen.",
+                "en": "The ride closes tomorrow."
+              },
+              {
+                "de": "Die Fahrt war gestern geöffnet.",
+                "en": "The ride was open yesterday."
+              },
+              {
+                "de": "Wir fahren heute zweimal.",
+                "en": "We're riding it twice today."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_theme_park_date_next_time_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "promptDe": "Der Weihnachtsmarkt hier soll auch richtig schön sein.",
+            "promptEn": "I heard the Christmas market here is beautiful too.",
+            "options": [
+              {
+                "ko": "여기 크리스마스 마켓도 정말 예쁘대."
+              },
+              {
+                "ko": "여기 크리스마스 마켓은 오늘 끝난대."
+              },
+              {
+                "ko": "여기 크리스마스 마켓은 별로래."
+              },
+              {
+                "ko": "여기 크리스마스 마켓에 가 봤어."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_theme_park_date_next_time_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "sentence": "오늘은 운영 안 하___ 봐.",
+            "options": [
+              "나",
+              "고",
+              "면",
+              "자"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_theme_park_date_next_time_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "targetKo": "그러면 그때 또 츄러스를 먹을 수 있겠군.",
+            "promptDe": "Dann kann ich also wieder Churros essen.",
+            "promptEn": "So that means I get to have churros again.",
+            "distractors": [
+              "크리스마스 마켓이",
+              "운영을"
+            ]
+          }
+        },
+        {
+          "id": "quest_c1_theme_park_date_next_time_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "targetKo": "다시 올 이유가 생겼잖아.",
+            "promptDe": "Jetzt haben wir doch einen Grund, wiederzukommen.",
+            "promptEn": "Now we have a reason to come back."
+          }
+        }
+      ],
+      "shelf": "c1_dating",
+      "backdrop": "theme_park"
+    },
+    {
+      "id": "c2_theme_park_date_reflection",
+      "level": "c2",
+      "emoji": "🎢",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "relationshipContext": "romantic_partners",
+      "intent": "reflect_on_why_theme_parks_feel_freeing",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "playerCharacterId": "sujin",
+      "participantIds": [
+        "sujin",
+        "christian"
+      ],
+      "xpReward": 240,
+      "title": {
+        "ko": "웃음이 가득한 이유",
+        "de": "Warum hier so viel gelacht wird",
+        "en": "Why this place is full of laughter"
+      },
+      "intro": {
+        "ko": "데이트를 마치며 둘은 기다림과 두려움까지도 좋은 기억이 된 이유를 돌아봅니다.",
+        "de": "Am Ende ihres Dates überlegen die beiden, warum selbst Warten und Angst zu einer guten Erinnerung wurden.",
+        "en": "At the end of their date, they reflect on why even the waiting and fear became a good memory."
+      },
+      "vocab": [
+        {
+          "korean": "해방감"
+        },
+        {
+          "korean": "기대"
+        },
+        {
+          "korean": "두려움"
+        },
+        {
+          "korean": "완벽하다"
+        },
+        {
+          "korean": "불편함"
+        },
+        {
+          "korean": "기억"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c2_even_assuming"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-(으)ㄴ/는다고 치더라도",
+          "de": "Selbst unter der Annahme, dass",
+          "en": "Even assuming that"
+        },
+        "explanation": {
+          "ko": "어떤 사실을 일단 인정한다고 가정해도 뒤의 판단이 그대로 성립함을 강조한다.",
+          "de": "Die Form räumt eine Annahme für die Argumentation ein und zeigt, dass die folgende Bewertung trotzdem gilt.",
+          "en": "This form grants an assumption for the argument and shows that the following judgment still holds."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "christian",
+          "ko": "오늘 줄도 오래 섰고, 물도 잔뜩 맞았는데 이상하게 기분이 좋다.",
+          "de": "Heute standen wir lange an und wurden klatschnass, und trotzdem bin ich erstaunlich gut gelaunt.",
+          "en": "We waited forever and got soaked today, yet somehow I feel great."
+        },
+        {
+          "speaker": "user",
+          "ko": "나, 사람들이 놀이공원에 오는 걸 좋아하는 이유를 알 것 같아.",
+          "de": "Ich glaube, ich verstehe, warum Menschen so gern in Freizeitparks kommen.",
+          "en": "I think I understand why people love coming to theme parks."
+        },
+        {
+          "speaker": "christian",
+          "ko": "왜라고 생각해?",
+          "de": "Warum, glaubst du?",
+          "en": "Why do you think that is?"
+        },
+        {
+          "speaker": "user",
+          "ko": "여기는 웃음이 가득하잖아. 다들 설레고 신나 보여.",
+          "de": "Hier ist überall Lachen. Alle wirken erwartungsvoll und ausgelassen.",
+          "en": "This place is full of laughter. Everyone looks excited and alive."
+        },
+        {
+          "speaker": "christian",
+          "ko": "기다리는 시간이 길다고 치더라도 그 기대가 사라지는 건 아니네.",
+          "de": "Selbst wenn man die lange Wartezeit einräumt, verschwindet diese Vorfreude nicht.",
+          "en": "Even assuming the wait is long, that anticipation doesn't disappear."
+        },
+        {
+          "speaker": "user",
+          "ko": "맞아. 나도 오늘 마음껏 소리를 질렀더니 스트레스가 다 풀린 것 같아. 목은 아프지만.",
+          "de": "Genau. Ich konnte heute nach Herzenslust schreien, und der ganze Stress scheint weg zu sein, auch wenn mein Hals weh tut.",
+          "en": "Exactly. I screamed as much as I wanted today, and it feels like all my stress is gone, even if my throat hurts."
+        },
+        {
+          "speaker": "christian",
+          "ko": "무서움을 피하는 대신 같이 통과해서 더 기억에 남는 걸지도 몰라.",
+          "de": "Vielleicht bleibt es gerade deshalb, weil wir die Angst nicht vermieden, sondern gemeinsam durchgestanden haben.",
+          "en": "Maybe it stays with us because we went through the fear together instead of avoiding it."
+        },
+        {
+          "speaker": "user",
+          "ko": "그러게. 완벽해서가 아니라 불편한 순간까지 같이 웃어서 좋은 날이었나 봐.",
+          "de": "Ja. Vielleicht war es nicht wegen der Perfektion ein guter Tag, sondern weil wir sogar über die unbequemen Momente zusammen gelacht haben.",
+          "en": "Yeah. Maybe it was a good day not because it was perfect, but because we laughed together even through the uncomfortable moments."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c2_theme_park_date_reflection_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c2_relationship_narratives"
+          ],
+          "data": {
+            "audioKo": "기다리는 시간이 길다고 치더라도 그 기대가 사라지는 건 아니네.",
+            "options": [
+              {
+                "de": "Selbst wenn man die lange Wartezeit einräumt, verschwindet diese Vorfreude nicht.",
+                "en": "Even assuming the wait is long, that anticipation doesn't disappear."
+              },
+              {
+                "de": "Wegen der Wartezeit verschwindet jede Vorfreude.",
+                "en": "The wait makes all anticipation disappear."
+              },
+              {
+                "de": "Die Wartezeit war heute sehr kurz.",
+                "en": "The wait was very short today."
+              },
+              {
+                "de": "Ohne Wartezeit wäre die Fahrt geschlossen.",
+                "en": "Without a wait, the ride would be closed."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_theme_park_date_reflection_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c2_relationship_narratives"
+          ],
+          "data": {
+            "promptDe": "Hier ist überall Lachen.",
+            "promptEn": "This place is full of laughter.",
+            "options": [
+              {
+                "ko": "여기는 웃음이 가득하잖아."
+              },
+              {
+                "ko": "여기는 사람이 거의 없잖아."
+              },
+              {
+                "ko": "여기는 조용해서 좋잖아."
+              },
+              {
+                "ko": "여기는 기다림만 가득하잖아."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_theme_park_date_reflection_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c2_relationship_narratives"
+          ],
+          "data": {
+            "sentence": "기다리는 시간이 길___ 치더라도 기대는 사라지지 않아.",
+            "options": [
+              "다고",
+              "도록",
+              "더니",
+              "자마자"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_theme_park_date_reflection_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c2_relationship_narratives"
+          ],
+          "data": {
+            "targetKo": "불편한 순간까지 같이 웃어서 좋은 날이었나 봐.",
+            "promptDe": "Vielleicht war es ein guter Tag, weil wir sogar über die unbequemen Momente zusammen gelacht haben.",
+            "promptEn": "Maybe it was a good day because we laughed together even through the uncomfortable moments.",
+            "distractors": [
+              "해방감을",
+              "기다림이"
+            ]
+          }
+        },
+        {
+          "id": "quest_c2_theme_park_date_reflection_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c2_relationship_narratives"
+          ],
+          "data": {
+            "targetKo": "무서움을 피하는 대신 같이 통과했어.",
+            "promptDe": "Wir haben die Angst nicht vermieden, sondern gemeinsam durchgestanden.",
+            "promptEn": "We went through the fear together instead of avoiding it."
+          }
+        }
+      ],
+      "shelf": "c2_dating",
+      "backdrop": "theme_park"
+    }
+  ]
+}

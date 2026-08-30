@@ -25,9 +25,9 @@ class SceneArtManifestTest(unittest.TestCase):
         )
         cls.entries = cls.manifest["entries"]
 
-    def test_exact_413_rows_and_fixed_category_counts(self) -> None:
-        self.assertEqual(self.manifest["scenarioCount"], 413)
-        self.assertEqual(len(self.entries), 413)
+    def test_exact_419_rows_and_fixed_category_counts(self) -> None:
+        self.assertEqual(self.manifest["scenarioCount"], 419)
+        self.assertEqual(len(self.entries), 419)
         self.assertEqual(
             self.manifest["categoryOrder"],
             [
@@ -45,6 +45,7 @@ class SceneArtManifestTest(unittest.TestCase):
                 "airport",
                 "bank",
                 "salon",
+                "theme_park",
             ],
         )
         expected = {
@@ -53,6 +54,7 @@ class SceneArtManifestTest(unittest.TestCase):
             "cafe": 36,
             "station": 27,
             "market": 22,
+            "theme_park": 6,
             "convenience": 14,
             "restaurant": 13,
             "pharmacy": 9,
@@ -89,7 +91,7 @@ class SceneArtManifestTest(unittest.TestCase):
         self.assertEqual(self.entries, expected_sort)
         self.assertEqual(
             [row["priorityOrder"] for row in self.entries],
-            list(range(1, 414)),
+            list(range(1, 420)),
         )
 
     def test_generated_from_hashes_match_canonical_sources(self) -> None:
@@ -144,9 +146,12 @@ class SceneArtManifestTest(unittest.TestCase):
                         f"runtime-scene-category/{row['category']}",
                     ],
                 )
+                expected_reference = (
+                    "market" if row["category"] == "theme_park" else row["category"]
+                )
                 self.assertEqual(
                     row["referenceImagePath"],
-                    f"assets/illustrations/scenes/{row['category']}.png",
+                    f"assets/illustrations/scenes/{expected_reference}.png",
                 )
                 self.assertTrue(
                     (build_scene_art_manifest.ROOT / row["referenceImagePath"]).is_file()

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""레벨별 15칸 서재(책가도)의 칸 정의와 live 413개 배정.
+"""레벨별 15칸 서재(책가도)의 칸 정의와 live 419개 배정.
 
 정본은 docs/superpowers/specs/2026-08-17-hoeren-shelf-per-level-design.md 의
 §4(축 설계)와 부록 A(전수 배정)다.  단 §4.2 관심 3칸은 2026-08-17 Jin 결정으로
@@ -79,7 +79,7 @@ ALL_SHELVES: frozenset[str] = frozenset(
     f"{level}_{slug}" for level in LEVELS for slug in SHELF_SLUGS[level]
 )
 
-# 부록 A를 확장한 현재 live 413 전수 배정.
+# 부록 A를 확장한 현재 live 419 전수 배정.
 # 90칸 전부 재고가 있다 — 서재가 처음으로 완전히 찼다.: 칸의 **존재**는 ALL_SHELVES 가, 칸의 **재고**는 이 표가 말한다.
 ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "a1_transit": (
@@ -149,6 +149,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "a1_dating": (
         "a1_dating_what_to_call_you",
+        "a1_theme_park_date_choices",
     ),
     "a1_fandom": (
         "a1_kpop_my_bias", "a1_youtube_shorts_last_night",
@@ -246,6 +247,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "a2_dating": (
         "a2_dating_slow_replies",
+        "a2_theme_park_date_break",
     ),
     "a2_fandom": (
         "a2_kpop_concert_queue", "a2_youtube_send_the_link",
@@ -299,6 +301,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "b1_dating": (
         "b1_dating_anniversary_gap",
+        "b1_theme_park_date_thrill",
     ),
     "b1_fandom": (
         "b1_kpop_missing_goods", "b1_youtube_up_all_night",
@@ -356,6 +359,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "b2_dating": (
         "b2_dating_moving_in_terms",
+        "b2_theme_park_date_safety",
     ),
     "b2_fandom": (
         "b2_kpop_staff_interview", "b2_youtube_collab_pitch",
@@ -435,6 +439,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "c1_dating": (
         "c1_dating_app_safety",
+        "c1_theme_park_date_next_time",
     ),
     "c1_fandom": (
         "c1_kpop_fan_labor", "c1_youtube_health_claims",
@@ -468,6 +473,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "c2_dating": (
         "c2_dating_romance_frames",
+        "c2_theme_park_date_reflection",
     ),
     "c2_fandom": (
         "c2_kpop_fandom_language", "c2_youtube_algorithm_duty",

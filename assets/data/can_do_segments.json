@@ -989,7 +989,7 @@
     {
       "id": "cluster_a1_11_titles_relationships_v1",
       "level": "a1",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_scenario_titles_relationship_distance_v1",
         "seed_vocab_pack_a1_family_1_v1",
@@ -1041,7 +1041,18 @@
         "seed_smalltalk_smalltalk_a1_0079_v1",
         "seed_smalltalk_smalltalk_a1_0080_v1",
         "seed_vocab_pack_a1_neighbors_hall_1_v1",
-        "seed_scenario_a1_dating_what_to_call_you_v1"
+        "seed_scenario_a1_dating_what_to_call_you_v1",
+        "seed_scenario_a1_theme_park_date_choices_v1",
+        "seed_smalltalk_smalltalk_a1_0091_v1",
+        "seed_smalltalk_smalltalk_a1_0092_v1",
+        "seed_smalltalk_smalltalk_a1_0093_v1",
+        "seed_smalltalk_smalltalk_a1_0094_v1",
+        "seed_smalltalk_smalltalk_a1_0095_v1",
+        "seed_smalltalk_smalltalk_a1_0096_v1",
+        "seed_smalltalk_smalltalk_a1_0097_v1",
+        "seed_smalltalk_smalltalk_a1_0098_v1",
+        "seed_smalltalk_smalltalk_a1_0099_v1",
+        "seed_smalltalk_smalltalk_a1_0100_v1"
       ],
       "contentReferences": [
         {
@@ -1247,6 +1258,50 @@
         {
           "kind": "scenario",
           "id": "a1_dating_what_to_call_you"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_theme_park_date_choices"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a1_0091"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a1_0092"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a1_0093"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a1_0094"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a1_0095"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a1_0096"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a1_0097"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a1_0098"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a1_0099"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a1_0100"
         }
       ]
     },
@@ -2275,7 +2330,7 @@
     {
       "id": "cluster_a2_running_late_v1",
       "level": "a2",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_scenario_running_late_v1",
         "seed_vocab_pack_a2_nature_1_v1",
@@ -2342,7 +2397,18 @@
         "seed_smalltalk_smalltalk_a2_0073_v1",
         "seed_vocab_pack_a2_festival_booth_1_v1",
         "seed_smalltalk_smalltalk_a2_0074_v1",
-        "seed_scenario_a2_youtube_send_the_link_v1"
+        "seed_scenario_a2_youtube_send_the_link_v1",
+        "seed_scenario_a2_theme_park_date_break_v1",
+        "seed_smalltalk_smalltalk_a2_0084_v1",
+        "seed_smalltalk_smalltalk_a2_0085_v1",
+        "seed_smalltalk_smalltalk_a2_0086_v1",
+        "seed_smalltalk_smalltalk_a2_0087_v1",
+        "seed_smalltalk_smalltalk_a2_0088_v1",
+        "seed_smalltalk_smalltalk_a2_0089_v1",
+        "seed_smalltalk_smalltalk_a2_0090_v1",
+        "seed_smalltalk_smalltalk_a2_0091_v1",
+        "seed_smalltalk_smalltalk_a2_0092_v1",
+        "seed_smalltalk_smalltalk_a2_0093_v1"
       ],
       "contentReferences": [
         {
@@ -2608,6 +2674,50 @@
         {
           "kind": "scenario",
           "id": "a2_youtube_send_the_link"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_theme_park_date_break"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a2_0084"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a2_0085"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a2_0086"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a2_0087"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a2_0088"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a2_0089"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a2_0090"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a2_0091"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a2_0092"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a2_0093"
         }
       ]
     },
@@ -4623,7 +4733,7 @@
     {
       "id": "cluster_b1_intimate_feelings_v1",
       "level": "b1",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_scenario_love_confession_v1",
         "seed_vocab_pack_b1_character_feelings_1_v1",
@@ -4671,7 +4781,18 @@
         "seed_smalltalk_smalltalk_b1_0070_v1",
         "seed_vocab_pack_b1_parent_school_1_v1",
         "seed_vocab_pack_b1_roommate_talk_1_v1",
-        "seed_scenario_b1_dating_anniversary_gap_v1"
+        "seed_scenario_b1_dating_anniversary_gap_v1",
+        "seed_scenario_b1_theme_park_date_thrill_v1",
+        "seed_smalltalk_smalltalk_b1_0079_v1",
+        "seed_smalltalk_smalltalk_b1_0080_v1",
+        "seed_smalltalk_smalltalk_b1_0081_v1",
+        "seed_smalltalk_smalltalk_b1_0082_v1",
+        "seed_smalltalk_smalltalk_b1_0083_v1",
+        "seed_smalltalk_smalltalk_b1_0084_v1",
+        "seed_smalltalk_smalltalk_b1_0085_v1",
+        "seed_smalltalk_smalltalk_b1_0086_v1",
+        "seed_smalltalk_smalltalk_b1_0087_v1",
+        "seed_smalltalk_smalltalk_b1_0088_v1"
       ],
       "contentReferences": [
         {
@@ -4861,6 +4982,50 @@
         {
           "kind": "scenario",
           "id": "b1_dating_anniversary_gap"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_theme_park_date_thrill"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b1_0079"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b1_0080"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b1_0081"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b1_0082"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b1_0083"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b1_0084"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b1_0085"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b1_0086"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b1_0087"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b1_0088"
         }
       ]
     },
@@ -6195,7 +6360,7 @@
     {
       "id": "cluster_b2_contract_scope_v1",
       "level": "b2",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_scenario_b2_signature_scope_confirmation_v1",
         "seed_vocab_pack_b2_formal_agreement_1_v1",
@@ -6222,7 +6387,18 @@
         "seed_smalltalk_smalltalk_b2_0102_v1",
         "seed_cloze_cloze_b2_0362_v1",
         "seed_cloze_cloze_b2_0363_v1",
-        "seed_cloze_cloze_b2_0364_v1"
+        "seed_cloze_cloze_b2_0364_v1",
+        "seed_scenario_b2_theme_park_date_safety_v1",
+        "seed_smalltalk_smalltalk_b2_0119_v1",
+        "seed_smalltalk_smalltalk_b2_0120_v1",
+        "seed_smalltalk_smalltalk_b2_0121_v1",
+        "seed_smalltalk_smalltalk_b2_0122_v1",
+        "seed_smalltalk_smalltalk_b2_0123_v1",
+        "seed_smalltalk_smalltalk_b2_0124_v1",
+        "seed_smalltalk_smalltalk_b2_0125_v1",
+        "seed_smalltalk_smalltalk_b2_0126_v1",
+        "seed_smalltalk_smalltalk_b2_0127_v1",
+        "seed_smalltalk_smalltalk_b2_0128_v1"
       ],
       "contentReferences": [
         {
@@ -6328,6 +6504,50 @@
         {
           "kind": "cloze",
           "id": "cloze_b2_0364"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_theme_park_date_safety"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0119"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0120"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0121"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0122"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0123"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0124"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0125"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0126"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0127"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0128"
         }
       ]
     },
@@ -8940,7 +9160,7 @@
     {
       "id": "cluster_c1_participatory_access_remedy_v1",
       "level": "c1",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_batch05_c1_accessible_participation_1_v1",
         "seed_project_c1_accessibility_v1",
@@ -9083,7 +9303,18 @@
         "seed_scenario_c1_clinical_data_reuse_v1",
         "seed_scenario_c1_clinical_informed_consent_v1",
         "seed_scenario_c1_clinical_second_opinion_v1",
-        "seed_scenario_c1_clinical_trial_withdrawal_v1"
+        "seed_scenario_c1_clinical_trial_withdrawal_v1",
+        "seed_scenario_c1_theme_park_date_next_time_v1",
+        "seed_smalltalk_smalltalk_c1_0078_v1",
+        "seed_smalltalk_smalltalk_c1_0079_v1",
+        "seed_smalltalk_smalltalk_c1_0080_v1",
+        "seed_smalltalk_smalltalk_c1_0081_v1",
+        "seed_smalltalk_smalltalk_c1_0082_v1",
+        "seed_smalltalk_smalltalk_c1_0083_v1",
+        "seed_smalltalk_smalltalk_c1_0084_v1",
+        "seed_smalltalk_smalltalk_c1_0085_v1",
+        "seed_smalltalk_smalltalk_c1_0086_v1",
+        "seed_smalltalk_smalltalk_c1_0087_v1"
       ],
       "contentReferences": [
         {
@@ -9709,6 +9940,50 @@
         {
           "kind": "scenario",
           "id": "c1_clinical_trial_withdrawal"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_theme_park_date_next_time"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0078"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0079"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0080"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0081"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0082"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0083"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0084"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0085"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0086"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0087"
         }
       ]
     },
@@ -11838,7 +12113,7 @@
     {
       "id": "cluster_c2_narrative_perspective_v1",
       "level": "c2",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_batch05_c2_narrative_perspective_1_v1",
         "seed_project_c2_narrative_v1",
@@ -11876,7 +12151,18 @@
         "seed_scenario_c2_aesthetic_translator_editor_dispute_v1",
         "seed_scenario_c2_aesthetic_word_without_equivalent_v1",
         "seed_smalltalk_smalltalk_c2_0055_v1",
-        "seed_smalltalk_smalltalk_c2_0056_v1"
+        "seed_smalltalk_smalltalk_c2_0056_v1",
+        "seed_scenario_c2_theme_park_date_reflection_v1",
+        "seed_smalltalk_smalltalk_c2_0077_v1",
+        "seed_smalltalk_smalltalk_c2_0078_v1",
+        "seed_smalltalk_smalltalk_c2_0079_v1",
+        "seed_smalltalk_smalltalk_c2_0080_v1",
+        "seed_smalltalk_smalltalk_c2_0081_v1",
+        "seed_smalltalk_smalltalk_c2_0082_v1",
+        "seed_smalltalk_smalltalk_c2_0083_v1",
+        "seed_smalltalk_smalltalk_c2_0084_v1",
+        "seed_smalltalk_smalltalk_c2_0085_v1",
+        "seed_smalltalk_smalltalk_c2_0086_v1"
       ],
       "contentReferences": [
         {
@@ -12086,6 +12372,50 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_c2_0056"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_theme_park_date_reflection"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0077"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0078"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0079"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0080"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0081"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0082"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0083"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0084"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0085"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0086"
         }
       ]
     },

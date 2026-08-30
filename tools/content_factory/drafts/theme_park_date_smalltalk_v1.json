@@ -1,0 +1,1545 @@
+{
+  "schemaVersion": 1,
+  "status": "approved_for_live_promotion",
+  "category": {
+    "id": "theme_park_date",
+    "emoji": "🎢",
+    "label": {
+      "ko": "놀이공원 데이트",
+      "de": "Date im Freizeitpark",
+      "en": "Theme park date"
+    }
+  },
+  "phrases": [
+    {
+      "id": "smalltalk_a1_0091",
+      "category": "theme_park_date",
+      "level": "a1",
+      "kind": "question",
+      "ko": "우리 저거 탈까?",
+      "de": "Wollen wir mit dem da fahren?",
+      "en": "Want to go on that one?",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "다른 거 먼저 탈까?",
+          "de": "Wollen wir erst mit etwas anderem fahren?",
+          "en": "Shall we ride something else first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아, 그럼 저쪽으로 가자.",
+        "de": "Gut, dann gehen wir da rüber.",
+        "en": "Great, then let's head over there."
+      },
+      "reply": {
+        "ko": "좋아. 같이 타자.",
+        "de": "Ja, gerne. Lass uns zusammen fahren.",
+        "en": "Sure. Let's ride it together."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0092",
+      "category": "theme_park_date",
+      "level": "a1",
+      "kind": "question",
+      "ko": "우리 다음에 뭐 타러 갈까?",
+      "de": "Womit wollen wir als Nächstes fahren?",
+      "en": "What should we ride next?",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "물놀이 기구부터 탈까?",
+          "de": "Wollen wir zuerst mit einer Wasserattraktion fahren?",
+          "en": "Shall we do a water ride first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아, 지도에서 찾아보자.",
+        "de": "Gut, schauen wir auf der Karte nach.",
+        "en": "Great, let's find it on the map."
+      },
+      "reply": {
+        "ko": "롤러코스터 타러 가자.",
+        "de": "Lass uns zur Achterbahn gehen.",
+        "en": "Let's go ride the roller coaster."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0093",
+      "category": "theme_park_date",
+      "level": "a1",
+      "kind": "question",
+      "ko": "우리 앞에 탈까, 뒤에 탈까?",
+      "de": "Wollen wir vorne oder hinten sitzen?",
+      "en": "Should we sit in the front or the back?",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "가운데에 탈까?",
+          "de": "Wollen wir in der Mitte sitzen?",
+          "en": "Should we sit in the middle?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그래, 이 줄에서 기다리자.",
+        "de": "Okay, dann warten wir in dieser Reihe.",
+        "en": "Okay, let's wait in this line."
+      },
+      "reply": {
+        "ko": "앞에 타자.",
+        "de": "Lass uns vorne sitzen.",
+        "en": "Let's sit in the front."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0094",
+      "category": "theme_park_date",
+      "level": "a1",
+      "kind": "reaction",
+      "ko": "와, 줄이 진짜 길다.",
+      "de": "Wow, die Schlange ist echt lang.",
+      "en": "Wow, this line is really long.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "얼마나 기다려야 할까?",
+          "de": "Wie lange müssen wir wohl warten?",
+          "en": "How long do you think we'll have to wait?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그래도 천천히 기다려 보자.",
+        "de": "Warten wir trotzdem erst einmal in Ruhe.",
+        "en": "Let's wait it out for now."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0095",
+      "category": "theme_park_date",
+      "level": "a1",
+      "kind": "question",
+      "ko": "아, 저기 자리 있다. 저기 앉을까?",
+      "de": "Ah, da ist ein Platz frei. Wollen wir uns dort hinsetzen?",
+      "en": "Oh, there's a seat over there. Want to sit there?",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그늘 쪽에 앉을까?",
+          "de": "Wollen wir uns lieber in den Schatten setzen?",
+          "en": "Should we sit in the shade instead?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "발도 좀 쉬자.",
+        "de": "Dann können sich unsere Füße auch kurz erholen.",
+        "en": "Let's give our feet a rest too."
+      },
+      "reply": {
+        "ko": "응, 잠깐 앉자.",
+        "de": "Ja, setzen wir uns kurz hin.",
+        "en": "Yeah, let's sit down for a bit."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0096",
+      "category": "theme_park_date",
+      "level": "a1",
+      "kind": "question",
+      "ko": "츄러스 사 먹을까?",
+      "de": "Wollen wir uns Churros holen?",
+      "en": "Want to get some churros?",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "아이스크림 먹을까?",
+          "de": "Wollen wir lieber ein Eis essen?",
+          "en": "Want ice cream instead?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그럼 저 가게로 가자.",
+        "de": "Dann gehen wir zu dem Stand da drüben.",
+        "en": "Then let's go to that stand."
+      },
+      "reply": {
+        "ko": "좋아. 하나 나눠 먹자.",
+        "de": "Gerne. Lass uns eine Portion teilen.",
+        "en": "Sure. Let's share one."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0097",
+      "category": "theme_park_date",
+      "level": "a1",
+      "kind": "opener",
+      "ko": "제로 콜라 두 개, 감자튀김 하나, 소시지 두 개 주세요.",
+      "de": "Ich hätte gern zwei Coke Zero, einmal Pommes und zwei Würstchen, bitte.",
+      "en": "Could we have two Coke Zeros, one order of fries, and two sausages, please?",
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "케첩도 주시겠어요?",
+          "de": "Könnten Sie uns bitte auch Ketchup geben?",
+          "en": "Could we have some ketchup too, please?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "네, 주문하신 음식 준비해 드릴게요.",
+        "de": "Gerne. Ich bereite Ihre Bestellung vor.",
+        "en": "Certainly, we'll get your order ready."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0098",
+      "category": "theme_park_date",
+      "level": "a1",
+      "kind": "question",
+      "ko": "물 좀 마실래?",
+      "de": "Möchtest du etwas Wasser trinken?",
+      "en": "Want some water?",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "제로 콜라 마실래?",
+          "de": "Möchtest du lieber eine Coke Zero?",
+          "en": "Would you rather have a Coke Zero?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "자, 여기 있어.",
+        "de": "Hier, bitte.",
+        "en": "Here you go."
+      },
+      "reply": {
+        "ko": "응, 목말라.",
+        "de": "Ja, ich habe Durst.",
+        "en": "Yeah, I'm thirsty."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0099",
+      "category": "theme_park_date",
+      "level": "a1",
+      "kind": "question",
+      "ko": "우리 여기서 사진 찍을까?",
+      "de": "Wollen wir hier ein Foto machen?",
+      "en": "Should we take a picture here?",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "저 앞에서 찍을까?",
+          "de": "Wollen wir es lieber dort vorne machen?",
+          "en": "Should we take it over there instead?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "하나, 둘, 셋!",
+        "de": "Eins, zwei, drei!",
+        "en": "One, two, three!"
+      },
+      "reply": {
+        "ko": "좋아. 여기 서자.",
+        "de": "Gerne. Stellen wir uns hierhin.",
+        "en": "Sure. Let's stand here."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0100",
+      "category": "theme_park_date",
+      "level": "a1",
+      "kind": "reaction",
+      "ko": "나 무서운 놀이기구 진짜 좋아해. 오늘 너무 재미있었어!",
+      "de": "Ich liebe richtig gruselige Fahrgeschäfte. Heute hat es so viel Spaß gemacht!",
+      "en": "I really love scary rides. Today was so much fun!",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "다음에 또 올까?",
+          "de": "Wollen wir noch einmal herkommen?",
+          "en": "Should we come back again?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "나도. 다음에 또 오자.",
+        "de": "Ich auch. Lass uns wiederkommen.",
+        "en": "Me too. Let's come back."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0084",
+      "category": "theme_park_date",
+      "level": "a2",
+      "kind": "reaction",
+      "ko": "너무 오래 서 있어서 발바닥이 너무 아파.",
+      "de": "Ich habe so lange gestanden, dass mir die Fußsohlen richtig wehtun.",
+      "en": "I've been standing so long that the soles of my feet really hurt.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "잠깐 앉아서 쉴까?",
+          "de": "Wollen wir uns kurz hinsetzen und ausruhen?",
+          "en": "Should we sit down and rest for a bit?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그래, 저기 빈자리가 있어.",
+        "de": "Ja, da drüben ist ein Platz frei.",
+        "en": "Yeah, there's an empty seat over there."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0085",
+      "category": "theme_park_date",
+      "level": "a2",
+      "kind": "question",
+      "ko": "나 당이 당겨. 뭐 좀 달달한 거 마실까?",
+      "de": "Ich brauche gerade etwas Süßes. Wollen wir etwas Süßes trinken?",
+      "en": "I'm craving sugar. Want to get something sweet to drink?",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "물부터 마실까?",
+          "de": "Wollen wir zuerst Wasser trinken?",
+          "en": "Should we drink some water first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아, 음료 가게를 찾아보자.",
+        "de": "Gut, suchen wir einen Getränkestand.",
+        "en": "Great, let's find a drink stand."
+      },
+      "reply": {
+        "ko": "나는 달콤한 레모네이드가 좋아.",
+        "de": "Ich hätte Lust auf eine süße Limonade.",
+        "en": "I'd like a sweet lemonade."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0086",
+      "category": "theme_park_date",
+      "level": "a2",
+      "kind": "question",
+      "ko": "나 살짝 출출한데 감자튀김 사 먹을까?",
+      "de": "Ich habe ein bisschen Hunger. Wollen wir uns Pommes holen?",
+      "en": "I'm a little hungry. Want to get some fries?",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "소시지도 같이 먹을까?",
+          "de": "Wollen wir dazu auch Würstchen nehmen?",
+          "en": "Should we get sausages too?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그럼 하나 사서 나눠 먹자.",
+        "de": "Dann holen wir eine Portion und teilen sie.",
+        "en": "Then let's get one and share it."
+      },
+      "reply": {
+        "ko": "응, 나도 조금 배고파.",
+        "de": "Ja, ich habe auch ein bisschen Hunger.",
+        "en": "Yeah, I'm a little hungry too."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0087",
+      "category": "theme_park_date",
+      "level": "a2",
+      "kind": "question",
+      "ko": "넌 케첩파야, 마요파야?",
+      "de": "Bist du Team Ketchup oder Team Mayo?",
+      "en": "Are you team ketchup or team mayo?",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "둘 다 달라고 할까?",
+          "de": "Sollen wir nach beidem fragen?",
+          "en": "Should we ask for both?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아, 나는 마요네즈로 먹을게.",
+        "de": "Gut, dann nehme ich Mayonnaise.",
+        "en": "Great, I'll have mine with mayo."
+      },
+      "reply": {
+        "ko": "난 케첩파야.",
+        "de": "Ich bin Team Ketchup.",
+        "en": "I'm team ketchup."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0088",
+      "category": "theme_park_date",
+      "level": "a2",
+      "kind": "reaction",
+      "ko": "인형 탈을 쓴 직원, 이 더운 날에 정말 힘들겠다.",
+      "de": "Die Person im Kostüm muss es bei dieser Hitze echt schwer haben.",
+      "en": "The person in that costume must be having a hard time in this heat.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "사진 찍어도 되는지 물어볼까?",
+          "de": "Wollen wir fragen, ob wir ein Foto machen dürfen?",
+          "en": "Should we ask if we can take a photo?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그래도 손을 흔들어 주니까 귀엽다.",
+        "de": "Aber wie die Figur uns zuwinkt, ist trotzdem süß.",
+        "en": "Still, it's cute how the character is waving at us."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0089",
+      "category": "theme_park_date",
+      "level": "a2",
+      "kind": "question",
+      "ko": "와, 저기 봐봐. 너무 귀여워! 같이 사진 찍을까?",
+      "de": "Wow, schau mal da. Wie süß! Wollen wir zusammen ein Foto machen?",
+      "en": "Wow, look over there. So cute! Want to take a picture together?",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "멀리서 사진만 찍을까?",
+          "de": "Wollen wir nur aus der Entfernung ein Foto machen?",
+          "en": "Should we just take a photo from a distance?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그래, 캐릭터 옆에 서자.",
+        "de": "Okay, stellen wir uns neben die Figur.",
+        "en": "Okay, let's stand next to the character."
+      },
+      "reply": {
+        "ko": "좋아. 먼저 사진 찍어도 되는지 물어보자.",
+        "de": "Gerne. Fragen wir zuerst, ob das okay ist.",
+        "en": "Sure. Let's ask if it's okay first."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0090",
+      "category": "theme_park_date",
+      "level": "a2",
+      "kind": "reaction",
+      "ko": "나 바지가 다 젖었어. 그래도 금방 마를 거야.",
+      "de": "Meine Hose ist völlig nass. Aber sie wird bestimmt schnell trocknen.",
+      "en": "My pants are completely soaked. But they'll dry soon.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "잠깐 햇볕에서 말릴까?",
+          "de": "Wollen wir uns kurz in die Sonne stellen, damit sie trocknet?",
+          "en": "Should we stand in the sun for a bit so they can dry?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "괜찮아, 오늘은 날씨가 따뜻하잖아.",
+        "de": "Schon gut, heute ist es ja warm.",
+        "en": "It's okay. The weather is warm today."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0091",
+      "category": "theme_park_date",
+      "level": "a2",
+      "kind": "reaction",
+      "ko": "후룸라이드는 얼마나 젖을지 몰라서 더 두근거려!",
+      "de": "Bei der Wasserbahn weiß man nie, wie nass man wird. Das macht es noch aufregender!",
+      "en": "You never know how wet you'll get on the flume ride. That makes it even more exciting!",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "맨 앞자리는 피할까?",
+          "de": "Wollen wir die erste Reihe lieber vermeiden?",
+          "en": "Should we avoid the front row?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그래도 물 맞는 재미로 타는 거지.",
+        "de": "Aber das Nasswerden gehört ja gerade zum Spaß dazu.",
+        "en": "Still, getting splashed is part of the fun."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0092",
+      "category": "theme_park_date",
+      "level": "a2",
+      "kind": "reaction",
+      "ko": "여자 화장실은 오늘도 줄이 기네.",
+      "de": "Vor der Damentoilette ist heute auch wieder eine lange Schlange.",
+      "en": "There's a long line for the women's restroom again today.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "다른 화장실도 찾아볼까?",
+          "de": "Wollen wir nach einer anderen Toilette suchen?",
+          "en": "Should we look for another restroom?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "일단 안내 지도를 확인해 보자.",
+        "de": "Schauen wir zuerst auf den Lageplan.",
+        "en": "Let's check the park map first."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0093",
+      "category": "theme_park_date",
+      "level": "a2",
+      "kind": "reaction",
+      "ko": "다행히 줄이 금방 빠져서 빨리 탈 수 있었어.",
+      "de": "Zum Glück ging die Schlange schnell voran, sodass wir bald fahren konnten.",
+      "en": "Luckily, the line moved quickly, so we got on fast.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "다음 줄도 이만큼 빨리 줄어들까?",
+          "de": "Ob die nächste Schlange wohl auch so schnell vorangeht?",
+          "en": "Do you think the next line will move this quickly too?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "생각보다 오래 안 기다렸네.",
+        "de": "Wir haben gar nicht so lange gewartet wie gedacht.",
+        "en": "We didn't wait as long as I expected."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0079",
+      "category": "theme_park_date",
+      "level": "b1",
+      "kind": "reaction",
+      "ko": "와, 오늘 날씨가 정말 좋다. 딱 놀이공원에 오기 좋은 날이야!",
+      "de": "Wow, das Wetter ist heute wirklich schön. Perfekt für einen Tag im Freizeitpark!",
+      "en": "Wow, the weather is so nice today. It's the perfect day for an amusement park!",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "햇볕이 더 세지기 전에 야외 기구부터 탈까?",
+          "de": "Wollen wir die Fahrgeschäfte draußen nutzen, bevor die Sonne stärker wird?",
+          "en": "Should we do the outdoor rides before the sun gets stronger?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그러게. 덥지도 춥지도 않아서 좋다.",
+        "de": "Stimmt. Es ist weder zu heiß noch zu kalt.",
+        "en": "Exactly. It's neither too hot nor too cold."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0080",
+      "category": "theme_park_date",
+      "level": "b1",
+      "kind": "reaction",
+      "ko": "확실히 평일에 오니까 덜 붐비고 좋은 것 같아.",
+      "de": "Unter der Woche ist es hier eindeutig weniger voll. Das gefällt mir.",
+      "en": "It definitely feels less crowded on a weekday, which is nice.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "주말에는 얼마나 붐빌까?",
+          "de": "Wie voll ist es hier wohl am Wochenende?",
+          "en": "I wonder how crowded it gets on weekends."
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "주말에 왔으면 정말 장난 아니었겠다.",
+        "de": "Wenn wir am Wochenende gekommen wären, wäre es bestimmt extrem voll gewesen.",
+        "en": "If we'd come on the weekend, it would've been wild."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0081",
+      "category": "theme_park_date",
+      "level": "b1",
+      "kind": "reaction",
+      "ko": "아, 우비를 가져왔어야 했는데. 이 정도로 젖을 줄은 몰랐어.",
+      "de": "Ach, ich hätte einen Regenponcho mitbringen sollen. Ich wusste nicht, dass wir so nass werden würden.",
+      "en": "Ah, I should've brought a rain poncho. I didn't know we'd get this wet.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "다음에는 작은 우비를 챙겨 올까?",
+          "de": "Sollen wir nächstes Mal kleine Regenponchos mitbringen?",
+          "en": "Should we bring small rain ponchos next time?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그래도 날씨가 좋아서 금방 마르겠다.",
+        "de": "Bei dem schönen Wetter trocknen wir bestimmt schnell.",
+        "en": "Still, with this nice weather, we'll dry quickly."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0082",
+      "category": "theme_park_date",
+      "level": "b1",
+      "kind": "reaction",
+      "ko": "난 롤러코스터가 올라갈 때 나는 탁탁탁탁 소리가 너무 좋아.",
+      "de": "Ich liebe dieses Klack-klack-klack, wenn die Achterbahn hochfährt.",
+      "en": "I love that click-clack-click sound when the roller coaster climbs.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "너는 올라갈 때가 더 무서워, 내려갈 때가 더 무서워?",
+          "de": "Findest du das Hochfahren oder das Herunterfahren gruseliger?",
+          "en": "Which scares you more: the climb or the drop?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "나는 그 소리를 들으면 곧 떨어질 것 같아서 더 설레.",
+        "de": "Bei dem Geräusch weiß ich, dass es gleich bergab geht, und werde noch aufgeregter.",
+        "en": "That sound tells me we're about to drop, so I get even more excited."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0083",
+      "category": "theme_park_date",
+      "level": "b1",
+      "kind": "reaction",
+      "ko": "360도 회전을 두 번 하는데, 생각보다 훨씬 무서웠어. 진짜 죽는 줄 알았어.",
+      "de": "Das Fahrgeschäft hat zwei volle 360-Grad-Drehungen gemacht und war viel gruseliger als gedacht. Ich dachte wirklich, ich sterbe.",
+      "en": "The ride spun all the way around twice and was way scarier than I expected. I honestly thought I was going to die.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그래도 한 번 더 탈 수 있겠어?",
+          "de": "Könntest du trotzdem noch einmal damit fahren?",
+          "en": "Could you still ride it one more time?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "눈물까지 났는데 지금 생각하면 웃겨.",
+        "de": "Mir kamen sogar die Tränen, aber im Nachhinein ist es schon lustig.",
+        "en": "I even cried, but looking back, it's funny."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0084",
+      "category": "theme_park_date",
+      "level": "b1",
+      "kind": "reaction",
+      "ko": "소리를 너무 크게 질러서 목이 다 아파.",
+      "de": "Ich habe so laut geschrien, dass mir jetzt der Hals wehtut.",
+      "en": "I screamed so loudly that my throat hurts now.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "물부터 좀 마실까?",
+          "de": "Wollen wir erst einmal etwas Wasser trinken?",
+          "en": "Should we drink some water first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "오늘은 이제 조용히 말해야겠다.",
+        "de": "Heute muss ich wohl von jetzt an leiser sprechen.",
+        "en": "I guess I'll have to speak quietly for the rest of the day."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0085",
+      "category": "theme_park_date",
+      "level": "b1",
+      "kind": "reaction",
+      "ko": "너무 무서워서 안전바를 꽉 잡을 수밖에 없었어.",
+      "de": "Es war so gruselig, dass ich gar nicht anders konnte, als mich am Sicherheitsbügel festzuklammern.",
+      "en": "It was so scary that I couldn't help gripping the safety bar tightly.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "다음에는 조금 덜 무서운 걸 탈까?",
+          "de": "Wollen wir als Nächstes mit etwas weniger Gruseligem fahren?",
+          "en": "Should we go on something less scary next?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "나는 당분간 안전바만 잡을래.",
+        "de": "Ich halte mich vorerst lieber am Sicherheitsbügel fest.",
+        "en": "For now, I'm keeping my hands on the safety bar."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0086",
+      "category": "theme_park_date",
+      "level": "b1",
+      "kind": "reaction",
+      "ko": "안전 안내에 따라 손을 들어도 되는 롤러코스터에서는, 손을 위로 번쩍 들면 나는 것 같은 느낌이 들어서 더 재미있어. 당연히 더 무섭긴 하지만.",
+      "de": "Wenn die Sicherheitsregeln es erlauben, fühlt es sich mit hochgerissenen Händen fast so an, als würde man fliegen. Das macht mehr Spaß, auch wenn es natürlich gruseliger ist.",
+      "en": "On roller coasters where the safety rules allow it, raising your hands makes you feel like you're flying. It's more fun, though of course it's scarier too.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "안전 안내부터 같이 확인할까?",
+          "de": "Wollen wir zuerst gemeinsam die Sicherheitshinweise lesen?",
+          "en": "Should we check the safety instructions together first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "나는 첫 번째 내리막에서 바로 안전바를 잡을 것 같아.",
+        "de": "Beim ersten Gefälle greife ich wahrscheinlich sofort wieder nach dem Sicherheitsbügel.",
+        "en": "I'll probably grab the safety bar again on the first drop."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0087",
+      "category": "theme_park_date",
+      "level": "b1",
+      "kind": "reaction",
+      "ko": "와, 우리 사진 진짜 웃기게 찍혔다. 나는 표정이 너무 이상해.",
+      "de": "Wow, unser Foto ist wirklich lustig geworden. Ich mache darauf ein total komisches Gesicht.",
+      "en": "Wow, our ride photo came out so funny. My expression looks ridiculous.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "사진 뽑을까?",
+          "de": "Wollen wir das Foto ausdrucken lassen?",
+          "en": "Should we get the photo printed?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "아니, 너무 웃기게 나와서 나는 안 뽑고 싶어.",
+        "de": "Nein, ich sehe darauf so komisch aus, dass ich es lieber nicht ausdrucken möchte.",
+        "en": "No, I look so funny that I don't want a print."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0088",
+      "category": "theme_park_date",
+      "level": "b1",
+      "kind": "reaction",
+      "ko": "와, 대박. 생각했던 것보다 훨씬 재미있었어!",
+      "de": "Wow, unglaublich. Das hat viel mehr Spaß gemacht, als ich gedacht hatte!",
+      "en": "Wow, that was amazing. It was way more fun than I expected!",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "한 번 더 탈까?",
+          "de": "Wollen wir noch einmal fahren?",
+          "en": "Want to ride it again?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "무섭기는 했는데 또 타고 싶다.",
+        "de": "Es war zwar gruselig, aber ich möchte trotzdem noch einmal fahren.",
+        "en": "It was scary, but I still want to ride it again."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0119",
+      "category": "theme_park_date",
+      "level": "b2",
+      "kind": "reaction",
+      "ko": "나는 유령의 집에 가고 싶었는데, 네가 무서운 걸 보면 소름이 돋아서 싫다고 했잖아. 그래서 결국 못 갔지.",
+      "de": "Ich wollte ins Geisterhaus, aber du hast ja gesagt, dass du von gruseligen Sachen Gänsehaut bekommst und nicht hineingehen willst. Deshalb sind wir am Ende nicht gegangen.",
+      "en": "I wanted to go into the haunted house, but you said scary things give you goosebumps and you didn't want to go. So we ended up skipping it.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "다음에는 덜 무서운 체험부터 해 볼까?",
+          "de": "Wollen wir nächstes Mal mit etwas weniger Gruseligem anfangen?",
+          "en": "Should we try something less scary next time?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "대신 네가 좋아하는 롤러코스터를 같이 탔잖아.",
+        "de": "Dafür sind wir zusammen mit der Achterbahn gefahren, die du magst.",
+        "en": "But we did ride the roller coaster you like together."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0120",
+      "category": "theme_park_date",
+      "level": "b2",
+      "kind": "question",
+      "ko": "생각보다 훨씬 무서웠어. 다리가 후들거리고 조금 어지럽네. 나 벌써 늙었나 봐. 그래도 한 번 더 탈까?",
+      "de": "Das war viel gruseliger als gedacht. Meine Knie zittern, und mir ist ein bisschen schwindelig. Bin ich etwa schon alt? Wollen wir trotzdem noch einmal fahren?",
+      "en": "That was way scarier than I expected. My legs are shaking, and I'm a little dizzy. Am I getting old already? Want to ride it again anyway?",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "물 마시고 상태를 먼저 볼까?",
+          "de": "Wollen wir erst Wasser trinken und schauen, wie es dir geht?",
+          "en": "Should we drink some water and see how you feel first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그래, 무리하지 말고 잠깐 앉자.",
+        "de": "Ja, übertreiben wir es nicht und setzen uns kurz hin.",
+        "en": "Yeah, let's not push it and sit down for a while."
+      },
+      "reply": {
+        "ko": "조금 쉬었다가 몸 상태를 보고 결정하자.",
+        "de": "Ruhen wir uns erst etwas aus und entscheiden dann, wie es dir geht.",
+        "en": "Let's rest for a bit and decide after we see how you feel."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0121",
+      "category": "theme_park_date",
+      "level": "b2",
+      "kind": "question",
+      "ko": "앞이 더 무서울 것 같기는 한데, 대신 시야는 더 좋지 않을까?",
+      "de": "Vorne ist es wahrscheinlich gruseliger, aber dafür hat man doch eine bessere Sicht, oder?",
+      "en": "The front probably feels scarier, but wouldn't the view be better?",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "뒤에서 타면 느낌이 어떻게 다를까?",
+          "de": "Wie fühlt es sich wohl hinten an?",
+          "en": "I wonder how it feels in the back."
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "이번에는 앞에 타 보고 다음에는 뒤에 타 보자.",
+        "de": "Diesmal fahren wir vorne und nächstes Mal hinten.",
+        "en": "Let's ride in front this time and in back next time."
+      },
+      "reply": {
+        "ko": "그럴 것 같아. 이번에는 앞에 타 보자.",
+        "de": "Das glaube ich auch. Probieren wir diesmal die erste Reihe aus.",
+        "en": "I think so too. Let's try the front this time."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0122",
+      "category": "theme_park_date",
+      "level": "b2",
+      "kind": "reaction",
+      "ko": "후룸라이드는 물을 얼마나 맞을지 알 수 없어서, 출발하기 전부터 심장이 쫄깃해.",
+      "de": "Bei der Wasserbahn weiß man nie, wie nass man wird. Schon vor dem Start bin ich deshalb total angespannt.",
+      "en": "You never know how soaked you'll get on the flume ride, so my heart starts pounding before we even set off.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "다른 사람들이 얼마나 젖는지 먼저 볼까?",
+          "de": "Wollen wir erst beobachten, wie nass die anderen werden?",
+          "en": "Should we watch how wet the other riders get first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 예측할 수 없는 느낌이 재미의 절반인 것 같아.",
+        "de": "Dieses Unvorhersehbare macht wahrscheinlich die Hälfte des Spaßes aus.",
+        "en": "That unpredictability feels like half the fun."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0123",
+      "category": "theme_park_date",
+      "level": "b2",
+      "kind": "question",
+      "ko": "안녕하세요. 제가 방금 전까지 밖에서 커피를 마셨는데, 혹시 갈색 지갑이 분실물로 들어온 게 있나요? 지갑이 없어져서요.",
+      "de": "Guten Tag. Ich habe bis eben draußen Kaffee getrunken. Ist vielleicht ein braunes Portemonnaie bei Ihnen als Fundsache abgegeben worden? Ich kann meines nicht finden.",
+      "en": "Hello. I was drinking coffee outside until just now. Has a brown wallet perhaps been handed in here? I can't find mine.",
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "제가 앉았던 자리도 함께 확인해 주실 수 있을까요?",
+          "de": "Könnten Sie bitte auch bei dem Platz nachsehen, an dem ich saß?",
+          "en": "Could you also check the place where I was sitting?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "확인해 보겠습니다. 잠시만 기다려 주세요.",
+        "de": "Ich sehe für Sie nach. Einen Moment bitte.",
+        "en": "I'll check for you. One moment, please."
+      },
+      "reply": {
+        "ko": "확인해 보겠습니다. 잠시만 기다려 주세요.",
+        "de": "Ich sehe für Sie nach. Einen Moment bitte.",
+        "en": "I'll check for you. One moment, please."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0124",
+      "category": "theme_park_date",
+      "level": "b2",
+      "kind": "reaction",
+      "ko": "아직 들어온 분실물은 없는데요. 공원 안내 데스크에 한번 문의해 보시겠어요?",
+      "de": "Bei uns wurde bisher nichts abgegeben. Möchten Sie einmal bei der Information des Parks nachfragen?",
+      "en": "Nothing has been turned in here yet. Would you like to ask at the park information desk?",
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "공원 안내 데스크 위치를 알려 드릴까요?",
+          "de": "Soll ich Ihnen zeigen, wo die Information des Parks ist?",
+          "en": "Would you like me to show you where the park information desk is?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "네, 어디로 가면 되는지 알려 주세요.",
+        "de": "Ja, zeigen Sie mir bitte den Weg.",
+        "en": "Yes, please show me how to get there."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0125",
+      "category": "theme_park_date",
+      "level": "b2",
+      "kind": "question",
+      "ko": "출발하기 전에 주머니 다 확인했어? 안내문에 휴대폰이나 동전 같은 물건은 보관함에 넣으라고 쓰여 있어.",
+      "de": "Hast du vor dem Start alle Taschen kontrolliert? Auf dem Schild steht, dass Dinge wie Handys oder Münzen ins Schließfach gehören.",
+      "en": "Did you check all your pockets before we set off? The sign says items like phones and coins should go in the locker.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "안내문을 같이 한 번 더 볼까?",
+          "de": "Wollen wir das Schild noch einmal zusammen lesen?",
+          "en": "Should we read the sign together one more time?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아. 출발 전에 안전 수칙부터 확인하자.",
+        "de": "Gut. Prüfen wir vor dem Start zuerst die Sicherheitsregeln.",
+        "en": "Good. Let's check the safety rules before we board."
+      },
+      "reply": {
+        "ko": "응, 주머니가 빈 것까지 확인했어.",
+        "de": "Ja, ich habe sogar geprüft, dass alle Taschen leer sind.",
+        "en": "Yeah, I even checked that all my pockets are empty."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0126",
+      "category": "theme_park_date",
+      "level": "b2",
+      "kind": "question",
+      "ko": "여기는 옆에 물품 보관함이 있네. 머리띠는 거기에 넣고, 안경은 어떻게 해야 하는지 직원한테 물어보자. 날아갈 수도 있잖아. 알겠지?",
+      "de": "Hier gibt es direkt daneben ein Schließfach. Leg dein Haarband hinein, und fragen wir das Personal, was du mit deiner Brille machen sollst. Sie könnte sonst wegfliegen. Alles klar?",
+      "en": "There's a locker right beside this ride. Put your headband in there, and let's ask a staff member what to do with your glasses. They could fly off. Got it?",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "안내문에 안경 관련 규정이 있는지 먼저 볼까?",
+          "de": "Wollen wir zuerst schauen, ob auf dem Schild etwas zu Brillen steht?",
+          "en": "Should we first see whether the sign says anything about glasses?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "응. 기구마다 규정이 다를 수 있으니까 확인하자.",
+        "de": "Ja. Die Regeln können je nach Fahrgeschäft unterschiedlich sein, also prüfen wir sie lieber.",
+        "en": "Yeah. The rules may differ by ride, so let's check."
+      },
+      "reply": {
+        "ko": "알겠어, 알겠어. 완전 잔소리쟁이네. 그래도 먼저 물어볼게.",
+        "de": "Ja, ja, verstanden. Du bist echt ein kleiner Nörgler. Aber ich frage zuerst nach.",
+        "en": "Okay, okay. You're such a nag. But I'll ask first."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0127",
+      "category": "theme_park_date",
+      "level": "b2",
+      "kind": "reaction",
+      "ko": "맞아. 오늘 소리를 마음껏 질렀더니 스트레스가 다 풀린 것 같아. 그런데 목은 아파.",
+      "de": "Stimmt. Heute konnte ich nach Herzenslust schreien, und jetzt fühlt es sich an, als wäre der ganze Stress weg. Aber mein Hals tut weh.",
+      "en": "Exactly. I screamed as much as I wanted today, and it feels like all my stress is gone. But my throat hurts.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "따뜻한 음료를 마시면서 쉴까?",
+          "de": "Wollen wir uns bei einem warmen Getränk ausruhen?",
+          "en": "Should we rest with a warm drink?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "오늘은 스트레스와 목소리를 맞바꾼 셈이네.",
+        "de": "Dann hast du heute wohl Stress gegen Stimme eingetauscht.",
+        "en": "I guess you traded your stress for your voice today."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0128",
+      "category": "theme_park_date",
+      "level": "b2",
+      "kind": "reaction",
+      "ko": "사진은 정말 웃기지만, 나는 너무 못생기게 나온 것 같아서 뽑고 싶지는 않아.",
+      "de": "Das Foto ist wirklich witzig, aber ich finde, dass ich darauf so unvorteilhaft aussehe, dass ich es lieber nicht ausdrucken möchte.",
+      "en": "The photo is really funny, but I think I look so bad in it that I'd rather not get a print.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "디지털 사진만 저장할까?",
+          "de": "Wollen wir nur die digitale Version speichern?",
+          "en": "Should we just save the digital version?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그래, 나중에는 이것도 좋은 추억이 될지 몰라.",
+        "de": "Ja, vielleicht wird selbst das später eine schöne Erinnerung.",
+        "en": "Yeah, even this might become a good memory later."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0078",
+      "category": "theme_park_date",
+      "level": "c1",
+      "kind": "reaction",
+      "ko": "어, 뭐야. 오늘은 이 놀이기구를 운행하지 않나 봐. 이거 꼭 타고 싶었는데 아쉽다.",
+      "de": "Oh, was ist denn los? Anscheinend ist diese Attraktion heute außer Betrieb. Ich wollte unbedingt damit fahren. Schade.",
+      "en": "Oh, what? It looks like this ride isn't operating today. I really wanted to go on it. That's a shame.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "운영 시간을 직원에게 확인해 볼까?",
+          "de": "Wollen wir beim Personal nach den Betriebszeiten fragen?",
+          "en": "Should we ask a staff member about the operating hours?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그래, 혹시 잠깐 멈춘 건지 물어보자.",
+        "de": "Ja, fragen wir, ob sie vielleicht nur vorübergehend angehalten wurde.",
+        "en": "Yeah, let's ask whether it's only stopped temporarily."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0079",
+      "category": "theme_park_date",
+      "level": "c1",
+      "kind": "reaction",
+      "ko": "괜찮아. 오늘 못 탄 건 아쉽지만, 다음에 올 이유가 하나 생긴 셈 치자.",
+      "de": "Ist schon okay. Es ist zwar schade, dass wir heute nicht fahren konnten, aber sehen wir es einfach so: Jetzt haben wir einen Grund mehr, wiederzukommen.",
+      "en": "It's okay. Missing it today is disappointing, but let's call it one more reason to come back.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "다음에 오면 이걸 제일 먼저 탈까?",
+          "de": "Wollen wir nächstes Mal als Erstes damit fahren?",
+          "en": "Should we ride this first next time?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아. 그때는 운행 여부도 미리 확인하자.",
+        "de": "Gut. Dann prüfen wir vorher auch, ob die Attraktion fährt.",
+        "en": "Great. We'll check whether it's operating before we come."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0080",
+      "category": "theme_park_date",
+      "level": "c1",
+      "kind": "question",
+      "ko": "여기 크리스마스 마켓도 진짜 예쁘대. 겨울에 다시 와 볼래?",
+      "de": "Der Weihnachtsmarkt hier soll wirklich wunderschön sein. Wollen wir im Winter noch einmal herkommen?",
+      "en": "I hear the Christmas market here is really beautiful. Want to come back in winter?",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "사진을 찾아보고 날짜를 정할까?",
+          "de": "Wollen wir uns Fotos ansehen und dann einen Termin aussuchen?",
+          "en": "Should we look at photos and pick a date?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그때는 지금과 완전히 다른 느낌이겠지.",
+        "de": "Dann fühlt es sich hier bestimmt ganz anders an als heute.",
+        "en": "It'll probably feel completely different from today."
+      },
+      "reply": {
+        "ko": "좋아. 겨울 분위기도 궁금해.",
+        "de": "Gerne. Ich bin neugierig auf die Winterstimmung.",
+        "en": "Sure. I'm curious what it feels like here in winter."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0081",
+      "category": "theme_park_date",
+      "level": "c1",
+      "kind": "reaction",
+      "ko": "오, 좋아. 그러면 그때 또 츄러스를 먹을 수 있겠군.",
+      "de": "Aha, sehr gut. Dann kann ich also wieder Churros essen.",
+      "en": "Oh, perfect. So that means I get to have churros again.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "겨울에는 따뜻한 음료도 같이 마실까?",
+          "de": "Wollen wir im Winter auch etwas Warmes dazu trinken?",
+          "en": "Should we get a hot drink with them in winter?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "결국 네 목적은 츄러스였구나.",
+        "de": "Am Ende geht es dir also doch nur um die Churros.",
+        "en": "So the churros were your real goal all along."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0082",
+      "category": "theme_park_date",
+      "level": "c1",
+      "kind": "reaction",
+      "ko": "저기 바닥에 동전이 꽤 떨어져 있네. 저걸 다 모으면 직원들 커피값은 나오겠는데? 물론 농담이야.",
+      "de": "Da liegen ganz schön viele Münzen auf dem Boden. Wenn man die alle sammeln würde, käme wohl genug für den Kaffee des Personals zusammen. Natürlich nur ein Witz.",
+      "en": "There are quite a few coins on the ground. If you gathered them all, there might be enough to buy the staff coffee. I'm kidding, of course.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "분실물로 전달해야 하는지 물어볼까?",
+          "de": "Wollen wir fragen, ob die Münzen als Fundsache abgegeben werden sollen?",
+          "en": "Should we ask whether the coins should be turned in as lost property?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그래, 괜히 손대지 말고 직원에게 알려 주자.",
+        "de": "Ja, fassen wir sie lieber nicht an und sagen dem Personal Bescheid.",
+        "en": "Yeah, let's leave them alone and tell a staff member."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0083",
+      "category": "theme_park_date",
+      "level": "c1",
+      "kind": "reaction",
+      "ko": "앞자리는 시야가 탁 트여서 더 무서울 것 같기도 하고, 오히려 상황이 잘 보여서 덜 무서울 것 같기도 해.",
+      "de": "In der ersten Reihe ist die Sicht völlig frei. Das könnte es gruseliger machen oder sogar weniger gruselig, weil man alles kommen sieht.",
+      "en": "The front row has a completely open view. That might make it scarier, or less scary because you can see everything coming.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "이번에는 앞에 타고 느낌을 비교해 볼까?",
+          "de": "Wollen wir diesmal vorne fahren und das Gefühl vergleichen?",
+          "en": "Should we ride in front this time and compare how it feels?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "결국 어디가 더 무서운지는 직접 타 봐야 알겠네.",
+        "de": "Welche Reihe wirklich gruseliger ist, wissen wir wohl erst, wenn wir es ausprobieren.",
+        "en": "I guess we won't know which is scarier until we try it."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0084",
+      "category": "theme_park_date",
+      "level": "c1",
+      "kind": "reaction",
+      "ko": "후룸라이드는 얼마나 젖을지 모른다는 점 때문에, 기다리는 동안부터 긴장감이 점점 커지는 것 같아.",
+      "de": "Bei der Wasserbahn baut sich die Spannung schon beim Warten auf, gerade weil man nicht weiß, wie nass man wird.",
+      "en": "The suspense of the flume ride starts building while you wait, precisely because you don't know how wet you'll get.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "다른 사람들이 얼마나 젖는지 먼저 볼까?",
+          "de": "Wollen wir zuerst beobachten, wie nass die anderen werden?",
+          "en": "Should we first watch how wet the other riders get?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "보고 나면 덜 긴장될 수도 있고, 더 긴장될 수도 있겠다.",
+        "de": "Danach sind wir vielleicht weniger nervös oder erst recht nervös.",
+        "en": "Watching might make us less nervous or even more nervous."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0085",
+      "category": "theme_park_date",
+      "level": "c1",
+      "kind": "reaction",
+      "ko": "놀이공원에서는 평소보다 훨씬 큰 소리로 웃고 소리쳐도 자연스럽잖아. 그래서 스트레스가 풀리는 건지도 모르겠어.",
+      "de": "In einem Freizeitpark ist es ganz normal, viel lauter zu lachen und zu schreien als sonst. Vielleicht wird man gerade deshalb seinen Stress los.",
+      "en": "At an amusement park, it feels natural to laugh and scream much louder than usual. Maybe that's why it relieves stress.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "오늘 제일 속이 시원했던 순간이 언제였어?",
+          "de": "In welchem Moment hast du dich heute am befreitesten gefühlt?",
+          "en": "When did you feel the most released today?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "나는 첫 번째 내리막에서 소리 지를 때였어.",
+        "de": "Bei mir war es der Schrei beim ersten Gefälle.",
+        "en": "For me, it was screaming on the first drop."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0086",
+      "category": "theme_park_date",
+      "level": "c1",
+      "kind": "reaction",
+      "ko": "사진이 예쁘게 나오지는 않았지만, 꾸미지 않은 우리 표정이 그대로 찍혀서 오히려 더 기억에 남을 것 같아.",
+      "de": "Das Foto ist zwar nicht besonders schmeichelhaft, aber gerade weil unsere ungestellten Gesichter darauf zu sehen sind, bleibt es uns wahrscheinlich besser in Erinnerung.",
+      "en": "The photo isn't flattering, but because it captured our unguarded expressions, I think it'll actually be more memorable.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "인쇄하지 않고 화면만 찍어 둘까?",
+          "de": "Wollen wir es nur vom Bildschirm abfotografieren, statt es auszudrucken?",
+          "en": "Should we just take a picture of the screen instead of printing it?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그래, 웃긴 표정까지 오늘의 일부니까.",
+        "de": "Ja, selbst die komischen Gesichter gehören zu diesem Tag.",
+        "en": "Yeah, even the funny faces are part of today."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0087",
+      "category": "theme_park_date",
+      "level": "c1",
+      "kind": "reaction",
+      "ko": "조금 어지럽다고 바로 나이 탓을 하는 걸 보니, 내가 놀란 걸 인정하기 싫은가 봐.",
+      "de": "Dass ich den Schwindel sofort aufs Alter schiebe, heißt wohl, dass ich nicht zugeben will, wie sehr mich die Fahrt erschreckt hat.",
+      "en": "The fact that I blame my age as soon as I feel dizzy probably means I don't want to admit how much the ride scared me.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "잠깐 쉬고 나서 몸 상태를 다시 볼까?",
+          "de": "Wollen wir uns kurz ausruhen und dann noch einmal schauen, wie es dir geht?",
+          "en": "Should we rest and check how you feel again afterward?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그래, 농담은 농담이고 무리는 하지 말자.",
+        "de": "Ja, Spaß beiseite: Übertreiben wir es nicht.",
+        "en": "Yeah, jokes aside, let's not push it."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0077",
+      "category": "theme_park_date",
+      "level": "c2",
+      "kind": "reaction",
+      "ko": "곰곰이 생각해 보니까 사람들이 왜 놀이공원에 오는 걸 좋아하는지 알 것 같아. 여기는 웃음이 가득하잖아. 다들 설레고 신나 보이고.",
+      "de": "Wenn ich so darüber nachdenke, glaube ich zu verstehen, warum Menschen so gern in Freizeitparks kommen. Hier ist überall Lachen, und alle wirken erwartungsvoll und ausgelassen.",
+      "en": "The more I think about it, the more I understand why people love coming to amusement parks. The place is full of laughter, and everyone looks excited and happy.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "너는 사람들이 여기서 무엇을 얻어 간다고 생각해?",
+          "de": "Was nehmen die Menschen deiner Meinung nach von hier mit?",
+          "en": "What do you think people take away from a place like this?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "아마 놀이기구보다 그 분위기를 기억하는 사람도 많을 거야.",
+        "de": "Viele erinnern sich wahrscheinlich stärker an die Stimmung als an die einzelnen Fahrgeschäfte.",
+        "en": "A lot of people probably remember the atmosphere more than the individual rides."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0078",
+      "category": "theme_park_date",
+      "level": "c2",
+      "kind": "question",
+      "ko": "생각해 보면 사람들은 놀이기구만 타러 오는 게 아닌 것 같아. 잠깐이라도 평소와 다른 사람이 되어 볼 수 있어서 오는 건 아닐까?",
+      "de": "Vielleicht kommen die Leute gar nicht nur wegen der Fahrgeschäfte. Kommen sie nicht auch, weil sie hier für eine Weile jemand anderes sein dürfen als im Alltag?",
+      "en": "Maybe people don't come just for the rides. Could it also be because, for a little while, they get to be someone different from their everyday selves?",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "너는 오늘 평소와 다른 네 모습을 봤어?",
+          "de": "Hast du heute eine andere Seite von dir gesehen?",
+          "en": "Did you see a different side of yourself today?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "평소에는 못 하던 표정과 소리를 여기서는 숨기지 않아도 되니까.",
+        "de": "Hier muss man die Gesichter und Geräusche nicht verstecken, die man sich sonst verkneift.",
+        "en": "Here, you don't have to hide the faces and sounds you usually hold back."
+      },
+      "reply": {
+        "ko": "그럴 수도 있겠다. 여기서는 평소보다 훨씬 솔직하게 반응하게 되니까.",
+        "de": "Das kann gut sein. Hier reagiert man viel ungefilterter als sonst.",
+        "en": "That could be it. People react much more openly here than they usually do."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0079",
+      "category": "theme_park_date",
+      "level": "c2",
+      "kind": "reaction",
+      "ko": "한 사람이 비명을 지르고 웃기 시작하면 주변 사람들까지 따라 웃게 되잖아. 그런 감정의 전염이 이 공간을 특별하게 만드는 것 같아.",
+      "de": "Sobald eine Person schreit und zu lachen beginnt, lachen die Menschen ringsum oft mit. Vielleicht ist es gerade diese ansteckende Stimmung, die diesen Ort besonders macht.",
+      "en": "Once one person screams and starts laughing, the people around them often laugh too. I think that emotional contagion is part of what makes this place special.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "오늘 모르는 사람과 같이 웃은 순간도 있었어?",
+          "de": "Gab es heute einen Moment, in dem du mit völlig Fremden lachen musstest?",
+          "en": "Was there a moment today when you laughed with complete strangers?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "낯선 사람들끼리도 같은 순간을 공유하게 되니까.",
+        "de": "Weil selbst Fremde für einen Moment dasselbe erleben.",
+        "en": "Because even strangers share the same moment for a little while."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0080",
+      "category": "theme_park_date",
+      "level": "c2",
+      "kind": "reaction",
+      "ko": "무서운 줄 알면서도 다시 타고 싶은 걸 보면, 우리는 공포 자체보다 공포가 지나간 뒤의 해방감을 즐기는지도 모르겠어.",
+      "de": "Dass wir trotz der Angst noch einmal fahren wollen, deutet vielleicht darauf hin, dass wir weniger die Angst selbst genießen als die Erleichterung danach.",
+      "en": "The fact that we want to ride again despite knowing it's scary may mean we enjoy the release afterward more than the fear itself.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "너는 타는 순간과 끝난 순간 중 언제가 더 좋아?",
+          "de": "Magst du den Moment während der Fahrt oder den direkt danach lieber?",
+          "en": "Which do you like more: the ride itself or the moment right after?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "나는 끝나고 서로 얼굴을 보며 웃는 순간이 좋아.",
+        "de": "Ich mag den Moment danach, wenn wir uns ansehen und lachen.",
+        "en": "I like the moment afterward when we look at each other and laugh."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0081",
+      "category": "theme_park_date",
+      "level": "c2",
+      "kind": "reaction",
+      "ko": "롤러코스터의 탁탁탁탁 소리가 좋은 건, 아직 아무 일도 일어나지 않았는데 곧 무언가 시작될 거라는 예감이 그 안에 들어 있어서인 것 같아.",
+      "de": "Vielleicht mag ich das Klack-klack-klack der Achterbahn so sehr, weil darin schon die Ahnung steckt, dass gleich etwas beginnt, obwohl noch gar nichts passiert ist.",
+      "en": "Maybe I love the roller coaster's click-clack-click because it carries the feeling that something is about to begin, even though nothing has happened yet.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "소리 없이 올라가면 덜 무서울까?",
+          "de": "Wäre das Hochfahren ohne dieses Geräusch weniger gruselig?",
+          "en": "Would the climb be less scary without that sound?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "오히려 언제 떨어질지 몰라서 더 무서울지도 몰라.",
+        "de": "Vielleicht wäre es sogar gruseliger, weil man nicht wüsste, wann es bergab geht.",
+        "en": "It might actually be scarier because you wouldn't know when the drop was coming."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0082",
+      "category": "theme_park_date",
+      "level": "c2",
+      "kind": "reaction",
+      "ko": "후룸라이드에서는 얼마나 젖을지 모른다는 불확실성이 불편함이 아니라 기대감으로 바뀌잖아. 일상에서도 모든 불확실성을 그렇게 받아들일 수 있다면 좋을 텐데.",
+      "de": "Bei der Wasserbahn wird aus der unangenehmen Unsicherheit darüber, wie nass man wird, plötzlich Vorfreude. Schön wäre es, wenn wir auch im Alltag jede Unsicherheit so annehmen könnten.",
+      "en": "On a flume ride, not knowing how wet you'll get turns uncertainty from discomfort into anticipation. I wish we could welcome every uncertainty in everyday life that way.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "오늘은 젖은 것도 추억이라고 생각할 수 있겠어?",
+          "de": "Kannst du selbst das Nasswerden heute als Teil der Erinnerung sehen?",
+          "en": "Can you see getting soaked today as part of the memory?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "바지가 마르면 웃긴 이야기만 남을 테니까.",
+        "de": "Wenn die Hose trocken ist, bleibt nur noch eine lustige Geschichte übrig.",
+        "en": "Once the pants dry, all that'll be left is a funny story."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0083",
+      "category": "theme_park_date",
+      "level": "c2",
+      "kind": "reaction",
+      "ko": "내가 유령의 집을 포기한 게 아쉽기는 하지만, 네가 싫어하는 걸 억지로 같이 하는 것보다 서로 즐길 수 있는 걸 고르는 게 데이트에는 더 중요한 것 같아.",
+      "de": "Ich finde es zwar schade, dass ich auf das Geisterhaus verzichtet habe. Aber für ein Date ist es wohl wichtiger, etwas zu wählen, das wir beide genießen, als dich zu etwas zu drängen, das du nicht magst.",
+      "en": "I'm disappointed that I gave up the haunted house, but on a date, choosing something we can both enjoy feels more important than pushing you into something you dislike.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "다음에는 각자 하나씩 꼭 하고 싶은 걸 정해 올까?",
+          "de": "Wollen wir nächstes Mal jeweils eine Sache auswählen, die wir unbedingt machen möchten?",
+          "en": "Should we each pick one thing we really want to do next time?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아. 대신 거절해도 서운해하지 않기로 하자.",
+        "de": "Gut. Aber wir versprechen auch, nicht beleidigt zu sein, wenn einer Nein sagt.",
+        "en": "Good. And let's agree not to take it personally if one of us says no."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0084",
+      "category": "theme_park_date",
+      "level": "c2",
+      "kind": "reaction",
+      "ko": "운행하지 않는다는 안내를 보는 순간에는 하루를 망친 것처럼 아쉬웠는데, 지금 생각하면 다음 약속을 자연스럽게 남겨 둔 셈이네.",
+      "de": "Als wir den Hinweis sahen, dass die Attraktion nicht fährt, fühlte es sich kurz an, als wäre der Tag verdorben. Im Nachhinein haben wir uns damit wohl ganz von selbst eine nächste Verabredung offengelassen.",
+      "en": "When we saw the notice that the ride wasn't operating, it briefly felt like the day was ruined. Looking back, it simply left us with a natural reason for another date.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그럼 겨울에 다시 올 명분은 충분한 거지?",
+          "de": "Dann haben wir also genug Gründe, im Winter wiederzukommen, oder?",
+          "en": "So we have more than enough reason to come back in winter, right?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "운행 여부보다 같이 다시 올 이유가 생긴 게 더 좋다.",
+        "de": "Mir gefällt der neue Grund, gemeinsam wiederzukommen, inzwischen besser als die Frage, ob die Attraktion fährt.",
+        "en": "Now I like having a reason to come back together more than I care whether the ride was running."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0085",
+      "category": "theme_park_date",
+      "level": "c2",
+      "kind": "reaction",
+      "ko": "잘 나온 사진만 남기고 싶어 했는데, 오늘처럼 망가진 표정이 오히려 그날의 감정을 가장 솔직하게 보여 주는 기록일 수도 있겠어.",
+      "de": "Eigentlich wollte ich nur gelungene Fotos behalten. Aber vielleicht zeigt gerade so ein chaotischer Gesichtsausdruck wie heute die Gefühle dieses Tages am ehrlichsten.",
+      "en": "I used to want to keep only flattering photos, but a chaotic expression like today's might actually be the most honest record of how the day felt.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그럼 사진을 뽑되 아무에게도 보여 주지 않을까?",
+          "de": "Sollen wir das Foto ausdrucken, aber niemandem zeigen?",
+          "en": "Should we print it but keep it just for us?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "우리끼리만 보면 웃을 수 있는 사진도 필요하지.",
+        "de": "Wir brauchen auch Fotos, über die nur wir beide lachen.",
+        "en": "We need photos that only the two of us can laugh at too."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0086",
+      "category": "theme_park_date",
+      "level": "c2",
+      "kind": "reaction",
+      "ko": "오늘 마음껏 소리를 지르고, 웃고, 젖고, 기다리기까지 했는데도 즐거웠던 걸 보면, 완벽해서 좋은 하루가 아니라 같이 겪어서 좋은 하루였나 봐.",
+      "de": "Heute haben wir nach Herzenslust geschrien und gelacht, sind nass geworden und mussten sogar warten. Dass der Tag trotzdem schön war, lag wohl nicht daran, dass er perfekt war, sondern daran, dass wir all das gemeinsam erlebt haben.",
+      "en": "Today we screamed, laughed, got soaked, and even spent time waiting. The fact that it was still fun makes me think it wasn't a good day because it was perfect, but because we went through it together.",
+      "relationshipContext": "romantic_partner",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "오늘을 한 문장으로 남긴다면 뭐라고 할래?",
+          "de": "Wie würdest du diesen Tag in einem Satz festhalten?",
+          "en": "If you had to sum up today in one sentence, what would you say?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "나는 목은 아프지만 마음은 가벼워진 날이라고 할래.",
+        "de": "Ich würde sagen: ein Tag, nach dem der Hals wehtut, aber das Herz leichter ist.",
+        "en": "I'd call it a day that left my throat sore but my heart lighter."
+      }
+    }
+  ]
+}

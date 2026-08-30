@@ -31,6 +31,7 @@ void main() {
         'classmate',
         'coworker',
         'close_friend',
+        'romantic_partner',
         'family',
         'service',
       };

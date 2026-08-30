@@ -31,6 +31,10 @@ void main() {
       'close friend',
     );
     expect(
+      SmalltalkRelationshipContext.romanticPartner.labelFor('de'),
+      'feste Partnerschaft',
+    );
+    expect(
       SmalltalkRelationshipContext.service.labelFor('de'),
       'Service-Situation',
     );
