@@ -258,6 +258,127 @@ class SceneInventoryTest(unittest.TestCase):
             self.assertEqual(audit_scene_assets.find_output_drift({checked: checked.read_text(encoding="utf-8")}), [])
             self.assertEqual(audit_scene_assets.strict_exit_code(inventory, []), 0)
 
+    def test_pending_review_overlay_uses_runtime_fallback_but_is_not_runtime_eligible(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            runtime_dir = root / "assets" / "illustrations" / "scenes"
+            pending_dir = root / "assets_unused" / "pending_review" / "scenes"
+            runtime_dir.mkdir(parents=True)
+            pending_dir.mkdir(parents=True)
+            self._png(runtime_dir / "office.png", size=(1086, 1448), mode="P")
+            self._png(pending_dir / "alpha.png")
+
+            inventory = audit_scene_assets.scan_scene_inventory(
+                [self._ref("beta"), self._ref("alpha")],
+                pending_dir,
+                fallback_dir=runtime_dir,
+                project_root=root,
+                generated_from={},
+                review_mode=True,
+            )
+
+            self.assertEqual(inventory["auditMode"], "pending_review")
+            self.assertEqual(inventory["dedicatedCount"], 1)
+            self.assertEqual(inventory["fallbackCount"], 1)
+            self.assertEqual(inventory["issues"], [])
+            by_id = {row["id"]: row for row in inventory["scenarios"]}
+            self.assertEqual(by_id["alpha"]["status"], "dedicated")
+            self.assertFalse(by_id["alpha"]["runtimeEligible"])
+            self.assertTrue(by_id["beta"]["runtimeEligible"])
+            self.assertIn("assets_unused/pending_review", by_id["alpha"]["resolvedPath"])
+
+            valid_manifest = {
+                "entries": [
+                    {
+                        "id": "alpha",
+                        "targetPath": by_id["alpha"]["resolvedPath"],
+                        "generation": {
+                            "status": "generated_pending_review",
+                            "normalizedSha256": by_id["alpha"]["sha256"],
+                            "dimensions": [1536, 1024],
+                            "mode": "RGB",
+                            "alpha": False,
+                            "runtimeEligible": False,
+                        },
+                    },
+                    {
+                        "id": "beta",
+                        "targetPath": (
+                            "assets_unused/pending_review/scenes/beta.png"
+                        ),
+                        "generation": {"status": "not_generated"},
+                    },
+                ]
+            }
+            self.assertEqual(
+                audit_scene_assets.find_generation_manifest_issues(
+                    inventory,
+                    valid_manifest,
+                ),
+                [],
+            )
+
+            valid_manifest["entries"][0]["generation"]["normalizedSha256"] = (
+                "f" * 64
+            )
+            self.assertEqual(
+                [
+                    issue["code"]
+                    for issue in audit_scene_assets.find_generation_manifest_issues(
+                        inventory,
+                        valid_manifest,
+                    )
+                ],
+                ["generation_manifest_metadata_drift"],
+            )
+
+            valid_manifest["entries"][0]["generation"] = {
+                "status": "not_generated"
+            }
+            valid_manifest["entries"][1]["generation"] = {
+                "status": "generated_pending_review",
+                "normalizedSha256": "e" * 64,
+                "dimensions": [1536, 1024],
+                "mode": "RGB",
+                "alpha": False,
+                "runtimeEligible": False,
+            }
+            self.assertEqual(
+                [
+                    issue["code"]
+                    for issue in audit_scene_assets.find_generation_manifest_issues(
+                        inventory,
+                        valid_manifest,
+                    )
+                ],
+                [
+                    "generation_manifest_file_missing",
+                    "generation_manifest_unrecorded_file",
+                ],
+            )
+
+    def test_pending_review_category_filename_is_not_a_dedicated_asset(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            runtime_dir = root / "assets" / "illustrations" / "scenes"
+            pending_dir = root / "assets_unused" / "pending_review" / "scenes"
+            runtime_dir.mkdir(parents=True)
+            pending_dir.mkdir(parents=True)
+            self._png(runtime_dir / "office.png", size=(1086, 1448), mode="P")
+            self._png(pending_dir / "office.png")
+
+            inventory = audit_scene_assets.scan_scene_inventory(
+                [self._ref("alpha")],
+                pending_dir,
+                fallback_dir=runtime_dir,
+                project_root=root,
+                generated_from={},
+                review_mode=True,
+            )
+
+            self.assertIn("orphan_dedicated_scene_asset", self._codes(inventory))
+            self.assertIn("filename_id_mismatch", self._codes(inventory))
+
 
 if __name__ == "__main__":
     unittest.main()

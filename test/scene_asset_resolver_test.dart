@@ -18,7 +18,10 @@ void main() {
   group('ScenarioBackdrop.backdropKey (JSON 필드가 정본)', () {
     test('backdrop 필드가 그대로 카테고리 키다', () {
       expect(scn('mart_grocery', backdrop: 'market').backdropKey, 'market');
-      expect(scn('airport_arrival', backdrop: 'airport').backdropKey, 'airport');
+      expect(
+        scn('airport_arrival', backdrop: 'airport').backdropKey,
+        'airport',
+      );
     });
 
     test('backdrop 이 비면 null (UI 는 마스코트로 떨어진다)', () {
@@ -108,6 +111,39 @@ void main() {
       expect(
         SceneAssetResolver.loopAsset(s),
         'assets/video/loops/scene_airport_arrival.mp4',
+      );
+    });
+
+    test('pending-review poster is never a runtime candidate', () {
+      SceneAssetResolver.debugSetAssets(<String>{
+        'assets/illustrations/scenes/office.png',
+        'assets/video/loops/scene_office.mp4',
+        'assets_unused/pending_review/scenes/a1_class_pencil.png',
+      });
+      final s = scn('a1_class_pencil', backdrop: 'office');
+
+      expect(
+        SceneAssetResolver.posterAsset(s),
+        'assets/illustrations/scenes/office.png',
+      );
+      expect(
+        SceneAssetResolver.loopAsset(s),
+        'assets/video/loops/scene_office.mp4',
+      );
+    });
+
+    test('pubspec never bundles pending-review assets', () {
+      final assetDeclarations = File('pubspec.yaml')
+          .readAsLinesSync()
+          .map((line) => line.trim())
+          .where((line) => line.startsWith('- '));
+
+      expect(
+        assetDeclarations.any(
+          (line) =>
+              line.contains('assets_unused') || line.contains('pending_review'),
+        ),
+        isFalse,
       );
     });
 

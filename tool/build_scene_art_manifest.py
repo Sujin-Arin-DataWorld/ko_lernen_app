@@ -4,13 +4,17 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import hashlib
 import json
 import re
 import sys
 from collections import Counter, defaultdict
+from datetime import date
 from pathlib import Path
 from typing import Iterable, Mapping, Optional
+
+from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "assets" / "data"
@@ -267,7 +271,11 @@ def _validate_inventory_alignment(root: Path, scenario_ids: list[str]) -> None:
         raise ValueError("Scene asset inventory IDs drift from canonical scenario shards")
 
 
-def build_manifest(root: Path | str = ROOT) -> dict:
+def build_manifest(
+    root: Path | str = ROOT,
+    *,
+    generation_overrides: Optional[Mapping[str, Mapping[str, object]]] = None,
+) -> dict:
     project_root = Path(root)
     source_rows, generated_from = _load_rows(project_root)
     scenario_ids = [
@@ -339,12 +347,20 @@ def build_manifest(root: Path | str = ROOT) -> dict:
                     "status": "not_generated",
                     "generator": None,
                     "generatorResultId": None,
+                    "manifestPromptSha256": prompt_sha,
                     "sourcePromptSha256": prompt_sha,
                     "normalizedSha256": None,
                     "dimensions": None,
+                    "mode": None,
+                    "alpha": None,
                     "automatedIssues": [],
                     "visualReview": "not_started",
                     "runtimeEligible": False,
+                    "cropProfile": None,
+                    "attempts": [],
+                    "reviewNotes": [],
+                    "generatedOn": None,
+                    "normalizer": None,
                 },
             }
         )
@@ -358,6 +374,23 @@ def build_manifest(root: Path | str = ROOT) -> dict:
     )
     for index, row in enumerate(prepared, start=1):
         row["priorityOrder"] = index
+
+    overrides = dict(generation_overrides or {})
+    known_ids = {row["id"] for row in prepared}
+    unknown_ids = sorted(set(overrides) - known_ids)
+    if unknown_ids:
+        raise ValueError(f"Generation override references unknown scenario IDs: {unknown_ids}")
+    for row in prepared:
+        override = overrides.get(row["id"])
+        if override is None:
+            continue
+        if not isinstance(override, Mapping):
+            raise ValueError(f"Generation override must be an object: {row['id']}")
+        if override.get("manifestPromptSha256") != row["promptSha256"]:
+            raise ValueError(
+                f"Generated art prompt authority drifted for scenario {row['id']}"
+            )
+        row["generation"] = copy.deepcopy(dict(override))
 
     category_counts = Counter(row["category"] for row in prepared)
     actual_counts = {
@@ -401,6 +434,143 @@ def build_manifest(root: Path | str = ROOT) -> dict:
     }
 
 
+def _validate_sha256(value: str, field: str) -> str:
+    if not re.fullmatch(r"[0-9a-f]{64}", value):
+        raise ValueError(f"{field} must be a lowercase SHA-256 hex digest")
+    return value
+
+
+def _validate_attempts(attempts: Iterable[Mapping[str, object]]) -> list[dict]:
+    result = []
+    for index, attempt in enumerate(attempts):
+        if not isinstance(attempt, Mapping):
+            raise ValueError(f"attempt {index} must be an object")
+        result_id = _clean_text(attempt.get("resultId"))
+        prompt_sha = _clean_text(attempt.get("promptSha256"))
+        outcome = _clean_text(attempt.get("outcome"))
+        issues = attempt.get("issues")
+        if not result_id:
+            raise ValueError(f"attempt {index} has no resultId")
+        _validate_sha256(prompt_sha, f"attempt {index} promptSha256")
+        if outcome not in {"selected", "rejected"}:
+            raise ValueError(f"attempt {index} outcome must be selected or rejected")
+        if not isinstance(issues, list) or any(not isinstance(issue, str) for issue in issues):
+            raise ValueError(f"attempt {index} issues must be a string list")
+        result.append(
+            {
+                "resultId": result_id,
+                "promptSha256": prompt_sha,
+                "outcome": outcome,
+                "issues": list(issues),
+            }
+        )
+    return result
+
+
+def record_generation_result(
+    manifest: dict,
+    *,
+    scenario_id: str,
+    normalized_file: Path | str,
+    generator: str,
+    result_id: str,
+    source_prompt_sha256: str,
+    crop_profile: str,
+    attempts: Iterable[Mapping[str, object]],
+    review_notes: Iterable[str] = (),
+    generated_on: Optional[str] = None,
+) -> None:
+    rows = manifest.get("entries", [])
+    row = next((item for item in rows if item.get("id") == scenario_id), None)
+    if row is None:
+        raise ValueError(f"Cannot record unknown scenario ID: {scenario_id}")
+    path = Path(normalized_file)
+    if path.name != f"{scenario_id}.png":
+        raise ValueError(
+            f"Normalized filename must match scenario ID: expected {scenario_id}.png"
+        )
+    if not path.is_file():
+        raise FileNotFoundError(f"Normalized scene image does not exist: {path}")
+    generator = _clean_text(generator)
+    result_id = _clean_text(result_id)
+    if not generator or not result_id:
+        raise ValueError("generator and result_id are required")
+    _validate_sha256(source_prompt_sha256, "source_prompt_sha256")
+    if crop_profile not in {"compact", "medium", "expanded"}:
+        raise ValueError("crop_profile must be compact, medium, or expanded")
+    normalized_attempts = _validate_attempts(attempts)
+    selected = [
+        attempt for attempt in normalized_attempts if attempt["outcome"] == "selected"
+    ]
+    if len(selected) != 1 or selected[0]["resultId"] != result_id:
+        raise ValueError("attempts must contain exactly one selected final result")
+
+    automated_issues = []
+    with Image.open(path) as image:
+        image_format = image.format
+        image.load()
+        width, height = image.size
+        mode = image.mode
+        alpha = "A" in image.getbands() or "transparency" in image.info
+    if image_format != "PNG":
+        automated_issues.append("non_png")
+    if (width, height) != (1536, 1024):
+        automated_issues.append("invalid_dimensions")
+    if mode not in {"RGB", "RGBA"}:
+        automated_issues.append("unexpected_color_mode")
+    digest = _sha256_file(path)
+    for other in rows:
+        if other.get("id") == scenario_id:
+            continue
+        other_generation = other.get("generation") or {}
+        if other_generation.get("normalizedSha256") == digest:
+            automated_issues.append(f"duplicate_content:{other['id']}")
+
+    notes = [_clean_text(note) for note in review_notes]
+    if any(not note for note in notes):
+        raise ValueError("review_notes cannot contain empty values")
+    row["generation"] = {
+        "status": (
+            "generated_pending_review"
+            if not automated_issues
+            else "generated_invalid"
+        ),
+        "generator": generator,
+        "generatorResultId": result_id,
+        "manifestPromptSha256": row["promptSha256"],
+        "sourcePromptSha256": source_prompt_sha256,
+        "normalizedSha256": digest,
+        "dimensions": [width, height],
+        "mode": mode,
+        "alpha": alpha,
+        "automatedIssues": automated_issues,
+        "visualReview": "pending",
+        "runtimeEligible": False,
+        "cropProfile": crop_profile,
+        "attempts": normalized_attempts,
+        "reviewNotes": notes,
+        "generatedOn": generated_on or date.today().isoformat(),
+        "normalizer": "tool/scene_poster_normalize.py",
+    }
+
+
+def _load_generation_overrides(path: Path) -> dict[str, dict]:
+    if not path.is_file():
+        return {}
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    overrides = {}
+    for row in payload.get("entries", []):
+        if not isinstance(row, dict):
+            continue
+        generation = row.get("generation")
+        if (
+            isinstance(generation, dict)
+            and generation.get("status") != "not_generated"
+        ):
+            overrides[row.get("id")] = generation
+    return overrides
+
+
 def render_manifest_json(manifest: Mapping[str, object]) -> str:
     return json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
 
@@ -422,6 +592,31 @@ def _parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Do not write; fail when the checked-in manifest differs",
     )
+    parser.add_argument(
+        "--record-result",
+        metavar="SCENARIO_ID",
+        help="Record one normalized pending-review generation result",
+    )
+    parser.add_argument("--normalized-file", type=Path)
+    parser.add_argument("--generator")
+    parser.add_argument("--result-id")
+    parser.add_argument("--source-prompt-sha256")
+    parser.add_argument(
+        "--crop-profile",
+        choices=("compact", "medium", "expanded"),
+    )
+    parser.add_argument(
+        "--attempt-json",
+        action="append",
+        default=[],
+        help="Repeatable JSON object with resultId, promptSha256, outcome, issues",
+    )
+    parser.add_argument(
+        "--review-note",
+        action="append",
+        default=[],
+    )
+    parser.add_argument("--generated-on")
     return parser
 
 
@@ -429,7 +624,41 @@ def main(argv: Optional[list[str]] = None) -> int:
     args = _parser().parse_args(argv)
     output_path = _resolve_output(args.output)
     try:
-        manifest = build_manifest(ROOT)
+        overrides = _load_generation_overrides(output_path)
+        manifest = build_manifest(ROOT, generation_overrides=overrides)
+        if args.record_result:
+            if args.check:
+                raise ValueError("--record-result cannot be combined with --check")
+            required = {
+                "--normalized-file": args.normalized_file,
+                "--generator": args.generator,
+                "--result-id": args.result_id,
+                "--source-prompt-sha256": args.source_prompt_sha256,
+                "--crop-profile": args.crop_profile,
+            }
+            missing = [flag for flag, value in required.items() if value is None]
+            if missing:
+                raise ValueError(
+                    f"--record-result requires: {', '.join(missing)}"
+                )
+            attempts = [json.loads(raw) for raw in args.attempt_json]
+            normalized_file = (
+                args.normalized_file
+                if args.normalized_file.is_absolute()
+                else ROOT / args.normalized_file
+            )
+            record_generation_result(
+                manifest,
+                scenario_id=args.record_result,
+                normalized_file=normalized_file,
+                generator=args.generator,
+                result_id=args.result_id,
+                source_prompt_sha256=args.source_prompt_sha256,
+                crop_profile=args.crop_profile,
+                attempts=attempts,
+                review_notes=args.review_note,
+                generated_on=args.generated_on,
+            )
     except (OSError, ValueError, json.JSONDecodeError) as error:
         print(f"[build_scene_art_manifest] error: {error}", file=sys.stderr)
         return 1
@@ -450,7 +679,7 @@ def main(argv: Optional[list[str]] = None) -> int:
         output_path.parent.mkdir(parents=True, exist_ok=True)
         with output_path.open("w", encoding="utf-8", newline="\n") as handle:
             handle.write(rendered)
-        verb = "wrote"
+        verb = "recorded" if args.record_result else "wrote"
     print(
         f"[build_scene_art_manifest] {verb}: "
         f"{manifest['scenarioCount']} scenarios -> {_relative(output_path, ROOT)}"

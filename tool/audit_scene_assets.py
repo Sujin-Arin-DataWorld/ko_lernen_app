@@ -31,6 +31,7 @@ POSTER_DIR = ROOT / "assets" / "illustrations" / "scenes"
 LOOP_DIR = ROOT / "assets" / "video" / "loops"
 REPORT_PATH = ROOT / "docs" / "data" / "scene_asset_report.md"
 INVENTORY_PATH = ROOT / "docs" / "data" / "scene_asset_inventory.json"
+GENERATION_MANIFEST_PATH = ROOT / "docs" / "data" / "scene_art_generation_manifest.json"
 RESOLVER_PATH = ROOT / "lib" / "services" / "scene_asset_resolver.dart"
 
 LOOP_SCENE_PREFIX = "scene_"
@@ -202,34 +203,79 @@ def scan_scene_inventory(
     refs: Iterable[ScenarioRef],
     poster_dir: Path | str,
     *,
+    fallback_dir: Path | str | None = None,
     project_root: Path | str = ROOT,
     generated_from: Optional[Mapping[str, str]] = None,
+    review_mode: bool = False,
 ) -> dict:
     """Build the canonical poster inventory from explicit, testable inputs."""
     root = Path(project_root)
-    directory = Path(poster_dir)
+    dedicated_directory = Path(poster_dir)
+    fallback_directory = (
+        Path(fallback_dir) if fallback_dir is not None else dedicated_directory
+    )
     sorted_refs = sorted(
         refs,
         key=lambda ref: (ref.shard, ref.scenario_id, ref.level, ref.backdrop),
     )
-    files = (
+    dedicated_files = (
         sorted(
             (
                 path
-                for path in directory.iterdir()
+                for path in dedicated_directory.iterdir()
                 if path.is_file() and path.name != ".gitkeep"
             ),
             key=lambda p: p.name,
         )
-        if directory.is_dir()
+        if dedicated_directory.is_dir()
         else []
     )
-    files_by_name = {path.name: path for path in files}
-    poster_files = frozenset(
-        path.name for path in files if path.suffix.lower() == ".png"
+    same_directory = (
+        dedicated_directory.resolve() == fallback_directory.resolve()
     )
+    fallback_files = (
+        dedicated_files
+        if same_directory
+        else (
+            sorted(
+                (
+                    path
+                    for path in fallback_directory.iterdir()
+                    if path.is_file() and path.name != ".gitkeep"
+                ),
+                key=lambda path: path.name,
+            )
+            if fallback_directory.is_dir()
+            else []
+        )
+    )
+    dedicated_by_name = {path.name: path for path in dedicated_files}
+    fallback_by_name = {path.name: path for path in fallback_files}
     scenario_ids = {ref.scenario_id for ref in sorted_refs}
     backdrops = {ref.backdrop for ref in sorted_refs if ref.backdrop}
+    dedicated_png_names = {
+        path.name for path in dedicated_files if path.suffix.lower() == ".png"
+    }
+    fallback_png_names = {
+        path.name for path in fallback_files if path.suffix.lower() == ".png"
+    }
+    poster_files = frozenset(
+        dedicated_png_names
+        | (
+            fallback_png_names
+            if same_directory
+            else {
+                category_poster_name(backdrop)
+                for backdrop in backdrops
+                if category_poster_name(backdrop) in fallback_png_names
+            }
+        )
+    )
+    allowed_stems = (
+        scenario_ids | backdrops
+        if same_directory and not review_mode
+        else scenario_ids
+    )
     issues: list[dict] = []
 
     refs_by_id: dict[str, list[ScenarioRef]] = defaultdict(list)
@@ -250,7 +296,7 @@ def scan_scene_inventory(
             )
         )
 
-    for path in files:
+    for path in dedicated_files:
         relative = _project_path(path, root)
         if path.suffix != ".png":
             issues.append(
@@ -267,7 +313,7 @@ def scan_scene_inventory(
                     path=relative,
                 )
             )
-            if path.stem not in scenario_ids and path.stem not in backdrops:
+            if path.stem not in allowed_stems:
                 issues.append(
                     _issue(
                         "orphan_dedicated_scene_asset",
@@ -276,7 +322,7 @@ def scan_scene_inventory(
                     )
                 )
             continue
-        if path.stem not in scenario_ids and path.stem not in backdrops:
+        if path.stem not in allowed_stems:
             issues.append(
                 _issue(
                     "orphan_dedicated_scene_asset",
@@ -300,11 +346,19 @@ def scan_scene_inventory(
             ref.backdrop,
             poster_files,
         )
-        dedicated_path = directory / dedicated_poster_name(ref.scenario_id)
-        resolved_path = directory / resolved_name if resolved_name else None
+        dedicated_path = dedicated_directory / dedicated_poster_name(ref.scenario_id)
+        if status == "dedicated" and resolved_name:
+            resolved_path = dedicated_by_name.get(resolved_name, dedicated_path)
+        elif resolved_name:
+            resolved_path = fallback_by_name.get(
+                resolved_name,
+                fallback_directory / resolved_name,
+            )
+        else:
+            resolved_path = None
         metadata = (
-            inspect_png(files_by_name[resolved_name])
-            if resolved_name in files_by_name
+            inspect_png(resolved_path)
+            if resolved_path is not None and resolved_path.is_file()
             else {
                 "readable": False,
                 "isPng": False,
@@ -318,6 +372,8 @@ def scan_scene_inventory(
             }
         )
         runtime_eligible = status in {"dedicated", "fallback"}
+        if review_mode and status == "dedicated":
+            runtime_eligible = False
 
         if status == "broken_fallback":
             issues.append(
@@ -449,6 +505,7 @@ def scan_scene_inventory(
     issues = _dedupe_issues(issues)
     return {
         "schemaVersion": SCHEMA_VERSION,
+        "auditMode": "pending_review" if review_mode else "runtime",
         "generatedFrom": {
             key: generated_from[key] for key in sorted(generated_from or {})
         },
@@ -465,6 +522,190 @@ def scan_scene_inventory(
 
 def render_inventory_json(inventory: Mapping[str, object]) -> str:
     return json.dumps(inventory, ensure_ascii=False, indent=2) + "\n"
+
+
+def find_generation_manifest_issues(
+    inventory: Mapping[str, object],
+    generation_manifest: Mapping[str, object],
+) -> list[dict]:
+    """Cross-check pending-review image metadata against its provenance ledger."""
+    raw_entries = generation_manifest.get("entries")
+    if not isinstance(raw_entries, list):
+        return [
+            _issue(
+                "generation_manifest_invalid",
+                "Scene-art generation manifest has no entries list.",
+                path=_project_path(GENERATION_MANIFEST_PATH, ROOT),
+            )
+        ]
+
+    entries_by_id: dict[str, list[Mapping[str, object]]] = defaultdict(list)
+    issues: list[dict] = []
+    for raw_entry in raw_entries:
+        if not isinstance(raw_entry, Mapping):
+            issues.append(
+                _issue(
+                    "generation_manifest_invalid",
+                    "Scene-art generation manifest contains a non-object entry.",
+                    path=_project_path(GENERATION_MANIFEST_PATH, ROOT),
+                )
+            )
+            continue
+        scenario_id = str(raw_entry.get("id") or "").strip()
+        if not scenario_id:
+            issues.append(
+                _issue(
+                    "generation_manifest_invalid",
+                    "Scene-art generation manifest contains an entry without an ID.",
+                    path=_project_path(GENERATION_MANIFEST_PATH, ROOT),
+                )
+            )
+            continue
+        entries_by_id[scenario_id].append(raw_entry)
+
+    inventory_rows = inventory.get("scenarios")
+    if not isinstance(inventory_rows, list):
+        return _dedupe_issues(
+            [
+                *issues,
+                _issue(
+                    "generation_manifest_invalid",
+                    "Scene inventory has no scenarios list to compare.",
+                ),
+            ]
+        )
+    inventory_by_id = {
+        str(row.get("id") or ""): row
+        for row in inventory_rows
+        if isinstance(row, Mapping) and row.get("id")
+    }
+
+    for scenario_id in sorted(entries_by_id):
+        owned = entries_by_id[scenario_id]
+        if len(owned) > 1:
+            issues.append(
+                _issue(
+                    "generation_manifest_duplicate_id",
+                    f"Scene-art generation manifest declares {scenario_id!r} more than once.",
+                    id=scenario_id,
+                )
+            )
+        if scenario_id not in inventory_by_id:
+            issues.append(
+                _issue(
+                    "generation_manifest_orphan_entry",
+                    "Scene-art generation manifest ID is not canonical.",
+                    id=scenario_id,
+                )
+            )
+
+    allowed_generated_statuses = {
+        "generated_pending_review",
+        "generated_invalid",
+    }
+    for scenario_id in sorted(inventory_by_id):
+        row = inventory_by_id[scenario_id]
+        entries = entries_by_id.get(scenario_id, [])
+        if not entries:
+            issues.append(
+                _issue(
+                    "generation_manifest_entry_missing",
+                    "Canonical scenario has no scene-art generation manifest entry.",
+                    id=scenario_id,
+                )
+            )
+            continue
+        entry = entries[0]
+        generation = entry.get("generation")
+        if not isinstance(generation, Mapping):
+            issues.append(
+                _issue(
+                    "generation_manifest_invalid",
+                    "Scene-art generation entry has no generation object.",
+                    id=scenario_id,
+                )
+            )
+            continue
+
+        status = generation.get("status")
+        has_pending_file = row.get("status") == "dedicated"
+        if has_pending_file and status == "not_generated":
+            issues.append(
+                _issue(
+                    "generation_manifest_unrecorded_file",
+                    "Pending-review poster exists but its generation is not recorded.",
+                    id=scenario_id,
+                    path=str(row.get("resolvedPath") or ""),
+                )
+            )
+            continue
+        if not has_pending_file and status in allowed_generated_statuses:
+            issues.append(
+                _issue(
+                    "generation_manifest_file_missing",
+                    "Generation manifest records a result without a pending-review poster.",
+                    id=scenario_id,
+                    path=str(entry.get("targetPath") or ""),
+                )
+            )
+            continue
+        if not has_pending_file:
+            if status != "not_generated":
+                issues.append(
+                    _issue(
+                        "generation_manifest_invalid_status",
+                        f"Generation status {status!r} is not recognized.",
+                        id=scenario_id,
+                    )
+                )
+            continue
+        if status not in allowed_generated_statuses:
+            issues.append(
+                _issue(
+                    "generation_manifest_invalid_status",
+                    f"Generation status {status!r} is not valid for an existing poster.",
+                    id=scenario_id,
+                    path=str(row.get("resolvedPath") or ""),
+                )
+            )
+            continue
+
+        target_path = entry.get("targetPath")
+        if target_path != row.get("resolvedPath"):
+            issues.append(
+                _issue(
+                    "generation_manifest_target_drift",
+                    "Generation target path differs from the audited pending-review file.",
+                    id=scenario_id,
+                    path=str(row.get("resolvedPath") or ""),
+                    recordedTarget=target_path,
+                )
+            )
+
+        expected_metadata = {
+            "normalizedSha256": row.get("sha256"),
+            "dimensions": [row.get("width"), row.get("height")],
+            "mode": row.get("mode"),
+            "alpha": row.get("alpha"),
+            "runtimeEligible": False,
+        }
+        drifted_fields = sorted(
+            key
+            for key, expected in expected_metadata.items()
+            if generation.get(key) != expected
+        )
+        if drifted_fields:
+            issues.append(
+                _issue(
+                    "generation_manifest_metadata_drift",
+                    "Generation metadata differs from the audited pending-review poster.",
+                    id=scenario_id,
+                    path=str(row.get("resolvedPath") or ""),
+                    fields=drifted_fields,
+                )
+            )
+
+    return _dedupe_issues(issues)
 
 
 def find_output_drift(expected_outputs: Mapping[Path | str, str]) -> list[dict]:
@@ -697,12 +938,65 @@ def _parser() -> argparse.ArgumentParser:
         metavar="PATH",
         help="Inventory JSON path relative to the repository root.",
     )
+    parser.add_argument(
+        "--pending-review",
+        nargs="?",
+        const="assets_unused/pending_review/scenes",
+        metavar="PATH",
+        help=(
+            "Read-only audit of dedicated pending-review posters over runtime "
+            "category fallbacks. Defaults to assets_unused/pending_review/scenes."
+        ),
+    )
     return parser
 
 
 def main(argv: Optional[list[str]] = None) -> int:
     args = _parser().parse_args(argv)
     refs = _load_scenario_refs()
+    if args.pending_review is not None:
+        pending_dir = _resolve_cli_path(args.pending_review)
+        inventory = scan_scene_inventory(
+            refs,
+            pending_dir,
+            fallback_dir=POSTER_DIR,
+            project_root=ROOT,
+            generated_from=_generated_from(),
+            review_mode=True,
+        )
+        try:
+            generation_manifest = json.loads(
+                GENERATION_MANIFEST_PATH.read_text(encoding="utf-8")
+            )
+            manifest_issues = find_generation_manifest_issues(
+                inventory,
+                generation_manifest,
+            )
+        except (OSError, ValueError, json.JSONDecodeError) as error:
+            manifest_issues = [
+                _issue(
+                    "generation_manifest_unreadable",
+                    f"Scene-art generation manifest cannot be read ({type(error).__name__}).",
+                    path=_project_path(GENERATION_MANIFEST_PATH, ROOT),
+                )
+            ]
+        inventory["issues"] = _dedupe_issues(
+            [*inventory["issues"], *manifest_issues]
+        )
+        result = strict_exit_code(inventory)
+        print(
+            "[audit_scene_assets] pending-review checked: "
+            f"{inventory['scenarioCount']} scenarios, "
+            f"{inventory['dedicatedCount']} dedicated, "
+            f"{inventory['fallbackCount']} fallback, "
+            f"{inventory['missingCount']} missing, "
+            f"{len(inventory['issues'])} strict issues"
+        )
+        for issue in inventory["issues"]:
+            location = issue.get("path") or issue.get("id") or ""
+            print(f"  - {issue['code']}: {location}: {issue['message']}")
+        return result
+
     inventory = scan_scene_inventory(
         refs,
         POSTER_DIR,

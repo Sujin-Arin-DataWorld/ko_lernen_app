@@ -1,5 +1,6 @@
 {
   "schemaVersion": 1,
+  "auditMode": "runtime",
   "generatedFrom": {
     "assets/data/scenarios_a1.json": "b9934e5b19d73bcf84cd384a030b6a9f87fb62c9e655cd8a88f87399452a980c",
     "assets/data/scenarios_a2.json": "163cb8f22cdb26b7ecdb9be3c9e2fd7c017d9cac1676ad00f1eecf543a04c7bc",

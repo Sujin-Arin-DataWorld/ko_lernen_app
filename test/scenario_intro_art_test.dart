@@ -106,6 +106,37 @@ void main() {
     expect(introductionAlignment, scenarioIntroAlignmentFor(introduction));
     expect(kpopAlignment, introductionAlignment);
   });
+
+  testWidgets('compact medium and expanded intro crops keep the app contract', (
+    tester,
+  ) async {
+    final scenario = _scenario(
+      id: 'a1_cancel_walk',
+      courseUnitId: 'a1_01_greetings_hangul',
+    );
+    const profiles = <({String name, Size view, Size art})>[
+      (name: 'compact', view: Size(320, 844), art: Size(288, 140)),
+      (name: 'medium', view: Size(390, 844), art: Size(358, 140)),
+      (name: 'expanded', view: Size(720, 844), art: Size(608, 140)),
+    ];
+
+    for (final profile in profiles) {
+      await _pumpIntro(tester, scenario, viewSize: profile.view);
+
+      final image = _introImage(tester);
+      expect(image.fit, BoxFit.cover, reason: profile.name);
+      expect(
+        image.alignment,
+        scenarioIntroAlignmentFor(scenario),
+        reason: profile.name,
+      );
+      expect(
+        tester.getSize(find.byKey(const ValueKey('scenario-intro-art-image'))),
+        profile.art,
+        reason: profile.name,
+      );
+    }
+  });
 }
 
 Scenario _scenario({required String id, String courseUnitId = ''}) => Scenario(
@@ -127,8 +158,9 @@ Future<void> _pumpIntro(
   WidgetTester tester,
   Scenario scenario, {
   Key? playerKey,
+  Size viewSize = const Size(390, 844),
 }) async {
-  tester.view.physicalSize = const Size(390, 844);
+  tester.view.physicalSize = viewSize;
   tester.view.devicePixelRatio = 1;
   addTearDown(tester.view.resetPhysicalSize);
   addTearDown(tester.view.resetDevicePixelRatio);

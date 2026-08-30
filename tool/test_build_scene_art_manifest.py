@@ -5,9 +5,12 @@ from __future__ import annotations
 import hashlib
 import re
 import sys
+import tempfile
 import unittest
 from collections import Counter, defaultdict
 from pathlib import Path
+
+from PIL import Image
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
@@ -187,6 +190,68 @@ class SceneArtManifestTest(unittest.TestCase):
         self.assertEqual(first, second)
         self.assertTrue(first.endswith("\n"))
         self.assertNotIn("\r", first)
+
+    def test_generation_override_is_preserved_and_unknown_id_is_rejected(self) -> None:
+        generation = dict(self.entries[0]["generation"])
+        generation.update(
+            {
+                "status": "generated_pending_review",
+                "generator": "built-in image_gen (model identity not exposed)",
+                "generatorResultId": "exec-example",
+                "visualReview": "pending",
+            }
+        )
+        rebuilt = build_scene_art_manifest.build_manifest(
+            build_scene_art_manifest.ROOT,
+            generation_overrides={self.entries[0]["id"]: generation},
+        )
+        self.assertEqual(rebuilt["entries"][0]["generation"], generation)
+        with self.assertRaisesRegex(ValueError, "unknown scenario"):
+            build_scene_art_manifest.build_manifest(
+                build_scene_art_manifest.ROOT,
+                generation_overrides={"not_a_scenario": generation},
+            )
+
+    def test_record_result_measures_png_and_keeps_visual_review_pending(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "a1_class_pencil.png"
+            Image.new("RGB", (1536, 1024), (20, 40, 60)).save(path, "PNG")
+            manifest = build_scene_art_manifest.build_manifest(
+                build_scene_art_manifest.ROOT
+            )
+            build_scene_art_manifest.record_generation_result(
+                manifest,
+                scenario_id="a1_class_pencil",
+                normalized_file=path,
+                generator="built-in image_gen (model identity not exposed)",
+                result_id="exec-example",
+                source_prompt_sha256="a" * 64,
+                crop_profile="compact",
+                attempts=[
+                    {
+                        "resultId": "exec-example",
+                        "promptSha256": "a" * 64,
+                        "outcome": "selected",
+                        "issues": [],
+                    }
+                ],
+                review_notes=["human visual review required"],
+            )
+            row = next(
+                row for row in manifest["entries"] if row["id"] == "a1_class_pencil"
+            )
+            generation = row["generation"]
+            self.assertEqual(generation["status"], "generated_pending_review")
+            self.assertEqual(generation["dimensions"], [1536, 1024])
+            self.assertEqual(generation["mode"], "RGB")
+            self.assertEqual(generation["automatedIssues"], [])
+            self.assertEqual(generation["visualReview"], "pending")
+            self.assertFalse(generation["runtimeEligible"])
+            self.assertEqual(generation["cropProfile"], "compact")
+            self.assertEqual(
+                generation["normalizedSha256"],
+                hashlib.sha256(path.read_bytes()).hexdigest(),
+            )
 
 
 if __name__ == "__main__":
