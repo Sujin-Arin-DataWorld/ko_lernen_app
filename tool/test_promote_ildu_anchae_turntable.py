@@ -5,7 +5,7 @@ import io
 import json
 import unittest
 
-from PIL import Image, ImageChops
+from PIL import Image
 
 from tool.promote_ildu_anchae_turntable import (
     METRICS_PATH,
@@ -19,32 +19,39 @@ from tool.promote_ildu_anchae_turntable import (
 
 
 class PromoteIlDuAnchaeTurntableTest(unittest.TestCase):
-    def assert_png_pixels_equal(self, committed_path, generated_bytes: bytes) -> None:
+    def _assert_png_pixels_equal(self, path, rebuilt_bytes: bytes) -> None:
         with (
-            Image.open(committed_path) as committed,
-            Image.open(io.BytesIO(generated_bytes)) as generated,
+            Image.open(path) as committed,
+            Image.open(io.BytesIO(rebuilt_bytes)) as rebuilt,
         ):
-            self.assertEqual(committed.format, "PNG")
-            self.assertEqual(generated.format, "PNG")
-            self.assertEqual(committed.mode, generated.mode)
-            self.assertEqual(committed.size, generated.size)
-            self.assertIsNone(ImageChops.difference(committed, generated).getbbox())
+            committed.load()
+            rebuilt.load()
+            self.assertEqual(committed.format, "PNG", path.name)
+            self.assertEqual(rebuilt.format, "PNG", path.name)
+            self.assertEqual(committed.mode, rebuilt.mode, path.name)
+            self.assertEqual(committed.size, rebuilt.size, path.name)
+            self.assertTrue(
+                committed.tobytes() == rebuilt.tobytes(),
+                f"{path.name}: decoded RGBA pixels drifted",
+            )
 
     @staticmethod
-    def without_encoded_png_hashes(metrics: dict[str, object]) -> dict[str, object]:
-        normalized = json.loads(json.dumps(metrics))
-        normalized["sheet"].pop("sha256")
-        for frame in normalized["frames"]:
+    def _without_encoded_hashes(metrics: dict[str, object]) -> dict[str, object]:
+        stable = json.loads(json.dumps(metrics))
+        stable["sheet"].pop("sha256")
+        for frame in stable["frames"]:
             frame.pop("transparent_sha256")
-        for frame in normalized["runtime_frames"]:
+        for frame in stable["runtime_frames"]:
             frame.pop("sha256")
-        return normalized
+        return stable
 
-    def assert_file_sha256(self, path, expected: str) -> None:
+    def _assert_file_sha256(self, path, expected: str) -> None:
         actual = hashlib.sha256(path.read_bytes()).hexdigest().upper()
-        self.assertEqual(actual, expected)
+        self.assertEqual(actual, expected, path.name)
 
-    def test_committed_outputs_match_deterministic_build(self) -> None:
+    def test_committed_outputs_match_rebuilt_pixels_and_recorded_hashes(
+        self,
+    ) -> None:
         bundle = build_bundle()
         committed_metrics = json.loads(METRICS_PATH.read_text(encoding="utf-8"))
 
@@ -56,28 +63,24 @@ class PromoteIlDuAnchaeTurntableTest(unittest.TestCase):
         )
         self.assertEqual(len({frame.sha256 for frame in bundle.runtime_frames}), 8)
         for frame in bundle.transparent_frames:
-            self.assert_png_pixels_equal(
-                TRANSPARENT_ROOT / frame.output_name,
-                frame.png_bytes,
-            )
+            path = TRANSPARENT_ROOT / frame.output_name
+            self._assert_png_pixels_equal(path, frame.png_bytes)
         for frame in bundle.runtime_frames:
-            self.assert_png_pixels_equal(
-                RUNTIME_ROOT / frame.output_name,
-                frame.png_bytes,
-            )
-        self.assert_png_pixels_equal(SHEET_PATH, bundle.sheet_bytes)
+            path = RUNTIME_ROOT / frame.output_name
+            self._assert_png_pixels_equal(path, frame.png_bytes)
+        self._assert_png_pixels_equal(SHEET_PATH, bundle.sheet_bytes)
         self.assertEqual(
-            self.without_encoded_png_hashes(committed_metrics),
-            self.without_encoded_png_hashes(bundle.metrics),
+            self._without_encoded_hashes(committed_metrics),
+            self._without_encoded_hashes(bundle.metrics),
         )
-        self.assert_file_sha256(SHEET_PATH, committed_metrics["sheet"]["sha256"])
+        self._assert_file_sha256(SHEET_PATH, committed_metrics["sheet"]["sha256"])
         for frame in committed_metrics["frames"]:
-            self.assert_file_sha256(
+            self._assert_file_sha256(
                 METRICS_PATH.parent / frame["transparent_file"],
                 frame["transparent_sha256"],
             )
         for frame in committed_metrics["runtime_frames"]:
-            self.assert_file_sha256(
+            self._assert_file_sha256(
                 RUNTIME_ROOT / frame["file"],
                 frame["sha256"],
             )
