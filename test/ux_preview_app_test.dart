@@ -230,7 +230,7 @@ void main() {
   });
 
   testWidgets(
-    '02C renders the real listening question and checks without writes',
+    '02C renders the real listening question and judges without writes',
     (tester) async {
       tester.view.physicalSize = const Size(390, 844);
       tester.view.devicePixelRatio = 1;
@@ -252,24 +252,13 @@ void main() {
       expect(find.text('안 맵게 해 주세요.'), findsOneWidget);
       expect(find.text('감사합니다.'), findsOneWidget);
 
-      final check = find.text('Antwort prüfen');
-      expect(check, findsOneWidget);
-      expect(find.text('Weiter'), findsNothing);
+      expect(find.byKey(const ValueKey('quest-submit')), findsNothing);
+      expect(find.text('Antwort prüfen'), findsNothing);
+      expect(find.text('Ergebnis ansehen'), findsNothing);
       await tester.tap(find.text('안 맵게 해 주세요.'));
-      await tester.pump();
-      expect(
-        tester
-            .widget<SoriButton>(
-              find.widgetWithText(SoriButton, 'Antwort prüfen'),
-            )
-            .onTap,
-        isNotNull,
-      );
-      expect(find.text('Weiter'), findsNothing);
-      expect(await _preferencesSnapshot(), before);
-      await tester.tap(check);
       await tester.pump(const Duration(milliseconds: 1250));
 
+      expect(find.byKey(const ValueKey('quest-continue')), findsOneWidget);
       expect(find.text('Ergebnis ansehen'), findsOneWidget);
       expect(await _preferencesSnapshot(), before);
       expect(Storage.userLevelCode, isNull);
