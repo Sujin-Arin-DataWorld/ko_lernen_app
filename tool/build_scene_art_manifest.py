@@ -1,0 +1,462 @@
+#!/usr/bin/env python3
+"""Build the deterministic, network-free scenario-art generation manifest."""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import re
+import sys
+from collections import Counter, defaultdict
+from pathlib import Path
+from typing import Iterable, Mapping, Optional
+
+ROOT = Path(__file__).resolve().parents[1]
+DATA_DIR = ROOT / "assets" / "data"
+INVENTORY_PATH = ROOT / "docs" / "data" / "scene_asset_inventory.json"
+DEFAULT_OUTPUT_PATH = ROOT / "docs" / "data" / "scene_art_generation_manifest.json"
+STYLE_CONTRACT_PATH = ROOT / "docs" / "ASSET_GENERATION_BIBLE.md"
+
+CATEGORY_ORDER = [
+    "office",
+    "home",
+    "cafe",
+    "station",
+    "market",
+    "convenience",
+    "restaurant",
+    "pharmacy",
+    "directions",
+    "hotel",
+    "taxi",
+    "airport",
+    "bank",
+    "salon",
+]
+LEVEL_ORDER = ["a1", "a2", "b1", "b2", "c1", "c2"]
+EXPECTED_CATEGORY_COUNTS = {
+    "office": 172,
+    "home": 86,
+    "cafe": 36,
+    "station": 27,
+    "market": 22,
+    "convenience": 14,
+    "restaurant": 13,
+    "pharmacy": 9,
+    "directions": 8,
+    "hotel": 8,
+    "taxi": 7,
+    "airport": 5,
+    "bank": 3,
+    "salon": 3,
+}
+
+CATEGORY_SETTING_KO = {
+    "office": "한국의 사무실 또는 공공 업무 공간",
+    "home": "현대 한국의 집 안 생활 공간",
+    "cafe": "한국의 카페 내부",
+    "station": "한국의 기차역 또는 지하철역",
+    "market": "한국의 전통시장 또는 상점가",
+    "convenience": "한국의 편의점 내부",
+    "restaurant": "한국의 식당 내부",
+    "pharmacy": "한국의 약국 내부",
+    "directions": "한국의 거리와 길찾기 지점",
+    "hotel": "한국의 호텔 로비 또는 객실",
+    "taxi": "한국의 택시 안팎",
+    "airport": "한국의 공항 내부",
+    "bank": "한국의 은행 내부",
+    "salon": "한국의 미용실 내부",
+}
+
+SPEAKER_LABEL_KO = {
+    "user": "학습자",
+    "jieun": "지은",
+    "minsu": "민수",
+    "yuna": "유나",
+    "jinho": "진호",
+    "junho": "준호",
+    "jihye": "지혜",
+    "subin": "수빈",
+    "officer": "담당 직원",
+    "partner": "대화 상대",
+}
+
+FORBIDDEN_TEXT_AND_LOGOS = [
+    "readable text",
+    "letters or digits",
+    "Hangul or Hanja glyphs",
+    "brand logos",
+    "watermarks",
+    "UI chrome",
+]
+
+_HANGUL = re.compile(r"[가-힣]")
+_QUEST_ANCHOR_KEYS = (
+    "targetKo",
+    "audioKo",
+    "sentence",
+    "particlePop",
+    "prefix",
+)
+
+
+def _sha256_file(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _relative(path: Path, root: Path) -> str:
+    return path.resolve().relative_to(root.resolve()).as_posix()
+
+
+def _shard_paths(root: Path) -> list[Path]:
+    return sorted(
+        (root / "assets" / "data").glob("scenarios_*.json"),
+        key=lambda path: path.name,
+    )
+
+
+def _clean_text(value: object) -> str:
+    if not isinstance(value, str):
+        return ""
+    return " ".join(value.strip().split())
+
+
+def _unique_nonempty(values: Iterable[str]) -> list[str]:
+    result = []
+    seen = set()
+    for value in values:
+        cleaned = _clean_text(value)
+        if cleaned and cleaned not in seen:
+            seen.add(cleaned)
+            result.append(cleaned)
+    return result
+
+
+def _with_terminal(text: str) -> str:
+    return text if text.endswith((".", "?", "!", "…", "。")) else f"{text}."
+
+
+def _quest_anchor_ko(scenario: Mapping[str, object]) -> str:
+    for quest in scenario.get("quests", []) or []:
+        if not isinstance(quest, dict):
+            continue
+        data = quest.get("data")
+        if not isinstance(data, dict):
+            continue
+        for key in _QUEST_ANCHOR_KEYS:
+            value = _clean_text(data.get(key))
+            if value and _HANGUL.search(value):
+                return value
+        for option in data.get("options", []) or []:
+            if isinstance(option, dict):
+                value = _clean_text(option.get("ko"))
+                if value and _HANGUL.search(value):
+                    return value
+    return ""
+
+
+def semantic_summary_ko(scenario: Mapping[str, object]) -> str:
+    title = _clean_text((scenario.get("title") or {}).get("ko"))
+    dialog_lines = _unique_nonempty(
+        item.get("ko")
+        for item in scenario.get("dialog", []) or []
+        if isinstance(item, dict)
+    )
+    if not title or not _HANGUL.search(title):
+        raise ValueError(f"Scenario {scenario.get('id')!r} has no Korean title")
+    if not dialog_lines:
+        raise ValueError(f"Scenario {scenario.get('id')!r} has no Korean dialog")
+    summary = (
+        f"{_with_terminal(title)} 대화 핵심: "
+        f"{_with_terminal(' / '.join(dialog_lines[:2]))}"
+    )
+    goal = _quest_anchor_ko(scenario)
+    if goal:
+        summary += f" 학습 목표 발화: {_with_terminal(goal)}"
+    return summary
+
+
+def _participants(scenario: Mapping[str, object]) -> list[dict]:
+    speaker_ids = _unique_nonempty(
+        item.get("speaker")
+        for item in scenario.get("dialog", []) or []
+        if isinstance(item, dict)
+    )
+    if not speaker_ids:
+        raise ValueError(f"Scenario {scenario.get('id')!r} has no participants")
+    return [
+        {
+            "speakerId": speaker_id,
+            "labelKo": SPEAKER_LABEL_KO.get(speaker_id, speaker_id),
+        }
+        for speaker_id in speaker_ids
+    ]
+
+
+def _props_ko(scenario: Mapping[str, object]) -> list[str]:
+    values = _unique_nonempty(
+        item.get("korean")
+        for item in scenario.get("vocab", []) or []
+        if isinstance(item, dict)
+    )
+    if not values:
+        raise ValueError(f"Scenario {scenario.get('id')!r} has no Korean visual cues")
+    return values[:5]
+
+
+def _prompt(
+    *,
+    scenario_id: str,
+    semantic_summary: str,
+    setting_ko: str,
+    participants: list[dict],
+    props_ko: list[str],
+    category: str,
+) -> str:
+    participant_labels = ", ".join(item["labelKo"] for item in participants)
+    prop_labels = ", ".join(props_ko)
+    forbidden = ", ".join(FORBIDDEN_TEXT_AND_LOGOS)
+    return f"""A wide horizontal 3:2 editorial illustration for the canonical Korean-learning scenario {scenario_id}.
+
+KOREAN SEMANTIC ANCHOR (depict this exact situation, do not replace it with a generic {category} scene):
+{semantic_summary}
+
+REQUIRED SETTING: {setting_ko}.
+REQUIRED PARTICIPANTS: {participant_labels}. Keep their roles and interaction legible without speech bubbles.
+REQUIRED SCENARIO-SPECIFIC VISUAL CUES: {prop_labels}. Use only cues that make physical sense in the scene.
+
+COMPOSITION: 1536x1024 landscape. Keep the central action and faces inside the central 60% width and middle 65% height so compact, medium, and expanded app crops remain meaningful. Preserve enough setting around the action for context. Clear silhouette at a 56px thumbnail.
+
+STYLE: Hangul Sori Faceted Minhwa v2 — Joseon folk-painting iconography rendered as clean mid-century geometric color facets on subtle aged hanji paper. No drawn outlines, no smooth gradients inside shapes, no watercolor, no glossy 3D, no anime, no photorealism, no cute/chibi treatment. Use a restrained warm/cool palette with matte color planes.
+
+REFERENCE: attach exactly one project-owned image, assets/illustrations/scenes/{category}.png, for palette and illustrated-set identity only. Do not copy its composition and do not return a crop, recolor, or duplicate of it.
+
+FORBIDDEN: {forbidden}. Any papers, screens, signs, labels, menus, tickets, or packaging must be blank or abstract and unreadable.
+
+This is editorial illustration for a premium Korean learning app. Match the geometric faceted style, color palette, paper grain texture, and overall mood of the attached reference image exactly while making this scenario semantically unique."""
+
+
+def _load_rows(root: Path) -> tuple[list[dict], dict[str, str]]:
+    rows = []
+    hashes = {}
+    for shard_path in _shard_paths(root):
+        relative = _relative(shard_path, root)
+        digest = _sha256_file(shard_path)
+        hashes[relative] = digest
+        payload = json.loads(shard_path.read_text(encoding="utf-8"))
+        scenarios = payload.get("scenarios", []) if isinstance(payload, dict) else payload
+        for scenario in scenarios or []:
+            if not isinstance(scenario, dict):
+                raise ValueError(f"{relative} contains a non-object scenario")
+            rows.append(
+                {
+                    "sourceShard": shard_path.name,
+                    "sourceSha256": digest,
+                    "scenario": scenario,
+                }
+            )
+    return rows, hashes
+
+
+def _validate_inventory_alignment(root: Path, scenario_ids: list[str]) -> None:
+    inventory_path = root / "docs" / "data" / "scene_asset_inventory.json"
+    inventory = json.loads(inventory_path.read_text(encoding="utf-8"))
+    inventory_ids = [row.get("id") for row in inventory.get("scenarios", [])]
+    if sorted(inventory_ids) != sorted(scenario_ids):
+        raise ValueError("Scene asset inventory IDs drift from canonical scenario shards")
+
+
+def build_manifest(root: Path | str = ROOT) -> dict:
+    project_root = Path(root)
+    source_rows, generated_from = _load_rows(project_root)
+    scenario_ids = [
+        _clean_text(item["scenario"].get("id"))
+        for item in source_rows
+    ]
+    if any(not scenario_id for scenario_id in scenario_ids):
+        raise ValueError("Canonical scenario shard contains an empty ID")
+    duplicates = sorted(
+        scenario_id
+        for scenario_id, count in Counter(scenario_ids).items()
+        if count > 1
+    )
+    if duplicates:
+        raise ValueError(f"Duplicate canonical scenario IDs: {duplicates}")
+    _validate_inventory_alignment(project_root, scenario_ids)
+
+    prepared = []
+    for source in source_rows:
+        scenario = source["scenario"]
+        scenario_id = _clean_text(scenario.get("id"))
+        category = _clean_text(scenario.get("backdrop"))
+        level = _clean_text(scenario.get("level")).lower()
+        if category not in CATEGORY_ORDER:
+            raise ValueError(f"{scenario_id}: unsupported scene category {category!r}")
+        if level not in LEVEL_ORDER:
+            raise ValueError(f"{scenario_id}: unsupported level {level!r}")
+        reference_path = f"assets/illustrations/scenes/{category}.png"
+        if not (project_root / reference_path).is_file():
+            raise ValueError(f"{scenario_id}: missing category reference {reference_path}")
+        summary = semantic_summary_ko(scenario)
+        participants = _participants(scenario)
+        props_ko = _props_ko(scenario)
+        setting_ko = CATEGORY_SETTING_KO[category]
+        prompt = _prompt(
+            scenario_id=scenario_id,
+            semantic_summary=summary,
+            setting_ko=setting_ko,
+            participants=participants,
+            props_ko=props_ko,
+            category=category,
+        )
+        prompt_sha = hashlib.sha256(prompt.encode("utf-8")).hexdigest()
+        prepared.append(
+            {
+                "id": scenario_id,
+                "level": level,
+                "category": category,
+                "sourceShard": source["sourceShard"],
+                "sourceSha256": source["sourceSha256"],
+                "semanticSummaryKo": summary,
+                "requiredSettingKo": setting_ko,
+                "requiredParticipants": participants,
+                "requiredPropsKo": props_ko,
+                "forbiddenTextAndLogos": list(FORBIDDEN_TEXT_AND_LOGOS),
+                "styleReferenceIdentifiers": [
+                    "asset-generation-bible/faceted-minhwa-v2",
+                    f"runtime-scene-category/{category}",
+                ],
+                "referenceImagePath": reference_path,
+                "targetPath": f"assets_unused/pending_review/scenes/{scenario_id}.png",
+                "priority": CATEGORY_ORDER.index(category) + 1,
+                "priorityOrder": 0,
+                "focalPoint": {"x": 0.5, "y": 0.5},
+                "cropReviewProfiles": ["compact", "medium", "expanded"],
+                "prompt": prompt,
+                "promptSha256": prompt_sha,
+                "generation": {
+                    "status": "not_generated",
+                    "generator": None,
+                    "generatorResultId": None,
+                    "sourcePromptSha256": prompt_sha,
+                    "normalizedSha256": None,
+                    "dimensions": None,
+                    "automatedIssues": [],
+                    "visualReview": "not_started",
+                    "runtimeEligible": False,
+                },
+            }
+        )
+
+    prepared.sort(
+        key=lambda row: (
+            CATEGORY_ORDER.index(row["category"]),
+            LEVEL_ORDER.index(row["level"]),
+            row["id"],
+        )
+    )
+    for index, row in enumerate(prepared, start=1):
+        row["priorityOrder"] = index
+
+    category_counts = Counter(row["category"] for row in prepared)
+    actual_counts = {
+        category: category_counts.get(category, 0)
+        for category in CATEGORY_ORDER
+    }
+    if actual_counts != EXPECTED_CATEGORY_COUNTS:
+        raise ValueError(
+            f"Canonical scene category counts drifted: expected "
+            f"{EXPECTED_CATEGORY_COUNTS}, got {actual_counts}"
+        )
+    prompts_by_category: dict[str, set[str]] = defaultdict(set)
+    for row in prepared:
+        prompt = row["prompt"]
+        if prompt in prompts_by_category[row["category"]]:
+            raise ValueError(
+                f"Category {row['category']} has a byte-identical prompt: {row['id']}"
+            )
+        prompts_by_category[row["category"]].add(prompt)
+
+    style_path = project_root / "docs" / "ASSET_GENERATION_BIBLE.md"
+    inventory_path = project_root / "docs" / "data" / "scene_asset_inventory.json"
+    return {
+        "schemaVersion": 1,
+        "generatedFrom": {
+            key: generated_from[key] for key in sorted(generated_from)
+        },
+        "styleContract": {
+            "identifier": "asset-generation-bible/faceted-minhwa-v2",
+            "path": _relative(style_path, project_root),
+            "sha256": _sha256_file(style_path),
+        },
+        "canonicalInventory": {
+            "path": _relative(inventory_path, project_root),
+            "sha256": _sha256_file(inventory_path),
+        },
+        "scenarioCount": len(prepared),
+        "categoryOrder": list(CATEGORY_ORDER),
+        "categoryCounts": actual_counts,
+        "entries": prepared,
+    }
+
+
+def render_manifest_json(manifest: Mapping[str, object]) -> str:
+    return json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
+
+
+def _resolve_output(raw: Path) -> Path:
+    return raw if raw.is_absolute() else ROOT / raw
+
+
+def _parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=DEFAULT_OUTPUT_PATH,
+        help="Manifest path relative to the repository root",
+    )
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="Do not write; fail when the checked-in manifest differs",
+    )
+    return parser
+
+
+def main(argv: Optional[list[str]] = None) -> int:
+    args = _parser().parse_args(argv)
+    output_path = _resolve_output(args.output)
+    try:
+        manifest = build_manifest(ROOT)
+    except (OSError, ValueError, json.JSONDecodeError) as error:
+        print(f"[build_scene_art_manifest] error: {error}", file=sys.stderr)
+        return 1
+    rendered = render_manifest_json(manifest)
+    if args.check:
+        try:
+            current = output_path.read_bytes()
+        except OSError:
+            current = None
+        if current != rendered.encode("utf-8"):
+            print(
+                f"[build_scene_art_manifest] drift: {_relative(output_path, ROOT)}",
+                file=sys.stderr,
+            )
+            return 1
+        verb = "checked"
+    else:
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        with output_path.open("w", encoding="utf-8", newline="\n") as handle:
+            handle.write(rendered)
+        verb = "wrote"
+    print(
+        f"[build_scene_art_manifest] {verb}: "
+        f"{manifest['scenarioCount']} scenarios -> {_relative(output_path, ROOT)}"
+    )
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main(sys.argv[1:]))
