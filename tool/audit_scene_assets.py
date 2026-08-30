@@ -1,63 +1,50 @@
-"""시나리오 씬 에셋 참조 감사.
+"""Deterministic audit for canonical scenario scene assets.
 
-`assets/data/scenarios_*.json` 의 각 시나리오가 참조하는 씬 포스터(PNG)/앰비언트
-루프(MP4) 를 `lib/services/scene_asset_resolver.dart` (`SceneAssetResolver`) 의
-파일명 규약대로 재구성해, 실제 `assets/` 하위 파일과 대조한다. 오타·누락·고아
-파일을 `docs/data/scene_asset_report.md` 에 기록한다. 수정은 이 스크립트 범위
-밖(W4) — 여기선 검출·리포트만 한다. exit code 는 항상 0(리포트 전용 도구).
+The 413 scenario shards are the authority. Every scenario may resolve to a
+scenario-specific poster first and to one of the existing category posters as
+a runtime fallback. Dedicated art is strict: exact canonical filename,
+1536x1024 PNG, RGB/RGBA, readable, unique bytes, and unambiguous scenario ID.
+Category fallbacks remain visible coverage debt and intentionally retain their
+legacy format.
 
-리졸버 규약 (lib/services/scene_asset_resolver.dart 요약)
---------------------------------------------------------
-포스터 — **dedicated-first, category-fallback**, 폴백 존재 여부를 확인하지
-않고 그대로 반환(`SceneAssetResolver.posterAsset`):
-  1. `assets/illustrations/scenes/{scenario.id}.png` 가 번들에 있으면 그것.
-  2. 아니면 `scenario.backdrop` 이 비어있지 않으면
-     `assets/illustrations/scenes/{backdrop}.png` 를 **존재 확인 없이** 반환.
-     → `backdrop` 오타/누락 파일이면 앱이 깨진 이미지 경로를 그대로 쓴다.
-     이게 이 스크립트가 잡아야 하는 진짜 버그 클래스다.
-  3. `backdrop` 도 비어있으면 null(호출측이 마스코트로 대체).
-
-루프 — dedicated-first, category-fallback, 폴백은 **존재를 확인하고** 없으면
-null 을 돌려준다(`SceneAssetResolver.loopAsset`) — 그래서 `backdrop` 오타가
-있어도 루프 쪽은 깨진 경로를 반환하지 않고 안전하게 포스터로만 대체된다.
-카테고리 14종 중 루프 파일이 아직 없는 카테고리가 있는 것 자체는 설계상
-정상(주석 참고) — 이 스크립트는 그래도 커버리지 통계로는 보여준다.
-  1. `assets/video/loops/scene_{scenario.id}.mp4` 가 번들에 있으면 그것.
-  2. 아니면 `backdrop` 이 있고 `assets/video/loops/scene_{backdrop}.mp4` 가
-     실제로 있으면 그것.
-  3. 그 외에는 null(포스터만 사용, 버그 아님).
-
-`assets/video/loops/` 에는 이 규약과 무관한 비디오(웰컴 히어로, 한옥 건설
-타임랩스 등)도 섞여 있다 — 파일명이 `scene_` 로 시작하는 것만 이 규약
-안이라고 보고, 그 외는 애초에 대상이 아니므로 고아 판정에서 제외한다.
-포스터 디렉터리(`assets/illustrations/scenes/`)는 이 규약 전용이라 안의
-`.png` 파일 전부가 대상이다.
+Default mode rewrites the canonical JSON inventory and Markdown report.
+`--check` performs the same scan without writing and fails on either strict
+asset issues or byte drift in the checked-in outputs.
 """
 
 from __future__ import annotations
 
+import argparse
+import hashlib
 import json
-import os
 import sys
 from collections import Counter, defaultdict
 from dataclasses import dataclass
-from typing import Optional
+from pathlib import Path
+from typing import Iterable, Mapping, Optional
 
-# ---------------------------------------------------------------------------
-# 경로
-# ---------------------------------------------------------------------------
+from PIL import Image, UnidentifiedImageError
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_DIR = os.path.join(ROOT, "assets", "data")
-POSTER_DIR = os.path.join(ROOT, "assets", "illustrations", "scenes")
-LOOP_DIR = os.path.join(ROOT, "assets", "video", "loops")
-REPORT_PATH = os.path.join(ROOT, "docs", "data", "scene_asset_report.md")
+ROOT = Path(__file__).resolve().parents[1]
+DATA_DIR = ROOT / "assets" / "data"
+POSTER_DIR = ROOT / "assets" / "illustrations" / "scenes"
+LOOP_DIR = ROOT / "assets" / "video" / "loops"
+REPORT_PATH = ROOT / "docs" / "data" / "scene_asset_report.md"
+INVENTORY_PATH = ROOT / "docs" / "data" / "scene_asset_inventory.json"
+RESOLVER_PATH = ROOT / "lib" / "services" / "scene_asset_resolver.dart"
 
 LOOP_SCENE_PREFIX = "scene_"
+DEDICATED_SIZE = (1536, 1024)
+DEDICATED_MODES = frozenset({"RGB", "RGBA"})
+SCHEMA_VERSION = 1
 
-# ---------------------------------------------------------------------------
-# 순수 함수 — 파일명 규약 + 리졸버 로직 재구성. 파일 I/O 없음.
-# ---------------------------------------------------------------------------
+
+@dataclass(frozen=True)
+class ScenarioRef:
+    shard: str
+    scenario_id: str
+    level: str
+    backdrop: str
 
 
 def dedicated_poster_name(scenario_id: str) -> str:
@@ -76,444 +63,680 @@ def category_loop_name(backdrop: str) -> str:
     return f"{LOOP_SCENE_PREFIX}{backdrop}.mp4"
 
 
-def resolve_poster(scenario_id: str, backdrop: str, poster_files: frozenset) -> tuple:
-    """`SceneAssetResolver.posterAsset` 재구성.
-
-    돌려주는 `(status, path)`:
-      - `("dedicated", path)`   — 전용 포스터 존재
-      - `("category", path)`    — 카테고리 포스터 존재(정상 폴백)
-      - `("broken_category", path)` — backdrop 비어있지 않은데 그 카테고리
-        포스터 파일이 없음. **리졸버는 이 경우에도 이 경로를 그대로 반환한다**
-        (존재 확인을 안 함) → 진짜 버그(오타/누락 파일).
-      - `("none", None)`        — backdrop 도 비어 있어 포스터 없음(정상, 마스코트 대체)
-    """
+def resolve_poster(
+    scenario_id: str,
+    backdrop: str,
+    poster_files: frozenset[str],
+) -> tuple[str, Optional[str]]:
+    """Reconstruct the dedicated-first Dart poster resolver."""
     dedicated = dedicated_poster_name(scenario_id)
     if dedicated in poster_files:
         return ("dedicated", dedicated)
     if backdrop:
         candidate = category_poster_name(backdrop)
         if candidate in poster_files:
-            return ("category", candidate)
-        return ("broken_category", candidate)
-    return ("none", None)
+            return ("fallback", candidate)
+        return ("broken_fallback", candidate)
+    return ("missing", None)
 
 
-def resolve_loop(scenario_id: str, backdrop: str, loop_files: frozenset) -> tuple:
-    """`SceneAssetResolver.loopAsset` 재구성 — 폴백도 존재를 확인하므로 이
-    함수는 "버그" 상태를 돌려주지 않는다(그게 리졸버의 안전장치가 의도한
-    바). 돌려주는 `(status, path)`:
-      - `("dedicated", path)` — 전용 루프 존재
-      - `("category", path)` — 카테고리 루프 존재
-      - `("none_fallback", None)` — backdrop 은 있지만 그 카테고리 루프
-        파일이 아직 없음(포스터만 사용 — 설계상 정상, 통계용)
-      - `("none", None)` — backdrop 도 없음
-
-    (참고) Dart 쪽 `loopAsset` 은 실제로는 `!_loaded || _assets.isEmpty` 일
-    때(매니페스트 로딩이 아직 안 됐거나 실패한 초기 구동 시점) 존재 확인을
-    건너뛰고 카테고리 경로를 낙관적으로 반환한다. 이 함수는 그 분기를
-    재현하지 않는다 — 이 스크립트는 매니페스트가 아니라 `assets/` 실제
-    파일을 직접 읽는 정적 감사라 "로딩 전" 상태 자체가 없고, 항상 로딩이
-    끝난 뒤의 `_loaded=True` 상태에 해당하기 때문이다(초기 구동 엣지 케이스
-    라 정적 감사와는 무관).
-    """
+def resolve_loop(
+    scenario_id: str,
+    backdrop: str,
+    loop_files: frozenset[str],
+) -> tuple[str, Optional[str]]:
+    """Reconstruct the safe dedicated/category loop resolver."""
     dedicated = dedicated_loop_name(scenario_id)
     if dedicated in loop_files:
         return ("dedicated", dedicated)
     if backdrop:
         candidate = category_loop_name(backdrop)
         if candidate in loop_files:
-            return ("category", candidate)
+            return ("fallback", candidate)
         return ("none_fallback", None)
     return ("none", None)
 
 
-# ---------------------------------------------------------------------------
-# 결과 레코드
-# ---------------------------------------------------------------------------
+def _sha256_bytes(data: bytes) -> str:
+    return hashlib.sha256(data).hexdigest()
 
 
-@dataclass(frozen=True)
-class ScenarioRef:
-    shard: str
-    scenario_id: str
-    level: str
-    backdrop: str
+def _sha256_file(path: Path) -> str:
+    return _sha256_bytes(path.read_bytes())
 
 
-@dataclass(frozen=True)
-class BrokenRef:
-    shard: str
-    scenario_id: str
-    level: str
-    backdrop: str
-    expected_path: str
-    kind: str  # "poster" | "loop"
+def _project_path(path: Path, project_root: Path) -> str:
+    try:
+        return path.resolve().relative_to(project_root.resolve()).as_posix()
+    except ValueError:
+        return path.resolve().as_posix()
 
 
-# ---------------------------------------------------------------------------
-# I/O 헬퍼 (스캔 계층 전용 — 순수 함수 아님)
-# ---------------------------------------------------------------------------
+def _color_space(mode: str, info: Mapping[str, object]) -> str:
+    if "srgb" in info:
+        return "sRGB"
+    if info.get("icc_profile"):
+        return "embedded-ICC"
+    if mode in DEDICATED_MODES:
+        # PNG RGB samples without an embedded profile are interpreted as sRGB
+        # by Flutter. The normalizer writes this same explicit pixel space.
+        return "sRGB"
+    if mode == "P":
+        return "indexed"
+    if mode in {"1", "L", "LA", "I", "F"}:
+        return "grayscale"
+    return "unknown"
 
 
-def _scenario_shard_names() -> list:
-    return sorted(
-        name
-        for name in os.listdir(DATA_DIR)
-        if name.startswith("scenarios_") and name.endswith(".json")
+def inspect_png(path: Path) -> dict:
+    """Return deterministic byte and decoded-image metadata for *path*."""
+    digest: Optional[str]
+    try:
+        digest = _sha256_file(path)
+    except OSError:
+        digest = None
+
+    try:
+        with Image.open(path) as image:
+            image_format = image.format
+            image.load()
+            mode = image.mode
+            width, height = image.size
+            info = dict(image.info)
+            return {
+                "readable": True,
+                "isPng": image_format == "PNG",
+                "width": width,
+                "height": height,
+                "mode": mode,
+                "colorSpace": _color_space(mode, info),
+                "alpha": "A" in image.getbands() or "transparency" in info,
+                "sha256": digest,
+                "error": None,
+            }
+    except (OSError, SyntaxError, ValueError, UnidentifiedImageError) as error:
+        return {
+            "readable": False,
+            "isPng": False,
+            "width": None,
+            "height": None,
+            "mode": None,
+            "colorSpace": None,
+            "alpha": None,
+            "sha256": digest,
+            "error": type(error).__name__,
+        }
+
+
+def _issue(code: str, message: str, **details: object) -> dict:
+    issue = {"code": code}
+    for key in ("id", "path", "shard", "duplicateOf", "locations"):
+        if key in details:
+            issue[key] = details[key]
+    issue["message"] = message
+    for key in sorted(set(details) - set(issue)):
+        issue[key] = details[key]
+    return issue
+
+
+def _issue_sort_key(issue: Mapping[str, object]) -> tuple[str, ...]:
+    return (
+        str(issue.get("code", "")),
+        str(issue.get("id", "")),
+        str(issue.get("path", "")),
+        str(issue.get("shard", "")),
+        json.dumps(issue.get("locations", []), ensure_ascii=False, sort_keys=True),
+        str(issue.get("message", "")),
     )
 
 
-def _load_json(path: str):
-    with open(path, encoding="utf-8") as f:
-        return json.load(f)
+def _dedupe_issues(issues: Iterable[dict]) -> list[dict]:
+    unique: dict[str, dict] = {}
+    for issue in issues:
+        key = json.dumps(issue, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+        unique[key] = issue
+    return sorted(unique.values(), key=_issue_sort_key)
 
 
-def _load_scenario_refs() -> list:
+def scan_scene_inventory(
+    refs: Iterable[ScenarioRef],
+    poster_dir: Path | str,
+    *,
+    project_root: Path | str = ROOT,
+    generated_from: Optional[Mapping[str, str]] = None,
+) -> dict:
+    """Build the canonical poster inventory from explicit, testable inputs."""
+    root = Path(project_root)
+    directory = Path(poster_dir)
+    sorted_refs = sorted(
+        refs,
+        key=lambda ref: (ref.shard, ref.scenario_id, ref.level, ref.backdrop),
+    )
+    files = (
+        sorted(
+            (
+                path
+                for path in directory.iterdir()
+                if path.is_file() and path.name != ".gitkeep"
+            ),
+            key=lambda p: p.name,
+        )
+        if directory.is_dir()
+        else []
+    )
+    files_by_name = {path.name: path for path in files}
+    poster_files = frozenset(
+        path.name for path in files if path.suffix.lower() == ".png"
+    )
+    scenario_ids = {ref.scenario_id for ref in sorted_refs}
+    backdrops = {ref.backdrop for ref in sorted_refs if ref.backdrop}
+    issues: list[dict] = []
+
+    refs_by_id: dict[str, list[ScenarioRef]] = defaultdict(list)
+    for ref in sorted_refs:
+        refs_by_id[ref.scenario_id].append(ref)
+    duplicate_ids = {sid for sid, owned in refs_by_id.items() if len(owned) > 1}
+    for scenario_id in sorted(duplicate_ids):
+        owned = refs_by_id[scenario_id]
+        issues.append(
+            _issue(
+                "duplicate_scenario_id",
+                f"Scenario ID {scenario_id!r} is declared {len(owned)} times.",
+                id=scenario_id,
+                locations=[
+                    {"shard": ref.shard, "level": ref.level}
+                    for ref in sorted(owned, key=lambda item: (item.shard, item.level))
+                ],
+            )
+        )
+
+    for path in files:
+        relative = _project_path(path, root)
+        if path.suffix != ".png":
+            issues.append(
+                _issue(
+                    "non_png_image",
+                    "Scene poster directory contains a file that is not a lowercase .png.",
+                    path=relative,
+                )
+            )
+            issues.append(
+                _issue(
+                    "filename_id_mismatch",
+                    "Scene poster filename does not match the canonical <scenario-id>.png contract.",
+                    path=relative,
+                )
+            )
+            if path.stem not in scenario_ids and path.stem not in backdrops:
+                issues.append(
+                    _issue(
+                        "orphan_dedicated_scene_asset",
+                        "Scene poster is not owned by a canonical scenario ID or backdrop.",
+                        path=relative,
+                    )
+                )
+            continue
+        if path.stem not in scenario_ids and path.stem not in backdrops:
+            issues.append(
+                _issue(
+                    "orphan_dedicated_scene_asset",
+                    "Scene poster is not owned by a canonical scenario ID or backdrop.",
+                    path=relative,
+                )
+            )
+            issues.append(
+                _issue(
+                    "filename_id_mismatch",
+                    "Scene poster filename does not match any canonical scenario ID.",
+                    path=relative,
+                )
+            )
+
+    rows: list[dict] = []
+    row_metadata: list[dict] = []
+    for ref in sorted_refs:
+        status, resolved_name = resolve_poster(
+            ref.scenario_id,
+            ref.backdrop,
+            poster_files,
+        )
+        dedicated_path = directory / dedicated_poster_name(ref.scenario_id)
+        resolved_path = directory / resolved_name if resolved_name else None
+        metadata = (
+            inspect_png(files_by_name[resolved_name])
+            if resolved_name in files_by_name
+            else {
+                "readable": False,
+                "isPng": False,
+                "width": None,
+                "height": None,
+                "mode": None,
+                "colorSpace": None,
+                "alpha": None,
+                "sha256": None,
+                "error": None,
+            }
+        )
+        runtime_eligible = status in {"dedicated", "fallback"}
+
+        if status == "broken_fallback":
+            issues.append(
+                _issue(
+                    "broken_category_fallback",
+                    f"Backdrop {ref.backdrop!r} resolves to a missing category poster.",
+                    id=ref.scenario_id,
+                    path=_project_path(resolved_path, root),
+                    shard=ref.shard,
+                )
+            )
+            runtime_eligible = False
+        elif status == "missing":
+            runtime_eligible = False
+        elif not metadata["readable"]:
+            issues.append(
+                _issue(
+                    "unreadable_image",
+                    f"Resolved scene poster cannot be decoded ({metadata['error'] or 'unknown error'}).",
+                    id=ref.scenario_id,
+                    path=_project_path(resolved_path, root),
+                    shard=ref.shard,
+                )
+            )
+            runtime_eligible = False
+        elif not metadata["isPng"]:
+            issues.append(
+                _issue(
+                    "non_png_image",
+                    "Resolved scene poster has non-PNG file contents.",
+                    id=ref.scenario_id,
+                    path=_project_path(resolved_path, root),
+                    shard=ref.shard,
+                )
+            )
+            runtime_eligible = False
+
+        if status == "dedicated" and metadata["readable"] and metadata["isPng"]:
+            if (metadata["width"], metadata["height"]) != DEDICATED_SIZE:
+                issues.append(
+                    _issue(
+                        "invalid_dedicated_dimensions",
+                        (
+                            f"Dedicated poster is {metadata['width']}x{metadata['height']}; "
+                            f"expected {DEDICATED_SIZE[0]}x{DEDICATED_SIZE[1]}."
+                        ),
+                        id=ref.scenario_id,
+                        path=_project_path(resolved_path, root),
+                        shard=ref.shard,
+                    )
+                )
+                runtime_eligible = False
+            if metadata["mode"] not in DEDICATED_MODES:
+                issues.append(
+                    _issue(
+                        "unexpected_color_mode",
+                        (
+                            f"Dedicated poster mode is {metadata['mode']!r}; "
+                            f"expected one of {sorted(DEDICATED_MODES)}."
+                        ),
+                        id=ref.scenario_id,
+                        path=_project_path(resolved_path, root),
+                        shard=ref.shard,
+                    )
+                )
+                runtime_eligible = False
+
+        if ref.scenario_id in duplicate_ids:
+            runtime_eligible = False
+
+        row = {
+            "shard": ref.shard,
+            "id": ref.scenario_id,
+            "level": ref.level,
+            "backdrop": ref.backdrop,
+            "dedicatedPath": _project_path(dedicated_path, root),
+            "resolvedPath": (
+                _project_path(resolved_path, root) if resolved_path is not None else None
+            ),
+            "status": status,
+            "width": metadata["width"],
+            "height": metadata["height"],
+            "mode": metadata["mode"],
+            "colorSpace": metadata["colorSpace"],
+            "alpha": metadata["alpha"],
+            "sha256": metadata["sha256"],
+            "duplicateOf": None,
+            "runtimeEligible": runtime_eligible,
+        }
+        rows.append(row)
+        row_metadata.append(metadata)
+
+    hash_rows: dict[str, list[int]] = defaultdict(list)
+    for index, (row, metadata) in enumerate(zip(rows, row_metadata)):
+        if (
+            row["status"] == "dedicated"
+            and metadata["readable"]
+            and metadata["isPng"]
+            and row["sha256"]
+        ):
+            hash_rows[row["sha256"]].append(index)
+    for digest in sorted(hash_rows):
+        indices = hash_rows[digest]
+        distinct_ids = sorted({rows[index]["id"] for index in indices})
+        if len(distinct_ids) < 2:
+            continue
+        original = distinct_ids[0]
+        for duplicate_id in distinct_ids[1:]:
+            for index in indices:
+                row = rows[index]
+                if row["id"] != duplicate_id:
+                    continue
+                row["duplicateOf"] = original
+                row["runtimeEligible"] = False
+            issues.append(
+                _issue(
+                    "duplicate_dedicated_content",
+                    f"Dedicated poster bytes duplicate scenario {original!r}.",
+                    id=duplicate_id,
+                    duplicateOf=original,
+                    path=next(
+                        row["resolvedPath"]
+                        for row in rows
+                        if row["id"] == duplicate_id
+                    ),
+                )
+            )
+
+    issues = _dedupe_issues(issues)
+    return {
+        "schemaVersion": SCHEMA_VERSION,
+        "generatedFrom": {
+            key: generated_from[key] for key in sorted(generated_from or {})
+        },
+        "scenarioCount": len(rows),
+        "dedicatedCount": sum(row["status"] == "dedicated" for row in rows),
+        "fallbackCount": sum(row["status"] == "fallback" for row in rows),
+        "missingCount": sum(
+            row["status"] in {"broken_fallback", "missing"} for row in rows
+        ),
+        "issues": issues,
+        "scenarios": rows,
+    }
+
+
+def render_inventory_json(inventory: Mapping[str, object]) -> str:
+    return json.dumps(inventory, ensure_ascii=False, indent=2) + "\n"
+
+
+def find_output_drift(expected_outputs: Mapping[Path | str, str]) -> list[dict]:
+    issues = []
+    for raw_path, expected in sorted(
+        expected_outputs.items(),
+        key=lambda item: Path(item[0]).as_posix(),
+    ):
+        path = Path(raw_path)
+        expected_bytes = expected.encode("utf-8")
+        try:
+            actual_bytes = path.read_bytes()
+        except OSError:
+            actual_bytes = None
+        if actual_bytes != expected_bytes:
+            issues.append(
+                _issue(
+                    "manifest_drift",
+                    "Checked-in generated output differs from the canonical scan.",
+                    path=path.as_posix(),
+                )
+            )
+    return _dedupe_issues(issues)
+
+
+def strict_exit_code(
+    inventory: Mapping[str, object],
+    drift_issues: Iterable[Mapping[str, object]] = (),
+) -> int:
+    return 1 if inventory.get("issues") or list(drift_issues) else 0
+
+
+def _scenario_shard_paths(data_dir: Path = DATA_DIR) -> list[Path]:
+    return sorted(data_dir.glob("scenarios_*.json"), key=lambda path: path.name)
+
+
+def _load_scenario_refs(data_dir: Path = DATA_DIR) -> list[ScenarioRef]:
     refs = []
-    for shard in _scenario_shard_names():
-        data = _load_json(os.path.join(DATA_DIR, shard))
+    for path in _scenario_shard_paths(data_dir):
+        data = json.loads(path.read_text(encoding="utf-8"))
         scenarios = data.get("scenarios", []) if isinstance(data, dict) else data
-        for sc in scenarios or []:
+        for scenario in scenarios or []:
             refs.append(
                 ScenarioRef(
-                    shard=shard,
-                    scenario_id=(sc.get("id") or "?").strip() or "?",
-                    level=sc.get("level") or "?",
-                    backdrop=(sc.get("backdrop") or "").strip(),
+                    shard=path.name,
+                    scenario_id=str(scenario.get("id") or "?").strip() or "?",
+                    level=str(scenario.get("level") or "?").strip() or "?",
+                    backdrop=str(scenario.get("backdrop") or "").strip(),
                 )
             )
-    refs.sort(key=lambda r: (r.shard, r.scenario_id))
-    return refs
-
-
-def _list_files(directory: str) -> list:
-    if not os.path.isdir(directory):
-        return []
     return sorted(
-        name
-        for name in os.listdir(directory)
-        if os.path.isfile(os.path.join(directory, name))
+        refs,
+        key=lambda ref: (ref.shard, ref.scenario_id, ref.level, ref.backdrop),
     )
 
 
-# ---------------------------------------------------------------------------
-# 스캔
-# ---------------------------------------------------------------------------
+def _generated_from() -> dict[str, str]:
+    paths = [*_scenario_shard_paths(), RESOLVER_PATH]
+    return {
+        _project_path(path, ROOT): _sha256_file(path)
+        for path in sorted(paths, key=lambda item: _project_path(item, ROOT))
+    }
 
 
-def scan_all() -> dict:
-    """전체 스캔 결과를 dict 로 돌려준다(리포트 렌더링과 분리해 테스트 가능하게).
-
-    키:
-      - refs: 스캔한 `ScenarioRef` 리스트(결정적 정렬)
-      - poster_files / loop_files: 실제 디렉터리 파일명 리스트(결정적 정렬)
-      - non_scene_loop_files: `scene_` 접두사가 아니라 이 규약 밖인 루프
-        디렉터리 파일(참고용, 고아 판정 제외)
-      - broken_posters / broken_loops: `BrokenRef` 리스트(오타/누락)
-      - orphan_posters / orphan_loops: 어떤 시나리오도 참조하지 않는 파일명 리스트
-      - dup_scenario_ids: 샤드 전체에서 2회 이상 나오는 시나리오 id (있으면
-        이 스크립트의 id 기반 대조 자체가 모호해지므로 별도로 경고)
-      - poster_status_counts / loop_status_counts: resolve_* 상태별 시나리오 수
-    """
-    refs = _load_scenario_refs()
-    poster_files = sorted(
-        name for name in _list_files(POSTER_DIR) if name.lower().endswith(".png")
+def _scan_loop_summary(refs: Iterable[ScenarioRef]) -> dict:
+    all_files = (
+        sorted(path.name for path in LOOP_DIR.iterdir() if path.is_file())
+        if LOOP_DIR.is_dir()
+        else []
     )
-    all_loop_files = _list_files(LOOP_DIR)
     loop_files = sorted(
         name
-        for name in all_loop_files
+        for name in all_files
         if name.startswith(LOOP_SCENE_PREFIX) and name.lower().endswith(".mp4")
     )
-    non_scene_loop_files = sorted(set(all_loop_files) - set(loop_files))
-
-    poster_set = frozenset(poster_files)
     loop_set = frozenset(loop_files)
-
-    id_counts = Counter(r.scenario_id for r in refs)
-    dup_scenario_ids = sorted(sid for sid, n in id_counts.items() if n > 1)
-
-    broken_posters = []
-    broken_loops = []
-    poster_status_counts = Counter()
-    loop_status_counts = Counter()
+    counts: Counter[str] = Counter()
     referenced_ids = set()
     referenced_backdrops = set()
-
-    for r in refs:
-        referenced_ids.add(r.scenario_id)
-        if r.backdrop:
-            referenced_backdrops.add(r.backdrop)
-
-        p_status, p_path = resolve_poster(r.scenario_id, r.backdrop, poster_set)
-        poster_status_counts[p_status] += 1
-        if p_status == "broken_category":
-            broken_posters.append(
-                BrokenRef(
-                    shard=r.shard,
-                    scenario_id=r.scenario_id,
-                    level=r.level,
-                    backdrop=r.backdrop,
-                    expected_path=p_path,
-                    kind="poster",
-                )
-            )
-
-        l_status, l_path = resolve_loop(r.scenario_id, r.backdrop, loop_set)
-        loop_status_counts[l_status] += 1
-        if l_status == "broken_category":  # resolve_loop 는 이 상태를 내지 않지만 방어적으로 유지
-            broken_loops.append(
-                BrokenRef(
-                    shard=r.shard,
-                    scenario_id=r.scenario_id,
-                    level=r.level,
-                    backdrop=r.backdrop,
-                    expected_path=l_path or category_loop_name(r.backdrop),
-                    kind="loop",
-                )
-            )
-
-    orphan_posters = sorted(
-        name
-        for name in poster_files
-        if name[:-4] not in referenced_ids and name[:-4] not in referenced_backdrops
-    )
-    orphan_loops = sorted(
+    for ref in refs:
+        referenced_ids.add(ref.scenario_id)
+        if ref.backdrop:
+            referenced_backdrops.add(ref.backdrop)
+        status, _ = resolve_loop(ref.scenario_id, ref.backdrop, loop_set)
+        counts[status] += 1
+    orphan = sorted(
         name
         for name in loop_files
         if name[len(LOOP_SCENE_PREFIX) : -4] not in referenced_ids
         and name[len(LOOP_SCENE_PREFIX) : -4] not in referenced_backdrops
     )
-
     return {
-        "refs": refs,
-        "poster_files": poster_files,
-        "loop_files": loop_files,
-        "non_scene_loop_files": non_scene_loop_files,
-        "broken_posters": broken_posters,
-        "broken_loops": broken_loops,
-        "orphan_posters": orphan_posters,
-        "orphan_loops": orphan_loops,
-        "dup_scenario_ids": dup_scenario_ids,
-        "poster_status_counts": poster_status_counts,
-        "loop_status_counts": loop_status_counts,
+        "sceneFileCount": len(loop_files),
+        "nonSceneFileCount": len(set(all_files) - set(loop_files)),
+        "statusCounts": {
+            key: counts.get(key, 0)
+            for key in ("dedicated", "fallback", "none_fallback", "none")
+        },
+        "orphanFiles": orphan,
     }
 
 
-# ---------------------------------------------------------------------------
-# 리포트 작성
-# ---------------------------------------------------------------------------
-
-
-def _escape_cell(text: str) -> str:
-    text = text.replace("|", "\\|")
-    text = text.replace("\r\n", " ").replace("\n", " ").replace("\r", " ")
-    return text
-
-
-_POSTER_STATUS_LABELS = {
-    "dedicated": "전용 포스터",
-    "category": "카테고리 포스터(정상 폴백)",
-    "broken_category": "카테고리 포스터 없음(버그)",
-    "none": "포스터 없음(backdrop 비어있음, 정상 — 마스코트 대체)",
-}
-_LOOP_STATUS_LABELS = {
-    "dedicated": "전용 루프",
-    "category": "카테고리 루프",
-    "broken_category": "카테고리 루프 없음(리졸버 로직상 불가능해야 함)",
-    "none_fallback": "루프 없음, 포스터만 사용(정상 폴백)",
-    "none": "루프 없음(backdrop 비어있음, 정상)",
-}
-
-
-def render_report(result: dict) -> str:
-    refs = result["refs"]
-    shard_names = _scenario_shard_names()
-
-    lines = []
-    lines.append("# 시나리오 씬 에셋 참조 감사 리포트")
-    lines.append("")
-    lines.append(
-        "`python tool/audit_scene_assets.py` 로 생성 — 직접 편집 금지,"
-        " 스크립트 재실행으로 갱신한다."
+def _escape_cell(value: object) -> str:
+    return (
+        str(value)
+        .replace("|", "\\|")
+        .replace("\r\n", " ")
+        .replace("\n", " ")
+        .replace("\r", " ")
     )
-    lines.append("")
-    lines.append(
-        "시나리오 `id`/`backdrop` 을 `lib/services/scene_asset_resolver.dart`"
-        "(`SceneAssetResolver`) 의 파일명 규약대로 포스터(PNG)/루프(MP4) 경로로"
-        " 재구성해 실제 `assets/` 파일과 대조한다. 포스터는 카테고리 폴백을"
-        " **존재 확인 없이** 반환하는 리졸버 로직 그대로라, `backdrop` 오타나"
-        " 누락 파일은 실제로 앱에서 깨진 이미지 경로가 된다 — 이게 이 리포트가"
-        " 잡는 핵심 버그 클래스다. 루프는 폴백이 존재를 확인하고 없으면"
-        " null 을 돌려주는 안전장치가 있어 오타가 있어도 깨지지 않는다(포스터로"
-        " 대체) — 그래도 커버리지 통계는 보여준다. 수정은 이 스크립트 범위"
-        " 밖(W4) — 여기선 검출·리포트만 한다."
-    )
-    lines.append("")
 
-    lines.append("## 오타·누락 포스터 (버그)")
-    lines.append("")
-    broken_posters = result["broken_posters"]
-    if not broken_posters:
-        lines.append(
-            f"0건 — 스캔한 시나리오 {len(refs)}개 전부 포스터가 전용 파일이거나"
-            " 실제로 존재하는 카테고리 파일로 해석됨."
-        )
-        lines.append("")
-    else:
-        lines.append(f"{len(broken_posters)}건 — backdrop 값이 실제 포스터 파일과 대조되지 않음.")
-        lines.append("")
-        lines.append("| 샤드 | 시나리오 id | 레벨 | backdrop | 기대 경로 |")
-        lines.append("|---|---|---|---|---|")
-        for b in sorted(broken_posters, key=lambda x: (x.shard, x.scenario_id)):
+
+def render_report(
+    inventory: Mapping[str, object],
+    loop_summary: Optional[Mapping[str, object]] = None,
+) -> str:
+    scenarios = list(inventory["scenarios"])
+    issues = list(inventory["issues"])
+    by_shard = Counter(row["shard"] for row in scenarios)
+    by_backdrop = Counter(
+        row["backdrop"] for row in scenarios if row["status"] == "fallback"
+    )
+    lines = [
+        "# 시나리오 씬 에셋 감사 리포트",
+        "",
+        "`python -X utf8 tool/audit_scene_assets.py`로 결정적으로 생성한다. 직접 편집하지 않는다.",
+        "",
+        "전용 포스터는 시나리오 ID와 같은 파일명, 1536×1024 PNG, RGB/RGBA, 고유",
+        "바이트를 요구한다. 기존 카테고리 포스터는 런타임 폴백이며 전용 아트",
+        "커버리지 부채로만 집계한다.",
+        "",
+        "## 요약",
+        "",
+        f"- canonical 시나리오: **{inventory['scenarioCount']}개**",
+        f"- 전용 포스터: **{inventory['dedicatedCount']}개**",
+        f"- 카테고리 폴백: **{inventory['fallbackCount']}개**",
+        f"- 누락/깨진 폴백: **{inventory['missingCount']}개**",
+        f"- 엄격 이슈: **{len(issues)}건**",
+        "",
+        "## 엄격 이슈",
+        "",
+    ]
+    if issues:
+        lines.extend(["| 코드 | 시나리오 | 경로 | 설명 |", "|---|---|---|---|"])
+        for issue in issues:
             lines.append(
-                f"| {b.shard} | {_escape_cell(b.scenario_id)} | {_escape_cell(b.level)} |"
-                f" {_escape_cell(b.backdrop)} |"
-                f" `assets/illustrations/scenes/{_escape_cell(b.expected_path)}` |"
+                f"| {_escape_cell(issue['code'])} | {_escape_cell(issue.get('id', ''))} | "
+                f"{_escape_cell(issue.get('path', ''))} | {_escape_cell(issue['message'])} |"
             )
-        lines.append("")
-
-    lines.append("## 오타·누락 루프")
-    lines.append("")
-    broken_loops = result["broken_loops"]
-    if not broken_loops:
-        lines.append(
-            "0건 — 루프 폴백은 리졸버가 존재를 확인 후 반환하므로 이 카테고리는"
-            " 구조적으로 항상 0건이어야 한다(존재하면 리졸버 로직 자체가 깨진"
-            " 것이니 우선 점검할 것)."
-        )
-        lines.append("")
     else:
-        lines.append(f"{len(broken_loops)}건.")
-        lines.append("")
-        lines.append("| 샤드 | 시나리오 id | 레벨 | backdrop | 기대 경로 |")
-        lines.append("|---|---|---|---|---|")
-        for b in sorted(broken_loops, key=lambda x: (x.shard, x.scenario_id)):
-            lines.append(
-                f"| {b.shard} | {_escape_cell(b.scenario_id)} | {_escape_cell(b.level)} |"
-                f" {_escape_cell(b.backdrop)} |"
-                f" `assets/video/loops/{_escape_cell(b.expected_path)}` |"
-            )
-        lines.append("")
-
-    lines.append("## 고아 포스터 파일")
-    lines.append("")
-    orphan_posters = result["orphan_posters"]
-    if not orphan_posters:
-        lines.append(
-            f"0건 — `{os.path.relpath(POSTER_DIR, ROOT).replace(os.sep, '/')}`"
-            f" 의 {len(result['poster_files'])}개 파일 전부 어떤 시나리오의"
-            " id(전용) 또는 backdrop(카테고리) 로 참조됨."
-        )
-        lines.append("")
+        lines.append("0건.")
+    lines.extend(["", "## 샤드별 시나리오", ""])
+    for shard in sorted(by_shard):
+        lines.append(f"- {shard}: {by_shard[shard]}개")
+    lines.extend(["", "## 카테고리 폴백 커버리지 부채", ""])
+    if by_backdrop:
+        for backdrop in sorted(by_backdrop):
+            lines.append(f"- {backdrop}: {by_backdrop[backdrop]}개")
     else:
-        lines.append(f"{len(orphan_posters)}건 — 어떤 시나리오도 참조하지 않는 포스터 파일.")
-        lines.append("")
-        lines.append("| 파일 |")
-        lines.append("|---|")
-        for name in orphan_posters:
-            lines.append(f"| {_escape_cell(name)} |")
-        lines.append("")
+        lines.append("0개.")
 
-    lines.append("## 고아 루프 파일")
-    lines.append("")
-    orphan_loops = result["orphan_loops"]
-    if not orphan_loops:
-        lines.append(
-            f"0건 — `{os.path.relpath(LOOP_DIR, ROOT).replace(os.sep, '/')}`"
-            f" 의 `{LOOP_SCENE_PREFIX}*.mp4` 파일 {len(result['loop_files'])}개"
-            " 전부 어떤 시나리오의 id 또는 backdrop 으로 참조됨"
-            f"({len(result['non_scene_loop_files'])}개는 `{LOOP_SCENE_PREFIX}`"
-            " 접두사가 아니라 이 규약 밖이라 대상에서 제외)."
+    if loop_summary is not None:
+        status_counts = loop_summary["statusCounts"]
+        lines.extend(
+            [
+                "",
+                "## 기존 비디오 루프 참조 상태 (감사 전용)",
+                "",
+                f"- scene_*.mp4: {loop_summary['sceneFileCount']}개",
+                f"- 규약 밖 루프 파일: {loop_summary['nonSceneFileCount']}개",
+                f"- 전용 루프 해석: {status_counts['dedicated']}개",
+                f"- 카테고리 루프 해석: {status_counts['fallback']}개",
+                f"- 루프 없는 안전 폴백: {status_counts['none_fallback']}개",
+                f"- backdrop 없는 루프 없음: {status_counts['none']}개",
+                f"- 고아 scene 루프: {len(loop_summary['orphanFiles'])}개",
+            ]
         )
-        lines.append("")
-    else:
-        lines.append(f"{len(orphan_loops)}건.")
-        lines.append("")
-        lines.append("| 파일 |")
-        lines.append("|---|")
-        for name in orphan_loops:
-            lines.append(f"| {_escape_cell(name)} |")
-        lines.append("")
 
-    if result["dup_scenario_ids"]:
-        lines.append("## 시나리오 id 중복 (경고)")
-        lines.append("")
-        lines.append(
-            "아래 id 가 여러 샤드/시나리오에서 재사용됨 — 전용 포스터/루프"
-            " 파일명이 id 기반이라 id 가 중복이면 이 대조 자체가 모호해진다."
-        )
-        lines.append("")
-        for sid in result["dup_scenario_ids"]:
-            lines.append(f"- {_escape_cell(sid)}")
-        lines.append("")
+    lines.extend(["", "## 생성 근거 SHA-256", ""])
+    for path, digest in inventory["generatedFrom"].items():
+        lines.append(f"- `{path}`: `{digest}`")
 
-    lines.append("## 샤드별 시나리오 수")
-    lines.append("")
-    by_shard_count = Counter(r.shard for r in refs)
-    for shard in shard_names:
-        lines.append(f"- {shard}: {by_shard_count.get(shard, 0)}개")
-    lines.append("")
-
-    lines.append("## 리소스 커버리지 통계")
-    lines.append("")
-    lines.append(f"- 포스터 디렉터리 파일 수: {len(result['poster_files'])}")
-    lines.append(
-        f"- 루프 디렉터리: `{LOOP_SCENE_PREFIX}*.mp4` {len(result['loop_files'])}개"
-        f" + 규약 밖 파일 {len(result['non_scene_loop_files'])}개"
+    lines.extend(
+        [
+            "",
+            "## 시나리오별 해석",
+            "",
+            "| 샤드 | ID | 레벨 | backdrop | 상태 | 해석 경로 | 크기/모드 | SHA-256 | runtimeEligible |",
+            "|---|---|---|---|---|---|---|---|---|",
+        ]
     )
-    lines.append("")
-    lines.append("### 포스터 해석 상태별 시나리오 수")
-    lines.append("")
-    p_counts = result["poster_status_counts"]
-    for status in ("dedicated", "category", "broken_category", "none"):
-        lines.append(f"- {_POSTER_STATUS_LABELS[status]}: {p_counts.get(status, 0)}개")
-    lines.append("")
-    lines.append("### 루프 해석 상태별 시나리오 수")
-    lines.append("")
-    l_counts = result["loop_status_counts"]
-    for status in ("dedicated", "category", "broken_category", "none_fallback", "none"):
-        lines.append(f"- {_LOOP_STATUS_LABELS[status]}: {l_counts.get(status, 0)}개")
-    lines.append("")
-
-    lines.append("## 요약")
-    lines.append("")
-    lines.append(f"- 스캔한 시나리오: **{len(refs)}개** (샤드 {len(shard_names)}개)")
-    lines.append(f"- 오타·누락 포스터: **{len(broken_posters)}건**")
-    lines.append(f"- 오타·누락 루프: **{len(broken_loops)}건**")
-    lines.append(f"- 고아 포스터 파일: **{len(orphan_posters)}건**")
-    lines.append(f"- 고아 루프 파일: **{len(orphan_loops)}건**")
-    lines.append(f"- 시나리오 id 중복: **{len(result['dup_scenario_ids'])}건**")
-    lines.append("")
-
+    for row in scenarios:
+        dimensions = (
+            f"{row['width']}×{row['height']} {row['mode']}"
+            if row["width"] is not None
+            else ""
+        )
+        digest = row["sha256"] or ""
+        lines.append(
+            f"| {_escape_cell(row['shard'])} | {_escape_cell(row['id'])} | "
+            f"{_escape_cell(row['level'])} | {_escape_cell(row['backdrop'])} | "
+            f"{_escape_cell(row['status'])} | {_escape_cell(row['resolvedPath'] or '')} | "
+            f"{_escape_cell(dimensions)} | {_escape_cell(digest)} | "
+            f"{str(row['runtimeEligible']).lower()} |"
+        )
     return "\n".join(lines) + "\n"
 
 
-def write_report(result: dict, out_path: str = REPORT_PATH) -> str:
-    text = render_report(result)
-    os.makedirs(os.path.dirname(out_path), exist_ok=True)
-    with open(out_path, "w", encoding="utf-8", newline="\n") as f:
-        f.write(text)
-    return text
+def _write_text(path: Path, text: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write(text)
 
 
-# ---------------------------------------------------------------------------
-# CLI 진입점
-# ---------------------------------------------------------------------------
+def _resolve_cli_path(raw: str) -> Path:
+    path = Path(raw)
+    return path if path.is_absolute() else ROOT / path
 
 
-def main(argv=None) -> int:
-    result = scan_all()
-    write_report(result)
-    rel = os.path.relpath(REPORT_PATH, ROOT).replace(os.sep, "/")
-    total_issues = (
-        len(result["broken_posters"])
-        + len(result["broken_loops"])
-        + len(result["orphan_posters"])
-        + len(result["orphan_loops"])
+def _parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="Do not write; fail on strict issues or generated-output drift.",
     )
-    print(f"[audit_scene_assets] 이슈 {total_issues}건 -> {rel}")
-    return 0
+    parser.add_argument(
+        "--json",
+        default=_project_path(INVENTORY_PATH, ROOT),
+        metavar="PATH",
+        help="Inventory JSON path relative to the repository root.",
+    )
+    return parser
+
+
+def main(argv: Optional[list[str]] = None) -> int:
+    args = _parser().parse_args(argv)
+    refs = _load_scenario_refs()
+    inventory = scan_scene_inventory(
+        refs,
+        POSTER_DIR,
+        project_root=ROOT,
+        generated_from=_generated_from(),
+    )
+    loop_summary = _scan_loop_summary(refs)
+    json_path = _resolve_cli_path(args.json)
+    json_text = render_inventory_json(inventory)
+    report_text = render_report(inventory, loop_summary)
+    expected = {json_path: json_text, REPORT_PATH: report_text}
+
+    if args.check:
+        drift = find_output_drift(expected)
+    else:
+        for path, output_text in expected.items():
+            _write_text(path, output_text)
+        drift = []
+
+    result = strict_exit_code(inventory, drift)
+    verb = "checked" if args.check else "wrote"
+    print(
+        "[audit_scene_assets] "
+        f"{verb}: {inventory['scenarioCount']} scenarios, "
+        f"{inventory['dedicatedCount']} dedicated, "
+        f"{inventory['fallbackCount']} fallback, "
+        f"{inventory['missingCount']} missing, "
+        f"{len(inventory['issues'])} strict issues, "
+        f"{len(drift)} drift issues"
+    )
+    for issue in [*inventory["issues"], *drift]:
+        location = issue.get("path") or issue.get("id") or ""
+        print(f"  - {issue['code']}: {location}: {issue['message']}")
+    return result
 
 
 if __name__ == "__main__":
