@@ -8688,6 +8688,12 @@ abstract class AppL10n {
   /// **'Weiter'**
   String get consentContinueCta;
 
+  /// No description provided for @consentDemoCta.
+  ///
+  /// In de, this message translates to:
+  /// **'App ansehen'**
+  String get consentDemoCta;
+
   /// No description provided for @consentPrivacyCta.
   ///
   /// In de, this message translates to:
@@ -8729,6 +8735,162 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Beides ist freiwillig und jederzeit in den Einstellungen änderbar.'**
   String get consentOptionalHint;
+
+  /// No description provided for @reviewDemoAppBarTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Demo'**
+  String get reviewDemoAppBarTitle;
+
+  /// No description provided for @reviewDemoEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'TOUR OHNE SPEICHERN'**
+  String get reviewDemoEyebrow;
+
+  /// No description provided for @reviewDemoTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Entdecke Hangul Sori'**
+  String get reviewDemoTitle;
+
+  /// No description provided for @reviewDemoBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Öffne ausgewählte App-Ansichten mit einem Beispiel-Lernstand. Du kannst die Bedienung ausprobieren; Einwilligung, Konto und Lernfortschritt bleiben unverändert.'**
+  String get reviewDemoBody;
+
+  /// No description provided for @reviewDemoSectionStart.
+  ///
+  /// In de, this message translates to:
+  /// **'ERSTE SCHRITTE'**
+  String get reviewDemoSectionStart;
+
+  /// No description provided for @reviewDemoSectionLearn.
+  ///
+  /// In de, this message translates to:
+  /// **'LERNEN & SPRECHEN'**
+  String get reviewDemoSectionLearn;
+
+  /// No description provided for @reviewDemoSectionHanok.
+  ///
+  /// In de, this message translates to:
+  /// **'DEIN HANOK'**
+  String get reviewDemoSectionHanok;
+
+  /// No description provided for @reviewDemoSectionExplore.
+  ///
+  /// In de, this message translates to:
+  /// **'ÜBEN & ENTDECKEN'**
+  String get reviewDemoSectionExplore;
+
+  /// No description provided for @reviewDemoSectionCommunity.
+  ///
+  /// In de, this message translates to:
+  /// **'GEMEINSCHAFT & KONTO'**
+  String get reviewDemoSectionCommunity;
+
+  /// No description provided for @reviewDemoSectionJourney.
+  ///
+  /// In de, this message translates to:
+  /// **'GESAMTER LERNWEG'**
+  String get reviewDemoSectionJourney;
+
+  /// No description provided for @reviewDemoPanelGoal.
+  ///
+  /// In de, this message translates to:
+  /// **'Ziel und Startpunkt'**
+  String get reviewDemoPanelGoal;
+
+  /// No description provided for @reviewDemoPanelCompanion.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernbegleitung wählen'**
+  String get reviewDemoPanelCompanion;
+
+  /// No description provided for @reviewDemoPanelToday.
+  ///
+  /// In de, this message translates to:
+  /// **'Heutige Lernbühne'**
+  String get reviewDemoPanelToday;
+
+  /// No description provided for @reviewDemoPanelMission.
+  ///
+  /// In de, this message translates to:
+  /// **'Missionsbriefing'**
+  String get reviewDemoPanelMission;
+
+  /// No description provided for @reviewDemoPanelListening.
+  ///
+  /// In de, this message translates to:
+  /// **'Hör-Aufgabe'**
+  String get reviewDemoPanelListening;
+
+  /// No description provided for @reviewDemoPanelRoleplay.
+  ///
+  /// In de, this message translates to:
+  /// **'Gespräch im Rollenspiel'**
+  String get reviewDemoPanelRoleplay;
+
+  /// No description provided for @reviewDemoPanelHanok.
+  ///
+  /// In de, this message translates to:
+  /// **'Persönliche Hanok-Karte'**
+  String get reviewDemoPanelHanok;
+
+  /// No description provided for @reviewDemoPanelSarangbang.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernraum Sarangbang'**
+  String get reviewDemoPanelSarangbang;
+
+  /// No description provided for @reviewDemoPanelPractice.
+  ///
+  /// In de, this message translates to:
+  /// **'Übungsbereich'**
+  String get reviewDemoPanelPractice;
+
+  /// No description provided for @reviewDemoPanelDiscover.
+  ///
+  /// In de, this message translates to:
+  /// **'Koreanische Kultur entdecken'**
+  String get reviewDemoPanelDiscover;
+
+  /// No description provided for @reviewDemoPanelPath.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernpfad'**
+  String get reviewDemoPanelPath;
+
+  /// No description provided for @reviewDemoPanelGye.
+  ///
+  /// In de, this message translates to:
+  /// **'Wöchentliches Gruppenversprechen'**
+  String get reviewDemoPanelGye;
+
+  /// No description provided for @reviewDemoPanelProfile.
+  ///
+  /// In de, this message translates to:
+  /// **'Profil und freiwilliges Konto'**
+  String get reviewDemoPanelProfile;
+
+  /// No description provided for @reviewDemoPanelOffline.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernen ohne Verbindung'**
+  String get reviewDemoPanelOffline;
+
+  /// No description provided for @reviewDemoPanelJourney.
+  ///
+  /// In de, this message translates to:
+  /// **'Gesamte Lernreise'**
+  String get reviewDemoPanelJourney;
+
+  /// No description provided for @reviewDemoReadOnlyBoundary.
+  ///
+  /// In de, this message translates to:
+  /// **'{routeName} ist in der Tour ohne Speichern nicht verfügbar. Kehre zur Übersicht zurück und öffne eine andere Beispielansicht.'**
+  String reviewDemoReadOnlyBoundary(String routeName);
 
   /// No description provided for @consentInviteTitle.
   ///

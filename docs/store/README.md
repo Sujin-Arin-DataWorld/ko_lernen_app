@@ -5,9 +5,13 @@ be completed by the release owner.
 
 ## Apple App Store Connect: start here
 
-Read [app-store-connect-v2.0.5.md](app-store-connect-v2.0.5.md) for the single
-handoff for `2.0.5 (13)`: identifiers, review path, iPad screenshots, and the
-Mac-only archive/TestFlight gates.
+For the current `2.0.8` candidate, start with
+[app-store-connect-v2.0.8-review-access.md](app-store-connect-v2.0.8-review-access.md).
+It contains the replacement-build review path, exact Beta App Review text, and
+the reply for the access-information issue on `2.0.7 (242)`.
+
+The older [app-store-connect-v2.0.5.md](app-store-connect-v2.0.5.md) retains
+the original identifiers, screenshot, and macOS archive handoff.
 
 [APPSTORE_UPLOAD_KO.md](APPSTORE_UPLOAD_KO.md) (Korean) is the operator's
 running order for the same submission — Bundle ID registration, app-record

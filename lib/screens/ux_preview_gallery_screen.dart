@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../models/ux_preview_catalog.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/page_header.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 
 typedef UxPreviewPanelBuilder = Widget Function(UxPreviewPanel panel);
+typedef UxPreviewPanelTitleBuilder = String Function(UxPreviewPanel panel);
+typedef UxPreviewSectionLabelBuilder =
+    String Function(UxPreviewSection section);
 
 /// Debug-only directory for the UX rebuild fixture states.
 ///
@@ -13,9 +17,34 @@ typedef UxPreviewPanelBuilder = Widget Function(UxPreviewPanel panel);
 /// preview seam. The gallery owns only discovery and navigation; it never
 /// reads or fabricates learner progress itself.
 class UxPreviewGalleryScreen extends StatelessWidget {
-  const UxPreviewGalleryScreen({super.key, required this.buildPanel});
+  const UxPreviewGalleryScreen({
+    super.key,
+    required this.buildPanel,
+    this.panels = uxPreviewPanels,
+    this.appBarTitle = 'UX 01-07',
+    this.leading,
+    this.automaticallyImplyLeading = true,
+    this.eyebrow,
+    this.headline,
+    this.description,
+    this.panelTitleBuilder,
+    this.sectionLabelBuilder,
+    this.panelKeyPrefix = 'ux-preview-panel',
+    this.showPanelIds = true,
+  });
 
   final UxPreviewPanelBuilder buildPanel;
+  final List<UxPreviewPanel> panels;
+  final String appBarTitle;
+  final Widget? leading;
+  final bool automaticallyImplyLeading;
+  final String? eyebrow;
+  final String? headline;
+  final String? description;
+  final UxPreviewPanelTitleBuilder? panelTitleBuilder;
+  final UxPreviewSectionLabelBuilder? sectionLabelBuilder;
+  final String panelKeyPrefix;
+  final bool showPanelIds;
 
   void _open(BuildContext context, UxPreviewPanel panel) {
     Navigator.of(context).push<void>(
@@ -32,13 +61,27 @@ class UxPreviewGalleryScreen extends StatelessWidget {
     final children = <Widget>[];
     UxPreviewSection? previousSection;
 
-    for (final panel in uxPreviewPanels) {
+    if (headline != null) {
+      children
+        ..add(
+          SoriPageHeader(eyebrow: eyebrow, title: headline!, body: description),
+        )
+        ..add(const SizedBox(height: Spacing.xl));
+    }
+
+    for (final panel in panels) {
       if (previousSection != panel.section) {
         if (previousSection != null) {
           children.add(const SizedBox(height: Spacing.lg));
         }
         children
-          ..add(Text(_sectionLabel(panel.section), style: text.label))
+          ..add(
+            Text(
+              sectionLabelBuilder?.call(panel.section) ??
+                  _sectionLabel(panel.section),
+              style: text.label,
+            ),
+          )
           ..add(const SizedBox(height: Spacing.sm));
       }
       previousSection = panel.section;
@@ -46,11 +89,12 @@ class UxPreviewGalleryScreen extends StatelessWidget {
         Builder(
           builder: (context) {
             void onTap() => _open(context, panel);
+            final panelTitle = panelTitleBuilder?.call(panel) ?? panel.title;
             return Padding(
               padding: const EdgeInsets.only(bottom: Spacing.sm),
               child: Semantics(
-                key: ValueKey('ux-preview-panel-${panel.id}'),
-                label: '${panel.id} ${panel.title}',
+                key: ValueKey('$panelKeyPrefix-${panel.id}'),
+                label: showPanelIds ? '${panel.id} $panelTitle' : panelTitle,
                 button: true,
                 onTap: onTap,
                 child: ExcludeSemantics(
@@ -59,11 +103,12 @@ class UxPreviewGalleryScreen extends StatelessWidget {
                     onTap: onTap,
                     child: Row(
                       children: [
-                        SizedBox(
-                          width: 48,
-                          child: Text(panel.id, style: text.cardTitle),
-                        ),
-                        Expanded(child: Text(panel.title, style: text.body)),
+                        if (showPanelIds)
+                          SizedBox(
+                            width: 48,
+                            child: Text(panel.id, style: text.cardTitle),
+                          ),
+                        Expanded(child: Text(panelTitle, style: text.body)),
                         const Icon(Icons.chevron_right_rounded),
                       ],
                     ),
@@ -77,7 +122,9 @@ class UxPreviewGalleryScreen extends StatelessWidget {
     }
 
     return SoriStandardFrame(
-      appBarTitle: 'UX 01-07',
+      appBarTitle: appBarTitle,
+      leading: leading,
+      automaticallyImplyLeading: automaticallyImplyLeading,
       padding: const EdgeInsets.fromLTRB(
         Spacing.lg,
         Spacing.md,

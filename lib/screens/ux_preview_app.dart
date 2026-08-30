@@ -229,31 +229,34 @@ class UxPreviewApp extends StatelessWidget {
           : registry.buildPanel(initialPanel),
       onGenerateRoute: (settings) => MaterialPageRoute<void>(
         settings: settings,
-        builder: (_) => _UxPreviewNavigationBoundary(routeName: settings.name),
+        builder: (_) => UxPreviewNavigationBoundary(routeName: settings.name),
       ),
     );
   }
 }
 
-class _UxPreviewNavigationBoundary extends StatelessWidget {
-  const _UxPreviewNavigationBoundary({this.routeName});
+class UxPreviewNavigationBoundary extends StatelessWidget {
+  const UxPreviewNavigationBoundary({super.key, this.routeName});
 
   final String? routeName;
 
   @override
-  Widget build(BuildContext context) => SoriStandardFrame(
-    appBarTitle: 'UX Gallery',
-    padding: const EdgeInsets.all(24),
-    builder: (context, padding) => Center(
-      child: SingleChildScrollView(
-        padding: padding,
-        child: Text(
-          '${routeName ?? 'Diese Aktion'} ist in der Vorschau schreibgeschützt.',
-          textAlign: TextAlign.center,
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    return SoriStandardFrame(
+      appBarTitle: t.reviewDemoAppBarTitle,
+      padding: const EdgeInsets.all(24),
+      builder: (context, padding) => Center(
+        child: SingleChildScrollView(
+          padding: padding,
+          child: Text(
+            t.reviewDemoReadOnlyBoundary(routeName ?? t.reviewDemoAppBarTitle),
+            textAlign: TextAlign.center,
+          ),
         ),
       ),
-    ),
-  );
+    );
+  }
 }
 
 CourseMissionBrief _missionBrief() => CourseMissionBrief.from(
