@@ -982,6 +982,203 @@
         }
       }
     },
+    "F-E-scene-poster": {
+      "label": "Scene posters only — Hangul Sori Faceted Heritage 2.5D",
+      "identifier": "scene-poster/faceted-heritage-2.5d-v1",
+      "dirs": [
+        "assets/illustrations/style_lock/"
+      ],
+      "membersNote": "These three files are approved generation anchors, not runtime scene outputs. The scope object is the authority for generated and promoted scene-poster paths.",
+      "members": [
+        "scene_style_anchor_pharmacy",
+        "scene_style_anchor_airport",
+        "scene_style_anchor_convenience"
+      ],
+      "anchors": [
+        "assets/illustrations/style_lock/scene_style_anchor_pharmacy.png",
+        "assets/illustrations/style_lock/scene_style_anchor_airport.png",
+        "assets/illustrations/style_lock/scene_style_anchor_convenience.png"
+      ],
+      "scope": {
+        "runtimeRoot": "assets/illustrations/scenes/",
+        "reviewRoot": "assets_unused/pending_review/scenes/",
+        "appliesOnlyTo": [
+          "assets/illustrations/scenes/**/*.png",
+          "assets_unused/pending_review/scenes/**/*.png"
+        ],
+        "excludes": [
+          "assets/illustrations/mascot/**",
+          "assets/illustrations/personal_hanok_v2/**",
+          "assets/illustrations/personal_hanok_v3/**",
+          "assets/illustrations/decorations/**",
+          "assets/illustrations/listening/**"
+        ]
+      },
+      "canonicalOutput": {
+        "aspectRatio": "3:2",
+        "width": 1536,
+        "height": 1024,
+        "format": "PNG",
+        "modes": [
+          "RGB",
+          "RGBA"
+        ],
+        "generatorFallbackAspectRatio": "4:3",
+        "fallbackRule": "4:3 landscape is permitted only when a generator cannot make 3:2; normalize it to 1536x1024 with tool/scene_poster_normalize.py before review."
+      },
+      "palette": {
+        "warmIvory": [
+          "#F4E8D0",
+          "#DBBC8D"
+        ],
+        "amberWood": [
+          "#A2663A",
+          "#844A2D"
+        ],
+        "mutedDeepTeal": [
+          "#274A3F",
+          "#315D58"
+        ],
+        "charcoal": [
+          "#3E3A38"
+        ],
+        "restrainedDancheongRed": [
+          "#6A2316"
+        ]
+      },
+      "camera": {
+        "view": "3:2 landscape scene poster with a centred, crop-safe editorial composition",
+        "focalPointDefault": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "cropSafety": {
+          "importantContentCentralWidth": 0.6,
+          "importantContentCentralHeight": 0.65,
+          "faceAndActionY": [
+            0.35,
+            0.6
+          ],
+          "expendableOuterMargin": 0.2,
+          "squareCropMustRetainMeaning": true,
+          "thumbnailMustReadAtPx": 56
+        },
+        "light": "warm dimensional materials with restrained ambient shadows",
+        "shadow": "restrained ambient shadows only; no glossy 3D lighting"
+      },
+      "style": {
+        "name": "Hangul Sori Faceted Heritage 2.5D",
+        "required": [
+          "softly blended but clearly visible triangular facets on all materials",
+          "subtle hanji-paper grain",
+          "warm dimensional materials",
+          "restrained ambient shadows",
+          "premium editorial illustration"
+        ],
+        "forbidden": [
+          "smooth photorealism",
+          "generic low-poly",
+          "flat vector",
+          "anime",
+          "chibi",
+          "glossy 3D"
+        ]
+      },
+      "density": {
+        "locationCues": 1,
+        "mainInteractionOrFocalClusters": 1,
+        "secondaryObjectGroupsMax": 3,
+        "forbidden": [
+          "crowded shelves",
+          "repetitive tiny detail",
+          "complex ceilings",
+          "visual noise"
+        ]
+      },
+      "content": {
+        "categoryBackdrop": "no people by default",
+        "dedicatedScenarioPoster": "required participants only, when the scenario manifest demands them",
+        "forbidden": [
+          "readable text",
+          "letters or digits",
+          "Hangul or Hanja glyphs",
+          "signs",
+          "prices",
+          "brand logos",
+          "watermarks",
+          "UI chrome"
+        ],
+        "referenceRule": "Attach exactly one approved anchor image from approvedAnchorByCategory per generation."
+      },
+      "approvedAnchorByCategory": {
+        "office": "assets/illustrations/style_lock/scene_style_anchor_airport.png",
+        "home": "assets/illustrations/style_lock/scene_style_anchor_pharmacy.png",
+        "cafe": "assets/illustrations/style_lock/scene_style_anchor_convenience.png",
+        "station": "assets/illustrations/style_lock/scene_style_anchor_airport.png",
+        "market": "assets/illustrations/style_lock/scene_style_anchor_convenience.png",
+        "convenience": "assets/illustrations/style_lock/scene_style_anchor_convenience.png",
+        "restaurant": "assets/illustrations/style_lock/scene_style_anchor_convenience.png",
+        "pharmacy": "assets/illustrations/style_lock/scene_style_anchor_pharmacy.png",
+        "directions": "assets/illustrations/style_lock/scene_style_anchor_airport.png",
+        "hotel": "assets/illustrations/style_lock/scene_style_anchor_airport.png",
+        "taxi": "assets/illustrations/style_lock/scene_style_anchor_airport.png",
+        "airport": "assets/illustrations/style_lock/scene_style_anchor_airport.png",
+        "bank": "assets/illustrations/style_lock/scene_style_anchor_airport.png",
+        "salon": "assets/illustrations/style_lock/scene_style_anchor_pharmacy.png",
+        "theme_park": "assets/illustrations/style_lock/scene_style_anchor_convenience.png"
+      },
+      "promptSkeleton": "Create a NEW scene poster under profile scene-poster/faceted-heritage-2.5d-v1.\n\n{SUBJECT}\n\nCANONICAL OUTPUT: 3:2 landscape, final 1536x1024 PNG in RGB or RGBA. 4:3 landscape is permitted only when the generator cannot make 3:2 and must be normalized with tool/scene_poster_normalize.py before review.\n\nSTYLE: Hangul Sori Faceted Heritage 2.5D. Use softly blended but clearly visible triangular facets on all materials, subtle hanji-paper grain, warm dimensional materials, restrained ambient shadows, warm ivory, amber wood, muted deep teal, charcoal, and restrained dancheong-red. Premium editorial illustration; never smooth photorealism, generic low-poly, flat vector, anime, chibi, or glossy 3D.\n\nCOMPOSITION AND CROP SAFETY: keep important people, faces, props, and action inside the central 60% width and 65% height. Keep faces and hands/action between 35% and 60% of image height. The outer 20% is expendable setting/background only. A centred square crop must retain the scene meaning. At 56px the thumbnail must distinguish the location and main silhouette. Default focal point is 0.5, 0.5.\n\nDENSITY: one unmistakable location cue, one main interaction or focal-object cluster, and at most 2-3 secondary object groups. No crowded shelves, repetitive tiny detail, complex ceilings, or visual noise.\n\nREFERENCE: attach exactly this one approved project anchor and no other image: {REFERENCE_IMAGE}. Use it for style, palette, material and illustrated-set identity only; do not copy its composition.\n\nFORBIDDEN: {FORBIDDEN}. Any papers, screens, signs, labels, menus, tickets, prices, or packaging must be blank, abstract, and unreadable.",
+      "promptSkeletonSource": "Jin-approved Scene Poster Profile, promoted to the STYLE_LOCK.json SSoT on 2026-08-30.",
+      "modelRouting": [
+        {
+          "model": "GPT Image 2",
+          "allowed": true,
+          "when": "scene posters generated from the canonical manifest",
+          "evidence": "The approved profile requires faceted editorial control and one attached project anchor."
+        },
+        {
+          "model": "Seedream V4.5",
+          "allowed": false,
+          "when": "do not use for canonical scene posters",
+          "evidence": "It does not reliably preserve the approved facet, crop-safety, and restrained-material contract."
+        }
+      ],
+      "postProcess": [
+        "tool/scene_poster_normalize.py (3:2, 1536x1024, PNG, RGB/RGBA)",
+        "tool/audit_scene_assets.py --pending-review (technical and ownership gates)",
+        "centred-square and 56px visual crop review before runtime promotion"
+      ],
+      "gates": {
+        "satMean": [
+          0.24,
+          0.55
+        ],
+        "valMean": [
+          0.4,
+          0.75
+        ],
+        "neonMax": 0.03,
+        "note": "Calibrated from the three approved scene-style anchors. These color gates supplement, but do not replace, crop and semantic visual review.",
+        "measured": {
+          "satMean": [
+            0.2632,
+            0.5212
+          ],
+          "valMean": [
+            0.4303,
+            0.7161
+          ],
+          "neonMax": 0.0211
+        },
+        "measuredAt": "3 approved anchors, 2026-08-30"
+      },
+      "registration": [
+        "docs/assets/STYLE_LOCK.json: families.F-E-scene-poster is the only style and crop SSoT",
+        "tool/build_scene_art_manifest.py reads this profile for all 419 scenario prompts",
+        "docs/data/scene_art_generation_manifest.json is generated output, never a second SSoT",
+        "assets/illustrations/style_lock/ is generation-reference-only and must not be added to pubspec.yaml"
+      ]
+    },
     "F-D-share": {
       "label": "공유·마케팅 표면 — F-A 화풍 그대로, 카메라만 정면 평면(족자·현판 등 벽에 걸리는 납작한 물건)",
       "dirs": [

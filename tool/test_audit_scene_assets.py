@@ -17,9 +17,20 @@ from PIL import Image
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import audit_scene_assets  # noqa: E402
+import style_lock  # noqa: E402
 
 
 class SceneInventoryTest(unittest.TestCase):
+    def test_dedicated_output_contract_matches_scene_style_lock_ssot(self) -> None:
+        family = style_lock.load_style_lock()["families"]["F-E-scene-poster"]
+        output = family["canonicalOutput"]
+        self.assertEqual(
+            audit_scene_assets.DEDICATED_SIZE,
+            (output["width"], output["height"]),
+        )
+        self.assertEqual(audit_scene_assets.DEDICATED_MODES, set(output["modes"]))
+        self.assertEqual(output["format"], "PNG")
+
     def test_generated_data_markdown_is_forced_to_lf(self) -> None:
         attributes = (audit_scene_assets.ROOT / ".gitattributes").read_text(
             encoding="utf-8"
