@@ -5,8 +5,8 @@
 에 기록한다. `Hangul Sori 앱 점검 후 개선 사항 지시서.md` §4.15("시나리오공부쪽에
 Bau satz 중복되는거 있는지 확인해줘")가 직접적인 동기다 — 이 스크립트는 그
 질문에 재현 가능하게 답한다. 수정은 W4 소유(이 태스크 범위 밖) — 여기선
-리포트만 만든다. exit code 는 항상 0(리포트 전용 도구, 실패해도 파이프라인을
-막지 않는다).
+리포트만 만든다. 기본 모드는 보고서를 갱신하고, `--check`는 파일을 쓰지 않은
+채 중복·미지원 타입·깨진 payload·보고서 drift 중 하나라도 있으면 실패한다.
 
 퀘스트 중복 판정 키
 --------------------
@@ -45,6 +45,7 @@ Bau satz 중복되는거 있는지 확인해줘")가 직접적인 동기다 — 
 
 from __future__ import annotations
 
+import argparse
 import json
 import os
 import sys
@@ -504,16 +505,69 @@ def write_report(groups: list, diagnostics: dict, out_path: str = REPORT_PATH) -
     return text
 
 
+def strict_issue_count(groups: list, diagnostics: dict) -> int:
+    """Count findings that make a check-mode audit incomplete or ambiguous."""
+    return (
+        len(groups)
+        + len(diagnostics["broken_payloads"])
+        + sum(diagnostics["unsupported_types"].values())
+    )
+
+
+def report_has_drift(expected: str, out_path: str = REPORT_PATH) -> bool:
+    try:
+        with open(out_path, "rb") as handle:
+            actual = handle.read()
+    except OSError:
+        return True
+    return actual != expected.encode("utf-8")
+
+
 # ---------------------------------------------------------------------------
 # CLI 진입점
 # ---------------------------------------------------------------------------
 
 
+def _parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="Do not write; fail on findings or checked-in report drift.",
+    )
+    parser.add_argument(
+        "--report",
+        default=REPORT_PATH,
+        metavar="PATH",
+        help="Report path, absolute or relative to the repository root.",
+    )
+    return parser
+
+
 def main(argv=None) -> int:
+    args = _parser().parse_args(argv)
+    out_path = args.report
+    if not os.path.isabs(out_path):
+        out_path = os.path.join(ROOT, out_path)
     groups, diagnostics = scan_all()
-    write_report(groups, diagnostics)
-    rel = os.path.relpath(REPORT_PATH, ROOT).replace(os.sep, "/")
-    print(f"[audit_scenario_quests] 중복 그룹 {len(groups)}개 -> {rel}")
+    rendered = render_report(groups, diagnostics)
+    issue_count = strict_issue_count(groups, diagnostics)
+    rel = os.path.relpath(out_path, ROOT).replace(os.sep, "/")
+    if args.check:
+        drift = report_has_drift(rendered, out_path)
+        print(
+            "[audit_scenario_quests] checked: "
+            f"중복 그룹 {len(groups)}개, "
+            f"미지원 {sum(diagnostics['unsupported_types'].values())}개, "
+            f"깨진 payload {len(diagnostics['broken_payloads'])}개, "
+            f"drift {int(drift)}개 -> {rel}"
+        )
+        return 1 if issue_count or drift else 0
+
+    write_report(groups, diagnostics, out_path)
+    print(
+        f"[audit_scenario_quests] wrote: 중복 그룹 {len(groups)}개 -> {rel}"
+    )
     return 0
 
 
