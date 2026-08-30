@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -43,6 +45,57 @@ void main() {
       request.cacheKey.storagePath,
       'tts/v3/male/35972279e5f04e1dd85b3528a799c657ef46a017.mp3',
     );
+  });
+
+  test('all 413 canonical intro requests match the checked manifest keys', () {
+    final manifest =
+        jsonDecode(
+              File(
+                'assets/data/tts_first_line_manifest.json',
+              ).readAsStringSync(),
+            )
+            as Map<String, dynamic>;
+    final items = (manifest['items'] as List<dynamic>)
+        .cast<Map<String, dynamic>>();
+    final byId = <String, Map<String, dynamic>>{
+      for (final item in items) item['scenarioId']! as String: item,
+    };
+    final scenarios = <Scenario>[];
+    for (final level in LearnerLevel.values) {
+      final payload =
+          jsonDecode(
+                File(
+                  'assets/data/scenarios_${level.code}.json',
+                ).readAsStringSync(),
+              )
+              as Map<String, dynamic>;
+      scenarios.addAll(
+        (payload['scenarios'] as List<dynamic>)
+            .cast<Map<String, dynamic>>()
+            .map(Scenario.fromJson),
+      );
+    }
+
+    expect(scenarios, hasLength(413));
+    expect(items, hasLength(413));
+    expect(byId, hasLength(413));
+    for (final scenario in scenarios) {
+      final request = scenarioIntroAudioPrefetchFor(scenario);
+      final item = byId[scenario.id];
+      expect(request, isNotNull, reason: scenario.id);
+      expect(item, isNotNull, reason: scenario.id);
+      expect(
+        request!.text.trim(),
+        item!['normalizedText'],
+        reason: scenario.id,
+      );
+      expect(request.voice, item['voice'], reason: scenario.id);
+      expect(
+        request.cacheKey.storagePath,
+        item['storagePath'],
+        reason: scenario.id,
+      );
+    }
   });
 
   test(

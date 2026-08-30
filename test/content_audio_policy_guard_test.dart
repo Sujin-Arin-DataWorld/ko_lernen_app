@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -108,4 +109,33 @@ void main() {
       reason: '탭 재생 배선이 없는 비플립 표면: ${missing.join(', ')}',
     );
   });
+
+  test(
+    'first-line bundle tier is manifest-only and declares no fake audio dir',
+    () {
+      final manifestFile = File('assets/data/tts_first_line_manifest.json');
+      final loaderSource = File(
+        'lib/services/tts_bundled_manifest.dart',
+      ).readAsStringSync();
+      final pubspec = File('pubspec.yaml').readAsStringSync();
+      final manifest =
+          jsonDecode(manifestFile.readAsStringSync()) as Map<String, dynamic>;
+
+      expect(manifestFile.existsSync(), isTrue);
+      expect(manifest['scenarioCount'], 413);
+      expect(manifest['bundledCount'], 0);
+      expect(pubspec, contains('- assets/data/'));
+      expect(
+        pubspec,
+        isNot(contains('- assets/tts/')),
+        reason: '0-byte baseline must not bundle a nonexistent audio directory',
+      );
+      expect(
+        loaderSource,
+        contains('assets/data/tts_first_line_manifest.json'),
+      );
+      expect(loaderSource, isNot(contains('Directory(')));
+      expect(loaderSource, isNot(contains('.listSync(')));
+    },
+  );
 }
