@@ -10,6 +10,11 @@
 
 **Spec:** `docs/superpowers/specs/2026-08-28-w4-w6-completion-design.md` §7.2 and the approved W5 details referenced in §2.
 
+**Live-contract reconciliation (2026-08-30):** W5-A is merged in
+`origin/main` at `c2199ad4`. The interfaces and ownership notes below were
+rechecked against that tree before W5-B implementation; where this plan used
+stale names, the live contracts below are authoritative.
+
 ## Global Constraints
 
 - Start after W5-A is merged, from fresh `origin/main`.
@@ -44,6 +49,7 @@ final class TraceCanvasSnapshot {
 final class TraceCanvasController extends ChangeNotifier {
   TraceCanvasSnapshot get snapshot;
   void rejectLastStroke();
+  void clearErrorGhost();
   void showNextStrokeHint(List<Offset> points);
   void clearHint();
   void reset();
@@ -52,22 +58,40 @@ final class TraceCanvasController extends ChangeNotifier {
 class TraceCanvas extends StatefulWidget {
   const TraceCanvas({
     required this.controller,
+    required this.ghost,
+    required this.color,
+    required this.errorColor,
+    required this.enabled,
     required this.onStrokeEnd,
     required this.semanticLabel,
     super.key,
   });
+
+  final String ghost;
+  final Color color;
+  final Color errorColor;
+  final bool enabled;
 }
 ```
 
-The extracted painter preserves current Hangul practice behavior. A rejected stroke remains briefly as an error ghost; after two failures at the same expected index the next-stroke hint is displayed.
+The extracted painter preserves current Hangul practice behavior, including its
+guide glyph, enabled state, colors, raw pointer ordering, and canvas-size input
+needed by `evaluateStroke`. `TraceCanvasSnapshot` must be a deep immutable copy:
+callers cannot mutate either the outer stroke list or any inner point list. A
+rejected stroke remains briefly as an error ghost. Each consumer owns its
+expected-stroke index, per-index failure count, acceptance/advance timer, and
+error-ghost timer; after two failures at the same expected index it asks the
+controller to display the next-stroke hint. Pointer cancel, controller/widget
+replacement, reset, and dispose with an active gesture must leave no orphaned
+stroke or timer callback.
 
 **TDD steps:**
 
-1. Add TraceCanvas tests for pointer input, ordered stroke snapshots, reset, rejected-stroke ghost, two-failure hint, semantics, and dispose with an active gesture.
+1. Add TraceCanvas tests for raw pointer input/cancel, deeply immutable ordered stroke snapshots, reset, rejected-stroke ghost, next-stroke hint, semantics, controller replacement, and dispose with an active gesture.
 2. Confirm tests fail because the public widget/controller do not exist.
 3. Move the private `_PracticeCanvas` implementation from `hangul_screen.dart` without visual changes and migrate Hangul to the public API.
 4. Model Daily Character as `appreciation → tracing → complete`; keep the existing `StrokeCanvas` appreciation animation.
-5. Match every finished stroke with `StrokeMatcher`; reject wrong strokes, increment the per-index failure count, and only enable Finish after all strokes match.
+5. Match every finished stroke with `StrokeMatcher`; reject wrong strokes, increment the per-index failure count, reveal the next-stroke hint on the second failure at that index, reset that count after acceptance/reset, and only enable Finish after all strokes match. Cancel all timers in `dispose`.
 6. Preserve the existing no-stroke-data fallback as a clearly labeled non-tracing completion path.
 7. Run `flutter test --no-pub test/trace_canvas_test.dart test/stroke_canvas_test.dart test/stroke_matcher_test.dart` plus Hangul/Daily Character widget tests.
 
@@ -78,7 +102,8 @@ The extracted painter preserves current Hangul practice behavior. A rejected str
 **Files:**
 
 - Modify: `lib/screens/quest_engines/quest_flow.dart`
-- Modify: quest engine screens that build `SoriWordTile`
+- Modify: `lib/screens/quest_engines/batchim_drop_quest.dart`
+- Modify: `lib/screens/quest_engines/satz_bauen_quest.dart`
 - Modify: `test/quest_engines_uiux_test.dart`
 - Verify: `test/dedicated_feedback_route_test.dart`
 - Verify: `test/scenario_can_do_result_flow_test.dart`
@@ -106,14 +131,18 @@ The extracted painter preserves current Hangul practice behavior. A rejected str
 - Modify: `test/quest_explicit_flow_test.dart`
 - Modify: `test/quest_engines_uiux_test.dart`
 
-**Interface:** add nullable `promptKo` to `DiktatQuest`; scenario player passes the quest's canonical Korean prompt. Before resolution it is never rendered or included in semantics. After correct/failed resolution it appears in the review block.
+**Live interface:** do not add a parallel `promptKo` constructor argument.
+`DiktatQuest` already receives the canonical Korean source as
+`data['targetKo']`; use that existing value for review. A null/empty value hides
+the review. Before resolution it is never rendered or included in semantics.
+After correct/failed resolution it appears in the review block.
 
 **TDD steps:**
 
-1. Add tests proving `promptKo` is absent before judgment and visible after resolution, including semantics.
+1. Add tests proving canonical `targetKo` is absent before judgment and visible after resolution, including semantics; cover null/empty data.
 2. Add layout tests for a 56 dp normal audio control and a 56 dp slow control with visible localized `Langsam` label.
 3. Confirm current tests fail because the audio control is 84 dp and Korean review is absent.
-4. Implement the optional argument and post-resolution review; remove the dedicated `QuestLayout(showTtsSpeed: true)` row and use the compact paired controls.
+4. Implement the post-resolution review from existing `targetKo`; remove the dedicated `QuestLayout(showTtsSpeed: true)` row and use the compact paired controls.
 5. Preserve explicit confirmation and two-attempt behavior.
 6. Run all three Diktat/quest suites.
 
@@ -132,12 +161,22 @@ The extracted painter preserves current Hangul practice behavior. A rejected str
 **Interface:**
 
 ```dart
-typedef ScenarioGrammarLoader = Future<Map<String, GrammarEntry>> Function();
+typedef ScenarioGrammarLoader = Future<List<Grammar>> Function();
 ```
 
-The screen accepts an optional loader defaulting to `DataLoader.loadGrammar`. It resolves `Scenario.grammarIds` in declared order, skips missing IDs without crashing, and retains `grammarBlock` as an inline fallback. One resolved entry is enlarged; multiple entries form a vertical list whose cards open an accessible detail sheet.
+The live model is `Grammar`, and `DataLoader.loadGrammar()` returns
+`Future<List<Grammar>>`. The screen accepts an optional loader defaulting to
+that method, builds an internal ID map, resolves `Scenario.grammarIds` in
+declared order, skips missing IDs without crashing, and retains `grammarBlock`
+as an inline fallback. One resolved entry is enlarged; multiple entries form a
+vertical list whose cards open an accessible detail sheet.
 
-`ScenarioWriteAfterRoleplayCard` receives required `promptKo`, derived from the last user-authored dialog line. The card shows exactly that one sentence, offers the existing writing check, and adds Skip that collapses the optional card without recording a false completion.
+`ScenarioWriteAfterRoleplayCard` receives required `promptKo`, derived from the
+last non-empty user-authored dialog line. The card shows exactly that one
+sentence, offers the existing writing check, and adds Skip that collapses the
+optional card without calling the checker or recording score, SRS, or
+completion. If no non-empty user-authored line exists, the parent hides the
+writing card.
 
 **TDD steps:**
 
@@ -150,24 +189,24 @@ The screen accepts an optional loader defaulting to `DataLoader.loadGrammar`. It
 
 **Commit:** `feat(scenarios): resolve grammar references and focus writing prompt`
 
-### Task 5: compress Anlaut chrome
+### Task 5: audit the already-compressed Anlaut chrome (expected no-op)
 
 **Files:**
 
-- Modify: `lib/screens/chosung_quiz_screen.dart`
-- Modify: Anlaut/chosung widget and responsive tests
+- Verify: `lib/screens/chosung_quiz_screen.dart`
+- Verify: Anlaut/chosung widget and responsive tests
 - Verify: `test/chrome_stack_guard_test.dart`
 - Verify: `test/hero_placement_guard_test.dart`
 
 **TDD steps:**
 
-1. Add narrow-screen and text-scale 2.0 tests asserting one chrome row, one progress rail, visible prompt content, and no overflow.
-2. Confirm current HanokHeader plus four Wrap stacks violate the guards/layout assertion.
-3. Replace them with one `SoriChromeRow` wired to the W5-A level/mode filter sheet, followed by a compact meta row and progress rail.
+1. Confirm the live W5-A screen already exposes exactly one `SoriChromeRow`, one progress rail, the level/mode filter sheet, and no private chip rail.
+2. Run narrow-screen and text-scale 2.0 coverage plus both static guards.
+3. Add only genuinely missing regression coverage; do not rewrite the live implementation merely to produce a W5-B diff.
 4. Keep all quiz state and answer semantics unchanged.
-5. Run focused tests and both guards.
 
-**Commit:** `refactor(anlaut): reclaim play space with compact chrome`
+**Commit:** none expected; if and only if a real coverage gap is found, include
+the focused regression test with the nearest implementation task.
 
 ### Task 6: synchronized Silben grid and clue states
 
@@ -179,6 +218,12 @@ The screen accepts an optional loader defaulting to `DataLoader.loadGrammar`. It
 - Create or modify: Silben screen widget test
 
 **Contract:** selected cell uses information tint plus a 2 dp border; the active word lane uses a 0.06 tint; crossing cells show non-color horizontal/vertical corner wedges derived from each `SilbenWord.dir`; tapping a clue selects its first unresolved cell; selecting a grid cell highlights the matching clue; semantics announce row/column, membership, active word, and correctness.
+
+At a crossing, active-word choice is deterministic: retain the current active
+word when it contains the selected cell; otherwise choose the first matching
+word in the puzzle's declared word order. Existing `_wordThrough` behavior is
+the baseline to preserve while adding synchronized clue state and non-color
+wedges.
 
 **TDD steps:**
 
@@ -205,9 +250,16 @@ The screen accepts an optional loader defaulting to `DataLoader.loadGrammar`. It
 
 **State contract:** map `invalidRequest`, `authenticationRequired`, `unavailable`, `rateLimited`, and `unknown` to five distinct DE/EN explanations and retry affordances. Preserve microphone consent/permission, recorder, gateway, and assessment behavior.
 
+These five categories already exist in
+`PronunciationAssessmentFailureCategory`; W5-B changes the screen mapping, not
+the callable service contract. Assessment retry preserves the captured PCM or
+recording reference and reuses the same `assessmentId` for idempotency. Guard
+late async completions with a generation/cancel token so retry, navigation, and
+dispose cannot apply stale state. The callable remains in `europe-west3`.
+
 **TDD steps:**
 
-1. Add tests for all five failure categories, permission denial, recorder failure, assessment retry, and dispose while recording/assessing.
+1. Add tests for all five failure categories, permission denial, recorder failure, idempotent assessment retry with the same recording and `assessmentId`, stale-completion suppression, and dispose while recording/assessing.
 2. Add presentation tests for `SoriStudyFrame`, no tiger/hero asset, Korean phrase as `koDisplay`, one speech indicator/listen action, one primary record CTA, and vertical diagnostic feed.
 3. Confirm the current generic failure/hero assertions fail.
 4. Rebuild the screen with existing operations injected; use W5-A home confirm while recording/assessing.
