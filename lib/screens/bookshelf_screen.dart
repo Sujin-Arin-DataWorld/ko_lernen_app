@@ -181,6 +181,7 @@ class BookshelfBody extends StatefulWidget {
       Spacing.xxl,
     ),
     this.showEmbeddedActions = true,
+    this.showEmbeddedSearchAndPhoto = true,
     this.onEmptyChanged,
   });
 
@@ -188,6 +189,7 @@ class BookshelfBody extends StatefulWidget {
   final SharedPackRedeemer? sharedPackRedeemer;
   final EdgeInsets padding;
   final bool showEmbeddedActions;
+  final bool showEmbeddedSearchAndPhoto;
   final ValueChanged<bool>? onEmptyChanged;
 
   @override
@@ -295,10 +297,10 @@ class _BookshelfBodyState extends State<BookshelfBody> {
         spacing: Spacing.xs,
         runSpacing: Spacing.xs,
         children: [
-          _searchAction(t),
+          if (widget.showEmbeddedSearchAndPhoto) _searchAction(t),
           _createAction(t),
           _redeemAction(t),
-          _photoAction(t),
+          if (widget.showEmbeddedSearchAndPhoto) _photoAction(t),
         ],
       ),
     );

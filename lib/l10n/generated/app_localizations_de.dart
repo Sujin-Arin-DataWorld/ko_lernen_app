@@ -4557,6 +4557,24 @@ class AppL10nDe extends AppL10n {
   String get wbSearchTitle => 'Meine Wörter';
 
   @override
+  String get myWordsTitle => 'Meine Wörter';
+
+  @override
+  String get myWordsTabSearch => 'Suchen';
+
+  @override
+  String get myWordsTabShelf => 'Regal';
+
+  @override
+  String get myWordsTabDifficult => 'Schwierig';
+
+  @override
+  String get myWordsPhotoAction => '+ Foto';
+
+  @override
+  String get myWordsPhotoSheetTitle => 'Wörter aus einem Foto';
+
+  @override
   String get wbSearchHint => 'Wort oder Bedeutung suchen …';
 
   @override

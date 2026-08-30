@@ -7938,6 +7938,42 @@ abstract class AppL10n {
   /// **'Meine Wörter'**
   String get wbSearchTitle;
 
+  /// No description provided for @myWordsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Meine Wörter'**
+  String get myWordsTitle;
+
+  /// No description provided for @myWordsTabSearch.
+  ///
+  /// In de, this message translates to:
+  /// **'Suchen'**
+  String get myWordsTabSearch;
+
+  /// No description provided for @myWordsTabShelf.
+  ///
+  /// In de, this message translates to:
+  /// **'Regal'**
+  String get myWordsTabShelf;
+
+  /// No description provided for @myWordsTabDifficult.
+  ///
+  /// In de, this message translates to:
+  /// **'Schwierig'**
+  String get myWordsTabDifficult;
+
+  /// No description provided for @myWordsPhotoAction.
+  ///
+  /// In de, this message translates to:
+  /// **'+ Foto'**
+  String get myWordsPhotoAction;
+
+  /// No description provided for @myWordsPhotoSheetTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wörter aus einem Foto'**
+  String get myWordsPhotoSheetTitle;
+
   /// No description provided for @wbSearchHint.
   ///
   /// In de, this message translates to:
