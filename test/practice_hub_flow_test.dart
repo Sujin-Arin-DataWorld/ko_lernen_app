@@ -115,4 +115,40 @@ void main() {
     expect(find.text(t.soriStageNavLearn), findsWidgets);
     await tester.pump(const Duration(seconds: 1));
   });
+
+  testWidgets('My words purpose opens the canonical consolidated route', (
+    tester,
+  ) async {
+    final opened = <String>[];
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.light,
+        locale: const Locale('de'),
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        onGenerateRoute: (settings) {
+          opened.add(settings.name ?? '');
+          return MaterialPageRoute<void>(
+            settings: settings,
+            builder: (_) => Scaffold(body: Text(settings.name ?? '')),
+          );
+        },
+        home: const PracticeHubScreen.preview(previewDueCount: 0),
+      ),
+    );
+    await tester.pump();
+
+    final words = find.byKey(const ValueKey('practice-purpose-words'));
+    await tester.scrollUntilVisible(
+      words,
+      240,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(words);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+
+    expect(opened, ['/my_words']);
+    expect(find.text('/my_words'), findsOneWidget);
+  });
 }

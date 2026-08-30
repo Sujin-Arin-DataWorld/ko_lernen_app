@@ -148,6 +148,7 @@ class ActivityCatalogEntry {
     required this.colorRole,
     required this.iconName,
     required this.reward,
+    this.ownsRoute = true,
     this.detailRouteAliases = const <String>[],
     this.unlock = const ActivityUnlockCondition.unlocked(),
     this.arguments,
@@ -163,6 +164,7 @@ class ActivityCatalogEntry {
   final SoriActivityColorRole colorRole;
   final String iconName;
   final RewardContract reward;
+  final bool ownsRoute;
   final List<String> detailRouteAliases;
   final ActivityUnlockCondition unlock;
 }

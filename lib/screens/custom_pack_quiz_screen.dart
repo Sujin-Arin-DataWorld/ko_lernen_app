@@ -433,7 +433,9 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
               icon: Icons.menu_book_outlined,
               variant: SoriButtonVariant.outlined,
               fullWidth: true,
-              onTap: () => Navigator.of(context).maybePop(),
+              onTap: () => Navigator.of(
+                context,
+              ).pushNamedAndRemoveUntil('/my_words', (route) => route.isFirst),
             ),
           ],
         ),

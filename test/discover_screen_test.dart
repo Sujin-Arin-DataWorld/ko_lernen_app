@@ -78,7 +78,7 @@ void main() {
       (key: 'book', route: '/book'),
       (key: 'notebook', route: '/vocab_notebook'),
       (key: 'pronunciation', route: '/listening'),
-      (key: 'words', route: '/wordbook/search'),
+      (key: 'words', route: '/my_words'),
     ]) {
       final priority = find.byKey(ValueKey('discover-priority-${entry.key}'));
       await tester.scrollUntilVisible(

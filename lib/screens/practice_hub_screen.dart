@@ -121,10 +121,7 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
               title: t.practiceSecGames,
               items: _gameItems(t),
             ),
-            onWords: () => _openPurposePicker(
-              title: t.practiceSecWords,
-              items: _wordItems(t),
-            ),
+            onWords: () => Navigator.pushNamed(context, '/my_words'),
           ),
         ),
         const SizedBox(height: Spacing.lg),

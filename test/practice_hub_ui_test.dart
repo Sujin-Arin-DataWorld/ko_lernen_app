@@ -119,39 +119,40 @@ void main() {
     },
   );
 
-  testWidgets('purpose sheets keep every established destination reachable', (
-    tester,
-  ) async {
-    for (final locale in const [Locale('de'), Locale('en')]) {
-      await _pumpPractice(
-        tester,
-        locale: locale,
-        size: const Size(320, 640),
-        textScale: 2,
-        dueCount: 12,
-      );
-      final t = AppL10n.of(tester.element(find.byType(PracticeHubScreen)));
+  testWidgets(
+    'purpose sheets and expanded word tools keep destinations reachable',
+    (tester) async {
+      for (final locale in const [Locale('de'), Locale('en')]) {
+        await _pumpPractice(
+          tester,
+          locale: locale,
+          size: const Size(320, 640),
+          textScale: 2,
+          dueCount: 12,
+        );
+        final t = AppL10n.of(tester.element(find.byType(PracticeHubScreen)));
 
-      await _openPurpose(tester, const ValueKey('practice-purpose-focused'));
-      expect(find.text(t.moduleHangulTitle), findsOneWidget);
-      await _scrollSheetTo(tester, find.text(t.homeBookCardTitle));
-      expect(find.text(t.homeBookCardTitle), findsOneWidget);
-      await _closeSheet(tester);
+        await _openPurpose(tester, const ValueKey('practice-purpose-focused'));
+        expect(find.text(t.moduleHangulTitle), findsOneWidget);
+        await _scrollSheetTo(tester, find.text(t.homeBookCardTitle));
+        expect(find.text(t.homeBookCardTitle), findsOneWidget);
+        await _closeSheet(tester);
 
-      await _openPurpose(tester, const ValueKey('practice-purpose-free'));
-      expect(find.text(t.dailyTitle), findsOneWidget);
-      await _scrollSheetTo(tester, find.text(t.homeSmalltalkCardTitle));
-      expect(find.text(t.homeSmalltalkCardTitle), findsOneWidget);
-      await _closeSheet(tester);
+        await _openPurpose(tester, const ValueKey('practice-purpose-free'));
+        expect(find.text(t.dailyTitle), findsOneWidget);
+        await _scrollSheetTo(tester, find.text(t.homeSmalltalkCardTitle));
+        expect(find.text(t.homeSmalltalkCardTitle), findsOneWidget);
+        await _closeSheet(tester);
 
-      await _openPurpose(tester, const ValueKey('practice-purpose-words'));
-      expect(find.text(t.vocabNotebookTitle), findsOneWidget);
-      await _scrollSheetTo(tester, find.text(t.wordWebTitle));
-      expect(find.text(t.wordWebTitle), findsOneWidget);
-      expect(tester.takeException(), isNull);
-      await _closeSheet(tester);
-    }
-  });
+        await _showAllActivities(tester);
+        await _scrollPageTo(tester, find.text(t.vocabNotebookTitle));
+        expect(find.text(t.vocabNotebookTitle), findsOneWidget);
+        await _scrollPageTo(tester, find.text(t.wordWebTitle));
+        expect(find.text(t.wordWebTitle), findsOneWidget);
+        expect(tester.takeException(), isNull);
+      }
+    },
+  );
 
   testWidgets(
     'all-activity cards reflow at narrow large text and pair when wide',
@@ -229,6 +230,8 @@ Finder get _sheetScrollable => find.descendant(
 Future<void> _showAllActivities(WidgetTester tester) async {
   final button = find.byKey(const ValueKey('practice-all-activities'));
   await tester.scrollUntilVisible(button, 260, scrollable: _pageScrollable);
+  await tester.ensureVisible(button);
+  await tester.pump();
   await tester.tap(button);
   await tester.pump();
 }
