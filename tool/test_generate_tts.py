@@ -22,6 +22,194 @@ class TtsGeneratorContractTest(unittest.TestCase):
             "tts/v3/female/d84734f7d89bbd707dc52168c47309aed72b7f80.mp3",
         )
 
+    def test_first_line_manifest_covers_exact_canonical_scenarios(self):
+        manifest = generate_tts.build_first_line_manifest(generate_tts.ROOT)
+
+        self.assertEqual(manifest["schemaVersion"], 1)
+        self.assertEqual(manifest["kind"], "tts_first_line_manifest")
+        self.assertEqual(manifest["cacheRevision"], "v3")
+        self.assertEqual(manifest["scenarioCount"], 413)
+        self.assertEqual(len(manifest["items"]), 413)
+        self.assertEqual(manifest["bundledCount"], 0)
+        ids = [item["scenarioId"] for item in manifest["items"]]
+        self.assertEqual(len(ids), len(set(ids)))
+        order = [
+            (item["sourceShard"], item["scenarioId"])
+            for item in manifest["items"]
+        ]
+        self.assertEqual(order, sorted(order))
+        self.assertEqual(
+            set(manifest["generatedFrom"]),
+            {
+                "assets/data/scenarios_a1.json",
+                "assets/data/scenarios_a2.json",
+                "assets/data/scenarios_b1.json",
+                "assets/data/scenarios_b2.json",
+                "assets/data/scenarios_c1.json",
+                "assets/data/scenarios_c2.json",
+            },
+        )
+        self.assertTrue(
+            all(len(item["sourceSha256"]) == 64 for item in manifest["items"])
+        )
+        self.assertTrue(all(not item["bundled"] for item in manifest["items"]))
+        self.assertTrue(
+            all(item["bundledAssetPath"] is None for item in manifest["items"])
+        )
+        self.assertTrue(
+            all(item["bundledSha256"] is None for item in manifest["items"])
+        )
+
+    def test_first_line_manifest_selects_first_dialog_and_legacy_voice_rule(self):
+        payload = {
+            "scenarios": [
+                {
+                    "id": "z_user_first",
+                    "dialog": [
+                        {"speaker": "user", "ko": "  안녕하세요  "},
+                        {"speaker": "officer", "ko": "두 번째 줄"},
+                    ],
+                },
+                {
+                    "id": "a_officer_first",
+                    "dialog": [
+                        {"speaker": "officer", "ko": "여권 보여주세요."},
+                        {"speaker": "user", "ko": "여기 있어요."},
+                    ],
+                },
+            ]
+        }
+        with tempfile.TemporaryDirectory() as temp:
+            root = os.path.abspath(temp)
+            data_dir = os.path.join(root, "assets", "data")
+            os.makedirs(data_dir)
+            with open(
+                os.path.join(data_dir, "scenarios_a1.json"),
+                "w",
+                encoding="utf-8",
+            ) as handle:
+                json.dump(payload, handle, ensure_ascii=False)
+
+            manifest = generate_tts.build_first_line_manifest(root)
+
+        by_id = {item["scenarioId"]: item for item in manifest["items"]}
+        user = by_id["z_user_first"]
+        self.assertEqual(user["firstDialogKo"], "안녕하세요")
+        self.assertEqual(user["normalizedText"], "안녕하세요")
+        self.assertEqual(user["speakerRole"], "user")
+        self.assertEqual(user["voice"], "female")
+        self.assertEqual(
+            user["storagePath"],
+            generate_tts.cache_relative_path("female", "안녕하세요"),
+        )
+        self.assertEqual(user["cacheHashSha1"], user["storagePath"].split("/")[-1][:-4])
+        officer = by_id["a_officer_first"]
+        self.assertEqual(officer["firstDialogKo"], "여권 보여주세요.")
+        self.assertEqual(officer["voice"], "male")
+
+    def test_first_line_manifest_render_is_byte_stable(self):
+        manifest = generate_tts.build_first_line_manifest(generate_tts.ROOT)
+        first = generate_tts.render_first_line_manifest(manifest)
+        second = generate_tts.render_first_line_manifest(manifest)
+
+        self.assertEqual(first, second)
+        self.assertTrue(first.endswith("\n"))
+        self.assertNotIn("\r", first)
+
+    def test_checked_first_line_manifest_matches_current_canonical_sources(self):
+        expected = generate_tts.build_first_line_manifest(generate_tts.ROOT)
+        path = os.path.join(
+            generate_tts.ROOT,
+            "assets",
+            "data",
+            "tts_first_line_manifest.json",
+        )
+        with open(path, encoding="utf-8") as handle:
+            checked = json.load(handle)
+
+        self.assertEqual(checked, expected)
+
+    def test_first_line_manifest_rejects_duplicate_id_and_missing_first_dialog(self):
+        with tempfile.TemporaryDirectory() as temp:
+            data_dir = os.path.join(temp, "assets", "data")
+            os.makedirs(data_dir)
+            with open(
+                os.path.join(data_dir, "scenarios_a1.json"),
+                "w",
+                encoding="utf-8",
+            ) as handle:
+                json.dump(
+                    {
+                        "scenarios": [
+                            {"id": "duplicate", "dialog": []},
+                            {"id": "duplicate", "dialog": []},
+                        ]
+                    },
+                    handle,
+                )
+            with self.assertRaisesRegex(ValueError, "Duplicate canonical scenario ID"):
+                generate_tts.build_first_line_manifest(temp)
+
+        with tempfile.TemporaryDirectory() as temp:
+            data_dir = os.path.join(temp, "assets", "data")
+            os.makedirs(data_dir)
+            with open(
+                os.path.join(data_dir, "scenarios_a1.json"),
+                "w",
+                encoding="utf-8",
+            ) as handle:
+                json.dump({"scenarios": [{"id": "empty", "dialog": []}]}, handle)
+            with self.assertRaisesRegex(ValueError, "first Korean dialog"):
+                generate_tts.build_first_line_manifest(temp)
+
+    def test_first_line_manifest_cli_never_uses_auth_synthesis_or_network(self):
+        with tempfile.TemporaryDirectory() as temp:
+            output = os.path.join(temp, "manifest.json")
+            with (
+                patch.object(generate_tts, "_auth") as auth,
+                patch.object(generate_tts, "synth") as synth,
+                patch.object(generate_tts, "remote_cache_objects") as remote,
+                patch.object(generate_tts.subprocess, "run") as run,
+                patch.object(generate_tts.subprocess, "check_output") as check_output,
+                patch("builtins.print"),
+            ):
+                result = generate_tts.main(
+                    ["--write-first-line-manifest", output]
+                )
+
+            self.assertEqual(result, 0)
+            with open(output, encoding="utf-8") as handle:
+                written = json.load(handle)
+
+        self.assertEqual(written["scenarioCount"], 413)
+        auth.assert_not_called()
+        synth.assert_not_called()
+        remote.assert_not_called()
+        run.assert_not_called()
+        check_output.assert_not_called()
+
+    def test_first_line_manifest_check_detects_drift_without_writing(self):
+        with tempfile.TemporaryDirectory() as temp:
+            output = os.path.join(temp, "manifest.json")
+            with open(output, "w", encoding="utf-8", newline="\n") as handle:
+                handle.write("stale\n")
+            with patch("builtins.print"):
+                drift = generate_tts.main(
+                    ["--check-first-line-manifest", output]
+                )
+            with open(output, encoding="utf-8") as handle:
+                unchanged = handle.read()
+            expected = generate_tts.build_first_line_manifest(generate_tts.ROOT)
+            generate_tts.write_first_line_manifest(output, expected)
+            with patch("builtins.print"):
+                clean = generate_tts.main(
+                    ["--check-first-line-manifest", output]
+                )
+
+        self.assertEqual(drift, 1)
+        self.assertEqual(unchanged, "stale\n")
+        self.assertEqual(clean, 0)
+
     def test_scenario_pending_manifest_is_an_exact_validated_scope(self):
         voice = "female"
         text = "기사님, 천천히 좀 가 주실 수 있을까요?"

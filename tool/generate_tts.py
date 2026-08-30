@@ -143,8 +143,17 @@ def auto_voice(text):
 def cache_relative_path(voice, text):
     voice_key = normalize_voice(voice)
     normalized_text = str(text).strip()
-    digest = hashlib.sha1(f"{voice_key}|{normalized_text}".encode("utf-8")).hexdigest()
+    digest = cache_sha1(voice_key, normalized_text)
     return f"tts/{TTS_CACHE_REVISION}/{voice_key}/{digest}.mp3"
+
+
+def cache_sha1(voice, text):
+    """Return the Dart/Cloud Function cache hash for one normalized request."""
+    voice_key = normalize_voice(voice)
+    normalized_text = str(text).strip()
+    return hashlib.sha1(
+        f"{voice_key}|{normalized_text}".encode("utf-8")
+    ).hexdigest()
 
 
 def _canonical_json_sha256(value):
@@ -155,6 +164,209 @@ def _canonical_json_sha256(value):
         separators=(",", ":"),
     )
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
+FIRST_LINE_MANIFEST_SCHEMA_VERSION = 1
+FIRST_LINE_LOCAL_SOURCE_ROOTS = (".tts_pregen", "assets/tts", "assets_unused/tts")
+
+
+def load_canonical_scenario_sources(project_root=ROOT):
+    """Load sorted canonical shards with their immutable source-byte hashes."""
+    root = os.path.abspath(project_root)
+    data_dir = os.path.join(root, "assets", "data")
+    if not os.path.isdir(data_dir):
+        raise ValueError(f"canonical scenario directory is missing: {data_dir}")
+    names = sorted(
+        name
+        for name in os.listdir(data_dir)
+        if name.startswith("scenarios_") and name.endswith(".json")
+    )
+    if not names:
+        raise ValueError("no canonical scenarios_*.json shards found")
+
+    sources = []
+    for name in names:
+        path = os.path.join(data_dir, name)
+        with open(path, "rb") as handle:
+            raw = handle.read()
+        try:
+            payload = json.loads(raw.decode("utf-8"))
+        except (UnicodeDecodeError, json.JSONDecodeError) as error:
+            raise ValueError(f"invalid canonical scenario shard {name}: {error}") from error
+        scenarios = payload if isinstance(payload, list) else payload.get("scenarios", [])
+        if not isinstance(scenarios, list):
+            raise ValueError(f"canonical scenario shard {name} has no scenario list")
+        digest = hashlib.sha256(raw).hexdigest()
+        for index, scenario in enumerate(scenarios):
+            if not isinstance(scenario, dict):
+                raise ValueError(f"{name} scenario {index} must be an object")
+            sources.append(
+                {
+                    "sourceShard": name,
+                    "sourcePath": f"assets/data/{name}",
+                    "sourceSha256": digest,
+                    "scenario": scenario,
+                }
+            )
+    return sources
+
+
+def _usable_manifest_mp3(data):
+    if len(data) < 32:
+        return False
+    if data[:3] == b"ID3":
+        return True
+    return data[0] == 0xFF and (data[1] & 0xE0) == 0xE0
+
+
+def _pubspec_declares_tts_assets(project_root):
+    path = os.path.join(project_root, "pubspec.yaml")
+    try:
+        with open(path, encoding="utf-8") as handle:
+            source = handle.read()
+    except OSError:
+        return False
+    return re.search(r"(?m)^\s*-\s+assets/tts/\s*$", source) is not None
+
+
+def _bundled_first_line(project_root, voice, digest, storage_path):
+    """Return only a validated, actually bundle-declared runtime MP3.
+
+    `.tts_pregen` and `assets_unused/tts` are recognized local review/source
+    roots but can never become a rootBundle tier merely by existing.  Promotion
+    is explicit: bytes must live under `assets/tts/` and that directory must be
+    declared in pubspec.yaml.
+    """
+    # Resolve all approved local-source conventions without allowing a
+    # gitignored pre-generation cache to make the checked manifest machine-
+    # dependent.
+    _ = (
+        os.path.join(project_root, ".tts_pregen", *storage_path.split("/")),
+        os.path.join(
+            project_root,
+            "assets_unused",
+            "tts",
+            TTS_CACHE_REVISION,
+            voice,
+            f"{digest}.mp3",
+        ),
+    )
+    runtime = os.path.join(
+        project_root,
+        "assets",
+        "tts",
+        TTS_CACHE_REVISION,
+        voice,
+        f"{digest}.mp3",
+    )
+    if not os.path.isfile(runtime):
+        return None, None
+    if not _pubspec_declares_tts_assets(project_root):
+        raise ValueError(
+            "assets/tts contains first-line audio but pubspec.yaml does not bundle assets/tts/"
+        )
+    with open(runtime, "rb") as handle:
+        data = handle.read()
+    if not _usable_manifest_mp3(data):
+        relative = os.path.relpath(runtime, project_root).replace(os.sep, "/")
+        raise ValueError(f"bundled first-line audio is not a usable MP3: {relative}")
+    relative = os.path.relpath(runtime, project_root).replace(os.sep, "/")
+    return relative, hashlib.sha256(data).hexdigest()
+
+
+def build_first_line_manifest(project_root=ROOT):
+    """Build the network-free canonical first-dialog cache inventory."""
+    root = os.path.abspath(project_root)
+    sources = load_canonical_scenario_sources(root)
+    ids = []
+    for source in sources:
+        scenario_id = str(source["scenario"].get("id") or "").strip()
+        if not scenario_id:
+            raise ValueError(
+                f"{source['sourceShard']} contains a scenario without an ID"
+            )
+        ids.append(scenario_id)
+    duplicates = sorted({scenario_id for scenario_id in ids if ids.count(scenario_id) > 1})
+    if duplicates:
+        raise ValueError("Duplicate canonical scenario ID: " + ", ".join(duplicates))
+
+    items = []
+    for source in sorted(
+        sources,
+        key=lambda item: (
+            item["sourceShard"],
+            str(item["scenario"].get("id") or ""),
+        ),
+    ):
+        scenario = source["scenario"]
+        scenario_id = str(scenario["id"]).strip()
+        dialog = scenario.get("dialog")
+        if not isinstance(dialog, list) or not dialog or not isinstance(dialog[0], dict):
+            raise ValueError(f"Scenario {scenario_id!r} has no first Korean dialog")
+        first = dialog[0]
+        text = first.get("ko")
+        if not isinstance(text, str) or not text.strip():
+            raise ValueError(f"Scenario {scenario_id!r} has no first Korean dialog")
+        normalized_text = text.strip()
+        speaker = str(first.get("speaker") or "").strip().lower()
+        if not speaker:
+            raise ValueError(f"Scenario {scenario_id!r} has no first-dialog speaker")
+        voice = "female" if speaker == "user" else "male"
+        digest = cache_sha1(voice, normalized_text)
+        storage_path = cache_relative_path(voice, normalized_text)
+        bundled_path, bundled_sha256 = _bundled_first_line(
+            root,
+            voice,
+            digest,
+            storage_path,
+        )
+        items.append(
+            {
+                "scenarioId": scenario_id,
+                "sourceShard": source["sourceShard"],
+                "sourceSha256": source["sourceSha256"],
+                "firstDialogKo": normalized_text,
+                "speakerRole": speaker,
+                "voice": voice,
+                "normalizedText": normalized_text,
+                "cacheHashSha1": digest,
+                "storagePath": storage_path,
+                "bundledAssetPath": bundled_path,
+                "bundled": bundled_path is not None,
+                "bundledSha256": bundled_sha256,
+            }
+        )
+
+    generated_from = {
+        source["sourcePath"]: source["sourceSha256"]
+        for source in sorted(sources, key=lambda item: item["sourcePath"])
+    }
+    return {
+        "schemaVersion": FIRST_LINE_MANIFEST_SCHEMA_VERSION,
+        "kind": "tts_first_line_manifest",
+        "cacheRevision": TTS_CACHE_REVISION,
+        "localSourceRoots": list(FIRST_LINE_LOCAL_SOURCE_ROOTS),
+        "generatedFrom": generated_from,
+        "scenarioCount": len(items),
+        "bundledCount": sum(item["bundled"] for item in items),
+        "items": items,
+    }
+
+
+def render_first_line_manifest(manifest):
+    return json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
+
+
+def write_first_line_manifest(path, manifest):
+    target = os.path.abspath(path)
+    parent = os.path.dirname(target)
+    if parent:
+        os.makedirs(parent, exist_ok=True)
+    temporary = target + ".tmp"
+    with open(temporary, "w", encoding="utf-8", newline="\n") as handle:
+        handle.write(render_first_line_manifest(manifest))
+    os.replace(temporary, target)
+    return target
 
 
 def load_scenario_pending_manifest(path):
@@ -312,23 +524,13 @@ def collect():
         으로 쪼갰다. 파일 이름을 훑어 모으므로 레벨이 늘어도 따라간다.
         정본 로더는 tools/content_factory/scenario_store.py 이고 규칙은 같다.
         """
-        base = os.path.join(ROOT, "assets", "data")
-        names = sorted(
-            name
-            for name in os.listdir(base)
-            if name.startswith("scenarios_") and name.endswith(".json")
-        )
-        rows = []
-        for name in names:
-            data = _load_json(os.path.join("assets", "data", name))
-            rows.extend(
-                data if isinstance(data, list) else data.get("scenarios", [])
-            )
-        if not rows:
-            raise SystemExit(
-                "시나리오 샤드를 찾지 못했습니다: assets/data/scenarios_*.json"
-            )
-        return rows
+        try:
+            return [
+                source["scenario"]
+                for source in load_canonical_scenario_sources(ROOT)
+            ]
+        except ValueError as error:
+            raise SystemExit(str(error)) from error
 
     def _scenario_character_voices():
         path = os.path.join(
@@ -798,6 +1000,22 @@ def _parse_args(argv=None):
         action="store_true",
         help="List collected utterances without authentication, synthesis, or upload.",
     )
+    modes.add_argument(
+        "--write-first-line-manifest",
+        metavar="PATH",
+        help=(
+            "Write the canonical scenario first-dialog cache manifest without "
+            "authentication, synthesis, upload, or remote reads."
+        ),
+    )
+    modes.add_argument(
+        "--check-first-line-manifest",
+        metavar="PATH",
+        help=(
+            "Fail without writing when the canonical first-dialog manifest "
+            "differs from PATH."
+        ),
+    )
     parser.add_argument(
         "--workers",
         type=int,
@@ -838,6 +1056,16 @@ def _parse_args(argv=None):
         )
     if args.demo and args.scenario_pending_manifest:
         parser.error("--demo cannot be combined with --scenario-pending-manifest")
+    if (args.write_first_line_manifest or args.check_first_line_manifest) and (
+        args.missing_from_storage
+        or args.verify_storage
+        or args.scenario_pending_manifest
+        or args.verification_output
+    ):
+        parser.error(
+            "--write-first-line-manifest cannot be combined with Storage or "
+            "scenario-pending operations"
+        )
     return args
 
 
@@ -861,6 +1089,33 @@ def _print_dry_run(pairs):
 
 def main(argv=None):
     args = _parse_args(argv)
+
+    first_line_path = (
+        args.write_first_line_manifest or args.check_first_line_manifest
+    )
+    if first_line_path:
+        try:
+            manifest = build_first_line_manifest(ROOT)
+            if args.check_first_line_manifest:
+                expected = render_first_line_manifest(manifest)
+                try:
+                    with open(first_line_path, encoding="utf-8") as handle:
+                        actual = handle.read()
+                except OSError:
+                    actual = None
+                if actual != expected:
+                    print(f"first-line manifest drift: {os.path.abspath(first_line_path)}")
+                    return 1
+                target = os.path.abspath(first_line_path)
+            else:
+                target = write_first_line_manifest(first_line_path, manifest)
+        except (OSError, json.JSONDecodeError, ValueError) as error:
+            raise SystemExit(f"TTS manifest generation stopped: {error}") from error
+        print(
+            f"first-line manifest: {manifest['scenarioCount']} scenarios, "
+            f"{manifest['bundledCount']} bundled -> {target}"
+        )
+        return 0
 
     if args.demo:
         if not API_KEY:

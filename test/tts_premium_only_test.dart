@@ -53,41 +53,47 @@ void main() {
     expect(platform, isA<TtsPlaybackPlatform>());
   });
 
-  test('로컬 캐시 읽기 실패는 TimeoutException 외의 예외도 잡아 Storage 로 넘어간다 (finding 1a)', () {
-    final source = File('lib/services/tts_service.dart').readAsStringSync();
-    // 클래스 독스트링(파일 상단)에도 "/// 1. 로컬 캐시 mp3 → ..." 요약이 있고
-    // '///' 는 '//' 를 부분 문자열로 포함하므로, 마침표까지 포함한 좁은
-    // 앵커로 실제 코드 섹션(744행 부근)만 골라낸다 — 독스트링 쪽은
-    // "로컬 캐시 mp3" 로 이어져 마침표가 없어 매치되지 않는다.
-    final tierOneStart = source.indexOf('// 1. 로컬 캐시. ');
-    final tierTwoStart = source.indexOf('// 2. Firebase Storage (', tierOneStart);
-    expect(tierOneStart, greaterThanOrEqualTo(0));
-    expect(tierTwoStart, greaterThan(tierOneStart));
-    final tierOneBlock = source.substring(tierOneStart, tierTwoStart);
+  test(
+    '로컬 캐시 읽기 실패는 TimeoutException 외의 예외도 잡아 Storage 로 넘어간다 (finding 1a)',
+    () {
+      final source = File('lib/services/tts_service.dart').readAsStringSync();
+      // 클래스 독스트링에도 "/// 2. 로컬 캐시 mp3 → ..." 요약이 있고
+      // '///' 는 '//' 를 부분 문자열로 포함하므로, 마침표까지 포함한 좁은
+      // 앵커로 실제 코드 섹션만 골라낸다 — 독스트링 쪽은
+      // "로컬 캐시 mp3" 로 이어져 마침표가 없어 매치되지 않는다.
+      final localCacheStart = source.indexOf('// 2. 로컬 캐시. ');
+      final storageStart = source.indexOf(
+        '// 3. Firebase Storage (',
+        localCacheStart,
+      );
+      expect(localCacheStart, greaterThanOrEqualTo(0));
+      expect(storageStart, greaterThan(localCacheStart));
+      final localCacheBlock = source.substring(localCacheStart, storageStart);
 
-    expect(
-      tierOneBlock,
-      contains('on TimeoutException'),
-      reason: '느린 디스크는 여전히 시한으로 잡아야 한다',
-    );
-    // tierOneBlock 안에는 file.delete() 실패를 삼키는 무관한 내부
-    // catch(_) 가 이미 있다(정상 — junk 파일을 지우다 실패해도 무시). 그건
-    // `on TimeoutException` **앞**에 나오므로, 검사 대상을
-    // `on TimeoutException` **뒤** 구간으로 좁혀 그 내부 catch 를
-    // 오탐하지 않게 한다 — 우리가 확인해야 하는 건 TimeoutException 절
-    // 바로 뒤에 일반 catch(_) 가 이어지는지다.
-    final afterTimeout = tierOneBlock.substring(
-      tierOneBlock.indexOf('on TimeoutException'),
-    );
-    expect(
-      RegExp(r'\}\s*catch\s*\(_\)\s*\{').hasMatch(afterTimeout),
-      isTrue,
-      reason:
-          'TimeoutException 전용 catch 뒤에 일반 catch(_) 가 없으면 '
-          'FileSystemException 등이 _resolveAudio 전체를 throw 해 '
-          'Storage/CF 폴백을 건너뛴다 (finding 1a)',
-    );
-  });
+      expect(
+        localCacheBlock,
+        contains('on TimeoutException'),
+        reason: '느린 디스크는 여전히 시한으로 잡아야 한다',
+      );
+      // localCacheBlock 안에는 file.delete() 실패를 삼키는 무관한 내부
+      // catch(_) 가 이미 있다(정상 — junk 파일을 지우다 실패해도 무시). 그건
+      // `on TimeoutException` **앞**에 나오므로, 검사 대상을
+      // `on TimeoutException` **뒤** 구간으로 좁혀 그 내부 catch 를
+      // 오탐하지 않게 한다 — 우리가 확인해야 하는 건 TimeoutException 절
+      // 바로 뒤에 일반 catch(_) 가 이어지는지다.
+      final afterTimeout = localCacheBlock.substring(
+        localCacheBlock.indexOf('on TimeoutException'),
+      );
+      expect(
+        RegExp(r'\}\s*catch\s*\(_\)\s*\{').hasMatch(afterTimeout),
+        isTrue,
+        reason:
+            'TimeoutException 전용 catch 뒤에 일반 catch(_) 가 없으면 '
+            'FileSystemException 등이 _resolveAudio 전체를 throw 해 '
+            'Storage/CF 폴백을 건너뛴다 (finding 1a)',
+      );
+    },
+  );
 
   group('프리미엄이 없으면 — 무음이되 조용하지 않다', () {
     test('해결 실패는 재생을 시작하지 않고 사유를 남긴다', () async {

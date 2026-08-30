@@ -3,8 +3,7 @@
 **Status:** Accepted — 2026-08-02 구현 (Jin 지시 "이 세션에서 진행"). §9 단계 1·3·4·5 완료:
 `lib/services/audio_policy.dart` + `kl_snd_*` Storage 키 + 설정 UI(Ton 섹션) + 볼륨 리터럴
 이관(래칫 `test/audio_policy_guard_test.dart`) + 더킹 훅(`TtsService.speaking`) + AudioContext.
-**잔여:** §9-2 게인 자동화 도구(`tool/measure_audio_gain.py` — 현재는 §4 실측표를
-audio_policy.dart 상수로 이관) · §9-6 ambience 화면 배선(§11-1 Jin 결정 대기 — 그 전까지
+**잔여:** §9-6 ambience 화면 배선(§11-1 Jin 결정 대기 — 그 전까지
 설정의 Hintergrundklänge·더킹 토글은 가청 효과 없음) · §7-1 speech 음소거 스낵바 +
 ambience/cinematic 미리듣기 2종(영상 오디오라 lease 경유 필요) · §5-2 복원 250ms 램프
 (현재 200ms 지연 후 즉시 복원 — ambience 배선 시 함께) · §6-5 설정 위젯 테스트 ·
@@ -273,6 +272,19 @@ python tool/measure_audio_gain.py          # 측정 + 리포트 갱신
 python tool/measure_audio_gain.py --check  # 검사만 (CI)
 ```
 
+**2026-08-30 자동화 완료:** 번들 대상 `assets/sfx/*.{wav,mp3}`와
+`assets/video/**/*.{mp4,mov,m4v,webm}`를 전부 열어 SHA-256·코덱·채널·샘플레이트·길이·
+mean/max dB·integrated LUFS·true peak를 기록한다. 현재 기준은 **46파일 / 오디오 스트림
+24개 / 디코더 오류 0개 / 목표 위반 0개**다. 아주 짧은 유효 원샷은 loudnorm의
+integrated LUFS가 `-inf`일 수 있어 JSON에는 `null`로 기록하지만 디코더 오류로
+오인하지 않는다.
+
+목표 수치는 위에서 승인한 `ambience −40 dB`, `cinematic −29 dB`만 가진다.
+`gameFeedback`과 `companion`은 디코딩·coverage·실측을 잠그는 **audit-only**이며,
+승인되지 않은 목표를 만들지 않는다. `test/audio_gain_contract_test.dart`는 디스크와
+리포트의 정확한 집합, 오류 0, 채널별 목표, 그리고 계산 게인과 런타임
+`AudioPolicy.gainFor`의 일치를 함께 검사한다.
+
 ---
 
 ## 5. TTS 더킹 — 발음을 소리로 덮지 않는다
@@ -363,8 +375,10 @@ Storage 키 · 기본 on · 기본 볼륨 · `app_de.arb` 라벨 · `app_de.arb`
 
 ### 6-4. `test/audio_gain_contract_test.dart`
 
-`tool/audio_gain_report.json` 기준: 오디오 트랙이 있다고 기록된 영상은 게인 항목이
-반드시 있어야 한다. 새 영상이 들어오면 여기서 먼저 걸린다.
+`tool/audio_gain_report.json` 기준: 번들 SFX·영상의 집합이 정확히 일치해야 하고,
+오디오 파일은 디코딩 가능한 스트림을 가져야 한다. ADR 목표가 있는 트랙은 계산 게인과
+`AudioPolicy.gainFor`가 일치해야 한다. 새 미디어가 들어오거나 게인표가 낡으면 여기서
+먼저 걸린다.
 
 ### 6-5. `test/settings_sound_section_test.dart` — 위젯
 

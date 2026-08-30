@@ -25,6 +25,18 @@ import 'package:ko_lernen_app/widgets/stroke_canvas.dart';
 
 import 'helpers/deck_actions.dart';
 
+String? _sourceSection(
+  String source, {
+  required String startMarker,
+  required String endMarker,
+}) {
+  final start = source.indexOf(startMarker);
+  if (start < 0) return null;
+  final end = source.indexOf(endMarker, start + startMarker.length);
+  if (end < 0) return null;
+  return source.substring(start, end);
+}
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -226,13 +238,14 @@ void main() {
 
     test('음성 채널이 꺼져 있으면 미리받지 않는다', () {
       final source = File('lib/services/tts_service.dart').readAsStringSync();
-      final body = RegExp(
-        r'static Future<void> prefetch\(.*?\n  \}',
-        dotAll: true,
-      ).firstMatch(source);
+      final body = _sourceSection(
+        source,
+        startMarker: 'static Future<void> prefetch(',
+        endMarker: 'static final Set<String> _prefetchAttempted',
+      );
       expect(body, isNotNull);
       expect(
-        body!.group(0),
+        body,
         contains('SoundChannel.speech'),
         reason: '절대 못 들을 파일을 내려받지 않는다',
       );
@@ -240,24 +253,27 @@ void main() {
 
     test('같은 텍스트를 세션 내 두 번 시도하지 않는다', () {
       final source = File('lib/services/tts_service.dart').readAsStringSync();
-      final body = RegExp(
-        r'static Future<void> prefetch\(.*?\n  \}',
-        dotAll: true,
-      ).firstMatch(source);
-      expect(body!.group(0), contains('_prefetchAttempted'));
+      final body = _sourceSection(
+        source,
+        startMarker: 'static Future<void> prefetch(',
+        endMarker: 'static final Set<String> _prefetchAttempted',
+      );
+      expect(body, isNotNull);
+      expect(body, contains('_prefetchAttempted'));
     });
 
     test('프리페치는 Cloud Function 동적 합성을 하지 않는다', () {
       // 누르지도 않은 낱자를 투기적으로 합성하면 합성 할당량을 태우고
       // 12초 타임아웃까지 잡아먹는다. 로컬 캐시 + Storage 까지만 본다.
       final source = File('lib/services/tts_service.dart').readAsStringSync();
-      final prefetchBody = RegExp(
-        r'static Future<void> prefetch\(.*?\n  \}',
-        dotAll: true,
-      ).firstMatch(source);
+      final prefetchBody = _sourceSection(
+        source,
+        startMarker: 'static Future<void> prefetch(',
+        endMarker: 'static final Set<String> _prefetchAttempted',
+      );
       expect(prefetchBody, isNotNull, reason: 'prefetch 를 찾지 못했다');
       expect(
-        prefetchBody!.group(0),
+        prefetchBody,
         contains('allowSynthesis: false'),
         reason: '프리페치는 반드시 allowSynthesis: false 로 호출한다',
       );

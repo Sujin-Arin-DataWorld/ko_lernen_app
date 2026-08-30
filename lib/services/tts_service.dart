@@ -13,7 +13,11 @@ import 'package:path_provider/path_provider.dart';
 import 'audio_policy.dart';
 import 'analytics_service.dart';
 import 'storage_service.dart';
+import 'tts_bundled_manifest.dart';
 import 'tts_installation_id.dart';
+import 'tts_cache_key.dart';
+
+export 'tts_cache_key.dart';
 
 /// 해결된 프리미엄 오디오 한 건.
 ///
@@ -119,56 +123,6 @@ class TtsCallableFailure {
 
   static bool _codeMatches(String raw, String code) {
     return raw == code || raw == 'functions/$code' || raw.endsWith('/$code');
-  }
-}
-
-/// Immutable, revisioned address for one synthesized TTS request.
-///
-/// The same `{voice}|{text}` SHA-1 input is deliberately shared with the
-/// Cloud Function and the pre-generation script.  A revision in the object
-/// path prevents an audio-setting change from reusing an immutable old object
-/// from Firebase Storage or a CDN.
-class TtsCacheKey {
-  const TtsCacheKey._({
-    required this.revision,
-    required this.voice,
-    required this.hash,
-  });
-
-  static const String currentRevision = 'v3';
-
-  factory TtsCacheKey.forRequest({
-    required String voice,
-    required String text,
-  }) {
-    final normalizedVoice = voice == 'male' ? 'male' : 'female';
-    final normalizedText = text.trim();
-    final hash = sha1
-        .convert(utf8.encode('$normalizedVoice|$normalizedText'))
-        .toString();
-    return TtsCacheKey._(
-      revision: currentRevision,
-      voice: normalizedVoice,
-      hash: hash,
-    );
-  }
-
-  final String revision;
-  final String voice;
-  final String hash;
-
-  String get storagePath => 'tts/$revision/$voice/$hash.mp3';
-  String get localFileName => 'tts_${revision}_${voice}_$hash.mp3';
-
-  /// Same MPEG/ID3 floor the Cloud Function uses before treating bytes as audio.
-  static bool isUsableAudio(List<int> data) {
-    if (data.length < 32) {
-      return false;
-    }
-    if (data[0] == 0x49 && data[1] == 0x44 && data[2] == 0x33) {
-      return true;
-    }
-    return data[0] == 0xFF && (data[1] & 0xE0) == 0xE0;
   }
 }
 
@@ -462,11 +416,12 @@ class _ServicePlaybackPlatform implements TtsPlaybackPlatform {
   Future<void> stop() => TtsService._stopPlatforms();
 }
 
-/// 고품질 한국어 발음 TTS — **프리미엄 전용 3단**.
+/// 고품질 한국어 발음 TTS — **프리미엄 전용 4단**.
 ///
-/// 1. 로컬 캐시 mp3 → 즉시 재생 (오프라인·무료). 웹은 메모리 캐시.
-/// 2. Firebase Storage `tts/v3/{voice}/{sha1}.mp3` → 다운로드·캐시·재생
-/// 3. Cloud Function 합성 → base64 수신·캐시·재생
+/// 1. 검증된 first-line manifest rootBundle mp3 → 즉시 재생 (오프라인·무료).
+/// 2. 로컬 캐시 mp3 → 즉시 재생. 웹은 메모리 캐시.
+/// 3. Firebase Storage `tts/v3/{voice}/{sha1}.mp3` → 다운로드·캐시·재생
+/// 4. Cloud Function 합성 → base64 수신·캐시·재생
 ///    (동적 콘텐츠: 책 한 컷 OCR·내 단어장의 사용자 입력 단어)
 ///
 /// **OS 음성(flutter_tts) 폴백은 없다.** 2026-08-19 에 지웠다.
@@ -629,7 +584,10 @@ class TtsService {
   ///
   /// 실패는 전부 삼킨다. 프리페치가 안 돼도 앱 동작은 그대로다
   /// (`DancheongBurst.preload()` 와 같은 best-effort 철학).
-  static Future<void> prefetch(String text, {String voice = TtsVoicePolicy.autoVoice}) async {
+  static Future<void> prefetch(
+    String text, {
+    String voice = TtsVoicePolicy.autoVoice,
+  }) async {
     final trimmed = text.trim();
     if (trimmed.isEmpty) {
       return;
@@ -751,7 +709,7 @@ class TtsService {
 
   // ── 핵심 흐름 ──────────────────────────────────────────────────────
 
-  /// 캐시 → Storage → CF 순으로 mp3 파일을 확보. 실패 시 null.
+  /// 번들 → 캐시 → Storage → CF 순으로 mp3 파일을 확보. 실패 시 null.
   ///
   /// [allowSynthesis] 가 false 면 **3단(Cloud Function 동적 합성)을 건너뛴다**.
   /// 프리페치 전용 스위치다 — 아직 누르지도 않은 낱자를 투기적으로 합성하면
@@ -763,6 +721,27 @@ class TtsService {
     bool allowSynthesis = true,
   }) async {
     final key = TtsCacheKey.forRequest(voice: voice, text: text);
+
+    // 1. Manifest-declared rootBundle bytes. The manifest loader validates
+    // schema/key/path/hash/MPEG shape before exposing a path, and this request
+    // validates the selected bytes again before playback. Any bundle failure
+    // preserves the pre-existing disk → Storage → callable chain.
+    final bundledPath = await key.bundledAssetPath();
+    if (bundledPath != null) {
+      try {
+        final bundledBytes = await TtsBundledManifest.readAsset(
+          bundledPath,
+        ).timeout(_diskTimeout);
+        if (TtsCacheKey.isUsableAudio(bundledBytes)) {
+          return TtsAudio.bytes(bundledBytes);
+        }
+      } on TimeoutException {
+        // A stalled rootBundle read falls through to the existing cache tiers.
+      } catch (_) {
+        // Missing/corrupt declared bytes must never block disk/network fallback.
+      }
+    }
+
     // 웹은 파일시스템이 없다. 예전에는 여기서 1~3단이 통째로 죽고 OS 음성만
     // 남아 브라우저 독일어 음성이 한국어를 읽었다. 이제 같은 Storage 객체를
     // 메모리로 받아 재생한다 — 웹도 프리미엄이다.
@@ -775,7 +754,7 @@ class TtsService {
         ? null
         : File('${dir.path}/${key.localFileName}');
 
-    // 1. 로컬 캐시. 멈춘 파일시스템이 speak() 를 붙잡지 못하게 시한을 건다.
+    // 2. 로컬 캐시. 멈춘 파일시스템이 speak() 를 붙잡지 못하게 시한을 건다.
     if (file != null) {
       try {
         if (await file.exists().timeout(_diskTimeout)) {
@@ -803,7 +782,7 @@ class TtsService {
       }
     }
 
-    // 2. Firebase Storage (사전생성된 고정 콘텐츠)
+    // 3. Firebase Storage (사전생성된 고정 콘텐츠)
     try {
       final Uint8List? data = await _storage
           .ref(key.storagePath)
@@ -818,7 +797,7 @@ class TtsService {
       // object-not-found / 오프라인 → CF 시도
     }
 
-    // 3. Authenticated Firebase callable (dynamic synthesis).
+    // 4. Authenticated Firebase callable (dynamic synthesis).
     if (!allowSynthesis) {
       return null;
     }
@@ -864,6 +843,13 @@ class TtsService {
     }
     return null;
   }
+
+  @visibleForTesting
+  static Future<TtsAudio?> resolveAudioForTesting(
+    String text,
+    String voice, {
+    bool allowSynthesis = false,
+  }) => _resolveAudio(text, voice, allowSynthesis: allowSynthesis);
 
   /// 받은 바이트를 플랫폼에 맞게 캐시하고 재생 가능한 형태로 감싼다.
   static Future<TtsAudio> _cacheAndWrap(
