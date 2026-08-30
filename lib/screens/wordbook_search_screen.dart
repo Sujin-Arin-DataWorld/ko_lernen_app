@@ -15,14 +15,47 @@ import '../widgets/sori/window_class.dart';
 
 /// **Meine Wörter** (v2.0) — durchsucht ALLE selbst gespeicherten Wörter
 /// (alle Custom-Packs zusammengeführt) per Text + Wortart-Filter (Kategorie).
-class WordbookSearchScreen extends StatefulWidget {
+class WordbookSearchScreen extends StatelessWidget {
   const WordbookSearchScreen({super.key});
 
   @override
-  State<WordbookSearchScreen> createState() => _WordbookSearchScreenState();
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    return SoriStandardFrame(
+      appBarTitle: t.wbSearchTitle,
+      actions: const [TtsSpeedAction()],
+      maxWidth: SoriMaxWidth.prose,
+      padding: const EdgeInsets.fromLTRB(
+        Spacing.lg,
+        Spacing.md,
+        Spacing.lg,
+        Spacing.xl,
+      ),
+      builder: (context, pagePadding) =>
+          WordbookSearchBody(padding: pagePadding),
+    );
+  }
 }
 
-class _WordbookSearchScreenState extends State<WordbookSearchScreen> {
+/// Search content that can be hosted by a route frame or a tab hub.
+class WordbookSearchBody extends StatefulWidget {
+  const WordbookSearchBody({
+    super.key,
+    this.padding = const EdgeInsets.fromLTRB(
+      Spacing.lg,
+      Spacing.md,
+      Spacing.lg,
+      Spacing.xl,
+    ),
+  });
+
+  final EdgeInsets padding;
+
+  @override
+  State<WordbookSearchBody> createState() => _WordbookSearchBodyState();
+}
+
+class _WordbookSearchBodyState extends State<WordbookSearchBody> {
   final _ctrl = TextEditingController();
   String _query = '';
   String? _pos; // null = Alle
@@ -86,86 +119,96 @@ class _WordbookSearchScreenState extends State<WordbookSearchScreen> {
     final filterMaxHeight = MediaQuery.sizeOf(context).height < 700
         ? 112.0
         : 160.0;
+    final pagePadding = widget.padding;
 
-    return SoriStandardFrame(
-      appBarTitle: t.wbSearchTitle,
-      actions: const [TtsSpeedAction()],
-      maxWidth: SoriMaxWidth.prose,
-      padding: const EdgeInsets.fromLTRB(
-        Spacing.lg,
-        Spacing.md,
-        Spacing.lg,
-        Spacing.xl,
-      ),
-      builder: (context, pagePadding) => _all.isEmpty
-          ? Padding(
-              padding: pagePadding,
-              child: SoriEmptyState(
-                asset: 'assets/illustrations/mascot/magpie_wave.png',
-                icon: Icons.bookmark_border_rounded,
-                title: t.wbSearchTitle,
-                body: t.wbSearchNoWords,
-              ),
-            )
-          : Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(
-                    pagePadding.left,
-                    pagePadding.top,
-                    pagePadding.right,
-                    Spacing.sm,
-                  ),
-                  child: SoriTextField(
-                    controller: _ctrl,
-                    onChanged: (v) => setState(() => _query = v),
-                    hintText: t.wbSearchHint,
-                    prefixIcon: const Icon(Icons.search_rounded),
-                    suffixIcon: _query.isEmpty
-                        ? null
-                        : Semantics(
-                            container: true,
-                            button: true,
-                            enabled: true,
-                            label: t.wbSearchClear,
-                            onTap: _clearQuery,
-                            excludeSemantics: true,
-                            child: IconButton(
-                              tooltip: t.wbSearchClear,
-                              constraints: const BoxConstraints(
-                                minWidth: 48,
-                                minHeight: 48,
-                              ),
-                              icon: const Icon(Icons.clear_rounded),
-                              onPressed: _clearQuery,
-                            ),
-                          ),
-                  ),
+    return _all.isEmpty
+        ? Padding(
+            padding: pagePadding,
+            child: SoriEmptyState(
+              asset: 'assets/illustrations/mascot/magpie_wave.png',
+              icon: Icons.bookmark_border_rounded,
+              title: t.wbSearchTitle,
+              body: t.wbSearchNoWords,
+            ),
+          )
+        : Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.fromLTRB(
+                  pagePadding.left,
+                  pagePadding.top,
+                  pagePadding.right,
+                  Spacing.sm,
                 ),
-                if (posOptions.isNotEmpty)
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: pagePadding.left),
-                    child: LayoutBuilder(
-                      builder: (context, constraints) => ConstrainedBox(
-                        constraints: BoxConstraints(maxHeight: filterMaxHeight),
-                        child: SingleChildScrollView(
-                          key: const ValueKey('wordbook-pos-filter-scroll'),
-                          primary: false,
-                          child: Wrap(
-                            spacing: Spacing.xs,
-                            runSpacing: Spacing.xs,
-                            children: [
+                child: SoriTextField(
+                  controller: _ctrl,
+                  onChanged: (v) => setState(() => _query = v),
+                  hintText: t.wbSearchHint,
+                  prefixIcon: const Icon(Icons.search_rounded),
+                  suffixIcon: _query.isEmpty
+                      ? null
+                      : Semantics(
+                          container: true,
+                          button: true,
+                          enabled: true,
+                          label: t.wbSearchClear,
+                          onTap: _clearQuery,
+                          excludeSemantics: true,
+                          child: IconButton(
+                            tooltip: t.wbSearchClear,
+                            constraints: const BoxConstraints(
+                              minWidth: 48,
+                              minHeight: 48,
+                            ),
+                            icon: const Icon(Icons.clear_rounded),
+                            onPressed: _clearQuery,
+                          ),
+                        ),
+                ),
+              ),
+              if (posOptions.isNotEmpty)
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: pagePadding.left),
+                  child: LayoutBuilder(
+                    builder: (context, constraints) => ConstrainedBox(
+                      constraints: BoxConstraints(maxHeight: filterMaxHeight),
+                      child: SingleChildScrollView(
+                        key: const ValueKey('wordbook-pos-filter-scroll'),
+                        primary: false,
+                        child: Wrap(
+                          spacing: Spacing.xs,
+                          runSpacing: Spacing.xs,
+                          children: [
+                            ConstrainedBox(
+                              constraints: BoxConstraints(
+                                maxWidth: constraints.maxWidth,
+                              ),
+                              child: SoriChip(
+                                key: const ValueKey('wordbook-pos-all'),
+                                label: t.wbPosAll,
+                                selected: _pos == null,
+                                icon: _pos == null ? Icons.check_rounded : null,
+                                variant: SoriChipVariant.outlined,
+                                idleBorderColor:
+                                    Theme.of(context).brightness ==
+                                        Brightness.light
+                                    ? SoriColors.lightBorderStrong
+                                    : SoriColors.darkBorderStrong,
+                                maxLines: null,
+                                minInteractiveHeight: 48,
+                                onTap: () => setState(() => _pos = null),
+                              ),
+                            ),
+                            for (final p in posOptions)
                               ConstrainedBox(
                                 constraints: BoxConstraints(
                                   maxWidth: constraints.maxWidth,
                                 ),
                                 child: SoriChip(
-                                  key: const ValueKey('wordbook-pos-all'),
-                                  label: t.wbPosAll,
-                                  selected: _pos == null,
-                                  icon: _pos == null
-                                      ? Icons.check_rounded
-                                      : null,
+                                  key: ValueKey('wordbook-pos-$p'),
+                                  label: p,
+                                  selected: _pos == p,
+                                  icon: _pos == p ? Icons.check_rounded : null,
                                   variant: SoriChipVariant.outlined,
                                   idleBorderColor:
                                       Theme.of(context).brightness ==
@@ -174,86 +217,62 @@ class _WordbookSearchScreenState extends State<WordbookSearchScreen> {
                                       : SoriColors.darkBorderStrong,
                                   maxLines: null,
                                   minInteractiveHeight: 48,
-                                  onTap: () => setState(() => _pos = null),
+                                  onTap: () => setState(() => _pos = p),
                                 ),
                               ),
-                              for (final p in posOptions)
-                                ConstrainedBox(
-                                  constraints: BoxConstraints(
-                                    maxWidth: constraints.maxWidth,
-                                  ),
-                                  child: SoriChip(
-                                    key: ValueKey('wordbook-pos-$p'),
-                                    label: p,
-                                    selected: _pos == p,
-                                    icon: _pos == p
-                                        ? Icons.check_rounded
-                                        : null,
-                                    variant: SoriChipVariant.outlined,
-                                    idleBorderColor:
-                                        Theme.of(context).brightness ==
-                                            Brightness.light
-                                        ? SoriColors.lightBorderStrong
-                                        : SoriColors.darkBorderStrong,
-                                    maxLines: null,
-                                    minInteractiveHeight: 48,
-                                    onTap: () => setState(() => _pos = p),
-                                  ),
-                                ),
-                            ],
-                          ),
+                          ],
                         ),
                       ),
                     ),
                   ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(
-                    pagePadding.left,
-                    Spacing.sm,
-                    pagePadding.right,
-                    0,
-                  ),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Semantics(
-                      container: true,
-                      liveRegion: true,
-                      label: t.wbSearchCount(results.length),
-                      excludeSemantics: true,
-                      child: Text(
-                        t.wbSearchCount(results.length),
-                        style: SoriTextTheme.of(
-                          context,
-                        ).caption.copyWith(fontWeight: FontWeight.w600),
-                      ),
+                ),
+              Padding(
+                padding: EdgeInsets.fromLTRB(
+                  pagePadding.left,
+                  Spacing.sm,
+                  pagePadding.right,
+                  0,
+                ),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Semantics(
+                    container: true,
+                    liveRegion: true,
+                    label: t.wbSearchCount(results.length),
+                    excludeSemantics: true,
+                    child: Text(
+                      t.wbSearchCount(results.length),
+                      style: SoriTextTheme.of(
+                        context,
+                      ).caption.copyWith(fontWeight: FontWeight.w600),
                     ),
                   ),
                 ),
-                Expanded(
-                  child: results.isEmpty
-                      ? SoriEmptyState(
-                          icon: Icons.search_off_rounded,
-                          title: t.wbSearchEmpty,
-                          illustrationMaxHeight: 120,
-                        )
-                      : ListView.separated(
-                          keyboardDismissBehavior:
-                              ScrollViewKeyboardDismissBehavior.onDrag,
-                          padding: EdgeInsets.fromLTRB(
-                            pagePadding.left,
-                            Spacing.sm,
-                            pagePadding.right,
-                            pagePadding.bottom,
-                          ),
-                          itemCount: results.length,
-                          separatorBuilder: (_, __) =>
-                              const SizedBox(height: Spacing.sm),
-                          itemBuilder: (_, i) => _WordRow(word: results[i]),
+              ),
+              Expanded(
+                child: results.isEmpty
+                    ? SoriEmptyState(
+                        icon: Icons.search_off_rounded,
+                        title: t.wbSearchEmpty,
+                        illustrationMaxHeight: 120,
+                      )
+                    : ListView.separated(
+                        keyboardDismissBehavior:
+                            ScrollViewKeyboardDismissBehavior.onDrag,
+                        padding: EdgeInsets.fromLTRB(
+                          pagePadding.left,
+                          Spacing.sm,
+                          pagePadding.right,
+                          pagePadding.bottom,
                         ),
-                ),
-              ],
-            ),
-    );
+                        itemCount: results.length,
+                        separatorBuilder: (_, __) =>
+                            const SizedBox(height: Spacing.sm),
+                        itemBuilder: (_, i) => _WordRow(word: results[i]),
+                      ),
+              ),
+            ],
+          );
   }
 }
 

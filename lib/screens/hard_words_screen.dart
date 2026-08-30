@@ -24,18 +24,53 @@ import 'review_session_screen.dart';
 /// 반복해도 안 외워지는 단어(leech)를 SRS 데이터에서 자동 추출해 모아 보여주고,
 /// "집중 복습"으로 그 단어들만 묶어 복습 세션을 돌린다. CSV·나만의 단어장·책 한 컷
 /// 단어 모두 대상.
-class HardWordsScreen extends StatefulWidget {
+class HardWordsScreen extends StatelessWidget {
   /// 테스트용 — 복습 풀 로더 주입 (기본: [ReviewDeckService.allReviewable]).
   final Future<List<Vocab>> Function()? deckLoader;
 
   const HardWordsScreen({super.key, this.deckLoader});
 
   @override
-  State<HardWordsScreen> createState() => _HardWordsScreenState();
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    return SoriStandardFrame(
+      appBarTitle: t.hardWordsTitle,
+      actions: const [TtsSpeedAction()],
+      particles: true,
+      padding: const EdgeInsets.fromLTRB(
+        Spacing.lg,
+        Spacing.md,
+        Spacing.lg,
+        Spacing.xxl,
+      ),
+      builder: (context, padding) =>
+          HardWordsBody(deckLoader: deckLoader, padding: padding),
+    );
+  }
 }
 
-class _HardWordsScreenState extends State<HardWordsScreen>
-    with ScreenCoachMixin<HardWordsScreen> {
+/// Difficult-word content that can be hosted by a route frame or a tab hub.
+class HardWordsBody extends StatefulWidget {
+  const HardWordsBody({
+    super.key,
+    this.deckLoader,
+    this.padding = const EdgeInsets.fromLTRB(
+      Spacing.lg,
+      Spacing.md,
+      Spacing.lg,
+      Spacing.xxl,
+    ),
+  });
+
+  final Future<List<Vocab>> Function()? deckLoader;
+  final EdgeInsets padding;
+
+  @override
+  State<HardWordsBody> createState() => _HardWordsBodyState();
+}
+
+class _HardWordsBodyState extends State<HardWordsBody>
+    with ScreenCoachMixin<HardWordsBody> {
   bool _loading = true;
   bool _loadFailed = false;
   List<Vocab> _hard = const [];
@@ -153,106 +188,92 @@ class _HardWordsScreenState extends State<HardWordsScreen>
       ],
     );
 
-    return SoriStandardFrame(
-      appBarTitle: t.hardWordsTitle,
-      actions: const [TtsSpeedAction()],
-      particles: true,
-      padding: const EdgeInsets.fromLTRB(
-        Spacing.lg,
-        Spacing.md,
-        Spacing.lg,
-        Spacing.xxl,
-      ),
-      builder: (context, padding) {
-        if (_loading) {
-          return const AppLoading();
-        }
-        if (_loadFailed) {
-          return AppError(
-            message: t.loadErrorTryAgain,
-            messageLiveRegion: true,
-            onRetry: () => _load(showLoading: true),
-          );
-        }
-        if (_hard.isEmpty) {
-          return Center(
-            child: Padding(
-              padding: padding,
-              child: SoriEmptyState(
-                asset: 'assets/illustrations/mascot/magpie_celebrate.png',
-                icon: Icons.emoji_events_outlined,
-                title: t.hardWordsEmptyTitle,
-                body: t.hardWordsEmptyBody,
-                ctaLabel: t.btnClose,
-                onCta: () => Navigator.of(context).maybePop(),
-              ),
-            ),
-          );
-        }
+    final padding = widget.padding;
+    if (_loading) {
+      return const AppLoading();
+    }
+    if (_loadFailed) {
+      return AppError(
+        message: t.loadErrorTryAgain,
+        messageLiveRegion: true,
+        onRetry: () => _load(showLoading: true),
+      );
+    }
+    if (_hard.isEmpty) {
+      return Center(
+        child: Padding(
+          padding: padding,
+          child: SoriEmptyState(
+            asset: 'assets/illustrations/mascot/magpie_celebrate.png',
+            icon: Icons.emoji_events_outlined,
+            title: t.hardWordsEmptyTitle,
+            body: t.hardWordsEmptyBody,
+            ctaLabel: t.btnClose,
+            onCta: () => Navigator.of(context).maybePop(),
+          ),
+        ),
+      );
+    }
 
-        final header = Row(
-          children: [
-            const Mascot.tiger(
-              emotion: MascotEmotion.thinking,
-              size: 72,
-              animate: false,
-            ),
-            const SizedBox(width: Spacing.md),
-            Expanded(
-              child: Text(
-                t.hardWordsSubtitle(_hard.length),
-                style: SoriTextTheme.of(context).bodySmall,
-              ),
-            ),
+    final header = Row(
+      children: [
+        const Mascot.tiger(
+          emotion: MascotEmotion.thinking,
+          size: 72,
+          animate: false,
+        ),
+        const SizedBox(width: Spacing.md),
+        Expanded(
+          child: Text(
+            t.hardWordsSubtitle(_hard.length),
+            style: SoriTextTheme.of(context).bodySmall,
+          ),
+        ),
+      ],
+    );
+    if (inlineActions) {
+      return ListView(
+        key: _listKey,
+        padding: padding,
+        children: [
+          header,
+          const SizedBox(height: Spacing.sm),
+          for (final word in _hard) ...[
+            _HardWordTile(word: word),
+            const SizedBox(height: Spacing.xs),
           ],
-        );
-        if (inlineActions) {
-          return ListView(
+          const SizedBox(height: Spacing.md),
+          actionBlock,
+        ],
+      );
+    }
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.fromLTRB(
+            padding.left,
+            padding.top,
+            padding.right,
+            Spacing.sm,
+          ),
+          child: header,
+        ),
+        Expanded(
+          child: ListView.separated(
             key: _listKey,
-            padding: padding,
-            children: [
-              header,
-              const SizedBox(height: Spacing.sm),
-              for (final word in _hard) ...[
-                _HardWordTile(word: word),
-                const SizedBox(height: Spacing.xs),
-              ],
-              const SizedBox(height: Spacing.md),
-              actionBlock,
-            ],
-          );
-        }
-        return Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.fromLTRB(
-                padding.left,
-                padding.top,
-                padding.right,
-                Spacing.sm,
-              ),
-              child: header,
+            padding: EdgeInsets.fromLTRB(
+              padding.left,
+              0,
+              padding.right,
+              padding.bottom,
             ),
-            Expanded(
-              child: ListView.separated(
-                key: _listKey,
-                padding: EdgeInsets.fromLTRB(
-                  padding.left,
-                  0,
-                  padding.right,
-                  padding.bottom,
-                ),
-                itemCount: _hard.length,
-                separatorBuilder: (_, __) => const SizedBox(height: Spacing.xs),
-                itemBuilder: (_, i) => _HardWordTile(word: _hard[i]),
-              ),
-            ),
-          ],
-        );
-      },
-      bottomNavigationBar: _hard.isEmpty || inlineActions
-          ? null
-          : SoriBottomActionArea(child: actionBlock),
+            itemCount: _hard.length,
+            separatorBuilder: (_, __) => const SizedBox(height: Spacing.xs),
+            itemBuilder: (_, i) => _HardWordTile(word: _hard[i]),
+          ),
+        ),
+        SoriBottomActionArea(child: actionBlock),
+      ],
     );
   }
 }
