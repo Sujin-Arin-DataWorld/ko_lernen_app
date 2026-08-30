@@ -1,0 +1,115 @@
+{
+  "status": "runtime_promoted",
+  "source_original": "안채곳간채.png",
+  "preserved_original": "source_original_exact.png",
+  "source_sha256": "37B3B0B35BC27A07B72190B11A8CECCACEE265EFEA79B1F4C4BC91EC41301D7B",
+  "source_bytes_preserved": true,
+  "generated_views_are_pixel_identical_to_source": false,
+  "authority": "recorded drawings: 9360x2700 mm, four bays 2250+2250+2430+2430, five principal column axes, matbae roof, documented side/rear vents",
+  "camera_elevation_degrees": 28,
+  "azimuth_interval_degrees": 45,
+  "runtime_size": [
+    384,
+    512
+  ],
+  "runtime_baseline_y": 472,
+  "review_runtime_bytes_identical": true,
+  "frames": [
+    {
+      "index": 0,
+      "azimuth_degrees": 0,
+      "file": "ildu_anchae_store_00_front.png",
+      "sha256": "5BE1A8B7F08C2A0DDDE81DAD2656628DD5557267C7AC0A9583F7727B9486E8AD",
+      "bbox": [
+        29,
+        354,
+        354,
+        472
+      ]
+    },
+    {
+      "index": 1,
+      "azimuth_degrees": 45,
+      "file": "ildu_anchae_store_01_front_right.png",
+      "sha256": "F18339A7E9F4FCC9A51FDB3513C3AF6593F0B77A115208C162218B46926B9160",
+      "bbox": [
+        65,
+        354,
+        319,
+        472
+      ]
+    },
+    {
+      "index": 2,
+      "azimuth_degrees": 90,
+      "file": "ildu_anchae_store_02_right.png",
+      "sha256": "85A19815C4A748F485C57156794D1A0A34C94361605CBE9E5757B1BDE1AD5D30",
+      "bbox": [
+        130,
+        354,
+        253,
+        472
+      ]
+    },
+    {
+      "index": 3,
+      "azimuth_degrees": 135,
+      "file": "ildu_anchae_store_03_rear_right.png",
+      "sha256": "2850BF3E9B4710ACE9C94239AEFFF72F56DF4B391DEF7C66372A727FA3AB8169",
+      "bbox": [
+        104,
+        354,
+        280,
+        472
+      ]
+    },
+    {
+      "index": 4,
+      "azimuth_degrees": 180,
+      "file": "ildu_anchae_store_04_rear.png",
+      "sha256": "C7523AE6F8FDC02962C04D628C1427753EB9FEDE921196E13F229A3CB50B7799",
+      "bbox": [
+        9,
+        354,
+        375,
+        472
+      ]
+    },
+    {
+      "index": 5,
+      "azimuth_degrees": 225,
+      "file": "ildu_anchae_store_05_rear_left.png",
+      "sha256": "21D9C47FA47062987A031FD7A0D5199FD1B9167139F8FD90B69BC33585259ECA",
+      "bbox": [
+        60,
+        354,
+        323,
+        472
+      ]
+    },
+    {
+      "index": 6,
+      "azimuth_degrees": 270,
+      "file": "ildu_anchae_store_06_left.png",
+      "sha256": "94D42078882E1A5811ACBBD3DDE2AB26000EC7F11061867B7E59797D2756015E",
+      "bbox": [
+        137,
+        354,
+        246,
+        472
+      ]
+    },
+    {
+      "index": 7,
+      "azimuth_degrees": 315,
+      "file": "ildu_anchae_store_07_front_left.png",
+      "sha256": "653D8E39CFA826C30D39AD10115E43170525816B6704B1C27D25977DC94E86A2",
+      "bbox": [
+        70,
+        354,
+        313,
+        472
+      ]
+    }
+  ]
+}

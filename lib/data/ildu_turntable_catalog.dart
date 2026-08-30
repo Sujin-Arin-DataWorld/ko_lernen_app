@@ -332,6 +332,66 @@ final IlDuTurntableSpec kIlDuHyeopmunEastTurntable = IlDuTurntableSpec(
   frames: _sadangHyeopmunFrames(),
 );
 
+/// Blueprint-corrected four-bay Anchae storehouse.
+///
+/// The V3 original remains the material/style authority while the recorded
+/// drawings determine its 9360 x 2700 mm structure and side/rear openings.
+final IlDuTurntableSpec kIlDuAnchaeStoreTurntable = IlDuTurntableSpec(
+  anchorId: 'anchae-store',
+  mapAspectRatio: 2.75,
+  frames: <IlDuTurntableFrame>[
+    _frame('ildu_anchae_store_00_front.png', 384, 512, 29, 354, 354, 472),
+    _frame('ildu_anchae_store_01_front_right.png', 384, 512, 65, 354, 319, 472),
+    _frame('ildu_anchae_store_02_right.png', 384, 512, 130, 354, 253, 472),
+    _frame('ildu_anchae_store_03_rear_right.png', 384, 512, 104, 354, 280, 472),
+    _frame('ildu_anchae_store_04_rear.png', 384, 512, 9, 354, 375, 472),
+    _frame('ildu_anchae_store_05_rear_left.png', 384, 512, 60, 354, 323, 472),
+    _frame('ildu_anchae_store_06_left.png', 384, 512, 137, 354, 246, 472),
+    _frame('ildu_anchae_store_07_front_left.png', 384, 512, 70, 354, 313, 472),
+  ],
+);
+
+/// Blueprint-corrected five-bay outer storehouse.
+final IlDuTurntableSpec kIlDuGokganTurntable = IlDuTurntableSpec(
+  anchorId: 'gokgan',
+  mapAspectRatio: 1.93,
+  frames: <IlDuTurntableFrame>[
+    _frame('ildu_gokgan_00_front.png', 384, 512, 23, 297, 360, 472),
+    _frame('ildu_gokgan_01_front_right.png', 384, 512, 25, 297, 359, 472),
+    _frame('ildu_gokgan_02_right.png', 384, 512, 57, 297, 327, 472),
+    _frame('ildu_gokgan_03_rear_right.png', 384, 512, 31, 297, 352, 472),
+    _frame('ildu_gokgan_04_rear.png', 384, 512, 9, 297, 375, 472),
+    _frame('ildu_gokgan_05_rear_left.png', 384, 512, 31, 297, 352, 472),
+    _frame('ildu_gokgan_06_left.png', 384, 512, 56, 297, 328, 472),
+    _frame('ildu_gokgan_07_front_left.png', 384, 512, 44, 297, 339, 472),
+  ],
+);
+
+List<IlDuTurntableFrame> _toiletFrames() => <IlDuTurntableFrame>[
+  _frame('ildu_toilet_00_front.png', 384, 512, 22, 152, 361, 472),
+  _frame('ildu_toilet_01_front_right.png', 384, 512, 8, 152, 375, 472),
+  _frame('ildu_toilet_02_right.png', 384, 512, 59, 152, 324, 472),
+  _frame('ildu_toilet_03_rear_right.png', 384, 512, 48, 152, 336, 472),
+  _frame('ildu_toilet_04_rear.png', 384, 512, 33, 152, 350, 472),
+  _frame('ildu_toilet_05_rear_left.png', 384, 512, 41, 152, 342, 472),
+  _frame('ildu_toilet_06_left.png', 384, 512, 60, 152, 323, 472),
+  _frame('ildu_toilet_07_front_left.png', 384, 512, 33, 152, 351, 472),
+];
+
+/// No dedicated toilet drawing is present in the blueprint archive. Both map
+/// placements intentionally share one source-faithful eight-direction kit.
+final IlDuTurntableSpec kIlDuToiletNorthTurntable = IlDuTurntableSpec(
+  anchorId: 'toilet-north',
+  mapAspectRatio: 1.06,
+  frames: _toiletFrames(),
+);
+
+final IlDuTurntableSpec kIlDuToiletSouthTurntable = IlDuTurntableSpec(
+  anchorId: 'toilet-south',
+  mapAspectRatio: 1.06,
+  frames: _toiletFrames(),
+);
+
 final Map<String, IlDuTurntableSpec> kIlDuTurntables =
     <String, IlDuTurntableSpec>{
       kIlDuSarangchaeTurntable.anchorId: kIlDuSarangchaeTurntable,
@@ -345,6 +405,10 @@ final Map<String, IlDuTurntableSpec> kIlDuTurntables =
       kIlDuSadangmunTurntable.anchorId: kIlDuSadangmunTurntable,
       kIlDuHyeopmunWestTurntable.anchorId: kIlDuHyeopmunWestTurntable,
       kIlDuHyeopmunEastTurntable.anchorId: kIlDuHyeopmunEastTurntable,
+      kIlDuAnchaeStoreTurntable.anchorId: kIlDuAnchaeStoreTurntable,
+      kIlDuGokganTurntable.anchorId: kIlDuGokganTurntable,
+      kIlDuToiletNorthTurntable.anchorId: kIlDuToiletNorthTurntable,
+      kIlDuToiletSouthTurntable.anchorId: kIlDuToiletSouthTurntable,
     };
 
 IlDuTurntableSpec? ilduTurntableForAnchor(String anchorId) =>

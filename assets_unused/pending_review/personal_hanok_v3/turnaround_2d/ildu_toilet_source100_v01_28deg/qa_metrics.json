@@ -1,0 +1,115 @@
+{
+  "status": "runtime_promoted",
+  "source_original": "화장실.png",
+  "preserved_original": "source_original_exact.png",
+  "source_sha256": "BDE2AF8FB1CEF2095E2EF897A9DCE4C65FAB2BA7BCFE306A99995F9C0366207D",
+  "source_bytes_preserved": true,
+  "generated_views_are_pixel_identical_to_source": false,
+  "authority": "no dedicated toilet drawing was found; V3 source image is the sole shape, material, color, and identity authority",
+  "camera_elevation_degrees": 28,
+  "azimuth_interval_degrees": 45,
+  "runtime_size": [
+    384,
+    512
+  ],
+  "runtime_baseline_y": 472,
+  "review_runtime_bytes_identical": true,
+  "frames": [
+    {
+      "index": 0,
+      "azimuth_degrees": 0,
+      "file": "ildu_toilet_00_front.png",
+      "sha256": "B8C5A704AEBD92121FF248EA3D0DAC6C7BDC05AADFB370B4D1C766B01B012898",
+      "bbox": [
+        22,
+        152,
+        361,
+        472
+      ]
+    },
+    {
+      "index": 1,
+      "azimuth_degrees": 45,
+      "file": "ildu_toilet_01_front_right.png",
+      "sha256": "5EC3A9168873F5517F7612038ED4864D718D2B0117924F224C3310012C3EF9A5",
+      "bbox": [
+        8,
+        152,
+        375,
+        472
+      ]
+    },
+    {
+      "index": 2,
+      "azimuth_degrees": 90,
+      "file": "ildu_toilet_02_right.png",
+      "sha256": "B75839478CA4D6F30FBE2666D41053CAC2DCEFCF3CD2C46465BAAB605272B6A7",
+      "bbox": [
+        59,
+        152,
+        324,
+        472
+      ]
+    },
+    {
+      "index": 3,
+      "azimuth_degrees": 135,
+      "file": "ildu_toilet_03_rear_right.png",
+      "sha256": "E44F231FF3A53E70BE66D6BC1F1A45F840DDB582E27B5EA8BEF10B78C2842C13",
+      "bbox": [
+        48,
+        152,
+        336,
+        472
+      ]
+    },
+    {
+      "index": 4,
+      "azimuth_degrees": 180,
+      "file": "ildu_toilet_04_rear.png",
+      "sha256": "F941452EAF2C4A3BB3D7483937CC28EEE274C537B38FF73DE03CBD885D5E0580",
+      "bbox": [
+        33,
+        152,
+        350,
+        472
+      ]
+    },
+    {
+      "index": 5,
+      "azimuth_degrees": 225,
+      "file": "ildu_toilet_05_rear_left.png",
+      "sha256": "94151447BE39C7361B4B8B1A626307AEB3BFD618DA90ACC91651E664F70D0754",
+      "bbox": [
+        41,
+        152,
+        342,
+        472
+      ]
+    },
+    {
+      "index": 6,
+      "azimuth_degrees": 270,
+      "file": "ildu_toilet_06_left.png",
+      "sha256": "3245CC6B98F78431AF17BA9E9B3479F88962A28867CE9A0C8614C63697F994D2",
+      "bbox": [
+        60,
+        152,
+        323,
+        472
+      ]
+    },
+    {
+      "index": 7,
+      "azimuth_degrees": 315,
+      "file": "ildu_toilet_07_front_left.png",
+      "sha256": "BA953F72F835B66A0AC4CF11310F2321A4BE5E7D80384984E67F25072E284DCF",
+      "bbox": [
+        33,
+        152,
+        351,
+        472
+      ]
+    }
+  ]
+}
