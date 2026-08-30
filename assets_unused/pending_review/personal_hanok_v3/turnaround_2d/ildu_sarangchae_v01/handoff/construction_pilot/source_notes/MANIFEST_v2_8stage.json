@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 2,
+  "status": "progression_qa_pass_human_visual_approval_pending",
+  "revisedAt": "2026-08-29",
+  "master": {
+    "path": "../sarangchae_try07_edit.png",
+    "sha256": "f2c01142f465b9353e0b9546a00f167891753039d9c910620d83cd924a077212",
+    "size": [2512, 1680],
+    "alphaBbox": [42, 247, 2458, 1421]
+  },
+  "registration": {
+    "canvas": [2512, 1680],
+    "centerX": 1250.0,
+    "groundY": 1421,
+    "sharedScale": [1.6480218281036836, 1.64656381486676],
+    "alphaThreshold": 8
+  },
+  "measuredQa": {
+    "minimumWidthMatchPct": 95.985,
+    "stage5DarkNeutralRoofPixels": 53174,
+    "stage6DarkNeutralRoofPixels": 22570,
+    "stage7DarkNeutralRoofPixels": 544977,
+    "stage8DarkNeutralRoofPixels": 601351,
+    "stage7WallAreaRatio": 0.882166,
+    "stage7RoofIou": 0.966895,
+    "stage7OuterBboxMatchesStage8": true,
+    "maximumCenterDriftPx": 0.5,
+    "maximumGroundDriftPx": 0,
+    "stage8ByteIdentical": true
+  },
+  "stages": [
+    {
+      "index": 1,
+      "file": "stage_01_site.png",
+      "sha256": "2e8d481d7caba49c168a16d99e59737630a4583d49dea8da4e5668736b0440ec",
+      "alphaBbox": [38, 1057, 2462, 1421],
+      "widthMatchPct": 100.331
+    },
+    {
+      "index": 2,
+      "file": "stage_02_foundation.png",
+      "sha256": "c2548395977a96f89b796546f8c44c8553876c93d4ebbef14b186ff97eb6cab1",
+      "alphaBbox": [90, 1093, 2409, 1421],
+      "widthMatchPct": 95.985
+    },
+    {
+      "index": 3,
+      "file": "stage_03_posts_floor.png",
+      "sha256": "da114a061c46c88bb87c8c20dbafa8bac87e206d8e8a1696f6ed6cbc9a5d4baf",
+      "alphaBbox": [89, 588, 2411, 1421],
+      "widthMatchPct": 96.109
+    },
+    {
+      "index": 4,
+      "file": "stage_04_beams_purlins.png",
+      "sha256": "5bf51ed6064ae6cfb396d2520da3658b635314aac7fb0cad33d732b1c94254c3",
+      "alphaBbox": [60, 263, 2440, 1421],
+      "widthMatchPct": 98.510
+    },
+    {
+      "index": 5,
+      "file": "stage_05_rafters_sanja.png",
+      "sha256": "03f3226743ccc58906512f4a37cce0e40bddbbede4cbccf9edfbfcb3b379ba39",
+      "alphaBbox": [50, 231, 2451, 1421],
+      "widthMatchPct": 99.379
+    },
+    {
+      "index": 6,
+      "file": "stage_06_roof_bed.png",
+      "sha256": "139928080adcb216c8b0240ce8c264302c9837562ddd66300590c78ff928d5cf",
+      "alphaBbox": [46, 255, 2455, 1421],
+      "widthMatchPct": 99.710
+    },
+    {
+      "index": 7,
+      "file": "stage_07_walls_changho.png",
+      "sha256": "ea95f038500ee5648ae5cc04541ee7714910789d8cc455a40d2b247cccf413b1",
+      "alphaBbox": [42, 247, 2458, 1421],
+      "widthMatchPct": 100.0
+    },
+    {
+      "index": 8,
+      "file": "stage_08_complete_v3.png",
+      "sha256": "f2c01142f465b9353e0b9546a00f167891753039d9c910620d83cd924a077212",
+      "alphaBbox": [42, 247, 2458, 1421],
+      "widthMatchPct": 100.0
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "assetId": "ildu_sarangchae",
+  "version": "final_v03",
+  "status": "pending_review_only",
+  "frontAppearanceAuthority": "assets_unused/pending_review/personal_hanok_v3/sarangchae_try07_edit.png",
+  "turnaroundPolicy": {
+    "sourceUsage": "the unchanged original PNG is camera-projected onto anchor-visible 3D surfaces",
+    "anchorView": "00_source_anchor",
+    "allEightViews": "rendered from one rotating Blender model; no source frame is pasted into the set",
+    "rotatedViewMaterials": "paired 3D base materials prevent camera-projection stretching in views 01-07",
+    "projection": {
+      "sourceSha256": "f2c01142f465b9353e0b9546a00f167891753039d9c910620d83cd924a077212",
+      "projectionCanvasSha256": "5d7abcd74322a74aa388549c46f4a3ed60cae674f4f51f0ee738fd01024f9205",
+      "anchorView": "00_source_anchor",
+      "anchorAngleDegrees": 0.0,
+      "projectedObjects": 467,
+      "projectedFaces": 1514,
+      "rejectedBackFaces": 1625,
+      "uvLayer": "SourceProjectionUV",
+      "status": "passed"
+    }
+  },
+  "editableSource": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\blender-sarangchae-20260827\\assets_unused\\pending_review\\personal_hanok_v3\\blender\\ildu_sarangchae\\source\\ildu_sarangchae_final_v03.blend",
+  "portablePreviewModel": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\blender-sarangchae-20260827\\assets_unused\\pending_review\\personal_hanok_v3\\blender\\ildu_sarangchae\\exports\\ildu_sarangchae_final_v03.glb",
+  "turnaroundSheet": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\blender-sarangchae-20260827\\assets_unused\\pending_review\\personal_hanok_v3\\blender\\ildu_sarangchae\\final_sprite_v03\\ildu_sarangchae_turnaround_sheet.png",
+  "portablePreviewExcludes": [
+    "00_REFERENCE collection",
+    "05_GRADE_PROXY collection",
+    "cameras",
+    "lights"
+  ],
+  "renders": [
+    "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\blender-sarangchae-20260827\\assets_unused\\pending_review\\personal_hanok_v3\\blender\\ildu_sarangchae\\renders\\final_v03\\ildu_sarangchae_final_v03_00_source_anchor.png",
+    "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\blender-sarangchae-20260827\\assets_unused\\pending_review\\personal_hanok_v3\\blender\\ildu_sarangchae\\renders\\final_v03\\ildu_sarangchae_final_v03_01_clockwise_045.png",
+    "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\blender-sarangchae-20260827\\assets_unused\\pending_review\\personal_hanok_v3\\blender\\ildu_sarangchae\\renders\\final_v03\\ildu_sarangchae_final_v03_02_clockwise_090.png",
+    "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\blender-sarangchae-20260827\\assets_unused\\pending_review\\personal_hanok_v3\\blender\\ildu_sarangchae\\renders\\final_v03\\ildu_sarangchae_final_v03_03_clockwise_135.png",
+    "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\blender-sarangchae-20260827\\assets_unused\\pending_review\\personal_hanok_v3\\blender\\ildu_sarangchae\\renders\\final_v03\\ildu_sarangchae_final_v03_04_clockwise_180.png",
+    "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\blender-sarangchae-20260827\\assets_unused\\pending_review\\personal_hanok_v3\\blender\\ildu_sarangchae\\renders\\final_v03\\ildu_sarangchae_final_v03_05_clockwise_225.png",
+    "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\blender-sarangchae-20260827\\assets_unused\\pending_review\\personal_hanok_v3\\blender\\ildu_sarangchae\\renders\\final_v03\\ildu_sarangchae_final_v03_06_clockwise_270.png",
+    "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\blender-sarangchae-20260827\\assets_unused\\pending_review\\personal_hanok_v3\\blender\\ildu_sarangchae\\renders\\final_v03\\ildu_sarangchae_final_v03_07_clockwise_315.png"
+  ],
+  "validation": {
+    "mainFrontPosts": 7,
+    "mainRearPosts": 7,
+    "wingUpperPosts": 9,
+    "wingOctagonalUnderposts": 6,
+    "hwalju": 2,
+    "roofVolumes": 2,
+    "sceneObjects": 841,
+    "roofValleyCurves": 2,
+    "maksaeFaces": 128,
+    "exposedRafterEnds": 74,
+    "frontRailingBraces": 12,
+    "sideAnsangPanels": 8,
+    "frontMeoreumLeaves": 12,
+    "numaruMeoreumLeaves": 4,
+    "detailBracketArms": 10,
+    "eaveTerminalCaps": 5,
+    "status": "passed"
+  },
+  "coordinateSystem": {
+    "x": "long main body, left to right in the front elevation",
+    "y": "positive is rear; the nummaru wing projects into negative Y",
+    "z": "up"
+  },
+  "measuredMeters": {
+    "frontTotal": 14.545,
+    "frontBays": [
+      2.595,
+      2.675,
+      2.645,
+      2.66,
+      1.985,
+      1.985
+    ],
+    "mainDepth": 3.985,
+    "rightSideTotal": 7.98,
+    "wingDepth": 3.9950000000000006,
+    "wingWidth": 3.97,
+    "eaveProjection": 1.38,
+    "ridgeLevelFromFrontGL": 7.08,
+    "mainFloor": 1.55,
+    "numaruFloorRelativeRise": 0.2
+  },
+  "invariants": [
+    "asymmetric L plan remains identical in every view",
+    "six front bay widths use the measured 2595/2675/2645/2660/1985/1985 mm sequence",
+    "right projecting nummaru remains two 1985 mm bays",
+    "front high podium and rear low podium are distinct",
+    "nummaru upper round posts and lower octagonal posts are separate",
+    "one fixed orthographic camera; the building root rotates"
+  ],
+  "knownSimplifications": [
+    "final_v03 uses the unchanged source PNG as the anchor-camera projection authority on measured 3D geometry",
+    "views 01-07 use the same geometry with paired Blender materials to avoid projection stretching",
+    "the connected valley remains a detailed visual cover rather than conservation-grade watertight BIM topology",
+    "the Blender source is authoritative; normalized PNGs remain pending visual approval"
+  ],
+  "sourceFiles": [
+    "docs/data/heritage_houses/_sprite_spec_2026-08-24.md",
+    "docs/data/heritage_houses/ildu_gotaek_measured.json",
+    "assets_unused/pending_review/personal_hanok_v3/ildu_Blueprint/도면_국가민속문화재_함양_일두_고택_기록화보고서_사랑채_지붕_평면도.jpg",
+    "assets_unused/pending_review/personal_hanok_v3/ildu_Blueprint/도면_국가민속문화재_함양_일두_고택_기록화보고서_사랑채_정면도.jpg",
+    "assets_unused/pending_review/personal_hanok_v3/ildu_Blueprint/도면_국가민속문화재_함양_일두_고택_기록화보고서_사랑채_우측면도.jpg",
+    "assets_unused/pending_review/personal_hanok_v3/sarangchae_try07_edit.png",
+    "assets_unused/pending_review/personal_hanok_v3/ildu_Blueprint/도면_국가민속문화재_함양_일두_고택_기록화보고서_사랑채_난간_상세도.jpg",
+    "assets_unused/pending_review/personal_hanok_v3/ildu_Blueprint/도면_국가민속문화재_함양_일두_고택_기록화보고서_사랑채_1번,2번,3번,4번_안허리_상세도.jpg",
+    "assets_unused/pending_review/personal_hanok_v3/ildu_Blueprint/도면_국가민속문화재_함양_일두_고택_기록화보고서_사랑채_5번,6번_안허리_상세도.jpg",
+    "assets_unused/pending_review/personal_hanok_v3/함양_일두고택_전경_서비스.jpg",
+    "assets_unused/pending_review/personal_hanok_v3/함양_일두고택_우측_전경_원본.jpg",
+    "assets_unused/pending_review/personal_hanok_v3/함양_일두고택_좌측면_서비스.jpg",
+    "assets_unused/pending_review/personal_hanok_v3/함양_일두고택_배면_서비스.jpg"
+  ]
+}

@@ -1,0 +1,432 @@
+{
+  "schema": "ildu-turnaround-package-v1",
+  "status": "canonical_work_package_promoted_2026-08-30",
+  "package": "ildu_sotdaeulmun_v02",
+  "camera": "approximately 28-degree elevated oblique, not top view",
+  "azimuth_step_degrees": 45,
+  "runtime_frame_size": [
+    384,
+    512
+  ],
+  "working_frame_count": 8,
+  "runtime_frame_count": 8,
+  "canonical_source": "references/canonical_source/sotdaeulmun_approved_jin_20260824.png",
+  "canonical_source_sha256": "161d23a981e8c0533f902933ef79c646a95f8d86c210cba48fbd954af7d4d687",
+  "canonical_authority_record": "../CANONICAL_PROMOTION.json",
+  "canonical_runtime_frames": "runtime_views",
+  "historical_generation_frames": "transparent_views",
+  "preserved_source": "ildu_sotdaeulmun_00_source_original_exact.png",
+  "preserved_source_byte_identical": true,
+  "generated_frames_are_pixel_identical_to_source": false,
+  "working_frames": [
+    {
+      "direction": "00_front",
+      "path": "transparent_views/ildu_sotdaeulmun_00_front.png",
+      "sha256": "dd5b19886b0a71b39b2b7683837a9de70f2e83aa1dd093185a930a6312dbaf38",
+      "width": 384,
+      "height": 512,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "transparent_pixels": 131606,
+      "opaque_pixels": 60797
+    },
+    {
+      "direction": "01_front_right",
+      "path": "transparent_views/ildu_sotdaeulmun_01_front_right.png",
+      "sha256": "9517196dfe3a1c672a771b17a0b47bf4039ef81fbdfcfbdaeb99bc49b4aaf6e4",
+      "width": 384,
+      "height": 512,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "transparent_pixels": 131945,
+      "opaque_pixels": 60855
+    },
+    {
+      "direction": "02_right",
+      "path": "transparent_views/ildu_sotdaeulmun_02_right.png",
+      "sha256": "679bd4b36a7d66c3f0e17303a2938f16f67346368c4b245985db15dc11b93c1f",
+      "width": 384,
+      "height": 512,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "transparent_pixels": 145055,
+      "opaque_pixels": 47815
+    },
+    {
+      "direction": "03_rear_right",
+      "path": "transparent_views/ildu_sotdaeulmun_03_rear_right.png",
+      "sha256": "086f6b662141b237aef04b8be23e7ba79e130e25ab756ac5e08ece2fb937ccdf",
+      "width": 384,
+      "height": 512,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "transparent_pixels": 133287,
+      "opaque_pixels": 59413
+    },
+    {
+      "direction": "04_rear",
+      "path": "transparent_views/ildu_sotdaeulmun_04_rear.png",
+      "sha256": "2d6a60734a5d5d2bd68768496e12c49f48a1b8333133056827bcfebd0560903f",
+      "width": 384,
+      "height": 512,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "transparent_pixels": 133242,
+      "opaque_pixels": 59340
+    },
+    {
+      "direction": "05_rear_left",
+      "path": "transparent_views/ildu_sotdaeulmun_05_rear_left.png",
+      "sha256": "00e96850fb6be57620e3f15610e78b5aca0aa5d1bac5d545abe529d1b46ba40a",
+      "width": 384,
+      "height": 512,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "transparent_pixels": 136916,
+      "opaque_pixels": 55777
+    },
+    {
+      "direction": "06_left",
+      "path": "transparent_views/ildu_sotdaeulmun_06_left.png",
+      "sha256": "a51f995b02f506e2a536046b8e21629f4999f7aefd19694ab107f16ba77650dc",
+      "width": 384,
+      "height": 512,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "transparent_pixels": 145388,
+      "opaque_pixels": 47538
+    },
+    {
+      "direction": "07_front_left",
+      "path": "transparent_views/ildu_sotdaeulmun_07_front_left.png",
+      "sha256": "1ae8d37da56a184ea6d3e8aed1c8c6c221384fe1c2fdbca96d368371c1ef5dd8",
+      "width": 384,
+      "height": 512,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "transparent_pixels": 131366,
+      "opaque_pixels": 61193
+    }
+  ],
+  "runtime_matching_frames": 8,
+  "runtime_revision_matching_frames": 0,
+  "runtime_frames": [
+    {
+      "direction": "00_front",
+      "path": "runtime_views/ildu_sotdaeulmun_00_front.png",
+      "sha256": "1bef97ec8afdb7af9d32190ba0902feeb79d7b8f268b3e0e75639fc0b4c262ec",
+      "runtime_exists": true,
+      "runtime_sha256_match": true,
+      "width": 384,
+      "height": 512,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "transparent_pixels": 131606,
+      "opaque_pixels": 60797
+    },
+    {
+      "direction": "01_front_right",
+      "path": "runtime_views/ildu_sotdaeulmun_01_front_right.png",
+      "sha256": "6b04fc8f2106d543eb0084f0d9fb98b4e56f9abe30b524fed6db0a5ef13f4b0b",
+      "runtime_exists": true,
+      "runtime_sha256_match": true,
+      "width": 384,
+      "height": 512,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "transparent_pixels": 131945,
+      "opaque_pixels": 60855
+    },
+    {
+      "direction": "02_right",
+      "path": "runtime_views/ildu_sotdaeulmun_02_right.png",
+      "sha256": "8664c99c670c138c9615127a277de8c5454230ed55a0442203823cef03088d40",
+      "runtime_exists": true,
+      "runtime_sha256_match": true,
+      "width": 384,
+      "height": 512,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "transparent_pixels": 145055,
+      "opaque_pixels": 47815
+    },
+    {
+      "direction": "03_rear_right",
+      "path": "runtime_views/ildu_sotdaeulmun_03_rear_right.png",
+      "sha256": "e2b4994bdcfca4ebfae3869483c525314cf4002f22cb47d98cad2d5f4145cc62",
+      "runtime_exists": true,
+      "runtime_sha256_match": true,
+      "width": 384,
+      "height": 512,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "transparent_pixels": 133287,
+      "opaque_pixels": 59413
+    },
+    {
+      "direction": "04_rear",
+      "path": "runtime_views/ildu_sotdaeulmun_04_rear.png",
+      "sha256": "75b39e1af36e9bd17350df44abf65596aef3898e4c3d925987bd3f68f40a99ff",
+      "runtime_exists": true,
+      "runtime_sha256_match": true,
+      "width": 384,
+      "height": 512,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "transparent_pixels": 133242,
+      "opaque_pixels": 59340
+    },
+    {
+      "direction": "05_rear_left",
+      "path": "runtime_views/ildu_sotdaeulmun_05_rear_left.png",
+      "sha256": "93846bb50bcf30ca05e8f45a2a7824f7256a19681ef902dc31ce3ccccc22d72b",
+      "runtime_exists": true,
+      "runtime_sha256_match": true,
+      "width": 384,
+      "height": 512,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "transparent_pixels": 136916,
+      "opaque_pixels": 55777
+    },
+    {
+      "direction": "06_left",
+      "path": "runtime_views/ildu_sotdaeulmun_06_left.png",
+      "sha256": "5c90f13ac56374d271c4d06721d350677aa5d1d7df177b2b41e302ba9e4467b4",
+      "runtime_exists": true,
+      "runtime_sha256_match": true,
+      "width": 384,
+      "height": 512,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "transparent_pixels": 145388,
+      "opaque_pixels": 47538
+    },
+    {
+      "direction": "07_front_left",
+      "path": "runtime_views/ildu_sotdaeulmun_07_front_left.png",
+      "sha256": "b7ef413745056646dab0b5732025d17fbda70fb5da1abbdfb96fa6ec1f8bd183",
+      "runtime_exists": true,
+      "runtime_sha256_match": true,
+      "width": 384,
+      "height": 512,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "transparent_pixels": 131366,
+      "opaque_pixels": 61193
+    }
+  ],
+  "files": [
+    {
+      "path": "extract_checkerboard_alpha.py",
+      "bytes": 2099,
+      "sha256": "3997a93018568071c7965ce6123b0d756f7215bf3a1a3acd75f5d9cd8b13d68b"
+    },
+    {
+      "path": "ildu_sotdaeulmun_00_source_original_exact.png",
+      "bytes": 5712433,
+      "sha256": "161d23a981e8c0533f902933ef79c646a95f8d86c210cba48fbd954af7d4d687"
+    },
+    {
+      "path": "ildu_sotdaeulmun_8view_elevated_sheet_v02_raw.png",
+      "bytes": 1826048,
+      "sha256": "613e308845054960dc5702cd1ad23c3034d566fb061edc47b05e35442d6cce8e"
+    },
+    {
+      "path": "ildu_sotdaeulmun_8view_elevated_sheet_v02_transparent.png",
+      "bytes": 1714889,
+      "sha256": "869672a9d56b0c3d8a330cd77916e22d8de28b1a2d4455f47780632f98c9aa9d"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3091,
+      "sha256": "59d1e284a3acad1357436e1b59f4db16b82afaf75849c4c91c97802dc7b65fb5"
+    },
+    {
+      "path": "references/blueprints/도면_국가민속문화재_함양_일두_고택_기록화보고서_함양_일두고택_전체_배치도.jpg",
+      "bytes": 933414,
+      "sha256": "3cdb496da05b9ff69d60937a5006ef107496bf47fe81219765947f18bdcd066d"
+    },
+    {
+      "path": "references/blueprints/도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_행랑채_배면도.jpg",
+      "bytes": 669346,
+      "sha256": "d6b699fe77faf14d2ae3cfb8f41b164b2574f1b34b042f84def29e5b82cc8dbd"
+    },
+    {
+      "path": "references/blueprints/도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_행랑채_앙시도.jpg",
+      "bytes": 839760,
+      "sha256": "3ec6c6f06f1f25f8c0024992712f7d68d50c2717adef8520d21afee796c77ee5"
+    },
+    {
+      "path": "references/blueprints/도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_행랑채_와복도.jpg",
+      "bytes": 811836,
+      "sha256": "20092d046afe01e9759347cb33239ec1bba45437a00ee55fb11c6641865b3884"
+    },
+    {
+      "path": "references/blueprints/도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_행랑채_정면도.jpg",
+      "bytes": 732854,
+      "sha256": "a36f3bf511100b17aa885e606a45bb4911610dd2f581089dea5e0f8ab192d9a3"
+    },
+    {
+      "path": "references/blueprints/도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_행랑채_종단면도.jpg",
+      "bytes": 643378,
+      "sha256": "06d6d2575ac7c720795964db6282e23cd76f41de6626e95761daa8094f90276d"
+    },
+    {
+      "path": "references/blueprints/도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_행랑채_좌,우측면도.jpg",
+      "bytes": 714741,
+      "sha256": "eaa9a34e4df1e76ba40a753f58aed4b5d214fd6d203cde1084ce5d4e2f509526"
+    },
+    {
+      "path": "references/blueprints/도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_행랑채_평면도.jpg",
+      "bytes": 1012422,
+      "sha256": "1c740eb62857df7a3707bc5349770775b49b93a03cbcea38fb9c78767cb7ec87"
+    },
+    {
+      "path": "references/blueprints/도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_행랑채_횡단면도.jpg",
+      "bytes": 672413,
+      "sha256": "1d5cc337c4baa76142584b474e307c4572e0cdc7f0fe2c9511f2f09c3f9e41e0"
+    },
+    {
+      "path": "references/canonical_source/sotdaeulmun_approved_jin_20260824.png",
+      "bytes": 5712433,
+      "sha256": "161d23a981e8c0533f902933ef79c646a95f8d86c210cba48fbd954af7d4d687"
+    },
+    {
+      "path": "references/photos/01_courtyard_overview.png",
+      "bytes": 1863223,
+      "sha256": "09f0041997f42875bf148492c32cad0d164621d4123610f6ae0f27a78c4a6409"
+    },
+    {
+      "path": "references/photos/02_exterior_front.png",
+      "bytes": 595081,
+      "sha256": "71b8dc964f78b430d0e1290f6c3781bf4f5bca0973ac6c63807d2bad0be20453"
+    },
+    {
+      "path": "references/photos/03_inner_gate_signboards.png",
+      "bytes": 650400,
+      "sha256": "9c781afb46d599f5df7185fa4b875688fbd217c3edb4e17ded04dedf81815c31"
+    },
+    {
+      "path": "references/photos/04_signboards_closeup.png",
+      "bytes": 646007,
+      "sha256": "b85663dbe305c1bbf5c7ea7c5728483d34a77cd26d6fe63fb0079d71bf5b5086"
+    },
+    {
+      "path": "references/photos/05_side_approach.png",
+      "bytes": 1805184,
+      "sha256": "7ae62a9983bd7f0889cf9e56004347ad346fb4e322d2f0b030ed5db50274ad32"
+    },
+    {
+      "path": "references/photos/06_front_inscriptions.png",
+      "bytes": 1413077,
+      "sha256": "5714e33fbeff020c7a33aba6daf88e41e7b689a0316284551a9247e43a8ac44b"
+    },
+    {
+      "path": "runtime_views/ildu_sotdaeulmun_00_front.png",
+      "bytes": 147942,
+      "sha256": "1bef97ec8afdb7af9d32190ba0902feeb79d7b8f268b3e0e75639fc0b4c262ec"
+    },
+    {
+      "path": "runtime_views/ildu_sotdaeulmun_01_front_right.png",
+      "bytes": 161470,
+      "sha256": "6b04fc8f2106d543eb0084f0d9fb98b4e56f9abe30b524fed6db0a5ef13f4b0b"
+    },
+    {
+      "path": "runtime_views/ildu_sotdaeulmun_02_right.png",
+      "bytes": 133378,
+      "sha256": "8664c99c670c138c9615127a277de8c5454230ed55a0442203823cef03088d40"
+    },
+    {
+      "path": "runtime_views/ildu_sotdaeulmun_03_rear_right.png",
+      "bytes": 158766,
+      "sha256": "e2b4994bdcfca4ebfae3869483c525314cf4002f22cb47d98cad2d5f4145cc62"
+    },
+    {
+      "path": "runtime_views/ildu_sotdaeulmun_04_rear.png",
+      "bytes": 136881,
+      "sha256": "75b39e1af36e9bd17350df44abf65596aef3898e4c3d925987bd3f68f40a99ff"
+    },
+    {
+      "path": "runtime_views/ildu_sotdaeulmun_05_rear_left.png",
+      "bytes": 145987,
+      "sha256": "93846bb50bcf30ca05e8f45a2a7824f7256a19681ef902dc31ce3ccccc22d72b"
+    },
+    {
+      "path": "runtime_views/ildu_sotdaeulmun_06_left.png",
+      "bytes": 132823,
+      "sha256": "5c90f13ac56374d271c4d06721d350677aa5d1d7df177b2b41e302ba9e4467b4"
+    },
+    {
+      "path": "runtime_views/ildu_sotdaeulmun_07_front_left.png",
+      "bytes": 157902,
+      "sha256": "b7ef413745056646dab0b5732025d17fbda70fb5da1abbdfb96fa6ec1f8bd183"
+    },
+    {
+      "path": "runtime_views/README.md",
+      "bytes": 478,
+      "sha256": "a4971054885d7295dc6c85515bc2131d525722a72ff72d037b8e5ed1cd0e7e16"
+    },
+    {
+      "path": "split_turnaround_sheet.py",
+      "bytes": 3764,
+      "sha256": "7c2f84964670e889c013f1bd8af4a99e02ab63a3ad1050cff3d21a6fcc584516"
+    },
+    {
+      "path": "transparent_views/ildu_sotdaeulmun_00_front.png",
+      "bytes": 147802,
+      "sha256": "dd5b19886b0a71b39b2b7683837a9de70f2e83aa1dd093185a930a6312dbaf38"
+    },
+    {
+      "path": "transparent_views/ildu_sotdaeulmun_01_front_right.png",
+      "bytes": 166744,
+      "sha256": "9517196dfe3a1c672a771b17a0b47bf4039ef81fbdfcfbdaeb99bc49b4aaf6e4"
+    },
+    {
+      "path": "transparent_views/ildu_sotdaeulmun_02_right.png",
+      "bytes": 141985,
+      "sha256": "679bd4b36a7d66c3f0e17303a2938f16f67346368c4b245985db15dc11b93c1f"
+    },
+    {
+      "path": "transparent_views/ildu_sotdaeulmun_03_rear_right.png",
+      "bytes": 158675,
+      "sha256": "086f6b662141b237aef04b8be23e7ba79e130e25ab756ac5e08ece2fb937ccdf"
+    },
+    {
+      "path": "transparent_views/ildu_sotdaeulmun_04_rear.png",
+      "bytes": 136761,
+      "sha256": "2d6a60734a5d5d2bd68768496e12c49f48a1b8333133056827bcfebd0560903f"
+    },
+    {
+      "path": "transparent_views/ildu_sotdaeulmun_05_rear_left.png",
+      "bytes": 149482,
+      "sha256": "00e96850fb6be57620e3f15610e78b5aca0aa5d1bac5d545abe529d1b46ba40a"
+    },
+    {
+      "path": "transparent_views/ildu_sotdaeulmun_06_left.png",
+      "bytes": 136712,
+      "sha256": "a51f995b02f506e2a536046b8e21629f4999f7aefd19694ab107f16ba77650dc"
+    },
+    {
+      "path": "transparent_views/ildu_sotdaeulmun_07_front_left.png",
+      "bytes": 157837,
+      "sha256": "1ae8d37da56a184ea6d3e8aed1c8c6c221384fe1c2fdbca96d368371c1ef5dd8"
+    }
+  ]
+}
