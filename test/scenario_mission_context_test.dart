@@ -125,8 +125,7 @@ void main() {
       await _advanceUntilText(tester, 'Correct response');
       await _tapText(tester, 'Correct response');
       await tester.pump();
-      await _tapText(tester, 'Antwort prüfen');
-      await tester.pump();
+      expect(find.text('Antwort prüfen'), findsNothing);
       await _tapText(tester, 'Ergebnis ansehen');
       await tester.pump();
       await tester.pump(const Duration(seconds: 2));

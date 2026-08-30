@@ -114,7 +114,30 @@ void main() {
     ),
   };
 
-  for (final entry in cases.entries) {
+  testWidgets('listening judges immediately without a confirmation action', (
+    tester,
+  ) async {
+    var resultCalls = 0;
+    var continueCalls = 0;
+    await tester.pumpWidget(
+      _host(
+        cases['listening']!((_) => resultCalls++, () => continueCalls++, false),
+      ),
+    );
+    await tester.pump();
+
+    expect(find.byKey(const ValueKey('quest-submit')), findsNothing);
+    await tester.tap(find.byKey(const ValueKey('answer-0')));
+    await tester.pump();
+
+    expect(resultCalls, 1);
+    expect(continueCalls, 0);
+    expect(find.byKey(const ValueKey('quest-continue')), findsOneWidget);
+  });
+
+  for (final entry in cases.entries.where(
+    (entry) => entry.key != 'listening',
+  )) {
     testWidgets('${entry.key} requires submit and emits one result', (
       tester,
     ) async {
@@ -206,7 +229,9 @@ void main() {
       await tester.pumpWidget(_host(entry.value((_) {}, () {}, false)));
       await tester.pump();
       await _chooseWrong(tester, entry.key);
-      await tester.tap(find.byKey(const ValueKey('quest-submit')));
+      if (entry.key != 'listening') {
+        await tester.tap(find.byKey(const ValueKey('quest-submit')));
+      }
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 250));
       if (entry.key == 'sentence') {
@@ -235,7 +260,9 @@ void main() {
 
       for (var attempt = 0; attempt < 2; attempt++) {
         await _chooseWrong(tester, entry.key);
-        await tester.tap(find.byKey(const ValueKey('quest-submit')));
+        if (entry.key != 'listening') {
+          await tester.tap(find.byKey(const ValueKey('quest-submit')));
+        }
         await tester.pump();
         await tester.pump(const Duration(milliseconds: 450));
       }
@@ -267,6 +294,7 @@ void main() {
     );
     await tester.pump();
 
+    expect(find.byKey(const ValueKey('diktat-korean-review')), findsNothing);
     await tester.enterText(
       find.byKey(const ValueKey('diktat-answer-field')),
       '다시 말씀 드릴게요',
@@ -278,9 +306,10 @@ void main() {
     expect(results, hasLength(1));
     expect(results.single.passed, isTrue);
     expect(results.single.firstTry, isTrue);
+    expect(find.byKey(const ValueKey('diktat-korean-review')), findsOneWidget);
   });
 
-  testWidgets('listening keeps the animated submit path when motion is on', (
+  testWidgets('listening keeps immediate judgment when motion is on', (
     tester,
   ) async {
     var resultCalls = 0;
@@ -292,8 +321,6 @@ void main() {
     );
     await tester.pump();
     await tester.tap(find.byKey(const ValueKey('answer-0')));
-    await tester.pump();
-    await tester.tap(find.byKey(const ValueKey('quest-submit')));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
     expect(resultCalls, 1);

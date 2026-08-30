@@ -39,6 +39,7 @@ class SatzBauenQuest extends StatefulWidget {
   final bool compact;
   final bool showSpeedControl;
   final bool allowDontKnow;
+  final SoriQuestCorrectFeedback correctFeedback;
 
   const SatzBauenQuest({
     super.key,
@@ -51,6 +52,7 @@ class SatzBauenQuest extends StatefulWidget {
     this.compact = false,
     this.showSpeedControl = true,
     this.allowDontKnow = false,
+    this.correctFeedback = const SoriQuestCorrectFeedback(),
   });
 
   @override
@@ -350,7 +352,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     );
 
     if (punctuationOk && SatzBauenQuest.isCorrectOrder(assembled, _targetKo)) {
-      HapticFeedback.lightImpact();
+      widget.correctFeedback.play(context);
       setState(() {
         _completed = true;
         _wrong = false;

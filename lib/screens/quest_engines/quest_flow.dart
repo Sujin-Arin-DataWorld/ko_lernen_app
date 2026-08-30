@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../../services/sound_service.dart';
 import '../../widgets/sori/button.dart';
+import '../../widgets/sori/dancheong_burst.dart';
 import '../../widgets/sori/pressable.dart';
 import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/tokens.dart';
@@ -9,6 +12,40 @@ import '../../widgets/sori/tokens.dart';
 enum SoriAnswerState { idle, selected, correct, wrong }
 
 enum SoriWordTileState { idle, selected, correct, wrong, disabled }
+
+typedef SoriQuestBurstEffect = void Function(BuildContext context);
+
+void _playDancheongQuestBurst(BuildContext context) {
+  final viewport = MediaQuery.sizeOf(context);
+  DancheongBurst.fire(
+    context,
+    origin: const Alignment(0, -0.1).alongSize(viewport),
+    intensity: 2.4,
+  );
+}
+
+/// One correct-answer feedback dispatch for productive quest engines.
+///
+/// The three effects stay injectable so callers can prove that a single
+/// accepted submission emits one visual, audible, and tactile signal without
+/// moving judgment, score, or persistence ownership out of the engine.
+class SoriQuestCorrectFeedback {
+  const SoriQuestCorrectFeedback({
+    this.burst = _playDancheongQuestBurst,
+    this.sound = SoundService.correct,
+    this.haptic = HapticFeedback.lightImpact,
+  });
+
+  final SoriQuestBurstEffect burst;
+  final VoidCallback sound;
+  final VoidCallback haptic;
+
+  void play(BuildContext context) {
+    burst(context);
+    sound();
+    haptic();
+  }
+}
 
 class SoriAnswerTray extends StatelessWidget {
   const SoriAnswerTray({
@@ -119,7 +156,7 @@ class SoriDottedSlotPainter extends CustomPainter {
 }
 
 /// Shared tile for productive word and jamo assembly tasks.
-/// State is communicated by a corner icon and semantics as well as color.
+/// State is communicated by fill, border, and explicit semantics.
 class SoriWordTile extends StatelessWidget {
   const SoriWordTile({
     super.key,
@@ -142,40 +179,35 @@ class SoriWordTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final surfaces = SoriSurfaces.of(context);
-    final (border, background, foreground, icon, status) = switch (state) {
+    final (border, background, foreground, status) = switch (state) {
       SoriWordTileState.idle => (
         SoriColors.primary,
         surfaces.surface,
         surfaces.text,
-        null,
         '',
       ),
       SoriWordTileState.selected => (
         SoriColors.primary,
         SoriColors.primarySoft,
         surfaces.text,
-        Icons.check_circle_outline_rounded,
         t.questAnswerSelected,
       ),
       SoriWordTileState.correct => (
         SoriColors.success,
         SoriColors.success.withAlpha(32),
         surfaces.text,
-        Icons.check_circle_rounded,
         t.questCorrect,
       ),
       SoriWordTileState.wrong => (
         SoriColors.danger,
         SoriColors.danger.withAlpha(32),
         surfaces.text,
-        Icons.cancel_rounded,
         t.questWrong,
       ),
       SoriWordTileState.disabled => (
         surfaces.surfaceAlt,
         surfaces.surface,
         surfaces.textDim,
-        null,
         '',
       ),
     };
@@ -221,34 +253,18 @@ class SoriWordTile extends StatelessWidget {
                         ),
                       ],
               ),
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  Padding(
-                    padding: icon == null
-                        ? EdgeInsets.zero
-                        : const EdgeInsets.only(top: 2, right: 2),
-                    child: FittedBox(
-                      fit: BoxFit.scaleDown,
-                      child: Text(
-                        label,
-                        maxLines: 1,
-                        textAlign: TextAlign.center,
-                        style: SoriTextTheme.of(context).body.copyWith(
-                          color: foreground,
-                          fontSize: (compact ? 16 : 18) * scale,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ),
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  label,
+                  maxLines: 1,
+                  textAlign: TextAlign.center,
+                  style: SoriTextTheme.of(context).body.copyWith(
+                    color: foreground,
+                    fontSize: 17.5 * scale,
+                    fontWeight: FontWeight.w700,
                   ),
-                  if (icon != null)
-                    Positioned(
-                      top: 0,
-                      right: 0,
-                      child: Icon(icon, color: border, size: 14 * scale),
-                    ),
-                ],
+                ),
               ),
             ),
           ),
@@ -577,14 +593,15 @@ class ScenarioQuestAction extends StatelessWidget {
             ),
             const SizedBox(height: Spacing.sm),
           ],
-          SoriButton.filled(
-            key: const ValueKey('quest-submit'),
-            label: t.questCheckAnswer,
-            fullWidth: true,
-            onTap: canSubmit ? onSubmit : null,
-          ),
+          if (onSubmit != null)
+            SoriButton.filled(
+              key: const ValueKey('quest-submit'),
+              label: t.questCheckAnswer,
+              fullWidth: true,
+              onTap: canSubmit ? onSubmit : null,
+            ),
           if (onDontKnow != null) ...[
-            const SizedBox(height: Spacing.xs),
+            if (onSubmit != null) const SizedBox(height: Spacing.xs),
             SoriButton.ghost(
               key: const ValueKey('quest-dont-know'),
               label: t.questDontKnowYet,
@@ -620,28 +637,25 @@ class ScenarioQuestAction extends StatelessWidget {
           liveRegion: true,
           label: resolvedMessage,
           excludeSemantics: true,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Icon(
-                result
-                    ? Icons.check_circle_rounded
-                    : Icons.info_outline_rounded,
-                color: accent,
-              ),
-              const SizedBox(width: Spacing.sm),
-              Expanded(
-                child: Text(
-                  resolvedMessage,
-                  style: SoriTextTheme.of(
-                    context,
-                  ).bodySmall.copyWith(color: accent),
+          child: result
+              ? const SizedBox.shrink()
+              : Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(Icons.info_outline_rounded, color: accent),
+                    const SizedBox(width: Spacing.sm),
+                    Expanded(
+                      child: Text(
+                        resolvedMessage,
+                        style: SoriTextTheme.of(
+                          context,
+                        ).bodySmall.copyWith(color: accent),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
-          ),
         ),
-        const SizedBox(height: Spacing.sm),
+        if (!result) const SizedBox(height: Spacing.sm),
         SoriButton.filled(
           key: const ValueKey('quest-continue'),
           label: isLast ? t.questViewResult : t.questNext,

@@ -16,6 +16,7 @@ import 'package:ko_lernen_app/theme.dart';
 const _failedTarget = '실패 단어';
 const _passivelyShownWord = '소개만 단어';
 const _wrongOption = '다른 단어';
+const _roleplayTrackedWord = '안녕하세요';
 
 const _scenario = Scenario(
   id: 'scenario-srs-persistence-flow',
@@ -40,6 +41,22 @@ const _scenario = Scenario(
       },
     ),
   ],
+);
+
+const _roleplayScenario = Scenario(
+  id: 'scenario-roleplay-writing-skip',
+  level: LearnerLevel.a1,
+  emoji: '✍️',
+  register: Register.polite,
+  title: LocalizedText(ko: '쓰기 건너뛰기', de: 'Schreiben', en: 'Writing'),
+  intro: LocalizedText(ko: '', de: 'Intro', en: 'Intro'),
+  vocab: [VocabRef(korean: _roleplayTrackedWord)],
+  grammarIds: [],
+  dialog: [
+    DialogLine(speaker: 'partner', ko: '안녕하세요?', de: 'Hallo?', en: 'Hello?'),
+    DialogLine(speaker: 'user', ko: '안녕하세요.', de: 'Guten Tag.', en: 'Hello.'),
+  ],
+  quests: [],
 );
 
 void main() {
@@ -157,6 +174,85 @@ void main() {
         reason:
             'scenario auto-fail SRS evidence is not a user-reviewed ledger item',
       );
+    },
+  );
+
+  testWidgets(
+    'roleplay writing Skip changes no score, SRS, or completion state',
+    (tester) async {
+      await Storage.setSrsRawJson(
+        '{"안녕하세요":{"e":2.55,"i":1,"n":"2099-01-01","r":1}}',
+      );
+      final before = Storage.srsCard(_roleplayTrackedWord)!;
+      var persistenceCalls = 0;
+      var completionCalls = 0;
+
+      CourseProgressService.shared.resetForTesting();
+      await tester.runAsync(() async {
+        await CurriculumCatalog.load();
+      });
+
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: AppTheme.light,
+          locale: const Locale('de'),
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(context).copyWith(disableAnimations: true),
+            child: child!,
+          ),
+          home: ScenarioPlayerScreen(
+            scenarioId: _roleplayScenario.id,
+            scenarioLoader: (_) async => _roleplayScenario,
+            grammarLoader: () async => const [],
+            resultPersister: (_, _, _) async {
+              persistenceCalls += 1;
+              return null;
+            },
+            onCompleted: (_) => completionCalls += 1,
+          ),
+        ),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 400));
+
+      await _tapText(tester, "Los geht's!");
+      await tester.pump(const Duration(milliseconds: 400));
+      await _tapText(tester, 'Weiter');
+      await tester.pump(const Duration(milliseconds: 400));
+      await _tapText(tester, 'Weiter');
+      await tester.pump(const Duration(milliseconds: 400));
+
+      await tester.tap(find.text(_roleplayTrackedWord));
+      await tester.pump();
+      await tester.tap(find.byKey(const ValueKey('quest-submit')));
+      await tester.pump(const Duration(milliseconds: 250));
+      await tester.tap(find.byKey(const ValueKey('quest-continue')));
+      await tester.pump(const Duration(milliseconds: 400));
+
+      expect(
+        find.byKey(
+          const ValueKey<String>('scenario-write-after-roleplay-card'),
+        ),
+        findsOneWidget,
+      );
+      await tester.ensureVisible(
+        find.byKey(const ValueKey<String>('scenario-write-skip')),
+      );
+      await tester.tap(
+        find.byKey(const ValueKey<String>('scenario-write-skip')),
+      );
+      await tester.pump();
+
+      final after = Storage.srsCard(_roleplayTrackedWord)!;
+      expect(persistenceCalls, 0);
+      expect(completionCalls, 0);
+      expect(Storage.xp, 0);
+      expect(Storage.scenarioStars, isEmpty);
+      expect(Storage.completedScenarios, isEmpty);
+      expect(after.reviewCount, before.reviewCount);
+      expect(after.intervalDays, before.intervalDays);
     },
   );
 }

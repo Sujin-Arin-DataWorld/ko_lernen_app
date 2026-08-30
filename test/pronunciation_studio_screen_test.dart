@@ -13,6 +13,7 @@ import 'package:ko_lernen_app/services/pronunciation_recorder.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/home_action.dart';
+import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -40,7 +41,7 @@ void main() {
 
     expect(Storage.pronunciationConsent, isFalse);
     expect(recorder.permissionRequests, 0);
-    expect(find.text('Listen'), findsOneWidget);
+    expect(find.byType(SoriSpeechIndicator), findsOneWidget);
     final notice = find.textContaining('Voice assessment is off');
     await _scrollUntilBuilt(tester, notice);
     expect(notice, findsOneWidget);
@@ -63,7 +64,7 @@ void main() {
     final notice = find.textContaining('Microphone access was not granted');
     await _scrollUntilBuilt(tester, notice);
     expect(notice, findsOneWidget);
-    expect(find.text('Listen'), findsOneWidget);
+    expect(find.byType(SoriSpeechIndicator), findsOneWidget);
   });
 
   testWidgets(
@@ -103,10 +104,10 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(gateway.calls, 1);
-      final notice = find.textContaining('score is unavailable');
+      final notice = find.text('Assessment service is unavailable');
       await _scrollUntilBuilt(tester, notice);
       expect(notice, findsOneWidget);
-      expect(find.text('Listen'), findsOneWidget);
+      expect(find.byType(SoriSpeechIndicator), findsOneWidget);
     },
   );
 
@@ -265,6 +266,275 @@ void main() {
       isFalse,
     );
   });
+
+  const failureCases =
+      <
+        ({
+          PronunciationAssessmentFailureCategory category,
+          String enTitle,
+          String enBody,
+          String deTitle,
+          String deBody,
+          bool needsNewRecording,
+        })
+      >[
+        (
+          category: PronunciationAssessmentFailureCategory.invalidRequest,
+          enTitle: 'New recording needed',
+          enBody:
+              'This recording could not be assessed safely. Record the phrase again.',
+          deTitle: 'Neue Aufnahme nötig',
+          deBody:
+              'Diese Aufnahme konnte nicht sicher bewertet werden. Nimm den Satz bitte noch einmal auf.',
+          needsNewRecording: true,
+        ),
+        (
+          category:
+              PronunciationAssessmentFailureCategory.authenticationRequired,
+          enTitle: 'Secure sign-in is not ready',
+          enBody:
+              'The assessment needs the app’s anonymous sign-in. Your recording stays ready here; retry when the connection is ready.',
+          deTitle: 'Sichere Anmeldung noch nicht bereit',
+          deBody:
+              'Für die Bewertung braucht die App ihre anonyme Anmeldung. Deine Aufnahme bleibt hier bereit; versuche es erneut, sobald die Verbindung steht.',
+          needsNewRecording: false,
+        ),
+        (
+          category: PronunciationAssessmentFailureCategory.unavailable,
+          enTitle: 'Assessment service is unavailable',
+          enBody:
+              'Your recording is still ready. Send the same recording again when the service is available.',
+          deTitle: 'Bewertung gerade nicht erreichbar',
+          deBody:
+              'Deine Aufnahme bleibt bereit. Sende dieselbe Aufnahme erneut, sobald der Dienst erreichbar ist.',
+          needsNewRecording: false,
+        ),
+        (
+          category: PronunciationAssessmentFailureCategory.rateLimited,
+          enTitle: 'Assessment limit reached',
+          enBody:
+              'Your recording stays ready on this screen. Retry later or continue without a score.',
+          deTitle: 'Bewertungslimit erreicht',
+          deBody:
+              'Deine Aufnahme bleibt auf diesem Bildschirm bereit. Versuche es später erneut oder lerne ohne Bewertung weiter.',
+          needsNewRecording: false,
+        ),
+        (
+          category: PronunciationAssessmentFailureCategory.unknown,
+          enTitle: 'Assessment could not be completed',
+          enBody: 'No score was saved. Try the same recording again.',
+          deTitle: 'Bewertung nicht abgeschlossen',
+          deBody:
+              'Es wurde keine Bewertung gespeichert. Versuche dieselbe Aufnahme noch einmal.',
+          needsNewRecording: false,
+        ),
+      ];
+
+  for (final locale in const [Locale('de'), Locale('en')]) {
+    for (final failureCase in failureCases) {
+      testWidgets(
+        '${failureCase.category.name} has a distinct ${locale.languageCode} diagnosis and action',
+        (tester) async {
+          await Storage.setPronunciationConsent(true);
+          final recorder = _FakeRecorder(
+            permission: true,
+            chunks: <Uint8List>[
+              Uint8List.fromList(<int>[0, 0, 1, 0]),
+            ],
+          );
+          final gateway = _CategoryFailingGateway(failureCase.category);
+          await tester.pumpWidget(
+            _app(recorder, gateway: gateway, locale: locale),
+          );
+          await tester.pumpAndSettle();
+
+          await _captureAndAssess(tester, callStarted: () => gateway.calls > 0);
+
+          final title = locale.languageCode == 'de'
+              ? failureCase.deTitle
+              : failureCase.enTitle;
+          final body = locale.languageCode == 'de'
+              ? failureCase.deBody
+              : failureCase.enBody;
+          final diagnostic = find.byKey(
+            ValueKey('pronunciation-diagnostic-${failureCase.category.name}'),
+          );
+          await _scrollUntilBuilt(tester, diagnostic);
+          expect(diagnostic, findsOneWidget);
+          expect(find.text(title), findsOneWidget);
+          expect(find.text(body), findsOneWidget);
+
+          final actionLabel = failureCase.needsNewRecording
+              ? (locale.languageCode == 'de' ? 'Neu aufnehmen' : 'Record again')
+              : (locale.languageCode == 'de'
+                    ? 'Dieselbe Aufnahme erneut bewerten'
+                    : 'Retry same recording');
+          final action = find.widgetWithText(SoriButton, actionLabel);
+          await _scrollUntilBuilt(tester, action);
+          expect(tester.widget<SoriButton>(action).onTap, isNotNull);
+        },
+      );
+    }
+  }
+
+  testWidgets('recorder startup failure is distinct from permission denial', (
+    tester,
+  ) async {
+    await Storage.setPronunciationConsent(true);
+    final recorder = _ThrowingStartRecorder();
+    await tester.pumpWidget(_app(recorder));
+    await tester.pumpAndSettle();
+
+    _invokeButton(tester, 'Record my voice');
+    await tester.pumpAndSettle();
+
+    final diagnostic = find.byKey(
+      const ValueKey('pronunciation-recorder-failure'),
+    );
+    await _scrollUntilBuilt(tester, diagnostic);
+    expect(diagnostic, findsOneWidget);
+    expect(find.text('Recording could not start'), findsOneWidget);
+    expect(
+      find.textContaining('Microphone access was not granted'),
+      findsNothing,
+    );
+    expect(
+      tester
+          .widget<SoriButton>(find.widgetWithText(SoriButton, 'Record again'))
+          .onTap,
+      isNotNull,
+    );
+  });
+
+  testWidgets('assessment retry reuses PCM phrase and assessment id', (
+    tester,
+  ) async {
+    await Storage.setPronunciationConsent(true);
+    final recorder = _FakeRecorder(
+      permission: true,
+      chunks: <Uint8List>[
+        Uint8List.fromList(<int>[0, 0, 1, 0]),
+      ],
+    );
+    final gateway = _RetryGateway();
+    await tester.pumpWidget(_app(recorder, gateway: gateway));
+    await tester.pumpAndSettle();
+
+    await _captureAndAssess(
+      tester,
+      callStarted: () => gateway.calls.isNotEmpty,
+    );
+    final retry = find.widgetWithText(SoriButton, 'Retry same recording');
+    await _scrollUntilBuilt(tester, retry);
+    _invokeButton(tester, 'Retry same recording');
+    await tester.runAsync(() async {
+      for (var i = 0; i < 40 && gateway.calls.length < 2; i++) {
+        await Future<void>.delayed(const Duration(milliseconds: 5));
+      }
+    });
+    await tester.pumpAndSettle();
+
+    expect(gateway.calls, hasLength(2));
+    expect(gateway.calls[1].pcm16, orderedEquals(gateway.calls[0].pcm16));
+    expect(gateway.calls[1].referenceText, gateway.calls[0].referenceText);
+    expect(gateway.calls[1].assessmentId, gateway.calls[0].assessmentId);
+    expect(Storage.pronunciationPassCount, 1);
+  });
+
+  testWidgets('phrase navigation suppresses a late permission completion', (
+    tester,
+  ) async {
+    await Storage.setPronunciationConsent(true);
+    final recorder = _DelayedPermissionRecorder();
+    await tester.pumpWidget(
+      _app(
+        recorder,
+        phraseLoader: () async => const <PronunciationPhrase>[
+          ..._testPhrases,
+          PronunciationPhrase(
+            id: 'pronunciation_a1_0002',
+            level: LearnerLevel.a1,
+            ko: '감사합니다',
+            de: 'Danke.',
+            en: 'Thank you.',
+            focus: 'ㅂ 받침',
+          ),
+        ],
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    _invokeButton(tester, 'Record my voice');
+    await tester.pump();
+    _invokeButton(tester, 'Continue without a score');
+    await tester.pump();
+    expect(find.text('감사합니다'), findsOneWidget);
+
+    recorder.permission.complete(true);
+    await tester.runAsync(() async {
+      await Future<void>.delayed(const Duration(milliseconds: 20));
+    });
+    await tester.pump();
+
+    expect(recorder.startCalls, 0);
+    expect(find.text('Recording…'), findsNothing);
+  });
+
+  testWidgets('dispose while recording cancels capture lifecycle', (
+    tester,
+  ) async {
+    await Storage.setPronunciationConsent(true);
+    final recorder = _TrackingRecorder();
+    await tester.pumpWidget(_app(recorder));
+    await tester.pumpAndSettle();
+
+    _invokeButton(tester, 'Record my voice');
+    await tester.pump();
+    await tester.pump();
+    expect(find.text('Recording…'), findsOneWidget);
+
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump(const Duration(seconds: 11));
+    await tester.runAsync(() async {
+      for (var i = 0; i < 20 && recorder.disposeCalls == 0; i++) {
+        await Future<void>.delayed(const Duration(milliseconds: 5));
+      }
+    });
+
+    expect(recorder.disposeCalls, 1);
+    expect(tester.takeException(), isNull);
+    await recorder.close();
+  });
+
+  testWidgets('dispose while assessing suppresses late score persistence', (
+    tester,
+  ) async {
+    await Storage.setPronunciationConsent(true);
+    final recorder = _FakeRecorder(
+      permission: true,
+      chunks: <Uint8List>[
+        Uint8List.fromList(<int>[0, 0, 1, 0]),
+      ],
+    );
+    final gateway = _HoldingSuccessGateway();
+    await tester.pumpWidget(_app(recorder, gateway: gateway));
+    await tester.pumpAndSettle();
+
+    await _captureAndAssess(
+      tester,
+      callStarted: () => gateway.calls > 0,
+      settle: false,
+    );
+    await tester.pumpWidget(const SizedBox.shrink());
+    gateway.complete();
+    await tester.runAsync(() async {
+      await Future<void>.delayed(const Duration(milliseconds: 30));
+    });
+    await tester.pump();
+
+    expect(Storage.pronunciationPassCount, 0);
+    expect(tester.takeException(), isNull);
+  });
 }
 
 const List<PronunciationPhrase> _testPhrases = <PronunciationPhrase>[
@@ -282,8 +552,9 @@ Widget _app(
   PronunciationRecorder recorder, {
   PronunciationAssessmentGateway? gateway,
   Future<List<PronunciationPhrase>> Function()? phraseLoader,
+  Locale locale = const Locale('en'),
 }) => MaterialApp(
-  locale: const Locale('en'),
+  locale: locale,
   localizationsDelegates: const [
     AppL10n.delegate,
     GlobalMaterialLocalizations.delegate,
@@ -299,6 +570,33 @@ Widget _app(
 );
 
 Future<List<PronunciationPhrase>> _loadTestPhrases() async => _testPhrases;
+
+void _invokeButton(WidgetTester tester, String label) {
+  tester.widget<SoriButton>(find.widgetWithText(SoriButton, label)).onTap!();
+}
+
+Future<void> _captureAndAssess(
+  WidgetTester tester, {
+  required bool Function() callStarted,
+  bool settle = true,
+}) async {
+  final t = AppL10n.of(tester.element(find.byType(PronunciationStudioScreen)));
+  _invokeButton(tester, t.pronunciationRecord);
+  await tester.pump();
+  await tester.pump();
+  _invokeButton(tester, t.pronunciationStop);
+  await tester.pump();
+  await tester.runAsync(() async {
+    for (var i = 0; i < 40 && !callStarted(); i++) {
+      await Future<void>.delayed(const Duration(milliseconds: 5));
+    }
+  });
+  if (settle) {
+    await tester.pumpAndSettle();
+  } else {
+    await tester.pump();
+  }
+}
 
 Future<void> _scrollUntilBuilt(WidgetTester tester, Finder target) async {
   final listView = find.byType(ListView).first;
@@ -377,5 +675,159 @@ class _HoldingGateway implements PronunciationAssessmentGateway {
   }) {
     calls++;
     return _result.future;
+  }
+}
+
+class _CategoryFailingGateway implements PronunciationAssessmentGateway {
+  _CategoryFailingGateway(this.category);
+
+  final PronunciationAssessmentFailureCategory category;
+  int calls = 0;
+
+  @override
+  Future<PronunciationAssessmentResult> assess({
+    required Uint8List pcm16,
+    required String referenceText,
+    required String assessmentId,
+  }) async {
+    calls++;
+    throw PronunciationAssessmentFailure(
+      category,
+      retryable:
+          category != PronunciationAssessmentFailureCategory.invalidRequest &&
+          category !=
+              PronunciationAssessmentFailureCategory.authenticationRequired,
+    );
+  }
+}
+
+class _AssessmentCall {
+  const _AssessmentCall({
+    required this.pcm16,
+    required this.referenceText,
+    required this.assessmentId,
+  });
+
+  final Uint8List pcm16;
+  final String referenceText;
+  final String assessmentId;
+}
+
+class _RetryGateway implements PronunciationAssessmentGateway {
+  final List<_AssessmentCall> calls = [];
+
+  @override
+  Future<PronunciationAssessmentResult> assess({
+    required Uint8List pcm16,
+    required String referenceText,
+    required String assessmentId,
+  }) async {
+    calls.add(
+      _AssessmentCall(
+        pcm16: Uint8List.fromList(pcm16),
+        referenceText: referenceText,
+        assessmentId: assessmentId,
+      ),
+    );
+    if (calls.length == 1) {
+      throw const PronunciationAssessmentFailure(
+        PronunciationAssessmentFailureCategory.unavailable,
+        retryable: true,
+      );
+    }
+    return PronunciationAssessmentResult(
+      assessmentId: assessmentId,
+      pronunciationScore: 88,
+      accuracyScore: 90,
+      fluencyScore: 86,
+      completenessScore: 89,
+    );
+  }
+}
+
+class _ThrowingStartRecorder implements PronunciationRecorder {
+  @override
+  Future<bool> requestPermission() async => true;
+
+  @override
+  Future<Stream<Uint8List>> startPcm16Stream() async =>
+      throw StateError('recorder unavailable');
+
+  @override
+  Future<void> stop() async {}
+
+  @override
+  Future<void> dispose() async {}
+}
+
+class _DelayedPermissionRecorder implements PronunciationRecorder {
+  final Completer<bool> permission = Completer<bool>();
+  int startCalls = 0;
+
+  @override
+  Future<bool> requestPermission() => permission.future;
+
+  @override
+  Future<Stream<Uint8List>> startPcm16Stream() async {
+    startCalls++;
+    return const Stream<Uint8List>.empty();
+  }
+
+  @override
+  Future<void> stop() async {}
+
+  @override
+  Future<void> dispose() async {}
+}
+
+class _TrackingRecorder implements PronunciationRecorder {
+  final StreamController<Uint8List> _controller = StreamController<Uint8List>();
+  int disposeCalls = 0;
+
+  @override
+  Future<bool> requestPermission() async => true;
+
+  @override
+  Future<Stream<Uint8List>> startPcm16Stream() async => _controller.stream;
+
+  @override
+  Future<void> stop() async {}
+
+  @override
+  Future<void> dispose() async {
+    disposeCalls++;
+    await close();
+  }
+
+  Future<void> close() =>
+      _controller.isClosed ? Future<void>.value() : _controller.close();
+}
+
+class _HoldingSuccessGateway implements PronunciationAssessmentGateway {
+  final Completer<PronunciationAssessmentResult> _result = Completer();
+  int calls = 0;
+  String? assessmentId;
+
+  @override
+  Future<PronunciationAssessmentResult> assess({
+    required Uint8List pcm16,
+    required String referenceText,
+    required String assessmentId,
+  }) {
+    calls++;
+    this.assessmentId = assessmentId;
+    return _result.future;
+  }
+
+  void complete() {
+    _result.complete(
+      PronunciationAssessmentResult(
+        assessmentId: assessmentId!,
+        pronunciationScore: 91,
+        accuracyScore: 91,
+        fluencyScore: 91,
+        completenessScore: 91,
+      ),
+    );
   }
 }

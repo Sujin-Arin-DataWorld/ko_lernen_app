@@ -19,11 +19,13 @@ import 'tokens.dart';
 class ScenarioWriteAfterRoleplayCard extends StatefulWidget {
   const ScenarioWriteAfterRoleplayCard({
     super.key,
+    required this.promptKo,
     required this.evidence,
     this.service,
     this.previewCompanion,
   });
 
+  final String promptKo;
   final ScenarioWritingEvidence evidence;
 
   /// Test/integration seam. An injected service remains owned by the caller.
@@ -47,6 +49,7 @@ class _ScenarioWriteAfterRoleplayCardState
   bool _checking = false;
   bool _downloading = false;
   bool _showCompanion = false;
+  bool _skipped = false;
 
   bool get _busy => _checking || _downloading;
 
@@ -128,6 +131,11 @@ class _ScenarioWriteAfterRoleplayCardState
 
   @override
   Widget build(BuildContext context) {
+    if (_skipped) {
+      return const SizedBox.shrink(
+        key: ValueKey<String>('scenario-write-skipped'),
+      );
+    }
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
     final outcome = _outcome;
@@ -150,6 +158,26 @@ class _ScenarioWriteAfterRoleplayCardState
             style: SoriTextTheme.of(
               context,
             ).bodySmall.copyWith(color: s.textMuted),
+          ),
+          const SizedBox(height: Spacing.md),
+          Container(
+            key: const ValueKey<String>('scenario-write-prompt'),
+            padding: const EdgeInsets.symmetric(
+              horizontal: Spacing.md,
+              vertical: Spacing.sm,
+            ),
+            decoration: BoxDecoration(
+              color: s.surface,
+              borderRadius: BorderRadius.circular(SoriRadius.sm),
+              border: Border.all(
+                color: SoriColors.highlight.withValues(alpha: 0.32),
+              ),
+            ),
+            child: Text(
+              widget.promptKo,
+              textAlign: TextAlign.center,
+              style: SoriTextTheme.of(context).h3,
+            ),
           ),
           const SizedBox(height: Spacing.md),
           TextField(
@@ -175,6 +203,14 @@ class _ScenarioWriteAfterRoleplayCardState
                 : t.scenarioWriteAfterRoleplayCheck,
             icon: Icons.spellcheck_rounded,
             onTap: canCheck ? _check : null,
+            size: SoriButtonSize.md,
+            fullWidth: true,
+          ),
+          const SizedBox(height: Spacing.xs),
+          SoriButton.ghost(
+            key: const ValueKey<String>('scenario-write-skip'),
+            label: t.btnSkip,
+            onTap: _busy ? null : () => setState(() => _skipped = true),
             size: SoriButtonSize.md,
             fullWidth: true,
           ),

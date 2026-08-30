@@ -9,7 +9,7 @@ import 'quest_flow.dart';
 import 'quest_layout.dart';
 import 'quest_models.dart';
 
-/// Listening quest with explicit selection and confirmation.
+/// Listening quest with immediate judgment after selecting an answer.
 class HoerverstehenQuest extends StatefulWidget {
   const HoerverstehenQuest({
     super.key,
@@ -80,6 +80,7 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
       _selected = index;
       _lastWrong = null;
     });
+    _check();
   }
 
   void _report(bool passed) {
@@ -144,8 +145,8 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
     return QuestLayout(
       showTtsSpeed: true,
       action: ScenarioQuestAction(
-        canSubmit: _selected >= 0,
-        onSubmit: _check,
+        canSubmit: false,
+        onSubmit: null,
         resolved: _resolved,
         onContinue: widget.onContinue,
         isLast: widget.isLast,

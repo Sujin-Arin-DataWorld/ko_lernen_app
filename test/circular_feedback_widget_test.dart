@@ -23,6 +23,7 @@ import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 import 'package:ko_lernen_app/widgets/stroke_canvas.dart';
+import 'package:ko_lernen_app/widgets/trace_canvas.dart';
 
 import 'helpers/deck_actions.dart';
 
@@ -84,7 +85,7 @@ void main() {
     expect(completions, 2);
   });
 
-  testWidgets('daily character requires the guide before completion feedback', (
+  testWidgets('daily character requires guide and successful tracing', (
     tester,
   ) async {
     await _setLargeView(tester);
@@ -112,12 +113,18 @@ void main() {
     var done = tester.widget<SoriButton>(doneFinder);
     final guide = tester.widget<StrokeCanvas>(find.byType(StrokeCanvas));
     expect(guide.strokes, isNotEmpty);
+    expect(find.byType(TraceCanvas), findsNothing);
     expect(done.onTap, isNull);
     expect(find.byType(ContentFeedbackCard), findsNothing);
 
     await tester.pump(
       guide.perStroke * guide.strokes.length + const Duration(microseconds: 1),
     );
+    expect(find.byType(TraceCanvas), findsOneWidget);
+    done = tester.widget<SoriButton>(doneFinder);
+    expect(done.onTap, isNull);
+
+    await _traceDailyCharacter(tester, 'ㄷ');
     done = tester.widget<SoriButton>(doneFinder);
     expect(done.onTap, isNotNull);
     done.onTap!();
@@ -576,6 +583,36 @@ Future<void> _traceHangulLetter(WidgetTester tester, String letter) async {
     final gesture = await tester.startGesture(at(points.first));
     for (final p in points.skip(1)) {
       await gesture.moveTo(at(p));
+    }
+    await gesture.up();
+    await tester.pump();
+  }
+}
+
+Future<void> _traceDailyCharacter(WidgetTester tester, String letter) async {
+  final canvas = find.byKey(const Key('daily-character-trace-canvas'));
+  await tester.ensureVisible(canvas);
+  await tester.pump();
+  final bounds = tester.getRect(canvas);
+  final scaleX = bounds.width / strokeCanvas.width;
+  final scaleY = bounds.height / strokeCanvas.height;
+  Offset at(Offset point) =>
+      Offset(bounds.left + point.dx * scaleX, bounds.top + point.dy * scaleY);
+
+  for (final stroke in hangulStrokes[letter]!) {
+    final points = switch (stroke) {
+      LineStroke(:final points) => points,
+      CircleStroke(:final center, :final radius) => [
+        for (var i = 0; i <= 24; i++)
+          Offset(
+            center.dx + radius * math.cos(i / 24 * 2 * math.pi),
+            center.dy + radius * math.sin(i / 24 * 2 * math.pi),
+          ),
+      ],
+    };
+    final gesture = await tester.startGesture(at(points.first));
+    for (final point in points.skip(1)) {
+      await gesture.moveTo(at(point));
     }
     await gesture.up();
     await tester.pump();

@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -7,6 +10,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/feedback_completion.dart';
 import '../services/daily_char_service.dart';
 import '../services/storage_service.dart';
+import '../services/stroke_matcher.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
@@ -18,6 +22,7 @@ import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 import '../widgets/stroke_canvas.dart';
+import '../widgets/trace_canvas.dart';
 
 /// 홈에서 호출되는 Daily Calligraphy bottom sheet.
 ///
@@ -73,18 +78,27 @@ class _DailyCharSheet extends StatefulWidget {
   State<_DailyCharSheet> createState() => _DailyCharSheetState();
 }
 
+enum _DailyCharPhase { appreciation, tracing, complete }
+
 class _DailyCharSheetState extends State<_DailyCharSheet> {
   late final String _char;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
-  bool _doneNow = false;
+  final TraceCanvasController _traceController = TraceCanvasController();
+  final Map<int, int> _failureCounts = {};
+  late _DailyCharPhase _phase;
   bool _finishing = false;
-  bool _guideCompleted = false;
+  int _acceptedStrokes = 0;
+  Timer? _errorTimer;
+
+  static const Duration _errorFlash = Duration(milliseconds: 450);
 
   @override
   void initState() {
     super.initState();
     _char = widget.character ?? DailyCharService.today();
-    _guideCompleted = (hangulStrokes[_char] ?? const []).isEmpty;
+    _phase = (hangulStrokes[_char] ?? const []).isEmpty
+        ? _DailyCharPhase.tracing
+        : _DailyCharPhase.appreciation;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) {
         return;
@@ -93,8 +107,22 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
     });
   }
 
+  @override
+  void dispose() {
+    _errorTimer?.cancel();
+    _traceController.dispose();
+    super.dispose();
+  }
+
+  List<Stroke> get _targetStrokes => hangulStrokes[_char] ?? const <Stroke>[];
+
+  bool get _canFinish =>
+      _targetStrokes.isEmpty ||
+      (_phase == _DailyCharPhase.tracing &&
+          _acceptedStrokes == _targetStrokes.length);
+
   Future<void> _finish() async {
-    if (_finishing || _doneNow || !_guideCompleted) {
+    if (_finishing || _phase == _DailyCharPhase.complete || !_canFinish) {
       return;
     }
     HapticFeedback.heavyImpact();
@@ -114,17 +142,67 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
       return;
     }
     setState(() {
-      _doneNow = true;
+      _phase = _DailyCharPhase.complete;
       _finishing = false;
     });
     SoriCelebration.burst(context);
   }
 
-  void _markGuideCompleted() {
-    if (_guideCompleted) {
+  void _beginTracing() {
+    if (_phase != _DailyCharPhase.appreciation) {
       return;
     }
-    setState(() => _guideCompleted = true);
+    setState(() => _phase = _DailyCharPhase.tracing);
+  }
+
+  void _onStrokeEnd(TraceCanvasSnapshot snapshot, Size canvasSize) {
+    if (_phase != _DailyCharPhase.tracing ||
+        _acceptedStrokes >= _targetStrokes.length ||
+        snapshot.strokes.isEmpty ||
+        canvasSize.isEmpty) {
+      return;
+    }
+    final expectedIndex = _acceptedStrokes;
+    final attempt = evaluateStroke(
+      target: _targetStrokes,
+      expectedIndex: expectedIndex,
+      drawn: snapshot.strokes.last,
+      canvasSize: canvasSize,
+    );
+    if (attempt.ok) {
+      _acceptStroke(expectedIndex);
+      return;
+    }
+    _rejectStroke(expectedIndex);
+  }
+
+  void _acceptStroke(int expectedIndex) {
+    _errorTimer?.cancel();
+    _failureCounts.remove(expectedIndex);
+    _traceController
+      ..clearErrorGhost()
+      ..clearHint();
+    setState(() => _acceptedStrokes++);
+    HapticFeedback.selectionClick();
+  }
+
+  void _rejectStroke(int expectedIndex) {
+    HapticFeedback.heavyImpact();
+    _traceController.rejectLastStroke();
+    final failures = (_failureCounts[expectedIndex] ?? 0) + 1;
+    _failureCounts[expectedIndex] = failures;
+    if (failures >= 2) {
+      _traceController.showNextStrokeHint(
+        _referencePoints(_targetStrokes[expectedIndex]),
+      );
+    }
+    _errorTimer?.cancel();
+    _errorTimer = Timer(_errorFlash, () {
+      if (!mounted) {
+        return;
+      }
+      _traceController.clearErrorGhost();
+    });
   }
 
   @override
@@ -132,7 +210,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
     final t = AppL10n.of(context);
     final type = SoriTextTheme.of(context);
     final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
-    final strokes = hangulStrokes[_char] ?? [];
+    final strokes = _targetStrokes;
     final hasStrokes = strokes.isNotEmpty;
 
     // 시트 외형(둥근 상단·handle·SafeArea·키보드 inset·스크롤)은 SoriSheet 담당.
@@ -156,7 +234,8 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
           const SizedBox(height: Spacing.xl),
         ],
 
-        // Stroke demo (animated)
+        // Appreciation reuses the animated guide. Once it completes, the same
+        // guide stays in place underneath the learner's real trace surface.
         if (hasStrokes)
           SoriCard(
             variant: SoriCardVariant.hero,
@@ -164,13 +243,45 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
             child: SizedBox(
               width: 220,
               height: 220,
-              child: StrokeCanvas(
-                letter: _char,
-                strokes: strokes,
-                size: 220,
-                color: SoriColors.primary,
-                semanticsLabel: t.hangulStrokeOrderTitle,
-                onCompleted: _markGuideCompleted,
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  ExcludeSemantics(
+                    excluding: _phase == _DailyCharPhase.tracing,
+                    child: IgnorePointer(
+                      ignoring: _phase == _DailyCharPhase.tracing,
+                      child: StrokeCanvas(
+                        key: const Key('daily-character-stroke-guide'),
+                        letter: _char,
+                        strokes: strokes,
+                        size: 220,
+                        color: SoriColors.primary,
+                        semanticsLabel: t.hangulStrokeOrderTitle,
+                        highlightIndex:
+                            _phase == _DailyCharPhase.tracing &&
+                                _acceptedStrokes < strokes.length
+                            ? _acceptedStrokes
+                            : null,
+                        onCompleted: _phase == _DailyCharPhase.appreciation
+                            ? _beginTracing
+                            : null,
+                      ),
+                    ),
+                  ),
+                  if (_phase == _DailyCharPhase.tracing)
+                    KeyedSubtree(
+                      key: const Key('daily-character-trace-canvas'),
+                      child: TraceCanvas(
+                        controller: _traceController,
+                        ghost: _char,
+                        color: SoriColors.primary,
+                        errorColor: SoriColors.danger,
+                        enabled: _acceptedStrokes < strokes.length,
+                        onStrokeEnd: _onStrokeEnd,
+                        semanticLabel: t.hangulTraceTitle,
+                      ),
+                    ),
+                ],
               ),
             ),
           )
@@ -199,9 +310,13 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
 
         const SizedBox(height: Spacing.lg),
 
-        if (hasStrokes) ...[
+        if (hasStrokes && _phase != _DailyCharPhase.complete) ...[
           Text(
-            t.dailyCharGuideHint,
+            _phase == _DailyCharPhase.appreciation
+                ? t.dailyCharGuideHint
+                : _acceptedStrokes == strokes.length
+                ? t.hangulStrokeLetterDone(_char)
+                : t.hangulStrokeNextHint(_acceptedStrokes + 1),
             textAlign: TextAlign.center,
             style: type.meta,
           ),
@@ -209,7 +324,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
         ],
 
         // TTS + Finish
-        if (!_doneNow) ...[
+        if (_phase != _DailyCharPhase.complete) ...[
           Row(
             children: [
               SizedBox(
@@ -231,7 +346,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
                   label: t.dailyCharFinish,
                   icon: Icons.check_rounded,
                   accent: SoriColors.success,
-                  onTap: _finishing || !_guideCompleted ? null : _finish,
+                  onTap: _finishing || !_canFinish ? null : _finish,
                 ),
               ),
             ],
@@ -278,3 +393,14 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
     );
   }
 }
+
+List<Offset> _referencePoints(Stroke stroke) => switch (stroke) {
+  LineStroke(:final points) => points,
+  CircleStroke(:final center, :final radius) => [
+    for (var i = 0; i <= 32; i++)
+      Offset(
+        center.dx + radius * math.cos(i / 32 * 2 * math.pi),
+        center.dy + radius * math.sin(i / 32 * 2 * math.pi),
+      ),
+  ],
+};

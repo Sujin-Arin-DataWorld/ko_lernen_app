@@ -13,19 +13,15 @@ import '../services/pronunciation_phrase_loader.dart';
 import '../services/pronunciation_progress_service.dart';
 import '../services/pronunciation_recorder.dart';
 import '../services/storage_service.dart';
-import '../services/tts_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/dialog.dart';
 import '../widgets/sori/empty_state.dart';
-import '../widgets/sori/home_action.dart';
-import '../widgets/sori/mascot.dart';
-import '../widgets/sori/page_header.dart';
-import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/speakable.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
-import '../widgets/sori/window_class.dart';
 
 class PronunciationStudioScreen extends StatefulWidget {
   const PronunciationStudioScreen({
@@ -65,10 +61,17 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
   bool _loadFailed = false;
   bool _recording = false;
   bool _assessing = false;
+  bool _preparingRecording = false;
   bool _learningStartRecorded = false;
   String? _recordingReferenceText;
+  bool _captureStreamFailed = false;
   String? _notice;
+  bool _recorderFailed = false;
+  PronunciationAssessmentFailureCategory? _assessmentFailure;
+  _PronunciationAttempt? _capturedAttempt;
   PronunciationAssessmentResult? _result;
+  int _operationGeneration = 0;
+  bool _disposed = false;
 
   PronunciationPhrase? get _currentPhrase {
     if (_phrases.isEmpty) {
@@ -88,11 +91,50 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
 
   @override
   void dispose() {
+    _disposed = true;
+    _operationGeneration++;
     _stopTimer?.cancel();
-    _audioSubscription?.cancel();
-    _recorder.dispose();
-    TtsService.stop();
+    final wasRecording = _recording;
+    final audioSubscription = _audioSubscription;
+    _audioSubscription = null;
+    final audioDone = _audioDone;
+    if (audioDone != null && !audioDone.isCompleted) {
+      audioDone.complete();
+    }
+    unawaited(
+      _disposeRecorder(
+        wasRecording: wasRecording,
+        audioSubscription: audioSubscription,
+      ),
+    );
+    unawaited(SoriSpeech.stop());
     super.dispose();
+  }
+
+  bool _isCurrentOperation(int generation) =>
+      !_disposed && mounted && generation == _operationGeneration;
+
+  Future<void> _disposeRecorder({
+    required bool wasRecording,
+    StreamSubscription<Uint8List>? audioSubscription,
+  }) async {
+    try {
+      if (wasRecording) {
+        await _recorder.stop();
+      }
+    } catch (_) {
+      // Disposal is best-effort; the recorder still receives dispose below.
+    }
+    try {
+      await _recorder.dispose();
+    } catch (_) {
+      // A platform recorder may already have released itself after an error.
+    }
+    try {
+      await audioSubscription?.cancel();
+    } catch (_) {
+      // The platform recorder is already released, so cancellation is best-effort.
+    }
   }
 
   Future<void> _loadPhrases() async {
@@ -187,35 +229,81 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
     if (phrase == null) {
       return;
     }
+    final generation = ++_operationGeneration;
     final t = AppL10n.of(context);
-    if (!await _ensureConsent()) {
-      setState(() => _notice = t.settingsPronunciationConsentOff);
+    setState(() {
+      _preparingRecording = true;
+      _recorderFailed = false;
+      _assessmentFailure = null;
+      _capturedAttempt = null;
+      _result = null;
+      _notice = null;
+    });
+
+    final consented = await _ensureConsent();
+    if (!_isCurrentOperation(generation)) {
       return;
     }
+    if (!consented) {
+      setState(() {
+        _preparingRecording = false;
+        _notice = t.settingsPronunciationConsentOff;
+      });
+      return;
+    }
+
     bool granted;
     try {
       granted = await _recorder.requestPermission();
     } catch (_) {
-      granted = false;
-    }
-    if (!granted) {
-      setState(() => _notice = t.pronunciationPermissionDenied);
+      if (_isCurrentOperation(generation)) {
+        _showRecorderFailure();
+      }
       return;
     }
+    if (!_isCurrentOperation(generation)) {
+      return;
+    }
+    if (!granted) {
+      setState(() {
+        _preparingRecording = false;
+        _notice = t.pronunciationPermissionDenied;
+      });
+      return;
+    }
+
+    // Stop playback state synchronously before opening the microphone. The
+    // platform stop itself is fail-soft and must not delay capture startup.
+    unawaited(SoriSpeech.stop());
+
     _audio.clear();
-    _result = null;
-    _notice = null;
     _recordingReferenceText = phrase.ko;
+    _captureStreamFailed = false;
     try {
       final stream = await _recorder.startPcm16Stream();
+      if (!_isCurrentOperation(generation)) {
+        try {
+          await _recorder.stop();
+        } catch (_) {
+          // A stale start must not update this screen; dispose owns final cleanup.
+        }
+        return;
+      }
       _audioDone = Completer<void>();
+      setState(() {
+        _preparingRecording = false;
+        _recording = true;
+      });
       _audioSubscription = stream.listen(
         (chunk) {
+          if (!_isCurrentOperation(generation) || !_recording) {
+            return;
+          }
           final remaining =
               FirebasePronunciationAssessmentGateway.maxPcmBytes -
               _audio.length;
           if (remaining <= 0) {
-            unawaited(_finishRecording());
+            unawaited(_finishRecording(generation));
             return;
           }
           _audio.add(
@@ -228,79 +316,161 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
             done.complete();
           }
         },
+        onError: (Object _, StackTrace __) {
+          _captureStreamFailed = true;
+          final done = _audioDone;
+          if (done != null && !done.isCompleted) {
+            done.complete();
+          }
+          unawaited(_finishRecording(generation));
+        },
       );
-      _stopTimer = Timer(const Duration(seconds: 10), _finishRecording);
-      if (mounted) {
-        setState(() => _recording = true);
-      }
+      _stopTimer = Timer(
+        const Duration(seconds: 10),
+        () => unawaited(_finishRecording(generation)),
+      );
     } catch (_) {
       _recordingReferenceText = null;
-      if (mounted) {
-        setState(() => _notice = t.pronunciationPermissionDenied);
+      if (_isCurrentOperation(generation)) {
+        _showRecorderFailure();
       }
     }
   }
 
-  Future<void> _finishRecording() async {
-    if (!_recording) {
+  Future<void> _finishRecording([int? expectedGeneration]) async {
+    final generation = expectedGeneration ?? _operationGeneration;
+    if (!_isCurrentOperation(generation) || !_recording) {
       return;
     }
     _stopTimer?.cancel();
+    _stopTimer = null;
     setState(() {
       _recording = false;
       _assessing = true;
     });
+    final subscription = _audioSubscription;
+    _audioSubscription = null;
     try {
       final referenceText = _recordingReferenceText;
       if (referenceText == null) {
         throw StateError('Missing pronunciation phrase reference text');
       }
       await _recorder.stop();
+      if (!_isCurrentOperation(generation)) {
+        return;
+      }
       await _audioDone?.future.timeout(const Duration(seconds: 2));
-      await _audioSubscription?.cancel();
+      await subscription?.cancel();
+      if (!_isCurrentOperation(generation)) {
+        return;
+      }
+      if (_captureStreamFailed) {
+        throw StateError('Pronunciation capture stream failed');
+      }
       final captured = _audio.takeBytes();
       final pcm = captured.length.isOdd
           ? Uint8List.sublistView(captured, 0, captured.length - 1)
           : captured;
-      final result = await _gateway.assess(
-        pcm16: pcm,
+      final attempt = _PronunciationAttempt(
+        pcm16: Uint8List.fromList(pcm),
         referenceText: referenceText,
         assessmentId: _newAssessmentId(),
       );
+      _recordingReferenceText = null;
+      setState(() => _capturedAttempt = attempt);
+      await _assessAttempt(attempt, generation);
+    } catch (_) {
+      try {
+        await subscription?.cancel();
+      } catch (_) {
+        // The recorder failure below is the actionable state for the learner.
+      }
+      if (!_isCurrentOperation(generation)) {
+        return;
+      }
+      _recordingReferenceText = null;
+      _showRecorderFailure();
+    }
+  }
+
+  Future<void> _assessAttempt(
+    _PronunciationAttempt attempt,
+    int generation,
+  ) async {
+    try {
+      final result = await _gateway.assess(
+        pcm16: attempt.pcm16,
+        referenceText: attempt.referenceText,
+        assessmentId: attempt.assessmentId,
+      );
+      if (!_isCurrentOperation(generation)) {
+        return;
+      }
       if (result.passed) {
         await PronunciationProgressService.recordPass(
           result.assessmentId,
           result.pronunciationScore,
         );
+        if (!_isCurrentOperation(generation)) {
+          return;
+        }
       }
-      if (mounted) {
-        setState(() => _result = result);
-      }
+      setState(() {
+        _result = result;
+        _assessmentFailure = null;
+        _capturedAttempt = null;
+      });
     } on PronunciationAssessmentFailure catch (failure) {
-      if (!mounted) {
+      if (!_isCurrentOperation(generation)) {
         return;
       }
-      final t = AppL10n.of(context);
       setState(() {
-        _notice =
-            failure.category ==
-                PronunciationAssessmentFailureCategory.rateLimited
-            ? t.pronunciationRateLimited
-            : t.pronunciationAssessmentUnavailable;
+        _assessmentFailure = failure.category;
+        if (failure.category ==
+            PronunciationAssessmentFailureCategory.invalidRequest) {
+          _capturedAttempt = null;
+        }
       });
     } catch (_) {
-      if (mounted) {
-        setState(
-          () =>
-              _notice = AppL10n.of(context).pronunciationAssessmentUnavailable,
-        );
+      if (!_isCurrentOperation(generation)) {
+        return;
       }
+      setState(() {
+        _assessmentFailure = PronunciationAssessmentFailureCategory.unknown;
+      });
     } finally {
-      _recordingReferenceText = null;
-      if (mounted) {
+      if (_isCurrentOperation(generation)) {
         setState(() => _assessing = false);
       }
     }
+  }
+
+  void _showRecorderFailure() {
+    setState(() {
+      _preparingRecording = false;
+      _recording = false;
+      _assessing = false;
+      _recorderFailed = true;
+      _assessmentFailure = null;
+      _capturedAttempt = null;
+      _result = null;
+      _notice = null;
+    });
+  }
+
+  void _retryAssessment() {
+    final attempt = _capturedAttempt;
+    if (attempt == null || _assessing || _recording) {
+      return;
+    }
+    final generation = ++_operationGeneration;
+    setState(() {
+      _assessing = true;
+      _assessmentFailure = null;
+      _notice = null;
+      _result = null;
+    });
+    unawaited(_assessAttempt(attempt, generation));
   }
 
   String _newAssessmentId() {
@@ -315,8 +485,16 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
     if (_phrases.isEmpty) {
       return;
     }
+    _operationGeneration++;
+    _stopTimer?.cancel();
+    _stopTimer = null;
+    _recordingReferenceText = null;
     setState(() {
       _phraseIndex = (_phraseIndex + 1) % _phrases.length;
+      _preparingRecording = false;
+      _recorderFailed = false;
+      _assessmentFailure = null;
+      _capturedAttempt = null;
       _result = null;
       _notice = null;
     });
@@ -327,27 +505,18 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
     final t = AppL10n.of(context);
     final type = SoriTextTheme.of(context);
     final phrase = _currentPhrase;
-    return SoriStandardFrame(
-      appBarTitle: t.pronunciationTitle,
-      actions: [
-        SoriHomeAction(
-          escape: SoriHomeEscape(confirmWhen: _recording || _assessing),
-        ),
-        const TtsSpeedAction(),
-      ],
-      maxWidth: SoriMaxWidth.prose,
-      padding: const EdgeInsets.all(Spacing.lg),
-      builder: (context, padding) {
-        if (_loading) {
-          return Padding(
-            padding: padding,
-            child: AppLoading(message: t.pronunciationPhrasesLoading),
-          );
-        }
-        if (_loadFailed) {
-          return Padding(
-            padding: padding,
-            child: SoriEmptyState(
+    return SoriStudyFrame(
+      title: t.pronunciationTitle,
+      eyebrow: t.pronunciationEyebrow,
+      actions: const [TtsSpeedAction()],
+      homeEscape: SoriHomeEscape(confirmWhen: _recording || _assessing),
+      child: Builder(
+        builder: (context) {
+          if (_loading) {
+            return AppLoading(message: t.pronunciationPhrasesLoading);
+          }
+          if (_loadFailed) {
+            return SoriEmptyState(
               asset: 'assets/illustrations/mascot/magpie_encourage.png',
               icon: Icons.volume_off_rounded,
               title: t.pronunciationPhrasesUnavailableTitle,
@@ -355,13 +524,10 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
               ctaLabel: t.btnRetry,
               onCta: _retryPhraseLoad,
               accent: SoriActivityColors.speaking,
-            ),
-          );
-        }
-        if (phrase == null) {
-          return Padding(
-            padding: padding,
-            child: SoriEmptyState(
+            );
+          }
+          if (phrase == null) {
+            return SoriEmptyState(
               asset: 'assets/illustrations/mascot/magpie_encourage.png',
               icon: Icons.record_voice_over_outlined,
               title: t.pronunciationPhrasesEmptyTitle,
@@ -369,101 +535,258 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
               ctaLabel: t.btnRetry,
               onCta: _retryPhraseLoad,
               accent: SoriActivityColors.speaking,
-            ),
-          );
-        }
+            );
+          }
 
-        final surfaces = SoriSurfaces.of(context);
-        return ListView(
-          padding: padding,
-          children: [
-            SoriPageHeader(
-              eyebrow: t.pronunciationEyebrow,
-              title: t.pronunciationTitle,
-              body: t.pronunciationIntro,
-            ),
-            const SizedBox(height: Spacing.xl),
-            SoriCard(
-              variant: SoriCardVariant.hero,
-              accent: SoriActivityColors.speaking,
-              tinted: true,
-              child: Column(
-                children: [
-                  const Mascot.tiger(size: 132),
-                  const SizedBox(height: Spacing.md),
-                  Semantics(
-                    label: phrase.ko,
-                    child: Text(
-                      phrase.ko,
-                      textAlign: TextAlign.center,
-                      style: type.koDisplay.copyWith(fontSize: 36),
-                    ),
-                  ),
-                  const SizedBox(height: Spacing.xl),
-                  Wrap(
-                    spacing: Spacing.sm,
-                    runSpacing: Spacing.sm,
-                    alignment: WrapAlignment.center,
-                    children: [
-                      SoriButton.outlined(
-                        label: t.pronunciationListen,
-                        icon: Icons.volume_up_rounded,
-                        onTap: _recording || _assessing
-                            ? null
-                            : () => TtsService.speakSlow(phrase.ko),
-                      ),
-                      SoriButton.filled(
-                        label: _recording
-                            ? t.pronunciationStop
-                            : (_assessing
-                                  ? t.pronunciationAssessing
-                                  : t.pronunciationRecord),
-                        icon: _recording
-                            ? Icons.stop_circle_outlined
-                            : Icons.mic_rounded,
-                        accent: SoriActivityColors.speaking,
-                        onTap: _assessing
-                            ? null
-                            : (_recording ? _finishRecording : _startRecording),
-                      ),
-                    ],
-                  ),
-                  if (_recording) ...[
-                    const SizedBox(height: Spacing.md),
-                    LinearProgressIndicator(
-                      color: SoriActivityColors.speaking,
-                      backgroundColor: surfaces.surfaceAlt,
-                    ),
-                    const SizedBox(height: Spacing.xs),
-                    Text(t.pronunciationRecording, style: type.meta),
-                  ],
-                ],
+          final speechDisabled =
+              _preparingRecording || _recording || _assessing;
+          final failure = _assessmentFailure;
+          return ListView(
+            children: [
+              Text(
+                t.pronunciationIntro,
+                textAlign: TextAlign.center,
+                style: type.body,
               ),
-            ),
-            if (_notice != null) ...[
               const SizedBox(height: Spacing.lg),
-              Semantics(
-                liveRegion: true,
-                child: SoriCard(
-                  accent: SoriActivityColors.listening,
-                  tinted: true,
-                  child: Text(_notice!, style: type.body),
+              SoriCard(
+                variant: SoriCardVariant.base,
+                accent: SoriActivityColors.speaking,
+                tinted: true,
+                child: Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: ExcludeSemantics(
+                        excluding: speechDisabled,
+                        child: IgnorePointer(
+                          ignoring: speechDisabled,
+                          child: SoriSpeechIndicator(text: phrase.ko),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: Spacing.sm),
+                    Semantics(
+                      label: phrase.ko,
+                      child: Text(
+                        phrase.ko,
+                        textAlign: TextAlign.center,
+                        style: type.koDisplay.copyWith(fontSize: 36),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ],
-            if (_result case final result?) ...[
               const SizedBox(height: Spacing.lg),
-              _ScorePanel(result: result),
+              SoriButton.filled(
+                key: const ValueKey('pronunciation-record-action'),
+                label: _recording
+                    ? t.pronunciationStop
+                    : (_assessing
+                          ? t.pronunciationAssessing
+                          : t.pronunciationRecord),
+                icon: _recording
+                    ? Icons.stop_circle_outlined
+                    : Icons.mic_rounded,
+                accent: SoriActivityColors.speaking,
+                fullWidth: true,
+                onTap: _preparingRecording || _assessing
+                    ? null
+                    : (_recording
+                          ? () => unawaited(_finishRecording())
+                          : _startRecording),
+              ),
+              const SizedBox(height: Spacing.md),
+              Column(
+                key: const ValueKey('pronunciation-diagnostic-feed'),
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  if (_recording)
+                    _PronunciationStatusCard(
+                      label: t.pronunciationRecording,
+                      progress: true,
+                    ),
+                  if (_notice case final notice?)
+                    _PronunciationNoticeCard(notice: notice),
+                  if (_recorderFailed)
+                    _PronunciationDiagnosticCard(
+                      key: const ValueKey('pronunciation-recorder-failure'),
+                      title: t.pronunciationRecorderFailureTitle,
+                      body: t.pronunciationRecorderFailureBody,
+                      actionLabel: t.pronunciationRecordAgain,
+                      onAction: _startRecording,
+                    ),
+                  if (failure != null)
+                    _PronunciationDiagnosticCard(
+                      key: ValueKey('pronunciation-diagnostic-${failure.name}'),
+                      title: _failureCopy(t, failure).title,
+                      body: _failureCopy(t, failure).body,
+                      actionLabel:
+                          failure ==
+                              PronunciationAssessmentFailureCategory
+                                  .invalidRequest
+                          ? t.pronunciationRecordAgain
+                          : t.pronunciationRetrySameRecording,
+                      onAction:
+                          failure ==
+                              PronunciationAssessmentFailureCategory
+                                  .invalidRequest
+                          ? _startRecording
+                          : _retryAssessment,
+                    ),
+                  if (_result case final result?) _ScorePanel(result: result),
+                ],
+              ),
+              const SizedBox(height: Spacing.md),
+              SoriButton.ghost(
+                label: t.pronunciationContinueWithoutScore,
+                onTap: _recording || _assessing ? null : _nextPhrase,
+                fullWidth: true,
+              ),
             ],
-            const SizedBox(height: Spacing.lg),
-            SoriButton.ghost(
-              label: t.pronunciationContinueWithoutScore,
-              onTap: _recording || _assessing ? null : _nextPhrase,
+          );
+        },
+      ),
+    );
+  }
+}
+
+class _PronunciationAttempt {
+  const _PronunciationAttempt({
+    required this.pcm16,
+    required this.referenceText,
+    required this.assessmentId,
+  });
+
+  final Uint8List pcm16;
+  final String referenceText;
+  final String assessmentId;
+}
+
+class _PronunciationFailureCopy {
+  const _PronunciationFailureCopy({required this.title, required this.body});
+
+  final String title;
+  final String body;
+}
+
+_PronunciationFailureCopy _failureCopy(
+  AppL10n t,
+  PronunciationAssessmentFailureCategory category,
+) => switch (category) {
+  PronunciationAssessmentFailureCategory.invalidRequest =>
+    _PronunciationFailureCopy(
+      title: t.pronunciationInvalidRequestTitle,
+      body: t.pronunciationInvalidRequestBody,
+    ),
+  PronunciationAssessmentFailureCategory.authenticationRequired =>
+    _PronunciationFailureCopy(
+      title: t.pronunciationAuthenticationRequiredTitle,
+      body: t.pronunciationAuthenticationRequiredBody,
+    ),
+  PronunciationAssessmentFailureCategory.unavailable =>
+    _PronunciationFailureCopy(
+      title: t.pronunciationUnavailableTitle,
+      body: t.pronunciationUnavailableBody,
+    ),
+  PronunciationAssessmentFailureCategory.rateLimited =>
+    _PronunciationFailureCopy(
+      title: t.pronunciationRateLimitedTitle,
+      body: t.pronunciationRateLimitedBody,
+    ),
+  PronunciationAssessmentFailureCategory.unknown => _PronunciationFailureCopy(
+    title: t.pronunciationUnknownTitle,
+    body: t.pronunciationUnknownBody,
+  ),
+};
+
+class _PronunciationStatusCard extends StatelessWidget {
+  const _PronunciationStatusCard({required this.label, required this.progress});
+
+  final String label;
+  final bool progress;
+
+  @override
+  Widget build(BuildContext context) {
+    final surfaces = SoriSurfaces.of(context);
+    final type = SoriTextTheme.of(context);
+    return Semantics(
+      liveRegion: true,
+      child: SoriCard(
+        accent: SoriActivityColors.speaking,
+        tinted: true,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            if (progress) ...[
+              LinearProgressIndicator(
+                color: SoriActivityColors.speaking,
+                backgroundColor: surfaces.surfaceAlt,
+              ),
+              const SizedBox(height: Spacing.sm),
+            ],
+            Text(label, style: type.meta, textAlign: TextAlign.center),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _PronunciationNoticeCard extends StatelessWidget {
+  const _PronunciationNoticeCard({required this.notice});
+
+  final String notice;
+
+  @override
+  Widget build(BuildContext context) => Semantics(
+    liveRegion: true,
+    child: SoriCard(
+      accent: SoriActivityColors.listening,
+      tinted: true,
+      child: Text(notice, style: SoriTextTheme.of(context).body),
+    ),
+  );
+}
+
+class _PronunciationDiagnosticCard extends StatelessWidget {
+  const _PronunciationDiagnosticCard({
+    super.key,
+    required this.title,
+    required this.body,
+    required this.actionLabel,
+    required this.onAction,
+  });
+
+  final String title;
+  final String body;
+  final String actionLabel;
+  final VoidCallback onAction;
+
+  @override
+  Widget build(BuildContext context) {
+    final type = SoriTextTheme.of(context);
+    return Semantics(
+      liveRegion: true,
+      child: SoriCard(
+        accent: SoriActivityColors.review,
+        tinted: true,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(title, style: type.h3),
+            const SizedBox(height: Spacing.xs),
+            Text(body, style: type.body),
+            const SizedBox(height: Spacing.md),
+            SoriButton.outlined(
+              label: actionLabel,
               fullWidth: true,
+              accent: SoriActivityColors.review,
+              onTap: onAction,
             ),
           ],
-        );
-      },
+        ),
+      ),
     );
   }
 }
@@ -485,7 +808,7 @@ class _ScorePanel extends StatelessWidget {
       liveRegion: true,
       label: '${t.pronunciationScore} ${result.pronunciationScore.round()}',
       child: SoriCard(
-        variant: SoriCardVariant.hero,
+        variant: SoriCardVariant.base,
         accent: accent,
         tinted: true,
         child: Column(

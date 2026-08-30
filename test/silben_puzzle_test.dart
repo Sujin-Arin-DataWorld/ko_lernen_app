@@ -88,4 +88,39 @@ void main() {
       }
     }
   });
+
+  test('교차 칸 소속은 퍼즐 선언 순서와 방향을 보존한다', () {
+    const horizontal = SilbenWord(
+      dir: 'h',
+      row: 1,
+      col: 0,
+      answer: '가나다',
+      german: 'waagerecht',
+      exampleKo: '◯◯◯',
+      exampleDe: 'horizontal',
+    );
+    const vertical = SilbenWord(
+      dir: 'v',
+      row: 0,
+      col: 1,
+      answer: '차나마',
+      german: 'senkrecht',
+      exampleKo: '◯◯◯',
+      exampleDe: 'vertical',
+    );
+    const puzzle = SilbenPuzzle(
+      id: 'membership-order',
+      rows: 3,
+      cols: 3,
+      words: [horizontal, vertical],
+      pool: ['가', '나', '다', '차', '마'],
+    );
+
+    final memberships = puzzle.memberships;
+
+    expect(memberships[(1, 1)], orderedEquals([horizontal, vertical]));
+    expect(memberships[(1, 1)]!.map((word) => word.dir), ['h', 'v']);
+    expect(memberships[(1, 0)], orderedEquals([horizontal]));
+    expect(memberships[(0, 1)], orderedEquals([vertical]));
+  });
 }

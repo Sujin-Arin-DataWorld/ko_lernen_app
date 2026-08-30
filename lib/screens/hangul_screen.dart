@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:math' as math;
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
@@ -35,6 +34,7 @@ import '../services/storage_service.dart';
 import '../services/stroke_matcher.dart';
 import '../widgets/flip_card.dart';
 import '../widgets/stroke_canvas.dart';
+import '../widgets/trace_canvas.dart';
 import '../services/analytics_service.dart';
 import '../services/quest_abandon_tracker.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -1242,7 +1242,7 @@ class _WriteTabState extends State<_WriteTab> {
   static const Duration _errorFlash = Duration(milliseconds: 450);
   static const Duration _advanceDelay = Duration(milliseconds: 650);
 
-  final _practiceKey = GlobalKey<_PracticeCanvasState>();
+  final _practiceController = TraceCanvasController();
 
   @override
   void initState() {
@@ -1366,6 +1366,7 @@ class _WriteTabState extends State<_WriteTab> {
     // 튀는 것과, 완성 직후 Weiter 를 눌러 글자를 건너뛰는 것을 둘 다 막는다.
     _errorTimer?.cancel();
     _advanceTimer?.cancel();
+    _practiceController.dispose();
     super.dispose();
   }
 
@@ -1387,7 +1388,7 @@ class _WriteTabState extends State<_WriteTab> {
       _lastAttempt = null;
       _letterDone = false;
     });
-    _practiceKey.currentState?.clear();
+    _practiceController.reset();
   }
 
   void _next() {
@@ -1433,9 +1434,9 @@ class _WriteTabState extends State<_WriteTab> {
     _resetLetter();
   }
 
-  void _onStrokeEnd() {
+  void _onStrokeEnd(TraceCanvasSnapshot snapshot, Size canvasSize) {
     setState(() => _strokeCount++);
-    _judgeLastStroke();
+    _judgeLastStroke(snapshot, canvasSize);
   }
 
   /// 획을 뗄 때마다 **그 획 하나만** 기대 획과 대조한다.
@@ -1443,24 +1444,19 @@ class _WriteTabState extends State<_WriteTab> {
   /// 예전에는 그은 획 수가 정답 획 수와 같아지는 순간 한 번만 봤고, 틀리면
   /// 아무 말도 하지 않았다 — 테스터(Amor)가 "일부러 틀려도 인식하지 못하고
   /// 그냥 진행된다" 고 본 그대로다.
-  void _judgeLastStroke() {
+  void _judgeLastStroke(TraceCanvasSnapshot snapshot, Size canvasSize) {
     if (_letterDone) {
       return;
     }
-    final canvas = _practiceKey.currentState;
     final target = _targetStrokes;
-    if (canvas == null || target.isEmpty || canvas.strokes.isEmpty) {
-      return;
-    }
-    final size = canvas.canvasSize;
-    if (size == null || size.isEmpty) {
+    if (target.isEmpty || snapshot.strokes.isEmpty || canvasSize.isEmpty) {
       return;
     }
     final attempt = evaluateStroke(
       target: target,
       expectedIndex: _acceptedStrokes,
-      drawn: canvas.strokes.last,
-      canvasSize: size,
+      drawn: snapshot.strokes.last,
+      canvasSize: canvasSize,
       // 방향은 획순 검사 모드에서만 본다. ㅡ 를 거꾸로 그어도 남는 모양은
       // 같아서, 연습 모드에서까지 막으면 학습이 아니라 시험이 된다.
       checkDirection: _strict,
@@ -1474,7 +1470,7 @@ class _WriteTabState extends State<_WriteTab> {
 
   void _acceptStroke(int total) {
     _errorTimer?.cancel();
-    _practiceKey.currentState?.clearErrorGhost();
+    _practiceController.clearErrorGhost();
     setState(() {
       _acceptedStrokes++;
       _lastAttempt = null;
@@ -1515,13 +1511,13 @@ class _WriteTabState extends State<_WriteTab> {
     // 틀린 획은 **동기적으로** 판정 대상에서 빼고 잔상만 잠깐 남긴다.
     // 타이머가 _strokes 를 건드리지 않으므로, 잔상이 남은 동안 빠르게 다시
     // 그려도 엉뚱한 획이 지워지지 않는다.
-    _practiceKey.currentState?.rejectLastStroke();
+    _practiceController.rejectLastStroke();
     _errorTimer?.cancel();
     _errorTimer = Timer(_errorFlash, () {
       if (!mounted) {
         return;
       }
-      _practiceKey.currentState?.clearErrorGhost();
+      _practiceController.clearErrorGhost();
     });
   }
 
@@ -1680,13 +1676,20 @@ class _WriteTabState extends State<_WriteTab> {
                               ),
                             ),
                           ),
-                          _PracticeCanvas(
-                            key: _practiceKey,
-                            ghost: c.letter,
-                            color: SoriColors.primary,
-                            errorColor: SoriColors.danger,
-                            enabled: !_letterDone,
-                            onStrokeEnd: _onStrokeEnd,
+                          KeyedSubtree(
+                            key: const Key('hangul-practice-canvas'),
+                            child: TraceCanvas(
+                              controller: _practiceController,
+                              ghost: c.letter,
+                              color: SoriColors.primary,
+                              errorColor: SoriColors.danger,
+                              enabled: !_letterDone,
+                              semanticLabel: t.hangulTraceTitle,
+                              paintKey: ValueKey(
+                                'hangul-practice-ghost-${c.letter}',
+                              ),
+                              onStrokeEnd: _onStrokeEnd,
+                            ),
                           ),
                         ],
                       ),
@@ -1749,233 +1752,4 @@ class _WriteTabState extends State<_WriteTab> {
       },
     );
   }
-}
-
-/// Frei-Hand Canvas zum Nachzeichnen.
-class _PracticeCanvas extends StatefulWidget {
-  final String ghost;
-  final Color color;
-  final Color errorColor;
-  final bool enabled;
-  final VoidCallback onStrokeEnd;
-  const _PracticeCanvas({
-    super.key,
-    required this.ghost,
-    required this.color,
-    required this.errorColor,
-    required this.onStrokeEnd,
-    this.enabled = true,
-  });
-
-  @override
-  State<_PracticeCanvas> createState() => _PracticeCanvasState();
-}
-
-class _PracticeCanvasState extends State<_PracticeCanvas> {
-  final List<List<Offset>> _strokes = [];
-  List<Offset>? _current;
-
-  /// 방금 퇴짜맞은 획. **[_strokes] 바깥에 둔다** — 판정 대상 목록은 즉시
-  /// 정리되고 여기 남는 건 잔상뿐이라, 잔상이 사라지기 전에 다시 그려도
-  /// 타이머가 엉뚱한 획을 지울 수 없다.
-  List<Offset>? _errorGhost;
-
-  int _paintRevision = 0;
-
-  /// 지금까지 통과 판정을 기다리는 획들. 획순 판정에 넘긴다.
-  List<List<Offset>> get strokes => _strokes;
-
-  /// 실제로 그린 영역의 크기. 판정은 220×220 기준으로 정규화하므로 필요하다.
-  /// 레이아웃 전이면 null.
-  Size? get canvasSize {
-    final box = context.findRenderObject();
-    return box is RenderBox && box.hasSize ? box.size : null;
-  }
-
-  void clear() {
-    setState(() {
-      _strokes.clear();
-      _current = null;
-      _errorGhost = null;
-      _paintRevision++;
-    });
-  }
-
-  /// 마지막 획을 판정 대상에서 빼고 잔상으로 옮긴다.
-  void rejectLastStroke() {
-    if (_strokes.isEmpty) {
-      return;
-    }
-    setState(() {
-      _errorGhost = _strokes.removeLast();
-      _paintRevision++;
-    });
-  }
-
-  /// 잔상을 지운다. 두 번 불러도 안전하다(타이머 콜백이 겹쳐도 무해).
-  void clearErrorGhost() {
-    if (_errorGhost == null) {
-      return;
-    }
-    setState(() {
-      _errorGhost = null;
-      _paintRevision++;
-    });
-  }
-
-  void _startStroke(PointerDownEvent event) {
-    if (!widget.enabled) {
-      return;
-    }
-    setState(() {
-      // 새로 긋기 시작하면 잔상은 바로 걷는다.
-      _errorGhost = null;
-      _current = [event.localPosition];
-      _strokes.add(_current!);
-      _paintRevision++;
-    });
-  }
-
-  void _updateStroke(PointerMoveEvent event) {
-    if (_current == null) {
-      return;
-    }
-    setState(() {
-      _current!.add(event.localPosition);
-      _paintRevision++;
-    });
-  }
-
-  void _endStroke() {
-    final current = _current;
-    if (current == null) {
-      return;
-    }
-    if (current.length < 2) {
-      setState(() {
-        _strokes.removeLast();
-        _current = null;
-        _paintRevision++;
-      });
-      return;
-    }
-    setState(() {
-      _current = null;
-      _paintRevision++;
-    });
-    // 햅틱은 부모가 판정 결과에 맞춰 준다 — 여기서 미리 울리면 오답 햅틱과 겹친다.
-    widget.onStrokeEnd();
-  }
-
-  void _cancelStroke() {
-    if (_current == null) {
-      return;
-    }
-    setState(() {
-      _strokes.removeLast();
-      _current = null;
-      _paintRevision++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(SoriRadius.md),
-      child: RawGestureDetector(
-        key: const Key('hangul-practice-canvas'),
-        behavior: HitTestBehavior.opaque,
-        gestures: <Type, GestureRecognizerFactory>{
-          EagerGestureRecognizer:
-              GestureRecognizerFactoryWithHandlers<EagerGestureRecognizer>(
-                EagerGestureRecognizer.new,
-                (_) {},
-              ),
-        },
-        child: Listener(
-          behavior: HitTestBehavior.opaque,
-          onPointerDown: _startStroke,
-          onPointerMove: _updateStroke,
-          onPointerUp: (_) => _endStroke(),
-          onPointerCancel: (_) => _cancelStroke(),
-          child: CustomPaint(
-            key: ValueKey('hangul-practice-ghost-${widget.ghost}'),
-            painter: _PracticePainter(
-              ghost: widget.ghost,
-              strokes: _strokes,
-              errorGhost: _errorGhost,
-              color: widget.color,
-              errorColor: widget.errorColor,
-              revision: _paintRevision,
-            ),
-            child: const SizedBox.expand(),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _PracticePainter extends CustomPainter {
-  final String ghost;
-  final List<List<Offset>> strokes;
-  final List<Offset>? errorGhost;
-  final Color color;
-  final Color errorColor;
-  final int revision;
-
-  _PracticePainter({
-    required this.ghost,
-    required this.strokes,
-    required this.errorGhost,
-    required this.color,
-    required this.errorColor,
-    required this.revision,
-  });
-
-  void _drawPolyline(Canvas canvas, List<Offset> stroke, Paint paint) {
-    if (stroke.length < 2) {
-      return;
-    }
-    final path = Path()..moveTo(stroke.first.dx, stroke.first.dy);
-    for (var i = 1; i < stroke.length; i++) {
-      path.lineTo(stroke[i].dx, stroke[i].dy);
-    }
-    canvas.drawPath(path, paint);
-  }
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    // Guide form is the StrokeCanvas underneath — same paths, same box.
-    final p = Paint()
-      ..color = color
-      ..strokeCap = StrokeCap.round
-      ..strokeJoin = StrokeJoin.round
-      ..strokeWidth = size.height / 220 * 11
-      ..style = PaintingStyle.stroke;
-
-    for (final stroke in strokes) {
-      _drawPolyline(canvas, stroke, p);
-    }
-
-    // 퇴짜맞은 획은 위에 더 굵게 — "이건 틀렸고 곧 사라진다" 가 읽히게.
-    // 소리·햅틱은 웹/무음 설정에서 안 나므로 색이 유일한 신호일 수 있다.
-    final ghostStroke = errorGhost;
-    if (ghostStroke != null) {
-      _drawPolyline(
-        canvas,
-        ghostStroke,
-        Paint()
-          ..color = errorColor
-          ..strokeCap = StrokeCap.round
-          ..strokeJoin = StrokeJoin.round
-          ..strokeWidth = 7
-          ..style = PaintingStyle.stroke,
-      );
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant _PracticePainter old) =>
-      old.revision != revision || old.ghost != ghost;
 }

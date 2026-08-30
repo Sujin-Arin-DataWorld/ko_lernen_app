@@ -142,8 +142,8 @@ void main() {
       expect(find.text('${index + 1} of 5'), findsOneWidget);
       await tester.tap(find.byKey(const ValueKey('answer-0')));
       await tester.pump();
-      await tester.tap(find.byKey(const ValueKey('quest-submit')));
-      await tester.pump();
+      expect(find.byKey(const ValueKey('quest-submit')), findsNothing);
+      expect(find.byKey(const ValueKey('quest-continue')), findsOneWidget);
       expect(completionCalls, 0);
       await tester.tap(find.byKey(const ValueKey('quest-continue')));
       await tester.pump();

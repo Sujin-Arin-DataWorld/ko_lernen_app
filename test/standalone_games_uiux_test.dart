@@ -760,7 +760,7 @@ void main() {
     );
     await tester.binding.handlePopRoute();
     await tester.pump(const Duration(milliseconds: 300));
-    _expectButton(tester, find.bySemanticsLabel('1, 1'));
+    _expectButton(tester, find.byKey(const ValueKey('silben-cell-0-0')));
     final syllableTile = find.bySemanticsLabel('가');
     _expectButton(tester, syllableTile);
     expect(tester.getSize(syllableTile), const Size(46, 46));
@@ -876,8 +876,9 @@ void main() {
         final nextPuzzle = _soriButton(t.btnNext);
         _expectButton(tester, nextPuzzle);
         await _tapVisibleFatal(tester, nextPuzzle);
-        await _pumpUntil(tester, find.bySemanticsLabel('1, 1'));
-        _expectButton(tester, find.bySemanticsLabel('1, 1'));
+        final firstCell = find.byKey(const ValueKey('silben-cell-0-0'));
+        await _pumpUntil(tester, firstCell);
+        _expectButton(tester, firstCell);
 
         await _pumpGame(
           tester,
