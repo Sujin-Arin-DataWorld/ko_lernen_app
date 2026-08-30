@@ -34,6 +34,7 @@ class StyleLockLoaderTest(unittest.TestCase):
                 "F-D-ildoo",
                 "F-D-share",
                 "F-E-scene-poster",
+                "F-E-cards",
             },
         )
         for name, family in lock["families"].items():
@@ -167,6 +168,11 @@ class StyleLockLoaderTest(unittest.TestCase):
             gates = style_lock.gates_for_family(lock, name)
             measured = gates["measured"]
             with self.subTest(family=name):
+                if "satMean" not in gates:
+                    # 전용 도구로 위임된 가족(F-E-cards): 컷아웃 지표가 없다.
+                    # 그쪽 measured/게이트 정합은 tool/test_check_card_style.py
+                    # 의 스위프 테스트가 실측으로 검증한다.
+                    continue
                 if measured is None:
                     # 게이트를 측정보다 먼저 선언한 가족(F-D-ildoo): 아직
                     # 승격된 아트가 없어 measured 가 채워지기 전이다.

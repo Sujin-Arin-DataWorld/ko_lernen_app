@@ -1,8 +1,19 @@
 # 듣기 카드 확정 레시피 (2026-08-17, Jin 승인)
 
+> **⛔ 범위(2026-08-30 lock):** 이 레시피는 듣기 카드만이 아니라 정물 카드 계열 전체
+> (`packs/` 14 · `activities/` · `listening/`)의 생성 정본이다. 이 계열의 새 이미지는
+> 예외 없이 이 문서의 고정 프롬프트({SUBJECT}만 교체)·후처리·검수로만 만든다. 실측
+> 불변값(팔레트·그레인 대역·정본 해시)은 `docs/assets/STYLE_LOCK.json` families
+> `F-E-cards` 가 정본이며 수치가 충돌하면 그쪽이 이긴다. 픽셀 게이트:
+> `tool/check_card_style.py` (후처리 스크립트가 자동 실행; 실패 = 번들 금지).
+> `docs/ASSET_GENERATION_BIBLE.md` §1.2-3(면내 그라데이션 금지)은 이 계열에 적용
+> 금지 — 적용하면 평면 벡터가 나온다(2026-08-30 C1/C2 23장 전량 폐기 실측).
+
 이 문서 하나로 다음 세션이 첫 장부터 같은 품질을 뽑는다.
-**정본 샘플**: `assets/illustrations/packs/bamboo.webp`(원조) · `assets/illustrations/listening/A1Arrival.webp`(한지 질감 정본).
-새 카드를 뽑기 전에 이 두 장을 반드시 눈으로 열어볼 것.
+**정본 샘플**: `assets/illustrations/packs/plum.webp`(화풍 제1정본 — Jin 2026-08-30) ·
+`assets/illustrations/packs/bamboo.webp`(원조·현행 생성 앵커) ·
+`assets/illustrations/listening/A1Arrival.webp`(한지 질감 정본).
+새 카드를 뽑기 전에 이 석 장을 반드시 눈으로 열어볼 것.
 
 ## 생성 파라미터
 
@@ -12,10 +23,10 @@
 | 모델 | **Seedream V4.5** (Nano Banana Pro 아님) |
 | resolution | **2K** — 1K 는 디테일이 뭉개진다 |
 | aspect_ratio | `4:3` |
-| image_urls (앵커) | `https://uyncfjzfumputmyodmlr.supabase.co/storage/v1/object/public/public-assets/user-e15b6641-5d77-480c-85aa-0c1061b9c2cd/bbanana/1786656413789.jpg` |
+| image_urls (앵커) | `docs/assets/STYLE_LOCK.json` families `F-E-cards`.`anchorImageUrl` 한 곳이 정본 (현행 bamboo 업로드본 — plum 교체는 Jin 미결, 임의 변경 금지). |
 | 비용 | 장당 1~2크레딧 |
 
-앵커 URL 이 죽으면 `assets/illustrations/packs/bamboo.webp` 를 `upload_image` 로 올려 새 URL 로 대체한다.
+앵커 URL 이 죽으면 `packs/bamboo.webp` 를 `upload_image` 로 다시 올리고 STYLE_LOCK 의 `anchorImageUrl` 한 곳만 갱신한다.
 
 ## 프롬프트 (`{SUBJECT}` 만 교체, 나머지 한 글자도 바꾸지 말 것)
 
@@ -69,6 +80,8 @@ finish.sh {key} {url}
 ```
 
 산출물 크기 85~105KB 가 정상(그레인이 엔트로피를 올린다). 기존 packs/activities 39장과 같은 계약.
+하드 게이트는 STYLE_LOCK `gates.fileKB` (전수 실측 기반, 대략 65~110KB) — 85~105KB 는
+그레인 신규 카드의 정상 대역이고, 게이트 대역 밖이면 번들 자체가 차단된다.
 `scripts/apply_paper_grain.py` 는 저장소에 있고, venv 는 `.grain-venv`(pillow·numpy, gitignore됨).
 
 ## 검수 체크리스트 (번들 전 매 장)
@@ -82,17 +95,20 @@ finish.sh {key} {url}
 
 여섯 개 다 통과해야 번들. 하나라도 걸리면 재생성한다.
 
-## 진행 상황 (2026-08-17 기준)
+## 진행 상황 (2026-08-30 기준)
 
-번들 완료 **46장** — A1 12/12 · A2 12/12 · B1 12/12 · B2 10/12.
+번들 완료 **75장 — 코드가 요구하는 75키 전부 충족** (2026-08-30 저녁) —
+A1 12/12 · A2 12/12 · B1 12/12 · B2 12/12 · C1 12/12 · C2 12/12 · Social 3/3.
+C1/C2 22장은 이 레시피 그대로(Seedream V4.5 · bamboo 앵커 · {SUBJECT}만 교체) 생성했고
+전량 `tool/check_card_style.py` 게이트 통과 후 반입됐다. 재생성 사례(다음 세션 참고):
+`{SUBJECT}` 의 "seal"은 물개로, "marked ruler"는 숫자 눈금으로, "consent letter"는
+실제 글자로 오역된다 — **stone stamp block · unmarked/plain · blank envelope** 로 쓸 것.
 
 남은 작업:
-- B2 2칸: `B2Hiring` `B2Privacy`
-- 신규 6칸(Jin 요청): 친구&수다 · 데이트&연애 · 팬덤&게임 · 숫자와 시간 · 전화&메시지 · 길과 표지판
-  — 뒤 3개는 `A1Numbers` `A1Phone` `A1Wayfinding` 와 중복이므로 교체할지 별도 레벨로 둘지 Jin 확인 필요
-- C1 24칸 · C2 24칸 (키·표시명은 `docs/LISTENING_CARD_ART_SPEC.md` 표가 정본)
+- 신규 6칸 중 뒤 3개(숫자와 시간·전화&메시지·길과 표지판)는 `A1Numbers` `A1Phone`
+  `A1Wayfinding` 와 중복이므로 교체할지 별도 레벨로 둘지 여전히 Jin 확인 필요(미해결).
 
-크레딧 잔액 약 723.
+크레딧 잔액 약 27 (2026-08-30 저녁 실측 — 22장 본생성 + 9장 재생성 = 31크레딧 소요).
 
 ## 코드 배선 (아직 안 함)
 
@@ -105,3 +121,13 @@ finish.sh {key} {url}
 | `test/asset_orphan_guard_test.dart` | `dynamicDirs` 에 `'assets/illustrations/listening/': 'illustrations/listening/'` 추가 |
 
 이미지에는 `errorBuilder` 폴백을 단다(자산 없어도 화면이 뜨게 — `PackCard` 와 같은 규약).
+
+## 행동 계약 (모든 세션 필수 — 2026-08-30 lock)
+
+1. 이 계열 작업은 이 문서를 처음부터 끝까지 읽은 뒤 시작한다. 프롬프트를 새로 쓰지 않는다 —
+   `{SUBJECT}` 만 바꾼다.
+2. 스타일을 다른 문서(BIBLE·ART_SPEC 프롬프트 골격·핸드오프)에서 재유도하지 않는다.
+3. 생성 전 정본 석 장(plum·bamboo·A1Arrival)을 연다. 생성 후 정본과 나란히 놓고 검수
+   체크리스트 + 픽셀 게이트(`tool/check_card_style.py`)를 통과해야 번들.
+4. 앵커·팔레트·그레인 수치 변경은 Jin 승인 + STYLE_LOCK 갱신이 먼저다 — 문서 여러 곳을
+   따로 고치는 순간 드리프트가 시작된다.

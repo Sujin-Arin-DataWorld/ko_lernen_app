@@ -1,0 +1,1502 @@
+{
+  "schema": 1,
+  "measuredAt": "2026-08-30",
+  "grainFormulaVersion": 1,
+  "files": {
+    "assets/illustrations/activities/book_capture.webp": {
+      "sha256": "43e4cf3c9fa394d2706f8e060d0b57140b498664296357d6c74b92a3f6416192",
+      "kb": 88.2,
+      "ivoryFrac": 0.6094,
+      "fine": 4.86,
+      "coarse": 0.739,
+      "uniqueColors": 40149,
+      "top8": 0.7013,
+      "patchXY": [
+        80,
+        0
+      ]
+    },
+    "assets/illustrations/activities/bookshelf.webp": {
+      "sha256": "21c775be5d9cd625426f9094f8294f1e8225316a7030da2527818f0f2babefdf",
+      "kb": 89.7,
+      "ivoryFrac": 0.6024,
+      "fine": 4.959,
+      "coarse": 0.673,
+      "uniqueColors": 44606,
+      "top8": 0.6726,
+      "patchXY": [
+        376,
+        24
+      ]
+    },
+    "assets/illustrations/activities/calligraphy.webp": {
+      "sha256": "152ebcf5bbeb24f19bb90f011736013fc5821d151a0d600aa58c1b30972f9829",
+      "kb": 70.3,
+      "ivoryFrac": 0.789,
+      "fine": 4.236,
+      "coarse": 0.694,
+      "uniqueColors": 19253,
+      "top8": 0.8993,
+      "patchXY": [
+        320,
+        48
+      ]
+    },
+    "assets/illustrations/activities/chosung.webp": {
+      "sha256": "49aa02c02279ae8d1b92216b61d4fb8c5520d4c368b0ae09b977174d3879b41a",
+      "kb": 86.7,
+      "ivoryFrac": 0.7096,
+      "fine": 5.147,
+      "coarse": 0.672,
+      "uniqueColors": 27964,
+      "top8": 0.7665,
+      "patchXY": [
+        352,
+        48
+      ]
+    },
+    "assets/illustrations/activities/cloze.webp": {
+      "sha256": "d9c35878b0c7c5fd7a267d89128e677a6950a48832c31897d53e69a10c607bf9",
+      "kb": 86.0,
+      "ivoryFrac": 0.584,
+      "fine": 4.705,
+      "coarse": 0.673,
+      "uniqueColors": 43473,
+      "top8": 0.6541,
+      "patchXY": [
+        112,
+        24
+      ]
+    },
+    "assets/illustrations/activities/course.webp": {
+      "sha256": "40b3cb1192893a49d306ae6edd8c5b469b2601a8a77f18c2d17f678a5555ce6b",
+      "kb": 86.7,
+      "ivoryFrac": 0.5633,
+      "fine": 4.717,
+      "coarse": 0.788,
+      "uniqueColors": 39212,
+      "top8": 0.6451,
+      "patchXY": [
+        248,
+        24
+      ]
+    },
+    "assets/illustrations/activities/custom_matching.webp": {
+      "sha256": "2da3c678c109dffb164d36deb8749f6305cab1f8b6786f2675cbd725ab6978f2",
+      "kb": 93.0,
+      "ivoryFrac": 0.6737,
+      "fine": 4.773,
+      "coarse": 0.586,
+      "uniqueColors": 33366,
+      "top8": 0.7715,
+      "patchXY": [
+        392,
+        48
+      ]
+    },
+    "assets/illustrations/activities/custom_quiz.webp": {
+      "sha256": "95a789f432fdc149de12911407d1ef3df869222a1eefe62b9443110caeb688d0",
+      "kb": 88.2,
+      "ivoryFrac": 0.6431,
+      "fine": 4.667,
+      "coarse": 0.655,
+      "uniqueColors": 34815,
+      "top8": 0.7348,
+      "patchXY": [
+        584,
+        24
+      ]
+    },
+    "assets/illustrations/activities/custom_typing.webp": {
+      "sha256": "9fc43c973d608f30b5cc509ea34ae1b9410fc11d6b440b5b2fffcee1bd080d19",
+      "kb": 87.8,
+      "ivoryFrac": 0.7102,
+      "fine": 5.032,
+      "coarse": 0.618,
+      "uniqueColors": 27349,
+      "top8": 0.8061,
+      "patchXY": [
+        584,
+        24
+      ]
+    },
+    "assets/illustrations/activities/daily_game.webp": {
+      "sha256": "01a7b80d9699c3bc04622d7f3613a11074cf7a0e241eed6db89b7cb9038b8b5f",
+      "kb": 86.9,
+      "ivoryFrac": 0.6143,
+      "fine": 4.67,
+      "coarse": 0.661,
+      "uniqueColors": 29207,
+      "top8": 0.7146,
+      "patchXY": [
+        600,
+        24
+      ]
+    },
+    "assets/illustrations/activities/grammar.webp": {
+      "sha256": "330c7b9ef18e6ebe4718b8f141a899026397d5cabc5805d5d44fa7e749d4bdb1",
+      "kb": 88.8,
+      "ivoryFrac": 0.6171,
+      "fine": 4.855,
+      "coarse": 0.82,
+      "uniqueColors": 37263,
+      "top8": 0.7154,
+      "patchXY": [
+        640,
+        24
+      ]
+    },
+    "assets/illustrations/activities/hangul.webp": {
+      "sha256": "77cb04dde970a0c06d9730a01c8ef43724672bfcb801e34a09874eac85850b02",
+      "kb": 87.7,
+      "ivoryFrac": 0.6219,
+      "fine": 5.175,
+      "coarse": 0.756,
+      "uniqueColors": 24616,
+      "top8": 0.7327,
+      "patchXY": [
+        112,
+        24
+      ]
+    },
+    "assets/illustrations/activities/hard_words.webp": {
+      "sha256": "2b4b54c4ad179260d6716aa62c40dfa7a6a43f3a40137819fa79fdf082473f6a",
+      "kb": 88.4,
+      "ivoryFrac": 0.5776,
+      "fine": 4.436,
+      "coarse": 0.791,
+      "uniqueColors": 37609,
+      "top8": 0.7053,
+      "patchXY": [
+        528,
+        0
+      ]
+    },
+    "assets/illustrations/activities/kkeunmari.webp": {
+      "sha256": "1653ca7f9980c9a5e40624e4b890d1515eb3791a1bfb0edaff52d3ed7001f19d",
+      "kb": 87.5,
+      "ivoryFrac": 0.7224,
+      "fine": 4.952,
+      "coarse": 0.658,
+      "uniqueColors": 32258,
+      "top8": 0.8086,
+      "patchXY": [
+        424,
+        24
+      ]
+    },
+    "assets/illustrations/activities/listening.webp": {
+      "sha256": "7ff8742bba87adf0309b0b1adf62734700be672b64d1ab28a758d2e9069aab2e",
+      "kb": 88.3,
+      "ivoryFrac": 0.632,
+      "fine": 4.73,
+      "coarse": 0.704,
+      "uniqueColors": 38196,
+      "top8": 0.679,
+      "patchXY": [
+        80,
+        24
+      ]
+    },
+    "assets/illustrations/activities/pronunciation.webp": {
+      "sha256": "fb6d9be0f7f0a4eeb0f0bce6a66743dd16ed3d4cff9467d76d91dd9961992391",
+      "kb": 92.0,
+      "ivoryFrac": 0.611,
+      "fine": 4.853,
+      "coarse": 0.527,
+      "uniqueColors": 40237,
+      "top8": 0.7053,
+      "patchXY": [
+        208,
+        24
+      ]
+    },
+    "assets/illustrations/activities/scenarios.webp": {
+      "sha256": "fa8df13eff1dacd1d2f0cda4c3809bd85fd44bbdb6de850fa81b46f7f7311372",
+      "kb": 89.1,
+      "ivoryFrac": 0.594,
+      "fine": 4.676,
+      "coarse": 0.875,
+      "uniqueColors": 41431,
+      "top8": 0.7038,
+      "patchXY": [
+        264,
+        24
+      ]
+    },
+    "assets/illustrations/activities/sentence_arcade.webp": {
+      "sha256": "83ea42125bf1a21000423fff29c10dad079a4527f38fdece270cae4f6c87c312",
+      "kb": 83.2,
+      "ivoryFrac": 0.7027,
+      "fine": 4.664,
+      "coarse": 0.673,
+      "uniqueColors": 24460,
+      "top8": 0.8002,
+      "patchXY": [
+        384,
+        24
+      ]
+    },
+    "assets/illustrations/activities/smalltalk.webp": {
+      "sha256": "bad8279ccf1638fdf6054fc1b4fb052db61c1a818116286e7b6ce7ae5c0b5ed9",
+      "kb": 85.8,
+      "ivoryFrac": 0.6547,
+      "fine": 5.092,
+      "coarse": 0.731,
+      "uniqueColors": 26342,
+      "top8": 0.7437,
+      "patchXY": [
+        568,
+        24
+      ]
+    },
+    "assets/illustrations/activities/speed_match.webp": {
+      "sha256": "bb84e5c15aa900a92af845e8e283dcc55773e7cf176176f1b72fcfb8bb9f1c9a",
+      "kb": 84.1,
+      "ivoryFrac": 0.7583,
+      "fine": 5.014,
+      "coarse": 0.701,
+      "uniqueColors": 17747,
+      "top8": 0.853,
+      "patchXY": [
+        368,
+        48
+      ]
+    },
+    "assets/illustrations/activities/srs.webp": {
+      "sha256": "7627d4088a9109ef19710ceba7df36edbf5c83a55b408c9890bc3809c2681156",
+      "kb": 101.0,
+      "ivoryFrac": 0.5469,
+      "fine": 4.823,
+      "coarse": 0.79,
+      "uniqueColors": 40909,
+      "top8": 0.6499,
+      "patchXY": [
+        600,
+        24
+      ]
+    },
+    "assets/illustrations/activities/syllable_cross.webp": {
+      "sha256": "688bca9d768491bcaa4487d6450cdddde3357c536d6b905f06bf81922b398e13",
+      "kb": 100.3,
+      "ivoryFrac": 0.4596,
+      "fine": 5.159,
+      "coarse": 0.637,
+      "uniqueColors": 39247,
+      "top8": 0.55,
+      "patchXY": [
+        104,
+        0
+      ]
+    },
+    "assets/illustrations/activities/vocab_notebook.webp": {
+      "sha256": "c7f4460abec544b741a15891b8701db56e6d6639a647ec9886aa5f4353ffe466",
+      "kb": 76.9,
+      "ivoryFrac": 0.7531,
+      "fine": 4.658,
+      "coarse": 0.637,
+      "uniqueColors": 26086,
+      "top8": 0.8684,
+      "patchXY": [
+        392,
+        48
+      ]
+    },
+    "assets/illustrations/activities/vocab_packs.webp": {
+      "sha256": "1facf8ff344ca7d09362e8e639593caca8910e8e60f6532d3d1e8140c8d1dcc0",
+      "kb": 83.2,
+      "ivoryFrac": 0.591,
+      "fine": 4.692,
+      "coarse": 0.717,
+      "uniqueColors": 36787,
+      "top8": 0.6847,
+      "patchXY": [
+        112,
+        24
+      ]
+    },
+    "assets/illustrations/activities/word_search.webp": {
+      "sha256": "fee3b57d0bd4b539e9db137462ecaf2300ca197bcf0791714056268eb48a8c21",
+      "kb": 88.1,
+      "ivoryFrac": 0.6839,
+      "fine": 4.918,
+      "coarse": 0.765,
+      "uniqueColors": 24501,
+      "top8": 0.779,
+      "patchXY": [
+        112,
+        24
+      ]
+    },
+    "assets/illustrations/activities/word_web.webp": {
+      "sha256": "fe548e5bd5986c57a79f89b08489657c2f2c67370ed697a3d8aee4a2a403fb74",
+      "kb": 77.1,
+      "ivoryFrac": 0.6795,
+      "fine": 4.584,
+      "coarse": 0.649,
+      "uniqueColors": 25281,
+      "top8": 0.7964,
+      "patchXY": [
+        528,
+        0
+      ]
+    },
+    "assets/illustrations/listening/A1Arrival.webp": {
+      "sha256": "8f9f2a3539b216a86ff5c6d06b1eee7ebc3e1b0cc3456670f95ed145ee068787",
+      "kb": 87.6,
+      "ivoryFrac": 0.5932,
+      "fine": 5.174,
+      "coarse": 0.793,
+      "uniqueColors": 34125,
+      "top8": 0.7124,
+      "patchXY": [
+        112,
+        24
+      ]
+    },
+    "assets/illustrations/listening/A1Cafe.webp": {
+      "sha256": "b77ee53174f42e72f6e4d249a488fba76c5723b6728083b0b29bcb9afd9e8653",
+      "kb": 86.7,
+      "ivoryFrac": 0.6423,
+      "fine": 5.017,
+      "coarse": 0.499,
+      "uniqueColors": 31369,
+      "top8": 0.7234,
+      "patchXY": [
+        392,
+        48
+      ]
+    },
+    "assets/illustrations/listening/A1Counter.webp": {
+      "sha256": "e7e028c655e3fe95c26e6cc209632077d0a3a7c28bfa214d42cfde40ea4e08b8",
+      "kb": 89.5,
+      "ivoryFrac": 0.5682,
+      "fine": 5.099,
+      "coarse": 0.696,
+      "uniqueColors": 32848,
+      "top8": 0.7001,
+      "patchXY": [
+        232,
+        0
+      ]
+    },
+    "assets/illustrations/listening/A1Family.webp": {
+      "sha256": "f32391c0f8b1570846ccb26ae50c730df30fd1372eaaacd1243e12699a2d7cbd",
+      "kb": 91.9,
+      "ivoryFrac": 0.5971,
+      "fine": 4.963,
+      "coarse": 0.625,
+      "uniqueColors": 35000,
+      "top8": 0.6816,
+      "patchXY": [
+        408,
+        24
+      ]
+    },
+    "assets/illustrations/listening/A1Greeting.webp": {
+      "sha256": "8d36d6dca5ad072d89da68d2fea515088d343f36fd080d2331b69de40f5c3f3b",
+      "kb": 89.9,
+      "ivoryFrac": 0.6326,
+      "fine": 4.511,
+      "coarse": 0.564,
+      "uniqueColors": 36256,
+      "top8": 0.736,
+      "patchXY": [
+        376,
+        48
+      ]
+    },
+    "assets/illustrations/listening/A1Health.webp": {
+      "sha256": "d7128c91ad1e9b3810a2e09fb35a4f31de411c080740cfce0318de8d8bca2a5a",
+      "kb": 86.0,
+      "ivoryFrac": 0.7032,
+      "fine": 4.999,
+      "coarse": 0.649,
+      "uniqueColors": 25876,
+      "top8": 0.7965,
+      "patchXY": [
+        584,
+        24
+      ]
+    },
+    "assets/illustrations/listening/A1Home.webp": {
+      "sha256": "27cdf5790c2b98209951f8970d7a080d90c81ceaae02d2ff863e30edd094bbc3",
+      "kb": 90.0,
+      "ivoryFrac": 0.534,
+      "fine": 5.212,
+      "coarse": 0.585,
+      "uniqueColors": 26676,
+      "top8": 0.7044,
+      "patchXY": [
+        192,
+        24
+      ]
+    },
+    "assets/illustrations/listening/A1Numbers.webp": {
+      "sha256": "f6935160d8a91955dae2a086f7f5af9f3809f7e158278bb0daec261e5b7b5ac2",
+      "kb": 102.2,
+      "ivoryFrac": 0.4392,
+      "fine": 5.07,
+      "coarse": 0.63,
+      "uniqueColors": 44735,
+      "top8": 0.5596,
+      "patchXY": [
+        584,
+        24
+      ]
+    },
+    "assets/illustrations/listening/A1Phone.webp": {
+      "sha256": "f0c2a56e66b3ef54846ef6d4a5bcc8ba9905535f51eab5dc6d9149d8f2cf1c3f",
+      "kb": 82.2,
+      "ivoryFrac": 0.7075,
+      "fine": 4.78,
+      "coarse": 0.586,
+      "uniqueColors": 22656,
+      "top8": 0.816,
+      "patchXY": [
+        488,
+        24
+      ]
+    },
+    "assets/illustrations/listening/A1Repair.webp": {
+      "sha256": "e75c6cf41f7f143755ae0db2a6fbffc4f393ccc85857493b3ee092753d7648b6",
+      "kb": 88.2,
+      "ivoryFrac": 0.6848,
+      "fine": 5.206,
+      "coarse": 0.623,
+      "uniqueColors": 27037,
+      "top8": 0.7839,
+      "patchXY": [
+        464,
+        48
+      ]
+    },
+    "assets/illustrations/listening/A1Transit.webp": {
+      "sha256": "18fe9e4930c7bc04ac9acbaa390bc69d06062f59b07a7a431f47824cc284fa6e",
+      "kb": 88.2,
+      "ivoryFrac": 0.5597,
+      "fine": 4.705,
+      "coarse": 0.685,
+      "uniqueColors": 34019,
+      "top8": 0.6892,
+      "patchXY": [
+        640,
+        24
+      ]
+    },
+    "assets/illustrations/listening/A1Wayfinding.webp": {
+      "sha256": "2ab514b2d83eef9e09ae21e8d7886f08bbd6300e170e021dab21e6f3ca2a0eed",
+      "kb": 86.0,
+      "ivoryFrac": 0.6891,
+      "fine": 5.017,
+      "coarse": 0.791,
+      "uniqueColors": 22387,
+      "top8": 0.7881,
+      "patchXY": [
+        344,
+        48
+      ]
+    },
+    "assets/illustrations/listening/A2Bank.webp": {
+      "sha256": "6d2831dd6561306d71b2bf983292f030631369118e810c379b00769cecd6b09b",
+      "kb": 86.0,
+      "ivoryFrac": 0.5465,
+      "fine": 4.91,
+      "coarse": 0.809,
+      "uniqueColors": 25713,
+      "top8": 0.7967,
+      "patchXY": [
+        272,
+        0
+      ]
+    },
+    "assets/illustrations/listening/A2Body.webp": {
+      "sha256": "3c79b9e80f5576e52e6ba33175be920a4b4ebb09d2d9b4f7c3b46f4fe358524f",
+      "kb": 87.8,
+      "ivoryFrac": 0.624,
+      "fine": 4.476,
+      "coarse": 0.634,
+      "uniqueColors": 44228,
+      "top8": 0.7061,
+      "patchXY": [
+        136,
+        24
+      ]
+    },
+    "assets/illustrations/listening/A2Booking.webp": {
+      "sha256": "0f1bd2c3910bbc0a53f21cf0197f9353d6251afff9fcc1e6155bc693487c36ce",
+      "kb": 85.4,
+      "ivoryFrac": 0.6957,
+      "fine": 4.868,
+      "coarse": 0.673,
+      "uniqueColors": 31252,
+      "top8": 0.7999,
+      "patchXY": [
+        448,
+        0
+      ]
+    },
+    "assets/illustrations/listening/A2Cafe.webp": {
+      "sha256": "6ed7d8a3ddd1b2062578637f4cdf38655dd57b41ef06df42362ec61d72e77a65",
+      "kb": 84.6,
+      "ivoryFrac": 0.655,
+      "fine": 4.904,
+      "coarse": 0.824,
+      "uniqueColors": 24281,
+      "top8": 0.7869,
+      "patchXY": [
+        264,
+        24
+      ]
+    },
+    "assets/illustrations/listening/A2Delivery.webp": {
+      "sha256": "76c6a3cd7851d6349705d6ed45d899cccf74f45eca0e3418a6d1d3ca48bba3a1",
+      "kb": 85.9,
+      "ivoryFrac": 0.5842,
+      "fine": 5.216,
+      "coarse": 0.609,
+      "uniqueColors": 22906,
+      "top8": 0.7003,
+      "patchXY": [
+        112,
+        24
+      ]
+    },
+    "assets/illustrations/listening/A2Enrolment.webp": {
+      "sha256": "f3f8ee9a76efb4e027efa0c5daeaceff40363b2d92badea0a2551f609b8447a7",
+      "kb": 86.9,
+      "ivoryFrac": 0.5704,
+      "fine": 5.195,
+      "coarse": 0.805,
+      "uniqueColors": 31078,
+      "top8": 0.6694,
+      "patchXY": [
+        640,
+        0
+      ]
+    },
+    "assets/illustrations/listening/A2Family.webp": {
+      "sha256": "fc47f61a18a7946329edd71644baa9992e2d723909cbdf35c9660b94d794b2aa",
+      "kb": 87.7,
+      "ivoryFrac": 0.685,
+      "fine": 4.796,
+      "coarse": 0.738,
+      "uniqueColors": 32413,
+      "top8": 0.776,
+      "patchXY": [
+        272,
+        0
+      ]
+    },
+    "assets/illustrations/listening/A2Neighbourhood.webp": {
+      "sha256": "56b975eb08061ac5fb622166a3496bb3fb2092c91c3db9adb406d02b539c64e7",
+      "kb": 86.7,
+      "ivoryFrac": 0.6327,
+      "fine": 5.048,
+      "coarse": 0.605,
+      "uniqueColors": 26303,
+      "top8": 0.7369,
+      "patchXY": [
+        584,
+        24
+      ]
+    },
+    "assets/illustrations/listening/A2Plans.webp": {
+      "sha256": "53fff73fd82822b2a87149c78eb4f4fb10ddd4126bab76e18d3b16225874b8f1",
+      "kb": 86.4,
+      "ivoryFrac": 0.4983,
+      "fine": 4.614,
+      "coarse": 0.717,
+      "uniqueColors": 36895,
+      "top8": 0.7444,
+      "patchXY": [
+        584,
+        48
+      ]
+    },
+    "assets/illustrations/listening/A2Shopping.webp": {
+      "sha256": "a66e7dca2b9fa769b63a316baf999e096d1782d4af979ba99ac437b59b0e327f",
+      "kb": 97.6,
+      "ivoryFrac": 0.5679,
+      "fine": 5.221,
+      "coarse": 0.726,
+      "uniqueColors": 36540,
+      "top8": 0.676,
+      "patchXY": [
+        448,
+        0
+      ]
+    },
+    "assets/illustrations/listening/A2Travel.webp": {
+      "sha256": "a43938e35cb0f63c23c3a2517a1f951dbb23d120a2fad08aad9ef1e0c3983a35",
+      "kb": 88.8,
+      "ivoryFrac": 0.6233,
+      "fine": 4.954,
+      "coarse": 0.669,
+      "uniqueColors": 31410,
+      "top8": 0.7387,
+      "patchXY": [
+        120,
+        24
+      ]
+    },
+    "assets/illustrations/listening/A2Work.webp": {
+      "sha256": "e92a862432b8e46ec71bc8a2b248979f40942e51731947659a13d63d0c170c6e",
+      "kb": 92.1,
+      "ivoryFrac": 0.547,
+      "fine": 5.095,
+      "coarse": 0.77,
+      "uniqueColors": 37298,
+      "top8": 0.6658,
+      "patchXY": [
+        112,
+        24
+      ]
+    },
+    "assets/illustrations/listening/B1Cancellation.webp": {
+      "sha256": "8738b058b38a44a1ba3bc4242a36b1ddde6217f30dc0aa3748ceefa75407e508",
+      "kb": 77.8,
+      "ivoryFrac": 0.6804,
+      "fine": 4.507,
+      "coarse": 0.76,
+      "uniqueColors": 17336,
+      "top8": 0.8385,
+      "patchXY": [
+        368,
+        48
+      ]
+    },
+    "assets/illustrations/listening/B1Delay.webp": {
+      "sha256": "d2cddd0965939a7d7e824357272c4742fdec2ce67cd8a512e2292952eb22ec1d",
+      "kb": 91.2,
+      "ivoryFrac": 0.5678,
+      "fine": 4.591,
+      "coarse": 0.678,
+      "uniqueColors": 37383,
+      "top8": 0.6745,
+      "patchXY": [
+        272,
+        0
+      ]
+    },
+    "assets/illustrations/listening/B1Family.webp": {
+      "sha256": "58eef2eb65d5ce79fb144a8a608cf74c9330c67d5b4250a72c873badd0dfd85a",
+      "kb": 83.3,
+      "ivoryFrac": 0.7309,
+      "fine": 4.587,
+      "coarse": 0.689,
+      "uniqueColors": 21702,
+      "top8": 0.8425,
+      "patchXY": [
+        248,
+        24
+      ]
+    },
+    "assets/illustrations/listening/B1Feelings.webp": {
+      "sha256": "75ab0c280367bf971d6c44e2fe36263302078d3f593a7c0b7cad0ba3e64ebddd",
+      "kb": 83.2,
+      "ivoryFrac": 0.7222,
+      "fine": 4.799,
+      "coarse": 0.749,
+      "uniqueColors": 23960,
+      "top8": 0.8246,
+      "patchXY": [
+        352,
+        48
+      ]
+    },
+    "assets/illustrations/listening/B1Incident.webp": {
+      "sha256": "7b5b40dace0cacf64e54b21bcccc6680ed58ff15d6d41782397cbc4d72440644",
+      "kb": 83.3,
+      "ivoryFrac": 0.7237,
+      "fine": 4.883,
+      "coarse": 0.71,
+      "uniqueColors": 24131,
+      "top8": 0.8083,
+      "patchXY": [
+        104,
+        24
+      ]
+    },
+    "assets/illustrations/listening/B1Insurance.webp": {
+      "sha256": "50ae202e0e3ba349083f960bdae5c7118a7b74b4797d1e42adaa1bdc961b71f2",
+      "kb": 86.9,
+      "ivoryFrac": 0.5039,
+      "fine": 4.585,
+      "coarse": 0.718,
+      "uniqueColors": 31563,
+      "top8": 0.663,
+      "patchXY": [
+        272,
+        0
+      ]
+    },
+    "assets/illustrations/listening/B1Neighbours.webp": {
+      "sha256": "1dae3e6e01ee1f24935ab8c03fc0d5620f02cd07638633401c870473755abad2",
+      "kb": 84.3,
+      "ivoryFrac": 0.7117,
+      "fine": 4.7,
+      "coarse": 0.674,
+      "uniqueColors": 23532,
+      "top8": 0.8005,
+      "patchXY": [
+        392,
+        48
+      ]
+    },
+    "assets/illustrations/listening/B1Paperwork.webp": {
+      "sha256": "2ea2cc319a0c5e9dd582f5e784b857863f7449b76d10a5f23c959f6116fbf7ad",
+      "kb": 86.6,
+      "ivoryFrac": 0.5776,
+      "fine": 5.117,
+      "coarse": 0.634,
+      "uniqueColors": 26884,
+      "top8": 0.7464,
+      "patchXY": [
+        112,
+        24
+      ]
+    },
+    "assets/illustrations/listening/B1Receipts.webp": {
+      "sha256": "b03cd357415bb78e79f71564e47acc73de73f568c3660769ea4e32f656c5a1be",
+      "kb": 83.4,
+      "ivoryFrac": 0.6167,
+      "fine": 4.088,
+      "coarse": 0.579,
+      "uniqueColors": 46415,
+      "top8": 0.7349,
+      "patchXY": [
+        400,
+        0
+      ]
+    },
+    "assets/illustrations/listening/B1Refund.webp": {
+      "sha256": "2e10624b4b490872792d59e8b4d448826aaf6242e6091b63f0adc3ec56def8e3",
+      "kb": 84.5,
+      "ivoryFrac": 0.7346,
+      "fine": 4.91,
+      "coarse": 0.78,
+      "uniqueColors": 21105,
+      "top8": 0.8237,
+      "patchXY": [
+        264,
+        24
+      ]
+    },
+    "assets/illustrations/listening/B1Repairs.webp": {
+      "sha256": "6dce54f29b6d2685fabc351142bd004e4a8c46e8fe164f25c4b2926eaae56a2b",
+      "kb": 87.1,
+      "ivoryFrac": 0.6518,
+      "fine": 4.691,
+      "coarse": 0.714,
+      "uniqueColors": 30651,
+      "top8": 0.7153,
+      "patchXY": [
+        368,
+        48
+      ]
+    },
+    "assets/illustrations/listening/B1Team.webp": {
+      "sha256": "e307aee2e33afae46ba6dc475b47b6d07c6a47c686177445a82f15a84e7211e3",
+      "kb": 86.9,
+      "ivoryFrac": 0.598,
+      "fine": 4.826,
+      "coarse": 0.718,
+      "uniqueColors": 27016,
+      "top8": 0.6824,
+      "patchXY": [
+        520,
+        24
+      ]
+    },
+    "assets/illustrations/listening/B2Authorities.webp": {
+      "sha256": "a09ce07ba2adcadf317cb4a983fad1d379d8b19133202f3391ca91e298871543",
+      "kb": 85.2,
+      "ivoryFrac": 0.7147,
+      "fine": 4.927,
+      "coarse": 0.649,
+      "uniqueColors": 23448,
+      "top8": 0.8175,
+      "patchXY": [
+        392,
+        48
+      ]
+    },
+    "assets/illustrations/listening/B2Contracts.webp": {
+      "sha256": "c4536bdc8a8fa77e6f4019a5b1b0f284477209ae2832cacef6006dfdb04c0fe4",
+      "kb": 79.1,
+      "ivoryFrac": 0.6392,
+      "fine": 4.282,
+      "coarse": 0.76,
+      "uniqueColors": 20990,
+      "top8": 0.8123,
+      "patchXY": [
+        360,
+        48
+      ]
+    },
+    "assets/illustrations/listening/B2Escalation.webp": {
+      "sha256": "f0e47ffcc765303999acadcd43ce4b8fc584f89d8e68e2cadbc361882594e24e",
+      "kb": 84.3,
+      "ivoryFrac": 0.651,
+      "fine": 5.287,
+      "coarse": 0.771,
+      "uniqueColors": 21527,
+      "top8": 0.7675,
+      "patchXY": [
+        640,
+        24
+      ]
+    },
+    "assets/illustrations/listening/B2Evidence.webp": {
+      "sha256": "2af9162dd6ab7f3b2c48be6b4ff8b0bd3e4a6912ffbba3ccf6024005ffed4266",
+      "kb": 86.2,
+      "ivoryFrac": 0.6407,
+      "fine": 5.017,
+      "coarse": 0.718,
+      "uniqueColors": 23498,
+      "top8": 0.7837,
+      "patchXY": [
+        232,
+        24
+      ]
+    },
+    "assets/illustrations/listening/B2Family.webp": {
+      "sha256": "bd53f67ec8cdd8d11566486581ca96e343a1610a2e893c5df425319d6d87bf17",
+      "kb": 81.9,
+      "ivoryFrac": 0.6808,
+      "fine": 4.659,
+      "coarse": 0.739,
+      "uniqueColors": 23158,
+      "top8": 0.7949,
+      "patchXY": [
+        376,
+        24
+      ]
+    },
+    "assets/illustrations/listening/B2Hiring.webp": {
+      "sha256": "a90d4433c0867015bdc798a8683aca86d5de45fc51b7d06c04a803f4375e2a27",
+      "kb": 85.0,
+      "ivoryFrac": 0.6608,
+      "fine": 5.032,
+      "coarse": 0.567,
+      "uniqueColors": 23939,
+      "top8": 0.7575,
+      "patchXY": [
+        392,
+        48
+      ]
+    },
+    "assets/illustrations/listening/B2Medical.webp": {
+      "sha256": "457e9cce4a54f8a47c8870a39688b8f7333b6ea88a10bc6256074ef75f5bf4f2",
+      "kb": 86.3,
+      "ivoryFrac": 0.5577,
+      "fine": 5.119,
+      "coarse": 0.661,
+      "uniqueColors": 26204,
+      "top8": 0.6912,
+      "patchXY": [
+        112,
+        24
+      ]
+    },
+    "assets/illustrations/listening/B2Meetings.webp": {
+      "sha256": "aa3072850af01345b986cfb2c7aef03f4c58674b2ff30b507e5a3f299ca11f81",
+      "kb": 84.2,
+      "ivoryFrac": 0.6697,
+      "fine": 4.516,
+      "coarse": 0.661,
+      "uniqueColors": 30642,
+      "top8": 0.7645,
+      "patchXY": [
+        112,
+        24
+      ]
+    },
+    "assets/illustrations/listening/B2Negotiation.webp": {
+      "sha256": "c276ed16e070aed9d4495ec408ad5028b46a1c37f121664e0004b0554a7c4ac7",
+      "kb": 84.1,
+      "ivoryFrac": 0.5759,
+      "fine": 4.705,
+      "coarse": 0.768,
+      "uniqueColors": 23412,
+      "top8": 0.7214,
+      "patchXY": [
+        352,
+        48
+      ]
+    },
+    "assets/illustrations/listening/B2Notices.webp": {
+      "sha256": "63e09a0fb197ff82f2fef0e3c699ed27ab56357da316879ddd82296aaca769c6",
+      "kb": 84.2,
+      "ivoryFrac": 0.6925,
+      "fine": 4.761,
+      "coarse": 0.696,
+      "uniqueColors": 23051,
+      "top8": 0.7856,
+      "patchXY": [
+        272,
+        0
+      ]
+    },
+    "assets/illustrations/listening/B2Privacy.webp": {
+      "sha256": "ade88a74cf2dd7624353fb0998102452ae40d885b8098b716b37fbc21f71c8a6",
+      "kb": 83.2,
+      "ivoryFrac": 0.6666,
+      "fine": 4.839,
+      "coarse": 0.773,
+      "uniqueColors": 25610,
+      "top8": 0.7868,
+      "patchXY": [
+        256,
+        0
+      ]
+    },
+    "assets/illustrations/listening/B2Public.webp": {
+      "sha256": "acc3a580b8cb50c70ee6a356b42ffa65db0eb8585d785f201329f0e4552e0791",
+      "kb": 86.4,
+      "ivoryFrac": 0.6492,
+      "fine": 5.118,
+      "coarse": 0.669,
+      "uniqueColors": 24586,
+      "top8": 0.7564,
+      "patchXY": [
+        448,
+        0
+      ]
+    },
+    "assets/illustrations/listening/C1Access.webp": {
+      "sha256": "d8f950f2282ec4a972cf904fa9e55234a27d63ac576ab9dd5af85d59b48332cc",
+      "kb": 83.6,
+      "ivoryFrac": 0.6891,
+      "fine": 4.825,
+      "coarse": 0.612,
+      "uniqueColors": 26764,
+      "top8": 0.7759,
+      "patchXY": [
+        232,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C1Attribution.webp": {
+      "sha256": "ece260a60b40850892b4a1764930e3b5645fa6f2920a498dfd4665a61fa0933e",
+      "kb": 81.8,
+      "ivoryFrac": 0.6882,
+      "fine": 4.884,
+      "coarse": 0.756,
+      "uniqueColors": 30981,
+      "top8": 0.7881,
+      "patchXY": [
+        112,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C1Briefing.webp": {
+      "sha256": "392496e5914319d99adc6c7cc4a13d02f751ae5fbc896ebb07a4bd98c1ade542",
+      "kb": 87.9,
+      "ivoryFrac": 0.6325,
+      "fine": 5.38,
+      "coarse": 0.788,
+      "uniqueColors": 21718,
+      "top8": 0.7419,
+      "patchXY": [
+        632,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C1Conflict.webp": {
+      "sha256": "2c7f72974537706a3ab81054274736b0f65cad70233e8325834558d190843ac5",
+      "kb": 81.0,
+      "ivoryFrac": 0.711,
+      "fine": 4.733,
+      "coarse": 0.694,
+      "uniqueColors": 22945,
+      "top8": 0.8079,
+      "patchXY": [
+        584,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C1Consent.webp": {
+      "sha256": "63f123a6da9d951a2399b2c4f92d666266898e441f8497983073ef9fb82f0d42",
+      "kb": 79.7,
+      "ivoryFrac": 0.6591,
+      "fine": 4.736,
+      "coarse": 0.728,
+      "uniqueColors": 22102,
+      "top8": 0.8045,
+      "patchXY": [
+        448,
+        0
+      ]
+    },
+    "assets/illustrations/listening/C1Critique.webp": {
+      "sha256": "9aaadc19c493b477d633492aac6762c8fea4a551d85e8f9de379ce227c4a4337",
+      "kb": 85.0,
+      "ivoryFrac": 0.5805,
+      "fine": 5.061,
+      "coarse": 0.747,
+      "uniqueColors": 33603,
+      "top8": 0.6875,
+      "patchXY": [
+        264,
+        48
+      ]
+    },
+    "assets/illustrations/listening/C1Facework.webp": {
+      "sha256": "7d82147da52637e0b67cd5b483ff96ec1d74f82f9eba4c984311e319aad953fc",
+      "kb": 77.4,
+      "ivoryFrac": 0.6772,
+      "fine": 4.614,
+      "coarse": 0.648,
+      "uniqueColors": 27410,
+      "top8": 0.7664,
+      "patchXY": [
+        144,
+        48
+      ]
+    },
+    "assets/illustrations/listening/C1InvisibleLabor.webp": {
+      "sha256": "afc056485ef25c1f7e7acd44cbcf1e5919aa8a2b52857ff1d3b432cd16f09fc1",
+      "kb": 84.6,
+      "ivoryFrac": 0.6384,
+      "fine": 5.115,
+      "coarse": 0.661,
+      "uniqueColors": 27052,
+      "top8": 0.7346,
+      "patchXY": [
+        216,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C1Mediation.webp": {
+      "sha256": "a38ed0ace85a2c4b21aa7b129fa6b1b5b667ec83308257d06a22f9bb9a070432",
+      "kb": 81.3,
+      "ivoryFrac": 0.6839,
+      "fine": 5.059,
+      "coarse": 0.612,
+      "uniqueColors": 21099,
+      "top8": 0.7976,
+      "patchXY": [
+        112,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C1Methodology.webp": {
+      "sha256": "7d929e398fbf6c824ad9a763ea1e0ec9d75643db78f95b4f42156cdf10ba82d8",
+      "kb": 82.2,
+      "ivoryFrac": 0.6741,
+      "fine": 4.859,
+      "coarse": 0.612,
+      "uniqueColors": 23487,
+      "top8": 0.7814,
+      "patchXY": [
+        584,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C1Policy.webp": {
+      "sha256": "fcabadc11270cd79b4373312d4282a2689a358d39866b445fb7abba29fba750e",
+      "kb": 83.3,
+      "ivoryFrac": 0.6949,
+      "fine": 5.041,
+      "coarse": 0.78,
+      "uniqueColors": 22522,
+      "top8": 0.7847,
+      "patchXY": [
+        648,
+        0
+      ]
+    },
+    "assets/illustrations/listening/C1Uncertainty.webp": {
+      "sha256": "b45f95c349404297040b9d9785f1a17f84d3c7ca124803ad26c4185cd0136a6d",
+      "kb": 80.5,
+      "ivoryFrac": 0.7095,
+      "fine": 4.719,
+      "coarse": 0.594,
+      "uniqueColors": 21220,
+      "top8": 0.7956,
+      "patchXY": [
+        96,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C2Authority.webp": {
+      "sha256": "fa3287696b28e7f3c516473f02504e0830131eeae2c7aee4a41380f7d4982861",
+      "kb": 76.5,
+      "ivoryFrac": 0.7267,
+      "fine": 4.336,
+      "coarse": 0.678,
+      "uniqueColors": 22590,
+      "top8": 0.8215,
+      "patchXY": [
+        480,
+        48
+      ]
+    },
+    "assets/illustrations/listening/C2Automation.webp": {
+      "sha256": "c7f97f45445f62705957a96df8032012922826686480cf57819dda487741bd74",
+      "kb": 83.7,
+      "ivoryFrac": 0.6786,
+      "fine": 4.839,
+      "coarse": 0.752,
+      "uniqueColors": 33944,
+      "top8": 0.7725,
+      "patchXY": [
+        456,
+        0
+      ]
+    },
+    "assets/illustrations/listening/C2Discourse.webp": {
+      "sha256": "cf688014410d74130884799d5f3cf39c6477a02d9b6015224c8f3dac99e931be",
+      "kb": 81.0,
+      "ivoryFrac": 0.7297,
+      "fine": 4.774,
+      "coarse": 0.623,
+      "uniqueColors": 22201,
+      "top8": 0.8285,
+      "patchXY": [
+        144,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C2Ethics.webp": {
+      "sha256": "3c744e176346faf9879abd2b8c29ca4db7b734ca06bf89036b538fc74fbab93e",
+      "kb": 82.7,
+      "ivoryFrac": 0.6482,
+      "fine": 4.907,
+      "coarse": 0.801,
+      "uniqueColors": 28815,
+      "top8": 0.7399,
+      "patchXY": [
+        264,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C2History.webp": {
+      "sha256": "d5430161085ad672973d63027af5d40ff7ccf6210341e2e2358d42cdd0828b42",
+      "kb": 81.5,
+      "ivoryFrac": 0.6651,
+      "fine": 5.065,
+      "coarse": 0.682,
+      "uniqueColors": 21826,
+      "top8": 0.8041,
+      "patchXY": [
+        472,
+        48
+      ]
+    },
+    "assets/illustrations/listening/C2Impact.webp": {
+      "sha256": "050fea0de4928d1eb919135abd464f99bfa16ab9f55f13961271f743a5454796",
+      "kb": 82.1,
+      "ivoryFrac": 0.6616,
+      "fine": 5.013,
+      "coarse": 0.658,
+      "uniqueColors": 23236,
+      "top8": 0.7716,
+      "patchXY": [
+        112,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C2Jurisdiction.webp": {
+      "sha256": "5b2e5fcc908a7d97ccadbd5b43c6091a3deb0ca8e27abe620191bfaa402fd4b2",
+      "kb": 85.6,
+      "ivoryFrac": 0.5233,
+      "fine": 4.986,
+      "coarse": 0.711,
+      "uniqueColors": 20540,
+      "top8": 0.6534,
+      "patchXY": [
+        376,
+        48
+      ]
+    },
+    "assets/illustrations/listening/C2Limitation.webp": {
+      "sha256": "a095bf79dfb50d8881ade111890cf7ede69785f886167b22854fae2782fff077",
+      "kb": 79.9,
+      "ivoryFrac": 0.7386,
+      "fine": 4.975,
+      "coarse": 0.756,
+      "uniqueColors": 17146,
+      "top8": 0.8289,
+      "patchXY": [
+        584,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C2Memory.webp": {
+      "sha256": "57f0da153277f411c7479b9c35cea1a094949cbd44f0c62af61b9af2d0e828b1",
+      "kb": 86.2,
+      "ivoryFrac": 0.6251,
+      "fine": 4.853,
+      "coarse": 0.551,
+      "uniqueColors": 22443,
+      "top8": 0.7082,
+      "patchXY": [
+        368,
+        48
+      ]
+    },
+    "assets/illustrations/listening/C2Records.webp": {
+      "sha256": "5cd37133dc6a59686eb148e665c4d00220b242a8bfad28a0594365676ee8897e",
+      "kb": 86.3,
+      "ivoryFrac": 0.5711,
+      "fine": 4.99,
+      "coarse": 0.868,
+      "uniqueColors": 38002,
+      "top8": 0.6591,
+      "patchXY": [
+        640,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C2Representation.webp": {
+      "sha256": "ed99d7d424161d05499df815c3f6e439ccfdb9789b1745a8bb93bb577edb4836",
+      "kb": 82.5,
+      "ivoryFrac": 0.5668,
+      "fine": 4.871,
+      "coarse": 0.838,
+      "uniqueColors": 30066,
+      "top8": 0.672,
+      "patchXY": [
+        264,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C2Translation.webp": {
+      "sha256": "280f46df26e04a0537341517171b20c0bb3bd73ea7716f1a868a707da52ba637",
+      "kb": 80.4,
+      "ivoryFrac": 0.6956,
+      "fine": 4.964,
+      "coarse": 0.685,
+      "uniqueColors": 21022,
+      "top8": 0.7985,
+      "patchXY": [
+        112,
+        24
+      ]
+    },
+    "assets/illustrations/listening/SocialDating.webp": {
+      "sha256": "15b86d078322d114c37bedf987af723bab0ab2ca38f0d2f48262fa8f89c3ed83",
+      "kb": 86.3,
+      "ivoryFrac": 0.726,
+      "fine": 4.788,
+      "coarse": 0.768,
+      "uniqueColors": 26902,
+      "top8": 0.811,
+      "patchXY": [
+        368,
+        48
+      ]
+    },
+    "assets/illustrations/listening/SocialFandom.webp": {
+      "sha256": "8ba47e3119bcb1e2ebadf97b1ee00b8feed5cd3a0becc952545d7356941696eb",
+      "kb": 87.7,
+      "ivoryFrac": 0.6628,
+      "fine": 5.079,
+      "coarse": 0.706,
+      "uniqueColors": 25117,
+      "top8": 0.7559,
+      "patchXY": [
+        456,
+        0
+      ]
+    },
+    "assets/illustrations/listening/SocialFriends.webp": {
+      "sha256": "dce570ea9059211642faae3cc9d12c65f4fd3134c15add965c471c8ef80d5137",
+      "kb": 86.2,
+      "ivoryFrac": 0.6796,
+      "fine": 5.327,
+      "coarse": 0.734,
+      "uniqueColors": 24839,
+      "top8": 0.7807,
+      "patchXY": [
+        424,
+        24
+      ]
+    },
+    "assets/illustrations/packs/bamboo.webp": {
+      "sha256": "807afdbea0af9827d6a6c8acdcde4f27a4fbcbba6b80e0510a859826f40fe42e",
+      "kb": 90.3,
+      "ivoryFrac": 0.6487,
+      "fine": 5.048,
+      "coarse": 0.799,
+      "uniqueColors": 32420,
+      "top8": 0.7476,
+      "patchXY": [
+        120,
+        48
+      ]
+    },
+    "assets/illustrations/packs/chilbo.webp": {
+      "sha256": "0175f487466403589dc4fe5a09e968716453fa9ee30bdcf9c543eec6a2e08b0c",
+      "kb": 84.9,
+      "ivoryFrac": 0.738,
+      "fine": 4.948,
+      "coarse": 0.623,
+      "uniqueColors": 28218,
+      "top8": 0.8265,
+      "patchXY": [
+        136,
+        24
+      ]
+    },
+    "assets/illustrations/packs/chrysanthemum.webp": {
+      "sha256": "2ccc6d924a6ead04fc4766535c9531df1837fd1f8ccd5a4ac82f413200804d72",
+      "kb": 88.8,
+      "ivoryFrac": 0.6683,
+      "fine": 4.888,
+      "coarse": 0.706,
+      "uniqueColors": 37386,
+      "top8": 0.7592,
+      "patchXY": [
+        112,
+        24
+      ]
+    },
+    "assets/illustrations/packs/cloud.webp": {
+      "sha256": "e6457666fd5c389d61d4a90b097638f6202d66ca18af4dbe3817d8fef8f280e3",
+      "kb": 82.9,
+      "ivoryFrac": 0.4364,
+      "fine": 4.365,
+      "coarse": 0.573,
+      "uniqueColors": 34661,
+      "top8": 0.56,
+      "patchXY": [
+        576,
+        0
+      ]
+    },
+    "assets/illustrations/packs/gwigap.webp": {
+      "sha256": "f763dafde98dc35ab25c92f38f962a51183bdba53913811196351f8ae5a95817",
+      "kb": 87.3,
+      "ivoryFrac": 0.6049,
+      "fine": 4.885,
+      "coarse": 0.82,
+      "uniqueColors": 35930,
+      "top8": 0.7104,
+      "patchXY": [
+        600,
+        24
+      ]
+    },
+    "assets/illustrations/packs/lotus.webp": {
+      "sha256": "ae3ff1034e46489c56fbef0dd831473b8be3db4397ab7315bfaefa4383e3ab2e",
+      "kb": 87.0,
+      "ivoryFrac": 0.6284,
+      "fine": 5.293,
+      "coarse": 0.717,
+      "uniqueColors": 33556,
+      "top8": 0.7227,
+      "patchXY": [
+        640,
+        24
+      ]
+    },
+    "assets/illustrations/packs/manja.webp": {
+      "sha256": "f9b47d8c7ed59e32d3ca85bdfd8b3d6019acfeacd6b33db65dc7d059ac6a55ee",
+      "kb": 86.5,
+      "ivoryFrac": 0.5855,
+      "fine": 5.152,
+      "coarse": 0.735,
+      "uniqueColors": 41997,
+      "top8": 0.6632,
+      "patchXY": [
+        432,
+        48
+      ]
+    },
+    "assets/illustrations/packs/mountain.webp": {
+      "sha256": "6bfd3f78f41fb7c70e77349c1031095e12f26c90bf2e76ff8165b8fb6718bc53",
+      "kb": 87.7,
+      "ivoryFrac": 0.5076,
+      "fine": 4.782,
+      "coarse": 0.69,
+      "uniqueColors": 38050,
+      "top8": 0.6103,
+      "patchXY": [
+        376,
+        0
+      ]
+    },
+    "assets/illustrations/packs/octagon.webp": {
+      "sha256": "f5bfbe5d3f12abfa7620439377edd5b5680483dd758ac5d5c1d5232a0ec87225",
+      "kb": 89.5,
+      "ivoryFrac": 0.432,
+      "fine": 4.774,
+      "coarse": 0.875,
+      "uniqueColors": 47880,
+      "top8": 0.5705,
+      "patchXY": [
+        232,
+        0
+      ]
+    },
+    "assets/illustrations/packs/peony.webp": {
+      "sha256": "538575cd3d84a0c422128875ccd504344cebb8a472dc76914647d72a8e04d8d6",
+      "kb": 90.7,
+      "ivoryFrac": 0.6289,
+      "fine": 5.163,
+      "coarse": 0.739,
+      "uniqueColors": 42219,
+      "top8": 0.7309,
+      "patchXY": [
+        584,
+        24
+      ]
+    },
+    "assets/illustrations/packs/plum.webp": {
+      "sha256": "2cfed8051d3b32b24cc3ea33315620a9e18d66fd1b136a993b2388d9c7c3033c",
+      "kb": 86.8,
+      "ivoryFrac": 0.681,
+      "fine": 5.089,
+      "coarse": 0.694,
+      "uniqueColors": 27664,
+      "top8": 0.7735,
+      "patchXY": [
+        616,
+        48
+      ]
+    },
+    "assets/illustrations/packs/taegeuk.webp": {
+      "sha256": "134b57e57d590f67a44a308718a801971bc96c6a9647ee859c42c3f279585091",
+      "kb": 85.1,
+      "ivoryFrac": 0.6505,
+      "fine": 4.998,
+      "coarse": 0.707,
+      "uniqueColors": 27110,
+      "top8": 0.7583,
+      "patchXY": [
+        456,
+        48
+      ]
+    },
+    "assets/illustrations/packs/vine.webp": {
+      "sha256": "7e1327c786c346c137f0843390ccbbf958f6d026ce69670ab3de5b61ba5838be",
+      "kb": 94.6,
+      "ivoryFrac": 0.4924,
+      "fine": 4.767,
+      "coarse": 0.76,
+      "uniqueColors": 52514,
+      "top8": 0.5738,
+      "patchXY": [
+        256,
+        48
+      ]
+    },
+    "assets/illustrations/packs/wave.webp": {
+      "sha256": "6a9cf0f7e3975eb538a85ddeda2d869b410139d516a02cd1c03305bee375340f",
+      "kb": 82.5,
+      "ivoryFrac": 0.613,
+      "fine": 4.861,
+      "coarse": 0.696,
+      "uniqueColors": 44024,
+      "top8": 0.6723,
+      "patchXY": [
+        432,
+        24
+      ]
+    }
+  }
+}

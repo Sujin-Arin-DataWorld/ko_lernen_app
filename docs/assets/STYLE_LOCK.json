@@ -1244,6 +1244,314 @@
         "lib/widgets/sori/share_slip.dart: kShareScrollAsset",
         "decoration 계열 등록(kAvailableDecorations·ARB decorName)은 하지 않는다 — 장식이 아니다"
       ]
+    },
+    "F-E-cards": {
+      "label": "리소 카드 일러스트 — packs/listening/activities 800×600 풀프레임 WebP (상아 지면 + 주홍/청록 기하면 배경 템플릿 + 종이 그레인)",
+      "dirs": [
+        "assets/illustrations/packs/",
+        "assets/illustrations/listening/",
+        "assets/illustrations/activities/"
+      ],
+      "membersNote": "멤버십의 원장(ledger)은 docs/assets/CARD_STYLE_BASELINE.json 사이드카다 — 파일별 sha256+실측을 들고 있고, tool/check_card_style.py --all 이 그 명부로 전수 검사한다. 이 members 배열은 --register 가 유지하는 스냅숏(stem 목록)일 뿐이다. 가족 디렉터리에 있으나 사이드카에 미등록인 *.webp 는 --all 에서 하드 실패한다(미등록 반입) — 그게 실제 잠금이다.",
+      "members": [
+        "A1Arrival",
+        "A1Cafe",
+        "A1Counter",
+        "A1Family",
+        "A1Greeting",
+        "A1Health",
+        "A1Home",
+        "A1Numbers",
+        "A1Phone",
+        "A1Repair",
+        "A1Transit",
+        "A1Wayfinding",
+        "A2Bank",
+        "A2Body",
+        "A2Booking",
+        "A2Cafe",
+        "A2Delivery",
+        "A2Enrolment",
+        "A2Family",
+        "A2Neighbourhood",
+        "A2Plans",
+        "A2Shopping",
+        "A2Travel",
+        "A2Work",
+        "B1Cancellation",
+        "B1Delay",
+        "B1Family",
+        "B1Feelings",
+        "B1Incident",
+        "B1Insurance",
+        "B1Neighbours",
+        "B1Paperwork",
+        "B1Receipts",
+        "B1Refund",
+        "B1Repairs",
+        "B1Team",
+        "B2Authorities",
+        "B2Contracts",
+        "B2Escalation",
+        "B2Evidence",
+        "B2Family",
+        "B2Hiring",
+        "B2Medical",
+        "B2Meetings",
+        "B2Negotiation",
+        "B2Notices",
+        "B2Privacy",
+        "B2Public",
+        "C1Access",
+        "C1Attribution",
+        "C1Briefing",
+        "C1Conflict",
+        "C1Consent",
+        "C1Critique",
+        "C1Facework",
+        "C1InvisibleLabor",
+        "C1Mediation",
+        "C1Methodology",
+        "C1Policy",
+        "C1Uncertainty",
+        "C2Authority",
+        "C2Automation",
+        "C2Discourse",
+        "C2Ethics",
+        "C2History",
+        "C2Impact",
+        "C2Jurisdiction",
+        "C2Limitation",
+        "C2Memory",
+        "C2Records",
+        "C2Representation",
+        "C2Translation",
+        "SocialDating",
+        "SocialFandom",
+        "SocialFriends",
+        "bamboo",
+        "book_capture",
+        "bookshelf",
+        "calligraphy",
+        "chilbo",
+        "chosung",
+        "chrysanthemum",
+        "cloud",
+        "cloze",
+        "course",
+        "custom_matching",
+        "custom_quiz",
+        "custom_typing",
+        "daily_game",
+        "grammar",
+        "gwigap",
+        "hangul",
+        "hard_words",
+        "kkeunmari",
+        "listening",
+        "lotus",
+        "manja",
+        "mountain",
+        "octagon",
+        "peony",
+        "plum",
+        "pronunciation",
+        "scenarios",
+        "sentence_arcade",
+        "smalltalk",
+        "speed_match",
+        "srs",
+        "syllable_cross",
+        "taegeuk",
+        "vine",
+        "vocab_notebook",
+        "vocab_packs",
+        "wave",
+        "word_search",
+        "word_web"
+      ],
+      "anchors": [
+        "assets/illustrations/packs/bamboo.webp"
+      ],
+      "anchorImageUrl": "https://uyncfjzfumputmyodmlr.supabase.co/storage/v1/object/public/public-assets/user-e15b6641-5d77-480c-85aa-0c1061b9c2cd/bbanana/1786656413789.jpg",
+      "anchorImageUrlNote": "이 URL 이 죽으면 bamboo.webp 를 재업로드하고 이 한 곳만 갱신한다. 앵커를 plum 으로 교체할지는 Jin 미결 — 교체 시 파일럿 1장 재승인이 필수다.",
+      "styleCanonPrimary": "assets/illustrations/packs/plum.webp",
+      "styleCanonPrimaryNote": "Jin 지정 2026-08-30 — 검수 시 나란히 비교하는 화풍 제1정본.",
+      "textureCanon": "assets/illustrations/listening/A1Arrival.webp",
+      "promptDoc": "docs/LISTENING_CARD_RECIPE.md",
+      "palette": {
+        "ivory": "#F7EDD3",
+        "brickRed": "#B94B32",
+        "mutedTeal": {
+          "measuredPlaneAvg": "#488887",
+          "docNominal": "#5F9A93",
+          "note": "청록면은 면내 그라데이션을 갖는다 — 면 평균 실측(#488887)이 문서 명목값(#5F9A93)보다 어둡게 나오는 것이 정상이다. 둘 다 오타가 아니다."
+        }
+      },
+      "backgroundGrammar": [
+        "적색면 우상단",
+        "청록면 우하단",
+        "적색 쐐기 좌하단",
+        "황토 사선 띠 하단",
+        "4도트 세로열+황토 도트 격자 좌상단",
+        "미러 도트 군집 중우측",
+        "상아 지면"
+      ],
+      "camera": {
+        "canvas": {
+          "width": 800,
+          "height": 600
+        },
+        "output": {
+          "format": "WebP",
+          "mode": "RGB (알파 없음)",
+          "quality": 84,
+          "method": 6
+        },
+        "pipeline": "Seedream V4.5 + 앵커 1장, 4:3 소스 -> LANCZOS 800x600 -> scripts/apply_paper_grain.py 기본값 -> WebP q84 method6. 실행본: scripts/finish_listening_card.sh (게이트 통과 시 자동 --register)."
+      },
+      "promptSkeleton": "정본 프롬프트/레시피 전문은 docs/LISTENING_CARD_RECIPE.md — F-C-a1states 의 promptSkeleton 과 같은 관례의 포인터다(전문을 여기 복제하지 않는다).",
+      "modelRouting": [
+        {
+          "model": "Seedream V4.5",
+          "allowed": true,
+          "when": "정식 경로 — 앵커 1장 + RECIPE 고정 프롬프트. 주의: generationFacts.modelRouting 의 Seedream 금지는 faceted 컷아웃 가족 이야기다 — 이 가족(회화적 소프트 셰이딩 정물)에서는 Seedream 이 정본이다.",
+          "evidence": "docs/LISTENING_CARD_RECIPE.md + 승인 파일럿 C2Translation 2026-08-30"
+        }
+      ],
+      "grain": {
+        "scriptParams": {
+          "fine": 5.0,
+          "coarse": 4.0,
+          "tool": "scripts/apply_paper_grain.py"
+        },
+        "measuredAcceptance": {
+          "fineGrainSD": [
+            4.088,
+            5.38
+          ],
+          "coarseGrainSD": [
+            0.499,
+            0.875
+          ]
+        },
+        "note": "scriptParams 는 스크립트가 더하는 노이즈의 σ 파라미터, measuredAcceptance 는 WebP q84 인코딩 후 남는 잔차의 실측 대역 — 서로 다른 물리량이다. coarse 4.0 은 WebP 압축에 대부분 흡수돼 실측 잔차는 약 0.4~0.9 — 스크립트를 실측에 맞춰 고치지도, 실측 대역을 파라미터에 맞춰 고치지도 말 것."
+      },
+      "gates": {
+        "tool": "tool/check_card_style.py",
+        "note": "이 가족은 풀프레임 카드라 satMean/valMean/neonMax 컷아웃 게이트가 없다 — tool/check_style_conformance.py 는 satMean 부재를 보고 이 가족을 gates.tool 로 위임하고 건너뛴다. 임계값의 근거 실측은 measured + docs/assets/CARD_STYLE_BASELINE.json.",
+        "fileKB": [
+          65,
+          111
+        ],
+        "docContractKB": [
+          85,
+          105
+        ],
+        "ivoryBody": [
+          247,
+          237,
+          211
+        ],
+        "ivoryTol": 16,
+        "ivoryFracMin": 0.352,
+        "ivoryPatchWindow": {
+          "r": [
+            239.5,
+            255
+          ],
+          "g": [
+            227.5,
+            248.5
+          ],
+          "b": [
+            198.7,
+            228.8
+          ]
+        },
+        "fineGrainSD": [
+          3.19,
+          6.88
+        ],
+        "coarseGrainSD": [
+          0.31,
+          1.38
+        ],
+        "uniqueColorsMin": 8000,
+        "palettePresence": {
+          "warmBrick": {
+            "hueDeg": [
+              2,
+              32
+            ],
+            "sat": [
+              0.35,
+              0.9
+            ],
+            "val": [
+              0.35,
+              0.92
+            ]
+          },
+          "mutedTeal": {
+            "hueDeg": [
+              150,
+              210
+            ],
+            "sat": [
+              0.15,
+              0.65
+            ],
+            "val": [
+              0.3,
+              0.8
+            ]
+          },
+          "minEitherFrac": 0.02,
+          "note": "고정 좌표 색면 프로브는 기각 — packs/wave 적색 0.001, listening/A1Counter 청록 0.0 인 정본이 있다. 색상 존재 OR 게이트만 쓴다."
+        },
+        "top8QuantWarn": 0.85,
+        "top8QuantMax": 0.95,
+        "measured": {
+          "fileKB": [
+            70.3,
+            102.2
+          ],
+          "fineGrainSD": [
+            4.088,
+            5.38
+          ],
+          "coarseGrainSD": [
+            0.499,
+            0.875
+          ],
+          "ivoryFrac": [
+            0.432,
+            0.789
+          ],
+          "uniqueColors": [
+            17336,
+            52514
+          ],
+          "top8": [
+            0.55,
+            0.899
+          ]
+        },
+        "measuredAt": "2026-08-30, 93 files (packs 14 + listening 53 incl. C2Translation + activities 26, word_web/vocab_notebook 재그레인 후)"
+      },
+      "knownDeviations": {},
+      "knownDeviationsNote": "게이트 실측 대역 밖이지만 승인으로 수용된 파일을 커밋 참조와 함께 기록한다. 비어 있으면 전 멤버가 대역 안이라는 뜻이다.",
+      "postProcess": [
+        "scripts/finish_listening_card.sh KEY URL (다운로드 -> 4:3 검사 -> LANCZOS 800x600 -> apply_paper_grain 기본값 -> WebP q84 method6 -> tool/check_card_style.py 게이트 -> 통과 시 배치 + --register)",
+        "tool/check_card_style.py --all (사이드카 명부 전수 + sha256 + 미등록 반입 검사)"
+      ],
+      "registration": [
+        "docs/assets/CARD_STYLE_BASELINE.json: 멤버십 원장(sha256+실측 사이드카) — --register 가 유지",
+        "lib/data/chaekgado_shelf.dart: imageKey 배선(팩 카드)",
+        "test/asset_orphan_guard_test.dart: 자산 고아 가드"
+      ],
+      "provenance": "docs/assets/riso_samples_2026-08-14/approval_manifest.json — 2026-08-14 리소 샘플 승인 계보."
     }
   }
 }

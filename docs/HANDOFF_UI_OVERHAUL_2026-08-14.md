@@ -90,6 +90,11 @@ Vocabulary 앱(thevocabulary.app)의 **깔끔함의 실체 4가지** — ①타�
 
 ## 5. 에셋 생성 런북 (활동 카드 ~12장 + 페이월 1장이 남았다)
 
+> **⛔ 정정(2026-08-30):** 이 절은 packs 14장을 낳은 원조 런북이지만 이제 stale하다.
+> 후처리(cwebp -q 88, 60KB 이하)와 프롬프트 골격 모두 docs/LISTENING_CARD_RECIPE.md
+> (그레인 후처리 · q84 · 85~105KB)로 대체됐다 — 정물 카드 계열 신규 생성은 RECIPE
+> 만 따른다.
+
 **플랫폼**: BBANANA MCP (`generate_image`/`get_status`), 모델 **"Seedream V4.5"**, 장당 1크레딧 (잔여 ~1,040). aspect_ratio "4:3".
 
 **핵심 = 앵커 참조 워크플로** (세트 일관성의 비결):
