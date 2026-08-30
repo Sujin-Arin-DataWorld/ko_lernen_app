@@ -324,6 +324,7 @@ final class _TraceStrokePainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant _TraceStrokePainter oldDelegate) =>
+      !identical(strokes, oldDelegate.strokes) ||
       revision != oldDelegate.revision ||
       color != oldDelegate.color ||
       referenceCoordinates != oldDelegate.referenceCoordinates ||

@@ -153,6 +153,34 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets(
+    'equal revisions repaint when the controller stroke source changes',
+    (tester) async {
+      final first = TraceCanvasController();
+      final second = TraceCanvasController();
+      addTearDown(first.dispose);
+      addTearDown(second.dispose);
+
+      await tester.pumpWidget(_host(first));
+      await _draw(tester, const [Offset(10, 20), Offset(40, 60)]);
+      final firstPainter = tester
+          .widget<CustomPaint>(
+            find.byKey(const ValueKey('trace-canvas-ghost-ㄱ')),
+          )
+          .painter!;
+
+      await tester.pumpWidget(_host(second));
+      await _draw(tester, const [Offset(80, 30), Offset(100, 90)]);
+      final secondPainter = tester
+          .widget<CustomPaint>(
+            find.byKey(const ValueKey('trace-canvas-ghost-ㄱ')),
+          )
+          .painter!;
+
+      expect(secondPainter.shouldRepaint(firstPainter), isTrue);
+    },
+  );
+
   testWidgets('disposing the widget cancels an active pointer safely', (
     tester,
   ) async {
