@@ -1,0 +1,115 @@
+{
+  "status": "runtime_promoted",
+  "source_original": "gokganchae_try02_5kan.png",
+  "preserved_original": "source_original_exact.png",
+  "source_sha256": "6E5F7B91EB60A417906F742C695749B50CF9A471EB01C92E8106B18F06CCB709",
+  "source_bytes_preserved": true,
+  "generated_views_are_pixel_identical_to_source": false,
+  "authority": "recorded drawings: 9750x5460 mm, five 1950 mm front/rear bays, two 2730 mm side bays, central front door, paljak roof",
+  "camera_elevation_degrees": 28,
+  "azimuth_interval_degrees": 45,
+  "runtime_size": [
+    384,
+    512
+  ],
+  "runtime_baseline_y": 472,
+  "review_runtime_bytes_identical": true,
+  "frames": [
+    {
+      "index": 0,
+      "azimuth_degrees": 0,
+      "file": "ildu_gokgan_00_front.png",
+      "sha256": "4C2096F71DF12D743D93AC15389F6FD055EE8B84ACC2B7BB1AFBCC365F5D8FE4",
+      "bbox": [
+        23,
+        297,
+        360,
+        472
+      ]
+    },
+    {
+      "index": 1,
+      "azimuth_degrees": 45,
+      "file": "ildu_gokgan_01_front_right.png",
+      "sha256": "EDE230A9AB95054DC580AA5E1ADE59E96BD223FE38B7BF5CFBEDAE4DFB9D2B64",
+      "bbox": [
+        25,
+        297,
+        359,
+        472
+      ]
+    },
+    {
+      "index": 2,
+      "azimuth_degrees": 90,
+      "file": "ildu_gokgan_02_right.png",
+      "sha256": "C2AD44683007D6A8C2B3122D44302114481ACA4A952241B178196D2BD5838978",
+      "bbox": [
+        57,
+        297,
+        327,
+        472
+      ]
+    },
+    {
+      "index": 3,
+      "azimuth_degrees": 135,
+      "file": "ildu_gokgan_03_rear_right.png",
+      "sha256": "9BBA452B7EF5E869A7932B94FB1BCA3639E6601292393ADEFFF6F02D2ACD90C2",
+      "bbox": [
+        31,
+        297,
+        352,
+        472
+      ]
+    },
+    {
+      "index": 4,
+      "azimuth_degrees": 180,
+      "file": "ildu_gokgan_04_rear.png",
+      "sha256": "5255855E5E7DDAC637F94D5F706EBFF9147A8D3F1C627571482C36B5E3B56F1F",
+      "bbox": [
+        9,
+        297,
+        375,
+        472
+      ]
+    },
+    {
+      "index": 5,
+      "azimuth_degrees": 225,
+      "file": "ildu_gokgan_05_rear_left.png",
+      "sha256": "2009BF3A0F52344CAF5FD8C99BBC97063D5C0CCB207D6D475E348EB2061574BE",
+      "bbox": [
+        31,
+        297,
+        352,
+        472
+      ]
+    },
+    {
+      "index": 6,
+      "azimuth_degrees": 270,
+      "file": "ildu_gokgan_06_left.png",
+      "sha256": "D1EC1F6251084F79A6318E90935418E940565B8DD60DE5DCAB8A9702EB4F61D9",
+      "bbox": [
+        56,
+        297,
+        328,
+        472
+      ]
+    },
+    {
+      "index": 7,
+      "azimuth_degrees": 315,
+      "file": "ildu_gokgan_07_front_left.png",
+      "sha256": "E1C70A75D50493A3A16554E4FC42F54B9CEBC9D49BD6A41FA8C8DDE13966698A",
+      "bbox": [
+        44,
+        297,
+        339,
+        472
+      ]
+    }
+  ]
+}

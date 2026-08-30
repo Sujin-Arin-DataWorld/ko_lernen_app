@@ -665,7 +665,7 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('dedicated controls resize and restore all shrine asset types', (
+  testWidgets('dedicated controls resize and restore authored asset types', (
     tester,
   ) async {
     tester.view.physicalSize = const Size(1179, 2556);
@@ -718,8 +718,12 @@ void main() {
     await resizeAnchor(anchorId: 'sadang', direction: 2, scale: 1.35);
     await resizeAnchor(anchorId: 'sadang-gate', direction: 0, scale: .8);
     await resizeAnchor(anchorId: 'hyeopmun-west', direction: 0, scale: 1.2);
+    await resizeAnchor(anchorId: 'anchae-store', direction: 2, scale: 1.15);
+    await resizeAnchor(anchorId: 'gokgan', direction: 2, scale: 1.3);
+    await resizeAnchor(anchorId: 'toilet-north', direction: 0, scale: .9);
+    await resizeAnchor(anchorId: 'toilet-south', direction: 0, scale: 1.1);
 
-    expect(anchorStore.placements, hasLength(3));
+    expect(anchorStore.placements, hasLength(7));
 
     final sadangAnchor = find.byKey(
       const ValueKey('ildu-map-turntable-sadang-2'),
@@ -759,6 +763,10 @@ void main() {
       ('sadang', 3, 1.35),
       ('sadang-gate', 0, .8),
       ('hyeopmun-west', 0, 1.2),
+      ('anchae-store', 2, 1.15),
+      ('gokgan', 2, 1.3),
+      ('toilet-north', 0, .9),
+      ('toilet-south', 0, 1.1),
     ]) {
       final anchor = find.byKey(
         ValueKey('ildu-map-turntable-$anchorId-$direction'),

@@ -17,6 +17,10 @@ void main() {
           'ansarang',
           'changgo',
           'anchae',
+          'anchae-store',
+          'gokgan',
+          'toilet-north',
+          'toilet-south',
           'main-gate',
           'araechae',
           'jungmunganchae',
@@ -111,6 +115,9 @@ void main() {
     expect(kIlDuAraechaeTurntable.directionForDegrees(315), 7);
     expect(kIlDuSadangTurntable.directionForDegrees(90), 2);
     expect(kIlDuSadangmunTurntable.directionForDegrees(315), 7);
+    expect(kIlDuAnchaeStoreTurntable.directionForDegrees(90), 2);
+    expect(kIlDuGokganTurntable.directionForDegrees(315), 7);
+    expect(kIlDuToiletNorthTurntable.directionForDegrees(180), 4);
   });
 
   test('Araechae preserves one authored canvas, viewport, and ground line', () {
@@ -156,6 +163,15 @@ void main() {
       kIlDuHyeopmunWestTurntable.frames.map((frame) => frame.assetPath),
       orderedEquals(
         kIlDuHyeopmunEastTurntable.frames.map((frame) => frame.assetPath),
+      ),
+    );
+  });
+
+  test('the two toilet placements reuse one source-faithful shared kit', () {
+    expect(
+      kIlDuToiletNorthTurntable.frames.map((frame) => frame.assetPath),
+      orderedEquals(
+        kIlDuToiletSouthTurntable.frames.map((frame) => frame.assetPath),
       ),
     );
   });
