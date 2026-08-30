@@ -965,6 +965,32 @@
         0
       ]
     },
+    "assets/illustrations/listening/C1Access.webp": {
+      "sha256": "d8f950f2282ec4a972cf904fa9e55234a27d63ac576ab9dd5af85d59b48332cc",
+      "kb": 83.6,
+      "ivoryFrac": 0.6891,
+      "fine": 4.825,
+      "coarse": 0.612,
+      "uniqueColors": 26764,
+      "top8": 0.7759,
+      "patchXY": [
+        232,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C1Attribution.webp": {
+      "sha256": "ece260a60b40850892b4a1764930e3b5645fa6f2920a498dfd4665a61fa0933e",
+      "kb": 81.8,
+      "ivoryFrac": 0.6882,
+      "fine": 4.884,
+      "coarse": 0.756,
+      "uniqueColors": 30981,
+      "top8": 0.7881,
+      "patchXY": [
+        112,
+        24
+      ]
+    },
     "assets/illustrations/listening/C1Briefing.webp": {
       "sha256": "392496e5914319d99adc6c7cc4a13d02f751ae5fbc896ebb07a4bd98c1ade542",
       "kb": 87.9,
@@ -975,6 +1001,266 @@
       "top8": 0.7419,
       "patchXY": [
         632,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C1Conflict.webp": {
+      "sha256": "2c7f72974537706a3ab81054274736b0f65cad70233e8325834558d190843ac5",
+      "kb": 81.0,
+      "ivoryFrac": 0.711,
+      "fine": 4.733,
+      "coarse": 0.694,
+      "uniqueColors": 22945,
+      "top8": 0.8079,
+      "patchXY": [
+        584,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C1Consent.webp": {
+      "sha256": "63f123a6da9d951a2399b2c4f92d666266898e441f8497983073ef9fb82f0d42",
+      "kb": 79.7,
+      "ivoryFrac": 0.6591,
+      "fine": 4.736,
+      "coarse": 0.728,
+      "uniqueColors": 22102,
+      "top8": 0.8045,
+      "patchXY": [
+        448,
+        0
+      ]
+    },
+    "assets/illustrations/listening/C1Critique.webp": {
+      "sha256": "9aaadc19c493b477d633492aac6762c8fea4a551d85e8f9de379ce227c4a4337",
+      "kb": 85.0,
+      "ivoryFrac": 0.5805,
+      "fine": 5.061,
+      "coarse": 0.747,
+      "uniqueColors": 33603,
+      "top8": 0.6875,
+      "patchXY": [
+        264,
+        48
+      ]
+    },
+    "assets/illustrations/listening/C1Facework.webp": {
+      "sha256": "7d82147da52637e0b67cd5b483ff96ec1d74f82f9eba4c984311e319aad953fc",
+      "kb": 77.4,
+      "ivoryFrac": 0.6772,
+      "fine": 4.614,
+      "coarse": 0.648,
+      "uniqueColors": 27410,
+      "top8": 0.7664,
+      "patchXY": [
+        144,
+        48
+      ]
+    },
+    "assets/illustrations/listening/C1InvisibleLabor.webp": {
+      "sha256": "afc056485ef25c1f7e7acd44cbcf1e5919aa8a2b52857ff1d3b432cd16f09fc1",
+      "kb": 84.6,
+      "ivoryFrac": 0.6384,
+      "fine": 5.115,
+      "coarse": 0.661,
+      "uniqueColors": 27052,
+      "top8": 0.7346,
+      "patchXY": [
+        216,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C1Mediation.webp": {
+      "sha256": "a38ed0ace85a2c4b21aa7b129fa6b1b5b667ec83308257d06a22f9bb9a070432",
+      "kb": 81.3,
+      "ivoryFrac": 0.6839,
+      "fine": 5.059,
+      "coarse": 0.612,
+      "uniqueColors": 21099,
+      "top8": 0.7976,
+      "patchXY": [
+        112,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C1Methodology.webp": {
+      "sha256": "7d929e398fbf6c824ad9a763ea1e0ec9d75643db78f95b4f42156cdf10ba82d8",
+      "kb": 82.2,
+      "ivoryFrac": 0.6741,
+      "fine": 4.859,
+      "coarse": 0.612,
+      "uniqueColors": 23487,
+      "top8": 0.7814,
+      "patchXY": [
+        584,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C1Policy.webp": {
+      "sha256": "fcabadc11270cd79b4373312d4282a2689a358d39866b445fb7abba29fba750e",
+      "kb": 83.3,
+      "ivoryFrac": 0.6949,
+      "fine": 5.041,
+      "coarse": 0.78,
+      "uniqueColors": 22522,
+      "top8": 0.7847,
+      "patchXY": [
+        648,
+        0
+      ]
+    },
+    "assets/illustrations/listening/C1Uncertainty.webp": {
+      "sha256": "b45f95c349404297040b9d9785f1a17f84d3c7ca124803ad26c4185cd0136a6d",
+      "kb": 80.5,
+      "ivoryFrac": 0.7095,
+      "fine": 4.719,
+      "coarse": 0.594,
+      "uniqueColors": 21220,
+      "top8": 0.7956,
+      "patchXY": [
+        96,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C2Authority.webp": {
+      "sha256": "fa3287696b28e7f3c516473f02504e0830131eeae2c7aee4a41380f7d4982861",
+      "kb": 76.5,
+      "ivoryFrac": 0.7267,
+      "fine": 4.336,
+      "coarse": 0.678,
+      "uniqueColors": 22590,
+      "top8": 0.8215,
+      "patchXY": [
+        480,
+        48
+      ]
+    },
+    "assets/illustrations/listening/C2Automation.webp": {
+      "sha256": "c7f97f45445f62705957a96df8032012922826686480cf57819dda487741bd74",
+      "kb": 83.7,
+      "ivoryFrac": 0.6786,
+      "fine": 4.839,
+      "coarse": 0.752,
+      "uniqueColors": 33944,
+      "top8": 0.7725,
+      "patchXY": [
+        456,
+        0
+      ]
+    },
+    "assets/illustrations/listening/C2Discourse.webp": {
+      "sha256": "cf688014410d74130884799d5f3cf39c6477a02d9b6015224c8f3dac99e931be",
+      "kb": 81.0,
+      "ivoryFrac": 0.7297,
+      "fine": 4.774,
+      "coarse": 0.623,
+      "uniqueColors": 22201,
+      "top8": 0.8285,
+      "patchXY": [
+        144,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C2Ethics.webp": {
+      "sha256": "3c744e176346faf9879abd2b8c29ca4db7b734ca06bf89036b538fc74fbab93e",
+      "kb": 82.7,
+      "ivoryFrac": 0.6482,
+      "fine": 4.907,
+      "coarse": 0.801,
+      "uniqueColors": 28815,
+      "top8": 0.7399,
+      "patchXY": [
+        264,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C2History.webp": {
+      "sha256": "d5430161085ad672973d63027af5d40ff7ccf6210341e2e2358d42cdd0828b42",
+      "kb": 81.5,
+      "ivoryFrac": 0.6651,
+      "fine": 5.065,
+      "coarse": 0.682,
+      "uniqueColors": 21826,
+      "top8": 0.8041,
+      "patchXY": [
+        472,
+        48
+      ]
+    },
+    "assets/illustrations/listening/C2Impact.webp": {
+      "sha256": "050fea0de4928d1eb919135abd464f99bfa16ab9f55f13961271f743a5454796",
+      "kb": 82.1,
+      "ivoryFrac": 0.6616,
+      "fine": 5.013,
+      "coarse": 0.658,
+      "uniqueColors": 23236,
+      "top8": 0.7716,
+      "patchXY": [
+        112,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C2Jurisdiction.webp": {
+      "sha256": "5b2e5fcc908a7d97ccadbd5b43c6091a3deb0ca8e27abe620191bfaa402fd4b2",
+      "kb": 85.6,
+      "ivoryFrac": 0.5233,
+      "fine": 4.986,
+      "coarse": 0.711,
+      "uniqueColors": 20540,
+      "top8": 0.6534,
+      "patchXY": [
+        376,
+        48
+      ]
+    },
+    "assets/illustrations/listening/C2Limitation.webp": {
+      "sha256": "a095bf79dfb50d8881ade111890cf7ede69785f886167b22854fae2782fff077",
+      "kb": 79.9,
+      "ivoryFrac": 0.7386,
+      "fine": 4.975,
+      "coarse": 0.756,
+      "uniqueColors": 17146,
+      "top8": 0.8289,
+      "patchXY": [
+        584,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C2Memory.webp": {
+      "sha256": "57f0da153277f411c7479b9c35cea1a094949cbd44f0c62af61b9af2d0e828b1",
+      "kb": 86.2,
+      "ivoryFrac": 0.6251,
+      "fine": 4.853,
+      "coarse": 0.551,
+      "uniqueColors": 22443,
+      "top8": 0.7082,
+      "patchXY": [
+        368,
+        48
+      ]
+    },
+    "assets/illustrations/listening/C2Records.webp": {
+      "sha256": "5cd37133dc6a59686eb148e665c4d00220b242a8bfad28a0594365676ee8897e",
+      "kb": 86.3,
+      "ivoryFrac": 0.5711,
+      "fine": 4.99,
+      "coarse": 0.868,
+      "uniqueColors": 38002,
+      "top8": 0.6591,
+      "patchXY": [
+        640,
+        24
+      ]
+    },
+    "assets/illustrations/listening/C2Representation.webp": {
+      "sha256": "ed99d7d424161d05499df815c3f6e439ccfdb9789b1745a8bb93bb577edb4836",
+      "kb": 82.5,
+      "ivoryFrac": 0.5668,
+      "fine": 4.871,
+      "coarse": 0.838,
+      "uniqueColors": 30066,
+      "top8": 0.672,
+      "patchXY": [
+        264,
         24
       ]
     },

@@ -97,17 +97,18 @@ finish.sh {key} {url}
 
 ## 진행 상황 (2026-08-30 기준)
 
-번들 완료 **53장** — A1 12/12 · A2 12/12 · B1 12/12 · B2 12/12 · C1 1/12(`C1Briefing`) ·
-C2 1/12(`C2Translation`) · Social 3/3(`SocialFriends` `SocialDating` `SocialFandom`).
-`C2Translation` 은 **승인된 Seedream 파일럿** — 나머지 C1/C2 재생성의 참고 기준으로 쓸 것.
+번들 완료 **75장 — 코드가 요구하는 75키 전부 충족** (2026-08-30 저녁) —
+A1 12/12 · A2 12/12 · B1 12/12 · B2 12/12 · C1 12/12 · C2 12/12 · Social 3/3.
+C1/C2 22장은 이 레시피 그대로(Seedream V4.5 · bamboo 앵커 · {SUBJECT}만 교체) 생성했고
+전량 `tool/check_card_style.py` 게이트 통과 후 반입됐다. 재생성 사례(다음 세션 참고):
+`{SUBJECT}` 의 "seal"은 물개로, "marked ruler"는 숫자 눈금으로, "consent letter"는
+실제 글자로 오역된다 — **stone stamp block · unmarked/plain · blank envelope** 로 쓸 것.
 
 남은 작업:
-- C1/C2 22장 — 키·표시명·소재는 `docs/LISTENING_CARD_ART_SPEC.md` 표가 정본
-  (2026-08-30 C1/C2 23장이 평면 벡터로 나와 전량 폐기된 뒤의 재생성분).
 - 신규 6칸 중 뒤 3개(숫자와 시간·전화&메시지·길과 표지판)는 `A1Numbers` `A1Phone`
   `A1Wayfinding` 와 중복이므로 교체할지 별도 레벨로 둘지 여전히 Jin 확인 필요(미해결).
 
-크레딧 잔액 약 63 (2026-08-30 실측).
+크레딧 잔액 약 27 (2026-08-30 저녁 실측 — 22장 본생성 + 9장 재생성 = 31크레딧 소요).
 
 ## 코드 배선 (아직 안 함)
 
