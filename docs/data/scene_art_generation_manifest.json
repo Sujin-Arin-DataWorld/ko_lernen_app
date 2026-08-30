@@ -15,7 +15,7 @@
   },
   "canonicalInventory": {
     "path": "docs/data/scene_asset_inventory.json",
-    "sha256": "98203825ae83cb13596786941509c2fa2f7f60bfcbb3fa3d64077aeb56266d76"
+    "sha256": "ddb7b633e53eda4e827e815fe95c9894d803e8378c4eb4c4a8dab3b5428de5ec"
   },
   "scenarioCount": 419,
   "categoryOrder": [
@@ -29881,7 +29881,7 @@
         "asset-generation-bible/faceted-minhwa-v2",
         "runtime-scene-category/theme_park"
       ],
-      "referenceImagePath": "assets/illustrations/scenes/market.png",
+      "referenceImagePath": "assets/illustrations/scenes/theme_park.png",
       "targetPath": "assets_unused/pending_review/scenes/a1_theme_park_date_choices.png",
       "priority": 15,
       "priorityOrder": 414,
@@ -29953,7 +29953,7 @@
         "asset-generation-bible/faceted-minhwa-v2",
         "runtime-scene-category/theme_park"
       ],
-      "referenceImagePath": "assets/illustrations/scenes/market.png",
+      "referenceImagePath": "assets/illustrations/scenes/theme_park.png",
       "targetPath": "assets_unused/pending_review/scenes/a2_theme_park_date_break.png",
       "priority": 15,
       "priorityOrder": 415,
@@ -30025,7 +30025,7 @@
         "asset-generation-bible/faceted-minhwa-v2",
         "runtime-scene-category/theme_park"
       ],
-      "referenceImagePath": "assets/illustrations/scenes/market.png",
+      "referenceImagePath": "assets/illustrations/scenes/theme_park.png",
       "targetPath": "assets_unused/pending_review/scenes/b1_theme_park_date_thrill.png",
       "priority": 15,
       "priorityOrder": 416,
@@ -30097,7 +30097,7 @@
         "asset-generation-bible/faceted-minhwa-v2",
         "runtime-scene-category/theme_park"
       ],
-      "referenceImagePath": "assets/illustrations/scenes/market.png",
+      "referenceImagePath": "assets/illustrations/scenes/theme_park.png",
       "targetPath": "assets_unused/pending_review/scenes/b2_theme_park_date_safety.png",
       "priority": 15,
       "priorityOrder": 417,
@@ -30169,7 +30169,7 @@
         "asset-generation-bible/faceted-minhwa-v2",
         "runtime-scene-category/theme_park"
       ],
-      "referenceImagePath": "assets/illustrations/scenes/market.png",
+      "referenceImagePath": "assets/illustrations/scenes/theme_park.png",
       "targetPath": "assets_unused/pending_review/scenes/c1_theme_park_date_next_time.png",
       "priority": 15,
       "priorityOrder": 418,
@@ -30241,7 +30241,7 @@
         "asset-generation-bible/faceted-minhwa-v2",
         "runtime-scene-category/theme_park"
       ],
-      "referenceImagePath": "assets/illustrations/scenes/market.png",
+      "referenceImagePath": "assets/illustrations/scenes/theme_park.png",
       "targetPath": "assets_unused/pending_review/scenes/c2_theme_park_date_reflection.png",
       "priority": 15,
       "priorityOrder": 419,

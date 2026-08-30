@@ -231,20 +231,12 @@ void main() {
       }
     });
 
-    test('쓰이는 모든 카테고리에 실제 포스터 PNG 또는 승인된 폴백이 있다', () {
+    test('쓰이는 모든 카테고리에 canonical 포스터 PNG가 있다', () {
       final categories = allScenarioJson()
           .map((raw) => raw['backdrop'] as String)
           .toSet();
       expect(categories, isNotEmpty);
       for (final key in categories) {
-        if (key == 'theme_park') {
-          expect(
-            File('assets/illustrations/scenes/market.png').existsSync(),
-            isTrue,
-            reason: 'theme_park.png 추가 전에는 market.png 폴백이 필요합니다',
-          );
-          continue;
-        }
         expect(
           File('assets/illustrations/scenes/$key.png').existsSync(),
           isTrue,
