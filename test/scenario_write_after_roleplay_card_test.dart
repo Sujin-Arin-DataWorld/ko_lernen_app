@@ -13,6 +13,7 @@ void main() {
     ScenarioWritingEvidence? evidence,
     CompanionPreference? companion,
     TextScaler? textScaler,
+    String promptKo = '상황에 맞는 문장 하나를 써 보세요.',
   }) => MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: AppTheme.light,
@@ -29,6 +30,7 @@ void main() {
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: ScenarioWriteAfterRoleplayCard(
+          promptKo: promptKo,
           evidence: evidence ?? _evidence,
           service: service,
           previewCompanion: companion,
@@ -36,6 +38,70 @@ void main() {
       ),
     ),
   );
+
+  testWidgets('shows exactly the supplied one-sentence Korean prompt', (
+    tester,
+  ) async {
+    const prompt = '마지막 사용자 문장입니다.';
+    const assistantLine = '도우미 문장은 나오면 안 됩니다.';
+    final gateway = _FakeGateway(
+      availability: const KoreanProofreadingAvailability(
+        status: KoreanProofreadingStatus.available,
+      ),
+    );
+
+    await tester.pumpWidget(
+      app(
+        service: ScenarioWritingCheckService(gateway: gateway),
+        promptKo: prompt,
+        evidence: ScenarioWritingEvidence(
+          references: <ScenarioWritingReference>[
+            ScenarioWritingReference(
+              korean: assistantLine,
+              localizedMeaning: 'Assistant line',
+            ),
+          ],
+          grammar: null,
+        ),
+      ),
+    );
+
+    expect(
+      find.byKey(const ValueKey<String>('scenario-write-prompt')),
+      findsOneWidget,
+    );
+    expect(find.text(prompt), findsOneWidget);
+    expect(find.text(assistantLine), findsNothing);
+    expect(gateway.proofreadCalls, 0);
+    expect(gateway.downloadCalls, 0);
+  });
+
+  testWidgets('Skip collapses the optional card without service calls', (
+    tester,
+  ) async {
+    final gateway = _FakeGateway(
+      availability: const KoreanProofreadingAvailability(
+        status: KoreanProofreadingStatus.available,
+      ),
+    );
+    await tester.pumpWidget(
+      app(service: ScenarioWritingCheckService(gateway: gateway)),
+    );
+
+    expect(
+      find.byKey(const ValueKey<String>('scenario-write-after-roleplay-card')),
+      findsOneWidget,
+    );
+    await _tapVisible(tester, 'scenario-write-skip');
+    await tester.pump();
+
+    expect(
+      find.byKey(const ValueKey<String>('scenario-write-after-roleplay-card')),
+      findsNothing,
+    );
+    expect(gateway.proofreadCalls, 0);
+    expect(gateway.downloadCalls, 0);
+  });
 
   testWidgets('shows original and suggestion without replacing learner input', (
     tester,
@@ -59,9 +125,7 @@ void main() {
       '저는 내일 공부할 거에요.',
     );
     await tester.pump();
-    await tester.tap(
-      find.byKey(const ValueKey<String>('scenario-write-check')),
-    );
+    await _tapVisible(tester, 'scenario-write-check');
     await tester.pumpAndSettle();
 
     expect(
@@ -87,9 +151,7 @@ void main() {
       ),
       findsOneWidget,
     );
-    await tester.tap(
-      find.byKey(const ValueKey<String>('scenario-write-ask-companion')),
-    );
+    await _tapVisible(tester, 'scenario-write-ask-companion');
     await tester.pumpAndSettle();
     expect(
       find.byKey(const ValueKey<String>('scenario-write-ask-companion')),
@@ -132,9 +194,7 @@ void main() {
       '저는 학쌩이고 내일 가게요.',
     );
     await tester.pump();
-    await tester.tap(
-      find.byKey(const ValueKey<String>('scenario-write-check')),
-    );
+    await _tapVisible(tester, 'scenario-write-check');
     await tester.pumpAndSettle();
 
     expect(
@@ -188,9 +248,7 @@ void main() {
       '안녕  친구',
     );
     await tester.pump();
-    await tester.tap(
-      find.byKey(const ValueKey<String>('scenario-write-check')),
-    );
+    await _tapVisible(tester, 'scenario-write-check');
     await tester.pumpAndSettle();
 
     expect(
@@ -225,9 +283,7 @@ void main() {
       '저는 내일 공부할 거예요.',
     );
     await tester.pump();
-    await tester.tap(
-      find.byKey(const ValueKey<String>('scenario-write-check')),
-    );
+    await _tapVisible(tester, 'scenario-write-check');
     await tester.pumpAndSettle();
 
     expect(gateway.downloadCalls, 0);
@@ -237,9 +293,7 @@ void main() {
       findsOneWidget,
     );
 
-    await tester.tap(
-      find.byKey(const ValueKey<String>('scenario-write-download')),
-    );
+    await _tapVisible(tester, 'scenario-write-download');
     await tester.pumpAndSettle();
 
     expect(gateway.downloadCalls, 1);
@@ -270,9 +324,7 @@ void main() {
       '저는 내일 공부할 거예요.',
     );
     await tester.pump();
-    await tester.tap(
-      find.byKey(const ValueKey<String>('scenario-write-check')),
-    );
+    await _tapVisible(tester, 'scenario-write-check');
     await tester.pumpAndSettle();
 
     expect(
@@ -304,9 +356,7 @@ void main() {
       '저는 내일 공부할 거예요.',
     );
     await tester.pump();
-    await tester.tap(
-      find.byKey(const ValueKey<String>('scenario-write-check')),
-    );
+    await _tapVisible(tester, 'scenario-write-check');
     await tester.pumpAndSettle();
 
     expect(
@@ -362,9 +412,7 @@ void main() {
       '저는 내일 공부할 거예요.',
     );
     await tester.pump();
-    await tester.tap(
-      find.byKey(const ValueKey<String>('scenario-write-check')),
-    );
+    await _tapVisible(tester, 'scenario-write-check');
     await tester.pumpAndSettle();
 
     expect(
@@ -380,6 +428,13 @@ void main() {
       findsNothing,
     );
   });
+}
+
+Future<void> _tapVisible(WidgetTester tester, String key) async {
+  final finder = find.byKey(ValueKey<String>(key));
+  await tester.ensureVisible(finder);
+  await tester.pump();
+  await tester.tap(finder);
 }
 
 final _evidence = ScenarioWritingEvidence(

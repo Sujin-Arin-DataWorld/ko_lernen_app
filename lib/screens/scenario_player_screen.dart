@@ -10,6 +10,7 @@ import '../models/course_practice_context.dart';
 import '../models/course_mastery.dart';
 import '../models/feedback_completion.dart';
 import '../models/curriculum.dart';
+import '../models/grammar.dart';
 import '../models/hanok_competence.dart';
 import '../models/personal_hanok.dart';
 import '../models/scenario.dart';
@@ -17,6 +18,7 @@ import '../models/scenario_can_do_result.dart';
 import '../services/course_activity_reporter.dart';
 import '../services/course_mission_navigation.dart';
 import '../services/curriculum_catalog.dart';
+import '../services/data_loader.dart';
 import '../services/hanok_stage_service.dart';
 import '../services/premium_service.dart';
 import '../services/analytics_service.dart';
@@ -47,6 +49,7 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/sheet.dart';
 import '../widgets/sori/speakable.dart';
 import '../widgets/sori/scenario_write_after_roleplay_card.dart';
 import '../widgets/sori/spotlight_coach.dart';
@@ -340,6 +343,39 @@ typedef ScenarioResultPersister =
       int earnedXp,
     );
 
+typedef ScenarioGrammarLoader = Future<List<Grammar>> Function();
+
+/// Resolves explicit scenario references without allowing corpus order or a
+/// missing row to rewrite the authored teaching sequence.
+List<Grammar> resolveScenarioGrammarIds(
+  Iterable<String> grammarIds,
+  Iterable<Grammar> grammar,
+) {
+  final byId = <String, Grammar>{};
+  for (final entry in grammar) {
+    final id = entry.id.trim();
+    if (id.isNotEmpty) {
+      byId.putIfAbsent(id, () => entry);
+    }
+  }
+  return List<Grammar>.unmodifiable([
+    for (final rawId in grammarIds)
+      if (byId[rawId.trim()] case final entry?) entry,
+  ]);
+}
+
+/// The optional post-roleplay exercise repeats one authored learner turn,
+/// never an assistant line or a synthesized vocabulary fallback.
+String? scenarioWritingPromptKo(Scenario scenario) {
+  for (final line in scenario.dialog.reversed) {
+    final korean = line.ko.trim();
+    if (line.speaker == 'user' && korean.isNotEmpty) {
+      return korean;
+    }
+  }
+  return null;
+}
+
 /// Deterministic, storage-free state for rendering the production player in a
 /// gallery or widget test. Production loaders, entitlement gates, evidence,
 /// rewards, and progress persistence are bypassed.
@@ -382,6 +418,7 @@ class ScenarioPlayerScreen extends StatefulWidget {
   final LearnerLevel? levelHint;
   final CoursePracticeContext? courseContext;
   final Future<Scenario?> Function(String scenarioId)? scenarioLoader;
+  final ScenarioGrammarLoader? grammarLoader;
   final ScenarioResultPersister? resultPersister;
   final ScenarioCompletionCallback? onCompleted;
   final VoidCallback? onExit;
@@ -394,6 +431,7 @@ class ScenarioPlayerScreen extends StatefulWidget {
     this.levelHint,
     this.courseContext,
     this.scenarioLoader,
+    this.grammarLoader,
     this.resultPersister,
     this.onCompleted,
     this.onExit,
@@ -408,6 +446,7 @@ class ScenarioPlayerScreen extends StatefulWidget {
        levelHint = null,
        courseContext = null,
        scenarioLoader = null,
+       grammarLoader = null,
        resultPersister = null,
        onCompleted = null,
        mode = ScenarioPlayerMode.standard,
@@ -423,6 +462,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   CourseMissionStep? _missionStep;
   String? _missionTitle;
   CoursePracticeContext? _effectiveCourseContext;
+  List<Grammar> _resolvedGrammar = const <Grammar>[];
   List<ScenarioStage> _plan = const [];
   int _stage = 0;
   QuestAbandonTracker? _abandonTracker;
@@ -579,6 +619,10 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       _popAfterLoadExit();
       return;
     }
+    final resolvedGrammar = await _resolveGrammar(s);
+    if (!mounted || !_loadLifecycle.canContinue) {
+      return;
+    }
     final courseContext =
         widget.courseContext ??
         await activeScenarioCheckpointContext(widget.scenarioId);
@@ -623,7 +667,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
               .pick(languageCode);
     final plan = buildScenarioStagePlan(
       hasRollenspiel: s.dialog.any((line) => line.speaker == 'user'),
-      hasGrammar: s.grammarBlock != null,
+      hasGrammar: resolvedGrammar.isNotEmpty || s.grammarBlock != null,
       questCount: s.quests.length,
     );
     final initialStage = scenarioInitialStageIndex(
@@ -632,6 +676,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     );
     setState(() {
       _scenario = s;
+      _resolvedGrammar = resolvedGrammar;
       _missionStep = missionStep;
       _missionTitle = missionTitle;
       _effectiveCourseContext = courseContext;
@@ -645,6 +690,19 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           _pageCtrl.jumpToPage(initialStage);
         }
       });
+    }
+  }
+
+  Future<List<Grammar>> _resolveGrammar(Scenario scenario) async {
+    if (scenario.grammarIds.isEmpty) {
+      return const <Grammar>[];
+    }
+    try {
+      final corpus = await (widget.grammarLoader ?? DataLoader.loadGrammar)();
+      return resolveScenarioGrammarIds(scenario.grammarIds, corpus);
+    } catch (error) {
+      debugPrint('Scenario grammar load failed for ${scenario.id}: $error');
+      return const <Grammar>[];
     }
   }
 
@@ -1271,39 +1329,31 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   }
 
   Widget _buildGrammar(AppL10n t, String lang) {
-    final block = _scenario!.grammarBlock!;
-    final ss = SoriSurfaces.of(context);
     const grammarAccent = SoriColors.primary;
+    final resolved = _resolvedGrammar;
+    final inline = _scenario!.grammarBlock;
     return _StageScroll(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _StageTitle(t.scenarioGrammarTitle, grammarAccent),
           const SizedBox(height: Spacing.lg),
-          SoriCard(
-            variant: SoriCardVariant.base,
-            accent: grammarAccent,
-            tinted: true,
-            width: double.infinity,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  block.title.pick(lang),
-                  style: SoriTextTheme.of(
-                    context,
-                  ).h2.copyWith(color: grammarAccent),
-                ),
+          if (resolved.length == 1)
+            _ScenarioGrammarExpandedCard(
+              grammar: resolved.single,
+              language: lang,
+            )
+          else if (resolved.length > 1)
+            for (var index = 0; index < resolved.length; index++) ...[
+              _ScenarioGrammarSummaryCard(
+                grammar: resolved[index],
+                language: lang,
+              ),
+              if (index + 1 < resolved.length)
                 const SizedBox(height: Spacing.md),
-                Text(
-                  block.explanation.pick(lang),
-                  style: SoriTextTheme.of(
-                    context,
-                  ).body.copyWith(color: ss.textMuted, height: 1.6),
-                ),
-              ],
-            ),
-          ),
+            ]
+          else if (inline != null)
+            _ScenarioInlineGrammarCard(block: inline, language: lang),
         ],
       ),
     );
@@ -2095,6 +2145,217 @@ class _ScenarioIntroArt extends StatelessWidget {
   }
 }
 
+class _ScenarioGrammarExpandedCard extends StatelessWidget {
+  const _ScenarioGrammarExpandedCard({
+    required this.grammar,
+    required this.language,
+  });
+
+  final Grammar grammar;
+  final String language;
+
+  @override
+  Widget build(BuildContext context) => SoriCard(
+    key: ValueKey<String>('scenario-grammar-expanded-${grammar.id}'),
+    variant: SoriCardVariant.hero,
+    accent: SoriColors.primary,
+    tinted: true,
+    width: double.infinity,
+    child: _ScenarioGrammarDetails(
+      grammar: grammar,
+      language: language,
+      expanded: true,
+    ),
+  );
+}
+
+class _ScenarioGrammarSummaryCard extends StatelessWidget {
+  const _ScenarioGrammarSummaryCard({
+    required this.grammar,
+    required this.language,
+  });
+
+  final Grammar grammar;
+  final String language;
+
+  void _openDetails(BuildContext context) {
+    unawaited(
+      showSoriSheet<void>(
+        context: context,
+        builder: (_) =>
+            _ScenarioGrammarDetailSheet(grammar: grammar, language: language),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final type = grammar.typeFor(language).trim();
+    final semanticLabel = [
+      grammar.pattern,
+      if (type.isNotEmpty) type,
+      AppL10n.of(context).hintTapForExplanation,
+    ].join('. ');
+    return SoriCard(
+      key: ValueKey<String>('scenario-grammar-summary-${grammar.id}'),
+      variant: SoriCardVariant.base,
+      accent: SoriColors.primary,
+      tinted: true,
+      width: double.infinity,
+      semanticLabel: semanticLabel,
+      onTap: () => _openDetails(context),
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  grammar.pattern,
+                  style: SoriTextTheme.of(
+                    context,
+                  ).h3.copyWith(color: SoriColors.primary),
+                ),
+                if (type.isNotEmpty) ...[
+                  const SizedBox(height: Spacing.xs),
+                  Text(
+                    type,
+                    style: SoriTextTheme.of(context).bodySmall.copyWith(
+                      color: SoriSurfaces.of(context).textMuted,
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+          const SizedBox(width: Spacing.sm),
+          const Icon(Icons.chevron_right_rounded, color: SoriColors.primary),
+        ],
+      ),
+    );
+  }
+}
+
+class _ScenarioGrammarDetailSheet extends StatelessWidget {
+  const _ScenarioGrammarDetailSheet({
+    required this.grammar,
+    required this.language,
+  });
+
+  final Grammar grammar;
+  final String language;
+
+  @override
+  Widget build(BuildContext context) => Semantics(
+    key: ValueKey<String>('scenario-grammar-detail-${grammar.id}'),
+    container: true,
+    child: _ScenarioGrammarDetails(
+      grammar: grammar,
+      language: language,
+      expanded: false,
+    ),
+  );
+}
+
+class _ScenarioGrammarDetails extends StatelessWidget {
+  const _ScenarioGrammarDetails({
+    required this.grammar,
+    required this.language,
+    required this.expanded,
+  });
+
+  final Grammar grammar;
+  final String language;
+  final bool expanded;
+
+  @override
+  Widget build(BuildContext context) {
+    final tt = SoriTextTheme.of(context);
+    final surfaces = SoriSurfaces.of(context);
+    final type = grammar.typeFor(language).trim();
+    final explanation = grammar.explanationFor(language).trim();
+    final koreanExample = grammar.exampleKorean.trim();
+    final localizedExample = grammar.exampleFor(language).trim();
+    final note = grammar.noteFor(language).trim();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          grammar.pattern,
+          style: tt.h2.copyWith(
+            color: SoriColors.primary,
+            fontSize: expanded ? 30 : null,
+          ),
+        ),
+        if (type.isNotEmpty) ...[
+          const SizedBox(height: Spacing.sm),
+          Text(type, style: tt.label.copyWith(color: surfaces.textMuted)),
+        ],
+        if (explanation.isNotEmpty) ...[
+          const SizedBox(height: Spacing.lg),
+          Text(explanation, style: tt.body.copyWith(height: 1.55)),
+        ],
+        if (koreanExample.isNotEmpty) ...[
+          const SizedBox(height: Spacing.lg),
+          Text(koreanExample, style: tt.h3.copyWith(color: SoriColors.primary)),
+        ],
+        if (localizedExample.isNotEmpty) ...[
+          const SizedBox(height: Spacing.xs),
+          Text(
+            localizedExample,
+            style: tt.bodySmall.copyWith(
+              color: surfaces.textMuted,
+              fontStyle: FontStyle.italic,
+            ),
+          ),
+        ],
+        if (note.isNotEmpty) ...[
+          const SizedBox(height: Spacing.md),
+          Text(note, style: tt.bodySmall.copyWith(color: surfaces.textMuted)),
+        ],
+      ],
+    );
+  }
+}
+
+class _ScenarioInlineGrammarCard extends StatelessWidget {
+  const _ScenarioInlineGrammarCard({
+    required this.block,
+    required this.language,
+  });
+
+  final GrammarBlock block;
+  final String language;
+
+  @override
+  Widget build(BuildContext context) => SoriCard(
+    key: const ValueKey<String>('scenario-grammar-inline'),
+    variant: SoriCardVariant.base,
+    accent: SoriColors.primary,
+    tinted: true,
+    width: double.infinity,
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          block.title.pick(language),
+          style: SoriTextTheme.of(
+            context,
+          ).h2.copyWith(color: SoriColors.primary),
+        ),
+        const SizedBox(height: Spacing.md),
+        Text(
+          block.explanation.pick(language),
+          style: SoriTextTheme.of(context).body.copyWith(
+            color: SoriSurfaces.of(context).textMuted,
+            height: 1.6,
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
 class _StageTitle extends StatelessWidget {
   final String text;
   final Color color;
@@ -2254,6 +2515,7 @@ class _RollenspielStageState extends State<_RollenspielStage> {
 
     // ── 완료: 스테이지 전체를 차지하는 중앙 정렬 축하 패널 ──────────────────
     if (_done || _turns.isEmpty) {
+      final promptKo = scenarioWritingPromptKo(widget.scenario);
       return _StageScroll(
         fill: true,
         child: Column(
@@ -2261,13 +2523,16 @@ class _RollenspielStageState extends State<_RollenspielStage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SoriEntrance(child: const _RollenspielDoneCard()),
-            const SizedBox(height: Spacing.lg),
-            ScenarioWriteAfterRoleplayCard(
-              evidence: ScenarioWritingEvidence.fromScenario(
-                scenario: widget.scenario,
-                language: widget.lang,
+            if (promptKo != null) ...[
+              const SizedBox(height: Spacing.lg),
+              ScenarioWriteAfterRoleplayCard(
+                promptKo: promptKo,
+                evidence: ScenarioWritingEvidence.fromScenario(
+                  scenario: widget.scenario,
+                  language: widget.lang,
+                ),
               ),
-            ),
+            ],
           ],
         ),
       );
