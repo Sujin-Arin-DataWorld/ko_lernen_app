@@ -28,6 +28,7 @@ import '../services/scenario_loader.dart';
 import '../services/scene_asset_resolver.dart';
 import '../services/scenario_writing_check_service.dart';
 import '../services/storage_service.dart';
+import '../services/tts_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/app_bar.dart';
@@ -110,6 +111,48 @@ Alignment scenarioIntroAlignmentFor(Scenario scenario) {
         _scenarioIntroVerticalFocalPoints.length],
   );
 }
+
+typedef ScenarioIntroAudioPrefetcher =
+    Future<void> Function(ScenarioIntroAudioPrefetchRequest request);
+
+/// The one cache-compatible audio request allowed during the intro dwell.
+///
+/// Voice resolution deliberately mirrors dialog playback. Canonical character
+/// profiles stay authoritative; legacy scenes retain user=female and npc=male.
+@immutable
+class ScenarioIntroAudioPrefetchRequest {
+  const ScenarioIntroAudioPrefetchRequest({
+    required this.text,
+    required this.voice,
+  });
+
+  final String text;
+  final String voice;
+
+  TtsCacheKey get cacheKey => TtsCacheKey.forRequest(voice: voice, text: text);
+}
+
+ScenarioIntroAudioPrefetchRequest? scenarioIntroAudioPrefetchFor(
+  Scenario scenario,
+) {
+  if (scenario.dialog.isEmpty) {
+    return null;
+  }
+  final first = scenario.dialog.first;
+  final text = first.ko;
+  if (text.trim().isEmpty) {
+    return null;
+  }
+  final voice = TtsVoicePolicy.resolve(
+    text: text,
+    voice: scenario.voiceForSpeaker(first.speaker),
+  );
+  return ScenarioIntroAudioPrefetchRequest(text: text, voice: voice);
+}
+
+Future<void> _prefetchScenarioIntroAudio(
+  ScenarioIntroAudioPrefetchRequest request,
+) => SoriSpeech.prefetch(request.text, voice: request.voice);
 
 /// Baut den Stage-Plan. `quest` erscheint [questCount]-mal. Rein (keine State),
 /// damit Stage-Zählung/Quest-Index-Mapping per Unit-Test abgesichert sind.
@@ -466,6 +509,7 @@ class ScenarioPlayerScreen extends StatefulWidget {
   final VoidCallback? onExit;
   final ScenarioPlayerMode mode;
   final ScenarioPlayerPreviewFixture? previewFixture;
+  final ScenarioIntroAudioPrefetcher? introAudioPrefetcher;
 
   const ScenarioPlayerScreen({
     super.key,
@@ -478,12 +522,14 @@ class ScenarioPlayerScreen extends StatefulWidget {
     this.onCompleted,
     this.onExit,
     this.mode = ScenarioPlayerMode.standard,
+    this.introAudioPrefetcher,
   }) : previewFixture = null;
 
   ScenarioPlayerScreen.preview({
     super.key,
     required ScenarioPlayerPreviewFixture fixture,
     this.onExit,
+    this.introAudioPrefetcher,
   }) : scenarioId = fixture.scenario.id,
        levelHint = null,
        courseContext = null,
@@ -526,6 +572,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   bool _resultPersisted = false;
   ScenarioCanDoResult? _canDoResult;
   Object? _loadFailure;
+  bool _introAudioPrefetchStarted = false;
 
   // Wie viel Höhe das Szenen-Poster an den Quest-Inhalt abgibt.
   //
@@ -610,6 +657,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       _resultPersisted = preview.stage == ScenarioStage.result;
       _canDoResult = preview.result;
       _pageCtrl = PageController(initialPage: _stage);
+      _startIntroAudioPrefetch(scenario);
       return;
     }
     _pageCtrl = PageController();
@@ -733,6 +781,30 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         }
       });
     }
+    _startIntroAudioPrefetch(s);
+  }
+
+  void _startIntroAudioPrefetch(Scenario scenario) {
+    if (_introAudioPrefetchStarted ||
+        _stage < 0 ||
+        _stage >= _plan.length ||
+        _plan[_stage] != ScenarioStage.intro) {
+      return;
+    }
+    final request = scenarioIntroAudioPrefetchFor(scenario);
+    if (request == null) {
+      return;
+    }
+    final prefetcher =
+        widget.introAudioPrefetcher ??
+        (widget.previewFixture == null ? _prefetchScenarioIntroAudio : null);
+    if (prefetcher == null) {
+      return;
+    }
+    _introAudioPrefetchStarted = true;
+    unawaited(
+      Future<void>.sync(() => prefetcher(request)).catchError((Object _) {}),
+    );
   }
 
   Future<List<Grammar>> _resolveGrammar(Scenario scenario) async {
