@@ -4207,6 +4207,65 @@ class AppL10nEn extends AppL10n {
   String get clozeLevelAll => 'All';
 
   @override
+  String get clozeGroupAll => 'All topics';
+
+  @override
+  String get clozeGroupEverydayHome => 'Everyday life & home';
+
+  @override
+  String get clozeGroupEverydayHomeDescription =>
+      'Daily routines, shopping, food, housing, money, and schedules';
+
+  @override
+  String get clozeGroupPeopleRelationships => 'People & relationships';
+
+  @override
+  String get clozeGroupPeopleRelationshipsDescription =>
+      'Family, relationships, emotions, and polite communication';
+
+  @override
+  String get clozeGroupTravelServices => 'Travel & services';
+
+  @override
+  String get clozeGroupTravelServicesDescription =>
+      'Travel, transport, and common service situations';
+
+  @override
+  String get clozeGroupWorkEducation => 'Work & education';
+
+  @override
+  String get clozeGroupWorkEducationDescription =>
+      'Jobs, school, higher education, and working with others';
+
+  @override
+  String get clozeGroupLanguageMedia => 'Language & media';
+
+  @override
+  String get clozeGroupLanguageMediaDescription =>
+      'Language use, perspectives, reading, and media';
+
+  @override
+  String get clozeGroupSocietyInstitutions => 'Society & institutions';
+
+  @override
+  String get clozeGroupSocietyInstitutionsDescription =>
+      'Social issues, rules, civic participation, and public institutions';
+
+  @override
+  String get clozeGroupTechnologyScience => 'Technology & science';
+
+  @override
+  String get clozeGroupTechnologyScienceDescription =>
+      'Technology, research, evidence, and responsible decisions';
+
+  @override
+  String get clozeGroupHealthNatureLeisure => 'Health, nature & leisure';
+
+  @override
+  String get clozeGroupHealthNatureLeisureDescription =>
+      'The body, health, nature, safety, and leisure';
+
+  @override
   String get speedMatchTitle => 'Speed pairs';
 
   @override

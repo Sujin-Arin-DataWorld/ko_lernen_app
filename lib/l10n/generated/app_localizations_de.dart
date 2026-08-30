@@ -4224,6 +4224,65 @@ class AppL10nDe extends AppL10n {
   String get clozeLevelAll => 'Alle';
 
   @override
+  String get clozeGroupAll => 'Alle Themen';
+
+  @override
+  String get clozeGroupEverydayHome => 'Alltag & Zuhause';
+
+  @override
+  String get clozeGroupEverydayHomeDescription =>
+      'Alltag, Einkaufen, Essen, Wohnen, Geld und Termine';
+
+  @override
+  String get clozeGroupPeopleRelationships => 'Menschen & Beziehungen';
+
+  @override
+  String get clozeGroupPeopleRelationshipsDescription =>
+      'Familie, Beziehungen, Gefühle und höfliche Kommunikation';
+
+  @override
+  String get clozeGroupTravelServices => 'Reisen & Service';
+
+  @override
+  String get clozeGroupTravelServicesDescription =>
+      'Reisen, Verkehr und praktische Service-Situationen';
+
+  @override
+  String get clozeGroupWorkEducation => 'Arbeit & Bildung';
+
+  @override
+  String get clozeGroupWorkEducationDescription =>
+      'Beruf, Schule, Studium und Zusammenarbeit';
+
+  @override
+  String get clozeGroupLanguageMedia => 'Sprache & Medien';
+
+  @override
+  String get clozeGroupLanguageMediaDescription =>
+      'Sprachgebrauch, Perspektiven, Lesen und Medien';
+
+  @override
+  String get clozeGroupSocietyInstitutions => 'Gesellschaft & Institutionen';
+
+  @override
+  String get clozeGroupSocietyInstitutionsDescription =>
+      'Gesellschaftliche Fragen, Regeln, Teilhabe und öffentliche Institutionen';
+
+  @override
+  String get clozeGroupTechnologyScience => 'Technik & Wissenschaft';
+
+  @override
+  String get clozeGroupTechnologyScienceDescription =>
+      'Technik, Forschung, Belege und verantwortungsvolle Entscheidungen';
+
+  @override
+  String get clozeGroupHealthNatureLeisure => 'Gesundheit, Natur & Freizeit';
+
+  @override
+  String get clozeGroupHealthNatureLeisureDescription =>
+      'Körper, Gesundheit, Natur, Sicherheit und Freizeit';
+
+  @override
   String get speedMatchTitle => 'Blitz-Paare';
 
   @override
