@@ -294,6 +294,7 @@ void main() {
     );
     await tester.pump();
 
+    expect(find.byKey(const ValueKey('diktat-korean-review')), findsNothing);
     await tester.enterText(
       find.byKey(const ValueKey('diktat-answer-field')),
       '다시 말씀 드릴게요',
@@ -305,6 +306,7 @@ void main() {
     expect(results, hasLength(1));
     expect(results.single.passed, isTrue);
     expect(results.single.firstTry, isTrue);
+    expect(find.byKey(const ValueKey('diktat-korean-review')), findsOneWidget);
   });
 
   testWidgets('listening keeps immediate judgment when motion is on', (

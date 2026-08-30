@@ -158,7 +158,7 @@ final _engines =
       ),
       (
         name: 'dictation',
-        hasSpeed: true,
+        hasSpeed: false,
         revealHintEn: null,
         build: (complete, next, allowDontKnow) => DiktatQuest(
           data: const {
@@ -585,7 +585,7 @@ void main() {
   }
 
   testWidgets(
-    'dictation uses localized fields and answer-safe 48dp audio and word block '
+    'dictation uses localized fields and paired 56dp audio and word block '
     'semantics',
     (tester) async {
       final semantics = tester.ensureSemantics();
@@ -599,10 +599,20 @@ void main() {
         );
 
         final listen = find.bySemanticsLabel(t.questListenAudio);
-        _expectButton(tester, listen, enabled: true, minHeight: 84);
+        _expectButton(tester, listen, enabled: true, minHeight: 56);
+        expect(tester.getSize(listen).height, 56);
+        expect(
+          find.descendant(of: listen, matching: find.text(t.questListenAudio)),
+          findsOneWidget,
+        );
         _expectSemanticsHides(tester, listen, const ['안녕', '하세요']);
         final slow = find.bySemanticsLabel(t.diktatListenSlow);
         _expectButton(tester, slow, enabled: true, minHeight: 56);
+        expect(tester.getSize(slow).height, 56);
+        expect(
+          find.descendant(of: slow, matching: find.text(t.diktatListenSlow)),
+          findsOneWidget,
+        );
         _expectSemanticsHides(tester, slow, const ['안녕', '하세요']);
         final field = tester.widget<SoriTextField>(find.byType(SoriTextField));
         expect(field.fieldKey, const ValueKey('diktat-answer-field'));

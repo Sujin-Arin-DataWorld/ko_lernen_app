@@ -1,6 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/screens/quest_engines/diktat_quest.dart';
+import 'package:ko_lernen_app/screens/quest_engines/quest_models.dart';
+import 'package:ko_lernen_app/theme.dart';
 
 import 'support/scenario_json.dart';
 
@@ -125,6 +129,86 @@ void main() {
     });
   });
 
+  group('DiktatQuest canonical Korean review', () {
+    const reviewKey = ValueKey('diktat-korean-review');
+    const target = '안녕 하세요.';
+
+    for (final passed in const [true, false]) {
+      testWidgets('targetKo stays hidden before judgment and appears after '
+          '${passed ? 'success' : 'the second miss'}', (tester) async {
+        final semantics = tester.ensureSemantics();
+        try {
+          final results = <QuestResult>[];
+          await tester.pumpWidget(
+            _host(
+              DiktatQuest(
+                data: const {
+                  'targetKo': target,
+                  'audioKo': target,
+                  'promptDe': 'Hallo.',
+                  'promptEn': 'Hello.',
+                },
+                onComplete: results.add,
+              ),
+            ),
+          );
+          await tester.pump();
+
+          expect(find.byKey(reviewKey), findsNothing);
+          expect(find.bySemanticsLabel(target), findsNothing);
+
+          await tester.enterText(
+            find.byKey(const ValueKey('diktat-answer-field')),
+            passed ? target : '틀린 답',
+          );
+          await tester.pump();
+          await tester.tap(find.byKey(const ValueKey('quest-submit')));
+          await tester.pump();
+          if (!passed) {
+            expect(find.byKey(reviewKey), findsNothing);
+            await tester.tap(find.byKey(const ValueKey('quest-submit')));
+            await tester.pump();
+          }
+
+          final review = find.byKey(reviewKey);
+          expect(review, findsOneWidget);
+          expect(
+            find.descendant(of: review, matching: find.text(target)),
+            findsOneWidget,
+          );
+          expect(tester.getSemantics(review).getSemanticsData().label, target);
+          expect(results, hasLength(1));
+          expect(results.single.passed, passed);
+        } finally {
+          semantics.dispose();
+        }
+      });
+    }
+
+    for (final data in const <Map<String, dynamic>>[
+      {},
+      {'targetKo': '   '},
+    ]) {
+      testWidgets(
+        'null or empty targetKo never creates a review block: $data',
+        (tester) async {
+          await tester.pumpWidget(
+            _host(
+              DiktatQuest(data: data, onComplete: (_) {}, allowDontKnow: true),
+            ),
+          );
+          await tester.pump();
+
+          expect(find.byKey(reviewKey), findsNothing);
+          await tester.tap(find.byKey(const ValueKey('quest-dont-know')));
+          await tester.pump();
+          expect(find.byKey(reviewKey), findsNothing);
+          await tester.pump(const Duration(milliseconds: 250));
+        },
+      );
+    }
+  });
+
   group('scenarios.json — geseedete diktat-Quests', () {
     late List<Map<String, dynamic>> diktatQuests;
     late List<Scenario> scenarios;
@@ -169,3 +253,20 @@ void main() {
     });
   });
 }
+
+Widget _host(Widget child) => MaterialApp(
+  theme: AppTheme.light,
+  locale: const Locale('en'),
+  supportedLocales: AppL10n.supportedLocales,
+  localizationsDelegates: AppL10n.localizationsDelegates,
+  builder: (context, app) {
+    final media = MediaQuery.of(context);
+    return MediaQuery(
+      data: media.copyWith(disableAnimations: true),
+      child: app!,
+    );
+  },
+  home: Scaffold(
+    body: Padding(padding: const EdgeInsets.all(16), child: child),
+  ),
+);

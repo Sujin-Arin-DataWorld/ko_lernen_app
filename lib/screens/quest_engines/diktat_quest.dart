@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/sound_service.dart';
 import '../../services/tts_service.dart';
+import '../../widgets/sori/button.dart';
 import '../../widgets/sori/text_field.dart';
 import '../../widgets/sori/tokens.dart';
 import 'quest_flow.dart';
@@ -381,12 +382,10 @@ class _DiktatQuestState extends State<DiktatQuest> {
   }
 
   Future<void> _playTts() async {
-    HapticFeedback.selectionClick();
     await TtsService.speak(_audioKo);
   }
 
   Future<void> _playSlow() async {
-    HapticFeedback.selectionClick();
     await TtsService.speakSlow(_audioKo);
   }
 
@@ -465,7 +464,6 @@ class _DiktatQuestState extends State<DiktatQuest> {
     }
 
     return QuestLayout(
-      showTtsSpeed: true,
       action: ScenarioQuestAction(
         canSubmit: canCheck,
         onSubmit: _check,
@@ -493,59 +491,33 @@ class _DiktatQuestState extends State<DiktatQuest> {
           ),
           const SizedBox(height: Spacing.md),
 
-          // Audio: normal + langsam.
+          // Compact paired audio controls. The button owns tap haptics; the
+          // automatic first playback above remains tactilely silent.
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Semantics(
-                button: true,
-                enabled: true,
-                label: t.questListenAudio,
-                excludeSemantics: true,
-                onTap: _playTts,
-                child: GestureDetector(
-                  behavior: HitTestBehavior.opaque,
+              Expanded(
+                child: SoriButton.filled(
+                  key: const ValueKey('diktat-listen-normal'),
+                  label: t.questListenAudio,
+                  semanticLabel: t.questListenAudio,
+                  icon: Icons.volume_up_rounded,
+                  size: SoriButtonSize.lg,
+                  maxLines: 1,
+                  fullWidth: true,
                   onTap: _playTts,
-                  child: Container(
-                    width: 84,
-                    height: 84,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: SoriColors.info.withAlpha(26),
-                      border: Border.all(color: SoriColors.info, width: 2),
-                    ),
-                    child: const Icon(
-                      Icons.volume_up_rounded,
-                      color: SoriColors.info,
-                      size: 40,
-                    ),
-                  ),
                 ),
               ),
-              const SizedBox(width: Spacing.lg),
-              Semantics(
-                button: true,
-                enabled: true,
-                label: t.diktatListenSlow,
-                excludeSemantics: true,
-                onTap: _playSlow,
-                child: GestureDetector(
-                  behavior: HitTestBehavior.opaque,
+              const SizedBox(width: Spacing.sm),
+              Expanded(
+                child: SoriButton.outlined(
+                  key: const ValueKey('diktat-listen-slow'),
+                  label: t.diktatListenSlow,
+                  semanticLabel: t.diktatListenSlow,
+                  icon: Icons.slow_motion_video_rounded,
+                  size: SoriButtonSize.lg,
+                  maxLines: 1,
+                  fullWidth: true,
                   onTap: _playSlow,
-                  child: Container(
-                    width: 56,
-                    height: 56,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: s.surface,
-                      border: Border.all(color: s.surfaceAlt, width: 1.5),
-                    ),
-                    child: Icon(
-                      Icons.slow_motion_video_rounded,
-                      color: s.textMuted,
-                      size: 26,
-                    ),
-                  ),
                 ),
               ),
             ],
@@ -578,6 +550,38 @@ class _DiktatQuestState extends State<DiktatQuest> {
                 context,
               ).body.copyWith(color: s.text, fontWeight: FontWeight.w600),
             ),
+          if (_completed && _targetKo.trim().isNotEmpty) ...[
+            const SizedBox(height: Spacing.sm),
+            Semantics(
+              key: const ValueKey('diktat-korean-review'),
+              label: _targetKo.trim(),
+              excludeSemantics: true,
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: Spacing.md,
+                  vertical: Spacing.sm,
+                ),
+                decoration: BoxDecoration(
+                  color: SoriColors.primarySoft,
+                  borderRadius: BorderRadius.circular(SoriRadius.md),
+                  border: Border.all(
+                    color: SoriColors.primary.withValues(alpha: 0.5),
+                    width: 1.5,
+                  ),
+                ),
+                child: Text(
+                  _targetKo.trim(),
+                  textAlign: TextAlign.center,
+                  style: SoriTextTheme.of(context).koDisplay.copyWith(
+                    color: s.text,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              ),
+            ),
+          ],
           const SizedBox(height: Spacing.sm),
 
           // Bedeutung-Toggle (Hilfe).
