@@ -74,6 +74,24 @@ class SilbenPuzzle {
     return map;
   }
 
+  /// Words crossing each occupied cell, preserving their declared order.
+  ///
+  /// The screen snapshots this once when opening a puzzle so cell selection,
+  /// clue highlighting, and direction markers all read the same membership
+  /// authority.
+  Map<(int, int), List<SilbenWord>> get memberships {
+    final map = <(int, int), List<SilbenWord>>{};
+    for (final word in words) {
+      for (final cell in word.cells) {
+        (map[cell] ??= <SilbenWord>[]).add(word);
+      }
+    }
+    return Map.unmodifiable({
+      for (final entry in map.entries)
+        entry.key: List<SilbenWord>.unmodifiable(entry.value),
+    });
+  }
+
   factory SilbenPuzzle.fromJson(Map<String, dynamic> json) => SilbenPuzzle(
     id: json['id'] as String,
     rows: json['rows'] as int,

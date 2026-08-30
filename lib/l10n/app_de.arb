@@ -403,6 +403,30 @@
   "screenGrammarTitle": "Grammatik",
   "screenWordleTitle": "Silben-Rätsel",
   "silbenEmptyBody": "Für deine Lernstufe sind noch keine Silben-Rätsel vorbereitet.",
+  "silbenCellPosition": "Zeile {row}, Spalte {column}",
+  "@silbenCellPosition": {
+    "placeholders": {
+      "row": {"type": "int"},
+      "column": {"type": "int"}
+    }
+  },
+  "silbenCellMembership": "Wörter: {memberships}",
+  "@silbenCellMembership": {
+    "placeholders": {
+      "memberships": {"type": "String"}
+    }
+  },
+  "silbenCellActiveWord": "Aktives Wort: {word}",
+  "@silbenCellActiveWord": {
+    "placeholders": {
+      "word": {"type": "String"}
+    }
+  },
+  "silbenCellOpen": "Offen",
+  "silbenCellCorrect": "Richtig",
+  "silbenCellWrong": "Falsch",
+  "silbenDirectionHorizontal": "Waagerecht",
+  "silbenDirectionVertical": "Senkrecht",
   "screenHangulTitle": "Hangul",
   "filterOpenBtn": "Filter öffnen",
   "hangulTabOverview": "Übersicht",

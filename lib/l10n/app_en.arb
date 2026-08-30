@@ -403,6 +403,30 @@
   "screenGrammarTitle": "Grammar",
   "screenWordleTitle": "Syllable puzzle",
   "silbenEmptyBody": "No syllable puzzles are ready for your learning level yet.",
+  "silbenCellPosition": "Row {row}, column {column}",
+  "@silbenCellPosition": {
+    "placeholders": {
+      "row": {"type": "int"},
+      "column": {"type": "int"}
+    }
+  },
+  "silbenCellMembership": "Words: {memberships}",
+  "@silbenCellMembership": {
+    "placeholders": {
+      "memberships": {"type": "String"}
+    }
+  },
+  "silbenCellActiveWord": "Active word: {word}",
+  "@silbenCellActiveWord": {
+    "placeholders": {
+      "word": {"type": "String"}
+    }
+  },
+  "silbenCellOpen": "Open",
+  "silbenCellCorrect": "Correct",
+  "silbenCellWrong": "Incorrect",
+  "silbenDirectionHorizontal": "Horizontal",
+  "silbenDirectionVertical": "Vertical",
   "screenHangulTitle": "Hangul",
   "filterOpenBtn": "Open filter",
   "hangulTabOverview": "Overview",

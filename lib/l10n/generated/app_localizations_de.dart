@@ -968,6 +968,36 @@ class AppL10nDe extends AppL10n {
       'Für deine Lernstufe sind noch keine Silben-Rätsel vorbereitet.';
 
   @override
+  String silbenCellPosition(int row, int column) {
+    return 'Zeile $row, Spalte $column';
+  }
+
+  @override
+  String silbenCellMembership(String memberships) {
+    return 'Wörter: $memberships';
+  }
+
+  @override
+  String silbenCellActiveWord(String word) {
+    return 'Aktives Wort: $word';
+  }
+
+  @override
+  String get silbenCellOpen => 'Offen';
+
+  @override
+  String get silbenCellCorrect => 'Richtig';
+
+  @override
+  String get silbenCellWrong => 'Falsch';
+
+  @override
+  String get silbenDirectionHorizontal => 'Waagerecht';
+
+  @override
+  String get silbenDirectionVertical => 'Senkrecht';
+
+  @override
   String get screenHangulTitle => 'Hangul';
 
   @override

@@ -60,6 +60,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   int _index = 0;
   SilbenPuzzle? _puzzle;
   Map<(int, int), String> _solution = {};
+  Map<(int, int), List<SilbenWord>> _memberships = const {};
   final Set<(int, int)> _locked = {};
   final Set<String> _spoken = {};
   List<bool> _tileUsed = [];
@@ -218,6 +219,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     setState(() {
       _puzzle = p;
       _solution = p.solution;
+      _memberships = p.memberships;
       _locked.clear();
       _spoken.clear();
       _tileUsed = List.filled(p.pool.length, false);
@@ -250,11 +252,12 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   /// 바뀌지 않도록, 현재 단어가 그 칸을 포함하면 현재 단어를 유지한다.
   SilbenWord? _wordThrough((int, int) cell) {
     final current = _activeWord;
-    if (current != null && current.cells.contains(cell)) {
+    final memberships = _memberships[cell] ?? const <SilbenWord>[];
+    if (current != null && memberships.contains(current)) {
       return current;
     }
-    for (final w in _puzzle?.words ?? const <SilbenWord>[]) {
-      if (w.cells.contains(cell) && w.cells.any((c) => !_locked.contains(c))) {
+    for (final w in memberships) {
+      if (w.cells.any((c) => !_locked.contains(c))) {
         return w;
       }
     }
@@ -498,44 +501,75 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     if (syllable == null) {
       return SizedBox(width: size, height: size);
     }
+    final memberships = _memberships[cell] ?? const <SilbenWord>[];
     final locked = _locked.contains(cell);
     final selected = _selected == cell;
     final wrong = _wrongCell == cell;
+    final inActiveWord =
+        _activeWord != null && memberships.contains(_activeWord);
     final reduceMotion = SoriMotion.reduceMotion(context);
+    final directions = <String>[];
+    for (final word in memberships) {
+      if (!directions.contains(word.dir)) {
+        directions.add(word.dir);
+      }
+    }
 
-    Widget box = AnimatedContainer(
-      duration: SoriMotion.respect(context, SoriMotion.fast),
-      width: size,
-      height: size,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: locked
-            ? SoriColors.success.withValues(alpha: 0.16)
-            : selected
-            ? SoriColors.accent.withValues(alpha: 0.10)
-            : s.surfaceAlt,
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(
-          color: locked
-              ? SoriColors.success
-              : selected
-              ? SoriColors.accent
-              : s.border,
-          width: locked || selected ? 1.8 : 1,
+    Widget box = Stack(
+      children: [
+        AnimatedContainer(
+          key: ValueKey('silben-cell-surface-${cell.$1}-${cell.$2}'),
+          duration: SoriMotion.respect(context, SoriMotion.fast),
+          width: size,
+          height: size,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: locked
+                ? SoriColors.success.withValues(alpha: 0.16)
+                : selected
+                ? SoriColors.info.withValues(alpha: 0.10)
+                : inActiveWord
+                ? SoriColors.info.withValues(alpha: 0.06)
+                : s.surfaceAlt,
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(
+              color: locked
+                  ? SoriColors.success
+                  : selected
+                  ? SoriColors.info
+                  : s.border,
+              width: locked
+                  ? 1.8
+                  : selected
+                  ? 2
+                  : 1,
+            ),
+          ),
+          child: locked
+              ? Text(
+                  syllable,
+                  style: TextStyle(
+                    fontSize: size * 0.5,
+                    fontWeight: FontWeight.w800,
+                    color: SoriColors.success,
+                  ),
+                )
+              : wrong
+              ? const Icon(
+                  Icons.close_rounded,
+                  color: SoriColors.danger,
+                  size: 24,
+                )
+              : null,
         ),
-      ),
-      child: locked
-          ? Text(
-              syllable,
-              style: TextStyle(
-                fontSize: size * 0.5,
-                fontWeight: FontWeight.w800,
-                color: SoriColors.success,
-              ),
-            )
-          : wrong
-          ? const Icon(Icons.close_rounded, color: SoriColors.danger, size: 24)
-          : null,
+        if (memberships.length > 1)
+          Positioned.fill(
+            child: SilbenCrossingWedges(
+              key: ValueKey('silben-crossing-wedges-${cell.$1}-${cell.$2}'),
+              directions: directions,
+            ),
+          ),
+      ],
     );
 
     if (selected && wrong && !reduceMotion) {
@@ -551,12 +585,33 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
         child: box,
       );
     }
+    final t = AppL10n.of(context);
+    final membershipLabel = memberships
+        .map((word) {
+          final direction = word.isHorizontal
+              ? t.silbenDirectionHorizontal
+              : t.silbenDirectionVertical;
+          return '$direction: ${word.german}';
+        })
+        .join('; ');
+    final semanticsParts = <String>[
+      t.silbenCellPosition(cell.$1 + 1, cell.$2 + 1),
+      t.silbenCellMembership(membershipLabel),
+      if (inActiveWord) t.silbenCellActiveWord(_activeWord!.german),
+      if (locked) t.wordleAnswerLabel(syllable),
+      if (wrong)
+        t.silbenCellWrong
+      else if (locked)
+        t.silbenCellCorrect
+      else
+        t.silbenCellOpen,
+    ];
     return Semantics(
+      key: ValueKey('silben-cell-${cell.$1}-${cell.$2}'),
       button: true,
       enabled: !locked,
       selected: selected,
-      label: locked ? syllable : '${cell.$1 + 1}, ${cell.$2 + 1}',
-      value: wrong ? AppL10n.of(context).statsWrong : null,
+      label: '${semanticsParts.join('. ')}.',
       onTap: locked ? null : () => _onCellTap(cell),
       excludeSemantics: true,
       child: GestureDetector(
@@ -613,75 +668,109 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   }
 
   Widget _clues(SilbenPuzzle p, SoriSurfaces s) {
-    final words = [...p.words]
-      ..sort((a, b) => a.row != b.row ? a.row - b.row : a.col - b.col);
+    final words =
+        [for (var i = 0; i < p.words.length; i++) (index: i, word: p.words[i])]
+          ..sort(
+            (a, b) => a.word.row != b.word.row
+                ? a.word.row - b.word.row
+                : a.word.col - b.word.col,
+          );
     return SoriCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           for (var i = 0; i < words.length; i++) ...[
             if (i > 0) Divider(height: Spacing.lg, color: s.border),
-            _clueRow(words[i], s),
+            _clueRow(words[i].word, words[i].index, s),
           ],
         ],
       ),
     );
   }
 
-  Widget _clueRow(SilbenWord w, SoriSurfaces s) {
+  Widget _clueRow(SilbenWord w, int declaredIndex, SoriSurfaces s) {
     final done = _spoken.contains(w.answer);
+    final active = _activeWord == w;
     final label = done
         ? '${w.answer} · ${w.german}. ${w.exampleDe} ${w.exampleKo}'
         : '${w.german}. ${w.exampleDe} ${w.exampleKo}';
     void onTap() => _onClueTap(w);
     return Semantics(
+      key: ValueKey('silben-clue-$declaredIndex'),
       button: true,
+      selected: active,
       label: label,
       onTap: onTap,
       excludeSemantics: true,
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: onTap,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Icon(
-              w.isHorizontal
-                  ? Icons.arrow_forward_rounded
-                  : Icons.arrow_downward_rounded,
-              size: 16,
-              color: done ? SoriColors.success : SoriColors.accent,
+        child: AnimatedContainer(
+          key: ValueKey('silben-clue-surface-$declaredIndex'),
+          duration: SoriMotion.respect(context, SoriMotion.fast),
+          padding: const EdgeInsets.symmetric(
+            horizontal: Spacing.sm,
+            vertical: Spacing.xs,
+          ),
+          decoration: BoxDecoration(
+            color: active
+                ? SoriColors.info.withValues(alpha: 0.06)
+                : Colors.transparent,
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(
+              color: active ? SoriColors.info : Colors.transparent,
+              width: active ? 1.5 : 0,
             ),
-            const SizedBox(width: Spacing.sm),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    done ? '${w.answer} · ${w.german}' : w.german,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w800,
-                      fontSize: 15,
-                      color: done ? SoriColors.success : s.text,
-                    ),
-                  ),
-                  const SizedBox(height: 2),
-                  Text(
-                    w.exampleDe,
-                    style: TextStyle(fontSize: 12.5, color: s.textMuted),
-                  ),
-                  Text(
-                    w.exampleKo,
-                    style: TextStyle(
-                      fontSize: 12.5,
-                      color: s.textMuted,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ],
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(
+                w.isHorizontal
+                    ? Icons.arrow_forward_rounded
+                    : Icons.arrow_downward_rounded,
+                size: 16,
+                color: done
+                    ? SoriColors.success
+                    : active
+                    ? SoriColors.info
+                    : SoriColors.accent,
               ),
-            ),
-          ],
+              const SizedBox(width: Spacing.sm),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      done ? '${w.answer} · ${w.german}' : w.german,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w800,
+                        fontSize: 15,
+                        color: done
+                            ? SoriColors.success
+                            : active
+                            ? SoriColors.info
+                            : s.text,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      w.exampleDe,
+                      style: TextStyle(fontSize: 12.5, color: s.textMuted),
+                    ),
+                    Text(
+                      w.exampleKo,
+                      style: TextStyle(
+                        fontSize: 12.5,
+                        color: s.textMuted,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -722,4 +811,68 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       ),
     );
   }
+}
+
+/// Non-color crossing cue: horizontal and vertical memberships use wedges
+/// with different geometry at opposite corners of the cell.
+class SilbenCrossingWedges extends StatelessWidget {
+  SilbenCrossingWedges({super.key, required Iterable<String> directions})
+    : directions = List<String>.unmodifiable(directions);
+
+  final List<String> directions;
+
+  @override
+  Widget build(BuildContext context) => IgnorePointer(
+    child: CustomPaint(
+      painter: _SilbenCrossingWedgePainter(
+        horizontal: directions.contains('h'),
+        vertical: directions.contains('v'),
+      ),
+    ),
+  );
+}
+
+class _SilbenCrossingWedgePainter extends CustomPainter {
+  const _SilbenCrossingWedgePainter({
+    required this.horizontal,
+    required this.vertical,
+  });
+
+  final bool horizontal;
+  final bool vertical;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = SoriColors.info.withValues(alpha: 0.88)
+      ..style = PaintingStyle.fill;
+    if (horizontal) {
+      final horizontalWidth = math.min(18.0, size.width * 0.38);
+      final horizontalDepth = math.min(8.0, size.height * 0.18);
+      canvas.drawPath(
+        Path()
+          ..moveTo(0, 0)
+          ..lineTo(horizontalWidth, 0)
+          ..lineTo(0, horizontalDepth)
+          ..close(),
+        paint,
+      );
+    }
+    if (vertical) {
+      final verticalHeight = math.min(18.0, size.height * 0.38);
+      final verticalDepth = math.min(8.0, size.width * 0.18);
+      canvas.drawPath(
+        Path()
+          ..moveTo(size.width, size.height)
+          ..lineTo(size.width, size.height - verticalHeight)
+          ..lineTo(size.width - verticalDepth, size.height)
+          ..close(),
+        paint,
+      );
+    }
+  }
+
+  @override
+  bool shouldRepaint(_SilbenCrossingWedgePainter oldDelegate) =>
+      horizontal != oldDelegate.horizontal || vertical != oldDelegate.vertical;
 }

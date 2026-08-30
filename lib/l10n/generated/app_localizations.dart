@@ -1759,6 +1759,54 @@ abstract class AppL10n {
   /// **'Für deine Lernstufe sind noch keine Silben-Rätsel vorbereitet.'**
   String get silbenEmptyBody;
 
+  /// No description provided for @silbenCellPosition.
+  ///
+  /// In de, this message translates to:
+  /// **'Zeile {row}, Spalte {column}'**
+  String silbenCellPosition(int row, int column);
+
+  /// No description provided for @silbenCellMembership.
+  ///
+  /// In de, this message translates to:
+  /// **'Wörter: {memberships}'**
+  String silbenCellMembership(String memberships);
+
+  /// No description provided for @silbenCellActiveWord.
+  ///
+  /// In de, this message translates to:
+  /// **'Aktives Wort: {word}'**
+  String silbenCellActiveWord(String word);
+
+  /// No description provided for @silbenCellOpen.
+  ///
+  /// In de, this message translates to:
+  /// **'Offen'**
+  String get silbenCellOpen;
+
+  /// No description provided for @silbenCellCorrect.
+  ///
+  /// In de, this message translates to:
+  /// **'Richtig'**
+  String get silbenCellCorrect;
+
+  /// No description provided for @silbenCellWrong.
+  ///
+  /// In de, this message translates to:
+  /// **'Falsch'**
+  String get silbenCellWrong;
+
+  /// No description provided for @silbenDirectionHorizontal.
+  ///
+  /// In de, this message translates to:
+  /// **'Waagerecht'**
+  String get silbenDirectionHorizontal;
+
+  /// No description provided for @silbenDirectionVertical.
+  ///
+  /// In de, this message translates to:
+  /// **'Senkrecht'**
+  String get silbenDirectionVertical;
+
   /// No description provided for @screenHangulTitle.
   ///
   /// In de, this message translates to:

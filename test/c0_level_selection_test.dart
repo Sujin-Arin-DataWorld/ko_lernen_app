@@ -341,9 +341,18 @@ void main() {
         await _pumpUntil(tester, find.byType(SoriChromeRow));
 
         expect(find.textContaining('A1 ·'), findsOneWidget);
-        final cellLabel = '${cell.$1 + 1}, ${cell.$2 + 1}';
-        await tester.ensureVisible(find.bySemanticsLabel(cellLabel));
-        await tester.tap(find.bySemanticsLabel(cellLabel));
+        final cellFinder = find.byKey(
+          ValueKey('silben-cell-${cell.$1}-${cell.$2}'),
+        );
+        final cellSemantics = tester.widget<Semantics>(cellFinder);
+        expect(
+          cellSemantics.properties.label,
+          contains('Row ${cell.$1 + 1}, column ${cell.$2 + 1}'),
+        );
+        expect(cellSemantics.properties.label, contains('Words:'));
+        expect(cellSemantics.properties.label, endsWith('Open.'));
+        await tester.ensureVisible(cellFinder);
+        await tester.tap(cellFinder);
         await tester.ensureVisible(find.bySemanticsLabel(wrongTile).first);
         expect(
           tester.getSize(find.bySemanticsLabel(wrongTile).first),
@@ -351,6 +360,11 @@ void main() {
         );
         await tester.tap(find.bySemanticsLabel(wrongTile).first);
         await tester.pump();
+
+        expect(
+          tester.widget<Semantics>(cellFinder).properties.label,
+          endsWith('Incorrect.'),
+        );
 
         final levelChrome = find.byType(SoriChromeRow);
         expect(find.byIcon(Icons.close_rounded), findsOneWidget);

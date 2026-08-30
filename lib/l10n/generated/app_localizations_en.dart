@@ -965,6 +965,36 @@ class AppL10nEn extends AppL10n {
       'No syllable puzzles are ready for your learning level yet.';
 
   @override
+  String silbenCellPosition(int row, int column) {
+    return 'Row $row, column $column';
+  }
+
+  @override
+  String silbenCellMembership(String memberships) {
+    return 'Words: $memberships';
+  }
+
+  @override
+  String silbenCellActiveWord(String word) {
+    return 'Active word: $word';
+  }
+
+  @override
+  String get silbenCellOpen => 'Open';
+
+  @override
+  String get silbenCellCorrect => 'Correct';
+
+  @override
+  String get silbenCellWrong => 'Incorrect';
+
+  @override
+  String get silbenDirectionHorizontal => 'Horizontal';
+
+  @override
+  String get silbenDirectionVertical => 'Vertical';
+
+  @override
   String get screenHangulTitle => 'Hangul';
 
   @override
