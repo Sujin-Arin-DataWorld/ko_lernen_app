@@ -30,6 +30,15 @@ class SceneInventoryTest(unittest.TestCase):
             "byte-exact generated Markdown checks need LF on Windows checkouts",
         )
 
+    def test_live_runtime_inventory_is_strict_and_drift_free(self) -> None:
+        self.assertEqual(audit_scene_assets.main(["--check"]), 0)
+
+    def test_live_pending_review_inventory_is_strict(self) -> None:
+        self.assertEqual(
+            audit_scene_assets.main(["--check", "--pending-review"]),
+            0,
+        )
+
     def _ref(
         self,
         scenario_id: str,

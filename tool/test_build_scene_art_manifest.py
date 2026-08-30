@@ -146,9 +146,7 @@ class SceneArtManifestTest(unittest.TestCase):
                         f"runtime-scene-category/{row['category']}",
                     ],
                 )
-                expected_reference = (
-                    "market" if row["category"] == "theme_park" else row["category"]
-                )
+                expected_reference = row["category"]
                 self.assertEqual(
                     row["referenceImagePath"],
                     f"assets/illustrations/scenes/{expected_reference}.png",

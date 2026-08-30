@@ -131,7 +131,7 @@
 | scenarios_a1.json | a1_taxi_address | a1 | taxi | fallback | assets/illustrations/scenes/taxi.png | 1086×1448 P | f2c8c37cc8e37b3e2dab42ef48bd4d3dec03ed0ab4697092406257e6bfeb7891 | true |
 | scenarios_a1.json | a1_tea_order | a1 | cafe | fallback | assets/illustrations/scenes/cafe.png | 1086×1448 P | ab25496166fae08af12fa0a2b3677d7bd1c614c95f77b0abb3f10732d303e0d7 | true |
 | scenarios_a1.json | a1_thanks_seat | a1 | station | fallback | assets/illustrations/scenes/station.png | 1086×1448 P | 1099430b7b3cb553fd7059914c1f650aec9aa2120363f565ae2e777fb0ea28c4 | true |
-| scenarios_a1.json | a1_theme_park_date_choices | a1 | theme_park | fallback | assets/illustrations/scenes/market.png | 1086×1448 P | 168c6f9eb38c85d274f97b380a570329257511cd293508b25fd3ef134734c417 | true |
+| scenarios_a1.json | a1_theme_park_date_choices | a1 | theme_park | fallback | assets/illustrations/scenes/theme_park.png | 1448×1086 RGB | 743645508478fde162aa8b0077d5096d517aee8b55088a03a93bd090429dde22 | true |
 | scenarios_a1.json | a1_trash_sort | a1 | home | fallback | assets/illustrations/scenes/home.png | 1086×1448 P | 282d14d65653bc674c4de952b213b5148fdc5078e3783c251d6fb119a05387a9 | true |
 | scenarios_a1.json | a1_water_shop | a1 | convenience | fallback | assets/illustrations/scenes/convenience.png | 1086×1448 P | c040d3eccfb8c09c938e82b6827ee415e2cdff5e635c74759cbd5f7b4550ff8e | true |
 | scenarios_a1.json | a1_wayfinding_exit_number | a1 | station | fallback | assets/illustrations/scenes/station.png | 1086×1448 P | 1099430b7b3cb553fd7059914c1f650aec9aa2120363f565ae2e777fb0ea28c4 | true |
@@ -220,7 +220,7 @@
 | scenarios_a2.json | a2_stretch_start | a2 | home | fallback | assets/illustrations/scenes/home.png | 1086×1448 P | 282d14d65653bc674c4de952b213b5148fdc5078e3783c251d6fb119a05387a9 | true |
 | scenarios_a2.json | a2_taxi_wait | a2 | taxi | fallback | assets/illustrations/scenes/taxi.png | 1086×1448 P | f2c8c37cc8e37b3e2dab42ef48bd4d3dec03ed0ab4697092406257e6bfeb7891 | true |
 | scenarios_a2.json | a2_tea_taste | a2 | market | fallback | assets/illustrations/scenes/market.png | 1086×1448 P | 168c6f9eb38c85d274f97b380a570329257511cd293508b25fd3ef134734c417 | true |
-| scenarios_a2.json | a2_theme_park_date_break | a2 | theme_park | fallback | assets/illustrations/scenes/market.png | 1086×1448 P | 168c6f9eb38c85d274f97b380a570329257511cd293508b25fd3ef134734c417 | true |
+| scenarios_a2.json | a2_theme_park_date_break | a2 | theme_park | fallback | assets/illustrations/scenes/theme_park.png | 1448×1086 RGB | 743645508478fde162aa8b0077d5096d517aee8b55088a03a93bd090429dde22 | true |
 | scenarios_a2.json | a2_transfer_limit | a2 | office | fallback | assets/illustrations/scenes/office.png | 1086×1448 P | 9f850f7a7356452c44163a94f7e7295d2f4aeeac9b09c36800b8ae69b26fdca3 | true |
 | scenarios_a2.json | a2_volunteer_vest | a2 | market | fallback | assets/illustrations/scenes/market.png | 1086×1448 P | 168c6f9eb38c85d274f97b380a570329257511cd293508b25fd3ef134734c417 | true |
 | scenarios_a2.json | a2_water_set | a2 | home | fallback | assets/illustrations/scenes/home.png | 1086×1448 P | 282d14d65653bc674c4de952b213b5148fdc5078e3783c251d6fb119a05387a9 | true |
@@ -301,7 +301,7 @@
 | scenarios_b1.json | b1_school_letter | b1 | home | fallback | assets/illustrations/scenes/home.png | 1086×1448 P | 282d14d65653bc674c4de952b213b5148fdc5078e3783c251d6fb119a05387a9 | true |
 | scenarios_b1.json | b1_taxi_receipt | b1 | taxi | fallback | assets/illustrations/scenes/taxi.png | 1086×1448 P | f2c8c37cc8e37b3e2dab42ef48bd4d3dec03ed0ab4697092406257e6bfeb7891 | true |
 | scenarios_b1.json | b1_team_meeting_coordination | b1 | office | fallback | assets/illustrations/scenes/office.png | 1086×1448 P | 9f850f7a7356452c44163a94f7e7295d2f4aeeac9b09c36800b8ae69b26fdca3 | true |
-| scenarios_b1.json | b1_theme_park_date_thrill | b1 | theme_park | fallback | assets/illustrations/scenes/market.png | 1086×1448 P | 168c6f9eb38c85d274f97b380a570329257511cd293508b25fd3ef134734c417 | true |
+| scenarios_b1.json | b1_theme_park_date_thrill | b1 | theme_park | fallback | assets/illustrations/scenes/theme_park.png | 1448×1086 RGB | 743645508478fde162aa8b0077d5096d517aee8b55088a03a93bd090429dde22 | true |
 | scenarios_b1.json | b1_typhoon_change | b1 | station | fallback | assets/illustrations/scenes/station.png | 1086×1448 P | 1099430b7b3cb553fd7059914c1f650aec9aa2120363f565ae2e777fb0ea28c4 | true |
 | scenarios_b1.json | b1_volunteer_gap | b1 | market | fallback | assets/illustrations/scenes/market.png | 1086×1448 P | 168c6f9eb38c85d274f97b380a570329257511cd293508b25fd3ef134734c417 | true |
 | scenarios_b1.json | b1_waitlist | b1 | station | fallback | assets/illustrations/scenes/station.png | 1086×1448 P | 1099430b7b3cb553fd7059914c1f650aec9aa2120363f565ae2e777fb0ea28c4 | true |
@@ -382,7 +382,7 @@
 | scenarios_b2.json | b2_source_check | b2 | office | fallback | assets/illustrations/scenes/office.png | 1086×1448 P | 9f850f7a7356452c44163a94f7e7295d2f4aeeac9b09c36800b8ae69b26fdca3 | true |
 | scenarios_b2.json | b2_station_hold | b2 | station | fallback | assets/illustrations/scenes/station.png | 1086×1448 P | 1099430b7b3cb553fd7059914c1f650aec9aa2120363f565ae2e777fb0ea28c4 | true |
 | scenarios_b2.json | b2_taxi_escalate | b2 | taxi | fallback | assets/illustrations/scenes/taxi.png | 1086×1448 P | f2c8c37cc8e37b3e2dab42ef48bd4d3dec03ed0ab4697092406257e6bfeb7891 | true |
-| scenarios_b2.json | b2_theme_park_date_safety | b2 | theme_park | fallback | assets/illustrations/scenes/market.png | 1086×1448 P | 168c6f9eb38c85d274f97b380a570329257511cd293508b25fd3ef134734c417 | true |
+| scenarios_b2.json | b2_theme_park_date_safety | b2 | theme_park | fallback | assets/illustrations/scenes/theme_park.png | 1448×1086 RGB | 743645508478fde162aa8b0077d5096d517aee8b55088a03a93bd090429dde22 | true |
 | scenarios_b2.json | b2_time_box | b2 | office | fallback | assets/illustrations/scenes/office.png | 1086×1448 P | 9f850f7a7356452c44163a94f7e7295d2f4aeeac9b09c36800b8ae69b26fdca3 | true |
 | scenarios_b2.json | b2_vacate_short | b2 | home | fallback | assets/illustrations/scenes/home.png | 1086×1448 P | 282d14d65653bc674c4de952b213b5148fdc5078e3783c251d6fb119a05387a9 | true |
 | scenarios_b2.json | b2_youtube_collab_pitch | b2 | office | fallback | assets/illustrations/scenes/office.png | 1086×1448 P | 9f850f7a7356452c44163a94f7e7295d2f4aeeac9b09c36800b8ae69b26fdca3 | true |
@@ -437,7 +437,7 @@
 | scenarios_c1.json | c1_sample_bias | c1 | office | fallback | assets/illustrations/scenes/office.png | 1086×1448 P | 9f850f7a7356452c44163a94f7e7295d2f4aeeac9b09c36800b8ae69b26fdca3 | true |
 | scenarios_c1.json | c1_speaking_slot | c1 | office | fallback | assets/illustrations/scenes/office.png | 1086×1448 P | 9f850f7a7356452c44163a94f7e7295d2f4aeeac9b09c36800b8ae69b26fdca3 | true |
 | scenarios_c1.json | c1_survey_limits_briefing | c1 | office | fallback | assets/illustrations/scenes/office.png | 1086×1448 P | 9f850f7a7356452c44163a94f7e7295d2f4aeeac9b09c36800b8ae69b26fdca3 | true |
-| scenarios_c1.json | c1_theme_park_date_next_time | c1 | theme_park | fallback | assets/illustrations/scenes/market.png | 1086×1448 P | 168c6f9eb38c85d274f97b380a570329257511cd293508b25fd3ef134734c417 | true |
+| scenarios_c1.json | c1_theme_park_date_next_time | c1 | theme_park | fallback | assets/illustrations/scenes/theme_park.png | 1448×1086 RGB | 743645508478fde162aa8b0077d5096d517aee8b55088a03a93bd090429dde22 | true |
 | scenarios_c1.json | c1_uncertainty | c1 | office | fallback | assets/illustrations/scenes/office.png | 1086×1448 P | 9f850f7a7356452c44163a94f7e7295d2f4aeeac9b09c36800b8ae69b26fdca3 | true |
 | scenarios_c1.json | c1_work_ai_hiring_pilot_review | c1 | office | fallback | assets/illustrations/scenes/office.png | 1086×1448 P | 9f850f7a7356452c44163a94f7e7295d2f4aeeac9b09c36800b8ae69b26fdca3 | true |
 | scenarios_c1.json | c1_youtube_health_claims | c1 | office | fallback | assets/illustrations/scenes/office.png | 1086×1448 P | 9f850f7a7356452c44163a94f7e7295d2f4aeeac9b09c36800b8ae69b26fdca3 | true |
@@ -482,7 +482,7 @@
 | scenarios_c2.json | c2_representation_minority_view_regardless | c2 | office | fallback | assets/illustrations/scenes/office.png | 1086×1448 P | 9f850f7a7356452c44163a94f7e7295d2f4aeeac9b09c36800b8ae69b26fdca3 | true |
 | scenarios_c2.json | c2_representation_press_quote_not_official | c2 | cafe | fallback | assets/illustrations/scenes/cafe.png | 1086×1448 P | ab25496166fae08af12fa0a2b3677d7bd1c614c95f77b0abb3f10732d303e0d7 | true |
 | scenarios_c2.json | c2_representation_spokesperson_handover_concession | c2 | office | fallback | assets/illustrations/scenes/office.png | 1086×1448 P | 9f850f7a7356452c44163a94f7e7295d2f4aeeac9b09c36800b8ae69b26fdca3 | true |
-| scenarios_c2.json | c2_theme_park_date_reflection | c2 | theme_park | fallback | assets/illustrations/scenes/market.png | 1086×1448 P | 168c6f9eb38c85d274f97b380a570329257511cd293508b25fd3ef134734c417 | true |
+| scenarios_c2.json | c2_theme_park_date_reflection | c2 | theme_park | fallback | assets/illustrations/scenes/theme_park.png | 1448×1086 RGB | 743645508478fde162aa8b0077d5096d517aee8b55088a03a93bd090429dde22 | true |
 | scenarios_c2.json | c2_trace_log | c2 | office | fallback | assets/illustrations/scenes/office.png | 1086×1448 P | 9f850f7a7356452c44163a94f7e7295d2f4aeeac9b09c36800b8ae69b26fdca3 | true |
 | scenarios_c2.json | c2_uneven_impact | c2 | office | fallback | assets/illustrations/scenes/office.png | 1086×1448 P | 9f850f7a7356452c44163a94f7e7295d2f4aeeac9b09c36800b8ae69b26fdca3 | true |
 | scenarios_c2.json | c2_withdraw_deep | c2 | office | fallback | assets/illustrations/scenes/office.png | 1086×1448 P | 9f850f7a7356452c44163a94f7e7295d2f4aeeac9b09c36800b8ae69b26fdca3 | true |
