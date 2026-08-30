@@ -7315,7 +7315,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get ilduWorldRotateBuildingHint =>
-      'Drag it on the map. Swipe to rotate; pinch or use the buttons to zoom.';
+      'Drag it on the map with one finger; pinch with two fingers to resize it; swipe the preview to rotate it.';
 
   @override
   String get ilduWorldZoomInBuilding => 'Zoom in on building';

@@ -3463,7 +3463,7 @@
   "hanokWorldTitle": "My Hanok world",
   "ilduWorldTitle": "My Ildu Gotaek",
   "ilduWorldPanHint": "Swipe sideways to see the next courtyard.",
-  "ilduWorldRotateBuildingHint": "Drag it on the map. Swipe to rotate; pinch or use the buttons to zoom.",
+  "ilduWorldRotateBuildingHint": "Drag it on the map with one finger; pinch with two fingers to resize it; swipe the preview to rotate it.",
   "ilduWorldZoomInBuilding": "Zoom in on building",
   "ilduWorldZoomOutBuilding": "Zoom out from building",
   "ilduWorldResetBuildingZoom": "Reset building zoom",
