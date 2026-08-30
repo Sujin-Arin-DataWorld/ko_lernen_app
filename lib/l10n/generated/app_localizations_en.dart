@@ -4266,6 +4266,16 @@ class AppL10nEn extends AppL10n {
       'The body, health, nature, safety, and leisure';
 
   @override
+  String get clozeGroupFilterLabel => 'Topic group';
+
+  @override
+  String get clozeGroupEmptyBody =>
+      'There are no sentences for this combination. Choose all topics or another group.';
+
+  @override
+  String get clozeGroupChooseAnother => 'Choose another group';
+
+  @override
   String get speedMatchTitle => 'Speed pairs';
 
   @override

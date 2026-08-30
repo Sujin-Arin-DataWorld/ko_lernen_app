@@ -4283,6 +4283,16 @@ class AppL10nDe extends AppL10n {
       'Körper, Gesundheit, Natur, Sicherheit und Freizeit';
 
   @override
+  String get clozeGroupFilterLabel => 'Themenbereich';
+
+  @override
+  String get clozeGroupEmptyBody =>
+      'Für diese Kombination gibt es keine Sätze. Wähle alle Themen oder einen anderen Bereich.';
+
+  @override
+  String get clozeGroupChooseAnother => 'Anderen Bereich wählen';
+
+  @override
   String get speedMatchTitle => 'Blitz-Paare';
 
   @override

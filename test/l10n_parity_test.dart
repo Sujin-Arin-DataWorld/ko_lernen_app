@@ -3,47 +3,10 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/data/cloze_topic_groups.dart';
+import 'package:ko_lernen_app/l10n/cloze_topic_group_localizations.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations_de.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations_en.dart';
-
-typedef _ClozeGroupCopy = ({String label, String description});
-
-_ClozeGroupCopy _clozeGroupCopy(AppL10n t, ClozeTopicGroupId group) =>
-    switch (group) {
-      ClozeTopicGroupId.everydayHome => (
-        label: t.clozeGroupEverydayHome,
-        description: t.clozeGroupEverydayHomeDescription,
-      ),
-      ClozeTopicGroupId.peopleRelationships => (
-        label: t.clozeGroupPeopleRelationships,
-        description: t.clozeGroupPeopleRelationshipsDescription,
-      ),
-      ClozeTopicGroupId.travelServices => (
-        label: t.clozeGroupTravelServices,
-        description: t.clozeGroupTravelServicesDescription,
-      ),
-      ClozeTopicGroupId.workEducation => (
-        label: t.clozeGroupWorkEducation,
-        description: t.clozeGroupWorkEducationDescription,
-      ),
-      ClozeTopicGroupId.languageMedia => (
-        label: t.clozeGroupLanguageMedia,
-        description: t.clozeGroupLanguageMediaDescription,
-      ),
-      ClozeTopicGroupId.societyInstitutions => (
-        label: t.clozeGroupSocietyInstitutions,
-        description: t.clozeGroupSocietyInstitutionsDescription,
-      ),
-      ClozeTopicGroupId.technologyScience => (
-        label: t.clozeGroupTechnologyScience,
-        description: t.clozeGroupTechnologyScienceDescription,
-      ),
-      ClozeTopicGroupId.healthNatureLeisure => (
-        label: t.clozeGroupHealthNatureLeisure,
-        description: t.clozeGroupHealthNatureLeisureDescription,
-      ),
-    };
 
 // de/en 번역 키 parity 래칫 — 현재 델타 0. 늘리지 말 것.
 // (@ 로 시작하는 메타데이터 항목은 템플릿(DE) 전용이 정상이라 제외.)
@@ -66,14 +29,15 @@ void main() {
     for (final t in <AppL10n>[AppL10nDe(), AppL10nEn()]) {
       expect(t.clozeGroupAll.trim(), isNotEmpty);
       for (final group in ClozeTopicGroups.ordered) {
-        final copy = _clozeGroupCopy(t, group);
+        final label = group.localizedLabel(t);
+        final description = group.localizedDescription(t);
         expect(
-          copy.label.trim(),
+          label.trim(),
           isNotEmpty,
           reason: '${t.localeName}: $group label',
         );
         expect(
-          copy.description.trim(),
+          description.trim(),
           isNotEmpty,
           reason: '${t.localeName}: $group description',
         );
@@ -83,16 +47,19 @@ void main() {
 
   test('Cloze 그룹 라벨과 설명은 각 언어 안에서 서로 구별된다', () {
     for (final t in <AppL10n>[AppL10nDe(), AppL10nEn()]) {
-      final copies = ClozeTopicGroups.ordered
-          .map((group) => _clozeGroupCopy(t, group))
+      final labels = ClozeTopicGroups.ordered
+          .map((group) => group.localizedLabel(t))
+          .toList(growable: false);
+      final descriptions = ClozeTopicGroups.ordered
+          .map((group) => group.localizedDescription(t))
           .toList(growable: false);
       expect(
-        {t.clozeGroupAll, ...copies.map((copy) => copy.label)},
+        {t.clozeGroupAll, ...labels},
         hasLength(ClozeTopicGroups.ordered.length + 1),
         reason: '${t.localeName}: labels',
       );
       expect(
-        copies.map((copy) => copy.description).toSet(),
+        descriptions.toSet(),
         hasLength(ClozeTopicGroups.ordered.length),
         reason: '${t.localeName}: descriptions',
       );
@@ -105,8 +72,8 @@ void main() {
       final visibleCopy = <String>[
         t.clozeGroupAll,
         for (final group in ClozeTopicGroups.ordered) ...[
-          _clozeGroupCopy(t, group).label,
-          _clozeGroupCopy(t, group).description,
+          group.localizedLabel(t),
+          group.localizedDescription(t),
         ],
       ];
       expect(visibleCopy.where(hangul.hasMatch), isEmpty, reason: t.localeName);

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../data/cloze_topic_groups.dart';
+import '../l10n/cloze_topic_group_localizations.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../widgets/app_loading.dart';
 import '../models/feedback_completion.dart';
@@ -15,13 +17,16 @@ import '../services/data_loader.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/chip.dart';
 import '../widgets/sori/chrome_row.dart';
 import '../widgets/sori/cloze_prompt.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/pressable.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/sheet.dart';
 import '../widgets/sori/speakable.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
@@ -58,11 +63,13 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
   static const _roundSize = 10;
   static const _levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
   static const _allLevels = '';
+  static const _allGroups = '';
 
   List<ClozeItem> _all = const [];
   Map<String, Vocab> _vocabByKo = const {};
   bool _loading = true;
   String? _level; // null = alle
+  ClozeTopicGroupId? _group; // null = all topic groups
   int _roundId = 0;
 
   List<ClozeItem> _round = const [];
@@ -143,7 +150,11 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
   }
 
   void _newRound() {
-    final pool = ClozeLoader.filter(_all, _level)..shuffle();
+    final pool = ClozeTopicGroups.filterItems(
+      _all,
+      level: _level,
+      group: _group,
+    )..shuffle();
     final sourceId = _missionContext?.initialContentId;
     if (sourceId != null) {
       final sourceIndex = pool.indexWhere((item) => item.id == sourceId);
@@ -157,6 +168,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
       _idx = 0;
       _score = 0;
       _picked = null;
+      _retried = false;
       _outcome = null;
       _feedbackCompletion.reset();
     });
@@ -164,6 +176,11 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
 
   void _setLevel(String? level) {
     _level = level;
+    _newRound();
+  }
+
+  void _setGroup(ClozeTopicGroupId? group) {
+    _group = group;
     _newRound();
   }
 
@@ -183,20 +200,78 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
     _setLevel(next == _allLevels ? null : next);
   }
 
+  Future<void> _showGroupFilter(AppL10n t) async {
+    final levelItems = ClozeTopicGroups.filterItems(_all, level: _level);
+    final counts = ClozeTopicGroups.countsForLevel(_all, level: _level);
+    final next = await showSoriSheet<String>(
+      context: context,
+      builder: (sheetContext) => Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            t.clozeGroupFilterLabel,
+            style: SoriTextTheme.of(sheetContext).h3,
+          ),
+          const SizedBox(height: Spacing.md),
+          _ClozeGroupChoice(
+            choiceKey: const ValueKey('cloze-group-sheet-all'),
+            label: t.clozeGroupAll,
+            count: levelItems.length,
+            selected: _group == null,
+            onTap: _group == null
+                ? null
+                : () => Navigator.of(sheetContext).pop(_allGroups),
+          ),
+          for (final group in ClozeTopicGroups.ordered) ...[
+            const SizedBox(height: Spacing.xs),
+            _ClozeGroupChoice(
+              choiceKey: ValueKey('cloze-group-sheet-${group.name}'),
+              label: group.localizedLabel(t),
+              description: group.localizedDescription(t),
+              count: counts[group]!,
+              selected: _group == group,
+              onTap: _group == group || counts[group] == 0
+                  ? null
+                  : () => Navigator.of(sheetContext).pop(group.name),
+            ),
+          ],
+        ],
+      ),
+    );
+    if (!mounted || next == null) return;
+    _setGroup(
+      next == _allGroups ? null : ClozeTopicGroupId.values.byName(next),
+    );
+  }
+
   Widget _levelChrome(AppL10n t) {
     if (widget.courseContext != null || widget.courseUnitId != null) {
       return const SizedBox.shrink();
     }
-    final selected = _level ?? _allLevels;
-    final label = _level == null ? t.clozeLevelAll : _level!.toUpperCase();
+    final levelLabel = _level == null ? t.clozeLevelAll : _level!.toUpperCase();
+    final groupLabel = _group == null
+        ? t.clozeGroupAll
+        : _group!.localizedLabel(t);
+    final groupCount = ClozeTopicGroups.filterItems(
+      _all,
+      level: _level,
+      group: _group,
+    ).length;
     return Padding(
       padding: const EdgeInsets.only(bottom: Spacing.sm),
       child: SoriChromeRow(
         onFilterTap: () => _showLevelFilter(t),
         filterSemanticLabel: t.clozeLevelLabel,
-        meta: Text(
-          '$label · ${_levelCount(selected)}',
-          style: SoriTextTheme.of(context).meta,
+        meta: SoriChip(
+          key: const Key('cloze-group-filter'),
+          label: '$levelLabel · $groupLabel · $groupCount',
+          semanticLabel: '${t.clozeGroupFilterLabel}: $groupLabel, $groupCount',
+          accent: SoriColors.info,
+          selected: _group != null,
+          variant: SoriChipVariant.soft,
+          minInteractiveHeight: SoriLayout.chromeRowTouchHeight,
+          onTap: () => _showGroupFilter(t),
         ),
       ),
     );
@@ -286,6 +361,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
     }
 
     if (_round.isEmpty) {
+      final selectedGroup = _group;
       return SoriStudyFrame(
         title: t.clozeTitle,
         padding: EdgeInsets.zero,
@@ -301,8 +377,20 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
                 child: SoriEmptyState(
                   asset: 'assets/illustrations/mascot/magpie_encourage.png',
                   icon: Icons.menu_book_outlined,
-                  title: t.clozeTitle,
-                  body: t.clozeEmptyBody,
+                  title: selectedGroup == null
+                      ? t.clozeTitle
+                      : selectedGroup.localizedLabel(t),
+                  body: selectedGroup == null
+                      ? t.clozeEmptyBody
+                      : t.clozeGroupEmptyBody,
+                  ctaLabel: selectedGroup == null ? null : t.clozeGroupAll,
+                  onCta: selectedGroup == null ? null : () => _setGroup(null),
+                  secondaryLabel: selectedGroup == null
+                      ? null
+                      : t.clozeGroupChooseAnother,
+                  onSecondary: selectedGroup == null
+                      ? null
+                      : () => _showGroupFilter(t),
                 ),
               ),
             ),
@@ -414,6 +502,99 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
               onTap: () => Navigator.of(context).maybePop(),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ClozeGroupChoice extends StatelessWidget {
+  const _ClozeGroupChoice({
+    required this.choiceKey,
+    required this.label,
+    this.description,
+    required this.count,
+    required this.selected,
+    required this.onTap,
+  });
+
+  final Key choiceKey;
+  final String label;
+  final String? description;
+  final int count;
+  final bool selected;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    final description = this.description;
+    final semanticsLabel = [
+      label,
+      if (description != null) description,
+      '$count',
+    ].join('. ');
+    return Semantics(
+      key: choiceKey,
+      container: true,
+      button: true,
+      enabled: onTap != null,
+      selected: selected,
+      label: semanticsLabel,
+      onTap: onTap,
+      child: ExcludeSemantics(
+        child: SoriPressable(
+          onTap: onTap,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(minHeight: 64),
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                color: selected
+                    ? SoriColors.info.withValues(alpha: 0.14)
+                    : s.surfaceAlt,
+                borderRadius: BorderRadius.circular(SoriRadius.md),
+                border: Border.all(
+                  color: selected ? SoriColors.info : s.border,
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: Spacing.md,
+                  vertical: Spacing.sm,
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(label, style: SoriTextTheme.of(context).label),
+                          if (description != null) ...[
+                            const SizedBox(height: 2),
+                            Text(
+                              description,
+                              style: SoriTextTheme.of(
+                                context,
+                              ).meta.copyWith(color: s.textMuted),
+                            ),
+                          ],
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: Spacing.sm),
+                    Text(
+                      '$count',
+                      style: SoriTextTheme.of(context).meta.copyWith(
+                        color: count == 0 ? s.textDim : SoriColors.info,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
         ),
       ),
     );

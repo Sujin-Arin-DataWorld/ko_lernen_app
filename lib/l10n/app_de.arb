@@ -2154,6 +2154,18 @@
   "@clozeGroupHealthNatureLeisureDescription": {
     "description": "Supporting description for the health, nature, and leisure cloze group."
   },
+  "clozeGroupFilterLabel": "Themenbereich",
+  "@clozeGroupFilterLabel": {
+    "description": "Accessible name for the cloze topic-group selector."
+  },
+  "clozeGroupEmptyBody": "Für diese Kombination gibt es keine Sätze. Wähle alle Themen oder einen anderen Bereich.",
+  "@clozeGroupEmptyBody": {
+    "description": "Recovery message when the selected cloze level and topic group have no items."
+  },
+  "clozeGroupChooseAnother": "Anderen Bereich wählen",
+  "@clozeGroupChooseAnother": {
+    "description": "Action that reopens the cloze topic-group selector."
+  },
   "speedMatchTitle": "Blitz-Paare",
   "speedMatchDesc": "Auf Zeit zuordnen",
   "speedMatchInstruction": "Tippe ein koreanisches Wort, dann die passende Bedeutung.",

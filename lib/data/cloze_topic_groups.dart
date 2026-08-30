@@ -164,6 +164,33 @@ final class ClozeTopicGroups {
 
   static ClozeTopicGroupId? groupForTopic(String topic) => _topicToGroup[topic];
 
+  /// Applies the existing level contract first, then the exact topic group.
+  ///
+  /// The result is always a copy so a play queue can shuffle it without
+  /// mutating canonical source order used by later filter changes.
+  static List<ClozeItem> filterItems(
+    List<ClozeItem> items, {
+    String? level,
+    ClozeTopicGroupId? group,
+  }) {
+    final levelItems = List<ClozeItem>.of(ClozeLoader.filter(items, level));
+    if (group == null) {
+      return levelItems;
+    }
+    return List<ClozeItem>.of(partition(levelItems)[group]!);
+  }
+
+  /// Counts each stable topic group inside the already level-filtered pool.
+  static Map<ClozeTopicGroupId, int> countsForLevel(
+    List<ClozeItem> items, {
+    String? level,
+  }) {
+    final groups = partition(filterItems(items, level: level));
+    return Map<ClozeTopicGroupId, int>.unmodifiable({
+      for (final group in _ordered) group: groups[group]!.length,
+    });
+  }
+
   static Map<ClozeTopicGroupId, List<ClozeItem>> partition(
     Iterable<ClozeItem> items,
   ) {

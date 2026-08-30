@@ -7513,6 +7513,24 @@ abstract class AppL10n {
   /// **'Körper, Gesundheit, Natur, Sicherheit und Freizeit'**
   String get clozeGroupHealthNatureLeisureDescription;
 
+  /// Accessible name for the cloze topic-group selector.
+  ///
+  /// In de, this message translates to:
+  /// **'Themenbereich'**
+  String get clozeGroupFilterLabel;
+
+  /// Recovery message when the selected cloze level and topic group have no items.
+  ///
+  /// In de, this message translates to:
+  /// **'Für diese Kombination gibt es keine Sätze. Wähle alle Themen oder einen anderen Bereich.'**
+  String get clozeGroupEmptyBody;
+
+  /// Action that reopens the cloze topic-group selector.
+  ///
+  /// In de, this message translates to:
+  /// **'Anderen Bereich wählen'**
+  String get clozeGroupChooseAnother;
+
   /// No description provided for @speedMatchTitle.
   ///
   /// In de, this message translates to:
