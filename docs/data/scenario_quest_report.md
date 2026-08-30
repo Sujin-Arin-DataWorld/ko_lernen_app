@@ -52,8 +52,8 @@ payload 필드가 하나라도 비어 있어(`None`/`""` — 예: `sentence` 는
 
 ## 요약
 
-- 스캔한 시나리오: **413개** (샤드 6개: scenarios_a1.json, scenarios_a2.json, scenarios_b1.json, scenarios_b2.json, scenarios_c1.json, scenarios_c2.json)
-- 스캔한 퀘스트: **1734개**
+- 스캔한 시나리오: **419개** (샤드 6개: scenarios_a1.json, scenarios_a2.json, scenarios_b1.json, scenarios_b2.json, scenarios_c1.json, scenarios_c2.json)
+- 스캔한 퀘스트: **1765개**
 - 데이터 결함(payload 필드 누락)으로 비교 제외된 퀘스트: **0개** (아래 "데이터 결함" 절에 개별 나열)
 - 미지원 퀘스트 타입으로 제외된 퀘스트: **0개**
 - 중복 그룹: **0개** (중복 퀘스트 인스턴스 합계 0개)
