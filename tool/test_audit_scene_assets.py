@@ -30,6 +30,19 @@ class SceneInventoryTest(unittest.TestCase):
             "byte-exact generated Markdown checks need LF on Windows checkouts",
         )
 
+    def test_text_source_fingerprints_are_eol_stable(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            lf = root / "source_lf.dart"
+            crlf = root / "source_crlf.dart"
+            lf.write_bytes(b"final value = 1;\nfinal other = 2;\n")
+            crlf.write_bytes(b"final value = 1;\r\nfinal other = 2;\r\n")
+
+            self.assertEqual(
+                audit_scene_assets._sha256_text_file(lf),
+                audit_scene_assets._sha256_text_file(crlf),
+            )
+
     def test_live_runtime_inventory_is_strict_and_drift_free(self) -> None:
         self.assertEqual(audit_scene_assets.main(["--check"]), 0)
 

@@ -112,6 +112,15 @@ def _sha256_file(path: Path) -> str:
     return _sha256_bytes(path.read_bytes())
 
 
+def _sha256_text_file(path: Path) -> str:
+    normalized = (
+        path.read_text(encoding="utf-8")
+        .replace("\r\n", "\n")
+        .replace("\r", "\n")
+    )
+    return _sha256_bytes(normalized.encode("utf-8"))
+
+
 def _project_path(path: Path, project_root: Path) -> str:
     try:
         return path.resolve().relative_to(project_root.resolve()).as_posix()
@@ -776,7 +785,7 @@ def _load_scenario_refs(data_dir: Path = DATA_DIR) -> list[ScenarioRef]:
 def _generated_from() -> dict[str, str]:
     paths = [*_scenario_shard_paths(), RESOLVER_PATH]
     return {
-        _project_path(path, ROOT): _sha256_file(path)
+        _project_path(path, ROOT): _sha256_text_file(path)
         for path in sorted(paths, key=lambda item: _project_path(item, ROOT))
     }
 

@@ -8,7 +8,7 @@
     "assets/data/scenarios_b2.json": "201d40b1dd9522afc32ef260cf7dd13dc8300bc5052c81b038b5ffd9ac56559d",
     "assets/data/scenarios_c1.json": "2c5552a01492c70bf8c7bb0ffdf34595fce4c8c5e99720ad5669068136b9c29d",
     "assets/data/scenarios_c2.json": "8e75de774cb7e6cf58c7a717eceac75aa540c9dc96a0c28493033ecb694c90ca",
-    "lib/services/scene_asset_resolver.dart": "32adbb70e6c0395b411d3b65526b9c0ecba04b2e4e974f11de6ca6699f649f66"
+    "lib/services/scene_asset_resolver.dart": "7f5a940853c25aaf4fbb81e8ccb7c1fcd951ea1570559c658b61d9e77aa185be"
   },
   "scenarioCount": 419,
   "dedicatedCount": 0,
