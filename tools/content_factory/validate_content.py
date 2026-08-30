@@ -34,12 +34,12 @@ LOWER_LEVELS = frozenset(("a1", "a2", "b1", "b2", "c1", "c2"))
 UPPER_LEVELS = frozenset(level.upper() for level in LOWER_LEVELS)
 SILBEN_REQUIRED_LEVELS = frozenset(("A1", "A2", "B1", "B2", "C1", "C2"))
 SCENARIO_STYLES = frozenset(("polite", "casual", "business", "intimate"))
-# `assets/illustrations/scenes/{key}.png` 가 번들에 실제로 있는 12 종.
+# 14 bundled poster keys plus the Theme Park Date runtime alias.
 SCENARIO_BACKDROP_KEYS = frozenset(
     (
         "airport", "bank", "cafe", "convenience", "directions", "home",
         "hotel", "market", "office", "pharmacy", "restaurant", "salon",
-        "station", "taxi",
+        "station", "taxi", "theme_park",
     )
 )
 CONTENT_KINDS = frozenset(
@@ -674,6 +674,7 @@ class ContentValidator:
                 "classmate",
                 "coworker",
                 "close_friend",
+                "romantic_partner",
                 "family",
                 "service",
             }:

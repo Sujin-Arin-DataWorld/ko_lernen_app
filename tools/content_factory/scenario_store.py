@@ -93,9 +93,11 @@ def write_shards(
             "_comment": SHARD_COMMENT,
             "scenarios": buckets[level],
         }
-        (data / shard_name(level)).write_text(
-            json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+        with (data / shard_name(level)).open(
+            "w",
             encoding="utf-8",
-        )
+            newline="\n",
+        ) as handle:
+            handle.write(json.dumps(payload, ensure_ascii=False, indent=2) + "\n")
         counts[level] = len(buckets[level])
     return counts

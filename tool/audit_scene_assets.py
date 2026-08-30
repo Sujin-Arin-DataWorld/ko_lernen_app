@@ -1,6 +1,6 @@
 """Deterministic audit for canonical scenario scene assets.
 
-The 413 scenario shards are the authority. Every scenario may resolve to a
+The 419 scenario shards are the authority. Every scenario may resolve to a
 scenario-specific poster first and to one of the existing category posters as
 a runtime fallback. Dedicated art is strict: exact canonical filename,
 1536x1024 PNG, RGB/RGBA, readable, unique bytes, and unambiguous scenario ID.
@@ -38,6 +38,7 @@ LOOP_SCENE_PREFIX = "scene_"
 DEDICATED_SIZE = (1536, 1024)
 DEDICATED_MODES = frozenset({"RGB", "RGBA"})
 SCHEMA_VERSION = 1
+CATEGORY_POSTER_ALIASES = {"theme_park": "market"}
 
 
 @dataclass(frozen=True)
@@ -77,6 +78,11 @@ def resolve_poster(
         candidate = category_poster_name(backdrop)
         if candidate in poster_files:
             return ("fallback", candidate)
+        alias = CATEGORY_POSTER_ALIASES.get(backdrop)
+        if alias is not None:
+            alias_candidate = category_poster_name(alias)
+            if alias_candidate in poster_files:
+                return ("fallback", alias_candidate)
         return ("broken_fallback", candidate)
     return ("missing", None)
 
@@ -253,6 +259,11 @@ def scan_scene_inventory(
     fallback_by_name = {path.name: path for path in fallback_files}
     scenario_ids = {ref.scenario_id for ref in sorted_refs}
     backdrops = {ref.backdrop for ref in sorted_refs if ref.backdrop}
+    fallback_backdrops = backdrops | {
+        CATEGORY_POSTER_ALIASES[backdrop]
+        for backdrop in backdrops
+        if backdrop in CATEGORY_POSTER_ALIASES
+    }
     dedicated_png_names = {
         path.name for path in dedicated_files if path.suffix.lower() == ".png"
     }
@@ -266,13 +277,13 @@ def scan_scene_inventory(
             if same_directory
             else {
                 category_poster_name(backdrop)
-                for backdrop in backdrops
+                for backdrop in fallback_backdrops
                 if category_poster_name(backdrop) in fallback_png_names
             }
         )
     )
     allowed_stems = (
-        scenario_ids | backdrops
+        scenario_ids | fallback_backdrops
         if same_directory and not review_mode
         else scenario_ids
     )

@@ -6341,6 +6341,60 @@
         "concept_c2_discourse_institutions"
       ],
       "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_theme_park_date_choices",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_theme_park_date_break",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_theme_park_date_thrill",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_theme_park_date_safety",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_theme_park_date_next_time",
+      "courseUnitId": "c1_06_intimacy_safety_design",
+      "conceptIds": [
+        "concept_c1_intimacy_safety"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_theme_park_date_reflection",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ],
+      "role": "practice"
     }
   ],
   "grammarRuleMap": {
@@ -8636,6 +8690,42 @@
       "courseUnitId": "c2_04_sanction_accountability",
       "conceptIds": [
         "concept_c2_sanction_accountability"
+      ]
+    },
+    "a1:theme_park_date": {
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ]
+    },
+    "a2:theme_park_date": {
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ]
+    },
+    "b1:theme_park_date": {
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ]
+    },
+    "b2:theme_park_date": {
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ]
+    },
+    "c1:theme_park_date": {
+      "courseUnitId": "c1_06_intimacy_safety_design",
+      "conceptIds": [
+        "concept_c1_intimacy_safety"
+      ]
+    },
+    "c2:theme_park_date": {
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
       ]
     }
   },

@@ -16,9 +16,18 @@ class BatchLivePromotionAuditTest(unittest.TestCase):
 
         self.assertTrue(result["ok"], result["errors"])
         self.assertEqual(result["version"], 2)
-        self.assertEqual(result["trackedIds"], 6265)
-        self.assertEqual(result["liveIds"], 6265)
+        self.assertEqual(result["trackedIds"], 6331)
+        self.assertEqual(result["liveIds"], 6331)
         reports = {row["batch"]: row for row in result["reports"]}
+        self.assertEqual(reports["theme_park_date_v1"]["tracked"], 66)
+        self.assertEqual(
+            reports["theme_park_date_v1"]["auditStatus"],
+            "live_verified_modern",
+        )
+        self.assertEqual(
+            reports["theme_park_date_v1"]["reviewStatuses"],
+            {"approved": 66},
+        )
         self.assertEqual(reports["20"]["tracked"], 318)
         self.assertEqual(reports["20"]["auditStatus"], "live_verified_modern")
         self.assertEqual(reports["20"]["reviewStatuses"], {"approved": 210})

@@ -388,7 +388,7 @@ class Scenario {
   }
 
   /// Character profiles are authoritative for canonical scenes. The legacy
-  /// fallback preserves the old 413-scene behaviour until each level has Jin
+  /// fallback preserves the established corpus behaviour until each level has Jin
   /// approval and is promoted.
   String voiceForSpeaker(String speaker) {
     final resolved = resolvedCharacterIdForSpeaker(speaker);
@@ -432,8 +432,10 @@ class Scenario {
 /// 무회귀는 `test/scenario_shelf_contract_test.dart` 가 지킨다.
 ///
 /// ⚠️ 카테고리는 `assets/illustrations/scenes/{key}.png` 가 **번들에 실제로 있는**
-/// 14 종뿐이다: airport · bank · cafe · convenience · directions · home ·
-/// hotel · market · office · pharmacy · restaurant · salon · station · taxi.
+/// 15개 키다: airport · bank · cafe · convenience · directions · home · hotel ·
+/// market · office · pharmacy · restaurant · salon · station · taxi · theme_park.
+/// `theme_park` 포스터가 아직 없으면 resolver가 market 포스터를 사용하며, 사용자가
+/// `theme_park.png`를 추가하는 즉시 새 포스터가 우선된다.
 /// `SceneAssetResolver` 의 per-scenario 오버라이드 동작은 바뀌지 않았다.
 extension ScenarioBackdrop on Scenario {
   /// Category scene key for this scenario, or null if the data has none.

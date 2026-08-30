@@ -28,8 +28,8 @@ class TtsGeneratorContractTest(unittest.TestCase):
         self.assertEqual(manifest["schemaVersion"], 1)
         self.assertEqual(manifest["kind"], "tts_first_line_manifest")
         self.assertEqual(manifest["cacheRevision"], "v3")
-        self.assertEqual(manifest["scenarioCount"], 413)
-        self.assertEqual(len(manifest["items"]), 413)
+        self.assertEqual(manifest["scenarioCount"], 419)
+        self.assertEqual(len(manifest["items"]), 419)
         self.assertEqual(manifest["bundledCount"], 0)
         ids = [item["scenarioId"] for item in manifest["items"]]
         self.assertEqual(len(ids), len(set(ids)))
@@ -181,7 +181,7 @@ class TtsGeneratorContractTest(unittest.TestCase):
             with open(output, encoding="utf-8") as handle:
                 written = json.load(handle)
 
-        self.assertEqual(written["scenarioCount"], 413)
+        self.assertEqual(written["scenarioCount"], 419)
         auth.assert_not_called()
         synth.assert_not_called()
         remote.assert_not_called()

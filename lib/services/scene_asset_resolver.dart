@@ -22,6 +22,11 @@ import '../models/scenario.dart';
 class SceneAssetResolver {
   SceneAssetResolver._();
 
+  static const _posterFallbackAliases = <String, String>{
+    // User-authored theme_park.png replaces this automatically when bundled.
+    'theme_park': 'market',
+  };
+
   static Set<String> _assets = const {};
   static bool _loaded = false;
 
@@ -54,7 +59,14 @@ class SceneAssetResolver {
     }
     final key = s.backdropKey;
     if (key != null) {
-      return 'assets/illustrations/scenes/$key.png';
+      final category = 'assets/illustrations/scenes/$key.png';
+      if (!_loaded || _assets.isEmpty || _assets.contains(category)) {
+        return category;
+      }
+      final alias = _posterFallbackAliases[key];
+      if (alias != null) {
+        return 'assets/illustrations/scenes/$alias.png';
+      }
     }
     return null;
   }
@@ -73,6 +85,11 @@ class SceneAssetResolver {
     final key = s.backdropKey;
     if (key != null) {
       final category = 'assets/video/loops/scene_$key.mp4';
+      // The Theme Park Date pack intentionally ships without a loop. A later
+      // user-supplied loop is picked up, but an absent one is never guessed.
+      if (key == 'theme_park' && !_assets.contains(category)) {
+        return null;
+      }
       // 매니페스트를 실제로 읽은 상태에서 번들에 없다고 확인되면 null 을 준다.
       // 없는 파일 경로를 돌려주면 `SoriPosterLoop` 가 매번 디코더를 열었다
       // 실패하고 포스터로 되돌아온다 — 헛수고 + 첫 프레임 깜빡임.
