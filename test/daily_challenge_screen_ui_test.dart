@@ -10,6 +10,7 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/cloze_prompt.dart';
 import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
 import 'package:ko_lernen_app/widgets/sori/game_reward.dart';
+import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
@@ -64,6 +65,7 @@ void main() {
           find.byType(SoriStudyFrame),
         );
         expect(frame.eyebrow, '1 / 1 · ${t.quizScore(0, 1)}');
+        expect(find.byType(SoriHomeAction), findsOneWidget);
 
         final instructionFinder = find.text(t.clozeInstruction);
         final instruction = tester.widget<Text>(instructionFinder);

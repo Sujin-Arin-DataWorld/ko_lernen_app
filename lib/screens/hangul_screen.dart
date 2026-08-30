@@ -11,18 +11,19 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/chrome_row.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/dialog.dart';
 import '../widgets/sori/content_share_recovery.dart';
 import '../services/liked_content_service.dart';
-import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/section_header.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/speakable.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/tts_speed_control.dart';
@@ -36,7 +37,6 @@ import '../widgets/flip_card.dart';
 import '../widgets/stroke_canvas.dart';
 import '../services/analytics_service.dart';
 import '../services/quest_abandon_tracker.dart';
-import '../services/tts_service.dart';
 import '../l10n/generated/app_localizations.dart';
 
 class HangulScreen extends StatefulWidget {
@@ -51,7 +51,7 @@ class HangulScreen extends StatefulWidget {
   final math.Random? cardsRandom;
   final Future<bool> Function(String text)? speechPlayer;
 
-  /// 음성 미리받기 주입구(테스트용). 미지정이면 [TtsService.prefetch].
+  /// 음성 미리받기 주입구(테스트용). 미지정이면 [SoriSpeech.prefetch].
   final Future<void> Function(String text)? textPrefetcher;
 
   @override
@@ -120,7 +120,7 @@ class _HangulScreenState extends State<HangulScreen>
   /// 던지면 `unawaited` 된 Future 가 미처리 예외로 새어나온다.
   Future<void> _prefetch(String text) async {
     try {
-      await (widget.textPrefetcher?.call(text) ?? TtsService.prefetch(text));
+      await (widget.textPrefetcher?.call(text) ?? SoriSpeech.prefetch(text));
     } catch (_) {
       // 못 받아도 누르면 평소 경로로 재생된다.
     }
@@ -140,7 +140,7 @@ class _HangulScreenState extends State<HangulScreen>
       unawaited(Future.wait([for (final t in texts) _prefetch(t)]));
       return;
     }
-    unawaited(TtsService.prefetchAll(texts));
+    unawaited(SoriSpeech.prefetchAll(texts));
   }
 
   Future<void> _finishCards(int interactionCount) async {
@@ -216,7 +216,7 @@ class _HangulScreenState extends State<HangulScreen>
 
   Future<bool> _speakJamo(String letter) {
     final text = speakableJamo(letter);
-    return widget.speechPlayer?.call(text) ?? TtsService.speak(text);
+    return widget.speechPlayer?.call(text) ?? SoriSpeech.speak(text);
   }
 
   @override
@@ -294,12 +294,6 @@ class _OverviewTab extends StatelessWidget {
         base: const EdgeInsets.fromLTRB(12, 12, 12, 24),
       ),
       children: [
-        // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
-        const HanokHeader(
-          asset: 'assets/illustrations/hanok/calligraphy.png',
-          fallbackIcon: Icons.draw_outlined,
-        ),
-        const SizedBox(height: 16),
         _SectionLabel('${t.hangulConsonantsLabel} (${consonants.length})'),
         _CharGrid(chars: consonants, color: SoriColors.primary, speak: speak),
         const SizedBox(height: 24),
@@ -829,6 +823,50 @@ class _CardsTabState extends State<_CardsTab> {
     _prefetchAround();
   }
 
+  Future<void> _showCardModeSheet() async {
+    final t = AppL10n.of(context);
+    await showSoriSheet<void>(
+      context: context,
+      builder: (sheetContext) => Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          for (final option in [
+            (0, t.hangulChipConsonants),
+            (1, t.hangulChipVowels),
+            (2, t.hangulChipSyllables),
+          ]) ...[
+            SoriChip(
+              key: ValueKey('hangul-cards-mode-${option.$1}'),
+              label: option.$2,
+              accent: SoriColors.primary,
+              selected: _mode == option.$1,
+              minInteractiveHeight: 48,
+              maxLines: null,
+              onTap: () {
+                _setMode(option.$1);
+                Navigator.pop(sheetContext);
+              },
+            ),
+            const SizedBox(height: Spacing.sm),
+          ],
+          if (Storage.hangulHard.isNotEmpty)
+            SoriChip(
+              key: const Key('hangul-cards-hard-only'),
+              label: t.hangulHardOnly,
+              accent: SoriColors.danger,
+              selected: _hardOnly,
+              minInteractiveHeight: 48,
+              onTap: () {
+                _toggleHardOnly();
+                Navigator.pop(sheetContext);
+              },
+            ),
+        ],
+      ),
+    );
+  }
+
   Future<void> _finish() async {
     if (_sessionInteractions == 0) return;
     await widget.onFinish(_sessionInteractions);
@@ -937,7 +975,7 @@ class _CardsTabState extends State<_CardsTab> {
                   // 누르면 언제나 낱자 음가다.
                   IconButton(
                     key: ValueKey('hangul-example-speak-${c.letter}'),
-                    onPressed: () => unawaited(TtsService.speak(c.exampleWord)),
+                    onPressed: () => unawaited(SoriSpeech.speak(c.exampleWord)),
                     icon: Icon(
                       Icons.volume_up_rounded,
                       size: soriFillSize(h, 0.05, 16, 28),
@@ -977,48 +1015,21 @@ class _CardsTabState extends State<_CardsTab> {
         padding: const EdgeInsets.all(12),
         child: Column(
           children: [
-            // Mode chips
-            Wrap(
-              spacing: 8,
-              runSpacing: 8,
-              children: [
-                SoriChip(
-                  label: AppL10n.of(context).hangulChipConsonants,
-                  accent: SoriColors.primary,
-                  selected: _mode == 0,
-                  onTap: () => _setMode(0),
-                  maxLines: null,
-                  minInteractiveHeight: 48,
-                ),
-                SoriChip(
-                  label: AppL10n.of(context).hangulChipVowels,
-                  accent: SoriColors.primary,
-                  selected: _mode == 1,
-                  onTap: () => _setMode(1),
-                  maxLines: null,
-                  minInteractiveHeight: 48,
-                ),
-                // 좌(모름)로 모은 글자만 다시 돌아본다 — `Storage.hangulHard`
-                // 를 읽는 유일한 경로다. 모은 게 없으면 띄우지 않는다(빈 필터).
-                if (Storage.hangulHard.isNotEmpty)
-                  SoriChip(
-                    key: const Key('hangul-cards-hard-only'),
-                    label: AppL10n.of(context).hangulHardOnly,
-                    accent: SoriColors.danger,
-                    selected: _hardOnly,
-                    onTap: _toggleHardOnly,
-                    maxLines: null,
-                    minInteractiveHeight: 48,
-                  ),
-                SoriChip(
-                  label: AppL10n.of(context).hangulChipSyllables,
-                  accent: SoriColors.primary,
-                  selected: _mode == 2,
-                  onTap: () => _setMode(2),
-                  maxLines: null,
-                  minInteractiveHeight: 48,
-                ),
-              ],
+            SoriChromeRow(
+              meta: Text(
+                [
+                  AppL10n.of(context).hangulChipConsonants,
+                  AppL10n.of(context).hangulChipVowels,
+                  AppL10n.of(context).hangulChipSyllables,
+                ][_mode],
+                style: SoriTextTheme.of(context).meta,
+              ),
+              trailing: IconButton(
+                key: const Key('hangul-cards-mode-selector'),
+                tooltip: AppL10n.of(context).hangulTabCards,
+                onPressed: _showCardModeSheet,
+                icon: const Icon(Icons.tune_rounded),
+              ),
             ),
             const SizedBox(height: 12),
             // Counter
@@ -1297,10 +1308,8 @@ class _WriteTabState extends State<_WriteTab> {
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Wrap(
-              alignment: WrapAlignment.center,
-              spacing: 8,
-              runSpacing: 8,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 SoriChip(
                   label: t.hangulChipConsonants,
@@ -1311,6 +1320,7 @@ class _WriteTabState extends State<_WriteTab> {
                     Navigator.pop(sheetContext);
                   },
                 ),
+                const SizedBox(height: Spacing.sm),
                 SoriChip(
                   label: t.hangulChipVowels,
                   accent: SoriColors.contentCta,
@@ -1320,6 +1330,7 @@ class _WriteTabState extends State<_WriteTab> {
                     Navigator.pop(sheetContext);
                   },
                 ),
+                const SizedBox(height: Spacing.sm),
                 SoriChip(
                   key: const Key('hangul-check-strict'),
                   label: t.hangulCheckModeExam,
@@ -1330,6 +1341,7 @@ class _WriteTabState extends State<_WriteTab> {
                     Navigator.pop(sheetContext);
                   },
                 ),
+                const SizedBox(height: Spacing.sm),
                 SoriChip(
                   key: const Key('hangul-check-practice'),
                   label: t.hangulCheckModePractice,

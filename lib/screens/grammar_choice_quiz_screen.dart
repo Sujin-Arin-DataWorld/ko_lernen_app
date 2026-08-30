@@ -272,6 +272,9 @@ class _GrammarChoiceQuizScreenState extends State<GrammarChoiceQuizScreen> {
     final t = AppL10n.of(context);
     return SoriStudyFrame(
       title: t.grammarChoiceTitle,
+      homeEscape: SoriHomeEscape(
+        confirmWhen: !_isDone && (_index > 0 || _answered),
+      ),
       eyebrow: t.grammarChoiceEyebrow,
       padding: Spacing.page,
       child: _loading

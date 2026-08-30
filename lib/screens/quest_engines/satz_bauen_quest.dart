@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/sound_service.dart';
-import '../../services/tts_service.dart';
+import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/tokens.dart';
 import 'quest_flow.dart';
 import 'quest_layout.dart';
@@ -32,6 +32,7 @@ enum SatzError { none, order, particle, tooMany, tooFew, word }
 class SatzBauenQuest extends StatefulWidget {
   final Map<String, dynamic> data;
   final void Function(QuestResult) onComplete;
+  final VoidCallback? onAttempt;
   final VoidCallback? onContinue;
   final bool isLast;
   final bool showMascot;
@@ -43,6 +44,7 @@ class SatzBauenQuest extends StatefulWidget {
     super.key,
     required this.data,
     required this.onComplete,
+    this.onAttempt,
     this.onContinue,
     this.isLast = false,
     this.showMascot = false,
@@ -280,7 +282,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     if (_audioKo.isNotEmpty) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted) {
-          TtsService.speak(_audioKo);
+          SoriSpeech.speak(_audioKo);
         }
       });
     }
@@ -306,10 +308,6 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
       case SatzError.none:
         return t.questDiagWord;
     }
-  }
-
-  Future<void> _playTts() async {
-    await TtsService.speak(_audioKo);
   }
 
   void _placeTile(_Tile t) {
@@ -344,6 +342,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     if (_completed || _answer.isEmpty) {
       return;
     }
+    widget.onAttempt?.call();
     final assembled = _answer.map((t) => t.text).toList();
     final punctuationOk = SatzBauenQuest.hasCorrectTerminalPunctuation(
       assembled,
@@ -402,6 +401,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
 
   void _revealAnswer() {
     if (_completed) return;
+    widget.onAttempt?.call();
     HapticFeedback.selectionClick();
     final target = SatzBauenQuest.tokenize(_targetKo);
     setState(() {
@@ -441,7 +441,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
         SoriPromptCard(
           key: const ValueKey('quest-prompt-card'),
           sentence: _prompt(langCode),
-          onReplay: _audioKo.isEmpty ? null : _playTts,
+          speakText: _audioKo.isEmpty ? null : _audioKo,
           compact: widget.compact,
         ),
         SizedBox(height: sectionGap),

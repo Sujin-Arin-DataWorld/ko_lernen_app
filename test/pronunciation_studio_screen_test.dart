@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ import 'package:ko_lernen_app/services/pronunciation_assessment_client.dart';
 import 'package:ko_lernen_app/services/pronunciation_recorder.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -197,6 +199,72 @@ void main() {
     await tester.pumpAndSettle();
     expect(attempts, 2);
   });
+
+  testWidgets('home confirmation is active while recording and assessing', (
+    tester,
+  ) async {
+    await Storage.setPronunciationConsent(true);
+    final recorder = _FakeRecorder(
+      permission: true,
+      chunks: <Uint8List>[
+        Uint8List.fromList(<int>[0, 0, 1, 0]),
+      ],
+    );
+    final gateway = _HoldingGateway();
+    await tester.pumpWidget(_app(recorder, gateway: gateway));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(SoriHomeAction), findsOneWidget);
+    expect(
+      tester
+          .widget<SoriHomeAction>(find.byType(SoriHomeAction))
+          .escape
+          .confirmWhen,
+      isFalse,
+    );
+
+    tester
+        .widget<SoriButton>(find.widgetWithText(SoriButton, 'Record my voice'))
+        .onTap!();
+    await tester.pump();
+    await tester.pump();
+    expect(
+      tester
+          .widget<SoriHomeAction>(find.byType(SoriHomeAction))
+          .escape
+          .confirmWhen,
+      isTrue,
+    );
+
+    tester
+        .widget<SoriButton>(find.widgetWithText(SoriButton, 'Stop and assess'))
+        .onTap!();
+    await tester.pump();
+    await tester.runAsync(() async {
+      for (var attempt = 0; attempt < 20 && gateway.calls == 0; attempt++) {
+        await Future<void>.delayed(const Duration(milliseconds: 5));
+      }
+    });
+    await tester.pump();
+    expect(gateway.calls, 1);
+    expect(
+      tester
+          .widget<SoriHomeAction>(find.byType(SoriHomeAction))
+          .escape
+          .confirmWhen,
+      isTrue,
+    );
+
+    gateway.complete();
+    await tester.pumpAndSettle();
+    expect(
+      tester
+          .widget<SoriHomeAction>(find.byType(SoriHomeAction))
+          .escape
+          .confirmWhen,
+      isFalse,
+    );
+  });
 }
 
 const List<PronunciationPhrase> _testPhrases = <PronunciationPhrase>[
@@ -282,5 +350,32 @@ class _FailingGateway implements PronunciationAssessmentGateway {
       PronunciationAssessmentFailureCategory.unavailable,
       retryable: true,
     );
+  }
+}
+
+class _HoldingGateway implements PronunciationAssessmentGateway {
+  final Completer<PronunciationAssessmentResult> _result = Completer();
+  int calls = 0;
+
+  void complete() {
+    _result.complete(
+      const PronunciationAssessmentResult(
+        assessmentId: 'assessment-hold',
+        pronunciationScore: 0,
+        accuracyScore: 0,
+        fluencyScore: 0,
+        completenessScore: 0,
+      ),
+    );
+  }
+
+  @override
+  Future<PronunciationAssessmentResult> assess({
+    required Uint8List pcm16,
+    required String referenceText,
+    required String assessmentId,
+  }) {
+    calls++;
+    return _result.future;
   }
 }

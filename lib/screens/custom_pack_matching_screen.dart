@@ -280,6 +280,9 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
 
     return SoriStudyFrame(
       title: t.wbMatching,
+      homeEscape: SoriHomeEscape(
+        confirmWhen: !_roundDone && (_matched.isNotEmpty || _misses > 0),
+      ),
       leading: IconButton(
         tooltip: t.btnClose,
         constraints: const BoxConstraints.tightFor(width: 48, height: 48),

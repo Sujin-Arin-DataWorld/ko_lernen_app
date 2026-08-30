@@ -22,6 +22,7 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/chaekgado/shelf_case.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
+import 'package:ko_lernen_app/widgets/sori/chrome_row.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 import 'package:ko_lernen_app/widgets/sori/tts_speed_control.dart';
@@ -401,13 +402,27 @@ void main() {
     await tester.pump();
     await tester.pump();
 
-    final today = _chipWhere((label) => label.startsWith('Heute ('));
-    final favorites = _chip('1');
-    final all = _chip('Alle');
-    final modes = [today, favorites, all];
+    expect(find.byType(SoriChromeRow), findsOneWidget);
+    final modes = [
+      find.byKey(const Key('legacy-vocab-mode-due')),
+      find.byKey(const Key('legacy-vocab-mode-all')),
+      find.byKey(const Key('legacy-vocab-mode-favorites')),
+    ];
+    for (final finder in modes) {
+      expect(finder, findsNothing);
+    }
+
+    await tester.tap(
+      find.descendant(
+        of: find.byType(SoriChromeRow),
+        matching: find.byIcon(Icons.filter_list_rounded),
+      ),
+    );
+    await tester.pumpAndSettle();
+
     for (final finder in modes) {
       expect(finder, findsOneWidget);
-      expect(tester.getSize(finder).height, inInclusiveRange(44, 48));
+      expect(tester.getSize(finder).height, greaterThanOrEqualTo(48));
     }
     _expectInsideViewport(tester, modes, const Size(390, 844));
     expect(tester.takeException(), isNull);
@@ -422,32 +437,52 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('wide listening and legacy controls retain their inline layout', (
-    tester,
-  ) async {
-    _setViewport(const Size(600, 900));
-    await tester.pumpWidget(
-      _app(ListeningPlayScreen(scenario: _listeningScenario)),
-    );
-    await tester.pump();
-    await tester.pump();
-    expect(find.byType(TtsSpeedControl), findsOneWidget);
-    expect(find.text('Beides'), findsNothing);
-    expect(find.byType(ChaekgadoShelfCase), findsNothing);
-    await tester.pump(const Duration(milliseconds: 300));
+  testWidgets(
+    'wide listening stays inline while legacy modes stay in the filter sheet',
+    (tester) async {
+      _setViewport(const Size(600, 900));
+      await tester.pumpWidget(
+        _app(ListeningPlayScreen(scenario: _listeningScenario)),
+      );
+      await tester.pump();
+      await tester.pump();
+      expect(find.byType(TtsSpeedControl), findsOneWidget);
+      expect(
+        tester.widget<TtsSpeedControl>(find.byType(TtsSpeedControl)).mode,
+        TtsSpeedControlMode.compact,
+      );
+      expect(find.text('Beides'), findsNothing);
+      expect(find.byType(ChaekgadoShelfCase), findsNothing);
+      await tester.pump(const Duration(milliseconds: 300));
 
-    await tester.pumpWidget(
-      _app(LegacyVocabScreen(vocabLoader: () async => const [_word])),
-    );
-    await tester.pump();
-    await tester.pump();
-    _expectSameRow(tester, [
-      _chipWhere((label) => label.startsWith('Heute (')),
-      _chip('0'),
-      _chip('Alle'),
-    ]);
-    expect(tester.takeException(), isNull);
-  });
+      await tester.pumpWidget(
+        _app(LegacyVocabScreen(vocabLoader: () async => const [_word])),
+      );
+      await tester.pump();
+      await tester.pump();
+      expect(find.byType(SoriChromeRow), findsOneWidget);
+      final modes = [
+        find.byKey(const Key('legacy-vocab-mode-due')),
+        find.byKey(const Key('legacy-vocab-mode-all')),
+        find.byKey(const Key('legacy-vocab-mode-favorites')),
+      ];
+      for (final finder in modes) {
+        expect(finder, findsNothing);
+      }
+      await tester.tap(
+        find.descendant(
+          of: find.byType(SoriChromeRow),
+          matching: find.byIcon(Icons.filter_list_rounded),
+        ),
+      );
+      await tester.pumpAndSettle();
+      for (final finder in modes) {
+        expect(finder, findsOneWidget);
+        expect(tester.getSize(finder).height, greaterThanOrEqualTo(48));
+      }
+      expect(tester.takeException(), isNull);
+    },
+  );
 }
 
 Future<void> _tapText(WidgetTester tester, String text) async {
@@ -468,28 +503,6 @@ ContentFeedbackCard _expectFeedback(
   expect(card.feedbackContext.contentType, type);
   expect(card.feedbackContext.completionId, isNotEmpty);
   return card;
-}
-
-Finder _chip(String label) => _chipWhere((candidate) => candidate == label);
-
-Finder _chipWhere(bool Function(String label) matches) => find
-    .byWidgetPredicate((widget) => widget is SoriChip && matches(widget.label));
-
-void _expectSameRow(WidgetTester tester, List<Object> controls) {
-  final finders = controls.map((control) {
-    return switch (control) {
-      String label => _chip(label),
-      Finder finder => finder,
-      _ => throw ArgumentError.value(control, 'control'),
-    };
-  }).toList();
-  for (final finder in finders) {
-    expect(finder, findsOneWidget);
-  }
-  final top = tester.getTopLeft(finders.first).dy;
-  for (final finder in finders.skip(1)) {
-    expect(tester.getTopLeft(finder).dy, closeTo(top, 0.1));
-  }
 }
 
 void _expectInsideViewport(

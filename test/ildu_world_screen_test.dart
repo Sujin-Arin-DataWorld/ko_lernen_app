@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/data/ildu_turntable_catalog.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
@@ -172,6 +173,71 @@ void main() {
     expect(zoom, lessThanOrEqualTo(2.2 + 1e-9));
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets(
+    'every authored turntable anchor exposes map transform controls',
+    (tester) async {
+      tester.view.physicalSize = const Size(1179, 4000);
+      tester.view.devicePixelRatio = 3;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      await tester.pumpWidget(
+        MaterialApp(
+          locale: const Locale('de'),
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          supportedLocales: AppL10n.supportedLocales,
+          home: IlDuWorldScreen(
+            loadManifest: () async => manifest,
+            loadProjection: () async => _verifiedB2Projection(),
+            decorationStore: _MemoryDecorationStore(),
+            anchorPlacementStore: _MemoryAnchorStore(),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      final anchors = <String, IlDuWorldAnchor>{
+        for (final anchor in <IlDuWorldAnchor>[
+          ...manifest.buildings,
+          ...manifest.gates,
+        ])
+          anchor.id: anchor,
+      };
+      expect(kIlDuTurntables.keys, everyElement(isIn(anchors.keys)));
+
+      for (final entry in kIlDuTurntables.entries) {
+        final anchor = anchors[entry.key]!;
+        final direction = entry.value.directionForDegrees(anchor.rotation);
+        expect(
+          find.byKey(ValueKey('ildu-map-turntable-${anchor.id}-$direction')),
+          findsOneWidget,
+          reason: '${anchor.id} must render its authored map direction.',
+        );
+        expect(
+          find.byKey(ValueKey('ildu-anchor-gesture-${anchor.id}')),
+          findsOneWidget,
+          reason: '${anchor.id} must own its direct drag and pinch surface.',
+        );
+
+        _selectMapAnchor(tester, anchor.id);
+        await tester.pumpAndSettle();
+
+        expect(
+          find.byKey(ValueKey('ildu-turntable-${anchor.id}')),
+          findsOneWidget,
+          reason: '${anchor.id} must expose the eight-direction control.',
+        );
+        expect(
+          find.byKey(ValueKey('ildu-scale-slider-${anchor.id}')),
+          findsOneWidget,
+          reason: '${anchor.id} must expose the persisted size control.',
+        );
+      }
+
+      expect(tester.takeException(), isNull);
+    },
+  );
 
   testWidgets('selecting and turning Jungmunganchae updates its map frame', (
     tester,

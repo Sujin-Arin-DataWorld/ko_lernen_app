@@ -33,11 +33,36 @@ class SoriSpeech {
   /// prefetch 전용 요청은 재생하지 않으므로 완료 시 false 로 채운다.
   static final Map<String, Future<bool>> _inFlight = {};
 
+  /// [_inFlight] 중 실제 재생을 보장하는 요청. pending prefetch를 처음
+  /// 승격한 speak future도 여기에 즉시 등록하므로 뒤따르는 같은 키의
+  /// speak는 그 승격에 합류하고 별도 재생 콜백을 만들지 않는다.
+  static final Set<Future<bool>> _playbackFlights = {};
+
+  /// 승격 future가 [_inFlight]를 덮고 있는 동안에도 그 아래의 아직 진행
+  /// 중인 prefetch identity를 잃지 않기 위한 보조 레지스트리. 새 요청의
+  /// 조회/합류 진입점은 계속 [_inFlight] 하나뿐이며, 이 맵들은 취소 시
+  /// 정확한 backing future를 복원하는 데만 쓴다.
+  static final Map<String, Future<bool>> _pendingPrefetches = {};
+  static final Map<Future<bool>, Future<bool>> _promotionPrefetches = {};
+
+  /// 화면이 구독하는 발화 상태. 저수준 서비스의 전역 notifier를 화면에
+  /// 직접 노출하지 않아 테스트 주입·실패·취소 경로도 같은 상태 계약을 탄다.
+  static final ValueNotifier<bool> speaking = ValueNotifier<bool>(false);
+
+  static int _speechGeneration = 0;
+  static String? _activeSpeechKey;
+
   /// 실제 재생 호출 지점 — 테스트가 `TtsService`/Firebase 없이 가짜
   /// 카운팅 리졸버로 갈아끼울 수 있게 훅으로 둔다. 기본은 진짜 서비스.
   @visibleForTesting
   static Future<bool> Function(String text, String voice) speakImpl =
       (text, voice) => TtsService.speak(text, voice: voice);
+
+  /// 느린 학습 재생 훅. 화면은 이 파사드를 통해 기존 0.65 배수 계약을
+  /// 유지하고 저수준 서비스를 직접 참조하지 않는다.
+  @visibleForTesting
+  static Future<bool> Function(String text, String voice) speakSlowImpl =
+      (text, voice) => TtsService.speakSlow(text, voice: voice);
 
   /// 실제 프리페치 호출 지점 — 위와 같은 이유의 훅.
   @visibleForTesting
@@ -54,7 +79,14 @@ class SoriSpeech {
   @visibleForTesting
   static void resetForTesting() {
     _inFlight.clear();
+    _playbackFlights.clear();
+    _pendingPrefetches.clear();
+    _promotionPrefetches.clear();
+    ++_speechGeneration;
+    _activeSpeechKey = null;
+    speaking.value = false;
     speakImpl = (text, voice) => TtsService.speak(text, voice: voice);
+    speakSlowImpl = (text, voice) => TtsService.speakSlow(text, voice: voice);
     prefetchImpl = (text, voice) => TtsService.prefetch(text, voice: voice);
     stopImpl = () => TtsService.stop();
   }
@@ -64,16 +96,27 @@ class SoriSpeech {
     final key = '$resolvedVoice|$text';
     final existing = _inFlight[key];
     if (existing != null) {
-      // 이미 이 키로 뭔가 진행 중이다(재생이든 prefetch 든) — 새 해석을
-      // 내지 않고 그게 끝나길 기다린다. 그게 재생이었다면(played=true) 그
-      // 재생에 합류하는 것으로 끝. prefetch 였다면(played=false) 캐시만
-      // 찼을 뿐 아무 소리도 안 났으므로 이어서 실제로 재생한다.
-      return existing.then((played) {
-        if (played) return true;
-        return _startSpeak(key, text, resolvedVoice);
-      });
+      if (_playbackFlights.contains(existing)) return existing;
+      // 이미 이 키로 pending prefetch가 진행 중이다 — 새 해석을 내지 않고
+      // 재생 요청으로 승격한다. 승격 future는
+      // 동기적으로 맵에 게시되므로 뒤따르는 같은 키의 speak도 이에 합류한다.
+      return _publishSpeak(
+        key,
+        text,
+        resolvedVoice,
+        speakImpl,
+        pending: existing,
+      );
     }
-    return _startSpeak(key, text, resolvedVoice);
+    return _startSpeak(key, text, resolvedVoice, speakImpl);
+  }
+
+  static Future<bool> speakSlow(String text, {String? voice}) {
+    final resolvedVoice = voice ?? 'auto';
+    final key = 'slow|$resolvedVoice|$text';
+    final existing = _inFlight[key];
+    if (existing != null) return existing;
+    return _startSpeak(key, text, resolvedVoice, speakSlowImpl);
   }
 
   // ⚠️ speakImpl(...)/prefetchImpl(...) 뒤의 .then/.whenComplete 는 반드시
@@ -91,13 +134,98 @@ class SoriSpeech {
   // 끝까지 기다리지 않아 증상이 안 보였을 뿐이다. 블록 바디(`() {
   // _inFlight.remove(key); }`)는 반환값이 없어(void) 이 문제가 원천적으로
   // 없다 — 인라인 체인 방식으로 되돌릴 땐 이 메커니즘을 반드시 재확인할 것.
-  static Future<bool> _startSpeak(String key, String text, String voice) {
-    final resolved = speakImpl(text, voice);
-    final future = resolved.whenComplete(() {
-      _inFlight.remove(key);
+  static Future<bool> _startSpeak(
+    String key,
+    String text,
+    String voice,
+    Future<bool> Function(String text, String voice) resolver,
+  ) {
+    return _publishSpeak(key, text, voice, resolver);
+  }
+
+  /// 발화 의도를 요청 시점에 캡처하고 하나의 재생 future를 게시한다.
+  /// [pending]이 있으면 prefetch 완료 뒤 재생하되, 그 사이 stop/새 발화가
+  /// 세대를 바꾸면 오래된 재생은 시작하지 않는다.
+  static Future<bool> _publishSpeak(
+    String key,
+    String text,
+    String voice,
+    Future<bool> Function(String text, String voice) resolver, {
+    Future<bool>? pending,
+  }) {
+    final previousKey = _activeSpeechKey;
+    if (previousKey != null && previousKey != key) {
+      // 승격이 덮고 있던 prefetch가 아직 진행 중이면 공용 맵에 복원한다.
+      // 취소된 발화 완료 콜백은 identity가 달라 새 값을 지우지 못한다.
+      _cancelFlightAndRestorePrefetch(previousKey);
+    }
+    final generation = ++_speechGeneration;
+    _activeSpeechKey = key;
+    // pending prefetch 뒤의 승격은 의도만 지금 캡처하고, 실제 resolver가
+    // 시작될 때 speaking을 올린다. 캐시 대기 중을 재생 중으로 알리지 않는다.
+    speaking.value = pending == null;
+
+    Future<bool> resolve() async {
+      if (previousKey != null && previousKey != key) {
+        try {
+          await stopImpl();
+        } catch (_) {
+          // 정지는 best-effort다. 새 발화까지 막거나 UI에 예외를 누출하지 않는다.
+        }
+      }
+      if (generation != _speechGeneration) return false;
+      try {
+        if (pending != null) {
+          final alreadyPlayed = await pending;
+          if (generation != _speechGeneration) return false;
+          if (alreadyPlayed) return true;
+          speaking.value = true;
+        }
+        return await resolver(text, voice);
+      } catch (_) {
+        // TtsService의 캐시→Storage→CF fallback은 그대로 두고, 최종 실패만
+        // 화면 경계에서 false로 강등한다. 인디케이터는 아래 완료 블록에서
+        // 반드시 idle로 복귀한다.
+        return false;
+      }
+    }
+
+    final resolved = resolve();
+    late final Future<bool> future;
+    future = resolved.whenComplete(() {
+      _playbackFlights.remove(future);
+      _promotionPrefetches.remove(future);
+      if (identical(_inFlight[key], future)) {
+        _inFlight.remove(key);
+      }
+      if (generation == _speechGeneration && _activeSpeechKey == key) {
+        _activeSpeechKey = null;
+        speaking.value = false;
+      }
     });
+    _playbackFlights.add(future);
+    if (pending != null) {
+      _promotionPrefetches[future] = pending;
+    }
     _inFlight[key] = future;
     return future;
+  }
+
+  /// 현재 발화 future만 취소하고, 그것이 아직 pending인 prefetch를 덮은
+  /// 승격이었다면 그 정확한 backing future를 공용 맵에 되돌린다.
+  static void _cancelFlightAndRestorePrefetch(String key) {
+    final cancelled = _inFlight[key];
+    if (cancelled == null) {
+      return;
+    }
+    final backing = _promotionPrefetches.remove(cancelled);
+    if (backing != null && identical(_pendingPrefetches[key], backing)) {
+      _inFlight[key] = backing;
+      return;
+    }
+    if (identical(_inFlight[key], cancelled)) {
+      _inFlight.remove(key);
+    }
   }
 
   static Future<void> prefetch(String text, {String? voice}) {
@@ -111,18 +239,73 @@ class SoriSpeech {
       return existing.then((_) {});
     }
     // _startSpeak 위 경고 참고 — 중간 변수 + 블록 바디 콜백 형태를 유지할 것.
-    final resolved = prefetchImpl(text, resolvedVoice);
+    Future<void> resolve() async {
+      try {
+        await prefetchImpl(text, resolvedVoice);
+      } catch (_) {
+        // 프리페치는 best-effort다. 실제 탭의 speak fallback 순서는 건드리지
+        // 않고, 미리받기 실패만 화면 밖으로 누출하지 않는다.
+      }
+    }
+
+    final resolved = resolve();
     final notPlayed = resolved.then((_) {
       return false;
     });
-    final future = notPlayed.whenComplete(() {
-      _inFlight.remove(key);
+    late final Future<bool> future;
+    future = notPlayed.whenComplete(() {
+      if (identical(_pendingPrefetches[key], future)) {
+        _pendingPrefetches.remove(key);
+      }
+      if (identical(_inFlight[key], future)) {
+        _inFlight.remove(key);
+      }
     });
+    _pendingPrefetches[key] = future;
     _inFlight[key] = future;
     return future;
   }
 
-  static Future<void> stop() => stopImpl();
+  /// 여러 문장을 제한된 동시성으로 미리 받는다. 각 요청은 [prefetch]를
+  /// 통과하므로 단건/배치 호출이 같은 in-flight 맵과 실패 격리를 공유한다.
+  static Future<void> prefetchAll(
+    Iterable<String> texts, {
+    String? voice,
+    int concurrency = 3,
+  }) async {
+    final queue = <String>{
+      for (final text in texts)
+        if (text.trim().isNotEmpty) text.trim(),
+    }.toList();
+    if (queue.isEmpty) return;
+
+    var next = 0;
+    Future<void> worker() async {
+      while (true) {
+        final index = next++;
+        if (index >= queue.length) return;
+        await prefetch(queue[index], voice: voice);
+      }
+    }
+
+    final laneCount = concurrency.clamp(1, queue.length);
+    await Future.wait([for (var i = 0; i < laneCount; i++) worker()]);
+  }
+
+  static Future<void> stop() async {
+    final activeKey = _activeSpeechKey;
+    ++_speechGeneration;
+    _activeSpeechKey = null;
+    if (activeKey != null) {
+      _cancelFlightAndRestorePrefetch(activeKey);
+    }
+    speaking.value = false;
+    try {
+      await stopImpl();
+    } catch (_) {
+      // UI 정지는 fail-soft다. 상태는 이미 idle로 복귀했다.
+    }
+  }
 }
 
 /// **SoriSpeakable** — 탭=재생 카드 래퍼. **플립 카드에는 쓰지 않는다** —
@@ -141,10 +324,19 @@ class SoriSpeakable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTap: () => SoriSpeech.speak(text, voice: voice),
-      child: child,
+    void handleTap() {
+      SoriSpeech.speak(text, voice: voice);
+    }
+
+    return Semantics(
+      button: true,
+      onTap: handleTap,
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        excludeFromSemantics: true,
+        onTap: handleTap,
+        child: child,
+      ),
     );
   }
 }
@@ -172,7 +364,7 @@ class SoriSpeechIndicator extends StatelessWidget {
     final s = SoriSurfaces.of(context);
     final t = AppL10n.of(context);
     return ValueListenableBuilder<bool>(
-      valueListenable: TtsService.speaking,
+      valueListenable: SoriSpeech.speaking,
       builder: (context, speaking, _) {
         // 재생 중엔 탭이 재생을 다시 걸지 않고 멈춘다. 예전엔 둘 다
         // speak() 뿐이라, 재생 중 탭이 이미 진행 중인 요청에 합류만 하고
@@ -303,7 +495,7 @@ class ContentSpeechController with RouteAware {
 
   /// `TtsService.stop()` 을 다음 프레임으로 미룬다 — 클래스 doc 참고.
   void _deferredStop() {
-    WidgetsBinding.instance.addPostFrameCallback((_) => TtsService.stop());
+    WidgetsBinding.instance.addPostFrameCallback((_) => SoriSpeech.stop());
   }
 
   void dispose() {

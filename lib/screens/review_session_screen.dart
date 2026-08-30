@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
@@ -8,6 +9,7 @@ import '../models/feedback_completion.dart';
 import '../models/smalltalk.dart';
 import '../models/vocab.dart';
 import '../services/review_deck_service.dart';
+import '../services/review_session_queue.dart';
 import '../services/tts_service.dart';
 import '../services/culture_notes_service.dart';
 import '../widgets/sori/culture_note_card.dart';
@@ -85,7 +87,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     with ScreenCoachMixin<ReviewSessionScreen> {
   ReviewLoadState _loadState = ReviewLoadState.loading;
   List<Vocab> _deck = [];
-  int _idx = 0;
+  ReviewSessionQueue<Vocab>? _queue;
   bool _flipped = false;
   // 이 카드에서 답을 한 번이라도 본 뒤에는 앞면으로 다시 돌아와도 좌/우
   // 판정을 유지한다. 새 카드가 서빙될 때만 false로 초기화한다.
@@ -120,7 +122,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   String get coachId => 'review';
 
   @override
-  bool get coachReady => !_loading && _deck.isNotEmpty && !_done;
+  bool get coachReady => !_loading && _queue?.current != null && !_done;
 
   @override
   List<SpotlightStep> buildCoachSteps(BuildContext context) {
@@ -145,7 +147,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   void initState() {
     super.initState();
     _load().then((_) {
-      if (mounted && _deck.isNotEmpty) {
+      if (mounted && _queue?.current != null) {
         _speech.playOnEnter(_card.korean);
       }
     });
@@ -174,12 +176,15 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     // M5: vorgegebener personalisierter Deck hat Vorrang.
     if (widget.deck != null) {
       final deck = List<Vocab>.of(widget.deck!);
+      final queue = _reviewQueue(deck);
       setState(() {
-        // §P2: ↓ 스킵이 덱 순서를 바꾸므로 호출부 리스트를 변형하지 않게 복사.
         _deck = deck;
+        _queue = queue;
+        _reviewed = 0;
+        _done = false;
         _flipped = false;
         _cardRevealed = false;
-        _loadState = deck.isEmpty
+        _loadState = queue.isComplete
             ? ReviewLoadState.empty
             : ReviewLoadState.ready;
       });
@@ -202,6 +207,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
       if (mounted) {
         setState(() {
           _deck = <Vocab>[];
+          _queue = null;
           _loadState = ReviewLoadState.error;
         });
       }
@@ -210,16 +216,28 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     if (!mounted) {
       return;
     }
+    final queue = _reviewQueue(deck);
     setState(() {
       _deck = List<Vocab>.of(deck);
-      _idx = 0;
+      _queue = queue;
+      _reviewed = 0;
+      _done = false;
       _flipped = false;
       _cardRevealed = false;
-      _loadState = deck.isEmpty ? ReviewLoadState.empty : ReviewLoadState.ready;
+      _loadState = queue.isComplete
+          ? ReviewLoadState.empty
+          : ReviewLoadState.ready;
     });
   }
 
-  Vocab get _card => _deck[_idx];
+  ReviewSessionQueue<Vocab> _reviewQueue(List<Vocab> deck) {
+    return ReviewSessionQueue<Vocab>(
+      deck,
+      idOf: (word) => word.id.trim().isEmpty ? word.korean : word.id,
+    );
+  }
+
+  Vocab get _card => _queue!.current!;
 
   // §P2-5 플립 게이트 힌트 칩 트리거.
   final ValueNotifier<int> _flipHintTrigger = ValueNotifier<int>(0);
@@ -232,7 +250,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   }
 
   void _saveCurrent() {
-    if (_loading || _done || _deck.isEmpty) {
+    if (_loading || _done || _queue?.current == null) {
       return;
     }
     final card = _card;
@@ -251,7 +269,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   }
 
   Future<void> _likeCurrent() async {
-    if (_loading || _done || _deck.isEmpty) {
+    if (_loading || _done || _queue?.current == null) {
       return;
     }
     await LikedContentService.toggle(
@@ -264,7 +282,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   }
 
   Future<void> _shareCurrent() async {
-    if (_loading || _done || _deck.isEmpty) {
+    if (_loading || _done || _queue?.current == null) {
       return;
     }
     final lang = Localizations.localeOf(context).languageCode;
@@ -275,26 +293,46 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     );
   }
 
-  /// ↓ 스킵 (§P2-2) — 현재 카드를 덱 맨 뒤로 + 앞면 리셋. SRS 기록 없음.
-  /// 현재 카드가 이미 마지막 위치면 맨뒤-이동이 no-op — 스프링백만.
+  /// ↓ 스킵 (§P2-2) — 현재 카드를 미판정 큐 맨 뒤로 보낸다. SRS 기록 없음.
   void _deferCurrent() {
-    if (_loading || _done || _deck.isEmpty) {
-      return;
-    }
-    if (_idx >= _deck.length - 1) {
+    final queue = _queue;
+    if (_loading || _done || queue == null || !queue.canDefer) {
       return;
     }
     HapticFeedback.selectionClick();
     setState(() {
-      final card = _deck.removeAt(_idx);
-      _deck.add(card);
+      queue.defer();
       _flipped = false;
       _cardRevealed = false;
     });
-    // Skip 도 카드 전환이다 — _idx 자체는 안 바뀌지만 _deck 재정렬로
-    // _card(=_deck[_idx])가 가리키는 카드는 바뀐다. _answer() 의 else
-    // 분기와 같은 자리(reorder 완료 뒤, _card 로 새 카드를 읽음)에서
-    // 동일하게 발동한다 — fix round 1, 검수 finding #1.
+    _speech.playOnEnter(_card.korean);
+  }
+
+  void _showPrevious() {
+    final queue = _queue;
+    if (queue == null || !queue.canGoPrevious) {
+      return;
+    }
+    HapticFeedback.selectionClick();
+    setState(() {
+      queue.previous();
+      _flipped = false;
+      _cardRevealed = false;
+    });
+    _speech.playOnEnter(_card.korean);
+  }
+
+  void _showNextHistory() {
+    final queue = _queue;
+    if (queue == null || !queue.canGoForward) {
+      return;
+    }
+    HapticFeedback.selectionClick();
+    setState(() {
+      queue.nextHistory();
+      _flipped = false;
+      _cardRevealed = false;
+    });
     _speech.playOnEnter(_card.korean);
   }
 
@@ -312,15 +350,29 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   }
 
   void _answer(bool gotIt) {
+    final queue = _queue;
+    if (queue == null || !queue.canJudgeCurrent) {
+      return;
+    }
+    final card = _card;
+    final shouldRecordEvidence = queue.currentNeedsEvidence;
+
     // 답변 순간 촉각 피드백 — 맞으면 강하게, 틀리면 가볍게.
     gotIt ? HapticFeedback.mediumImpact() : HapticFeedback.lightImpact();
-    Storage.srsReview(_card.korean, gotIt: gotIt);
+    if (shouldRecordEvidence) {
+      // ignore: discarded_futures
+      Storage.srsReview(card.korean, gotIt: gotIt);
+    }
     if (!gotIt) {
       // ignore: discarded_futures
-      Storage.incrementWrongCount(_card.korean);
+      Storage.incrementWrongCount(card.korean);
     }
-    _reviewed++;
-    if (_idx + 1 >= _deck.length) {
+    if (shouldRecordEvidence) {
+      _reviewed++;
+    }
+    queue.recordJudgment(correct: gotIt);
+
+    if (queue.isComplete) {
       _feedbackCompletion.complete(
         () => FeedbackCompletion.review(
           contentId: widget.feedbackContentId,
@@ -330,7 +382,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
               AppL10n.of(context).reviewTitle,
           level: _unambiguousDeckLevel,
           reviewed: _reviewed,
-          total: _deck.length,
+          total: queue.originalCount,
         ),
       );
       Storage.addXp(_reviewed * 2);
@@ -340,14 +392,12 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
       });
     } else {
       setState(() {
-        _idx++;
         _flipped = false;
         _cardRevealed = false;
       });
       _speech.playOnEnter(_card.korean);
-      _speech.prefetchNeighbors([
-        if (_idx + 1 < _deck.length) _deck[_idx + 1].korean,
-      ]);
+      final next = queue.peekNext;
+      _speech.prefetchNeighbors([if (next != null) next.korean]);
     }
   }
 
@@ -358,6 +408,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
 
     return SoriStudyFrame(
       title: widget.title ?? t.reviewTitle,
+      homeEscape: SoriHomeEscape(confirmWhen: !_done && _reviewed > 0),
       actions: const [TtsSpeedAction()],
       padding: EdgeInsets.zero,
       // ⚠️ 완료 화면에서는 한지 결을 끈다. `_HanjiPainter` 는 반지름 48~163px
@@ -510,8 +561,10 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   }
 
   Widget _buildCard(AppL10n t, SoriSurfaces s) {
+    final queue = _queue!;
     final card = _card;
-    final total = _deck.length;
+    final total = queue.originalCount;
+    final browsingHistory = queue.isBrowsingHistory;
     final tt = SoriTextTheme.of(context);
 
     // §P2-5: 4방향 덱 코치 — 기존 review 코치가 이미 표시된 뒤에만.
@@ -540,7 +593,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    '${_idx + 1} / $total',
+                    '${queue.servedPosition} / $total',
                     style: tt.label.copyWith(color: s.textMuted),
                   ),
                   Text(
@@ -553,7 +606,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
               ClipRRect(
                 borderRadius: BorderRadius.circular(4),
                 child: LinearProgressIndicator(
-                  value: total == 0 ? 0 : _idx / total,
+                  value: total == 0 ? 0 : queue.servedPosition / total,
                   minHeight: 6,
                   backgroundColor: s.text.withValues(alpha: 0.08),
                   valueColor: const AlwaysStoppedAnimation(SoriColors.primary),
@@ -582,48 +635,80 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                     ? constraints.maxHeight
                     : 360.0;
                 final cardH = h * 0.82;
-                final Vocab? next = _idx + 1 < _deck.length
-                    ? _deck[_idx + 1]
-                    : null;
-                return SoriContentFeed(
-                  key: _answerRowKey,
-                  judgmentsEnabled: _cardRevealed,
-                  onBlockedJudgment: () => _flipHintTrigger.value++,
-                  flipHintTrigger: _flipHintTrigger,
-                  onNext: () => _answer(true),
-                  onHard: () => _answer(false),
-                  onSkip: _idx >= _deck.length - 1 ? null : _deferCurrent,
-                  skipEnabled: _idx < _deck.length - 1,
-                  onLike: _likeCurrent,
-                  onBookmark: _saveCurrent,
-                  bookmarkKey: _card.korean,
-                  topAccessory: SoriSpeechIndicator(text: _card.korean),
-                  onShare: _shareCurrent,
-                  onFlip: _toggleFlip,
-                  liked: LikedContentService.isLiked(
-                    kind: LikedContentService.vocab,
-                    id: card.korean,
-                  ),
-                  underlay: next == null
-                      ? null
-                      : SizedBox(
-                          width: double.infinity,
-                          height: cardH,
-                          child: _heroCardBody(next, s, tt, t, showBack: false),
+                final next = queue.peekNext;
+                return Semantics(
+                  container: true,
+                  customSemanticsActions: <CustomSemanticsAction, VoidCallback>{
+                    if (queue.canGoPrevious)
+                      CustomSemanticsAction(label: t.legacyVocabPrevious):
+                          _showPrevious,
+                    if (queue.canGoForward)
+                      CustomSemanticsAction(label: t.btnNext): _showNextHistory,
+                  },
+                  child: SoriContentFeed(
+                    key: _answerRowKey,
+                    judgmentsEnabled: browsingHistory || _cardRevealed,
+                    onBlockedJudgment: browsingHistory
+                        ? null
+                        : () => _flipHintTrigger.value++,
+                    flipHintTrigger: _flipHintTrigger,
+                    onNext: browsingHistory
+                        ? _showNextHistory
+                        : () => _answer(true),
+                    // In history mode this remains non-null at the oldest
+                    // card. SoriContentFeed otherwise falls a downward fling
+                    // through to onNext and moves in the wrong direction.
+                    onPrevious: browsingHistory || queue.canGoPrevious
+                        ? _showPrevious
+                        : null,
+                    onHard: browsingHistory ? null : () => _answer(false),
+                    onSkip: !browsingHistory && queue.canDefer
+                        ? _deferCurrent
+                        : null,
+                    skipEnabled: !browsingHistory && queue.canDefer,
+                    onLike: _likeCurrent,
+                    onBookmark: _saveCurrent,
+                    bookmarkKey: _card.korean,
+                    topAccessory: SoriSpeechIndicator(text: _card.korean),
+                    onShare: _shareCurrent,
+                    onFlip: _toggleFlip,
+                    liked: LikedContentService.isLiked(
+                      kind: LikedContentService.vocab,
+                      id: card.korean,
+                    ),
+                    underlay: next == null
+                        ? null
+                        : SizedBox(
+                            width: double.infinity,
+                            height: cardH,
+                            child: _heroCardBody(
+                              next,
+                              s,
+                              tt,
+                              t,
+                              showBack: false,
+                            ),
+                          ),
+                    knowLabel: browsingHistory ? null : t.btnGewusst,
+                    hardLabel: browsingHistory ? null : t.btnNichtGewusst,
+                    skipLabel: browsingHistory ? null : t.btnSkip,
+                    bookmarkLabel: t.deckActionSave,
+                    child: SoriPressable(
+                      key: _cardKey,
+                      onTap: _toggleFlip,
+                      haptic: SoriHaptic.selection,
+                      child: SizedBox(
+                        key: const ValueKey('deck-card-slot'),
+                        width: double.infinity,
+                        height: double.infinity,
+                        child: _heroCardBody(
+                          card,
+                          s,
+                          tt,
+                          t,
+                          showBack: _flipped,
                         ),
-                  knowLabel: t.btnGewusst,
-                  hardLabel: t.btnNichtGewusst,
-                  skipLabel: t.btnSkip,
-                  bookmarkLabel: t.deckActionSave,
-                  child: SoriPressable(
-                    key: _cardKey,
-                    onTap: _toggleFlip,
-                    haptic: SoriHaptic.selection,
-                    child: SizedBox(
-                      key: const ValueKey('deck-card-slot'),
-                      width: double.infinity,
-                      height: double.infinity,
-                      child: _heroCardBody(card, s, tt, t, showBack: _flipped),
+                      ),
                     ),
                   ),
                 );

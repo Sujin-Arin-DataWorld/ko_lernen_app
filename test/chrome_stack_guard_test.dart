@@ -9,26 +9,8 @@ import 'package:flutter_test/flutter_test.dart';
 /// 밀어낸다. 새 화면은 `SoriChromeRow`/`SoriLevelFilterBar` 단일 행으로
 /// 대체한다.
 void main() {
-  // 2026-08-27 실측: chosung_quiz_screen.dart 는 Wrap+칩 블록이 이미
-  // 여럿(레벨/모드/통계 등 4개) — §19 이행 전까지 그랜드파더. 같은 실측에서
-  // hangul_screen(디테일 칩 2)·legacy_vocab_screen(SRS 배지+통계 2)·
-  // scenario_player_screen(단어 유의어/변형 칩 2)도 기존부터 2블록씩이라
-  // 함께 고정한다. **새 다중 위반 화면을 이 목록에 추가하지 않는다** — 이
-  // 넷은 이 가드가 생기기 전부터 있던 부채이지 새로 늘린 게 아니다.
-  //
-  // 2026-08-27 W3↔main 병합 그랜드파더: study_library_screen.dart(실측
-  // 3개 — 뷰 선택 Wrap, 저장 유형 필터 Wrap, 항목별 상태 배지 Wrap)는
-  // main의 온보딩-미디어 웨이브가 이 가드가 생기기 전에(이 가드는 W3에서만
-  // 존재) 작성한 화면이라, 그 브랜치 관점에서는 위 넷과 동일하게 규칙이
-  // 없던 시점의 부채다. 컨트롤러 재정(§19 W5 이행 목록 항목 6 참고):
-  // 병합 중 리팩터하지 않고 W5 §19 이행 목록에 편입(백로그 4→5).
-  const chipWrapAllowlist = <String, int>{
-    'lib/screens/chosung_quiz_screen.dart': 4,
-    'lib/screens/hangul_screen.dart': 2,
-    'lib/screens/legacy_vocab_screen.dart': 2,
-    'lib/screens/scenario_player_screen.dart': 2,
-    'lib/screens/study_library_screen.dart': 3,
-  };
+  // §19 W5 이행으로 모든 기존 다중 칩 행의 유예가 종료됐다.
+  const chipWrapAllowlist = <String, int>{};
 
   List<_Span> chipWrapSpans(String clean) {
     final spans = <_Span>[];
@@ -53,6 +35,36 @@ void main() {
     return spans;
   }
 
+  bool hasPrivateChipRail(String clean) {
+    final horizontalChipRail = RegExp(
+      r'SingleChildScrollView\([\s\S]{0,300}scrollDirection:\s*Axis\.horizontal[\s\S]{0,300}SoriChip\(',
+    ).hasMatch(clean);
+    if (horizontalChipRail) {
+      return true;
+    }
+
+    for (final row in _constructorSpans(clean, 'Row')) {
+      final body = clean.substring(row.start, row.end);
+      if (RegExp(r'SoriChip\([\s\S]{0,500}?onTap\s*:').hasMatch(body)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  test('§19 rejects an interactive raw Row plus SoriChip bypass', () {
+    const bypass = '''
+      Row(
+        children: [
+          SoriChip(label: 'first', onTap: selectFirst),
+          SoriChip(label: 'second', onTap: selectSecond),
+        ],
+      )
+    ''';
+
+    expect(hasPrivateChipRail(_blankStringsAndComments(bypass)), isTrue);
+  });
+
   test('화면당 Wrap(...Chip...) 블록은 1개를 넘지 않는다(그랜드파더 제외)', () {
     final offenders = <String>[];
     for (final f
@@ -75,6 +87,34 @@ void main() {
       reason:
           '화면에 Wrap+칩 블록이 중복 적층됐다 — SoriChromeRow/'
           'SoriLevelFilterBar 단일 행으로 대체할 것.\n${offenders.join('\n')}',
+    );
+  });
+
+  test('§19 migrated surfaces own one public chrome row, not a private rail', () {
+    const migrated = <String>{
+      'lib/screens/chosung_quiz_screen.dart',
+      'lib/screens/hangul_screen.dart',
+      'lib/screens/legacy_vocab_screen.dart',
+      'lib/screens/study_library_screen.dart',
+    };
+    final offenders = <String>[];
+    for (final path in migrated) {
+      final clean = _blankStringsAndComments(File(path).readAsStringSync());
+      final chromeRows = RegExp(
+        r'(^|[^A-Za-z0-9_$])SoriChromeRow\(',
+      ).allMatches(clean).length;
+      final privateChipRail = hasPrivateChipRail(clean);
+      if (chromeRows != 1 || privateChipRail) {
+        offenders.add(
+          '$path: chromeRows=$chromeRows, privateChipRail=$privateChipRail',
+        );
+      }
+    }
+    expect(
+      offenders,
+      isEmpty,
+      reason:
+          '§19 surfaces must expose one SoriChromeRow and put choices in a sheet, not add a private chip rail.\n${offenders.join('\n')}',
     );
   });
 
@@ -107,6 +147,29 @@ class _Span {
   const _Span(this.start, this.end);
   final int start;
   final int end;
+}
+
+List<_Span> _constructorSpans(String clean, String constructor) {
+  final spans = <_Span>[];
+  final matches = RegExp(
+    r'(^|[^A-Za-z0-9_$])' + RegExp.escape(constructor) + r'\(',
+  ).allMatches(clean);
+  for (final match in matches) {
+    final start = match.end - constructor.length - 1;
+    var depth = 0;
+    for (var index = start; index < clean.length; index++) {
+      if (clean[index] == '(') {
+        depth++;
+      } else if (clean[index] == ')') {
+        depth--;
+        if (depth == 0) {
+          spans.add(_Span(start, index + 1));
+          break;
+        }
+      }
+    }
+  }
+  return spans;
 }
 
 String _blankStringsAndComments(String src) {

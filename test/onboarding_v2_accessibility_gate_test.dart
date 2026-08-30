@@ -595,12 +595,14 @@ void main() {
       StudyLibraryView.saved: de.studyLibrarySavedTab,
       StudyLibraryView.due: de.studyLibraryDueTab,
     };
+    final selector = find.byKey(const ValueKey('study-library-view-selector'));
+    await tester.scrollUntilVisible(selector, 200);
+    await tester.tapAt(tester.getTopLeft(selector) + const Offset(24, 24));
+    await tester.pumpAndSettle();
     for (final entry in viewLabels.entries) {
       final control = find.byKey(
         ValueKey('study-library-view-${entry.key.name}'),
       );
-      await tester.scrollUntilVisible(control, 160);
-      await tester.pump();
       _expectLabeled48DpButton(tester, control);
       expect(
         tester.getSemantics(control).getSemanticsData().label,
@@ -609,12 +611,19 @@ void main() {
     }
 
     final dueControl = find.byKey(const ValueKey('study-library-view-due'));
+    await tester.ensureVisible(dueControl);
     await tester.tap(dueControl);
     await tester.pump();
 
-    final viewStatus = tester
-        .getSemantics(find.byKey(const ValueKey('study-library-view-status')))
-        .getSemanticsData();
+    final viewStatusFinder = find.byKey(
+      const ValueKey('study-library-view-status'),
+    );
+    await tester.scrollUntilVisible(
+      viewStatusFinder,
+      160,
+      scrollable: find.byType(Scrollable).first,
+    );
+    final viewStatus = tester.getSemantics(viewStatusFinder).getSemanticsData();
     expect(viewStatus.flagsCollection.isLiveRegion, isTrue);
     expect(viewStatus.label, contains(de.studyLibraryDueTab));
 

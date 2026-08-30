@@ -46,6 +46,11 @@ void main() {
       reason: 'speak() 가 진행 중인 prefetch 와 별도로 해석을 냈다 — in-flight 맵이 공유되지 않음',
     );
     expect(speakStarted, isFalse, reason: 'prefetch 완료 전에는 아직 재생이 시작되면 안 된다');
+    expect(
+      SoriSpeech.speaking.value,
+      isFalse,
+      reason: 'prefetch 대기만으로 인디케이터가 재생 중이 되면 안 된다',
+    );
 
     prefetchCompleter.complete();
     final played = await speakFuture;
@@ -62,6 +67,104 @@ void main() {
           'prefetch 해석(1) + 실제 재생 시작(1) = 2 — 중복 해석이 아니라 '
           '"캐시 채움 다음 재생"의 정상 순서',
     );
+  });
+
+  test('prefetch 뒤의 동시 speak 두 번은 하나의 승격 재생 future를 공유한다', () async {
+    final prefetchCompleter = Completer<void>();
+    final speakCompleter = Completer<bool>();
+    var speakCalls = 0;
+    SoriSpeech.prefetchImpl = (text, voice) => prefetchCompleter.future;
+    SoriSpeech.speakImpl = (text, voice) {
+      speakCalls++;
+      return speakCompleter.future;
+    };
+
+    final prefetchFuture = SoriSpeech.prefetch('안녕');
+    final firstSpeak = SoriSpeech.speak('안녕');
+    final secondSpeak = SoriSpeech.speak('안녕');
+
+    expect(
+      identical(firstSpeak, secondSpeak),
+      isTrue,
+      reason: '첫 speak가 게시한 승격 future에 두 번째 speak가 합류해야 한다',
+    );
+
+    prefetchCompleter.complete();
+    await Future<void>.delayed(Duration.zero);
+    expect(speakCalls, 1, reason: 'pending prefetch 완료 뒤 재생은 한 번만 시작해야 한다');
+
+    speakCompleter.complete(true);
+    expect(await firstSpeak, isTrue);
+    expect(await secondSpeak, isTrue);
+    await prefetchFuture;
+  });
+
+  test('pending 승격을 stop한 뒤 같은 키를 다시 speak해도 원래 prefetch에 합류한다', () async {
+    final prefetchCompleter = Completer<void>();
+    final speakCompleter = Completer<bool>();
+    var prefetchCalls = 0;
+    var speakCalls = 0;
+    SoriSpeech.prefetchImpl = (text, voice) {
+      prefetchCalls++;
+      return prefetchCompleter.future;
+    };
+    SoriSpeech.speakImpl = (text, voice) {
+      speakCalls++;
+      return speakCompleter.future;
+    };
+    SoriSpeech.stopImpl = () async {};
+
+    final prefetchFuture = SoriSpeech.prefetch('안녕');
+    final cancelledSpeak = SoriSpeech.speak('안녕');
+    await SoriSpeech.stop();
+    final replacementSpeak = SoriSpeech.speak('안녕');
+
+    expect(prefetchCalls, 1, reason: '취소 뒤에도 아직 진행 중인 prefetch를 재사용해야 한다');
+    expect(speakCalls, 0, reason: '교체 speak는 원래 prefetch가 끝나기 전에 재생하면 안 된다');
+
+    prefetchCompleter.complete();
+    expect(await cancelledSpeak, isFalse);
+    await Future<void>.delayed(Duration.zero);
+    expect(speakCalls, 1, reason: '원래 prefetch 완료 뒤 교체 발화만 한 번 재생해야 한다');
+
+    speakCompleter.complete(true);
+    expect(await replacementSpeak, isTrue);
+    await prefetchFuture;
+    expect(prefetchCalls, 1);
+  });
+
+  test('완료된 prefetch는 취소 복원 뒤 in-flight 맵에 남지 않는다', () async {
+    final prefetchCompleter = Completer<void>();
+    final speakCompleters = <Completer<bool>>[
+      Completer<bool>(),
+      Completer<bool>(),
+    ];
+    var speakCalls = 0;
+    SoriSpeech.prefetchImpl = (text, voice) => prefetchCompleter.future;
+    SoriSpeech.speakImpl = (text, voice) {
+      return speakCompleters[speakCalls++].future;
+    };
+    SoriSpeech.stopImpl = () async {};
+
+    final prefetchFuture = SoriSpeech.prefetch('안녕');
+    final firstSpeak = SoriSpeech.speak('안녕');
+    prefetchCompleter.complete();
+    await Future<void>.delayed(Duration.zero);
+    expect(speakCalls, 1);
+
+    await SoriSpeech.stop();
+    final replacementSpeak = SoriSpeech.speak('안녕');
+    expect(
+      speakCalls,
+      2,
+      reason: '완료된 prefetch를 복원해 다음 speak를 불필요하게 지연하면 안 된다',
+    );
+
+    speakCompleters.first.complete(false);
+    speakCompleters.last.complete(true);
+    expect(await firstSpeak, isFalse);
+    expect(await replacementSpeak, isTrue);
+    await prefetchFuture;
   });
 
   test('speak 진행 중 같은 텍스트를 prefetch() 하면 별도 해석 없이 그 완료만 기다린다', () async {
@@ -111,19 +214,26 @@ void main() {
     expect(startCount, 1);
   });
 
-  test('서로 다른 텍스트는 독립적으로 해석된다 — 같은 키만 합류한다', () async {
+  test('서로 다른 텍스트는 이전 발화를 정지한 뒤 새 해석을 시작한다', () async {
     final calls = <String>[];
     final completers = <String, Completer<bool>>{};
+    var stopCalls = 0;
     SoriSpeech.speakImpl = (text, voice) {
       calls.add(text);
       final c = Completer<bool>();
       completers[text] = c;
       return c.future;
     };
+    SoriSpeech.stopImpl = () async {
+      stopCalls++;
+    };
 
     final a = SoriSpeech.speak('안녕');
     final b = SoriSpeech.speak('감사합니다');
+    await Future<void>.delayed(Duration.zero);
+
     expect(calls, ['안녕', '감사합니다']);
+    expect(stopCalls, 1);
 
     completers['안녕']!.complete(true);
     completers['감사합니다']!.complete(true);

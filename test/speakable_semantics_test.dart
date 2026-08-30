@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
-import 'package:ko_lernen_app/services/tts_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 
@@ -22,22 +21,20 @@ void main() {
     locale: const Locale('de'),
     supportedLocales: AppL10n.supportedLocales,
     localizationsDelegates: AppL10n.localizationsDelegates,
-    home: const Scaffold(body: Center(child: SoriSpeechIndicator(text: '학교'))),
+    home: const Scaffold(
+      body: Center(child: SoriSpeechIndicator(text: '학교')),
+    ),
   );
 
   setUp(() {
-    TtsService.speaking.value = false;
     SoriSpeech.resetForTesting();
   });
 
   tearDown(() {
-    TtsService.speaking.value = false;
     SoriSpeech.resetForTesting();
   });
 
-  testWidgets('버튼 role + 이름을 노출하고, 대기 상태에서 idle 값을 읽어준다', (
-    tester,
-  ) async {
+  testWidgets('버튼 role + 이름을 노출하고, 대기 상태에서 idle 값을 읽어준다', (tester) async {
     final semantics = tester.ensureSemantics();
     await tester.pumpWidget(host());
 
@@ -55,7 +52,7 @@ void main() {
 
   testWidgets('재생 중 값은 대기 값과 다르다', (tester) async {
     final semantics = tester.ensureSemantics();
-    TtsService.speaking.value = true;
+    SoriSpeech.speaking.value = true;
     await tester.pumpWidget(host());
     await tester.pump();
 
@@ -94,16 +91,14 @@ void main() {
     expect(speakCalls, ['학교'], reason: '대기 중 탭은 재생을 걸어야 한다');
     expect(stopCalls, 0);
 
-    TtsService.speaking.value = true;
+    SoriSpeech.speaking.value = true;
     await tester.pump();
 
     await tester.tap(find.byType(SoriSpeechIndicator));
     await tester.pump();
     expect(stopCalls, 1, reason: '재생 중 탭은 정지를 불러야 한다');
-    expect(
-      speakCalls,
-      ['학교'],
-      reason: '재생 중 탭이 speak 를 다시 걸면 안 된다 — 조작 불가능한 상태가 재발한다',
-    );
+    expect(speakCalls, [
+      '학교',
+    ], reason: '재생 중 탭이 speak 를 다시 걸면 안 된다 — 조작 불가능한 상태가 재발한다');
   });
 }

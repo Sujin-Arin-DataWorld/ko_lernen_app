@@ -22,7 +22,6 @@ import '../services/pack_session_srs_ledger.dart';
 import '../services/quiz_distractor_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
-import '../services/tts_service.dart';
 import '../services/vocab_pack_finish_coordinator.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/app_error.dart';
@@ -43,6 +42,7 @@ import '../widgets/sori/toast.dart';
 import '../services/liked_content_service.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/score_pop.dart';
+import '../widgets/sori/speakable.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
@@ -191,6 +191,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   int _bossCorrect = 0;
   int _selectedChoice = -1;
   bool _choiceLocked = false;
+  bool _hasSubmittedAssessment = false;
   int _combo = 0; // 연속 정답 (도파민 루프)
   List<String>? _choices; // per-question 4-option cache
 
@@ -350,6 +351,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         _quizQuestions = const [];
         _bossQuestions = const [];
         _assessmentOrdersPrepared = false;
+        _hasSubmittedAssessment = false;
         _loading = false;
       });
       _prepareNextQuestion(); // pre-warm choice cache for stage 1 → 2 transition
@@ -687,7 +689,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       return;
     }
     // ignore: discarded_futures
-    TtsService.speak(cur.korean);
+    SoriSpeech.speak(cur.korean);
   }
 
   void _selectChoice(int i) {
@@ -700,6 +702,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     setState(() {
       _selectedChoice = i;
       _choiceLocked = true;
+      _hasSubmittedAssessment = true;
     });
     // Only scored recognition-assessment stages become course evidence. The
     // earlier card self-rating stays in SRS only, so a tap cannot unlock a
@@ -967,6 +970,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
 
     return SoriStudyFrame(
       title: title,
+      homeEscape: SoriHomeEscape(confirmWhen: _hasSubmittedAssessment),
       leading: IconButton(
         icon: const Icon(Icons.close),
         onPressed: () => Navigator.of(context).maybePop(),
@@ -1239,7 +1243,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                           : SoriColors.info,
                       onTap: () {
                         // ignore: discarded_futures
-                        TtsService.speak(cur.korean);
+                        SoriSpeech.speak(cur.korean);
                       },
                     ),
                   ],
@@ -1382,7 +1386,7 @@ class _FlipFront extends StatelessWidget {
                 ),
                 onPressed: () {
                   // ignore: discarded_futures
-                  TtsService.speak(v.korean);
+                  SoriSpeech.speak(v.korean);
                 },
               ),
               SizedBox(height: soriFillSize(h, 0.02, 6, 16)),
@@ -1483,11 +1487,11 @@ class _FlipBack extends StatelessWidget {
               haptic: SoriHaptic.light,
               onTap: () {
                 // ignore: discarded_futures
-                TtsService.speak(v.exampleKorean);
+                SoriSpeech.speak(v.exampleKorean);
               },
               onLongPress: () {
                 // ignore: discarded_futures
-                TtsService.speakSlow(v.exampleKorean);
+                SoriSpeech.speakSlow(v.exampleKorean);
               },
               child: Column(
                 mainAxisSize: MainAxisSize.min,

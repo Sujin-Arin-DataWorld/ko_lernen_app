@@ -17,14 +17,15 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/chrome_row.dart';
 import '../widgets/sori/chosung_hint.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/sori_icon.dart';
 import '../widgets/sori/score_pop.dart';
-import '../widgets/sori/hanok_header.dart';
+import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/mascot.dart';
-import '../widgets/sori/motion.dart';
 import '../widgets/sori/progress.dart';
+import '../widgets/sori/sheet.dart';
 import '../widgets/sori/wordbook_add.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
@@ -134,6 +135,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
   }
 
   List<Vocab> _deck = [];
+  Map<String, int> _levelCounts = const {};
   bool _loading = true;
   bool _loadFailed = false;
   int _idx = 0;
@@ -233,22 +235,32 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
       });
       return;
     }
+    // C1/C2 vocabulary is intentionally phrase-based. Spaces are rendered as
+    // literal hint separators and remain typeable with the system keyboard
+    // used above A2.
+    final compatible = source
+        .where(
+          (v) => v.korean.runes.every(
+            (c) => (c >= 0xAC00 && c <= 0xD7A3) || c == 0x20,
+          ),
+        )
+        .toList();
     final filtered =
-        source
+        compatible
             .where(
-              (v) =>
-                  (widget.deck != null || v.level == _level) &&
-                  // C1/C2 vocabulary is intentionally phrase-based. Spaces
-                  // are rendered as literal hint separators and remain
-                  // typeable with the system keyboard used above A2.
-                  v.korean.runes.every(
-                    (c) => (c >= 0xAC00 && c <= 0xD7A3) || c == 0x20,
-                  ),
+              (v) => widget.deck != null || v.level.toUpperCase() == _level,
             )
             .toList()
           ..shuffle(Random());
+    final levelCounts = {
+      for (final level in LearnerLevel.values)
+        level.display: compatible
+            .where((v) => v.level.toUpperCase() == level.display)
+            .length,
+    };
     setState(() {
       _deck = filtered;
+      _levelCounts = levelCounts;
       _loading = false;
       _loadFailed = false;
       _idx = 0;
@@ -262,6 +274,60 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
     });
     _ctrl.clear();
     _questionStart = DateTime.now();
+  }
+
+  Future<void> _showLevelFilter(AppL10n t) async {
+    final next = await showSoriLevelFilterSheet(
+      context: context,
+      selected: _level,
+      levels: LearnerLevel.values
+          .map((level) => level.display)
+          .toList(growable: false),
+      allLabel: t.filterAll,
+      countFor: (level) => _levelCounts[level] ?? 0,
+    );
+    if (!mounted || next == null) return;
+    setState(() => _level = next);
+    await _load();
+  }
+
+  Future<void> _showModeSheet(AppL10n t) async {
+    await showSoriSheet<void>(
+      context: context,
+      builder: (sheetContext) => Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          SoriChip(
+            key: const Key('chosung-mode-with-vowels'),
+            label: t.chosungModeWithVowels,
+            icon: Icons.lightbulb_outline,
+            accent: SoriColors.warning,
+            selected: _mode == HintMode.chosungVowel,
+            variant: SoriChipVariant.soft,
+            minInteractiveHeight: 48,
+            onTap: () {
+              setState(() => _mode = HintMode.chosungVowel);
+              Navigator.pop(sheetContext);
+            },
+          ),
+          const SizedBox(height: Spacing.sm),
+          SoriChip(
+            key: const Key('chosung-mode-initials-only'),
+            label: t.chosungModeInitialsOnly,
+            icon: Icons.flash_on_rounded,
+            accent: SoriColors.danger,
+            selected: _mode == HintMode.chosung,
+            variant: SoriChipVariant.soft,
+            minInteractiveHeight: 48,
+            onTap: () {
+              setState(() => _mode = HintMode.chosung);
+              Navigator.pop(sheetContext);
+            },
+          ),
+        ],
+      ),
+    );
   }
 
   Future<void> _retryLoad() async {
@@ -515,6 +581,10 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
 
     return SoriStudyFrame(
       title: t.gameChosungTitle,
+      homeEscape: SoriHomeEscape(
+        confirmWhen:
+            !_roundComplete && (_roundIndex > 0 || _state != _State.waiting),
+      ),
       leading: IconButton(
         icon: const Icon(Icons.arrow_back_ios_new, size: 20),
         onPressed: () => Navigator.pop(context),
@@ -541,112 +611,29 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  // 모듈 헤더 — calligraphy 한지 화선지 톤(붓글씨)이 chosung 자음
-                  // 학습과 가장 잘 어울림 (이전 porch.png는 generic 처마 풍경이었음).
-                  const SoriEntrance(
-                    child: HanokHeader(
-                      asset: 'assets/illustrations/hanok/calligraphy.png',
-                      fallbackIcon: Icons.abc_rounded,
-                    ),
-                  ),
-                  const SizedBox(height: Spacing.md),
-
                   // ── 레벨 선택 ──────────────────────────────────────────
-                  Wrap(
+                  SoriChromeRow(
                     key: _levelRowKey,
-                    alignment: WrapAlignment.center,
-                    spacing: Spacing.sm,
-                    runSpacing: Spacing.xs,
-                    children: LearnerLevel.values.map((level) {
-                      final lvl = level.display;
-                      final selected = _level == lvl;
-                      return SoriChip(
-                        key: ValueKey('chosung-level-$lvl'),
-                        label: lvl,
-                        accent: SoriColors.primary,
-                        selected: selected,
-                        variant: SoriChipVariant.soft,
-                        fontSize: 13,
-                        minInteractiveHeight: 48,
-                        onTap: () {
-                          if (selected) {
-                            return;
-                          }
-                          setState(() => _level = lvl);
-                          _load();
-                        },
-                      );
-                    }).toList(),
-                  ),
-                  const SizedBox(height: 8),
-
-                  // ── 난이도 토글 (초성 only / 초성+모음) ────────────────
-                  Wrap(
-                    alignment: WrapAlignment.center,
-                    spacing: Spacing.sm,
-                    runSpacing: Spacing.xs,
-                    children: [
-                      SoriChip(
-                        label: AppL10n.of(context).chosungModeWithVowels,
-                        icon: Icons.lightbulb_outline,
-                        accent: SoriColors.warning,
-                        selected: _mode == HintMode.chosungVowel,
-                        variant: SoriChipVariant.soft,
-                        fontSize: 12,
-                        minInteractiveHeight: 48,
-                        onTap: () {
-                          if (_mode == HintMode.chosungVowel) {
-                            return;
-                          }
-                          setState(() => _mode = HintMode.chosungVowel);
-                        },
+                    onFilterTap: () => _showLevelFilter(t),
+                    filterKey: const Key('chosung-level-selector'),
+                    filterSemanticLabel: t.filterLevel,
+                    meta: Semantics(
+                      key: const ValueKey('chosung-round-status'),
+                      label:
+                          '${t.chosungCorrectCount(_correct)}. ${t.chosungWrongCount(_wrong)}. ${t.gameRoundProgress(roundPos, _roundSize)}',
+                      child: Text(
+                        '$_level · ${_levelCounts[_level] ?? 0}',
+                        style: SoriTextTheme.of(context).meta,
                       ),
-                      SoriChip(
-                        label: AppL10n.of(context).chosungModeInitialsOnly,
-                        icon: Icons.flash_on_rounded,
-                        accent: SoriColors.danger,
-                        selected: _mode == HintMode.chosung,
-                        variant: SoriChipVariant.soft,
-                        fontSize: 12,
-                        minInteractiveHeight: 48,
-                        onTap: () {
-                          if (_mode == HintMode.chosung) {
-                            return;
-                          }
-                          setState(() => _mode = HintMode.chosung);
-                        },
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-
-                  // ── 통계 칩 ────────────────────────────────────────────
-                  // Wrap = textScale 1.3 × 308px에서 가로 오버플로 없이
-                  // 다음 줄로 흐름. 이모지 → 시맨틱 아이콘(성공/실패 색).
-                  Wrap(
-                    spacing: Spacing.sm,
-                    runSpacing: Spacing.xs,
-                    children: [
-                      SoriChip(
-                        label: '$_correct',
-                        semanticLabel: t.chosungCorrectCount(_correct),
-                        icon: Icons.check_rounded,
-                        accent: SoriColors.success,
-                      ),
-                      SoriChip(
-                        label: '$_wrong',
-                        semanticLabel: t.chosungWrongCount(_wrong),
-                        icon: Icons.close_rounded,
-                        accent: SoriColors.danger,
-                      ),
-                      SoriChip(
-                        label: '$roundPos / $_roundSize',
-                        semanticLabel: t.gameRoundProgress(
-                          roundPos,
-                          _roundSize,
-                        ),
-                      ),
-                    ],
+                    ),
+                    trailing: IconButton(
+                      key: const Key('chosung-mode-selector'),
+                      tooltip: _mode == HintMode.chosungVowel
+                          ? t.chosungModeWithVowels
+                          : t.chosungModeInitialsOnly,
+                      onPressed: () => _showModeSheet(t),
+                      icon: const Icon(Icons.tune_rounded),
+                    ),
                   ),
                   const SizedBox(height: 14),
 
@@ -874,15 +861,18 @@ class _RoundSummaryCard extends StatelessWidget {
               ),
             ),
             const SizedBox(height: Spacing.md),
-            Wrap(
-              alignment: WrapAlignment.center,
-              spacing: Spacing.sm,
-              runSpacing: Spacing.sm,
-              children: [
-                _Stat(label: t.chosungRoundAccuracy(accuracy), color: accent),
-                _Stat(label: t.chosungRoundAvgTime(avgSec), color: s.text),
-                _Stat(label: '+$earnedXp XP', color: SoriColors.gold),
-              ],
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  _Stat(label: t.chosungRoundAccuracy(accuracy), color: accent),
+                  const SizedBox(width: Spacing.sm),
+                  _Stat(label: t.chosungRoundAvgTime(avgSec), color: s.text),
+                  const SizedBox(width: Spacing.sm),
+                  _Stat(label: '+$earnedXp XP', color: SoriColors.gold),
+                ],
+              ),
             ),
             if (isNewBest) ...[
               const SizedBox(height: Spacing.sm),
