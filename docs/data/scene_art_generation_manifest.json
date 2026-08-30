@@ -12,7 +12,7 @@
     "identifier": "scene-poster/faceted-heritage-2.5d-v1",
     "family": "F-E-scene-poster",
     "path": "docs/assets/STYLE_LOCK.json",
-    "sha256": "179f70283260fe6b34750c99746867f006087b6b0aec235cd811fbfb703c9697",
+    "sha256": "2e12a0cec6b9c7e0b45e8439d4608304a9f14c417da5a2dac1401aa0728791b9",
     "scope": {
       "runtimeRoot": "assets/illustrations/scenes/",
       "reviewRoot": "assets_unused/pending_review/scenes/",
@@ -48,7 +48,7 @@
   },
   "canonicalInventory": {
     "path": "docs/data/scene_asset_inventory.json",
-    "sha256": "483d773f83689e4d23306a69bd1d02a69ee28af03b627d7e7e3be147b9c255ec"
+    "sha256": "38366202771d8ff09431112161ed5eeb9979fecbb470b8098a6571efa5871a8b"
   },
   "scenarioCount": 419,
   "categoryOrder": [
