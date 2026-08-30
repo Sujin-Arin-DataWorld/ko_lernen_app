@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -38,12 +39,10 @@ import '../widgets/sori/can_do_result_card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/content_feedback_card.dart';
-import '../widgets/sori/hanok_header.dart' show SoriPosterLoop;
 import '../widgets/sori/home_action.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/motion.dart' show SoriEntrance;
-import '../widgets/sori/tiger_video.dart' show TigerStageVideo;
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
@@ -68,6 +67,49 @@ import 'quest_engines/uebersetzen_quest.dart';
 /// Reihenfolge der Lern-Stages eines Szenarios.
 /// Top-level + public → die Index-Mathematik ist rein testbar.
 enum ScenarioStage { intro, vocab, dialog, grammar, rollenspiel, quest, result }
+
+const _scenarioIntroHorizontalFocalPoints = <double>[
+  -0.24,
+  -0.12,
+  0,
+  0.12,
+  0.24,
+];
+const _scenarioIntroVerticalFocalPoints = <double>[-0.12, 0, 0.12];
+
+/// Stable unsigned 32-bit FNV-1a over UTF-8 bytes.
+///
+/// The 16-bit split keeps every intermediate below JavaScript's exact integer
+/// limit, so VM and web builds select the same intro crop.
+int scenarioIntroFnv1a32(String value) {
+  var hash = 0x811c9dc5;
+  for (final byte in utf8.encode(value)) {
+    hash ^= byte;
+    final low = hash & 0xffff;
+    final high = (hash >> 16) & 0xffff;
+    const primeLow = 0x0193;
+    const primeHigh = 0x0100;
+    final lowProduct = low * primeLow;
+    final middle = (high * primeLow + low * primeHigh) & 0xffff;
+    hash = (lowProduct + (middle << 16)) & 0xffffffff;
+  }
+  return hash;
+}
+
+String scenarioIntroSeedFor(Scenario scenario) {
+  final courseUnitId = scenario.courseUnitId.trim();
+  return courseUnitId.isNotEmpty ? courseUnitId : scenario.id.trim();
+}
+
+Alignment scenarioIntroAlignmentFor(Scenario scenario) {
+  final hash = scenarioIntroFnv1a32(scenarioIntroSeedFor(scenario));
+  return Alignment(
+    _scenarioIntroHorizontalFocalPoints[hash %
+        _scenarioIntroHorizontalFocalPoints.length],
+    _scenarioIntroVerticalFocalPoints[(hash >> 8) %
+        _scenarioIntroVerticalFocalPoints.length],
+  );
+}
 
 /// Baut den Stage-Plan. `quest` erscheint [questCount]-mal. Rein (keine State),
 /// damit Stage-Zählung/Quest-Index-Mapping per Unit-Test abgesichert sind.
@@ -719,13 +761,10 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 
   // ─── Backdrop-Map ──────────────────────────────────────────────────────────
 
-  /// Resolved scene poster / ambient loop for the current scenario. Prefers a
-  /// dedicated per-scenario asset (`scenes/{id}.png` · `loops/scene_{id}.mp4`)
-  /// and falls back to the category backdrop via SceneAssetResolver.
+  /// Resolved static scene poster for the current scenario. Prefers a
+  /// dedicated per-scenario asset and falls back to the category backdrop.
   String? get _backdropPoster =>
       _scenario == null ? null : SceneAssetResolver.posterAsset(_scenario!);
-  String? get _backdropLoop =>
-      _scenario == null ? null : SceneAssetResolver.loopAsset(_scenario!);
 
   // ─── Stage-Berechnung (plan-basiert, siehe buildScenarioStagePlan) ─────────
 
@@ -1059,7 +1098,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         children: [
           _ScenarioIntroArt(
             posterAsset: _backdropPoster,
-            loopAsset: _backdropLoop,
+            alignment: scenarioIntroAlignmentFor(s),
             emoji: s.emoji,
             sidekick: s.sidekick,
           ),
@@ -2064,13 +2103,13 @@ class _StageScroll extends StatelessWidget {
 
 class _ScenarioIntroArt extends StatelessWidget {
   final String? posterAsset;
-  final String? loopAsset;
+  final Alignment alignment;
   final String emoji;
   final String? sidekick;
 
   const _ScenarioIntroArt({
     required this.posterAsset,
-    required this.loopAsset,
+    required this.alignment,
     required this.emoji,
     required this.sidekick,
   });
@@ -2102,21 +2141,19 @@ class _ScenarioIntroArt extends StatelessWidget {
       );
     }
 
-    // 정지 백드롭 포스터 — 영상 게이트 통과 시 위로 앰비언트 루프가 페이드인.
+    // 정적 포스터만 사용한다. 정렬은 scenario/course-unit seed로 결정되며
+    // 작은 안전 범위 안에서만 움직여 인트로 텍스트 영역을 침범하지 않는다.
     final poster = Image.asset(
       posterAsset!,
+      key: const ValueKey('scenario-intro-art-image'),
       fit: BoxFit.cover,
+      alignment: alignment,
       errorBuilder: (_, __, ___) => Container(
         color: SoriColors.primary.withValues(alpha: 0.12),
         alignment: Alignment.center,
         child: mascot,
       ),
     );
-    // 챕터 헤더 앰비언트 루프 (배치 계획 §2-6): scenes/{key}.png 포스터 위에
-    // loops/scene_{key}.mp4 무음 루프. 영상 미존재·실패 시 포스터 유지.
-    final live =
-        TigerStageVideo.videoReady && !SoriMotion.reduceMotion(context);
-
     return ClipRRect(
       borderRadius: BorderRadius.circular(SoriRadius.lg),
       child: SizedBox(
@@ -2125,10 +2162,7 @@ class _ScenarioIntroArt extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            if (live && loopAsset != null)
-              SoriPosterLoop(videoAsset: loopAsset!, poster: poster)
-            else
-              poster,
+            poster,
             DecoratedBox(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
