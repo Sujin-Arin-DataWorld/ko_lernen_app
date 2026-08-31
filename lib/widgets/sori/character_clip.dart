@@ -288,6 +288,11 @@ class CharacterClipPlayer extends StatefulWidget {
   final bool loop;
   final Color blendColor;
 
+  /// `video_player`의 `setPlaybackSpeed`로 넘길 재생 배속. 기본 1.0(정상
+  /// 속도). 1.0 미만이면 느긋하게, 초과면 빠르게 — 오디오 트랙은 항상
+  /// 무음이라(위 `prepare` 참고) 피치 보정 여부는 무관하다.
+  final double playbackSpeed;
+
   /// Applies the runtime white-matte multiply filter.
   ///
   /// Leave this enabled for [CharacterClips]. Set it to false only for an
@@ -345,6 +350,7 @@ class CharacterClipPlayer extends StatefulWidget {
     this.size = 180,
     this.loop = false,
     this.blendColor = SoriColors.lightBg,
+    this.playbackSpeed = 1.0,
     this.applyMultiplyFilter = true,
     this.fallbackKind,
     this.fallbackEmotion = MascotEmotion.smile,
@@ -399,6 +405,7 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
         // audio-policy: exempt — 내장 트랙 상시 무음(정책), 채널 볼륨 아님
         await video.setVolume(0);
         await video.setLooping(widget.loop);
+        await video.setPlaybackSpeed(widget.playbackSpeed);
       },
       onGranted: _onGranted,
       onRevoked: _onRevoked,

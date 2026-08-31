@@ -109,9 +109,7 @@ class OnboardingSetupStage extends StatelessWidget {
                       const SizedBox(height: Spacing.xs),
                       Text(
                         choosingLevel ? copy.levelHeading : copy.purposeHeading,
-                        style: SoriTextTheme.of(
-                          context,
-                        ).h2.copyWith(fontFamily: SoriFonts.culture),
+                        style: SoriTextTheme.of(context).h2,
                       ),
                       if (choosingLevel && selectedPurposeTitle != null) ...[
                         const SizedBox(height: Spacing.xs),
@@ -185,24 +183,32 @@ class OnboardingConfirmationStage extends StatelessWidget {
 
   bool get _isJoy => companion.id == OnboardingV2Ids.companionJoy;
 
+  /// Solid matte behind [preview].
+  ///
+  /// This **must** stay a single flat color, never a gradient.
+  /// [CharacterClipPlayer.blendColor] multiplies the clip's white mat against
+  /// exactly one color (`BlendMode.multiply`) — a gradient background here
+  /// cannot equal any single [blendColor], so the matte always reappears as a
+  /// visible cream rectangle behind the video (2026-08-31 실기기). The
+  /// companion accent still tints the matte; it just no longer varies by
+  /// position, so [preview] can pass this same value straight through.
+  static Color matteFor(BuildContext context, {required bool isJoy}) {
+    final accent = isJoy ? SoriColors.primary : SoriColors.tigerOnLight;
+    return Color.alphaBlend(
+      accent.withValues(alpha: 0.2),
+      SoriSurfaces.of(context).surfaceAlt,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    final accent = _isJoy ? SoriColors.primary : SoriColors.tigerOnLight;
+    final matte = matteFor(context, isJoy: _isJoy);
     return Semantics(
       image: true,
       label: '${companion.name}. ${companion.rhythm}',
       child: ExcludeSemantics(
         child: DecoratedBox(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                accent.withValues(alpha: 0.2),
-                SoriSurfaces.of(context).surfaceAlt,
-              ],
-            ),
-          ),
+          decoration: BoxDecoration(color: matte),
           child: Stack(
             fit: StackFit.expand,
             children: [
@@ -232,10 +238,8 @@ class OnboardingConfirmationStage extends StatelessWidget {
                       children: [
                         TextSpan(
                           text: companion.name,
-                          style: SoriTextTheme.of(context).h2.copyWith(
-                            color: Colors.white,
-                            fontFamily: SoriFonts.culture,
-                          ),
+                          style: SoriTextTheme.of(context).cultureTitle
+                              .copyWith(color: Colors.white, fontSize: 20),
                         ),
                         TextSpan(
                           text: '  ${companion.koreanName}',
@@ -316,16 +320,6 @@ class _StudyStage extends StatelessWidget {
           alignment: const Alignment(0, 0.15),
         ),
         Positioned(
-          top: Spacing.lg,
-          right: Spacing.md,
-          child: Image.asset(
-            'assets/illustrations/mascot/magpie_perched.png',
-            width: 132,
-            height: 132,
-            fit: BoxFit.contain,
-          ),
-        ),
-        Positioned(
           left: Spacing.lg,
           bottom: Spacing.xxxl,
           child: ConstrainedBox(
@@ -345,10 +339,9 @@ class _StudyStage extends StatelessWidget {
                 ),
                 child: Text(
                   page.highlights[2].title,
-                  style: SoriTextTheme.of(context).h3.copyWith(
-                    color: SoriColors.lightText,
-                    fontFamily: SoriFonts.culture,
-                  ),
+                  style: SoriTextTheme.of(
+                    context,
+                  ).h3.copyWith(color: SoriColors.lightText),
                 ),
               ),
             ),
@@ -545,7 +538,6 @@ class _StageCaption extends StatelessWidget {
           title,
           style: SoriTextTheme.of(context).h2.copyWith(
             color: Colors.white,
-            fontFamily: SoriFonts.culture,
             shadows: const [Shadow(color: Color(0x99000000), blurRadius: 14)],
           ),
         ),
@@ -638,10 +630,11 @@ class _CompanionStageChoice extends StatelessWidget {
                             children: [
                               TextSpan(
                                 text: companion.name,
-                                style: SoriTextTheme.of(context).h3.copyWith(
-                                  color: Colors.white,
-                                  fontFamily: SoriFonts.culture,
-                                ),
+                                style: SoriTextTheme.of(context).cultureTitle
+                                    .copyWith(
+                                      color: Colors.white,
+                                      fontSize: 17,
+                                    ),
                               ),
                               TextSpan(
                                 text: '  ${companion.koreanName}',

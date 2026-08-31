@@ -23,6 +23,7 @@ import 'onboarding_story_screen.dart';
 import 'onboarding_v2_copy.dart';
 import 'onboarding_v2_presentation.dart';
 import 'onboarding_v2_shell.dart';
+import 'onboarding_v2_stage.dart';
 
 /// Connects the pure V2 presentation to the durable first-run coordinator.
 /// No draft changes product data; only the final explicit CTA begins commit.
@@ -445,17 +446,26 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
   }
 
   Widget _buildCompanionPreview(BuildContext context, String companionId) {
-    final kind = companionId == OnboardingV2Ids.companionJoy
-        ? MascotKind.magpie
-        : MascotKind.tiger;
+    final isJoy = companionId == OnboardingV2Ids.companionJoy;
+    final kind = isJoy ? MascotKind.magpie : MascotKind.tiger;
     return Center(
       child: CharacterClipPlayer(
         asset: CharacterClips.chooseFor(kind),
         size: 260,
+        // Must equal the color painted immediately behind this player —
+        // OnboardingConfirmationStage's own matte — or BlendMode.multiply
+        // leaves a visible mismatched rectangle around the clip.
+        blendColor: OnboardingConfirmationStage.matteFor(context, isJoy: isJoy),
         fallbackKind: kind,
         fallbackEmotion: MascotEmotion.smile,
         loop: false,
-        staticFallback: true,
+        // Only fall back to the static mascot when video is categorically
+        // unavailable (device/dark) — never unconditionally, or the static
+        // PNG and the playing clip render on top of each other.
+        staticFallback: CharacterClipPlayer.videoUnavailable(context),
+        // A touch slower than real-time so the welcome greeting reads as
+        // unhurried rather than rushed.
+        playbackSpeed: 0.85,
         onFailure: (reason) => unawaited(
           _coordinator.recordCompanionPreviewFailure(switch (reason) {
             CharacterClipFailureReason.initialization =>

@@ -9165,12 +9165,11 @@ class AppL10nEn extends AppL10n {
       'Hangeul Sori connects writing, sound, and real situations into one clear learning path.';
 
   @override
-  String get onboardingV2Story1Status =>
-      'This preview does not choose your level yet.';
+  String get onboardingV2Story1Status => 'Does not choose your level yet.';
 
   @override
   String get onboardingV2Story1HeroSemantics =>
-      'Preview of the learning path from first letters to conversations at C2.';
+      'Preview: the learning path from first letters to conversations at C2.';
 
   @override
   String get onboardingV2Story1Item1Title => 'A1 to C2 learning path';
@@ -9184,29 +9183,28 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2Story1Item2Body =>
-      'A page is captured only after you open the camera yourself.';
+      'Nothing is captured until you open the camera.';
 
   @override
   String get onboardingV2Story1Item3Title => 'Recognize text on device';
 
   @override
   String get onboardingV2Story1Item3Body =>
-      'Text recognition for the photo runs on your device. This guide does not request camera access.';
+      'Text recognition runs on your device; this guide does not request camera access.';
 
   @override
   String get onboardingV2Story1Item4Title => 'Results by type';
 
   @override
   String get onboardingV2Story1Item4Body =>
-      'If you choose Analyze, extracted text may be sent to an EU analysis service and returned as separate words, expressions, grammar, and sentences.';
+      'With Analyze, text goes to an EU analysis service and is sorted into words, expressions, grammar, and sentences.';
 
   @override
   String get onboardingV2Story1CurriculumClaim =>
-      'A staged curriculum informed by CEFR performance goals and the National Institute of Korean Language\'s Korean Standard Curriculum.';
+      'A curriculum based on CEFR performance goals and the National Institute of Korean Language\'s Korean Standard Curriculum.';
 
   @override
-  String get onboardingV2Story1CurriculumSourcesAction =>
-      'Curriculum basis and sources';
+  String get onboardingV2Story1CurriculumSourcesAction => 'See the sources';
 
   @override
   String get onboardingV2Story1CurriculumSourcesTitle =>
@@ -9214,7 +9212,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2Story1CurriculumSourcesBody =>
-      'The current mapping is partial. These official references inform the learning path; they do not claim certification or complete exam coverage.';
+      'The mapping is partial; these references guide the learning path, not a certification or full exam coverage.';
 
   @override
   String get onboardingV2Story1CurriculumCefrAuthority =>
@@ -9256,7 +9254,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2Story2HeroSemantics =>
-      'Interactive preview that combines Giyeok and A into the syllable ga.';
+      'Interactive preview: Giyeok and A combine into the syllable ga.';
 
   @override
   String get onboardingV2Story2Item1Title => 'Hangeul';
@@ -9277,7 +9275,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2Story2Item3Body =>
-      'Listen to examples and compare your own recording with purpose.';
+      'Listen to examples and compare your own recording.';
 
   @override
   String get onboardingV2Story2Item4Title => 'Scenarios by level';
@@ -9294,11 +9292,11 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2Story3Body =>
-      'Short reviews appear when your memory actually needs them.';
+      'Short reviews come exactly when your memory needs them.';
 
   @override
   String get onboardingV2Story3HeroSemantics =>
-      'Preview of card controls, favorites, saved content with preserved types, and today\'s supported word review.';
+      'Preview of card controls, favorites, content, and today\'s word review.';
 
   @override
   String get onboardingV2Story3Item1Title => 'Turn a card over';
@@ -9311,8 +9309,7 @@ class AppL10nEn extends AppL10n {
   String get onboardingV2Story3Item2Title => 'Swipe onward';
 
   @override
-  String get onboardingV2Story3Item2Body =>
-      'A swipe moves you through the deck.';
+  String get onboardingV2Story3Item2Body => 'Swipe to move through the deck.';
 
   @override
   String get onboardingV2Story3Item3Title => 'Heart = favorite';
@@ -9326,11 +9323,11 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2Story3Item4Body =>
-      'On supported word cards, the bookmark saves the word to a word pack. Other supported saved material keeps its real type in the study library.';
+      'On word cards, the bookmark saves the word to a word pack; other saved material keeps its real type.';
 
   @override
   String get onboardingV2Story3Status =>
-      'Available now: favorites, saved items, and supported words due today are separate views in the study library. The current review engine supports words only; grammar, sentences, expressions, and Hangeul stay saved without a fake review action.';
+      'Available now: favorites, saved items, and words due today are separate views in the study library. The current review engine supports words only; other saved content stays without a fake review action.';
 
   @override
   String get onboardingV2Story4Eyebrow => 'Motivation';
@@ -9344,7 +9341,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2Story4HeroSemantics =>
-      'Preview of games, hints, XP, personal bests, quests, and possible collection rewards.';
+      'Preview of games, hints, XP, personal bests, quests, and collection rewards.';
 
   @override
   String get onboardingV2Story4Status =>
@@ -9356,7 +9353,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String onboardingV2Story4CatalogBody(int count) {
-    return 'Read-only examples from $count current activities. Viewing this page does not grant or change anything.';
+    return 'Examples from $count current activities. Viewing changes nothing.';
   }
 
   @override
@@ -9399,11 +9396,11 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2Story5Body =>
-      'Stamps, bojagi, and rooms connect your learning progress to a long-term heritage journey.';
+      'Stamps, bojagi, and rooms connect your learning progress to a heritage journey.';
 
   @override
   String get onboardingV2Story5HeroSemantics =>
-      'Preview of the future heritage journey with a stamp book, bojagi, decorations, and the first chapter, Ildu Gotaek.';
+      'Preview of the heritage journey: stamp book, bojagi, decorations, and the first chapter, Ildu Gotaek.';
 
   @override
   String get onboardingV2Story5Status =>
@@ -9413,8 +9410,7 @@ class AppL10nEn extends AppL10n {
   String get onboardingV2Story5Item1Title => 'Arrival';
 
   @override
-  String get onboardingV2Story5Item1Body =>
-      'See collected stamps and open stops here.';
+  String get onboardingV2Story5Item1Body => 'Collected stamps and open stops.';
 
   @override
   String get onboardingV2Story5Item2Title => 'Learning';
@@ -9428,14 +9424,14 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2Story5Item3Body =>
-      'Use earned accessories in the places designed for them.';
+      'Use accessories in their designed places.';
 
   @override
   String get onboardingV2Story5Item4Title => 'More chapters';
 
   @override
   String get onboardingV2Story5Item4Body =>
-      'The journey can grow; its number and order are not decided yet.';
+      'Number and order are not decided yet.';
 
   @override
   String get onboardingV2Story5PreviewLabel => 'Preview';
@@ -9445,7 +9441,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2Story5AssetReviewNote =>
-      'This preview uses only artwork already approved for the app. Historical labels and sources remain clearly attributed.';
+      'Only artwork already approved for the app; historical names and sources are attributed.';
 
   @override
   String get onboardingV2Story5SourcesAction => 'Sources and attribution';
@@ -9457,7 +9453,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2Story5SourcesBody =>
-      'These references support the name and cultural context of this preview, including Ildu Gotaek\'s association with scholar Jeong Yeo-chang and its use as a filming location. Their current registry status permits citation only; reuse rights are not asserted.';
+      'They support the name and context, including its link to scholar Jeong Yeo-chang and its use as a filming location. The registry status permits citation only; further rights are not asserted.';
 
   @override
   String get onboardingV2Story5SourceInstitution => 'Institution';
@@ -9518,7 +9514,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2SetupBody =>
-      'Your goal changes only the order of starting tips and recommendations. Difficulty, content, progress, and rewards stay the same.';
+      'Your goal only reorders tips and recommendations; everything else stays the same.';
 
   @override
   String get onboardingV2SetupPurposeHeading => 'Why are you learning?';
@@ -9528,11 +9524,11 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2SetupLevelHelp =>
-      'Choose the starting point that best fits what you can already do. You can change it later in Settings.';
+      'Choose what fits what you can already do. You can change it later in Settings.';
 
   @override
   String get onboardingV2SetupSelectLevelPrompt =>
-      'Choose a level to see a real example and its learning goals.';
+      'Choose a level for an example and its learning goals.';
 
   @override
   String get onboardingV2SetupExampleLabel => 'Example at this level';
@@ -9551,7 +9547,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2SetupCompareBody =>
-      'A direct choice is your learning start, not proof of mastery. Later, you can change your course starting point and browsing level separately.';
+      'Your choice is your learning start, not proof of mastery; course start and browsing level stay separately changeable later.';
 
   @override
   String get onboardingV2SetupCompareClose => 'Close comparison';
@@ -9597,14 +9593,14 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2PurposeStudyWorkBody =>
-      'Act with confidence in class, university, and work';
+      'Confident in class, university, and work';
 
   @override
   String get onboardingV2PurposeKContentTitle => 'K-content';
 
   @override
   String get onboardingV2PurposeKContentBody =>
-      'Understand music, series, films, podcasts, and interviews better';
+      'Understand music, series, films, podcasts, and interviews';
 
   @override
   String get onboardingV2CompanionEyebrow => 'Your study buddy';
@@ -9614,7 +9610,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2CompanionBody =>
-      'Choose Taego or Joy. Both follow the same learning path; only the tone and rhythm of their guidance differ. You can switch later.';
+      'Choose Taego or Joy. Both follow the same learning path; only tone and rhythm differ, and you can switch later.';
 
   @override
   String get onboardingV2CompanionEqualNote =>
@@ -9628,7 +9624,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2CompanionTaegoBody =>
-      'Puts the same guidance in a clear order and shows the next useful step.';
+      'Puts the same guidance in clear order and shows the next step.';
 
   @override
   String get onboardingV2CompanionTaegoSelected => 'Taego has been selected.';
@@ -9639,7 +9635,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2CompanionJoyBody =>
-      'Gives the same guidance as short prompts and celebrates your next attempt.';
+      'Gives the same guidance as short prompts and celebrates every attempt.';
 
   @override
   String get onboardingV2CompanionJoySelected => 'Joy has been selected.';
@@ -9649,7 +9645,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2ConfirmationBody =>
-      'The welcome video is only an introduction. You can continue at any time, even if it does not load.';
+      'The welcome video is only an introduction; you can continue anytime, even if it does not load.';
 
   @override
   String get onboardingV2ConfirmationStart => 'Start together';

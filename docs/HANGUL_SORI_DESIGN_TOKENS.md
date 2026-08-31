@@ -198,3 +198,35 @@ SoriRadius.brPill // BorderRadius.all(Radius.circular(999))
 | `SoriMotion.gentle` | `Curves.easeOutQuart` — 부드러운 등장 |
 | `SoriMotion.celebrate` | `Curves.elasticOut` — 정답 celebrate |
 | `SoriMotion.pressScale` | `0.96` — 눌렸을 때 scale |
+
+---
+
+## 6. TYPOGRAPHY TOKENS
+
+**파일:** `SoriFonts` / `SoriTextTheme` class in `lib/widgets/sori/tokens.dart`
+
+앱 폰트는 2개뿐 — 역할로만 선택한다. 크기·색은 별도 클래스가 아니라 `SoriTextTheme.of(context)` 프리셋을 통해서만 얻는다. `TextStyle(fontFamily: '...')` 문자열 하드코딩은 금지.
+
+| 토큰 | 폰트 | 번들 웨이트 | 용도 |
+|---|---|---|---|
+| `SoriFonts.sans` | Wanted Sans | 400/500/600/700/800 | 기본 UI, DE/EN 전체, 학습 본문·숫자 |
+| `SoriFonts.culture` | Maru Buri | **400/600만** | 짧은 한국어 문화 타이틀·완성 순간 전용 |
+
+> Maru Buri는 버튼·메뉴·긴 본문이나 DE/EN 카피에는 쓰지 않는다. 번들에 700/800 페이스가 없어 그 굵기를 요청하면 조용히 **합성 볼드**로 렌더된다 — `SoriTextTheme.cultureTitle`(w600)처럼 번들 웨이트 안에서만 쓴다.
+
+#### SoriTextTheme 프리셋 (발췌)
+| 토큰 | 크기 | 굵기 | 폰트 | 용도 |
+|---|---|---|---|---|
+| `tt.hero` | 38 | w800 | sans | 페이지 대형 헤드라인 |
+| `tt.display` | 32 | w800 | sans | Display heading |
+| `tt.h1` | 24 | w800 | sans | 화면 제목 |
+| `tt.h2` | 20 | w800 | sans | 섹션 제목 |
+| `tt.h3` | 17 | w700 | sans | 소제목 |
+| `tt.cultureTitle` | 21 | w600 | **culture** | 문화 카드 안의 짧은 한국어 표제 |
+| `tt.cardTitle` | 15 | w700 | sans | 카드 제목 (§4.3: 카드 제목 w800 금지) |
+| `tt.body` | 15 | w500 | sans | 본문 |
+| `tt.numeral` | 30 | w800 | sans (tabular) | 스트릭·XP 큰 숫자 |
+
+**가드 테스트** — 위반 재발 방지:
+- `test/typography_guard_test.dart` — `FontWeight.w800`/`w900` 래칫(내려가기만 한다), `fontFamily: '...'` 문자열 리터럴 0.
+- `test/font_bundle_guard_test.dart` — `SoriFonts.sans`/`culture` 역할 분리 검증 + 번들 폰트 파일이 실제 한글 11172음절·독일어(ä/ß/€) 글리프를 담고 있는지 OTF `cmap` 직접 검사.
