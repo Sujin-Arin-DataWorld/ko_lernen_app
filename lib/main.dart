@@ -94,6 +94,7 @@ import 'screens/satz_arcade_screen.dart';
 import 'screens/speed_match_screen.dart';
 import 'screens/silben_kreuz_screen.dart';
 import 'screens/ildu_world_screen.dart';
+import 'screens/ildu_learning_module_screen.dart';
 import 'screens/personal_room_furnish_screen.dart';
 import 'screens/practice_hub_screen.dart';
 import 'screens/pronunciation_studio_screen.dart';
@@ -1093,6 +1094,19 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/hanok':
+              return SoriTransitions.fadeScale(
+                (_) => const IlDuWorldScreen(),
+                settings: settings,
+              );
+            case '/hanok/module':
+              final moduleArgs = settings.arguments;
+              if (moduleArgs is IlDuLearningModuleArgs) {
+                return SoriTransitions.fadeScale(
+                  (_) => IlDuLearningModuleScreen(args: moduleArgs),
+                  settings: settings,
+                );
+              }
+              // 인자 없는 딥링크는 진입 권한이 없다 — 월드로 fail-closed.
               return SoriTransitions.fadeScale(
                 (_) => const IlDuWorldScreen(),
                 settings: settings,
