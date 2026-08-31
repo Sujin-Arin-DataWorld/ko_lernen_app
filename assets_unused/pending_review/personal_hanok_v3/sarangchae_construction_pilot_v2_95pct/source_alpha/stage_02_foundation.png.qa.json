@@ -1,0 +1,31 @@
+{
+  "sourceSize": [
+    1519,
+    1035
+  ],
+  "backgroundFloor": 232,
+  "backgroundChroma": 14,
+  "islandMinArea": 8,
+  "featherPx": 2.25,
+  "transparentPixels": 1378512,
+  "softPixels": 7528,
+  "solidPixels": 186125,
+  "visibleCoveragePct": 12.318,
+  "alphaBbox": [
+    47,
+    645,
+    1454,
+    844
+  ],
+  "cornerAlpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a04555-a2e8-7f02-bd28-1671e1b45d5b\\exec-839a8f34-f6b2-480f-a9d9-810941b8654f.png",
+  "sourceSha256": "78c943d04805718fd65bcebea0ec05bb2e75457126aa93850338cbf5cb934a82",
+  "output": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\ildu-sarangchae-pilot-20260828\\assets_unused\\pending_review\\personal_hanok_v3\\sarangchae_construction_pilot_v2_95pct\\source_alpha\\stage_02_foundation.png",
+  "outputSha256": "2a3858ac6eda4a4239fae1c3882f3eaad6110e36e00191dc4becad90e23f44f2",
+  "pillow": "11.3.0"
+}

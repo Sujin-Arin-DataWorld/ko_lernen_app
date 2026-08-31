@@ -1,0 +1,31 @@
+{
+  "sourceSize": [
+    1521,
+    1034
+  ],
+  "backgroundFloor": 232,
+  "backgroundChroma": 14,
+  "islandMinArea": 8,
+  "featherPx": 2.25,
+  "transparentPixels": 880402,
+  "softPixels": 31499,
+  "solidPixels": 660813,
+  "visibleCoveragePct": 44.02,
+  "alphaBbox": [
+    32,
+    153,
+    1489,
+    875
+  ],
+  "cornerAlpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a04555-a2e8-7f02-bd28-1671e1b45d5b\\exec-628c9e3f-b4b4-4e39-85dc-9e4c8a9640ec.png",
+  "sourceSha256": "acffd1af344a7d502ee4ded3d6ea6f4780907546345df1816cc93fcb280a9796",
+  "output": "assets_unused\\pending_review\\personal_hanok_v3\\sarangchae_construction_pilot_v2_95pct\\stage_06_roof_bed_tiles.png",
+  "outputSha256": "4419b7e3121b8dab09680483b6503a6f7a0f5352d4d9760cfbccf94789523767",
+  "pillow": "11.3.0"
+}

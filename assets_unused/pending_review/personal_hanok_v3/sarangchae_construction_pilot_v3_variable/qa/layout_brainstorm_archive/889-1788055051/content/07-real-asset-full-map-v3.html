@@ -1,0 +1,85 @@
+<style>
+  .review-shell { max-width: 1180px; margin: 18px auto 36px; }
+  .review-head {
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 24px;
+    margin-bottom: 18px; padding: 22px 24px; border: 1px solid var(--border);
+    border-radius: 20px; background: linear-gradient(135deg, #fffdf8 0%, #f1e5cd 100%);
+  }
+  .review-head h2 { margin: 6px 0 7px; color: #201b16; }
+  .review-head p { max-width: 720px; margin: 0; line-height: 1.55; color: #625748; }
+  .eyebrow { font-size: 11px; font-weight: 900; letter-spacing: .12em; color: #8d3e35; }
+  .status {
+    flex: 0 0 auto; padding: 9px 12px; border: 1px solid #c99a2e66;
+    border-radius: 999px; background: #fff7df; color: #6d4b0b; font-size: 12px; font-weight: 850;
+  }
+  .map-card {
+    overflow: hidden; border: 1px solid #bfae91; border-radius: 22px;
+    background: #d2aa70; box-shadow: 0 22px 55px #46301c26;
+  }
+  .map-toolbar {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 11px 15px; background: #2c2924; color: #f7ecd7; font-size: 12px;
+  }
+  .map-toolbar strong { color: #fff; }
+  .map-toolbar a { color: #f5ca66; font-weight: 800; text-decoration: none; }
+  .map-stage { padding: 14px; background: #463522; }
+  .map-stage img { display: block; width: 100%; height: auto; border-radius: 12px; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0; }
+  .fact { padding: 14px 15px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
+  .fact b { display: block; margin-bottom: 4px; color: #382c20; font-size: 14px; }
+  .fact span { color: #766a5c; font-size: 12px; line-height: 1.45; }
+  .approval { margin-top: 16px; }
+  .approval h3 { margin-bottom: 5px; }
+  .approval > p { margin-top: 0; color: #6f6559; }
+  .options { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 820px) {
+    .review-head { display: block; }
+    .status { display: inline-flex; margin-top: 14px; }
+    .facts { grid-template-columns: 1fr 1fr; }
+    .options { grid-template-columns: 1fr; }
+    .map-stage { padding: 7px; }
+  }
+</style>
+
+<div class="review-shell">
+  <div class="review-head">
+    <div>
+      <div class="eyebrow">ILDU GOTEAK · REAL ASSET MAP REVIEW</div>
+      <h2>실 에셋 완성 맵 v3</h2>
+      <p>직접 만든 구조와 배열을 좌표 기준으로 삼고, 기존 임시 건물을 모두 제거한 뒤 현재 메인에 들어온 8방향 V3 에셋으로 교체한 승인용 전체 맵입니다.</p>
+    </div>
+    <div class="status">앱 반영 전 · 시각 승인 대기</div>
+  </div>
+
+  <div class="map-card">
+    <div class="map-toolbar">
+      <span><strong>2412 × 2622</strong> · 전체 월드 원본</span>
+      <a href="/files/ildu-real-asset-map-full-v3.png" target="_blank" rel="noopener">원본 크기로 열기 ↗</a>
+    </div>
+    <div class="map-stage">
+      <img src="/files/ildu-real-asset-map-full-v3.png" alt="실제 2.5D 에셋으로 다시 배치한 일두고택 완성 맵">
+    </div>
+  </div>
+
+  <div class="facts">
+    <div class="fact"><b>15개 실 배치</b><span>곳간채·안채곳간채·두 화장실까지 모두 포함</span></div>
+    <div class="fact"><b>V3 정체성 유지</b><span>각 건물의 제작된 방향 프레임을 그대로 사용</span></div>
+    <div class="fact"><b>넓은 마당 우선</b><span>건물 사이와 담장 안쪽의 꾸미기 여백 확보</span></div>
+    <div class="fact"><b>원안 동선 복구</b><span>돌길·우물·장독대와 담장 구획을 별도 레이어로 유지</span></div>
+  </div>
+
+  <div class="approval">
+    <h3>이 전체 배치로 앱 UI 목업을 시작할까요?</h3>
+    <p>아직 Flutter 런타임에는 넣지 않았습니다. 여기서 승인된 뒤에만 지도 조작 HUD와 Lernpfad 화면을 얹습니다.</p>
+    <div class="options">
+      <div class="option" data-choice="approve-real-map-v3" onclick="toggleSelect(this)">
+        <div class="letter">A</div>
+        <div class="content"><h3>이 배치 승인</h3><p>이 맵을 기준으로 앱 화면 목업을 진행합니다.</p></div>
+      </div>
+      <div class="option" data-choice="revise-real-map-v3" onclick="toggleSelect(this)">
+        <div class="letter">B</div>
+        <div class="content"><h3>배치 수정 필요</h3><p>건물 크기·위치·방향·담장 접속을 먼저 손봅니다.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
