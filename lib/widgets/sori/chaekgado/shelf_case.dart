@@ -437,8 +437,15 @@ class _CellGround extends StatelessWidget {
     return Image.asset(
       chaekgadoCardAsset(key),
       fit: BoxFit.cover,
-      // 아트 세이프가 12~88% 라 세로 중앙보다 살짝 위를 본다.
-      alignment: const Alignment(0, -0.1),
+      // 2026-09-01 실측 교정: 소스(800×600, 4:3)는 RECIPE 규약대로 피사체
+      // 질량중심이 세로 60~77% 다. 이 칸(cellAspect 0.6, 1.667 종횡비)의
+      // BoxFit.cover 는 소스 세로의 80%만 보여준다(가시폭). 중앙-살짝-위
+      // (-0.1)로 정렬하면 가시창이 9~89%가 돼 피사체 대다수(60~88%)가
+      // 이름표(_CellTag, 칸 아래 ~20%)에 가려지거나 잘렸다 — 75장 vis%
+      // 실측(스크래치패드 vis_percent.py) 최저 18.9%. 하단 정렬(1.0)은
+      // 가시창을 소스 20~100%로 밀어 질량중심 밴드 전체(60~77%)를
+      // 담는다 — 최저 39.9%로 개선(이름표 그래디언트와 합치면 57%+).
+      alignment: const Alignment(0, 1.0),
       errorBuilder: (_, _, _) => _fallback(context),
     );
   }
@@ -506,8 +513,23 @@ class _CellTag extends StatelessWidget {
               painter: _BrushStrokePainter(progress: progress),
             ),
           ),
-        ColoredBox(
-          color: surfaces.surface.withValues(alpha: 0.92),
+        DecoratedBox(
+          // 2026-09-01: 단색(0.92) → 세로 그래디언트(0.55→0.92). 아래쪽
+          // 정렬 크롭(위 alignment 주석)이 이름표 바로 위까지 피사체를
+          // 끌어오므로, 이름표 상단(글줄 바로 위 여백)만이라도 살짝
+          // 비치게 해 가려지는 면적을 더 줄인다. 글자가 앉는 하단은
+          // 여전히 0.92 로 대비(≥7:1)를 지킨다 — 글자 위가 아니라
+          // 글자 위 여백만 옅어진다.
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                surfaces.surface.withValues(alpha: 0.55),
+                surfaces.surface.withValues(alpha: 0.92),
+              ],
+            ),
+          ),
           child: Padding(
             padding: EdgeInsets.fromLTRB(
               // 완료 도장이 좌하단에 찍히는 칸은 글이 도장을 피한다.
