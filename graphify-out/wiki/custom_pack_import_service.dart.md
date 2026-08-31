@@ -1,0 +1,49 @@
+# custom_pack_import_service.dart
+
+> 21 nodes
+
+## Key Concepts
+
+- **custom_pack_import_service.dart** (24 connections) — `lib/services/custom_pack_import_service.dart`
+- **add** (1 connections) — `lib/services/custom_pack_import_service.dart`
+- **buildCustomPackEditedWord** (1 connections) — `lib/services/custom_pack_import_service.dart`
+- **copyWithEditable** (1 connections) — `lib/services/custom_pack_import_service.dart`
+- **_detectCustomPackDelimiter** (1 connections) — `lib/services/custom_pack_import_service.dart`
+- **englishMeaning** (1 connections) — `lib/services/custom_pack_import_service.dart`
+- **first** (1 connections) — `lib/services/custom_pack_import_service.dart`
+- **language** (1 connections) — `lib/services/custom_pack_import_service.dart`
+- **maxCustomPackCsvRows** (1 connections) — `lib/services/custom_pack_import_service.dart`
+- **maxCustomPackWords** (1 connections) — `lib/services/custom_pack_import_service.dart`
+- **maxWords** (1 connections) — `lib/services/custom_pack_import_service.dart`
+- **merged** (1 connections) — `lib/services/custom_pack_import_service.dart`
+- **mergeUniqueCustomPackWords** (1 connections) — `lib/services/custom_pack_import_service.dart`
+- **normalized** (1 connections) — `lib/services/custom_pack_import_service.dart`
+- **parseCustomPackCsvWords** (1 connections) — `lib/services/custom_pack_import_service.dart`
+- **rows** (1 connections) — `lib/services/custom_pack_import_service.dart`
+- **sanitizeCustomPackKoreanWord** (1 connections) — `lib/services/custom_pack_import_service.dart`
+- **seen** (1 connections) — `lib/services/custom_pack_import_service.dart`
+- **translationEn** (1 connections) — `lib/services/custom_pack_import_service.dart`
+- **words** (1 connections) — `lib/services/custom_pack_import_service.dart`
+- **required String translationLanguage,
+  String** (1 connections)
+
+## Relationships
+
+- [return](return.md) (1 shared connections)
+- [book_analysis_service.dart](book_analysis_service.dart.md) (1 shared connections)
+- [shared_pack_service.dart](shared_pack_service.dart.md) (1 shared connections)
+- [can_do_segment_asset_test.dart](can_do_segment_asset_test.dart.md) (1 shared connections)
+
+## Source Files
+
+- `lib/services/custom_pack_import_service.dart`
+
+## Audit Trail
+
+- EXTRACTED: 24 (100%)
+- INFERRED: 0 (0%)
+- AMBIGUOUS: 0 (0%)
+
+---
+
+*Part of the graphify knowledge wiki. See [index](index.md) to navigate.*
