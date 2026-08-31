@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "estateId": "ildu-gotaek-v3",
+  "planVersion": "sarangchae-v1",
+  "canvas": {
+    "width": 2412,
+    "height": 2622
+  },
+  "viewport": {
+    "width": 1206,
+    "height": 2622
+  },
+  "siteStageIds": [
+    "sarangchae-site"
+  ],
+  "buildingOrder": [
+    "sarangchae"
+  ],
+  "buildings": [
+    {
+      "buildingId": "sarangchae",
+      "file": "sarangchae_v1.json",
+      "planVersion": "sarangchae-v1"
+    }
+  ]
+}

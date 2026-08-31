@@ -137,6 +137,10 @@ flutter:
 
   assets:
     - assets/data/
+    # 일두 가변 건설 플랜 (Phase 1) — 인덱스 estate_plan_v1.json 이 건물별
+    # 파일(sarangchae_v1.json …)을 참조한다. Flutter 는 폴더를 비재귀로
+    # 포함하므로 assets/data/ 와 별도로 하위 폴더를 명시한다.
+    - assets/data/ildu_construction/
     - docs/data/cultural_glossary.json
     - assets/icons/
     - assets/illustrations/hanok/

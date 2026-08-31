@@ -1,0 +1,1412 @@
+{
+  "schemaVersion": 1,
+  "building": {
+    "buildingId": "sarangchae",
+    "planVersion": "sarangchae-v1",
+    "canonicalAsset": "sarangchae_try07_edit.png",
+    "canonicalSha256": "f2c01142f465b9353e0b9546a00f167891753039d9c910620d83cd924a077212",
+    "buildingRole": "주인이 손님을 맞고 학문과 집안의 기준을 드러내던 사랑채",
+    "culturalMeaning": "접객과 공부, 누마루의 휴식, 현판에 담은 자기 기준이 한 공간에서 만나는 건물",
+    "stages": [
+      {
+        "stageId": "sarangchae-site",
+        "sequence": 1,
+        "processTags": [
+          "site"
+        ],
+        "baseAsset": "stage_01_site.png",
+        "overlayAssets": [],
+        "requiredModuleIds": [
+          "sarangchae-site-language"
+        ],
+        "optionalModuleIds": [],
+        "completionEffect": "mark-site",
+        "fallbackStageId": null
+      },
+      {
+        "stageId": "sarangchae-foundation",
+        "sequence": 2,
+        "processTags": [
+          "foundation"
+        ],
+        "baseAsset": "stage_02_foundation.png",
+        "overlayAssets": [],
+        "requiredModuleIds": [
+          "sarangchae-foundation-language"
+        ],
+        "optionalModuleIds": [],
+        "completionEffect": "install-foundation",
+        "fallbackStageId": "sarangchae-site"
+      },
+      {
+        "stageId": "sarangchae-posts-floor-frame",
+        "sequence": 3,
+        "processTags": [
+          "framePosts"
+        ],
+        "baseAsset": "stage_03_posts_floor.png",
+        "overlayAssets": [],
+        "requiredModuleIds": [
+          "sarangchae-posts-language"
+        ],
+        "optionalModuleIds": [],
+        "completionEffect": "raise-posts",
+        "fallbackStageId": "sarangchae-foundation"
+      },
+      {
+        "stageId": "sarangchae-beams-purlins",
+        "sequence": 4,
+        "processTags": [
+          "frameBeams"
+        ],
+        "baseAsset": "stage_04_beams_purlins.png",
+        "overlayAssets": [],
+        "requiredModuleIds": [
+          "sarangchae-beams-language"
+        ],
+        "optionalModuleIds": [],
+        "completionEffect": "connect-frame",
+        "fallbackStageId": "sarangchae-posts-floor-frame"
+      },
+      {
+        "stageId": "sarangchae-rafters-sanja",
+        "sequence": 5,
+        "processTags": [
+          "raftersSanja"
+        ],
+        "baseAsset": "stage_05_rafters_sanja.png",
+        "overlayAssets": [],
+        "requiredModuleIds": [
+          "sarangchae-rafters-language"
+        ],
+        "optionalModuleIds": [],
+        "completionEffect": "weave-roof-frame",
+        "fallbackStageId": "sarangchae-beams-purlins"
+      },
+      {
+        "stageId": "sarangchae-roof-bed",
+        "sequence": 6,
+        "processTags": [
+          "roofBed"
+        ],
+        "baseAsset": "stage_06_roof_bed.png",
+        "overlayAssets": [],
+        "requiredModuleIds": [
+          "sarangchae-roof-bed-language"
+        ],
+        "optionalModuleIds": [],
+        "completionEffect": "lay-roof-bed",
+        "fallbackStageId": "sarangchae-rafters-sanja"
+      },
+      {
+        "stageId": "sarangchae-roof-tiles",
+        "sequence": 7,
+        "processTags": [
+          "roofTiles"
+        ],
+        "baseAsset": "stage_07_roof_tiles.png",
+        "overlayAssets": [],
+        "requiredModuleIds": [
+          "sarangchae-roof-tiles-language"
+        ],
+        "optionalModuleIds": [],
+        "completionEffect": "lay-roof-tiles",
+        "fallbackStageId": "sarangchae-roof-bed"
+      },
+      {
+        "stageId": "sarangchae-floor-numaru",
+        "sequence": 8,
+        "processTags": [
+          "floorNumaru"
+        ],
+        "baseAsset": "stage_08_floor_numaru.png",
+        "overlayAssets": [],
+        "requiredModuleIds": [
+          "sarangchae-numaru-language"
+        ],
+        "optionalModuleIds": [],
+        "completionEffect": "finish-numaru",
+        "fallbackStageId": "sarangchae-roof-tiles"
+      },
+      {
+        "stageId": "sarangchae-wall-infill",
+        "sequence": 9,
+        "processTags": [
+          "wallInfill"
+        ],
+        "baseAsset": "stage_09_wall_infill.png",
+        "overlayAssets": [],
+        "requiredModuleIds": [
+          "sarangchae-wall-language"
+        ],
+        "optionalModuleIds": [],
+        "completionEffect": "fill-walls",
+        "fallbackStageId": "sarangchae-floor-numaru"
+      },
+      {
+        "stageId": "sarangchae-changho",
+        "sequence": 10,
+        "processTags": [
+          "doorsChangho"
+        ],
+        "baseAsset": "stage_10_changho.png",
+        "overlayAssets": [
+          "stage_10_work_props.png"
+        ],
+        "requiredModuleIds": [
+          "sarangchae-changho-language"
+        ],
+        "optionalModuleIds": [],
+        "completionEffect": "install-changho",
+        "fallbackStageId": "sarangchae-wall-infill"
+      },
+      {
+        "stageId": "sarangchae-hyeonpan",
+        "sequence": 11,
+        "processTags": [
+          "identityFinish"
+        ],
+        "baseAsset": "stage_10_changho.png",
+        "overlayAssets": [
+          "stage_11_hyeonpan_work.png"
+        ],
+        "requiredModuleIds": [
+          "baekse-cheongpung-2026",
+          "takcheongjae-2026"
+        ],
+        "optionalModuleIds": [],
+        "completionEffect": "install-hyeonpan",
+        "fallbackStageId": "sarangchae-changho"
+      },
+      {
+        "stageId": "sarangchae-complete",
+        "sequence": 12,
+        "processTags": [
+          "complete"
+        ],
+        "baseAsset": "stage_12_complete_v3_base.png",
+        "overlayAssets": [
+          "stage_12_hyeonpan_installed.png"
+        ],
+        "requiredModuleIds": [
+          "sarangchae-complete-reflection"
+        ],
+        "optionalModuleIds": [],
+        "completionEffect": "complete-sarangchae",
+        "fallbackStageId": "sarangchae-hyeonpan"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "moduleId": "sarangchae-site-language",
+      "sourceRefs": [
+        "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaCpno=1483801860000&pageNo=1_1_1_1",
+        "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=1d38a05f-4ce1-4468-8ffa-05ef0a7ef25a"
+      ],
+      "levelBand": [
+        "a1",
+        "a2"
+      ],
+      "knowledgeLenses": [
+        "construction",
+        "sequence"
+      ],
+      "copy": {
+        "ko": {
+          "title": "어디서부터 시작할까요?",
+          "history": "큰 집도 먼저 자리를 고르고 땅을 고르게 다지는 일에서 시작합니다.",
+          "criticalLens": "비어 보이는 땅도 배수와 이동 동선을 생각해 정리해야 건물이 오래 버틸 수 있습니다.",
+          "modernScene": "친구와 공동 작업을 시작하려는데 할 일이 뒤섞여 있습니다.",
+          "sceneLine": "친구: 뭐부터 해야 할지 모르겠어.",
+          "actionPrompt": "첫 순서를 한국어로 제안해 보세요."
+        },
+        "de": {
+          "title": "Womit fangen wir an?",
+          "history": "Auch ein großer Wohnkomplex beginnt mit der Wahl und Vorbereitung des Bauplatzes.",
+          "criticalLens": "Freie Fläche ist nicht automatisch baureif: Wasser und Wege müssen mitgedacht werden.",
+          "modernScene": "Bei einem gemeinsamen Projekt ist noch alles ungeordnet.",
+          "sceneLine": "Jemand aus deinem Freundeskreis: Ich weiß gar nicht, womit wir anfangen sollen.",
+          "actionPrompt": "Schlage auf Koreanisch den ersten Schritt vor."
+        },
+        "en": {
+          "title": "Where do we begin?",
+          "history": "Even a large compound starts by choosing and preparing its ground.",
+          "criticalLens": "Empty land is not automatically ready: drainage and movement still matter.",
+          "modernScene": "A shared project feels disorganized before it starts.",
+          "sceneLine": "Your friend: I have no idea what we should do first.",
+          "actionPrompt": "Suggest the first step in Korean."
+        }
+      },
+      "speechBrief": {
+        "scene": "공동 작업 시작",
+        "channel": "대면",
+        "purpose": "첫 순서 제안",
+        "speaker": "학습자",
+        "addressee": "친구",
+        "relationship": "가까운 친구",
+        "speechStyle": "해체",
+        "speechAct": "제안",
+        "knownFacts": [
+          "할 일이 정리되지 않았다"
+        ],
+        "unresolvedFacts": [
+          "누가 어떤 일을 맡을지 정해지지 않았다"
+        ],
+        "forbiddenInvention": [
+          "마감 시간을 만들지 않는다"
+        ]
+      },
+      "targetExpressions": [
+        "정리부터 시작하자",
+        "먼저 자리를 정하자"
+      ],
+      "acceptedVariants": [
+        "일단 정리부터 시작하자.",
+        "먼저 자리를 정하고 시작하자."
+      ],
+      "criteria": [
+        {
+          "id": "site-first-step",
+          "kind": "meaningSlot",
+          "acceptedVariants": [
+            "정리부터 시작하자",
+            "먼저 자리를 정하자"
+          ],
+          "requiredForCompletion": true
+        }
+      ],
+      "scoredDimensions": [
+        "communicativeFunction",
+        "relationshipRegister",
+        "targetLanguage"
+      ],
+      "completionEvidence": {
+        "type": "inApp"
+      }
+    },
+    {
+      "moduleId": "sarangchae-foundation-language",
+      "sourceRefs": [
+        "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaCpno=1483801860000&pageNo=1_1_1_1",
+        "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=1d38a05f-4ce1-4468-8ffa-05ef0a7ef25a"
+      ],
+      "levelBand": [
+        "a2",
+        "b1"
+      ],
+      "knowledgeLenses": [
+        "construction",
+        "foundation"
+      ],
+      "copy": {
+        "ko": {
+          "title": "보이지 않는 기준 확인하기",
+          "history": "초석과 돌기단은 목재 기둥이 땅의 습기와 직접 맞닿지 않도록 받칩니다.",
+          "criticalLens": "겉으로 곧아 보여도 높이와 간격을 확인하지 않으면 다음 공정 전체가 어긋납니다.",
+          "modernScene": "회의 자료를 배포하기 전에 숫자 기준이 맞는지 확인해야 합니다.",
+          "sceneLine": "동료: 보기에는 괜찮은데 그냥 보내도 될까요?",
+          "actionPrompt": "부담을 주지 않으면서 먼저 확인하자고 말해 보세요."
+        },
+        "de": {
+          "title": "Die unsichtbare Grundlage prüfen",
+          "history": "Fundamentsteine und Steinsockel halten Holzstützen vom feuchten Boden fern.",
+          "criticalLens": "Was gerade aussieht, kann später Probleme machen, wenn Höhe und Abstand nicht geprüft sind.",
+          "modernScene": "Vor dem Versand einer Präsentation müssen Zahlen abgeglichen werden.",
+          "sceneLine": "Jemand aus deinem Team: Sieht doch okay aus. Können wir es so abschicken?",
+          "actionPrompt": "Bitte auf Koreanisch höflich um eine kurze Prüfung."
+        },
+        "en": {
+          "title": "Check the hidden foundation",
+          "history": "Foundation stones and the raised stone base protect timber posts from damp ground.",
+          "criticalLens": "If height and spacing are off, every later step inherits the error.",
+          "modernScene": "Numbers need checking before a presentation is shared.",
+          "sceneLine": "A colleague: It looks fine. Shall we just send it?",
+          "actionPrompt": "Suggest a quick check in polite Korean."
+        }
+      },
+      "speechBrief": {
+        "scene": "자료 배포 전 확인",
+        "channel": "직장 대면 대화",
+        "purpose": "선행 확인 요청",
+        "speaker": "학습자",
+        "addressee": "동료",
+        "relationship": "같은 팀 동료",
+        "speechStyle": "해요체",
+        "speechAct": "완곡한 요청",
+        "knownFacts": [
+          "자료가 아직 배포되지 않았다"
+        ],
+        "unresolvedFacts": [
+          "숫자가 정확한지 확인되지 않았다"
+        ],
+        "forbiddenInvention": [
+          "상대의 실수를 단정하지 않는다"
+        ]
+      },
+      "targetExpressions": [
+        "한 번만 확인해 보고",
+        "보내는 게 좋을 것 같아요"
+      ],
+      "acceptedVariants": [
+        "한 번만 확인해 보고 보내는 게 좋을 것 같아요.",
+        "보내기 전에 기준부터 확인해 볼까요?"
+      ],
+      "criteria": [
+        {
+          "id": "foundation-check-first",
+          "kind": "tokenSequence",
+          "acceptedVariants": [
+            "확인해 보고 보내는 게",
+            "보내기 전에 기준부터 확인"
+          ],
+          "requiredForCompletion": true
+        }
+      ],
+      "scoredDimensions": [
+        "communicativeFunction",
+        "relationshipRegister",
+        "targetLanguage"
+      ],
+      "completionEvidence": {
+        "type": "inApp"
+      }
+    },
+    {
+      "moduleId": "sarangchae-posts-language",
+      "sourceRefs": [
+        "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaCpno=1483801860000&pageNo=1_1_1_1",
+        "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=1d38a05f-4ce1-4468-8ffa-05ef0a7ef25a"
+      ],
+      "levelBand": [
+        "a2",
+        "b1"
+      ],
+      "knowledgeLenses": [
+        "construction",
+        "frame"
+      ],
+      "copy": {
+        "ko": {
+          "title": "기둥의 자리를 맞추다",
+          "history": "기둥은 초석 위에 서고, 앞뒤 기둥열이 이후 보와 지붕의 기준이 됩니다.",
+          "criticalLens": "눈에 띄는 한 기둥보다 전체 열의 간격과 수직이 더 중요합니다.",
+          "modernScene": "팀 역할을 정하는데 한 사람에게 일이 몰리고 있습니다.",
+          "sceneLine": "팀원: 제가 그냥 다 맡으면 더 빠르지 않을까요?",
+          "actionPrompt": "역할을 나눠 정하자고 자연스럽게 제안해 보세요."
+        },
+        "de": {
+          "title": "Die Stützen ausrichten",
+          "history": "Die Stützen stehen auf einzelnen Fundamentsteinen und geben Balken und Dach ihr Raster vor.",
+          "criticalLens": "Entscheidend ist nicht eine einzelne Stütze, sondern die Ausrichtung der ganzen Reihe.",
+          "modernScene": "Bei der Aufgabenverteilung landet alles bei einer Person.",
+          "sceneLine": "Ein Teammitglied: Wäre es nicht schneller, wenn ich einfach alles mache?",
+          "actionPrompt": "Schlage auf Koreanisch eine faire Aufteilung vor."
+        },
+        "en": {
+          "title": "Align the posts",
+          "history": "Posts stand on individual stones and set the grid for beams and roof above.",
+          "criticalLens": "The alignment of the whole row matters more than one prominent post.",
+          "modernScene": "One person is about to take every task in a team project.",
+          "sceneLine": "A teammate: Wouldn't it be faster if I just did everything?",
+          "actionPrompt": "Suggest sharing roles in natural Korean."
+        }
+      },
+      "speechBrief": {
+        "scene": "팀 역할 분담",
+        "channel": "회의",
+        "purpose": "업무 분산 제안",
+        "speaker": "학습자",
+        "addressee": "팀원",
+        "relationship": "대등한 팀원",
+        "speechStyle": "해요체",
+        "speechAct": "대안 제시",
+        "knownFacts": [
+          "한 사람에게 일이 몰릴 수 있다"
+        ],
+        "unresolvedFacts": [
+          "각자의 담당이 정해지지 않았다"
+        ],
+        "forbiddenInvention": [
+          "상대가 일을 못한다고 말하지 않는다"
+        ]
+      },
+      "targetExpressions": [
+        "나눠서 맡는 게",
+        "각자 할 일을 정해 볼까요"
+      ],
+      "acceptedVariants": [
+        "한 사람이 다 하기보다 나눠서 맡는 게 좋을 것 같아요.",
+        "먼저 각자 할 일을 정해 볼까요?"
+      ],
+      "criteria": [
+        {
+          "id": "posts-share-roles",
+          "kind": "meaningSlot",
+          "acceptedVariants": [
+            "나눠서 맡는 게",
+            "각자 할 일을 정해 볼까요"
+          ],
+          "requiredForCompletion": true
+        }
+      ],
+      "scoredDimensions": [
+        "communicativeFunction",
+        "relationshipRegister",
+        "targetLanguage"
+      ],
+      "completionEvidence": {
+        "type": "inApp"
+      }
+    },
+    {
+      "moduleId": "sarangchae-beams-language",
+      "sourceRefs": [
+        "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaCpno=1483801860000&pageNo=1_1_1_1",
+        "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=1d38a05f-4ce1-4468-8ffa-05ef0a7ef25a"
+      ],
+      "levelBand": [
+        "b1",
+        "b2"
+      ],
+      "knowledgeLenses": [
+        "construction",
+        "connection"
+      ],
+      "copy": {
+        "ko": {
+          "title": "따로 선 기둥을 연결하다",
+          "history": "보와 도리는 기둥 머리를 잇고 지붕의 하중을 여러 자리로 나눕니다.",
+          "criticalLens": "연결은 부품을 많이 쓰는 일이 아니라 힘이 어디로 이어지는지 이해하는 일입니다.",
+          "modernScene": "두 팀이 같은 일을 하지만 전달 방식이 달라 누락이 생깁니다.",
+          "sceneLine": "동료: 우리 쪽에서는 끝났는데 저쪽에는 아직 전달이 안 됐대요.",
+          "actionPrompt": "두 팀의 연결 방식을 정하자고 제안해 보세요."
+        },
+        "de": {
+          "title": "Einzelne Stützen verbinden",
+          "history": "Balken und Pfetten verbinden die Stützen und verteilen die Last des Daches.",
+          "criticalLens": "Gute Verbindung heißt zu verstehen, wohin Kräfte und Informationen weiterlaufen.",
+          "modernScene": "Zwei Teams arbeiten zusammen, aber Übergaben gehen verloren.",
+          "sceneLine": "Jemand aus deinem Team: Bei uns ist alles fertig, aber das andere Team hat noch nichts bekommen.",
+          "actionPrompt": "Schlage auf Koreanisch einen klaren Übergabeweg vor."
+        },
+        "en": {
+          "title": "Connect separate posts",
+          "history": "Beams and purlins link the posts and spread the roof load across the frame.",
+          "criticalLens": "Connection is about knowing where force—or information—travels next.",
+          "modernScene": "A handoff keeps getting lost between two teams.",
+          "sceneLine": "A colleague: We're done, but the other team still hasn't received it.",
+          "actionPrompt": "Suggest a clear handoff in Korean."
+        }
+      },
+      "speechBrief": {
+        "scene": "팀 간 업무 전달",
+        "channel": "직장 메신저",
+        "purpose": "전달 경로 합의",
+        "speaker": "학습자",
+        "addressee": "협업 동료",
+        "relationship": "대등한 협업 관계",
+        "speechStyle": "해요체",
+        "speechAct": "절차 제안",
+        "knownFacts": [
+          "한 팀의 작업은 끝났다"
+        ],
+        "unresolvedFacts": [
+          "전달 담당과 채널이 정해지지 않았다"
+        ],
+        "forbiddenInvention": [
+          "누락 책임자를 단정하지 않는다"
+        ]
+      },
+      "targetExpressions": [
+        "한 채널로 정리해서",
+        "담당자를 정해 두면"
+      ],
+      "acceptedVariants": [
+        "앞으로는 한 채널로 정리해서 전달하면 어떨까요?",
+        "전달 담당자를 정해 두면 누락이 줄 것 같아요."
+      ],
+      "criteria": [
+        {
+          "id": "beams-connect-teams",
+          "kind": "meaningSlot",
+          "acceptedVariants": [
+            "한 채널로 정리해서 전달",
+            "전달 담당자를 정해 두면"
+          ],
+          "requiredForCompletion": true
+        }
+      ],
+      "scoredDimensions": [
+        "communicativeFunction",
+        "relationshipRegister",
+        "targetLanguage"
+      ],
+      "completionEvidence": {
+        "type": "inApp"
+      }
+    },
+    {
+      "moduleId": "sarangchae-rafters-language",
+      "sourceRefs": [
+        "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaCpno=1483801860000&pageNo=1_1_1_1",
+        "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=1d38a05f-4ce1-4468-8ffa-05ef0a7ef25a"
+      ],
+      "levelBand": [
+        "b1",
+        "b2"
+      ],
+      "knowledgeLenses": [
+        "construction",
+        "roof"
+      ],
+      "copy": {
+        "ko": {
+          "title": "용마루에서 처마까지",
+          "history": "서까래는 지붕의 높은 선에서 처마까지 반복되며 지붕의 곡선과 무게를 받칩니다.",
+          "criticalLens": "반복되는 요소일수록 시작점과 끝점이 맞아야 전체 리듬이 흐트러지지 않습니다.",
+          "modernScene": "정기 보고서의 형식이 사람마다 달라 확인하는 데 시간이 오래 걸립니다.",
+          "sceneLine": "팀원: 내용은 다 있는데 형식까지 꼭 맞춰야 하나요?",
+          "actionPrompt": "형식을 맞추는 이유를 설명하고 협조를 구해 보세요."
+        },
+        "de": {
+          "title": "Vom First bis zur Traufe",
+          "history": "Sparren laufen wiederholt vom First zur Traufe und tragen Form und Gewicht des Daches.",
+          "criticalLens": "Bei Wiederholungen müssen Anfang und Ende stimmen, damit der Gesamtrhythmus hält.",
+          "modernScene": "Regelmäßige Berichte haben jedes Mal ein anderes Format.",
+          "sceneLine": "Ein Teammitglied: Der Inhalt ist doch da. Muss das Format wirklich gleich sein?",
+          "actionPrompt": "Erkläre den Grund und bitte auf Koreanisch um Mitarbeit."
+        },
+        "en": {
+          "title": "From ridge to eave",
+          "history": "Rafters repeat from ridge to eave, supporting both the curve and weight of the roof.",
+          "criticalLens": "Repeated elements need shared start and end points to keep the whole rhythm aligned.",
+          "modernScene": "A recurring report arrives in a different format from every person.",
+          "sceneLine": "A teammate: The content is all there. Does the format really have to match?",
+          "actionPrompt": "Explain why consistency helps and ask for cooperation in Korean."
+        }
+      },
+      "speechBrief": {
+        "scene": "보고서 형식 합의",
+        "channel": "팀 회의",
+        "purpose": "공통 형식 요청",
+        "speaker": "학습자",
+        "addressee": "팀원",
+        "relationship": "대등한 팀원",
+        "speechStyle": "해요체",
+        "speechAct": "이유 설명과 요청",
+        "knownFacts": [
+          "내용은 모두 제출됐다"
+        ],
+        "unresolvedFacts": [
+          "공통 형식에 합의하지 않았다"
+        ],
+        "forbiddenInvention": [
+          "상대를 게으르다고 평가하지 않는다"
+        ]
+      },
+      "targetExpressions": [
+        "확인하기가 훨씬 쉬워져서",
+        "형식을 맞춰 주실 수 있을까요"
+      ],
+      "acceptedVariants": [
+        "형식을 맞추면 확인하기가 훨씬 쉬워져서요. 다음부터 맞춰 주실 수 있을까요?",
+        "내용을 바꾸자는 건 아니고, 확인할 부분만 같은 위치에 두면 좋겠어요."
+      ],
+      "criteria": [
+        {
+          "id": "rafters-explain-consistency",
+          "kind": "tokenSequence",
+          "acceptedVariants": [
+            "확인하기가 훨씬 쉬워져서",
+            "확인할 부분만 같은 위치에"
+          ],
+          "requiredForCompletion": true
+        }
+      ],
+      "scoredDimensions": [
+        "communicativeFunction",
+        "relationshipRegister",
+        "targetLanguage"
+      ],
+      "completionEvidence": {
+        "type": "inApp"
+      }
+    },
+    {
+      "moduleId": "sarangchae-roof-bed-language",
+      "sourceRefs": [
+        "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaCpno=1483801860000&pageNo=1_1_1_1",
+        "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=1d38a05f-4ce1-4468-8ffa-05ef0a7ef25a"
+      ],
+      "levelBand": [
+        "b1",
+        "b2"
+      ],
+      "knowledgeLenses": [
+        "construction",
+        "roof"
+      ],
+      "copy": {
+        "ko": {
+          "title": "기와 아래의 지붕바탕",
+          "history": "기와가 올라가기 전, 서까래 위에는 산자와 흙 등으로 지붕바탕을 마련합니다.",
+          "criticalLens": "완성 뒤 가려지는 공정도 물과 하중을 다루는 데 꼭 필요합니다.",
+          "modernScene": "행사 당일만 신경 쓰자는 말이 나왔지만 사전 점검이 남아 있습니다.",
+          "sceneLine": "동료: 겉으로 보이는 것만 괜찮으면 되지 않을까요?",
+          "actionPrompt": "보이지 않는 준비도 필요하다고 완곡하게 말해 보세요."
+        },
+        "de": {
+          "title": "Die Unterlage unter den Ziegeln",
+          "history": "Vor den Dachziegeln entsteht über den Sparren eine tragende Dachunterlage.",
+          "criticalLens": "Auch später unsichtbare Arbeit schützt vor Wasser und verteilt Last.",
+          "modernScene": "Für eine Veranstaltung soll nur das Sichtbare vorbereitet werden.",
+          "sceneLine": "Jemand aus deinem Team: Reicht es nicht, wenn es nach außen gut aussieht?",
+          "actionPrompt": "Erkläre auf Koreanisch vorsichtig, warum die unsichtbare Vorbereitung zählt."
+        },
+        "en": {
+          "title": "The roof bed beneath the tiles",
+          "history": "Before tiles are laid, a supporting roof bed is built over the rafters.",
+          "criticalLens": "Work hidden in the finished building still manages water and weight.",
+          "modernScene": "A colleague wants to prepare only what visitors will see at an event.",
+          "sceneLine": "A colleague: Isn't it enough if it looks good from the outside?",
+          "actionPrompt": "Gently explain in Korean why hidden preparation matters."
+        }
+      },
+      "speechBrief": {
+        "scene": "행사 준비 점검",
+        "channel": "직장 대화",
+        "purpose": "숨은 준비의 필요성 설명",
+        "speaker": "학습자",
+        "addressee": "동료",
+        "relationship": "같은 팀 동료",
+        "speechStyle": "해요체",
+        "speechAct": "완곡한 반대",
+        "knownFacts": [
+          "사전 점검이 남아 있다"
+        ],
+        "unresolvedFacts": [
+          "점검 범위가 합의되지 않았다"
+        ],
+        "forbiddenInvention": [
+          "행사가 실패할 것이라고 단정하지 않는다"
+        ]
+      },
+      "targetExpressions": [
+        "겉으로는 안 보여도",
+        "미리 확인해 두는 게"
+      ],
+      "acceptedVariants": [
+        "겉으로는 안 보여도 필요한 부분이라 미리 확인해 두는 게 좋을 것 같아요.",
+        "당일에 문제가 생기지 않게 안쪽도 한 번 봐 두면 어떨까요?"
+      ],
+      "criteria": [
+        {
+          "id": "roof-bed-hidden-work",
+          "kind": "meaningSlot",
+          "acceptedVariants": [
+            "겉으로는 안 보여도 필요한",
+            "안쪽도 한 번 봐 두면"
+          ],
+          "requiredForCompletion": true
+        }
+      ],
+      "scoredDimensions": [
+        "communicativeFunction",
+        "relationshipRegister",
+        "targetLanguage"
+      ],
+      "completionEvidence": {
+        "type": "inApp"
+      }
+    },
+    {
+      "moduleId": "sarangchae-roof-tiles-language",
+      "sourceRefs": [
+        "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaCpno=1483801860000&pageNo=1_1_1_1",
+        "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=1d38a05f-4ce1-4468-8ffa-05ef0a7ef25a"
+      ],
+      "levelBand": [
+        "a2",
+        "b1"
+      ],
+      "knowledgeLenses": [
+        "construction",
+        "weather"
+      ],
+      "copy": {
+        "ko": {
+          "title": "기와로 비를 흘려보내다",
+          "history": "기와는 겹쳐 놓아 빗물이 아래로 흐르게 하고, 마루와 처마에서 지붕의 선을 마무리합니다.",
+          "criticalLens": "한 장이 아니라 겹침과 방향이 함께 작동해야 지붕이 제 역할을 합니다.",
+          "modernScene": "파일 이름이 제각각이라 최신본을 찾기 어렵습니다.",
+          "sceneLine": "팀원: 저는 제 방식대로 저장하는 게 편한데요.",
+          "actionPrompt": "공통 규칙을 강요처럼 들리지 않게 제안해 보세요."
+        },
+        "de": {
+          "title": "Regen mit Dachziegeln ableiten",
+          "history": "Überlappende Ziegel leiten Regen ab; First und Traufe schließen die Dachlinien ab.",
+          "criticalLens": "Nicht ein einzelner Ziegel, sondern Überlappung und Richtung machen das Dach wirksam.",
+          "modernScene": "Uneinheitliche Dateinamen machen die aktuelle Version schwer auffindbar.",
+          "sceneLine": "Ein Teammitglied: Für mich ist meine eigene Ablage bequemer.",
+          "actionPrompt": "Schlage auf Koreanisch eine gemeinsame Regel vor, ohne zu bevormunden."
+        },
+        "en": {
+          "title": "Guide rain with roof tiles",
+          "history": "Overlapping tiles shed rain while ridge and eaves finish the roof lines.",
+          "criticalLens": "A single tile is not enough; overlap and direction make the system work.",
+          "modernScene": "Inconsistent file names make the latest version hard to find.",
+          "sceneLine": "A teammate: I find my own system easier.",
+          "actionPrompt": "Suggest a shared convention in Korean without sounding controlling."
+        }
+      },
+      "speechBrief": {
+        "scene": "파일 관리 규칙",
+        "channel": "팀 메신저",
+        "purpose": "공통 규칙 제안",
+        "speaker": "학습자",
+        "addressee": "팀원",
+        "relationship": "대등한 팀원",
+        "speechStyle": "해요체",
+        "speechAct": "협의 제안",
+        "knownFacts": [
+          "최신 파일을 찾기 어렵다"
+        ],
+        "unresolvedFacts": [
+          "공통 이름 규칙이 없다"
+        ],
+        "forbiddenInvention": [
+          "상대의 방식이 틀렸다고 단정하지 않는다"
+        ]
+      },
+      "targetExpressions": [
+        "찾기 쉽게",
+        "이름만 같이 맞춰 보면"
+      ],
+      "acceptedVariants": [
+        "각자 저장하는 방식은 두고, 파일 이름만 같이 맞춰 보면 어떨까요?",
+        "최신본을 찾기 쉽게 이름 앞부분만 통일하면 좋겠어요."
+      ],
+      "criteria": [
+        {
+          "id": "tiles-shared-convention",
+          "kind": "meaningSlot",
+          "acceptedVariants": [
+            "파일 이름만 같이 맞춰",
+            "이름 앞부분만 통일"
+          ],
+          "requiredForCompletion": true
+        }
+      ],
+      "scoredDimensions": [
+        "communicativeFunction",
+        "relationshipRegister",
+        "targetLanguage"
+      ],
+      "completionEvidence": {
+        "type": "inApp"
+      }
+    },
+    {
+      "moduleId": "sarangchae-numaru-language",
+      "sourceRefs": [
+        "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaCpno=1483801860000&pageNo=1_1_1_1",
+        "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=1d38a05f-4ce1-4468-8ffa-05ef0a7ef25a"
+      ],
+      "levelBand": [
+        "b1",
+        "b2"
+      ],
+      "knowledgeLenses": [
+        "space",
+        "hospitality"
+      ],
+      "copy": {
+        "ko": {
+          "title": "누마루에서 관계를 조절하다",
+          "history": "일두고택 사랑채의 누마루는 주변을 바라보며 손님을 맞고 머무는 사랑채의 성격을 보여 줍니다.",
+          "criticalLens": "누구에게 열린 자리인지, 누가 중심에 앉는지는 당시의 신분과 성별 질서와도 연결됩니다.",
+          "modernScene": "모임에 처음 온 사람이 대화에 끼지 못하고 있습니다.",
+          "sceneLine": "친구: 처음 오신 분이 좀 어색해 보이는데 어떻게 하지?",
+          "actionPrompt": "그 사람을 자연스럽게 대화에 초대해 보세요."
+        },
+        "de": {
+          "title": "Beziehungen auf dem Numaru gestalten",
+          "history": "Das erhöhte Numaru des Sarangchae zeigt, wie Gäste empfangen wurden und wie man den Ort überblickte.",
+          "criticalLens": "Wer dort Platz nehmen durfte, hing auch mit damaligen Status- und Geschlechterordnungen zusammen.",
+          "modernScene": "Eine neue Person findet bei einem Treffen keinen Anschluss.",
+          "sceneLine": "Jemand aus der Gruppe: Die neue Person wirkt ziemlich unwohl. Was machen wir?",
+          "actionPrompt": "Beziehe die Person auf Koreanisch unaufdringlich ins Gespräch ein."
+        },
+        "en": {
+          "title": "Manage relationships on the numaru",
+          "history": "The raised numaru shows the Sarangchae's role in receiving guests and looking over the grounds.",
+          "criticalLens": "Who could occupy such a place was also shaped by status and gender hierarchies.",
+          "modernScene": "A newcomer is being left out of a group conversation.",
+          "sceneLine": "A friend: The new person looks uncomfortable. What should we do?",
+          "actionPrompt": "Invite them into the conversation naturally in Korean."
+        }
+      },
+      "speechBrief": {
+        "scene": "모임에서 새 사람 맞이",
+        "channel": "대면",
+        "purpose": "대화 참여 초대",
+        "speaker": "학습자",
+        "addressee": "처음 만난 사람",
+        "relationship": "처음 만난 또래",
+        "speechStyle": "해요체",
+        "speechAct": "부담 낮춘 초대",
+        "knownFacts": [
+          "상대가 아직 대화에 참여하지 못했다"
+        ],
+        "unresolvedFacts": [
+          "상대가 어떤 주제에 관심 있는지 모른다"
+        ],
+        "forbiddenInvention": [
+          "상대가 내성적이라고 단정하지 않는다"
+        ]
+      },
+      "targetExpressions": [
+        "어떻게 생각하세요",
+        "편하게 말씀해 주세요"
+      ],
+      "acceptedVariants": [
+        "혹시 이 얘기는 어떻게 생각하세요? 편하게 말씀해 주세요.",
+        "저희끼리만 얘기했네요. 궁금한 게 있으면 편하게 물어보세요."
+      ],
+      "criteria": [
+        {
+          "id": "numaru-invite-participation",
+          "kind": "meaningSlot",
+          "acceptedVariants": [
+            "어떻게 생각하세요",
+            "편하게 물어보세요"
+          ],
+          "requiredForCompletion": true
+        }
+      ],
+      "scoredDimensions": [
+        "communicativeFunction",
+        "relationshipRegister",
+        "targetLanguage"
+      ],
+      "completionEvidence": {
+        "type": "inApp"
+      }
+    },
+    {
+      "moduleId": "sarangchae-wall-language",
+      "sourceRefs": [
+        "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaCpno=1483801860000&pageNo=1_1_1_1",
+        "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=1d38a05f-4ce1-4468-8ffa-05ef0a7ef25a"
+      ],
+      "levelBand": [
+        "b1",
+        "b2"
+      ],
+      "knowledgeLenses": [
+        "space",
+        "privacy"
+      ],
+      "copy": {
+        "ko": {
+          "title": "열린 곳과 가린 곳을 나누다",
+          "history": "벽체와 문선은 방과 마루의 경계를 만들고, 담장과 함께 집 안의 노출 정도를 조절했습니다.",
+          "criticalLens": "보호를 위한 경계는 필요하지만, 과거의 공간 질서가 모든 사람에게 같게 작동한 것은 아닙니다.",
+          "modernScene": "단체 사진을 공개 계정에 올리려는데 모두의 동의를 받지 않았습니다.",
+          "sceneLine": "친구: 다들 잘 나왔는데 그냥 올려도 되겠지?",
+          "actionPrompt": "사진을 올리기 전에 확인하자고 말해 보세요."
+        },
+        "de": {
+          "title": "Offene und geschützte Bereiche trennen",
+          "history": "Wände und Rahmen trennten Zimmer und Maru; Mauern regelten zusätzlich die Sicht in den Hof.",
+          "criticalLens": "Grenzen können schützen, doch historische Raumordnungen wirkten nicht für alle gleich.",
+          "modernScene": "Ein Gruppenfoto soll öffentlich gepostet werden, ohne alle zu fragen.",
+          "sceneLine": "Jemand aus deinem Freundeskreis: Alle sehen gut aus. Wir können es doch einfach posten, oder?",
+          "actionPrompt": "Schlage auf Koreanisch vor, vorher alle zu fragen."
+        },
+        "en": {
+          "title": "Separate open and protected space",
+          "history": "Walls and frames shaped the boundary between rooms and maru, while courtyard walls managed visibility.",
+          "criticalLens": "Boundaries can protect, but historical spatial rules did not serve everyone equally.",
+          "modernScene": "A group photo may be posted publicly before everyone has agreed.",
+          "sceneLine": "A friend: Everyone looks good. We can just post it, right?",
+          "actionPrompt": "Suggest checking with everyone first in Korean."
+        }
+      },
+      "speechBrief": {
+        "scene": "단체 사진 공개",
+        "channel": "친구 단체 채팅",
+        "purpose": "동의 확인 제안",
+        "speaker": "학습자",
+        "addressee": "친구들",
+        "relationship": "가까운 친구들",
+        "speechStyle": "해체",
+        "speechAct": "제동과 대안 제시",
+        "knownFacts": [
+          "공개 계정에 사진을 올리려 한다"
+        ],
+        "unresolvedFacts": [
+          "모든 사람이 동의했는지 모른다"
+        ],
+        "forbiddenInvention": [
+          "특정 사람이 싫어한다고 말하지 않는다"
+        ]
+      },
+      "targetExpressions": [
+        "올리기 전에",
+        "다 괜찮은지 물어보자"
+      ],
+      "acceptedVariants": [
+        "올리기 전에 다 괜찮은지 한 번 물어보자.",
+        "공개 계정이니까 답 오는 것 보고 올리는 게 좋겠어."
+      ],
+      "criteria": [
+        {
+          "id": "wall-check-consent",
+          "kind": "tokenSequence",
+          "acceptedVariants": [
+            "올리기 전에 다 괜찮은지",
+            "답 오는 것 보고 올리는 게"
+          ],
+          "requiredForCompletion": true
+        }
+      ],
+      "scoredDimensions": [
+        "communicativeFunction",
+        "relationshipRegister",
+        "targetLanguage"
+      ],
+      "completionEvidence": {
+        "type": "inApp"
+      }
+    },
+    {
+      "moduleId": "sarangchae-changho-language",
+      "sourceRefs": [
+        "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaCpno=1483801860000&pageNo=1_1_1_1",
+        "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=1d38a05f-4ce1-4468-8ffa-05ef0a7ef25a"
+      ],
+      "levelBand": [
+        "a2",
+        "b1"
+      ],
+      "knowledgeLenses": [
+        "construction",
+        "changho"
+      ],
+      "copy": {
+        "ko": {
+          "title": "창호를 한 칸씩 맞추다",
+          "history": "문살과 한지로 이루어진 창호는 빛과 바람을 받아들이면서 방의 경계를 완성합니다.",
+          "criticalLens": "같은 정면에서도 빈 틀, 문살, 한지가 설치되는 순서가 칸마다 다르게 보일 수 있습니다.",
+          "modernScene": "새 기능을 한 번에 공개할지, 작은 범위에서 먼저 확인할지 이야기합니다.",
+          "sceneLine": "동료: 다 만들 때까지 기다렸다가 한 번에 공개할까요?",
+          "actionPrompt": "작은 범위에서 먼저 시험하자고 제안해 보세요."
+        },
+        "de": {
+          "title": "Changho Feld für Feld einsetzen",
+          "history": "Holzgitter und Hanji-Papier schließen den Raum ab und lassen zugleich Licht und Luft hinein.",
+          "criticalLens": "An einer Fassade können leere Rahmen, Gitter und fertige Papierflächen nebeneinander entstehen.",
+          "modernScene": "Ein neues Feature könnte erst klein getestet oder sofort vollständig veröffentlicht werden.",
+          "sceneLine": "Jemand aus dem Projektteam: Sollen wir warten und dann alles auf einmal veröffentlichen?",
+          "actionPrompt": "Schlage auf Koreanisch einen kleinen Testlauf vor."
+        },
+        "en": {
+          "title": "Install changho one bay at a time",
+          "history": "Timber lattice and hanji complete the room boundary while admitting light and air.",
+          "criticalLens": "Empty frames, bare lattice and finished paper panels can coexist during installation.",
+          "modernScene": "A team is deciding between a small trial and one full feature launch.",
+          "sceneLine": "A colleague: Should we wait and release everything at once?",
+          "actionPrompt": "Suggest a limited trial in Korean."
+        }
+      },
+      "speechBrief": {
+        "scene": "기능 공개 방식 협의",
+        "channel": "직장 회의",
+        "purpose": "작은 시험 제안",
+        "speaker": "학습자",
+        "addressee": "프로젝트 동료",
+        "relationship": "대등한 협업 관계",
+        "speechStyle": "해요체",
+        "speechAct": "대안 제안",
+        "knownFacts": [
+          "기능이 아직 완성되지 않았다"
+        ],
+        "unresolvedFacts": [
+          "공개 범위가 정해지지 않았다"
+        ],
+        "forbiddenInvention": [
+          "기능에 심각한 오류가 있다고 만들지 않는다"
+        ]
+      },
+      "targetExpressions": [
+        "작은 범위에서 먼저",
+        "반응을 보고 넓히는 게"
+      ],
+      "acceptedVariants": [
+        "작은 범위에서 먼저 써 보고 반응을 보고 넓히는 게 어떨까요?",
+        "전부 기다리기보다 준비된 부분부터 시험해 보면 좋겠어요."
+      ],
+      "criteria": [
+        {
+          "id": "changho-propose-pilot",
+          "kind": "meaningSlot",
+          "acceptedVariants": [
+            "작은 범위에서 먼저 써 보고",
+            "준비된 부분부터 시험"
+          ],
+          "requiredForCompletion": true
+        }
+      ],
+      "scoredDimensions": [
+        "communicativeFunction",
+        "relationshipRegister",
+        "targetLanguage"
+      ],
+      "completionEvidence": {
+        "type": "inApp"
+      }
+    },
+    {
+      "moduleId": "baekse-cheongpung-2026",
+      "sourceRefs": [
+        "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaCpno=1483801860000&pageNo=1_1_1_1",
+        "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=1d38a05f-4ce1-4468-8ffa-05ef0a7ef25a",
+        "https://multi.ugyo.net/relic/view.do?currPage=1&listSize=10&orderBy=ASC&pageSize=10&relicCode=1026&relicType=3",
+        "https://kli.korean.go.kr/corpus/main/requestMain.do?lang=ko"
+      ],
+      "levelBand": [
+        "b1",
+        "b2",
+        "c1",
+        "c2"
+      ],
+      "knowledgeLenses": [
+        "hanja",
+        "history",
+        "ethics",
+        "communication"
+      ],
+      "hanja": [
+        "百",
+        "世",
+        "淸",
+        "風"
+      ],
+      "copy": {
+        "ko": {
+          "title": "백세청풍: 오래 남길 기준",
+          "history": "百은 백, 世는 세대, 淸은 맑고 깨끗함, 風은 바람과 기풍을 뜻합니다. 사랑채의 현판은 손님에게도 집안이 내세우고자 한 기준을 드러내는 장치로 읽을 수 있습니다.",
+          "criticalLens": "절의와 청렴은 스스로 지킬 기준이 될 수 있지만, 가문의 평판을 지키라는 압력으로 작동할 수도 있습니다.",
+          "modernScene": "동료가 보고서의 실수를 그냥 넘어가자고 합니다. 일을 키우지 않으면서도 지금 공유하자고 제안해 보세요.",
+          "sceneLine": "동료: 이 정도는 그냥 넘어가도 되지 않을까요? 괜히 일만 커질 것 같은데요.",
+          "actionPrompt": "상대를 몰아붙이지 않고 사실을 공유하자는 문장을 만들어 보세요."
+        },
+        "de": {
+          "title": "Baekse Cheongpung: Ein Maßstab, der bleibt",
+          "history": "Die Zeichen stehen für hundert, Generationen, Klarheit und Wind beziehungsweise Haltung. Ein Schild im Sarangchae kann als sichtbarer Anspruch des Haushalts gegenüber Gästen gelesen werden.",
+          "criticalLens": "Integrität kann ein eigener Maßstab sein, aber auch als Druck wirken, den Ruf der Familie zu schützen.",
+          "modernScene": "Eine Person aus deinem Team möchte einen Fehler im Bericht nicht erwähnen. Du willst ihn jetzt ansprechen, ohne die Lage unnötig zu verschärfen.",
+          "sceneLine": "Die Kollegin: Können wir das nicht einfach so lassen? Sonst wird die Sache nur größer.",
+          "actionPrompt": "Formuliere auf Koreanisch einen sachlichen, nicht anklagenden Vorschlag."
+        },
+        "en": {
+          "title": "Baekse Cheongpung: A standard worth keeping",
+          "history": "The characters evoke a hundred, generations, clarity and wind or moral climate. A Sarangchae signboard can be read as a visible statement of what the household wished to stand for.",
+          "criticalLens": "Integrity can guide personal conduct, but family reputation can also become social pressure.",
+          "modernScene": "A colleague wants to let an error in a report pass. Suggest sharing it now without making the situation unnecessarily confrontational.",
+          "sceneLine": "Colleague: Can't we just let this one go? I think bringing it up will only make things bigger.",
+          "actionPrompt": "Write a factual, non-accusatory response in Korean."
+        }
+      },
+      "speechBrief": {
+        "scene": "보고서 실수 공유 여부",
+        "channel": "직장 대면 대화",
+        "purpose": "부담을 낮춘 반대와 즉시 공유 제안",
+        "speaker": "학습자",
+        "addressee": "동료",
+        "relationship": "대등한 직장 동료",
+        "speechStyle": "해요체",
+        "speechAct": "완곡한 반대와 제안",
+        "knownFacts": [
+          "보고서에 실수가 있다",
+          "동료는 지금 공유하는 것을 부담스러워한다"
+        ],
+        "unresolvedFacts": [
+          "실수의 크기와 수정 담당은 정해지지 않았다"
+        ],
+        "forbiddenInvention": [
+          "동료가 고의로 숨긴다고 단정하지 않는다",
+          "보고 대상의 직급을 만들지 않는다"
+        ]
+      },
+      "targetExpressions": [
+        "그냥 넘기기에는",
+        "공유하는 게 낫지 않을까요",
+        "먼저 말씀드리는 게 좋을 것 같아요"
+      ],
+      "acceptedVariants": [
+        "그냥 넘기기에는 나중에 더 커질 수도 있을 것 같아요. 지금 공유하는 게 낫지 않을까요?",
+        "일을 키우자는 뜻은 아니고요. 더 늦기 전에 먼저 말씀드리는 게 좋을 것 같아요."
+      ],
+      "criteria": [
+        {
+          "id": "baekse-share-now",
+          "kind": "meaningSlot",
+          "acceptedVariants": [
+            "지금 공유하는 게 낫지 않을까요",
+            "먼저 말씀드리는 게 좋을 것 같아요"
+          ],
+          "requiredForCompletion": true
+        },
+        {
+          "id": "baekse-lower-pressure",
+          "kind": "meaningSlot",
+          "acceptedVariants": [
+            "일을 키우자는 뜻은 아니고요",
+            "그냥 넘기기에는"
+          ],
+          "requiredForCompletion": true
+        },
+        {
+          "id": "baekse-polite-ending",
+          "kind": "sentenceEnding",
+          "acceptedVariants": [
+            "않을까요",
+            "것 같아요"
+          ],
+          "requiredForCompletion": true
+        }
+      ],
+      "scoredDimensions": [
+        "communicativeFunction",
+        "relationshipRegister",
+        "targetLanguage"
+      ],
+      "completionEvidence": {
+        "type": "inApp"
+      }
+    },
+    {
+      "moduleId": "takcheongjae-2026",
+      "sourceRefs": [
+        "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaCpno=1483801860000&pageNo=1_1_1_1",
+        "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=1d38a05f-4ce1-4468-8ffa-05ef0a7ef25a",
+        "https://multi.ugyo.net/relic/view.do?currPage=1&listSize=10&orderBy=ASC&pageSize=10&relicCode=1026&relicType=3",
+        "https://kli.korean.go.kr/corpus/main/requestMain.do?lang=ko"
+      ],
+      "levelBand": [
+        "b1",
+        "b2",
+        "c1",
+        "c2"
+      ],
+      "knowledgeLenses": [
+        "hanja",
+        "history",
+        "reflection",
+        "communication"
+      ],
+      "hanja": [
+        "濯",
+        "淸",
+        "齋"
+      ],
+      "copy": {
+        "ko": {
+          "title": "탁청재: 멈춘 뒤 책임 있게 답하기",
+          "history": "濯은 씻다, 淸은 맑다, 齋는 재계하거나 공부하는 집을 뜻합니다. 사랑채 누마루와 학문 공간에 마음을 가다듬는 이름을 붙인 맥락으로 읽을 수 있습니다.",
+          "criticalLens": "잠시 멈추는 일은 감정을 가라앉힐 수 있지만, 계속 답을 피하면 책임 있는 숙고가 아니라 회피가 됩니다.",
+          "modernScene": "단체 채팅에서 감정적인 메시지를 받았습니다. 무시하지 않되 바로 맞받아치지 않고, 생각을 정리한 뒤 답하겠다고 말해 보세요.",
+          "sceneLine": "상대: 제 말이 그렇게 이해하기 어려웠나요? 답이 없으니까 더 답답하네요.",
+          "actionPrompt": "상대를 무시하지 않는다는 점과 답할 시간을 함께 밝혀 보세요."
+        },
+        "de": {
+          "title": "Takcheongjae: Innehalten und verantwortlich antworten",
+          "history": "Die Zeichen verbinden Waschen, Klarheit und einen Ort der Sammlung oder des Lernens. Der Name passt zu einem Raum für Studium und Besinnung.",
+          "criticalLens": "Eine Pause kann Gefühle ordnen. Ohne spätere Antwort wird sie jedoch leicht zur Vermeidung.",
+          "modernScene": "In einem Gruppenchat kommt eine aufgebrachte Nachricht. Du willst nicht kontern, aber auch nicht schweigen.",
+          "sceneLine": "Die andere Person: War das wirklich so schwer zu verstehen? Ohne Antwort werde ich nur noch frustrierter.",
+          "actionPrompt": "Sage auf Koreanisch, dass du die Nachricht nicht ignorierst und später geordnet antwortest."
+        },
+        "en": {
+          "title": "Takcheongjae: Pause, then answer responsibly",
+          "history": "The characters connect washing, clarity, and a place for disciplined reflection or study. The name suits a space associated with learning and composure.",
+          "criticalLens": "A pause can settle emotion, but without a later response it becomes avoidance rather than reflection.",
+          "modernScene": "An emotional message arrives in a group chat. Do not retaliate immediately, but make clear that you will respond after organizing your thoughts.",
+          "sceneLine": "Other person: Was what I said really that hard to understand? No answer just makes this more frustrating.",
+          "actionPrompt": "Say in Korean that you are not ignoring them and will reply after a short pause."
+        }
+      },
+      "speechBrief": {
+        "scene": "감정적인 단체 채팅",
+        "channel": "단체 채팅",
+        "purpose": "답변 유예와 관계 유지",
+        "speaker": "학습자",
+        "addressee": "대화 상대",
+        "relationship": "지속해서 대화해야 하는 지인",
+        "speechStyle": "해요체",
+        "speechAct": "감정 완화와 답변 예고",
+        "knownFacts": [
+          "상대가 답을 기다리고 있다",
+          "메시지의 감정이 격해져 있다"
+        ],
+        "unresolvedFacts": [
+          "오해의 원인과 책임은 확정되지 않았다"
+        ],
+        "forbiddenInvention": [
+          "상대가 공격적 성격이라고 평가하지 않는다",
+          "답변 시각을 임의로 약속하지 않는다"
+        ]
+      },
+      "targetExpressions": [
+        "조금만 생각해 보고",
+        "정리해서 다시 말씀드릴게요",
+        "지금 바로 답하기보다"
+      ],
+      "acceptedVariants": [
+        "무시하려는 건 아니에요. 조금만 생각해 보고 정리해서 다시 말씀드릴게요.",
+        "지금 바로 답하기보다 제가 이해한 내용을 먼저 정리해 보고 다시 말씀드리는 게 좋을 것 같아요."
+      ],
+      "criteria": [
+        {
+          "id": "tak-not-ignoring",
+          "kind": "meaningSlot",
+          "acceptedVariants": [
+            "무시하려는 건 아니에요",
+            "답을 피하려는 건 아니에요"
+          ],
+          "requiredForCompletion": true
+        },
+        {
+          "id": "tak-defer-response",
+          "kind": "tokenSequence",
+          "acceptedVariants": [
+            "조금만 생각해 보고 정리해서 다시 말씀드릴게요",
+            "먼저 정리해 보고 다시 말씀드리는 게"
+          ],
+          "requiredForCompletion": true
+        },
+        {
+          "id": "tak-polite-ending",
+          "kind": "sentenceEnding",
+          "acceptedVariants": [
+            "드릴게요",
+            "것 같아요"
+          ],
+          "requiredForCompletion": true
+        }
+      ],
+      "scoredDimensions": [
+        "communicativeFunction",
+        "relationshipRegister",
+        "targetLanguage"
+      ],
+      "completionEvidence": {
+        "type": "inApp"
+      }
+    },
+    {
+      "moduleId": "sarangchae-complete-reflection",
+      "sourceRefs": [
+        "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaCpno=1483801860000&pageNo=1_1_1_1",
+        "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=1d38a05f-4ce1-4468-8ffa-05ef0a7ef25a",
+        "https://kli.korean.go.kr/corpus/main/requestMain.do?lang=ko"
+      ],
+      "levelBand": [
+        "b1",
+        "b2",
+        "c1",
+        "c2"
+      ],
+      "knowledgeLenses": [
+        "reflection",
+        "communication"
+      ],
+      "copy": {
+        "ko": {
+          "title": "완성된 건물, 계속 지킬 기준",
+          "history": "사랑채는 건물의 완성만이 아니라 손님을 맞는 태도와 집안이 보이고자 한 기준까지 담는 공간이었습니다.",
+          "criticalLens": "현판의 문구를 그대로 따르는 대신, 그 기준이 오늘 내 관계와 책임에서 어떻게 작동할지 스스로 정할 수 있습니다.",
+          "modernScene": "긴 프로젝트를 마치고 다음에도 지키고 싶은 협업 기준을 한 가지 남깁니다.",
+          "sceneLine": "팀원: 다음 프로젝트에서도 꼭 이어 갔으면 하는 게 있어요?",
+          "actionPrompt": "내가 오래 지키고 싶은 기준과 그 이유를 자연스러운 한국어로 말해 보세요."
+        },
+        "de": {
+          "title": "Das Haus ist fertig – welcher Maßstab bleibt?",
+          "history": "Das Sarangchae stand nicht nur für ein fertiges Gebäude, sondern auch für Gastfreundschaft und die Haltung, die ein Haushalt zeigen wollte.",
+          "criticalLens": "Du musst eine Inschrift nicht übernehmen. Entscheide selbst, was ihr Gedanke heute für Beziehungen und Verantwortung bedeuten kann.",
+          "modernScene": "Nach einem langen Projekt hält das Team fest, was beim nächsten Mal bleiben soll.",
+          "sceneLine": "Ein Teammitglied: Was sollten wir beim nächsten Projekt unbedingt beibehalten?",
+          "actionPrompt": "Nenne auf Koreanisch einen persönlichen Maßstab und begründe ihn."
+        },
+        "en": {
+          "title": "The building is complete—what standard remains?",
+          "history": "The Sarangchae expressed not only finished construction but also hospitality and the standards a household wished to display.",
+          "criticalLens": "You do not have to adopt a signboard's maxim. Decide how its question might matter in your own relationships and responsibilities.",
+          "modernScene": "After a long project, the team names one practice worth carrying forward.",
+          "sceneLine": "A teammate: Is there anything we should definitely keep doing next time?",
+          "actionPrompt": "State one standard you want to keep and explain why in Korean."
+        }
+      },
+      "speechBrief": {
+        "scene": "프로젝트 회고",
+        "channel": "팀 회의",
+        "purpose": "개인 기준과 이유 설명",
+        "speaker": "학습자",
+        "addressee": "팀원들",
+        "relationship": "함께 일한 동료들",
+        "speechStyle": "해요체",
+        "speechAct": "성찰과 제안",
+        "knownFacts": [
+          "프로젝트가 끝났다"
+        ],
+        "unresolvedFacts": [
+          "다음 프로젝트 방식은 정해지지 않았다"
+        ],
+        "forbiddenInvention": [
+          "모든 팀원이 같은 기준에 동의한다고 만들지 않는다"
+        ]
+      },
+      "targetExpressions": [
+        "제가 오래 지키고 싶은 기준은",
+        "왜냐하면",
+        "다음에도 이어 가고 싶어요"
+      ],
+      "acceptedVariants": [
+        "제가 오래 지키고 싶은 기준은 문제가 생겼을 때 먼저 공유하는 거예요. 그래야 같이 해결할 수 있으니까요.",
+        "바로 반응하기보다 한 번 정리해서 말하는 습관은 다음에도 이어 가고 싶어요."
+      ],
+      "criteria": [
+        {
+          "id": "complete-name-standard",
+          "kind": "meaningSlot",
+          "acceptedVariants": [
+            "제가 오래 지키고 싶은 기준은",
+            "다음에도 이어 가고 싶어요"
+          ],
+          "requiredForCompletion": true
+        },
+        {
+          "id": "complete-give-reason",
+          "kind": "meaningSlot",
+          "acceptedVariants": [
+            "왜냐하면",
+            "수 있으니까요",
+            "기 때문이에요"
+          ],
+          "requiredForCompletion": true
+        }
+      ],
+      "scoredDimensions": [
+        "communicativeFunction",
+        "relationshipRegister",
+        "targetLanguage"
+      ],
+      "completionEvidence": {
+        "type": "inApp"
+      }
+    }
+  ]
+}

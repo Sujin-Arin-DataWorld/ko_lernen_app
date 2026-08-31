@@ -36,6 +36,9 @@ void main() {
     // 배치한다. 화면은 manifest 외부의 임의 경로를 허용하지 않는다.
     'assets/illustrations/personal_hanok_v3/world/':
         'assets/illustrations/personal_hanok_v3/world/',
+    // 일두 건설 플랜은 인덱스(estate_plan_v1.json)가 건물별 JSON 파일명을
+    // 선언하고, 리포지토리가 이 폴더 리터럴과 결합해 로드한다.
+    'assets/data/ildu_construction/': 'assets/data/ildu_construction/',
   };
 
   /// 파일명이 런타임에 조립되는 **개별 파일**. 폴더째 면제할 수 없는 자리다 —
