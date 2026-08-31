@@ -647,15 +647,6 @@ class SoriTextTheme {
     height: 1.3,
   );
 
-  /// 한국어 문화 오프닝·완료 순간용 대형 제목.
-  TextStyle get cultureDisplay => _base(
-    fontSize: 40,
-    weight: FontWeight.w600,
-    letterSpacing: -0.8,
-    height: 1.2,
-    fontFamily: SoriFonts.culture,
-  );
-
   /// 문화 카드 안의 짧은 한국어 표제.
   TextStyle get cultureTitle => _base(
     fontSize: 21,

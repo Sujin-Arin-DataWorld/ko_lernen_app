@@ -928,7 +928,7 @@ class _ChapterRow extends StatelessWidget {
                   locale: const Locale('ko'),
                   style: SoriTextTheme.of(
                     context,
-                  ).cardTitle.copyWith(fontFamily: SoriFonts.culture),
+                  ).cultureTitle.copyWith(fontSize: 15),
                 ),
                 const SizedBox(height: Spacing.xs),
                 Text('$latin · $status', style: SoriTextTheme.of(context).meta),

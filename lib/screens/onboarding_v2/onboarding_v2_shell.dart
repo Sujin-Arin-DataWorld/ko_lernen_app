@@ -599,11 +599,7 @@ class OnboardingV2Heading extends StatelessWidget {
             child: Text(
               key: titleKey,
               title,
-              style: text.h1.copyWith(
-                color: surfaces.text,
-                fontFamily: SoriFonts.culture,
-                height: 1.12,
-              ),
+              style: text.h1.copyWith(color: surfaces.text, height: 1.12),
             ),
           ),
         ),

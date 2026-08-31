@@ -9,6 +9,19 @@ void main() {
     expect(player.applyMultiplyFilter, isTrue);
   });
 
+  test('playback speed defaults to normal speed', () {
+    const player = CharacterClipPlayer(asset: CharacterClips.tigerRest);
+    expect(player.playbackSpeed, 1.0);
+  });
+
+  test('a custom playback speed round-trips through the widget', () {
+    const player = CharacterClipPlayer(
+      asset: CharacterClips.tigerChoose,
+      playbackSpeed: 0.85,
+    );
+    expect(player.playbackSpeed, 0.85);
+  });
+
   test('tiger profile picker is fixed to tiger_sitting2 (Jin 2026-08-06)', () {
     expect(CharacterClips.profileClipCountFor(MascotKind.tiger), 1);
     expect(

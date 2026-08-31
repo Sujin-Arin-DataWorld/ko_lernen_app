@@ -33,7 +33,7 @@ void main() {
     await tester.ensureVisible(sources);
     final sourcesSemantics = tester.getSemantics(sources).getSemanticsData();
     expect(sourcesSemantics.flagsCollection.isButton, isTrue);
-    expect(sourcesSemantics.label, contains('Curriculum basis and sources'));
+    expect(sourcesSemantics.label, contains('See the sources'));
 
     await _focusWithKeyboard(tester, sources);
     await tester.sendKeyEvent(LogicalKeyboardKey.enter);
@@ -49,8 +49,8 @@ void main() {
         )
         .getSemanticsData();
     expect(titleSemantics.flagsCollection.isHeader, isTrue);
-    expect(find.textContaining('current mapping is partial'), findsOneWidget);
-    expect(find.textContaining('complete exam coverage'), findsOneWidget);
+    expect(find.textContaining('mapping is partial'), findsOneWidget);
+    expect(find.textContaining('full exam coverage'), findsOneWidget);
 
     for (final (index, source) in projection.references.indexed) {
       expect(find.text(source.documentName), findsWidgets);
@@ -125,8 +125,8 @@ void main() {
 
     expect(
       find.text(
-        'Read-only examples from ${soriActivityCatalog.length} current '
-        'activities. Viewing this page does not grant or change anything.',
+        'Examples from ${soriActivityCatalog.length} current '
+        'activities. Viewing changes nothing.',
       ),
       findsOneWidget,
     );
@@ -209,7 +209,7 @@ void main() {
     );
     expect(find.text('Preview · In preparation'), findsOneWidget);
     expect(
-      find.textContaining('only artwork already approved for the app'),
+      find.textContaining('Only artwork already approved for the app'),
       findsOneWidget,
     );
     final imageAssets = tester

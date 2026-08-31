@@ -15615,13 +15615,13 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story1Status.
   ///
   /// In de, this message translates to:
-  /// **'Diese Vorschau legt dein Level noch nicht fest.'**
+  /// **'Legt dein Level noch nicht fest.'**
   String get onboardingV2Story1Status;
 
   /// No description provided for @onboardingV2Story1HeroSemantics.
   ///
   /// In de, this message translates to:
-  /// **'Vorschau auf den Lernweg von den ersten Buchstaben bis zu Gesprächen auf Stufe C2.'**
+  /// **'Vorschau: Lernweg von den ersten Buchstaben bis zu Gesprächen auf Stufe C2.'**
   String get onboardingV2Story1HeroSemantics;
 
   /// No description provided for @onboardingV2Story1Item1Title.
@@ -15645,7 +15645,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story1Item2Body.
   ///
   /// In de, this message translates to:
-  /// **'Eine Seite wird erst erfasst, wenn du die Kamera selbst öffnest.'**
+  /// **'Nur erfasst, wenn du die Kamera öffnest.'**
   String get onboardingV2Story1Item2Body;
 
   /// No description provided for @onboardingV2Story1Item3Title.
@@ -15657,7 +15657,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story1Item3Body.
   ///
   /// In de, this message translates to:
-  /// **'Die Texterkennung der Aufnahme läuft auf deinem Gerät. Diese Anleitung fragt nicht nach Kamerazugriff.'**
+  /// **'Texterkennung läuft auf deinem Gerät; diese Anleitung fragt nicht nach Kamerazugriff.'**
   String get onboardingV2Story1Item3Body;
 
   /// No description provided for @onboardingV2Story1Item4Title.
@@ -15669,19 +15669,19 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story1Item4Body.
   ///
   /// In de, this message translates to:
-  /// **'Wählst du Analysieren, kann der erkannte Text an einen Analysedienst in der EU gesendet und nach Wörtern, Ausdrücken, Grammatik und Sätzen aufbereitet werden.'**
+  /// **'Bei Analysieren geht der Text an einen Analysedienst in der EU und wird nach Wörtern, Ausdrücken, Grammatik und Sätzen sortiert.'**
   String get onboardingV2Story1Item4Body;
 
   /// No description provided for @onboardingV2Story1CurriculumClaim.
   ///
   /// In de, this message translates to:
-  /// **'Ein stufenweises Curriculum, das sich an den CEFR-Handlungszielen und am Koreanischen Standardcurriculum des National Institute of Korean Language orientiert.'**
+  /// **'Ein Curriculum nach den CEFR-Handlungszielen und dem Koreanischen Standardcurriculum des National Institute of Korean Language.'**
   String get onboardingV2Story1CurriculumClaim;
 
   /// No description provided for @onboardingV2Story1CurriculumSourcesAction.
   ///
   /// In de, this message translates to:
-  /// **'Curriculum-Grundlage und Quellen'**
+  /// **'Quellen ansehen'**
   String get onboardingV2Story1CurriculumSourcesAction;
 
   /// No description provided for @onboardingV2Story1CurriculumSourcesTitle.
@@ -15693,7 +15693,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story1CurriculumSourcesBody.
   ///
   /// In de, this message translates to:
-  /// **'Die aktuelle Zuordnung ist teilweise. Diese offiziellen Quellen dienen als Orientierung für den Lernweg; sie behaupten weder eine Zertifizierung noch eine vollständige Prüfungsabdeckung.'**
+  /// **'Die Zuordnung ist teilweise; diese Quellen dienen zur Orientierung, nicht als Zertifizierung oder vollständige Prüfungsabdeckung.'**
   String get onboardingV2Story1CurriculumSourcesBody;
 
   /// No description provided for @onboardingV2Story1CurriculumCefrAuthority.
@@ -15765,7 +15765,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story2HeroSemantics.
   ///
   /// In de, this message translates to:
-  /// **'Interaktive Vorschau: Die Zeichen Giyeok und A werden zur Silbe ga zusammengesetzt.'**
+  /// **'Interaktive Vorschau: Giyeok und A werden zur Silbe ga zusammengesetzt.'**
   String get onboardingV2Story2HeroSemantics;
 
   /// No description provided for @onboardingV2Story2Item1Title.
@@ -15801,7 +15801,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story2Item3Body.
   ///
   /// In de, this message translates to:
-  /// **'Beispiele anhören und die eigene Aufnahme gezielt vergleichen.'**
+  /// **'Beispiele anhören und die eigene Aufnahme vergleichen.'**
   String get onboardingV2Story2Item3Body;
 
   /// No description provided for @onboardingV2Story2Item4Title.
@@ -15831,13 +15831,13 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story3Body.
   ///
   /// In de, this message translates to:
-  /// **'Kurze Wiederholungen erscheinen dann, wenn dein Gedächtnis sie wirklich braucht.'**
+  /// **'Kurze Wiederholungen kommen genau dann, wenn dein Gedächtnis sie braucht.'**
   String get onboardingV2Story3Body;
 
   /// No description provided for @onboardingV2Story3HeroSemantics.
   ///
   /// In de, this message translates to:
-  /// **'Vorschau auf Kartensteuerung, Favoriten, gespeicherte Inhalte mit erhaltenem Inhaltstyp und die heutige Wiederholung unterstützter Wörter.'**
+  /// **'Vorschau auf Kartensteuerung, Favoriten, Inhalte und die heutige Wortwiederholung.'**
   String get onboardingV2Story3HeroSemantics;
 
   /// No description provided for @onboardingV2Story3Item1Title.
@@ -15861,7 +15861,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story3Item2Body.
   ///
   /// In de, this message translates to:
-  /// **'Eine Wischgeste bewegt dich durch den Stapel.'**
+  /// **'Wischen bewegt dich durch den Stapel.'**
   String get onboardingV2Story3Item2Body;
 
   /// No description provided for @onboardingV2Story3Item3Title.
@@ -15885,13 +15885,13 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story3Item4Body.
   ///
   /// In de, this message translates to:
-  /// **'Auf unterstützten Wortkarten speichert das Lesezeichen das Wort in einem Wortpaket. Andere unterstützte gespeicherte Inhalte behalten in der Lernsammlung ihren echten Typ.'**
+  /// **'Bei Wortkarten speichert das Lesezeichen das Wort in einem Wortpaket; andere Inhalte behalten ihren echten Typ.'**
   String get onboardingV2Story3Item4Body;
 
   /// No description provided for @onboardingV2Story3Status.
   ///
   /// In de, this message translates to:
-  /// **'Jetzt verfügbar: Favoriten, gespeicherte Inhalte und heute fällige unterstützte Wörter sind getrennte Ansichten in der Lernsammlung. Die aktuelle Wiederholung unterstützt nur Wörter; Grammatik, Sätze, Ausdrücke und Hangeul bleiben ohne vorgetäuschte Wiederholungsaktion gespeichert.'**
+  /// **'Jetzt verfügbar: Favoriten, gespeicherte Inhalte und fällige Wörter sind getrennte Ansichten in der Lernsammlung. Die aktuelle Wiederholung unterstützt nur Wörter; andere Inhalte bleiben ohne vorgetäuschte Wiederholungsaktion gespeichert.'**
   String get onboardingV2Story3Status;
 
   /// No description provided for @onboardingV2Story4Eyebrow.
@@ -15915,7 +15915,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story4HeroSemantics.
   ///
   /// In de, this message translates to:
-  /// **'Vorschau auf Spiele, Hinweise, XP, persönliche Bestwerte, Quests und mögliche Sammelbelohnungen.'**
+  /// **'Vorschau auf Spiele, Hinweise, XP, Bestwerte, Quests und mögliche Sammelbelohnungen.'**
   String get onboardingV2Story4HeroSemantics;
 
   /// No description provided for @onboardingV2Story4Status.
@@ -15933,7 +15933,7 @@ abstract class AppL10n {
   /// Erklärt, dass die Belohnungsbeispiele im Onboarding schreibgeschützt aus dem aktuellen Aktivitätskatalog stammen.
   ///
   /// In de, this message translates to:
-  /// **'Schreibgeschützte Beispiele aus {count} aktuellen Aktivitäten. Beim Ansehen dieser Seite wird nichts gutgeschrieben oder verändert.'**
+  /// **'Beispiele aus {count} aktuellen Aktivitäten. Ansehen verändert nichts.'**
   String onboardingV2Story4CatalogBody(int count);
 
   /// Barrierefreie Beschriftung einer möglichen Belohnung aus dem Aktivitätskatalog.
@@ -16005,13 +16005,13 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story5Body.
   ///
   /// In de, this message translates to:
-  /// **'Stempel, Bojagi und Räume verbinden deinen Lernfortschritt mit einer langfristigen Kulturerbe-Reise.'**
+  /// **'Stempel, Bojagi und Räume verbinden deinen Lernfortschritt mit einer Kulturerbe-Reise.'**
   String get onboardingV2Story5Body;
 
   /// No description provided for @onboardingV2Story5HeroSemantics.
   ///
   /// In de, this message translates to:
-  /// **'Vorschau auf die künftige Kulturerbe-Reise mit Stempelbuch, Bojagi, Dekorationen und dem ersten Kapitel Ildu Gotaek.'**
+  /// **'Vorschau der Kulturerbe-Reise: Stempelbuch, Bojagi, Dekorationen und das erste Kapitel Ildu Gotaek.'**
   String get onboardingV2Story5HeroSemantics;
 
   /// No description provided for @onboardingV2Story5Status.
@@ -16029,7 +16029,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story5Item1Body.
   ///
   /// In de, this message translates to:
-  /// **'Hier siehst du gesammelte Stempel und offene Stationen.'**
+  /// **'Gesammelte Stempel und offene Stationen.'**
   String get onboardingV2Story5Item1Body;
 
   /// No description provided for @onboardingV2Story5Item2Title.
@@ -16053,7 +16053,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story5Item3Body.
   ///
   /// In de, this message translates to:
-  /// **'Erhaltene Accessoires werden an dafür vorgesehenen Orten eingesetzt.'**
+  /// **'Setze Accessoires an vorgesehenen Orten ein.'**
   String get onboardingV2Story5Item3Body;
 
   /// No description provided for @onboardingV2Story5Item4Title.
@@ -16065,7 +16065,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story5Item4Body.
   ///
   /// In de, this message translates to:
-  /// **'Die Reise ist erweiterbar; Zahl und Reihenfolge stehen noch nicht fest.'**
+  /// **'Zahl und Reihenfolge stehen noch nicht fest.'**
   String get onboardingV2Story5Item4Body;
 
   /// No description provided for @onboardingV2Story5PreviewLabel.
@@ -16083,7 +16083,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story5AssetReviewNote.
   ///
   /// In de, this message translates to:
-  /// **'Diese Vorschau verwendet nur Grafiken, die bereits für die App freigegeben sind. Historische Bezeichnungen und Quellen bleiben klar belegt.'**
+  /// **'Nur bereits freigegebene Grafiken; historische Namen und Quellen sind belegt.'**
   String get onboardingV2Story5AssetReviewNote;
 
   /// No description provided for @onboardingV2Story5SourcesAction.
@@ -16101,7 +16101,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story5SourcesBody.
   ///
   /// In de, this message translates to:
-  /// **'Diese Quellen belegen den Namen und den kulturellen Kontext der Vorschau, darunter die Verbindung des Ildu Gotaek zum Gelehrten Jeong Yeo-chang und seine Nutzung als Drehort. Ihr aktueller Registerstatus erlaubt nur das Zitieren; weitergehende Nutzungsrechte werden nicht zugesichert.'**
+  /// **'Sie belegen Namen und Kontext, darunter die Verbindung zum Gelehrten Jeong Yeo-chang und die Nutzung als Drehort. Der Registerstatus erlaubt nur Zitate; weitere Rechte sind nicht zugesichert.'**
   String get onboardingV2Story5SourcesBody;
 
   /// No description provided for @onboardingV2Story5SourceInstitution.
@@ -16209,7 +16209,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2SetupBody.
   ///
   /// In de, this message translates to:
-  /// **'Dein Ziel ändert nur die Reihenfolge von Einstiegstipps und Empfehlungen. Schwierigkeit, Inhalte, Fortschritt und Belohnungen bleiben gleich.'**
+  /// **'Dein Ziel sortiert nur Tipps und Empfehlungen um; alles andere bleibt gleich.'**
   String get onboardingV2SetupBody;
 
   /// No description provided for @onboardingV2SetupPurposeHeading.
@@ -16227,13 +16227,13 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2SetupLevelHelp.
   ///
   /// In de, this message translates to:
-  /// **'Wähle den Startpunkt, der am besten zu dem passt, was du schon kannst. Du kannst ihn später in den Einstellungen ändern.'**
+  /// **'Wähle, was zu deinem Können passt; du kannst es später in den Einstellungen ändern.'**
   String get onboardingV2SetupLevelHelp;
 
   /// No description provided for @onboardingV2SetupSelectLevelPrompt.
   ///
   /// In de, this message translates to:
-  /// **'Wähle ein Level, um ein echtes Beispiel und die Lernziele zu sehen.'**
+  /// **'Wähle ein Level für Beispiel und Lernziele.'**
   String get onboardingV2SetupSelectLevelPrompt;
 
   /// No description provided for @onboardingV2SetupExampleLabel.
@@ -16269,7 +16269,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2SetupCompareBody.
   ///
   /// In de, this message translates to:
-  /// **'Die direkte Auswahl ist dein Lernstart, kein Nachweis deiner Kenntnisse. Deinen Kurs-Startpunkt und dein Level zum Stöbern kannst du später getrennt ändern.'**
+  /// **'Deine Wahl ist dein Lernstart, kein Kenntnisnachweis; Kurs-Start und Stöber-Level bleiben später einzeln änderbar.'**
   String get onboardingV2SetupCompareBody;
 
   /// No description provided for @onboardingV2SetupCompareClose.
@@ -16353,7 +16353,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2PurposeStudyWorkBody.
   ///
   /// In de, this message translates to:
-  /// **'Im Kurs, an der Hochschule und bei der Arbeit sicher handeln'**
+  /// **'Sicher auftreten in Kurs, Studium und Beruf'**
   String get onboardingV2PurposeStudyWorkBody;
 
   /// No description provided for @onboardingV2PurposeKContentTitle.
@@ -16365,7 +16365,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2PurposeKContentBody.
   ///
   /// In de, this message translates to:
-  /// **'Musik, Serien, Filme, Podcasts und Interviews besser verstehen'**
+  /// **'Musik, Serien, Filme, Podcasts und Interviews verstehen'**
   String get onboardingV2PurposeKContentBody;
 
   /// No description provided for @onboardingV2CompanionEyebrow.
@@ -16383,7 +16383,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2CompanionBody.
   ///
   /// In de, this message translates to:
-  /// **'Wähle Taego oder Joy. Beide begleiten denselben Lernweg; nur Ton und Rhythmus ihrer Hinweise unterscheiden sich. Du kannst später wechseln.'**
+  /// **'Wähle Taego oder Joy. Beide begleiten denselben Lernweg, nur Ton und Rhythmus der Hinweise unterscheiden sich; später wechselbar.'**
   String get onboardingV2CompanionBody;
 
   /// No description provided for @onboardingV2CompanionEqualNote.
@@ -16407,7 +16407,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2CompanionTaegoBody.
   ///
   /// In de, this message translates to:
-  /// **'Ordnet dieselben Hinweise in eine klare Reihenfolge und zeigt dir den nächsten sinnvollen Schritt.'**
+  /// **'Ordnet dieselben Hinweise klar und zeigt dir den nächsten Schritt.'**
   String get onboardingV2CompanionTaegoBody;
 
   /// No description provided for @onboardingV2CompanionTaegoSelected.
@@ -16425,7 +16425,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2CompanionJoyBody.
   ///
   /// In de, this message translates to:
-  /// **'Gibt dieselben Hinweise als kurze Anstöße und feiert deinen nächsten Versuch.'**
+  /// **'Gibt dieselben Hinweise als kurze Anstöße und feiert jeden Versuch.'**
   String get onboardingV2CompanionJoyBody;
 
   /// No description provided for @onboardingV2CompanionJoySelected.
@@ -16443,7 +16443,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2ConfirmationBody.
   ///
   /// In de, this message translates to:
-  /// **'Das Begrüßungsvideo ist nur eine Vorstellung. Du kannst jederzeit weitergehen, auch wenn es nicht lädt.'**
+  /// **'Das Begrüßungsvideo ist nur eine Vorstellung; du kannst jederzeit weiter, auch wenn es nicht lädt.'**
   String get onboardingV2ConfirmationBody;
 
   /// No description provided for @onboardingV2ConfirmationStart.

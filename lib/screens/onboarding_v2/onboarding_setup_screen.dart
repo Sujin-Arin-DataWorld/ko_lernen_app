@@ -404,7 +404,23 @@ class _LevelTile extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: Spacing.sm),
-              Expanded(child: Text(level.name, style: text.cardSubtitle)),
+              // 라벨은 **한 줄 고정**이다. 2열 타일 폭(~90dp)에 독일어 합성어
+              // "Grundkenntnisse"/"Expertenniveau" 는 줄바꿈 기회가 없어서
+              // Flutter 가 글자 사이를 끊었다(2026-08-31 실기기: "Grundkenntniss/e").
+              // `lib/widgets/sori/adaptive_navigation.dart` 와 같은 관용구 —
+              // 줄바꿈/말줄임 대신 `FittedBox` 가 전체 단어를 축소한다.
+              Expanded(
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    level.name,
+                    style: text.cardSubtitle,
+                    maxLines: 1,
+                    softWrap: false,
+                  ),
+                ),
+              ),
               Icon(
                 selected
                     ? Icons.check_circle_rounded
