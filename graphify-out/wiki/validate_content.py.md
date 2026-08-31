@@ -1,12 +1,13 @@
 # validate_content.py
 
-> 13 nodes
+> 15 nodes
 
 ## Key Concepts
 
 - **validate_content.py** (14 connections) — `tools/content_factory/validate_content.py`
 - **IntegrateReviewBatchesTest** (9 connections) — `tools/content_factory/test_integrate_review_batches.py`
 - **test_integrate_review_batches.py** (5 connections) — `tools/content_factory/test_integrate_review_batches.py`
+- **Issue** (4 connections) — `tools/content_factory/validate_content.py`
 - **._rewind_promoted_batches()** (4 connections) — `tools/content_factory/test_integrate_review_batches.py`
 - **test_validate_content.py** (4 connections) — `tools/content_factory/test_validate_content.py`
 - **.setUp()** (3 connections) — `tools/content_factory/test_integrate_review_batches.py`
@@ -16,11 +17,12 @@
 - **.test_post_write_failure_restores_every_target()** (2 connections) — `tools/content_factory/test_integrate_review_batches.py`
 - **.test_preview_is_read_only_and_reports_full_batch_counts()** (2 connections) — `tools/content_factory/test_integrate_review_batches.py`
 - **main()** (2 connections) — `tools/content_factory/validate_content.py`
+- **.to_json()** (1 connections) — `tools/content_factory/validate_content.py`
 - **Build a review-only fixture from the shipped, already-merged tree.** (1 connections) — `tools/content_factory/test_integrate_review_batches.py`
 
 ## Relationships
 
-- [ContentValidator](ContentValidator.md) (7 shared connections)
+- [ContentValidator](ContentValidator.md) (8 shared connections)
 - [scenario_store.py](scenario_store.py.md) (4 shared connections)
 - [handle](handle.md) (2 shared connections)
 - [integrate_review_batches.py](integrate_review_batches.py.md) (2 shared connections)
@@ -40,8 +42,8 @@
 
 ## Audit Trail
 
-- EXTRACTED: 35 (92%)
-- INFERRED: 3 (8%)
+- EXTRACTED: 38 (93%)
+- INFERRED: 3 (7%)
 - AMBIGUOUS: 0 (0%)
 
 ---

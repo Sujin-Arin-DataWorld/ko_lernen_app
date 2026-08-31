@@ -33,16 +33,17 @@
 
 ## Relationships
 
-- [_State](_State.md) (2 shared connections)
-- [game_reward.dart](game_reward.dart.md) (2 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
-- [AnimationController](AnimationController.md) (1 shared connections)
+- [hanok_cinematic.dart](hanok_cinematic.dart.md) (3 shared connections)
 - [bool get](bool_get.md) (1 shared connections)
-- [static const](static_const.md) (1 shared connections)
+- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
 - [static const String](static_const_String.md) (1 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
+- [home_hero.dart](home_hero.dart.md) (1 shared connections)
+- [dart:math](dart-math.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [String?](String_.md) (1 shared connections)
 - [StatelessWidget](StatelessWidget.md) (1 shared connections)
 - [character_clip.dart](character_clip.dart.md) (1 shared connections)
+- [game_reward.dart](game_reward.dart.md) (1 shared connections)
 - [tiger_video.dart](tiger_video.dart.md) (1 shared connections)
 
 ## Source Files

@@ -16,10 +16,11 @@
 
 ## Relationships
 
-- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
 - [card.dart](card.dart.md) (1 shared connections)
 - [shelf_case.dart](shelf_case.dart.md) (1 shared connections)
 - [_](_.md) (1 shared connections)
+- [Widget](Widget.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
 - [StatelessWidget](StatelessWidget.md) (1 shared connections)
 
 ## Source Files

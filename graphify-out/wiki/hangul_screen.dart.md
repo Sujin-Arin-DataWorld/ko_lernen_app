@@ -1,17 +1,15 @@
 # hangul_screen.dart
 
-> 131 nodes
+> 129 nodes
 
 ## Key Concepts
 
 - **hangul_screen.dart** (150 connections) — `lib/screens/hangul_screen.dart`
 - **daily_char_sheet.dart** (59 connections) — `lib/screens/daily_char_sheet.dart`
+- **FeedbackCompletionSlot** (17 connections) — `lib/models/feedback_completion.dart`
 - **_Timer** (14 connections) — `lib/screens/kkeunmari_screen.dart`
-- **../widgets/sori/content_feedback_card.dart** (14 connections)
-- **_HangulScreenState** (5 connections) — `lib/screens/hangul_screen.dart`
 - **daily_char_service.dart** (4 connections) — `lib/services/daily_char_service.dart`
 - **../data/hangul_data.dart** (3 connections)
-- **HangulScreen** (3 connections) — `lib/screens/hangul_screen.dart`
 - **DailyCalligraphyRouteScreen** (2 connections) — `lib/screens/daily_char_sheet.dart`
 - **_CharCell** (2 connections) — `lib/screens/hangul_screen.dart`
 - **_CharGrid** (2 connections) — `lib/screens/hangul_screen.dart`
@@ -29,25 +27,28 @@
 - **_acceptedStrokes** (1 connections) — `lib/screens/daily_char_sheet.dart`
 - **_acceptStroke** (1 connections) — `lib/screens/daily_char_sheet.dart`
 - **_beginTracing** (1 connections) — `lib/screens/daily_char_sheet.dart`
-- *... and 106 more nodes in this community*
+- **build** (1 connections) — `lib/screens/daily_char_sheet.dart`
+- **_canFinish** (1 connections) — `lib/screens/daily_char_sheet.dart`
+- *... and 104 more nodes in this community*
 
 ## Relationships
 
-- [package:flutter/services.dart](package-flutter-services.dart.md) (14 shared connections)
+- [List](List.md) (17 shared connections)
+- [cloze_game_screen.dart](cloze_game_screen.dart.md) (12 shared connections)
 - [StatelessWidget](StatelessWidget.md) (10 shared connections)
-- [_State](_State.md) (9 shared connections)
-- [book_result_screen.dart](book_result_screen.dart.md) (9 shared connections)
-- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (8 shared connections)
-- [bool get](bool_get.md) (7 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (6 shared connections)
-- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (6 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (5 shared connections)
+- [_State](_State.md) (8 shared connections)
+- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (5 shared connections)
+- [kkeunmari_screen.dart](kkeunmari_screen.dart.md) (5 shared connections)
+- [package:flutter/services.dart](package-flutter-services.dart.md) (4 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (4 shared connections)
 - [String?](String_.md) (3 shared connections)
-- [kkeunmari_screen.dart](kkeunmari_screen.dart.md) (3 shared connections)
-- [List](List.md) (2 shared connections)
+- [vocab_pack_result_screen.dart](vocab_pack_result_screen.dart.md) (3 shared connections)
+- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (3 shared connections)
+- [grammar_screen.dart](grammar_screen.dart.md) (2 shared connections)
 
 ## Source Files
 
+- `lib/models/feedback_completion.dart`
 - `lib/screens/daily_char_sheet.dart`
 - `lib/screens/hangul_screen.dart`
 - `lib/screens/kkeunmari_screen.dart`
@@ -56,7 +57,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 252 (100%)
+- EXTRACTED: 250 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

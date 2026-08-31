@@ -33,18 +33,18 @@
 
 ## Relationships
 
-- [bool get](bool_get.md) (5 shared connections)
+- [List](List.md) (9 shared connections)
 - [StatelessWidget](StatelessWidget.md) (5 shared connections)
 - [gye_screen.dart](gye_screen.dart.md) (4 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (4 shared connections)
-- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (3 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (3 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (3 shared connections)
 - [_State](_State.md) (3 shared connections)
 - [String?](String_.md) (2 shared connections)
-- [book_result_screen.dart](book_result_screen.dart.md) (2 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (2 shared connections)
+- [bool get](bool_get.md) (1 shared connections)
 - [dart:ui](dart-ui.md) (1 shared connections)
 - [_](_.md) (1 shared connections)
-- [gye_dedication_action.dart](gye_dedication_action.dart.md) (1 shared connections)
+- [gye_hanok.dart](gye_hanok.dart.md) (1 shared connections)
+- [hanok_world_screen.dart](hanok_world_screen.dart.md) (1 shared connections)
 
 ## Source Files
 

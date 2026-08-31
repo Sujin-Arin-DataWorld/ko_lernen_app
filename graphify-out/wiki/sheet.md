@@ -17,9 +17,9 @@
 ## Relationships
 
 - [whiten_clip_matte.py](whiten_clip_matte.py.md) (3 shared connections)
+- [find_ffprobe](find_ffprobe.md) (3 shared connections)
 - [compose_home_hero_hanji.py](compose_home_hero_hanji.py.md) (3 shared connections)
-- [check_clip_matte.py](check_clip_matte.py.md) (2 shared connections)
-- [check_home_hero_matte.py](check_home_hero_matte.py.md) (2 shared connections)
+- [check_home_hero_matte.py](check_home_hero_matte.py.md) (1 shared connections)
 
 ## Source Files
 

@@ -1,15 +1,19 @@
 # first_link_backfill_journal.dart
 
-> 41 nodes
+> 45 nodes
 
 ## Key Concepts
 
 - **first_link_backfill_journal.dart** (39 connections) — `lib/services/account/first_link_backfill_journal.dart`
-- **static Future** (13 connections)
-- **cultural_glossary_repository.dart** (12 connections) — `lib/services/cultural_glossary_repository.dart`
-- **splash_gate.dart** (6 connections) — `lib/services/splash_gate.dart`
-- **package:ko_lernen_app/models/cultural_glossary.dart** (6 connections)
-- **setLoaderForTesting** (2 connections) — `lib/services/cultural_glossary_repository.dart`
+- **first_link_backfill_test.dart** (17 connections) — `test/services/account/first_link_backfill_test.dart`
+- **FirstDurableLinkBackfillJournalStore** (6 connections) — `lib/services/account/first_link_backfill_journal.dart`
+- **package:ko_lernen_app/services/account/first_link_backfill_journal.dart** (5 connections)
+- **FirstDurableLinkBackfillJournal** (4 connections) — `lib/services/account/first_link_backfill_journal.dart`
+- **first_link_backfill_journal_test.dart** (4 connections) — `test/services/account/first_link_backfill_journal_test.dart`
+- **SharedPreferencesFirstDurableLinkBackfillJournalStore** (2 connections) — `lib/services/account/first_link_backfill_journal.dart`
+- **package:ko_lernen_app/services/account/first_link_backfill.dart** (2 connections)
+- **_MemoryFirstLinkJournalStore** (2 connections) — `test/services/account/cloud_backup_deletion_test.dart`
+- **_MemoryJournalStore** (2 connections) — `test/services/account/first_link_backfill_test.dart`
 - **bookshelfPending** (1 connections) — `lib/services/account/first_link_backfill_journal.dart`
 - **clearIfCurrent** (1 connections) — `lib/services/account/first_link_backfill_journal.dart`
 - **_controlCharacterPattern** (1 connections) — `lib/services/account/first_link_backfill_journal.dart`
@@ -25,36 +29,33 @@
 - **operationId** (1 connections) — `lib/services/account/first_link_backfill_journal.dart`
 - **operator** (1 connections) — `lib/services/account/first_link_backfill_journal.dart`
 - **packProgressPending** (1 connections) — `lib/services/account/first_link_backfill_journal.dart`
-- **read** (1 connections) — `lib/services/account/first_link_backfill_journal.dart`
-- **_readUnlocked** (1 connections) — `lib/services/account/first_link_backfill_journal.dart`
-- **replaceIfCurrent** (1 connections) — `lib/services/account/first_link_backfill_journal.dart`
-- **storageKey** (1 connections) — `lib/services/account/first_link_backfill_journal.dart`
-- *... and 16 more nodes in this community*
+- *... and 20 more nodes in this community*
 
 ## Relationships
 
-- [_](_.md) (6 shared connections)
-- [personal_room_furnish_screen_test.dart](personal_room_furnish_screen_test.dart.md) (3 shared connections)
-- [T](T.md) (2 shared connections)
-- [bool get](bool_get.md) (2 shared connections)
-- [dart:async](dart-async.md) (2 shared connections)
-- [static const](static_const.md) (2 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (4 shared connections)
+- [_](_.md) (4 shared connections)
+- [room_layout_service.dart](room_layout_service.dart.md) (2 shared connections)
 - [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (2 shared connections)
-- [Map](Map.md) (1 shared connections)
+- [first_link_backfill.dart](first_link_backfill.dart.md) (2 shared connections)
+- [auth_service_test.dart](auth_service_test.dart.md) (2 shared connections)
+- [package:ko_lernen_app/services/account/cloud_write_session.dart](package-ko_lernen_app-services-account-cloud_write_session.dart.md) (2 shared connections)
+- [bool get](bool_get.md) (1 shared connections)
+- [content_feedback_outbox_test.dart](content_feedback_outbox_test.dart.md) (1 shared connections)
+- [int get](int_get.md) (1 shared connections)
 - [tts_installation_id.dart](tts_installation_id.dart.md) (1 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
-- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (1 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/services/account/first_link_backfill_journal.dart`
-- `lib/services/cultural_glossary_repository.dart`
-- `lib/services/splash_gate.dart`
+- `test/services/account/cloud_backup_deletion_test.dart`
+- `test/services/account/first_link_backfill_journal_test.dart`
+- `test/services/account/first_link_backfill_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 73 (100%)
+- EXTRACTED: 72 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

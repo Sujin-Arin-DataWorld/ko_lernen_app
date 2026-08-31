@@ -1,12 +1,10 @@
 # card.dart
 
-> 30 nodes
+> 28 nodes
 
 ## Key Concepts
 
 - **card.dart** (41 connections) — `lib/widgets/sori/card.dart`
-- **SoriCard** (9 connections) — `lib/widgets/sori/card.dart`
-- **_SoriCardState** (3 connections) — `lib/widgets/sori/card.dart`
 - **BorderRadius get** (1 connections)
 - **EdgeInsetsGeometry get** (1 connections)
 - **hanok/eaves_corner.dart** (1 connections)
@@ -29,22 +27,20 @@
 - **selected** (1 connections) — `lib/widgets/sori/card.dart`
 - **semanticLabel** (1 connections) — `lib/widgets/sori/card.dart`
 - **SoriCardVariant** (1 connections) — `lib/widgets/sori/card.dart`
-- *... and 5 more nodes in this community*
+- **tinted** (1 connections) — `lib/widgets/sori/card.dart`
+- **_useEaves** (1 connections) — `lib/widgets/sori/card.dart`
+- *... and 3 more nodes in this community*
 
 ## Relationships
 
-- [String?](String_.md) (5 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (3 shared connections)
-- [_State](_State.md) (3 shared connections)
+- [String?](String_.md) (6 shared connections)
+- [practice_hub_ui_test.dart](practice_hub_ui_test.dart.md) (2 shared connections)
 - [bool get](bool_get.md) (1 shared connections)
+- [hanji_texture.dart](hanji_texture.dart.md) (1 shared connections)
 - [double get](double_get.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
+- [Widget](Widget.md) (1 shared connections)
 - [screen_background.dart](screen_background.dart.md) (1 shared connections)
-- [bookshelf_custom_pack_uiux_test.dart](bookshelf_custom_pack_uiux_test.dart.md) (1 shared connections)
-- [choice_quizzes_uiux_test.dart](choice_quizzes_uiux_test.dart.md) (1 shared connections)
-- [sori_video_lease_test.dart](sori_video_lease_test.dart.md) (1 shared connections)
-- [pronunciation_studio_ui_test.dart](pronunciation_studio_ui_test.dart.md) (1 shared connections)
-- [word_web_ui_test.dart](word_web_ui_test.dart.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
 
 ## Source Files
 
@@ -52,7 +48,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 50 (100%)
+- EXTRACTED: 41 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

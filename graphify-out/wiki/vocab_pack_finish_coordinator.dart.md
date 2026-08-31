@@ -1,14 +1,19 @@
 # vocab_pack_finish_coordinator.dart
 
-> 41 nodes
+> 46 nodes
 
 ## Key Concepts
 
 - **vocab_pack_finish_coordinator.dart** (44 connections) — `lib/services/vocab_pack_finish_coordinator.dart`
 - **vocab_pack.dart** (14 connections) — `lib/models/vocab_pack.dart`
+- **VocabPackFinishOperations** (6 connections) — `lib/services/vocab_pack_finish_coordinator.dart`
 - **VocabPack** (5 connections) — `lib/models/vocab_pack.dart`
+- **DefaultVocabPackFinishOperations** (2 connections) — `lib/services/vocab_pack_finish_coordinator.dart`
 - **VocabPackFinishCoordinator** (2 connections) — `lib/services/vocab_pack_finish_coordinator.dart`
 - **VocabPackFinishRequest** (2 connections) — `lib/services/vocab_pack_finish_coordinator.dart`
+- **_BlockingFinishOperations** (2 connections) — `test/vocab_pack_advance_timer_test.dart`
+- **_FakeFinishOperations** (2 connections) — `test/vocab_pack_finish_coordinator_test.dart`
+- **_ScreenFinishOperations** (2 connections) — `test/vocab_pack_finish_screen_test.dart`
 - **course_activity_reporter.dart** (1 connections)
 - **bossWords** (1 connections) — `lib/models/vocab_pack.dart`
 - **fallbackLabel** (1 connections) — `lib/models/vocab_pack.dart`
@@ -24,36 +29,34 @@
 - **bossTotal** (1 connections) — `lib/services/vocab_pack_finish_coordinator.dart`
 - **_completed** (1 connections) — `lib/services/vocab_pack_finish_coordinator.dart`
 - **completionStampMotif** (1 connections) — `lib/services/vocab_pack_finish_coordinator.dart`
-- **courseContext** (1 connections) — `lib/services/vocab_pack_finish_coordinator.dart`
-- **finish** (1 connections) — `lib/services/vocab_pack_finish_coordinator.dart`
-- **_inFlight** (1 connections) — `lib/services/vocab_pack_finish_coordinator.dart`
-- **justCleared** (1 connections) — `lib/services/vocab_pack_finish_coordinator.dart`
-- **nextUnlockedPackId** (1 connections) — `lib/services/vocab_pack_finish_coordinator.dart`
-- *... and 16 more nodes in this community*
+- *... and 21 more nodes in this community*
 
 ## Relationships
 
-- [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (3 shared connections)
-- [Map](Map.md) (2 shared connections)
+- [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (4 shared connections)
+- [_](_.md) (3 shared connections)
+- [storage_service.dart](storage_service.dart.md) (3 shared connections)
+- [int get](int_get.md) (2 shared connections)
 - [List](List.md) (2 shared connections)
-- [_](_.md) (2 shared connections)
-- [vocab_pack_finish_coordinator_test.dart](vocab_pack_finish_coordinator_test.dart.md) (2 shared connections)
-- [quest_tracker.dart](quest_tracker.dart.md) (2 shared connections)
-- [course_checkpoint_questions.dart](course_checkpoint_questions.dart.md) (2 shared connections)
-- [gye_dedication_action.dart](gye_dedication_action.dart.md) (1 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
+- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (2 shared connections)
+- [content_feedback_card.dart](content_feedback_card.dart.md) (1 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (1 shared connections)
 - [course_mission_navigation.dart](course_mission_navigation.dart.md) (1 shared connections)
 - [mission_recommender.dart](mission_recommender.dart.md) (1 shared connections)
 - [typedef](typedef.md) (1 shared connections)
+- [String?](String_.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/models/vocab_pack.dart`
 - `lib/services/vocab_pack_finish_coordinator.dart`
+- `test/vocab_pack_advance_timer_test.dart`
+- `test/vocab_pack_finish_coordinator_test.dart`
+- `test/vocab_pack_finish_screen_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 63 (100%)
+- EXTRACTED: 71 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

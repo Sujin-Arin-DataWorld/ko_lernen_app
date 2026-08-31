@@ -1,10 +1,11 @@
 # onboarding_v2_journey_screen.dart
 
-> 49 nodes
+> 50 nodes
 
 ## Key Concepts
 
 - **onboarding_v2_journey_screen.dart** (71 connections) — `lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart`
+- **../../widgets/sori/character_clip.dart** (7 connections)
 - **OnboardingV2JourneyScreen** (3 connections) — `lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart`
 - **_OnboardingV2JourneyScreenState** (3 connections) — `lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart`
 - **../features/onboarding_v2/onboarding_journey_state.dart** (2 connections)
@@ -28,23 +29,22 @@
 - **initState** (1 connections) — `lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart`
 - **_journeyDurationRecorded** (1 connections) — `lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart`
 - **_journeyStopwatch** (1 connections) — `lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart`
-- **_load** (1 connections) — `lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart`
-- *... and 24 more nodes in this community*
+- *... and 25 more nodes in this community*
 
 ## Relationships
 
+- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (5 shared connections)
+- [splash_screen.dart](splash_screen.dart.md) (4 shared connections)
 - [StatelessWidget](StatelessWidget.md) (4 shared connections)
-- [ux_preview_app.dart](ux_preview_app.dart.md) (3 shared connections)
-- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (3 shared connections)
-- [app_shell.dart](app_shell.dart.md) (2 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
-- [gye_screen.dart](gye_screen.dart.md) (2 shared connections)
+- [List](List.md) (3 shared connections)
 - [_State](_State.md) (2 shared connections)
 - [analytics_service.dart](analytics_service.dart.md) (1 shared connections)
 - [first_run_coordinator.dart](first_run_coordinator.dart.md) (1 shared connections)
 - [app_shell_onboarding_analytics_retry_test.dart](app_shell_onboarding_analytics_retry_test.dart.md) (1 shared connections)
 - [onboarding_journey_state.dart](onboarding_journey_state.dart.md) (1 shared connections)
-- [Object?](Object_.md) (1 shared connections)
+- [account_hardening_test.dart](account_hardening_test.dart.md) (1 shared connections)
+- [typedef](typedef.md) (1 shared connections)
+- [dart:async](dart-async.md) (1 shared connections)
 
 ## Source Files
 
@@ -53,7 +53,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 78 (100%)
+- EXTRACTED: 84 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

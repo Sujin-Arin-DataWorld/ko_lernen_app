@@ -1,10 +1,11 @@
 # cloze_prompt.dart
 
-> 27 nodes
+> 28 nodes
 
 ## Key Concepts
 
 - **cloze_prompt.dart** (38 connections) — `lib/widgets/sori/cloze_prompt.dart`
+- **RegExp** (4 connections)
 - **ClozeOptionsList** (2 connections) — `lib/widgets/sori/cloze_prompt.dart`
 - **game_layout.dart** (1 connections)
 - **acceptedAnswers** (1 connections) — `lib/widgets/sori/cloze_prompt.dart`
@@ -28,21 +29,21 @@
 - **splitEmphasis** (1 connections) — `lib/widgets/sori/cloze_prompt.dart`
 - **text** (1 connections) — `lib/widgets/sori/cloze_prompt.dart`
 - **TextSegment** (1 connections) — `lib/widgets/sori/cloze_prompt.dart`
-- **toString** (1 connections) — `lib/widgets/sori/cloze_prompt.dart`
-- *... and 2 more nodes in this community*
+- *... and 3 more nodes in this community*
 
 ## Relationships
 
-- [package:flutter/material.dart](package-flutter-material.dart.md) (4 shared connections)
-- [Map](Map.md) (1 shared connections)
+- [String?](String_.md) (3 shared connections)
+- [List](List.md) (2 shared connections)
+- [typedef](typedef.md) (2 shared connections)
+- [int get](int_get.md) (1 shared connections)
 - [cloze_loader.dart](cloze_loader.dart.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
-- [profanity_denylist.dart](profanity_denylist.dart.md) (1 shared connections)
-- [typedef](typedef.md) (1 shared connections)
-- [String?](String_.md) (1 shared connections)
-- [course_mastery_test.dart](course_mastery_test.dart.md) (1 shared connections)
-- [cloze_topic_groups.dart](cloze_topic_groups.dart.md) (1 shared connections)
+- [game_layout_test.dart](game_layout_test.dart.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [vocab_recall_evidence.dart](vocab_recall_evidence.dart.md) (1 shared connections)
 - [StatelessWidget](StatelessWidget.md) (1 shared connections)
+- [_](_.md) (1 shared connections)
+- [course_segment_catalog.dart](course_segment_catalog.dart.md) (1 shared connections)
 
 ## Source Files
 
@@ -50,7 +51,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 39 (100%)
+- EXTRACTED: 42 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

@@ -1,12 +1,10 @@
 # spotlight_coach.dart
 
-> 60 nodes
+> 58 nodes
 
 ## Key Concepts
 
 - **spotlight_coach.dart** (73 connections) — `lib/widgets/sori/spotlight_coach.dart`
-- **_SpotlightLayerState** (4 connections) — `lib/widgets/sori/spotlight_coach.dart`
-- **_SpotlightLayer** (3 connections) — `lib/widgets/sori/spotlight_coach.dart`
 - **_CoachTooltip** (2 connections) — `lib/widgets/sori/spotlight_coach.dart`
 - **_CoachTooltipLayout** (2 connections) — `lib/widgets/sori/spotlight_coach.dart`
 - **body** (1 connections) — `lib/widgets/sori/spotlight_coach.dart`
@@ -29,22 +27,24 @@
 - **icon** (1 connections) — `lib/widgets/sori/spotlight_coach.dart`
 - **initState** (1 connections) — `lib/widgets/sori/spotlight_coach.dart`
 - **kEdgeBandFraction** (1 connections) — `lib/widgets/sori/spotlight_coach.dart`
-- *... and 35 more nodes in this community*
+- **kGap** (1 connections) — `lib/widgets/sori/spotlight_coach.dart`
+- **kMargin** (1 connections) — `lib/widgets/sori/spotlight_coach.dart`
+- *... and 33 more nodes in this community*
 
 ## Relationships
 
-- [String?](String_.md) (4 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (4 shared connections)
+- [String?](String_.md) (5 shared connections)
+- [List](List.md) (2 shared connections)
 - [_State](_State.md) (2 shared connections)
-- [AnimationController](AnimationController.md) (1 shared connections)
+- [hanok_cinematic.dart](hanok_cinematic.dart.md) (1 shared connections)
 - [dart:ui](dart-ui.md) (1 shared connections)
-- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (1 shared connections)
 - [ildu_turntable_catalog.dart](ildu_turntable_catalog.dart.md) (1 shared connections)
+- [static const double](static_const_double.md) (1 shared connections)
 - [CustomPainter](CustomPainter.md) (1 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
+- [dart:math](dart-math.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
 - [StatelessWidget](StatelessWidget.md) (1 shared connections)
-- [celebration.dart](celebration.dart.md) (1 shared connections)
 
 ## Source Files
 
@@ -52,7 +52,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 79 (100%)
+- EXTRACTED: 75 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

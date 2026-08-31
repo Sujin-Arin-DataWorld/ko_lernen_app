@@ -29,11 +29,11 @@
 
 ## Relationships
 
-- [String?](String_.md) (2 shared connections)
-- [Map](Map.md) (1 shared connections)
-- [quest_engines_uiux_test.dart](quest_engines_uiux_test.dart.md) (1 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
+- [String?](String_.md) (1 shared connections)
+- [int get](int_get.md) (1 shared connections)
+- [static const double](static_const_double.md) (1 shared connections)
+- [dart:math](dart-math.md) (1 shared connections)
 - [CustomPainter](CustomPainter.md) (1 shared connections)
 - [@immutable](@immutable.md) (1 shared connections)
 

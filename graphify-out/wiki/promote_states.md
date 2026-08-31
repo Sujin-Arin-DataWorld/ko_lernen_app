@@ -1,6 +1,6 @@
 # promote_states
 
-> 36 nodes
+> 35 nodes
 
 ## Key Concepts
 
@@ -29,24 +29,23 @@
 - **Path** (4 connections)
 - **main()** (3 connections) — `tool/derive_hanok_a1_thumbnails.py`
 - **.test_promotion_stays_fail_closed_until_all_sixteen_exist()** (3 connections) — `tool/test_promote_hanok_a1_states.py`
-- *... and 11 more nodes in this community*
+- *... and 10 more nodes in this community*
 
 ## Relationships
 
 - [load_provenance](load_provenance.md) (16 shared connections)
-- [check_style_conformance.py](check_style_conformance.py.md) (2 shared connections)
+- [chroma_key_count](chroma_key_count.md) (2 shared connections)
 
 ## Source Files
 
 - `tool/derive_hanok_a1_thumbnails.py`
-- `tool/hanok_v1_asset_contract.py`
 - `tool/promote_hanok_a1_states.py`
 - `tool/test_promote_hanok_a1_states.py`
 
 ## Audit Trail
 
-- EXTRACTED: 76 (75%)
-- INFERRED: 26 (25%)
+- EXTRACTED: 75 (74%)
+- INFERRED: 26 (26%)
 - AMBIGUOUS: 0 (0%)
 
 ---

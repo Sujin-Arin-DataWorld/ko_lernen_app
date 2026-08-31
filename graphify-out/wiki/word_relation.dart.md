@@ -33,10 +33,11 @@
 
 ## Relationships
 
-- [bool get](bool_get.md) (2 shared connections)
-- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (2 shared connections)
-- [word_relation_service.dart](word_relation_service.dart.md) (2 shared connections)
+- [cloze_game_screen.dart](cloze_game_screen.dart.md) (3 shared connections)
+- [bool get](bool_get.md) (1 shared connections)
 - [List](List.md) (1 shared connections)
+- [word_relation_service.dart](word_relation_service.dart.md) (1 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (1 shared connections)
 
 ## Source Files
 

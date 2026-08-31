@@ -1,6 +1,6 @@
 # load_provenance
 
-> 41 nodes
+> 42 nodes
 
 ## Key Concepts
 
@@ -14,7 +14,6 @@
 - **a1_approved_state_digests()** (10 connections) — `tool/hanok_v1_asset_contract.py`
 - **Any** (9 connections)
 - **camera_geometry()** (8 connections) — `tool/hanok_v1_asset_contract.py`
-- **qa_composite_path()** (7 connections) — `tool/hanok_v1_asset_contract.py`
 - **layer_contract()** (6 connections) — `tool/hanok_v1_asset_contract.py`
 - **HanokV1AssetContractTest** (5 connections) — `tool/test_hanok_v1_asset_contract.py`
 - **a1_hard_max_bytes()** (5 connections) — `tool/hanok_v1_asset_contract.py`
@@ -29,16 +28,18 @@
 - **.test_lineage_rejects_unknown_raw_sha()** (4 connections) — `tool/test_compose_hanok_a1_state.py`
 - **.test_rejects_a_layer_that_builds_nothing_visible()** (4 connections) — `tool/test_compose_hanok_a1_state.py`
 - **.test_rejects_output_that_would_overwrite_its_own_input()** (4 connections) — `tool/test_compose_hanok_a1_state.py`
-- *... and 16 more nodes in this community*
+- **.test_site_base_is_resolved_by_role_not_array_order()** (4 connections) — `tool/test_compose_hanok_a1_state.py`
+- *... and 17 more nodes in this community*
 
 ## Relationships
 
 - [compose_hanok_a1_state.py](compose_hanok_a1_state.py.md) (23 shared connections)
 - [promote_states](promote_states.md) (16 shared connections)
-- [check_personal_hanok_assets.py](check_personal_hanok_assets.py.md) (11 shared connections)
-- [check_style_conformance.py](check_style_conformance.py.md) (5 shared connections)
+- [check_personal_hanok_assets.py](check_personal_hanok_assets.py.md) (12 shared connections)
+- [chroma_key_count](chroma_key_count.md) (4 shared connections)
 - [hanok_a1_kit.py](hanok_a1_kit.py.md) (4 shared connections)
 - [derive_hanok_a1_kit.py](derive_hanok_a1_kit.py.md) (3 shared connections)
+- [check_style_conformance.py](check_style_conformance.py.md) (1 shared connections)
 - [derive_estate_building_stages.py](derive_estate_building_stages.py.md) (1 shared connections)
 - [make_kit_parts.py](make_kit_parts.py.md) (1 shared connections)
 
@@ -52,8 +53,8 @@
 
 ## Audit Trail
 
-- EXTRACTED: 108 (60%)
-- INFERRED: 71 (40%)
+- EXTRACTED: 109 (61%)
+- INFERRED: 69 (39%)
 - AMBIGUOUS: 0 (0%)
 
 ---
