@@ -1,6 +1,6 @@
 # 일두고택 솟을대문·행랑채 2D 8방향 v02 · 조감 시점
 
-상태: `canonical_work_package_promoted_2026-08-30`
+상태: `canonical_runtime_v08_promoted_2026-08-31`
 
 ## 기준
 
@@ -35,10 +35,12 @@
 - 원본 SHA-256: `161D23A981E8C0533F902933EF79C646A95F8D86C210CBA48FBD954AF7D4D687`
 - `references/blueprints/`: 행랑채 정·배면, 평면, 좌우측면, 종횡단면, 앙시도, 와복도와 전체 배치도
 - `references/photos/`: 외부 정면, 내부 문패, 문패 근접, 측면 진입로, 전체 마당 등 현장 사진 6장
-- `runtime_views/`: 패키지 작성 시점 최신 `main`의 등록된 384×512 런타임 8장과 SHA-256 동일
+- `runtime_views/`: 현재 앱에 등록하는 v08 384×512 런타임 8장과 SHA-256 동일
+- `revisions/ildu_sotdaeulmun_v08_depth_150_runtime/`: 사용자가 최종 승인한 v08 원시트·투명 시트·검토 시트·개별 8방향
+- `revisions/ildu_sotdaeulmun_v02_registered_runtime/`: 교체 전 앱 런타임 8방향 보존본
 
 동일 바이트의 `(1)` 도면 중복본은 한 장만 보존했다. 행랑채 옆면은 얇은 담장이 아니라 평면도상 약 4.06m 깊이를 가진 방 몸체다. 외부 `忠孝傳家` 주련과 내부 정려 문패 5개는 건물 정체성 항목이다.
 
-`transparent_views/`는 v02 시트 분할 당시 작업 프레임이고, `runtime_views/`는 이후 앱 캔버스 등록을 거친 현재 런타임 스냅샷이다. 두 세트의 해시는 다르며 모두 이력상 의미가 있으므로 어느 쪽도 덮어쓰지 않는다.
+`transparent_views/`는 v02 시트 분할 당시의 역사적 작업 프레임이다. 현재 정본 런타임은 사용자가 선택한 v08이며, 원시트 SHA-256은 `35ee382980b3c094c07cec3269a4101afe1e1b3949bc11a8235ca4448c8af772`다. v08의 8개 정규화 프레임은 `runtime_views/`, v08 revision, 앱 런타임 세 위치에서 해시가 일치한다. 생성된 8방향을 V3 원본과 픽셀 동일하다고 표현하지 않는다.
 
 상위 제작 계약과 검증 명령은 `../HANDOFF_SARANG_ANSARANG_SOTDAEULMUN.md`를 따른다.

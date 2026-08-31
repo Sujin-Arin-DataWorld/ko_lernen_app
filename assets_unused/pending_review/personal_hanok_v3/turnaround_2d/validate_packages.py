@@ -49,7 +49,11 @@ PACKAGES = {
         "preserved": "ildu_sotdaeulmun_00_source_original_exact.png",
         "canonical": "references/canonical_source/sotdaeulmun_approved_jin_20260824.png",
         "expected_source_sha256": "161d23a981e8c0533f902933ef79c646a95f8d86c210cba48fbd954af7d4d687",
-        "runtime_revision_views": "",
+        "runtime_revision_views": "revisions/ildu_sotdaeulmun_v08_depth_150_runtime/transparent_views",
+        "status": "canonical_runtime_v08_promoted_2026-08-31",
+        "canonical_runtime_version": "v08_depth_150",
+        "approved_raw": "revisions/ildu_sotdaeulmun_v08_depth_150_runtime/ildu_sotdaeulmun_v08_depth_150_raw.png",
+        "approved_raw_sha256": "35ee382980b3c094c07cec3269a4101afe1e1b3949bc11a8235ca4448c8af772",
     },
 }
 
@@ -130,6 +134,17 @@ def validate_package(name: str, config: dict[str, str], write: bool) -> dict[str
             f"canonical={canonical_hash} expected={expected_hash}"
         )
 
+    approved_raw = config.get("approved_raw", "")
+    approved_raw_sha256 = config.get("approved_raw_sha256", "")
+    if approved_raw:
+        actual_approved_raw_sha256 = sha256(package_dir / approved_raw)
+        if actual_approved_raw_sha256 != approved_raw_sha256:
+            fail(
+                f"approved raw mismatch for {name}: "
+                f"actual={actual_approved_raw_sha256} "
+                f"expected={approved_raw_sha256}"
+            )
+
     working_rows: list[dict[str, object]] = []
     working_hashes: set[str] = set()
     runtime_rows: list[dict[str, object]] = []
@@ -190,7 +205,9 @@ def validate_package(name: str, config: dict[str, str], write: bool) -> dict[str
     files = inventory(package_dir)
     manifest = {
         "schema": "ildu-turnaround-package-v1",
-        "status": "canonical_work_package_promoted_2026-08-30",
+        "status": config.get(
+            "status", "canonical_work_package_promoted_2026-08-30"
+        ),
         "package": name,
         "camera": "approximately 28-degree elevated oblique, not top view",
         "azimuth_step_degrees": 45,
@@ -211,6 +228,10 @@ def validate_package(name: str, config: dict[str, str], write: bool) -> dict[str
         "runtime_frames": runtime_rows,
         "files": files,
     }
+    if approved_raw:
+        manifest["canonical_runtime_version"] = config["canonical_runtime_version"]
+        manifest["human_approved_raw"] = approved_raw
+        manifest["human_approved_raw_sha256"] = approved_raw_sha256
 
     if write:
         (package_dir / "MANIFEST.json").write_text(
@@ -238,10 +259,20 @@ def main() -> int:
         action="store_true",
         help="write MANIFEST.json and SHA256SUMS.txt inside every package",
     )
+    parser.add_argument(
+        "--package",
+        choices=tuple(PACKAGES),
+        help="validate only one package instead of all packages",
+    )
     args = parser.parse_args()
 
     try:
-        for name, config in PACKAGES.items():
+        selected = (
+            {args.package: PACKAGES[args.package]}
+            if args.package
+            else PACKAGES
+        )
+        for name, config in selected.items():
             validate_package(name, config, args.write_manifests)
     except (AssertionError, FileNotFoundError, OSError) as error:
         print(f"FAIL: {error}", file=sys.stderr)

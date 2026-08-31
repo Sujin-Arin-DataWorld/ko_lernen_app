@@ -1,8 +1,11 @@
-# 현재 런타임 프레임 스냅샷
+# 현재 런타임 프레임 스냅샷 · v08 depth 150
 
-`origin/main` 커밋 `f604a42dea023be804f14d84b110f7b0e1a551af`의
-`assets/illustrations/personal_hanok_v3/turnarounds/`에서 복사했다.
+사용자가 2026-08-31에 승인한 원시트
+`../revisions/ildu_sotdaeulmun_v08_depth_150_runtime/ildu_sotdaeulmun_v08_depth_150_raw.png`
+에서 분리·정규화한 384×512 RGBA 8방향이다.
 
-상위 `transparent_views/`의 v02 분리 작업본은 이후 앱의 384×512 공통 캔버스에 등록되면서 바이트가 달라졌다. 이 폴더의 8장이 현재 런타임과 SHA-256이 같은 스냅샷이다.
+이 폴더의 8장은 `assets/illustrations/personal_hanok_v3/turnarounds/`의
+솟을대문 런타임 8장 및 v08 revision의 `transparent_views/`와 SHA-256이 같다.
+이전 등록 런타임은 `../revisions/ildu_sotdaeulmun_v02_registered_runtime/`에 보존했다.
 
 개별 해시는 상위 `MANIFEST.json`과 `SHA256SUMS.txt`를 사용한다.

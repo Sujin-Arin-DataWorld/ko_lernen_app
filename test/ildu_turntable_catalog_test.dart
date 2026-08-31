@@ -239,6 +239,42 @@ void main() {
       );
     }
   });
+
+  test('Jin-approved Sotdaeulmun V08 runtime bytes stay locked', () async {
+    const expectedHashes = <String>[
+      '6E295FBE18502FFD38521C7DD0DC7688EB46B79A8E5B28B7C06C19482B254B2A',
+      '44A3F480A203547A002818D395A36D5385A93E42D1A816E231A3CB7240A8D346',
+      '30A62E2903B4F994267B5B997A1459E5083501676E8A0AE382C027B97A193BF3',
+      '38A1D06D5869E9F7EA25C5DF6891184B1FFC382D4222C646E10A4A626CB33B16',
+      'CDCDD6ADB00C22115128EDB10F78066E1B37CE5DF75BF4994B6F92875DACD71E',
+      'AA64DA5B940F27E932CFE336A2A5755D744B3B540457A03198993DF5D882075E',
+      '842D2D6BE0BBE1F525E6F5CDB6CFBB49539394A57BBE9D68BF16AF31B137F8B1',
+      '5AB57C104B54A4F70B06048B4A61DBF7E7C7E65631B057211ADD7761C6697C30',
+    ];
+    const revisionRoot =
+        'assets_unused/pending_review/personal_hanok_v3/turnaround_2d/'
+        'ildu_sotdaeulmun_v02/revisions/'
+        'ildu_sotdaeulmun_v08_depth_150_runtime/transparent_views';
+
+    for (var index = 0; index < expectedHashes.length; index++) {
+      final frame = kIlDuSotdaeulmunTurntable.frames[index];
+      final runtime = File(frame.assetPath);
+      final digest = sha256.convert(await runtime.readAsBytes());
+      expect(
+        digest.toString().toUpperCase(),
+        expectedHashes[index],
+        reason: 'approved Sotdaeulmun V08 direction $index changed',
+      );
+
+      final revision = File('$revisionRoot/${runtime.uri.pathSegments.last}');
+      expect(revision.existsSync(), isTrue, reason: revision.path);
+      expect(
+        sha256.convert(await revision.readAsBytes()),
+        digest,
+        reason: '${runtime.path} must match the approved V08 revision',
+      );
+    }
+  });
 }
 
 Rect _alphaBounds(img.Image image) {

@@ -1,6 +1,6 @@
 {
   "schema": "ildu-turnaround-package-v1",
-  "status": "canonical_work_package_promoted_2026-08-30",
+  "status": "canonical_runtime_v08_promoted_2026-08-31",
   "package": "ildu_sotdaeulmun_v02",
   "camera": "approximately 28-degree elevated oblique, not top view",
   "azimuth_step_degrees": 45,
@@ -117,12 +117,12 @@
     }
   ],
   "runtime_matching_frames": 8,
-  "runtime_revision_matching_frames": 0,
+  "runtime_revision_matching_frames": 8,
   "runtime_frames": [
     {
       "direction": "00_front",
       "path": "runtime_views/ildu_sotdaeulmun_00_front.png",
-      "sha256": "1bef97ec8afdb7af9d32190ba0902feeb79d7b8f268b3e0e75639fc0b4c262ec",
+      "sha256": "6e295fbe18502ffd38521c7dd0dc7688eb46b79a8e5b28b7c06c19482b254b2a",
       "runtime_exists": true,
       "runtime_sha256_match": true,
       "width": 384,
@@ -130,13 +130,13 @@
       "mode": "RGBA",
       "alpha_min": 0,
       "alpha_max": 255,
-      "transparent_pixels": 131606,
-      "opaque_pixels": 60797
+      "transparent_pixels": 136765,
+      "opaque_pixels": 55890
     },
     {
       "direction": "01_front_right",
       "path": "runtime_views/ildu_sotdaeulmun_01_front_right.png",
-      "sha256": "6b04fc8f2106d543eb0084f0d9fb98b4e56f9abe30b524fed6db0a5ef13f4b0b",
+      "sha256": "44a3f480a203547a002818d395a36d5385a93e42d1a816e231a3cb7240a8d346",
       "runtime_exists": true,
       "runtime_sha256_match": true,
       "width": 384,
@@ -144,13 +144,13 @@
       "mode": "RGBA",
       "alpha_min": 0,
       "alpha_max": 255,
-      "transparent_pixels": 131945,
-      "opaque_pixels": 60855
+      "transparent_pixels": 133565,
+      "opaque_pixels": 58948
     },
     {
       "direction": "02_right",
       "path": "runtime_views/ildu_sotdaeulmun_02_right.png",
-      "sha256": "8664c99c670c138c9615127a277de8c5454230ed55a0442203823cef03088d40",
+      "sha256": "30a62e2903b4f994267b5b997a1459e5083501676e8a0ae382c027b97a193bf3",
       "runtime_exists": true,
       "runtime_sha256_match": true,
       "width": 384,
@@ -158,13 +158,13 @@
       "mode": "RGBA",
       "alpha_min": 0,
       "alpha_max": 255,
-      "transparent_pixels": 145055,
-      "opaque_pixels": 47815
+      "transparent_pixels": 141571,
+      "opaque_pixels": 51513
     },
     {
       "direction": "03_rear_right",
       "path": "runtime_views/ildu_sotdaeulmun_03_rear_right.png",
-      "sha256": "e2b4994bdcfca4ebfae3869483c525314cf4002f22cb47d98cad2d5f4145cc62",
+      "sha256": "38a1d06d5869e9f7ea25c5df6891184b1ffc382d4222c646e10a4a626cb33b16",
       "runtime_exists": true,
       "runtime_sha256_match": true,
       "width": 384,
@@ -172,13 +172,13 @@
       "mode": "RGBA",
       "alpha_min": 0,
       "alpha_max": 255,
-      "transparent_pixels": 133287,
-      "opaque_pixels": 59413
+      "transparent_pixels": 135494,
+      "opaque_pixels": 57263
     },
     {
       "direction": "04_rear",
       "path": "runtime_views/ildu_sotdaeulmun_04_rear.png",
-      "sha256": "75b39e1af36e9bd17350df44abf65596aef3898e4c3d925987bd3f68f40a99ff",
+      "sha256": "cdcdd6adb00c22115128edb10f78066e1b37ce5df75bf4994b6f92875dacd71e",
       "runtime_exists": true,
       "runtime_sha256_match": true,
       "width": 384,
@@ -186,13 +186,13 @@
       "mode": "RGBA",
       "alpha_min": 0,
       "alpha_max": 255,
-      "transparent_pixels": 133242,
-      "opaque_pixels": 59340
+      "transparent_pixels": 136842,
+      "opaque_pixels": 55817
     },
     {
       "direction": "05_rear_left",
       "path": "runtime_views/ildu_sotdaeulmun_05_rear_left.png",
-      "sha256": "93846bb50bcf30ca05e8f45a2a7824f7256a19681ef902dc31ce3ccccc22d72b",
+      "sha256": "aa64da5b940f27e932cfe336a2a5755d744b3b540457a03198993df5d882075e",
       "runtime_exists": true,
       "runtime_sha256_match": true,
       "width": 384,
@@ -200,13 +200,13 @@
       "mode": "RGBA",
       "alpha_min": 0,
       "alpha_max": 255,
-      "transparent_pixels": 136916,
-      "opaque_pixels": 55777
+      "transparent_pixels": 134981,
+      "opaque_pixels": 57592
     },
     {
       "direction": "06_left",
       "path": "runtime_views/ildu_sotdaeulmun_06_left.png",
-      "sha256": "5c90f13ac56374d271c4d06721d350677aa5d1d7df177b2b41e302ba9e4467b4",
+      "sha256": "842d2d6be0bbe1f525e6f5cdb6cfbb49539394a57bbe9d68bf16af31b137f8b1",
       "runtime_exists": true,
       "runtime_sha256_match": true,
       "width": 384,
@@ -214,13 +214,13 @@
       "mode": "RGBA",
       "alpha_min": 0,
       "alpha_max": 255,
-      "transparent_pixels": 145388,
-      "opaque_pixels": 47538
+      "transparent_pixels": 144959,
+      "opaque_pixels": 48092
     },
     {
       "direction": "07_front_left",
       "path": "runtime_views/ildu_sotdaeulmun_07_front_left.png",
-      "sha256": "b7ef413745056646dab0b5732025d17fbda70fb5da1abbdfb96fa6ec1f8bd183",
+      "sha256": "5ab57c104b54a4f70b06048b4a61dbf7e7c7e65631b057211add7761c6697c30",
       "runtime_exists": true,
       "runtime_sha256_match": true,
       "width": 384,
@@ -228,15 +228,15 @@
       "mode": "RGBA",
       "alpha_min": 0,
       "alpha_max": 255,
-      "transparent_pixels": 131366,
-      "opaque_pixels": 61193
+      "transparent_pixels": 138465,
+      "opaque_pixels": 54222
     }
   ],
   "files": [
     {
       "path": "extract_checkerboard_alpha.py",
-      "bytes": 2099,
-      "sha256": "3997a93018568071c7965ce6123b0d756f7215bf3a1a3acd75f5d9cd8b13d68b"
+      "bytes": 2175,
+      "sha256": "d3bb8b7530845ad23962a415c7d7e614c4f0b1f1aedfc36bfe2d0b08413a23c2"
     },
     {
       "path": "ildu_sotdaeulmun_00_source_original_exact.png",
@@ -255,8 +255,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 3091,
-      "sha256": "59d1e284a3acad1357436e1b59f4db16b82afaf75849c4c91c97802dc7b65fb5"
+      "bytes": 3520,
+      "sha256": "13374a76a8b78496dd5e2300b8317fa20abcd35af12f126e6f8c480c564d02d3"
     },
     {
       "path": "references/blueprints/도면_국가민속문화재_함양_일두_고택_기록화보고서_함양_일두고택_전체_배치도.jpg",
@@ -339,54 +339,164 @@
       "sha256": "5714e33fbeff020c7a33aba6daf88e41e7b689a0316284551a9247e43a8ac44b"
     },
     {
-      "path": "runtime_views/ildu_sotdaeulmun_00_front.png",
+      "path": "revisions/ildu_sotdaeulmun_v02_registered_runtime/README.md",
+      "bytes": 304,
+      "sha256": "e5acf93d3be062a86ba01696918037538da1053faa77aceaad17bdb328acb992"
+    },
+    {
+      "path": "revisions/ildu_sotdaeulmun_v02_registered_runtime/transparent_views/ildu_sotdaeulmun_00_front.png",
       "bytes": 147942,
       "sha256": "1bef97ec8afdb7af9d32190ba0902feeb79d7b8f268b3e0e75639fc0b4c262ec"
     },
     {
-      "path": "runtime_views/ildu_sotdaeulmun_01_front_right.png",
+      "path": "revisions/ildu_sotdaeulmun_v02_registered_runtime/transparent_views/ildu_sotdaeulmun_01_front_right.png",
       "bytes": 161470,
       "sha256": "6b04fc8f2106d543eb0084f0d9fb98b4e56f9abe30b524fed6db0a5ef13f4b0b"
     },
     {
-      "path": "runtime_views/ildu_sotdaeulmun_02_right.png",
+      "path": "revisions/ildu_sotdaeulmun_v02_registered_runtime/transparent_views/ildu_sotdaeulmun_02_right.png",
       "bytes": 133378,
       "sha256": "8664c99c670c138c9615127a277de8c5454230ed55a0442203823cef03088d40"
     },
     {
-      "path": "runtime_views/ildu_sotdaeulmun_03_rear_right.png",
+      "path": "revisions/ildu_sotdaeulmun_v02_registered_runtime/transparent_views/ildu_sotdaeulmun_03_rear_right.png",
       "bytes": 158766,
       "sha256": "e2b4994bdcfca4ebfae3869483c525314cf4002f22cb47d98cad2d5f4145cc62"
     },
     {
-      "path": "runtime_views/ildu_sotdaeulmun_04_rear.png",
+      "path": "revisions/ildu_sotdaeulmun_v02_registered_runtime/transparent_views/ildu_sotdaeulmun_04_rear.png",
       "bytes": 136881,
       "sha256": "75b39e1af36e9bd17350df44abf65596aef3898e4c3d925987bd3f68f40a99ff"
     },
     {
-      "path": "runtime_views/ildu_sotdaeulmun_05_rear_left.png",
+      "path": "revisions/ildu_sotdaeulmun_v02_registered_runtime/transparent_views/ildu_sotdaeulmun_05_rear_left.png",
       "bytes": 145987,
       "sha256": "93846bb50bcf30ca05e8f45a2a7824f7256a19681ef902dc31ce3ccccc22d72b"
     },
     {
-      "path": "runtime_views/ildu_sotdaeulmun_06_left.png",
+      "path": "revisions/ildu_sotdaeulmun_v02_registered_runtime/transparent_views/ildu_sotdaeulmun_06_left.png",
       "bytes": 132823,
       "sha256": "5c90f13ac56374d271c4d06721d350677aa5d1d7df177b2b41e302ba9e4467b4"
     },
     {
-      "path": "runtime_views/ildu_sotdaeulmun_07_front_left.png",
+      "path": "revisions/ildu_sotdaeulmun_v02_registered_runtime/transparent_views/ildu_sotdaeulmun_07_front_left.png",
       "bytes": 157902,
       "sha256": "b7ef413745056646dab0b5732025d17fbda70fb5da1abbdfb96fa6ec1f8bd183"
     },
     {
+      "path": "revisions/ildu_sotdaeulmun_v08_depth_150_runtime/ildu_sotdaeulmun_v08_depth_150_8view_sheet.png",
+      "bytes": 1221427,
+      "sha256": "4b103ad1c73f423412bd67dc20acf7b603d6378d1eb742285032013cb4496382"
+    },
+    {
+      "path": "revisions/ildu_sotdaeulmun_v08_depth_150_runtime/ildu_sotdaeulmun_v08_depth_150_raw.png",
+      "bytes": 2195830,
+      "sha256": "35ee382980b3c094c07cec3269a4101afe1e1b3949bc11a8235ca4448c8af772"
+    },
+    {
+      "path": "revisions/ildu_sotdaeulmun_v08_depth_150_runtime/ildu_sotdaeulmun_v08_depth_150_transparent.png",
+      "bytes": 2401243,
+      "sha256": "04773b2ed0a589b28e720685f437394572cfa1a04c18de7b0b58c4bd9ca66f01"
+    },
+    {
+      "path": "revisions/ildu_sotdaeulmun_v08_depth_150_runtime/PROMPT.md",
+      "bytes": 1566,
+      "sha256": "ea89aba675e91a9657f55978f89987fae2391a15d63d06146a628be30a820ae5"
+    },
+    {
+      "path": "revisions/ildu_sotdaeulmun_v08_depth_150_runtime/README.md",
+      "bytes": 824,
+      "sha256": "ab119e3912d264052c7df2d7a653b3b4a1a88e9cfad5315266833fbcad475dee"
+    },
+    {
+      "path": "revisions/ildu_sotdaeulmun_v08_depth_150_runtime/transparent_views/ildu_sotdaeulmun_00_front.png",
+      "bytes": 151473,
+      "sha256": "6e295fbe18502ffd38521c7dd0dc7688eb46b79a8e5b28b7c06c19482b254b2a"
+    },
+    {
+      "path": "revisions/ildu_sotdaeulmun_v08_depth_150_runtime/transparent_views/ildu_sotdaeulmun_01_front_right.png",
+      "bytes": 167932,
+      "sha256": "44a3f480a203547a002818d395a36d5385a93e42d1a816e231a3cb7240a8d346"
+    },
+    {
+      "path": "revisions/ildu_sotdaeulmun_v08_depth_150_runtime/transparent_views/ildu_sotdaeulmun_02_right.png",
+      "bytes": 146916,
+      "sha256": "30a62e2903b4f994267b5b997a1459e5083501676e8a0ae382c027b97a193bf3"
+    },
+    {
+      "path": "revisions/ildu_sotdaeulmun_v08_depth_150_runtime/transparent_views/ildu_sotdaeulmun_03_rear_right.png",
+      "bytes": 158224,
+      "sha256": "38a1d06d5869e9f7ea25c5df6891184b1ffc382d4222c646e10a4a626cb33b16"
+    },
+    {
+      "path": "revisions/ildu_sotdaeulmun_v08_depth_150_runtime/transparent_views/ildu_sotdaeulmun_04_rear.png",
+      "bytes": 146356,
+      "sha256": "cdcdd6adb00c22115128edb10f78066e1b37ce5df75bf4994b6f92875dacd71e"
+    },
+    {
+      "path": "revisions/ildu_sotdaeulmun_v08_depth_150_runtime/transparent_views/ildu_sotdaeulmun_05_rear_left.png",
+      "bytes": 160189,
+      "sha256": "aa64da5b940f27e932cfe336a2a5755d744b3b540457a03198993df5d882075e"
+    },
+    {
+      "path": "revisions/ildu_sotdaeulmun_v08_depth_150_runtime/transparent_views/ildu_sotdaeulmun_06_left.png",
+      "bytes": 138901,
+      "sha256": "842d2d6be0bbe1f525e6f5cdb6cfbb49539394a57bbe9d68bf16af31b137f8b1"
+    },
+    {
+      "path": "revisions/ildu_sotdaeulmun_v08_depth_150_runtime/transparent_views/ildu_sotdaeulmun_07_front_left.png",
+      "bytes": 153870,
+      "sha256": "5ab57c104b54a4f70b06048b4a61dbf7e7c7e65631b057211add7761c6697c30"
+    },
+    {
+      "path": "runtime_views/ildu_sotdaeulmun_00_front.png",
+      "bytes": 151473,
+      "sha256": "6e295fbe18502ffd38521c7dd0dc7688eb46b79a8e5b28b7c06c19482b254b2a"
+    },
+    {
+      "path": "runtime_views/ildu_sotdaeulmun_01_front_right.png",
+      "bytes": 167932,
+      "sha256": "44a3f480a203547a002818d395a36d5385a93e42d1a816e231a3cb7240a8d346"
+    },
+    {
+      "path": "runtime_views/ildu_sotdaeulmun_02_right.png",
+      "bytes": 146916,
+      "sha256": "30a62e2903b4f994267b5b997a1459e5083501676e8a0ae382c027b97a193bf3"
+    },
+    {
+      "path": "runtime_views/ildu_sotdaeulmun_03_rear_right.png",
+      "bytes": 158224,
+      "sha256": "38a1d06d5869e9f7ea25c5df6891184b1ffc382d4222c646e10a4a626cb33b16"
+    },
+    {
+      "path": "runtime_views/ildu_sotdaeulmun_04_rear.png",
+      "bytes": 146356,
+      "sha256": "cdcdd6adb00c22115128edb10f78066e1b37ce5df75bf4994b6f92875dacd71e"
+    },
+    {
+      "path": "runtime_views/ildu_sotdaeulmun_05_rear_left.png",
+      "bytes": 160189,
+      "sha256": "aa64da5b940f27e932cfe336a2a5755d744b3b540457a03198993df5d882075e"
+    },
+    {
+      "path": "runtime_views/ildu_sotdaeulmun_06_left.png",
+      "bytes": 138901,
+      "sha256": "842d2d6be0bbe1f525e6f5cdb6cfbb49539394a57bbe9d68bf16af31b137f8b1"
+    },
+    {
+      "path": "runtime_views/ildu_sotdaeulmun_07_front_left.png",
+      "bytes": 153870,
+      "sha256": "5ab57c104b54a4f70b06048b4a61dbf7e7c7e65631b057211add7761c6697c30"
+    },
+    {
       "path": "runtime_views/README.md",
-      "bytes": 478,
-      "sha256": "a4971054885d7295dc6c85515bc2131d525722a72ff72d037b8e5ed1cd0e7e16"
+      "bytes": 603,
+      "sha256": "a0498ec1d9312533ae7b48c2cd9ed32bd46a1b255902fcd16f52db0be2b103ce"
     },
     {
       "path": "split_turnaround_sheet.py",
-      "bytes": 3764,
-      "sha256": "7c2f84964670e889c013f1bd8af4a99e02ab63a3ad1050cff3d21a6fcc584516"
+      "bytes": 3878,
+      "sha256": "f7d290189a0edcfc778a8269d402b2e2b79ba4e792cbf8cc484df789d83da6b8"
     },
     {
       "path": "transparent_views/ildu_sotdaeulmun_00_front.png",
@@ -428,5 +538,8 @@
       "bytes": 157837,
       "sha256": "1ae8d37da56a184ea6d3e8aed1c8c6c221384fe1c2fdbca96d368371c1ef5dd8"
     }
-  ]
+  ],
+  "canonical_runtime_version": "v08_depth_150",
+  "human_approved_raw": "revisions/ildu_sotdaeulmun_v08_depth_150_runtime/ildu_sotdaeulmun_v08_depth_150_raw.png",
+  "human_approved_raw_sha256": "35ee382980b3c094c07cec3269a4101afe1e1b3949bc11a8235ca4448c8af772"
 }
