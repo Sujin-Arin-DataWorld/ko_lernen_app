@@ -1,11 +1,12 @@
 # return
 
-> 49 nodes
+> 61 nodes
 
 ## Key Concepts
 
 - **return** (97 connections)
 - **hangul_util.dart** (22 connections) — `lib/services/hangul_util.dart`
+- **audio_gain_contract_test.dart** (20 connections) — `test/audio_gain_contract_test.dart`
 - **hangul_perturbation_test.dart** (10 connections) — `test/hangul_perturbation_test.dart`
 - **uiux_bible_closeout_inventory_test.dart** (10 connections) — `test/uiux_bible_closeout_inventory_test.dart`
 - **scenario_json.dart** (9 connections) — `test/support/scenario_json.dart`
@@ -28,27 +29,27 @@
 - **jungsungTable** (1 connections) — `lib/services/hangul_util.dart`
 - **n** (1 connections) — `lib/services/hangul_util.dart`
 - **_syllableStride** (1 connections) — `lib/services/hangul_util.dart`
-- **toString** (1 connections) — `lib/services/hangul_util.dart`
-- *... and 24 more nodes in this community*
+- *... and 36 more nodes in this community*
 
 ## Relationships
 
 - [_](_.md) (15 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (3 shared connections)
-- [dart:io](dart-io.md) (3 shared connections)
-- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (2 shared connections)
-- [dart:math](dart-math.md) (2 shared connections)
-- [dart:convert](dart-convert.md) (2 shared connections)
-- [data_integrity_test.dart](data_integrity_test.dart.md) (2 shared connections)
-- [package:ko_lernen_app/models/curriculum.dart](package-ko_lernen_app-models-curriculum.dart.md) (2 shared connections)
-- [onboarding_v2_runtime_catalog_test.dart](onboarding_v2_runtime_catalog_test.dart.md) (2 shared connections)
-- [List](List.md) (1 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (7 shared connections)
+- [dart:io](dart-io.md) (6 shared connections)
+- [List](List.md) (2 shared connections)
+- [Map](Map.md) (2 shared connections)
+- [course_mastery_test.dart](course_mastery_test.dart.md) (2 shared connections)
+- [study_activity_responsive_test.dart](study_activity_responsive_test.dart.md) (2 shared connections)
+- [package:flutter/services.dart](package-flutter-services.dart.md) (2 shared connections)
 - [a1_hanok_construction_catalog.dart](a1_hanok_construction_catalog.dart.md) (1 shared connections)
 - [beta_mission_catalog.dart](beta_mission_catalog.dart.md) (1 shared connections)
+- [hangul_data.dart](hangul_data.dart.md) (1 shared connections)
+- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/services/hangul_util.dart`
+- `test/audio_gain_contract_test.dart`
 - `test/hangul_composer_test.dart`
 - `test/hangul_perturbation_test.dart`
 - `test/support/scenario_json.dart`
@@ -56,7 +57,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 150 (100%)
+- EXTRACTED: 169 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

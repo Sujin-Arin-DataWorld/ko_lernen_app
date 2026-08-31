@@ -36,7 +36,7 @@
 - [privacy_consent_service_test.dart](privacy_consent_service_test.dart.md) (3 shared connections)
 - [analytics_service.dart](analytics_service.dart.md) (2 shared connections)
 - [_](_.md) (1 shared connections)
-- [splash_screen.dart](splash_screen.dart.md) (1 shared connections)
+- [app_shell.dart](app_shell.dart.md) (1 shared connections)
 - [dart:async](dart-async.md) (1 shared connections)
 - [diagnostics_service.dart](diagnostics_service.dart.md) (1 shared connections)
 - [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)

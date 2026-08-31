@@ -1,10 +1,12 @@
 # trace_canvas.dart
 
-> 41 nodes
+> 43 nodes
 
 ## Key Concepts
 
 - **trace_canvas.dart** (53 connections) — `lib/widgets/trace_canvas.dart`
+- **TraceCanvas** (3 connections) — `lib/widgets/trace_canvas.dart`
+- **_TraceCanvasState** (3 connections) — `lib/widgets/trace_canvas.dart`
 - **TraceCanvasSnapshot** (2 connections) — `lib/widgets/trace_canvas.dart`
 - **EagerGestureRecognizer** (1 connections)
 - **_activePointer** (1 connections) — `lib/widgets/trace_canvas.dart`
@@ -27,23 +29,20 @@
 - **_errorGhost** (1 connections) — `lib/widgets/trace_canvas.dart`
 - **ghost** (1 connections) — `lib/widgets/trace_canvas.dart`
 - **_moveStroke** (1 connections) — `lib/widgets/trace_canvas.dart`
-- **_nextStrokeHint** (1 connections) — `lib/widgets/trace_canvas.dart`
-- **onStrokeEnd** (1 connections) — `lib/widgets/trace_canvas.dart`
-- *... and 16 more nodes in this community*
+- *... and 18 more nodes in this community*
 
 ## Relationships
 
-- [String?](String_.md) (2 shared connections)
-- [TraceCanvas](TraceCanvas.md) (2 shared connections)
-- [hanji_texture.dart](hanji_texture.dart.md) (1 shared connections)
+- [String?](String_.md) (3 shared connections)
+- [_State](_State.md) (2 shared connections)
 - [int?](int_.md) (1 shared connections)
 - [List](List.md) (1 shared connections)
 - [typedef](typedef.md) (1 shared connections)
-- [ChangeNotifier](ChangeNotifier.md) (1 shared connections)
+- [listening_playback_controller.dart](listening_playback_controller.dart.md) (1 shared connections)
 - [CustomPainter](CustomPainter.md) (1 shared connections)
-- [dart:ui](dart-ui.md) (1 shared connections)
+- [free_room_layer_test.dart](free_room_layer_test.dart.md) (1 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [app_error.dart](app_error.dart.md) (1 shared connections)
+- [AnimationController](AnimationController.md) (1 shared connections)
 - [@immutable](@immutable.md) (1 shared connections)
 
 ## Source Files
@@ -52,7 +51,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 54 (100%)
+- EXTRACTED: 57 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

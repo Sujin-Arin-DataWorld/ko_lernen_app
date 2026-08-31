@@ -40,7 +40,7 @@
 - [scenario_store.py](scenario_store.py.md) (3 shared connections)
 - [ContentValidator](ContentValidator.md) (2 shared connections)
 - [SimpleNamespace](SimpleNamespace.md) (1 shared connections)
-- [TranslationCacheCleanupTest](TranslationCacheCleanupTest.md) (1 shared connections)
+- [cleanup_translation_cache.py](cleanup_translation_cache.py.md) (1 shared connections)
 - [validate_content.py](validate_content.py.md) (1 shared connections)
 
 ## Source Files

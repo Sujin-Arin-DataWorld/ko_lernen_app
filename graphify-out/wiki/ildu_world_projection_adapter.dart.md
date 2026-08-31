@@ -26,7 +26,7 @@
 - [hanok_world_screen.dart](hanok_world_screen.dart.md) (1 shared connections)
 - [_](_.md) (1 shared connections)
 - [hanok_grant_catalog.dart](hanok_grant_catalog.dart.md) (1 shared connections)
-- [room_layout_service.dart](room_layout_service.dart.md) (1 shared connections)
+- [storage_service.dart](storage_service.dart.md) (1 shared connections)
 - [a1_hanok_construction_map.dart](a1_hanok_construction_map.dart.md) (1 shared connections)
 - [ildu_anchor_placement_service.dart](ildu_anchor_placement_service.dart.md) (1 shared connections)
 - [ildu_decoration_placement_service.dart](ildu_decoration_placement_service.dart.md) (1 shared connections)

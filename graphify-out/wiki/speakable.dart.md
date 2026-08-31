@@ -1,60 +1,59 @@
 # speakable.dart
 
-> 59 nodes
+> 40 nodes
 
 ## Key Concepts
 
 - **speakable.dart** (52 connections) — `lib/widgets/sori/speakable.dart`
-- **screen_coach.dart** (17 connections) — `lib/widgets/sori/screen_coach.dart`
-- **_** (13 connections) — `lib/services/local_data_lifetime.dart`
-- **static int** (10 connections)
-- **static final Set** (5 connections)
-- **spotlight_coach.dart** (3 connections)
+- **VideoLeaseEligibilityBinding** (8 connections) — `lib/widgets/sori/video_lease.dart`
+- **ContentSpeechController** (2 connections) — `lib/widgets/sori/speakable.dart`
 - **resetForTesting** (2 connections) — `lib/widgets/sori/speakable.dart`
 - **SoriSpeakable** (2 connections) — `lib/widgets/sori/speakable.dart`
 - **route_observer.dart** (2 connections)
-- **assertCurrent** (1 connections) — `lib/services/local_data_lifetime.dart`
-- **capture** (1 connections) — `lib/services/local_data_lifetime.dart`
-- **_epoch** (1 connections) — `lib/services/local_data_lifetime.dart`
-- **invalidate** (1 connections) — `lib/services/local_data_lifetime.dart`
-- **isCurrent** (1 connections) — `lib/services/local_data_lifetime.dart`
-- **LocalDataLifetime** (1 connections) — `lib/services/local_data_lifetime.dart`
-- **LocalDataLifetimeLease** (1 connections) — `lib/services/local_data_lifetime.dart`
-- **toString** (1 connections) — `lib/services/local_data_lifetime.dart`
-- **buildCoachSteps** (1 connections) — `lib/widgets/sori/screen_coach.dart`
-- **coachId** (1 connections) — `lib/widgets/sori/screen_coach.dart`
-- **_coachPolls** (1 connections) — `lib/widgets/sori/screen_coach.dart`
-- **coachReady** (1 connections) — `lib/widgets/sori/screen_coach.dart`
-- **_firedThisSession** (1 connections) — `lib/widgets/sori/screen_coach.dart`
-- **scheduleCoach** (1 connections) — `lib/widgets/sori/screen_coach.dart`
-- **_syncTutorialReset** (1 connections) — `lib/widgets/sori/screen_coach.dart`
-- **_tryShow** (1 connections) — `lib/widgets/sori/screen_coach.dart`
-- *... and 34 more nodes in this community*
+- **RouteAware** (2 connections)
+- **_activeSpeechKey** (1 connections) — `lib/widgets/sori/speakable.dart`
+- **build** (1 connections) — `lib/widgets/sori/speakable.dart`
+- **_cancelFlightAndRestorePrefetch** (1 connections) — `lib/widgets/sori/speakable.dart`
+- **child** (1 connections) — `lib/widgets/sori/speakable.dart`
+- **deactivate** (1 connections) — `lib/widgets/sori/speakable.dart`
+- **_debounce** (1 connections) — `lib/widgets/sori/speakable.dart`
+- **_deferredStop** (1 connections) — `lib/widgets/sori/speakable.dart`
+- **didPop** (1 connections) — `lib/widgets/sori/speakable.dart`
+- **didPopNext** (1 connections) — `lib/widgets/sori/speakable.dart`
+- **didPush** (1 connections) — `lib/widgets/sori/speakable.dart`
+- **didPushNext** (1 connections) — `lib/widgets/sori/speakable.dart`
+- **dispose** (1 connections) — `lib/widgets/sori/speakable.dart`
+- **_generation** (1 connections) — `lib/widgets/sori/speakable.dart`
+- **_inFlight** (1 connections) — `lib/widgets/sori/speakable.dart`
+- **_pendingPrefetches** (1 connections) — `lib/widgets/sori/speakable.dart`
+- **_playbackFlights** (1 connections) — `lib/widgets/sori/speakable.dart`
+- **playOnEnter** (1 connections) — `lib/widgets/sori/speakable.dart`
+- **prefetch** (1 connections) — `lib/widgets/sori/speakable.dart`
+- *... and 15 more nodes in this community*
 
 ## Relationships
 
-- [_](_.md) (5 shared connections)
-- [String?](String_.md) (3 shared connections)
-- [bool get](bool_get.md) (2 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (4 shared connections)
 - [wordbook_add.dart](wordbook_add.dart.md) (2 shared connections)
-- [entry_onboarding_uiux_test.dart](entry_onboarding_uiux_test.dart.md) (1 shared connections)
-- [listening_play_screen.dart](listening_play_screen.dart.md) (1 shared connections)
-- [_State](_State.md) (1 shared connections)
-- [package:flutter/widgets.dart](package-flutter-widgets.dart.md) (1 shared connections)
-- [cloze_game_screen.dart](cloze_game_screen.dart.md) (1 shared connections)
+- [String?](String_.md) (2 shared connections)
+- [video_lease.dart](video_lease.dart.md) (2 shared connections)
 - [hangul_screen.dart](hangul_screen.dart.md) (1 shared connections)
 - [diagnostics_service.dart](diagnostics_service.dart.md) (1 shared connections)
-- [splash_screen.dart](splash_screen.dart.md) (1 shared connections)
+- [app_shell.dart](app_shell.dart.md) (1 shared connections)
+- [smalltalk_loader.dart](smalltalk_loader.dart.md) (1 shared connections)
+- [pronunciation_studio_ui_test.dart](pronunciation_studio_ui_test.dart.md) (1 shared connections)
+- [dart:async](dart-async.md) (1 shared connections)
+- [book_result_screen.dart](book_result_screen.dart.md) (1 shared connections)
+- [@visibleForTesting](@visibleForTesting.md) (1 shared connections)
 
 ## Source Files
 
-- `lib/services/local_data_lifetime.dart`
-- `lib/widgets/sori/screen_coach.dart`
 - `lib/widgets/sori/speakable.dart`
+- `lib/widgets/sori/video_lease.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 96 (100%)
+- EXTRACTED: 64 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

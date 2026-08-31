@@ -1,73 +1,77 @@
 # dart:async
 
-> 115 nodes
+> 336 nodes
 
 ## Key Concepts
 
 - **dart:async** (159 connections)
-- **account_reconciliation_test.dart** (63 connections) — `test/services/account/account_reconciliation_test.dart`
-- **vocab_pack_finish_coordinator_test.dart** (24 connections) — `test/vocab_pack_finish_coordinator_test.dart`
-- **services/pack_progress_service_test.dart** (20 connections) — `test/services/pack_progress_service_test.dart`
-- **concrete_cloud_writer_race_test.dart** (19 connections) — `test/services/account/concrete_cloud_writer_race_test.dart`
-- **test/pack_progress_service_test.dart** (16 connections) — `test/pack_progress_service_test.dart`
-- **vocab_packs_screen_backfill_test.dart** (15 connections) — `test/vocab_packs_screen_backfill_test.dart`
-- **package:ko_lernen_app/models/pack_progress.dart** (14 connections)
-- **pack_card_accessibility_test.dart** (11 connections) — `test/pack_card_accessibility_test.dart`
-- **path_trail_tap_test.dart** (10 connections) — `test/path_trail_tap_test.dart`
-- **package:ko_lernen_app/services/account/cloud_read_result.dart** (8 connections)
-- **package:ko_lernen_app/services/pack_progress_service.dart** (6 connections)
-- **listening_playback_controller_test.dart** (6 connections) — `test/listening_playback_controller_test.dart`
-- **firestore_progress_service_test.dart** (6 connections) — `test/services/firestore_progress_service_test.dart`
-- **CloudReadResult** (5 connections) — `lib/services/account/cloud_read_result.dart`
-- **package:ko_lernen_app/widgets/sori/pack_card.dart** (5 connections)
-- **stamp_entitlement_reconciler_test.dart** (5 connections) — `test/stamp_entitlement_reconciler_test.dart`
-- **package:ko_lernen_app/services/firestore_progress_service.dart** (4 connections)
-- **sori_speech_dedupe_test.dart** (4 connections) — `test/sori_speech_dedupe_test.dart`
-- **video_lease_contract_test.dart** (4 connections) — `test/video_lease_contract_test.dart`
-- **PackStatus** (3 connections) — `lib/models/pack_progress.dart`
-- **package:flutter_localizations/flutter_localizations.dart** (3 connections)
-- **package:ko_lernen_app/services/vocab_pack_finish_coordinator.dart** (3 connections)
-- **pack_progress_test.dart** (3 connections) — `test/pack_progress_test.dart`
-- **package:ko_lernen_app/services/shared_pack_service.dart** (2 connections)
-- *... and 90 more nodes in this community*
+- **settings_screen_test.dart** (98 connections) — `test/widgets/settings_screen_test.dart`
+- **account_ui_operations.dart** (88 connections) — `lib/services/account/account_ui_operations.dart`
+- **account_ui_durable_admission_test.dart** (67 connections) — `test/services/account/account_ui_durable_admission_test.dart`
+- **account_transition_ui_test.dart** (61 connections) — `test/widgets/account_transition_ui_test.dart`
+- **test/profile_screen_test.dart** (59 connections) — `test/profile_screen_test.dart`
+- **account_hardening_test.dart** (58 connections) — `test/account_hardening_test.dart`
+- **class** (40 connections)
+- **account_ui_pending_state_test.dart** (21 connections) — `test/services/account/account_ui_pending_state_test.dart`
+- **package:ko_lernen_app/services/auth_service.dart** (20 connections)
+- **account_link_failure_visibility_test.dart** (19 connections) — `test/account_link_failure_visibility_test.dart`
+- **account_new_link_guard_test.dart** (17 connections) — `test/widgets/account_new_link_guard_test.dart`
+- **ValueListenable** (17 connections)
+- **package:ko_lernen_app/services/account/cloud_backup_deletion.dart** (16 connections)
+- **package:firebase_auth/firebase_auth.dart** (15 connections)
+- **onboarding_journey_repository.dart** (14 connections) — `lib/features/onboarding_v2/onboarding_journey_repository.dart`
+- **package:ko_lernen_app/services/account/account_operation_client.dart** (14 connections)
+- **account_link_exception_mapping_test.dart** (13 connections) — `test/services/account/account_link_exception_mapping_test.dart`
+- **account_startup_journal_resolver_test.dart** (13 connections) — `test/services/account/account_startup_journal_resolver_test.dart`
+- **AccountUiOperations** (12 connections) — `lib/services/account/account_ui_operations.dart`
+- **package:ko_lernen_app/services/account/account_transition_coordinator.dart** (11 connections)
+- **account_failure_diagnostics_test.dart** (11 connections) — `test/services/account/account_failure_diagnostics_test.dart`
+- **google_oauth_client_test.dart** (11 connections) — `test/services/account/google_oauth_client_test.dart`
+- **package:ko_lernen_app/services/account/account_ui_operations.dart** (10 connections)
+- **widgets/profile_screen_test.dart** (10 connections) — `test/widgets/profile_screen_test.dart`
+- *... and 311 more nodes in this community*
 
 ## Relationships
 
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (32 shared connections)
-- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (19 shared connections)
-- [_](_.md) (14 shared connections)
-- [package:ko_lernen_app/models/curriculum.dart](package-ko_lernen_app-models-curriculum.dart.md) (8 shared connections)
-- [cloud_sync_test.dart](cloud_sync_test.dart.md) (7 shared connections)
-- [package:ko_lernen_app/services/account/cloud_write_session.dart](package-ko_lernen_app-services-account-cloud_write_session.dart.md) (6 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (6 shared connections)
-- [vocab_notebook_studio_screen_test.dart](vocab_notebook_studio_screen_test.dart.md) (6 shared connections)
-- [bookshelf_custom_pack_uiux_test.dart](bookshelf_custom_pack_uiux_test.dart.md) (5 shared connections)
-- [dart:ui](dart-ui.md) (5 shared connections)
-- [course_reassessment_screen_test.dart](course_reassessment_screen_test.dart.md) (5 shared connections)
-- [content_feedback_outbox_test.dart](content_feedback_outbox_test.dart.md) (4 shared connections)
+- [_](_.md) (59 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (31 shared connections)
+- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (30 shared connections)
+- [account_reconciliation_test.dart](account_reconciliation_test.dart.md) (22 shared connections)
+- [study_activity_responsive_test.dart](study_activity_responsive_test.dart.md) (13 shared connections)
+- [cloud_sync_test.dart](cloud_sync_test.dart.md) (11 shared connections)
+- [package:flutter/services.dart](package-flutter-services.dart.md) (10 shared connections)
+- [bool get](bool_get.md) (10 shared connections)
+- [dart:ui](dart-ui.md) (10 shared connections)
+- [course_mastery_test.dart](course_mastery_test.dart.md) (9 shared connections)
+- [auth_service_test.dart](auth_service_test.dart.md) (8 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (8 shared connections)
 
 ## Source Files
 
-- `lib/models/pack_progress.dart`
-- `lib/services/account/cloud_read_result.dart`
-- `test/listening_playback_controller_test.dart`
-- `test/pack_card_accessibility_test.dart`
-- `test/pack_progress_service_test.dart`
-- `test/pack_progress_test.dart`
-- `test/path_trail_tap_test.dart`
-- `test/services/account/account_reconciliation_test.dart`
-- `test/services/account/concrete_cloud_writer_race_test.dart`
-- `test/services/firestore_progress_service_test.dart`
-- `test/services/pack_progress_service_test.dart`
-- `test/sori_speech_dedupe_test.dart`
-- `test/stamp_entitlement_reconciler_test.dart`
-- `test/video_lease_contract_test.dart`
-- `test/vocab_pack_finish_coordinator_test.dart`
-- `test/vocab_packs_screen_backfill_test.dart`
+- `lib/features/onboarding_v2/onboarding_journey_repository.dart`
+- `lib/screens/settings_screen.dart`
+- `lib/screens/ux_preview_app.dart`
+- `lib/services/account/account_failure_reason.dart`
+- `lib/services/account/account_transition_coordinator.dart`
+- `lib/services/account/account_ui_operations.dart`
+- `lib/services/account/cloud_backup_deletion.dart`
+- `lib/services/account/google_oauth_client.dart`
+- `test/account_hardening_test.dart`
+- `test/account_link_failure_visibility_test.dart`
+- `test/app_startup_coordinator_test.dart`
+- `test/cloud_backup_access_policy_test.dart`
+- `test/profile_screen_test.dart`
+- `test/services/account/account_failure_diagnostics_test.dart`
+- `test/services/account/account_failure_reason_test.dart`
+- `test/services/account/account_link_exception_mapping_test.dart`
+- `test/services/account/account_startup_journal_resolver_test.dart`
+- `test/services/account/account_ui_durable_admission_test.dart`
+- `test/services/account/account_ui_pending_state_test.dart`
+- `test/services/account/google_oauth_client_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 381 (100%)
+- EXTRACTED: 887 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

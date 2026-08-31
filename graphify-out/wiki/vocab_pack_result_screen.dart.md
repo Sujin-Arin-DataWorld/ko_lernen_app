@@ -1,62 +1,59 @@
 # vocab_pack_result_screen.dart
 
-> 134 nodes
+> 78 nodes
 
 ## Key Concepts
 
 - **vocab_pack_result_screen.dart** (77 connections) — `lib/screens/vocab_pack_result_screen.dart`
-- **quests_screen.dart** (67 connections) — `lib/screens/quests_screen.dart`
-- **stats_screen.dart** (59 connections) — `lib/screens/stats_screen.dart`
-- **dojangcheop_screen.dart** (41 connections) — `lib/screens/dojangcheop_screen.dart`
-- **../widgets/sori/spotlight_coach.dart** (29 connections)
-- **../widgets/sori/content_feedback_card.dart** (14 connections)
-- **../widgets/sori/progress.dart** (10 connections)
-- **DancheongMotif** (6 connections) — `lib/widgets/sori/dancheong_stamp.dart`
-- **../services/pack_progress_service.dart** (5 connections)
-- **_DojangcheopScreenState** (4 connections) — `lib/screens/dojangcheop_screen.dart`
-- **_QuestsScreenState** (4 connections) — `lib/screens/quests_screen.dart`
-- **_StatsScreenState** (4 connections) — `lib/screens/stats_screen.dart`
-- **DojangcheopScreen** (3 connections) — `lib/screens/dojangcheop_screen.dart`
-- **QuestsScreen** (3 connections) — `lib/screens/quests_screen.dart`
-- **StatsScreen** (3 connections) — `lib/screens/stats_screen.dart`
-- **_StampCell** (2 connections) — `lib/screens/dojangcheop_screen.dart`
-- **_StampSeriesSection** (2 connections) — `lib/screens/dojangcheop_screen.dart`
-- **_QuestSummary** (2 connections) — `lib/screens/quests_screen.dart`
-- **_QuestTile** (2 connections) — `lib/screens/quests_screen.dart`
-- **build** (2 connections) — `lib/screens/stats_screen.dart`
-- **_MetricRow** (2 connections) — `lib/screens/stats_screen.dart`
-- **_StatCard** (2 connections) — `lib/screens/stats_screen.dart`
-- **_StreakHero** (2 connections) — `lib/screens/stats_screen.dart`
-- **_StreakWeekHeatmap** (2 connections) — `lib/screens/stats_screen.dart`
-- **_XpCard** (2 connections) — `lib/screens/stats_screen.dart`
-- *... and 109 more nodes in this community*
+- **vocab_pack_recall_screen.dart** (62 connections) — `lib/screens/vocab_pack_recall_screen.dart`
+- **../services/vocab_pack_service.dart** (5 connections)
+- **../services/pack_session_srs_ledger.dart** (4 connections)
+- **build** (3 connections) — `lib/screens/vocab_pack_result_screen.dart`
+- **_buildDone** (2 connections) — `lib/screens/vocab_pack_recall_screen.dart`
+- **_CtaButton** (2 connections) — `lib/screens/vocab_pack_result_screen.dart`
+- **_StatLine** (2 connections) — `lib/screens/vocab_pack_result_screen.dart`
+- **VocabPackResultScreen** (2 connections) — `lib/screens/vocab_pack_result_screen.dart`
+- **_XpPayoffLine** (2 connections) — `lib/screens/vocab_pack_result_screen.dart`
+- **Route /hard_words** (2 connections)
+- **build** (1 connections) — `lib/screens/vocab_pack_recall_screen.dart`
+- **_buildPrompt** (1 connections) — `lib/screens/vocab_pack_recall_screen.dart`
+- **createState** (1 connections) — `lib/screens/vocab_pack_recall_screen.dart`
+- **_current** (1 connections) — `lib/screens/vocab_pack_recall_screen.dart`
+- **_directCorrect** (1 connections) — `lib/screens/vocab_pack_recall_screen.dart`
+- **dispose** (1 connections) — `lib/screens/vocab_pack_recall_screen.dart`
+- **_done** (1 connections) — `lib/screens/vocab_pack_recall_screen.dart`
+- **_error** (1 connections) — `lib/screens/vocab_pack_recall_screen.dart`
+- **_feedback** (1 connections) — `lib/screens/vocab_pack_recall_screen.dart`
+- **_feedbackText** (1 connections) — `lib/screens/vocab_pack_recall_screen.dart`
+- **_focusInput** (1 connections) — `lib/screens/vocab_pack_recall_screen.dart`
+- **_hintUsed** (1 connections) — `lib/screens/vocab_pack_recall_screen.dart`
+- **_index** (1 connections) — `lib/screens/vocab_pack_recall_screen.dart`
+- **initState** (1 connections) — `lib/screens/vocab_pack_recall_screen.dart`
+- *... and 53 more nodes in this community*
 
 ## Relationships
 
-- [List](List.md) (35 shared connections)
-- [StatelessWidget](StatelessWidget.md) (14 shared connections)
-- [_State](_State.md) (13 shared connections)
-- [listening_play_screen.dart](listening_play_screen.dart.md) (11 shared connections)
-- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (9 shared connections)
-- [cloze_game_screen.dart](cloze_game_screen.dart.md) (8 shared connections)
-- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (7 shared connections)
-- [String?](String_.md) (7 shared connections)
-- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (6 shared connections)
-- [bool get](bool_get.md) (5 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (5 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (4 shared connections)
+- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (10 shared connections)
+- [book_result_screen.dart](book_result_screen.dart.md) (7 shared connections)
+- [String?](String_.md) (6 shared connections)
+- [StatelessWidget](StatelessWidget.md) (5 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (5 shared connections)
+- [package:flutter/services.dart](package-flutter-services.dart.md) (4 shared connections)
+- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (3 shared connections)
+- [pack_session_srs_ledger.dart](pack_session_srs_ledger.dart.md) (2 shared connections)
+- [_State](_State.md) (2 shared connections)
+- [gye_screen.dart](gye_screen.dart.md) (2 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (2 shared connections)
+- [bool get](bool_get.md) (2 shared connections)
 
 ## Source Files
 
-- `lib/screens/dojangcheop_screen.dart`
-- `lib/screens/quests_screen.dart`
-- `lib/screens/stats_screen.dart`
+- `lib/screens/vocab_pack_recall_screen.dart`
 - `lib/screens/vocab_pack_result_screen.dart`
-- `lib/widgets/sori/dancheong_stamp.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 325 (100%)
+- EXTRACTED: 151 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

@@ -1,24 +1,24 @@
 # bookshelf_custom_pack_uiux_test.dart
 
-> 98 nodes
+> 88 nodes
 
 ## Key Concepts
 
 - **bookshelf_custom_pack_uiux_test.dart** (73 connections) — `test/bookshelf_custom_pack_uiux_test.dart`
-- **standard_surface_responsive_test.dart** (57 connections) — `test/standard_surface_responsive_test.dart`
 - **local_word_tools_uiux_test.dart** (54 connections) — `test/local_word_tools_uiux_test.dart`
-- **my_words_bodies_test.dart** (19 connections) — `test/my_words_bodies_test.dart`
-- **package:ko_lernen_app/widgets/app_loading.dart** (14 connections)
-- **hard_words_extra_set_test.dart** (12 connections) — `test/hard_words_extra_set_test.dart`
-- **bookshelf_responsive_accessibility_test.dart** (10 connections) — `test/bookshelf_responsive_accessibility_test.dart`
-- **package:ko_lernen_app/screens/hard_words_screen.dart** (5 connections)
-- **package:ko_lernen_app/screens/bookshelf_screen.dart** (4 connections)
-- **app_loading_reduced_motion_test.dart** (4 connections) — `test/app_loading_reduced_motion_test.dart`
+- **listening_play_layout_test.dart** (19 connections) — `test/listening_play_layout_test.dart`
+- **NavigatorState** (11 connections)
+- **Container** (10 connections)
+- **grammar_choice_quiz_route_test.dart** (10 connections) — `test/grammar_choice_quiz_route_test.dart`
+- **package:ko_lernen_app/screens/grammar_choice_quiz_screen.dart** (4 connections)
 - **CustomPack get** (3 connections)
-- **package:ko_lernen_app/screens/wordbook_search_screen.dart** (3 connections)
-- **package:ko_lernen_app/screens/custom_pack_edit_screen.dart** (2 connections)
+- **Border** (2 connections)
+- **BoxDecoration** (2 connections)
+- **_completePlanDayIfNeeded** (2 connections) — `lib/screens/grammar_screen.dart`
+- **package:ko_lernen_app/screens/listening_play_screen.dart** (2 connections)
+- **main** (2 connections) — `test/grammar_choice_quiz_route_test.dart`
+- **Route /grammar_choice_quiz** (2 connections)
 - **package:ko_lernen_app/screens/bookshelf_page_screen.dart** (1 connections)
-- **main** (1 connections) — `test/app_loading_reduced_motion_test.dart`
 - **action** (1 connections) — `test/bookshelf_custom_pack_uiux_test.dart`
 - **border** (1 connections) — `test/bookshelf_custom_pack_uiux_test.dart`
 - **box** (1 connections) — `test/bookshelf_custom_pack_uiux_test.dart`
@@ -29,36 +29,34 @@
 - **ensureVisible** (1 connections) — `test/bookshelf_custom_pack_uiux_test.dart`
 - **_expectActionSemantics** (1 connections) — `test/bookshelf_custom_pack_uiux_test.dart`
 - **_expectDisabledSemantics** (1 connections) — `test/bookshelf_custom_pack_uiux_test.dart`
-- *... and 73 more nodes in this community*
+- *... and 63 more nodes in this community*
 
 ## Relationships
 
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (24 shared connections)
-- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (21 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (16 shared connections)
-- [vocab_notebook_studio_screen_test.dart](vocab_notebook_studio_screen_test.dart.md) (13 shared connections)
-- [dart:ui](dart-ui.md) (10 shared connections)
-- [test/profile_screen_test.dart](test-profile_screen_test.dart.md) (8 shared connections)
-- [course_reassessment_screen_test.dart](course_reassessment_screen_test.dart.md) (8 shared connections)
-- [package:ko_lernen_app/models/curriculum.dart](package-ko_lernen_app-models-curriculum.dart.md) (7 shared connections)
-- [book_flow_responsive_accessibility_test.dart](book_flow_responsive_accessibility_test.dart.md) (7 shared connections)
-- [dart:async](dart-async.md) (5 shared connections)
-- [standalone_games_uiux_test.dart](standalone_games_uiux_test.dart.md) (4 shared connections)
-- [List](List.md) (2 shared connections)
+- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (22 shared connections)
+- [dart:ui](dart-ui.md) (11 shared connections)
+- [custom_pack_games_uiux_test.dart](custom_pack_games_uiux_test.dart.md) (9 shared connections)
+- [standalone_games_uiux_test.dart](standalone_games_uiux_test.dart.md) (9 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (6 shared connections)
+- [dart:async](dart-async.md) (4 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (4 shared connections)
+- [account_reconciliation_test.dart](account_reconciliation_test.dart.md) (3 shared connections)
+- [study_activity_responsive_test.dart](study_activity_responsive_test.dart.md) (3 shared connections)
+- [quest_engines_uiux_test.dart](quest_engines_uiux_test.dart.md) (3 shared connections)
+- [media_phrase_uiux_test.dart](media_phrase_uiux_test.dart.md) (2 shared connections)
+- [_State](_State.md) (2 shared connections)
 
 ## Source Files
 
-- `test/app_loading_reduced_motion_test.dart`
+- `lib/screens/grammar_screen.dart`
 - `test/bookshelf_custom_pack_uiux_test.dart`
-- `test/bookshelf_responsive_accessibility_test.dart`
-- `test/hard_words_extra_set_test.dart`
+- `test/grammar_choice_quiz_route_test.dart`
+- `test/listening_play_layout_test.dart`
 - `test/local_word_tools_uiux_test.dart`
-- `test/my_words_bodies_test.dart`
-- `test/standard_surface_responsive_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 241 (100%)
+- EXTRACTED: 181 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

@@ -1,6 +1,6 @@
 # ambient_particles.dart
 
-> 32 nodes
+> 31 nodes
 
 ## Key Concepts
 
@@ -8,7 +8,6 @@
 - **_AmbientParticlesState** (4 connections) — `lib/widgets/sori/ambient_particles.dart`
 - **AmbientParticles** (3 connections) — `lib/widgets/sori/ambient_particles.dart`
 - **Brightness** (2 connections)
-- **_AmbientPainter** (2 connections) — `lib/widgets/sori/ambient_particles.dart`
 - **brightness** (1 connections) — `lib/widgets/sori/ambient_particles.dart`
 - **build** (1 connections) — `lib/widgets/sori/ambient_particles.dart`
 - **_c** (1 connections) — `lib/widgets/sori/ambient_particles.dart`
@@ -29,19 +28,20 @@
 - **_petalColors** (1 connections) — `lib/widgets/sori/ambient_particles.dart`
 - **rotCycles** (1 connections) — `lib/widgets/sori/ambient_particles.dart`
 - **rotDir** (1 connections) — `lib/widgets/sori/ambient_particles.dart`
-- *... and 7 more nodes in this community*
+- **shouldRepaint** (1 connections) — `lib/widgets/sori/ambient_particles.dart`
+- *... and 6 more nodes in this community*
 
 ## Relationships
 
-- [_State](_State.md) (3 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
+- [_State](_State.md) (2 shared connections)
 - [_](_.md) (1 shared connections)
-- [hanok_cinematic.dart](hanok_cinematic.dart.md) (1 shared connections)
+- [AnimationController](AnimationController.md) (1 shared connections)
 - [List](List.md) (1 shared connections)
-- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
-- [dart:math](dart-math.md) (1 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [String?](String_.md) (1 shared connections)
+- [static const](static_const.md) (1 shared connections)
 - [CustomPainter](CustomPainter.md) (1 shared connections)
+- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
+- [celebration.dart](celebration.dart.md) (1 shared connections)
 
 ## Source Files
 
@@ -49,7 +49,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 43 (100%)
+- EXTRACTED: 42 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

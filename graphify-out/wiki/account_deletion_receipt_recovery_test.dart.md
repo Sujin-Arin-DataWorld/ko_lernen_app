@@ -1,10 +1,11 @@
 # account_deletion_receipt_recovery_test.dart
 
-> 36 nodes
+> 37 nodes
 
 ## Key Concepts
 
 - **account_deletion_receipt_recovery_test.dart** (40 connections) — `test/services/account/account_deletion_receipt_recovery_test.dart`
+- **AccountDeletionJournal** (6 connections) — `lib/services/auth_service.dart`
 - **AccountDeletionJournalStore** (6 connections) — `lib/services/auth_service.dart`
 - **AccountOperationResult** (5 connections) — `lib/services/account/account_operation_client.dart`
 - **AccountDeletionStatusReceiptStore** (3 connections) — `lib/services/account/account_deletion_status_receipt.dart`
@@ -28,21 +29,22 @@
 - **mutateIdentityAt** (1 connections) — `test/services/account/account_deletion_receipt_recovery_test.dart`
 - **_operation** (1 connections) — `test/services/account/account_deletion_receipt_recovery_test.dart`
 - **operationId** (1 connections) — `test/services/account/account_deletion_receipt_recovery_test.dart`
-- **phase** (1 connections) — `test/services/account/account_deletion_receipt_recovery_test.dart`
-- *... and 11 more nodes in this community*
+- *... and 12 more nodes in this community*
 
 ## Relationships
 
-- [_](_.md) (7 shared connections)
+- [_](_.md) (6 shared connections)
 - [auth_service_test.dart](auth_service_test.dart.md) (3 shared connections)
-- [content_feedback_outbox_test.dart](content_feedback_outbox_test.dart.md) (3 shared connections)
-- [package:ko_lernen_app/services/account/cloud_write_session.dart](package-ko_lernen_app-services-account-cloud_write_session.dart.md) (2 shared connections)
-- [@immutable](@immutable.md) (1 shared connections)
+- [dart:async](dart-async.md) (3 shared connections)
+- [@immutable](@immutable.md) (2 shared connections)
+- [completed_deletion_startup_recovery_test.dart](completed_deletion_startup_recovery_test.dart.md) (2 shared connections)
+- [content_feedback_lifecycle_test.dart](content_feedback_lifecycle_test.dart.md) (2 shared connections)
 - [account_operation_client.dart](account_operation_client.dart.md) (1 shared connections)
-- [first_link_backfill.dart](first_link_backfill.dart.md) (1 shared connections)
+- [account_operation_client_test.dart](account_operation_client_test.dart.md) (1 shared connections)
+- [media_cleanup_gate.dart](media_cleanup_gate.dart.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
+- [account_deletion_status_receipt_test.dart](account_deletion_status_receipt_test.dart.md) (1 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
-- [account_transition_ui_test.dart](account_transition_ui_test.dart.md) (1 shared connections)
 
 ## Source Files
 
@@ -56,7 +58,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 56 (100%)
+- EXTRACTED: 61 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

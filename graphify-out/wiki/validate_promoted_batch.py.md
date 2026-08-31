@@ -28,8 +28,9 @@
 - [integrate_scenario_batch.py](integrate_scenario_batch.py.md) (5 shared connections)
 - [ContentValidator](ContentValidator.md) (2 shared connections)
 - [test_level_content_4x.py](test_level_content_4x.py.md) (2 shared connections)
-- [scenario_store.py](scenario_store.py.md) (2 shared connections)
 - [handle](handle.md) (1 shared connections)
+- [PromotedBatchValidationTest](PromotedBatchValidationTest.md) (1 shared connections)
+- [scenario_store.py](scenario_store.py.md) (1 shared connections)
 - [validate_content.py](validate_content.py.md) (1 shared connections)
 
 ## Source Files

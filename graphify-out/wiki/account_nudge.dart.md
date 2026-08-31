@@ -21,15 +21,13 @@
 
 ## Relationships
 
-- [String?](String_.md) (4 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (6 shared connections)
 - [profile_screen.dart](profile_screen.dart.md) (3 shared connections)
 - [_](_.md) (3 shared connections)
 - [_State](_State.md) (2 shared connections)
-- [bool get](bool_get.md) (2 shared connections)
+- [ux_preview_app.dart](ux_preview_app.dart.md) (2 shared connections)
 - [account_operation_ui.dart](account_operation_ui.dart.md) (2 shared connections)
-- [account_ui_operations.dart](account_ui_operations.dart.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [dart:async](dart-async.md) (1 shared connections)
 - [main.dart](main.dart.md) (1 shared connections)
 
 ## Source Files

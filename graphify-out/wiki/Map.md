@@ -1,60 +1,60 @@
 # Map
 
-> 34 nodes
+> 30 nodes
 
 ## Key Concepts
 
 - **Map** (94 connections)
-- **hangul_perturbation.dart** (26 connections) — `lib/services/hangul_perturbation.dart`
-- **chaekgado_shelf.dart** (10 connections) — `lib/data/chaekgado_shelf.dart`
+- **int get** (50 connections)
+- **milestone.dart** (21 connections) — `lib/data/milestone.dart`
+- **grammar_study_plan.dart** (10 connections) — `lib/models/grammar_study_plan.dart`
 - **silben_puzzle_test.dart** (7 connections) — `test/silben_puzzle_test.dart`
-- **chaekgadoShelfId** (1 connections) — `lib/data/chaekgado_shelf.dart`
-- **ChaekgadoSlot** (1 connections) — `lib/data/chaekgado_shelf.dart`
-- **chaekgadoSlotLabel** (1 connections) — `lib/data/chaekgado_shelf.dart`
-- **chaekgadoSlotShortLabel** (1 connections) — `lib/data/chaekgado_shelf.dart`
-- **imageKey** (1 connections) — `lib/data/chaekgado_shelf.dart`
-- **kChaekgadoSlots** (1 connections) — `lib/data/chaekgado_shelf.dart`
-- **slug** (1 connections) — `lib/data/chaekgado_shelf.dart`
-- **blocklist** (1 connections) — `lib/services/hangul_perturbation.dart`
-- **_Candidate** (1 connections) — `lib/services/hangul_perturbation.dart`
-- **candidates** (1 connections) — `lib/services/hangul_perturbation.dart`
-- **_choGroups** (1 connections) — `lib/services/hangul_perturbation.dart`
-- **_choNeighbors** (1 connections) — `lib/services/hangul_perturbation.dart`
-- **count** (1 connections) — `lib/services/hangul_perturbation.dart`
-- **_jongGroups** (1 connections) — `lib/services/hangul_perturbation.dart`
-- **_jongNeighbors** (1 connections) — `lib/services/hangul_perturbation.dart`
-- **_jungGroups** (1 connections) — `lib/services/hangul_perturbation.dart`
-- **_jungNeighbors** (1 connections) — `lib/services/hangul_perturbation.dart`
-- **map** (1 connections) — `lib/services/hangul_perturbation.dart`
-- **nearMissDistractors** (1 connections) — `lib/services/hangul_perturbation.dart`
-- **_neighborsOf** (1 connections) — `lib/services/hangul_perturbation.dart`
-- **out** (1 connections) — `lib/services/hangul_perturbation.dart`
-- *... and 9 more nodes in this community*
+- **IconData get** (2 connections)
+- **Milestone** (2 connections) — `lib/data/milestone.dart`
+- **body** (1 connections) — `lib/data/milestone.dart`
+- **check** (1 connections) — `lib/data/milestone.dart`
+- **hashCode** (1 connections) — `lib/data/milestone.dart`
+- **icon** (1 connections) — `lib/data/milestone.dart`
+- **id** (1 connections) — `lib/data/milestone.dart`
+- **milestoneThresholds** (1 connections) — `lib/data/milestone.dart`
+- **MilestoneType** (1 connections) — `lib/data/milestone.dart`
+- **newlyReachedMilestones** (1 connections) — `lib/data/milestone.dart`
+- **operator** (1 connections) — `lib/data/milestone.dart`
+- **out** (1 connections) — `lib/data/milestone.dart`
+- **title** (1 connections) — `lib/data/milestone.dart`
+- **type** (1 connections) — `lib/data/milestone.dart`
+- **value** (1 connections) — `lib/data/milestone.dart`
+- **completedDays** (1 connections) — `lib/models/grammar_study_plan.dart`
+- **copyWith** (1 connections) — `lib/models/grammar_study_plan.dart`
+- **fromJson** (1 connections) — `lib/models/grammar_study_plan.dart`
+- **GrammarStudyPlan** (1 connections) — `lib/models/grammar_study_plan.dart`
+- **itemsPerDay** (1 connections) — `lib/models/grammar_study_plan.dart`
+- *... and 5 more nodes in this community*
 
 ## Relationships
 
-- [_](_.md) (10 shared connections)
-- [dart:convert](dart-convert.md) (4 shared connections)
-- [List](List.md) (3 shared connections)
-- [onboarding_v2_accessibility_gate_test.dart](onboarding_v2_accessibility_gate_test.dart.md) (3 shared connections)
-- [cloud_sync_test.dart](cloud_sync_test.dart.md) (3 shared connections)
-- [dart:math](dart-math.md) (2 shared connections)
-- [hangul_composer.dart](hangul_composer.dart.md) (2 shared connections)
-- [int get](int_get.md) (2 shared connections)
-- [cloze_game_screen.dart](cloze_game_screen.dart.md) (2 shared connections)
-- [grammar_screen.dart](grammar_screen.dart.md) (2 shared connections)
-- [hanok_v1_asset_provenance_test.dart](hanok_v1_asset_provenance_test.dart.md) (2 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
+- [_](_.md) (24 shared connections)
+- [package:flutter/services.dart](package-flutter-services.dart.md) (4 shared connections)
+- [book_result_screen.dart](book_result_screen.dart.md) (4 shared connections)
+- [bool get](bool_get.md) (3 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (3 shared connections)
+- [media_lifecycle_test.dart](media_lifecycle_test.dart.md) (3 shared connections)
+- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (2 shared connections)
+- [can_do_segment.dart](can_do_segment.dart.md) (2 shared connections)
+- [vocab_pack_finish_coordinator.dart](vocab_pack_finish_coordinator.dart.md) (2 shared connections)
+- [batchim_drop_quest.dart](batchim_drop_quest.dart.md) (2 shared connections)
+- [hoerverstehen_quest.dart](hoerverstehen_quest.dart.md) (2 shared connections)
+- [particle_pop_quest.dart](particle_pop_quest.dart.md) (2 shared connections)
 
 ## Source Files
 
-- `lib/data/chaekgado_shelf.dart`
-- `lib/services/hangul_perturbation.dart`
+- `lib/data/milestone.dart`
+- `lib/models/grammar_study_plan.dart`
 - `test/silben_puzzle_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 134 (100%)
+- EXTRACTED: 179 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

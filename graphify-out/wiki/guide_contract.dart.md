@@ -1,10 +1,11 @@
 # guide_contract.dart
 
-> 67 nodes
+> 80 nodes
 
 ## Key Concepts
 
 - **guide_contract.dart** (75 connections) — `lib/models/guide_contract.dart`
+- **guide_topic_detail_test.dart** (32 connections) — `test/features/guide/guide_topic_detail_test.dart`
 - **ScenarioBrowseDestination** (8 connections) — `lib/models/guide_contract.dart`
 - **guide_contract_test.dart** (8 connections) — `test/guide_contract_test.dart`
 - **GuideDestination** (7 connections) — `lib/models/guide_contract.dart`
@@ -15,6 +16,8 @@
 - **SettingsSectionDestination** (3 connections) — `lib/models/guide_contract.dart`
 - **GuideRoutingFailureReason** (2 connections) — `lib/models/guide_contract.dart`
 - **HangulTarget** (2 connections) — `lib/models/guide_contract.dart`
+- **package:ko_lernen_app/features/guide/guide_topic_detail_screen.dart** (2 connections)
+- **package:ko_lernen_app/features/guide/today_guide_section.dart** (2 connections)
 - **gamesStage,
   hanokStage,
   companion,
@@ -32,34 +35,32 @@
 - **completesTopic** (1 connections) — `lib/models/guide_contract.dart`
 - **completionMode** (1 connections) — `lib/models/guide_contract.dart`
 - **declaredMutations** (1 connections) — `lib/models/guide_contract.dart`
-- **destination** (1 connections) — `lib/models/guide_contract.dart`
-- **_destinationSemanticKey** (1 connections) — `lib/models/guide_contract.dart`
-- **estateId** (1 connections) — `lib/models/guide_contract.dart`
-- *... and 42 more nodes in this community*
+- *... and 55 more nodes in this community*
 
 ## Relationships
 
-- [onboarding_v2_accessibility_gate_test.dart](onboarding_v2_accessibility_gate_test.dart.md) (8 shared connections)
-- [listening_play_screen.dart](listening_play_screen.dart.md) (4 shared connections)
+- [guide_ui_test.dart](guide_ui_test.dart.md) (6 shared connections)
+- [learning_semantic_contract.dart](learning_semantic_contract.dart.md) (3 shared connections)
 - [guide_presentation.dart](guide_presentation.dart.md) (3 shared connections)
-- [learning_semantic_contract.dart](learning_semantic_contract.dart.md) (2 shared connections)
-- [mission_recommender.dart](mission_recommender.dart.md) (1 shared connections)
+- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (3 shared connections)
+- [bool get](bool_get.md) (2 shared connections)
+- [dart:ui](dart-ui.md) (2 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
+- [course_mastery_test.dart](course_mastery_test.dart.md) (2 shared connections)
 - [return](return.md) (1 shared connections)
 - [typedef](typedef.md) (1 shared connections)
-- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
-- [vocab_recall_evidence.dart](vocab_recall_evidence.dart.md) (1 shared connections)
-- [guide_hub_screen.dart](guide_hub_screen.dart.md) (1 shared connections)
-- [storage_service.dart](storage_service.dart.md) (1 shared connections)
-- [guide_runtime.dart](guide_runtime.dart.md) (1 shared connections)
+- [static const](static_const.md) (1 shared connections)
+- [data_migration_service.dart](data_migration_service.dart.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/models/guide_contract.dart`
+- `test/features/guide/guide_topic_detail_test.dart`
 - `test/guide_contract_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 101 (100%)
+- EXTRACTED: 129 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

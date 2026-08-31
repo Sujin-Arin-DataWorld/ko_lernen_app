@@ -1,62 +1,73 @@
 # book_result_screen.dart
 
-> 162 nodes
+> 281 nodes
 
 ## Key Concepts
 
 - **book_result_screen.dart** (111 connections) — `lib/screens/book_result_screen.dart`
-- **custom_pack_edit_screen.dart** (96 connections) — `lib/screens/custom_pack_edit_screen.dart`
+- **../widgets/sori/button.dart** (79 connections)
+- **book_preview_screen.dart** (54 connections) — `lib/screens/book_preview_screen.dart`
+- **vocab_notebook_studio_screen.dart** (50 connections) — `lib/screens/vocab_notebook_studio_screen.dart`
 - **bookshelf_page_screen.dart** (45 connections) — `lib/screens/bookshelf_page_screen.dart`
+- **../widgets/sori/window_class.dart** (44 connections)
+- **vocab_notebook_result_screen.dart** (41 connections) — `lib/screens/vocab_notebook_result_screen.dart`
+- **../widgets/sori/standard_page.dart** (39 connections)
+- **wordbook_search_screen.dart** (36 connections) — `lib/screens/wordbook_search_screen.dart`
+- **placement_diagnostic_screen.dart** (35 connections) — `lib/screens/placement_diagnostic_screen.dart`
+- **vocab_nuance_screen.dart** (30 connections) — `lib/screens/vocab_nuance_screen.dart`
+- **../../services/tts_service.dart** (29 connections)
+- **../widgets/sori/tts_speed_control.dart** (27 connections)
 - **age_gate_prompt.dart** (20 connections) — `lib/widgets/sori/age_gate_prompt.dart`
+- **../widgets/sori/chip.dart** (19 connections)
+- **../../services/custom_pack_service.dart** (18 connections)
+- **my_words_screen.dart** (17 connections) — `lib/screens/my_words_screen.dart`
+- **vocab_notebook_practice_screen.dart** (16 connections) — `lib/screens/vocab_notebook_practice_screen.dart`
 - **TextEditingController?** (16 connections)
-- **build** (8 connections) — `lib/screens/custom_pack_edit_screen.dart`
+- **quest_layout.dart** (15 connections) — `lib/screens/quest_engines/quest_layout.dart`
+- **tts_unavailable_banner.dart** (12 connections) — `lib/widgets/sori/tts_unavailable_banner.dart`
+- **../widgets/sori/quiz_choice.dart** (6 connections)
 - **ExtractedWord** (5 connections) — `lib/models/book_page.dart`
 - **dialog.dart** (4 connections)
-- **_CustomPackEditScreenState** (4 connections) — `lib/screens/custom_pack_edit_screen.dart`
-- **BookPage** (3 connections) — `lib/models/book_page.dart`
-- **GrammarHit** (3 connections) — `lib/models/book_page.dart`
-- **TranslatedSentence** (3 connections) — `lib/models/book_page.dart`
-- **CustomPackEditScreen** (3 connections) — `lib/screens/custom_pack_edit_screen.dart`
-- **Route /custom_pack/play** (3 connections)
-- **_BookResultListenButton** (2 connections) — `lib/screens/book_result_screen.dart`
-- **_createCustomPack** (2 connections) — `lib/screens/book_result_screen.dart`
-- **_ExpressionCard** (2 connections) — `lib/screens/book_result_screen.dart`
-- **_GrammarCard** (2 connections) — `lib/screens/book_result_screen.dart`
-- **_ResultNotice** (2 connections) — `lib/screens/book_result_screen.dart`
-- **_SectionLabel** (2 connections) — `lib/screens/book_result_screen.dart`
-- **_SentenceCard** (2 connections) — `lib/screens/book_result_screen.dart`
-- **_WordCard** (2 connections) — `lib/screens/book_result_screen.dart`
-- **_BookshelfListenButton** (2 connections) — `lib/screens/bookshelf_page_screen.dart`
-- **_createCustomPack** (2 connections) — `lib/screens/bookshelf_page_screen.dart`
-- **_MiniGrammarRow** (2 connections) — `lib/screens/bookshelf_page_screen.dart`
-- *... and 137 more nodes in this community*
+- **VocabNuanceScreen** (4 connections) — `lib/screens/vocab_nuance_screen.dart`
+- *... and 256 more nodes in this community*
 
 ## Relationships
 
-- [List](List.md) (35 shared connections)
-- [_State](_State.md) (19 shared connections)
-- [StatelessWidget](StatelessWidget.md) (15 shared connections)
-- [cloze_game_screen.dart](cloze_game_screen.dart.md) (6 shared connections)
-- [book_page.dart](book_page.dart.md) (5 shared connections)
-- [String?](String_.md) (5 shared connections)
-- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (5 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (5 shared connections)
-- [gye_screen.dart](gye_screen.dart.md) (5 shared connections)
-- [listening_play_screen.dart](listening_play_screen.dart.md) (4 shared connections)
-- [shared_pack_service.dart](shared_pack_service.dart.md) (4 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (4 shared connections)
+- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (42 shared connections)
+- [package:flutter/services.dart](package-flutter-services.dart.md) (31 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (29 shared connections)
+- [StatelessWidget](StatelessWidget.md) (29 shared connections)
+- [_State](_State.md) (25 shared connections)
+- [gye_screen.dart](gye_screen.dart.md) (25 shared connections)
+- [bool get](bool_get.md) (24 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (19 shared connections)
+- [_](_.md) (13 shared connections)
+- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (12 shared connections)
+- [study_library_screen.dart](study_library_screen.dart.md) (10 shared connections)
+- [custom_pack_edit_screen.dart](custom_pack_edit_screen.dart.md) (9 shared connections)
 
 ## Source Files
 
 - `lib/models/book_page.dart`
+- `lib/screens/book_preview_screen.dart`
 - `lib/screens/book_result_screen.dart`
 - `lib/screens/bookshelf_page_screen.dart`
-- `lib/screens/custom_pack_edit_screen.dart`
+- `lib/screens/my_words_screen.dart`
+- `lib/screens/placement_diagnostic_screen.dart`
+- `lib/screens/quest_engines/quest_layout.dart`
+- `lib/screens/vocab_notebook_practice_screen.dart`
+- `lib/screens/vocab_notebook_result_screen.dart`
+- `lib/screens/vocab_notebook_studio_screen.dart`
+- `lib/screens/vocab_nuance_screen.dart`
+- `lib/screens/wordbook_search_screen.dart`
+- `lib/services/custom_pack_corpus_resolver.dart`
+- `lib/services/tts_service.dart`
 - `lib/widgets/sori/age_gate_prompt.dart`
+- `lib/widgets/sori/tts_unavailable_banner.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 321 (100%)
+- EXTRACTED: 748 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 
