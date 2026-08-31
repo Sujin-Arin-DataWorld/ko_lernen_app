@@ -1,0 +1,61 @@
+# content_feedback_service.dart
+
+> 54 nodes
+
+## Key Concepts
+
+- **content_feedback_service.dart** (76 connections) — `lib/services/content_feedback_service.dart`
+- **content_feedback_outbox.dart** (1 connections)
+- **content_feedback_version_provider.dart** (1 connections)
+- **_activeStorageOperations** (1 connections) — `lib/services/content_feedback_service.dart`
+- **blockedByDeletion** (1 connections) — `lib/services/content_feedback_service.dart`
+- **_clearOutbox** (1 connections) — `lib/services/content_feedback_service.dart`
+- **client** (1 connections) — `lib/services/content_feedback_service.dart`
+- **closeAndDiscard** (1 connections) — `lib/services/content_feedback_service.dart`
+- **closed** (1 connections) — `lib/services/content_feedback_service.dart`
+- **_closedSubmission** (1 connections) — `lib/services/content_feedback_service.dart`
+- **ContentFeedbackClock** (1 connections) — `lib/services/content_feedback_service.dart`
+- **ContentFeedbackDeletionStateReader** (1 connections) — `lib/services/content_feedback_service.dart`
+- **ContentFeedbackIdFactory** (1 connections) — `lib/services/content_feedback_service.dart`
+- **ContentFeedbackStringReader** (1 connections) — `lib/services/content_feedback_service.dart`
+- **ContentFeedbackUidReader** (1 connections) — `lib/services/content_feedback_service.dart`
+- **createFeedbackId** (1 connections) — `lib/services/content_feedback_service.dart`
+- **currentUid** (1 connections) — `lib/services/content_feedback_service.dart`
+- **deletionActive** (1 connections) — `lib/services/content_feedback_service.dart`
+- **_deletionIsActive** (1 connections) — `lib/services/content_feedback_service.dart`
+- **delivered** (1 connections) — `lib/services/content_feedback_service.dart`
+- **deliveredFeedbackIds** (1 connections) — `lib/services/content_feedback_service.dart`
+- **_deliverSubmitted** (1 connections) — `lib/services/content_feedback_service.dart`
+- **disabled** (1 connections) — `lib/services/content_feedback_service.dart`
+- **_discardById** (1 connections) — `lib/services/content_feedback_service.dart`
+- **_discardChangedOwnerSubmission** (1 connections) — `lib/services/content_feedback_service.dart`
+- *... and 29 more nodes in this community*
+
+## Relationships
+
+- [content_feedback_lifecycle.dart](content_feedback_lifecycle.dart.md) (4 shared connections)
+- [content_feedback_client.dart](content_feedback_client.dart.md) (3 shared connections)
+- [content_feedback_card.dart](content_feedback_card.dart.md) (3 shared connections)
+- [_](_.md) (2 shared connections)
+- [completed_deletion_startup_recovery_test.dart](completed_deletion_startup_recovery_test.dart.md) (2 shared connections)
+- [typedef](typedef.md) (2 shared connections)
+- [T](T.md) (1 shared connections)
+- [content_feedback_outbox_test.dart](content_feedback_outbox_test.dart.md) (1 shared connections)
+- [String?](String_.md) (1 shared connections)
+- [content_feedback_widget_test.dart](content_feedback_widget_test.dart.md) (1 shared connections)
+- [dart:async](dart-async.md) (1 shared connections)
+- [beta_mission_catalog.dart](beta_mission_catalog.dart.md) (1 shared connections)
+
+## Source Files
+
+- `lib/services/content_feedback_service.dart`
+
+## Audit Trail
+
+- EXTRACTED: 76 (100%)
+- INFERRED: 0 (0%)
+- AMBIGUOUS: 0 (0%)
+
+---
+
+*Part of the graphify knowledge wiki. See [index](index.md) to navigate.*

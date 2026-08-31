@@ -1,0 +1,62 @@
+# course_reassessment_screen.dart
+
+> 67 nodes
+
+## Key Concepts
+
+- **course_reassessment_screen.dart** (92 connections) — `lib/screens/course_reassessment_screen.dart`
+- **CourseReassessmentScreen** (3 connections) — `lib/screens/course_reassessment_screen.dart`
+- **_CourseReassessmentScreenState** (3 connections) — `lib/screens/course_reassessment_screen.dart`
+- **../models/productive_mastery.dart** (3 connections)
+- **ProductiveAssessmentResult** (2 connections) — `lib/services/productive_assessment_service.dart`
+- **_acceptResult** (1 connections) — `lib/screens/course_reassessment_screen.dart`
+- **allowUnreviewedContentForTesting** (1 connections) — `lib/screens/course_reassessment_screen.dart`
+- **_answerController** (1 connections) — `lib/screens/course_reassessment_screen.dart`
+- **arguments** (1 connections) — `lib/screens/course_reassessment_screen.dart`
+- **build** (1 connections) — `lib/screens/course_reassessment_screen.dart`
+- **_buildAssessment** (1 connections) — `lib/screens/course_reassessment_screen.dart`
+- **_buildComplete** (1 connections) — `lib/screens/course_reassessment_screen.dart`
+- **_buildConnectedEvidence** (1 connections) — `lib/screens/course_reassessment_screen.dart`
+- **_buildOral** (1 connections) — `lib/screens/course_reassessment_screen.dart`
+- **_buildPrerequisite** (1 connections) — `lib/screens/course_reassessment_screen.dart`
+- **_buildProgress** (1 connections) — `lib/screens/course_reassessment_screen.dart`
+- **_buildProjectReview** (1 connections) — `lib/screens/course_reassessment_screen.dart`
+- **_buildPrompt** (1 connections) — `lib/screens/course_reassessment_screen.dart`
+- **_buildResult** (1 connections) — `lib/screens/course_reassessment_screen.dart`
+- **_buildScrollableState** (1 connections) — `lib/screens/course_reassessment_screen.dart`
+- **_buildSources** (1 connections) — `lib/screens/course_reassessment_screen.dart`
+- **_buildStructuredSlot** (1 connections) — `lib/screens/course_reassessment_screen.dart`
+- **_buildWriting** (1 connections) — `lib/screens/course_reassessment_screen.dart`
+- **_bundle** (1 connections) — `lib/screens/course_reassessment_screen.dart`
+- **_continue** (1 connections) — `lib/screens/course_reassessment_screen.dart`
+- *... and 42 more nodes in this community*
+
+## Relationships
+
+- [book_result_screen.dart](book_result_screen.dart.md) (4 shared connections)
+- [_](_.md) (3 shared connections)
+- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (3 shared connections)
+- [hanok_experience_projector.dart](hanok_experience_projector.dart.md) (2 shared connections)
+- [typedef](typedef.md) (2 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
+- [gye_screen.dart](gye_screen.dart.md) (2 shared connections)
+- [_State](_State.md) (2 shared connections)
+- [standalone_games_uiux_test.dart](standalone_games_uiux_test.dart.md) (1 shared connections)
+- [course_mission_navigation.dart](course_mission_navigation.dart.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
+- [Map](Map.md) (1 shared connections)
+
+## Source Files
+
+- `lib/screens/course_reassessment_screen.dart`
+- `lib/services/productive_assessment_service.dart`
+
+## Audit Trail
+
+- EXTRACTED: 98 (100%)
+- INFERRED: 0 (0%)
+- AMBIGUOUS: 0 (0%)
+
+---
+
+*Part of the graphify knowledge wiki. See [index](index.md) to navigate.*
