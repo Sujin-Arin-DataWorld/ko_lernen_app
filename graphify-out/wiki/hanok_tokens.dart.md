@@ -1,6 +1,6 @@
 # hanok_tokens.dart
 
-> 43 nodes
+> 43 nodes · cohesion 0.05
 
 ## Key Concepts
 
@@ -34,8 +34,8 @@
 ## Relationships
 
 - [scroll_palette.dart](scroll_palette.dart.md) (1 shared connections)
-- [String?](String_.md) (1 shared connections)
-- [storage_service.dart](storage_service.dart.md) (1 shared connections)
+- [swipe_rails.dart](swipe_rails.dart.md) (1 shared connections)
+- [static const int](static_const_int.md) (1 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
 
 ## Source Files

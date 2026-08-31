@@ -1,6 +1,6 @@
 # collect
 
-> 8 nodes
+> 8 nodes · cohesion 0.43
 
 ## Key Concepts
 

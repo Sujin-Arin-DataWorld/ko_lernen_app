@@ -1,6 +1,6 @@
 # CutSingleObjectTest
 
-> 17 nodes
+> 17 nodes · cohesion 0.25
 
 ## Key Concepts
 

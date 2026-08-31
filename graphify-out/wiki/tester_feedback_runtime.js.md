@@ -1,6 +1,6 @@
 # tester_feedback_runtime.js
 
-> 40 nodes
+> 40 nodes · cohesion 0.09
 
 ## Key Concepts
 
@@ -13,22 +13,22 @@
 - **requireString()** (5 connections) — `functions/gye/tester_feedback_runtime.js`
 - **existingStampWasAccepted()** (3 connections) — `functions/gye/tester_feedback_runtime.js`
 - **invalidPayload()** (3 connections) — `functions/gye/tester_feedback_runtime.js`
+- **MISSION_BY_ID** (3 connections) — `functions/gye/tester_feedback_runtime.js`
+- **MISSION_CATALOG** (3 connections) — `functions/gye/tester_feedback_runtime.js`
 - **nextMission()** (3 connections) — `functions/gye/tester_feedback_runtime.js`
 - **optionalEnum()** (3 connections) — `functions/gye/tester_feedback_runtime.js`
 - **optionalString()** (3 connections) — `functions/gye/tester_feedback_runtime.js`
 - **response()** (3 connections) — `functions/gye/tester_feedback_runtime.js`
-- **MISSION_BY_ID** (3 connections) — `functions/gye/tester_feedback_runtime.js`
-- **MISSION_CATALOG** (3 connections) — `functions/gye/tester_feedback_runtime.js`
+- **ACCOUNT_DELETION_INACTIVE_PHASES** (2 connections) — `functions/gye/tester_feedback_runtime.js`
 - **accountOperationOwnerDocumentId()** (2 connections) — `functions/gye/tester_feedback_runtime.js`
+- **ALLOWED_FIELDS** (2 connections) — `functions/gye/tester_feedback_runtime.js`
 - **appIdDocumentId()** (2 connections) — `functions/gye/tester_feedback_runtime.js`
 - **execute()** (2 connections) — `functions/gye/tester_feedback_runtime.js`
+- **EXPERIENCE_FOCUSES_BY_TYPE** (2 connections) — `functions/gye/tester_feedback_runtime.js`
 - **isPlainObject()** (2 connections) — `functions/gye/tester_feedback_runtime.js`
+- **LEARNING_CONTENT_TYPES** (2 connections) — `functions/gye/tester_feedback_runtime.js`
 - **normalizedCompletedMissionIds()** (2 connections) — `functions/gye/tester_feedback_runtime.js`
 - **recentAcceptedCompletionMillis()** (2 connections) — `functions/gye/tester_feedback_runtime.js`
-- **validateRequestContext()** (2 connections) — `functions/gye/tester_feedback_runtime.js`
-- **ACCOUNT_DELETION_INACTIVE_PHASES** (2 connections) — `functions/gye/tester_feedback_runtime.js`
-- **ALLOWED_FIELDS** (2 connections) — `functions/gye/tester_feedback_runtime.js`
-- **EXPERIENCE_FOCUSES_BY_TYPE** (2 connections) — `functions/gye/tester_feedback_runtime.js`
 - *... and 15 more nodes in this community*
 
 ## Relationships

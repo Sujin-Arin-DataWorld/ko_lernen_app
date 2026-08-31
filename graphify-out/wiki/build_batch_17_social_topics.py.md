@@ -1,6 +1,6 @@
 # build_batch_17_social_topics.py
 
-> 20 nodes
+> 20 nodes · cohesion 0.27
 
 ## Key Concepts
 

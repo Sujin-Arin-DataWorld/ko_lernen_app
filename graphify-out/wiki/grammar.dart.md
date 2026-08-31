@@ -1,6 +1,6 @@
 # grammar.dart
 
-> 26 nodes
+> 26 nodes · cohesion 0.08
 
 ## Key Concepts
 
@@ -33,8 +33,7 @@
 
 ## Relationships
 
-- [bool get](bool_get.md) (2 shared connections)
-- [List](List.md) (1 shared connections)
+- [List](List.md) (3 shared connections)
 - [grammar_choice_quiz.dart](grammar_choice_quiz.dart.md) (1 shared connections)
 - [vocab.dart](vocab.dart.md) (1 shared connections)
 

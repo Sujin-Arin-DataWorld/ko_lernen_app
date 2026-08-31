@@ -1,6 +1,6 @@
 # ContentValidator
 
-> 60 nodes
+> 60 nodes · cohesion 0.13
 
 ## Key Concepts
 

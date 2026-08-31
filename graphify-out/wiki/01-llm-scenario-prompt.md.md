@@ -1,6 +1,6 @@
 # 01-llm-scenario-prompt.md
 
-> 27 nodes
+> 27 nodes · cohesion 0.08
 
 ## Key Concepts
 

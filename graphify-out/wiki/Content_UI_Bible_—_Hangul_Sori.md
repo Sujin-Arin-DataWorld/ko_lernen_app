@@ -1,12 +1,10 @@
 # Content UI Bible — Hangul Sori
 
-> 34 nodes
+> 23 nodes · cohesion 0.09
 
 ## Key Concepts
 
 - **Content UI Bible — Hangul Sori** (21 connections) — `docs/CONTENT_UI_BIBLE.md`
-- **§5. 화면별 수술** (6 connections) — `docs/CONTENT_UI_BIBLE.md`
-- **§2. 네 번 훑은 실측** (5 connections) — `docs/CONTENT_UI_BIBLE.md`
 - **§13. 공유 이미지 3안** (4 connections) — `docs/CONTENT_UI_BIBLE.md`
 - **§3. 콘텐츠 시맨틱 토큰 (추가분)** (2 connections) — `docs/CONTENT_UI_BIBLE.md`
 - **§0. Jin이 잠글 결정 (구현 전 확인)** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
@@ -19,21 +17,22 @@
 - **§17. 타입·컨트롤·상태** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
 - **§18. 강제 장치** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
 - **§1. 왜 이 바이블이 따로 필요한가** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
-- **1차 — 무엇이 몇 개인가** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
 - **§20. 거버넌스 — 바이블 판정 기록** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
-- **2차 — Jin이 집은 네 증상** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
-- **3차 — 타이포·카드·크롬 낭비·한 화면** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
 - **§4. 전역 상호작용: Sori Content Feed** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
-- **4차 — 스킬로 자기 검열** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
-- **5.1 듣기 — 플레이어와 책장을 쪼갠다** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
-- **5.2 쓰기 — 규칙과 알약을 내린다** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
-- **5.3 단어·문법·복습 덱 6화면** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
-- **5.4 Cloze / Satz / Smalltalk / Scenario** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
-- *... and 9 more nodes in this community*
+- **§6. 한 화면 계약 (기기)** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
+- **§7. 구현 순서 (승인 후)** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
+- **§8. 파일 지도** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
+- **§9. 하지 말 것** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
+- **안 A — 두루마리 (기본 · 추천)** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
+- **안 B — 사랑방 한 장면** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
+- **안 C — 시조 쪽지** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
+- **콘텐츠 타이포 역할** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
 
 ## Relationships
 
-- [docs/README.md](docs-README.md.md) (1 shared connections)
+- [Content UI Bible](Content_UI_Bible.md) (1 shared connections)
+- [§5. 화면별 수술](§5._화면별_수술.md) (1 shared connections)
+- [§2. 네 번 훑은 실측](§2._네_번_훑은_실측.md) (1 shared connections)
 
 ## Source Files
 
@@ -41,7 +40,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 34 (100%)
+- EXTRACTED: 25 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

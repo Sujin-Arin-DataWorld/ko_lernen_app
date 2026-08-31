@@ -1,14 +1,14 @@
 # build_c1_batch04_scenarios.py
 
-> 9 nodes
+> 9 nodes · cohesion 0.47
 
 ## Key Concepts
 
 - **build_c1_batch04_scenarios.py** (7 connections) — `tools/content_factory/build_c1_batch04_scenarios.py`
 - **records()** (5 connections) — `tools/content_factory/build_c1_batch04_scenarios.py`
 - **write_outputs()** (5 connections) — `tools/content_factory/build_c1_batch04_scenarios.py`
-- **scenario()** (4 connections) — `tools/content_factory/build_c1_batch04_scenarios.py`
 - **Any** (4 connections)
+- **scenario()** (4 connections) — `tools/content_factory/build_c1_batch04_scenarios.py`
 - **main()** (3 connections) — `tools/content_factory/build_c1_batch04_scenarios.py`
 - **manifest_for()** (3 connections) — `tools/content_factory/build_c1_batch04_scenarios.py`
 - **line()** (2 connections) — `tools/content_factory/build_c1_batch04_scenarios.py`

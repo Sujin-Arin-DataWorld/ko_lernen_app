@@ -1,6 +1,6 @@
 # audit_vocab_levels.py
 
-> 9 nodes
+> 9 nodes · cohesion 0.39
 
 ## Key Concepts
 

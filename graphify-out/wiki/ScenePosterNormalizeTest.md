@@ -1,6 +1,6 @@
 # ScenePosterNormalizeTest
 
-> 15 nodes
+> 15 nodes · cohesion 0.35
 
 ## Key Concepts
 

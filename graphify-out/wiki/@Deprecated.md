@@ -1,17 +1,17 @@
 # @Deprecated
 
-> 3 nodes
+> 3 nodes · cohesion 0.67
 
 ## Key Concepts
 
+- **@Deprecated** (2 connections)
 - **evaluate** (2 connections) — `lib/services/productive_assessment_service.dart`
 - **SarangbangStudyRecommendationLoader** (2 connections) — `lib/services/sarangbang_study_recommendation.dart`
-- **@Deprecated** (2 connections)
 
 ## Relationships
 
 - [_](_.md) (1 shared connections)
-- [gye_weekly_promise_navigation.dart](gye_weekly_promise_navigation.dart.md) (1 shared connections)
+- [sori_stage_progression_service.dart](sori_stage_progression_service.dart.md) (1 shared connections)
 
 ## Source Files
 

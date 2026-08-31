@@ -1,6 +1,6 @@
 # Batch01PreReviewValidationTest
 
-> 31 nodes
+> 31 nodes · cohesion 0.15
 
 ## Key Concepts
 

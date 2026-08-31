@@ -1,6 +1,6 @@
 # Hangul Sori Android Closed Testing 안내
 
-> 8 nodes
+> 8 nodes · cohesion 0.25
 
 ## Key Concepts
 

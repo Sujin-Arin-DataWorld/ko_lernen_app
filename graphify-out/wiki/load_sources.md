@@ -1,6 +1,6 @@
 # load_sources
 
-> 28 nodes
+> 28 nodes · cohesion 0.20
 
 ## Key Concepts
 

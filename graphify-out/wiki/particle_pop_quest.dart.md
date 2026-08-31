@@ -1,10 +1,12 @@
 # particle_pop_quest.dart
 
-> 31 nodes
+> 33 nodes · cohesion 0.06
 
 ## Key Concepts
 
 - **particle_pop_quest.dart** (49 connections) — `lib/screens/quest_engines/particle_pop_quest.dart`
+- **_ParticlePopQuestState** (4 connections) — `lib/screens/quest_engines/particle_pop_quest.dart`
+- **ParticlePopQuest** (3 connections) — `lib/screens/quest_engines/particle_pop_quest.dart`
 - **allowDontKnow** (1 connections) — `lib/screens/quest_engines/particle_pop_quest.dart`
 - **_answerState** (1 connections) — `lib/screens/quest_engines/particle_pop_quest.dart`
 - **build** (1 connections) — `lib/screens/quest_engines/particle_pop_quest.dart`
@@ -27,24 +29,22 @@
 - **_passed** (1 connections) — `lib/screens/quest_engines/particle_pop_quest.dart`
 - **_prefix** (1 connections) — `lib/screens/quest_engines/particle_pop_quest.dart`
 - **_report** (1 connections) — `lib/screens/quest_engines/particle_pop_quest.dart`
-- **_reported** (1 connections) — `lib/screens/quest_engines/particle_pop_quest.dart`
-- **_revealAnswer** (1 connections) — `lib/screens/quest_engines/particle_pop_quest.dart`
-- *... and 6 more nodes in this community*
+- *... and 8 more nodes in this community*
 
 ## Relationships
 
-- [package:flutter/material.dart](package-flutter-material.dart.md) (3 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (3 shared connections)
 - [Map](Map.md) (2 shared connections)
-- [celebration.dart](celebration.dart.md) (2 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (2 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (2 shared connections)
 - [uebersetzen_quest.dart](uebersetzen_quest.dart.md) (2 shared connections)
-- [book_result_screen.dart](book_result_screen.dart.md) (2 shared connections)
-- [AnimationController](AnimationController.md) (1 shared connections)
+- [StatefulWidget](StatefulWidget.md) (2 shared connections)
+- [book_preview_screen.dart](book_preview_screen.dart.md) (1 shared connections)
+- [pressable.dart](pressable.dart.md) (1 shared connections)
 - [int?](int_.md) (1 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
-- [String?](String_.md) (1 shared connections)
-- [hoerverstehen_quest.dart](hoerverstehen_quest.dart.md) (1 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (1 shared connections)
+- [luecken_quest.dart](luecken_quest.dart.md) (1 shared connections)
 
 ## Source Files
 
@@ -52,7 +52,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 49 (100%)
+- EXTRACTED: 53 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

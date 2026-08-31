@@ -1,6 +1,6 @@
 # Task 9A report — cloud privacy and deletion reconciliation
 
-> 8 nodes
+> 8 nodes · cohesion 0.25
 
 ## Key Concepts
 

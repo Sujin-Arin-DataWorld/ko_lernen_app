@@ -1,6 +1,6 @@
 # dancheong_stamp.dart
 
-> 47 nodes
+> 47 nodes · cohesion 0.04
 
 ## Key Concepts
 
@@ -33,18 +33,18 @@
 
 ## Relationships
 
-- [package:flutter/material.dart](package-flutter-material.dart.md) (3 shared connections)
-- [bool get](bool_get.md) (2 shared connections)
-- [_State](_State.md) (2 shared connections)
-- [AnimationController](AnimationController.md) (1 shared connections)
+- [List](List.md) (2 shared connections)
+- [StatefulWidget](StatefulWidget.md) (2 shared connections)
+- [book_preview_screen.dart](book_preview_screen.dart.md) (1 shared connections)
+- [pressable.dart](pressable.dart.md) (1 shared connections)
 - [return](return.md) (1 shared connections)
 - [CustomPainter](CustomPainter.md) (1 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
 - [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
 - [vocab_pack_result_screen.dart](vocab_pack_result_screen.dart.md) (1 shared connections)
 - [_](_.md) (1 shared connections)
-- [@visibleForTesting](@visibleForTesting.md) (1 shared connections)
-- [study_activity_responsive_test.dart](study_activity_responsive_test.dart.md) (1 shared connections)
 
 ## Source Files
 

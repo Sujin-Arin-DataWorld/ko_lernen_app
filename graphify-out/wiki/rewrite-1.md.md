@@ -1,6 +1,6 @@
 # rewrite-1.md
 
-> 27 nodes
+> 27 nodes · cohesion 0.07
 
 ## Key Concepts
 

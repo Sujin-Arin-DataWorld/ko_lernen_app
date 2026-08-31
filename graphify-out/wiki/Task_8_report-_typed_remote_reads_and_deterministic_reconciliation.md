@@ -1,6 +1,6 @@
 # Task 8 report: typed remote reads and deterministic reconciliation
 
-> 11 nodes
+> 11 nodes · cohesion 0.18
 
 ## Key Concepts
 

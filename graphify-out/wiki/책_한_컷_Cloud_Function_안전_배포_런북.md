@@ -1,6 +1,6 @@
 # 책 한 컷 Cloud Function 안전 배포 런북
 
-> 12 nodes
+> 12 nodes · cohesion 0.17
 
 ## Key Concepts
 

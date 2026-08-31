@@ -1,6 +1,6 @@
 # App Store Connect Handoff — Hangul Sori 2.0.5 (14)
 
-> 8 nodes
+> 8 nodes · cohesion 0.25
 
 ## Key Concepts
 

@@ -1,62 +1,64 @@
 # storage_service.dart
 
-> 49 nodes
+> 73 nodes · cohesion 0.03
 
 ## Key Concepts
 
 - **storage_service.dart** (46 connections)
-- **static const int** (45 connections)
-- **learning_data_export_service.dart** (29 connections) — `lib/services/learning_data_export_service.dart`
-- **hanok_state_service.dart** (20 connections) — `lib/services/hanok_state_service.dart`
-- **age_gate_service.dart** (11 connections) — `lib/services/age_gate_service.dart`
+- **crop_recovery_service.dart** (31 connections) — `lib/services/crop_recovery_service.dart`
+- **media_workflow.dart** (19 connections) — `lib/services/media_workflow.dart`
+- **word_image_service.dart** (17 connections) — `lib/services/word_image_service.dart`
+- **liked_content_service.dart** (13 connections) — `lib/services/liked_content_service.dart`
+- **book_image_service.dart** (6 connections)
+- **package:image_picker/image_picker.dart** (5 connections)
+- **ManagedMediaRef** (4 connections) — `lib/services/book_image_service.dart`
+- **PendingMediaLease** (4 connections) — `lib/services/book_image_service.dart`
 - **pronunciation_progress_service.dart** (4 connections) — `lib/services/pronunciation_progress_service.dart`
-- **HanokState** (3 connections) — `lib/models/hanok_growth.dart`
-- **HanokStateService** (2 connections) — `lib/services/hanok_state_service.dart`
-- **AgeGateService** (1 connections) — `lib/services/age_gate_service.dart`
-- **conservativeYearDifference** (1 connections) — `lib/services/age_gate_service.dart`
-- **isPlausibleYear** (1 connections) — `lib/services/age_gate_service.dart`
-- **isSelfAttestedOnly** (1 connections) — `lib/services/age_gate_service.dart`
-- **minGyeAge** (1 connections) — `lib/services/age_gate_service.dart`
-- **needsBirthYear** (1 connections) — `lib/services/age_gate_service.dart`
-- **saveBirthYear** (1 connections) — `lib/services/age_gate_service.dart`
-- **captureForCloudReconciliation** (1 connections) — `lib/services/hanok_state_service.dart`
-- **decode** (1 connections) — `lib/services/hanok_state_service.dart`
-- **generation** (1 connections) — `lib/services/hanok_state_service.dart`
-- **HanokStateLocalCapture** (1 connections) — `lib/services/hanok_state_service.dart`
-- **load** (1 connections) — `lib/services/hanok_state_service.dart`
-- **_maxEncodedBytes** (1 connections) — `lib/services/hanok_state_service.dart`
-- **mergeCloudSnapshotJson** (1 connections) — `lib/services/hanok_state_service.dart`
-- **save** (1 connections) — `lib/services/hanok_state_service.dart`
-- **state** (1 connections) — `lib/services/hanok_state_service.dart`
-- **toString** (1 connections) — `lib/services/hanok_state_service.dart`
-- *... and 24 more nodes in this community*
+- **CropRecoveryGateway** (3 connections) — `lib/services/crop_recovery_service.dart`
+- **package:path_provider/path_provider.dart** (3 connections)
+- **ImageCropperRecoveryGateway** (2 connections) — `lib/services/crop_recovery_service.dart`
+- **CameraPermissionDeniedException** (2 connections) — `lib/services/word_image_service.dart`
+- **../models/liked_content.dart** (2 connections)
+- **package:image_cropper/image_cropper.dart** (2 connections)
+- **package:permission_handler/permission_handler.dart** (2 connections)
+- **_CropGateway** (2 connections) — `test/crop_recovery_test.dart`
+- **ImageCropper** (1 connections)
+- **acceptBookCrop** (1 connections) — `lib/services/crop_recovery_service.dart`
+- **BookCropAcceptance** (1 connections) — `lib/services/crop_recovery_service.dart`
+- **BookCropSession** (1 connections) — `lib/services/crop_recovery_service.dart`
+- **_cropMarker** (1 connections) — `lib/services/crop_recovery_service.dart`
+- **_cropper** (1 connections) — `lib/services/crop_recovery_service.dart`
+- **CropRecoveryService** (1 connections) — `lib/services/crop_recovery_service.dart`
+- *... and 48 more nodes in this community*
 
 ## Relationships
 
-- [_](_.md) (27 shared connections)
+- [_](_.md) (13 shared connections)
+- [bookshelf_service.dart](bookshelf_service.dart.md) (3 shared connections)
+- [custom_pack_service.dart](custom_pack_service.dart.md) (3 shared connections)
+- [picker_recovery_service.dart](picker_recovery_service.dart.md) (3 shared connections)
+- [decoration_reward_service.dart](decoration_reward_service.dart.md) (3 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (3 shared connections)
-- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (3 shared connections)
-- [room_layout_service.dart](room_layout_service.dart.md) (3 shared connections)
-- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (2 shared connections)
-- [T](T.md) (2 shared connections)
-- [hanok_experience_projector.dart](hanok_experience_projector.dart.md) (2 shared connections)
+- [media_lifecycle_test.dart](media_lifecycle_test.dart.md) (3 shared connections)
+- [book_capture_screen.dart](book_capture_screen.dart.md) (3 shared connections)
+- [StatefulWidget](StatefulWidget.md) (2 shared connections)
 - [static const String](static_const_String.md) (2 shared connections)
-- [content_share_slip_test.dart](content_share_slip_test.dart.md) (2 shared connections)
-- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (2 shared connections)
-- [course_mastery_service.dart](course_mastery_service.dart.md) (2 shared connections)
-- [custom_pack_service.dart](custom_pack_service.dart.md) (2 shared connections)
+- [static const int](static_const_int.md) (2 shared connections)
+- [cloud_sync.dart](cloud_sync.dart.md) (2 shared connections)
 
 ## Source Files
 
-- `lib/models/hanok_growth.dart`
-- `lib/services/age_gate_service.dart`
-- `lib/services/hanok_state_service.dart`
-- `lib/services/learning_data_export_service.dart`
+- `lib/services/book_image_service.dart`
+- `lib/services/crop_recovery_service.dart`
+- `lib/services/liked_content_service.dart`
+- `lib/services/media_workflow.dart`
 - `lib/services/pronunciation_progress_service.dart`
+- `lib/services/word_image_service.dart`
+- `test/crop_recovery_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 151 (100%)
+- EXTRACTED: 146 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

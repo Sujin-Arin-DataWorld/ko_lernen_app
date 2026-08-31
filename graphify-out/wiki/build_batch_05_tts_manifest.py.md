@@ -1,6 +1,6 @@
 # build_batch_05_tts_manifest.py
 
-> 9 nodes
+> 9 nodes · cohesion 0.50
 
 ## Key Concepts
 

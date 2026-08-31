@@ -1,6 +1,6 @@
 # Handoff: Beyond Humanizer v3
 
-> 25 nodes
+> 25 nodes · cohesion 0.08
 
 ## Key Concepts
 

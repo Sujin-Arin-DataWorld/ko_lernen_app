@@ -1,6 +1,6 @@
 # cultural_glossary.dart
 
-> 29 nodes
+> 29 nodes · cohesion 0.07
 
 ## Key Concepts
 
@@ -33,13 +33,12 @@
 
 ## Relationships
 
-- [@immutable](@immutable.md) (3 shared connections)
+- [onboarding_v2_presentation.dart](onboarding_v2_presentation.dart.md) (3 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
 - [List](List.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
 - [return](return.md) (1 shared connections)
-- [typedef](typedef.md) (1 shared connections)
-- [personal_room_furnish_screen_test.dart](personal_room_furnish_screen_test.dart.md) (1 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
 - [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
 - [cultural_help.dart](cultural_help.dart.md) (1 shared connections)
 

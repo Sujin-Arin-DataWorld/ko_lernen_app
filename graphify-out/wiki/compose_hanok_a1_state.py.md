@@ -1,6 +1,6 @@
 # compose_hanok_a1_state.py
 
-> 34 nodes
+> 34 nodes · cohesion 0.15
 
 ## Key Concepts
 
@@ -11,8 +11,8 @@
 - **normalize_layer()** (12 connections) — `tool/compose_hanok_a1_state.py`
 - **_require()** (11 connections) — `tool/compose_hanok_a1_state.py`
 - **stack_layers()** (8 connections) — `tool/compose_hanok_a1_state.py`
-- **CompositionError** (7 connections) — `tool/compose_hanok_a1_state.py`
 - **assert_continuity()** (7 connections) — `tool/compose_hanok_a1_state.py`
+- **CompositionError** (7 connections) — `tool/compose_hanok_a1_state.py`
 - **_chroma_count()** (6 connections) — `tool/compose_hanok_a1_state.py`
 - **_load_rgba()** (6 connections) — `tool/compose_hanok_a1_state.py`
 - **continuity_metrics()** (5 connections) — `tool/compose_hanok_a1_state.py`
@@ -27,8 +27,8 @@
 - **_inside_mask()** (3 connections) — `tool/compose_hanok_a1_state.py`
 - **_mean_channel_error()** (3 connections) — `tool/compose_hanok_a1_state.py`
 - **_outside_mask()** (3 connections) — `tool/compose_hanok_a1_state.py`
-- **resize_premultiplied()** (3 connections) — `tool/compose_hanok_a1_state.py`
 - **Any** (3 connections)
+- **resize_premultiplied()** (3 connections) — `tool/compose_hanok_a1_state.py`
 - *... and 9 more nodes in this community*
 
 ## Relationships

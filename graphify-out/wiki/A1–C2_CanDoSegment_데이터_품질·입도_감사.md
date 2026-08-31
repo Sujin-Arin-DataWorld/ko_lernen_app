@@ -1,6 +1,6 @@
 # A1–C2 CanDoSegment 데이터 품질·입도 감사
 
-> 16 nodes
+> 16 nodes · cohesion 0.12
 
 ## Key Concepts
 

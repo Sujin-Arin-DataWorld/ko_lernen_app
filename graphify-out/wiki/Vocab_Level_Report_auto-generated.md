@@ -1,6 +1,6 @@
 # Vocab Level Report (auto-generated)
 
-> 8 nodes
+> 8 nodes · cohesion 0.25
 
 ## Key Concepts
 

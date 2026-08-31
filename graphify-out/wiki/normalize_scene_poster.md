@@ -1,6 +1,6 @@
 # normalize_scene_poster
 
-> 18 nodes
+> 18 nodes · cohesion 0.18
 
 ## Key Concepts
 

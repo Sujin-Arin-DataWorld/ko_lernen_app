@@ -1,6 +1,6 @@
 # content_feedback_service.dart
 
-> 54 nodes
+> 54 nodes · cohesion 0.04
 
 ## Key Concepts
 
@@ -34,17 +34,16 @@
 ## Relationships
 
 - [content_feedback_lifecycle.dart](content_feedback_lifecycle.dart.md) (4 shared connections)
+- [content_feedback_outbox_test.dart](content_feedback_outbox_test.dart.md) (4 shared connections)
 - [content_feedback_client.dart](content_feedback_client.dart.md) (3 shared connections)
-- [content_feedback_card.dart](content_feedback_card.dart.md) (3 shared connections)
 - [_](_.md) (2 shared connections)
-- [completed_deletion_startup_recovery_test.dart](completed_deletion_startup_recovery_test.dart.md) (2 shared connections)
-- [typedef](typedef.md) (2 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (2 shared connections)
+- [content_feedback_card.dart](content_feedback_card.dart.md) (2 shared connections)
+- [dart:async](dart-async.md) (2 shared connections)
 - [T](T.md) (1 shared connections)
-- [content_feedback_outbox_test.dart](content_feedback_outbox_test.dart.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
-- [content_feedback_widget_test.dart](content_feedback_widget_test.dart.md) (1 shared connections)
-- [dart:async](dart-async.md) (1 shared connections)
 - [beta_mission_catalog.dart](beta_mission_catalog.dart.md) (1 shared connections)
+- [tts_installation_id.dart](tts_installation_id.dart.md) (1 shared connections)
 
 ## Source Files
 

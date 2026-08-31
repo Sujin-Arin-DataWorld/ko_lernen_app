@@ -1,6 +1,6 @@
 # package:flutter/widgets.dart
 
-> 26 nodes
+> 26 nodes · cohesion 0.08
 
 ## Key Concepts
 
@@ -35,12 +35,12 @@
 
 - [analytics_service.dart](analytics_service.dart.md) (2 shared connections)
 - [video_lease.dart](video_lease.dart.md) (2 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
+- [sori_stage_today_screen.dart](sori_stage_today_screen.dart.md) (1 shared connections)
 - [app_localizations.dart](app_localizations.dart.md) (1 shared connections)
-- [book_result_screen.dart](book_result_screen.dart.md) (1 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
 - [premium_service.dart](premium_service.dart.md) (1 shared connections)
-- [wordbook_add.dart](wordbook_add.dart.md) (1 shared connections)
+- [speakable.dart](speakable.dart.md) (1 shared connections)
 - [double get](double_get.md) (1 shared connections)
 - [window_class.dart](window_class.dart.md) (1 shared connections)
 - [main.dart](main.dart.md) (1 shared connections)

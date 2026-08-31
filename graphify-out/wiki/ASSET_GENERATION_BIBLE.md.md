@@ -1,6 +1,6 @@
 # ASSET_GENERATION_BIBLE.md
 
-> 31 nodes
+> 31 nodes · cohesion 0.06
 
 ## Key Concepts
 

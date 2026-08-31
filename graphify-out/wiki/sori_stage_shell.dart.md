@@ -1,10 +1,12 @@
 # sori_stage_shell.dart
 
-> 21 nodes
+> 26 nodes · cohesion 0.08
 
 ## Key Concepts
 
 - **sori_stage_shell.dart** (26 connections) — `lib/screens/sori_stage/sori_stage_shell.dart`
+- **ValueNotifier** (18 connections)
+- **locale_service.dart** (6 connections) — `lib/services/locale_service.dart`
 - **SoriStageShell** (3 connections) — `lib/screens/sori_stage/sori_stage_shell.dart`
 - **_SoriStageShellState** (3 connections) — `lib/screens/sori_stage/sori_stage_shell.dart`
 - **build** (1 connections) — `lib/screens/sori_stage/sori_stage_shell.dart`
@@ -19,29 +21,39 @@
 - **requestedTab** (1 connections) — `lib/screens/sori_stage/sori_stage_shell.dart`
 - **_scrollControllers** (1 connections) — `lib/screens/sori_stage/sori_stage_shell.dart`
 - **_select** (1 connections) — `lib/screens/sori_stage/sori_stage_shell.dart`
+- **_loadInitial** (1 connections) — `lib/services/locale_service.dart`
+- **localeNotifier** (1 connections) — `lib/services/locale_service.dart`
+- **setLocale** (1 connections) — `lib/services/locale_service.dart`
 - **sori_stage_catalog_screen.dart** (1 connections)
 - **sori_stage_gye_screen.dart** (1 connections)
 - **sori_stage_hanok_screen.dart** (1 connections)
 - **sori_stage_today_screen.dart** (1 connections)
 - **../../widgets/sori/adaptive_navigation.dart** (1 connections)
-- **../../widgets/sori/tab_reselect.dart** (1 connections)
+- *... and 1 more nodes in this community*
 
 ## Relationships
 
+- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (3 shared connections)
+- [account_transition_ui_test.dart](account_transition_ui_test.dart.md) (2 shared connections)
+- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (2 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
-- [_State](_State.md) (2 shared connections)
-- [dart:async](dart-async.md) (1 shared connections)
-- [deck_coach.dart](deck_coach.dart.md) (1 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
-- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
+- [StatefulWidget](StatefulWidget.md) (2 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
+- [sori_stage_today_screen.dart](sori_stage_today_screen.dart.md) (1 shared connections)
+- [storage_service.dart](storage_service.dart.md) (1 shared connections)
+- [hangul_screen.dart](hangul_screen.dart.md) (1 shared connections)
+- [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (1 shared connections)
+- [_](_.md) (1 shared connections)
+- [cloud_write_session.dart](cloud_write_session.dart.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/screens/sori_stage/sori_stage_shell.dart`
+- `lib/services/locale_service.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 29 (100%)
+- EXTRACTED: 51 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

@@ -1,6 +1,6 @@
 # Handoff: UI/UX 디자인 바이블 정합화와 반응형 접근성 이식
 
-> 14 nodes
+> 14 nodes · cohesion 0.14
 
 ## Key Concepts
 

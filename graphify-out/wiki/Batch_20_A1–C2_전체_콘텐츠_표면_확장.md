@@ -1,6 +1,6 @@
 # Batch 20 A1–C2 전체 콘텐츠 표면 확장
 
-> 7 nodes
+> 7 nodes · cohesion 0.29
 
 ## Key Concepts
 

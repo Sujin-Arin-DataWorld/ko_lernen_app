@@ -1,6 +1,6 @@
 # 살아 있는 한옥 V1 PR4 — 코드 파이프라인 인수인계
 
-> 5 nodes
+> 5 nodes · cohesion 0.40
 
 ## Key Concepts
 

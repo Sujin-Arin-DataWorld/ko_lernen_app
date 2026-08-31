@@ -1,6 +1,6 @@
 # Part 1: 시즌 1 — "베를린 한국인의 첫 한 달"
 
-> 8 nodes
+> 8 nodes · cohesion 0.25
 
 ## Key Concepts
 

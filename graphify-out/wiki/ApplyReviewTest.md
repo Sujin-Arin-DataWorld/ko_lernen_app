@@ -1,6 +1,6 @@
 # ApplyReviewTest
 
-> 28 nodes
+> 28 nodes · cohesion 0.16
 
 ## Key Concepts
 
@@ -9,9 +9,9 @@
 - **._new_pack_rows()** (9 connections) — `tools/content_factory/test_apply_review.py`
 - **._approve_all_draft_rows()** (7 connections) — `tools/content_factory/test_apply_review.py`
 - **.test_complete_new_vocab_pack_is_accepted_only_with_metadata()** (7 connections) — `tools/content_factory/test_apply_review.py`
+- **test_apply_review.py** (6 connections) — `tools/content_factory/test_apply_review.py`
 - **.test_new_vocab_pack_rejects_invalid_supplied_metadata_without_writing()** (6 connections) — `tools/content_factory/test_apply_review.py`
 - **_vocab_ids()** (6 connections) — `tools/content_factory/test_apply_review.py`
-- **test_apply_review.py** (6 connections) — `tools/content_factory/test_apply_review.py`
 - **_vocab_row()** (5 connections) — `tools/content_factory/test_apply_review.py`
 - **.setUp()** (4 connections) — `tools/content_factory/test_apply_review.py`
 - **.test_complete_new_vocab_pack_apply_requires_metadata_without_writing()** (4 connections) — `tools/content_factory/test_apply_review.py`
@@ -23,9 +23,9 @@
 - **.test_zero_approved_complete_new_pack_preview_needs_no_metadata_and_writes_nothing()** (3 connections) — `tools/content_factory/test_apply_review.py`
 - **._write_batch_manifest()** (3 connections) — `tools/content_factory/test_apply_review.py`
 - **._write_pack_preflight_support()** (3 connections) — `tools/content_factory/test_apply_review.py`
-- **ReviewStatusTest** (2 connections) — `tools/content_factory/test_apply_review.py`
 - **.test_apply_appends_only_approved_rows_and_bumps_manifest()** (2 connections) — `tools/content_factory/test_apply_review.py`
 - **Path** (2 connections)
+- **ReviewStatusTest** (2 connections) — `tools/content_factory/test_apply_review.py`
 - **.test_duplicate_review_ids_are_rejected_regardless_of_status()** (1 connections) — `tools/content_factory/test_apply_review.py`
 - **.test_grammar_patterns_require_a_future_paired_mirror_flow()** (1 connections) — `tools/content_factory/test_apply_review.py`
 - **.test_json_preview_uses_the_canonical_collection_without_writing()** (1 connections) — `tools/content_factory/test_apply_review.py`
@@ -33,8 +33,8 @@
 
 ## Relationships
 
-- [handle](handle.md) (1 shared connections)
 - [apply_review.py](apply_review.py.md) (1 shared connections)
+- [handle](handle.md) (1 shared connections)
 
 ## Source Files
 

@@ -1,6 +1,6 @@
 # store/README.md
 
-> 12 nodes
+> 12 nodes · cohesion 0.35
 
 ## Key Concepts
 

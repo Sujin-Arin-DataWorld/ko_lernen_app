@@ -1,6 +1,6 @@
 # hanok_v1_asset_provenance_test.dart
 
-> 24 nodes
+> 24 nodes · cohesion 0.08
 
 ## Key Concepts
 
@@ -31,12 +31,12 @@
 
 ## Relationships
 
-- [dart:io](dart-io.md) (2 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (3 shared connections)
+- [File](File.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
 - [return](return.md) (1 shared connections)
-- [content_share_slip_test.dart](content_share_slip_test.dart.md) (1 shared connections)
-- [can_do_segment_asset_test.dart](can_do_segment_asset_test.dart.md) (1 shared connections)
+- [book_capture_image_quality.dart](book_capture_image_quality.dart.md) (1 shared connections)
+- [tts_bundled_manifest.dart](tts_bundled_manifest.dart.md) (1 shared connections)
 
 ## Source Files
 

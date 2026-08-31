@@ -1,6 +1,6 @@
 # audit_canonical_scenarios.py
 
-> 15 nodes
+> 15 nodes · cohesion 0.30
 
 ## Key Concepts
 
@@ -23,8 +23,8 @@
 ## Relationships
 
 - [scenario_corpus_pipeline.py](scenario_corpus_pipeline.py.md) (2 shared connections)
-- [Counter](Counter.md) (1 shared connections)
 - [ScenarioCorpusPipelineTest](ScenarioCorpusPipelineTest.md) (1 shared connections)
+- [Counter](Counter.md) (1 shared connections)
 
 ## Source Files
 

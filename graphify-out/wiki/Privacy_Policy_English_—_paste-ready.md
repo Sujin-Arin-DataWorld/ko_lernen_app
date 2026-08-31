@@ -1,6 +1,6 @@
 # Privacy Policy (English) — paste-ready
 
-> 10 nodes
+> 10 nodes · cohesion 0.20
 
 ## Key Concepts
 

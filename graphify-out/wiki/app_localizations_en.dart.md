@@ -1,6 +1,6 @@
 # app_localizations_en.dart
 
-> 2866 nodes
+> 2866 nodes · cohesion 0.00
 
 ## Key Concepts
 
@@ -33,10 +33,10 @@
 
 ## Relationships
 
-- [bool get](bool_get.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
 - [AppL10n](AppL10n.md) (1 shared connections)
 - [app_localizations_de.dart](app_localizations_de.dart.md) (1 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
 
 ## Source Files
 

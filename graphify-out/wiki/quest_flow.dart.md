@@ -1,24 +1,10 @@
 # quest_flow.dart
 
-> 90 nodes
+> 48 nodes · cohesion 0.04
 
 ## Key Concepts
 
 - **quest_flow.dart** (64 connections) — `lib/screens/quest_engines/quest_flow.dart`
-- **guide_hub_screen.dart** (36 connections) — `lib/features/guide/guide_hub_screen.dart`
-- **today_guide_checklist_card.dart** (26 connections) — `lib/features/guide/today_guide_checklist_card.dart`
-- **../widgets/sori/pressable.dart** (14 connections)
-- **GuideTopicViewModel** (4 connections) — `lib/features/guide/guide_presentation.dart`
-- **GuideHubCopy** (3 connections) — `lib/features/guide/guide_presentation.dart`
-- **GuideTopicCallback** (3 connections) — `lib/features/guide/guide_presentation.dart`
-- **TodayGuideChecklistCopy** (3 connections) — `lib/features/guide/guide_presentation.dart`
-- **_AvailabilityBadge** (2 connections) — `lib/features/guide/guide_hub_screen.dart`
-- **GuideHubScreen** (2 connections) — `lib/features/guide/guide_hub_screen.dart`
-- **_GuideTopicCard** (2 connections) — `lib/features/guide/guide_hub_screen.dart`
-- **_StatusLabel** (2 connections) — `lib/features/guide/guide_hub_screen.dart`
-- **_ChecklistTopicRow** (2 connections) — `lib/features/guide/today_guide_checklist_card.dart`
-- **TodayGuideChecklistCard** (2 connections) — `lib/features/guide/today_guide_checklist_card.dart`
-- **FeatureAvailability** (2 connections) — `lib/models/guide_contract.dart`
 - **ScenarioQuestAction** (2 connections) — `lib/screens/quest_engines/quest_flow.dart`
 - **SoriAnswerTile** (2 connections) — `lib/screens/quest_engines/quest_flow.dart`
 - **SoriAnswerTray** (2 connections) — `lib/screens/quest_engines/quest_flow.dart`
@@ -26,37 +12,47 @@
 - **SoriPromptCard** (2 connections) — `lib/screens/quest_engines/quest_flow.dart`
 - **SoriWordTile** (2 connections) — `lib/screens/quest_engines/quest_flow.dart`
 - **../../widgets/sori/dancheong_burst.dart** (2 connections)
-- **availability** (1 connections) — `lib/features/guide/guide_hub_screen.dart`
-- **build** (1 connections) — `lib/features/guide/guide_hub_screen.dart`
-- **color** (1 connections) — `lib/features/guide/guide_hub_screen.dart`
-- *... and 65 more nodes in this community*
+- **accent** (1 connections) — `lib/screens/quest_engines/quest_flow.dart`
+- **build** (1 connections) — `lib/screens/quest_engines/quest_flow.dart`
+- **burst** (1 connections) — `lib/screens/quest_engines/quest_flow.dart`
+- **canSubmit** (1 connections) — `lib/screens/quest_engines/quest_flow.dart`
+- **child** (1 connections) — `lib/screens/quest_engines/quest_flow.dart`
+- **color** (1 connections) — `lib/screens/quest_engines/quest_flow.dart`
+- **compact** (1 connections) — `lib/screens/quest_engines/quest_flow.dart`
+- **expand** (1 connections) — `lib/screens/quest_engines/quest_flow.dart`
+- **haptic** (1 connections) — `lib/screens/quest_engines/quest_flow.dart`
+- **height** (1 connections) — `lib/screens/quest_engines/quest_flow.dart`
+- **hint** (1 connections) — `lib/screens/quest_engines/quest_flow.dart`
+- **index** (1 connections) — `lib/screens/quest_engines/quest_flow.dart`
+- **isLast** (1 connections) — `lib/screens/quest_engines/quest_flow.dart`
+- **label** (1 connections) — `lib/screens/quest_engines/quest_flow.dart`
+- **minHeight** (1 connections) — `lib/screens/quest_engines/quest_flow.dart`
+- **onContinue** (1 connections) — `lib/screens/quest_engines/quest_flow.dart`
+- **onDontKnow** (1 connections) — `lib/screens/quest_engines/quest_flow.dart`
+- *... and 23 more nodes in this community*
 
 ## Relationships
 
-- [StatelessWidget](StatelessWidget.md) (15 shared connections)
-- [String?](String_.md) (6 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (6 shared connections)
-- [guide_presentation.dart](guide_presentation.dart.md) (6 shared connections)
-- [book_result_screen.dart](book_result_screen.dart.md) (4 shared connections)
-- [List](List.md) (3 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (3 shared connections)
-- [@immutable](@immutable.md) (3 shared connections)
-- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (3 shared connections)
-- [guide_scenario_category_stock.dart](guide_scenario_category_stock.dart.md) (2 shared connections)
-- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (2 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (2 shared connections)
+- [StatelessWidget](StatelessWidget.md) (7 shared connections)
+- [String?](String_.md) (2 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (2 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (2 shared connections)
+- [Color](Color.md) (1 shared connections)
+- [int?](int_.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
+- [CustomPainter](CustomPainter.md) (1 shared connections)
+- [batchim_drop_quest.dart](batchim_drop_quest.dart.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (1 shared connections)
 
 ## Source Files
 
-- `lib/features/guide/guide_hub_screen.dart`
-- `lib/features/guide/guide_presentation.dart`
-- `lib/features/guide/today_guide_checklist_card.dart`
-- `lib/models/guide_contract.dart`
 - `lib/screens/quest_engines/quest_flow.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 159 (100%)
+- EXTRACTED: 71 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

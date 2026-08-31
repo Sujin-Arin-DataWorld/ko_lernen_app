@@ -1,17 +1,27 @@
 # mission_recommender.dart
 
-> 44 nodes
+> 46 nodes · cohesion 0.05
 
 ## Key Concepts
 
 - **mission_recommender.dart** (34 connections) — `lib/services/mission_recommender.dart`
+- **LearnerLevel** (24 connections) — `lib/models/learner_level.dart`
 - **mission_recommender_test.dart** (22 connections) — `test/mission_recommender_test.dart`
-- **today_learning_snapshot_test.dart** (17 connections) — `test/today_learning_snapshot_test.dart`
+- **learner_level.dart** (9 connections) — `lib/models/learner_level.dart`
 - **MissionPick** (6 connections) — `lib/services/mission_recommender.dart`
 - **CoursePick** (5 connections) — `lib/services/mission_recommender.dart`
 - **PackPick** (4 connections) — `lib/services/mission_recommender.dart`
 - **ReviewPick** (4 connections) — `lib/services/mission_recommender.dart`
 - **ScenarioPick** (3 connections) — `lib/services/mission_recommender.dart`
+- **a2,
+  b1,
+  b2,
+  c1,** (2 connections)
+- **c2** (1 connections) — `lib/models/learner_level.dart`
+- **code** (1 connections) — `lib/models/learner_level.dart`
+- **display** (1 connections) — `lib/models/learner_level.dart`
+- **fromCode** (1 connections) — `lib/models/learner_level.dart`
+- **rank** (1 connections) — `lib/models/learner_level.dart`
 - **dueCount** (1 connections) — `lib/services/mission_recommender.dart`
 - **end** (1 connections) — `lib/services/mission_recommender.dart`
 - **fraction** (1 connections) — `lib/services/mission_recommender.dart`
@@ -22,39 +32,32 @@
 - **null** (1 connections) — `lib/services/mission_recommender.dart`
 - **pack** (1 connections) — `lib/services/mission_recommender.dart`
 - **recommendMission** (1 connections) — `lib/services/mission_recommender.dart`
-- **required** (1 connections) — `lib/services/mission_recommender.dart`
-- **reviewThreshold** (1 connections) — `lib/services/mission_recommender.dart`
-- **sc** (1 connections) — `lib/services/mission_recommender.dart`
-- **scenarioId** (1 connections) — `lib/services/mission_recommender.dart`
-- **start** (1 connections) — `lib/services/mission_recommender.dart`
-- **started** (1 connections) — `lib/services/mission_recommender.dart`
-- **sublist** (1 connections) — `lib/services/mission_recommender.dart`
-- *... and 19 more nodes in this community*
+- *... and 21 more nodes in this community*
 
 ## Relationships
 
-- [course_mastery_test.dart](course_mastery_test.dart.md) (5 shared connections)
-- [hanok_world_screen_test.dart](hanok_world_screen_test.dart.md) (4 shared connections)
-- [_](_.md) (2 shared connections)
-- [learning_semantic_contract.dart](learning_semantic_contract.dart.md) (2 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
-- [account_reconciliation_test.dart](account_reconciliation_test.dart.md) (2 shared connections)
-- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (2 shared connections)
-- [T](T.md) (1 shared connections)
-- [vocab_pack_finish_coordinator.dart](vocab_pack_finish_coordinator.dart.md) (1 shared connections)
-- [return](return.md) (1 shared connections)
-- [course_checkpoint_questions.dart](course_checkpoint_questions.dart.md) (1 shared connections)
-- [String?](String_.md) (1 shared connections)
+- [_](_.md) (6 shared connections)
+- [hanok_world_screen_test.dart](hanok_world_screen_test.dart.md) (5 shared connections)
+- [List](List.md) (4 shared connections)
+- [course_mastery_test.dart](course_mastery_test.dart.md) (3 shared connections)
+- [course_progress_service.dart](course_progress_service.dart.md) (2 shared connections)
+- [ildu_world_manifest.dart](ildu_world_manifest.dart.md) (1 shared connections)
+- [Map](Map.md) (1 shared connections)
+- [profile_screen.dart](profile_screen.dart.md) (1 shared connections)
+- [guide_runtime.dart](guide_runtime.dart.md) (1 shared connections)
+- [first_run_coordinator.dart](first_run_coordinator.dart.md) (1 shared connections)
+- [onboarding_journey_state.dart](onboarding_journey_state.dart.md) (1 shared connections)
+- [can_do_segment.dart](can_do_segment.dart.md) (1 shared connections)
 
 ## Source Files
 
+- `lib/models/learner_level.dart`
 - `lib/services/mission_recommender.dart`
 - `test/mission_recommender_test.dart`
-- `test/today_learning_snapshot_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 79 (100%)
+- EXTRACTED: 97 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

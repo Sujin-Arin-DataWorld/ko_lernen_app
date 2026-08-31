@@ -1,6 +1,6 @@
 # regen_review.py
 
-> 6 nodes
+> 6 nodes · cohesion 0.53
 
 ## Key Concepts
 

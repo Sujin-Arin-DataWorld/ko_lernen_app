@@ -1,6 +1,6 @@
 # compilerOptions
 
-> 29 nodes
+> 29 nodes · cohesion 0.07
 
 ## Key Concepts
 

@@ -1,6 +1,6 @@
 # HANDOFF — UI 개편 "Vocabulary급 깔끔함 × Faceted Minhwa" (2026-08-14)
 
-> 18 nodes
+> 18 nodes · cohesion 0.11
 
 ## Key Concepts
 

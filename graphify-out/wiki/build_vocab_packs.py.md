@@ -1,12 +1,12 @@
 # build_vocab_packs.py
 
-> 14 nodes
+> 14 nodes · cohesion 0.30
 
 ## Key Concepts
 
 - **build_vocab_packs.py** (8 connections) — `scripts/build_vocab_packs.py`
-- **Row** (7 connections) — `scripts/build_vocab_packs.py`
 - **main()** (7 connections) — `scripts/build_vocab_packs.py`
+- **Row** (7 connections) — `scripts/build_vocab_packs.py`
 - **write_csv()** (5 connections) — `scripts/build_vocab_packs.py`
 - **assign_pack_ids()** (4 connections) — `scripts/build_vocab_packs.py`
 - **assign_pack_order_and_boss()** (4 connections) — `scripts/build_vocab_packs.py`

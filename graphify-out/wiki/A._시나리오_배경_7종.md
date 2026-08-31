@@ -1,6 +1,6 @@
 # A. 시나리오 배경 7종
 
-> 21 nodes
+> 21 nodes · cohesion 0.10
 
 ## Key Concepts
 

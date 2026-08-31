@@ -1,6 +1,6 @@
 # content_feedback_sheet.dart
 
-> 49 nodes
+> 49 nodes · cohesion 0.04
 
 ## Key Concepts
 
@@ -33,18 +33,18 @@
 
 ## Relationships
 
-- [package:flutter/material.dart](package-flutter-material.dart.md) (6 shared connections)
+- [content_feedback.dart](content_feedback.dart.md) (8 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (5 shared connections)
 - [game_reward.dart](game_reward.dart.md) (2 shared connections)
-- [content_feedback.dart](content_feedback.dart.md) (2 shared connections)
-- [_State](_State.md) (2 shared connections)
-- [content_feedback_widget_test.dart](content_feedback_widget_test.dart.md) (1 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
-- [FeedbackCategory](FeedbackCategory.md) (1 shared connections)
-- [FeedbackContentFocus](FeedbackContentFocus.md) (1 shared connections)
-- [FeedbackContentSignal](FeedbackContentSignal.md) (1 shared connections)
-- [FeedbackExperienceFocus](FeedbackExperienceFocus.md) (1 shared connections)
-- [FeedbackExperienceSignal](FeedbackExperienceSignal.md) (1 shared connections)
-- [FeedbackIssueArea](FeedbackIssueArea.md) (1 shared connections)
+- [StatefulWidget](StatefulWidget.md) (2 shared connections)
+- [dart:async](dart-async.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
+- [String?](String_.md) (1 shared connections)
+- [book_preview_screen.dart](book_preview_screen.dart.md) (1 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
+- [beta_mission_catalog.dart](beta_mission_catalog.dart.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [content_feedback_card.dart](content_feedback_card.dart.md) (1 shared connections)
 
 ## Source Files
 

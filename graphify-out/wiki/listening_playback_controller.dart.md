@@ -1,6 +1,6 @@
 # listening_playback_controller.dart
 
-> 34 nodes
+> 34 nodes · cohesion 0.06
 
 ## Key Concepts
 
@@ -33,11 +33,11 @@
 
 ## Relationships
 
-- [bool get](bool_get.md) (4 shared connections)
-- [typedef](typedef.md) (2 shared connections)
-- [List](List.md) (1 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (3 shared connections)
+- [List](List.md) (2 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (2 shared connections)
 - [dart:async](dart-async.md) (1 shared connections)
-- [../models/scenario.dart](-models-scenario.dart.md) (1 shared connections)
+- [course_progress_service.dart](course_progress_service.dart.md) (1 shared connections)
 - [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
 - [audio_policy.dart](audio_policy.dart.md) (1 shared connections)
 - [content_feedback_card.dart](content_feedback_card.dart.md) (1 shared connections)

@@ -1,6 +1,6 @@
 # grounded_book_study_card.dart
 
-> 23 nodes
+> 23 nodes · cohesion 0.09
 
 ## Key Concepts
 
@@ -31,11 +31,12 @@
 ## Relationships
 
 - [_](_.md) (2 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
-- [_State](_State.md) (2 shared connections)
-- [dart:ui](dart-ui.md) (1 shared connections)
-- [shared_pack_service.dart](shared_pack_service.dart.md) (1 shared connections)
-- [AnimationController](AnimationController.md) (1 shared connections)
+- [StatefulWidget](StatefulWidget.md) (2 shared connections)
+- [dart:async](dart-async.md) (1 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
+- [static const String](static_const_String.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [app_loading.dart](app_loading.dart.md) (1 shared connections)
 - [StatelessWidget](StatelessWidget.md) (1 shared connections)
 - [book_result_screen.dart](book_result_screen.dart.md) (1 shared connections)
 

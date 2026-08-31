@@ -1,6 +1,6 @@
 # UIUX_DUOLINGO_GAP_AND_PLAN.md
 
-> 8 nodes
+> 8 nodes · cohesion 0.25
 
 ## Key Concepts
 

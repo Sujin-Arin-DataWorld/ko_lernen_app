@@ -1,6 +1,6 @@
 # stats_screen.dart
 
-> 40 nodes
+> 40 nodes · cohesion 0.05
 
 ## Key Concepts
 
@@ -33,18 +33,18 @@
 
 ## Relationships
 
-- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (5 shared connections)
+- [List](List.md) (7 shared connections)
 - [StatelessWidget](StatelessWidget.md) (5 shared connections)
-- [bool get](bool_get.md) (3 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (3 shared connections)
-- [book_result_screen.dart](book_result_screen.dart.md) (3 shared connections)
-- [_State](_State.md) (3 shared connections)
-- [String?](String_.md) (2 shared connections)
-- [List](List.md) (1 shared connections)
-- [static const](static_const.md) (1 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (3 shared connections)
+- [StatefulWidget](StatefulWidget.md) (3 shared connections)
+- [Color](Color.md) (2 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (2 shared connections)
+- [gye_screen.dart](gye_screen.dart.md) (2 shared connections)
+- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [book_result_screen.dart](book_result_screen.dart.md) (1 shared connections)
 - [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (1 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
+- [learning_path_screen.dart](learning_path_screen.dart.md) (1 shared connections)
 
 ## Source Files
 

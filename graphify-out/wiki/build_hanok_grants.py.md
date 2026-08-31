@@ -1,6 +1,6 @@
 # build_hanok_grants.py
 
-> 13 nodes
+> 13 nodes · cohesion 0.29
 
 ## Key Concepts
 

@@ -1,6 +1,6 @@
 # reviewed_dictation_variants
 
-> 18 nodes
+> 18 nodes · cohesion 0.24
 
 ## Key Concepts
 

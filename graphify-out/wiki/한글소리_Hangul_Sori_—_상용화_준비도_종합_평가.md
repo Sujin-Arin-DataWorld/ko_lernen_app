@@ -1,6 +1,6 @@
 # 한글소리 (Hangul Sori) — 상용화 준비도 종합 평가
 
-> 31 nodes
+> 31 nodes · cohesion 0.06
 
 ## Key Concepts
 

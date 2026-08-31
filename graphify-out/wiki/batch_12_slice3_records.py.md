@@ -1,6 +1,6 @@
 # batch_12_slice3_records.py
 
-> 1 nodes
+> 1 nodes · cohesion 1.00
 
 ## Key Concepts
 

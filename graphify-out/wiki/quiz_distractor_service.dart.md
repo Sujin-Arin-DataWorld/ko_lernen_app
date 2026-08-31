@@ -1,6 +1,6 @@
 # quiz_distractor_service.dart
 
-> 21 nodes
+> 21 nodes · cohesion 0.10
 
 ## Key Concepts
 
@@ -30,7 +30,7 @@
 ## Relationships
 
 - [return](return.md) (1 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
 
 ## Source Files
 

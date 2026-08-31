@@ -1,6 +1,6 @@
 # Jin이 직접 해야 하는 일 (순서대로)
 
-> 16 nodes
+> 16 nodes · cohesion 0.12
 
 ## Key Concepts
 

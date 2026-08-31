@@ -1,6 +1,6 @@
 # sori_icon.dart
 
-> 12 nodes
+> 12 nodes · cohesion 0.17
 
 ## Key Concepts
 

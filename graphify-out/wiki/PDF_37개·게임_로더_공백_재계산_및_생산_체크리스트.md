@@ -1,6 +1,6 @@
 # PDF 37개·게임 로더 공백 재계산 및 생산 체크리스트
 
-> 16 nodes
+> 16 nodes · cohesion 0.12
 
 ## Key Concepts
 

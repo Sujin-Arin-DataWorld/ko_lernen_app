@@ -1,11 +1,11 @@
 # sitemap.ts
 
-> 2 nodes
+> 2 nodes · cohesion 1.00
 
 ## Key Concepts
 
-- **sitemap()** (1 connections) — `hangul-sori-site-local/app/sitemap.ts`
 - **sitemap.ts** (1 connections) — `hangul-sori-site-local/app/sitemap.ts`
+- **sitemap()** (1 connections) — `hangul-sori-site-local/app/sitemap.ts`
 
 ## Relationships
 

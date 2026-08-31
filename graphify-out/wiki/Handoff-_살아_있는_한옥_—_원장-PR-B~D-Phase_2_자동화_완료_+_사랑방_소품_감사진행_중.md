@@ -1,6 +1,6 @@
 # Handoff: 살아 있는 한옥 — 원장/PR-B~D/Phase 2 자동화 완료 + 사랑방 소품 감사(진행 중)
 
-> 22 nodes
+> 22 nodes · cohesion 0.09
 
 ## Key Concepts
 

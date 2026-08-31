@@ -1,6 +1,6 @@
 # participantIds
 
-> 13 nodes
+> 13 nodes · cohesion 0.15
 
 ## Key Concepts
 

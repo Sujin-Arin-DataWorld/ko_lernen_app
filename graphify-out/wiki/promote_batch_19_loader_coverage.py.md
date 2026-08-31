@@ -1,6 +1,6 @@
 # promote_batch_19_loader_coverage.py
 
-> 30 nodes
+> 30 nodes · cohesion 0.20
 
 ## Key Concepts
 
@@ -36,8 +36,8 @@
 - [handle](handle.md) (6 shared connections)
 - [Counter](Counter.md) (5 shared connections)
 - [ContentValidator](ContentValidator.md) (2 shared connections)
-- [quest](quest.md) (1 shared connections)
 - [scenario_store.py](scenario_store.py.md) (1 shared connections)
+- [quest](quest.md) (1 shared connections)
 
 ## Source Files
 

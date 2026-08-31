@@ -1,6 +1,6 @@
 # STEP 3: 앱 콘텐츠 설정 (필수 — 모두 완료해야 출시 가능)
 
-> 36 nodes
+> 36 nodes · cohesion 0.06
 
 ## Key Concepts
 

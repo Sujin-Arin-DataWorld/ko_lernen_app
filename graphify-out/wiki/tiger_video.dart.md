@@ -1,6 +1,6 @@
 # tiger_video.dart
 
-> 55 nodes
+> 55 nodes · cohesion 0.04
 
 ## Key Concepts
 
@@ -9,8 +9,8 @@
 - **_TigerGreetClipState** (3 connections) — `lib/widgets/sori/tiger_video.dart`
 - **TigerStageVideo** (3 connections) — `lib/widgets/sori/tiger_video.dart`
 - **_TigerStageVideoState** (3 connections) — `lib/widgets/sori/tiger_video.dart`
-- **OneShotVideoLeaseCompletion** (3 connections) — `lib/widgets/sori/video_lease.dart`
 - **AudioPlayer?** (2 connections)
+- **OneShotVideoLeaseCompletion** (2 connections) — `lib/widgets/sori/video_lease.dart`
 - **_audio** (1 connections) — `lib/widgets/sori/tiger_video.dart`
 - **_audioStarted** (1 connections) — `lib/widgets/sori/tiger_video.dart`
 - **blendColor** (1 connections) — `lib/widgets/sori/tiger_video.dart`
@@ -34,17 +34,17 @@
 ## Relationships
 
 - [hanok_header.dart](hanok_header.dart.md) (5 shared connections)
-- [_State](_State.md) (4 shared connections)
-- [game_reward.dart](game_reward.dart.md) (3 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (3 shared connections)
-- [character_clip.dart](character_clip.dart.md) (2 shared connections)
-- [String?](String_.md) (1 shared connections)
+- [StatefulWidget](StatefulWidget.md) (4 shared connections)
+- [game_reward.dart](game_reward.dart.md) (2 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (2 shared connections)
+- [character_clip.dart](character_clip.dart.md) (1 shared connections)
+- [Color](Color.md) (1 shared connections)
 - [mascot.dart](mascot.dart.md) (1 shared connections)
-- [speakable.dart](speakable.dart.md) (1 shared connections)
+- [home_hero.dart](home_hero.dart.md) (1 shared connections)
+- [VideoLeaseEligibilityBinding](VideoLeaseEligibilityBinding.md) (1 shared connections)
 - [@visibleForTesting](@visibleForTesting.md) (1 shared connections)
 - [static const String](static_const_String.md) (1 shared connections)
 - [dart:async](dart-async.md) (1 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
 
 ## Source Files
 
@@ -53,7 +53,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 81 (100%)
+- EXTRACTED: 80 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

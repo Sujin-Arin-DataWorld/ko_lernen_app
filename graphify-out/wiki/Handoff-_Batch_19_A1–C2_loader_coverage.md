@@ -1,6 +1,6 @@
 # Handoff: Batch 19 A1–C2 loader coverage
 
-> 6 nodes
+> 6 nodes · cohesion 0.33
 
 ## Key Concepts
 

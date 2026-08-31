@@ -1,77 +1,70 @@
 # String?
 
-> 280 nodes
+> 149 nodes · cohesion 0.01
 
 ## Key Concepts
 
-- **String?** (182 connections)
-- **VoidCallback?** (90 connections)
-- **Color** (62 connections)
-- **IconData** (38 connections)
-- **deck_action_bar.dart** (34 connections) — `lib/widgets/sori/deck_action_bar.dart`
+- **String?** (183 connections)
+- **Widget** (49 connections)
+- **standard_page.dart** (37 connections) — `lib/widgets/sori/standard_page.dart`
+- **ux_preview_gallery_screen.dart** (29 connections) — `lib/screens/ux_preview_gallery_screen.dart`
 - **illustrated_card.dart** (29 connections) — `lib/widgets/sori/illustrated_card.dart`
-- **stats_top_bar.dart** (29 connections) — `lib/widgets/sori/stats_top_bar.dart`
-- **quiz_choice.dart** (27 connections) — `lib/widgets/sori/quiz_choice.dart`
-- **static const double** (27 connections)
-- **chip.dart** (24 connections) — `lib/widgets/sori/chip.dart`
-- **_** (23 connections) — `lib/widgets/sori/badge.dart`
-- **empty_state.dart** (23 connections) — `lib/widgets/sori/empty_state.dart`
-- **pack_card.dart** (22 connections) — `lib/widgets/sori/pack_card.dart`
-- **adaptive_navigation.dart** (21 connections) — `lib/widgets/sori/adaptive_navigation.dart`
+- **study_frame.dart** (27 connections) — `lib/widgets/sori/study_frame.dart`
 - **chrome_row.dart** (20 connections) — `lib/widgets/sori/chrome_row.dart`
-- **hanji_texture.dart** (20 connections) — `lib/widgets/sori/hanok/hanji_texture.dart`
-- **module_card.dart** (20 connections) — `lib/widgets/sori/module_card.dart`
-- **discover_catalog.dart** (19 connections) — `lib/models/discover_catalog.dart`
-- **study_action_bar.dart** (18 connections) — `lib/widgets/sori/study_action_bar.dart`
-- **path_preview_row.dart** (15 connections) — `lib/widgets/sori/path_preview_row.dart`
-- **../../models/pack_progress.dart** (14 connections)
-- **pressable.dart** (14 connections)
-- **hub_progress_header.dart** (12 connections) — `lib/widgets/sori/hub_progress_header.dart`
-- **double?** (11 connections)
-- **stamp_entitlement_reconciler.dart** (11 connections) — `lib/services/stamp_entitlement_reconciler.dart`
-- *... and 255 more nodes in this community*
+- **gye_feed.dart** (18 connections) — `lib/widgets/sori/gye_feed.dart`
+- **sticker_image.dart** (15 connections) — `lib/widgets/sori/sticker_image.dart`
+- **sticker_picker.dart** (14 connections) — `lib/widgets/sori/sticker_picker.dart`
+- **module_card_l10n_test.dart** (13 connections) — `test/module_card_l10n_test.dart`
+- **Key** (10 connections)
+- **ScrollController** (9 connections)
+- **../../data/sticker_catalog.dart** (7 connections)
+- **section_header.dart** (7 connections) — `lib/widgets/sori/section_header.dart`
+- **cloze_topic_group_localizations.dart** (5 connections) — `lib/l10n/cloze_topic_group_localizations.dart`
+- **../../l10n/sticker_localizations.dart** (4 connections)
+- **responsive.dart** (4 connections)
+- **generated/app_localizations.dart** (3 connections)
+- **ClozeTopicGroupId** (3 connections) — `lib/data/cloze_topic_groups.dart`
+- **sticker_localizations.dart** (3 connections) — `lib/l10n/sticker_localizations.dart`
+- **SoriSectionHeader** (3 connections) — `lib/widgets/sori/section_header.dart`
+- **sticker_image.dart** (3 connections)
+- **app_bar.dart** (2 connections)
+- **../data/cloze_topic_groups.dart** (2 connections)
+- *... and 124 more nodes in this community*
 
 ## Relationships
 
-- [package:flutter/material.dart](package-flutter-material.dart.md) (63 shared connections)
-- [StatelessWidget](StatelessWidget.md) (44 shared connections)
-- [_](_.md) (33 shared connections)
-- [List](List.md) (12 shared connections)
-- [study_library_screen.dart](study_library_screen.dart.md) (11 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (10 shared connections)
-- [book_result_screen.dart](book_result_screen.dart.md) (8 shared connections)
-- [gye_screen.dart](gye_screen.dart.md) (8 shared connections)
-- [path_trail.dart](path_trail.dart.md) (8 shared connections)
-- [typedef](typedef.md) (8 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (8 shared connections)
-- [hanok_world_screen.dart](hanok_world_screen.dart.md) (8 shared connections)
+- [StatelessWidget](StatelessWidget.md) (26 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (26 shared connections)
+- [_](_.md) (19 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (12 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (11 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (10 shared connections)
+- [gye_screen.dart](gye_screen.dart.md) (7 shared connections)
+- [List](List.md) (7 shared connections)
+- [Color](Color.md) (7 shared connections)
+- [sori_stage_today_screen.dart](sori_stage_today_screen.dart.md) (6 shared connections)
+- [cloze_game_screen.dart](cloze_game_screen.dart.md) (5 shared connections)
+- [book_preview_screen.dart](book_preview_screen.dart.md) (5 shared connections)
 
 ## Source Files
 
-- `lib/models/discover_catalog.dart`
-- `lib/models/pack_progress.dart`
-- `lib/services/stamp_entitlement_reconciler.dart`
-- `lib/widgets/sori/adaptive_navigation.dart`
-- `lib/widgets/sori/badge.dart`
-- `lib/widgets/sori/chip.dart`
+- `lib/data/cloze_topic_groups.dart`
+- `lib/l10n/cloze_topic_group_localizations.dart`
+- `lib/l10n/sticker_localizations.dart`
+- `lib/screens/ux_preview_gallery_screen.dart`
 - `lib/widgets/sori/chrome_row.dart`
-- `lib/widgets/sori/deck_action_bar.dart`
-- `lib/widgets/sori/empty_state.dart`
-- `lib/widgets/sori/hanok/hanji_texture.dart`
-- `lib/widgets/sori/hub_progress_header.dart`
+- `lib/widgets/sori/gye_feed.dart`
 - `lib/widgets/sori/illustrated_card.dart`
-- `lib/widgets/sori/module_card.dart`
-- `lib/widgets/sori/pack_card.dart`
-- `lib/widgets/sori/path_preview_row.dart`
-- `lib/widgets/sori/path_trail.dart`
-- `lib/widgets/sori/pending_reward_card.dart`
-- `lib/widgets/sori/quiz_choice.dart`
-- `lib/widgets/sori/reward_thumb.dart`
-- `lib/widgets/sori/stats_top_bar.dart`
+- `lib/widgets/sori/section_header.dart`
+- `lib/widgets/sori/standard_page.dart`
+- `lib/widgets/sori/sticker_image.dart`
+- `lib/widgets/sori/sticker_picker.dart`
+- `lib/widgets/sori/study_frame.dart`
+- `test/module_card_l10n_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 828 (100%)
+- EXTRACTED: 481 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

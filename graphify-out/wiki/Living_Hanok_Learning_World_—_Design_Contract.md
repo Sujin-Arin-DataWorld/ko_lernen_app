@@ -1,6 +1,6 @@
 # Living Hanok Learning World — Design Contract
 
-> 9 nodes
+> 9 nodes · cohesion 0.22
 
 ## Key Concepts
 

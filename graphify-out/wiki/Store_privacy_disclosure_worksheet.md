@@ -1,6 +1,6 @@
 # Store privacy disclosure worksheet
 
-> 12 nodes
+> 12 nodes · cohesion 0.17
 
 ## Key Concepts
 

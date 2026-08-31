@@ -1,6 +1,6 @@
 # Hören 책가도 계획 1 — 기반(스키마·validator·마이그레이션·6샤드·로더) 구현 계획
 
-> 16 nodes
+> 16 nodes · cohesion 0.12
 
 ## Key Concepts
 

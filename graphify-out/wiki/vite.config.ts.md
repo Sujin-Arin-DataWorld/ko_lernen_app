@@ -1,12 +1,12 @@
 # vite.config.ts
 
-> 3 nodes
+> 3 nodes · cohesion 0.67
 
 ## Key Concepts
 
 - **vite.config.ts** (2 connections) — `hangul-sori-site-local/vite.config.ts`
-- **@cloudflare/vite-plugin** (1 connections) — `@cloudflare/vite-plugin`
 - **workerBuildConfig** (1 connections) — `hangul-sori-site-local/vite.config.ts`
+- **@cloudflare/vite-plugin** (1 connections) — `@cloudflare/vite-plugin`
 
 ## Relationships
 

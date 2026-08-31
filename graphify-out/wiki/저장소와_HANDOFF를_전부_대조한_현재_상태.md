@@ -1,6 +1,6 @@
 # 저장소와 HANDOFF를 전부 대조한 현재 상태
 
-> 4 nodes
+> 4 nodes · cohesion 0.50
 
 ## Key Concepts
 

@@ -1,6 +1,6 @@
 # Part 1: 동기 기반 온보딩 — "왜 배우세요?"
 
-> 7 nodes
+> 7 nodes · cohesion 0.29
 
 ## Key Concepts
 

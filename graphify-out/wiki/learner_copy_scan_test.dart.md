@@ -1,6 +1,6 @@
 # learner_copy_scan_test.dart
 
-> 15 nodes
+> 15 nodes · cohesion 0.13
 
 ## Key Concepts
 
@@ -22,9 +22,8 @@
 
 ## Relationships
 
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (3 shared connections)
 - [return](return.md) (1 shared connections)
-- [dart:io](dart-io.md) (1 shared connections)
 
 ## Source Files
 

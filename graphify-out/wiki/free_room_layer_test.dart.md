@@ -1,6 +1,6 @@
 # free_room_layer_test.dart
 
-> 14 nodes
+> 14 nodes · cohesion 0.15
 
 ## Key Concepts
 
@@ -21,16 +21,15 @@
 
 ## Relationships
 
-- [typedef](typedef.md) (2 shared connections)
-- [personal_room_furnish_screen_test.dart](personal_room_furnish_screen_test.dart.md) (2 shared connections)
-- [_State](_State.md) (2 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (3 shared connections)
+- [free_room_layer.dart](free_room_layer.dart.md) (2 shared connections)
+- [StatefulWidget](StatefulWidget.md) (2 shared connections)
 - [room_layout.dart](room_layout.dart.md) (1 shared connections)
 - [trace_canvas.dart](trace_canvas.dart.md) (1 shared connections)
 - [List](List.md) (1 shared connections)
-- [dart:ui](dart-ui.md) (1 shared connections)
+- [custom_pack_games_uiux_test.dart](custom_pack_games_uiux_test.dart.md) (1 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
-- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (1 shared connections)
+- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (1 shared connections)
 
 ## Source Files
 

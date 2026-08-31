@@ -1,6 +1,6 @@
 # book_analysis_security_test.dart
 
-> 25 nodes
+> 25 nodes · cohesion 0.09
 
 ## Key Concepts
 
@@ -32,10 +32,11 @@
 
 ## Relationships
 
-- [dart:ui](dart-ui.md) (5 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (4 shared connections)
+- [dart:async](dart-async.md) (3 shared connections)
 - [book_analysis_service.dart](book_analysis_service.dart.md) (2 shared connections)
 - [String?](String_.md) (2 shared connections)
+- [custom_pack_games_uiux_test.dart](custom_pack_games_uiux_test.dart.md) (2 shared connections)
 - [Map](Map.md) (1 shared connections)
 
 ## Source Files

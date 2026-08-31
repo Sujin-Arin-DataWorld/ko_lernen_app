@@ -1,6 +1,6 @@
 # Gemini 정본 120개 다국어·레벨 감사
 
-> 4 nodes
+> 4 nodes · cohesion 0.50
 
 ## Key Concepts
 

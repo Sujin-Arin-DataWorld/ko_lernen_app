@@ -1,6 +1,6 @@
 # build_kkeunmari_pool.py
 
-> 17 nodes
+> 17 nodes · cohesion 0.21
 
 ## Key Concepts
 

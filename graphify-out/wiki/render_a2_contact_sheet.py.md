@@ -1,6 +1,6 @@
 # render_a2_contact_sheet.py
 
-> 15 nodes
+> 15 nodes · cohesion 0.26
 
 ## Key Concepts
 

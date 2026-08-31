@@ -1,6 +1,6 @@
 # 역사적 배포 체크리스트 — 한글소리 (Android / Play Console)
 
-> 14 nodes
+> 14 nodes · cohesion 0.14
 
 ## Key Concepts
 

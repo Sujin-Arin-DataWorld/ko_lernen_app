@@ -1,6 +1,6 @@
 # pack_session_srs_ledger.dart
 
-> 19 nodes
+> 19 nodes · cohesion 0.11
 
 ## Key Concepts
 
@@ -26,10 +26,10 @@
 
 ## Relationships
 
-- [vocab_pack_result_screen.dart](vocab_pack_result_screen.dart.md) (2 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
+- [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (2 shared connections)
+- [List](List.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
-- [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (1 shared connections)
+- [vocab_pack_result_screen.dart](vocab_pack_result_screen.dart.md) (1 shared connections)
 
 ## Source Files
 

@@ -1,14 +1,27 @@
 # cloud_sync.dart
 
-> 40 nodes
+> 86 nodes · cohesion 0.02
 
 ## Key Concepts
 
 - **cloud_sync.dart** (57 connections) — `lib/services/cloud_sync.dart`
+- **_** (48 connections) — `lib/services/pack_progress_service.dart`
+- **account/cloud_write_session.dart** (15 connections)
+- **cloud_auto_sync.dart** (12 connections) — `lib/services/cloud_auto_sync.dart`
+- **local_data_lifetime.dart** (5 connections)
+- **account/cloud_restore_result.dart** (4 connections)
+- **cloud_sync.dart** (3 connections)
+- **firestore_progress_service.dart** (3 connections)
 - **cloud_sync_service.dart** (2 connections)
 - **backupWithSession** (2 connections) — `lib/services/cloud_sync.dart`
 - **overrideOperationsForTesting** (2 connections) — `lib/services/cloud_sync.dart`
 - **resetOperationsForTesting** (2 connections) — `lib/services/cloud_sync.dart`
+- **stamp_entitlement_reconciler.dart** (2 connections)
+- **account/account_failure_diagnostics.dart** (1 connections)
+- **CloudAutoSync** (1 connections) — `lib/services/cloud_auto_sync.dart`
+- **_dayStamp** (1 connections) — `lib/services/cloud_auto_sync.dart`
+- **lastAutoSyncDayPreferenceKey** (1 connections) — `lib/services/cloud_auto_sync.dart`
+- **runStartupSync** (1 connections) — `lib/services/cloud_auto_sync.dart`
 - **applyReconciledRestorePayload** (1 connections) — `lib/services/cloud_sync.dart`
 - **applyRestorePayload** (1 connections) — `lib/services/cloud_sync.dart`
 - **backup** (1 connections) — `lib/services/cloud_sync.dart`
@@ -16,43 +29,32 @@
 - **_backupWithResultAfterCloudBackupAdmission** (1 connections) — `lib/services/cloud_sync.dart`
 - **buildBackupPayload** (1 connections) — `lib/services/cloud_sync.dart`
 - **_captureCourseMasteryForBackup** (1 connections) — `lib/services/cloud_sync.dart`
-- **CloudSync** (1 connections) — `lib/services/cloud_sync.dart`
-- **_db** (1 connections) — `lib/services/cloud_sync.dart`
-- **_guardedWrite** (1 connections) — `lib/services/cloud_sync.dart`
-- **_isCanonicalStudyLogDate** (1 connections) — `lib/services/cloud_sync.dart`
-- **_IsoDate** (1 connections) — `lib/services/cloud_sync.dart`
-- **lastBackupAt** (1 connections) — `lib/services/cloud_sync.dart`
-- **_map** (1 connections) — `lib/services/cloud_sync.dart`
-- **_maxMergeInt** (1 connections) — `lib/services/cloud_sync.dart`
-- **_nonEmptyString** (1 connections) — `lib/services/cloud_sync.dart`
-- **_nonNegativeInt** (1 connections) — `lib/services/cloud_sync.dart`
-- **_portableRestoreJson** (1 connections) — `lib/services/cloud_sync.dart`
-- **_portableStructuredJson** (1 connections) — `lib/services/cloud_sync.dart`
-- **_rawJsonObject** (1 connections) — `lib/services/cloud_sync.dart`
-- *... and 15 more nodes in this community*
+- *... and 61 more nodes in this community*
 
 ## Relationships
 
-- [_](_.md) (8 shared connections)
+- [_](_.md) (12 shared connections)
+- [bookshelf_service.dart](bookshelf_service.dart.md) (3 shared connections)
+- [quest_tracker.dart](quest_tracker.dart.md) (3 shared connections)
 - [@visibleForTesting](@visibleForTesting.md) (3 shared connections)
-- [gye_dedication_service.dart](gye_dedication_service.dart.md) (2 shared connections)
-- [apply](apply.md) (1 shared connections)
-- [shared_pack_service.dart](shared_pack_service.dart.md) (1 shared connections)
-- [sori_stage_progression_service.dart](sori_stage_progression_service.dart.md) (1 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
-- [hanok_experience_projector.dart](hanok_experience_projector.dart.md) (1 shared connections)
-- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (1 shared connections)
-- [hanok_stage_service.dart](hanok_stage_service.dart.md) (1 shared connections)
-- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
-- [storage_service.dart](storage_service.dart.md) (1 shared connections)
+- [static const String](static_const_String.md) (2 shared connections)
+- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (2 shared connections)
+- [account_ui_operations.dart](account_ui_operations.dart.md) (2 shared connections)
+- [storage_service.dart](storage_service.dart.md) (2 shared connections)
+- [List](List.md) (2 shared connections)
+- [app_startup_coordinator.dart](app_startup_coordinator.dart.md) (1 shared connections)
+- [custom_pack_service.dart](custom_pack_service.dart.md) (1 shared connections)
+- [firestore_progress_service.dart](firestore_progress_service.dart.md) (1 shared connections)
 
 ## Source Files
 
+- `lib/services/cloud_auto_sync.dart`
 - `lib/services/cloud_sync.dart`
+- `lib/services/pack_progress_service.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 61 (100%)
+- EXTRACTED: 139 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

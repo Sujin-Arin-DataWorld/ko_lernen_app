@@ -1,27 +1,26 @@
 # FakeCollectionReference
 
-> 6 nodes
+> 5 nodes · cohesion 0.40
 
 ## Key Concepts
 
-- **FakeCollectionReference** (6 connections) — `functions/gye/deletion_adapters.test.js`
-- **.constructor()** (1 connections) — `functions/gye/deletion_adapters.test.js`
-- **.doc()** (1 connections) — `functions/gye/deletion_adapters.test.js`
-- **.limit()** (1 connections) — `functions/gye/deletion_adapters.test.js`
-- **.orderBy()** (1 connections) — `functions/gye/deletion_adapters.test.js`
-- **.where()** (1 connections) — `functions/gye/deletion_adapters.test.js`
+- **FakeCollectionReference** (5 connections) — `functions/gye/account_operations_runtime.test.js`
+- **.constructor()** (1 connections) — `functions/gye/account_operations_runtime.test.js`
+- **.doc()** (1 connections) — `functions/gye/account_operations_runtime.test.js`
+- **.orderBy()** (1 connections) — `functions/gye/account_operations_runtime.test.js`
+- **.where()** (1 connections) — `functions/gye/account_operations_runtime.test.js`
 
 ## Relationships
 
-- [deletion_adapters.test.js](deletion_adapters.test.js.md) (1 shared connections)
+- [account_operations_runtime.test.js](account_operations_runtime.test.js.md) (1 shared connections)
 
 ## Source Files
 
-- `functions/gye/deletion_adapters.test.js`
+- `functions/gye/account_operations_runtime.test.js`
 
 ## Audit Trail
 
-- EXTRACTED: 6 (100%)
+- EXTRACTED: 5 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

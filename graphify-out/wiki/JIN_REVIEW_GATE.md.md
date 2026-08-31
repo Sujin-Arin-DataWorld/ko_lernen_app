@@ -1,6 +1,6 @@
 # JIN_REVIEW_GATE.md
 
-> 12 nodes
+> 12 nodes · cohesion 0.17
 
 ## Key Concepts
 

@@ -1,6 +1,6 @@
 # hanok_a1_kit.py
 
-> 41 nodes
+> 41 nodes · cohesion 0.12
 
 ## Key Concepts
 
@@ -17,8 +17,8 @@
 - **assert_kit_anchor()** (7 connections) — `tool/hanok_a1_kit.py`
 - **load_generated_part()** (7 connections) — `tool/hanok_a1_kit.py`
 - **verify_derived_digests()** (7 connections) — `tool/hanok_a1_kit.py`
-- **KitError** (6 connections) — `tool/hanok_a1_kit.py`
 - **alpha_mask()** (6 connections) — `tool/hanok_a1_kit.py`
+- **KitError** (6 connections) — `tool/hanok_a1_kit.py`
 - **load_parts_registry()** (6 connections) — `tool/hanok_a1_kit.py`
 - **rear_row_transform()** (6 connections) — `tool/hanok_a1_kit.py`
 - **test_hanok_a1_kit.py** (6 connections) — `tool/test_hanok_a1_kit.py`
@@ -26,8 +26,8 @@
 - **props_zone_mask()** (5 connections) — `tool/hanok_a1_kit.py`
 - **_blob()** (5 connections) — `tool/test_hanok_a1_kit.py`
 - **dilate()** (4 connections) — `tool/hanok_a1_kit.py`
-- **.setUpClass()** (4 connections) — `tool/test_hanok_a1_kit.py`
 - **ndarray** (4 connections)
+- **.setUpClass()** (4 connections) — `tool/test_hanok_a1_kit.py`
 - **.test_containment_allows_props_zone_and_rejects_outside()** (3 connections) — `tool/test_hanok_a1_kit.py`
 - *... and 16 more nodes in this community*
 

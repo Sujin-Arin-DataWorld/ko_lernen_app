@@ -1,6 +1,6 @@
 # push_service_test.dart
 
-> 40 nodes
+> 40 nodes · cohesion 0.05
 
 ## Key Concepts
 
@@ -35,16 +35,16 @@
 
 - [push_service.dart](push_service.dart.md) (4 shared connections)
 - [push_ownership_transition_coordinator_test.dart](push_ownership_transition_coordinator_test.dart.md) (3 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
+- [List](List.md) (2 shared connections)
 - [pronunciation_studio_screen_test.dart](pronunciation_studio_screen_test.dart.md) (1 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
+- [entry_onboarding_uiux_test.dart](entry_onboarding_uiux_test.dart.md) (1 shared connections)
 - [_](_.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
-- [Object?](Object_.md) (1 shared connections)
+- [sori_stage_progression.dart](sori_stage_progression.dart.md) (1 shared connections)
 - [return](return.md) (1 shared connections)
-- [gye_screen.dart](gye_screen.dart.md) (1 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
 - [PushAuthClient](PushAuthClient.md) (1 shared connections)
+- [PushMessagingClient](PushMessagingClient.md) (1 shared connections)
 
 ## Source Files
 

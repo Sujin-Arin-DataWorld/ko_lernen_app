@@ -1,6 +1,6 @@
 # derive_hanok_a1_kit.py
 
-> 52 nodes
+> 52 nodes · cohesion 0.09
 
 ## Key Concepts
 
@@ -14,8 +14,8 @@
 - **ndarray** (10 connections)
 - **DeriveHanokA1KitTest** (9 connections) — `tool/test_derive_hanok_a1_kit.py`
 - **partition_masks()** (8 connections) — `tool/derive_hanok_a1_kit.py`
-- **update_parts_registry()** (8 connections) — `tool/derive_hanok_a1_kit.py`
 - **Image** (8 connections)
+- **update_parts_registry()** (8 connections) — `tool/derive_hanok_a1_kit.py`
 - **load_overrides()** (7 connections) — `tool/derive_hanok_a1_kit.py`
 - **main()** (7 connections) — `tool/derive_hanok_a1_kit.py`
 - **measure_pillars()** (7 connections) — `tool/derive_hanok_a1_kit.py`

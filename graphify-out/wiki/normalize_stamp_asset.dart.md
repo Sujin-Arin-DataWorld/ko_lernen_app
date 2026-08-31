@@ -1,22 +1,10 @@
 # normalize_stamp_asset.dart
 
-> 40 nodes
+> 28 nodes · cohesion 0.07
 
 ## Key Concepts
 
 - **normalize_stamp_asset.dart** (32 connections) — `tool/normalize_stamp_asset.dart`
-- **stamp_contact_sheet_golden_test.dart** (10 connections) — `test/stamp_contact_sheet_golden_test.dart`
-- **package:image/image.dart** (8 connections)
-- **stamp_asset_contract_test.dart** (6 connections) — `test/stamp_asset_contract_test.dart`
-- **main** (1 connections) — `test/stamp_asset_contract_test.dart`
-- **_newSlugs** (1 connections) — `test/stamp_asset_contract_test.dart`
-- **decoded** (1 connections) — `test/stamp_contact_sheet_golden_test.dart`
-- **_decodeGolden** (1 connections) — `test/stamp_contact_sheet_golden_test.dart`
-- **_expectExactPixels** (1 connections) — `test/stamp_contact_sheet_golden_test.dart`
-- **file** (1 connections) — `test/stamp_contact_sheet_golden_test.dart`
-- **main** (1 connections) — `test/stamp_contact_sheet_golden_test.dart`
-- **sources** (1 connections) — `test/stamp_contact_sheet_golden_test.dart`
-- **../tool/build_stamp_contact_sheets.dart** (1 connections)
 - **_Bounds** (1 connections) — `tool/normalize_stamp_asset.dart`
 - **_canvasSize** (1 connections) — `tool/normalize_stamp_asset.dart`
 - **center** (1 connections) — `tool/normalize_stamp_asset.dart`
@@ -29,30 +17,35 @@
 - **height** (1 connections) — `tool/normalize_stamp_asset.dart`
 - **innerRadius** (1 connections) — `tool/normalize_stamp_asset.dart`
 - **main** (1 connections) — `tool/normalize_stamp_asset.dart`
-- *... and 15 more nodes in this community*
+- **maxX** (1 connections) — `tool/normalize_stamp_asset.dart`
+- **maxY** (1 connections) — `tool/normalize_stamp_asset.dart`
+- **minX** (1 connections) — `tool/normalize_stamp_asset.dart`
+- **minY** (1 connections) — `tool/normalize_stamp_asset.dart`
+- **_opaqueBounds** (1 connections) — `tool/normalize_stamp_asset.dart`
+- **_outerRadius** (1 connections) — `tool/normalize_stamp_asset.dart`
+- **output** (1 connections) — `tool/normalize_stamp_asset.dart`
+- **outputFile** (1 connections) — `tool/normalize_stamp_asset.dart`
+- **resized** (1 connections) — `tool/normalize_stamp_asset.dart`
+- **_ringRed** (1 connections) — `tool/normalize_stamp_asset.dart`
+- **_ringThickness** (1 connections) — `tool/normalize_stamp_asset.dart`
+- **source** (1 connections) — `tool/normalize_stamp_asset.dart`
+- *... and 3 more nodes in this community*
 
 ## Relationships
 
-- [dart:io](dart-io.md) (3 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (2 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
-- [book_capture_image_quality.dart](book_capture_image_quality.dart.md) (1 shared connections)
-- [_](_.md) (1 shared connections)
-- [content_share_slip_test.dart](content_share_slip_test.dart.md) (1 shared connections)
-- [can_do_segment_asset_test.dart](can_do_segment_asset_test.dart.md) (1 shared connections)
-- [build_stamp_contact_sheets.dart](build_stamp_contact_sheets.dart.md) (1 shared connections)
 - [double get](double_get.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
+- [book_capture_image_quality.dart](book_capture_image_quality.dart.md) (1 shared connections)
 
 ## Source Files
 
-- `test/stamp_asset_contract_test.dart`
-- `test/stamp_contact_sheet_golden_test.dart`
 - `tool/normalize_stamp_asset.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 53 (100%)
+- EXTRACTED: 32 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

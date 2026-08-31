@@ -1,6 +1,6 @@
 # 도깨비불(Will-o'-the-Wisp) 프롬프트
 
-> 18 nodes
+> 18 nodes · cohesion 0.11
 
 ## Key Concepts
 

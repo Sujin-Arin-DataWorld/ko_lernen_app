@@ -1,6 +1,6 @@
 # account_transition_coordinator_test.dart
 
-> 78 nodes
+> 78 nodes · cohesion 0.03
 
 ## Key Concepts
 
@@ -34,18 +34,18 @@
 
 ## Relationships
 
-- [_](_.md) (7 shared connections)
-- [dart:async](dart-async.md) (5 shared connections)
-- [account_reconciliation_test.dart](account_reconciliation_test.dart.md) (3 shared connections)
-- [bool get](bool_get.md) (2 shared connections)
-- [VerifiedTargetContext](VerifiedTargetContext.md) (2 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
+- [_](_.md) (9 shared connections)
+- [account_reconciliation_test.dart](account_reconciliation_test.dart.md) (4 shared connections)
+- [List](List.md) (3 shared connections)
+- [account_transition_ui_test.dart](account_transition_ui_test.dart.md) (3 shared connections)
 - [account_operation_client.dart](account_operation_client.dart.md) (1 shared connections)
-- [account_operation_client_test.dart](account_operation_client_test.dart.md) (1 shared connections)
+- [auth_service_test.dart](auth_service_test.dart.md) (1 shared connections)
 - [int?](int_.md) (1 shared connections)
-- [account_transition_journal.dart](account_transition_journal.dart.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
-- [Object?](Object_.md) (1 shared connections)
+- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
+- [sori_stage_progression.dart](sori_stage_progression.dart.md) (1 shared connections)
+- [String?](String_.md) (1 shared connections)
+- [dart:async](dart-async.md) (1 shared connections)
+- [account_ui_operations.dart](account_ui_operations.dart.md) (1 shared connections)
 
 ## Source Files
 

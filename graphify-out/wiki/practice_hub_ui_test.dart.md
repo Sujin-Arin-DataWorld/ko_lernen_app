@@ -1,56 +1,61 @@
 # practice_hub_ui_test.dart
 
-> 27 nodes
+> 41 nodes · cohesion 0.05
 
 ## Key Concepts
 
 - **practice_hub_ui_test.dart** (30 connections) — `test/practice_hub_ui_test.dart`
-- **module_card_l10n_test.dart** (13 connections) — `test/module_card_l10n_test.dart`
+- **onboarding_start_screen_test.dart** (22 connections) — `test/onboarding_start_screen_test.dart`
+- **consent_invite_sheet_test.dart** (16 connections) — `test/consent_invite_sheet_test.dart`
+- **SoriCard** (9 connections) — `lib/widgets/sori/card.dart`
+- **_SoriCardState** (3 connections) — `lib/widgets/sori/card.dart`
+- **Finder get** (2 connections)
+- **package:ko_lernen_app/widgets/sori/consent_invite_sheet.dart** (2 connections)
 - **package:ko_lernen_app/widgets/sori/module_card.dart** (2 connections)
-- **_AppHome** (2 connections) — `test/module_card_l10n_test.dart`
-- **_app** (1 connections) — `test/module_card_l10n_test.dart`
-- **build** (1 connections) — `test/module_card_l10n_test.dart`
-- **main** (1 connections) — `test/module_card_l10n_test.dart`
-- **subtitle** (1 connections) — `test/module_card_l10n_test.dart`
+- **package:ko_lernen_app/models/onboarding_first_scene.dart** (1 connections)
+- **_init** (1 connections) — `test/consent_invite_sheet_test.dart`
+- **main** (1 connections) — `test/consent_invite_sheet_test.dart`
+- **_pump** (1 connections) — `test/consent_invite_sheet_test.dart`
+- **pumpAndSettle** (1 connections) — `test/consent_invite_sheet_test.dart`
+- **_pumpPackResult** (1 connections) — `test/consent_invite_sheet_test.dart`
+- **pumpWidget** (1 connections) — `test/consent_invite_sheet_test.dart`
+- **_yes** (1 connections) — `test/consent_invite_sheet_test.dart`
+- **_cardFor** (1 connections) — `test/onboarding_start_screen_test.dart`
+- **didPush** (1 connections) — `test/onboarding_start_screen_test.dart`
+- **didReplace** (1 connections) — `test/onboarding_start_screen_test.dart`
+- **_host** (1 connections) — `test/onboarding_start_screen_test.dart`
+- **main** (1 connections) — `test/onboarding_start_screen_test.dart`
+- **routeNames** (1 connections) — `test/onboarding_start_screen_test.dart`
 - **button** (1 connections) — `test/practice_hub_ui_test.dart`
 - **_closeSheet** (1 connections) — `test/practice_hub_ui_test.dart`
 - **ensureVisible** (1 connections) — `test/practice_hub_ui_test.dart`
-- **main** (1 connections) — `test/practice_hub_ui_test.dart`
-- **_moduleCardWithTitle** (1 connections) — `test/practice_hub_ui_test.dart`
-- **_openPurpose** (1 connections) — `test/practice_hub_ui_test.dart`
-- **_pageScrollable** (1 connections) — `test/practice_hub_ui_test.dart`
-- **pump** (1 connections) — `test/practice_hub_ui_test.dart`
-- **pumpAndSettle** (1 connections) — `test/practice_hub_ui_test.dart`
-- **_pumpPractice** (1 connections) — `test/practice_hub_ui_test.dart`
-- **pumpWidget** (1 connections) — `test/practice_hub_ui_test.dart`
-- **_scrollPageTo** (1 connections) — `test/practice_hub_ui_test.dart`
-- **_scrollSheetTo** (1 connections) — `test/practice_hub_ui_test.dart`
-- **scrollUntilVisible** (1 connections) — `test/practice_hub_ui_test.dart`
-- **_sheetScrollable** (1 connections) — `test/practice_hub_ui_test.dart`
-- **_showAllActivities** (1 connections) — `test/practice_hub_ui_test.dart`
-- **tap** (1 connections) — `test/practice_hub_ui_test.dart`
-- *... and 2 more nodes in this community*
+- *... and 16 more nodes in this community*
 
 ## Relationships
 
+- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (7 shared connections)
 - [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (6 shared connections)
-- [dart:ui](dart-ui.md) (2 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
+- [choice_quizzes_uiux_test.dart](choice_quizzes_uiux_test.dart.md) (3 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (3 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (3 shared connections)
+- [entry_onboarding_uiux_test.dart](entry_onboarding_uiux_test.dart.md) (3 shared connections)
+- [card.dart](card.dart.md) (2 shared connections)
+- [StatefulWidget](StatefulWidget.md) (2 shared connections)
 - [standalone_games_uiux_test.dart](standalone_games_uiux_test.dart.md) (2 shared connections)
-- [String?](String_.md) (1 shared connections)
-- [quest_engines_uiux_test.dart](quest_engines_uiux_test.dart.md) (1 shared connections)
-- [StatelessWidget](StatelessWidget.md) (1 shared connections)
-- [study_activity_responsive_test.dart](study_activity_responsive_test.dart.md) (1 shared connections)
+- [bookshelf_custom_pack_uiux_test.dart](bookshelf_custom_pack_uiux_test.dart.md) (1 shared connections)
+- [pronunciation_studio_ui_test.dart](pronunciation_studio_ui_test.dart.md) (1 shared connections)
+- [vocab_notebook_studio_screen_test.dart](vocab_notebook_studio_screen_test.dart.md) (1 shared connections)
 
 ## Source Files
 
-- `test/module_card_l10n_test.dart`
+- `lib/widgets/sori/card.dart`
+- `test/consent_invite_sheet_test.dart`
+- `test/onboarding_start_screen_test.dart`
 - `test/practice_hub_ui_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 44 (100%)
+- EXTRACTED: 79 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

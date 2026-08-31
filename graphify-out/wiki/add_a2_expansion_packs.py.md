@@ -1,12 +1,12 @@
 # add_a2_expansion_packs.py
 
-> 3 nodes
+> 3 nodes · cohesion 1.00
 
 ## Key Concepts
 
+- **add_a2_expansion_packs.py** (2 connections) — `tools/content_factory/add_a2_expansion_packs.py`
 - **main()** (2 connections) — `tools/content_factory/add_a2_expansion_packs.py`
 - **next_id_start()** (2 connections) — `tools/content_factory/add_a2_expansion_packs.py`
-- **add_a2_expansion_packs.py** (2 connections) — `tools/content_factory/add_a2_expansion_packs.py`
 
 ## Relationships
 

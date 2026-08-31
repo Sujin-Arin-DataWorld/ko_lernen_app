@@ -1,6 +1,6 @@
 # whiten_clip_matte.py
 
-> 11 nodes
+> 11 nodes · cohesion 0.38
 
 ## Key Concepts
 
@@ -8,8 +8,8 @@
 - **treat()** (11 connections) — `tool/whiten_clip_matte.py`
 - **main()** (9 connections) — `tool/whiten_clip_matte.py`
 - **floor_grey_ratio()** (8 connections) — `tool/whiten_clip_matte.py`
-- **remux()** (5 connections) — `tool/whiten_clip_matte.py`
 - **Path** (5 connections)
+- **remux()** (5 connections) — `tool/whiten_clip_matte.py`
 - **encode()** (4 connections) — `tool/whiten_clip_matte.py`
 - **has_audio()** (3 connections) — `tool/whiten_clip_matte.py`
 - **Share of the lower frame that is neither white matte nor dark character. This…** (1 connections) — `tool/whiten_clip_matte.py`
@@ -21,9 +21,9 @@
 - [whiten_frame](whiten_frame.md) (10 shared connections)
 - [compose_home_hero_hanji.py](compose_home_hero_hanji.py.md) (5 shared connections)
 - [sheet](sheet.md) (3 shared connections)
-- [check_clip_matte.py](check_clip_matte.py.md) (2 shared connections)
-- [check_home_hero_matte.py](check_home_hero_matte.py.md) (2 shared connections)
-- [load_frames](load_frames.md) (1 shared connections)
+- [find_ffprobe](find_ffprobe.md) (3 shared connections)
+- [test_whiten_clip_matte.py](test_whiten_clip_matte.py.md) (1 shared connections)
+- [check_home_hero_matte.py](check_home_hero_matte.py.md) (1 shared connections)
 
 ## Source Files
 

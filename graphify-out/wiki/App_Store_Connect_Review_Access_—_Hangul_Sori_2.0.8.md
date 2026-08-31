@@ -1,6 +1,6 @@
 # App Store Connect Review Access — Hangul Sori 2.0.8
 
-> 7 nodes
+> 7 nodes · cohesion 0.29
 
 ## Key Concepts
 

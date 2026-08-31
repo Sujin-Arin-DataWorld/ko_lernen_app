@@ -1,6 +1,6 @@
 # window_class_guard_test.dart
 
-> 19 nodes
+> 19 nodes · cohesion 0.11
 
 ## Key Concepts
 
@@ -26,9 +26,9 @@
 
 ## Relationships
 
-- [dart:io](dart-io.md) (2 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
+- [File](File.md) (1 shared connections)
 - [List](List.md) (1 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
 
 ## Source Files
 

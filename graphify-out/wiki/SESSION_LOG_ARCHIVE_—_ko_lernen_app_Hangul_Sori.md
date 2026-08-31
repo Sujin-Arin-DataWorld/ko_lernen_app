@@ -1,10 +1,10 @@
 # SESSION_LOG_ARCHIVE — ko_lernen_app (Hangul Sori)
 
-> 380 nodes
+> 377 nodes · cohesion 0.01
 
 ## Key Concepts
 
-- **SESSION_LOG_ARCHIVE — ko_lernen_app (Hangul Sori)** (390 connections) — `docs/SESSION_LOG_ARCHIVE.md`
+- **SESSION_LOG_ARCHIVE — ko_lernen_app (Hangul Sori)** (387 connections) — `docs/SESSION_LOG_ARCHIVE.md`
 - **2026-05-21 (2차) — 발견 이슈 수정 + 역동적 애니메이션** (1 connections) — `docs/SESSION_LOG_ARCHIVE.md`
 - **2026-05-21 — 코드베이스 audit + 마스코트/퀘스트/홈 긴급 수정** (1 connections) — `docs/SESSION_LOG_ARCHIVE.md`
 - **2026-05-22 — 출시 폴리시 Week 1–4 (plan: hangul-sori-temporal-wombat)** (1 connections) — `docs/SESSION_LOG_ARCHIVE.md`
@@ -29,7 +29,7 @@
 - **2026-06-03 (에셋 대량 통합) — "누락이미지" 52장 적재적소 배치 + 키잉 + 일부 wiring** (1 connections) — `docs/SESSION_LOG_ARCHIVE.md`
 - **2026-06-03 (투명 후속) — 통합 스크립트가 놓친 흰배경 14장 키잉** (1 connections) — `docs/SESSION_LOG_ARCHIVE.md`
 - **2026-06-04 (구현 감사 + Phase 7·8·9 구현 + FCM + admin) — 커밋·푸시 완료(~baf3de1)** (1 connections) — `docs/SESSION_LOG_ARCHIVE.md`
-- *... and 355 more nodes in this community*
+- *... and 352 more nodes in this community*
 
 ## Relationships
 
@@ -51,7 +51,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 390 (100%)
+- EXTRACTED: 387 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

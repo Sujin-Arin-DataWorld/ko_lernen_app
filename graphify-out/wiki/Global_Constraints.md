@@ -1,25 +1,31 @@
 # Global Constraints
 
-> 16 nodes
+> 22 nodes · cohesion 0.09
 
 ## Key Concepts
 
-- **Global Constraints** (13 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
-- **W1 데이터·즉효 버그 Implementation Plan** (3 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
-- **2026-08-26-w1-content-quickfixes.md** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
-- **Self-Review 결과** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
-- **Task 10: 감사 스크립트 2종** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
-- **Task 11: audit_vocab_levels.py C1/C2 확장 (지시서 2.2)** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
-- **Task 12: 전 코퍼스 자연성 심사 + 승인 게이트 + 패치 도구** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
-- **Task 1: cloze 콘텐츠 가드 테스트** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
-- **Task 2: 시드 5건 데이터 교정 (CSV+cloze+satz 3파일 동기)** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
-- **Task 3: 자연성 프리필터 `tool/audit_content_naturalness.py`** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
-- **Task 4: 생성기 게이트 — pick_answer 폴백 → 예외** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
-- **Task 5: Silben 전체 문장 TTS (지시서 2.5)** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
-- **Task 6: generate_tts.py 확장 + 코퍼스 재생성 (W1 종료 게이트)** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
-- **Task 7: 전역 네이밍·카피 개편 (지시서 1.5, 1.9 + 사용자 추가 요청)** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
-- **Task 8: task_alt 테스터 아이콘 전역 스윕 (지시서 1.13, 1.17)** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
-- **Task 9: 보상 영수증 시트 X 버튼 (지시서 4.17)** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
+- **Global Constraints** (19 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
+- **W4 진행·복습 시스템 Implementation Plan** (3 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
+- **2026-08-27-w4-progress-review.md** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
+- **Self-Review 결과** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
+- **Task 10: SRS 일별 학습 원장 (`kl_study_log_v1_<dateIso>`)** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
+- **Task 11: ReviewDeckService.deckForIds** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
+- **Task 12: ReviewHubScreen 신설 + `/review/hub` 라우트** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
+- **Task 13: buildGrammarChoiceRound `allowedTargetIds`** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
+- **Task 14: grammar_study_plan.dart 모델 + grammar_plan_service.dart** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
+- **Task 15: storage_service.dart `kl_gram_plan_v1`** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
+- **Task 16: grammar_screen.dart 플랜 모드 (첫 진입 시트 + 일 헤더 + 완료 시트)** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
+- **Task 17: grammar_choice_quiz_screen.dart 재구축 + 카드 앞/뒷면 재설계** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
+- **Task 18: 클라우드 백업 화이트리스트 + 학습 데이터 내보내기 + 가드 테스트** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
+- **Task 1: LearnSessionQueue `_servedIds` + `currentIsRepeat`** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
+- **Task 2: vocab_pack_screen.dart 카운터 "3/9 · +N Wdh." + dispose 진행 영속화** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
+- **Task 3: vocab_pack_result_screen.dart 뒤로가기 복구** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
+- **Task 4: 표준팩 소급 복구 (팩 목록 열람 시 재동기화)** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
+- **Task 5: 커스텀팩 learnedWordCount + addVokSeen 누락 보완 + 책장 타일** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
+- **Task 6: `activeScenarioCheckpointContext` — course_mission_navigation.dart 확장** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
+- **Task 7: setScenarioStars 0성 최초 기록 허용** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
+- **Task 8: scenario_player_screen.dart courseContext 자동 유도 배선** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
+- **Task 9: scenarios_list_screen.dart onClosed 갱신** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
 
 ## Relationships
 
@@ -27,11 +33,11 @@
 
 ## Source Files
 
-- `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
+- `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
 
 ## Audit Trail
 
-- EXTRACTED: 15 (100%)
+- EXTRACTED: 21 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

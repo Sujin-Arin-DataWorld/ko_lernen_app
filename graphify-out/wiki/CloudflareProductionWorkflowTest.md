@@ -1,15 +1,15 @@
 # CloudflareProductionWorkflowTest
 
-> 6 nodes
+> 6 nodes · cohesion 0.33
 
 ## Key Concepts
 
 - **CloudflareProductionWorkflowTest** (5 connections) — `.github/scripts/test_cloudflare_production_workflow.py`
+- **test_cloudflare_production_workflow.py** (1 connections) — `.github/scripts/test_cloudflare_production_workflow.py`
 - **.setUpClass()** (1 connections) — `.github/scripts/test_cloudflare_production_workflow.py`
 - **.test_release_uses_exact_commit_and_production_credentials()** (1 connections) — `.github/scripts/test_cloudflare_production_workflow.py`
 - **.test_release_waits_for_website_gate_and_explicit_enablement()** (1 connections) — `.github/scripts/test_cloudflare_production_workflow.py`
 - **.test_shared_glossary_is_a_workflow_trigger()** (1 connections) — `.github/scripts/test_cloudflare_production_workflow.py`
-- **test_cloudflare_production_workflow.py** (1 connections) — `.github/scripts/test_cloudflare_production_workflow.py`
 
 ## Relationships
 

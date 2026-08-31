@@ -1,6 +1,6 @@
 # Hören 책가도 — 레벨별 12칸 서재 설계
 
-> 33 nodes
+> 33 nodes · cohesion 0.06
 
 ## Key Concepts
 

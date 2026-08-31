@@ -1,6 +1,6 @@
 # account-deletion-page.test.js
 
-> 11 nodes
+> 11 nodes · cohesion 0.25
 
 ## Key Concepts
 
@@ -10,8 +10,8 @@
 - **startBrowserPage()** (3 connections) — `docs/account-deletion-page.js`
 - **proofFromFragment()** (2 connections) — `docs/account-deletion-page.js`
 - **renderBrowserStatus()** (2 connections) — `docs/account-deletion-page.js`
-- **browserHarness()** (1 connections) — `docs/account-deletion-page.test.js`
 - **assert** (1 connections) — `docs/account-deletion-page.test.js`
+- **browserHarness()** (1 connections) — `docs/account-deletion-page.test.js`
 - **{
   CONSUMPTION_ENDPOINT,
   consumeDeletionProof,

@@ -1,6 +1,6 @@
 # check_card_style.py
 
-> 28 nodes
+> 28 nodes · cohesion 0.20
 
 ## Key Concepts
 
@@ -9,8 +9,8 @@
 - **ndarray** (9 connections)
 - **run_baseline()** (8 connections) — `tool/check_card_style.py`
 - **run_register()** (8 connections) — `tool/check_card_style.py`
-- **run_all()** (7 connections) — `tool/check_card_style.py`
 - **Path** (7 connections)
+- **run_all()** (7 connections) — `tool/check_card_style.py`
 - **find_ivory_patch()** (6 connections) — `tool/check_card_style.py`
 - **main()** (6 connections) — `tool/check_card_style.py`
 - **_blur()** (5 connections) — `tool/check_card_style.py`

@@ -1,6 +1,6 @@
 # Handoff: Batch 20 balanced TTS generation and runtime routing
 
-> 27 nodes
+> 27 nodes · cohesion 0.07
 
 ## Key Concepts
 

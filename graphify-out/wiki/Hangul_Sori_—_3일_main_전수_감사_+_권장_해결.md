@@ -1,6 +1,6 @@
 # Hangul Sori — 3일 main 전수 감사 + 권장 해결
 
-> 31 nodes
+> 31 nodes · cohesion 0.06
 
 ## Key Concepts
 

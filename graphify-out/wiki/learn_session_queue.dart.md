@@ -1,6 +1,6 @@
 # learn_session_queue.dart
 
-> 19 nodes
+> 19 nodes · cohesion 0.11
 
 ## Key Concepts
 
@@ -26,11 +26,10 @@
 
 ## Relationships
 
+- [List](List.md) (2 shared connections)
 - [Map](Map.md) (2 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
-- [typedef](typedef.md) (1 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
 - [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (1 shared connections)
 
 ## Source Files

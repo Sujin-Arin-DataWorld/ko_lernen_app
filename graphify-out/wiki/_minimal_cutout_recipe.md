@@ -1,6 +1,6 @@
 # _minimal_cutout_recipe
 
-> 26 nodes
+> 26 nodes · cohesion 0.13
 
 ## Key Concepts
 

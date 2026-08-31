@@ -1,6 +1,6 @@
 # 2026-08-04 · RoomLayer — 슬롯 렌더
 
-> 4 nodes
+> 4 nodes · cohesion 0.50
 
 ## Key Concepts
 

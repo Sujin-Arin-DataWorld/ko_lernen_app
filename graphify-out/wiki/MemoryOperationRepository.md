@@ -1,6 +1,6 @@
 # MemoryOperationRepository
 
-> 16 nodes
+> 16 nodes · cohesion 0.32
 
 ## Key Concepts
 

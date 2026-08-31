@@ -1,6 +1,6 @@
 # enrich_smalltalk_metadata.py
 
-> 8 nodes
+> 8 nodes · cohesion 0.50
 
 ## Key Concepts
 

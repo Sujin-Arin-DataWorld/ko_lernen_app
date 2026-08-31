@@ -1,13 +1,14 @@
 # enum
 
-> 4 nodes
+> 5 nodes · cohesion 0.40
 
 ## Key Concepts
 
-- **enum** (3 connections) — `tools/content_factory/schemas/character_profile.schema.json`
-- **voice** (2 connections) — `tools/content_factory/schemas/character_profile.schema.json`
-- **female** (1 connections) — `tools/content_factory/schemas/character_profile.schema.json`
-- **male** (1 connections) — `tools/content_factory/schemas/character_profile.schema.json`
+- **enum** (4 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- **status** (2 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- **partially_promoted** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- **promoted** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- **review_only** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
 
 ## Relationships
 
@@ -15,11 +16,11 @@
 
 ## Source Files
 
-- `tools/content_factory/schemas/character_profile.schema.json`
+- `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
 
 ## Audit Trail
 
-- EXTRACTED: 4 (100%)
+- EXTRACTED: 5 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

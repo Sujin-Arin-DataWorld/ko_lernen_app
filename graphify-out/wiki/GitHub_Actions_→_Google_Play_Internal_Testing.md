@@ -1,6 +1,6 @@
 # GitHub Actions → Google Play Internal Testing
 
-> 5 nodes
+> 5 nodes · cohesion 0.40
 
 ## Key Concepts
 

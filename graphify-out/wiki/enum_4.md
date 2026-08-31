@@ -1,17 +1,13 @@
 # enum
 
-> 8 nodes
+> 4 nodes · cohesion 0.50
 
 ## Key Concepts
 
-- **enum** (7 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
-- **level** (2 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
-- **a1** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
-- **a2** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
-- **b1** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
-- **b2** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
-- **c1** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
-- **c2** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **enum** (3 connections) — `tools/content_factory/schemas/character_profile.schema.json`
+- **voice** (2 connections) — `tools/content_factory/schemas/character_profile.schema.json`
+- **female** (1 connections) — `tools/content_factory/schemas/character_profile.schema.json`
+- **male** (1 connections) — `tools/content_factory/schemas/character_profile.schema.json`
 
 ## Relationships
 
@@ -19,11 +15,11 @@
 
 ## Source Files
 
-- `tools/content_factory/schemas/scenario_brief.schema.json`
+- `tools/content_factory/schemas/character_profile.schema.json`
 
 ## Audit Trail
 
-- EXTRACTED: 8 (100%)
+- EXTRACTED: 4 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

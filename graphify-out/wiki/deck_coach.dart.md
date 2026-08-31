@@ -1,18 +1,13 @@
 # deck_coach.dart
 
-> 32 nodes
+> 27 nodes · cohesion 0.08
 
 ## Key Concepts
 
 - **deck_coach.dart** (34 connections) — `lib/widgets/sori/deck_coach.dart`
-- **ValueNotifier** (18 connections)
-- **locale_service.dart** (6 connections) — `lib/services/locale_service.dart`
 - **SoriDeckFlipHint** (3 connections) — `lib/widgets/sori/deck_coach.dart`
 - **_SoriDeckFlipHintState** (3 connections) — `lib/widgets/sori/deck_coach.dart`
 - **resetSoriDeckCoachForTesting** (2 connections) — `lib/widgets/sori/deck_coach.dart`
-- **_loadInitial** (1 connections) — `lib/services/locale_service.dart`
-- **localeNotifier** (1 connections) — `lib/services/locale_service.dart`
-- **setLocale** (1 connections) — `lib/services/locale_service.dart`
 - **afterCoachIds** (1 connections) — `lib/widgets/sori/deck_coach.dart`
 - **build** (1 connections) — `lib/widgets/sori/deck_coach.dart`
 - **createState** (1 connections) — `lib/widgets/sori/deck_coach.dart`
@@ -29,31 +24,32 @@
 - **soriDeckNudgeDue** (1 connections) — `lib/widgets/sori/deck_coach.dart`
 - **_soriDeckNudgeFiredThisSession** (1 connections) — `lib/widgets/sori/deck_coach.dart`
 - **_soriDeckNudgeResetRevision** (1 connections) — `lib/widgets/sori/deck_coach.dart`
-- *... and 7 more nodes in this community*
+- **supportsSave** (1 connections) — `lib/widgets/sori/deck_coach.dart`
+- **_syncSoriDeckCoachReset** (1 connections) — `lib/widgets/sori/deck_coach.dart`
+- **_syncSoriDeckNudgeReset** (1 connections) — `lib/widgets/sori/deck_coach.dart`
+- **t** (1 connections) — `lib/widgets/sori/deck_coach.dart`
+- **trigger** (1 connections) — `lib/widgets/sori/deck_coach.dart`
+- *... and 2 more nodes in this community*
 
 ## Relationships
 
-- [package:flutter/material.dart](package-flutter-material.dart.md) (4 shared connections)
-- [dart:async](dart-async.md) (4 shared connections)
-- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (3 shared connections)
-- [hangul_screen.dart](hangul_screen.dart.md) (2 shared connections)
-- [_State](_State.md) (2 shared connections)
-- [storage_service.dart](storage_service.dart.md) (1 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
-- [wordbook_add.dart](wordbook_add.dart.md) (1 shared connections)
-- [@visibleForTesting](@visibleForTesting.md) (1 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (2 shared connections)
+- [StatefulWidget](StatefulWidget.md) (2 shared connections)
+- [hangul_screen.dart](hangul_screen.dart.md) (1 shared connections)
 - [sori_stage_shell.dart](sori_stage_shell.dart.md) (1 shared connections)
-- [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (1 shared connections)
-- [_](_.md) (1 shared connections)
+- [dart:async](dart-async.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
+- [speakable.dart](speakable.dart.md) (1 shared connections)
+- [@visibleForTesting](@visibleForTesting.md) (1 shared connections)
 
 ## Source Files
 
-- `lib/services/locale_service.dart`
 - `lib/widgets/sori/deck_coach.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 60 (100%)
+- EXTRACTED: 38 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

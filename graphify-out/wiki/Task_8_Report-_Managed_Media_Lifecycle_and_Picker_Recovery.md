@@ -1,29 +1,25 @@
 # Task 8 Report: Managed Media Lifecycle and Picker Recovery
 
-> 20 nodes
+> 16 nodes · cohesion 0.16
 
 ## Key Concepts
 
 - **Task 8 Report: Managed Media Lifecycle and Picker Recovery** (9 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-8-report.md`
 - **Review-Fix Addendum — 2026-07-29** (5 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-8-report.md`
 - **Review-Fix Round 2 Addendum — 2026-07-29** (5 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-8-report.md`
-- **TDD Evidence** (3 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-8-report.md`
+- **TDD Evidence** (5 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-8-report.md`
+- **Boundaries** (2 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-8-report.md`
+- **Fixed Review Findings** (2 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-8-report.md`
 - **2026-07-29-release-hardening/task-8-report.md** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-8-report.md`
-- **Boundaries** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-8-report.md`
-- **Boundaries** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-8-report.md`
 - **Final Verification** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-8-report.md`
 - **Fix-Round-2 Verification** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-8-report.md`
 - **Fix-Round Verification** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-8-report.md`
-- **Fixed Review Findings** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-8-report.md`
-- **Fixed Review Findings** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-8-report.md`
 - **Focused Regression Coverage** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-8-report.md`
 - **GREEN** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-8-report.md`
 - **Main Files** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-8-report.md`
 - **Outcome** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-8-report.md`
 - **RED** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-8-report.md`
 - **Safety and External Boundaries** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-8-report.md`
-- **TDD Evidence** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-8-report.md`
-- **TDD Evidence** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-8-report.md`
 
 ## Relationships
 

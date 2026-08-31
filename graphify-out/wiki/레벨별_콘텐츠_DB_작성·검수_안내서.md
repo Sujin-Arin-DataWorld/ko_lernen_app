@@ -1,6 +1,6 @@
 # 레벨별 콘텐츠 DB 작성·검수 안내서
 
-> 46 nodes
+> 46 nodes · cohesion 0.04
 
 ## Key Concepts
 

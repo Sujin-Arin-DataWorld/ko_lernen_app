@@ -1,6 +1,6 @@
 # HANDOFF — Google 계정 연동 무한 루프 (reconciliationPending)
 
-> 14 nodes
+> 14 nodes · cohesion 0.14
 
 ## Key Concepts
 

@@ -1,6 +1,6 @@
 # Pronunciation (36)
 
-> 37 nodes
+> 37 nodes · cohesion 0.05
 
 ## Key Concepts
 

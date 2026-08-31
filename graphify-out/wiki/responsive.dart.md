@@ -1,6 +1,6 @@
 # responsive.dart
 
-> 41 nodes
+> 41 nodes · cohesion 0.05
 
 ## Key Concepts
 
@@ -34,12 +34,14 @@
 
 ## Relationships
 
-- [package:flutter/material.dart](package-flutter-material.dart.md) (3 shared connections)
 - [StatelessWidget](StatelessWidget.md) (3 shared connections)
 - [window_class.dart](window_class.dart.md) (1 shared connections)
+- [hanji_texture.dart](hanji_texture.dart.md) (1 shared connections)
+- [dart:async](dart-async.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
-- [dart:ui](dart-ui.md) (1 shared connections)
 - [hanok_world_screen_test.dart](hanok_world_screen_test.dart.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
 
 ## Source Files
 

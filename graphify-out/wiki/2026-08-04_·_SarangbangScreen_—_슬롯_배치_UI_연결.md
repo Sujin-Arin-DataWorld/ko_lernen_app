@@ -1,6 +1,6 @@
 # 2026-08-04 · SarangbangScreen — 슬롯 배치 UI 연결
 
-> 5 nodes
+> 5 nodes · cohesion 0.40
 
 ## Key Concepts
 

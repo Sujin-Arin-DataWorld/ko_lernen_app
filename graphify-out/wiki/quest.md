@@ -1,6 +1,6 @@
 # quest
 
-> 47 nodes
+> 47 nodes · cohesion 0.07
 
 ## Key Concepts
 
@@ -9,10 +9,10 @@
 - **SceneContractTest** (12 connections) — `tools/content_factory/test_build_batch_15_scenarios.py`
 - **batch_16_scene_scripts.py** (7 connections) — `tools/content_factory/data/batch_16_scene_scripts.py`
 - **test_build_batch_15_scenarios.py** (7 connections) — `tools/content_factory/test_build_batch_15_scenarios.py`
-- **BuildOutputTest** (6 connections) — `tools/content_factory/test_build_batch_15_scenarios.py`
-- **build()** (6 connections) — `tools/content_factory/build_batch_15_scenarios.py`
 - **build_batch_15_scenarios.py** (6 connections) — `tools/content_factory/build_batch_15_scenarios.py`
+- **build()** (6 connections) — `tools/content_factory/build_batch_15_scenarios.py`
 - **batch_14_scene_scripts.py** (6 connections) — `tools/content_factory/data/batch_14_scene_scripts.py`
+- **BuildOutputTest** (6 connections) — `tools/content_factory/test_build_batch_15_scenarios.py`
 - **batch_15_scene_scripts.py** (5 connections) — `tools/content_factory/data/batch_15_scene_scripts.py`
 - **_sort_key()** (3 connections) — `tools/content_factory/build_batch_15_scenarios.py`
 - **_to_record()** (3 connections) — `tools/content_factory/build_batch_15_scenarios.py`
@@ -27,8 +27,8 @@
 - **batch_16_c2_jurisdiction.py** (3 connections) — `tools/content_factory/data/batch_16_c2_jurisdiction.py`
 - **batch_16_c2_limitation.py** (3 connections) — `tools/content_factory/data/batch_16_c2_limitation.py`
 - **batch_16_c2_representation.py** (3 connections) — `tools/content_factory/data/batch_16_c2_representation.py`
-- **ShelfSlugContractTest** (2 connections) — `tools/content_factory/test_build_batch_15_scenarios.py`
 - **main()** (2 connections) — `tools/content_factory/build_batch_15_scenarios.py`
+- **Any** (2 connections)
 - *... and 22 more nodes in this community*
 
 ## Relationships

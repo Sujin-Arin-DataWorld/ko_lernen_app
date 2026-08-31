@@ -1,6 +1,6 @@
 # verify_deployed_source.py
 
-> 38 nodes
+> 38 nodes · cohesion 0.12
 
 ## Key Concepts
 
@@ -23,12 +23,12 @@
 - **_normalized_archive_name()** (4 connections) — `functions/analyze_korean_text/verify_deployed_source.py`
 - **_parser()** (4 connections) — `functions/analyze_korean_text/verify_deployed_source.py`
 - **_run_gcloud()** (4 connections) — `functions/analyze_korean_text/verify_deployed_source.py`
-- **_digest_entries()** (3 connections) — `functions/analyze_korean_text/verify_deployed_source.py`
 - **Path** (3 connections)
+- **_digest_entries()** (3 connections) — `functions/analyze_korean_text/verify_deployed_source.py`
+- **test_verify_deployed_source.py** (2 connections) — `functions/analyze_korean_text/test_verify_deployed_source.py`
 - **.setUp()** (2 connections) — `functions/analyze_korean_text/test_verify_deployed_source.py`
 - **.test_changed_runtime_bytes_fail()** (2 connections) — `functions/analyze_korean_text/test_verify_deployed_source.py`
 - **.test_deploy_app_ids_match_flutter_and_android_runtime_configs()** (2 connections) — `functions/analyze_korean_text/test_verify_deployed_source.py`
-- **.test_exact_archive_matches_local_canonical_digest()** (2 connections) — `functions/analyze_korean_text/test_verify_deployed_source.py`
 - *... and 13 more nodes in this community*
 
 ## Relationships

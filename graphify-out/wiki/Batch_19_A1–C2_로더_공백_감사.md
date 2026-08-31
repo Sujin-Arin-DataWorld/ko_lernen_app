@@ -1,6 +1,6 @@
 # Batch 19 A1–C2 로더 공백 감사
 
-> 7 nodes
+> 7 nodes · cohesion 0.29
 
 ## Key Concepts
 

@@ -1,11 +1,11 @@
 # integrate_jongga_assets.py
 
-> 6 nodes
+> 6 nodes · cohesion 0.53
 
 ## Key Concepts
 
-- **main()** (4 connections) — `tool/integrate_jongga_assets.py`
 - **integrate_jongga_assets.py** (4 connections) — `tool/integrate_jongga_assets.py`
+- **main()** (4 connections) — `tool/integrate_jongga_assets.py`
 - **key_transparent()** (3 connections) — `tool/integrate_jongga_assets.py`
 - **save_compact()** (2 connections) — `tool/integrate_jongga_assets.py`
 - **stem_of()** (2 connections) — `tool/integrate_jongga_assets.py`

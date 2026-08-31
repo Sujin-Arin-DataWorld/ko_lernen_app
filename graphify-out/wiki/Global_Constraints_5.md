@@ -1,31 +1,23 @@
 # Global Constraints
 
-> 22 nodes
+> 14 nodes · cohesion 0.14
 
 ## Key Concepts
 
-- **Global Constraints** (19 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
-- **W4 진행·복습 시스템 Implementation Plan** (3 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
-- **2026-08-27-w4-progress-review.md** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
-- **Self-Review 결과** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
-- **Task 10: SRS 일별 학습 원장 (`kl_study_log_v1_<dateIso>`)** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
-- **Task 11: ReviewDeckService.deckForIds** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
-- **Task 12: ReviewHubScreen 신설 + `/review/hub` 라우트** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
-- **Task 13: buildGrammarChoiceRound `allowedTargetIds`** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
-- **Task 14: grammar_study_plan.dart 모델 + grammar_plan_service.dart** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
-- **Task 15: storage_service.dart `kl_gram_plan_v1`** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
-- **Task 16: grammar_screen.dart 플랜 모드 (첫 진입 시트 + 일 헤더 + 완료 시트)** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
-- **Task 17: grammar_choice_quiz_screen.dart 재구축 + 카드 앞/뒷면 재설계** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
-- **Task 18: 클라우드 백업 화이트리스트 + 학습 데이터 내보내기 + 가드 테스트** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
-- **Task 1: LearnSessionQueue `_servedIds` + `currentIsRepeat`** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
-- **Task 2: vocab_pack_screen.dart 카운터 "3/9 · +N Wdh." + dispose 진행 영속화** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
-- **Task 3: vocab_pack_result_screen.dart 뒤로가기 복구** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
-- **Task 4: 표준팩 소급 복구 (팩 목록 열람 시 재동기화)** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
-- **Task 5: 커스텀팩 learnedWordCount + addVokSeen 누락 보완 + 책장 타일** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
-- **Task 6: `activeScenarioCheckpointContext` — course_mission_navigation.dart 확장** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
-- **Task 7: setScenarioStars 0성 최초 기록 허용** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
-- **Task 8: scenario_player_screen.dart courseContext 자동 유도 배선** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
-- **Task 9: scenarios_list_screen.dart onClosed 갱신** (1 connections) — `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
+- **Global Constraints** (11 connections) — `docs/superpowers/plans/2026-08-26-w2-performance.md`
+- **W2 성능 웨이브 Implementation Plan** (3 connections) — `docs/superpowers/plans/2026-08-26-w2-performance.md`
+- **2026-08-26-w2-performance.md** (1 connections) — `docs/superpowers/plans/2026-08-26-w2-performance.md`
+- **Self-Review 결과** (1 connections) — `docs/superpowers/plans/2026-08-26-w2-performance.md`
+- **Task 10: Android 12+ 스플래시 아이콘 세이프존 재제작 (P5-③, 검수#26)** (1 connections) — `docs/superpowers/plans/2026-08-26-w2-performance.md`
+- **Task 1: 콜드스타트 계측 절차 문서화 (전/후 비교 기준선)** (1 connections) — `docs/superpowers/plans/2026-08-26-w2-performance.md`
+- **Task 2: 보상 영수증 캡처 — 로컬/네트워크 필드 분리 (P4-①, 검수#7)** (1 connections) — `docs/superpowers/plans/2026-08-26-w2-performance.md`
+- **Task 3: 카탈로그 탭 lazy load (P4-②)** (1 connections) — `docs/superpowers/plans/2026-08-26-w2-performance.md`
+- **Task 4: `scenarioStars`/`completedScenarios` 파싱 메모이즈 (P4-③)** (1 connections) — `docs/superpowers/plans/2026-08-26-w2-performance.md`
+- **Task 5: `_cellAspectRatio` 메모이즈 (P4-④, 위치 정정)** (1 connections) — `docs/superpowers/plans/2026-08-26-w2-performance.md`
+- **Task 6: 스플래시 게이트 — 고정 2000ms → `Future.wait` 상한부 (P4-⑤, 검수#10)** (1 connections) — `docs/superpowers/plans/2026-08-26-w2-performance.md`
+- **Task 7: `ScenarioLoader` — `findById` + 샤드 파싱 `compute()` 이관 (P5-①)** (1 connections) — `docs/superpowers/plans/2026-08-26-w2-performance.md`
+- **Task 8: pre-runApp 병렬화 가드 재작성 — "runner 이전 await 존재" (P5-②a, 검수#11)** (1 connections) — `docs/superpowers/plans/2026-08-26-w2-performance.md`
+- **Task 9: pre-runApp 병렬화 — `SceneAssetResolver.load()` ∥ `DancheongBurst.preload()` (P5-②b)** (1 connections) — `docs/superpowers/plans/2026-08-26-w2-performance.md`
 
 ## Relationships
 
@@ -33,11 +25,11 @@
 
 ## Source Files
 
-- `docs/superpowers/plans/2026-08-27-w4-progress-review.md`
+- `docs/superpowers/plans/2026-08-26-w2-performance.md`
 
 ## Audit Trail
 
-- EXTRACTED: 21 (100%)
+- EXTRACTED: 13 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

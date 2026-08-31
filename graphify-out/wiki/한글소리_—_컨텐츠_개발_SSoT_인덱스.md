@@ -1,6 +1,6 @@
 # 한글소리 — 컨텐츠 개발 SSoT 인덱스
 
-> 8 nodes
+> 8 nodes · cohesion 0.25
 
 ## Key Concepts
 

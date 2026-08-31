@@ -1,66 +1,71 @@
 # gye_screen.dart
 
-> 169 nodes
+> 258 nodes · cohesion 0.01
 
 ## Key Concepts
 
 - **gye_screen.dart** (108 connections) — `lib/screens/gye_screen.dart`
+- **../widgets/sori/button.dart** (79 connections)
+- **gye_tab_screen.dart** (67 connections) — `lib/screens/gye_tab_screen.dart`
+- **practice_hub_screen.dart** (57 connections) — `lib/screens/practice_hub_screen.dart`
 - **gye_members_screen.dart** (44 connections) — `lib/screens/gye_members_screen.dart`
+- **../widgets/sori/window_class.dart** (44 connections)
 - **../widgets/app_loading.dart** (42 connections)
 - **gye_create_screen.dart** (41 connections) — `lib/screens/gye_create_screen.dart`
-- **dure_board.dart** (38 connections) — `lib/widgets/sori/dure_board.dart`
+- **../widgets/sori/standard_page.dart** (39 connections)
 - **gye_join_screen.dart** (30 connections) — `lib/screens/gye_join_screen.dart`
 - **../widgets/sori/toast.dart** (29 connections)
-- **consent_screen.dart** (28 connections) — `lib/screens/consent_screen.dart`
-- **../../models/gye.dart** (17 connections)
+- **../widgets/sori/sheet.dart** (22 connections)
+- **guide_topic_detail_screen.dart** (21 connections) — `lib/features/guide/guide_topic_detail_screen.dart`
+- **main_shelf_preview.dart** (21 connections) — `lib/main_shelf_preview.dart`
+- **my_words_screen.dart** (17 connections) — `lib/screens/my_words_screen.dart`
+- **sori_stage_reward_receipt_sheet.dart** (16 connections) — `lib/screens/sori_stage/sori_stage_reward_receipt_sheet.dart`
 - **../widgets/sori/text_field.dart** (16 connections)
 - **../widgets/sori/dialog.dart** (11 connections)
 - **../../services/gye_service.dart** (9 connections)
 - **../services/account/cloud_write_session.dart** (7 connections)
-- **dure_title.dart** (5 connections) — `lib/data/dure_title.dart`
-- **Stream** (5 connections)
-- **_GyeScreenState** (4 connections) — `lib/screens/gye_screen.dart`
+- **_GyeTabScreenState** (4 connections) — `lib/screens/gye_tab_screen.dart`
+- **_PracticeHubScreenState** (4 connections) — `lib/screens/practice_hub_screen.dart`
 - **../l10n/gye_error_text.dart** (3 connections)
-- **gye_error_text.dart** (3 connections) — `lib/l10n/gye_error_text.dart`
-- **GyeScreen** (3 connections) — `lib/screens/gye_screen.dart`
-- **../widgets/sori/external_link.dart** (3 connections)
-- **DureTitle** (2 connections) — `lib/data/dure_title.dart`
-- **GyeReportReason** (2 connections) — `lib/models/gye.dart`
-- **GyeMembersScreen** (2 connections) — `lib/screens/gye_members_screen.dart`
-- **_GyeSafetyRulesCard** (2 connections) — `lib/screens/gye_members_screen.dart`
-- **_ProfileStat** (2 connections) — `lib/screens/gye_members_screen.dart`
-- *... and 144 more nodes in this community*
+- **GuideModuleStepViewModel** (3 connections) — `lib/features/guide/guide_presentation.dart`
+- **GuideScenarioCategorySectionViewModel** (3 connections) — `lib/features/guide/guide_presentation.dart`
+- *... and 233 more nodes in this community*
 
 ## Relationships
 
-- [book_result_screen.dart](book_result_screen.dart.md) (25 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (16 shared connections)
-- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (14 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (13 shared connections)
-- [bool get](bool_get.md) (12 shared connections)
-- [_State](_State.md) (11 shared connections)
-- [StatelessWidget](StatelessWidget.md) (11 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (9 shared connections)
-- [String?](String_.md) (8 shared connections)
-- [_](_.md) (7 shared connections)
-- [gye_dedication_action.dart](gye_dedication_action.dart.md) (7 shared connections)
-- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (6 shared connections)
+- [List](List.md) (52 shared connections)
+- [StatelessWidget](StatelessWidget.md) (33 shared connections)
+- [StatefulWidget](StatefulWidget.md) (32 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (26 shared connections)
+- [learning_path_screen.dart](learning_path_screen.dart.md) (20 shared connections)
+- [book_result_screen.dart](book_result_screen.dart.md) (16 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (14 shared connections)
+- [sori_stage_today_screen.dart](sori_stage_today_screen.dart.md) (13 shared connections)
+- [kkeunmari_screen.dart](kkeunmari_screen.dart.md) (12 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (10 shared connections)
+- [_](_.md) (10 shared connections)
+- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (10 shared connections)
 
 ## Source Files
 
-- `lib/data/dure_title.dart`
+- `lib/features/guide/guide_presentation.dart`
+- `lib/features/guide/guide_topic_detail_screen.dart`
 - `lib/l10n/gye_error_text.dart`
+- `lib/main_shelf_preview.dart`
 - `lib/models/gye.dart`
-- `lib/screens/consent_screen.dart`
+- `lib/models/sori_stage_progression.dart`
 - `lib/screens/gye_create_screen.dart`
 - `lib/screens/gye_join_screen.dart`
 - `lib/screens/gye_members_screen.dart`
 - `lib/screens/gye_screen.dart`
-- `lib/widgets/sori/dure_board.dart`
+- `lib/screens/gye_tab_screen.dart`
+- `lib/screens/my_words_screen.dart`
+- `lib/screens/practice_hub_screen.dart`
+- `lib/screens/sori_stage/sori_stage_reward_receipt_sheet.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 420 (100%)
+- EXTRACTED: 723 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

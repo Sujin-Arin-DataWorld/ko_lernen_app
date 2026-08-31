@@ -1,6 +1,6 @@
 # load_nouns
 
-> 8 nodes
+> 8 nodes · cohesion 0.36
 
 ## Key Concepts
 

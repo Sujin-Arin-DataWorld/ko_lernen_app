@@ -1,6 +1,6 @@
 # 개인 한옥 지도 실기기 QA
 
-> 5 nodes
+> 5 nodes · cohesion 0.40
 
 ## Key Concepts
 

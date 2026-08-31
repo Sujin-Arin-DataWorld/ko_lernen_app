@@ -1,13 +1,12 @@
 # curriculum.dart
 
-> 69 nodes
+> 68 nodes · cohesion 0.03
 
 ## Key Concepts
 
 - **curriculum.dart** (76 connections) — `lib/models/curriculum.dart`
 - **CurriculumContentKind** (4 connections)
 - **MasteryErrorReason** (4 connections) — `lib/models/curriculum.dart`
-- **CurriculumText** (3 connections) — `lib/models/curriculum.dart`
 - **SpeechStyle** (3 connections) — `lib/models/curriculum.dart`
 - **ConceptKind** (2 connections) — `lib/models/curriculum.dart`
 - **ConceptKindX** (2 connections) — `lib/models/curriculum.dart`
@@ -29,21 +28,23 @@
 - **contentKind** (1 connections) — `lib/models/curriculum.dart`
 - **CourseContentState** (1 connections) — `lib/models/curriculum.dart`
 - **courseEligible** (1 connections) — `lib/models/curriculum.dart`
-- *... and 44 more nodes in this community*
+- **courseUnitId** (1 connections) — `lib/models/curriculum.dart`
+- *... and 43 more nodes in this community*
 
 ## Relationships
 
-- [_](_.md) (4 shared connections)
-- [String?](String_.md) (2 shared connections)
+- [List](List.md) (2 shared connections)
 - [course_mastery_service.dart](course_mastery_service.dart.md) (2 shared connections)
+- [cloze_game_screen.dart](cloze_game_screen.dart.md) (1 shared connections)
 - [curriculum_alignment_contract.dart](curriculum_alignment_contract.dart.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
+- [hanji_texture.dart](hanji_texture.dart.md) (1 shared connections)
+- [String?](String_.md) (1 shared connections)
+- [_](_.md) (1 shared connections)
+- [scenario_can_do_result.dart](scenario_can_do_result.dart.md) (1 shared connections)
+- [can_do_segment.dart](can_do_segment.dart.md) (1 shared connections)
 - [vocab.dart](vocab.dart.md) (1 shared connections)
 - [learning_semantic_contract.dart](learning_semantic_contract.dart.md) (1 shared connections)
-- [can_do_segment.dart](can_do_segment.dart.md) (1 shared connections)
 - [grammar_screen.dart](grammar_screen.dart.md) (1 shared connections)
-- [scenario.dart](scenario.dart.md) (1 shared connections)
 
 ## Source Files
 
@@ -51,7 +52,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 89 (100%)
+- EXTRACTED: 87 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

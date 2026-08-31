@@ -1,6 +1,6 @@
 # `canonical_120_v1` 현재 인수인계
 
-> 8 nodes
+> 8 nodes · cohesion 0.25
 
 ## Key Concepts
 

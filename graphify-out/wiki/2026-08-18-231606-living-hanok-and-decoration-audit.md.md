@@ -1,6 +1,6 @@
 # 2026-08-18-231606-living-hanok-and-decoration-audit.md
 
-> 3 nodes
+> 3 nodes · cohesion 1.00
 
 ## Key Concepts
 

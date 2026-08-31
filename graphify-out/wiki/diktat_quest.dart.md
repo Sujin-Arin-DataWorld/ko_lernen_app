@@ -1,6 +1,6 @@
 # diktat_quest.dart
 
-> 48 nodes
+> 48 nodes · cohesion 0.04
 
 ## Key Concepts
 
@@ -33,18 +33,18 @@
 
 ## Relationships
 
-- [book_result_screen.dart](book_result_screen.dart.md) (3 shared connections)
-- [String?](String_.md) (2 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (2 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (3 shared connections)
+- [List](List.md) (2 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (2 shared connections)
 - [uebersetzen_quest.dart](uebersetzen_quest.dart.md) (2 shared connections)
-- [_State](_State.md) (2 shared connections)
-- [List](List.md) (1 shared connections)
+- [gye_screen.dart](gye_screen.dart.md) (2 shared connections)
+- [StatefulWidget](StatefulWidget.md) (2 shared connections)
+- [Color](Color.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
-- [hanok_world_screen.dart](hanok_world_screen.dart.md) (1 shared connections)
-- [hoerverstehen_quest.dart](hoerverstehen_quest.dart.md) (1 shared connections)
-- [gye_screen.dart](gye_screen.dart.md) (1 shared connections)
+- [book_preview_screen.dart](book_preview_screen.dart.md) (1 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (1 shared connections)
 
 ## Source Files
 

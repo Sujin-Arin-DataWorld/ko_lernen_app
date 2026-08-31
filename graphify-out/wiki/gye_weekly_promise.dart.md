@@ -1,6 +1,6 @@
 # gye_weekly_promise.dart
 
-> 19 nodes
+> 19 nodes · cohesion 0.11
 
 ## Key Concepts
 
@@ -26,7 +26,7 @@
 
 ## Relationships
 
-- [static const List](static_const_List.md) (1 shared connections)
+- [static const int](static_const_int.md) (1 shared connections)
 - [static const String](static_const_String.md) (1 shared connections)
 
 ## Source Files

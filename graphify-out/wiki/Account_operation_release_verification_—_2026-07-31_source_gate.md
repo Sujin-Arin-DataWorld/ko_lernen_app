@@ -1,6 +1,6 @@
 # Account operation release verification — 2026-07-31 source gate
 
-> 8 nodes
+> 8 nodes · cohesion 0.25
 
 ## Key Concepts
 

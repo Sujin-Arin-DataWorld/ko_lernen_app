@@ -1,6 +1,6 @@
 # data_integrity_test.dart
 
-> 23 nodes
+> 23 nodes · cohesion 0.09
 
 ## Key Concepts
 
@@ -30,8 +30,8 @@
 
 ## Relationships
 
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (3 shared connections)
-- [dart:io](dart-io.md) (2 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (4 shared connections)
+- [File](File.md) (1 shared connections)
 - [can_do_segment_asset_test.dart](can_do_segment_asset_test.dart.md) (1 shared connections)
 
 ## Source Files

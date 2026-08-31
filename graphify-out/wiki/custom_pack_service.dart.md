@@ -1,6 +1,6 @@
 # custom_pack_service.dart
 
-> 45 nodes
+> 45 nodes · cohesion 0.04
 
 ## Key Concepts
 
@@ -33,18 +33,18 @@
 
 ## Relationships
 
-- [_](_.md) (5 shared connections)
+- [_](_.md) (4 shared connections)
+- [storage_service.dart](storage_service.dart.md) (3 shared connections)
+- [static const String](static_const_String.md) (3 shared connections)
 - [bookshelf_service.dart](bookshelf_service.dart.md) (2 shared connections)
-- [storage_service.dart](storage_service.dart.md) (2 shared connections)
-- [shared_pack_service.dart](shared_pack_service.dart.md) (2 shared connections)
-- [media_workflow.dart](media_workflow.dart.md) (1 shared connections)
 - [Random](Random.md) (1 shared connections)
-- [static const String](static_const_String.md) (1 shared connections)
-- [app_shell.dart](app_shell.dart.md) (1 shared connections)
-- [wordbook_add.dart](wordbook_add.dart.md) (1 shared connections)
+- [static const int](static_const_int.md) (1 shared connections)
+- [consent_screen.dart](consent_screen.dart.md) (1 shared connections)
+- [speakable.dart](speakable.dart.md) (1 shared connections)
 - [data_loader.dart](data_loader.dart.md) (1 shared connections)
+- [cloud_sync.dart](cloud_sync.dart.md) (1 shared connections)
 - [room_layout_service.dart](room_layout_service.dart.md) (1 shared connections)
-- [gye_dedication_service.dart](gye_dedication_service.dart.md) (1 shared connections)
+- [quest_tracker.dart](quest_tracker.dart.md) (1 shared connections)
 
 ## Source Files
 

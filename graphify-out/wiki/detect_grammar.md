@@ -1,6 +1,6 @@
 # detect_grammar
 
-> 38 nodes
+> 38 nodes · cohesion 0.10
 
 ## Key Concepts
 
@@ -14,8 +14,8 @@
 - **._token()** (6 connections) — `functions/analyze_korean_text/test_main.py`
 - **RealKiwiGrammarRegressionTest** (5 connections) — `functions/analyze_korean_text/test_main.py`
 - **_localized_pattern_result()** (4 connections) — `functions/analyze_korean_text/grammar_analysis.py`
-- **.test_kiwi_conjoining_jamo_endings_are_supported()** (4 connections) — `functions/analyze_korean_text/test_main.py`
 - **Any** (4 connections)
+- **.test_kiwi_conjoining_jamo_endings_are_supported()** (4 connections) — `functions/analyze_korean_text/test_main.py`
 - **_load_grammar_patterns()** (3 connections) — `functions/analyze_korean_text/grammar_analysis.py`
 - **.test_morphology_cards_use_requested_english_content()** (3 connections) — `functions/analyze_korean_text/test_main.py`
 - **.test_morphology_distinguishes_present_past_and_future_attributes()** (3 connections) — `functions/analyze_korean_text/test_main.py`

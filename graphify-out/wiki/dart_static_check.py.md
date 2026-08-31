@@ -1,6 +1,6 @@
 # dart_static_check.py
 
-> 19 nodes
+> 19 nodes · cohesion 0.15
 
 ## Key Concepts
 
@@ -9,15 +9,15 @@
 - **exported()** (5 connections) — `tool/dart_symbol_check.py`
 - **main()** (4 connections) — `tool/dart_static_check.py`
 - **visible()** (4 connections) — `tool/dart_symbol_check.py`
+- **dart_member_check.py** (3 connections) — `tool/dart_member_check.py`
 - **directives()** (3 connections) — `tool/dart_static_check.py`
 - **strip()** (3 connections) — `tool/dart_static_check.py`
 - **declared()** (3 connections) — `tool/dart_symbol_check.py`
 - **resolve()** (3 connections) — `tool/dart_symbol_check.py`
-- **dart_member_check.py** (3 connections) — `tool/dart_member_check.py`
 - **balance()** (2 connections) — `tool/dart_static_check.py`
 - **members_of()** (1 connections) — `tool/dart_member_check.py`
-- **declared()** (1 connections) — `tool/dart_static_check.py`
 - **Dart 멤버 검사 — 토큰 클래스에 **없는 멤버**를 쓰고 있지 않은가. 심볼 검사기는 최상위 이름만 봐서…** (1 connections) — `tool/dart_member_check.py`
+- **declared()** (1 connections) — `tool/dart_static_check.py`
 - **Dart 구조 검사 — 괄호 균형 · 지시자(library/import) 순서. `flutter analyze` 를 돌릴 수 없는 환경(원격…** (1 connections) — `tool/dart_static_check.py`
 - **문자열·주석을 공백으로 치환해 괄호 균형만 남긴다.** (1 connections) — `tool/dart_static_check.py`
 - **`library;` → import → 코드 순서. 문자열은 이미 공백으로 지워져 있으므로 `import '...'` 는 `import` 만…** (1 connections) — `tool/dart_static_check.py`

@@ -1,14 +1,12 @@
 # scenario.dart
 
-> 61 nodes
+> 59 nodes · cohesion 0.03
 
 ## Key Concepts
 
 - **scenario.dart** (70 connections) — `lib/models/scenario.dart`
-- **Scenario** (9 connections) — `lib/models/scenario.dart`
 - **DialogLine** (3 connections) — `lib/models/scenario.dart`
 - **GrammarBlock** (2 connections) — `lib/models/scenario.dart`
-- **ScenarioBackdrop** (2 connections) — `lib/models/scenario.dart`
 - **aliases** (1 connections) — `lib/models/scenario.dart`
 - **backdrop** (1 connections) — `lib/models/scenario.dart`
 - **backdropKey** (1 connections) — `lib/models/scenario.dart`
@@ -29,20 +27,22 @@
 - **hasExplicitId** (1 connections) — `lib/models/scenario.dart`
 - **id** (1 connections) — `lib/models/scenario.dart`
 - **intent** (1 connections) — `lib/models/scenario.dart`
-- *... and 36 more nodes in this community*
+- **intimate** (1 connections) — `lib/models/scenario.dart`
+- **intro** (1 connections) — `lib/models/scenario.dart`
+- *... and 34 more nodes in this community*
 
 ## Relationships
 
-- [bool get](bool_get.md) (6 shared connections)
-- [_](_.md) (3 shared connections)
-- [scenario_player_screen.dart](scenario_player_screen.dart.md) (3 shared connections)
-- [learning_semantic_contract.dart](learning_semantic_contract.dart.md) (2 shared connections)
+- [List](List.md) (3 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (3 shared connections)
+- [scenario_player_screen.dart](scenario_player_screen.dart.md) (2 shared connections)
 - [curriculum.dart](curriculum.dart.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
+- [mission_recommender.dart](mission_recommender.dart.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
 - [quest.dart](quest.dart.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
-- [course_mastery_test.dart](course_mastery_test.dart.md) (1 shared connections)
+- [cloze_game_screen.dart](cloze_game_screen.dart.md) (1 shared connections)
+- [learning_semantic_contract.dart](learning_semantic_contract.dart.md) (1 shared connections)
 
 ## Source Files
 
@@ -50,7 +50,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 81 (100%)
+- EXTRACTED: 73 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

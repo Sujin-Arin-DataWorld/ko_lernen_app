@@ -1,6 +1,6 @@
 # scenario_writing_check_service.dart
 
-> 43 nodes
+> 43 nodes · cohesion 0.05
 
 ## Key Concepts
 
@@ -35,12 +35,11 @@
 
 - [StatelessWidget](StatelessWidget.md) (5 shared connections)
 - [korean_proofreading_service.dart](korean_proofreading_service.dart.md) (3 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
+- [List](List.md) (2 shared connections)
+- [Duration](Duration.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
 - [book_analysis_service.dart](book_analysis_service.dart.md) (1 shared connections)
-- [../models/scenario.dart](-models-scenario.dart.md) (1 shared connections)
+- [course_progress_service.dart](course_progress_service.dart.md) (1 shared connections)
 - [scenario_write_after_roleplay_card_test.dart](scenario_write_after_roleplay_card_test.dart.md) (1 shared connections)
 - [scenario_writing_check_service_test.dart](scenario_writing_check_service_test.dart.md) (1 shared connections)
 

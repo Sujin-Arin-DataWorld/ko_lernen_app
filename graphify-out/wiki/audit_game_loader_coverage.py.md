@@ -1,24 +1,24 @@
 # audit_game_loader_coverage.py
 
-> 27 nodes
+> 27 nodes · cohesion 0.17
 
 ## Key Concepts
 
-- **.build()** (13 connections) — `tools/content_factory/audit_game_loader_coverage.py`
 - **audit_game_loader_coverage.py** (13 connections) — `tools/content_factory/audit_game_loader_coverage.py`
+- **.build()** (13 connections) — `tools/content_factory/audit_game_loader_coverage.py`
 - **LoaderCoverageAudit** (12 connections) — `tools/content_factory/audit_game_loader_coverage.py`
 - **._vocab_routes()** (8 connections) — `tools/content_factory/audit_game_loader_coverage.py`
 - **Any** (8 connections)
 - **._collections()** (6 connections) — `tools/content_factory/audit_game_loader_coverage.py`
 - **_read_json()** (6 connections) — `tools/content_factory/audit_game_loader_coverage.py`
 - **._asset()** (5 connections) — `tools/content_factory/audit_game_loader_coverage.py`
-- **_read_json_value()** (5 connections) — `tools/content_factory/audit_game_loader_coverage.py`
 - **Path** (5 connections)
-- **LoaderCoverageAuditTest** (4 connections) — `tools/content_factory/test_audit_game_loader_coverage.py`
+- **_read_json_value()** (5 connections) — `tools/content_factory/audit_game_loader_coverage.py`
 - **_app_call_site()** (4 connections) — `tools/content_factory/audit_game_loader_coverage.py`
 - **_level()** (4 connections) — `tools/content_factory/audit_game_loader_coverage.py`
 - **main()** (4 connections) — `tools/content_factory/audit_game_loader_coverage.py`
 - **_mapped_unit()** (4 connections) — `tools/content_factory/audit_game_loader_coverage.py`
+- **LoaderCoverageAuditTest** (4 connections) — `tools/content_factory/test_audit_game_loader_coverage.py`
 - **_coverage_errors()** (3 connections) — `tools/content_factory/audit_game_loader_coverage.py`
 - **_pack_base()** (3 connections) — `tools/content_factory/audit_game_loader_coverage.py`
 - **_parser()** (3 connections) — `tools/content_factory/audit_game_loader_coverage.py`

@@ -1,6 +1,6 @@
 # book_page.dart
 
-> 66 nodes
+> 66 nodes · cohesion 0.03
 
 ## Key Concepts
 
@@ -34,11 +34,10 @@
 ## Relationships
 
 - [book_result_screen.dart](book_result_screen.dart.md) (5 shared connections)
+- [List](List.md) (2 shared connections)
 - [_](_.md) (2 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
-- [dart:ui](dart-ui.md) (1 shared connections)
+- [dart:async](dart-async.md) (1 shared connections)
 - [book_capture_screen.dart](book_capture_screen.dart.md) (1 shared connections)
 
 ## Source Files

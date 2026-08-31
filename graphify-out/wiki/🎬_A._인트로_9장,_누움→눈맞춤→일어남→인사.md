@@ -1,6 +1,6 @@
 # 🎬 A. 인트로 (9장, 누움→눈맞춤→일어남→인사)
 
-> 10 nodes
+> 10 nodes · cohesion 0.20
 
 ## Key Concepts
 

@@ -1,6 +1,6 @@
 # dancheong_burst.dart
 
-> 42 nodes
+> 42 nodes · cohesion 0.05
 
 ## Key Concepts
 
@@ -33,15 +33,15 @@
 
 ## Relationships
 
-- [String?](String_.md) (2 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
-- [_State](_State.md) (2 shared connections)
-- [AnimationController](AnimationController.md) (1 shared connections)
-- [hangul_strokes.dart](hangul_strokes.dart.md) (1 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (2 shared connections)
+- [StatefulWidget](StatefulWidget.md) (2 shared connections)
+- [pressable.dart](pressable.dart.md) (1 shared connections)
+- [silben_grid_clue_sync_test.dart](silben_grid_clue_sync_test.dart.md) (1 shared connections)
 - [ildu_turntable_catalog.dart](ildu_turntable_catalog.dart.md) (1 shared connections)
 - [@visibleForTesting](@visibleForTesting.md) (1 shared connections)
-- [_](_.md) (1 shared connections)
-- [static const](static_const.md) (1 shared connections)
+- [audio_policy.dart](audio_policy.dart.md) (1 shared connections)
+- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
+- [swipe_rails.dart](swipe_rails.dart.md) (1 shared connections)
 - [CustomPainter](CustomPainter.md) (1 shared connections)
 - [game_reward.dart](game_reward.dart.md) (1 shared connections)
 - [dart:async](dart-async.md) (1 shared connections)

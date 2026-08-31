@@ -1,67 +1,61 @@
 # hanok_world_screen.dart
 
-> 161 nodes
+> 62 nodes · cohesion 0.03
 
 ## Key Concepts
 
 - **hanok_world_screen.dart** (80 connections) — `lib/screens/hanok_world_screen.dart`
-- **personal_hanok_unlock_reveal.dart** (49 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
-- **personal_hanok_map.dart** (42 connections) — `lib/widgets/sori/personal_hanok_map.dart`
-- **ValueChanged** (38 connections)
-- **world_map_viewport.dart** (26 connections) — `lib/widgets/sori/world_map_viewport.dart`
-- **personal_hanok_venue_sheet.dart** (20 connections) — `lib/widgets/sori/personal_hanok_venue_sheet.dart`
-- **../../models/personal_hanok.dart** (17 connections)
-- **personal_room_catalog.dart** (14 connections) — `lib/data/personal_room_catalog.dart`
-- **sori_adaptive_navigation_test.dart** (14 connections) — `test/sori_adaptive_navigation_test.dart`
-- **PersonalHanokProjection** (9 connections) — `lib/models/personal_hanok.dart`
-- **PersonalHanokMilestone** (6 connections) — `lib/models/personal_hanok.dart`
-- **PersonalHanokZone** (6 connections) — `lib/models/personal_hanok.dart`
-- **personal_hanok_venue_catalog.dart** (5 connections) — `lib/data/personal_hanok_venue_catalog.dart`
+- **hanok_build_narrative_line.dart** (13 connections) — `lib/widgets/sori/hanok_build_narrative_line.dart`
+- **../../models/hanok_build_narrative.dart** (5 connections)
 - **../services/hanok_structure_projection_service.dart** (4 connections)
-- **../../data/personal_hanok_catalog.dart** (3 connections)
-- **personal_hanok_map.dart** (3 connections)
-- **../../data/personal_hanok_venue_catalog.dart** (2 connections)
-- **PersonalHanokMapLayer** (2 connections) — `lib/data/personal_hanok_catalog.dart`
-- **PersonalHanokZoneDefinition** (2 connections) — `lib/data/personal_hanok_catalog.dart`
-- **PersonalHanokVenueAction** (2 connections) — `lib/data/personal_hanok_venue_catalog.dart`
+- **HanokBuildNarrative** (3 connections) — `lib/models/hanok_build_narrative.dart`
+- **HanokWorldScreen** (3 connections) — `lib/screens/hanok_world_screen.dart`
+- **_HanokWorldScreenState** (3 connections) — `lib/screens/hanok_world_screen.dart`
 - **_EarlyBuildPlan** (2 connections) — `lib/screens/hanok_world_screen.dart`
 - **_GyeBridge** (2 connections) — `lib/screens/hanok_world_screen.dart`
+- **_openGyeHub** (2 connections) — `lib/screens/hanok_world_screen.dart`
 - **_WorldIntroduction** (2 connections) — `lib/screens/hanok_world_screen.dart`
 - **_WorldPlaceList** (2 connections) — `lib/screens/hanok_world_screen.dart`
-- **_MapLayerImage** (2 connections) — `lib/widgets/sori/personal_hanok_map.dart`
-- *... and 136 more nodes in this community*
+- **_openGye** (2 connections) — `lib/screens/profile_screen.dart`
+- **HanokBuildNarrativeLine** (2 connections) — `lib/widgets/sori/hanok_build_narrative_line.dart`
+- **Route /gye/hub** (2 connections)
+- **../services/hanok_build_narrative_service.dart** (2 connections)
+- **daily_char_sheet.dart** (1 connections)
+- **_activeReveal** (1 connections) — `lib/screens/hanok_world_screen.dart`
+- **_completeActiveReveal** (1 connections) — `lib/screens/hanok_world_screen.dart`
+- **_conciseCanDo** (1 connections) — `lib/screens/hanok_world_screen.dart`
+- **createState** (1 connections) — `lib/screens/hanok_world_screen.dart`
+- **_earlyMapKey** (1 connections) — `lib/screens/hanok_world_screen.dart`
+- **embedded** (1 connections) — `lib/screens/hanok_world_screen.dart`
+- **_exploreEarlyHouse** (1 connections) — `lib/screens/hanok_world_screen.dart`
+- **hanokRouteForZone** (1 connections) — `lib/screens/hanok_world_screen.dart`
+- *... and 37 more nodes in this community*
 
 ## Relationships
 
-- [package:flutter/material.dart](package-flutter-material.dart.md) (26 shared connections)
-- [StatelessWidget](StatelessWidget.md) (19 shared connections)
-- [_](_.md) (10 shared connections)
-- [String?](String_.md) (8 shared connections)
-- [typedef](typedef.md) (7 shared connections)
-- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (6 shared connections)
-- [personal_hanok_catalog.dart](personal_hanok_catalog.dart.md) (5 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (4 shared connections)
-- [dart:ui](dart-ui.md) (4 shared connections)
-- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (3 shared connections)
-- [learning_path_screen.dart](learning_path_screen.dart.md) (3 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (3 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (8 shared connections)
+- [learning_path_screen.dart](learning_path_screen.dart.md) (6 shared connections)
+- [StatelessWidget](StatelessWidget.md) (5 shared connections)
+- [List](List.md) (4 shared connections)
+- [gye_screen.dart](gye_screen.dart.md) (3 shared connections)
+- [../../models/personal_hanok.dart](-..-models-personal_hanok.dart.md) (2 shared connections)
+- [_](_.md) (2 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (2 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
+- [sori_stage_today_screen.dart](sori_stage_today_screen.dart.md) (2 shared connections)
+- [StatefulWidget](StatefulWidget.md) (2 shared connections)
+- [course_progress_service.dart](course_progress_service.dart.md) (2 shared connections)
 
 ## Source Files
 
-- `lib/data/personal_hanok_catalog.dart`
-- `lib/data/personal_hanok_venue_catalog.dart`
-- `lib/data/personal_room_catalog.dart`
-- `lib/models/personal_hanok.dart`
+- `lib/models/hanok_build_narrative.dart`
 - `lib/screens/hanok_world_screen.dart`
-- `lib/widgets/sori/personal_hanok_map.dart`
-- `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
-- `lib/widgets/sori/personal_hanok_venue_sheet.dart`
-- `lib/widgets/sori/world_map_viewport.dart`
-- `test/sori_adaptive_navigation_test.dart`
+- `lib/screens/profile_screen.dart`
+- `lib/widgets/sori/hanok_build_narrative_line.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 324 (100%)
+- EXTRACTED: 112 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

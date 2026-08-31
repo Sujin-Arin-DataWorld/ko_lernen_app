@@ -1,11 +1,11 @@
 # robots.ts
 
-> 2 nodes
+> 2 nodes · cohesion 1.00
 
 ## Key Concepts
 
-- **robots()** (1 connections) — `hangul-sori-site-local/app/robots.ts`
 - **robots.ts** (1 connections) — `hangul-sori-site-local/app/robots.ts`
+- **robots()** (1 connections) — `hangul-sori-site-local/app/robots.ts`
 
 ## Relationships
 

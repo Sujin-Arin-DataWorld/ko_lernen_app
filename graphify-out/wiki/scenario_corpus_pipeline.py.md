@@ -1,6 +1,6 @@
 # scenario_corpus_pipeline.py
 
-> 43 nodes
+> 43 nodes · cohesion 0.14
 
 ## Key Concepts
 
@@ -12,20 +12,20 @@
 - **load_and_validate_candidate()** (13 connections) — `tools/content_factory/scenario_corpus_pipeline.py`
 - **CorpusSources** (12 connections) — `tools/content_factory/scenario_corpus_pipeline.py`
 - **_validate_staged_corpus_contract()** (10 connections) — `tools/content_factory/scenario_corpus_pipeline.py`
-- **ScenarioBrief** (9 connections) — `tools/content_factory/scenario_corpus_pipeline.py`
 - **_regression_ladder_report()** (9 connections) — `tools/content_factory/scenario_corpus_pipeline.py`
+- **ScenarioBrief** (9 connections) — `tools/content_factory/scenario_corpus_pipeline.py`
 - **_brief_for()** (8 connections) — `tools/content_factory/scenario_corpus_pipeline.py`
 - **load_regression_candidates()** (8 connections) — `tools/content_factory/scenario_corpus_pipeline.py`
 - **render_regression_review()** (8 connections) — `tools/content_factory/scenario_corpus_pipeline.py`
 - **_replace_level_curriculum()** (8 connections) — `tools/content_factory/scenario_corpus_pipeline.py`
 - **validate_candidate()** (8 connections) — `tools/content_factory/scenario_corpus_pipeline.py`
-- **ValidationReport** (7 connections) — `tools/content_factory/scenario_corpus_pipeline.py`
 - **assert_level_approved()** (7 connections) — `tools/content_factory/scenario_corpus_pipeline.py`
 - **.from_json()** (7 connections) — `tools/content_factory/scenario_corpus_pipeline.py`
 - **preflight_regression_ladders()** (7 connections) — `tools/content_factory/scenario_corpus_pipeline.py`
 - **render_level_review()** (7 connections) — `tools/content_factory/scenario_corpus_pipeline.py`
 - **.from_json()** (7 connections) — `tools/content_factory/scenario_corpus_pipeline.py`
 - **_string_list()** (7 connections) — `tools/content_factory/scenario_corpus_pipeline.py`
+- **ValidationReport** (7 connections) — `tools/content_factory/scenario_corpus_pipeline.py`
 - **.from_json()** (6 connections) — `tools/content_factory/scenario_corpus_pipeline.py`
 - **.from_json()** (6 connections) — `tools/content_factory/scenario_corpus_pipeline.py`
 - **_quest_tts_text()** (5 connections) — `tools/content_factory/scenario_corpus_pipeline.py`

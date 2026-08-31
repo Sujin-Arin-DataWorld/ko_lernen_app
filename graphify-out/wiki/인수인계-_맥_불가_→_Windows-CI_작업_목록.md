@@ -1,6 +1,6 @@
 # 인수인계: 맥 불가 → Windows/CI 작업 목록
 
-> 17 nodes
+> 17 nodes · cohesion 0.12
 
 ## Key Concepts
 

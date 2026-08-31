@@ -1,6 +1,6 @@
 # Random
 
-> 23 nodes
+> 23 nodes · cohesion 0.13
 
 ## Key Concepts
 
@@ -14,8 +14,8 @@
 - **mask_example()** (3 connections) — `tool/gen_silben_puzzles.py`
 - **build()** (3 connections) — `tools/content_factory/build_satzbauen.py`
 - **main()** (3 connections) — `tools/content_factory/build_satzbauen.py`
-- **load_vocab()** (3 connections) — `tools/regen_cloze_distractors.py`
 - **regen_cloze_distractors.py** (3 connections) — `tools/regen_cloze_distractors.py`
+- **load_vocab()** (3 connections) — `tools/regen_cloze_distractors.py`
 - **_covers()** (2 connections) — `tool/gen_silben_puzzles.py`
 - **is_pure_hangul()** (2 connections) — `tool/gen_silben_puzzles.py`
 - **normalize()** (2 connections) — `tool/gen_silben_puzzles.py`
@@ -30,17 +30,18 @@
 
 ## Relationships
 
-- [package:flutter/services.dart](package-flutter-services.dart.md) (3 shared connections)
-- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (2 shared connections)
-- [handle](handle.md) (1 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (3 shared connections)
+- [grammar_choice_quiz_screen.dart](grammar_choice_quiz_screen.dart.md) (1 shared connections)
 - [hangul_screen.dart](hangul_screen.dart.md) (1 shared connections)
 - [pronunciation_studio_screen.dart](pronunciation_studio_screen.dart.md) (1 shared connections)
-- [vocab_pack_result_screen.dart](vocab_pack_result_screen.dart.md) (1 shared connections)
+- [kkeunmari_screen.dart](kkeunmari_screen.dart.md) (1 shared connections)
+- [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (1 shared connections)
 - [bookshelf_service.dart](bookshelf_service.dart.md) (1 shared connections)
 - [custom_pack_service.dart](custom_pack_service.dart.md) (1 shared connections)
 - [gye_dedication_service.dart](gye_dedication_service.dart.md) (1 shared connections)
 - [_](_.md) (1 shared connections)
-- [shared_pack_service.dart](shared_pack_service.dart.md) (1 shared connections)
+- [static const String](static_const_String.md) (1 shared connections)
+- [handle](handle.md) (1 shared connections)
 
 ## Source Files
 

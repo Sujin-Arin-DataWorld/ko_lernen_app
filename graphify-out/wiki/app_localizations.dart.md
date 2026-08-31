@@ -1,6 +1,6 @@
 # app_localizations.dart
 
-> 2877 nodes
+> 2877 nodes · cohesion 0.00
 
 ## Key Concepts
 
@@ -34,13 +34,13 @@
 ## Relationships
 
 - [AppL10n](AppL10n.md) (3 shared connections)
-- [static const List](static_const_List.md) (1 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
+- [static const int](static_const_int.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
 - [dart:async](dart-async.md) (1 shared connections)
 - [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
-- [path_trail_tap_test.dart](path_trail_tap_test.dart.md) (1 shared connections)
+- [account_reconciliation_test.dart](account_reconciliation_test.dart.md) (1 shared connections)
 - [package:flutter/widgets.dart](package-flutter-widgets.dart.md) (1 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
 
 ## Source Files
 

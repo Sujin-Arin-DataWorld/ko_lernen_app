@@ -1,6 +1,6 @@
 # Vocab Pack Map (auto-generated)
 
-> 6 nodes
+> 6 nodes · cohesion 0.33
 
 ## Key Concepts
 

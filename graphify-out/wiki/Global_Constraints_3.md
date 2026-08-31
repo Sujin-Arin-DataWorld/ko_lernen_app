@@ -1,21 +1,25 @@
 # Global Constraints
 
-> 12 nodes
+> 16 nodes · cohesion 0.12
 
 ## Key Concepts
 
-- **Global Constraints** (9 connections) — `docs/superpowers/plans/2026-08-19-typography-core.md`
-- **타이포 코어 구현 계획 (Wanted Sans · 단일 램프 · 배율 하나 · 간격 · 잘림 가드)** (3 connections) — `docs/superpowers/plans/2026-08-19-typography-core.md`
-- **2026-08-19-typography-core.md** (1 connections) — `docs/superpowers/plans/2026-08-19-typography-core.md`
-- **Self-Review** (1 connections) — `docs/superpowers/plans/2026-08-19-typography-core.md`
-- **Task 1: 폰트 교체 — Wanted Sans 번들 + 리터럴 0 + 글리프 가드** (1 connections) — `docs/superpowers/plans/2026-08-19-typography-core.md`
-- **Task 2: 배율 권한 하나 — `SoriTypeScale` + `_deviceScale`·`SoriStudyScale` 제거** (1 connections) — `docs/superpowers/plans/2026-08-19-typography-core.md`
-- **Task 3: 단일 램프 `SoriTypeRamp` + `SoriTextTheme`·Material `TextTheme` 파생** (1 connections) — `docs/superpowers/plans/2026-08-19-typography-core.md`
-- **Task 4: `SoriKoreanText` / `SoriGlossText` (위젯 + 테스트만)** (1 connections) — `docs/superpowers/plans/2026-08-19-typography-core.md`
-- **Task 5: 간격 토큰 · 터치 타깃 · 토큰 문서** (1 connections) — `docs/superpowers/plans/2026-08-19-typography-core.md`
-- **Task 6: 문장급 잘림 해제 + 고정 높이 수정** (1 connections) — `docs/superpowers/plans/2026-08-19-typography-core.md`
-- **Task 7: 잘림 가드 — 헬퍼 · 뷰포트×배율 매트릭스 · 래칫** (1 connections) — `docs/superpowers/plans/2026-08-19-typography-core.md`
-- **Task 8: 문서 · 전체 테스트 · 웹 증빙 · PR** (1 connections) — `docs/superpowers/plans/2026-08-19-typography-core.md`
+- **Global Constraints** (13 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
+- **W1 데이터·즉효 버그 Implementation Plan** (3 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
+- **2026-08-26-w1-content-quickfixes.md** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
+- **Self-Review 결과** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
+- **Task 10: 감사 스크립트 2종** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
+- **Task 11: audit_vocab_levels.py C1/C2 확장 (지시서 2.2)** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
+- **Task 12: 전 코퍼스 자연성 심사 + 승인 게이트 + 패치 도구** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
+- **Task 1: cloze 콘텐츠 가드 테스트** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
+- **Task 2: 시드 5건 데이터 교정 (CSV+cloze+satz 3파일 동기)** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
+- **Task 3: 자연성 프리필터 `tool/audit_content_naturalness.py`** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
+- **Task 4: 생성기 게이트 — pick_answer 폴백 → 예외** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
+- **Task 5: Silben 전체 문장 TTS (지시서 2.5)** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
+- **Task 6: generate_tts.py 확장 + 코퍼스 재생성 (W1 종료 게이트)** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
+- **Task 7: 전역 네이밍·카피 개편 (지시서 1.5, 1.9 + 사용자 추가 요청)** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
+- **Task 8: task_alt 테스터 아이콘 전역 스윕 (지시서 1.13, 1.17)** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
+- **Task 9: 보상 영수증 시트 X 버튼 (지시서 4.17)** (1 connections) — `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
 
 ## Relationships
 
@@ -23,11 +27,11 @@
 
 ## Source Files
 
-- `docs/superpowers/plans/2026-08-19-typography-core.md`
+- `docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md`
 
 ## Audit Trail
 
-- EXTRACTED: 11 (100%)
+- EXTRACTED: 15 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

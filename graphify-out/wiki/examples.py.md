@@ -1,6 +1,6 @@
 # examples.py
 
-> 18 nodes
+> 18 nodes · cohesion 0.25
 
 ## Key Concepts
 

@@ -1,6 +1,6 @@
 # 모듈 통합 그래프 — "Sori Brain" 설계
 
-> 23 nodes
+> 23 nodes · cohesion 0.09
 
 ## Key Concepts
 

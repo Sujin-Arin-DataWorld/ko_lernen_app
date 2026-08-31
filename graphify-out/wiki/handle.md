@@ -1,6 +1,6 @@
 # handle
 
-> 33 nodes
+> 33 nodes · cohesion 0.09
 
 ## Key Concepts
 
@@ -14,6 +14,7 @@
 - **_sort_key()** (3 connections) — `tools/content_factory/build_batch_16_scenarios.py`
 - **_to_record()** (3 connections) — `tools/content_factory/build_batch_16_scenarios.py`
 - **main()** (2 connections) — `tool/polish_tts.py`
+- **test_generate_tts.py** (2 connections) — `tool/test_generate_tts.py`
 - **.test_checked_first_line_manifest_matches_current_canonical_sources()** (2 connections) — `tool/test_generate_tts.py`
 - **.test_collect_covers_every_fixed_tts_source()** (2 connections) — `tool/test_generate_tts.py`
 - **.test_first_line_manifest_cli_never_uses_auth_synthesis_or_network()** (2 connections) — `tool/test_generate_tts.py`
@@ -23,12 +24,11 @@
 - **.test_pending_manifest_dry_run_does_not_collect_runtime_or_use_network()** (2 connections) — `tool/test_generate_tts.py`
 - **.test_scenario_pending_manifest_is_an_exact_validated_scope()** (2 connections) — `tool/test_generate_tts.py`
 - **main()** (2 connections) — `tools/content_factory/build_batch_16_scenarios.py`
-- **test_generate_tts.py** (2 connections) — `tool/test_generate_tts.py`
 - **Any** (2 connections)
+- **(전체 길이, 앞 묵음, 뒤 묵음) 초. 실패하면 None.** (1 connections) — `tool/polish_tts.py`
+- **프레임 경계에서 무손실 절단. 성공하면 True.** (1 connections) — `tool/polish_tts.py`
+- **고정 콘텐츠가 수집에 빠지면 런타임에 OS 폴백(옛 음성)으로 샌다. 2026-08-12: satz 목표문장 55/191 이 수집에 없어…** (1 connections) — `tool/test_generate_tts.py`
 - **.test_auto_voice_matches_dart_contract_vectors()** (1 connections) — `tool/test_generate_tts.py`
-- **.test_dry_run_never_authenticates_synthesizes_or_uploads()** (1 connections) — `tool/test_generate_tts.py`
-- **.test_first_line_manifest_check_detects_drift_without_writing()** (1 connections) — `tool/test_generate_tts.py`
-- **.test_first_line_manifest_covers_exact_canonical_scenarios()** (1 connections) — `tool/test_generate_tts.py`
 - *... and 8 more nodes in this community*
 
 ## Relationships

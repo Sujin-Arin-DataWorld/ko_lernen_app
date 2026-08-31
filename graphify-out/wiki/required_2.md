@@ -1,26 +1,34 @@
 # required
 
-> 5 nodes
+> 13 nodes · cohesion 0.15
 
 ## Key Concepts
 
-- **required** (3 connections) — `tools/content_factory/schemas/character_profile.schema.json`
-- **mbtiHint** (3 connections) — `tools/content_factory/schemas/character_profile.schema.json`
-- **type** (1 connections) — `tools/content_factory/schemas/character_profile.schema.json`
-- **value** (1 connections) — `tools/content_factory/schemas/character_profile.schema.json`
-- **weight** (1 connections) — `tools/content_factory/schemas/character_profile.schema.json`
+- **required** (13 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- **anchorScenarioIds** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- **expectedPerLevel** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- **expectedScenarioCount** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- **files** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- **gates** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- **generationId** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- **promotionOrder** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- **regressionThemes** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- **schemaVersion** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- **sourceLanguage** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- **status** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- **supportLanguages** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
 
 ## Relationships
 
-- [properties](properties.md) (1 shared connections)
+- [scenario_corpus_manifest.schema.json](scenario_corpus_manifest.schema.json.md) (1 shared connections)
 
 ## Source Files
 
-- `tools/content_factory/schemas/character_profile.schema.json`
+- `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
 
 ## Audit Trail
 
-- EXTRACTED: 5 (100%)
+- EXTRACTED: 13 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

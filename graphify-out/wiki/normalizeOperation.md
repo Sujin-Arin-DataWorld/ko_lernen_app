@@ -1,6 +1,6 @@
 # normalizeOperation
 
-> 33 nodes
+> 33 nodes · cohesion 0.15
 
 ## Key Concepts
 
@@ -20,15 +20,15 @@
 - **safeBlockedReason()** (4 connections) — `functions/gye/account_operations.js`
 - **initialOperation()** (3 connections) — `functions/gye/account_operations.js`
 - **normalizedPhaseAttempts()** (3 connections) — `functions/gye/account_operations.js`
-- **requiredVersion()** (3 connections) — `functions/gye/account_operations.js`
 - **OPERATION_PHASES** (3 connections) — `functions/gye/account_operations.js`
+- **requiredVersion()** (3 connections) — `functions/gye/account_operations.js`
+- **BLOCKED_REASON_CODES** (2 connections) — `functions/gye/account_operations.js`
+- **CANCELLABLE_REPLACEMENT_PHASES** (2 connections) — `functions/gye/account_operations.js`
 - **classifyRetry()** (2 connections) — `functions/gye/account_operations.js`
 - **nextPhases()** (2 connections) — `functions/gye/account_operations.js`
 - **nonNegativeInteger()** (2 connections) — `functions/gye/account_operations.js`
 - **requestMatches()** (2 connections) — `functions/gye/account_operations.js`
 - **createDeletion()** (2 connections) — `functions/gye/account_operations.test.js`
-- **createReplacement()** (2 connections) — `functions/gye/account_operations.test.js`
-- **totalAttempts()** (2 connections) — `functions/gye/account_operations.js`
 - *... and 8 more nodes in this community*
 
 ## Relationships

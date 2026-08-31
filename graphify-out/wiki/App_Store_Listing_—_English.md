@@ -1,6 +1,6 @@
 # App Store Listing — English
 
-> 7 nodes
+> 7 nodes · cohesion 0.29
 
 ## Key Concepts
 

@@ -1,6 +1,6 @@
 # profanity_denylist.dart
 
-> 7 nodes
+> 7 nodes · cohesion 0.29
 
 ## Key Concepts
 
@@ -15,7 +15,7 @@
 ## Relationships
 
 - [return](return.md) (1 shared connections)
-- [typedef](typedef.md) (1 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
 - [_](_.md) (1 shared connections)
 - [course_segment_catalog.dart](course_segment_catalog.dart.md) (1 shared connections)
 - [cloze_prompt.dart](cloze_prompt.dart.md) (1 shared connections)

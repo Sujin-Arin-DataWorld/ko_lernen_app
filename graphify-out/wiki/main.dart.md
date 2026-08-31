@@ -1,6 +1,6 @@
 # main.dart
 
-> 112 nodes
+> 112 nodes · cohesion 0.02
 
 ## Key Concepts
 
@@ -33,18 +33,18 @@
 
 ## Relationships
 
-- [_](_.md) (5 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (4 shared connections)
-- [ux_preview_app.dart](ux_preview_app.dart.md) (4 shared connections)
-- [_State](_State.md) (4 shared connections)
-- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (3 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (3 shared connections)
+- [consent_screen.dart](consent_screen.dart.md) (6 shared connections)
+- [StatefulWidget](StatefulWidget.md) (4 shared connections)
+- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (3 shared connections)
 - [book_capture_screen.dart](book_capture_screen.dart.md) (3 shared connections)
-- [dart:async](dart-async.md) (2 shared connections)
-- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (2 shared connections)
+- [_](_.md) (3 shared connections)
+- [settings_screen_test.dart](settings_screen_test.dart.md) (2 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (2 shared connections)
 - [@visibleForTesting](@visibleForTesting.md) (2 shared connections)
-- [vocab_packs_screen.dart](vocab_packs_screen.dart.md) (2 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (2 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (2 shared connections)
+- [course_progress_service.dart](course_progress_service.dart.md) (2 shared connections)
+- [List](List.md) (2 shared connections)
+- [course_mission_screen.dart](course_mission_screen.dart.md) (2 shared connections)
 
 ## Source Files
 

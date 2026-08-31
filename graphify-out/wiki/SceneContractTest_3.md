@@ -1,21 +1,22 @@
 # SceneContractTest
 
-> 29 nodes
+> 29 nodes · cohesion 0.08
 
 ## Key Concepts
 
 - **SceneContractTest** (12 connections) — `tools/content_factory/test_build_batch_14_scenarios.py`
 - **test_build_batch_14_scenarios.py** (7 connections) — `tools/content_factory/test_build_batch_14_scenarios.py`
-- **BuildOutputTest** (6 connections) — `tools/content_factory/test_build_batch_14_scenarios.py`
-- **build()** (6 connections) — `tools/content_factory/build_batch_14_scenarios.py`
 - **build_batch_14_scenarios.py** (6 connections) — `tools/content_factory/build_batch_14_scenarios.py`
+- **build()** (6 connections) — `tools/content_factory/build_batch_14_scenarios.py`
+- **BuildOutputTest** (6 connections) — `tools/content_factory/test_build_batch_14_scenarios.py`
 - **_sort_key()** (3 connections) — `tools/content_factory/build_batch_14_scenarios.py`
 - **_to_record()** (3 connections) — `tools/content_factory/build_batch_14_scenarios.py`
-- **ShelfSlugContractTest** (2 connections) — `tools/content_factory/test_build_batch_14_scenarios.py`
 - **main()** (2 connections) — `tools/content_factory/build_batch_14_scenarios.py`
+- **Any** (2 connections)
 - **.setUp()** (2 connections) — `tools/content_factory/test_build_batch_14_scenarios.py`
 - **.test_grammar_ids_exist_and_match_level()** (2 connections) — `tools/content_factory/test_build_batch_14_scenarios.py`
-- **Any** (2 connections)
+- **ShelfSlugContractTest** (2 connections) — `tools/content_factory/test_build_batch_14_scenarios.py`
+- **Path** (1 connections)
 - **authored_levels()** (1 connections) — `tools/content_factory/test_build_batch_14_scenarios.py`
 - **.test_manifest_counts_match_draft()** (1 connections) — `tools/content_factory/test_build_batch_14_scenarios.py`
 - **.test_manifest_links_and_backdrops_cover_every_scenario()** (1 connections) — `tools/content_factory/test_build_batch_14_scenarios.py`
@@ -28,7 +29,6 @@
 - **.test_intents_are_unique()** (1 connections) — `tools/content_factory/test_build_batch_14_scenarios.py`
 - **.test_no_collision_with_live_scenarios()** (1 connections) — `tools/content_factory/test_build_batch_14_scenarios.py`
 - **.test_no_shell_phrases_and_no_repeated_lines()** (1 connections) — `tools/content_factory/test_build_batch_14_scenarios.py`
-- **.test_quest_types_match_the_level_contract()** (1 connections) — `tools/content_factory/test_build_batch_14_scenarios.py`
 - *... and 4 more nodes in this community*
 
 ## Relationships

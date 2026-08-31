@@ -1,6 +1,6 @@
 # a1_hanok_construction_catalog.dart
 
-> 28 nodes
+> 28 nodes · cohesion 0.07
 
 ## Key Concepts
 

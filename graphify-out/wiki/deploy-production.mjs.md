@@ -1,6 +1,6 @@
 # deploy-production.mjs
 
-> 62 nodes
+> 62 nodes · cohesion 0.06
 
 ## Key Concepts
 
@@ -12,14 +12,14 @@
 - **validateReleaseIdentity()** (8 connections) — `hangul-sori-site-local/scripts/release-id.mjs`
 - **rollbackAfterFailure()** (7 connections) — `hangul-sori-site-local/scripts/deploy-production.mjs`
 - **GIT_SHA_PATTERN** (7 connections) — `hangul-sori-site-local/scripts/release-id.mjs`
+- **clean-build.mjs** (6 connections) — `hangul-sori-site-local/scripts/clean-build.mjs`
 - **ensureTargetIsCurrentMain()** (6 connections) — `hangul-sori-site-local/scripts/deploy-production.mjs`
 - **parseActiveDeployment()** (6 connections) — `hangul-sori-site-local/scripts/deploy-production.mjs`
 - **normalizeGitSha()** (6 connections) — `hangul-sori-site-local/scripts/release-id.mjs`
 - **readCurrentGitState()** (6 connections) — `hangul-sori-site-local/scripts/release-id.mjs`
 - **validateProductionReleaseIdentity()** (6 connections) — `hangul-sori-site-local/scripts/release-id.mjs`
-- **runWrangler()** (6 connections) — `hangul-sori-site-local/scripts/run-wrangler.mjs`
-- **clean-build.mjs** (6 connections) — `hangul-sori-site-local/scripts/clean-build.mjs`
 - **run-wrangler.mjs** (6 connections) — `hangul-sori-site-local/scripts/run-wrangler.mjs`
+- **runWrangler()** (6 connections) — `hangul-sori-site-local/scripts/run-wrangler.mjs`
 - **resolveBuildReleaseIdentity()** (5 connections) — `hangul-sori-site-local/scripts/release-id.mjs`
 - **createDeployArguments()** (4 connections) — `hangul-sori-site-local/scripts/deploy-production.mjs`
 - **parseDeployOutput()** (4 connections) — `hangul-sori-site-local/scripts/deploy-production.mjs`

@@ -1,6 +1,6 @@
 # verify-tester-email.mjs
 
-> 3 nodes
+> 3 nodes · cohesion 0.67
 
 ## Key Concepts
 

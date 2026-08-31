@@ -1,6 +1,6 @@
 # ambient_particles.dart
 
-> 31 nodes
+> 31 nodes · cohesion 0.07
 
 ## Key Concepts
 
@@ -33,14 +33,15 @@
 
 ## Relationships
 
-- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
-- [_State](_State.md) (2 shared connections)
+- [StatefulWidget](StatefulWidget.md) (2 shared connections)
 - [_](_.md) (1 shared connections)
-- [AnimationController](AnimationController.md) (1 shared connections)
+- [pressable.dart](pressable.dart.md) (1 shared connections)
 - [List](List.md) (1 shared connections)
-- [static const](static_const.md) (1 shared connections)
+- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
 - [CustomPainter](CustomPainter.md) (1 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
 - [celebration.dart](celebration.dart.md) (1 shared connections)
 
 ## Source Files

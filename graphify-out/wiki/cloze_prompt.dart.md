@@ -1,6 +1,6 @@
 # cloze_prompt.dart
 
-> 27 nodes
+> 27 nodes · cohesion 0.07
 
 ## Key Concepts
 
@@ -33,14 +33,15 @@
 
 ## Relationships
 
-- [package:flutter/material.dart](package-flutter-material.dart.md) (4 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (3 shared connections)
 - [Map](Map.md) (1 shared connections)
 - [cloze_loader.dart](cloze_loader.dart.md) (1 shared connections)
 - [List](List.md) (1 shared connections)
 - [profanity_denylist.dart](profanity_denylist.dart.md) (1 shared connections)
-- [typedef](typedef.md) (1 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
-- [course_mastery_test.dart](course_mastery_test.dart.md) (1 shared connections)
+- [vocab_notebook_studio_screen_test.dart](vocab_notebook_studio_screen_test.dart.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
 - [cloze_topic_groups.dart](cloze_topic_groups.dart.md) (1 shared connections)
 - [StatelessWidget](StatelessWidget.md) (1 shared connections)
 
