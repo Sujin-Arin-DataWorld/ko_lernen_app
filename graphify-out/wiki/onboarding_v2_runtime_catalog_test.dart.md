@@ -1,59 +1,64 @@
 # onboarding_v2_runtime_catalog_test.dart
 
-> 27 nodes
+> 63 nodes
 
 ## Key Concepts
 
 - **onboarding_v2_runtime_catalog_test.dart** (44 connections) — `test/onboarding_v2_runtime_catalog_test.dart`
+- **onboarding_story_catalog_projector_test.dart** (15 connections) — `test/features/onboarding_v2/onboarding_story_catalog_projector_test.dart`
+- **sori_activity_catalog_test.dart** (15 connections) — `test/sori_activity_catalog_test.dart`
+- **curriculum_alignment_contract_test.dart** (11 connections) — `test/curriculum_alignment_contract_test.dart`
+- **curriculum_evidence_projector_test.dart** (5 connections) — `test/features/onboarding_v2/curriculum_evidence_projector_test.dart`
+- **package:ko_lernen_app/data/sori_activity_catalog.dart** (4 connections)
+- **HeritageAssetAuthority** (3 connections) — `lib/models/heritage_journey_contract.dart`
+- **package:ko_lernen_app/data/curriculum_alignment_registry.dart** (3 connections)
+- **package:ko_lernen_app/models/curriculum_alignment_contract.dart** (3 connections)
+- **package:ko_lernen_app/models/heritage_journey_contract.dart** (3 connections)
+- **package:ko_lernen_app/features/onboarding_v2/curriculum_evidence_projector.dart** (2 connections)
+- **package:ko_lernen_app/features/onboarding_v2/onboarding_story_catalog_projector.dart** (2 connections)
 - **AssetImage** (1 connections)
 - **heritageCatalogProjector,
   double** (1 connections)
 - **SelectableText** (1 connections)
-- **approved** (1 connections) — `test/onboarding_v2_runtime_catalog_test.dart`
-- **assetAuthority** (1 connections) — `test/onboarding_v2_runtime_catalog_test.dart`
-- **canonical** (1 connections) — `test/onboarding_v2_runtime_catalog_test.dart`
-- **child** (1 connections) — `test/onboarding_v2_runtime_catalog_test.dart`
-- **estateId** (1 connections) — `test/onboarding_v2_runtime_catalog_test.dart`
-- **focusContext** (1 connections) — `test/onboarding_v2_runtime_catalog_test.dart`
-- **_focusWithKeyboard** (1 connections) — `test/onboarding_v2_runtime_catalog_test.dart`
-- **_heritageChapter** (1 connections) — `test/onboarding_v2_runtime_catalog_test.dart`
-- **_heritageDescriptorWithoutIldu** (1 connections) — `test/onboarding_v2_runtime_catalog_test.dart`
-- **_heritageDescriptorWithPendingAsset** (1 connections) — `test/onboarding_v2_runtime_catalog_test.dart`
-- **_host** (1 connections) — `test/onboarding_v2_runtime_catalog_test.dart`
-- **inconsistent** (1 connections) — `test/onboarding_v2_runtime_catalog_test.dart`
-- **_inconsistentRewardCatalog** (1 connections) — `test/onboarding_v2_runtime_catalog_test.dart`
-- **_invalidHeritageDescriptor** (1 connections) — `test/onboarding_v2_runtime_catalog_test.dart`
-- **isWithin** (1 connections) — `test/onboarding_v2_runtime_catalog_test.dart`
-- **_koreanLocaleCodes** (1 connections) — `test/onboarding_v2_runtime_catalog_test.dart`
-- **locale** (1 connections) — `test/onboarding_v2_runtime_catalog_test.dart`
-- **main** (1 connections) — `test/onboarding_v2_runtime_catalog_test.dart`
-- **_primaryFocusIsWithin** (1 connections) — `test/onboarding_v2_runtime_catalog_test.dart`
-- **_rewardActivity** (1 connections) — `test/onboarding_v2_runtime_catalog_test.dart`
-- **targetElement** (1 connections) — `test/onboarding_v2_runtime_catalog_test.dart`
-- *... and 2 more nodes in this community*
+- **_approvedTopik** (1 connections) — `test/curriculum_alignment_contract_test.dart`
+- **main** (1 connections) — `test/curriculum_alignment_contract_test.dart`
+- **_record** (1 connections) — `test/curriculum_alignment_contract_test.dart`
+- **_testPracticeId** (1 connections) — `test/curriculum_alignment_contract_test.dart`
+- **_testTopikPromotionAuthority** (1 connections) — `test/curriculum_alignment_contract_test.dart`
+- **_testTopikUrl** (1 connections) — `test/curriculum_alignment_contract_test.dart`
+- **main** (1 connections) — `test/features/onboarding_v2/curriculum_evidence_projector_test.dart`
+- **approved** (1 connections) — `test/features/onboarding_v2/onboarding_story_catalog_projector_test.dart`
+- **assetAuthority** (1 connections) — `test/features/onboarding_v2/onboarding_story_catalog_projector_test.dart`
+- **estateId** (1 connections) — `test/features/onboarding_v2/onboarding_story_catalog_projector_test.dart`
+- *... and 38 more nodes in this community*
 
 ## Relationships
 
-- [onboarding_story_catalog_projector_test.dart](onboarding_story_catalog_projector_test.dart.md) (3 shared connections)
-- [curriculum_alignment_contract_test.dart](curriculum_alignment_contract_test.dart.md) (3 shared connections)
-- [onboarding_v2_presentation_test.dart](onboarding_v2_presentation_test.dart.md) (2 shared connections)
-- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (2 shared connections)
-- [return](return.md) (1 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (5 shared connections)
+- [dart:io](dart-io.md) (3 shared connections)
+- [hanok_world_screen_test.dart](hanok_world_screen_test.dart.md) (3 shared connections)
+- [return](return.md) (2 shared connections)
+- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (2 shared connections)
+- [heritage_journey_contract.dart](heritage_journey_contract.dart.md) (1 shared connections)
+- [dart:ui](dart-ui.md) (1 shared connections)
+- [heritage_journey_contract_test.dart](heritage_journey_contract_test.dart.md) (1 shared connections)
+- [dart:convert](dart-convert.md) (1 shared connections)
+- [onboarding_v2_presentation_test.dart](onboarding_v2_presentation_test.dart.md) (1 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [study_activity_responsive_test.dart](study_activity_responsive_test.dart.md) (1 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
-- [sori_activity_catalog_test.dart](sori_activity_catalog_test.dart.md) (1 shared connections)
-- [hanok_world_screen_test.dart](hanok_world_screen_test.dart.md) (1 shared connections)
-- [app_flows_test.dart](app_flows_test.dart.md) (1 shared connections)
+- [package:ko_lernen_app/models/curriculum.dart](package-ko_lernen_app-models-curriculum.dart.md) (1 shared connections)
 
 ## Source Files
 
+- `lib/models/heritage_journey_contract.dart`
+- `test/curriculum_alignment_contract_test.dart`
+- `test/features/onboarding_v2/curriculum_evidence_projector_test.dart`
+- `test/features/onboarding_v2/onboarding_story_catalog_projector_test.dart`
 - `test/onboarding_v2_runtime_catalog_test.dart`
+- `test/sori_activity_catalog_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 44 (100%)
+- EXTRACTED: 93 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

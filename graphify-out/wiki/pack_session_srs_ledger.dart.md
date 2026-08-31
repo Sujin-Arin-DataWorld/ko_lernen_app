@@ -26,9 +26,10 @@
 
 ## Relationships
 
-- [vocab_pack_result_screen.dart](vocab_pack_result_screen.dart.md) (2 shared connections)
 - [bool get](bool_get.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
+- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
+- [vocab_pack_result_screen.dart](vocab_pack_result_screen.dart.md) (1 shared connections)
 - [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (1 shared connections)
 
 ## Source Files

@@ -28,14 +28,15 @@
 
 ## Relationships
 
-- [package:flutter/material.dart](package-flutter-material.dart.md) (3 shared connections)
-- [standalone_games_uiux_test.dart](standalone_games_uiux_test.dart.md) (2 shared connections)
+- [dart:ui](dart-ui.md) (2 shared connections)
+- [String?](String_.md) (2 shared connections)
 - [bool get](bool_get.md) (1 shared connections)
 - [double get](double_get.md) (1 shared connections)
 - [List](List.md) (1 shared connections)
-- [static const](static_const.md) (1 shared connections)
-- [String?](String_.md) (1 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
+- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
+- [Widget](Widget.md) (1 shared connections)
+- [dart:math](dart-math.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
 
 ## Source Files
 

@@ -1,12 +1,10 @@
 # dancheong_burst.dart
 
-> 42 nodes
+> 40 nodes
 
 ## Key Concepts
 
 - **dancheong_burst.dart** (56 connections) — `lib/widgets/sori/dancheong_burst.dart`
-- **_BurstLayerState** (4 connections) — `lib/widgets/sori/dancheong_burst.dart`
-- **_BurstLayer** (3 connections) — `lib/widgets/sori/dancheong_burst.dart`
 - **baseWidth** (1 connections) — `lib/widgets/sori/dancheong_burst.dart`
 - **build** (1 connections) — `lib/widgets/sori/dancheong_burst.dart`
 - **_clampAxis** (1 connections) — `lib/widgets/sori/dancheong_burst.dart`
@@ -29,19 +27,21 @@
 - **intensity** (1 connections) — `lib/widgets/sori/dancheong_burst.dart`
 - **_liftPadding** (1 connections) — `lib/widgets/sori/dancheong_burst.dart`
 - **_loading** (1 connections) — `lib/widgets/sori/dancheong_burst.dart`
-- *... and 17 more nodes in this community*
+- **maxPaintBounds** (1 connections) — `lib/widgets/sori/dancheong_burst.dart`
+- **_maxReach** (1 connections) — `lib/widgets/sori/dancheong_burst.dart`
+- *... and 15 more nodes in this community*
 
 ## Relationships
 
 - [String?](String_.md) (2 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
 - [_State](_State.md) (2 shared connections)
-- [AnimationController](AnimationController.md) (1 shared connections)
-- [hangul_strokes.dart](hangul_strokes.dart.md) (1 shared connections)
+- [hanok_cinematic.dart](hanok_cinematic.dart.md) (1 shared connections)
+- [pronunciation_studio_ui_test.dart](pronunciation_studio_ui_test.dart.md) (1 shared connections)
 - [ildu_turntable_catalog.dart](ildu_turntable_catalog.dart.md) (1 shared connections)
 - [@visibleForTesting](@visibleForTesting.md) (1 shared connections)
-- [_](_.md) (1 shared connections)
-- [static const](static_const.md) (1 shared connections)
+- [audio_policy.dart](audio_policy.dart.md) (1 shared connections)
+- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
+- [static const double](static_const_double.md) (1 shared connections)
 - [CustomPainter](CustomPainter.md) (1 shared connections)
 - [game_reward.dart](game_reward.dart.md) (1 shared connections)
 - [dart:async](dart-async.md) (1 shared connections)
@@ -52,7 +52,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 60 (100%)
+- EXTRACTED: 56 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

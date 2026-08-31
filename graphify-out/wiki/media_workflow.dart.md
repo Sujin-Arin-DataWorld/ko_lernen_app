@@ -24,12 +24,11 @@
 ## Relationships
 
 - [_](_.md) (3 shared connections)
+- [media_lifecycle_test.dart](media_lifecycle_test.dart.md) (2 shared connections)
 - [bookshelf_service.dart](bookshelf_service.dart.md) (1 shared connections)
 - [custom_pack_service.dart](custom_pack_service.dart.md) (1 shared connections)
-- [custom_pack_edit_screen.dart](custom_pack_edit_screen.dart.md) (1 shared connections)
+- [book_result_screen.dart](book_result_screen.dart.md) (1 shared connections)
 - [crop_recovery_service.dart](crop_recovery_service.dart.md) (1 shared connections)
-- [media_lifecycle_test.dart](media_lifecycle_test.dart.md) (1 shared connections)
-- [picker_recovery_service.dart](picker_recovery_service.dart.md) (1 shared connections)
 - [storage_service.dart](storage_service.dart.md) (1 shared connections)
 
 ## Source Files

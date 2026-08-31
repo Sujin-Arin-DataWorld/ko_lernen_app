@@ -1,6 +1,6 @@
 # ContentValidator
 
-> 60 nodes
+> 58 nodes
 
 ## Key Concepts
 
@@ -29,12 +29,12 @@
 - **.validate_kkeunmari()** (6 connections) — `tools/content_factory/validate_content.py`
 - **._validate_localized_object()** (6 connections) — `tools/content_factory/validate_content.py`
 - **.validate_satz()** (6 connections) — `tools/content_factory/validate_content.py`
-- *... and 35 more nodes in this community*
+- *... and 33 more nodes in this community*
 
 ## Relationships
 
 - [ContentValidatorTest](ContentValidatorTest.md) (10 shared connections)
-- [validate_content.py](validate_content.py.md) (7 shared connections)
+- [validate_content.py](validate_content.py.md) (8 shared connections)
 - [integrate_review_batches.py](integrate_review_batches.py.md) (3 shared connections)
 - [load_sources](load_sources.md) (3 shared connections)
 - [validate_batch_01.py](validate_batch_01.py.md) (3 shared connections)
@@ -52,7 +52,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 258 (97%)
+- EXTRACTED: 256 (97%)
 - INFERRED: 9 (3%)
 - AMBIGUOUS: 0 (0%)
 

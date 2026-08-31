@@ -10,10 +10,10 @@
 - **../widgets/sori/content_feed.dart** (7 connections)
 - **../widgets/sori/content_share_recovery.dart** (6 connections)
 - **../widgets/flip_card.dart** (5 connections)
-- **_LegacyVocabScreenState** (4 connections) — `lib/screens/legacy_vocab_screen.dart`
+- **CustomPackPlayScreen** (4 connections) — `lib/screens/custom_pack_play_screen.dart`
+- **_CustomPackPlayScreenState** (4 connections) — `lib/screens/custom_pack_play_screen.dart`
 - **_ReviewSessionScreenState** (4 connections) — `lib/screens/review_session_screen.dart`
 - **../widgets/sori/deck_coach.dart** (4 connections)
-- **LegacyVocabScreen** (3 connections) — `lib/screens/legacy_vocab_screen.dart`
 - **ReviewSessionScreen** (3 connections) — `lib/screens/review_session_screen.dart`
 - **../widgets/sori/scroll_if_needed.dart** (3 connections)
 - **_Back** (2 connections) — `lib/screens/custom_pack_play_screen.dart`
@@ -33,18 +33,18 @@
 
 ## Relationships
 
-- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (22 shared connections)
-- [bool get](bool_get.md) (15 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (13 shared connections)
-- [book_result_screen.dart](book_result_screen.dart.md) (12 shared connections)
+- [List](List.md) (32 shared connections)
+- [cloze_game_screen.dart](cloze_game_screen.dart.md) (14 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (9 shared connections)
 - [_State](_State.md) (8 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (8 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (7 shared connections)
-- [hangul_screen.dart](hangul_screen.dart.md) (6 shared connections)
+- [package:flutter/services.dart](package-flutter-services.dart.md) (7 shared connections)
+- [grammar_screen.dart](grammar_screen.dart.md) (7 shared connections)
+- [vocab_pack_result_screen.dart](vocab_pack_result_screen.dart.md) (6 shared connections)
 - [StatelessWidget](StatelessWidget.md) (6 shared connections)
-- [grammar_screen.dart](grammar_screen.dart.md) (4 shared connections)
-- [List](List.md) (3 shared connections)
-- [deck_coach.dart](deck_coach.dart.md) (3 shared connections)
+- [bool get](bool_get.md) (5 shared connections)
+- [hangul_screen.dart](hangul_screen.dart.md) (5 shared connections)
+- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (5 shared connections)
+- [cloud_write_session.dart](cloud_write_session.dart.md) (3 shared connections)
 
 ## Source Files
 
@@ -55,7 +55,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 324 (100%)
+- EXTRACTED: 325 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

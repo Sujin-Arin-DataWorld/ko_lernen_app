@@ -32,13 +32,12 @@
 ## Relationships
 
 - [_](_.md) (3 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
-- [Map](Map.md) (1 shared connections)
+- [bool get](bool_get.md) (2 shared connections)
+- [int get](int_get.md) (1 shared connections)
 - [hanok_world_screen.dart](hanok_world_screen.dart.md) (1 shared connections)
 - [return](return.md) (1 shared connections)
-- [storage_service.dart](storage_service.dart.md) (1 shared connections)
+- [static const int](static_const_int.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
 - [pronunciation_phrase.dart](pronunciation_phrase.dart.md) (1 shared connections)
 - [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
 - [sori_stage_progression.dart](sori_stage_progression.dart.md) (1 shared connections)

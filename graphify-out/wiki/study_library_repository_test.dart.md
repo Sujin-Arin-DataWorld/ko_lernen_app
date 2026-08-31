@@ -1,16 +1,11 @@
 # study_library_repository_test.dart
 
-> 21 nodes
+> 16 nodes
 
 ## Key Concepts
 
 - **study_library_repository_test.dart** (23 connections) — `test/features/study_library/study_library_repository_test.dart`
 - **StudyLibraryBookmarkHealth** (5 connections) — `lib/features/study_library/study_library_models.dart`
-- **StudyLibraryBookshelfReader** (5 connections) — `lib/features/study_library/study_library_repository.dart`
-- **ProductionStudyLibraryBookshelfReader** (2 connections) — `lib/features/study_library/study_library_production_adapters.dart`
-- **_BookshelfReader** (2 connections) — `test/features/study_library/study_library_repository_test.dart`
-- **_BookshelfReader** (2 connections) — `test/features/study_library/study_library_screen_test.dart`
-- **_BookshelfReader** (2 connections) — `test/onboarding_v2_accessibility_gate_test.dart`
 - **health** (1 connections) — `test/features/study_library/study_library_repository_test.dart`
 - **items** (1 connections) — `test/features/study_library/study_library_repository_test.dart`
 - **legacyMirrorSuppressions** (1 connections) — `test/features/study_library/study_library_repository_test.dart`
@@ -28,31 +23,25 @@
 
 ## Relationships
 
-- [_](_.md) (4 shared connections)
+- [_](_.md) (3 shared connections)
 - [study_library_screen.dart](study_library_screen.dart.md) (1 shared connections)
-- [study_library_production_adapters.dart](study_library_production_adapters.dart.md) (1 shared connections)
 - [List](List.md) (1 shared connections)
 - [StudyLibraryBookmarkReader](StudyLibraryBookmarkReader.md) (1 shared connections)
+- [StudyLibraryBookshelfReader](StudyLibraryBookshelfReader.md) (1 shared connections)
 - [StudyLibraryCustomPackReader](StudyLibraryCustomPackReader.md) (1 shared connections)
 - [StudyLibraryLikedReader](StudyLibraryLikedReader.md) (1 shared connections)
 - [StudyLibrarySrsReader](StudyLibrarySrsReader.md) (1 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
-- [custom_pack_games_uiux_test.dart](custom_pack_games_uiux_test.dart.md) (1 shared connections)
-- [study_library_screen_test.dart](study_library_screen_test.dart.md) (1 shared connections)
-- [onboarding_v2_accessibility_gate_test.dart](onboarding_v2_accessibility_gate_test.dart.md) (1 shared connections)
+- [vocab_notebook_studio_screen_test.dart](vocab_notebook_studio_screen_test.dart.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/features/study_library/study_library_models.dart`
-- `lib/features/study_library/study_library_production_adapters.dart`
-- `lib/features/study_library/study_library_repository.dart`
 - `test/features/study_library/study_library_repository_test.dart`
-- `test/features/study_library/study_library_screen_test.dart`
-- `test/onboarding_v2_accessibility_gate_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 35 (100%)
+- EXTRACTED: 27 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

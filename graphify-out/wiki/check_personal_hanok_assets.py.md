@@ -6,6 +6,7 @@
 
 - **check_personal_hanok_assets.py** (13 connections) — `tool/check_personal_hanok_assets.py`
 - **PersonalHanokAssetCheckerTest** (8 connections) — `tool/test_check_personal_hanok_assets.py`
+- **qa_composite_path()** (7 connections) — `tool/hanok_v1_asset_contract.py`
 - **_check()** (5 connections) — `tool/check_personal_hanok_assets.py`
 - **_compose_runtime_estate()** (5 connections) — `tool/check_personal_hanok_assets.py`
 - **main()** (5 connections) — `tool/check_personal_hanok_assets.py`
@@ -17,7 +18,6 @@
 - **_coverage()** (3 connections) — `tool/check_personal_hanok_assets.py`
 - **source_format()** (3 connections) — `tool/check_personal_hanok_assets.py`
 - **test_check_personal_hanok_assets.py** (3 connections) — `tool/test_check_personal_hanok_assets.py`
-- **_a1_runtime_leftovers()** (2 connections) — `tool/check_personal_hanok_assets.py`
 - **.test_complete_runtime_a1_states_without_ledger_fail()** (2 connections) — `tool/test_check_personal_hanok_assets.py`
 - **.test_qa_composite_is_outside_the_runtime_map()** (2 connections) — `tool/test_check_personal_hanok_assets.py`
 - **Path** (2 connections)
@@ -31,18 +31,19 @@
 
 ## Relationships
 
-- [load_provenance](load_provenance.md) (11 shared connections)
-- [check_style_conformance.py](check_style_conformance.py.md) (1 shared connections)
+- [load_provenance](load_provenance.md) (12 shared connections)
+- [chroma_key_count](chroma_key_count.md) (1 shared connections)
 
 ## Source Files
 
 - `tool/check_personal_hanok_assets.py`
+- `tool/hanok_v1_asset_contract.py`
 - `tool/test_check_personal_hanok_assets.py`
 
 ## Audit Trail
 
-- EXTRACTED: 41 (89%)
-- INFERRED: 5 (11%)
+- EXTRACTED: 44 (90%)
+- INFERRED: 5 (10%)
 - AMBIGUOUS: 0 (0%)
 
 ---

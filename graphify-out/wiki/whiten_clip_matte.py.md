@@ -18,12 +18,11 @@
 
 ## Relationships
 
-- [whiten_frame](whiten_frame.md) (10 shared connections)
+- [whiten_frame](whiten_frame.md) (11 shared connections)
 - [compose_home_hero_hanji.py](compose_home_hero_hanji.py.md) (5 shared connections)
 - [sheet](sheet.md) (3 shared connections)
-- [check_clip_matte.py](check_clip_matte.py.md) (2 shared connections)
-- [check_home_hero_matte.py](check_home_hero_matte.py.md) (2 shared connections)
-- [load_frames](load_frames.md) (1 shared connections)
+- [find_ffprobe](find_ffprobe.md) (3 shared connections)
+- [check_home_hero_matte.py](check_home_hero_matte.py.md) (1 shared connections)
 
 ## Source Files
 

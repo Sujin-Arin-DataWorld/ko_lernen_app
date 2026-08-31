@@ -1,6 +1,6 @@
 # CanDoSegmentGeneratorTest
 
-> 20 nodes
+> 18 nodes
 
 ## Key Concepts
 
@@ -11,8 +11,6 @@
 - **.test_all_primary_content_is_directly_routed_once()** (3 connections) — `tools/content_factory/test_build_can_do_segments.py`
 - **.test_cloze_and_satz_have_disjoint_exact_lineage()** (3 connections) — `tools/content_factory/test_build_can_do_segments.py`
 - **SmalltalkCopyRevisionTest** (2 connections) — `tools/content_factory/test_build_can_do_segments.py`
-- **.test_c_projects_are_eight_shared_theme_sources()** (2 connections) — `tools/content_factory/test_build_can_do_segments.py`
-- **.test_core_has_86_immutable_segments_and_full_mode_ids()** (2 connections) — `tools/content_factory/test_build_can_do_segments.py`
 - **.test_smalltalk_audit_partitions_all_a1_b2_phrases()** (2 connections) — `tools/content_factory/test_build_can_do_segments.py`
 - **.setUpClass()** (1 connections) — `tools/content_factory/test_build_can_do_segments.py`
 - **.test_batch06_scenario_content_is_review_promoted()** (1 connections) — `tools/content_factory/test_build_can_do_segments.py`
@@ -37,8 +35,8 @@
 
 ## Audit Trail
 
-- EXTRACTED: 25 (89%)
-- INFERRED: 3 (11%)
+- EXTRACTED: 25 (96%)
+- INFERRED: 1 (4%)
 - AMBIGUOUS: 0 (0%)
 
 ---
