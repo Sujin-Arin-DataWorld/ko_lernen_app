@@ -1,6 +1,6 @@
 # privacy_consent_service_test.dart
 
-> 16 nodes
+> 16 nodes · cohesion 0.12
 
 ## Key Concepts
 
@@ -24,10 +24,11 @@
 ## Relationships
 
 - [privacy_consent_service.dart](privacy_consent_service.dart.md) (3 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
+- [entry_onboarding_uiux_test.dart](entry_onboarding_uiux_test.dart.md) (1 shared connections)
 - [List](List.md) (1 shared connections)
-- [Object?](Object_.md) (1 shared connections)
+- [sori_stage_progression.dart](sori_stage_progression.dart.md) (1 shared connections)
 - [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
 - [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (1 shared connections)
 
 ## Source Files

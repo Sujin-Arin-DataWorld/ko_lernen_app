@@ -1,6 +1,6 @@
 # 한글소리 UI/UX 심층 진단 및 디자인 바이블 제안
 
-> 8 nodes
+> 8 nodes · cohesion 0.25
 
 ## Key Concepts
 

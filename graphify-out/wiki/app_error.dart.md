@@ -1,6 +1,6 @@
 # app_error.dart
 
-> 23 nodes
+> 23 nodes · cohesion 0.09
 
 ## Key Concepts
 
@@ -30,12 +30,16 @@
 
 ## Relationships
 
-- [package:flutter/material.dart](package-flutter-material.dart.md) (4 shared connections)
-- [String?](String_.md) (3 shared connections)
-- [AnimationController](AnimationController.md) (2 shared connections)
-- [_State](_State.md) (2 shared connections)
-- [content_feedback_widget_test.dart](content_feedback_widget_test.dart.md) (1 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
+- [String?](String_.md) (2 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (2 shared connections)
+- [StatefulWidget](StatefulWidget.md) (2 shared connections)
+- [pressable.dart](pressable.dart.md) (1 shared connections)
+- [Duration](Duration.md) (1 shared connections)
+- [Color](Color.md) (1 shared connections)
+- [dart:async](dart-async.md) (1 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [app_loading.dart](app_loading.dart.md) (1 shared connections)
 - [celebration.dart](celebration.dart.md) (1 shared connections)
 
 ## Source Files

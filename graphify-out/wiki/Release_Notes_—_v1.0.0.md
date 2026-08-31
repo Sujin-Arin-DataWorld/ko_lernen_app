@@ -1,6 +1,6 @@
 # Release Notes — v1.0.0
 
-> 5 nodes
+> 5 nodes · cohesion 0.40
 
 ## Key Concepts
 

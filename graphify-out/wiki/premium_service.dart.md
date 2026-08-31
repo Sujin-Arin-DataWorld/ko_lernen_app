@@ -1,6 +1,6 @@
 # premium_service.dart
 
-> 48 nodes
+> 48 nodes · cohesion 0.04
 
 ## Key Concepts
 
@@ -33,18 +33,18 @@
 
 ## Relationships
 
-- [_](_.md) (3 shared connections)
 - [paywall_screen_test.dart](paywall_screen_test.dart.md) (3 shared connections)
-- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (2 shared connections)
-- [String?](String_.md) (2 shared connections)
-- [dart:async](dart-async.md) (2 shared connections)
-- [media_cleanup_gate.dart](media_cleanup_gate.dart.md) (1 shared connections)
+- [cloud_write_session.dart](cloud_write_session.dart.md) (1 shared connections)
 - [@visibleForTesting](@visibleForTesting.md) (1 shared connections)
+- [audio_policy.dart](audio_policy.dart.md) (1 shared connections)
+- [ux_preview_feature.dart](ux_preview_feature.dart.md) (1 shared connections)
 - [static const String](static_const_String.md) (1 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
-- [deck_coach.dart](deck_coach.dart.md) (1 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
-- [package:flutter/widgets.dart](package-flutter-widgets.dart.md) (1 shared connections)
+- [String?](String_.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
+- [sori_stage_shell.dart](sori_stage_shell.dart.md) (1 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
+- [cloud_sync.dart](cloud_sync.dart.md) (1 shared connections)
+- [dart:async](dart-async.md) (1 shared connections)
 
 ## Source Files
 

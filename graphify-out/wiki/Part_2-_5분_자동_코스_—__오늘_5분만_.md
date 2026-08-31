@@ -1,6 +1,6 @@
 # Part 2: 5분 자동 코스 — "오늘 5분만"
 
-> 19 nodes
+> 19 nodes · cohesion 0.11
 
 ## Key Concepts
 

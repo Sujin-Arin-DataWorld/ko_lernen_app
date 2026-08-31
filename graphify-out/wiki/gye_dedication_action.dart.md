@@ -1,68 +1,57 @@
 # gye_dedication_action.dart
 
-> 96 nodes
+> 26 nodes · cohesion 0.08
 
 ## Key Concepts
 
 - **gye_dedication_action.dart** (42 connections) — `lib/widgets/sori/gye_dedication_action.dart`
-- **gye_hanok.dart** (32 connections) — `lib/widgets/sori/gye_hanok.dart`
-- **decoration_layer.dart** (22 connections) — `lib/widgets/sori/decoration_layer.dart`
-- **gye_dedication_picker.dart** (20 connections) — `lib/widgets/sori/gye_dedication_picker.dart`
-- **gye_dedication_catalog.dart** (12 connections) — `lib/data/gye_dedication_catalog.dart`
-- **Iterable** (9 connections)
-- **gye_dedication_layer.dart** (9 connections) — `lib/widgets/sori/gye_dedication_layer.dart`
-- **placed_decoration.dart** (9 connections)
-- **../../data/quest_catalog.dart** (7 connections)
-- **../../models/gye_dedication.dart** (7 connections)
-- **GyeMeta** (6 connections) — `lib/models/gye.dart`
-- **GyeDedication** (5 connections) — `lib/models/gye_dedication.dart`
 - **GyeDedicationAction** (3 connections) — `lib/widgets/sori/gye_dedication_action.dart`
 - **_GyeDedicationActionState** (3 connections) — `lib/widgets/sori/gye_dedication_action.dart`
-- **tiger_video.dart** (3 connections)
-- **../../data/gye_dedication_catalog.dart** (2 connections)
-- **QuestDefinition** (2 connections) — `lib/models/quest.dart`
 - **GyeDedicationChange** (2 connections) — `lib/services/gye_dedication_service.dart`
-- **_FirstOrNull** (2 connections) — `lib/services/hangul_composer.dart`
-- **DecorationLayer** (2 connections) — `lib/widgets/sori/decoration_layer.dart`
-- **_PositionedDecoration** (2 connections) — `lib/widgets/sori/decoration_layer.dart`
-- **GyeDedicationLayer** (2 connections) — `lib/widgets/sori/gye_dedication_layer.dart`
-- **GyeDedicationPickerSheet** (2 connections) — `lib/widgets/sori/gye_dedication_picker.dart`
-- **_GyeDedicationPickRow** (2 connections) — `lib/widgets/sori/gye_dedication_picker.dart`
-- **GyeShowcaseArtwork** (2 connections) — `lib/widgets/sori/gye_hanok.dart`
-- *... and 71 more nodes in this community*
+- **../../services/gye_dedication_service.dart** (2 connections)
+- **gye_dedication_picker.dart** (1 connections)
+- **actionsAvailable** (1 connections) — `lib/widgets/sori/gye_dedication_action.dart`
+- **_actionsEnabled** (1 connections) — `lib/widgets/sori/gye_dedication_action.dart`
+- **build** (1 connections) — `lib/widgets/sori/gye_dedication_action.dart`
+- **change** (1 connections) — `lib/widgets/sori/gye_dedication_action.dart`
+- **_confirm** (1 connections) — `lib/widgets/sori/gye_dedication_action.dart`
+- **createState** (1 connections) — `lib/widgets/sori/gye_dedication_action.dart`
+- **current** (1 connections) — `lib/widgets/sori/gye_dedication_action.dart`
+- **_currentForMembership** (1 connections) — `lib/widgets/sori/gye_dedication_action.dart`
+- **expectedMembershipEpoch** (1 connections) — `lib/widgets/sori/gye_dedication_action.dart`
+- **expectedMembershipId** (1 connections) — `lib/widgets/sori/gye_dedication_action.dart`
+- **GyeDedicationCommit** (1 connections) — `lib/widgets/sori/gye_dedication_action.dart`
+- **_GyeDedicationRequest** (1 connections) — `lib/widgets/sori/gye_dedication_action.dart`
+- **gyeId** (1 connections) — `lib/widgets/sori/gye_dedication_action.dart`
+- **onCommit** (1 connections) — `lib/widgets/sori/gye_dedication_action.dart`
+- **_openPicker** (1 connections) — `lib/widgets/sori/gye_dedication_action.dart`
+- **operationId** (1 connections) — `lib/widgets/sori/gye_dedication_action.dart`
+- **ownedDecor** (1 connections) — `lib/widgets/sori/gye_dedication_action.dart`
+- **_showFailure** (1 connections) — `lib/widgets/sori/gye_dedication_action.dart`
+- **_submit** (1 connections) — `lib/widgets/sori/gye_dedication_action.dart`
+- *... and 1 more nodes in this community*
 
 ## Relationships
 
-- [package:flutter/material.dart](package-flutter-material.dart.md) (16 shared connections)
-- [gye_screen.dart](gye_screen.dart.md) (7 shared connections)
-- [StatelessWidget](StatelessWidget.md) (6 shared connections)
-- [typedef](typedef.md) (5 shared connections)
-- [String?](String_.md) (4 shared connections)
-- [gye_dedication_service.dart](gye_dedication_service.dart.md) (3 shared connections)
-- [Object?](Object_.md) (2 shared connections)
-- [List](List.md) (2 shared connections)
-- [hanok_world_screen.dart](hanok_world_screen.dart.md) (2 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (2 shared connections)
-- [_State](_State.md) (2 shared connections)
-- [celebration.dart](celebration.dart.md) (2 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (7 shared connections)
+- [gye_dedication_catalog.dart](gye_dedication_catalog.dart.md) (3 shared connections)
+- [gye_dedication_service.dart](gye_dedication_service.dart.md) (2 shared connections)
+- [gye_screen.dart](gye_screen.dart.md) (2 shared connections)
+- [StatefulWidget](StatefulWidget.md) (2 shared connections)
+- [List](List.md) (1 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
+- [book_preview_screen.dart](book_preview_screen.dart.md) (1 shared connections)
+- [quest_tracker.dart](quest_tracker.dart.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
 
 ## Source Files
 
-- `lib/data/gye_dedication_catalog.dart`
-- `lib/models/gye.dart`
-- `lib/models/gye_dedication.dart`
-- `lib/models/quest.dart`
 - `lib/services/gye_dedication_service.dart`
-- `lib/services/hangul_composer.dart`
-- `lib/widgets/sori/decoration_layer.dart`
 - `lib/widgets/sori/gye_dedication_action.dart`
-- `lib/widgets/sori/gye_dedication_layer.dart`
-- `lib/widgets/sori/gye_dedication_picker.dart`
-- `lib/widgets/sori/gye_hanok.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 179 (100%)
+- EXTRACTED: 47 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

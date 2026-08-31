@@ -1,6 +1,6 @@
 # Batch 11 시나리오 36개 집필 계획
 
-> 39 nodes
+> 39 nodes · cohesion 0.05
 
 ## Key Concepts
 

@@ -1,6 +1,6 @@
 # Part 2: 끝말잇기 챌린지 — "오늘의 5단계 도전"
 
-> 8 nodes
+> 8 nodes · cohesion 0.25
 
 ## Key Concepts
 

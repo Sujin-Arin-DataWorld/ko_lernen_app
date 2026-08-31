@@ -1,6 +1,6 @@
 # Handoff: SESSION_LOG 의무 폐지 · handoff 규칙
 
-> 12 nodes
+> 12 nodes · cohesion 0.17
 
 ## Key Concepts
 

@@ -1,6 +1,6 @@
 # chrome_stack_guard_test.dart
 
-> 16 nodes
+> 16 nodes · cohesion 0.12
 
 ## Key Concepts
 
@@ -23,9 +23,9 @@
 
 ## Relationships
 
-- [dart:io](dart-io.md) (2 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
+- [File](File.md) (1 shared connections)
 - [return](return.md) (1 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
 
 ## Source Files
 

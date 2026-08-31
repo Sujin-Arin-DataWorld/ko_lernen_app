@@ -1,6 +1,6 @@
 # Hangul Sori 개인정보 보호 출시 체크리스트
 
-> 6 nodes
+> 6 nodes · cohesion 0.33
 
 ## Key Concepts
 

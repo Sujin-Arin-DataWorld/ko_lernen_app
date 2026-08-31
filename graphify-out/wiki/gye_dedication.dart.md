@@ -1,6 +1,6 @@
 # gye_dedication.dart
 
-> 27 nodes
+> 27 nodes · cohesion 0.07
 
 ## Key Concepts
 
@@ -33,14 +33,14 @@
 
 ## Relationships
 
-- [bool get](bool_get.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
 - [int?](int_.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
-- [gye_dedication_action_test.dart](gye_dedication_action_test.dart.md) (1 shared connections)
-- [typedef](typedef.md) (1 shared connections)
-- [storage_service.dart](storage_service.dart.md) (1 shared connections)
+- [gye_dedication_service.dart](gye_dedication_service.dart.md) (1 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
+- [static const int](static_const_int.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
-- [gye_dedication_action.dart](gye_dedication_action.dart.md) (1 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
 - [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
 
 ## Source Files

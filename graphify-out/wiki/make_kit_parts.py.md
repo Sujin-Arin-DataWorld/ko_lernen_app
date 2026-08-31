@@ -1,6 +1,6 @@
 # make_kit_parts.py
 
-> 47 nodes
+> 47 nodes · cohesion 0.11
 
 ## Key Concepts
 
@@ -21,9 +21,9 @@
 - **build_timber()** (7 connections) — `tool/make_kit_parts.py`
 - **sujang_rects()** (7 connections) — `tool/make_kit_parts.py`
 - **wall_mask()** (7 connections) — `tool/make_kit_parts.py`
-- **KitPartLayoutTest** (6 connections) — `tool/test_make_kit_parts.py`
 - **clip_to()** (6 connections) — `tool/make_kit_parts.py`
 - **ground_x()** (6 connections) — `tool/make_kit_parts.py`
+- **KitPartLayoutTest** (6 connections) — `tool/test_make_kit_parts.py`
 - **footprint()** (5 connections) — `tool/make_kit_parts.py`
 - **_require()** (5 connections) — `tool/make_kit_parts.py`
 - **wood_paint()** (5 connections) — `tool/make_kit_parts.py`
@@ -34,8 +34,8 @@
 ## Relationships
 
 - [derive_hanok_a1_kit.py](derive_hanok_a1_kit.py.md) (6 shared connections)
-- [derive_estate_building_stages.py](derive_estate_building_stages.py.md) (2 shared connections)
 - [hanok_a1_kit.py](hanok_a1_kit.py.md) (2 shared connections)
+- [derive_estate_building_stages.py](derive_estate_building_stages.py.md) (2 shared connections)
 - [load_provenance](load_provenance.md) (1 shared connections)
 
 ## Source Files

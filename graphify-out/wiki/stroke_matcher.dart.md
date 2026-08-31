@@ -1,6 +1,6 @@
 # stroke_matcher.dart
 
-> 56 nodes
+> 56 nodes · cohesion 0.04
 
 ## Key Concepts
 
@@ -33,12 +33,12 @@
 
 ## Relationships
 
-- [bool get](bool_get.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
 - [double get](double_get.md) (1 shared connections)
 - [int?](int_.md) (1 shared connections)
 - [return](return.md) (1 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
-- [dart:ui](dart-ui.md) (1 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
+- [custom_pack_games_uiux_test.dart](custom_pack_games_uiux_test.dart.md) (1 shared connections)
 - [stroke_canvas.dart](stroke_canvas.dart.md) (1 shared connections)
 - [hangul_screen.dart](hangul_screen.dart.md) (1 shared connections)
 

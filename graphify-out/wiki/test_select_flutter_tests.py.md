@@ -1,6 +1,6 @@
 # test_select_flutter_tests.py
 
-> 17 nodes
+> 17 nodes · cohesion 0.12
 
 ## Key Concepts
 

@@ -1,6 +1,6 @@
 # HANDOFF — UI/UX 개편 2 "Sori Deck × 리소그래프 한지" (2026-08-14)
 
-> 32 nodes
+> 32 nodes · cohesion 0.06
 
 ## Key Concepts
 

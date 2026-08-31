@@ -1,6 +1,6 @@
 # Gye Admin 패널 (계 모더레이션)
 
-> 8 nodes
+> 8 nodes · cohesion 0.25
 
 ## Key Concepts
 

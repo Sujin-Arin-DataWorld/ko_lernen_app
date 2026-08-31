@@ -1,6 +1,6 @@
 # Kkeunmari 단어 풀 자동 확장 — 장기형 4-소스 파이프라인
 
-> 16 nodes
+> 16 nodes · cohesion 0.12
 
 ## Key Concepts
 

@@ -1,6 +1,6 @@
 # AGENTS.md — ko_lernen_app (Hangul Sori) · 모든 세션의 단일 진입점(SSoT)
 
-> 31 nodes
+> 31 nodes · cohesion 0.06
 
 ## Key Concepts
 

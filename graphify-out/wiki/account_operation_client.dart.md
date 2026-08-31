@@ -1,6 +1,6 @@
 # account_operation_client.dart
 
-> 81 nodes
+> 81 nodes · cohesion 0.03
 
 ## Key Concepts
 
@@ -33,18 +33,18 @@
 
 ## Relationships
 
-- [@immutable](@immutable.md) (8 shared connections)
-- [_](_.md) (4 shared connections)
-- [dart:async](dart-async.md) (2 shared connections)
-- [media_cleanup_gate.dart](media_cleanup_gate.dart.md) (2 shared connections)
-- [account_operation_client_test.dart](account_operation_client_test.dart.md) (2 shared connections)
-- [auth_service_test.dart](auth_service_test.dart.md) (2 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
+- [onboarding_v2_presentation.dart](onboarding_v2_presentation.dart.md) (8 shared connections)
+- [auth_service_test.dart](auth_service_test.dart.md) (4 shared connections)
+- [_](_.md) (3 shared connections)
+- [cloud_write_session.dart](cloud_write_session.dart.md) (2 shared connections)
+- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (2 shared connections)
+- [List](List.md) (1 shared connections)
+- [settings_screen_test.dart](settings_screen_test.dart.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
 - [return](return.md) (1 shared connections)
-- [static const](static_const.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
-- [typedef](typedef.md) (1 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
+- [account_transition_coordinator_test.dart](account_transition_coordinator_test.dart.md) (1 shared connections)
 
 ## Source Files
 

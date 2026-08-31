@@ -1,6 +1,6 @@
 # build_cloze.py
 
-> 10 nodes
+> 10 nodes · cohesion 0.38
 
 ## Key Concepts
 

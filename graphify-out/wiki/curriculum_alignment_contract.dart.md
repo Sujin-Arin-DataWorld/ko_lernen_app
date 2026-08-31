@@ -1,6 +1,6 @@
 # curriculum_alignment_contract.dart
 
-> 60 nodes
+> 60 nodes · cohesion 0.03
 
 ## Key Concepts
 
@@ -33,11 +33,10 @@
 
 ## Relationships
 
-- [bool get](bool_get.md) (1 shared connections)
+- [List](List.md) (2 shared connections)
 - [curriculum.dart](curriculum.dart.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
-- [typedef](typedef.md) (1 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
 - [curriculum_alignment_registry.dart](curriculum_alignment_registry.dart.md) (1 shared connections)
 - [learning_semantic_contract.dart](learning_semantic_contract.dart.md) (1 shared connections)

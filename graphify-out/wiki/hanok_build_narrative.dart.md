@@ -1,6 +1,6 @@
 # hanok_build_narrative.dart
 
-> 24 nodes
+> 24 nodes · cohesion 0.08
 
 ## Key Concepts
 
@@ -31,16 +31,17 @@
 
 ## Relationships
 
-- [_](_.md) (3 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
+- [scenario_can_do_result.dart](scenario_can_do_result.dart.md) (2 shared connections)
+- [List](List.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
-- [hanok_world_screen.dart](hanok_world_screen.dart.md) (1 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
 - [return](return.md) (1 shared connections)
-- [storage_service.dart](storage_service.dart.md) (1 shared connections)
+- [static const int](static_const_int.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [hanok_world_screen.dart](hanok_world_screen.dart.md) (1 shared connections)
+- [cloze_game_screen.dart](cloze_game_screen.dart.md) (1 shared connections)
 - [pronunciation_phrase.dart](pronunciation_phrase.dart.md) (1 shared connections)
-- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
+- [learning_path_screen.dart](learning_path_screen.dart.md) (1 shared connections)
 - [sori_stage_progression.dart](sori_stage_progression.dart.md) (1 shared connections)
 
 ## Source Files

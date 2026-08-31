@@ -1,6 +1,6 @@
 # 개발팀이 반드시 지키게 해야 할 UI/UX 바이블
 
-> 13 nodes
+> 13 nodes · cohesion 0.15
 
 ## Key Concepts
 

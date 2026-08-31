@@ -1,6 +1,6 @@
 # Analytics & Privacy Plan — Hangul Sori
 
-> 20 nodes
+> 20 nodes · cohesion 0.10
 
 ## Key Concepts
 

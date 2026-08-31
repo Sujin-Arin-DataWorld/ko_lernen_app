@@ -1,6 +1,6 @@
 # Hangul Sori — 기능 로드맵 (깊은 분석)
 
-> 22 nodes
+> 22 nodes · cohesion 0.09
 
 ## Key Concepts
 

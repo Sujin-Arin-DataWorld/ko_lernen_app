@@ -1,6 +1,6 @@
 # CircuitBreaker
 
-> 8 nodes
+> 8 nodes · cohesion 0.29
 
 ## Key Concepts
 

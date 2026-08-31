@@ -1,6 +1,6 @@
 # button.dart
 
-> 23 nodes
+> 23 nodes · cohesion 0.09
 
 ## Key Concepts
 
@@ -30,11 +30,13 @@
 
 ## Relationships
 
-- [String?](String_.md) (5 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (3 shared connections)
+- [Color](Color.md) (2 shared connections)
 - [double get](double_get.md) (1 shared connections)
 - [int?](int_.md) (1 shared connections)
-- [dart:ui](dart-ui.md) (1 shared connections)
+- [String?](String_.md) (1 shared connections)
+- [dart:async](dart-async.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
 - [vocab_pack_result_screen.dart](vocab_pack_result_screen.dart.md) (1 shared connections)
 
 ## Source Files

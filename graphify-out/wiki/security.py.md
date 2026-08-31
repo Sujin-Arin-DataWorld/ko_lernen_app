@@ -1,6 +1,6 @@
 # security.py
 
-> 58 nodes
+> 58 nodes · cohesion 0.08
 
 ## Key Concepts
 
@@ -10,8 +10,8 @@
 - **QuotaState** (14 connections) — `functions/analyze_korean_text/security.py`
 - **verify_caller()** (14 connections) — `functions/analyze_korean_text/security.py`
 - **datetime** (13 connections)
-- **QuotaExceeded** (12 connections) — `functions/analyze_korean_text/security.py`
 - **consume_quota_state()** (12 connections) — `functions/analyze_korean_text/security.py`
+- **QuotaExceeded** (12 connections) — `functions/analyze_korean_text/security.py`
 - **FirestoreQuotaGate** (11 connections) — `functions/analyze_korean_text/security.py`
 - **QuotaPolicyTest** (10 connections) — `functions/analyze_korean_text/test_security.py`
 - **idempotency_payload()** (9 connections) — `functions/analyze_korean_text/security.py`
@@ -25,9 +25,9 @@
 - **quota_expires_at()** (6 connections) — `functions/analyze_korean_text/security.py`
 - **_bearer_token()** (5 connections) — `functions/analyze_korean_text/security.py`
 - **._payload()** (5 connections) — `functions/analyze_korean_text/security.py`
-- **QuotaPolicy** (4 connections) — `functions/analyze_korean_text/security.py`
 - **_as_utc_datetime()** (4 connections) — `functions/analyze_korean_text/security.py`
 - **_firebase_app()** (4 connections) — `functions/analyze_korean_text/security.py`
+- **.__init__()** (4 connections) — `functions/analyze_korean_text/security.py`
 - **.__init__()** (4 connections) — `functions/analyze_korean_text/security.py`
 - *... and 33 more nodes in this community*
 

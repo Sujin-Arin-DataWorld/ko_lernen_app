@@ -1,6 +1,6 @@
 # path_trail.dart
 
-> 51 nodes
+> 51 nodes · cohesion 0.04
 
 ## Key Concepts
 
@@ -33,18 +33,18 @@
 
 ## Relationships
 
-- [String?](String_.md) (8 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (4 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (6 shared connections)
 - [StatelessWidget](StatelessWidget.md) (4 shared connections)
 - [CustomPainter](CustomPainter.md) (2 shared connections)
 - [game_reward.dart](game_reward.dart.md) (2 shared connections)
-- [_State](_State.md) (2 shared connections)
-- [AnimationController](AnimationController.md) (1 shared connections)
+- [vocab_pack_result_screen.dart](vocab_pack_result_screen.dart.md) (2 shared connections)
+- [StatefulWidget](StatefulWidget.md) (2 shared connections)
+- [pressable.dart](pressable.dart.md) (1 shared connections)
+- [Color](Color.md) (1 shared connections)
+- [String?](String_.md) (1 shared connections)
 - [account_reconciliation_test.dart](account_reconciliation_test.dart.md) (1 shared connections)
 - [List](List.md) (1 shared connections)
 - [scroll_palette.dart](scroll_palette.dart.md) (1 shared connections)
-- [static const List](static_const_List.md) (1 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
 
 ## Source Files
 

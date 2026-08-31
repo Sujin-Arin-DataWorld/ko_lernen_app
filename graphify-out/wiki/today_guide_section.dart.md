@@ -1,6 +1,6 @@
 # today_guide_section.dart
 
-> 47 nodes
+> 47 nodes · cohesion 0.04
 
 ## Key Concepts
 
@@ -34,17 +34,17 @@
 ## Relationships
 
 - [guide_runtime.dart](guide_runtime.dart.md) (4 shared connections)
-- [typedef](typedef.md) (3 shared connections)
-- [dart:async](dart-async.md) (3 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (3 shared connections)
+- [List](List.md) (3 shared connections)
 - [_](_.md) (2 shared connections)
-- [guide_scenario_category_stock.dart](guide_scenario_category_stock.dart.md) (2 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (2 shared connections)
-- [_State](_State.md) (2 shared connections)
+- [dart:async](dart-async.md) (2 shared connections)
+- [StatefulWidget](StatefulWidget.md) (2 shared connections)
 - [T](T.md) (1 shared connections)
-- [storage_service.dart](storage_service.dart.md) (1 shared connections)
+- [static const int](static_const_int.md) (1 shared connections)
 - [static const String](static_const_String.md) (1 shared connections)
 - [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
+- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (1 shared connections)
+- [onboarding_v2_presentation.dart](onboarding_v2_presentation.dart.md) (1 shared connections)
 
 ## Source Files
 

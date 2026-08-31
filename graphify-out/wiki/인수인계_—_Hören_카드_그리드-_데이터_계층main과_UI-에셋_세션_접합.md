@@ -1,6 +1,6 @@
 # 인수인계 — Hören 카드 그리드: 데이터 계층(main)과 UI/에셋 세션 접합
 
-> 21 nodes
+> 21 nodes · cohesion 0.10
 
 ## Key Concepts
 

@@ -1,6 +1,6 @@
 # Batch 01–20 라이브 승격 감사
 
-> 6 nodes
+> 6 nodes · cohesion 0.33
 
 ## Key Concepts
 

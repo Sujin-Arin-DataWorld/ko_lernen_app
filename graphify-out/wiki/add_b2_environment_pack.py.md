@@ -1,11 +1,11 @@
 # add_b2_environment_pack.py
 
-> 2 nodes
+> 2 nodes · cohesion 1.00
 
 ## Key Concepts
 
-- **main()** (1 connections) — `tools/content_factory/add_b2_environment_pack.py`
 - **add_b2_environment_pack.py** (1 connections) — `tools/content_factory/add_b2_environment_pack.py`
+- **main()** (1 connections) — `tools/content_factory/add_b2_environment_pack.py`
 
 ## Relationships
 

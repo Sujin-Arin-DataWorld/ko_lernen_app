@@ -1,6 +1,6 @@
 # validate_promoted_batch.py
 
-> 18 nodes
+> 18 nodes · cohesion 0.35
 
 ## Key Concepts
 
@@ -11,8 +11,8 @@
 - **Any** (8 connections)
 - **_require_reviewed_copy_revision()** (7 connections) — `tools/content_factory/validate_promoted_batch.py`
 - **_json()** (6 connections) — `tools/content_factory/validate_promoted_batch.py`
-- **_routing_revisions()** (6 connections) — `tools/content_factory/validate_promoted_batch.py`
 - **Path** (6 connections)
+- **_routing_revisions()** (6 connections) — `tools/content_factory/validate_promoted_batch.py`
 - **_csv()** (5 connections) — `tools/content_factory/validate_promoted_batch.py`
 - **_require_reviewed_routing_revision()** (5 connections) — `tools/content_factory/validate_promoted_batch.py`
 - **_resolve()** (5 connections) — `tools/content_factory/validate_promoted_batch.py`
@@ -28,10 +28,10 @@
 - [integrate_scenario_batch.py](integrate_scenario_batch.py.md) (5 shared connections)
 - [ContentValidator](ContentValidator.md) (2 shared connections)
 - [test_level_content_4x.py](test_level_content_4x.py.md) (2 shared connections)
-- [handle](handle.md) (1 shared connections)
 - [PromotedBatchValidationTest](PromotedBatchValidationTest.md) (1 shared connections)
 - [scenario_store.py](scenario_store.py.md) (1 shared connections)
 - [validate_content.py](validate_content.py.md) (1 shared connections)
+- [handle](handle.md) (1 shared connections)
 
 ## Source Files
 

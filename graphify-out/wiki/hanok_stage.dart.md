@@ -1,6 +1,6 @@
 # hanok_stage.dart
 
-> 13 nodes
+> 13 nodes · cohesion 0.15
 
 ## Key Concepts
 
@@ -23,11 +23,13 @@
 
 ## Relationships
 
-- [_](_.md) (3 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
+- [scenario_can_do_result.dart](scenario_can_do_result.dart.md) (2 shared connections)
 - [Map](Map.md) (1 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
+- [_](_.md) (1 shared connections)
 - [learning_path_screen.dart](learning_path_screen.dart.md) (1 shared connections)
+- [book_preview_screen.dart](book_preview_screen.dart.md) (1 shared connections)
+- [StatelessWidget](StatelessWidget.md) (1 shared connections)
 
 ## Source Files
 

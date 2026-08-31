@@ -1,6 +1,6 @@
 # style_lock.py
 
-> 16 nodes
+> 16 nodes · cohesion 0.20
 
 ## Key Concepts
 

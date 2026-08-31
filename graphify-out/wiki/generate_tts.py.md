@@ -1,6 +1,6 @@
 # generate_tts.py
 
-> 48 nodes
+> 48 nodes · cohesion 0.08
 
 ## Key Concepts
 

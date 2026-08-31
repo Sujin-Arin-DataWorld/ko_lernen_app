@@ -1,6 +1,6 @@
 # apply_review.py
 
-> 32 nodes
+> 32 nodes · cohesion 0.17
 
 ## Key Concepts
 
@@ -19,13 +19,13 @@
 - **_read_csv()** (5 connections) — `tools/content_factory/apply_review.py`
 - **_json_text()** (4 connections) — `tools/content_factory/apply_review.py`
 - **main()** (4 connections) — `tools/content_factory/apply_review.py`
+- **Any** (4 connections)
 - **_records_from_json()** (4 connections) — `tools/content_factory/apply_review.py`
 - **_resolve_input()** (4 connections) — `tools/content_factory/apply_review.py`
 - **_run_validator()** (4 connections) — `tools/content_factory/apply_review.py`
 - **_target_kind()** (4 connections) — `tools/content_factory/apply_review.py`
 - **_validate_new_vocab_packs()** (4 connections) — `tools/content_factory/apply_review.py`
 - **_write_text_atomically()** (4 connections) — `tools/content_factory/apply_review.py`
-- **Any** (4 connections)
 - **normalize_status()** (3 connections) — `tools/content_factory/apply_review.py`
 - **_parse_args()** (3 connections) — `tools/content_factory/apply_review.py`
 - **_csv_text()** (2 connections) — `tools/content_factory/apply_review.py`

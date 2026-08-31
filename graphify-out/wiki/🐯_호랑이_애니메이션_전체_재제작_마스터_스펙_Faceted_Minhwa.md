@@ -1,6 +1,6 @@
 # 🐯 호랑이 애니메이션 전체 재제작 마스터 스펙 (Faceted Minhwa)
 
-> 14 nodes
+> 14 nodes · cohesion 0.14
 
 ## Key Concepts
 

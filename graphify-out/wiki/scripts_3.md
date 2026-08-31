@@ -1,6 +1,6 @@
 # scripts
 
-> 18 nodes
+> 18 nodes · cohesion 0.11
 
 ## Key Concepts
 

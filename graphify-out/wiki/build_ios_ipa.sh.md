@@ -1,6 +1,6 @@
 # build_ios_ipa.sh
 
-> 5 nodes
+> 5 nodes · cohesion 0.70
 
 ## Key Concepts
 

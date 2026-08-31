@@ -1,6 +1,6 @@
 # privacy-consent-panel.tsx
 
-> 12 nodes
+> 12 nodes · cohesion 0.26
 
 ## Key Concepts
 
@@ -14,8 +14,8 @@
 - **openSettings()** (2 connections) — `hangul-sori-site-local/app/privacy-consent-panel.tsx`
 - **save()** (2 connections) — `hangul-sori-site-local/app/privacy-consent-panel.tsx`
 - **CookiebotApi** (1 connections) — `hangul-sori-site-local/app/privacy-consent-panel.tsx`
-- **Locale** (1 connections) — `hangul-sori-site-local/app/privacy-consent-panel.tsx`
 - **copy** (1 connections) — `hangul-sori-site-local/app/privacy-consent-panel.tsx`
+- **Locale** (1 connections) — `hangul-sori-site-local/app/privacy-consent-panel.tsx`
 
 ## Relationships
 

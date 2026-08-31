@@ -1,6 +1,6 @@
 # word_relation.dart
 
-> 36 nodes
+> 36 nodes · cohesion 0.06
 
 ## Key Concepts
 
@@ -33,10 +33,9 @@
 
 ## Relationships
 
-- [bool get](bool_get.md) (2 shared connections)
-- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (2 shared connections)
-- [word_relation_service.dart](word_relation_service.dart.md) (2 shared connections)
-- [List](List.md) (1 shared connections)
+- [List](List.md) (3 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (3 shared connections)
+- [word_relation_service.dart](word_relation_service.dart.md) (1 shared connections)
 
 ## Source Files
 

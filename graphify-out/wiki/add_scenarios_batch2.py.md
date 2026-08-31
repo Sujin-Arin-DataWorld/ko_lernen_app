@@ -1,6 +1,6 @@
 # add_scenarios_batch2.py
 
-> 6 nodes
+> 6 nodes · cohesion 0.47
 
 ## Key Concepts
 

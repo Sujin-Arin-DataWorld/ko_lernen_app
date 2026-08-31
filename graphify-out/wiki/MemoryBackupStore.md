@@ -1,6 +1,6 @@
 # MemoryBackupStore
 
-> 8 nodes
+> 8 nodes · cohesion 0.32
 
 ## Key Concepts
 

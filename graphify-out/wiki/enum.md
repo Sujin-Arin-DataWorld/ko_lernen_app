@@ -1,15 +1,17 @@
 # enum
 
-> 6 nodes
+> 8 nodes · cohesion 0.25
 
 ## Key Concepts
 
-- **enum** (5 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
-- **register** (2 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
-- **business** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
-- **casual** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
-- **intimate** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
-- **polite** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **enum** (7 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **level** (2 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **a1** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **a2** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **b1** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **b2** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **c1** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **c2** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
 
 ## Relationships
 
@@ -21,7 +23,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 6 (100%)
+- EXTRACTED: 8 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

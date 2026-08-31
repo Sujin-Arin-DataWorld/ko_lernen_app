@@ -1,6 +1,6 @@
 # A1-C2 Content Humanization Design
 
-> 12 nodes
+> 12 nodes · cohesion 0.17
 
 ## Key Concepts
 

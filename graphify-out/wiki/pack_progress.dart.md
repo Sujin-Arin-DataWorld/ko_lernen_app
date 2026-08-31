@@ -1,6 +1,6 @@
 # pack_progress.dart
 
-> 20 nodes
+> 20 nodes · cohesion 0.10
 
 ## Key Concepts
 
@@ -33,9 +33,10 @@
 
 ## Relationships
 
-- [String?](String_.md) (2 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
 - [double get](double_get.md) (1 shared connections)
+- [String?](String_.md) (1 shared connections)
+- [vocab_pack_result_screen.dart](vocab_pack_result_screen.dart.md) (1 shared connections)
 - [account_reconciliation_test.dart](account_reconciliation_test.dart.md) (1 shared connections)
 
 ## Source Files

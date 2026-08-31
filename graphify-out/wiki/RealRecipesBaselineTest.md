@@ -1,13 +1,13 @@
 # RealRecipesBaselineTest
 
-> 4 nodes
+> 4 nodes · cohesion 0.50
 
 ## Key Concepts
 
 - **RealRecipesBaselineTest** (4 connections) — `tool/test_asset_recipe.py`
+- **Ready recipes must pass --check. DRAFT recipes must not emit.** (1 connections) — `tool/test_asset_recipe.py`
 - **.test_frameEdit_recipes_reproduce_the_exact_historical_prompt_hash()** (1 connections) — `tool/test_asset_recipe.py`
 - **.test_ready_committed_recipes_pass_check_and_drafts_do_not()** (1 connections) — `tool/test_asset_recipe.py`
-- **Ready recipes must pass --check. DRAFT recipes must not emit.** (1 connections) — `tool/test_asset_recipe.py`
 
 ## Relationships
 

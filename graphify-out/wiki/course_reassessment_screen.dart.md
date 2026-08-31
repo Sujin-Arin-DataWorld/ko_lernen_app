@@ -1,6 +1,6 @@
 # course_reassessment_screen.dart
 
-> 67 nodes
+> 67 nodes · cohesion 0.03
 
 ## Key Concepts
 
@@ -33,18 +33,18 @@
 
 ## Relationships
 
-- [book_result_screen.dart](book_result_screen.dart.md) (4 shared connections)
+- [gye_screen.dart](gye_screen.dart.md) (5 shared connections)
+- [hanok_experience_projector.dart](hanok_experience_projector.dart.md) (3 shared connections)
 - [_](_.md) (3 shared connections)
-- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (3 shared connections)
-- [hanok_experience_projector.dart](hanok_experience_projector.dart.md) (2 shared connections)
-- [typedef](typedef.md) (2 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
-- [gye_screen.dart](gye_screen.dart.md) (2 shared connections)
-- [_State](_State.md) (2 shared connections)
-- [standalone_games_uiux_test.dart](standalone_games_uiux_test.dart.md) (1 shared connections)
+- [List](List.md) (2 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (2 shared connections)
+- [StatefulWidget](StatefulWidget.md) (2 shared connections)
+- [choice_quizzes_uiux_test.dart](choice_quizzes_uiux_test.dart.md) (1 shared connections)
 - [course_mission_navigation.dart](course_mission_navigation.dart.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
+- [sori_stage_progression.dart](sori_stage_progression.dart.md) (1 shared connections)
+- [String?](String_.md) (1 shared connections)
+- [book_preview_screen.dart](book_preview_screen.dart.md) (1 shared connections)
 
 ## Source Files
 

@@ -1,6 +1,6 @@
 # 구독 운영 셋업 런북 — Hangul Sori €5/월 Premium (RevenueCat)
 
-> 15 nodes
+> 15 nodes · cohesion 0.13
 
 ## Key Concepts
 

@@ -1,6 +1,6 @@
 # gye_dedication_runtime.js
 
-> 71 nodes
+> 71 nodes · cohesion 0.05
 
 ## Key Concepts
 
@@ -8,27 +8,27 @@
 - **gye_dedication_runtime.test.js** (22 connections) — `functions/gye/gye_dedication_runtime.test.js`
 - **setGyeDecorationDedication()** (15 connections) — `functions/gye/gye_dedication_runtime.js`
 - **validatePayload()** (8 connections) — `functions/gye/gye_dedication_runtime.js`
-- **FakeFirestore** (7 connections) — `functions/gye/gye_dedication_runtime.test.js`
 - **receiptEntry()** (7 connections) — `functions/gye/gye_dedication_runtime.js`
 - **receiptLedger()** (7 connections) — `functions/gye/gye_dedication_runtime.js`
+- **FakeFirestore** (7 connections) — `functions/gye/gye_dedication_runtime.test.js`
 - **validCurrentActiveDedication()** (7 connections) — `functions/gye/gye_dedication_runtime.js`
 - **createGyeDedicationRuntime()** (6 connections) — `functions/gye/gye_dedication_runtime.js`
 - **matchesJoinEpoch()** (6 connections) — `functions/gye/gye_dedication_runtime.js`
 - **receiptResult()** (6 connections) — `functions/gye/gye_dedication_runtime.js`
 - **currentDedicationKind()** (5 connections) — `functions/gye/gye_dedication_runtime.js`
+- **DECORATION_SLUGS** (5 connections) — `functions/gye/gye_dedication_runtime.js`
 - **isActiveSlotOccupant()** (5 connections) — `functions/gye/gye_dedication_runtime.js`
 - **isPlainObject()** (5 connections) — `functions/gye/gye_dedication_runtime.js`
 - **isValidSlot()** (5 connections) — `functions/gye/gye_dedication_runtime.js`
 - **validJoinedAt()** (5 connections) — `functions/gye/gye_dedication_runtime.js`
-- **DECORATION_SLUGS** (5 connections) — `functions/gye/gye_dedication_runtime.js`
 - **activeMembership()** (4 connections) — `functions/gye/gye_dedication_runtime.js`
 - **activeRevision()** (4 connections) — `functions/gye/gye_dedication_runtime.js`
 - **storedJoinEpoch()** (4 connections) — `functions/gye/gye_dedication_runtime.js`
 - **clone()** (4 connections) — `functions/gye/gye_dedication_runtime.test.js`
 - **validCurrentTombstone()** (4 connections) — `functions/gye/gye_dedication_runtime.js`
 - **validPayloadFingerprint()** (4 connections) — `functions/gye/gye_dedication_runtime.js`
-- **FakeCollection** (3 connections) — `functions/gye/gye_dedication_runtime.test.js`
-- **FakeReference** (3 connections) — `functions/gye/gye_dedication_runtime.test.js`
+- **createGyeDedicationCallable()** (3 connections) — `functions/gye/gye_dedication_runtime.js`
+- **firstFreeSlot()** (3 connections) — `functions/gye/gye_dedication_runtime.js`
 - *... and 46 more nodes in this community*
 
 ## Relationships

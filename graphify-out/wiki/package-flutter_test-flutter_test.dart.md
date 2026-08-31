@@ -1,77 +1,77 @@
 # package:flutter_test/flutter_test.dart
 
-> 203 nodes
+> 273 nodes · cohesion 0.01
 
 ## Key Concepts
 
-- **package:flutter_test/flutter_test.dart** (585 connections)
-- **dart:convert** (150 connections)
-- **app_flows_e2e_test.dart** (22 connections) — `test/e2e/app_flows_e2e_test.dart`
-- **tts_request_rate_test.dart** (15 connections) — `test/tts_request_rate_test.dart`
-- **scenario_quest_fold_test.dart** (14 connections) — `test/scenario_quest_fold_test.dart`
-- **hanok_account_reconciliation_test.dart** (13 connections) — `test/hanok_account_reconciliation_test.dart`
-- **StateError** (11 connections)
+- **package:flutter_test/flutter_test.dart** (589 connections)
+- **dart:convert** (152 connections)
+- **dart:io** (137 connections)
+- **personal_room_furnish_screen_test.dart** (43 connections) — `test/personal_room_furnish_screen_test.dart`
+- **content_id_contract_test.dart** (23 connections) — `test/content_id_contract_test.dart`
+- **cultural_help_widget_test.dart** (20 connections) — `test/cultural_help_widget_test.dart`
+- **tts_bundled_manifest_test.dart** (20 connections) — `test/tts_bundled_manifest_test.dart`
+- **course_graph_test.dart** (16 connections) — `test/course_graph_test.dart`
+- **package:ko_lernen_app/widgets/sori/placed_decoration.dart** (14 connections)
+- **home_hero_matte_test.dart** (14 connections) — `test/home_hero_matte_test.dart`
+- **character_clip_matte_test.dart** (12 connections) — `test/character_clip_matte_test.dart`
+- **package:ko_lernen_app/models/personal_room.dart** (11 connections)
 - **support/scenario_json.dart** (11 connections)
-- **data_migration_test.dart** (10 connections) — `test/data_migration_test.dart`
-- **package:ko_lernen_app/services/cloud_sync.dart** (9 connections)
-- **hanok_state_service_test.dart** (9 connections) — `test/hanok_state_service_test.dart`
-- **learning_data_recovery_test.dart** (9 connections) — `test/learning_data_recovery_test.dart`
-- **quest_cta_pinned_test.dart** (9 connections) — `test/quest_cta_pinned_test.dart`
-- **splash_screen_gate_test.dart** (9 connections) — `test/splash_screen_gate_test.dart`
-- **package:ko_lernen_app/main.dart** (8 connections)
-- **content_share_recovery_test.dart** (8 connections) — `test/content_share_recovery_test.dart`
-- **culture_note_card_test.dart** (8 connections) — `test/culture_note_card_test.dart`
-- **hanok_cloud_sync_test.dart** (8 connections) — `test/hanok_cloud_sync_test.dart`
-- **learning_data_export_service_test.dart** (8 connections) — `test/learning_data_export_service_test.dart`
-- **package:audioplayers/audioplayers.dart** (7 connections)
-- **package:ko_lernen_app/widgets/sori/responsive.dart** (7 connections)
-- **audio_policy_test.dart** (7 connections) — `test/audio_policy_test.dart`
-- **feedback_completion_test.dart** (7 connections) — `test/feedback_completion_test.dart`
-- **grammar_plan_service_test.dart** (7 connections) — `test/grammar_plan_service_test.dart`
-- **onboarding_flow_service_test.dart** (7 connections) — `test/onboarding_flow_service_test.dart`
-- *... and 178 more nodes in this community*
+- **cultural_glossary_catalog_test.dart** (11 connections) — `test/cultural_glossary_catalog_test.dart`
+- **dancheong_stamp_test.dart** (11 connections) — `test/dancheong_stamp_test.dart`
+- **gye_landing_copy_test.dart** (11 connections) — `test/gye_landing_copy_test.dart`
+- **sticker_picker_test.dart** (11 connections) — `test/sticker_picker_test.dart`
+- **package:ko_lernen_app/models/smalltalk.dart** (10 connections)
+- **smalltalk_test.dart** (10 connections) — `test/smalltalk_test.dart`
+- **tts_unavailable_banner_test.dart** (10 connections) — `test/tts_unavailable_banner_test.dart`
+- **personalized_lesson_test.dart** (9 connections) — `test/personalized_lesson_test.dart`
+- **review_deck_order_test.dart** (9 connections) — `test/review_deck_order_test.dart`
+- **decoration_slot_test.dart** (8 connections) — `test/decoration_slot_test.dart`
+- **gye_dedication_model_test.dart** (8 connections) — `test/gye_dedication_model_test.dart`
+- **room_layout_service_test.dart** (8 connections) — `test/room_layout_service_test.dart`
+- *... and 248 more nodes in this community*
 
 ## Relationships
 
-- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (103 shared connections)
-- [course_mastery_test.dart](course_mastery_test.dart.md) (68 shared connections)
-- [study_activity_responsive_test.dart](study_activity_responsive_test.dart.md) (40 shared connections)
-- [dart:io](dart-io.md) (39 shared connections)
-- [hanok_world_screen_test.dart](hanok_world_screen_test.dart.md) (33 shared connections)
-- [account_reconciliation_test.dart](account_reconciliation_test.dart.md) (33 shared connections)
-- [dart:async](dart-async.md) (31 shared connections)
-- [_](_.md) (29 shared connections)
-- [dart:ui](dart-ui.md) (29 shared connections)
-- [standalone_games_uiux_test.dart](standalone_games_uiux_test.dart.md) (24 shared connections)
-- [personal_room_furnish_screen_test.dart](personal_room_furnish_screen_test.dart.md) (21 shared connections)
-- [custom_pack_games_uiux_test.dart](custom_pack_games_uiux_test.dart.md) (21 shared connections)
+- [course_mastery_test.dart](course_mastery_test.dart.md) (61 shared connections)
+- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (61 shared connections)
+- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (54 shared connections)
+- [hanok_world_screen_test.dart](hanok_world_screen_test.dart.md) (38 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (37 shared connections)
+- [entry_onboarding_uiux_test.dart](entry_onboarding_uiux_test.dart.md) (35 shared connections)
+- [standalone_games_uiux_test.dart](standalone_games_uiux_test.dart.md) (34 shared connections)
+- [choice_quizzes_uiux_test.dart](choice_quizzes_uiux_test.dart.md) (34 shared connections)
+- [vocab_notebook_studio_screen_test.dart](vocab_notebook_studio_screen_test.dart.md) (31 shared connections)
+- [dart:async](dart-async.md) (28 shared connections)
+- [_](_.md) (26 shared connections)
+- [bookshelf_custom_pack_uiux_test.dart](bookshelf_custom_pack_uiux_test.dart.md) (26 shared connections)
 
 ## Source Files
 
-- `lib/services/hanok_state_service.dart`
+- `lib/models/cultural_glossary.dart`
+- `lib/services/room_layout_service.dart`
+- `lib/services/tts_service.dart`
+- `test/a1_hanok_construction_catalog_test.dart`
 - `test/a1_real_life_scenarios_test.dart`
-- `test/app_version_service_test.dart`
-- `test/audio_policy_test.dart`
+- `test/android_manifest_privacy_guard_test.dart`
+- `test/android_proofreading_feature_contract_test.dart`
+- `test/backup_new_storage_keys_guard_test.dart`
 - `test/book_analysis_text_test.dart`
-- `test/circular_feedback_completion_test.dart`
+- `test/character_clip_matte_test.dart`
+- `test/cloze_test.dart`
 - `test/content_audio_policy_guard_test.dart`
-- `test/content_share_recovery_test.dart`
-- `test/culture_note_card_test.dart`
-- `test/culture_notes_test.dart`
-- `test/dancheong_burst_viewport_test.dart`
-- `test/data_migration_test.dart`
-- `test/e2e/app_flows_e2e_test.dart`
-- `test/feedback_completion_test.dart`
-- `test/first_run_motion_test.dart`
-- `test/grammar_plan_service_test.dart`
-- `test/grammar_study_plan_test.dart`
-- `test/hanja_lexicon_test.dart`
-- `test/hanok_account_reconciliation_test.dart`
-- `test/hanok_cloud_sync_test.dart`
+- `test/content_id_contract_test.dart`
+- `test/content_palette_guard_test.dart`
+- `test/content_share_service_test.dart`
+- `test/content_type_floor_test.dart`
+- `test/course_graph_test.dart`
+- `test/cultural_glossary_catalog_test.dart`
+- `test/cultural_help_widget_test.dart`
+- `test/dancheong_burst_preload_contract_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 1071 (100%)
+- EXTRACTED: 1300 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

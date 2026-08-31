@@ -1,6 +1,6 @@
 # 2026-08-12 (Claude) — 호랑이 흰 배경·Flughafen 공백: 실기기 실측으로 원인 확정
 
-> 3 nodes
+> 3 nodes · cohesion 0.67
 
 ## Key Concepts
 

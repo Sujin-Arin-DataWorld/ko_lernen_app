@@ -1,25 +1,20 @@
 # Global Constraints
 
-> 16 nodes
+> 11 nodes · cohesion 0.18
 
 ## Key Concepts
 
-- **Global Constraints** (12 connections) — `docs/superpowers/plans/2026-08-27-w35-hardening.md`
-- **W3.5 하드닝 웨이브 Implementation Plan** (4 connections) — `docs/superpowers/plans/2026-08-27-w35-hardening.md`
-- **2026-08-27-w35-hardening.md** (1 connections) — `docs/superpowers/plans/2026-08-27-w35-hardening.md`
-- **Self-Review 결과** (1 connections) — `docs/superpowers/plans/2026-08-27-w35-hardening.md`
-- **Task 10: SoriChromeRow — 44dp 조상이 문서화된 48dp 터치 영역을 잘라먹음 (finding 10)** (1 connections) — `docs/superpowers/plans/2026-08-27-w35-hardening.md`
-- **Task 11: speakable.dart ⚠️ 주석의 원인 설명 정정 (fold-in, doc-only)** (1 connections) — `docs/superpowers/plans/2026-08-27-w35-hardening.md`
-- **Task 1: 전역 에러 훅 조기·무조건 설치 (finding 7)** (1 connections) — `docs/superpowers/plans/2026-08-27-w35-hardening.md`
-- **Task 2: TTS 해석 실패가 폴백을 건너뛰고 조용히 사라짐 (finding 1)** (1 connections) — `docs/superpowers/plans/2026-08-27-w35-hardening.md`
-- **Task 3: vocab_pack_screen `_finish()` 무방비 7단 체인 (finding 2, Critical)** (1 connections) — `docs/superpowers/plans/2026-08-27-w35-hardening.md`
-- **Task 4: review_session_screen `_load()` 실패가 축하 빈 상태로 위장됨 (finding 3)** (1 connections) — `docs/superpowers/plans/2026-08-27-w35-hardening.md`
-- **Task 5: culture_notes 로드 실패가 루트 존까지 미청취로 올라감 (finding 4)** (1 connections) — `docs/superpowers/plans/2026-08-27-w35-hardening.md`
-- **Task 6: grammar_screen 체크포인트 시트 — 자기 자신 생명주기 무시 (finding 5)** (1 connections) — `docs/superpowers/plans/2026-08-27-w35-hardening.md`
-- **Task 7: vocab_pack_screen 850ms 지연 타이머 미보관 (finding 6, Minor)** (1 connections) — `docs/superpowers/plans/2026-08-27-w35-hardening.md`
-- **Task 8: SoriPressable — onLongPress 전용 위젯의 키보드 포커스 트랩 (finding 8, 감사 원문 재검증됨)** (1 connections) — `docs/superpowers/plans/2026-08-27-w35-hardening.md`
-- **Task 9: smalltalk_screen 표현 넘기기가 제스처 전용 (finding 9)** (1 connections) — `docs/superpowers/plans/2026-08-27-w35-hardening.md`
-- **⚠️ 감사 결과 재검증 — 원문과 다른 점 (반드시 읽을 것)** (1 connections) — `docs/superpowers/plans/2026-08-27-w35-hardening.md`
+- **Global Constraints** (9 connections) — `docs/superpowers/plans/2026-08-21-a1-c2-content-humanization.md`
+- **A1-C2 Content Humanization Implementation Plan** (2 connections) — `docs/superpowers/plans/2026-08-21-a1-c2-content-humanization.md`
+- **2026-08-21-a1-c2-content-humanization.md** (1 connections) — `docs/superpowers/plans/2026-08-21-a1-c2-content-humanization.md`
+- **Task 1: Lock inventory and leaf-level coverage** (1 connections) — `docs/superpowers/plans/2026-08-21-a1-c2-content-humanization.md`
+- **Task 2: Generate and inspect A1-C2 quality findings** (1 connections) — `docs/superpowers/plans/2026-08-21-a1-c2-content-humanization.md`
+- **Task 3: Humanize vocabulary, grammar, course, culture, pronunciation, and relation copy** (1 connections) — `docs/superpowers/plans/2026-08-21-a1-c2-content-humanization.md`
+- **Task 4: Humanize Smalltalk and scenario copy across A1-C2** (1 connections) — `docs/superpowers/plans/2026-08-21-a1-c2-content-humanization.md`
+- **Task 5: Humanize Cloze and Satz while preserving item contracts** (1 connections) — `docs/superpowers/plans/2026-08-21-a1-c2-content-humanization.md`
+- **Task 6: Verify exact-level recommendation behavior** (1 connections) — `docs/superpowers/plans/2026-08-21-a1-c2-content-humanization.md`
+- **Task 7: Run fresh whole-tree validation and complete the report** (1 connections) — `docs/superpowers/plans/2026-08-21-a1-c2-content-humanization.md`
+- **Task 8: Commit, push, integrate, verify main, and clean up** (1 connections) — `docs/superpowers/plans/2026-08-21-a1-c2-content-humanization.md`
 
 ## Relationships
 
@@ -27,11 +22,11 @@
 
 ## Source Files
 
-- `docs/superpowers/plans/2026-08-27-w35-hardening.md`
+- `docs/superpowers/plans/2026-08-21-a1-c2-content-humanization.md`
 
 ## Audit Trail
 
-- EXTRACTED: 15 (100%)
+- EXTRACTED: 10 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

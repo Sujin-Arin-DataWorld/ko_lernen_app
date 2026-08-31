@@ -1,6 +1,6 @@
 # 앱스토어 업로드 절차 (한국어) — Hangul Sori
 
-> 10 nodes
+> 10 nodes · cohesion 0.20
 
 ## Key Concepts
 

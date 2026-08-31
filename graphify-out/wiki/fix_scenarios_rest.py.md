@@ -1,6 +1,6 @@
 # fix_scenarios_rest.py
 
-> 1 nodes
+> 1 nodes · cohesion 1.00
 
 ## Key Concepts
 

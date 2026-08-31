@@ -1,13 +1,13 @@
 # decoration_normalize.py
 
-> 5 nodes
+> 5 nodes · cohesion 0.70
 
 ## Key Concepts
 
+- **decoration_normalize.py** (3 connections) — `tool/decoration_normalize.py`
 - **cutout()** (3 connections) — `tool/decoration_normalize.py`
 - **main()** (3 connections) — `tool/decoration_normalize.py`
 - **trim_and_fit()** (3 connections) — `tool/decoration_normalize.py`
-- **decoration_normalize.py** (3 connections) — `tool/decoration_normalize.py`
 - **Image** (2 connections)
 
 ## Relationships

@@ -1,6 +1,6 @@
 # 🪑 B. Idle / 앉기 (4장 — stand 또는 sit)
 
-> 5 nodes
+> 5 nodes · cohesion 0.40
 
 ## Key Concepts
 

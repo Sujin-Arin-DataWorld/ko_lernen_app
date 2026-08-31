@@ -1,6 +1,6 @@
 # ledger_append.py
 
-> 15 nodes
+> 15 nodes · cohesion 0.30
 
 ## Key Concepts
 
@@ -11,9 +11,9 @@
 - **LedgerValidationError** (5 connections) — `tool/ledger_append.py`
 - **load_ledger()** (5 connections) — `tool/ledger_append.py`
 - **main()** (4 connections) — `tool/ledger_append.py`
+- **Any** (4 connections)
 - **_require_sha256()** (4 connections) — `tool/ledger_append.py`
 - **sha256_file()** (4 connections) — `tool/ledger_append.py`
-- **Any** (4 connections)
 - **Path** (3 connections)
 - **sha256_text()** (2 connections) — `tool/ledger_append.py`
 - **ValueError** (1 connections)

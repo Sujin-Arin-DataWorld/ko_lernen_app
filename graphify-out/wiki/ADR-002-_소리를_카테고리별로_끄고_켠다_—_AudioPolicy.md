@@ -1,6 +1,6 @@
 # ADR-002: 소리를 카테고리별로 끄고 켠다 — AudioPolicy
 
-> 44 nodes
+> 44 nodes · cohesion 0.05
 
 ## Key Concepts
 

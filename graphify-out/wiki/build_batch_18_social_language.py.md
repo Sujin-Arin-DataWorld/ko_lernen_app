@@ -1,6 +1,6 @@
 # build_batch_18_social_language.py
 
-> 37 nodes
+> 37 nodes · cohesion 0.11
 
 ## Key Concepts
 
@@ -12,15 +12,15 @@
 - **_write_review()** (7 connections) — `tools/content_factory/build_batch_18_social_language.py`
 - **_levels()** (5 connections) — `tools/content_factory/build_batch_18_social_language.py`
 - **_write_packet()** (5 connections) — `tools/content_factory/build_batch_18_social_language.py`
-- **read_csv()** (5 connections) — `tools/content_factory/test_build_batch_18_social_language.py`
 - **test_build_batch_18_social_language.py** (5 connections) — `tools/content_factory/test_build_batch_18_social_language.py`
+- **read_csv()** (5 connections) — `tools/content_factory/test_build_batch_18_social_language.py`
 - **_check_unique()** (4 connections) — `tools/content_factory/build_batch_18_social_language.py`
 - **_derived_rows()** (4 connections) — `tools/content_factory/build_batch_18_social_language.py`
+- **Path** (4 connections)
 - **_smalltalk_rows()** (4 connections) — `tools/content_factory/build_batch_18_social_language.py`
 - **_write_json()** (4 connections) — `tools/content_factory/build_batch_18_social_language.py`
-- **read_json()** (4 connections) — `tools/content_factory/test_build_batch_18_social_language.py`
-- **Path** (4 connections)
 - **batch_18_social_language.py** (4 connections) — `tools/content_factory/data/batch_18_social_language.py`
+- **read_json()** (4 connections) — `tools/content_factory/test_build_batch_18_social_language.py`
 - **_grammar_rows()** (3 connections) — `tools/content_factory/build_batch_18_social_language.py`
 - **_review_notes()** (3 connections) — `tools/content_factory/build_batch_18_social_language.py`
 - **_triage()** (3 connections) — `tools/content_factory/build_batch_18_social_language.py`

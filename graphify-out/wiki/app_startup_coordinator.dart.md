@@ -1,6 +1,6 @@
 # app_startup_coordinator.dart
 
-> 40 nodes
+> 40 nodes · cohesion 0.05
 
 ## Key Concepts
 
@@ -33,9 +33,9 @@
 
 ## Relationships
 
-- [account_transition_journal.dart](account_transition_journal.dart.md) (1 shared connections)
-- [typedef](typedef.md) (1 shared connections)
-- [_](_.md) (1 shared connections)
+- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
+- [cloud_sync.dart](cloud_sync.dart.md) (1 shared connections)
 
 ## Source Files
 

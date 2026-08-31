@@ -1,6 +1,6 @@
 # ⚠️ ARCHIVED — v2.0 출시 QA 검증 보고서 (2026-06-04)
 
-> 11 nodes
+> 11 nodes · cohesion 0.18
 
 ## Key Concepts
 

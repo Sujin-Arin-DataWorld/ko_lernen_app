@@ -1,11 +1,11 @@
 # check_hanok_compound_assets.py
 
-> 7 nodes
+> 7 nodes · cohesion 0.57
 
 ## Key Concepts
 
-- **_check_existing()** (5 connections) — `tool/check_hanok_compound_assets.py`
 - **check_hanok_compound_assets.py** (5 connections) — `tool/check_hanok_compound_assets.py`
+- **_check_existing()** (5 connections) — `tool/check_hanok_compound_assets.py`
 - **_alpha_coverage()** (3 connections) — `tool/check_hanok_compound_assets.py`
 - **_chroma_key_count()** (3 connections) — `tool/check_hanok_compound_assets.py`
 - **_has_opaque_bounds()** (3 connections) — `tool/check_hanok_compound_assets.py`

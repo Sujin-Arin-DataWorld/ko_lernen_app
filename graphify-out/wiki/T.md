@@ -1,61 +1,60 @@
 # T
 
-> 34 nodes
+> 25 nodes · cohesion 0.08
 
 ## Key Concepts
 
-- **T** (48 connections)
-- **_** (17 connections) — `lib/services/account/cloud_read_result.dart`
-- **room_placement_service.dart** (15 connections) — `lib/services/room_placement_service.dart`
+- **T** (49 connections)
+- **hanok_state_service.dart** (20 connections) — `lib/services/hanok_state_service.dart`
 - **media_mutation_lock.dart** (10 connections) — `lib/services/media_mutation_lock.dart`
-- **../widgets/sori/placed_decoration.dart** (7 connections)
+- **HanokState** (3 connections) — `lib/models/hanok_growth.dart`
 - **transitions.dart** (3 connections) — `lib/motion/transitions.dart`
+- **HanokStateService** (2 connections) — `lib/services/hanok_state_service.dart`
 - **SoriTransitions** (1 connections) — `lib/motion/transitions.dart`
-- **absent** (1 connections) — `lib/services/account/cloud_read_result.dart`
-- **CloudReadState** (1 connections) — `lib/services/account/cloud_read_result.dart`
-- **invalid** (1 connections) — `lib/services/account/cloud_read_result.dart`
-- **isPresent** (1 connections) — `lib/services/account/cloud_read_result.dart`
-- **present** (1 connections) — `lib/services/account/cloud_read_result.dart`
-- **revision** (1 connections) — `lib/services/account/cloud_read_result.dart`
-- **state** (1 connections) — `lib/services/account/cloud_read_result.dart`
-- **tooLarge** (1 connections) — `lib/services/account/cloud_read_result.dart`
-- **unavailable** (1 connections) — `lib/services/account/cloud_read_result.dart`
-- **value** (1 connections) — `lib/services/account/cloud_read_result.dart`
+- **captureForCloudReconciliation** (1 connections) — `lib/services/hanok_state_service.dart`
+- **decode** (1 connections) — `lib/services/hanok_state_service.dart`
+- **generation** (1 connections) — `lib/services/hanok_state_service.dart`
+- **HanokStateLocalCapture** (1 connections) — `lib/services/hanok_state_service.dart`
+- **load** (1 connections) — `lib/services/hanok_state_service.dart`
+- **_maxEncodedBytes** (1 connections) — `lib/services/hanok_state_service.dart`
+- **mergeCloudSnapshotJson** (1 connections) — `lib/services/hanok_state_service.dart`
+- **save** (1 connections) — `lib/services/hanok_state_service.dart`
+- **state** (1 connections) — `lib/services/hanok_state_service.dart`
+- **toString** (1 connections) — `lib/services/hanok_state_service.dart`
+- **_writeTail** (1 connections) — `lib/services/hanok_state_service.dart`
 - **busy** (1 connections) — `lib/services/media_mutation_lock.dart`
 - **MediaMutationLock** (1 connections) — `lib/services/media_mutation_lock.dart`
 - **_MediaMutationLockState** (1 connections) — `lib/services/media_mutation_lock.dart`
 - **resetForTesting** (1 connections) — `lib/services/media_mutation_lock.dart`
 - **_state** (1 connections) — `lib/services/media_mutation_lock.dart`
 - **waiters** (1 connections) — `lib/services/media_mutation_lock.dart`
-- **candidatesForSlot** (1 connections) — `lib/services/room_placement_service.dart`
-- **candidatesForSurfaceSlot** (1 connections) — `lib/services/room_placement_service.dart`
-- *... and 9 more nodes in this community*
+- **static _MediaMutationLockState** (1 connections)
 
 ## Relationships
 
-- [_](_.md) (16 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
-- [List](List.md) (2 shared connections)
-- [first_link_backfill_journal.dart](first_link_backfill_journal.dart.md) (2 shared connections)
-- [storage_service.dart](storage_service.dart.md) (2 shared connections)
-- [decoration_reward_service.dart](decoration_reward_service.dart.md) (2 shared connections)
-- [room_layout_service.dart](room_layout_service.dart.md) (2 shared connections)
-- [_State](_State.md) (2 shared connections)
-- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (2 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
-- [int?](int_.md) (1 shared connections)
-- [account_reconciliation_test.dart](account_reconciliation_test.dart.md) (1 shared connections)
+- [_](_.md) (17 shared connections)
+- [decoration_reward_service.dart](decoration_reward_service.dart.md) (3 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [static const int](static_const_int.md) (1 shared connections)
+- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (1 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
+- [ildu_world_projection_adapter.dart](ildu_world_projection_adapter.dart.md) (1 shared connections)
+- [storage_service.dart](storage_service.dart.md) (1 shared connections)
+- [hanok_experience_projector.dart](hanok_experience_projector.dart.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
+- [dart:async](dart-async.md) (1 shared connections)
+- [today_guide_section.dart](today_guide_section.dart.md) (1 shared connections)
 
 ## Source Files
 
+- `lib/models/hanok_growth.dart`
 - `lib/motion/transitions.dart`
-- `lib/services/account/cloud_read_result.dart`
+- `lib/services/hanok_state_service.dart`
 - `lib/services/media_mutation_lock.dart`
-- `lib/services/room_placement_service.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 94 (100%)
+- EXTRACTED: 82 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

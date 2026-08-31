@@ -1,6 +1,6 @@
 # 세션 변경 목록 — 2026-07-31 (까치 정답 연출 + Rollenspiel 축하 영상)
 
-> 17 nodes
+> 17 nodes · cohesion 0.12
 
 ## Key Concepts
 

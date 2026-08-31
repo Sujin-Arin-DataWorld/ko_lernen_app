@@ -1,6 +1,6 @@
 # Task 11 production audit remediation report
 
-> 12 nodes
+> 12 nodes · cohesion 0.17
 
 ## Key Concepts
 

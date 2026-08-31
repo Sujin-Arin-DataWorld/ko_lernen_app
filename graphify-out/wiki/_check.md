@@ -1,6 +1,6 @@
 # _check
 
-> 7 nodes
+> 7 nodes · cohesion 0.48
 
 ## Key Concepts
 

@@ -1,6 +1,6 @@
 # satz_loader.dart
 
-> 18 nodes
+> 18 nodes · cohesion 0.11
 
 ## Key Concepts
 
@@ -25,11 +25,10 @@
 
 ## Relationships
 
-- [bool get](bool_get.md) (2 shared connections)
-- [List](List.md) (1 shared connections)
-- [cloze_topic_groups.dart](cloze_topic_groups.dart.md) (1 shared connections)
+- [List](List.md) (3 shared connections)
+- [data_loader.dart](data_loader.dart.md) (1 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
+- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (1 shared connections)
 - [cloze_loader.dart](cloze_loader.dart.md) (1 shared connections)
 - [_](_.md) (1 shared connections)
 

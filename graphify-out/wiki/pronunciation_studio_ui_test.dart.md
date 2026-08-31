@@ -1,6 +1,6 @@
 # pronunciation_studio_ui_test.dart
 
-> 50 nodes
+> 50 nodes · cohesion 0.04
 
 ## Key Concepts
 
@@ -33,18 +33,18 @@
 
 ## Relationships
 
-- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (7 shared connections)
-- [dart:ui](dart-ui.md) (6 shared connections)
+- [choice_quizzes_uiux_test.dart](choice_quizzes_uiux_test.dart.md) (8 shared connections)
+- [dart:async](dart-async.md) (6 shared connections)
+- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (6 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (5 shared connections)
-- [standalone_games_uiux_test.dart](standalone_games_uiux_test.dart.md) (5 shared connections)
-- [course_mastery_test.dart](course_mastery_test.dart.md) (4 shared connections)
+- [vocab_notebook_studio_screen_test.dart](vocab_notebook_studio_screen_test.dart.md) (4 shared connections)
 - [pronunciation_studio_screen_test.dart](pronunciation_studio_screen_test.dart.md) (4 shared connections)
-- [dart:async](dart-async.md) (3 shared connections)
-- [_State](_State.md) (2 shared connections)
+- [course_mastery_test.dart](course_mastery_test.dart.md) (3 shared connections)
+- [entry_onboarding_uiux_test.dart](entry_onboarding_uiux_test.dart.md) (2 shared connections)
+- [settings_screen_test.dart](settings_screen_test.dart.md) (2 shared connections)
 - [pronunciation_recorder.dart](pronunciation_recorder.dart.md) (2 shared connections)
-- [content_share_slip_test.dart](content_share_slip_test.dart.md) (2 shared connections)
+- [book_capture_image_quality.dart](book_capture_image_quality.dart.md) (2 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
-- [speakable.dart](speakable.dart.md) (1 shared connections)
 
 ## Source Files
 

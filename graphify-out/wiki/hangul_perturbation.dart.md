@@ -1,6 +1,6 @@
 # hangul_perturbation.dart
 
-> 22 nodes
+> 22 nodes · cohesion 0.09
 
 ## Key Concepts
 
@@ -33,8 +33,8 @@
 - [List](List.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
 - [return](return.md) (1 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
-- [hangul_composer.dart](hangul_composer.dart.md) (1 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
+- [int?](int_.md) (1 shared connections)
 
 ## Source Files
 

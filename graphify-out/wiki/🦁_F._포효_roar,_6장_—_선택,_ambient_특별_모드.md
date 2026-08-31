@@ -1,6 +1,6 @@
 # 🦁 F. 포효 (roar, 6장 — 선택, ambient 특별 모드)
 
-> 7 nodes
+> 7 nodes · cohesion 0.29
 
 ## Key Concepts
 

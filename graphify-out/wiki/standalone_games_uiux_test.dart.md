@@ -1,77 +1,77 @@
 # standalone_games_uiux_test.dart
 
-> 181 nodes
+> 154 nodes · cohesion 0.02
 
 ## Key Concepts
 
 - **standalone_games_uiux_test.dart** (67 connections) — `test/standalone_games_uiux_test.dart`
-- **course_reassessment_screen_test.dart** (61 connections) — `test/course_reassessment_screen_test.dart`
-- **package:ko_lernen_app/widgets/sori/type_scale.dart** (42 connections)
-- **reward_tools_uiux_test.dart** (38 connections) — `test/reward_tools_uiux_test.dart`
-- **scenario_player_ui_test.dart** (34 connections) — `test/scenario_player_ui_test.dart`
-- **sarangbang_study_screen_test.dart** (29 connections) — `test/sarangbang_study_screen_test.dart`
-- **scenario_intro_audio_prefetch_test.dart** (22 connections) — `test/scenario_intro_audio_prefetch_test.dart`
-- **bojagi_screen_test.dart** (20 connections) — `test/bojagi_screen_test.dart`
-- **course_mission_brief_test.dart** (18 connections) — `test/course_mission_brief_test.dart`
-- **package:ko_lernen_app/widgets/sori/study_frame.dart** (17 connections)
-- **sori_study_frame_test.dart** (17 connections) — `test/sori_study_frame_test.dart`
-- **package:flutter/rendering.dart** (16 connections)
-- **package:ko_lernen_app/widgets/app_error.dart** (14 connections)
-- **package:ko_lernen_app/widgets/app_loading.dart** (14 connections)
-- **package:ko_lernen_app/widgets/sori/empty_state.dart** (14 connections)
-- **sori_standard_page_test.dart** (14 connections) — `test/sori_standard_page_test.dart`
-- **package:ko_lernen_app/widgets/sori/home_action.dart** (13 connections)
-- **package:ko_lernen_app/widgets/sori/standard_page.dart** (13 connections)
-- **package:ko_lernen_app/widgets/sori/app_bar.dart** (12 connections)
-- **RenderParagraph** (11 connections)
-- **learning_path_level_test.dart** (11 connections) — `test/learning_path_level_test.dart`
-- **pack_card_accessibility_test.dart** (11 connections) — `test/pack_card_accessibility_test.dart`
-- **SoriAppBar** (9 connections) — `lib/widgets/sori/app_bar.dart`
-- **package:ko_lernen_app/widgets/sori/speakable.dart** (9 connections)
-- **home_hero_accessibility_test.dart** (9 connections) — `test/home_hero_accessibility_test.dart`
-- *... and 156 more nodes in this community*
+- **study_activity_responsive_test.dart** (63 connections) — `test/study_activity_responsive_test.dart`
+- **responsive_screens.dart** (43 connections) — `test/support/responsive_screens.dart`
+- **package:ko_lernen_app/services/data_loader.dart** (41 connections)
+- **screen_smoke_test.dart** (36 connections) — `test/screen_smoke_test.dart`
+- **accessibility_guideline_test.dart** (30 connections) — `test/accessibility_guideline_test.dart`
+- **c0_level_selection_test.dart** (28 connections) — `test/c0_level_selection_test.dart`
+- **study_bookmark_production_writer_test.dart** (24 connections) — `test/features/study_library/study_bookmark_production_writer_test.dart`
+- **screen_layout_golden_test.dart** (24 connections) — `test/goldens/screen_layout_golden_test.dart`
+- **responsive_short_height_test.dart** (18 connections) — `test/responsive_short_height_test.dart`
+- **visual_layout_regression_test.dart** (17 connections) — `test/visual_layout_regression_test.dart`
+- **vocab_packs_mission_context_test.dart** (15 connections) — `test/vocab_packs_mission_context_test.dart`
+- **wordbook_spotlight_coach_test.dart** (14 connections) — `test/wordbook_spotlight_coach_test.dart`
+- **package:ko_lernen_app/services/smalltalk_loader.dart** (11 connections)
+- **package:ko_lernen_app/screens/app_shell.dart** (10 connections)
+- **package:ko_lernen_app/screens/grammar_screen.dart** (10 connections)
+- **package:ko_lernen_app/screens/settings_screen.dart** (10 connections)
+- **content_audit_manifest_test.dart** (10 connections) — `test/content_audit_manifest_test.dart`
+- **responsive_test.dart** (10 connections) — `test/responsive_test.dart`
+- **sori_stage_shell_test.dart** (10 connections) — `test/sori_stage_shell_test.dart`
+- **package:ko_lernen_app/screens/vocab_packs_screen.dart** (9 connections)
+- **practice_hub_flow_test.dart** (9 connections) — `test/practice_hub_flow_test.dart`
+- **package:ko_lernen_app/screens/chosung_quiz_screen.dart** (8 connections)
+- **package:ko_lernen_app/screens/smalltalk_screen.dart** (8 connections)
+- **mascot_asset_lock_test.dart** (8 connections) — `test/mascot_asset_lock_test.dart`
+- *... and 129 more nodes in this community*
 
 ## Relationships
 
-- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (54 shared connections)
-- [study_activity_responsive_test.dart](study_activity_responsive_test.dart.md) (43 shared connections)
-- [dart:ui](dart-ui.md) (39 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (24 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (19 shared connections)
-- [course_mastery_test.dart](course_mastery_test.dart.md) (14 shared connections)
-- [custom_pack_games_uiux_test.dart](custom_pack_games_uiux_test.dart.md) (10 shared connections)
-- [game_layout_test.dart](game_layout_test.dart.md) (10 shared connections)
-- [quest_engines_uiux_test.dart](quest_engines_uiux_test.dart.md) (10 shared connections)
-- [hanok_world_screen_test.dart](hanok_world_screen_test.dart.md) (10 shared connections)
-- [content_feedback_widget_test.dart](content_feedback_widget_test.dart.md) (9 shared connections)
-- [bookshelf_custom_pack_uiux_test.dart](bookshelf_custom_pack_uiux_test.dart.md) (9 shared connections)
+- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (51 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (34 shared connections)
+- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (29 shared connections)
+- [course_mastery_test.dart](course_mastery_test.dart.md) (27 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (26 shared connections)
+- [choice_quizzes_uiux_test.dart](choice_quizzes_uiux_test.dart.md) (23 shared connections)
+- [entry_onboarding_uiux_test.dart](entry_onboarding_uiux_test.dart.md) (20 shared connections)
+- [vocab_notebook_studio_screen_test.dart](vocab_notebook_studio_screen_test.dart.md) (20 shared connections)
+- [hanok_world_screen_test.dart](hanok_world_screen_test.dart.md) (17 shared connections)
+- [dart:async](dart-async.md) (14 shared connections)
+- [circular_feedback_widget_test.dart](circular_feedback_widget_test.dart.md) (8 shared connections)
+- [bookshelf_custom_pack_uiux_test.dart](bookshelf_custom_pack_uiux_test.dart.md) (8 shared connections)
 
 ## Source Files
 
-- `lib/services/canonical_course_segment_loader.dart`
-- `lib/services/decoration_reward_service.dart`
-- `lib/widgets/sori/app_bar.dart`
-- `test/app_error_sori_button_test.dart`
-- `test/app_loading_reduced_motion_test.dart`
-- `test/bojagi_screen_test.dart`
-- `test/course_mission_brief_test.dart`
-- `test/course_reassessment_screen_test.dart`
-- `test/home_action_test.dart`
-- `test/home_hero_accessibility_test.dart`
-- `test/learning_path_level_test.dart`
-- `test/pack_card_accessibility_test.dart`
-- `test/reward_tools_uiux_test.dart`
-- `test/sarangbang_study_screen_test.dart`
-- `test/scenario_intro_audio_prefetch_test.dart`
-- `test/scenario_player_ui_test.dart`
-- `test/screen_background_test.dart`
-- `test/sori_phrase_wrap_test.dart`
-- `test/sori_speech_dedupe_test.dart`
-- `test/sori_standard_page_test.dart`
+- `test/accessibility_guideline_test.dart`
+- `test/c0_level_selection_test.dart`
+- `test/chrome_row_test.dart`
+- `test/content_audit_manifest_test.dart`
+- `test/data_loader_test.dart`
+- `test/features/study_library/study_bookmark_production_writer_test.dart`
+- `test/goldens/screen_layout_golden_test.dart`
+- `test/hangul_game_logic_test.dart`
+- `test/mascot_asset_lock_test.dart`
+- `test/practice_hub_flow_test.dart`
+- `test/responsive_short_height_test.dart`
+- `test/responsive_test.dart`
+- `test/screen_smoke_test.dart`
+- `test/sori_stage_shell_test.dart`
+- `test/standalone_games_uiux_test.dart`
+- `test/study_activity_responsive_test.dart`
+- `test/support/responsive_screens.dart`
+- `test/visual_layout_regression_test.dart`
+- `test/vocab_packs_mission_context_test.dart`
+- `test/wordbook_spotlight_coach_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 536 (100%)
+- EXTRACTED: 516 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

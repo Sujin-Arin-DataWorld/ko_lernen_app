@@ -1,6 +1,6 @@
 # onboarding_contract_validation.dart
 
-> 14 nodes
+> 14 nodes · cohesion 0.14
 
 ## Key Concepts
 
@@ -21,8 +21,7 @@
 
 ## Relationships
 
-- [bool get](bool_get.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
+- [List](List.md) (2 shared connections)
 
 ## Source Files
 

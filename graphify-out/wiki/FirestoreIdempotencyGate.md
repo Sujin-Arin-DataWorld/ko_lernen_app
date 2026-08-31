@@ -1,6 +1,6 @@
 # FirestoreIdempotencyGate
 
-> 20 nodes
+> 20 nodes · cohesion 0.16
 
 ## Key Concepts
 
@@ -18,12 +18,12 @@
 - **.seen()** (3 connections) — `functions/analyze_korean_text/security.py`
 - **.remember()** (2 connections) — `functions/analyze_korean_text/security.py`
 - **.test_analysis_request_id_is_stable_and_hides_the_uid()** (2 connections) — `functions/analyze_korean_text/test_security.py`
-- **.collection()** (1 connections) — `functions/analyze_korean_text/test_security.py`
-- **.__init__()** (1 connections) — `functions/analyze_korean_text/test_security.py`
 - **Hash a retryable book-analysis request without using the raw uid as an id.** (1 connections) — `functions/analyze_korean_text/security.py`
 - **Short-lived server-only receipts so identical retries skip a second charge.** (1 connections) — `functions/analyze_korean_text/security.py`
 - **Reserve the receipt before quota. True means this caller must consume.** (1 connections) — `functions/analyze_korean_text/security.py`
 - **Drop an in-flight pending receipt so a later retry can be charged.** (1 connections) — `functions/analyze_korean_text/security.py`
+- **.collection()** (1 connections) — `functions/analyze_korean_text/test_security.py`
+- **.__init__()** (1 connections) — `functions/analyze_korean_text/test_security.py`
 
 ## Relationships
 

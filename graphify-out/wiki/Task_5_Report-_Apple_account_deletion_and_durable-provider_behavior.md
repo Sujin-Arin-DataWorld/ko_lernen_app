@@ -1,6 +1,6 @@
 # Task 5 Report: Apple account deletion and durable-provider behavior
 
-> 21 nodes
+> 21 nodes · cohesion 0.10
 
 ## Key Concepts
 

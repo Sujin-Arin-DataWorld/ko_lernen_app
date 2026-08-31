@@ -1,6 +1,6 @@
 # ildu_anchor_placement_service.dart
 
-> 26 nodes
+> 26 nodes · cohesion 0.08
 
 ## Key Concepts
 
@@ -35,9 +35,9 @@
 
 - [ildu_world_screen.dart](ildu_world_screen.dart.md) (2 shared connections)
 - [ildu_world_screen_test.dart](ildu_world_screen_test.dart.md) (2 shared connections)
-- [dart:async](dart-async.md) (1 shared connections)
-- [String?](String_.md) (1 shared connections)
-- [storage_service.dart](storage_service.dart.md) (1 shared connections)
+- [settings_screen_test.dart](settings_screen_test.dart.md) (1 shared connections)
+- [swipe_rails.dart](swipe_rails.dart.md) (1 shared connections)
+- [static const int](static_const_int.md) (1 shared connections)
 - [static const String](static_const_String.md) (1 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
 - [ildu_world_projection_adapter.dart](ildu_world_projection_adapter.dart.md) (1 shared connections)

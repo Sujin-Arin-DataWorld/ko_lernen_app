@@ -1,6 +1,6 @@
 # Handoff: Batch 1 content-text humanization and exact-level selection
 
-> 27 nodes
+> 27 nodes · cohesion 0.07
 
 ## Key Concepts
 

@@ -1,6 +1,6 @@
 # swipe_card.dart
 
-> 84 nodes
+> 84 nodes · cohesion 0.02
 
 ## Key Concepts
 
@@ -33,17 +33,18 @@
 
 ## Relationships
 
-- [package:flutter/material.dart](package-flutter-material.dart.md) (5 shared connections)
-- [String?](String_.md) (5 shared connections)
-- [_State](_State.md) (2 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (2 shared connections)
-- [hangul_strokes.dart](hangul_strokes.dart.md) (1 shared connections)
-- [AnimationController](AnimationController.md) (1 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
+- [Color](Color.md) (2 shared connections)
+- [String?](String_.md) (2 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (2 shared connections)
+- [StatefulWidget](StatefulWidget.md) (2 shared connections)
+- [silben_grid_clue_sync_test.dart](silben_grid_clue_sync_test.dart.md) (1 shared connections)
+- [scenario_player_screen.dart](scenario_player_screen.dart.md) (1 shared connections)
+- [book_preview_screen.dart](book_preview_screen.dart.md) (1 shared connections)
+- [pressable.dart](pressable.dart.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
 - [double get](double_get.md) (1 shared connections)
-- [typedef](typedef.md) (1 shared connections)
-- [deck_coach.dart](deck_coach.dart.md) (1 shared connections)
-- [StatelessWidget](StatelessWidget.md) (1 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
+- [swipe_rails.dart](swipe_rails.dart.md) (1 shared connections)
 
 ## Source Files
 

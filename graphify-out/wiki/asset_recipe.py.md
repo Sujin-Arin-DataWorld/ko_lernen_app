@@ -1,6 +1,6 @@
 # asset_recipe.py
 
-> 18 nodes
+> 18 nodes · cohesion 0.32
 
 ## Key Concepts
 
@@ -8,9 +8,9 @@
 - **Any** (11 connections)
 - **check()** (7 connections) — `tool/asset_recipe.py`
 - **render_prompt()** (7 connections) — `tool/asset_recipe.py`
-- **RecipeError** (6 connections) — `tool/asset_recipe.py`
 - **emit_work_order()** (6 connections) — `tool/asset_recipe.py`
 - **main()** (6 connections) — `tool/asset_recipe.py`
+- **RecipeError** (6 connections) — `tool/asset_recipe.py`
 - **assemble_family_prompt()** (5 connections) — `tool/asset_recipe.py`
 - **ingest()** (5 connections) — `tool/asset_recipe.py`
 - **plan()** (5 connections) — `tool/asset_recipe.py`
@@ -19,8 +19,8 @@
 - **_subject_text()** (4 connections) — `tool/asset_recipe.py`
 - **wants_assemble_from_family()** (4 connections) — `tool/asset_recipe.py`
 - **is_draft()** (3 connections) — `tool/asset_recipe.py`
-- **_record_rejected()** (3 connections) — `tool/asset_recipe.py`
 - **Path** (3 connections)
+- **_record_rejected()** (3 connections) — `tool/asset_recipe.py`
 - **ValueError** (1 connections)
 
 ## Relationships

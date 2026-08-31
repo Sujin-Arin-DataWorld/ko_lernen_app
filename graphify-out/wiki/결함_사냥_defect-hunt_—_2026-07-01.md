@@ -1,6 +1,6 @@
 # 결함 사냥 (defect-hunt) — 2026-07-01
 
-> 10 nodes
+> 10 nodes · cohesion 0.20
 
 ## Key Concepts
 

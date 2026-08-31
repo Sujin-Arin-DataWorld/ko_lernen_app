@@ -1,6 +1,6 @@
 # audit_content_naturalness.py
 
-> 42 nodes
+> 42 nodes · cohesion 0.09
 
 ## Key Concepts
 
@@ -35,9 +35,9 @@
 
 - [check_particle_mismatch](check_particle_mismatch.md) (4 shared connections)
 - [check_formality_mix](check_formality_mix.md) (2 shared connections)
+- [build_batch_07_partner_family.py](build_batch_07_partner_family.py.md) (1 shared connections)
 - [Counter](Counter.md) (1 shared connections)
 - [generate_tts.py](generate_tts.py.md) (1 shared connections)
-- [build_batch_07_partner_family.py](build_batch_07_partner_family.py.md) (1 shared connections)
 
 ## Source Files
 

@@ -1,6 +1,6 @@
 # instagram.mjs
 
-> 15 nodes
+> 15 nodes · cohesion 0.29
 
 ## Key Concepts
 

@@ -1,6 +1,6 @@
 # Handoff: 한옥 자산을 스킬로 다시 실측한 인수인계
 
-> 23 nodes
+> 23 nodes · cohesion 0.09
 
 ## Key Concepts
 

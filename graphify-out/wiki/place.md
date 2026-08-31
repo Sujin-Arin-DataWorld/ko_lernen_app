@@ -1,12 +1,12 @@
 # place
 
-> 4 nodes
+> 4 nodes · cohesion 0.67
 
 ## Key Concepts
 
 - **place()** (3 connections) — `tool/compose_a2_exterior_overlays.py`
-- **main()** (2 connections) — `tool/compose_a2_exterior_overlays.py`
 - **compose_a2_exterior_overlays.py** (2 connections) — `tool/compose_a2_exterior_overlays.py`
+- **main()** (2 connections) — `tool/compose_a2_exterior_overlays.py`
 - **Image** (1 connections)
 
 ## Relationships

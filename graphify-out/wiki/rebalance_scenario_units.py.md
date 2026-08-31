@@ -1,6 +1,6 @@
 # rebalance_scenario_units.py
 
-> 10 nodes
+> 10 nodes · cohesion 0.31
 
 ## Key Concepts
 
@@ -17,8 +17,8 @@
 
 ## Relationships
 
-- [handle](handle.md) (1 shared connections)
 - [scenario_store.py](scenario_store.py.md) (1 shared connections)
+- [handle](handle.md) (1 shared connections)
 
 ## Source Files
 

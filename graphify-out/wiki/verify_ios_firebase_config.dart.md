@@ -1,6 +1,6 @@
 # verify_ios_firebase_config.dart
 
-> 60 nodes
+> 60 nodes · cohesion 0.03
 
 ## Key Concepts
 
@@ -33,11 +33,10 @@
 
 ## Relationships
 
-- [bool get](bool_get.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
+- [List](List.md) (2 shared connections)
 - [return](return.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
-- [dart:io](dart-io.md) (1 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
 
 ## Source Files
 

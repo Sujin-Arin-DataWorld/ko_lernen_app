@@ -1,6 +1,6 @@
 # 에셋 격차 확정 목록 (R6) — Joy 클립 + 비마스코트
 
-> 18 nodes
+> 18 nodes · cohesion 0.11
 
 ## Key Concepts
 

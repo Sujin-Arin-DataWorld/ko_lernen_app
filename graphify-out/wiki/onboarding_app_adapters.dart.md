@@ -1,6 +1,6 @@
 # onboarding_app_adapters.dart
 
-> 24 nodes
+> 24 nodes · cohesion 0.08
 
 ## Key Concepts
 
@@ -32,17 +32,17 @@
 ## Relationships
 
 - [first_run_coordinator.dart](first_run_coordinator.dart.md) (2 shared connections)
-- [dart:async](dart-async.md) (2 shared connections)
-- [app_shell_onboarding_analytics_retry_test.dart](app_shell_onboarding_analytics_retry_test.dart.md) (2 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (2 shared connections)
+- [settings_screen_test.dart](settings_screen_test.dart.md) (2 shared connections)
+- [OnboardingCommitGateway](OnboardingCommitGateway.md) (1 shared connections)
 - [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
-- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (1 shared connections)
+- [../../models/learner_level.dart](-..-models-learner_level.dart.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
 - [course_progress_service.dart](course_progress_service.dart.md) (1 shared connections)
-- [vocab_packs_screen.dart](vocab_packs_screen.dart.md) (1 shared connections)
+- [kkeunmari_screen.dart](kkeunmari_screen.dart.md) (1 shared connections)
+- [course_mission_screen.dart](course_mission_screen.dart.md) (1 shared connections)
 - [course_reassessment_screen.dart](course_reassessment_screen.dart.md) (1 shared connections)
 - [learning_path_screen.dart](learning_path_screen.dart.md) (1 shared connections)
 - [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (1 shared connections)
-- [profile_screen.dart](profile_screen.dart.md) (1 shared connections)
 
 ## Source Files
 

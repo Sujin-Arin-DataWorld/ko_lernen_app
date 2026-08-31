@@ -1,6 +1,6 @@
 # Counter
 
-> 44 nodes
+> 44 nodes · cohesion 0.11
 
 ## Key Concepts
 
@@ -8,8 +8,8 @@
 - **promote_batch_20_full_surface.py** (29 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
 - **promote()** (18 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
 - **Any** (18 connections)
-- **ThemeParkDateBuildTest** (9 connections) — `tools/content_factory/test_build_theme_park_date_smalltalk.py`
 - **Path** (9 connections)
+- **ThemeParkDateBuildTest** (9 connections) — `tools/content_factory/test_build_theme_park_date_smalltalk.py`
 - **_artifact()** (8 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
 - **_by_level()** (7 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
 - **_live_csv_projection()** (6 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
@@ -33,8 +33,8 @@
 
 ## Relationships
 
-- [handle](handle.md) (5 shared connections)
 - [promote_batch_19_loader_coverage.py](promote_batch_19_loader_coverage.py.md) (5 shared connections)
+- [handle](handle.md) (5 shared connections)
 - [build_batch_18_social_language.py](build_batch_18_social_language.py.md) (4 shared connections)
 - [audit_scenario_quests.py](audit_scenario_quests.py.md) (3 shared connections)
 - [build_batch_17_social_topics.py](build_batch_17_social_topics.py.md) (3 shared connections)

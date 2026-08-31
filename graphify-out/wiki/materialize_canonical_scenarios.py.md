@@ -1,6 +1,6 @@
 # materialize_canonical_scenarios.py
 
-> 21 nodes
+> 21 nodes · cohesion 0.31
 
 ## Key Concepts
 
@@ -17,10 +17,10 @@
 - **_localized()** (6 connections) — `tools/content_factory/materialize_canonical_scenarios.py`
 - **_concepts_by_unit()** (5 connections) — `tools/content_factory/materialize_canonical_scenarios.py`
 - **_grammar_for()** (5 connections) — `tools/content_factory/materialize_canonical_scenarios.py`
+- **Path** (4 connections)
 - **_quests()** (4 connections) — `tools/content_factory/materialize_canonical_scenarios.py`
 - **_unique_lines()** (4 connections) — `tools/content_factory/materialize_canonical_scenarios.py`
 - **_vocab()** (4 connections) — `tools/content_factory/materialize_canonical_scenarios.py`
-- **Path** (4 connections)
 - **_audit()** (3 connections) — `tools/content_factory/materialize_canonical_scenarios.py`
 - **main()** (2 connections) — `tools/content_factory/materialize_canonical_scenarios.py`
 - **ValueError** (1 connections)
@@ -29,8 +29,8 @@
 ## Relationships
 
 - [scenario_corpus_pipeline.py](scenario_corpus_pipeline.py.md) (4 shared connections)
-- [handle](handle.md) (1 shared connections)
 - [ScenarioCorpusPipelineTest](ScenarioCorpusPipelineTest.md) (1 shared connections)
+- [handle](handle.md) (1 shared connections)
 
 ## Source Files
 

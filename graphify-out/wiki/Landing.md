@@ -1,6 +1,6 @@
 # Landing
 
-> 13 nodes
+> 13 nodes · cohesion 0.15
 
 ## Key Concepts
 
@@ -10,12 +10,12 @@
 - **ko/page.tsx** (4 connections) — `hangul-sori-site-local/app/ko/page.tsx`
 - **app/page.tsx** (4 connections) — `hangul-sori-site-local/app/page.tsx`
 - **GermanHome()** (1 connections) — `hangul-sori-site-local/app/de/page.tsx`
-- **EnglishHome()** (1 connections) — `hangul-sori-site-local/app/en/page.tsx`
-- **KoreanHome()** (1 connections) — `hangul-sori-site-local/app/ko/page.tsx`
-- **Home()** (1 connections) — `hangul-sori-site-local/app/page.tsx`
 - **metadata** (1 connections) — `hangul-sori-site-local/app/de/page.tsx`
+- **EnglishHome()** (1 connections) — `hangul-sori-site-local/app/en/page.tsx`
 - **metadata** (1 connections) — `hangul-sori-site-local/app/en/page.tsx`
+- **KoreanHome()** (1 connections) — `hangul-sori-site-local/app/ko/page.tsx`
 - **metadata** (1 connections) — `hangul-sori-site-local/app/ko/page.tsx`
+- **Home()** (1 connections) — `hangul-sori-site-local/app/page.tsx`
 - **metadata** (1 connections) — `hangul-sori-site-local/app/page.tsx`
 
 ## Relationships

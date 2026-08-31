@@ -1,19 +1,19 @@
 # privacy/page.tsx
 
-> 10 nodes
+> 10 nodes · cohesion 0.20
 
 ## Key Concepts
 
 - **privacy/page.tsx** (11 connections) — `hangul-sori-site-local/app/privacy/page.tsx`
-- **Locale** (1 connections) — `hangul-sori-site-local/app/privacy/page.tsx`
 - **cookieInventory** (1 connections) — `hangul-sori-site-local/app/privacy/page.tsx`
 - **EnglishPrivacy()** (1 connections) — `hangul-sori-site-local/app/privacy/page.tsx`
 - **ExternalLink()** (1 connections) — `hangul-sori-site-local/app/privacy/page.tsx`
 - **GermanPrivacy()** (1 connections) — `hangul-sori-site-local/app/privacy/page.tsx`
-- **KoreanPrivacy()** (1 connections) — `hangul-sori-site-local/app/privacy/page.tsx`
-- **Privacy()** (1 connections) — `hangul-sori-site-local/app/privacy/page.tsx`
 - **heading** (1 connections) — `hangul-sori-site-local/app/privacy/page.tsx`
+- **KoreanPrivacy()** (1 connections) — `hangul-sori-site-local/app/privacy/page.tsx`
+- **Locale** (1 connections) — `hangul-sori-site-local/app/privacy/page.tsx`
 - **metadata** (1 connections) — `hangul-sori-site-local/app/privacy/page.tsx`
+- **Privacy()** (1 connections) — `hangul-sori-site-local/app/privacy/page.tsx`
 
 ## Relationships
 

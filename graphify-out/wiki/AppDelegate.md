@@ -1,26 +1,26 @@
 # AppDelegate
 
-> 20 nodes
+> 20 nodes · cohesion 0.11
 
 ## Key Concepts
 
 - **AppDelegate** (5 connections) — `ios/Runner/AppDelegate.swift`
 - **.application()** (4 connections) — `ios/Runner/AppDelegate.swift`
 - **RunnerTests.swift** (4 connections) — `ios/RunnerTests/RunnerTests.swift`
-- **RunnerTests** (3 connections) — `ios/RunnerTests/RunnerTests.swift`
 - **Flutter** (3 connections) — `ios/Runner/SceneDelegate.swift`
 - **AppDelegate.swift** (3 connections) — `ios/Runner/AppDelegate.swift`
 - **SceneDelegate.swift** (3 connections) — `ios/Runner/SceneDelegate.swift`
+- **RunnerTests** (3 connections) — `ios/RunnerTests/RunnerTests.swift`
 - **UIKit** (3 connections) — `ios/Runner/SceneDelegate.swift`
-- **SceneDelegate** (2 connections) — `ios/Runner/SceneDelegate.swift`
 - **.didInitializeImplicitFlutterEngine()** (2 connections) — `ios/Runner/AppDelegate.swift`
-- **.testExample()** (1 connections) — `ios/RunnerTests/RunnerTests.swift`
+- **SceneDelegate** (2 connections) — `ios/Runner/SceneDelegate.swift`
 - **FlutterAppDelegate** (1 connections)
 - **FlutterImplicitEngineBridge** (1 connections)
 - **FlutterImplicitEngineDelegate** (1 connections)
 - **FlutterSceneDelegate** (1 connections)
 - **Any** (1 connections)
 - **Bool** (1 connections)
+- **.testExample()** (1 connections) — `ios/RunnerTests/RunnerTests.swift`
 - **UIApplication** (1 connections)
 - **XCTest** (1 connections) — `ios/RunnerTests/RunnerTests.swift`
 - **XCTestCase** (1 connections)

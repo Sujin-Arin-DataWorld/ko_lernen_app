@@ -1,17 +1,13 @@
 # const
 
-> 8 nodes
+> 4 nodes · cohesion 0.50
 
 ## Key Concepts
 
-- **const** (7 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
-- **promotionOrder** (2 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
-- **a1** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
-- **a2** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
-- **b1** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
-- **b2** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
-- **c1** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
-- **c2** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- **const** (3 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- **supportLanguages** (2 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- **de-DE** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- **en** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
 
 ## Relationships
 
@@ -23,7 +19,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 8 (100%)
+- EXTRACTED: 4 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

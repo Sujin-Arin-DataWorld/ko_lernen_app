@@ -1,6 +1,6 @@
 # hangul_data.dart
 
-> 23 nodes
+> 23 nodes · cohesion 0.09
 
 ## Key Concepts
 

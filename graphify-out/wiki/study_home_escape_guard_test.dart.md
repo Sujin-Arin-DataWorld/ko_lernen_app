@@ -1,6 +1,6 @@
 # study_home_escape_guard_test.dart
 
-> 17 nodes
+> 17 nodes · cohesion 0.12
 
 ## Key Concepts
 
@@ -24,8 +24,8 @@
 
 ## Relationships
 
-- [dart:io](dart-io.md) (2 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
+- [File](File.md) (1 shared connections)
 
 ## Source Files
 

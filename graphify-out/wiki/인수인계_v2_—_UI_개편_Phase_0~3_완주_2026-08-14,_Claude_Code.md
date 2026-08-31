@@ -1,6 +1,6 @@
 # 인수인계 v2 — UI 개편 Phase 0~3 완주 (2026-08-14, Claude Code)
 
-> 14 nodes
+> 14 nodes · cohesion 0.14
 
 ## Key Concepts
 

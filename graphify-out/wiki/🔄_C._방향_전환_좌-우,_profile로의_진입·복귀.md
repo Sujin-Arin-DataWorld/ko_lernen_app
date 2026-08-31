@@ -1,6 +1,6 @@
 # 🔄 C. 방향 전환 (좌/우, profile로의 진입·복귀)
 
-> 4 nodes
+> 4 nodes · cohesion 0.50
 
 ## Key Concepts
 

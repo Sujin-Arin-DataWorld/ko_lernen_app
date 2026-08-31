@@ -1,6 +1,6 @@
 # stroke_canvas.dart
 
-> 37 nodes
+> 37 nodes · cohesion 0.06
 
 ## Key Concepts
 
@@ -33,18 +33,18 @@
 
 ## Relationships
 
-- [String?](String_.md) (3 shared connections)
+- [circular_feedback_widget_test.dart](circular_feedback_widget_test.dart.md) (3 shared connections)
 - [hangul_screen.dart](hangul_screen.dart.md) (2 shared connections)
-- [AnimationController](AnimationController.md) (2 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (2 shared connections)
-- [hangul_write_gate_test.dart](hangul_write_gate_test.dart.md) (2 shared connections)
-- [_State](_State.md) (2 shared connections)
+- [StatefulWidget](StatefulWidget.md) (2 shared connections)
 - [stroke_matcher.dart](stroke_matcher.dart.md) (1 shared connections)
+- [pressable.dart](pressable.dart.md) (1 shared connections)
+- [Color](Color.md) (1 shared connections)
+- [Duration](Duration.md) (1 shared connections)
 - [int?](int_.md) (1 shared connections)
 - [List](List.md) (1 shared connections)
-- [hangul_strokes.dart](hangul_strokes.dart.md) (1 shared connections)
-- [CustomPainter](CustomPainter.md) (1 shared connections)
+- [silben_grid_clue_sync_test.dart](silben_grid_clue_sync_test.dart.md) (1 shared connections)
+- [String?](String_.md) (1 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
 
 ## Source Files
 

@@ -1,29 +1,29 @@
 # scenario_store.py
 
-> 46 nodes
+> 46 nodes · cohesion 0.07
 
 ## Key Concepts
 
 - **scenario_store.py** (40 connections) — `tools/content_factory/scenario_store.py`
-- **MigrationPlanTest** (8 connections) — `tools/content_factory/test_migrate_shelf_backdrop.py`
 - **load_root()** (8 connections) — `tools/content_factory/scenario_store.py`
+- **MigrationPlanTest** (8 connections) — `tools/content_factory/test_migrate_shelf_backdrop.py`
 - **migrate_shelf_backdrop.py** (7 connections) — `tools/content_factory/migrate_shelf_backdrop.py`
 - **shelf_assignment.py** (7 connections) — `tools/content_factory/shelf_assignment.py`
-- **ShelfAssignmentTest** (6 connections) — `tools/content_factory/test_shelf_assignment.py`
 - **load_shard()** (6 connections) — `tools/content_factory/scenario_store.py`
-- **check_assignment()** (6 connections) — `tools/content_factory/shelf_assignment.py`
 - **Path** (6 connections)
+- **check_assignment()** (6 connections) — `tools/content_factory/shelf_assignment.py`
+- **ShelfAssignmentTest** (6 connections) — `tools/content_factory/test_shelf_assignment.py`
 - **plan_migration()** (5 connections) — `tools/content_factory/migrate_shelf_backdrop.py`
+- **Any** (5 connections)
 - **shard_name()** (5 connections) — `tools/content_factory/scenario_store.py`
 - **write_shards()** (5 connections) — `tools/content_factory/scenario_store.py`
-- **Any** (5 connections)
 - **test_shelf_assignment.py** (5 connections) — `tools/content_factory/test_shelf_assignment.py`
+- **fill_empty_unit_kinds.py** (4 connections) — `tools/content_factory/fill_empty_unit_kinds.py`
 - **read_baseline()** (4 connections) — `tools/content_factory/migrate_shelf_backdrop.py`
 - **has_shards()** (4 connections) — `tools/content_factory/scenario_store.py`
 - **load_scenarios()** (4 connections) — `tools/content_factory/scenario_store.py`
 - **shard_paths()** (4 connections) — `tools/content_factory/scenario_store.py`
 - **target_shard()** (4 connections) — `tools/content_factory/scenario_store.py`
-- **fill_empty_unit_kinds.py** (4 connections) — `tools/content_factory/fill_empty_unit_kinds.py`
 - **test_migrate_shelf_backdrop.py** (4 connections) — `tools/content_factory/test_migrate_shelf_backdrop.py`
 - **test_validate_batch_01.py** (4 connections) — `tools/content_factory/test_validate_batch_01.py`
 - **_load()** (3 connections) — `tools/content_factory/fill_empty_unit_kinds.py`

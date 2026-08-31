@@ -1,6 +1,6 @@
 # Handoff: SESSION_LOG 폐지 + DE/EN 스킬 설치
 
-> 18 nodes
+> 18 nodes · cohesion 0.11
 
 ## Key Concepts
 

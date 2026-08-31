@@ -1,6 +1,6 @@
 # pronunciation_phrase.dart
 
-> 11 nodes
+> 11 nodes · cohesion 0.18
 
 ## Key Concepts
 
@@ -18,7 +18,7 @@
 
 ## Relationships
 
-- [learning_semantic_contract.dart](learning_semantic_contract.dart.md) (1 shared connections)
+- [mission_recommender.dart](mission_recommender.dart.md) (1 shared connections)
 - [_](_.md) (1 shared connections)
 - [hanok_build_narrative.dart](hanok_build_narrative.dart.md) (1 shared connections)
 

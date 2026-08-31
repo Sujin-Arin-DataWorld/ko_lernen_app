@@ -1,6 +1,6 @@
 # Jin 정본 시나리오 승인 게이트
 
-> 7 nodes
+> 7 nodes · cohesion 0.29
 
 ## Key Concepts
 

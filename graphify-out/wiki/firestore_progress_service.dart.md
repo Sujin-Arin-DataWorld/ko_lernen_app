@@ -1,6 +1,6 @@
 # firestore_progress_service.dart
 
-> 52 nodes
+> 52 nodes · cohesion 0.04
 
 ## Key Concepts
 
@@ -34,13 +34,14 @@
 ## Relationships
 
 - [_](_.md) (5 shared connections)
-- [typedef](typedef.md) (2 shared connections)
-- [gye_dedication_service.dart](gye_dedication_service.dart.md) (2 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (2 shared connections)
 - [int?](int_.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
-- [storage_service.dart](storage_service.dart.md) (1 shared connections)
+- [static const int](static_const_int.md) (1 shared connections)
+- [cloud_sync.dart](cloud_sync.dart.md) (1 shared connections)
+- [quest_tracker.dart](quest_tracker.dart.md) (1 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
-- [String?](String_.md) (1 shared connections)
+- [vocab_pack_result_screen.dart](vocab_pack_result_screen.dart.md) (1 shared connections)
 
 ## Source Files
 

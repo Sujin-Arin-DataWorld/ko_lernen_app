@@ -1,6 +1,6 @@
 # sori_activity_catalog_test.dart
 
-> 11 nodes
+> 11 nodes · cohesion 0.18
 
 ## Key Concepts
 
@@ -18,12 +18,12 @@
 
 ## Relationships
 
-- [dart:io](dart-io.md) (2 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
 - [onboarding_story_catalog_projector_test.dart](onboarding_story_catalog_projector_test.dart.md) (1 shared connections)
 - [onboarding_v2_runtime_catalog_test.dart](onboarding_v2_runtime_catalog_test.dart.md) (1 shared connections)
-- [dart:ui](dart-ui.md) (1 shared connections)
+- [dart:async](dart-async.md) (1 shared connections)
+- [File](File.md) (1 shared connections)
 - [return](return.md) (1 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
 - [hanok_world_screen_test.dart](hanok_world_screen_test.dart.md) (1 shared connections)
 
 ## Source Files

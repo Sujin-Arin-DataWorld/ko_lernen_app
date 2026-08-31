@@ -1,14 +1,15 @@
 # enum
 
-> 5 nodes
+> 6 nodes · cohesion 0.33
 
 ## Key Concepts
 
-- **enum** (4 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
-- **status** (2 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
-- **partially_promoted** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
-- **promoted** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
-- **review_only** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- **enum** (5 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **register** (2 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **business** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **casual** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **intimate** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **polite** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
 
 ## Relationships
 
@@ -16,11 +17,11 @@
 
 ## Source Files
 
-- `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- `tools/content_factory/schemas/scenario_brief.schema.json`
 
 ## Audit Trail
 
-- EXTRACTED: 5 (100%)
+- EXTRACTED: 6 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

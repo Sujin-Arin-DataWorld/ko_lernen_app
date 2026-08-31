@@ -1,6 +1,6 @@
 # content_feed.dart
 
-> 69 nodes
+> 69 nodes · cohesion 0.03
 
 ## Key Concepts
 
@@ -33,16 +33,18 @@
 
 ## Relationships
 
-- [String?](String_.md) (6 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (5 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (4 shared connections)
 - [StatelessWidget](StatelessWidget.md) (3 shared connections)
-- [study_activity_responsive_test.dart](study_activity_responsive_test.dart.md) (2 shared connections)
-- [AnimationController](AnimationController.md) (1 shared connections)
+- [Color](Color.md) (2 shared connections)
+- [String?](String_.md) (2 shared connections)
+- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (2 shared connections)
+- [pressable.dart](pressable.dart.md) (1 shared connections)
 - [hangul_screen.dart](hangul_screen.dart.md) (1 shared connections)
-- [deck_coach.dart](deck_coach.dart.md) (1 shared connections)
+- [swipe_rails.dart](swipe_rails.dart.md) (1 shared connections)
+- [ko_wrap.dart](ko_wrap.dart.md) (1 shared connections)
+- [sori_stage_shell.dart](sori_stage_shell.dart.md) (1 shared connections)
 - [dart:async](dart-async.md) (1 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
-- [book_result_screen.dart](book_result_screen.dart.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
 
 ## Source Files
 

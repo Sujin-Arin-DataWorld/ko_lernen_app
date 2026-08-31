@@ -1,14 +1,14 @@
 # hanok_header.dart
 
-> 39 nodes
+> 39 nodes · cohesion 0.05
 
 ## Key Concepts
 
 - **hanok_header.dart** (50 connections) — `lib/widgets/sori/hanok_header.dart`
 - **../../services/audio_policy.dart** (6 connections)
-- **VideoLeaseRequest** (5 connections) — `lib/widgets/sori/video_lease.dart`
 - **package:video_player/video_player.dart** (5 connections)
 - **VideoPlayerController** (5 connections)
+- **VideoLeaseRequest** (4 connections) — `lib/widgets/sori/video_lease.dart`
 - **SoriPosterLoop** (3 connections) — `lib/widgets/sori/hanok_header.dart`
 - **_SoriPosterLoopState** (3 connections) — `lib/widgets/sori/hanok_header.dart`
 - **video_lease.dart** (3 connections)
@@ -33,17 +33,17 @@
 
 ## Relationships
 
-- [character_clip.dart](character_clip.dart.md) (5 shared connections)
 - [tiger_video.dart](tiger_video.dart.md) (5 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (4 shared connections)
 - [intro_gate_screen.dart](intro_gate_screen.dart.md) (4 shared connections)
-- [String?](String_.md) (3 shared connections)
+- [character_clip.dart](character_clip.dart.md) (4 shared connections)
 - [video_lease.dart](video_lease.dart.md) (3 shared connections)
+- [Color](Color.md) (2 shared connections)
 - [_](_.md) (2 shared connections)
+- [String?](String_.md) (2 shared connections)
 - [StatelessWidget](StatelessWidget.md) (2 shared connections)
-- [_State](_State.md) (2 shared connections)
-- [typedef](typedef.md) (1 shared connections)
-- [speakable.dart](speakable.dart.md) (1 shared connections)
+- [StatefulWidget](StatefulWidget.md) (2 shared connections)
+- [managed_media_image.dart](managed_media_image.dart.md) (1 shared connections)
+- [VideoLeaseEligibilityBinding](VideoLeaseEligibilityBinding.md) (1 shared connections)
 - [dart:async](dart-async.md) (1 shared connections)
 
 ## Source Files
@@ -53,7 +53,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 74 (100%)
+- EXTRACTED: 73 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

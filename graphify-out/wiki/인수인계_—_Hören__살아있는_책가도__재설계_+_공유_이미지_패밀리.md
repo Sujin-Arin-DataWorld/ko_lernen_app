@@ -1,6 +1,6 @@
 # 인수인계 — Hören "살아있는 책가도" 재설계 + 공유 이미지 패밀리
 
-> 14 nodes
+> 14 nodes · cohesion 0.14
 
 ## Key Concepts
 

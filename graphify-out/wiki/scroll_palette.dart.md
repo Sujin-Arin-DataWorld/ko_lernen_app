@@ -1,6 +1,6 @@
 # scroll_palette.dart
 
-> 14 nodes
+> 14 nodes · cohesion 0.14
 
 ## Key Concepts
 

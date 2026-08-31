@@ -1,47 +1,47 @@
 # properties
 
-> 47 nodes
+> 15 nodes · cohesion 0.13
 
 ## Key Concepts
 
-- **properties** (8 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **required** (8 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **level_profile.schema.json** (7 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **enum** (7 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **cognitiveTasks** (4 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **koreanCourseLevel** (4 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **portfolio** (4 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **items** (3 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **additionalProperties** (3 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **contentScope** (3 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **socialRange** (3 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **allowedLanguage** (2 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **code** (2 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **additionalProperties** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **minimum** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **type** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **type** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **minItems** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **type** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **minLength** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **type** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **$id** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **minLength** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **type** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **maximum** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- *... and 22 more nodes in this community*
+- **properties** (24 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **event** (3 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **relationship** (3 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **anchorKey** (2 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **checkpointForUnit** (2 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **regressionTheme** (2 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **runtimeEligible** (2 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **type** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **type** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **minLength** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **type** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **type** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **minLength** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **type** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **type** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [participantIds](participantIds.md) (3 shared connections)
+- [enum](enum.md) (2 shared connections)
+- [scenario_brief.schema.json](scenario_brief.schema.json.md) (1 shared connections)
+- [portfolioBucket](portfolioBucket.md) (1 shared connections)
+- [titleKo](titleKo.md) (1 shared connections)
+- [writerRole](writerRole.md) (1 shared connections)
+- [setting](setting.md) (1 shared connections)
+- [playerGoal](playerGoal.md) (1 shared connections)
+- [counterpartGoal](counterpartGoal.md) (1 shared connections)
+- [turningPoint](turningPoint.md) (1 shared connections)
+- [canDoKo](canDoKo.md) (1 shared connections)
+- [courseUnitId](courseUnitId.md) (1 shared connections)
 
 ## Source Files
 
-- `tools/content_factory/schemas/level_profile.schema.json`
+- `tools/content_factory/schemas/scenario_brief.schema.json`
 
 ## Audit Trail
 
-- EXTRACTED: 46 (100%)
+- EXTRACTED: 32 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

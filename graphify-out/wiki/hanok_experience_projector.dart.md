@@ -1,11 +1,13 @@
 # hanok_experience_projector.dart
 
-> 27 nodes
+> 37 nodes · cohesion 0.06
 
 ## Key Concepts
 
 - **hanok_experience_projector.dart** (23 connections) — `lib/services/hanok_experience_projector.dart`
+- **../models/course_mastery.dart** (19 connections)
 - **hanok_cutover_service.dart** (16 connections) — `lib/services/hanok_cutover_service.dart`
+- **_** (13 connections) — `lib/services/hanok_structure_projection_service.dart`
 - **course_segment_catalog.dart** (7 connections)
 - **../models/can_do_segment.dart** (7 connections)
 - **../../models/room_layout.dart** (6 connections)
@@ -15,7 +17,9 @@
 - **hanok_grant_catalog.dart** (2 connections)
 - **HanokCutoverService** (2 connections) — `lib/services/hanok_cutover_service.dart`
 - **HanokExperienceProjector** (2 connections) — `lib/services/hanok_experience_projector.dart`
+- **../models/hanok_competence.dart** (2 connections)
 - **hanok_experience_projector.dart** (1 connections)
+- **hanok_stage_service.dart** (1 connections)
 - **ensureCutover** (1 connections) — `lib/services/hanok_cutover_service.dart`
 - **markerValue** (1 connections) — `lib/services/hanok_cutover_service.dart`
 - **projector** (1 connections) — `lib/services/hanok_cutover_service.dart`
@@ -25,24 +29,20 @@
 - **candidateIds** (1 connections) — `lib/services/hanok_experience_projector.dart`
 - **_firstAttainableGrant** (1 connections) — `lib/services/hanok_experience_projector.dart`
 - **null** (1 connections) — `lib/services/hanok_experience_projector.dart`
-- **partitionRoomLayouts** (1 connections) — `lib/services/hanok_experience_projector.dart`
-- **project** (1 connections) — `lib/services/hanok_experience_projector.dart`
-- **receiptsBetween** (1 connections) — `lib/services/hanok_experience_projector.dart`
-- **segment** (1 connections) — `lib/services/hanok_experience_projector.dart`
-- *... and 2 more nodes in this community*
+- *... and 12 more nodes in this community*
 
 ## Relationships
 
-- [_](_.md) (6 shared connections)
-- [course_mastery_service.dart](course_mastery_service.dart.md) (3 shared connections)
-- [typedef](typedef.md) (3 shared connections)
-- [course_progress_service.dart](course_progress_service.dart.md) (2 shared connections)
+- [_](_.md) (9 shared connections)
+- [course_progress_service.dart](course_progress_service.dart.md) (5 shared connections)
+- [course_mastery_service.dart](course_mastery_service.dart.md) (4 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (4 shared connections)
+- [course_reassessment_screen.dart](course_reassessment_screen.dart.md) (3 shared connections)
 - [hanok_grant_catalog.dart](hanok_grant_catalog.dart.md) (2 shared connections)
-- [course_reassessment_screen.dart](course_reassessment_screen.dart.md) (2 shared connections)
-- [storage_service.dart](storage_service.dart.md) (2 shared connections)
-- [../models/course_mastery.dart](-models-course_mastery.dart.md) (2 shared connections)
 - [ildu_world_projection_adapter.dart](ildu_world_projection_adapter.dart.md) (2 shared connections)
-- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (2 shared connections)
+- [sori_stage_progression_service.dart](sori_stage_progression_service.dart.md) (2 shared connections)
+- [learning_path_screen.dart](learning_path_screen.dart.md) (2 shared connections)
+- [scenario_player_screen.dart](scenario_player_screen.dart.md) (2 shared connections)
 - [cloud_sync.dart](cloud_sync.dart.md) (1 shared connections)
 - [can_do_segment.dart](can_do_segment.dart.md) (1 shared connections)
 
@@ -51,10 +51,11 @@
 - `lib/models/can_do_segment.dart`
 - `lib/services/hanok_cutover_service.dart`
 - `lib/services/hanok_experience_projector.dart`
+- `lib/services/hanok_structure_projection_service.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 63 (100%)
+- EXTRACTED: 93 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

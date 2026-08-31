@@ -1,6 +1,6 @@
 # Content Factory (M5 — 오프라인 콘텐츠 생성)
 
-> 15 nodes
+> 15 nodes · cohesion 0.13
 
 ## Key Concepts
 

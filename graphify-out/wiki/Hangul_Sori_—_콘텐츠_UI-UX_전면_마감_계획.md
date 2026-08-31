@@ -1,6 +1,6 @@
 # Hangul Sori — 콘텐츠 UI/UX 전면 마감 계획
 
-> 16 nodes
+> 16 nodes · cohesion 0.12
 
 ## Key Concepts
 

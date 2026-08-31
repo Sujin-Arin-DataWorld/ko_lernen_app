@@ -1,6 +1,6 @@
 # Task 7 Report: Gye Ownership, Moderation, and Deletion Lifecycle
 
-> 11 nodes
+> 11 nodes · cohesion 0.18
 
 ## Key Concepts
 

@@ -1,6 +1,6 @@
 # ci_scope.py
 
-> 15 nodes
+> 15 nodes · cohesion 0.25
 
 ## Key Concepts
 

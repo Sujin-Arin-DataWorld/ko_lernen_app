@@ -1,22 +1,11 @@
 # media_phrase.dart
 
-> 45 nodes
+> 34 nodes · cohesion 0.06
 
 ## Key Concepts
 
 - **media_phrase.dart** (20 connections) — `lib/models/media_phrase.dart`
 - **placement_diagnostic.dart** (14 connections) — `lib/services/placement_diagnostic.dart`
-- **feed_physics_candidates.dart** (12 connections) — `lib/data/feed_physics_candidates.dart`
-- **activeControls** (1 connections) — `lib/data/feed_physics_candidates.dart`
-- **approvedForSnap** (1 connections) — `lib/data/feed_physics_candidates.dart`
-- **axes** (1 connections) — `lib/data/feed_physics_candidates.dart`
-- **axesExercised** (1 connections) — `lib/data/feed_physics_candidates.dart`
-- **FeedPhysicsCandidate** (1 connections) — `lib/data/feed_physics_candidates.dart`
-- **feedPhysicsCandidates** (1 connections) — `lib/data/feed_physics_candidates.dart`
-- **id** (1 connections) — `lib/data/feed_physics_candidates.dart`
-- **nestedScrollRisk** (1 connections) — `lib/data/feed_physics_candidates.dart`
-- **route** (1 connections) — `lib/data/feed_physics_candidates.dart`
-- **screenId** (1 connections) — `lib/data/feed_physics_candidates.dart`
 - **conceptIds** (1 connections) — `lib/models/media_phrase.dart`
 - **context** (1 connections) — `lib/models/media_phrase.dart`
 - **contextDe** (1 connections) — `lib/models/media_phrase.dart`
@@ -29,22 +18,31 @@
 - **id** (1 connections) — `lib/models/media_phrase.dart`
 - **korean** (1 connections) — `lib/models/media_phrase.dart`
 - **level** (1 connections) — `lib/models/media_phrase.dart`
-- *... and 20 more nodes in this community*
+- **meaning** (1 connections) — `lib/models/media_phrase.dart`
+- **MediaPhrase** (1 connections) — `lib/models/media_phrase.dart`
+- **romanization** (1 connections) — `lib/models/media_phrase.dart`
+- **sourceStyle** (1 connections) — `lib/models/media_phrase.dart`
+- **sourceType** (1 connections) — `lib/models/media_phrase.dart`
+- **_strings** (1 connections) — `lib/models/media_phrase.dart`
+- **vocabIds** (1 connections) — `lib/models/media_phrase.dart`
+- **choices** (1 connections) — `lib/services/placement_diagnostic.dart`
+- **choicesDe** (1 connections) — `lib/services/placement_diagnostic.dart`
+- **choicesEn** (1 connections) — `lib/services/placement_diagnostic.dart`
+- **correctIndex** (1 connections) — `lib/services/placement_diagnostic.dart`
+- *... and 9 more nodes in this community*
 
 ## Relationships
 
-- [List](List.md) (3 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
+- [List](List.md) (2 shared connections)
 
 ## Source Files
 
-- `lib/data/feed_physics_candidates.dart`
 - `lib/models/media_phrase.dart`
 - `lib/services/placement_diagnostic.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 46 (100%)
+- EXTRACTED: 34 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

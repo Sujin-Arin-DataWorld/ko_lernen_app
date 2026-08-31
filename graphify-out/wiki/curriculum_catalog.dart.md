@@ -1,6 +1,6 @@
 # curriculum_catalog.dart
 
-> 96 nodes
+> 96 nodes · cohesion 0.02
 
 ## Key Concepts
 
@@ -33,18 +33,18 @@
 
 ## Relationships
 
+- [course_progress_service.dart](course_progress_service.dart.md) (3 shared connections)
 - [List](List.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
 - [return](return.md) (1 shared connections)
-- [static const](static_const.md) (1 shared connections)
-- [canonical_course_segment_loader_test.dart](canonical_course_segment_loader_test.dart.md) (1 shared connections)
+- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
+- [hanok_experience_projector_test.dart](hanok_experience_projector_test.dart.md) (1 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
 - [quest_tracker.dart](quest_tracker.dart.md) (1 shared connections)
-- [course_checkpoint_questions.dart](course_checkpoint_questions.dart.md) (1 shared connections)
-- [static const List](static_const_List.md) (1 shared connections)
-- [../models/scenario.dart](-models-scenario.dart.md) (1 shared connections)
-- [smalltalk_loader.dart](smalltalk_loader.dart.md) (1 shared connections)
-- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (1 shared connections)
+- [static const int](static_const_int.md) (1 shared connections)
+- [data_loader.dart](data_loader.dart.md) (1 shared connections)
+- [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (1 shared connections)
+- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (1 shared connections)
 
 ## Source Files
 

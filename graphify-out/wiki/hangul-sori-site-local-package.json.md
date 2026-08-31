@@ -1,6 +1,6 @@
 # hangul-sori-site-local/package.json
 
-> 12 nodes
+> 12 nodes · cohesion 0.17
 
 ## Key Concepts
 

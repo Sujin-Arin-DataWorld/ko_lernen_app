@@ -1,6 +1,6 @@
 # GitHub Actions → Cloudflare 홈페이지 자동 배포
 
-> 5 nodes
+> 5 nodes · cohesion 0.40
 
 ## Key Concepts
 

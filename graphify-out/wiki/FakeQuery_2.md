@@ -1,6 +1,6 @@
 # FakeQuery
 
-> 12 nodes
+> 12 nodes · cohesion 0.33
 
 ## Key Concepts
 

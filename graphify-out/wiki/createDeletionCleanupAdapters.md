@@ -1,6 +1,6 @@
 # createDeletionCleanupAdapters
 
-> 31 nodes
+> 31 nodes · cohesion 0.18
 
 ## Key Concepts
 
@@ -33,9 +33,9 @@
 
 ## Relationships
 
-- [deletion_cleanup_adapters.test.js](deletion_cleanup_adapters.test.js.md) (4 shared connections)
-- [gye/index.js](gye-index.js.md) (4 shared connections)
+- [deletion_cleanup_adapters.test.js](deletion_cleanup_adapters.test.js.md) (5 shared connections)
 - [runtime.test.js](runtime.test.js.md) (3 shared connections)
+- [gye/index.js](gye-index.js.md) (3 shared connections)
 - [tester-application.ts](tester-application.ts.md) (2 shared connections)
 
 ## Source Files

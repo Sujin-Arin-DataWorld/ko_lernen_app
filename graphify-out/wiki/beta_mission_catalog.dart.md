@@ -1,6 +1,6 @@
 # beta_mission_catalog.dart
 
-> 13 nodes
+> 13 nodes · cohesion 0.15
 
 ## Key Concepts
 
@@ -23,8 +23,8 @@
 - [game_reward.dart](game_reward.dart.md) (2 shared connections)
 - [List](List.md) (1 shared connections)
 - [return](return.md) (1 shared connections)
-- [typedef](typedef.md) (1 shared connections)
-- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (1 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
+- [learning_path_screen.dart](learning_path_screen.dart.md) (1 shared connections)
 - [vocab_pack_result_screen.dart](vocab_pack_result_screen.dart.md) (1 shared connections)
 - [content_feedback_client.dart](content_feedback_client.dart.md) (1 shared connections)
 - [content_feedback_lifecycle.dart](content_feedback_lifecycle.dart.md) (1 shared connections)

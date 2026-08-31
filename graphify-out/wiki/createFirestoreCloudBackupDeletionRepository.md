@@ -1,6 +1,6 @@
 # createFirestoreCloudBackupDeletionRepository
 
-> 20 nodes
+> 20 nodes · cohesion 0.39
 
 ## Key Concepts
 

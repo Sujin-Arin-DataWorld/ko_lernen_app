@@ -1,6 +1,6 @@
 # curriculum_alignment_contract_test.dart
 
-> 12 nodes
+> 12 nodes · cohesion 0.18
 
 ## Key Concepts
 
@@ -19,9 +19,8 @@
 
 ## Relationships
 
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (4 shared connections)
 - [onboarding_v2_runtime_catalog_test.dart](onboarding_v2_runtime_catalog_test.dart.md) (3 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (3 shared connections)
-- [dart:io](dart-io.md) (1 shared connections)
 
 ## Source Files
 

@@ -1,6 +1,6 @@
 # typed_study_bookmark_store_test.dart
 
-> 9 nodes
+> 9 nodes · cohesion 0.22
 
 ## Key Concepts
 
@@ -17,12 +17,12 @@
 ## Relationships
 
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
-- [study_library_production_adapters.dart](study_library_production_adapters.dart.md) (1 shared connections)
+- [grammar_screen.dart](grammar_screen.dart.md) (1 shared connections)
 - [study_library_screen.dart](study_library_screen.dart.md) (1 shared connections)
 - [study_library_screen_test.dart](study_library_screen_test.dart.md) (1 shared connections)
 - [_](_.md) (1 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [custom_pack_games_uiux_test.dart](custom_pack_games_uiux_test.dart.md) (1 shared connections)
+- [Duration](Duration.md) (1 shared connections)
+- [bookshelf_custom_pack_uiux_test.dart](bookshelf_custom_pack_uiux_test.dart.md) (1 shared connections)
 
 ## Source Files
 

@@ -1,6 +1,6 @@
 # pronunciation_recorder.dart
 
-> 16 nodes
+> 16 nodes · cohesion 0.13
 
 ## Key Concepts
 
@@ -25,7 +25,7 @@
 
 - [pronunciation_studio_screen_test.dart](pronunciation_studio_screen_test.dart.md) (4 shared connections)
 - [pronunciation_studio_ui_test.dart](pronunciation_studio_ui_test.dart.md) (2 shared connections)
-- [content_share_slip_test.dart](content_share_slip_test.dart.md) (1 shared connections)
+- [book_capture_image_quality.dart](book_capture_image_quality.dart.md) (1 shared connections)
 - [pronunciation_studio_screen.dart](pronunciation_studio_screen.dart.md) (1 shared connections)
 
 ## Source Files

@@ -1,6 +1,6 @@
 # Android Closed Testing readiness checklist
 
-> 19 nodes
+> 19 nodes · cohesion 0.11
 
 ## Key Concepts
 

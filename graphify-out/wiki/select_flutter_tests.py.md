@@ -1,6 +1,6 @@
 # select_flutter_tests.py
 
-> 14 nodes
+> 14 nodes · cohesion 0.25
 
 ## Key Concepts
 
@@ -9,9 +9,9 @@
 - **build_import_graph()** (5 connections) — `.github/scripts/select_flutter_tests.py`
 - **main()** (4 connections) — `.github/scripts/select_flutter_tests.py`
 - **classify_paths()** (3 connections) — `.github/scripts/select_flutter_tests.py`
+- **Path** (3 connections)
 - **resolve_import()** (3 connections) — `.github/scripts/select_flutter_tests.py`
 - **select_tests()** (3 connections) — `.github/scripts/select_flutter_tests.py`
-- **Path** (3 connections)
 - **_closure()** (2 connections) — `.github/scripts/select_flutter_tests.py`
 - **dart_import_specs()** (2 connections) — `.github/scripts/select_flutter_tests.py`
 - **_write_outputs()** (2 connections) — `.github/scripts/select_flutter_tests.py`

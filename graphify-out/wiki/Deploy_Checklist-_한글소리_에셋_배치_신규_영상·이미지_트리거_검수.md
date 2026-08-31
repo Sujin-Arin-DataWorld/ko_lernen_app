@@ -1,6 +1,6 @@
 # Deploy Checklist: 한글소리 에셋 배치 (신규 영상·이미지 트리거 검수)
 
-> 11 nodes
+> 11 nodes · cohesion 0.18
 
 ## Key Concepts
 

@@ -1,22 +1,27 @@
 # account_operations_runtime.test.js
 
-> 42 nodes
+> 42 nodes · cohesion 0.05
 
 ## Key Concepts
 
 - **account_operations_runtime.test.js** (46 connections) — `functions/gye/account_operations_runtime.test.js`
 - **callableRequest()** (3 connections) — `functions/gye/account_operations_runtime.test.js`
+- **createDeletionOperation()** (2 connections) — `functions/gye/account_operations_runtime.test.js`
 - **FakeDocumentReference** (2 connections) — `functions/gye/account_operations_runtime.test.js`
 - **FakeQueryDocumentSnapshot** (2 connections) — `functions/gye/account_operations_runtime.test.js`
-- **createDeletionOperation()** (2 connections) — `functions/gye/account_operations_runtime.test.js`
 - **invokePublic()** (2 connections) — `functions/gye/account_operations_runtime.test.js`
 - **prepareReplacement()** (2 connections) — `functions/gye/account_operations_runtime.test.js`
 - **processDeletionOperation()** (2 connections) — `functions/gye/account_operations_runtime.test.js`
 - **publicResponse()** (2 connections) — `functions/gye/account_operations_runtime.test.js`
 - **runWorkerUntil()** (2 connections) — `functions/gye/account_operations_runtime.test.js`
+- **assert** (1 connections) — `functions/gye/account_operations_runtime.test.js`
+- **AUTHENTICATED_CALLABLE_NAMES** (1 connections) — `functions/gye/account_operations_runtime.test.js`
+- **CALLABLE_NAMES** (1 connections) — `functions/gye/account_operations_runtime.test.js`
 - **capabilityPurposeDigest()** (1 connections) — `functions/gye/account_operations_runtime.test.js`
 - **consumeDeletionStatusReceiptRequest()** (1 connections) — `functions/gye/account_operations_runtime.test.js`
 - **createHarness()** (1 connections) — `functions/gye/account_operations_runtime.test.js`
+- **{ createTesterFeedbackRuntime }** (1 connections) — `functions/gye/account_operations_runtime.test.js`
+- **crypto** (1 connections) — `functions/gye/account_operations_runtime.test.js`
 - **decodedToken()** (1 connections) — `functions/gye/account_operations_runtime.test.js`
 - **deleteUser()** (1 connections) — `functions/gye/account_operations_runtime.test.js`
 - **deletionStatusReceiptDigest()** (1 connections) — `functions/gye/account_operations_runtime.test.js`
@@ -24,11 +29,6 @@
 - **fakeAccountOperationCollection()** (1 connections) — `functions/gye/account_operations_runtime.test.js`
 - **.constructor()** (1 connections) — `functions/gye/account_operations_runtime.test.js`
 - **.constructor()** (1 connections) — `functions/gye/account_operations_runtime.test.js`
-- **getDeletionByStatusReceipt()** (1 connections) — `functions/gye/account_operations_runtime.test.js`
-- **getSecret()** (1 connections) — `functions/gye/account_operations_runtime.test.js`
-- **hashDeletionStatusRateLimitKey()** (1 connections) — `functions/gye/account_operations_runtime.test.js`
-- **hashDeletionStatusReceipt()** (1 connections) — `functions/gye/account_operations_runtime.test.js`
-- **keyedProofHash()** (1 connections) — `functions/gye/account_operations_runtime.test.js`
 - *... and 17 more nodes in this community*
 
 ## Relationships

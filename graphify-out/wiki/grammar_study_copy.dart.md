@@ -1,6 +1,6 @@
 # grammar_study_copy.dart
 
-> 21 nodes
+> 21 nodes · cohesion 0.10
 
 ## Key Concepts
 
@@ -28,9 +28,8 @@
 
 ## Relationships
 
-- [List](List.md) (1 shared connections)
+- [List](List.md) (2 shared connections)
 - [return](return.md) (1 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
 - [grammar_screen.dart](grammar_screen.dart.md) (1 shared connections)
 
 ## Source Files

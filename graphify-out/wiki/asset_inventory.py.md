@@ -1,6 +1,6 @@
 # asset_inventory.py
 
-> 10 nodes
+> 10 nodes · cohesion 0.36
 
 ## Key Concepts
 

@@ -1,6 +1,6 @@
 # Hangul Sori — 듀오링고급 완성형 개편안
 
-> 18 nodes
+> 18 nodes · cohesion 0.11
 
 ## Key Concepts
 

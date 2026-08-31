@@ -1,6 +1,6 @@
 # vocab_recall_evidence.dart
 
-> 18 nodes
+> 18 nodes · cohesion 0.11
 
 ## Key Concepts
 
@@ -26,8 +26,8 @@
 ## Relationships
 
 - [return](return.md) (1 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
-- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (1 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
+- [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (1 shared connections)
 - [storage_service.dart](storage_service.dart.md) (1 shared connections)
 
 ## Source Files

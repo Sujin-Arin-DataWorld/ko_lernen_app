@@ -1,6 +1,6 @@
 # cloze_loader.dart
 
-> 23 nodes
+> 23 nodes · cohesion 0.09
 
 ## Key Concepts
 
@@ -30,13 +30,13 @@
 
 ## Relationships
 
-- [bool get](bool_get.md) (2 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (2 shared connections)
-- [List](List.md) (1 shared connections)
-- [typedef](typedef.md) (1 shared connections)
-- [cloze_topic_groups.dart](cloze_topic_groups.dart.md) (1 shared connections)
+- [List](List.md) (3 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
+- [data_loader.dart](data_loader.dart.md) (1 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
 - [satz_loader.dart](satz_loader.dart.md) (1 shared connections)
+- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (1 shared connections)
 - [cloze_prompt.dart](cloze_prompt.dart.md) (1 shared connections)
 
 ## Source Files

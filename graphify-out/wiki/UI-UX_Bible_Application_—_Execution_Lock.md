@@ -1,6 +1,6 @@
 # UI/UX Bible Application — Execution Lock
 
-> 21 nodes
+> 21 nodes · cohesion 0.10
 
 ## Key Concepts
 

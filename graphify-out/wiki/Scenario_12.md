@@ -1,6 +1,6 @@
 # Scenario (12)
 
-> 15 nodes
+> 15 nodes · cohesion 0.13
 
 ## Key Concepts
 

@@ -1,6 +1,6 @@
 # devDependencies
 
-> 29 nodes
+> 29 nodes · cohesion 0.07
 
 ## Key Concepts
 
@@ -11,9 +11,9 @@
 - **react-server-dom-webpack** (2 connections) — `hangul-sori-site-local/package.json`
 - **tailwindcss** (2 connections) — `hangul-sori-site-local/package.json`
 - **@tailwindcss/postcss** (2 connections) — `hangul-sori-site-local/package.json`
-- **@types/node** (2 connections) — `hangul-sori-site-local/package.json`
 - **@types/react** (2 connections) — `hangul-sori-site-local/package.json`
 - **@types/react-dom** (2 connections) — `hangul-sori-site-local/package.json`
+- **typescript** (2 connections) — `hangul-sori-site-local/package.json`
 - **vinext** (2 connections) — `hangul-sori-site-local/package.json`
 - **vite** (2 connections) — `hangul-sori-site-local/package.json`
 - **@vitejs/plugin-react** (2 connections) — `hangul-sori-site-local/package.json`
@@ -22,19 +22,19 @@
 - **@cloudflare/vite-plugin** (1 connections) — `hangul-sori-site-local/package.json`
 - **eslint** (1 connections) — `hangul-sori-site-local/package.json`
 - **eslint-config-next** (1 connections) — `hangul-sori-site-local/package.json`
-- **@types/node** (1 connections) — `hangul-sori-site-local/package.json`
 - **react-server-dom-webpack** (1 connections) — `hangul-sori-site-local/package.json`
 - **tailwindcss** (1 connections) — `hangul-sori-site-local/package.json`
 - **@tailwindcss/postcss** (1 connections) — `hangul-sori-site-local/package.json`
 - **@types/react** (1 connections) — `hangul-sori-site-local/package.json`
 - **@types/react-dom** (1 connections) — `hangul-sori-site-local/package.json`
+- **typescript** (1 connections) — `hangul-sori-site-local/package.json`
 - **vinext** (1 connections) — `hangul-sori-site-local/package.json`
 - *... and 4 more nodes in this community*
 
 ## Relationships
 
 - [hangul-sori-site-local/package.json](hangul-sori-site-local-package.json.md) (1 shared connections)
-- [typescript](typescript.md) (1 shared connections)
+- [package.json](package.json.md) (1 shared connections)
 
 ## Source Files
 

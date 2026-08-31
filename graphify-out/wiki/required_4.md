@@ -1,34 +1,27 @@
 # required
 
-> 13 nodes
+> 6 nodes · cohesion 0.33
 
 ## Key Concepts
 
-- **required** (13 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
-- **anchorScenarioIds** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
-- **expectedPerLevel** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
-- **expectedScenarioCount** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
-- **files** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
-- **gates** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
-- **generationId** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
-- **promotionOrder** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
-- **regressionThemes** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
-- **schemaVersion** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
-- **sourceLanguage** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
-- **status** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
-- **supportLanguages** (1 connections) — `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- **required** (4 connections) — `tools/content_factory/schemas/character_profile.schema.json`
+- **displayNames** (4 connections) — `tools/content_factory/schemas/character_profile.schema.json`
+- **de** (1 connections) — `tools/content_factory/schemas/character_profile.schema.json`
+- **ko** (1 connections) — `tools/content_factory/schemas/character_profile.schema.json`
+- **type** (1 connections) — `tools/content_factory/schemas/character_profile.schema.json`
+- **en** (1 connections) — `tools/content_factory/schemas/character_profile.schema.json`
 
 ## Relationships
 
-- [scenario_corpus_manifest.schema.json](scenario_corpus_manifest.schema.json.md) (1 shared connections)
+- [properties](properties.md) (2 shared connections)
 
 ## Source Files
 
-- `tools/content_factory/schemas/scenario_corpus_manifest.schema.json`
+- `tools/content_factory/schemas/character_profile.schema.json`
 
 ## Audit Trail
 
-- EXTRACTED: 13 (100%)
+- EXTRACTED: 7 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

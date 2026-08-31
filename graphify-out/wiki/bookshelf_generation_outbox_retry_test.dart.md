@@ -1,6 +1,6 @@
 # bookshelf_generation_outbox_retry_test.dart
 
-> 18 nodes
+> 18 nodes · cohesion 0.11
 
 ## Key Concepts
 
@@ -25,9 +25,9 @@
 
 ## Relationships
 
-- [cloud_sync_test.dart](cloud_sync_test.dart.md) (3 shared connections)
-- [bookshelf_sync_outbox_test.dart](bookshelf_sync_outbox_test.dart.md) (2 shared connections)
-- [BookshelfSyncOutboxStore](BookshelfSyncOutboxStore.md) (1 shared connections)
+- [bookshelf_sync_outbox_test.dart](bookshelf_sync_outbox_test.dart.md) (3 shared connections)
+- [bookshelf_generation_manifest_test.dart](bookshelf_generation_manifest_test.dart.md) (2 shared connections)
+- [bookshelf_service_test.dart](bookshelf_service_test.dart.md) (1 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
 - [account_reconciliation_test.dart](account_reconciliation_test.dart.md) (1 shared connections)
 

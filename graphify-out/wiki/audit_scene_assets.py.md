@@ -1,6 +1,6 @@
 # audit_scene_assets.py
 
-> 75 nodes
+> 75 nodes · cohesion 0.08
 
 ## Key Concepts
 
@@ -26,8 +26,8 @@
 - **.test_unexpected_dedicated_color_mode_is_strict()** (7 connections) — `tool/test_audit_scene_assets.py`
 - **.test_unreadable_and_non_png_files_are_strict()** (7 connections) — `tool/test_audit_scene_assets.py`
 - **.test_wrong_dedicated_dimensions_are_strict()** (7 connections) — `tool/test_audit_scene_assets.py`
-- **ScenarioRef** (6 connections) — `tool/audit_scene_assets.py`
 - **find_generation_manifest_issues()** (6 connections) — `tool/audit_scene_assets.py`
+- **ScenarioRef** (6 connections) — `tool/audit_scene_assets.py`
 - **.test_gitkeep_is_not_treated_as_a_scene_asset()** (6 connections) — `tool/test_audit_scene_assets.py`
 - *... and 50 more nodes in this community*
 

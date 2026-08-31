@@ -1,6 +1,6 @@
 # ScenarioCorpusPipelineTest
 
-> 23 nodes
+> 23 nodes · cohesion 0.11
 
 ## Key Concepts
 

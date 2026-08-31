@@ -1,6 +1,6 @@
 # build_stamp_contact_sheets.dart
 
-> 17 nodes
+> 17 nodes · cohesion 0.12
 
 ## Key Concepts
 
@@ -25,8 +25,8 @@
 ## Relationships
 
 - [return](return.md) (1 shared connections)
-- [dart:io](dart-io.md) (1 shared connections)
-- [normalize_stamp_asset.dart](normalize_stamp_asset.dart.md) (1 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
+- [book_capture_image_quality.dart](book_capture_image_quality.dart.md) (1 shared connections)
 
 ## Source Files
 

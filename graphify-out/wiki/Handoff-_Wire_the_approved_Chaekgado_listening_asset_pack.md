@@ -1,6 +1,6 @@
 # Handoff: Wire the approved Chaekgado listening asset pack
 
-> 25 nodes
+> 25 nodes · cohesion 0.08
 
 ## Key Concepts
 

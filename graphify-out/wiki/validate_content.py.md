@@ -1,6 +1,6 @@
 # validate_content.py
 
-> 13 nodes
+> 13 nodes · cohesion 0.21
 
 ## Key Concepts
 
@@ -22,8 +22,8 @@
 
 - [ContentValidator](ContentValidator.md) (7 shared connections)
 - [scenario_store.py](scenario_store.py.md) (4 shared connections)
-- [handle](handle.md) (2 shared connections)
 - [integrate_review_batches.py](integrate_review_batches.py.md) (2 shared connections)
+- [handle](handle.md) (2 shared connections)
 - [ContentValidatorTest](ContentValidatorTest.md) (1 shared connections)
 - [apply_review.py](apply_review.py.md) (1 shared connections)
 - [build_batch_07_partner_family.py](build_batch_07_partner_family.py.md) (1 shared connections)

@@ -1,6 +1,6 @@
 # integrate_review_batches.py
 
-> 42 nodes
+> 42 nodes · cohesion 0.15
 
 ## Key Concepts
 
@@ -36,8 +36,8 @@
 - [validate_batch_01.py](validate_batch_01.py.md) (7 shared connections)
 - [ContentValidator](ContentValidator.md) (3 shared connections)
 - [validate_content.py](validate_content.py.md) (2 shared connections)
-- [handle](handle.md) (1 shared connections)
 - [scenario_store.py](scenario_store.py.md) (1 shared connections)
+- [handle](handle.md) (1 shared connections)
 
 ## Source Files
 

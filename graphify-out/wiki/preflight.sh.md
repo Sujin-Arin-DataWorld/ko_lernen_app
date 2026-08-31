@@ -1,6 +1,6 @@
 # preflight.sh
 
-> 4 nodes
+> 4 nodes · cohesion 0.83
 
 ## Key Concepts
 

@@ -1,6 +1,6 @@
 # game_layout.dart
 
-> 19 nodes
+> 19 nodes · cohesion 0.11
 
 ## Key Concepts
 

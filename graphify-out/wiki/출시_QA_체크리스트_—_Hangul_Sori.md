@@ -1,6 +1,6 @@
 # 출시 QA 체크리스트 — Hangul Sori
 
-> 28 nodes
+> 28 nodes · cohesion 0.07
 
 ## Key Concepts
 

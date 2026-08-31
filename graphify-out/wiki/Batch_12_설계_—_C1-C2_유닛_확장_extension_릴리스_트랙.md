@@ -1,6 +1,6 @@
 # Batch 12 설계 — C1/C2 유닛 확장 (extension 릴리스 트랙)
 
-> 11 nodes
+> 11 nodes · cohesion 0.18
 
 ## Key Concepts
 

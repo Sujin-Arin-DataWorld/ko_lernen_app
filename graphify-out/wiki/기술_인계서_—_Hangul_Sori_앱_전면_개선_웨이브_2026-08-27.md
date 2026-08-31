@@ -1,6 +1,6 @@
 # 기술 인계서 — Hangul Sori 앱 전면 개선 웨이브 (2026-08-27)
 
-> 34 nodes
+> 34 nodes · cohesion 0.06
 
 ## Key Concepts
 
