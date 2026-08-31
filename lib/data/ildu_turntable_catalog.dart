@@ -127,14 +127,14 @@ final IlDuTurntableSpec kIlDuSotdaeulmunTurntable = IlDuTurntableSpec(
   anchorId: 'main-gate',
   mapAspectRatio: 1.35,
   frames: <IlDuTurntableFrame>[
-    _frame('ildu_sotdaeulmun_00_front.png', 384, 512, 8, 187, 375, 413),
-    _frame('ildu_sotdaeulmun_01_front_right.png', 384, 512, 13, 166, 371, 439),
-    _frame('ildu_sotdaeulmun_02_right.png', 384, 512, 46, 167, 337, 429),
-    _frame('ildu_sotdaeulmun_03_rear_right.png', 384, 512, 16, 164, 368, 429),
-    _frame('ildu_sotdaeulmun_04_rear.png', 384, 512, 7, 66, 376, 283),
-    _frame('ildu_sotdaeulmun_05_rear_left.png', 384, 512, 20, 60, 363, 311),
-    _frame('ildu_sotdaeulmun_06_left.png', 384, 512, 45, 61, 338, 323),
-    _frame('ildu_sotdaeulmun_07_front_left.png', 384, 512, 11, 65, 373, 312),
+    _frame('ildu_sotdaeulmun_00_front.png', 384, 512, 18, 231, 366, 452),
+    _frame('ildu_sotdaeulmun_01_front_right.png', 384, 512, 13, 205, 372, 452),
+    _frame('ildu_sotdaeulmun_02_right.png', 384, 512, 32, 215, 353, 452),
+    _frame('ildu_sotdaeulmun_03_rear_right.png', 384, 512, 20, 206, 363, 452),
+    _frame('ildu_sotdaeulmun_04_rear.png', 384, 512, 20, 230, 363, 452),
+    _frame('ildu_sotdaeulmun_05_rear_left.png', 384, 512, 14, 211, 371, 452),
+    _frame('ildu_sotdaeulmun_06_left.png', 384, 512, 41, 210, 343, 452),
+    _frame('ildu_sotdaeulmun_07_front_left.png', 384, 512, 22, 220, 363, 452),
   ],
 );
 

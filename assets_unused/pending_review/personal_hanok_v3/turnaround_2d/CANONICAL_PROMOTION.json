@@ -1,9 +1,9 @@
 {
   "schema": "ildu-turnaround-canonical-promotion-v1",
-  "status": "canonical_work_packages_promoted_2026-08-30",
-  "scope": "Track the approved work files, evidence and handoff for three existing runtime turnaround assets without regenerating or replacing runtime PNGs.",
-  "validated_against_origin_main": "a9bad2dca48e1d9dcad45412ae963a02b6621979",
-  "runtime_assets_modified_by_this_promotion": false,
+  "status": "sotdaeulmun_v08_runtime_promoted_2026-08-31",
+  "scope": "Track the approved work files and evidence for the three turnaround packages, including the user-approved Sotdaeulmun v08 replacement of the app runtime PNGs.",
+  "validated_against_origin_main": "af5ccc432d1a4d2fbcc90ad5085075121a4dab2a",
+  "runtime_assets_modified_by_this_promotion": true,
   "authority": {
     "structure_and_proportion": "references/blueprints",
     "visual_identity": "references/canonical_source",
@@ -38,15 +38,18 @@
       "package": "ildu_sotdaeulmun_v02",
       "canonical_source": "ildu_sotdaeulmun_v02/references/canonical_source/sotdaeulmun_approved_jin_20260824.png",
       "canonical_source_sha256": "161d23a981e8c0533f902933ef79c646a95f8d86c210cba48fbd954af7d4d687",
-      "canonical_runtime_version": "v02_registered",
+      "canonical_runtime_version": "v08_depth_150",
       "canonical_runtime_frames": "ildu_sotdaeulmun_v02/runtime_views",
+      "canonical_runtime_revision": "ildu_sotdaeulmun_v02/revisions/ildu_sotdaeulmun_v08_depth_150_runtime/transparent_views",
+      "human_approved_raw": "ildu_sotdaeulmun_v02/revisions/ildu_sotdaeulmun_v08_depth_150_runtime/ildu_sotdaeulmun_v08_depth_150_raw.png",
+      "human_approved_raw_sha256": "35ee382980b3c094c07cec3269a4101afe1e1b3949bc11a8235ca4448c8af772",
       "runtime_frame_count": 8,
       "runtime_sha256_matches": 8
     }
   ],
   "human_approval": {
     "approved_by": "Jin",
-    "approval_date": "2026-08-30",
-    "approval_scope": "Promote only these prepared work packages and evidence to Git/main; existing runtime assets remain unchanged."
+    "approval_date": "2026-08-31",
+    "approval_scope": "Promote the exact selected Sotdaeulmun v08 raw sheet and its normalized 8 directions to the app runtime and Git/main; preserve the previous registered runtime as history."
   }
 }
