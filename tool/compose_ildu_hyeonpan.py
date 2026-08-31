@@ -40,11 +40,11 @@ EXPECTED_INPUT_HASHES = {
     "hyeonpan_calligraphy_baekse_cheongpung_v1.png":
         "19a774e1cf7d75e474d9bd83e251b64001ea0bfe655da4645461e38c2e9679c9",
     "hyeonpan_board_baekse_cheongpung_try01.png":
-        "124e7cd446e45e394adc66059b883c3302e89da7eac8db281234de671991628a",
+        "49365beadec3f5df359cf62220ea11071eae2425fa3080ad3f14eb7de7de9e3a",
     "hyeonpan_calligraphy_takcheongjae_v1.png":
         "9fe85b208531cd7c95c419c250004465d0101b88ccd72970ecef52a8139f983a",
     "hyeonpan_board_takcheongjae_try01.png":
-        "169622d7262364f6669af2af4ae1894a1b359b4733e53d8cb0f2d11b2b97650b",
+        "86da5f8f1a88b8653ae4634a1d49a6332fee3ec4d3aa6ad8aa2c5ca57b09d144",
 }
 
 BOARD_SPECS = {
