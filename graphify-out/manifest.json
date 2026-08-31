@@ -13758,9 +13758,9 @@
     "semantic_hash": ""
   },
   "tool/compose_ildu_hyeonpan.py": {
-    "mtime": 1788212151.2656102,
-    "seen": 1788212733.0065806,
-    "ast_hash": "ae78cf2285dd5873be74f0cb941bc49f",
+    "mtime": 1788214849.1073909,
+    "seen": 1788215099.445595,
+    "ast_hash": "74f27db046e5cf75e571c1a0bde03de2",
     "semantic_hash": ""
   },
   "tool/extract_checkerboard_alpha.py": {
@@ -13782,9 +13782,9 @@
     "semantic_hash": ""
   },
   "tool/test_compose_ildu_hyeonpan.py": {
-    "mtime": 1788212151.266609,
-    "seen": 1788212733.006724,
-    "ast_hash": "d1614624125b76ce818620b8f95bd782",
+    "mtime": 1788214852.556328,
+    "seen": 1788215099.4569235,
+    "ast_hash": "a23ad83083b8ae5e5da1d047d6954f5b",
     "semantic_hash": ""
   },
   "tool/test_extract_checkerboard_alpha.py": {
@@ -13806,9 +13806,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-08-29-ildu-sarangchae-variable-construction-app.md": {
-    "mtime": 1788212156.3971126,
-    "seen": 1788212733.0082264,
-    "ast_hash": "a3b9aac581461f84afcb0b9c73c8d791",
+    "mtime": 1788214855.8501904,
+    "seen": 1788215099.6186306,
+    "ast_hash": "783bc06ec0ad7161d9da5ef26bc17018",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-08-28-ildu-v3-blueprint-led-eight-stage-assets-design.md": {
