@@ -1,0 +1,352 @@
+{
+  "reference": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\ildu-sarangchae-pilot-20260828\\assets_unused\\pending_review\\personal_hanok_v3\\sarangchae_construction_pilot_v2_95pct\\stage_08_complete_v3.png",
+  "referenceSha256": "f2c01142f465b9353e0b9546a00f167891753039d9c910620d83cd924a077212",
+  "referenceSize": [
+    2512,
+    1680
+  ],
+  "referenceAlphaBbox": [
+    42,
+    247,
+    2458,
+    1421
+  ],
+  "control": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\ildu-sarangchae-pilot-20260828\\assets_unused\\pending_review\\personal_hanok_v3\\sarangchae_construction_pilot_v2_95pct\\source_alpha_r2\\stage_07_walls_changho.png",
+  "controlAlphaBbox": [
+    27,
+    150,
+    1493,
+    863
+  ],
+  "sharedScale": [
+    1.6480218281036836,
+    1.64656381486676
+  ],
+  "targetCenterX": 1250.0,
+  "targetGroundY": 1421,
+  "stages": [
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\ildu-sarangchae-pilot-20260828\\assets_unused\\pending_review\\personal_hanok_v3\\sarangchae_construction_pilot_v2_95pct\\source_alpha\\stage_01_site.png",
+      "sourceSha256": "dc80f53ee1d93a91b055765512a038dfa66fa366f29b3784e61c4ac26a6a7f30",
+      "sourceSize": [
+        1519,
+        1036
+      ],
+      "sourceAlphaBbox": [
+        26,
+        584,
+        1497,
+        805
+      ],
+      "scale": [
+        1.6480218281036836,
+        1.64656381486676
+      ],
+      "requestedScaledSize": [
+        2503,
+        1706
+      ],
+      "targetVisibleSize": [
+        2424,
+        364
+      ],
+      "scaledSize": [
+        2424,
+        364
+      ],
+      "translation": [
+        38,
+        1057
+      ],
+      "output": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\ildu-sarangchae-pilot-20260828\\assets_unused\\pending_review\\personal_hanok_v3\\sarangchae_construction_pilot_v2_95pct\\stage_01_site.png",
+      "outputSha256": "2e8d481d7caba49c168a16d99e59737630a4583d49dea8da4e5668736b0440ec",
+      "outputSize": [
+        2512,
+        1680
+      ],
+      "outputAlphaBbox": [
+        38,
+        1057,
+        2462,
+        1421
+      ]
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\ildu-sarangchae-pilot-20260828\\assets_unused\\pending_review\\personal_hanok_v3\\sarangchae_construction_pilot_v2_95pct\\source_alpha\\stage_02_foundation.png",
+      "sourceSha256": "2a3858ac6eda4a4239fae1c3882f3eaad6110e36e00191dc4becad90e23f44f2",
+      "sourceSize": [
+        1519,
+        1035
+      ],
+      "sourceAlphaBbox": [
+        47,
+        645,
+        1454,
+        844
+      ],
+      "scale": [
+        1.6480218281036836,
+        1.64656381486676
+      ],
+      "requestedScaledSize": [
+        2503,
+        1704
+      ],
+      "targetVisibleSize": [
+        2319,
+        328
+      ],
+      "scaledSize": [
+        2319,
+        328
+      ],
+      "translation": [
+        90,
+        1093
+      ],
+      "output": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\ildu-sarangchae-pilot-20260828\\assets_unused\\pending_review\\personal_hanok_v3\\sarangchae_construction_pilot_v2_95pct\\stage_02_foundation.png",
+      "outputSha256": "c2548395977a96f89b796546f8c44c8553876c93d4ebbef14b186ff97eb6cab1",
+      "outputSize": [
+        2512,
+        1680
+      ],
+      "outputAlphaBbox": [
+        90,
+        1093,
+        2409,
+        1421
+      ]
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\ildu-sarangchae-pilot-20260828\\assets_unused\\pending_review\\personal_hanok_v3\\sarangchae_construction_pilot_v2_95pct\\source_alpha\\stage_03_posts_floor.png",
+      "sourceSha256": "71f694e1cc885c8289cae9c693646f0e1b8b8d2cd0d100ec687bf9898a46a709",
+      "sourceSize": [
+        1521,
+        1034
+      ],
+      "sourceAlphaBbox": [
+        48,
+        365,
+        1457,
+        871
+      ],
+      "scale": [
+        1.6480218281036836,
+        1.64656381486676
+      ],
+      "requestedScaledSize": [
+        2507,
+        1703
+      ],
+      "targetVisibleSize": [
+        2322,
+        833
+      ],
+      "scaledSize": [
+        2322,
+        833
+      ],
+      "translation": [
+        89,
+        588
+      ],
+      "output": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\ildu-sarangchae-pilot-20260828\\assets_unused\\pending_review\\personal_hanok_v3\\sarangchae_construction_pilot_v2_95pct\\stage_03_posts_floor.png",
+      "outputSha256": "da114a061c46c88bb87c8c20dbafa8bac87e206d8e8a1696f6ed6cbc9a5d4baf",
+      "outputSize": [
+        2512,
+        1680
+      ],
+      "outputAlphaBbox": [
+        89,
+        588,
+        2411,
+        1421
+      ]
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\ildu-sarangchae-pilot-20260828\\assets_unused\\pending_review\\personal_hanok_v3\\sarangchae_construction_pilot_v2_95pct\\source_alpha\\stage_04_beams_purlins.png",
+      "sourceSha256": "2c8bd7ac41a2a0abe79ed2468c7702a84597d09f5f3fa830bdc2e317d87ebba2",
+      "sourceSize": [
+        1520,
+        1034
+      ],
+      "sourceAlphaBbox": [
+        39,
+        169,
+        1483,
+        872
+      ],
+      "scale": [
+        1.6480218281036836,
+        1.64656381486676
+      ],
+      "requestedScaledSize": [
+        2505,
+        1703
+      ],
+      "targetVisibleSize": [
+        2380,
+        1158
+      ],
+      "scaledSize": [
+        2380,
+        1158
+      ],
+      "translation": [
+        60,
+        263
+      ],
+      "output": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\ildu-sarangchae-pilot-20260828\\assets_unused\\pending_review\\personal_hanok_v3\\sarangchae_construction_pilot_v2_95pct\\stage_04_beams_purlins.png",
+      "outputSha256": "5bf51ed6064ae6cfb396d2520da3658b635314aac7fb0cad33d732b1c94254c3",
+      "outputSize": [
+        2512,
+        1680
+      ],
+      "outputAlphaBbox": [
+        60,
+        263,
+        2440,
+        1421
+      ]
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\ildu-sarangchae-pilot-20260828\\assets_unused\\pending_review\\personal_hanok_v3\\sarangchae_construction_pilot_v2_95pct\\source_alpha\\stage_05_rafters_sanja.png",
+      "sourceSha256": "9958003c7084574db3ecc32c71b370685a02407ff6f868939de23f19561fcd4e",
+      "sourceSize": [
+        1521,
+        1034
+      ],
+      "sourceAlphaBbox": [
+        32,
+        152,
+        1489,
+        875
+      ],
+      "scale": [
+        1.6480218281036836,
+        1.64656381486676
+      ],
+      "requestedScaledSize": [
+        2507,
+        1703
+      ],
+      "targetVisibleSize": [
+        2401,
+        1190
+      ],
+      "scaledSize": [
+        2401,
+        1190
+      ],
+      "translation": [
+        50,
+        231
+      ],
+      "output": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\ildu-sarangchae-pilot-20260828\\assets_unused\\pending_review\\personal_hanok_v3\\sarangchae_construction_pilot_v2_95pct\\stage_05_rafters_sanja.png",
+      "outputSha256": "03f3226743ccc58906512f4a37cce0e40bddbbede4cbccf9edfbfcb3b379ba39",
+      "outputSize": [
+        2512,
+        1680
+      ],
+      "outputAlphaBbox": [
+        50,
+        231,
+        2451,
+        1421
+      ]
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\ildu-sarangchae-pilot-20260828\\assets_unused\\pending_review\\personal_hanok_v3\\sarangchae_construction_pilot_v2_95pct\\source_alpha_r2\\stage_06_roof_bed.png",
+      "sourceSha256": "ff949e81ff1408afc85472522f8b28a2813aecd8841523d6e530b7a9a41cde57",
+      "sourceSize": [
+        1518,
+        1036
+      ],
+      "sourceAlphaBbox": [
+        26,
+        152,
+        1488,
+        860
+      ],
+      "scale": [
+        1.6480218281036836,
+        1.64656381486676
+      ],
+      "requestedScaledSize": [
+        2502,
+        1706
+      ],
+      "targetVisibleSize": [
+        2409,
+        1166
+      ],
+      "scaledSize": [
+        2409,
+        1166
+      ],
+      "translation": [
+        46,
+        255
+      ],
+      "output": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\ildu-sarangchae-pilot-20260828\\assets_unused\\pending_review\\personal_hanok_v3\\sarangchae_construction_pilot_v2_95pct\\stage_06_roof_bed.png",
+      "outputSha256": "139928080adcb216c8b0240ce8c264302c9837562ddd66300590c78ff928d5cf",
+      "outputSize": [
+        2512,
+        1680
+      ],
+      "outputAlphaBbox": [
+        46,
+        255,
+        2455,
+        1421
+      ]
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\ildu-sarangchae-pilot-20260828\\assets_unused\\pending_review\\personal_hanok_v3\\sarangchae_construction_pilot_v2_95pct\\source_alpha_r2\\stage_07_walls_changho.png",
+      "sourceSha256": "9a4037f0d52bb0c018848855c79a277000b0d55bb23d0e92746ca50ed6a7a098",
+      "sourceSize": [
+        1522,
+        1033
+      ],
+      "sourceAlphaBbox": [
+        27,
+        150,
+        1493,
+        863
+      ],
+      "scale": [
+        1.6480218281036836,
+        1.64656381486676
+      ],
+      "requestedScaledSize": [
+        2508,
+        1701
+      ],
+      "targetVisibleSize": [
+        2416,
+        1174
+      ],
+      "scaledSize": [
+        2416,
+        1174
+      ],
+      "translation": [
+        42,
+        247
+      ],
+      "output": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\ildu-sarangchae-pilot-20260828\\assets_unused\\pending_review\\personal_hanok_v3\\sarangchae_construction_pilot_v2_95pct\\stage_07_walls_changho.png",
+      "outputSha256": "ea95f038500ee5648ae5cc04541ee7714910789d8cc455a40d2b247cccf413b1",
+      "outputSize": [
+        2512,
+        1680
+      ],
+      "outputAlphaBbox": [
+        42,
+        247,
+        2458,
+        1421
+      ]
+    }
+  ],
+  "pillow": "11.3.0"
+}

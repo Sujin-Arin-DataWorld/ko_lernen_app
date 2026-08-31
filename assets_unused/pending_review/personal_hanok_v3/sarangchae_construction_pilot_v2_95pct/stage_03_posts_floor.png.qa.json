@@ -1,0 +1,31 @@
+{
+  "sourceSize": [
+    1521,
+    1034
+  ],
+  "backgroundFloor": 232,
+  "backgroundChroma": 14,
+  "islandMinArea": 8,
+  "featherPx": 2.25,
+  "transparentPixels": 1169058,
+  "softPixels": 25943,
+  "solidPixels": 377713,
+  "visibleCoveragePct": 25.666,
+  "alphaBbox": [
+    48,
+    365,
+    1457,
+    871
+  ],
+  "cornerAlpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a04555-a2e8-7f02-bd28-1671e1b45d5b\\exec-09b958bb-8933-4bc6-b8ad-4dcccfaf962e.png",
+  "sourceSha256": "980ea96b7584cd3f9f3a03100ba39bad4a1c98a75f5d0216238fff5952393c37",
+  "output": "assets_unused\\pending_review\\personal_hanok_v3\\sarangchae_construction_pilot_v2_95pct\\stage_03_posts_floor.png",
+  "outputSha256": "71f694e1cc885c8289cae9c693646f0e1b8b8d2cd0d100ec687bf9898a46a709",
+  "pillow": "11.3.0"
+}

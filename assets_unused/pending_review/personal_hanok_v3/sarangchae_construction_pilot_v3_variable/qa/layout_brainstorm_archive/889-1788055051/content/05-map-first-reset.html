@@ -1,0 +1,56 @@
+<style>
+  .reset-wrap { max-width: 920px; margin: 22px auto; }
+  .reset-hero {
+    padding: 26px; border: 1px solid var(--border); border-radius: 22px;
+    background: linear-gradient(135deg, #fffdf8, #f4ead4);
+    box-shadow: 0 16px 34px #3a2b1c18;
+  }
+  .reset-mark {
+    display: inline-flex; align-items: center; gap: 8px; padding: 7px 11px;
+    border-radius: 999px; color: #7b312c; background: #f0d9d5;
+    font-size: 12px; font-weight: 850;
+  }
+  .reset-mark::before { content: "↺"; font-size: 16px; }
+  .reset-hero h2 { margin: 13px 0 8px; }
+  .reset-hero p { margin: 0; line-height: 1.6; }
+  .sequence { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 20px; }
+  .phase { position: relative; padding: 18px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); }
+  .phase.current { border-color: #1f7a6b; box-shadow: 0 0 0 3px #1f7a6b18; }
+  .phase-num { color: #0e443b; font-size: 11px; font-weight: 900; letter-spacing: .08em; }
+  .phase h3 { margin: 7px 0 6px; }
+  .phase p { margin: 0; font-size: 13px; line-height: 1.5; }
+  .asset-note { margin-top: 18px; padding: 16px 18px; border-left: 4px solid #c99a2e; border-radius: 4px 14px 14px 4px; background: #fff8e7; }
+  .asset-note strong { display: block; margin-bottom: 5px; }
+  @media(max-width: 800px) { .sequence { grid-template-columns: 1fr; } }
+</style>
+
+<div class="reset-wrap">
+  <div class="reset-hero">
+    <span class="reset-mark">이전 UI 목업 승인 취소</span>
+    <h2>먼저 ‘실제 에셋 완성 맵’을 만듭니다</h2>
+    <p class="subtitle">구조 가이드가 들어간 휴대폰 화면부터 만든 순서가 잘못됐습니다. 앱 UI는 2412×2622 완성 맵이 시각 승인된 뒤에만 다시 설계합니다.</p>
+  </div>
+
+  <div class="sequence">
+    <div class="phase current">
+      <div class="phase-num">PHASE 01 · NOW</div>
+      <h3>실 에셋 완성 맵</h3>
+      <p>실제 2.5D 방향 프레임, 승인 담장, 돌길·우물·장독대를 정확한 구조와 배열로 합성합니다.</p>
+    </div>
+    <div class="phase">
+      <div class="phase-num">PHASE 02 · APPROVAL</div>
+      <h3>완성 맵 시각 승인</h3>
+      <p>건물 정체성, 배치, 거리, 전저후고, 담장 접속과 마당 여유를 전체 이미지로 검토합니다.</p>
+    </div>
+    <div class="phase">
+      <div class="phase-num">PHASE 03 · AFTER</div>
+      <h3>앱 UI 목업 → Flutter</h3>
+      <p>승인된 완성 맵을 실제 앱 화면에 넣어 HUD·편집·Lernpfad를 디자인하고 네이티브로 옮깁니다.</p>
+    </div>
+  </div>
+
+  <div class="asset-note">
+    <strong>에셋 점검에서 확인한 내용</strong>
+    곳간채·안채곳간채·화장실의 8방향 세트도 다른 작업트리에 생성되어 있습니다. 다만 아직 커밋되지 않은 검토본이므로, 원본 정체성과 방향 일관성을 먼저 확인한 뒤 완성 맵에 사용합니다.
+  </div>
+</div>
