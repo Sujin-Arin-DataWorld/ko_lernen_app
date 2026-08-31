@@ -1,10 +1,11 @@
 # app_localizations_de.dart
 
-> 2866 nodes
+> 2867 nodes
 
 ## Key Concepts
 
 - **app_localizations_de.dart** (2869 connections) — `lib/l10n/generated/app_localizations_de.dart`
+- **app_localizations.dart** (2 connections)
 - **accountDeletionPendingBody** (1 connections) — `lib/l10n/generated/app_localizations_de.dart`
 - **accountDeletionPendingTitle** (1 connections) — `lib/l10n/generated/app_localizations_de.dart`
 - **accountFailureReasonAppCheck** (1 connections) — `lib/l10n/generated/app_localizations_de.dart`
@@ -28,15 +29,14 @@
 - **accountOperationBlockedBody** (1 connections) — `lib/l10n/generated/app_localizations_de.dart`
 - **accountOperationBlockedTitle** (1 connections) — `lib/l10n/generated/app_localizations_de.dart`
 - **accountOperationCancel** (1 connections) — `lib/l10n/generated/app_localizations_de.dart`
-- **accountOperationInProgress** (1 connections) — `lib/l10n/generated/app_localizations_de.dart`
-- *... and 2841 more nodes in this community*
+- *... and 2842 more nodes in this community*
 
 ## Relationships
 
-- [listening_play_screen.dart](listening_play_screen.dart.md) (1 shared connections)
-- [AppL10n](AppL10n.md) (1 shared connections)
 - [app_localizations_en.dart](app_localizations_en.dart.md) (1 shared connections)
-- [StatelessWidget](StatelessWidget.md) (1 shared connections)
+- [bool get](bool_get.md) (1 shared connections)
+- [AppL10n](AppL10n.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
 
 ## Source Files
 
@@ -44,7 +44,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 2869 (100%)
+- EXTRACTED: 2870 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

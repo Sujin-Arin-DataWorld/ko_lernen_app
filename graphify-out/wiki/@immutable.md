@@ -39,11 +39,11 @@
 - [onboarding_v2_presentation.dart](onboarding_v2_presentation.dart.md) (7 shared connections)
 - [guide_presentation.dart](guide_presentation.dart.md) (5 shared connections)
 - [sori_stage_progression.dart](sori_stage_progression.dart.md) (4 shared connections)
-- [List](List.md) (3 shared connections)
-- [activity_sheet.dart](activity_sheet.dart.md) (3 shared connections)
-- [guide_hub_screen.dart](guide_hub_screen.dart.md) (3 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (3 shared connections)
+- [quest_flow.dart](quest_flow.dart.md) (3 shared connections)
 - [cultural_glossary.dart](cultural_glossary.dart.md) (3 shared connections)
-- [auth_service_test.dart](auth_service_test.dart.md) (2 shared connections)
+- [activity_sheet.dart](activity_sheet.dart.md) (2 shared connections)
+- [account_deletion_receipt_recovery_test.dart](account_deletion_receipt_recovery_test.dart.md) (2 shared connections)
 - [account_transition_journal.dart](account_transition_journal.dart.md) (2 shared connections)
 
 ## Source Files

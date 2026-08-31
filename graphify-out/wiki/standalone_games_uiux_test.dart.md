@@ -1,70 +1,77 @@
 # standalone_games_uiux_test.dart
 
-> 107 nodes
+> 181 nodes
 
 ## Key Concepts
 
 - **standalone_games_uiux_test.dart** (67 connections) — `test/standalone_games_uiux_test.dart`
-- **responsive_screens.dart** (43 connections) — `test/support/responsive_screens.dart`
-- **screen_smoke_test.dart** (36 connections) — `test/screen_smoke_test.dart`
-- **c0_level_selection_test.dart** (28 connections) — `test/c0_level_selection_test.dart`
-- **listening_shelf_route_test.dart** (20 connections) — `test/listening_shelf_route_test.dart`
-- **chaekgado_shelf_test.dart** (19 connections) — `test/chaekgado_shelf_test.dart`
-- **wordbook_spotlight_coach_test.dart** (14 connections) — `test/wordbook_spotlight_coach_test.dart`
-- **package:ko_lernen_app/screens/app_shell.dart** (10 connections)
-- **sori_stage_shell_test.dart** (10 connections) — `test/sori_stage_shell_test.dart`
-- **practice_hub_flow_test.dart** (9 connections) — `test/practice_hub_flow_test.dart`
-- **package:ko_lernen_app/screens/chosung_quiz_screen.dart** (8 connections)
-- **package:ko_lernen_app/screens/listening_screen.dart** (6 connections)
-- **package:ko_lernen_app/screens/practice_hub_screen.dart** (6 connections)
-- **package:ko_lernen_app/screens/silben_kreuz_screen.dart** (6 connections)
-- **package:ko_lernen_app/services/kkeunmari_engine.dart** (6 connections)
-- **package:ko_lernen_app/screens/kkeunmari_screen.dart** (5 connections)
-- **package:ko_lernen_app/widgets/sori/chrome_row.dart** (5 connections)
-- **package:ko_lernen_app/screens/hanok_world_screen.dart** (4 connections)
-- **package:ko_lernen_app/widgets/sori/chaekgado/shelf_case.dart** (4 connections)
-- **chrome_row_test.dart** (4 connections) — `test/chrome_row_test.dart`
-- **hangul_game_logic_test.dart** (4 connections) — `test/hangul_game_logic_test.dart`
-- **ChaekgadoScrollItem** (3 connections) — `lib/widgets/sori/chaekgado/scroll_sheet.dart`
-- **ChaekgadoShelfCase** (3 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
-- **package:ko_lernen_app/screens/discover_screen.dart** (3 connections)
-- **package:ko_lernen_app/services/silben_puzzle_loader.dart** (3 connections)
-- *... and 82 more nodes in this community*
+- **course_reassessment_screen_test.dart** (61 connections) — `test/course_reassessment_screen_test.dart`
+- **package:ko_lernen_app/widgets/sori/type_scale.dart** (42 connections)
+- **reward_tools_uiux_test.dart** (38 connections) — `test/reward_tools_uiux_test.dart`
+- **scenario_player_ui_test.dart** (34 connections) — `test/scenario_player_ui_test.dart`
+- **sarangbang_study_screen_test.dart** (29 connections) — `test/sarangbang_study_screen_test.dart`
+- **scenario_intro_audio_prefetch_test.dart** (22 connections) — `test/scenario_intro_audio_prefetch_test.dart`
+- **bojagi_screen_test.dart** (20 connections) — `test/bojagi_screen_test.dart`
+- **course_mission_brief_test.dart** (18 connections) — `test/course_mission_brief_test.dart`
+- **package:ko_lernen_app/widgets/sori/study_frame.dart** (17 connections)
+- **sori_study_frame_test.dart** (17 connections) — `test/sori_study_frame_test.dart`
+- **package:flutter/rendering.dart** (16 connections)
+- **package:ko_lernen_app/widgets/app_error.dart** (14 connections)
+- **package:ko_lernen_app/widgets/app_loading.dart** (14 connections)
+- **package:ko_lernen_app/widgets/sori/empty_state.dart** (14 connections)
+- **sori_standard_page_test.dart** (14 connections) — `test/sori_standard_page_test.dart`
+- **package:ko_lernen_app/widgets/sori/home_action.dart** (13 connections)
+- **package:ko_lernen_app/widgets/sori/standard_page.dart** (13 connections)
+- **package:ko_lernen_app/widgets/sori/app_bar.dart** (12 connections)
+- **RenderParagraph** (11 connections)
+- **learning_path_level_test.dart** (11 connections) — `test/learning_path_level_test.dart`
+- **pack_card_accessibility_test.dart** (11 connections) — `test/pack_card_accessibility_test.dart`
+- **SoriAppBar** (9 connections) — `lib/widgets/sori/app_bar.dart`
+- **package:ko_lernen_app/widgets/sori/speakable.dart** (9 connections)
+- **home_hero_accessibility_test.dart** (9 connections) — `test/home_hero_accessibility_test.dart`
+- *... and 156 more nodes in this community*
 
 ## Relationships
 
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (26 shared connections)
-- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (26 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (15 shared connections)
-- [dart:ui](dart-ui.md) (13 shared connections)
-- [package:ko_lernen_app/models/curriculum.dart](package-ko_lernen_app-models-curriculum.dart.md) (11 shared connections)
-- [vocab_notebook_studio_screen_test.dart](vocab_notebook_studio_screen_test.dart.md) (10 shared connections)
-- [hanok_world_screen_test.dart](hanok_world_screen_test.dart.md) (7 shared connections)
-- [entry_onboarding_uiux_test.dart](entry_onboarding_uiux_test.dart.md) (6 shared connections)
-- [test/profile_screen_test.dart](test-profile_screen_test.dart.md) (6 shared connections)
-- [circular_feedback_widget_test.dart](circular_feedback_widget_test.dart.md) (5 shared connections)
-- [package:ko_lernen_app/models/scenario.dart](package-ko_lernen_app-models-scenario.dart.md) (5 shared connections)
-- [bookshelf_custom_pack_uiux_test.dart](bookshelf_custom_pack_uiux_test.dart.md) (4 shared connections)
+- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (54 shared connections)
+- [study_activity_responsive_test.dart](study_activity_responsive_test.dart.md) (43 shared connections)
+- [dart:ui](dart-ui.md) (39 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (24 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (19 shared connections)
+- [course_mastery_test.dart](course_mastery_test.dart.md) (14 shared connections)
+- [custom_pack_games_uiux_test.dart](custom_pack_games_uiux_test.dart.md) (10 shared connections)
+- [game_layout_test.dart](game_layout_test.dart.md) (10 shared connections)
+- [quest_engines_uiux_test.dart](quest_engines_uiux_test.dart.md) (10 shared connections)
+- [hanok_world_screen_test.dart](hanok_world_screen_test.dart.md) (10 shared connections)
+- [content_feedback_widget_test.dart](content_feedback_widget_test.dart.md) (9 shared connections)
+- [bookshelf_custom_pack_uiux_test.dart](bookshelf_custom_pack_uiux_test.dart.md) (9 shared connections)
 
 ## Source Files
 
-- `lib/widgets/sori/chaekgado/scroll_sheet.dart`
-- `lib/widgets/sori/chaekgado/shelf_case.dart`
-- `test/c0_level_selection_test.dart`
-- `test/chaekgado_shelf_test.dart`
-- `test/chrome_row_test.dart`
-- `test/hangul_game_logic_test.dart`
-- `test/listening_shelf_route_test.dart`
-- `test/practice_hub_flow_test.dart`
-- `test/screen_smoke_test.dart`
-- `test/sori_stage_shell_test.dart`
-- `test/standalone_games_uiux_test.dart`
-- `test/support/responsive_screens.dart`
-- `test/wordbook_spotlight_coach_test.dart`
+- `lib/services/canonical_course_segment_loader.dart`
+- `lib/services/decoration_reward_service.dart`
+- `lib/widgets/sori/app_bar.dart`
+- `test/app_error_sori_button_test.dart`
+- `test/app_loading_reduced_motion_test.dart`
+- `test/bojagi_screen_test.dart`
+- `test/course_mission_brief_test.dart`
+- `test/course_reassessment_screen_test.dart`
+- `test/home_action_test.dart`
+- `test/home_hero_accessibility_test.dart`
+- `test/learning_path_level_test.dart`
+- `test/pack_card_accessibility_test.dart`
+- `test/reward_tools_uiux_test.dart`
+- `test/sarangbang_study_screen_test.dart`
+- `test/scenario_intro_audio_prefetch_test.dart`
+- `test/scenario_player_ui_test.dart`
+- `test/screen_background_test.dart`
+- `test/sori_phrase_wrap_test.dart`
+- `test/sori_speech_dedupe_test.dart`
+- `test/sori_standard_page_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 288 (100%)
+- EXTRACTED: 536 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

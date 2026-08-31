@@ -1,11 +1,10 @@
 # custom_pack_import_service.dart
 
-> 22 nodes
+> 21 nodes
 
 ## Key Concepts
 
 - **custom_pack_import_service.dart** (24 connections) — `lib/services/custom_pack_import_service.dart`
-- **book_analysis_text.dart** (6 connections)
 - **add** (1 connections) — `lib/services/custom_pack_import_service.dart`
 - **buildCustomPackEditedWord** (1 connections) — `lib/services/custom_pack_import_service.dart`
 - **copyWithEditable** (1 connections) — `lib/services/custom_pack_import_service.dart`
@@ -30,12 +29,10 @@
 
 ## Relationships
 
-- [_](_.md) (3 shared connections)
-- [book_analysis_service.dart](book_analysis_service.dart.md) (1 shared connections)
-- [scenario_writing_check_service.dart](scenario_writing_check_service.dart.md) (1 shared connections)
 - [return](return.md) (1 shared connections)
+- [book_analysis_service.dart](book_analysis_service.dart.md) (1 shared connections)
 - [shared_pack_service.dart](shared_pack_service.dart.md) (1 shared connections)
-- [data_integrity_test.dart](data_integrity_test.dart.md) (1 shared connections)
+- [can_do_segment_asset_test.dart](can_do_segment_asset_test.dart.md) (1 shared connections)
 
 ## Source Files
 
@@ -43,7 +40,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 29 (100%)
+- EXTRACTED: 24 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

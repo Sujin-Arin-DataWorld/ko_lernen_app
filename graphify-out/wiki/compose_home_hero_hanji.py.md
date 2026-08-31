@@ -32,10 +32,11 @@
 ## Relationships
 
 - [whiten_clip_matte.py](whiten_clip_matte.py.md) (5 shared connections)
-- [find_ffprobe](find_ffprobe.md) (4 shared connections)
 - [whiten_frame](whiten_frame.md) (3 shared connections)
 - [sheet](sheet.md) (3 shared connections)
-- [check_home_hero_matte.py](check_home_hero_matte.py.md) (1 shared connections)
+- [check_clip_matte.py](check_clip_matte.py.md) (2 shared connections)
+- [check_home_hero_matte.py](check_home_hero_matte.py.md) (2 shared connections)
+- [load_frames](load_frames.md) (1 shared connections)
 
 ## Source Files
 

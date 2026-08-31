@@ -14,7 +14,7 @@
 ## Relationships
 
 - [_](_.md) (2 shared connections)
-- [grammar_screen.dart](grammar_screen.dart.md) (1 shared connections)
+- [study_library_production_adapters.dart](study_library_production_adapters.dart.md) (1 shared connections)
 - [study_library_repository_test.dart](study_library_repository_test.dart.md) (1 shared connections)
 - [study_library_screen_test.dart](study_library_screen_test.dart.md) (1 shared connections)
 - [onboarding_v2_accessibility_gate_test.dart](onboarding_v2_accessibility_gate_test.dart.md) (1 shared connections)

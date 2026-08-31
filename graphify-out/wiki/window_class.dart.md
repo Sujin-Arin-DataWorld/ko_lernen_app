@@ -36,14 +36,12 @@
 
 ## Relationships
 
-- [dialog.dart](dialog.dart.md) (1 shared connections)
+- [List](List.md) (2 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
 - [responsive.dart](responsive.dart.md) (1 shared connections)
 - [bool get](bool_get.md) (1 shared connections)
-- [static const double](static_const_double.md) (1 shared connections)
-- [Widget](Widget.md) (1 shared connections)
-- [package:flutter/widgets.dart](package-flutter-widgets.dart.md) (1 shared connections)
-- [dart:math](dart-math.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
+- [package:flutter/widgets.dart](package-flutter-widgets.dart.md) (1 shared connections)
 - [StatelessWidget](StatelessWidget.md) (1 shared connections)
 
 ## Source Files

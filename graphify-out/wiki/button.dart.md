@@ -30,11 +30,11 @@
 
 ## Relationships
 
-- [String?](String_.md) (6 shared connections)
+- [String?](String_.md) (5 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
 - [double get](double_get.md) (1 shared connections)
 - [int?](int_.md) (1 shared connections)
-- [test/profile_screen_test.dart](test-profile_screen_test.dart.md) (1 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [dart:ui](dart-ui.md) (1 shared connections)
 - [vocab_pack_result_screen.dart](vocab_pack_result_screen.dart.md) (1 shared connections)
 
 ## Source Files

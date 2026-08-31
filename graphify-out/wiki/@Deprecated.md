@@ -11,7 +11,7 @@
 ## Relationships
 
 - [_](_.md) (1 shared connections)
-- [typedef](typedef.md) (1 shared connections)
+- [gye_weekly_promise_navigation.dart](gye_weekly_promise_navigation.dart.md) (1 shared connections)
 
 ## Source Files
 

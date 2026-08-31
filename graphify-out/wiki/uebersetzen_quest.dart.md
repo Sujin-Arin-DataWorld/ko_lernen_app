@@ -5,7 +5,7 @@
 ## Key Concepts
 
 - **uebersetzen_quest.dart** (32 connections) — `lib/screens/quest_engines/uebersetzen_quest.dart`
-- **../../services/sound_service.dart** (27 connections)
+- **quest_flow.dart** (7 connections)
 - **quest_models.dart** (7 connections)
 - **UebersetzenQuest** (3 connections) — `lib/screens/quest_engines/uebersetzen_quest.dart`
 - **_UebersetzenQuestState** (3 connections) — `lib/screens/quest_engines/uebersetzen_quest.dart`
@@ -31,17 +31,17 @@
 ## Relationships
 
 - [package:flutter/services.dart](package-flutter-services.dart.md) (4 shared connections)
-- [List](List.md) (3 shared connections)
-- [luecken_quest.dart](luecken_quest.dart.md) (3 shared connections)
 - [hoerverstehen_quest.dart](hoerverstehen_quest.dart.md) (3 shared connections)
-- [cloze_game_screen.dart](cloze_game_screen.dart.md) (3 shared connections)
+- [Map](Map.md) (2 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
 - [_State](_State.md) (2 shared connections)
 - [batchim_drop_quest.dart](batchim_drop_quest.dart.md) (2 shared connections)
 - [diktat_quest.dart](diktat_quest.dart.md) (2 shared connections)
 - [particle_pop_quest.dart](particle_pop_quest.dart.md) (2 shared connections)
 - [satz_bauen_quest.dart](satz_bauen_quest.dart.md) (2 shared connections)
-- [kkeunmari_screen.dart](kkeunmari_screen.dart.md) (2 shared connections)
 - [int?](int_.md) (1 shared connections)
+- [String?](String_.md) (1 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
 
 ## Source Files
 
@@ -49,7 +49,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 67 (100%)
+- EXTRACTED: 47 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

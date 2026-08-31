@@ -1,64 +1,61 @@
 # Counter
 
-> 42 nodes
+> 44 nodes
 
 ## Key Concepts
 
 - **Counter** (57 connections)
-- **HanokGrantGeneratorTest** (11 connections) — `tools/content_factory/test_build_hanok_grants.py`
+- **promote_batch_20_full_surface.py** (29 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
+- **promote()** (18 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
+- **Any** (18 connections)
 - **ThemeParkDateBuildTest** (9 connections) — `tools/content_factory/test_build_theme_park_date_smalltalk.py`
-- **audit_vocab_levels.py** (7 connections) — `tool/audit_vocab_levels.py`
-- **find_suspects()** (5 connections) — `tool/audit_vocab_levels.py`
-- **main()** (4 connections) — `tool/audit_vocab_levels.py`
-- **recompute()** (4 connections) — `tools/content_factory/merge_vocab_into_kkeunmari.py`
-- **blocked_ids()** (3 connections) — `tool/audit_vocab_levels.py`
-- **hangul_len()** (3 connections) — `tool/audit_vocab_levels.py`
+- **Path** (9 connections)
+- **_artifact()** (8 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
+- **_by_level()** (7 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
+- **_live_csv_projection()** (6 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
+- **write_review()** (6 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
+- **promote_kkeunmari()** (5 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
+- **relation_records()** (5 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
+- **scenario_records()** (5 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
+- **write_receipts()** (5 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
+- **cloze_records()** (4 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
+- **grammar_records()** (4 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
+- **media_records()** (4 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
+- **pronunciation_records()** (4 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
+- **_refresh_json_meta()** (4 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
+- **satz_records()** (4 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
+- **tri()** (4 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
 - **main()** (3 connections) — `tools/content_factory/build_smalltalk.py`
-- **main()** (3 connections) — `tools/content_factory/merge_vocab_into_kkeunmari.py`
-- **merge_vocab_into_kkeunmari.py** (3 connections) — `tools/content_factory/merge_vocab_into_kkeunmari.py`
-- **is_hangul_syllable()** (2 connections) — `tool/audit_vocab_levels.py`
-- **load_rows()** (2 connections) — `tool/audit_vocab_levels.py`
-- **write_report()** (2 connections) — `tool/audit_vocab_levels.py`
-- **_phrase()** (2 connections) — `tools/content_factory/build_smalltalk.py`
-- **is_hangul_word()** (2 connections) — `tools/content_factory/merge_vocab_into_kkeunmari.py`
-- **.test_c_projects_are_eight_shared_theme_sources()** (2 connections) — `tools/content_factory/test_build_can_do_segments.py`
-- **.test_core_has_86_immutable_segments_and_full_mode_ids()** (2 connections) — `tools/content_factory/test_build_can_do_segments.py`
-- **.test_every_additive_denominator_slot_has_one_grant()** (2 connections) — `tools/content_factory/test_build_hanok_grants.py`
-- **.setUpClass()** (2 connections) — `tools/content_factory/test_build_theme_park_date_smalltalk.py`
-- **.test_smalltalk_matrix_and_signature_scenes_are_exact()** (2 connections) — `tools/content_factory/test_build_theme_park_date_smalltalk.py`
-- **.test_sujin_and_christian_have_one_scenario_per_level()** (2 connections) — `tools/content_factory/test_build_theme_park_date_smalltalk.py`
-- **build_smalltalk.py** (2 connections) — `tools/content_factory/build_smalltalk.py`
-- **.setUpClass()** (1 connections) — `tools/content_factory/test_build_hanok_grants.py`
-- *... and 17 more nodes in this community*
+- **promote_culture_notes()** (3 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
+- **_quest()** (3 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
+- **_review_tri()** (3 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
+- *... and 19 more nodes in this community*
 
 ## Relationships
 
+- [handle](handle.md) (5 shared connections)
+- [promote_batch_19_loader_coverage.py](promote_batch_19_loader_coverage.py.md) (5 shared connections)
 - [build_batch_18_social_language.py](build_batch_18_social_language.py.md) (4 shared connections)
-- [promote_batch_19_loader_coverage.py](promote_batch_19_loader_coverage.py.md) (4 shared connections)
-- [promote_batch_20_full_surface.py](promote_batch_20_full_surface.py.md) (4 shared connections)
 - [audit_scenario_quests.py](audit_scenario_quests.py.md) (3 shared connections)
 - [build_batch_17_social_topics.py](build_batch_17_social_topics.py.md) (3 shared connections)
 - [ContentValidator](ContentValidator.md) (3 shared connections)
-- [CanDoSegmentGeneratorTest](CanDoSegmentGeneratorTest.md) (2 shared connections)
 - [validate_batch_01.py](validate_batch_01.py.md) (2 shared connections)
 - [audit_scene_assets.py](audit_scene_assets.py.md) (2 shared connections)
 - [build_inventory](build_inventory.md) (2 shared connections)
 - [audit_game_loader_coverage.py](audit_game_loader_coverage.py.md) (2 shared connections)
 - [build_theme_park_date_smalltalk.py](build_theme_park_date_smalltalk.py.md) (2 shared connections)
+- [load_sources](load_sources.md) (2 shared connections)
 
 ## Source Files
 
-- `tool/audit_vocab_levels.py`
 - `tools/content_factory/build_smalltalk.py`
-- `tools/content_factory/merge_vocab_into_kkeunmari.py`
-- `tools/content_factory/test_build_can_do_segments.py`
-- `tools/content_factory/test_build_hanok_grants.py`
+- `tools/content_factory/promote_batch_20_full_surface.py`
 - `tools/content_factory/test_build_theme_park_date_smalltalk.py`
 
 ## Audit Trail
 
-- EXTRACTED: 47 (46%)
-- INFERRED: 56 (54%)
+- EXTRACTED: 99 (62%)
+- INFERRED: 60 (38%)
 - AMBIGUOUS: 0 (0%)
 
 ---

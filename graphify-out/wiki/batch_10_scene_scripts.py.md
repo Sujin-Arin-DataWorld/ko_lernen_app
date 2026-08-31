@@ -33,8 +33,9 @@
 
 ## Relationships
 
-- [build_level_content_4x.py](build_level_content_4x.py.md) (2 shared connections)
 - [test_level_content_4x.py](test_level_content_4x.py.md) (1 shared connections)
+- [build_scenario](build_scenario.md) (1 shared connections)
+- [build_level_content_4x.py](build_level_content_4x.py.md) (1 shared connections)
 
 ## Source Files
 

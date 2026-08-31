@@ -34,17 +34,17 @@
 ## Relationships
 
 - [String?](String_.md) (3 shared connections)
-- [circular_feedback_widget_test.dart](circular_feedback_widget_test.dart.md) (3 shared connections)
-- [_State](_State.md) (3 shared connections)
 - [hangul_screen.dart](hangul_screen.dart.md) (2 shared connections)
+- [AnimationController](AnimationController.md) (2 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
+- [package:flutter/services.dart](package-flutter-services.dart.md) (2 shared connections)
+- [hangul_write_gate_test.dart](hangul_write_gate_test.dart.md) (2 shared connections)
+- [_State](_State.md) (2 shared connections)
 - [stroke_matcher.dart](stroke_matcher.dart.md) (1 shared connections)
-- [hanok_cinematic.dart](hanok_cinematic.dart.md) (1 shared connections)
-- [Duration](Duration.md) (1 shared connections)
 - [int?](int_.md) (1 shared connections)
 - [List](List.md) (1 shared connections)
-- [pronunciation_studio_ui_test.dart](pronunciation_studio_ui_test.dart.md) (1 shared connections)
+- [hangul_strokes.dart](hangul_strokes.dart.md) (1 shared connections)
 - [CustomPainter](CustomPainter.md) (1 shared connections)
-- [dart:math](dart-math.md) (1 shared connections)
 
 ## Source Files
 

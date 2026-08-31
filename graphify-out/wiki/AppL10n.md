@@ -16,7 +16,7 @@
 - [app_localizations.dart](app_localizations.dart.md) (3 shared connections)
 - [kkeunmari_screen.dart](kkeunmari_screen.dart.md) (1 shared connections)
 - [study_library_screen.dart](study_library_screen.dart.md) (1 shared connections)
-- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (1 shared connections)
+- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (1 shared connections)
 - [app_localizations_de.dart](app_localizations_de.dart.md) (1 shared connections)
 - [app_localizations_en.dart](app_localizations_en.dart.md) (1 shared connections)
 

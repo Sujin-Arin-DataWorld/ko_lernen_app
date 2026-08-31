@@ -33,13 +33,11 @@
 
 ## Relationships
 
-- [_State](_State.md) (3 shared connections)
-- [hanok_cinematic.dart](hanok_cinematic.dart.md) (1 shared connections)
-- [Duration](Duration.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (4 shared connections)
+- [_State](_State.md) (2 shared connections)
+- [AnimationController](AnimationController.md) (1 shared connections)
 - [book_analysis_service.dart](book_analysis_service.dart.md) (1 shared connections)
-- [Widget](Widget.md) (1 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [String?](String_.md) (1 shared connections)
+- [celebration.dart](celebration.dart.md) (1 shared connections)
 - [_](_.md) (1 shared connections)
 
 ## Source Files

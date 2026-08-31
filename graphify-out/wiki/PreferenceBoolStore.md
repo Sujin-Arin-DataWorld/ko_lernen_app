@@ -12,7 +12,7 @@
 ## Relationships
 
 - [_](_.md) (2 shared connections)
-- [entry_onboarding_uiux_test.dart](entry_onboarding_uiux_test.dart.md) (2 shared connections)
+- [course_mastery_test.dart](course_mastery_test.dart.md) (2 shared connections)
 
 ## Source Files
 

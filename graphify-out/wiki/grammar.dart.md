@@ -33,9 +33,8 @@
 
 ## Relationships
 
-- [bool get](bool_get.md) (1 shared connections)
+- [bool get](bool_get.md) (2 shared connections)
 - [List](List.md) (1 shared connections)
-- [listening_play_screen.dart](listening_play_screen.dart.md) (1 shared connections)
 - [grammar_choice_quiz.dart](grammar_choice_quiz.dart.md) (1 shared connections)
 - [vocab.dart](vocab.dart.md) (1 shared connections)
 

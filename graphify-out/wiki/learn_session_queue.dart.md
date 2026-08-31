@@ -26,12 +26,11 @@
 
 ## Relationships
 
+- [Map](Map.md) (2 shared connections)
 - [bool get](bool_get.md) (1 shared connections)
-- [int get](int_get.md) (1 shared connections)
 - [List](List.md) (1 shared connections)
-- [Map](Map.md) (1 shared connections)
 - [typedef](typedef.md) (1 shared connections)
-- [dart:math](dart-math.md) (1 shared connections)
+- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
 - [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (1 shared connections)
 
 ## Source Files

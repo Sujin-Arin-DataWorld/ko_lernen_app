@@ -33,7 +33,7 @@
 - [String?](String_.md) (1 shared connections)
 - [scenario_writing_check_service.dart](scenario_writing_check_service.dart.md) (1 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
-- [package:ko_lernen_app/models/scenario.dart](package-ko_lernen_app-models-scenario.dart.md) (1 shared connections)
+- [course_mastery_test.dart](course_mastery_test.dart.md) (1 shared connections)
 - [korean_proofreading_service_test.dart](korean_proofreading_service_test.dart.md) (1 shared connections)
 
 ## Source Files
