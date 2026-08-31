@@ -13224,6 +13224,144 @@ abstract class AppL10n {
   /// **'Die Hofgestaltung konnte nicht lokal gespeichert werden.'**
   String get ilduWorldSaveError;
 
+  /// No description provided for @ilduWorldConstructionCurrent.
+  ///
+  /// In de, this message translates to:
+  /// **'Aktueller Bauabschnitt'**
+  String get ilduWorldConstructionCurrent;
+
+  /// No description provided for @ilduWorldConstructionNextCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächsten Bauabschnitt lernen'**
+  String get ilduWorldConstructionNextCta;
+
+  /// No description provided for @ilduProcessSite.
+  ///
+  /// In de, this message translates to:
+  /// **'Baugrund'**
+  String get ilduProcessSite;
+
+  /// No description provided for @ilduProcessFoundation.
+  ///
+  /// In de, this message translates to:
+  /// **'Fundament'**
+  String get ilduProcessFoundation;
+
+  /// No description provided for @ilduProcessFramePosts.
+  ///
+  /// In de, this message translates to:
+  /// **'Pfosten und Bodenrahmen'**
+  String get ilduProcessFramePosts;
+
+  /// No description provided for @ilduProcessFrameBeams.
+  ///
+  /// In de, this message translates to:
+  /// **'Balken und Pfetten'**
+  String get ilduProcessFrameBeams;
+
+  /// No description provided for @ilduProcessRaftersSanja.
+  ///
+  /// In de, this message translates to:
+  /// **'Sparren und Sanja'**
+  String get ilduProcessRaftersSanja;
+
+  /// No description provided for @ilduProcessRoofBed.
+  ///
+  /// In de, this message translates to:
+  /// **'Dachbett'**
+  String get ilduProcessRoofBed;
+
+  /// No description provided for @ilduProcessRoofTiles.
+  ///
+  /// In de, this message translates to:
+  /// **'Dachziegel'**
+  String get ilduProcessRoofTiles;
+
+  /// No description provided for @ilduProcessFloorNumaru.
+  ///
+  /// In de, this message translates to:
+  /// **'Holzboden und Numaru'**
+  String get ilduProcessFloorNumaru;
+
+  /// No description provided for @ilduProcessWallInfill.
+  ///
+  /// In de, this message translates to:
+  /// **'Wände'**
+  String get ilduProcessWallInfill;
+
+  /// No description provided for @ilduProcessDoorsChangho.
+  ///
+  /// In de, this message translates to:
+  /// **'Changho-Fenster und Türen'**
+  String get ilduProcessDoorsChangho;
+
+  /// No description provided for @ilduProcessIdentityFinish.
+  ///
+  /// In de, this message translates to:
+  /// **'Hyeonpan und Identität'**
+  String get ilduProcessIdentityFinish;
+
+  /// No description provided for @ilduProcessComplete.
+  ///
+  /// In de, this message translates to:
+  /// **'Fertigstellung'**
+  String get ilduProcessComplete;
+
+  /// No description provided for @ilduModuleHistoryHeading.
+  ///
+  /// In de, this message translates to:
+  /// **'Historische Szene'**
+  String get ilduModuleHistoryHeading;
+
+  /// No description provided for @ilduModuleCriticalHeading.
+  ///
+  /// In de, this message translates to:
+  /// **'Kritischer Blick'**
+  String get ilduModuleCriticalHeading;
+
+  /// No description provided for @ilduModuleModernHeading.
+  ///
+  /// In de, this message translates to:
+  /// **'Szene 2026'**
+  String get ilduModuleModernHeading;
+
+  /// No description provided for @ilduModuleActionHeading.
+  ///
+  /// In de, this message translates to:
+  /// **'Auf Koreanisch handeln'**
+  String get ilduModuleActionHeading;
+
+  /// No description provided for @ilduModuleInputLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Antwort auf Koreanisch'**
+  String get ilduModuleInputLabel;
+
+  /// No description provided for @ilduModuleTargetHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Zielausdrücke: {expressions}'**
+  String ilduModuleTargetHint(Object expressions);
+
+  /// No description provided for @ilduModuleSubmit.
+  ///
+  /// In de, this message translates to:
+  /// **'Antwort prüfen'**
+  String get ilduModuleSubmit;
+
+  /// No description provided for @ilduModuleMissingHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Aufgabe ist noch nicht vollständig. Baue einen der Zielausdrücke in deine Antwort ein.'**
+  String get ilduModuleMissingHint;
+
+  /// No description provided for @ilduModuleSaveError.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Antwort konnte nicht lokal gespeichert werden. Dein Text bleibt hier erhalten — versuch es noch einmal.'**
+  String get ilduModuleSaveError;
+
   /// No description provided for @hanokWorldEarlyEyebrow.
   ///
   /// In de, this message translates to:

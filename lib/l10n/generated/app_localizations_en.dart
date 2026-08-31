@@ -7605,6 +7605,79 @@ class AppL10nEn extends AppL10n {
       'Your courtyard layout could not be saved locally.';
 
   @override
+  String get ilduWorldConstructionCurrent => 'Current construction step';
+
+  @override
+  String get ilduWorldConstructionNextCta => 'Learn the next construction step';
+
+  @override
+  String get ilduProcessSite => 'Site';
+
+  @override
+  String get ilduProcessFoundation => 'Foundation';
+
+  @override
+  String get ilduProcessFramePosts => 'Posts and floor frame';
+
+  @override
+  String get ilduProcessFrameBeams => 'Beams and purlins';
+
+  @override
+  String get ilduProcessRaftersSanja => 'Rafters and sanja';
+
+  @override
+  String get ilduProcessRoofBed => 'Roof bed';
+
+  @override
+  String get ilduProcessRoofTiles => 'Roof tiles';
+
+  @override
+  String get ilduProcessFloorNumaru => 'Wooden floor and numaru';
+
+  @override
+  String get ilduProcessWallInfill => 'Walls';
+
+  @override
+  String get ilduProcessDoorsChangho => 'Changho doors and windows';
+
+  @override
+  String get ilduProcessIdentityFinish => 'Hyeonpan and identity';
+
+  @override
+  String get ilduProcessComplete => 'Completion';
+
+  @override
+  String get ilduModuleHistoryHeading => 'Historical scene';
+
+  @override
+  String get ilduModuleCriticalHeading => 'Critical lens';
+
+  @override
+  String get ilduModuleModernHeading => 'Scene in 2026';
+
+  @override
+  String get ilduModuleActionHeading => 'Act in Korean';
+
+  @override
+  String get ilduModuleInputLabel => 'Your answer in Korean';
+
+  @override
+  String ilduModuleTargetHint(Object expressions) {
+    return 'Target expressions: $expressions';
+  }
+
+  @override
+  String get ilduModuleSubmit => 'Check answer';
+
+  @override
+  String get ilduModuleMissingHint =>
+      'The task is not complete yet. Work one of the target expressions into your answer.';
+
+  @override
+  String get ilduModuleSaveError =>
+      'Your answer could not be saved locally. Your text stays right here — try again.';
+
+  @override
   String get hanokWorldEarlyEyebrow => 'Your courtyard · A1';
 
   @override

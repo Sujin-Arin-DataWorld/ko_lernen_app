@@ -9,19 +9,36 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/models/hanok_competence.dart';
+import 'package:ko_lernen_app/models/ildu_construction_plan.dart';
 import 'package:ko_lernen_app/models/ildu_world_manifest.dart';
 import 'package:ko_lernen_app/models/personal_hanok.dart';
 import 'package:ko_lernen_app/screens/ildu_world_screen.dart';
 import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/ildu_anchor_placement_service.dart';
+import 'package:ko_lernen_app/services/ildu_construction_progress_service.dart';
 import 'package:ko_lernen_app/services/ildu_decoration_placement_service.dart';
 
 void main() {
   late IlDuWorldManifest manifest;
+  late IlDuEstateConstructionPlan constructionPlan;
 
   setUpAll(() async {
     manifest = IlDuWorldManifest.fromJson(
       jsonDecode(await File(IlDuWorldManifest.assetPath).readAsString()),
+    );
+    constructionPlan = IlDuEstateConstructionPlan.fromJson(
+      jsonDecode(
+        await File(
+          'assets/data/ildu_construction/estate_plan_v1.json',
+        ).readAsString(),
+      ),
+      {
+        'sarangchae': jsonDecode(
+          await File(
+            'assets/data/ildu_construction/sarangchae_v1.json',
+          ).readAsString(),
+        ),
+      },
     );
   });
 
@@ -891,6 +908,109 @@ void main() {
     expect(find.text(saveError), findsNothing);
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets(
+    'a construction-active Sarangchae renders the ghost layer and next-step '
+    'sheet while the map keeps pan and zoom',
+    (tester) async {
+      tester.view.physicalSize = const Size(1179, 2556);
+      tester.view.devicePixelRatio = 3;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      await tester.pumpWidget(
+        MaterialApp(
+          locale: const Locale('de'),
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          supportedLocales: AppL10n.supportedLocales,
+          home: IlDuWorldScreen(
+            loadManifest: () async => manifest,
+            loadProjection: () async => _verifiedA1Projection(),
+            decorationStore: _MemoryDecorationStore(),
+            anchorPlacementStore: _MemoryAnchorStore(),
+            loadConstructionPlan: () async => constructionPlan,
+            constructionProgressStore: _MemoryConstructionStore(),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // 단계 에셋이 아직 없으므로 1차 렌더 경로는 고스트 모드다.
+      expect(
+        find.byKey(const ValueKey('ildu-construction-layer-sarangchae')),
+        findsOneWidget,
+      );
+      expect(
+        find.byKey(const ValueKey('ildu-construction-ghost-sarangchae')),
+        findsOneWidget,
+      );
+      // 시트: 현재 공정 태그·단계명·다음 공정 CTA.
+      expect(
+        find.byKey(const ValueKey('ildu-construction-process-tag')),
+        findsOneWidget,
+      );
+      expect(
+        find.byKey(const ValueKey('ildu-construction-stage-title')),
+        findsOneWidget,
+      );
+      expect(
+        find.byKey(const ValueKey('ildu-construction-next-cta')),
+        findsOneWidget,
+      );
+      // 기존 지도 상호작용은 그대로다.
+      final mapViewer = tester.widget<InteractiveViewer>(
+        find.byType(InteractiveViewer),
+      );
+      expect(mapViewer.panEnabled, isTrue);
+      expect(mapViewer.scaleEnabled, isTrue);
+      expect(mapViewer.minScale, 1);
+      expect(mapViewer.maxScale, 2.2);
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets(
+    'a failed construction plan load falls back to the turntable render',
+    (tester) async {
+      tester.view.physicalSize = const Size(1179, 2556);
+      tester.view.devicePixelRatio = 3;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      await tester.pumpWidget(
+        MaterialApp(
+          locale: const Locale('de'),
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          supportedLocales: AppL10n.supportedLocales,
+          home: IlDuWorldScreen(
+            loadManifest: () async => manifest,
+            loadProjection: () async => _verifiedA1Projection(),
+            decorationStore: _MemoryDecorationStore(),
+            anchorPlacementStore: _MemoryAnchorStore(),
+            loadConstructionPlan: () async =>
+                throw const FormatException('broken plan'),
+            constructionProgressStore: _MemoryConstructionStore(),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // fail-open 렌더: 화면은 죽지 않고 기존 턴테이블 경로로 복귀한다.
+      expect(
+        find.byKey(const ValueKey('ildu-map-turntable-sarangchae-0')),
+        findsOneWidget,
+      );
+      expect(
+        find.byKey(const ValueKey('ildu-construction-layer-sarangchae')),
+        findsNothing,
+      );
+      expect(
+        find.byKey(const ValueKey('ildu-construction-next-cta')),
+        findsNothing,
+      );
+      expect(tester.takeException(), isNull);
+    },
+  );
 }
 
 void _selectMapAnchor(WidgetTester tester, String anchorId) {
@@ -952,6 +1072,18 @@ PersonalHanokProjection _verifiedB2Projection() {
     const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
     competence: competence,
   );
+}
+
+final class _MemoryConstructionStore implements IlDuConstructionProgressStore {
+  String? value;
+
+  @override
+  Future<String?> read() async => value;
+
+  @override
+  Future<void> write(String encoded) async {
+    value = encoded;
+  }
 }
 
 class _MemoryDecorationStore implements IlDuDecorationPlacementStore {

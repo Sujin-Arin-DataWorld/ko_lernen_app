@@ -5,26 +5,54 @@ import 'package:flutter/material.dart';
 
 import '../data/ildu_turntable_catalog.dart';
 import '../l10n/generated/app_localizations.dart';
+import '../models/ildu_construction_plan.dart';
 import '../models/ildu_world_manifest.dart';
 import '../models/personal_hanok.dart';
 import '../services/hanok_structure_projection_service.dart';
 import '../services/ildu_anchor_placement_service.dart';
+import '../services/ildu_construction_plan_repository.dart';
+import '../services/ildu_construction_progress_service.dart';
 import '../services/ildu_decoration_placement_service.dart';
 import '../services/ildu_world_projection_adapter.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/hanok_turntable_2d.dart';
+import '../widgets/sori/ildu_construction_stage_layer.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/toast.dart';
+import 'ildu_learning_module_screen.dart';
 
 typedef IlDuManifestLoader = Future<IlDuWorldManifest> Function();
 typedef IlDuLegacyProjectionLoader = Future<PersonalHanokProjection> Function();
+typedef IlDuConstructionPlanLoader =
+    Future<IlDuEstateConstructionPlan> Function();
+
+/// 건물 시트가 그리는 현재 공정 정보. 완공(마지막 단계 완료) 앵커에는
+/// 만들어지지 않는다 — 그때는 기존 시트·턴테이블로 복귀한다.
+class IlDuConstructionSheetInfo {
+  const IlDuConstructionSheetInfo({
+    required this.stage,
+    required this.module,
+    required this.onOpenModule,
+  });
+
+  final IlDuConstructionStage stage;
+
+  /// 현재 단계에서 아직 완료되지 않은 첫 필수 모듈 — "다음 공정"의 목적지.
+  final IlDuLearningModule module;
+  final VoidCallback onOpenModule;
+}
 
 class IlDuWorldScreen extends StatefulWidget {
   final IlDuManifestLoader? loadManifest;
   final IlDuLegacyProjectionLoader? loadProjection;
   final IlDuDecorationPlacementStore decorationStore;
   final IlDuAnchorPlacementStore anchorPlacementStore;
+
+  /// 건설 플랜 로더. null 이면 번들 리포지토리. 로드 실패는 화면을 죽이지
+  /// 않는다 — 렌더는 fail-open(기존 턴테이블), 데이터는 fail-closed.
+  final IlDuConstructionPlanLoader? loadConstructionPlan;
+  final IlDuConstructionProgressStore constructionProgressStore;
 
   const IlDuWorldScreen({
     super.key,
@@ -34,6 +62,9 @@ class IlDuWorldScreen extends StatefulWidget {
         const SharedPreferencesIlDuDecorationPlacementStore(),
     this.anchorPlacementStore =
         const SharedPreferencesIlDuAnchorPlacementStore(),
+    this.loadConstructionPlan,
+    this.constructionProgressStore =
+        const SharedPreferencesIlDuConstructionProgressStore(),
   });
 
   @override
@@ -59,6 +90,10 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
   bool _anchorSaveInProgress = false;
   bool _anchorSaveRequested = false;
   Object? _loadError;
+  late final IlDuConstructionPlanRepository _constructionPlanRepository =
+      IlDuConstructionPlanRepository();
+  IlDuEstateConstructionPlan? _constructionPlan;
+  IlDuConstructionProgressService? _constructionProgress;
 
   @override
   void initState() {
@@ -132,17 +167,159 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
             if (ilduTurntableForAnchor(anchor.id) != null)
               anchor.id: savedAnchors[anchor.id]?.scale ?? 1,
         };
+        _constructionPlan = null;
+        _constructionProgress = null;
         _selectedBuildingId = manifest.buildings.first.id;
         _selectedGateId = null;
         _anchorGestureActive = false;
         _anchorGestureMapTransform = null;
         _mapPositioned = false;
       });
+      // 건설 플랜·진행도는 월드 렌더를 막지 않는다 — 준비되는 대로 붙는다.
+      unawaited(_attachConstruction());
     } catch (error) {
       if (!mounted) {
         return;
       }
       setState(() => _loadError = error);
+    }
+  }
+
+  /// 건설 플랜·진행도 로드. 어느 쪽이든 실패하면 null — 사랑채는 기존
+  /// 턴테이블로 렌더된다 (fail-open 렌더). 데이터 자체는 리포지토리·서비스가
+  /// fail-closed 로 지킨다.
+  Future<
+    ({
+      IlDuEstateConstructionPlan plan,
+      IlDuConstructionProgressService progress,
+    })?
+  >
+  _loadConstruction() async {
+    try {
+      final plan = await (widget.loadConstructionPlan ??
+          _constructionPlanRepository.load)();
+      final progress = IlDuConstructionProgressService(
+        plan: plan,
+        store: widget.constructionProgressStore,
+      );
+      await progress.initialize();
+      return (plan: plan, progress: progress);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  Future<void> _attachConstruction() async {
+    final construction = await _loadConstruction();
+    if (!mounted || construction == null) {
+      return;
+    }
+    setState(() {
+      _constructionPlan = construction.plan;
+      _constructionProgress = construction.progress;
+    });
+  }
+
+  /// 진행도 저장소를 다시 읽는다 — 모듈 화면이 완료를 기록한 뒤 호출된다.
+  Future<void> _reloadConstructionProgress() async {
+    final progress = _constructionProgress;
+    if (progress == null) {
+      return;
+    }
+    try {
+      await progress.initialize();
+    } catch (_) {
+      return;
+    }
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  /// 앵커의 진행 중 건설 상태. 플랜이 없거나(로드 실패 포함) 이 앵커가 플랜
+  /// 밖이거나 마지막 단계까지 완료(=해금)면 null.
+  ({
+    IlDuBuildingConstructionPlan building,
+    IlDuConstructionStage stage,
+    Set<String> completedStageIds,
+    Set<String> completedModuleIds,
+  })?
+  _constructionStateFor(String anchorId) {
+    final plan = _constructionPlan;
+    final progress = _constructionProgress;
+    if (plan == null || progress == null || !plan.hasBuilding(anchorId)) {
+      return null;
+    }
+    final building = plan.buildingFor(anchorId);
+    final record = progress.snapshot.anchorFor(anchorId);
+    if (record != null && record.buildingId != anchorId) {
+      return null;
+    }
+    final completedStages = record?.completedStageIds ?? const <String>{};
+    if (completedStages.contains(building.stages.last.stageId)) {
+      // 완공: 기존 8각도 턴테이블 복귀.
+      return null;
+    }
+    return (
+      building: building,
+      stage: progress.currentStage(anchorId: anchorId, buildingId: anchorId),
+      completedStageIds: completedStages,
+      completedModuleIds: record?.completedModuleIds ?? const <String>{},
+    );
+  }
+
+  Widget? _constructionLayerFor(
+    IlDuWorldBuilding building,
+    IlDuTurntableFrame frame,
+  ) {
+    final info = _constructionStateFor(building.id);
+    if (info == null) {
+      return null;
+    }
+    return IlDuConstructionStageLayer(
+      key: ValueKey('ildu-construction-layer-${building.id}'),
+      buildingId: info.building.buildingId,
+      anchorId: building.id,
+      building: info.building,
+      currentStage: info.stage,
+      completedStageCount: info.completedStageIds.length,
+      completedFrame: frame,
+    );
+  }
+
+  IlDuConstructionSheetInfo? _constructionSheetFor(IlDuWorldBuilding building) {
+    final plan = _constructionPlan;
+    final info = _constructionStateFor(building.id);
+    if (plan == null || info == null) {
+      return null;
+    }
+    final moduleId = info.stage.requiredModuleIds.firstWhere(
+      (id) => !info.completedModuleIds.contains(id),
+      orElse: () => info.stage.requiredModuleIds.first,
+    );
+    return IlDuConstructionSheetInfo(
+      stage: info.stage,
+      module: plan.moduleFor(moduleId),
+      onOpenModule: () => unawaited(
+        _openConstructionModule(anchorId: building.id, moduleId: moduleId),
+      ),
+    );
+  }
+
+  Future<void> _openConstructionModule({
+    required String anchorId,
+    required String moduleId,
+  }) async {
+    final result = await Navigator.of(context).pushNamed(
+      '/hanok/module',
+      arguments: IlDuLearningModuleArgs(
+        anchorId: anchorId,
+        buildingId: anchorId,
+        moduleId: moduleId,
+      ),
+    );
+    if (result == true) {
+      await _reloadConstructionProgress();
     }
   }
 
@@ -455,6 +632,8 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
               onMoveDecoration: _moveDecoration,
               onFinishMove: () => unawaited(_persistPlacements()),
               onOpenRoute: _openRoute,
+              constructionLayerFor: _constructionLayerFor,
+              constructionSheetFor: _constructionSheetFor,
             ),
     );
   }
@@ -494,6 +673,10 @@ class _WorldBody extends StatelessWidget {
   onMoveDecoration;
   final VoidCallback onFinishMove;
   final ValueChanged<String> onOpenRoute;
+  final Widget? Function(IlDuWorldBuilding building, IlDuTurntableFrame frame)
+  constructionLayerFor;
+  final IlDuConstructionSheetInfo? Function(IlDuWorldBuilding building)
+  constructionSheetFor;
 
   const _WorldBody({
     required this.manifest,
@@ -523,6 +706,8 @@ class _WorldBody extends StatelessWidget {
     required this.onMoveDecoration,
     required this.onFinishMove,
     required this.onOpenRoute,
+    required this.constructionLayerFor,
+    required this.constructionSheetFor,
   });
 
   @override
@@ -598,6 +783,7 @@ class _WorldBody extends StatelessWidget {
                             onFinishAnchorGesture: onFinishAnchorGesture,
                             onMoveDecoration: onMoveDecoration,
                             onFinishMove: onFinishMove,
+                            constructionLayerFor: constructionLayerFor,
                           ),
                         ),
                       ),
@@ -639,6 +825,7 @@ class _WorldBody extends StatelessWidget {
                         manifest: manifest,
                         projection: projection,
                         building: selectedBuilding,
+                        construction: constructionSheetFor(selectedBuilding),
                         decorating: decorating,
                         onStartDecorating: onStartDecorating,
                         onFinishDecorating: onFinishDecorating,
@@ -753,6 +940,8 @@ class _EstateMap extends StatelessWidget {
   final VoidCallback onFinishAnchorGesture;
   final void Function(IlDuDecorationPlacement, Offset, Size) onMoveDecoration;
   final VoidCallback onFinishMove;
+  final Widget? Function(IlDuWorldBuilding building, IlDuTurntableFrame frame)
+  constructionLayerFor;
 
   const _EstateMap({
     required this.manifest,
@@ -772,6 +961,7 @@ class _EstateMap extends StatelessWidget {
     required this.onFinishAnchorGesture,
     required this.onMoveDecoration,
     required this.onFinishMove,
+    required this.constructionLayerFor,
   });
 
   @override
@@ -812,12 +1002,16 @@ class _EstateMap extends StatelessWidget {
     final position =
         anchorPositions[building.id] ?? Offset(building.x, building.y);
     final scale = anchorScales[building.id] ?? 1;
+    final frame = turntable == null || direction == null
+        ? null
+        : turntable.frames[direction];
+    final available = projection.isAvailable(building.unlockEra);
     return _MapAnchor(
       key: ValueKey('ildu-map-turntable-${building.id}-$direction'),
       anchor: building,
       mapSize: mapSize,
       mapController: mapController,
-      available: projection.isAvailable(building.unlockEra),
+      available: available,
       selected: selectedAnchorId == building.id,
       placement: direction == null
           ? null
@@ -829,10 +1023,11 @@ class _EstateMap extends StatelessWidget {
               scale: scale,
             ),
       assetPath: manifest.worldAsset(building.asset),
-      turntableFrame: turntable == null || direction == null
-          ? null
-          : turntable.frames[direction],
+      turntableFrame: frame,
       turntableAspectRatio: turntable?.mapAspectRatio,
+      constructionLayer: frame == null || !available
+          ? null
+          : constructionLayerFor(building, frame),
       onTap: () => onSelectBuilding(building),
       onTransform: onTransformAnchor,
       onTransformEnd: onFinishTransformAnchor,
@@ -888,6 +1083,10 @@ class _MapAnchor extends StatefulWidget {
   final IlDuAnchorPlacement? placement;
   final IlDuTurntableFrame? turntableFrame;
   final double? turntableAspectRatio;
+
+  /// 진행 중인 건설 렌더. null 이면 기존 턴테이블 프레임 그대로 —
+  /// 플랜 로드 실패·완공 해금 모두 이 경로로 복귀한다.
+  final Widget? constructionLayer;
   final VoidCallback? onTap;
   final ValueChanged<IlDuAnchorPlacement>? onTransform;
   final ValueChanged<IlDuAnchorPlacement>? onTransformEnd;
@@ -904,6 +1103,7 @@ class _MapAnchor extends StatefulWidget {
     this.placement,
     this.turntableFrame,
     this.turntableAspectRatio,
+    this.constructionLayer,
     this.selected = false,
     this.onTap,
     this.onTransform,
@@ -1077,7 +1277,9 @@ class _MapAnchorState extends State<_MapAnchor> {
         : SizedBox(
             width: width,
             height: width / widget.turntableAspectRatio!,
-            child: HanokTurntableFrameImage(frame: frame, cacheWidth: 360),
+            child:
+                widget.constructionLayer ??
+                HanokTurntableFrameImage(frame: frame, cacheWidth: 360),
           );
     final visual = AnimatedOpacity(
       opacity: widget.available ? 1 : .18,
@@ -1422,6 +1624,9 @@ class _PlaceSheet extends StatelessWidget {
   final IlDuWorldManifest manifest;
   final IlDuWorldProjection projection;
   final IlDuWorldBuilding building;
+
+  /// 진행 중 건설 정보. null 이면 기존 추천 미션 블록을 그대로 그린다.
+  final IlDuConstructionSheetInfo? construction;
   final bool decorating;
   final VoidCallback onStartDecorating;
   final VoidCallback onFinishDecorating;
@@ -1437,6 +1642,7 @@ class _PlaceSheet extends StatelessWidget {
     required this.manifest,
     required this.projection,
     required this.building,
+    required this.construction,
     required this.decorating,
     required this.onStartDecorating,
     required this.onFinishDecorating,
@@ -1448,6 +1654,38 @@ class _PlaceSheet extends StatelessWidget {
     required this.onScaleChangeEnd,
     required this.onOpenRoute,
   });
+
+  /// 모듈 콘텐츠는 플랜 JSON 의 ko/de/en 을 앱 로케일로 고른다.
+  String _constructionModuleTitle(BuildContext context) {
+    final module = construction!.module;
+    final languageCode = Localizations.localeOf(context).languageCode;
+    final copy =
+        module.copyByLanguage[languageCode] ?? module.copyByLanguage['en']!;
+    return copy.title;
+  }
+
+  Widget _secondaryActions(AppL10n t, IlDuWorldHub hub) => Row(
+    children: [
+      Expanded(
+        child: TextButton(
+          onPressed: () => onOpenRoute(hub.secondaryRoutes.first),
+          child: Text(t.ilduWorldExplore),
+        ),
+      ),
+      Expanded(
+        child: TextButton(
+          onPressed: onStartDecorating,
+          child: Text(t.ilduWorldDecorate),
+        ),
+      ),
+      Expanded(
+        child: TextButton(
+          onPressed: () => onOpenRoute(hub.secondaryRoutes.last),
+          child: Text(t.ilduWorldCulture),
+        ),
+      ),
+    ],
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -1588,7 +1826,48 @@ class _PlaceSheet extends StatelessWidget {
                         ),
                       ],
                       const SizedBox(height: Spacing.sm),
-                      if (available)
+                      if (available && construction != null)
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '${t.ilduWorldConstructionCurrent} · '
+                                '${ilduProcessTagLabel(t, construction!.stage.processTags.first)}',
+                                key: const ValueKey(
+                                  'ildu-construction-process-tag',
+                                ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: SoriTextTheme.of(context).eyebrow,
+                              ),
+                              Text(
+                                _constructionModuleTitle(context),
+                                key: const ValueKey(
+                                  'ildu-construction-stage-title',
+                                ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: SoriTextTheme.of(context).cardTitle,
+                              ),
+                              const Spacer(),
+                              SizedBox(
+                                width: double.infinity,
+                                height: Spacing.xxxl,
+                                child: FilledButton(
+                                  key: const ValueKey(
+                                    'ildu-construction-next-cta',
+                                  ),
+                                  onPressed: construction!.onOpenModule,
+                                  child: Text(t.ilduWorldConstructionNextCta),
+                                ),
+                              ),
+                              const SizedBox(height: Spacing.xs),
+                              _secondaryActions(t, hub),
+                            ],
+                          ),
+                        )
+                      else if (available)
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -1612,31 +1891,7 @@ class _PlaceSheet extends StatelessWidget {
                                 ),
                               ),
                               const SizedBox(height: Spacing.xs),
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: TextButton(
-                                      onPressed: () => onOpenRoute(
-                                        hub.secondaryRoutes.first,
-                                      ),
-                                      child: Text(t.ilduWorldExplore),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: TextButton(
-                                      onPressed: onStartDecorating,
-                                      child: Text(t.ilduWorldDecorate),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: TextButton(
-                                      onPressed: () =>
-                                          onOpenRoute(hub.secondaryRoutes.last),
-                                      child: Text(t.ilduWorldCulture),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                              _secondaryActions(t, hub),
                             ],
                           ),
                         )
