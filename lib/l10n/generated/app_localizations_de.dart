@@ -7644,6 +7644,79 @@ class AppL10nDe extends AppL10n {
       'Die Hofgestaltung konnte nicht lokal gespeichert werden.';
 
   @override
+  String get ilduWorldConstructionCurrent => 'Aktueller Bauabschnitt';
+
+  @override
+  String get ilduWorldConstructionNextCta => 'Nächsten Bauabschnitt lernen';
+
+  @override
+  String get ilduProcessSite => 'Baugrund';
+
+  @override
+  String get ilduProcessFoundation => 'Fundament';
+
+  @override
+  String get ilduProcessFramePosts => 'Pfosten und Bodenrahmen';
+
+  @override
+  String get ilduProcessFrameBeams => 'Balken und Pfetten';
+
+  @override
+  String get ilduProcessRaftersSanja => 'Sparren und Sanja';
+
+  @override
+  String get ilduProcessRoofBed => 'Dachbett';
+
+  @override
+  String get ilduProcessRoofTiles => 'Dachziegel';
+
+  @override
+  String get ilduProcessFloorNumaru => 'Holzboden und Numaru';
+
+  @override
+  String get ilduProcessWallInfill => 'Wände';
+
+  @override
+  String get ilduProcessDoorsChangho => 'Changho-Fenster und Türen';
+
+  @override
+  String get ilduProcessIdentityFinish => 'Hyeonpan und Identität';
+
+  @override
+  String get ilduProcessComplete => 'Fertigstellung';
+
+  @override
+  String get ilduModuleHistoryHeading => 'Historische Szene';
+
+  @override
+  String get ilduModuleCriticalHeading => 'Kritischer Blick';
+
+  @override
+  String get ilduModuleModernHeading => 'Szene 2026';
+
+  @override
+  String get ilduModuleActionHeading => 'Auf Koreanisch handeln';
+
+  @override
+  String get ilduModuleInputLabel => 'Deine Antwort auf Koreanisch';
+
+  @override
+  String ilduModuleTargetHint(Object expressions) {
+    return 'Zielausdrücke: $expressions';
+  }
+
+  @override
+  String get ilduModuleSubmit => 'Antwort prüfen';
+
+  @override
+  String get ilduModuleMissingHint =>
+      'Die Aufgabe ist noch nicht vollständig. Baue einen der Zielausdrücke in deine Antwort ein.';
+
+  @override
+  String get ilduModuleSaveError =>
+      'Deine Antwort konnte nicht lokal gespeichert werden. Dein Text bleibt hier erhalten — versuch es noch einmal.';
+
+  @override
   String get hanokWorldEarlyEyebrow => 'Dein Hof · A1';
 
   @override
