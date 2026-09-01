@@ -85,12 +85,12 @@ class ScenarioStoreTest(unittest.TestCase):
 
     def test_live_corpus_is_readable_and_complete(self) -> None:
         scenarios = scenario_store.load_scenarios()
-        self.assertEqual(len(scenarios), 120)
+        self.assertEqual(len(scenarios), 126)
         counts = {
             level: sum(1 for item in scenarios if item.get("level") == level)
             for level in scenario_store.LEVELS
         }
-        self.assertEqual(counts, {level: 20 for level in scenario_store.LEVELS})
+        self.assertEqual(counts, {level: 21 for level in scenario_store.LEVELS})
 
 
 if __name__ == "__main__":

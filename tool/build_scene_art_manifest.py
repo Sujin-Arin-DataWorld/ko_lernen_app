@@ -51,7 +51,7 @@ EXPECTED_CATEGORY_COUNTS = {
     "cafe": 9,
     "station": 9,
     "market": 4,
-    "theme_park": 0,
+    "theme_park": 6,
     "convenience": 1,
     "restaurant": 5,
     "pharmacy": 1,

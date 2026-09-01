@@ -17,8 +17,8 @@ class BatchLivePromotionAuditTest(unittest.TestCase):
         self.assertTrue(result["ok"], result["errors"])
         self.assertEqual(result["version"], 3)
         self.assertEqual(result["trackedIds"], 6331)
-        self.assertEqual(result["liveIds"], 5954)
-        self.assertEqual(result["retiredScenarioIds"], 377)
+        self.assertEqual(result["liveIds"], 5960)
+        self.assertEqual(result["retiredScenarioIds"], 371)
         self.assertEqual(
             result["trackedIds"],
             result["liveIds"] + result["retiredScenarioIds"],
@@ -27,7 +27,7 @@ class BatchLivePromotionAuditTest(unittest.TestCase):
         self.assertEqual(reports["theme_park_date_v1"]["tracked"], 66)
         self.assertEqual(
             reports["theme_park_date_v1"]["auditStatus"],
-            "lineage_verified_modern_retired_scenarios",
+            "live_verified_modern",
         )
         self.assertEqual(
             reports["theme_park_date_v1"]["reviewStatuses"],

@@ -34,7 +34,7 @@ class MigrationPlanTest(unittest.TestCase):
         self.assertEqual(report["unknown_shelf"], [])
         self.assertEqual(report["missing_backdrop"], [])
         self.assertEqual(report["unknown_backdrop"], [])
-        self.assertEqual(len(migrated), 120)
+        self.assertEqual(len(migrated), 126)
 
     def test_every_scenario_gets_both_fields(self) -> None:
         migrated, _ = migrate.plan_migration(self.scenarios, self.baseline)

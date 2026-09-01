@@ -209,54 +209,86 @@ void main() {
     }
   });
 
-  group('canonical scenario corpus — Diktat remains an engine, not a seed', () {
-    late List<Map<String, dynamic>> diktatQuests;
+  group('canonical 120 core — Diktat remains an engine, not a seed', () {
+    const themeParkScenarioIds = {
+      'a1_theme_park_date_choices',
+      'a2_theme_park_date_break',
+      'b1_theme_park_date_thrill',
+      'b2_theme_park_date_safety',
+      'c1_theme_park_date_next_time',
+      'c2_theme_park_date_reflection',
+    };
+
+    late List<Map<String, dynamic>> coreDiktatQuests;
+    late List<Map<String, dynamic>> themeParkDiktatQuests;
     late List<Scenario> scenarios;
+    late List<Scenario> coreScenarios;
+    late List<Scenario> themeParkScenarios;
 
     setUpAll(() {
       final root = allScenarioRoot();
       final list = (root['scenarios'] as List).cast<Map<String, dynamic>>();
       scenarios = list.map(Scenario.fromJson).toList();
-      diktatQuests = [
+      coreScenarios = scenarios
+          .where((scenario) => !themeParkScenarioIds.contains(scenario.id))
+          .toList();
+      themeParkScenarios = scenarios
+          .where((scenario) => themeParkScenarioIds.contains(scenario.id))
+          .toList();
+      coreDiktatQuests = [
         for (final sc in list)
-          for (final q in (sc['quests'] as List? ?? const []))
-            if ((q as Map<String, dynamic>)['type'] == 'diktat') q,
+          if (!themeParkScenarioIds.contains(sc['id']))
+            for (final q in (sc['quests'] as List? ?? const []))
+              if ((q as Map<String, dynamic>)['type'] == 'diktat') q,
+      ];
+      themeParkDiktatQuests = [
+        for (final sc in list)
+          if (themeParkScenarioIds.contains(sc['id']))
+            for (final q in (sc['quests'] as List? ?? const []))
+              if ((q as Map<String, dynamic>)['type'] == 'diktat') q,
       ];
     });
 
-    test('the 120-scene release corpus contains no legacy Diktat seed', () {
-      expect(scenarios, hasLength(120));
-      expect(diktatQuests, isEmpty);
+    test('the 120-scene core contains no legacy Diktat seed', () {
+      expect(scenarios, hasLength(126));
+      expect(coreScenarios, hasLength(120));
+      expect(themeParkScenarios, hasLength(6));
+      expect(coreDiktatQuests, isEmpty);
       expect(
-        scenarios
+        coreScenarios
             .expand((scenario) => scenario.quests)
             .where((quest) => quest.type == QuestType.satzBauen),
         hasLength(120),
       );
     });
 
-    test('jede Quest hat targetKo + beide Prompts', () {
-      for (final q in diktatQuests) {
-        final data = q['data'] as Map<String, dynamic>;
-        expect((data['targetKo'] as String? ?? '').trim(), isNotEmpty);
-        expect((data['promptDe'] as String? ?? '').trim(), isNotEmpty);
-        expect((data['promptEn'] as String? ?? '').trim(), isNotEmpty);
-      }
-    });
+    test(
+      'the reviewed theme-park supplement keeps one valid Diktat per level',
+      () {
+        expect(themeParkDiktatQuests, hasLength(6));
+        for (final q in themeParkDiktatQuests) {
+          final data = q['data'] as Map<String, dynamic>;
+          expect((data['targetKo'] as String? ?? '').trim(), isNotEmpty);
+          expect((data['promptDe'] as String? ?? '').trim(), isNotEmpty);
+          expect((data['promptEn'] as String? ?? '').trim(), isNotEmpty);
+        }
+      },
+    );
 
-    test('no runtime scenario is parsed as a legacy Diktat seed', () {
+    test('only the six reviewed supplement scenarios parse a Diktat seed', () {
       var found = 0;
       for (final sc in scenarios) {
         for (final q in sc.quests) {
           if (q.type == QuestType.diktat) {
             found++;
+            expect(themeParkScenarioIds, contains(sc.id));
             final keys = q.targetVocabKeys();
             expect(keys, hasLength(1));
             expect(keys.first.trim(), isNotEmpty);
           }
         }
       }
-      expect(found, 0);
+      expect(found, 6);
     });
   });
 }

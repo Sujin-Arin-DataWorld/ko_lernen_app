@@ -50,7 +50,7 @@ class ShelfAssignmentTest(unittest.TestCase):
     def test_assignment_covers_the_live_corpus_exactly(self) -> None:
         live = _live_levels()
         scenarios = scenario_store.load_scenarios(DATA)
-        self.assertEqual(len(live), 120)
+        self.assertEqual(len(live), 126)
         for item in scenarios:
             shelf = str(item.get("shelf") or "")
             self.assertIn(shelf, ALL_SHELVES, item["id"])

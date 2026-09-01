@@ -16,7 +16,7 @@ void main() {
           .toList();
       final byId = {for (final scenario in a1) scenario.id: scenario};
 
-      expect(a1, hasLength(20));
+      expect(a1, hasLength(21));
       expect(
         byId.keys,
         containsAll(<String>[

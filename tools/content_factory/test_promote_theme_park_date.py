@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 from pathlib import Path
+import json
 import sys
+import tempfile
 import unittest
 
 
@@ -9,7 +11,17 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
-from promote_theme_park_date import PromotionError, _merge_rows
+import build_theme_park_date_tts_manifest as tts_builder
+from promote_theme_park_date import (
+    PromotionError,
+    _canonical_json_sha256,
+    _merge_rows,
+    _verify_tts_ready,
+    promote,
+)
+
+
+ROOT = SCRIPT_DIR.parents[1]
 
 
 class ThemeParkDatePromotionTest(unittest.TestCase):
@@ -30,6 +42,48 @@ class ThemeParkDatePromotionTest(unittest.TestCase):
                 label="scenario",
                 check=True,
             )
+
+    def test_runtime_write_requires_exact_tts_receipt_and_jin(self) -> None:
+        manifest = tts_builder.build_manifest(ROOT)
+        receipt = {
+            "schemaVersion": 1,
+            "kind": "scenario_tts_storage_verification",
+            "generationId": "theme_park_date_v1",
+            "scope": "corpus",
+            "candidateSetSha256": manifest["candidateSetSha256"],
+            "ttsManifestSha256": _canonical_json_sha256(manifest),
+            "expectedCount": manifest["count"],
+            "verifiedCachePathCount": manifest["count"],
+            "missingCount": 0,
+            "cacheRevision": "v3",
+            "verificationMode": "firebase_storage_nonempty_mp3_listing",
+            "minimumObjectBytes": 256,
+            "bucket": "ko-lernen-app.firebasestorage.app",
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "receipt.json"
+            path.write_text(json.dumps(receipt), encoding="utf-8")
+            accepted = _verify_tts_ready(
+                ROOT,
+                receipt_path=path,
+                runtime_write_reviewer="Jin",
+            )
+            self.assertEqual(accepted["missingCount"], 0)
+            with self.assertRaisesRegex(PromotionError, "reviewer Jin"):
+                _verify_tts_ready(
+                    ROOT,
+                    receipt_path=path,
+                    runtime_write_reviewer=None,
+                )
+            receipt["missingCount"] = 1
+            path.write_text(json.dumps(receipt), encoding="utf-8")
+            with self.assertRaisesRegex(PromotionError, "missingCount must be 0"):
+                promote(
+                    ROOT,
+                    check=True,
+                    tts_ready_receipt=path,
+                    runtime_write_reviewer="Jin",
+                )
 
 
 if __name__ == "__main__":

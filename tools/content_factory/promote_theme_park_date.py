@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import sys
@@ -15,6 +16,7 @@ if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
 import scenario_store
+import build_theme_park_date_tts_manifest as theme_park_tts
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -25,6 +27,10 @@ SMALLTALK_DRAFT = Path(
 SCENARIO_DRAFT = Path(
     "tools/content_factory/drafts/theme_park_date_scenarios_v1.json"
 )
+APPROVAL_REVIEWER = "Jin"
+SUPPLEMENT_GENERATION_ID = "theme_park_date_v1"
+FIREBASE_BUCKET = "ko-lernen-app.firebasestorage.app"
+MINIMUM_OBJECT_BYTES = 256
 MAPPINGS = {
     "a1": ("a1_11_titles_relationships", "concept_a1_titles_relationships"),
     "a2": ("a2_03_chat_relationships", "concept_a2_relationships"),
@@ -46,6 +52,93 @@ def _json(path: Path) -> Any:
 def _write(path: Path, payload: Any) -> None:
     with path.open("w", encoding="utf-8", newline="\n") as handle:
         handle.write(json.dumps(payload, ensure_ascii=False, indent=2) + "\n")
+
+
+def _canonical_json_sha256(value: Any) -> str:
+    payload = json.dumps(
+        value,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
+def _verify_tts_ready(
+    root: Path,
+    *,
+    receipt_path: Path | None,
+    runtime_write_reviewer: str | None,
+) -> dict[str, Any]:
+    if runtime_write_reviewer != APPROVAL_REVIEWER:
+        raise PromotionError(
+            "runtime write requires --runtime-write-reviewer Jin"
+        )
+    if receipt_path is None:
+        raise PromotionError("runtime write requires --tts-ready-receipt")
+    target = receipt_path if receipt_path.is_absolute() else root / receipt_path
+    receipt = _json(target)
+    manifest = theme_park_tts.build_manifest(root)
+    expected = {
+        "schemaVersion": 1,
+        "kind": "scenario_tts_storage_verification",
+        "generationId": SUPPLEMENT_GENERATION_ID,
+        "scope": "corpus",
+        "candidateSetSha256": manifest["candidateSetSha256"],
+        "ttsManifestSha256": _canonical_json_sha256(manifest),
+        "expectedCount": manifest["count"],
+        "cacheRevision": "v3",
+        "verificationMode": "firebase_storage_nonempty_mp3_listing",
+        "minimumObjectBytes": MINIMUM_OBJECT_BYTES,
+        "bucket": FIREBASE_BUCKET,
+    }
+    errors = [
+        f"{key}: expected {value!r}, got {receipt.get(key)!r}"
+        for key, value in expected.items()
+        if receipt.get(key) != value
+    ]
+    if receipt.get("missingCount") != 0:
+        errors.append(f"missingCount must be 0, got {receipt.get('missingCount')!r}")
+    if receipt.get("verifiedCachePathCount") != manifest["count"]:
+        errors.append(
+            "verifiedCachePathCount must equal the exact pending-manifest count"
+        )
+    if errors:
+        raise PromotionError(
+            "Theme Park Date TTS readiness receipt mismatch: " + "; ".join(errors)
+        )
+    return receipt
+
+
+def _refresh_content_audit_counts(
+    audit: dict[str, Any],
+    scenarios: list[dict[str, Any]],
+) -> dict[str, Any]:
+    rows = audit.get("sources")
+    if not isinstance(rows, list):
+        raise PromotionError("content_audit_manifest.sources must be an array")
+    counts = {
+        "scenario": len(scenarios),
+        "scenarioQuest": sum(
+            len(row.get("quests", []))
+            for row in scenarios
+            if isinstance(row.get("quests"), list)
+        ),
+    }
+    seen: set[str] = set()
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        kind = str(row.get("kind") or "")
+        if kind in counts:
+            row["count"] = counts[kind]
+            seen.add(kind)
+    if seen != set(counts):
+        raise PromotionError(
+            "content audit is missing scenario count rows: "
+            + ", ".join(sorted(set(counts) - seen))
+        )
+    return audit
 
 
 def _merge_rows(
@@ -114,7 +207,23 @@ def _merge_scenario_links(
     return result
 
 
-def promote(root: Path, *, check: bool) -> dict[str, int]:
+def promote(
+    root: Path,
+    *,
+    check: bool,
+    tts_ready_receipt: Path | None = None,
+    runtime_write_reviewer: str | None = None,
+) -> dict[str, int]:
+    if (
+        not check
+        or tts_ready_receipt is not None
+        or runtime_write_reviewer is not None
+    ):
+        _verify_tts_ready(
+            root,
+            receipt_path=tts_ready_receipt,
+            runtime_write_reviewer=runtime_write_reviewer,
+        )
     data = root / "assets" / "data"
     smalltalk_draft = _json(root / SMALLTALK_DRAFT)
     scenario_draft = _json(root / SCENARIO_DRAFT)
@@ -154,6 +263,31 @@ def promote(root: Path, *, check: bool) -> dict[str, int]:
 
     curriculum_path = data / "curriculum_manifest.json"
     curriculum = _json(curriculum_path)
+    supplement = {
+        "generationId": SUPPLEMENT_GENERATION_ID,
+        "scenarioCount": len(incoming_scenarios),
+        "scenarioIds": [str(row["id"]) for row in incoming_scenarios],
+        "approvedBy": APPROVAL_REVIEWER,
+        "approvedAt": "2026-08-30",
+        "ttsGate": "firebase_storage_verified",
+    }
+    supplements = list(curriculum.get("scenarioCorpusSupplements") or [])
+    current_supplement = next(
+        (
+            row
+            for row in supplements
+            if isinstance(row, dict)
+            and row.get("generationId") == SUPPLEMENT_GENERATION_ID
+        ),
+        None,
+    )
+    if current_supplement is None:
+        if check:
+            raise PromotionError("Theme Park Date scenario supplement marker is missing")
+        supplements.append(supplement)
+    elif current_supplement != supplement:
+        raise PromotionError("Theme Park Date scenario supplement marker differs")
+    curriculum["scenarioCorpusSupplements"] = supplements
     category_map = curriculum["smalltalkCategoryUnitMap"]
     for level in LEVELS:
         course_unit_id, concept_id = MAPPINGS[level]
@@ -184,8 +318,11 @@ def promote(root: Path, *, check: bool) -> dict[str, int]:
         check=check,
     )
     if not check:
+        audit_path = data / "content_audit_manifest.json"
+        audit = _refresh_content_audit_counts(_json(audit_path), scenarios)
         _write(smalltalk_path, smalltalk)
         _write(curriculum_path, curriculum)
+        _write(audit_path, audit)
         scenario_store.write_shards(scenarios, data=data)
 
     return {
@@ -202,9 +339,16 @@ def main() -> int:
     mode.add_argument("--apply", action="store_true")
     mode.add_argument("--check", action="store_true")
     parser.add_argument("--root", type=Path, default=ROOT)
+    parser.add_argument("--tts-ready-receipt", type=Path)
+    parser.add_argument("--runtime-write-reviewer")
     args = parser.parse_args()
     try:
-        counts = promote(args.root.resolve(), check=args.check)
+        counts = promote(
+            args.root.resolve(),
+            check=args.check,
+            tts_ready_receipt=args.tts_ready_receipt,
+            runtime_write_reviewer=args.runtime_write_reviewer,
+        )
     except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError) as error:
         print(f"ERROR: {error}")
         return 1

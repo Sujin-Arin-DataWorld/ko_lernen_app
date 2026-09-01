@@ -3986,6 +3986,60 @@
         "concept_c2_discourse_institutions"
       ],
       "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_theme_park_date_choices",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_theme_park_date_break",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_theme_park_date_thrill",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_theme_park_date_safety",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_theme_park_date_next_time",
+      "courseUnitId": "c1_06_intimacy_safety_design",
+      "conceptIds": [
+        "concept_c1_intimacy_safety"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_theme_park_date_reflection",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ],
+      "role": "practice"
     }
   ],
   "grammarRuleMap": {
@@ -6501,5 +6555,22 @@
     "c1:ai 투명성과 문화 노동": "c1_03_media_evidence_literacy",
     "c2:인구 담론과 제도 책임": "c2_01_interpretation_institutions"
   },
-  "scenarioCorpusGeneration": "canonical_120_v1"
+  "scenarioCorpusGeneration": "canonical_120_v1",
+  "scenarioCorpusSupplements": [
+    {
+      "generationId": "theme_park_date_v1",
+      "scenarioCount": 6,
+      "scenarioIds": [
+        "a1_theme_park_date_choices",
+        "a2_theme_park_date_break",
+        "b1_theme_park_date_thrill",
+        "b2_theme_park_date_safety",
+        "c1_theme_park_date_next_time",
+        "c2_theme_park_date_reflection"
+      ],
+      "approvedBy": "Jin",
+      "approvedAt": "2026-08-30",
+      "ttsGate": "firebase_storage_verified"
+    }
+  ]
 }

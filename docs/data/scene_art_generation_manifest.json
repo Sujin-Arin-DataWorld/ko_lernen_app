@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "generatedFrom": {
-    "assets/data/scenarios_a1.json": "12541197fb3299e348433ec904aa9d14a3bd6e0ef699a3a03a32565d234c0bd5",
-    "assets/data/scenarios_a2.json": "41db3c89ee3ac00e92243be1822f1a94c379842a03a97127c54b80689e998a14",
-    "assets/data/scenarios_b1.json": "925b02bfa53c268dcb425bbfa5b1a08463fe8da0134b2e298b21677e22883dd9",
-    "assets/data/scenarios_b2.json": "556e5ab0ce9c7a75f2b1aaa624b9beb216aa4b6d6bc0ea2544fd4da3e8488609",
-    "assets/data/scenarios_c1.json": "1c7816b5e5a2c91f5a8b8772de5c78a7c8551232cd9c098a0908e74c808b0185",
-    "assets/data/scenarios_c2.json": "55f47f1511faaf43078c67f54484afbf66f25d9921a834320d9767781e79c10b"
+    "assets/data/scenarios_a1.json": "1bf8274b14747ebe16407afd4dee39dff2c2b7200f0367a2ac030144ebb9db9b",
+    "assets/data/scenarios_a2.json": "859b7f61d65f03125da460d18df4f3c47caeb266d7a382c60a2b3f4fe55af54d",
+    "assets/data/scenarios_b1.json": "fd37bb6d7902a53d79713432213525c3346ec28a8569b34fc34e5fe55a54928d",
+    "assets/data/scenarios_b2.json": "95e2489eb1024542c3a1a65fadac632198d4e5cefac200360fc4a43386dcaf0f",
+    "assets/data/scenarios_c1.json": "311a613a13f037a3dc5c354a64e24663a66662625961e90209fd042655b5893c",
+    "assets/data/scenarios_c2.json": "e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc"
   },
   "styleContract": {
     "identifier": "scene-poster/faceted-heritage-2.5d-v1",
@@ -48,9 +48,9 @@
   },
   "canonicalInventory": {
     "path": "docs/data/scene_asset_inventory.json",
-    "sha256": "660ba03a9f657a6791fd0ebe15c6be977773f5ae58299ef6357816d20a5756d3"
+    "sha256": "813e21138a6c12b9d7bf5c40b5d76a97e240b38228c422a58f122113d42eef59"
   },
-  "scenarioCount": 120,
+  "scenarioCount": 126,
   "categoryOrder": [
     "office",
     "home",
@@ -83,7 +83,7 @@
     "airport": 1,
     "bank": 0,
     "salon": 0,
-    "theme_park": 0
+    "theme_park": 6
   },
   "entries": [
     {
@@ -91,7 +91,7 @@
       "level": "a2",
       "category": "office",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "41db3c89ee3ac00e92243be1822f1a94c379842a03a97127c54b80689e998a14",
+      "sourceSha256": "859b7f61d65f03125da460d18df4f3c47caeb266d7a382c60a2b3f4fe55af54d",
       "semanticSummaryKo": "첨부파일을 두 번 빠뜨린 이메일. 대화 핵심: 마야, 메일에 첨부파일이 없어요. / 어? 다시 보냈는데요. 학습 목표 발화: 마야, 메일에 첨부파일이 없어요.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -165,7 +165,7 @@
       "level": "a2",
       "category": "office",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "41db3c89ee3ac00e92243be1822f1a94c379842a03a97127c54b80689e998a14",
+      "sourceSha256": "859b7f61d65f03125da460d18df4f3c47caeb266d7a382c60a2b3f4fe55af54d",
       "semanticSummaryKo": "한국 생활과 좋아하는 드라마 이야기하기. 대화 핵심: 한국에 온 지 얼마나 됐어요? / 이제 세 달 됐어요. 학습 목표 발화: 한국에 온 지 얼마나 됐어요?",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -239,7 +239,7 @@
       "level": "b1",
       "category": "office",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "925b02bfa53c268dcb425bbfa5b1a08463fe8da0134b2e298b21677e22883dd9",
+      "sourceSha256": "fd37bb6d7902a53d79713432213525c3346ec28a8569b34fc34e5fe55a54928d",
       "semanticSummaryKo": "회사 인스타 계정으로 개인 글을 올렸을 때. 대화 핵심: 큰일 났어요. 회사 인스타그램 계정에 제 개인 스토리를 올렸어요. / 지금은 삭제했어요? 학습 목표 발화: 지금은 삭제했어요?",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -313,7 +313,7 @@
       "level": "b1",
       "category": "office",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "925b02bfa53c268dcb425bbfa5b1a08463fe8da0134b2e298b21677e22883dd9",
+      "sourceSha256": "fd37bb6d7902a53d79713432213525c3346ec28a8569b34fc34e5fe55a54928d",
       "semanticSummaryKo": "릴스 자막이 가게를 비꼰 것처럼 보였을 때. 대화 핵심: 웃기려고 쓴 건데 가게를 비꼬는 것처럼 보여. / ‘기다리다 늙겠다’가 직원한테 하는 말처럼 읽혀. 학습 목표 발화: ‘기다리다 늙겠다’가 직원한테 하는 말처럼 읽혀.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -387,7 +387,7 @@
       "level": "b1",
       "category": "office",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "925b02bfa53c268dcb425bbfa5b1a08463fe8da0134b2e298b21677e22883dd9",
+      "sourceSha256": "fd37bb6d7902a53d79713432213525c3346ec28a8569b34fc34e5fe55a54928d",
       "semanticSummaryKo": "공용 주방 일회용 컵을 줄이기. 대화 핵심: 회의가 끝날 때마다 일회용 컵이 너무 많이 남아요. / 외부 손님이 있을 때는 컵이 필요할 수도 있어요. 학습 목표 발화: 외부 손님이 있을 때는 컵이 필요할 수도 있어요.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -461,7 +461,7 @@
       "level": "b1",
       "category": "office",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "925b02bfa53c268dcb425bbfa5b1a08463fe8da0134b2e298b21677e22883dd9",
+      "sourceSha256": "fd37bb6d7902a53d79713432213525c3346ec28a8569b34fc34e5fe55a54928d",
       "semanticSummaryKo": "회의 시간이 바뀌었다고 전달하기. 대화 핵심: 다른 팀에서 시간이 바뀔 수도 있다고 연락이 왔어요. / 그럼 캘린더부터 바꿀까요? 학습 목표 발화: 그럼 캘린더부터 바꿀까요?",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -535,7 +535,7 @@
       "level": "b1",
       "category": "office",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "925b02bfa53c268dcb425bbfa5b1a08463fe8da0134b2e298b21677e22883dd9",
+      "sourceSha256": "fd37bb6d7902a53d79713432213525c3346ec28a8569b34fc34e5fe55a54928d",
       "semanticSummaryKo": "메신저 답장이 너무 딱딱하게 보였을 때. 대화 핵심: 마야, ‘오늘 안에 가능하실까요?’만 보내면 조금 재촉하는 것처럼 들려요. / 일정을 확인하려던 건데 재촉처럼 보였군요. 학습 목표 발화: 마야, ‘오늘 안에 가능하실까요?’만 보내면 조금 재촉하는 것처럼 들려요.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -609,7 +609,7 @@
       "level": "b2",
       "category": "office",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "556e5ab0ce9c7a75f2b1aaa624b9beb216aa4b6d6bc0ea2544fd4da3e8488609",
+      "sourceSha256": "95e2489eb1024542c3a1a65fadac632198d4e5cefac200360fc4a43386dcaf0f",
       "semanticSummaryKo": "AI로 만든 이미지를 광고에 쓸 때. 대화 핵심: 이 배경은 시안용이니까 굳이 설명하지 않아도 되지 않을까요? / AI로 만든 이미지라는 점은 먼저 알려야 하지 않을까요? 학습 목표 발화: 이 배경은 시안용이니까 굳이 설명하지 않아도 되지 않을까요?",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -687,7 +687,7 @@
       "level": "b2",
       "category": "office",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "556e5ab0ce9c7a75f2b1aaa624b9beb216aa4b6d6bc0ea2544fd4da3e8488609",
+      "sourceSha256": "95e2489eb1024542c3a1a65fadac632198d4e5cefac200360fc4a43386dcaf0f",
       "semanticSummaryKo": "회사 계정과 개인 계정의 경계를 정하기. 대화 핵심: 마야가 개인 계정에 올리는 후기처럼 현장감 있게 쓰면 어떨까요? / 개인 의견처럼 보여도 회사 계정에 올라가면 공식 입장으로 읽힐 수 있어요. 학습 목표 발화: 마야가 개인 계정에 올리는 후기처럼 현장감 있게 쓰면 어떨까요?",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -761,7 +761,7 @@
       "level": "b2",
       "category": "office",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "556e5ab0ce9c7a75f2b1aaa624b9beb216aa4b6d6bc0ea2544fd4da3e8488609",
+      "sourceSha256": "95e2489eb1024542c3a1a65fadac632198d4e5cefac200360fc4a43386dcaf0f",
       "semanticSummaryKo": "솔직한 피드백이 무례하게 들렸을 때. 대화 핵심: 아까 ‘이건 다시 해야 해’라고만 해서 제 작업이 전부 별로라는 줄 알았어요. / 수정이 필요하다는 뜻이었는데 작업 전체가 별로라는 말처럼 들렸구나. 학습 목표 발화: 아까 ‘이건 다시 해야 해’라고만 해서 제 작업이 전부 별로라는 줄 알았어요.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -835,7 +835,7 @@
       "level": "b2",
       "category": "office",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "556e5ab0ce9c7a75f2b1aaa624b9beb216aa4b6d6bc0ea2544fd4da3e8488609",
+      "sourceSha256": "95e2489eb1024542c3a1a65fadac632198d4e5cefac200360fc4a43386dcaf0f",
       "semanticSummaryKo": "모호한 업무 피드백을 구체화하기. 대화 핵심: 다음 프로젝트에서는 조금 더 주도적으로 움직였으면 해요. / 주도적으로 하라는 말이 어떤 행동을 뜻하는지 예를 들어 주실 수 있을까요? 학습 목표 발화: 다음 프로젝트에서는 조금 더 주도적으로 움직였으면 해요.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -909,7 +909,7 @@
       "level": "b2",
       "category": "office",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "556e5ab0ce9c7a75f2b1aaa624b9beb216aa4b6d6bc0ea2544fd4da3e8488609",
+      "sourceSha256": "95e2489eb1024542c3a1a65fadac632198d4e5cefac200360fc4a43386dcaf0f",
       "semanticSummaryKo": "수정 요청이 계약 범위를 넘었을 때. 대화 핵심: 분위기가 생각과 달라서 촬영부터 다시 하면 좋겠습니다. / 기존 수정 범위에는 새 촬영이 포함되어 있지 않습니다. 학습 목표 발화: 분위기가 생각과 달라서 촬영부터 다시 하면 좋겠습니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -983,7 +983,7 @@
       "level": "b2",
       "category": "office",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "556e5ab0ce9c7a75f2b1aaa624b9beb216aa4b6d6bc0ea2544fd4da3e8488609",
+      "sourceSha256": "95e2489eb1024542c3a1a65fadac632198d4e5cefac200360fc4a43386dcaf0f",
       "semanticSummaryKo": "회의에서 조회 수만으로 성과를 판단할지 논쟁하기. 대화 핵심: 이 영상은 조회 수가 가장 높으니 성과가 좋았다고 볼 수 있겠어요. / 조회 수가 중요하기는 하지만 구매로 이어졌는지도 봐야 해요. 학습 목표 발화: 이 영상은 조회 수가 가장 높으니 성과가 좋았다고 볼 수 있겠어요.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1057,7 +1057,7 @@
       "level": "b2",
       "category": "office",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "556e5ab0ce9c7a75f2b1aaa624b9beb216aa4b6d6bc0ea2544fd4da3e8488609",
+      "sourceSha256": "95e2489eb1024542c3a1a65fadac632198d4e5cefac200360fc4a43386dcaf0f",
       "semanticSummaryKo": "처음 참석한 회의에서 목적 확인하기. 대화 핵심: 저는 이 회의가 처음이라 먼저 확인하고 싶어요. / 오늘 회의에서 어디까지 결정하면 될까요? 학습 목표 발화: 오늘은 캠페인 방향과 대상만 정하면 돼요.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1131,7 +1131,7 @@
       "level": "b2",
       "category": "office",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "556e5ab0ce9c7a75f2b1aaa624b9beb216aa4b6d6bc0ea2544fd4da3e8488609",
+      "sourceSha256": "95e2489eb1024542c3a1a65fadac632198d4e5cefac200360fc4a43386dcaf0f",
       "semanticSummaryKo": "면접에서 포트폴리오 공백 설명하기. 대화 핵심: 이 기간에는 등록된 프로젝트가 없는데, 어떤 일을 하셨나요? / 정규직으로 일한 기간은 아니지만 프리랜서 협업을 했습니다. 학습 목표 발화: 이 기간에는 등록된 프로젝트가 없는데, 어떤 일을 하셨나요?",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1205,7 +1205,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "1c7816b5e5a2c91f5a8b8772de5c78a7c8551232cd9c098a0908e74c808b0185",
+      "sourceSha256": "311a613a13f037a3dc5c354a64e24663a66662625961e90209fd042655b5893c",
       "semanticSummaryKo": "퇴근 후 연락의 경계를 팀에서 정하기. 대화 핵심: 퇴근 뒤 메시지가 오면 급한 건지 내일 봐도 되는 건지 모르겠어요. / 시차가 있는 팀과 일해서 발송 시간을 제한하기는 어렵습니다. 학습 목표 발화: 퇴근 뒤 메시지가 오면 급한 건지 내일 봐도 되는 건지 모르겠어요.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1283,7 +1283,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "1c7816b5e5a2c91f5a8b8772de5c78a7c8551232cd9c098a0908e74c808b0185",
+      "sourceSha256": "311a613a13f037a3dc5c354a64e24663a66662625961e90209fd042655b5893c",
       "semanticSummaryKo": "AI 면접 평가를 지원자에게 어떻게 알릴지. 대화 핵심: 기술 설명을 길게 넣으면 지원자가 더 혼란스러울 수 있어요. / 모델 구조를 전부 공개하지 않더라도 무엇이 평가되고 누가 최종 판단하는지는 알려야 합니다. 학습 목표 발화: 기술 설명을 길게 넣으면 지원자가 더 혼란스러울 수 있어요.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1357,7 +1357,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "1c7816b5e5a2c91f5a8b8772de5c78a7c8551232cd9c098a0908e74c808b0185",
+      "sourceSha256": "311a613a13f037a3dc5c354a64e24663a66662625961e90209fd042655b5893c",
       "semanticSummaryKo": "AI 번역이 인터뷰이의 말투를 지웠을 때. 대화 핵심: 자동 자막은 짧고 읽기 쉬워졌는데 무엇이 문제야? / 원문은 ‘주민들한테 들었는데 그런 것 같아요’라고 했어요. 학습 목표 발화: 원문은 ‘주민들한테 들었는데 그런 것 같아요’라고 했어요.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1431,7 +1431,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "1c7816b5e5a2c91f5a8b8772de5c78a7c8551232cd9c098a0908e74c808b0185",
+      "sourceSha256": "311a613a13f037a3dc5c354a64e24663a66662625961e90209fd042655b5893c",
       "semanticSummaryKo": "익명 직원 설문이 정말 익명인지 묻기. 대화 핵심: 이름과 이메일을 받지 않으니 익명 설문이라고 안내해도 되겠죠? / 이 조합이면 이름을 받지 않아도 누군지 짐작할 수 있습니다. 학습 목표 발화: 이름과 이메일을 받지 않으니 익명 설문이라고 안내해도 되겠죠?",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1505,7 +1505,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "1c7816b5e5a2c91f5a8b8772de5c78a7c8551232cd9c098a0908e74c808b0185",
+      "sourceSha256": "311a613a13f037a3dc5c354a64e24663a66662625961e90209fd042655b5893c",
       "semanticSummaryKo": "딥페이크 의심 영상을 보도하기 전. 대화 핵심: 영상이 이미 크게 퍼졌으니 발언 내용을 중심으로 기사를 내죠. / 영상이 퍼지고 있다는 사실과 영상 내용이 사실이라는 판단은 분리해야 합니다. 학습 목표 발화: 영상이 이미 크게 퍼졌으니 발언 내용을 중심으로 기사를 내죠.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1579,7 +1579,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "1c7816b5e5a2c91f5a8b8772de5c78a7c8551232cd9c098a0908e74c808b0185",
+      "sourceSha256": "311a613a13f037a3dc5c354a64e24663a66662625961e90209fd042655b5893c",
       "semanticSummaryKo": "팬 번역의 노동과 공로를 어떻게 표시할지. 대화 핵심: 팬들이 자발적으로 올린 번역이니 공식 자막에 일부 활용해도 되지 않을까요? / 자발적으로 참여했다는 이유로 번역 노동이 보이지 않아도 되는 것은 아닙니다. 학습 목표 발화: 팬들이 자발적으로 올린 번역이니 공식 자막에 일부 활용해도 되지 않을까요?",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1653,7 +1653,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "1c7816b5e5a2c91f5a8b8772de5c78a7c8551232cd9c098a0908e74c808b0185",
+      "sourceSha256": "311a613a13f037a3dc5c354a64e24663a66662625961e90209fd042655b5893c",
       "semanticSummaryKo": "연구 결과의 한계를 발표에서 숨기지 않기. 대화 핵심: ‘도시 청년의 주거 인식이 바뀌었다’는 제목이 관심을 끌기는 합니다. / 하지만 이 자료로 도시 전체의 변화를 말하기에는 범위가 좁습니다. 학습 목표 발화: ‘도시 청년의 주거 인식이 바뀌었다’는 제목이 관심을 끌기는 합니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1727,7 +1727,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "1c7816b5e5a2c91f5a8b8772de5c78a7c8551232cd9c098a0908e74c808b0185",
+      "sourceSha256": "311a613a13f037a3dc5c354a64e24663a66662625961e90209fd042655b5893c",
       "semanticSummaryKo": "AI 학습 데이터의 출처를 설명해야 할 때. 대화 핵심: 시안 반응이 좋아서 이 이미지를 최종 캠페인에도 쓰고 싶습니다. / 특정 작가의 최근 작품과 너무 비슷하다는 의견이 있습니다. 학습 목표 발화: 시안 반응이 좋아서 이 이미지를 최종 캠페인에도 쓰고 싶습니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1805,7 +1805,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "1c7816b5e5a2c91f5a8b8772de5c78a7c8551232cd9c098a0908e74c808b0185",
+      "sourceSha256": "311a613a13f037a3dc5c354a64e24663a66662625961e90209fd042655b5893c",
       "semanticSummaryKo": "눈에 잘 안 보이는 업무까지 나누기. 대화 핵심: 업무표를 보면 세 사람의 산출물 수는 거의 같습니다. / 산출물만 보면 비슷하지만 조정 업무는 계속 한 사람에게 몰렸어요. 학습 목표 발화: 업무표를 보면 세 사람의 산출물 수는 거의 같습니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1883,7 +1883,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "1c7816b5e5a2c91f5a8b8772de5c78a7c8551232cd9c098a0908e74c808b0185",
+      "sourceSha256": "311a613a13f037a3dc5c354a64e24663a66662625961e90209fd042655b5893c",
       "semanticSummaryKo": "청년 주거 지원 안내가 너무 어려울 때. 대화 핵심: 조건을 줄이면 정확성이 떨어질 수 있어서 원문을 유지해야 합니다. / 조건을 삭제하자는 게 아니라 사용자가 판단하는 순서대로 다시 보여 주자는 뜻입니다. 학습 목표 발화: 조건을 줄이면 정확성이 떨어질 수 있어서 원문을 유지해야 합니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1957,7 +1957,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "55f47f1511faaf43078c67f54484afbf66f25d9921a834320d9767781e79c10b",
+      "sourceSha256": "e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc",
       "semanticSummaryKo": "AI 채용 탈락에 이의를 제기할 권리. 대화 핵심: 영상 업로드 오류가 있었는데 결과에는 점수만 나오고 설명은 없었습니다. / 모든 탈락 사례를 다시 심사하면 채용 일정과 비용을 감당하기 어렵습니다. 학습 목표 발화: 영상 업로드 오류가 있었는데 결과에는 점수만 나오고 설명은 없었습니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2035,7 +2035,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "55f47f1511faaf43078c67f54484afbf66f25d9921a834320d9767781e79c10b",
+      "sourceSha256": "e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc",
       "semanticSummaryKo": "복지 신청이 자동으로 거절됐을 때 책임을 묻기. 대화 핵심: 통지에는 ‘기준 미충족’이라고만 쓰여 있어서 어떤 자료가 문제인지 알 수 없었습니다. / 자동 선별 덕분에 처리 기간이 크게 줄어든 것은 사실입니다. 학습 목표 발화: 통지에는 ‘기준 미충족’이라고만 쓰여 있어서 어떤 자료가 문제인지 알 수 없었습니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2113,7 +2113,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "55f47f1511faaf43078c67f54484afbf66f25d9921a834320d9767781e79c10b",
+      "sourceSha256": "e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc",
       "semanticSummaryKo": "상관관계를 원인처럼 쓴 기사 제목. 대화 핵심: ‘이 앱이 건강을 개선한다’고 써야 독자가 연구 의미를 바로 이해합니다. / 함께 나타났다는 결과를 앱이 개선했다는 원인 주장으로 바꾸면 연구 범위를 넘어섭니다. 학습 목표 발화: ‘이 앱이 건강을 개선한다’고 써야 독자가 연구 의미를 바로 이해합니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2187,7 +2187,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "55f47f1511faaf43078c67f54484afbf66f25d9921a834320d9767781e79c10b",
+      "sourceSha256": "e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc",
       "semanticSummaryKo": "이름의 발음과 소속감을 스스로 정할 권리. 대화 핵심: 등록 시스템에서는 제 이름을 ‘June’으로 바꾸면 검색이 쉽다고 합니다. / 평소에도 그 이름으로 불리길 원하세요? 학습 목표 발화: 등록 시스템에서는 제 이름을 ‘June’으로 바꾸면 검색이 쉽다고 합니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2261,7 +2261,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "55f47f1511faaf43078c67f54484afbf66f25d9921a834320d9767781e79c10b",
+      "sourceSha256": "e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc",
       "semanticSummaryKo": "재난 시 생필품 가격 제한의 역효과를 논의하기. 대화 핵심: 재난 중 생수 가격이 급등하지 않도록 즉시 상한을 두어야 합니다. / 가격만 묶어 두면 필요한 곳에 물건이 도착하지 않는 역효과가 생길 수 있습니다. 학습 목표 발화: 재난 중 생수 가격이 급등하지 않도록 즉시 상한을 두어야 합니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2335,7 +2335,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "55f47f1511faaf43078c67f54484afbf66f25d9921a834320d9767781e79c10b",
+      "sourceSha256": "e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc",
       "semanticSummaryKo": "팩트체크 라벨이 논쟁을 끝내는 권력이 될 때. 대화 핵심: 숫자 하나가 틀렸으니 전체 주장에 ‘거짓’ 라벨을 붙이는 편이 명확합니다. / 검증 가능한 사실과 정책에 대한 가치 판단을 같은 거짓 라벨로 묶어서는 안 됩니다. 학습 목표 발화: 숫자 하나가 틀렸으니 전체 주장에 ‘거짓’ 라벨을 붙이는 편이 명확합니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2409,7 +2409,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "55f47f1511faaf43078c67f54484afbf66f25d9921a834320d9767781e79c10b",
+      "sourceSha256": "e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc",
       "semanticSummaryKo": "주택 보유세 논쟁의 세대 프레임. 대화 핵심: 오늘 토론은 집 없는 청년과 집 가진 노년의 갈등을 중심으로 보겠습니다. / 세대라는 구분이 설명력을 갖는 부분은 있지만 자산과 소득의 차이까지 대신 설명하지는 못합니다. 학습 목표 발화: 오늘 토론은 집 없는 청년과 집 가진 노년의 갈등을 중심으로 보겠습니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2483,7 +2483,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "55f47f1511faaf43078c67f54484afbf66f25d9921a834320d9767781e79c10b",
+      "sourceSha256": "e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc",
       "semanticSummaryKo": "불확실한 치료 효과를 동의 과정에서 설명하기. 대화 핵심: 초기 연구에서 위험이 절반으로 줄었다고 설명하면 핵심이 잘 전달될 겁니다. / 효과가 있을 가능성과 아직 모르는 범위를 같은 무게로 설명해야 합니다. 학습 목표 발화: 초기 연구에서 위험이 절반으로 줄었다고 설명하면 핵심이 잘 전달될 겁니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2557,7 +2557,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "55f47f1511faaf43078c67f54484afbf66f25d9921a834320d9767781e79c10b",
+      "sourceSha256": "e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc",
       "semanticSummaryKo": "보도자료의 수동태가 책임 주체를 지울 때. 대화 핵심: 아직 개인 책임자를 확정하지 못했으니 ‘자료 유출이 발생했다’고 쓰는 게 안전합니다. / 하지만 무엇을 했고 무엇을 하지 않았는지도 전부 빠져 있습니다. 학습 목표 발화: 아직 개인 책임자를 확정하지 못했으니 ‘자료 유출이 발생했다’고 쓰는 게 안전합니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2635,7 +2635,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "55f47f1511faaf43078c67f54484afbf66f25d9921a834320d9767781e79c10b",
+      "sourceSha256": "e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc",
       "semanticSummaryKo": "여론조사 질문이 원하는 답을 만들 때. 대화 핵심: ‘세금 낭비를 막기 위한 규제에 찬성하십니까?’면 목적과 쟁점이 한눈에 들어옵니다. / 질문 안에 이미 낭비라는 평가를 넣으면 응답은 정책보다 그 전제에 반응할 수 있습니다. 학습 목표 발화: ‘세금 낭비를 막기 위한 규제에 찬성하십니까?’면 목적과 쟁점이 한눈에 들어옵니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2709,7 +2709,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "55f47f1511faaf43078c67f54484afbf66f25d9921a834320d9767781e79c10b",
+      "sourceSha256": "e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc",
       "semanticSummaryKo": "연구 재현에 실패했을 때 원 논문을 평가하기. 대화 핵심: 같은 절차를 썼는데 효과가 없었으니 원 연구는 틀렸다고 발표해야 합니다. / 반대로 이번 표본에만 특수한 문제가 있었다고 넘기는 것도 설득력이 없습니다. 학습 목표 발화: 같은 절차를 썼는데 효과가 없었으니 원 연구는 틀렸다고 발표해야 합니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2787,7 +2787,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "55f47f1511faaf43078c67f54484afbf66f25d9921a834320d9767781e79c10b",
+      "sourceSha256": "e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc",
       "semanticSummaryKo": "‘우리’가 포함하고 배제하는 사람을 번역하기. 대화 핵심: 영어 자막에서는 우리를 계속 ‘we residents’로 통일했어. 더 자연스럽지 않아? / 여기서 우리는 앞 문장의 주민 전체와 같은 범위가 아니야. 학습 목표 발화: 영어 자막에서는 우리를 계속 ‘we residents’로 통일했어. 더 자연스럽지 않아?",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2861,7 +2861,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "55f47f1511faaf43078c67f54484afbf66f25d9921a834320d9767781e79c10b",
+      "sourceSha256": "e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc",
       "semanticSummaryKo": "부정 수급 방지 담론이 신청자를 의심하게 만들 때. 대화 핵심: 허위 신청을 줄이려면 첫 화면부터 처벌 가능성을 강하게 알려야 합니다. / 위반 가능성을 알리는 것과 신청자 전체를 의심하는 문체는 구분해야 합니다. 학습 목표 발화: 허위 신청을 줄이려면 첫 화면부터 처벌 가능성을 강하게 알려야 합니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2935,7 +2935,7 @@
       "level": "a1",
       "category": "home",
       "sourceShard": "scenarios_a1.json",
-      "sourceSha256": "12541197fb3299e348433ec904aa9d14a3bd6e0ef699a3a03a32565d234c0bd5",
+      "sourceSha256": "1bf8274b14747ebe16407afd4dee39dff2c2b7200f0367a2ac030144ebb9db9b",
       "semanticSummaryKo": "실수로 잔을 깨뜨렸을 때. 대화 핵심: 죄송해요. 잔을 깼어요. / 괜찮아요. 손대지 마세요. 학습 목표 발화: 괜찮아요. 손대지 마세요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -3009,7 +3009,7 @@
       "level": "a1",
       "category": "home",
       "sourceShard": "scenarios_a1.json",
-      "sourceSha256": "12541197fb3299e348433ec904aa9d14a3bd6e0ef699a3a03a32565d234c0bd5",
+      "sourceSha256": "1bf8274b14747ebe16407afd4dee39dff2c2b7200f0367a2ac030144ebb9db9b",
       "semanticSummaryKo": "댄스 수업에서 말투 알아듣기. 대화 핵심: 레나, 여기 서세요. / 네. 여기요? 학습 목표 발화: 레나, 여기 서세요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -3087,7 +3087,7 @@
       "level": "a1",
       "category": "home",
       "sourceShard": "scenarios_a1.json",
-      "sourceSha256": "12541197fb3299e348433ec904aa9d14a3bd6e0ef699a3a03a32565d234c0bd5",
+      "sourceSha256": "1bf8274b14747ebe16407afd4dee39dff2c2b7200f0367a2ac030144ebb9db9b",
       "semanticSummaryKo": "첫 수업에서 옆자리 학생 만나기. 대화 핵심: 안녕하세요. 오늘 첫 수업이에요? / 네, 첫 수업이에요. 학습 목표 발화: 안녕하세요. 오늘 첫 수업이에요?",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -3161,7 +3161,7 @@
       "level": "a1",
       "category": "home",
       "sourceShard": "scenarios_a1.json",
-      "sourceSha256": "12541197fb3299e348433ec904aa9d14a3bd6e0ef699a3a03a32565d234c0bd5",
+      "sourceSha256": "1bf8274b14747ebe16407afd4dee39dff2c2b7200f0367a2ac030144ebb9db9b",
       "semanticSummaryKo": "아침 준비하며 물건 찾기. 대화 핵심: 교통카드 어디 있어? / 책 아래에 있어. 학습 목표 발화: 책 아래에 있어.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -3235,7 +3235,7 @@
       "level": "a1",
       "category": "home",
       "sourceShard": "scenarios_a1.json",
-      "sourceSha256": "12541197fb3299e348433ec904aa9d14a3bd6e0ef699a3a03a32565d234c0bd5",
+      "sourceSha256": "1bf8274b14747ebe16407afd4dee39dff2c2b7200f0367a2ac030144ebb9db9b",
       "semanticSummaryKo": "수업 뒤 카카오톡으로 연락하기. 대화 핵심: 우리 과제 같이 해요. / 카카오톡으로 연락할까요? 학습 목표 발화: 우리 과제 같이 해요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -3309,7 +3309,7 @@
       "level": "a1",
       "category": "home",
       "sourceShard": "scenarios_a1.json",
-      "sourceSha256": "12541197fb3299e348433ec904aa9d14a3bd6e0ef699a3a03a32565d234c0bd5",
+      "sourceSha256": "1bf8274b14747ebe16407afd4dee39dff2c2b7200f0367a2ac030144ebb9db9b",
       "semanticSummaryKo": "약속 시간을 다시 확인하기. 대화 핵심: 오늘 몇 시에 만나요? / 일곱 시에 만나요. 학습 목표 발화: 일곱 시에 만나요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -3383,7 +3383,7 @@
       "level": "a1",
       "category": "home",
       "sourceShard": "scenarios_a1.json",
-      "sourceSha256": "12541197fb3299e348433ec904aa9d14a3bd6e0ef699a3a03a32565d234c0bd5",
+      "sourceSha256": "1bf8274b14747ebe16407afd4dee39dff2c2b7200f0367a2ac030144ebb9db9b",
       "semanticSummaryKo": "한국에서 보낸 첫 주말 아침. 대화 핵심: 몇 시에 나가? / 열 시에 나가자. 학습 목표 발화: 열 시에 나가자.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -3457,7 +3457,7 @@
       "level": "a1",
       "category": "home",
       "sourceShard": "scenarios_a1.json",
-      "sourceSha256": "12541197fb3299e348433ec904aa9d14a3bd6e0ef699a3a03a32565d234c0bd5",
+      "sourceSha256": "1bf8274b14747ebe16407afd4dee39dff2c2b7200f0367a2ac030144ebb9db9b",
       "semanticSummaryKo": "비 오는 날 우산 같이 쓰기. 대화 핵심: 비 와요? / 네, 많이 와요. 학습 목표 발화: 네, 많이 와요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -3531,7 +3531,7 @@
       "level": "a2",
       "category": "home",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "41db3c89ee3ac00e92243be1822f1a94c379842a03a97127c54b80689e998a14",
+      "sourceSha256": "859b7f61d65f03125da460d18df4f3c47caeb266d7a382c60a2b3f4fe55af54d",
       "semanticSummaryKo": "배달 음식이 너무 매울 때. 대화 핵심: 와, 생각보다 너무 매워요. / 괜찮아요? 물 줄까요? 학습 목표 발화: 괜찮아요? 물 줄까요?",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -3605,7 +3605,7 @@
       "level": "a2",
       "category": "home",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "41db3c89ee3ac00e92243be1822f1a94c379842a03a97127c54b80689e998a14",
+      "sourceSha256": "859b7f61d65f03125da460d18df4f3c47caeb266d7a382c60a2b3f4fe55af54d",
       "semanticSummaryKo": "집 열쇠를 두고 나온 날. 대화 핵심: 나 큰일 났어. 열쇠를 방에 두고 왔어. / 가방에도 없어? 학습 목표 발화: 가방에도 없어?",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -3679,7 +3679,7 @@
       "level": "a2",
       "category": "home",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "41db3c89ee3ac00e92243be1822f1a94c379842a03a97127c54b80689e998a14",
+      "sourceSha256": "859b7f61d65f03125da460d18df4f3c47caeb266d7a382c60a2b3f4fe55af54d",
       "semanticSummaryKo": "발표 케이블을 안 가져왔을 때. 대화 핵심: 큰일이야. 케이블을 안 가져왔어. / 기숙사에 있어? 학습 목표 발화: 기숙사에 있어?",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -3753,7 +3753,7 @@
       "level": "a2",
       "category": "home",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "41db3c89ee3ac00e92243be1822f1a94c379842a03a97127c54b80689e998a14",
+      "sourceSha256": "859b7f61d65f03125da460d18df4f3c47caeb266d7a382c60a2b3f4fe55af54d",
       "semanticSummaryKo": "갑자기 약속을 취소했을 때. 대화 핵심: 갑자기 취소해서 미안해. / 집에 일이 생겨서 오늘은 못 갈 것 같아. 학습 목표 발화: 알겠어. 그런데 조금 서운했어.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -3827,7 +3827,7 @@
       "level": "a2",
       "category": "home",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "41db3c89ee3ac00e92243be1822f1a94c379842a03a97127c54b80689e998a14",
+      "sourceSha256": "859b7f61d65f03125da460d18df4f3c47caeb266d7a382c60a2b3f4fe55af54d",
       "semanticSummaryKo": "운동 수업을 취소하기. 대화 핵심: 안녕하세요. 무엇을 도와드릴까요? / 발목이 아파서 오늘 수업을 못 가요. 학습 목표 발화: 안녕하세요. 무엇을 도와드릴까요?",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -3901,7 +3901,7 @@
       "level": "a2",
       "category": "home",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "41db3c89ee3ac00e92243be1822f1a94c379842a03a97127c54b80689e998a14",
+      "sourceSha256": "859b7f61d65f03125da460d18df4f3c47caeb266d7a382c60a2b3f4fe55af54d",
       "semanticSummaryKo": "도서관 카드가 인식되지 않을 때. 대화 핵심: 저기요. 카드가 안 돼요. / 한 번 다시 찍어 보세요. 학습 목표 발화: 한 번 다시 찍어 보세요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -3975,7 +3975,7 @@
       "level": "a2",
       "category": "home",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "41db3c89ee3ac00e92243be1822f1a94c379842a03a97127c54b80689e998a14",
+      "sourceSha256": "859b7f61d65f03125da460d18df4f3c47caeb266d7a382c60a2b3f4fe55af54d",
       "semanticSummaryKo": "택배가 옆집 앞에 놓였을 때. 대화 핵심: 네, 무슨 일이세요? / 제 택배가 여기 온 것 같아요. 학습 목표 발화: 네, 무슨 일이세요?",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -4049,7 +4049,7 @@
       "level": "a2",
       "category": "home",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "41db3c89ee3ac00e92243be1822f1a94c379842a03a97127c54b80689e998a14",
+      "sourceSha256": "859b7f61d65f03125da460d18df4f3c47caeb266d7a382c60a2b3f4fe55af54d",
       "semanticSummaryKo": "주말에 전시 보러 가기. 대화 핵심: 토요일에 이 전시 보러 갈래요? / 토요일에는 일이 있어서 안 돼요. 학습 목표 발화: 토요일에는 일이 있어서 안 돼요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -4123,7 +4123,7 @@
       "level": "a2",
       "category": "home",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "41db3c89ee3ac00e92243be1822f1a94c379842a03a97127c54b80689e998a14",
+      "sourceSha256": "859b7f61d65f03125da460d18df4f3c47caeb266d7a382c60a2b3f4fe55af54d",
       "semanticSummaryKo": "공유 문서의 예전 버전을 고쳤을 때. 대화 핵심: 레나, 나 예전 파일을 고쳤어. / 공유 문서가 아니었어? 학습 목표 발화: 공유 문서가 아니었어?",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -4197,7 +4197,7 @@
       "level": "b1",
       "category": "home",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "925b02bfa53c268dcb425bbfa5b1a08463fe8da0134b2e298b21677e22883dd9",
+      "sourceSha256": "fd37bb6d7902a53d79713432213525c3346ec28a8569b34fc34e5fe55a54928d",
       "semanticSummaryKo": "AI 요약에 틀린 내용이 섞였을 때. 대화 핵심: 요약에는 행사가 5월 12일이라고 되어 있는데 원문은 21일이에요. / 제가 AI 요약만 보고 원문을 다시 확인하지 않았어요. 학습 목표 발화: 요약에는 행사가 5월 12일이라고 되어 있는데 원문은 21일이에요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -4271,7 +4271,7 @@
       "level": "b1",
       "category": "home",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "925b02bfa53c268dcb425bbfa5b1a08463fe8da0134b2e298b21677e22883dd9",
+      "sourceSha256": "fd37bb6d7902a53d79713432213525c3346ec28a8569b34fc34e5fe55a54928d",
       "semanticSummaryKo": "분리배출을 잘못해서 이웃이 말했을 때. 대화 핵심: 죄송한데, 그건 종이류가 아닌 것 같아요. / 종이인 줄 알고 여기 넣었어요. 학습 목표 발화: 죄송한데, 그건 종이류가 아닌 것 같아요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -4345,7 +4345,7 @@
       "level": "b1",
       "category": "home",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "925b02bfa53c268dcb425bbfa5b1a08463fe8da0134b2e298b21677e22883dd9",
+      "sourceSha256": "fd37bb6d7902a53d79713432213525c3346ec28a8569b34fc34e5fe55a54928d",
       "semanticSummaryKo": "동네 축제 봉사 시간을 바꿔야 할 때. 대화 핵심: 축제 봉사 담당입니다. 무슨 일이세요? / 수업 시간이 바뀌는 바람에 그 시간에는 못 갈 것 같아요. 학습 목표 발화: 축제 봉사 담당입니다. 무슨 일이세요?",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -4419,7 +4419,7 @@
       "level": "b1",
       "category": "home",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "925b02bfa53c268dcb425bbfa5b1a08463fe8da0134b2e298b21677e22883dd9",
+      "sourceSha256": "fd37bb6d7902a53d79713432213525c3346ec28a8569b34fc34e5fe55a54928d",
       "semanticSummaryKo": "배달 음식이 다른 메뉴로 왔을 때. 대화 핵심: 고객센터입니다. 어떤 문제가 있으세요? / 제가 주문한 메뉴가 아니라 다른 음식이 왔어요. 학습 목표 발화: 고객센터입니다. 어떤 문제가 있으세요?",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -4493,7 +4493,7 @@
       "level": "b1",
       "category": "home",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "925b02bfa53c268dcb425bbfa5b1a08463fe8da0134b2e298b21677e22883dd9",
+      "sourceSha256": "fd37bb6d7902a53d79713432213525c3346ec28a8569b34fc34e5fe55a54928d",
       "semanticSummaryKo": "늦은 밤 이웃집 음악이 클 때. 대화 핵심: 네, 무슨 일이세요? / 늦은 시간에 죄송해요. 음악 소리가 방까지 들려서요. 학습 목표 발화: 네, 무슨 일이세요?",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -4567,7 +4567,7 @@
       "level": "b1",
       "category": "home",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "925b02bfa53c268dcb425bbfa5b1a08463fe8da0134b2e298b21677e22883dd9",
+      "sourceSha256": "fd37bb6d7902a53d79713432213525c3346ec28a8569b34fc34e5fe55a54928d",
       "semanticSummaryKo": "공원에서 목줄이 긴 강아지를 만났을 때. 대화 핵심: 죄송한데, 줄이 길어서 넘어질 뻔했어요. / 아, 죄송해요. 사람이 오는 걸 못 봤어요. 학습 목표 발화: 아, 죄송해요. 사람이 오는 걸 못 봤어요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -4641,7 +4641,7 @@
       "level": "b1",
       "category": "home",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "925b02bfa53c268dcb425bbfa5b1a08463fe8da0134b2e298b21677e22883dd9",
+      "sourceSha256": "fd37bb6d7902a53d79713432213525c3346ec28a8569b34fc34e5fe55a54928d",
       "semanticSummaryKo": "달리다 무릎이 아픈데 대회를 앞뒀을 때. 대화 핵심: 다니엘, 아까부터 계속 절뚝거리는데 괜찮아? / 무릎이 좀 아파. 대회가 얼마 안 남아서 쉬기가 불안해. 학습 목표 발화: 다니엘, 아까부터 계속 절뚝거리는데 괜찮아?",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -4715,7 +4715,7 @@
       "level": "b1",
       "category": "home",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "925b02bfa53c268dcb425bbfa5b1a08463fe8da0134b2e298b21677e22883dd9",
+      "sourceSha256": "fd37bb6d7902a53d79713432213525c3346ec28a8569b34fc34e5fe55a54928d",
       "semanticSummaryKo": "친해진 뒤 말을 놓을지 묻기. 대화 핵심: 레나, 우리 이제 말 놓을까? / 좋아요. 그런데 갑자기 바꾸면 조금 어색할 것 같아요. 학습 목표 발화: 레나, 우리 이제 말 놓을까?",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -4789,7 +4789,7 @@
       "level": "b1",
       "category": "home",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "925b02bfa53c268dcb425bbfa5b1a08463fe8da0134b2e298b21677e22883dd9",
+      "sourceSha256": "fd37bb6d7902a53d79713432213525c3346ec28a8569b34fc34e5fe55a54928d",
       "semanticSummaryKo": "구독을 해지했는데 결제됐을 때. 대화 핵심: 고객센터입니다. 무엇을 확인해 드릴까요? / 지난주에 해지 완료 화면을 봤는데 이번 달 요금이 결제됐어요. 학습 목표 발화: 고객센터입니다. 무엇을 확인해 드릴까요?",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -4863,7 +4863,7 @@
       "level": "b2",
       "category": "home",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "556e5ab0ce9c7a75f2b1aaa624b9beb216aa4b6d6bc0ea2544fd4da3e8488609",
+      "sourceSha256": "95e2489eb1024542c3a1a65fadac632198d4e5cefac200360fc4a43386dcaf0f",
       "semanticSummaryKo": "축제 동선을 휠체어도 이용할 수 있게 바꾸기. 대화 핵심: 포토존 줄이 경사로 앞까지 이어져서 지나갈 수가 없어요. / 사진 찍는 사람들만 생각하고 이동 공간을 놓쳤네요. 학습 목표 발화: 포토존 줄이 경사로 앞까지 이어져서 지나갈 수가 없어요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -4937,7 +4937,7 @@
       "level": "b2",
       "category": "home",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "556e5ab0ce9c7a75f2b1aaa624b9beb216aa4b6d6bc0ea2544fd4da3e8488609",
+      "sourceSha256": "95e2489eb1024542c3a1a65fadac632198d4e5cefac200360fc4a43386dcaf0f",
       "semanticSummaryKo": "동네 행사 시간과 소음을 절충하기. 대화 핵심: 영화제가 골목 상권에는 도움이 된다는 의견이 많습니다. / 취지는 좋지만 영화가 끝난 뒤까지 소음이 이어질까 걱정돼요. 학습 목표 발화: 영화제가 골목 상권에는 도움이 된다는 의견이 많습니다.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -5015,7 +5015,7 @@
       "level": "b2",
       "category": "home",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "556e5ab0ce9c7a75f2b1aaa624b9beb216aa4b6d6bc0ea2544fd4da3e8488609",
+      "sourceSha256": "95e2489eb1024542c3a1a65fadac632198d4e5cefac200360fc4a43386dcaf0f",
       "semanticSummaryKo": "배달 지연 환불 범위를 협의하기. 대화 핵심: 불편을 드려 죄송합니다. 음식은 모두 그대로 있나요? / 일부는 먹었기 때문에 전액 환불을 요구하는 건 아니에요. 학습 목표 발화: 불편을 드려 죄송합니다. 음식은 모두 그대로 있나요?",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -5089,7 +5089,7 @@
       "level": "b2",
       "category": "home",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "556e5ab0ce9c7a75f2b1aaa624b9beb216aa4b6d6bc0ea2544fd4da3e8488609",
+      "sourceSha256": "95e2489eb1024542c3a1a65fadac632198d4e5cefac200360fc4a43386dcaf0f",
       "semanticSummaryKo": "도서관 통화 구역을 두고 갈등할 때. 대화 핵심: 죄송한데 여기서는 계속 통화하시면 안 돼요. / 통화 가능한 구역인 줄 알았는데 표시를 제가 못 봤어요. 학습 목표 발화: 죄송한데 여기서는 계속 통화하시면 안 돼요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -5163,7 +5163,7 @@
       "level": "b2",
       "category": "home",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "556e5ab0ce9c7a75f2b1aaa624b9beb216aa4b6d6bc0ea2544fd4da3e8488609",
+      "sourceSha256": "95e2489eb1024542c3a1a65fadac632198d4e5cefac200360fc4a43386dcaf0f",
       "semanticSummaryKo": "아파트 음식물 쓰레기 방식을 바꾸기. 대화 핵심: 새 기기를 쓰면 냄새는 줄지만 화면이 복잡하다는 의견도 있어요. / 저는 카드 찍는 순서를 몰라서 뒤에 사람이 오면 더 급해져요. 학습 목표 발화: 저는 카드 찍는 순서를 몰라서 뒤에 사람이 오면 더 급해져요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -5241,7 +5241,7 @@
       "level": "b2",
       "category": "home",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "556e5ab0ce9c7a75f2b1aaa624b9beb216aa4b6d6bc0ea2544fd4da3e8488609",
+      "sourceSha256": "95e2489eb1024542c3a1a65fadac632198d4e5cefac200360fc4a43386dcaf0f",
       "semanticSummaryKo": "퇴거 전 수리비 책임을 협의하기. 대화 핵심: 이 얼룩은 새로 생긴 것 같아서 수리비를 확인해야겠어요. / 입주할 때 찍은 사진에도 비슷한 자국이 있어요. 학습 목표 발화: 이 얼룩은 새로 생긴 것 같아서 수리비를 확인해야겠어요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -5315,7 +5315,7 @@
       "level": "c1",
       "category": "home",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "1c7816b5e5a2c91f5a8b8772de5c78a7c8551232cd9c098a0908e74c808b0185",
+      "sourceSha256": "311a613a13f037a3dc5c354a64e24663a66662625961e90209fd042655b5893c",
       "semanticSummaryKo": "빠른 배달과 라이더 안전을 함께 논의하기. 대화 핵심: ‘빠른 배달’ 배지는 고객이 가게를 빨리 고르게 하고 주문도 늘렸습니다. / 그 시간 안에 가려다 인도로 올라오는 오토바이를 자주 봤어요. 학습 목표 발화: ‘빠른 배달’ 배지는 고객이 가게를 빨리 고르게 하고 주문도 늘렸습니다.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -5393,7 +5393,7 @@
       "level": "c1",
       "category": "home",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "1c7816b5e5a2c91f5a8b8772de5c78a7c8551232cd9c098a0908e74c808b0185",
+      "sourceSha256": "311a613a13f037a3dc5c354a64e24663a66662625961e90209fd042655b5893c",
       "semanticSummaryKo": "폭염 쉼터가 있어도 이용하기 어려울 때. 대화 핵심: 이 지역은 기준보다 많은 폭염 쉼터를 운영하고 있습니다. / 가까운 곳은 계단뿐이고, 경사로가 있는 곳은 제가 갈 때 이미 닫혀요. 학습 목표 발화: 이 지역은 기준보다 많은 폭염 쉼터를 운영하고 있습니다.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -5471,7 +5471,7 @@
       "level": "c1",
       "category": "home",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "1c7816b5e5a2c91f5a8b8772de5c78a7c8551232cd9c098a0908e74c808b0185",
+      "sourceSha256": "311a613a13f037a3dc5c354a64e24663a66662625961e90209fd042655b5893c",
       "semanticSummaryKo": "박물관 설명문에 누구의 관점을 담을지. 대화 핵심: 설명문은 짧아야 해서 이 도구가 생활을 편리하게 했다는 점만 남겼습니다. / 발전의 상징이라는 설명만 남기면 그 과정에서 밀려난 사람들의 경험이 보이지 않습니다. 학습 목표 발화: 설명문은 짧아야 해서 이 도구가 생활을 편리하게 했다는 점만 남겼습니다.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -5545,7 +5545,7 @@
       "level": "c1",
       "category": "home",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "1c7816b5e5a2c91f5a8b8772de5c78a7c8551232cd9c098a0908e74c808b0185",
+      "sourceSha256": "311a613a13f037a3dc5c354a64e24663a66662625961e90209fd042655b5893c",
       "semanticSummaryKo": "커뮤니티 글이 자동으로 숨겨졌을 때. 대화 핵심: 표현이 거칠었던 건 인정하지만 계좌와 피해 방식까지 전부 가려졌어요. / 필터가 필요한 이유와 잘못 숨겨졌을 때 다시 볼 수 있는 길은 함께 마련돼야 합니다. 학습 목표 발화: 표현이 거칠었던 건 인정하지만 계좌와 피해 방식까지 전부 가려졌어요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -5619,7 +5619,7 @@
       "level": "c1",
       "category": "home",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "1c7816b5e5a2c91f5a8b8772de5c78a7c8551232cd9c098a0908e74c808b0185",
+      "sourceSha256": "311a613a13f037a3dc5c354a64e24663a66662625961e90209fd042655b5893c",
       "semanticSummaryKo": "주민 의견 수렴이 실제 참여가 되려면. 대화 핵심: 설문 응답이 천 건을 넘어서 참여는 충분했다고 보고 있습니다. / 응답 수가 많다는 사실만으로 지역 전체의 의견을 대표한다고 보기는 어렵습니다. 학습 목표 발화: 설문 응답이 천 건을 넘어서 참여는 충분했다고 보고 있습니다.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -5697,7 +5697,7 @@
       "level": "c1",
       "category": "home",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "1c7816b5e5a2c91f5a8b8772de5c78a7c8551232cd9c098a0908e74c808b0185",
+      "sourceSha256": "311a613a13f037a3dc5c354a64e24663a66662625961e90209fd042655b5893c",
       "semanticSummaryKo": "학교 스마트폰 규제를 설계할 때. 대화 핵심: 수업 시작 전에 휴대폰을 모두 걷으면 집중 문제가 줄어들 겁니다. / 저는 혈당을 확인하는 앱을 써서 휴대폰이 필요해요. 학습 목표 발화: 수업 시작 전에 휴대폰을 모두 걷으면 집중 문제가 줄어들 겁니다.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -5775,7 +5775,7 @@
       "level": "c1",
       "category": "home",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "1c7816b5e5a2c91f5a8b8772de5c78a7c8551232cd9c098a0908e74c808b0185",
+      "sourceSha256": "311a613a13f037a3dc5c354a64e24663a66662625961e90209fd042655b5893c",
       "semanticSummaryKo": "전통 공연을 현대적으로 바꿀 때. 대화 핵심: 젊은 관객에게 닿으려면 도입부를 줄이고 후렴을 더 강하게 만들면 어떨까요? / 새롭게 해석하는 건 가능하지만 원래 형식처럼 보이게 하면 오해가 생길 수 있어요. 학습 목표 발화: 새롭게 해석하는 건 가능하지만 원래 형식처럼 보이게 하면 오해가 생길 수 있어요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -5849,7 +5849,7 @@
       "level": "c2",
       "category": "home",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "55f47f1511faaf43078c67f54484afbf66f25d9921a834320d9767781e79c10b",
+      "sourceSha256": "e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc",
       "semanticSummaryKo": "재난 대응 실패의 중앙·지방 책임을 나누기. 대화 핵심: 중앙 경보가 늦게 내려와 현장에서는 판단할 정보가 부족했습니다. / 그런데 경보가 온 뒤에도 대피 안내는 한참 나오지 않았습니다. 학습 목표 발화: 중앙 경보가 늦게 내려와 현장에서는 판단할 정보가 부족했습니다.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -5927,7 +5927,7 @@
       "level": "c2",
       "category": "home",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "55f47f1511faaf43078c67f54484afbf66f25d9921a834320d9767781e79c10b",
+      "sourceSha256": "e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc",
       "semanticSummaryKo": "기후 모델의 불확실성을 지역 결정에 쓰기. 대화 핵심: 모델마다 침수 지도가 달라서 어느 결과를 기준으로 삼아야 할지 모르겠습니다. / 예측 범위가 다르다는 사실이 아무 결정도 하지 말아야 한다는 뜻은 아닙니다. 학습 목표 발화: 모델마다 침수 지도가 달라서 어느 결과를 기준으로 삼아야 할지 모르겠습니다.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -6001,7 +6001,7 @@
       "level": "c2",
       "category": "home",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "55f47f1511faaf43078c67f54484afbf66f25d9921a834320d9767781e79c10b",
+      "sourceSha256": "e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc",
       "semanticSummaryKo": "가족이 같은 과거를 다르게 기억할 때. 대화 핵심: 가족 사진 밑에 ‘모두가 기다리던 새 출발’이라고 쓰려고 했어요. / 그런데 이모는 그때 친구와 집을 한꺼번에 잃었다고 했죠? 학습 목표 발화: 가족 사진 밑에 ‘모두가 기다리던 새 출발’이라고 쓰려고 했어요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -6075,7 +6075,7 @@
       "level": "c2",
       "category": "home",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "55f47f1511faaf43078c67f54484afbf66f25d9921a834320d9767781e79c10b",
+      "sourceSha256": "e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc",
       "semanticSummaryKo": "집회 질서와 표현의 자유를 같은 틀에서 논증하기. 대화 핵심: 지난 집회 때 도로가 오래 막혔으니 앞으로는 도심 집회를 더 엄격하게 제한해야 합니다. / 출근길뿐 아니라 응급 차량 통행도 늦어질까 걱정됩니다. 학습 목표 발화: 지난 집회 때 도로가 오래 막혔으니 앞으로는 도심 집회를 더 엄격하게 제한해야 합니다.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -6153,7 +6153,7 @@
       "level": "c2",
       "category": "home",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "55f47f1511faaf43078c67f54484afbf66f25d9921a834320d9767781e79c10b",
+      "sourceSha256": "e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc",
       "semanticSummaryKo": "연애의 시작을 서로 다르게 말할 때. 대화 핵심: 아까 친구들 앞에서 첫눈에 반했다고 말한 거, 저는 조금 불편했어요. / 그냥 이야기를 짧고 재미있게 하려고 한 말이었어요. 학습 목표 발화: 아까 친구들 앞에서 첫눈에 반했다고 말한 거, 저는 조금 불편했어요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -6227,7 +6227,7 @@
       "level": "a1",
       "category": "cafe",
       "sourceShard": "scenarios_a1.json",
-      "sourceSha256": "12541197fb3299e348433ec904aa9d14a3bd6e0ef699a3a03a32565d234c0bd5",
+      "sourceSha256": "1bf8274b14747ebe16407afd4dee39dff2c2b7200f0367a2ac030144ebb9db9b",
       "semanticSummaryKo": "카페 디저트가 없을 때. 대화 핵심: 딸기 케이크 있어요? / 죄송해요. 오늘은 없어요. 학습 목표 발화: 죄송해요. 오늘은 없어요.",
       "requiredSettingKo": "한국의 카페 내부",
       "requiredParticipants": [
@@ -6301,7 +6301,7 @@
       "level": "a1",
       "category": "cafe",
       "sourceShard": "scenarios_a1.json",
-      "sourceSha256": "12541197fb3299e348433ec904aa9d14a3bd6e0ef699a3a03a32565d234c0bd5",
+      "sourceSha256": "1bf8274b14747ebe16407afd4dee39dff2c2b7200f0367a2ac030144ebb9db9b",
       "semanticSummaryKo": "좋아하는 한국 음악 묻기. 대화 핵심: 한국 음악도 좋아해요? / 네, 아주 좋아해요. 학습 목표 발화: 한국 음악도 좋아해요?",
       "requiredSettingKo": "한국의 카페 내부",
       "requiredParticipants": [
@@ -6375,7 +6375,7 @@
       "level": "a1",
       "category": "cafe",
       "sourceShard": "scenarios_a1.json",
-      "sourceSha256": "12541197fb3299e348433ec904aa9d14a3bd6e0ef699a3a03a32565d234c0bd5",
+      "sourceSha256": "1bf8274b14747ebe16407afd4dee39dff2c2b7200f0367a2ac030144ebb9db9b",
       "semanticSummaryKo": "처음 만나 자기소개하기. 대화 핵심: 안녕하세요. 저는 수진이에요. / 안녕하세요. 저는 크리스티안이에요. 학습 목표 발화: 안녕하세요. 저는 수진이에요.",
       "requiredSettingKo": "한국의 카페 내부",
       "requiredParticipants": [
@@ -6449,7 +6449,7 @@
       "level": "a2",
       "category": "cafe",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "41db3c89ee3ac00e92243be1822f1a94c379842a03a97127c54b80689e998a14",
+      "sourceSha256": "859b7f61d65f03125da460d18df4f3c47caeb266d7a382c60a2b3f4fe55af54d",
       "semanticSummaryKo": "단체 사진을 올리기 전에 묻기. 대화 핵심: 이 사진 올려도 돼? / 이건 내 얼굴이 이상하게 나왔어. 학습 목표 발화: 이 사진 올려도 돼?",
       "requiredSettingKo": "한국의 카페 내부",
       "requiredParticipants": [
@@ -6523,7 +6523,7 @@
       "level": "b1",
       "category": "cafe",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "925b02bfa53c268dcb425bbfa5b1a08463fe8da0134b2e298b21677e22883dd9",
+      "sourceSha256": "fd37bb6d7902a53d79713432213525c3346ec28a8569b34fc34e5fe55a54928d",
       "semanticSummaryKo": "생일을 크게 챙길 줄 몰랐을 때. 대화 핵심: 제가 준비하려던 게 부담스러웠어요? / 아니요. 축하가 싫었던 건 아니에요. 학습 목표 발화: 제가 준비하려던 게 부담스러웠어요?",
       "requiredSettingKo": "한국의 카페 내부",
       "requiredParticipants": [
@@ -6597,7 +6597,7 @@
       "level": "b1",
       "category": "cafe",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "925b02bfa53c268dcb425bbfa5b1a08463fe8da0134b2e298b21677e22883dd9",
+      "sourceSha256": "fd37bb6d7902a53d79713432213525c3346ec28a8569b34fc34e5fe55a54928d",
       "semanticSummaryKo": "이 커피 약속이 데이트인지 헷갈릴 때. 대화 핵심: 아까 친구가 우리 데이트하냐고 물어서 좀 당황했어요. / 저도요. 갑자기 어색해졌네요. 학습 목표 발화: 아까 친구가 우리 데이트하냐고 물어서 좀 당황했어요.",
       "requiredSettingKo": "한국의 카페 내부",
       "requiredParticipants": [
@@ -6671,7 +6671,7 @@
       "level": "b2",
       "category": "cafe",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "556e5ab0ce9c7a75f2b1aaa624b9beb216aa4b6d6bc0ea2544fd4da3e8488609",
+      "sourceSha256": "95e2489eb1024542c3a1a65fadac632198d4e5cefac200360fc4a43386dcaf0f",
       "semanticSummaryKo": "가게 안을 촬영하기 전에 허락받기. 대화 핵심: 가게 안을 잠깐 촬영해도 괜찮으세요? / 어디에 올릴 영상이에요? 가게 어디까지 찍으실 거예요? 학습 목표 발화: 어디에 올릴 영상이에요? 가게 어디까지 찍으실 거예요?",
       "requiredSettingKo": "한국의 카페 내부",
       "requiredParticipants": [
@@ -6745,7 +6745,7 @@
       "level": "b2",
       "category": "cafe",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "556e5ab0ce9c7a75f2b1aaa624b9beb216aa4b6d6bc0ea2544fd4da3e8488609",
+      "sourceSha256": "95e2489eb1024542c3a1a65fadac632198d4e5cefac200360fc4a43386dcaf0f",
       "semanticSummaryKo": "친구의 과한 라이브 방송을 보며 민망할 때. 대화 핵심: 오늘 라이브 어땠어? 분위기 좋았지? / 솔직히 직원한테 춤춰 달라고 할 때는 내가 다 민망하더라. 학습 목표 발화: 오늘 라이브 어땠어? 분위기 좋았지?",
       "requiredSettingKo": "한국의 카페 내부",
       "requiredParticipants": [
@@ -6819,7 +6819,7 @@
       "level": "b2",
       "category": "cafe",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "556e5ab0ce9c7a75f2b1aaa624b9beb216aa4b6d6bc0ea2544fd4da3e8488609",
+      "sourceSha256": "95e2489eb1024542c3a1a65fadac632198d4e5cefac200360fc4a43386dcaf0f",
       "semanticSummaryKo": "연인의 가족을 처음 만날 때 호칭 정하기. 대화 핵심: 부모님을 어떻게 부르는 게 편할까요? / 처음부터 호칭을 정하려고 하면 더 어색할 수 있어요. 학습 목표 발화: 처음부터 호칭을 정하려고 하면 더 어색할 수 있어요.",
       "requiredSettingKo": "한국의 카페 내부",
       "requiredParticipants": [
@@ -6893,7 +6893,7 @@
       "level": "a1",
       "category": "station",
       "sourceShard": "scenarios_a1.json",
-      "sourceSha256": "12541197fb3299e348433ec904aa9d14a3bd6e0ef699a3a03a32565d234c0bd5",
+      "sourceSha256": "1bf8274b14747ebe16407afd4dee39dff2c2b7200f0367a2ac030144ebb9db9b",
       "semanticSummaryKo": "지하철 출구를 다시 묻기. 대화 핵심: 시청은 몇 번 출구예요? / 13번 출구예요. 학습 목표 발화: 13번 출구예요.",
       "requiredSettingKo": "한국의 기차역 또는 지하철역",
       "requiredParticipants": [
@@ -6967,7 +6967,7 @@
       "level": "a1",
       "category": "station",
       "sourceShard": "scenarios_a1.json",
-      "sourceSha256": "12541197fb3299e348433ec904aa9d14a3bd6e0ef699a3a03a32565d234c0bd5",
+      "sourceSha256": "1bf8274b14747ebe16407afd4dee39dff2c2b7200f0367a2ac030144ebb9db9b",
       "semanticSummaryKo": "지하철에서 발을 밟았을 때. 대화 핵심: 앗, 죄송합니다. / 괜찮아요. 학습 목표 발화: 괜찮아요.",
       "requiredSettingKo": "한국의 기차역 또는 지하철역",
       "requiredParticipants": [
@@ -7041,7 +7041,7 @@
       "level": "a2",
       "category": "station",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "41db3c89ee3ac00e92243be1822f1a94c379842a03a97127c54b80689e998a14",
+      "sourceSha256": "859b7f61d65f03125da460d18df4f3c47caeb266d7a382c60a2b3f4fe55af54d",
       "semanticSummaryKo": "제주에서 막차를 놓쳤을 때. 대화 핵심: 다니엘, 우리 막차를 놓쳤어. / 사진을 찍어서 시간을 못 봤네. 학습 목표 발화: 사진을 찍어서 시간을 못 봤네.",
       "requiredSettingKo": "한국의 기차역 또는 지하철역",
       "requiredParticipants": [
@@ -7115,7 +7115,7 @@
       "level": "a2",
       "category": "station",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "41db3c89ee3ac00e92243be1822f1a94c379842a03a97127c54b80689e998a14",
+      "sourceSha256": "859b7f61d65f03125da460d18df4f3c47caeb266d7a382c60a2b3f4fe55af54d",
       "semanticSummaryKo": "늦는다고 카카오톡 보내기. 대화 핵심: 지하철이 늦어서 십 분쯤 늦을 것 같아. / 괜찮아. 나도 아직 가는 중이야. 학습 목표 발화: 괜찮아. 나도 아직 가는 중이야.",
       "requiredSettingKo": "한국의 기차역 또는 지하철역",
       "requiredParticipants": [
@@ -7189,7 +7189,7 @@
       "level": "a2",
       "category": "station",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "41db3c89ee3ac00e92243be1822f1a94c379842a03a97127c54b80689e998a14",
+      "sourceSha256": "859b7f61d65f03125da460d18df4f3c47caeb266d7a382c60a2b3f4fe55af54d",
       "semanticSummaryKo": "기차 좌석을 잘못 앉았을 때. 대화 핵심: 죄송한데, 여기 제 자리예요. / 아, 제가 좌석 번호를 잘못 봤어요. 학습 목표 발화: 죄송한데, 여기 제 자리예요.",
       "requiredSettingKo": "한국의 기차역 또는 지하철역",
       "requiredParticipants": [
@@ -7263,7 +7263,7 @@
       "level": "b1",
       "category": "station",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "925b02bfa53c268dcb425bbfa5b1a08463fe8da0134b2e298b21677e22883dd9",
+      "sourceSha256": "fd37bb6d7902a53d79713432213525c3346ec28a8569b34fc34e5fe55a54928d",
       "semanticSummaryKo": "여행 약속을 혼자 바꿔 서운할 때. 대화 핵심: 작업이 늦어져서 오후 표로 바꿨어. / 시간보다 나한테 먼저 말하지 않은 게 서운했어. 학습 목표 발화: 시간보다 나한테 먼저 말하지 않은 게 서운했어.",
       "requiredSettingKo": "한국의 기차역 또는 지하철역",
       "requiredParticipants": [
@@ -7337,7 +7337,7 @@
       "level": "b1",
       "category": "station",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "925b02bfa53c268dcb425bbfa5b1a08463fe8da0134b2e298b21677e22883dd9",
+      "sourceSha256": "fd37bb6d7902a53d79713432213525c3346ec28a8569b34fc34e5fe55a54928d",
       "semanticSummaryKo": "KTX가 매진됐을 때 다른 방법 찾기. 대화 핵심: 세 시 KTX는 다 매진이야. / 네 시 버스는 자리가 있어. 학습 목표 발화: 네 시 버스는 자리가 있어.",
       "requiredSettingKo": "한국의 기차역 또는 지하철역",
       "requiredParticipants": [
@@ -7411,7 +7411,7 @@
       "level": "b1",
       "category": "station",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "925b02bfa53c268dcb425bbfa5b1a08463fe8da0134b2e298b21677e22883dd9",
+      "sourceSha256": "fd37bb6d7902a53d79713432213525c3346ec28a8569b34fc34e5fe55a54928d",
       "semanticSummaryKo": "중고 거래 물건에 설명 없는 흠집이 있을 때. 대화 핵심: 잠깐만요. 글에는 이 흠집이 없었는데요. / 작아서 사진에는 안 나온 것 같아요. 학습 목표 발화: 작아서 사진에는 안 나온 것 같아요.",
       "requiredSettingKo": "한국의 기차역 또는 지하철역",
       "requiredParticipants": [
@@ -7485,7 +7485,7 @@
       "level": "b2",
       "category": "station",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "556e5ab0ce9c7a75f2b1aaa624b9beb216aa4b6d6bc0ea2544fd4da3e8488609",
+      "sourceSha256": "95e2489eb1024542c3a1a65fadac632198d4e5cefac200360fc4a43386dcaf0f",
       "semanticSummaryKo": "기차 지연으로 환승이 어려울 때. 대화 핵심: 이 지연 때문에 다음 열차를 놓칠 가능성이 큰데 변경할 수 있을까요? / 다음 표는 따로 예약하신 건가요? 학습 목표 발화: 다음 표는 따로 예약하신 건가요?",
       "requiredSettingKo": "한국의 기차역 또는 지하철역",
       "requiredParticipants": [
@@ -7559,7 +7559,7 @@
       "level": "a1",
       "category": "market",
       "sourceShard": "scenarios_a1.json",
-      "sourceSha256": "12541197fb3299e348433ec904aa9d14a3bd6e0ef699a3a03a32565d234c0bd5",
+      "sourceSha256": "1bf8274b14747ebe16407afd4dee39dff2c2b7200f0367a2ac030144ebb9db9b",
       "semanticSummaryKo": "빵집에서 봉투 묻고 답하기. 대화 핵심: 봉투 필요하세요? / 아니요, 괜찮아요. 학습 목표 발화: 봉투 필요하세요?",
       "requiredSettingKo": "한국의 전통시장 또는 상점가",
       "requiredParticipants": [
@@ -7633,7 +7633,7 @@
       "level": "a1",
       "category": "market",
       "sourceShard": "scenarios_a1.json",
-      "sourceSha256": "12541197fb3299e348433ec904aa9d14a3bd6e0ef699a3a03a32565d234c0bd5",
+      "sourceSha256": "1bf8274b14747ebe16407afd4dee39dff2c2b7200f0367a2ac030144ebb9db9b",
       "semanticSummaryKo": "빵집에서 줄을 잘못 섰을 때. 대화 핵심: 이 빵 계산해 주세요. / 저기요, 여기 줄 서 있는데요. 학습 목표 발화: 저기요, 여기 줄 서 있는데요.",
       "requiredSettingKo": "한국의 전통시장 또는 상점가",
       "requiredParticipants": [
@@ -7707,7 +7707,7 @@
       "level": "a1",
       "category": "market",
       "sourceShard": "scenarios_a1.json",
-      "sourceSha256": "12541197fb3299e348433ec904aa9d14a3bd6e0ef699a3a03a32565d234c0bd5",
+      "sourceSha256": "1bf8274b14747ebe16407afd4dee39dff2c2b7200f0367a2ac030144ebb9db9b",
       "semanticSummaryKo": "마트에서 두부 찾기. 대화 핵심: 저기요. 두부는 어디에 있어요? / 저쪽 냉장고 옆에 있어요. 학습 목표 발화: 저쪽 냉장고 옆에 있어요.",
       "requiredSettingKo": "한국의 전통시장 또는 상점가",
       "requiredParticipants": [
@@ -7781,7 +7781,7 @@
       "level": "a2",
       "category": "market",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "41db3c89ee3ac00e92243be1822f1a94c379842a03a97127c54b80689e998a14",
+      "sourceSha256": "859b7f61d65f03125da460d18df4f3c47caeb266d7a382c60a2b3f4fe55af54d",
       "semanticSummaryKo": "옷 사이즈를 바꾸기. 대화 핵심: 무엇을 도와드릴까요? / 사이즈가 작아서 바꾸고 싶어요. 학습 목표 발화: 무엇을 도와드릴까요?",
       "requiredSettingKo": "한국의 전통시장 또는 상점가",
       "requiredParticipants": [
@@ -7855,7 +7855,7 @@
       "level": "a2",
       "category": "convenience",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "41db3c89ee3ac00e92243be1822f1a94c379842a03a97127c54b80689e998a14",
+      "sourceSha256": "859b7f61d65f03125da460d18df4f3c47caeb266d7a382c60a2b3f4fe55af54d",
       "semanticSummaryKo": "편의점 택배 찾기. 대화 핵심: 어서 오세요. / 택배 찾으러 왔어요. 학습 목표 발화: 어서 오세요.",
       "requiredSettingKo": "한국의 편의점 내부",
       "requiredParticipants": [
@@ -7929,7 +7929,7 @@
       "level": "a1",
       "category": "restaurant",
       "sourceShard": "scenarios_a1.json",
-      "sourceSha256": "12541197fb3299e348433ec904aa9d14a3bd6e0ef699a3a03a32565d234c0bd5",
+      "sourceSha256": "1bf8274b14747ebe16407afd4dee39dff2c2b7200f0367a2ac030144ebb9db9b",
       "semanticSummaryKo": "분식집에서 떡볶이 주문하기. 대화 핵심: 주문하시겠어요? / 떡볶이 하나 주세요. 학습 목표 발화: 주문하시겠어요?",
       "requiredSettingKo": "한국의 식당 내부",
       "requiredParticipants": [
@@ -8003,7 +8003,7 @@
       "level": "a1",
       "category": "restaurant",
       "sourceShard": "scenarios_a1.json",
-      "sourceSha256": "12541197fb3299e348433ec904aa9d14a3bd6e0ef699a3a03a32565d234c0bd5",
+      "sourceSha256": "1bf8274b14747ebe16407afd4dee39dff2c2b7200f0367a2ac030144ebb9db9b",
       "semanticSummaryKo": "한국 생활이 어떤지 묻기. 대화 핵심: 한국에 언제 왔어요? / 두 달 전에 왔어요. 학습 목표 발화: 한국에 언제 왔어요?",
       "requiredSettingKo": "한국의 식당 내부",
       "requiredParticipants": [
@@ -8077,7 +8077,7 @@
       "level": "a2",
       "category": "restaurant",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "41db3c89ee3ac00e92243be1822f1a94c379842a03a97127c54b80689e998a14",
+      "sourceSha256": "859b7f61d65f03125da460d18df4f3c47caeb266d7a382c60a2b3f4fe55af54d",
       "semanticSummaryKo": "삼겹살집에서 굽는 순서 묻기. 대화 핵심: 이제 먹어도 돼요? / 조금만 더 구워야 돼요. 여기 아직 빨개요. 학습 목표 발화: 조금만 더 구워야 돼요. 여기 아직 빨개요.",
       "requiredSettingKo": "한국의 식당 내부",
       "requiredParticipants": [
@@ -8151,7 +8151,7 @@
       "level": "b2",
       "category": "restaurant",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "556e5ab0ce9c7a75f2b1aaa624b9beb216aa4b6d6bc0ea2544fd4da3e8488609",
+      "sourceSha256": "95e2489eb1024542c3a1a65fadac632198d4e5cefac200360fc4a43386dcaf0f",
       "semanticSummaryKo": "결혼식 초대의 뜻을 오해했을 때. 대화 핵심: 동료한테 청첩장을 받았어요. 그날 약속을 취소해야겠죠? / 두 사람이 평소에 얼마나 가까워요? 학습 목표 발화: 두 사람이 평소에 얼마나 가까워요?",
       "requiredSettingKo": "한국의 식당 내부",
       "requiredParticipants": [
@@ -8225,7 +8225,7 @@
       "level": "c1",
       "category": "restaurant",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "1c7816b5e5a2c91f5a8b8772de5c78a7c8551232cd9c098a0908e74c808b0185",
+      "sourceSha256": "311a613a13f037a3dc5c354a64e24663a66662625961e90209fd042655b5893c",
       "semanticSummaryKo": "무인 주문기가 세대별로 다르게 어려울 때. 대화 핵심: 무인 주문 전환 뒤 평균 대기 시간이 2분 줄었습니다. / 평균 대기 시간이 줄었어도 주문을 포기한 사람이 늘었다면 효율이 모두에게 좋아진 것은 아닙니다. 학습 목표 발화: 무인 주문 전환 뒤 평균 대기 시간이 2분 줄었습니다.",
       "requiredSettingKo": "한국의 식당 내부",
       "requiredParticipants": [
@@ -8299,7 +8299,7 @@
       "level": "a2",
       "category": "pharmacy",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "41db3c89ee3ac00e92243be1822f1a94c379842a03a97127c54b80689e998a14",
+      "sourceSha256": "859b7f61d65f03125da460d18df4f3c47caeb266d7a382c60a2b3f4fe55af54d",
       "semanticSummaryKo": "약국에서 감기 증상 말하기. 대화 핵심: 어디가 불편하세요? / 어제부터 목이 아파요. 학습 목표 발화: 어디가 불편하세요?",
       "requiredSettingKo": "한국의 약국 내부",
       "requiredParticipants": [
@@ -8373,7 +8373,7 @@
       "level": "b2",
       "category": "directions",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "556e5ab0ce9c7a75f2b1aaa624b9beb216aa4b6d6bc0ea2544fd4da3e8488609",
+      "sourceSha256": "95e2489eb1024542c3a1a65fadac632198d4e5cefac200360fc4a43386dcaf0f",
       "semanticSummaryKo": "골목 촬영 전에 주민에게 알리기. 대화 핵심: 여기에 삼각대를 두면 사람들이 지나가기 어렵지 않을까요? / 맞습니다. 통행을 막지 않도록 벽 쪽으로 옮기겠습니다. 학습 목표 발화: 여기에 삼각대를 두면 사람들이 지나가기 어렵지 않을까요?",
       "requiredSettingKo": "한국의 거리와 길찾기 지점",
       "requiredParticipants": [
@@ -8447,7 +8447,7 @@
       "level": "c1",
       "category": "directions",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "1c7816b5e5a2c91f5a8b8772de5c78a7c8551232cd9c098a0908e74c808b0185",
+      "sourceSha256": "311a613a13f037a3dc5c354a64e24663a66662625961e90209fd042655b5893c",
       "semanticSummaryKo": "골목이 유명해진 뒤 임대료가 오를 때. 대화 핵심: 홍보 이후 방문객과 카드 매출이 모두 늘었습니다. / 매출은 늘었지만 옆 가게는 임대료를 못 견디고 지난달에 나갔어요. 학습 목표 발화: 홍보 이후 방문객과 카드 매출이 모두 늘었습니다.",
       "requiredSettingKo": "한국의 거리와 길찾기 지점",
       "requiredParticipants": [
@@ -8525,7 +8525,7 @@
       "level": "c1",
       "category": "directions",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "1c7816b5e5a2c91f5a8b8772de5c78a7c8551232cd9c098a0908e74c808b0185",
+      "sourceSha256": "311a613a13f037a3dc5c354a64e24663a66662625961e90209fd042655b5893c",
       "semanticSummaryKo": "야간 상권과 주민 수면권을 함께 다루기. 대화 핵심: 야간 영업 이후 매출과 고용이 늘어 영업시간을 줄이기는 어렵습니다. / 혜택은 넓게 생기는데 귀가 소음과 쓰레기는 저희 골목에 몰립니다. 학습 목표 발화: 야간 영업 이후 매출과 고용이 늘어 영업시간을 줄이기는 어렵습니다.",
       "requiredSettingKo": "한국의 거리와 길찾기 지점",
       "requiredParticipants": [
@@ -8603,7 +8603,7 @@
       "level": "c2",
       "category": "directions",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "55f47f1511faaf43078c67f54484afbf66f25d9921a834320d9767781e79c10b",
+      "sourceSha256": "e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc",
       "semanticSummaryKo": "자율 배송 사고의 책임을 한 사람에게 돌릴 수 있는가. 대화 핵심: 가게 입장에서는 로봇 회사든 운영 업체든 한 곳에서 빨리 보상받고 싶습니다. / 현장 배치 담당자의 판단 실수로 정리하면 책임자가 명확해집니다. 학습 목표 발화: 가게 입장에서는 로봇 회사든 운영 업체든 한 곳에서 빨리 보상받고 싶습니다.",
       "requiredSettingKo": "한국의 거리와 길찾기 지점",
       "requiredParticipants": [
@@ -8681,7 +8681,7 @@
       "level": "c2",
       "category": "directions",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "55f47f1511faaf43078c67f54484afbf66f25d9921a834320d9767781e79c10b",
+      "sourceSha256": "e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc",
       "semanticSummaryKo": "‘숨은 명소’ 영상이 지역을 바꾼 뒤. 대화 핵심: 영상 덕분에 가게 매출이 늘었다는 연락을 받아서 처음에는 좋은 일이라고만 생각했습니다. / 하지만 영상에 나온 돌계단은 사유지인데 사람들이 사진을 찍으러 계속 들어옵니다. 학습 목표 발화: 하지만 영상에 나온 돌계단은 사유지인데 사람들이 사진을 찍으러 계속 들어옵니다.",
       "requiredSettingKo": "한국의 거리와 길찾기 지점",
       "requiredParticipants": [
@@ -8759,7 +8759,7 @@
       "level": "b1",
       "category": "hotel",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "925b02bfa53c268dcb425bbfa5b1a08463fe8da0134b2e298b21677e22883dd9",
+      "sourceSha256": "fd37bb6d7902a53d79713432213525c3346ec28a8569b34fc34e5fe55a54928d",
       "semanticSummaryKo": "제주 여행 일정이 비 때문에 꼬였을 때. 대화 핵심: 바람이 너무 세서 배가 취소됐대. / 그럼 오늘 섬에는 못 가겠네. 학습 목표 발화: 그럼 오늘 섬에는 못 가겠네.",
       "requiredSettingKo": "한국의 호텔 로비 또는 객실",
       "requiredParticipants": [
@@ -8833,7 +8833,7 @@
       "level": "a1",
       "category": "taxi",
       "sourceShard": "scenarios_a1.json",
-      "sourceSha256": "12541197fb3299e348433ec904aa9d14a3bd6e0ef699a3a03a32565d234c0bd5",
+      "sourceSha256": "1bf8274b14747ebe16407afd4dee39dff2c2b7200f0367a2ac030144ebb9db9b",
       "semanticSummaryKo": "택시에서 여기 세워 달라고 말하기. 대화 핵심: 이 근처 맞으시죠? / 네. 여기 세워 주세요. 학습 목표 발화: 이 근처 맞으시죠?",
       "requiredSettingKo": "한국의 택시 안팎",
       "requiredParticipants": [
@@ -8907,7 +8907,7 @@
       "level": "a2",
       "category": "taxi",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "41db3c89ee3ac00e92243be1822f1a94c379842a03a97127c54b80689e998a14",
+      "sourceSha256": "859b7f61d65f03125da460d18df4f3c47caeb266d7a382c60a2b3f4fe55af54d",
       "semanticSummaryKo": "택시가 무서울 만큼 빠를 때. 대화 핵심: 기사님, 천천히 좀 가 주실 수 있을까요? / 아, 네. 죄송합니다. 학습 목표 발화: 아, 네. 죄송합니다.",
       "requiredSettingKo": "한국의 택시 안팎",
       "requiredParticipants": [
@@ -8981,7 +8981,7 @@
       "level": "a1",
       "category": "airport",
       "sourceShard": "scenarios_a1.json",
-      "sourceSha256": "12541197fb3299e348433ec904aa9d14a3bd6e0ef699a3a03a32565d234c0bd5",
+      "sourceSha256": "1bf8274b14747ebe16407afd4dee39dff2c2b7200f0367a2ac030144ebb9db9b",
       "semanticSummaryKo": "공항에서 첫 인사. 대화 핵심: 안녕하세요. 여권 주세요. / 네, 여기 있어요. 학습 목표 발화: 안녕하세요. 여권 주세요.",
       "requiredSettingKo": "한국의 공항 내부",
       "requiredParticipants": [
@@ -9036,6 +9036,450 @@
         "generatorResultId": null,
         "manifestPromptSha256": "b0861ad22eb61d4a1f91b033162acb2da837ddad08ae614d15b2890796e3e31f",
         "sourcePromptSha256": "b0861ad22eb61d4a1f91b033162acb2da837ddad08ae614d15b2890796e3e31f",
+        "normalizedSha256": null,
+        "dimensions": null,
+        "mode": null,
+        "alpha": null,
+        "automatedIssues": [],
+        "visualReview": "not_started",
+        "runtimeEligible": false,
+        "cropProfile": null,
+        "attempts": [],
+        "reviewNotes": [],
+        "generatedOn": null,
+        "normalizer": null
+      }
+    },
+    {
+      "id": "a1_theme_park_date_choices",
+      "level": "a1",
+      "category": "theme_park",
+      "sourceShard": "scenarios_a1.json",
+      "sourceSha256": "1bf8274b14747ebe16407afd4dee39dff2c2b7200f0367a2ac030144ebb9db9b",
+      "semanticSummaryKo": "뭐부터 탈까? 대화 핵심: 수진아, 우리 저거 탈까? / 좋아. 나는 롤러코스터를 타고 싶어. 학습 목표 발화: 우리 앞에 탈까, 뒤에 탈까?",
+      "requiredSettingKo": "한국의 현대 놀이공원 안",
+      "requiredParticipants": [
+        {
+          "speakerId": "christian",
+          "labelKo": "christian"
+        },
+        {
+          "speakerId": "user",
+          "labelKo": "학습자"
+        }
+      ],
+      "requiredPropsKo": [
+        "놀이기구",
+        "롤러코스터",
+        "앞자리",
+        "뒷자리",
+        "줄"
+      ],
+      "forbiddenTextAndLogos": [
+        "readable text",
+        "letters or digits",
+        "Hangul or Hanja glyphs",
+        "signs",
+        "prices",
+        "brand logos",
+        "watermarks",
+        "UI chrome"
+      ],
+      "styleReferenceIdentifiers": [
+        "scene-poster/faceted-heritage-2.5d-v1",
+        "approved-scene-anchor/scene_style_anchor_convenience"
+      ],
+      "referenceImagePath": "assets/illustrations/style_lock/scene_style_anchor_convenience.png",
+      "targetPath": "assets_unused/pending_review/scenes/a1_theme_park_date_choices.png",
+      "priority": 15,
+      "priorityOrder": 121,
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "cropReviewProfiles": [
+        "compact",
+        "medium",
+        "expanded"
+      ],
+      "prompt": "Create a NEW scene poster under profile scene-poster/faceted-heritage-2.5d-v1.\n\nCanonical Korean-learning scenario: a1_theme_park_date_choices.\n\nKOREAN SEMANTIC ANCHOR (depict this exact situation, not a generic theme_park scene):\n뭐부터 탈까? 대화 핵심: 수진아, 우리 저거 탈까? / 좋아. 나는 롤러코스터를 타고 싶어. 학습 목표 발화: 우리 앞에 탈까, 뒤에 탈까?\n\nREQUIRED SETTING: 한국의 현대 놀이공원 안.\nREQUIRED PARTICIPANTS: christian, 학습자. Keep their roles and interaction legible without speech bubbles. A dedicated scenario poster includes only these required participants.\nREQUIRED SCENARIO-SPECIFIC VISUAL CUES: 놀이기구, 롤러코스터, 앞자리, 뒷자리, 줄. Use only cues that make physical sense in the scene.\n\nCANONICAL OUTPUT: 3:2 landscape, final 1536x1024 PNG in RGB or RGBA. 4:3 landscape is permitted only when the generator cannot make 3:2 and must be normalized with tool/scene_poster_normalize.py before review.\n\nSTYLE: Hangul Sori Faceted Heritage 2.5D. Use softly blended but clearly visible triangular facets on all materials, subtle hanji-paper grain, warm dimensional materials, restrained ambient shadows, warm ivory, amber wood, muted deep teal, charcoal, and restrained dancheong-red. Premium editorial illustration; never smooth photorealism, generic low-poly, flat vector, anime, chibi, or glossy 3D.\n\nCOMPOSITION AND CROP SAFETY: keep important people, faces, props, and action inside the central 60% width and 65% height. Keep faces and hands/action between 35% and 60% of image height. The outer 20% is expendable setting/background only. A centred square crop must retain the scene meaning. At 56px the thumbnail must distinguish the location and main silhouette. Default focal point is 0.5, 0.5.\n\nDENSITY: one unmistakable location cue, one main interaction or focal-object cluster, and at most 2-3 secondary object groups. No crowded shelves, repetitive tiny detail, complex ceilings, or visual noise.\n\nREFERENCE: attach exactly this one approved project anchor and no other image: assets/illustrations/style_lock/scene_style_anchor_convenience.png. Use it for style, palette, material and illustrated-set identity only; do not copy its composition.\n\nFORBIDDEN: readable text, letters or digits, Hangul or Hanja glyphs, signs, prices, brand logos, watermarks, UI chrome. Any papers, screens, signs, labels, menus, tickets, prices, or packaging must be blank, abstract, and unreadable.",
+      "promptSha256": "c19f20da567b4809a0b347212aa08c70553bb183bf405b260bc6efd953f6c582",
+      "generation": {
+        "status": "not_generated",
+        "generator": null,
+        "generatorResultId": null,
+        "manifestPromptSha256": "c19f20da567b4809a0b347212aa08c70553bb183bf405b260bc6efd953f6c582",
+        "sourcePromptSha256": "c19f20da567b4809a0b347212aa08c70553bb183bf405b260bc6efd953f6c582",
+        "normalizedSha256": null,
+        "dimensions": null,
+        "mode": null,
+        "alpha": null,
+        "automatedIssues": [],
+        "visualReview": "not_started",
+        "runtimeEligible": false,
+        "cropProfile": null,
+        "attempts": [],
+        "reviewNotes": [],
+        "generatedOn": null,
+        "normalizer": null
+      }
+    },
+    {
+      "id": "a2_theme_park_date_break",
+      "level": "a2",
+      "category": "theme_park",
+      "sourceShard": "scenarios_a2.json",
+      "sourceSha256": "859b7f61d65f03125da460d18df4f3c47caeb266d7a382c60a2b3f4fe55af54d",
+      "semanticSummaryKo": "잠깐 쉬었다 갈까? 대화 핵심: 수진아, 괜찮아? 많이 피곤해 보여. / 너무 오래 서 있었더니 발바닥이 아파. 학습 목표 발화: 많이 피곤해 보여.",
+      "requiredSettingKo": "한국의 현대 놀이공원 안",
+      "requiredParticipants": [
+        {
+          "speakerId": "christian",
+          "labelKo": "christian"
+        },
+        {
+          "speakerId": "user",
+          "labelKo": "학습자"
+        }
+      ],
+      "requiredPropsKo": [
+        "발바닥",
+        "자리",
+        "달달하다",
+        "제로콜라",
+        "감자튀김"
+      ],
+      "forbiddenTextAndLogos": [
+        "readable text",
+        "letters or digits",
+        "Hangul or Hanja glyphs",
+        "signs",
+        "prices",
+        "brand logos",
+        "watermarks",
+        "UI chrome"
+      ],
+      "styleReferenceIdentifiers": [
+        "scene-poster/faceted-heritage-2.5d-v1",
+        "approved-scene-anchor/scene_style_anchor_convenience"
+      ],
+      "referenceImagePath": "assets/illustrations/style_lock/scene_style_anchor_convenience.png",
+      "targetPath": "assets_unused/pending_review/scenes/a2_theme_park_date_break.png",
+      "priority": 15,
+      "priorityOrder": 122,
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "cropReviewProfiles": [
+        "compact",
+        "medium",
+        "expanded"
+      ],
+      "prompt": "Create a NEW scene poster under profile scene-poster/faceted-heritage-2.5d-v1.\n\nCanonical Korean-learning scenario: a2_theme_park_date_break.\n\nKOREAN SEMANTIC ANCHOR (depict this exact situation, not a generic theme_park scene):\n잠깐 쉬었다 갈까? 대화 핵심: 수진아, 괜찮아? 많이 피곤해 보여. / 너무 오래 서 있었더니 발바닥이 아파. 학습 목표 발화: 많이 피곤해 보여.\n\nREQUIRED SETTING: 한국의 현대 놀이공원 안.\nREQUIRED PARTICIPANTS: christian, 학습자. Keep their roles and interaction legible without speech bubbles. A dedicated scenario poster includes only these required participants.\nREQUIRED SCENARIO-SPECIFIC VISUAL CUES: 발바닥, 자리, 달달하다, 제로콜라, 감자튀김. Use only cues that make physical sense in the scene.\n\nCANONICAL OUTPUT: 3:2 landscape, final 1536x1024 PNG in RGB or RGBA. 4:3 landscape is permitted only when the generator cannot make 3:2 and must be normalized with tool/scene_poster_normalize.py before review.\n\nSTYLE: Hangul Sori Faceted Heritage 2.5D. Use softly blended but clearly visible triangular facets on all materials, subtle hanji-paper grain, warm dimensional materials, restrained ambient shadows, warm ivory, amber wood, muted deep teal, charcoal, and restrained dancheong-red. Premium editorial illustration; never smooth photorealism, generic low-poly, flat vector, anime, chibi, or glossy 3D.\n\nCOMPOSITION AND CROP SAFETY: keep important people, faces, props, and action inside the central 60% width and 65% height. Keep faces and hands/action between 35% and 60% of image height. The outer 20% is expendable setting/background only. A centred square crop must retain the scene meaning. At 56px the thumbnail must distinguish the location and main silhouette. Default focal point is 0.5, 0.5.\n\nDENSITY: one unmistakable location cue, one main interaction or focal-object cluster, and at most 2-3 secondary object groups. No crowded shelves, repetitive tiny detail, complex ceilings, or visual noise.\n\nREFERENCE: attach exactly this one approved project anchor and no other image: assets/illustrations/style_lock/scene_style_anchor_convenience.png. Use it for style, palette, material and illustrated-set identity only; do not copy its composition.\n\nFORBIDDEN: readable text, letters or digits, Hangul or Hanja glyphs, signs, prices, brand logos, watermarks, UI chrome. Any papers, screens, signs, labels, menus, tickets, prices, or packaging must be blank, abstract, and unreadable.",
+      "promptSha256": "f8ef814a001326814989ac8eb98c4b966bac0c9670a6d899dc33cff06d0e0a2f",
+      "generation": {
+        "status": "not_generated",
+        "generator": null,
+        "generatorResultId": null,
+        "manifestPromptSha256": "f8ef814a001326814989ac8eb98c4b966bac0c9670a6d899dc33cff06d0e0a2f",
+        "sourcePromptSha256": "f8ef814a001326814989ac8eb98c4b966bac0c9670a6d899dc33cff06d0e0a2f",
+        "normalizedSha256": null,
+        "dimensions": null,
+        "mode": null,
+        "alpha": null,
+        "automatedIssues": [],
+        "visualReview": "not_started",
+        "runtimeEligible": false,
+        "cropProfile": null,
+        "attempts": [],
+        "reviewNotes": [],
+        "generatedOn": null,
+        "normalizer": null
+      }
+    },
+    {
+      "id": "b1_theme_park_date_thrill",
+      "level": "b1",
+      "category": "theme_park",
+      "sourceShard": "scenarios_b1.json",
+      "sourceSha256": "fd37bb6d7902a53d79713432213525c3346ec28a8569b34fc34e5fe55a54928d",
+      "semanticSummaryKo": "두 번이나 돌았어. 대화 핵심: 올라갈 때 탁탁탁탁 나는 소리, 진짜 좋지 않았어? / 응. 그런데 360도로 두 번이나 돌 줄은 몰랐어. 학습 목표 발화: 360도로 두 번이나 돌 줄은 몰랐어.",
+      "requiredSettingKo": "한국의 현대 놀이공원 안",
+      "requiredParticipants": [
+        {
+          "speakerId": "christian",
+          "labelKo": "christian"
+        },
+        {
+          "speakerId": "user",
+          "labelKo": "학습자"
+        }
+      ],
+      "requiredPropsKo": [
+        "안전바",
+        "회전하다",
+        "목",
+        "눈물",
+        "놀이기구 사진"
+      ],
+      "forbiddenTextAndLogos": [
+        "readable text",
+        "letters or digits",
+        "Hangul or Hanja glyphs",
+        "signs",
+        "prices",
+        "brand logos",
+        "watermarks",
+        "UI chrome"
+      ],
+      "styleReferenceIdentifiers": [
+        "scene-poster/faceted-heritage-2.5d-v1",
+        "approved-scene-anchor/scene_style_anchor_convenience"
+      ],
+      "referenceImagePath": "assets/illustrations/style_lock/scene_style_anchor_convenience.png",
+      "targetPath": "assets_unused/pending_review/scenes/b1_theme_park_date_thrill.png",
+      "priority": 15,
+      "priorityOrder": 123,
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "cropReviewProfiles": [
+        "compact",
+        "medium",
+        "expanded"
+      ],
+      "prompt": "Create a NEW scene poster under profile scene-poster/faceted-heritage-2.5d-v1.\n\nCanonical Korean-learning scenario: b1_theme_park_date_thrill.\n\nKOREAN SEMANTIC ANCHOR (depict this exact situation, not a generic theme_park scene):\n두 번이나 돌았어. 대화 핵심: 올라갈 때 탁탁탁탁 나는 소리, 진짜 좋지 않았어? / 응. 그런데 360도로 두 번이나 돌 줄은 몰랐어. 학습 목표 발화: 360도로 두 번이나 돌 줄은 몰랐어.\n\nREQUIRED SETTING: 한국의 현대 놀이공원 안.\nREQUIRED PARTICIPANTS: christian, 학습자. Keep their roles and interaction legible without speech bubbles. A dedicated scenario poster includes only these required participants.\nREQUIRED SCENARIO-SPECIFIC VISUAL CUES: 안전바, 회전하다, 목, 눈물, 놀이기구 사진. Use only cues that make physical sense in the scene.\n\nCANONICAL OUTPUT: 3:2 landscape, final 1536x1024 PNG in RGB or RGBA. 4:3 landscape is permitted only when the generator cannot make 3:2 and must be normalized with tool/scene_poster_normalize.py before review.\n\nSTYLE: Hangul Sori Faceted Heritage 2.5D. Use softly blended but clearly visible triangular facets on all materials, subtle hanji-paper grain, warm dimensional materials, restrained ambient shadows, warm ivory, amber wood, muted deep teal, charcoal, and restrained dancheong-red. Premium editorial illustration; never smooth photorealism, generic low-poly, flat vector, anime, chibi, or glossy 3D.\n\nCOMPOSITION AND CROP SAFETY: keep important people, faces, props, and action inside the central 60% width and 65% height. Keep faces and hands/action between 35% and 60% of image height. The outer 20% is expendable setting/background only. A centred square crop must retain the scene meaning. At 56px the thumbnail must distinguish the location and main silhouette. Default focal point is 0.5, 0.5.\n\nDENSITY: one unmistakable location cue, one main interaction or focal-object cluster, and at most 2-3 secondary object groups. No crowded shelves, repetitive tiny detail, complex ceilings, or visual noise.\n\nREFERENCE: attach exactly this one approved project anchor and no other image: assets/illustrations/style_lock/scene_style_anchor_convenience.png. Use it for style, palette, material and illustrated-set identity only; do not copy its composition.\n\nFORBIDDEN: readable text, letters or digits, Hangul or Hanja glyphs, signs, prices, brand logos, watermarks, UI chrome. Any papers, screens, signs, labels, menus, tickets, prices, or packaging must be blank, abstract, and unreadable.",
+      "promptSha256": "4d307676e8a75f387c669828a09cf5743c9d14882bbffbc359d6e9c1fd8261f7",
+      "generation": {
+        "status": "not_generated",
+        "generator": null,
+        "generatorResultId": null,
+        "manifestPromptSha256": "4d307676e8a75f387c669828a09cf5743c9d14882bbffbc359d6e9c1fd8261f7",
+        "sourcePromptSha256": "4d307676e8a75f387c669828a09cf5743c9d14882bbffbc359d6e9c1fd8261f7",
+        "normalizedSha256": null,
+        "dimensions": null,
+        "mode": null,
+        "alpha": null,
+        "automatedIssues": [],
+        "visualReview": "not_started",
+        "runtimeEligible": false,
+        "cropProfile": null,
+        "attempts": [],
+        "reviewNotes": [],
+        "generatedOn": null,
+        "normalizer": null
+      }
+    },
+    {
+      "id": "b2_theme_park_date_safety",
+      "level": "b2",
+      "category": "theme_park",
+      "sourceShard": "scenarios_b2.json",
+      "sourceSha256": "95e2489eb1024542c3a1a65fadac632198d4e5cefac200360fc4a43386dcaf0f",
+      "semanticSummaryKo": "타기 전에 꼭 확인해. 대화 핵심: 출발하기 전에 주머니 다 확인했어? / 휴대폰이랑 동전은 옆 물품 보관함에 넣었어. 학습 목표 발화: 차례를 놓치더라도 먼저 찾으러 가자.",
+      "requiredSettingKo": "한국의 현대 놀이공원 안",
+      "requiredParticipants": [
+        {
+          "speakerId": "christian",
+          "labelKo": "christian"
+        },
+        {
+          "speakerId": "user",
+          "labelKo": "학습자"
+        }
+      ],
+      "requiredPropsKo": [
+        "주머니",
+        "물품 보관함",
+        "머리띠",
+        "안경",
+        "지갑"
+      ],
+      "forbiddenTextAndLogos": [
+        "readable text",
+        "letters or digits",
+        "Hangul or Hanja glyphs",
+        "signs",
+        "prices",
+        "brand logos",
+        "watermarks",
+        "UI chrome"
+      ],
+      "styleReferenceIdentifiers": [
+        "scene-poster/faceted-heritage-2.5d-v1",
+        "approved-scene-anchor/scene_style_anchor_convenience"
+      ],
+      "referenceImagePath": "assets/illustrations/style_lock/scene_style_anchor_convenience.png",
+      "targetPath": "assets_unused/pending_review/scenes/b2_theme_park_date_safety.png",
+      "priority": 15,
+      "priorityOrder": 124,
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "cropReviewProfiles": [
+        "compact",
+        "medium",
+        "expanded"
+      ],
+      "prompt": "Create a NEW scene poster under profile scene-poster/faceted-heritage-2.5d-v1.\n\nCanonical Korean-learning scenario: b2_theme_park_date_safety.\n\nKOREAN SEMANTIC ANCHOR (depict this exact situation, not a generic theme_park scene):\n타기 전에 꼭 확인해. 대화 핵심: 출발하기 전에 주머니 다 확인했어? / 휴대폰이랑 동전은 옆 물품 보관함에 넣었어. 학습 목표 발화: 차례를 놓치더라도 먼저 찾으러 가자.\n\nREQUIRED SETTING: 한국의 현대 놀이공원 안.\nREQUIRED PARTICIPANTS: christian, 학습자. Keep their roles and interaction legible without speech bubbles. A dedicated scenario poster includes only these required participants.\nREQUIRED SCENARIO-SPECIFIC VISUAL CUES: 주머니, 물품 보관함, 머리띠, 안경, 지갑. Use only cues that make physical sense in the scene.\n\nCANONICAL OUTPUT: 3:2 landscape, final 1536x1024 PNG in RGB or RGBA. 4:3 landscape is permitted only when the generator cannot make 3:2 and must be normalized with tool/scene_poster_normalize.py before review.\n\nSTYLE: Hangul Sori Faceted Heritage 2.5D. Use softly blended but clearly visible triangular facets on all materials, subtle hanji-paper grain, warm dimensional materials, restrained ambient shadows, warm ivory, amber wood, muted deep teal, charcoal, and restrained dancheong-red. Premium editorial illustration; never smooth photorealism, generic low-poly, flat vector, anime, chibi, or glossy 3D.\n\nCOMPOSITION AND CROP SAFETY: keep important people, faces, props, and action inside the central 60% width and 65% height. Keep faces and hands/action between 35% and 60% of image height. The outer 20% is expendable setting/background only. A centred square crop must retain the scene meaning. At 56px the thumbnail must distinguish the location and main silhouette. Default focal point is 0.5, 0.5.\n\nDENSITY: one unmistakable location cue, one main interaction or focal-object cluster, and at most 2-3 secondary object groups. No crowded shelves, repetitive tiny detail, complex ceilings, or visual noise.\n\nREFERENCE: attach exactly this one approved project anchor and no other image: assets/illustrations/style_lock/scene_style_anchor_convenience.png. Use it for style, palette, material and illustrated-set identity only; do not copy its composition.\n\nFORBIDDEN: readable text, letters or digits, Hangul or Hanja glyphs, signs, prices, brand logos, watermarks, UI chrome. Any papers, screens, signs, labels, menus, tickets, prices, or packaging must be blank, abstract, and unreadable.",
+      "promptSha256": "a3d0919e1744daa435ded5684b951edc365e17e4ec622f807f93e880eb72506e",
+      "generation": {
+        "status": "not_generated",
+        "generator": null,
+        "generatorResultId": null,
+        "manifestPromptSha256": "a3d0919e1744daa435ded5684b951edc365e17e4ec622f807f93e880eb72506e",
+        "sourcePromptSha256": "a3d0919e1744daa435ded5684b951edc365e17e4ec622f807f93e880eb72506e",
+        "normalizedSha256": null,
+        "dimensions": null,
+        "mode": null,
+        "alpha": null,
+        "automatedIssues": [],
+        "visualReview": "not_started",
+        "runtimeEligible": false,
+        "cropProfile": null,
+        "attempts": [],
+        "reviewNotes": [],
+        "generatedOn": null,
+        "normalizer": null
+      }
+    },
+    {
+      "id": "c1_theme_park_date_next_time",
+      "level": "c1",
+      "category": "theme_park",
+      "sourceShard": "scenarios_c1.json",
+      "sourceSha256": "311a613a13f037a3dc5c354a64e24663a66662625961e90209fd042655b5893c",
+      "semanticSummaryKo": "다음에 올 이유. 대화 핵심: 어, 뭐야. 오늘은 운영 안 하나 봐. / 이거 꼭 타고 싶었는데 아쉽다. 학습 목표 발화: 오늘은 운영 안 하나 봐.",
+      "requiredSettingKo": "한국의 현대 놀이공원 안",
+      "requiredParticipants": [
+        {
+          "speakerId": "christian",
+          "labelKo": "christian"
+        },
+        {
+          "speakerId": "user",
+          "labelKo": "학습자"
+        }
+      ],
+      "requiredPropsKo": [
+        "운영하다",
+        "아쉽다",
+        "크리스마스 마켓",
+        "소문",
+        "겨울"
+      ],
+      "forbiddenTextAndLogos": [
+        "readable text",
+        "letters or digits",
+        "Hangul or Hanja glyphs",
+        "signs",
+        "prices",
+        "brand logos",
+        "watermarks",
+        "UI chrome"
+      ],
+      "styleReferenceIdentifiers": [
+        "scene-poster/faceted-heritage-2.5d-v1",
+        "approved-scene-anchor/scene_style_anchor_convenience"
+      ],
+      "referenceImagePath": "assets/illustrations/style_lock/scene_style_anchor_convenience.png",
+      "targetPath": "assets_unused/pending_review/scenes/c1_theme_park_date_next_time.png",
+      "priority": 15,
+      "priorityOrder": 125,
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "cropReviewProfiles": [
+        "compact",
+        "medium",
+        "expanded"
+      ],
+      "prompt": "Create a NEW scene poster under profile scene-poster/faceted-heritage-2.5d-v1.\n\nCanonical Korean-learning scenario: c1_theme_park_date_next_time.\n\nKOREAN SEMANTIC ANCHOR (depict this exact situation, not a generic theme_park scene):\n다음에 올 이유. 대화 핵심: 어, 뭐야. 오늘은 운영 안 하나 봐. / 이거 꼭 타고 싶었는데 아쉽다. 학습 목표 발화: 오늘은 운영 안 하나 봐.\n\nREQUIRED SETTING: 한국의 현대 놀이공원 안.\nREQUIRED PARTICIPANTS: christian, 학습자. Keep their roles and interaction legible without speech bubbles. A dedicated scenario poster includes only these required participants.\nREQUIRED SCENARIO-SPECIFIC VISUAL CUES: 운영하다, 아쉽다, 크리스마스 마켓, 소문, 겨울. Use only cues that make physical sense in the scene.\n\nCANONICAL OUTPUT: 3:2 landscape, final 1536x1024 PNG in RGB or RGBA. 4:3 landscape is permitted only when the generator cannot make 3:2 and must be normalized with tool/scene_poster_normalize.py before review.\n\nSTYLE: Hangul Sori Faceted Heritage 2.5D. Use softly blended but clearly visible triangular facets on all materials, subtle hanji-paper grain, warm dimensional materials, restrained ambient shadows, warm ivory, amber wood, muted deep teal, charcoal, and restrained dancheong-red. Premium editorial illustration; never smooth photorealism, generic low-poly, flat vector, anime, chibi, or glossy 3D.\n\nCOMPOSITION AND CROP SAFETY: keep important people, faces, props, and action inside the central 60% width and 65% height. Keep faces and hands/action between 35% and 60% of image height. The outer 20% is expendable setting/background only. A centred square crop must retain the scene meaning. At 56px the thumbnail must distinguish the location and main silhouette. Default focal point is 0.5, 0.5.\n\nDENSITY: one unmistakable location cue, one main interaction or focal-object cluster, and at most 2-3 secondary object groups. No crowded shelves, repetitive tiny detail, complex ceilings, or visual noise.\n\nREFERENCE: attach exactly this one approved project anchor and no other image: assets/illustrations/style_lock/scene_style_anchor_convenience.png. Use it for style, palette, material and illustrated-set identity only; do not copy its composition.\n\nFORBIDDEN: readable text, letters or digits, Hangul or Hanja glyphs, signs, prices, brand logos, watermarks, UI chrome. Any papers, screens, signs, labels, menus, tickets, prices, or packaging must be blank, abstract, and unreadable.",
+      "promptSha256": "23ebb886dbec9f9618515e52f9d61ef89b1d94e025dae04dc506eca9222c23d7",
+      "generation": {
+        "status": "not_generated",
+        "generator": null,
+        "generatorResultId": null,
+        "manifestPromptSha256": "23ebb886dbec9f9618515e52f9d61ef89b1d94e025dae04dc506eca9222c23d7",
+        "sourcePromptSha256": "23ebb886dbec9f9618515e52f9d61ef89b1d94e025dae04dc506eca9222c23d7",
+        "normalizedSha256": null,
+        "dimensions": null,
+        "mode": null,
+        "alpha": null,
+        "automatedIssues": [],
+        "visualReview": "not_started",
+        "runtimeEligible": false,
+        "cropProfile": null,
+        "attempts": [],
+        "reviewNotes": [],
+        "generatedOn": null,
+        "normalizer": null
+      }
+    },
+    {
+      "id": "c2_theme_park_date_reflection",
+      "level": "c2",
+      "category": "theme_park",
+      "sourceShard": "scenarios_c2.json",
+      "sourceSha256": "e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc",
+      "semanticSummaryKo": "웃음이 가득한 이유. 대화 핵심: 오늘 줄도 오래 섰고, 물도 잔뜩 맞았는데 이상하게 기분이 좋다. / 나, 사람들이 놀이공원에 오는 걸 좋아하는 이유를 알 것 같아. 학습 목표 발화: 기다리는 시간이 길다고 치더라도 그 기대가 사라지는 건 아니네.",
+      "requiredSettingKo": "한국의 현대 놀이공원 안",
+      "requiredParticipants": [
+        {
+          "speakerId": "christian",
+          "labelKo": "christian"
+        },
+        {
+          "speakerId": "user",
+          "labelKo": "학습자"
+        }
+      ],
+      "requiredPropsKo": [
+        "해방감",
+        "기대",
+        "두려움",
+        "완벽하다",
+        "불편함"
+      ],
+      "forbiddenTextAndLogos": [
+        "readable text",
+        "letters or digits",
+        "Hangul or Hanja glyphs",
+        "signs",
+        "prices",
+        "brand logos",
+        "watermarks",
+        "UI chrome"
+      ],
+      "styleReferenceIdentifiers": [
+        "scene-poster/faceted-heritage-2.5d-v1",
+        "approved-scene-anchor/scene_style_anchor_convenience"
+      ],
+      "referenceImagePath": "assets/illustrations/style_lock/scene_style_anchor_convenience.png",
+      "targetPath": "assets_unused/pending_review/scenes/c2_theme_park_date_reflection.png",
+      "priority": 15,
+      "priorityOrder": 126,
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "cropReviewProfiles": [
+        "compact",
+        "medium",
+        "expanded"
+      ],
+      "prompt": "Create a NEW scene poster under profile scene-poster/faceted-heritage-2.5d-v1.\n\nCanonical Korean-learning scenario: c2_theme_park_date_reflection.\n\nKOREAN SEMANTIC ANCHOR (depict this exact situation, not a generic theme_park scene):\n웃음이 가득한 이유. 대화 핵심: 오늘 줄도 오래 섰고, 물도 잔뜩 맞았는데 이상하게 기분이 좋다. / 나, 사람들이 놀이공원에 오는 걸 좋아하는 이유를 알 것 같아. 학습 목표 발화: 기다리는 시간이 길다고 치더라도 그 기대가 사라지는 건 아니네.\n\nREQUIRED SETTING: 한국의 현대 놀이공원 안.\nREQUIRED PARTICIPANTS: christian, 학습자. Keep their roles and interaction legible without speech bubbles. A dedicated scenario poster includes only these required participants.\nREQUIRED SCENARIO-SPECIFIC VISUAL CUES: 해방감, 기대, 두려움, 완벽하다, 불편함. Use only cues that make physical sense in the scene.\n\nCANONICAL OUTPUT: 3:2 landscape, final 1536x1024 PNG in RGB or RGBA. 4:3 landscape is permitted only when the generator cannot make 3:2 and must be normalized with tool/scene_poster_normalize.py before review.\n\nSTYLE: Hangul Sori Faceted Heritage 2.5D. Use softly blended but clearly visible triangular facets on all materials, subtle hanji-paper grain, warm dimensional materials, restrained ambient shadows, warm ivory, amber wood, muted deep teal, charcoal, and restrained dancheong-red. Premium editorial illustration; never smooth photorealism, generic low-poly, flat vector, anime, chibi, or glossy 3D.\n\nCOMPOSITION AND CROP SAFETY: keep important people, faces, props, and action inside the central 60% width and 65% height. Keep faces and hands/action between 35% and 60% of image height. The outer 20% is expendable setting/background only. A centred square crop must retain the scene meaning. At 56px the thumbnail must distinguish the location and main silhouette. Default focal point is 0.5, 0.5.\n\nDENSITY: one unmistakable location cue, one main interaction or focal-object cluster, and at most 2-3 secondary object groups. No crowded shelves, repetitive tiny detail, complex ceilings, or visual noise.\n\nREFERENCE: attach exactly this one approved project anchor and no other image: assets/illustrations/style_lock/scene_style_anchor_convenience.png. Use it for style, palette, material and illustrated-set identity only; do not copy its composition.\n\nFORBIDDEN: readable text, letters or digits, Hangul or Hanja glyphs, signs, prices, brand logos, watermarks, UI chrome. Any papers, screens, signs, labels, menus, tickets, prices, or packaging must be blank, abstract, and unreadable.",
+      "promptSha256": "9069820a98890a34c5a63106e27fa2367d4b385bca69a1a31c54550d166ef827",
+      "generation": {
+        "status": "not_generated",
+        "generator": null,
+        "generatorResultId": null,
+        "manifestPromptSha256": "9069820a98890a34c5a63106e27fa2367d4b385bca69a1a31c54550d166ef827",
+        "sourcePromptSha256": "9069820a98890a34c5a63106e27fa2367d4b385bca69a1a31c54550d166ef827",
         "normalizedSha256": null,
         "dimensions": null,
         "mode": null,

@@ -8,9 +8,9 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 
 ## 요약
 
-- canonical 시나리오: **120개**
+- canonical 시나리오: **126개**
 - 전용 포스터: **0개**
-- 카테고리 폴백: **120개**
+- 카테고리 폴백: **126개**
 - 누락/깨진 폴백: **0개**
 - 엄격 이슈: **0건**
 
@@ -20,12 +20,12 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 
 ## 샤드별 시나리오
 
-- scenarios_a1.json: 20개
-- scenarios_a2.json: 20개
-- scenarios_b1.json: 20개
-- scenarios_b2.json: 20개
-- scenarios_c1.json: 20개
-- scenarios_c2.json: 20개
+- scenarios_a1.json: 21개
+- scenarios_a2.json: 21개
+- scenarios_b1.json: 21개
+- scenarios_b2.json: 21개
+- scenarios_c1.json: 21개
+- scenarios_c2.json: 21개
 
 ## 카테고리 런타임 폴백
 
@@ -41,6 +41,7 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 - restaurant: 5개
 - station: 9개
 - taxi: 2개
+- theme_park: 6개
 
 ## 기존 비디오 루프 참조 상태 (감사 전용)
 
@@ -48,18 +49,18 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 - 규약 밖 루프 파일: 8개
 - 전용 루프 해석: 0개
 - 카테고리 루프 해석: 24개
-- 루프 없는 안전 폴백: 96개
+- 루프 없는 안전 폴백: 102개
 - backdrop 없는 루프 없음: 0개
 - 고아 scene 루프: 0개
 
 ## 생성 근거 SHA-256
 
-- `assets/data/scenarios_a1.json`: `12541197fb3299e348433ec904aa9d14a3bd6e0ef699a3a03a32565d234c0bd5`
-- `assets/data/scenarios_a2.json`: `41db3c89ee3ac00e92243be1822f1a94c379842a03a97127c54b80689e998a14`
-- `assets/data/scenarios_b1.json`: `925b02bfa53c268dcb425bbfa5b1a08463fe8da0134b2e298b21677e22883dd9`
-- `assets/data/scenarios_b2.json`: `556e5ab0ce9c7a75f2b1aaa624b9beb216aa4b6d6bc0ea2544fd4da3e8488609`
-- `assets/data/scenarios_c1.json`: `1c7816b5e5a2c91f5a8b8772de5c78a7c8551232cd9c098a0908e74c808b0185`
-- `assets/data/scenarios_c2.json`: `55f47f1511faaf43078c67f54484afbf66f25d9921a834320d9767781e79c10b`
+- `assets/data/scenarios_a1.json`: `1bf8274b14747ebe16407afd4dee39dff2c2b7200f0367a2ac030144ebb9db9b`
+- `assets/data/scenarios_a2.json`: `859b7f61d65f03125da460d18df4f3c47caeb266d7a382c60a2b3f4fe55af54d`
+- `assets/data/scenarios_b1.json`: `fd37bb6d7902a53d79713432213525c3346ec28a8569b34fc34e5fe55a54928d`
+- `assets/data/scenarios_b2.json`: `95e2489eb1024542c3a1a65fadac632198d4e5cefac200360fc4a43386dcaf0f`
+- `assets/data/scenarios_c1.json`: `311a613a13f037a3dc5c354a64e24663a66662625961e90209fd042655b5893c`
+- `assets/data/scenarios_c2.json`: `e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc`
 - `docs/data/scene_category_poster_lock.json`: `1036664f6008281cfcd8f969cad46953c0ed291e5047b1ad48a02555ec1432db`
 - `lib/services/scene_asset_resolver.dart`: `7f5a940853c25aaf4fbb81e8ccb7c1fcd951ea1570559c658b61d9e77aa185be`
 
@@ -67,6 +68,7 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 
 | 샤드 | ID | 레벨 | backdrop | 상태 | 해석 경로 | 크기/모드 | SHA-256 | runtimeEligible |
 |---|---|---|---|---|---|---|---|---|
+| scenarios_a1.json | a1_theme_park_date_choices | a1 | theme_park | fallback | assets/illustrations/scenes/theme_park.png | 1536×1024 RGB | 95b947d5f5631997eb4b777aee5791d9b9ceed9c86cbbaf74e5645bef0d1a434 | true |
 | scenarios_a1.json | airport_arrival | a1 | airport | fallback | assets/illustrations/scenes/airport.png | 1536×1024 RGB | 2233a48b88afd5a0474f4e49298aa5592d6bf50b09aa110b8742d45af24f6eff | true |
 | scenarios_a1.json | bakery_payment_bag | a1 | market | fallback | assets/illustrations/scenes/market.png | 1536×1024 RGB | 86e36cbee650407d0bff0b4010467290069e78188b2e7194884b09f7f90acf9c | true |
 | scenarios_a1.json | bakery_queue | a1 | market | fallback | assets/illustrations/scenes/market.png | 1536×1024 RGB | 86e36cbee650407d0bff0b4010467290069e78188b2e7194884b09f7f90acf9c | true |
@@ -87,6 +89,7 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 | scenarios_a1.json | survival_day_capstone | a1 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
 | scenarios_a1.json | taxi_kakao | a1 | taxi | fallback | assets/illustrations/scenes/taxi.png | 1536×1024 RGB | 0267b90eb07bb40a3141023c21943e643e64295296462bf7736f3534105fe356 | true |
 | scenarios_a1.json | umbrella_weather | a1 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
+| scenarios_a2.json | a2_theme_park_date_break | a2 | theme_park | fallback | assets/illustrations/scenes/theme_park.png | 1536×1024 RGB | 95b947d5f5631997eb4b777aee5791d9b9ceed9c86cbbaf74e5645bef0d1a434 | true |
 | scenarios_a2.json | clothing_refund_size | a2 | market | fallback | assets/illustrations/scenes/market.png | 1536×1024 RGB | 86e36cbee650407d0bff0b4010467290069e78188b2e7194884b09f7f90acf9c | true |
 | scenarios_a2.json | convenience_parcel_pickup | a2 | convenience | fallback | assets/illustrations/scenes/convenience.png | 1536×1024 RGB | 917585b44e4d10b9cd5223baae804d6b7b961767574679771df347215f0307d2 | true |
 | scenarios_a2.json | delivery_dinner_spicy | a2 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
@@ -109,6 +112,7 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 | scenarios_a2.json | train_seat_swap | a2 | station | fallback | assets/illustrations/scenes/station.png | 1536×1024 RGB | bbd8f5b72a1576dde83a000c2608e46b2e3623cdbc2daf426d495ed23a2e158f | true |
 | scenarios_b1.json | ai_summary_wrong_fact | b1 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
 | scenarios_b1.json | apartment_recycling_mixup | b1 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
+| scenarios_b1.json | b1_theme_park_date_thrill | b1 | theme_park | fallback | assets/illustrations/scenes/theme_park.png | 1536×1024 RGB | 95b947d5f5631997eb4b777aee5791d9b9ceed9c86cbbaf74e5645bef0d1a434 | true |
 | scenarios_b1.json | birthday_expectation_gap | b1 | cafe | fallback | assets/illustrations/scenes/cafe.png | 1536×1024 RGB | b68a23266ad4fdbdfd52568ba7e1457d7bf672f1368a0d2ab31c50f5d1e6bfd5 | true |
 | scenarios_b1.json | cancelled_trip_hurt_feelings | b1 | station | fallback | assets/illustrations/scenes/station.png | 1536×1024 RGB | bbd8f5b72a1576dde83a000c2608e46b2e3623cdbc2daf426d495ed23a2e158f | true |
 | scenarios_b1.json | community_festival_shift | b1 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
@@ -129,6 +133,7 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 | scenarios_b1.json | work_message_too_direct | b1 | office | fallback | assets/illustrations/scenes/office.png | 1536×1024 RGB | b51a3c6075841a871e6da2e18e57f352ec5861a124a8a3fc4701322e2c2943c4 | true |
 | scenarios_b2.json | accessible_festival_route | b2 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
 | scenarios_b2.json | ai_image_disclosure | b2 | office | fallback | assets/illustrations/scenes/office.png | 1536×1024 RGB | b51a3c6075841a871e6da2e18e57f352ec5861a124a8a3fc4701322e2c2943c4 | true |
+| scenarios_b2.json | b2_theme_park_date_safety | b2 | theme_park | fallback | assets/illustrations/scenes/theme_park.png | 1536×1024 RGB | 95b947d5f5631997eb4b777aee5791d9b9ceed9c86cbbaf74e5645bef0d1a434 | true |
 | scenarios_b2.json | brand_private_account_boundary | b2 | office | fallback | assets/illustrations/scenes/office.png | 1536×1024 RGB | b51a3c6075841a871e6da2e18e57f352ec5861a124a8a3fc4701322e2c2943c4 | true |
 | scenarios_b2.json | community_event_compromise | b2 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
 | scenarios_b2.json | delivery_refund_evidence | b2 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
@@ -151,6 +156,7 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 | scenarios_c1.json | ai_interview_screening_transparency | c1 | office | fallback | assets/illustrations/scenes/office.png | 1536×1024 RGB | b51a3c6075841a871e6da2e18e57f352ec5861a124a8a3fc4701322e2c2943c4 | true |
 | scenarios_c1.json | ai_translation_voice_loss | c1 | office | fallback | assets/illustrations/scenes/office.png | 1536×1024 RGB | b51a3c6075841a871e6da2e18e57f352ec5861a124a8a3fc4701322e2c2943c4 | true |
 | scenarios_c1.json | anonymous_survey_trust | c1 | office | fallback | assets/illustrations/scenes/office.png | 1536×1024 RGB | b51a3c6075841a871e6da2e18e57f352ec5861a124a8a3fc4701322e2c2943c4 | true |
+| scenarios_c1.json | c1_theme_park_date_next_time | c1 | theme_park | fallback | assets/illustrations/scenes/theme_park.png | 1536×1024 RGB | 95b947d5f5631997eb4b777aee5791d9b9ceed9c86cbbaf74e5645bef0d1a434 | true |
 | scenarios_c1.json | deepfake_verification | c1 | office | fallback | assets/illustrations/scenes/office.png | 1536×1024 RGB | b51a3c6075841a871e6da2e18e57f352ec5861a124a8a3fc4701322e2c2943c4 | true |
 | scenarios_c1.json | delivery_rider_safety_tradeoff | c1 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
 | scenarios_c1.json | fan_translation_credit | c1 | office | fallback | assets/illustrations/scenes/office.png | 1536×1024 RGB | b51a3c6075841a871e6da2e18e57f352ec5861a124a8a3fc4701322e2c2943c4 | true |
@@ -170,6 +176,7 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 | scenarios_c2.json | ai_hiring_appeal | c2 | office | fallback | assets/illustrations/scenes/office.png | 1536×1024 RGB | b51a3c6075841a871e6da2e18e57f352ec5861a124a8a3fc4701322e2c2943c4 | true |
 | scenarios_c2.json | automated_benefit_denial | c2 | office | fallback | assets/illustrations/scenes/office.png | 1536×1024 RGB | b51a3c6075841a871e6da2e18e57f352ec5861a124a8a3fc4701322e2c2943c4 | true |
 | scenarios_c2.json | autonomous_delivery_liability | c2 | directions | fallback | assets/illustrations/scenes/directions.png | 1536×1024 RGB | f2500c600eada342bc1a4102996d83d5cfdf068814f5d4247f230bebb66dde9c | true |
+| scenarios_c2.json | c2_theme_park_date_reflection | c2 | theme_park | fallback | assets/illustrations/scenes/theme_park.png | 1536×1024 RGB | 95b947d5f5631997eb4b777aee5791d9b9ceed9c86cbbaf74e5645bef0d1a434 | true |
 | scenarios_c2.json | causal_claim_headline | c2 | office | fallback | assets/illustrations/scenes/office.png | 1536×1024 RGB | b51a3c6075841a871e6da2e18e57f352ec5861a124a8a3fc4701322e2c2943c4 | true |
 | scenarios_c2.json | central_local_disaster_responsibility | c2 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
 | scenarios_c2.json | climate_model_local_decision | c2 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |

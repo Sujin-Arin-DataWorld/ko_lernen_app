@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 1,
   "_comment": "Szenarien für Phase 5, nach CEFR-Level geshardet. Schema: lib/models/scenario.dart. Pflege-Pattern: ko ist Lerninhalt; de/en sind Mutterspracheübersetzungen. Schreiben nur über tools/content_factory/scenario_store.py.",
   "scenarios": [
     {
@@ -4118,6 +4118,226 @@
       ],
       "culturalNote": null,
       "xpReward": 120
+    },
+    {
+      "id": "b1_theme_park_date_thrill",
+      "level": "b1",
+      "emoji": "🎢",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "relationshipContext": "romantic_partners",
+      "intent": "share_a_scary_ride_reaction",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "playerCharacterId": "sujin",
+      "participantIds": [
+        "sujin",
+        "christian"
+      ],
+      "xpReward": 165,
+      "title": {
+        "ko": "두 번이나 돌았어",
+        "de": "Zweimal über Kopf",
+        "en": "It flipped twice"
+      },
+      "intro": {
+        "ko": "수진과 크리스티안이 360도로 두 번 회전하는 롤러코스터에서 내린 직후입니다.",
+        "de": "Sujin und Christian steigen gerade aus einer Achterbahn, die sich zweimal um 360 Grad überschlagen hat.",
+        "en": "Sujin and Christian have just stepped off a roller coaster that flipped through 360 degrees twice."
+      },
+      "vocab": [
+        {
+          "korean": "안전바"
+        },
+        {
+          "korean": "회전하다"
+        },
+        {
+          "korean": "목"
+        },
+        {
+          "korean": "눈물"
+        },
+        {
+          "korean": "놀이기구 사진"
+        },
+        {
+          "korean": "다시 타다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b1_skill"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ 줄 몰랐다",
+          "de": "V-(으)ㄹ 줄 몰랐다: nicht erwartet haben",
+          "en": "V-(으)ㄹ 줄 몰랐다: didn't expect"
+        },
+        "explanation": {
+          "ko": "예상보다 강한 경험을 뒤늦게 깨달았을 때 -을 줄 몰랐다를 쓸 수 있다.",
+          "de": "Mit -을 줄 몰랐다 sagt man im Rückblick, dass etwas stärker oder anders war als erwartet.",
+          "en": "Use -을 줄 몰랐다 when you realize afterward that something was stronger or different than expected."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "christian",
+          "ko": "올라갈 때 탁탁탁탁 나는 소리, 진짜 좋지 않았어?",
+          "de": "War dieses Klack-klack-klack beim Hochfahren nicht großartig?",
+          "en": "Wasn't that click-click-click on the way up amazing?"
+        },
+        {
+          "speaker": "user",
+          "ko": "응. 그런데 360도로 두 번이나 돌 줄은 몰랐어.",
+          "de": "Ja. Aber ich hatte nicht erwartet, dass wir uns gleich zweimal komplett überschlagen.",
+          "en": "Yeah. But I didn't expect us to flip all the way around twice."
+        },
+        {
+          "speaker": "christian",
+          "ko": "너 안전바를 정말 꽉 잡고 있더라.",
+          "de": "Du hast den Sicherheitsbügel wirklich fest umklammert.",
+          "en": "You were gripping the safety bar so tightly."
+        },
+        {
+          "speaker": "user",
+          "ko": "너무 무서워서 눈물까지 났어. 소리도 엄청 질렀고.",
+          "de": "Es war so gruselig, dass mir sogar die Tränen kamen. Und ich habe wahnsinnig geschrien.",
+          "en": "It was so scary I actually teared up. And I screamed so much."
+        },
+        {
+          "speaker": "christian",
+          "ko": "그래서 목이 아픈 거야?",
+          "de": "Tut dir deshalb der Hals weh?",
+          "en": "Is that why your throat hurts?"
+        },
+        {
+          "speaker": "user",
+          "ko": "응. 그래도 생각했던 것보다 훨씬 재미있었어.",
+          "de": "Ja. Trotzdem hat es viel mehr Spaß gemacht als gedacht.",
+          "en": "Yeah. It was still way more fun than I expected."
+        },
+        {
+          "speaker": "christian",
+          "ko": "와, 우리 사진 진짜 웃기게 찍혔다.",
+          "de": "Wow, unser Foto ist wirklich urkomisch geworden.",
+          "en": "Wow, our photo turned out hilarious."
+        },
+        {
+          "speaker": "user",
+          "ko": "그러게. 조금 쉬었다가 한 번 더 탈까?",
+          "de": "Stimmt. Wollen wir kurz Pause machen und dann noch einmal fahren?",
+          "en": "Right? Want to rest a bit and ride it again?"
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_theme_park_date_thrill_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "audioKo": "360도로 두 번이나 돌 줄은 몰랐어.",
+            "options": [
+              {
+                "de": "Ich hatte nicht erwartet, dass wir uns gleich zweimal komplett überschlagen.",
+                "en": "I didn't expect us to flip all the way around twice."
+              },
+              {
+                "de": "Ich wusste, dass die Fahrt zweimal hält.",
+                "en": "I knew the ride would stop twice."
+              },
+              {
+                "de": "Ich wollte zweimal damit fahren.",
+                "en": "I wanted to ride it twice."
+              },
+              {
+                "de": "Ich habe die zwei Runden verpasst.",
+                "en": "I missed both laps."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_theme_park_date_thrill_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "promptDe": "Es war so gruselig, dass mir sogar die Tränen kamen.",
+            "promptEn": "It was so scary I actually teared up.",
+            "options": [
+              {
+                "ko": "너무 무서워서 눈물까지 났어."
+              },
+              {
+                "ko": "너무 재미있어서 계속 웃었어."
+              },
+              {
+                "ko": "별로 무섭지 않아서 잠이 왔어."
+              },
+              {
+                "ko": "눈물이 나서 놀이기구를 못 탔어."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_theme_park_date_thrill_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "sentence": "두 번이나 돌 ___ 몰랐어.",
+            "options": [
+              "줄은",
+              "수는",
+              "때는",
+              "지는"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_theme_park_date_thrill_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "targetKo": "생각했던 것보다 훨씬 재미있었어.",
+            "promptDe": "Es hat viel mehr Spaß gemacht als gedacht.",
+            "promptEn": "It was way more fun than I expected.",
+            "distractors": [
+              "안전바를",
+              "목이"
+            ]
+          }
+        },
+        {
+          "id": "quest_b1_theme_park_date_thrill_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "targetKo": "너 안전바를 정말 꽉 잡고 있더라.",
+            "promptDe": "Du hast den Sicherheitsbügel wirklich fest umklammert.",
+            "promptEn": "You were gripping the safety bar so tightly."
+          }
+        }
+      ],
+      "shelf": "b1_dating",
+      "backdrop": "theme_park"
     }
   ]
 }

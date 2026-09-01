@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "kind": "scenario_tts_storage_verification",
+  "generationId": "theme_park_date_v1",
+  "scope": "corpus",
+  "candidateSetSha256": "9f572904cdd02e6c529a4e42378b58f178ff7a66600f01e0169e35d039661558",
+  "ttsManifestSha256": "d92f868df03ed8ba522120ab90d8cd7f26211545877bd9401d11197b95b36ba1",
+  "expectedCount": 59,
+  "verifiedCachePathCount": 59,
+  "missingCount": 0,
+  "cacheRevision": "v3",
+  "verificationMode": "firebase_storage_nonempty_mp3_listing",
+  "minimumObjectBytes": 256,
+  "bucket": "ko-lernen-app.firebasestorage.app",
+  "verifiedAt": "2026-09-01T03:08:02.837664+00:00"
+}

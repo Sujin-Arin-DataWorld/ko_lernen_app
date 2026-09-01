@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 1,
   "_comment": "Szenarien für Phase 5, nach CEFR-Level geshardet. Schema: lib/models/scenario.dart. Pflege-Pattern: ko ist Lerninhalt; de/en sind Mutterspracheübersetzungen. Schreiben nur über tools/content_factory/scenario_store.py.",
   "scenarios": [
     {
@@ -4156,6 +4156,226 @@
       ],
       "culturalNote": null,
       "xpReward": 150
+    },
+    {
+      "id": "c2_theme_park_date_reflection",
+      "level": "c2",
+      "emoji": "🎢",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "relationshipContext": "romantic_partners",
+      "intent": "reflect_on_why_theme_parks_feel_freeing",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "playerCharacterId": "sujin",
+      "participantIds": [
+        "sujin",
+        "christian"
+      ],
+      "xpReward": 240,
+      "title": {
+        "ko": "웃음이 가득한 이유",
+        "de": "Warum hier so viel gelacht wird",
+        "en": "Why this place is full of laughter"
+      },
+      "intro": {
+        "ko": "데이트를 마치며 둘은 기다림과 두려움까지도 좋은 기억이 된 이유를 돌아봅니다.",
+        "de": "Am Ende ihres Dates überlegen die beiden, warum selbst Warten und Angst zu einer guten Erinnerung wurden.",
+        "en": "At the end of their date, they reflect on why even the waiting and fear became a good memory."
+      },
+      "vocab": [
+        {
+          "korean": "해방감"
+        },
+        {
+          "korean": "기대"
+        },
+        {
+          "korean": "두려움"
+        },
+        {
+          "korean": "완벽하다"
+        },
+        {
+          "korean": "불편함"
+        },
+        {
+          "korean": "기억"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c2_even_assuming"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-(으)ㄴ/는다고 치더라도",
+          "de": "Selbst unter der Annahme, dass",
+          "en": "Even assuming that"
+        },
+        "explanation": {
+          "ko": "어떤 사실을 일단 인정한다고 가정해도 뒤의 판단이 그대로 성립함을 강조한다.",
+          "de": "Die Form räumt eine Annahme für die Argumentation ein und zeigt, dass die folgende Bewertung trotzdem gilt.",
+          "en": "This form grants an assumption for the argument and shows that the following judgment still holds."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "christian",
+          "ko": "오늘 줄도 오래 섰고, 물도 잔뜩 맞았는데 이상하게 기분이 좋다.",
+          "de": "Heute standen wir lange an und wurden klatschnass, und trotzdem bin ich erstaunlich gut gelaunt.",
+          "en": "We waited forever and got soaked today, yet somehow I feel great."
+        },
+        {
+          "speaker": "user",
+          "ko": "나, 사람들이 놀이공원에 오는 걸 좋아하는 이유를 알 것 같아.",
+          "de": "Ich glaube, ich verstehe, warum Menschen so gern in Freizeitparks kommen.",
+          "en": "I think I understand why people love coming to theme parks."
+        },
+        {
+          "speaker": "christian",
+          "ko": "왜라고 생각해?",
+          "de": "Warum, glaubst du?",
+          "en": "Why do you think that is?"
+        },
+        {
+          "speaker": "user",
+          "ko": "여기는 웃음이 가득하잖아. 다들 설레고 신나 보여.",
+          "de": "Hier ist überall Lachen. Alle wirken erwartungsvoll und ausgelassen.",
+          "en": "This place is full of laughter. Everyone looks excited and alive."
+        },
+        {
+          "speaker": "christian",
+          "ko": "기다리는 시간이 길다고 치더라도 그 기대가 사라지는 건 아니네.",
+          "de": "Selbst wenn man die lange Wartezeit einräumt, verschwindet diese Vorfreude nicht.",
+          "en": "Even assuming the wait is long, that anticipation doesn't disappear."
+        },
+        {
+          "speaker": "user",
+          "ko": "맞아. 나도 오늘 마음껏 소리를 질렀더니 스트레스가 다 풀린 것 같아. 목은 아프지만.",
+          "de": "Genau. Ich konnte heute nach Herzenslust schreien, und der ganze Stress scheint weg zu sein, auch wenn mein Hals weh tut.",
+          "en": "Exactly. I screamed as much as I wanted today, and it feels like all my stress is gone, even if my throat hurts."
+        },
+        {
+          "speaker": "christian",
+          "ko": "무서움을 피하는 대신 같이 통과해서 더 기억에 남는 걸지도 몰라.",
+          "de": "Vielleicht bleibt es gerade deshalb, weil wir die Angst nicht vermieden, sondern gemeinsam durchgestanden haben.",
+          "en": "Maybe it stays with us because we went through the fear together instead of avoiding it."
+        },
+        {
+          "speaker": "user",
+          "ko": "그러게. 완벽해서가 아니라 불편한 순간까지 같이 웃어서 좋은 날이었나 봐.",
+          "de": "Ja. Vielleicht war es nicht wegen der Perfektion ein guter Tag, sondern weil wir sogar über die unbequemen Momente zusammen gelacht haben.",
+          "en": "Yeah. Maybe it was a good day not because it was perfect, but because we laughed together even through the uncomfortable moments."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c2_theme_park_date_reflection_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c2_relationship_narratives"
+          ],
+          "data": {
+            "audioKo": "기다리는 시간이 길다고 치더라도 그 기대가 사라지는 건 아니네.",
+            "options": [
+              {
+                "de": "Selbst wenn man die lange Wartezeit einräumt, verschwindet diese Vorfreude nicht.",
+                "en": "Even assuming the wait is long, that anticipation doesn't disappear."
+              },
+              {
+                "de": "Wegen der Wartezeit verschwindet jede Vorfreude.",
+                "en": "The wait makes all anticipation disappear."
+              },
+              {
+                "de": "Die Wartezeit war heute sehr kurz.",
+                "en": "The wait was very short today."
+              },
+              {
+                "de": "Ohne Wartezeit wäre die Fahrt geschlossen.",
+                "en": "Without a wait, the ride would be closed."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_theme_park_date_reflection_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c2_relationship_narratives"
+          ],
+          "data": {
+            "promptDe": "Hier ist überall Lachen.",
+            "promptEn": "This place is full of laughter.",
+            "options": [
+              {
+                "ko": "여기는 웃음이 가득하잖아."
+              },
+              {
+                "ko": "여기는 사람이 거의 없잖아."
+              },
+              {
+                "ko": "여기는 조용해서 좋잖아."
+              },
+              {
+                "ko": "여기는 기다림만 가득하잖아."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_theme_park_date_reflection_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c2_relationship_narratives"
+          ],
+          "data": {
+            "sentence": "기다리는 시간이 길___ 치더라도 기대는 사라지지 않아.",
+            "options": [
+              "다고",
+              "도록",
+              "더니",
+              "자마자"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_theme_park_date_reflection_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c2_relationship_narratives"
+          ],
+          "data": {
+            "targetKo": "불편한 순간까지 같이 웃어서 좋은 날이었나 봐.",
+            "promptDe": "Vielleicht war es ein guter Tag, weil wir sogar über die unbequemen Momente zusammen gelacht haben.",
+            "promptEn": "Maybe it was a good day because we laughed together even through the uncomfortable moments.",
+            "distractors": [
+              "해방감을",
+              "기다림이"
+            ]
+          }
+        },
+        {
+          "id": "quest_c2_theme_park_date_reflection_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c2_relationship_narratives"
+          ],
+          "data": {
+            "targetKo": "무서움을 피하는 대신 같이 통과했어.",
+            "promptDe": "Wir haben die Angst nicht vermieden, sondern gemeinsam durchgestanden.",
+            "promptEn": "We went through the fear together instead of avoiding it."
+          }
+        }
+      ],
+      "shelf": "c2_dating",
+      "backdrop": "theme_park"
     }
   ]
 }

@@ -46,7 +46,7 @@ void main() {
         expect(scenarios.length, greaterThanOrEqualTo(baseline.length));
       } else {
         expect(generation, 'canonical_120_v1');
-        expect(scenarios, hasLength(120));
+        expect(scenarios, hasLength(126));
         // The canonical corpus is a full redesign, so reused IDs are governed
         // by the new locked scene inventory rather than the legacy backdrop.
         return;
@@ -89,14 +89,14 @@ void main() {
       'taxi',
       'theme_park',
     };
-    // canonical_120_v1은 레벨마다 검수된 정본 20편만 런타임에 둔다.
+    // canonical_120_v1 정본 20편에 승인된 놀이동산 보충편 1편을 더한다.
     const expectedCounts = <String, int>{
-      'a1': 20,
-      'a2': 20,
-      'b1': 20,
-      'b2': 20,
-      'c1': 20,
-      'c2': 20,
+      'a1': 21,
+      'a2': 21,
+      'b1': 21,
+      'b2': 21,
+      'c1': 21,
+      'c2': 21,
     };
 
     test('레거시 단일 파일은 사라졌다', () {
@@ -108,7 +108,7 @@ void main() {
         final items = scenarioShardRoot(level)['scenarios'] as List;
         expect(items.length, expectedCounts[level], reason: level);
       }
-      expect(allScenarioJson().length, 120);
+      expect(allScenarioJson().length, 126);
     });
 
     test('샤드에는 자기 레벨만 들어 있다', () {

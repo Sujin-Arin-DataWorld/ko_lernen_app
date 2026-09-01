@@ -190,7 +190,7 @@ class ScenePosterNormalizeTest(unittest.TestCase):
         canonical = scene_poster_normalize.load_canonical_ids(
             scene_poster_normalize.DEFAULT_INVENTORY_PATH
         )
-        self.assertEqual(len(canonical), 120)
+        self.assertEqual(len(canonical), 126)
         self.assertIn("airport_arrival", canonical)
 
 

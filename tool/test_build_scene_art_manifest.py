@@ -28,9 +28,9 @@ class SceneArtManifestTest(unittest.TestCase):
             build_scene_art_manifest.ROOT
         )
 
-    def test_exact_120_rows_and_fixed_category_counts(self) -> None:
-        self.assertEqual(self.manifest["scenarioCount"], 120)
-        self.assertEqual(len(self.entries), 120)
+    def test_exact_126_rows_and_fixed_category_counts(self) -> None:
+        self.assertEqual(self.manifest["scenarioCount"], 126)
+        self.assertEqual(len(self.entries), 126)
         self.assertEqual(
             self.manifest["categoryOrder"],
             [
@@ -57,7 +57,7 @@ class SceneArtManifestTest(unittest.TestCase):
             "cafe": 9,
             "station": 9,
             "market": 4,
-            "theme_park": 0,
+            "theme_park": 6,
             "convenience": 1,
             "restaurant": 5,
             "pharmacy": 1,
@@ -94,7 +94,7 @@ class SceneArtManifestTest(unittest.TestCase):
         self.assertEqual(self.entries, expected_sort)
         self.assertEqual(
             [row["priorityOrder"] for row in self.entries],
-            list(range(1, 121)),
+            list(range(1, 127)),
         )
 
     def test_generated_from_hashes_match_canonical_sources(self) -> None:

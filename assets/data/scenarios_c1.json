@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 1,
   "_comment": "Szenarien für Phase 5, nach CEFR-Level geshardet. Schema: lib/models/scenario.dart. Pflege-Pattern: ko ist Lerninhalt; de/en sind Mutterspracheübersetzungen. Schreiben nur über tools/content_factory/scenario_store.py.",
   "scenarios": [
     {
@@ -4121,6 +4121,226 @@
       ],
       "culturalNote": null,
       "xpReward": 140
+    },
+    {
+      "id": "c1_theme_park_date_next_time",
+      "level": "c1",
+      "emoji": "🎢",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "relationshipContext": "romantic_partners",
+      "intent": "turn_a_closed_ride_into_a_future_date",
+      "courseUnitId": "c1_06_intimacy_safety_design",
+      "conceptIds": [
+        "concept_c1_intimacy_safety"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "playerCharacterId": "sujin",
+      "participantIds": [
+        "sujin",
+        "christian"
+      ],
+      "xpReward": 210,
+      "title": {
+        "ko": "다음에 올 이유",
+        "de": "Ein Grund, wiederzukommen",
+        "en": "A reason to come back"
+      },
+      "intro": {
+        "ko": "꼭 타고 싶었던 놀이기구가 운영하지 않는 듯합니다. 둘은 아쉬움을 다음 데이트 약속으로 바꿉니다.",
+        "de": "Eine Fahrt, die sie unbedingt ausprobieren wollten, scheint heute geschlossen zu sein. Aus der Enttäuschung wird ein Plan fürs nächste Date.",
+        "en": "A ride they really wanted to try seems to be closed. They turn the disappointment into a plan for their next date."
+      },
+      "vocab": [
+        {
+          "korean": "운영하다"
+        },
+        {
+          "korean": "아쉽다"
+        },
+        {
+          "korean": "크리스마스 마켓"
+        },
+        {
+          "korean": "소문"
+        },
+        {
+          "korean": "겨울"
+        },
+        {
+          "korean": "이유"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_quoted_contractions"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "-나 봐·-대·-겠군",
+          "de": "Schluss, Hörensagen und spielerische Folgerung",
+          "en": "Inference, hearsay, and playful realization"
+        },
+        "explanation": {
+          "ko": "-나 봐는 보이는 단서로 추측하고, -대는 전해 들은 말을 줄여 전하며, -겠군은 새롭게 알아챈 결론을 드러낸다.",
+          "de": "-나 봐 markiert einen Schluss aus sichtbaren Hinweisen, -대 knappes Hörensagen und -겠군 eine neu erkannte, hier spielerische Folgerung.",
+          "en": "-나 봐 marks an inference from visible evidence, -대 compact hearsay, and -겠군 a newly realized, here playful, conclusion."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "christian",
+          "ko": "어, 뭐야. 오늘은 운영 안 하나 봐.",
+          "de": "Oh, was ist denn? Die Fahrt scheint heute nicht in Betrieb zu sein.",
+          "en": "Wait, what? It looks like the ride isn't running today."
+        },
+        {
+          "speaker": "user",
+          "ko": "이거 꼭 타고 싶었는데 아쉽다.",
+          "de": "Schade. Damit wollte ich unbedingt fahren.",
+          "en": "That's a shame. I really wanted to ride this one."
+        },
+        {
+          "speaker": "christian",
+          "ko": "괜찮아. 다음에 또 오자. 다시 올 이유가 생겼잖아.",
+          "de": "Macht nichts. Wir kommen wieder. Jetzt haben wir doch einen Grund dafür.",
+          "en": "It's okay. Let's come back. Now we have a reason to."
+        },
+        {
+          "speaker": "user",
+          "ko": "맞아. 여기 크리스마스 마켓도 정말 예쁘대.",
+          "de": "Stimmt. Der Weihnachtsmarkt hier soll auch richtig schön sein.",
+          "en": "Right. I heard the Christmas market here is beautiful too."
+        },
+        {
+          "speaker": "christian",
+          "ko": "그럼 겨울에 다시 데이트하러 올까?",
+          "de": "Dann kommen wir im Winter wieder zu einem Date?",
+          "en": "Then should we come back for another date in winter?"
+        },
+        {
+          "speaker": "user",
+          "ko": "오, 좋아. 그러면 그때 또 츄러스를 먹을 수 있겠군.",
+          "de": "Oh, sehr gut. Dann kann ich also wieder Churros essen.",
+          "en": "Oh, perfect. So that means I get to have churros again."
+        },
+        {
+          "speaker": "christian",
+          "ko": "결국 네 목적은 츄러스였구나.",
+          "de": "Am Ende ging es dir also doch um die Churros.",
+          "en": "So the churros were your real goal all along."
+        },
+        {
+          "speaker": "user",
+          "ko": "그것도 다음에 올 아주 중요한 이유지.",
+          "de": "Das ist eben auch ein sehr wichtiger Grund, wiederzukommen.",
+          "en": "That's also a very important reason to come back."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_theme_park_date_next_time_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "audioKo": "오늘은 운영 안 하나 봐.",
+            "options": [
+              {
+                "de": "Die Fahrt scheint heute nicht in Betrieb zu sein.",
+                "en": "It looks like the ride isn't running today."
+              },
+              {
+                "de": "Die Fahrt schließt morgen.",
+                "en": "The ride closes tomorrow."
+              },
+              {
+                "de": "Die Fahrt war gestern geöffnet.",
+                "en": "The ride was open yesterday."
+              },
+              {
+                "de": "Wir fahren heute zweimal.",
+                "en": "We're riding it twice today."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_theme_park_date_next_time_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "promptDe": "Der Weihnachtsmarkt hier soll auch richtig schön sein.",
+            "promptEn": "I heard the Christmas market here is beautiful too.",
+            "options": [
+              {
+                "ko": "여기 크리스마스 마켓도 정말 예쁘대."
+              },
+              {
+                "ko": "여기 크리스마스 마켓은 오늘 끝난대."
+              },
+              {
+                "ko": "여기 크리스마스 마켓은 별로래."
+              },
+              {
+                "ko": "여기 크리스마스 마켓에 가 봤어."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_theme_park_date_next_time_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "sentence": "오늘은 운영 안 하___ 봐.",
+            "options": [
+              "나",
+              "고",
+              "면",
+              "자"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_theme_park_date_next_time_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "targetKo": "그러면 그때 또 츄러스를 먹을 수 있겠군.",
+            "promptDe": "Dann kann ich also wieder Churros essen.",
+            "promptEn": "So that means I get to have churros again.",
+            "distractors": [
+              "크리스마스 마켓이",
+              "운영을"
+            ]
+          }
+        },
+        {
+          "id": "quest_c1_theme_park_date_next_time_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "targetKo": "다시 올 이유가 생겼잖아.",
+            "promptDe": "Jetzt haben wir doch einen Grund, wiederzukommen.",
+            "promptEn": "Now we have a reason to come back."
+          }
+        }
+      ],
+      "shelf": "c1_dating",
+      "backdrop": "theme_park"
     }
   ]
 }

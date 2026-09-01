@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 1,
   "_comment": "Szenarien für Phase 5, nach CEFR-Level geshardet. Schema: lib/models/scenario.dart. Pflege-Pattern: ko ist Lerninhalt; de/en sind Mutterspracheübersetzungen. Schreiben nur über tools/content_factory/scenario_store.py.",
   "scenarios": [
     {
@@ -4154,6 +4154,226 @@
       ],
       "culturalNote": null,
       "xpReward": 110
+    },
+    {
+      "id": "a2_theme_park_date_break",
+      "level": "a2",
+      "emoji": "🎢",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "relationshipContext": "romantic_partners",
+      "intent": "take_a_break_and_choose_a_snack",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "playerCharacterId": "sujin",
+      "participantIds": [
+        "sujin",
+        "christian"
+      ],
+      "xpReward": 140,
+      "title": {
+        "ko": "잠깐 쉬었다 갈까?",
+        "de": "Machen wir kurz Pause?",
+        "en": "Should we take a quick break?"
+      },
+      "intro": {
+        "ko": "오래 줄을 선 뒤 둘이 잠깐 쉬며 음료와 간식을 고릅니다.",
+        "de": "Nach langem Anstehen machen die beiden Pause und suchen sich Getränke und Snacks aus.",
+        "en": "After standing in line for a long time, they take a break and pick drinks and snacks."
+      },
+      "vocab": [
+        {
+          "korean": "발바닥"
+        },
+        {
+          "korean": "자리"
+        },
+        {
+          "korean": "달달하다"
+        },
+        {
+          "korean": "제로콜라"
+        },
+        {
+          "korean": "감자튀김"
+        },
+        {
+          "korean": "인형탈"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a2_probability"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-(으)ㄴ/는 것 같다",
+          "de": "A/V-(으)ㄴ/는 것 같다: scheint",
+          "en": "A/V-(으)ㄴ/는 것 같다: seems"
+        },
+        "explanation": {
+          "ko": "보거나 느낀 것을 조심스럽게 판단할 때 -는 것 같다를 쓴다.",
+          "de": "Mit -는 것 같다 formuliert man einen vorsichtigen Eindruck aus dem, was man sieht oder fühlt.",
+          "en": "Use -는 것 같다 for a cautious impression based on what you see or feel."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "christian",
+          "ko": "수진아, 괜찮아? 많이 피곤해 보여.",
+          "de": "Sujin, alles okay? Du siehst ziemlich müde aus.",
+          "en": "Sujin, are you okay? You look pretty tired."
+        },
+        {
+          "speaker": "user",
+          "ko": "너무 오래 서 있었더니 발바닥이 아파.",
+          "de": "Vom langen Stehen tun mir die Fußsohlen weh.",
+          "en": "My feet hurt from standing for so long."
+        },
+        {
+          "speaker": "christian",
+          "ko": "아, 저기 자리가 있다. 저기 앉을까?",
+          "de": "Oh, da ist ein Platz frei. Wollen wir uns dort hinsetzen?",
+          "en": "Oh, there's a seat over there. Want to sit there?"
+        },
+        {
+          "speaker": "user",
+          "ko": "응. 나 지금 당이 당겨. 달달한 것도 마시고 싶어.",
+          "de": "Ja. Ich brauche gerade Zucker und möchte auch etwas Süßes trinken.",
+          "en": "Yeah. I'm craving sugar and want something sweet to drink too."
+        },
+        {
+          "speaker": "christian",
+          "ko": "그럼 제로콜라 두 개랑 감자튀김 하나 살까?",
+          "de": "Dann zwei Cola Zero und einmal Pommes?",
+          "en": "Then how about two Coke Zeros and one fries?"
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아. 그런데 저 인형탈 알바생은 더워서 힘들 것 같아.",
+          "de": "Gern. Aber der Mensch im Maskottchenkostüm hat es bei der Hitze bestimmt schwer.",
+          "en": "Sure. But the worker in that mascot costume must be struggling in this heat."
+        },
+        {
+          "speaker": "christian",
+          "ko": "그래도 우리한테 손을 흔들어 주네.",
+          "de": "Trotzdem winkt die Person uns zu.",
+          "en": "They're still waving at us."
+        },
+        {
+          "speaker": "user",
+          "ko": "와, 너무 귀엽다. 같이 사진 찍을까?",
+          "de": "Ach, wie süß. Wollen wir zusammen ein Foto machen?",
+          "en": "Aw, so cute. Want to take a photo together?"
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a2_theme_park_date_break_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a2_relationships"
+          ],
+          "data": {
+            "audioKo": "많이 피곤해 보여.",
+            "options": [
+              {
+                "de": "Du siehst ziemlich müde aus.",
+                "en": "You look pretty tired."
+              },
+              {
+                "de": "Du siehst sehr glücklich aus.",
+                "en": "You look very happy."
+              },
+              {
+                "de": "Du bist bestimmt hungrig.",
+                "en": "You must be hungry."
+              },
+              {
+                "de": "Deine Schuhe sehen neu aus.",
+                "en": "Your shoes look new."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_theme_park_date_break_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a2_relationships"
+          ],
+          "data": {
+            "promptDe": "Der Mensch im Maskottchenkostüm hat es bei der Hitze bestimmt schwer.",
+            "promptEn": "The worker in that mascot costume must be struggling in this heat.",
+            "options": [
+              {
+                "ko": "저 인형탈 알바생은 더워서 힘들 것 같아."
+              },
+              {
+                "ko": "저 인형탈 알바생은 지금 쉬고 있어."
+              },
+              {
+                "ko": "저 인형탈 알바생은 춥다고 했어."
+              },
+              {
+                "ko": "저 인형탈 알바생은 사진을 싫어해."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_theme_park_date_break_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a2_relationships"
+          ],
+          "data": {
+            "sentence": "많이 피곤해 보이___ 것 같아.",
+            "options": [
+              "는",
+              "고",
+              "면",
+              "지만"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_theme_park_date_break_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a2_relationships"
+          ],
+          "data": {
+            "targetKo": "아, 저기 자리가 있다. 저기 앉을까?",
+            "promptDe": "Oh, da ist ein Platz frei. Wollen wir uns dort hinsetzen?",
+            "promptEn": "Oh, there's a seat over there. Want to sit there?",
+            "distractors": [
+              "감자튀김을",
+              "발바닥이"
+            ]
+          }
+        },
+        {
+          "id": "quest_a2_theme_park_date_break_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a2_relationships"
+          ],
+          "data": {
+            "targetKo": "나 지금 당이 당겨.",
+            "promptDe": "Ich brauche gerade Zucker.",
+            "promptEn": "I'm craving sugar right now."
+          }
+        }
+      ],
+      "shelf": "a2_dating",
+      "backdrop": "theme_park"
     }
   ]
 }
