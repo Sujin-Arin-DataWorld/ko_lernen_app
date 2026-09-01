@@ -125,6 +125,15 @@ jobs:
           if [ "${#extra[@]}" -gt 0 ]; then
             git fetch --no-tags --filter=blob:none origin "${extra[@]}"
           fi
+          if [ -z "${CI_PR_HEAD_SHA:-}" ] && { [ -z "${CI_BEFORE_SHA:-}" ] || [ "${CI_BEFORE_SHA}" = "0000000000000000000000000000000000000000" ]; }; then
+            # workflow_dispatch 처럼 비교 SHA 가 없는 이벤트는 checkout 이 depth 1 이라
+            # merge-base(HEAD, origin/main) 가 실패한다(한옥 grant 이력 검증이 사용).
+            # 현재 ref 의 이력을 unshallow 로 채워 공통 조상을 복원한다.
+            if [ "$(git rev-parse --is-shallow-repository)" = "true" ]; then
+              git fetch --no-tags --filter=blob:none --unshallow origin \
+                "+refs/heads/${GITHUB_REF_NAME}:refs/remotes/origin/${GITHUB_REF_NAME}"
+            fi
+          fi
 
       - name: Verify CI and release contracts
         run: python3 -m unittest discover -s .github/scripts -p "test_*.py"
