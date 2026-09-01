@@ -1,9 +1,11 @@
 # Web Firebase external release setup
 
 The checked-in project deliberately contains no Web Firebase option, Auth
-domain, OAuth redirect value, App Check site key, Apple team value, or iOS
-plist. Complete this runbook only in the Firebase and Apple accounts owned by
-the release operator. Do not invent values to make a local build pass.
+domain, OAuth redirect value, or App Check site key. It does contain the
+reviewed non-secret Android/iOS Firebase configuration, iOS plist, and Apple
+team identifier needed by clean mobile builds. Complete this runbook only in
+the Firebase and Apple accounts owned by the release operator. Do not invent
+values to make a local build pass.
 
 ## 1. Register the actual Firebase apps
 
@@ -11,9 +13,10 @@ In the existing `ko-lernen-app` Firebase project, register the production Web
 app. Select the real hosting domain(s) and application identity; do not copy a
 Firebase app ID from another project.
 
-From an authorized release workstation, generate configuration for the actual
-Android, iOS, and Web registrations together. FlutterFire must make the
-selection rather than a hand edit of an app ID:
+From an authorized release workstation and isolated branch, generate the Web
+registration together with the existing Android/iOS selections. FlutterFire
+must make the selection rather than a hand edit of an app ID. This is an
+owner-approved configuration change, not a normal mobile archive step:
 
 ```bash
 set -euo pipefail
@@ -26,10 +29,11 @@ flutterfire configure --project "$FIREBASE_PROJECT_ID" --platforms android,ios,w
 ```
 
 Review the generated `lib/firebase_options.dart` and `firebase.json` against
-the selected Firebase Console applications before using them. Keep the local
-`ios/Runner/GoogleService-Info.plist` ignored and out of commits. The iOS
-target-membership, URL-scheme, signing, and archive gate remain in
-[the iOS external setup runbook](ios-external-setup.md).
+the selected Firebase Console applications before using them. The existing
+Android/iOS app IDs and tracked `ios/Runner/GoogleService-Info.plist` must not
+change unless the release owner explicitly approved that rotation. The iOS
+target-membership, URL-scheme, signing, and archive gate remain in [the iOS
+external setup runbook](ios-external-setup.md).
 
 ## 2. Configure Authentication and redirects
 

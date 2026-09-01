@@ -384,11 +384,13 @@ flutter run -d <android-id>   # 안드로이드
   review 승인 전에는 앱 데이터, TTS, Firebase에 쓰지 않는다. 4× 단어 목표(4752)까지 잔량.
 - [ ] **TTS·Rules 배포 (Jin)**: 빈 캐시 거절·환급·12초 timeout·7초 deadline·
   fail-closed 선점은 `functions/tts` live에 아직 없다. indexes → rules →
-  `functions:tts-firebase-functions`. 책 분석 Gen2는 별도 게이트.
+  `functions:tts-firebase-functions`. 책 분석 Gen2는 별도 게이트. 서비스별 정확한
+  중단 조건과 사후 증거는 `docs/store/firebase-backend-release-gates.md`가 정본이다.
 - [ ] **책 한 컷 운영 게이트 (Jin)**: live Gen2는 구버전. Secret/Rules+TTL, Python Gen2,
   실기기 촬영 뒤에만 legacy cache 삭제.
 - [ ] **릴리스 운영 (Jin)**: TestFlight 실기기, Android Internal 설치·App Check.
-  Closed Testing 승격은 수동. Play는 internal만 자동화.
+  Internal 업로드는 main CI의 명시적 opt-in, Closed 업로드는 `play_closed.yml`의
+  exact-main-SHA `workflow_dispatch`다. Play Console 처리·테스터 설치·승격은 수동이다.
 - [ ] **#100 태블릿 골든 (CI)**: #96 Wanted Sans 이후 medium/expanded 6장이 깨졌다.
   `cursor/fix-tablet-goldens-4772`가 하니스에 `SoriTypeScale`을 넣고 Linux 기준선을 갱신 중.
 
