@@ -17,8 +17,8 @@
 
 ## Relationships
 
-- [scenario_store.py](scenario_store.py.md) (1 shared connections)
 - [handle](handle.md) (1 shared connections)
+- [scenario_store.py](scenario_store.py.md) (1 shared connections)
 
 ## Source Files
 

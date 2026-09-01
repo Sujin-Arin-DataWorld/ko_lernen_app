@@ -25,7 +25,10 @@
 
 ## Relationships
 
-- [List](List.md) (5 shared connections)
+- [silben_kreuz_screen.dart](silben_kreuz_screen.dart.md) (2 shared connections)
+- [bool get](bool_get.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (1 shared connections)
 
 ## Source Files
 

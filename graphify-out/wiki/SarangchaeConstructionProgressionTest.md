@@ -7,9 +7,9 @@
 - **SarangchaeConstructionProgressionTest** (8 connections) — `tool/test_sarangchae_construction_progression.py`
 - **rgba()** (7 connections) — `tool/test_sarangchae_construction_progression.py`
 - **stage_path()** (6 connections) — `tool/test_sarangchae_construction_progression.py`
-- **test_sarangchae_construction_progression.py** (5 connections) — `tool/test_sarangchae_construction_progression.py`
 - **alpha_pixels()** (5 connections) — `tool/test_sarangchae_construction_progression.py`
 - **.test_stage_7_has_finished_tiles_but_open_wall_bays()** (5 connections) — `tool/test_sarangchae_construction_progression.py`
+- **test_sarangchae_construction_progression.py** (5 connections) — `tool/test_sarangchae_construction_progression.py`
 - **dark_neutral_roof_pixels()** (4 connections) — `tool/test_sarangchae_construction_progression.py`
 - **.test_stage_10_is_visibly_in_progress()** (4 connections) — `tool/test_sarangchae_construction_progression.py`
 - **.test_stage_6_has_roof_bed_without_finished_tiles()** (4 connections) — `tool/test_sarangchae_construction_progression.py`

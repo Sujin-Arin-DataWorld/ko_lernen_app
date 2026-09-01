@@ -8,35 +8,27 @@
 - **createTransactionalFirestoreHarness()** (9 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
 - **createCloudBackupDeletionRuntime()** (7 connections) — `functions/gye/cloud_backup_deletion_runtime.js`
 - **createFirestoreCloudBackupStore()** (4 connections) — `functions/gye/cloud_backup_deletion_runtime.js`
-- **createHarness()** (3 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
 - **FakeFirestoreCollectionReference** (3 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
 - **FakeFirestoreDocumentReference** (3 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
 - **FakeFirestoreSnapshot** (3 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
+- **TokenCheckpointBackupStore** (3 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
+- **createHarness()** (3 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
 - **.listDocumentsPage()** (3 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
 - **safeError()** (3 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
-- **TokenCheckpointBackupStore** (3 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
 - **CursorPagingBackupStore** (2 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
+- **NonAdvancingCollectionTokenBackupStore** (2 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
+- **NonAdvancingDocumentTokenBackupStore** (2 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
 - **.listDocumentsPage()** (2 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
 - **firestoreCollectionIds()** (2 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
 - **firestoreDocumentIds()** (2 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
 - **keysetPage()** (2 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
-- **NonAdvancingCollectionTokenBackupStore** (2 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
-- **NonAdvancingDocumentTokenBackupStore** (2 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
 - **.listDocumentsPage()** (2 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
-- **assert** (1 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
-- **{
-  BACKUP_FIELDS,
-  BACKUP_ROOTS,
-  CALLABLE_OPTIONS,
-  createCloudBackupDeletionCallable,
-  createCloudBackupDeletionRuntime,
-  createFirestoreCloudBackupDeletionRepository,
-  createFirestoreCloudBackupStore,
-}** (1 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
 - **callableRequest()** (1 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
-- **{ createHmac }** (1 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
 - **expectPageTokenWasUsed()** (1 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
-- **fakeFieldDelete** (1 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
+- **.constructor()** (1 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
+- **.doc()** (1 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
+- **.collection()** (1 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
+- **.constructor()** (1 connections) — `functions/gye/cloud_backup_deletion_runtime.test.js`
 - *... and 13 more nodes in this community*
 
 ## Relationships

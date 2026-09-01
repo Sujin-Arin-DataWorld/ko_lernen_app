@@ -9,10 +9,10 @@
 - **TesterAccessForm()** (3 connections) — `hangul-sori-site-local/app/tester-access-form.tsx`
 - **store-links.ts** (2 connections) — `hangul-sori-site-local/app/store-links.ts`
 - **STORE_LINKS** (2 connections) — `hangul-sori-site-local/app/store-links.ts`
+- **submit()** (1 connections) — `hangul-sori-site-local/app/tester-access-form.tsx`
 - **copy** (1 connections) — `hangul-sori-site-local/app/tester-access-form.tsx`
 - **focusValues** (1 connections) — `hangul-sori-site-local/app/tester-access-form.tsx`
 - **levelValues** (1 connections) — `hangul-sori-site-local/app/tester-access-form.tsx`
-- **submit()** (1 connections) — `hangul-sori-site-local/app/tester-access-form.tsx`
 
 ## Relationships
 

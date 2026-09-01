@@ -11,9 +11,9 @@
 - **_csv_text()** (5 connections) — `tools/content_factory/test_plan_pack_assignments.py`
 - **._write_metadata()** (5 connections) — `tools/content_factory/test_plan_pack_assignments.py`
 - **_vocab_row()** (5 connections) — `tools/content_factory/test_plan_pack_assignments.py`
-- **test_plan_pack_assignments.py** (4 connections) — `tools/content_factory/test_plan_pack_assignments.py`
 - **.test_new_pack_preflight_ignores_rows_for_an_existing_pack()** (4 connections) — `tools/content_factory/test_plan_pack_assignments.py`
 - **._write_valid_draft()** (4 connections) — `tools/content_factory/test_plan_pack_assignments.py`
+- **test_plan_pack_assignments.py** (4 connections) — `tools/content_factory/test_plan_pack_assignments.py`
 - **.test_rejects_incomplete_boss_set()** (3 connections) — `tools/content_factory/test_plan_pack_assignments.py`
 - **.test_reservations_assign_the_slot_after_multiple_pending_manifests()** (3 connections) — `tools/content_factory/test_plan_pack_assignments.py`
 - **.test_reservations_reject_duplicate_bases_and_orders()** (3 connections) — `tools/content_factory/test_plan_pack_assignments.py`

@@ -1,6 +1,6 @@
 # Batch01PreReviewValidationTest
 
-> 31 nodes · cohesion 0.15
+> 32 nodes · cohesion 0.14
 
 ## Key Concepts
 
@@ -16,20 +16,20 @@
 - **.test_later_batch_rejects_predecessor_vocabulary_headword_reuse()** (5 connections) — `tools/content_factory/test_validate_batch_01.py`
 - **._batch02_manifest()** (4 connections) — `tools/content_factory/test_validate_batch_01.py`
 - **._copy_fixture_tree()** (4 connections) — `tools/content_factory/test_validate_batch_01.py`
+- **.test_generic_validator_accepts_a_later_batch_manifest_without_batch01_ids()** (4 connections) — `tools/content_factory/test_validate_batch_01.py`
 - **.test_later_batch_rejects_any_predecessor_draft_id_reuse()** (4 connections) — `tools/content_factory/test_validate_batch_01.py`
 - **.test_later_batch_rejects_conflicting_predecessor_companion_mapping()** (4 connections) — `tools/content_factory/test_validate_batch_01.py`
 - **._rewind_promoted_batches()** (3 connections) — `tools/content_factory/test_validate_batch_01.py`
 - **.setUp()** (3 connections) — `tools/content_factory/test_validate_batch_01.py`
 - **._snapshot()** (3 connections) — `tools/content_factory/test_validate_batch_01.py`
 - **.test_batch02_satz_distractors_keep_reviewed_alternate_sentences_impossible()** (3 connections) — `tools/content_factory/test_validate_batch_01.py`
-- **.test_generic_validator_accepts_a_later_batch_manifest_without_batch01_ids()** (3 connections) — `tools/content_factory/test_validate_batch_01.py`
+- **.test_current_batch_passes_and_does_not_write_any_fixture_source()** (3 connections) — `tools/content_factory/test_validate_batch_01.py`
 - **.test_later_batch_allows_an_identical_predecessor_companion_mapping()** (3 connections) — `tools/content_factory/test_validate_batch_01.py`
 - **.test_pack_preflight_rejects_a_non_next_pack_sequence()** (3 connections) — `tools/content_factory/test_validate_batch_01.py`
 - **.test_rejects_a_derived_translation_that_drifts_from_its_vocab_source()** (3 connections) — `tools/content_factory/test_validate_batch_01.py`
 - **.test_rejects_missing_curriculum_companion_mapping()** (3 connections) — `tools/content_factory/test_validate_batch_01.py`
 - **._copy_file()** (2 connections) — `tools/content_factory/test_validate_batch_01.py`
-- **.test_current_batch_passes_and_does_not_write_any_fixture_source()** (2 connections) — `tools/content_factory/test_validate_batch_01.py`
-- *... and 6 more nodes in this community*
+- *... and 7 more nodes in this community*
 
 ## Relationships
 
@@ -44,7 +44,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 70 (97%)
+- EXTRACTED: 72 (97%)
 - INFERRED: 2 (3%)
 - AMBIGUOUS: 0 (0%)
 

@@ -11,10 +11,10 @@
 - **_ErrorCard** (2 connections) — `lib/screens/book_capture_screen.dart`
 - **_pick** (2 connections) — `lib/screens/book_capture_screen.dart`
 - **_resumeRecoveredBook** (2 connections) — `lib/screens/book_capture_screen.dart`
-- **Route /book/preview** (2 connections)
 - **../services/crop_recovery_service.dart** (2 connections)
 - **../services/picker_recovery_service.dart** (2 connections)
 - **../widgets/sori/feature_coach.dart** (2 connections)
+- **Route /book/preview** (2 connections)
 - **bookCaptureJpegQuality** (1 connections) — `lib/screens/book_capture_screen.dart`
 - **bookCaptureQuotaBlocksPick** (1 connections) — `lib/screens/book_capture_screen.dart`
 - **build** (1 connections) — `lib/screens/book_capture_screen.dart`
@@ -33,18 +33,18 @@
 
 ## Relationships
 
-- [gye_screen.dart](gye_screen.dart.md) (5 shared connections)
-- [storage_service.dart](storage_service.dart.md) (3 shared connections)
-- [StatefulWidget](StatefulWidget.md) (3 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (4 shared connections)
 - [main.dart](main.dart.md) (3 shared connections)
-- [List](List.md) (2 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (2 shared connections)
+- [media_workflow.dart](media_workflow.dart.md) (2 shared connections)
+- [gye_screen.dart](gye_screen.dart.md) (2 shared connections)
+- [package:flutter/services.dart](package-flutter-services.dart.md) (2 shared connections)
+- [_State](_State.md) (2 shared connections)
 - [return](return.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
 - [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
 - [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (1 shared connections)
+- [crop_recovery_service.dart](crop_recovery_service.dart.md) (1 shared connections)
 
 ## Source Files
 

@@ -33,8 +33,9 @@
 
 ## Relationships
 
-- [List](List.md) (2 shared connections)
+- [bool get](bool_get.md) (1 shared connections)
 - [curriculum.dart](curriculum.dart.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
 - [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)

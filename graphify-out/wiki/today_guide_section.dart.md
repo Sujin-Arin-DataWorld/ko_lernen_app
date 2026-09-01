@@ -1,13 +1,11 @@
 # today_guide_section.dart
 
-> 47 nodes · cohesion 0.04
+> 25 nodes · cohesion 0.08
 
 ## Key Concepts
 
 - **today_guide_section.dart** (33 connections) — `lib/features/guide/today_guide_section.dart`
-- **guide_progress_service.dart** (32 connections) — `lib/features/guide/guide_progress_service.dart`
 - **GuideProgressSnapshot** (4 connections) — `lib/features/guide/guide_progress_service.dart`
-- **GuideProgressService** (3 connections) — `lib/features/guide/guide_progress_service.dart`
 - **TodayGuideChecklistSection** (3 connections) — `lib/features/guide/today_guide_section.dart`
 - **_TodayGuideChecklistSectionState** (3 connections) — `lib/features/guide/today_guide_section.dart`
 - **guide_progress_service.dart** (2 connections)
@@ -16,35 +14,36 @@
 - **build** (2 connections) — `lib/screens/settings_screen.dart`
 - **Route /guide** (2 connections)
 - **guide_runtime.dart** (1 connections)
-- **completedTopicIds** (1 connections) — `lib/features/guide/guide_progress_service.dart`
-- **completedTopicIdsKey** (1 connections) — `lib/features/guide/guide_progress_service.dart`
-- **dismissTodayCard** (1 connections) — `lib/features/guide/guide_progress_service.dart`
-- **GuidePreferencesLoader** (1 connections) — `lib/features/guide/guide_progress_service.dart`
-- **hasOpened** (1 connections) — `lib/features/guide/guide_progress_service.dart`
-- **isComplete** (1 connections) — `lib/features/guide/guide_progress_service.dart`
-- **isTodayCardDismissed** (1 connections) — `lib/features/guide/guide_progress_service.dart`
-- **load** (1 connections) — `lib/features/guide/guide_progress_service.dart`
-- **markTopicCompleted** (1 connections) — `lib/features/guide/guide_progress_service.dart`
-- **markTopicIncomplete** (1 connections) — `lib/features/guide/guide_progress_service.dart`
-- **markTopicOpened** (1 connections) — `lib/features/guide/guide_progress_service.dart`
-- **_mutate** (1 connections) — `lib/features/guide/guide_progress_service.dart`
-- **openedTopicIds** (1 connections) — `lib/features/guide/guide_progress_service.dart`
-- *... and 22 more nodes in this community*
+- **build** (1 connections) — `lib/features/guide/today_guide_section.dart`
+- **createState** (1 connections) — `lib/features/guide/today_guide_section.dart`
+- **_dismiss** (1 connections) — `lib/features/guide/today_guide_section.dart`
+- **_dismissedStatus** (1 connections) — `lib/features/guide/today_guide_section.dart`
+- **_dismissInFlight** (1 connections) — `lib/features/guide/today_guide_section.dart`
+- **initState** (1 connections) — `lib/features/guide/today_guide_section.dart`
+- **_isInsideSection** (1 connections) — `lib/features/guide/today_guide_section.dart`
+- **_load** (1 connections) — `lib/features/guide/today_guide_section.dart`
+- **_moveFocusPastSection** (1 connections) — `lib/features/guide/today_guide_section.dart`
+- **_openingTopics** (1 connections) — `lib/features/guide/today_guide_section.dart`
+- **_openTopic** (1 connections) — `lib/features/guide/today_guide_section.dart`
+- **progressService** (1 connections) — `lib/features/guide/today_guide_section.dart`
+- **_service** (1 connections) — `lib/features/guide/today_guide_section.dart`
+- **_snapshot** (1 connections) — `lib/features/guide/today_guide_section.dart`
+- **today_guide_checklist_card.dart** (1 connections)
 
 ## Relationships
 
-- [guide_runtime.dart](guide_runtime.dart.md) (4 shared connections)
-- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (3 shared connections)
-- [List](List.md) (3 shared connections)
-- [_](_.md) (2 shared connections)
-- [dart:async](dart-async.md) (2 shared connections)
-- [StatefulWidget](StatefulWidget.md) (2 shared connections)
-- [T](T.md) (1 shared connections)
-- [static const int](static_const_int.md) (1 shared connections)
-- [static const String](static_const_String.md) (1 shared connections)
-- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
-- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (1 shared connections)
-- [onboarding_v2_presentation.dart](onboarding_v2_presentation.dart.md) (1 shared connections)
+- [guide_runtime.dart](guide_runtime.dart.md) (3 shared connections)
+- [guide_progress_service.dart](guide_progress_service.dart.md) (2 shared connections)
+- [_State](_State.md) (2 shared connections)
+- [@immutable](@immutable.md) (1 shared connections)
+- [class](class.md) (1 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
+- [String?](String_.md) (1 shared connections)
+- [dart:async](dart-async.md) (1 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [wordbook_add.dart](wordbook_add.dart.md) (1 shared connections)
 
 ## Source Files
 
@@ -54,7 +53,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 76 (100%)
+- EXTRACTED: 44 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

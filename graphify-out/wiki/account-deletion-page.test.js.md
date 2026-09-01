@@ -10,11 +10,14 @@
 - **startBrowserPage()** (3 connections) — `docs/account-deletion-page.js`
 - **proofFromFragment()** (2 connections) — `docs/account-deletion-page.js`
 - **renderBrowserStatus()** (2 connections) — `docs/account-deletion-page.js`
-- **assert** (1 connections) — `docs/account-deletion-page.test.js`
 - **browserHarness()** (1 connections) — `docs/account-deletion-page.test.js`
-- **{
-  CONSUMPTION_ENDPOINT,
-  consumeDeletionProof,
+- **assert** (1 connections) — `docs/account-deletion-page.test.js`
+- **{
+
+  CONSUMPTION_ENDPOINT,
+
+  consumeDeletionProof,
+
 }** (1 connections) — `docs/account-deletion-page.test.js`
 - **test** (1 connections) — `docs/account-deletion-page.test.js`
 - **VALID_PROOF** (1 connections) — `docs/account-deletion-page.test.js`

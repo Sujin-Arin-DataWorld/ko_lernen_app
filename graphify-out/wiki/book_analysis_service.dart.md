@@ -1,13 +1,12 @@
 # book_analysis_service.dart
 
-> 32 nodes · cohesion 0.06
+> 31 nodes · cohesion 0.07
 
 ## Key Concepts
 
 - **book_analysis_service.dart** (29 connections) — `lib/services/book_analysis_service.dart`
 - **kkeunmari_dictionary_service.dart** (14 connections) — `lib/services/kkeunmari_dictionary_service.dart`
 - **static const Duration** (10 connections)
-- **book_analysis_text.dart** (6 connections)
 - **book_ocr_document.dart** (2 connections)
 - **static final Uri** (2 connections)
 - **book_analysis_service.dart** (1 connections)
@@ -29,22 +28,23 @@
 - **_timeout** (1 connections) — `lib/services/book_analysis_service.dart`
 - **trustedEndpoint** (1 connections) — `lib/services/book_analysis_service.dart`
 - **isValid** (1 connections) — `lib/services/kkeunmari_dictionary_service.dart`
-- *... and 7 more nodes in this community*
+- **KkeunmariDictionaryResult** (1 connections) — `lib/services/kkeunmari_dictionary_service.dart`
+- *... and 6 more nodes in this community*
 
 ## Relationships
 
-- [_](_.md) (6 shared connections)
+- [_](_.md) (3 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
-- [static const String](static_const_String.md) (2 shared connections)
+- [bookshelf_screen.dart](bookshelf_screen.dart.md) (2 shared connections)
 - [account_ui_operations.dart](account_ui_operations.dart.md) (2 shared connections)
 - [book_analysis_security_test.dart](book_analysis_security_test.dart.md) (2 shared connections)
 - [hangul_screen.dart](hangul_screen.dart.md) (2 shared connections)
-- [custom_pack_import_service.dart](custom_pack_import_service.dart.md) (1 shared connections)
-- [scenario_writing_check_service.dart](scenario_writing_check_service.dart.md) (1 shared connections)
-- [data_loader.dart](data_loader.dart.md) (1 shared connections)
 - [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
+- [custom_pack_import_service.dart](custom_pack_import_service.dart.md) (1 shared connections)
 - [auth_service_test.dart](auth_service_test.dart.md) (1 shared connections)
-- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (1 shared connections)
+- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
+- [bool get](bool_get.md) (1 shared connections)
+- [shelf_case.dart](shelf_case.dart.md) (1 shared connections)
 
 ## Source Files
 
@@ -53,7 +53,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 57 (100%)
+- EXTRACTED: 52 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

@@ -1,58 +1,64 @@
 # wordbook_add.dart
 
-> 34 nodes · cohesion 0.06
+> 105 nodes · cohesion 0.02
 
 ## Key Concepts
 
 - **wordbook_add.dart** (47 connections) — `lib/widgets/sori/wordbook_add.dart`
-- **AddToWordbookButton** (3 connections) — `lib/widgets/sori/wordbook_add.dart`
-- **_AddToWordbookButtonState** (3 connections) — `lib/widgets/sori/wordbook_add.dart`
+- **dojangcheop_screen.dart** (41 connections) — `lib/screens/dojangcheop_screen.dart`
+- **../../services/analytics_service.dart** (37 connections)
+- **GlobalKey** (35 connections)
+- **ux_preview_gallery_screen.dart** (29 connections) — `lib/screens/ux_preview_gallery_screen.dart`
+- **paywall_screen.dart** (25 connections) — `lib/screens/paywall_screen.dart`
+- **sori_stage_common.dart** (19 connections) — `lib/screens/sori_stage/sori_stage_common.dart`
+- **../widgets/sori/page_header.dart** (8 connections)
+- **DancheongMotif** (6 connections) — `lib/widgets/sori/dancheong_stamp.dart`
+- **../services/pack_progress_service.dart** (5 connections)
+- **../services/premium_service.dart** (5 connections)
+- **_DojangcheopScreenState** (4 connections) — `lib/screens/dojangcheop_screen.dart`
+- **../../widgets/sori/activity_illustration.dart** (4 connections)
+- **DojangcheopScreen** (3 connections) — `lib/screens/dojangcheop_screen.dart`
+- **header** (3 connections) — `lib/screens/sori_stage/sori_stage_today_screen.dart`
 - **../../features/study_library/study_library.dart** (2 connections)
-- **_add** (1 connections) — `lib/widgets/sori/wordbook_add.dart`
-- **addToWordbook** (1 connections) — `lib/widgets/sori/wordbook_add.dart`
-- **addTypedBookmarkWithWordbookMirror** (1 connections) — `lib/widgets/sori/wordbook_add.dart`
-- **build** (1 connections) — `lib/widgets/sori/wordbook_add.dart`
-- **coachEnabled** (1 connections) — `lib/widgets/sori/wordbook_add.dart`
-- **_coachKey** (1 connections) — `lib/widgets/sori/wordbook_add.dart`
-- **_coachShownThisSession** (1 connections) — `lib/widgets/sori/wordbook_add.dart`
-- **compact** (1 connections) — `lib/widgets/sori/wordbook_add.dart`
-- **createState** (1 connections) — `lib/widgets/sori/wordbook_add.dart`
-- **definitionKo** (1 connections) — `lib/widgets/sori/wordbook_add.dart`
-- **didUpdateWidget** (1 connections) — `lib/widgets/sori/wordbook_add.dart`
-- **exampleDe** (1 connections) — `lib/widgets/sori/wordbook_add.dart`
-- **exampleKorean** (1 connections) — `lib/widgets/sori/wordbook_add.dart`
-- **initState** (1 connections) — `lib/widgets/sori/wordbook_add.dart`
-- **korean** (1 connections) — `lib/widgets/sori/wordbook_add.dart`
-- **posDe** (1 connections) — `lib/widgets/sori/wordbook_add.dart`
-- **preferredTranslation** (1 connections) — `lib/widgets/sori/wordbook_add.dart`
-- **res** (1 connections) — `lib/widgets/sori/wordbook_add.dart`
-- **romanization** (1 connections) — `lib/widgets/sori/wordbook_add.dart`
-- **_scheduleCoach** (1 connections) — `lib/widgets/sori/wordbook_add.dart`
-- **showFailure** (1 connections) — `lib/widgets/sori/wordbook_add.dart`
-- *... and 9 more nodes in this community*
+- **_StampCell** (2 connections) — `lib/screens/dojangcheop_screen.dart`
+- **_StampSeriesSection** (2 connections) — `lib/screens/dojangcheop_screen.dart`
+- **build** (2 connections) — `lib/screens/sori_stage/sori_stage_common.dart`
+- **SoriStageRootHeader** (2 connections) — `lib/screens/sori_stage/sori_stage_common.dart`
+- **SoriStageSafeViewport** (2 connections) — `lib/screens/sori_stage/sori_stage_common.dart`
+- **UxPreviewGalleryScreen** (2 connections) — `lib/screens/ux_preview_gallery_screen.dart`
+- **DancheongMotifSpecX** (2 connections) — `lib/widgets/sori/dancheong_stamp.dart`
+- **Route /profile** (2 connections)
+- **body** (1 connections) — `lib/screens/dojangcheop_screen.dart`
+- *... and 80 more nodes in this community*
 
 ## Relationships
 
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (3 shared connections)
-- [List](List.md) (2 shared connections)
-- [speakable.dart](speakable.dart.md) (2 shared connections)
-- [StatefulWidget](StatefulWidget.md) (2 shared connections)
-- [study_library_screen.dart](study_library_screen.dart.md) (1 shared connections)
-- [return](return.md) (1 shared connections)
-- [@visibleForTesting](@visibleForTesting.md) (1 shared connections)
-- [dart:async](dart-async.md) (1 shared connections)
-- [static const String](static_const_String.md) (1 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [kkeunmari_screen.dart](kkeunmari_screen.dart.md) (1 shared connections)
-- [grammar_screen.dart](grammar_screen.dart.md) (1 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (14 shared connections)
+- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (8 shared connections)
+- [_State](_State.md) (7 shared connections)
+- [StatelessWidget](StatelessWidget.md) (7 shared connections)
+- [cloze_game_screen.dart](cloze_game_screen.dart.md) (6 shared connections)
+- [package:flutter/services.dart](package-flutter-services.dart.md) (6 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (6 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (6 shared connections)
+- [gye_screen.dart](gye_screen.dart.md) (5 shared connections)
+- [bool get](bool_get.md) (5 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (5 shared connections)
+- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (4 shared connections)
 
 ## Source Files
 
+- `lib/screens/dojangcheop_screen.dart`
+- `lib/screens/paywall_screen.dart`
+- `lib/screens/sori_stage/sori_stage_common.dart`
+- `lib/screens/sori_stage/sori_stage_today_screen.dart`
+- `lib/screens/ux_preview_gallery_screen.dart`
+- `lib/widgets/sori/dancheong_stamp.dart`
 - `lib/widgets/sori/wordbook_add.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 51 (100%)
+- EXTRACTED: 262 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

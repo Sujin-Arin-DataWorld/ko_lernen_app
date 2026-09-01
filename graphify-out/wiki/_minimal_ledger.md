@@ -8,9 +8,9 @@
 - **ValidateSyntheticRuleTest** (9 connections) — `tool/test_ledger_append.py`
 - **test_ledger_append.py** (6 connections) — `tool/test_ledger_append.py`
 - **AppendRecordTest** (3 connections) — `tool/test_ledger_append.py`
+- **ValidateRealLedgerTest** (2 connections) — `tool/test_ledger_append.py`
 - **.test_append_computes_hashes_and_writes_a_valid_record()** (2 connections) — `tool/test_ledger_append.py`
 - **.test_append_refuses_a_duplicate_id()** (2 connections) — `tool/test_ledger_append.py`
-- **ValidateRealLedgerTest** (2 connections) — `tool/test_ledger_append.py`
 - **.test_a_rejected_output_does_not_become_a_known_input()** (2 connections) — `tool/test_ledger_append.py`
 - **.test_an_approved_output_becomes_a_known_input_for_later_records()** (2 connections) — `tool/test_ledger_append.py`
 - **.test_budget_overflow_is_caught()** (2 connections) — `tool/test_ledger_append.py`
@@ -19,8 +19,8 @@
 - **.test_local_provider_must_cost_zero()** (2 connections) — `tool/test_ledger_append.py`
 - **.test_non_utc_timestamp_fails()** (2 connections) — `tool/test_ledger_append.py`
 - **.test_paid_provider_must_cost_more_than_zero()** (2 connections) — `tool/test_ledger_append.py`
-- **Tests for tool/ledger_append.py. The acceptance bar from the "살아 있는 한옥" plan:…** (1 connections) — `tool/test_ledger_append.py`
 - **.test_the_real_hanok_ledger_validates_clean()** (1 connections) — `tool/test_ledger_append.py`
+- **Tests for tool/ledger_append.py. The acceptance bar from the "살아 있는 한옥" plan:…** (1 connections) — `tool/test_ledger_append.py`
 
 ## Relationships
 

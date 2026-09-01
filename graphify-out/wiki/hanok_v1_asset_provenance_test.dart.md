@@ -35,8 +35,8 @@
 - [File](File.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
 - [return](return.md) (1 shared connections)
-- [book_capture_image_quality.dart](book_capture_image_quality.dart.md) (1 shared connections)
-- [tts_bundled_manifest.dart](tts_bundled_manifest.dart.md) (1 shared connections)
+- [dart:typed_data](dart-typed_data.md) (1 shared connections)
+- [can_do_segment_asset_test.dart](can_do_segment_asset_test.dart.md) (1 shared connections)
 
 ## Source Files
 

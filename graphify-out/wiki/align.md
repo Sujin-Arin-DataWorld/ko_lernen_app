@@ -11,13 +11,13 @@
 - **_require()** (6 connections) — `tool/align_model_frame.py`
 - **fit_affine()** (5 connections) — `tool/align_model_frame.py`
 - **frame_only()** (5 connections) — `tool/align_model_frame.py`
-- **Any** (5 connections)
 - **warp()** (5 connections) — `tool/align_model_frame.py`
+- **Any** (5 connections)
 - **AlignError** (4 connections) — `tool/align_model_frame.py`
 - **ndarray** (4 connections)
 - **main()** (3 connections) — `tool/align_model_frame.py`
-- **Path** (3 connections)
 - **_runs()** (3 connections) — `tool/align_model_frame.py`
+- **Path** (3 connections)
 - **Image** (2 connections)
 - **ValueError** (1 connections)
 - **Horizontal fit on the outermost column centres + two-point vertical fit.…** (1 connections) — `tool/align_model_frame.py`

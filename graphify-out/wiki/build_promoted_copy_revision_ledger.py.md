@@ -4,10 +4,10 @@
 
 ## Key Concepts
 
-- **build_promoted_copy_revision_ledger.py** (5 connections) — `tools/content_factory/build_promoted_copy_revision_ledger.py`
 - **build()** (5 connections) — `tools/content_factory/build_promoted_copy_revision_ledger.py`
-- **Any** (4 connections)
+- **build_promoted_copy_revision_ledger.py** (5 connections) — `tools/content_factory/build_promoted_copy_revision_ledger.py`
 - **_read_records()** (4 connections) — `tools/content_factory/build_promoted_copy_revision_ledger.py`
+- **Any** (4 connections)
 - **_bytes()** (3 connections) — `tools/content_factory/build_promoted_copy_revision_ledger.py`
 - **_fingerprint()** (3 connections) — `tools/content_factory/build_promoted_copy_revision_ledger.py`
 - **main()** (3 connections) — `tools/content_factory/build_promoted_copy_revision_ledger.py`

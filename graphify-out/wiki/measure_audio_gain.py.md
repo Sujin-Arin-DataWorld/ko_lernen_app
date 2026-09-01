@@ -10,8 +10,8 @@
 - **main()** (9 connections) — `tool/measure_audio_gain.py`
 - **discover_assets()** (6 connections) — `tool/measure_audio_gain.py`
 - **Path** (6 connections)
-- **_asset_spec()** (5 connections) — `tool/measure_audio_gain.py`
 - **MeasurementError** (5 connections) — `tool/measure_audio_gain.py`
+- **_asset_spec()** (5 connections) — `tool/measure_audio_gain.py`
 - **_version()** (5 connections) — `tool/measure_audio_gain.py`
 - **AssetSpec** (4 connections) — `tool/measure_audio_gain.py`
 - **issues_for_rows()** (4 connections) — `tool/measure_audio_gain.py`

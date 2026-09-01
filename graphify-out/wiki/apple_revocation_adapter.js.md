@@ -19,24 +19,32 @@
 - **AppleRevocationError** (2 connections) — `functions/gye/apple_revocation_adapter.js`
 - **encodeJson()** (2 connections) — `functions/gye/apple_revocation_adapter.js`
 - **.constructor()** (1 connections) — `functions/gye/apple_revocation_adapter.js`
-- **{
-  createPrivateKey,
-  sign,
-}** (1 connections) — `functions/gye/apple_revocation_adapter.js`
-- **assert** (1 connections) — `functions/gye/apple_revocation_adapter.test.js`
-- **{
-  createAppleRevocationAdapter,
-}** (1 connections) — `functions/gye/apple_revocation_adapter.test.js`
 - **decodeJsonSegment()** (1 connections) — `functions/gye/apple_revocation_adapter.test.js`
 - **errorText()** (1 connections) — `functions/gye/apple_revocation_adapter.test.js`
-- **{
-  generateKeyPairSync,
-  verify,
-}** (1 connections) — `functions/gye/apple_revocation_adapter.test.js`
 - **json()** (1 connections) — `functions/gye/apple_revocation_adapter.test.js`
-- **test** (1 connections) — `functions/gye/apple_revocation_adapter.test.js`
 - **testSecrets()** (1 connections) — `functions/gye/apple_revocation_adapter.test.js`
 - **text()** (1 connections) — `functions/gye/apple_revocation_adapter.test.js`
+- **{
+
+  createPrivateKey,
+
+  sign,
+
+}** (1 connections) — `functions/gye/apple_revocation_adapter.js`
+- **assert** (1 connections) — `functions/gye/apple_revocation_adapter.test.js`
+- **{
+
+  createAppleRevocationAdapter,
+
+}** (1 connections) — `functions/gye/apple_revocation_adapter.test.js`
+- **{
+
+  generateKeyPairSync,
+
+  verify,
+
+}** (1 connections) — `functions/gye/apple_revocation_adapter.test.js`
+- **test** (1 connections) — `functions/gye/apple_revocation_adapter.test.js`
 
 ## Relationships
 

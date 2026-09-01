@@ -1,70 +1,71 @@
 # String?
 
-> 149 nodes · cohesion 0.01
+> 186 nodes · cohesion 0.01
 
 ## Key Concepts
 
 - **String?** (183 connections)
-- **Widget** (49 connections)
-- **standard_page.dart** (37 connections) — `lib/widgets/sori/standard_page.dart`
-- **ux_preview_gallery_screen.dart** (29 connections) — `lib/screens/ux_preview_gallery_screen.dart`
-- **illustrated_card.dart** (29 connections) — `lib/widgets/sori/illustrated_card.dart`
-- **study_frame.dart** (27 connections) — `lib/widgets/sori/study_frame.dart`
+- **VoidCallback?** (90 connections)
+- **Color** (62 connections)
+- **mission_hero_card.dart** (55 connections) — `lib/widgets/sori/mission_hero_card.dart`
+- **IconData** (38 connections)
+- **stats_top_bar.dart** (29 connections) — `lib/widgets/sori/stats_top_bar.dart`
+- **chip.dart** (24 connections) — `lib/widgets/sori/chip.dart`
+- **_** (23 connections) — `lib/widgets/sori/badge.dart`
+- **empty_state.dart** (23 connections) — `lib/widgets/sori/empty_state.dart`
 - **chrome_row.dart** (20 connections) — `lib/widgets/sori/chrome_row.dart`
-- **gye_feed.dart** (18 connections) — `lib/widgets/sori/gye_feed.dart`
-- **sticker_image.dart** (15 connections) — `lib/widgets/sori/sticker_image.dart`
-- **sticker_picker.dart** (14 connections) — `lib/widgets/sori/sticker_picker.dart`
-- **module_card_l10n_test.dart** (13 connections) — `test/module_card_l10n_test.dart`
+- **module_card.dart** (20 connections) — `lib/widgets/sori/module_card.dart`
+- **study_action_bar.dart** (18 connections) — `lib/widgets/sori/study_action_bar.dart`
+- **path_preview_row.dart** (15 connections) — `lib/widgets/sori/path_preview_row.dart`
+- **pressable.dart** (14 connections)
+- **hub_progress_header.dart** (12 connections) — `lib/widgets/sori/hub_progress_header.dart`
+- **page_header.dart** (12 connections) — `lib/widgets/sori/page_header.dart`
 - **Key** (10 connections)
-- **ScrollController** (9 connections)
-- **../../data/sticker_catalog.dart** (7 connections)
-- **section_header.dart** (7 connections) — `lib/widgets/sori/section_header.dart`
-- **cloze_topic_group_localizations.dart** (5 connections) — `lib/l10n/cloze_topic_group_localizations.dart`
-- **../../l10n/sticker_localizations.dart** (4 connections)
-- **responsive.dart** (4 connections)
-- **generated/app_localizations.dart** (3 connections)
-- **ClozeTopicGroupId** (3 connections) — `lib/data/cloze_topic_groups.dart`
-- **sticker_localizations.dart** (3 connections) — `lib/l10n/sticker_localizations.dart`
-- **SoriSectionHeader** (3 connections) — `lib/widgets/sori/section_header.dart`
-- **sticker_image.dart** (3 connections)
-- **app_bar.dart** (2 connections)
-- **../data/cloze_topic_groups.dart** (2 connections)
-- *... and 124 more nodes in this community*
+- **pending_reward_card.dart** (9 connections) — `lib/widgets/sori/pending_reward_card.dart`
+- **learner_motivation_test.dart** (9 connections) — `test/learner_motivation_test.dart`
+- **SoriStars** (3 connections) — `lib/widgets/sori/badge.dart`
+- **SoriEmptyState** (3 connections) — `lib/widgets/sori/empty_state.dart`
+- **SoriPathStop** (3 connections) — `lib/widgets/sori/path_trail.dart`
+- **window_class.dart** (3 connections)
+- **SoriBadge** (2 connections) — `lib/widgets/sori/badge.dart`
+- **_ChromeSlot** (2 connections) — `lib/widgets/sori/chrome_row.dart`
+- *... and 161 more nodes in this community*
 
 ## Relationships
 
-- [StatelessWidget](StatelessWidget.md) (26 shared connections)
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (26 shared connections)
-- [_](_.md) (19 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (12 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (11 shared connections)
-- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (10 shared connections)
-- [gye_screen.dart](gye_screen.dart.md) (7 shared connections)
+- [StatelessWidget](StatelessWidget.md) (46 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (36 shared connections)
+- [_](_.md) (22 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (13 shared connections)
+- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (8 shared connections)
+- [gye_screen.dart](gye_screen.dart.md) (8 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (8 shared connections)
+- [practice_hub_screen.dart](practice_hub_screen.dart.md) (7 shared connections)
+- [bool get](bool_get.md) (7 shared connections)
 - [List](List.md) (7 shared connections)
-- [Color](Color.md) (7 shared connections)
-- [sori_stage_today_screen.dart](sori_stage_today_screen.dart.md) (6 shared connections)
-- [cloze_game_screen.dart](cloze_game_screen.dart.md) (5 shared connections)
-- [book_preview_screen.dart](book_preview_screen.dart.md) (5 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (6 shared connections)
+- [quiz_choice.dart](quiz_choice.dart.md) (6 shared connections)
 
 ## Source Files
 
-- `lib/data/cloze_topic_groups.dart`
-- `lib/l10n/cloze_topic_group_localizations.dart`
-- `lib/l10n/sticker_localizations.dart`
-- `lib/screens/ux_preview_gallery_screen.dart`
+- `lib/widgets/sori/badge.dart`
+- `lib/widgets/sori/chip.dart`
 - `lib/widgets/sori/chrome_row.dart`
-- `lib/widgets/sori/gye_feed.dart`
-- `lib/widgets/sori/illustrated_card.dart`
-- `lib/widgets/sori/section_header.dart`
-- `lib/widgets/sori/standard_page.dart`
-- `lib/widgets/sori/sticker_image.dart`
-- `lib/widgets/sori/sticker_picker.dart`
-- `lib/widgets/sori/study_frame.dart`
-- `test/module_card_l10n_test.dart`
+- `lib/widgets/sori/empty_state.dart`
+- `lib/widgets/sori/hub_progress_header.dart`
+- `lib/widgets/sori/mission_hero_card.dart`
+- `lib/widgets/sori/module_card.dart`
+- `lib/widgets/sori/page_header.dart`
+- `lib/widgets/sori/path_preview_row.dart`
+- `lib/widgets/sori/path_trail.dart`
+- `lib/widgets/sori/pending_reward_card.dart`
+- `lib/widgets/sori/stats_top_bar.dart`
+- `lib/widgets/sori/study_action_bar.dart`
+- `test/learner_motivation_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 481 (100%)
+- EXTRACTED: 651 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

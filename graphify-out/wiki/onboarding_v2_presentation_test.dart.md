@@ -33,17 +33,17 @@
 
 ## Relationships
 
-- [StatefulWidget](StatefulWidget.md) (6 shared connections)
-- [entry_onboarding_uiux_test.dart](entry_onboarding_uiux_test.dart.md) (5 shared connections)
-- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (3 shared connections)
-- [dart:async](dart-async.md) (2 shared connections)
+- [_State](_State.md) (6 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (4 shared connections)
+- [content_feedback_widget_test.dart](content_feedback_widget_test.dart.md) (2 shared connections)
+- [StatelessWidget](StatelessWidget.md) (2 shared connections)
+- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (2 shared connections)
+- [test/profile_screen_test.dart](test-profile_screen_test.dart.md) (2 shared connections)
 - [onboarding_v2_runtime_catalog_test.dart](onboarding_v2_runtime_catalog_test.dart.md) (1 shared connections)
-- [cultural_help.dart](cultural_help.dart.md) (1 shared connections)
 - [return](return.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
-- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (1 shared connections)
+- [course_practice_screen_test.dart](course_practice_screen_test.dart.md) (1 shared connections)
+- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
 
 ## Source Files

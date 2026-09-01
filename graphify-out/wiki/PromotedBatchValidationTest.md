@@ -1,16 +1,17 @@
 # PromotedBatchValidationTest
 
-> 9 nodes · cohesion 0.31
+> 10 nodes · cohesion 0.29
 
 ## Key Concepts
 
 - **PromotedBatchValidationTest** (7 connections) — `tools/content_factory/test_validate_promoted_batch.py`
 - **._copy_tree()** (5 connections) — `tools/content_factory/test_validate_promoted_batch.py`
 - **test_validate_promoted_batch.py** (4 connections) — `tools/content_factory/test_validate_promoted_batch.py`
-- **.test_rejects_missing_live_record()** (2 connections) — `tools/content_factory/test_validate_promoted_batch.py`
+- **.test_rejects_missing_live_record()** (3 connections) — `tools/content_factory/test_validate_promoted_batch.py`
+- **.test_merged_batch_17_matches_live_assets()** (2 connections) — `tools/content_factory/test_validate_promoted_batch.py`
 - **.test_rejects_review_only_status()** (2 connections) — `tools/content_factory/test_validate_promoted_batch.py`
 - **.test_rejects_unknown_artifact_kind()** (2 connections) — `tools/content_factory/test_validate_promoted_batch.py`
-- **.test_merged_batch_17_matches_live_assets()** (1 connections) — `tools/content_factory/test_validate_promoted_batch.py`
+- **skipIf** (2 connections)
 - **.test_review_batch_tool_points_merged_batch_17_at_promoted_validator()** (1 connections) — `tools/content_factory/test_validate_promoted_batch.py`
 - **Path** (1 connections)
 
@@ -26,7 +27,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 14 (100%)
+- EXTRACTED: 16 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

@@ -5,11 +5,11 @@
 ## Key Concepts
 
 - **SoriContentFeed (vertical content feed)** (6 connections) — `docs/CONTENT_UI_BIBLE.md`
-- **Heart vs Bookmark split** (2 connections) — `docs/CONTENT_UI_BIBLE.md`
 - **LikedContentService** (2 connections) — `docs/CONTENT_UI_BIBLE.md`
-- **Cardless player (Hangul on hanji)** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
+- **Heart vs Bookmark split** (2 connections) — `docs/CONTENT_UI_BIBLE.md`
 - **Tinder deck removal** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
 - **thevocabulary.app benchmark** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
+- **Cardless player (Hangul on hanji)** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
 
 ## Relationships
 

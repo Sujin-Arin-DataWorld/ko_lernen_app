@@ -12,9 +12,9 @@
 - **contains_hangul()** (5 connections) — `functions/analyze_korean_text/text_quality.py`
 - **_filter_supported_characters()** (4 connections) — `functions/analyze_korean_text/text_quality.py`
 - **_trim_non_korean_affixes()** (4 connections) — `functions/analyze_korean_text/text_quality.py`
+- **PreparedKoreanText** (3 connections) — `functions/analyze_korean_text/text_quality.py`
 - **.test_reflows_ocr_lines_and_only_splits_terminal_sentences()** (3 connections) — `functions/analyze_korean_text/test_text_quality.py`
 - **_is_supported_character()** (3 connections) — `functions/analyze_korean_text/text_quality.py`
-- **PreparedKoreanText** (3 connections) — `functions/analyze_korean_text/text_quality.py`
 - **.test_filters_unexpected_script_inside_a_korean_sentence()** (2 connections) — `functions/analyze_korean_text/test_text_quality.py`
 - **.test_keeps_korean_and_removes_separate_german_and_arabic_lines()** (2 connections) — `functions/analyze_korean_text/test_text_quality.py`
 - **.test_keeps_latin_names_embedded_inside_a_korean_sentence()** (2 connections) — `functions/analyze_korean_text/test_text_quality.py`

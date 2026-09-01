@@ -1,17 +1,22 @@
 # static const int
 
-> 53 nodes · cohesion 0.04
+> 57 nodes · cohesion 0.04
 
 ## Key Concepts
 
 - **static const int** (45 connections)
 - **scenario_loader.dart** (27 connections) — `lib/services/scenario_loader.dart`
-- **personalized_lesson_service.dart** (19 connections) — `lib/services/personalized_lesson_service.dart`
-- **static const List** (19 connections)
-- **grammar_plan_service.dart** (14 connections) — `lib/services/grammar_plan_service.dart`
+- **diagnostics_service.dart** (24 connections) — `lib/services/diagnostics_service.dart`
+- **diagnostics_service_test.dart** (14 connections) — `test/diagnostics_service_test.dart`
 - **age_gate_service.dart** (11 connections) — `lib/services/age_gate_service.dart`
-- **../models/grammar.dart** (8 connections)
-- **../models/grammar_study_plan.dart** (2 connections)
+- **static final Map** (5 connections)
+- **DiagnosticsSink** (4 connections) — `lib/services/diagnostics_service.dart`
+- **configureForTesting** (2 connections) — `lib/services/diagnostics_service.dart`
+- **FirebaseDiagnosticsSink** (2 connections) — `lib/services/diagnostics_service.dart`
+- **resetForTesting** (2 connections) — `lib/services/diagnostics_service.dart`
+- **package:firebase_crashlytics/firebase_crashlytics.dart** (2 connections)
+- **_RecordingSink** (2 connections) — `test/diagnostics_service_test.dart`
+- **_ThrowingSink** (2 connections) — `test/diagnostics_service_test.dart`
 - **AgeGateService** (1 connections) — `lib/services/age_gate_service.dart`
 - **conservativeYearDifference** (1 connections) — `lib/services/age_gate_service.dart`
 - **isPlausibleYear** (1 connections) — `lib/services/age_gate_service.dart`
@@ -19,43 +24,38 @@
 - **minGyeAge** (1 connections) — `lib/services/age_gate_service.dart`
 - **needsBirthYear** (1 connections) — `lib/services/age_gate_service.dart`
 - **saveBirthYear** (1 connections) — `lib/services/age_gate_service.dart`
-- **curatedRowsForLevel** (1 connections) — `lib/services/grammar_plan_service.dart`
-- **decodePlans** (1 connections) — `lib/services/grammar_plan_service.dart`
-- **defaultItemsPerDay** (1 connections) — `lib/services/grammar_plan_service.dart`
-- **encodePlans** (1 connections) — `lib/services/grammar_plan_service.dart`
-- **GrammarPlanService** (1 connections) — `lib/services/grammar_plan_service.dart`
-- **itemsPerDayOptions** (1 connections) — `lib/services/grammar_plan_service.dart`
-- **recordServedDay** (1 connections) — `lib/services/grammar_plan_service.dart`
-- **todaysSlice** (1 connections) — `lib/services/grammar_plan_service.dart`
-- **totalDays** (1 connections) — `lib/services/grammar_plan_service.dart`
-- **allInterests** (1 connections) — `lib/services/personalized_lesson_service.dart`
-- *... and 28 more nodes in this community*
+- **DiagnosticKey** (1 connections) — `lib/services/diagnostics_service.dart`
+- **DiagnosticsService** (1 connections) — `lib/services/diagnostics_service.dart`
+- **_lastValues** (1 connections) — `lib/services/diagnostics_service.dart`
+- **log** (1 connections) — `lib/services/diagnostics_service.dart`
+- **logBreadcrumb** (1 connections) — `lib/services/diagnostics_service.dart`
+- *... and 32 more nodes in this community*
 
 ## Relationships
 
-- [_](_.md) (21 shared connections)
-- [data_loader.dart](data_loader.dart.md) (4 shared connections)
-- [storage_service.dart](storage_service.dart.md) (2 shared connections)
+- [_](_.md) (19 shared connections)
+- [room_layout_service.dart](room_layout_service.dart.md) (3 shared connections)
+- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (3 shared connections)
+- [data_migration_service.dart](data_migration_service.dart.md) (3 shared connections)
+- [@visibleForTesting](@visibleForTesting.md) (2 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
-- [cloze_topic_groups.dart](cloze_topic_groups.dart.md) (2 shared connections)
-- [account_ui_operations.dart](account_ui_operations.dart.md) (2 shared connections)
-- [diagnostics_service.dart](diagnostics_service.dart.md) (2 shared connections)
-- [grammar_screen.dart](grammar_screen.dart.md) (2 shared connections)
-- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (2 shared connections)
-- [data_migration_service.dart](data_migration_service.dart.md) (2 shared connections)
+- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (2 shared connections)
 - [audio_policy.dart](audio_policy.dart.md) (1 shared connections)
-- [ux_preview_feature.dart](ux_preview_feature.dart.md) (1 shared connections)
+- [premium_service.dart](premium_service.dart.md) (1 shared connections)
+- [culture_notes_service.dart](culture_notes_service.dart.md) (1 shared connections)
+- [dart:async](dart-async.md) (1 shared connections)
+- [hanok_stage_service.dart](hanok_stage_service.dart.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/services/age_gate_service.dart`
-- `lib/services/grammar_plan_service.dart`
-- `lib/services/personalized_lesson_service.dart`
+- `lib/services/diagnostics_service.dart`
 - `lib/services/scenario_loader.dart`
+- `test/diagnostics_service_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 136 (100%)
+- EXTRACTED: 127 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

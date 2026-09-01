@@ -4,9 +4,9 @@
 
 ## Key Concepts
 
-- **build_a2_style_ref_sheet.py** (2 connections) — `tool/build_a2_style_ref_sheet.py`
 - **cell_box()** (2 connections) — `tool/build_a2_style_ref_sheet.py`
 - **main()** (2 connections) — `tool/build_a2_style_ref_sheet.py`
+- **build_a2_style_ref_sheet.py** (2 connections) — `tool/build_a2_style_ref_sheet.py`
 
 ## Relationships
 

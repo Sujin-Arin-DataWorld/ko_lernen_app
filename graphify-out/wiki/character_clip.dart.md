@@ -1,6 +1,6 @@
 # character_clip.dart
 
-> 85 nodes · cohesion 0.02
+> 80 nodes · cohesion 0.03
 
 ## Key Concepts
 
@@ -29,22 +29,22 @@
 - **fallbackKind** (1 connections) — `lib/widgets/sori/character_clip.dart`
 - **feedbackFor** (1 connections) — `lib/widgets/sori/character_clip.dart`
 - **greetFor** (1 connections) — `lib/widgets/sori/character_clip.dart`
-- *... and 60 more nodes in this community*
+- *... and 55 more nodes in this community*
 
 ## Relationships
 
-- [hanok_header.dart](hanok_header.dart.md) (4 shared connections)
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (3 shared connections)
-- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (2 shared connections)
-- [dart:async](dart-async.md) (2 shared connections)
-- [tiger_video.dart](tiger_video.dart.md) (1 shared connections)
-- [Color](Color.md) (1 shared connections)
-- [Duration](Duration.md) (1 shared connections)
-- [scroll_palette.dart](scroll_palette.dart.md) (1 shared connections)
-- [static const int](static_const_int.md) (1 shared connections)
-- [static const String](static_const_String.md) (1 shared connections)
-- [String?](String_.md) (1 shared connections)
-- [game_reward.dart](game_reward.dart.md) (1 shared connections)
+- [tiger_video.dart](tiger_video.dart.md) (8 shared connections)
+- [String?](String_.md) (3 shared connections)
+- [_State](_State.md) (2 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (2 shared connections)
+- [test/profile_screen_test.dart](test-profile_screen_test.dart.md) (1 shared connections)
+- [onboarding_v2_character_media_contract_test.dart](onboarding_v2_character_media_contract_test.dart.md) (1 shared connections)
+- [hanok_world_screen_test.dart](hanok_world_screen_test.dart.md) (1 shared connections)
+- [scroll_sheet.dart](scroll_sheet.dart.md) (1 shared connections)
+- [mascot.dart](mascot.dart.md) (1 shared connections)
+- [home_hero.dart](home_hero.dart.md) (1 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
+- [hanok_tokens.dart](hanok_tokens.dart.md) (1 shared connections)
 
 ## Source Files
 

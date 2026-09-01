@@ -17,18 +17,18 @@
 - **socialRange** (3 connections) — `tools/content_factory/schemas/level_profile.schema.json`
 - **allowedLanguage** (2 connections) — `tools/content_factory/schemas/level_profile.schema.json`
 - **code** (2 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **allowedLanguage** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **code** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **cognitiveTasks** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **contentScope** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **koreanCourseLevel** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **portfolio** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
-- **socialRange** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
 - **additionalProperties** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
 - **minimum** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
 - **type** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
 - **type** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
 - **minItems** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
+- **type** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
+- **minLength** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
+- **type** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
+- **$id** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
+- **minLength** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
+- **type** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
+- **maximum** (1 connections) — `tools/content_factory/schemas/level_profile.schema.json`
 - *... and 22 more nodes in this community*
 
 ## Relationships

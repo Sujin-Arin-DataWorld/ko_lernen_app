@@ -1,14 +1,10 @@
 # dancheong_stamp.dart
 
-> 47 nodes · cohesion 0.04
+> 43 nodes · cohesion 0.05
 
 ## Key Concepts
 
 - **dancheong_stamp.dart** (54 connections) — `lib/widgets/sori/dancheong_stamp.dart`
-- **DancheongMotif** (6 connections) — `lib/widgets/sori/dancheong_stamp.dart`
-- **DancheongStamp** (4 connections) — `lib/widgets/sori/dancheong_stamp.dart`
-- **_DancheongStampState** (4 connections) — `lib/widgets/sori/dancheong_stamp.dart`
-- **DancheongMotifSpecX** (2 connections) — `lib/widgets/sori/dancheong_stamp.dart`
 - **dancheongRed** (2 connections) — `lib/widgets/sori/dancheong_stamp.dart`
 - **animate** (1 connections) — `lib/widgets/sori/dancheong_stamp.dart`
 - **assetPath** (1 connections) — `lib/widgets/sori/dancheong_stamp.dart`
@@ -29,22 +25,25 @@
 - **_drawOctagon** (1 connections) — `lib/widgets/sori/dancheong_stamp.dart`
 - **_drawPlum** (1 connections) — `lib/widgets/sori/dancheong_stamp.dart`
 - **initState** (1 connections) — `lib/widgets/sori/dancheong_stamp.dart`
-- *... and 22 more nodes in this community*
+- **intensity** (1 connections) — `lib/widgets/sori/dancheong_stamp.dart`
+- **localizedName** (1 connections) — `lib/widgets/sori/dancheong_stamp.dart`
+- **motif** (1 connections) — `lib/widgets/sori/dancheong_stamp.dart`
+- **motifForPackId** (1 connections) — `lib/widgets/sori/dancheong_stamp.dart`
+- *... and 18 more nodes in this community*
 
 ## Relationships
 
-- [List](List.md) (2 shared connections)
-- [StatefulWidget](StatefulWidget.md) (2 shared connections)
-- [book_preview_screen.dart](book_preview_screen.dart.md) (1 shared connections)
-- [pressable.dart](pressable.dart.md) (1 shared connections)
+- [wordbook_add.dart](wordbook_add.dart.md) (2 shared connections)
+- [_State](_State.md) (2 shared connections)
+- [scroll_sheet.dart](scroll_sheet.dart.md) (1 shared connections)
+- [quiz_choice.dart](quiz_choice.dart.md) (1 shared connections)
 - [return](return.md) (1 shared connections)
-- [CustomPainter](CustomPainter.md) (1 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (1 shared connections)
+- [shelf_case.dart](shelf_case.dart.md) (1 shared connections)
+- [dart:math](dart-math.md) (1 shared connections)
 - [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
-- [vocab_pack_result_screen.dart](vocab_pack_result_screen.dart.md) (1 shared connections)
-- [_](_.md) (1 shared connections)
+- [@visibleForTesting](@visibleForTesting.md) (1 shared connections)
 
 ## Source Files
 
@@ -52,7 +51,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 65 (100%)
+- EXTRACTED: 55 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

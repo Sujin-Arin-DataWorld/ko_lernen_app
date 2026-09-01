@@ -1,6 +1,6 @@
 # Task 7 report: App Check and typed server account operations
 
-> 21 nodes · cohesion 0.12
+> 26 nodes · cohesion 0.08
 
 ## Key Concepts
 
@@ -8,23 +8,28 @@
 - **Review fix round 2/5: continuous resume fencing** (8 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
 - **Review fix round 1/5: deletion coordinator contracts** (7 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
 - **Files** (3 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
-- **Fix-round commit** (2 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
-- **Fix-round files** (2 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
-- **GREEN and final verification** (2 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
-- **RED evidence** (2 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
-- **Remaining external gates** (2 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
 - **2026-07-29-account-transition-and-deletion/task-7-report.md** (1 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
 - **Commit** (1 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
 - **Concerns and external gates** (1 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
 - **Created** (1 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
 - **Finding resolved** (1 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
 - **Findings resolved** (1 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
+- **Fix-round commit** (1 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
+- **Fix-round commit** (1 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
+- **Fix-round files** (1 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
+- **Fix-round files** (1 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
 - **GREEN** (1 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
+- **GREEN and final verification** (1 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
+- **GREEN and final verification** (1 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
 - **Modified** (1 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
 - **RED** (1 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
+- **RED evidence** (1 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
+- **RED evidence** (1 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
 - **Regression coverage** (1 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
+- **Remaining external gates** (1 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
+- **Remaining external gates** (1 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
 - **Self-review** (1 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
-- **Status** (1 connections) — `.superpowers/sdd/2026-07-29-account-transition-and-deletion/task-7-report.md`
+- *... and 1 more nodes in this community*
 
 ## Relationships
 

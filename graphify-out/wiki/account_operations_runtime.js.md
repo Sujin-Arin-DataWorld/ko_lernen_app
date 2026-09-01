@@ -1,6 +1,6 @@
 # account_operations_runtime.js
 
-> 84 nodes · cohesion 0.06
+> 81 nodes · cohesion 0.07
 
 ## Key Concepts
 
@@ -29,7 +29,7 @@
 - **fetchActionableDeletionCandidates()** (6 connections) — `functions/gye/account_operations_runtime.js`
 - **requiredDeletionStatusReceiptDigest()** (6 connections) — `functions/gye/account_operations_runtime.js`
 - **requiredOperationId()** (6 connections) — `functions/gye/account_operations_runtime.js`
-- *... and 59 more nodes in this community*
+- *... and 56 more nodes in this community*
 
 ## Relationships
 
@@ -42,7 +42,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 235 (89%)
+- EXTRACTED: 232 (89%)
 - INFERRED: 30 (11%)
 - AMBIGUOUS: 0 (0%)
 

@@ -1,58 +1,61 @@
 # data_migration_service.dart
 
-> 28 nodes · cohesion 0.07
+> 63 nodes · cohesion 0.03
 
 ## Key Concepts
 
 - **data_migration_service.dart** (39 connections) — `lib/services/data_migration_service.dart`
+- **personalized_lesson_service.dart** (19 connections) — `lib/services/personalized_lesson_service.dart`
+- **static const List** (19 connections)
+- **cloze_topic_groups.dart** (12 connections) — `lib/data/cloze_topic_groups.dart`
+- **scenario_character.dart** (11 connections) — `lib/models/scenario_character.dart`
+- **static const Map** (9 connections)
+- **../../services/cloze_loader.dart** (5 connections)
 - **DataMigrationResult** (2 connections) — `lib/services/data_migration_service.dart`
 - **resetForTesting** (2 connections) — `lib/services/data_migration_service.dart`
-- **backupPreferenceKey** (1 connections) — `lib/services/data_migration_service.dart`
-- **_clearJournalAndBackup** (1 connections) — `lib/services/data_migration_service.dart`
-- **currentSchemaVersion** (1 connections) — `lib/services/data_migration_service.dart`
-- **DataMigrationService** (1 connections) — `lib/services/data_migration_service.dart`
-- **DataMigrationStatus** (1 connections) — `lib/services/data_migration_service.dart`
-- **DataMigrationStep** (1 connections) — `lib/services/data_migration_service.dart`
-- **diagnosticValue** (1 connections) — `lib/services/data_migration_service.dart`
-- **error** (1 connections) — `lib/services/data_migration_service.dart`
-- **_existingInstallMarkers** (1 connections) — `lib/services/data_migration_service.dart`
-- **_finish** (1 connections) — `lib/services/data_migration_service.dart`
-- **fromVersion** (1 connections) — `lib/services/data_migration_service.dart`
-- **_inferBaseline** (1 connections) — `lib/services/data_migration_service.dart`
-- **journalPreferenceKey** (1 connections) — `lib/services/data_migration_service.dart`
-- **_lastResult** (1 connections) — `lib/services/data_migration_service.dart`
-- **_productionSteps** (1 connections) — `lib/services/data_migration_service.dart`
-- **_restoreBackup** (1 connections) — `lib/services/data_migration_service.dart`
-- **run** (1 connections) — `lib/services/data_migration_service.dart`
-- **_snapshot** (1 connections) — `lib/services/data_migration_service.dart`
-- **status** (1 connections) — `lib/services/data_migration_service.dart`
-- **toString** (1 connections) — `lib/services/data_migration_service.dart`
-- **toVersion** (1 connections) — `lib/services/data_migration_service.dart`
-- **versionPreferenceKey** (1 connections) — `lib/services/data_migration_service.dart`
-- *... and 3 more nodes in this community*
+- **ClozeTopicGroups** (1 connections) — `lib/data/cloze_topic_groups.dart`
+- **countsForLevel** (1 connections) — `lib/data/cloze_topic_groups.dart`
+- **filterItems** (1 connections) — `lib/data/cloze_topic_groups.dart`
+- **groupForTopic** (1 connections) — `lib/data/cloze_topic_groups.dart`
+- **_ordered** (1 connections) — `lib/data/cloze_topic_groups.dart`
+- **partition** (1 connections) — `lib/data/cloze_topic_groups.dart`
+- **_topicToGroup** (1 connections) — `lib/data/cloze_topic_groups.dart`
+- **id** (1 connections) — `lib/models/scenario_character.dart`
+- **nameDe** (1 connections) — `lib/models/scenario_character.dart`
+- **nameEn** (1 connections) — `lib/models/scenario_character.dart`
+- **nameFor** (1 connections) — `lib/models/scenario_character.dart`
+- **nameKo** (1 connections) — `lib/models/scenario_character.dart`
+- **profileFor** (1 connections) — `lib/models/scenario_character.dart`
+- **profiles** (1 connections) — `lib/models/scenario_character.dart`
+- **ScenarioCharacterCatalog** (1 connections) — `lib/models/scenario_character.dart`
+- **ScenarioCharacterProfile** (1 connections) — `lib/models/scenario_character.dart`
+- *... and 38 more nodes in this community*
 
 ## Relationships
 
-- [List](List.md) (2 shared connections)
-- [static const int](static_const_int.md) (2 shared connections)
-- [sori_stage_progression.dart](sori_stage_progression.dart.md) (1 shared connections)
-- [cloze_topic_groups.dart](cloze_topic_groups.dart.md) (1 shared connections)
-- [static const String](static_const_String.md) (1 shared connections)
+- [_](_.md) (9 shared connections)
+- [static const int](static_const_int.md) (3 shared connections)
+- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (2 shared connections)
+- [room_layout_service.dart](room_layout_service.dart.md) (2 shared connections)
+- [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (2 shared connections)
+- [cloze_game_screen.dart](cloze_game_screen.dart.md) (2 shared connections)
+- [List](List.md) (1 shared connections)
+- [bool get](bool_get.md) (1 shared connections)
+- [Object?](Object_.md) (1 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (1 shared connections)
 - [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
-- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
-- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (1 shared connections)
-- [storage_service.dart](storage_service.dart.md) (1 shared connections)
-- [main.dart](main.dart.md) (1 shared connections)
-- [@visibleForTesting](@visibleForTesting.md) (1 shared connections)
 
 ## Source Files
 
+- `lib/data/cloze_topic_groups.dart`
+- `lib/models/scenario_character.dart`
 - `lib/services/data_migration_service.dart`
+- `lib/services/personalized_lesson_service.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 41 (100%)
+- EXTRACTED: 108 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

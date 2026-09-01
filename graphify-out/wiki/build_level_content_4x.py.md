@@ -1,6 +1,6 @@
 # build_level_content_4x.py
 
-> 70 nodes · cohesion 0.06
+> 72 nodes · cohesion 0.06
 
 ## Key Concepts
 
@@ -19,17 +19,17 @@
 - **build_vocab_games()** (6 connections) — `tools/content_factory/build_level_content_4x.py`
 - **_write_csv()** (6 connections) — `tools/content_factory/build_level_content_4x.py`
 - **romanize_korean()** (6 connections) — `tools/content_factory/rr_romanize.py`
-- **Any** (5 connections)
 - **Batch10KoreanQualityTest** (5 connections) — `tools/content_factory/test_level_content_4x.py`
+- **Any** (5 connections)
 - **a1_production_quests()** (4 connections) — `tools/content_factory/build_level_content_4x.py`
 - **scenario_catalog()** (4 connections) — `tools/content_factory/build_level_content_4x.py`
 - **unused_satz()** (4 connections) — `tools/content_factory/build_level_content_4x.py`
-- **batch_10_scene_beats.py** (4 connections) — `tools/content_factory/data/batch_10_scene_beats.py`
 - **beat_for()** (4 connections) — `tools/content_factory/data/batch_10_scene_beats.py`
+- **batch_10_scene_beats.py** (4 connections) — `tools/content_factory/data/batch_10_scene_beats.py`
 - **apply_next_pack_orders()** (3 connections) — `tools/content_factory/build_level_content_4x.py`
 - **load_live()** (3 connections) — `tools/content_factory/build_level_content_4x.py`
 - **load_packs()** (3 connections) — `tools/content_factory/build_level_content_4x.py`
-- *... and 45 more nodes in this community*
+- *... and 47 more nodes in this community*
 
 ## Relationships
 
@@ -47,7 +47,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 142 (95%)
+- EXTRACTED: 144 (95%)
 - INFERRED: 8 (5%)
 - AMBIGUOUS: 0 (0%)
 

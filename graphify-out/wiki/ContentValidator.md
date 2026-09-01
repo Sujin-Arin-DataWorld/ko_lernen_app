@@ -34,17 +34,17 @@
 ## Relationships
 
 - [ContentValidatorTest](ContentValidatorTest.md) (10 shared connections)
-- [validate_content.py](validate_content.py.md) (7 shared connections)
+- [scenario_store.py](scenario_store.py.md) (5 shared connections)
+- [scenario_corpus_pipeline.py](scenario_corpus_pipeline.py.md) (4 shared connections)
 - [integrate_review_batches.py](integrate_review_batches.py.md) (3 shared connections)
-- [load_sources](load_sources.md) (3 shared connections)
 - [validate_batch_01.py](validate_batch_01.py.md) (3 shared connections)
 - [Counter](Counter.md) (3 shared connections)
 - [apply_review.py](apply_review.py.md) (2 shared connections)
 - [integrate_scenario_batch.py](integrate_scenario_batch.py.md) (2 shared connections)
 - [promote_batch_19_loader_coverage.py](promote_batch_19_loader_coverage.py.md) (2 shared connections)
+- [IntegrateReviewBatchesTest](IntegrateReviewBatchesTest.md) (2 shared connections)
 - [validate_promoted_batch.py](validate_promoted_batch.py.md) (2 shared connections)
 - [handle](handle.md) (2 shared connections)
-- [scenario_corpus_pipeline.py](scenario_corpus_pipeline.py.md) (1 shared connections)
 
 ## Source Files
 

@@ -6,9 +6,9 @@
 
 - **required** (3 connections) — `tools/content_factory/schemas/character_profile.schema.json`
 - **mbtiHint** (3 connections) — `tools/content_factory/schemas/character_profile.schema.json`
+- **type** (1 connections) — `tools/content_factory/schemas/character_profile.schema.json`
 - **value** (1 connections) — `tools/content_factory/schemas/character_profile.schema.json`
 - **weight** (1 connections) — `tools/content_factory/schemas/character_profile.schema.json`
-- **type** (1 connections) — `tools/content_factory/schemas/character_profile.schema.json`
 
 ## Relationships
 

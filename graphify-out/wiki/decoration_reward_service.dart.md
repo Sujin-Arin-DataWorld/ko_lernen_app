@@ -1,16 +1,10 @@
 # decoration_reward_service.dart
 
-> 70 nodes · cohesion 0.03
+> 50 nodes · cohesion 0.04
 
 ## Key Concepts
 
 - **decoration_reward_service.dart** (63 connections) — `lib/services/decoration_reward_service.dart`
-- **room_placement_service.dart** (15 connections) — `lib/services/room_placement_service.dart`
-- **static Future** (13 connections)
-- **../widgets/sori/placed_decoration.dart** (7 connections)
-- **splash_gate.dart** (6 connections) — `lib/services/splash_gate.dart`
-- **resetForTesting** (2 connections) — `lib/services/decoration_reward_service.dart`
-- **unusedRewardBuckets** (2 connections) — `lib/services/decoration_reward_service.dart`
 - **archiveCompleteCollectionBox** (1 connections) — `lib/services/decoration_reward_service.dart`
 - **candidates** (1 connections) — `lib/services/decoration_reward_service.dart`
 - **candidatesForQuest** (1 connections) — `lib/services/decoration_reward_service.dart`
@@ -29,32 +23,33 @@
 - **_isClaimableJournal** (1 connections) — `lib/services/decoration_reward_service.dart`
 - **isRewardSource** (1 connections) — `lib/services/decoration_reward_service.dart`
 - **kDecorationRewardPool** (1 connections) — `lib/services/decoration_reward_service.dart`
-- *... and 45 more nodes in this community*
+- **kind** (1 connections) — `lib/services/decoration_reward_service.dart`
+- **_kindFromWire** (1 connections) — `lib/services/decoration_reward_service.dart`
+- **_kindWire** (1 connections) — `lib/services/decoration_reward_service.dart`
+- **kMilestoneSourcePrefix** (1 connections) — `lib/services/decoration_reward_service.dart`
+- **kPackSourcePrefix** (1 connections) — `lib/services/decoration_reward_service.dart`
+- **loadNextOffer** (1 connections) — `lib/services/decoration_reward_service.dart`
+- *... and 25 more nodes in this community*
 
 ## Relationships
 
-- [T](T.md) (3 shared connections)
-- [room_layout_service.dart](room_layout_service.dart.md) (3 shared connections)
-- [learning_path_screen.dart](learning_path_screen.dart.md) (3 shared connections)
-- [storage_service.dart](storage_service.dart.md) (3 shared connections)
-- [_](_.md) (3 shared connections)
+- [room_layout_service.dart](room_layout_service.dart.md) (4 shared connections)
 - [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (2 shared connections)
 - [@visibleForTesting](@visibleForTesting.md) (2 shared connections)
-- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (2 shared connections)
+- [T](T.md) (1 shared connections)
 - [List](List.md) (1 shared connections)
-- [static const String](static_const_String.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
-- [choice_quizzes_uiux_test.dart](choice_quizzes_uiux_test.dart.md) (1 shared connections)
+- [bookshelf_custom_pack_uiux_test.dart](bookshelf_custom_pack_uiux_test.dart.md) (1 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
+- [sori_stage_today_screen.dart](sori_stage_today_screen.dart.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/services/decoration_reward_service.dart`
-- `lib/services/room_placement_service.dart`
-- `lib/services/splash_gate.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 101 (100%)
+- EXTRACTED: 63 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

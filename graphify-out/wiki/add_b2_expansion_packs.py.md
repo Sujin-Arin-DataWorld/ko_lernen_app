@@ -4,9 +4,9 @@
 
 ## Key Concepts
 
-- **add_b2_expansion_packs.py** (2 connections) — `tools/content_factory/add_b2_expansion_packs.py`
 - **main()** (2 connections) — `tools/content_factory/add_b2_expansion_packs.py`
 - **next_id_start()** (2 connections) — `tools/content_factory/add_b2_expansion_packs.py`
+- **add_b2_expansion_packs.py** (2 connections) — `tools/content_factory/add_b2_expansion_packs.py`
 
 ## Relationships
 

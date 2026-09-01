@@ -1,6 +1,6 @@
 # onboarding_v2_journey_screen.dart
 
-> 51 nodes · cohesion 0.04
+> 49 nodes · cohesion 0.04
 
 ## Key Concepts
 
@@ -8,11 +8,10 @@
 - **OnboardingV2JourneyScreen** (3 connections) — `lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart`
 - **_OnboardingV2JourneyScreenState** (3 connections) — `lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart`
 - **../features/onboarding_v2/onboarding_journey_state.dart** (2 connections)
+- **FirstRunResolution** (2 connections) — `lib/features/onboarding_v2/first_run_coordinator.dart`
 - **_LoadFailure** (2 connections) — `lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart`
 - **_OnboardingLoading** (2 connections) — `lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart`
-- **FirstRunCoordinator?** (1 connections)
 - **FirstRunCoordinator get** (1 connections)
-- **FirstRunResolution?** (1 connections)
 - **_applyState** (1 connections) — `lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart`
 - **build** (1 connections) — `lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart`
 - **_buildCompanionPreview** (1 connections) — `lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart`
@@ -29,30 +28,32 @@
 - **initState** (1 connections) — `lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart`
 - **_journeyDurationRecorded** (1 connections) — `lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart`
 - **_journeyStopwatch** (1 connections) — `lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart`
-- *... and 26 more nodes in this community*
+- **_load** (1 connections) — `lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart`
+- *... and 24 more nodes in this community*
 
 ## Relationships
 
 - [consent_screen.dart](consent_screen.dart.md) (5 shared connections)
-- [gye_screen.dart](gye_screen.dart.md) (3 shared connections)
-- [StatelessWidget](StatelessWidget.md) (3 shared connections)
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (2 shared connections)
-- [cultural_help.dart](cultural_help.dart.md) (2 shared connections)
-- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (2 shared connections)
+- [StatelessWidget](StatelessWidget.md) (5 shared connections)
+- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (3 shared connections)
+- [gye_screen.dart](gye_screen.dart.md) (2 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (2 shared connections)
+- [_State](_State.md) (2 shared connections)
 - [analytics_service.dart](analytics_service.dart.md) (1 shared connections)
-- [sori_stage_progression.dart](sori_stage_progression.dart.md) (1 shared connections)
-- [onboarding_v2_character_media_contract_test.dart](onboarding_v2_character_media_contract_test.dart.md) (1 shared connections)
+- [first_run_coordinator.dart](first_run_coordinator.dart.md) (1 shared connections)
+- [app_shell_onboarding_analytics_retry_test.dart](app_shell_onboarding_analytics_retry_test.dart.md) (1 shared connections)
+- [onboarding_journey_state.dart](onboarding_journey_state.dart.md) (1 shared connections)
+- [Object?](Object_.md) (1 shared connections)
 - [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
-- [dart:async](dart-async.md) (1 shared connections)
-- [../../models/learner_level.dart](-..-models-learner_level.dart.md) (1 shared connections)
 
 ## Source Files
 
+- `lib/features/onboarding_v2/first_run_coordinator.dart`
 - `lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 78 (100%)
+- EXTRACTED: 79 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

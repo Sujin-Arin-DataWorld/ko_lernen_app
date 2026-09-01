@@ -34,8 +34,8 @@
 ## Relationships
 
 - [detect_grammar](detect_grammar.md) (2 shared connections)
-- [Batch01PreReviewValidationTest](Batch01PreReviewValidationTest.md) (1 shared connections)
 - [prepare_korean_analysis_text](prepare_korean_analysis_text.md) (1 shared connections)
+- [Batch01PreReviewValidationTest](Batch01PreReviewValidationTest.md) (1 shared connections)
 - [integrate_scenario_batch.py](integrate_scenario_batch.py.md) (1 shared connections)
 
 ## Source Files

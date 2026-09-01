@@ -15,17 +15,17 @@
 - **normalizedPage()** (4 connections) — `functions/gye/cloud_backup_deletion_runtime.js`
 - **normalizedState()** (4 connections) — `functions/gye/cloud_backup_deletion_runtime.js`
 - **pathSegments()** (4 connections) — `functions/gye/cloud_backup_deletion_runtime.js`
-- **BACKUP_ROOTS** (3 connections) — `functions/gye/cloud_backup_deletion_runtime.js`
 - **createCloudBackupDeletionCallable()** (3 connections) — `functions/gye/cloud_backup_deletion_runtime.js`
 - **validUid()** (3 connections) — `functions/gye/cloud_backup_deletion_runtime.js`
 - **workIdFor()** (3 connections) — `functions/gye/cloud_backup_deletion_runtime.js`
-- **authorizationHeader()** (2 connections) — `functions/gye/cloud_backup_deletion_runtime.js`
-- **BACKUP_FIELDS** (2 connections) — `functions/gye/cloud_backup_deletion_runtime.js`
+- **BACKUP_ROOTS** (3 connections) — `functions/gye/cloud_backup_deletion_runtime.js`
 - **BoundaryFailure** (2 connections) — `functions/gye/cloud_backup_deletion_runtime.js`
-- **CALLABLE_OPTIONS** (2 connections) — `functions/gye/cloud_backup_deletion_runtime.js`
+- **authorizationHeader()** (2 connections) — `functions/gye/cloud_backup_deletion_runtime.js`
 - **initialState()** (2 connections) — `functions/gye/cloud_backup_deletion_runtime.js`
 - **resultFor()** (2 connections) — `functions/gye/cloud_backup_deletion_runtime.js`
 - **signInProvider()** (2 connections) — `functions/gye/cloud_backup_deletion_runtime.js`
+- **BACKUP_FIELDS** (2 connections) — `functions/gye/cloud_backup_deletion_runtime.js`
+- **CALLABLE_OPTIONS** (2 connections) — `functions/gye/cloud_backup_deletion_runtime.js`
 - **.constructor()** (1 connections) — `functions/gye/cloud_backup_deletion_runtime.js`
 - **{ createHash }** (1 connections) — `functions/gye/cloud_backup_deletion_runtime.js`
 

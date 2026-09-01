@@ -28,18 +28,18 @@
 
 ## Relationships
 
-- [Map](Map.md) (2 shared connections)
 - [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (2 shared connections)
-- [StatefulWidget](StatefulWidget.md) (2 shared connections)
+- [_State](_State.md) (2 shared connections)
 - [_](_.md) (1 shared connections)
 - [int?](int_.md) (1 shared connections)
+- [int get](int_get.md) (1 shared connections)
 - [List](List.md) (1 shared connections)
+- [Map](Map.md) (1 shared connections)
 - [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
 - [ildu_world_projection_adapter.dart](ildu_world_projection_adapter.dart.md) (1 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
 - [StatelessWidget](StatelessWidget.md) (1 shared connections)
-- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (1 shared connections)
 
 ## Source Files
 

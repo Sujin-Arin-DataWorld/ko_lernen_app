@@ -1,69 +1,61 @@
 # package:flutter/foundation.dart
 
-> 127 nodes · cohesion 0.02
+> 48 nodes · cohesion 0.04
 
 ## Key Concepts
 
 - **package:flutter/foundation.dart** (82 connections)
-- **static const** (49 connections)
-- **account_transition_journal.dart** (35 connections) — `lib/services/account/account_transition_journal.dart`
-- **_** (19 connections) — `lib/services/account/google_oauth_client.dart`
-- **onboarding_rollout_service.dart** (18 connections) — `lib/features/onboarding_v2/onboarding_rollout_service.dart`
-- **gate_art.dart** (18 connections) — `lib/widgets/sori/hanok/gate_art.dart`
-- **_** (15 connections) — `lib/services/account/cloud_read_result.dart`
-- **cultural_glossary_repository.dart** (12 connections) — `lib/services/cultural_glossary_repository.dart`
-- **palette_service.dart** (12 connections) — `lib/services/palette_service.dart`
-- **ildu_construction_plan_repository.dart** (9 connections) — `lib/services/ildu_construction_plan_repository.dart`
-- **CloudWriteSession** (8 connections) — `lib/services/account/cloud_write_session.dart`
-- **firebase_options.dart** (6 connections) — `lib/firebase_options.dart`
-- **package:ko_lernen_app/models/cultural_glossary.dart** (6 connections)
-- **CloudReadResult** (5 connections) — `lib/services/account/cloud_read_result.dart`
-- **scenario_corpus_generation.dart** (4 connections) — `lib/models/scenario_corpus_generation.dart`
-- **AccountTransitionJournal** (4 connections) — `lib/services/account/account_transition_journal.dart`
+- **static const String** (40 connections)
+- **notification_service.dart** (24 connections) — `lib/services/notification_service.dart`
+- **tts_bundled_manifest.dart** (22 connections) — `lib/services/tts_bundled_manifest.dart`
+- **account_failure_diagnostics.dart** (14 connections) — `lib/services/account/account_failure_diagnostics.dart`
 - **main_error_hook_test.dart** (4 connections) — `test/main_error_hook_test.dart`
-- **first_run_coordinator.dart** (3 connections)
-- **package:firebase_core/firebase_core.dart** (3 connections)
-- **../../firebase_options.dart** (2 connections)
-- **parseMode** (2 connections) — `lib/features/onboarding_v2/onboarding_rollout_service.dart`
-- **setLoaderForTesting** (2 connections) — `lib/services/cultural_glossary_repository.dart`
-- **HanokGateArt** (2 connections) — `lib/widgets/sori/hanok/gate_art.dart`
-- **package:firebase_remote_config/firebase_remote_config.dart** (2 connections)
-- **static const FirebaseOptions** (2 connections)
-- *... and 102 more nodes in this community*
+- **resetForTesting** (2 connections) — `lib/services/tts_bundled_manifest.dart`
+- **tts_cache_key.dart** (2 connections)
+- **AccountFailureDiagnostics** (1 connections) — `lib/services/account/account_failure_diagnostics.dart`
+- **describe** (1 connections) — `lib/services/account/account_failure_diagnostics.dart`
+- **describeAll** (1 connections) — `lib/services/account/account_failure_diagnostics.dart`
+- **log** (1 connections) — `lib/services/account/account_failure_diagnostics.dart`
+- **logAll** (1 connections) — `lib/services/account/account_failure_diagnostics.dart`
+- **logTag** (1 connections) — `lib/services/account/account_failure_diagnostics.dart`
+- **_safeCode** (1 connections) — `lib/services/account/account_failure_diagnostics.dart`
+- **cancelAll** (1 connections) — `lib/services/notification_service.dart`
+- **_channelId** (1 connections) — `lib/services/notification_service.dart`
+- **_dailyId** (1 connections) — `lib/services/notification_service.dart`
+- **_fcmId** (1 connections) — `lib/services/notification_service.dart`
+- **init** (1 connections) — `lib/services/notification_service.dart`
+- **_nextInstanceOf** (1 connections) — `lib/services/notification_service.dart`
+- **NotificationService** (1 connections) — `lib/services/notification_service.dart`
+- **_plugin** (1 connections) — `lib/services/notification_service.dart`
+- **_ready** (1 connections) — `lib/services/notification_service.dart`
+- **requestPermission** (1 connections) — `lib/services/notification_service.dart`
+- *... and 23 more nodes in this community*
 
 ## Relationships
 
-- [_](_.md) (24 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (8 shared connections)
-- [onboarding_v2_presentation.dart](onboarding_v2_presentation.dart.md) (5 shared connections)
-- [kkeunmari_screen.dart](kkeunmari_screen.dart.md) (4 shared connections)
-- [@visibleForTesting](@visibleForTesting.md) (4 shared connections)
-- [cloud_write_session.dart](cloud_write_session.dart.md) (4 shared connections)
+- [_](_.md) (21 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (4 shared connections)
 - [gye_screen.dart](gye_screen.dart.md) (4 shared connections)
-- [entry_onboarding_uiux_test.dart](entry_onboarding_uiux_test.dart.md) (4 shared connections)
-- [main.dart](main.dart.md) (3 shared connections)
-- [List](List.md) (3 shared connections)
-- [audio_policy.dart](audio_policy.dart.md) (3 shared connections)
-- [account_transition_ui_test.dart](account_transition_ui_test.dart.md) (3 shared connections)
+- [account_ui_operations.dart](account_ui_operations.dart.md) (3 shared connections)
+- [@visibleForTesting](@visibleForTesting.md) (3 shared connections)
+- [static const int](static_const_int.md) (3 shared connections)
+- [can_do_segment_asset_test.dart](can_do_segment_asset_test.dart.md) (3 shared connections)
+- [premium_service.dart](premium_service.dart.md) (3 shared connections)
+- [static const](static_const.md) (3 shared connections)
+- [package:flutter/services.dart](package-flutter-services.dart.md) (2 shared connections)
+- [room_layout_service.dart](room_layout_service.dart.md) (2 shared connections)
+- [bool get](bool_get.md) (2 shared connections)
 
 ## Source Files
 
-- `lib/features/onboarding_v2/onboarding_rollout_service.dart`
-- `lib/firebase_options.dart`
-- `lib/models/scenario_corpus_generation.dart`
-- `lib/services/account/account_transition_journal.dart`
-- `lib/services/account/cloud_read_result.dart`
-- `lib/services/account/cloud_write_session.dart`
-- `lib/services/account/google_oauth_client.dart`
-- `lib/services/cultural_glossary_repository.dart`
-- `lib/services/ildu_construction_plan_repository.dart`
-- `lib/services/palette_service.dart`
-- `lib/widgets/sori/hanok/gate_art.dart`
+- `lib/services/account/account_failure_diagnostics.dart`
+- `lib/services/notification_service.dart`
+- `lib/services/tts_bundled_manifest.dart`
 - `test/main_error_hook_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 295 (100%)
+- EXTRACTED: 181 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

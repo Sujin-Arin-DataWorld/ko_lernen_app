@@ -1,10 +1,10 @@
 # AppL10n
 
-> 6 nodes · cohesion 0.33
+> 6 nodes · cohesion 0.40
 
 ## Key Concepts
 
-- **AppL10n** (8 connections) — `lib/l10n/generated/app_localizations.dart`
+- **AppL10n** (10 connections) — `lib/l10n/generated/app_localizations.dart`
 - **_AppL10nDelegate** (3 connections) — `lib/l10n/generated/app_localizations.dart`
 - **AppL10nDe** (2 connections) — `lib/l10n/generated/app_localizations_de.dart`
 - **AppL10nEn** (2 connections) — `lib/l10n/generated/app_localizations_en.dart`
@@ -28,7 +28,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 13 (100%)
+- EXTRACTED: 14 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

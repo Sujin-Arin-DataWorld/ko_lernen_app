@@ -4,9 +4,9 @@
 
 ## Key Concepts
 
-- **dictionary_validation.py** (5 connections) — `functions/analyze_korean_text/dictionary_validation.py`
 - **_exact_noun_in_response()** (5 connections) — `functions/analyze_korean_text/dictionary_validation.py`
 - **validate_exact_noun()** (5 connections) — `functions/analyze_korean_text/dictionary_validation.py`
+- **dictionary_validation.py** (5 connections) — `functions/analyze_korean_text/dictionary_validation.py`
 - **test_dictionary_validation.py** (4 connections) — `functions/analyze_korean_text/test_dictionary_validation.py`
 - **DictionaryValidationTest** (3 connections) — `functions/analyze_korean_text/test_dictionary_validation.py`
 - **.test_accepts_only_an_exact_noun_headword()** (2 connections) — `functions/analyze_korean_text/test_dictionary_validation.py`

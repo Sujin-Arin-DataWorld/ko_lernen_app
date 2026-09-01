@@ -6,11 +6,11 @@
 
 - **bridge.test.js** (6 connections) — `functions/auth_cleanup/bridge.test.js`
 - **auth_cleanup/index.js** (6 connections) — `functions/auth_cleanup/index.js`
-- **bridge.js** (3 connections) — `functions/auth_cleanup/bridge.js`
 - **createAuthUserDeletionBridge()** (3 connections) — `functions/auth_cleanup/bridge.js`
+- **bridge.js** (3 connections) — `functions/auth_cleanup/bridge.js`
+- **fakeFirestore()** (1 connections) — `functions/auth_cleanup/bridge.test.js`
 - **assert** (1 connections) — `functions/auth_cleanup/bridge.test.js`
 - **{ createAuthUserDeletionBridge }** (1 connections) — `functions/auth_cleanup/bridge.test.js`
-- **fakeFirestore()** (1 connections) — `functions/auth_cleanup/bridge.test.js`
 - **test** (1 connections) — `functions/auth_cleanup/bridge.test.js`
 - **admin** (1 connections) — `functions/auth_cleanup/index.js`
 - **bridge** (1 connections) — `functions/auth_cleanup/index.js`

@@ -33,17 +33,16 @@
 
 ## Relationships
 
+- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (2 shared connections)
 - [gye_screen.dart](gye_screen.dart.md) (2 shared connections)
-- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
 - [static const int](static_const_int.md) (1 shared connections)
-- [static const String](static_const_String.md) (1 shared connections)
 - [content_share_slip_test.dart](content_share_slip_test.dart.md) (1 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
-- [book_capture_image_quality.dart](book_capture_image_quality.dart.md) (1 shared connections)
-- [hanok_experience_projector.dart](hanok_experience_projector.dart.md) (1 shared connections)
-- [storage_service.dart](storage_service.dart.md) (1 shared connections)
-- [StatefulWidget](StatefulWidget.md) (1 shared connections)
+- [dart:typed_data](dart-typed_data.md) (1 shared connections)
+- [../models/course_mastery.dart](-models-course_mastery.dart.md) (1 shared connections)
+- [room_layout_service.dart](room_layout_service.dart.md) (1 shared connections)
+- [bookshelf_screen.dart](bookshelf_screen.dart.md) (1 shared connections)
 
 ## Source Files
 

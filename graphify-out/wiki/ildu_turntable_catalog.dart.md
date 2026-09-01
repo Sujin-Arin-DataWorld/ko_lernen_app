@@ -1,15 +1,12 @@
 # ildu_turntable_catalog.dart
 
-> 38 nodes · cohesion 0.05
+> 35 nodes · cohesion 0.06
 
 ## Key Concepts
 
 - **ildu_turntable_catalog.dart** (39 connections) — `lib/data/ildu_turntable_catalog.dart`
-- **Rect?** (7 connections)
 - **IlDuTurntableFrame** (3 connections) — `lib/data/ildu_turntable_catalog.dart`
-- **_ConstructionClipper** (3 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
 - **Rect get** (2 connections)
-- **CustomClipper** (1 connections)
 - **anchorId** (1 connections) — `lib/data/ildu_turntable_catalog.dart`
 - **assetPath** (1 connections) — `lib/data/ildu_turntable_catalog.dart`
 - **contentBounds** (1 connections) — `lib/data/ildu_turntable_catalog.dart`
@@ -29,29 +26,29 @@
 - **kIlDuHyeopmunEastTurntable** (1 connections) — `lib/data/ildu_turntable_catalog.dart`
 - **kIlDuHyeopmunWestTurntable** (1 connections) — `lib/data/ildu_turntable_catalog.dart`
 - **kIlDuJungmunganchaeTurntable** (1 connections) — `lib/data/ildu_turntable_catalog.dart`
-- *... and 13 more nodes in this community*
+- **kIlDuSadangmunTurntable** (1 connections) — `lib/data/ildu_turntable_catalog.dart`
+- **kIlDuSadangTurntable** (1 connections) — `lib/data/ildu_turntable_catalog.dart`
+- **kIlDuSarangchaeTurntable** (1 connections) — `lib/data/ildu_turntable_catalog.dart`
+- *... and 10 more nodes in this community*
 
 ## Relationships
 
-- [_](_.md) (4 shared connections)
 - [List](List.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
+- [personal_hanok_unlock_reveal.dart](personal_hanok_unlock_reveal.dart.md) (1 shared connections)
 - [silben_grid_clue_sync_test.dart](silben_grid_clue_sync_test.dart.md) (1 shared connections)
-- [custom_pack_games_uiux_test.dart](custom_pack_games_uiux_test.dart.md) (1 shared connections)
+- [dart:ui](dart-ui.md) (1 shared connections)
 - [ildu_world_screen.dart](ildu_world_screen.dart.md) (1 shared connections)
 - [hanok_turntable_2d.dart](hanok_turntable_2d.dart.md) (1 shared connections)
-- [personal_hanok_unlock_reveal.dart](personal_hanok_unlock_reveal.dart.md) (1 shared connections)
-- [dancheong_burst.dart](dancheong_burst.dart.md) (1 shared connections)
-- [spotlight_coach.dart](spotlight_coach.dart.md) (1 shared connections)
+- [_](_.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/data/ildu_turntable_catalog.dart`
-- `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 50 (100%)
+- EXTRACTED: 42 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

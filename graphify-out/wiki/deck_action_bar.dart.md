@@ -33,11 +33,11 @@
 
 ## Relationships
 
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (3 shared connections)
-- [Color](Color.md) (2 shared connections)
+- [String?](String_.md) (4 shared connections)
 - [StatelessWidget](StatelessWidget.md) (2 shared connections)
 - [bookshelf_custom_pack_uiux_test.dart](bookshelf_custom_pack_uiux_test.dart.md) (1 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
 
 ## Source Files
 

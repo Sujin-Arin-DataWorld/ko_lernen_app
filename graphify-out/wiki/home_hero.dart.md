@@ -5,7 +5,7 @@
 ## Key Concepts
 
 - **home_hero.dart** (28 connections) — `lib/widgets/sori/home_hero.dart`
-- **MascotKind** (12 connections) — `lib/widgets/sori/mascot.dart`
+- **MascotKind** (13 connections) — `lib/widgets/sori/mascot.dart`
 - **_BubbleTailPainter** (2 connections) — `lib/widgets/sori/home_hero.dart`
 - **_SpeechBubble** (2 connections) — `lib/widgets/sori/home_hero.dart`
 - **accent** (1 connections) — `lib/widgets/sori/home_hero.dart`
@@ -30,12 +30,12 @@
 
 - [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (3 shared connections)
 - [game_reward.dart](game_reward.dart.md) (2 shared connections)
-- [StatelessWidget](StatelessWidget.md) (2 shared connections)
-- [Color](Color.md) (1 shared connections)
+- [String?](String_.md) (1 shared connections)
 - [swipe_rails.dart](swipe_rails.dart.md) (1 shared connections)
 - [hanok_world_screen_test.dart](hanok_world_screen_test.dart.md) (1 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [CustomPainter](CustomPainter.md) (1 shared connections)
+- [shelf_case.dart](shelf_case.dart.md) (1 shared connections)
+- [StatelessWidget](StatelessWidget.md) (1 shared connections)
 - [profile_screen.dart](profile_screen.dart.md) (1 shared connections)
 - [_](_.md) (1 shared connections)
 - [mascot_preference.dart](mascot_preference.dart.md) (1 shared connections)
@@ -48,7 +48,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 41 (100%)
+- EXTRACTED: 42 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

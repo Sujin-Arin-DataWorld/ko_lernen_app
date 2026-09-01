@@ -1,11 +1,16 @@
 # tts/package.json
 
-> 10 nodes · cohesion 0.20
+> 19 nodes · cohesion 0.11
 
 ## Key Concepts
 
 - **tts/package.json** (7 connections) — `functions/tts/package.json`
+- **dependencies** (5 connections) — `functions/tts/package.json`
 - **scripts** (3 connections) — `functions/tts/package.json`
+- **firebase-admin** (2 connections) — `functions/tts/package.json`
+- **@firebase/app** (2 connections) — `functions/tts/package.json`
+- **firebase-functions** (2 connections) — `functions/tts/package.json`
+- **@google-cloud/text-to-speech** (2 connections) — `functions/tts/package.json`
 - **engines** (2 connections) — `functions/tts/package.json`
 - **description** (1 connections) — `functions/tts/package.json`
 - **node** (1 connections) — `functions/tts/package.json`
@@ -14,10 +19,14 @@
 - **deploy** (1 connections) — `functions/tts/package.json`
 - **test** (1 connections) — `functions/tts/package.json`
 - **version** (1 connections) — `functions/tts/package.json`
+- **@firebase/app** (1 connections) — `functions/tts/package.json`
+- **firebase-admin** (1 connections) — `functions/tts/package.json`
+- **firebase-functions** (1 connections) — `functions/tts/package.json`
+- **@google-cloud/text-to-speech** (1 connections) — `functions/tts/package.json`
 
 ## Relationships
 
-- [dependencies](dependencies.md) (1 shared connections)
+- No strong cross-community connections detected
 
 ## Source Files
 
@@ -25,7 +34,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 10 (100%)
+- EXTRACTED: 18 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

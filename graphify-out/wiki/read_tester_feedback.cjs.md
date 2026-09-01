@@ -10,8 +10,8 @@
 - **parseArgs()** (2 connections) — `scripts/admin/read_tester_feedback.cjs`
 - **pick()** (2 connections) — `scripts/admin/read_tester_feedback.cjs`
 - **uidFromPath()** (2 connections) — `scripts/admin/read_tester_feedback.cjs`
-- **admin** (1 connections) — `scripts/admin/read_tester_feedback.cjs`
 - **loadFirebaseAdmin()** (1 connections) — `scripts/admin/read_tester_feedback.cjs`
+- **admin** (1 connections) — `scripts/admin/read_tester_feedback.cjs`
 - **path** (1 connections) — `scripts/admin/read_tester_feedback.cjs`
 - **REPO_ROOT** (1 connections) — `scripts/admin/read_tester_feedback.cjs`
 

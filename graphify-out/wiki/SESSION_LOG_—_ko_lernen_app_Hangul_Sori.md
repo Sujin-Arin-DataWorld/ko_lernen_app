@@ -1,10 +1,10 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
-> 178 nodes · cohesion 0.01
+> 181 nodes · cohesion 0.01
 
 ## Key Concepts
 
-- **SESSION_LOG — ko_lernen_app (Hangul Sori)** (178 connections) — `docs/SESSION_LOG.md`
+- **SESSION_LOG — ko_lernen_app (Hangul Sori)** (181 connections) — `docs/SESSION_LOG.md`
 - **2026-08-17 (Claude) — Batch 11 시나리오 36편 review-only 초안 (레벨 6 × 카테고리 6)** (1 connections) — `docs/SESSION_LOG.md`
 - **2026-08-17 (Claude) — Batch 12 슬라이스 1 초안: C1/C2 새 유닛 2개와 콘텐츠 78개** (1 connections) — `docs/SESSION_LOG.md`
 - **2026-08-17 (Claude) — Batch 12 슬라이스 2·3·4 초안: C1/C2 유닛 8개 완성, 콘텐츠 312개** (1 connections) — `docs/SESSION_LOG.md`
@@ -29,7 +29,7 @@
 - **2026-08-17 (Claude, Windows) — Hören 책가도 레벨별 12칸 서재 설계 (스펙만, 코드 0)** (1 connections) — `docs/SESSION_LOG.md`
 - **2026-08-17 (Claude, Windows) — Hören 카드 그리드 전환 인수인계 (문서만, 코드 0)** (1 connections) — `docs/SESSION_LOG.md`
 - **2026-08-17 (Claude, Windows) — Instagram 릴스 파이프라인 `marketing/` 신설 + 릴스 3편 제작** (1 connections) — `docs/SESSION_LOG.md`
-- *... and 153 more nodes in this community*
+- *... and 156 more nodes in this community*
 
 ## Relationships
 
@@ -41,7 +41,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 178 (100%)
+- EXTRACTED: 181 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

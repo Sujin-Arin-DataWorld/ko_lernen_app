@@ -33,18 +33,18 @@
 
 ## Relationships
 
-- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (7 shared connections)
-- [dart:async](dart-async.md) (4 shared connections)
+- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (5 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (4 shared connections)
 - [premium_service.dart](premium_service.dart.md) (3 shared connections)
+- [dart:async](dart-async.md) (2 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
 - [standalone_games_uiux_test.dart](standalone_games_uiux_test.dart.md) (1 shared connections)
 - [_](_.md) (1 shared connections)
-- [sori_stage_today_screen.dart](sori_stage_today_screen.dart.md) (1 shared connections)
-- [File](File.md) (1 shared connections)
-- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
-- [account_reconciliation_test.dart](account_reconciliation_test.dart.md) (1 shared connections)
+- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (1 shared connections)
+- [wordbook_add.dart](wordbook_add.dart.md) (1 shared connections)
+- [ux_preview_app_test.dart](ux_preview_app_test.dart.md) (1 shared connections)
+- [course_practice_screen_test.dart](course_practice_screen_test.dart.md) (1 shared connections)
+- [content_feedback_widget_test.dart](content_feedback_widget_test.dart.md) (1 shared connections)
 
 ## Source Files
 

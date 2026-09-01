@@ -1,6 +1,6 @@
 # _minimal_cutout_recipe
 
-> 26 nodes · cohesion 0.13
+> 30 nodes · cohesion 0.10
 
 ## Key Concepts
 
@@ -10,6 +10,7 @@
 - **EmitWorkOrderTest** (5 connections) — `tool/test_asset_recipe.py`
 - **_synthetic_generation()** (5 connections) — `tool/test_asset_recipe.py`
 - **IngestCutoutTest** (4 connections) — `tool/test_asset_recipe.py`
+- **RealRecipesBaselineTest** (4 connections) — `tool/test_asset_recipe.py`
 - **.test_a_neon_synthetic_cutout_is_rejected_not_promoted()** (3 connections) — `tool/test_asset_recipe.py`
 - **.test_a_walnut_toned_synthetic_cutout_passes_the_F_A_gate()** (3 connections) — `tool/test_asset_recipe.py`
 - **.test_cutout_without_subject_guards_fails()** (2 connections) — `tool/test_asset_recipe.py`
@@ -26,15 +27,13 @@
 - **.test_renders_the_prompt_and_hashes_it()** (2 connections) — `tool/test_asset_recipe.py`
 - **.test_unknown_kind_fails()** (1 connections) — `tool/test_asset_recipe.py`
 - **.test_frameEdit_work_order_carries_2k()** (1 connections) — `tool/test_asset_recipe.py`
-- **ndarray** (1 connections)
-- **Tests for tool/asset_recipe.py. Covers Phase 2-3's recipe runner:…** (1 connections) — `tool/test_asset_recipe.py`
-- **A flat #00FF00 field with one solid-colour rectangle -- stands in for a real…** (1 connections) — `tool/test_asset_recipe.py`
-- *... and 1 more nodes in this community*
+- **.test_frameEdit_recipes_reproduce_the_exact_historical_prompt_hash()** (1 connections) — `tool/test_asset_recipe.py`
+- **.test_ready_committed_recipes_pass_check_and_drafts_do_not()** (1 connections) — `tool/test_asset_recipe.py`
+- *... and 5 more nodes in this community*
 
 ## Relationships
 
 - [asset_recipe.py](asset_recipe.py.md) (1 shared connections)
-- [RealRecipesBaselineTest](RealRecipesBaselineTest.md) (1 shared connections)
 
 ## Source Files
 
@@ -42,7 +41,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 43 (100%)
+- EXTRACTED: 46 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

@@ -1,15 +1,14 @@
 # speakable.dart
 
-> 60 nodes · cohesion 0.03
+> 59 nodes · cohesion 0.04
 
 ## Key Concepts
 
 - **speakable.dart** (52 connections) — `lib/widgets/sori/speakable.dart`
 - **screen_coach.dart** (17 connections) — `lib/widgets/sori/screen_coach.dart`
-- **_** (11 connections) — `lib/services/local_data_lifetime.dart`
+- **_** (13 connections) — `lib/services/local_data_lifetime.dart`
 - **static int** (10 connections)
 - **static final Set** (5 connections)
-- **StaleLocalDataLifetimeException** (3 connections) — `lib/services/local_data_lifetime.dart`
 - **spotlight_coach.dart** (3 connections)
 - **resetForTesting** (2 connections) — `lib/widgets/sori/speakable.dart`
 - **SoriSpeakable** (2 connections) — `lib/widgets/sori/speakable.dart`
@@ -29,22 +28,23 @@
 - **_firedThisSession** (1 connections) — `lib/widgets/sori/screen_coach.dart`
 - **scheduleCoach** (1 connections) — `lib/widgets/sori/screen_coach.dart`
 - **_syncTutorialReset** (1 connections) — `lib/widgets/sori/screen_coach.dart`
-- *... and 35 more nodes in this community*
+- **_tryShow** (1 connections) — `lib/widgets/sori/screen_coach.dart`
+- *... and 34 more nodes in this community*
 
 ## Relationships
 
-- [_](_.md) (5 shared connections)
-- [List](List.md) (4 shared connections)
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (4 shared connections)
+- [_](_.md) (6 shared connections)
+- [bool get](bool_get.md) (2 shared connections)
 - [String?](String_.md) (2 shared connections)
+- [StatelessWidget](StatelessWidget.md) (2 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (2 shared connections)
 - [wordbook_add.dart](wordbook_add.dart.md) (2 shared connections)
-- [first_run_coordinator_test.dart](first_run_coordinator_test.dart.md) (1 shared connections)
 - [app_shell_onboarding_analytics_retry_test.dart](app_shell_onboarding_analytics_retry_test.dart.md) (1 shared connections)
-- [StatefulWidget](StatefulWidget.md) (1 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (1 shared connections)
+- [_State](_State.md) (1 shared connections)
 - [package:flutter/widgets.dart](package-flutter-widgets.dart.md) (1 shared connections)
+- [cloze_game_screen.dart](cloze_game_screen.dart.md) (1 shared connections)
 - [hangul_screen.dart](hangul_screen.dart.md) (1 shared connections)
-- [diagnostics_service.dart](diagnostics_service.dart.md) (1 shared connections)
-- [consent_screen.dart](consent_screen.dart.md) (1 shared connections)
 
 ## Source Files
 
@@ -54,7 +54,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 97 (100%)
+- EXTRACTED: 96 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

@@ -4,8 +4,8 @@
 
 ## Key Concepts
 
-- **pad_android12_splash_icon.py** (1 connections) — `tool/pad_android12_splash_icon.py`
 - **build_safe_icon()** (1 connections) — `tool/pad_android12_splash_icon.py`
+- **pad_android12_splash_icon.py** (1 connections) — `tool/pad_android12_splash_icon.py`
 
 ## Relationships
 

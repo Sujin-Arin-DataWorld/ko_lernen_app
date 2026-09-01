@@ -6,19 +6,19 @@
 
 - **promote_ildu_changgo_turntable.py** (8 connections) — `tool/promote_ildu_changgo_turntable.py`
 - **build_runtime_frames()** (7 connections) — `tool/promote_ildu_changgo_turntable.py`
-- **_approved_inputs()** (5 connections) — `tool/promote_ildu_changgo_turntable.py`
 - **PromotionError** (5 connections) — `tool/promote_ildu_changgo_turntable.py`
-- **promote()** (4 connections) — `tool/promote_ildu_changgo_turntable.py`
+- **_approved_inputs()** (5 connections) — `tool/promote_ildu_changgo_turntable.py`
 - **RuntimeFrame** (4 connections) — `tool/promote_ildu_changgo_turntable.py`
+- **promote()** (4 connections) — `tool/promote_ildu_changgo_turntable.py`
 - **_sha256_file()** (3 connections) — `tool/promote_ildu_changgo_turntable.py`
 - **test_promote_ildu_changgo_turntable.py** (3 connections) — `tool/test_promote_ildu_changgo_turntable.py`
-- **main()** (2 connections) — `tool/promote_ildu_changgo_turntable.py`
-- **Path** (2 connections)
 - **PromoteIlDuChanggoTurntableTest** (2 connections) — `tool/test_promote_ildu_changgo_turntable.py`
+- **main()** (2 connections) — `tool/promote_ildu_changgo_turntable.py`
 - **.test_builds_eight_distinct_transparent_runtime_frames()** (2 connections) — `tool/test_promote_ildu_changgo_turntable.py`
+- **Path** (2 connections)
+- **.sha256()** (1 connections) — `tool/promote_ildu_changgo_turntable.py`
 - **ValueError** (1 connections)
 - **Fail-closed Changgo runtime promotion.** (1 connections) — `tool/promote_ildu_changgo_turntable.py`
-- **.sha256()** (1 connections) — `tool/promote_ildu_changgo_turntable.py`
 
 ## Relationships
 

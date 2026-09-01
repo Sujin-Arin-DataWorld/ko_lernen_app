@@ -6,8 +6,8 @@
 
 - **apply_batch()** (11 connections) — `tool/relevel_vocab.py`
 - **_fixture()** (10 connections) — `tool/test_relevel_vocab.py`
-- **_batch()** (9 connections) — `tool/test_relevel_vocab.py`
 - **RelevelTest** (9 connections) — `tool/test_relevel_vocab.py`
+- **_batch()** (9 connections) — `tool/test_relevel_vocab.py`
 - **relevel_vocab.py** (8 connections) — `tool/relevel_vocab.py`
 - **main()** (7 connections) — `tool/relevel_vocab.py`
 - **Path** (5 connections)

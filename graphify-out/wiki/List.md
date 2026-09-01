@@ -1,74 +1,68 @@
 # List
 
-> 280 nodes · cohesion 0.01
+> 105 nodes · cohesion 0.02
 
 ## Key Concepts
 
 - **List** (238 connections)
-- **bool get** (134 connections)
-- **String get** (91 connections)
-- **silben_kreuz_screen.dart** (90 connections) — `lib/screens/silben_kreuz_screen.dart`
-- **scenarios_list_screen.dart** (79 connections) — `lib/screens/scenarios_list_screen.dart`
-- **../../services/storage_service.dart** (75 connections)
-- **../widgets/sori/card.dart** (66 connections)
-- **word_web_screen.dart** (54 connections) — `lib/screens/word_web_screen.dart`
-- **listening_screen.dart** (47 connections) — `lib/screens/listening_screen.dart`
-- **hard_words_screen.dart** (42 connections) — `lib/screens/hard_words_screen.dart`
-- **dojangcheop_screen.dart** (41 connections) — `lib/screens/dojangcheop_screen.dart`
-- **GlobalKey** (35 connections)
-- **placement_diagnostic_screen.dart** (35 connections) — `lib/screens/placement_diagnostic_screen.dart`
-- **../widgets/sori/spotlight_coach.dart** (29 connections)
-- **../widgets/sori/screen_coach.dart** (28 connections)
-- **review_hub_screen.dart** (27 connections) — `lib/screens/review_hub_screen.dart`
-- **guide_scenario_category_stock.dart** (16 connections) — `lib/features/guide/guide_scenario_category_stock.dart`
-- **scenario_browse_query.dart** (15 connections) — `lib/features/scenarios/scenario_browse_query.dart`
-- **course_mission_path_overview.dart** (12 connections) — `lib/screens/course_mission_path_overview.dart`
-- **../models/guide_contract.dart** (12 connections)
-- **../widgets/sori/app_bar.dart** (10 connections)
-- **../widgets/sori/level_filter_bar.dart** (10 connections)
-- **MaterialPageRoute** (8 connections)
-- **../services/scenario_loader.dart** (8 connections)
-- **tester_feedback_feature.dart** (7 connections) — `lib/config/tester_feedback_feature.dart`
-- *... and 255 more nodes in this community*
+- **standard_page.dart** (37 connections) — `lib/widgets/sori/standard_page.dart`
+- **study_frame.dart** (27 connections) — `lib/widgets/sori/study_frame.dart`
+- **gye_feed.dart** (18 connections) — `lib/widgets/sori/gye_feed.dart`
+- **study_card_face.dart** (16 connections) — `lib/widgets/sori/study_card_face.dart`
+- **sticker_image.dart** (15 connections) — `lib/widgets/sori/sticker_image.dart`
+- **sticker_picker.dart** (14 connections) — `lib/widgets/sori/sticker_picker.dart`
+- **sticker_catalog.dart** (12 connections) — `lib/data/sticker_catalog.dart`
+- **ScrollController?** (9 connections)
+- **../../data/sticker_catalog.dart** (7 connections)
+- **grammar_patterns_test.dart** (6 connections) — `test/grammar_patterns_test.dart`
+- **cloze_topic_group_localizations.dart** (5 connections) — `lib/l10n/cloze_topic_group_localizations.dart`
+- **EdgeInsetsGeometry** (4 connections)
+- **../../l10n/sticker_localizations.dart** (4 connections)
+- **StickerSpec** (4 connections) — `lib/data/sticker_catalog.dart`
+- **responsive.dart** (4 connections)
+- **generated/app_localizations.dart** (3 connections)
+- **ClozeTopicGroupId** (3 connections) — `lib/data/cloze_topic_groups.dart`
+- **sticker_localizations.dart** (3 connections) — `lib/l10n/sticker_localizations.dart`
+- **sticker_image.dart** (3 connections)
+- **app_bar.dart** (2 connections)
+- **../data/cloze_topic_groups.dart** (2 connections)
+- **StickerDef** (2 connections) — `lib/data/sticker_catalog.dart`
+- **ClozeTopicGroupLocalizations** (2 connections) — `lib/l10n/cloze_topic_group_localizations.dart`
+- **GyeFeed** (2 connections) — `lib/widgets/sori/gye_feed.dart`
+- *... and 80 more nodes in this community*
 
 ## Relationships
 
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (64 shared connections)
-- [_](_.md) (63 shared connections)
-- [gye_screen.dart](gye_screen.dart.md) (52 shared connections)
-- [StatefulWidget](StatefulWidget.md) (33 shared connections)
-- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (31 shared connections)
-- [StatelessWidget](StatelessWidget.md) (31 shared connections)
-- [learning_path_screen.dart](learning_path_screen.dart.md) (24 shared connections)
-- [kkeunmari_screen.dart](kkeunmari_screen.dart.md) (23 shared connections)
-- [grammar_screen.dart](grammar_screen.dart.md) (19 shared connections)
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (17 shared connections)
-- [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (16 shared connections)
-- [hangul_screen.dart](hangul_screen.dart.md) (14 shared connections)
+- [_](_.md) (34 shared connections)
+- [StatelessWidget](StatelessWidget.md) (14 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (13 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (8 shared connections)
+- [package:flutter/services.dart](package-flutter-services.dart.md) (8 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (7 shared connections)
+- [String?](String_.md) (7 shared connections)
+- [cloze_game_screen.dart](cloze_game_screen.dart.md) (6 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (6 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (5 shared connections)
+- [content_feedback_outbox_test.dart](content_feedback_outbox_test.dart.md) (5 shared connections)
+- [free_room_layer.dart](free_room_layer.dart.md) (3 shared connections)
 
 ## Source Files
 
-- `lib/config/tester_feedback_feature.dart`
-- `lib/features/guide/guide_scenario_category_stock.dart`
-- `lib/features/scenarios/scenario_browse_query.dart`
-- `lib/models/liked_content.dart`
-- `lib/screens/course_mission_path_overview.dart`
-- `lib/screens/dojangcheop_screen.dart`
-- `lib/screens/hard_words_screen.dart`
-- `lib/screens/listening_screen.dart`
-- `lib/screens/onboarding_level_screen.dart`
-- `lib/screens/placement_diagnostic_screen.dart`
-- `lib/screens/review_hub_screen.dart`
-- `lib/screens/scenarios_list_screen.dart`
-- `lib/screens/silben_kreuz_screen.dart`
-- `lib/screens/word_web_screen.dart`
-- `lib/widgets/sori/week_sheet.dart`
+- `lib/data/cloze_topic_groups.dart`
+- `lib/data/sticker_catalog.dart`
+- `lib/l10n/cloze_topic_group_localizations.dart`
+- `lib/l10n/sticker_localizations.dart`
+- `lib/widgets/sori/gye_feed.dart`
+- `lib/widgets/sori/standard_page.dart`
+- `lib/widgets/sori/sticker_image.dart`
+- `lib/widgets/sori/sticker_picker.dart`
+- `lib/widgets/sori/study_card_face.dart`
+- `lib/widgets/sori/study_frame.dart`
 - `test/grammar_patterns_test.dart`
-- `test/vocab_pack_result_phase1_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 1208 (100%)
+- EXTRACTED: 415 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

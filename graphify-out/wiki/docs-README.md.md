@@ -42,7 +42,7 @@
 - [결정](결정.md) (1 shared connections)
 - [ASSET_GENERATION_BIBLE.md](ASSET_GENERATION_BIBLE.md.md) (1 shared connections)
 - [한옥·장식 에셋 전수 인벤토리 (2026-08-17)](한옥·장식_에셋_전수_인벤토리_2026-08-17.md) (1 shared connections)
-- [실행 순서](실행_순서.md) (1 shared connections)
+- [Fixed generation prompt ({SUBJECT}-only swap)](Fixed_generation_prompt_{SUBJECT}-only_swap.md) (1 shared connections)
 - [store/README.md](store-README.md.md) (1 shared connections)
 - [SESSION_LOG — ko_lernen_app (Hangul Sori)](SESSION_LOG_—_ko_lernen_app_Hangul_Sori.md) (1 shared connections)
 

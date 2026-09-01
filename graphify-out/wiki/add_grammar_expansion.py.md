@@ -4,8 +4,8 @@
 
 ## Key Concepts
 
-- **add_grammar_expansion.py** (1 connections) — `tools/content_factory/add_grammar_expansion.py`
 - **main()** (1 connections) — `tools/content_factory/add_grammar_expansion.py`
+- **add_grammar_expansion.py** (1 connections) — `tools/content_factory/add_grammar_expansion.py`
 
 ## Relationships
 

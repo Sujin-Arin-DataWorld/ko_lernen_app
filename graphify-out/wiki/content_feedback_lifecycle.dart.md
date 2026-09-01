@@ -36,7 +36,7 @@
 - [content_feedback_service.dart](content_feedback_service.dart.md) (4 shared connections)
 - [content_feedback_card.dart](content_feedback_card.dart.md) (2 shared connections)
 - [game_reward.dart](game_reward.dart.md) (2 shared connections)
-- [List](List.md) (1 shared connections)
+- [bool get](bool_get.md) (1 shared connections)
 - [T](T.md) (1 shared connections)
 - [_](_.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)

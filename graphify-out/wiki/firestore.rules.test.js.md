@@ -9,41 +9,57 @@
 - **queueCreateGye()** (2 connections) — `functions/gye/firestore.rules.test.js`
 - **queueJoin()** (2 connections) — `functions/gye/firestore.rules.test.js`
 - **seedGye()** (2 connections) — `functions/gye/firestore.rules.test.js`
-- **assert** (1 connections) — `functions/gye/firestore.rules.test.js`
-- **{
-  assertFails,
-  assertSucceeds,
-  initializeTestEnvironment,
-}** (1 connections) — `functions/gye/firestore.rules.test.js`
 - **bookshelfManifestData()** (1 connections) — `functions/gye/firestore.rules.test.js`
 - **bookshelfRecordData()** (1 connections) — `functions/gye/firestore.rules.test.js`
 - **client()** (1 connections) — `functions/gye/firestore.rules.test.js`
-- **{ createFirestoreDeletionAdapters }** (1 connections) — `functions/gye/firestore.rules.test.js`
 - **emulatorPage()** (1 connections) — `functions/gye/firestore.rules.test.js`
 - **feedData()** (1 connections) — `functions/gye/firestore.rules.test.js`
-- **fs** (1 connections) — `functions/gye/firestore.rules.test.js`
-- **{ getFirestore }** (1 connections) — `functions/gye/firestore.rules.test.js`
-- **{ initializeApp, deleteApp }** (1 connections) — `functions/gye/firestore.rules.test.js`
 - **membershipIdFor()** (1 connections) — `functions/gye/firestore.rules.test.js`
 - **packData()** (1 connections) — `functions/gye/firestore.rules.test.js`
 - **packMembershipData()** (1 connections) — `functions/gye/firestore.rules.test.js`
-- **path** (1 connections) — `functions/gye/firestore.rules.test.js`
 - **queueLeave()** (1 connections) — `functions/gye/firestore.rules.test.js`
 - **reportRef()** (1 connections) — `functions/gye/firestore.rules.test.js`
 - **seedUser()** (1 connections) — `functions/gye/firestore.rules.test.js`
+- **assert** (1 connections) — `functions/gye/firestore.rules.test.js`
+- **{
+
+  assertFails,
+
+  assertSucceeds,
+
+  initializeTestEnvironment,
+
+}** (1 connections) — `functions/gye/firestore.rules.test.js`
+- **{ createFirestoreDeletionAdapters }** (1 connections) — `functions/gye/firestore.rules.test.js`
+- **fs** (1 connections) — `functions/gye/firestore.rules.test.js`
+- **{ getFirestore }** (1 connections) — `functions/gye/firestore.rules.test.js`
+- **{ initializeApp, deleteApp }** (1 connections) — `functions/gye/firestore.rules.test.js`
+- **path** (1 connections) — `functions/gye/firestore.rules.test.js`
 - **test** (1 connections) — `functions/gye/firestore.rules.test.js`
-- **{
-  Timestamp,
-  collection,
-  deleteDoc,
-  deleteField,
-  doc,
-  getDoc,
-  getDocs,
-  increment,
-  serverTimestamp,
-  setDoc,
-  writeBatch,
+- **{
+
+  Timestamp,
+
+  collection,
+
+  deleteDoc,
+
+  deleteField,
+
+  doc,
+
+  getDoc,
+
+  getDocs,
+
+  increment,
+
+  serverTimestamp,
+
+  setDoc,
+
+  writeBatch,
+
 }** (1 connections) — `functions/gye/firestore.rules.test.js`
 
 ## Relationships

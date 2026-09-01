@@ -1,6 +1,6 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
-> God node · 178 connections · `docs/SESSION_LOG.md`
+> God node · 181 connections · `docs/SESSION_LOG.md`
 
 **Community:** [SESSION_LOG — ko_lernen_app (Hangul Sori)](SESSION_LOG_—_ko_lernen_app_Hangul_Sori.md)
 
@@ -8,6 +8,7 @@
 
 ### contains
 - SESSION_LOG.md `EXTRACTED`
+- 2026-08-19 (Claude Sonnet 5, macOS) — 사랑방 소품 9종 생성 (F-A, 전부 게이트 통과, 앱 미등록) `EXTRACTED`
 - 2026-08-19 (Claude Code, Cloud) — 토큰 절약 도구 2종 설치 (Ponytail·code-review-graph) `EXTRACTED`
 - 2026-08-19 (Cursor Grok 4.6, Cloud) — main → CI → Play 내부테스트만 `EXTRACTED`
 - 2026-08-19 (Cursor) — 맞춰 두다 ≠ line it up `EXTRACTED`
@@ -26,7 +27,6 @@
 - 2026-08-18 (Claude Sonnet 5, macOS) — main CI red 진단 + golden 기준선 갱신 `EXTRACTED`
 - 2026-08-18 (Claude Sonnet 5, macOS) — C2 확장 6칸 24편 (Batch 16) — 책가도 90칸 전부 완성 `EXTRACTED`
 - 2026-08-18 (Claude Opus 5, macOS) — C1 확장 7칸 28편 (Batch 15) + PR #72 머지 `EXTRACTED`
-- 2026-08-18 (Claude Code, 웹사이트) — App Store CTA 도 테스터 신청서 뒤로 (TestFlight 오픈링크 착각 차단) `EXTRACTED`
 
 ---
 

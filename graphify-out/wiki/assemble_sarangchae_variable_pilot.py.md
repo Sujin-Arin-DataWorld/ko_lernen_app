@@ -13,11 +13,11 @@
 - **place_work_props()** (12 connections) — `tool/assemble_sarangchae_variable_pilot.py`
 - **sha256()** (12 connections) — `tool/assemble_sarangchae_variable_pilot.py`
 - **compose()** (11 connections) — `tool/compose_ildu_hyeonpan.py`
+- **AssembleSarangchaeVariablePilotTest** (10 connections) — `tool/test_assemble_sarangchae_variable_pilot.py`
 - **copy_registered_stage()** (10 connections) — `tool/assemble_sarangchae_variable_pilot.py`
 - **verify_pinned_source()** (10 connections) — `tool/assemble_sarangchae_variable_pilot.py`
 - **recover_alpha()** (10 connections) — `tool/extract_checkerboard_alpha.py`
 - **register()** (10 connections) — `tool/register_hanok_construction_stages.py`
-- **AssembleSarangchaeVariablePilotTest** (10 connections) — `tool/test_assemble_sarangchae_variable_pilot.py`
 - **recover_source_alpha()** (9 connections) — `tool/assemble_sarangchae_variable_pilot.py`
 - **compose_board()** (9 connections) — `tool/compose_ildu_hyeonpan.py`
 - **resize_premultiplied()** (9 connections) — `tool/register_hanok_construction_stages.py`

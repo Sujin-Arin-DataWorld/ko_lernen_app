@@ -1,6 +1,6 @@
 # audit_content_naturalness.py
 
-> 42 nodes · cohesion 0.09
+> 34 nodes · cohesion 0.13
 
 ## Key Concepts
 
@@ -26,18 +26,22 @@
 - **_walk_ko_paths()** (3 connections) — `tool/audit_content_naturalness.py`
 - **_walk_quest_ko()** (3 connections) — `tool/audit_content_naturalness.py`
 - **write_report()** (3 connections) — `tool/audit_content_naturalness.py`
-- **check_e_daehae()** (2 connections) — `tool/audit_content_naturalness.py`
-- **check_josa_dup()** (2 connections) — `tool/audit_content_naturalness.py`
-- **check_level_length()** (2 connections) — `tool/audit_content_naturalness.py`
-- *... and 17 more nodes in this community*
+- **_escape_cell()** (2 connections) — `tool/audit_content_naturalness.py`
+- **_load_scenario_shards()** (2 connections) — `tool/audit_content_naturalness.py`
+- **_load_vocab_headwords()** (2 connections) — `tool/audit_content_naturalness.py`
+- *... and 9 more nodes in this community*
 
 ## Relationships
 
 - [check_particle_mismatch](check_particle_mismatch.md) (4 shared connections)
 - [check_formality_mix](check_formality_mix.md) (2 shared connections)
-- [build_batch_07_partner_family.py](build_batch_07_partner_family.py.md) (1 shared connections)
 - [Counter](Counter.md) (1 shared connections)
 - [generate_tts.py](generate_tts.py.md) (1 shared connections)
+- [build_batch_07_partner_family.py](build_batch_07_partner_family.py.md) (1 shared connections)
+- [check_passive_pileup](check_passive_pileup.md) (1 shared connections)
+- [check_e_daehae](check_e_daehae.md) (1 shared connections)
+- [check_josa_dup](check_josa_dup.md) (1 shared connections)
+- [check_level_length](check_level_length.md) (1 shared connections)
 
 ## Source Files
 
@@ -45,7 +49,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 87 (98%)
+- EXTRACTED: 83 (98%)
 - INFERRED: 2 (2%)
 - AMBIGUOUS: 0 (0%)
 

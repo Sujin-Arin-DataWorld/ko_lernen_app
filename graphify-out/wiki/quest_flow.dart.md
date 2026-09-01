@@ -33,18 +33,18 @@
 
 ## Relationships
 
-- [StatelessWidget](StatelessWidget.md) (7 shared connections)
-- [String?](String_.md) (2 shared connections)
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (2 shared connections)
+- [StatelessWidget](StatelessWidget.md) (8 shared connections)
+- [String?](String_.md) (3 shared connections)
 - [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (2 shared connections)
-- [Color](Color.md) (1 shared connections)
 - [int?](int_.md) (1 shared connections)
 - [List](List.md) (1 shared connections)
 - [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
-- [CustomPainter](CustomPainter.md) (1 shared connections)
+- [shelf_case.dart](shelf_case.dart.md) (1 shared connections)
 - [batchim_drop_quest.dart](batchim_drop_quest.dart.md) (1 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (1 shared connections)
+- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
+- [luecken_quest.dart](luecken_quest.dart.md) (1 shared connections)
 
 ## Source Files
 

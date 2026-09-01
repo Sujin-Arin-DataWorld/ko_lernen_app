@@ -4,8 +4,8 @@
 
 ## Key Concepts
 
-- **manage_scenario_corpus.py** (4 connections) — `tools/content_factory/manage_scenario_corpus.py`
 - **parser()** (4 connections) — `tools/content_factory/manage_scenario_corpus.py`
+- **manage_scenario_corpus.py** (4 connections) — `tools/content_factory/manage_scenario_corpus.py`
 - **main()** (3 connections) — `tools/content_factory/manage_scenario_corpus.py`
 - **_write()** (3 connections) — `tools/content_factory/manage_scenario_corpus.py`
 - **Path** (2 connections)

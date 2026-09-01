@@ -4,8 +4,8 @@
 
 ## Key Concepts
 
-- **robots.ts** (1 connections) — `hangul-sori-site-local/app/robots.ts`
 - **robots()** (1 connections) — `hangul-sori-site-local/app/robots.ts`
+- **robots.ts** (1 connections) — `hangul-sori-site-local/app/robots.ts`
 
 ## Relationships
 

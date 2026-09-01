@@ -34,12 +34,12 @@
 ## Relationships
 
 - [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (2 shared connections)
-- [StatefulWidget](StatefulWidget.md) (2 shared connections)
+- [_State](_State.md) (2 shared connections)
 - [hangul_screen.dart](hangul_screen.dart.md) (1 shared connections)
 - [sori_stage_shell.dart](sori_stage_shell.dart.md) (1 shared connections)
 - [dart:async](dart-async.md) (1 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
+- [cloze_game_screen.dart](cloze_game_screen.dart.md) (1 shared connections)
 - [speakable.dart](speakable.dart.md) (1 shared connections)
 - [@visibleForTesting](@visibleForTesting.md) (1 shared connections)
 

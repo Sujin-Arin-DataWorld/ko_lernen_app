@@ -1,10 +1,13 @@
 # course_checkpoint_questions.dart
 
-> 23 nodes · cohesion 0.09
+> 35 nodes · cohesion 0.06
 
 ## Key Concepts
 
 - **course_checkpoint_questions.dart** (32 connections) — `lib/services/course_checkpoint_questions.dart`
+- **grammar_plan_service.dart** (14 connections) — `lib/services/grammar_plan_service.dart`
+- **../models/grammar.dart** (8 connections)
+- **../models/grammar_study_plan.dart** (2 connections)
 - **byContentId** (1 connections) — `lib/services/course_checkpoint_questions.dart`
 - **canRecordEvidence** (1 connections) — `lib/services/course_checkpoint_questions.dart`
 - **catalog** (1 connections) — `lib/services/course_checkpoint_questions.dart`
@@ -26,26 +29,31 @@
 - **_stableIndex** (1 connections) — `lib/services/course_checkpoint_questions.dart`
 - **start** (1 connections) — `lib/services/course_checkpoint_questions.dart`
 - **unmodifiable** (1 connections) — `lib/services/course_checkpoint_questions.dart`
-- **value** (1 connections) — `lib/services/course_checkpoint_questions.dart`
+- *... and 10 more nodes in this community*
 
 ## Relationships
 
-- [List](List.md) (2 shared connections)
-- [course_progress_service.dart](course_progress_service.dart.md) (2 shared connections)
+- [_](_.md) (2 shared connections)
+- [grammar_screen.dart](grammar_screen.dart.md) (2 shared connections)
 - [T](T.md) (1 shared connections)
+- [bool get](bool_get.md) (1 shared connections)
 - [smalltalk.dart](smalltalk.dart.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
 - [return](return.md) (1 shared connections)
+- [gye_weekly_promise_navigation.dart](gye_weekly_promise_navigation.dart.md) (1 shared connections)
 - [sori_stage_progression_service.dart](sori_stage_progression_service.dart.md) (1 shared connections)
+- [ux_preview_app.dart](ux_preview_app.dart.md) (1 shared connections)
 - [static const int](static_const_int.md) (1 shared connections)
-- [data_loader.dart](data_loader.dart.md) (1 shared connections)
+- [data_migration_service.dart](data_migration_service.dart.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/services/course_checkpoint_questions.dart`
+- `lib/services/grammar_plan_service.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 32 (100%)
+- EXTRACTED: 53 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

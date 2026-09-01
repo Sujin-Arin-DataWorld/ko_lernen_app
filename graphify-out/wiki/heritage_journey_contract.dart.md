@@ -5,6 +5,7 @@
 ## Key Concepts
 
 - **heritage_journey_contract.dart** (81 connections) — `lib/models/heritage_journey_contract.dart`
+- **HeritageSourceReference** (2 connections) — `lib/models/heritage_journey_contract.dart`
 - **approvalEvidenceId** (1 connections) — `lib/models/heritage_journey_contract.dart`
 - **approvedAtIso** (1 connections) — `lib/models/heritage_journey_contract.dart`
 - **approvedBy** (1 connections) — `lib/models/heritage_journey_contract.dart`
@@ -28,21 +29,21 @@
 - **empty** (1 connections) — `lib/models/heritage_journey_contract.dart`
 - **EstateChapter** (1 connections) — `lib/models/heritage_journey_contract.dart`
 - **estateId** (1 connections) — `lib/models/heritage_journey_contract.dart`
-- **evidenceBeatIds** (1 connections) — `lib/models/heritage_journey_contract.dart`
 - *... and 43 more nodes in this community*
 
 ## Relationships
 
 - [heritage_journey_contract_test.dart](heritage_journey_contract_test.dart.md) (3 shared connections)
-- [List](List.md) (2 shared connections)
+- [bool get](bool_get.md) (1 shared connections)
 - [int?](int_.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
 - [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
-- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
-- [kkeunmari_engine.dart](kkeunmari_engine.dart.md) (1 shared connections)
+- [static const](static_const.md) (1 shared connections)
+- [tts_request_rate_test.dart](tts_request_rate_test.dart.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
 - [curriculum_alignment_contract.dart](curriculum_alignment_contract.dart.md) (1 shared connections)
 - [onboarding_story_catalog_projector_test.dart](onboarding_story_catalog_projector_test.dart.md) (1 shared connections)
-- [onboarding_v2_presentation.dart](onboarding_v2_presentation.dart.md) (1 shared connections)
+- [@immutable](@immutable.md) (1 shared connections)
 - [learning_semantic_contract.dart](learning_semantic_contract.dart.md) (1 shared connections)
 
 ## Source Files
@@ -51,7 +52,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 81 (100%)
+- EXTRACTED: 82 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

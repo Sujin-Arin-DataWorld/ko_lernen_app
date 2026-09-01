@@ -8,8 +8,8 @@
 - **treat()** (11 connections) — `tool/whiten_clip_matte.py`
 - **main()** (9 connections) — `tool/whiten_clip_matte.py`
 - **floor_grey_ratio()** (8 connections) — `tool/whiten_clip_matte.py`
-- **Path** (5 connections)
 - **remux()** (5 connections) — `tool/whiten_clip_matte.py`
+- **Path** (5 connections)
 - **encode()** (4 connections) — `tool/whiten_clip_matte.py`
 - **has_audio()** (3 connections) — `tool/whiten_clip_matte.py`
 - **Share of the lower frame that is neither white matte nor dark character. This…** (1 connections) — `tool/whiten_clip_matte.py`

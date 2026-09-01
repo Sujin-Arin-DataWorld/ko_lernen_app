@@ -19,13 +19,13 @@
 - **_read_csv()** (5 connections) — `tools/content_factory/apply_review.py`
 - **_json_text()** (4 connections) — `tools/content_factory/apply_review.py`
 - **main()** (4 connections) — `tools/content_factory/apply_review.py`
-- **Any** (4 connections)
 - **_records_from_json()** (4 connections) — `tools/content_factory/apply_review.py`
 - **_resolve_input()** (4 connections) — `tools/content_factory/apply_review.py`
 - **_run_validator()** (4 connections) — `tools/content_factory/apply_review.py`
 - **_target_kind()** (4 connections) — `tools/content_factory/apply_review.py`
 - **_validate_new_vocab_packs()** (4 connections) — `tools/content_factory/apply_review.py`
 - **_write_text_atomically()** (4 connections) — `tools/content_factory/apply_review.py`
+- **Any** (4 connections)
 - **normalize_status()** (3 connections) — `tools/content_factory/apply_review.py`
 - **_parse_args()** (3 connections) — `tools/content_factory/apply_review.py`
 - **_csv_text()** (2 connections) — `tools/content_factory/apply_review.py`
@@ -36,9 +36,8 @@
 - [plan_pack_assignments.py](plan_pack_assignments.py.md) (4 shared connections)
 - [handle](handle.md) (3 shared connections)
 - [ContentValidator](ContentValidator.md) (2 shared connections)
-- [scenario_store.py](scenario_store.py.md) (1 shared connections)
+- [scenario_store.py](scenario_store.py.md) (2 shared connections)
 - [ApplyReviewTest](ApplyReviewTest.md) (1 shared connections)
-- [validate_content.py](validate_content.py.md) (1 shared connections)
 
 ## Source Files
 

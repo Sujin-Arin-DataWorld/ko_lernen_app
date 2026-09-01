@@ -1,15 +1,18 @@
 # personal_hanok_unlock_reveal.dart
 
-> 33 nodes · cohesion 0.06
+> 36 nodes · cohesion 0.06
 
 ## Key Concepts
 
 - **personal_hanok_unlock_reveal.dart** (49 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
+- **Rect?** (7 connections)
 - **_PersonalHanokUnlockRevealState** (4 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
+- **_ConstructionClipper** (3 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
 - **PersonalHanokUnlockReveal** (3 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
 - **_DancheongGlint** (2 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
 - **_RevealCaption** (2 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
 - **_RevealMap** (2 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
+- **CustomClipper** (1 connections)
 - **actionLabel** (1 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
 - **assetPath** (1 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
 - **body** (1 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
@@ -26,25 +29,22 @@
 - **initState** (1 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
 - **milestone** (1 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
 - **milestoneLabel** (1 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
-- **onDismiss** (1 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
-- **onDone** (1 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
-- **paint** (1 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
-- *... and 8 more nodes in this community*
+- *... and 11 more nodes in this community*
 
 ## Relationships
 
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (6 shared connections)
+- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (7 shared connections)
+- [_](_.md) (5 shared connections)
 - [StatelessWidget](StatelessWidget.md) (3 shared connections)
-- [../../models/personal_hanok.dart](-..-models-personal_hanok.dart.md) (2 shared connections)
-- [StatefulWidget](StatefulWidget.md) (2 shared connections)
-- [pressable.dart](pressable.dart.md) (1 shared connections)
-- [Duration](Duration.md) (1 shared connections)
-- [_](_.md) (1 shared connections)
+- [_State](_State.md) (3 shared connections)
+- [quiz_choice.dart](quiz_choice.dart.md) (1 shared connections)
+- [scroll_sheet.dart](scroll_sheet.dart.md) (1 shared connections)
 - [silben_grid_clue_sync_test.dart](silben_grid_clue_sync_test.dart.md) (1 shared connections)
+- [String?](String_.md) (1 shared connections)
+- [shelf_case.dart](shelf_case.dart.md) (1 shared connections)
+- [dart:math](dart-math.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
 - [ildu_turntable_catalog.dart](ildu_turntable_catalog.dart.md) (1 shared connections)
-- [CustomPainter](CustomPainter.md) (1 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
-- [personal_hanok_map.dart](personal_hanok_map.dart.md) (1 shared connections)
 
 ## Source Files
 
@@ -52,7 +52,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 56 (100%)
+- EXTRACTED: 64 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

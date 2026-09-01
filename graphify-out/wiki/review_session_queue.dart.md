@@ -26,8 +26,9 @@
 
 ## Relationships
 
-- [List](List.md) (2 shared connections)
-- [Map](Map.md) (1 shared connections)
+- [bool get](bool_get.md) (1 shared connections)
+- [int get](int_get.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
 - [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
 - [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (1 shared connections)
 

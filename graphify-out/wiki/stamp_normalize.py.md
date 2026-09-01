@@ -4,11 +4,11 @@
 
 ## Key Concepts
 
-- **stamp_normalize.py** (4 connections) — `tool/stamp_normalize.py`
 - **cutout()** (4 connections) — `tool/stamp_normalize.py`
 - **fit_circle()** (4 connections) — `tool/stamp_normalize.py`
 - **main()** (4 connections) — `tool/stamp_normalize.py`
 - **to_palette()** (4 connections) — `tool/stamp_normalize.py`
+- **stamp_normalize.py** (4 connections) — `tool/stamp_normalize.py`
 - **Image** (3 connections)
 - **테두리에서 닿는 흰 영역만 투명으로. scipy 없이 PIL 의 4-연결 플러드필만 쓴다 (기기 VM 에 scipy 가 없고 네트워크도…** (1 connections) — `tool/stamp_normalize.py`
 - **원이 캔버스를 차지하는 비율을 기존 8종에 맞춘다. 기존 도장은 투명 25.5% 안팎 = 원 지름이 캔버스의 97.4%. 생성물은 34%…** (1 connections) — `tool/stamp_normalize.py`

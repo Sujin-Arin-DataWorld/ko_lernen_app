@@ -42,8 +42,8 @@
 - [return](return.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
 - [productive_assessment_service_test.dart](productive_assessment_service_test.dart.md) (1 shared connections)
-- [course_mastery_test.dart](course_mastery_test.dart.md) (1 shared connections)
-- [word_web_ui_test.dart](word_web_ui_test.dart.md) (1 shared connections)
+- [package:ko_lernen_app/models/scenario.dart](package-ko_lernen_app-models-scenario.dart.md) (1 shared connections)
+- [guide_ui_test.dart](guide_ui_test.dart.md) (1 shared connections)
 - [hanok_experience_projector_test.dart](hanok_experience_projector_test.dart.md) (1 shared connections)
 
 ## Source Files
