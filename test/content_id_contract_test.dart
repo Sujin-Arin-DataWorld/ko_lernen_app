@@ -11,7 +11,7 @@ import 'package:ko_lernen_app/services/satz_loader.dart';
 
 void main() {
   test('production learning content carries explicit immutable source IDs', () {
-    final audit = _jsonObject('assets/data/content_audit_manifest.json');
+    final audit = _jsonObject('tools/content_factory/content_audit_manifest.json');
     final auditedCounts = <String, int>{
       for (final source
           in (audit['sources'] as List).cast<Map<String, dynamic>>())
