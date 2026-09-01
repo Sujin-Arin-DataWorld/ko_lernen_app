@@ -2,6 +2,18 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 
+/// 주석을 지운다 — `/* … */` 블록을 먼저 걷어내고 `//` 이후를 지운다. 주석
+/// 처리된 호출이 시작작업 가드를 통과시키면 안 된다(정규식은 죽은 코드와 산
+/// 코드를 구분하지 못한다).
+String stripLineComments(String source) => source
+    .replaceAll(RegExp(r'/\*.*?\*/', dotAll: true), '')
+    .split('\n')
+    .map((line) {
+      final at = line.indexOf('//');
+      return at < 0 ? line : line.substring(0, at);
+    })
+    .join('\n');
+
 // 계약: 축하 버스트 시트는 **첫 프레임 전에** 디코딩이 끝나야 한다. 새 설치
 // 직후 첫 정답도 Satz 전용 6배 시트를 쓰게 하려는 것이고, 안 그러면 첫 번째
 // 축하만 절차적 폴백으로 떨어진다.
@@ -25,7 +37,11 @@ void main() {
         isNotNull,
         reason: 'lib/main.dart 에서 KoLernenApp 을 띄우는 지점을 찾지 못했다.',
       );
-      final beforeLaunch = source.substring(0, launch!.start);
+      // 주석 처리된 호출이 "있다/await 된다"로 잡히면 가드가 죽은 코드를
+      // 통과시킨다 — 검사 전에 `//` 이후를 지운 사본을 본다.
+      final beforeLaunch = stripLineComments(
+        source.substring(0, launch!.start),
+      );
 
       const call = 'DancheongBurst.preload()';
       expect(

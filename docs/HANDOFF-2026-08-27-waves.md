@@ -1,5 +1,12 @@
 # 기술 인계서 — Hangul Sori 앱 전면 개선 웨이브 (2026-08-27)
 
+> **⛔ 이력 문서 (2026-09-01 1:1 검수 종결):** 이 인계서의 실행 항목은 전부 종결됐다 —
+> W4 18/18(PR #209) · W3.5 이월 5/5(PR #210) · W5 계약 5/6(PR #211/#217/#218, 잔여 1건
+> `FeedPhysics.snap` 기본 전환은 Jin 실기기 승인 게이트) · W6 비영상(PR #219/#220/#222).
+> 항목별 판정·근거는 `docs/superpowers/specs/2026-09-01-handoff-verification-matrix.md`.
+> 현행 정본은 `docs/superpowers/specs/2026-08-28-w4-w6-completion-design.md`와 이후 릴리스
+> 트랙이다. 아래 본문은 2026-08-27 시점 서술이므로 현재 상태로 읽지 말 것.
+
 > 근거자료: (1) 5개 체크아웃 read-only 수집 원자료 494줄(`handoff-raw.md`, 2026-08-27 수집 — 이하 "원자료") (2) 마스터 플랜 `C:\Users\vjinn\.claude\plans\c-dev-hangulsori-ko-lernen-app-docs-han-fizzy-marshmallow.md`(59개 지시서 항목 1:1 매핑, 6웨이브 로드맵). 모든 SHA·카운트·경로는 원자료 또는 실제 파일 확인에서 나온 값이며, 추정/서술적 내용은 그때그때 "추정"·"확인 필요"로 명시했다.
 > 원본 지시서: `docs/Hangul Sori 앱 점검 후 개선 사항 지시서.md` (59개 항목, 현재 main에 untracked 상태로 존재 — 아래 9절 참고)
 

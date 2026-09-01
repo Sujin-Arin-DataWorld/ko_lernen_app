@@ -98,7 +98,8 @@ and group attachment are visible in App Store Connect.
 
 ## Build-number note
 
-The repository version is currently `2.0.8+27`. For iOS/iPadOS, App Store
+The repository version is whatever `pubspec.yaml` line 4 says at archive time
+(2026-09-01 기준 릴리스 트랙: `2.0.8+30`). For iOS/iPadOS, App Store
 Connect requires a unique version/build combination, so `2.0.8 (27)` does not
 collide with `2.0.7 (242)`. Xcode Cloud also assigns its own incrementing build
 number to distributed cloud builds, which App Store Connect uses. Verify the

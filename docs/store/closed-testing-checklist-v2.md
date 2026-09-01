@@ -55,6 +55,16 @@ versionCode를 확인하기 전에는 버전이나 출시일을 추측해 쓰지
 > coach 상태를 명시적으로 고정하고 wrapper를 직접 드래그해, 앞면 좌·우 무기록과
 > 뒤집은 뒤 positive/negative·wrong-count 기록을 검증하는 보강 인계가 필요하다.
 
+> **후속 판정 (2026-09-01, 1:1 검수).** 위 지적의 실질은 이후 해소됐다:
+> `08a77fd6`(2026-08-15)가 coach 상태 고정(`kl_tut_review`/`soriDeck`/`wordbook`)과
+> `ValueKey('deck-card-slot')` wrapper 직접 드래그로 두 지적을 수정했고, `abf9e3ff`
+> (08-18)가 덱 물리 계약 테스트를 신설, `c917d777`+`01bd8849`(08-19)가 틴더 덱 제거·
+> 세로 피드 전환으로 플립 전 가로 스와이프 SRS 오염 경로를 구조적으로 제거했다
+> (`deck_direction_contract_test.dart` 가드). 이 테스트들은 main push CI 전체 스위트로
+> 상시 강제된다. 단 §0 후보 표는 여전히 공란 — 표 기입은 릴리스 오너가 업로드 시점
+> 값으로 채우는 수동 절차로 남는다. 근거 상세:
+> `docs/superpowers/specs/2026-09-01-handoff-verification-matrix.md` H-51.
+
 ## 1. Phase 5에서 지키는 학습 계약
 
 - PackSessionSrsLedger와 PackRecallSession은 임시 세션 한정이다. 새 persisted attempt

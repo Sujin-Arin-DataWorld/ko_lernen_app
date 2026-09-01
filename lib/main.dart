@@ -154,8 +154,9 @@ Future<void> _startProductionApplication(
   void Function(Widget app) runner,
 ) async {
   // Persistente Speicher initialisieren (vor runApp wichtig) — Storage's
-  // synchronous getters (including the splash screen's 2s-later navigation
-  // check, and MascotPreference.load() below) need this done first.
+  // synchronous getters (including the navigation check SplashGate runs behind
+  // the splash screen's adaptive wait: min 600ms, cap 1500ms — and
+  // MascotPreference.load() below) need this done first.
   await Storage.init();
 
   // 시스템바: edge-to-edge(Flutter 권장) + 화면별 SafeArea가 inset 담당.
