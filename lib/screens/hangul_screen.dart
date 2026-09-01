@@ -665,7 +665,12 @@ class _CardsTabState extends State<_CardsTab> {
   @override
   void initState() {
     super.initState();
-    _prefetchAround();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) {
+        return;
+      }
+      _playCurrentAndPrefetch();
+    });
   }
 
   @override
@@ -714,6 +719,21 @@ class _CardsTabState extends State<_CardsTab> {
     return filtered.isEmpty ? base : filtered;
   }
 
+  void _speakCurrent() {
+    unawaited(widget.speak(_pool[_idx % _pool.length].letter));
+  }
+
+  /// Publish playback first, then warm the surrounding cards.
+  ///
+  /// If prefetch wins the in-flight key race, a tap/transition must wait for
+  /// that download before it can be promoted to playback. Publishing speech
+  /// first gives the visible card priority; its prefetch joins that flight
+  /// while the two neighbors continue warming in parallel.
+  void _playCurrentAndPrefetch() {
+    _speakCurrent();
+    _prefetchAround();
+  }
+
   void _toggleHardOnly() {
     HapticFeedback.selectionClick();
     setState(() {
@@ -721,7 +741,7 @@ class _CardsTabState extends State<_CardsTab> {
       _idx = 0;
       _flipped = false;
     });
-    _prefetchAround();
+    _playCurrentAndPrefetch();
   }
 
   /// 우 = 앎. 앱 공용 계약(좌=모름 · 우=앎 · 위=저장 · 아래=넘어가기)의 판정.
@@ -748,7 +768,7 @@ class _CardsTabState extends State<_CardsTab> {
       _flipped = false;
       _idx = (_idx + 1) % _pool.length;
     });
-    _prefetchAround();
+    _playCurrentAndPrefetch();
   }
 
   void _next() {
@@ -758,7 +778,7 @@ class _CardsTabState extends State<_CardsTab> {
       _flipped = false;
       _idx = (_idx + 1) % _pool.length;
     });
-    _prefetchAround();
+    _playCurrentAndPrefetch();
   }
 
   void _prev() {
@@ -768,7 +788,7 @@ class _CardsTabState extends State<_CardsTab> {
       _flipped = false;
       _idx = (_idx - 1 + _pool.length) % _pool.length;
     });
-    _prefetchAround();
+    _playCurrentAndPrefetch();
   }
 
   void _random() {
@@ -780,7 +800,7 @@ class _CardsTabState extends State<_CardsTab> {
       _flipped = false;
       _idx = candidate;
     });
-    _prefetchAround();
+    _playCurrentAndPrefetch();
   }
 
   void _onFlip() {
@@ -820,7 +840,7 @@ class _CardsTabState extends State<_CardsTab> {
       _idx = 0;
       _flipped = false;
     });
-    _prefetchAround();
+    _playCurrentAndPrefetch();
   }
 
   Future<void> _showCardModeSheet() async {

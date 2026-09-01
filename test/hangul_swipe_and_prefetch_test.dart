@@ -52,7 +52,12 @@ void main() {
     prefetched = <String>[];
   });
 
-  Future<void> pumpScreen(WidgetTester tester, {int tab = 1}) async {
+  Future<void> pumpScreen(
+    WidgetTester tester, {
+    int tab = 1,
+    Future<bool> Function(String text)? speechPlayer,
+    Future<void> Function(String text)? textPrefetcher,
+  }) async {
     tester.view.physicalSize = const Size(1200, 2600);
     tester.view.devicePixelRatio = 1.0;
     addTearDown(tester.view.reset);
@@ -64,8 +69,9 @@ void main() {
         supportedLocales: AppL10n.supportedLocales,
         localizationsDelegates: AppL10n.localizationsDelegates,
         home: HangulScreen(
-          speechPlayer: (_) async => true,
-          textPrefetcher: (text) async => prefetched.add(text),
+          speechPlayer: speechPlayer ?? (_) async => true,
+          textPrefetcher:
+              textPrefetcher ?? (text) async => prefetched.add(text),
         ),
       ),
     );
@@ -102,6 +108,63 @@ void main() {
     });
   });
 
+  group('②-1 즉시 재생 + 전환 자동재생', () {
+    testWidgets('카드가 처음 보이는 프레임에 현재 낱자를 자동재생한다', (tester) async {
+      final spoken = <String>[];
+      await pumpScreen(
+        tester,
+        speechPlayer: (text) async {
+          spoken.add(text);
+          return true;
+        },
+      );
+
+      expect(spoken, contains(hangul.speakableJamo('ㄱ')));
+    });
+
+    testWidgets('카드 탭은 추가 pump 없이 즉시 현재 낱자 재생을 시작한다', (tester) async {
+      final spoken = <String>[];
+      await pumpScreen(
+        tester,
+        speechPlayer: (text) async {
+          spoken.add(text);
+          return true;
+        },
+      );
+      spoken.clear();
+
+      await tester.tap(find.byType(FlipCard).first);
+
+      expect(spoken, [hangul.speakableJamo('ㄱ')]);
+    });
+
+    testWidgets('다음 카드 전환은 재생을 먼저 게시하고 이웃을 뒤에서 미리 받는다', (tester) async {
+      final events = <String>[];
+      await pumpScreen(
+        tester,
+        speechPlayer: (text) async {
+          events.add('speak:$text');
+          return true;
+        },
+        textPrefetcher: (text) async => events.add('prefetch:$text'),
+      );
+      events.clear();
+
+      final feed = tester.widget<SoriContentFeed>(find.byType(SoriContentFeed));
+      feed.onSkip!();
+
+      expect(events, isNotEmpty);
+      expect(events.first, 'speak:${hangul.speakableJamo('ㄴ')}');
+      expect(
+        events,
+        contains('prefetch:${hangul.speakableJamo('ㄷ')}'),
+        reason: '새 현재 카드 재생과 동시에 다음 이웃도 계속 데워야 한다',
+      );
+      await tester.pump();
+      expect(find.text('2 / 19'), findsOneWidget);
+    });
+  });
+
   group('③ 카드 스와이프 — 세로 피드 계약', () {
     testWidgets('공용 SoriContentFeed 를 쓰고 틴더 축을 쓰지 않는다', (tester) async {
       await pumpScreen(tester);
@@ -118,7 +181,11 @@ void main() {
     testWidgets('아래로 밀면 넘어간다 — 뒤집지 않아도 된다', (tester) async {
       await pumpScreen(tester);
       expect(find.text('1 / 19'), findsOneWidget);
-      await tester.fling(find.byType(FlipCard).first, const Offset(0, 400), 1200);
+      await tester.fling(
+        find.byType(FlipCard).first,
+        const Offset(0, 400),
+        1200,
+      );
       await tester.pumpAndSettle();
       expect(find.text('2 / 19'), findsOneWidget);
     });
@@ -126,7 +193,11 @@ void main() {
     testWidgets('뒤집기 전에는 좌/우 판정이 일어나지 않는다', (tester) async {
       // flipgate 계약 — 못 본 낱자에 앎/모름이 기록되면 안 된다.
       await pumpScreen(tester);
-      await tester.fling(find.byType(FlipCard).first, const Offset(400, 0), 1200);
+      await tester.fling(
+        find.byType(FlipCard).first,
+        const Offset(400, 0),
+        1200,
+      );
       await tester.pumpAndSettle();
       expect(find.text('1 / 19'), findsOneWidget);
       expect(Storage.hangulHard, isEmpty);
@@ -156,9 +227,7 @@ void main() {
       expect(demo.size.width, greaterThan(200));
     });
 
-    testWidgets('연습 캔버스 위 드래그는 획이 될 뿐 글자를 넘기지 않는다', (
-      tester,
-    ) async {
+    testWidgets('연습 캔버스 위 드래그는 획이 될 뿐 글자를 넘기지 않는다', (tester) async {
       // 이게 이번 변경에서 가장 깨지기 쉬운 계약이다 — 스와이프 내비게이션을
       // 붙였는데 큰 연습 캔버스가 그걸 먹으면 글씨를 못 쓴다. 반대로 캔버스가
       // 제스처를 독점하지 않으면 획을 그으려다 글자가 넘어간다.
@@ -181,9 +250,7 @@ void main() {
       );
     });
 
-    testWidgets('Write 탭은 좌우 스와이프로 넘기지 않는다 — 방향 계약 보호', (
-      tester,
-    ) async {
+    testWidgets('Write 탭은 좌우 스와이프로 넘기지 않는다 — 방향 계약 보호', (tester) async {
       // 여기서만 좌/우를 이전/다음으로 쓰면 카드 덱에서 익힌 손버릇과
       // 정반대가 된다(우 = 앎). 이동은 ‹ › 아이콘이 정본이다.
       await pumpScreen(tester, tab: 2);
@@ -353,7 +420,11 @@ void main() {
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 400));
 
-      await tester.fling(find.byType(FlipCard).first, const Offset(0, 400), 1200);
+      await tester.fling(
+        find.byType(FlipCard).first,
+        const Offset(0, 400),
+        1200,
+      );
       await tester.pump(const Duration(milliseconds: 40)); // 정착 전
       await tester.pumpWidget(const MaterialApp(home: SizedBox.shrink()));
       await tester.pump(const Duration(milliseconds: 600));

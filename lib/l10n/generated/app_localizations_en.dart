@@ -9083,6 +9083,10 @@ class AppL10nEn extends AppL10n {
       'Pronunciation unavailable. Are you online?';
 
   @override
+  String get ttsUnavailableAudio =>
+      'Audio isn’t available right now. Please try again.';
+
+  @override
   String get mediaPhraseTitle => 'Media lines';
 
   @override

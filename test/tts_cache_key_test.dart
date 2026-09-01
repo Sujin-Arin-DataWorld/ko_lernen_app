@@ -35,6 +35,27 @@ void main() {
     expect(key.storagePath, startsWith('tts/v3/female/'));
   });
 
+  test(
+    'repaired short audio keeps its storage key and busts only local cache',
+    () {
+      final repaired = TtsCacheKey.forRequest(voice: 'male', text: '흐');
+      final unaffected = TtsCacheKey.forRequest(voice: 'female', text: '안녕하세요');
+
+      expect(
+        repaired.storagePath,
+        'tts/v3/male/7b27abc9b671f2ee0a67c1fe7a3ea7eac747a2f3.mp3',
+      );
+      expect(
+        repaired.localFileName,
+        'tts_v3_male_7b27abc9b671f2ee0a67c1fe7a3ea7eac747a2f3_r1.mp3',
+      );
+      expect(
+        unaffected.localFileName,
+        'tts_v3_female_d84734f7d89bbd707dc52168c47309aed72b7f80.mp3',
+      );
+    },
+  );
+
   test('usable audio requires a real MP3 header, not just non-empty bytes', () {
     final mp3 = List<int>.filled(32, 0);
     mp3[0] = 0xFF;
@@ -79,7 +100,7 @@ void main() {
     () async {
       TtsService.lastError = null;
       var quotaCalls = 0;
-      await expectLater(
+      final quotaError = expectLater(
         TtsService.takeCallableAudio(
           invoke: () async {
             quotaCalls += 1;
@@ -89,14 +110,21 @@ void main() {
             );
           },
         ),
-        throwsA(isA<TtsSynthesisBlocked>()),
+        throwsA(
+          isA<TtsSynthesisBlocked>().having(
+            (error) => error.reason,
+            'reason',
+            TtsUnavailableReason.quota,
+          ),
+        ),
       );
+      await quotaError;
       expect(quotaCalls, 1);
       expect(TtsService.lastError, TtsCallableFailure.quotaMessage);
 
       TtsService.lastError = null;
       var missCalls = 0;
-      await expectLater(
+      final missError = expectLater(
         TtsService.takeCallableAudio(
           invoke: () async {
             missCalls += 1;
@@ -106,8 +134,15 @@ void main() {
             );
           },
         ),
-        throwsA(isA<TtsSynthesisBlocked>()),
+        throwsA(
+          isA<TtsSynthesisBlocked>().having(
+            (error) => error.reason,
+            'reason',
+            TtsUnavailableReason.audioUnavailable,
+          ),
+        ),
       );
+      await missError;
       expect(missCalls, 1);
       expect(TtsService.lastError, TtsCallableFailure.audioUnavailableMessage);
     },

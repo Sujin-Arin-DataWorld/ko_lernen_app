@@ -10,6 +10,135 @@ import generate_tts  # noqa: E402
 
 
 class TtsGeneratorContractTest(unittest.TestCase):
+    def test_short_tts_candidate_is_losslessly_polished_and_measured(self):
+        raw = b"raw mp3 bytes"
+        with (
+            patch.object(generate_tts.shutil, "which", return_value="ffmpeg"),
+            patch.object(
+                generate_tts.polish_tts,
+                "handle",
+                return_value=("trimmed", "unused", 0.5),
+            ) as handle,
+            patch.object(
+                generate_tts.polish_tts,
+                "probe",
+                return_value=(0.62, 0.06, 0.18),
+            ),
+            patch.object(
+                generate_tts,
+                "_silence_metrics",
+                return_value=(0.06, 0.24),
+            ),
+        ):
+            polished, total, head, active = (
+                generate_tts._polish_and_measure_short_candidate(raw)
+            )
+
+        self.assertEqual(polished, raw)
+        self.assertEqual((total, head), (0.62, 0.06))
+        self.assertAlmostEqual(active, 0.38)
+        self.assertEqual(handle.call_args.kwargs, {"dry_run": False})
+
+    def test_silence_metrics_subtracts_internal_and_unclosed_tail_silence(self):
+        stderr = """
+[silencedetect] silence_start: 0
+[silencedetect] silence_end: 0.06 | silence_duration: 0.06
+[silencedetect] silence_start: 0.15
+[silencedetect] silence_end: 0.50 | silence_duration: 0.35
+[silencedetect] silence_start: 0.60
+"""
+        completed = generate_tts.subprocess.CompletedProcess(
+            args=["ffmpeg"],
+            returncode=0,
+            stderr=stderr,
+        )
+        with patch.object(generate_tts.subprocess, "run", return_value=completed):
+            head, silence = generate_tts._silence_metrics("candidate.mp3", 0.70)
+
+        self.assertAlmostEqual(head, 0.06)
+        self.assertAlmostEqual(silence, 0.51)
+        self.assertAlmostEqual(0.70 - silence, 0.19)
+
+    def test_active_duration_floors_match_audited_short_speech(self):
+        self.assertEqual(generate_tts._min_active_duration_for("흐"), 0.30)
+        self.assertEqual(generate_tts._min_active_duration_for("아"), 0.22)
+        self.assertAlmostEqual(
+            generate_tts._min_active_duration_for("우리가"),
+            0.54,
+        )
+
+    def test_short_tts_quality_gate_fails_closed_without_ffmpeg(self):
+        with patch.object(generate_tts.shutil, "which", return_value=None):
+            with self.assertRaisesRegex(RuntimeError, "ffmpeg is required"):
+                generate_tts._polish_and_measure_short_candidate(b"mp3")
+
+    def test_short_tts_retries_excessive_leading_silence(self):
+        with (
+            patch.object(generate_tts, "GATE_RATES", (1.0, 0.7)),
+            patch.object(
+                generate_tts,
+                "_synth_raw",
+                side_effect=[b"delayed", b"immediate"],
+            ) as raw,
+            patch.object(
+                generate_tts,
+                "_polish_and_measure_short_candidate",
+                side_effect=[
+                    (b"delayed-polished", 0.80, 0.20, 0.40),
+                    (b"immediate-polished", 0.56, 0.06, 0.32),
+                ],
+            ),
+            patch.object(generate_tts, "mp3_peak_dbfs", return_value=-6.0),
+        ):
+            result = generate_tts.synth("token", "male", "흐")
+
+        self.assertEqual(result, b"immediate-polished")
+        self.assertEqual(raw.call_count, 2)
+
+    def test_short_tts_retries_effectively_empty_active_region(self):
+        with (
+            patch.object(generate_tts, "GATE_RATES", (1.0, 0.7)),
+            patch.object(
+                generate_tts,
+                "_synth_raw",
+                side_effect=[b"click", b"speech"],
+            ),
+            patch.object(
+                generate_tts,
+                "_polish_and_measure_short_candidate",
+                side_effect=[
+                    (b"click-polished", 0.70, 0.06, 0.03),
+                    (b"speech-polished", 0.54, 0.06, 0.31),
+                ],
+            ),
+            # A loud click proves peak volume cannot replace active duration.
+            patch.object(generate_tts, "mp3_peak_dbfs", return_value=-3.0),
+        ):
+            result = generate_tts.synth("token", "male", "흐")
+
+        self.assertEqual(result, b"speech-polished")
+
+    def test_short_tts_never_adopts_known_bad_best_take(self):
+        with (
+            patch.object(generate_tts, "GATE_RATES", (1.0, 0.7)),
+            patch.object(
+                generate_tts,
+                "_synth_raw",
+                side_effect=[b"silent-one", b"silent-two"],
+            ),
+            patch.object(
+                generate_tts,
+                "_polish_and_measure_short_candidate",
+                side_effect=[
+                    (b"silent-one-polished", 0.80, 0.30, 0.02),
+                    (b"silent-two-polished", 0.75, 0.25, 0.03),
+                ],
+            ),
+            patch.object(generate_tts, "mp3_peak_dbfs", return_value=-4.0),
+        ):
+            with self.assertRaisesRegex(RuntimeError, "failed the quality gate"):
+                generate_tts.synth("token", "male", "흐")
+
     def test_auto_voice_matches_dart_contract_vectors(self):
         self.assertEqual(generate_tts.auto_voice("안녕하세요"), "male")
         self.assertEqual(generate_tts.auto_voice("  안녕하세요  "), "male")
@@ -505,6 +634,42 @@ class TtsGeneratorContractTest(unittest.TestCase):
                     generate_tts.main(["--synthesize", "--workers", "1"])
 
         run.assert_not_called()
+
+    def test_invalid_short_local_cache_is_resynthesized_not_uploaded_as_is(self):
+        voice = "male"
+        text = "흐"
+        relative_path = generate_tts.cache_relative_path(voice, text)
+        old_audio = b"old delayed cache" * 32
+        new_audio = b"new immediate cache" * 32
+        with tempfile.TemporaryDirectory() as temp:
+            path = os.path.join(temp, *relative_path.split("/"))
+            os.makedirs(os.path.dirname(path))
+            with open(path, "wb") as handle:
+                handle.write(old_audio)
+            with (
+                patch.object(generate_tts, "OUT", temp),
+                patch.object(generate_tts, "collect", return_value=[(voice, text)]),
+                patch.object(generate_tts, "_auth", return_value="token"),
+                patch.object(generate_tts.shutil, "which", return_value="gcloud"),
+                patch.object(generate_tts, "mp3_duration", return_value=0.80),
+                patch.object(
+                    generate_tts,
+                    "_polish_and_measure_short_candidate",
+                    return_value=(old_audio, 0.80, 0.30, 0.03),
+                ),
+                patch.object(generate_tts, "mp3_peak_dbfs", return_value=-5.0),
+                patch.object(generate_tts, "synth", return_value=new_audio) as synth,
+                patch.object(generate_tts.subprocess, "run") as run,
+                patch("builtins.print"),
+            ):
+                result = generate_tts.main(["--synthesize", "--workers", "1"])
+                with open(path, "rb") as handle:
+                    saved = handle.read()
+
+        self.assertEqual(result, 0)
+        self.assertEqual(saved, new_audio)
+        synth.assert_called_once_with("token", voice, text)
+        run.assert_called_once()
 
     def test_manifest_upload_uses_only_the_exact_selected_object(self):
         # F2/FIX-2a: `--synthesize`가 실제 합성+업로드 분기를 명시적으로

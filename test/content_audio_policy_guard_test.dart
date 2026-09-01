@@ -41,14 +41,11 @@ void main() {
     expect(source, contains('TtsService.stop()'));
   });
 
-  test('진입/전환 자동재생은 150-250ms 디바운스를 쓴다', () {
-    final debounce = RegExp(
-      r'Duration\(milliseconds:\s*(1[5-9][0-9]|2[0-4][0-9]|250)\)',
-    );
+  test('진입/전환 자동재생은 인위 지연 없이 다음 event turn에 시작한다', () {
     expect(
-      debounce.hasMatch(source),
+      source.contains('_debounce = Timer(Duration.zero'),
       isTrue,
-      reason: '150-250ms 범위의 Duration(milliseconds: …) 디바운스가 안 보인다',
+      reason: '카드 전환 뒤 150-250ms를 더 기다리면 즉시 재생 계약이 깨진다',
     );
   });
 

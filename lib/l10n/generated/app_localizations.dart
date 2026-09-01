@@ -15468,6 +15468,12 @@ abstract class AppL10n {
   /// **'Aussprache nicht verfügbar. Bist du online?'**
   String get ttsUnavailableOffline;
 
+  /// No description provided for @ttsUnavailableAudio.
+  ///
+  /// In de, this message translates to:
+  /// **'Audio ist gerade nicht verfügbar. Bitte versuche es erneut.'**
+  String get ttsUnavailableAudio;
+
   /// No description provided for @mediaPhraseTitle.
   ///
   /// In de, this message translates to:
