@@ -22,6 +22,7 @@ void main() {
       final closedWorkflow = await File(
         '.github/workflows/play_closed.yml',
       ).readAsString();
+      final normalizedChecklist = checklist.replaceAll(RegExp(r'\s+'), ' ');
 
       final testerGuideAab = _fencedBuildBlockAfter(
         betaGuide,
@@ -94,7 +95,7 @@ void main() {
       );
       expect(subscriptionProductionAab, isNot(contains('/Users/')));
 
-      expect(checklist, contains('10명 이상, 14일'));
+      expect(normalizedChecklist, contains('12명 이상 연속 opt-in, 14일'));
       expect(checklist, contains('git rev-list --count HEAD'));
       expect(checklist, contains('git diff --exit-code'));
       expect(checklist, contains(r'test -z "$(git status --porcelain)"'));
@@ -107,7 +108,10 @@ void main() {
       expect(checklist, contains('Closed Testing 후보에는 주입하지 않는다.'));
       expect(checklist, contains('SoriContentFeed wrapper'));
       expect(checklist, contains('App Check 보호 경로를 거쳐 accepted/delivered 상태'));
-      expect(checklist, contains('10명 이상이 opt-in하고 실제 핵심 흐름을'));
+      expect(
+        normalizedChecklist,
+        contains('12명 이상이 14일 연속 opt-in하고 실제 핵심 흐름을'),
+      );
       expect(checklist, contains('완료해야 한다.'));
       expect(testerAabSection, isNot(contains('1.0.1+2')));
       expect(sessionNotes, contains('highest build number already uploaded'));
