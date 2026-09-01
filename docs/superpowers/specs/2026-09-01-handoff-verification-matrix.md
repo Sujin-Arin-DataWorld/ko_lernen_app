@@ -10,7 +10,7 @@
 | H-02 | 반영 | Jin 확정 13건이 main에 병합됨 — merge 10571b95, parents 5e98e493/2faef696 |
 | H-03 | 반영 | W2 성능 웨이브가 main에 병합됨 — merge 2ac96dfb; 10태스크 커밋들(002661a8,01d9202a,1e4c8ad5,96557654,c74… |
 | H-04 | 반영 | W3 전역 시스템 웨이브가 main에 병합됨 — merge 51c8fffb; SoriLayout/SoriGaps/SoriChromeRow/speakable.d… |
-| H-05 | 반영 | W3.5 하드닝이 main에 병합됨 — merge 9b92973d; TTS 로컬캐시 catch 확대 + 전역 에러 훅(runZonedGuarded/Flutte… |
+| H-05 | 반영 | W3.5 하드닝이 main에 병합됨 — merge 9b92973d; 전역 에러 훅 2종 무조건 설치(runZonedGuarded 비포함 — 비고) 외 |
 | H-06 | 반영 | 인계서 시점 main HEAD는 8faae14f였고 origin과 동기였다 (ci 리모트 상태는 이 컨테이너에서 검증 불가) |
 | H-07 | 반영 | W4 T1: 7f259706 — LearnSessionQueue에 _servedIds/currentIsRepeat 게터 추가, servedPosition 수식… |
 | H-08 | 반영 | W4 T2: 6e20f021 — 재출제 카운터 단일 칩 병기("+N Wdh.") + dispose 진행 영속화 |
@@ -97,7 +97,7 @@
 
 ### H-05 — 반영
 
-**주장:** W3.5 하드닝이 main에 병합됨 — merge 9b92973d; TTS 로컬캐시 catch 확대 + 전역 에러 훅(runZonedGuarded/FlutterError.onError/PlatformDispatcher.onError) main.dart 설치 + SoriPressable 키보드 활성화 + chrome_row 48dp
+**주장:** W3.5 하드닝이 main에 병합됨 — merge 9b92973d; TTS 로컬캐시 catch 확대 + 전역 에러 훅 무조건 설치(W3.5 실행 항목의 약속 그대로 — 실체는 `installErrorHandlers()`의 `FlutterError.onError`+`PlatformDispatcher.instance.onError` 2종. 인계서 §3의 사전 감사 서술이 나열한 `runZonedGuarded`는 W3.5 산출물에 포함되지 않았고 지금도 부재 — 비고 참조) + SoriPressable 키보드 활성화 + chrome_row 48dp
 
 **근거:** origin/main ancestry: `git merge-base --is-ancestor 9b92973d origin/main` → IS ANCESTOR. Merge commit 9b92973dfd0ed4ac4b2f7177a450a367af98db98 ("Merge W3.5 하드닝 웨이브") has parents 51c8fffb (main) + 45b170aa (fix/w35-hardening), touching lib/main.dart, lib/services/tts_service.dart, lib/widgets/sori/{chrome_row,pressable,speakable}.dart plus 4 new guard tests, all present at origin/main.
 (1) TTS local-cache catch widened: commit 795ea1d1 in lib/services/tts_service.dart adds a bare `catch (_) { … Storage 로 넘어간다 }` after the existing `on TimeoutException` around the local FS read (finding 1a), plus errorReporter/onResolutionFailed split (commit 45b170aa) so unavailable-banner only fires on resolution failure. Guard test: test/tts_premium_only_test.dart (exists on origin/main).
@@ -582,3 +582,4 @@ TTS best-effort points, lib/services/tts_service.dart (unchanged vs origin/main)
 - §4 "queued 소소 2건"(bookshelf `learnedWordCount` 2회 호출)은 이후 해소됨 — 현재 `lib/screens/bookshelf_screen.dart`의 호출 지점은 1곳(:505), w4-integration 플랜이 명시한 수정이 랜딩된 결과(H-26 정합).
 - H-02와 H-45는 모순이 아니라 상보: 2faef696은 Jin 확정 13건의 실체이며 동시에 97건 재작성 목록 중 13건을 ✅ 처리한 커밋이다 — 그래서 §9-1의 "97건 대기"는 84건 대기로 정정된다(H-45).
 - 래칫 인벤토리 `=`핀(위젯 파일 수 등)은 W4/W5 화면 랜딩과 함께 부기 갱신됨(예: 133→135) — 하향 전용 래칫(ellipsis 0 등)은 전부 유지(H-42).
+- (Codex 리뷰 반영) H-05의 원 주장 문구는 인계서 §3의 **사전 감사 서술**(runZonedGuarded/FlutterError.onError/PlatformDispatcher.onError 3종 나열)과 W3.5의 **실행 약속**("전역 에러 훅 무조건 설치")을 뒤섞은 매트릭스 구성 오류였다 — 주장을 실행 약속 기준으로 좁혀 반영 판정을 유지한다. 사실관계: `runZonedGuarded`는 W3.5 산출물에 없었고 현재 lib/ 전체에 부재. `PlatformDispatcher.instance.onError`가 비동기 미포착 예외를 이미 받으므로 기능 공백은 아니나, 3종을 원하면 별도 후속 항목이다(차기 후보로 등재).
