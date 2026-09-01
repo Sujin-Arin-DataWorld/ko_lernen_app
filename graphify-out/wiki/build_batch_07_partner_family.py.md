@@ -27,7 +27,7 @@
 - [handle](handle.md) (1 shared connections)
 - [audit_content_naturalness.py](audit_content_naturalness.py.md) (1 shared connections)
 - [lexicon/__init__.py](lexicon-__init__.py.md) (1 shared connections)
-- [scenario_store.py](scenario_store.py.md) (1 shared connections)
+- [validate_content.py](validate_content.py.md) (1 shared connections)
 
 ## Source Files
 

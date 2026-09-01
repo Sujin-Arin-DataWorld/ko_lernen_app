@@ -4,9 +4,9 @@
 
 ## Key Concepts
 
-- **id** (3 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
-- **pattern** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
-- **type** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **id** (3 connections) — `tools/content_factory/schemas/character_profile.schema.json`
+- **pattern** (1 connections) — `tools/content_factory/schemas/character_profile.schema.json`
+- **type** (1 connections) — `tools/content_factory/schemas/character_profile.schema.json`
 
 ## Relationships
 
@@ -14,7 +14,7 @@
 
 ## Source Files
 
-- `tools/content_factory/schemas/scenario_brief.schema.json`
+- `tools/content_factory/schemas/character_profile.schema.json`
 
 ## Audit Trail
 

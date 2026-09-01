@@ -33,18 +33,18 @@
 
 ## Relationships
 
-- [_](_.md) (19 shared connections)
-- [room_layout_service.dart](room_layout_service.dart.md) (3 shared connections)
+- [_](_.md) (18 shared connections)
+- [storage_service.dart](storage_service.dart.md) (3 shared connections)
 - [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (3 shared connections)
 - [data_migration_service.dart](data_migration_service.dart.md) (3 shared connections)
 - [@visibleForTesting](@visibleForTesting.md) (2 shared connections)
+- [static const](static_const.md) (2 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
+- [List](List.md) (2 shared connections)
 - [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (2 shared connections)
-- [audio_policy.dart](audio_policy.dart.md) (1 shared connections)
 - [premium_service.dart](premium_service.dart.md) (1 shared connections)
 - [culture_notes_service.dart](culture_notes_service.dart.md) (1 shared connections)
 - [dart:async](dart-async.md) (1 shared connections)
-- [hanok_stage_service.dart](hanok_stage_service.dart.md) (1 shared connections)
 
 ## Source Files
 

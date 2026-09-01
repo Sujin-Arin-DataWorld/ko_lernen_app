@@ -1,11 +1,13 @@
 # sori_stage_progression.dart
 
-> 50 nodes · cohesion 0.04
+> 52 nodes · cohesion 0.04
 
 ## Key Concepts
 
 - **sori_stage_progression.dart** (74 connections) — `lib/models/sori_stage_progression.dart`
 - **../services/today_learning_snapshot.dart** (5 connections)
+- **RewardContract** (2 connections) — `lib/models/sori_stage_progression.dart`
+- **RewardContractItem** (2 connections) — `lib/models/sori_stage_progression.dart`
 - **activityId** (1 connections) — `lib/models/sori_stage_progression.dart`
 - **activityProgress** (1 connections) — `lib/models/sori_stage_progression.dart`
 - **amount** (1 connections) — `lib/models/sori_stage_progression.dart`
@@ -27,24 +29,22 @@
 - **isEmpty** (1 connections) — `lib/models/sori_stage_progression.dart`
 - **isUnlocked** (1 connections) — `lib/models/sori_stage_progression.dart`
 - **items** (1 connections) — `lib/models/sori_stage_progression.dart`
-- **key** (1 connections) — `lib/models/sori_stage_progression.dart`
-- **kind** (1 connections) — `lib/models/sori_stage_progression.dart`
-- *... and 25 more nodes in this community*
+- *... and 27 more nodes in this community*
 
 ## Relationships
 
-- [@immutable](@immutable.md) (4 shared connections)
-- [sori_stage_today_screen.dart](sori_stage_today_screen.dart.md) (3 shared connections)
-- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (2 shared connections)
-- [activity_sheet.dart](activity_sheet.dart.md) (2 shared connections)
-- [sori_activity_catalog.dart](sori_activity_catalog.dart.md) (2 shared connections)
+- [onboarding_story_screen.dart](onboarding_story_screen.dart.md) (6 shared connections)
 - [sori_stage_catalog_screen.dart](sori_stage_catalog_screen.dart.md) (2 shared connections)
+- [onboarding_story_catalog_projector.dart](onboarding_story_catalog_projector.dart.md) (2 shared connections)
 - [bool get](bool_get.md) (1 shared connections)
 - [int?](int_.md) (1 shared connections)
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
+- [hanok_world_screen.dart](hanok_world_screen.dart.md) (1 shared connections)
 - [gye_weekly_promise_navigation.dart](gye_weekly_promise_navigation.dart.md) (1 shared connections)
 - [List](List.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
+- [Object?](Object_.md) (1 shared connections)
+- [String?](String_.md) (1 shared connections)
+- [dart:math](dart-math.md) (1 shared connections)
 
 ## Source Files
 
@@ -52,7 +52,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 78 (100%)
+- EXTRACTED: 80 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

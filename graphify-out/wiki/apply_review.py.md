@@ -36,8 +36,9 @@
 - [plan_pack_assignments.py](plan_pack_assignments.py.md) (4 shared connections)
 - [handle](handle.md) (3 shared connections)
 - [ContentValidator](ContentValidator.md) (2 shared connections)
-- [scenario_store.py](scenario_store.py.md) (2 shared connections)
+- [scenario_store.py](scenario_store.py.md) (1 shared connections)
 - [ApplyReviewTest](ApplyReviewTest.md) (1 shared connections)
+- [validate_content.py](validate_content.py.md) (1 shared connections)
 
 ## Source Files
 

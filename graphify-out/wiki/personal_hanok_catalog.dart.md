@@ -33,7 +33,7 @@
 
 ## Relationships
 
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (4 shared connections)
+- [hanok_world_screen.dart](hanok_world_screen.dart.md) (4 shared connections)
 - [_](_.md) (2 shared connections)
 - [int?](int_.md) (1 shared connections)
 - [List](List.md) (1 shared connections)

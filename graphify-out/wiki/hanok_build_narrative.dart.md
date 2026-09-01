@@ -32,13 +32,12 @@
 ## Relationships
 
 - [_](_.md) (3 shared connections)
+- [hanok_world_screen.dart](hanok_world_screen.dart.md) (2 shared connections)
 - [bool get](bool_get.md) (1 shared connections)
 - [int get](int_get.md) (1 shared connections)
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
 - [return](return.md) (1 shared connections)
 - [static const int](static_const_int.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
-- [hanok_world_screen.dart](hanok_world_screen.dart.md) (1 shared connections)
 - [LearnerLevel](LearnerLevel.md) (1 shared connections)
 - [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
 - [sori_stage_progression.dart](sori_stage_progression.dart.md) (1 shared connections)

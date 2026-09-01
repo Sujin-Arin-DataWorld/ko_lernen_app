@@ -23,11 +23,13 @@
 
 ## Relationships
 
-- [build_level_content_4x.py](build_level_content_4x.py.md) (4 shared connections)
 - [integrate_scenario_batch.py](integrate_scenario_batch.py.md) (3 shared connections)
+- [romanize_korean](romanize_korean.md) (2 shared connections)
 - [validate_promoted_batch.py](validate_promoted_batch.py.md) (2 shared connections)
 - [handle](handle.md) (1 shared connections)
+- [build_level_content_4x.py](build_level_content_4x.py.md) (1 shared connections)
 - [scenario_store.py](scenario_store.py.md) (1 shared connections)
+- [batch_10_scene_scripts.py](batch_10_scene_scripts.py.md) (1 shared connections)
 
 ## Source Files
 

@@ -1,61 +1,54 @@
 # T
 
-> 34 nodes · cohesion 0.06
+> 20 nodes · cohesion 0.10
 
 ## Key Concepts
 
 - **T** (49 connections)
-- **hanok_state_service.dart** (20 connections) — `lib/services/hanok_state_service.dart`
-- **_** (17 connections) — `lib/services/account/cloud_read_result.dart`
+- **sheet.dart** (14 connections) — `lib/widgets/sori/sheet.dart`
 - **media_mutation_lock.dart** (10 connections) — `lib/services/media_mutation_lock.dart`
-- **HanokState** (3 connections) — `lib/models/hanok_growth.dart`
-- **HanokStateService** (2 connections) — `lib/services/hanok_state_service.dart`
-- **absent** (1 connections) — `lib/services/account/cloud_read_result.dart`
-- **CloudReadState** (1 connections) — `lib/services/account/cloud_read_result.dart`
-- **invalid** (1 connections) — `lib/services/account/cloud_read_result.dart`
-- **isPresent** (1 connections) — `lib/services/account/cloud_read_result.dart`
-- **present** (1 connections) — `lib/services/account/cloud_read_result.dart`
-- **revision** (1 connections) — `lib/services/account/cloud_read_result.dart`
-- **state** (1 connections) — `lib/services/account/cloud_read_result.dart`
-- **tooLarge** (1 connections) — `lib/services/account/cloud_read_result.dart`
-- **unavailable** (1 connections) — `lib/services/account/cloud_read_result.dart`
-- **value** (1 connections) — `lib/services/account/cloud_read_result.dart`
-- **captureForCloudReconciliation** (1 connections) — `lib/services/hanok_state_service.dart`
-- **decode** (1 connections) — `lib/services/hanok_state_service.dart`
-- **generation** (1 connections) — `lib/services/hanok_state_service.dart`
-- **HanokStateLocalCapture** (1 connections) — `lib/services/hanok_state_service.dart`
-- **load** (1 connections) — `lib/services/hanok_state_service.dart`
-- **_maxEncodedBytes** (1 connections) — `lib/services/hanok_state_service.dart`
-- **mergeCloudSnapshotJson** (1 connections) — `lib/services/hanok_state_service.dart`
-- **save** (1 connections) — `lib/services/hanok_state_service.dart`
-- **state** (1 connections) — `lib/services/hanok_state_service.dart`
-- *... and 9 more nodes in this community*
+- **SoriSheetShell** (2 connections) — `lib/widgets/sori/sheet.dart`
+- **required WidgetBuilder builder,
+  bool** (2 connections)
+- **busy** (1 connections) — `lib/services/media_mutation_lock.dart`
+- **MediaMutationLock** (1 connections) — `lib/services/media_mutation_lock.dart`
+- **_MediaMutationLockState** (1 connections) — `lib/services/media_mutation_lock.dart`
+- **resetForTesting** (1 connections) — `lib/services/media_mutation_lock.dart`
+- **_state** (1 connections) — `lib/services/media_mutation_lock.dart`
+- **waiters** (1 connections) — `lib/services/media_mutation_lock.dart`
+- **build** (1 connections) — `lib/widgets/sori/sheet.dart`
+- **child** (1 connections) — `lib/widgets/sori/sheet.dart`
+- **enableDrag** (1 connections) — `lib/widgets/sori/sheet.dart`
+- **isDismissible** (1 connections) — `lib/widgets/sori/sheet.dart`
+- **maxHeightFactor** (1 connections) — `lib/widgets/sori/sheet.dart`
+- **maxTextScaleFactor** (1 connections) — `lib/widgets/sori/sheet.dart`
+- **scrollable** (1 connections) — `lib/widgets/sori/sheet.dart`
+- **showHandle** (1 connections) — `lib/widgets/sori/sheet.dart`
+- **static _MediaMutationLockState** (1 connections)
 
 ## Relationships
 
-- [_](_.md) (19 shared connections)
-- [room_layout_service.dart](room_layout_service.dart.md) (4 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
-- [int?](int_.md) (1 shared connections)
-- [account_reconciliation_test.dart](account_reconciliation_test.dart.md) (1 shared connections)
-- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
-- [static const int](static_const_int.md) (1 shared connections)
-- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (1 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
-- [ildu_world_projection_adapter.dart](ildu_world_projection_adapter.dart.md) (1 shared connections)
-- [hanok_experience_projector.dart](hanok_experience_projector.dart.md) (1 shared connections)
+- [_](_.md) (18 shared connections)
+- [String?](String_.md) (2 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
+- [StatelessWidget](StatelessWidget.md) (2 shared connections)
+- [dialog.dart](dialog.dart.md) (2 shared connections)
 - [List](List.md) (1 shared connections)
+- [dart:async](dart-async.md) (1 shared connections)
+- [guide_progress_service.dart](guide_progress_service.dart.md) (1 shared connections)
+- [first_run_coordinator.dart](first_run_coordinator.dart.md) (1 shared connections)
+- [ildu_construction_plan.dart](ildu_construction_plan.dart.md) (1 shared connections)
+- [ildu_world_manifest.dart](ildu_world_manifest.dart.md) (1 shared connections)
+- [book_result_screen.dart](book_result_screen.dart.md) (1 shared connections)
 
 ## Source Files
 
-- `lib/models/hanok_growth.dart`
-- `lib/services/account/cloud_read_result.dart`
-- `lib/services/hanok_state_service.dart`
 - `lib/services/media_mutation_lock.dart`
+- `lib/widgets/sori/sheet.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 95 (100%)
+- EXTRACTED: 73 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

@@ -1,64 +1,60 @@
 # bool get
 
-> 90 nodes · cohesion 0.02
+> 76 nodes · cohesion 0.03
 
 ## Key Concepts
 
 - **bool get** (134 connections)
-- **vocab_pack_result_screen.dart** (77 connections) — `lib/screens/vocab_pack_result_screen.dart`
-- **first_run_runtime.dart** (22 connections) — `lib/features/onboarding_v2/first_run_runtime.dart`
-- **pack_card.dart** (22 connections) — `lib/widgets/sori/pack_card.dart`
-- **../widgets/sori/mascot_preference.dart** (15 connections)
-- **../../models/pack_progress.dart** (14 connections)
-- **stamp_entitlement_reconciler.dart** (11 connections) — `lib/services/stamp_entitlement_reconciler.dart`
+- **silben_kreuz_screen.dart** (90 connections) — `lib/screens/silben_kreuz_screen.dart`
+- **silben_puzzle.dart** (20 connections) — `lib/models/silben_puzzle.dart`
 - **tester_feedback_feature.dart** (7 connections) — `lib/config/tester_feedback_feature.dart`
-- **../widgets/sori/dancheong_stamp.dart** (7 connections)
-- **dancheong_stamp.dart** (5 connections)
-- **build** (3 connections) — `lib/screens/vocab_pack_result_screen.dart`
-- **sori_icon.dart** (3 connections)
-- **createCoordinator** (2 connections) — `lib/features/onboarding_v2/first_run_runtime.dart`
-- **PackProgress** (2 connections) — `lib/models/pack_progress.dart`
-- **_buildDone** (2 connections) — `lib/screens/vocab_pack_recall_screen.dart`
-- **_CtaButton** (2 connections) — `lib/screens/vocab_pack_result_screen.dart`
-- **_StatLine** (2 connections) — `lib/screens/vocab_pack_result_screen.dart`
-- **VocabPackResultScreen** (2 connections) — `lib/screens/vocab_pack_result_screen.dart`
-- **_XpPayoffLine** (2 connections) — `lib/screens/vocab_pack_result_screen.dart`
-- **_BottomRow** (2 connections) — `lib/widgets/sori/pack_card.dart`
-- **PackCard** (2 connections) — `lib/widgets/sori/pack_card.dart`
-- **onboarding_journey_repository.dart** (2 connections)
-- **Route /hard_words** (2 connections)
-- **illustrated_card.dart** (1 connections)
+- **_SilbenKreuzScreenState** (4 connections) — `lib/screens/silben_kreuz_screen.dart`
+- **SilbenKreuzScreen** (3 connections) — `lib/screens/silben_kreuz_screen.dart`
+- **SilbenPuzzle** (2 connections) — `lib/models/silben_puzzle.dart`
+- **SilbenWord** (2 connections) — `lib/models/silben_puzzle.dart`
 - **_compileTimeEnabled** (1 connections) — `lib/config/tester_feedback_feature.dart`
-- *... and 65 more nodes in this community*
+- **_enabledOverride** (1 connections) — `lib/config/tester_feedback_feature.dart`
+- **isEnabled** (1 connections) — `lib/config/tester_feedback_feature.dart`
+- **answer** (1 connections) — `lib/models/silben_puzzle.dart`
+- **col** (1 connections) — `lib/models/silben_puzzle.dart`
+- **cols** (1 connections) — `lib/models/silben_puzzle.dart`
+- **dir** (1 connections) — `lib/models/silben_puzzle.dart`
+- **exampleDe** (1 connections) — `lib/models/silben_puzzle.dart`
+- **exampleKo** (1 connections) — `lib/models/silben_puzzle.dart`
+- **exampleKoSpoken** (1 connections) — `lib/models/silben_puzzle.dart`
+- **fromJson** (1 connections) — `lib/models/silben_puzzle.dart`
+- **german** (1 connections) — `lib/models/silben_puzzle.dart`
+- **id** (1 connections) — `lib/models/silben_puzzle.dart`
+- **isHorizontal** (1 connections) — `lib/models/silben_puzzle.dart`
+- **pool** (1 connections) — `lib/models/silben_puzzle.dart`
+- **row** (1 connections) — `lib/models/silben_puzzle.dart`
+- **rows** (1 connections) — `lib/models/silben_puzzle.dart`
+- *... and 51 more nodes in this community*
 
 ## Relationships
 
-- [_](_.md) (27 shared connections)
-- [StatelessWidget](StatelessWidget.md) (10 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (7 shared connections)
-- [String?](String_.md) (7 shared connections)
-- [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (6 shared connections)
-- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (5 shared connections)
-- [wordbook_add.dart](wordbook_add.dart.md) (5 shared connections)
-- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (5 shared connections)
-- [first_run_coordinator.dart](first_run_coordinator.dart.md) (4 shared connections)
-- [ux_preview_app.dart](ux_preview_app.dart.md) (4 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (4 shared connections)
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (4 shared connections)
+- [_](_.md) (22 shared connections)
+- [List](List.md) (16 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (9 shared connections)
+- [learning_path_screen.dart](learning_path_screen.dart.md) (5 shared connections)
+- [../widgets/sori/button.dart](-widgets-sori-button.dart.md) (4 shared connections)
+- [custom_pack_matching_screen.dart](custom_pack_matching_screen.dart.md) (3 shared connections)
+- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (3 shared connections)
+- [cloze_game_screen.dart](cloze_game_screen.dart.md) (3 shared connections)
+- [StatelessWidget](StatelessWidget.md) (3 shared connections)
+- [account_transition_ui_test.dart](account_transition_ui_test.dart.md) (3 shared connections)
+- [_State](_State.md) (3 shared connections)
+- [premium_service.dart](premium_service.dart.md) (2 shared connections)
 
 ## Source Files
 
 - `lib/config/tester_feedback_feature.dart`
-- `lib/features/onboarding_v2/first_run_runtime.dart`
-- `lib/models/pack_progress.dart`
-- `lib/screens/vocab_pack_recall_screen.dart`
-- `lib/screens/vocab_pack_result_screen.dart`
-- `lib/services/stamp_entitlement_reconciler.dart`
-- `lib/widgets/sori/pack_card.dart`
+- `lib/models/silben_puzzle.dart`
+- `lib/screens/silben_kreuz_screen.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 318 (100%)
+- EXTRACTED: 252 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

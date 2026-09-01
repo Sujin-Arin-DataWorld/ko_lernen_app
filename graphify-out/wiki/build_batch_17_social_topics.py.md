@@ -27,9 +27,9 @@
 
 ## Relationships
 
-- [Counter](Counter.md) (4 shared connections)
+- [Counter](Counter.md) (3 shared connections)
 - [handle](handle.md) (3 shared connections)
-- [batch_17_common.py](batch_17_common.py.md) (1 shared connections)
+- [Batch17BuildTest](Batch17BuildTest.md) (2 shared connections)
 
 ## Source Files
 

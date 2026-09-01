@@ -1,15 +1,11 @@
 # book_analysis_service.dart
 
-> 31 nodes · cohesion 0.07
+> 19 nodes · cohesion 0.11
 
 ## Key Concepts
 
 - **book_analysis_service.dart** (29 connections) — `lib/services/book_analysis_service.dart`
-- **kkeunmari_dictionary_service.dart** (14 connections) — `lib/services/kkeunmari_dictionary_service.dart`
-- **static const Duration** (10 connections)
 - **book_ocr_document.dart** (2 connections)
-- **static final Uri** (2 connections)
-- **book_analysis_service.dart** (1 connections)
 - **analyze** (1 connections) — `lib/services/book_analysis_service.dart`
 - **appCheckToken** (1 connections) — `lib/services/book_analysis_service.dart`
 - **autoFill** (1 connections) — `lib/services/book_analysis_service.dart`
@@ -27,33 +23,28 @@
 - **_requestAnalysis** (1 connections) — `lib/services/book_analysis_service.dart`
 - **_timeout** (1 connections) — `lib/services/book_analysis_service.dart`
 - **trustedEndpoint** (1 connections) — `lib/services/book_analysis_service.dart`
-- **isValid** (1 connections) — `lib/services/kkeunmari_dictionary_service.dart`
-- **KkeunmariDictionaryResult** (1 connections) — `lib/services/kkeunmari_dictionary_service.dart`
-- *... and 6 more nodes in this community*
 
 ## Relationships
 
-- [_](_.md) (3 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
-- [bookshelf_screen.dart](bookshelf_screen.dart.md) (2 shared connections)
-- [account_ui_operations.dart](account_ui_operations.dart.md) (2 shared connections)
-- [book_analysis_security_test.dart](book_analysis_security_test.dart.md) (2 shared connections)
-- [hangul_screen.dart](hangul_screen.dart.md) (2 shared connections)
-- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
+- [kkeunmari_dictionary_service.dart](kkeunmari_dictionary_service.dart.md) (2 shared connections)
+- [_](_.md) (1 shared connections)
+- [static const](static_const.md) (1 shared connections)
+- [dart:math](dart-math.md) (1 shared connections)
 - [custom_pack_import_service.dart](custom_pack_import_service.dart.md) (1 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
+- [custom_pack_matching_screen.dart](custom_pack_matching_screen.dart.md) (1 shared connections)
 - [auth_service_test.dart](auth_service_test.dart.md) (1 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
-- [shelf_case.dart](shelf_case.dart.md) (1 shared connections)
+- [account_ui_operations.dart](account_ui_operations.dart.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
+- [book_analysis_security_test.dart](book_analysis_security_test.dart.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/services/book_analysis_service.dart`
-- `lib/services/kkeunmari_dictionary_service.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 52 (100%)
+- EXTRACTED: 30 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

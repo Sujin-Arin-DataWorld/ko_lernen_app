@@ -34,18 +34,18 @@
 
 ## Relationships
 
-- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (17 shared connections)
-- [content_feedback_widget_test.dart](content_feedback_widget_test.dart.md) (9 shared connections)
-- [bookshelf_custom_pack_uiux_test.dart](bookshelf_custom_pack_uiux_test.dart.md) (6 shared connections)
-- [vocab_notebook_studio_screen_test.dart](vocab_notebook_studio_screen_test.dart.md) (6 shared connections)
-- [choice_quizzes_uiux_test.dart](choice_quizzes_uiux_test.dart.md) (5 shared connections)
-- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (5 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (17 shared connections)
+- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (11 shared connections)
+- [package:ko_lernen_app/theme.dart](package-ko_lernen_app-theme.dart.md) (7 shared connections)
+- [course_reassessment_screen_test.dart](course_reassessment_screen_test.dart.md) (6 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (5 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (4 shared connections)
-- [standalone_games_uiux_test.dart](standalone_games_uiux_test.dart.md) (3 shared connections)
-- [StatelessWidget](StatelessWidget.md) (3 shared connections)
+- [bookshelf_custom_pack_uiux_test.dart](bookshelf_custom_pack_uiux_test.dart.md) (4 shared connections)
+- [hanok_world_screen.dart](hanok_world_screen.dart.md) (3 shared connections)
+- [vocab_notebook_studio_screen_test.dart](vocab_notebook_studio_screen_test.dart.md) (3 shared connections)
+- [media_lifecycle_test.dart](media_lifecycle_test.dart.md) (2 shared connections)
+- [dart:async](dart-async.md) (2 shared connections)
 - [quest_engines_uiux_test.dart](quest_engines_uiux_test.dart.md) (2 shared connections)
-- [ux_preview_app_test.dart](ux_preview_app_test.dart.md) (1 shared connections)
+- [standalone_games_uiux_test.dart](standalone_games_uiux_test.dart.md) (2 shared connections)
 
 ## Source Files
 

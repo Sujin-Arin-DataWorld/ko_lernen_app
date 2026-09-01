@@ -12,7 +12,7 @@
 
 ## Relationships
 
-- [smalltalk_screen.dart](smalltalk_screen.dart.md) (1 shared connections)
+- [study_library_production_adapters.dart](study_library_production_adapters.dart.md) (1 shared connections)
 - [_](_.md) (1 shared connections)
 - [study_library_repository_test.dart](study_library_repository_test.dart.md) (1 shared connections)
 - [study_library_screen_test.dart](study_library_screen_test.dart.md) (1 shared connections)

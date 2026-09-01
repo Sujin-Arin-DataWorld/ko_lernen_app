@@ -20,8 +20,8 @@
 ## Relationships
 
 - [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
-- [room_layout_service.dart](room_layout_service.dart.md) (1 shared connections)
-- [smalltalk_screen.dart](smalltalk_screen.dart.md) (1 shared connections)
+- [storage_service.dart](storage_service.dart.md) (1 shared connections)
+- [study_library_production_adapters.dart](study_library_production_adapters.dart.md) (1 shared connections)
 
 ## Source Files
 

@@ -1,6 +1,6 @@
 # compose_hanok_a1_state.py
 
-> 34 nodes · cohesion 0.15
+> 35 nodes · cohesion 0.14
 
 ## Key Concepts
 
@@ -29,23 +29,24 @@
 - **_outside_mask()** (3 connections) — `tool/compose_hanok_a1_state.py`
 - **resize_premultiplied()** (3 connections) — `tool/compose_hanok_a1_state.py`
 - **Any** (3 connections)
-- *... and 9 more nodes in this community*
+- *... and 10 more nodes in this community*
 
 ## Relationships
 
-- [load_provenance](load_provenance.md) (23 shared connections)
+- [load_provenance](load_provenance.md) (19 shared connections)
 - [hanok_a1_kit.py](hanok_a1_kit.py.md) (10 shared connections)
+- [hanok_v1_asset_contract.py](hanok_v1_asset_contract.py.md) (5 shared connections)
 - [derive_hanok_a1_kit.py](derive_hanok_a1_kit.py.md) (2 shared connections)
-- [chroma_key_count](chroma_key_count.md) (1 shared connections)
 
 ## Source Files
 
 - `tool/compose_hanok_a1_state.py`
 - `tool/test_compose_hanok_a1_state.py`
+- `tool/test_hanok_a1_kit.py`
 
 ## Audit Trail
 
-- EXTRACTED: 97 (81%)
+- EXTRACTED: 98 (81%)
 - INFERRED: 23 (19%)
 - AMBIGUOUS: 0 (0%)
 

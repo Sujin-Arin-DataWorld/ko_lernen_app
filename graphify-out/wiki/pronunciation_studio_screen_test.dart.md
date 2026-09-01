@@ -33,18 +33,18 @@
 
 ## Relationships
 
+- [pronunciation_assessment_client.dart](pronunciation_assessment_client.dart.md) (4 shared connections)
 - [pronunciation_recorder.dart](pronunciation_recorder.dart.md) (4 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (4 shared connections)
 - [pronunciation_studio_ui_test.dart](pronunciation_studio_ui_test.dart.md) (4 shared connections)
-- [pronunciation_assessment_client.dart](pronunciation_assessment_client.dart.md) (3 shared connections)
-- [content_feedback_widget_test.dart](content_feedback_widget_test.dart.md) (3 shared connections)
-- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (3 shared connections)
-- [dart:async](dart-async.md) (2 shared connections)
-- [dart:typed_data](dart-typed_data.md) (2 shared connections)
-- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (2 shared connections)
+- [course_reassessment_screen_test.dart](course_reassessment_screen_test.dart.md) (3 shared connections)
+- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (3 shared connections)
 - [pronunciation_studio_screen.dart](pronunciation_studio_screen.dart.md) (1 shared connections)
 - [productive_assessment_service_test.dart](productive_assessment_service_test.dart.md) (1 shared connections)
 - [content_share_slip_test.dart](content_share_slip_test.dart.md) (1 shared connections)
+- [cloud_sync_test.dart](cloud_sync_test.dart.md) (1 shared connections)
 - [List](List.md) (1 shared connections)
+- [push_service_test.dart](push_service_test.dart.md) (1 shared connections)
 
 ## Source Files
 

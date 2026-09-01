@@ -33,18 +33,18 @@
 
 ## Relationships
 
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (4 shared connections)
+- [List](List.md) (6 shared connections)
+- [crop_recovery_service.dart](crop_recovery_service.dart.md) (3 shared connections)
 - [main.dart](main.dart.md) (3 shared connections)
-- [media_workflow.dart](media_workflow.dart.md) (2 shared connections)
+- [../widgets/sori/button.dart](-widgets-sori-button.dart.md) (2 shared connections)
 - [gye_screen.dart](gye_screen.dart.md) (2 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (2 shared connections)
 - [_State](_State.md) (2 shared connections)
 - [return](return.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
 - [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [crop_recovery_service.dart](crop_recovery_service.dart.md) (1 shared connections)
+- [cloze_game_screen.dart](cloze_game_screen.dart.md) (1 shared connections)
+- [StatelessWidget](StatelessWidget.md) (1 shared connections)
 
 ## Source Files
 

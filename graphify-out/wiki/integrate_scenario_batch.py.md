@@ -36,11 +36,12 @@
 - [validate_batch_01.py](validate_batch_01.py.md) (10 shared connections)
 - [validate_promoted_batch.py](validate_promoted_batch.py.md) (5 shared connections)
 - [handle](handle.md) (4 shared connections)
-- [scenario_store.py](scenario_store.py.md) (4 shared connections)
 - [test_level_content_4x.py](test_level_content_4x.py.md) (3 shared connections)
+- [scenario_store.py](scenario_store.py.md) (3 shared connections)
 - [ContentValidator](ContentValidator.md) (2 shared connections)
 - [SimpleNamespace](SimpleNamespace.md) (1 shared connections)
-- [cleanup_translation_cache.py](cleanup_translation_cache.py.md) (1 shared connections)
+- [TranslationCacheCleanupTest](TranslationCacheCleanupTest.md) (1 shared connections)
+- [validate_content.py](validate_content.py.md) (1 shared connections)
 
 ## Source Files
 

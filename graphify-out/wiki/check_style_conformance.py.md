@@ -21,11 +21,10 @@
 
 ## Relationships
 
-- [chroma_key_count](chroma_key_count.md) (1 shared connections)
+- [hanok_v1_asset_contract.py](hanok_v1_asset_contract.py.md) (2 shared connections)
 - [asset_recipe.py](asset_recipe.py.md) (1 shared connections)
 - [style_lock.py](style_lock.py.md) (1 shared connections)
 - [test_check_style_conformance.py](test_check_style_conformance.py.md) (1 shared connections)
-- [load_provenance](load_provenance.md) (1 shared connections)
 
 ## Source Files
 

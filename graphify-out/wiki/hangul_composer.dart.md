@@ -30,7 +30,7 @@
 - [int?](int_.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
 - [listening_play_screen.dart](listening_play_screen.dart.md) (1 shared connections)
-- [content_feedback_card.dart](content_feedback_card.dart.md) (1 shared connections)
+- [gye_dedication_action.dart](gye_dedication_action.dart.md) (1 shared connections)
 
 ## Source Files
 

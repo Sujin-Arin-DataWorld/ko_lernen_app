@@ -33,7 +33,7 @@
 
 ## Relationships
 
-- [smalltalk_screen.dart](smalltalk_screen.dart.md) (4 shared connections)
+- [grammar_screen.dart](grammar_screen.dart.md) (4 shared connections)
 - [bool get](bool_get.md) (1 shared connections)
 - [List](List.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)

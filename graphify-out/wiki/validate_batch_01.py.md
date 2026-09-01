@@ -38,10 +38,11 @@
 - [handle](handle.md) (3 shared connections)
 - [ContentValidator](ContentValidator.md) (3 shared connections)
 - [Counter](Counter.md) (2 shared connections)
-- [scenario_store.py](scenario_store.py.md) (2 shared connections)
 - [Batch01PreReviewValidationTest](Batch01PreReviewValidationTest.md) (1 shared connections)
+- [scenario_store.py](scenario_store.py.md) (1 shared connections)
 - [PromotedBatchValidationTest](PromotedBatchValidationTest.md) (1 shared connections)
 - [plan_pack_assignments.py](plan_pack_assignments.py.md) (1 shared connections)
+- [validate_content.py](validate_content.py.md) (1 shared connections)
 
 ## Source Files
 

@@ -18,7 +18,7 @@
 ## Relationships
 
 - [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
 - [main.dart](main.dart.md) (1 shared connections)
 - [sori_stage_today_screen.dart](sori_stage_today_screen.dart.md) (1 shared connections)
 

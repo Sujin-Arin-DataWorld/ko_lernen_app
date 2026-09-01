@@ -5,7 +5,7 @@
 ## Key Concepts
 
 - **hoerverstehen_quest.dart** (38 connections) — `lib/screens/quest_engines/hoerverstehen_quest.dart`
-- **quest_models.dart** (7 connections)
+- **quest_layout.dart** (7 connections)
 - **HoerverstehenQuest** (3 connections) — `lib/screens/quest_engines/hoerverstehen_quest.dart`
 - **_HoerverstehenQuestState** (3 connections) — `lib/screens/quest_engines/hoerverstehen_quest.dart`
 - **allowDontKnow** (1 connections) — `lib/screens/quest_engines/hoerverstehen_quest.dart`
@@ -33,18 +33,18 @@
 
 ## Relationships
 
-- [luecken_quest.dart](luecken_quest.dart.md) (5 shared connections)
+- [List](List.md) (4 shared connections)
+- [uebersetzen_quest.dart](uebersetzen_quest.dart.md) (3 shared connections)
+- [luecken_quest.dart](luecken_quest.dart.md) (2 shared connections)
 - [_State](_State.md) (2 shared connections)
 - [int?](int_.md) (1 shared connections)
 - [int get](int_get.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
 - [listening_play_screen.dart](listening_play_screen.dart.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (1 shared connections)
-- [book_result_screen.dart](book_result_screen.dart.md) (1 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
+- [batchim_drop_quest.dart](batchim_drop_quest.dart.md) (1 shared connections)
+- [diktat_quest.dart](diktat_quest.dart.md) (1 shared connections)
 
 ## Source Files
 

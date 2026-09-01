@@ -26,9 +26,10 @@
 
 ## Relationships
 
-- [bool get](bool_get.md) (2 shared connections)
 - [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (2 shared connections)
+- [bool get](bool_get.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
+- [learning_path_screen.dart](learning_path_screen.dart.md) (1 shared connections)
 
 ## Source Files
 

@@ -27,7 +27,7 @@
 
 - [ContentValidator](ContentValidator.md) (10 shared connections)
 - [handle](handle.md) (2 shared connections)
-- [scenario_store.py](scenario_store.py.md) (1 shared connections)
+- [validate_content.py](validate_content.py.md) (1 shared connections)
 
 ## Source Files
 

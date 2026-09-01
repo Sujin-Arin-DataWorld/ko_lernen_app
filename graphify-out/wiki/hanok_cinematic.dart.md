@@ -1,54 +1,60 @@
 # hanok_cinematic.dart
 
-> 23 nodes · cohesion 0.09
+> 54 nodes · cohesion 0.04
 
 ## Key Concepts
 
 - **hanok_cinematic.dart** (32 connections) — `lib/widgets/sori/hanok_cinematic.dart`
+- **AnimationController** (26 connections)
+- **flip_card.dart** (23 connections) — `lib/widgets/flip_card.dart`
+- **score_pop.dart** (19 connections) — `lib/widgets/sori/score_pop.dart`
+- **Animation** (7 connections)
 - **_HanokCinematicState** (4 connections) — `lib/widgets/sori/hanok_cinematic.dart`
+- **_ScorePopState** (4 connections) — `lib/widgets/sori/score_pop.dart`
 - **HanokCinematic** (3 connections) — `lib/widgets/sori/hanok_cinematic.dart`
-- **TickerProviderStateMixin** (3 connections)
+- **ScorePop** (3 connections) — `lib/widgets/sori/score_pop.dart`
 - **_Magpie** (2 connections) — `lib/widgets/sori/hanok_cinematic.dart`
 - **_ToastBanner** (2 connections) — `lib/widgets/sori/hanok_cinematic.dart`
+- **_anim** (1 connections) — `lib/widgets/flip_card.dart`
+- **back** (1 connections) — `lib/widgets/flip_card.dart`
+- **build** (1 connections) — `lib/widgets/flip_card.dart`
+- **createState** (1 connections) — `lib/widgets/flip_card.dart`
+- **_ctrl** (1 connections) — `lib/widgets/flip_card.dart`
+- **didUpdateWidget** (1 connections) — `lib/widgets/flip_card.dart`
+- **dispose** (1 connections) — `lib/widgets/flip_card.dart`
+- **duration** (1 connections) — `lib/widgets/flip_card.dart`
+- **_fitFace** (1 connections) — `lib/widgets/flip_card.dart`
+- **flipped** (1 connections) — `lib/widgets/flip_card.dart`
+- **front** (1 connections) — `lib/widgets/flip_card.dart`
+- **initState** (1 connections) — `lib/widgets/flip_card.dart`
+- **onTap** (1 connections) — `lib/widgets/flip_card.dart`
 - **build** (1 connections) — `lib/widgets/sori/hanok_cinematic.dart`
-- **createState** (1 connections) — `lib/widgets/sori/hanok_cinematic.dart`
-- **_ctrl** (1 connections) — `lib/widgets/sori/hanok_cinematic.dart`
-- **current** (1 connections) — `lib/widgets/sori/hanok_cinematic.dart`
-- **dispose** (1 connections) — `lib/widgets/sori/hanok_cinematic.dart`
-- **_fade** (1 connections) — `lib/widgets/sori/hanok_cinematic.dart`
-- **initState** (1 connections) — `lib/widgets/sori/hanok_cinematic.dart`
-- **intro** (1 connections) — `lib/widgets/sori/hanok_cinematic.dart`
-- **_magpieX** (1 connections) — `lib/widgets/sori/hanok_cinematic.dart`
-- **markSeen** (1 connections) — `lib/widgets/sori/hanok_cinematic.dart`
-- **onDone** (1 connections) — `lib/widgets/sori/hanok_cinematic.dart`
-- **shouldShow** (1 connections) — `lib/widgets/sori/hanok_cinematic.dart`
-- **size** (1 connections) — `lib/widgets/sori/hanok_cinematic.dart`
-- **stage** (1 connections) — `lib/widgets/sori/hanok_cinematic.dart`
-- **_stageLabel** (1 connections) — `lib/widgets/sori/hanok_cinematic.dart`
-- **_toastY** (1 connections) — `lib/widgets/sori/hanok_cinematic.dart`
-- **totalDuration** (1 connections) — `lib/widgets/sori/hanok_cinematic.dart`
+- *... and 29 more nodes in this community*
 
 ## Relationships
 
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (3 shared connections)
-- [scroll_sheet.dart](scroll_sheet.dart.md) (2 shared connections)
-- [String?](String_.md) (2 shared connections)
-- [_State](_State.md) (2 shared connections)
-- [StatelessWidget](StatelessWidget.md) (2 shared connections)
-- [quiz_choice.dart](quiz_choice.dart.md) (1 shared connections)
-- [_](_.md) (1 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [cloze_game_screen.dart](cloze_game_screen.dart.md) (1 shared connections)
-- [mascot.dart](mascot.dart.md) (1 shared connections)
-- [swipe_card.dart](swipe_card.dart.md) (1 shared connections)
+- [String?](String_.md) (9 shared connections)
+- [_State](_State.md) (6 shared connections)
+- [learning_path_screen.dart](learning_path_screen.dart.md) (3 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (3 shared connections)
+- [StatelessWidget](StatelessWidget.md) (3 shared connections)
+- [particle_pop_quest.dart](particle_pop_quest.dart.md) (2 shared connections)
+- [dancheong_stamp.dart](dancheong_stamp.dart.md) (2 shared connections)
+- [swipe_card.dart](swipe_card.dart.md) (2 shared connections)
+- [Duration](Duration.md) (2 shared connections)
+- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (2 shared connections)
+- [shelf_case.dart](shelf_case.dart.md) (1 shared connections)
+- [intro_gate_screen.dart](intro_gate_screen.dart.md) (1 shared connections)
 
 ## Source Files
 
+- `lib/widgets/flip_card.dart`
 - `lib/widgets/sori/hanok_cinematic.dart`
+- `lib/widgets/sori/score_pop.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 40 (100%)
+- EXTRACTED: 112 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

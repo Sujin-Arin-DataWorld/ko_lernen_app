@@ -1,76 +1,61 @@
 # shelf_case.dart
 
-> 79 nodes · cohesion 0.03
+> 96 nodes · cohesion 0.02
 
 ## Key Concepts
 
 - **shelf_case.dart** (77 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
-- **CustomPainter** (27 connections)
-- **_SunMoonStagePainter** (2 connections) — `lib/screens/character_selection_screen.dart`
-- **_MagpiePainter** (2 connections) — `lib/screens/intro_gate_screen.dart`
-- **_BubbleTailPainter** (2 connections) — `lib/screens/onboarding_level_screen.dart`
-- **SoriDottedSlotPainter** (2 connections) — `lib/screens/quest_engines/quest_flow.dart`
-- **_SilbenCrossingWedgePainter** (2 connections) — `lib/screens/silben_kreuz_screen.dart`
-- **_ConfettiPainter** (2 connections) — `lib/widgets/sori/celebration.dart`
-- **_BrushStrokePainter** (2 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
+- **scroll_sheet.dart** (35 connections) — `lib/widgets/sori/chaekgado/scroll_sheet.dart`
+- **pack_card.dart** (22 connections) — `lib/widgets/sori/pack_card.dart`
+- **dancheong_stamp.dart** (5 connections)
+- **chaekgado_assets.dart** (2 connections)
+- **PackProgress** (2 connections) — `lib/models/pack_progress.dart`
+- **ChaekgadoScroll** (2 connections) — `lib/widgets/sori/chaekgado/scroll_sheet.dart`
+- **_Sheet** (2 connections) — `lib/widgets/sori/chaekgado/scroll_sheet.dart`
+- **SoriScrollFrame** (2 connections) — `lib/widgets/sori/chaekgado/scroll_sheet.dart`
+- **SoriShortScrollCard** (2 connections) — `lib/widgets/sori/chaekgado/scroll_sheet.dart`
 - **_CellGround** (2 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
 - **_CellTag** (2 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
 - **_Compartment** (2 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
 - **_CompletionStamp** (2 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
 - **_Pillar** (2 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
-- **_PillarPainter** (2 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
 - **_Plank** (2 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
-- **_PlankPainter** (2 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
 - **_ShelfRow** (2 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
 - **_WoodGrain** (2 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
-- **_DashedBoxPainter** (2 connections) — `lib/widgets/sori/chosung_hint.dart`
-- **_SheetBurstPainter** (2 connections) — `lib/widgets/sori/dancheong_burst.dart`
-- **_StampPainter** (2 connections) — `lib/widgets/sori/dancheong_stamp.dart`
-- **_SarangchaePilotPainter** (2 connections) — `lib/widgets/sori/ildu_sarangchae_construction_pilot.dart`
-- **_ShockwavePainter** (2 connections) — `lib/widgets/sori/mascot_pop.dart`
-- **_RingPainter** (2 connections) — `lib/widgets/sori/mission_hero_card.dart`
-- *... and 54 more nodes in this community*
+- **_BottomRow** (2 connections) — `lib/widgets/sori/pack_card.dart`
+- **PackCard** (2 connections) — `lib/widgets/sori/pack_card.dart`
+- **scroll_palette.dart** (2 connections)
+- **illustrated_card.dart** (1 connections)
+- **build** (1 connections) — `lib/widgets/sori/chaekgado/scroll_sheet.dart`
+- **child** (1 connections) — `lib/widgets/sori/chaekgado/scroll_sheet.dart`
+- **done** (1 connections) — `lib/widgets/sori/chaekgado/scroll_sheet.dart`
+- *... and 71 more nodes in this community*
 
 ## Relationships
 
-- [StatelessWidget](StatelessWidget.md) (9 shared connections)
-- [String?](String_.md) (4 shared connections)
-- [level_filter_bar.dart](level_filter_bar.dart.md) (3 shared connections)
-- [_](_.md) (3 shared connections)
-- [swipe_rails.dart](swipe_rails.dart.md) (2 shared connections)
-- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (2 shared connections)
+- [StatelessWidget](StatelessWidget.md) (14 shared connections)
+- [String?](String_.md) (12 shared connections)
+- [List](List.md) (3 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (3 shared connections)
+- [CustomPainter](CustomPainter.md) (3 shared connections)
+- [dart:math](dart-math.md) (2 shared connections)
+- [word_web_ui_test.dart](word_web_ui_test.dart.md) (2 shared connections)
 - [bool get](bool_get.md) (2 shared connections)
-- [scroll_sheet.dart](scroll_sheet.dart.md) (2 shared connections)
-- [path_trail.dart](path_trail.dart.md) (2 shared connections)
-- [ambient_particles.dart](ambient_particles.dart.md) (1 shared connections)
-- [home_hero.dart](home_hero.dart.md) (1 shared connections)
-- [intro_gate_screen.dart](intro_gate_screen.dart.md) (1 shared connections)
+- [hanok_world_screen.dart](hanok_world_screen.dart.md) (2 shared connections)
+- [path_trail.dart](path_trail.dart.md) (1 shared connections)
+- [_](_.md) (1 shared connections)
+- [pack_progress.dart](pack_progress.dart.md) (1 shared connections)
 
 ## Source Files
 
-- `lib/screens/character_selection_screen.dart`
-- `lib/screens/intro_gate_screen.dart`
-- `lib/screens/onboarding_level_screen.dart`
-- `lib/screens/quest_engines/quest_flow.dart`
-- `lib/screens/silben_kreuz_screen.dart`
-- `lib/widgets/sori/celebration.dart`
+- `lib/models/pack_progress.dart`
+- `lib/widgets/sori/chaekgado/scroll_sheet.dart`
 - `lib/widgets/sori/chaekgado/shelf_case.dart`
-- `lib/widgets/sori/chosung_hint.dart`
-- `lib/widgets/sori/dancheong_burst.dart`
-- `lib/widgets/sori/dancheong_stamp.dart`
-- `lib/widgets/sori/ildu_sarangchae_construction_pilot.dart`
-- `lib/widgets/sori/mascot_pop.dart`
-- `lib/widgets/sori/mission_hero_card.dart`
-- `lib/widgets/sori/path_trail.dart`
-- `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
-- `lib/widgets/sori/share_slip.dart`
-- `lib/widgets/sori/spotlight_coach.dart`
-- `lib/widgets/stroke_canvas.dart`
-- `lib/widgets/trace_canvas.dart`
+- `lib/widgets/sori/pack_card.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 131 (100%)
+- EXTRACTED: 152 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

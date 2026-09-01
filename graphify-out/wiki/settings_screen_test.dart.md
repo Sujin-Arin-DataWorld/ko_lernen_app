@@ -34,18 +34,18 @@
 
 ## Relationships
 
-- [_](_.md) (6 shared connections)
-- [account_transition_ui_test.dart](account_transition_ui_test.dart.md) (6 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (3 shared connections)
-- [dart:async](dart-async.md) (3 shared connections)
-- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (3 shared connections)
+- [account_transition_ui_test.dart](account_transition_ui_test.dart.md) (5 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (4 shared connections)
+- [_](_.md) (3 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (3 shared connections)
+- [cloud_backup_deletion_test.dart](cloud_backup_deletion_test.dart.md) (3 shared connections)
+- [course_reassessment_screen_test.dart](course_reassessment_screen_test.dart.md) (3 shared connections)
 - [content_feedback_outbox_test.dart](content_feedback_outbox_test.dart.md) (2 shared connections)
+- [package:ko_lernen_app/theme.dart](package-ko_lernen_app-theme.dart.md) (2 shared connections)
 - [account_ui_operations.dart](account_ui_operations.dart.md) (2 shared connections)
-- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (2 shared connections)
 - [pronunciation_studio_ui_test.dart](pronunciation_studio_ui_test.dart.md) (2 shared connections)
+- [account_reconciliation_test.dart](account_reconciliation_test.dart.md) (2 shared connections)
 - [package:ko_lernen_app/models/scenario.dart](package-ko_lernen_app-models-scenario.dart.md) (2 shared connections)
-- [test/profile_screen_test.dart](test-profile_screen_test.dart.md) (2 shared connections)
-- [main.dart](main.dart.md) (1 shared connections)
 
 ## Source Files
 

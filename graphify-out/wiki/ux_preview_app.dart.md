@@ -1,62 +1,59 @@
 # ux_preview_app.dart
 
-> 107 nodes · cohesion 0.02
+> 65 nodes · cohesion 0.03
 
 ## Key Concepts
 
 - **ux_preview_app.dart** (101 connections) — `lib/screens/ux_preview_app.dart`
-- **course_mission_screen.dart** (50 connections) — `lib/screens/course_mission_screen.dart`
-- **../../models/curriculum.dart** (29 connections)
-- **course_mission_brief.dart** (27 connections) — `lib/widgets/sori/course_mission_brief.dart`
-- **../services/curriculum_catalog.dart** (9 connections)
-- **../services/course_mission_navigation.dart** (7 connections)
-- **_** (5 connections) — `lib/services/onboarding_companion_service.dart`
-- **../../services/scene_asset_resolver.dart** (4 connections)
-- **CourseMissionBrief** (3 connections) — `lib/models/course_mission_brief.dart`
+- **../../data/learner_motivation.dart** (8 connections)
+- **onboarding_first_scene.dart** (6 connections) — `lib/models/onboarding_first_scene.dart`
 - **UxPreviewApp** (3 connections) — `lib/screens/ux_preview_app.dart`
-- **../../models/course_mission_brief.dart** (3 connections)
-- **first_voice_success_screen.dart** (2 connections)
-- **CourseMissionBriefStep** (2 connections) — `lib/models/course_mission_brief.dart`
 - **UxPreviewNavigationBoundary** (2 connections) — `lib/screens/ux_preview_app.dart`
-- **_BriefStepRow** (2 connections) — `lib/widgets/sori/course_mission_brief.dart`
-- **CourseMissionBriefOpener** (2 connections) — `lib/widgets/sori/course_mission_brief.dart`
-- **CourseMissionBriefView** (2 connections) — `lib/widgets/sori/course_mission_brief.dart`
-- **page_header.dart** (2 connections)
 - **../services/gye_weekly_promise_navigation.dart** (2 connections)
 - **course_mission_screen.dart** (1 connections)
 - **discover_screen.dart** (1 connections)
-- **empty_state.dart** (1 connections)
 - **gye_screen.dart** (1 connections)
 - **learning_path_screen.dart** (1 connections)
-- **build** (1 connections) — `lib/screens/course_mission_screen.dart`
-- *... and 82 more nodes in this community*
+- **forMotivation** (1 connections) — `lib/models/onboarding_first_scene.dart`
+- **motivation** (1 connections) — `lib/models/onboarding_first_scene.dart`
+- **OnboardingFirstScene** (1 connections) — `lib/models/onboarding_first_scene.dart`
+- **scenarioId** (1 connections) — `lib/models/onboarding_first_scene.dart`
+- **addListener** (1 connections) — `lib/screens/ux_preview_app.dart`
+- **_airportArrivalScenario** (1 connections) — `lib/screens/ux_preview_app.dart`
+- **appleSignInAvailable** (1 connections) — `lib/screens/ux_preview_app.dart`
+- **build** (1 connections) — `lib/screens/ux_preview_app.dart`
+- **buildPanel** (1 connections) — `lib/screens/ux_preview_app.dart`
+- **_businessMeetingIntroScenario** (1 connections) — `lib/screens/ux_preview_app.dart`
+- **cancelReplacement** (1 connections) — `lib/screens/ux_preview_app.dart`
+- **confirmReplacement** (1 connections) — `lib/screens/ux_preview_app.dart`
+- **_earlyHanok** (1 connections) — `lib/screens/ux_preview_app.dart`
+- **_emptyGyes** (1 connections) — `lib/screens/ux_preview_app.dart`
+- **_greetingUnit** (1 connections) — `lib/screens/ux_preview_app.dart`
+- *... and 40 more nodes in this community*
 
 ## Relationships
 
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (11 shared connections)
-- [gye_screen.dart](gye_screen.dart.md) (7 shared connections)
-- [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (7 shared connections)
-- [_](_.md) (6 shared connections)
-- [cloze_game_screen.dart](cloze_game_screen.dart.md) (6 shared connections)
-- [listening_play_screen.dart](listening_play_screen.dart.md) (5 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (5 shared connections)
-- [bool get](bool_get.md) (4 shared connections)
-- [StatelessWidget](StatelessWidget.md) (4 shared connections)
-- [scenario_player_screen.dart](scenario_player_screen.dart.md) (4 shared connections)
+- [../widgets/sori/button.dart](-widgets-sori-button.dart.md) (5 shared connections)
+- [StatelessWidget](StatelessWidget.md) (5 shared connections)
+- [gye_screen.dart](gye_screen.dart.md) (5 shared connections)
 - [List](List.md) (3 shared connections)
-- [String?](String_.md) (3 shared connections)
+- [app_review_demo_screen.dart](app_review_demo_screen.dart.md) (3 shared connections)
+- [vocab_packs_screen.dart](vocab_packs_screen.dart.md) (2 shared connections)
+- [hanok_world_screen.dart](hanok_world_screen.dart.md) (2 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (2 shared connections)
+- [account_nudge.dart](account_nudge.dart.md) (2 shared connections)
+- [profile_screen.dart](profile_screen.dart.md) (1 shared connections)
+- [sori_stage_today_screen.dart](sori_stage_today_screen.dart.md) (1 shared connections)
+- [analytics_service.dart](analytics_service.dart.md) (1 shared connections)
 
 ## Source Files
 
-- `lib/models/course_mission_brief.dart`
-- `lib/screens/course_mission_screen.dart`
+- `lib/models/onboarding_first_scene.dart`
 - `lib/screens/ux_preview_app.dart`
-- `lib/services/onboarding_companion_service.dart`
-- `lib/widgets/sori/course_mission_brief.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 233 (100%)
+- EXTRACTED: 117 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

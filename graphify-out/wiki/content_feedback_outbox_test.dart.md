@@ -1,76 +1,67 @@
 # content_feedback_outbox_test.dart
 
-> 176 nodes · cohesion 0.01
+> 56 nodes · cohesion 0.04
 
 ## Key Concepts
 
 - **content_feedback_outbox_test.dart** (61 connections) — `test/content_feedback_outbox_test.dart`
-- **content_feedback_lifecycle_test.dart** (52 connections) — `test/services/content_feedback_lifecycle_test.dart`
-- **completed_deletion_startup_recovery_test.dart** (45 connections) — `test/services/completed_deletion_startup_recovery_test.dart`
-- **content_feedback_lifecycle_resume_test.dart** (32 connections) — `test/content_feedback_lifecycle_resume_test.dart`
-- **content_feedback_service_test.dart** (22 connections) — `test/services/content_feedback_service_test.dart`
-- **package:ko_lernen_app/config/tester_feedback_feature.dart** (14 connections)
+- **class** (40 connections)
+- **onboarding_journey_repository.dart** (14 connections) — `lib/features/onboarding_v2/onboarding_journey_repository.dart`
 - **ContentFeedbackVersionProvider** (11 connections) — `lib/services/content_feedback_version_provider.dart`
-- **package:ko_lernen_app/models/content_feedback.dart** (11 connections)
-- **ContentFeedbackClient** (10 connections) — `lib/services/content_feedback_client.dart`
-- **FeedbackOutboxStore** (9 connections) — `lib/services/content_feedback_outbox.dart`
-- **AccountDeletionCleanupOperations** (7 connections) — `lib/screens/settings_screen.dart`
-- **package:ko_lernen_app/services/content_feedback_client.dart** (7 connections)
-- **content_feedback_test.dart** (7 connections) — `test/content_feedback_test.dart`
-- **feedback_completion_test.dart** (7 connections) — `test/feedback_completion_test.dart`
-- **AccountDeletionJournal** (6 connections) — `lib/services/auth_service.dart`
-- **package:ko_lernen_app/services/content_feedback_outbox.dart** (6 connections)
-- **package:ko_lernen_app/services/content_feedback_version_provider.dart** (6 connections)
-- **literal_completion_feedback_coverage_test.dart** (6 connections) — `test/literal_completion_feedback_coverage_test.dart`
-- **AccountDeletionFailure** (5 connections) — `lib/screens/settings_screen.dart`
 - **content_feedback_version_provider.dart** (5 connections) — `lib/services/content_feedback_version_provider.dart`
-- **package:ko_lernen_app/models/feedback_completion.dart** (5 connections)
-- **ContentFeedbackResumeResult** (4 connections) — `lib/services/content_feedback_service.dart`
-- **content_feedback_passport_reader_test.dart** (4 connections) — `test/content_feedback_passport_reader_test.dart`
-- **package:ko_lernen_app/services/content_feedback_lifecycle.dart** (3 connections)
-- **circular_feedback_completion_test.dart** (3 connections) — `test/circular_feedback_completion_test.dart`
-- *... and 151 more nodes in this community*
+- **PackageContentFeedbackVersionProvider** (2 connections) — `lib/services/content_feedback_version_provider.dart`
+- **../../services/local_data_lifetime.dart** (2 connections)
+- **_VersionProvider** (2 connections) — `test/content_feedback_lifecycle_resume_test.dart`
+- **FixedVersionProvider** (2 connections) — `test/content_feedback_outbox_test.dart`
+- **GatedVersionProvider** (2 connections) — `test/content_feedback_outbox_test.dart`
+- **ThrowingVersionProvider** (2 connections) — `test/content_feedback_outbox_test.dart`
+- **_DeletionFeedbackVersionProvider** (2 connections) — `test/services/auth_service_test.dart`
+- **_Version** (2 connections) — `test/services/completed_deletion_startup_recovery_test.dart`
+- **_Version** (2 connections) — `test/services/content_feedback_lifecycle_test.dart`
+- **_VersionProvider** (2 connections) — `test/services/content_feedback_service_test.dart`
+- **clear** (1 connections) — `lib/features/onboarding_v2/onboarding_journey_repository.dart`
+- **load** (1 connections) — `lib/features/onboarding_v2/onboarding_journey_repository.dart`
+- **preferenceKey** (1 connections) — `lib/features/onboarding_v2/onboarding_journey_repository.dart`
+- **_quarantine** (1 connections) — `lib/features/onboarding_v2/onboarding_journey_repository.dart`
+- **quarantinePreferenceKey** (1 connections) — `lib/features/onboarding_v2/onboarding_journey_repository.dart`
+- **save** (1 connections) — `lib/features/onboarding_v2/onboarding_journey_repository.dart`
+- **readVersion** (1 connections) — `lib/services/content_feedback_version_provider.dart`
+- **required ContentFeedbackClient client,
+  bool** (1 connections)
+- **String? betaMissionId,
+  String** (1 connections)
+- **buildService** (1 connections) — `test/content_feedback_outbox_test.dart`
+- *... and 31 more nodes in this community*
 
 ## Relationships
 
-- [auth_service_test.dart](auth_service_test.dart.md) (13 shared connections)
-- [content_feedback_widget_test.dart](content_feedback_widget_test.dart.md) (13 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (11 shared connections)
-- [account_transition_ui_test.dart](account_transition_ui_test.dart.md) (10 shared connections)
-- [_](_.md) (8 shared connections)
-- [dart:async](dart-async.md) (6 shared connections)
-- [List](List.md) (5 shared connections)
-- [content_feedback_service.dart](content_feedback_service.dart.md) (4 shared connections)
-- [account_deletion_receipt_recovery_test.dart](account_deletion_receipt_recovery_test.dart.md) (3 shared connections)
-- [account_reconciliation_test.dart](account_reconciliation_test.dart.md) (3 shared connections)
-- [content_feedback_client.dart](content_feedback_client.dart.md) (2 shared connections)
+- [content_feedback_lifecycle_test.dart](content_feedback_lifecycle_test.dart.md) (13 shared connections)
+- [_](_.md) (10 shared connections)
+- [account_transition_ui_test.dart](account_transition_ui_test.dart.md) (3 shared connections)
+- [cloud_sync_test.dart](cloud_sync_test.dart.md) (3 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (3 shared connections)
+- [first_run_coordinator.dart](first_run_coordinator.dart.md) (2 shared connections)
+- [onboarding_app_adapters.dart](onboarding_app_adapters.dart.md) (2 shared connections)
+- [List](List.md) (2 shared connections)
+- [pronunciation_assessment_client.dart](pronunciation_assessment_client.dart.md) (2 shared connections)
+- [course_reassessment_screen_test.dart](course_reassessment_screen_test.dart.md) (2 shared connections)
+- [auth_service_test.dart](auth_service_test.dart.md) (2 shared connections)
 - [settings_screen_test.dart](settings_screen_test.dart.md) (2 shared connections)
 
 ## Source Files
 
-- `lib/screens/settings_screen.dart`
-- `lib/services/auth_service.dart`
-- `lib/services/content_feedback_client.dart`
-- `lib/services/content_feedback_outbox.dart`
-- `lib/services/content_feedback_service.dart`
+- `lib/features/onboarding_v2/onboarding_journey_repository.dart`
 - `lib/services/content_feedback_version_provider.dart`
-- `test/account_hardening_test.dart`
-- `test/circular_feedback_completion_test.dart`
 - `test/content_feedback_lifecycle_resume_test.dart`
 - `test/content_feedback_outbox_test.dart`
-- `test/content_feedback_passport_reader_test.dart`
-- `test/content_feedback_test.dart`
-- `test/feedback_completion_test.dart`
-- `test/literal_completion_feedback_coverage_test.dart`
 - `test/services/auth_service_test.dart`
 - `test/services/completed_deletion_startup_recovery_test.dart`
 - `test/services/content_feedback_lifecycle_test.dart`
 - `test/services/content_feedback_service_test.dart`
-- `test/widgets/settings_screen_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 314 (100%)
+- EXTRACTED: 134 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

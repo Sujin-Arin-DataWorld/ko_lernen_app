@@ -33,8 +33,8 @@
 
 ## Relationships
 
-- [load_provenance](load_provenance.md) (16 shared connections)
-- [chroma_key_count](chroma_key_count.md) (2 shared connections)
+- [hanok_v1_asset_contract.py](hanok_v1_asset_contract.py.md) (15 shared connections)
+- [load_provenance](load_provenance.md) (3 shared connections)
 
 ## Source Files
 

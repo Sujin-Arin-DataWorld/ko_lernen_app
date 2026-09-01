@@ -36,7 +36,7 @@
 - [app_localizations_en.dart](app_localizations_en.dart.md) (1 shared connections)
 - [listening_play_screen.dart](listening_play_screen.dart.md) (1 shared connections)
 - [AppL10n](AppL10n.md) (1 shared connections)
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
+- [StatelessWidget](StatelessWidget.md) (1 shared connections)
 
 ## Source Files
 

@@ -1,50 +1,50 @@
 # vocab_notebook_studio_screen_test.dart
 
-> 177 nodes · cohesion 0.01
+> 160 nodes · cohesion 0.01
 
 ## Key Concepts
 
 - **vocab_notebook_studio_screen_test.dart** (90 connections) — `test/vocab_notebook_studio_screen_test.dart`
+- **study_activity_responsive_test.dart** (63 connections) — `test/study_activity_responsive_test.dart`
 - **shared_game_feedback_route_test.dart** (44 connections) — `test/shared_game_feedback_route_test.dart`
-- **vocab_nuance_screen_test.dart** (41 connections) — `test/vocab_nuance_screen_test.dart`
-- **package:ko_lernen_app/models/book_page.dart** (33 connections)
-- **vocab_notebook_practice_screen_test.dart** (32 connections) — `test/vocab_notebook_practice_screen_test.dart`
-- **package:ko_lernen_app/services/custom_pack_service.dart** (29 connections)
-- **media_serialization_test.dart** (25 connections) — `test/media_serialization_test.dart`
+- **game_layout_test.dart** (43 connections) — `test/game_layout_test.dart`
 - **game_srs_evidence_test.dart** (24 connections) — `test/game_srs_evidence_test.dart`
-- **package:ko_lernen_app/models/custom_pack.dart** (18 connections)
+- **content_id_contract_test.dart** (23 connections) — `test/content_id_contract_test.dart`
+- **package:ko_lernen_app/services/cloze_loader.dart** (16 connections)
 - **custom_pack_corpus_resolver_test.dart** (14 connections) — `test/custom_pack_corpus_resolver_test.dart`
-- **grounded_book_study_card_test.dart** (13 connections) — `test/grounded_book_study_card_test.dart`
-- **wordbook_bookmark_fill_test.dart** (13 connections) — `test/wordbook_bookmark_fill_test.dart`
-- **study_library_production_adapters_test.dart** (10 connections) — `test/features/study_library/study_library_production_adapters_test.dart`
-- **package:ko_lernen_app/widgets/sori/screen_background.dart** (8 connections)
-- **custom_pack_test.dart** (8 connections) — `test/custom_pack_test.dart`
+- **speakable_screen_lifecycle_test.dart** (12 connections) — `test/speakable_screen_lifecycle_test.dart`
+- **package:ko_lernen_app/models/smalltalk.dart** (10 connections)
+- **daily_challenge_test.dart** (10 connections) — `test/daily_challenge_test.dart`
+- **package:ko_lernen_app/services/satz_loader.dart** (9 connections)
+- **personalized_lesson_test.dart** (9 connections) — `test/personalized_lesson_test.dart`
 - **package:ko_lernen_app/screens/speed_match_screen.dart** (7 connections)
-- **custom_pack_service_test.dart** (7 connections) — `test/custom_pack_service_test.dart`
-- **grounded_book_study_service_test.dart** (7 connections) — `test/grounded_book_study_service_test.dart`
-- **wordbook_quick_add_test.dart** (7 connections) — `test/wordbook_quick_add_test.dart`
-- **package:ko_lernen_app/features/study_library/study_library.dart** (6 connections)
-- **package:ko_lernen_app/models/word_relation.dart** (6 connections)
-- **screen_background_test.dart** (6 connections) — `test/screen_background_test.dart`
+- **cloze_test.dart** (7 connections) — `test/cloze_test.dart`
+- **package:ko_lernen_app/widgets/sori/cloze_prompt.dart** (6 connections)
+- **cloze_prompt_test.dart** (6 connections) — `test/cloze_prompt_test.dart`
+- **satz_test.dart** (6 connections) — `test/satz_test.dart`
 - **package:ko_lernen_app/screens/custom_pack_matching_screen.dart** (5 connections)
-- **vocab_nuance_service_test.dart** (5 connections) — `test/vocab_nuance_service_test.dart`
+- **package:ko_lernen_app/screens/daily_challenge_screen.dart** (5 connections)
 - **ChosungQuizScreen** (4 connections) — `lib/screens/chosung_quiz_screen.dart`
-- *... and 152 more nodes in this community*
+- **ScenariosListScreen** (4 connections) — `lib/screens/scenarios_list_screen.dart`
+- **SmalltalkScreen** (4 connections) — `lib/screens/smalltalk_screen.dart`
+- **SpeedMatchScreen** (4 connections) — `lib/screens/speed_match_screen.dart`
+- **package:ko_lernen_app/screens/custom_pack_quiz_screen.dart** (4 connections)
+- *... and 135 more nodes in this community*
 
 ## Relationships
 
-- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (35 shared connections)
-- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (26 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (22 shared connections)
-- [standalone_games_uiux_test.dart](standalone_games_uiux_test.dart.md) (15 shared connections)
-- [content_feedback_widget_test.dart](content_feedback_widget_test.dart.md) (15 shared connections)
-- [bookshelf_custom_pack_uiux_test.dart](bookshelf_custom_pack_uiux_test.dart.md) (14 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (39 shared connections)
+- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (29 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (26 shared connections)
+- [package:ko_lernen_app/models/scenario.dart](package-ko_lernen_app-models-scenario.dart.md) (18 shared connections)
+- [bookshelf_custom_pack_uiux_test.dart](bookshelf_custom_pack_uiux_test.dart.md) (16 shared connections)
+- [package:ko_lernen_app/theme.dart](package-ko_lernen_app-theme.dart.md) (15 shared connections)
 - [_State](_State.md) (12 shared connections)
-- [account_reconciliation_test.dart](account_reconciliation_test.dart.md) (10 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (8 shared connections)
-- [custom_pack_games_uiux_test.dart](custom_pack_games_uiux_test.dart.md) (6 shared connections)
-- [game_layout_test.dart](game_layout_test.dart.md) (6 shared connections)
-- [package:ko_lernen_app/models/scenario.dart](package-ko_lernen_app-models-scenario.dart.md) (6 shared connections)
+- [standalone_games_uiux_test.dart](standalone_games_uiux_test.dart.md) (6 shared connections)
+- [course_reassessment_screen_test.dart](course_reassessment_screen_test.dart.md) (6 shared connections)
+- [word_web_ui_test.dart](word_web_ui_test.dart.md) (5 shared connections)
+- [dart:async](dart-async.md) (4 shared connections)
+- [custom_pack_games_uiux_test.dart](custom_pack_games_uiux_test.dart.md) (3 shared connections)
 
 ## Source Files
 
@@ -52,26 +52,23 @@
 - `lib/screens/scenarios_list_screen.dart`
 - `lib/screens/smalltalk_screen.dart`
 - `lib/screens/speed_match_screen.dart`
+- `test/cloze_prompt_test.dart`
+- `test/cloze_test.dart`
+- `test/content_id_contract_test.dart`
 - `test/custom_pack_corpus_resolver_test.dart`
-- `test/custom_pack_import_language_test.dart`
-- `test/custom_pack_service_test.dart`
-- `test/custom_pack_test.dart`
-- `test/features/study_library/study_library_production_adapters_test.dart`
+- `test/daily_challenge_test.dart`
+- `test/game_layout_test.dart`
 - `test/game_srs_evidence_test.dart`
-- `test/grounded_book_study_card_test.dart`
-- `test/grounded_book_study_service_test.dart`
-- `test/media_serialization_test.dart`
-- `test/screen_background_test.dart`
+- `test/personalized_lesson_test.dart`
+- `test/satz_test.dart`
 - `test/shared_game_feedback_route_test.dart`
-- `test/vocab_notebook_practice_screen_test.dart`
+- `test/speakable_screen_lifecycle_test.dart`
+- `test/study_activity_responsive_test.dart`
 - `test/vocab_notebook_studio_screen_test.dart`
-- `test/vocab_nuance_screen_test.dart`
-- `test/vocab_nuance_service_test.dart`
-- `test/wordbook_bookmark_fill_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 431 (100%)
+- EXTRACTED: 388 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

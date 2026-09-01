@@ -31,11 +31,11 @@
 ## Relationships
 
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (2 shared connections)
+- [List](List.md) (2 shared connections)
 - [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (2 shared connections)
-- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
+- [dart:math](dart-math.md) (1 shared connections)
 - [static const](static_const.md) (1 shared connections)
-- [silben_kreuz_screen.dart](silben_kreuz_screen.dart.md) (1 shared connections)
+- [bool get](bool_get.md) (1 shared connections)
 - [static const int](static_const_int.md) (1 shared connections)
 - [_](_.md) (1 shared connections)
 

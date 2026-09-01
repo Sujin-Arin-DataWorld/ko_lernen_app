@@ -6,7 +6,7 @@
 
 - **properties** (24 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
 - **event** (3 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
-- **titleKo** (3 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **relationship** (3 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
 - **anchorKey** (2 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
 - **checkpointForUnit** (2 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
 - **regressionTheme** (2 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
@@ -16,8 +16,8 @@
 - **minLength** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
 - **type** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
 - **type** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
-- **type** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
 - **minLength** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
+- **type** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
 - **type** (1 connections) — `tools/content_factory/schemas/scenario_brief.schema.json`
 
 ## Relationships
@@ -26,9 +26,9 @@
 - [enum](enum.md) (2 shared connections)
 - [scenario_brief.schema.json](scenario_brief.schema.json.md) (1 shared connections)
 - [portfolioBucket](portfolioBucket.md) (1 shared connections)
+- [titleKo](titleKo.md) (1 shared connections)
 - [writerRole](writerRole.md) (1 shared connections)
 - [setting](setting.md) (1 shared connections)
-- [relationship](relationship.md) (1 shared connections)
 - [playerGoal](playerGoal.md) (1 shared connections)
 - [counterpartGoal](counterpartGoal.md) (1 shared connections)
 - [turningPoint](turningPoint.md) (1 shared connections)

@@ -22,7 +22,7 @@
 ## Relationships
 
 - [auth_service_test.dart](auth_service_test.dart.md) (2 shared connections)
-- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
+- [dart:math](dart-math.md) (1 shared connections)
 - [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
 
 ## Source Files

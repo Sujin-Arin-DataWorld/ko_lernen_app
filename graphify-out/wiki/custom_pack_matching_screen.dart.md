@@ -1,61 +1,63 @@
 # custom_pack_matching_screen.dart
 
-> 108 nodes · cohesion 0.02
+> 120 nodes · cohesion 0.02
 
 ## Key Concepts
 
 - **custom_pack_matching_screen.dart** (81 connections) — `lib/screens/custom_pack_matching_screen.dart`
 - **custom_pack_typing_screen.dart** (67 connections) — `lib/screens/custom_pack_typing_screen.dart`
-- **custom_pack.dart** (21 connections) — `lib/models/custom_pack.dart`
-- **quest_abandon_tracker.dart** (11 connections) — `lib/services/quest_abandon_tracker.dart`
-- **QuestAbandonTracker** (10 connections) — `lib/services/quest_abandon_tracker.dart`
-- **CustomPack** (9 connections) — `lib/models/custom_pack.dart`
+- **../../models/learner_level.dart** (32 connections)
+- **shared_pack_service.dart** (26 connections) — `lib/services/shared_pack_service.dart`
+- **../../models/book_page.dart** (24 connections)
+- **review_deck_service.dart** (21 connections) — `lib/services/review_deck_service.dart`
+- **../models/custom_pack.dart** (10 connections)
 - **../services/quest_abandon_tracker.dart** (9 connections)
+- **onboarding_v2_copy_builder.dart** (6 connections) — `lib/screens/onboarding_v2/onboarding_v2_copy_builder.dart`
 - **CustomPackMatchingScreen** (4 connections) — `lib/screens/custom_pack_matching_screen.dart`
 - **_CustomPackMatchingScreenState** (4 connections) — `lib/screens/custom_pack_matching_screen.dart`
 - **CustomPackTypingScreen** (4 connections) — `lib/screens/custom_pack_typing_screen.dart`
 - **_CustomPackTypingScreenState** (4 connections) — `lib/screens/custom_pack_typing_screen.dart`
+- **bookshelf_service.dart** (3 connections)
+- **custom_pack_service.dart** (3 connections)
+- **learner_level_selection.dart** (3 connections) — `lib/services/learner_level_selection.dart`
 - **_Tile** (2 connections) — `lib/screens/custom_pack_matching_screen.dart`
-- **book_page.dart** (1 connections)
-- **copyWith** (1 connections) — `lib/models/custom_pack.dart`
-- **createdAtIso** (1 connections) — `lib/models/custom_pack.dart`
-- **displayName** (1 connections) — `lib/models/custom_pack.dart`
-- **fromBookPage** (1 connections) — `lib/models/custom_pack.dart`
-- **fromJson** (1 connections) — `lib/models/custom_pack.dart`
-- **fromPortableJson** (1 connections) — `lib/models/custom_pack.dart`
-- **id** (1 connections) — `lib/models/custom_pack.dart`
-- **isManual** (1 connections) — `lib/models/custom_pack.dart`
-- **manual** (1 connections) — `lib/models/custom_pack.dart`
-- **name** (1 connections) — `lib/models/custom_pack.dart`
-- **sourcePageId** (1 connections) — `lib/models/custom_pack.dart`
-- **toJson** (1 connections) — `lib/models/custom_pack.dart`
-- *... and 83 more nodes in this community*
+- **SharedPackError** (2 connections) — `lib/services/shared_pack_service.dart`
+- **_abandonTracker** (1 connections) — `lib/screens/custom_pack_matching_screen.dart`
+- **accent** (1 connections) — `lib/screens/custom_pack_matching_screen.dart`
+- **_boardKey** (1 connections) — `lib/screens/custom_pack_matching_screen.dart`
+- **build** (1 connections) — `lib/screens/custom_pack_matching_screen.dart`
+- **buildCoachSteps** (1 connections) — `lib/screens/custom_pack_matching_screen.dart`
+- **_buildDone** (1 connections) — `lib/screens/custom_pack_matching_screen.dart`
+- **coachId** (1 connections) — `lib/screens/custom_pack_matching_screen.dart`
+- *... and 95 more nodes in this community*
 
 ## Relationships
 
-- [cloze_game_screen.dart](cloze_game_screen.dart.md) (9 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (8 shared connections)
-- [package:flutter/services.dart](package-flutter-services.dart.md) (7 shared connections)
+- [List](List.md) (30 shared connections)
+- [cloze_game_screen.dart](cloze_game_screen.dart.md) (12 shared connections)
+- [_](_.md) (10 shared connections)
 - [listening_play_screen.dart](listening_play_screen.dart.md) (6 shared connections)
-- [book_result_screen.dart](book_result_screen.dart.md) (6 shared connections)
+- [../widgets/sori/button.dart](-widgets-sori-button.dart.md) (6 shared connections)
 - [_State](_State.md) (6 shared connections)
-- [bookshelf_screen.dart](bookshelf_screen.dart.md) (5 shared connections)
-- [String?](String_.md) (4 shared connections)
-- [wordbook_add.dart](wordbook_add.dart.md) (4 shared connections)
+- [dart:math](dart-math.md) (5 shared connections)
 - [bool get](bool_get.md) (3 shared connections)
-- [List](List.md) (3 shared connections)
-- [int get](int_get.md) (2 shared connections)
+- [String?](String_.md) (3 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (3 shared connections)
+- [learning_path_screen.dart](learning_path_screen.dart.md) (3 shared connections)
+- [book_result_screen.dart](book_result_screen.dart.md) (3 shared connections)
 
 ## Source Files
 
-- `lib/models/custom_pack.dart`
 - `lib/screens/custom_pack_matching_screen.dart`
 - `lib/screens/custom_pack_typing_screen.dart`
-- `lib/services/quest_abandon_tracker.dart`
+- `lib/screens/onboarding_v2/onboarding_v2_copy_builder.dart`
+- `lib/services/learner_level_selection.dart`
+- `lib/services/review_deck_service.dart`
+- `lib/services/shared_pack_service.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 211 (100%)
+- EXTRACTED: 282 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

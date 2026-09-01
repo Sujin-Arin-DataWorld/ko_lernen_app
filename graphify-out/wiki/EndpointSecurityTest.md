@@ -1,13 +1,12 @@
 # EndpointSecurityTest
 
-> 37 nodes · cohesion 0.10
+> 35 nodes · cohesion 0.11
 
 ## Key Concepts
 
 - **EndpointSecurityTest** (18 connections) — `functions/analyze_korean_text/test_endpoint_security.py`
 - **AuthenticationFailed** (15 connections) — `functions/analyze_korean_text/security.py`
 - **Caller** (12 connections) — `functions/analyze_korean_text/security.py`
-- **QuotaExceeded** (12 connections) — `functions/analyze_korean_text/security.py`
 - **QuotaStoreUnavailable** (11 connections) — `functions/analyze_korean_text/security.py`
 - **_MemoryIdempotency** (10 connections) — `functions/analyze_korean_text/test_endpoint_security.py`
 - **test_endpoint_security.py** (10 connections) — `functions/analyze_korean_text/test_endpoint_security.py`
@@ -21,7 +20,6 @@
 - **.test_dictionary_exception_also_releases_quota()** (3 connections) — `functions/analyze_korean_text/test_endpoint_security.py`
 - **.test_dictionary_unavailable_releases_quota()** (3 connections) — `functions/analyze_korean_text/test_endpoint_security.py`
 - **Exception** (3 connections)
-- **.__init__()** (2 connections) — `functions/analyze_korean_text/security.py`
 - **.test_dictionary_endpoint_keeps_invalid_shape_off_the_dictionary_api()** (2 connections) — `functions/analyze_korean_text/test_endpoint_security.py`
 - **.test_dictionary_endpoint_requires_the_same_verified_caller()** (2 connections) — `functions/analyze_korean_text/test_endpoint_security.py`
 - **.test_rejects_unverified_call_before_parsing_or_analyzing_text()** (2 connections) — `functions/analyze_korean_text/test_endpoint_security.py`
@@ -29,13 +27,15 @@
 - **.complete()** (2 connections) — `functions/analyze_korean_text/test_endpoint_security.py`
 - **.__init__()** (2 connections) — `functions/analyze_korean_text/test_endpoint_security.py`
 - **.setUp()** (1 connections) — `functions/analyze_korean_text/test_endpoint_security.py`
-- *... and 12 more nodes in this community*
+- **.test_dictionary_endpoint_rejects_oversized_bodies_before_auth()** (1 connections) — `functions/analyze_korean_text/test_endpoint_security.py`
+- **.abandon()** (1 connections) — `functions/analyze_korean_text/test_endpoint_security.py`
+- *... and 10 more nodes in this community*
 
 ## Relationships
 
-- [security.py](security.py.md) (12 shared connections)
-- [main.py](main.py.md) (9 shared connections)
-- [verify_caller](verify_caller.md) (4 shared connections)
+- [security.py](security.py.md) (14 shared connections)
+- [main.py](main.py.md) (6 shared connections)
+- [_Request](_Request.md) (1 shared connections)
 
 ## Source Files
 
@@ -44,8 +44,8 @@
 
 ## Audit Trail
 
-- EXTRACTED: 80 (86%)
-- INFERRED: 13 (14%)
+- EXTRACTED: 74 (88%)
+- INFERRED: 10 (12%)
 - AMBIGUOUS: 0 (0%)
 
 ---
