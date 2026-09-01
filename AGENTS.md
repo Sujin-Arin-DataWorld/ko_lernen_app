@@ -372,6 +372,9 @@ flutter run -d <android-id>   # 안드로이드
 - [ ] **UI 실기기 게이트 (Jin)**: 덱 4방향 손맛·시스템 엣지·히어로 잘림, 승인 대기 중인
   아이콘/리소 자산을 실제 기기에서 검수한다. 승인 전에는 대규모 UI 재설계나 자산 덮어쓰기를
   하지 않는다.
+  ⚠ `tiger_choose` 매트 그림자 24.1%는 수리가 아니라 per-clip 예산 완화(기본 0.06→0.25
+  그랜드파더, `tool/clip_matte_report.json`·`tool/check_clip_matte.py`)로 게이트를 통과
+  중이다 — 육안 확인 대상(`magpie_celebrate` 0.113/0.12·`magpie_flight` 0.172/0.18 동일).
 - [ ] **살아 있는 한옥 V1 사용자 노출 게이트 (Jin)**: PR3 코드는 들어왔지만 **UI 호출자가
   0이다.** `HanokStateService`/`HanokExperienceProjector`는 `cloud_sync`·
   `account_reconciliation`·`hanok_cutover_service`만 사용하고, 사용자는 여전히 레거시
@@ -391,8 +394,6 @@ flutter run -d <android-id>   # 안드로이드
 - [ ] **릴리스 운영 (Jin)**: TestFlight 실기기, Android Internal 설치·App Check.
   Internal 업로드는 main CI의 명시적 opt-in, Closed 업로드는 `play_closed.yml`의
   exact-main-SHA `workflow_dispatch`다. Play Console 처리·테스터 설치·승격은 수동이다.
-- [ ] **#100 태블릿 골든 (CI)**: #96 Wanted Sans 이후 medium/expanded 6장이 깨졌다.
-  `cursor/fix-tablet-goldens-4772`가 하니스에 `SoriTypeScale`을 넣고 Linux 기준선을 갱신 중.
 
 ## 세션 기록 — graphify 북엔드 (수기 handoff 폐지)
 
