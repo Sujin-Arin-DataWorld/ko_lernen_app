@@ -31,7 +31,16 @@ source_nodes: ["HANDOFF-2026-08-27-waves.md", "2026-09-01-handoff-verification-m
 
 ## 릴리스 트랙
 
-- 계획: pubspec `2.0.8+30` 릴리스 PR(squash) → 내부(release-internal, `PLAY_INTERNAL_RELEASE_ENABLED` ON 필요)
-  + 비공개(play_closed, 정확-SHA 게이트). 실제 Play versionCode는 커밋 수(~2190대).
-- Jin 룰링(2026-09-01): 릴리스는 **Codex 오디오 수정(무음 버그 등) main 랜딩 후** 자른다.
+- Jin 룰링(2026-09-01): 릴리스는 **Codex 오디오 수정(무음 버그 등) main 랜딩 후** 자른다 → c82a7bef 랜딩 확인 후 착수.
+- 릴리스 PR **#249**(pubspec `2.0.8+29`→`+30` 단일 커밋) → squash 병합 `1175c4f9`.
+  main push CI **run 1029 success**(전체 스위트) → **내부테스트 업로드 성공**(vC **2215**,
+  `Build signed internal-testing bundle`·`Upload to Google Play Internal Testing` 전 스텝 success).
+- **비공개(alpha) 업로드는 같은 SHA에서 실패**: `Version code 2215 has already been used.`
+  같은 커밋으로 두 트랙을 올리면 versionCode(=commit count)가 충돌한다 — 내부 업로드가 2215를 먼저 소비했다.
+  빌드·서명·정확-SHA 게이트는 전부 통과, 업로드 API 호출만 거부(run 33563121115).
+  → 재발 방지 규칙을 `docs/store/closed-testing-checklist-v2.md` §2.2에 명문화.
+  → 해소 경로: `PLAY_INTERNAL_RELEASE_ENABLED`를 끈 뒤 새 커밋으로 main tip을 올리고(commit count 2216+)
+  그 SHA로 play_closed 재디스패치.
+- 대조 사실: 비공개 트랙이 이미 보유한 빌드(vC2208, Codex가 c82a7bef에서 업로드)와 `1175c4f9` 사이의 차분은
+  ci.yml·문서·웹사이트 lockfile·pubspec 버전 줄뿐 — **앱 바이너리에 영향을 주는 변경 0**.
 - iOS는 CI 자동화 금지 계약 + 컨테이너 한계로 수동 런북 인계(`.superpowers/sdd/2026-09-01-handoff-verification-and-release/ios-manual-runbook.md`).
