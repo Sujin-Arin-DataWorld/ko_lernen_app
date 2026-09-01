@@ -38,6 +38,8 @@ def build_safe_icon() -> None:
     canvas = Image.new("RGBA", (CANVAS_SIZE, CANVAS_SIZE), (0, 0, 0, 0))
     offset = ((CANVAS_SIZE - content_side) // 2, (CANVAS_SIZE - content_side) // 2)
     canvas.paste(resized, offset, resized)
+    # 추적된 산출물이 지워진 새 클론에서도 바로 돌도록 부모 디렉터리를 보장한다.
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     canvas.save(OUTPUT)
 
     bbox = canvas.getchannel("A").getbbox()
