@@ -341,6 +341,16 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
         mirror_target = stage / "functions" / "analyze_korean_text" / "grammar_patterns.json"
         mirror_target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(mirror_source, mirror_target)
+        # F6 (2026-09-01): content_audit_manifest.json은 번들 제외를 위해
+        # assets/data/ 밖 tools/content_factory/ 로 옮겼다 — 스테이징
+        # 트리에도 그 위치대로 복제한다.
+        stage_manifest_dir = stage / "tools" / "content_factory"
+        stage_manifest_dir.mkdir(parents=True, exist_ok=True)
+        stage_manifest_path = stage_manifest_dir / "content_audit_manifest.json"
+        shutil.copy2(
+            root / "tools" / "content_factory" / "content_audit_manifest.json",
+            stage_manifest_path,
+        )
         data = stage / "assets" / "data"
         already_merged = False
         for kind, records in records_by_kind.items():
@@ -470,7 +480,7 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
         curriculum["contentLinks"] = [*links, *additions]
         (data / "curriculum_manifest.json").write_text(_json_text(curriculum), encoding="utf-8")
 
-        audit = _read_json(data / "content_audit_manifest.json")
+        audit = _read_json(stage_manifest_path)
         counts = ContentValidator(stage).inventory_counts()
         for source in audit.get("sources", []):
             if isinstance(source, dict) and source.get("kind") in counts:
@@ -491,7 +501,7 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
             )
             for level in ("a1", "a2", "b1", "b2", "c1", "c2")
         }
-        (data / "content_audit_manifest.json").write_text(_json_text(audit), encoding="utf-8")
+        stage_manifest_path.write_text(_json_text(audit), encoding="utf-8")
         issues = ContentValidator(stage).validate()
         if issues:
             detail = "\n".join(f"{issue.source}: {issue.message}" for issue in issues)
@@ -499,7 +509,8 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
 
         outputs = {
             root / "assets" / "data" / "curriculum_manifest.json": (data / "curriculum_manifest.json").read_text(encoding="utf-8"),
-            root / "assets" / "data" / "content_audit_manifest.json": (data / "content_audit_manifest.json").read_text(encoding="utf-8"),
+            # F6 (2026-09-01): 최종 목적지는 tools/content_factory/ 다(번들 제외).
+            root / "tools" / "content_factory" / "content_audit_manifest.json": stage_manifest_path.read_text(encoding="utf-8"),
         }
         for kind, records in records_by_kind.items():
             for target_name, _slice in _shard_slices(kind, records):

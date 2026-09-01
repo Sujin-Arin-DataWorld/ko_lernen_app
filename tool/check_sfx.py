@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """한글소리 게임 피드백 SFX 사양 검사기 — 표준 라이브러리만 사용(외부 의존 0).
 
-`assets/sfx/` 의 게임 피드백 효과음이 `assets/sfx/README.md` 의 "제작 사양"을 지키는지
+`assets/sfx/` 의 게임 피드백 효과음이 `docs/assets/SFX_README.md` 의 "제작 사양"을 지키는지
 검사한다. 포맷(PCM16/mono/44.1k)·길이·피크·RMS·선두/꼬리 무음을 표로 출력하고,
 벗어난 항목에 사유를 붙인다.
 
@@ -141,7 +141,7 @@ def main():
     print()
     if failed:
         print(f'사양 위반 {len(failed)}건: {", ".join(failed)}')
-        print('→ 기준과 이유는 assets/sfx/README.md "제작 사양" 절 참고')
+        print('→ 기준과 이유는 docs/assets/SFX_README.md "제작 사양" 절 참고')
         return 1
     print('전부 사양 충족')
     return 0

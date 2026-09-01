@@ -45,6 +45,9 @@ class IntegrateReviewBatchesTest(unittest.TestCase):
         self._copy("assets/data")
         self._copy("tools/content_factory/drafts")
         self._copy("tools/content_factory/review")
+        # F6 (2026-09-01): content_audit_manifest.json은 번들 제외를 위해
+        # assets/data/ 밖 tools/content_factory/ 로 옮겼다.
+        self._copy("tools/content_factory/content_audit_manifest.json")
         self._copy("functions/analyze_korean_text/grammar_patterns.json")
         self._copy("lib/services/vocab_pack_service.dart")
         self._copy("lib/widgets/sori/dancheong_stamp.dart")
@@ -168,7 +171,7 @@ class IntegrateReviewBatchesTest(unittest.TestCase):
         curriculum_path.write_text(
             json.dumps(curriculum, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
-        audit_path = data / "content_audit_manifest.json"
+        audit_path = self.root / "tools/content_factory/content_audit_manifest.json"
         audit = json.loads(audit_path.read_text(encoding="utf-8"))
         for source in audit["sources"]:
             if source["kind"] == "scenario":
@@ -423,7 +426,7 @@ class IntegrateReviewBatchesTest(unittest.TestCase):
             )
         )
         audit = json.loads(
-            (self.root / "assets/data/content_audit_manifest.json").read_text(
+            (self.root / "tools/content_factory/content_audit_manifest.json").read_text(
                 encoding="utf-8"
             )
         )

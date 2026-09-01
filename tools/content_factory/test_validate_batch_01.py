@@ -65,6 +65,10 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
         )
         self._copy_file("lib/services/vocab_pack_service.dart")
         self._copy_file("lib/widgets/sori/dancheong_stamp.dart")
+        # F6 (2026-09-01): content_audit_manifest.json은 번들 제외를 위해
+        # assets/data/ 밖 tools/content_factory/ 로 옮겼다 — drafts/review
+        # 서브트리 복제와 별개로 이 파일도 고정에 복제해야 한다.
+        self._copy_file("tools/content_factory/content_audit_manifest.json")
         self._rewind_promoted_batches()
 
     def _rewind_promoted_batches(self) -> None:
@@ -150,7 +154,7 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
         curriculum_path.write_text(
             json.dumps(curriculum, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
-        audit_path = data / "content_audit_manifest.json"
+        audit_path = self.root / "tools" / "content_factory" / "content_audit_manifest.json"
         audit = json.loads(audit_path.read_text(encoding="utf-8"))
         for source in audit["sources"]:
             if source["kind"] == "scenario":

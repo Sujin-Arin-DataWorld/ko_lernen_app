@@ -53,10 +53,11 @@ void main() {
   };
 
   /// 앱이 아니라 **테스트**가 읽는 번들 파일. 지우면 그 테스트가 깨진다.
-  const testOnlyAssets = <String, String>{
-    'assets/data/content_audit_manifest.json':
-        'test/content_audit_manifest_test.dart 가 콘텐츠 수량 기준선으로 읽는다',
-  };
+  // F6 (2026-09-01): content_audit_manifest.json은 번들 제외를 위해
+  // assets/data/ 밖 tools/content_factory/ 로 옮겨 이 목록에서 뺐다 —
+  // 이제 pubspec 에 등록된 assets/data/ 폴더 자체에 없으니 이 가드가 애초에
+  // 훑지 않는다.
+  const testOnlyAssets = <String, String>{};
 
   late final String libSource;
   late final List<String> assetDirs;

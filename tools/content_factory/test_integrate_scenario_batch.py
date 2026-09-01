@@ -63,6 +63,12 @@ class ScenarioBatchTransactionTest(unittest.TestCase):
             grammar_target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(grammar_source, grammar_target)
 
+            # F6 (2026-09-01): content_audit_manifest.json은 번들 제외를
+            # 위해 assets/data/ 밖 tools/content_factory/ 로 옮겼다.
+            audit_source = repository / "tools" / "content_factory" / "content_audit_manifest.json"
+            audit_target = root / "tools" / "content_factory" / "content_audit_manifest.json"
+            audit_target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(audit_source, audit_target)
 
             relative_manifest = Path(
                 "tools/content_factory/drafts/rollback_probe_manifest.json"
@@ -94,7 +100,8 @@ class ScenarioBatchTransactionTest(unittest.TestCase):
             outputs = [
                 scenarios_target,
                 root / "assets" / "data" / "curriculum_manifest.json",
-                root / "assets" / "data" / "content_audit_manifest.json",
+                # F6 (2026-09-01): 최종 목적지는 tools/content_factory/ 다.
+                root / "tools" / "content_factory" / "content_audit_manifest.json",
                 manifest_target,
             ]
             originals = {path: path.read_bytes() for path in outputs}

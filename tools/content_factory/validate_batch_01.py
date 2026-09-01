@@ -1227,6 +1227,13 @@ def _write_overlay(
         mirror_target = overlay_root / "functions" / "analyze_korean_text" / "grammar_patterns.json"
         mirror_target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(mirror_source, mirror_target)
+        # F6 (2026-09-01): content_audit_manifest.json은 번들 제외를 위해
+        # assets/data/ 밖 tools/content_factory/ 로 옮겼다 — overlay 에도
+        # 그 위치대로 복제해야 ContentValidator/아래 감사 갱신이 찾는다.
+        audit_mirror_source = root / "tools" / "content_factory" / "content_audit_manifest.json"
+        audit_mirror_target = overlay_root / "tools" / "content_factory" / "content_audit_manifest.json"
+        audit_mirror_target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(audit_mirror_source, audit_mirror_target)
     except OSError as error:
         _fail(f"cannot create disposable Batch 01 overlay: {error}")
 
@@ -1294,7 +1301,7 @@ def _write_overlay(
         _add_new_mapping(curriculum["clozeTopicUnitMap"], key, value, "clozeTopicUnitMap")
     _write_json(curriculum_path, curriculum)
 
-    audit_path = overlay_data / "content_audit_manifest.json"
+    audit_path = overlay_root / "tools" / "content_factory" / "content_audit_manifest.json"
     audit = _read_json(audit_path)
     if not isinstance(audit, dict) or not isinstance(audit.get("sources"), list):
         _fail(f"{audit_path}: sources must be an array")

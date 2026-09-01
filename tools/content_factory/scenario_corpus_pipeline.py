@@ -1535,12 +1535,18 @@ def _replace_level_curriculum(
 
 def _refresh_scenario_audit_counts(
     *,
-    data_dir: Path,
+    manifest_path: Path,
     scenarios: Sequence[Mapping[str, Any]],
 ) -> None:
-    """Refresh only the scenario counts in a staged audit manifest."""
+    """Refresh only the scenario counts in a staged audit manifest.
 
-    path = data_dir / "content_audit_manifest.json"
+    ``manifest_path`` is separate from the ``assets/data`` staging tree
+    (F6, 2026-09-01) — the audit manifest itself now lives in
+    ``tools/content_factory/`` (excluded from the app bundle), not
+    ``assets/data/``.
+    """
+
+    path = manifest_path
     audit = _map(read_json(path), "content_audit_manifest")
     sources = audit.get("sources")
     if not isinstance(sources, list):
@@ -1779,8 +1785,20 @@ def preflight_corpus(
         grammar_target = stage_root / "functions/analyze_korean_text/grammar_patterns.json"
         grammar_target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(grammar_source, grammar_target)
+        # F6 (2026-09-01): 감사 매니페스트는 assets/data/ 가 아니라
+        # tools/content_factory/ 에 산다(번들 제외) — 스테이징 트리에도 그
+        # 위치대로 복제해야 ContentValidator가 찾는다.
+        stage_manifest_dir = stage_root / "tools/content_factory"
+        stage_manifest_dir.mkdir(parents=True, exist_ok=True)
+        stage_manifest_path = stage_manifest_dir / "content_audit_manifest.json"
+        shutil.copy2(
+            root / "tools/content_factory/content_audit_manifest.json",
+            stage_manifest_path,
+        )
         counts = scenario_store.write_shards(scenarios, data=stage_data, version=2)
-        _refresh_scenario_audit_counts(data_dir=stage_data, scenarios=scenarios)
+        _refresh_scenario_audit_counts(
+            manifest_path=stage_manifest_path, scenarios=scenarios
+        )
         (stage_data / "curriculum_manifest.json").write_text(
             json_text(curriculum), encoding="utf-8"
         )
@@ -1854,8 +1872,19 @@ def preflight_level(
         grammar_target = stage_root / "functions/analyze_korean_text/grammar_patterns.json"
         grammar_target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(grammar_source, grammar_target)
+        # F6 (2026-09-01): 감사 매니페스트는 tools/content_factory/ 에 산다
+        # (번들 제외) — 스테이징 트리에도 그 위치대로 복제한다.
+        stage_manifest_dir = stage_root / "tools/content_factory"
+        stage_manifest_dir.mkdir(parents=True, exist_ok=True)
+        stage_manifest_path = stage_manifest_dir / "content_audit_manifest.json"
+        shutil.copy2(
+            root / "tools/content_factory/content_audit_manifest.json",
+            stage_manifest_path,
+        )
         counts = scenario_store.write_shards(merged, data=stage_data, version=2)
-        _refresh_scenario_audit_counts(data_dir=stage_data, scenarios=merged)
+        _refresh_scenario_audit_counts(
+            manifest_path=stage_manifest_path, scenarios=merged
+        )
         (stage_data / "curriculum_manifest.json").write_text(
             json_text(next_curriculum), encoding="utf-8"
         )
@@ -1942,8 +1971,19 @@ def promote_level(
         grammar_target = stage_root / "functions/analyze_korean_text/grammar_patterns.json"
         grammar_target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(grammar_source, grammar_target)
+        # F6 (2026-09-01): 감사 매니페스트는 tools/content_factory/ 에 산다
+        # (번들 제외) — 스테이징 트리에도 그 위치대로 복제한다.
+        stage_manifest_dir = stage_root / "tools/content_factory"
+        stage_manifest_dir.mkdir(parents=True, exist_ok=True)
+        stage_manifest_path = stage_manifest_dir / "content_audit_manifest.json"
+        shutil.copy2(
+            root / "tools/content_factory/content_audit_manifest.json",
+            stage_manifest_path,
+        )
         counts = scenario_store.write_shards(merged, data=stage_data, version=2)
-        _refresh_scenario_audit_counts(data_dir=stage_data, scenarios=merged)
+        _refresh_scenario_audit_counts(
+            manifest_path=stage_manifest_path, scenarios=merged
+        )
         (stage_data / "curriculum_manifest.json").write_text(
             json_text(next_curriculum), encoding="utf-8"
         )
@@ -1971,7 +2011,8 @@ def promote_level(
             for item in LEVELS
         ] + [
             root / "assets/data/curriculum_manifest.json",
-            root / "assets/data/content_audit_manifest.json",
+            # F6 (2026-09-01): 번들 제외를 위해 tools/content_factory/ 로 이동.
+            root / "tools/content_factory/content_audit_manifest.json",
             tts_target,
             approval_path,
         ]
@@ -1987,11 +2028,9 @@ def promote_level(
             curriculum_temp = curriculum_target.with_suffix(".json.canonical.tmp")
             curriculum_temp.write_text(json_text(next_curriculum), encoding="utf-8")
             os.replace(curriculum_temp, curriculum_target)
-            audit_target = root / "assets/data/content_audit_manifest.json"
+            audit_target = root / "tools/content_factory/content_audit_manifest.json"
             audit_temp = audit_target.with_suffix(".json.canonical.tmp")
-            audit_temp.write_bytes(
-                (stage_data / "content_audit_manifest.json").read_bytes()
-            )
+            audit_temp.write_bytes(stage_manifest_path.read_bytes())
             os.replace(audit_temp, audit_target)
             tts_target.parent.mkdir(parents=True, exist_ok=True)
             tts_temp = tts_target.with_suffix(tts_target.suffix + ".tmp")

@@ -28,10 +28,10 @@ user=여성/NPC=남성 규칙을 적용한다. 그 밖의
        Firebase Storage 키까지 대조해 실제 누락분만 합성하고 rsync로 업로드한다.
 
 실행:
-    python3 tool/generate_tts.py
     python3 tool/generate_tts.py --dry-run  # 인증·합성·업로드 없이 수집 목록 확인
-    python3 tool/generate_tts.py --missing-from-storage --workers 4
     python3 tool/generate_tts.py --verify-storage  # 원격 키 완전성만 검사
+    python3 tool/generate_tts.py --missing-from-storage --workers 8
+    python3 tool/generate_tts.py --synthesize  # 전량 합성+업로드 — 반드시 의도적으로만
 
 승인된 정본 시나리오 레벨만 정확히 다룰 때:
     python3 tool/generate_tts.py --dry-run \
@@ -999,7 +999,7 @@ def _parse_args(argv=None):
     parser = argparse.ArgumentParser(
         description="Pre-generate reviewed Korean learning audio."
     )
-    modes = parser.add_mutually_exclusive_group()
+    modes = parser.add_mutually_exclusive_group(required=True)
     modes.add_argument(
         "--demo",
         action="store_true",
@@ -1026,21 +1026,35 @@ def _parse_args(argv=None):
             "differs from PATH."
         ),
     )
+    # 2026-09-01 심사 정정: --verify-storage / --missing-from-storage 는 원래
+    # 독립 플래그였으나, 무플래그 기본 경로(=전량 합성+업로드)가 이 둘과
+    # 나란히 존재해 실사고 함정이었다(F2). 무플래그를 막으려고 이 그룹을
+    # required 로 걸면서 두 플래그도 함께 그룹에 넣어야 "그 자체만으로는
+    # 아무것도 안 하는" 무플래그 통과를 막을 수 있다 — 이름은 하위 호환을
+    # 위해 그대로 둔다.
+    modes.add_argument(
+        "--verify-storage",
+        action="store_true",
+        help="Compare the collected corpus with Firebase Storage without synthesis or writes.",
+    )
+    modes.add_argument(
+        "--missing-from-storage",
+        action="store_true",
+        help="Synthesize only cache keys absent from Firebase Storage, then rsync them.",
+    )
+    modes.add_argument(
+        "--synthesize",
+        action="store_true",
+        help=(
+            "전량 합성+업로드 실행(결손분만 원하면 --missing-from-storage). "
+            "반드시 의도적으로만."
+        ),
+    )
     parser.add_argument(
         "--workers",
         type=int,
         default=16,
         help="Concurrent synthesis requests (default: 16; ignored by --dry-run).",
-    )
-    parser.add_argument(
-        "--missing-from-storage",
-        action="store_true",
-        help="Synthesize only cache keys absent from Firebase Storage, then rsync them.",
-    )
-    parser.add_argument(
-        "--verify-storage",
-        action="store_true",
-        help="Compare the collected corpus with Firebase Storage without synthesis or writes.",
     )
     parser.add_argument(
         "--scenario-pending-manifest",

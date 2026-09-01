@@ -1,3 +1,5 @@
+(assets/sfx/에서 이동 — 폴더 단위 pubspec 등록이라 번들에 실리던 것을 제외)
+
 # SFX — 효과음 에셋
 
 `SoundService`([lib/services/sound_service.dart](../../lib/services/sound_service.dart)) 와
