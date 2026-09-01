@@ -12,9 +12,11 @@ import 'support/scenario_json.dart';
 Scenario scn(String id, {String backdrop = ''}) =>
     Scenario.fromJson(<String, dynamic>{'id': id, 'backdrop': backdrop});
 
-/// 주석(`//` 이후)을 지운다 — 주석 처리된 호출이 시작작업 가드를 통과시키면
-/// 안 된다(정규식은 죽은 코드와 산 코드를 구분하지 못한다).
+/// 주석을 지운다 — `/* … */` 블록을 먼저 걷어내고 `//` 이후를 지운다. 주석
+/// 처리된 호출이 시작작업 가드를 통과시키면 안 된다(정규식은 죽은 코드와 산
+/// 코드를 구분하지 못한다).
 String stripLineComments(String source) => source
+    .replaceAll(RegExp(r'/\*.*?\*/', dotAll: true), '')
     .split('\n')
     .map((line) {
       final at = line.indexOf('//');
