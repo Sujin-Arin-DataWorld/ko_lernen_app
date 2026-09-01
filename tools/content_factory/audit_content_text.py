@@ -80,6 +80,13 @@ SURFACES: tuple[ContentSurface, ...] = (
         "world labels and structural routes; reviewed outside lesson copy",
     ),
     ContentSurface(
+        "ildu_sarangchae_construction_plan_v1.json",
+        "construction learning plan",
+        "IlDuConstructionPlanRepository / IlDuEstateConstructionPlan",
+        ("buildings", "modules"),
+        "KO/DE/EN construction context, modern scenes, prompts, and accepted learner responses",
+    ),
+    ContentSurface(
         "culture_notes.json",
         "culture notes",
         "CultureNotesService",
