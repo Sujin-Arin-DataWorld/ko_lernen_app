@@ -313,6 +313,31 @@ def check(path: Path, lock: dict) -> dict:
     return result
 
 
+def check_source_original(path: Path, lock: dict) -> dict:
+    """Validate approved source-faithful cards without recoloring their art.
+
+    C1-source-original cards retain the supplied PNG palette and native paper
+    texture. They share the container, size, diversity, and palette contracts
+    with F-E-cards, but intentionally do not use the synthetic ivory-patch and
+    added-grain requirements from the legacy generation recipe.
+    """
+    result = check(path, lock)
+    ignored_prefixes = (
+        "ivoryFrac ",
+        "no flat ivory patch ",
+        "ivory patch ",
+        "fine grain SD ",
+        "coarse grain SD ",
+    )
+    result["failures"] = [
+        failure
+        for failure in result["failures"]
+        if not failure.startswith(ignored_prefixes)
+    ]
+    result["ok"] = not result["failures"]
+    return result
+
+
 # ---- 사이드카(정본 명부) ----------------------------------------------------
 
 def load_baseline() -> dict:
@@ -434,7 +459,12 @@ def run_all(lock: dict) -> tuple[list[dict], int]:
             result = {"path": rel, "failures": ["registered file is missing"],
                       "warnings": [], "ok": False}
         else:
-            result = check(path, lock)
+            checker = (
+                check_source_original
+                if entry.get("profile") == "C1-source-original"
+                else check
+            )
+            result = checker(path, lock)
             if sha256_of(path) != entry["sha256"]:
                 result["failures"].append(
                     "sha256 mismatch — 정본 변조(사이드카와 다른 바이트). "

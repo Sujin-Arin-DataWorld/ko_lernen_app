@@ -966,30 +966,29 @@
       ]
     },
     "assets/illustrations/listening/C1Access.webp": {
-      "sha256": "d8f950f2282ec4a972cf904fa9e55234a27d63ac576ab9dd5af85d59b48332cc",
-      "kb": 83.6,
-      "ivoryFrac": 0.6891,
-      "fine": 4.825,
-      "coarse": 0.612,
-      "uniqueColors": 26764,
-      "top8": 0.7759,
+      "sha256": "00cb954352bbada9358410a419142942931a56eda14579be57e8410f0f107f56",
+      "kb": 103.4,
+      "ivoryFrac": 0.2803,
+      "fine": 3.073,
+      "coarse": 0.673,
+      "uniqueColors": 27266,
+      "top8": 0.7662,
       "patchXY": [
-        232,
+        368,
         24
-      ]
+      ],
+      "profile": "C1-source-original"
     },
     "assets/illustrations/listening/C1Attribution.webp": {
-      "sha256": "ece260a60b40850892b4a1764930e3b5645fa6f2920a498dfd4665a61fa0933e",
-      "kb": 81.8,
-      "ivoryFrac": 0.6882,
-      "fine": 4.884,
-      "coarse": 0.756,
-      "uniqueColors": 30981,
-      "top8": 0.7881,
-      "patchXY": [
-        112,
-        24
-      ]
+      "sha256": "0583a7d4a5abb13cddb428c29967e6fa2c9f3ff7dff874564800b31c4b77396f",
+      "kb": 100.3,
+      "ivoryFrac": 0.0075,
+      "fine": null,
+      "coarse": null,
+      "uniqueColors": 31960,
+      "top8": 0.6937,
+      "patchXY": null,
+      "profile": "C1-source-original"
     },
     "assets/illustrations/listening/C1Briefing.webp": {
       "sha256": "392496e5914319d99adc6c7cc4a13d02f751ae5fbc896ebb07a4bd98c1ade542",
@@ -1005,121 +1004,109 @@
       ]
     },
     "assets/illustrations/listening/C1Conflict.webp": {
-      "sha256": "2c7f72974537706a3ab81054274736b0f65cad70233e8325834558d190843ac5",
-      "kb": 81.0,
-      "ivoryFrac": 0.711,
-      "fine": 4.733,
-      "coarse": 0.694,
-      "uniqueColors": 22945,
-      "top8": 0.8079,
-      "patchXY": [
-        584,
-        24
-      ]
+      "sha256": "82085b8e2240e48e3b2de1a2963dad5841e675d6bf5dd3e5fde21743a3c0f5fa",
+      "kb": 104.7,
+      "ivoryFrac": 0.0012,
+      "fine": null,
+      "coarse": null,
+      "uniqueColors": 31856,
+      "top8": 0.5199,
+      "patchXY": null,
+      "profile": "C1-source-original"
     },
     "assets/illustrations/listening/C1Consent.webp": {
-      "sha256": "63f123a6da9d951a2399b2c4f92d666266898e441f8497983073ef9fb82f0d42",
-      "kb": 79.7,
-      "ivoryFrac": 0.6591,
-      "fine": 4.736,
-      "coarse": 0.728,
-      "uniqueColors": 22102,
-      "top8": 0.8045,
-      "patchXY": [
-        448,
-        0
-      ]
+      "sha256": "8255716a9482021f755e55bbf6f2329e25ad355295d90122bde52d492ac786df",
+      "kb": 102.0,
+      "ivoryFrac": 0.0187,
+      "fine": null,
+      "coarse": null,
+      "uniqueColors": 29737,
+      "top8": 0.5189,
+      "patchXY": null,
+      "profile": "C1-source-original"
     },
     "assets/illustrations/listening/C1Critique.webp": {
-      "sha256": "9aaadc19c493b477d633492aac6762c8fea4a551d85e8f9de379ce227c4a4337",
-      "kb": 85.0,
-      "ivoryFrac": 0.5805,
-      "fine": 5.061,
-      "coarse": 0.747,
-      "uniqueColors": 33603,
-      "top8": 0.6875,
-      "patchXY": [
-        264,
-        48
-      ]
+      "sha256": "4416c475824c826c4f0bbee36adce36db6b20c439d362c7886d700ecb1c5ff05",
+      "kb": 99.0,
+      "ivoryFrac": 0.0041,
+      "fine": null,
+      "coarse": null,
+      "uniqueColors": 49202,
+      "top8": 0.5724,
+      "patchXY": null,
+      "profile": "C1-source-original"
     },
     "assets/illustrations/listening/C1Facework.webp": {
-      "sha256": "7d82147da52637e0b67cd5b483ff96ec1d74f82f9eba4c984311e319aad953fc",
-      "kb": 77.4,
-      "ivoryFrac": 0.6772,
-      "fine": 4.614,
-      "coarse": 0.648,
-      "uniqueColors": 27410,
-      "top8": 0.7664,
-      "patchXY": [
-        144,
-        48
-      ]
+      "sha256": "18e8a6fd3ce1c1eb1fe477aeefc1f8062823815a7efcafc8c2382f21868ed0cf",
+      "kb": 99.7,
+      "ivoryFrac": 0.0005,
+      "fine": null,
+      "coarse": null,
+      "uniqueColors": 49716,
+      "top8": 0.5252,
+      "patchXY": null,
+      "profile": "C1-source-original"
     },
     "assets/illustrations/listening/C1InvisibleLabor.webp": {
-      "sha256": "afc056485ef25c1f7e7acd44cbcf1e5919aa8a2b52857ff1d3b432cd16f09fc1",
-      "kb": 84.6,
-      "ivoryFrac": 0.6384,
-      "fine": 5.115,
-      "coarse": 0.661,
-      "uniqueColors": 27052,
-      "top8": 0.7346,
-      "patchXY": [
-        216,
-        24
-      ]
+      "sha256": "4a53377a27e75383713b2f11ddf698dc764abde98cc95e5a6d5e3756c565dc36",
+      "kb": 99.2,
+      "ivoryFrac": 0.0002,
+      "fine": null,
+      "coarse": null,
+      "uniqueColors": 48979,
+      "top8": 0.4768,
+      "patchXY": null,
+      "profile": "C1-source-original"
     },
     "assets/illustrations/listening/C1Mediation.webp": {
-      "sha256": "a38ed0ace85a2c4b21aa7b129fa6b1b5b667ec83308257d06a22f9bb9a070432",
-      "kb": 81.3,
-      "ivoryFrac": 0.6839,
-      "fine": 5.059,
-      "coarse": 0.612,
-      "uniqueColors": 21099,
-      "top8": 0.7976,
+      "sha256": "23a2668faf220a0195fc05344943170d48e3b61a75ad12eb4777b47482fe0de0",
+      "kb": 102.9,
+      "ivoryFrac": 0.0301,
+      "fine": 2.168,
+      "coarse": 0.687,
+      "uniqueColors": 36529,
+      "top8": 0.6116,
       "patchXY": [
-        112,
-        24
-      ]
+        360,
+        48
+      ],
+      "profile": "C1-source-original"
     },
     "assets/illustrations/listening/C1Methodology.webp": {
-      "sha256": "7d929e398fbf6c824ad9a763ea1e0ec9d75643db78f95b4f42156cdf10ba82d8",
-      "kb": 82.2,
-      "ivoryFrac": 0.6741,
-      "fine": 4.859,
-      "coarse": 0.612,
-      "uniqueColors": 23487,
-      "top8": 0.7814,
-      "patchXY": [
-        584,
-        24
-      ]
+      "sha256": "ae1dda72bce5f8ad6c5da410181d3d267b035853847da5b2846bc7ec29cb5824",
+      "kb": 97.7,
+      "ivoryFrac": 0.0001,
+      "fine": null,
+      "coarse": null,
+      "uniqueColors": 40181,
+      "top8": 0.4551,
+      "patchXY": null,
+      "profile": "C1-source-original"
     },
     "assets/illustrations/listening/C1Policy.webp": {
-      "sha256": "fcabadc11270cd79b4373312d4282a2689a358d39866b445fb7abba29fba750e",
-      "kb": 83.3,
-      "ivoryFrac": 0.6949,
-      "fine": 5.041,
-      "coarse": 0.78,
-      "uniqueColors": 22522,
-      "top8": 0.7847,
+      "sha256": "0d23ac8f1c772e3206c5304b7781d8a89e529bac584eb23612fe3381b52a1d00",
+      "kb": 100.1,
+      "ivoryFrac": 0.5919,
+      "fine": 1.743,
+      "coarse": 0.719,
+      "uniqueColors": 22008,
+      "top8": 0.7095,
       "patchXY": [
-        648,
-        0
-      ]
+        184,
+        48
+      ],
+      "profile": "C1-source-original"
     },
     "assets/illustrations/listening/C1Uncertainty.webp": {
-      "sha256": "b45f95c349404297040b9d9785f1a17f84d3c7ca124803ad26c4185cd0136a6d",
-      "kb": 80.5,
-      "ivoryFrac": 0.7095,
-      "fine": 4.719,
-      "coarse": 0.594,
-      "uniqueColors": 21220,
-      "top8": 0.7956,
-      "patchXY": [
-        96,
-        24
-      ]
+      "sha256": "f08f7fe017b97eaacdd1320144c2287811166dd7fe885ac6de8addcd4170aa26",
+      "kb": 104.5,
+      "ivoryFrac": 0.0002,
+      "fine": null,
+      "coarse": null,
+      "uniqueColors": 38389,
+      "top8": 0.6176,
+      "patchXY": null,
+      "profile": "C1-source-original"
     },
     "assets/illustrations/listening/C2Authority.webp": {
       "sha256": "fa3287696b28e7f3c516473f02504e0830131eeae2c7aee4a41380f7d4982861",
