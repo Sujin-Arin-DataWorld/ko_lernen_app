@@ -996,9 +996,9 @@
     "semantic_hash": ""
   },
   "lib/main.dart": {
-    "mtime": 1788283685.881916,
-    "seen": 1788288288.6335576,
-    "ast_hash": "c4eb9bd2691d3a76ae1ca97b9e36b22d",
+    "mtime": 1788287253.6824338,
+    "seen": 1788287489.861941,
+    "ast_hash": "6b568c417cbaa9374589edd503f7e778",
     "semantic_hash": ""
   },
   "lib/main_shelf_preview.dart": {
@@ -4194,9 +4194,9 @@
     "semantic_hash": ""
   },
   "test/dancheong_burst_preload_contract_test.dart": {
-    "mtime": 1788285412.749381,
-    "seen": 1788288288.6335735,
-    "ast_hash": "3d8be7d4d047ddbe05f9cf2525aaffa7",
+    "mtime": 1788287253.6834362,
+    "seen": 1788287490.0082166,
+    "ast_hash": "3afe2956315814f45c0acf096820b938",
     "semantic_hash": ""
   },
   "test/dancheong_burst_viewport_test.dart": {
@@ -5544,9 +5544,9 @@
     "semantic_hash": ""
   },
   "test/scene_asset_resolver_test.dart": {
-    "mtime": 1788285412.749268,
-    "seen": 1788288288.6335697,
-    "ast_hash": "3c8ee0c91f28f3e2dd1033c32194a665",
+    "mtime": 1788287253.6834362,
+    "seen": 1788287490.0661306,
+    "ast_hash": "fbc6ffbaf08dcdaee392c8679543a6f7",
     "semantic_hash": ""
   },
   "test/screen_background_test.dart": {
@@ -5892,9 +5892,9 @@
     "semantic_hash": ""
   },
   "test/sori_stage_catalog_reward_flow_test.dart": {
-    "mtime": 1788283583.185915,
-    "seen": 1788288288.6335657,
-    "ast_hash": "9a1c8a1372b730fcba3d24dc819dc22c",
+    "mtime": 1788287253.6847732,
+    "seen": 1788287490.07943,
+    "ast_hash": "29b1d646fb3084ff80afb2da869cd93a",
     "semantic_hash": ""
   },
   "test/sori_stage_hanok_shortcuts_test.dart": {
@@ -8784,9 +8784,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1788283326.8601718,
-    "seen": 1788288288.6335988,
-    "ast_hash": "db21c5844d2ced5319eb97218f93e581",
+    "mtime": 1788287253.6714606,
+    "seen": 1788287490.2770085,
+    "ast_hash": "4f535dcd052112523c049d481a57c2e8",
     "semantic_hash": ""
   },
   "BETA_INSTALL_GUIDE.md": {
@@ -9642,9 +9642,9 @@
     "semantic_hash": ""
   },
   "docs/store/closed-testing-checklist-v2.md": {
-    "mtime": 1788283326.8594842,
-    "seen": 1788288288.6335952,
-    "ast_hash": "69c3390834dab783a4bc46613bfc8af2",
+    "mtime": 1788287253.676289,
+    "seen": 1788287490.3093328,
+    "ast_hash": "33ec84e2822a4a1ac5274fbe2f73dafb",
     "semantic_hash": ""
   },
   "docs/store/cloud-function-deploy.md": {
@@ -11238,9 +11238,9 @@
     "semantic_hash": ""
   },
   "tool/pad_android12_splash_icon.py": {
-    "mtime": 1788283592.801915,
-    "seen": 1788288288.6335764,
-    "ast_hash": "fb11f0c7a75952715c86ed4b0e0b4126",
+    "mtime": 1788287253.6871355,
+    "seen": 1788287490.1243114,
+    "ast_hash": "07e76131c23c5e83116dd0fc111bd154",
     "semantic_hash": ""
   },
   "docs/data/coldstart_benchmark.md": {
@@ -11814,9 +11814,9 @@
     "semantic_hash": ""
   },
   "docs/HANDOFF-2026-08-27-waves.md": {
-    "mtime": 1788283326.8590083,
-    "seen": 1788288288.6335888,
-    "ast_hash": "0a8ba951dbf249bed83069548b5a32e6",
+    "mtime": 1788287253.672973,
+    "seen": 1788287490.2876315,
+    "ast_hash": "d0732e2cdb7ad91a1958b0d9ce1fee76",
     "semantic_hash": ""
   },
   "lib/models/ildu_world_manifest.dart": {
@@ -13494,9 +13494,9 @@
     "semantic_hash": ""
   },
   "docs/store/app-store-connect-v2.0.8-review-access.md": {
-    "mtime": 1788283326.8593235,
-    "seen": 1788288288.6335921,
-    "ast_hash": "60e5e96539e8c136b9b324ec773f6b53",
+    "mtime": 1788287253.6740057,
+    "seen": 1788287490.3093302,
+    "ast_hash": "3b7bb3faeff7c0e2c9f75c87bc0b4ace",
     "semantic_hash": ""
   },
   "lib/screens/my_words_screen.dart": {
@@ -13890,33 +13890,33 @@
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-09-01-handoff-verification-and-release/ios-manual-runbook.md": {
-    "mtime": 1788281009.5858893,
-    "seen": 1788288288.6336038,
-    "ast_hash": "f26c107619b48a3b3ab077c68cffc3ab",
+    "mtime": 1788287253.668005,
+    "seen": 1788287490.2770035,
+    "ast_hash": "0b13ae7b7abc68215f1e4c36efb29256",
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-09-01-handoff-verification-and-release/progress.md": {
-    "mtime": 1788286079.6579397,
-    "seen": 1788288288.6336012,
-    "ast_hash": "a4b98b6d7ba32c7750304acd6c497848",
+    "mtime": 1788287253.6693487,
+    "seen": 1788287490.2770061,
+    "ast_hash": "ad2699b83c3d82cfcb34f4ad335e6e2f",
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-01-handoff-verification-and-release.md": {
-    "mtime": 1788280620.8338854,
-    "seen": 1788288288.6335824,
-    "ast_hash": "e435d62dae56f06718d4771cecea877a",
+    "mtime": 1788287253.6774068,
+    "seen": 1788287490.3164003,
+    "ast_hash": "e892351814b9ed82554dbfbcbf31f0bc",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-01-handoff-verification-and-release-design.md": {
-    "mtime": 1788280538.4058847,
-    "seen": 1788288288.6335795,
-    "ast_hash": "c509f77f21ec4ae30ea7d8fd80ad5c47",
+    "mtime": 1788287253.679435,
+    "seen": 1788287490.3187678,
+    "ast_hash": "088225f1734ddb645507f1476d53ddc7",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-01-handoff-verification-matrix.md": {
-    "mtime": 1788285412.7489045,
-    "seen": 1788288288.6335855,
-    "ast_hash": "a004305c06f3e7e0056fb617570eb93e",
+    "mtime": 1788287253.6804352,
+    "seen": 1788287490.31877,
+    "ast_hash": "8248b88994f02b971f02d4ca6c4d2cc0",
     "semantic_hash": ""
   }
 }
