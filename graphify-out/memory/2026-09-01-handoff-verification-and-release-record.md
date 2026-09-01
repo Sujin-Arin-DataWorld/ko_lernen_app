@@ -39,8 +39,20 @@ source_nodes: ["HANDOFF-2026-08-27-waves.md", "2026-09-01-handoff-verification-m
   같은 커밋으로 두 트랙을 올리면 versionCode(=commit count)가 충돌한다 — 내부 업로드가 2215를 먼저 소비했다.
   빌드·서명·정확-SHA 게이트는 전부 통과, 업로드 API 호출만 거부(run 33563121115).
   → 재발 방지 규칙을 `docs/store/closed-testing-checklist-v2.md` §2.2에 명문화.
-  → 해소 경로: `PLAY_INTERNAL_RELEASE_ENABLED`를 끈 뒤 새 커밋으로 main tip을 올리고(commit count 2216+)
-  그 SHA로 play_closed 재디스패치.
+- **비공개 재시도 성공**: 변수 OFF 확인(main run 1032에서 내부 업로드 잡 `skipped` — 이 컨테이너는 변수 API 403이라
+  잡 결과가 유일한 관측 증거) → 기록 PR **#250** 병합 `1a3c929a`(커밋 수 **2217**) → run 1032 success →
+  play_closed run #7(33567264697) **success**: 아티팩트 `android-closed-v2217-1a3c929a…`, tracks alpha,
+  Play Edit `16645637107830119465` 커밋.
+- 최종 트랙 상태: internal = vC**2215**@`1175c4f9`(Edit 17164785591981609934), alpha = vC**2217**@`1a3c929a`.
+  두 빌드의 차이는 설계상 의도된 것 — 내부는 `BETA_UNLOCK_ALL=true`(ci.yml:406, 프리미엄 오버라이드),
+  비공개는 그 define 없음(계약 테스트가 강제). **업로드까지이며 Play Console 처리·게시·테스터 설치·승격은 수동·미확인.**
+- Codex 리뷰 P1(내부 AAB를 alpha로 승격하자) 반려: 그 산출물은 `BETA_UNLOCK_ALL=true` 빌드라 비공개 테스터에게
+  프리미엄이 풀린다(`premium_service.dart:182-187`). 체크리스트 §3 L204가 이미 "exact main SHA로 Closed 전용
+  workflow 실행"을 지시하고, AGENTS.md:394-396은 트랙 승격이 수동임을 명시한다. 근거는 PR #250 스레드에 기록.
+- versionCode 계산 주체 정정: 워크플로가 아니라 `android/app/build.gradle.kts:58-70,92`의 `autoVersionCode`
+  (=`git rev-list --count HEAD`, 실패 시 21). pubspec `+30`은 Flutter build-number로 iOS CFBundleVersion에만 반영.
+- 부수 검증: `task=ci` 디스패치 수복(01a873d0)을 실제 실행해 확인 — run 1023에서 실패했던
+  `Verify append-only Living Hanok grant history`가 run 1033에서 success.
 - 대조 사실: 비공개 트랙이 이미 보유한 빌드(vC2208, Codex가 c82a7bef에서 업로드)와 `1175c4f9` 사이의 차분은
   ci.yml·문서·웹사이트 lockfile·pubspec 버전 줄뿐 — **앱 바이너리에 영향을 주는 변경 0**.
 - iOS는 CI 자동화 금지 계약 + 컨테이너 한계로 수동 런북 인계(`.superpowers/sdd/2026-09-01-handoff-verification-and-release/ios-manual-runbook.md`).
