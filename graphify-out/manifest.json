@@ -3972,9 +3972,9 @@
     "semantic_hash": ""
   },
   "test/content_id_contract_test.dart": {
-    "mtime": 1788215435.6404302,
-    "seen": 1788233446.466444,
-    "ast_hash": "8d5f323c1743b6c2c1665eeb008dd2f9",
+    "mtime": 1788238085.9549084,
+    "seen": 1788238298.7671614,
+    "ast_hash": "2de47bbe52ad187f0abb702b697b6557",
     "semantic_hash": ""
   },
   "test/content_palette_guard_test.dart": {
@@ -9888,9 +9888,9 @@
     "semantic_hash": ""
   },
   "pubspec.yaml": {
-    "mtime": 1788236956.509582,
-    "seen": 1788237929.84542,
-    "ast_hash": "cd3347d6a8bc149ea0df18759fb7f43b",
+    "mtime": 1788238085.9523923,
+    "seen": 1788238299.1824985,
+    "ast_hash": "e8bdb3f48af5c8699bea8e0fef98cc6d",
     "semantic_hash": ""
   },
   "scripts/cache/README.md": {
