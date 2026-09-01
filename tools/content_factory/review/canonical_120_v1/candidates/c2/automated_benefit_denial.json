@@ -193,6 +193,9 @@
       },
       {
         "id": "quest_automated_benefit_denial_03",
+        "conceptIds": [
+          "concept_c2_accountable_systems"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "그렇기 때문에 이해 가능한 사유 통지와 이의 제기 통로를 효율 평가에 포함해야 합니다.",

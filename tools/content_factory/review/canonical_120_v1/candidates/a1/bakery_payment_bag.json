@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_bakery_payment_bag_03",
+        "conceptIds": [
+          "concept_a1_payment_delivery"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "이 빵만 바로 먹을게요.",

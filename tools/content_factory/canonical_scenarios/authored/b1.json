@@ -106,7 +106,7 @@
         {"speaker": "sujin", "ko": "제가 준비하려던 게 부담스러웠어요?", "de": "War das, was ich vorbereiten wollte, zu viel für dich?", "en": "Did what I was planning feel like too much?"},
         {"speaker": "christian", "ko": "아니요. 축하가 싫었던 건 아니에요.", "de": "Nein. Ich wollte nicht sagen, dass ich keine Feier mag.", "en": "No. It wasn't that I didn't want to celebrate."},
         {"speaker": "christian", "ko": "사람이 많은 자리가 조금 피곤하거든요.", "de": "Große Gruppen strengen mich nur etwas an.", "en": "Large gatherings just tire me out a bit."},
-        {"speaker": "sujin", "ko": "저는 제 계획이 싫다는 뜻인 줄 알았어요.", "de": "Ich dachte, du fändest gerade meinen Plan unangenehm.", "en": "I thought you specifically didn't like my plan."},
+        {"speaker": "sujin", "ko": "저는 제 계획이 싫다는 뜻인 줄 알았어요.", "de": "Ich dachte, du wolltest sagen, dass dir mein Plan nicht gefällt.", "en": "I thought you specifically didn't like my plan."},
         {"speaker": "christian", "ko": "수진이랑 저녁 먹는 건 정말 좋아요.", "de": "Mit dir zu Abend zu essen fände ich wirklich schön.", "en": "I'd really like to have dinner with you."},
         {"speaker": "sujin", "ko": "그럼 다음에는 먼저 원하는 걸 물어볼게요.", "de": "Dann frage ich nächstes Mal vorher, was du möchtest.", "en": "Then next time, I'll ask what you want first."}
       ]

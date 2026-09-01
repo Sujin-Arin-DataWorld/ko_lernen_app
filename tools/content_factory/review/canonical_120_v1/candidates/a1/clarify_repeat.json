@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_clarify_repeat_03",
+        "conceptIds": [
+          "concept_a1_clarification"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "다시 말씀해 주세요.",

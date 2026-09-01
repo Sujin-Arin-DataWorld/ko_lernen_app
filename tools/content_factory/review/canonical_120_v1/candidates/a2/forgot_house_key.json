@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_forgot_house_key_03",
+        "conceptIds": [
+          "concept_a2_home_money"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "혼자 가기 좀 어려워. 같이 가 줄래?",

@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_meeting_opening_context_03",
+        "conceptIds": [
+          "concept_b2_formal_opening"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "알겠습니다. 오늘 결정할 범위부터 메모할게요.",

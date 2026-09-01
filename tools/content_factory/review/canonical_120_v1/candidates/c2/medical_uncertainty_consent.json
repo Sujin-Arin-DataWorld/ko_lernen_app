@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_medical_uncertainty_consent_03",
+        "conceptIds": [
+          "concept_c2_accountable_systems"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "상대위험, 예상되는 실제 범위, 알려진 부작용, 아직 모르는 점과 중단할 선택권을 나눠서 보여 주죠.",

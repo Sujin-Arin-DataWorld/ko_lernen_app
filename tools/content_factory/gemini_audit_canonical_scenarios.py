@@ -16,6 +16,7 @@ import hmac
 import json
 import os
 from pathlib import Path
+import re
 import shutil
 import subprocess
 import time
@@ -193,7 +194,7 @@ class GeminiClient:
         api_key: str,
         *,
         api_root: str = API_ROOT,
-        timeout_seconds: int = 180,
+        timeout_seconds: int = 300,
         max_attempts: int = 3,
     ) -> None:
         if not api_key.strip():
@@ -215,6 +216,7 @@ class GeminiClient:
             method="POST",
         )
         for attempt in range(1, self._max_attempts + 1):
+            retry_delay = min(2 ** (attempt - 1), 8)
             try:
                 with urllib.request.urlopen(
                     request, timeout=self._timeout_seconds
@@ -233,10 +235,12 @@ class GeminiClient:
                     raise GeminiAuditError(
                         f"Gemini HTTP {error.code}: {detail}"
                     ) from error
+                if error.code == 429:
+                    retry_delay = retry_delay_seconds(detail, attempt=attempt)
             except (urllib.error.URLError, TimeoutError) as error:
                 if attempt == self._max_attempts:
                     raise GeminiAuditError(f"Gemini request failed: {error}") from error
-            time.sleep(min(2 ** (attempt - 1), 8))
+            time.sleep(retry_delay)
         raise GeminiAuditError("Gemini request exhausted retries")
 
     def count_tokens(self, model: str, contents: Sequence[Mapping[str, Any]]) -> int:
@@ -347,8 +351,15 @@ def _audit_instructions(level: str) -> str:
 2. 레벨 적합성: 레벨은 문장 길이뿐 아니라 내용 범위, 사회적 거리, 인지 과제로 판정한다. A1/A2는 정말 쉽되 비문·유아어·억지 축약을 허용하지 않는다. 공식적 관용구는 장면상 필요하면 입력으로 남길 수 있으나 학습자 산출 부담은 낮아야 한다.
 3. 화용 보존: 사실, 극성, 인과, 화행, 선택권, 높임, 관계, 시제·상, 정보 출처, 확신, 양태 강도, 전제를 점검한다. 없는 인물·성별·직책·절차·감정을 만들지 않는다.
 4. DE/EN 자연성: 한국어 어순을 모사하지 말고 목표어 장면에서 실제 발화처럼 읽혀야 한다. 번역투가 유창해 보여도 의미나 관계가 이동하면 실패다.
-5. 독일어 호칭: 앱 UI의 기본 du와 대화 속 인물 관계를 혼동하지 않는다. 낯선 사람·서비스는 Sie일 수 있고 친구는 du일 수 있다. 같은 화자-청자 관계 안에서 du/Sie, 동사형, 소유사, 명령형이 섞이면 REL로 기록한다.
+5. 독일어 호칭: 앱 UI의 기본 du와 대화 속 인물 관계를 혼동하지 않는다. 한국어의 -요체는 독일어 Sie의 자동 근거가 아니다. scenario brief의 relationship을 우선하며, 친구·친한 사이·연애 관계는 한국어가 -요체여도 독일어에서는 자연스럽게 du를 쓴다. 낯선 사람·서비스·업무상 처음 만난 관계는 Sie일 수 있다. 같은 화자-청자 관계 안에서 du/Sie, 동사형, 소유사, 명령형이 섞이면 REL로 기록한다.
 6. 문화·교육: 문화 노트는 이 장면의 기능만 설명하고 국민성 일반화를 하지 않는다. 어휘·문법·퀘스트는 실제 대사에서 추출되어야 하며 정답이 유일해야 한다.
+
+오탐 방지
+- 분석상 번역이 자연스럽고 관계에도 맞는다면 주석·설명 추가 같은 선택적 제안만으로 finding이나 review를 만들지 않는다.
+- REL은 실제 du/Sie 혼용, 잘못된 관계 선택, 호칭·동사형 불일치가 입력 증거로 확인될 때만 쓴다. 대명사가 없는 중립 문장, `Könnte ich ...?` 같은 자체로 공손한 문장, 단순한 문체 취향은 REL이 아니다.
+- 한국어의 높임·반말 대조를 DE/EN에서 기계적으로 Sie/du나 별도 형태 대조로 재현할 필요는 없다. 목표 문화의 실제 관계에서 자연스러운 호칭을 선택하고, 의미와 관계가 보존되면 pass다.
+- 자연스러운 혼잣말, 상황상 가능한 복수 표현, 구어체와 문어체 중 어느 쪽도 허용 가능한 선택을 억지로 오류화하지 않는다.
+- analysisKo에서 `올바르다`, `자연스럽다`, `관계에 부합한다`, `큰 위반은 없다`고 판단했다면 그 항목은 findings=[]와 pass여야 한다.
 
 판정 규칙
 - critical: ACC/REL/REF/INDEX/DEIX/TAM/EVID/FORCE/PRESUP/CULT/ITEM/INT/DATA 중 학습 의미나 관계를 깨는 오류. 하나라도 있으면 reject.
@@ -541,6 +552,53 @@ def validate_model_audit(
     normalized = dict(result)
     normalized["scenarios"] = [by_id[scenario_id] for scenario_id in expected_ids]
     return normalized
+
+
+def reusable_resume_audit(
+    receipt: Any,
+    *,
+    expected_fields: Mapping[str, Any],
+    level: str,
+    expected_ids: Sequence[str],
+) -> dict[str, Any] | None:
+    """Return a verified cached audit, or None so the caller regenerates it."""
+
+    if not isinstance(receipt, dict):
+        return None
+    if any(receipt.get(key) != expected for key, expected in expected_fields.items()):
+        return None
+    if not receipt.get("modelVersion") or not receipt.get("responseId"):
+        return None
+    model_result = receipt.get("audit")
+    if not isinstance(model_result, dict):
+        return None
+    try:
+        return validate_model_audit(
+            model_result,
+            level=level,
+            expected_ids=expected_ids,
+        )
+    except GeminiAuditError:
+        return None
+
+
+def retry_delay_seconds(detail: str, *, attempt: int) -> float:
+    match = re.search(r"retry\s+in\s+([0-9]+(?:\.[0-9]+)?)s", detail, re.IGNORECASE)
+    if match:
+        return min(max(float(match.group(1)) + 1.0, 1.0), 60.0)
+    return float(min(2 ** (attempt - 1), 8))
+
+
+def prompt_token_count_for_estimate(
+    client: GeminiClient,
+    *,
+    model: str,
+    contents: Sequence[Mapping[str, Any]],
+    pricing_tier: str,
+) -> int:
+    if pricing_tier == "free":
+        return 0
+    return client.count_tokens(model, contents)
 
 
 def price_for_prompt(input_tokens: int) -> tuple[float, float]:
@@ -753,7 +811,12 @@ def run(
             schema=response_schema,
         )
         prepared[level] = (candidates, contents, request_hash)
-        token_counts[level] = client.count_tokens(model, contents)
+        token_counts[level] = prompt_token_count_for_estimate(
+            client,
+            model=model,
+            contents=contents,
+            pricing_tier=pricing_tier,
+        )
 
     estimate = estimate_cost(
         token_counts,
@@ -792,9 +855,6 @@ def run(
         existing: dict[str, Any] | None = None
         if resume and level_path.exists():
             value = pipeline.read_json(level_path)
-            if not isinstance(value, dict):
-                raise GeminiAuditError(f"{level.upper()} resume receipt must be an object")
-            existing = value
             expected_fields = {
                 "schemaVersion": AUDIT_RECEIPT_SCHEMA_VERSION,
                 "kind": "gemini_canonical_scenario_level_audit",
@@ -807,21 +867,15 @@ def run(
                 "auditRequestSha256": request_hash,
                 **level_provenance,
             }
-            for key, expected in expected_fields.items():
-                if existing.get(key) != expected:
-                    raise GeminiAuditError(
-                        f"{level.upper()} resume receipt {key} does not match"
-                    )
-            if not existing.get("modelVersion") or not existing.get("responseId"):
-                raise GeminiAuditError(
-                    f"{level.upper()} resume receipt lacks model provenance"
-                )
-            model_result = existing.get("audit")
-            if not isinstance(model_result, dict):
-                raise GeminiAuditError(f"{level.upper()} resume audit is missing")
-            normalized = validate_model_audit(
-                model_result, level=level, expected_ids=expected_ids
+            normalized = reusable_resume_audit(
+                value,
+                expected_fields=expected_fields,
+                level=level,
+                expected_ids=expected_ids,
             )
+            if normalized is not None:
+                existing = value
+        if existing is not None:
             usage_value = existing.get("usageMetadata")
             usage = dict(usage_value) if isinstance(usage_value, dict) else {}
             level_cost = float(existing.get("estimatedActualUsd") or 0.0)

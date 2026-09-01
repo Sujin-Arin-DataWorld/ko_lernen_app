@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_rental_repair_deposit_03",
+        "conceptIds": [
+          "concept_b2_complaint"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "좋습니다. 두 사진의 날짜도 함께 보내 드릴게요.",

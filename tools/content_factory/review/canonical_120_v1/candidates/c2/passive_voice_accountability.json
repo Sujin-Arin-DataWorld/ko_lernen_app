@@ -187,6 +187,9 @@
       },
       {
         "id": "quest_passive_voice_accountability_03",
+        "conceptIds": [
+          "concept_c2_fandom_discourse"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "‘기관은 유출을 확인했고 접근을 차단했다’처럼 확인된 조치는 능동태로 쓰면 됩니다.",

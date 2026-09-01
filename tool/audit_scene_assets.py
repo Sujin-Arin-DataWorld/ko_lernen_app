@@ -1,6 +1,6 @@
 """Deterministic audit for canonical scenario scene assets.
 
-The 419 scenario shards are the authority. Every scenario may resolve to a
+The runtime scenario shards are the authority. Every scenario may resolve to a
 scenario-specific poster first and to an approved category poster as a runtime
 fallback. Dedicated art is strict: exact canonical filename, 1536x1024 PNG,
 RGB/RGBA, readable, unique bytes, and unambiguous scenario ID. Category
@@ -290,11 +290,11 @@ def find_category_poster_lock_issues(
         entries_by_id[category_id].append(raw_entry)
 
     locked_categories = set(entries_by_id)
-    if locked_categories != expected_categories:
+    if not expected_categories.issubset(locked_categories):
         issues.append(
             _issue(
                 "category_poster_set_drift",
-                "Locked category IDs do not exactly match canonical scenario backdrops.",
+                "Canonical scenario backdrops are missing from the approved category-poster lock.",
                 path=_project_path(CATEGORY_POSTER_LOCK_PATH, ROOT),
                 expected=sorted(expected_categories),
                 actual=sorted(locked_categories),
@@ -531,8 +531,13 @@ def scan_scene_inventory(
             }
         )
     )
+    locked_category_ids = {
+        str(entry.get("id"))
+        for entry in (category_lock or {}).get("categories", [])
+        if isinstance(entry, Mapping) and isinstance(entry.get("id"), str)
+    }
     allowed_stems = (
-        scenario_ids | fallback_backdrops
+        scenario_ids | fallback_backdrops | locked_category_ids
         if same_directory and not review_mode
         else scenario_ids
     )

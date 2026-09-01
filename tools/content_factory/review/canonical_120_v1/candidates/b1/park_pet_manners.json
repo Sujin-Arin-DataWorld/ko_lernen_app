@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_park_pet_manners_03",
+        "conceptIds": [
+          "concept_b1_life"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "사람 많은 구간에서는 줄을 조금 짧게 잡아 주세요.",

@@ -35,6 +35,17 @@ BATCH_06_SCENARIOS = SCRIPT_DIR / "drafts" / "c1_batch06_scenarios_b1_c2.json"
 BATCH_09_MANIFEST = SCRIPT_DIR / "drafts" / "batch_09_4x_manifest.json"
 BATCH_10_MANIFEST = SCRIPT_DIR / "drafts" / "batch_10_4x_manifest.json"
 LIVE_SATZ = SCRIPT_DIR.parents[1] / "assets" / "data" / "satz_sentences.json"
+CANONICAL_SCENARIO_RUNTIME = (
+    json.loads(
+        (
+            SCRIPT_DIR.parents[1]
+            / "assets"
+            / "data"
+            / "curriculum_manifest.json"
+        ).read_text(encoding="utf-8")
+    ).get("scenarioCorpusGeneration")
+    == "canonical_120_v1"
+)
 
 
 def _json_ids(path: Path, collection: str) -> set[str]:
@@ -278,16 +289,23 @@ class Batch10KoreanQualityTest(unittest.TestCase):
         self.assertEqual(len(scenarios), 174)
         for row in scenarios:
             ident = row["id"]
-            # Live routing and assessment structure can advance independently
-            # of the authored draft. Applying the draft copy to the live row
-            # must therefore be idempotent instead of replacing those fields.
-            self.assertEqual(
-                builder._merge_humanized_scenario_copy(live[ident], row),
-                live[ident],
-                ident,
-            )
-            self.assertIsInstance(live[ident].get("shelf"), str, ident)
-            self.assertIsInstance(live[ident].get("backdrop"), str, ident)
+            live_row = live.get(ident)
+            if live_row is not None:
+                # Live routing and assessment structure can advance independently
+                # of the authored draft. Applying the draft copy to the live row
+                # must therefore be idempotent instead of replacing those fields.
+                self.assertEqual(
+                    builder._merge_humanized_scenario_copy(live_row, row),
+                    live_row,
+                    ident,
+                )
+                self.assertIsInstance(live_row.get("shelf"), str, ident)
+                self.assertIsInstance(live_row.get("backdrop"), str, ident)
+            else:
+                self.assertTrue(
+                    CANONICAL_SCENARIO_RUNTIME,
+                    f"{ident} is unexpectedly absent from a non-canonical runtime",
+                )
             for text in collect_korean_fields(row):
                 self.assertFalse(
                     LATIN_IN_KO.search(text),
@@ -402,6 +420,12 @@ class Batch10ScenarioDraftTest(unittest.TestCase):
         reserved = set(builder.RESERVED_SCENARIOS) | _json_ids(BATCH_06_SCENARIOS, "scenarios")
         draft_ids = {row["id"] for row in scenarios}
         self.assertFalse(draft_ids & reserved)
+        if CANONICAL_SCENARIO_RUNTIME:
+            # Batch 10 remains as immutable authored lineage. Its scenarios were
+            # intentionally retired when canonical_120_v1 became the runtime.
+            self.assertFalse(draft_ids & live_scenario_ids)
+            return
+
         self.assertTrue(draft_ids <= live_scenario_ids)
 
         counts, amount = integrate(manifest_path=BATCH_10_MANIFEST, apply=False)

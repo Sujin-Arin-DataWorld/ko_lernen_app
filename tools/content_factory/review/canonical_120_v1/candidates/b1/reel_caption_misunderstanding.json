@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_reel_caption_misunderstanding_03",
+        "conceptIds": [
+          "concept_b1_indirect_speech"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "좋다. 농담은 남기고 우리 얘기라는 것만 분명히 하자.",

@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_forgot_presentation_cable_03",
+        "conceptIds": [
+          "concept_a2_work_study"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "내가 옆 조에 물어볼게.",

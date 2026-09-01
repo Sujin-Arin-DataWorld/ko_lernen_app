@@ -3,14 +3,14 @@
   "generationId": "canonical_120_v1",
   "candidateCount": 20,
   "scenarioCounts": {
-    "a1": 87,
+    "a1": 20,
     "a2": 20,
-    "b1": 75,
-    "b2": 73,
-    "c1": 50,
-    "c2": 46
+    "b1": 20,
+    "b2": 20,
+    "c1": 20,
+    "c2": 20
   },
-  "candidateSetSha256": "c0fa2c357fdbecd43d938e62765dc31bd9faca10042e5d77c3db7d83bb8d3ddb",
+  "candidateSetSha256": "352cd4cc99148c1abd89a18ec2a72bc786e916a769fd50ab79777b3c1d32959e",
   "ttsPendingCount": 147,
   "approvalRecorded": false,
   "runtimeWritten": false,

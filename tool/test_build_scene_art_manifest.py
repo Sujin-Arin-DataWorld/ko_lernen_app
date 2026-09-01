@@ -28,9 +28,9 @@ class SceneArtManifestTest(unittest.TestCase):
             build_scene_art_manifest.ROOT
         )
 
-    def test_exact_419_rows_and_fixed_category_counts(self) -> None:
-        self.assertEqual(self.manifest["scenarioCount"], 419)
-        self.assertEqual(len(self.entries), 419)
+    def test_exact_120_rows_and_fixed_category_counts(self) -> None:
+        self.assertEqual(self.manifest["scenarioCount"], 120)
+        self.assertEqual(len(self.entries), 120)
         self.assertEqual(
             self.manifest["categoryOrder"],
             [
@@ -52,21 +52,21 @@ class SceneArtManifestTest(unittest.TestCase):
             ],
         )
         expected = {
-            "office": 172,
-            "home": 86,
-            "cafe": 36,
-            "station": 27,
-            "market": 22,
-            "theme_park": 6,
-            "convenience": 14,
-            "restaurant": 13,
-            "pharmacy": 9,
-            "directions": 8,
-            "hotel": 8,
-            "taxi": 7,
-            "airport": 5,
-            "bank": 3,
-            "salon": 3,
+            "office": 38,
+            "home": 44,
+            "cafe": 9,
+            "station": 9,
+            "market": 4,
+            "theme_park": 0,
+            "convenience": 1,
+            "restaurant": 5,
+            "pharmacy": 1,
+            "directions": 5,
+            "hotel": 1,
+            "taxi": 2,
+            "airport": 1,
+            "bank": 0,
+            "salon": 0,
         }
         self.assertEqual(self.manifest["categoryCounts"], expected)
         self.assertEqual(Counter(row["category"] for row in self.entries), Counter(expected))
@@ -94,7 +94,7 @@ class SceneArtManifestTest(unittest.TestCase):
         self.assertEqual(self.entries, expected_sort)
         self.assertEqual(
             [row["priorityOrder"] for row in self.entries],
-            list(range(1, 420)),
+            list(range(1, 121)),
         )
 
     def test_generated_from_hashes_match_canonical_sources(self) -> None:
@@ -302,14 +302,15 @@ class SceneArtManifestTest(unittest.TestCase):
 
     def test_record_result_measures_png_and_keeps_visual_review_pending(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
-            path = Path(tmp) / "a1_class_pencil.png"
+            scenario_id = self.entries[0]["id"]
+            path = Path(tmp) / f"{scenario_id}.png"
             Image.new("RGB", (1536, 1024), (20, 40, 60)).save(path, "PNG")
             manifest = build_scene_art_manifest.build_manifest(
                 build_scene_art_manifest.ROOT
             )
             build_scene_art_manifest.record_generation_result(
                 manifest,
-                scenario_id="a1_class_pencil",
+                scenario_id=scenario_id,
                 normalized_file=path,
                 generator="built-in image_gen (model identity not exposed)",
                 result_id="exec-example",
@@ -326,7 +327,7 @@ class SceneArtManifestTest(unittest.TestCase):
                 review_notes=["human visual review required"],
             )
             row = next(
-                row for row in manifest["entries"] if row["id"] == "a1_class_pencil"
+                row for row in manifest["entries"] if row["id"] == scenario_id
             )
             generation = row["generation"]
             self.assertEqual(generation["status"], "generated_pending_review")

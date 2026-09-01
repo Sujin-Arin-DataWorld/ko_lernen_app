@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_fan_translation_credit_03",
+        "conceptIds": [
+          "concept_c1_fan_labor"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "의미가 달라지는 수정은 게시 전에 번역자에게 확인받는 절차가 필요합니다.",

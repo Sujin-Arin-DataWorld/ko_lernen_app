@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_feedback_specific_example_03",
+        "conceptIds": [
+          "concept_b2_precise_requests"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "네. 그 역할을 기준으로 준비해 보겠습니다.",

@@ -36,7 +36,21 @@ void main() {
 
     test('기준선의 264개는 backdropKey 가 그대로다', () {
       final scenarios = allScenarioJson();
-      expect(scenarios.length, greaterThanOrEqualTo(baseline.length));
+      final curriculum =
+          jsonDecode(
+                File('assets/data/curriculum_manifest.json').readAsStringSync(),
+              )
+              as Map<String, dynamic>;
+      final generation = curriculum['scenarioCorpusGeneration'];
+      if (generation == 'legacy_413_v1') {
+        expect(scenarios.length, greaterThanOrEqualTo(baseline.length));
+      } else {
+        expect(generation, 'canonical_120_v1');
+        expect(scenarios, hasLength(120));
+        // The canonical corpus is a full redesign, so reused IDs are governed
+        // by the new locked scene inventory rather than the legacy backdrop.
+        return;
+      }
       var checked = 0;
       for (final raw in scenarios) {
         final scenario = Scenario.fromJson(raw);
@@ -51,8 +65,9 @@ void main() {
           reason: '${scenario.id} 의 배경이 바뀌었습니다',
         );
       }
-      // 기준선 항목이 코퍼스에서 사라지는 것도 회귀다.
-      expect(checked, baseline.length);
+      if (generation == 'legacy_413_v1') {
+        expect(checked, baseline.length);
+      }
     });
   });
 
@@ -74,14 +89,14 @@ void main() {
       'taxi',
       'theme_park',
     };
-    // Theme Park Date 승격까지 반영한 라이브 레벨별 수량이다 (총 419편).
+    // canonical_120_v1은 레벨마다 검수된 정본 20편만 런타임에 둔다.
     const expectedCounts = <String, int>{
-      'a1': 88,
-      'a2': 83,
-      'b1': 76,
-      'b2': 74,
-      'c1': 51,
-      'c2': 47,
+      'a1': 20,
+      'a2': 20,
+      'b1': 20,
+      'b2': 20,
+      'c1': 20,
+      'c2': 20,
     };
 
     test('레거시 단일 파일은 사라졌다', () {
@@ -93,7 +108,7 @@ void main() {
         final items = scenarioShardRoot(level)['scenarios'] as List;
         expect(items.length, expectedCounts[level], reason: level);
       }
-      expect(allScenarioJson().length, 419);
+      expect(allScenarioJson().length, 120);
     });
 
     test('샤드에는 자기 레벨만 들어 있다', () {

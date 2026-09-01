@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_meeting_time_03",
+        "conceptIds": [
+          "concept_a1_time_numbers"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "아, 일곱 시요.",

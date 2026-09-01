@@ -192,6 +192,9 @@
       },
       {
         "id": "quest_kakao_contact_after_class_03",
+        "conceptIds": [
+          "concept_a1_contact_address"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "아, 친구로 추가됐어요.",

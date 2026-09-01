@@ -187,6 +187,10 @@
       },
       {
         "id": "quest_bunshik_tteokbokki_03",
+        "conceptIds": [
+          "concept_object_particle",
+          "concept_request_polite"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "그럼 순한 맛으로 주세요.",

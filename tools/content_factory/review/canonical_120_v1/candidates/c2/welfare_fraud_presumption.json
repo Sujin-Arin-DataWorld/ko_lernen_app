@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_welfare_fraud_presumption_03",
+        "conceptIds": [
+          "concept_c2_discourse_institutions"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "네. 존중하는 문체를 쓴다고 해서 통제를 포기하는 것은 아니니까요.",

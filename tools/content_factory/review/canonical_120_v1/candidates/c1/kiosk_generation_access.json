@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_kiosk_generation_access_03",
+        "conceptIds": [
+          "concept_c1_inclusive_systems"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "좋습니다. 평균 시간뿐 아니라 주문 포기율이 줄어드는지도 보겠습니다.",

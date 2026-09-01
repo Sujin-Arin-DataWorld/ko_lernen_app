@@ -17,7 +17,11 @@ class LoaderCoverageAuditTest(unittest.TestCase):
         report = LoaderCoverageAudit(ROOT).build()
 
         self.assertEqual(report["state"], "live")
-        self.assertEqual(report["inventory"]["scenario"]["exactPerLevel"]["c1"], 51)
+        self.assertEqual(report["inventory"]["scenario"]["total"], 120)
+        self.assertEqual(
+            report["inventory"]["scenario"]["exactPerLevel"],
+            {level: 20 for level in ("a1", "a2", "b1", "b2", "c1", "c2")},
+        )
         self.assertEqual(report["inventory"]["pronunciation"]["total"], 84)
         self.assertEqual(
             report["libraryLoader"]["pronunciationVisiblePerLearnerLevel"]["c2"],
@@ -67,12 +71,12 @@ class LoaderCoverageAuditTest(unittest.TestCase):
 
         self.assertEqual(report["state"], "preview")
         self.assertEqual(report["inventory"], live["inventory"])
-        self.assertEqual(report["inventory"]["scenario"]["total"], 419)
+        self.assertEqual(report["inventory"]["scenario"]["total"], 120)
         self.assertEqual(report["inventory"]["smalltalk"]["total"], 582)
         self.assertEqual(report["inventory"]["cloze"]["total"], 1805)
         self.assertEqual(report["inventory"]["satz"]["total"], 2333)
         self.assertEqual(report["inventory"]["pronunciation"]["total"], 84)
-        self.assertEqual(report["inventory"]["scenario"]["exactPerLevel"]["c1"], 51)
+        self.assertEqual(report["inventory"]["scenario"]["exactPerLevel"]["c1"], 20)
         self.assertEqual(
             report["libraryLoader"]["pronunciationVisiblePerLearnerLevel"]["c2"],
             84,

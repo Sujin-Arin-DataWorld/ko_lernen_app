@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_ai_summary_wrong_fact_03",
+        "conceptIds": [
+          "concept_b1_life"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "다음부터는 제출하기 전에 원문과 대조해야겠어요.",

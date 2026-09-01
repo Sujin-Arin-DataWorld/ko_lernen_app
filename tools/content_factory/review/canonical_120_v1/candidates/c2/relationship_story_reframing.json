@@ -192,6 +192,9 @@
       },
       {
         "id": "quest_relationship_story_reframing_03",
+        "conceptIds": [
+          "concept_c2_relationship_narratives"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "다음에는 저는 처음의 설렘을, 수진은 그 뒤의 신뢰를 중요하게 기억한다고 말할게요.",

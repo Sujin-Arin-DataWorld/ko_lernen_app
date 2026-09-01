@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_delivery_refund_evidence_03",
+        "conceptIds": [
+          "concept_b2_complaint"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "네, 실제로 먹지 않은 부분만 반영해 주세요.",

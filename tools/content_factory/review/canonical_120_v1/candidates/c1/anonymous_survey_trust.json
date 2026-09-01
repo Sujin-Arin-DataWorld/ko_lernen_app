@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_anonymous_survey_trust_03",
+        "conceptIds": [
+          "concept_c1_inclusive_systems"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "맞아요. 식별 가능한 사례를 쓰지 말라는 안내와 실제 보고 방식을 함께 설명해야 신뢰를 얻습니다.",

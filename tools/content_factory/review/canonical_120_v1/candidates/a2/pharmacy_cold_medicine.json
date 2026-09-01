@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_pharmacy_cold_medicine_03",
+        "conceptIds": [
+          "concept_a2_feelings"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "그럼 저녁에 먹어도 돼요?",

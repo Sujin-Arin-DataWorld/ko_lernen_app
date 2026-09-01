@@ -187,6 +187,9 @@
       },
       {
         "id": "quest_delivery_rider_safety_tradeoff_03",
+        "conceptIds": [
+          "concept_c1_inclusive_systems"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "단일 도착 시간을 경쟁시키는 대신 안전 운행을 반영한 예상 범위를 시험해 보죠.",

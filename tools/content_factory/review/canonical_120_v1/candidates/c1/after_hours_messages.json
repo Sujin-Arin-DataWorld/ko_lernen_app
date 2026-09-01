@@ -187,6 +187,9 @@
       },
       {
         "id": "quest_after_hours_messages_03",
+        "conceptIds": [
+          "concept_c1_intimacy_safety"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "급하지 않은 메시지에는 ‘내일 확인해도 됩니다’라고 덧붙이고, 정말 급한 일은 별도 채널로 보내죠.",

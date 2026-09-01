@@ -188,6 +188,11 @@
       },
       {
         "id": "quest_plans_with_friend_03",
+        "conceptIds": [
+          "concept_proposal_formal",
+          "concept_proposal_polite",
+          "concept_proposal_casual"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "두 시에 만날까요?",

@@ -209,7 +209,7 @@ void main() {
     }
   });
 
-  group('scenarios.json — geseedete diktat-Quests', () {
+  group('canonical scenario corpus — Diktat remains an engine, not a seed', () {
     late List<Map<String, dynamic>> diktatQuests;
     late List<Scenario> scenarios;
 
@@ -224,8 +224,15 @@ void main() {
       ];
     });
 
-    test('mindestens 8 diktat-Quests vorhanden', () {
-      expect(diktatQuests.length, greaterThanOrEqualTo(8));
+    test('the 120-scene release corpus contains no legacy Diktat seed', () {
+      expect(scenarios, hasLength(120));
+      expect(diktatQuests, isEmpty);
+      expect(
+        scenarios
+            .expand((scenario) => scenario.quests)
+            .where((quest) => quest.type == QuestType.satzBauen),
+        hasLength(120),
+      );
     });
 
     test('jede Quest hat targetKo + beide Prompts', () {
@@ -237,7 +244,7 @@ void main() {
       }
     });
 
-    test('QuestType.diktat wird geparst und liefert targetVocabKeys', () {
+    test('no runtime scenario is parsed as a legacy Diktat seed', () {
       var found = 0;
       for (final sc in scenarios) {
         for (final q in sc.quests) {
@@ -249,7 +256,7 @@ void main() {
           }
         }
       }
-      expect(found, greaterThanOrEqualTo(8));
+      expect(found, 0);
     });
   });
 }

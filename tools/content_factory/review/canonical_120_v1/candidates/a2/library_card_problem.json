@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_library_card_problem_03",
+        "conceptIds": [
+          "concept_a2_home_money"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "네. 앱으로 빌려도 돼요?",

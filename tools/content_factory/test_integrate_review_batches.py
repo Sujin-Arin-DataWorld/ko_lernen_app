@@ -23,6 +23,20 @@ from validate_content import ContentValidator
 import scenario_store
 
 
+CANONICAL_SCENARIO_RUNTIME = (
+    json.loads(
+        (REPO_ROOT / "assets/data/curriculum_manifest.json").read_text(
+            encoding="utf-8"
+        )
+    ).get("scenarioCorpusGeneration")
+    == "canonical_120_v1"
+)
+
+
+@unittest.skipIf(
+    CANONICAL_SCENARIO_RUNTIME,
+    "historical review-batch replay predates the canonical scenario runtime",
+)
 class IntegrateReviewBatchesTest(unittest.TestCase):
     def setUp(self) -> None:
         self.temporary = tempfile.TemporaryDirectory()

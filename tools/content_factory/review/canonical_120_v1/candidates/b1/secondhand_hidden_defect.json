@@ -192,6 +192,9 @@
       },
       {
         "id": "quest_secondhand_hidden_defect_03",
+        "conceptIds": [
+          "concept_b1_complaint_resolution"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "죄송하지만 오늘 거래는 취소할게요.",

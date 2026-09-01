@@ -73,6 +73,13 @@ SURFACES: tuple[ContentSurface, ...] = (
         "counts and integrity notes; no lesson-copy rewrite",
     ),
     ContentSurface(
+        "ildu_world_manifest_v1.json",
+        "world navigation manifest",
+        "IlDuWorldManifest",
+        ("eras", "hubs", "yards", "gates", "buildings", "decorations"),
+        "world labels and structural routes; reviewed outside lesson copy",
+    ),
+    ContentSurface(
         "culture_notes.json",
         "culture notes",
         "CultureNotesService",
@@ -192,6 +199,13 @@ SURFACES: tuple[ContentSurface, ...] = (
         "turn intent, relationship, safe alternatives, and follow-ups",
     ),
     ContentSurface(
+        "tts_first_line_manifest.json",
+        "derived TTS cache manifest",
+        "TtsBundledManifest",
+        ("items",),
+        "generated Korean cache identity and storage paths; no independent copy",
+    ),
+    ContentSurface(
         "word_relations.json",
         "word-web activity",
         "WordRelationService",
@@ -240,7 +254,12 @@ MULTILINGUAL_KEY_GROUPS = (
     (("targetKo",), ("promptDe",), ("promptEn",)),
     (("fullKo",), ("de",), ("en",)),
 )
-MULTILINGUAL_EXEMPT_FILES = frozenset({"kkeunmari_pool.json", "silben_puzzles.json"})
+MULTILINGUAL_EXEMPT_FILES = frozenset({
+    "ildu_world_manifest_v1.json",
+    "kkeunmari_pool.json",
+    "silben_puzzles.json",
+    "tts_first_line_manifest.json",
+})
 RECORD_ID_KEYS = ("id", "scenarioId", "unitId", "conceptId", "word", "pattern")
 
 

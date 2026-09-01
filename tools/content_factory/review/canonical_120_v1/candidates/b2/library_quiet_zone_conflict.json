@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_library_quiet_zone_conflict_03",
+        "conceptIds": [
+          "concept_b2_complaint"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "그런데 표지가 입구에서도 보이면 더 찾기 쉬울 것 같아요.",

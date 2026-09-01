@@ -16,16 +16,16 @@ void main() {
           .toList();
       final byId = {for (final scenario in a1) scenario.id: scenario};
 
-      expect(a1, hasLength(greaterThanOrEqualTo(13)));
+      expect(a1, hasLength(20));
       expect(
         byId.keys,
         containsAll(<String>[
           'first_class_meeting',
-          'phone_messenger_reply',
-          'delivery_address_confirmation',
+          'kakao_contact_after_class',
+          'bakery_payment_bag',
           'clarify_repeat',
-          'titles_relationship_distance',
-          'clinic_safety',
+          'favorite_korean_music',
+          'break_glass_apology',
         ]),
       );
 
@@ -33,17 +33,15 @@ void main() {
         expect(
           scenario.quests.any(
             (quest) =>
-                quest.hasExplicitId && quest.conceptIds.isNotEmpty,
+                quest.hasExplicitId &&
+                quest.type == QuestType.satzBauen &&
+                quest.conceptIds.toSet().containsAll(scenario.conceptIds),
           ),
           isTrue,
-          reason: '${scenario.id} needs targeted corrective evidence',
+          reason: '${scenario.id} needs direct, concept-tagged evidence',
         );
         expect(
-          scenario.quests.any(
-            (quest) =>
-                quest.type == QuestType.satzBauen ||
-                quest.type == QuestType.diktat,
-          ),
+          scenario.quests.any((quest) => quest.type == QuestType.satzBauen),
           isTrue,
           reason: '${scenario.id} needs a productive output activity',
         );

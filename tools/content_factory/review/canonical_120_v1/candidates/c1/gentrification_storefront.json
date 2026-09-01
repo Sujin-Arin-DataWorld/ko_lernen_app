@@ -187,6 +187,9 @@
       },
       {
         "id": "quest_gentrification_storefront_03",
+        "conceptIds": [
+          "concept_c1_inclusive_systems"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "홍보를 중단하느냐로만 좁힐 문제가 아니라 임대 변화와 점포 이탈을 함께 추적해야 합니다.",

@@ -131,6 +131,7 @@ class Batch17BuildTest(unittest.TestCase):
             self.assertEqual(routes, [item["courseUnitId"]], item["id"])
 
     def test_ids_match_promotion_state(self):
+        canonical_runtime = self.curriculum.get("scenarioCorpusGeneration") == "canonical_120_v1"
         live = {
             "scenario": scenario_store.load_scenarios(ROOT / "assets/data"),
             "smalltalk": read_json(ROOT / "assets/data/smalltalk.json")["phrases"],
@@ -143,7 +144,9 @@ class Batch17BuildTest(unittest.TestCase):
             draft_ids = [row["id"] for row in draft]
             self.assertEqual(len(draft_ids), len(set(draft_ids)), kind)
             overlap = live_ids.intersection(draft_ids)
-            if self.manifest["status"] == "merged":
+            if canonical_runtime and kind == "scenario":
+                self.assertFalse(overlap, kind)
+            elif self.manifest["status"] == "merged":
                 self.assertEqual(overlap, set(draft_ids), kind)
             else:
                 self.assertFalse(overlap, kind)

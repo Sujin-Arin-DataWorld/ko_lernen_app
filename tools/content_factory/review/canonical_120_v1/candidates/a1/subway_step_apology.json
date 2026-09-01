@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_subway_step_apology_03",
+        "conceptIds": [
+          "concept_a1_health_safety"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "제가 못 봤어요. 조심할게요.",

@@ -2651,6 +2651,16 @@ class SourceIndex:
         self.cloze_topic_units = {
             key.lower(): value for key, value in self.curriculum["clozeTopicUnitMap"].items()
         }
+        review_promotions = REVIEW_CONTENT_PROMOTIONS
+        if self.curriculum.get("scenarioCorpusGeneration") == "canonical_120_v1":
+            # These promotions are immutable lineage for the retired 419-row
+            # corpus. The canonical scenarios are routed by the current
+            # curriculum graph and must not be required to keep old IDs live.
+            review_promotions = {
+                key: value
+                for key, value in REVIEW_CONTENT_PROMOTIONS.items()
+                if key[0] != "scenario"
+            }
         _validate_review_batch_boundaries(
             {
                 "scenario": set(self.scenarios),
@@ -2658,7 +2668,8 @@ class SourceIndex:
                 "cloze": set(self.cloze),
                 "satz": set(self.satz),
                 "pronunciation": set(self.pronunciation),
-            }
+            },
+            promotions=review_promotions,
         )
 
     @staticmethod

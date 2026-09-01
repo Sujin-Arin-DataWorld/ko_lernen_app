@@ -122,7 +122,7 @@
         {"speaker": "lena", "ko": "직원이 거절도 못 하고 웃는 것 같아서, 보는 내가 다 부끄러웠어.", "de": "Der Mitarbeiter wirkte, als könne er nicht Nein sagen und lächle nur deshalb. Mir war das Zuschauen richtig unangenehm.", "en": "The employee looked like he couldn't say no and was just smiling through it. I felt embarrassed just watching."},
         {"speaker": "maya", "ko": "맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.", "de": "Stimmt. Nur weil er gelacht hat, heißt das nicht, dass er einverstanden war.", "en": "You're right. He smiled, but that may not have meant he agreed."},
         {"speaker": "lena", "ko": "다음에는 카메라를 켜기 전에 먼저 물어봐.", "de": "Frag beim nächsten Mal, bevor die Kamera läuft.", "en": "Next time, ask before the camera is rolling."},
-        {"speaker": "maya", "ko": "응. 다음부터는 재미보다 괜찮은지 먼저 물어볼게.", "de": "Ja. Nächstes Mal frage ich zuerst, ob es für die Person in Ordnung ist, bevor ich an die Unterhaltung denke.", "en": "I will. Next time, I'll ask if the person is okay with it before trying to make it entertaining."}
+        {"speaker": "maya", "ko": "응. 다음부터는 재미보다 괜찮은지 먼저 물어볼게.", "de": "Ja. Nächstes Mal frage ich zuerst, ob es für die Person in Ordnung ist, bevor ich an die Unterhaltung denke.", "en": "Okay. Next time, I'll ask if the person is okay with it before trying to make it entertaining."}
       ],
       "culturalNote": {
         "title": {"ko": "fremdschämen을 자연스럽게 말하면", "de": "Wie fremdschämen hier auf Koreanisch klingt", "en": "Natural Korean for fremdschämen"},
@@ -152,7 +152,7 @@
         {"speaker": "andrea", "ko": "그렇다고 후기를 전부 딱딱하게 만들 필요는 없어요.", "de": "Wir müssen den Beitrag deshalb aber nicht völlig unpersönlich machen.", "en": "That doesn't mean we have to make the post completely stiff."},
         {"speaker": "maya", "ko": "후기 형식은 유지하되 단정적인 평가는 한 번 확인받는 게 좋겠어요.", "de": "Wir behalten den persönlichen Stil bei, prüfen aber pauschale Bewertungen vorher.", "en": "Let's keep the personal format but review any broad judgments first."},
         {"speaker": "andrea", "ko": "어떤 문장이 회사 입장처럼 들리는지 표시해 주세요.", "de": "Markiere bitte die Sätze, die wie eine Unternehmensposition klingen.", "en": "Please flag the lines that sound like a company position."},
-        {"speaker": "maya", "ko": "네. 개인 경험과 공식 정보도 구분해서 쓰겠습니다.", "de": "Ja. Ich trenne außerdem persönliche Erfahrung und offizielle Information.", "en": "I will. I'll also separate personal experience from official information."}
+        {"speaker": "maya", "ko": "네. 개인 경험과 공식 정보도 구분해서 쓰겠습니다.", "de": "Ja. Ich trenne außerdem persönliche Erfahrung und offizielle Information.", "en": "Got it. I'll also keep personal experience separate from official information."}
       ]
     },
     {

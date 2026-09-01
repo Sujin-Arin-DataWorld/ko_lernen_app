@@ -187,6 +187,10 @@
       },
       {
         "id": "quest_favorite_drama_chat_03",
+        "conceptIds": [
+          "concept_action_formal",
+          "concept_action_polite"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "네, ‘봄밤’을 보고 있어요. 대화가 자연스러워서 좋아요.",

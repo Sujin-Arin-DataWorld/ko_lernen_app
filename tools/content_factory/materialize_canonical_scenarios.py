@@ -126,10 +126,12 @@ GRAMMAR_SIGNALS: dict[str, str] = {
     "grammar_a1_cannot_short": r"못\s",
     "grammar_a1_degree_question": r"얼마나",
     "grammar_a1_please_particle": r"좀\s",
+    "grammar_a1_motion_purpose": r"(?:으)?러\s+(?:가|오)",
+    "grammar_a1_come_purpose": r"(?:으)?러\s+왔",
     "grammar_a2_future_intention": r"(?:을|ㄹ)\s*거(?:예요|야)",
     "grammar_a2_conditional": r"(?:으)?면(?:\s|,)",
     "grammar_a2_contrast": r"지만",
-    "grammar_a2_cause_sequence": r"(?:아서|어서|해서)",
+    "grammar_a2_cause_sequence": r"(?:아서|어서(?!\s*오세요)|해서)",
     "grammar_a2_progressive": r"고\s+있",
     "grammar_a2_polite_proposal": r"(?:을|ㄹ)까요",
     "grammar_a2_permission": r"(?:아|어|해)도\s+(?:돼|되)",
@@ -349,7 +351,11 @@ def _vocab(dialog: Sequence[Mapping[str, str]]) -> list[dict[str, Any]]:
     ]
 
 
-def _quests(scenario_id: str, dialog: Sequence[Mapping[str, str]]) -> list[dict[str, Any]]:
+def _quests(
+    scenario_id: str,
+    dialog: Sequence[Mapping[str, str]],
+    concept_ids: Sequence[str],
+) -> list[dict[str, Any]]:
     unique = _unique_lines(dialog)
     heard = next((line for line in unique if line["speaker"] != "user"), unique[0])
     player_lines = [line for line in unique if line["speaker"] == "user"]
@@ -383,6 +389,10 @@ def _quests(scenario_id: str, dialog: Sequence[Mapping[str, str]]) -> list[dict[
         },
         {
             "id": f"quest_{scenario_id}_03",
+            # Only the direct-production task writes course concept evidence.
+            # Recognition tasks remain useful practice, but must not pretend
+            # that one multiple-choice answer proves every unit concept.
+            "conceptIds": list(concept_ids),
             "type": "satzBauen",
             "data": {
                 "targetKo": build["ko"],
@@ -469,7 +479,7 @@ def materialize_one(
         "grammarIds": [grammar["id"]],
         "grammarBlock": grammar["block"],
         "dialog": dialog,
-        "quests": _quests(brief.scenario_id, dialog),
+        "quests": _quests(brief.scenario_id, dialog, concepts),
         "culturalNote": culture_note,
         "xpReward": XP_BY_LEVEL[brief.level],
     }

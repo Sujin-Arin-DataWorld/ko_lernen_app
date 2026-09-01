@@ -198,6 +198,9 @@
       },
       {
         "id": "quest_first_class_meeting_03",
+        "conceptIds": [
+          "concept_a1_first_meeting"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "네, 맞아요.",

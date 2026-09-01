@@ -12,8 +12,7 @@ void main() {
   test(
     'new A1 Korean-life scenarios have linkable metadata and identified quests',
     () async {
-      final scenariosJson =
-          allScenarioRoot();
+      final scenariosJson = allScenarioRoot();
       final manifestJson =
           jsonDecode(
                 File('assets/data/curriculum_manifest.json').readAsStringSync(),
@@ -31,11 +30,6 @@ void main() {
           .cast<Map<String, dynamic>>()
           .map((concept) => concept['id'] as String)
           .toSet();
-      final conceptKinds = <String, String>{
-        for (final concept
-            in (manifestJson['concepts'] as List).cast<Map<String, dynamic>>())
-          concept['id'] as String: concept['kind'] as String,
-      };
       final knownSurfaceForms = (manifestJson['surfaceForms'] as List)
           .cast<Map<String, dynamic>>()
           .map((surface) => surface['id'] as String)
@@ -46,11 +40,11 @@ void main() {
 
       const expected = <String, String>{
         'first_class_meeting': 'a1_15_first_class_work',
-        'phone_messenger_reply': 'a1_07_contact_address',
-        'delivery_address_confirmation': 'a1_14_payment_delivery',
+        'kakao_contact_after_class': 'a1_07_contact_address',
+        'bakery_payment_bag': 'a1_14_payment_delivery',
         'clarify_repeat': 'a1_08_clarify_repair',
-        'titles_relationship_distance': 'a1_11_titles_relationships',
-        'clinic_safety': 'a1_10_health_safety',
+        'favorite_korean_music': 'a1_11_titles_relationships',
+        'break_glass_apology': 'a1_10_health_safety',
       };
 
       for (final entry in expected.entries) {
@@ -73,12 +67,16 @@ void main() {
 
         final surfaceFormIds = (scenario['surfaceFormIds'] as List)
             .cast<String>();
-        expect(surfaceFormIds, isNotEmpty);
         expect(surfaceFormIds.every(knownSurfaceForms.contains), isTrue);
 
         final quests = (scenario['quests'] as List)
             .cast<Map<String, dynamic>>();
-        expect(quests.length, greaterThanOrEqualTo(5));
+        expect(quests, hasLength(3));
+        expect(quests.map((quest) => quest['type']), [
+          'hoerverstehen',
+          'uebersetzen',
+          'satzBauen',
+        ]);
         final questIds = quests.map((quest) => quest['id'] as String).toList();
         expect(questIds.toSet(), hasLength(quests.length));
         expect(questIds.every((id) => id.trim().isNotEmpty), isTrue);
@@ -96,34 +94,23 @@ void main() {
         final scenarioId = scenario['id'] as String;
         final quests = (scenario['quests'] as List)
             .cast<Map<String, dynamic>>();
-        final correctionQuests = quests.where((quest) {
-          final concepts = ((quest['conceptIds'] as List?) ?? const [])
-              .cast<String>();
-          return quest['type'] == 'particlePop' ||
-              quest['type'] == 'batchimDrop' ||
-              concepts.any((id) => conceptKinds[id] == 'pronunciation') ||
-              concepts.any((id) => conceptKinds[id] == 'conjugation');
-        }).toList();
+        final directQuests = quests
+            .where((quest) => quest['type'] == 'satzBauen')
+            .toList();
         expect(
-          correctionQuests,
-          isNotEmpty,
-          reason:
-              '$scenarioId needs a particle, batchim, or conjugation correction quest',
+          directQuests,
+          hasLength(1),
+          reason: '$scenarioId needs one direct-production quest',
         );
+        final directConcepts =
+            ((directQuests.single['conceptIds'] as List?) ?? const [])
+                .cast<String>();
+        final scenarioConcepts = (scenario['conceptIds'] as List)
+            .cast<String>();
         expect(
-          correctionQuests.any(
-            (quest) => (quest['id'] as String?)?.trim().isNotEmpty == true,
-          ),
-          isTrue,
-          reason: '$scenarioId needs an identified correction quest',
-        );
-        expect(
-          quests.any(
-            (quest) =>
-                quest['type'] == 'satzBauen' || quest['type'] == 'diktat',
-          ),
-          isTrue,
-          reason: '$scenarioId needs a direct-output quest',
+          directConcepts.toSet(),
+          containsAll(scenarioConcepts),
+          reason: '$scenarioId direct output must carry its unit concepts',
         );
       }
     },

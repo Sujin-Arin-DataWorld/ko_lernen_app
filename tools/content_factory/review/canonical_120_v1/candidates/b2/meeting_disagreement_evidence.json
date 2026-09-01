@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_meeting_disagreement_evidence_03",
+        "conceptIds": [
+          "concept_b2_opinion"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "좋아요. 다음 달에는 전환 자료를 더 모아서 다시 비교해요.",

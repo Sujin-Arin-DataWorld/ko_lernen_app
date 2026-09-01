@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_jeju_rain_plan_change_03",
+        "conceptIds": [
+          "concept_b1_reasons_experience"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "오늘은 거기에 가고, 날씨가 좋아지면 해안길을 걷자.",

@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_home_morning_routine_03",
+        "conceptIds": [
+          "concept_a1_home_daily"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "아, 여기 있다.",

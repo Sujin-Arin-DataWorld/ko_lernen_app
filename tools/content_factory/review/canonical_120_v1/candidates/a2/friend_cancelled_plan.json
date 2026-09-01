@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_friend_cancelled_plan_03",
+        "conceptIds": [
+          "concept_a2_relationships"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "응, 내일 내가 먼저 연락할게.",

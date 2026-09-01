@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_jeju_bus_missed_03",
+        "conceptIds": [
+          "concept_a2_travel_repair"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "응. 그다음에 택시를 찾아보자.",

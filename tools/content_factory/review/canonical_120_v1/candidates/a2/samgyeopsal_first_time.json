@@ -187,6 +187,10 @@
       },
       {
         "id": "quest_samgyeopsal_first_time_03",
+        "conceptIds": [
+          "concept_action_formal",
+          "concept_action_polite"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "마늘도 불판에 올릴까요?",

@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_ai_translation_voice_loss_03",
+        "conceptIds": [
+          "concept_c1_media_evidence"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "반복은 줄이되 ‘들었다’와 ‘그런 것 같다’는 남겨야겠어.",

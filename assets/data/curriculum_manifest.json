@@ -6,14 +6,14 @@
       "level": "a1",
       "order": 1,
       "title": {
-        "ko": "인사와 한글 소리",
-        "de": "Grußformeln und Hangul-Laute",
-        "en": "Greetings and Hangul sounds"
+        "ko": "첫 인사와 다시 묻기",
+        "de": "Erste Begrüßung und Nachfragen",
+        "en": "First greetings and asking again"
       },
       "canDo": {
-        "ko": "한글을 읽으며 처음 만난 사람에게 안전하게 인사할 수 있어요.",
-        "de": "Ich kann Hangul mitlesen und eine unbekannte Person sicher begrüßen.",
-        "en": "I can read along in Hangul and greet a new person safely."
+        "ko": "처음 만난 사람에게 인사하고 짧은 질문을 확인할 수 있어요.",
+        "de": "Ich kann eine neue Person begrüßen und eine kurze Frage klären.",
+        "en": "I can greet someone new and clarify a short question."
       },
       "requiredConceptIds": [
         "concept_hangul_batchim",
@@ -29,14 +29,14 @@
       "level": "a1",
       "order": 2,
       "title": {
-        "ko": "자기소개와 입니다",
-        "de": "Vorstellung und 입니다",
-        "en": "Self-introduction and 입니다"
+        "ko": "이름과 출신 말하기",
+        "de": "Name und Herkunft nennen",
+        "en": "Saying your name and where you are from"
       },
       "canDo": {
-        "ko": "저는 …입니다로 자신을 공식적으로 소개하고, 이에요/예요와 이야/야를 구별해 들을 수 있어요.",
-        "de": "Ich kann mich mit 저는 …입니다 formell vorstellen und 이에요/예요 sowie 이야/야 unterscheiden.",
-        "en": "I can introduce myself formally with 저는 …입니다 and distinguish 이에요/예요 from 이야/야."
+        "ko": "이름과 출신을 말하고 상대 이름을 확인할 수 있어요.",
+        "de": "Ich kann meinen Namen und meine Herkunft nennen und den Namen meines Gegenübers bestätigen.",
+        "en": "I can say my name and where I am from, and confirm the other person's name."
       },
       "prerequisiteUnitIds": [
         "a1_01_greetings_hangul"
@@ -56,14 +56,14 @@
       "level": "a1",
       "order": 3,
       "title": {
-        "ko": "은/는과 이/가",
-        "de": "은/는 und 이/가",
-        "en": "은/는 and 이/가"
+        "ko": "가게에서 물건 찾기",
+        "de": "Im Laden etwas finden",
+        "en": "Finding something in a shop"
       },
       "canDo": {
-        "ko": "수진은/수진이가처럼 주제와 새 정보를 구별해 말할 수 있어요.",
-        "de": "Ich kann Thema und neue Information unterscheiden, etwa 수진은/수진이가.",
-        "en": "I can distinguish topic and new information, for example 수진은/수진이가."
+        "ko": "찾는 물건의 이름을 말하고 어디 있는지 물을 수 있어요.",
+        "de": "Ich kann sagen, was ich suche, und fragen, wo es ist.",
+        "en": "I can say what I am looking for and ask where it is."
       },
       "prerequisiteUnitIds": [
         "a1_02_self_intro_identity"
@@ -82,14 +82,14 @@
       "level": "a1",
       "order": 4,
       "title": {
-        "ko": "주문·요청과 을/를",
-        "de": "Bestellen, Bitten und 을/를",
-        "en": "Ordering, requests, and 을/를"
+        "ko": "음식과 수량 주문하기",
+        "de": "Essen und Mengen bestellen",
+        "en": "Ordering food and quantities"
       },
       "canDo": {
-        "ko": "밥을/커피를처럼 목적어를 말하고, 서비스 상황에서 데워 주세요라고 요청할 수 있어요.",
-        "de": "Ich kann Objekte wie 밥을/커피를 nennen und im Service 데워 주세요 sagen.",
-        "en": "I can name objects such as 밥을/커피를 and request 데워 주세요 in a service setting."
+        "ko": "원하는 음식과 수량을 말해 주문할 수 있어요.",
+        "de": "Ich kann ein Gericht und die gewünschte Menge bestellen.",
+        "en": "I can order a dish and say how many I want."
       },
       "prerequisiteUnitIds": [
         "a1_03_topic_subject_particles"
@@ -108,14 +108,14 @@
       "level": "a1",
       "order": 5,
       "title": {
-        "ko": "시간과 숫자",
-        "de": "Zeit und Zahlen",
-        "en": "Time and numbers"
+        "ko": "시간 확인하기",
+        "de": "Eine Uhrzeit klären",
+        "en": "Confirming a time"
       },
       "canDo": {
-        "ko": "시간, 날짜, 수량을 확인할 수 있어요.",
-        "de": "Ich kann Uhrzeit, Datum und Menge klären.",
-        "en": "I can clarify time, date, and quantity."
+        "ko": "약속 시간을 묻고 맞는 시간을 다시 확인할 수 있어요.",
+        "de": "Ich kann nach einer Uhrzeit fragen und sie noch einmal bestätigen.",
+        "en": "I can ask about a meeting time and confirm it."
       },
       "prerequisiteUnitIds": [
         "a1_04_order_request_object"
@@ -124,7 +124,7 @@
         "concept_a1_time_numbers"
       ],
       "checkpointContentIds": [
-        "scenario:hotel_checkin"
+        "scenario:meeting_time"
       ]
     },
     {
@@ -132,14 +132,14 @@
       "level": "a1",
       "order": 6,
       "title": {
-        "ko": "교통과 길찾기",
-        "de": "Verkehr und Wegfragen",
-        "en": "Transport and directions"
+        "ko": "교통에서 내릴 곳 말하기",
+        "de": "Unterwegs sagen, wo man aussteigen möchte",
+        "en": "Saying where you want to get off"
       },
       "canDo": {
-        "ko": "택시와 지하철에서 목적지를 확인할 수 있어요.",
-        "de": "Ich kann in Taxi und U-Bahn mein Ziel bestätigen.",
-        "en": "I can confirm my destination in a taxi or subway."
+        "ko": "택시나 대중교통에서 내릴 곳을 짧게 말할 수 있어요.",
+        "de": "Ich kann im Taxi oder in öffentlichen Verkehrsmitteln kurz sagen, wo ich aussteigen möchte.",
+        "en": "I can briefly say where I want to get off in a taxi or on public transport."
       },
       "prerequisiteUnitIds": [
         "a1_05_numbers_time"
@@ -156,14 +156,14 @@
       "level": "a1",
       "order": 7,
       "title": {
-        "ko": "연락처·주소·호수",
-        "de": "Kontakt, Adresse und Zimmernummer",
-        "en": "Contact details, addresses, and room numbers"
+        "ko": "자연스럽게 연락 방법 정하기",
+        "de": "Eine passende Kontaktmöglichkeit vereinbaren",
+        "en": "Agreeing on a natural way to stay in touch"
       },
       "canDo": {
-        "ko": "전화번호, 주소, 호수를 천천히 확인할 수 있어요.",
-        "de": "Ich kann Telefonnummer, Adresse und Zimmernummer langsam bestätigen.",
-        "en": "I can slowly confirm a phone number, address, and room number."
+        "ko": "카카오톡 같은 연락 방법을 묻고 간단히 확인할 수 있어요.",
+        "de": "Ich kann nach einer passenden Kontaktmöglichkeit wie KakaoTalk fragen und sie bestätigen.",
+        "en": "I can ask about a natural way to stay in touch, such as KakaoTalk, and confirm it."
       },
       "prerequisiteUnitIds": [
         "a1_06_transport_directions"
@@ -172,7 +172,7 @@
         "concept_a1_contact_address"
       ],
       "checkpointContentIds": [
-        "scenario:phone_messenger_reply"
+        "scenario:kakao_contact_after_class"
       ]
     },
     {
@@ -180,14 +180,14 @@
       "level": "a1",
       "order": 8,
       "title": {
-        "ko": "못 알아들었을 때",
-        "de": "Wenn ich etwas nicht verstehe",
-        "en": "When I do not understand"
+        "ko": "못 들었을 때 다시 묻기",
+        "de": "Nachfragen, wenn man etwas nicht verstanden hat",
+        "en": "Asking again when you did not catch something"
       },
       "canDo": {
-        "ko": "다시 말해 주세요와 천천히 말해 주세요로 대화를 이어 갈 수 있어요.",
-        "de": "Ich kann mit 다시 말해 주세요 und 천천히 말해 주세요 ein Gespräch fortsetzen.",
-        "en": "I can keep a conversation going with 다시 말해 주세요 and 천천히 말해 주세요."
+        "ko": "못 들은 말이나 숫자를 다시 말해 달라고 할 수 있어요.",
+        "de": "Ich kann darum bitten, ein Wort oder eine Zahl zu wiederholen.",
+        "en": "I can ask someone to repeat a word or number I did not catch."
       },
       "prerequisiteUnitIds": [
         "a1_07_contact_address"
@@ -204,14 +204,14 @@
       "level": "a1",
       "order": 9,
       "title": {
-        "ko": "집과 생활",
-        "de": "Zuhause und Alltag",
-        "en": "Home and daily life"
+        "ko": "집에서 물건 찾기",
+        "de": "Zu Hause etwas suchen",
+        "en": "Looking for something at home"
       },
       "canDo": {
-        "ko": "집에서 하는 기본 생활을 말할 수 있어요.",
-        "de": "Ich kann grundlegende Dinge des Alltags zu Hause beschreiben.",
-        "en": "I can describe basic things I do at home."
+        "ko": "집에서 필요한 물건이 어디 있는지 묻고 답할 수 있어요.",
+        "de": "Ich kann zu Hause fragen und sagen, wo etwas liegt.",
+        "en": "I can ask and say where something is at home."
       },
       "prerequisiteUnitIds": [
         "a1_08_clarify_repair"
@@ -228,14 +228,14 @@
       "level": "a1",
       "order": 10,
       "title": {
-        "ko": "병원과 안전",
-        "de": "Gesundheit und Sicherheit",
-        "en": "Health and safety"
+        "ko": "작은 실수에 사과하기",
+        "de": "Sich für ein kleines Missgeschick entschuldigen",
+        "en": "Apologizing for a small accident"
       },
       "canDo": {
-        "ko": "아프거나 도움이 필요할 때 핵심 정보를 말할 수 있어요.",
-        "de": "Ich kann wichtige Informationen sagen, wenn ich krank bin oder Hilfe brauche.",
-        "en": "I can give key information when I am sick or need help."
+        "ko": "작은 실수에 바로 사과하고 상대가 괜찮은지 물을 수 있어요.",
+        "de": "Ich kann mich sofort für ein kleines Missgeschick entschuldigen und fragen, ob alles in Ordnung ist.",
+        "en": "I can apologize right away for a small accident and ask if the other person is okay."
       },
       "prerequisiteUnitIds": [
         "a1_09_home_daily_life"
@@ -244,7 +244,7 @@
         "concept_a1_health_safety"
       ],
       "checkpointContentIds": [
-        "scenario:clinic_safety"
+        "scenario:break_glass_apology"
       ]
     },
     {
@@ -252,14 +252,14 @@
       "level": "a1",
       "order": 11,
       "title": {
-        "ko": "호칭과 관계",
-        "de": "Anrede und Beziehung",
-        "en": "Titles and relationships"
+        "ko": "새 친구와 취향 말하기",
+        "de": "Mit neuen Bekannten über Vorlieben sprechen",
+        "en": "Talking about preferences with someone new"
       },
       "canDo": {
-        "ko": "처음 만난 사람에게 너 대신 안전한 호칭이나 생략을 선택할 수 있어요.",
-        "de": "Ich kann bei neuen Bekanntschaften statt 너 eine sichere Anrede oder Auslassung wählen.",
-        "en": "I can choose a safe title or omission instead of 너 with someone I just met."
+        "ko": "좋아하는 음악이나 콘텐츠를 짧게 묻고 답할 수 있어요.",
+        "de": "Ich kann kurz nach Lieblingsmusik oder -inhalten fragen und darauf antworten.",
+        "en": "I can briefly ask and answer about favorite music or shows."
       },
       "prerequisiteUnitIds": [
         "a1_10_health_safety"
@@ -268,7 +268,7 @@
         "concept_a1_titles_relationships"
       ],
       "checkpointContentIds": [
-        "scenario:titles_relationship_distance"
+        "scenario:favorite_korean_music"
       ]
     },
     {
@@ -276,14 +276,14 @@
       "level": "a1",
       "order": 12,
       "title": {
-        "ko": "일상과 부정",
-        "de": "Alltag und Verneinung",
-        "en": "Daily life and negation"
+        "ko": "메뉴가 있는지 묻기",
+        "de": "Fragen, ob etwas auf der Karte verfügbar ist",
+        "en": "Asking whether something is available"
       },
       "canDo": {
-        "ko": "일상을 말하고 정중하게 아니에요/안 해요를 사용할 수 있어요.",
-        "de": "Ich kann Alltag beschreiben und höflich 아니에요/안 해요 verwenden.",
-        "en": "I can describe daily life and use 아니에요/안 해요 politely."
+        "ko": "원하는 메뉴가 있는지 묻고 없으면 다른 것을 고를 수 있어요.",
+        "de": "Ich kann fragen, ob etwas verfügbar ist, und sonst etwas anderes wählen.",
+        "en": "I can ask if an item is available and choose something else if it is not."
       },
       "prerequisiteUnitIds": [
         "a1_11_titles_relationships"
@@ -292,7 +292,7 @@
         "concept_a1_negation"
       ],
       "checkpointContentIds": [
-        "scenario:mart_grocery"
+        "scenario:cafe_dessert_sold_out"
       ]
     },
     {
@@ -300,14 +300,14 @@
       "level": "a1",
       "order": 13,
       "title": {
-        "ko": "말투 바꾸기",
-        "de": "Den Ton wechseln",
-        "en": "Changing speech style"
+        "ko": "친한 말과 공손한 말 알아듣기",
+        "de": "Vertraute und höfliche Sprechweisen erkennen",
+        "en": "Recognizing casual and polite speech"
       },
       "canDo": {
-        "ko": "합니다체를 기본으로 하고, 해요체와 반말은 관계에 따라 듣고 고를 수 있어요.",
-        "de": "Ich kann 합니다체 als Standard nutzen und 해요체 sowie 반말 je nach Beziehung hören und wählen.",
-        "en": "I can use 합니다체 as my baseline and hear and choose 해요체 or 반말 based on the relationship."
+        "ko": "같은 뜻이 친한 말과 공손한 말에서 어떻게 들리는지 구별할 수 있어요.",
+        "de": "Ich kann erkennen, wie dieselbe Aussage vertraut oder höflich klingt.",
+        "en": "I can recognize how the same message sounds in casual and polite speech."
       },
       "prerequisiteUnitIds": [
         "a1_12_daily_negation"
@@ -319,7 +319,7 @@
         "concept_action_casual"
       ],
       "checkpointContentIds": [
-        "scenario:introduce_yourself"
+        "scenario:dance_class_register"
       ]
     },
     {
@@ -327,14 +327,14 @@
       "level": "a1",
       "order": 14,
       "title": {
-        "ko": "결제와 배달",
-        "de": "Bezahlen und Lieferung",
-        "en": "Payment and delivery"
+        "ko": "가게에서 필요한 것 말하기",
+        "de": "Im Laden sagen, was man braucht",
+        "en": "Saying what you need in a shop"
       },
       "canDo": {
-        "ko": "자동 결제예요 같은 안내를 이해하고 결제·배달 정보를 확인할 수 있어요.",
-        "de": "Ich kann Hinweise wie 자동 결제예요 verstehen und Zahlungs- oder Lieferinfos prüfen.",
-        "en": "I can understand notices such as 자동 결제예요 and check payment or delivery details."
+        "ko": "봉투처럼 필요한 것과 필요 없는 것을 짧게 말할 수 있어요.",
+        "de": "Ich kann kurz sagen, ob ich etwas wie eine Tüte brauche oder nicht.",
+        "en": "I can briefly say whether I need something such as a bag."
       },
       "prerequisiteUnitIds": [
         "a1_13_register_switching"
@@ -343,7 +343,7 @@
         "concept_a1_payment_delivery"
       ],
       "checkpointContentIds": [
-        "scenario:delivery_address_confirmation"
+        "scenario:bakery_payment_bag"
       ]
     },
     {
@@ -351,14 +351,14 @@
       "level": "a1",
       "order": 15,
       "title": {
-        "ko": "첫 수업·첫 만남",
-        "de": "Erster Kurs und erstes Treffen",
-        "en": "First class and first meeting"
+        "ko": "첫 수업에서 옆 사람 만나기",
+        "de": "Im ersten Kurs die Person neben sich kennenlernen",
+        "en": "Meeting the person next to you in your first class"
       },
       "canDo": {
-        "ko": "수업이나 직장에서 처음 만난 사람에게 자신을 소개하고 기본 질문을 할 수 있어요.",
-        "de": "Ich kann mich in Kurs oder Arbeit vorstellen und einfache Fragen stellen.",
-        "en": "I can introduce myself and ask basic questions when I first meet someone in class or at work."
+        "ko": "첫 수업에서 인사하고 기본 정보를 주고받을 수 있어요.",
+        "de": "Ich kann mich im ersten Kurs begrüßen und grundlegende Angaben austauschen.",
+        "en": "I can greet someone and exchange basic information in my first class."
       },
       "prerequisiteUnitIds": [
         "a1_14_payment_delivery"
@@ -375,14 +375,14 @@
       "level": "a1",
       "order": 16,
       "title": {
-        "ko": "한국 생활 첫 90일",
-        "de": "Die ersten 90 Tage in Korea",
-        "en": "Your first 90 days in Korea"
+        "ko": "첫 주말 계획 세우기",
+        "de": "Das erste Wochenende planen",
+        "en": "Planning your first weekend"
       },
       "canDo": {
-        "ko": "인사, 소개, 주문, 길찾기, 되묻기를 연결해 기본 생활 문제를 해결할 수 있어요.",
-        "de": "Ich kann Begrüßung, Vorstellung, Bestellung, Wegfragen und Rückfragen für Alltagssituationen verbinden.",
-        "en": "I can combine greetings, introduction, ordering, directions, and repair questions for everyday situations."
+        "ko": "익숙한 하루 계획에서 시간과 필요한 물건을 확인할 수 있어요.",
+        "de": "Ich kann bei einem einfachen Tagesplan Zeit und benötigte Dinge klären.",
+        "en": "I can confirm the time and what is needed for a simple day plan."
       },
       "prerequisiteUnitIds": [
         "a1_15_first_class_work"
@@ -399,14 +399,14 @@
       "level": "a2",
       "order": 1,
       "title": {
-        "ko": "해요체로 전환",
-        "de": "Übergang zu 해요체",
-        "en": "Transition to 해요체"
+        "ko": "취향과 이유 이어 말하기",
+        "de": "Vorlieben mit einem Grund ausdrücken",
+        "en": "Expressing a preference with a reason"
       },
       "canDo": {
-        "ko": "같은 뜻을 합니다체와 해요체로 상황에 맞게 바꿀 수 있어요.",
-        "de": "Ich kann dieselbe Absicht passend zwischen 합니다체 und 해요체 wechseln.",
-        "en": "I can switch the same intent between 합니다체 and 해요체 for the situation."
+        "ko": "좋아하는 콘텐츠와 그 이유 하나를 자연스럽게 말할 수 있어요.",
+        "de": "Ich kann sagen, welche Inhalte ich mag, und einen Grund nennen.",
+        "en": "I can say what content I like and give one reason."
       },
       "prerequisiteUnitIds": [
         "a1_16_survival_capstone"
@@ -416,7 +416,7 @@
         "concept_action_polite"
       ],
       "checkpointContentIds": [
-        "scenario:cafe_starbucks_basic"
+        "scenario:favorite_drama_chat"
       ]
     },
     {
@@ -424,14 +424,14 @@
       "level": "a2",
       "order": 2,
       "title": {
-        "ko": "약속과 제안",
-        "de": "Pläne und Vorschläge",
-        "en": "Plans and proposals"
+        "ko": "약속을 제안하고 바꾸기",
+        "de": "Treffen vorschlagen und verlegen",
+        "en": "Suggesting and changing plans"
       },
       "canDo": {
-        "ko": "할까요?, 할래요?, 하자, 할래?를 관계에 맞게 고를 수 있어요.",
-        "de": "Ich kann 할까요?, 할래요?, 하자 und 할래? passend zur Beziehung wählen.",
-        "en": "I can choose 할까요?, 할래요?, 하자, and 할래? for the relationship."
+        "ko": "약속을 제안하고 한 가지 이유를 들은 뒤 다른 날로 바꿀 수 있어요.",
+        "de": "Ich kann ein Treffen vorschlagen und es nach einer kurzen Begründung verlegen.",
+        "en": "I can suggest a plan and change it after hearing one reason."
       },
       "prerequisiteUnitIds": [
         "a2_01_haeyo_transition"
@@ -450,14 +450,14 @@
       "level": "a2",
       "order": 3,
       "title": {
-        "ko": "메신저와 관계",
-        "de": "Messenger und Beziehungen",
-        "en": "Messaging and relationships"
+        "ko": "메신저로 상황 알리기",
+        "de": "Per Messenger Bescheid geben",
+        "en": "Keeping someone updated by message"
       },
       "canDo": {
-        "ko": "메신저에서 안전하게 약속을 잡고 바꿀 수 있어요.",
-        "de": "Ich kann in Nachrichten sicher Pläne machen und ändern.",
-        "en": "I can make and change plans safely in messages."
+        "ko": "늦거나 계획이 바뀐 이유와 예상 시간을 알려 줄 수 있어요.",
+        "de": "Ich kann mitteilen, warum ich mich verspäte oder sich ein Plan ändert, und eine ungefähre Zeit nennen.",
+        "en": "I can explain why I am late or plans changed and give an estimated time."
       },
       "prerequisiteUnitIds": [
         "a2_02_plans_proposals"
@@ -474,14 +474,14 @@
       "level": "a2",
       "order": 4,
       "title": {
-        "ko": "감정과 건강",
-        "de": "Gefühle und Gesundheit",
-        "en": "Feelings and health"
+        "ko": "증상과 느낌 설명하기",
+        "de": "Beschwerden und Gefühle beschreiben",
+        "en": "Describing symptoms and feelings"
       },
       "canDo": {
-        "ko": "기분과 증상을 해요체로 설명할 수 있어요.",
-        "de": "Ich kann Gefühle und Beschwerden in 해요체 erklären.",
-        "en": "I can explain feelings and symptoms in 해요체."
+        "ko": "익숙한 증상이나 감정을 말하고 필요한 도움을 확인할 수 있어요.",
+        "de": "Ich kann vertraute Beschwerden oder Gefühle beschreiben und passende Hilfe klären.",
+        "en": "I can describe familiar symptoms or feelings and ask about suitable help."
       },
       "prerequisiteUnitIds": [
         "a2_03_chat_relationships"
@@ -490,7 +490,7 @@
         "concept_a2_feelings"
       ],
       "checkpointContentIds": [
-        "scenario:pharmacy_headache"
+        "scenario:pharmacy_cold_medicine"
       ]
     },
     {
@@ -498,14 +498,14 @@
       "level": "a2",
       "order": 5,
       "title": {
-        "ko": "쇼핑·배달·서비스",
-        "de": "Einkaufen, Lieferung und Service",
-        "en": "Shopping, delivery, and services"
+        "ko": "교환·택배 문제 해결하기",
+        "de": "Umtausch- und Paketprobleme lösen",
+        "en": "Solving exchange and delivery problems"
       },
       "canDo": {
-        "ko": "가게와 배달 서비스에서 문제를 설명하고 확인할 수 있어요.",
-        "de": "Ich kann in Laden und Lieferdienst ein Problem erklären und prüfen.",
-        "en": "I can explain and check a problem in a shop or delivery service."
+        "ko": "상품이나 배송 문제를 간단한 이유와 함께 설명하고 해결을 요청할 수 있어요.",
+        "de": "Ich kann ein Problem mit einem Produkt oder einer Lieferung kurz begründen und um eine Lösung bitten.",
+        "en": "I can explain a product or delivery problem with a simple reason and ask for a solution."
       },
       "prerequisiteUnitIds": [
         "a2_04_feelings_health"
@@ -514,7 +514,7 @@
         "concept_a2_services"
       ],
       "checkpointContentIds": [
-        "scenario:myeongdong_shopping"
+        "scenario:clothing_refund_size"
       ]
     },
     {
@@ -522,14 +522,14 @@
       "level": "a2",
       "order": 6,
       "title": {
-        "ko": "수업과 일",
-        "de": "Kurs und Arbeit",
-        "en": "Study and work"
+        "ko": "공부·일에서 실수 바로잡기",
+        "de": "Fehler in Studium und Arbeit korrigieren",
+        "en": "Fixing mistakes in study and work"
       },
       "canDo": {
-        "ko": "수업과 직장 안에서 정중하게 도움을 요청할 수 있어요.",
-        "de": "Ich kann in Kurs und Arbeit höflich um Hilfe bitten.",
-        "en": "I can ask for help politely in class and at work."
+        "ko": "준비물이나 파일을 빠뜨린 실수를 인정하고 다음 행동을 말할 수 있어요.",
+        "de": "Ich kann einen fehlenden Gegenstand oder eine vergessene Datei eingestehen und den nächsten Schritt nennen.",
+        "en": "I can acknowledge a missing item or file and say what I will do next."
       },
       "prerequisiteUnitIds": [
         "a2_05_delivery_services"
@@ -538,7 +538,7 @@
         "concept_a2_work_study"
       ],
       "checkpointContentIds": [
-        "scenario:cafe_study"
+        "scenario:email_attachment_twice"
       ]
     },
     {
@@ -546,14 +546,14 @@
       "level": "a2",
       "order": 7,
       "title": {
-        "ko": "여행과 문제 해결",
-        "de": "Reisen und Problemlösung",
-        "en": "Travel and problem solving"
+        "ko": "이동 중 불편을 요청으로 바꾸기",
+        "de": "Unterwegs um eine konkrete Änderung bitten",
+        "en": "Turning travel discomfort into a clear request"
       },
       "canDo": {
-        "ko": "교통 문제를 설명하고 다시 확인할 수 있어요.",
-        "de": "Ich kann ein Verkehrsproblem erklären und noch einmal nachfragen.",
-        "en": "I can explain a transport problem and check again."
+        "ko": "이동 중 불편하거나 불안할 때 공손하게 변화를 요청할 수 있어요.",
+        "de": "Ich kann unterwegs höflich um eine Änderung bitten, wenn ich mich unwohl oder unsicher fühle.",
+        "en": "I can politely ask for a change when I feel uncomfortable or unsafe while traveling."
       },
       "prerequisiteUnitIds": [
         "a2_06_study_work"
@@ -562,7 +562,7 @@
         "concept_a2_travel_repair"
       ],
       "checkpointContentIds": [
-        "scenario:subway_transfer"
+        "scenario:taxi_slow_down"
       ]
     },
     {
@@ -570,14 +570,14 @@
       "level": "a2",
       "order": 8,
       "title": {
-        "ko": "집과 돈",
-        "de": "Wohnen und Geld",
-        "en": "Home and money"
+        "ko": "집에서 생긴 작은 문제 해결하기",
+        "de": "Ein kleines Alltagsproblem zu Hause lösen",
+        "en": "Solving a small problem at home"
       },
       "canDo": {
-        "ko": "생활비, 은행, 집 관련 정보를 확인할 수 있어요.",
-        "de": "Ich kann Informationen zu Haushalt, Bank und Wohnen klären.",
-        "en": "I can clarify information about home, banking, and living costs."
+        "ko": "깜빡한 물건이나 집 문제를 설명하고 가능한 도움을 요청할 수 있어요.",
+        "de": "Ich kann erklären, was ich vergessen habe oder welches Problem es zu Hause gibt, und um Hilfe bitten.",
+        "en": "I can explain something I forgot or a problem at home and ask for help."
       },
       "prerequisiteUnitIds": [
         "a2_07_travel_repair"
@@ -586,7 +586,7 @@
         "concept_a2_home_money"
       ],
       "checkpointContentIds": [
-        "scenario:rent_bank_transfer"
+        "scenario:forgot_house_key"
       ]
     },
     {
@@ -594,14 +594,14 @@
       "level": "b1",
       "order": 1,
       "title": {
-        "ko": "이유와 경험",
-        "de": "Gründe und Erfahrungen",
-        "en": "Reasons and experiences"
+        "ko": "경험의 원인과 결과 설명하기",
+        "de": "Ursachen und Folgen einer Erfahrung erklären",
+        "en": "Explaining the causes and effects of an experience"
       },
       "canDo": {
-        "ko": "경험과 이유를 연결해 설명할 수 있어요.",
-        "de": "Ich kann Erfahrungen und Gründe miteinander verbinden.",
-        "en": "I can connect experiences and reasons."
+        "ko": "경험이 어떻게 달라졌는지 원인과 결과를 연결해 설명할 수 있어요.",
+        "de": "Ich kann erklären, wie sich eine Erfahrung verändert hat, und Ursachen mit Folgen verbinden.",
+        "en": "I can explain how an experience changed by linking causes and effects."
       },
       "prerequisiteUnitIds": [
         "a2_08_home_money"
@@ -610,7 +610,7 @@
         "concept_b1_reasons_experience"
       ],
       "checkpointContentIds": [
-        "scenario:postpone_plans"
+        "scenario:jeju_rain_plan_change"
       ]
     },
     {
@@ -618,14 +618,14 @@
       "level": "b1",
       "order": 2,
       "title": {
-        "ko": "간접화법과 전달",
-        "de": "Indirekte Rede und Weitergabe",
-        "en": "Reported speech and relaying information"
+        "ko": "들은 정보와 확정된 정보 구분하기",
+        "de": "Gehörte und bestätigte Informationen unterscheiden",
+        "en": "Distinguishing reported from confirmed information"
       },
       "canDo": {
-        "ko": "다른 사람의 말을 조심스럽게 전달할 수 있어요.",
-        "de": "Ich kann Aussagen anderer vorsichtig weitergeben.",
-        "en": "I can relay someone else's words carefully."
+        "ko": "누구에게 들었는지와 아직 확정되지 않은 부분을 구분해 전달할 수 있어요.",
+        "de": "Ich kann deutlich machen, woher eine Information stammt und was noch nicht bestätigt ist.",
+        "en": "I can distinguish where information came from and what is not yet confirmed."
       },
       "prerequisiteUnitIds": [
         "b1_01_experience_reasons"
@@ -634,7 +634,7 @@
         "concept_b1_indirect_speech"
       ],
       "checkpointContentIds": [
-        "scenario:company_dinner_hoeshik"
+        "scenario:team_update_indirect_speech"
       ]
     },
     {
@@ -642,14 +642,14 @@
       "level": "b1",
       "order": 3,
       "title": {
-        "ko": "직장 말투와 완곡함",
-        "de": "Arbeitssprache und Abschwächung",
-        "en": "Workplace language and softening"
+        "ko": "업무 실수를 설명하고 수습하기",
+        "de": "Einen Fehler bei der Arbeit erklären und beheben",
+        "en": "Explaining and repairing a workplace mistake"
       },
       "canDo": {
-        "ko": "직장에서 요구를 더 부드럽게 말할 수 있어요.",
-        "de": "Ich kann Forderungen bei der Arbeit weicher formulieren.",
-        "en": "I can phrase requests more softly at work."
+        "ko": "업무 실수의 경위와 영향을 설명하고 현실적인 수습 순서를 제안할 수 있어요.",
+        "de": "Ich kann den Ablauf und die Auswirkungen eines Arbeitsfehlers erklären und sinnvolle nächste Schritte vorschlagen.",
+        "en": "I can explain how a workplace mistake happened, its impact, and practical next steps."
       },
       "prerequisiteUnitIds": [
         "b1_02_indirect_speech"
@@ -658,7 +658,7 @@
         "concept_b1_softening"
       ],
       "checkpointContentIds": [
-        "scenario:company_dinner_hoeshik"
+        "scenario:company_instagram_wrong_account"
       ]
     },
     {
@@ -666,14 +666,14 @@
       "level": "b1",
       "order": 4,
       "title": {
-        "ko": "관계와 감정",
-        "de": "Beziehungen und Gefühle",
-        "en": "Relationships and emotions"
+        "ko": "관계와 감정을 조심스럽게 확인하기",
+        "de": "Beziehung und Gefühle behutsam klären",
+        "en": "Clarifying relationships and feelings with care"
       },
       "canDo": {
-        "ko": "친한 관계에서 감정을 존중하며 표현할 수 있어요.",
-        "de": "Ich kann Gefühle in engen Beziehungen respektvoll ausdrücken.",
-        "en": "I can express feelings respectfully in close relationships."
+        "ko": "상대에게 부담을 주지 않으면서 관계와 감정에 대한 생각을 확인할 수 있어요.",
+        "de": "Ich kann Gedanken zu einer Beziehung und zu Gefühlen klären, ohne mein Gegenüber unter Druck zu setzen.",
+        "en": "I can clarify thoughts about a relationship and feelings without putting pressure on the other person."
       },
       "prerequisiteUnitIds": [
         "b1_03_work_softening"
@@ -682,7 +682,7 @@
         "concept_b1_relationships"
       ],
       "checkpointContentIds": [
-        "scenario:warm_encouragement"
+        "scenario:date_or_friendly_coffee"
       ]
     },
     {
@@ -690,14 +690,14 @@
       "level": "b1",
       "order": 5,
       "title": {
-        "ko": "문제와 해결",
-        "de": "Probleme und Lösungen",
-        "en": "Problems and resolution"
+        "ko": "문제의 경위와 원하는 해결 말하기",
+        "de": "Problemverlauf und gewünschte Lösung schildern",
+        "en": "Explaining a problem and the solution you want"
       },
       "canDo": {
-        "ko": "서비스 문제를 설명하고 해결을 요청할 수 있어요.",
-        "de": "Ich kann ein Serviceproblem erklären und eine Lösung erbitten.",
-        "en": "I can explain a service problem and ask for a resolution."
+        "ko": "소비·주거 문제의 경위를 설명하고 적절한 해결을 요청할 수 있어요.",
+        "de": "Ich kann den Verlauf eines Verbraucher- oder Wohnproblems schildern und eine angemessene Lösung verlangen.",
+        "en": "I can explain a consumer or housing problem and request an appropriate solution."
       },
       "prerequisiteUnitIds": [
         "b1_04_relationships"
@@ -706,7 +706,7 @@
         "concept_b1_complaint_resolution"
       ],
       "checkpointContentIds": [
-        "scenario:food_delivery"
+        "scenario:food_delivery_wrong_order"
       ]
     },
     {
@@ -714,14 +714,14 @@
       "level": "b1",
       "order": 6,
       "title": {
-        "ko": "생활·일·관계 종합",
-        "de": "Alltag, Arbeit und Beziehungen",
-        "en": "Life, work, and relationships capstone"
+        "ko": "한국 생활의 작은 갈등 수습하기",
+        "de": "Kleine Konflikte im Alltag in Korea lösen",
+        "en": "Repairing everyday conflicts in Korea"
       },
       "canDo": {
-        "ko": "상황에 맞는 말투로 긴 대화를 이어 갈 수 있어요.",
-        "de": "Ich kann längere Gespräche mit passendem Ton fortsetzen.",
-        "en": "I can sustain longer conversations with an appropriate speech style."
+        "ko": "익숙한 공동체 규칙에서 실수를 인정하고 이유를 물으며 해결할 수 있어요.",
+        "de": "Ich kann bei vertrauten Gemeinschaftsregeln einen Fehler eingestehen, nach dem Grund fragen und das Problem lösen.",
+        "en": "I can acknowledge a mistake involving a familiar community rule, ask why, and resolve it."
       },
       "prerequisiteUnitIds": [
         "b1_05_complaint_resolution"
@@ -730,7 +730,7 @@
         "concept_b1_life"
       ],
       "checkpointContentIds": [
-        "scenario:couple_argument"
+        "scenario:apartment_recycling_mixup"
       ]
     },
     {
@@ -738,14 +738,14 @@
       "level": "b2",
       "order": 1,
       "title": {
-        "ko": "공식 대화 시작",
-        "de": "Formelle Gespräche eröffnen",
-        "en": "Opening formal conversations"
+        "ko": "공식 대화의 범위와 목적 확인하기",
+        "de": "Ziel und Rahmen eines formellen Gesprächs klären",
+        "en": "Clarifying the purpose and scope of a formal discussion"
       },
       "canDo": {
-        "ko": "공식 회의에서 알맞은 말투로 자신과 목적을 소개할 수 있어요.",
-        "de": "Ich kann mich und mein Anliegen in einem formellen Gespräch angemessen vorstellen.",
-        "en": "I can introduce myself and my purpose appropriately in a formal conversation."
+        "ko": "공식 대화 초반에 무엇을 논의하고 결정할지 자연스럽게 확인할 수 있어요.",
+        "de": "Ich kann zu Beginn eines formellen Gesprächs klären, was besprochen und entschieden werden soll.",
+        "en": "I can naturally clarify what will be discussed and decided at the start of a formal conversation."
       },
       "prerequisiteUnitIds": [
         "b1_06_life_capstone"
@@ -754,7 +754,7 @@
         "concept_b2_formal_opening"
       ],
       "checkpointContentIds": [
-        "scenario:business_meeting_intro"
+        "scenario:meeting_opening_context"
       ]
     },
     {
@@ -762,14 +762,14 @@
       "level": "b2",
       "order": 2,
       "title": {
-        "ko": "의견과 근거",
-        "de": "Meinung und Begründung",
-        "en": "Opinions and evidence"
+        "ko": "근거를 들어 의견 조정하기",
+        "de": "Meinungen anhand von Belegen abstimmen",
+        "en": "Adjusting opinions using evidence"
       },
       "canDo": {
-        "ko": "의견을 근거와 함께 정중하게 제시할 수 있어요.",
-        "de": "Ich kann eine Meinung mit Begründung höflich vertreten.",
-        "en": "I can state an opinion politely with supporting reasons."
+        "ko": "상대 근거를 인정하면서 다른 기준을 제시하고 절충할 수 있어요.",
+        "de": "Ich kann die Belege meines Gegenübers anerkennen, weitere Kriterien einbringen und einen Kompromiss finden.",
+        "en": "I can acknowledge the other person's evidence, add another criterion, and reach a compromise."
       },
       "prerequisiteUnitIds": [
         "b2_01_formal_opening"
@@ -778,7 +778,7 @@
         "concept_b2_opinion"
       ],
       "checkpointContentIds": [
-        "scenario:business_meeting_intro"
+        "scenario:meeting_disagreement_evidence"
       ]
     },
     {
@@ -786,14 +786,14 @@
       "level": "b2",
       "order": 3,
       "title": {
-        "ko": "정확한 요청",
-        "de": "Präzise Bitten",
-        "en": "Precise requests"
+        "ko": "요청의 범위와 조건 협의하기",
+        "de": "Umfang und Bedingungen einer Anfrage verhandeln",
+        "en": "Negotiating the scope and conditions of a request"
       },
       "canDo": {
-        "ko": "의료·서비스 상황에서 정확하면서도 공손하게 요청할 수 있어요.",
-        "de": "Ich kann in Medizin- und Servicesituationen präzise und höflich bitten.",
-        "en": "I can make precise, polite requests in medical and service situations."
+        "ko": "요청의 범위·일정·조건을 구체화해 실행 가능한 합의를 만들 수 있어요.",
+        "de": "Ich kann Umfang, Zeitplan und Bedingungen einer Anfrage konkretisieren und eine umsetzbare Vereinbarung treffen.",
+        "en": "I can clarify the scope, schedule, and conditions of a request and reach a workable agreement."
       },
       "prerequisiteUnitIds": [
         "b2_02_professional_opinion"
@@ -802,7 +802,7 @@
         "concept_b2_precise_requests"
       ],
       "checkpointContentIds": [
-        "scenario:doctor_consultation"
+        "scenario:freelance_scope_change"
       ]
     },
     {
@@ -810,14 +810,14 @@
       "level": "b2",
       "order": 4,
       "title": {
-        "ko": "공식 불만과 해결",
-        "de": "Formelle Beschwerde und Lösung",
-        "en": "Formal complaints and resolution"
+        "ko": "근거로 책임 범위 협의하기",
+        "de": "Verantwortung anhand von Belegen aushandeln",
+        "en": "Negotiating responsibility using evidence"
       },
       "canDo": {
-        "ko": "불만을 분명하고 차분하게 제기할 수 있어요.",
-        "de": "Ich kann eine Beschwerde klar und ruhig vorbringen.",
-        "en": "I can raise a complaint clearly and calmly."
+        "ko": "주거·소비·교통 문제에서 근거를 비교하고 책임과 해결 범위를 협의할 수 있어요.",
+        "de": "Ich kann bei Wohn-, Verbraucher- und Verkehrsproblemen Belege vergleichen und Verantwortung sowie Lösungsspielraum aushandeln.",
+        "en": "I can compare evidence and negotiate responsibility and remedies in housing, consumer, and transport problems."
       },
       "prerequisiteUnitIds": [
         "b2_03_precise_requests"
@@ -826,7 +826,7 @@
         "concept_b2_complaint"
       ],
       "checkpointContentIds": [
-        "scenario:complaint_delivery"
+        "scenario:rental_repair_deposit"
       ]
     },
     {
@@ -834,14 +834,14 @@
       "level": "b2",
       "order": 5,
       "title": {
-        "ko": "면접과 업무 소개",
-        "de": "Vorstellungsgespräch und berufliche Vorstellung",
-        "en": "Interviews and professional introductions"
+        "ko": "경력과 한계를 정확하게 설명하기",
+        "de": "Erfahrung und Grenzen präzise darstellen",
+        "en": "Describing experience and its limits accurately"
       },
       "canDo": {
-        "ko": "면접에서 경험과 강점을 공식적으로 설명할 수 있어요.",
-        "de": "Ich kann Erfahrungen und Stärken im Vorstellungsgespräch formell erklären.",
-        "en": "I can explain my experience and strengths formally in an interview."
+        "ko": "면접에서 경험을 과장하지 않고 업무와 연결해 구체적으로 설명할 수 있어요.",
+        "de": "Ich kann meine Erfahrung im Vorstellungsgespräch konkret mit der Stelle verbinden, ohne sie zu übertreiben.",
+        "en": "I can connect my experience to a role in an interview without exaggerating it."
       },
       "prerequisiteUnitIds": [
         "b2_04_complaint_resolution"
@@ -850,7 +850,7 @@
         "concept_b2_interview"
       ],
       "checkpointContentIds": [
-        "scenario:job_interview"
+        "scenario:portfolio_interview_gap"
       ]
     },
     {
@@ -858,14 +858,14 @@
       "level": "b2",
       "order": 6,
       "title": {
-        "ko": "고급 상황 선택",
-        "de": "Fortgeschrittene Situationswahl",
-        "en": "Advanced situation choices"
+        "ko": "공동체 갈등에서 조건부 절충 만들기",
+        "de": "Bei Gemeinschaftskonflikten bedingte Kompromisse finden",
+        "en": "Building conditional compromises in community conflicts"
       },
       "canDo": {
-        "ko": "같은 뜻을 더 공식적이고 더 부드럽게 바꿔 말할 수 있어요.",
-        "de": "Ich kann dieselbe Absicht formeller oder weicher ausdrücken.",
-        "en": "I can express the same intention more formally or more softly."
+        "ko": "서로 다른 이해관계와 현실 제약을 비교해 시험 가능한 절충안을 만들 수 있어요.",
+        "de": "Ich kann unterschiedliche Interessen und praktische Grenzen vergleichen und einen erprobbaren Kompromiss entwickeln.",
+        "en": "I can compare competing interests and practical constraints to create a testable compromise."
       },
       "prerequisiteUnitIds": [
         "b2_05_interview"
@@ -874,7 +874,7 @@
         "concept_b2_advanced"
       ],
       "checkpointContentIds": [
-        "scenario:job_interview"
+        "scenario:community_event_compromise"
       ]
     },
     {
@@ -882,14 +882,14 @@
       "level": "c1",
       "order": 1,
       "title": {
-        "ko": "근거와 공공 설명",
-        "de": "Evidenz und öffentliche Erklärung",
-        "en": "Evidence and Public Explanation"
+        "ko": "공공 근거의 범위와 대표성 설명하기",
+        "de": "Reichweite und Repräsentativität öffentlicher Evidenz erklären",
+        "en": "Explaining the scope and representativeness of public evidence"
       },
       "canDo": {
-        "ko": "불확실한 자료를 과장하지 않고 근거와 한계를 구분해 설명할 수 있어요.",
-        "de": "Ich kann unsichere Daten erklären, ohne sie zu übertreiben, und Evidenz klar von Grenzen trennen.",
-        "en": "I can explain uncertain evidence without exaggeration and distinguish findings from limitations."
+        "ko": "공공 자료가 보여 주는 것과 놓치는 것을 구분해 보완 방안을 제시할 수 있어요.",
+        "de": "Ich kann unterscheiden, was öffentliche Daten zeigen und auslassen, und Ergänzungen vorschlagen.",
+        "en": "I can distinguish what public evidence shows and misses and propose ways to address the gaps."
       },
       "prerequisiteUnitIds": [
         "b2_06_advanced_capstone"
@@ -898,7 +898,7 @@
         "concept_c1_evidence_reasoning"
       ],
       "checkpointContentIds": [
-        "smalltalk:smalltalk_c1_0011"
+        "scenario:public_consultation_access"
       ]
     },
     {
@@ -906,14 +906,14 @@
       "level": "c1",
       "order": 2,
       "title": {
-        "ko": "포용성과 지속 가능성",
-        "de": "Inklusion und Nachhaltigkeit",
-        "en": "Inclusion and Sustainability"
+        "ko": "포용성과 자원 제약 함께 다루기",
+        "de": "Inklusion und Ressourcenbegrenzungen gemeinsam berücksichtigen",
+        "en": "Balancing inclusion with resource constraints"
       },
       "canDo": {
-        "ko": "접근성, 비용, 참여와 지역 여건의 상충 관계를 조정해 제안을 만들 수 있어요.",
-        "de": "Ich kann Zielkonflikte zwischen Zugänglichkeit, Kosten, Beteiligung und lokalen Bedingungen abwägen.",
-        "en": "I can balance accessibility, cost, participation, and local conditions in a practical proposal."
+        "ko": "제도의 존재와 실제 접근 가능성을 구분하고 우선순위를 협의할 수 있어요.",
+        "de": "Ich kann zwischen dem bloßen Vorhandensein eines Angebots und tatsächlichem Zugang unterscheiden und Prioritäten aushandeln.",
+        "en": "I can distinguish between a service existing and people actually being able to access it, and negotiate priorities."
       },
       "prerequisiteUnitIds": [
         "c1_01_evidence_public_reasoning"
@@ -922,7 +922,7 @@
         "concept_c1_inclusive_systems"
       ],
       "checkpointContentIds": [
-        "grammar:grammar_c1_taking_into_account"
+        "scenario:heatwave_shelter_access"
       ]
     },
     {
@@ -930,14 +930,14 @@
       "level": "c2",
       "order": 1,
       "title": {
-        "ko": "해석, 언어와 제도",
-        "de": "Deutung, Sprache und Institutionen",
-        "en": "Interpretation, Language, and Institutions"
+        "ko": "제도와 권리 충돌을 원칙으로 논증하기",
+        "de": "Konflikte zwischen Institutionen und Rechten prinzipiengeleitet erörtern",
+        "en": "Arguing institutional and rights conflicts from principles"
       },
       "canDo": {
-        "ko": "담론의 전제와 제도적 권한을 드러내고 여러 해석을 근거로 비교할 수 있어요.",
-        "de": "Ich kann Prämissen im Diskurs und institutionelle Macht sichtbar machen und Deutungen evidenzbasiert vergleichen.",
-        "en": "I can expose assumptions and institutional power in discourse and compare interpretations using evidence."
+        "ko": "권리 충돌을 필요성·비례성·대안의 구조로 분석하고 설득할 수 있어요.",
+        "de": "Ich kann Grundrechtskonflikte anhand von Erforderlichkeit, Verhältnismäßigkeit und Alternativen analysieren und überzeugend darstellen.",
+        "en": "I can analyze and argue rights conflicts through necessity, proportionality, and alternatives."
       },
       "prerequisiteUnitIds": [
         "c1_02_inclusive_sustainable_systems"
@@ -946,7 +946,7 @@
         "concept_c2_discourse_institutions"
       ],
       "checkpointContentIds": [
-        "smalltalk:smalltalk_c2_0012"
+        "scenario:protest_order_and_rights"
       ]
     },
     {
@@ -954,14 +954,14 @@
       "level": "c2",
       "order": 2,
       "title": {
-        "ko": "기술윤리와 공공 책임",
-        "de": "Technikethik und öffentliche Verantwortung",
-        "en": "Technology Ethics and Public Accountability"
+        "ko": "자동화의 효율과 공공 책임 논증하기",
+        "de": "Effizienz und öffentliche Verantwortung automatisierter Systeme abwägen",
+        "en": "Arguing efficiency and public responsibility in automation"
       },
       "canDo": {
-        "ko": "자동화 시스템의 이익과 위험을 평가하고 책임 있는 절차를 구체적으로 설계할 수 있어요.",
-        "de": "Ich kann Nutzen und Risiken automatisierter Systeme bewerten und verantwortliche Verfahren konkret entwerfen.",
-        "en": "I can evaluate automated systems and design concrete, accountable procedures."
+        "ko": "자동화의 효율, 오류 비용, 설명 의무와 사람의 최종 책임을 정교하게 논증할 수 있어요.",
+        "de": "Ich kann Effizienz, Fehlerkosten, Erklärungspflichten und menschliche Letztverantwortung automatisierter Systeme differenziert erörtern.",
+        "en": "I can precisely argue the efficiency, error costs, duty to explain, and human responsibility of automated systems."
       },
       "prerequisiteUnitIds": [
         "c2_01_interpretation_institutions"
@@ -970,7 +970,7 @@
         "concept_c2_accountable_systems"
       ],
       "checkpointContentIds": [
-        "grammar:grammar_c2_even_assuming"
+        "scenario:automated_benefit_denial"
       ]
     },
     {
@@ -978,20 +978,20 @@
       "level": "c1",
       "order": 3,
       "title": {
-        "ko": "대중 매체의 근거 읽기",
-        "de": "Evidenz in populären Medien lesen",
-        "en": "Reading evidence in popular media"
+        "ko": "미디어 자료의 출처와 확정 수준 판단하기",
+        "de": "Quelle und Bestätigungsgrad von Medienmaterial beurteilen",
+        "en": "Assessing the source and confirmation level of media evidence"
       },
       "canDo": {
-        "ko": "널리 퍼진 주장의 표본과 방법을 확인해 그 근거가 어디까지 말할 수 있는지 한정할 수 있어요.",
-        "de": "Ich kann Stichprobe und Methode einer verbreiteten Behauptung prüfen und eingrenzen, was die Evidenz trägt.",
-        "en": "I can check the sample and method behind a widespread claim and bound what its evidence supports."
+        "ko": "미디어 자료의 출처·확정 수준·보도 가치를 구분해 신중한 표현을 선택할 수 있어요.",
+        "de": "Ich kann Quelle, Bestätigungsgrad und Nachrichtenwert von Medienmaterial unterscheiden und angemessene Formulierungen wählen.",
+        "en": "I can distinguish the source, confirmation level, and news value of media evidence and choose careful wording."
       },
       "requiredConceptIds": [
         "concept_c1_media_evidence"
       ],
       "checkpointContentIds": [
-        "grammar:grammar_c1_limited_to"
+        "scenario:deepfake_verification"
       ]
     },
     {
@@ -999,20 +999,20 @@
       "level": "c2",
       "order": 3,
       "title": {
-        "ko": "자동 처리와 구제 절차",
-        "de": "Automatische Bearbeitung und Rechtsweg",
-        "en": "Automated processing and redress"
+        "ko": "자동 판단의 이의 제기와 재심 설계하기",
+        "de": "Widerspruch und Überprüfung automatisierter Entscheidungen gestalten",
+        "en": "Designing appeals and review for automated decisions"
       },
       "canDo": {
-        "ko": "자동 처리로 생긴 손해의 구제 경로가 형식에 그치지 않도록 조건과 기한을 요구할 수 있어요.",
-        "de": "Ich kann Bedingungen und Fristen fordern, damit der Rechtsweg bei Schäden aus automatischer Bearbeitung nicht formal bleibt.",
-        "en": "I can demand conditions and deadlines so that redress for automated errors is more than a formality."
+        "ko": "자동 판단의 오류 위험과 운영 비용을 고려해 설명·이의 제기·재심 절차를 설계할 수 있어요.",
+        "de": "Ich kann unter Berücksichtigung von Fehlerrisiko und Aufwand Verfahren für Erklärung, Widerspruch und Überprüfung automatisierter Entscheidungen gestalten.",
+        "en": "I can design explanation, appeal, and review processes for automated decisions while considering error risk and operational cost."
       },
       "requiredConceptIds": [
         "concept_c2_automation_redress"
       ],
       "checkpointContentIds": [
-        "grammar:grammar_c2_no_more_than_doing"
+        "scenario:ai_hiring_appeal"
       ]
     },
     {
@@ -1020,20 +1020,20 @@
       "level": "c1",
       "order": 4,
       "title": {
-        "ko": "이용시간 규제안 검토",
-        "de": "Regulierungsvorschläge zur Spielzeit prüfen",
-        "en": "Reviewing play-time regulation"
+        "ko": "규제의 목적·예외·집행 설계하기",
+        "de": "Zweck, Ausnahmen und Umsetzung einer Regelung gestalten",
+        "en": "Designing a rule's purpose, exceptions, and enforcement"
       },
       "canDo": {
-        "ko": "이용시간 자료를 근거로 규제안의 효과와 부작용을 함께 놓고 검토할 수 있어요.",
-        "de": "Ich kann anhand von Spielzeitdaten Wirkung und Nebenwirkungen eines Regulierungsvorschlags nebeneinander prüfen.",
-        "en": "I can weigh a play-time rule's effect and its side effects together, using the usage data as grounds."
+        "ko": "규제 목적과 예외, 집행 부담을 연결해 조건부 정책을 설명할 수 있어요.",
+        "de": "Ich kann Ziel, Ausnahmen und Umsetzungsaufwand einer Regelung verbinden und eine bedingte Lösung erläutern.",
+        "en": "I can connect a regulation's purpose, exceptions, and enforcement burden to explain a conditional policy."
       },
       "requiredConceptIds": [
         "concept_c1_play_time_policy"
       ],
       "checkpointContentIds": [
-        "grammar:grammar_c1_not_necessarily"
+        "scenario:school_phone_rule"
       ]
     },
     {
@@ -1041,20 +1041,20 @@
       "level": "c2",
       "order": 4,
       "title": {
-        "ko": "자동 제재와 책임",
-        "de": "Automatische Sanktionen und Rechenschaft",
-        "en": "Automated sanctions and accountability"
+        "ko": "복합 시스템의 보상 책임과 원인 책임 구분하기",
+        "de": "Entschädigungs- und Ursachenverantwortung in komplexen Systemen unterscheiden",
+        "en": "Distinguishing remedy responsibility from causal responsibility in complex systems"
       },
       "canDo": {
-        "ko": "자동 제재가 딛고 선 전제를 드러내고 이의 절차가 갖춰야 할 조건을 규정할 수 있어요.",
-        "de": "Ich kann die Prämissen automatischer Sanktionen offenlegen und festlegen, welche Bedingungen ein Einspruchsverfahren erfüllen muss.",
-        "en": "I can surface the premises an automated sanction rests on and set the conditions an appeal process has to meet."
+        "ko": "복합 사고에서 신속한 피해 구제와 다층 원인 책임을 분리해 논증할 수 있어요.",
+        "de": "Ich kann bei komplexen Schäden schnelle Wiedergutmachung von mehrstufiger Ursachenverantwortung unterscheiden.",
+        "en": "I can distinguish prompt remedy for harm from layered causal responsibility in complex incidents."
       },
       "requiredConceptIds": [
         "concept_c2_sanction_accountability"
       ],
       "checkpointContentIds": [
-        "grammar:grammar_c2_merely_on_grounds"
+        "scenario:autonomous_delivery_liability"
       ]
     },
     {
@@ -1062,20 +1062,20 @@
       "level": "c1",
       "order": 5,
       "title": {
-        "ko": "팬 활동의 지속 가능한 범위",
-        "de": "Nachhaltiger Umfang von Fanarbeit",
-        "en": "A sustainable scope for fan work"
+        "ko": "문화 참여의 공로와 지속 가능성 협의하기",
+        "de": "Anerkennung und Nachhaltigkeit kultureller Beteiligung aushandeln",
+        "en": "Negotiating credit and sustainability in cultural participation"
       },
       "canDo": {
-        "ko": "무보수로 이뤄지는 참여 노동의 양과 분담을 지속 가능한 범위로 설계할 수 있어요.",
-        "de": "Ich kann Umfang und Aufteilung unbezahlter Mitarbeit so gestalten, dass sie nachhaltig bleiben.",
-        "en": "I can design the amount and sharing of unpaid participatory work so that it stays sustainable."
+        "ko": "자발적 문화 참여의 공로·권리·지속 가능성을 이해관계별로 협의할 수 있어요.",
+        "de": "Ich kann Anerkennung, Rechte und Nachhaltigkeit freiwilliger kultureller Beteiligung aushandeln.",
+        "en": "I can negotiate credit, rights, and sustainability in voluntary cultural participation."
       },
       "requiredConceptIds": [
         "concept_c1_fan_labor"
       ],
       "checkpointContentIds": [
-        "grammar:grammar_c1_insufficient_for"
+        "scenario:fan_translation_credit"
       ]
     },
     {
@@ -1083,20 +1083,20 @@
       "level": "c2",
       "order": 5,
       "title": {
-        "ko": "관계 서사와 관점",
-        "de": "Beziehungsnarrative und Perspektive",
-        "en": "Relationship narratives and perspective"
+        "ko": "기억·관점·관계 서사 조정하기",
+        "de": "Erinnerung, Perspektive und Beziehungserzählungen aushandeln",
+        "en": "Negotiating memory, perspective, and relationship narratives"
       },
       "canDo": {
-        "ko": "이야기의 짜임이 만들어 내는 관점 편향을 관계 자체와 분리해 분석할 수 있어요.",
-        "de": "Ich kann die Perspektivverzerrung, die eine Erzählweise erzeugt, von der Beziehung selbst trennen und analysieren.",
-        "en": "I can separate the perspective bias a narrative shape creates from the relationship itself and analyse it."
+        "ko": "충돌하는 기억과 관계 서사의 사실·관점·권력 차이를 구분해 조정할 수 있어요.",
+        "de": "Ich kann Fakten, Perspektiven und Machtunterschiede in widersprüchlichen Erinnerungs- und Beziehungserzählungen unterscheiden und aushandeln.",
+        "en": "I can distinguish and negotiate facts, perspectives, and power differences in conflicting memories and relationship narratives."
       },
       "requiredConceptIds": [
         "concept_c2_relationship_narratives"
       ],
       "checkpointContentIds": [
-        "grammar:grammar_c2_as_if_framing"
+        "scenario:family_memory_conflict"
       ]
     },
     {
@@ -1104,20 +1104,20 @@
       "level": "c1",
       "order": 6,
       "title": {
-        "ko": "만남의 안전 절차 설계",
-        "de": "Sicherheitsverfahren beim Kennenlernen gestalten",
-        "en": "Designing safety steps for meeting people"
+        "ko": "관계 속 숨은 기대와 경계 협의하기",
+        "de": "Unausgesprochene Erwartungen und Grenzen in Beziehungen aushandeln",
+        "en": "Negotiating unspoken expectations and boundaries"
       },
       "canDo": {
-        "ko": "안전과 표현의 자유 사이에서 신고와 차단 절차가 어디까지 가야 하는지 설계할 수 있어요.",
-        "de": "Ich kann zwischen Sicherheit und Meinungsfreiheit festlegen, wie weit Melde- und Sperrverfahren gehen sollen.",
-        "en": "I can set how far reporting and blocking steps should go between safety and freedom of expression."
+        "ko": "업무나 관계에서 암묵적인 기대를 드러내고 현실적인 경계를 협의할 수 있어요.",
+        "de": "Ich kann unausgesprochene Erwartungen in Arbeit oder Beziehungen sichtbar machen und praktikable Grenzen aushandeln.",
+        "en": "I can surface unspoken expectations in work or relationships and negotiate practical boundaries."
       },
       "requiredConceptIds": [
         "concept_c1_intimacy_safety"
       ],
       "checkpointContentIds": [
-        "grammar:grammar_c1_but_not"
+        "scenario:after_hours_messages"
       ]
     },
     {
@@ -1125,20 +1125,20 @@
       "level": "c2",
       "order": 6,
       "title": {
-        "ko": "팬덤 언어와 담론 권력",
-        "de": "Fandom-Sprache und Diskursmacht",
-        "en": "Fandom language and discursive power"
+        "ko": "미디어 프레이밍과 지역 영향 논증하기",
+        "de": "Medienframing und lokale Auswirkungen erörtern",
+        "en": "Arguing media framing and local impact"
       },
       "canDo": {
-        "ko": "집단이 쓰는 말이 가진 담론 권력을 짚고 양보 구문으로 그 전제를 반박할 수 있어요.",
-        "de": "Ich kann die Diskursmacht kollektiver Sprache benennen und ihre Prämissen mit Konzessivkonstruktionen widerlegen.",
-        "en": "I can name the discursive power of a group's language and rebut its premises with concessive constructions."
+        "ko": "미디어의 프레이밍과 확산이 지역·공동체에 미친 영향을 분석하고 후속 책임을 논증할 수 있어요.",
+        "de": "Ich kann analysieren, wie Medienframing und Reichweite lokale Gemeinschaften beeinflussen, und daraus Verantwortung ableiten.",
+        "en": "I can analyze how media framing and reach affect local communities and argue for follow-up responsibility."
       },
       "requiredConceptIds": [
         "concept_c2_fandom_discourse"
       ],
       "checkpointContentIds": [
-        "grammar:grammar_c2_no_matter_how"
+        "scenario:hidden_gem_local_impact"
       ]
     }
   ],
@@ -2554,3399 +2554,6 @@
   },
   "contentLinks": [
     {
-      "contentKind": "scenario",
-      "contentId": "postpone_plans",
-      "courseUnitId": "b1_01_experience_reasons",
-      "conceptIds": [
-        "concept_b1_reasons_experience"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "company_dinner_hoeshik",
-      "courseUnitId": "b1_02_indirect_speech",
-      "conceptIds": [
-        "concept_b1_indirect_speech"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "bank_account",
-      "courseUnitId": "b1_03_work_softening",
-      "conceptIds": [
-        "concept_b1_softening"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "warm_encouragement",
-      "courseUnitId": "b1_04_relationships",
-      "conceptIds": [
-        "concept_b1_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "food_delivery",
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "couple_argument",
-      "courseUnitId": "b1_06_life_capstone",
-      "conceptIds": [
-        "concept_b1_life"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "business_meeting_intro",
-      "courseUnitId": "b2_01_formal_opening",
-      "conceptIds": [
-        "concept_b2_formal_opening"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "business_meeting_intro",
-      "courseUnitId": "b2_02_professional_opinion",
-      "conceptIds": [
-        "concept_b2_opinion"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "doctor_consultation",
-      "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": [
-        "concept_b2_precise_requests"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "complaint_delivery",
-      "courseUnitId": "b2_04_complaint_resolution",
-      "conceptIds": [
-        "concept_b2_complaint"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "job_interview",
-      "courseUnitId": "b2_05_interview",
-      "conceptIds": [
-        "concept_b2_interview"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "job_interview",
-      "courseUnitId": "b2_06_advanced_capstone",
-      "conceptIds": [
-        "concept_b2_advanced"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_leak_report",
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_move_in_handover",
-      "courseUnitId": "b1_06_life_capstone",
-      "conceptIds": [
-        "concept_b1_life"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_contract_appointment",
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_heating_safety_call",
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_team_meeting_coordination",
-      "courseUnitId": "b1_03_work_softening",
-      "conceptIds": [
-        "concept_b1_softening"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_attendance_followup",
-      "courseUnitId": "b1_03_work_softening",
-      "conceptIds": [
-        "concept_b1_softening"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_covering_absence",
-      "courseUnitId": "b1_03_work_softening",
-      "conceptIds": [
-        "concept_b1_softening"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_reschedule_request",
-      "courseUnitId": "b1_03_work_softening",
-      "conceptIds": [
-        "concept_b1_softening"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_contract_clause_inquiry",
-      "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": [
-        "concept_b2_precise_requests"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_deadline_deferral_request",
-      "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": [
-        "concept_b2_precise_requests"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_signature_scope_confirmation",
-      "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": [
-        "concept_b2_precise_requests"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_remedy_plan_request",
-      "courseUnitId": "b2_04_complaint_resolution",
-      "conceptIds": [
-        "concept_b2_complaint"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_objection_status_request",
-      "courseUnitId": "b2_04_complaint_resolution",
-      "conceptIds": [
-        "concept_b2_complaint"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_decision_criteria_workshop",
-      "courseUnitId": "b2_02_professional_opinion",
-      "conceptIds": [
-        "concept_b2_opinion"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_reading_circle_response",
-      "courseUnitId": "b2_06_advanced_capstone",
-      "conceptIds": [
-        "concept_b2_advanced"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_public_wording_feedback",
-      "courseUnitId": "b2_02_professional_opinion",
-      "conceptIds": [
-        "concept_b2_opinion"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_repair_visit_followup",
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_device_failure_escalation",
-      "courseUnitId": "b2_04_complaint_resolution",
-      "conceptIds": [
-        "concept_b2_complaint"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_survey_limits_briefing",
-      "courseUnitId": "c1_01_evidence_public_reasoning",
-      "conceptIds": [
-        "concept_c1_evidence_reasoning"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_automated_decision_appeal",
-      "courseUnitId": "c2_02_technology_public_ethics",
-      "conceptIds": [
-        "concept_c2_accountable_systems"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_partner_first_door",
-      "courseUnitId": "a1_11_titles_relationships",
-      "conceptIds": [
-        "concept_a1_titles_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_partner_seollal_bow",
-      "courseUnitId": "a1_11_titles_relationships",
-      "conceptIds": [
-        "concept_a1_titles_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_partner_songpyeon_too_big",
-      "courseUnitId": "a1_11_titles_relationships",
-      "conceptIds": [
-        "concept_a1_titles_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_partner_more_side_dishes",
-      "courseUnitId": "a1_11_titles_relationships",
-      "conceptIds": [
-        "concept_a1_titles_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_partner_leftover_bags",
-      "courseUnitId": "a2_03_chat_relationships",
-      "conceptIds": [
-        "concept_a2_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_partner_holiday_train",
-      "courseUnitId": "a2_03_chat_relationships",
-      "conceptIds": [
-        "concept_a2_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_partner_banmal_slip",
-      "courseUnitId": "a2_03_chat_relationships",
-      "conceptIds": [
-        "concept_a2_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_partner_marriage_question",
-      "courseUnitId": "b1_04_relationships",
-      "conceptIds": [
-        "concept_b1_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_partner_drink_table",
-      "courseUnitId": "b1_04_relationships",
-      "conceptIds": [
-        "concept_b1_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_partner_overnight_door",
-      "courseUnitId": "b1_04_relationships",
-      "conceptIds": [
-        "concept_b1_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_partner_inlaw_rotation",
-      "courseUnitId": "b2_06_advanced_capstone",
-      "conceptIds": [
-        "concept_b2_advanced"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_partner_public_intro",
-      "courseUnitId": "b2_06_advanced_capstone",
-      "conceptIds": [
-        "concept_b2_advanced"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_partner_invisible_labor",
-      "courseUnitId": "c1_02_inclusive_sustainable_systems",
-      "conceptIds": [
-        "concept_c1_inclusive_systems"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_partner_name_and_memory",
-      "courseUnitId": "c2_01_interpretation_institutions",
-      "conceptIds": [
-        "concept_c2_discourse_institutions"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_partner_gift_too_big",
-      "courseUnitId": "a1_11_titles_relationships",
-      "conceptIds": [
-        "concept_a1_titles_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_partner_wrong_seat",
-      "courseUnitId": "a1_11_titles_relationships",
-      "conceptIds": [
-        "concept_a1_titles_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_partner_new_year_money",
-      "courseUnitId": "a1_11_titles_relationships",
-      "conceptIds": [
-        "concept_a1_titles_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_partner_morning_greeting",
-      "courseUnitId": "a2_03_chat_relationships",
-      "conceptIds": [
-        "concept_a2_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_partner_group_chat_join",
-      "courseUnitId": "a2_03_chat_relationships",
-      "conceptIds": [
-        "concept_a2_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_partner_hanbok_rental",
-      "courseUnitId": "a2_03_chat_relationships",
-      "conceptIds": [
-        "concept_a2_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_partner_salary_deflect",
-      "courseUnitId": "b1_04_relationships",
-      "conceptIds": [
-        "concept_b1_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_partner_interpret_skip",
-      "courseUnitId": "b1_04_relationships",
-      "conceptIds": [
-        "concept_b1_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_partner_heavy_bags_home",
-      "courseUnitId": "b1_04_relationships",
-      "conceptIds": [
-        "concept_b1_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_partner_dowry_joke",
-      "courseUnitId": "b2_06_advanced_capstone",
-      "conceptIds": [
-        "concept_b2_advanced"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_partner_holiday_labor_chart",
-      "courseUnitId": "b2_06_advanced_capstone",
-      "conceptIds": [
-        "concept_b2_advanced"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_partner_photo_permission",
-      "courseUnitId": "b2_06_advanced_capstone",
-      "conceptIds": [
-        "concept_b2_advanced"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_partner_guest_or_family",
-      "courseUnitId": "c1_02_inclusive_sustainable_systems",
-      "conceptIds": [
-        "concept_c1_inclusive_systems"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_partner_document_the_place",
-      "courseUnitId": "c2_01_interpretation_institutions",
-      "conceptIds": [
-        "concept_c2_discourse_institutions"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_post_queue",
-      "courseUnitId": "a1_14_payment_delivery",
-      "conceptIds": [
-        "concept_a1_payment_delivery"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_stamp_ask",
-      "courseUnitId": "a1_14_payment_delivery",
-      "conceptIds": [
-        "concept_a1_payment_delivery"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_parcel_weight",
-      "courseUnitId": "a1_14_payment_delivery",
-      "conceptIds": [
-        "concept_a1_payment_delivery"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_pharmacy_ointment",
-      "courseUnitId": "a1_10_health_safety",
-      "conceptIds": [
-        "concept_a1_health_safety"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_mask_pack",
-      "courseUnitId": "a1_14_payment_delivery",
-      "conceptIds": [
-        "concept_a1_payment_delivery"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_weekend_rain",
-      "courseUnitId": "a1_01_greetings_hangul",
-      "conceptIds": [
-        "concept_greeting_politeness"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_late_text",
-      "courseUnitId": "a1_01_greetings_hangul",
-      "conceptIds": [
-        "concept_greeting_politeness"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_neighbor_box",
-      "courseUnitId": "a1_09_home_daily_life",
-      "conceptIds": [
-        "concept_a1_home_daily"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_hall_shoes",
-      "courseUnitId": "a1_09_home_daily_life",
-      "conceptIds": [
-        "concept_a1_home_daily"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_class_pencil",
-      "courseUnitId": "a1_08_clarify_repair",
-      "conceptIds": [
-        "concept_a1_clarification"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_submit_name",
-      "courseUnitId": "a1_14_payment_delivery",
-      "conceptIds": [
-        "concept_a1_payment_delivery"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_subway_exit",
-      "courseUnitId": "a1_06_transport_directions",
-      "conceptIds": [
-        "concept_a1_directions"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_last_train",
-      "courseUnitId": "a1_06_transport_directions",
-      "conceptIds": [
-        "concept_a1_directions"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_card_topup",
-      "courseUnitId": "a1_06_transport_directions",
-      "conceptIds": [
-        "concept_a1_directions"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_weather_layer",
-      "courseUnitId": "a1_10_health_safety",
-      "conceptIds": [
-        "concept_a1_health_safety"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_dust_mask",
-      "courseUnitId": "a1_10_health_safety",
-      "conceptIds": [
-        "concept_a1_health_safety"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_sorry_late",
-      "courseUnitId": "a1_01_greetings_hangul",
-      "conceptIds": [
-        "concept_greeting_politeness"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_thanks_seat",
-      "courseUnitId": "a1_06_transport_directions",
-      "conceptIds": [
-        "concept_a1_directions"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_slow_speech",
-      "courseUnitId": "a1_08_clarify_repair",
-      "conceptIds": [
-        "concept_a1_clarification"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_door_bell",
-      "courseUnitId": "a1_09_home_daily_life",
-      "conceptIds": [
-        "concept_a1_home_daily"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_trash_sort",
-      "courseUnitId": "a1_09_home_daily_life",
-      "conceptIds": [
-        "concept_a1_home_daily"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_gate_code",
-      "courseUnitId": "a1_09_home_daily_life",
-      "conceptIds": [
-        "concept_a1_home_daily"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_whiteboard_word",
-      "courseUnitId": "a1_08_clarify_repair",
-      "conceptIds": [
-        "concept_a1_clarification"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_platform_line",
-      "courseUnitId": "a1_06_transport_directions",
-      "conceptIds": [
-        "concept_a1_directions"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_rain_jacket",
-      "courseUnitId": "a1_10_health_safety",
-      "conceptIds": [
-        "concept_a1_health_safety"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_excuse_pass",
-      "courseUnitId": "a1_01_greetings_hangul",
-      "conceptIds": [
-        "concept_greeting_politeness"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_ask_again",
-      "courseUnitId": "a1_08_clarify_repair",
-      "conceptIds": [
-        "concept_a1_clarification"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_meet_station",
-      "courseUnitId": "a1_06_transport_directions",
-      "conceptIds": [
-        "concept_a1_directions"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_cancel_walk",
-      "courseUnitId": "a1_01_greetings_hangul",
-      "conceptIds": [
-        "concept_greeting_politeness"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_floor_number",
-      "courseUnitId": "a1_09_home_daily_life",
-      "conceptIds": [
-        "concept_a1_home_daily"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_locker_key",
-      "courseUnitId": "a1_06_transport_directions",
-      "conceptIds": [
-        "concept_a1_directions"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_bus_late",
-      "courseUnitId": "a1_06_transport_directions",
-      "conceptIds": [
-        "concept_a1_directions"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_water_shop",
-      "courseUnitId": "a1_14_payment_delivery",
-      "conceptIds": [
-        "concept_a1_payment_delivery"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_tea_order",
-      "courseUnitId": "a1_04_order_request_object",
-      "conceptIds": [
-        "concept_request_polite"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_taxi_address",
-      "courseUnitId": "a1_06_transport_directions",
-      "conceptIds": [
-        "concept_a1_directions"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_hotel_key",
-      "courseUnitId": "a1_06_transport_directions",
-      "conceptIds": [
-        "concept_a1_directions"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_market_bag",
-      "courseUnitId": "a1_14_payment_delivery",
-      "conceptIds": [
-        "concept_a1_payment_delivery"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_airport_cart",
-      "courseUnitId": "a1_06_transport_directions",
-      "conceptIds": [
-        "concept_a1_directions"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_rice_shop",
-      "courseUnitId": "a1_14_payment_delivery",
-      "conceptIds": [
-        "concept_a1_payment_delivery"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_direction_left",
-      "courseUnitId": "a1_06_transport_directions",
-      "conceptIds": [
-        "concept_a1_directions"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_office_print",
-      "courseUnitId": "a1_14_payment_delivery",
-      "conceptIds": [
-        "concept_a1_payment_delivery"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_cafe_wifi",
-      "courseUnitId": "a1_04_order_request_object",
-      "conceptIds": [
-        "concept_request_polite"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_station_rest",
-      "courseUnitId": "a1_06_transport_directions",
-      "conceptIds": [
-        "concept_a1_directions"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_home_light",
-      "courseUnitId": "a1_09_home_daily_life",
-      "conceptIds": [
-        "concept_a1_home_daily"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_pharmacy_hours",
-      "courseUnitId": "a1_10_health_safety",
-      "conceptIds": [
-        "concept_a1_health_safety"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_phone_plan",
-      "courseUnitId": "a2_08_home_money",
-      "conceptIds": [
-        "concept_a2_home_money"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_data_roam",
-      "courseUnitId": "a2_07_travel_repair",
-      "conceptIds": [
-        "concept_a2_travel_repair"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_bank_number",
-      "courseUnitId": "a2_08_home_money",
-      "conceptIds": [
-        "concept_a2_home_money"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_transfer_limit",
-      "courseUnitId": "a2_08_home_money",
-      "conceptIds": [
-        "concept_a2_home_money"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_gym_lock",
-      "courseUnitId": "a2_04_feelings_health",
-      "conceptIds": [
-        "concept_a2_feelings"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_stretch_start",
-      "courseUnitId": "a2_04_feelings_health",
-      "conceptIds": [
-        "concept_a2_feelings"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_salon_cut",
-      "courseUnitId": "a2_04_feelings_health",
-      "conceptIds": [
-        "concept_a2_feelings"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_dye_dark",
-      "courseUnitId": "a2_04_feelings_health",
-      "conceptIds": [
-        "concept_a2_feelings"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_apt_sticker",
-      "courseUnitId": "a2_08_home_money",
-      "conceptIds": [
-        "concept_a2_home_money"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_food_bag",
-      "courseUnitId": "a2_05_delivery_services",
-      "conceptIds": [
-        "concept_a2_services"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_shift_table",
-      "courseUnitId": "a2_06_study_work",
-      "conceptIds": [
-        "concept_a2_work_study"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_night_pay",
-      "courseUnitId": "a2_08_home_money",
-      "conceptIds": [
-        "concept_a2_home_money"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_lost_wallet",
-      "courseUnitId": "a2_07_travel_repair",
-      "conceptIds": [
-        "concept_a2_travel_repair"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_found_umbrella",
-      "courseUnitId": "a2_07_travel_repair",
-      "conceptIds": [
-        "concept_a2_travel_repair"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_festival_stamp",
-      "courseUnitId": "a2_06_study_work",
-      "conceptIds": [
-        "concept_a2_work_study"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_booth_line",
-      "courseUnitId": "a2_07_travel_repair",
-      "conceptIds": [
-        "concept_a2_travel_repair"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_bill_high",
-      "courseUnitId": "a2_08_home_money",
-      "conceptIds": [
-        "concept_a2_home_money"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_auto_debit",
-      "courseUnitId": "a2_08_home_money",
-      "conceptIds": [
-        "concept_a2_home_money"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_hair_time",
-      "courseUnitId": "a2_04_feelings_health",
-      "conceptIds": [
-        "concept_a2_feelings"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_quiet_ten",
-      "courseUnitId": "a2_08_home_money",
-      "conceptIds": [
-        "concept_a2_home_money"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_handover_note",
-      "courseUnitId": "a2_06_study_work",
-      "conceptIds": [
-        "concept_a2_work_study"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_id_pickup",
-      "courseUnitId": "a2_05_delivery_services",
-      "conceptIds": [
-        "concept_a2_services"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_volunteer_vest",
-      "courseUnitId": "a2_06_study_work",
-      "conceptIds": [
-        "concept_a2_work_study"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_tea_taste",
-      "courseUnitId": "a2_05_delivery_services",
-      "conceptIds": [
-        "concept_a2_services"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_contract_read",
-      "courseUnitId": "a2_08_home_money",
-      "conceptIds": [
-        "concept_a2_home_money"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_recycle_box",
-      "courseUnitId": "a2_08_home_money",
-      "conceptIds": [
-        "concept_a2_home_money"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_card_balance",
-      "courseUnitId": "a2_08_home_money",
-      "conceptIds": [
-        "concept_a2_home_money"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_rain_cancel",
-      "courseUnitId": "a2_02_plans_proposals",
-      "conceptIds": [
-        "concept_proposal_polite"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_guest_pass",
-      "courseUnitId": "a2_08_home_money",
-      "conceptIds": [
-        "concept_a2_home_money"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_manager_leave",
-      "courseUnitId": "a2_06_study_work",
-      "conceptIds": [
-        "concept_a2_work_study"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_label_phone",
-      "courseUnitId": "a2_08_home_money",
-      "conceptIds": [
-        "concept_a2_home_money"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_hours_six",
-      "courseUnitId": "a2_02_plans_proposals",
-      "conceptIds": [
-        "concept_proposal_polite"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_seat_hold",
-      "courseUnitId": "a2_07_travel_repair",
-      "conceptIds": [
-        "concept_a2_travel_repair"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_water_set",
-      "courseUnitId": "a2_05_delivery_services",
-      "conceptIds": [
-        "concept_a2_services"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_front_desk",
-      "courseUnitId": "a2_07_travel_repair",
-      "conceptIds": [
-        "concept_a2_travel_repair"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_taxi_wait",
-      "courseUnitId": "a2_07_travel_repair",
-      "conceptIds": [
-        "concept_a2_travel_repair"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_airport_sim",
-      "courseUnitId": "a2_07_travel_repair",
-      "conceptIds": [
-        "concept_a2_travel_repair"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_market_change",
-      "courseUnitId": "a2_05_delivery_services",
-      "conceptIds": [
-        "concept_a2_services"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_restaurant_split",
-      "courseUnitId": "a2_05_delivery_services",
-      "conceptIds": [
-        "concept_a2_services"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_direction_bus",
-      "courseUnitId": "a2_07_travel_repair",
-      "conceptIds": [
-        "concept_a2_travel_repair"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_convenience_copy",
-      "courseUnitId": "a2_05_delivery_services",
-      "conceptIds": [
-        "concept_a2_services"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_cafe_plug",
-      "courseUnitId": "a2_05_delivery_services",
-      "conceptIds": [
-        "concept_a2_services"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_hotel_late",
-      "courseUnitId": "a2_07_travel_repair",
-      "conceptIds": [
-        "concept_a2_travel_repair"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_office_badge",
-      "courseUnitId": "a2_06_study_work",
-      "conceptIds": [
-        "concept_a2_work_study"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_station_lost",
-      "courseUnitId": "a2_07_travel_repair",
-      "conceptIds": [
-        "concept_a2_travel_repair"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_mail_cc",
-      "courseUnitId": "b1_03_work_softening",
-      "conceptIds": [
-        "concept_b1_softening"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_missing_file",
-      "courseUnitId": "b1_03_work_softening",
-      "conceptIds": [
-        "concept_b1_softening"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_quiet_exam",
-      "courseUnitId": "b1_04_relationships",
-      "conceptIds": [
-        "concept_b1_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_bill_split",
-      "courseUnitId": "b1_06_life_capstone",
-      "conceptIds": [
-        "concept_b1_life"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_claim_same_day",
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_deductible",
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_civil_ticket",
-      "courseUnitId": "b1_06_life_capstone",
-      "conceptIds": [
-        "concept_b1_life"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_extra_paper",
-      "courseUnitId": "b1_06_life_capstone",
-      "conceptIds": [
-        "concept_b1_life"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_volunteer_gap",
-      "courseUnitId": "b1_03_work_softening",
-      "conceptIds": [
-        "concept_b1_softening"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_parent_slot",
-      "courseUnitId": "b1_06_life_capstone",
-      "conceptIds": [
-        "concept_b1_life"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_repair_photo",
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_return_visit",
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_typhoon_change",
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_refund_rule",
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_followup_mail",
-      "courseUnitId": "b1_03_work_softening",
-      "conceptIds": [
-        "concept_b1_softening"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_guest_notice",
-      "courseUnitId": "b1_04_relationships",
-      "conceptIds": [
-        "concept_b1_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_scan_note",
-      "courseUnitId": "b1_06_life_capstone",
-      "conceptIds": [
-        "concept_b1_life"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_proxy_form",
-      "courseUnitId": "b1_06_life_capstone",
-      "conceptIds": [
-        "concept_b1_life"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_safety_vest",
-      "courseUnitId": "b1_04_relationships",
-      "conceptIds": [
-        "concept_b1_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_school_letter",
-      "courseUnitId": "b1_06_life_capstone",
-      "conceptIds": [
-        "concept_b1_life"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_quote_change",
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_waitlist",
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_intranet_form",
-      "courseUnitId": "b1_06_life_capstone",
-      "conceptIds": [
-        "concept_b1_life"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_laundry_turn",
-      "courseUnitId": "b1_04_relationships",
-      "conceptIds": [
-        "concept_b1_relationships"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_warranty_week",
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_connecting",
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_case_status",
-      "courseUnitId": "b1_06_life_capstone",
-      "conceptIds": [
-        "concept_b1_life"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_pickup_delay",
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_hotel_shift",
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_taxi_receipt",
-      "courseUnitId": "b1_06_life_capstone",
-      "conceptIds": [
-        "concept_b1_life"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_market_claim",
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_cafe_invoice",
-      "courseUnitId": "b1_06_life_capstone",
-      "conceptIds": [
-        "concept_b1_life"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_review_three",
-      "courseUnitId": "b2_02_professional_opinion",
-      "conceptIds": [
-        "concept_b2_opinion"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_self_fail",
-      "courseUnitId": "b2_06_advanced_capstone",
-      "conceptIds": [
-        "concept_b2_advanced"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_certified_mail",
-      "courseUnitId": "b2_04_complaint_resolution",
-      "conceptIds": [
-        "concept_b2_complaint"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_restore_scope",
-      "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": [
-        "concept_b2_precise_requests"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_source_check",
-      "courseUnitId": "b2_02_professional_opinion",
-      "conceptIds": [
-        "concept_b2_opinion"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_hold_share",
-      "courseUnitId": "b2_01_formal_opening",
-      "conceptIds": [
-        "concept_b2_formal_opening"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_agenda_swap",
-      "courseUnitId": "b2_01_formal_opening",
-      "conceptIds": [
-        "concept_b2_formal_opening"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_quorum_wait",
-      "courseUnitId": "b2_01_formal_opening",
-      "conceptIds": [
-        "concept_b2_formal_opening"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_must_have",
-      "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": [
-        "concept_b2_precise_requests"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_time_box",
-      "courseUnitId": "b2_01_formal_opening",
-      "conceptIds": [
-        "concept_b2_formal_opening"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_one_pager",
-      "courseUnitId": "b2_06_advanced_capstone",
-      "conceptIds": [
-        "concept_b2_advanced"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_assumption",
-      "courseUnitId": "b2_02_professional_opinion",
-      "conceptIds": [
-        "concept_b2_opinion"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_next_level",
-      "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": [
-        "concept_b2_precise_requests"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_case_id",
-      "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": [
-        "concept_b2_precise_requests"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_limit_line",
-      "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": [
-        "concept_b2_precise_requests"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_chart_axes",
-      "courseUnitId": "b2_02_professional_opinion",
-      "conceptIds": [
-        "concept_b2_opinion"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_minutes_draft",
-      "courseUnitId": "b2_01_formal_opening",
-      "conceptIds": [
-        "concept_b2_formal_opening"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_evidence_date",
-      "courseUnitId": "b2_04_complaint_resolution",
-      "conceptIds": [
-        "concept_b2_complaint"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_selective_edit",
-      "courseUnitId": "b2_06_advanced_capstone",
-      "conceptIds": [
-        "concept_b2_advanced"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_public_question",
-      "courseUnitId": "b2_06_advanced_capstone",
-      "conceptIds": [
-        "concept_b2_advanced"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_counter_offer",
-      "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": [
-        "concept_b2_precise_requests"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_metric_clear",
-      "courseUnitId": "b2_02_professional_opinion",
-      "conceptIds": [
-        "concept_b2_opinion"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_on_site",
-      "courseUnitId": "b2_04_complaint_resolution",
-      "conceptIds": [
-        "concept_b2_complaint"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_cross_check",
-      "courseUnitId": "b2_02_professional_opinion",
-      "conceptIds": [
-        "concept_b2_opinion"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_vacate_short",
-      "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": [
-        "concept_b2_precise_requests"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_read_receipt",
-      "courseUnitId": "b2_06_advanced_capstone",
-      "conceptIds": [
-        "concept_b2_advanced"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_airport_reseat",
-      "courseUnitId": "b2_04_complaint_resolution",
-      "conceptIds": [
-        "concept_b2_complaint"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_hotel_clause",
-      "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": [
-        "concept_b2_precise_requests"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_taxi_escalate",
-      "courseUnitId": "b2_04_complaint_resolution",
-      "conceptIds": [
-        "concept_b2_complaint"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_market_source",
-      "courseUnitId": "b2_02_professional_opinion",
-      "conceptIds": [
-        "concept_b2_opinion"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_cafe_brief",
-      "courseUnitId": "b2_06_advanced_capstone",
-      "conceptIds": [
-        "concept_b2_advanced"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_station_hold",
-      "courseUnitId": "b2_04_complaint_resolution",
-      "conceptIds": [
-        "concept_b2_complaint"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_pharmacy_claim",
-      "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": [
-        "concept_b2_precise_requests"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_restaurant_note",
-      "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": [
-        "concept_b2_precise_requests"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_direction_risk",
-      "courseUnitId": "b2_04_complaint_resolution",
-      "conceptIds": [
-        "concept_b2_complaint"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_convenience_scan",
-      "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": [
-        "concept_b2_precise_requests"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_uncertainty",
-      "courseUnitId": "c1_01_evidence_public_reasoning",
-      "conceptIds": [
-        "concept_c1_evidence_reasoning"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_sample_bias",
-      "courseUnitId": "c1_01_evidence_public_reasoning",
-      "conceptIds": [
-        "concept_c1_evidence_reasoning"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_briefing_number",
-      "courseUnitId": "c1_01_evidence_public_reasoning",
-      "conceptIds": [
-        "concept_c1_evidence_reasoning"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_question_window",
-      "courseUnitId": "c1_01_evidence_public_reasoning",
-      "conceptIds": [
-        "concept_c1_evidence_reasoning"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_leading_item",
-      "courseUnitId": "c1_01_evidence_public_reasoning",
-      "conceptIds": [
-        "concept_c1_evidence_reasoning"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_relative_risk",
-      "courseUnitId": "c1_01_evidence_public_reasoning",
-      "conceptIds": [
-        "concept_c1_evidence_reasoning"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_access_time",
-      "courseUnitId": "c1_01_evidence_public_reasoning",
-      "conceptIds": [
-        "concept_c1_evidence_reasoning"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_speaking_slot",
-      "courseUnitId": "c1_01_evidence_public_reasoning",
-      "conceptIds": [
-        "concept_c1_evidence_reasoning"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_discourse_premise",
-      "courseUnitId": "c2_02_technology_public_ethics",
-      "conceptIds": [
-        "concept_c2_accountable_systems"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_passive_hide",
-      "courseUnitId": "c2_02_technology_public_ethics",
-      "conceptIds": [
-        "concept_c2_accountable_systems"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_mandate_edge",
-      "courseUnitId": "c2_02_technology_public_ethics",
-      "conceptIds": [
-        "concept_c2_accountable_systems"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_archive_gap",
-      "courseUnitId": "c2_02_technology_public_ethics",
-      "conceptIds": [
-        "concept_c2_accountable_systems"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_appeal_bot",
-      "courseUnitId": "c2_02_technology_public_ethics",
-      "conceptIds": [
-        "concept_c2_accountable_systems"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_trace_log",
-      "courseUnitId": "c2_02_technology_public_ethics",
-      "conceptIds": [
-        "concept_c2_accountable_systems"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_withdraw_deep",
-      "courseUnitId": "c2_02_technology_public_ethics",
-      "conceptIds": [
-        "concept_c2_accountable_systems"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_uneven_impact",
-      "courseUnitId": "c2_02_technology_public_ethics",
-      "conceptIds": [
-        "concept_c2_accountable_systems"
-      ],
-      "role": "assess"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_daily_recycling_day",
-      "courseUnitId": "a1_09_home_daily_life",
-      "conceptIds": [
-        "concept_a1_home_daily"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_friends_major_and_number",
-      "courseUnitId": "a1_15_first_class_work",
-      "conceptIds": [
-        "concept_a1_first_meeting"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_dating_what_to_call_you",
-      "courseUnitId": "a1_11_titles_relationships",
-      "conceptIds": [
-        "concept_a1_titles_relationships"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_youtube_shorts_last_night",
-      "courseUnitId": "a1_12_daily_negation",
-      "conceptIds": [
-        "concept_a1_negation"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_gaming_one_more_round",
-      "courseUnitId": "a1_04_order_request_object",
-      "conceptIds": [
-        "concept_request_polite"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_kpop_my_bias",
-      "courseUnitId": "a1_02_self_intro_identity",
-      "conceptIds": [
-        "concept_identity_polite"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_daily_late_delivery",
-      "courseUnitId": "a2_05_delivery_services",
-      "conceptIds": [
-        "concept_a2_services"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_friends_weekend_slot",
-      "courseUnitId": "a2_02_plans_proposals",
-      "conceptIds": [
-        "concept_proposal_polite"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_dating_slow_replies",
-      "courseUnitId": "a2_04_feelings_health",
-      "conceptIds": [
-        "concept_a2_feelings"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_youtube_send_the_link",
-      "courseUnitId": "a2_03_chat_relationships",
-      "conceptIds": [
-        "concept_a2_relationships"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_gaming_cant_connect",
-      "courseUnitId": "a2_07_travel_repair",
-      "conceptIds": [
-        "concept_a2_travel_repair"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_kpop_concert_queue",
-      "courseUnitId": "a2_01_haeyo_transition",
-      "conceptIds": [
-        "concept_action_polite"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_daily_cut_the_bills",
-      "courseUnitId": "b1_06_life_capstone",
-      "conceptIds": [
-        "concept_b1_life"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_friends_he_said_that",
-      "courseUnitId": "b1_02_indirect_speech",
-      "conceptIds": [
-        "concept_b1_indirect_speech"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_dating_anniversary_gap",
-      "courseUnitId": "b1_04_relationships",
-      "conceptIds": [
-        "concept_b1_relationships"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_youtube_up_all_night",
-      "courseUnitId": "b1_01_experience_reasons",
-      "conceptIds": [
-        "concept_b1_reasons_experience"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_gaming_team_voice",
-      "courseUnitId": "b1_03_work_softening",
-      "conceptIds": [
-        "concept_b1_softening"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_kpop_missing_goods",
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_daily_upstairs_noise",
-      "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": [
-        "concept_b2_precise_requests"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_friends_split_the_bill",
-      "courseUnitId": "b2_02_professional_opinion",
-      "conceptIds": [
-        "concept_b2_opinion"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_dating_moving_in_terms",
-      "courseUnitId": "b2_06_advanced_capstone",
-      "conceptIds": [
-        "concept_b2_advanced"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_youtube_collab_pitch",
-      "courseUnitId": "b2_01_formal_opening",
-      "conceptIds": [
-        "concept_b2_formal_opening"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_gaming_ban_appeal",
-      "courseUnitId": "b2_04_complaint_resolution",
-      "conceptIds": [
-        "concept_b2_complaint"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_kpop_staff_interview",
-      "courseUnitId": "b2_05_interview",
-      "conceptIds": [
-        "concept_b2_interview"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_daily_prices_vs_data",
-      "courseUnitId": "c1_01_evidence_public_reasoning",
-      "conceptIds": [
-        "concept_c1_evidence_reasoning"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_friends_venue_access",
-      "courseUnitId": "c1_02_inclusive_sustainable_systems",
-      "conceptIds": [
-        "concept_c1_inclusive_systems"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_dating_app_safety",
-      "courseUnitId": "c1_02_inclusive_sustainable_systems",
-      "conceptIds": [
-        "concept_c1_inclusive_systems"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_youtube_health_claims",
-      "courseUnitId": "c1_01_evidence_public_reasoning",
-      "conceptIds": [
-        "concept_c1_evidence_reasoning"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_gaming_playtime_policy",
-      "courseUnitId": "c1_01_evidence_public_reasoning",
-      "conceptIds": [
-        "concept_c1_evidence_reasoning"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_kpop_fan_labor",
-      "courseUnitId": "c1_02_inclusive_sustainable_systems",
-      "conceptIds": [
-        "concept_c1_inclusive_systems"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_daily_automation_redress",
-      "courseUnitId": "c2_02_technology_public_ethics",
-      "conceptIds": [
-        "concept_c2_accountable_systems"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_friends_quoted_privately",
-      "courseUnitId": "c2_01_interpretation_institutions",
-      "conceptIds": [
-        "concept_c2_discourse_institutions"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_dating_romance_frames",
-      "courseUnitId": "c2_01_interpretation_institutions",
-      "conceptIds": [
-        "concept_c2_discourse_institutions"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_youtube_algorithm_duty",
-      "courseUnitId": "c2_02_technology_public_ethics",
-      "conceptIds": [
-        "concept_c2_accountable_systems"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_gaming_auto_sanction",
-      "courseUnitId": "c2_02_technology_public_ethics",
-      "conceptIds": [
-        "concept_c2_accountable_systems"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_kpop_fandom_language",
-      "courseUnitId": "c2_01_interpretation_institutions",
-      "conceptIds": [
-        "concept_c2_discourse_institutions"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_numbers_open_hours",
-      "courseUnitId": "a1_05_numbers_time",
-      "conceptIds": [
-        "concept_a1_time_numbers"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_numbers_how_many_left",
-      "courseUnitId": "a1_05_numbers_time",
-      "conceptIds": [
-        "concept_a1_time_numbers"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_numbers_floor_and_room",
-      "courseUnitId": "a1_05_numbers_time",
-      "conceptIds": [
-        "concept_a1_time_numbers"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_numbers_total_price",
-      "courseUnitId": "a1_05_numbers_time",
-      "conceptIds": [
-        "concept_a1_time_numbers"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_phone_wrong_number",
-      "courseUnitId": "a1_07_contact_address",
-      "conceptIds": [
-        "concept_a1_contact_address"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_phone_call_later",
-      "courseUnitId": "a1_07_contact_address",
-      "conceptIds": [
-        "concept_a1_contact_address"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_phone_text_instead",
-      "courseUnitId": "a1_07_contact_address",
-      "conceptIds": [
-        "concept_a1_contact_address"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_phone_read_back_address",
-      "courseUnitId": "a1_07_contact_address",
-      "conceptIds": [
-        "concept_a1_contact_address"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_wayfinding_exit_number",
-      "courseUnitId": "a1_06_transport_directions",
-      "conceptIds": [
-        "concept_a1_directions"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_wayfinding_this_way_right",
-      "courseUnitId": "a1_06_transport_directions",
-      "conceptIds": [
-        "concept_a1_directions"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_wayfinding_sign_says",
-      "courseUnitId": "a1_06_transport_directions",
-      "conceptIds": [
-        "concept_a1_directions"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_wayfinding_how_long_walk",
-      "courseUnitId": "a1_06_transport_directions",
-      "conceptIds": [
-        "concept_a1_directions"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_enrolment_class_signup",
-      "courseUnitId": "a2_06_study_work",
-      "conceptIds": [
-        "concept_a2_work_study"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_enrolment_missing_document",
-      "courseUnitId": "a2_06_study_work",
-      "conceptIds": [
-        "concept_a2_work_study"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_enrolment_level_test",
-      "courseUnitId": "a2_06_study_work",
-      "conceptIds": [
-        "concept_a2_work_study"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_enrolment_change_class",
-      "courseUnitId": "a2_06_study_work",
-      "conceptIds": [
-        "concept_a2_work_study"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_booking_table_time",
-      "courseUnitId": "a2_02_plans_proposals",
-      "conceptIds": [
-        "concept_proposal_polite"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_booking_change_date",
-      "courseUnitId": "a2_02_plans_proposals",
-      "conceptIds": [
-        "concept_proposal_polite"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_booking_no_show_fee",
-      "courseUnitId": "a2_02_plans_proposals",
-      "conceptIds": [
-        "concept_proposal_polite"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_booking_extra_person",
-      "courseUnitId": "a2_02_plans_proposals",
-      "conceptIds": [
-        "concept_proposal_polite"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_insurance_what_is_covered",
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_insurance_claim_documents",
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_insurance_deductible_share",
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_insurance_claim_rejected",
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_incident_parking_scratch",
-      "courseUnitId": "b1_02_indirect_speech",
-      "conceptIds": [
-        "concept_b1_indirect_speech"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_incident_lost_item_desk",
-      "courseUnitId": "b1_02_indirect_speech",
-      "conceptIds": [
-        "concept_b1_indirect_speech"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_incident_leak_from_upstairs",
-      "courseUnitId": "b1_02_indirect_speech",
-      "conceptIds": [
-        "concept_b1_indirect_speech"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_incident_witness_note",
-      "courseUnitId": "b1_02_indirect_speech",
-      "conceptIds": [
-        "concept_b1_indirect_speech"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_cancellation_gym_membership",
-      "courseUnitId": "b1_03_work_softening",
-      "conceptIds": [
-        "concept_b1_softening"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_cancellation_auto_payment",
-      "courseUnitId": "b1_03_work_softening",
-      "conceptIds": [
-        "concept_b1_softening"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_cancellation_move_out_notice",
-      "courseUnitId": "b1_03_work_softening",
-      "conceptIds": [
-        "concept_b1_softening"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_cancellation_early_penalty",
-      "courseUnitId": "b1_03_work_softening",
-      "conceptIds": [
-        "concept_b1_softening"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_hiring_role_scope",
-      "courseUnitId": "b2_05_interview",
-      "conceptIds": [
-        "concept_b2_interview"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_hiring_salary_band",
-      "courseUnitId": "b2_05_interview",
-      "conceptIds": [
-        "concept_b2_interview"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_hiring_reference_consent",
-      "courseUnitId": "b2_05_interview",
-      "conceptIds": [
-        "concept_b2_interview"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_hiring_start_date",
-      "courseUnitId": "b2_05_interview",
-      "conceptIds": [
-        "concept_b2_interview"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_privacy_data_scope",
-      "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": [
-        "concept_b2_precise_requests"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_privacy_retention_period",
-      "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": [
-        "concept_b2_precise_requests"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_privacy_third_party",
-      "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": [
-        "concept_b2_precise_requests"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_privacy_delete_request",
-      "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": [
-        "concept_b2_precise_requests"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_conflict_interest_disclose_stake",
-      "courseUnitId": "c1_01_evidence_public_reasoning",
-      "conceptIds": [
-        "concept_c1_evidence_reasoning"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_conflict_interest_recuse_request",
-      "courseUnitId": "c1_01_evidence_public_reasoning",
-      "conceptIds": [
-        "concept_c1_evidence_reasoning"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_conflict_interest_sponsored_talk",
-      "courseUnitId": "c1_01_evidence_public_reasoning",
-      "conceptIds": [
-        "concept_c1_evidence_reasoning"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_conflict_interest_dual_role",
-      "courseUnitId": "c1_01_evidence_public_reasoning",
-      "conceptIds": [
-        "concept_c1_evidence_reasoning"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_policy_pilot_before_rollout",
-      "courseUnitId": "c1_04_play_time_policy",
-      "conceptIds": [
-        "concept_c1_play_time_policy"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_policy_who_bears_cost",
-      "courseUnitId": "c1_04_play_time_policy",
-      "conceptIds": [
-        "concept_c1_play_time_policy"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_policy_sunset_clause",
-      "courseUnitId": "c1_04_play_time_policy",
-      "conceptIds": [
-        "concept_c1_play_time_policy"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_policy_exemption_edge",
-      "courseUnitId": "c1_04_play_time_policy",
-      "conceptIds": [
-        "concept_c1_play_time_policy"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_clinical_informed_consent",
-      "courseUnitId": "c1_02_inclusive_sustainable_systems",
-      "conceptIds": [
-        "concept_c1_inclusive_systems"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_clinical_second_opinion",
-      "courseUnitId": "c1_02_inclusive_sustainable_systems",
-      "conceptIds": [
-        "concept_c1_inclusive_systems"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_clinical_trial_withdrawal",
-      "courseUnitId": "c1_02_inclusive_sustainable_systems",
-      "conceptIds": [
-        "concept_c1_inclusive_systems"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_clinical_data_reuse",
-      "courseUnitId": "c1_02_inclusive_sustainable_systems",
-      "conceptIds": [
-        "concept_c1_inclusive_systems"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_critique_work_not_person",
-      "courseUnitId": "c1_03_media_evidence_literacy",
-      "conceptIds": [
-        "concept_c1_media_evidence"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_critique_anonymous_limits",
-      "courseUnitId": "c1_03_media_evidence_literacy",
-      "conceptIds": [
-        "concept_c1_media_evidence"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_critique_metric_gaming",
-      "courseUnitId": "c1_03_media_evidence_literacy",
-      "conceptIds": [
-        "concept_c1_media_evidence"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_critique_public_wording",
-      "courseUnitId": "c1_03_media_evidence_literacy",
-      "conceptIds": [
-        "concept_c1_media_evidence"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_mediation_ground_rules",
-      "courseUnitId": "c1_02_inclusive_sustainable_systems",
-      "conceptIds": [
-        "concept_c1_inclusive_systems"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_mediation_restate_position",
-      "courseUnitId": "c1_02_inclusive_sustainable_systems",
-      "conceptIds": [
-        "concept_c1_inclusive_systems"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_mediation_partial_agreement",
-      "courseUnitId": "c1_02_inclusive_sustainable_systems",
-      "conceptIds": [
-        "concept_c1_inclusive_systems"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_mediation_walk_away_line",
-      "courseUnitId": "c1_02_inclusive_sustainable_systems",
-      "conceptIds": [
-        "concept_c1_inclusive_systems"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_facework_decline_without_wound",
-      "courseUnitId": "c1_06_intimacy_safety_design",
-      "conceptIds": [
-        "concept_c1_intimacy_safety"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_facework_correct_in_private",
-      "courseUnitId": "c1_06_intimacy_safety_design",
-      "conceptIds": [
-        "concept_c1_intimacy_safety"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_facework_accept_correction",
-      "courseUnitId": "c1_06_intimacy_safety_design",
-      "conceptIds": [
-        "concept_c1_intimacy_safety"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_facework_praise_before_others",
-      "courseUnitId": "c1_06_intimacy_safety_design",
-      "conceptIds": [
-        "concept_c1_intimacy_safety"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_attribution_author_order",
-      "courseUnitId": "c1_05_fan_labor_sustainability",
-      "conceptIds": [
-        "concept_c1_fan_labor"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_attribution_unpaid_translation",
-      "courseUnitId": "c1_05_fan_labor_sustainability",
-      "conceptIds": [
-        "concept_c1_fan_labor"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_attribution_reuse_without_credit",
-      "courseUnitId": "c1_05_fan_labor_sustainability",
-      "conceptIds": [
-        "concept_c1_fan_labor"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_attribution_collective_byline",
-      "courseUnitId": "c1_05_fan_labor_sustainability",
-      "conceptIds": [
-        "concept_c1_fan_labor"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_ethics_embargo_disclosure_window",
-      "courseUnitId": "c2_02_technology_public_ethics",
-      "conceptIds": [
-        "concept_c2_accountable_systems"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_ethics_consent_form_scope_gap",
-      "courseUnitId": "c2_02_technology_public_ethics",
-      "conceptIds": [
-        "concept_c2_accountable_systems"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_ethics_reviewer_dual_appointment_disclosure",
-      "courseUnitId": "c2_02_technology_public_ethics",
-      "conceptIds": [
-        "concept_c2_accountable_systems"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_ethics_misconduct_review_procedure_defined",
-      "courseUnitId": "c2_02_technology_public_ethics",
-      "conceptIds": [
-        "concept_c2_accountable_systems"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_history_compile_committee_wording_dispute",
-      "courseUnitId": "c2_01_interpretation_institutions",
-      "conceptIds": [
-        "concept_c2_discourse_institutions"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_history_monument_inscription_agreement",
-      "courseUnitId": "c2_01_interpretation_institutions",
-      "conceptIds": [
-        "concept_c2_discourse_institutions"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_history_sealed_records_disclosure_timing",
-      "courseUnitId": "c2_01_interpretation_institutions",
-      "conceptIds": [
-        "concept_c2_discourse_institutions"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_history_merging_conflicting_testimonies",
-      "courseUnitId": "c2_01_interpretation_institutions",
-      "conceptIds": [
-        "concept_c2_discourse_institutions"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_aesthetic_poem_rhythm_meaning_loss",
-      "courseUnitId": "c2_05_relationship_narratives",
-      "conceptIds": [
-        "concept_c2_relationship_narratives"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_aesthetic_dialect_subtitle_flatten",
-      "courseUnitId": "c2_05_relationship_narratives",
-      "conceptIds": [
-        "concept_c2_relationship_narratives"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_aesthetic_word_without_equivalent",
-      "courseUnitId": "c2_05_relationship_narratives",
-      "conceptIds": [
-        "concept_c2_relationship_narratives"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_aesthetic_translator_editor_dispute",
-      "courseUnitId": "c2_05_relationship_narratives",
-      "conceptIds": [
-        "concept_c2_relationship_narratives"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_limitation_notice_delay_appeal_window",
-      "courseUnitId": "c2_03_automation_redress",
-      "conceptIds": [
-        "concept_c2_automation_redress"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_limitation_extension_premise_error_proof",
-      "courseUnitId": "c2_03_automation_redress",
-      "conceptIds": [
-        "concept_c2_automation_redress"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_limitation_define_accrual_date",
-      "courseUnitId": "c2_03_automation_redress",
-      "conceptIds": [
-        "concept_c2_automation_redress"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_limitation_ex_officio_review_path",
-      "courseUnitId": "c2_03_automation_redress",
-      "conceptIds": [
-        "concept_c2_automation_redress"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_jurisdiction_neither_claims_authority",
-      "courseUnitId": "c2_04_sanction_accountability",
-      "conceptIds": [
-        "concept_c2_sanction_accountability"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_jurisdiction_provisional_ruling_no_authority",
-      "courseUnitId": "c2_04_sanction_accountability",
-      "conceptIds": [
-        "concept_c2_sanction_accountability"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_jurisdiction_cross_border_premise",
-      "courseUnitId": "c2_04_sanction_accountability",
-      "conceptIds": [
-        "concept_c2_sanction_accountability"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_jurisdiction_even_if_authorized_escalate",
-      "courseUnitId": "c2_04_sanction_accountability",
-      "conceptIds": [
-        "concept_c2_sanction_accountability"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_representation_fan_rep_mandate_defined",
-      "courseUnitId": "c2_06_fandom_discourse_power",
-      "conceptIds": [
-        "concept_c2_fandom_discourse"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_representation_minority_view_regardless",
-      "courseUnitId": "c2_06_fandom_discourse_power",
-      "conceptIds": [
-        "concept_c2_fandom_discourse"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_representation_press_quote_not_official",
-      "courseUnitId": "c2_06_fandom_discourse_power",
-      "conceptIds": [
-        "concept_c2_fandom_discourse"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_representation_spokesperson_handover_concession",
-      "courseUnitId": "c2_06_fandom_discourse_power",
-      "conceptIds": [
-        "concept_c2_fandom_discourse"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_moving_rent_heating_budget",
-      "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": [
-        "concept_b2_precise_requests"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_job_hunting_ai_screening",
-      "courseUnitId": "b2_05_interview",
-      "conceptIds": [
-        "concept_b2_interview"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_daily_migration_neighborhood_meeting",
-      "courseUnitId": "b2_02_professional_opinion",
-      "conceptIds": [
-        "concept_b2_opinion"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_kpop_local_festival_program",
-      "courseUnitId": "b2_06_advanced_capstone",
-      "conceptIds": [
-        "concept_b2_advanced"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_moving_rent_relief_roundtable",
-      "courseUnitId": "c1_02_inclusive_sustainable_systems",
-      "conceptIds": [
-        "concept_c1_inclusive_systems"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_work_ai_hiring_pilot_review",
-      "courseUnitId": "c1_01_evidence_public_reasoning",
-      "conceptIds": [
-        "concept_c1_evidence_reasoning"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_daily_migration_demography_policy_forum",
-      "courseUnitId": "c1_02_inclusive_sustainable_systems",
-      "conceptIds": [
-        "concept_c1_inclusive_systems"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_kpop_platform_localization_review",
-      "courseUnitId": "c1_05_fan_labor_sustainability",
-      "conceptIds": [
-        "concept_c1_fan_labor"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_moving_affordability_definition_hearing",
-      "courseUnitId": "c2_01_interpretation_institutions",
-      "conceptIds": [
-        "concept_c2_discourse_institutions"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_work_ai_accountability_board",
-      "courseUnitId": "c2_02_technology_public_ethics",
-      "conceptIds": [
-        "concept_c2_accountable_systems"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_daily_integration_metric_editorial",
-      "courseUnitId": "c2_01_interpretation_institutions",
-      "conceptIds": [
-        "concept_c2_discourse_institutions"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_kpop_authenticity_platform_panel",
-      "courseUnitId": "c2_06_fandom_discourse_power",
-      "conceptIds": [
-        "concept_c2_fandom_discourse"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_register_first_day_choice",
-      "courseUnitId": "a1_13_register_switching",
-      "conceptIds": [
-        "concept_a1_register_switch"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_plan_weather_change",
-      "courseUnitId": "a2_02_plans_proposals",
-      "conceptIds": [
-        "concept_proposal_polite"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_work_deadline_soft_request",
-      "courseUnitId": "b1_03_work_softening",
-      "conceptIds": [
-        "concept_b1_softening"
-      ],
-      "role": "practice"
-    },
-    {
       "contentKind": "smalltalk",
       "contentId": "smalltalk_a1_0083",
       "courseUnitId": "a1_14_payment_delivery",
@@ -5961,60 +2568,6 @@
       "courseUnitId": "a1_14_payment_delivery",
       "conceptIds": [
         "concept_a1_payment_delivery"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a1_city_service_route_batch20",
-      "courseUnitId": "a1_03_topic_subject_particles",
-      "conceptIds": [
-        "concept_topic_particle"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "a2_flat_viewing_terms_batch20",
-      "courseUnitId": "a2_01_haeyo_transition",
-      "conceptIds": [
-        "concept_action_polite"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b1_job_offer_conditions_batch20",
-      "courseUnitId": "b1_01_experience_reasons",
-      "conceptIds": [
-        "concept_b1_reasons_experience"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "b2_rent_increase_meeting_batch20",
-      "courseUnitId": "b2_01_formal_opening",
-      "conceptIds": [
-        "concept_b2_formal_opening"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c1_ai_labeling_policy_batch20",
-      "courseUnitId": "c1_03_media_evidence_literacy",
-      "conceptIds": [
-        "concept_c1_media_evidence"
-      ],
-      "role": "practice"
-    },
-    {
-      "contentKind": "scenario",
-      "contentId": "c2_automated_redress_record_batch20",
-      "courseUnitId": "c2_03_automation_redress",
-      "conceptIds": [
-        "concept_c2_automation_redress"
       ],
       "role": "practice"
     },
@@ -6344,7 +2897,131 @@
     },
     {
       "contentKind": "scenario",
-      "contentId": "a1_theme_park_date_choices",
+      "contentId": "airport_arrival",
+      "courseUnitId": "a1_01_greetings_hangul",
+      "conceptIds": [
+        "concept_hangul_batchim",
+        "concept_greeting_politeness"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "bakery_payment_bag",
+      "courseUnitId": "a1_14_payment_delivery",
+      "conceptIds": [
+        "concept_a1_payment_delivery"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "bakery_queue",
+      "courseUnitId": "a1_08_clarify_repair",
+      "conceptIds": [
+        "concept_a1_clarification"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "break_glass_apology",
+      "courseUnitId": "a1_10_health_safety",
+      "conceptIds": [
+        "concept_a1_health_safety"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "bunshik_tteokbokki",
+      "courseUnitId": "a1_04_order_request_object",
+      "conceptIds": [
+        "concept_object_particle",
+        "concept_request_polite"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "cafe_dessert_sold_out",
+      "courseUnitId": "a1_12_daily_negation",
+      "conceptIds": [
+        "concept_a1_negation"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "clarify_repeat",
+      "courseUnitId": "a1_08_clarify_repair",
+      "conceptIds": [
+        "concept_a1_clarification"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "dance_class_register",
+      "courseUnitId": "a1_13_register_switching",
+      "conceptIds": [
+        "concept_a1_register_switch",
+        "concept_action_formal",
+        "concept_action_polite",
+        "concept_action_casual"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "favorite_korean_music",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "first_class_meeting",
+      "courseUnitId": "a1_15_first_class_work",
+      "conceptIds": [
+        "concept_a1_first_meeting"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "home_morning_routine",
+      "courseUnitId": "a1_09_home_daily_life",
+      "conceptIds": [
+        "concept_a1_home_daily"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "introduce_yourself",
+      "courseUnitId": "a1_02_self_intro_identity",
+      "conceptIds": [
+        "concept_identity_formal",
+        "concept_identity_polite",
+        "concept_identity_casual"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "kakao_contact_after_class",
+      "courseUnitId": "a1_07_contact_address",
+      "conceptIds": [
+        "concept_a1_contact_address"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "korea_stay_smalltalk",
       "courseUnitId": "a1_11_titles_relationships",
       "conceptIds": [
         "concept_a1_titles_relationships"
@@ -6353,7 +3030,126 @@
     },
     {
       "contentKind": "scenario",
-      "contentId": "a2_theme_park_date_break",
+      "contentId": "mart_grocery",
+      "courseUnitId": "a1_03_topic_subject_particles",
+      "conceptIds": [
+        "concept_topic_particle",
+        "concept_subject_particle"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "meeting_time",
+      "courseUnitId": "a1_05_numbers_time",
+      "conceptIds": [
+        "concept_a1_time_numbers"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "subway_step_apology",
+      "courseUnitId": "a1_10_health_safety",
+      "conceptIds": [
+        "concept_a1_health_safety"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "survival_day_capstone",
+      "courseUnitId": "a1_16_survival_capstone",
+      "conceptIds": [
+        "concept_a1_survival"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "taxi_kakao",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "umbrella_weather",
+      "courseUnitId": "a1_09_home_daily_life",
+      "conceptIds": [
+        "concept_a1_home_daily"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "clothing_refund_size",
+      "courseUnitId": "a2_05_delivery_services",
+      "conceptIds": [
+        "concept_a2_services"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "convenience_parcel_pickup",
+      "courseUnitId": "a2_05_delivery_services",
+      "conceptIds": [
+        "concept_a2_services"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "delivery_dinner_spicy",
+      "courseUnitId": "a2_04_feelings_health",
+      "conceptIds": [
+        "concept_a2_feelings"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "email_attachment_twice",
+      "courseUnitId": "a2_06_study_work",
+      "conceptIds": [
+        "concept_a2_work_study"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "favorite_drama_chat",
+      "courseUnitId": "a2_01_haeyo_transition",
+      "conceptIds": [
+        "concept_action_formal",
+        "concept_action_polite"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "forgot_house_key",
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "forgot_presentation_cable",
+      "courseUnitId": "a2_06_study_work",
+      "conceptIds": [
+        "concept_a2_work_study"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "friend_cancelled_plan",
       "courseUnitId": "a2_03_chat_relationships",
       "conceptIds": [
         "concept_a2_relationships"
@@ -6362,7 +3158,145 @@
     },
     {
       "contentKind": "scenario",
-      "contentId": "b1_theme_park_date_thrill",
+      "contentId": "group_chat_photo_permission",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "gym_class_cancel",
+      "courseUnitId": "a2_04_feelings_health",
+      "conceptIds": [
+        "concept_a2_feelings"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "jeju_bus_missed",
+      "courseUnitId": "a2_07_travel_repair",
+      "conceptIds": [
+        "concept_a2_travel_repair"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "library_card_problem",
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "package_wrong_door",
+      "courseUnitId": "a2_05_delivery_services",
+      "conceptIds": [
+        "concept_a2_services"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "pharmacy_cold_medicine",
+      "courseUnitId": "a2_04_feelings_health",
+      "conceptIds": [
+        "concept_a2_feelings"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "plans_with_friend",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_formal",
+        "concept_proposal_polite",
+        "concept_proposal_casual"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "running_late",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "samgyeopsal_first_time",
+      "courseUnitId": "a2_01_haeyo_transition",
+      "conceptIds": [
+        "concept_action_formal",
+        "concept_action_polite"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "shared_document_old_version",
+      "courseUnitId": "a2_06_study_work",
+      "conceptIds": [
+        "concept_a2_work_study"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "taxi_slow_down",
+      "courseUnitId": "a2_07_travel_repair",
+      "conceptIds": [
+        "concept_a2_travel_repair"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "train_seat_swap",
+      "courseUnitId": "a2_07_travel_repair",
+      "conceptIds": [
+        "concept_a2_travel_repair"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "ai_summary_wrong_fact",
+      "courseUnitId": "b1_06_life_capstone",
+      "conceptIds": [
+        "concept_b1_life"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "apartment_recycling_mixup",
+      "courseUnitId": "b1_06_life_capstone",
+      "conceptIds": [
+        "concept_b1_life"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "birthday_expectation_gap",
+      "courseUnitId": "b1_01_experience_reasons",
+      "conceptIds": [
+        "concept_b1_reasons_experience"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "cancelled_trip_hurt_feelings",
       "courseUnitId": "b1_04_relationships",
       "conceptIds": [
         "concept_b1_relationships"
@@ -6371,7 +3305,169 @@
     },
     {
       "contentKind": "scenario",
-      "contentId": "b2_theme_park_date_safety",
+      "contentId": "community_festival_shift",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "company_instagram_wrong_account",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "date_or_friendly_coffee",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "food_delivery_wrong_order",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "jeju_rain_plan_change",
+      "courseUnitId": "b1_01_experience_reasons",
+      "conceptIds": [
+        "concept_b1_reasons_experience"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "ktx_sold_out_alternative",
+      "courseUnitId": "b1_01_experience_reasons",
+      "conceptIds": [
+        "concept_b1_reasons_experience"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "noisy_neighbor_evening",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "park_pet_manners",
+      "courseUnitId": "b1_06_life_capstone",
+      "conceptIds": [
+        "concept_b1_life"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "reel_caption_misunderstanding",
+      "courseUnitId": "b1_02_indirect_speech",
+      "conceptIds": [
+        "concept_b1_indirect_speech"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "running_injury_training_plan",
+      "courseUnitId": "b1_01_experience_reasons",
+      "conceptIds": [
+        "concept_b1_reasons_experience"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "secondhand_hidden_defect",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "shared_cup_recycling",
+      "courseUnitId": "b1_06_life_capstone",
+      "conceptIds": [
+        "concept_b1_life"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "speech_level_after_friendship",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "subscription_cancel_charge",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "team_update_indirect_speech",
+      "courseUnitId": "b1_02_indirect_speech",
+      "conceptIds": [
+        "concept_b1_indirect_speech"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "work_message_too_direct",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "accessible_festival_route",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "ai_image_disclosure",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "brand_private_account_boundary",
       "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
         "concept_b2_precise_requests"
@@ -6380,7 +3476,322 @@
     },
     {
       "contentKind": "scenario",
-      "contentId": "c1_theme_park_date_next_time",
+      "contentId": "community_event_compromise",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "delivery_refund_evidence",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": [
+        "concept_b2_complaint"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "direct_feedback_misread",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "feedback_specific_example",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "filming_permission",
+      "courseUnitId": "b2_01_formal_opening",
+      "conceptIds": [
+        "concept_b2_formal_opening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "freelance_scope_change",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "fremdschaemen_live",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "library_quiet_zone_conflict",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": [
+        "concept_b2_complaint"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "meeting_disagreement_evidence",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "meeting_opening_context",
+      "courseUnitId": "b2_01_formal_opening",
+      "conceptIds": [
+        "concept_b2_formal_opening"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "neighborhood_filming_notice",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "partner_family_titles",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "portfolio_interview_gap",
+      "courseUnitId": "b2_05_interview",
+      "conceptIds": [
+        "concept_b2_interview"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "recycling_policy_pilot",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "rental_repair_deposit",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": [
+        "concept_b2_complaint"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "train_delay_connection",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": [
+        "concept_b2_complaint"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "wedding_invitation_expectation",
+      "courseUnitId": "b2_01_formal_opening",
+      "conceptIds": [
+        "concept_b2_formal_opening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "after_hours_messages",
+      "courseUnitId": "c1_06_intimacy_safety_design",
+      "conceptIds": [
+        "concept_c1_intimacy_safety"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "ai_interview_screening_transparency",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "ai_translation_voice_loss",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "anonymous_survey_trust",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "deepfake_verification",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "delivery_rider_safety_tradeoff",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "fan_translation_credit",
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "conceptIds": [
+        "concept_c1_fan_labor"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "gentrification_storefront",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "heatwave_shelter_access",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "kiosk_generation_access",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "museum_label_multiple_views",
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "conceptIds": [
+        "concept_c1_fan_labor"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "nightlife_noise_balance",
+      "courseUnitId": "c1_04_play_time_policy",
+      "conceptIds": [
+        "concept_c1_play_time_policy"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "platform_moderation_appeal",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "public_consultation_access",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "research_limits_presentation",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "school_phone_rule",
+      "courseUnitId": "c1_04_play_time_policy",
+      "conceptIds": [
+        "concept_c1_play_time_policy"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "tradition_reinterpreted_stage",
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "conceptIds": [
+        "concept_c1_fan_labor"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "training_data_copyright",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "workload_allocation_hidden_labor",
       "courseUnitId": "c1_06_intimacy_safety_design",
       "conceptIds": [
         "concept_c1_intimacy_safety"
@@ -6389,10 +3800,190 @@
     },
     {
       "contentKind": "scenario",
-      "contentId": "c2_theme_park_date_reflection",
+      "contentId": "youth_housing_plain_language",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "ai_hiring_appeal",
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "automated_benefit_denial",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "autonomous_delivery_liability",
+      "courseUnitId": "c2_04_sanction_accountability",
+      "conceptIds": [
+        "concept_c2_sanction_accountability"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "causal_claim_headline",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "central_local_disaster_responsibility",
+      "courseUnitId": "c2_04_sanction_accountability",
+      "conceptIds": [
+        "concept_c2_sanction_accountability"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "climate_model_local_decision",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "diaspora_name_identity",
       "courseUnitId": "c2_05_relationship_narratives",
       "conceptIds": [
         "concept_c2_relationship_narratives"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "emergency_price_controls",
+      "courseUnitId": "c2_04_sanction_accountability",
+      "conceptIds": [
+        "concept_c2_sanction_accountability"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "fact_check_label_power",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "family_memory_conflict",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "hidden_gem_local_impact",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "housing_tax_intergenerational",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "medical_uncertainty_consent",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "passive_voice_accountability",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "poll_question_framing",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "protest_order_and_rights",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "relationship_story_reframing",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "replication_failure_response",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "we_translation_identity",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "welfare_fraud_presumption",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
       ],
       "role": "practice"
     }
@@ -8909,5 +6500,6 @@
     "b2:주거비와 사회 통합": "b2_02_professional_opinion",
     "c1:ai 투명성과 문화 노동": "c1_03_media_evidence_literacy",
     "c2:인구 담론과 제도 책임": "c2_01_interpretation_institutions"
-  }
+  },
+  "scenarioCorpusGeneration": "canonical_120_v1"
 }

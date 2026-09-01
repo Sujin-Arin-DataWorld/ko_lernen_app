@@ -187,6 +187,9 @@
       },
       {
         "id": "quest_nightlife_noise_balance_03",
+        "conceptIds": [
+          "concept_c1_play_time_policy"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "혼잡 구간에 안내 인력을 두고 심야 청소 시간을 조정한 뒤 소음 자료를 공개해 보죠.",

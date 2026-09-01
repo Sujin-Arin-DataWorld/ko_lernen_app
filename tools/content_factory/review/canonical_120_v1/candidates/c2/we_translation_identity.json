@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_we_translation_identity_03",
+        "conceptIds": [
+          "concept_c2_relationship_narratives"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "전환 지점에서 집단을 한 번만 명시하고 그 뒤에는 자연스러운 대명사로 이어 가자.",

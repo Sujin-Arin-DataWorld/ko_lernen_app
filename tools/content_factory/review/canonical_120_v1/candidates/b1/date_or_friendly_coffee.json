@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_date_or_friendly_coffee_03",
+        "conceptIds": [
+          "concept_b1_relationships"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "그래도 저는 오늘 둘이 만나서 좋았어요.",

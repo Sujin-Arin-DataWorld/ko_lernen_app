@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_emergency_price_controls_03",
+        "conceptIds": [
+          "concept_c2_sanction_accountability"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "단기 상한에 구매 수량 제한과 추가 운송비 지원을 묶고 종료 조건도 정해야 합니다.",

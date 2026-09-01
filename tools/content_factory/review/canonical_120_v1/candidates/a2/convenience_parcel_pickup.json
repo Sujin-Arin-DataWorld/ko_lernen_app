@@ -9,12 +9,12 @@
     "speechStyle": "polite",
     "title": {
       "ko": "편의점 택배 찾기",
-      "de": "Ein Paket im Convenience Store abholen",
+      "de": "Ein Paket im 24-Stunden-Laden abholen",
       "en": "Picking up a parcel at a convenience store"
     },
     "intro": {
       "ko": "도착 알림을 받고 편의점에 왔어요.",
-      "de": "Nach der Abholbenachrichtigung gehst du zum Convenience Store.",
+      "de": "Nach der Abholbenachrichtigung gehst du zum 24-Stunden-Laden.",
       "en": "You received a pickup notice and went to the convenience store."
     },
     "courseUnitId": "a2_05_delivery_services",
@@ -82,18 +82,18 @@
     ],
     "surfaceFormIds": [],
     "grammarIds": [
-      "grammar_a2_cause_sequence"
+      "grammar_a1_come_purpose"
     ],
     "grammarBlock": {
       "title": {
-        "ko": "V-아/어서",
-        "de": "Grund / Reihenfolge",
-        "en": "Reason / sequence"
+        "ko": "V-(으)러 오다",
+        "de": "Kommen um zu handeln",
+        "en": "Come in order to act"
       },
       "explanation": {
         "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
-        "de": "Weil (Grund) oder und dann (zeitliche Abfolge)",
-        "en": "Because (reason) or and then (time sequence)"
+        "de": "Kommen um zu handeln. Bewegung zum Sprecher.",
+        "en": "Come in order to act. Motion toward the speaker."
       }
     },
     "dialog": [
@@ -198,6 +198,9 @@
       },
       {
         "id": "quest_convenience_parcel_pickup_03",
+        "conceptIds": [
+          "concept_a2_services"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "감사합니다.",

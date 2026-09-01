@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_community_festival_shift_03",
+        "conceptIds": [
+          "concept_b1_softening"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "네, 확인되기 전까지는 원래 시간으로 알고 있을게요.",

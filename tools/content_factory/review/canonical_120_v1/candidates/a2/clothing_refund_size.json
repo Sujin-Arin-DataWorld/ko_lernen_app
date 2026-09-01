@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_clothing_refund_size_03",
+        "conceptIds": [
+          "concept_a2_services"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "그럼 검은색으로 바꿀게요.",

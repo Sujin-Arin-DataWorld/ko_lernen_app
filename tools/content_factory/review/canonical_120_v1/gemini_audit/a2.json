@@ -1,36 +1,37 @@
 {
   "schemaVersion": 2,
   "kind": "gemini_canonical_scenario_level_audit",
-  "createdAt": "2026-08-29T20:42:58.704923+00:00",
-  "model": "gemini-3.5-flash",
-  "modelVersion": "gemini-3.5-flash",
-  "responseId": "RUSTao-8EbyinsEPzZ6hsAQ",
+  "createdAt": "2026-09-01T01:19:28.037921+00:00",
+  "model": "gemini-3.7-flash",
+  "modelVersion": "gemini-3.7-flash",
+  "responseId": "ByiWao6EFJT2nsEPsP-LyA8",
   "thinkingLevel": "low",
   "pricingTier": "free",
   "level": "a2",
-  "candidateSetSha256": "c0fa2c357fdbecd43d938e62765dc31bd9faca10042e5d77c3db7d83bb8d3ddb",
+  "generationId": "canonical_120_v1",
+  "candidateSetSha256": "352cd4cc99148c1abd89a18ec2a72bc786e916a769fd50ab79777b3c1d32959e",
+  "auditRequestSha256": "aa6e0889b6dc8ab1d69cc25a92bf0b3c589189d62b1f6ac74bbd766c223209bb",
+  "freeTierProjectId": "gen-lang-client-0858328849",
+  "freeTierApiKeyUid": "6455b51d-bd1f-43a4-9cfb-4abfcca72842",
   "automatedAuditIsApproval": false,
   "humanApprovalRequired": true,
   "usageMetadata": {
-    "promptTokenCount": 39577,
-    "candidatesTokenCount": 3211,
-    "totalTokenCount": 42788,
+    "promptTokenCount": 40150,
+    "candidatesTokenCount": 3382,
+    "totalTokenCount": 43532,
     "promptTokensDetails": [
       {
         "modality": "TEXT",
-        "tokenCount": 39577
+        "tokenCount": 40150
       }
     ],
     "serviceTier": "standard"
   },
   "estimatedActualUsd": 0.0,
   "verdictCounts": {
-    "pass": 18,
-    "review": 2
+    "pass": 20
   },
-  "severityCounts": {
-    "major": 2
-  },
+  "severityCounts": {},
   "audit": {
     "level": "a2",
     "scenarios": [
@@ -46,7 +47,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "A2 레벨 교환 대화의 필수 조건인 '바꾸고 싶어요' 표현을 명확하게 사용했습니다."
+          "매장 내 교환 요청과 대안 제시 흐름이 실제 일상 대화에 맞게 간결하고 자연스럽게 구성되었습니다.",
+          "독일어 경칭(Sie)과 영어 공손 표현이 서비스 상황의 관계성에 부합합니다."
         ]
       },
       {
@@ -61,32 +63,24 @@
         },
         "findings": [],
         "strengthsKo": [
-          "불필요한 개인정보(전화번호 등) 입력 없이 실제적인 편의점 택배 수령 절차를 현실성 있게 구현했습니다."
+          "편의점 택배 수령 시 필요한 보관 번호 확인 절차가 A2 수준에 맞게 군더더기 없이 표현되었습니다.",
+          "목적 표현 '-(으)러 오다'의 화용적 활용이 명확합니다."
         ]
       },
       {
         "scenarioId": "delivery_dinner_spicy",
-        "verdict": "review",
+        "verdict": "pass",
         "scores": {
           "koreanNaturalness": 5,
-          "levelFit": 4,
-          "germanLocalization": 3,
+          "levelFit": 5,
+          "germanLocalization": 5,
           "englishLocalization": 5,
-          "pragmaticAlignment": 4
+          "pragmaticAlignment": 5
         },
-        "findings": [
-          {
-            "severity": "major",
-            "code": "REL",
-            "scope": "de",
-            "path": "/scenarios/2/dialog/1/de",
-            "evidence": "Geht es? Möchtest du Wasser?",
-            "analysisKo": "한국어 대본은 수진과 크리스티안 사이의 'polite' 종결어미(-요)를 쓰고 있으나, 독일어 번역에서는 반말(du)을 사용하고 있어 화자 간의 사회적 거리와 존칭 관계가 정합하지 않습니다.",
-            "recommendationKo": "독일어 대화의 호칭과 어미를 존칭인 'Sie' 형태로 수정하여 'Geht es Ihnen gut? Möchten Sie Wasser?' 등으로 일관성을 유지해 주세요."
-          }
-        ],
+        "findings": [],
         "strengthsKo": [
-          "매운 음식을 먹고 대처하는 한국 일상의 현실적인 스몰토크가 아주 잘 묘사되었습니다."
+          "친구 사이의 자연스러운 식사 상황과 매운맛에 대한 반응이 생생하게 표현되었습니다.",
+          "독일어 번역에서 친구 관계에 맞게 'du' 호칭과 구어적 어조가 일관되게 적용되었습니다."
         ]
       },
       {
@@ -101,7 +95,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "신입 사원의 반복된 이메일 첨부 실수라는 흥미롭고 유용한 비즈니스 상황을 다루었습니다."
+          "직장에서 실수를 사과하고 수습하는 과정이 과장되지 않고 현실적으로 잘 드러났습니다.",
+          "존댓말 기반의 친절한 동료 관계가 한/독/영 모두에서 안정적으로 전달됩니다."
         ]
       },
       {
@@ -116,7 +111,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "좋아하는 드라마 이유를 자연스럽게 '-어서/아서' 문법을 사용하여 깔끔하게 표현했습니다."
+          "휴게실 스몰토크로서 한국 생활과 드라마 취향을 묻고 답하는 흐름이 자연스럽습니다.",
+          "현재진행 표현 '-고 있다'와 이유 표현이 학습자 수준에 맞게 균형을 이룹니다."
         ]
       },
       {
@@ -131,7 +127,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "친한 사이에서 쓰는 반말(casual) 표현을 활용하여 기숙사에서 발생할 수 있는 일상 문제를 설득력 있게 다루었습니다."
+          "친한 친구 사이의 반말 대화로, 곤란한 상황에서 도움을 요청하는 어조가 매우 생생합니다.",
+          "독일어 구어 표현(Klar, gehen wir...) 및 호칭 일관성이 훌륭합니다."
         ]
       },
       {
@@ -146,7 +143,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "수업 직전 대학생들의 다급한 문제 해결 상황이 자연스러운 구어로 표현되었습니다."
+          "수업 직전 긴급한 문제를 해결하는 대학생 간의 협력적 대화가 직관적이고 군더더기 없습니다.",
+          "미래/의지 표현 '-(으)ㄹ게 / -(으)ㄹ 거야'의 사용이 상황에 정확히 맞습니다."
         ]
       },
       {
@@ -161,7 +159,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "서운함의 감정과 사과를 한국어 정서에 맞게 선을 넘지 않으면서도 솔직하게 잘 전달했습니다."
+          "약속 취소에 따른 미안함과 서운함을 솔직하면서도 배려심 있게 주고받는 화용적 처리가 우수합니다.",
+          "감정 표현과 사과 표현이 목표어 현지화 대본에서도 어색함 없이 전달됩니다."
         ]
       },
       {
@@ -176,7 +175,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "초상권 및 SNS 공유 허락이라는 현대적인 의사소통 주제를 학습자의 인지 과제 수준에 맞추어 유익하게 녹여냈습니다."
+          "SNS 업로드 전 사진 동의를 구하는 현대적인 디지털 에티켓 상황을 실감 나게 다루었습니다.",
+          "문화 노트가 일반화 없이 실제 맥락에 꼭 필요한 내용으로 간결하게 작성되었습니다."
         ]
       },
       {
@@ -191,7 +191,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "발목 통증이라는 아픈 상태와 이에 따른 예약 일정 변경 요청이 원활하게 진행되었습니다."
+          "통증을 이유로 예약 수업을 변경하는 전형적인 서비스 대화가 명확하게 구성되었습니다.",
+          "독일어/영어 번역이 고객 서비스 문맥에 맞는 정중한 표현으로 적절히 대응되었습니다."
         ]
       },
       {
@@ -206,7 +207,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "여행지에서 발생 가능한 교통수단 결손 상황과 대처 흐름이 합리적으로 이어집니다."
+          "여행지에서 막차를 놓쳤을 때의 대처 흐름이 현실적이며 친구 간 반말 스타일이 자연스럽습니다.",
+          "원인과 순서 표현(-아/어서, 그다음에)의 기능이 잘 살아 있습니다."
         ]
       },
       {
@@ -221,7 +223,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "모바일 바코드 대체 대출이라는 일상생활의 현대적 경험을 효과적으로 구성했습니다."
+          "도서관 키오스크 오류 시 앱 바코드로 대체하는 현실적 공공서비스 상호작용을 다루었습니다.",
+          "부정문 '안 돼요'와 허가 표현 '-어도 돼요'의 조합이 A2 학습에 매우 유익합니다."
         ]
       },
       {
@@ -236,7 +239,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "오배송 문제를 타인에게 정중하게 물어보고 확인하는 과정이 예의 바르고 자연스럽습니다."
+          "이웃 간 오해를 방지하며 물건을 찾는 정중하고 조심스러운 대화 톤이 잘 유지되었습니다.",
+          "불필요한 개인정보 노출 금지 규칙을 잘 준수하며 깔끔하게 해결되었습니다."
         ]
       },
       {
@@ -251,32 +255,24 @@
         },
         "findings": [],
         "strengthsKo": [
-          "약사와의 복약 조절 상담 과정에서 '졸릴 수 있음'에 따른 대처 제안이 실생활에 아주 밀접합니다."
+          "증상 설명과 복약 지도(졸림 유발 확인 및 복용 시점)가 핵심적인 실용 회화로 잘 짜여 있습니다.",
+          "조건문 '-(으)면'과 허가 요청 '-어도 돼요'의 연계가 매끄럽습니다."
         ]
       },
       {
         "scenarioId": "plans_with_friend",
-        "verdict": "review",
+        "verdict": "pass",
         "scores": {
           "koreanNaturalness": 5,
-          "levelFit": 4,
-          "germanLocalization": 3,
+          "levelFit": 5,
+          "germanLocalization": 5,
           "englishLocalization": 5,
-          "pragmaticAlignment": 4
+          "pragmaticAlignment": 5
         },
-        "findings": [
-          {
-            "severity": "major",
-            "code": "REL",
-            "scope": "de",
-            "path": "/scenarios/14/dialog/0/de",
-            "evidence": "Möchtest du am Samstag diese Ausstellung sehen?",
-            "analysisKo": "한국어 발화는 존칭(-요)을 사용하여 수진과 일정한 거리를 유지하고 있으나, 독일어 번역에서는 일관되게 반말 격인 'du'로 번역되었습니다. 두 사람은 아직 연인으로 완전히 발전하기 전이므로 존칭 'Sie'가 더 타당합니다.",
-            "recommendationKo": "독일어 번역을 존칭형인 'Möchten Sie...' 및 'Wie wäre es dann mit Sonntag? Passt es Ihnen am Sonntagnachmittag?' 등으로 수정해 주세요."
-          }
-        ],
+        "findings": [],
         "strengthsKo": [
-          "일정을 제안하고 거절당했을 때 대안을 제시하는 자연스러운 흐름이 잘 구축되어 있습니다."
+          "주말 일정 조율 및 대안 제시 과정이 존댓말 관계의 친구 간에 매우 자연스럽게 표현되었습니다.",
+          "독일어에서 친한 관계를 반영해 'du'를 일관되게 사용한 현지화 선택이 적절합니다."
         ]
       },
       {
@@ -291,7 +287,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "지하철 지연 상황에서 메신저를 활용하여 실시간으로 늦는 사실을 알리고 조율하는 방식이 매우 현실적입니다."
+          "메신저 기반의 지각 연락과 안도하는 친구 간의 반응이 현실감 있게 전개됩니다.",
+          "양태 추측 표현 '-(으)ㄹ 것 같아'와 완곡한 사과/배려 표현이 알맞게 쓰였습니다."
         ]
       },
       {
@@ -306,7 +303,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "한국의 독특한 고기구이 문화(마늘 굽기 등)를 과장된 일반화 없이 식사 테이블 위의 소소한 개인 취향 영역으로 세련되게 풀었습니다."
+          "식사 자리에서 고기 굽기 및 마늘 취향을 조율하는 문화적 맥락이 과장 없이 유익하게 다루어졌습니다.",
+          "문화 노트가 특정 문화를 일반화하지 않고 식사 매너와 소통 팁에 집중하여 작성되었습니다."
         ]
       },
       {
@@ -321,7 +319,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "공동 작업 중 흔히 발생하는 버전 혼동 문제를 대학생 조원 사이의 대화로 실감 나게 구현했습니다."
+          "디지털 협업 중 발생하는 버전 혼선 문제를 빠르고 건설적으로 해결하는 대화 구조가 우수합니다.",
+          "친구/조원 사이의 편안한 반말 억양이 독일어/영어에서도 알맞게 구현되었습니다."
         ]
       },
       {
@@ -336,7 +335,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "위험하거나 불안할 때 공손하게 거절 또는 감속을 요청하는 유용한 생존 표현을 적절하게 학습할 수 있도록 유도했습니다."
+          "승객으로서 안전을 위해 완곡하면서도 단호하게 감속을 요청하는 화용적 태도가 돋보입니다.",
+          "호칭 '기사님'에 대한 문화 노트 설명이 명확하고 실용적입니다."
         ]
       },
       {
@@ -351,14 +351,11 @@
         },
         "findings": [],
         "strengthsKo": [
-          "기차 내 좌석 알파벳 표기를 착각한 구체적인 실수를 바탕으로 오해를 해소하고 자리를 양보하는 성인 비즈니스/여행 맥락을 잘 담았습니다."
+          "기차 좌석 착오 시 정중하게 확인하고 즉시 사과 후 이동하는 승객 간 예절이 잘 표현되었습니다.",
+          "독일어(Sie)와 영어 정중형 표현이 낯선 승객 간의 사회적 거리를 완벽히 반영합니다."
         ]
       }
     ],
-    "summaryKo": "전체적으로 A2 수준에 부합하는 뛰어난 생활형 시나리오들입니다. 다만 'delivery_dinner_spicy'와 'plans_with_friend' 시나리오에서 한국어 원문이 존칭어미(-요)를 사용하는 것과 달리 독일어 번역문이 반말형(du) 호칭 및 동사변화를 사용하고 있으므로, 출시 전 반드시 존칭형(Sie)으로 독일어 현지화 텍스트를 통일하는 것을 권장합니다."
-  },
-  "generationId": "canonical_120_v1",
-  "auditRequestSha256": "fbb4365c323c93e5ccf1ddb354cf6c538660ee4e460f7b1e4d4fe76aaec78f02",
-  "freeTierProjectId": "gen-lang-client-0858328849",
-  "freeTierApiKeyUid": "6455b51d-bd1f-43a4-9cfb-4abfcca72842"
+    "summaryKo": "제출된 20개 A2 시나리오 전반에 걸쳐 한국어 원문의 자연성, CEFR A2 인지 및 문법 범위 적합성, 그리고 독일어/영어 현지화의 화용적 정합성이 완벽하게 충족되었습니다. 특히 공공장소/서비스 관계에서의 Sie 사용과 친구/동료 관계에서의 du 사용이 한국어의 존댓말/반말 체계와 목표 문화의 대인관계 규범에 맞추어 일관되고 정확하게 분기 처리되었으며, 퀘스트 데이터와 문화 노트 역시 오류 없이 구성되었습니다."
+  }
 }

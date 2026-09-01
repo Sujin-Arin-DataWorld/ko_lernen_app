@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_tradition_reinterpreted_stage_03",
+        "conceptIds": [
+          "concept_c1_fan_labor"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "영상에는 ‘현대적 재해석’이라고 짧게 쓰고 자세한 내용은 소개 페이지로 연결할게요.",

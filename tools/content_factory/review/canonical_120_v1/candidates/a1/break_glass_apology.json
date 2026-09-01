@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_break_glass_apology_03",
+        "conceptIds": [
+          "concept_a1_health_safety"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "빗자루 어디 있어요? 같이 치울게요.",

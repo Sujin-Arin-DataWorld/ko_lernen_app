@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_cafe_dessert_sold_out_03",
+        "conceptIds": [
+          "concept_a1_negation"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "푸딩 하나 주세요.",

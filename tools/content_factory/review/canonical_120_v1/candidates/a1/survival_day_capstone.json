@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_survival_day_capstone_03",
+        "conceptIds": [
+          "concept_a1_survival"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "아니, 없어.",

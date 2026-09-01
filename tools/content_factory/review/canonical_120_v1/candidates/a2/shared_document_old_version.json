@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_shared_document_old_version_03",
+        "conceptIds": [
+          "concept_a2_work_study"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "응, 지금 공유 문서로 옮길게.",

@@ -193,6 +193,9 @@
       },
       {
         "id": "quest_protest_order_and_rights_03",
+        "conceptIds": [
+          "concept_c2_discourse_institutions"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "네. 목적에 필요한 만큼만 제한하고, 집회 뒤 실제 효과와 침해를 함께 검토해야 합니다.",

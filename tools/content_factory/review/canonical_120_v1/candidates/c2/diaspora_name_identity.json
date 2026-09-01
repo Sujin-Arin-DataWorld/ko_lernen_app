@@ -40,7 +40,7 @@
         "korean": "평소에도 그 이름으로 불리길 원하세요?",
         "note": {
           "ko": "장면 핵심 표현",
-          "de": "Möchtest du im Alltag auch so genannt werden?",
+          "de": "Möchten Sie im Alltag auch so genannt werden?",
           "en": "Do you want people to call you that in everyday life too?"
         }
       },
@@ -106,7 +106,7 @@
       {
         "speaker": "user",
         "ko": "평소에도 그 이름으로 불리길 원하세요?",
-        "de": "Möchtest du im Alltag auch so genannt werden?",
+        "de": "Möchten Sie im Alltag auch so genannt werden?",
         "en": "Do you want people to call you that in everyday life too?"
       },
       {
@@ -146,7 +146,7 @@
               "en": "The registration system suggests changing my name to 'June' because it's easier to search."
             },
             {
-              "de": "Möchtest du im Alltag auch so genannt werden?",
+              "de": "Möchten Sie im Alltag auch so genannt werden?",
               "en": "Do you want people to call you that in everyday life too?"
             },
             {
@@ -165,7 +165,7 @@
         "id": "quest_diaspora_name_identity_02",
         "type": "uebersetzen",
         "data": {
-          "promptDe": "Möchtest du im Alltag auch so genannt werden?",
+          "promptDe": "Möchten Sie im Alltag auch so genannt werden?",
           "promptEn": "Do you want people to call you that in everyday life too?",
           "options": [
             {
@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_diaspora_name_identity_03",
+        "conceptIds": [
+          "concept_c2_relationship_narratives"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "선호 이름을 본문에 두고 발음 도움말과 검색용 표기는 별도 정보로 설계하겠습니다.",

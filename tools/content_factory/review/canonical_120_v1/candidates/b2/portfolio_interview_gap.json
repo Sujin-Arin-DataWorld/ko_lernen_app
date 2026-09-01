@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_portfolio_interview_gap_03",
+        "conceptIds": [
+          "concept_b2_interview"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "네. 공개 가능한 두 프로젝트와 제 담당 범위를 표시해 두었습니다.",

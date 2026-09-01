@@ -105,7 +105,7 @@ EN: Large gatherings just tire me out a bit.
 
 **수진**  
 KO: 저는 제 계획이 싫다는 뜻인 줄 알았어요.  
-DE: Ich dachte, du fändest gerade meinen Plan unangenehm.  
+DE: Ich dachte, du wolltest sagen, dass dir mein Plan nicht gefällt.
 EN: I thought you specifically didn't like my plan.
 
 **크리스티안 (나)**  
