@@ -607,6 +607,16 @@ def _write_stage(
         mirror_target = stage / "functions" / "analyze_korean_text" / "grammar_patterns.json"
         mirror_target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(mirror_source, mirror_target)
+        # F6 (2026-09-01): content_audit_manifest.json은 번들 제외를 위해
+        # assets/data/ 밖 tools/content_factory/ 로 옮겼다 — 스테이징
+        # 트리에도 그 위치대로 복제한다.
+        staged_manifest_dir = stage / "tools" / "content_factory"
+        staged_manifest_dir.mkdir(parents=True, exist_ok=True)
+        staged_manifest_path = staged_manifest_dir / "content_audit_manifest.json"
+        shutil.copy2(
+            root / "tools" / "content_factory" / "content_audit_manifest.json",
+            staged_manifest_path,
+        )
 
         staged_data = stage / "assets" / "data"
         for kind, (target_name, collection, header) in TARGETS.items():
@@ -685,7 +695,7 @@ def _write_stage(
 
         (staged_data / "curriculum_manifest.json").write_text(_json_text(curriculum), encoding="utf-8")
 
-        audit = _read_json(staged_data / "content_audit_manifest.json")
+        audit = _read_json(staged_manifest_path)
         sources = audit.get("sources")
         if not isinstance(sources, list):
             raise IntegrationError("content audit manifest must contain sources")
@@ -694,7 +704,7 @@ def _write_stage(
             if isinstance(source, dict) and source.get("kind") in counts:
                 source["count"] = counts[source["kind"]]
         _refresh_audit_graph(audit, curriculum)
-        (staged_data / "content_audit_manifest.json").write_text(_json_text(audit), encoding="utf-8")
+        staged_manifest_path.write_text(_json_text(audit), encoding="utf-8")
 
         issues = ContentValidator(stage).validate()
         if issues:
@@ -725,9 +735,13 @@ def _write_stage(
                 "satz_sentences.json",
                 "kkeunmari_pool.json",
                 "curriculum_manifest.json",
-                "content_audit_manifest.json",
             )
         }
+        # F6 (2026-09-01): content_audit_manifest.json의 최종 목적지는 이제
+        # assets/data/ 가 아니라 tools/content_factory/ 다(번들 제외).
+        outputs[root / "tools" / "content_factory" / "content_audit_manifest.json"] = (
+            staged_manifest_path.read_text(encoding="utf-8")
+        )
         service = root / "lib" / "services" / "vocab_pack_service.dart"
         motifs = root / "lib" / "widgets" / "sori" / "dancheong_stamp.dart"
         outputs[service] = _ensure_pack_code(service.read_text(encoding="utf-8"), pack_code)

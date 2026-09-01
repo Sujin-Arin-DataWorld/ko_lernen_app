@@ -385,6 +385,16 @@ class TtsGeneratorContractTest(unittest.TestCase):
                 [r"C:\\Tools\\GoogleCloudSDK\\gcloud.cmd", "auth", "print-access-token"],
             )
 
+    def test_bare_invocation_is_rejected(self):
+        # F2 — 무플래그 실행 = 전량 합성+업로드(실사고 전력, docs/
+        # CONTENT_UIUX_FINISH_PLAN_2026-08-19.md L462 함정 9). 모드 플래그를
+        # 하나도 주지 않으면 합성/업로드에 도달하기 전에 argparse가 거부해야
+        # 한다.
+        with patch("builtins.print"), patch("sys.stderr"):
+            with self.assertRaises(SystemExit) as ctx:
+                generate_tts.main([])
+        self.assertNotEqual(ctx.exception.code, 0)
+
     def test_dry_run_never_authenticates_synthesizes_or_uploads(self):
         pairs = [("female", "안녕하세요"), ("male", "감사합니다")]
         with (
@@ -442,6 +452,8 @@ class TtsGeneratorContractTest(unittest.TestCase):
         remote.assert_not_called()
 
     def test_synthesis_failure_aborts_before_any_upload(self):
+        # F2/FIX-2a: 전량 합성은 이제 `--synthesize`를 명시해야 도달한다 —
+        # `_parse_args` 우회 없이 실제 CLI 인자로 그 분기까지 간다.
         pairs = [("female", "안녕하세요")]
         with tempfile.TemporaryDirectory() as temp:
             with (
@@ -461,11 +473,13 @@ class TtsGeneratorContractTest(unittest.TestCase):
                     SystemExit,
                     "Firebase 업로드는 하지 않았습니다",
                 ):
-                    generate_tts.main(["--workers", "1"])
+                    generate_tts.main(["--synthesize", "--workers", "1"])
 
         run.assert_not_called()
 
     def test_manifest_upload_uses_only_the_exact_selected_object(self):
+        # F2/FIX-2a: `--synthesize`가 실제 합성+업로드 분기를 명시적으로
+        # 연다 — manifest 기반 업로드 범위 정확성을 실 CLI 인자로 검증한다.
         voice = "female"
         text = "안녕하세요"
         relative_path = generate_tts.cache_relative_path(voice, text)
@@ -494,7 +508,13 @@ class TtsGeneratorContractTest(unittest.TestCase):
                 patch("builtins.print"),
             ):
                 result = generate_tts.main(
-                    ["--scenario-pending-manifest", manifest_path, "--workers", "1"]
+                    [
+                        "--synthesize",
+                        "--scenario-pending-manifest",
+                        manifest_path,
+                        "--workers",
+                        "1",
+                    ]
                 )
 
         self.assertEqual(result, 0)
@@ -503,6 +523,67 @@ class TtsGeneratorContractTest(unittest.TestCase):
         self.assertEqual(argv[1:3], ["storage", "cp"])
         self.assertEqual(argv[4], f"gs://{generate_tts.BUCKET}/{relative_path}")
         self.assertNotIn("rsync", argv)
+
+    def test_verify_storage_mode_reaches_its_own_read_only_branch(self):
+        # FIX-2a(2026-09-01 정정): --verify-storage 는 이제 --demo/--dry-run
+        # 등과 같은 그룹의 정식 모드다 — 합성/업로드 코드를 전혀 안 타고
+        # 원격 목록만 읽어 비교하는 자기 분기에 도달해야 한다.
+        pairs = [("female", "안녕하세요")]
+        remote_path = generate_tts.cache_relative_path("female", "안녕하세요")
+        with (
+            patch.object(generate_tts, "collect", return_value=pairs),
+            patch.object(generate_tts, "_auth") as auth,
+            patch.object(generate_tts, "synth") as synth,
+            patch.object(generate_tts.shutil, "which", return_value="gcloud"),
+            patch.object(
+                generate_tts,
+                "remote_cache_objects",
+                return_value={remote_path: 4096},
+            ) as remote,
+            patch.object(generate_tts.subprocess, "run") as run,
+            patch("builtins.print"),
+        ):
+            result = generate_tts.main(["--verify-storage"])
+
+        self.assertEqual(result, 0)
+        remote.assert_called_once()
+        auth.assert_not_called()
+        synth.assert_not_called()
+        run.assert_not_called()
+
+    def test_missing_from_storage_mode_reads_remote_before_synthesizing(self):
+        # FIX-2a(2026-09-01 정정): --missing-from-storage 와 --synthesize 는
+        # 같은 그룹의 서로 다른 모드다 — 결손분만 합성하는
+        # --missing-from-storage 만 remote_cache_paths() 로 원격 목록을 먼저
+        # 읽어야 한다(그래서 이미 원격에 있는 항목은 합성도 업로드도 없이
+        # 건너뛴다). --synthesize 가 이 호출을 안 함은
+        # test_manifest_upload_uses_only_the_exact_selected_object 가
+        # (patch 없이 실행돼도 원격 접근이 없다는 사실로) 이미 검증한다.
+        pairs = [("female", "안녕하세요")]
+        remote_path = generate_tts.cache_relative_path("female", "안녕하세요")
+        with tempfile.TemporaryDirectory() as temp:
+            with (
+                patch.object(generate_tts, "OUT", temp),
+                patch.object(generate_tts, "collect", return_value=pairs),
+                patch.object(generate_tts, "_auth", return_value="token"),
+                patch.object(
+                    generate_tts,
+                    "remote_cache_paths",
+                    return_value={remote_path},
+                ) as remote,
+                patch.object(generate_tts, "synth") as synth,
+                patch.object(generate_tts.shutil, "which", return_value="gcloud"),
+                patch.object(generate_tts.subprocess, "run") as run,
+                patch("builtins.print"),
+            ):
+                result = generate_tts.main(
+                    ["--missing-from-storage", "--workers", "1"]
+                )
+
+        self.assertEqual(result, 0)
+        remote.assert_called_once()
+        synth.assert_not_called()
+        run.assert_not_called()
 
 
 if __name__ == "__main__":

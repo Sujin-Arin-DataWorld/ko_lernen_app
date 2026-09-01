@@ -28,6 +28,11 @@ class CiScopeTest(unittest.TestCase):
             ["functions/pronunciation/pronunciation_request_guard.js"],
             "pronunciation",
         )
+        self.assert_enabled(["functions/tts/index.js"], "tts")
+        self.assert_enabled(
+            ["functions/auth_cleanup/bridge.js"],
+            "auth_cleanup",
+        )
 
     def test_shared_firestore_contract_selects_consumers(self):
         self.assert_enabled(
@@ -43,11 +48,14 @@ class CiScopeTest(unittest.TestCase):
         )
 
     def test_firebase_config_selects_declared_runtime_contracts(self):
+        # auth_cleanup is a gen-1 Auth trigger and is not in firebase.json's
+        # functions codebases array, so it must stay excluded here.
         self.assert_enabled(
             ["firebase.json"],
             "app",
             "gye",
             "pronunciation",
+            "tts",
         )
 
     def test_product_docs_consumed_by_flutter_tests_are_not_skipped(self):
@@ -94,6 +102,14 @@ class CiScopeTest(unittest.TestCase):
         self.assertEqual(
             scopes_for_task("release-website"),
             {scope: scope == "website" for scope in SCOPES},
+        )
+        self.assertEqual(
+            scopes_for_task("tts"),
+            {scope: scope == "tts" for scope in SCOPES},
+        )
+        self.assertEqual(
+            scopes_for_task("auth-cleanup"),
+            {scope: scope == "auth_cleanup" for scope in SCOPES},
         )
 
 

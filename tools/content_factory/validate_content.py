@@ -158,13 +158,23 @@ class ContentValidator:
     def __init__(self, root: Path = ROOT) -> None:
         self.root = root
         self.data = root / "assets" / "data"
+        # F6 (2026-09-01): content_audit_manifest.json 은 폴더 단위 pubspec
+        # 등록(assets/data/)에 실려 번들에 들어가던 것을 빼려고 tools/
+        # content_factory/ 로 옮겼다 — 앱은 이 파일을 읽지 않는다(빌드 타임
+        # 검증/카탈로그 전용).
+        self.content_audit_manifest_dir = root / "tools" / "content_factory"
         self.issues: list[Issue] = []
 
     def issue(self, source: str, message: str) -> None:
         self.issues.append(Issue(source, message))
 
     def load_json(self, name: str) -> Any:
-        path = self.data / name
+        directory = (
+            self.content_audit_manifest_dir
+            if name == "content_audit_manifest.json"
+            else self.data
+        )
+        path = directory / name
         try:
             with path.open(encoding="utf-8") as handle:
                 return json.load(handle)

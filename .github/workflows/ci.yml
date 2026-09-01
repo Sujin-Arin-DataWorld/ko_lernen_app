@@ -89,6 +89,8 @@ jobs:
       book: ${{ steps.scope.outputs.book }}
       gye: ${{ steps.scope.outputs.gye }}
       pronunciation: ${{ steps.scope.outputs.pronunciation }}
+      tts: ${{ steps.scope.outputs.tts }}
+      auth_cleanup: ${{ steps.scope.outputs.auth_cleanup }}
       flutter_test_mode: ${{ steps.flutter_tests.outputs.flutter_test_mode }}
       flutter_tests: ${{ steps.flutter_tests.outputs.flutter_tests }}
     steps:
@@ -580,6 +582,56 @@ jobs:
 
       - name: Test request and regional processing boundaries
         working-directory: functions/pronunciation
+        run: npm test
+
+  tts-functions-security:
+    name: TTS function security
+    needs: changes
+    if: needs.changes.outputs.tts == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: functions/tts/package-lock.json
+
+      - name: Install TTS function dependencies
+        working-directory: functions/tts
+        run: npm ci
+
+      - name: Test cache-key and request-guard contracts
+        working-directory: functions/tts
+        run: npm test
+
+  auth-cleanup-functions-security:
+    name: Auth cleanup function security
+    needs: changes
+    if: needs.changes.outputs.auth_cleanup == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: functions/auth_cleanup/package-lock.json
+
+      - name: Install auth-cleanup function dependencies
+        working-directory: functions/auth_cleanup
+        run: npm ci
+
+      - name: Test Auth-deletion Firestore cascade bridge
+        working-directory: functions/auth_cleanup
         run: npm test
 
   # tool/*.py의 이미지 파이프라인 유닛 테스트. tool/__init__.py가 이걸 위해

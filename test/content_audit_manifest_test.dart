@@ -15,10 +15,12 @@ void main() {
   test(
     'baseline audit manifest matches the current source inventory',
     () async {
+      // F6 (2026-09-01): 번들 제외를 위해 assets/data/ 밖
+      // tools/content_factory/ 로 옮겼다 — 앱은 이 파일을 읽지 않는다.
       final raw =
           jsonDecode(
                 File(
-                  'assets/data/content_audit_manifest.json',
+                  'tools/content_factory/content_audit_manifest.json',
                 ).readAsStringSync(),
               )
               as Map<String, dynamic>;

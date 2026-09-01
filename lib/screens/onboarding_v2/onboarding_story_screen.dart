@@ -310,10 +310,22 @@ class _LearningPathPreview extends StatelessWidget {
                       children: [
                         Text(level.code, style: SoriTextTheme.of(context).h3),
                         const SizedBox(height: Spacing.xs),
-                        Text(
-                          level.name,
-                          textAlign: TextAlign.center,
-                          style: SoriTextTheme.of(context).meta,
+                        // 라벨은 **한 줄 고정**이다. 3열 마일스톤 폭에 독일어
+                        // 합성어 "Grundkenntnisse"/"Expertenniveau" 는
+                        // 줄바꿈 기회가 없어서 Flutter 가 글자 사이를
+                        // 끊었다(2026-08-31 실기기+웹: "Grundkenn/tnisse").
+                        // `onboarding_setup_screen.dart` 의 `_LevelTile` 과
+                        // 같은 관용구 — 줄바꿈/말줄임 대신 `FittedBox` 가
+                        // 전체 단어를 축소한다.
+                        FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            level.name,
+                            textAlign: TextAlign.center,
+                            style: SoriTextTheme.of(context).meta,
+                            maxLines: 1,
+                            softWrap: false,
+                          ),
                         ),
                       ],
                     ),
