@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_cancelled_trip_hurt_feelings_03",
+        "conceptIds": [
+          "concept_b1_relationships"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "원래 표를 취소하기 전에 가능한 시간을 다시 보자.",

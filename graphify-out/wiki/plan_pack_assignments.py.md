@@ -13,17 +13,17 @@
 - **_load_reserved_metadata()** (8 connections) — `tools/content_factory/plan_pack_assignments.py`
 - **_normalise_vocab_pack_manifest_entry()** (8 connections) — `tools/content_factory/plan_pack_assignments.py`
 - **_reserved_plans_by_level()** (8 connections) — `tools/content_factory/plan_pack_assignments.py`
-- **Any** (7 connections)
 - **_validate_metadata_entry()** (7 connections) — `tools/content_factory/plan_pack_assignments.py`
+- **Any** (7 connections)
 - **_curriculum_extension_units()** (6 connections) — `tools/content_factory/plan_pack_assignments.py`
 - **_curriculum_units()** (5 connections) — `tools/content_factory/plan_pack_assignments.py`
 - **_pack_base()** (5 connections) — `tools/content_factory/plan_pack_assignments.py`
 - **_pack_order_map()** (5 connections) — `tools/content_factory/plan_pack_assignments.py`
 - **_read_csv()** (5 connections) — `tools/content_factory/plan_pack_assignments.py`
 - **_require_string()** (5 connections) — `tools/content_factory/plan_pack_assignments.py`
+- **PackPlan** (4 connections) — `tools/content_factory/plan_pack_assignments.py`
 - **_known_motifs()** (4 connections) — `tools/content_factory/plan_pack_assignments.py`
 - **main()** (4 connections) — `tools/content_factory/plan_pack_assignments.py`
-- **PackPlan** (4 connections) — `tools/content_factory/plan_pack_assignments.py`
 - **_positive_integer_list()** (4 connections) — `tools/content_factory/plan_pack_assignments.py`
 - **_parse_args()** (3 connections) — `tools/content_factory/plan_pack_assignments.py`
 - **_validate_draft_rows()** (3 connections) — `tools/content_factory/plan_pack_assignments.py`

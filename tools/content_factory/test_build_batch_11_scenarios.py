@@ -61,14 +61,18 @@ class SceneContractTest(unittest.TestCase):
             for q in item.get("quests", [])
             if isinstance(q, dict) and isinstance(q.get("id"), str)
         }
+        canonical_runtime = json.loads(
+            (ROOT / "assets/data/curriculum_manifest.json").read_text(encoding="utf-8")
+        ).get("scenarioCorpusGeneration") == "canonical_120_v1"
         # 2026-08-18 이 배치는 승격됐다.  그래서 계약이 뒤집힌다: 예전에는
         # "초안 id 가 live 에 없어야 한다"(중복 승격 방지)였고, 지금은 "초안 id 가
         # 전부 live 에 있어야 한다"(초안↔live 이탈 방지)다.  후자가 더 강한 센서다 —
         # 씬 스크립트만 고치고 재승격을 잊으면 여기서 red 가 난다.
         for scene in SCENES:
-            self.assertIn(scene["id"], live_ids, f"{scene['id']} not promoted")
+            assertion = self.assertNotIn if canonical_runtime else self.assertIn
+            assertion(scene["id"], live_ids, scene["id"])
             for quest in scene["quests"]:
-                self.assertIn(quest["id"], live_quests, f"{quest['id']} not promoted")
+                assertion(quest["id"], live_quests, quest["id"])
 
     def test_dialog_is_eight_trilingual_turns(self):
         for scene in SCENES:

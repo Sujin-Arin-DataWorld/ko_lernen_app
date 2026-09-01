@@ -17,13 +17,13 @@
 - **notificationOutboxMaintenanceAction()** (5 connections) — `functions/gye/lifecycle.js`
 - **notificationRetryDelayMillis()** (5 connections) — `functions/gye/lifecycle.js`
 - **selectSuccessor()** (5 connections) — `functions/gye/lifecycle.js`
-- **keyedDeletionProofDigest** (4 connections) — `functions/gye/index.js`
 - **releaseNotificationOutboxClaim()** (4 connections) — `functions/gye/index.js`
 - **buildNotificationDeliveryUpdate()** (4 connections) — `functions/gye/lifecycle.js`
 - **buildOwnerSuspensionPlan()** (4 connections) — `functions/gye/lifecycle.js`
 - **isAccountDeletionTombstoneOldEnough()** (4 connections) — `functions/gye/lifecycle.js`
 - **isDeliverableGyeLifecycle()** (4 connections) — `functions/gye/lifecycle.js`
 - **notificationTerminalExpiryMillis()** (4 connections) — `functions/gye/lifecycle.js`
+- **keyedDeletionProofDigest** (4 connections) — `functions/gye/index.js`
 - **legacyAccountTombstoneCleanupAction()** (3 connections) — `functions/gye/account_operations_runtime.js`
 - **claimNotificationOutbox()** (3 connections) — `functions/gye/index.js`
 - **finishNotificationOutboxClaim()** (3 connections) — `functions/gye/index.js`

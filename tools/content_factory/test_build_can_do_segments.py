@@ -39,6 +39,16 @@ def _csv(path: str) -> list[dict[str, str]]:
         return list(csv.DictReader(handle))
 
 
+CANONICAL_SCENARIO_RUNTIME = (
+    _json("curriculum_manifest.json").get("scenarioCorpusGeneration")
+    == "canonical_120_v1"
+)
+
+
+@unittest.skipIf(
+    CANONICAL_SCENARIO_RUNTIME,
+    "legacy 419-scenario can-do generator is frozen after canonical_120_v1 cut-over",
+)
 class CanDoSegmentGeneratorTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:

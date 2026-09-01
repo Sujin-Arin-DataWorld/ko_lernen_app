@@ -187,6 +187,10 @@
       },
       {
         "id": "quest_airport_arrival_03",
+        "conceptIds": [
+          "concept_hangul_batchim",
+          "concept_greeting_politeness"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "네, 한국이 처음이에요.",

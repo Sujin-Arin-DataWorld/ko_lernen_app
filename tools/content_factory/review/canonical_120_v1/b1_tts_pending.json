@@ -3,7 +3,7 @@
   "kind": "scenario_tts_pending_manifest",
   "generationId": "canonical_120_v1",
   "scope": "b1",
-  "candidateSetSha256": "ca7bd231d9018cfa292ab0505f1faed6325d5f5b617e7ecc4c6b118455aec83a",
+  "candidateSetSha256": "f6a89b9f82f7cdeffd05d2e24d2b8a1b60b42fa16e9c0b7326dbd492ca0f67aa",
   "cacheRevision": "v3",
   "synthesisRequested": false,
   "uploadRequested": false,

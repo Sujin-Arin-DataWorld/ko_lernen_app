@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_deepfake_verification_03",
+        "conceptIds": [
+          "concept_c1_media_evidence"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "최초 게시 계정과 원본 파일, 촬영 시점을 확인 중이라는 상태까지입니다.",

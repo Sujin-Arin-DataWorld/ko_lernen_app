@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_accessible_festival_route_03",
+        "conceptIds": [
+          "concept_b2_advanced"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "옆 벽으로 옮기고 대기 줄 표지도 새로 두겠습니다.",

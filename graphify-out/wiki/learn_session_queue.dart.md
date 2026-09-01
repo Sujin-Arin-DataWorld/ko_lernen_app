@@ -26,10 +26,11 @@
 
 ## Relationships
 
-- [List](List.md) (2 shared connections)
 - [Map](Map.md) (2 shared connections)
-- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
+- [bool get](bool_get.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
+- [Set](Set.md) (1 shared connections)
+- [dart:math](dart-math.md) (1 shared connections)
 - [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (1 shared connections)
 
 ## Source Files

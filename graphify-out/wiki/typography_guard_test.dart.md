@@ -33,10 +33,10 @@
 
 ## Relationships
 
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
-- [File](File.md) (1 shared connections)
+- [dart:io](dart-io.md) (2 shared connections)
 - [List](List.md) (1 shared connections)
 - [return](return.md) (1 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
 
 ## Source Files
 

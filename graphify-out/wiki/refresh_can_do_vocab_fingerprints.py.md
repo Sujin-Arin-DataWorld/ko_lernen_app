@@ -4,8 +4,8 @@
 
 ## Key Concepts
 
-- **refresh_can_do_vocab_fingerprints.py** (4 connections) — `tool/refresh_can_do_vocab_fingerprints.py`
 - **main()** (4 connections) — `tool/refresh_can_do_vocab_fingerprints.py`
+- **refresh_can_do_vocab_fingerprints.py** (4 connections) — `tool/refresh_can_do_vocab_fingerprints.py`
 - **_fingerprint()** (2 connections) — `tool/refresh_can_do_vocab_fingerprints.py`
 - **_load_smalltalk()** (2 connections) — `tool/refresh_can_do_vocab_fingerprints.py`
 - **_load_vocab()** (2 connections) — `tool/refresh_can_do_vocab_fingerprints.py`

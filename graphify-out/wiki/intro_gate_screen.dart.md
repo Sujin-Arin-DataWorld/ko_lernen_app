@@ -1,10 +1,12 @@
 # intro_gate_screen.dart
 
-> 69 nodes · cohesion 0.03
+> 71 nodes · cohesion 0.03
 
 ## Key Concepts
 
 - **intro_gate_screen.dart** (98 connections) — `lib/screens/intro_gate_screen.dart`
+- **_IntroGateScreenState** (4 connections) — `lib/screens/intro_gate_screen.dart`
+- **IntroGateScreen** (3 connections) — `lib/screens/intro_gate_screen.dart`
 - **_IntroSkipSurface** (3 connections) — `lib/screens/intro_gate_screen.dart`
 - **_IntroSkipSurfaceState** (3 connections) — `lib/screens/intro_gate_screen.dart`
 - **_IntroVideo** (3 connections) — `lib/screens/intro_gate_screen.dart`
@@ -27,24 +29,22 @@
 - **deferLeaseForTesting** (1 connections) — `lib/screens/intro_gate_screen.dart`
 - **deferVideoLeaseForTesting** (1 connections) — `lib/screens/intro_gate_screen.dart`
 - **didChangeDependencies** (1 connections) — `lib/screens/intro_gate_screen.dart`
-- **dispose** (1 connections) — `lib/screens/intro_gate_screen.dart`
-- **_done** (1 connections) — `lib/screens/intro_gate_screen.dart`
-- *... and 44 more nodes in this community*
+- *... and 46 more nodes in this community*
 
 ## Relationships
 
+- [_State](_State.md) (7 shared connections)
 - [consent_screen.dart](consent_screen.dart.md) (5 shared connections)
-- [hanok_header.dart](hanok_header.dart.md) (4 shared connections)
-- [StatefulWidget](StatefulWidget.md) (4 shared connections)
-- [String?](String_.md) (2 shared connections)
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (2 shared connections)
-- [celebration.dart](celebration.dart.md) (2 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (2 shared connections)
+- [StatelessWidget](StatelessWidget.md) (4 shared connections)
+- [tiger_video.dart](tiger_video.dart.md) (4 shared connections)
+- [String?](String_.md) (3 shared connections)
 - [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (2 shared connections)
-- [StatelessWidget](StatelessWidget.md) (2 shared connections)
-- [pressable.dart](pressable.dart.md) (1 shared connections)
-- [cultural_help.dart](cultural_help.dart.md) (1 shared connections)
-- [VideoLeaseEligibilityBinding](VideoLeaseEligibilityBinding.md) (1 shared connections)
+- [app_error.dart](app_error.dart.md) (1 shared connections)
+- [sori_video_lease_test.dart](sori_video_lease_test.dart.md) (1 shared connections)
+- [Map](Map.md) (1 shared connections)
+- [sori_stage_today_screen.dart](sori_stage_today_screen.dart.md) (1 shared connections)
+- [CustomPainter](CustomPainter.md) (1 shared connections)
+- [dart:async](dart-async.md) (1 shared connections)
 
 ## Source Files
 
@@ -53,7 +53,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 107 (100%)
+- EXTRACTED: 111 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

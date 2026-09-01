@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_direct_feedback_misread_03",
+        "conceptIds": [
+          "concept_b2_opinion"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "다음부터는 수정할 부분과 괜찮은 부분을 나눠서 말할게.",

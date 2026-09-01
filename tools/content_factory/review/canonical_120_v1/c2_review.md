@@ -270,7 +270,7 @@ EN: The registration system suggests changing my name to 'June' because it's eas
 
 **마야 (나)**  
 KO: 평소에도 그 이름으로 불리길 원하세요?  
-DE: Möchtest du im Alltag auch so genannt werden?  
+DE: Möchten Sie im Alltag auch so genannt werden?
 EN: Do you want people to call you that in everyday life too?
 
 **주민**  

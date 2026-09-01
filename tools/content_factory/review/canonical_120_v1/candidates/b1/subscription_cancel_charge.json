@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_subscription_cancel_charge_03",
+        "conceptIds": [
+          "concept_b1_complaint_resolution"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "네. 왜 결제됐는지 확인해 주세요.",

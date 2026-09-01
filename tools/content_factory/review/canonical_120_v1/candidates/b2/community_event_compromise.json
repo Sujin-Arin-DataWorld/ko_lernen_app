@@ -187,6 +187,9 @@
       },
       {
         "id": "quest_community_event_compromise_03",
+        "conceptIds": [
+          "concept_b2_advanced"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "좋아요. 시험 운영 뒤 주민과 상인의 의견을 같이 확인하죠.",

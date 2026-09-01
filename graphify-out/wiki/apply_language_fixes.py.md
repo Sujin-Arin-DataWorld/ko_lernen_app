@@ -4,8 +4,8 @@
 
 ## Key Concepts
 
-- **apply_language_fixes.py** (1 connections) — `tools/l10n_sync_2026_08_12/apply_language_fixes.py`
 - **text_fix()** (1 connections) — `tools/l10n_sync_2026_08_12/apply_language_fixes.py`
+- **apply_language_fixes.py** (1 connections) — `tools/l10n_sync_2026_08_12/apply_language_fixes.py`
 
 ## Relationships
 

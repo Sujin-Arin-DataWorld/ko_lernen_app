@@ -11,15 +11,15 @@
 - **_chunk()** (9 connections) — `tool/test_check_app_store_screenshots.py`
 - **ihdr_chunk()** (8 connections) — `tool/test_check_app_store_screenshots.py`
 - **write_chunked_png()** (8 connections) — `tool/test_check_app_store_screenshots.py`
-- **check_app_store_screenshots.py** (7 connections) — `tool/check_app_store_screenshots.py`
 - **_read_png_metadata()** (7 connections) — `tool/check_app_store_screenshots.py`
-- **test_check_app_store_screenshots.py** (6 connections) — `tool/test_check_app_store_screenshots.py`
+- **check_app_store_screenshots.py** (7 connections) — `tool/check_app_store_screenshots.py`
 - **.test_rejects_indexed_palette_order_and_entry_boundaries()** (6 connections) — `tool/test_check_app_store_screenshots.py`
 - **.test_rejects_non_contiguous_idat_chunks()** (6 connections) — `tool/test_check_app_store_screenshots.py`
 - **.test_rejects_plte_for_grayscale_png()** (6 connections) — `tool/test_check_app_store_screenshots.py`
 - **.test_rejects_png_with_undecodable_idat_stream()** (6 connections) — `tool/test_check_app_store_screenshots.py`
 - **.test_rejects_reserved_chunk_name_bit()** (6 connections) — `tool/test_check_app_store_screenshots.py`
 - **.test_rejects_truecolor_plte_after_trns()** (6 connections) — `tool/test_check_app_store_screenshots.py`
+- **test_check_app_store_screenshots.py** (6 connections) — `tool/test_check_app_store_screenshots.py`
 - **_read_chunk_payload()** (5 connections) — `tool/check_app_store_screenshots.py`
 - **.test_accepts_opaque_13_inch_ipad_landscape_png()** (4 connections) — `tool/test_check_app_store_screenshots.py`
 - **.test_rejects_alpha_color_type()** (4 connections) — `tool/test_check_app_store_screenshots.py`

@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_housing_tax_intergenerational_03",
+        "conceptIds": [
+          "concept_c2_discourse_institutions"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "연령은 유지하되 자산 규모, 현재 소득, 실거주 여부를 함께 보여 주면 프레임의 한계도 드러납니다.",

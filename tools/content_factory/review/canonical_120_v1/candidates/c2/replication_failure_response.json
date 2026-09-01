@@ -187,6 +187,9 @@
       },
       {
         "id": "quest_replication_failure_response_03",
+        "conceptIds": [
+          "concept_c2_discourse_institutions"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "이 조건과 표본에서는 같은 효과가 확인되지 않았다고 쓰고, 결과가 달라질 수 있는 조건을 비교해야 합니다.",

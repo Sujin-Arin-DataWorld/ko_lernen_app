@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_work_message_too_direct_03",
+        "conceptIds": [
+          "concept_b1_softening"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "네, 이유랑 선택지를 같이 쓸게요.",

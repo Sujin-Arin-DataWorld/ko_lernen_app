@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_running_injury_training_plan_03",
+        "conceptIds": [
+          "concept_b1_reasons_experience"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "알겠어. 기록보다 무릎부터 봐야겠어.",

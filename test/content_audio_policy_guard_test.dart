@@ -122,7 +122,7 @@ void main() {
           jsonDecode(manifestFile.readAsStringSync()) as Map<String, dynamic>;
 
       expect(manifestFile.existsSync(), isTrue);
-      expect(manifest['scenarioCount'], 419);
+      expect(manifest['scenarioCount'], 126);
       expect(manifest['bundledCount'], 0);
       expect(pubspec, contains('- assets/data/'));
       expect(

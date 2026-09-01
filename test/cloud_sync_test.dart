@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
+import 'package:ko_lernen_app/models/scenario_corpus_generation.dart';
 import 'package:ko_lernen_app/services/cloud_sync.dart';
 import 'package:ko_lernen_app/services/bookshelf_service.dart';
 import 'package:ko_lernen_app/services/course_mastery_service.dart';
@@ -49,6 +50,7 @@ String _courseSnapshotJson({
   String currentCourseUnitId = 'a1_01_greetings_hangul',
 }) => jsonEncode(
   CourseMasterySnapshot(
+    curriculumGeneration: ScenarioCorpusGeneration.canonical120,
     placementLevel: 'a1',
     currentCourseUnitId: currentCourseUnitId,
     evidence: [
@@ -567,10 +569,12 @@ void main() {
   test(
     'backup migrates retained v1 course state before emitting canonical v4',
     () async {
-      final legacy = jsonEncode({
-        ...jsonDecode(_courseSnapshotJson()) as Map<String, dynamic>,
-        'version': 1,
-      });
+      final legacy = jsonEncode(
+        {
+          ...jsonDecode(_courseSnapshotJson()) as Map<String, dynamic>,
+          'version': 1,
+        }..remove('curriculumGeneration'),
+      );
       await _initializeStorage({
         Storage.legacyCourseMasteryPreferenceKey: legacy,
         Storage.browseLevelPreferenceKey: 'b2',
@@ -587,6 +591,10 @@ void main() {
       expect(
         jsonDecode(payload['course_mastery_json'] as String)['version'],
         4,
+      );
+      expect(
+        jsonDecode(payload['course_mastery_json'] as String)['evidence'],
+        isEmpty,
       );
     },
   );
@@ -1231,12 +1239,13 @@ void main() {
   );
 
   test(
-    'retained v1 course history participates in normal cloud merge',
+    'retired v1 history resets while current cloud evidence still merges',
     () async {
       final legacy =
           jsonDecode(_courseSnapshotJson(evidenceId: 'legacy-evidence'))
               as Map<String, dynamic>;
       legacy['version'] = 1;
+      legacy.remove('curriculumGeneration');
       (legacy['evidence'] as List<dynamic>).single.remove('id');
       final legacyRaw = jsonEncode(legacy);
       await _initializeStorage({
@@ -1255,10 +1264,15 @@ void main() {
         await CurriculumCatalog.load(),
       ).refresh();
       expect(restored.placementLevel, 'a1');
-      expect(restored.evidence, hasLength(2));
+      expect(restored.curriculumGeneration, 'canonical_120_v1');
+      expect(restored.evidence, hasLength(1));
       expect(
         restored.evidence.map((item) => item.id),
         contains('remote-evidence'),
+      );
+      expect(
+        restored.evidence.map((item) => item.id),
+        isNot(contains('legacy-evidence')),
       );
       expect(Storage.legacyCourseMasteryRawJson, legacyRaw);
       expect(Storage.userLevelCode, 'b2');

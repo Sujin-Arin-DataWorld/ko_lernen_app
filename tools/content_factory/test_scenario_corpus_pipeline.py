@@ -175,6 +175,15 @@ class ScenarioCorpusPipelineTest(unittest.TestCase):
 
         self.assertEqual(grammar["id"], "grammar_c2_no_more_than_doing")
 
+    def test_grammar_extraction_uses_motion_purpose_not_fixed_greeting(self) -> None:
+        grammar = materializer._grammar_for(
+            level="a2",
+            korean="어서 오세요.\n택배 찾으러 왔어요.",
+            patterns=materializer._load_grammar_patterns(ROOT),
+        )
+
+        self.assertEqual(grammar["id"], "grammar_a1_come_purpose")
+
     def test_every_prompt_stage_has_locked_context(self) -> None:
         packet = pipeline.build_prompt_packet("bakery_queue", root=ROOT)
         self.assertFalse(packet["externalApiAllowed"])
@@ -260,7 +269,7 @@ class ScenarioCorpusPipelineTest(unittest.TestCase):
             "verifiedCachePathCount": manifest["count"],
             "missingCount": 0,
             "cacheRevision": pipeline.TTS_CACHE_REVISION,
-            "verificationMode": "firebase_storage_listing",
+            "verificationMode": "firebase_storage_nonempty_mp3_listing",
         }
         with tempfile.TemporaryDirectory() as temp:
             path = Path(temp) / "tts-ready.json"

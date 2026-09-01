@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_platform_moderation_appeal_03",
+        "conceptIds": [
+          "concept_c1_evidence_reasoning"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "좋아요. 원문 공개와 별개로 검토 상태를 먼저 보여 주는 방안도 넣죠.",

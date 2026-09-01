@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_team_update_indirect_speech_03",
+        "conceptIds": [
+          "concept_b1_indirect_speech"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "변경 가능성만 먼저 남기고, 확정되면 캘린더를 바꿔요.",

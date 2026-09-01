@@ -84,27 +84,27 @@ void main() {
   testWidgets('scenarios in one course unit share the exact focal alignment', (
     tester,
   ) async {
-    late Scenario introduction;
-    late Scenario kpop;
+    late Scenario bakeryQueue;
+    late Scenario clarifyRepeat;
     await tester.runAsync(() async {
       final scenarios = await ScenarioLoader.loadLevel(LearnerLevel.a1);
-      introduction = scenarios.singleWhere(
-        (scenario) => scenario.id == 'introduce_yourself',
+      bakeryQueue = scenarios.singleWhere(
+        (scenario) => scenario.id == 'bakery_queue',
       );
-      kpop = scenarios.singleWhere(
-        (scenario) => scenario.id == 'a1_kpop_my_bias',
+      clarifyRepeat = scenarios.singleWhere(
+        (scenario) => scenario.id == 'clarify_repeat',
       );
     });
-    expect(introduction.courseUnitId, 'a1_02_self_intro_identity');
-    expect(kpop.courseUnitId, introduction.courseUnitId);
+    expect(bakeryQueue.courseUnitId, 'a1_08_clarify_repair');
+    expect(clarifyRepeat.courseUnitId, bakeryQueue.courseUnitId);
 
-    await _pumpIntro(tester, introduction);
-    final introductionAlignment = _introImage(tester).alignment;
-    await _pumpIntro(tester, kpop);
-    final kpopAlignment = _introImage(tester).alignment;
+    await _pumpIntro(tester, bakeryQueue);
+    final bakeryAlignment = _introImage(tester).alignment;
+    await _pumpIntro(tester, clarifyRepeat);
+    final clarifyAlignment = _introImage(tester).alignment;
 
-    expect(introductionAlignment, scenarioIntroAlignmentFor(introduction));
-    expect(kpopAlignment, introductionAlignment);
+    expect(bakeryAlignment, scenarioIntroAlignmentFor(bakeryQueue));
+    expect(clarifyAlignment, bakeryAlignment);
   });
 
   testWidgets('compact medium and expanded intro crops keep the app contract', (

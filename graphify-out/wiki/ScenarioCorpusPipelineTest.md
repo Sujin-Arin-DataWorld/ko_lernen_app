@@ -1,10 +1,10 @@
 # ScenarioCorpusPipelineTest
 
-> 23 nodes · cohesion 0.11
+> 24 nodes · cohesion 0.11
 
 ## Key Concepts
 
-- **ScenarioCorpusPipelineTest** (21 connections) — `tools/content_factory/test_scenario_corpus_pipeline.py`
+- **ScenarioCorpusPipelineTest** (22 connections) — `tools/content_factory/test_scenario_corpus_pipeline.py`
 - **_candidate()** (7 connections) — `tools/content_factory/test_scenario_corpus_pipeline.py`
 - **test_scenario_corpus_pipeline.py** (5 connections) — `tools/content_factory/test_scenario_corpus_pipeline.py`
 - **.test_candidate_contract_and_character_voice_resolution()** (2 connections) — `tools/content_factory/test_scenario_corpus_pipeline.py`
@@ -22,6 +22,7 @@
 - **.test_full_corpus_preflight_keeps_48_units_wires_and_tts_gate()** (1 connections) — `tools/content_factory/test_scenario_corpus_pipeline.py`
 - **.test_grammar_extraction_prefers_the_nearest_attested_level()** (1 connections) — `tools/content_factory/test_scenario_corpus_pipeline.py`
 - **.test_grammar_extraction_recognizes_c2_no_more_than_form()** (1 connections) — `tools/content_factory/test_scenario_corpus_pipeline.py`
+- **.test_grammar_extraction_uses_motion_purpose_not_fixed_greeting()** (1 connections) — `tools/content_factory/test_scenario_corpus_pipeline.py`
 - **.test_materializer_never_fabricates_a_passed_semantic_audit()** (1 connections) — `tools/content_factory/test_scenario_corpus_pipeline.py`
 - **.test_only_jin_and_an_unchanged_full_level_can_pass_approval_gate()** (1 connections) — `tools/content_factory/test_scenario_corpus_pipeline.py`
 - **.test_pipeline_module_has_no_network_client_import()** (1 connections) — `tools/content_factory/test_scenario_corpus_pipeline.py`
@@ -41,7 +42,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 31 (94%)
+- EXTRACTED: 32 (94%)
 - INFERRED: 2 (6%)
 - AMBIGUOUS: 0 (0%)
 

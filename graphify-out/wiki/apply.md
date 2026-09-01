@@ -5,11 +5,11 @@
 ## Key Concepts
 
 - **apply()** (6 connections) — `tool/rotate_session_log.py`
-- **rotate_session_log.py** (5 connections) — `tool/rotate_session_log.py`
 - **plan()** (5 connections) — `tool/rotate_session_log.py`
-- **date** (3 connections) — `lib/services/cloud_sync.dart`
+- **rotate_session_log.py** (5 connections) — `tool/rotate_session_log.py`
 - **_blocks()** (3 connections) — `tool/rotate_session_log.py`
 - **main()** (3 connections) — `tool/rotate_session_log.py`
+- **date** (3 connections) — `lib/services/cloud_sync.dart`
 - **_note()** (2 connections) — `tool/rotate_session_log.py`
 
 ## Relationships

@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_neighborhood_filming_notice_03",
+        "conceptIds": [
+          "concept_b2_precise_requests"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "필요한 장면만 찍고 20분 안에 끝내겠습니다.",

@@ -1,17 +1,17 @@
 # audit_scene_assets.py
 
-> 75 nodes · cohesion 0.08
+> 76 nodes · cohesion 0.08
 
 ## Key Concepts
 
 - **audit_scene_assets.py** (36 connections) — `tool/audit_scene_assets.py`
-- **SceneInventoryTest** (27 connections) — `tool/test_audit_scene_assets.py`
-- **Path** (19 connections)
+- **SceneInventoryTest** (28 connections) — `tool/test_audit_scene_assets.py`
+- **Path** (20 connections)
 - **main()** (17 connections) — `tool/audit_scene_assets.py`
-- **._png()** (16 connections) — `tool/test_audit_scene_assets.py`
-- **._ref()** (16 connections) — `tool/test_audit_scene_assets.py`
+- **._png()** (17 connections) — `tool/test_audit_scene_assets.py`
+- **._ref()** (17 connections) — `tool/test_audit_scene_assets.py`
+- **._poster_dir()** (16 connections) — `tool/test_audit_scene_assets.py`
 - **._scan()** (16 connections) — `tool/test_audit_scene_assets.py`
-- **._poster_dir()** (15 connections) — `tool/test_audit_scene_assets.py`
 - **scan_scene_inventory()** (13 connections) — `tool/audit_scene_assets.py`
 - **Path** (12 connections)
 - **find_category_poster_lock_issues()** (9 connections) — `tool/audit_scene_assets.py`
@@ -26,10 +26,10 @@
 - **.test_unexpected_dedicated_color_mode_is_strict()** (7 connections) — `tool/test_audit_scene_assets.py`
 - **.test_unreadable_and_non_png_files_are_strict()** (7 connections) — `tool/test_audit_scene_assets.py`
 - **.test_wrong_dedicated_dimensions_are_strict()** (7 connections) — `tool/test_audit_scene_assets.py`
-- **find_generation_manifest_issues()** (6 connections) — `tool/audit_scene_assets.py`
 - **ScenarioRef** (6 connections) — `tool/audit_scene_assets.py`
+- **find_generation_manifest_issues()** (6 connections) — `tool/audit_scene_assets.py`
 - **.test_gitkeep_is_not_treated_as_a_scene_asset()** (6 connections) — `tool/test_audit_scene_assets.py`
-- *... and 50 more nodes in this community*
+- *... and 51 more nodes in this community*
 
 ## Relationships
 
@@ -43,7 +43,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 222 (99%)
+- EXTRACTED: 227 (99%)
 - INFERRED: 3 (1%)
 - AMBIGUOUS: 0 (0%)
 

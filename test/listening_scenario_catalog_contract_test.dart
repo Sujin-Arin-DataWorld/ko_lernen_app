@@ -5,12 +5,16 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('every shipped scenario has playable Korean dialogue data', () {
-    final files = Directory('assets/data')
-        .listSync()
-        .whereType<File>()
-        .where((file) => RegExp(r'scenarios_[a-z0-9]+\.json$').hasMatch(file.path))
-        .toList()
-      ..sort((a, b) => a.path.compareTo(b.path));
+    final files =
+        Directory('assets/data')
+            .listSync()
+            .whereType<File>()
+            .where(
+              (file) =>
+                  RegExp(r'scenarios_[a-z0-9]+\.json$').hasMatch(file.path),
+            )
+            .toList()
+          ..sort((a, b) => a.path.compareTo(b.path));
     final problems = <String>[];
     final speakerIds = <String>{};
     var scenarioCount = 0;
@@ -31,7 +35,9 @@ void main() {
           final speaker = (item['speaker'] as String?)?.trim() ?? '';
           final korean = (item['ko'] as String?)?.trim() ?? '';
           if (speaker.isEmpty || korean.isEmpty) {
-            problems.add('${file.path}:$id has an empty speaker or Korean line');
+            problems.add(
+              '${file.path}:$id has an empty speaker or Korean line',
+            );
           }
           speakerIds.add(speaker);
           if (korean.length > longestKoreanLine) {
@@ -42,7 +48,7 @@ void main() {
     }
 
     expect(files, hasLength(6));
-    expect(scenarioCount, greaterThan(400));
+    expect(scenarioCount, 126);
     expect(problems, isEmpty, reason: problems.take(20).join('\n'));
     expect(longestKoreanLine, greaterThanOrEqualTo(60));
     expect(

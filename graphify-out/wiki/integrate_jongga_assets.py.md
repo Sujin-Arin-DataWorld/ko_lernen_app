@@ -4,8 +4,8 @@
 
 ## Key Concepts
 
-- **integrate_jongga_assets.py** (4 connections) — `tool/integrate_jongga_assets.py`
 - **main()** (4 connections) — `tool/integrate_jongga_assets.py`
+- **integrate_jongga_assets.py** (4 connections) — `tool/integrate_jongga_assets.py`
 - **key_transparent()** (3 connections) — `tool/integrate_jongga_assets.py`
 - **save_compact()** (2 connections) — `tool/integrate_jongga_assets.py`
 - **stem_of()** (2 connections) — `tool/integrate_jongga_assets.py`

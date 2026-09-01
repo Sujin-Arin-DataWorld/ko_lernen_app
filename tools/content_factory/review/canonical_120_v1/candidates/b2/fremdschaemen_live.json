@@ -137,7 +137,7 @@
         "speaker": "maya",
         "ko": "응. 다음부터는 재미보다 괜찮은지 먼저 물어볼게.",
         "de": "Ja. Nächstes Mal frage ich zuerst, ob es für die Person in Ordnung ist, bevor ich an die Unterhaltung denke.",
-        "en": "I will. Next time, I'll ask if the person is okay with it before trying to make it entertaining."
+        "en": "Okay. Next time, I'll ask if the person is okay with it before trying to make it entertaining."
       }
     ],
     "quests": [
@@ -192,6 +192,9 @@
       },
       {
         "id": "quest_fremdschaemen_live_03",
+        "conceptIds": [
+          "concept_b2_advanced"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "다음에는 카메라를 켜기 전에 먼저 물어봐.",

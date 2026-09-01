@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_train_delay_connection_03",
+        "conceptIds": [
+          "concept_b2_complaint"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "먼저 탈 수 있는 다음 열차가 있는지 확인해 주세요.",

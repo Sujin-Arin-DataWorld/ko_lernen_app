@@ -9,8 +9,8 @@
 - **convert()** (2 connections) — `tool/clip_normalize.py`
 - **load()** (1 connections) — `tool/clip_normalize.py`
 - **probe()** (1 connections) — `tool/clip_normalize.py`
-- **Flood-fill neutral background (incl. soft grey drop shadows) to pure white.…** (1 connections) — `tool/clip_normalize.py`
 - **report()** (1 connections) — `tool/clip_normalize.py`
+- **Flood-fill neutral background (incl. soft grey drop shadows) to pure white.…** (1 connections) — `tool/clip_normalize.py`
 
 ## Relationships
 

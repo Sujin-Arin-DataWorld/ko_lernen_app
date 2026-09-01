@@ -105,7 +105,7 @@ EN: Wow, this is much spicier than I expected.
 
 **수진**  
 KO: 괜찮아요? 물 줄까요?  
-DE: Geht es? Möchtest du Wasser?  
+DE: Alles okay? Möchtest du Wasser?
 EN: Are you okay? Do you want some water?
 
 **크리스티안 (나)**  

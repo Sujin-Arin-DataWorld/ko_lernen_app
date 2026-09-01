@@ -182,6 +182,9 @@ def audit(root: Path = ROOT) -> dict[str, Any]:
         supplemental_live[kind] = (key_field, index)
 
     curriculum = _read_json(root / "assets" / "data" / "curriculum_manifest.json")
+    canonical_scenario_runtime = (
+        curriculum.get("scenarioCorpusGeneration") == "canonical_120_v1"
+    )
     scenario_links = {
         str(link.get("contentId") or "")
         for link in curriculum.get("contentLinks", [])
@@ -210,6 +213,7 @@ def audit(root: Path = ROOT) -> dict[str, Any]:
 
         manifest_errors: list[str] = []
         missing: list[str] = []
+        retired_scenarios: list[str] = []
         projection: list[dict[str, Any]] = []
         review_statuses: Counter[str] = Counter()
         provenance = manifest.get("provenance")
@@ -264,6 +268,9 @@ def audit(root: Path = ROOT) -> dict[str, Any]:
             for ident in draft_index:
                 live_record = live_indexes[kind].get(ident)
                 if live_record is None:
+                    if kind == "scenario" and canonical_scenario_runtime:
+                        retired_scenarios.append(ident)
+                        continue
                     missing.append(f"{kind}:{ident}")
                     continue
                 present += 1
@@ -337,6 +344,10 @@ def audit(root: Path = ROOT) -> dict[str, Any]:
             audit_status = "not_live"
         elif manifest_errors:
             audit_status = "invalid"
+        elif retired_scenarios and structured_approval:
+            audit_status = "lineage_verified_modern_retired_scenarios"
+        elif retired_scenarios:
+            audit_status = "lineage_verified_legacy_retired_scenarios"
         elif structured_approval:
             audit_status = "live_verified_modern"
         else:
@@ -353,6 +364,7 @@ def audit(root: Path = ROOT) -> dict[str, Any]:
             "tracked": tracked,
             "live": present,
             "missing": missing,
+            "retiredScenarios": sorted(retired_scenarios),
             "errors": manifest_errors,
             "approvalEvidence": (
                 "structured_jin_approval"
@@ -368,10 +380,13 @@ def audit(root: Path = ROOT) -> dict[str, Any]:
         })
 
     return {
-        "version": 2,
+        "version": 3,
         "scope": "all tools/content_factory/drafts/batch*manifest.json files",
         "trackedIds": tracked_total,
         "liveIds": live_total,
+        "retiredScenarioIds": sum(
+            len(report.get("retiredScenarios", [])) for report in reports
+        ),
         "reports": reports,
         "errors": errors,
         "ok": not errors,

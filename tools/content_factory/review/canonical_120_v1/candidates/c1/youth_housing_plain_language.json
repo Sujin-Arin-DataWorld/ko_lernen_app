@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_youth_housing_plain_language_03",
+        "conceptIds": [
+          "concept_c1_evidence_reasoning"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "요약 뒤에 상세 원문을 함께 두고 해당 조건으로 바로 연결하면 됩니다.",

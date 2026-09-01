@@ -54,7 +54,7 @@ void main() {
   });
 
   test(
-    'coverage joins every raw source through one direct or inherited route',
+    'coverage joins current sources and preserves retired scenario lineage',
     () {
       final authority = _json('assets/data/can_do_content_authorities.json');
       final direct = _rows(authority['contentReferences']);
@@ -90,9 +90,24 @@ void main() {
       expect(_idsForKind(direct, 'smalltalk'), {
         for (final row in smalltalkRows) row['id']!,
       });
-      expect(_idsForKind(direct, 'scenario'), {
-        for (final row in scenarioRows) row['id']!,
-      });
+      final curriculum = _json('assets/data/curriculum_manifest.json');
+      final runtimeScenarioIds = {for (final row in scenarioRows) row['id']!};
+      final directScenarioIds = _idsForKind(direct, 'scenario');
+      if (curriculum['scenarioCorpusGeneration'] == 'canonical_120_v1') {
+        // The published core_2026_v1 Can-do track keeps immutable source
+        // lineage for the retired corpus. Current scenario routing belongs to
+        // curriculum_manifest.json and is tested by course_graph_test.dart.
+        final catalog = _json('assets/data/can_do_segments.json');
+        final clusterScenarioIds = {
+          for (final cluster in _rows(catalog['contentClusters']))
+            for (final reference in _rows(cluster['contentReferences']))
+              if (reference['kind'] == 'scenario') reference['id']! as String,
+        };
+        expect(runtimeScenarioIds, hasLength(126));
+        expect(directScenarioIds, clusterScenarioIds);
+      } else {
+        expect(directScenarioIds, runtimeScenarioIds);
+      }
       expect(
         _idsForKind(direct, 'cloze').union(_idsForKind(inherited, 'cloze')),
         {for (final row in clozeRows) row['id']!},

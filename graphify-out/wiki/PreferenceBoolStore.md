@@ -12,7 +12,7 @@
 ## Relationships
 
 - [_](_.md) (2 shared connections)
-- [course_mastery_test.dart](course_mastery_test.dart.md) (2 shared connections)
+- [package:ko_lernen_app/models/scenario.dart](package-ko_lernen_app-models-scenario.dart.md) (2 shared connections)
 
 ## Source Files
 

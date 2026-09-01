@@ -1,17 +1,14 @@
 # data_loader.dart
 
-> 42 nodes · cohesion 0.05
+> 32 nodes · cohesion 0.06
 
 ## Key Concepts
 
 - **data_loader.dart** (27 connections) — `lib/services/data_loader.dart`
-- **pronunciation_phrase_loader.dart** (15 connections) — `lib/services/pronunciation_phrase_loader.dart`
-- **smalltalk_loader.dart** (13 connections) — `lib/services/smalltalk_loader.dart`
-- **static List** (12 connections)
-- **static String?** (8 connections)
-- **../models/smalltalk.dart** (7 connections)
+- **grammar_plan_service.dart** (14 connections) — `lib/services/grammar_plan_service.dart`
+- **../models/grammar.dart** (8 connections)
 - **static String get** (5 connections)
-- **../models/pronunciation_phrase.dart** (3 connections)
+- **../models/grammar_study_plan.dart** (2 connections)
 - **../models/media_phrase.dart** (2 connections)
 - **DataLoader** (1 connections) — `lib/services/data_loader.dart`
 - **_grammars** (1 connections) — `lib/services/data_loader.dart`
@@ -29,32 +26,34 @@
 - **resetVocab** (1 connections) — `lib/services/data_loader.dart`
 - **_vocabAsset** (1 connections) — `lib/services/data_loader.dart`
 - **_vocabError** (1 connections) — `lib/services/data_loader.dart`
-- *... and 17 more nodes in this community*
+- **_vocabs** (1 connections) — `lib/services/data_loader.dart`
+- **curatedRowsForLevel** (1 connections) — `lib/services/grammar_plan_service.dart`
+- **decodePlans** (1 connections) — `lib/services/grammar_plan_service.dart`
+- *... and 7 more nodes in this community*
 
 ## Relationships
 
-- [_](_.md) (6 shared connections)
-- [static const int](static_const_int.md) (4 shared connections)
-- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (4 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (3 shared connections)
-- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (2 shared connections)
-- [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (2 shared connections)
-- [vocab_notebook_studio_screen.dart](vocab_notebook_studio_screen.dart.md) (2 shared connections)
+- [_](_.md) (3 shared connections)
 - [kkeunmari_engine.dart](kkeunmari_engine.dart.md) (2 shared connections)
+- [dart:convert](dart-convert.md) (2 shared connections)
+- [List](List.md) (2 shared connections)
+- [custom_pack_service.dart](custom_pack_service.dart.md) (2 shared connections)
+- [grammar_screen.dart](grammar_screen.dart.md) (2 shared connections)
+- [static const](static_const.md) (1 shared connections)
+- [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (1 shared connections)
 - [can_do_segment_asset_test.dart](can_do_segment_asset_test.dart.md) (1 shared connections)
-- [course_progress_service.dart](course_progress_service.dart.md) (1 shared connections)
-- [kkeunmari_screen.dart](kkeunmari_screen.dart.md) (1 shared connections)
-- [pronunciation_studio_screen.dart](pronunciation_studio_screen.dart.md) (1 shared connections)
+- [gye_weekly_promise.dart](gye_weekly_promise.dart.md) (1 shared connections)
+- [scenario_player_screen.dart](scenario_player_screen.dart.md) (1 shared connections)
+- [course_checkpoint_questions.dart](course_checkpoint_questions.dart.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/services/data_loader.dart`
-- `lib/services/pronunciation_phrase_loader.dart`
-- `lib/services/smalltalk_loader.dart`
+- `lib/services/grammar_plan_service.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 82 (100%)
+- EXTRACTED: 53 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

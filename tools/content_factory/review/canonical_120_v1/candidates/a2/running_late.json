@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_running_late_03",
+        "conceptIds": [
+          "concept_a2_relationships"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "그럼 카페 앞에서 만나자.",

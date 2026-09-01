@@ -73,7 +73,7 @@
         "note": {
           "ko": "장면 핵심 표현",
           "de": "Ja. Ich trenne außerdem persönliche Erfahrung und offizielle Information.",
-          "en": "I will. I'll also separate personal experience from official information."
+          "en": "Got it. I'll also keep personal experience separate from official information."
         }
       }
     ],
@@ -131,7 +131,7 @@
         "speaker": "user",
         "ko": "네. 개인 경험과 공식 정보도 구분해서 쓰겠습니다.",
         "de": "Ja. Ich trenne außerdem persönliche Erfahrung und offizielle Information.",
-        "en": "I will. I'll also separate personal experience from official information."
+        "en": "Got it. I'll also keep personal experience separate from official information."
       }
     ],
     "quests": [
@@ -186,12 +186,15 @@
       },
       {
         "id": "quest_brand_private_account_boundary_03",
+        "conceptIds": [
+          "concept_b2_precise_requests"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "네. 개인 경험과 공식 정보도 구분해서 쓰겠습니다.",
           "audioKo": "네. 개인 경험과 공식 정보도 구분해서 쓰겠습니다.",
           "promptDe": "Ja. Ich trenne außerdem persönliche Erfahrung und offizielle Information.",
-          "promptEn": "I will. I'll also separate personal experience from official information.",
+          "promptEn": "Got it. I'll also keep personal experience separate from official information.",
           "distractors": [
             "마야가 개인 계정에 올리는 후기처럼 현장감 있게 쓰면 어떨까요?",
             "개인 의견처럼 보여도 회사 계정에 올라가면 공식 입장으로 읽힐 수 있어요.",

@@ -14,15 +14,15 @@
 - **.test_leftover_chroma_fails()** (3 connections) — `tool/test_check_decoration_cutouts.py`
 - **.test_opaque_edge_fails()** (3 connections) — `tool/test_check_decoration_cutouts.py`
 - **.test_opaque_rgb_without_alpha_fails()** (3 connections) — `tool/test_check_decoration_cutouts.py`
-- **Image** (2 connections)
-- **Path** (2 connections)
 - **ShippedBaselineTest** (2 connections) — `tool/test_check_decoration_cutouts.py`
 - **.setUp()** (2 connections) — `tool/test_check_decoration_cutouts.py`
 - **.test_tiny_object_fails_coverage()** (2 connections) — `tool/test_check_decoration_cutouts.py`
-- **Gate tests for tool/check_decoration_cutouts.py. The first test is the…** (1 connections) — `tool/test_check_decoration_cutouts.py`
-- **pngquant output is P+tRNS and must pass — it still carries true alpha. Ten of…** (1 connections) — `tool/test_check_decoration_cutouts.py`
+- **Image** (2 connections)
+- **Path** (2 connections)
 - **.test_every_approved_interior_cutout_passes()** (1 connections) — `tool/test_check_decoration_cutouts.py`
 - **.tearDown()** (1 connections) — `tool/test_check_decoration_cutouts.py`
+- **Gate tests for tool/check_decoration_cutouts.py. The first test is the…** (1 connections) — `tool/test_check_decoration_cutouts.py`
+- **pngquant output is P+tRNS and must pass — it still carries true alpha. Ten of…** (1 connections) — `tool/test_check_decoration_cutouts.py`
 
 ## Relationships
 

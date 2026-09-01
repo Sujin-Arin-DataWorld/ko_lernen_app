@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_email_attachment_twice_03",
+        "conceptIds": [
+          "concept_a2_work_study"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "네, 이번에는 붙였어요. 확인하고 다시 보낼게요.",

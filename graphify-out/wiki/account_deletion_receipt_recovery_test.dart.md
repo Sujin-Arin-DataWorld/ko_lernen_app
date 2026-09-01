@@ -1,12 +1,15 @@
 # account_deletion_receipt_recovery_test.dart
 
-> 36 nodes · cohesion 0.06
+> 44 nodes · cohesion 0.05
 
 ## Key Concepts
 
 - **account_deletion_receipt_recovery_test.dart** (40 connections) — `test/services/account/account_deletion_receipt_recovery_test.dart`
+- **account_startup_journal_resolver_test.dart** (13 connections) — `test/services/account/account_startup_journal_resolver_test.dart`
+- **AccountDeletionJournal** (6 connections) — `lib/services/auth_service.dart`
 - **AccountDeletionJournalStore** (6 connections) — `lib/services/auth_service.dart`
 - **AccountOperationResult** (5 connections) — `lib/services/account/account_operation_client.dart`
+- **package:ko_lernen_app/services/account/account_deletion_status_receipt.dart** (4 connections)
 - **AccountDeletionStatusReceiptStore** (3 connections) — `lib/services/account/account_deletion_status_receipt.dart`
 - **_SharedPreferencesAccountDeletionJournalStore** (2 connections) — `lib/services/auth_service.dart`
 - **_JournalStore** (2 connections) — `test/services/account/account_deletion_receipt_recovery_test.dart`
@@ -26,24 +29,22 @@
 - **main** (1 connections) — `test/services/account/account_deletion_receipt_recovery_test.dart`
 - **_mutateIdentity** (1 connections) — `test/services/account/account_deletion_receipt_recovery_test.dart`
 - **mutateIdentityAt** (1 connections) — `test/services/account/account_deletion_receipt_recovery_test.dart`
-- **_operation** (1 connections) — `test/services/account/account_deletion_receipt_recovery_test.dart`
-- **operationId** (1 connections) — `test/services/account/account_deletion_receipt_recovery_test.dart`
-- **phase** (1 connections) — `test/services/account/account_deletion_receipt_recovery_test.dart`
-- *... and 11 more nodes in this community*
+- *... and 19 more nodes in this community*
 
 ## Relationships
 
-- [_](_.md) (5 shared connections)
-- [auth_service_test.dart](auth_service_test.dart.md) (3 shared connections)
-- [content_feedback_outbox_test.dart](content_feedback_outbox_test.dart.md) (3 shared connections)
+- [_](_.md) (6 shared connections)
+- [auth_service_test.dart](auth_service_test.dart.md) (4 shared connections)
+- [content_feedback_lifecycle_test.dart](content_feedback_lifecycle_test.dart.md) (4 shared connections)
+- [cloud_backup_deletion_service_admission_test.dart](cloud_backup_deletion_service_admission_test.dart.md) (3 shared connections)
+- [account_reconciliation_test.dart](account_reconciliation_test.dart.md) (3 shared connections)
 - [account_transition_ui_test.dart](account_transition_ui_test.dart.md) (3 shared connections)
-- [onboarding_v2_presentation.dart](onboarding_v2_presentation.dart.md) (1 shared connections)
+- [@immutable](@immutable.md) (2 shared connections)
+- [account_deletion_status_receipt_test.dart](account_deletion_status_receipt_test.dart.md) (2 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
 - [account_operation_client.dart](account_operation_client.dart.md) (1 shared connections)
-- [cloud_write_session.dart](cloud_write_session.dart.md) (1 shared connections)
+- [first_link_backfill.dart](first_link_backfill.dart.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
-- [account_deletion_status_receipt_test.dart](account_deletion_status_receipt_test.dart.md) (1 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
-- [account_reconciliation_test.dart](account_reconciliation_test.dart.md) (1 shared connections)
 
 ## Source Files
 
@@ -51,13 +52,14 @@
 - `lib/services/account/account_operation_client.dart`
 - `lib/services/auth_service.dart`
 - `test/services/account/account_deletion_receipt_recovery_test.dart`
+- `test/services/account/account_startup_journal_resolver_test.dart`
 - `test/services/auth_service_test.dart`
 - `test/services/completed_deletion_startup_recovery_test.dart`
 - `test/services/content_feedback_lifecycle_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 56 (100%)
+- EXTRACTED: 76 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

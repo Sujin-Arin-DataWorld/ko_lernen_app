@@ -5,8 +5,8 @@
 ## Key Concepts
 
 - **recompute()** (4 connections) — `tools/content_factory/merge_vocab_into_kkeunmari.py`
-- **merge_vocab_into_kkeunmari.py** (3 connections) — `tools/content_factory/merge_vocab_into_kkeunmari.py`
 - **main()** (3 connections) — `tools/content_factory/merge_vocab_into_kkeunmari.py`
+- **merge_vocab_into_kkeunmari.py** (3 connections) — `tools/content_factory/merge_vocab_into_kkeunmari.py`
 - **is_hangul_word()** (2 connections) — `tools/content_factory/merge_vocab_into_kkeunmari.py`
 - **next_count/is_dead_end über die Menge neu berechnen (build_kkeunmari_pool-…** (1 connections) — `tools/content_factory/merge_vocab_into_kkeunmari.py`
 

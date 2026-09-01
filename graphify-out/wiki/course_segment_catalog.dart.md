@@ -33,18 +33,18 @@
 
 ## Relationships
 
-- [gye_dedication_catalog.dart](gye_dedication_catalog.dart.md) (1 shared connections)
+- [gye_dedication_action.dart](gye_dedication_action.dart.md) (1 shared connections)
 - [can_do_segment.dart](can_do_segment.dart.md) (1 shared connections)
 - [List](List.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
-- [profanity_denylist.dart](profanity_denylist.dart.md) (1 shared connections)
+- [cloze_prompt.dart](cloze_prompt.dart.md) (1 shared connections)
 - [word_web_ui_test.dart](word_web_ui_test.dart.md) (1 shared connections)
 - [return](return.md) (1 shared connections)
-- [swipe_rails.dart](swipe_rails.dart.md) (1 shared connections)
-- [static const int](static_const_int.md) (1 shared connections)
-- [hanok_cutover_service_test.dart](hanok_cutover_service_test.dart.md) (1 shared connections)
+- [static const double](static_const_double.md) (1 shared connections)
+- [custom_pack_service.dart](custom_pack_service.dart.md) (1 shared connections)
+- [canonical_course_segment_loader_test.dart](canonical_course_segment_loader_test.dart.md) (1 shared connections)
 - [hanok_experience_projector.dart](hanok_experience_projector.dart.md) (1 shared connections)
-- [course_progress_service.dart](course_progress_service.dart.md) (1 shared connections)
+- [../../models/curriculum.dart](-..-models-curriculum.dart.md) (1 shared connections)
 
 ## Source Files
 

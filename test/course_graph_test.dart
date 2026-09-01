@@ -306,8 +306,7 @@ void main() {
   test(
     'raw scenario grammar links are nonempty, known, and no longer formal',
     () async {
-      final raw =
-          allScenarioRoot();
+      final raw = allScenarioRoot();
       final rawScenarios = (raw['scenarios'] as List)
           .cast<Map<String, dynamic>>();
       final grammar = await DataLoader.loadGrammar();
@@ -799,150 +798,17 @@ void main() {
   );
 
   test(
-    'every required concept uses its audited quest in the declared checkpoint',
+    'canonical checkpoint scenes expose one exact assessment and three auditable quests',
     () async {
       final catalog = await CurriculumCatalog.load();
       final scenarios = await ScenarioLoader.load();
       final scenarioById = {for (final item in scenarios) item.id: item};
 
-      const auditedQuestByUnitAndConcept = <String, Map<String, String>>{
-        'a1_01_greetings_hangul': {
-          'concept_hangul_batchim': 'quest_airport_arrival_02',
-          'concept_greeting_politeness': 'quest_airport_arrival_04',
-        },
-        'a1_02_self_intro_identity': {
-          'concept_identity_formal': 'quest_introduce_yourself_07',
-          'concept_identity_polite': 'quest_introduce_yourself_07',
-          'concept_identity_casual': 'quest_introduce_yourself_07',
-        },
-        'a1_03_topic_subject_particles': {
-          'concept_topic_particle': 'quest_mart_grocery_02',
-          'concept_subject_particle': 'quest_mart_grocery_06',
-        },
-        'a1_04_order_request_object': {
-          'concept_object_particle': 'quest_bunshik_tteokbokki_06',
-          'concept_request_polite': 'quest_bunshik_tteokbokki_03',
-        },
-        'a1_05_numbers_time': {
-          'concept_a1_time_numbers': 'quest_hotel_checkin_03',
-        },
-        'a1_06_transport_directions': {
-          'concept_a1_directions': 'quest_taxi_kakao_06',
-        },
-        'a1_07_contact_address': {
-          'concept_a1_contact_address': 'quest_phone_messenger_reply_06',
-        },
-        'a1_08_clarify_repair': {
-          'concept_a1_clarification': 'quest_clarify_repeat_06',
-        },
-        'a1_09_home_daily_life': {
-          'concept_a1_home_daily': 'quest_home_morning_routine_05',
-        },
-        'a1_10_health_safety': {
-          'concept_a1_health_safety': 'quest_clinic_safety_06',
-        },
-        'a1_11_titles_relationships': {
-          'concept_a1_titles_relationships':
-              'quest_titles_relationship_distance_01',
-        },
-        'a1_12_daily_negation': {
-          'concept_a1_negation': 'quest_mart_grocery_07',
-        },
-        'a1_13_register_switching': {
-          'concept_a1_register_switch': 'quest_introduce_yourself_06',
-          'concept_action_formal': 'quest_introduce_yourself_06',
-          'concept_action_polite': 'quest_introduce_yourself_06',
-          'concept_action_casual': 'quest_introduce_yourself_06',
-        },
-        'a1_14_payment_delivery': {
-          'concept_a1_payment_delivery':
-              'quest_delivery_address_confirmation_06',
-        },
-        'a1_15_first_class_work': {
-          'concept_a1_first_meeting': 'quest_first_class_meeting_06',
-        },
-        'a1_16_survival_capstone': {
-          'concept_a1_survival': 'quest_survival_day_capstone_05',
-        },
-        'a2_01_haeyo_transition': {
-          'concept_action_formal': 'quest_cafe_starbucks_basic_05',
-          'concept_action_polite': 'quest_cafe_starbucks_basic_05',
-        },
-        'a2_02_plans_proposals': {
-          'concept_proposal_formal': 'quest_plans_with_friend_04',
-          'concept_proposal_polite': 'quest_plans_with_friend_04',
-          'concept_proposal_casual': 'quest_plans_with_friend_04',
-        },
-        'a2_03_chat_relationships': {
-          'concept_a2_relationships': 'quest_running_late_04',
-        },
-        'a2_04_feelings_health': {
-          'concept_a2_feelings': 'quest_pharmacy_headache_05',
-        },
-        'a2_05_delivery_services': {
-          'concept_a2_services': 'quest_myeongdong_shopping_04',
-        },
-        'a2_06_study_work': {'concept_a2_work_study': 'quest_cafe_study_06'},
-        'a2_07_travel_repair': {
-          'concept_a2_travel_repair': 'quest_subway_transfer_05',
-        },
-        'a2_08_home_money': {
-          'concept_a2_home_money': 'quest_rent_bank_transfer_05',
-        },
-        'b1_01_experience_reasons': {
-          'concept_b1_reasons_experience': 'quest_postpone_plans_04',
-        },
-        'b1_02_indirect_speech': {
-          'concept_b1_indirect_speech': 'quest_company_dinner_hoeshik_04',
-        },
-        'b1_03_work_softening': {
-          'concept_b1_softening': 'quest_company_dinner_hoeshik_05',
-        },
-        'b1_04_relationships': {
-          'concept_b1_relationships': 'quest_warm_encouragement_04',
-        },
-        'b1_05_complaint_resolution': {
-          'concept_b1_complaint_resolution': 'quest_food_delivery_02',
-        },
-        'b1_06_life_capstone': {'concept_b1_life': 'quest_couple_argument_04'},
-        'b2_01_formal_opening': {
-          'concept_b2_formal_opening': 'quest_business_meeting_intro_04',
-        },
-        'b2_02_professional_opinion': {
-          'concept_b2_opinion': 'quest_business_meeting_intro_05',
-        },
-        'b2_03_precise_requests': {
-          'concept_b2_precise_requests': 'quest_doctor_consultation_04',
-        },
-        'b2_04_complaint_resolution': {
-          'concept_b2_complaint': 'quest_complaint_delivery_04',
-        },
-        'b2_05_interview': {'concept_b2_interview': 'quest_job_interview_04'},
-        'b2_06_advanced_capstone': {
-          'concept_b2_advanced': 'quest_job_interview_05',
-        },
-      };
+      expect(catalog.scenarioCorpusGeneration, 'canonical_120_v1');
+      expect(catalog.courseUnits, hasLength(48));
 
-      final scenarioBackedUnits = catalog.courseUnits
-          .where(
-            (unit) => unit.checkpointContentIds.every(
-              (checkpoint) => checkpoint.startsWith('scenario:'),
-            ),
-          )
-          .toList(growable: false);
-      expect(
-        auditedQuestByUnitAndConcept.keys.toSet(),
-        equals(scenarioBackedUnits.map((unit) => unit.id).toSet()),
-        reason: 'the scenario semantic audit must cover every scenario unit',
-      );
-
-      for (final unit in scenarioBackedUnits) {
-        final expected = auditedQuestByUnitAndConcept[unit.id]!;
-        expect(
-          expected.keys.toSet(),
-          equals(unit.requiredConceptIds.toSet()),
-          reason: '${unit.id} audit must match the exact required concepts',
-        );
+      final checkpointIds = <String>{};
+      for (final unit in catalog.courseUnits) {
         expect(
           unit.checkpointContentIds,
           hasLength(1),
@@ -950,6 +816,8 @@ void main() {
         );
         final checkpoint = unit.checkpointContentIds.single.split(':');
         expect(checkpoint.first, CurriculumContentKind.scenario.code);
+        checkpointIds.add(checkpoint.last);
+
         final scenario = scenarioById[checkpoint.last];
         expect(
           scenario,
@@ -958,24 +826,36 @@ void main() {
         );
         if (scenario == null) continue;
 
-        for (final entry in expected.entries) {
-          final matching = scenario.quests
-              .where((quest) => quest.id == entry.value)
-              .toList();
-          expect(
-            matching,
-            hasLength(1),
-            reason:
-                '${unit.id}:${entry.key} must use ${entry.value} in ${scenario.id}',
-          );
-          if (matching.isEmpty) continue;
-          expect(
-            matching.single.conceptIds,
-            contains(entry.key),
-            reason: '${entry.value} must explicitly assess ${entry.key}',
-          );
-        }
+        expect(scenario.courseUnitId, unit.id);
+        expect(scenario.conceptIds.toSet(), unit.requiredConceptIds.toSet());
+        expect(scenario.quests, hasLength(3), reason: scenario.id);
+        expect(scenario.quests.map((quest) => quest.type).toList(), const [
+          QuestType.hoerverstehen,
+          QuestType.uebersetzen,
+          QuestType.satzBauen,
+        ], reason: scenario.id);
+        expect(
+          scenario.quests.map((quest) => quest.id).toList(),
+          List.generate(
+            3,
+            (index) =>
+                'quest_${scenario.id}_${(index + 1).toString().padLeft(2, '0')}',
+          ),
+          reason: '${scenario.id} quest IDs must be stable and ordered',
+        );
+
+        final assessmentLinks = catalog
+            .linksForContent(CurriculumContentKind.scenario, scenario.id)
+            .where((link) => link.exactlyAssesses(unit))
+            .toList(growable: false);
+        expect(
+          assessmentLinks,
+          hasLength(1),
+          reason: '${scenario.id} must exactly assess ${unit.id}',
+        );
       }
+
+      expect(checkpointIds, hasLength(48));
     },
   );
 
@@ -1031,10 +911,9 @@ void main() {
   );
 
   test(
-    'audited checkpoint answers and rejected semantic tags stay exact',
+    'the six Jin-approved anchor scenes keep their exact Korean answers',
     () async {
       final scenarios = await ScenarioLoader.load();
-      final scenarioById = {for (final item in scenarios) item.id: item};
       final questById = <String, QuestSpec>{};
       for (final scenario in scenarios) {
         for (final quest in scenario.quests.where(
@@ -1065,20 +944,16 @@ void main() {
         return option?.toString() ?? '';
       }
 
+      expect(questById, hasLength(391));
       const criticalAnswers = <String, String>{
-        'quest_cafe_starbucks_basic_05': '주문 도와드리겠습니다. / 주문 도와드릴게요.',
-        'quest_introduce_yourself_06': '연락처를 보내겠습니다. / 연락처를 보낼게요. / 연락처 보낼게.',
-        'quest_introduce_yourself_07': '저는 레나입니다. / 저는 레나예요. / 나는 레나야.',
-        'quest_food_delivery_02': '콜라가 빠졌어요. 가능하면 지금 다시 보내 주시겠어요?',
-        'quest_job_interview_04':
-            '해외 프로젝트를 3년 동안 관리한 경험이 있으며, 세부 사항을 꼼꼼하게 조율하는 것이 제 강점입니다.',
-        'quest_job_interview_05':
-            '검토 시간을 연장해 주시기 바랍니다. / 가능하시다면 검토 시간을 조금 더 주실 수 있을까요?',
-        'quest_home_morning_routine_05': '집에서 7시에 일어나서 씻고 아침을 먹어요.',
-        'quest_survival_day_capstone_05':
-            '안녕하세요. 저는 레나입니다. / 떡볶이 한 인분 주세요. / 지하철역에 어떻게 가요? / 잘 못 알아들었어요. 천천히 다시 말씀해 주세요.',
-        'quest_rent_bank_transfer_05':
-            '월세는 70만 원이고 관리비는 별도예요. 자동이체는 25일로 해 주세요. 수수료가 있어요?',
+        'quest_bakery_queue_02': '이 빵 계산해 주세요.',
+        'quest_email_attachment_twice_03': '네, 이번에는 붙였어요. 확인하고 다시 보낼게요.',
+        'quest_company_instagram_wrong_account_03': '맞아요. 삭제했다고 끝날 일이 아니네요.',
+        'quest_filming_permission_03': '그럼 계산대를 찍는 대신 창가 쪽을 5분만 찍을게요.',
+        'quest_after_hours_messages_02':
+            '퇴근 후에 연락을 보내는 것과 바로 답해야 한다고 기대하는 것은 구분할 필요가 있어요.',
+        'quest_hidden_gem_local_impact_03':
+            '정확한 위치는 지우고 방문 예절과 혼잡 시간을 넣겠습니다. 수익 환원 방식도 지역과 다시 논의하겠습니다.',
       };
       for (final entry in criticalAnswers.entries) {
         final quest = questById[entry.key];
@@ -1090,92 +965,6 @@ void main() {
           reason: '${entry.key} must keep its audited semantic answer',
         );
       }
-
-      const rejectedTags = <List<String>>[
-        [
-          'airport_arrival',
-          'quest_airport_arrival_01',
-          'concept_greeting_politeness',
-        ],
-        [
-          'airport_arrival',
-          'quest_airport_arrival_03',
-          'concept_identity_polite',
-        ],
-        [
-          'introduce_yourself',
-          'quest_introduce_yourself_02',
-          'concept_identity_polite',
-        ],
-        [
-          'introduce_yourself',
-          'quest_introduce_yourself_03',
-          'concept_identity_formal',
-        ],
-        [
-          'introduce_yourself',
-          'quest_introduce_yourself_05',
-          'concept_identity_polite',
-        ],
-        ['mart_grocery', 'quest_mart_grocery_01', 'concept_topic_particle'],
-        [
-          'bunshik_tteokbokki',
-          'quest_bunshik_tteokbokki_05',
-          'concept_identity_polite',
-        ],
-        [
-          'hotel_checkin',
-          'quest_hotel_checkin_01',
-          'concept_a1_contact_address',
-        ],
-        [
-          'hotel_checkin',
-          'quest_hotel_checkin_04',
-          'concept_a1_contact_address',
-        ],
-        [
-          'clarify_repeat',
-          'quest_clarify_repeat_01',
-          'concept_a1_clarification',
-        ],
-        [
-          'food_delivery',
-          'quest_food_delivery_01',
-          'concept_b1_complaint_resolution',
-        ],
-        ['job_interview', 'quest_job_interview_02', 'concept_b2_interview'],
-        ['job_interview', 'quest_job_interview_03', 'concept_b2_interview'],
-      ];
-      for (final rejected in rejectedTags) {
-        final scenario = scenarioById[rejected[0]]!;
-        final matching = scenario.quests
-            .where((quest) => quest.id == rejected[1])
-            .toList();
-        expect(matching, hasLength(1));
-        if (matching.isEmpty) continue;
-        expect(
-          matching.single.conceptIds,
-          isNot(contains(rejected[2])),
-          reason: '${rejected[1]} must not claim ${rejected[2]}',
-        );
-      }
-
-      expect(
-        scenarioById['cafe_starbucks_basic']!.conceptIds,
-        isNot(contains('concept_action_formal')),
-      );
-      expect(
-        scenarioById['introduce_yourself']!.conceptIds,
-        isNot(contains('concept_a1_register_switch')),
-      );
-      expect(
-        scenarioById['mart_grocery']!.conceptIds,
-        isNot(contains('concept_a1_negation')),
-      );
-      expect(
-        scenarioById['job_interview']!.conceptIds,
-        isNot(contains('concept_b2_advanced')),
-      );
     },
   );
 
@@ -1200,11 +989,11 @@ void main() {
       }
 
       expect(
-        catalog.scenarioContextFor('business_meeting_intro')!.speechStyle,
+        catalog.scenarioContextFor('meeting_opening_context')!.speechStyle,
         SpeechStyle.business,
       );
       expect(
-        catalog.scenarioContextFor('job_interview')!.speechStyle,
+        catalog.scenarioContextFor('after_hours_messages')!.speechStyle,
         SpeechStyle.business,
       );
       expect(Register.fromCode('formal'), Register.business);
@@ -1280,7 +1069,7 @@ void main() {
     },
   );
 
-  test('A1 pilot quests record only their audited concept evidence', () async {
+  test('A1 pilot scenes assess only their declared unit evidence', () async {
     final catalog = await CurriculumCatalog.load();
     final scenarios = await ScenarioLoader.load();
     const pilotScenarioIds = <String>{
@@ -1290,43 +1079,55 @@ void main() {
       'bunshik_tteokbokki',
     };
 
-    for (final scenario in scenarios.where(
+    final pilotScenarios = scenarios.where(
       (item) => pilotScenarioIds.contains(item.id),
-    )) {
-      expect(scenario.quests, isNotEmpty);
+    );
+    expect(pilotScenarios, hasLength(pilotScenarioIds.length));
+
+    for (final scenario in pilotScenarios) {
+      expect(scenario.quests, hasLength(3));
       for (final quest in scenario.quests) {
         expect(quest.hasExplicitId, isTrue, reason: '${scenario.id} quest ID');
-        for (final conceptId in quest.conceptIds) {
-          expect(catalog.conceptFor(conceptId), isNotNull);
-          expect(
-            catalog
-                .linksForContent(CurriculumContentKind.scenario, scenario.id)
-                .any((link) => link.conceptIds.contains(conceptId)),
-            isTrue,
-          );
-        }
+      }
+      final matchingUnits = catalog.courseUnits
+          .where((unit) => unit.id == scenario.courseUnitId)
+          .toList(growable: false);
+      expect(matchingUnits, hasLength(1), reason: scenario.id);
+      if (matchingUnits.isEmpty) continue;
+      final unit = matchingUnits.single;
+      expect(unit.isPilot, isTrue, reason: scenario.id);
+      expect(unit.checkpointContentIds, ['scenario:${scenario.id}']);
+
+      final links = catalog.linksForContent(
+        CurriculumContentKind.scenario,
+        scenario.id,
+      );
+      final assessmentLinks = links
+          .where((link) => link.role == ContentLinkRole.assess)
+          .toList(growable: false);
+      final answerEvidenceLinks = links
+          .where((link) => link.role == ContentLinkRole.practice)
+          .toList(growable: false);
+      expect(assessmentLinks, hasLength(1), reason: scenario.id);
+      expect(
+        answerEvidenceLinks,
+        hasLength(unit.requiredConceptIds.length),
+        reason: scenario.id,
+      );
+      expect(assessmentLinks.single.courseUnitId, scenario.courseUnitId);
+      expect(
+        assessmentLinks.single.conceptIds.toSet(),
+        scenario.conceptIds.toSet(),
+      );
+      expect(assessmentLinks.single.exactlyAssesses(unit), isTrue);
+      expect(
+        answerEvidenceLinks.expand((link) => link.conceptIds).toSet(),
+        unit.requiredConceptIds.toSet(),
+      );
+      for (final link in answerEvidenceLinks) {
+        expect(link.courseUnitId, scenario.courseUnitId);
+        expect(link.conceptIds, hasLength(1));
       }
     }
-
-    final introductionLinks = catalog.linksForContent(
-      CurriculumContentKind.scenario,
-      'introduce_yourself',
-    );
-    expect(
-      introductionLinks.any(
-        (link) =>
-            link.courseUnitId == 'a1_03_topic_subject_particles' &&
-            link.conceptIds.contains('concept_topic_particle'),
-      ),
-      isTrue,
-    );
-    expect(
-      introductionLinks.any(
-        (link) =>
-            link.courseUnitId == 'a1_01_greetings_hangul' &&
-            link.conceptIds.contains('concept_hangul_batchim'),
-      ),
-      isTrue,
-    );
   });
 }

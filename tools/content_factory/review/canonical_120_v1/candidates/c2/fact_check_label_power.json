@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_fact_check_label_power_03",
+        "conceptIds": [
+          "concept_c2_fandom_discourse"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "네. 무엇을 검증했고 무엇은 가치 판단으로 남는지 보여 줘야 라벨의 권한도 드러납니다.",

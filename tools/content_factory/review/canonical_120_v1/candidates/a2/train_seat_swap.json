@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_train_seat_swap_03",
+        "conceptIds": [
+          "concept_a2_travel_repair"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "알려 주셔서 감사합니다. 바로 옮길게요.",

@@ -25,7 +25,7 @@
 
 - [pronunciation_studio_screen_test.dart](pronunciation_studio_screen_test.dart.md) (4 shared connections)
 - [pronunciation_studio_ui_test.dart](pronunciation_studio_ui_test.dart.md) (2 shared connections)
-- [book_capture_image_quality.dart](book_capture_image_quality.dart.md) (1 shared connections)
+- [pronunciation_assessment_client.dart](pronunciation_assessment_client.dart.md) (1 shared connections)
 - [pronunciation_studio_screen.dart](pronunciation_studio_screen.dart.md) (1 shared connections)
 
 ## Source Files

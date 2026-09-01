@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_ai_interview_screening_transparency_03",
+        "conceptIds": [
+          "concept_c1_media_evidence"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "좋습니다. 기술 홍보보다 지원자의 선택과 이의 제기에 필요한 정보부터 보여 줍시다.",

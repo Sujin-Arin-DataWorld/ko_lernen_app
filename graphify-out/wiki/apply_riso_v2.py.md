@@ -6,8 +6,8 @@
 
 - **apply_riso_v2.py** (16 connections) — `scripts/apply_riso_v2.py`
 - **riso()** (9 connections) — `scripts/apply_riso_v2.py`
-- **ndarray** (6 connections)
 - **run_apply()** (6 connections) — `scripts/apply_riso_v2.py`
+- **ndarray** (6 connections)
 - **_edge_bleed()** (5 connections) — `scripts/apply_riso_v2.py`
 - **run_samples()** (5 connections) — `scripts/apply_riso_v2.py`
 - **_speckle()** (5 connections) — `scripts/apply_riso_v2.py`

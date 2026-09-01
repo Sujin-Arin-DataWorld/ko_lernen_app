@@ -6,9 +6,9 @@
 
 - **required** (4 connections) — `tools/content_factory/schemas/character_profile.schema.json`
 - **displayNames** (4 connections) — `tools/content_factory/schemas/character_profile.schema.json`
+- **type** (1 connections) — `tools/content_factory/schemas/character_profile.schema.json`
 - **de** (1 connections) — `tools/content_factory/schemas/character_profile.schema.json`
 - **ko** (1 connections) — `tools/content_factory/schemas/character_profile.schema.json`
-- **type** (1 connections) — `tools/content_factory/schemas/character_profile.schema.json`
 - **en** (1 connections) — `tools/content_factory/schemas/character_profile.schema.json`
 
 ## Relationships

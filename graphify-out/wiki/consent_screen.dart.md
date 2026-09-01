@@ -1,21 +1,17 @@
 # consent_screen.dart
 
-> 60 nodes · cohesion 0.04
+> 45 nodes · cohesion 0.05
 
 ## Key Concepts
 
 - **consent_screen.dart** (28 connections) — `lib/screens/consent_screen.dart`
 - **splash_screen.dart** (28 connections) — `lib/screens/splash_screen.dart`
-- **app_shell.dart** (21 connections) — `lib/screens/app_shell.dart`
 - **onboarding_journey.dart** (15 connections) — `lib/services/onboarding_journey.dart`
 - **../motion/transitions.dart** (14 connections)
-- **static final ValueNotifier** (7 connections)
+- **FirstRunCoordinator** (7 connections) — `lib/features/onboarding_v2/first_run_coordinator.dart`
 - **../features/onboarding_v2/first_run_coordinator.dart** (6 connections)
-- **FirstRunCoordinator** (6 connections) — `lib/features/onboarding_v2/first_run_coordinator.dart`
 - **app_shell.dart** (5 connections)
 - **../features/onboarding_v2/first_run_runtime.dart** (4 connections)
-- **AppShell** (3 connections) — `lib/screens/app_shell.dart`
-- **_AppShellState** (3 connections) — `lib/screens/app_shell.dart`
 - **ConsentScreen** (3 connections) — `lib/screens/consent_screen.dart`
 - **_ConsentScreenState** (3 connections) — `lib/screens/consent_screen.dart`
 - **SplashScreen** (3 connections) — `lib/screens/splash_screen.dart`
@@ -29,34 +25,37 @@
 - **../screens/scenario_player_screen.dart** (2 connections)
 - **../services/splash_gate.dart** (2 connections)
 - **app_review_demo_screen.dart** (1 connections)
-- *... and 35 more nodes in this community*
+- **_accept** (1 connections) — `lib/screens/consent_screen.dart`
+- **build** (1 connections) — `lib/screens/consent_screen.dart`
+- **createState** (1 connections) — `lib/screens/consent_screen.dart`
+- **firstRunCoordinator** (1 connections) — `lib/screens/consent_screen.dart`
+- *... and 20 more nodes in this community*
 
 ## Relationships
 
+- [onboarding_v2_journey_screen.dart](onboarding_v2_journey_screen.dart.md) (6 shared connections)
 - [main.dart](main.dart.md) (6 shared connections)
-- [StatefulWidget](StatefulWidget.md) (6 shared connections)
-- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (5 shared connections)
 - [intro_gate_screen.dart](intro_gate_screen.dart.md) (5 shared connections)
-- [onboarding_v2_journey_screen.dart](onboarding_v2_journey_screen.dart.md) (5 shared connections)
-- [_](_.md) (5 shared connections)
-- [dart:async](dart-async.md) (4 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (4 shared connections)
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (3 shared connections)
-- [List](List.md) (3 shared connections)
-- [profile_screen.dart](profile_screen.dart.md) (3 shared connections)
-- [gye_screen.dart](gye_screen.dart.md) (2 shared connections)
+- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (4 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (4 shared connections)
+- [_State](_State.md) (4 shared connections)
+- [profile_screen.dart](profile_screen.dart.md) (4 shared connections)
+- [_](_.md) (3 shared connections)
+- [cloze_game_screen.dart](cloze_game_screen.dart.md) (3 shared connections)
+- [dart:async](dart-async.md) (3 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (3 shared connections)
+- [String?](String_.md) (2 shared connections)
 
 ## Source Files
 
 - `lib/features/onboarding_v2/first_run_coordinator.dart`
-- `lib/screens/app_shell.dart`
 - `lib/screens/consent_screen.dart`
 - `lib/screens/splash_screen.dart`
 - `lib/services/onboarding_journey.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 138 (100%)
+- EXTRACTED: 112 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

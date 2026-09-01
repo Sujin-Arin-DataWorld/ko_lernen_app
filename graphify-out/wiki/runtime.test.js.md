@@ -15,15 +15,24 @@
 - **orphanGyeCleanupUserIds()** (2 connections) — `functions/gye/runtime.js`
 - **runDeletedUserCleanupRuntime()** (2 connections) — `functions/gye/runtime.js`
 - **assert** (1 connections) — `functions/gye/runtime.test.js`
-- **{
-  buildDeletionCleanupTargetClaim,
-  cleanupGyeForDeletedUser,
-  deletionCleanupTargetClaimMatches,
-  mergeDeletionCleanupGyeIds,
-  orphanGyeCleanupUserIds,
-  processNotificationDocuments,
-  runDeletedUserCleanupRuntime,
-  stageNotificationOutboxWrites,
+- **{
+
+  buildDeletionCleanupTargetClaim,
+
+  cleanupGyeForDeletedUser,
+
+  deletionCleanupTargetClaimMatches,
+
+  mergeDeletionCleanupGyeIds,
+
+  orphanGyeCleanupUserIds,
+
+  processNotificationDocuments,
+
+  runDeletedUserCleanupRuntime,
+
+  stageNotificationOutboxWrites,
+
 }** (1 connections) — `functions/gye/runtime.test.js`
 - **test** (1 connections) — `functions/gye/runtime.test.js`
 

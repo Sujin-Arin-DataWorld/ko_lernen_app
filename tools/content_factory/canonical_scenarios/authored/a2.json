@@ -147,7 +147,7 @@
       "intro": {"ko": "배달 음식이 생각보다 훨씬 매워요.", "de": "Das bestellte Essen ist viel schärfer als erwartet.", "en": "The delivery food is much spicier than expected."},
       "dialog": [
         {"speaker": "christian", "ko": "와, 생각보다 너무 매워요.", "de": "Wow, das ist viel schärfer als gedacht.", "en": "Wow, this is much spicier than I expected."},
-        {"speaker": "sujin", "ko": "괜찮아요? 물 줄까요?", "de": "Geht es? Möchtest du Wasser?", "en": "Are you okay? Do you want some water?"},
+        {"speaker": "sujin", "ko": "괜찮아요? 물 줄까요?", "de": "Alles okay? Möchtest du Wasser?", "en": "Are you okay? Do you want some water?"},
         {"speaker": "christian", "ko": "물보다 밥이 있으면 좋겠어요.", "de": "Reis wäre besser als Wasser.", "en": "Rice would be better than water."},
         {"speaker": "sujin", "ko": "냉장고에 밥 조금 있어요.", "de": "Im Kühlschrank ist noch etwas Reis.", "en": "There's some rice in the fridge."},
         {"speaker": "christian", "ko": "다음에는 덜 맵게 주문할게요.", "de": "Nächstes Mal bestelle ich es weniger scharf.", "en": "Next time, I'll order it less spicy."},
@@ -169,8 +169,8 @@
     },
     {
       "id": "convenience_parcel_pickup",
-      "title": {"de": "Ein Paket im Convenience Store abholen", "en": "Picking up a parcel at a convenience store"},
-      "intro": {"ko": "도착 알림을 받고 편의점에 왔어요.", "de": "Nach der Abholbenachrichtigung gehst du zum Convenience Store.", "en": "You received a pickup notice and went to the convenience store."},
+      "title": {"de": "Ein Paket im 24-Stunden-Laden abholen", "en": "Picking up a parcel at a convenience store"},
+      "intro": {"ko": "도착 알림을 받고 편의점에 왔어요.", "de": "Nach der Abholbenachrichtigung gehst du zum 24-Stunden-Laden.", "en": "You received a pickup notice and went to the convenience store."},
       "dialog": [
         {"speaker": "clerk", "ko": "어서 오세요.", "de": "Hallo.", "en": "Hello."},
         {"speaker": "lena", "ko": "택배 찾으러 왔어요.", "de": "Ich möchte ein Paket abholen.", "en": "I'm here to pick up a package."},

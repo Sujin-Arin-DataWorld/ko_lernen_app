@@ -1,12 +1,11 @@
 # _FakeIdempotencyDocument
 
-> 9 nodes · cohesion 0.22
+> 8 nodes · cohesion 0.25
 
 ## Key Concepts
 
 - **_FakeIdempotencyDocument** (6 connections) — `functions/analyze_korean_text/test_security.py`
 - **_FakeIdempotencySnapshot** (4 connections) — `functions/analyze_korean_text/test_security.py`
-- **.document()** (2 connections) — `functions/analyze_korean_text/test_security.py`
 - **.get()** (2 connections) — `functions/analyze_korean_text/test_security.py`
 - **.delete()** (1 connections) — `functions/analyze_korean_text/test_security.py`
 - **.__init__()** (1 connections) — `functions/analyze_korean_text/test_security.py`
@@ -25,7 +24,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 11 (100%)
+- EXTRACTED: 10 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

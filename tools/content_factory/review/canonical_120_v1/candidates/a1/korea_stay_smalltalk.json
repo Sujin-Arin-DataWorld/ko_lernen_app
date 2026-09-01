@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_korea_stay_smalltalk_03",
+        "conceptIds": [
+          "concept_a1_titles_relationships"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "네, 요즘 매일 봐요.",

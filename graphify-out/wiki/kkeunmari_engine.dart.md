@@ -1,20 +1,20 @@
 # kkeunmari_engine.dart
 
-> 52 nodes · cohesion 0.04
+> 73 nodes · cohesion 0.03
 
 ## Key Concepts
 
 - **kkeunmari_engine.dart** (38 connections) — `lib/services/kkeunmari_engine.dart`
-- **tts_request_rate_test.dart** (15 connections) — `test/tts_request_rate_test.dart`
-- **tts_premium_only_test.dart** (11 connections) — `test/tts_premium_only_test.dart`
-- **TtsPlaybackPlatform** (7 connections) — `lib/services/tts_service.dart`
-- **static final** (6 connections)
+- **scenario_loader.dart** (27 connections) — `lib/services/scenario_loader.dart`
+- **../models/scenario.dart** (25 connections)
+- **pronunciation_phrase_loader.dart** (15 connections) — `lib/services/pronunciation_phrase_loader.dart`
+- **smalltalk_loader.dart** (13 connections) — `lib/services/smalltalk_loader.dart`
+- **static List** (12 connections)
+- **static String?** (8 connections)
+- **../models/smalltalk.dart** (7 connections)
+- **static final Map** (5 connections)
+- **../models/pronunciation_phrase.dart** (3 connections)
 - **KkeunmariWord** (2 connections) — `lib/services/kkeunmari_engine.dart`
-- **_ServicePlaybackPlatform** (2 connections) — `lib/services/tts_service.dart`
-- **_RecordingPlatform** (2 connections) — `test/tts_premium_only_test.dart`
-- **_ThrowingStartPlatform** (2 connections) — `test/tts_premium_only_test.dart`
-- **_CallbackPlatform** (2 connections) — `test/tts_request_rate_test.dart`
-- **_FakePlatform** (2 connections) — `test/tts_request_rate_test.dart`
 - **_availableCandidates** (1 connections) — `lib/services/kkeunmari_engine.dart`
 - **_cached** (1 connections) — `lib/services/kkeunmari_engine.dart`
 - **_cumulativePool** (1 connections) — `lib/services/kkeunmari_engine.dart`
@@ -29,33 +29,33 @@
 - **lastError** (1 connections) — `lib/services/kkeunmari_engine.dart`
 - **level** (1 connections) — `lib/services/kkeunmari_engine.dart`
 - **_liveNextCount** (1 connections) — `lib/services/kkeunmari_engine.dart`
-- *... and 27 more nodes in this community*
+- *... and 48 more nodes in this community*
 
 ## Relationships
 
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (6 shared connections)
-- [_](_.md) (3 shared connections)
+- [_](_.md) (11 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (5 shared connections)
+- [dart:convert](dart-convert.md) (4 shared connections)
+- [List](List.md) (4 shared connections)
+- [gye_weekly_promise.dart](gye_weekly_promise.dart.md) (3 shared connections)
+- [static const](static_const.md) (2 shared connections)
+- [kkeunmari_screen.dart](kkeunmari_screen.dart.md) (2 shared connections)
+- [curriculum_catalog.dart](curriculum_catalog.dart.md) (2 shared connections)
+- [speakable.dart](speakable.dart.md) (2 shared connections)
 - [data_loader.dart](data_loader.dart.md) (2 shared connections)
-- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
-- [course_progress_service.dart](course_progress_service.dart.md) (1 shared connections)
-- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (1 shared connections)
-- [kkeunmari_screen.dart](kkeunmari_screen.dart.md) (1 shared connections)
-- [heritage_journey_contract.dart](heritage_journey_contract.dart.md) (1 shared connections)
-- [onboarding_v2_presentation.dart](onboarding_v2_presentation.dart.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
-- [entry_onboarding_uiux_test.dart](entry_onboarding_uiux_test.dart.md) (1 shared connections)
+- [dart:math](dart-math.md) (1 shared connections)
+- [custom_pack_service.dart](custom_pack_service.dart.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/services/kkeunmari_engine.dart`
-- `lib/services/tts_service.dart`
-- `test/tts_premium_only_test.dart`
-- `test/tts_request_rate_test.dart`
+- `lib/services/pronunciation_phrase_loader.dart`
+- `lib/services/scenario_loader.dart`
+- `lib/services/smalltalk_loader.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 76 (100%)
+- EXTRACTED: 140 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

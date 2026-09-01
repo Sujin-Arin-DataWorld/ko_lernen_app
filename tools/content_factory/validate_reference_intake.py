@@ -278,13 +278,24 @@ class ReferenceIntakeValidator:
                 )
             ):
                 manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-                if manifest.get("status") == "merged":
+                curriculum = json.loads(
+                    (data_dir / "curriculum_manifest.json").read_text(
+                        encoding="utf-8"
+                    )
+                )
+                canonical_scenario_runtime = (
+                    curriculum.get("scenarioCorpusGeneration")
+                    == "canonical_120_v1"
+                )
+                if manifest.get("status") == "merged" and not canonical_scenario_runtime:
                     continue
                 for artifact in manifest.get("artifacts", []):
                     if not isinstance(artifact, dict):
                         continue
                     kind = artifact.get("kind")
                     if kind not in specs:
+                        continue
+                    if manifest.get("status") == "merged" and kind != "scenario":
                         continue
                     relative = artifact.get("draft")
                     if not isinstance(relative, str):

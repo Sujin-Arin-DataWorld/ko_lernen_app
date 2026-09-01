@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_shared_cup_recycling_03",
+        "conceptIds": [
+          "concept_b1_life"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "한 달 동안 해 보고 남는 컵 수를 비교해요.",

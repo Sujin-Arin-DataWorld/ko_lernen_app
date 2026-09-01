@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_family_memory_conflict_03",
+        "conceptIds": [
+          "concept_c2_relationship_narratives"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "좋아요. 같은 사진에 서로 다른 기억이 있다는 게 더 솔직해 보여요.",

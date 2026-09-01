@@ -7,19 +7,19 @@
 - **cultural-glossary.tsx** (13 connections) — `hangul-sori-site-local/app/cultural-glossary.tsx`
 - **layout.tsx** (8 connections) — `hangul-sori-site-local/app/layout.tsx`
 - **CulturalGlossaryProvider()** (3 connections) — `hangul-sori-site-local/app/cultural-glossary.tsx`
-- **cookiebot.tsx** (2 connections) — `hangul-sori-site-local/app/cookiebot.tsx`
 - **CookiebotConsentScripts()** (2 connections) — `hangul-sori-site-local/app/cookiebot.tsx`
 - **CulturalLocaleSync()** (2 connections) — `hangul-sori-site-local/app/cultural-glossary.tsx`
 - **CulturalTerm()** (2 connections) — `hangul-sori-site-local/app/cultural-glossary.tsx`
 - **loadCatalog()** (2 connections) — `hangul-sori-site-local/app/cultural-glossary.tsx`
-- **chrome** (1 connections) — `hangul-sori-site-local/app/cultural-glossary.tsx`
+- **cookiebot.tsx** (2 connections) — `hangul-sori-site-local/app/cookiebot.tsx`
 - **CulturalCatalog** (1 connections) — `hangul-sori-site-local/app/cultural-glossary.tsx`
 - **CulturalCopy** (1 connections) — `hangul-sori-site-local/app/cultural-glossary.tsx`
 - **CulturalEntry** (1 connections) — `hangul-sori-site-local/app/cultural-glossary.tsx`
-- **CulturalGlossaryContext** (1 connections) — `hangul-sori-site-local/app/cultural-glossary.tsx`
 - **CulturalGlossaryContextValue** (1 connections) — `hangul-sori-site-local/app/cultural-glossary.tsx`
-- **metadata** (1 connections) — `hangul-sori-site-local/app/layout.tsx`
 - **RootLayout()** (1 connections) — `hangul-sori-site-local/app/layout.tsx`
+- **chrome** (1 connections) — `hangul-sori-site-local/app/cultural-glossary.tsx`
+- **CulturalGlossaryContext** (1 connections) — `hangul-sori-site-local/app/cultural-glossary.tsx`
+- **metadata** (1 connections) — `hangul-sori-site-local/app/layout.tsx`
 
 ## Relationships
 

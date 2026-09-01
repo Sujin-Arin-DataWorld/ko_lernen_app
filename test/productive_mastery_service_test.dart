@@ -228,6 +228,7 @@ void main() {
       final stepOneReceipt = _receiptFor(fixture.productive, project, stepOne);
       await fixture.service.applyReconciledSnapshot(
         CourseMasterySnapshot(
+          curriculumGeneration: fixture.curriculum.scenarioCorpusGeneration,
           placementLevel: 'a1',
           completedUnitIds: fixture.curriculum.courseUnits
               .take(targetIndex + 1)
@@ -301,6 +302,7 @@ void main() {
       );
       await fixture.service.applyReconciledSnapshot(
         CourseMasterySnapshot(
+          curriculumGeneration: fixture.curriculum.scenarioCorpusGeneration,
           placementLevel: 'a1',
           completedUnitIds: fixture.curriculum.courseUnits
               .take(targetIndex + 1)
@@ -561,6 +563,7 @@ void main() {
       expect(targetIndex, greaterThanOrEqualTo(0));
       await fixture.service.applyReconciledSnapshot(
         CourseMasterySnapshot(
+          curriculumGeneration: fixture.curriculum.scenarioCorpusGeneration,
           placementLevel: 'a1',
           completedUnitIds: fixture.curriculum.courseUnits
               .take(targetIndex + 1)
@@ -680,7 +683,10 @@ void main() {
       );
       expect(high.score, greaterThan(low.score));
       CourseMasterySnapshot snapshot(ProductiveMasteryEvidence evidence) =>
-          CourseMasterySnapshot(productiveEvidence: [evidence]);
+          CourseMasterySnapshot(
+            curriculumGeneration: fixture.curriculum.scenarioCorpusGeneration,
+            productiveEvidence: [evidence],
+          );
 
       final forward = fixture.service.mergeForReconciliation(
         local: snapshot(low),
@@ -708,9 +714,12 @@ void main() {
       final stepOne = project.steps.singleWhere((step) => step.order == 1);
       final receipt = _receiptFor(fixture.productive, project, stepOne);
       final local = CourseMasterySnapshot(
+        curriculumGeneration: fixture.curriculum.scenarioCorpusGeneration,
         productiveProjectStepEvidence: [receipt],
       );
-      final remote = const CourseMasterySnapshot();
+      final remote = CourseMasterySnapshot(
+        curriculumGeneration: fixture.curriculum.scenarioCorpusGeneration,
+      );
 
       final forward = fixture.service.mergeForReconciliation(
         local: local,
@@ -765,9 +774,11 @@ void main() {
           );
       final result = fixture.service.mergeForReconciliation(
         local: CourseMasterySnapshot(
+          curriculumGeneration: fixture.curriculum.scenarioCorpusGeneration,
           productiveEvidence: [evidence(DateTime.utc(2026, 8, 16, 12))],
         ),
         remote: CourseMasterySnapshot(
+          curriculumGeneration: fixture.curriculum.scenarioCorpusGeneration,
           productiveEvidence: [evidence(DateTime.utc(2026, 8, 16, 13))],
         ),
       );

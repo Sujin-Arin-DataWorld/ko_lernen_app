@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_gym_class_cancel_03",
+        "conceptIds": [
+          "concept_a2_feelings"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "그럼 금요일 저녁으로 바꿔 주세요.",

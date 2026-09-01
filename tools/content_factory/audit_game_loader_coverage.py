@@ -125,9 +125,18 @@ class LoaderCoverageAudit:
             manifest_path = self.root / manifest_path
         manifest = _read_json(manifest_path)
         already_merged = manifest.get("status") == "merged"
+        curriculum = _read_json(self._asset("curriculum_manifest.json"))
+        canonical_scenario_runtime = (
+            curriculum.get("scenarioCorpusGeneration") == "canonical_120_v1"
+        )
         for artifact in manifest.get("artifacts", []):
             kind = str(artifact.get("kind") or "")
             if kind not in result:
+                continue
+            # A merged legacy Batch remains an ancestry receipt after the
+            # canonical 120 cut-over. Its retired scenario rows must not be
+            # reintroduced by an in-memory coverage preview.
+            if already_merged and canonical_scenario_runtime and kind == "scenario":
                 continue
             draft_path = self.root / str(artifact["draft"])
             draft = _read_json(draft_path)

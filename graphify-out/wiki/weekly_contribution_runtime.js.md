@@ -13,17 +13,23 @@
 - **isFiniteScore()** (3 connections) — `functions/gye/weekly_contribution_runtime.js`
 - **weeklyContributionReceiptId()** (3 connections) — `functions/gye/weekly_contribution_runtime.js`
 - **parseCourseMasterySnapshot()** (2 connections) — `functions/gye/weekly_contribution_runtime.js`
+- **checkpoint()** (1 connections) — `functions/gye/weekly_contribution_runtime.test.js`
+- **meta()** (1 connections) — `functions/gye/weekly_contribution_runtime.test.js`
 - **crypto** (1 connections) — `functions/gye/weekly_contribution_runtime.js`
 - **assert** (1 connections) — `functions/gye/weekly_contribution_runtime.test.js`
-- **checkpoint()** (1 connections) — `functions/gye/weekly_contribution_runtime.test.js`
-- **{
-  findEligiblePromiseCheckpoint,
-  shouldCreditPromiseContribution,
-  weeklyContributionReceiptId,
-  weeklyContributionWeekKey,
-  weeklyPromiseFor,
+- **{
+
+  findEligiblePromiseCheckpoint,
+
+  shouldCreditPromiseContribution,
+
+  weeklyContributionReceiptId,
+
+  weeklyContributionWeekKey,
+
+  weeklyPromiseFor,
+
 }** (1 connections) — `functions/gye/weekly_contribution_runtime.test.js`
-- **meta()** (1 connections) — `functions/gye/weekly_contribution_runtime.test.js`
 - **test** (1 connections) — `functions/gye/weekly_contribution_runtime.test.js`
 - **weeklyPromiseDefinitions** (1 connections) — `functions/gye/weekly_contribution_runtime.js`
 

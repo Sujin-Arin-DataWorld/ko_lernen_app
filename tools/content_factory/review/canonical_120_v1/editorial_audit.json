@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kind": "canonical_scenario_editorial_audit",
   "generationId": "canonical_120_v1",
-  "candidateSetSha256": "8f9e37b4951fdc969b965ac8214d74baee874b579dab7c56918e6260a0e2614b",
+  "candidateSetSha256": "63dc5ea8743ec7f95fed04c5efb2a32dd2445c310444e87237414c0ced980060",
   "humanApprovalRequired": true,
   "humanApprovalRecorded": false,
   "automatedAuditIsApproval": false,
@@ -166,11 +166,12 @@
         "relationship": "강사와 처음 온 레나, 친한 마야",
         "koreanRegister": "polite",
         "observedModes": [
+          "Sie",
           "du"
         ],
         "bySpeaker": {
           "instructor": [
-            "du"
+            "Sie"
           ],
           "maya": [
             "du"
@@ -1317,11 +1318,11 @@
         "relationship": "기획자 마야와 참가자 대표",
         "koreanRegister": "business",
         "observedModes": [
-          "du"
+          "Sie"
         ],
         "bySpeaker": {
           "maya": [
-            "du"
+            "Sie"
           ]
         },
         "status": "review_required"

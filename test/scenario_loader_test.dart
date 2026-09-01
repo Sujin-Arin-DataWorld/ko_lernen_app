@@ -46,16 +46,17 @@ void main() {
     });
   });
 
-  test('ScenarioLoader lädt das echte Asset ohne Fehler (alle Szenarien)',
-      () async {
-    ScenarioLoader.reset();
-    final list = await ScenarioLoader.load();
-    expect(ScenarioLoader.lastError, isNull);
-    // 33 im Asset; >=30 als robuste Untergrenze.
-    expect(list.length, greaterThanOrEqualTo(30));
-    // Die zuvor kaputten Szenarien laden jetzt + haben ihre Notiz.
-    final subway = list.where((s) => s.id == 'subway_directions');
-    expect(subway, isNotEmpty);
-    expect(subway.first.culturalNote, isNotNull);
-  });
+  test(
+    'ScenarioLoader lädt das echte Asset ohne Fehler (alle Szenarien)',
+    () async {
+      ScenarioLoader.reset();
+      final list = await ScenarioLoader.load();
+      expect(ScenarioLoader.lastError, isNull);
+      expect(list, hasLength(126));
+      // A canonical scene with a pragmatic note survives parsing.
+      final bakeryQueue = list.where((s) => s.id == 'bakery_queue');
+      expect(bakeryQueue, isNotEmpty);
+      expect(bakeryQueue.first.culturalNote, isNotNull);
+    },
+  );
 }

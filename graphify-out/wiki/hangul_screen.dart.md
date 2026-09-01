@@ -1,6 +1,6 @@
 # hangul_screen.dart
 
-> 135 nodes · cohesion 0.02
+> 129 nodes · cohesion 0.02
 
 ## Key Concepts
 
@@ -10,12 +10,6 @@
 - **../widgets/sori/content_feedback_card.dart** (14 connections)
 - **daily_char_service.dart** (4 connections) — `lib/services/daily_char_service.dart`
 - **../data/hangul_data.dart** (3 connections)
-- **_DailyCharSheet** (3 connections) — `lib/screens/daily_char_sheet.dart`
-- **_DailyCharSheetState** (3 connections) — `lib/screens/daily_char_sheet.dart`
-- **_CardsTab** (3 connections) — `lib/screens/hangul_screen.dart`
-- **_CardsTabState** (3 connections) — `lib/screens/hangul_screen.dart`
-- **_WriteTab** (3 connections) — `lib/screens/hangul_screen.dart`
-- **_WriteTabState** (3 connections) — `lib/screens/hangul_screen.dart`
 - **DailyCalligraphyRouteScreen** (2 connections) — `lib/screens/daily_char_sheet.dart`
 - **_CharCell** (2 connections) — `lib/screens/hangul_screen.dart`
 - **_CharGrid** (2 connections) — `lib/screens/hangul_screen.dart`
@@ -29,22 +23,28 @@
 - **_FakeTimer** (2 connections) — `test/vocab_pack_advance_timer_test.dart`
 - **../widgets/stroke_canvas.dart** (2 connections)
 - **../widgets/trace_canvas.dart** (2 connections)
-- *... and 110 more nodes in this community*
+- **HangulChar get** (1 connections)
+- **_acceptedStrokes** (1 connections) — `lib/screens/daily_char_sheet.dart`
+- **_acceptStroke** (1 connections) — `lib/screens/daily_char_sheet.dart`
+- **_beginTracing** (1 connections) — `lib/screens/daily_char_sheet.dart`
+- **build** (1 connections) — `lib/screens/daily_char_sheet.dart`
+- **_canFinish** (1 connections) — `lib/screens/daily_char_sheet.dart`
+- *... and 104 more nodes in this community*
 
 ## Relationships
 
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (15 shared connections)
-- [List](List.md) (14 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (16 shared connections)
 - [StatelessWidget](StatelessWidget.md) (10 shared connections)
-- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (8 shared connections)
-- [gye_screen.dart](gye_screen.dart.md) (8 shared connections)
-- [StatefulWidget](StatefulWidget.md) (8 shared connections)
-- [kkeunmari_screen.dart](kkeunmari_screen.dart.md) (4 shared connections)
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (3 shared connections)
+- [_State](_State.md) (8 shared connections)
+- [bool get](bool_get.md) (7 shared connections)
+- [List](List.md) (7 shared connections)
+- [String?](String_.md) (5 shared connections)
+- [book_result_screen.dart](book_result_screen.dart.md) (5 shared connections)
+- [cloze_game_screen.dart](cloze_game_screen.dart.md) (4 shared connections)
+- [dart:math](dart-math.md) (4 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (4 shared connections)
+- [sori_stage_today_screen.dart](sori_stage_today_screen.dart.md) (3 shared connections)
 - [book_analysis_service.dart](book_analysis_service.dart.md) (2 shared connections)
-- [String?](String_.md) (2 shared connections)
-- [dart:async](dart-async.md) (2 shared connections)
-- [stroke_canvas.dart](stroke_canvas.dart.md) (2 shared connections)
 
 ## Source Files
 
@@ -56,7 +56,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 256 (100%)
+- EXTRACTED: 247 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

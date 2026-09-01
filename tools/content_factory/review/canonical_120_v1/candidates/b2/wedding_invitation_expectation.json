@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_wedding_invitation_expectation_03",
+        "conceptIds": [
+          "concept_b2_formal_opening"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "그럼 원래 약속은 지키고 따로 축하 메시지를 보낼게요.",

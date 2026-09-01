@@ -1,24 +1,25 @@
 # check_card_style.py
 
-> 28 nodes · cohesion 0.20
+> 30 nodes · cohesion 0.18
 
 ## Key Concepts
 
-- **check_card_style.py** (22 connections) — `tool/check_card_style.py`
+- **check_card_style.py** (23 connections) — `tool/check_card_style.py`
 - **check()** (15 connections) — `tool/check_card_style.py`
 - **ndarray** (9 connections)
 - **run_baseline()** (8 connections) — `tool/check_card_style.py`
 - **run_register()** (8 connections) — `tool/check_card_style.py`
-- **Path** (7 connections)
-- **run_all()** (7 connections) — `tool/check_card_style.py`
+- **Path** (8 connections)
 - **find_ivory_patch()** (6 connections) — `tool/check_card_style.py`
 - **main()** (6 connections) — `tool/check_card_style.py`
+- **run_all()** (6 connections) — `tool/check_card_style.py`
 - **_blur()** (5 connections) — `tool/check_card_style.py`
 - **coarse_grain_sd()** (5 connections) — `tool/check_card_style.py`
 - **_family_dir_webps()** (5 connections) — `tool/check_card_style.py`
 - **fine_grain_sd()** (5 connections) — `tool/check_card_style.py`
 - **_luminance()** (5 connections) — `tool/check_card_style.py`
 - **_stats_entry()** (5 connections) — `tool/check_card_style.py`
+- **check_source_original()** (4 connections) — `tool/check_card_style.py`
 - **_family()** (4 connections) — `tool/check_card_style.py`
 - **_hsv()** (4 connections) — `tool/check_card_style.py`
 - **sha256_of()** (4 connections) — `tool/check_card_style.py`
@@ -28,8 +29,7 @@
 - **unique_colors()** (3 connections) — `tool/check_card_style.py`
 - **_write_baseline()** (3 connections) — `tool/check_card_style.py`
 - **RGB uint8 -> (hue[0..360), sat[0..1], val[0..1]) — 전 픽셀 벡터화.** (1 connections) — `tool/check_card_style.py`
-- **후보 스타일 검사 — 경로 무관, 등록 여부와 독립.** (1 connections) — `tool/check_card_style.py`
-- *... and 3 more nodes in this community*
+- *... and 5 more nodes in this community*
 
 ## Relationships
 
@@ -42,7 +42,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 76 (100%)
+- EXTRACTED: 79 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

@@ -1,19 +1,18 @@
 # pronunciation_studio_screen_test.dart
 
-> 44 nodes · cohesion 0.05
+> 43 nodes · cohesion 0.05
 
 ## Key Concepts
 
 - **pronunciation_studio_screen_test.dart** (68 connections) — `test/pronunciation_studio_screen_test.dart`
 - **PronunciationAssessmentGateway** (10 connections) — `lib/services/pronunciation_assessment_client.dart`
 - **FirebasePronunciationAssessmentGateway** (2 connections) — `lib/services/pronunciation_assessment_client.dart`
-- **_RecordingPronunciationGateway** (2 connections) — `test/productive_assessment_service_test.dart`
+- **StreamController** (2 connections)
 - **_CategoryFailingGateway** (2 connections) — `test/pronunciation_studio_screen_test.dart`
 - **_FailingGateway** (2 connections) — `test/pronunciation_studio_screen_test.dart`
 - **_HoldingGateway** (2 connections) — `test/pronunciation_studio_screen_test.dart`
 - **_HoldingSuccessGateway** (2 connections) — `test/pronunciation_studio_screen_test.dart`
 - **_RetryGateway** (2 connections) — `test/pronunciation_studio_screen_test.dart`
-- **_DelayedGateway** (2 connections) — `test/pronunciation_studio_ui_test.dart`
 - **_app** (1 connections) — `test/pronunciation_studio_screen_test.dart`
 - **assess** (1 connections) — `test/pronunciation_studio_screen_test.dart`
 - **_AssessmentCall** (1 connections) — `test/pronunciation_studio_screen_test.dart`
@@ -29,33 +28,32 @@
 - **disposeCalls** (1 connections) — `test/pronunciation_studio_screen_test.dart`
 - **failureCases** (1 connections) — `test/pronunciation_studio_screen_test.dart`
 - **_invokeButton** (1 connections) — `test/pronunciation_studio_screen_test.dart`
-- *... and 19 more nodes in this community*
+- **listView** (1 connections) — `test/pronunciation_studio_screen_test.dart`
+- *... and 18 more nodes in this community*
 
 ## Relationships
 
-- [pronunciation_assessment_client.dart](pronunciation_assessment_client.dart.md) (4 shared connections)
-- [dart:async](dart-async.md) (4 shared connections)
-- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (4 shared connections)
-- [pronunciation_recorder.dart](pronunciation_recorder.dart.md) (4 shared connections)
+- [pronunciation_assessment_client.dart](pronunciation_assessment_client.dart.md) (5 shared connections)
 - [pronunciation_studio_ui_test.dart](pronunciation_studio_ui_test.dart.md) (4 shared connections)
+- [pronunciation_recorder.dart](pronunciation_recorder.dart.md) (4 shared connections)
+- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (3 shared connections)
+- [content_feedback_widget_test.dart](content_feedback_widget_test.dart.md) (2 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
+- [dart:async](dart-async.md) (2 shared connections)
 - [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (2 shared connections)
 - [pronunciation_studio_screen.dart](pronunciation_studio_screen.dart.md) (1 shared connections)
 - [productive_assessment_service_test.dart](productive_assessment_service_test.dart.md) (1 shared connections)
-- [content_share_slip_test.dart](content_share_slip_test.dart.md) (1 shared connections)
-- [cloud_sync_test.dart](cloud_sync_test.dart.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
 - [push_service_test.dart](push_service_test.dart.md) (1 shared connections)
+- [content_share_slip_test.dart](content_share_slip_test.dart.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/services/pronunciation_assessment_client.dart`
-- `test/productive_assessment_service_test.dart`
 - `test/pronunciation_studio_screen_test.dart`
-- `test/pronunciation_studio_ui_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 81 (100%)
+- EXTRACTED: 80 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

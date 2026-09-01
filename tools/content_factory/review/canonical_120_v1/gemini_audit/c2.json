@@ -1,37 +1,37 @@
 {
   "schemaVersion": 2,
   "kind": "gemini_canonical_scenario_level_audit",
-  "createdAt": "2026-08-29T20:46:15.334394+00:00",
-  "model": "gemini-3.5-flash",
-  "modelVersion": "gemini-3.5-flash",
-  "responseId": "BUWTaqPuMM-kvdIPnumN2Qw",
+  "createdAt": "2026-09-01T01:21:29.945729+00:00",
+  "model": "gemini-3.7-flash",
+  "modelVersion": "gemini-3.7-flash",
+  "responseId": "WyiWaq-oBMSivdIPn8X22QI",
   "thinkingLevel": "low",
   "pricingTier": "free",
   "level": "c2",
-  "candidateSetSha256": "0f0e8578ccd206a1fb77cf97f1cc032edcee576297489ac1b601631aea7fb50a",
+  "generationId": "canonical_120_v1",
+  "candidateSetSha256": "837ed51cba82413a575fea9c37b74730753ebcb4281321d5b53656f1872a3e25",
+  "auditRequestSha256": "d9aa0952c36db25ff6090d24615248a14a599a9c6a988b1126f4037a727636a9",
+  "freeTierProjectId": "gen-lang-client-0858328849",
+  "freeTierApiKeyUid": "6455b51d-bd1f-43a4-9cfb-4abfcca72842",
   "automatedAuditIsApproval": false,
   "humanApprovalRequired": true,
   "usageMetadata": {
-    "promptTokenCount": 54418,
-    "candidatesTokenCount": 3024,
-    "totalTokenCount": 58613,
+    "promptTokenCount": 55001,
+    "candidatesTokenCount": 3482,
+    "totalTokenCount": 58483,
     "promptTokensDetails": [
       {
         "modality": "TEXT",
-        "tokenCount": 54418
+        "tokenCount": 55001
       }
     ],
-    "thoughtsTokenCount": 1171,
     "serviceTier": "standard"
   },
   "estimatedActualUsd": 0.0,
   "verdictCounts": {
-    "pass": 19,
-    "review": 1
+    "pass": 20
   },
-  "severityCounts": {
-    "minor": 1
-  },
+  "severityCounts": {},
   "audit": {
     "level": "c2",
     "scenarios": [
@@ -47,7 +47,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "자동화 의사결정의 투명성과 재심 구제 기준이라는 고도의 사회기술적 쟁점을 정교한 한국어 비즈니스 문체로 구현함."
+          "자동 채용 절차의 설명 책임과 운영 비용 간의 긴장을 C2 수준의 정밀한 제도적 어휘로 잘 구성함",
+          "독일어와 영어 번역이 한국어 원문의 논증 구조와 뉘앙스를 자연스럽고 왜곡 없이 충실하게 재구성함"
         ]
       },
       {
@@ -62,7 +63,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "복지 신청 자동 거절이라는 행정 윤리적 주제를 설득력 있는 논증 구조로 전개함."
+          "행정 자동화의 효율성과 개별 구제권 사이의 복합적 딜레마를 고도화된 한국어 담론으로 구현함",
+          "독일어/영어 번역에서 법적·행정적 개념(Voraussetzungen, belastende Entscheidung, adverse decision)이 매우 정확하게 대응됨"
         ]
       },
       {
@@ -77,7 +79,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "복합 자동화 사고에서 대외적 구제 책임을 단일화하면서 원인 규명 책임을 분리하는 논리적 층위를 예리하게 다룸."
+          "보상 책임과 원인 책임을 분리하는 다층 책임 구조 논증이 C2 수준에 완벽히 부합함",
+          "독일어와 영어의 책임(Haftung/Verantwortung, liability/responsibility) 번역이 화용적으로 정확함"
         ]
       },
       {
@@ -92,7 +95,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "학술 연구 보도에서 빈번하게 발생하는 인과관계와 상관관계의 혼동을 비판적으로 다룸."
+          "상관관계와 인과관계의 혼동 및 프레이밍 경계를 다루는 실무 편집 대화가 현실감 있게 서술됨",
+          "자기선택 편향(Selbstselektion, self-selection) 등 전문 개념이 자연스럽게 번역됨"
         ]
       },
       {
@@ -107,7 +111,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "다층 행정 체계 내에서 정보 전달 실패와 실행 지연의 인과 관계를 세부적으로 추론함."
+          "중앙-지방 간 재난 대응 책임 배분 논리를 정교하게 다룸",
+          "양 목표어 번역에서 다층 행정 제도의 권한 및 실행 구조가 명확하게 보존됨"
         ]
       },
       {
@@ -122,32 +127,24 @@
         },
         "findings": [],
         "strengthsKo": [
-          "과학적 불확실성과 정책 결정 간의 시나리오 기반 비교를 훌륭하게 설계함."
+          "기후 모델의 불확실성과 정책 결정 간의 관계를 시나리오 기반 후회 비용 관점에서 설득력 있게 제시함",
+          "독일어/영어 번역이 학술 정책 자문 맥락의 격식을 훌륭하게 유지함"
         ]
       },
       {
         "scenarioId": "diaspora_name_identity",
-        "verdict": "review",
+        "verdict": "pass",
         "scores": {
           "koreanNaturalness": 5,
           "levelFit": 5,
-          "germanLocalization": 4,
+          "germanLocalization": 5,
           "englishLocalization": 5,
-          "pragmaticAlignment": 4
+          "pragmaticAlignment": 5
         },
-        "findings": [
-          {
-            "severity": "minor",
-            "code": "REL",
-            "scope": "de",
-            "path": "/dialog/1/de",
-            "evidence": "Möchtest du im Alltag auch so genannt werden?",
-            "analysisKo": "비즈니스 대화 맥락이며 주최측과 참가자 대표 간의 대화임에도 독일어 번역에서 du 호칭을 사용하여 격식이 맞지 않는 느낌을 줄 수 있습니다.",
-            "recommendationKo": "비즈니스 격식에 맞게 Sie를 사용하는 표현(Möchten Sie...)으로 수정하는 것을 권장합니다."
-          }
-        ],
+        "findings": [],
         "strengthsKo": [
-          "다언어 소속감과 이름 표기에 대한 자기 결정권을 섬세하게 논의함."
+          "행정 검색 편의와 자기 명명권 사이의 미묘한 정체성 갈등을 자연스러운 대화로 풀어냄",
+          "DE/EN 번역에서 '선호 이름'과 '검색용 표기' 등 메타데이터 구분이 명료함"
         ]
       },
       {
@@ -162,7 +159,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "긴급 상황에서 직접적 통제 조치의 역효과와 보완 대책을 정밀하게 교차 설계함."
+          "비상 가격 통제의 의도와 공급 왜곡 부작용을 균형 있게 다룬 경제 정책 토론",
+          "독일어와 영어가 원문의 정책 조건 설계를 정밀하게 반영함"
         ]
       },
       {
@@ -177,7 +175,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "단순 사실 검증을 넘어 정책적 가치 판단이 포함된 영역에서의 플랫폼 규제 권한 문제를 학술적으로 다룸."
+          "플랫폼 팩트체크 라벨이 지닌 담론 권력과 가치판단 범주를 비판적으로 성찰하는 메타화용적 주제가 돋보임",
+          "독일어(normative Politikurteile)와 영어(value judgments)의 번역 적합성이 뛰어남"
         ]
       },
       {
@@ -192,7 +191,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "가족 내 상이한 사적 서사가 지니는 권력 구조와 주체성의 문제를 심도 있게 조율함."
+          "연인 간 친밀한 관계 속에서 가족 기억의 복수성을 존중하는 대화 톤을 완벽하게 구현함",
+          "독일어에서 친밀한 관계(du) 호칭이 올바르게 적용되었으며 정서적 뉘앙스가 훌륭함"
         ]
       },
       {
@@ -207,7 +207,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "미디어 프레이밍이 로컬 공간과 실제 주민들의 정체성에 미치는 사회적 피드백 효과를 균형 있게 다룸."
+          "미디어 프레이밍(숨은 명소)과 거주민의 생활권 침해 간 갈등을 심도 있게 조율함",
+          "DE/EN 모두 장소 프레이밍(rahmt den Ort als zu entdeckendes Ziel)의 비판적 함의를 정확히 표현함"
         ]
       },
       {
@@ -222,7 +223,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "복잡한 주택 세금 문제를 세대 대립이라는 미디어 프레임으로 가두는 현상을 날카롭게 해체함."
+          "세대 담론 프레이밍이 자산·소득 차이를 은폐하는 효과를 설득력 있게 분석함",
+          "토론 방송 사전 미팅이라는 업무적 레지스터가 목표어에 자연스럽게 전이됨"
         ]
       },
       {
@@ -237,7 +239,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "의료 임상 연구에서 절대적 정보와 상대적 위험의 프레이밍 차이를 윤리적으로 상세히 검토함."
+          "임상 동의 과정에서 상대위험과 불확실성의 전달 균형을 윤리적으로 잘 구성함",
+          "의료 윤리 및 위험 소통 용어가 독일어/영어에 완벽히 정합함"
         ]
       },
       {
@@ -252,7 +255,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "수동태와 행위자 지우기라는 미디어 언어 문법 요소를 실제 보도자료의 책임 주체 문제와 밀접하게 연계함."
+          "수동태 문법이 제도적 책임을 은폐하는 효과를 정밀하게 논의하는 C2 담론 분석 과제",
+          "독일어와 영어가 원문의 언어학적·담론적 논점을 왜곡 없이 전달함"
         ]
       },
       {
@@ -267,7 +271,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "여론조사 질문에 담긴 평가적 전제를 어떻게 중립화하고 분리할 수 있는지를 실증적으로 보여줌."
+          "여론조사 문항의 전제와 프레이밍 효과를 분리 질문 설계로 해결하는 과정이 논리적임",
+          "DE/EN의 번역이 통계 및 조사 방법론 맥락에 매우 잘 어울림"
         ]
       },
       {
@@ -282,7 +287,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "공공 질서와 헌법상 자유의 가치가 상충하는 상황을 비례성 원칙에 근거하여 입체적으로 토론함."
+          "기본권(집회의 자유)과 공공질서 간 충돌을 비례성 원칙에 입각하여 C2 수준으로 정교하게 논증함",
+          "독일어(Versammlungsfreiheit, Grundrechtseingriff)의 헌법적 개념 대응이 매우 적절함"
         ]
       },
       {
@@ -297,7 +303,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "낭만적 서사와 실제 관계 축적 간의 상치되는 관점을 내밀하고 세밀하게 조정함."
+          "연인 사이의 서사 해석 차이를 솔직하고 섬세하게 조정하는 한국어 구어 대화의 자연스러움이 뛰어남",
+          "독일어 du 사용 및 정서적 어조가 관계 맥락에 완벽히 부합함"
         ]
       },
       {
@@ -312,7 +319,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "재현 실패라는 과학 사회학적 논점을 극단적 양자택일 없이 누적된 증거와 변수 관점으로 다룸."
+          "학술 재현성 위기 및 누적 증거 평가 논리를 전문적이면서도 절제된 문체로 구성함",
+          "독일어/영어 번역이 학술 세미나의 과학철학적 뉘앙스를 훌륭하게 표현함"
         ]
       },
       {
@@ -327,7 +335,8 @@
         },
         "findings": [],
         "strengthsKo": [
-          "한국어의 모호한 '우리'의 경계가 번역 과정에서 인위적으로 고정되는 오류를 실전적으로 극복함."
+          "한국어 대명사 '우리'의 가변적 외연과 번역상의 딜레마를 다룬 메타언어적 시나리오로 매우 탁월함",
+          "문화 노트가 일반화를 피하고 대명사의 맥락 의존성을 정확히 설명함"
         ]
       },
       {
@@ -342,14 +351,11 @@
         },
         "findings": [],
         "strengthsKo": [
-          "복지 신청 시 처벌 중심 경고와 신청자 존중 및 구제 경로 간의 제도적 긴장을 수준 높게 설계함."
+          "부정 수급 방지 문구의 잠재적 범죄자 취급 전제와 신청자 존중 간의 균형을 제도적으로 훌륭히 논증함",
+          "목표어 번역에서 존중과 규제 집행 간의 화용적 긴장이 선명하게 유지됨"
         ]
       }
     ],
-    "summaryKo": "제시된 C2 시나리오 20개는 자동화 시스템의 윤리성, 지식 권력 및 미디어 프레이밍, 관계 서사와 번역의 다원성 등 최고급 화용론적 주제들을 한국어 원문에 맞추어 타당하게 재구성하고 있습니다. 비즈니스 및 격식 맥락에서의 소통 구조가 명료하며 독일어와 영어 번역 역시 한국어 고유의 전제를 충실히 보존하고 있습니다. 호칭 및 격식 어조에서 발견된 일부 세밀한 불일치 요소를 제외하면 전체적인 설계 품질이 매우 높습니다."
-  },
-  "generationId": "canonical_120_v1",
-  "auditRequestSha256": "059bdc321f34193a0c9bf6cc44d274b93ec9bcdcb9b560b5fd01a6a3f26b0e5a",
-  "freeTierProjectId": "gen-lang-client-0858328849",
-  "freeTierApiKeyUid": "6455b51d-bd1f-43a4-9cfb-4abfcca72842"
+    "summaryKo": "제출된 20개의 C2 시나리오 전반에 걸쳐 고도의 화용론적·제도적 논증 구조가 한국어 원문에 매우 정밀하고 자연스럽게 구현되어 있습니다. 독일어와 영어 번역 역시 한국어 어순에 종속되지 않고 각 언어의 사회문화적·전문적 맥락에 맞는 고유한 표현과 정확한 관계 호칭(du/Sie 등)을 일관되게 채택하고 있습니다. 비판적 오류나 레벨 부적합이 발견되지 않아 모든 시나리오를 pass로 판정합니다."
+  }
 }

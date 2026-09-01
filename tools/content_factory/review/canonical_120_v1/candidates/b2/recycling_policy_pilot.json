@@ -187,6 +187,9 @@
       },
       {
         "id": "quest_recycling_policy_pilot_03",
+        "conceptIds": [
+          "concept_b2_advanced"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "한 달 동안 두 방식을 같이 운영해 본 뒤 결정하면 어떨까요?",

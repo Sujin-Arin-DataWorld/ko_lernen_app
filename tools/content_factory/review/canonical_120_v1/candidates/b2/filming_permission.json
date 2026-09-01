@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_filming_permission_03",
+        "conceptIds": [
+          "concept_b2_formal_opening"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "그럼 계산대를 찍는 대신 창가 쪽을 5분만 찍을게요.",

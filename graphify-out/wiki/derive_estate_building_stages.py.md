@@ -20,12 +20,12 @@
 - **cut()** (6 connections) — `tool/cut_a2_exterior_sheet.py`
 - **_export()** (6 connections) — `tool/cut_prop_sheet.py`
 - **load_frame_layers()** (6 connections) — `tool/derive_estate_building_stages.py`
+- **StageError** (5 connections) — `tool/derive_estate_building_stages.py`
 - **alpha_mask()** (5 connections) — `tool/derive_estate_building_stages.py`
 - **assert_chroma_clean()** (5 connections) — `tool/derive_estate_building_stages.py`
 - **frame_layer_path()** (5 connections) — `tool/derive_estate_building_stages.py`
 - **load_spec()** (5 connections) — `tool/derive_estate_building_stages.py`
 - **rgba_array()** (5 connections) — `tool/derive_estate_building_stages.py`
-- **StageError** (5 connections) — `tool/derive_estate_building_stages.py`
 - **test_make_kit_parts.py** (5 connections) — `tool/test_make_kit_parts.py`
 - **reading_order()** (4 connections) — `tool/cut_prop_sheet.py`
 - **main()** (4 connections) — `tool/cut_single_object.py`

@@ -165,11 +165,11 @@ void main() {
   });
 
   for (final locale in const [
-    (code: 'en', dontKnow: 'I don’t know yet', progress: 'of 5'),
-    (code: 'de', dontKnow: 'Weiß ich noch nicht', progress: 'von 5'),
+    (code: 'en', dontKnow: 'I don’t know yet'),
+    (code: 'de', dontKnow: 'Weiß ich noch nicht'),
   ]) {
     testWidgets(
-      'production airport exposes ${locale.code} no-credit help on all five quests',
+      'production airport exposes ${locale.code} no-credit help on every quest',
       (tester) async {
         final airport = await _loadAirport(tester);
         final summary = await _tapDontKnowOnEveryAirportQuest(
@@ -178,9 +178,9 @@ void main() {
           locale: Locale(locale.code),
         );
 
-        expect(airport.quests, hasLength(5));
+        expect(airport.quests, hasLength(3));
         expect(summary.passed, 0);
-        expect(summary.total, 5);
+        expect(summary.total, airport.quests.length);
         expect(summary.firstSuccess, isNull);
         expect(find.text(locale.dontKnow), findsNothing);
       },
@@ -224,7 +224,7 @@ void main() {
     );
 
     expect(summary.passed, 0);
-    expect(summary.total, 5);
+    expect(summary.total, airport.quests.length);
     expect(summary.firstSuccess, isNull);
     expect(evidenceCalls, 0);
     expect(checkpoints, hasLength(1));
@@ -305,7 +305,10 @@ Future<ScenarioCompletionSummary> _tapDontKnowOnEveryAirportQuest(
   await tester.pump();
   await tester.pump(const Duration(milliseconds: 500));
 
-  final progressSuffix = locale.languageCode == 'de' ? 'von 5' : 'of 5';
+  final total = airport.quests.length;
+  final progressSuffix = locale.languageCode == 'de'
+      ? 'von $total'
+      : 'of $total';
   final dontKnowLabel = locale.languageCode == 'de'
       ? 'Weiß ich noch nicht'
       : 'I don’t know yet';

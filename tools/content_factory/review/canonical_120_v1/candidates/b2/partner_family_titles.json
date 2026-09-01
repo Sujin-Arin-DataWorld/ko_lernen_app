@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_partner_family_titles_03",
+        "conceptIds": [
+          "concept_b2_advanced"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "부모님이 먼저 편한 호칭을 말씀하시면 그때 따를게요.",

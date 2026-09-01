@@ -35,14 +35,13 @@
 
 - [integrate_scenario_batch.py](integrate_scenario_batch.py.md) (10 shared connections)
 - [integrate_review_batches.py](integrate_review_batches.py.md) (7 shared connections)
-- [ContentValidator](ContentValidator.md) (3 shared connections)
 - [handle](handle.md) (3 shared connections)
+- [ContentValidator](ContentValidator.md) (3 shared connections)
+- [Batch01PreReviewValidationTest](Batch01PreReviewValidationTest.md) (2 shared connections)
 - [Counter](Counter.md) (2 shared connections)
-- [scenario_store.py](scenario_store.py.md) (1 shared connections)
 - [PromotedBatchValidationTest](PromotedBatchValidationTest.md) (1 shared connections)
 - [plan_pack_assignments.py](plan_pack_assignments.py.md) (1 shared connections)
 - [validate_content.py](validate_content.py.md) (1 shared connections)
-- [Batch01PreReviewValidationTest](Batch01PreReviewValidationTest.md) (1 shared connections)
 
 ## Source Files
 

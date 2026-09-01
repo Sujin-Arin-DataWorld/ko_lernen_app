@@ -21,8 +21,8 @@
 - **sameDiscovery()** (4 connections) — `functions/gye/deletion_adapters.js`
 - **effectivePageLimit()** (3 connections) — `functions/gye/deletion_adapters.js`
 - **nodeId()** (3 connections) — `functions/gye/deletion_adapters.js`
-- **DISCOVERY_MODES** (2 connections) — `functions/gye/deletion_adapters.js`
 - **normalizeGyeIds()** (2 connections) — `functions/gye/deletion_adapters.js`
+- **DISCOVERY_MODES** (2 connections) — `functions/gye/deletion_adapters.js`
 - **crypto** (1 connections) — `functions/gye/deletion_adapters.js`
 
 ## Relationships

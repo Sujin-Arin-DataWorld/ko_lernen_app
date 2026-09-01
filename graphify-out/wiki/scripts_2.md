@@ -1,44 +1,47 @@
 # scripts
 
-> 22 nodes · cohesion 0.09
+> 29 nodes · cohesion 0.07
 
 ## Key Concepts
 
-- **scripts** (10 connections) — `functions/gye/package.json`
-- **gye/package.json** (9 connections) — `functions/gye/package.json`
-- **devDependencies** (3 connections) — `functions/gye/package.json`
-- **@firebase/rules-unit-testing** (2 connections) — `functions/gye/package.json`
-- **firebase-tools** (2 connections) — `functions/gye/package.json`
-- **engines** (2 connections) — `functions/gye/package.json`
-- **@firebase/rules-unit-testing** (1 connections) — `functions/gye/package.json`
-- **firebase-tools** (1 connections) — `functions/gye/package.json`
-- **description** (1 connections) — `functions/gye/package.json`
-- **node** (1 connections) — `functions/gye/package.json`
-- **main** (1 connections) — `functions/gye/package.json`
-- **name** (1 connections) — `functions/gye/package.json`
-- **deploy:functions** (1 connections) — `functions/gye/package.json`
-- **deploy:indexes** (1 connections) — `functions/gye/package.json`
-- **deploy:rules** (1 connections) — `functions/gye/package.json`
-- **serve** (1 connections) — `functions/gye/package.json`
-- **smoke** (1 connections) — `functions/gye/package.json`
-- **test** (1 connections) — `functions/gye/package.json`
-- **test:account-runtime** (1 connections) — `functions/gye/package.json`
-- **test:deletion-worker** (1 connections) — `functions/gye/package.json`
-- **test:rules** (1 connections) — `functions/gye/package.json`
-- **version** (1 connections) — `functions/gye/package.json`
+- **scripts** (29 connections) — `hangul-sori-site-local/package.json`
+- **audit:security** (1 connections) — `hangul-sori-site-local/package.json`
+- **build** (1 connections) — `hangul-sori-site-local/package.json`
+- **cf** (1 connections) — `hangul-sori-site-local/package.json`
+- **cloudflare:login** (1 connections) — `hangul-sori-site-local/package.json`
+- **deploy** (1 connections) — `hangul-sori-site-local/package.json`
+- **deploy:built** (1 connections) — `hangul-sori-site-local/package.json`
+- **deploy:check** (1 connections) — `hangul-sori-site-local/package.json`
+- **deploy:dry-run** (1 connections) — `hangul-sori-site-local/package.json`
+- **deploy:preview** (1 connections) — `hangul-sori-site-local/package.json`
+- **deploy:production** (1 connections) — `hangul-sori-site-local/package.json`
+- **dev** (1 connections) — `hangul-sori-site-local/package.json`
+- **lint** (1 connections) — `hangul-sori-site-local/package.json`
+- **prebuild** (1 connections) — `hangul-sori-site-local/package.json`
+- **predev** (1 connections) — `hangul-sori-site-local/package.json`
+- **pretest:unit** (1 connections) — `hangul-sori-site-local/package.json`
+- **repair:domains** (1 connections) — `hangul-sori-site-local/package.json`
+- **rollback** (1 connections) — `hangul-sori-site-local/package.json`
+- **start** (1 connections) — `hangul-sori-site-local/package.json`
+- **sync:glossary** (1 connections) — `hangul-sori-site-local/package.json`
+- **test** (1 connections) — `hangul-sori-site-local/package.json`
+- **test:deployment** (1 connections) — `hangul-sori-site-local/package.json`
+- **test:unit** (1 connections) — `hangul-sori-site-local/package.json`
+- **typecheck** (1 connections) — `hangul-sori-site-local/package.json`
+- **upload:built** (1 connections) — `hangul-sori-site-local/package.json`
+- *... and 4 more nodes in this community*
 
 ## Relationships
 
-- [dependencies](dependencies.md) (1 shared connections)
-- [make_a1_frame_parts.py](make_a1_frame_parts.py.md) (1 shared connections)
+- [hangul-sori-site-local/package.json](hangul-sori-site-local-package.json.md) (1 shared connections)
 
 ## Source Files
 
-- `functions/gye/package.json`
+- `hangul-sori-site-local/package.json`
 
 ## Audit Trail
 
-- EXTRACTED: 23 (100%)
+- EXTRACTED: 29 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

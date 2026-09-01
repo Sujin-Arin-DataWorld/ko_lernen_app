@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_causal_claim_headline_03",
+        "conceptIds": [
+          "concept_c2_accountable_systems"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "좋습니다. 본문에서는 자기선택과 다른 생활 습관이 영향을 줬을 가능성도 설명하죠.",

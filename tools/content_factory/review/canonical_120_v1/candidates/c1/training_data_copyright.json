@@ -187,6 +187,9 @@
       },
       {
         "id": "quest_training_data_copyright_03",
+        "conceptIds": [
+          "concept_c1_media_evidence"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "해당 이미지는 잠시 빼고 권리가 확인된 자체 촬영본으로 교체하겠습니다.",

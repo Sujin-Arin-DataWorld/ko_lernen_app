@@ -4,9 +4,9 @@
 
 ## Key Concepts
 
-- **add_interest_scenarios.py** (2 connections) — `tools/content_factory/add_interest_scenarios.py`
 - **main()** (2 connections) — `tools/content_factory/add_interest_scenarios.py`
 - **validate()** (2 connections) — `tools/content_factory/add_interest_scenarios.py`
+- **add_interest_scenarios.py** (2 connections) — `tools/content_factory/add_interest_scenarios.py`
 
 ## Relationships
 

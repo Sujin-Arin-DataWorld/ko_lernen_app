@@ -15,9 +15,14 @@ class BatchLivePromotionAuditTest(unittest.TestCase):
         result = audit(ROOT)
 
         self.assertTrue(result["ok"], result["errors"])
-        self.assertEqual(result["version"], 2)
+        self.assertEqual(result["version"], 3)
         self.assertEqual(result["trackedIds"], 6331)
-        self.assertEqual(result["liveIds"], 6331)
+        self.assertEqual(result["liveIds"], 5960)
+        self.assertEqual(result["retiredScenarioIds"], 371)
+        self.assertEqual(
+            result["trackedIds"],
+            result["liveIds"] + result["retiredScenarioIds"],
+        )
         reports = {row["batch"]: row for row in result["reports"]}
         self.assertEqual(reports["theme_park_date_v1"]["tracked"], 66)
         self.assertEqual(
@@ -29,12 +34,15 @@ class BatchLivePromotionAuditTest(unittest.TestCase):
             {"approved": 66},
         )
         self.assertEqual(reports["20"]["tracked"], 318)
-        self.assertEqual(reports["20"]["auditStatus"], "live_verified_modern")
+        self.assertEqual(
+            reports["20"]["auditStatus"],
+            "lineage_verified_modern_retired_scenarios",
+        )
         self.assertEqual(reports["20"]["reviewStatuses"], {"approved": 210})
         self.assertEqual(len(reports["20"]["liveProjectionSha256"]), 64)
         self.assertEqual(
             reports["11"]["auditStatus"],
-            "live_verified_legacy_authorized",
+            "lineage_verified_legacy_retired_scenarios",
         )
         self.assertEqual(reports["11"]["reviewStatuses"], {"draft": 36})
 

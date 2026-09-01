@@ -134,32 +134,25 @@ void main() {
   });
 
   test(
-    'a subset scenario assess edge cannot record mission evidence',
+    'the canonical checkpoint has one exact scenario assessment edge',
     () async {
       final catalog = await CurriculumCatalog.load();
       final service = CourseMasteryService(catalog);
       await service.initializeForPlacement('a1');
       final unit = service.currentUnit!;
-      final subset = catalog
+      final exact = catalog
           .linksForCourseUnit(unit.id)
-          .firstWhere(
+          .where(
             (link) =>
                 link.contentKind == CurriculumContentKind.scenario &&
                 link.contentId == 'airport_arrival' &&
                 link.role == ContentLinkRole.assess &&
-                !link.exactlyAssesses(unit),
-          );
+                link.exactlyAssesses(unit),
+          )
+          .toList(growable: false);
 
-      expect(
-        () => service.recordContentAttempt(
-          CurriculumContentKind.scenario,
-          subset.contentId,
-          true,
-          courseContext: CoursePracticeContext.fromLink(subset),
-          conceptId: subset.conceptIds.first,
-        ),
-        throwsA(isA<FormatException>()),
-      );
+      expect(exact, hasLength(1));
+      expect(exact.single.conceptIds.toSet(), unit.requiredConceptIds.toSet());
       expect(service.snapshot.evidence, isEmpty);
     },
   );

@@ -4,8 +4,8 @@
 
 ## Key Concepts
 
-- **fix_quest_audio_text.py** (1 connections) — `tools/content_factory/fix_quest_audio_text.py`
 - **main()** (1 connections) — `tools/content_factory/fix_quest_audio_text.py`
+- **fix_quest_audio_text.py** (1 connections) — `tools/content_factory/fix_quest_audio_text.py`
 
 ## Relationships
 

@@ -157,6 +157,27 @@ class GeminiCanonicalAuditTest(unittest.TestCase):
         self.assertEqual(actual, 0.0)
         self.assertIn("billing-disabled", estimate["basis"])
 
+    def test_free_tier_estimate_does_not_spend_count_token_requests(self) -> None:
+        client = mock.Mock()
+
+        count = audit.prompt_token_count_for_estimate(
+            client,
+            model="gemini-3.5-flash",
+            contents=[{"parts": [{"text": "x"}]}],
+            pricing_tier="free",
+        )
+
+        self.assertEqual(count, 0)
+        client.count_tokens.assert_not_called()
+
+    def test_retry_delay_honors_free_tier_retry_window(self) -> None:
+        delay = audit.retry_delay_seconds(
+            "Quota exceeded. Please retry in 24.540926362s.",
+            attempt=1,
+        )
+
+        self.assertAlmostEqual(delay, 25.540926362)
+
     def test_request_hash_changes_with_audit_contract(self) -> None:
         base = {
             "generation_id": "generation",
@@ -172,6 +193,47 @@ class GeminiCanonicalAuditTest(unittest.TestCase):
         changed["contents"] = [{"role": "user", "parts": [{"text": "two"}]}]
 
         self.assertNotEqual(first, audit.audit_request_hash(**changed))
+
+    def test_resume_reuses_only_exact_valid_receipt(self) -> None:
+        ids = [f"scenario_{index:02d}" for index in range(20)]
+        expected = {"candidateSetSha256": "current", "auditRequestSha256": "request"}
+        receipt = {
+            **expected,
+            "modelVersion": "gemini-version",
+            "responseId": "response-id",
+            "audit": {
+                "level": "a1",
+                "scenarios": [_scenario(value) for value in ids],
+                "summaryKo": "",
+            },
+        }
+
+        self.assertIsNotNone(
+            audit.reusable_resume_audit(
+                receipt,
+                expected_fields=expected,
+                level="a1",
+                expected_ids=ids,
+            )
+        )
+        stale = dict(receipt, candidateSetSha256="stale")
+        self.assertIsNone(
+            audit.reusable_resume_audit(
+                stale,
+                expected_fields=expected,
+                level="a1",
+                expected_ids=ids,
+            )
+        )
+
+    def test_audit_instructions_do_not_map_haeyo_style_to_sie(self) -> None:
+        instructions = audit._audit_instructions("a2")
+
+        self.assertIn("-요체는 독일어 Sie의 자동 근거가 아니다", instructions)
+        self.assertIn("친구·친한 사이·연애 관계", instructions)
+        self.assertIn("Könnte ich ...?", instructions)
+        self.assertIn("findings=[]와 pass", instructions)
+        self.assertIn("기계적으로 Sie/du", instructions)
 
     def test_structured_output_validation_retries_once(self) -> None:
         ids = [f"scenario_{index:02d}" for index in range(20)]

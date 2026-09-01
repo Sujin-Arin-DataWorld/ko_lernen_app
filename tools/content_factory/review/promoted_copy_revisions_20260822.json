@@ -63,10 +63,11 @@
         "english",
         "example_english",
         "example_german",
+        "example_korean",
         "german"
       ],
       "beforeSha256": "993ba8735f43d5bc7125640c1b3687ed3b6e7e74e079b27ab215b9088c174b97",
-      "afterSha256": "a7bea932f5886d3ce604714f2e0d013cb6d35587bd2641d83d10465daf4dfeff"
+      "afterSha256": "313f4b8409a719f189f97db423d2806d5c3022bdc45b5a3ea2015214917fd408"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -445,10 +446,13 @@
       "level": "a1",
       "fields": [
         "de",
-        "en"
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
       ],
       "beforeSha256": "2c5c81951de6d37250424ca723fe681e127a73d7dfd1f1c7e6f392a9dabf6c7b",
-      "afterSha256": "b686e6b6485e92bae23c573301e331d6366749f8854f85f03f330167279789a2"
+      "afterSha256": "3dd40982186fc69b10bff06e554a9191c2bb4b68e13563f232219deb21069c8e"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -660,10 +664,11 @@
       "level": "a1",
       "fields": [
         "promptDe",
-        "promptEn"
+        "promptEn",
+        "targetKo"
       ],
       "beforeSha256": "8b1ad3fcefe20549b38cbdab8895129da2c84b45943808672d888e1d10ccef1e",
-      "afterSha256": "c05cce7c8ccc02d9bfe63fcd07d6596d2b59e54a46d30ef8bd8bcca01e428bec"
+      "afterSha256": "f24011819c623b47e2591894975d4268b982e807d7be093f3b3ef990f120099d"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",

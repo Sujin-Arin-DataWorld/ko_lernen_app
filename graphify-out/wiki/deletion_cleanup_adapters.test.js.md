@@ -15,13 +15,13 @@
 - **FakeDocumentReference** (6 connections) — `functions/gye/deletion_cleanup_adapters.test.js`
 - **anonymizeReport()** (6 connections) — `functions/gye/lifecycle.js`
 - **shouldDeleteReportForUid()** (6 connections) — `functions/gye/lifecycle.js`
-- **clone()** (5 connections) — `functions/gye/deletion_cleanup_adapters.test.js`
 - **FakeCollectionReference** (5 connections) — `functions/gye/deletion_cleanup_adapters.test.js`
+- **clone()** (5 connections) — `functions/gye/deletion_cleanup_adapters.test.js`
 - **.copy()** (5 connections) — `functions/gye/deletion_cleanup_adapters.test.js`
 - **createHarness()** (4 connections) — `functions/gye/deletion_cleanup_adapters.test.js`
 - **legacyIdentityMatches()** (4 connections) — `functions/gye/lifecycle.js`
-- **applyFields()** (3 connections) — `functions/gye/deletion_cleanup_adapters.test.js`
 - **FakeDocumentSnapshot** (3 connections) — `functions/gye/deletion_cleanup_adapters.test.js`
+- **applyFields()** (3 connections) — `functions/gye/deletion_cleanup_adapters.test.js`
 - **.runTransaction()** (3 connections) — `functions/gye/deletion_cleanup_adapters.test.js`
 - **.seed()** (3 connections) — `functions/gye/deletion_cleanup_adapters.test.js`
 - **.write()** (3 connections) — `functions/gye/deletion_cleanup_adapters.test.js`

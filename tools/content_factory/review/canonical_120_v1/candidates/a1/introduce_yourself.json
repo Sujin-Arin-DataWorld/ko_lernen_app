@@ -188,6 +188,11 @@
       },
       {
         "id": "quest_introduce_yourself_03",
+        "conceptIds": [
+          "concept_identity_formal",
+          "concept_identity_polite",
+          "concept_identity_casual"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "죄송해요. 이름을 다시 말해 주세요.",

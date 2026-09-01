@@ -5,8 +5,8 @@
 ## Key Concepts
 
 - **vite.config.ts** (2 connections) — `hangul-sori-site-local/vite.config.ts`
-- **workerBuildConfig** (1 connections) — `hangul-sori-site-local/vite.config.ts`
 - **@cloudflare/vite-plugin** (1 connections) — `@cloudflare/vite-plugin`
+- **workerBuildConfig** (1 connections) — `hangul-sori-site-local/vite.config.ts`
 
 ## Relationships
 

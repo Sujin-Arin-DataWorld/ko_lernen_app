@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_group_chat_photo_permission_03",
+        "conceptIds": [
+          "concept_a2_relationships"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "응. 올리기 전에 물어봐 줘서 고마워.",

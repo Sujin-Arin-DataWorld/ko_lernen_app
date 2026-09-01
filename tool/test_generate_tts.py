@@ -28,8 +28,8 @@ class TtsGeneratorContractTest(unittest.TestCase):
         self.assertEqual(manifest["schemaVersion"], 1)
         self.assertEqual(manifest["kind"], "tts_first_line_manifest")
         self.assertEqual(manifest["cacheRevision"], "v3")
-        self.assertEqual(manifest["scenarioCount"], 419)
-        self.assertEqual(len(manifest["items"]), 419)
+        self.assertEqual(manifest["scenarioCount"], 126)
+        self.assertEqual(len(manifest["items"]), 126)
         self.assertEqual(manifest["bundledCount"], 0)
         ids = [item["scenarioId"] for item in manifest["items"]]
         self.assertEqual(len(ids), len(set(ids)))
@@ -181,7 +181,7 @@ class TtsGeneratorContractTest(unittest.TestCase):
             with open(output, encoding="utf-8") as handle:
                 written = json.load(handle)
 
-        self.assertEqual(written["scenarioCount"], 419)
+        self.assertEqual(written["scenarioCount"], 126)
         auth.assert_not_called()
         synth.assert_not_called()
         remote.assert_not_called()
@@ -347,9 +347,29 @@ class TtsGeneratorContractTest(unittest.TestCase):
         self.assertTrue(silben_targets)
         self.assertEqual([text for text in silben_targets if text not in auto], [])
 
-        # 구형 런타임 장면은 아직 캐릭터 ID가 없어 user=여성, NPC=남성 폴백을
-        # 사용한다. 정본 후보의 캐릭터 기반 매핑은 별도 corpus 계약 테스트가 맡는다.
+        # canonical_120_v1 런타임은 user 역할도 playerCharacterId로 해석한다.
+        # 프로필이 없는 레거시 레코드에만 user=여성, NPC=남성 폴백이 남는다.
         data_dir = _os.path.join(root, "assets", "data")
+        with open(
+            _os.path.join(
+                root,
+                "tools/content_factory/canonical_scenarios/character_profiles.json",
+            ),
+            encoding="utf-8",
+        ) as f:
+            profile_payload = json.load(f)
+        character_voices = {
+            item["id"]: generate_tts.normalize_voice(item.get("voice"))
+            for item in profile_payload.get("recurringCharacters", [])
+        }
+        character_voices.update(
+            {
+                role_id: generate_tts.normalize_voice(item.get("voice"))
+                for role_id, item in profile_payload.get(
+                    "runtimeRoleProfiles", {}
+                ).items()
+            }
+        )
         scenarios = []
         for name in sorted(_os.listdir(data_dir)):
             if not (name.startswith("scenarios_") and name.endswith(".json")):
@@ -363,7 +383,16 @@ class TtsGeneratorContractTest(unittest.TestCase):
                 ko = (line.get("ko") or "").strip()
                 if not ko:
                     continue
-                voice = "female" if line.get("speaker") == "user" else "male"
+                speaker = (line.get("speaker") or "").strip().lower()
+                resolved = (
+                    (sc.get("playerCharacterId") or "").strip().lower()
+                    if speaker == "user"
+                    else speaker
+                )
+                voice = character_voices.get(
+                    resolved,
+                    "female" if speaker == "user" else "male",
+                )
                 self.assertIn((voice, ko), pairs)
                 sampled = True
             if sampled:

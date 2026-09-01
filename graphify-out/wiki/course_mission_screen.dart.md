@@ -1,6 +1,6 @@
 # course_mission_screen.dart
 
-> 46 nodes · cohesion 0.05
+> 44 nodes · cohesion 0.05
 
 ## Key Concepts
 
@@ -10,8 +10,6 @@
 - **../services/course_mission_navigation.dart** (7 connections)
 - **../../services/scene_asset_resolver.dart** (4 connections)
 - **CourseMissionBrief** (3 connections) — `lib/models/course_mission_brief.dart`
-- **CourseMissionScreen** (3 connections) — `lib/screens/course_mission_screen.dart`
-- **_CourseMissionScreenState** (3 connections) — `lib/screens/course_mission_screen.dart`
 - **../../models/course_mission_brief.dart** (3 connections)
 - **first_voice_success_screen.dart** (2 connections)
 - **CourseMissionBriefStep** (2 connections) — `lib/models/course_mission_brief.dart`
@@ -29,22 +27,24 @@
 - **initState** (1 connections) — `lib/screens/course_mission_screen.dart`
 - **_isCurrent** (1 connections) — `lib/screens/course_mission_screen.dart`
 - **_learningStartRecorded** (1 connections) — `lib/screens/course_mission_screen.dart`
-- *... and 21 more nodes in this community*
+- **_load** (1 connections) — `lib/screens/course_mission_screen.dart`
+- **_loading** (1 connections) — `lib/screens/course_mission_screen.dart`
+- *... and 19 more nodes in this community*
 
 ## Relationships
 
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (6 shared connections)
-- [List](List.md) (5 shared connections)
-- [gye_screen.dart](gye_screen.dart.md) (5 shared connections)
+- [String?](String_.md) (7 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (5 shared connections)
 - [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (4 shared connections)
 - [_](_.md) (3 shared connections)
-- [course_progress_service.dart](course_progress_service.dart.md) (3 shared connections)
+- [cloze_game_screen.dart](cloze_game_screen.dart.md) (3 shared connections)
 - [scenario_player_screen.dart](scenario_player_screen.dart.md) (3 shared connections)
 - [ux_preview_app.dart](ux_preview_app.dart.md) (2 shared connections)
-- [String?](String_.md) (2 shared connections)
+- [List](List.md) (2 shared connections)
+- [_State](_State.md) (2 shared connections)
+- [../../models/curriculum.dart](-..-models-curriculum.dart.md) (2 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
-- [kkeunmari_screen.dart](kkeunmari_screen.dart.md) (2 shared connections)
-- [StatefulWidget](StatefulWidget.md) (2 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (2 shared connections)
 
 ## Source Files
 
@@ -54,7 +54,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 104 (100%)
+- EXTRACTED: 101 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

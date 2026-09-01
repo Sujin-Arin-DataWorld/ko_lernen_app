@@ -5,7 +5,7 @@
 ## Key Concepts
 
 - **scenario_write_after_roleplay_card_test.dart** (30 connections) — `test/scenario_write_after_roleplay_card_test.dart`
-- **KoreanProofreadingAvailability** (4 connections) — `lib/services/korean_proofreading_service.dart`
+- **KoreanProofreadingResult** (4 connections) — `lib/services/korean_proofreading_service.dart`
 - **app** (1 connections) — `test/scenario_write_after_roleplay_card_test.dart`
 - **availability** (1 connections) — `test/scenario_write_after_roleplay_card_test.dart`
 - **check** (1 connections) — `test/scenario_write_after_roleplay_card_test.dart`
@@ -29,13 +29,13 @@
 
 - [scenario_writing_check_service_test.dart](scenario_writing_check_service_test.dart.md) (4 shared connections)
 - [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (2 shared connections)
-- [onboarding_v2_presentation.dart](onboarding_v2_presentation.dart.md) (1 shared connections)
+- [@immutable](@immutable.md) (1 shared connections)
 - [korean_proofreading_service.dart](korean_proofreading_service.dart.md) (1 shared connections)
 - [custom_pack_games_uiux_test.dart](custom_pack_games_uiux_test.dart.md) (1 shared connections)
 - [scenario_writing_check_service.dart](scenario_writing_check_service.dart.md) (1 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
-- [entry_onboarding_uiux_test.dart](entry_onboarding_uiux_test.dart.md) (1 shared connections)
+- [test/profile_screen_test.dart](test-profile_screen_test.dart.md) (1 shared connections)
 - [quest_engines_uiux_test.dart](quest_engines_uiux_test.dart.md) (1 shared connections)
 
 ## Source Files

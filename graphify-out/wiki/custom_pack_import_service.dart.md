@@ -31,7 +31,7 @@
 
 - [return](return.md) (1 shared connections)
 - [book_analysis_service.dart](book_analysis_service.dart.md) (1 shared connections)
-- [static const String](static_const_String.md) (1 shared connections)
+- [dart:math](dart-math.md) (1 shared connections)
 - [can_do_segment_asset_test.dart](can_do_segment_asset_test.dart.md) (1 shared connections)
 
 ## Source Files

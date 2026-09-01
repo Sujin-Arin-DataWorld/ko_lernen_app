@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_favorite_korean_music_03",
+        "conceptIds": [
+          "concept_a1_titles_relationships"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "네, 요즘 그 노래만 들어요.",

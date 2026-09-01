@@ -8,10 +8,6 @@
 - **FakeFirestore** (4 connections) — `functions/gye/gye_dedication_cleanup.test.js`
 - **FakeCollection** (3 connections) — `functions/gye/gye_dedication_cleanup.test.js`
 - **FakeReference** (3 connections) — `functions/gye/gye_dedication_cleanup.test.js`
-- **assert** (1 connections) — `functions/gye/gye_dedication_cleanup.test.js`
-- **{
-  deleteGyeDedicationForMembership,
-}** (1 connections) — `functions/gye/gye_dedication_cleanup.test.js`
 - **exhibit()** (1 connections) — `functions/gye/gye_dedication_cleanup.test.js`
 - **.constructor()** (1 connections) — `functions/gye/gye_dedication_cleanup.test.js`
 - **.doc()** (1 connections) — `functions/gye/gye_dedication_cleanup.test.js`
@@ -20,11 +16,17 @@
 - **.runTransaction()** (1 connections) — `functions/gye/gye_dedication_cleanup.test.js`
 - **.collection()** (1 connections) — `functions/gye/gye_dedication_cleanup.test.js`
 - **.constructor()** (1 connections) — `functions/gye/gye_dedication_cleanup.test.js`
+- **receipt()** (1 connections) — `functions/gye/gye_dedication_cleanup.test.js`
+- **withdrawnTombstone()** (1 connections) — `functions/gye/gye_dedication_cleanup.test.js`
+- **assert** (1 connections) — `functions/gye/gye_dedication_cleanup.test.js`
+- **{
+
+  deleteGyeDedicationForMembership,
+
+}** (1 connections) — `functions/gye/gye_dedication_cleanup.test.js`
 - **NEW_JOIN_EPOCH** (1 connections) — `functions/gye/gye_dedication_cleanup.test.js`
 - **OLD_JOIN_EPOCH** (1 connections) — `functions/gye/gye_dedication_cleanup.test.js`
-- **receipt()** (1 connections) — `functions/gye/gye_dedication_cleanup.test.js`
 - **test** (1 connections) — `functions/gye/gye_dedication_cleanup.test.js`
-- **withdrawnTombstone()** (1 connections) — `functions/gye/gye_dedication_cleanup.test.js`
 
 ## Relationships
 

@@ -111,6 +111,46 @@ class SceneInventoryTest(unittest.TestCase):
                 ["category_poster_hash_drift"],
             )
 
+    def test_approved_category_library_may_include_unused_runtime_backdrops(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            poster_dir = self._poster_dir(root)
+            office = poster_dir / "office.png"
+            bank = poster_dir / "bank.png"
+            self._png(office)
+            self._png(bank, color=(96, 64, 32))
+            category_lock = {
+                "schemaVersion": 1,
+                "profileIdentifier": audit_scene_assets.CATEGORY_POSTER_PROFILE,
+                "runtimeRoot": "assets/illustrations/scenes/",
+                "canonicalOutput": {
+                    "width": 1536,
+                    "height": 1024,
+                    "format": "PNG",
+                    "modes": ["RGB", "RGBA"],
+                },
+                "categories": [
+                    {
+                        "id": category,
+                        "path": f"assets/illustrations/scenes/{category}.png",
+                        "sha256": audit_scene_assets._sha256_file(path),
+                        "approvedContentExceptions": [],
+                    }
+                    for category, path in (("office", office), ("bank", bank))
+                ],
+            }
+
+            inventory = audit_scene_assets.scan_scene_inventory(
+                [self._ref("office_scene")],
+                poster_dir,
+                project_root=root,
+                category_lock=category_lock,
+            )
+
+            self.assertEqual(inventory["issues"], [])
+            self.assertEqual(inventory["scenarioCount"], 1)
+            self.assertEqual(inventory["fallbackCount"], 1)
+
     def test_generated_data_markdown_is_forced_to_lf(self) -> None:
         attributes = (audit_scene_assets.ROOT / ".gitattributes").read_text(
             encoding="utf-8"

@@ -1,6 +1,6 @@
 # game_reward.dart
 
-> 46 nodes · cohesion 0.05
+> 44 nodes · cohesion 0.05
 
 ## Key Concepts
 
@@ -11,8 +11,6 @@
 - **mascot_preference.dart** (6 connections)
 - **celebration.dart** (5 connections)
 - **character_clip.dart** (4 connections)
-- **GameOverCard** (4 connections) — `lib/widgets/sori/game_reward.dart`
-- **_GameOverCardState** (4 connections) — `lib/widgets/sori/game_reward.dart`
 - **ContentFeedbackSubmitter** (3 connections) — `lib/widgets/sori/content_feedback_sheet.dart`
 - **content_feedback_card.dart** (2 connections)
 - **content_feedback_sheet.dart** (2 connections)
@@ -30,22 +28,24 @@
 - **_ctrl** (1 connections) — `lib/widgets/sori/game_reward.dart`
 - **dispose** (1 connections) — `lib/widgets/sori/game_reward.dart`
 - **feedbackCompletedMissionIds** (1 connections) — `lib/widgets/sori/game_reward.dart`
-- *... and 21 more nodes in this community*
+- **feedbackContext** (1 connections) — `lib/widgets/sori/game_reward.dart`
+- **feedbackFeatureGate** (1 connections) — `lib/widgets/sori/game_reward.dart`
+- *... and 19 more nodes in this community*
 
 ## Relationships
 
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (8 shared connections)
+- [String?](String_.md) (6 shared connections)
+- [../../services/storage_service.dart](-..-services-storage_service.dart.md) (5 shared connections)
 - [content_feedback_card.dart](content_feedback_card.dart.md) (4 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (4 shared connections)
-- [List](List.md) (3 shared connections)
+- [cloze_game_screen.dart](cloze_game_screen.dart.md) (3 shared connections)
 - [home_hero.dart](home_hero.dart.md) (2 shared connections)
 - [path_trail.dart](path_trail.dart.md) (2 shared connections)
 - [content_feedback_sheet.dart](content_feedback_sheet.dart.md) (2 shared connections)
 - [content_feedback_lifecycle.dart](content_feedback_lifecycle.dart.md) (2 shared connections)
+- [List](List.md) (2 shared connections)
+- [_State](_State.md) (2 shared connections)
 - [beta_mission_catalog.dart](beta_mission_catalog.dart.md) (2 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
-- [cloze_game_screen.dart](cloze_game_screen.dart.md) (2 shared connections)
-- [StatefulWidget](StatefulWidget.md) (2 shared connections)
 
 ## Source Files
 
@@ -56,7 +56,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 107 (100%)
+- EXTRACTED: 102 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

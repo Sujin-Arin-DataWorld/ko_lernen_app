@@ -25,15 +25,15 @@
 - **wordsTotal** (1 connections) — `lib/models/pack_progress.dart`
 - **locked,
 
-  
+
   available,
 
-  
+
   inProgress,** (1 connections)
 
 ## Relationships
 
-- [List](List.md) (1 shared connections)
+- [bool get](bool_get.md) (1 shared connections)
 - [double get](double_get.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
 - [vocab_pack_result_screen.dart](vocab_pack_result_screen.dart.md) (1 shared connections)

@@ -13,21 +13,21 @@
 - **support/page.tsx** (4 connections) — `hangul-sori-site-local/app/support/page.tsx`
 - **terms/page.tsx** (4 connections) — `hangul-sori-site-local/app/terms/page.tsx`
 - **Footer()** (2 connections) — `hangul-sori-site-local/app/site.tsx`
+- **Locale** (1 connections) — `hangul-sori-site-local/app/legal.tsx`
 - **AccountDeletion()** (1 connections) — `hangul-sori-site-local/app/account-deletion/page.tsx`
-- **metadata** (1 connections) — `hangul-sori-site-local/app/account-deletion/page.tsx`
 - **Features()** (1 connections) — `hangul-sori-site-local/app/features/page.tsx`
+- **Impressum()** (1 connections) — `hangul-sori-site-local/app/impressum/page.tsx`
+- **Press()** (1 connections) — `hangul-sori-site-local/app/press/page.tsx`
+- **Support()** (1 connections) — `hangul-sori-site-local/app/support/page.tsx`
+- **Terms()** (1 connections) — `hangul-sori-site-local/app/terms/page.tsx`
+- **metadata** (1 connections) — `hangul-sori-site-local/app/account-deletion/page.tsx`
 - **groups** (1 connections) — `hangul-sori-site-local/app/features/page.tsx`
 - **metadata** (1 connections) — `hangul-sori-site-local/app/features/page.tsx`
-- **Impressum()** (1 connections) — `hangul-sori-site-local/app/impressum/page.tsx`
 - **metadata** (1 connections) — `hangul-sori-site-local/app/impressum/page.tsx`
 - **LANG_LABEL** (1 connections) — `hangul-sori-site-local/app/legal.tsx`
-- **Locale** (1 connections) — `hangul-sori-site-local/app/legal.tsx`
 - **metadata** (1 connections) — `hangul-sori-site-local/app/press/page.tsx`
-- **Press()** (1 connections) — `hangul-sori-site-local/app/press/page.tsx`
 - **metadata** (1 connections) — `hangul-sori-site-local/app/support/page.tsx`
-- **Support()** (1 connections) — `hangul-sori-site-local/app/support/page.tsx`
 - **metadata** (1 connections) — `hangul-sori-site-local/app/terms/page.tsx`
-- **Terms()** (1 connections) — `hangul-sori-site-local/app/terms/page.tsx`
 
 ## Relationships
 

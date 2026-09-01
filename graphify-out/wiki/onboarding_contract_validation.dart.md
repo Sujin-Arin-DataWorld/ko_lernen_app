@@ -21,7 +21,8 @@
 
 ## Relationships
 
-- [List](List.md) (2 shared connections)
+- [bool get](bool_get.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
 
 ## Source Files
 

@@ -21,14 +21,14 @@
 - **guess_topic()** (2 connections) — `scripts/build_pool.py`
 - **load_deepl_cache()** (2 connections) — `scripts/build_pool.py`
 - **load_wikt_cache()** (2 connections) — `scripts/build_pool.py`
-- **Path** (2 connections)
 - **save_deepl_cache()** (2 connections) — `scripts/build_pool.py`
 - **save_wikt_cache()** (2 connections) — `scripts/build_pool.py`
+- **Path** (2 connections)
+- **Session** (1 connections)
 - **Returns list of (word, freq_rank) — most frequent first.** (1 connections) — `scripts/build_pool.py`
 - **Returns set of verified Korean nouns from open-korean-text.** (1 connections) — `scripts/build_pool.py`
 - **Layered filter: OKT membership + format + length + verb-ending blocklist.** (1 connections) — `scripts/build_pool.py`
 - **Returns dict {definition, en, examples} or None.** (1 connections) — `scripts/build_pool.py`
-- **Fetch ko.wiktionary page and extract first German translation. ko.wiktionary…** (1 connections) — `scripts/build_pool.py`
 - *... and 5 more nodes in this community*
 
 ## Relationships

@@ -1,58 +1,63 @@
 # free_room_layer.dart
 
-> 34 nodes · cohesion 0.06
+> 63 nodes · cohesion 0.03
 
 ## Key Concepts
 
 - **free_room_layer.dart** (55 connections) — `lib/widgets/sori/free_room_layer.dart`
-- **FreeRoomLayer** (4 connections) — `lib/widgets/sori/free_room_layer.dart`
-- **_FreeRoomLayerState** (3 connections) — `lib/widgets/sori/free_room_layer.dart`
+- **gye_feed.dart** (18 connections) — `lib/widgets/sori/gye_feed.dart`
+- **sticker_picker.dart** (14 connections) — `lib/widgets/sori/sticker_picker.dart`
+- **../../data/sticker_catalog.dart** (7 connections)
+- **cloze_topic_group_localizations.dart** (5 connections) — `lib/l10n/cloze_topic_group_localizations.dart`
+- **../../l10n/sticker_localizations.dart** (4 connections)
+- **responsive.dart** (4 connections)
+- **generated/app_localizations.dart** (3 connections)
+- **ClozeTopicGroupId** (3 connections) — `lib/data/cloze_topic_groups.dart`
+- **sticker_localizations.dart** (3 connections) — `lib/l10n/sticker_localizations.dart`
+- **sticker_image.dart** (3 connections)
+- **../data/cloze_topic_groups.dart** (2 connections)
+- **ClozeTopicGroupLocalizations** (2 connections) — `lib/l10n/cloze_topic_group_localizations.dart`
 - **_RoomItemVisual** (2 connections) — `lib/widgets/sori/free_room_layer.dart`
+- **GyeFeed** (2 connections) — `lib/widgets/sori/gye_feed.dart`
+- **_StickerGrid** (2 connections) — `lib/widgets/sori/sticker_picker.dart`
+- **StickerPicker** (2 connections) — `lib/widgets/sori/sticker_picker.dart`
+- **localizedDescription** (1 connections) — `lib/l10n/cloze_topic_group_localizations.dart`
+- **localizedLabel** (1 connections) — `lib/l10n/cloze_topic_group_localizations.dart`
+- **stickerName** (1 connections) — `lib/l10n/sticker_localizations.dart`
 - **build** (1 connections) — `lib/widgets/sori/free_room_layer.dart`
 - **createState** (1 connections) — `lib/widgets/sori/free_room_layer.dart`
 - **draft** (1 connections) — `lib/widgets/sori/free_room_layer.dart`
 - **focalStart** (1 connections) — `lib/widgets/sori/free_room_layer.dart`
 - **_gestureSession** (1 connections) — `lib/widgets/sori/free_room_layer.dart`
-- **_gestureSessions** (1 connections) — `lib/widgets/sori/free_room_layer.dart`
-- **inspectableDecorationSlugs** (1 connections) — `lib/widgets/sori/free_room_layer.dart`
-- **interactive** (1 connections) — `lib/widgets/sori/free_room_layer.dart`
-- **item** (1 connections) — `lib/widgets/sori/free_room_layer.dart`
-- **items** (1 connections) — `lib/widgets/sori/free_room_layer.dart`
-- **motif** (1 connections) — `lib/widgets/sori/free_room_layer.dart`
-- **_motifByName** (1 connections) — `lib/widgets/sori/free_room_layer.dart`
-- **null** (1 connections) — `lib/widgets/sori/free_room_layer.dart`
-- **onInspectDecoration** (1 connections) — `lib/widgets/sori/free_room_layer.dart`
-- **onSelect** (1 connections) — `lib/widgets/sori/free_room_layer.dart`
-- **onTransform** (1 connections) — `lib/widgets/sori/free_room_layer.dart`
-- **onTransformEnd** (1 connections) — `lib/widgets/sori/free_room_layer.dart`
-- **pointers** (1 connections) — `lib/widgets/sori/free_room_layer.dart`
-- **_positionedItem** (1 connections) — `lib/widgets/sori/free_room_layer.dart`
-- **_RoomGestureSession** (1 connections) — `lib/widgets/sori/free_room_layer.dart`
-- **roomLayoutItemName** (1 connections) — `lib/widgets/sori/free_room_layer.dart`
-- *... and 9 more nodes in this community*
+- *... and 38 more nodes in this community*
 
 ## Relationships
 
-- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (4 shared connections)
-- [String?](String_.md) (4 shared connections)
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (3 shared connections)
-- [free_room_layer_test.dart](free_room_layer_test.dart.md) (2 shared connections)
-- [StatefulWidget](StatefulWidget.md) (2 shared connections)
-- [room_layout.dart](room_layout.dart.md) (1 shared connections)
-- [Map](Map.md) (1 shared connections)
-- [silben_grid_clue_sync_test.dart](silben_grid_clue_sync_test.dart.md) (1 shared connections)
-- [return](return.md) (1 shared connections)
-- [vocab_pack_result_screen.dart](vocab_pack_result_screen.dart.md) (1 shared connections)
-- [dart:async](dart-async.md) (1 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
+- [String?](String_.md) (10 shared connections)
+- [StatelessWidget](StatelessWidget.md) (5 shared connections)
+- [List](List.md) (4 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (3 shared connections)
+- [cloze_game_screen.dart](cloze_game_screen.dart.md) (2 shared connections)
+- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (2 shared connections)
+- [gye_screen.dart](gye_screen.dart.md) (2 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
+- [Set](Set.md) (2 shared connections)
+- [_State](_State.md) (2 shared connections)
+- [dart:math](dart-math.md) (2 shared connections)
+- [room_layout_service.dart](room_layout_service.dart.md) (1 shared connections)
 
 ## Source Files
 
+- `lib/data/cloze_topic_groups.dart`
+- `lib/l10n/cloze_topic_group_localizations.dart`
+- `lib/l10n/sticker_localizations.dart`
 - `lib/widgets/sori/free_room_layer.dart`
+- `lib/widgets/sori/gye_feed.dart`
+- `lib/widgets/sori/sticker_picker.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 60 (100%)
+- EXTRACTED: 112 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

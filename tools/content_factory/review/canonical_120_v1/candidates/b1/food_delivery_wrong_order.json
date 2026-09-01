@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_food_delivery_wrong_order_03",
+        "conceptIds": [
+          "concept_b1_complaint_resolution"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "지금 다시 받으면 너무 늦어서 환불받을게요.",

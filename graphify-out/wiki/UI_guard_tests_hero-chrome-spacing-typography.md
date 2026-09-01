@@ -12,12 +12,12 @@
 - **SoriGaps spacing rhythm grammar** (2 connections) — `docs/CONTENT_UI_BIBLE.md`
 - **SoriLayout hero budget (heroMaxShare 0.22)** (2 connections) — `docs/CONTENT_UI_BIBLE.md`
 - **Six-point inspection checklist** (2 connections) — `docs/LISTENING_CARD_RECIPE.md`
-- **Bible governance verdict log** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
 - **Share image Plan A (hanji scroll)** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
+- **Chaekgado shelf UI re-adoption** (1 connections) — `docs/LISTENING_CARD_ART_SPEC.md`
 - **SoriChromeRow** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
 - **Spacing tokens (4dp base, 8dp grid)** (1 connections) — `docs/HANGUL_SORI_DESIGN_TOKENS.md`
-- **Chaekgado shelf UI re-adoption** (1 connections) — `docs/LISTENING_CARD_ART_SPEC.md`
 - **SoriIllustratedCard** (1 connections) — `docs/LISTENING_CARD_ART_SPEC.md`
+- **Bible governance verdict log** (1 connections) — `docs/CONTENT_UI_BIBLE.md`
 
 ## Relationships
 

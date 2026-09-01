@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_company_instagram_wrong_account_03",
+        "conceptIds": [
+          "concept_b1_softening"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "맞아요. 삭제했다고 끝날 일이 아니네요.",

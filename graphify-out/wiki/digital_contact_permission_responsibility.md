@@ -7,7 +7,7 @@
 - **digital_contact_permission_responsibility** (7 connections) — `tools/content_factory/review/canonical_120_v1/regression_review.md`
 - **mistake_embarrassment_repair** (7 connections) — `tools/content_factory/review/canonical_120_v1/regression_review.md`
 - **비출시 회귀 세트: 내용·언어 상승 검토** (3 connections) — `tools/content_factory/review/canonical_120_v1/regression_review.md`
-- **regression_review.md** (2 connections) — `tools/content_factory/review/canonical_120_v1/regression_review.md`
+- **regression_review.md** (1 connections) — `tools/content_factory/review/canonical_120_v1/regression_review.md`
 - **A1 · 발을 밟고 바로 사과하기** (1 connections) — `tools/content_factory/review/canonical_120_v1/regression_review.md`
 - **A1 · 카카오톡으로 연락 방법 정하기** (1 connections) — `tools/content_factory/review/canonical_120_v1/regression_review.md`
 - **A2 · 사진을 올려도 되는지 묻기** (1 connections) — `tools/content_factory/review/canonical_120_v1/regression_review.md`
@@ -23,7 +23,7 @@
 
 ## Relationships
 
-- [JIN_REVIEW_GATE.md](JIN_REVIEW_GATE.md.md) (1 shared connections)
+- No strong cross-community connections detected
 
 ## Source Files
 
@@ -31,7 +31,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 16 (100%)
+- EXTRACTED: 15 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

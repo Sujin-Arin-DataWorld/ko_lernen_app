@@ -1,10 +1,11 @@
 # stats_screen.dart
 
-> 40 nodes · cohesion 0.05
+> 41 nodes · cohesion 0.05
 
 ## Key Concepts
 
 - **stats_screen.dart** (59 connections) — `lib/screens/stats_screen.dart`
+- **../widgets/sori/progress.dart** (10 connections)
 - **_StatsScreenState** (4 connections) — `lib/screens/stats_screen.dart`
 - **StatsScreen** (3 connections) — `lib/screens/stats_screen.dart`
 - **build** (2 connections) — `lib/screens/stats_screen.dart`
@@ -28,23 +29,22 @@
 - **label** (1 connections) — `lib/screens/stats_screen.dart`
 - **level** (1 connections) — `lib/screens/stats_screen.dart`
 - **noBadges** (1 connections) — `lib/screens/stats_screen.dart`
-- **now** (1 connections) — `lib/screens/stats_screen.dart`
-- *... and 15 more nodes in this community*
+- *... and 16 more nodes in this community*
 
 ## Relationships
 
-- [List](List.md) (7 shared connections)
-- [StatelessWidget](StatelessWidget.md) (5 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (3 shared connections)
-- [StatefulWidget](StatefulWidget.md) (3 shared connections)
-- [Color](Color.md) (2 shared connections)
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (2 shared connections)
-- [gye_screen.dart](gye_screen.dart.md) (2 shared connections)
-- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (8 shared connections)
+- [StatelessWidget](StatelessWidget.md) (6 shared connections)
+- [String?](String_.md) (3 shared connections)
+- [_State](_State.md) (3 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (2 shared connections)
+- [book_result_screen.dart](book_result_screen.dart.md) (2 shared connections)
+- [List](List.md) (1 shared connections)
+- [static const](static_const.md) (1 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [book_result_screen.dart](book_result_screen.dart.md) (1 shared connections)
-- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (1 shared connections)
-- [learning_path_screen.dart](learning_path_screen.dart.md) (1 shared connections)
+- [../../services/storage_service.dart](-..-services-storage_service.dart.md) (1 shared connections)
+- [profile_screen.dart](profile_screen.dart.md) (1 shared connections)
+- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (1 shared connections)
 
 ## Source Files
 
@@ -52,7 +52,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 69 (100%)
+- EXTRACTED: 78 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

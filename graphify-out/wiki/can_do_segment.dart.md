@@ -1,12 +1,11 @@
 # can_do_segment.dart
 
-> 70 nodes · cohesion 0.03
+> 69 nodes · cohesion 0.03
 
 ## Key Concepts
 
 - **can_do_segment.dart** (79 connections) — `lib/models/can_do_segment.dart`
 - **SegmentEvidenceMode** (4 connections) — `lib/models/can_do_segment.dart`
-- **CurriculumText** (3 connections) — `lib/models/curriculum.dart`
 - **CanDoSegmentLifecycle** (2 connections) — `lib/models/can_do_segment.dart`
 - **CanDoSegmentLifecycleX** (2 connections) — `lib/models/can_do_segment.dart`
 - **ContentReference** (2 connections) — `lib/models/can_do_segment.dart`
@@ -29,29 +28,30 @@
 - **conceptIds** (1 connections) — `lib/models/can_do_segment.dart`
 - **constructLineageId** (1 connections) — `lib/models/can_do_segment.dart`
 - **ContentClusterDefinition** (1 connections) — `lib/models/can_do_segment.dart`
-- *... and 45 more nodes in this community*
+- **contentClusterIds** (1 connections) — `lib/models/can_do_segment.dart`
+- *... and 44 more nodes in this community*
 
 ## Relationships
 
 - [_](_.md) (4 shared connections)
-- [List](List.md) (3 shared connections)
 - [Map](Map.md) (2 shared connections)
-- [mission_recommender.dart](mission_recommender.dart.md) (1 shared connections)
+- [bool get](bool_get.md) (1 shared connections)
+- [curriculum.dart](curriculum.dart.md) (1 shared connections)
+- [LearnerLevel](LearnerLevel.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (1 shared connections)
 - [hanok_experience_projector.dart](hanok_experience_projector.dart.md) (1 shared connections)
-- [cloze_game_screen.dart](cloze_game_screen.dart.md) (1 shared connections)
 - [learning_semantic_contract.dart](learning_semantic_contract.dart.md) (1 shared connections)
 - [course_segment_catalog.dart](course_segment_catalog.dart.md) (1 shared connections)
-- [curriculum.dart](curriculum.dart.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/models/can_do_segment.dart`
-- `lib/models/curriculum.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 92 (100%)
+- EXTRACTED: 90 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

@@ -33,7 +33,7 @@
         "korean": "레나, 여기 서세요.",
         "note": {
           "ko": "장면 핵심 표현",
-          "de": "Lena, stell dich bitte hierhin.",
+          "de": "Lena, stellen Sie sich bitte hierhin.",
           "en": "Lena, please stand here."
         }
       },
@@ -104,7 +104,7 @@
       {
         "speaker": "instructor",
         "ko": "레나, 여기 서세요.",
-        "de": "Lena, stell dich bitte hierhin.",
+        "de": "Lena, stellen Sie sich bitte hierhin.",
         "en": "Lena, please stand here."
       },
       {
@@ -146,7 +146,7 @@
           "audioKo": "레나, 여기 서세요.",
           "options": [
             {
-              "de": "Lena, stell dich bitte hierhin.",
+              "de": "Lena, stellen Sie sich bitte hierhin.",
               "en": "Lena, please stand here."
             },
             {
@@ -190,6 +190,12 @@
       },
       {
         "id": "quest_dance_class_register_03",
+        "conceptIds": [
+          "concept_a1_register_switch",
+          "concept_action_formal",
+          "concept_action_polite",
+          "concept_action_casual"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "‘여기 서’도 맞아?",

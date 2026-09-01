@@ -1,16 +1,14 @@
 # picker_recovery_service.dart
 
-> 45 nodes · cohesion 0.05
+> 43 nodes · cohesion 0.05
 
 ## Key Concepts
 
 - **picker_recovery_service.dart** (44 connections) — `lib/services/picker_recovery_service.dart`
 - **picker_lost_data_recovery_test.dart** (17 connections) — `test/picker_lost_data_recovery_test.dart`
 - **LostDataGateway** (5 connections) — `lib/services/picker_recovery_service.dart`
-- **ImagePicker** (2 connections)
 - **ImagePickerLostDataGateway** (2 connections) — `lib/services/picker_recovery_service.dart`
 - **LostPickerData** (2 connections) — `lib/services/picker_recovery_service.dart`
-- **_FilePicker** (2 connections) — `test/media_lifecycle_test.dart`
 - **_ControlledGateway** (2 connections) — `test/picker_lost_data_recovery_test.dart`
 - **_Gateway** (2 connections) — `test/picker_lost_data_recovery_test.dart`
 - **_ThrowingGateway** (2 connections) — `test/picker_lost_data_recovery_test.dart`
@@ -29,30 +27,33 @@
 - **_picker** (1 connections) — `lib/services/picker_recovery_service.dart`
 - **PickerPurpose** (1 connections) — `lib/services/picker_recovery_service.dart`
 - **PickerRecoveryCoordinator** (1 connections) — `lib/services/picker_recovery_service.dart`
-- *... and 20 more nodes in this community*
+- **PickerRecoveryMarker** (1 connections) — `lib/services/picker_recovery_service.dart`
+- **PickerRecoveryService** (1 connections) — `lib/services/picker_recovery_service.dart`
+- *... and 18 more nodes in this community*
 
 ## Relationships
 
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (5 shared connections)
-- [storage_service.dart](storage_service.dart.md) (3 shared connections)
-- [List](List.md) (2 shared connections)
-- [media_lifecycle_test.dart](media_lifecycle_test.dart.md) (2 shared connections)
-- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (2 shared connections)
-- [_](_.md) (1 shared connections)
+- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (3 shared connections)
+- [word_image_service.dart](word_image_service.dart.md) (2 shared connections)
+- [dart:convert](dart-convert.md) (2 shared connections)
+- [dart:io](dart-io.md) (2 shared connections)
+- [cloud_backup_deletion_service_admission_test.dart](cloud_backup_deletion_service_admission_test.dart.md) (1 shared connections)
+- [media_lifecycle_test.dart](media_lifecycle_test.dart.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
 - [return](return.md) (1 shared connections)
-- [decoration_reward_service.dart](decoration_reward_service.dart.md) (1 shared connections)
+- [tts_bundled_manifest.dart](tts_bundled_manifest.dart.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
-- [dart:async](dart-async.md) (1 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (1 shared connections)
+- [custom_pack_service.dart](custom_pack_service.dart.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/services/picker_recovery_service.dart`
-- `test/media_lifecycle_test.dart`
 - `test/picker_lost_data_recovery_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 67 (100%)
+- EXTRACTED: 65 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

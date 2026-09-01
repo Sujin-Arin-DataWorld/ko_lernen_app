@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_apartment_recycling_mixup_03",
+        "conceptIds": [
+          "concept_b1_life"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "같이 확인해 주셔서 감사합니다.",

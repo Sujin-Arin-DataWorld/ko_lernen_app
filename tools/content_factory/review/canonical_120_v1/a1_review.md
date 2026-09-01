@@ -290,7 +290,7 @@ Jin 메모:
 
 **강사**  
 KO: 레나, 여기 서세요.  
-DE: Lena, stell dich bitte hierhin.  
+DE: Lena, stellen Sie sich bitte hierhin.
 EN: Lena, please stand here.
 
 **레나 (나)**  

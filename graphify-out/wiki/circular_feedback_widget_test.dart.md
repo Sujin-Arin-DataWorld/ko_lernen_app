@@ -33,18 +33,18 @@
 
 ## Relationships
 
-- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (22 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (15 shared connections)
+- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (18 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (14 shared connections)
 - [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (14 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (12 shared connections)
-- [dart:async](dart-async.md) (10 shared connections)
-- [standalone_games_uiux_test.dart](standalone_games_uiux_test.dart.md) (8 shared connections)
-- [choice_quizzes_uiux_test.dart](choice_quizzes_uiux_test.dart.md) (6 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (4 shared connections)
+- [course_practice_screen_test.dart](course_practice_screen_test.dart.md) (12 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (10 shared connections)
+- [content_feedback_widget_test.dart](content_feedback_widget_test.dart.md) (9 shared connections)
+- [dart:math](dart-math.md) (4 shared connections)
+- [responsive_screens.dart](responsive_screens.dart.md) (3 shared connections)
 - [stroke_canvas.dart](stroke_canvas.dart.md) (3 shared connections)
-- [custom_pack_games_uiux_test.dart](custom_pack_games_uiux_test.dart.md) (2 shared connections)
-- [String?](String_.md) (1 shared connections)
-- [StatelessWidget](StatelessWidget.md) (1 shared connections)
+- [List](List.md) (2 shared connections)
+- [dart:ui](dart-ui.md) (2 shared connections)
+- [standalone_games_uiux_test.dart](standalone_games_uiux_test.dart.md) (2 shared connections)
 
 ## Source Files
 

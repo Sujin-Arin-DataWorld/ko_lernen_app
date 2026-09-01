@@ -193,6 +193,9 @@
       },
       {
         "id": "quest_hidden_gem_local_impact_03",
+        "conceptIds": [
+          "concept_c2_fandom_discourse"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "정확한 위치는 지우고 방문 예절과 혼잡 시간을 넣겠습니다. 수익 환원 방식도 지역과 다시 논의하겠습니다.",

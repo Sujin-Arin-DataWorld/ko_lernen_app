@@ -1,15 +1,12 @@
 # audio_policy.dart
 
-> 49 nodes · cohesion 0.04
+> 38 nodes · cohesion 0.05
 
 ## Key Concepts
 
 - **audio_policy.dart** (42 connections) — `lib/services/audio_policy.dart`
-- **sound_service.dart** (12 connections) — `lib/services/sound_service.dart`
-- **static bool get** (10 connections)
 - **package:audioplayers/audioplayers.dart** (7 connections)
 - **audio_policy_test.dart** (7 connections) — `test/audio_policy_test.dart`
-- **audio_policy.dart** (2 connections)
 - **buildAndroidContext** (2 connections) — `lib/services/audio_policy.dart`
 - **gainFor** (2 connections) — `lib/services/audio_policy.dart`
 - **SoundChannel** (2 connections) — `lib/services/audio_policy.dart`
@@ -29,32 +26,34 @@
 - **instance** (1 connections) — `lib/services/audio_policy.dart`
 - **isOn** (1 connections) — `lib/services/audio_policy.dart`
 - **masterOn** (1 connections) — `lib/services/audio_policy.dart`
-- *... and 24 more nodes in this community*
+- **masterVolume** (1 connections) — `lib/services/audio_policy.dart`
+- **noteSpeechEnded** (1 connections) — `lib/services/audio_policy.dart`
+- **noteSpeechStarted** (1 connections) — `lib/services/audio_policy.dart`
+- *... and 13 more nodes in this community*
 
 ## Relationships
 
-- [_](_.md) (6 shared connections)
-- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (3 shared connections)
-- [@visibleForTesting](@visibleForTesting.md) (3 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
+- [_](_.md) (3 shared connections)
+- [@visibleForTesting](@visibleForTesting.md) (2 shared connections)
 - [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (2 shared connections)
-- [List](List.md) (1 shared connections)
+- [bool get](bool_get.md) (1 shared connections)
 - [double get](double_get.md) (1 shared connections)
 - [hangul_screen.dart](hangul_screen.dart.md) (1 shared connections)
-- [cloze_topic_groups.dart](cloze_topic_groups.dart.md) (1 shared connections)
+- [gye_weekly_promise.dart](gye_weekly_promise.dart.md) (1 shared connections)
 - [listening_playback_controller.dart](listening_playback_controller.dart.md) (1 shared connections)
 - [dart:async](dart-async.md) (1 shared connections)
-- [storage_service.dart](storage_service.dart.md) (1 shared connections)
+- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
+- [custom_pack_service.dart](custom_pack_service.dart.md) (1 shared connections)
+- [mascot_preference.dart](mascot_preference.dart.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/services/audio_policy.dart`
-- `lib/services/sound_service.dart`
 - `test/audio_policy_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 78 (100%)
+- EXTRACTED: 57 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

@@ -274,6 +274,32 @@ def _bundled_first_line(project_root, voice, digest, storage_path):
     return relative, hashlib.sha256(data).hexdigest()
 
 
+def load_scenario_character_voices(project_root=ROOT):
+    path = os.path.join(
+        os.path.abspath(project_root),
+        "tools",
+        "content_factory",
+        "canonical_scenarios",
+        "character_profiles.json",
+    )
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as handle:
+        payload = json.load(handle)
+    voices = {
+        item["id"]: normalize_voice(item.get("voice"))
+        for item in payload.get("recurringCharacters", [])
+        if item.get("id")
+    }
+    voices.update(
+        {
+            role_id: normalize_voice(item.get("voice"))
+            for role_id, item in payload.get("runtimeRoleProfiles", {}).items()
+        }
+    )
+    return voices
+
+
 def build_first_line_manifest(project_root=ROOT):
     """Build the network-free canonical first-dialog cache inventory."""
     root = os.path.abspath(project_root)
@@ -291,6 +317,7 @@ def build_first_line_manifest(project_root=ROOT):
         raise ValueError("Duplicate canonical scenario ID: " + ", ".join(duplicates))
 
     items = []
+    character_voices = load_scenario_character_voices(root)
     for source in sorted(
         sources,
         key=lambda item: (
@@ -311,7 +338,15 @@ def build_first_line_manifest(project_root=ROOT):
         speaker = str(first.get("speaker") or "").strip().lower()
         if not speaker:
             raise ValueError(f"Scenario {scenario_id!r} has no first-dialog speaker")
-        voice = "female" if speaker == "user" else "male"
+        resolved = (
+            str(scenario.get("playerCharacterId") or "").strip().lower()
+            if speaker == "user"
+            else speaker
+        )
+        voice = character_voices.get(
+            resolved,
+            "female" if speaker == "user" else "male",
+        )
         digest = cache_sha1(voice, normalized_text)
         storage_path = cache_relative_path(voice, normalized_text)
         bundled_path, bundled_sha256 = _bundled_first_line(
@@ -532,31 +567,6 @@ def collect():
         except ValueError as error:
             raise SystemExit(str(error)) from error
 
-    def _scenario_character_voices():
-        path = os.path.join(
-            ROOT,
-            "tools",
-            "content_factory",
-            "canonical_scenarios",
-            "character_profiles.json",
-        )
-        if not os.path.exists(path):
-            return {}
-        with open(path, encoding="utf-8") as handle:
-            payload = json.load(handle)
-        voices = {
-            item["id"]: normalize_voice(item.get("voice"))
-            for item in payload.get("recurringCharacters", [])
-            if item.get("id")
-        }
-        voices.update(
-            {
-                role_id: normalize_voice(item.get("voice"))
-                for role_id, item in payload.get("runtimeRoleProfiles", {}).items()
-            }
-        )
-        return voices
-
     # 1. 단어장: 단어 + 예문 (korean, example_korean) — auto 균형 음성.
     with open(
         os.path.join(ROOT, "assets/data/korean_vocab.csv"), encoding="utf-8"
@@ -567,7 +577,7 @@ def collect():
 
     # 2. 시나리오 대화 — 캐릭터별 음성. `user`는 실제 플레이어 인물 ID로
     #    해석한다. 프로필이 없는 구형 장면만 기존 성별 매핑을 유지한다.
-    character_voices = _scenario_character_voices()
+    character_voices = load_scenario_character_voices(ROOT)
     for sc in _load_scenarios():
         for line in sc.get("dialog", []):
             t = (line.get("ko") or "").strip()

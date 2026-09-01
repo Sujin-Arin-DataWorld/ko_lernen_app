@@ -11,24 +11,24 @@
 - **claimTtsReplay()** (7 connections) — `functions/tts/tts_request_guard.js`
 - **isUsableAudioBuffer()** (7 connections) — `functions/tts/tts_request_guard.js`
 - **underDailyTtsQuotas()** (7 connections) — `functions/tts/tts_request_guard.js`
-- **tts_contract.js** (6 connections) — `functions/tts/tts_contract.js`
-- **tts_contract.test.js** (6 connections) — `functions/tts/tts_contract.test.js`
 - **CircuitBreaker** (6 connections) — `functions/tts/tts_request_guard.js`
 - **completeTtsReplay()** (6 connections) — `functions/tts/tts_request_guard.js`
 - **refundDailyTtsQuotas()** (6 connections) — `functions/tts/tts_request_guard.js`
+- **tts_contract.js** (6 connections) — `functions/tts/tts_contract.js`
+- **tts_contract.test.js** (6 connections) — `functions/tts/tts_contract.test.js`
+- **FakeFirestore** (5 connections) — `functions/tts/tts_request_guard.test.js`
 - **waitForUsableAudio()** (5 connections) — `functions/tts/index.js`
 - **cacheKey()** (5 connections) — `functions/tts/tts_contract.js`
 - **normalizeVoice()** (5 connections) — `functions/tts/tts_contract.js`
 - **abandonTtsReplay()** (5 connections) — `functions/tts/tts_request_guard.js`
-- **FakeFirestore** (5 connections) — `functions/tts/tts_request_guard.test.js`
 - **ttsReplayId()** (5 connections) — `functions/tts/tts_request_guard.js`
 - **validateTtsRequest()** (5 connections) — `functions/tts/tts_request_guard.js`
+- **TtsRequestError** (4 connections) — `functions/tts/tts_request_guard.js`
 - **loadUsableAudio()** (4 connections) — `functions/tts/index.js`
 - **synthesizeSpeech()** (4 connections) — `functions/tts/index.js`
 - **pendingTtsReceipt()** (4 connections) — `functions/tts/tts_request_guard.js`
 - **quotaExpiresAt()** (4 connections) — `functions/tts/tts_request_guard.js`
 - **ttsLogErrorCode()** (4 connections) — `functions/tts/tts_request_guard.js`
-- **TtsRequestError** (4 connections) — `functions/tts/tts_request_guard.js`
 - *... and 40 more nodes in this community*
 
 ## Relationships

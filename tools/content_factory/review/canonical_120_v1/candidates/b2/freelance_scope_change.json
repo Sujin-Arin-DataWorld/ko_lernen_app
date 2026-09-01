@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_freelance_scope_change_03",
+        "conceptIds": [
+          "concept_b2_precise_requests"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "네. 추가 비용과 일정을 먼저 정리해서 보내 드리겠습니다.",

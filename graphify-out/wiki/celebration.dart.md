@@ -1,15 +1,12 @@
 # celebration.dart
 
-> 38 nodes · cohesion 0.06
+> 35 nodes · cohesion 0.06
 
 ## Key Concepts
 
 - **celebration.dart** (45 connections) — `lib/widgets/sori/celebration.dart`
-- **SingleTickerProviderStateMixin** (25 connections)
-- **_IntroGateScreenState** (4 connections) — `lib/screens/intro_gate_screen.dart`
 - **_CelebrationLayerState** (4 connections) — `lib/widgets/sori/celebration.dart`
 - **_CoinBurstLayerState** (4 connections) — `lib/widgets/sori/celebration.dart`
-- **IntroGateScreen** (3 connections) — `lib/screens/intro_gate_screen.dart`
 - **_CelebrationLayer** (3 connections) — `lib/widgets/sori/celebration.dart`
 - **_CoinBurstLayer** (3 connections) — `lib/widgets/sori/celebration.dart`
 - **angle** (1 connections) — `lib/widgets/sori/celebration.dart`
@@ -29,31 +26,31 @@
 - **_gravity** (1 connections) — `lib/widgets/sori/celebration.dart`
 - **initState** (1 connections) — `lib/widgets/sori/celebration.dart`
 - **onDone** (1 connections) — `lib/widgets/sori/celebration.dart`
-- *... and 13 more nodes in this community*
+- **origin** (1 connections) — `lib/widgets/sori/celebration.dart`
+- **paint** (1 connections) — `lib/widgets/sori/celebration.dart`
+- **_palette** (1 connections) — `lib/widgets/sori/celebration.dart`
+- *... and 10 more nodes in this community*
 
 ## Relationships
 
-- [StatefulWidget](StatefulWidget.md) (7 shared connections)
-- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (4 shared connections)
-- [intro_gate_screen.dart](intro_gate_screen.dart.md) (2 shared connections)
-- [pressable.dart](pressable.dart.md) (2 shared connections)
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (2 shared connections)
-- [Color](Color.md) (1 shared connections)
+- [_State](_State.md) (6 shared connections)
+- [String?](String_.md) (3 shared connections)
+- [app_error.dart](app_error.dart.md) (1 shared connections)
 - [List](List.md) (1 shared connections)
-- [silben_grid_clue_sync_test.dart](silben_grid_clue_sync_test.dart.md) (1 shared connections)
-- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
-- [swipe_rails.dart](swipe_rails.dart.md) (1 shared connections)
+- [pronunciation_studio_ui_test.dart](pronunciation_studio_ui_test.dart.md) (1 shared connections)
+- [static const](static_const.md) (1 shared connections)
+- [static const double](static_const_double.md) (1 shared connections)
 - [CustomPainter](CustomPainter.md) (1 shared connections)
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
+- [dart:math](dart-math.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
 
 ## Source Files
 
-- `lib/screens/intro_gate_screen.dart`
 - `lib/widgets/sori/celebration.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 81 (100%)
+- EXTRACTED: 53 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

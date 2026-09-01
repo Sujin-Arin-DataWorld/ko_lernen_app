@@ -33,9 +33,9 @@
 
 ## Relationships
 
+- [Counter](Counter.md) (1 shared connections)
 - [style_lock.py](style_lock.py.md) (1 shared connections)
 - [SceneArtManifestTest](SceneArtManifestTest.md) (1 shared connections)
-- [Counter](Counter.md) (1 shared connections)
 
 ## Source Files
 

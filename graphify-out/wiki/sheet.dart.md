@@ -19,10 +19,10 @@
 
 ## Relationships
 
-- [T](T.md) (1 shared connections)
-- [String?](String_.md) (1 shared connections)
+- [room_layout_service.dart](room_layout_service.dart.md) (1 shared connections)
+- [sori_stage_today_screen.dart](sori_stage_today_screen.dart.md) (1 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (1 shared connections)
+- [String?](String_.md) (1 shared connections)
 - [StatelessWidget](StatelessWidget.md) (1 shared connections)
 - [dialog.dart](dialog.dart.md) (1 shared connections)
 

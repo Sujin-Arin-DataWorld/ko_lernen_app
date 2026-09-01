@@ -4,8 +4,8 @@
 
 ## Key Concepts
 
-- **add_phrasebook_smalltalk.py** (1 connections) — `tools/content_factory/add_phrasebook_smalltalk.py`
 - **main()** (1 connections) — `tools/content_factory/add_phrasebook_smalltalk.py`
+- **add_phrasebook_smalltalk.py** (1 connections) — `tools/content_factory/add_phrasebook_smalltalk.py`
 
 ## Relationships
 

@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_speech_level_after_friendship_03",
+        "conceptIds": [
+          "concept_b1_relationships"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "좋아. 오늘부터 편하게 말하기로 하자.",

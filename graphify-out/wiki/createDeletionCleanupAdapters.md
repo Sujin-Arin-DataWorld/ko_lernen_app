@@ -34,8 +34,8 @@
 ## Relationships
 
 - [deletion_cleanup_adapters.test.js](deletion_cleanup_adapters.test.js.md) (5 shared connections)
-- [runtime.test.js](runtime.test.js.md) (3 shared connections)
 - [gye/index.js](gye-index.js.md) (3 shared connections)
+- [runtime.test.js](runtime.test.js.md) (3 shared connections)
 - [tester-application.ts](tester-application.ts.md) (2 shared connections)
 
 ## Source Files

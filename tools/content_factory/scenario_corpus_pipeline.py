@@ -1040,7 +1040,7 @@ def assert_tts_ready_for_promotion(
         "ttsManifestSha256": tts_pending_manifest_hash(manifest),
         "expectedCount": manifest.get("count"),
         "cacheRevision": TTS_CACHE_REVISION,
-        "verificationMode": "firebase_storage_listing",
+        "verificationMode": "firebase_storage_nonempty_mp3_listing",
     }
     mismatches = [
         f"{key}: expected {value!r}, got {receipt.get(key)!r}"

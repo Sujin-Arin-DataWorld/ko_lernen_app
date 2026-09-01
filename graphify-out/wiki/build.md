@@ -16,13 +16,13 @@
 - **_check_unique()** (3 connections) — `tools/content_factory/build_batch_12.py`
 - **_levels()** (3 connections) — `tools/content_factory/build_batch_12.py`
 - **main()** (2 connections) — `tools/content_factory/build_batch_12.py`
-- **Path** (2 connections)
 - **.records_for()** (2 connections) — `tools/content_factory/build_batch_12.py`
 - **.smalltalk_category()** (2 connections) — `tools/content_factory/build_batch_12.py`
+- **Path** (2 connections)
+- **.__init__()** (1 connections) — `tools/content_factory/build_batch_12.py`
 - **ValueError** (1 connections)
 - **Raised when a slice would emit a record that cannot pass review.** (1 connections) — `tools/content_factory/build_batch_12.py`
 - **One authoring slice: two course units, one per level.** (1 connections) — `tools/content_factory/build_batch_12.py`
-- **.__init__()** (1 connections) — `tools/content_factory/build_batch_12.py`
 
 ## Relationships
 

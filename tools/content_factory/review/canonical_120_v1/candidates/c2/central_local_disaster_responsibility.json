@@ -187,6 +187,9 @@
       },
       {
         "id": "quest_central_local_disaster_responsibility_03",
+        "conceptIds": [
+          "concept_c2_sanction_accountability"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "그래서 책임 배분과 별개로 어떤 정보가 오면 누가 언제 행동하는지 공통 기준을 정해야 합니다.",

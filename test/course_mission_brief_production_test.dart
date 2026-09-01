@@ -130,16 +130,24 @@ void main() {
         (link) =>
             link.contentKind == CurriculumContentKind.scenario &&
             link.contentId == 'airport_arrival' &&
+            link.role == ContentLinkRole.assess &&
             link.exactlyAssesses(unit),
       );
-      final subsetScene = links.where(
-        (link) =>
-            link.contentKind == CurriculumContentKind.scenario &&
-            link.contentId == 'airport_arrival' &&
-            link.role == ContentLinkRole.assess &&
-            !link.exactlyAssesses(unit),
+      final matchingScenes = links
+          .where(
+            (link) =>
+                link.contentKind == CurriculumContentKind.scenario &&
+                link.contentId == 'airport_arrival',
+          )
+          .toList(growable: false);
+      expect(matchingScenes, hasLength(1 + unit.requiredConceptIds.length));
+      expect(
+        matchingScenes
+            .where((link) => link.role == ContentLinkRole.practice)
+            .expand((link) => link.conceptIds)
+            .toSet(),
+        unit.requiredConceptIds.toSet(),
       );
-      expect(subsetScene, isNotEmpty);
       expect(afterBuild.firstLink?.id, fullCoverageScene.id);
     },
   );
@@ -185,7 +193,7 @@ void main() {
   });
 
   test(
-    'advanced missions expose their exact checkpoint as the final CTA',
+    'advanced missions expose their exact scenario checkpoint as the final CTA',
     () async {
       final catalog = await CurriculumCatalog.load();
       final scenarios = await ScenarioLoader.load();
@@ -205,7 +213,7 @@ void main() {
         expect(before.visibleSteps.map((step) => step.phase), [
           CourseMissionPhase.listen,
           CourseMissionPhase.build,
-          CourseMissionPhase.checkpoint,
+          CourseMissionPhase.scene,
         ], reason: unit.id);
 
         final listen = before.firstLink!;
@@ -237,7 +245,7 @@ void main() {
         );
         expect(
           readyForCheckpoint.visibleSteps.first.phase,
-          CourseMissionPhase.checkpoint,
+          CourseMissionPhase.scene,
           reason: unit.id,
         );
         expect(

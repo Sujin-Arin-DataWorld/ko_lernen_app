@@ -1,10 +1,14 @@
 # card.dart
 
-> 28 nodes · cohesion 0.07
+> 37 nodes · cohesion 0.05
 
 ## Key Concepts
 
 - **card.dart** (41 connections) — `lib/widgets/sori/card.dart`
+- **screen_background.dart** (10 connections) — `lib/widgets/sori/screen_background.dart`
+- **hanok/hanji_texture.dart** (4 connections)
+- **SoriScreenBackground** (2 connections) — `lib/widgets/sori/screen_background.dart`
+- **ambient_particles.dart** (1 connections)
 - **BorderRadius get** (1 connections)
 - **EdgeInsetsGeometry get** (1 connections)
 - **hanok/eaves_corner.dart** (1 connections)
@@ -25,31 +29,29 @@
 - **resolvedBackground** (1 connections) — `lib/widgets/sori/card.dart`
 - **selectable** (1 connections) — `lib/widgets/sori/card.dart`
 - **selected** (1 connections) — `lib/widgets/sori/card.dart`
-- **semanticLabel** (1 connections) — `lib/widgets/sori/card.dart`
-- **SoriCardVariant** (1 connections) — `lib/widgets/sori/card.dart`
-- **tinted** (1 connections) — `lib/widgets/sori/card.dart`
-- **_useEaves** (1 connections) — `lib/widgets/sori/card.dart`
-- *... and 3 more nodes in this community*
+- *... and 12 more nodes in this community*
 
 ## Relationships
 
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (3 shared connections)
-- [Color](Color.md) (2 shared connections)
-- [String?](String_.md) (2 shared connections)
-- [practice_hub_ui_test.dart](practice_hub_ui_test.dart.md) (2 shared connections)
-- [List](List.md) (1 shared connections)
+- [String?](String_.md) (6 shared connections)
+- [sori_stage_today_screen.dart](sori_stage_today_screen.dart.md) (2 shared connections)
+- [choice_quizzes_uiux_test.dart](choice_quizzes_uiux_test.dart.md) (2 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
+- [shelf_case.dart](shelf_case.dart.md) (1 shared connections)
+- [_](_.md) (1 shared connections)
+- [bool get](bool_get.md) (1 shared connections)
 - [hanji_texture.dart](hanji_texture.dart.md) (1 shared connections)
 - [double get](double_get.md) (1 shared connections)
-- [screen_background.dart](screen_background.dart.md) (1 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [StatelessWidget](StatelessWidget.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/widgets/sori/card.dart`
+- `lib/widgets/sori/screen_background.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 41 (100%)
+- EXTRACTED: 54 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

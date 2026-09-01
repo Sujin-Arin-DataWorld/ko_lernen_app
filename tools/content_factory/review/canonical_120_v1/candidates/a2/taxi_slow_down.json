@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_taxi_slow_down_03",
+        "conceptIds": [
+          "concept_a2_travel_repair"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "네, 부탁드릴게요.",

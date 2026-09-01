@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_noisy_neighbor_evening_03",
+        "conceptIds": [
+          "concept_b1_complaint_resolution"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "감사합니다. 늦은 시간만 조심해 주세요.",

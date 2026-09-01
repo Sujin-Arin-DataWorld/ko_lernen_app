@@ -40,7 +40,7 @@
         "korean": "괜찮아요? 물 줄까요?",
         "note": {
           "ko": "장면 핵심 표현",
-          "de": "Geht es? Möchtest du Wasser?",
+          "de": "Alles okay? Möchtest du Wasser?",
           "en": "Are you okay? Do you want some water?"
         }
       },
@@ -106,7 +106,7 @@
       {
         "speaker": "sujin",
         "ko": "괜찮아요? 물 줄까요?",
-        "de": "Geht es? Möchtest du Wasser?",
+        "de": "Alles okay? Möchtest du Wasser?",
         "en": "Are you okay? Do you want some water?"
       },
       {
@@ -142,7 +142,7 @@
           "audioKo": "괜찮아요? 물 줄까요?",
           "options": [
             {
-              "de": "Geht es? Möchtest du Wasser?",
+              "de": "Alles okay? Möchtest du Wasser?",
               "en": "Are you okay? Do you want some water?"
             },
             {
@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_delivery_dinner_spicy_03",
+        "conceptIds": [
+          "concept_a2_feelings"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "다음에는 덜 맵게 주문할게요.",

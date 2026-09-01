@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_climate_model_local_decision_03",
+        "conceptIds": [
+          "concept_c2_accountable_systems"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "여러 모델이 공통으로 위험하다고 보는 구간은 먼저 보강하고, 나머지는 되돌릴 수 있는 조치부터 시작해 새 자료에 맞춰 조정하죠.",

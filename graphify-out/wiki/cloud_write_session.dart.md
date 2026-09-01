@@ -1,24 +1,13 @@
 # cloud_write_session.dart
 
-> 84 nodes · cohesion 0.02
+> 35 nodes · cohesion 0.06
 
 ## Key Concepts
 
 - **cloud_write_session.dart** (39 connections) — `lib/services/account/cloud_write_session.dart`
-- **first_link_backfill.dart** (36 connections) — `lib/services/account/first_link_backfill.dart`
-- **media_cleanup_gate.dart** (22 connections) — `lib/services/account/media_cleanup_gate.dart`
-- **CloudWriteSessionController** (13 connections) — `lib/services/account/cloud_write_session.dart`
-- **cloud_write_session.dart** (10 connections)
-- **cloud_restore_result.dart** (6 connections) — `lib/services/account/cloud_restore_result.dart`
-- **CloudWriteResult** (5 connections) — `lib/services/account/cloud_write_session.dart`
-- **account_transition_journal.dart** (4 connections)
-- **first_link_backfill_journal.dart** (2 connections)
-- **CloudRestoreComponentResult** (2 connections) — `lib/services/account/cloud_restore_result.dart`
-- **AccountTransitionJournalReader** (2 connections) — `lib/services/account/media_cleanup_gate.dart`
+- **ValueNotifier** (18 connections)
+- **locale_service.dart** (6 connections) — `lib/services/locale_service.dart`
 - **CloudWriteSession? get** (1 connections)
-- **CloudRestoreResult** (1 connections) — `lib/services/account/cloud_restore_result.dart`
-- **hasRemoteData** (1 connections) — `lib/services/account/cloud_restore_result.dart`
-- **status** (1 connections) — `lib/services/account/cloud_restore_result.dart`
 - **acquire** (1 connections) — `lib/services/account/cloud_write_session.dart`
 - **assertCurrent** (1 connections) — `lib/services/account/cloud_write_session.dart`
 - **_changes** (1 connections) — `lib/services/account/cloud_write_session.dart`
@@ -29,33 +18,42 @@
 - **copyWith** (1 connections) — `lib/services/account/cloud_write_session.dart`
 - **_current** (1 connections) — `lib/services/account/cloud_write_session.dart`
 - **epoch** (1 connections) — `lib/services/account/cloud_write_session.dart`
-- *... and 59 more nodes in this community*
+- **_hasBeenActivated** (1 connections) — `lib/services/account/cloud_write_session.dart`
+- **hashCode** (1 connections) — `lib/services/account/cloud_write_session.dart`
+- **_latestEpoch** (1 connections) — `lib/services/account/cloud_write_session.dart`
+- **mode** (1 connections) — `lib/services/account/cloud_write_session.dart`
+- **operator** (1 connections) — `lib/services/account/cloud_write_session.dart`
+- **readySnapshot** (1 connections) — `lib/services/account/cloud_write_session.dart`
+- **_requireCurrent** (1 connections) — `lib/services/account/cloud_write_session.dart`
+- **_requireUid** (1 connections) — `lib/services/account/cloud_write_session.dart`
+- **resume** (1 connections) — `lib/services/account/cloud_write_session.dart`
+- **run** (1 connections) — `lib/services/account/cloud_write_session.dart`
+- **runWithSnapshot** (1 connections) — `lib/services/account/cloud_write_session.dart`
+- *... and 10 more nodes in this community*
 
 ## Relationships
 
-- [_](_.md) (15 shared connections)
-- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (4 shared connections)
-- [account_ui_operations.dart](account_ui_operations.dart.md) (2 shared connections)
-- [account_operation_client.dart](account_operation_client.dart.md) (2 shared connections)
-- [first_link_backfill_journal.dart](first_link_backfill_journal.dart.md) (2 shared connections)
-- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (2 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
-- [bookshelf_sync_outbox.dart](bookshelf_sync_outbox.dart.md) (1 shared connections)
-- [cloud_sync_test.dart](cloud_sync_test.dart.md) (1 shared connections)
-- [T](T.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
+- [bool get](bool_get.md) (4 shared connections)
+- [first_link_backfill.dart](first_link_backfill.dart.md) (2 shared connections)
+- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (2 shared connections)
+- [room_layout_service.dart](room_layout_service.dart.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
+- [gye_screen.dart](gye_screen.dart.md) (1 shared connections)
+- [account_transition_journal.dart](account_transition_journal.dart.md) (1 shared connections)
+- [dart:async](dart-async.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [custom_pack_service.dart](custom_pack_service.dart.md) (1 shared connections)
+- [hangul_screen.dart](hangul_screen.dart.md) (1 shared connections)
+- [sori_stage_shell.dart](sori_stage_shell.dart.md) (1 shared connections)
 
 ## Source Files
 
-- `lib/services/account/cloud_restore_result.dart`
 - `lib/services/account/cloud_write_session.dart`
-- `lib/services/account/first_link_backfill.dart`
-- `lib/services/account/media_cleanup_gate.dart`
+- `lib/services/locale_service.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 128 (100%)
+- EXTRACTED: 61 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

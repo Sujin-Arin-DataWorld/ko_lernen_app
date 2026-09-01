@@ -5,10 +5,10 @@ import 'package:ko_lernen_app/models/scenario.dart';
 import 'support/scenario_json.dart';
 
 void main() {
-  test('all 419 scenarios and 1765 quests satisfy the renderer contract', () {
+  test('all 126 scenarios and 391 quests satisfy the renderer contract', () {
     final root = allScenarioRoot();
     final decoded = root['scenarios'] as List<dynamic>;
-    expect(decoded, hasLength(419));
+    expect(decoded, hasLength(126));
 
     const supported = {
       'hoerverstehen',
@@ -85,26 +85,47 @@ void main() {
       }
     }
 
-    expect(questCount, 1765);
+    expect(questCount, 391);
     final countsById = {
       for (final raw in decoded.cast<Map<String, dynamic>>())
         raw['id'] as String: (raw['quests'] as List).length,
     };
-    expect(countsById['airport_arrival'], 5);
-    expect(countsById['introduce_yourself'], 7);
-    expect(countsById['first_class_meeting'], 6);
+    const themeParkQuestCounts = <String, int>{
+      'a1_theme_park_date_choices': 6,
+      'a2_theme_park_date_break': 5,
+      'b1_theme_park_date_thrill': 5,
+      'b2_theme_park_date_safety': 5,
+      'c1_theme_park_date_next_time': 5,
+      'c2_theme_park_date_reflection': 5,
+    };
+    expect(
+      countsById.entries
+          .where((entry) => !themeParkQuestCounts.containsKey(entry.key))
+          .map((entry) => entry.value)
+          .toSet(),
+      {3},
+    );
+    for (final entry in themeParkQuestCounts.entries) {
+      expect(countsById[entry.key], entry.value, reason: entry.key);
+    }
+    expect(countsById['airport_arrival'], 3);
+    expect(countsById['introduce_yourself'], 3);
+    expect(countsById['first_class_meeting'], 3);
 
     final airport = decoded.cast<Map<String, dynamic>>().firstWhere(
       (scenario) => scenario['id'] == 'airport_arrival',
     );
-    final airportCloze = (airport['quests'] as List)
-        .cast<Map<String, dynamic>>()
-        .firstWhere((quest) => quest['id'] == 'quest_airport_arrival_02');
-    final clozeData = airportCloze['data'] as Map<String, dynamic>;
-    final sentence = clozeData['sentence'] as String;
-    final options = (clozeData['options'] as List).cast<String>();
-    final correctIndex = (clozeData['correctIndex'] as num).toInt();
-    expect(options[correctIndex], '이세요');
-    expect(sentence.replaceFirst('___', options[correctIndex]), '한국 처음이세요?');
+    final airportQuests = (airport['quests'] as List)
+        .cast<Map<String, dynamic>>();
+    expect(airportQuests.map((quest) => quest['type']).toList(), [
+      'hoerverstehen',
+      'uebersetzen',
+      'satzBauen',
+    ]);
+    final translation = airportQuests[1]['data'] as Map<String, dynamic>;
+    final options = (translation['options'] as List)
+        .cast<Map<String, dynamic>>();
+    final correctIndex = (translation['correctIndex'] as num).toInt();
+    expect(options[correctIndex]['ko'], '네, 여기 있어요.');
   });
 }

@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_taxi_kakao_03",
+        "conceptIds": [
+          "concept_a1_directions"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "감사합니다.",

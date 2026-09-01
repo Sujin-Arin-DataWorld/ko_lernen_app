@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_ktx_sold_out_alternative_03",
+        "conceptIds": [
+          "concept_b1_reasons_experience"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "내일 아침 일정도 있으니 조금 늦더라도 기차로 갈까?",

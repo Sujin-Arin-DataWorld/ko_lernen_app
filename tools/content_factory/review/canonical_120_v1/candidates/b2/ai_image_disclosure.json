@@ -187,6 +187,9 @@
       },
       {
         "id": "quest_ai_image_disclosure_03",
+        "conceptIds": [
+          "concept_b2_opinion"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "네. 나중에 알리는 대신 지금 선택할 수 있게 해야 해요.",

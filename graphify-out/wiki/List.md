@@ -1,74 +1,65 @@
 # List
 
-> 280 nodes · cohesion 0.01
+> 161 nodes · cohesion 0.01
 
 ## Key Concepts
 
 - **List** (238 connections)
-- **bool get** (134 connections)
-- **String get** (91 connections)
-- **silben_kreuz_screen.dart** (90 connections) — `lib/screens/silben_kreuz_screen.dart`
-- **scenarios_list_screen.dart** (79 connections) — `lib/screens/scenarios_list_screen.dart`
-- **../../services/storage_service.dart** (75 connections)
-- **../widgets/sori/card.dart** (66 connections)
-- **word_web_screen.dart** (54 connections) — `lib/screens/word_web_screen.dart`
-- **listening_screen.dart** (47 connections) — `lib/screens/listening_screen.dart`
-- **hard_words_screen.dart** (42 connections) — `lib/screens/hard_words_screen.dart`
-- **dojangcheop_screen.dart** (41 connections) — `lib/screens/dojangcheop_screen.dart`
-- **GlobalKey** (35 connections)
-- **placement_diagnostic_screen.dart** (35 connections) — `lib/screens/placement_diagnostic_screen.dart`
-- **../widgets/sori/spotlight_coach.dart** (29 connections)
-- **../widgets/sori/screen_coach.dart** (28 connections)
-- **review_hub_screen.dart** (27 connections) — `lib/screens/review_hub_screen.dart`
-- **guide_scenario_category_stock.dart** (16 connections) — `lib/features/guide/guide_scenario_category_stock.dart`
-- **scenario_browse_query.dart** (15 connections) — `lib/features/scenarios/scenario_browse_query.dart`
-- **course_mission_path_overview.dart** (12 connections) — `lib/screens/course_mission_path_overview.dart`
-- **../models/guide_contract.dart** (12 connections)
-- **../widgets/sori/app_bar.dart** (10 connections)
-- **../widgets/sori/level_filter_bar.dart** (10 connections)
-- **MaterialPageRoute** (8 connections)
-- **../services/scenario_loader.dart** (8 connections)
-- **tester_feedback_feature.dart** (7 connections) — `lib/config/tester_feedback_feature.dart`
-- *... and 255 more nodes in this community*
+- **package:flutter/services.dart** (107 connections)
+- **grammar_choice_quiz_screen.dart** (67 connections) — `lib/screens/grammar_choice_quiz_screen.dart`
+- **hard_choice_quiz_screen.dart** (56 connections) — `lib/screens/hard_choice_quiz_screen.dart`
+- **word_web_quiz_screen.dart** (44 connections) — `lib/screens/word_web_quiz_screen.dart`
+- **standard_page.dart** (37 connections) — `lib/widgets/sori/standard_page.dart`
+- **vocab_nuance_screen.dart** (30 connections) — `lib/screens/vocab_nuance_screen.dart`
+- **../widgets/sori/study_frame.dart** (29 connections)
+- **study_frame.dart** (27 connections) — `lib/widgets/sori/study_frame.dart`
+- **../../services/sound_service.dart** (27 connections)
+- **../widgets/sori/celebration.dart** (11 connections)
+- **ScrollController?** (9 connections)
+- **grammar_patterns_test.dart** (6 connections) — `test/grammar_patterns_test.dart`
+- **Vocab? get** (6 connections)
+- **../widgets/sori/quiz_choice.dart** (6 connections)
+- **culture_notes_test.dart** (4 connections) — `test/culture_notes_test.dart`
+- **../services/word_relation_service.dart** (3 connections)
+- **../widgets/sori/lazy_scroll_reveal.dart** (3 connections)
+- **app_bar.dart** (2 connections)
+- **SoriBottomActionArea** (2 connections) — `lib/widgets/sori/standard_page.dart`
+- **SoriAdaptiveStudyBody** (2 connections) — `lib/widgets/sori/study_frame.dart`
+- **screen_background.dart** (2 connections)
+- **GrammarChoiceQuestion? get** (1 connections)
+- **home_action.dart** (1 connections)
+- **allowedTargetIds** (1 connections) — `lib/screens/grammar_choice_quiz_screen.dart`
+- *... and 136 more nodes in this community*
 
 ## Relationships
 
-- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (64 shared connections)
-- [_](_.md) (63 shared connections)
-- [gye_screen.dart](gye_screen.dart.md) (52 shared connections)
-- [StatefulWidget](StatefulWidget.md) (33 shared connections)
-- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (31 shared connections)
-- [StatelessWidget](StatelessWidget.md) (31 shared connections)
-- [learning_path_screen.dart](learning_path_screen.dart.md) (24 shared connections)
-- [kkeunmari_screen.dart](kkeunmari_screen.dart.md) (23 shared connections)
-- [grammar_screen.dart](grammar_screen.dart.md) (19 shared connections)
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (17 shared connections)
-- [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (16 shared connections)
-- [hangul_screen.dart](hangul_screen.dart.md) (14 shared connections)
+- [_](_.md) (37 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (33 shared connections)
+- [String?](String_.md) (21 shared connections)
+- [dart:math](dart-math.md) (19 shared connections)
+- [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (14 shared connections)
+- [bool get](bool_get.md) (13 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (10 shared connections)
+- [cloze_game_screen.dart](cloze_game_screen.dart.md) (10 shared connections)
+- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (9 shared connections)
+- [_State](_State.md) (8 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (8 shared connections)
+- [hangul_screen.dart](hangul_screen.dart.md) (7 shared connections)
 
 ## Source Files
 
-- `lib/config/tester_feedback_feature.dart`
-- `lib/features/guide/guide_scenario_category_stock.dart`
-- `lib/features/scenarios/scenario_browse_query.dart`
-- `lib/models/liked_content.dart`
-- `lib/screens/course_mission_path_overview.dart`
-- `lib/screens/dojangcheop_screen.dart`
-- `lib/screens/hard_words_screen.dart`
-- `lib/screens/listening_screen.dart`
-- `lib/screens/onboarding_level_screen.dart`
-- `lib/screens/placement_diagnostic_screen.dart`
-- `lib/screens/review_hub_screen.dart`
-- `lib/screens/scenarios_list_screen.dart`
-- `lib/screens/silben_kreuz_screen.dart`
-- `lib/screens/word_web_screen.dart`
-- `lib/widgets/sori/week_sheet.dart`
+- `lib/screens/grammar_choice_quiz_screen.dart`
+- `lib/screens/hard_choice_quiz_screen.dart`
+- `lib/screens/vocab_nuance_screen.dart`
+- `lib/screens/word_web_quiz_screen.dart`
+- `lib/widgets/sori/standard_page.dart`
+- `lib/widgets/sori/study_frame.dart`
+- `test/culture_notes_test.dart`
 - `test/grammar_patterns_test.dart`
-- `test/vocab_pack_result_phase1_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 1208 (100%)
+- EXTRACTED: 677 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

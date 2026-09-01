@@ -9,10 +9,10 @@
 - **HanokColors (vivid dancheong decor palette)** (2 connections) — `docs/HANGUL_SORI_DESIGN_TOKENS.md`
 - **Measured palette correction (ivory bg, muted cheong)** (2 connections) — `docs/LISTENING_CARD_ART_SPEC.md`
 - **Soft shading correction (never flat fill)** (2 connections) — `docs/LISTENING_CARD_RECIPE.md`
-- **Family cell narrative sequence** (1 connections) — `docs/LISTENING_CARD_ART_SPEC.md`
 - **Sound ripple convention** (1 connections) — `docs/LISTENING_CARD_ART_SPEC.md`
-- **Canonical samples (plum, bamboo, A1Arrival)** (1 connections) — `docs/LISTENING_CARD_RECIPE.md`
 - **Seedream V4.5 generation parameters** (1 connections) — `docs/LISTENING_CARD_RECIPE.md`
+- **Canonical samples (plum, bamboo, A1Arrival)** (1 connections) — `docs/LISTENING_CARD_RECIPE.md`
+- **Family cell narrative sequence** (1 connections) — `docs/LISTENING_CARD_ART_SPEC.md`
 
 ## Relationships
 

@@ -187,6 +187,9 @@
       },
       {
         "id": "quest_workload_allocation_hidden_labor_03",
+        "conceptIds": [
+          "concept_c1_intimacy_safety"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "조정 업무도 업무표에 넣고 회의마다 담당을 바꾸면 어떨까요?",

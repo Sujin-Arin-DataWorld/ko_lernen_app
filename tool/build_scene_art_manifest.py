@@ -46,21 +46,21 @@ CATEGORY_ORDER = [
 ]
 LEVEL_ORDER = ["a1", "a2", "b1", "b2", "c1", "c2"]
 EXPECTED_CATEGORY_COUNTS = {
-    "office": 172,
-    "home": 86,
-    "cafe": 36,
-    "station": 27,
-    "market": 22,
+    "office": 38,
+    "home": 44,
+    "cafe": 9,
+    "station": 9,
+    "market": 4,
     "theme_park": 6,
-    "convenience": 14,
-    "restaurant": 13,
-    "pharmacy": 9,
-    "directions": 8,
-    "hotel": 8,
-    "taxi": 7,
-    "airport": 5,
-    "bank": 3,
-    "salon": 3,
+    "convenience": 1,
+    "restaurant": 5,
+    "pharmacy": 1,
+    "directions": 5,
+    "hotel": 1,
+    "taxi": 2,
+    "airport": 1,
+    "bank": 0,
+    "salon": 0,
 }
 
 CATEGORY_SETTING_KO = {
@@ -366,6 +366,7 @@ def build_manifest(
     root: Path | str = ROOT,
     *,
     generation_overrides: Optional[Mapping[str, Mapping[str, object]]] = None,
+    drop_unknown_generation_overrides: bool = False,
 ) -> dict:
     project_root = Path(root)
     scene_family = _load_scene_style_family(project_root)
@@ -477,8 +478,10 @@ def build_manifest(
     overrides = dict(generation_overrides or {})
     known_ids = {row["id"] for row in prepared}
     unknown_ids = sorted(set(overrides) - known_ids)
-    if unknown_ids:
+    if unknown_ids and not drop_unknown_generation_overrides:
         raise ValueError(f"Generation override references unknown scenario IDs: {unknown_ids}")
+    for scenario_id in unknown_ids:
+        overrides.pop(scenario_id, None)
     for row in prepared:
         override = overrides.get(row["id"])
         if override is None:
@@ -751,7 +754,11 @@ def main(argv: Optional[list[str]] = None) -> int:
     output_path = _resolve_output(args.output)
     try:
         overrides = _load_generation_overrides(output_path)
-        manifest = build_manifest(ROOT, generation_overrides=overrides)
+        manifest = build_manifest(
+            ROOT,
+            generation_overrides=overrides,
+            drop_unknown_generation_overrides=True,
+        )
         if args.record_result:
             if args.check:
                 raise ValueError("--record-result cannot be combined with --check")

@@ -193,6 +193,9 @@
       },
       {
         "id": "quest_ai_hiring_appeal_03",
+        "conceptIds": [
+          "concept_c2_automation_redress"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "그렇다면 모든 결정을 다시 하지 않으면서도 다툴 수 있는 기준이 필요하겠군요.",

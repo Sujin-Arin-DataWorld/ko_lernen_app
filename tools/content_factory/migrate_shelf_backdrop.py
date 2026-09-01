@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""live 264 개에 shelf/backdrop 을 소급 부여하고 레벨 샤드로 분할한다.
+"""Legacy scenarios에 shelf/backdrop을 소급 부여하고 레벨 샤드로 분할한다.
 
 문장·ID·레벨은 건드리지 않는다 (스펙 §5.4).  네 지표
 (DUPES/ORPHANS/GHOSTS/WRONG LEVEL) 와 backdrop 커버리지 중 하나라도
@@ -20,7 +20,7 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import scenario_store
-from shelf_assignment import SHELF_BY_ID, check_assignment
+from shelf_assignment import ALL_SHELVES, SHELF_BY_ID
 
 ROOT = Path(__file__).resolve().parents[2]
 BASELINE_RELATIVE = Path("test") / "fixtures" / "backdrop_baseline.json"
@@ -60,7 +60,34 @@ def plan_migration(
     }
     resolved = {**carried, **baseline}
 
-    report = check_assignment(levels)
+    seen: dict[str, int] = {}
+    resolved_shelves: dict[str, str] = {}
+    unknown_shelf: list[str] = []
+    for item in scenarios:
+        scenario_id = str(item.get("id") or "")
+        seen[scenario_id] = seen.get(scenario_id, 0) + 1
+        explicit = str(item.get("shelf") or "").strip()
+        if explicit:
+            if explicit in ALL_SHELVES:
+                resolved_shelves[scenario_id] = explicit
+            else:
+                unknown_shelf.append(scenario_id)
+        elif scenario_id in SHELF_BY_ID:
+            resolved_shelves[scenario_id] = SHELF_BY_ID[scenario_id]
+
+    report = {
+        "dupes": sorted(key for key, count in seen.items() if count > 1),
+        "orphans": sorted(set(levels) - set(resolved_shelves)),
+        # The legacy appendix is intentionally a superset after the canonical
+        # cut-over; absent retired IDs are lineage, not ghosts in this input.
+        "ghosts": [],
+        "wrong_level": sorted(
+            scenario_id
+            for scenario_id, shelf in resolved_shelves.items()
+            if levels.get(scenario_id) != shelf.split("_", 1)[0]
+        ),
+        "unknown_shelf": sorted(unknown_shelf),
+    }
     report["missing_backdrop"] = sorted(
         scenario_id for scenario_id in levels if scenario_id not in resolved
     )
@@ -76,7 +103,7 @@ def plan_migration(
     for item in scenarios:
         scenario_id = str(item["id"])
         copied = dict(item)
-        copied["shelf"] = SHELF_BY_ID[scenario_id]
+        copied["shelf"] = resolved_shelves[scenario_id]
         copied["backdrop"] = resolved[scenario_id]
         migrated.append(copied)
     return migrated, report

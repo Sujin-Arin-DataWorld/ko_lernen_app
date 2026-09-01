@@ -187,6 +187,10 @@
       },
       {
         "id": "quest_mart_grocery_03",
+        "conceptIds": [
+          "concept_topic_particle",
+          "concept_subject_particle"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "그럼 이거예요?",

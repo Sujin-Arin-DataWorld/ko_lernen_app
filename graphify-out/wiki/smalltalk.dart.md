@@ -34,10 +34,11 @@
 ## Relationships
 
 - [grammar_screen.dart](grammar_screen.dart.md) (4 shared connections)
-- [List](List.md) (3 shared connections)
+- [bool get](bool_get.md) (2 shared connections)
+- [List](List.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (1 shared connections)
 - [vocab.dart](vocab.dart.md) (1 shared connections)
-- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (1 shared connections)
 - [course_checkpoint_questions.dart](course_checkpoint_questions.dart.md) (1 shared connections)
 
 ## Source Files

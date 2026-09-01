@@ -1,6 +1,6 @@
 # Task 6 Report: Restore, English Book Analysis, and TTS Playback Rate
 
-> 18 nodes · cohesion 0.12
+> 20 nodes · cohesion 0.10
 
 ## Key Concepts
 
@@ -8,14 +8,16 @@
 - **TDD Evidence** (7 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-6-report.md`
 - **Async Playback and Lifecycle Remediation** (3 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-6-report.md`
 - **Review Remediation TDD Evidence** (3 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-6-report.md`
-- **GREEN** (2 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-6-report.md`
-- **RED** (2 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-6-report.md`
 - **2026-07-29-release-hardening/task-6-report.md** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-6-report.md`
 - **Files Changed** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-6-report.md`
 - **Final Verification** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-6-report.md`
+- **GREEN** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-6-report.md`
+- **GREEN** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-6-report.md`
 - **Language GREEN** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-6-report.md`
 - **Language RED** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-6-report.md`
 - **Outcome** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-6-report.md`
+- **RED** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-6-report.md`
+- **RED** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-6-report.md`
 - **Restore Field Audit** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-6-report.md`
 - **Restore GREEN** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-6-report.md`
 - **Restore RED** (1 connections) — `.superpowers/sdd/2026-07-29-release-hardening/task-6-report.md`

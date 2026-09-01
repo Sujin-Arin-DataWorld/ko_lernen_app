@@ -78,7 +78,8 @@ void main() {
     final fixture = await _fixture();
     final service = CourseMasteryService(fixture.curriculum);
     await service.applyReconciledSnapshot(
-      const CourseMasterySnapshot(
+      CourseMasterySnapshot(
+        curriculumGeneration: fixture.curriculum.scenarioCorpusGeneration,
         placementLevel: 'a1',
         completedUnitIds: ['a1_01_greetings_hangul'],
       ),
@@ -109,7 +110,8 @@ void main() {
     final fixture = await _fixture();
     final service = CourseMasteryService(fixture.curriculum);
     await service.applyReconciledSnapshot(
-      const CourseMasterySnapshot(
+      CourseMasterySnapshot(
+        curriculumGeneration: fixture.curriculum.scenarioCorpusGeneration,
         placementLevel: 'a1',
         completedUnitIds: ['a1_01_greetings_hangul'],
       ),
@@ -128,6 +130,7 @@ void main() {
       segmentCatalog: fixture.segments,
     );
     final archived = CourseMasterySnapshot(
+      curriculumGeneration: fixture.curriculum.scenarioCorpusGeneration,
       archivedProductiveEvidence: update.snapshot.productiveEvidence,
     );
 
@@ -142,7 +145,8 @@ void main() {
     final fixture = await _fixture();
     final service = CourseMasteryService(fixture.curriculum);
     await service.applyReconciledSnapshot(
-      const CourseMasterySnapshot(
+      CourseMasterySnapshot(
+        curriculumGeneration: fixture.curriculum.scenarioCorpusGeneration,
         placementLevel: 'a1',
         completedUnitIds: [
           'a1_01_greetings_hangul',
@@ -202,7 +206,8 @@ void main() {
       final fixture = await _fixture();
       final service = CourseMasteryService(fixture.curriculum);
       await service.applyReconciledSnapshot(
-        const CourseMasterySnapshot(
+        CourseMasterySnapshot(
+          curriculumGeneration: fixture.curriculum.scenarioCorpusGeneration,
           placementLevel: 'a1',
           completedUnitIds: ['a1_01_greetings_hangul'],
         ),

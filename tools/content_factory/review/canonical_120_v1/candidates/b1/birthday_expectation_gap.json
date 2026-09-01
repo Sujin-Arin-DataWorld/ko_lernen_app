@@ -56,7 +56,7 @@
         "korean": "저는 제 계획이 싫다는 뜻인 줄 알았어요.",
         "note": {
           "ko": "장면 핵심 표현",
-          "de": "Ich dachte, du fändest gerade meinen Plan unangenehm.",
+          "de": "Ich dachte, du wolltest sagen, dass dir mein Plan nicht gefällt.",
           "en": "I thought you specifically didn't like my plan."
         }
       },
@@ -118,7 +118,7 @@
       {
         "speaker": "sujin",
         "ko": "저는 제 계획이 싫다는 뜻인 줄 알았어요.",
-        "de": "Ich dachte, du fändest gerade meinen Plan unangenehm.",
+        "de": "Ich dachte, du wolltest sagen, dass dir mein Plan nicht gefällt.",
         "en": "I thought you specifically didn't like my plan."
       },
       {
@@ -154,7 +154,7 @@
               "en": "Large gatherings just tire me out a bit."
             },
             {
-              "de": "Ich dachte, du fändest gerade meinen Plan unangenehm.",
+              "de": "Ich dachte, du wolltest sagen, dass dir mein Plan nicht gefällt.",
               "en": "I thought you specifically didn't like my plan."
             }
           ],
@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_birthday_expectation_gap_03",
+        "conceptIds": [
+          "concept_b1_reasons_experience"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "수진이랑 저녁 먹는 건 정말 좋아요.",

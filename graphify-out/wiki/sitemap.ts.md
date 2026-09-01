@@ -4,8 +4,8 @@
 
 ## Key Concepts
 
-- **sitemap.ts** (1 connections) — `hangul-sori-site-local/app/sitemap.ts`
 - **sitemap()** (1 connections) — `hangul-sori-site-local/app/sitemap.ts`
+- **sitemap.ts** (1 connections) — `hangul-sori-site-local/app/sitemap.ts`
 
 ## Relationships
 

@@ -4,11 +4,11 @@
 
 ## Key Concepts
 
-- **deletion_gye_page.js** (14 connections) — `functions/gye/deletion_gye_page.js`
 - **cleanupPage()** (14 connections) — `functions/gye/deletion_gye_page.js`
+- **deletion_gye_page.js** (14 connections) — `functions/gye/deletion_gye_page.js`
 - **createGyeDeletionPageCleaner()** (11 connections) — `functions/gye/deletion_gye_page.js`
-- **gye_dedication_cleanup.js** (9 connections) — `functions/gye/gye_dedication_cleanup.js`
 - **deleteGyeDedicationForMembership()** (9 connections) — `functions/gye/gye_dedication_cleanup.js`
+- **gye_dedication_cleanup.js** (9 connections) — `functions/gye/gye_dedication_cleanup.js`
 - **joinEpochFrom()** (5 connections) — `functions/gye/gye_dedication_cleanup.js`
 - **currentTarget()** (4 connections) — `functions/gye/deletion_gye_page.js`
 - **writeState()** (3 connections) — `functions/gye/deletion_gye_page.js`
@@ -16,7 +16,6 @@
 - **pageFailure()** (3 connections) — `functions/gye/deletion_gye_page.js`
 - **validJoinEpoch()** (3 connections) — `functions/gye/gye_dedication_cleanup.js`
 - **boundedPageSize()** (2 connections) — `functions/gye/deletion_gye_page.js`
-- **CONTENT_STAGES** (2 connections) — `functions/gye/deletion_gye_page.js`
 - **contentFields()** (2 connections) — `functions/gye/deletion_gye_page.js`
 - **nextState()** (2 connections) — `functions/gye/deletion_gye_page.js`
 - **queryPage()** (2 connections) — `functions/gye/deletion_gye_page.js`
@@ -26,10 +25,14 @@
 - **belongsToMembership()** (2 connections) — `functions/gye/gye_dedication_cleanup.js`
 - **validMembershipId()** (2 connections) — `functions/gye/gye_dedication_cleanup.js`
 - **validUid()** (2 connections) — `functions/gye/gye_dedication_cleanup.js`
+- **CONTENT_STAGES** (2 connections) — `functions/gye/deletion_gye_page.js`
 - **DELETE_COLLECTIONS** (1 connections) — `functions/gye/deletion_gye_page.js`
-- **{
-  deleteGyeDedicationForMembership,
-  joinEpochFrom,
+- **{
+
+  deleteGyeDedicationForMembership,
+
+  joinEpochFrom,
+
 }** (1 connections) — `functions/gye/deletion_gye_page.js`
 
 ## Relationships

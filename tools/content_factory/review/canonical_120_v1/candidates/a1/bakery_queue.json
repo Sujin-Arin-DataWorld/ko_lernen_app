@@ -186,6 +186,9 @@
       },
       {
         "id": "quest_bakery_queue_03",
+        "conceptIds": [
+          "concept_a1_clarification"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "네, 뒤에 설게요.",

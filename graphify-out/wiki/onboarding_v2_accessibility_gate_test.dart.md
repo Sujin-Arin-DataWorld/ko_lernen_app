@@ -1,22 +1,16 @@
 # onboarding_v2_accessibility_gate_test.dart
 
-> 37 nodes · cohesion 0.06
+> 31 nodes · cohesion 0.06
 
 ## Key Concepts
 
 - **onboarding_v2_accessibility_gate_test.dart** (49 connections) — `test/onboarding_v2_accessibility_gate_test.dart`
-- **package:ko_lernen_app/models/guide_contract.dart** (11 connections)
-- **scenario_destination_resolver_test.dart** (7 connections) — `test/features/guide/scenario_destination_resolver_test.dart`
-- **guide_progress_service_test.dart** (6 connections) — `test/features/guide/guide_progress_service_test.dart`
-- **package:ko_lernen_app/features/guide/guide_runtime.dart** (5 connections)
-- **package:ko_lernen_app/features/guide/guide_progress_service.dart** (4 connections)
-- **guide_runtime_contract_test.dart** (4 connections) — `test/features/guide/guide_runtime_contract_test.dart`
+- **StudyLibraryBookshelfReader** (5 connections) — `lib/features/study_library/study_library_repository.dart`
+- **ProductionStudyLibraryBookshelfReader** (2 connections) — `lib/features/study_library/study_library_production_adapters.dart`
 - **package:ko_lernen_app/screens/study_library_screen.dart** (2 connections)
-- **createService** (1 connections) — `test/features/guide/guide_progress_service_test.dart`
-- **main** (1 connections) — `test/features/guide/guide_progress_service_test.dart`
-- **main** (1 connections) — `test/features/guide/guide_runtime_contract_test.dart`
-- **main** (1 connections) — `test/features/guide/scenario_destination_resolver_test.dart`
-- **_topic** (1 connections) — `test/features/guide/scenario_destination_resolver_test.dart`
+- **_BookshelfReader** (2 connections) — `test/features/study_library/study_library_repository_test.dart`
+- **_BookshelfReader** (2 connections) — `test/features/study_library/study_library_screen_test.dart`
+- **_BookshelfReader** (2 connections) — `test/onboarding_v2_accessibility_gate_test.dart`
 - **bookmarkRecord** (1 connections) — `test/onboarding_v2_accessibility_gate_test.dart`
 - **data** (1 connections) — `test/onboarding_v2_accessibility_gate_test.dart`
 - **_expect48DpButton** (1 connections) — `test/onboarding_v2_accessibility_gate_test.dart`
@@ -29,33 +23,39 @@
 - **main** (1 connections) — `test/onboarding_v2_accessibility_gate_test.dart`
 - **_memoryBookmarkStore** (1 connections) — `test/onboarding_v2_accessibility_gate_test.dart`
 - **_phoneSafeInsets** (1 connections) — `test/onboarding_v2_accessibility_gate_test.dart`
-- *... and 12 more nodes in this community*
+- **raw** (1 connections) — `test/onboarding_v2_accessibility_gate_test.dart`
+- **readBookmarks** (1 connections) — `test/onboarding_v2_accessibility_gate_test.dart`
+- **readBookshelfItems** (1 connections) — `test/onboarding_v2_accessibility_gate_test.dart`
+- **readCustomPackItems** (1 connections) — `test/onboarding_v2_accessibility_gate_test.dart`
+- **readLiked** (1 connections) — `test/onboarding_v2_accessibility_gate_test.dart`
+- **readSrsRecords** (1 connections) — `test/onboarding_v2_accessibility_gate_test.dart`
+- *... and 6 more nodes in this community*
 
 ## Relationships
 
-- [guide_topic_detail_test.dart](guide_topic_detail_test.dart.md) (5 shared connections)
-- [entry_onboarding_uiux_test.dart](entry_onboarding_uiux_test.dart.md) (5 shared connections)
+- [_](_.md) (6 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (6 shared connections)
 - [guide_ui_test.dart](guide_ui_test.dart.md) (4 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (4 shared connections)
-- [course_mastery_test.dart](course_mastery_test.dart.md) (3 shared connections)
-- [study_library_repository_test.dart](study_library_repository_test.dart.md) (3 shared connections)
 - [study_library_screen_test.dart](study_library_screen_test.dart.md) (2 shared connections)
-- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (2 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
 - [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (2 shared connections)
-- [analytics_service_test.dart](analytics_service_test.dart.md) (1 shared connections)
-- [circular_feedback_widget_test.dart](circular_feedback_widget_test.dart.md) (1 shared connections)
+- [responsive_screens.dart](responsive_screens.dart.md) (2 shared connections)
+- [grammar_screen.dart](grammar_screen.dart.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
+- [guide_contract.dart](guide_contract.dart.md) (1 shared connections)
+- [vocab_notebook_studio_screen_test.dart](vocab_notebook_studio_screen_test.dart.md) (1 shared connections)
 
 ## Source Files
 
-- `test/features/guide/guide_progress_service_test.dart`
-- `test/features/guide/guide_runtime_contract_test.dart`
-- `test/features/guide/scenario_destination_resolver_test.dart`
+- `lib/features/study_library/study_library_production_adapters.dart`
+- `lib/features/study_library/study_library_repository.dart`
+- `test/features/study_library/study_library_repository_test.dart`
+- `test/features/study_library/study_library_screen_test.dart`
 - `test/onboarding_v2_accessibility_gate_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 78 (100%)
+- EXTRACTED: 58 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

@@ -6,7 +6,7 @@
 
 - **scenario_writing_check_service_test.dart** (25 connections) — `test/scenario_writing_check_service_test.dart`
 - **korean_proofreading_service_test.dart** (7 connections) — `test/korean_proofreading_service_test.dart`
-- **KoreanProofreadingResult** (4 connections) — `lib/services/korean_proofreading_service.dart`
+- **KoreanProofreadingAvailability** (4 connections) — `lib/services/korean_proofreading_service.dart`
 - **package:ko_lernen_app/services/korean_proofreading_service.dart** (3 connections)
 - **package:ko_lernen_app/services/scenario_writing_check_service.dart** (2 connections)
 - **channel** (1 connections) — `test/korean_proofreading_service_test.dart`
@@ -34,13 +34,13 @@
 
 - [scenario_write_after_roleplay_card_test.dart](scenario_write_after_roleplay_card_test.dart.md) (4 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
-- [onboarding_v2_presentation.dart](onboarding_v2_presentation.dart.md) (1 shared connections)
+- [@immutable](@immutable.md) (1 shared connections)
 - [korean_proofreading_service.dart](korean_proofreading_service.dart.md) (1 shared connections)
 - [dart:async](dart-async.md) (1 shared connections)
-- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
 - [scenario_writing_check_service.dart](scenario_writing_check_service.dart.md) (1 shared connections)
-- [course_mastery_test.dart](course_mastery_test.dart.md) (1 shared connections)
+- [package:ko_lernen_app/models/scenario.dart](package-ko_lernen_app-models-scenario.dart.md) (1 shared connections)
 
 ## Source Files
 

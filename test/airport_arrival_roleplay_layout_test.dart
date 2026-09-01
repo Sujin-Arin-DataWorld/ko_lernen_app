@@ -79,7 +79,7 @@ void main() {
       late Scenario meeting;
       await tester.runAsync(() async {
         await ScenarioLoader.load();
-        meeting = ScenarioLoader.byId('business_meeting_intro')!;
+        meeting = ScenarioLoader.byId('meeting_opening_context')!;
       });
 
       await tester.pumpWidget(
@@ -107,11 +107,12 @@ void main() {
       expect(find.text('Deine Antwort bauen'), findsOneWidget);
       expect(find.text('Rollenspiel'), findsOneWidget);
       expect(
-        find.textContaining('Darf ich Ihnen meine Visitenkarte überreichen?'),
+        find.textContaining(
+          'Ich bin heute zum ersten Mal dabei und würde gern kurz etwas klären.',
+        ),
         findsOneWidget,
       );
       expect(find.text('Erneut anhören'), findsOneWidget);
-      expect(find.text('1 von 3'), findsOneWidget);
       expect(find.byKey(const ValueKey('quest-submit')), findsOneWidget);
 
       final buttonRect = tester.getRect(
@@ -134,7 +135,7 @@ void main() {
       late Scenario meeting;
       await tester.runAsync(() async {
         await ScenarioLoader.load();
-        meeting = ScenarioLoader.byId('business_meeting_intro')!;
+        meeting = ScenarioLoader.byId('meeting_opening_context')!;
       });
 
       await tester.pumpWidget(

@@ -187,6 +187,9 @@
       },
       {
         "id": "quest_heatwave_shelter_access_03",
+        "conceptIds": [
+          "concept_c1_inclusive_systems"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "시설 수에 국한하면 지금 막히는 시간과 이동 경로가 보이지 않습니다.",

@@ -31,18 +31,20 @@ class MigrationPlanTest(unittest.TestCase):
         self.assertEqual(report["orphans"], [])
         self.assertEqual(report["ghosts"], [])
         self.assertEqual(report["wrong_level"], [])
+        self.assertEqual(report["unknown_shelf"], [])
         self.assertEqual(report["missing_backdrop"], [])
         self.assertEqual(report["unknown_backdrop"], [])
-        # 264(마이그레이션 당시)에서 Batch 11-20 승격분까지 누적됐다.
-        self.assertEqual(len(migrated), 419)
+        self.assertEqual(len(migrated), 126)
 
     def test_every_scenario_gets_both_fields(self) -> None:
         migrated, _ = migrate.plan_migration(self.scenarios, self.baseline)
         carried = {
             str(item["id"]): item.get("backdrop") for item in self.scenarios
         }
+        before_by_id = {str(item["id"]): item for item in self.scenarios}
         for item in migrated:
-            self.assertEqual(item["shelf"], SHELF_BY_ID[item["id"]])
+            expected_shelf = before_by_id[item["id"]].get("shelf") or SHELF_BY_ID[item["id"]]
+            self.assertEqual(item["shelf"], expected_shelf)
             # 기준선은 264 에서 동결이다.  거기 있는 id 는 기준선이 이기고,
             # 이후 승격분은 레코드가 달고 온 값을 그대로 쓴다.
             expected = self.baseline.get(item["id"]) or carried[item["id"]]

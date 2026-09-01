@@ -1,13 +1,12 @@
 # shelf_case.dart
 
-> 57 nodes · cohesion 0.04
+> 56 nodes · cohesion 0.04
 
 ## Key Concepts
 
 - **shelf_case.dart** (77 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
 - **_CellGround** (2 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
 - **_CellTag** (2 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
-- **ChaekgadoCompartment** (2 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
 - **_Compartment** (2 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
 - **_CompletionStamp** (2 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
 - **_Pillar** (2 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
@@ -29,20 +28,21 @@
 - **data** (1 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
 - **emptyLabel** (1 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
 - **_fallback** (1 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
-- *... and 32 more nodes in this community*
+- **firstIndex** (1 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
+- *... and 31 more nodes in this community*
 
 ## Relationships
 
-- [StatelessWidget](StatelessWidget.md) (8 shared connections)
-- [CustomPainter](CustomPainter.md) (4 shared connections)
-- [List](List.md) (2 shared connections)
-- [String?](String_.md) (2 shared connections)
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (2 shared connections)
-- [book_preview_screen.dart](book_preview_screen.dart.md) (2 shared connections)
+- [StatelessWidget](StatelessWidget.md) (9 shared connections)
+- [String?](String_.md) (4 shared connections)
+- [CustomPainter](CustomPainter.md) (3 shared connections)
+- [scroll_sheet.dart](scroll_sheet.dart.md) (2 shared connections)
+- [bool get](bool_get.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
 - [scroll_palette.dart](scroll_palette.dart.md) (1 shared connections)
-- [swipe_rails.dart](swipe_rails.dart.md) (1 shared connections)
+- [static const double](static_const_double.md) (1 shared connections)
 - [book_analysis_service.dart](book_analysis_service.dart.md) (1 shared connections)
-- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (1 shared connections)
+- [@immutable](@immutable.md) (1 shared connections)
 - [listening_shelf_route_test.dart](listening_shelf_route_test.dart.md) (1 shared connections)
 - [vocab_pack_result_screen.dart](vocab_pack_result_screen.dart.md) (1 shared connections)
 
@@ -52,7 +52,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 86 (100%)
+- EXTRACTED: 85 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

@@ -25,6 +25,7 @@ void main() {
   ) async {
     final catalog = await _loadCatalog(tester);
     final snapshot = CourseMasterySnapshot(
+      curriculumGeneration: catalog.scenarioCorpusGeneration,
       placementLevel: 'a1',
       completedUnitIds: catalog.courseUnits.map((unit) => unit.id).toList(),
     );
@@ -71,6 +72,7 @@ void main() {
     final catalog = await _loadCatalog(tester);
     final firstUnit = catalog.courseUnits.first;
     final snapshot = CourseMasterySnapshot(
+      curriculumGeneration: catalog.scenarioCorpusGeneration,
       placementLevel: 'a1',
       completedUnitIds: catalog.courseUnits.map((unit) => unit.id).toList(),
     );
@@ -116,6 +118,7 @@ void main() {
       final catalog = await CurriculumCatalog.load();
       final canonical = jsonEncode(
         CourseMasterySnapshot(
+          curriculumGeneration: catalog.scenarioCorpusGeneration,
           placementLevel: 'a1',
           completedUnitIds: catalog.courseUnits.map((unit) => unit.id).toList(),
         ).toJson(),

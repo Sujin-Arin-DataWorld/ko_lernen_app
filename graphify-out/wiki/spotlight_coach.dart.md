@@ -1,12 +1,10 @@
 # spotlight_coach.dart
 
-> 60 nodes · cohesion 0.03
+> 58 nodes · cohesion 0.03
 
 ## Key Concepts
 
 - **spotlight_coach.dart** (73 connections) — `lib/widgets/sori/spotlight_coach.dart`
-- **_SpotlightLayerState** (4 connections) — `lib/widgets/sori/spotlight_coach.dart`
-- **_SpotlightLayer** (3 connections) — `lib/widgets/sori/spotlight_coach.dart`
 - **_CoachTooltip** (2 connections) — `lib/widgets/sori/spotlight_coach.dart`
 - **_CoachTooltipLayout** (2 connections) — `lib/widgets/sori/spotlight_coach.dart`
 - **body** (1 connections) — `lib/widgets/sori/spotlight_coach.dart`
@@ -29,22 +27,23 @@
 - **icon** (1 connections) — `lib/widgets/sori/spotlight_coach.dart`
 - **initState** (1 connections) — `lib/widgets/sori/spotlight_coach.dart`
 - **kEdgeBandFraction** (1 connections) — `lib/widgets/sori/spotlight_coach.dart`
-- *... and 35 more nodes in this community*
+- **kGap** (1 connections) — `lib/widgets/sori/spotlight_coach.dart`
+- **kMargin** (1 connections) — `lib/widgets/sori/spotlight_coach.dart`
+- *... and 33 more nodes in this community*
 
 ## Relationships
 
-- [../../l10n/generated/app_localizations.dart](-..-l10n-generated-app_localizations.dart.md) (4 shared connections)
-- [List](List.md) (2 shared connections)
-- [StatefulWidget](StatefulWidget.md) (2 shared connections)
-- [pressable.dart](pressable.dart.md) (1 shared connections)
-- [dart:async](dart-async.md) (1 shared connections)
-- [Color](Color.md) (1 shared connections)
-- [String?](String_.md) (1 shared connections)
-- [ildu_turntable_catalog.dart](ildu_turntable_catalog.dart.md) (1 shared connections)
-- [swipe_rails.dart](swipe_rails.dart.md) (1 shared connections)
-- [CustomPainter](CustomPainter.md) (1 shared connections)
+- [String?](String_.md) (6 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
+- [_State](_State.md) (2 shared connections)
+- [app_error.dart](app_error.dart.md) (1 shared connections)
 - [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
+- [ildu_turntable_catalog.dart](ildu_turntable_catalog.dart.md) (1 shared connections)
+- [static const double](static_const_double.md) (1 shared connections)
+- [CustomPainter](CustomPainter.md) (1 shared connections)
+- [dart:math](dart-math.md) (1 shared connections)
+- [StatelessWidget](StatelessWidget.md) (1 shared connections)
 
 ## Source Files
 
@@ -52,7 +51,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 79 (100%)
+- EXTRACTED: 75 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

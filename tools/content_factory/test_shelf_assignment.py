@@ -49,15 +49,17 @@ class ShelfAssignmentTest(unittest.TestCase):
 
     def test_assignment_covers_the_live_corpus_exactly(self) -> None:
         live = _live_levels()
-        self.assertEqual(len(live), 419)
-        report = check_assignment(live)
-        self.assertEqual(report["dupes"], [])
-        self.assertEqual(report["orphans"], [])
-        self.assertEqual(report["ghosts"], [])
-        self.assertEqual(report["wrong_level"], [])
+        scenarios = scenario_store.load_scenarios(DATA)
+        self.assertEqual(len(live), 126)
+        for item in scenarios:
+            shelf = str(item.get("shelf") or "")
+            self.assertIn(shelf, ALL_SHELVES, item["id"])
+            self.assertTrue(shelf.startswith(f"{item['level']}_"), item["id"])
 
     def test_assigned_shelves_are_declared_shelves(self) -> None:
         self.assertTrue(set(ASSIGNMENT).issubset(ALL_SHELVES))
+        # The appendix remains an immutable migration map for the retired
+        # legacy corpus; current canonical scenarios carry their own shelf.
         self.assertEqual(len(SHELF_BY_ID), 419)
 
     def test_interest_shelves_are_stocked_at_every_level(self) -> None:
