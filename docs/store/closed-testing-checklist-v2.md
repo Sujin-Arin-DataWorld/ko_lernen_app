@@ -4,8 +4,11 @@
 > docs/store/RELEASE_QA_CHECKLIST.md를 함께 사용한다. 이전 v2.0 alpha의
 > 5–10명, 1주, 61팩 수치는 역사 기록일 뿐 이번 후보의 기준이 아니다.
 >
-> 이번 대상은 Android 비공개 베타, **10명 이상, 14일**이다. iOS 출시, 새 학습 기능,
-> SRS 스케줄 재설계, 새 telemetry는 이 절차에 포함하지 않는다.
+> 이번 대상은 Android 비공개 베타다. 2023-11-13 이후 생성된 개인 개발자 계정에는
+> Google의 현재 최소 조건인 **12명 이상 연속 opt-in, 14일**을 적용한다. 계정 유형이나
+> Play Console Dashboard가 더 강한 조건을 표시하면 그 값을 따른다. iOS 출시, 새 학습
+> 기능, SRS 스케줄 재설계, 새 telemetry는 이 절차에 포함하지 않는다. 기준 출처는
+> [Google Play Console Help](https://support.google.com/googleplay/android-developer/answer/14151465)다.
 
 ## 0. 후보 기록과 중단 조건
 
@@ -182,8 +185,9 @@ Crashlytics의 “새 크래시 없음”은 동의한 tester 범위에서만 �
 pack_completed, quiz_completed, Crashlytics, Tiger Pulse만 사용하고 새 이벤트나
 debug SRS 화면을 추가하지 않는다.
 
-Internal 항목이 통과하면 opt-in 링크와 release notes를 준비해 Closed Testing으로
-승격한다. 테스터용 설치 및 개인정보 안내는 BETA_INSTALL_GUIDE.md를 보낸다.
+Internal 항목이 통과하면 exact main SHA로 Closed 전용 workflow를 명시 실행하고,
+Play Console에서 처리·게시된 alpha release를 확인한 뒤 opt-in 링크와 release notes를
+공유한다. 테스터용 설치 및 개인정보 안내는 BETA_INSTALL_GUIDE.md를 보낸다.
 
 ## 4. 14일 Closed Testing 배정
 
@@ -195,8 +199,9 @@ Internal 항목이 통과하면 opt-in 링크와 release notes를 준비해 Clos
 | 기존 설치 위 업데이트 | 2 | 업데이트 전 데이터를 보존한 뒤 재실행과 pack progress 유지 |
 | 기기·접근성 매트릭스 | 나머지 | Android 버전·화면 크기·130–150% 글자·회전·분할 화면 |
 
-한 tester가 둘 이상의 조건을 맡을 수 있지만, 10명 이상이 opt-in하고 실제 핵심 흐름을
-완료해야 한다. roster에는 계정 종류, 기기, Android 버전, 담당 조건과 함께
+한 tester가 둘 이상의 조건을 맡을 수 있지만, 적용 대상 계정은 12명 이상이 14일
+연속 opt-in하고 실제 핵심 흐름을 완료해야 한다. roster에는 계정 종류, 기기,
+Android 버전, 담당 조건과 함께
 **invited / opted-in / core-flow-complete / update-preservation-complete /
 device-matrix-complete** 상태만 최소한으로 기록한다. 이름, 이메일, 학습 답안은 roster에
 넣지 않는다.
@@ -246,14 +251,14 @@ Closed Testing 종료일에 아래가 모두 참일 때만 Phase 5를 닫는다.
 
 - [ ] P0 미해결 0
 - [ ] P1 미해결 0
-- [ ] 10명 이상이 opt-in하고 핵심 pack 흐름을 완료함
+- [ ] 적용 대상이면 12명 이상이 14일 연속 opt-in했고, 핵심 pack 흐름을 완료함
 - [ ] 새 계정 또는 새 앱 데이터 핵심 흐름 완료 4명 이상
 - [ ] 기존 설치 업데이트 보존 완료 2명 이상
 - [ ] 나머지 배정의 Android 버전·화면 크기·130–150% 글자·회전·분할 화면 매트릭스가 완료됨
 - [ ] 동의 범위의 Crashlytics에 새 학습 흐름 크래시가 없음
 - [ ] tester feedback이 P0/P1/P2로 분류됨
-- [ ] release commit, versionCode, AAB SHA, 기간, 결과가 docs/SESSION_LOG.md와
-  AGENTS.md의 진행 체크리스트에 반영됨
+- [ ] release commit, versionCode, AAB SHA, 기간, 결과가 PR/릴리스 증거와
+  AGENTS.md의 진행 체크리스트에 반영됨(`docs/SESSION_LOG.md`에는 신규 기록 금지)
 
 14일 결과를 본 뒤에만 Learning Phase 6을 계획한다. 회상 CTA의 사용성, 오답 패턴,
 tester 피드백이 충분할 때만 active recall의 빈도나 스케줄을 논의한다. Boss를

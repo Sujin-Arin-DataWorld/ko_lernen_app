@@ -20,7 +20,7 @@
   asset/minify/crash를 확인했다.
 - [ ] 첫 pack에서 모든 Learn 카드 노출 → Quiz/Boss shuffled order → 70% clear → 다음 pack
   unlock → 재실행 보존을 확인했다.
-- [ ] 10명 이상, 14일의 Closed Testing 배정과 P0/P1/P2 트리아지가 진행 중이다.
+- [ ] 적용 대상 계정은 12명 이상이 14일 연속 opt-in했고 P0/P1/P2 트리아지가 진행 중이다.
 - [ ] Boss를 recognition assessment로, typing recall을 optional practice로 안내한다.
 
 ---

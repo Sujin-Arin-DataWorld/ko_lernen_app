@@ -38,6 +38,13 @@ Privacy, support, deletion, signing, device testing, TestFlight, and App
 Review completion are external evidence, not claims made true by these source
 files.
 
+## Firebase and Google Cloud production gates
+
+Use [firebase-backend-release-gates.md](firebase-backend-release-gates.md) to
+keep TTS, Gye/account deletion, pronunciation, Auth cleanup, and Book Gen2 in
+their separate deployment units. Source tests or a green app workflow do not
+prove that any backend is live.
+
 ## Google Play Console
 
 Use the localized listing files above with the Android-specific documents:

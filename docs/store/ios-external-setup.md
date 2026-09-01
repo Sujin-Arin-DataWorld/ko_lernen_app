@@ -1,21 +1,28 @@
 # iOS external release setup
 
-The checked-in iOS project is intentionally credential-free. Its production bundle identifier is exactly:
+The checked-in iOS project intentionally contains the non-secret Firebase app
+configuration and Apple team identifier required for Xcode Cloud clean-clone
+archives. It does not contain the private signing or distribution credentials.
+Its production bundle identifier is exactly:
 
 ```text
 com.sujinarin.koLernenApp
 ```
 
-Do not replace it with a lowercase variant. Do not commit an Apple team ID, provisioning profile UUID, `GoogleService-Info.plist`, Google client ID or reversed-client-ID URL scheme, APNs private key, or RevenueCat API key.
+Do not replace it with a lowercase variant. The current Apple team ID,
+`GoogleService-Info.plist`, Google client ID, and reversed-client-ID URL scheme
+are intentionally tracked non-secret identifiers; do not rotate or replace them
+without release-owner approval. Never commit signing certificates, provisioning
+profiles, App Store Connect API private keys, APNs private keys, service-account
+keys, or RevenueCat secret keys.
 
 The source project declares Push Notifications and Sign in with Apple. Debug uses the APNs `development` entitlement; Profile and Release use `production`.
 
-`dart run tool/verify_ios_firebase_config.dart` is a checked-in release gate.
-It intentionally exits with code 1 in a clean checkout until the authorized
-release operator has generated the iOS Firebase configuration locally, kept
-`GoogleService-Info.plist` out of Git, and enabled its Runner target
-membership. Do not weaken or bypass this failure on Windows or by committing
-the generated plist.
+`dart run tool/verify_ios_firebase_config.dart` is a checked-in release gate and
+must pass in a clean checkout for the tracked static configuration. Passing it
+does not prove Apple-team ownership, signing credentials, provisioning,
+Firebase Console registration, or App Store Connect access; those remain
+release-operator gates. Do not weaken or bypass the verifier on any platform.
 
 Web Firebase, Auth-domain, and Web App Check provisioning is a separate
 operator step in [the Web Firebase external setup runbook](web-firebase-external-setup.md).
@@ -24,37 +31,33 @@ FlutterFire; do not hand-copy identifiers between platform configurations.
 
 ## 1. Register the Firebase iOS app
 
-Use the existing Firebase project and register the exact case-sensitive bundle
-ID above before generating local configuration. If the Firebase iOS app is not
-yet registered, create it in the Firebase Console or with the Firebase CLI; if
-it already exists, select that existing app. Then, from a macOS release
-workstation, use FlutterFire to generate the local iOS option. When the Web
-registration is also ready, use the companion Web runbook's `android,ios,web`
-FlutterFire selection so all generated options are reviewed together; do not
-manually add an iOS app ID:
+Use the existing `ko-lernen-app` Firebase project and its already registered,
+case-sensitive bundle ID above. The tracked configuration is the normal build
+input. Verify it before every archive:
 
 ```bash
 set -euo pipefail
 
-: "${FIREBASE_PROJECT_ID:?Set FIREBASE_PROJECT_ID to the existing Firebase project ID}"
 test -f pubspec.yaml
-command -v flutterfire >/dev/null
-git check-ignore -q ios/Runner/GoogleService-Info.plist
-
-flutterfire configure --project "$FIREBASE_PROJECT_ID" --platforms ios
+git ls-files --error-unmatch ios/Runner/GoogleService-Info.plist >/dev/null
 test -s ios/Runner/GoogleService-Info.plist
 plutil -lint ios/Runner/GoogleService-Info.plist
+test "$(plutil -extract PROJECT_ID raw ios/Runner/GoogleService-Info.plist)" = "ko-lernen-app"
+test "$(plutil -extract BUNDLE_ID raw ios/Runner/GoogleService-Info.plist)" = "com.sujinarin.koLernenApp"
 export REVERSED_CLIENT_ID="$(plutil -extract REVERSED_CLIENT_ID raw ios/Runner/GoogleService-Info.plist)"
 test -n "$REVERSED_CLIENT_ID"
 ```
 
-Review the generated `lib/firebase_options.dart` before any macOS archive: its
-`TargetPlatform.iOS` branch must return a generated `ios` Firebase option. The
-review must not copy generated values into source, a ticket, or a build log.
-Keep the generated `ios/Runner/GoogleService-Info.plist` local and ignored;
-never add it to a commit.
+Only when the release owner intends to rotate or replace the Firebase app
+configuration, run `flutterfire configure` in an isolated branch, review both
+`lib/firebase_options.dart` and `ios/Runner/GoogleService-Info.plist`, and rerun
+the verifier. Never print private credentials or add them to generated config.
 
-Open `ios/Runner.xcworkspace` in Xcode. Add the real `ios/Runner/GoogleService-Info.plist` to the `Runner` group with “Copy items if needed” disabled and `Runner` target membership enabled. Under Runner > Info > URL Types, add one URL scheme whose value is the extracted `$REVERSED_CLIENT_ID`. This is the reversed Google client URL scheme, not the OAuth client ID itself.
+Open `ios/Runner.xcworkspace` in Xcode. Verify that the tracked
+`ios/Runner/GoogleService-Info.plist` has Runner target membership and that
+Runner > Info > URL Types already contains exactly one scheme matching
+`$REVERSED_CLIENT_ID`; do not add duplicate entries. This is the reversed Google
+client URL scheme, not the OAuth client ID itself.
 
 After those Xcode changes, these checks must succeed:
 
@@ -84,7 +87,10 @@ In Apple Developer > Certificates, Identifiers & Profiles:
 4. Regenerate any profiles invalidated by the capability changes. Create/install an iOS App Development profile for Debug and an App Store distribution profile for Profile/Release, or let Xcode automatic signing regenerate them.
 5. In Xcode, select Runner > Signing & Capabilities and choose the real team for Debug, Profile, and Release. Confirm Push Notifications and Sign in with Apple appear. Keep Sign in with Apple set to `Default`.
 
-No `DEVELOPMENT_TEAM` is checked in because only the Apple account owner can supply the real team.
+The non-secret `DEVELOPMENT_TEAM` identifier is checked in for Debug, Profile,
+and Release so a clean clone can resolve the intended team. The release operator
+must still prove membership in that team and supply valid private signing
+certificates and provisioning through Xcode or the approved CI secret store.
 
 Run these source and resolved-build-setting checks on macOS:
 

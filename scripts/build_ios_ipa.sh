@@ -107,10 +107,10 @@ esac
 fi
 
 [ -s ios/Runner/GoogleService-Info.plist ] ||
-  die "ios/Runner/GoogleService-Info.plist 없음 (의도적 gitignore). docs/store/ios-external-setup.md §1 대로 'flutterfire configure --platforms ios' 로 로컬 생성할 것."
+  die "추적된 ios/Runner/GoogleService-Info.plist 없음. clean checkout에서 복원하고 docs/store/ios-external-setup.md §1 검증을 실행할 것. 소유자 승인 없는 FlutterFire 재생성은 금지."
 plutil -lint ios/Runner/GoogleService-Info.plist >/dev/null ||
   die "GoogleService-Info.plist 가 유효한 plist 가 아니다."
-ok "GoogleService-Info.plist (로컬)"
+ok "GoogleService-Info.plist (추적된 release config)"
 
 version_line="$(grep -m1 '^version:' pubspec.yaml | awk '{print $2}')"
 ok "빌드 대상 버전: $version_line   (CFBundleShortVersionString+CFBundleVersion 로 주입)"
