@@ -12,6 +12,16 @@ import 'support/scenario_json.dart';
 Scenario scn(String id, {String backdrop = ''}) =>
     Scenario.fromJson(<String, dynamic>{'id': id, 'backdrop': backdrop});
 
+/// 주석(`//` 이후)을 지운다 — 주석 처리된 호출이 시작작업 가드를 통과시키면
+/// 안 된다(정규식은 죽은 코드와 산 코드를 구분하지 못한다).
+String stripLineComments(String source) => source
+    .split('\n')
+    .map((line) {
+      final at = line.indexOf('//');
+      return at < 0 ? line : line.substring(0, at);
+    })
+    .join('\n');
+
 void main() {
   tearDown(SceneAssetResolver.debugReset);
 
@@ -54,7 +64,11 @@ void main() {
         isNotNull,
         reason: 'lib/main.dart 에서 KoLernenApp 을 띄우는 지점을 찾지 못했다.',
       );
-      final beforeRunner = source.substring(0, runnerMatch!.start);
+      // 주석 처리된 호출이 "있다/await 된다"로 잡히면 가드가 죽은 코드를
+      // 통과시킨다 — 검사 전에 `//` 이후를 지운 사본을 본다.
+      final beforeRunner = stripLineComments(
+        source.substring(0, runnerMatch!.start),
+      );
 
       const call = 'SceneAssetResolver.load()';
       expect(
