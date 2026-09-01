@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/services/tts_service.dart';
 
@@ -37,6 +38,41 @@ class _FakePlatform implements TtsPlaybackPlatform {
 }
 
 void main() {
+  test('speech context bypasses iOS silent mode and ducks other audio', () {
+    final context = TtsSpeechAudioContext.build();
+
+    expect(context.android.usageType, AndroidUsageType.media);
+    expect(context.android.audioFocus, AndroidAudioFocus.gainTransientMayDuck);
+    expect(context.iOS.category, AVAudioSessionCategory.playback);
+    expect(context.iOS.options, contains(AVAudioSessionOptions.duckOthers));
+  });
+
+  test('speech context is reapplied before every utterance', () async {
+    final contexts = <AudioContext>[];
+    Future<void> record(AudioContext context) async => contexts.add(context);
+
+    await TtsSpeechAudioContext.reapply(record, isWeb: false);
+    await TtsSpeechAudioContext.reapply(record, isWeb: false);
+
+    expect(contexts, hasLength(2));
+    expect(contexts[0], contexts[1]);
+  });
+
+  test('speech context failure is retried by the next utterance', () async {
+    var attempts = 0;
+    Future<void> failOnce(AudioContext context) async {
+      attempts++;
+      if (attempts == 1) {
+        throw StateError('audio session was temporarily unavailable');
+      }
+    }
+
+    await TtsSpeechAudioContext.reapply(failOnce, isWeb: false);
+    await TtsSpeechAudioContext.reapply(failOnce, isWeb: false);
+
+    expect(attempts, 2);
+  });
+
   test('file playback starts before rate is applied', () async {
     final calls = <String>[];
     final session = await TtsFilePlayback.start(
@@ -112,11 +148,7 @@ void main() {
     );
 
     expect(
-      await engine.speak(
-        text: 'broken audio',
-        voice: 'female',
-        baseRate: 0.42,
-      ),
+      await engine.speak(text: 'broken audio', voice: 'female', baseRate: 0.42),
       isFalse,
     );
   });
@@ -151,10 +183,9 @@ void main() {
     final platform = _FakePlatform();
     final errors = <String>[];
     final engine = TtsPlaybackEngine(
-      resolveAudio: (text, voice) async =>
-          throw const TtsSynthesisBlocked(
-            TtsCallableFailure.audioUnavailableMessage,
-          ),
+      resolveAudio: (text, voice) async => throw const TtsSynthesisBlocked(
+        TtsCallableFailure.audioUnavailableMessage,
+      ),
       platform: platform,
       errorReporter: errors.add,
     );
@@ -299,7 +330,9 @@ void main() {
     platform.fileSessions['cached.mp3']?.complete(true);
     await result;
     expect(
-      platform.mutations.any((m) => m.startsWith('file:') && m.endsWith(':1.5')),
+      platform.mutations.any(
+        (m) => m.startsWith('file:') && m.endsWith(':1.5'),
+      ),
       isTrue,
       reason: 'mutations: ${platform.mutations}',
     );
@@ -351,8 +384,9 @@ void main() {
       final platform = _FakePlatform();
       final releaseOld = Completer<TtsAudio?>();
       final engine = TtsPlaybackEngine(
-        resolveAudio: (text, voice) =>
-            text == 'old' ? releaseOld.future : Future.value(TtsAudio.path('new.mp3')),
+        resolveAudio: (text, voice) => text == 'old'
+            ? releaseOld.future
+            : Future.value(TtsAudio.path('new.mp3')),
         platform: platform,
       );
 
@@ -559,30 +593,23 @@ void main() {
     expect(platform.mutations.where((m) => m.startsWith('file:')), isEmpty);
   });
 
-  test(
-    'completion timeouts return false and stop the current audio',
-    () async {
-      final platform = _FakePlatform();
-      final errors = <String>[];
-      final engine = TtsPlaybackEngine(
-        resolveAudio: (text, voice) async => TtsAudio.path('timeout.mp3'),
-        platform: platform,
-        completionTimeout: const Duration(milliseconds: 10),
-        errorReporter: errors.add,
-      );
+  test('completion timeouts return false and stop the current audio', () async {
+    final platform = _FakePlatform();
+    final errors = <String>[];
+    final engine = TtsPlaybackEngine(
+      resolveAudio: (text, voice) async => TtsAudio.path('timeout.mp3'),
+      platform: platform,
+      completionTimeout: const Duration(milliseconds: 10),
+      errorReporter: errors.add,
+    );
 
-      expect(
-        await engine.speak(
-          text: 'file timeout',
-          voice: 'female',
-          baseRate: 0.42,
-        ),
-        isFalse,
-      );
-      expect(platform.mutations.last, 'stop');
-      expect(errors.single, contains('timed out'));
-    },
-  );
+    expect(
+      await engine.speak(text: 'file timeout', voice: 'female', baseRate: 0.42),
+      isFalse,
+    );
+    expect(platform.mutations.last, 'stop');
+    expect(errors.single, contains('timed out'));
+  });
 
   test('stale timed-out completion cannot stop newer audio', () async {
     final platform = _FakePlatform();

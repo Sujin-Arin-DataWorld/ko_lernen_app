@@ -60,6 +60,9 @@ enum TtsUnavailableReason {
 
   /// 응답이 시한 안에 오지 않았다.
   timeout,
+
+  /// 모든 해석 경로가 끝났지만 재생 가능한 프리미엄 오디오가 없었다.
+  audioUnavailable,
 }
 
 /// Cloud TTS refused this request.
@@ -183,6 +186,42 @@ class TtsPlaybackSession {
   final Future<bool> completion;
 }
 
+typedef TtsAudioContextSetter = Future<void> Function(AudioContext context);
+
+/// Reasserts the speech audio session immediately before each TTS playback.
+///
+/// On iOS audioplayers contexts are process-global even when they are set on
+/// one player. The SFX policy, another plugin, or an audio-session interruption
+/// can therefore replace this context after an earlier utterance. Keeping a
+/// one-time "already applied" flag makes every later utterance depend on that
+/// stale global state and can leave TTS silent while the mute switch is on.
+class TtsSpeechAudioContext {
+  @visibleForTesting
+  static AudioContext build() => AudioContext(
+    android: AudioContextConfig(
+      focus: AudioContextConfigFocus.duckOthers,
+    ).buildAndroid(),
+    iOS: AudioContextIOS(
+      category: AVAudioSessionCategory.playback,
+      options: const {AVAudioSessionOptions.duckOthers},
+    ),
+  );
+
+  static Future<void> reapply(
+    TtsAudioContextSetter setContext, {
+    bool? isWeb,
+  }) async {
+    if (isWeb ?? kIsWeb) {
+      return;
+    }
+    try {
+      await setContext(build());
+    } catch (_) {
+      // Best effort. Do not block playback; the next utterance retries.
+    }
+  }
+}
+
 abstract interface class TtsPlaybackPlatform {
   Future<TtsPlaybackSession?> startAudio(TtsAudio audio, double rate);
   Future<void> stop();
@@ -292,7 +331,7 @@ class TtsPlaybackEngine {
             // 켠다 — stop/시작/완료 같은 재생-기전 실패(아래 catch 들)는
             // errorReporter 만 타고 onResolutionFailed 는 타지 않는다.
             onResolutionFailed?.call(message);
-            return const _TtsResolution(audio: null);
+            return const _TtsResolution(audio: null, failureReported: true);
           },
         );
     // 시한은 **각 티어 안**에 있다(디스크 2s · Storage 8s · CF 시퀀스 20s).
@@ -314,8 +353,14 @@ class TtsPlaybackEngine {
     final audio = resolved.audio;
     // 프리미엄 오디오가 없으면 아무 소리도 내지 않는다. 예전에는 여기서
     // OS 음성으로 떨어졌는데, 독일어 엔진이 한국어를 읽어 "전부 das" 가
-    // 됐다 (Jin 2026-08-19). 사유는 이미 errorReporter 로 올라갔다.
+    // 됐다 (Jin 2026-08-19). 예외 해석 실패는 위에서 이미 보고됐고,
+    // 정상 null(모든 티어 miss)도 여기서 반드시 사유를 남긴다.
     if (audio == null) {
+      if (!resolved.failureReported) {
+        const message = 'TTS resolution returned no playable audio.';
+        errorReporter?.call(message);
+        onResolutionFailed?.call(message);
+      }
       return false;
     }
 
@@ -399,10 +444,15 @@ class TtsPlaybackEngine {
 }
 
 class _TtsResolution {
-  const _TtsResolution({required this.audio}) : wasCancelled = false;
-  const _TtsResolution.cancelled() : audio = null, wasCancelled = true;
+  const _TtsResolution({required this.audio, this.failureReported = false})
+    : wasCancelled = false;
+  const _TtsResolution.cancelled()
+    : audio = null,
+      wasCancelled = true,
+      failureReported = false;
   final TtsAudio? audio;
   final bool wasCancelled;
+  final bool failureReported;
 }
 
 class _ServicePlaybackPlatform implements TtsPlaybackPlatform {
@@ -481,15 +531,15 @@ class TtsService {
     // "오프라인이세요?" 로 오표시했었다(post-review, finding 1b 후속수정).
     errorReporter: (message) => lastError = message,
     // post-review: unavailable 배너는 오직 "해석 실패"(아예 재생할 오디오가
-    // 없음) 계열에서만 켠다 — TtsPlaybackEngine.speak() 의 resolution
-    // onError 분기에서만 이 콜백을 부른다.
+    // 없음) 계열에서만 켠다 — 예외뿐 아니라 모든 티어가 정상적으로 null 을
+    // 반환한 경우도 TtsPlaybackEngine.speak() 가 이 콜백으로 보고한다.
     onResolutionFailed: (_) {
       // _resolveAudio 의 각 티어가 이미 구체적 사유(quota/offline/...)로
       // unavailable 을 채웠다면 여기서 일반 사유로 덮어쓰지 않는다 —
       // 아직 비어 있을 때만(finding 1b 가 다루는, 어떤 티어도 사유를
       // 남기지 않은 새 예외 종류) 최소한 배너가 뜨도록 채운다.
       if (unavailable.value == null) {
-        _reportUnavailable(TtsUnavailableReason.offline);
+        _reportUnavailable(TtsUnavailableReason.audioUnavailable);
       }
     },
   );
@@ -516,7 +566,6 @@ class TtsService {
   /// 발화 중 여부 — [AudioPolicy] 더킹·UI 표시용 (ADR-002 §5-2).
   static final ValueNotifier<bool> speaking = ValueNotifier<bool>(false);
   static int _speakToken = 0;
-  static bool _speechContextApplied = false;
 
   static FirebaseStorage get _storage =>
       FirebaseStorage.instanceFor(bucket: _bucket);
@@ -906,14 +955,25 @@ class TtsService {
             attempt < maxAttempts - 1) {
           continue;
         }
+        if (kind == TtsCallableKind.retryInflight) {
+          lastError = TtsCallableFailure.alreadyInProgressMessage;
+          throw const TtsSynthesisBlocked(
+            TtsCallableFailure.alreadyInProgressMessage,
+            reason: TtsUnavailableReason.pendingSynthesis,
+          );
+        }
         if (kind == TtsCallableKind.blockQuota) {
           lastError = TtsCallableFailure.quotaMessage;
-          throw const TtsSynthesisBlocked(TtsCallableFailure.quotaMessage);
+          throw const TtsSynthesisBlocked(
+            TtsCallableFailure.quotaMessage,
+            reason: TtsUnavailableReason.quota,
+          );
         }
         if (kind == TtsCallableKind.blockUnavailable) {
           lastError = TtsCallableFailure.audioUnavailableMessage;
           throw const TtsSynthesisBlocked(
             TtsCallableFailure.audioUnavailableMessage,
+            reason: TtsUnavailableReason.audioUnavailable,
           );
         }
         return null;
@@ -931,7 +991,7 @@ class TtsService {
         ? DeviceFileSource(path)
         : BytesSource(audio.bytes!, mimeType: 'audio/mpeg');
     try {
-      await _ensureSpeechAudioContext();
+      await _reapplySpeechAudioContext();
       // 완료 대기 future 를 play 전에 준비 (짧은 mp3 의 complete race 방지).
       final done = _player.onPlayerComplete.first.then((_) => true);
       return await TtsFilePlayback.start(
@@ -1031,19 +1091,6 @@ class TtsService {
   /// iOS 는 duckOthers 와 respectSilence 병용이 금지(playAndRecord 강제)라
   /// 여기서는 respectSilence 를 걸지 않는다 — 무음 스위치 존중은 SFX 전역
   /// 컨텍스트([AudioPolicy.applyPlatformAudioContext]) 몫.
-  static Future<void> _ensureSpeechAudioContext() async {
-    if (_speechContextApplied || kIsWeb) {
-      return;
-    }
-    try {
-      await _player.setAudioContext(
-        AudioContextConfig(focus: AudioContextConfigFocus.duckOthers).build(),
-      );
-      // 성공한 뒤에 표시한다. 예전에는 await 앞에서 세워서, 한 번 실패하면
-      // 다시는 시도하지 않고 플랫폼 기본 세션으로 조용히 재생했다.
-      _speechContextApplied = true;
-    } catch (_) {
-      // best-effort — 다음 발화에서 다시 시도한다.
-    }
-  }
+  static Future<void> _reapplySpeechAudioContext() =>
+      TtsSpeechAudioContext.reapply(_player.setAudioContext);
 }

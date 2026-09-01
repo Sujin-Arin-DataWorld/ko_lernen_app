@@ -9124,6 +9124,10 @@ class AppL10nDe extends AppL10n {
       'Aussprache nicht verfügbar. Bist du online?';
 
   @override
+  String get ttsUnavailableAudio =>
+      'Audio ist gerade nicht verfügbar. Bitte versuche es erneut.';
+
+  @override
   String get mediaPhraseTitle => 'Medien-Sätze';
 
   @override

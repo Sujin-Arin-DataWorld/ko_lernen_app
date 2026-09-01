@@ -26,6 +26,7 @@ user=여성/NPC=남성 규칙을 적용한다. 그 밖의
   3. Firebase Storage 활성화 → 아래 BUCKET 을 실제 버킷명으로 교정
   4. 재실행 안전: 로컬에 이미 만든 mp3는 건너뛴다. `--missing-from-storage`는
        Firebase Storage 키까지 대조해 실제 누락분만 합성하고 rsync로 업로드한다.
+  5. ffmpeg: 짧은 발화의 앞뒤 묵음을 무손실 절단하고 실제 발화 구간을 검증한다.
 
 실행:
     python3 tool/generate_tts.py --dry-run  # 인증·합성·업로드 없이 수집 목록 확인
@@ -56,9 +57,15 @@ import os
 import re
 import shutil
 import subprocess
+import tempfile
 import time
 import urllib.error
 import urllib.request
+
+if __package__:
+    from . import polish_tts
+else:
+    import polish_tts
 
 # ⚠️ Firebase Storage 활성화 후 실제 버킷명으로 교정 (gs:// 없이).
 BUCKET = "ko-lernen-app.firebasestorage.app"
@@ -884,14 +891,40 @@ MIN_DUR_CONSONANT = 0.35
 # 실패했다(최대 0.26s). 유성음이라 짧아도 또렷해서 기준을 낮춘다.
 MIN_DUR_VOWEL = 0.22
 # 첫 시도는 표준 RATE. 실패하면 점점 느리게 — 느릴수록 음절을 온전히 발음하는
-# 경향이 있다. 마지막 두 번은 같은 rate 재추첨(비결정성을 역이용).
-GATE_RATES = (RATE, 0.85, 0.70, 0.55, RATE, 0.70)
+# 경향이 있다. Chirp3-HD 는 같은 요청도 결과가 크게 달라 2026-09-01 `흐` 실측
+# 에서는 9개가 연속 탈락하고 10번째 take 가 처음 기준을 통과했다. 12회 안에서도
+# 통과본이 없으면 아래 fail-closed 경로가 업로드 전체를 중단한다.
+GATE_RATES = (
+    RATE,
+    0.85,
+    0.70,
+    0.55,
+    RATE,
+    0.70,
+    RATE,
+    0.85,
+    0.55,
+    0.70,
+    RATE,
+    0.70,
+)
 
 # 최대 진폭 하한(dBFS). 길이 게이트만 있던 2026-08-12 1차에서 `하` 가 0.43s 로
 # 통과했지만 실측 max_volume 이 **-48.3dBFS** 였다 — 정상 자모는 -7~-2dBFS 다.
 # 40dB 아래면 진폭 1/100 이라 사실상 안 들린다. 길이와 음량은 서로를 대신하지
 # 못하므로 둘 다 잰다. 여유를 크게 둔 값(정상권보다 20dB 이상 아래만 탈락).
 MIN_PEAK_DBFS = -30.0
+
+# `mp3_duration()` alone counts silence as if it were speech. In particular, a
+# short jamo can therefore satisfy MIN_DUR_CONSONANT while spending most of the
+# file silent. `polish_tts` losslessly leaves about 60 ms at the head; allow one
+# MP3-frame worth of measurement slack beyond its trim boundary.
+MAX_LEADING_SILENCE = 0.12
+# Peak volume catches uniformly quiet files, but not a loud click surrounded by
+# silence. The 40-jamo live audit found that usable consonant takes have at least
+# 0.30 s of non-silent audio; naturally shorter ㅇ+vowel takes need 0.22 s.
+MIN_ACTIVE_CONSONANT = 0.30
+MIN_ACTIVE_VOWEL = 0.22
 
 
 # 음절당 최소 길이. 2~3음절 단어에 쓴다.
@@ -920,13 +953,29 @@ def _min_duration_for(text):
     return max(MIN_DUR_CONSONANT, MIN_DUR_PER_SYLLABLE * len(syllables))
 
 
+def _min_active_duration_for(text):
+    """Minimum non-silent duration for a short, gated utterance."""
+    total_floor = _min_duration_for(text)
+    if total_floor <= 0.0:
+        return 0.0
+    if total_floor == MIN_DUR_VOWEL:
+        return MIN_ACTIVE_VOWEL
+    # Two/three-syllable floors include the intentional edge padding retained
+    # by polish_tts. Do not count that padding as spoken audio.
+    return max(
+        MIN_ACTIVE_CONSONANT,
+        total_floor - polish_tts.HEAD_KEEP - polish_tts.TAIL_KEEP,
+    )
+
+
 def mp3_peak_dbfs(data):
-    """최대 진폭(dBFS). ffmpeg 이 없으면 None → 음량 게이트를 건너뛴다.
+    """최대 진폭(dBFS). ffmpeg 이 없거나 측정 불가면 None.
 
     길이만으로는 못 잡는 실패가 있다. `하` 는 2026-08-12 재생성에서 0.43s 로
     길이 게이트를 **통과했는데 실측 max_volume 이 -48.3dBFS** 였다 — 정상
     자모(-7~-2dBFS)보다 40dB 아래, 진폭으로 1/100 이라 사람 귀에는 안 들린다.
     "길지만 무음"인 take 를 통과시키지 않으려면 음량도 같이 재야 한다.
+    짧은 발화 게이트는 None 을 통과로 간주하지 않는다.
     """
     ffmpeg = shutil.which("ffmpeg")
     if ffmpeg is None:
@@ -941,33 +990,150 @@ def mp3_peak_dbfs(data):
     return float(match.group(1)) if match else None
 
 
+def _silence_metrics(path, total):
+    """Return `(leading_silence, total_silence)` from every detected interval."""
+    proc = subprocess.run(
+        [
+            "ffmpeg",
+            "-hide_banner",
+            "-nostats",
+            "-i",
+            path,
+            "-af",
+            f"silencedetect=noise={polish_tts.NOISE_DB}dB:d=0.03",
+            "-f",
+            "null",
+            "-",
+        ],
+        capture_output=True,
+        text=True,
+        errors="ignore",
+        timeout=60,
+    )
+    if proc.returncode != 0:
+        raise RuntimeError("short TTS silence measurement failed")
+
+    event_pattern = re.compile(
+        r"silence_(start|end):\s*([\d.]+)"
+        r"(?:\s*\|\s*silence_duration:\s*([\d.]+))?"
+    )
+    current_start = None
+    leading = 0.0
+    silence_total = 0.0
+    for match in event_pattern.finditer(proc.stderr):
+        kind, position_text, duration_text = match.groups()
+        position = float(position_text)
+        if kind == "start":
+            current_start = position
+            continue
+        if current_start is None:
+            continue
+        duration = (
+            float(duration_text)
+            if duration_text is not None
+            else max(0.0, position - current_start)
+        )
+        silence_total += duration
+        if current_start <= 0.001:
+            leading = max(leading, position)
+        current_start = None
+
+    # ffmpeg normally emits a closing silence_end at EOF, but account for a
+    # truncated diagnostic stream so trailing/all-file silence is never counted
+    # as active speech.
+    if current_start is not None:
+        duration = max(0.0, total - current_start)
+        silence_total += duration
+        if current_start <= 0.001:
+            leading = max(leading, total)
+
+    return min(leading, total), min(silence_total, total)
+
+
+def _polish_and_measure_short_candidate(data):
+    """Losslessly trim and return `(bytes, total, head, active)` seconds.
+
+    This deliberately reuses the reviewed frame-copy implementation in
+    `polish_tts.py`; no MP3 re-encoding is introduced. Short-content generation
+    now requires ffmpeg because silently skipping this check would recreate the
+    exact class of bad cache object the gate is meant to prevent.
+    """
+    if shutil.which("ffmpeg") is None:
+        raise RuntimeError(
+            "ffmpeg is required to trim and verify short TTS candidates"
+        )
+
+    with tempfile.TemporaryDirectory(prefix="hangulsori-tts-gate-") as temp:
+        path = os.path.join(temp, "candidate.mp3")
+        with open(path, "wb") as handle:
+            handle.write(data)
+
+        result, _, _ = polish_tts.handle(path, dry_run=False)
+        if result in {"probe_failed", "trim_failed"}:
+            raise RuntimeError(f"short TTS candidate could not be polished: {result}")
+
+        metrics = polish_tts.probe(path)
+        if metrics is None:
+            raise RuntimeError("short TTS candidate could not be measured after polish")
+        total, _, _ = metrics
+        head, silence = _silence_metrics(path, total)
+        active = max(0.0, total - silence)
+        with open(path, "rb") as handle:
+            polished = handle.read()
+    return polished, total, head, active
+
+
+def _short_candidate_checks(text, total, head, active, peak):
+    """Return the four independent short-audio quality decisions."""
+    return (
+        total >= _min_duration_for(text),
+        peak is not None and peak >= MIN_PEAK_DBFS,
+        head <= MAX_LEADING_SILENCE,
+        active >= _min_active_duration_for(text),
+    )
+
+
 def synth(tok, voice, text):
     floor = _min_duration_for(text)
     if floor <= 0.0:
         return _synth_raw(tok, VOICES[voice], text, RATE)
 
-    best = None
+    active_floor = _min_active_duration_for(text)
     best_score = None
-    best_dur, best_peak = -1.0, None
+    best_dur, best_head, best_active, best_peak = -1.0, -1.0, -1.0, None
     for rate in GATE_RATES:
-        data = _synth_raw(tok, VOICES[voice], text, rate)
-        dur = mp3_duration(data)
+        raw = _synth_raw(tok, VOICES[voice], text, rate)
+        data, dur, head, active = _polish_and_measure_short_candidate(raw)
         peak = mp3_peak_dbfs(data)
-        loud_ok = peak is None or peak >= MIN_PEAK_DBFS
-        # 들리는 take 를 항상 더 긴 무음 take 보다 우선한다.
-        score = (loud_ok, dur)
+        # ffmpeg is mandatory above, so an unparseable peak is a failed
+        # measurement rather than permission to bypass the loudness gate.
+        duration_ok, loud_ok, head_ok, active_ok = _short_candidate_checks(
+            text,
+            dur,
+            head,
+            active,
+            peak,
+        )
+        # A take meeting more independent audible-speech conditions is the most
+        # useful diagnostic when every retry fails. It is never uploaded.
+        score = (loud_ok, head_ok, active_ok, duration_ok, active, -head, dur)
         if best_score is None or score > best_score:
-            best, best_score = data, score
-            best_dur, best_peak = dur, peak
-        if dur >= floor and loud_ok:
+            best_score = score
+            best_dur, best_head, best_active, best_peak = dur, head, active, peak
+        if duration_ok and loud_ok and head_ok and active_ok:
             return data
-    # 하한을 못 넘기면 가장 좋은 결과를 쓴다 — 실패로 처리해 파일을 비우면 그
-    # 글자만 OS 기계음으로 폴백해 더 나쁘다.
+
+    # Upload is intentionally atomic after the synthesis phase. Raising here
+    # aborts that phase before any object is written, instead of adopting a
+    # known-bad "best" take merely to fill the cache key.
     peak_note = "?" if best_peak is None else f"{best_peak:.1f}dBFS"
-    print(f"  ⚠️ {text!r}: {len(GATE_RATES)}회 모두 {floor:.2f}s / "
-          f"{MIN_PEAK_DBFS:.0f}dBFS 기준 미달 "
-          f"(최선 {best_dur:.2f}s · {peak_note}) → 최선본 채택")
-    return best
+    raise RuntimeError(
+        f"{text!r}: {len(GATE_RATES)} short-TTS takes failed the quality gate "
+        f"(best total={best_dur:.2f}s, head={best_head:.2f}s, "
+        f"active={best_active:.2f}s, peak={peak_note}; required total>="
+        f"{floor:.2f}s, head<={MAX_LEADING_SILENCE:.2f}s, active>="
+        f"{active_floor:.2f}s, peak>={MIN_PEAK_DBFS:.0f}dBFS)"
+    )
 
 
 def demo(tok):
@@ -1234,6 +1400,22 @@ def main(argv=None):
                 raise SystemExit(
                     f"TTS 실행 중단: 로컬 캐시가 유효한 MP3가 아닙니다: {path}"
                 )
+            if _min_duration_for(text) > 0.0:
+                polished, total, head, active = (
+                    _polish_and_measure_short_candidate(cached_data)
+                )
+                peak = mp3_peak_dbfs(polished)
+                if not all(
+                    _short_candidate_checks(text, total, head, active, peak)
+                ):
+                    # A pre-existing .tts_pregen file may have been produced by
+                    # the old duration-only gate. Never let it bypass the new
+                    # checks; replace it through the same reviewed synth path.
+                    pending.append((voice, text, path, relative_path))
+                    continue
+                if polished != cached_data:
+                    with open(path, "wb") as handle:
+                        handle.write(polished)
             local_skipped += 1
             upload_items.append((path, relative_path))
             continue

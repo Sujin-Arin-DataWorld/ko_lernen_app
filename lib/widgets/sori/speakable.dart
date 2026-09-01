@@ -452,12 +452,15 @@ class ContentSpeechController with RouteAware {
     soriRouteObserver.unsubscribe(this);
   }
 
-  /// 화면 진입/카드 전환 시 호출 — 150-250ms 디바운스 뒤 자동재생.
-  /// 디바운스 중 다시 불리면(빠른 스와이프) 이전 예약은 취소된다.
+  /// 화면 진입/카드 전환 시 호출 — 다음 event turn 에 자동재생.
+  ///
+  /// 200ms 인위 지연은 카드가 이미 바뀐 뒤에도 소리가 늦게 붙는 느낌을
+  /// 만들었다. zero-duration timer는 같은 동기 전환 묶음의 마지막 요청만
+  /// 남기는 debounce 성질은 유지하면서 다음 프레임 전에 재생을 시작한다.
   void playOnEnter(String text, {String? voice}) {
     final generation = ++_generation;
     _debounce?.cancel();
-    _debounce = Timer(const Duration(milliseconds: 200), () {
+    _debounce = Timer(Duration.zero, () {
       if (generation != _generation) return; // 그새 supersede 됨
       SoriSpeech.speak(text, voice: voice);
     });

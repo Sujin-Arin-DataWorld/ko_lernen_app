@@ -4367,6 +4367,7 @@
   "ttsUnavailableQuota": "Heutiges Sprachlimit erreicht. Morgen geht es weiter.",
   "ttsUnavailablePending": "Die Stimme wird gerade erzeugt. Gleich nochmal antippen.",
   "ttsUnavailableOffline": "Aussprache nicht verfügbar. Bist du online?",
+  "ttsUnavailableAudio": "Audio ist gerade nicht verfügbar. Bitte versuche es erneut.",
   "mediaPhraseTitle": "Medien-Sätze",
   "mediaPhraseDesc": "Übe Originalzeilen aus Interview-, Podcast-, Doku- und Debattenregistern auf deinem Niveau.",
   "mediaPhraseContext": "Situation",

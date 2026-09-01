@@ -4203,6 +4203,7 @@
   "ttsUnavailableQuota": "Daily voice limit reached. It resets tomorrow.",
   "ttsUnavailablePending": "The voice is being generated. Tap again in a moment.",
   "ttsUnavailableOffline": "Pronunciation unavailable. Are you online?",
+  "ttsUnavailableAudio": "Audio isn’t available right now. Please try again.",
   "mediaPhraseTitle": "Media lines",
   "mediaPhraseDesc": "Practice original interview, podcast, documentary, and debate lines at your level.",
   "mediaPhraseContext": "Situation",

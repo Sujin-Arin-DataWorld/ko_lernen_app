@@ -94,9 +94,11 @@ void main() {
     addTearDown(tester.view.resetDevicePixelRatio);
 
     await tester.pumpWidget(buildScreen());
-    // 로드 완료 + 진입 자동재생 디바운스(150-250ms)를 흘려보낸다 — 대기
-    // 타이머를 남기지 않는다.
-    await tester.pump(const Duration(milliseconds: 500));
+    // 첫 pump 에서 비동기 로드가 완료되며 zero-duration 자동재생이 예약되고,
+    // 두 번째 pump 에서 FakeAsync 의 zero-duration timer 경계를 넘겨 즉시
+    // 실행한다. 실제 제품 코드에는 시간 지연이 없다.
+    await tester.pump();
+    await tester.pump(const Duration(microseconds: 1));
 
     expect(find.text('학교'), findsOneWidget);
     expect(find.byType(SoriSpeechIndicator), findsOneWidget);
@@ -115,7 +117,8 @@ void main() {
     addTearDown(tester.view.resetDevicePixelRatio);
 
     await tester.pumpWidget(buildScreen());
-    await tester.pump(const Duration(milliseconds: 500));
+    await tester.pump();
+    await tester.pump(const Duration(microseconds: 1));
 
     // 앞면(한국어 헤드라인)이 보여야 함.
     expect(find.text('학교'), findsOneWidget);
@@ -143,7 +146,8 @@ void main() {
     addTearDown(tester.view.resetDevicePixelRatio);
 
     await tester.pumpWidget(buildScreen());
-    await tester.pump(const Duration(milliseconds: 500));
+    await tester.pump();
+    await tester.pump(const Duration(microseconds: 1));
 
     expect(find.text('학교'), findsOneWidget);
     expect(speakCalls, ['학교'], reason: '스킵 전 기준선 — 진입 자동재생');
@@ -156,7 +160,9 @@ void main() {
     final feed = tester.widget<SoriContentFeed>(find.byType(SoriContentFeed));
     expect(feed.onSkip, isNotNull, reason: '2장 덱의 첫 카드는 skip 가능해야 함');
     feed.onSkip!();
+    // setState 전환과 zero-duration 재생 예약을 각각 한 이벤트 턴씩 처리한다.
     await tester.pump();
+    await tester.pump(const Duration(microseconds: 1));
 
     // 화면엔 이미 새 카드('선생님')가 앞면으로 보인다 — _idx 는 그대로지만
     // _deck[_idx] 가 가리키는 카드가 바뀌었기 때문. ('학교'는 사라지지
@@ -164,14 +170,8 @@ void main() {
     // 다시 보인다. 그건 정상 동작이라 부재를 단언하지 않는다.)
     expect(find.text('선생님'), findsOneWidget);
 
-    // 디바운스(150-250ms)를 흘려보내야 playOnEnter 예약이 실제 speak() 로
-    // 이어진다.
-    await tester.pump(const Duration(milliseconds: 300));
-
-    expect(
-      speakCalls,
-      ['선생님'],
-      reason: 'Skip 으로 넘어간 새 카드도 진입/Next 전환과 동일하게 자동재생돼야 한다',
-    );
+    expect(speakCalls, [
+      '선생님',
+    ], reason: 'Skip 으로 넘어간 새 카드도 진입/Next 전환과 동일하게 자동재생돼야 한다');
   });
 }

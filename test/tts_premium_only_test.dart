@@ -99,10 +99,12 @@ void main() {
     test('해결 실패는 재생을 시작하지 않고 사유를 남긴다', () async {
       final platform = _RecordingPlatform();
       final errors = <String>[];
+      final resolutionErrors = <String>[];
       final engine = TtsPlaybackEngine(
         resolveAudio: (text, voice) async => null,
         platform: platform,
         errorReporter: errors.add,
+        onResolutionFailed: resolutionErrors.add,
       );
 
       expect(
@@ -110,6 +112,8 @@ void main() {
         isFalse,
       );
       expect(_RecordingPlatform.started, isEmpty);
+      expect(errors, hasLength(1));
+      expect(resolutionErrors, hasLength(1));
     });
 
     test('차단된 합성의 사유가 그대로 전달된다', () async {

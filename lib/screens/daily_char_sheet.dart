@@ -11,13 +11,13 @@ import '../models/feedback_completion.dart';
 import '../services/daily_char_service.dart';
 import '../services/storage_service.dart';
 import '../services/stroke_matcher.dart';
-import '../services/tts_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/sheet.dart';
+import '../widgets/sori/speakable.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
@@ -33,9 +33,11 @@ Future<void> showDailyCharSheet(
   BuildContext context, {
   String? character,
 }) async {
+  final resolvedCharacter = character ?? DailyCharService.today();
+  unawaited(SoriSpeech.prefetch(speakableJamo(resolvedCharacter)));
   await showSoriSheet<void>(
     context: context,
-    builder: (_) => _DailyCharSheet(character: character),
+    builder: (_) => _DailyCharSheet(character: resolvedCharacter),
   );
 }
 
@@ -103,13 +105,14 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
       if (!mounted) {
         return;
       }
-      TtsService.speak(speakableJamo(_char));
+      unawaited(SoriSpeech.speak(speakableJamo(_char)));
     });
   }
 
   @override
   void dispose() {
     _errorTimer?.cancel();
+    unawaited(SoriSpeech.stop());
     _traceController.dispose();
     super.dispose();
   }
@@ -336,7 +339,8 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
                     backgroundColor: SoriColors.primary.withValues(alpha: 0.12),
                     foregroundColor: SoriColors.primary,
                   ),
-                  onPressed: () => TtsService.speak(speakableJamo(_char)),
+                  onPressed: () =>
+                      unawaited(SoriSpeech.speak(speakableJamo(_char))),
                   icon: const Icon(Icons.volume_up_rounded),
                 ),
               ),
