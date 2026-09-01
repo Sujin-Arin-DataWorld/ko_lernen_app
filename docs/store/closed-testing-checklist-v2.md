@@ -116,6 +116,12 @@ grep '^version:' pubspec.yaml
 versionName은 pubspec.yaml에서, versionCode는 위 commit count에서 읽는다. 둘 중 어느
 값도 과거 release notes의 숫자로 대체하지 않는다.
 
+내부테스트와 비공개테스트는 서로 다른 커밋에서 자른다. versionCode가 commit count라서
+같은 SHA로 두 트랙을 올리면 두 번째 업로드가 `Version code N has already been used.`로
+거부된다. `PLAY_INTERNAL_RELEASE_ENABLED=true`인 동안에는 main push마다 내부 업로드가
+그 커밋의 versionCode를 먼저 소비하므로, 비공개 후보를 자르기 전에 변수를 끈다
+(2026-09-01 vC2215 실사고 — 빌드·서명·게이트는 통과하고 업로드 호출만 거부됐다).
+
 ### 2.3 자동 사전 게이트
 
 ```bash
