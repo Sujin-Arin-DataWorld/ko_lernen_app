@@ -37,11 +37,9 @@ void main() {
       };
       expect(byId['mart_grocery'], 'market');
       expect(byId['airport_arrival'], 'airport');
-      // scenes/pharmacy.png 는 한때 카테고리가 없어 렌더된 적 없는 고아였다.
-      expect(byId['pharmacy_headache'], 'pharmacy');
-      // clinic 전용 배경이 생기기 전에는 market 을 유지해야 배경을 잃지 않는다.
-      expect(byId['doctor_consultation'], 'market');
-      expect(byId['clinic_safety'], 'market');
+      expect(byId['pharmacy_cold_medicine'], 'pharmacy');
+      expect(byId['break_glass_apology'], 'home');
+      expect(byId['taxi_slow_down'], 'taxi');
     });
   });
 

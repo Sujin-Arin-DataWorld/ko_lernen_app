@@ -113,7 +113,7 @@ void main() {
   );
 
   test(
-    'placement read-back promotes a valid legacy graph without losing progress',
+    'placement read-back promotes legacy placement and resets retired progress',
     () async {
       const completedUnitId = 'a1_01_greetings_hangul';
       const currentUnitId = 'a1_02_self_intro_identity';
@@ -144,12 +144,13 @@ void main() {
 
       expect(snapshot.placementLevel, LearnerLevel.a1);
       expect(snapshot.courseGeneration, isNotEmpty);
-      expect(snapshot.hasCourseHistory, isTrue);
+      expect(snapshot.hasCourseHistory, isFalse);
       expect(restartedSnapshot.placementLevel, LearnerLevel.a1);
-      expect(restartedSnapshot.hasCourseHistory, isTrue);
+      expect(restartedSnapshot.hasCourseHistory, isFalse);
       expect(Storage.dedicatedCoursePlacementLevelCode, 'a1');
-      expect(Storage.courseUnitId, currentUnitId);
-      expect(canonical['completedUnitIds'], contains(completedUnitId));
+      expect(Storage.courseUnitId, completedUnitId);
+      expect(canonical['curriculumGeneration'], 'canonical_120_v1');
+      expect(canonical['completedUnitIds'], isEmpty);
       expect(Storage.legacyCourseMasteryRawJson, legacy);
       expect(Storage.userLevelCode, 'b2');
     },
@@ -174,7 +175,7 @@ void main() {
   );
 
   test(
-    'same canonical placement repairs torn mirrors without rewriting history',
+    'same canonical placement repairs torn mirrors after generation reset',
     () async {
       const completedUnitId = 'a1_01_greetings_hangul';
       const currentUnitId = 'a1_02_self_intro_identity';
@@ -203,7 +204,7 @@ void main() {
       expect(promoted.placementLevel, LearnerLevel.a1);
       expect(torn.placementLevel, isNull);
       expect(torn.canonicalPlacementLevel, LearnerLevel.a1);
-      expect(torn.hasCourseHistory, isTrue);
+      expect(torn.hasCourseHistory, isFalse);
 
       await gateway.initializePlacement(
         LearnerLevel.a1,
@@ -217,12 +218,9 @@ void main() {
       expect(repaired.placementLevel, LearnerLevel.a1);
       expect(repaired.canonicalPlacementLevel, LearnerLevel.a1);
       expect(Storage.dedicatedCoursePlacementLevelCode, 'a1');
-      expect(Storage.courseUnitId, currentUnitId);
+      expect(Storage.courseUnitId, completedUnitId);
       expect(Storage.courseMasterySnapshotRawJson, canonicalBeforeRepair);
-      expect(
-        canonicalAfterRepair['completedUnitIds'],
-        contains(completedUnitId),
-      );
+      expect(canonicalAfterRepair['completedUnitIds'], isEmpty);
     },
   );
 
