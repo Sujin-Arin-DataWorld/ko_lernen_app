@@ -1,6 +1,6 @@
 # Batch01PreReviewValidationTest
 
-> 32 nodes · cohesion 0.14
+> 33 nodes · cohesion 0.13
 
 ## Key Concepts
 
@@ -19,6 +19,7 @@
 - **.test_generic_validator_accepts_a_later_batch_manifest_without_batch01_ids()** (4 connections) — `tools/content_factory/test_validate_batch_01.py`
 - **.test_later_batch_rejects_any_predecessor_draft_id_reuse()** (4 connections) — `tools/content_factory/test_validate_batch_01.py`
 - **.test_later_batch_rejects_conflicting_predecessor_companion_mapping()** (4 connections) — `tools/content_factory/test_validate_batch_01.py`
+- **test_validate_batch_01.py** (4 connections) — `tools/content_factory/test_validate_batch_01.py`
 - **._rewind_promoted_batches()** (3 connections) — `tools/content_factory/test_validate_batch_01.py`
 - **.setUp()** (3 connections) — `tools/content_factory/test_validate_batch_01.py`
 - **._snapshot()** (3 connections) — `tools/content_factory/test_validate_batch_01.py`
@@ -28,15 +29,15 @@
 - **.test_pack_preflight_rejects_a_non_next_pack_sequence()** (3 connections) — `tools/content_factory/test_validate_batch_01.py`
 - **.test_rejects_a_derived_translation_that_drifts_from_its_vocab_source()** (3 connections) — `tools/content_factory/test_validate_batch_01.py`
 - **.test_rejects_missing_curriculum_companion_mapping()** (3 connections) — `tools/content_factory/test_validate_batch_01.py`
-- **._copy_file()** (2 connections) — `tools/content_factory/test_validate_batch_01.py`
-- *... and 7 more nodes in this community*
+- *... and 8 more nodes in this community*
 
 ## Relationships
 
-- [scenario_store.py](scenario_store.py.md) (1 shared connections)
+- [validate_batch_01.py](validate_batch_01.py.md) (2 shared connections)
 - [handle](handle.md) (1 shared connections)
 - [SimpleNamespace](SimpleNamespace.md) (1 shared connections)
-- [validate_batch_01.py](validate_batch_01.py.md) (1 shared connections)
+- [integrate_review_batches.py](integrate_review_batches.py.md) (1 shared connections)
+- [scenario_store.py](scenario_store.py.md) (1 shared connections)
 
 ## Source Files
 
@@ -44,7 +45,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 72 (97%)
+- EXTRACTED: 75 (97%)
 - INFERRED: 2 (3%)
 - AMBIGUOUS: 0 (0%)
 

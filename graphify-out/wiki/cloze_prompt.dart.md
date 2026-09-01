@@ -33,15 +33,15 @@
 
 ## Relationships
 
-- [List](List.md) (2 shared connections)
+- [String?](String_.md) (4 shared connections)
 - [Set](Set.md) (2 shared connections)
-- [String?](String_.md) (2 shared connections)
-- [StatelessWidget](StatelessWidget.md) (2 shared connections)
-- [int get](int_get.md) (1 shared connections)
+- [Map](Map.md) (1 shared connections)
 - [cloze_loader.dart](cloze_loader.dart.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
 - [package:ko_lernen_app/models/scenario.dart](package-ko_lernen_app-models-scenario.dart.md) (1 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [data_migration_service.dart](data_migration_service.dart.md) (1 shared connections)
+- [gye_weekly_promise.dart](gye_weekly_promise.dart.md) (1 shared connections)
+- [StatelessWidget](StatelessWidget.md) (1 shared connections)
 - [_](_.md) (1 shared connections)
 - [course_segment_catalog.dart](course_segment_catalog.dart.md) (1 shared connections)
 

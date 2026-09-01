@@ -1,12 +1,17 @@
 # scenario_writing_check_service_test.dart
 
-> 20 nodes · cohesion 0.10
+> 25 nodes · cohesion 0.08
 
 ## Key Concepts
 
 - **scenario_writing_check_service_test.dart** (25 connections) — `test/scenario_writing_check_service_test.dart`
+- **korean_proofreading_service_test.dart** (7 connections) — `test/korean_proofreading_service_test.dart`
 - **KoreanProofreadingAvailability** (4 connections) — `lib/services/korean_proofreading_service.dart`
+- **package:ko_lernen_app/services/korean_proofreading_service.dart** (3 connections)
 - **package:ko_lernen_app/services/scenario_writing_check_service.dart** (2 connections)
+- **channel** (1 connections) — `test/korean_proofreading_service_test.dart`
+- **main** (1 connections) — `test/korean_proofreading_service_test.dart`
+- **messenger** (1 connections) — `test/korean_proofreading_service_test.dart`
 - **availability** (1 connections) — `test/scenario_writing_check_service_test.dart`
 - **check** (1 connections) — `test/scenario_writing_check_service_test.dart`
 - **checkCalls** (1 connections) — `test/scenario_writing_check_service_test.dart`
@@ -27,23 +32,25 @@
 
 ## Relationships
 
-- [scenario_write_after_roleplay_card_test.dart](scenario_write_after_roleplay_card_test.dart.md) (3 shared connections)
-- [onboarding_story_screen.dart](onboarding_story_screen.dart.md) (1 shared connections)
+- [scenario_write_after_roleplay_card_test.dart](scenario_write_after_roleplay_card_test.dart.md) (4 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
+- [@immutable](@immutable.md) (1 shared connections)
 - [korean_proofreading_service.dart](korean_proofreading_service.dart.md) (1 shared connections)
+- [dart:async](dart-async.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
 - [scenario_writing_check_service.dart](scenario_writing_check_service.dart.md) (1 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
 - [package:ko_lernen_app/models/scenario.dart](package-ko_lernen_app-models-scenario.dart.md) (1 shared connections)
-- [korean_proofreading_service_test.dart](korean_proofreading_service_test.dart.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/services/korean_proofreading_service.dart`
+- `test/korean_proofreading_service_test.dart`
 - `test/scenario_writing_check_service_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 29 (100%)
+- EXTRACTED: 37 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

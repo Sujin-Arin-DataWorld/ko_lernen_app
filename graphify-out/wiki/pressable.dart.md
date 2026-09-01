@@ -1,12 +1,14 @@
 # pressable.dart
 
-> 25 nodes · cohesion 0.08
+> 27 nodes · cohesion 0.08
 
 ## Key Concepts
 
 - **pressable.dart** (28 connections) — `lib/widgets/sori/pressable.dart`
+- **SoriPressable** (9 connections) — `lib/widgets/sori/pressable.dart`
 - **like_burst.dart** (7 connections) — `lib/widgets/sori/like_burst.dart`
 - **Alignment** (6 connections)
+- **_SoriPressableState** (4 connections) — `lib/widgets/sori/pressable.dart`
 - **SoriLikeBurst** (2 connections) — `lib/widgets/sori/like_burst.dart`
 - **HitTestBehavior** (1 connections)
 - **alignment** (1 connections) — `lib/widgets/sori/like_burst.dart`
@@ -27,22 +29,22 @@
 - **onPressedChanged** (1 connections) — `lib/widgets/sori/pressable.dart`
 - **onTap** (1 connections) — `lib/widgets/sori/pressable.dart`
 - **pressScale** (1 connections) — `lib/widgets/sori/pressable.dart`
-- **_release** (1 connections) — `lib/widgets/sori/pressable.dart`
-- **SoriHaptic** (1 connections) — `lib/widgets/sori/pressable.dart`
+- *... and 2 more nodes in this community*
 
 ## Relationships
 
-- [String?](String_.md) (4 shared connections)
+- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (4 shared connections)
+- [String?](String_.md) (3 shared connections)
+- [_State](_State.md) (3 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
-- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (2 shared connections)
-- [cloze_game_screen.dart](cloze_game_screen.dart.md) (1 shared connections)
+- [StatelessWidget](StatelessWidget.md) (2 shared connections)
+- [course_practice_screen_test.dart](course_practice_screen_test.dart.md) (2 shared connections)
+- [static const double](static_const_double.md) (1 shared connections)
 - [scenario_player_screen.dart](scenario_player_screen.dart.md) (1 shared connections)
 - [mascot_pop.dart](mascot_pop.dart.md) (1 shared connections)
 - [swipe_card.dart](swipe_card.dart.md) (1 shared connections)
-- [StatelessWidget](StatelessWidget.md) (1 shared connections)
-- [hanok_cinematic.dart](hanok_cinematic.dart.md) (1 shared connections)
-- [hanok_world_screen.dart](hanok_world_screen.dart.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
+- [app_error.dart](app_error.dart.md) (1 shared connections)
+- [sori_stage_today_screen.dart](sori_stage_today_screen.dart.md) (1 shared connections)
 
 ## Source Files
 
@@ -51,7 +53,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 40 (100%)
+- EXTRACTED: 50 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

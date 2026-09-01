@@ -1,15 +1,13 @@
 # first_link_backfill_journal.dart
 
-> 45 nodes · cohesion 0.05
+> 42 nodes · cohesion 0.05
 
 ## Key Concepts
 
 - **first_link_backfill_journal.dart** (39 connections) — `lib/services/account/first_link_backfill_journal.dart`
 - **first_link_backfill_test.dart** (17 connections) — `test/services/account/first_link_backfill_test.dart`
 - **FirstDurableLinkBackfillJournalStore** (6 connections) — `lib/services/account/first_link_backfill_journal.dart`
-- **package:ko_lernen_app/services/account/first_link_backfill_journal.dart** (5 connections)
 - **FirstDurableLinkBackfillJournal** (4 connections) — `lib/services/account/first_link_backfill_journal.dart`
-- **first_link_backfill_journal_test.dart** (4 connections) — `test/services/account/first_link_backfill_journal_test.dart`
 - **SharedPreferencesFirstDurableLinkBackfillJournalStore** (2 connections) — `lib/services/account/first_link_backfill_journal.dart`
 - **package:ko_lernen_app/services/account/first_link_backfill.dart** (2 connections)
 - **_MemoryFirstLinkJournalStore** (2 connections) — `test/services/account/cloud_backup_deletion_test.dart`
@@ -29,33 +27,34 @@
 - **operationId** (1 connections) — `lib/services/account/first_link_backfill_journal.dart`
 - **operator** (1 connections) — `lib/services/account/first_link_backfill_journal.dart`
 - **packProgressPending** (1 connections) — `lib/services/account/first_link_backfill_journal.dart`
-- *... and 20 more nodes in this community*
+- **read** (1 connections) — `lib/services/account/first_link_backfill_journal.dart`
+- **_readUnlocked** (1 connections) — `lib/services/account/first_link_backfill_journal.dart`
+- *... and 17 more nodes in this community*
 
 ## Relationships
 
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (3 shared connections)
-- [cloud_backup_deletion_test.dart](cloud_backup_deletion_test.dart.md) (3 shared connections)
-- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (2 shared connections)
+- [cloud_backup_deletion_test.dart](cloud_backup_deletion_test.dart.md) (2 shared connections)
 - [first_link_backfill.dart](first_link_backfill.dart.md) (2 shared connections)
-- [auth_service_test.dart](auth_service_test.dart.md) (2 shared connections)
-- [T](T.md) (1 shared connections)
+- [room_layout_service.dart](room_layout_service.dart.md) (1 shared connections)
 - [bool get](bool_get.md) (1 shared connections)
-- [content_feedback_outbox_test.dart](content_feedback_outbox_test.dart.md) (1 shared connections)
-- [int get](int_get.md) (1 shared connections)
+- [class](class.md) (1 shared connections)
+- [Map](Map.md) (1 shared connections)
 - [static const](static_const.md) (1 shared connections)
 - [tts_installation_id.dart](tts_installation_id.dart.md) (1 shared connections)
-- [room_placement_service.dart](room_placement_service.dart.md) (1 shared connections)
+- [tts_bundled_manifest.dart](tts_bundled_manifest.dart.md) (1 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (1 shared connections)
+- [dart:convert](dart-convert.md) (1 shared connections)
+- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/services/account/first_link_backfill_journal.dart`
 - `test/services/account/cloud_backup_deletion_test.dart`
-- `test/services/account/first_link_backfill_journal_test.dart`
 - `test/services/account/first_link_backfill_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 72 (100%)
+- EXTRACTED: 65 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

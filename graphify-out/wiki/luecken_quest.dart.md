@@ -1,13 +1,18 @@
 # luecken_quest.dart
 
-> 24 nodes · cohesion 0.09
+> 47 nodes · cohesion 0.05
 
 ## Key Concepts
 
 - **luecken_quest.dart** (36 connections) — `lib/screens/quest_engines/luecken_quest.dart`
-- **../../services/sound_service.dart** (27 connections)
+- **uebersetzen_quest.dart** (32 connections) — `lib/screens/quest_engines/uebersetzen_quest.dart`
+- **quest_flow.dart** (7 connections)
+- **quest_layout.dart** (7 connections)
+- **quest_models.dart** (7 connections)
 - **LueckenQuest** (3 connections) — `lib/screens/quest_engines/luecken_quest.dart`
 - **_LueckenQuestState** (3 connections) — `lib/screens/quest_engines/luecken_quest.dart`
+- **UebersetzenQuest** (3 connections) — `lib/screens/quest_engines/uebersetzen_quest.dart`
+- **_UebersetzenQuestState** (3 connections) — `lib/screens/quest_engines/uebersetzen_quest.dart`
 - **allowDontKnow** (1 connections) — `lib/screens/quest_engines/luecken_quest.dart`
 - **build** (1 connections) — `lib/screens/quest_engines/luecken_quest.dart`
 - **_check** (1 connections) — `lib/screens/quest_engines/luecken_quest.dart`
@@ -24,33 +29,31 @@
 - **_revealAnswer** (1 connections) — `lib/screens/quest_engines/luecken_quest.dart`
 - **_select** (1 connections) — `lib/screens/quest_engines/luecken_quest.dart`
 - **_selected** (1 connections) — `lib/screens/quest_engines/luecken_quest.dart`
-- **_sentence** (1 connections) — `lib/screens/quest_engines/luecken_quest.dart`
-- **_sentenceView** (1 connections) — `lib/screens/quest_engines/luecken_quest.dart`
-- **_stateFor** (1 connections) — `lib/screens/quest_engines/luecken_quest.dart`
-- **_tries** (1 connections) — `lib/screens/quest_engines/luecken_quest.dart`
+- *... and 22 more nodes in this community*
 
 ## Relationships
 
-- [List](List.md) (8 shared connections)
-- [uebersetzen_quest.dart](uebersetzen_quest.dart.md) (3 shared connections)
-- [cloze_game_screen.dart](cloze_game_screen.dart.md) (3 shared connections)
-- [hoerverstehen_quest.dart](hoerverstehen_quest.dart.md) (2 shared connections)
-- [_State](_State.md) (2 shared connections)
-- [custom_pack_matching_screen.dart](custom_pack_matching_screen.dart.md) (2 shared connections)
-- [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (2 shared connections)
-- [int?](int_.md) (1 shared connections)
-- [int get](int_get.md) (1 shared connections)
-- [Map](Map.md) (1 shared connections)
-- [listening_play_screen.dart](listening_play_screen.dart.md) (1 shared connections)
-- [String?](String_.md) (1 shared connections)
+- [List](List.md) (5 shared connections)
+- [Map](Map.md) (4 shared connections)
+- [String?](String_.md) (4 shared connections)
+- [_State](_State.md) (4 shared connections)
+- [batchim_drop_quest.dart](batchim_drop_quest.dart.md) (3 shared connections)
+- [diktat_quest.dart](diktat_quest.dart.md) (3 shared connections)
+- [hoerverstehen_quest.dart](hoerverstehen_quest.dart.md) (3 shared connections)
+- [particle_pop_quest.dart](particle_pop_quest.dart.md) (3 shared connections)
+- [satz_bauen_quest.dart](satz_bauen_quest.dart.md) (3 shared connections)
+- [int?](int_.md) (2 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (2 shared connections)
 
 ## Source Files
 
 - `lib/screens/quest_engines/luecken_quest.dart`
+- `lib/screens/quest_engines/uebersetzen_quest.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 65 (100%)
+- EXTRACTED: 89 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

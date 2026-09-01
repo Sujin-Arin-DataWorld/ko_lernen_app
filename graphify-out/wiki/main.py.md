@@ -1,6 +1,6 @@
 # main.py
 
-> 54 nodes · cohesion 0.08
+> 53 nodes · cohesion 0.08
 
 ## Key Concepts
 
@@ -13,8 +13,8 @@
 - **translate_batch()** (10 connections) — `functions/analyze_korean_text/main.py`
 - **_translate_with_budget()** (7 connections) — `functions/analyze_korean_text/main.py`
 - **provider_timeout_seconds()** (7 connections) — `functions/analyze_korean_text/security.py`
+- **run_with_deadline()** (7 connections) — `functions/analyze_korean_text/security.py`
 - **_analysis_response()** (6 connections) — `functions/analyze_korean_text/main.py`
-- **configure_deepl_http_deadlines()** (6 connections) — `functions/analyze_korean_text/security.py`
 - **_cache_payload()** (5 connections) — `functions/analyze_korean_text/main.py`
 - **_cached_translation()** (5 connections) — `functions/analyze_korean_text/main.py`
 - **_deepl_breaker()** (5 connections) — `functions/analyze_korean_text/main.py`
@@ -29,12 +29,12 @@
 - **_log_analysis_result()** (4 connections) — `functions/analyze_korean_text/main.py`
 - **_quota_gate()** (4 connections) — `functions/analyze_korean_text/main.py`
 - **split_sentences()** (4 connections) — `functions/analyze_korean_text/main.py`
-- *... and 29 more nodes in this community*
+- *... and 28 more nodes in this community*
 
 ## Relationships
 
-- [security.py](security.py.md) (18 shared connections)
-- [FirestoreIdempotencyGate](FirestoreIdempotencyGate.md) (7 shared connections)
+- [security.py](security.py.md) (17 shared connections)
+- [FirestoreIdempotencyGate](FirestoreIdempotencyGate.md) (9 shared connections)
 - [detect_grammar](detect_grammar.md) (7 shared connections)
 - [prepare_korean_analysis_text](prepare_korean_analysis_text.md) (6 shared connections)
 - [EndpointSecurityTest](EndpointSecurityTest.md) (6 shared connections)

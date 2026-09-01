@@ -29,10 +29,11 @@
 ## Relationships
 
 - [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (3 shared connections)
-- [dart:math](dart-math.md) (2 shared connections)
 - [_](_.md) (2 shared connections)
-- [int get](int_get.md) (1 shared connections)
+- [Map](Map.md) (1 shared connections)
+- [typedef](typedef.md) (1 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
+- [free_room_layer.dart](free_room_layer.dart.md) (1 shared connections)
 - [room_layout_service.dart](room_layout_service.dart.md) (1 shared connections)
 - [Set](Set.md) (1 shared connections)
 

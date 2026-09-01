@@ -1,16 +1,13 @@
 # gye_dedication_service.dart
 
-> 55 nodes · cohesion 0.04
+> 39 nodes · cohesion 0.05
 
 ## Key Concepts
 
 - **gye_dedication_service.dart** (55 connections) — `lib/services/gye_dedication_service.dart`
-- **gye_dedication_service_test.dart** (22 connections) — `test/gye_dedication_service_test.dart`
 - **GyeDedicationGateway** (3 connections) — `lib/services/gye_dedication_service.dart`
 - **FirebaseGyeDedicationGateway** (2 connections) — `lib/services/gye_dedication_service.dart`
-- **GyeDedicationClientFailure** (2 connections) — `lib/services/gye_dedication_service.dart`
 - **GyeDedicationService** (2 connections) — `lib/services/gye_dedication_service.dart`
-- **package:ko_lernen_app/services/gye_dedication_service.dart** (2 connections)
 - **_RecordingGateway** (2 connections) — `test/gye_dedication_service_test.dart`
 - **absentExhibit** (1 connections) — `lib/services/gye_dedication_service.dart`
 - **activeExhibit** (1 connections) — `lib/services/gye_dedication_service.dart`
@@ -29,22 +26,25 @@
 - **hashCode** (1 connections) — `lib/services/gye_dedication_service.dart`
 - **_invoke** (1 connections) — `lib/services/gye_dedication_service.dart`
 - **newOperationId** (1 connections) — `lib/services/gye_dedication_service.dart`
-- *... and 30 more nodes in this community*
+- **noExhibit** (1 connections) — `lib/services/gye_dedication_service.dart`
+- **operator** (1 connections) — `lib/services/gye_dedication_service.dart`
+- **parseGyeDedicationRecords** (1 connections) — `lib/services/gye_dedication_service.dart`
+- *... and 14 more nodes in this community*
 
 ## Relationships
 
-- [String?](String_.md) (3 shared connections)
+- [gye_dedication_action.dart](gye_dedication_action.dart.md) (3 shared connections)
+- [gye_dedication_action_test.dart](gye_dedication_action_test.dart.md) (3 shared connections)
 - [gye_member_quest_service.dart](gye_member_quest_service.dart.md) (3 shared connections)
-- [int?](int_.md) (2 shared connections)
 - [dart:math](dart-math.md) (2 shared connections)
-- [gye_dedication_action.dart](gye_dedication_action.dart.md) (2 shared connections)
-- [gye_dedication_action_test.dart](gye_dedication_action_test.dart.md) (2 shared connections)
 - [gye_screen.dart](gye_screen.dart.md) (2 shared connections)
-- [pronunciation_assessment_client.dart](pronunciation_assessment_client.dart.md) (2 shared connections)
-- [gye_entry_uiux_test.dart](gye_entry_uiux_test.dart.md) (2 shared connections)
-- [int get](int_get.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
-- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
+- [int?](int_.md) (1 shared connections)
+- [Map](Map.md) (1 shared connections)
+- [static const String](static_const_String.md) (1 shared connections)
+- [String?](String_.md) (1 shared connections)
+- [typedef](typedef.md) (1 shared connections)
+- [_](_.md) (1 shared connections)
+- [pronunciation_assessment_client.dart](pronunciation_assessment_client.dart.md) (1 shared connections)
 
 ## Source Files
 
@@ -53,7 +53,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 81 (100%)
+- EXTRACTED: 59 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

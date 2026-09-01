@@ -1,15 +1,11 @@
 # curriculum_alignment_registry.dart
 
-> 30 nodes · cohesion 0.07
+> 22 nodes · cohesion 0.09
 
 ## Key Concepts
 
 - **curriculum_alignment_registry.dart** (24 connections) — `lib/data/curriculum_alignment_registry.dart`
-- **curriculum_evidence_projector.dart** (8 connections) — `lib/features/onboarding_v2/curriculum_evidence_projector.dart`
 - **OfficialCurriculumReference** (3 connections) — `lib/models/curriculum_alignment_contract.dart`
-- **../../models/curriculum_alignment_contract.dart** (3 connections)
-- **OnboardingCurriculumEvidenceProjection** (2 connections) — `lib/features/onboarding_v2/curriculum_evidence_projector.dart`
-- **../../data/curriculum_alignment_registry.dart** (1 connections)
 - **_cefrCompanionVolume2020** (1 connections) — `lib/data/curriculum_alignment_registry.dart`
 - **_courseStarts** (1 connections) — `lib/data/curriculum_alignment_registry.dart`
 - **_domainsForLevel** (1 connections) — `lib/data/curriculum_alignment_registry.dart`
@@ -29,25 +25,24 @@
 - **_topikStructureAndLevelsUrl** (1 connections) — `lib/data/curriculum_alignment_registry.dart`
 - **_topikWritingTutorial** (1 connections) — `lib/data/curriculum_alignment_registry.dart`
 - **_topikWritingTutorialUrl** (1 connections) — `lib/data/curriculum_alignment_registry.dart`
-- *... and 5 more nodes in this community*
+- **writingOpinionWithTwoReasons** (1 connections) — `lib/data/curriculum_alignment_registry.dart`
 
 ## Relationships
 
-- [onboarding_story_screen.dart](onboarding_story_screen.dart.md) (3 shared connections)
 - [static const](static_const.md) (1 shared connections)
-- [custom_pack_matching_screen.dart](custom_pack_matching_screen.dart.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
+- [curriculum_evidence_projector.dart](curriculum_evidence_projector.dart.md) (1 shared connections)
+- [chosung_quiz_screen.dart](chosung_quiz_screen.dart.md) (1 shared connections)
+- [StatelessWidget](StatelessWidget.md) (1 shared connections)
 - [curriculum_alignment_contract.dart](curriculum_alignment_contract.dart.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/data/curriculum_alignment_registry.dart`
-- `lib/features/onboarding_v2/curriculum_evidence_projector.dart`
 - `lib/models/curriculum_alignment_contract.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 36 (100%)
+- EXTRACTED: 26 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

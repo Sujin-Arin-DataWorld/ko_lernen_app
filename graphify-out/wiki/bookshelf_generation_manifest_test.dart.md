@@ -6,7 +6,7 @@
 
 - **bookshelf_generation_manifest_test.dart** (19 connections) — `test/services/account/bookshelf_generation_manifest_test.dart`
 - **BookshelfGenerationRepository** (6 connections) — `lib/services/account/bookshelf_generation_manifest.dart`
-- **BookshelfGenerationManifest** (5 connections) — `lib/services/account/bookshelf_generation_manifest.dart`
+- **package:ko_lernen_app/services/account/bookshelf_generation_manifest.dart** (4 connections)
 - **_FirestoreBookshelfGenerationRepository** (2 connections) — `lib/services/bookshelf_service.dart`
 - **_LegacyBookshelfRepository** (2 connections) — `test/cloud_sync_test.dart`
 - **_MemoryBookshelfRepository** (2 connections) — `test/services/account/bookshelf_generation_manifest_test.dart`
@@ -27,10 +27,10 @@
 
 ## Relationships
 
-- [account_reconciliation_test.dart](account_reconciliation_test.dart.md) (3 shared connections)
+- [bookshelf_service_test.dart](bookshelf_service_test.dart.md) (3 shared connections)
 - [cloud_sync_test.dart](cloud_sync_test.dart.md) (2 shared connections)
 - [bookshelf_generation_outbox_retry_test.dart](bookshelf_generation_outbox_retry_test.dart.md) (2 shared connections)
-- [_](_.md) (2 shared connections)
+- [_](_.md) (1 shared connections)
 - [bookshelf_service.dart](bookshelf_service.dart.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
@@ -46,7 +46,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 32 (100%)
+- EXTRACTED: 31 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

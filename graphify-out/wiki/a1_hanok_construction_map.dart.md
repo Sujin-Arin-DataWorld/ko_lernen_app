@@ -28,13 +28,12 @@
 
 ## Relationships
 
-- [List](List.md) (2 shared connections)
-- [String?](String_.md) (2 shared connections)
+- [String?](String_.md) (3 shared connections)
+- [Map](Map.md) (2 shared connections)
 - [_State](_State.md) (2 shared connections)
 - [_](_.md) (1 shared connections)
 - [int?](int_.md) (1 shared connections)
-- [int get](int_get.md) (1 shared connections)
-- [Map](Map.md) (1 shared connections)
+- [List](List.md) (1 shared connections)
 - [Set](Set.md) (1 shared connections)
 - [ildu_world_projection_adapter.dart](ildu_world_projection_adapter.dart.md) (1 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)

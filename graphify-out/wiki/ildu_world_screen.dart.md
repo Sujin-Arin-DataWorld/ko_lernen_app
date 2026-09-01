@@ -1,14 +1,12 @@
 # ildu_world_screen.dart
 
-> 136 nodes · cohesion 0.01
+> 134 nodes · cohesion 0.02
 
 ## Key Concepts
 
 - **ildu_world_screen.dart** (171 connections) — `lib/screens/ildu_world_screen.dart`
 - **IlDuWorldScreen** (3 connections) — `lib/screens/ildu_world_screen.dart`
 - **_IlDuWorldScreenState** (3 connections) — `lib/screens/ildu_world_screen.dart`
-- **_MapAnchor** (3 connections) — `lib/screens/ildu_world_screen.dart`
-- **_MapAnchorState** (3 connections) — `lib/screens/ildu_world_screen.dart`
 - **_AnchorScaleControl** (2 connections) — `lib/screens/ildu_world_screen.dart`
 - **_DecorationAnchor** (2 connections) — `lib/screens/ildu_world_screen.dart`
 - **_DecorationPalette** (2 connections) — `lib/screens/ildu_world_screen.dart`
@@ -29,22 +27,24 @@
 - **_anchorPlacements** (1 connections) — `lib/screens/ildu_world_screen.dart`
 - **anchorPlacementStore** (1 connections) — `lib/screens/ildu_world_screen.dart`
 - **_anchorPositions** (1 connections) — `lib/screens/ildu_world_screen.dart`
-- *... and 111 more nodes in this community*
+- **_anchorSaveInProgress** (1 connections) — `lib/screens/ildu_world_screen.dart`
+- **_anchorSaveRequested** (1 connections) — `lib/screens/ildu_world_screen.dart`
+- *... and 109 more nodes in this community*
 
 ## Relationships
 
-- [StatelessWidget](StatelessWidget.md) (10 shared connections)
+- [StatelessWidget](StatelessWidget.md) (11 shared connections)
 - [ildu_world_manifest.dart](ildu_world_manifest.dart.md) (4 shared connections)
-- [_State](_State.md) (4 shared connections)
-- [String?](String_.md) (3 shared connections)
 - [ildu_world_projection_adapter.dart](ildu_world_projection_adapter.dart.md) (3 shared connections)
-- [List](List.md) (3 shared connections)
-- [hanok_world_screen.dart](hanok_world_screen.dart.md) (3 shared connections)
+- [String?](String_.md) (3 shared connections)
 - [ildu_anchor_placement_service.dart](ildu_anchor_placement_service.dart.md) (2 shared connections)
 - [ildu_decoration_placement_service.dart](ildu_decoration_placement_service.dart.md) (2 shared connections)
-- [standalone_games_uiux_test.dart](standalone_games_uiux_test.dart.md) (2 shared connections)
-- [dart:math](dart-math.md) (2 shared connections)
+- [pronunciation_studio_ui_test.dart](pronunciation_studio_ui_test.dart.md) (2 shared connections)
+- [_MapAnchor](_MapAnchor.md) (2 shared connections)
 - [gye_screen.dart](gye_screen.dart.md) (2 shared connections)
+- [_State](_State.md) (2 shared connections)
+- [bool get](bool_get.md) (1 shared connections)
+- [hanji_texture.dart](hanji_texture.dart.md) (1 shared connections)
 
 ## Source Files
 
@@ -52,7 +52,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 187 (100%)
+- EXTRACTED: 184 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

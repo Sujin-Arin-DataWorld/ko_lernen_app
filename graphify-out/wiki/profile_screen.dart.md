@@ -1,15 +1,27 @@
 # profile_screen.dart
 
-> 78 nodes · cohesion 0.03
+> 167 nodes · cohesion 0.01
 
 ## Key Concepts
 
 - **profile_screen.dart** (117 connections) — `lib/screens/profile_screen.dart`
+- **character_selection_screen.dart** (73 connections) — `lib/screens/character_selection_screen.dart`
+- **onboarding_start_screen.dart** (35 connections) — `lib/screens/onboarding_start_screen.dart`
+- **../widgets/sori/mascot.dart** (35 connections)
+- **learner_motivation.dart** (24 connections) — `lib/data/learner_motivation.dart`
+- **../../data/learner_motivation.dart** (8 connections)
+- **../../widgets/sori/character_clip.dart** (7 connections)
+- **LearnerMotivation** (6 connections) — `lib/data/learner_motivation.dart`
+- **onboarding_first_scene.dart** (6 connections) — `lib/models/onboarding_first_scene.dart`
 - **Route /settings** (4 connections)
 - **build** (3 connections) — `lib/screens/profile_screen.dart`
-- **header** (3 connections) — `lib/screens/sori_stage/sori_stage_today_screen.dart`
+- **../widgets/sori/consent_invite_sheet.dart** (3 connections)
 - **AccountUiOperations get** (2 connections)
+- **LearnerMotivationX** (2 connections) — `lib/data/learner_motivation.dart`
+- **_CharacterCard** (2 connections) — `lib/screens/character_selection_screen.dart`
+- **_OptionalCharacterCard** (2 connections) — `lib/screens/character_selection_screen.dart`
 - **_openGyeHub** (2 connections) — `lib/screens/hanok_world_screen.dart`
+- **_ChoiceTile** (2 connections) — `lib/screens/onboarding_start_screen.dart`
 - **_ConnectedCard** (2 connections) — `lib/screens/profile_screen.dart`
 - **_GuestCard** (2 connections) — `lib/screens/profile_screen.dart`
 - **_openAccountControls** (2 connections) — `lib/screens/profile_screen.dart`
@@ -17,46 +29,36 @@
 - **_openGye** (2 connections) — `lib/screens/profile_screen.dart`
 - **_ProfileSectionLabel** (2 connections) — `lib/screens/profile_screen.dart`
 - **_ProfileSettingTile** (2 connections) — `lib/screens/profile_screen.dart`
-- **_StatsRow** (2 connections) — `lib/screens/profile_screen.dart`
-- **_StatTile** (2 connections) — `lib/screens/profile_screen.dart`
-- **build** (2 connections) — `lib/screens/sori_stage/sori_stage_common.dart`
-- **_bar** (2 connections) — `lib/widgets/sori/stats_top_bar.dart`
-- **../widgets/sori/account_operation_ui.dart** (2 connections)
-- **Route /gye/hub** (2 connections)
-- **Route /profile** (2 connections)
-- **Route /stats** (2 connections)
-- **account** (1 connections) — `lib/screens/profile_screen.dart`
-- **_accountCardKey** (1 connections) — `lib/screens/profile_screen.dart`
-- **accountOperations** (1 connections) — `lib/screens/profile_screen.dart`
-- **action** (1 connections) — `lib/screens/profile_screen.dart`
-- *... and 53 more nodes in this community*
+- *... and 142 more nodes in this community*
 
 ## Relationships
 
-- [List](List.md) (7 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (14 shared connections)
+- [String?](String_.md) (12 shared connections)
+- [StatelessWidget](StatelessWidget.md) (11 shared connections)
+- [_State](_State.md) (8 shared connections)
+- [sori_stage_today_screen.dart](sori_stage_today_screen.dart.md) (7 shared connections)
 - [gye_screen.dart](gye_screen.dart.md) (6 shared connections)
-- [StatelessWidget](StatelessWidget.md) (6 shared connections)
-- [String?](String_.md) (5 shared connections)
-- [../widgets/sori/button.dart](-widgets-sori-button.dart.md) (5 shared connections)
-- [listening_play_screen.dart](listening_play_screen.dart.md) (4 shared connections)
-- [_State](_State.md) (4 shared connections)
-- [account_nudge.dart](account_nudge.dart.md) (3 shared connections)
-- [_](_.md) (2 shared connections)
-- [cloze_game_screen.dart](cloze_game_screen.dart.md) (2 shared connections)
-- [hanok_world_screen.dart](hanok_world_screen.dart.md) (1 shared connections)
-- [LearnerLevel](LearnerLevel.md) (1 shared connections)
+- [../../services/storage_service.dart](-..-services-storage_service.dart.md) (5 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (5 shared connections)
+- [List](List.md) (5 shared connections)
+- [cloze_game_screen.dart](cloze_game_screen.dart.md) (5 shared connections)
+- [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (5 shared connections)
+- [bool get](bool_get.md) (5 shared connections)
 
 ## Source Files
 
+- `lib/data/learner_motivation.dart`
+- `lib/models/onboarding_first_scene.dart`
+- `lib/screens/character_selection_screen.dart`
 - `lib/screens/hanok_world_screen.dart`
+- `lib/screens/onboarding_start_screen.dart`
 - `lib/screens/profile_screen.dart`
-- `lib/screens/sori_stage/sori_stage_common.dart`
-- `lib/screens/sori_stage/sori_stage_today_screen.dart`
 - `lib/widgets/sori/stats_top_bar.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 139 (100%)
+- EXTRACTED: 321 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

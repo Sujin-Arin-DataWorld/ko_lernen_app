@@ -34,7 +34,7 @@
 ## Relationships
 
 - [account_transition_journal.dart](account_transition_journal.dart.md) (1 shared connections)
-- [dart:math](dart-math.md) (1 shared connections)
+- [typedef](typedef.md) (1 shared connections)
 - [_](_.md) (1 shared connections)
 
 ## Source Files

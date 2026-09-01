@@ -1,60 +1,63 @@
 # bool get
 
-> 76 nodes · cohesion 0.03
+> 189 nodes · cohesion 0.01
 
 ## Key Concepts
 
 - **bool get** (134 connections)
-- **silben_kreuz_screen.dart** (90 connections) — `lib/screens/silben_kreuz_screen.dart`
-- **silben_puzzle.dart** (20 connections) — `lib/models/silben_puzzle.dart`
-- **tester_feedback_feature.dart** (7 connections) — `lib/config/tester_feedback_feature.dart`
-- **_SilbenKreuzScreenState** (4 connections) — `lib/screens/silben_kreuz_screen.dart`
-- **SilbenKreuzScreen** (3 connections) — `lib/screens/silben_kreuz_screen.dart`
-- **SilbenPuzzle** (2 connections) — `lib/models/silben_puzzle.dart`
-- **SilbenWord** (2 connections) — `lib/models/silben_puzzle.dart`
-- **_compileTimeEnabled** (1 connections) — `lib/config/tester_feedback_feature.dart`
-- **_enabledOverride** (1 connections) — `lib/config/tester_feedback_feature.dart`
-- **isEnabled** (1 connections) — `lib/config/tester_feedback_feature.dart`
-- **answer** (1 connections) — `lib/models/silben_puzzle.dart`
-- **col** (1 connections) — `lib/models/silben_puzzle.dart`
-- **cols** (1 connections) — `lib/models/silben_puzzle.dart`
-- **dir** (1 connections) — `lib/models/silben_puzzle.dart`
-- **exampleDe** (1 connections) — `lib/models/silben_puzzle.dart`
-- **exampleKo** (1 connections) — `lib/models/silben_puzzle.dart`
-- **exampleKoSpoken** (1 connections) — `lib/models/silben_puzzle.dart`
-- **fromJson** (1 connections) — `lib/models/silben_puzzle.dart`
-- **german** (1 connections) — `lib/models/silben_puzzle.dart`
-- **id** (1 connections) — `lib/models/silben_puzzle.dart`
-- **isHorizontal** (1 connections) — `lib/models/silben_puzzle.dart`
-- **pool** (1 connections) — `lib/models/silben_puzzle.dart`
-- **row** (1 connections) — `lib/models/silben_puzzle.dart`
-- **rows** (1 connections) — `lib/models/silben_puzzle.dart`
-- *... and 51 more nodes in this community*
+- **legacy_vocab_screen.dart** (118 connections) — `lib/screens/legacy_vocab_screen.dart`
+- **review_session_screen.dart** (109 connections) — `lib/screens/review_session_screen.dart`
+- **custom_pack_play_screen.dart** (71 connections) — `lib/screens/custom_pack_play_screen.dart`
+- **first_run_runtime.dart** (22 connections) — `lib/features/onboarding_v2/first_run_runtime.dart`
+- **../widgets/sori/mascot_preference.dart** (15 connections)
+- **ux_preview_feature.dart** (7 connections) — `lib/config/ux_preview_feature.dart`
+- **../widgets/sori/content_feed.dart** (7 connections)
+- **../widgets/sori/content_share_recovery.dart** (6 connections)
+- **../widgets/flip_card.dart** (5 connections)
+- **CustomPackPlayScreen** (4 connections) — `lib/screens/custom_pack_play_screen.dart`
+- **_CustomPackPlayScreenState** (4 connections) — `lib/screens/custom_pack_play_screen.dart`
+- **_ReviewSessionScreenState** (4 connections) — `lib/screens/review_session_screen.dart`
+- **../widgets/sori/deck_coach.dart** (4 connections)
+- **ReviewSessionScreen** (3 connections) — `lib/screens/review_session_screen.dart`
+- **../widgets/sori/scroll_if_needed.dart** (3 connections)
+- **UxPreviewFeatureGate** (2 connections) — `lib/config/ux_preview_feature.dart`
+- **createCoordinator** (2 connections) — `lib/features/onboarding_v2/first_run_runtime.dart`
+- **_Back** (2 connections) — `lib/screens/custom_pack_play_screen.dart`
+- **_Front** (2 connections) — `lib/screens/custom_pack_play_screen.dart`
+- **_Back** (2 connections) — `lib/screens/legacy_vocab_screen.dart`
+- **_Front** (2 connections) — `lib/screens/legacy_vocab_screen.dart`
+- **_MasteryChip** (2 connections) — `lib/screens/legacy_vocab_screen.dart`
+- **_SpeakButton** (2 connections) — `lib/screens/review_session_screen.dart`
+- **MasteryState** (2 connections) — `lib/services/storage_service.dart`
+- *... and 164 more nodes in this community*
 
 ## Relationships
 
-- [_](_.md) (22 shared connections)
-- [List](List.md) (16 shared connections)
-- [listening_play_screen.dart](listening_play_screen.dart.md) (9 shared connections)
-- [learning_path_screen.dart](learning_path_screen.dart.md) (5 shared connections)
-- [../widgets/sori/button.dart](-widgets-sori-button.dart.md) (4 shared connections)
-- [custom_pack_matching_screen.dart](custom_pack_matching_screen.dart.md) (3 shared connections)
-- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (3 shared connections)
-- [cloze_game_screen.dart](cloze_game_screen.dart.md) (3 shared connections)
-- [StatelessWidget](StatelessWidget.md) (3 shared connections)
-- [account_transition_ui_test.dart](account_transition_ui_test.dart.md) (3 shared connections)
-- [_State](_State.md) (3 shared connections)
-- [premium_service.dart](premium_service.dart.md) (2 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (34 shared connections)
+- [_](_.md) (25 shared connections)
+- [List](List.md) (13 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (12 shared connections)
+- [grammar_screen.dart](grammar_screen.dart.md) (10 shared connections)
+- [dart:math](dart-math.md) (9 shared connections)
+- [StatelessWidget](StatelessWidget.md) (9 shared connections)
+- [book_result_screen.dart](book_result_screen.dart.md) (8 shared connections)
+- [_State](_State.md) (8 shared connections)
+- [hangul_screen.dart](hangul_screen.dart.md) (7 shared connections)
+- [String?](String_.md) (7 shared connections)
+- [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (6 shared connections)
 
 ## Source Files
 
-- `lib/config/tester_feedback_feature.dart`
-- `lib/models/silben_puzzle.dart`
-- `lib/screens/silben_kreuz_screen.dart`
+- `lib/config/ux_preview_feature.dart`
+- `lib/features/onboarding_v2/first_run_runtime.dart`
+- `lib/screens/custom_pack_play_screen.dart`
+- `lib/screens/legacy_vocab_screen.dart`
+- `lib/screens/review_session_screen.dart`
+- `lib/services/storage_service.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 252 (100%)
+- EXTRACTED: 498 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

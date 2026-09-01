@@ -28,9 +28,9 @@
 
 ## Relationships
 
-- [load_and_validate_candidate](load_and_validate_candidate.md) (2 shared connections)
-- [scenario_corpus_pipeline.py](scenario_corpus_pipeline.py.md) (2 shared connections)
+- [load_and_validate_candidate](load_and_validate_candidate.md) (3 shared connections)
 - [handle](handle.md) (1 shared connections)
+- [scenario_corpus_pipeline.py](scenario_corpus_pipeline.py.md) (1 shared connections)
 - [ScenarioCorpusPipelineTest](ScenarioCorpusPipelineTest.md) (1 shared connections)
 
 ## Source Files

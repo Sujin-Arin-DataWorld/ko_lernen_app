@@ -1,11 +1,17 @@
 # ios_firebase_configuration_test.dart
 
-> 27 nodes · cohesion 0.07
+> 33 nodes · cohesion 0.06
 
 ## Key Concepts
 
 - **ios_firebase_configuration_test.dart** (29 connections) — `test/ios_firebase_configuration_test.dart`
+- **firebase_options.dart** (6 connections) — `lib/firebase_options.dart`
+- **package:firebase_core/firebase_core.dart** (3 connections)
+- **static const FirebaseOptions** (2 connections)
 - **** (1 connections)
+- **android** (1 connections) — `lib/firebase_options.dart`
+- **DefaultFirebaseOptions** (1 connections) — `lib/firebase_options.dart`
+- **ios** (1 connections) — `lib/firebase_options.dart`
 - **static FirebaseOptions get** (1 connections)
 - **android** (1 connections) — `test/ios_firebase_configuration_test.dart`
 - **buildFileReference** (1 connections) — `test/ios_firebase_configuration_test.dart`
@@ -23,27 +29,24 @@
 - **_firebaseOptionsWithUnreachableIosBranch** (1 connections) — `test/ios_firebase_configuration_test.dart`
 - **ios** (1 connections) — `test/ios_firebase_configuration_test.dart`
 - **main** (1 connections) — `test/ios_firebase_configuration_test.dart`
-- **memberOfRunnerGroup** (1 connections) — `test/ios_firebase_configuration_test.dart`
-- **memberOfRunnerResources** (1 connections) — `test/ios_firebase_configuration_test.dart`
-- **_projectWith** (1 connections) — `test/ios_firebase_configuration_test.dart`
-- **runnerGroupReachable** (1 connections) — `test/ios_firebase_configuration_test.dart`
-- **_validPlist** (1 connections) — `test/ios_firebase_configuration_test.dart`
-- **_validProjectSource** (1 connections) — `test/ios_firebase_configuration_test.dart`
-- *... and 2 more nodes in this community*
+- *... and 8 more nodes in this community*
 
 ## Relationships
 
-- [return](return.md) (1 shared connections)
 - [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
+- [main.dart](main.dart.md) (1 shared connections)
+- [_](_.md) (1 shared connections)
+- [return](return.md) (1 shared connections)
 - [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
 
 ## Source Files
 
+- `lib/firebase_options.dart`
 - `test/ios_firebase_configuration_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 29 (100%)
+- EXTRACTED: 37 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

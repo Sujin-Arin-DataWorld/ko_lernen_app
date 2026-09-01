@@ -37,7 +37,7 @@
 - [ContentValidator](ContentValidator.md) (3 shared connections)
 - [validate_content.py](validate_content.py.md) (2 shared connections)
 - [handle](handle.md) (1 shared connections)
-- [scenario_store.py](scenario_store.py.md) (1 shared connections)
+- [Batch01PreReviewValidationTest](Batch01PreReviewValidationTest.md) (1 shared connections)
 
 ## Source Files
 

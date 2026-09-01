@@ -33,18 +33,18 @@
 
 ## Relationships
 
-- [package:flutter/material.dart](package-flutter-material.dart.md) (31 shared connections)
-- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (18 shared connections)
-- [package:ko_lernen_app/theme.dart](package-ko_lernen_app-theme.dart.md) (13 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (12 shared connections)
-- [course_reassessment_screen_test.dart](course_reassessment_screen_test.dart.md) (10 shared connections)
+- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (18 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (14 shared connections)
+- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (14 shared connections)
+- [course_practice_screen_test.dart](course_practice_screen_test.dart.md) (12 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (10 shared connections)
+- [content_feedback_widget_test.dart](content_feedback_widget_test.dart.md) (9 shared connections)
 - [dart:math](dart-math.md) (4 shared connections)
+- [responsive_screens.dart](responsive_screens.dart.md) (3 shared connections)
 - [stroke_canvas.dart](stroke_canvas.dart.md) (3 shared connections)
+- [List](List.md) (2 shared connections)
 - [dart:ui](dart-ui.md) (2 shared connections)
-- [String?](String_.md) (1 shared connections)
-- [StatelessWidget](StatelessWidget.md) (1 shared connections)
-- [jamo_speech_test.dart](jamo_speech_test.dart.md) (1 shared connections)
-- [vocab_notebook_studio_screen_test.dart](vocab_notebook_studio_screen_test.dart.md) (1 shared connections)
+- [standalone_games_uiux_test.dart](standalone_games_uiux_test.dart.md) (2 shared connections)
 
 ## Source Files
 

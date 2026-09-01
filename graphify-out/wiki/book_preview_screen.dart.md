@@ -1,14 +1,20 @@
 # book_preview_screen.dart
 
-> 36 nodes · cohesion 0.06
+> 71 nodes · cohesion 0.03
 
 ## Key Concepts
 
 - **book_preview_screen.dart** (54 connections) — `lib/screens/book_preview_screen.dart`
-- **BookPreviewScreen** (3 connections) — `lib/screens/book_preview_screen.dart`
-- **_BookPreviewScreenState** (3 connections) — `lib/screens/book_preview_screen.dart`
+- **vocab_notebook_result_screen.dart** (41 connections) — `lib/screens/vocab_notebook_result_screen.dart`
+- **age_gate_prompt.dart** (20 connections) — `lib/widgets/sori/age_gate_prompt.dart`
+- **TextEditingController?** (16 connections)
+- **dialog.dart** (4 connections)
+- **../services/book_ocr_document.dart** (4 connections)
+- **_BirthYearDialog** (3 connections) — `lib/widgets/sori/age_gate_prompt.dart`
+- **_BirthYearDialogState** (3 connections) — `lib/widgets/sori/age_gate_prompt.dart`
 - **_BookPreviewImage** (2 connections) — `lib/screens/book_preview_screen.dart`
 - **_BookPreviewImageFallback** (2 connections) — `lib/screens/book_preview_screen.dart`
+- **../services/vocab_notebook_parser.dart** (2 connections)
 - **BookOcrDocument? get** (1 connections)
 - **args** (1 connections) — `lib/screens/book_preview_screen.dart`
 - **bookPreviewImageMaxHeight** (1 connections) — `lib/screens/book_preview_screen.dart`
@@ -23,36 +29,32 @@
 - **_correctionEvidence** (1 connections) — `lib/screens/book_preview_screen.dart`
 - **createState** (1 connections) — `lib/screens/book_preview_screen.dart`
 - **_ctrl** (1 connections) — `lib/screens/book_preview_screen.dart`
-- **_currentDocument** (1 connections) — `lib/screens/book_preview_screen.dart`
-- **dispose** (1 connections) — `lib/screens/book_preview_screen.dart`
-- **encodedLease** (1 connections) — `lib/screens/book_preview_screen.dart`
-- **_hasSevereCaptureWarning** (1 connections) — `lib/screens/book_preview_screen.dart`
-- **image** (1 connections) — `lib/screens/book_preview_screen.dart`
-- **imageResolver** (1 connections) — `lib/screens/book_preview_screen.dart`
-- *... and 11 more nodes in this community*
+- *... and 46 more nodes in this community*
 
 ## Relationships
 
-- [List](List.md) (6 shared connections)
-- [String?](String_.md) (2 shared connections)
-- [_](_.md) (2 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (10 shared connections)
+- [String?](String_.md) (6 shared connections)
+- [_State](_State.md) (6 shared connections)
+- [_](_.md) (4 shared connections)
+- [gye_screen.dart](gye_screen.dart.md) (4 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (3 shared connections)
+- [List](List.md) (3 shared connections)
+- [book_result_screen.dart](book_result_screen.dart.md) (3 shared connections)
+- [Map](Map.md) (2 shared connections)
 - [StatelessWidget](StatelessWidget.md) (2 shared connections)
-- [_State](_State.md) (2 shared connections)
-- [cloud_backup_deletion_test.dart](cloud_backup_deletion_test.dart.md) (1 shared connections)
-- [Map](Map.md) (1 shared connections)
-- [book_result_screen.dart](book_result_screen.dart.md) (1 shared connections)
-- [dart:math](dart-math.md) (1 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [book_capture_screen.dart](book_capture_screen.dart.md) (1 shared connections)
+- [dart:math](dart-math.md) (2 shared connections)
+- [custom_pack_edit_screen.dart](custom_pack_edit_screen.dart.md) (2 shared connections)
 
 ## Source Files
 
 - `lib/screens/book_preview_screen.dart`
+- `lib/screens/vocab_notebook_result_screen.dart`
+- `lib/widgets/sori/age_gate_prompt.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 59 (100%)
+- EXTRACTED: 138 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

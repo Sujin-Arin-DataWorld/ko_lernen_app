@@ -1,14 +1,10 @@
 # guide_runtime.dart
 
-> 91 nodes · cohesion 0.02
+> 87 nodes · cohesion 0.02
 
 ## Key Concepts
 
 - **guide_runtime.dart** (120 connections) — `lib/features/guide/guide_runtime.dart`
-- **GuideHubRouteScreen** (3 connections) — `lib/features/guide/guide_runtime.dart`
-- **_GuideHubRouteScreenState** (3 connections) — `lib/features/guide/guide_runtime.dart`
-- **GuideTopicDetailRouteScreen** (3 connections) — `lib/features/guide/guide_runtime.dart`
-- **_GuideTopicDetailRouteScreenState** (3 connections) — `lib/features/guide/guide_runtime.dart`
 - **GuideEntryAnalyticsSurface** (2 connections) — `lib/services/analytics_service.dart`
 - **screens/settings_screen.dart** (2 connections)
 - **guide_hub_screen.dart** (1 connections)
@@ -29,22 +25,26 @@
 - **GuideDestinationResolver** (1 connections) — `lib/features/guide/guide_runtime.dart`
 - **guideHubCopy** (1 connections) — `lib/features/guide/guide_runtime.dart`
 - **GuideHubOpenedReporter** (1 connections) — `lib/features/guide/guide_runtime.dart`
-- *... and 66 more nodes in this community*
+- **_guideRoutingAction** (1 connections) — `lib/features/guide/guide_runtime.dart`
+- **GuideRoutingFailureReporter** (1 connections) — `lib/features/guide/guide_runtime.dart`
+- **GuideRuntime** (1 connections) — `lib/features/guide/guide_runtime.dart`
+- **guideScenarioCategorySectionViewModel** (1 connections) — `lib/features/guide/guide_runtime.dart`
+- *... and 62 more nodes in this community*
 
 ## Relationships
 
-- [_State](_State.md) (4 shared connections)
 - [today_guide_section.dart](today_guide_section.dart.md) (3 shared connections)
+- [guide_presentation.dart](guide_presentation.dart.md) (3 shared connections)
 - [listening_play_screen.dart](listening_play_screen.dart.md) (3 shared connections)
-- [../widgets/sori/button.dart](-widgets-sori-button.dart.md) (3 shared connections)
-- [guide_presentation.dart](guide_presentation.dart.md) (2 shared connections)
-- [List](List.md) (2 shared connections)
-- [onboarding_story_screen.dart](onboarding_story_screen.dart.md) (2 shared connections)
+- [String?](String_.md) (2 shared connections)
+- [GuideHubRouteScreen](GuideHubRouteScreen.md) (2 shared connections)
+- [GuideTopicDetailRouteScreen](GuideTopicDetailRouteScreen.md) (2 shared connections)
 - [consent_screen.dart](consent_screen.dart.md) (2 shared connections)
 - [bool get](bool_get.md) (1 shared connections)
-- [content_feedback_outbox_test.dart](content_feedback_outbox_test.dart.md) (1 shared connections)
+- [class](class.md) (1 shared connections)
 - [guide_progress_service.dart](guide_progress_service.dart.md) (1 shared connections)
 - [guide_contract.dart](guide_contract.dart.md) (1 shared connections)
+- [LearnerLevel](LearnerLevel.md) (1 shared connections)
 
 ## Source Files
 
@@ -53,7 +53,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 128 (100%)
+- EXTRACTED: 122 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

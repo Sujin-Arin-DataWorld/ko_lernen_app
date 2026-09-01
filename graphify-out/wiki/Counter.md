@@ -1,6 +1,6 @@
 # Counter
 
-> 44 nodes · cohesion 0.11
+> 58 nodes · cohesion 0.07
 
 ## Key Concepts
 
@@ -8,12 +8,14 @@
 - **promote_batch_20_full_surface.py** (29 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
 - **promote()** (18 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
 - **Any** (18 connections)
+- **Batch17BuildTest** (10 connections) — `tools/content_factory/test_build_batch_17_social_topics.py`
 - **ThemeParkDateBuildTest** (9 connections) — `tools/content_factory/test_build_theme_park_date_smalltalk.py`
 - **Path** (9 connections)
 - **_artifact()** (8 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
 - **_by_level()** (7 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
 - **_live_csv_projection()** (6 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
 - **write_review()** (6 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
+- **test_build_batch_17_social_topics.py** (6 connections) — `tools/content_factory/test_build_batch_17_social_topics.py`
 - **promote_kkeunmari()** (5 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
 - **relation_records()** (5 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
 - **scenario_records()** (5 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
@@ -25,37 +27,36 @@
 - **_refresh_json_meta()** (4 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
 - **satz_records()** (4 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
 - **tri()** (4 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
+- **read_json()** (4 connections) — `tools/content_factory/test_build_batch_17_social_topics.py`
 - **main()** (3 connections) — `tools/content_factory/build_smalltalk.py`
-- **promote_culture_notes()** (3 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
-- **_quest()** (3 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
-- **_review_tri()** (3 connections) — `tools/content_factory/promote_batch_20_full_surface.py`
-- *... and 19 more nodes in this community*
+- *... and 33 more nodes in this community*
 
 ## Relationships
 
-- [handle](handle.md) (5 shared connections)
+- [handle](handle.md) (7 shared connections)
 - [promote_batch_19_loader_coverage.py](promote_batch_19_loader_coverage.py.md) (5 shared connections)
+- [build_batch_17_social_topics.py](build_batch_17_social_topics.py.md) (4 shared connections)
 - [build_batch_18_social_language.py](build_batch_18_social_language.py.md) (4 shared connections)
+- [scenario_corpus_pipeline.py](scenario_corpus_pipeline.py.md) (4 shared connections)
 - [audit_scenario_quests.py](audit_scenario_quests.py.md) (3 shared connections)
-- [build_batch_17_social_topics.py](build_batch_17_social_topics.py.md) (3 shared connections)
 - [ContentValidator](ContentValidator.md) (3 shared connections)
 - [validate_batch_01.py](validate_batch_01.py.md) (2 shared connections)
 - [audit_scene_assets.py](audit_scene_assets.py.md) (2 shared connections)
 - [build_inventory](build_inventory.md) (2 shared connections)
 - [audit_game_loader_coverage.py](audit_game_loader_coverage.py.md) (2 shared connections)
 - [build_theme_park_date_smalltalk.py](build_theme_park_date_smalltalk.py.md) (2 shared connections)
-- [scenario_corpus_pipeline.py](scenario_corpus_pipeline.py.md) (2 shared connections)
 
 ## Source Files
 
 - `tools/content_factory/build_smalltalk.py`
 - `tools/content_factory/promote_batch_20_full_surface.py`
+- `tools/content_factory/test_build_batch_17_social_topics.py`
 - `tools/content_factory/test_build_theme_park_date_smalltalk.py`
 
 ## Audit Trail
 
-- EXTRACTED: 99 (62%)
-- INFERRED: 60 (38%)
+- EXTRACTED: 118 (66%)
+- INFERRED: 62 (34%)
 - AMBIGUOUS: 0 (0%)
 
 ---

@@ -19,7 +19,7 @@
 ## Relationships
 
 - [sori_stage_progression.dart](sori_stage_progression.dart.md) (1 shared connections)
-- [onboarding_story_screen.dart](onboarding_story_screen.dart.md) (1 shared connections)
+- [sori_stage_catalog_screen.dart](sori_stage_catalog_screen.dart.md) (1 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
 - [String?](String_.md) (1 shared connections)
 - [StatelessWidget](StatelessWidget.md) (1 shared connections)

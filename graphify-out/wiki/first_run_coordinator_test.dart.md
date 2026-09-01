@@ -1,10 +1,15 @@
 # first_run_coordinator_test.dart
 
-> 58 nodes · cohesion 0.03
+> 64 nodes · cohesion 0.03
 
 ## Key Concepts
 
 - **first_run_coordinator_test.dart** (80 connections) — `test/features/onboarding_v2/first_run_coordinator_test.dart`
+- **package:ko_lernen_app/features/onboarding_v2/onboarding_journey_state.dart** (9 connections)
+- **onboarding_journey_repository_test.dart** (9 connections) — `test/features/onboarding_v2/onboarding_journey_repository_test.dart`
+- **package:ko_lernen_app/features/onboarding_v2/onboarding_journey_repository.dart** (7 connections)
+- **package:ko_lernen_app/services/local_data_lifetime.dart** (4 connections)
+- **StaleLocalDataLifetimeException** (3 connections) — `lib/services/local_data_lifetime.dart`
 - **OnboardingPlacementHistoryConflictException** (2 connections) — `lib/features/onboarding_v2/first_run_coordinator.dart`
 - **class _CommitGateway** (1 connections)
 - **allowed** (1 connections) — `test/features/onboarding_v2/first_run_coordinator_test.dart`
@@ -24,36 +29,33 @@
 - **consent** (1 connections) — `test/features/onboarding_v2/first_run_coordinator_test.dart`
 - **coordinator** (1 connections) — `test/features/onboarding_v2/first_run_coordinator_test.dart`
 - **hasConsent** (1 connections) — `test/features/onboarding_v2/first_run_coordinator_test.dart`
-- **hasCourseHistory** (1 connections) — `test/features/onboarding_v2/first_run_coordinator_test.dart`
-- **implements** (1 connections) — `test/features/onboarding_v2/first_run_coordinator_test.dart`
-- **initializePlacement** (1 connections) — `test/features/onboarding_v2/first_run_coordinator_test.dart`
-- **isLegacyOnboardingComplete** (1 connections) — `test/features/onboarding_v2/first_run_coordinator_test.dart`
-- **legacyCompanionMirror** (1 connections) — `test/features/onboarding_v2/first_run_coordinator_test.dart`
-- *... and 33 more nodes in this community*
+- *... and 39 more nodes in this community*
 
 ## Relationships
 
-- [app_shell_onboarding_analytics_retry_test.dart](app_shell_onboarding_analytics_retry_test.dart.md) (5 shared connections)
-- [onboarding_v2_character_media_contract_test.dart](onboarding_v2_character_media_contract_test.dart.md) (4 shared connections)
-- [OnboardingJourneyRepository](OnboardingJourneyRepository.md) (2 shared connections)
-- [first_run_coordinator.dart](first_run_coordinator.dart.md) (1 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
-- [cloud_sync_test.dart](cloud_sync_test.dart.md) (1 shared connections)
-- [LearnerLevel](LearnerLevel.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
-- [OnboardingCommitGateway](OnboardingCommitGateway.md) (1 shared connections)
-- [OnboardingCompletionEventSink](OnboardingCompletionEventSink.md) (1 shared connections)
-- [OnboardingJourneyEventSink](OnboardingJourneyEventSink.md) (1 shared connections)
-- [onboarding_app_adapters.dart](onboarding_app_adapters.dart.md) (1 shared connections)
+- [app_shell_onboarding_analytics_retry_test.dart](app_shell_onboarding_analytics_retry_test.dart.md) (6 shared connections)
+- [onboarding_v2_character_media_contract_test.dart](onboarding_v2_character_media_contract_test.dart.md) (6 shared connections)
+- [responsive_screens.dart](responsive_screens.dart.md) (4 shared connections)
+- [first_run_coordinator.dart](first_run_coordinator.dart.md) (3 shared connections)
+- [guide_ui_test.dart](guide_ui_test.dart.md) (3 shared connections)
+- [entry_onboarding_uiux_test.dart](entry_onboarding_uiux_test.dart.md) (2 shared connections)
+- [class](class.md) (2 shared connections)
+- [dart:async](dart-async.md) (2 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (2 shared connections)
+- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (2 shared connections)
+- [speakable.dart](speakable.dart.md) (1 shared connections)
+- [package:ko_lernen_app/models/scenario.dart](package-ko_lernen_app-models-scenario.dart.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/features/onboarding_v2/first_run_coordinator.dart`
+- `lib/services/local_data_lifetime.dart`
 - `test/features/onboarding_v2/first_run_coordinator_test.dart`
+- `test/features/onboarding_v2/onboarding_journey_repository_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 81 (100%)
+- EXTRACTED: 105 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

@@ -1,23 +1,21 @@
 # ux_preview_app.dart
 
-> 65 nodes · cohesion 0.03
+> 63 nodes · cohesion 0.03
 
 ## Key Concepts
 
 - **ux_preview_app.dart** (101 connections) — `lib/screens/ux_preview_app.dart`
-- **../../data/learner_motivation.dart** (8 connections)
-- **onboarding_first_scene.dart** (6 connections) — `lib/models/onboarding_first_scene.dart`
-- **UxPreviewApp** (3 connections) — `lib/screens/ux_preview_app.dart`
+- **quick_onboarding_screen.dart** (6 connections) — `lib/screens/quick_onboarding_screen.dart`
+- **consent_screen.dart** (4 connections)
+- **QuickOnboardingScreen** (2 connections) — `lib/screens/quick_onboarding_screen.dart`
 - **UxPreviewNavigationBoundary** (2 connections) — `lib/screens/ux_preview_app.dart`
+- **onboarding_start_screen.dart** (2 connections)
 - **../services/gye_weekly_promise_navigation.dart** (2 connections)
 - **course_mission_screen.dart** (1 connections)
 - **discover_screen.dart** (1 connections)
 - **gye_screen.dart** (1 connections)
 - **learning_path_screen.dart** (1 connections)
-- **forMotivation** (1 connections) — `lib/models/onboarding_first_scene.dart`
-- **motivation** (1 connections) — `lib/models/onboarding_first_scene.dart`
-- **OnboardingFirstScene** (1 connections) — `lib/models/onboarding_first_scene.dart`
-- **scenarioId** (1 connections) — `lib/models/onboarding_first_scene.dart`
+- **build** (1 connections) — `lib/screens/quick_onboarding_screen.dart`
 - **addListener** (1 connections) — `lib/screens/ux_preview_app.dart`
 - **_airportArrivalScenario** (1 connections) — `lib/screens/ux_preview_app.dart`
 - **appleSignInAvailable** (1 connections) — `lib/screens/ux_preview_app.dart`
@@ -29,31 +27,33 @@
 - **_earlyHanok** (1 connections) — `lib/screens/ux_preview_app.dart`
 - **_emptyGyes** (1 connections) — `lib/screens/ux_preview_app.dart`
 - **_greetingUnit** (1 connections) — `lib/screens/ux_preview_app.dart`
-- *... and 40 more nodes in this community*
+- **_gyePanel** (1 connections) — `lib/screens/ux_preview_app.dart`
+- **_gyePreviewFeed** (1 connections) — `lib/screens/ux_preview_app.dart`
+- *... and 38 more nodes in this community*
 
 ## Relationships
 
-- [../widgets/sori/button.dart](-widgets-sori-button.dart.md) (5 shared connections)
-- [StatelessWidget](StatelessWidget.md) (5 shared connections)
 - [gye_screen.dart](gye_screen.dart.md) (5 shared connections)
-- [List](List.md) (3 shared connections)
+- [String?](String_.md) (4 shared connections)
 - [app_review_demo_screen.dart](app_review_demo_screen.dart.md) (3 shared connections)
-- [vocab_packs_screen.dart](vocab_packs_screen.dart.md) (2 shared connections)
-- [hanok_world_screen.dart](hanok_world_screen.dart.md) (2 shared connections)
-- [listening_play_screen.dart](listening_play_screen.dart.md) (2 shared connections)
+- [profile_screen.dart](profile_screen.dart.md) (2 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
+- [StatelessWidget](StatelessWidget.md) (2 shared connections)
+- [bool get](bool_get.md) (2 shared connections)
+- [course_mission_screen.dart](course_mission_screen.dart.md) (2 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (2 shared connections)
 - [account_nudge.dart](account_nudge.dart.md) (2 shared connections)
-- [profile_screen.dart](profile_screen.dart.md) (1 shared connections)
-- [sori_stage_today_screen.dart](sori_stage_today_screen.dart.md) (1 shared connections)
-- [analytics_service.dart](analytics_service.dart.md) (1 shared connections)
+- [consent_screen.dart](consent_screen.dart.md) (1 shared connections)
+- [../../services/storage_service.dart](-..-services-storage_service.dart.md) (1 shared connections)
 
 ## Source Files
 
-- `lib/models/onboarding_first_scene.dart`
+- `lib/screens/quick_onboarding_screen.dart`
 - `lib/screens/ux_preview_app.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 117 (100%)
+- EXTRACTED: 112 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

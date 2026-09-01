@@ -31,15 +31,14 @@
 
 ## Relationships
 
+- [bool get](bool_get.md) (3 shared connections)
 - [_](_.md) (2 shared connections)
-- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (2 shared connections)
 - [curriculum.dart](curriculum.dart.md) (1 shared connections)
 - [grammar.dart](grammar.dart.md) (1 shared connections)
 - [smalltalk.dart](smalltalk.dart.md) (1 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
 - [listening_play_screen.dart](listening_play_screen.dart.md) (1 shared connections)
 - [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
 
 ## Source Files
 

@@ -33,15 +33,15 @@
 
 ## Relationships
 
-- [List](List.md) (4 shared connections)
-- [legacy_vocab_screen.dart](legacy_vocab_screen.dart.md) (3 shared connections)
-- [String?](String_.md) (2 shared connections)
-- [uebersetzen_quest.dart](uebersetzen_quest.dart.md) (2 shared connections)
+- [List](List.md) (3 shared connections)
+- [String?](String_.md) (3 shared connections)
+- [luecken_quest.dart](luecken_quest.dart.md) (3 shared connections)
+- [bool get](bool_get.md) (3 shared connections)
 - [_State](_State.md) (2 shared connections)
 - [grammar_screen.dart](grammar_screen.dart.md) (2 shared connections)
 - [batchim_drop_quest.dart](batchim_drop_quest.dart.md) (1 shared connections)
 - [Map](Map.md) (1 shared connections)
-- [data_migration_service.dart](data_migration_service.dart.md) (1 shared connections)
+- [gye_weekly_promise.dart](gye_weekly_promise.dart.md) (1 shared connections)
 - [listening_play_screen.dart](listening_play_screen.dart.md) (1 shared connections)
 - [dart:math](dart-math.md) (1 shared connections)
 - [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)

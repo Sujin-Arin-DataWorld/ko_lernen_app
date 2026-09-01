@@ -1,20 +1,12 @@
 # course_progress_service.dart
 
-> 53 nodes · cohesion 0.04
+> 32 nodes · cohesion 0.06
 
 ## Key Concepts
 
 - **course_progress_service.dart** (46 connections) — `lib/services/course_progress_service.dart`
-- **../models/course_mastery.dart** (19 connections)
-- **_** (18 connections) — `lib/services/hanok_build_narrative_service.dart`
-- **_** (15 connections) — `lib/services/hanok_structure_projection_service.dart`
-- **curriculum_catalog.dart** (11 connections)
-- **course_mastery_service.dart** (5 connections)
-- **scenario_loader.dart** (3 connections)
 - **account/reconciliation_errors.dart** (2 connections)
 - **resetForTesting** (2 connections) — `lib/services/course_progress_service.dart`
-- **../models/hanok_competence.dart** (2 connections)
-- **hanok_stage_service.dart** (1 connections)
 - **app** (1 connections) — `lib/services/course_progress_service.dart`
 - **applyReconciledSnapshot** (1 connections) — `lib/services/course_progress_service.dart`
 - **browseLevelCode** (1 connections) — `lib/services/course_progress_service.dart`
@@ -29,32 +21,38 @@
 - **initializeOrRepairForPlacement** (1 connections) — `lib/services/course_progress_service.dart`
 - **mergeCloudSnapshotJson** (1 connections) — `lib/services/course_progress_service.dart`
 - **placementLevelCode** (1 connections) — `lib/services/course_progress_service.dart`
-- *... and 28 more nodes in this community*
+- **readForDisplay** (1 connections) — `lib/services/course_progress_service.dart`
+- **recordContentAttempt** (1 connections) — `lib/services/course_progress_service.dart`
+- **recordProductiveAssessment** (1 connections) — `lib/services/course_progress_service.dart`
+- **recordProductiveProjectStep** (1 connections) — `lib/services/course_progress_service.dart`
+- **recordScenarioCheckpoint** (1 connections) — `lib/services/course_progress_service.dart`
+- **refresh** (1 connections) — `lib/services/course_progress_service.dart`
+- **reviewQueue** (1 connections) — `lib/services/course_progress_service.dart`
+- **runLocalStorageWipeBarrier** (1 connections) — `lib/services/course_progress_service.dart`
+- *... and 7 more nodes in this community*
 
 ## Relationships
 
-- [_](_.md) (7 shared connections)
-- [course_mission_navigation.dart](course_mission_navigation.dart.md) (6 shared connections)
-- [hanok_experience_projector.dart](hanok_experience_projector.dart.md) (4 shared connections)
-- [course_mastery_service.dart](course_mastery_service.dart.md) (3 shared connections)
-- [account_ui_operations.dart](account_ui_operations.dart.md) (3 shared connections)
-- [hanok_world_screen.dart](hanok_world_screen.dart.md) (3 shared connections)
-- [word_relation_service.dart](word_relation_service.dart.md) (2 shared connections)
-- [storage_service.dart](storage_service.dart.md) (2 shared connections)
-- [dart:math](dart-math.md) (2 shared connections)
-- [scenario_player_screen.dart](scenario_player_screen.dart.md) (2 shared connections)
-- [course_checkpoint_questions.dart](course_checkpoint_questions.dart.md) (1 shared connections)
+- [../models/course_mastery.dart](-models-course_mastery.dart.md) (2 shared connections)
+- [hanok_experience_projector.dart](hanok_experience_projector.dart.md) (2 shared connections)
+- [../../models/curriculum.dart](-..-models-curriculum.dart.md) (2 shared connections)
+- [course_mastery_service.dart](course_mastery_service.dart.md) (1 shared connections)
+- [room_layout_service.dart](room_layout_service.dart.md) (1 shared connections)
+- [cloud_backup_deletion_service_admission_test.dart](cloud_backup_deletion_service_admission_test.dart.md) (1 shared connections)
+- [_](_.md) (1 shared connections)
+- [String?](String_.md) (1 shared connections)
+- [class](class.md) (1 shared connections)
 - [gye_weekly_promise_navigation.dart](gye_weekly_promise_navigation.dart.md) (1 shared connections)
+- [dart:convert](dart-convert.md) (1 shared connections)
+- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/services/course_progress_service.dart`
-- `lib/services/hanok_build_narrative_service.dart`
-- `lib/services/hanok_structure_projection_service.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 108 (100%)
+- EXTRACTED: 48 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

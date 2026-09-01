@@ -1,11 +1,20 @@
 # push_service.dart
 
-> 56 nodes · cohesion 0.04
+> 65 nodes · cohesion 0.03
 
 ## Key Concepts
 
 - **push_service.dart** (82 connections) — `lib/services/push_service.dart`
+- **PushAuthClient** (3 connections) — `lib/services/push_service.dart`
+- **PushMessagingClient** (3 connections) — `lib/services/push_service.dart`
+- **PushTokenRepository** (3 connections) — `lib/services/push_service.dart`
+- **FirebasePushAuthClient** (2 connections) — `lib/services/push_service.dart`
+- **FirebasePushMessagingClient** (2 connections) — `lib/services/push_service.dart`
+- **FirestorePushTokenRepository** (2 connections) — `lib/services/push_service.dart`
 - **PushOwnershipTransitionCoordinator** (2 connections) — `lib/services/push_service.dart`
+- **_FakePushAuth** (2 connections) — `test/push_service_test.dart`
+- **_FakePushMessaging** (2 connections) — `test/push_service_test.dart`
+- **_FakePushTokenRepository** (2 connections) — `test/push_service_test.dart`
 - **FirebaseMessaging get** (1 connections)
 - **addToken** (1 connections) — `lib/services/push_service.dart`
 - **_attemptCleanup** (1 connections) — `lib/services/push_service.dart`
@@ -20,39 +29,31 @@
 - **_desiredEnabled** (1 connections) — `lib/services/push_service.dart`
 - **disable** (1 connections) — `lib/services/push_service.dart`
 - **disableStrict** (1 connections) — `lib/services/push_service.dart`
-- **enable** (1 connections) — `lib/services/push_service.dart`
-- **_enableOnce** (1 connections) — `lib/services/push_service.dart`
-- **getToken** (1 connections) — `lib/services/push_service.dart`
-- **_invalidateTokenForIdentityTransition** (1 connections) — `lib/services/push_service.dart`
-- **isReady** (1 connections) — `lib/services/push_service.dart`
-- **isSupported** (1 connections) — `lib/services/push_service.dart`
-- **_lifecycleTail** (1 connections) — `lib/services/push_service.dart`
-- **message** (1 connections) — `lib/services/push_service.dart`
-- **messages** (1 connections) — `lib/services/push_service.dart`
-- *... and 31 more nodes in this community*
+- *... and 40 more nodes in this community*
 
 ## Relationships
 
-- [push_service_test.dart](push_service_test.dart.md) (4 shared connections)
+- [push_service_test.dart](push_service_test.dart.md) (7 shared connections)
 - [push_ownership_transition_coordinator_test.dart](push_ownership_transition_coordinator_test.dart.md) (3 shared connections)
-- [PushAuthClient](PushAuthClient.md) (2 shared connections)
-- [PushMessagingClient](PushMessagingClient.md) (2 shared connections)
-- [PushTokenRepository](PushTokenRepository.md) (2 shared connections)
 - [_](_.md) (2 shared connections)
-- [T](T.md) (1 shared connections)
+- [room_layout_service.dart](room_layout_service.dart.md) (1 shared connections)
 - [bool get](bool_get.md) (1 shared connections)
-- [cloud_backup_deletion_test.dart](cloud_backup_deletion_test.dart.md) (1 shared connections)
+- [cloud_backup_deletion_service_admission_test.dart](cloud_backup_deletion_service_admission_test.dart.md) (1 shared connections)
 - [first_link_backfill.dart](first_link_backfill.dart.md) (1 shared connections)
 - [List](List.md) (1 shared connections)
 - [gye_screen.dart](gye_screen.dart.md) (1 shared connections)
+- [premium_service.dart](premium_service.dart.md) (1 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (1 shared connections)
+- [typedef](typedef.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/services/push_service.dart`
+- `test/push_service_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 83 (100%)
+- EXTRACTED: 92 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

@@ -1,18 +1,18 @@
 # onboarding_level_screen.dart
 
-> 87 nodes · cohesion 0.02
+> 98 nodes · cohesion 0.02
 
 ## Key Concepts
 
 - **onboarding_level_screen.dart** (86 connections) — `lib/screens/onboarding_level_screen.dart`
 - **onboarding_preview_screen.dart** (42 connections) — `lib/screens/onboarding_preview_screen.dart`
+- **first_voice_success_screen.dart** (27 connections) — `lib/screens/first_voice_success_screen.dart`
 - **../widgets/sori/hanok_header.dart** (8 connections)
+- **../widgets/sori/motion.dart** (7 connections)
+- **character_selection_screen.dart** (4 connections)
 - **../widgets/sori/tiger_video.dart** (4 connections)
-- **OnboardingLevelScreen** (3 connections) — `lib/screens/onboarding_level_screen.dart`
-- **_OnboardingLevelScreenState** (3 connections) — `lib/screens/onboarding_level_screen.dart`
-- **OnboardingPreviewScreen** (3 connections) — `lib/screens/onboarding_preview_screen.dart`
-- **_OnboardingPreviewScreenState** (3 connections) — `lib/screens/onboarding_preview_screen.dart`
 - **../widgets/sori/hanok_tokens.dart** (3 connections)
+- **FirstVoiceSuccessScreen** (2 connections) — `lib/screens/first_voice_success_screen.dart`
 - **_CompareCta** (2 connections) — `lib/screens/onboarding_level_screen.dart`
 - **_CompareLine** (2 connections) — `lib/screens/onboarding_level_screen.dart`
 - **_CompareRow** (2 connections) — `lib/screens/onboarding_level_screen.dart`
@@ -29,31 +29,32 @@
 - **placement_diagnostic_screen.dart** (2 connections)
 - **SystemUiOverlayStyle** (2 connections)
 - **../widgets/sori/ambient_particles.dart** (2 connections)
-- *... and 62 more nodes in this community*
+- *... and 73 more nodes in this community*
 
 ## Relationships
 
-- [StatelessWidget](StatelessWidget.md) (12 shared connections)
-- [../widgets/sori/button.dart](-widgets-sori-button.dart.md) (8 shared connections)
-- [List](List.md) (6 shared connections)
-- [String?](String_.md) (4 shared connections)
+- [StatelessWidget](StatelessWidget.md) (13 shared connections)
+- [String?](String_.md) (8 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (8 shared connections)
+- [profile_screen.dart](profile_screen.dart.md) (5 shared connections)
+- [consent_screen.dart](consent_screen.dart.md) (4 shared connections)
 - [_State](_State.md) (4 shared connections)
-- [listening_play_screen.dart](listening_play_screen.dart.md) (3 shared connections)
-- [consent_screen.dart](consent_screen.dart.md) (2 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (2 shared connections)
-- [cloze_game_screen.dart](cloze_game_screen.dart.md) (2 shared connections)
-- [personal_room_furnish_screen.dart](personal_room_furnish_screen.dart.md) (2 shared connections)
-- [onboarding_story_screen.dart](onboarding_story_screen.dart.md) (2 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (3 shared connections)
+- [sori_stage_today_screen.dart](sori_stage_today_screen.dart.md) (3 shared connections)
+- [../../services/storage_service.dart](-..-services-storage_service.dart.md) (2 shared connections)
+- [List](List.md) (2 shared connections)
+- [scenario_player_screen.dart](scenario_player_screen.dart.md) (2 shared connections)
 - [_](_.md) (2 shared connections)
 
 ## Source Files
 
+- `lib/screens/first_voice_success_screen.dart`
 - `lib/screens/onboarding_level_screen.dart`
 - `lib/screens/onboarding_preview_screen.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 158 (100%)
+- EXTRACTED: 186 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

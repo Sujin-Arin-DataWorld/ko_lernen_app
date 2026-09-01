@@ -1,6 +1,6 @@
 # CustomPainter
 
-> 24 nodes · cohesion 0.08
+> 23 nodes · cohesion 0.09
 
 ## Key Concepts
 
@@ -10,7 +10,6 @@
 - **_BubbleTailPainter** (2 connections) — `lib/screens/onboarding_level_screen.dart`
 - **SoriDottedSlotPainter** (2 connections) — `lib/screens/quest_engines/quest_flow.dart`
 - **_SilbenCrossingWedgePainter** (2 connections) — `lib/screens/silben_kreuz_screen.dart`
-- **_AmbientPainter** (2 connections) — `lib/widgets/sori/ambient_particles.dart`
 - **_ConfettiPainter** (2 connections) — `lib/widgets/sori/celebration.dart`
 - **_BrushStrokePainter** (2 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
 - **_PillarPainter** (2 connections) — `lib/widgets/sori/chaekgado/shelf_case.dart`
@@ -34,15 +33,15 @@
 - [shelf_case.dart](shelf_case.dart.md) (3 shared connections)
 - [_](_.md) (3 shared connections)
 - [path_trail.dart](path_trail.dart.md) (2 shared connections)
-- [hanok_world_screen.dart](hanok_world_screen.dart.md) (1 shared connections)
-- [String?](String_.md) (1 shared connections)
+- [ambient_particles.dart](ambient_particles.dart.md) (1 shared connections)
+- [giwa_pattern.dart](giwa_pattern.dart.md) (1 shared connections)
+- [hanji_texture.dart](hanji_texture.dart.md) (1 shared connections)
 - [home_hero.dart](home_hero.dart.md) (1 shared connections)
 - [swipe_rails.dart](swipe_rails.dart.md) (1 shared connections)
-- [../widgets/sori/button.dart](-widgets-sori-button.dart.md) (1 shared connections)
+- [profile_screen.dart](profile_screen.dart.md) (1 shared connections)
 - [intro_gate_screen.dart](intro_gate_screen.dart.md) (1 shared connections)
 - [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (1 shared connections)
 - [quest_flow.dart](quest_flow.dart.md) (1 shared connections)
-- [bool get](bool_get.md) (1 shared connections)
 
 ## Source Files
 
@@ -51,7 +50,6 @@
 - `lib/screens/onboarding_level_screen.dart`
 - `lib/screens/quest_engines/quest_flow.dart`
 - `lib/screens/silben_kreuz_screen.dart`
-- `lib/widgets/sori/ambient_particles.dart`
 - `lib/widgets/sori/celebration.dart`
 - `lib/widgets/sori/chaekgado/shelf_case.dart`
 - `lib/widgets/sori/chosung_hint.dart`
@@ -69,7 +67,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 50 (100%)
+- EXTRACTED: 49 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

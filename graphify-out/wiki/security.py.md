@@ -1,6 +1,6 @@
 # security.py
 
-> 57 nodes · cohesion 0.09
+> 56 nodes · cohesion 0.09
 
 ## Key Concepts
 
@@ -17,8 +17,8 @@
 - **idempotency_payload()** (9 connections) — `functions/analyze_korean_text/security.py`
 - **is_current_idempotency()** (8 connections) — `functions/analyze_korean_text/security.py`
 - **release_quota_state()** (8 connections) — `functions/analyze_korean_text/security.py`
+- **._client()** (7 connections) — `functions/analyze_korean_text/security.py`
 - **.consume()** (7 connections) — `functions/analyze_korean_text/security.py`
-- **run_with_deadline()** (7 connections) — `functions/analyze_korean_text/security.py`
 - **._claim_once()** (6 connections) — `functions/analyze_korean_text/security.py`
 - **._ledger_reference()** (6 connections) — `functions/analyze_korean_text/security.py`
 - **.release()** (6 connections) — `functions/analyze_korean_text/security.py`
@@ -29,12 +29,12 @@
 - **_as_utc_datetime()** (4 connections) — `functions/analyze_korean_text/security.py`
 - **_firebase_app()** (4 connections) — `functions/analyze_korean_text/security.py`
 - **.__init__()** (4 connections) — `functions/analyze_korean_text/security.py`
-- *... and 32 more nodes in this community*
+- *... and 31 more nodes in this community*
 
 ## Relationships
 
-- [main.py](main.py.md) (18 shared connections)
 - [FirestoreIdempotencyGate](FirestoreIdempotencyGate.md) (18 shared connections)
+- [main.py](main.py.md) (17 shared connections)
 - [EndpointSecurityTest](EndpointSecurityTest.md) (14 shared connections)
 - [_Request](_Request.md) (4 shared connections)
 - [CircuitBreaker](CircuitBreaker.md) (3 shared connections)
@@ -48,7 +48,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 190 (97%)
+- EXTRACTED: 189 (97%)
 - INFERRED: 6 (3%)
 - AMBIGUOUS: 0 (0%)
 

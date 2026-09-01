@@ -1,63 +1,62 @@
 # static const
 
-> 85 nodes · cohesion 0.02
+> 51 nodes · cohesion 0.04
 
 ## Key Concepts
 
 - **static const** (49 connections)
-- **kkeunmari_engine.dart** (38 connections) — `lib/services/kkeunmari_engine.dart`
-- **data_loader.dart** (27 connections) — `lib/services/data_loader.dart`
-- **pronunciation_phrase_loader.dart** (15 connections) — `lib/services/pronunciation_phrase_loader.dart`
-- **smalltalk_loader.dart** (13 connections) — `lib/services/smalltalk_loader.dart`
-- **static List** (12 connections)
+- **culture_notes_service.dart** (18 connections) — `lib/services/culture_notes_service.dart`
+- **gate_art.dart** (18 connections) — `lib/widgets/sori/hanok/gate_art.dart`
+- **silben_puzzle_loader.dart** (10 connections) — `lib/services/silben_puzzle_loader.dart`
 - **ildu_construction_plan_repository.dart** (9 connections) — `lib/services/ildu_construction_plan_repository.dart`
-- **static String?** (8 connections)
-- **../models/smalltalk.dart** (7 connections)
-- **static String get** (5 connections)
 - **scenario_corpus_generation.dart** (4 connections) — `lib/models/scenario_corpus_generation.dart`
-- **../models/pronunciation_phrase.dart** (3 connections)
-- **KkeunmariWord** (2 connections) — `lib/services/kkeunmari_engine.dart`
-- **../models/media_phrase.dart** (2 connections)
+- **static Map** (4 connections)
+- **CultureNotesLoader** (3 connections) — `lib/services/culture_notes_service.dart`
+- **HanokGateArt** (2 connections) — `lib/widgets/sori/hanok/gate_art.dart`
+- **../models/silben_puzzle.dart** (2 connections)
 - **AssetBundle?** (1 connections)
+- **FilterQuality** (1 connections)
 - **canonical120** (1 connections) — `lib/models/scenario_corpus_generation.dart`
 - **legacy** (1 connections) — `lib/models/scenario_corpus_generation.dart`
 - **ScenarioCorpusGeneration** (1 connections) — `lib/models/scenario_corpus_generation.dart`
-- **DataLoader** (1 connections) — `lib/services/data_loader.dart`
-- **_grammars** (1 connections) — `lib/services/data_loader.dart`
-- **lastError** (1 connections) — `lib/services/data_loader.dart`
-- **loadGrammar** (1 connections) — `lib/services/data_loader.dart`
-- **loadMediaPhrases** (1 connections) — `lib/services/data_loader.dart`
-- **loadVocab** (1 connections) — `lib/services/data_loader.dart`
-- **_mediaPhrases** (1 connections) — `lib/services/data_loader.dart`
-- *... and 60 more nodes in this community*
+- **all** (1 connections) — `lib/services/culture_notes_service.dart`
+- **_byKo** (1 connections) — `lib/services/culture_notes_service.dart`
+- **CultureNote** (1 connections) — `lib/services/culture_notes_service.dart`
+- **CultureNotesService** (1 connections) — `lib/services/culture_notes_service.dart`
+- **de** (1 connections) — `lib/services/culture_notes_service.dart`
+- **en** (1 connections) — `lib/services/culture_notes_service.dart`
+- **fromJson** (1 connections) — `lib/services/culture_notes_service.dart`
+- **kind** (1 connections) — `lib/services/culture_notes_service.dart`
+- **ko** (1 connections) — `lib/services/culture_notes_service.dart`
+- **load** (1 connections) — `lib/services/culture_notes_service.dart`
+- *... and 26 more nodes in this community*
 
 ## Relationships
 
-- [_](_.md) (17 shared connections)
-- [List](List.md) (6 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (5 shared connections)
+- [_](_.md) (11 shared connections)
+- [dart:convert](dart-convert.md) (3 shared connections)
+- [List](List.md) (3 shared connections)
 - [cloze_game_screen.dart](cloze_game_screen.dart.md) (3 shared connections)
-- [course_checkpoint_questions.dart](course_checkpoint_questions.dart.md) (2 shared connections)
-- [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (2 shared connections)
-- [listening_play_screen.dart](listening_play_screen.dart.md) (2 shared connections)
-- [kkeunmari_screen.dart](kkeunmari_screen.dart.md) (2 shared connections)
-- [curriculum_catalog.dart](curriculum_catalog.dart.md) (2 shared connections)
-- [data_migration_service.dart](data_migration_service.dart.md) (2 shared connections)
-- [onboarding_story_screen.dart](onboarding_story_screen.dart.md) (2 shared connections)
-- [onboarding_rollout_service.dart](onboarding_rollout_service.dart.md) (2 shared connections)
+- [bool get](bool_get.md) (2 shared connections)
+- [StatelessWidget](StatelessWidget.md) (2 shared connections)
+- [silben_kreuz_screen.dart](silben_kreuz_screen.dart.md) (2 shared connections)
+- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (2 shared connections)
+- [kkeunmari_engine.dart](kkeunmari_engine.dart.md) (2 shared connections)
+- [typedef](typedef.md) (1 shared connections)
+- [dart:math](dart-math.md) (1 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
 
 ## Source Files
 
 - `lib/models/scenario_corpus_generation.dart`
-- `lib/services/data_loader.dart`
+- `lib/services/culture_notes_service.dart`
 - `lib/services/ildu_construction_plan_repository.dart`
-- `lib/services/kkeunmari_engine.dart`
-- `lib/services/pronunciation_phrase_loader.dart`
-- `lib/services/smalltalk_loader.dart`
+- `lib/services/silben_puzzle_loader.dart`
+- `lib/widgets/sori/hanok/gate_art.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 176 (100%)
+- EXTRACTED: 110 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

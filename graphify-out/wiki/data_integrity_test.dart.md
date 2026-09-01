@@ -30,9 +30,11 @@
 
 ## Relationships
 
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (4 shared connections)
-- [File](File.md) (1 shared connections)
+- [dart:io](dart-io.md) (2 shared connections)
+- [dart:convert](dart-convert.md) (1 shared connections)
 - [can_do_segment_asset_test.dart](can_do_segment_asset_test.dart.md) (1 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (1 shared connections)
+- [package:ko_lernen_app/models/scenario.dart](package-ko_lernen_app-models-scenario.dart.md) (1 shared connections)
 
 ## Source Files
 

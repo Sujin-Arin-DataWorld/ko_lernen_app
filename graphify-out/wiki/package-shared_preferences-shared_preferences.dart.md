@@ -1,77 +1,77 @@
 # package:shared_preferences/shared_preferences.dart
 
-> 275 nodes · cohesion 0.01
+> 161 nodes · cohesion 0.02
 
 ## Key Concepts
 
 - **package:shared_preferences/shared_preferences.dart** (250 connections)
 - **package:ko_lernen_app/services/storage_service.dart** (223 connections)
-- **dedicated_feedback_route_test.dart** (54 connections) — `test/dedicated_feedback_route_test.dart`
-- **package:ko_lernen_app/models/vocab.dart** (49 connections)
-- **vocab_pack_advance_timer_test.dart** (45 connections) — `test/vocab_pack_advance_timer_test.dart`
-- **vocab_pack_finish_screen_test.dart** (34 connections) — `test/vocab_pack_finish_screen_test.dart`
-- **package:ko_lernen_app/models/vocab_pack.dart** (27 connections)
-- **deck_card_geometry_test.dart** (27 connections) — `test/deck_card_geometry_test.dart`
-- **vocab_pack_assessment_order_test.dart** (23 connections) — `test/vocab_pack_assessment_order_test.dart`
-- **vocab_pack_srs_ledger_integration_test.dart** (23 connections) — `test/vocab_pack_srs_ledger_integration_test.dart`
-- **package:ko_lernen_app/widgets/flip_card.dart** (21 connections)
-- **deck_vertical_gesture_test.dart** (21 connections) — `test/deck_vertical_gesture_test.dart`
-- **vocab_pack_requeue_test.dart** (21 connections) — `test/vocab_pack_requeue_test.dart`
-- **vocab_pack_screen_overflow_guard_test.dart** (21 connections) — `test/vocab_pack_screen_overflow_guard_test.dart`
-- **vocab_pack_screen_repeat_counter_test.dart** (21 connections) — `test/vocab_pack_screen_repeat_counter_test.dart`
-- **FlipCard** (20 connections) — `lib/widgets/flip_card.dart`
-- **package:ko_lernen_app/screens/vocab_pack_screen.dart** (20 connections)
-- **culture_note_loader_lifecycle_test.dart** (20 connections) — `test/culture_note_loader_lifecycle_test.dart`
-- **vocab_pack_uniform_card_test.dart** (20 connections) — `test/vocab_pack_uniform_card_test.dart`
-- **helpers/deck_actions.dart** (18 connections)
-- **vocab_pack_quiz_save_test.dart** (18 connections) — `test/vocab_pack_quiz_save_test.dart`
-- **vocab_pack_typography_test.dart** (18 connections) — `test/vocab_pack_typography_test.dart`
-- **package:ko_lernen_app/widgets/sori/quiz_choice.dart** (17 connections)
-- **review_session_loading_state_test.dart** (17 connections) — `test/review_session_loading_state_test.dart`
-- **custom_pack_flipgate_test.dart** (16 connections) — `test/custom_pack_flipgate_test.dart`
-- *... and 250 more nodes in this community*
+- **crop_recovery_test.dart** (25 connections) — `test/crop_recovery_test.dart`
+- **deck_swipe_physics_test.dart** (17 connections) — `test/deck_swipe_physics_test.dart`
+- **spotlight_coach_layout_test.dart** (15 connections) — `test/spotlight_coach_layout_test.dart`
+- **my_words_screen_test.dart** (14 connections) — `test/my_words_screen_test.dart`
+- **hanok_account_reconciliation_test.dart** (13 connections) — `test/hanok_account_reconciliation_test.dart`
+- **cloud_writer_fence_test.dart** (13 connections) — `test/services/account/cloud_writer_fence_test.dart`
+- **data_migration_test.dart** (10 connections) — `test/data_migration_test.dart`
+- **package:ko_lernen_app/models/hanok_growth.dart** (9 connections)
+- **package:ko_lernen_app/services/cloud_sync.dart** (9 connections)
+- **package:ko_lernen_app/services/decoration_reward_service.dart** (9 connections)
+- **decoration_reward_service_test.dart** (9 connections) — `test/decoration_reward_service_test.dart`
+- **hanok_state_service_test.dart** (9 connections) — `test/hanok_state_service_test.dart`
+- **learning_data_recovery_test.dart** (9 connections) — `test/learning_data_recovery_test.dart`
+- **spotlight_coach_test.dart** (9 connections) — `test/spotlight_coach_test.dart`
+- **book_page_test.dart** (8 connections) — `test/book_page_test.dart`
+- **gye_embedded_fit_test.dart** (8 connections) — `test/gye_embedded_fit_test.dart`
+- **hanok_cloud_sync_test.dart** (8 connections) — `test/hanok_cloud_sync_test.dart`
+- **learning_data_export_service_test.dart** (8 connections) — `test/learning_data_export_service_test.dart`
+- **lesson_recommender_test.dart** (8 connections) — `test/lesson_recommender_test.dart`
+- **cloud_auto_sync_test.dart** (8 connections) — `test/services/cloud_auto_sync_test.dart`
+- **package:ko_lernen_app/services/book_image_service.dart** (7 connections)
+- **ildu_world_projection_adapter_test.dart** (7 connections) — `test/ildu_world_projection_adapter_test.dart`
+- **onboarding_preview_screen_test.dart** (7 connections) — `test/onboarding_preview_screen_test.dart`
+- *... and 136 more nodes in this community*
 
 ## Relationships
 
-- [package:flutter/material.dart](package-flutter-material.dart.md) (133 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (75 shared connections)
-- [package:ko_lernen_app/theme.dart](package-ko_lernen_app-theme.dart.md) (70 shared connections)
-- [package:ko_lernen_app/models/scenario.dart](package-ko_lernen_app-models-scenario.dart.md) (51 shared connections)
-- [bookshelf_custom_pack_uiux_test.dart](bookshelf_custom_pack_uiux_test.dart.md) (41 shared connections)
-- [course_reassessment_screen_test.dart](course_reassessment_screen_test.dart.md) (34 shared connections)
-- [vocab_notebook_studio_screen_test.dart](vocab_notebook_studio_screen_test.dart.md) (29 shared connections)
-- [hanok_world_screen_test.dart](hanok_world_screen_test.dart.md) (19 shared connections)
-- [circular_feedback_widget_test.dart](circular_feedback_widget_test.dart.md) (18 shared connections)
-- [app_flows_test.dart](app_flows_test.dart.md) (17 shared connections)
-- [account_reconciliation_test.dart](account_reconciliation_test.dart.md) (16 shared connections)
-- [dart:async](dart-async.md) (14 shared connections)
+- [package:ko_lernen_app/l10n/generated/app_localizations.dart](package-ko_lernen_app-l10n-generated-app_localizations.dart.md) (65 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (50 shared connections)
+- [responsive_screens.dart](responsive_screens.dart.md) (33 shared connections)
+- [package:ko_lernen_app/models/scenario.dart](package-ko_lernen_app-models-scenario.dart.md) (32 shared connections)
+- [package:flutter/material.dart](package-flutter-material.dart.md) (30 shared connections)
+- [vocab_notebook_studio_screen_test.dart](vocab_notebook_studio_screen_test.dart.md) (27 shared connections)
+- [content_feedback_widget_test.dart](content_feedback_widget_test.dart.md) (26 shared connections)
+- [course_practice_screen_test.dart](course_practice_screen_test.dart.md) (25 shared connections)
+- [account_reconciliation_test.dart](account_reconciliation_test.dart.md) (18 shared connections)
+- [cloud_sync_test.dart](cloud_sync_test.dart.md) (17 shared connections)
+- [custom_pack_games_uiux_test.dart](custom_pack_games_uiux_test.dart.md) (16 shared connections)
+- [dart:convert](dart-convert.md) (15 shared connections)
 
 ## Source Files
 
-- `lib/widgets/flip_card.dart`
-- `lib/widgets/sori/home_action.dart`
-- `lib/widgets/sori/pressable.dart`
-- `lib/widgets/sori/quiz_choice.dart`
-- `test/culture_note_loader_lifecycle_test.dart`
-- `test/custom_pack_flipgate_test.dart`
+- `lib/services/hanok_state_service.dart`
+- `lib/widgets/sori/swipe_rails.dart`
+- `test/age_gate_test.dart`
+- `test/book_page_test.dart`
+- `test/crop_recovery_test.dart`
 - `test/daily_goal_test.dart`
-- `test/deck_card_geometry_test.dart`
-- `test/deck_vertical_gesture_test.dart`
+- `test/data_migration_test.dart`
+- `test/deck_swipe_physics_test.dart`
 - `test/decoration_reward_service_test.dart`
-- `test/dedicated_feedback_completion_test.dart`
-- `test/dedicated_feedback_route_test.dart`
 - `test/earned_stamps_test.dart`
 - `test/game_best_test.dart`
 - `test/grammar_plan_storage_test.dart`
 - `test/gye_embedded_fit_test.dart`
-- `test/hanok_stage_service_test.dart`
-- `test/hard_choice_quiz_screen_test.dart`
-- `test/helpers/deck_actions.dart`
+- `test/hanok_account_reconciliation_test.dart`
+- `test/hanok_cloud_sync_test.dart`
+- `test/hanok_state_service_test.dart`
+- `test/ildu_world_projection_adapter_test.dart`
+- `test/learning_data_export_service_test.dart`
+- `test/learning_data_recovery_test.dart`
 - `test/lesson_recommender_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 1155 (100%)
+- EXTRACTED: 749 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

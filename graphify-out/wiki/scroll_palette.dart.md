@@ -22,7 +22,7 @@
 ## Relationships
 
 - [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
-- [../widgets/sori/button.dart](-widgets-sori-button.dart.md) (1 shared connections)
+- [profile_screen.dart](profile_screen.dart.md) (1 shared connections)
 - [onboarding_level_screen.dart](onboarding_level_screen.dart.md) (1 shared connections)
 - [shelf_case.dart](shelf_case.dart.md) (1 shared connections)
 - [character_clip.dart](character_clip.dart.md) (1 shared connections)

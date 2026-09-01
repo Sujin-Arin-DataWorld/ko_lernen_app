@@ -1,18 +1,13 @@
 # personal_hanok_unlock_reveal.dart
 
-> 36 nodes · cohesion 0.06
+> 31 nodes · cohesion 0.06
 
 ## Key Concepts
 
 - **personal_hanok_unlock_reveal.dart** (49 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
-- **Rect?** (7 connections)
-- **_PersonalHanokUnlockRevealState** (4 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
-- **_ConstructionClipper** (3 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
-- **PersonalHanokUnlockReveal** (3 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
 - **_DancheongGlint** (2 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
 - **_RevealCaption** (2 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
 - **_RevealMap** (2 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
-- **CustomClipper** (1 connections)
 - **actionLabel** (1 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
 - **assetPath** (1 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
 - **body** (1 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
@@ -29,22 +24,27 @@
 - **initState** (1 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
 - **milestone** (1 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
 - **milestoneLabel** (1 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
-- *... and 11 more nodes in this community*
+- **onDismiss** (1 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
+- **onDone** (1 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
+- **paint** (1 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
+- **progress** (1 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
+- **projection** (1 connections) — `lib/widgets/sori/personal_hanok_unlock_reveal.dart`
+- *... and 6 more nodes in this community*
 
 ## Relationships
 
-- [_](_.md) (5 shared connections)
-- [hanok_world_screen.dart](hanok_world_screen.dart.md) (4 shared connections)
-- [String?](String_.md) (3 shared connections)
+- [String?](String_.md) (4 shared connections)
 - [StatelessWidget](StatelessWidget.md) (3 shared connections)
-- [_State](_State.md) (3 shared connections)
+- [hanok_world_screen.dart](hanok_world_screen.dart.md) (2 shared connections)
+- [_State](_State.md) (2 shared connections)
+- [app_error.dart](app_error.dart.md) (1 shared connections)
 - [hanok_cinematic.dart](hanok_cinematic.dart.md) (1 shared connections)
-- [Duration](Duration.md) (1 shared connections)
-- [standalone_games_uiux_test.dart](standalone_games_uiux_test.dart.md) (1 shared connections)
+- [personal_room_catalog.dart](personal_room_catalog.dart.md) (1 shared connections)
+- [_](_.md) (1 shared connections)
+- [pronunciation_studio_ui_test.dart](pronunciation_studio_ui_test.dart.md) (1 shared connections)
+- [ildu_turntable_catalog.dart](ildu_turntable_catalog.dart.md) (1 shared connections)
 - [CustomPainter](CustomPainter.md) (1 shared connections)
 - [dart:math](dart-math.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
-- [package:flutter/material.dart](package-flutter-material.dart.md) (1 shared connections)
 
 ## Source Files
 
@@ -52,7 +52,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 64 (100%)
+- EXTRACTED: 52 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

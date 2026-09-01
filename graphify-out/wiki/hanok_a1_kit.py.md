@@ -1,6 +1,6 @@
 # hanok_a1_kit.py
 
-> 40 nodes · cohesion 0.12
+> 41 nodes · cohesion 0.12
 
 ## Key Concepts
 
@@ -29,15 +29,14 @@
 - **.setUpClass()** (4 connections) — `tool/test_hanok_a1_kit.py`
 - **ndarray** (4 connections)
 - **.test_containment_allows_props_zone_and_rejects_outside()** (3 connections) — `tool/test_hanok_a1_kit.py`
-- *... and 15 more nodes in this community*
+- *... and 16 more nodes in this community*
 
 ## Relationships
 
 - [compose_hanok_a1_state.py](compose_hanok_a1_state.py.md) (10 shared connections)
 - [derive_hanok_a1_kit.py](derive_hanok_a1_kit.py.md) (8 shared connections)
-- [hanok_v1_asset_contract.py](hanok_v1_asset_contract.py.md) (3 shared connections)
+- [load_provenance](load_provenance.md) (4 shared connections)
 - [make_kit_parts.py](make_kit_parts.py.md) (2 shared connections)
-- [load_provenance](load_provenance.md) (1 shared connections)
 
 ## Source Files
 
@@ -46,8 +45,8 @@
 
 ## Audit Trail
 
-- EXTRACTED: 93 (77%)
-- INFERRED: 28 (23%)
+- EXTRACTED: 93 (76%)
+- INFERRED: 29 (24%)
 - AMBIGUOUS: 0 (0%)
 
 ---

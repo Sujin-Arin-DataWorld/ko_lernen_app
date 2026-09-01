@@ -20,11 +20,12 @@
 
 ## Relationships
 
-- [learning_path_screen.dart](learning_path_screen.dart.md) (2 shared connections)
 - [game_reward.dart](game_reward.dart.md) (2 shared connections)
 - [List](List.md) (1 shared connections)
 - [return](return.md) (1 shared connections)
 - [Set](Set.md) (1 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (1 shared connections)
+- [vocab_pack_result_screen.dart](vocab_pack_result_screen.dart.md) (1 shared connections)
 - [content_feedback_client.dart](content_feedback_client.dart.md) (1 shared connections)
 - [content_feedback_lifecycle.dart](content_feedback_lifecycle.dart.md) (1 shared connections)
 - [_](_.md) (1 shared connections)

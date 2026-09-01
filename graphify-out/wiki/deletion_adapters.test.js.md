@@ -37,10 +37,9 @@
 
 ## Relationships
 
-- [FakeDocumentReference](FakeDocumentReference.md) (6 shared connections)
+- [FakeQuery](FakeQuery.md) (8 shared connections)
 - [createFirestoreDeletionAdapters](createFirestoreDeletionAdapters.md) (2 shared connections)
 - [adapterFailure](adapterFailure.md) (2 shared connections)
-- [FakeQuery](FakeQuery.md) (2 shared connections)
 - [FakeCollectionReference](FakeCollectionReference.md) (1 shared connections)
 
 ## Source Files

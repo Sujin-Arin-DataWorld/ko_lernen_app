@@ -1,36 +1,30 @@
 # build
 
-> 9 nodes · cohesion 0.22
+> 7 nodes · cohesion 0.48
 
 ## Key Concepts
 
-- **build** (8 connections) — `lib/screens/custom_pack_edit_screen.dart`
-- **build** (5 connections) — `lib/screens/discover_screen.dart`
-- **Route /vocab_notebook** (2 connections)
-- **Route /custom_pack/matching** (1 connections)
-- **Route /custom_pack/quiz** (1 connections)
-- **Route /custom_pack/typing** (1 connections)
-- **Route /listening** (1 connections)
-- **Route /vocab_notebook/nuance** (1 connections)
-- **Route /vocab_notebook/studio** (1 connections)
+- **build()** (6 connections) — `tools/content_factory/build_batch_16_scenarios.py`
+- **build_batch_16_scenarios.py** (5 connections) — `tools/content_factory/build_batch_16_scenarios.py`
+- **_sort_key()** (3 connections) — `tools/content_factory/build_batch_16_scenarios.py`
+- **_to_record()** (3 connections) — `tools/content_factory/build_batch_16_scenarios.py`
+- **main()** (2 connections) — `tools/content_factory/build_batch_16_scenarios.py`
+- **Any** (2 connections)
+- **Path** (1 connections)
 
 ## Relationships
 
-- [book_result_screen.dart](book_result_screen.dart.md) (1 shared connections)
-- [custom_pack_edit_screen.dart](custom_pack_edit_screen.dart.md) (1 shared connections)
-- [bookshelf_screen.dart](bookshelf_screen.dart.md) (1 shared connections)
-- [practice_hub_screen.dart](practice_hub_screen.dart.md) (1 shared connections)
-- [List](List.md) (1 shared connections)
+- [handle](handle.md) (1 shared connections)
+- [quest](quest.md) (1 shared connections)
 
 ## Source Files
 
-- `lib/screens/custom_pack_edit_screen.dart`
-- `lib/screens/discover_screen.dart`
+- `tools/content_factory/build_batch_16_scenarios.py`
 
 ## Audit Trail
 
-- EXTRACTED: 13 (100%)
-- INFERRED: 0 (0%)
+- EXTRACTED: 10 (83%)
+- INFERRED: 2 (17%)
 - AMBIGUOUS: 0 (0%)
 
 ---

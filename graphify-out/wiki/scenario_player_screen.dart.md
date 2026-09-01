@@ -1,6 +1,6 @@
 # scenario_player_screen.dart
 
-> 203 nodes · cohesion 0.01
+> 207 nodes · cohesion 0.01
 
 ## Key Concepts
 
@@ -10,8 +10,12 @@
 - **_MiniChip** (2 connections) — `lib/screens/scenario_player_screen.dart`
 - **_QuestSegmentProgress** (2 connections) — `lib/screens/scenario_player_screen.dart`
 - **_RollenspielDoneCard** (2 connections) — `lib/screens/scenario_player_screen.dart`
+- **_ScenarioGrammarDetails** (2 connections) — `lib/screens/scenario_player_screen.dart`
+- **_ScenarioGrammarDetailSheet** (2 connections) — `lib/screens/scenario_player_screen.dart`
 - **_ScenarioGrammarExpandedCard** (2 connections) — `lib/screens/scenario_player_screen.dart`
+- **_ScenarioGrammarSummaryCard** (2 connections) — `lib/screens/scenario_player_screen.dart`
 - **_ScenarioInlineGrammarCard** (2 connections) — `lib/screens/scenario_player_screen.dart`
+- **_ScenarioIntroArt** (2 connections) — `lib/screens/scenario_player_screen.dart`
 - **_StageScroll** (2 connections) — `lib/screens/scenario_player_screen.dart`
 - **_StageTitle** (2 connections) — `lib/screens/scenario_player_screen.dart`
 - **firstTry** (1 connections) — `lib/screens/quest_engines/quest_models.dart`
@@ -25,26 +29,22 @@
 - **block** (1 connections) — `lib/screens/scenario_player_screen.dart`
 - **build** (1 connections) — `lib/screens/scenario_player_screen.dart`
 - **_buildBottomBar** (1 connections) — `lib/screens/scenario_player_screen.dart`
-- **_buildCloseButton** (1 connections) — `lib/screens/scenario_player_screen.dart`
-- **buildCoachSteps** (1 connections) — `lib/screens/scenario_player_screen.dart`
-- **_buildDialog** (1 connections) — `lib/screens/scenario_player_screen.dart`
-- **_buildGrammar** (1 connections) — `lib/screens/scenario_player_screen.dart`
-- *... and 178 more nodes in this community*
+- *... and 182 more nodes in this community*
 
 ## Relationships
 
-- [StatelessWidget](StatelessWidget.md) (14 shared connections)
-- [List](List.md) (11 shared connections)
-- [listening_play_screen.dart](listening_play_screen.dart.md) (8 shared connections)
-- [cloze_game_screen.dart](cloze_game_screen.dart.md) (7 shared connections)
-- [../widgets/sori/button.dart](-widgets-sori-button.dart.md) (6 shared connections)
-- [String?](String_.md) (5 shared connections)
+- [StatelessWidget](StatelessWidget.md) (12 shared connections)
+- [widgets/sori/tokens.dart](widgets-sori-tokens.dart.md) (9 shared connections)
+- [String?](String_.md) (6 shared connections)
+- [listening_play_screen.dart](listening_play_screen.dart.md) (6 shared connections)
+- [cloze_game_screen.dart](cloze_game_screen.dart.md) (5 shared connections)
+- [List](List.md) (4 shared connections)
+- [sori_stage_today_screen.dart](sori_stage_today_screen.dart.md) (4 shared connections)
 - [_State](_State.md) (4 shared connections)
-- [vocab_packs_screen.dart](vocab_packs_screen.dart.md) (4 shared connections)
-- [dart:math](dart-math.md) (3 shared connections)
-- [grammar_screen.dart](grammar_screen.dart.md) (2 shared connections)
+- [vocab_pack_screen.dart](vocab_pack_screen.dart.md) (3 shared connections)
+- [course_mission_screen.dart](course_mission_screen.dart.md) (3 shared connections)
+- [bool get](bool_get.md) (2 shared connections)
 - [_](_.md) (2 shared connections)
-- [scenario.dart](scenario.dart.md) (2 shared connections)
 
 ## Source Files
 
@@ -53,7 +53,7 @@
 
 ## Audit Trail
 
-- EXTRACTED: 302 (100%)
+- EXTRACTED: 306 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

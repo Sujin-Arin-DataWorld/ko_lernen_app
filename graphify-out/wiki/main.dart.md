@@ -33,18 +33,18 @@
 
 ## Relationships
 
+- [consent_screen.dart](consent_screen.dart.md) (6 shared connections)
 - [_](_.md) (5 shared connections)
 - [_State](_State.md) (4 shared connections)
-- [../widgets/sori/button.dart](-widgets-sori-button.dart.md) (4 shared connections)
-- [splash_screen.dart](splash_screen.dart.md) (3 shared connections)
-- [consent_screen.dart](consent_screen.dart.md) (3 shared connections)
+- [sori_stage_today_screen.dart](sori_stage_today_screen.dart.md) (3 shared connections)
 - [book_capture_screen.dart](book_capture_screen.dart.md) (3 shared connections)
+- [bool get](bool_get.md) (2 shared connections)
 - [@visibleForTesting](@visibleForTesting.md) (2 shared connections)
-- [List](List.md) (2 shared connections)
-- [listening_play_screen.dart](listening_play_screen.dart.md) (2 shared connections)
-- [package:flutter/foundation.dart](package-flutter-foundation.dart.md) (2 shared connections)
-- [vocab_packs_screen.dart](vocab_packs_screen.dart.md) (2 shared connections)
-- [content_feedback_outbox_test.dart](content_feedback_outbox_test.dart.md) (1 shared connections)
+- [course_mission_screen.dart](course_mission_screen.dart.md) (2 shared connections)
+- [class](class.md) (1 shared connections)
+- [hanok_cinematic.dart](hanok_cinematic.dart.md) (1 shared connections)
+- [content_feedback_lifecycle.dart](content_feedback_lifecycle.dart.md) (1 shared connections)
+- [static const String](static_const_String.md) (1 shared connections)
 
 ## Source Files
 

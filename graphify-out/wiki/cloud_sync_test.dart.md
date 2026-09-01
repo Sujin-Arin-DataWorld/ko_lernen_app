@@ -1,19 +1,20 @@
 # cloud_sync_test.dart
 
-> 149 nodes · cohesion 0.01
+> 155 nodes · cohesion 0.01
 
 ## Key Concepts
 
 - **cloud_sync_test.dart** (78 connections) — `test/cloud_sync_test.dart`
 - **course_mastery_test.dart** (65 connections) — `test/course_mastery_test.dart`
 - **study_log_test.dart** (34 connections) — `test/study_log_test.dart`
-- **Completer** (23 connections)
+- **media_serialization_test.dart** (25 connections) — `test/media_serialization_test.dart`
 - **PreferenceStringStore** (20 connections) — `lib/services/storage_service.dart`
 - **sori_stage_progression_rules_test.dart** (20 connections) — `test/sori_stage_progression_rules_test.dart`
-- **storage_reset_drain_zone_test.dart** (16 connections) — `test/storage_reset_drain_zone_test.dart`
 - **PreferenceWriteException** (10 connections) — `lib/services/storage_service.dart`
 - **listening_reward_claim_test.dart** (9 connections) — `test/listening_reward_claim_test.dart`
 - **PreferenceStringListStore** (7 connections) — `lib/services/storage_service.dart`
+- **scenario_character_contract_test.dart** (7 connections) — `test/scenario_character_contract_test.dart`
+- **package:ko_lernen_app/models/scenario_corpus_generation.dart** (3 connections)
 - **_SharedPreferenceStringListStore** (2 connections) — `lib/services/storage_service.dart`
 - **_SharedPreferenceStringStore** (2 connections) — `lib/services/storage_service.dart`
 - **_LocalGrammarDuringReloadStore** (2 connections) — `test/cloud_sync_test.dart`
@@ -26,25 +27,24 @@
 - **_RejectedCanonicalSnapshotWriteStore** (2 connections) — `test/course_mastery_test.dart`
 - **_RejectedCourseMasteryWriteStore** (2 connections) — `test/course_mastery_test.dart`
 - **_CacheMutatingRemovalStore** (2 connections) — `test/media_lifecycle_test.dart`
+- **_CacheMutatingStringStore** (2 connections) — `test/media_serialization_test.dart`
 - **_SessionSwitchingCourseStore** (2 connections) — `test/services/account/account_reconciliation_test.dart`
-- **_MemoryStringStore** (2 connections) — `test/sori_stage_progression_rules_test.dart`
-- **_DelayedStringStore** (2 connections) — `test/storage_reset_drain_zone_test.dart`
-- *... and 124 more nodes in this community*
+- *... and 130 more nodes in this community*
 
 ## Relationships
 
-- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (14 shared connections)
-- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (12 shared connections)
-- [package:ko_lernen_app/models/scenario.dart](package-ko_lernen_app-models-scenario.dart.md) (12 shared connections)
-- [account_reconciliation_test.dart](account_reconciliation_test.dart.md) (9 shared connections)
-- [_](_.md) (7 shared connections)
-- [bookshelf_custom_pack_uiux_test.dart](bookshelf_custom_pack_uiux_test.dart.md) (5 shared connections)
-- [cloud_backup_deletion_test.dart](cloud_backup_deletion_test.dart.md) (4 shared connections)
-- [app_flows_test.dart](app_flows_test.dart.md) (4 shared connections)
-- [String?](String_.md) (4 shared connections)
-- [dart:async](dart-async.md) (4 shared connections)
-- [content_feedback_outbox_test.dart](content_feedback_outbox_test.dart.md) (3 shared connections)
-- [media_lifecycle_test.dart](media_lifecycle_test.dart.md) (3 shared connections)
+- [package:shared_preferences/shared_preferences.dart](package-shared_preferences-shared_preferences.dart.md) (17 shared connections)
+- [package:ko_lernen_app/models/scenario.dart](package-ko_lernen_app-models-scenario.dart.md) (13 shared connections)
+- [account_reconciliation_test.dart](account_reconciliation_test.dart.md) (8 shared connections)
+- [package:flutter_test/flutter_test.dart](package-flutter_test-flutter_test.dart.md) (7 shared connections)
+- [_](_.md) (6 shared connections)
+- [dart:convert](dart-convert.md) (5 shared connections)
+- [vocab_notebook_studio_screen_test.dart](vocab_notebook_studio_screen_test.dart.md) (5 shared connections)
+- [Map](Map.md) (4 shared connections)
+- [test/profile_screen_test.dart](test-profile_screen_test.dart.md) (3 shared connections)
+- [account_transition_ui_test.dart](account_transition_ui_test.dart.md) (3 shared connections)
+- [String?](String_.md) (3 shared connections)
+- [dart:async](dart-async.md) (3 shared connections)
 
 ## Source Files
 
@@ -53,14 +53,15 @@
 - `test/course_mastery_test.dart`
 - `test/listening_reward_claim_test.dart`
 - `test/media_lifecycle_test.dart`
+- `test/media_serialization_test.dart`
+- `test/scenario_character_contract_test.dart`
 - `test/services/account/account_reconciliation_test.dart`
 - `test/sori_stage_progression_rules_test.dart`
-- `test/storage_reset_drain_zone_test.dart`
 - `test/study_log_test.dart`
 
 ## Audit Trail
 
-- EXTRACTED: 278 (100%)
+- EXTRACTED: 273 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

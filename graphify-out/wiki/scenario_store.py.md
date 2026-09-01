@@ -1,6 +1,6 @@
 # scenario_store.py
 
-> 46 nodes · cohesion 0.07
+> 41 nodes · cohesion 0.08
 
 ## Key Concepts
 
@@ -22,14 +22,14 @@
 - **load_scenarios()** (4 connections) — `tools/content_factory/scenario_store.py`
 - **shard_paths()** (4 connections) — `tools/content_factory/scenario_store.py`
 - **target_shard()** (4 connections) — `tools/content_factory/scenario_store.py`
-- **fill_empty_unit_kinds.py** (4 connections) — `tools/content_factory/fill_empty_unit_kinds.py`
 - **test_migrate_shelf_backdrop.py** (4 connections) — `tools/content_factory/test_migrate_shelf_backdrop.py`
-- **test_validate_batch_01.py** (4 connections) — `tools/content_factory/test_validate_batch_01.py`
-- **_load()** (3 connections) — `tools/content_factory/fill_empty_unit_kinds.py`
-- **main()** (3 connections) — `tools/content_factory/fill_empty_unit_kinds.py`
 - **main()** (3 connections) — `tools/content_factory/migrate_shelf_backdrop.py`
 - **check_assignment()** (3 connections) — `tools/content_factory/shelf_assignment.py`
-- *... and 21 more nodes in this community*
+- **_live_levels()** (2 connections) — `tools/content_factory/test_shelf_assignment.py`
+- **.test_assignment_covers_the_live_corpus_exactly()** (2 connections) — `tools/content_factory/test_shelf_assignment.py`
+- **.setUp()** (1 connections) — `tools/content_factory/test_migrate_shelf_backdrop.py`
+- **.test_a_scenario_missing_from_the_baseline_is_fail_closed()** (1 connections) — `tools/content_factory/test_migrate_shelf_backdrop.py`
+- *... and 16 more nodes in this community*
 
 ## Relationships
 
@@ -37,6 +37,7 @@
 - [validate_content.py](validate_content.py.md) (4 shared connections)
 - [integrate_scenario_batch.py](integrate_scenario_batch.py.md) (3 shared connections)
 - [SceneContractTest](SceneContractTest.md) (3 shared connections)
+- [Counter](Counter.md) (2 shared connections)
 - [ReferenceIntakeValidator](ReferenceIntakeValidator.md) (2 shared connections)
 - [apply_review.py](apply_review.py.md) (1 shared connections)
 - [audit](audit.md) (1 shared connections)
@@ -44,22 +45,19 @@
 - [build_can_do_segments.py](build_can_do_segments.py.md) (1 shared connections)
 - [build_level_content_4x.py](build_level_content_4x.py.md) (1 shared connections)
 - [promote_batch_19_loader_coverage.py](promote_batch_19_loader_coverage.py.md) (1 shared connections)
-- [Counter](Counter.md) (1 shared connections)
 
 ## Source Files
 
-- `tools/content_factory/fill_empty_unit_kinds.py`
 - `tools/content_factory/migrate_shelf_backdrop.py`
 - `tools/content_factory/scenario_store.py`
 - `tools/content_factory/shelf_assignment.py`
 - `tools/content_factory/test_migrate_shelf_backdrop.py`
 - `tools/content_factory/test_shelf_assignment.py`
-- `tools/content_factory/test_validate_batch_01.py`
 
 ## Audit Trail
 
-- EXTRACTED: 103 (96%)
-- INFERRED: 4 (4%)
+- EXTRACTED: 95 (97%)
+- INFERRED: 3 (3%)
 - AMBIGUOUS: 0 (0%)
 
 ---
