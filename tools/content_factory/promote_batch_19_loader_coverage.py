@@ -1029,7 +1029,8 @@ def update_curriculum(curriculum: dict[str, Any], records: dict[str, list[dict[s
 
 def update_audit_manifest(root: Path) -> None:
     from validate_content import ContentValidator
-    path = root / "assets/data/content_audit_manifest.json"
+    # F6 (2026-09-01): 번들 제외를 위해 assets/data/ 에서 tools/content_factory/ 로 이동.
+    path = root / "tools/content_factory/content_audit_manifest.json"
     manifest = read_json(path)
     counts = ContentValidator(root).inventory_counts()
     by_kind = {item["kind"]: item for item in manifest["sources"]}

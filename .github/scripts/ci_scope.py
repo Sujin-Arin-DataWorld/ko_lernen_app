@@ -14,7 +14,7 @@ from pathlib import PurePosixPath
 from typing import Iterable
 
 
-SCOPES = ("app", "website", "book", "gye", "pronunciation")
+SCOPES = ("app", "website", "book", "gye", "pronunciation", "tts", "auth_cleanup")
 
 TASK_SCOPE = {
     "full": SCOPES,
@@ -23,6 +23,8 @@ TASK_SCOPE = {
     "book": ("book",),
     "gye": ("gye",),
     "pronunciation": ("pronunciation",),
+    "tts": ("tts",),
+    "auth-cleanup": ("auth_cleanup",),
     "release-internal": ("app",),
     "release-website": ("website",),
 }
@@ -114,6 +116,14 @@ def scopes_for_paths(paths: Iterable[str]) -> dict[str, bool]:
             result["pronunciation"] = True
             continue
 
+        if path.startswith("functions/tts/"):
+            result["tts"] = True
+            continue
+
+        if path.startswith("functions/auth_cleanup/"):
+            result["auth_cleanup"] = True
+            continue
+
         # Shared deployment contracts are consumed by more than one test suite.
         if path == "firestore.rules":
             result["app"] = True
@@ -127,9 +137,13 @@ def scopes_for_paths(paths: Iterable[str]) -> dict[str, bool]:
             continue
 
         if path == "firebase.json":
+            # auth_cleanup is a gen-1 Auth trigger deployed outside this
+            # codebases array (see firebase.json), so it is deliberately not
+            # listed here — only functions declared in the array are.
             result["app"] = True
             result["gye"] = True
             result["pronunciation"] = True
+            result["tts"] = True
             continue
 
         if path in APP_DOC_FILES or path.startswith(APP_DOC_PREFIXES):

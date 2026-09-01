@@ -44,7 +44,10 @@ from validate_content import ContentValidator
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = ROOT / "assets" / "data"
-MANIFEST_PATH = DATA_DIR / "content_audit_manifest.json"
+# F6 (2026-09-01): content_audit_manifest.json은 번들 제외를 위해
+# assets/data/ 에서 tools/content_factory/ 로 옮겼다 — 폴더 단위 pubspec
+# 등록에 실려 APK에 들어가던 것을 뺀 것. 앱 런타임은 이 파일을 안 읽는다.
+MANIFEST_PATH = ROOT / "tools" / "content_factory" / "content_audit_manifest.json"
 
 # The key names are the canonical containers in the checked-in asset files.
 # kkeunmari intentionally has no generic path here: its records have no stable

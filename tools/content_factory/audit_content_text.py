@@ -65,13 +65,9 @@ SURFACES: tuple[ContentSurface, ...] = (
         ("items",),
         "KO answer context, DE/EN gloss, distractor uniqueness",
     ),
-    ContentSurface(
-        "content_audit_manifest.json",
-        "integrity manifest",
-        "content validators and audit UI",
-        ("sources",),
-        "counts and integrity notes; no lesson-copy rewrite",
-    ),
+    # F6 (2026-09-01): content_audit_manifest.json은 번들 제외를 위해
+    # assets/data/ 밖 tools/content_factory/ 로 옮겼다 — 이 감사기는
+    # assets/data/ 만 훑으므로(build_inventory 참고) 더는 대상이 아니다.
     ContentSurface(
         "culture_notes.json",
         "culture notes",

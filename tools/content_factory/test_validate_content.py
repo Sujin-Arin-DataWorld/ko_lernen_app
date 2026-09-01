@@ -26,7 +26,14 @@ from validate_content import ContentValidator
 
 class ContentValidatorTest(unittest.TestCase):
     def _asset_json(self, name: str):
-        with (Path("assets/data") / name).open(encoding="utf-8") as handle:
+        # F6: content_audit_manifest.json은 assets/data/가 아니라
+        # tools/content_factory/에 산다(번들 제외).
+        directory = (
+            Path("tools/content_factory")
+            if name == "content_audit_manifest.json"
+            else Path("assets/data")
+        )
+        with (directory / name).open(encoding="utf-8") as handle:
             return json.load(handle)
 
     def _with_json_override(self, **overrides):
