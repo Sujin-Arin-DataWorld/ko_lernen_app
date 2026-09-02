@@ -1,8 +1,10 @@
 # 듣기 카드 확정 레시피 (2026-08-17, Jin 승인)
 
 > **⛔ 범위(2026-08-30 lock):** 이 레시피는 듣기 카드만이 아니라 정물 카드 계열 전체
-> (`packs/` 14 · `activities/` · `listening/`)의 생성 정본이다. 이 계열의 새 이미지는
-> 예외 없이 이 문서의 고정 프롬프트({SUBJECT}만 교체)·후처리·검수로만 만든다. 실측
+> (`packs/` 14 · `activities/` · `listening/`)의 생성 정본이다. 이 계열에서 새로 생성하거나
+> 재생성하는 이미지는 예외 없이 이 문서의 고정 프롬프트({SUBJECT}만 교체)·후처리·검수로만
+> 만든다. 단, Jin이 제공 원본 그대로를 승인한 C1 11장은 아래 `C1-source-original` 역사적
+> 프로필로 잠겨 있으며 이 생성 레시피를 소급 적용하지 않는다. 실측
 > 불변값(팔레트·그레인 대역·정본 해시)은 `docs/assets/STYLE_LOCK.json` families
 > `F-E-cards` 가 정본이며 수치가 충돌하면 그쪽이 이긴다. 픽셀 게이트:
 > `tool/check_card_style.py` (후처리 스크립트가 자동 실행; 실패 = 번들 금지).
@@ -73,6 +75,9 @@ consultation desk, with an empty chair behind the desk`.
 
 ## 후처리 (필수)
 
+아래 `q84 + grain` 파이프라인은 일반 신규·재생성 카드의 계약이다. Jin이 새 제공 원본을
+별도로 승인하지 않는 한 이 계약을 유지한다.
+
 ```
 finish.sh {key} {url}
   → curl 다운로드 → sips -Z 800 → apply_paper_grain.py(fine 5.0 / coarse 4.0)
@@ -83,6 +88,18 @@ finish.sh {key} {url}
 하드 게이트는 STYLE_LOCK `gates.fileKB` (전수 실측 기반, 대략 65~110KB) — 85~105KB 는
 그레인 신규 카드의 정상 대역이고, 게이트 대역 밖이면 번들 자체가 차단된다.
 `scripts/apply_paper_grain.py` 는 저장소에 있고, venv 는 `.grain-venv`(pillow·numpy, gitignore됨).
+
+### 역사적 예외: `C1-source-original` 11장
+
+`C1Access`, `C1Attribution`, `C1Conflict`, `C1Consent`, `C1Critique`, `C1Facework`,
+`C1InvisibleLabor`, `C1Mediation`, `C1Methodology`, `C1Policy`, `C1Uncertainty`는 Jin이 제공한
+원본 PNG의 색감과 고유 질감을 그대로 보존한 승인본이다. 이 11장은 원본을 `RGB`로 변환한 뒤
+`LANCZOS`로 800×600 리사이즈하고 WebP `method 6`과 카드별 승인 quality로 저장한다
+(`C1Policy`는 `quality 93`). 색감 보정, 블러, 추가 그레인은 적용하지 않는다.
+카드별 quality와 원본·런타임 SHA-256·크기는
+`assets_unused/pending_review/listening_cards/c1_source_original/MANIFEST.json`이 증빙한다.
+일반 신규 카드의 `q84 + grain` 규칙을 이 11장에 소급 적용하지 않으며, 이 예외를 다른 카드로
+확장하려면 Jin의 명시적 승인과 STYLE_LOCK 갱신이 먼저다.
 
 ## 검수 체크리스트 (번들 전 매 장)
 
@@ -109,8 +126,10 @@ finish.sh {key} {url}
 
 번들 완료 **75장 — 코드가 요구하는 75키 전부 충족** (2026-08-30 저녁) —
 A1 12/12 · A2 12/12 · B1 12/12 · B2 12/12 · C1 12/12 · C2 12/12 · Social 3/3.
-C1/C2 22장은 이 레시피 그대로(Seedream V4.5 · bamboo 앵커 · {SUBJECT}만 교체) 생성했고
-전량 `tool/check_card_style.py` 게이트 통과 후 반입됐다. 재생성 사례(다음 세션 참고):
+C2 11장은 이 레시피 그대로(Seedream V4.5 · bamboo 앵커 · {SUBJECT}만 교체) 생성했다.
+C1은 위 `C1-source-original` 승인 프로필 11장과 그보다 먼저 반입된 기존 `C1Briefing`으로
+구성된다. 별도 승인 파일럿 `C2Translation`까지 모두 `tool/check_card_style.py` 게이트 통과 후
+반입됐다. 재생성 사례(다음 세션 참고):
 `{SUBJECT}` 의 "seal"은 물개로, "marked ruler"는 숫자 눈금으로, "consent letter"는
 실제 글자로 오역된다 — **stone stamp block · unmarked/plain · blank envelope** 로 쓸 것.
 

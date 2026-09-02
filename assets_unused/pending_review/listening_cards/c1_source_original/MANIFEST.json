@@ -11,6 +11,10 @@
       800,
       600
     ],
+    "outputMode": "RGB",
+    "resizeFilter": "LANCZOS",
+    "webpQualityRule": "per_asset_see_assets",
+    "webpMethod": 6,
     "paletteAndTexturePreserved": true,
     "colorCorrectionApplied": false,
     "blurApplied": false,
@@ -29,6 +33,7 @@
         1448,
         1086
       ],
+      "webpQuality": 91,
       "runtime": "assets/illustrations/listening/C1Access.webp",
       "runtimeSha256": "00cb954352bbada9358410a419142942931a56eda14579be57e8410f0f107f56",
       "runtimeBytes": 105896,
@@ -45,6 +50,7 @@
         1448,
         1086
       ],
+      "webpQuality": 93,
       "runtime": "assets/illustrations/listening/C1Attribution.webp",
       "runtimeSha256": "0583a7d4a5abb13cddb428c29967e6fa2c9f3ff7dff874564800b31c4b77396f",
       "runtimeBytes": 102702,
@@ -61,6 +67,7 @@
         1448,
         1086
       ],
+      "webpQuality": 92,
       "runtime": "assets/illustrations/listening/C1Conflict.webp",
       "runtimeSha256": "82085b8e2240e48e3b2de1a2963dad5841e675d6bf5dd3e5fde21743a3c0f5fa",
       "runtimeBytes": 107242,
@@ -77,6 +84,7 @@
         1448,
         1086
       ],
+      "webpQuality": 93,
       "runtime": "assets/illustrations/listening/C1Consent.webp",
       "runtimeSha256": "8255716a9482021f755e55bbf6f2329e25ad355295d90122bde52d492ac786df",
       "runtimeBytes": 104484,
@@ -93,6 +101,7 @@
         1448,
         1086
       ],
+      "webpQuality": 90,
       "runtime": "assets/illustrations/listening/C1Critique.webp",
       "runtimeSha256": "4416c475824c826c4f0bbee36adce36db6b20c439d362c7886d700ecb1c5ff05",
       "runtimeBytes": 101400,
@@ -109,6 +118,7 @@
         1448,
         1086
       ],
+      "webpQuality": 82,
       "runtime": "assets/illustrations/listening/C1Facework.webp",
       "runtimeSha256": "18e8a6fd3ce1c1eb1fe477aeefc1f8062823815a7efcafc8c2382f21868ed0cf",
       "runtimeBytes": 102116,
@@ -125,6 +135,7 @@
         1448,
         1086
       ],
+      "webpQuality": 83,
       "runtime": "assets/illustrations/listening/C1InvisibleLabor.webp",
       "runtimeSha256": "4a53377a27e75383713b2f11ddf698dc764abde98cc95e5a6d5e3756c565dc36",
       "runtimeBytes": 101626,
@@ -141,6 +152,7 @@
         1448,
         1086
       ],
+      "webpQuality": 91,
       "runtime": "assets/illustrations/listening/C1Mediation.webp",
       "runtimeSha256": "23a2668faf220a0195fc05344943170d48e3b61a75ad12eb4777b47482fe0de0",
       "runtimeBytes": 105420,
@@ -157,6 +169,7 @@
         1448,
         1086
       ],
+      "webpQuality": 89,
       "runtime": "assets/illustrations/listening/C1Methodology.webp",
       "runtimeSha256": "ae1dda72bce5f8ad6c5da410181d3d267b035853847da5b2846bc7ec29cb5824",
       "runtimeBytes": 100010,
@@ -173,6 +186,7 @@
         1448,
         1086
       ],
+      "webpQuality": 93,
       "runtime": "assets/illustrations/listening/C1Policy.webp",
       "runtimeSha256": "0d23ac8f1c772e3206c5304b7781d8a89e529bac584eb23612fe3381b52a1d00",
       "runtimeBytes": 102474,
@@ -189,6 +203,7 @@
         1448,
         1086
       ],
+      "webpQuality": 90,
       "runtime": "assets/illustrations/listening/C1Uncertainty.webp",
       "runtimeSha256": "f08f7fe017b97eaacdd1320144c2287811166dd7fe885ac6de8addcd4170aa26",
       "runtimeBytes": 107024,
