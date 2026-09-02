@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "status": "pending_visual_and_in_world_approval",
+  "runtimeBundled": false,
+  "selectionRule": "Preserve one descriptive path per byte-identical payload and keep approved package outputs unchanged.",
+  "assets": [
+    {
+      "path": "assets_unused/pending_review/personal_hanok_v3/담장/bbanana-20260901091724-45b04a.jpg",
+      "role": "wall_source_candidate",
+      "sha256": "f0f22c0d0ae173c693e11e64458ca11168c521efcad0d693316edca741081c70",
+      "bytes": 547086,
+      "size": [1520, 2720],
+      "pixelFormat": "yuvj420p"
+    },
+    {
+      "path": "assets_unused/pending_review/personal_hanok_v3/담장/bbanana-20260901091815-4e1ba8.png",
+      "role": "wall_source_candidate",
+      "sha256": "c35e5b89a2f2154a61b07ed0d8e0b02b6d6e7b063825b10b132f02a95f14c0c6",
+      "bytes": 2127303,
+      "size": [768, 1376],
+      "pixelFormat": "rgb24"
+    },
+    {
+      "path": "assets_unused/pending_review/personal_hanok_v3/담장/bbanana-20260901091830-07f5e8.png",
+      "role": "wall_source_candidate",
+      "sha256": "bb20d508966b78b066039105e1c4ce9e24714e5a6fa01a43f251a298657ab8f8",
+      "bytes": 10058030,
+      "size": [1536, 2752],
+      "pixelFormat": "rgba"
+    },
+    {
+      "path": "assets_unused/pending_review/personal_hanok_v3/담장/bbanana-20260901092554-7e98aa.png",
+      "role": "wall_source_candidate",
+      "sha256": "ab6128fe4cc2a5ffa225ae77357c8faa86fe6ac3cf762ef3bc3c89984123bbf5",
+      "bytes": 1802980,
+      "size": [768, 1376],
+      "pixelFormat": "rgb24"
+    },
+    {
+      "path": "assets_unused/pending_review/personal_hanok_v3/담장/낮은 돌담.png",
+      "role": "wall_candidate",
+      "sha256": "b528cfcd065b284dac2b85d62286e1cc1cd3554809537e6ba752eff89e23b962",
+      "bytes": 2436243,
+      "size": [1536, 1024],
+      "pixelFormat": "rgb24"
+    },
+    {
+      "path": "assets_unused/pending_review/personal_hanok_v3/담장/돌담_v2.png",
+      "role": "wall_candidate",
+      "sha256": "3f04a85dad2fe6350cbdd1e3431672a80bc4b5c88d551d9c7d831dd40a391e9b",
+      "bytes": 2508084,
+      "size": [1536, 1024],
+      "pixelFormat": "rgb24"
+    },
+    {
+      "path": "assets_unused/pending_review/personal_hanok_v3/담장/돌담_v2_다른 각도.png",
+      "role": "wall_candidate",
+      "sha256": "895b2c90d669cf0489aa55513ce40dac5b29fe79c13ecc96726093c245a37eaa",
+      "bytes": 2385416,
+      "size": [1536, 1024],
+      "pixelFormat": "rgb24"
+    },
+    {
+      "path": "assets_unused/pending_review/personal_hanok_v3/담장/돌담_v2_다른 각도_2.png",
+      "role": "wall_candidate",
+      "sha256": "4d3474bfe113798f270d411b9ba906c956682af8e7c0b6c51cd7f8814b7c1cb1",
+      "bytes": 2408644,
+      "size": [1536, 1024],
+      "pixelFormat": "rgb24"
+    },
+    {
+      "path": "assets_unused/pending_review/personal_hanok_v3/맵구조2.jpg",
+      "role": "map_structure_candidate",
+      "sha256": "d57858a40e6df3a27472811035fa88631ceb316da7cffc97a06cee23ca75cd08",
+      "bytes": 306026,
+      "size": [1024, 1024],
+      "pixelFormat": "yuvj420p"
+    },
+    {
+      "path": "assets_unused/pending_review/personal_hanok_v3/맵구조3.jpg",
+      "role": "map_structure_candidate",
+      "sha256": "58affb3ac0c5cdf5dcc00ec4e099cd320cd799b788936cfd44ab48ede572a417",
+      "bytes": 423225,
+      "size": [1118, 2000],
+      "pixelFormat": "yuvj420p"
+    },
+    {
+      "path": "assets_unused/pending_review/personal_hanok_v3/맵구조4.webp",
+      "role": "map_structure_candidate",
+      "sha256": "778024829ef0fc1557505610568dc2e7c7c82363f5825bbf60bf3649fc9ff066",
+      "bytes": 344926,
+      "size": [768, 1376],
+      "pixelFormat": "yuv420p"
+    },
+    {
+      "path": "assets_unused/pending_review/personal_hanok_v3/지도작업기준.png",
+      "role": "map_work_reference",
+      "sha256": "9b69f0b68dfd399b88c1c9878b12abd6dc04a2289d5efb2c9d586ea9d1f9ebc8",
+      "bytes": 1872481,
+      "size": [1220, 1289],
+      "pixelFormat": "rgb24"
+    },
+    {
+      "path": "assets_unused/pending_review/personal_hanok_v3/맵구조5_candidate_20260901.png",
+      "role": "map_structure_candidate_preserved_alongside_origin",
+      "sha256": "8ed7a2fd6cffb7c64d246ec888b11a7c47d59897836ca9d1cf6a490c62149755",
+      "bytes": 2783066,
+      "size": [1254, 1254],
+      "pixelFormat": "rgb24",
+      "retainedOriginMainPath": "assets_unused/pending_review/personal_hanok_v3/맵구조5.png",
+      "retainedOriginMainSha256": "188385fe16cb69e64b9177a0f9214bb6f210eb06d1687b89270159787a2e3591"
+    },
+    {
+      "path": "assets_unused/pending_review/personal_hanok_v3/turnaround_2d/ildu_sadang_v03/generated_source/individual/ildu_sadang_135_rear_right_candidate_20260901.png",
+      "role": "derived_rotation_candidate_not_review_output",
+      "sha256": "d202bf5d57badca250c193f2b250ebf68bd8c0b22bfe5f01223112c042bca48e",
+      "bytes": 182202,
+      "size": [512, 384],
+      "pixelFormat": "rgba",
+      "relation": "Exact lossless 90-degree counterclockwise rotation of the retained 135-degree review output.",
+      "retainedReviewPath": "assets_unused/pending_review/personal_hanok_v3/turnaround_2d/ildu_sadang_v03/transparent_views/ildu_sadang_135_rear_right.png",
+      "retainedReviewSha256": "2ad19621a754dcfa4909a3f366225b22eb7e7c64edf144d1f8f836567a7e984c"
+    }
+  ],
+  "excludedByteIdenticalAliases": [
+    {
+      "paths": [
+        "assets_unused/pending_review/personal_hanok_v3/담장/bbanana-20260901091646-b850bd.jpg",
+        "assets_unused/pending_review/personal_hanok_v3/담장/bbanana-20260901092617-5a7ca7.jpg"
+      ],
+      "retainedPath": "assets_unused/pending_review/personal_hanok_v3/맵구조2.jpg",
+      "sha256": "d57858a40e6df3a27472811035fa88631ceb316da7cffc97a06cee23ca75cd08"
+    },
+    {
+      "paths": [
+        "assets_unused/pending_review/personal_hanok_v3/멥구조6.png"
+      ],
+      "retainedOriginMainPath": "assets_unused/pending_review/personal_hanok_v3/맵구조5.png",
+      "sha256": "188385fe16cb69e64b9177a0f9214bb6f210eb06d1687b89270159787a2e3591"
+    }
+  ],
+  "excludedDuplicateTree": {
+    "path": "assets_unused/pending_review/personal_hanok_v3/sarangchae_rebuild_v4/",
+    "fileCount": 71,
+    "reason": "Every file is byte-identical to an already tracked file in the Sarangchae construction pilot package."
+  }
+}

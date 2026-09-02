@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 1,
+  "status": "source_archive_not_runtime",
+  "family": "C1-source-original",
+  "sourceRoot": "assets_unused/pending_review/listening_cards/c1_source_original/",
+  "runtimeRoot": "assets/illustrations/listening/",
+  "historicalDerivativeFacts": {
+    "authority": "provenance_only_not_a_regeneration_contract",
+    "outputFormat": "WebP",
+    "outputSize": [
+      800,
+      600
+    ],
+    "paletteAndTexturePreserved": true,
+    "colorCorrectionApplied": false,
+    "blurApplied": false,
+    "addedGrainApplied": false
+  },
+  "suppliedCount": 11,
+  "excludedRuntimeOnly": [
+    "C1Briefing.webp"
+  ],
+  "assets": [
+    {
+      "source": "C1Access.png",
+      "sourceSha256": "10ff92487ab76e7df9c6eb52c3d8970898b49af88d9071671c4c58f7ca0fee6e",
+      "sourceBytes": 2600466,
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "runtime": "assets/illustrations/listening/C1Access.webp",
+      "runtimeSha256": "00cb954352bbada9358410a419142942931a56eda14579be57e8410f0f107f56",
+      "runtimeBytes": 105896,
+      "runtimeSize": [
+        800,
+        600
+      ]
+    },
+    {
+      "source": "C1Attribution.png",
+      "sourceSha256": "3ac9714d040fed3bf9db7fa14229b78bb6f61e2fda11a35b0ad6aaa686186d59",
+      "sourceBytes": 2657839,
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "runtime": "assets/illustrations/listening/C1Attribution.webp",
+      "runtimeSha256": "0583a7d4a5abb13cddb428c29967e6fa2c9f3ff7dff874564800b31c4b77396f",
+      "runtimeBytes": 102702,
+      "runtimeSize": [
+        800,
+        600
+      ]
+    },
+    {
+      "source": "C1Conflict.png",
+      "sourceSha256": "b0cac09f277c8b96f19baa30fa37c4e6f9ea9417e545cf40ba94a1dd39cf276b",
+      "sourceBytes": 2762731,
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "runtime": "assets/illustrations/listening/C1Conflict.webp",
+      "runtimeSha256": "82085b8e2240e48e3b2de1a2963dad5841e675d6bf5dd3e5fde21743a3c0f5fa",
+      "runtimeBytes": 107242,
+      "runtimeSize": [
+        800,
+        600
+      ]
+    },
+    {
+      "source": "C1Consent.png",
+      "sourceSha256": "d403e1f55f37f6313bf020bdb0bb2c8d1e5a590ba31473a4e6fc249f69937442",
+      "sourceBytes": 2389337,
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "runtime": "assets/illustrations/listening/C1Consent.webp",
+      "runtimeSha256": "8255716a9482021f755e55bbf6f2329e25ad355295d90122bde52d492ac786df",
+      "runtimeBytes": 104484,
+      "runtimeSize": [
+        800,
+        600
+      ]
+    },
+    {
+      "source": "C1Critique.png",
+      "sourceSha256": "aea15ef1c6b034d13933e47a8b5a447509ada30434b4b9b4fdcbcc0f87445907",
+      "sourceBytes": 2689505,
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "runtime": "assets/illustrations/listening/C1Critique.webp",
+      "runtimeSha256": "4416c475824c826c4f0bbee36adce36db6b20c439d362c7886d700ecb1c5ff05",
+      "runtimeBytes": 101400,
+      "runtimeSize": [
+        800,
+        600
+      ]
+    },
+    {
+      "source": "C1Facework.png",
+      "sourceSha256": "65207c68b0793db3c8a000b5bf1d866e28b332771fde8fca367ad7db7414e3d7",
+      "sourceBytes": 3279737,
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "runtime": "assets/illustrations/listening/C1Facework.webp",
+      "runtimeSha256": "18e8a6fd3ce1c1eb1fe477aeefc1f8062823815a7efcafc8c2382f21868ed0cf",
+      "runtimeBytes": 102116,
+      "runtimeSize": [
+        800,
+        600
+      ]
+    },
+    {
+      "source": "C1InvisibleLabor.png",
+      "sourceSha256": "fd8bb58bbf4a570f3b3f8c64ef7c071192226e7b52bc7f3fceb6f5e59d5120fc",
+      "sourceBytes": 3145244,
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "runtime": "assets/illustrations/listening/C1InvisibleLabor.webp",
+      "runtimeSha256": "4a53377a27e75383713b2f11ddf698dc764abde98cc95e5a6d5e3756c565dc36",
+      "runtimeBytes": 101626,
+      "runtimeSize": [
+        800,
+        600
+      ]
+    },
+    {
+      "source": "C1Mediation.png",
+      "sourceSha256": "44db04cfcd3df64642b9233010cee151ad1eda410ec55600a33389a4183fa5e8",
+      "sourceBytes": 2619642,
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "runtime": "assets/illustrations/listening/C1Mediation.webp",
+      "runtimeSha256": "23a2668faf220a0195fc05344943170d48e3b61a75ad12eb4777b47482fe0de0",
+      "runtimeBytes": 105420,
+      "runtimeSize": [
+        800,
+        600
+      ]
+    },
+    {
+      "source": "C1Methodology.png",
+      "sourceSha256": "794623d44333c16c3db33acd875721db62119070ec141e36a85ded029ae5cd7d",
+      "sourceBytes": 2669066,
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "runtime": "assets/illustrations/listening/C1Methodology.webp",
+      "runtimeSha256": "ae1dda72bce5f8ad6c5da410181d3d267b035853847da5b2846bc7ec29cb5824",
+      "runtimeBytes": 100010,
+      "runtimeSize": [
+        800,
+        600
+      ]
+    },
+    {
+      "source": "C1Policy.png",
+      "sourceSha256": "52168a913a8bc19572cc10a2b0870a3c5ed77113071c3abac1d651140dbb19b3",
+      "sourceBytes": 2398206,
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "runtime": "assets/illustrations/listening/C1Policy.webp",
+      "runtimeSha256": "0d23ac8f1c772e3206c5304b7781d8a89e529bac584eb23612fe3381b52a1d00",
+      "runtimeBytes": 102474,
+      "runtimeSize": [
+        800,
+        600
+      ]
+    },
+    {
+      "source": "C1Uncertainty.png",
+      "sourceSha256": "8c9e67b5155a2f46b17b4d0f3c8f8af94dd14f3d54ac4f5a6d569c35f67e8b1f",
+      "sourceBytes": 2611742,
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "runtime": "assets/illustrations/listening/C1Uncertainty.webp",
+      "runtimeSha256": "f08f7fe017b97eaacdd1320144c2287811166dd7fe885ac6de8addcd4170aa26",
+      "runtimeBytes": 107024,
+      "runtimeSize": [
+        800,
+        600
+      ]
+    }
+  ]
+}
