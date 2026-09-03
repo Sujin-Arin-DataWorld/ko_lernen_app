@@ -87,3 +87,6 @@ Fable direct evaluation (2026-09-03, read core diffs): found 1 Important the 3-t
 Ruling F2: `_touchCacheFile` becomes fire-and-forget (unawaited) on the disk-hit path — no latency added to cache hits. F3: repair the split doc comments. F4: `STALE\t` lines only when `--delete-stale` (dry-run listing); plain `--verify-storage` prints the stale count only (5,887 lines of CI noise otherwise). F5: drop `cache: pip` from the CI job (no requirements file guaranteed; no pip install happens).
 Fix wave 2 dispatched (Sonnet). find-skills: no new install (local ecc/dart skills cover it); optional github/awesome-copilot@agentic-eval.
 Fix wave 2: implemented (commits 915ee1cb..ab24b349) — full suite 5505/0/14, analyze 0.
+Fix wave 2 re-review (sonnet): all 5 ADDRESSED, no new breakage. Production exposure of F1 confirmed = the ~30 direct TtsService.speak/speakSlow call sites (SoriSpeech's own key switch was shielded by its stop()).
+Sonnet scorecard (ecc:agent-evaluator): T1 4.8 · T2 4.8 · T3 3.4 · T4 4.6 · T5 4.8 · T6 5.0 · T7 4.8 · T8 5.0 · fix wave 4.8 → overall 4.67/5. Brief-template improvements recorded in plan §4 items 10-13.
+W7 PR1 FINAL: HEAD 0a77a73f (36 ahead of origin/main, 2 behind — assets-only commits), full suite 5505/0/14, analyze 0. Awaiting Jin's integration decision.
