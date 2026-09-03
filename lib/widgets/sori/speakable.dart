@@ -211,13 +211,12 @@ class SoriSpeech {
     _activeSpeechKey = key;
     _activeSpeechText = text.trim();
     _activeSpeechGeneration = generation;
-    // 신규 speak(pending 없음)는 즉시 resolving. pending 승격(이미 진행 중인
-    // prefetch에 올라타는 경우)은 그 prefetch가 끝날 때까지 idle로 남는다
-    // (기존 bool 계약과 동일). 실제 speaking 전환은 두 경우 모두
+    // 신규 speak든 pending 승격(이미 진행 중인 prefetch에 올라타는 경우)이든
+    // 사용자가 방금 눌렀고 오디오가 아직 준비되지 않은 상태이므로 즉시
+    // resolving으로 전환한다 — 이 창에서 다시 탭하면 재합류가 아니라
+    // stop이 돼야 한다(handleTap 계약). 실제 speaking 전환은 두 경우 모두
     // TtsService.phase 리스너의 승격에서만 일어난다.
-    phase.value = pending == null
-        ? TtsSpeechPhase.resolving
-        : TtsSpeechPhase.idle;
+    phase.value = TtsSpeechPhase.resolving;
 
     Future<bool> resolve() async {
       if (previousKey != null && previousKey != key) {
