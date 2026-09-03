@@ -6,12 +6,15 @@ import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
+import 'support/sori_speech_stubs.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  setUp(SoriSpeech.resetForTesting);
-  tearDown(SoriSpeech.resetForTesting);
+  late SoriSpeechStub stub;
+  setUp(() {
+    stub = stubSoriSpeech();
+  });
 
   Widget host() => MaterialApp(
     theme: AppTheme.light,
@@ -43,11 +46,6 @@ void main() {
   });
 
   testWidgets('정답을 맞히면 카드 탭으로 발음을 재생할 수 있다', (tester) async {
-    final spoken = <String>[];
-    SoriSpeech.speakImpl = (text, voice) async {
-      spoken.add(text);
-      return true;
-    };
     await tester.pumpWidget(host());
     await tester.pump();
     await tester.enterText(find.byType(TextField), '사과');
@@ -56,7 +54,7 @@ void main() {
     expect(find.byType(SoriSpeakable), findsOneWidget);
     await tester.tap(find.byType(SoriSpeakable));
     await tester.pump();
-    expect(spoken, ['사과']);
+    expect(stub.spoken, ['사과']);
     // 정답 제출은 700ms 뒤 다음 문항으로 넘어가는 Future.delayed를 예약한다
     // (chosung_quiz_screen.dart _submit) — 테스트 종료 전에 흘려보내지 않으면
     // "Timer is still pending" 프레임워크 불변식 검사에 걸린다.
@@ -64,11 +62,6 @@ void main() {
   });
 
   testWidgets('오답을 제출해도 카드 탭으로 정답 발음을 재생할 수 있다 (M6)', (tester) async {
-    final spoken = <String>[];
-    SoriSpeech.speakImpl = (text, voice) async {
-      spoken.add(text);
-      return true;
-    };
     await tester.pumpWidget(host());
     await tester.pump();
     await tester.enterText(find.byType(TextField), '바나나');
@@ -78,7 +71,7 @@ void main() {
     await tester.tap(find.byType(SoriSpeakable));
     await tester.pump();
     expect(
-      spoken,
+      stub.spoken,
       ['사과'],
       reason: '뜻 유출 방지 카드에서도 발음은 항상 정답 단어여야 한다',
     );

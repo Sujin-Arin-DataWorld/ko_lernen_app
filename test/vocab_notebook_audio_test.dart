@@ -11,6 +11,7 @@ import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
+import 'support/sori_speech_stubs.dart';
 
 /// Task 4 — vocab_notebook_result/studio 무음 표면. 두 화면 모두 단어 카드의
 /// 한국어 텍스트를 `SoriSpeakable`로 감싸 탭=재생을 배선한다. 하네스는 기존
@@ -21,24 +22,17 @@ const _resultText = '학교 - Schule\n학생 = Schüler';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
+  late SoriSpeechStub stub;
   setUp(() async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
-    SoriSpeech.resetForTesting();
+    stub = stubSoriSpeech();
   });
-
-  tearDown(SoriSpeech.resetForTesting);
 
   testWidgets('vocab_notebook_result_screen: 단어 카드 탭으로 발음을 재생할 수 있다', (
     tester,
   ) async {
-    final spoken = <String>[];
-    SoriSpeech.speakImpl = (text, voice) async {
-      spoken.add(text);
-      return true;
-    };
-
     await tester.pumpWidget(
       MaterialApp(
         theme: AppTheme.light,
@@ -61,7 +55,7 @@ void main() {
     await tester.tap(wordCard);
     await tester.pump();
 
-    expect(spoken, ['학교']);
+    expect(stub.spoken, ['학교']);
   });
 
   testWidgets('vocab_notebook_studio_screen: 단어 카드 탭으로 발음을 재생할 수 있다', (
@@ -76,12 +70,6 @@ void main() {
         ],
       ),
     );
-
-    final spoken = <String>[];
-    SoriSpeech.speakImpl = (text, voice) async {
-      spoken.add(text);
-      return true;
-    };
 
     await tester.pumpWidget(
       const MaterialApp(
@@ -102,6 +90,6 @@ void main() {
     await tester.tap(wordCard);
     await tester.pump();
 
-    expect(spoken, ['학교']);
+    expect(stub.spoken, ['학교']);
   });
 }

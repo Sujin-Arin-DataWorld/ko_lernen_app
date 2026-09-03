@@ -9,11 +9,12 @@ import 'package:ko_lernen_app/services/vocab_pack_finish_coordinator.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
-import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'helpers/deck_actions.dart';
+import 'support/sori_speech_stubs.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  late SoriSpeechStub stub;
   setUp(() async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues(<String, Object>{});
@@ -21,22 +22,17 @@ void main() {
     await Storage.setTutVocabPackSeen();
     await Storage.setTutPackQuizSeen();
     await Storage.setTutPackBossSeen();
-    SoriSpeech.resetForTesting();
     // 실제 TtsService.speak()/stop()은 Firebase Storage/Functions를 부르며
     // 테스트 환경엔 mock이 없어 절대 안 풀린다 — 그 결과 _enterQuiz()의
     // 자동 발음이 in-flight 키를 영구히 물고 있어 이후의 동일 키 prefetch가
     // dedupe join만 하고 prefetchImpl을 못 부르는 문제가 있었다(Task 3
-    // correction). speakImpl/stopImpl을 즉시 완료되는 스텁으로 바꿔
-    // dedupe 윈도우가 정상적으로 열리고 닫히게 한다.
-    SoriSpeech.speakImpl = (text, voice) async => true;
-    SoriSpeech.stopImpl = () async {};
+    // correction). stubSoriSpeech()가 speakImpl/stopImpl을 즉시 완료되는
+    // 스텁으로 바꿔 dedupe 윈도우가 정상적으로 열리고 닫히게 한다.
+    stub = stubSoriSpeech();
   });
-  tearDown(SoriSpeech.resetForTesting);
   testWidgets('Learn 카드 전진 시 새로 보이는 카드와 그 다음 카드를 프리페치한다', (
     tester,
   ) async {
-    final prefetched = <String>[];
-    SoriSpeech.prefetchImpl = (text, voice) async => prefetched.add(text);
     final t = await _pumpPack(tester, _pack(count: 3));
     // 큐 변이(markKnown)는 _advanceLearn() 호출 전에 이미 끝나 있다 —
     // [단어1,단어2,단어3] → GotIt(단어1) → [단어2,단어3]. 그 시점의
@@ -47,9 +43,9 @@ void main() {
     await tester.pump(const Duration(milliseconds: 400));
     tapDeckAction(tester, t.vocabPackGotIt);
     await tester.pump();
-    expect(prefetched, ['단어2', '단어3']);
+    expect(stub.prefetched, ['단어2', '단어3']);
 
-    prefetched.clear();
+    stub.prefetched.clear();
     // 이어서 새 current(단어2)에 DontKnow. learn_session_queue.dart의
     // markUnknown()은 queue.first(단어2)를 제거하고
     // insert(min(reinsertGap=3, 남은 길이=1), 단어2)로 재삽입한다 —
@@ -61,27 +57,18 @@ void main() {
     await tester.pump(const Duration(milliseconds: 400));
     tapDeckAction(tester, t.vocabPackDontKnow);
     await tester.pump();
-    expect(prefetched, ['단어3', '단어2']);
+    expect(stub.prefetched, ['단어3', '단어2']);
   });
   testWidgets('마지막 Learn 카드에서는 다음 단어가 없어 프리페치하지 않는다', (tester) async {
-    final prefetched = <String>[];
-    SoriSpeech.prefetchImpl = (text, voice) async => prefetched.add(text);
     final t = await _pumpPack(tester, _pack(count: 1));
     tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
     tapDeckAction(tester, t.vocabPackGotIt);
     await tester.pump();
-    expect(prefetched, isEmpty);
+    expect(stub.prefetched, isEmpty);
   });
   testWidgets('퀴즈 문항 전진 시 다음 문항을 프리페치한다', (tester) async {
-    final prefetched = <String>[];
-    final spoken = <String>[];
-    SoriSpeech.prefetchImpl = (text, voice) async => prefetched.add(text);
-    SoriSpeech.speakImpl = (text, voice) async {
-      spoken.add(text);
-      return true;
-    };
     final pack = _pack(count: 3);
     final t = await _pumpPack(tester, pack);
     for (var i = 0; i < 3; i++) {
@@ -92,7 +79,7 @@ void main() {
     }
     // Learn 완주 즉시 _enterQuiz()가 문항0을 말하고(spoken[0]) 문항1을
     // 미리 프리페치한다 — 이번 검증 대상이 아니므로 클리어한다.
-    prefetched.clear();
+    stub.prefetched.clear();
     tester
         .widgetList<QuizChoice>(find.byType(QuizChoice))
         .firstWhere((choice) => choice.isCorrect)
@@ -108,14 +95,16 @@ void main() {
     // 한 단어 — 즉 정확히 문항2 — 를 유일한 기대값으로 도출한다.
     final remaining = pack.words
         .map((v) => v.korean)
-        .where((korean) => korean != spoken[0] && korean != spoken[1])
+        .where(
+          (korean) => korean != stub.spoken[0] && korean != stub.spoken[1],
+        )
         .toList();
     expect(remaining, hasLength(1));
     // M7: _advanceQuiz는 list[_qIdx + 1]단 하나만 프리페치한다(Learn의
     // current+peekNext 2건짜리와 다름) — contains()는 여분의 잘못된
     // 프리페치가 섞여도 통과해버리므로 정확히 이 한 단어만 프리페치됐는지
     // 단언한다.
-    expect(prefetched, [remaining.single]);
+    expect(stub.prefetched, [remaining.single]);
   });
 }
 Future<AppL10n> _pumpPack(WidgetTester tester, VocabPack pack) async {
