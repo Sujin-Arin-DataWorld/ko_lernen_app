@@ -66,11 +66,20 @@ void main() {
     // 쪼갰는데(그래서 `find.text('접근성을')` 이 맞았다), 그 구조가 줄간격·
     // maxLines·텍스트 선택을 죽이고 TalkBack 이 문장을 단어 단위로 읽게 만들어
     // 단일 문단으로 바꿨다. 파인더도 같은 형태를 써야 한다.
-    final c1Chip = tester.widget<SoriChip>(
-      find.byWidgetPredicate(
-        (widget) => widget is SoriChip && widget.label.startsWith('C1 ·'),
-      ),
+    // §W-A2 재조사: 레벨 칩 기본 fontSize 12→13.5(§W-A2 발견 5a) 이후
+    // 가로 스크롤 목록에서 C1 칩이 초기 빌드 범위 밖일 수 있다 — 있으면
+    // 그대로, 없으면 스크롤로 찾는다(실제로 사용자가 스크롤해 닿는 요소).
+    final c1Finder = find.byWidgetPredicate(
+      (widget) => widget is SoriChip && widget.label.startsWith('C1 ·'),
     );
+    if (c1Finder.evaluate().isEmpty) {
+      await tester.scrollUntilVisible(
+        c1Finder,
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+    }
+    final c1Chip = tester.widget<SoriChip>(c1Finder);
     expect(c1Chip.selected, isTrue);
     expect(find.byKey(const Key('smalltalk-ko')), findsOneWidget);
     expect(find.textContaining(soriJoinEojeol('날씨 좋네요.')), findsNothing);

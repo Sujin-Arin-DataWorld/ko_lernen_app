@@ -370,23 +370,23 @@ class ChaekgadoScrollItem extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              width: 18,
-              height: 18,
+              width: 22,
+              height: 22,
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 color: done ? SoriColors.primary : const Color(0xFFF0E2C6),
-                borderRadius: const BorderRadius.all(Radius.circular(5)),
+                borderRadius: const BorderRadius.all(Radius.circular(6)),
               ),
               child: done
                   ? const Icon(
                       Icons.check_rounded,
-                      size: 12,
+                      size: 14,
                       color: SoriColors.lightBg,
                     )
                   : Text(
                       ordinal,
                       style: const TextStyle(
-                        fontSize: 9,
+                        fontSize: 13,
                         color: SoriColors.lightTextMuted,
                       ),
                     ),

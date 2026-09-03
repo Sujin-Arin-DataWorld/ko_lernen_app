@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/gye.dart';
+import '../models/gye_lantern_progress.dart';
 import '../services/gye_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
@@ -11,11 +12,13 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/gye_hanok.dart';
+import '../widgets/sori/progress_meter.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/age_gate_prompt.dart';
 import '../widgets/sori/sheet.dart';
+import '../widgets/sori/stepper.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
@@ -131,18 +134,146 @@ class _GyeTabScreenState extends State<GyeTabScreen>
     }
   }
 
+  VoidCallback _resolvedOnContinueSolo(BuildContext context) =>
+      widget.onContinueSolo ??
+      () => Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
+
+  /// **스텝퍼 슬리버** (§W-G2 item 1) — `SoriStageGyeScreen`이 아니라 여기서
+  /// 그린다. 현재 단계는 `metas`(이 위젯만 아는 값)에서 파생해야 하므로,
+  /// metas를 모르는 부모 화면은 이 계산을 할 수 없다. 로딩 중이거나(future
+  /// 미해결) 계가 하나도 없으면 `snap.data`가 null → 빈 목록으로 취급돼
+  /// step 0으로 자연히 떨어진다 — 별도 로딩 분기가 필요 없다.
+  Widget _buildStepperSliver(BuildContext context) {
+    final t = AppL10n.of(context);
+    return FutureBuilder<List<GyeMeta>>(
+      future: _gyeFuture,
+      builder: (context, snap) {
+        final metas = snap.data ?? const <GyeMeta>[];
+        final currentStep = GyeLanternProgress.currentStepFor(
+          metas,
+          elementCount: GyeHanok.elementCount,
+        );
+        final padding = soriClampPadding(
+          MediaQuery.sizeOf(context).width,
+          maxWidth: SoriMaxWidth.hub,
+          // top=0 — 부모(`SoriStageGyeScreen`)의 헤더가 이미 `Spacing.xl`
+          // 갭을 뒀다(§W-F F2 와 같은 이유). bottom=lg(16) 은 스텝퍼와 그
+          // 아래 계 목록/빈 상태 사이의 간격.
+          base: const EdgeInsets.fromLTRB(20, 0, 20, Spacing.lg),
+        );
+        return SliverPadding(
+          padding: padding,
+          sliver: SliverToBoxAdapter(
+            // §W-G G1.3: `soriStageGyeFlow`의 화살표 문장을 대체하는 시각
+            // 스텝. 2단계(공동 한옥 성장)는 주간 이력 필드가 없어 현재
+            // 단계로 도달할 수 없다(`GyeLanternProgress.currentStepFor`
+            // 문서 참조) — 그래도 흐름 설명용으로 3단계를 그대로 그린다.
+            child: SoriStepper(
+              steps: [
+                SoriStepData(
+                  icon: Icons.flag_outlined,
+                  label: t.gyeStepMission,
+                ),
+                SoriStepData(
+                  icon: Icons.light_mode_rounded,
+                  label: t.gyeStepLantern,
+                ),
+                SoriStepData(
+                  icon: Icons.cottage_rounded,
+                  label: t.gyeStepHanok,
+                ),
+              ],
+              currentStep: currentStep,
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  /// 계 목록/빈 상태 슬리버.
+  Widget _buildContentSliver(BuildContext context) {
+    final t = AppL10n.of(context);
+    return FutureBuilder<List<GyeMeta>>(
+      future: _gyeFuture,
+      builder: (context, snap) {
+        if (snap.connectionState == ConnectionState.none ||
+            snap.connectionState == ConnectionState.waiting) {
+          // §W-F F2 의 로딩 슬리버와 같은 패턴 — CustomScrollView 는 절대
+          // sliver 가 아닌 자식을 받을 수 없다.
+          return const SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: Spacing.xxxl),
+              child: Center(child: AppLoading()),
+            ),
+          );
+        }
+        if (snap.hasError) {
+          return SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: Spacing.xl),
+              child: AppError(message: t.errorOffline, onRetry: _reload),
+            ),
+          );
+        }
+        final gyeList = snap.data ?? const <GyeMeta>[];
+        final padding = soriClampPadding(
+          MediaQuery.sizeOf(context).width,
+          maxWidth: SoriMaxWidth.hub,
+          // top=0 — 스텝퍼 슬리버가 이미 자기 bottom(lg)으로 간격을 뒀다.
+          // bottom=xxxl(48) 은 부모의 `SoriContentClamp` 하단 여백과 맞춘다.
+          base: const EdgeInsets.fromLTRB(20, 0, 20, Spacing.xxxl),
+        );
+        return SliverPadding(
+          padding: padding,
+          sliver: SliverList(
+            delegate: SliverChildListDelegate(
+              gyeList.isEmpty
+                  ? _introContent(
+                      context,
+                      introKey: _introKey,
+                      embedded: true,
+                      onFindOrCreate: _findOrCreate,
+                      onContinueSolo: _resolvedOnContinueSolo(context),
+                    )
+                  : _gyeListContent(
+                      context,
+                      gyeList: gyeList,
+                      onFindOrCreate: _findOrCreate,
+                      onOpenGye: _openGye,
+                    ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  /// **임베디드 슬리버 경로** (§W-G G5.1) — `SoriStageGyeScreen`의 단일
+  /// `CustomScrollView` 안에 이 위젯 하나를 슬리버로 직접 꽂아 쓴다
+  /// (`HanokWorldScreen(embedded: true)`와 같은 계약, §W-F F2). 자체
+  /// `Scaffold`/`ListView`를 그리던 옛 임베디드 경로(중첩 스크롤의 원인)를
+  /// 대체한다 — 비임베디드 경로(아래 `build()`의 `Scaffold` 분기)는 그대로
+  /// 둔다.
+  Widget _buildEmbedded(BuildContext context) {
+    return SliverMainAxisGroup(
+      slivers: [_buildStepperSliver(context), _buildContentSliver(context)],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    if (widget.embedded) {
+      return _buildEmbedded(context);
+    }
     return Scaffold(
-      appBar: widget.embedded
-          ? null
-          : SoriAppBar(
-              title: t.navGye,
-              eyebrow: t.gyeTabSubtitle,
-              textScale: MediaQuery.textScalerOf(context).scale(1),
-              viewportWidth: MediaQuery.sizeOf(context).width,
-            ),
+      appBar: SoriAppBar(
+        title: t.navGye,
+        eyebrow: t.gyeTabSubtitle,
+        textScale: MediaQuery.textScalerOf(context).scale(1),
+        viewportWidth: MediaQuery.sizeOf(context).width,
+      ),
       body: SoriScreenBackground(
         child: SafeArea(
           child: SoriContentClamp(
@@ -171,11 +302,7 @@ class _GyeTabScreenState extends State<GyeTabScreen>
                     padding: padding,
                     embedded: widget.embedded,
                     onFindOrCreate: _findOrCreate,
-                    onContinueSolo:
-                        widget.onContinueSolo ??
-                        () => Navigator.of(
-                          context,
-                        ).pushNamedAndRemoveUntil('/', (route) => false),
+                    onContinueSolo: _resolvedOnContinueSolo(context),
                   );
                 }
                 return _GyeList(
@@ -202,7 +329,7 @@ class _IntroEmpty extends StatelessWidget {
   final VoidCallback onContinueSolo;
 
   /// §P5-1: 임베디드(SoriStage 셸)일 때 자체 eyebrow/헤드라인/리드를 뺀다 —
-  /// 셸 헤더(`SoriStageRootHeader`)가 유일한 대형 텍스트다 (화면당 1메시지).
+  /// 셸 헤더(`SoriCollapsingHeader`)가 유일한 대형 텍스트다 (화면당 1메시지).
   final bool embedded;
 
   const _IntroEmpty({
@@ -215,143 +342,151 @@ class _IntroEmpty extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
-    final tt = SoriTextTheme.of(context);
     // 05A: headline → courtyard → privacy → one chooser CTA → explicit skip.
     // The 16+ and join/create safety gates still live in [showGyeChooser].
     // §P5-1: 390×844 에서 스크롤 없이 CTA 도달(±1줄) — 화면당 1메시지.
     return ListView(
       padding: padding,
-      children: [
-        // §P5-1-1: 헤드라인 단일화 — 임베디드에서는 셸 헤더가 유일한 대형
-        // 텍스트다. 비임베디드(직접 라우트)만 자체 헤드라인을 유지한다.
-        if (!embedded) ...[
-          const SizedBox(height: Spacing.md),
-          Text(
-            t.gyeVoluntaryEyebrow,
-            textAlign: TextAlign.center,
-            style: tt.label.copyWith(color: SoriColors.primary),
+      children: _introContent(
+        context,
+        introKey: introKey,
+        embedded: embedded,
+        onFindOrCreate: onFindOrCreate,
+        onContinueSolo: onContinueSolo,
+      ),
+    );
+  }
+}
+
+/// [_IntroEmpty](비임베디드 `ListView`)와 `GyeTabScreen`의 임베디드
+/// `SliverList` 양쪽이 공유하는 빈 상태 콘텐츠 — 스크롤 컨테이너만 다르고
+/// 자식 위젯은 완전히 같다(§W-G G5.1).
+List<Widget> _introContent(
+  BuildContext context, {
+  required GlobalKey introKey,
+  required bool embedded,
+  required VoidCallback onFindOrCreate,
+  required VoidCallback onContinueSolo,
+}) {
+  final t = AppL10n.of(context);
+  final tt = SoriTextTheme.of(context);
+  return [
+    // §P5-1-1: 헤드라인 단일화 — 임베디드에서는 셸 헤더가 유일한 대형
+    // 텍스트다. 비임베디드(직접 라우트)만 자체 헤드라인을 유지한다.
+    if (!embedded) ...[
+      const SizedBox(height: Spacing.md),
+      Text(
+        t.gyeVoluntaryEyebrow,
+        textAlign: TextAlign.center,
+        style: tt.label.copyWith(color: SoriColors.primary),
+      ),
+      const SizedBox(height: Spacing.xs),
+      Text(t.gyeEmptyHeadline, textAlign: TextAlign.center, style: tt.h2),
+      const SizedBox(height: Spacing.xs),
+      Text(t.gyeEmptyLead, textAlign: TextAlign.center, style: tt.bodySmall),
+    ],
+    const SizedBox(height: Spacing.xs),
+    // §P5-1-2: 빈 화면은 진행도 합성이 아니라 단일 공동마당 쇼케이스.
+    // 서로 다른 원근의 8개 레이어를 완성 종가 위에 모두 켜던 방식은
+    // 건물이 뭉쳐 보이므로 실제 가입 계의 진행도 renderer와 분리한다.
+    ClipRRect(
+      borderRadius: SoriRadius.brLg,
+      child: AspectRatio(
+        aspectRatio: 393 / 220,
+        child: const GyeShowcaseArtwork(),
+      ),
+    ),
+    const SizedBox(height: Spacing.xs),
+    Text(t.gyeShowcaseCaption, textAlign: TextAlign.center, style: tt.caption),
+    // §W-G G1.4/G5.4: 쇼케이스가 진짜 완성형("무엇을 짓는지")을 보여주는
+    // 반면 이 문장은 "이건 미리보기고 강제가 아니다"를 밝힌다 — 서로 다른
+    // 정보라 별도 일러스트 없이 캡션만 하나 더 얹는다(§W-G G5.4: 새
+    // 일러스트는 이 포스터와 시각 중복이라 생략, 보고 참조).
+    Text(
+      t.gyeEmptyPreviewCaption,
+      textAlign: TextAlign.center,
+      style: tt.meta,
+    ),
+    const SizedBox(height: Spacing.sm),
+    // §P5-1-3: 문단 3개 → 1줄 칩 카드 3개. 기존 장문 키 3종은 삭제하지
+    // 않고 ⓘ 상세 시트로 강등 (§C-2 원칙: 정보는 버리지 않고 강등한다).
+    KeyedSubtree(
+      key: introKey,
+      child: Column(
+        children: [
+          _ShortPointCard(
+            icon: Icons.groups_2_outlined,
+            text: t.gyeExplainWhatShort,
+            trailing: _DetailsInfoButton(
+              onTap: () => _showGyeDetails(context),
+            ),
           ),
           const SizedBox(height: Spacing.xs),
-          Text(t.gyeEmptyHeadline, textAlign: TextAlign.center, style: tt.h2),
+          _ShortPointCard(icon: Icons.spa_outlined, text: t.gyeExplainWhyShort),
           const SizedBox(height: Spacing.xs),
-          Text(
-            t.gyeEmptyLead,
-            textAlign: TextAlign.center,
-            style: tt.bodySmall,
+          _ShortPointCard(icon: Icons.tag_rounded, text: t.gyeExplainHowShort),
+        ],
+      ),
+    ),
+    const SizedBox(height: Spacing.xs),
+    // §P5-1-4: 프라이버시 카드 → 1줄. 본문은 같은 ⓘ 시트에 수록.
+    _ShortPointCard(icon: Icons.lock_outline_rounded, text: t.gyePrivacyTitle),
+    const SizedBox(height: Spacing.md),
+    SoriButton.filled(
+      label: t.gyeFindOrCreate,
+      icon: Icons.groups_2_outlined,
+      fullWidth: true,
+      maxLines: null,
+      onTap: onFindOrCreate,
+    ),
+    const SizedBox(height: Spacing.xs),
+    TextButton(onPressed: onContinueSolo, child: Text(t.gyeContinueSolo)),
+    const SizedBox(height: Spacing.xl),
+  ];
+}
+
+/// ⓘ 상세 시트 — 강등된 장문 설명 3종 + 프라이버시 본문 (키 삭제 없음).
+void _showGyeDetails(BuildContext context) {
+  final t = AppL10n.of(context);
+  showSoriSheet<void>(
+    context: context,
+    builder: (ctx) {
+      final tt = SoriTextTheme.of(ctx);
+      final s = SoriSurfaces.of(ctx);
+      Widget point(IconData icon, String text) => Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(icon, size: 18, color: SoriColors.primary),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(text, style: tt.bodySmall.copyWith(color: s.textMuted)),
           ),
         ],
-        const SizedBox(height: Spacing.xs),
-        // §P5-1-2: 빈 화면은 진행도 합성이 아니라 단일 공동마당 쇼케이스.
-        // 서로 다른 원근의 8개 레이어를 완성 종가 위에 모두 켜던 방식은
-        // 건물이 뭉쳐 보이므로 실제 가입 계의 진행도 renderer와 분리한다.
-        ClipRRect(
-          borderRadius: SoriRadius.brLg,
-          child: AspectRatio(
-            aspectRatio: 393 / 220,
-            child: const GyeShowcaseArtwork(),
-          ),
-        ),
-        const SizedBox(height: Spacing.xs),
-        Text(
-          t.gyeShowcaseCaption,
-          textAlign: TextAlign.center,
-          style: tt.caption,
-        ),
-        const SizedBox(height: Spacing.sm),
-        // §P5-1-3: 문단 3개 → 1줄 칩 카드 3개. 기존 장문 키 3종은 삭제하지
-        // 않고 ⓘ 상세 시트로 강등 (§C-2 원칙: 정보는 버리지 않고 강등한다).
-        KeyedSubtree(
-          key: introKey,
-          child: Column(
-            children: [
-              _ShortPointCard(
-                icon: Icons.groups_2_outlined,
-                text: t.gyeExplainWhatShort,
-                trailing: _DetailsInfoButton(
-                  onTap: () => _showDetails(context),
-                ),
-              ),
-              const SizedBox(height: Spacing.xs),
-              _ShortPointCard(
-                icon: Icons.spa_outlined,
-                text: t.gyeExplainWhyShort,
-              ),
-              const SizedBox(height: Spacing.xs),
-              _ShortPointCard(
-                icon: Icons.tag_rounded,
-                text: t.gyeExplainHowShort,
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: Spacing.xs),
-        // §P5-1-4: 프라이버시 카드 → 1줄. 본문은 같은 ⓘ 시트에 수록.
-        _ShortPointCard(
-          icon: Icons.lock_outline_rounded,
-          text: t.gyePrivacyTitle,
-        ),
-        const SizedBox(height: Spacing.md),
-        SoriButton.filled(
-          label: t.gyeFindOrCreate,
-          icon: Icons.groups_2_outlined,
-          fullWidth: true,
-          maxLines: null,
-          onTap: onFindOrCreate,
-        ),
-        const SizedBox(height: Spacing.xs),
-        TextButton(onPressed: onContinueSolo, child: Text(t.gyeContinueSolo)),
-        const SizedBox(height: Spacing.xl),
-      ],
-    );
-  }
-
-  /// ⓘ 상세 시트 — 강등된 장문 설명 3종 + 프라이버시 본문 (키 삭제 없음).
-  void _showDetails(BuildContext context) {
-    final t = AppL10n.of(context);
-    showSoriSheet<void>(
-      context: context,
-      builder: (ctx) {
-        final tt = SoriTextTheme.of(ctx);
-        final s = SoriSurfaces.of(ctx);
-        Widget point(IconData icon, String text) => Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Icon(icon, size: 18, color: SoriColors.primary),
-            const SizedBox(width: 10),
-            Expanded(
-              child: Text(
-                text,
-                style: tt.bodySmall.copyWith(color: s.textMuted),
-              ),
-            ),
-          ],
-        );
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const CulturalTermContent(termId: 'gye'),
-            const SizedBox(height: Spacing.lg),
-            Divider(color: s.border),
-            const SizedBox(height: Spacing.lg),
-            Text(t.gyeEmptyHeadline, style: tt.h3),
-            const SizedBox(height: Spacing.md),
-            point(Icons.groups_2_outlined, t.gyeExplainWhat),
-            const SizedBox(height: 10),
-            point(Icons.spa_outlined, t.gyeExplainWhy),
-            const SizedBox(height: 10),
-            point(Icons.tag_rounded, t.gyeExplainHow),
-            const SizedBox(height: Spacing.md),
-            Text(t.gyePrivacyTitle, style: tt.cardTitle),
-            const SizedBox(height: Spacing.xs),
-            Text(t.gyePrivacyBody, style: tt.bodySmall),
-            const SizedBox(height: Spacing.md),
-          ],
-        );
-      },
-    );
-  }
+      );
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const CulturalTermContent(termId: 'gye'),
+          const SizedBox(height: Spacing.lg),
+          Divider(color: s.border),
+          const SizedBox(height: Spacing.lg),
+          Text(t.gyeEmptyHeadline, style: tt.h3),
+          const SizedBox(height: Spacing.md),
+          point(Icons.groups_2_outlined, t.gyeExplainWhat),
+          const SizedBox(height: 10),
+          point(Icons.spa_outlined, t.gyeExplainWhy),
+          const SizedBox(height: 10),
+          point(Icons.tag_rounded, t.gyeExplainHow),
+          const SizedBox(height: Spacing.md),
+          Text(t.gyePrivacyTitle, style: tt.cardTitle),
+          const SizedBox(height: Spacing.xs),
+          Text(t.gyePrivacyBody, style: tt.bodySmall),
+          const SizedBox(height: Spacing.md),
+        ],
+      );
+    },
+  );
 }
 
 /// §P5-1-3: 1줄 칩 카드 — SoriCard(compact) + 아이콘 20 + 단문.
@@ -438,77 +573,147 @@ class _GyeList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
     return ListView(
       padding: padding,
-      children: [
-        Text(t.gyeCourtyardEyebrow, style: SoriTextTheme.of(context).label),
-        const SizedBox(height: Spacing.xs),
-        Text(t.gyeCourtyardBody, style: SoriTextTheme.of(context).bodySmall),
-        const SizedBox(height: Spacing.lg),
-        for (final gye in gyeList) ...[
-          _GyeCard(gye: gye, onTap: () => onOpenGye(gye)),
-          const SizedBox(height: Spacing.md),
-        ],
-        const SizedBox(height: Spacing.sm),
-        SoriButton.outlined(
-          label: t.gyeChooserCreate,
-          icon: Icons.add_rounded,
-          fullWidth: true,
-          onTap: onFindOrCreate,
-        ),
-      ],
+      children: _gyeListContent(
+        context,
+        gyeList: gyeList,
+        onFindOrCreate: onFindOrCreate,
+        onOpenGye: onOpenGye,
+      ),
     );
   }
+}
+
+/// [_GyeList](비임베디드 `ListView`)와 `GyeTabScreen`의 임베디드
+/// `SliverList` 양쪽이 공유하는 계 목록 콘텐츠 (§W-G G5.1).
+List<Widget> _gyeListContent(
+  BuildContext context, {
+  required List<GyeMeta> gyeList,
+  required VoidCallback onFindOrCreate,
+  required ValueChanged<GyeMeta> onOpenGye,
+}) {
+  final t = AppL10n.of(context);
+  return [
+    Text(t.gyeCourtyardEyebrow, style: SoriTextTheme.of(context).label),
+    const SizedBox(height: Spacing.xs),
+    Text(t.gyeCourtyardBody, style: SoriTextTheme.of(context).bodySmall),
+    const SizedBox(height: Spacing.lg),
+    for (final gye in gyeList) ...[
+      _GyeCard(
+        key: ValueKey('gye-card-${gye.id}'),
+        gye: gye,
+        onTap: () => onOpenGye(gye),
+      ),
+      const SizedBox(height: Spacing.md),
+    ],
+    const SizedBox(height: Spacing.sm),
+    SoriButton.outlined(
+      label: t.gyeChooserCreate,
+      icon: Icons.add_rounded,
+      fullWidth: true,
+      onTap: onFindOrCreate,
+    ),
+  ];
 }
 
 class _GyeCard extends StatelessWidget {
   final GyeMeta gye;
   final VoidCallback onTap;
 
-  const _GyeCard({required this.gye, required this.onTap});
+  const _GyeCard({super.key, required this.gye, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final tt = SoriTextTheme.of(context);
     final s = SoriSurfaces.of(context);
+    // §W-G G2: 공동 한옥 미니 씬 — gye_screen.dart:473 이 여는 실제 계
+    // 상세와 같은 `GyeHanok(meta: gye)` 인자 구성. 목록 카드는 헌정
+    // 스트림을 아직 안 갖고 있어 `dedications`는 기본값(빈 목록)으로 둔다
+    // (프리뷰 진행 0 씬 — 브리프 G2 폴백 조항).
+    final progress = GyeLanternProgress.fromMeta(
+      gye,
+      elementCount: GyeHanok.elementCount,
+    );
+    final usesPromise =
+        gye.weeklyPromiseSchemaVersion == 1 &&
+        gye.weeklyPromiseId.isNotEmpty &&
+        gye.weeklyPromiseTarget > 0;
+    final goalTarget = usesPromise
+        ? gye.weeklyPromiseTarget
+        : gye.weeklyGoalPacks;
+    final goalDone = usesPromise
+        ? gye.weeklyPromiseProgress
+        : gye.weeklyGoalProgress;
     return SoriCard(
       variant: SoriCardVariant.base,
       onTap: onTap,
-      child: Row(
+      // 상단 미니 씬을 카드 가장자리까지 꽉 채운다 — `SoriCard`가
+      // `onTap`이 있을 때 이미 `_borderRadius`로 자식 전체를 클립하므로
+      // (§SoriCard `_interactive` 분기) 별도 ClipRRect 없이도 카드 모서리
+      // 그대로 둥글게 잘린다.
+      padding: EdgeInsets.zero,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Container(
-            width: 44,
-            height: 44,
-            decoration: BoxDecoration(
-              color: SoriColors.primary.withValues(alpha: 0.12),
-              borderRadius: BorderRadius.circular(SoriRadius.md),
-            ),
-            alignment: Alignment.center,
-            child: const Icon(
-              Icons.cottage_rounded,
-              color: SoriColors.primary,
-              size: 24,
-            ),
-          ),
-          const SizedBox(width: Spacing.md),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          AspectRatio(
+            aspectRatio: 16 / 7,
+            child: Stack(
+              fit: StackFit.expand,
               children: [
-                // §P5-1-6: raw Pretendard TextStyle → 공용 토큰 수렴.
-                Text(gye.name, style: SoriTextTheme.of(context).cardTitle),
-                const SizedBox(height: 2),
-                Text(
-                  t.gyeMembersN(gye.memberCount),
-                  style: SoriTextTheme.of(
-                    context,
-                  ).cardSubtitle.copyWith(color: s.textMuted),
-                ),
+                // §W-G2 item 3: 정적 씬 — 목록 카드 N개가 동시에
+                // 영구 반복 애니메이션을 도는 것을 막는다.
+                GyeHanok(meta: gye, animate: false),
+                if (progress.hasWeeklyGoal)
+                  Positioned(
+                    right: Spacing.sm,
+                    bottom: Spacing.sm,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: s.bg.withValues(alpha: 0.85),
+                      ),
+                      child: SoriProgressMeter.ring(
+                        value: progress.weeklyFraction,
+                        size: 56,
+                        center: Text(
+                          '$goalDone/$goalTarget',
+                          style: tt.label.copyWith(
+                            fontFeatures: const [FontFeature.tabularFigures()],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
               ],
             ),
           ),
-          Icon(Icons.chevron_right_rounded, color: s.textMuted),
+          Padding(
+            padding: const EdgeInsets.all(Spacing.md),
+            child: Row(
+              children: [
+                // §W-G2 item 2: 44dp 초록 집 아이콘 매트 제거 — 위의
+                // `GyeHanok` 미니 씬이 이미 정체성을 보여줘 중복이었다. 행은
+                // 이름·멤버 수·chevron만 남긴다.
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // §P5-1-6: raw Pretendard TextStyle → 공용 토큰 수렴.
+                      Text(gye.name, style: tt.cardTitle),
+                      const SizedBox(height: 2),
+                      Text(
+                        t.gyeMembersN(gye.memberCount),
+                        style: tt.cardSubtitle.copyWith(color: s.textMuted),
+                      ),
+                    ],
+                  ),
+                ),
+                Icon(Icons.chevron_right_rounded, color: s.textMuted),
+              ],
+            ),
+          ),
         ],
       ),
     );

@@ -98,7 +98,7 @@ class SoriBadge extends StatelessWidget {
     final textStyle = TextStyle(
       fontFamily: SoriFonts.sans,
       color: fg,
-      fontWeight: FontWeight.w900,
+      fontWeight: FontWeight.w700,
       fontSize: size * 0.5,
       letterSpacing: 0.3,
       height: 1.1,

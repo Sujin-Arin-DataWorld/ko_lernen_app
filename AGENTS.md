@@ -250,7 +250,7 @@ refactor-safely,review-changes}`, `.gitignore`에 `.code-review-graph/`(그래�
 - `tiger_video.dart` — **호랑이 영상 위젯 2종** (Jin 제작 mp4, 2026-06-12). ① `TigerStageVideo`(홈 밴드): 인사 `tiger_greet.mp4` launch당 1회 → 150ms 크로스페이드 → `tiger_pace.mp4` 무한루프, 항상 무음. ② `TigerGreetClip`(온보딩 첫 만남): 인사 영상 + `sfx/tiger_greet.mp3` 음성 1회. 영상이 H.264(알파 없음, 흰 배경)라 **`ColorFiltered`+`BlendMode.multiply`로 흰 배경을 크림에 흡수**(⚠️ 캔버스 saveLayer 블렌드는 비디오 Texture 레이어에 안 먹힘 — 반드시 ColorFiltered). multiply 특성상 **밝은 배경 전용** → 다크/reduce-motion/`videoReady=false`(테스트)/로드 실패 시 `mascot.dart` 정지 PNG 폴백(2026-08-06 폐지된 `TigerStageRive`/프레임 시퀀스가 아니다). `videoReady`는 main.dart에서만 true. 탭 비가시(`TickerMode.getValuesNotifier`)·앱 백그라운드 시 pause. 홈 `_TigerHero`가 이걸 사용(rive·프레임은 이미 폐지됨 — 폴백은 정지 PNG 하나뿐).
 - `mascot_pop.dart` — 퀘스트 피드백용 팝업 마스코트
 - `hanok/` — 한옥 장식 위젯 (단청 divider, 기와 패턴, 처마, 창살, 마당 배경)
-- `motion.dart` — `SoriEntrance` (진입 fade+slide+scale), `SoriKenBurns` (배경 느린 줌). **`SoriMotion.reduceMotion(context)` 헬퍼** — `MediaQuery.disableAnimations` 시 정적 fallback.
+- `motion.dart` — `SoriEntrance`(진입 fade+slide+scale), `SoriPulse`(무한 idle 강조). **`SoriMotion.reduceMotion(context)` 헬퍼** — `MediaQuery.disableAnimations` 시 정적 fallback. 계약 상세는 "### 모션"(§주요 패턴 & Gotchas) 참고.
 - `ambient_particles.dart` — 매화 꽃잎(light) / 불씨(dark) 입자. reduce-motion 시 SizedBox.
 - `flying_magpie.dart` — 홈 상단을 가로지르는 비행 까치. reduce-motion 시 SizedBox.
 - `empty_state.dart` — **표준 빈/오류 상태**. `SoriEmptyState(asset, title, body, ctaLabel, onCta, secondaryLabel)`. 일러스트 errorBuilder가 아이콘 fallback.
@@ -312,6 +312,12 @@ refactor-safely,review-changes}`, `.gitignore`에 `.code-review-graph/`(그래�
 - `docs/assets/` — 홈페이지(hangul-sori.com) 자산: `logo.png`, `tiger.png`, `magpie.png`, `tiger_celebrate.png`, `favicon.png`, `welcome-hero.png` (mascot-strip), `gate.png` (final-cta 배경)
 - ⚠️ **2026-05-25 → 26 변경 흐름**: 중복 마스코트 7장 + icon-512는 영구 삭제. 미참조 5장은 시각 검수 후 모두 복원 — tigerbasic1/tiger_smile/welcome-hero/gate는 적재적소 매핑(neutral/smile emotion + 홈페이지 hero/CTA), magpie_perched.v2는 fallback 다양성용 보존.
 
+### 테스트
+- `test/sori_stage_visual_evidence_test.dart` — SoriStage 5루트(Today/Lernen/Spiele/Hanok/
+  Gye) UI 증거 PNG 파이프라인(`docs/screenshots/**`). `CAPTURE_SORI_STAGE_EVIDENCE` 플래그
+  게이트, 기본 실행에서는 전부 skip. 재생성 명령·규칙은 "## PR·CI 규칙"의 "UI 루트 증거"
+  참고.
+
 ---
 
 ## 브랜드 팔레트 (v6.0 단청)
@@ -330,6 +336,32 @@ refactor-safely,review-changes}`, `.gitignore`에 `.code-review-graph/`(그래�
 ---
 
 ## 주요 패턴 & Gotchas
+
+### 학습 화면 크롬
+집중형 학습/퀴즈 화면은 `SoriStudyFrame` 만 쓴다(X·홈·PopScope 확인 규칙 프레임 소유).
+앱바 아래 TabBar/진행바는 `bottom:` 슬롯 — raw `Scaffold+SoriAppBar` 금지(가드:
+`study_home_escape_guard_test`). `onLeave` 는 정리 훅이지 목적지가 아니다.
+
+### 접근성 — Semantics 래핑
+`Semantics(button: true, label:)` 아래 `ExcludeSemantics` 로 탭 위젯을 감싸면 tap 액션이
+사라진다. 같은 콜백을 `Semantics.onTap` 에도 단다(가드: `semantics_tap_guard_test`). 새
+버튼은 가능하면 `SoriPressable`/`SoriButton` 에 label 을 직접 주고 ExcludeSemantics 를
+쓰지 않는다.
+
+### 모션
+`SoriEntrance`: reduce-motion = 타이머 0·즉시 최종상태(판정 `didChangeDependencies` 1회,
+취소 가능한 `Timer`). `SoriPulse`: 무한 idle, reduce-motion·TickerMode 존중 — 무한 idle
+모션이 있는 화면의 위젯 테스트는 `pumpAndSettle` 금지, `test/support/sori_stage_pump.dart`
+사용(가드: `sori_stage_pump_guard_test`).
+
+### Sori 디자인 시스템 (레이아웃 계약)
+- 루트 헤더 hero 제목은 390dp de/en ≤3줄, 접힌 바 제목은 nav 라벨(`soriStageNav*`,
+  required) — 카피 변경 시 `sori_stage_root_header_lines_test`.
+- 고정 높이 그리드 셀의 텍스트는 렌더와 같은 스타일·같은 문자열 형식으로 TextPainter
+  실측; `SingleChildScrollView` 폴백은 계약 위반 감지용(`illustrated_card_overflow_guard_test`).
+- **실서체 규칙**: fold·줄수·헤더 높이를 재는 테스트는 `test/support/real_fonts.dart` 의
+  `loadSoriRealFonts()` 를 `setUpAll` 에서 호출한다 — 기본 테스트 폰트는 글리프가 1em 폭
+  사각형이라 실제보다 2~3배 부풀린 측정값을 준다.
 
 ### Dart 문법
 - `if/else` 반드시 중괄호 사용. 한 줄 생략 금지 (실제 오류 발생 이력 있음).
@@ -447,7 +479,8 @@ Cloudflare 앱은 같은 PR 이벤트로 자기 체크를 붙였기 때문에 "�
 **PR은 범위 테스트, main은 전체 (2026-08-17, Actions 3,000분 소진 뒤 도입).**
 `pull_request`의 Analyze & Build는 (1) draft PR이면 아예 돌지 않고, (2) `changes` 잡의
 `.github/scripts/select_flutter_tests.py`가 변경 파일의 Dart import 폐포로 고른 테스트 +
-상시 가드 4개(`typography_guard`·`l10n_parity`·`arb_l10n_guard`·`sori_activity_catalog`)만
+상시 가드(`.github/scripts/select_flutter_tests.py`의 `ALWAYS_ON_TESTS` 실측 —
+2026-09-03 기준 10개, 소스/데이터 직접 스캔이라 import 그래프로는 선택되지 않는 가드들)만
 돌리며, (3) `flutter build web`을 생략한다. `assets/**`·`lib/l10n/**`·`pubspec*`·
 `analysis_options.yaml`·`test/goldens/**`·플랫폼 폴더가 바뀐 PR은 import 간선이 못 지키므로
 전체 suite로 되돌아간다. `main` push와 `workflow_dispatch`는 예전처럼 전체 suite + web 빌드다.
@@ -459,6 +492,16 @@ Cloudflare 앱은 같은 PR 이벤트로 자기 체크를 붙였기 때문에 "�
   전체 재실행 대신 실패한 잡만 재실행한다.
 - 같은 브랜치의 오래된 run은 `concurrency`가 취소한다. 실패 diff는 3일, 재생성 골든은
   7일만 보관한다.
+- **골든 PNG 비교**(`matchesGoldenFile`)는 `test/goldens/` 하위 테스트와 CAPTURE 플래그
+  게이트 증거 테스트(`sori_stage_visual_evidence_test.dart`)에만 둔다 — 그 밖의 위치에
+  golden 위젯을 새로 추가하지 않는다(§GOLDEN-1, 2026-09-03).
+- **UI 루트 증거**(`docs/screenshots/`): Today/Lernen/Spiele/Hanok/Gye 루트의 레이아웃·
+  타이포·헤더를 바꾼 PR은 `flutter test --update-goldens
+  --dart-define=CAPTURE_SORI_STAGE_EVIDENCE=true test/sori_stage_visual_evidence_test.dart`로
+  재생성해 같은 PR에 동반 커밋한다. 플래그는 반드시 `--update-goldens`와 짝(없으면 비교
+  모드). 육안 증거이지 CI 비교 게이트가 아니므로 로컬(Windows/macOS) 생성 허용 —
+  `test/goldens/` Linux 정본 규칙과 다르다. `docs/screenshots/**`는 파일 종류와 무관하게
+  app CI를 깨운다(§LAYOUT-4, 2026-09-03).
 
 ---
 

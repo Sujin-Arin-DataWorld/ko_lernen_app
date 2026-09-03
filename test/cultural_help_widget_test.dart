@@ -187,6 +187,16 @@ void main() {
     );
     await tester.pumpAndSettle();
     expect(find.byKey(const Key('cultural_object_hint')), findsNothing);
+
+    // §RELEASE-2(J13): Settings' "Kulturhinweise zurücksetzen" action calls
+    // this — first entry into a room after a reset must show the hint again.
+    await Storage.resetCulturalObjectHintSeen();
+    expect(Storage.culturalObjectHintSeen, isFalse);
+    await tester.pumpWidget(
+      _host(const CulturalObjectHint(key: ValueKey('third'), enabled: true)),
+    );
+    await tester.pumpAndSettle();
+    expect(find.byKey(const Key('cultural_object_hint')), findsOneWidget);
   });
 }
 

@@ -204,75 +204,85 @@ class _JourneyHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final text = SoriTextTheme.of(context);
     final surfaces = SoriSurfaces.of(context);
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: SoriCard.resolvedBackground(context),
-        border: Border(bottom: BorderSide(color: surfaces.border)),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(
-          Spacing.lg,
-          Spacing.sm,
-          Spacing.lg,
-          Spacing.sm,
+    // §W-A2: 브랜드/진행 표시는 SoriAppBar 크롬과 같은 역할(내비게이션
+    // 크롬)이다 — 본문처럼 200%까지 그대로 키우면 컴팩트 320dp 헤더가
+    // 250px 넘게 자라 스크롤 가능한 본문 영역을 거의 다 먹어버렸다
+    // (`SoriAppBar._chromeTextScale` 과 동일한 상한 1.3×).
+    final chromeScale = MediaQuery.textScalerOf(
+      context,
+    ).clamp(maxScaleFactor: 1.3);
+    return MediaQuery(
+      data: MediaQuery.of(context).copyWith(textScaler: chromeScale),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: SoriCard.resolvedBackground(context),
+          border: Border(bottom: BorderSide(color: surfaces.border)),
         ),
-        child: Row(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(SoriRadius.xs),
-              child: Image.asset(
-                'assets/icons/HanLogo.png',
-                width: 38,
-                height: 38,
-                fit: BoxFit.cover,
-                errorBuilder: (_, __, ___) => const SizedBox(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(
+            Spacing.lg,
+            Spacing.sm,
+            Spacing.lg,
+            Spacing.sm,
+          ),
+          child: Row(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(SoriRadius.xs),
+                child: Image.asset(
+                  'assets/icons/HanLogo.png',
                   width: 38,
                   height: 38,
-                  child: Icon(Icons.graphic_eq_rounded),
-                ),
-              ),
-            ),
-            const SizedBox(width: Spacing.sm),
-            Expanded(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    brandLatin,
-                    style: text.label.copyWith(color: surfaces.text),
-                  ),
-                  const SizedBox(height: Spacing.xs),
-                  Text(
-                    brandKorean,
-                    locale: const Locale('ko'),
-                    style: text.meta.copyWith(letterSpacing: 1.1),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(width: Spacing.sm),
-            Semantics(
-              key: const ValueKey('onboarding-v2-story-progress'),
-              label: progressLabel,
-              child: ExcludeSemantics(
-                child: Text.rich(
-                  TextSpan(
-                    children: [
-                      TextSpan(
-                        text: currentStep.toString().padLeft(2, '0'),
-                        style: text.label.copyWith(color: surfaces.text),
-                      ),
-                      TextSpan(
-                        text: '/${totalSteps.toString().padLeft(2, '0')}',
-                        style: text.meta,
-                      ),
-                    ],
+                  fit: BoxFit.cover,
+                  errorBuilder: (_, __, ___) => const SizedBox(
+                    width: 38,
+                    height: 38,
+                    child: Icon(Icons.graphic_eq_rounded),
                   ),
                 ),
               ),
-            ),
-          ],
+              const SizedBox(width: Spacing.sm),
+              Expanded(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      brandLatin,
+                      style: text.label.copyWith(color: surfaces.text),
+                    ),
+                    const SizedBox(height: Spacing.xs),
+                    Text(
+                      brandKorean,
+                      locale: const Locale('ko'),
+                      style: text.meta.copyWith(letterSpacing: 1.1),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: Spacing.sm),
+              Semantics(
+                key: const ValueKey('onboarding-v2-story-progress'),
+                label: progressLabel,
+                child: ExcludeSemantics(
+                  child: Text.rich(
+                    TextSpan(
+                      children: [
+                        TextSpan(
+                          text: currentStep.toString().padLeft(2, '0'),
+                          style: text.label.copyWith(color: surfaces.text),
+                        ),
+                        TextSpan(
+                          text: '/${totalSteps.toString().padLeft(2, '0')}',
+                          style: text.meta,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -496,11 +506,14 @@ class _ContentSheet extends StatelessWidget {
             Expanded(
               child: SoriContentClamp(
                 maxWidth: 620,
+                // §W-A2: 320dp @2x 텍스트 배율에서 스크롤 맨 아래 콘텐츠가
+                // 여전히 뷰포트 밖으로 밀려나던 자리 — 컴팩트 하단 여백을
+                // xxxl(48)에서 lg(16)로 줄여 실제 콘텐츠가 다시 닿게 한다.
                 base: EdgeInsets.fromLTRB(
                   compact ? Spacing.xl : Spacing.xxl,
                   compact ? 30 : Spacing.xxxl,
                   compact ? Spacing.xl : Spacing.xxl,
-                  Spacing.xxxl,
+                  compact ? Spacing.lg : Spacing.xxxl,
                 ),
                 builder: (context, padding) => SingleChildScrollView(
                   key: bodyKey,
@@ -517,11 +530,14 @@ class _ContentSheet extends StatelessWidget {
               ),
               child: SoriContentClamp(
                 maxWidth: 620,
-                base: const EdgeInsets.fromLTRB(
+                // §W-A2: compact(320dp) 계약이 1px 세로 오버플로였다 —
+                // 컴팩트에서만 md(12)→sm(8)로 좁혀 여유를 만든다(비압축 폭은
+                // 그대로).
+                base: EdgeInsets.fromLTRB(
                   Spacing.lg,
-                  Spacing.md,
+                  compact ? Spacing.sm : Spacing.md,
                   Spacing.lg,
-                  Spacing.md,
+                  compact ? Spacing.sm : Spacing.md,
                 ),
                 builder: (context, padding) =>
                     Padding(padding: padding, child: footer),

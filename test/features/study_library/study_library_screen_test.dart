@@ -338,7 +338,16 @@ Future<void> _selectView(WidgetTester tester, StudyLibraryView view) async {
 }
 
 Future<void> _openTypeSheet(WidgetTester tester) async {
-  await tester.tap(find.byKey(const ValueKey('study-library-type-selector')));
+  final f = find.byKey(const ValueKey('study-library-type-selector'));
+  // §W-A2 재조사: 리스트 콘텐츠가 바뀌며 이 버튼의 y좌표가 매번 달라지는데
+  // (측정: 첫 호출 y=56~104, 재호출 y=25.6~73.6 — 실측 30.4px 이동),
+  // ensureVisible 없이 좌표만 재조회해 탭하면 직전 라우트 팝 전환의 오버레이
+  // 잔상과 같은 화면좌표에서 충돌한다(실측: hit test가 RenderAnimatedOpacity/
+  // _RenderTheater 체인 아래 다른 아이콘 글리프에 맞았다). 스크롤 가능
+  // 목록 안의 크롬 행이므로 ensureVisible 로 명시적으로 자리를 잡는다.
+  await tester.ensureVisible(f);
+  await tester.pump();
+  await tester.tap(f);
   await tester.pumpAndSettle();
 }
 

@@ -89,7 +89,13 @@ void main() {
     expect(find.textContaining('Joy', findRichText: true), findsWidgets);
     expect(find.text('Jetzt nicht'), findsOneWidget);
 
-    await tester.tap(find.byKey(const ValueKey('companion-option-magpie')));
+    // §W-A2 재조사(실측): 토큰 확대로 캐릭터 카드가 커져 400×900 뷰포트
+    // 아래쪽(y≈805.5)에서 탭이 조용히 빗나갔다(hit test 경고로 확인) —
+    // ensureVisible 로 자리를 잡은 뒤 탭한다.
+    final magpieOption = find.byKey(const ValueKey('companion-option-magpie'));
+    await tester.ensureVisible(magpieOption);
+    await tester.pump();
+    await tester.tap(magpieOption);
     await tester.pump(const Duration(milliseconds: 100));
     var preferences = await SharedPreferences.getInstance();
     expect(preferences.containsKey('kl_preferred_mascot'), isFalse);

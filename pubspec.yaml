@@ -212,25 +212,24 @@ flutter:
     - assets/video/home_hero/
     - assets/video/gye/
 
-  # ── Wanted Sans (한글 11,172자 + 라틴/독일어 완비, OFL 1.1, 2026-08-19 교체) ──
-  # ⚠️ 이전 PretendardStd 는 라틴 전용 서브셋이라 한글 글리프가 0개였다 — 한국어가
-  # 전부 OS 폴백 폰트로 그려졌다. test/font_bundle_guard_test.dart 가 재발을 막는다.
-  # WantedSansStd(라틴 전용)는 쓰지 말 것.
+  # ── Paperlogy (한글 11,172자+라틴/독일어, OFL, 2026-09-03 교체) ──
+  # ⚠️ 과거 PretendardStd/WantedSansStd(라틴 전용 서브셋)는 한글 글리프가
+  # 0개였다 — 한국어가 전부 OS 폴백 폰트로 그려졌다. Wanted Sans(2026-08-19)를
+  # 거쳐 2026-09-03 Paperlogy로 재교체. test/font_bundle_guard_test.dart 가
+  # 재발을 막는다. 라틴 전용 서브셋은 쓰지 말 것.
   fonts:
-    - family: WantedSans
+    - family: Paperlogy
       fonts:
-        - asset: assets/fonts/WantedSans/WantedSans-Regular.otf
+        - asset: assets/fonts/Paperlogy/Paperlogy-Regular.ttf
           weight: 400
-        - asset: assets/fonts/WantedSans/WantedSans-Medium.otf
+        - asset: assets/fonts/Paperlogy/Paperlogy-Medium.ttf
           weight: 500
-        - asset: assets/fonts/WantedSans/WantedSans-SemiBold.otf
+        - asset: assets/fonts/Paperlogy/Paperlogy-SemiBold.ttf
           weight: 600
-        - asset: assets/fonts/WantedSans/WantedSans-Bold.otf
+        - asset: assets/fonts/Paperlogy/Paperlogy-Bold.ttf
           weight: 700
-        - asset: assets/fonts/WantedSans/WantedSans-ExtraBold.otf
-          weight: 800
     # Maru Buri는 한국어 문화 제목·완료 순간에만 쓰는 display family다.
-    # DE/EN UI, 버튼, 학습 본문은 Wanted Sans를 유지한다.
+    # DE/EN UI, 버튼, 학습 본문은 Paperlogy를 유지한다.
     - family: MaruBuri
       fonts:
         - asset: assets/fonts/MaruBuri/MaruBuri-Regular.otf

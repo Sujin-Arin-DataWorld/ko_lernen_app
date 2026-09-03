@@ -12,6 +12,7 @@ import 'features/onboarding_v2/first_run_coordinator.dart';
 import 'features/onboarding_v2/onboarding_rollout_service.dart';
 import 'motion/transitions.dart';
 import 'services/analytics_service.dart';
+import 'services/app_version_service.dart';
 import 'services/data_migration_service.dart';
 import 'services/diagnostics_service.dart';
 import 'services/storage_service.dart';
@@ -331,10 +332,9 @@ Future<void> _recordStartupDiagnostics(DataMigrationResult? migration) async {
     await DiagnosticsService.setKeys({
       DiagnosticKey.appVersion: info.version,
       DiagnosticKey.buildNumber: info.buildNumber,
-      DiagnosticKey.gitCommit: const String.fromEnvironment(
-        'GIT_COMMIT',
-        defaultValue: 'unknown',
-      ),
+      DiagnosticKey.gitCommit: AppBuildInfo.gitCommit.isEmpty
+          ? 'unknown'
+          : AppBuildInfo.gitCommit,
       if (migration != null)
         DiagnosticKey.schemaVersion: migration.diagnosticValue,
     });
@@ -628,7 +628,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
         onGenerateRoute: (settings) {
           switch (settings.name) {
             case '/splash':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => SplashScreen(
                   displayDuration: widget.splashDisplayDuration,
                   firstRunCoordinator: widget.firstRunCoordinator,
@@ -636,21 +636,21 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/quick_onboarding':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => OnboardingV2JourneyScreen(
                   firstRunCoordinator: widget.firstRunCoordinator,
                 ),
                 settings: settings,
               );
             case '/character_selection':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => OnboardingV2JourneyScreen(
                   firstRunCoordinator: widget.firstRunCoordinator,
                 ),
                 settings: settings,
               );
             case '/intro':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 // A direct/deep-linked intro must still pass through the V2
                 // coordinator. It renders the gate only for a journal that is
                 // actually at the gate phase, so this compatibility route can
@@ -661,7 +661,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 // Root deep links must not bypass first-run consent or an
                 // interrupted V2 journey. Completed users resolve straight to
                 // AppShell through the same coordinator.
@@ -671,21 +671,21 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/onboarding':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => OnboardingV2JourneyScreen(
                   firstRunCoordinator: widget.firstRunCoordinator,
                 ),
                 settings: settings,
               );
             case '/onboarding/legacy-level':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => OnboardingV2JourneyScreen(
                   firstRunCoordinator: widget.firstRunCoordinator,
                 ),
                 settings: settings,
               );
             case '/onboarding/start':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => OnboardingV2JourneyScreen(
                   firstRunCoordinator: widget.firstRunCoordinator,
                 ),
@@ -702,7 +702,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
               final vocabCourseUnitId = courseUnitIdFromVocabRouteArguments(
                 settings.arguments,
               );
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => VocabPacksScreen(
                   courseUnitId: vocabCourseUnitId,
                   courseContext: vocabCourseContext,
@@ -714,7 +714,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
                   vocabPackIdFromRouteArguments(settings.arguments) ?? '';
               final packCourseContext =
                   vocabCourseContextFromPackRouteArguments(settings.arguments);
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => VocabPackScreen(
                   packId: packId,
                   courseContext: packCourseContext,
@@ -722,7 +722,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/vocab/result':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => VocabPackResultScreen.fromArgs(settings.arguments),
                 settings: settings,
               );
@@ -742,7 +742,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 recallArgs['recallSession'],
                 expectedPackId: id,
               );
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => VocabPackRecallScreen(
                   packId: id,
                   recallSession: recallSession,
@@ -753,7 +753,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
               // Rollback / Power-User: alte single-card Ansicht (Phase 1
               // SRS-UX-Patch). Wird in Phase 3 entfernt, sobald Pack-UX
               // produktiv läuft.
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const LegacyVocabScreen(),
                 settings: settings,
               );
@@ -763,7 +763,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
                     settings.arguments,
                     CurriculumContentKind.grammar,
                   );
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => GrammarScreen(courseContext: grammarCourseContext),
                 settings: settings,
               );
@@ -791,7 +791,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
                   }
                 }
               }
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => GrammarChoiceQuizScreen(
                   initialLevel: planLevel,
                   allowedTargetIds: allowedTargetIds,
@@ -800,13 +800,13 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/listening':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const ListeningScreen(),
                 settings: settings,
               );
             case '/listening/play':
               final listeningScenario = settings.arguments;
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) =>
                     listeningScenario is Scenario &&
                         listeningScenario.dialog.isNotEmpty
@@ -815,13 +815,13 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/kkeunmari':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const KkeunmariScreen(),
                 settings: settings,
               );
             case '/hangul':
               final destination = settings.arguments;
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => HangulScreen(
                   initialTarget: destination is HangulTargetDestination
                       ? destination.target
@@ -830,14 +830,14 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/chosung':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const ChosungQuizScreen(),
                 settings: settings,
               );
             case '/wordle':
               // Silben-Kreuz(음절 크로스워드)가 Wordle 보드를 대체 (2026-08-11).
               // 라우트명·메뉴 라벨("Silben-Rätsel")은 유지.
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const SilbenKreuzScreen(),
                 settings: settings,
               );
@@ -851,7 +851,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings.arguments,
                 CurriculumContentKind.cloze,
               );
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => ClozeGameScreen(
                   courseUnitId: clozeCourseUnitId,
                   courseContext: clozeCourseContext,
@@ -859,27 +859,27 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/speed_match':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const SpeedMatchScreen(),
                 settings: settings,
               );
             case '/daily':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const DailyChallengeScreen(),
                 settings: settings,
               );
             case '/calligraphy':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const DailyCalligraphyRouteScreen(),
                 settings: settings,
               );
             case '/practice':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const PracticeHubScreen(),
                 settings: settings,
               );
             case '/pronunciation':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const PronunciationStudioScreen(),
                 settings: settings,
               );
@@ -892,7 +892,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings.arguments,
                 CurriculumContentKind.satz,
               );
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => SatzArcadeScreen(
                   courseUnitId: satzCourseUnitId,
                   courseContext: satzCourseContext,
@@ -900,7 +900,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/settings':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => SettingsScreen(
                   accountDeletionWorkflow: _createAccountDeletionWorkflow(),
                   initialFocus: settings.arguments is SettingsInitialFocus
@@ -910,39 +910,39 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/guide':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const GuideHubRouteScreen(),
                 settings: settings,
               );
             case '/study-library':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const StudyLibraryScreen(),
                 settings: settings,
               );
             case '/stats':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const StatsScreen(),
                 settings: settings,
               );
             case '/profile':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const ProfileScreen(),
                 settings: settings,
               );
             case '/paywall':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const PaywallScreen(),
                 settings: settings,
               );
             case '/review':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const ReviewSessionScreen(
                   feedbackContentId: 'today_review',
                 ),
                 settings: settings,
               );
             case '/review/hub':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const ReviewHubScreen(),
                 settings: settings,
               );
@@ -952,23 +952,23 @@ class _KoLernenAppState extends State<KoLernenApp> {
                     settings.arguments,
                     CurriculumContentKind.smalltalk,
                   );
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => SmalltalkScreen(courseContext: smalltalkCourseContext),
                 settings: settings,
               );
             case '/media_phrases':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const MediaPhraseScreen(),
                 settings: settings,
               );
             case '/scenarios':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) =>
                     ScenariosListScreen.fromRouteArguments(settings.arguments),
                 settings: settings,
               );
             case '/quests':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const QuestsScreen(),
                 settings: settings,
               );
@@ -977,7 +977,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
               final bookArgs =
                   (settings.arguments as Map?)?.cast<String, dynamic>() ??
                   const <String, dynamic>{};
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => BookCaptureScreen(
                   captureMode: bookArgs['captureMode'] as String?,
                   existingPackId: bookArgs['existingPackId'] as String?,
@@ -988,7 +988,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
               final notebookArgs =
                   (settings.arguments as Map?)?.cast<String, dynamic>() ??
                   const <String, dynamic>{};
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => BookCaptureScreen(
                   captureMode: 'notebook',
                   existingPackId: notebookArgs['existingPackId'] as String?,
@@ -999,25 +999,25 @@ class _KoLernenAppState extends State<KoLernenApp> {
               final notebookResultArgs =
                   (settings.arguments as Map?)?.cast<String, dynamic>() ??
                   const <String, dynamic>{};
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => VocabNotebookResultScreen(args: notebookResultArgs),
                 settings: settings,
               );
             case '/vocab_notebook/practice':
               final practiceId = settings.arguments as String? ?? '';
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => VocabNotebookPracticeScreen(packId: practiceId),
                 settings: settings,
               );
             case '/vocab_notebook/nuance':
               final nuanceId = settings.arguments as String? ?? '';
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => VocabNuanceScreen(packId: nuanceId),
                 settings: settings,
               );
             case '/vocab_notebook/studio':
               final studioId = settings.arguments as String? ?? '';
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => VocabNotebookStudioScreen(packId: studioId),
                 settings: settings,
               );
@@ -1025,7 +1025,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
               final args =
                   (settings.arguments as Map?)?.cast<String, dynamic>() ??
                   const <String, dynamic>{};
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => BookPreviewScreen(args: args),
                 settings: settings,
               );
@@ -1033,7 +1033,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
               final args =
                   (settings.arguments as Map?)?.cast<String, dynamic>() ??
                   const <String, dynamic>{};
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => BookResultScreen(args: args),
                 settings: settings,
               );
@@ -1043,125 +1043,125 @@ class _KoLernenAppState extends State<KoLernenApp> {
             case '/bookshelf':
             case '/hard_words':
               final initialTab = myWordsTabForRoute(settings.name)!;
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => MyWordsScreen(initialTab: initialTab),
                 settings: settings,
               );
             case '/bookshelf/page':
               final id = settings.arguments as String? ?? '';
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => BookshelfPageScreen(pageId: id),
                 settings: settings,
               );
             case '/custom_pack/play':
               final id = settings.arguments as String? ?? '';
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => CustomPackPlayScreen(packId: id),
                 settings: settings,
               );
             case '/custom_pack/edit':
               final id = settings.arguments as String? ?? '';
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => CustomPackEditScreen(packId: id),
                 settings: settings,
               );
             case '/custom_pack/quiz':
               final id = settings.arguments as String? ?? '';
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => CustomPackQuizScreen(packId: id),
                 settings: settings,
               );
             case '/custom_pack/matching':
               final id = settings.arguments as String? ?? '';
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => CustomPackMatchingScreen(packId: id),
                 settings: settings,
               );
             case '/custom_pack/typing':
               final id = settings.arguments as String? ?? '';
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => CustomPackTypingScreen(packId: id),
                 settings: settings,
               );
             case '/word_web':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const WordWebScreen(),
                 settings: settings,
               );
             case '/dojangcheop':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const DojangcheopScreen(),
                 settings: settings,
               );
             case '/hanok':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const IlDuWorldScreen(),
                 settings: settings,
               );
             case '/hanok/anbang':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const PersonalRoomFurnishScreen(
                   surface: PersonalRoomSurface.anbang,
                 ),
                 settings: settings,
               );
             case '/hanok/daecheong':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const PersonalRoomFurnishScreen(
                   surface: PersonalRoomSurface.daecheongmaru,
                 ),
                 settings: settings,
               );
             case '/sarangbang':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const SarangbangStudyScreen(),
                 settings: settings,
               );
             case '/sarangbang/furnish':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const SarangbangFurnishScreen(),
                 settings: settings,
               );
             case '/bojagi':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const BojagiScreen(),
                 settings: settings,
               );
             case '/gye/create':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const GyeCreateScreen(),
                 settings: settings,
               );
             case '/gye/join':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const GyeJoinScreen(),
                 settings: settings,
               );
             case '/gye/hub':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const GyeTabScreen(),
                 settings: settings,
               );
             case '/gye':
               final gyeId = settings.arguments as String? ?? '';
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => GyeScreen(gyeId: gyeId),
                 settings: settings,
               );
             case '/gye/members':
               final gyeId = settings.arguments as String? ?? '';
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => GyeMembersScreen(gyeId: gyeId),
                 settings: settings,
               );
             case '/path':
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => const LearningPathScreen(),
                 settings: settings,
               );
             case '/course/mission':
               final missionCourseUnitId = settings.arguments as String?;
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => CourseMissionScreen(courseUnitId: missionCourseUnitId),
                 settings: settings,
               );
@@ -1169,7 +1169,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
               final arguments = reassessmentArgumentsFromRoute(
                 settings.arguments,
               );
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => arguments == null
                     ? const CourseReassessmentScreen.invalid()
                     : CourseReassessmentScreen(arguments: arguments),
@@ -1181,7 +1181,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 CurriculumContentKind.scenario,
               );
               final id = scenarioIdFromRouteArguments(settings.arguments) ?? '';
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 (_) => ScenarioPlayerScreen(
                   scenarioId: id,
                   courseContext: scenarioContext,
@@ -1189,7 +1189,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             default:
-              return SoriTransitions.fadeScale(
+              return SoriTransitions.page(
                 // Fail closed for malformed/old deep links during first run.
                 // The journey resolver remains the single entry authority.
                 (_) => OnboardingV2JourneyScreen(

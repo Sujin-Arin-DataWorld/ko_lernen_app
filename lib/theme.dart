@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart' show CupertinoPageTransitionsBuilder;
 import 'package:flutter/material.dart';
 import 'services/palette_service.dart';
 import 'widgets/sori/tokens.dart';
@@ -34,6 +35,22 @@ class AppTheme {
       colorScheme: colorScheme,
       fontFamily: SoriFonts.sans,
 
+      // ── Page transitions §B1(2026-09-03) ────────────────────────────
+      // 플랫폼 네이티브 전환 — Android predictive-back, iOS/macOS
+      // Cupertino 슬라이드, 그 외(Windows/Linux/Fuchsia)는 fade-upwards.
+      // `SoriTransitions.page`(`SoriPageRoute`, 표준 MaterialPageRoute
+      // 서브타입)를 쓰는 모든 라우트가 이 테마를 통해 애니메이션을 받는다.
+      pageTransitionsTheme: const PageTransitionsTheme(
+        builders: {
+          TargetPlatform.android: PredictiveBackPageTransitionsBuilder(),
+          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+          TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
+          TargetPlatform.windows: FadeUpwardsPageTransitionsBuilder(),
+          TargetPlatform.linux: FadeUpwardsPageTransitionsBuilder(),
+          TargetPlatform.fuchsia: FadeUpwardsPageTransitionsBuilder(),
+        },
+      ),
+
       // ── AppBar ───────────────────────────────────────────────────────
       appBarTheme: AppBarTheme(
         backgroundColor: s.bg,
@@ -43,11 +60,12 @@ class AppTheme {
         scrolledUnderElevation: 0,
         titleTextStyle: TextStyle(
           color: s.text,
-          // 통일 Pretendard ExtraBold (2026-07-01 — 명조 혼용 폐기).
+          // §W-A2 b (2026-09-03): SoriAppBar 의 chromeTitle 과 동일 스펙으로
+          // 수렴 — SoriTypeSpecs.chromeTitle 단일 원천(20/w700/-0.2).
           fontFamily: SoriFonts.sans,
-          fontWeight: FontWeight.w800,
-          fontSize: 19,
-          letterSpacing: -0.3,
+          fontWeight: SoriTypeSpecs.chromeTitle.weight,
+          fontSize: SoriTypeSpecs.chromeTitle.size,
+          letterSpacing: SoriTypeSpecs.chromeTitle.letterSpacing,
         ),
       ),
 
@@ -127,17 +145,17 @@ class AppTheme {
           color: s.text,
           fontFamily: SoriFonts.sans,
           fontWeight: FontWeight.w600,
-          fontSize: 12,
+          fontSize: 13.5,
         ),
         secondaryLabelStyle: const TextStyle(
           color: Colors.white,
           fontFamily: SoriFonts.sans,
           fontWeight: FontWeight.w700,
-          fontSize: 12,
+          fontSize: 13.5,
         ),
         side: BorderSide(color: s.border),
         shape: RoundedRectangleBorder(borderRadius: SoriRadius.brPill),
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       ),
 
       // ── Progress ─────────────────────────────────────────────────────
@@ -177,20 +195,20 @@ class AppTheme {
           color: s.textMuted,
           fontFamily: SoriFonts.sans,
           fontWeight: FontWeight.w500,
-          fontSize: 12,
+          fontSize: 13.5,
         ),
       ),
 
       // ── NavigationBar ────────────────────────────────────────────────
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: s.surface,
-        indicatorColor: primary.withValues(alpha: 0.16),
+        indicatorColor: primary.withValues(alpha: 0.22),
         surfaceTintColor: Colors.transparent,
         labelTextStyle: WidgetStateProperty.resolveWith((states) {
           final selected = states.contains(WidgetState.selected);
           return TextStyle(
             fontFamily: SoriFonts.sans,
-            fontSize: 11,
+            fontSize: 13,
             fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
             color: selected ? primary : s.textMuted,
           );
@@ -199,7 +217,7 @@ class AppTheme {
           final selected = states.contains(WidgetState.selected);
           return IconThemeData(
             color: selected ? primary : s.textMuted,
-            size: 22,
+            size: 24,
           );
         }),
         elevation: 0,
@@ -212,6 +230,12 @@ class AppTheme {
   }
 
   static TextTheme _buildTextTheme(SoriSurfaces s) {
+    // 2026-09-03 단일 원천화(§A4): displayLarge~headlineSmall 은
+    // SoriTextTheme 값을 그대로 재사용해 스케일이 갈라지지 못하게 한다.
+    // titleLarge~labelSmall 은 SoriTextTheme 에 대응 토큰이 없는 Material
+    // 전용 역할이라 여기서만 값을 정의한다.
+    final tt = SoriTextTheme.forSurfaces(s);
+
     TextStyle base(
       double size,
       FontWeight w, {
@@ -228,21 +252,21 @@ class AppTheme {
     );
 
     return TextTheme(
-      displayLarge: base(44, FontWeight.w900, height: 1.1, spacing: -1.5),
-      displayMedium: base(36, FontWeight.w800, height: 1.1, spacing: -1.0),
-      displaySmall: base(28, FontWeight.w800, height: 1.2, spacing: -0.8),
-      headlineLarge: base(24, FontWeight.w800, height: 1.25, spacing: -0.5),
-      headlineMedium: base(20, FontWeight.w700, height: 1.3, spacing: -0.3),
-      headlineSmall: base(18, FontWeight.w700, height: 1.35, spacing: -0.2),
-      titleLarge: base(16, FontWeight.w700, height: 1.4),
-      titleMedium: base(14, FontWeight.w600, height: 1.4),
-      titleSmall: base(13, FontWeight.w600, height: 1.4, color: s.textMuted),
-      bodyLarge: base(15, FontWeight.w500, height: 1.5),
-      bodyMedium: base(14, FontWeight.w500, height: 1.5),
-      bodySmall: base(12, FontWeight.w500, height: 1.5, color: s.textMuted),
-      labelLarge: base(14, FontWeight.w700),
-      labelMedium: base(12, FontWeight.w700, color: s.textMuted),
-      labelSmall: base(11, FontWeight.w700, color: s.textMuted, spacing: 0.5),
+      displayLarge: tt.hero,
+      displayMedium: tt.display,
+      displaySmall: tt.h1,
+      headlineLarge: tt.h1,
+      headlineMedium: tt.h2,
+      headlineSmall: tt.h3,
+      titleLarge: base(18, FontWeight.w700, height: 1.4),
+      titleMedium: base(16, FontWeight.w600, height: 1.4),
+      titleSmall: base(14, FontWeight.w600, height: 1.4, color: s.textMuted),
+      bodyLarge: base(17, FontWeight.w500, height: 1.5),
+      bodyMedium: base(16, FontWeight.w500, height: 1.5),
+      bodySmall: base(14, FontWeight.w500, height: 1.5, color: s.textMuted),
+      labelLarge: base(15, FontWeight.w700),
+      labelMedium: base(13.5, FontWeight.w700, color: s.textMuted),
+      labelSmall: base(13, FontWeight.w700, color: s.textMuted, spacing: 0.5),
     );
   }
 }

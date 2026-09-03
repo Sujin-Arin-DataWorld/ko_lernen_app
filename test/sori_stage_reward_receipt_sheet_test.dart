@@ -16,7 +16,11 @@ void main() {
               RewardReceiptItem(
                 kind: SoriRewardKind.xp,
                 amount: 20,
-                label: SoriLocalizedCopy(de: 'Lern-XP', en: 'Learning XP'),
+                label: SoriLocalizedCopy(
+                  key: SoriCopyKey.rewardXp,
+                  de: 'Lern-XP',
+                  en: 'XP',
+                ),
               ),
             ],
           ),
@@ -24,7 +28,7 @@ void main() {
       ),
     );
 
-    expect(find.text('+20 Learning XP'), findsOneWidget);
+    expect(find.text('+20 XP'), findsOneWidget);
     expect(find.textContaining('Hanok building piece'), findsNothing);
     expect(
       find.byWidgetPredicate(
@@ -45,7 +49,11 @@ void main() {
         RewardReceiptItem(
           kind: SoriRewardKind.xp,
           amount: 20,
-          label: SoriLocalizedCopy(de: 'Lern-XP', en: 'Learning XP'),
+          label: SoriLocalizedCopy(
+            key: SoriCopyKey.rewardXp,
+            de: 'Lern-XP',
+            en: 'XP',
+          ),
         ),
       ],
     );

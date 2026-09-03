@@ -416,10 +416,6 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
       ),
       eyebrow:
           '${_idx + 1} / ${_round.length} · ${t.quizScore(_score, _round.length)}',
-      leading: IconButton(
-        icon: const Icon(Icons.close),
-        onPressed: () => Navigator.of(context).maybePop(),
-      ),
       actions: const [TtsSpeedAction()],
       child: SoriAdaptiveStudyBody(
         minHeight: 520,

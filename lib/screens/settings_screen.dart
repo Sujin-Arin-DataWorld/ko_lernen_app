@@ -701,7 +701,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               t.interestsSheetTitle,
               style: SoriTextTheme.of(
                 context,
-              ).h3.copyWith(fontWeight: FontWeight.w900),
+              ).h3.copyWith(fontWeight: FontWeight.w700),
             ),
             const SizedBox(height: 14),
             Wrap(
@@ -1175,6 +1175,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
           subtitle: Text(t.settingsTutorialResetSubtitle),
           onTap: _resetTutorials,
         ),
+        ListTile(
+          leading: const Icon(Icons.auto_stories_outlined),
+          title: Text(t.settingsResetCulturalHints),
+          subtitle: Text(t.settingsResetCulturalHintsSubtitle),
+          onTap: _resetCulturalHints,
+        ),
 
         // ── Datenschutz: Analytics/Crashlytics Opt-in (TTDSG §25,
         //    DSGVO Art. 7 Abs. 3 — jederzeit widerrufbar) ──
@@ -1306,6 +1312,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
           leading: const Icon(Icons.info_outline),
           title: Text(t.settingsVersion(_appVersion)),
           subtitle: Text(t.settingsMadeWith),
+          onLongPress: () async {
+            await Clipboard.setData(
+              ClipboardData(text: t.settingsVersion(_appVersion)),
+            );
+            if (!context.mounted) return;
+            soriNotice(context, t.settingsVersionCopied);
+          },
         ),
         ListTile(
           leading: const Icon(Icons.auto_stories_outlined),
@@ -1709,7 +1722,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<void> _openPlacementDiagnostic() async {
     await Navigator.of(context).push<void>(
-      SoriTransitions.fadeScale(
+      SoriTransitions.page<void>(
         (_) => PlacementDiagnosticScreen(
           onChooseLevel: (levelCode) async {
             await CourseProgressService.shared.initializeForPlacement(
@@ -1955,6 +1968,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
     AppShell.replayHomeTour.value++;
   }
 
+  Future<void> _resetCulturalHints() async {
+    await Storage.resetCulturalObjectHintSeen();
+    if (!mounted) {
+      return;
+    }
+    HapticFeedback.lightImpact();
+    soriNotice(
+      context,
+      AppL10n.of(context).settingsResetCulturalHintsDone,
+      duration: const Duration(seconds: 2),
+    );
+  }
+
   void _confirmReset() {
     final t = AppL10n.of(context);
     showSoriDialog<void>(
@@ -2129,7 +2155,7 @@ class _Section extends StatelessWidget {
             child: Text(
               label.toUpperCase(),
               style: SoriTextTheme.of(context).cardSubtitle.copyWith(
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w700,
                 letterSpacing: 0.8,
               ),
             ),

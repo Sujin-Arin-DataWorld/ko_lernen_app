@@ -529,7 +529,7 @@ class _StageCaption extends StatelessWidget {
           eyebrow.toUpperCase(),
           style: SoriTextTheme.of(context).meta.copyWith(
             color: accent,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w700,
             letterSpacing: 1.2,
           ),
         ),

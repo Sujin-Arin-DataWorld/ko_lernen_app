@@ -971,10 +971,6 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     return SoriStudyFrame(
       title: title,
       homeEscape: SoriHomeEscape(confirmWhen: _hasSubmittedAssessment),
-      leading: IconButton(
-        icon: const Icon(Icons.close),
-        onPressed: () => Navigator.of(context).maybePop(),
-      ),
       actions: [
         if (addable != null)
           AddToWordbookButton(
@@ -1061,10 +1057,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
             Flexible(
               child: Text(
                 t.vocabPackLearnHint,
-                style: TextStyle(
-                  fontSize: 12,
-                  color: SoriSurfaces.of(context).textMuted,
-                ),
+                style: SoriTextTheme.of(context).caption,
               ),
             ),
           ],
@@ -1186,7 +1179,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                 _stage == _Stage.boss
                     ? t.vocabPackBossHint
                     : t.vocabPackQuizHint,
-                style: TextStyle(fontSize: 12, color: s.textMuted),
+                style: SoriTextTheme.of(context).caption,
               ),
             ),
           ],

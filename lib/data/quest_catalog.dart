@@ -46,7 +46,7 @@ const List<QuestDefinition> kQuestCatalog = [
   QuestDefinition(
     id: 'q_jangdokdae',
     type: QuestType.standing,
-    name: (de: 'Jangdokdae (Krugterrasse)', en: 'Jangdokdae (jar terrace)'),
+    name: (de: 'Krugterrasse', en: 'Jar terrace'),
     description: (
       de: 'Meistere 15 Wörter zu Essen und Trinken, dann entsteht eine Krug-Terrasse.',
       en: 'Master 15 food and drink words and a jar terrace appears.',
@@ -60,7 +60,7 @@ const List<QuestDefinition> kQuestCatalog = [
   QuestDefinition(
     id: 'q_maehwa',
     type: QuestType.standing,
-    name: (de: 'Pflaumenbaum (매화)', en: 'Plum tree (매화)'),
+    name: (de: 'Pflaumenbaum', en: 'Plum tree'),
     description: (
       de: 'Meistere 30 Adjektive und Gefühle.',
       en: 'Master 30 adjectives and emotion words.',
@@ -74,7 +74,7 @@ const List<QuestDefinition> kQuestCatalog = [
   QuestDefinition(
     id: 'q_sonamu',
     type: QuestType.standing,
-    name: (de: 'Alte Kiefer (노송)', en: 'Old pine (노송)'),
+    name: (de: 'Alte Kiefer', en: 'Old pine'),
     description: (
       de: 'Schließe 10 Szenarien ab.',
       en: 'Complete 10 scenarios.',
@@ -90,7 +90,7 @@ const List<QuestDefinition> kQuestCatalog = [
   QuestDefinition(
     id: 'q_pond',
     type: QuestType.standing,
-    name: (de: 'Teich & Karpfen (연못)', en: 'Pond & carp (연못)'),
+    name: (de: 'Teich & Karpfen', en: 'Pond & carp'),
     description: (
       de: 'Meistere 10 Natur- & Wetterwörter.',
       en: 'Master 10 nature & weather words.',
@@ -104,7 +104,7 @@ const List<QuestDefinition> kQuestCatalog = [
   QuestDefinition(
     id: 'q_seokdeung',
     type: QuestType.standing,
-    name: (de: 'Steinlaterne (장명등)', en: 'Stone lantern (장명등)'),
+    name: (de: 'Steinlaterne', en: 'Stone lantern'),
     description: (
       de: 'Erreiche 100-mal mindestens 80 % in der Aussprachebewertung.',
       en: 'Score at least 80% in 100 pronunciation assessments.',
@@ -118,7 +118,7 @@ const List<QuestDefinition> kQuestCatalog = [
   QuestDefinition(
     id: 'q_punggyeong',
     type: QuestType.standing,
-    name: (de: 'Windspiel (풍경)', en: 'Wind chime (풍경)'),
+    name: (de: 'Windspiel', en: 'Wind chime'),
     description: (
       de: 'Gewinne 10 Runden Kkeunmari.',
       en: 'Win 10 rounds of Kkeunmari.',
@@ -132,7 +132,7 @@ const List<QuestDefinition> kQuestCatalog = [
   QuestDefinition(
     id: 'q_pyeonaek',
     type: QuestType.standing,
-    name: (de: 'Kalligraphie-Tafel (편액)', en: 'Calligraphy plaque (편액)'),
+    name: (de: 'Namenstafel', en: 'Name plaque'),
     description: (
       de: 'Meistere alle Hangul Jamo (100%).',
       en: 'Master all Hangul jamo (100%).',
@@ -146,7 +146,7 @@ const List<QuestDefinition> kQuestCatalog = [
   QuestDefinition(
     id: 'q_doldam',
     type: QuestType.standing,
-    name: (de: 'Steinmauer (돌담)', en: 'Stone wall (돌담)'),
+    name: (de: 'Steinmauer', en: 'Stone wall'),
     description: (
       de: 'Lerne mit 5 aktiven, eindeutigen Gye-Mitgliedern.',
       en: 'Learn with 5 unique active Gye members.',
@@ -160,7 +160,7 @@ const List<QuestDefinition> kQuestCatalog = [
   QuestDefinition(
     id: 'q_kkachi_nest',
     type: QuestType.standing,
-    name: (de: 'Elsternnest (까치 둥지)', en: 'Magpie nest (까치 둥지)'),
+    name: (de: 'Elsternnest', en: 'Magpie nest'),
     description: (de: '30 Tage Lern-Streak.', en: '30-day learning streak.'),
     target: 30,
     source: QuestSource.streakDays,
@@ -175,7 +175,7 @@ const List<QuestDefinition> kQuestCatalog = [
   QuestDefinition(
     id: 'q_dokkaebi_fire',
     type: QuestType.standing,
-    name: (de: 'Irrlicht (도깨비불)', en: 'Goblin fire (도깨비불)'),
+    name: (de: 'Irrlicht', en: 'Goblin fire'),
     description: (
       de: 'Meistere 25 Wörter aus Beruf und Bildung, dann wacht ein Irrlicht über die Nachtstunden.',
       en: 'Master 25 work and education words, and a goblin fire keeps watch over late study hours.',
@@ -246,7 +246,7 @@ const List<QuestDefinition> kQuestCatalog = [
   QuestDefinition(
     id: 'q_seollal',
     type: QuestType.seasonal,
-    name: (de: 'Seollal-Yutspiel (윷놀이)', en: 'Lunar New Year Yutnori'),
+    name: (de: 'Seollal-Yutspiel', en: 'Lunar New Year Yutnori'),
     description: (
       de: 'Spiele 5 Anlaut-Quiz-Runden während Seollal.',
       en: 'Play 5 first-sound quiz rounds during Lunar New Year.',
@@ -295,7 +295,7 @@ const List<QuestDefinition> kQuestCatalog = [
   QuestDefinition(
     id: 'q_kite',
     type: QuestType.seasonal,
-    name: (de: 'Kinder-Tag Drachen (연)', en: 'Children\'s Day kite (연)'),
+    name: (de: 'Kinder-Tag Drachen', en: 'Children\'s Day kite'),
     description: (
       de: '5 Kalligraphie-Tage in Folge während Kindertag.',
       en: '5-day calligraphy streak during Children\'s Day.',

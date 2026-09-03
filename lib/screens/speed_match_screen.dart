@@ -410,10 +410,6 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
     return SoriStudyFrame(
       title: t.speedMatchTitle,
       homeEscape: SoriHomeEscape(confirmWhen: _running),
-      leading: IconButton(
-        icon: const Icon(Icons.close),
-        onPressed: () => Navigator.of(context).maybePop(),
-      ),
       padding: EdgeInsets.symmetric(
         horizontal: Spacing.lg,
         vertical: compact ? Spacing.sm : Spacing.lg,
@@ -451,7 +447,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
                         ),
                         style: TextStyle(
                           fontSize: 18,
-                          fontWeight: FontWeight.w900,
+                          fontWeight: FontWeight.w700,
                           color: lowTime ? SoriColors.danger : s.text,
                           // 카운트다운 자릿수 폭 고정(흔들림 방지).
                           fontFeatures: const [FontFeature.tabularFigures()],

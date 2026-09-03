@@ -88,7 +88,7 @@ class SoriStatsTopBar extends StatelessWidget {
               style: TextStyle(
                 fontFamily: SoriFonts.sans,
                 fontSize: 16,
-                fontWeight: FontWeight.w900,
+                fontWeight: FontWeight.w700,
                 color: s.text,
                 letterSpacing: -0.3,
               ),
@@ -218,7 +218,7 @@ class _HeaderChip extends StatelessWidget {
                 Text(
                   label,
                   style: SoriTextTheme.of(context).label.copyWith(
-                    fontSize: 12.5,
+                    fontSize: 13.5,
                     fontFeatures: const [FontFeature.tabularFigures()],
                   ),
                 ),

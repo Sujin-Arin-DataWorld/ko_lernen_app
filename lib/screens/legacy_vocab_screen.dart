@@ -912,7 +912,7 @@ class _Front extends StatelessWidget {
                   child: Text(
                     v.korean,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: SoriTextTheme.of(context).caption.copyWith(
                       fontSize: soriUniformFitSize(
                         context,
                         texts: deckKoreans,
@@ -930,7 +930,7 @@ class _Front extends StatelessWidget {
               : Text(
                   v.translationFor(lang),
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: SoriTextTheme.of(context).caption.copyWith(
                     fontSize: soriFillSize(h, 0.12, 28, 48),
                     fontWeight: FontWeight.w700,
                     color: SoriColors.info,
@@ -971,7 +971,7 @@ class _Front extends StatelessWidget {
                         Text(
                           '[${v.romanization}]',
                           textAlign: TextAlign.center,
-                          style: TextStyle(
+                          style: SoriTextTheme.of(context).caption.copyWith(
                             fontSize: soriFillSize(h, 0.05, 15, 30),
                             color: SoriColors.info.withValues(alpha: 0.7),
                             fontStyle: FontStyle.italic,
@@ -982,7 +982,7 @@ class _Front extends StatelessWidget {
                       Text(
                         v.posFor(lang),
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: SoriTextTheme.of(context).caption.copyWith(
                           fontSize: soriFillSize(h, 0.05, 12.5, 26),
                           color: s.textMuted,
                         ),
@@ -992,7 +992,7 @@ class _Front extends StatelessWidget {
                   Text(
                     '👆 ${t.hintTapToFlip}',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: SoriTextTheme.of(context).caption.copyWith(
                       fontSize: soriFillSize(h, 0.038, 13, 22),
                       color: s.textDim,
                     ),
@@ -1055,9 +1055,9 @@ class _MasteryChip extends StatelessWidget {
             const SizedBox(width: 4),
             Text(
               label,
-              style: TextStyle(
+              style: SoriTextTheme.of(context).caption.copyWith(
                 fontFamily: SoriFonts.sans,
-                fontSize: 11,
+                fontSize: 13,
                 fontWeight: FontWeight.w700,
                 color: color,
                 letterSpacing: 0.2,
@@ -1109,7 +1109,7 @@ class _Back extends StatelessWidget {
                   child: Text(
                     v.translationFor(lang),
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: SoriTextTheme.of(context).caption.copyWith(
                       fontSize: soriUniformFitSize(
                         context,
                         texts: deckTranslations,
@@ -1129,7 +1129,7 @@ class _Back extends StatelessWidget {
                   child: Text(
                     v.korean,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: SoriTextTheme.of(context).caption.copyWith(
                       fontSize: soriUniformFitSize(
                         context,
                         texts: deckKoreans,
@@ -1166,7 +1166,7 @@ class _Back extends StatelessWidget {
                       Text(
                         '${v.posFor(lang)} · ${v.topic}',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: SoriTextTheme.of(context).caption.copyWith(
                           fontSize: soriFillSize(h, 0.05, 12.5, 26),
                           color: s.textMuted,
                         ),
@@ -1189,7 +1189,7 @@ class _Back extends StatelessWidget {
                                 child: Text(
                                   v.exampleKorean,
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
+                                  style: SoriTextTheme.of(context).caption.copyWith(
                                     fontSize: soriFillSize(h, 0.075, 16, 40),
                                     fontWeight: FontWeight.w700,
                                     color: SoriColors.info.withValues(
@@ -1226,7 +1226,7 @@ class _Back extends StatelessWidget {
                           Text(
                             v.exampleFor(lang),
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: SoriTextTheme.of(context).caption.copyWith(
                               fontSize: soriFillSize(h, 0.05, 13.5, 28),
                               color: s.text,
                               height: 1.3,

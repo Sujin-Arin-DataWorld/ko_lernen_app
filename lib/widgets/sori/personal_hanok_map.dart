@@ -24,6 +24,11 @@ class PersonalHanokMap extends StatelessWidget {
   /// The map remains a pure projection and performs no persistence or timing.
   final Set<PersonalHanokMilestone> suppressedMilestones;
 
+  /// Whole-map tap — distinct from [onTapZone]'s per-place hotspots. A
+  /// decorative preview (no [showTargets]) uses this to open a single, full
+  /// destination instead of exposing individual zone targets (§W-F F3).
+  final VoidCallback? onTap;
+
   const PersonalHanokMap({
     super.key,
     required this.projection,
@@ -35,19 +40,28 @@ class PersonalHanokMap extends StatelessWidget {
     this.todayZone,
     this.todayMarkerLabel,
     this.suppressedMilestones = const <PersonalHanokMilestone>{},
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
+    final onTap = this.onTap;
     if (!projection.usesCompoundMap) {
       // The legacy stage art is portrait, but this public map widget is also
       // embedded in scrolling/zooming views. Give that fallback the same
       // finite 4:3 viewport contract as the compound map so `Stack.expand`
       // never receives an unbounded ListView height.
-      return AspectRatio(
+      final early = AspectRatio(
         aspectRatio: 4 / 3,
         child: MadangBackground(stage: projection.structureStage),
       );
+      return onTap == null
+          ? early
+          : GestureDetector(
+              onTap: onTap,
+              behavior: HitTestBehavior.opaque,
+              child: early,
+            );
     }
 
     final layers =
@@ -62,7 +76,7 @@ class PersonalHanokMap extends StatelessWidget {
             .toList()
           ..sort((a, b) => a.zIndex.compareTo(b.zIndex));
 
-    return AspectRatio(
+    final compound = AspectRatio(
       aspectRatio: 4 / 3,
       child: LayoutBuilder(
         builder: (context, constraints) {
@@ -141,6 +155,13 @@ class PersonalHanokMap extends StatelessWidget {
         },
       ),
     );
+    return onTap == null
+        ? compound
+        : GestureDetector(
+            onTap: onTap,
+            behavior: HitTestBehavior.opaque,
+            child: compound,
+          );
   }
 }
 
@@ -167,7 +188,7 @@ class _MapPlaceLabel extends StatelessWidget {
       PersonalHanokZone.gyeRoad => const Offset(.91, .77),
     };
     final width = (canvasSize.width * .27).clamp(72.0, 112.0).toDouble();
-    const height = 38.0;
+    const height = 44.0;
     final left = (canvasSize.width * anchor.dx - width / 2)
         .clamp(2.0, canvasSize.width - width - 2)
         .toDouble();
@@ -184,7 +205,7 @@ class _MapPlaceLabel extends StatelessWidget {
         child: ExcludeSemantics(
           child: Container(
             key: ValueKey('personal-hanok-map-label-${zone.name}'),
-            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
+            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: surfaces.surface.withValues(alpha: .92),
@@ -196,13 +217,14 @@ class _MapPlaceLabel extends StatelessWidget {
             ),
             child: Text(
               label,
+              // 잘림 대신 줄바꿈(§A5, 2026-09-03) — 지도 라벨도 내용을 숨기지
+              // 않는다. height=44 는 13px×1.15 두 줄 + 세로 패딩 8을 수용한다.
               maxLines: 2,
-              overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.labelSmall?.copyWith(
                 color: surfaces.text,
-                fontSize: 9,
-                height: 1.05,
+                fontSize: 13,
+                height: 1.15,
                 fontWeight: FontWeight.w700,
               ),
             ),

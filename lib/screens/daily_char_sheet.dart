@@ -302,7 +302,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
                   _char,
                   style: type.koDisplay.copyWith(
                     fontSize: 140,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w700,
                     color: SoriColors.primary,
                     height: 1,
                   ),

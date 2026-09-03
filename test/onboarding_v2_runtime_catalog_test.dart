@@ -130,16 +130,16 @@ void main() {
       ),
       findsOneWidget,
     );
-    expect(find.text('Learning XP'), findsOneWidget);
-    expect(find.text('Verified Hanok construction progress'), findsOneWidget);
-    expect(find.text('Related quest'), findsOneWidget);
+    expect(find.text('XP'), findsOneWidget);
+    expect(find.text('Hanok piece'), findsOneWidget);
+    expect(find.text('Quest'), findsOneWidget);
     expect(find.text('Dojang stamp'), findsOneWidget);
     expect(find.text('Personal best'), findsOneWidget);
     expect(find.text('Bojagi & accessories'), findsNothing);
     final xpSemantics = tester
         .getSemantics(find.byKey(const ValueKey('onboarding-v2-reward-xp')))
         .getSemanticsData();
-    expect(xpSemantics.label, contains('Possible reward: Learning XP'));
+    expect(xpSemantics.label, contains('Possible reward: XP'));
     expect(continued, isFalse);
     semantics.dispose();
   });

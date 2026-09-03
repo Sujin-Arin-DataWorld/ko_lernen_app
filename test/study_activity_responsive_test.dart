@@ -42,6 +42,7 @@ import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/chrome_row.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
+import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 import 'package:ko_lernen_app/widgets/sori/section_header.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
@@ -322,6 +323,7 @@ void main() {
     for (final viewport in const <({Size size, double textScale})>[
       (size: Size(320, 640), textScale: 2),
       (size: Size(360, 400), textScale: 1),
+      (size: Size(1024, 768), textScale: 1),
     ]) {
       testWidgets('Hangul tabs stay usable in ${locale.languageCode} '
           '@ ${viewport.size.width.toInt()}x${viewport.size.height.toInt()} '
@@ -342,6 +344,29 @@ void main() {
 
         expect(find.byType(SoriAppBar), findsOneWidget);
         expect(find.byType(TabBarView), findsOneWidget);
+        // §NAV-1(J2): hangul_screen.dart moved into SoriStudyFrame — pin the
+        // frame-owned close/home actions and the TabBar it forwards via
+        // `bottom:`.
+        expect(find.byType(SoriStudyFrame), findsOneWidget);
+        expect(find.byType(SoriCloseAction), findsOneWidget);
+        expect(find.byType(SoriHomeAction), findsOneWidget);
+        expect(find.byType(TabBar), findsOneWidget);
+        // §NAV-1(J2): `_OverviewTab` used to clamp its own padding against
+        // the *screen* width (soriClampPadding(MediaQuery width)) while
+        // SoriStudyFrame separately clamps the whole frame to a 760dp
+        // column — double clamp. `getSize().width` is always ~760 here
+        // regardless of the bug, so it can't catch the regression; the
+        // horizontal padding sum can: pre-fix it hit 384 at 1024dp, fixed
+        // it stays at 24 (base) since the ListView's own LayoutBuilder now
+        // sees the already-clamped ~760dp column, not the full 1024dp.
+        final overviewScroll = find.byKey(
+          const Key('hangul-overview-scroll'),
+        );
+        if (overviewScroll.evaluate().isNotEmpty) {
+          final padding = tester.widget<ListView>(overviewScroll).padding!
+              .resolve(TextDirection.ltr);
+          expect(padding.horizontal, lessThanOrEqualTo(24 + 2 * 60));
+        }
         expect(tester.takeException(), isNull);
       });
     }
@@ -501,6 +526,11 @@ void main() {
       await tester.ensureVisible(find.text(l10n.listeningDialogueStart));
       await tester.tap(find.text(l10n.listeningDialogueStart));
       await tester.pump();
+      // §W-A2 재조사(실측): 첫 대사(교사, TTS 필요)가 재생 실패 카드로
+      // 잠깐 보였다가 대화 버블로 바뀌는 데 300ms 로는 부족하고 1.3s 는
+      // 충분했다(find.bySemanticsLabel 로 실측: 0 → 0 → 1). 폭/높이
+      // 문제가 아니라 정착 시간 문제 — pumpAndSettle 로 완전히 정착시킨다.
+      await tester.pumpAndSettle();
       await tester.scrollUntilVisible(
         find.text(l10n.listeningReplay),
         120,

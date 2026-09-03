@@ -249,7 +249,7 @@ class _GameOverCardState extends State<GameOverCard>
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontSize: 24,
-                          fontWeight: FontWeight.w900,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                       if (widget.scoreLabel != null) ...[
@@ -282,7 +282,7 @@ class _GameOverCardState extends State<GameOverCard>
                               '+$shown XP',
                               style: const TextStyle(
                                 fontSize: 20,
-                                fontWeight: FontWeight.w900,
+                                fontWeight: FontWeight.w700,
                                 color: SoriColors.gold,
                               ),
                             ),

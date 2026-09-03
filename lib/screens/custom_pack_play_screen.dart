@@ -238,7 +238,6 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     }
 
     final w = pack.words[_idx];
-    final s = SoriSurfaces.of(context);
 
     // §P2-5: 4방향 덱 코치 — 기존 cpPlay 코치가 이미 표시된 뒤에만 (겹침 방지).
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -254,10 +253,6 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
 
     return SoriStudyFrame(
       title: pack.displayName(),
-      leading: IconButton(
-        icon: const Icon(Icons.close),
-        onPressed: () => Navigator.of(context).maybePop(),
-      ),
       actions: const [TtsSpeedAction()],
       child: SoriAdaptiveStudyBody(
         minHeight: 560,
@@ -275,7 +270,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                 ),
                 Text(
                   t.vocabPackTapToFlip,
-                  style: TextStyle(fontSize: 12, color: s.textMuted),
+                  style: SoriTextTheme.of(context).caption,
                 ),
               ],
             ),
@@ -379,7 +374,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 22,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
               const SizedBox(height: Spacing.sm),

@@ -209,6 +209,17 @@ void main() {
     expect(find.text(t.wordWebSynonymSection), findsOneWidget);
     expect(find.text(t.wordWebAntonymSection), findsOneWidget);
     expect(find.text(t.wordWebRelatedSection), findsOneWidget);
+    // §W-A2 재조사(실측): 요약 줄("1 ähnlich · 1 Gegenteil · 1 verwandt ·
+    // 1 Wendung")은 데이터에 표현이 있다고 말하는데 "Wendungen" 섹션은
+    // 화면 텍스트 목록에 없었다 — 삭제된 게 아니라 4번째(마지막) 섹션이라
+    // 목록이 lazy build 범위 밖에 있었다(단어·토큰 확대로 앞 3개 섹션이
+    // 커져 스크롤 없이 안 닿게 됨). 뒤쪽 '큰일 나다' 검사처럼 스크롤로
+    // 명시적으로 닿게 한다.
+    await tester.scrollUntilVisible(
+      find.text(t.wordWebExpressionSection),
+      240,
+      scrollable: find.byType(Scrollable).last,
+    );
     expect(find.text(t.wordWebExpressionSection), findsOneWidget);
     expect(find.text('groß'), findsWidgets);
     expect(find.text('커다랗다'), findsOneWidget);

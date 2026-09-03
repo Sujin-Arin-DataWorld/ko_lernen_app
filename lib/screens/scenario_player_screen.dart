@@ -44,6 +44,7 @@ import '../widgets/sori/home_action.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/motion.dart' show SoriEntrance;
+import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
@@ -1974,19 +1975,22 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     final lang = Localizations.localeOf(context).languageCode;
 
     if (_scenario == null) {
-      final state = SoriStudyFrame(
-        title: t.scenariosListTitle,
-        leading: _buildCloseButton(),
-        automaticallyImplyLeading: false,
-        padding: EdgeInsets.zero,
-        child: _loadFailure == null
-            ? const AppLoading()
-            : AppError(
-                message: t.scenariosLoadFailedTitle,
-                onRetry: _retryLoadScenario,
-              ),
+      // 시나리오가 아직 없으면(로딩/실패) `_stage`/`_isResultStage` 는
+      // 의미가 없다 — 확인 없이 닫히되, onExit(온보딩 임베딩)이 있으면
+      // §_withExitScope 가 시스템 백도 그리로 돌린다.
+      return _withExitScope(
+        SoriStudyFrame(
+          title: t.scenariosListTitle,
+          onLeave: _onExitCleanup,
+          padding: EdgeInsets.zero,
+          child: _loadFailure == null
+              ? const AppLoading()
+              : AppError(
+                  message: t.scenariosLoadFailedTitle,
+                  onRetry: _retryLoadScenario,
+                ),
+        ),
       );
-      return _withExitScope(state);
     }
 
     final scaffold = Scaffold(
@@ -1998,7 +2002,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         textScale: MediaQuery.textScalerOf(context).scale(1),
         viewportWidth: MediaQuery.sizeOf(context).width,
         adaptTitleAtNormalScale: true,
-        leading: _buildCloseButton(),
+        leading: _scenarioExitButton(),
         automaticallyImplyLeading: false,
         actions: [
           SoriHomeAction(
@@ -2087,28 +2091,67 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     return _withExitScope(scaffold);
   }
 
-  Widget _buildCloseButton() => IconButton(
-    tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
-    icon: const Icon(Icons.close_rounded),
-    onPressed: _requestExit,
-  );
+  /// §B2(2026-09-03) — 프레임 밖 화면(본문 상태의 raw Scaffold)이 직접
+  /// 그리는 좌상단 X. [SoriCloseAction]과 같은 자리·아이콘·확인 규칙이지만,
+  /// 이 화면은 [widget.onExit](온보딩 임베딩, `onboarding_journey.dart`)이
+  /// 있으면 일반 pop 대신 그리로 나가야 해서 공용 위젯 대신 [_exit]을 직접
+  /// 쓴다. home_action.dart:117-121 과 같은 이유로 Semantics.onTap 복제 —
+  /// ExcludeSemantics 가 안쪽 SoriPressable 의 tap 액션을 지우므로 바깥
+  /// Semantics 에도 같은 콜백을 달아야 스크린리더에서 실제로 작동한다.
+  Widget _scenarioExitButton() {
+    final t = AppL10n.of(context);
+    return Semantics(
+      button: true,
+      label: t.closeActionLabel,
+      onTap: () => unawaited(_exit()),
+      child: ExcludeSemantics(
+        child: SoriPressable(
+          onTap: () => unawaited(_exit()),
+          child: const SizedBox(
+            width: SoriLayout.chromeRowTouchHeight,
+            height: SoriLayout.chromeRowTouchHeight,
+            child: Icon(Icons.close_rounded),
+          ),
+        ),
+      ),
+    );
+  }
 
+  /// 시스템 뒤로가기/스와이프백/예측 뒤로가기가 [_scenarioExitButton]과 같은
+  /// 규칙(진행 중이면 확인 시트, [widget.onExit]이 있으면 그리로)으로
+  /// 동작하게 한다. [onExit]이 없어도 확인이 필요하면(§ homeEscape) 여전히
+  /// 가로채야 하므로, 차단 조건은 둘의 논리합이다.
   Widget _withExitScope(Widget child) {
-    final onExit = widget.onExit;
+    final blocksSystemPop = _stage > 0 && !_isResultStage ||
+        widget.onExit != null;
     return PopScope<void>(
-      canPop: onExit == null,
+      canPop: !blocksSystemPop,
       onPopInvokedWithResult: (didPop, _) {
         if (didPop) {
+          // 확인이 필요 없고 onExit도 없어 프레임워크가 곧장 pop 했다 —
+          // 다른 종료 경로(닫기 버튼 등)와의 경합만 막아 둔다.
           _loadLifecycle.requestExit();
           return;
         }
-        _requestExit();
+        if (!blocksSystemPop) {
+          return;
+        }
+        unawaited(_exit());
       },
       child: child,
     );
   }
 
-  void _requestExit() {
+  /// 닫기(X)·시스템 백이 함께 쓰는 단일 출구 — §B2 확인 규칙(홈 액션과 같은
+  /// [SoriHomeEscape]) 뒤, [widget.onExit]이 있으면 그리로(온보딩 임베딩이
+  /// AppShell로 직접 돌아가야 해서 일반 pop이 아니다), 없으면 일반 pop.
+  Future<void> _exit() async {
+    if (!await showLeaveConfirmSheet(
+      context,
+      SoriHomeEscape(confirmWhen: _stage > 0 && !_isResultStage),
+    )) {
+      return;
+    }
     if (!_loadLifecycle.requestExit()) {
       return;
     }
@@ -2117,7 +2160,18 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       onExit();
       return;
     }
+    if (!mounted) return;
     Navigator.pop(context);
+  }
+
+  /// 로딩/에러 상태([SoriStudyFrame]의 프레임-소유 닫기/홈)에서도
+  /// [widget.onExit]을 존중한다 — 스캐폴드를 직접 그리지 않는 상태라
+  /// [_exit]과 같은 문지기를 [SoriStudyFrame.onLeave]로 전달한다.
+  void _onExitCleanup() {
+    if (!_loadLifecycle.requestExit()) {
+      return;
+    }
+    widget.onExit?.call();
   }
 
   void _popAfterLoadExit() {

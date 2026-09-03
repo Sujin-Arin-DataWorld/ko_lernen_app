@@ -367,7 +367,16 @@ void main() {
         );
 
         final levelChrome = find.byType(SoriChromeRow);
-        expect(find.byIcon(Icons.close_rounded), findsOneWidget);
+        // §B2(2026-09-03): the frame's own leading close action now also
+        // renders Icons.close_rounded, so this must scope to the cell that
+        // actually shows the wrong-answer cue.
+        expect(
+          find.descendant(
+            of: cellFinder,
+            matching: find.byIcon(Icons.close_rounded),
+          ),
+          findsOneWidget,
+        );
         expect(
           find.byType(TweenAnimationBuilder<double>),
           findsNothing,

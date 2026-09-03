@@ -11,45 +11,93 @@ import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
 void main() {
-  testWidgets('injects exactly one home leading when no leading is supplied', (
-    tester,
-  ) async {
-    await tester.pumpWidget(
-      _host(
-        textScale: 1,
-        child: const SoriStudyFrame(title: 'Review', child: SizedBox.expand()),
-      ),
-    );
-    await tester.pump();
-
-    final appBar = tester.widget<SoriAppBar>(find.byType(SoriAppBar));
-    expect(appBar.leading, isA<SoriHomeAction>());
-    expect(find.byType(SoriHomeAction), findsOneWidget);
-  });
-
-  testWidgets('preserves custom leading and prepends one home action', (
-    tester,
-  ) async {
-    await tester.pumpWidget(
-      _host(
-        textScale: 1,
-        child: const SoriStudyFrame(
-          title: 'Scenario',
-          leading: SizedBox(key: Key('custom-leading')),
-          actions: [SizedBox(key: Key('existing-action'))],
-          child: SizedBox.expand(),
+  testWidgets(
+    'injects one close leading and one home action when nothing else is '
+    'supplied',
+    (tester) async {
+      await tester.pumpWidget(
+        _host(
+          textScale: 1,
+          child: const SoriStudyFrame(
+            title: 'Review',
+            child: SizedBox.expand(),
+          ),
         ),
-      ),
-    );
-    await tester.pump();
+      );
+      await tester.pump();
 
-    final appBar = tester.widget<SoriAppBar>(find.byType(SoriAppBar));
-    expect(appBar.leading?.key, const Key('custom-leading'));
-    expect(appBar.actions, hasLength(2));
-    expect(appBar.actions!.first, isA<SoriHomeAction>());
-    expect(appBar.actions!.last.key, const Key('existing-action'));
-    expect(find.byType(SoriHomeAction), findsOneWidget);
-  });
+      final appBar = tester.widget<SoriAppBar>(find.byType(SoriAppBar));
+      expect(appBar.leading, isA<SoriCloseAction>());
+      expect(appBar.actions, hasLength(1));
+      expect(appBar.actions!.single, isA<SoriHomeAction>());
+      expect(find.byType(SoriCloseAction), findsOneWidget);
+      expect(find.byType(SoriHomeAction), findsOneWidget);
+    },
+  );
+
+  testWidgets(
+    // §B2(2026-09-03): the frame no longer accepts a custom `leading` — the
+    // close (X) slot is exclusively frame-owned, matching the home slot.
+    'keeps a supplied action after the sole home action',
+    (tester) async {
+      await tester.pumpWidget(
+        _host(
+          textScale: 1,
+          child: const SoriStudyFrame(
+            title: 'Scenario',
+            actions: [SizedBox(key: Key('existing-action'))],
+            child: SizedBox.expand(),
+          ),
+        ),
+      );
+      await tester.pump();
+
+      final appBar = tester.widget<SoriAppBar>(find.byType(SoriAppBar));
+      expect(appBar.leading, isA<SoriCloseAction>());
+      expect(appBar.actions, hasLength(2));
+      expect(appBar.actions!.first, isA<SoriHomeAction>());
+      expect(appBar.actions!.last.key, const Key('existing-action'));
+      expect(find.byType(SoriHomeAction), findsOneWidget);
+    },
+  );
+
+  testWidgets(
+    // §NAV-1(J2): `bottom:` is forwarded verbatim to SoriAppBar so screens
+    // like hangul_screen.dart can host a TabBar without dropping the
+    // frame-owned close/home actions. Bounded viewport + textScale 1.0 +
+    // no eyebrow keeps SoriAppBar off its adaptive-chrome branch
+    // (app_bar.dart's `_usesAdaptiveChrome`) so preferredSize stays the
+    // simple kToolbarHeight + bottom sum this test asserts on.
+    'passes bottom through to SoriAppBar and keeps close+home',
+    (tester) async {
+      const bottomHeight = 48.0;
+      final bottom = PreferredSize(
+        preferredSize: const Size.fromHeight(bottomHeight),
+        child: const SizedBox(key: Key('bottom')),
+      );
+      await tester.pumpWidget(
+        _host(
+          textScale: 1,
+          child: SoriStudyFrame(
+            title: 'Hangul',
+            bottom: bottom,
+            child: const SizedBox.expand(),
+          ),
+        ),
+      );
+      await tester.pump();
+
+      final appBar = tester.widget<SoriAppBar>(find.byType(SoriAppBar));
+      expect(appBar.bottom, same(bottom));
+      expect(find.byKey(const Key('bottom')), findsOneWidget);
+      expect(appBar.leading, isA<SoriCloseAction>());
+      expect(appBar.actions!.first, isA<SoriHomeAction>());
+      expect(
+        appBar.preferredSize.height,
+        kToolbarHeight + bottomHeight,
+      );
+    },
+  );
 
   testWidgets('removes explicit home actions and keeps one localized escape', (
     tester,
@@ -79,26 +127,29 @@ void main() {
     semantics.dispose();
   });
 
-  testWidgets('forwards the active escape policy to its sole home action', (
-    tester,
-  ) async {
-    await tester.pumpWidget(
-      _host(
-        textScale: 1,
-        child: const SoriStudyFrame(
-          title: 'Active quiz',
-          leading: SizedBox(key: Key('close-leading')),
-          homeEscape: SoriHomeEscape(confirmWhen: true),
-          child: SizedBox.expand(),
+  testWidgets(
+    'forwards the active escape policy to its close and home actions',
+    (tester) async {
+      await tester.pumpWidget(
+        _host(
+          textScale: 1,
+          child: const SoriStudyFrame(
+            title: 'Active quiz',
+            homeEscape: SoriHomeEscape(confirmWhen: true),
+            child: SizedBox.expand(),
+          ),
         ),
-      ),
-    );
-    await tester.pump();
+      );
+      await tester.pump();
 
-    final home = tester.widget<SoriHomeAction>(find.byType(SoriHomeAction));
-    expect(home.escape.confirmWhen, isTrue);
-    expect(find.byType(SoriHomeAction), findsOneWidget);
-  });
+      final home = tester.widget<SoriHomeAction>(find.byType(SoriHomeAction));
+      expect(home.escape.confirmWhen, isTrue);
+      final close = tester.widget<SoriCloseAction>(
+        find.byType(SoriCloseAction),
+      );
+      expect(close.escape.confirmWhen, isTrue);
+    },
+  );
 
   testWidgets('short 100% title preserves the legacy toolbar geometry', (
     tester,

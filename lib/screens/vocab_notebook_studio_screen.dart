@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
 import '../models/custom_pack.dart';
+import '../motion/transitions.dart';
 import '../services/custom_pack_corpus_resolver.dart';
 import '../services/custom_pack_service.dart';
 import '../services/vocab_nuance_service.dart';
@@ -119,7 +120,7 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
   Future<void> _openPage(Widget page) async {
     await Navigator.of(
       context,
-    ).push<void>(MaterialPageRoute<void>(builder: (_) => page));
+    ).push<void>(SoriTransitions.page<void>((_) => page));
     if (mounted) {
       setState(() {});
     }

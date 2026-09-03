@@ -2195,6 +2195,11 @@ class Storage {
   static Future<void> setCulturalObjectHintSeen() async =>
       _prefs?.setBool('cultural_object_hint_seen_v1', true);
 
+  /// Settings "Kulturhinweise zurücksetzen" (§W-C C5) — shows the one-time
+  /// object hint again on the next visit to a scene with inspectable decor.
+  static Future<void> resetCulturalObjectHintSeen() async =>
+      _prefs?.setBool('cultural_object_hint_seen_v1', false);
+
   /// 콘텐츠 화면별 사용법 코치마크 — 범용 플래그(`kl_tut_<id>`).
   /// 화면 id 레지스트리: 오타·resetTutorials 누락 방지(ScreenCoachMixin assert).
   static const List<String> kScreenCoachIds = [
@@ -3266,6 +3271,24 @@ class Storage {
   /// The one active sequential course mission, independent from a library
   /// level filter and from vocabulary-pack progress.
   static String? get courseUnitId => _optionalString(courseUnitPreferenceKey);
+
+  /// §E4 (2026-09-03): the last Sori Stage catalog activity the learner
+  /// actually opened (`ActivityCatalogEntry.id`). Presentation-only "Weiter
+  /// mit …" hero promotion — never gates content, so it uses the same
+  /// non-strict read/write as [courseUnitId] rather than the strict ledger
+  /// helpers reserved for evidence/progress state.
+  static const String lastActivityIdPreferenceKey = 'kl_last_activity_id_v1';
+
+  static String? get lastActivityId =>
+      _optionalString(lastActivityIdPreferenceKey);
+
+  static Future<void> setLastActivityId(String activityId) async {
+    final normalized = activityId.trim();
+    if (normalized.isEmpty) {
+      throw ArgumentError.value(activityId, 'activityId', 'must not be empty');
+    }
+    await _ss(lastActivityIdPreferenceKey, normalized);
+  }
 
   /// Canonical v2 JSON owned by [CourseMasteryService]. Storage does not parse
   /// it so the service can reject malformed or catalog-incompatible evidence.

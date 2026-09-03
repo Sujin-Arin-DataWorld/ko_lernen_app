@@ -7,7 +7,9 @@ import 'tokens.dart';
 /// **SoriAppBar** — 공용 앱바 (2026-08-13 UI 개편 Phase 1).
 ///
 /// 저장소의 raw `AppBar(` 105곳이 수렴할 단일 지점. 규칙:
-/// - 타이틀 **좌측 정렬** + [SoriTextTheme.h2] — 화면 헤드라인과 한 위계.
+/// - 타이틀 **좌측 정렬** + [SoriTextTheme.chromeTitle] — 내비게이션 크롬
+///   전용 위계(2026-09-03, §A4). [SoriTextTheme.h2] 는 화면 헤드라인이 Maru
+///   Buri 로 이동한 뒤 분리됐다.
 /// - 선택적 [eyebrow] (자간 넓은 소문자 라벨, 석간주). 좁은 폭과 큰
 ///   글자에서는 내용을 자르지 않고 여러 줄로 확장한다.
 /// - 배경 **투명** — `SoriScreenBackground` 의 한지가 비치고, 스크롤해도
@@ -47,19 +49,24 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
   /// narrow phones are measured automatically.
   final bool adaptTitleAtNormalScale;
 
-  static const _titleStyle = TextStyle(
+  // 레이아웃 측정 전용 — 색은 TextPainter geometry에 영향이 없어 뺐다.
+  // `SoriTypeSpecs.chromeTitle`/`.eyebrow` 에서 직접 만든다 — 측정에는
+  // BuildContext 없는 getter 들이 쓰여 `SoriTextTheme.of(context)` 를 못 부르지만,
+  // 같은 const spec을 참조하므로 `SoriTextTheme.chromeTitle`/`.eyebrow` 와
+  // 수치가 갈라질 수 없다(§W-A2 d, 2026-09-03 — 옛 수동 동기화 제거).
+  static final _titleStyle = TextStyle(
     fontFamily: SoriFonts.sans,
-    fontSize: 20,
-    fontWeight: FontWeight.w800,
-    letterSpacing: -0.3,
-    height: 1.3,
+    fontSize: SoriTypeSpecs.chromeTitle.size,
+    fontWeight: SoriTypeSpecs.chromeTitle.weight,
+    letterSpacing: SoriTypeSpecs.chromeTitle.letterSpacing,
+    height: SoriTypeSpecs.chromeTitle.height,
   );
-  static const _eyebrowStyle = TextStyle(
+  static final _eyebrowStyle = TextStyle(
     fontFamily: SoriFonts.sans,
-    fontSize: 12,
-    fontWeight: FontWeight.w700,
-    letterSpacing: 1.4,
-    height: 1.2,
+    fontSize: SoriTypeSpecs.eyebrow.size,
+    fontWeight: SoriTypeSpecs.eyebrow.weight,
+    letterSpacing: SoriTypeSpecs.eyebrow.letterSpacing,
+    height: SoriTypeSpecs.eyebrow.height,
   );
 
   /// Large display text follows mobile nonlinear scaling: body copy and
@@ -148,13 +155,13 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
         leading: leading,
         automaticallyImplyLeading: automaticallyImplyLeading,
         title: eyebrow == null
-            ? Text(title, style: tt.h2)
+            ? Text(title, style: tt.chromeTitle)
             : Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(eyebrow!, style: tt.eyebrow),
-                  Text(title, style: tt.h2),
+                  Text(title, style: tt.chromeTitle),
                 ],
               ),
         actions: actions,
@@ -168,14 +175,14 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
       overflow: TextOverflow.clip,
     );
     final titleBlock = eyebrow == null
-        ? completeText(title, tt.h2)
+        ? completeText(title, tt.chromeTitle)
         : Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               completeText(eyebrow!, tt.eyebrow),
-              completeText(title, tt.h2),
+              completeText(title, tt.chromeTitle),
             ],
           );
     final scaledTitleBlock = MediaQuery(

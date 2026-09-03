@@ -420,6 +420,10 @@ class _BookResultScreenState extends State<BookResultScreen> {
       SoriStandardFrame(
         appBarTitle: t.bookResultTitle,
         actions: r.isSaveable ? const [TtsSpeedAction()] : const [],
+        // §B3(2026-09-03): `_guard`가 저장 중(`_saving`) `PopScope`로 뒤로가기를
+        // 막는 것과 같은 이유로, `SoriHomeAction`의 `pushNamedAndRemoveUntil`은
+        // PopScope를 안 거치므로 홈 액션도 저장 중엔 끈다.
+        showHome: !_saving,
         maxWidth: SoriMaxWidth.prose,
         padding: const EdgeInsets.fromLTRB(
           Spacing.lg,

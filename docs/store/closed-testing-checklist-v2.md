@@ -205,6 +205,42 @@ Internal 항목이 통과하면 exact main SHA로 Closed 전용 workflow를 명�
 Play Console에서 처리·게시된 alpha release를 확인한 뒤 opt-in 링크와 release notes를
 공유한다. 테스터용 설치 및 개인정보 안내는 BETA_INSTALL_GUIDE.md를 보낸다.
 
+### 3.1 빌드 정보·문화 용어 표면 실기기 체크리스트 (§RELEASE-2 J13)
+
+이 브랜치가 머지된 Internal 빌드에서만 전부 확인 가능하다 — 그 전에는 main의
+기존 5개 표면(`CulturalHelpButton` 직접 호출)만 확인할 수 있다.
+
+**사전**: 업로드한 SHA로 기대 vC를 구한다 —
+`git rev-list --count <업로드 SHA>`. 앱 설정 → Über(About) 행이
+"Version 2.0.8 (vC) · sha"(짧은 SHA)로 그 vC·SHA와 일치하는지 확인한다 —
+불일치하면 구버전이 설치된 것이니 재설치 후 다시 확인한다. About 행을 길게
+눌러 정보가 클립보드에 복사되고 확인 알림이 뜨는지도 함께 본다.
+
+**Kulturhinweise zurücksetzen**: 설정 → "Kulturhinweise zurücksetzen"을 탭한다.
+
+**표면 8+3** (각 화면·위젯·termId로 고정 — 행 번호가 아니라 이 목록으로
+추적한다):
+
+| # | 화면 | 위젯 | termId |
+|---|---|---|---|
+| ① | Gye 탭 헤더 | `CulturalHelpButton` | `gye` |
+| ② | Hanok 탭 헤더 | `CulturalHelpButton` | `hanok` |
+| ③ | Heute "Deine Hanok" 단계 | `SoriTerm` + 퀘스트 행 보조줄 | 단계별(`hanokStageGlossaryTermId`) |
+| ④ | 도장첩 | `CulturalHelpButton` + 본문 `SoriTerm.span` | `dojangcheop` + `dancheong` |
+| ⑤ | Wortpakete AppBar 도장 아이콘(길게 누름) | `showCulturalTermSheetForId` | `dojangcheop` |
+| ⑥ | 보자기 | `?` + 용어줄 | `bojagi` |
+| ⑦ | 마당 | `?` · 완료 퀘스트 장식 탭(퀘스트 0이면 "해당 없음") | 장식별 |
+| ⑧ | 한옥 지도 | `?` + 장소 목록 용어 | `hanok` |
+| 추가 | 사랑방 | `?` | `sarangbang` |
+| 추가 | 가구 배치 | `?` | `sarangbang` |
+| 추가 | 퀘스트 목록 | 용어줄 | 퀘스트별 |
+
+**기대**: `?` 버튼은 48dp 탭 영역. 탭하면 즉시 바텀시트(한글·한자·발음·뜻·문화
+노트)가 뜬다. DE↔EN 전환 시 시트 내용이 갱신된다. 리셋 후 실내 첫 방문에서
+`CulturalObjectHint`가 1회만 다시 뜬다.
+
+**실패 시 기록**: 화면 · vC · SHA · 글자 크기(%) · 기기 모델.
+
 ## 4. 14일 Closed Testing 배정
 
 ### 4.1 최소 인원과 분담

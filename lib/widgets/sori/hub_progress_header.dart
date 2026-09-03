@@ -56,7 +56,7 @@ class HubProgressHeader extends StatelessWidget {
                     Text(
                       subtitle!,
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 13.5,
                         color: s.textMuted,
                         height: 1.3,
                       ),

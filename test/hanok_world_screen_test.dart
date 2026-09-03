@@ -445,14 +445,14 @@ void main() {
     );
 
     for (final label in const [
-      '사랑방\nHeute lernen',
-      '대청마루\nDein Weg',
-      '안채\nWörter',
-      '후원\nAufgaben',
+      'Heute lernen',
+      'Dein Weg',
+      'Wörter',
+      'Aufgaben',
     ]) {
       expect(find.text(label), findsOneWidget);
     }
-    expect(find.text('사랑방 · Deine heutige Szene'), findsOneWidget);
+    expect(find.text('Deine heutige Szene'), findsOneWidget);
     expect(find.text('4 Minuten · „안 맵게 해 주세요.“ sagen'), findsOneWidget);
     expect(find.text('Dorthin gehen'), findsOneWidget);
     expect(

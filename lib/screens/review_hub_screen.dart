@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/vocab.dart';
+import '../motion/transitions.dart';
 import '../services/review_deck_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/button.dart';
@@ -90,8 +91,8 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
 
   Future<void> _openDeck(List<Vocab> deck, String title) async {
     await Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (_) => ReviewSessionScreen(
+      SoriTransitions.page(
+        (_) => ReviewSessionScreen(
           deck: deck,
           title: title,
           feedbackContentId: 'review_hub_session',
@@ -167,6 +168,8 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
           const Center(child: CircularProgressIndicator())
         else if (deck.isEmpty)
           SoriEmptyState(
+            // §E5: ASSET_GAP §3-2 "복습 완료" 배선 — 기존 마스코트 재사용.
+            asset: 'assets/illustrations/mascot/magpie_celebrate.png',
             icon: Icons.today_outlined,
             title: t.reviewHubEmptyToday,
           )

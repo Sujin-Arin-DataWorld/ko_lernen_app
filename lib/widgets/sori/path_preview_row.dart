@@ -92,7 +92,7 @@ class _PreviewNode extends StatelessWidget {
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                fontSize: 12,
+                fontSize: 13.5,
                 height: 1.3,
                 fontWeight: locked ? FontWeight.w600 : FontWeight.w700,
                 // 잠금도 본문 대비 유지 — opacity로 뭉개지 않는다(§4.4-3).

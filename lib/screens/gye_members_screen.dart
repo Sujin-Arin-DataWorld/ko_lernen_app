@@ -103,7 +103,7 @@ class GyeMembersScreen extends StatelessWidget {
                                       ? m.nickname.substring(0, 1)
                                       : '?',
                                   style: TextStyle(
-                                    fontWeight: FontWeight.w800,
+                                    fontWeight: FontWeight.w700,
                                     color: isBlocked
                                         ? s.textDim
                                         : SoriColors.primary,
@@ -123,7 +123,7 @@ class GyeMembersScreen extends StatelessWidget {
                                   ? Text(
                                       t.gyeBlockedLabel,
                                       style: TextStyle(
-                                        fontSize: 12,
+                                        fontSize: 13.5,
                                         color: s.textDim,
                                       ),
                                     )
@@ -131,7 +131,7 @@ class GyeMembersScreen extends StatelessWidget {
                                   ? Text(
                                       t.gyeRoleOwner,
                                       style: TextStyle(
-                                        fontSize: 12,
+                                        fontSize: 13.5,
                                         color: s.textMuted,
                                       ),
                                     )
@@ -140,7 +140,7 @@ class GyeMembersScreen extends StatelessWidget {
                                   ? Text(
                                       t.gyeMemberSelf,
                                       style: TextStyle(
-                                        fontSize: 12,
+                                        fontSize: 13.5,
                                         color: s.textDim,
                                       ),
                                     )
@@ -211,7 +211,7 @@ class _GyeSafetyRulesCard extends StatelessWidget {
                 children: [
                   Text(
                     t.gyeRulesTitle,
-                    style: const TextStyle(fontWeight: FontWeight.w800),
+                    style: const TextStyle(fontWeight: FontWeight.w700),
                   ),
                   const SizedBox(height: Spacing.xs),
                   Text(t.gyeRulesBody),
@@ -236,7 +236,6 @@ Future<void> _showProfileCard(
   await showSoriSheet<void>(
     context: context,
     builder: (ctx) {
-      final s = SoriSurfaces.of(ctx);
       return Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -247,7 +246,7 @@ Future<void> _showProfileCard(
               m.nickname.isNotEmpty ? m.nickname.substring(0, 1) : '?',
               style: const TextStyle(
                 fontSize: 24,
-                fontWeight: FontWeight.w900,
+                fontWeight: FontWeight.w700,
                 color: SoriColors.primary,
               ),
             ),
@@ -255,13 +254,13 @@ Future<void> _showProfileCard(
           const SizedBox(height: 10),
           Text(
             isSelf ? '${m.nickname} (${t.gyeMemberSelf})' : m.nickname,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w900),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
           ),
           if (m.role == GyeRole.owner) ...[
             const SizedBox(height: 2),
             Text(
               '👑 ${t.gyeRoleOwner}',
-              style: TextStyle(fontSize: 12, color: s.textMuted),
+              style: SoriTextTheme.of(ctx).caption,
             ),
           ],
           const SizedBox(height: 16),
@@ -315,7 +314,7 @@ class _ProfileStat extends StatelessWidget {
         Text(
           label,
           style: TextStyle(
-            fontSize: 11.5,
+            fontSize: 13.5,
             fontWeight: FontWeight.w700,
             color: s.text,
           ),

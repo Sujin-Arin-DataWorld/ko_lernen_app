@@ -140,7 +140,14 @@ void main() {
     );
 
     expect(find.text('Euer Hof'), findsOneWidget);
-    expect(find.textContaining('Wochenziel-Daten'), findsOneWidget);
+    // §W-G G1.1: "Die Hofansicht folgt..." → 실제로 참여를 독려하는 문장으로
+    // 교체(같은 키 `gyeCourtyardBody`, ARB 값만 변경).
+    expect(
+      find.text(
+        'Euer Hof wächst mit jedem, der diese Woche seine Mission schafft.',
+      ),
+      findsOneWidget,
+    );
     expect(find.text('Mondhof'), findsOneWidget);
   });
 

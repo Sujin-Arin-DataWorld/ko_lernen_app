@@ -7,6 +7,7 @@ import '../controllers/listening_playback_controller.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/feedback_completion.dart';
 import '../models/scenario.dart';
+import '../motion/transitions.dart';
 import '../services/analytics_service.dart';
 import '../services/liked_content_service.dart';
 import '../services/quest_abandon_tracker.dart';
@@ -235,9 +236,9 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
     final current = candidates.indexWhere((item) => item.id == _scenario.id);
     final next = candidates[(current + 1) % candidates.length];
     await Navigator.of(context).pushReplacement(
-      MaterialPageRoute<void>(
+      SoriTransitions.page<void>(
+        (_) => ListeningPlayScreen(scenario: next),
         settings: const RouteSettings(name: '/listening/play'),
-        builder: (_) => ListeningPlayScreen(scenario: next),
       ),
     );
   }

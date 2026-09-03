@@ -641,7 +641,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
                 if (_turn == _Turn.user) ...[
                   Text(
                     t.kkeunmariStartHint(_required),
-                    style: TextStyle(
+                    style: SoriTextTheme.of(context).caption.copyWith(
                       color: s.textMuted,
                       fontSize: 13,
                       fontWeight: FontWeight.w600,
@@ -657,9 +657,9 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
                     enabled: !_dictionaryChecking,
                     textAlign: TextAlign.center,
                     hintText: t.kkeunmariInputHint,
-                    style: const TextStyle(
+                    style: SoriTextTheme.of(context).caption.copyWith(
                       fontSize: 22,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w700,
                     ),
                     onSubmitted: (_) => unawaited(_submit()),
                   ),
@@ -670,7 +670,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
                       child: Text(
                         _errorMsg,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
+                        style: SoriTextTheme.of(context).caption.copyWith(
                           color: SoriColors.danger,
                           fontSize: 13,
                           fontWeight: FontWeight.w600,
@@ -725,7 +725,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
                             MascotPreference.hasCompanion
                                 ? t.kkeunmariTigerTurn
                                 : t.companionNeutralThinking,
-                            style: const TextStyle(
+                            style: SoriTextTheme.of(context).caption.copyWith(
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
                               color: SoriColors.tiger,
@@ -796,9 +796,9 @@ class _ChainStrip extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(
               w.word,
-              style: TextStyle(
+              style: SoriTextTheme.of(context).caption.copyWith(
                 color: isLast ? SoriColors.accent : s.text,
-                fontWeight: isLast ? FontWeight.w800 : FontWeight.w600,
+                fontWeight: isLast ? FontWeight.w700 : FontWeight.w600,
                 fontSize: 13.5,
               ),
             ),
@@ -832,9 +832,9 @@ class _TurnIndicator extends StatelessWidget {
         Flexible(
           child: Text(
             isUser ? t.kkeunmariYourTurn : t.kkeunmariTigerTurn,
-            style: TextStyle(
+            style: SoriTextTheme.of(context).caption.copyWith(
               color: color,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w700,
               fontSize: 13.5,
             ),
           ),
@@ -874,9 +874,9 @@ class _Timer extends StatelessWidget {
           const SizedBox(width: Spacing.xs),
           Text(
             label,
-            style: TextStyle(
+            style: SoriTextTheme.of(context).caption.copyWith(
               color: color,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w700,
               fontSize: 13,
               // 카운트다운 자릿수 폭 고정(흔들림 방지).
               fontFeatures: const [FontFeature.tabularFigures()],
@@ -942,10 +942,10 @@ class _LastWordCard extends StatelessWidget {
                     ),
                     child: Text(
                       chars[i],
-                      style: TextStyle(
+                      style: SoriTextTheme.of(context).caption.copyWith(
                         color: isLast ? Colors.white : SoriColors.accent,
                         fontSize: 20,
-                        fontWeight: FontWeight.w900,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                   );
@@ -960,7 +960,7 @@ class _LastWordCard extends StatelessWidget {
             Text(
               word.german,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: SoriTextTheme.of(context).caption.copyWith(
                 color: s.textMuted,
                 fontSize: 13,
                 fontWeight: FontWeight.w500,
@@ -1046,17 +1046,17 @@ class _ResultCard extends StatelessWidget {
             const SizedBox(height: Spacing.md),
             Text(
               t.kkeunmariResultTitle,
-              style: TextStyle(
+              style: SoriTextTheme.of(context).caption.copyWith(
                 color: color,
                 fontSize: 22,
-                fontWeight: FontWeight.w900,
+                fontWeight: FontWeight.w700,
               ),
             ),
             const SizedBox(height: Spacing.xs),
             Text(
               reasonLabel,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: SoriTextTheme.of(context).caption.copyWith(
                 color: s.textMuted,
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
@@ -1087,9 +1087,9 @@ class _ResultCard extends StatelessWidget {
                   const SizedBox(width: 5),
                   Text(
                     t.gameNewBest,
-                    style: const TextStyle(
+                    style: SoriTextTheme.of(context).caption.copyWith(
                       fontSize: 14,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w700,
                       color: SoriColors.gold,
                     ),
                   ),

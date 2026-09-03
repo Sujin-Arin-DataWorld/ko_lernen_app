@@ -36,7 +36,9 @@ void main() {
     // 2026-08-14 Phase 3(§D~§F) 재실측: 40→35 (_StatTile w900 제거 포함).
     // 2026-08-17 카드 면 굵기 정리: 학습 카드 앞/뒷면을 Bold(700) 로 → 35→31.
     // 2026-08-19 재실측: 31→28.
-    _expectAtMost(sources, RegExp(r'FontWeight\.w900'), 28, 'FontWeight.w900');
+    // 2026-09-03 §A6: Paperlogy 는 400/500/600/700만 번들 — lib 전체 w900을
+    // w700으로 일괄 전환, 28→0.
+    _expectAtMost(sources, RegExp(r'FontWeight\.w900'), 0, 'FontWeight.w900');
   });
 
   test('FontWeight.w800 은 더 늘지 않는다', () {
@@ -55,7 +57,10 @@ void main() {
     // 2026-08-21 Phase 3A Vocab 결과 계층 토큰화: 98→95.
     // 2026-08-21 Phase 3C 누적 정본 재실측 + Smalltalk 시트 제목 토큰화: 86→85.
     // 2026-08-21 Phase 4A Settings 누적 정본 재실측 + 강조 토큰화: 85→80.
-    _expectAtMost(sources, RegExp(r'FontWeight\.w800'), 80, 'FontWeight.w800');
+    // 2026-09-03 §A6: 헤드라인(hero/display/h1/h2/numeral) 이 tokens.dart 에서
+    // Maru Buri w600 으로 이동, lib/screens/ 의 잔여 raw w800 을 전부 w700 으로
+    // 강등 — 실측 80→26. 상한은 §A6 지시대로 40 으로 래칫.
+    _expectAtMost(sources, RegExp(r'FontWeight\.w800'), 40, 'FontWeight.w800');
   });
 
   test("하드코딩 fontFamily: ' 문자열 리터럴은 0 이다 (SoriFonts.sans 사용)", () {
@@ -240,7 +245,8 @@ void main() {
       }
     }
     // 기준선 2026-08-27 첫 실행 실측: 115곳 / 15파일. 그 뒤로는 하향만.
-    const ceiling = 115;
+    // 2026-09-03 §A6: A5 12px 이하 리터럴 전수 교체로 자연 감소 — 90 으로 래칫.
+    const ceiling = 90;
     expect(
       total,
       lessThanOrEqualTo(ceiling),

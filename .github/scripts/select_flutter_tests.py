@@ -60,6 +60,10 @@ ALWAYS_ON_TESTS = (
     # 바뀌었고 nudge⇒onNudgePlayed 호출부 스캔도 들어 있어, import 그래프만으론
     # 정작 그 규약을 깨는 PR 에서 안 돈다.
     "test/deck_swipe_physics_test.dart",
+    # §LAYOUT-4(J14) 증거 PNG 매니페스트 — docs/screenshots/**의 5루트
+    # 파일 존재를 디렉터리 스캔으로 확인한다. 어떤 .dart도 import하지
+    # 않는 산출물(PNG)을 검사하므로 import 그래프로는 선택되지 않는다.
+    "test/sori_stage_evidence_manifest_test.dart",
 )
 
 _IMPORT_LINE = re.compile(r"^\s*(?:import|export|part)\s")

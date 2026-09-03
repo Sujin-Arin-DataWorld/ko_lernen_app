@@ -301,11 +301,6 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
       homeEscape: SoriHomeEscape(
         confirmWhen: !_done && (_index > 0 || _feedback != null),
       ),
-      leading: IconButton(
-        icon: const Icon(Icons.close),
-        tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
-        onPressed: () => Navigator.of(context).maybePop(),
-      ),
       actions: const [TtsSpeedAction()],
       child: LayoutBuilder(
         builder: (context, constraints) => SingleChildScrollView(

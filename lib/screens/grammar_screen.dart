@@ -531,7 +531,7 @@ class _GrammarScreenState extends State<GrammarScreen>
   void _openChoicePractice() {
     final initialLevel = _level == 'Alle' ? null : _level;
     Navigator.of(context).push(
-      SoriTransitions.fadeScale(
+      SoriTransitions.page(
         (_) => GrammarChoiceQuizScreen(initialLevel: initialLevel),
       ),
     );
@@ -1118,12 +1118,6 @@ class _GrammarScreenState extends State<GrammarScreen>
         },
         child: SoriStudyFrame(
           title: t.screenGrammarTitle,
-          leading: _hasActiveFilter
-              ? IconButton(
-                  icon: const BackButtonIcon(),
-                  onPressed: _clearFilters,
-                )
-              : null,
           child: SoriEmptyState(
             asset: 'assets/illustrations/mascot/magpie_wave.png',
             icon: Icons.menu_book_outlined,
@@ -1605,7 +1599,7 @@ class _CourseCheckpointFront extends StatelessWidget {
               Text(
                 t.courseCheckpointGrammarPrompt,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: SoriTextTheme.of(context).caption.copyWith(
                   fontSize: soriFillSize(h, 0.045, 16, 26),
                   fontWeight: FontWeight.w700,
                   color: s.text,
@@ -1619,7 +1613,7 @@ class _CourseCheckpointFront extends StatelessWidget {
             children: [
               SoriPhraseWrap(
                 g.exampleKorean,
-                style: TextStyle(
+                style: SoriTextTheme.of(context).caption.copyWith(
                   fontSize: soriFillSize(h, 0.09, 21, 48),
                   fontWeight: FontWeight.w700,
                   color: SoriColors.primary,
@@ -1631,7 +1625,7 @@ class _CourseCheckpointFront extends StatelessWidget {
                 Text(
                   g.exampleFor(lang),
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: SoriTextTheme.of(context).caption.copyWith(
                     fontSize: soriFillSize(h, 0.05, 13, 26),
                     color: s.textMuted,
                     fontStyle: FontStyle.italic,
@@ -1685,9 +1679,9 @@ class _Front extends StatelessWidget {
                   child: Text(
                     g.pattern,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: SoriTextTheme.of(context).caption.copyWith(
                       fontSize: soriFillSize(h, 0.16, 28, 72),
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w700,
                       color: SoriColors.primary,
                       height: 1.15,
                     ),
@@ -1697,7 +1691,7 @@ class _Front extends StatelessWidget {
                 SoriPhraseWrap(
                   copy.title.isEmpty ? g.typeFor(lang) : copy.title,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: SoriTextTheme.of(context).caption.copyWith(
                     fontSize: soriFillSize(h, 0.048, 14, 22),
                     color: s.textMuted,
                     fontWeight: FontWeight.w600,
@@ -1721,7 +1715,7 @@ class _Front extends StatelessWidget {
                   children: [
                     SoriPhraseWrap(
                       preview.korean,
-                      style: TextStyle(
+                      style: SoriTextTheme.of(context).caption.copyWith(
                         fontSize: soriFillSize(h, 0.07, 17, 32),
                         fontWeight: FontWeight.w700,
                         color: s.text,
@@ -1732,7 +1726,7 @@ class _Front extends StatelessWidget {
                       const SizedBox(height: 4),
                       SoriPhraseWrap(
                         preview.gloss,
-                        style: TextStyle(
+                        style: SoriTextTheme.of(context).caption.copyWith(
                           fontSize: soriFillSize(h, 0.045, 13, 20),
                           color: s.textMuted,
                           fontStyle: FontStyle.italic,
@@ -1746,7 +1740,7 @@ class _Front extends StatelessWidget {
             Text(
               t.hintTapForExplanation,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: SoriTextTheme.of(context).caption.copyWith(
                 fontSize: soriFillSize(h, 0.038, 12.5, 18),
                 color: s.textDim,
               ),
@@ -1839,9 +1833,9 @@ class _Back extends StatelessWidget {
                   child: Text(
                     g.pattern,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: SoriTextTheme.of(context).caption.copyWith(
                       fontSize: soriFillSize(h, 0.09, 20, 40),
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w700,
                       color: SoriColors.primary,
                     ),
                   ),
@@ -1851,7 +1845,7 @@ class _Back extends StatelessWidget {
                   SoriPhraseWrap(
                     copy.title,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: SoriTextTheme.of(context).caption.copyWith(
                       fontSize: soriFillSize(h, 0.042, 14, 20),
                       fontWeight: FontWeight.w600,
                       color: s.text,
@@ -1871,7 +1865,7 @@ class _Back extends StatelessWidget {
               SoriPhraseWrap(
                 copy.note,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: SoriTextTheme.of(context).caption.copyWith(
                   fontSize: soriFillSize(h, 0.038, 12.5, 18),
                   color: s.textMuted,
                   height: 1.4,
@@ -1906,7 +1900,7 @@ class _RuleExampleRow extends StatelessWidget {
           SoriPhraseWrap(
             rule,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: SoriTextTheme.of(context).caption.copyWith(
               fontSize: soriFillSize(h, 0.042, 14, 20),
               fontWeight: FontWeight.w700,
               color: SoriColors.primary,
@@ -1917,7 +1911,7 @@ class _RuleExampleRow extends StatelessWidget {
           const SizedBox(height: 4),
           SoriPhraseWrap(
             example!.korean,
-            style: TextStyle(
+            style: SoriTextTheme.of(context).caption.copyWith(
               fontSize: soriFillSize(h, 0.055, 16, 24),
               fontWeight: FontWeight.w700,
               color: s.text,
@@ -1928,7 +1922,7 @@ class _RuleExampleRow extends StatelessWidget {
             const SizedBox(height: 2),
             SoriPhraseWrap(
               example!.gloss,
-              style: TextStyle(
+              style: SoriTextTheme.of(context).caption.copyWith(
                 fontSize: soriFillSize(h, 0.04, 13, 18),
                 color: s.textMuted,
                 fontStyle: FontStyle.italic,

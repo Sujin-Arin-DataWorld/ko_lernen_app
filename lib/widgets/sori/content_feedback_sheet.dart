@@ -149,7 +149,7 @@ class _ContentFeedbackSheetState extends State<ContentFeedbackSheet> {
             key: const Key('feedback-validation-error'),
             style: const TextStyle(
               color: SoriColors.danger,
-              fontSize: 12,
+              fontSize: 13.5,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -550,10 +550,7 @@ class _ContentFeedbackSheetState extends State<ContentFeedbackSheet> {
           child: Text(
             l10n.testerFeedbackPrivacyReminder,
             key: const Key('feedback-privacy-reminder'),
-            style: TextStyle(
-              color: SoriSurfaces.of(context).textMuted,
-              fontSize: 12,
-            ),
+            style: SoriTextTheme.of(context).caption,
           ),
         ),
       ],

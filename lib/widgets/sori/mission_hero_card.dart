@@ -387,7 +387,7 @@ class _ProgressRing extends StatelessWidget {
             child: Text(
               '$pct%',
               style: SoriTextTheme.of(context).label.copyWith(
-                fontSize: 12,
+                fontSize: 13.5,
                 fontFeatures: const [FontFeature.tabularFigures()],
               ),
             ),
@@ -565,7 +565,7 @@ class _CourseBadge extends StatelessWidget {
                 t.homeCourseTitle,
                 style: SoriTextTheme.of(
                   context,
-                ).label.copyWith(fontSize: 11.5, color: SoriColors.goldOnLight),
+                ).label.copyWith(fontSize: 13.5, color: SoriColors.goldOnLight),
               ),
             ],
           ),

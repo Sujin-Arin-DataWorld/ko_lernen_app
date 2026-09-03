@@ -10,6 +10,7 @@ import 'package:ko_lernen_app/features/guide/today_guide_section.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/guide_contract.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
+import 'package:ko_lernen_app/motion/transitions.dart';
 import 'package:ko_lernen_app/services/analytics_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -158,6 +159,15 @@ void main() {
     await tester.pumpAndSettle();
     expect(openStates, [GuideTopicOpenState.firstOpen]);
     expect((await service.load()).hasOpened(GuideTopicId.settings), isTrue);
+    // §NAV-2(J4): openGuideTopicModule moved off SoriTransitions.fadeScale
+    // onto SoriTransitions.page — platform-native transition, no
+    // route-local reduceMotion override.
+    expect(
+      ModalRoute.of(
+        tester.element(find.byKey(const ValueKey('guide-module-step-1'))),
+      ),
+      isA<SoriPageRoute<dynamic>>(),
+    );
 
     Navigator.of(
       tester.element(find.byKey(const ValueKey('guide-module-step-1'))),

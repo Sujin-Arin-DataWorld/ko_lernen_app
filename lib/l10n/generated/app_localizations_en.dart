@@ -868,6 +868,9 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
+  String get settingsVersionCopied => 'Version info copied';
+
+  @override
   String get settingsPrivacyTitle => 'Privacy Policy';
 
   @override
@@ -1621,7 +1624,13 @@ class AppL10nEn extends AppL10n {
 
   @override
   String gyeMembersN(int count) {
-    return '$count members';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count members',
+      one: '1 member',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -5602,7 +5611,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get gyeCourtyardBody =>
-      'The courtyard visual follows the existing weekly goal data. It does not change anyone\'s personal course or hanok.';
+      'Your courtyard grows with everyone who completes this week\'s mission.';
 
   @override
   String get gyeSafeMessage => 'Send a safe message';
@@ -5905,6 +5914,16 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get settingsTutorialResetDone => 'Intro reset';
+
+  @override
+  String get settingsResetCulturalHints => 'Reset culture hints';
+
+  @override
+  String get settingsResetCulturalHintsSubtitle =>
+      'Show interior object hints again on your next visit';
+
+  @override
+  String get settingsResetCulturalHintsDone => 'Culture hints reset';
 
   @override
   String get navTourNext => 'Next';
@@ -7656,8 +7675,7 @@ class AppL10nEn extends AppL10n {
       'Finish A1 and A2. Your first B1 progress opens the full Hanok map.';
 
   @override
-  String get hanokWorldMapHint =>
-      'Tap a completed building to continue learning there.';
+  String get hanokWorldMapHint => 'Tap the map to open your hanok.';
 
   @override
   String get hanokWorldOpenSarangbang => 'Study in the Sarangbang';
@@ -7683,40 +7701,40 @@ class AppL10nEn extends AppL10n {
       'Choose an available place from this list.';
 
   @override
-  String get hanokMapPlaceSarangbang => '사랑방\nStudy today';
+  String get hanokMapPlaceSarangbang => 'Study today';
 
   @override
-  String get hanokMapPlaceDaecheong => '대청마루\nYour path';
+  String get hanokMapPlaceDaecheong => 'Your path';
 
   @override
-  String get hanokMapPlaceHaengrang => '행랑채\nPractice';
+  String get hanokMapPlaceHaengrang => 'Practice';
 
   @override
-  String get hanokMapPlaceAnchae => '안채\nWords';
+  String get hanokMapPlaceAnchae => 'Words';
 
   @override
-  String get hanokMapPlaceHuwon => '후원\nTasks';
+  String get hanokMapPlaceHuwon => 'Tasks';
 
   @override
-  String get hanokMapPlaceSadang => '사당\nAchievements';
+  String get hanokMapPlaceSadang => 'Achievements';
 
   @override
-  String get hanokZoneSarangbang => '사랑방 · Your scene today';
+  String get hanokZoneSarangbang => 'Your scene today';
 
   @override
-  String get hanokZoneDaecheong => '대청마루 · Your path';
+  String get hanokZoneDaecheong => 'Your path';
 
   @override
-  String get hanokZoneHaengrang => '행랑채 · Practice';
+  String get hanokZoneHaengrang => 'Practice';
 
   @override
-  String get hanokZoneAnchae => '안채 · My words';
+  String get hanokZoneAnchae => 'My words';
 
   @override
-  String get hanokZoneHuwon => '후원 · Tasks';
+  String get hanokZoneHuwon => 'Tasks';
 
   @override
-  String get hanokZoneSadang => '사당 · Achievements';
+  String get hanokZoneSadang => 'Achievements';
 
   @override
   String get hanokWorldPurposeSarangbang =>
@@ -8001,115 +8019,223 @@ class AppL10nEn extends AppL10n {
   String get personalRoomStampFallback => 'Dancheong stamp';
 
   @override
-  String get decorNameMunbangsau => 'Scholar\'s writing set (문방사우)';
+  String get decorNameMunbangsau => 'Scholar\'s writing set';
 
   @override
-  String get decorNameSeoan => 'Writing desk (서안)';
+  String get decorNameSeoan => 'Writing desk';
 
   @override
-  String get decorNameChaekgado => 'Bookshelf screen (책가도)';
+  String get decorNameChaekgado => 'Bookshelf screen';
 
   @override
-  String get decorNameGatBuchae => 'Hat and fan (갓·부채)';
+  String get decorNameGatBuchae => 'Hat and fan';
 
   @override
-  String get decorNameJagaeMungap => 'Mother-of-pearl chest (자개 문갑)';
+  String get decorNameJagaeMungap => 'Mother-of-pearl chest';
 
   @override
-  String get decorNameSoban => 'Tray table (소반)';
+  String get decorNameSoban => 'Tray table';
 
   @override
-  String get decorNameSagunjaMaehwa => 'Plum blossom scroll (매화)';
+  String get decorNameSagunjaMaehwa => 'Plum blossom scroll';
 
   @override
-  String get decorNameSagunjaNan => 'Orchid scroll (난초)';
+  String get decorNameSagunjaNan => 'Orchid scroll';
 
   @override
-  String get decorNameSagunjaGuk => 'Chrysanthemum scroll (국화)';
+  String get decorNameSagunjaGuk => 'Chrysanthemum scroll';
 
   @override
-  String get decorNameSagunjaJuk => 'Bamboo scroll (대나무)';
+  String get decorNameSagunjaJuk => 'Bamboo scroll';
 
   @override
-  String get decorNamePyeonaek => 'Name plaque (편액)';
+  String get decorNamePyeonaek => 'Name plaque';
 
   @override
-  String get decorNameJangdokdae => 'Jangdokdae (jar terrace)';
+  String get decorNameJangdokdae => 'Jar terrace';
 
   @override
-  String get decorNameMaehwa => 'Plum tree (매화)';
+  String get decorNameMaehwa => 'Plum tree';
 
   @override
-  String get decorNameSonamu => 'Old pine (노송)';
+  String get decorNameSonamu => 'Old pine';
 
   @override
-  String get decorNamePond => 'Pond & carp (연못)';
+  String get decorNamePond => 'Pond & carp';
 
   @override
-  String get decorNameSeokdeung => 'Stone lantern (장명등)';
+  String get decorNameSeokdeung => 'Stone lantern';
 
   @override
-  String get decorNamePunggyeong => 'Wind chime (풍경)';
+  String get decorNamePunggyeong => 'Wind chime';
 
   @override
-  String get decorNameDoldam => 'Stone wall (돌담)';
+  String get decorNameDoldam => 'Stone wall';
 
   @override
-  String get decorNameKkachiNest => 'Magpie nest (까치 둥지)';
+  String get decorNameKkachiNest => 'Magpie nest';
 
   @override
-  String get decorNameDokkaebiFire => 'Goblin fire (도깨비불)';
+  String get decorNameDokkaebiFire => 'Goblin fire';
 
   @override
-  String get decorNameSeollalFlag => 'Lunar New Year Yutnori (윷놀이)';
+  String get decorNameSeollalFlag => 'Lunar New Year Yutnori';
 
   @override
-  String get decorNameChuseokMoon => 'Chuseok full moon (보름달)';
+  String get decorNameChuseokMoon => 'Chuseok full moon';
 
   @override
-  String get decorNameHangeuldayPlaque => 'Hangul Day Sejong plaque (세종 편액)';
+  String get decorNameHangeuldayPlaque => 'Hangul Day Sejong plaque';
 
   @override
-  String get decorNameKite => 'Children\'s Day kite (연)';
+  String get decorNameKite => 'Children\'s Day kite';
 
   @override
-  String get decorNameSabangtakja => 'Open shelf stand (사방탁자)';
+  String get decorNameSabangtakja => 'Open shelf stand';
 
   @override
-  String get decorNameBoryoSet => 'Master\'s floor seat (보료)';
+  String get decorNameBoryoSet => 'Master\'s floor seat';
 
   @override
-  String get decorNameBangseokPair => 'Floor cushions (방석)';
+  String get decorNameBangseokPair => 'Floor cushions';
 
   @override
-  String get decorNameBandaji => 'Front-opening chest (반닫이)';
+  String get decorNameBandaji => 'Front-opening chest';
 
   @override
-  String get decorNameHwaro => 'Charcoal brazier (화로)';
+  String get decorNameHwaro => 'Charcoal brazier';
 
   @override
-  String get decorNameDeungjan => 'Oil lamp stand (등잔대)';
+  String get decorNameDeungjan => 'Oil lamp stand';
 
   @override
-  String get decorNameGeomungo => 'Geomungo zither (거문고)';
+  String get decorNameGeomungo => 'Geomungo zither';
 
   @override
-  String get decorNameBaduk => 'Baduk board (바둑판)';
+  String get decorNameBaduk => 'Baduk board';
 
   @override
-  String get decorNameMokchim => 'Wooden pillow (목침)';
+  String get decorNameMokchim => 'Wooden pillow';
 
   @override
-  String get decorNameByeongpungSmall => 'Two-panel screen (소병풍)';
+  String get decorNameByeongpungSmall => 'Two-panel screen';
 
   @override
-  String get decorNameGobi => 'Letter rack (고비)';
+  String get decorNameGobi => 'Letter rack';
 
   @override
-  String get decorNameHyangno => 'Incense burner (향로)';
+  String get decorNameHyangno => 'Incense burner';
 
   @override
   String get decorNameFallback => 'Decoration';
+
+  @override
+  String get decorTermMunbangsau => 'Munbangsau · 문방사우';
+
+  @override
+  String get decorTermSeoan => 'Seoan · 서안';
+
+  @override
+  String get decorTermChaekgado => 'Chaekgado · 책가도';
+
+  @override
+  String get decorTermGatBuchae => 'Gat-Buchae · 갓·부채';
+
+  @override
+  String get decorTermJagaeMungap => 'Jagae Mungap · 자개 문갑';
+
+  @override
+  String get decorTermSoban => 'Soban · 소반';
+
+  @override
+  String get decorTermSagunjaMaehwa => 'Maehwa · 매화';
+
+  @override
+  String get decorTermSagunjaNan => 'Nancho · 난초';
+
+  @override
+  String get decorTermSagunjaGuk => 'Gukhwa · 국화';
+
+  @override
+  String get decorTermSagunjaJuk => 'Daenamu · 대나무';
+
+  @override
+  String get decorTermPyeonaek => 'Pyeonaek · 편액';
+
+  @override
+  String get decorTermJangdokdae => 'Jangdokdae · 장독대';
+
+  @override
+  String get decorTermMaehwa => 'Maehwa · 매화';
+
+  @override
+  String get decorTermSonamu => 'Nosong · 노송';
+
+  @override
+  String get decorTermPond => 'Yeonmot · 연못';
+
+  @override
+  String get decorTermSeokdeung => 'Jangmyeongdeung · 장명등';
+
+  @override
+  String get decorTermPunggyeong => 'Punggyeong · 풍경';
+
+  @override
+  String get decorTermDoldam => 'Doldam · 돌담';
+
+  @override
+  String get decorTermKkachiNest => 'Kkachi-Dungji · 까치 둥지';
+
+  @override
+  String get decorTermDokkaebiFire => 'Dokkaebi-bul · 도깨비불';
+
+  @override
+  String get decorTermSeollalFlag => 'Yunnori · 윷놀이';
+
+  @override
+  String get decorTermChuseokMoon => 'Boreumdal · 보름달';
+
+  @override
+  String get decorTermHangeuldayPlaque => 'Sejong Pyeonaek · 세종 편액';
+
+  @override
+  String get decorTermKite => 'Yeon · 연';
+
+  @override
+  String get decorTermSabangtakja => 'Sabangtakja · 사방탁자';
+
+  @override
+  String get decorTermBoryoSet => 'Boryo · 보료';
+
+  @override
+  String get decorTermBangseokPair => 'Bangseok · 방석';
+
+  @override
+  String get decorTermBandaji => 'Bandaji · 반닫이';
+
+  @override
+  String get decorTermHwaro => 'Hwaro · 화로';
+
+  @override
+  String get decorTermDeungjan => 'Deungjandae · 등잔대';
+
+  @override
+  String get decorTermGeomungo => 'Geomungo · 거문고';
+
+  @override
+  String get decorTermBaduk => 'Badukpan · 바둑판';
+
+  @override
+  String get decorTermMokchim => 'Mokchim · 목침';
+
+  @override
+  String get decorTermByeongpungSmall => 'Sobyeongpung · 소병풍';
+
+  @override
+  String get decorTermGobi => 'Gobi · 고비';
+
+  @override
+  String get decorTermHyangno => 'Hyangno · 향로';
 
   @override
   String get stickerNameTigerCheer => 'Cheering tiger';
@@ -8419,6 +8545,42 @@ class AppL10nEn extends AppL10n {
   String get hanokStageNameJongga => 'Jongga estate';
 
   @override
+  String get hanokStageTermEmpty => 'Building site';
+
+  @override
+  String get hanokStageTermFoundation => 'Foundation';
+
+  @override
+  String get hanokStageTermPillars => 'Pillars';
+
+  @override
+  String get hanokStageTermBeams => 'Beams';
+
+  @override
+  String get hanokStageTermThatchRoof => 'Thatched roof';
+
+  @override
+  String get hanokStageTermTileRoofPartial => 'First roof tiles';
+
+  @override
+  String get hanokStageTermTileRoofComplete => 'Tiled roof';
+
+  @override
+  String get hanokStageTermDancheong => 'Dancheong · 단청';
+
+  @override
+  String get hanokStageTermGate => 'Gate';
+
+  @override
+  String get hanokStageTermWindows => 'Windows';
+
+  @override
+  String get hanokStageTermSideBuilding => 'Sarangchae · 사랑채';
+
+  @override
+  String get hanokStageTermJongga => 'Jongga · 종가';
+
+  @override
   String get soriStageBojagiTitle => 'A Bojagi is waiting';
 
   @override
@@ -8434,7 +8596,15 @@ class AppL10nEn extends AppL10n {
   String get soriStageNextPiece => 'Next building piece';
 
   @override
+  String soriStageHanokPieces(int built, int total) {
+    return '$built / $total pieces';
+  }
+
+  @override
   String get soriStageClosestQuests => 'Nearly complete';
+
+  @override
+  String get soriStageNextQuests => 'Up next';
 
   @override
   String get soriStageLearnTitle => 'Choose how you want to learn.';
@@ -8449,6 +8619,9 @@ class AppL10nEn extends AppL10n {
   @override
   String get soriStageGamesBody =>
       'See the XP, personal best, and related quest before you start.';
+
+  @override
+  String get soriStageContinueEyebrow => 'Continue with';
 
   @override
   String soriStageMinutes(int minutes) {
@@ -8469,11 +8642,10 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get soriStageHanokTitle => 'Build a home from what you can do.';
+  String get soriStageHanokTitle => 'Your hanok grows with you.';
 
   @override
-  String get soriStageHanokBody =>
-      'Seven permanent stages show exactly what is built and what opens next.';
+  String get soriStageHanokBody => 'Every word you learn builds here.';
 
   @override
   String get soriStageOpenMap => 'Open Hanok map';
@@ -8496,6 +8668,15 @@ class AppL10nEn extends AppL10n {
   @override
   String get soriStageGyeFlow =>
       'Mission complete → lantern → shared Hanok progress';
+
+  @override
+  String get gyeStepMission => 'Mission';
+
+  @override
+  String get gyeStepLantern => 'Lantern';
+
+  @override
+  String get gyeStepHanok => 'Shared hanok';
 
   @override
   String get pronunciationTitle => 'Pronunciation studio';
@@ -8666,9 +8847,6 @@ class AppL10nEn extends AppL10n {
   String get soriStageReceiptContinue => 'Continue';
 
   @override
-  String get soriStageActivityReady => 'Ready now';
-
-  @override
   String get soriStageBrandLabel => 'SORI STAGE';
 
   @override
@@ -8676,6 +8854,9 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get soriStageActivityCompleted => 'Completed';
+
+  @override
+  String get soriStageActivityNew => 'New';
 
   @override
   String soriStageActivityTitle(String activityId) {
@@ -8696,6 +8877,7 @@ class AppL10nEn extends AppL10n {
       'vocab_notebook': 'Vocab notebook',
       'bookshelf': 'Bookshelf',
       'word_search': 'Word search',
+      'my_words': 'My words',
       'daily_game': 'Daily challenge',
       'chosung': 'First-sound quiz',
       'syllable_cross': 'Syllable puzzle',
@@ -8731,6 +8913,7 @@ class AppL10nEn extends AppL10n {
           'Photograph your notebook and practice those exact words.',
       'bookshelf': 'Manage your pages and word lists.',
       'word_search': 'Find a word and its learning paths.',
+      'my_words': 'Search, shelf, and difficult words in one place.',
       'daily_game': 'A short mix for today.',
       'chosung': 'Recognize words from their first sounds.',
       'syllable_cross': 'Combine syllables and find words.',
@@ -8752,9 +8935,9 @@ class AppL10nEn extends AppL10n {
       'firstCompletion': 'On first completion',
       'finishSession': 'When you finish the session',
       'verifiedLearning': 'After verified learning',
-      'rewardXp': 'Learning XP',
-      'rewardQuest': 'Related quest',
-      'rewardHanok': 'Verified Hanok construction progress',
+      'rewardXp': 'XP',
+      'rewardQuest': 'Quest',
+      'rewardHanok': 'Hanok piece',
       'rewardStamp': 'Dojang stamp',
       'rewardBest': 'Personal best',
       'rewardNone': 'No direct reward',
@@ -10162,4 +10345,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get homeActionConfirmStay => 'Keep playing';
+
+  @override
+  String get closeActionLabel => 'Close';
 }

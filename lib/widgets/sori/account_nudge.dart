@@ -88,7 +88,7 @@ class _AccountNudgeSheetState extends State<_AccountNudgeSheet> {
           style: TextStyle(
             fontFamily: SoriFonts.sans,
             fontSize: 19,
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.w700,
             color: s.text,
             letterSpacing: -0.3,
           ),

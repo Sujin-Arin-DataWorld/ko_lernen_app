@@ -349,14 +349,14 @@ class _Painter extends CustomPainter {
         text: '$n',
         style: TextStyle(
           color: Colors.white,
-          fontSize: 11 * scale,
+          fontSize: 13 * scale,
           fontWeight: FontWeight.w800,
         ),
       ),
       textDirection: TextDirection.ltr,
     )..layout();
 
-    final r = 11 * scale;
+    final r = 13 * scale;
     canvas.drawCircle(pos, r, Paint()..color = color);
     tp.paint(canvas, pos - Offset(tp.width / 2, tp.height / 2));
   }

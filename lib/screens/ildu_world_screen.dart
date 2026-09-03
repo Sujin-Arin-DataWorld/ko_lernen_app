@@ -1466,10 +1466,13 @@ class _PlaceSheet extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: SafeArea(
         top: false,
+        // §W-A2: 캡션/h3/eyebrow 등 토큰 스케일 확대(§A3) 이후 이 고정 높이
+        // 시트가 32px 부족해 하단이 잘렸다 — 콘텐츠가 실제로 커진 만큼
+        // xxl(32) 만큼 늘린다(잘림 대신 시트를 키우는 쪽).
         child: SizedBox(
           height: showsTurntable
-              ? Spacing.xxxl * 9 + Spacing.sm
-              : Spacing.xxxl * 6,
+              ? Spacing.xxxl * 9 + Spacing.sm + Spacing.xxl
+              : Spacing.xxxl * 6 + Spacing.xxl,
           child: Padding(
             padding: const EdgeInsets.fromLTRB(
               Spacing.lg,

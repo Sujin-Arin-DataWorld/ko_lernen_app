@@ -10,6 +10,7 @@ import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/placed_decoration.dart';
 import '../widgets/sori/pressable.dart';
+import '../widgets/sori/sori_term.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
@@ -365,6 +366,7 @@ class _PickView extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: Spacing.md),
                     child: _CandidateCard(
                       slug: slug,
+                      culturalTermId: termId,
                       showCulturalHelp:
                           termId != null && shownTermIds.add(termId),
                       onTap: () => onPick(slug),
@@ -386,11 +388,13 @@ class _CandidateCard extends StatelessWidget {
   final String slug;
   final VoidCallback onTap;
   final bool showCulturalHelp;
+  final String? culturalTermId;
 
   const _CandidateCard({
     required this.slug,
     required this.onTap,
     required this.showCulturalHelp,
+    this.culturalTermId,
   });
 
   @override
@@ -399,6 +403,14 @@ class _CandidateCard extends StatelessWidget {
     final s = SoriSurfaces.of(context);
     final text = SoriTextTheme.of(context);
     final name = decorName(t, slug);
+    final term = decorTerm(t, slug);
+    final termId = culturalTermId;
+    // §W-C C3: the inline term line sits OUTSIDE the pick-tap Semantics/
+    // SoriPressable below, as a sibling — same reason the "?" help button
+    // is a sibling rather than nested inside it. Two independent
+    // GestureDetectors sharing one tap point would both fire, so a tap
+    // meant for "open the glossary" would also silently pick the candidate.
+    final showTerm = termId != null && term != name;
     return Container(
       key: ValueKey('bojagi-candidate-$slug'),
       decoration: BoxDecoration(
@@ -411,50 +423,69 @@ class _CandidateCard extends StatelessWidget {
           width: 1.5,
         ),
       ),
-      child: Row(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(
-            child: Semantics(
-              container: true,
-              button: true,
-              enabled: true,
-              label: t.bojagiChooseDecoration(name),
-              onTap: onTap,
-              excludeSemantics: true,
-              child: SoriPressable(
-                onTap: onTap,
-                haptic: SoriHaptic.selection,
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(
-                    Spacing.lg,
-                    Spacing.lg,
-                    showCulturalHelp ? Spacing.sm : Spacing.lg,
-                    Spacing.lg,
-                  ),
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: 64,
-                        height: 64,
-                        // 장식마다 세로 비율이 달라 폭만 주면 넘친다 — 시트와 같은 규약.
-                        child: FittedBox(
-                          fit: BoxFit.contain,
-                          child: SoriDecorationImage(slug: slug, size: 58),
-                        ),
+          Row(
+            children: [
+              Expanded(
+                child: Semantics(
+                  container: true,
+                  button: true,
+                  enabled: true,
+                  label: t.bojagiChooseDecoration(name),
+                  onTap: onTap,
+                  excludeSemantics: true,
+                  child: SoriPressable(
+                    onTap: onTap,
+                    haptic: SoriHaptic.selection,
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                        Spacing.lg,
+                        Spacing.lg,
+                        showCulturalHelp ? Spacing.sm : Spacing.lg,
+                        showTerm ? Spacing.xs : Spacing.lg,
                       ),
-                      const SizedBox(width: Spacing.lg),
-                      Expanded(child: Text(name, style: text.cardTitle)),
-                      Icon(Icons.chevron_right_rounded, color: s.textDim),
-                    ],
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 64,
+                            height: 64,
+                            // 장식마다 세로 비율이 달라 폭만 주면 넘친다 — 시트와 같은 규약.
+                            child: FittedBox(
+                              fit: BoxFit.contain,
+                              child: SoriDecorationImage(slug: slug, size: 58),
+                            ),
+                          ),
+                          const SizedBox(width: Spacing.lg),
+                          Expanded(child: Text(name, style: text.cardTitle)),
+                          Icon(Icons.chevron_right_rounded, color: s.textDim),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
+              if (showCulturalHelp)
+                Padding(
+                  padding: const EdgeInsetsDirectional.only(end: Spacing.sm),
+                  child: CulturalDecorationHelpButton(decorationSlug: slug),
+                ),
+            ],
           ),
-          if (showCulturalHelp)
+          if (showTerm)
             Padding(
-              padding: const EdgeInsetsDirectional.only(end: Spacing.sm),
-              child: CulturalDecorationHelpButton(decorationSlug: slug),
+              padding: const EdgeInsetsDirectional.only(
+                start: 64 + Spacing.lg + Spacing.lg,
+                end: Spacing.lg,
+                bottom: Spacing.sm,
+              ),
+              child: SoriTerm(
+                termId: termId,
+                text: term,
+                style: text.meta,
+                surface: 'bojagi_candidate',
+              ),
             ),
         ],
       ),

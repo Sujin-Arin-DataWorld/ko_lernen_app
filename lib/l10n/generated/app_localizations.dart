@@ -1579,6 +1579,12 @@ abstract class AppL10n {
   /// **'Version {v}'**
   String settingsVersion(Object v);
 
+  /// Snackbar shown after long-pressing the About row to copy the version+build+commit string (§RELEASE-2 J13).
+  ///
+  /// In de, this message translates to:
+  /// **'Versionsinfo kopiert'**
+  String get settingsVersionCopied;
+
   /// No description provided for @settingsPrivacyTitle.
   ///
   /// In de, this message translates to:
@@ -2878,7 +2884,7 @@ abstract class AppL10n {
   /// No description provided for @gyeMembersN.
   ///
   /// In de, this message translates to:
-  /// **'{count} Mitglieder'**
+  /// **'{count, plural, one{1 Mitglied} other{{count} Mitglieder}}'**
   String gyeMembersN(int count);
 
   /// No description provided for @gyeWeeklyGoal.
@@ -9753,7 +9759,7 @@ abstract class AppL10n {
   /// No description provided for @gyeCourtyardBody.
   ///
   /// In de, this message translates to:
-  /// **'Die Hofansicht folgt den vorhandenen Wochenziel-Daten. Sie ändert weder einen persönlichen Kurs noch ein persönliches Hanok.'**
+  /// **'Euer Hof wächst mit jedem, der diese Woche seine Mission schafft.'**
   String get gyeCourtyardBody;
 
   /// No description provided for @gyeSafeMessage.
@@ -10241,6 +10247,24 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Einführung zurückgesetzt'**
   String get settingsTutorialResetDone;
+
+  /// No description provided for @settingsResetCulturalHints.
+  ///
+  /// In de, this message translates to:
+  /// **'Kulturhinweise zurücksetzen'**
+  String get settingsResetCulturalHints;
+
+  /// No description provided for @settingsResetCulturalHintsSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Objekt-Hinweise in Innenräumen beim nächsten Besuch neu anzeigen'**
+  String get settingsResetCulturalHintsSubtitle;
+
+  /// No description provided for @settingsResetCulturalHintsDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Kulturhinweise zurückgesetzt'**
+  String get settingsResetCulturalHintsDone;
 
   /// No description provided for @navTourNext.
   ///
@@ -13311,7 +13335,7 @@ abstract class AppL10n {
   /// No description provided for @hanokWorldMapHint.
   ///
   /// In de, this message translates to:
-  /// **'Tippe auf ein gebautes Gebäude, um dort weiterzulernen.'**
+  /// **'Tippe auf die Karte, um dein Hanok zu öffnen.'**
   String get hanokWorldMapHint;
 
   /// No description provided for @hanokWorldOpenSarangbang.
@@ -13359,73 +13383,73 @@ abstract class AppL10n {
   /// No description provided for @hanokMapPlaceSarangbang.
   ///
   /// In de, this message translates to:
-  /// **'사랑방\nHeute lernen'**
+  /// **'Heute lernen'**
   String get hanokMapPlaceSarangbang;
 
   /// No description provided for @hanokMapPlaceDaecheong.
   ///
   /// In de, this message translates to:
-  /// **'대청마루\nDein Weg'**
+  /// **'Dein Weg'**
   String get hanokMapPlaceDaecheong;
 
   /// No description provided for @hanokMapPlaceHaengrang.
   ///
   /// In de, this message translates to:
-  /// **'행랑채\nÜben'**
+  /// **'Üben'**
   String get hanokMapPlaceHaengrang;
 
   /// No description provided for @hanokMapPlaceAnchae.
   ///
   /// In de, this message translates to:
-  /// **'안채\nWörter'**
+  /// **'Wörter'**
   String get hanokMapPlaceAnchae;
 
   /// No description provided for @hanokMapPlaceHuwon.
   ///
   /// In de, this message translates to:
-  /// **'후원\nAufgaben'**
+  /// **'Aufgaben'**
   String get hanokMapPlaceHuwon;
 
   /// No description provided for @hanokMapPlaceSadang.
   ///
   /// In de, this message translates to:
-  /// **'사당\nErfolge'**
+  /// **'Erfolge'**
   String get hanokMapPlaceSadang;
 
   /// No description provided for @hanokZoneSarangbang.
   ///
   /// In de, this message translates to:
-  /// **'사랑방 · Deine heutige Szene'**
+  /// **'Deine heutige Szene'**
   String get hanokZoneSarangbang;
 
   /// No description provided for @hanokZoneDaecheong.
   ///
   /// In de, this message translates to:
-  /// **'대청마루 · Dein Weg'**
+  /// **'Dein Weg'**
   String get hanokZoneDaecheong;
 
   /// No description provided for @hanokZoneHaengrang.
   ///
   /// In de, this message translates to:
-  /// **'행랑채 · Üben'**
+  /// **'Üben'**
   String get hanokZoneHaengrang;
 
   /// No description provided for @hanokZoneAnchae.
   ///
   /// In de, this message translates to:
-  /// **'안채 · Meine Wörter'**
+  /// **'Meine Wörter'**
   String get hanokZoneAnchae;
 
   /// No description provided for @hanokZoneHuwon.
   ///
   /// In de, this message translates to:
-  /// **'후원 · Aufgaben'**
+  /// **'Aufgaben'**
   String get hanokZoneHuwon;
 
   /// No description provided for @hanokZoneSadang.
   ///
   /// In de, this message translates to:
-  /// **'사당 · Erfolge'**
+  /// **'Erfolge'**
   String get hanokZoneSadang;
 
   /// No description provided for @hanokWorldPurposeSarangbang.
@@ -13869,217 +13893,217 @@ abstract class AppL10n {
   /// No description provided for @decorNameMunbangsau.
   ///
   /// In de, this message translates to:
-  /// **'Schreibzeug (문방사우)'**
+  /// **'Schreibzeug'**
   String get decorNameMunbangsau;
 
   /// No description provided for @decorNameSeoan.
   ///
   /// In de, this message translates to:
-  /// **'Schreibpult (서안)'**
+  /// **'Schreibpult'**
   String get decorNameSeoan;
 
   /// No description provided for @decorNameChaekgado.
   ///
   /// In de, this message translates to:
-  /// **'Bücherwand-Wandschirm (책가도)'**
+  /// **'Bücherwand-Wandschirm'**
   String get decorNameChaekgado;
 
   /// No description provided for @decorNameGatBuchae.
   ///
   /// In de, this message translates to:
-  /// **'Hut und Fächer (갓·부채)'**
+  /// **'Hut und Fächer'**
   String get decorNameGatBuchae;
 
   /// No description provided for @decorNameJagaeMungap.
   ///
   /// In de, this message translates to:
-  /// **'Perlmutt-Truhe (자개 문갑)'**
+  /// **'Perlmutt-Truhe'**
   String get decorNameJagaeMungap;
 
   /// No description provided for @decorNameSoban.
   ///
   /// In de, this message translates to:
-  /// **'Tabletttisch (소반)'**
+  /// **'Tabletttisch'**
   String get decorNameSoban;
 
   /// No description provided for @decorNameSagunjaMaehwa.
   ///
   /// In de, this message translates to:
-  /// **'Pflaumenblüten-Bild (매화)'**
+  /// **'Pflaumenblüten-Bild'**
   String get decorNameSagunjaMaehwa;
 
   /// No description provided for @decorNameSagunjaNan.
   ///
   /// In de, this message translates to:
-  /// **'Orchideen-Bild (난초)'**
+  /// **'Orchideen-Bild'**
   String get decorNameSagunjaNan;
 
   /// No description provided for @decorNameSagunjaGuk.
   ///
   /// In de, this message translates to:
-  /// **'Chrysanthemen-Bild (국화)'**
+  /// **'Chrysanthemen-Bild'**
   String get decorNameSagunjaGuk;
 
   /// No description provided for @decorNameSagunjaJuk.
   ///
   /// In de, this message translates to:
-  /// **'Bambus-Bild (대나무)'**
+  /// **'Bambus-Bild'**
   String get decorNameSagunjaJuk;
 
   /// No description provided for @decorNamePyeonaek.
   ///
   /// In de, this message translates to:
-  /// **'Namenstafel (편액)'**
+  /// **'Namenstafel'**
   String get decorNamePyeonaek;
 
   /// No description provided for @decorNameJangdokdae.
   ///
   /// In de, this message translates to:
-  /// **'Jangdokdae (Krugterrasse)'**
+  /// **'Krugterrasse'**
   String get decorNameJangdokdae;
 
   /// No description provided for @decorNameMaehwa.
   ///
   /// In de, this message translates to:
-  /// **'Pflaumenbaum (매화)'**
+  /// **'Pflaumenbaum'**
   String get decorNameMaehwa;
 
   /// No description provided for @decorNameSonamu.
   ///
   /// In de, this message translates to:
-  /// **'Alte Kiefer (노송)'**
+  /// **'Alte Kiefer'**
   String get decorNameSonamu;
 
   /// No description provided for @decorNamePond.
   ///
   /// In de, this message translates to:
-  /// **'Teich & Karpfen (연못)'**
+  /// **'Teich & Karpfen'**
   String get decorNamePond;
 
   /// No description provided for @decorNameSeokdeung.
   ///
   /// In de, this message translates to:
-  /// **'Steinlaterne (장명등)'**
+  /// **'Steinlaterne'**
   String get decorNameSeokdeung;
 
   /// No description provided for @decorNamePunggyeong.
   ///
   /// In de, this message translates to:
-  /// **'Windspiel (풍경)'**
+  /// **'Windspiel'**
   String get decorNamePunggyeong;
 
   /// No description provided for @decorNameDoldam.
   ///
   /// In de, this message translates to:
-  /// **'Steinmauer (돌담)'**
+  /// **'Steinmauer'**
   String get decorNameDoldam;
 
   /// No description provided for @decorNameKkachiNest.
   ///
   /// In de, this message translates to:
-  /// **'Elsternnest (까치 둥지)'**
+  /// **'Elsternnest'**
   String get decorNameKkachiNest;
 
   /// No description provided for @decorNameDokkaebiFire.
   ///
   /// In de, this message translates to:
-  /// **'Irrlicht (도깨비불)'**
+  /// **'Irrlicht'**
   String get decorNameDokkaebiFire;
 
   /// No description provided for @decorNameSeollalFlag.
   ///
   /// In de, this message translates to:
-  /// **'Seollal-Yutspiel (윷놀이)'**
+  /// **'Seollal-Yutspiel'**
   String get decorNameSeollalFlag;
 
   /// No description provided for @decorNameChuseokMoon.
   ///
   /// In de, this message translates to:
-  /// **'Chuseok-Vollmond (보름달)'**
+  /// **'Chuseok-Vollmond'**
   String get decorNameChuseokMoon;
 
   /// No description provided for @decorNameHangeuldayPlaque.
   ///
   /// In de, this message translates to:
-  /// **'Hangul-Tag Sejong-Tafel (세종 편액)'**
+  /// **'Hangul-Tag Sejong-Tafel'**
   String get decorNameHangeuldayPlaque;
 
   /// No description provided for @decorNameKite.
   ///
   /// In de, this message translates to:
-  /// **'Kinder-Tag Drachen (연)'**
+  /// **'Kinder-Tag Drachen'**
   String get decorNameKite;
 
   /// No description provided for @decorNameSabangtakja.
   ///
   /// In de, this message translates to:
-  /// **'Regal (사방탁자)'**
+  /// **'Regal'**
   String get decorNameSabangtakja;
 
   /// No description provided for @decorNameBoryoSet.
   ///
   /// In de, this message translates to:
-  /// **'Sitzpolster-Set (보료)'**
+  /// **'Sitzpolster-Set'**
   String get decorNameBoryoSet;
 
   /// No description provided for @decorNameBangseokPair.
   ///
   /// In de, this message translates to:
-  /// **'Sitzkissen (방석)'**
+  /// **'Sitzkissen'**
   String get decorNameBangseokPair;
 
   /// No description provided for @decorNameBandaji.
   ///
   /// In de, this message translates to:
-  /// **'Klapptruhe (반닫이)'**
+  /// **'Klapptruhe'**
   String get decorNameBandaji;
 
   /// No description provided for @decorNameHwaro.
   ///
   /// In de, this message translates to:
-  /// **'Kohlebecken (화로)'**
+  /// **'Kohlebecken'**
   String get decorNameHwaro;
 
   /// No description provided for @decorNameDeungjan.
   ///
   /// In de, this message translates to:
-  /// **'Öllampe (등잔대)'**
+  /// **'Öllampe'**
   String get decorNameDeungjan;
 
   /// No description provided for @decorNameGeomungo.
   ///
   /// In de, this message translates to:
-  /// **'Geomungo-Zither (거문고)'**
+  /// **'Geomungo-Zither'**
   String get decorNameGeomungo;
 
   /// No description provided for @decorNameBaduk.
   ///
   /// In de, this message translates to:
-  /// **'Baduk-Brett (바둑판)'**
+  /// **'Baduk-Brett'**
   String get decorNameBaduk;
 
   /// No description provided for @decorNameMokchim.
   ///
   /// In de, this message translates to:
-  /// **'Holzkissen (목침)'**
+  /// **'Holzkissen'**
   String get decorNameMokchim;
 
   /// No description provided for @decorNameByeongpungSmall.
   ///
   /// In de, this message translates to:
-  /// **'Kleiner Wandschirm (소병풍)'**
+  /// **'Kleiner Wandschirm'**
   String get decorNameByeongpungSmall;
 
   /// No description provided for @decorNameGobi.
   ///
   /// In de, this message translates to:
-  /// **'Briefhalter (고비)'**
+  /// **'Briefhalter'**
   String get decorNameGobi;
 
   /// No description provided for @decorNameHyangno.
   ///
   /// In de, this message translates to:
-  /// **'Räuchergefäß (향로)'**
+  /// **'Räuchergefäß'**
   String get decorNameHyangno;
 
   /// No description provided for @decorNameFallback.
@@ -14087,6 +14111,222 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Dekoration'**
   String get decorNameFallback;
+
+  /// No description provided for @decorTermMunbangsau.
+  ///
+  /// In de, this message translates to:
+  /// **'Munbangsau · 문방사우'**
+  String get decorTermMunbangsau;
+
+  /// No description provided for @decorTermSeoan.
+  ///
+  /// In de, this message translates to:
+  /// **'Seoan · 서안'**
+  String get decorTermSeoan;
+
+  /// No description provided for @decorTermChaekgado.
+  ///
+  /// In de, this message translates to:
+  /// **'Chaekgado · 책가도'**
+  String get decorTermChaekgado;
+
+  /// No description provided for @decorTermGatBuchae.
+  ///
+  /// In de, this message translates to:
+  /// **'Gat-Buchae · 갓·부채'**
+  String get decorTermGatBuchae;
+
+  /// No description provided for @decorTermJagaeMungap.
+  ///
+  /// In de, this message translates to:
+  /// **'Jagae Mungap · 자개 문갑'**
+  String get decorTermJagaeMungap;
+
+  /// No description provided for @decorTermSoban.
+  ///
+  /// In de, this message translates to:
+  /// **'Soban · 소반'**
+  String get decorTermSoban;
+
+  /// No description provided for @decorTermSagunjaMaehwa.
+  ///
+  /// In de, this message translates to:
+  /// **'Maehwa · 매화'**
+  String get decorTermSagunjaMaehwa;
+
+  /// No description provided for @decorTermSagunjaNan.
+  ///
+  /// In de, this message translates to:
+  /// **'Nancho · 난초'**
+  String get decorTermSagunjaNan;
+
+  /// No description provided for @decorTermSagunjaGuk.
+  ///
+  /// In de, this message translates to:
+  /// **'Gukhwa · 국화'**
+  String get decorTermSagunjaGuk;
+
+  /// No description provided for @decorTermSagunjaJuk.
+  ///
+  /// In de, this message translates to:
+  /// **'Daenamu · 대나무'**
+  String get decorTermSagunjaJuk;
+
+  /// No description provided for @decorTermPyeonaek.
+  ///
+  /// In de, this message translates to:
+  /// **'Pyeonaek · 편액'**
+  String get decorTermPyeonaek;
+
+  /// No description provided for @decorTermJangdokdae.
+  ///
+  /// In de, this message translates to:
+  /// **'Jangdokdae · 장독대'**
+  String get decorTermJangdokdae;
+
+  /// No description provided for @decorTermMaehwa.
+  ///
+  /// In de, this message translates to:
+  /// **'Maehwa · 매화'**
+  String get decorTermMaehwa;
+
+  /// No description provided for @decorTermSonamu.
+  ///
+  /// In de, this message translates to:
+  /// **'Nosong · 노송'**
+  String get decorTermSonamu;
+
+  /// No description provided for @decorTermPond.
+  ///
+  /// In de, this message translates to:
+  /// **'Yeonmot · 연못'**
+  String get decorTermPond;
+
+  /// No description provided for @decorTermSeokdeung.
+  ///
+  /// In de, this message translates to:
+  /// **'Jangmyeongdeung · 장명등'**
+  String get decorTermSeokdeung;
+
+  /// No description provided for @decorTermPunggyeong.
+  ///
+  /// In de, this message translates to:
+  /// **'Punggyeong · 풍경'**
+  String get decorTermPunggyeong;
+
+  /// No description provided for @decorTermDoldam.
+  ///
+  /// In de, this message translates to:
+  /// **'Doldam · 돌담'**
+  String get decorTermDoldam;
+
+  /// No description provided for @decorTermKkachiNest.
+  ///
+  /// In de, this message translates to:
+  /// **'Kkachi-Dungji · 까치 둥지'**
+  String get decorTermKkachiNest;
+
+  /// No description provided for @decorTermDokkaebiFire.
+  ///
+  /// In de, this message translates to:
+  /// **'Dokkaebi-bul · 도깨비불'**
+  String get decorTermDokkaebiFire;
+
+  /// No description provided for @decorTermSeollalFlag.
+  ///
+  /// In de, this message translates to:
+  /// **'Yunnori · 윷놀이'**
+  String get decorTermSeollalFlag;
+
+  /// No description provided for @decorTermChuseokMoon.
+  ///
+  /// In de, this message translates to:
+  /// **'Boreumdal · 보름달'**
+  String get decorTermChuseokMoon;
+
+  /// No description provided for @decorTermHangeuldayPlaque.
+  ///
+  /// In de, this message translates to:
+  /// **'Sejong Pyeonaek · 세종 편액'**
+  String get decorTermHangeuldayPlaque;
+
+  /// No description provided for @decorTermKite.
+  ///
+  /// In de, this message translates to:
+  /// **'Yeon · 연'**
+  String get decorTermKite;
+
+  /// No description provided for @decorTermSabangtakja.
+  ///
+  /// In de, this message translates to:
+  /// **'Sabangtakja · 사방탁자'**
+  String get decorTermSabangtakja;
+
+  /// No description provided for @decorTermBoryoSet.
+  ///
+  /// In de, this message translates to:
+  /// **'Boryo · 보료'**
+  String get decorTermBoryoSet;
+
+  /// No description provided for @decorTermBangseokPair.
+  ///
+  /// In de, this message translates to:
+  /// **'Bangseok · 방석'**
+  String get decorTermBangseokPair;
+
+  /// No description provided for @decorTermBandaji.
+  ///
+  /// In de, this message translates to:
+  /// **'Bandaji · 반닫이'**
+  String get decorTermBandaji;
+
+  /// No description provided for @decorTermHwaro.
+  ///
+  /// In de, this message translates to:
+  /// **'Hwaro · 화로'**
+  String get decorTermHwaro;
+
+  /// No description provided for @decorTermDeungjan.
+  ///
+  /// In de, this message translates to:
+  /// **'Deungjandae · 등잔대'**
+  String get decorTermDeungjan;
+
+  /// No description provided for @decorTermGeomungo.
+  ///
+  /// In de, this message translates to:
+  /// **'Geomungo · 거문고'**
+  String get decorTermGeomungo;
+
+  /// No description provided for @decorTermBaduk.
+  ///
+  /// In de, this message translates to:
+  /// **'Badukpan · 바둑판'**
+  String get decorTermBaduk;
+
+  /// No description provided for @decorTermMokchim.
+  ///
+  /// In de, this message translates to:
+  /// **'Mokchim · 목침'**
+  String get decorTermMokchim;
+
+  /// No description provided for @decorTermByeongpungSmall.
+  ///
+  /// In de, this message translates to:
+  /// **'Sobyeongpung · 소병풍'**
+  String get decorTermByeongpungSmall;
+
+  /// No description provided for @decorTermGobi.
+  ///
+  /// In de, this message translates to:
+  /// **'Gobi · 고비'**
+  String get decorTermGobi;
+
+  /// No description provided for @decorTermHyangno.
+  ///
+  /// In de, this message translates to:
+  /// **'Hyangno · 향로'**
+  String get decorTermHyangno;
 
   /// No description provided for @stickerNameTigerCheer.
   ///
@@ -14676,6 +14916,78 @@ abstract class AppL10n {
   /// **'Jongga-Haus'**
   String get hanokStageNameJongga;
 
+  /// No description provided for @hanokStageTermEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Bauplatz'**
+  String get hanokStageTermEmpty;
+
+  /// No description provided for @hanokStageTermFoundation.
+  ///
+  /// In de, this message translates to:
+  /// **'Fundament'**
+  String get hanokStageTermFoundation;
+
+  /// No description provided for @hanokStageTermPillars.
+  ///
+  /// In de, this message translates to:
+  /// **'Säulen'**
+  String get hanokStageTermPillars;
+
+  /// No description provided for @hanokStageTermBeams.
+  ///
+  /// In de, this message translates to:
+  /// **'Balken'**
+  String get hanokStageTermBeams;
+
+  /// No description provided for @hanokStageTermThatchRoof.
+  ///
+  /// In de, this message translates to:
+  /// **'Strohdach'**
+  String get hanokStageTermThatchRoof;
+
+  /// No description provided for @hanokStageTermTileRoofPartial.
+  ///
+  /// In de, this message translates to:
+  /// **'Erste Ziegel'**
+  String get hanokStageTermTileRoofPartial;
+
+  /// No description provided for @hanokStageTermTileRoofComplete.
+  ///
+  /// In de, this message translates to:
+  /// **'Ziegeldach'**
+  String get hanokStageTermTileRoofComplete;
+
+  /// No description provided for @hanokStageTermDancheong.
+  ///
+  /// In de, this message translates to:
+  /// **'Dancheong · 단청'**
+  String get hanokStageTermDancheong;
+
+  /// No description provided for @hanokStageTermGate.
+  ///
+  /// In de, this message translates to:
+  /// **'Tor'**
+  String get hanokStageTermGate;
+
+  /// No description provided for @hanokStageTermWindows.
+  ///
+  /// In de, this message translates to:
+  /// **'Fenster'**
+  String get hanokStageTermWindows;
+
+  /// No description provided for @hanokStageTermSideBuilding.
+  ///
+  /// In de, this message translates to:
+  /// **'Sarangchae · 사랑채'**
+  String get hanokStageTermSideBuilding;
+
+  /// No description provided for @hanokStageTermJongga.
+  ///
+  /// In de, this message translates to:
+  /// **'Jongga · 종가'**
+  String get hanokStageTermJongga;
+
   /// No description provided for @soriStageBojagiTitle.
   ///
   /// In de, this message translates to:
@@ -14706,11 +15018,23 @@ abstract class AppL10n {
   /// **'Nächstes Bauteil'**
   String get soriStageNextPiece;
 
+  /// No description provided for @soriStageHanokPieces.
+  ///
+  /// In de, this message translates to:
+  /// **'{built} / {total} Bauteile'**
+  String soriStageHanokPieces(int built, int total);
+
   /// No description provided for @soriStageClosestQuests.
   ///
   /// In de, this message translates to:
   /// **'Fast geschafft'**
   String get soriStageClosestQuests;
+
+  /// No description provided for @soriStageNextQuests.
+  ///
+  /// In de, this message translates to:
+  /// **'Als Nächstes'**
+  String get soriStageNextQuests;
 
   /// No description provided for @soriStageLearnTitle.
   ///
@@ -14735,6 +15059,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Sieh XP, Bestleistung und passende Quest, bevor du startest.'**
   String get soriStageGamesBody;
+
+  /// No description provided for @soriStageContinueEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiter mit'**
+  String get soriStageContinueEyebrow;
 
   /// No description provided for @soriStageMinutes.
   ///
@@ -14763,13 +15093,13 @@ abstract class AppL10n {
   /// No description provided for @soriStageHanokTitle.
   ///
   /// In de, this message translates to:
-  /// **'Baue ein Zuhause aus dem, was du kannst.'**
+  /// **'Dein Hanok wächst mit dir.'**
   String get soriStageHanokTitle;
 
   /// No description provided for @soriStageHanokBody.
   ///
   /// In de, this message translates to:
-  /// **'Sieben dauerhafte Stufen zeigen genau, was gebaut ist und was als Nächstes öffnet.'**
+  /// **'Jedes Wort baut hier weiter.'**
   String get soriStageHanokBody;
 
   /// No description provided for @soriStageOpenMap.
@@ -14813,6 +15143,24 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Mission abschließen → Laterne → gemeinsame Hanok'**
   String get soriStageGyeFlow;
+
+  /// No description provided for @gyeStepMission.
+  ///
+  /// In de, this message translates to:
+  /// **'Mission'**
+  String get gyeStepMission;
+
+  /// No description provided for @gyeStepLantern.
+  ///
+  /// In de, this message translates to:
+  /// **'Laterne'**
+  String get gyeStepLantern;
+
+  /// No description provided for @gyeStepHanok.
+  ///
+  /// In de, this message translates to:
+  /// **'Gemeinsame Hanok'**
+  String get gyeStepHanok;
 
   /// No description provided for @pronunciationTitle.
   ///
@@ -15108,12 +15456,6 @@ abstract class AppL10n {
   /// **'Weiter'**
   String get soriStageReceiptContinue;
 
-  /// No description provided for @soriStageActivityReady.
-  ///
-  /// In de, this message translates to:
-  /// **'Jetzt verfügbar'**
-  String get soriStageActivityReady;
-
   /// No description provided for @soriStageBrandLabel.
   ///
   /// In de, this message translates to:
@@ -15132,22 +15474,28 @@ abstract class AppL10n {
   /// **'Abgeschlossen'**
   String get soriStageActivityCompleted;
 
+  /// No description provided for @soriStageActivityNew.
+  ///
+  /// In de, this message translates to:
+  /// **'Neu'**
+  String get soriStageActivityNew;
+
   /// No description provided for @soriStageActivityTitle.
   ///
   /// In de, this message translates to:
-  /// **'{activityId, select, course{Kurs} hangul{Hangul} calligraphy{Buchstabe des Tages} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{Wiederholen} hard_words{Schwierige Wörter} word_web{Nuancen & Gegenteile} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} vocab_notebook{Vokabelheft} bookshelf{Bücherregal} word_search{Wortsuche} daily_game{Tageschallenge} chosung{Anlaut-Quiz} syllable_cross{Silben-Rätsel} cloze{Lückentext} speed_match{Blitz-Paare} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_quiz{Eigenes Quiz} custom_matching{Eigenes Matching} custom_typing{Eigenes Tippen} other{Lernaktivität}}}'**
+  /// **'{activityId, select, course{Kurs} hangul{Hangul} calligraphy{Buchstabe des Tages} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{Wiederholen} hard_words{Schwierige Wörter} word_web{Nuancen & Gegenteile} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} vocab_notebook{Vokabelheft} bookshelf{Bücherregal} word_search{Wortsuche} my_words{Meine Wörter} daily_game{Tageschallenge} chosung{Anlaut-Quiz} syllable_cross{Silben-Rätsel} cloze{Lückentext} speed_match{Blitz-Paare} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_quiz{Eigenes Quiz} custom_matching{Eigenes Matching} custom_typing{Eigenes Tippen} other{Lernaktivität}}}'**
   String soriStageActivityTitle(String activityId);
 
   /// No description provided for @soriStageActivityDescription.
   ///
   /// In de, this message translates to:
-  /// **'{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Jeden Tag ein Schriftzeichen entdecken.} pronunciation{Hören, nachsprechen und auf Wunsch bewerten.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Wörter genau im richtigen Moment auffrischen.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} word_web{Synonyme, Gegenteile und Wendungen zu deinen Wörtern.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} vocab_notebook{Dein Heft fotografieren und genau diese Wörter üben.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_quiz{Ein Wortpaket im Bücherregal auswählen.} custom_matching{Deine Wörter als Paare festigen.} custom_typing{Deine Wörter aktiv aus dem Gedächtnis holen.} other{Weiterlernen.}}}'**
+  /// **'{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Jeden Tag ein Schriftzeichen entdecken.} pronunciation{Hören, nachsprechen und auf Wunsch bewerten.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Wörter genau im richtigen Moment auffrischen.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} word_web{Synonyme, Gegenteile und Wendungen zu deinen Wörtern.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} vocab_notebook{Dein Heft fotografieren und genau diese Wörter üben.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} my_words{Suchen, Regal und schwierige Wörter an einem Ort.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_quiz{Ein Wortpaket im Bücherregal auswählen.} custom_matching{Deine Wörter als Paare festigen.} custom_typing{Deine Wörter aktiv aus dem Gedächtnis holen.} other{Weiterlernen.}}}'**
   String soriStageActivityDescription(String activityId);
 
   /// No description provided for @soriStageCatalogCopy.
   ///
   /// In de, this message translates to:
-  /// **'{copyKey, select, firstCompletion{Beim ersten Abschluss} finishSession{Wenn du die Runde abschließt} verifiedLearning{Nach einem bestätigten Lernerfolg} rewardXp{Lern-XP} rewardQuest{Passende Quest} rewardHanok{Verifizierter Hanok-Baufortschritt} rewardStamp{Dojang-Stempel} rewardBest{Persönliche Bestleistung} rewardNone{Keine direkte Belohnung} rewardQuestProgress{Quest-Fortschritt} rewardHanokPiece{Neues Hanok-Bauteil} rewardBojagi{Bojagi} rewardGyeLantern{Gye-Laterne} other{Belohnung}}}'**
+  /// **'{copyKey, select, firstCompletion{Beim ersten Abschluss} finishSession{Wenn du die Runde abschließt} verifiedLearning{Nach einem bestätigten Lernerfolg} rewardXp{Lern-XP} rewardQuest{Quest} rewardHanok{Hanok-Bauteil} rewardStamp{Dojang-Stempel} rewardBest{Persönliche Bestleistung} rewardNone{Keine direkte Belohnung} rewardQuestProgress{Quest-Fortschritt} rewardHanokPiece{Neues Hanok-Bauteil} rewardBojagi{Bojagi} rewardGyeLantern{Gye-Laterne} other{Belohnung}}}'**
   String soriStageCatalogCopy(String copyKey);
 
   /// No description provided for @questActionLabel.
@@ -17297,6 +17645,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Weiterspielen'**
   String get homeActionConfirmStay;
+
+  /// No description provided for @closeActionLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Schließen'**
+  String get closeActionLabel;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

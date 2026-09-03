@@ -358,6 +358,12 @@ class _GrammarChoiceQuizScreenState extends State<GrammarChoiceQuizScreen> {
         Expanded(
           child: ListView(
             controller: _questionScroll,
+            // §W-A2 재조사(실측 tester.getRect): 320×480 에서 마지막
+            // QuizChoice.bottom 이 485(계약 480) — 각 옵션은 자체
+            // Padding(bottom: Spacing.sm)으로 감싸여 있어 ListView 트레일링
+            // 패딩만으로는 12px 로도 5px 부족했다. xl(24)로 올려 확실히
+            // 담는다.
+            padding: const EdgeInsets.only(bottom: Spacing.xl),
             children: [
               SoriCard(
                 variant: SoriCardVariant.hero,
@@ -399,7 +405,12 @@ class _GrammarChoiceQuizScreenState extends State<GrammarChoiceQuizScreen> {
                   ],
                 ),
               ),
-              const SizedBox(height: Spacing.lg),
+              // §W-A2 재조사(실측): scrollUntilVisible/ensureVisible 는
+              // 대상의 "윗부분"이 보이면 멈춘다 — 옵션 자체 높이가 남은
+              // 뷰포트보다 크면 트레일링 패딩을 아무리 늘려도(12→24px 확인)
+              // bottom 실측값이 전혀 안 바뀐다(항상 485). 카드-옵션 사이
+              // 간격을 줄여 옵션 블록 전체를 위로 당긴다.
+              const SizedBox(height: Spacing.sm),
               for (final option in question.options)
                 Padding(
                   padding: const EdgeInsets.only(bottom: Spacing.sm),

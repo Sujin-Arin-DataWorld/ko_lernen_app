@@ -15,12 +15,12 @@ void main() {
 
     await tester.pumpWidget(_app(const Locale('en'), subtitle: 'Description'));
 
-    expect(tester.widget<Text>(find.text('Title').first).style!.fontSize, 15);
+    expect(tester.widget<Text>(find.text('Title').first).style!.fontSize, 17);
     expect(
       tester.widget<Text>(find.text('Description').first).style!.fontSize,
-      12,
+      13.5,
     );
-    expect(tester.widget<Text>(find.text('NEW')).style!.fontSize, 11);
+    expect(tester.widget<Text>(find.text('NEW')).style!.fontSize, 13);
   });
 
   // 2026-08-19: 글자 배율은 SoriTypeScale(MaterialApp.builder) 하나로 모았다 —
@@ -29,7 +29,7 @@ void main() {
   // 적용되지, 토큰 fontSize 를 더는 부풀리지 않는다 — type_scale_test.dart 가
   // 그 배율 자체를 검증한다). NEW 배지도 리뷰 라운드 1에서 자체
   // `fontSize: 11 * comfortScale` 리터럴을 제거했으므로 이제 같은 규칙을
-  // 따른다 — fontSize 는 항상 11 그대로다.
+  // 따른다 — fontSize 는 항상 13 그대로다(2026-09-03 §A5: 11→13 하한 교체).
   testWidgets('module cards keep a fixed type scale on tablets', (
     tester,
   ) async {
@@ -40,20 +40,20 @@ void main() {
 
     await tester.pumpWidget(_app(const Locale('en'), subtitle: 'Description'));
 
-    expect(tester.widget<Text>(find.text('Title').first).style!.fontSize, 15);
+    expect(tester.widget<Text>(find.text('Title').first).style!.fontSize, 17);
     expect(
       tester.widget<Text>(find.text('Description').first).style!.fontSize,
-      12,
+      13.5,
     );
-    expect(tester.widget<Text>(find.text('NEW')).style!.fontSize, 11);
+    expect(tester.widget<Text>(find.text('NEW')).style!.fontSize, 13);
   });
 
   // 리뷰 라운드 1: fontSize 리터럴이 고정이라는 것만으로는 "이중 배율 없음"을
   // 증명하지 못한다 — 실제 앱처럼 SoriTypeScale 을 builder 에 설치한 채로
-  // pump 해서, TextStyle.fontSize 는 11 그대로이고 ambient TextScaler 만
+  // pump 해서, TextStyle.fontSize 는 13 그대로이고 ambient TextScaler 만
   // comfort(태블릿 800dp → ×1.10)를 곱하는 것을 함께 확인한다.
   testWidgets(
-    'NEW badge fontSize stays 11 under the real SoriTypeScale builder — comfort only scales the ambient TextScaler',
+    'NEW badge fontSize stays 13 under the real SoriTypeScale builder — comfort only scales the ambient TextScaler',
     (tester) async {
       tester.view.physicalSize = const Size(800, 900);
       tester.view.devicePixelRatio = 1;
@@ -63,10 +63,10 @@ void main() {
       await tester.pumpWidget(_app(const Locale('en'), withTypeScale: true));
 
       final badgeContext = tester.element(find.text('NEW'));
-      final ambientScale = MediaQuery.textScalerOf(badgeContext).scale(11);
+      final ambientScale = MediaQuery.textScalerOf(badgeContext).scale(13);
 
-      expect(tester.widget<Text>(find.text('NEW')).style!.fontSize, 11);
-      expect(ambientScale, closeTo(11 * 1.10, 0.001));
+      expect(tester.widget<Text>(find.text('NEW')).style!.fontSize, 13);
+      expect(ambientScale, closeTo(13 * 1.10, 0.001));
     },
   );
 

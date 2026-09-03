@@ -55,7 +55,7 @@ class SoriChip extends StatelessWidget {
     this.selected = false,
     this.variant = SoriChipVariant.soft,
     this.onTap,
-    this.fontSize = 12,
+    this.fontSize = 13.5,
     this.idleBorderColor,
     this.maxLines = 1,
     this.horizontalPadding,

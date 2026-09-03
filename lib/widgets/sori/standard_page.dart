@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'app_bar.dart';
+import 'home_action.dart';
 import 'page_header.dart';
 import 'responsive.dart';
 import 'screen_background.dart';
@@ -27,6 +28,7 @@ class SoriStandardFrame extends StatelessWidget {
     this.padding = EdgeInsets.zero,
     this.particles = false,
     this.bottomNavigationBar,
+    this.showHome = true,
   });
 
   final String appBarTitle;
@@ -41,12 +43,25 @@ class SoriStandardFrame extends StatelessWidget {
   final bool particles;
   final Widget? bottomNavigationBar;
 
+  /// §B3(2026-09-03): 이 페이지가 뒤로 갈 곳이 있으면(`Navigator.canPop()`)
+  /// 우상단에 확인 없는 [SoriHomeAction]을 더한다. 루트 탭 화면(뒤로 갈 곳이
+  /// 없다)은 자연히 영향받지 않는다. `false`로 끄면 이 페이지는 절대 홈
+  /// 액션을 받지 않는다.
+  final bool showHome;
+
   @override
   Widget build(BuildContext context) {
+    final suppliedActions = actions ?? const <Widget>[];
+    final hasHomeAction = suppliedActions.any((a) => a is SoriHomeAction);
+    final effectiveActions = <Widget>[
+      ...suppliedActions,
+      if (showHome && !hasHomeAction && Navigator.of(context).canPop())
+        const SoriHomeAction(),
+    ];
     return Scaffold(
       appBar: SoriAppBar(
         title: appBarTitle,
-        actions: actions,
+        actions: effectiveActions.isEmpty ? null : effectiveActions,
         leading: leading,
         automaticallyImplyLeading: automaticallyImplyLeading,
         textScale: MediaQuery.textScalerOf(context).scale(1),
@@ -133,6 +148,7 @@ class SoriStandardPage extends StatelessWidget {
     this.particles = false,
     this.controller,
     this.physics,
+    this.showHome = true,
   }) : assert(
          headline != null || (eyebrow == null && description == null),
          'eyebrow와 description은 headline이 있을 때만 사용할 수 있다.',
@@ -153,6 +169,9 @@ class SoriStandardPage extends StatelessWidget {
   final ScrollController? controller;
   final ScrollPhysics? physics;
 
+  /// §B3(2026-09-03) — [SoriStandardFrame.showHome] 참고.
+  final bool showHome;
+
   @override
   Widget build(BuildContext context) {
     final header = headline == null
@@ -172,6 +191,7 @@ class SoriStandardPage extends StatelessWidget {
       maxWidth: maxWidth,
       padding: padding,
       particles: particles,
+      showHome: showHome,
       builder: (context, resolvedPadding) => ListView(
         controller: controller,
         physics: physics,

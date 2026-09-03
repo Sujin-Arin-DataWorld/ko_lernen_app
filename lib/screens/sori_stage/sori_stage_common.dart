@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/generated/app_localizations.dart';
+import '../../widgets/sori/avatar.dart';
 import '../../widgets/sori/page_header.dart';
 import '../../widgets/sori/responsive.dart';
 
@@ -74,19 +74,12 @@ class SoriStageRootHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
     return SoriPageHeader(
       eyebrow: eyebrow.toUpperCase(),
       title: title,
       body: body,
-      trailing: SizedBox.square(
-        dimension: 48,
-        child: IconButton(
-          tooltip: t.soriStageProfileTooltip,
-          onPressed: () => Navigator.of(context).pushNamed('/profile'),
-          icon: const Icon(Icons.person_outline_rounded),
-        ),
-      ),
+      // §W-G G3: 프로필 진입 아이콘 → SoriAvatar (이니셜/마스코트 폴백).
+      trailing: const SoriAvatar(),
     );
   }
 }

@@ -574,7 +574,7 @@ class _DiktatQuestState extends State<DiktatQuest> {
                   style: SoriTextTheme.of(context).koDisplay.copyWith(
                     color: s.text,
                     fontSize: 24,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),

@@ -7,11 +7,13 @@ import '../services/stamp_entitlement_reconciler.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/dancheong_stamp.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/page_header.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/sori_term.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
@@ -98,6 +100,7 @@ class _DojangcheopScreenState extends State<DojangcheopScreen>
     return SoriStandardFrame(
       appBarTitle: t.dojangTitle,
       maxWidth: SoriMaxWidth.hub,
+      actions: const [CulturalHelpButton(termId: 'dojangcheop')],
       padding: const EdgeInsets.fromLTRB(
         Spacing.lg,
         Spacing.md,
@@ -185,6 +188,37 @@ class _DojangcheopScreenState extends State<DojangcheopScreen>
   }
 }
 
+/// If [title] contains the literal word "Dancheong" (both DE "Dancheong-…"
+/// and EN "Dancheong …" series titles do), wrap just that word in a tappable
+/// [SoriTerm.span] pointing at the `dancheong` glossary entry (§W-C C3).
+/// Falls back to a plain heading when the word is absent, so a future
+/// translation change degrades gracefully instead of breaking.
+Widget _seriesTitle(BuildContext context, String title) {
+  final style = SoriTextTheme.of(context).h3;
+  const needle = 'Dancheong';
+  final index = title.indexOf(needle);
+  if (index < 0) {
+    return Text(title, style: style);
+  }
+  final before = title.substring(0, index);
+  final after = title.substring(index + needle.length);
+  return Text.rich(
+    TextSpan(
+      style: style,
+      children: [
+        if (before.isNotEmpty) TextSpan(text: before),
+        SoriTerm.span(
+          termId: 'dancheong',
+          text: needle,
+          style: style,
+          surface: 'dojangcheop_series_title',
+        ),
+        if (after.isNotEmpty) TextSpan(text: after),
+      ],
+    ),
+  );
+}
+
 class _StampSeriesSection extends StatelessWidget {
   const _StampSeriesSection({
     required this.title,
@@ -208,7 +242,7 @@ class _StampSeriesSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title, style: SoriTextTheme.of(context).h3),
+          _seriesTitle(context, title),
           const SizedBox(height: Spacing.xs),
           Text(
             body,

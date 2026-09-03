@@ -21,7 +21,10 @@ String localCopy(BuildContext context, SoriLocalizedCopy copy) {
   if (key != null) {
     return t.soriStageCatalogCopy(key.name);
   }
-  // Non-production fixtures may still provide literal bilingual copy. All
-  // catalog and receipt surfaces carry an ARB-backed activity ID or copy key.
-  return copy.resolve(Localizations.localeOf(context).languageCode);
+  // 폴백은 테스트 픽스처 전용 — 프로덕션 화면은 항상 activityId 또는 key 를
+  // 넘긴다. `SoriLocalizedCopy` 에는 이 목적의 별도 resolver 메서드가 더
+  // 이상 없다(삭제됨) — 오용할 API 자체가 사라졌다.
+  return Localizations.localeOf(context).languageCode == 'de'
+      ? copy.de
+      : copy.en;
 }

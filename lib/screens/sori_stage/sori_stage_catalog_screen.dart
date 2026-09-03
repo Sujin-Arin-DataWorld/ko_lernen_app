@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../../data/sori_activity_catalog.dart';
@@ -5,9 +7,13 @@ import '../../l10n/generated/app_localizations.dart';
 import '../../models/sori_stage_progression.dart';
 import '../../services/sori_stage_progression_service.dart';
 import '../../services/sori_stage_reward_receipt_service.dart';
+import '../../services/storage_service.dart';
 import '../../widgets/sori/activity_illustration.dart';
 import '../../widgets/sori/activity_sheet.dart';
+import '../../widgets/sori/avatar.dart';
+import '../../widgets/sori/collapsing_header.dart';
 import '../../widgets/sori/illustrated_card.dart';
+import '../../widgets/sori/motion.dart';
 import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/screen_background.dart';
 import '../../widgets/sori/tokens.dart';
@@ -70,7 +76,15 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
     // §C-1-11: Learn 탭은 단어팩(핵심 학습 경로)을 그리드 타일이 아니라
     // **대형 진입 카드**로 승격한다 — 그리드에서는 빼서 중복을 피한다.
     // §P4-4: Games 탭도 대칭 — daily_game(오늘의 게임)을 히어로로 승격.
-    final heroId = isGames ? 'daily_game' : 'vocab_packs';
+    // §E4: 마지막으로 연 활동이 이 탭에 있으면 그 활동을 "이어하기" 히어로로
+    // 승격한다 — 이 탭에 없으면(다른 탭 활동이었거나 기록이 없으면) 기존
+    // 기본(vocab_packs/daily_game)으로 되돌아간다.
+    final defaultHeroId = isGames ? 'daily_game' : 'vocab_packs';
+    final lastActivityId = Storage.lastActivityId;
+    final isContinuingHero =
+        lastActivityId != null &&
+        entries.any((entry) => entry.id == lastActivityId);
+    final heroId = isContinuingHero ? lastActivityId : defaultHeroId;
     ActivityCatalogEntry? heroEntry;
     for (final entry in entries) {
       if (entry.id == heroId) {
@@ -84,8 +98,12 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
     final gridTitles = gridEntries.map(
       (entry) => localCopy(context, entry.title),
     );
+    // §E2: 메타 라인(분)도 title/footer 처럼 카드 높이에 들어가므로 같이 잰다.
+    final gridSubtitles = gridEntries.map(
+      (entry) => t.soriStageMinutes(entry.minutes),
+    );
     final footerLabels = <String>[
-      t.soriStageActivityReady,
+      t.soriStageActivityNew,
       t.soriStageActivityInProgress,
       t.soriStageActivityCompleted,
       for (final entry in gridEntries)
@@ -122,26 +140,40 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                     (available - Spacing.md * (columns - 1)) / columns;
                 return CustomScrollView(
                   slivers: [
+                    // §E3: 상단 여백은 접히는 헤더 앞에서 먼저 스크롤돼 사라진다
+                    // — 헤더 자체는 pinned 로 56dp까지 접히며 화면에 남는다.
+                    SliverToBoxAdapter(child: SizedBox(height: padding.top)),
                     SliverPadding(
-                      padding: padding,
-                      sliver: SliverToBoxAdapter(
-                        child: Column(
-                          children: [
-                            SoriStageRootHeader(
-                              eyebrow: isGames
-                                  ? t.soriStageNavGames
-                                  : t.soriStageNavLearn,
-                              title: isGames
-                                  ? t.soriStageGamesTitle
-                                  : t.soriStageLearnTitle,
-                              body: isGames
-                                  ? t.soriStageGamesBody
-                                  : t.soriStageLearnBody,
-                            ),
-                            const SizedBox(height: Spacing.xl),
-                          ],
-                        ),
+                      padding: EdgeInsets.only(
+                        left: padding.left,
+                        right: padding.right,
                       ),
+                      sliver: SoriCollapsingHeader(
+                        eyebrow: isGames
+                            ? t.soriStageNavGames
+                            : t.soriStageNavLearn,
+                        title: isGames
+                            ? t.soriStageGamesTitle
+                            : t.soriStageLearnTitle,
+                        body: isGames
+                            ? t.soriStageGamesBody
+                            : t.soriStageLearnBody,
+                        collapsedTitle: isGames
+                            ? t.soriStageNavGames
+                            : t.soriStageNavLearn,
+                        // §W-G2 item 4(Fable 승인, 2026-09-03): 프로필
+                        // 진입 아이콘 → SoriAvatar. Gye 탭이 이미 같은
+                        // 위젯으로 바꿔 뒀고(§W-G G3), Hanok 탭은 프로필
+                        // 진입점 자체가 없어 손대지 않는다 — trailingSlots
+                        // 기본값 1 그대로.
+                        trailing: const SoriAvatar(),
+                      ),
+                    ),
+                    // §LAYOUT-1: 헤더→첫 콘텐츠 간격은 섹션 간격(xl=24) 하나.
+                    // 페이지 하단 여백(48)은 그리드 끝(아래 SliverPadding)에서만
+                    // — Spacing.page.bottom 을 헤더 슬리버에도 겹쳐 더하지 않는다.
+                    const SliverToBoxAdapter(
+                      child: SizedBox(height: Spacing.xl),
                     ),
                     FutureBuilder<SoriStageProgressionSnapshot>(
                       future: _progress,
@@ -152,9 +184,53 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                         final activityProgress = ready
                             ? snapshot.data?.activityProgress
                             : null;
+                        // §LAYOUT-2(J12): once the snapshot resolves, measure
+                        // each entry's *actual* rendered state string (label +
+                        // real progress suffix) instead of the three bare
+                        // state labels above — a worst-case constant
+                        // ('999 / 999' always) would pad every card's white
+                        // space (L4); this instead grows the cell height by
+                        // exactly what the FutureBuilder's second frame draws.
+                        // The cache in _cellAspectRatio keys on footerLabels
+                        // content, so this list changing between the
+                        // optimistic first frame and the resolved frame
+                        // invalidates the cache automatically (one height
+                        // jump, not per-frame recomputation).
+                        final progressFooterLabels = activityProgress == null
+                            ? const <String>[]
+                            : [
+                                for (final entry in gridEntries)
+                                  if (activityProgress[entry.id]
+                                      case final progress?)
+                                    activityStateText(
+                                      activityStateLabel(
+                                        context,
+                                        t,
+                                        progress.state,
+                                        entry,
+                                      ),
+                                      progress.current,
+                                      progress.target,
+                                    ),
+                              ];
+                        Widget? heroCard;
+                        if (heroEntry case final hero?) {
+                          heroCard = _ActivityGridCard(
+                            entry: hero,
+                            hero: true,
+                            progress: activityProgress?[hero.id],
+                            loadSnapshot:
+                                widget.loadSnapshot ??
+                                SoriStageProgressionService.load,
+                            onActivityReturned: _reload,
+                          );
+                          if (isContinuingHero) {
+                            heroCard = SoriPulse(child: heroCard);
+                          }
+                        }
                         return SliverMainAxisGroup(
                           slivers: [
-                            if (heroEntry case final hero?)
+                            if (heroCard != null)
                               SliverPadding(
                                 padding: EdgeInsets.only(
                                   left: padding.left,
@@ -162,14 +238,22 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                                   bottom: Spacing.md,
                                 ),
                                 sliver: SliverToBoxAdapter(
-                                  child: _ActivityGridCard(
-                                    entry: hero,
-                                    hero: true,
-                                    progress: activityProgress?[hero.id],
-                                    loadSnapshot:
-                                        widget.loadSnapshot ??
-                                        SoriStageProgressionService.load,
-                                    onActivityReturned: _reload,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      if (isContinuingHero) ...[
+                                        Text(
+                                          t.soriStageContinueEyebrow
+                                              .toUpperCase(),
+                                          style: SoriTextTheme.of(
+                                            context,
+                                          ).eyebrow,
+                                        ),
+                                        const SizedBox(height: Spacing.xs),
+                                      ],
+                                      heroCard,
+                                    ],
                                   ),
                                 ),
                               ),
@@ -189,7 +273,11 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                                         context,
                                         cellWidth,
                                         titles: gridTitles,
-                                        footerLabels: footerLabels,
+                                        subtitles: gridSubtitles,
+                                        footerLabels: [
+                                          ...footerLabels,
+                                          ...progressFooterLabels,
+                                        ],
                                       ),
                                     ),
                                 delegate: SliverChildBuilderDelegate((
@@ -256,6 +344,9 @@ class _ActivityGridCard extends StatelessWidget {
 
     // §C-3c P1-④: 리시트 캡처 플로우를 한 곳으로 — onTap/시트 양쪽이 사용.
     Future<void> start() async {
+      // §E4: "이어하기" 히어로의 원천 — 실제로 연 활동만 기록한다(시트만
+      // 열어본 것은 기록하지 않는다). 저장은 내비게이션을 지연시키지 않는다.
+      unawaited(Storage.setLastActivityId(entry.id));
       final receipt = await SoriStageRewardReceiptService.capture(
         activityId: entry.id,
         loadSnapshot: loadSnapshot,
@@ -283,18 +374,12 @@ class _ActivityGridCard extends StatelessWidget {
       onStart: start,
     );
 
-    // §P4-2: 상태 신호는 모델의 4값뿐 — 잠금 0 상태에서 전 카드 동일한
-    // "Jetzt verfügbar" ×N 은 노이즈다. ready + 무진행이면 footer 를 없앤다
-    // (locked/inProgress/completed 는 표시). ARB soriStageActivityReady 키는
-    // 삭제하지 않는다.
-    final bool silentReady =
-        state == SoriActivityState.ready &&
-        (progress?.current == null || (progress?.current ?? 0) <= 0);
-
     return SoriIllustratedCard(
       title: title,
-      // §P4-3: 분(分) 표기는 subtitle → 이미지 우하단 미니 필로 이동.
-      subtitle: null,
+      // §E2: 알약 제거 — 분(分) 표기는 이미지 우하단 미니 필 대신 타이틀
+      // 아래 메타 라인(cardSubtitle)으로. 분이 없으면(0 이하) 생략한다 —
+      // 카탈로그 엔트리는 항상 양수 분을 갖지만 방어적으로 둔다.
+      subtitle: entry.minutes > 0 ? t.soriStageMinutes(entry.minutes) : null,
       state: unlocked
           ? SoriIllustratedCardState.normal
           : SoriIllustratedCardState.locked,
@@ -307,10 +392,8 @@ class _ActivityGridCard extends StatelessWidget {
         iconName: entry.iconName,
         colorRole: entry.colorRole,
       ),
-      imageOverlay: _MinutesPill(label: t.soriStageMinutes(entry.minutes)),
-      footer: silentReady
-          ? null
-          : _StateLabel(state: state, progress: progress, entry: entry),
+      // §E2: 상태 3종(신규/진행/완료)은 항상 렌더 — locked 는 잠금 설명을 표시.
+      footer: _StateLabel(state: state, progress: progress, entry: entry),
       onTap: unlocked ? start : openSheet,
       onLongPress: unlocked ? openSheet : null,
       semanticsLabel: unlocked
@@ -353,13 +436,18 @@ String cellAspectRatioCacheKey({
 const int _cellAspectRatioCacheCapacity = 4;
 final Map<String, double> _cellAspectRatioCache = <String, double>{};
 
-/// Grid ratio derived from the 4:3 image plus the measured localized title and
-/// status footer. Every string remains available while cards in a row keep the
-/// same height.
+/// Grid ratio derived from the 4:3 image plus the measured localized title,
+/// meta (분) subtitle line, and status footer. Every string remains available
+/// while cards in a row keep the same height.
+///
+/// §E2 (L4): 이전엔 subtitle(분 메타 라인)이 이미지 우하단 필이라 카드
+/// 본문 높이에 안 들어갔다. 이제 title 아래 텍스트 줄이 됐으니 실측에
+/// 포함해야 한다 — 안 그러면 그리드 셀 바닥에 빈 공간이 남는다.
 double _cellAspectRatio(
   BuildContext context,
   double cellWidth, {
   required Iterable<String> titles,
+  required Iterable<String> subtitles,
   required Iterable<String> footerLabels,
 }) {
   if (!cellWidth.isFinite || cellWidth <= 0) {
@@ -369,6 +457,9 @@ double _cellAspectRatio(
   final direction = Directionality.of(context);
   final locale = Localizations.localeOf(context);
   final textScale = scaler.scale(14) / 14;
+  // subtitles 는 titles 와 1:1로 대응하는 파생값(같은 entry 집합)이라 titles가
+  // 이미 캐시 키를 정확히 구분한다 — cellAspectRatioCacheKey 시그니처는 그대로
+  // 둔다(다른 곳에서 직접 호출하는 계약을 안 건드린다).
   final cacheKey = cellAspectRatioCacheKey(
     cellWidth: cellWidth,
     textScale: textScale,
@@ -382,7 +473,10 @@ double _cellAspectRatio(
   }
   final tt = SoriTextTheme.of(context);
   final titleStyle = tt.cardTitle;
-  final footerStyle = tt.cardSubtitle;
+  final subtitleStyle = tt.cardSubtitle;
+  // §LAYOUT-2(J12): must match the rendered style exactly —
+  // _StateLabel renders w600, not the bare tt.cardSubtitle weight.
+  final footerStyle = tt.cardSubtitle.copyWith(fontWeight: FontWeight.w600);
   const double bodyPadding = Spacing.sm + Spacing.md;
   final bodyWidth = (cellWidth - Spacing.md * 2).clamp(1.0, double.infinity);
   final title = _maxMeasuredTextHeight(
@@ -393,10 +487,20 @@ double _cellAspectRatio(
     direction: direction,
     locale: locale,
   );
+  final subtitle = _maxMeasuredTextHeight(
+    texts: subtitles,
+    style: subtitleStyle,
+    maxWidth: bodyWidth,
+    scaler: scaler,
+    direction: direction,
+    locale: locale,
+  );
+  // Footer text sits to the right of an 8dp dot + Spacing.xs(4) gap — 12 total.
+  const double footerLeadWidth = 8 + Spacing.xs;
   final footer = _maxMeasuredTextHeight(
     texts: footerLabels,
     style: footerStyle,
-    maxWidth: (bodyWidth - 14).clamp(1.0, double.infinity),
+    maxWidth: (bodyWidth - footerLeadWidth).clamp(1.0, double.infinity),
     scaler: scaler,
     direction: direction,
     locale: locale,
@@ -404,10 +508,15 @@ double _cellAspectRatio(
   // Two physical border pixels plus a small rounding allowance keep the
   // fixed-height grid honest at tablet comfort scale and 200% OS text.
   const double layoutAllowance = 4;
+  // §E2: subtitle 위 SizedBox(height: 2) — illustrated_card.dart의 제목→
+  // 서브타이틀 간격과 정확히 맞춘다.
+  const double subtitleGap = 2;
   final double height =
       cellWidth / (4 / 3) +
       bodyPadding +
       title +
+      subtitleGap +
+      subtitle +
       Spacing.xs +
       footer +
       layoutAllowance;
@@ -441,28 +550,43 @@ double _maxMeasuredTextHeight({
   return height;
 }
 
-/// §P4-3: 이미지 슬롯 우하단 분(分) 미니 필.
-class _MinutesPill extends StatelessWidget {
-  const _MinutesPill({required this.label});
+/// 카드 footer: 상태 라벨 (텍스트만, 간결).
+///
+/// §E2: 3상태(신규/진행/완료)는 항상 렌더한다 — 잠금 0 상태에서 전 카드
+/// 동일한 "Jetzt verfügbar" ×N 노이즈였던 이전 규칙(ready+무진행이면 footer
+/// 생략)을 없앴다: ready 는 이제 "Neu" 로 표시해 그 자체로 신호가 된다.
+/// locked 는 4번째(별도) 상태로 잠금 설명을 계속 보여준다.
+/// §LAYOUT-2(J12): the single source of the *base* state-label text — both
+/// `_StateLabel` (render) and the footer-height measurement in
+/// `_cellAspectRatio` call this so the two can never name a different string
+/// for the same state.
+String activityStateLabel(
+  BuildContext context,
+  AppL10n t,
+  SoriActivityState state,
+  ActivityCatalogEntry entry,
+) => switch (state) {
+  SoriActivityState.ready => t.soriStageActivityNew,
+  SoriActivityState.inProgress => t.soriStageActivityInProgress,
+  SoriActivityState.completed => t.soriStageActivityCompleted,
+  SoriActivityState.locked => localCopy(context, entry.unlock.explanation!),
+};
 
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    final tt = SoriTextTheme.of(context);
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-      decoration: const BoxDecoration(
-        // ⚠️ withOpacity 는 deprecated — 저장소는 전부 .withValues 이관 완료.
-        color: Color(0x8C000000), // black @0.55
-        borderRadius: SoriRadius.brPill,
-      ),
-      child: Text(label, style: tt.caption.copyWith(color: Colors.white)),
-    );
-  }
+/// §LAYOUT-2(J12): the single source of the *rendered* state-label string —
+/// `label` plus the numeric progress suffix (` · current` / ` · current /
+/// target`). `_StateLabel` calls this to render, and `_cellAspectRatio`'s
+/// footer-height measurement calls it with the same arguments to measure —
+/// "measured == rendered" is enforced by sharing this function rather than
+/// by two hand-kept-in-sync string templates.
+String activityStateText(String label, int? current, int? target) {
+  final suffix = current == null || current <= 0
+      ? ''
+      : target == null
+      ? ' · $current'
+      : ' · $current / $target';
+  return '$label$suffix';
 }
 
-/// 카드 footer: 상태 라벨 (텍스트만, 간결).
 class _StateLabel extends StatelessWidget {
   const _StateLabel({
     required this.state,
@@ -479,39 +603,29 @@ class _StateLabel extends StatelessWidget {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
     final tt = SoriTextTheme.of(context);
-    final color = soriActivityColor(entry.colorRole);
 
-    final label = switch (state) {
-      SoriActivityState.ready => t.soriStageActivityReady,
-      SoriActivityState.inProgress => t.soriStageActivityInProgress,
-      SoriActivityState.completed => t.soriStageActivityCompleted,
-      SoriActivityState.locked => localCopy(context, entry.unlock.explanation!),
+    final label = activityStateLabel(context, t, state, entry);
+
+    // §E2: 점 색은 상태별로 분리한다 — 신규는 무채색, 진행은 활동 컬러,
+    // 완료는 브랜드 primary. locked 는 기존과 동일(muted @0.4).
+    final dotColor = switch (state) {
+      SoriActivityState.locked => s.textMuted.withValues(alpha: 0.4),
+      SoriActivityState.ready => s.textMuted,
+      SoriActivityState.inProgress => soriActivityColor(entry.colorRole),
+      SoriActivityState.completed => SoriColors.primary,
     };
-
-    final current = progress?.current;
-    final target = progress?.target;
-    final suffix = current == null || current <= 0
-        ? ''
-        : target == null
-        ? ' · $current'
-        : ' · $current / $target';
 
     return Row(
       children: [
         Container(
           width: 8,
           height: 8,
-          decoration: BoxDecoration(
-            color: state == SoriActivityState.locked
-                ? s.textMuted.withValues(alpha: 0.4)
-                : color,
-            shape: BoxShape.circle,
-          ),
+          decoration: BoxDecoration(color: dotColor, shape: BoxShape.circle),
         ),
-        const SizedBox(width: 6),
+        const SizedBox(width: Spacing.xs),
         Expanded(
           child: Text(
-            '$label$suffix',
+            activityStateText(label, progress?.current, progress?.target),
             // §C-1-9: raw TextStyle → 토큰. "작아서 예외"는 없다.
             style: tt.cardSubtitle.copyWith(
               fontWeight: FontWeight.w600,

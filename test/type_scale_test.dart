@@ -41,7 +41,7 @@ void main() {
         size = SoriTextTheme.of(c).body.fontSize!;
         return const SizedBox();
       })));
-      expect(size, 15, reason: 'width $w');
+      expect(size, 16, reason: 'width $w');
     }
     tester.view.resetPhysicalSize();
     tester.view.resetDevicePixelRatio();

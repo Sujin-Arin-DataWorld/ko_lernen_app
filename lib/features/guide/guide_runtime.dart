@@ -527,15 +527,15 @@ Future<void> openGuideTopicModule(
   GuideRoutingFailureReporter? routingFailureReporter,
 }) async {
   try {
+    // §B1: 가이드 상세도 플랫폼 네이티브 전환.
     final navigation = Navigator.of(context).push<void>(
-      SoriTransitions.fadeScale<void>(
+      SoriTransitions.page<void>(
         (_) => GuideTopicDetailRouteScreen(
           topic: topic,
           progressService: progressService,
           entrySurface: entrySurface,
           routingFailureReporter: routingFailureReporter,
         ),
-        reduceMotion: MediaQuery.disableAnimationsOf(context),
       ),
     );
     unawaited(

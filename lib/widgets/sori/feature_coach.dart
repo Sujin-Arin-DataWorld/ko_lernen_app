@@ -72,7 +72,7 @@ class _FeatureCoachSheet extends StatelessWidget {
           style: TextStyle(
             fontFamily: SoriFonts.sans,
             fontSize: 19,
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.w700,
             color: s.text,
             letterSpacing: -0.3,
           ),
@@ -93,7 +93,7 @@ class _FeatureCoachSheet extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
               fontFamily: SoriFonts.sans,
-              fontSize: 11.5,
+              fontSize: 13.5,
               color: s.textMuted,
               fontWeight: FontWeight.w500,
             ),
@@ -160,8 +160,8 @@ class _StepRow extends StatelessWidget {
             '$index',
             style: const TextStyle(
               fontFamily: SoriFonts.sans,
-              fontSize: 11,
-              fontWeight: FontWeight.w900,
+              fontSize: 13,
+              fontWeight: FontWeight.w700,
               color: SoriColors.primary,
               height: 1,
             ),

@@ -141,7 +141,7 @@ class _BottomRow extends StatelessWidget {
     return Text(
       '$learned / $total',
       style: TextStyle(
-        fontSize: 12,
+        fontSize: 13.5,
         fontWeight: FontWeight.w600,
         color: accent,
       ),

@@ -190,12 +190,16 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
       appBarTitle: t.bookPreviewTitle,
       maxWidth: SoriMaxWidth.focus,
       padding: const EdgeInsets.all(Spacing.lg),
+      // §W-A2: 200% 배율에서 32px 부족했다(경고 카드+긴 부제) — 기본
+      // 1.9배로는 부족해 2.0배로 소폭 올린다. 정상 세로(minHeight 자체)는
+      // 그대로라 390×844 스크롤 없음 계약은 안 바뀐다.
       builder: (context, padding) => SoriAdaptiveStudyBody(
         minHeight: _hasSevereCaptureWarning
             ? 920
             : qualityWarnings.isEmpty
             ? 640
             : 800,
+        maxScaleBoost: 1.0,
         child: Padding(
           padding: padding,
           child: Column(
