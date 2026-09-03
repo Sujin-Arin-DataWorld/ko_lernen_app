@@ -32,16 +32,36 @@ void main() {
     SoriSpeech.stopImpl = () async {};
   });
   tearDown(SoriSpeech.resetForTesting);
-  testWidgets('Learn 카드 전진 시 다음 단어를 정확히 1회 프리페치한다', (tester) async {
+  testWidgets('Learn 카드 전진 시 새로 보이는 카드와 그 다음 카드를 프리페치한다', (
+    tester,
+  ) async {
     final prefetched = <String>[];
     SoriSpeech.prefetchImpl = (text, voice) async => prefetched.add(text);
     final t = await _pumpPack(tester, _pack(count: 3));
+    // 큐 변이(markKnown)는 _advanceLearn() 호출 전에 이미 끝나 있다 —
+    // [단어1,단어2,단어3] → GotIt(단어1) → [단어2,단어3]. 그 시점의
+    // current=단어2(새로 보이는 카드), peekNext=단어3(그 다음 카드) —
+    // 이 둘을 이 순서로 프리페치한다(방금 넘긴 단어1은 다시 안 씀).
     tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
     tapDeckAction(tester, t.vocabPackGotIt);
     await tester.pump();
-    expect(prefetched, ['단어1']);
+    expect(prefetched, ['단어2', '단어3']);
+
+    prefetched.clear();
+    // 이어서 새 current(단어2)에 DontKnow. learn_session_queue.dart의
+    // markUnknown()은 queue.first(단어2)를 제거하고
+    // insert(min(reinsertGap=3, 남은 길이=1), 단어2)로 재삽입한다 —
+    // [단어3] → insert(1, 단어2) → [단어3,단어2]. 그 시점의
+    // current=단어3, peekNext=단어2(방금 재삽입된 카드) — 이 순서로
+    // 프리페치되어야 한다(소스 확인, 추측 아님).
+    tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+    tapDeckAction(tester, t.vocabPackDontKnow);
+    await tester.pump();
+    expect(prefetched, ['단어3', '단어2']);
   });
   testWidgets('마지막 Learn 카드에서는 다음 단어가 없어 프리페치하지 않는다', (tester) async {
     final prefetched = <String>[];

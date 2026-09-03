@@ -395,7 +395,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _recordSessionSrs(cur.korean, gotIt: true);
     }
     _learnQueue?.markKnown();
-    _advanceLearn(cur);
+    _advanceLearn();
   }
 
   void _learnDontKnow() {
@@ -415,14 +415,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     // ignore: discarded_futures
     Storage.incrementWrongCount(cur.korean);
     _learnQueue?.markUnknown();
-    _advanceLearn(cur);
+    _advanceLearn();
   }
 
-  /// [cur] — 이 전진 직전까지 서빙 중이던 단어(호출부에서 큐 변이 전에
-  /// 캡처). Learn 큐는 markKnown/markUnknown/defer 가 즉시 파괴적으로
-  /// 변이하므로, 여기 도달했을 때는 이미 `_learnQueue`에서 사라졌거나
-  /// 자리를 옮긴 뒤다 — 그래서 peekNext 대신 파라미터로 넘겨받는다.
-  void _advanceLearn(Vocab cur) {
+  void _advanceLearn() {
     final pack = _pack;
     if (pack == null) return;
     setState(() {
@@ -433,16 +429,30 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         _learnRepeatCount++;
       }
     });
-    if (_learnQueue?.isDone ?? true) {
+    // 큐 변이(markKnown/markUnknown/defer)는 여기 도달하기 전에 호출부에서
+    // 이미 끝나 있다 — 그래서 여기 시점의 current는 "새로 보이는 카드"고
+    // peekNext는 "그 다음 카드"다. 방금 넘긴 카드(이미 끝난 일)가 아니라
+    // 이 둘을 미리 데운다(Task 3 fix round 1 — R2: 이전 라운드의
+    // "cur=방금 넘긴 카드" 프리페치는 실사용 가치가 없는 dead weight였다).
+    final queue = _learnQueue;
+    if (queue != null && !queue.isDone) {
+      final upcoming = queue.current;
+      if (upcoming != null) {
+        // ignore: discarded_futures
+        SoriSpeech.prefetch(upcoming.korean);
+      }
+      final after = queue.peekNext;
+      if (after != null) {
+        // ignore: discarded_futures
+        SoriSpeech.prefetch(after.korean);
+      }
+    }
+    if (queue?.isDone ?? true) {
       // Stage 1 끝 — 모든 current-pack 단어를 Learn에서 의도적으로 노출한 뒤
       // wordsLearned 기록 및 평가 단계로 진입.
       // ignore: discarded_futures
       PackProgressService.recordWordLearned(pack);
       _enterQuiz();
-    } else {
-      // Learn 이 이어질 때만 방금 넘긴 단어 오디오를 미리 데운다(§4.5).
-      // ignore: discarded_futures
-      SoriSpeech.prefetch(cur.korean);
     }
   }
 
@@ -524,11 +534,9 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     if (queue == null || queue.isDone) {
       return;
     }
-    final cur = queue.current;
-    if (cur == null) return;
     HapticFeedback.selectionClick();
     queue.defer();
-    _advanceLearn(cur);
+    _advanceLearn();
   }
 
   void _recordSessionSrs(String korean, {required bool gotIt}) {
