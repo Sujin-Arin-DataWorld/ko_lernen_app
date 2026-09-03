@@ -16,27 +16,41 @@ class SoriSpeechStub {
   /// speak() future를 pending 상태로 묶어 두고 테스트가 원하는 시점에
   /// 직접 완료시킬 수 있게 한다.
   Completer<bool>? speakCompleter;
+
+  /// [speakCompleter]와 별개의 완료자 — speakSlow() future를 독립적으로
+  /// pending 상태로 묶어 둔다. 예전에는 speak/speakSlow가 하나의
+  /// Completer를 공유해서 둘 중 하나를 완료시키면 나머지도 함께
+  /// 풀렸다(하드닝 리뷰 라운드1 Minor — 두 훅을 한 테스트에서 함께 쓰는
+  /// 순간 서로 독립적으로 완료되는지 검증할 방법이 없었다).
+  Completer<bool>? speakSlowCompleter;
 }
 
 /// [SoriSpeech]의 speak/speakSlow/prefetch/stop 훅을 스텁으로 갈아끼우고,
 /// 테스트가 끝나면 [SoriSpeech.resetForTesting]으로 되돌리도록 등록한다.
 ///
-/// [completeSpeak]가 false면 speak()가 반환하는 future는 즉시 끝나지 않고
-/// [SoriSpeechStub.speakCompleter]를 테스트가 직접 완료시킬 때까지
-/// pending 상태로 남는다 — resolving 단계를 검증하는 테스트용.
+/// [completeSpeak]가 false면 speak()/speakSlow()가 반환하는 future는 즉시
+/// 끝나지 않고 각각 [SoriSpeechStub.speakCompleter]/
+/// [SoriSpeechStub.speakSlowCompleter]를 테스트가 직접 완료시킬 때까지
+/// pending 상태로 남는다 — resolving 단계를 검증하는 테스트용. 두 훅은
+/// 서로 다른 Completer를 쓰므로 하나를 완료시켜도 다른 하나는 영향받지
+/// 않는다.
 SoriSpeechStub stubSoriSpeech({bool completeSpeak = true}) {
   SoriSpeech.resetForTesting();
   final stub = SoriSpeechStub();
-  final pendingCompleter = completeSpeak ? null : Completer<bool>();
-  stub.speakCompleter = pendingCompleter;
+  final pendingSpeakCompleter = completeSpeak ? null : Completer<bool>();
+  final pendingSpeakSlowCompleter = completeSpeak ? null : Completer<bool>();
+  stub.speakCompleter = pendingSpeakCompleter;
+  stub.speakSlowCompleter = pendingSpeakSlowCompleter;
 
   SoriSpeech.speakImpl = (text, voice) {
     stub.spoken.add(text);
-    return completeSpeak ? Future.value(true) : pendingCompleter!.future;
+    return completeSpeak ? Future.value(true) : pendingSpeakCompleter!.future;
   };
   SoriSpeech.speakSlowImpl = (text, voice) {
     stub.spokenSlow.add(text);
-    return completeSpeak ? Future.value(true) : pendingCompleter!.future;
+    return completeSpeak
+        ? Future.value(true)
+        : pendingSpeakSlowCompleter!.future;
   };
   SoriSpeech.prefetchImpl = (text, voice) async {
     stub.prefetched.add(text);

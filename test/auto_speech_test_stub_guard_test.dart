@@ -9,8 +9,13 @@ import 'package:flutter_test/flutter_test.dart';
 /// 같은 키의 다른 요청까지 조용히 dedupe join만 하고 끝난다(디버깅 난이도가
 /// 높은 함정). 이 가드는 content_audio_policy_guard_test.dart의
 /// targetScreens 목록(자동 발화 화면)에 있는 화면을 pumpWidget()하는 테스트
-/// 파일이 test/support/sori_speech_stubs.dart의 stubSoriSpeech() 또는
-/// SoriSpeech.resetForTesting()을 실제로 호출하는지 문자열 계약으로 검사한다.
+/// 파일이 test/support/sori_speech_stubs.dart의 stubSoriSpeech() 호출
+/// 또는 SoriSpeech.speakImpl에 대한 직접 대입(`speakImpl =`)을 실제로
+/// 하는지 문자열 계약으로 검사한다. `SoriSpeech.resetForTesting()` 단독
+/// 호출은 증거로 인정하지 않는다 — 그건 speakImpl/speakSlowImpl/
+/// prefetchImpl/stopImpl 훅을 오히려 **진짜** TtsService 델리게이트로
+/// 되돌리므로(speakable.dart:135-138), 그것만 부른 테스트는 이 가드가
+/// 막으려는 T3 함정 그 자체다(하드닝 리뷰 라운드1 Important #1).
 void main() {
   test('자동 발화 화면을 pumpWidget하는 테스트는 SoriSpeech를 스텁한다', () {
     final guardFile = File('test/content_audio_policy_guard_test.dart');
@@ -57,26 +62,35 @@ void main() {
     );
 
     // test/**/*.dart 를 스캔해 위 화면 중 하나를 pumpWidget()하면서도
-    // 스텁 계약(stubSoriSpeech(/SoriSpeech.resetForTesting()의 실제 호출 —
-    // tear-off 전달(`setUp(SoriSpeech.resetForTesting)`)은 세지 않는다,
-    // 실제로 그렇게 넘기면 매 테스트 전 초기화만 될 뿐 speak/prefetch/stop
-    // 훅은 여전히 진짜 TtsService를 가리키기 때문이다)이 없는 파일을 찾는다.
+    // 스텁 계약(stubSoriSpeech( 호출 또는 speakImpl = 직접 대입)의 실제
+    // 증거가 없는 파일을 찾는다. SoriSpeech.resetForTesting()만 부르는 건
+    // 증거로 치지 않는다 — tear-off 전달(`setUp(SoriSpeech.resetForTesting)`)
+    // 이든 직접 호출이든, 그건 매 테스트 전 초기화만 할 뿐 speak/prefetch/
+    // stop 훅은 여전히 진짜 TtsService를 가리키기 때문이다(T3 함정).
     final unstubbed = <String>[];
     for (final entity in Directory(
       'test',
     ).listSync(recursive: true, followLinks: false)) {
-      if (entity is! File || !entity.path.endsWith('.dart')) continue;
+      if (entity is! File || !entity.path.endsWith('.dart')) {
+        continue;
+      }
       final relativePath = entity.path
           .replaceAll('\\', '/')
           .replaceFirst(RegExp(r'^.*?test/'), 'test/');
       final content = entity.readAsStringSync();
-      if (!content.contains('pumpWidget(')) continue;
+      if (!content.contains('pumpWidget(')) {
+        continue;
+      }
       final mentionsTargetScreen = screenClassNames.any(content.contains);
-      if (!mentionsTargetScreen) continue;
+      if (!mentionsTargetScreen) {
+        continue;
+      }
       final isStubbed =
           content.contains('stubSoriSpeech(') ||
-          content.contains('SoriSpeech.resetForTesting(');
-      if (!isStubbed) unstubbed.add(relativePath);
+          content.contains('speakImpl =');
+      if (!isStubbed) {
+        unstubbed.add(relativePath);
+      }
     }
     unstubbed.sort();
 
@@ -91,7 +105,9 @@ void main() {
       reason:
           'SoriSpeech를 스텁하지 않고 자동 발화 화면을 pumpWidget하는 신규 테스트 파일: '
           '${newOffenders.join(', ')} — stubSoriSpeech()(test/support/sori_speech_stubs.dart)'
-          '를 setUp에 추가할 것',
+          '를 setUp에 추가하거나(권장) SoriSpeech.speakImpl에 직접 스텁을 '
+          '대입할 것. SoriSpeech.resetForTesting()만 부르는 건 증거로 '
+          '인정되지 않는다 — 실제 TtsService로 흘러가는 T3 함정을 그대로 둔다',
     );
     expect(
       knownUnstubbedCap,
