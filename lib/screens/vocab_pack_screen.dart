@@ -395,7 +395,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _recordSessionSrs(cur.korean, gotIt: true);
     }
     _learnQueue?.markKnown();
-    _advanceLearn();
+    _advanceLearn(cur);
   }
 
   void _learnDontKnow() {
@@ -415,10 +415,14 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     // ignore: discarded_futures
     Storage.incrementWrongCount(cur.korean);
     _learnQueue?.markUnknown();
-    _advanceLearn();
+    _advanceLearn(cur);
   }
 
-  void _advanceLearn() {
+  /// [cur] — 이 전진 직전까지 서빙 중이던 단어(호출부에서 큐 변이 전에
+  /// 캡처). Learn 큐는 markKnown/markUnknown/defer 가 즉시 파괴적으로
+  /// 변이하므로, 여기 도달했을 때는 이미 `_learnQueue`에서 사라졌거나
+  /// 자리를 옮긴 뒤다 — 그래서 peekNext 대신 파라미터로 넘겨받는다.
+  void _advanceLearn(Vocab cur) {
     final pack = _pack;
     if (pack == null) return;
     setState(() {
@@ -435,6 +439,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       // ignore: discarded_futures
       PackProgressService.recordWordLearned(pack);
       _enterQuiz();
+    } else {
+      // Learn 이 이어질 때만 방금 넘긴 단어 오디오를 미리 데운다(§4.5).
+      // ignore: discarded_futures
+      SoriSpeech.prefetch(cur.korean);
     }
   }
 
@@ -516,9 +524,11 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     if (queue == null || queue.isDone) {
       return;
     }
+    final cur = queue.current;
+    if (cur == null) return;
     HapticFeedback.selectionClick();
     queue.defer();
-    _advanceLearn();
+    _advanceLearn(cur);
   }
 
   void _recordSessionSrs(String korean, {required bool gotIt}) {
@@ -579,6 +589,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _choices = null;
     });
     _prepareNextQuestion();
+    if (_quizQuestions.length > 1) {
+      // ignore: discarded_futures
+      SoriSpeech.prefetch(_quizQuestions[1].korean);
+    }
     // 퀴즈도 "듣고 고르기"로 통일 — 첫 단어 자동 발음 재생.
     _speakCurrent();
     // 스테이지 전환 인라인 배너 — 최초 1회만 (모달보다 학습 흐름 덜 끊음).
@@ -617,6 +631,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _choices = null;
     });
     _prepareNextQuestion();
+    if (_bossQuestions.length > 1) {
+      // ignore: discarded_futures
+      SoriSpeech.prefetch(_bossQuestions[1].korean);
+    }
     // Boss 첫 단어 자동 발음 재생.
     _speakCurrent();
     // 스테이지 전환 인라인 배너 — 최초 1회만.
@@ -798,6 +816,14 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _choices = null;
     });
     _prepareNextQuestion();
+    // 새 현재 문항 오디오를 _speakCurrent() 바로 앞에서 미리 데운다 —
+    // 같은 키(voice 생략=auto)라 아래 speak 호출이 곧장 이 프리페치에
+    // 합류/승격한다(§4.5, Frozen contracts).
+    final list = isQuiz ? _quizQuestions : _bossQuestions;
+    if (_qIdx < list.length) {
+      // ignore: discarded_futures
+      SoriSpeech.prefetch(list[_qIdx].korean);
+    }
     // 퀴즈·보스 모두 다음 단어 자동 발음(듣고 고르기 통일).
     _speakCurrent();
   }
