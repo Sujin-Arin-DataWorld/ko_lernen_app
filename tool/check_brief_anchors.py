@@ -13,6 +13,11 @@ Note: a backtick-quoted term naming an external concept (a Dart lint rule
 such as `comment_references`, a package, an SDK type) reads as MISSING
 since it names no symbol in the file -- intentional; read the table.
 
+Note: a backtick-quoted prose word anywhere after a path token on the same
+line binds to that path (nearest-preceding-path heuristic) even when it is
+unrelated commentary rather than an identifier of that file -- a known
+heuristic limit, not a bug.
+
 Usage:
     python tool/check_brief_anchors.py <brief.md> [--root DIR] [--window N]
 """
@@ -30,15 +35,20 @@ PATH_RE = re.compile(
 )
 L_ANCHOR_RE = re.compile(r"\bL(\d+)(?:-(\d+))?\b")
 IDENT_RE = re.compile(r"`([A-Za-z_][A-Za-z0-9_.]*)(?:\([^`]*\)|\s*=[^`]*)?`")
-SEARCH_DIRS = ("lib", "test", "tool", ".github", "docs")
+SEARCH_DIRS = ("lib", "test", "tool", ".github", "docs", "assets")
 SKIP_DIRS = {".dart_tool", "build", ".git"}
 
 
 def _resolve(path_str: str, root: Path):
-    """Return (resolved_path, candidates) -- at most one is truthy."""
+    """Return (resolved_path, candidates) -- at most one is truthy. Tries
+    the literal repo-root path first (so `pubspec.yaml`, `AGENTS.md`, and
+    dir-qualified `assets/data/x.json` all resolve directly); only a bare
+    filename with no direct hit falls back to a walk under SEARCH_DIRS."""
+    direct = root / path_str
+    if direct.is_file():
+        return direct, None
     if "/" in path_str:
-        full = root / path_str
-        return (full, None) if full.is_file() else (None, None)
+        return None, None
     found = []
     for d in SEARCH_DIRS:
         base = root / d
@@ -87,7 +97,13 @@ def _segments(line: str) -> list[dict]:
     its nearest preceding path token."""
     paths = []
     for m in PATH_RE.finditer(line):
-        seg = {"path": m.group("path"), "start": m.start(), "end": m.end(), "anchors": [], "idents": []}
+        path_str = m.group("path")
+        if path_str.startswith("../"):
+            continue
+        prefix = line[max(0, m.start() - 8) : m.start()]
+        if prefix.endswith("package:") or prefix.endswith("dart:"):
+            continue
+        seg = {"path": path_str, "start": m.start(), "end": m.end(), "anchors": [], "idents": []}
         if m.group("l1"):
             l1 = int(m.group("l1"))
             l2 = int(m.group("l2")) if m.group("l2") else l1

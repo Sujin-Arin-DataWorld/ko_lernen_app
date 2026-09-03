@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 
 /// PR1 T3 교훈 — 자동 발화 화면(진입/전환 시 SoriSpeech.speak을 자동 호출)의
-/// 위젯 테스트가 SoriSpeech를 스텁하지 않으면, speak/prefetch 요청이 실제
+/// 위젯 테스트가 SoriSpeech를 스텁하지 않으면, speak 요청이 실제
 /// TtsService(Firebase Storage/Functions)로 흘러 테스트 환경엔 mock이 없어
 /// 영원히 안 풀리는 Future를 만든다 — 그 결과 in-flight 키가 잠겨 이후
 /// 같은 키의 다른 요청까지 조용히 dedupe join만 하고 끝난다(디버깅 난이도가
@@ -11,8 +11,16 @@ import 'package:flutter_test/flutter_test.dart';
 /// targetScreens 목록(자동 발화 화면)에 있는 화면을 pumpWidget()하는 테스트
 /// 파일이 test/support/sori_speech_stubs.dart의 stubSoriSpeech() 호출
 /// 또는 SoriSpeech.speakImpl에 대한 직접 대입(`speakImpl =`)을 실제로
-/// 하는지 문자열 계약으로 검사한다. `SoriSpeech.resetForTesting()` 단독
-/// 호출은 증거로 인정하지 않는다 — 그건 speakImpl/speakSlowImpl/
+/// 하는지 문자열 계약으로 검사한다. 두 마커는 증거의 폭이 다르다 —
+/// `stubSoriSpeech(`은 speakImpl/speakSlowImpl/prefetchImpl/stopImpl 네
+/// 훅을 전부 스텁하지만, 단독 `speakImpl =` 대입은 speak 하나만 스텁됐음을
+/// 증명할 뿐이다(prefetch/stop은 여전히 실제 TtsService를 칠 수 있다). 그래도
+/// 증거로 인정하는 이유는 이 가드가 막으려는 T3 함정 자체가 "speak가
+/// 실제 서비스로 흘러 in-flight 키를 영원히 잠그는" 경로이기 때문이다 —
+/// prefetch/stop이 별도 경로로 실제 서비스를 치는 문제는 이 마커로는 못
+/// 잡는다(하드닝 최종 리뷰 M3, 관찰된 미스텁 사례:
+/// review_session_screen_speakable_test.dart 등). `SoriSpeech.resetForTesting()`
+/// 단독 호출은 증거로 인정하지 않는다 — 그건 speakImpl/speakSlowImpl/
 /// prefetchImpl/stopImpl 훅을 오히려 **진짜** TtsService 델리게이트로
 /// 되돌리므로(speakable.dart:135-138), 그것만 부른 테스트는 이 가드가
 /// 막으려는 T3 함정 그 자체다(하드닝 리뷰 라운드1 Important #1).
@@ -99,6 +107,12 @@ void main() {
     final newOffenders = unstubbed
         .where((f) => !knownUnstubbedTestFiles.contains(f))
         .toList();
+    // 허용 목록이 진짜로 아래로만 움직이도록 강제한다 — 항목이 고쳐지거나
+    // (stubSoriSpeech(/speakImpl = 을 갖추거나) 파일 자체가 사라지면 더 이상
+    // unstubbed에 없으므로 여기서 즉시 걸린다(M2, 하드닝 최종 리뷰).
+    final stale = knownUnstubbedTestFiles
+        .where((f) => !unstubbed.contains(f))
+        .toList();
     expect(
       newOffenders,
       isEmpty,
@@ -108,6 +122,13 @@ void main() {
           '를 setUp에 추가하거나(권장) SoriSpeech.speakImpl에 직접 스텁을 '
           '대입할 것. SoriSpeech.resetForTesting()만 부르는 건 증거로 '
           '인정되지 않는다 — 실제 TtsService로 흘러가는 T3 함정을 그대로 둔다',
+    );
+    expect(
+      stale,
+      isEmpty,
+      reason:
+          '고쳐졌거나 사라진 파일은 허용 목록에서 지우고 knownUnstubbedCap을 낮출 것: '
+          '${stale.join(', ')}',
     );
     expect(
       knownUnstubbedCap,

@@ -235,6 +235,53 @@ class CheckBriefAnchorsTest(unittest.TestCase):
         self.assertEqual(by_detail_prefix["bar"], "OK")
         self.assertEqual(by_detail_prefix["baz"], "MISSING")
 
+    # -- Final fix wave (opus review): I1 repo-root + assets/ resolution --
+
+    def test_13_repo_root_bare_file_resolves_directly(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _mk(root, "pubspec.yaml", "name: ko_lernen_app\n")
+            code, rows, summary = _run(root, "check `pubspec.yaml`\n")
+        self.assertEqual(code, 0)
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0][0], "OK")
+
+    def test_14_assets_dir_and_bare_assets_file_both_resolve(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _mk(root, "assets/data/x.json", "{}\n")
+            code, rows, summary = _run(root, "check `assets/data/x.json`\n")
+            self.assertEqual(code, 0)
+            self.assertEqual(rows[0][0], "OK")
+            code2, rows2, summary2 = _run(root, "check `x.json` too\n")
+        self.assertEqual(code2, 0)
+        self.assertEqual(len(rows2), 1)
+        self.assertEqual(rows2[0][0], "OK")
+
+    # -- Final fix wave: I2 package:/dart: imports and ../ are not paths --
+
+    def test_15_package_import_and_relative_dotdot_produce_no_row(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            brief = (
+                "import 'package:flutter/material.dart';\n"
+                "import '../../services/sound_service.dart';\n"
+            )
+            code, rows, summary = _run(root, brief)
+        self.assertEqual(code, 0)
+        self.assertEqual(len(rows), 0)
+        self.assertEqual(summary, "OK 0 · DRIFT 0 · MISSING 0")
+
+    def test_16_dart_sdk_prefixed_token_produces_no_row(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            # Contrived (real `dart:` imports rarely carry a recognised file
+            # extension) but proves the `dart:`-prefix skip actually fires:
+            # without it, "async.dart" would path-match and read MISSING.
+            code, rows, summary = _run(root, "import 'dart:async.dart';\n")
+        self.assertEqual(code, 0)
+        self.assertEqual(len(rows), 0)
+
 
 if __name__ == "__main__":
     unittest.main()
