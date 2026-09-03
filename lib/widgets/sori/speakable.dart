@@ -45,19 +45,13 @@ class SoriSpeech {
   static final Map<String, Future<bool>> _pendingPrefetches = {};
   static final Map<Future<bool>, Future<bool>> _promotionPrefetches = {};
 
-  /// 화면이 구독하는 발화 상태(레거시 호환) — `phase`에서 파생된다.
-  static final ValueNotifier<bool> speaking = ValueNotifier<bool>(false);
-
-  /// idle/resolving/speaking 3단. 신규 발화는 즉시 resolving으로 보이고,
-  /// 실제 재생이 시작된 순간(TtsService.phase 승격 신호)에만 speaking이
-  /// 된다 — 해석 시작 전에 이미 재생 중으로 보이던 기존 결함의 근본 수정.
+  /// idle/resolving/speaking 3단 — 화면이 직접 구독하는 발화 상태의
+  /// 단일 출처. 신규 발화는 즉시 resolving으로 보이고, 실제 재생이
+  /// 시작된 순간(TtsService.phase 승격 신호)에만 speaking이 된다 —
+  /// 해석 시작 전에 이미 재생 중으로 보이던 기존 결함의 근본 수정.
   static final ValueNotifier<TtsSpeechPhase> phase =
-      ValueNotifier<TtsSpeechPhase>(TtsSpeechPhase.idle)
-        ..addListener(_syncSpeakingFromPhase);
+      ValueNotifier<TtsSpeechPhase>(TtsSpeechPhase.idle);
   static bool _engineListenerBound = false;
-  static void _syncSpeakingFromPhase() {
-    speaking.value = phase.value == TtsSpeechPhase.speaking;
-  }
 
   /// TtsService.phase(엔진 레이어)가 실제 재생 시작을 알릴 때만 우리 phase를
   /// speaking으로 승격한다. 단순히 "활성 키가 있다"만으로는 부족하다 — 화면
@@ -487,7 +481,7 @@ class SoriSpeechIndicator extends StatelessWidget {
 ///
 /// [didPushNext]/[deactivate] 의 `TtsService.stop()` 은 **다음 프레임으로
 /// 미룬다**(검수#13 보강 fix 2). 둘 다 화면 트리가 교체되는 빌드/레이아웃
-/// 단계 한복판에서 불릴 수 있는데, `TtsService.stop()` 은 전역 `speaking`
+/// 단계 한복판에서 불릴 수 있는데, `TtsService.stop()` 은 전역 `phase`
 /// ValueNotifier 를 동기로 뒤집어 그걸 구독하는 [SoriSpeechIndicator]의
 /// `ValueListenableBuilder` 가 build 중에 다시 setState 를 시도하게
 /// 만든다("setState() or markNeedsBuild() called during build" — T13,

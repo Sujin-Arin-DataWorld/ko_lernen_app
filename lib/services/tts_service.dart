@@ -540,8 +540,9 @@ class TtsService {
   static final TtsInstallationIdProvider _installationIdProvider =
       TtsInstallationIdProvider();
 
-  /// [speaking](레거시 bool)과 별개인 3단 재생 상태. `SoriSpeech.phase`가
-  /// 이 리스너를 구독해 resolving→speaking 승격 신호로 쓴다(Task 2).
+  /// idle/resolving/speaking 3단 재생 상태 — 발화 상태의 단일 출처.
+  /// `SoriSpeech.phase`가 이 리스너를 구독해 resolving→speaking 승격
+  /// 신호로 쓴다(Task 2).
   static final ValueNotifier<TtsSpeechPhase> phase =
       ValueNotifier<TtsSpeechPhase>(TtsSpeechPhase.idle);
 
@@ -597,8 +598,6 @@ class TtsService {
   /// 사용자가 배너를 닫았거나, 다음 발화가 성공했다.
   static void clearUnavailable() => unavailable.value = null;
 
-  /// 발화 중 여부 — [AudioPolicy] 더킹·UI 표시용 (ADR-002 §5-2).
-  static final ValueNotifier<bool> speaking = ValueNotifier<bool>(false);
   static int _speakToken = 0;
 
   /// 새 발화가 시작될 때 [phase]를 확실히 resolving으로 되돌린다(F1).
@@ -638,7 +637,6 @@ class TtsService {
     unavailable.value = null;
     final token = ++_speakToken;
     markSpeechStarting();
-    speaking.value = true;
     AudioPolicy.instance.noteSpeechStarted();
     Analytics.ttsPlayed(
       contentType: text.trim().contains(RegExp(r'[\s.!?]'))
@@ -656,7 +654,6 @@ class TtsService {
     result.whenComplete(() {
       // 새 발화가 이미 시작됐으면(토큰 불일치) 종료 처리를 그쪽에 맡긴다.
       if (token == _speakToken) {
-        speaking.value = false;
         phase.value = TtsSpeechPhase.idle;
         activeSpeechText = null;
         AudioPolicy.instance.noteSpeechEnded();
@@ -766,7 +763,6 @@ class TtsService {
     // 토큰을 올리면 speak(366행)이 발급한 값과 달라져 그 완료 블록이 통째로
     // 건너뛰어진다 — 새 발화가 끼어들었을 때와 같은 처리다.
     _speakToken++;
-    speaking.value = false;
     phase.value = TtsSpeechPhase.idle;
     activeSpeechText = null;
     // 지연 복원(noteSpeechEnded)이 아니라 즉시 복원이다 — 정지했으니 이어질
