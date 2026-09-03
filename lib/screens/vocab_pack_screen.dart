@@ -816,13 +816,12 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _choices = null;
     });
     _prepareNextQuestion();
-    // 새 현재 문항 오디오를 _speakCurrent() 바로 앞에서 미리 데운다 —
-    // 같은 키(voice 생략=auto)라 아래 speak 호출이 곧장 이 프리페치에
-    // 합류/승격한다(§4.5, Frozen contracts).
+    // 850ms 광고 타이머 동안 그 다음 문항(현재+1) 오디오를 미리 데운다 —
+    // 지금 말할 문항 자체는 바로 아래 _speakCurrent()가 처리한다.
     final list = isQuiz ? _quizQuestions : _bossQuestions;
-    if (_qIdx < list.length) {
+    if (_qIdx + 1 < list.length) {
       // ignore: discarded_futures
-      SoriSpeech.prefetch(list[_qIdx].korean);
+      SoriSpeech.prefetch(list[_qIdx + 1].korean);
     }
     // 퀴즈·보스 모두 다음 단어 자동 발음(듣고 고르기 통일).
     _speakCurrent();

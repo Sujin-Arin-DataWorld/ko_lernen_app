@@ -22,6 +22,14 @@ void main() {
     await Storage.setTutPackQuizSeen();
     await Storage.setTutPackBossSeen();
     SoriSpeech.resetForTesting();
+    // 실제 TtsService.speak()/stop()은 Firebase Storage/Functions를 부르며
+    // 테스트 환경엔 mock이 없어 절대 안 풀린다 — 그 결과 _enterQuiz()의
+    // 자동 발음이 in-flight 키를 영구히 물고 있어 이후의 동일 키 prefetch가
+    // dedupe join만 하고 prefetchImpl을 못 부르는 문제가 있었다(Task 3
+    // correction). speakImpl/stopImpl을 즉시 완료되는 스텁으로 바꿔
+    // dedupe 윈도우가 정상적으로 열리고 닫히게 한다.
+    SoriSpeech.speakImpl = (text, voice) async => true;
+    SoriSpeech.stopImpl = () async {};
   });
   tearDown(SoriSpeech.resetForTesting);
   testWidgets('Learn 카드 전진 시 다음 단어를 정확히 1회 프리페치한다', (tester) async {
@@ -48,30 +56,42 @@ void main() {
   });
   testWidgets('퀴즈 문항 전진 시 다음 문항을 프리페치한다', (tester) async {
     final prefetched = <String>[];
+    final spoken = <String>[];
     SoriSpeech.prefetchImpl = (text, voice) async => prefetched.add(text);
-    final t = await _pumpPack(tester, _pack(count: 2));
-    for (var i = 0; i < 2; i++) {
+    SoriSpeech.speakImpl = (text, voice) async {
+      spoken.add(text);
+      return true;
+    };
+    final pack = _pack(count: 3);
+    final t = await _pumpPack(tester, pack);
+    for (var i = 0; i < 3; i++) {
       tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
       await tester.pump(const Duration(milliseconds: 400));
       tapDeckAction(tester, t.vocabPackGotIt);
       await tester.pump(const Duration(milliseconds: 400));
     }
+    // Learn 완주 즉시 _enterQuiz()가 문항0을 말하고(spoken[0]) 문항1을
+    // 미리 프리페치한다 — 이번 검증 대상이 아니므로 클리어한다.
     prefetched.clear();
     tester
         .widgetList<QuizChoice>(find.byType(QuizChoice))
         .firstWhere((choice) => choice.isCorrect)
         .onSelected!();
     await tester.pump(const Duration(milliseconds: 900));
-    // shuffledAssessmentOrder는 2개짜리 리스트에서 원본 순서를 절대
-    // 허용하지 않는다(vocab_pack_screen.dart의 _sameAssessmentOrder 안전판)
-    // — 그래서 [단어1,단어2] 원본은 항상 [단어2,단어1]로 뒤집혀
-    // _quizQuestions가 된다. 즉 문항0='단어2'는 _enterQuiz()가 진입 즉시
-    // _speakCurrent()로 이미 말한 단어라 SoriSpeech의 키 dedupe(§4.5,
-    // Frozen contracts)로 인해 나중에 다시 prefetch해도 join만 하고
-    // prefetchImpl은 안 불린다 — 그 키는 프리페치 대상이 될 수 없다.
-    // 정답을 고르면 문항1='단어1'로 넘어가고, 그 직전에 프리페치되는
-    // 건(바로 다음에 _speakCurrent()가 말할) '단어1'이다.
-    expect(prefetched, contains('단어1'));
+    // _quizQuestions는 pack.normalWords를 shuffledAssessmentOrder로 섞은
+    // 순열이다 — 그 rng는 seed 없는 math.Random()(vocab_pack_screen.dart
+    // `_assessmentOrderRng`)이라 3개짜리 리스트의 정확한 순서는 세션마다
+    // 달라져 리터럴로 고정할 수 없다(2개짜리와 달리 항등 순열만 배제할
+    // 뿐 나머지 5가지 순열 중 무작위). 그래서 실제 순서를 문자열로
+    // 하드코딩하는 대신, speakImpl 스텁으로 문항0(spoken[0])·문항1
+    // (spoken[1])을 실측하고, pack의 3 단어 중 그 둘이 아닌 나머지
+    // 한 단어 — 즉 정확히 문항2 — 를 유일한 기대값으로 도출한다.
+    final remaining = pack.words
+        .map((v) => v.korean)
+        .where((korean) => korean != spoken[0] && korean != spoken[1])
+        .toList();
+    expect(remaining, hasLength(1));
+    expect(prefetched, contains(remaining.single));
   });
 }
 Future<AppL10n> _pumpPack(WidgetTester tester, VocabPack pack) async {
