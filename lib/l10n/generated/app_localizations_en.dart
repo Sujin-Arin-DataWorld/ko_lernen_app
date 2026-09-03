@@ -8561,7 +8561,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get pronunciationIntro =>
-      'Listen first. Then record up to 10 seconds if you want an assessment.';
+      'Listen first. Record up to 10 seconds, then listen to your voice and compare.';
 
   @override
   String get pronunciationPhrasesLoading => 'Loading pronunciation practice …';
@@ -8594,7 +8594,7 @@ class AppL10nEn extends AppL10n {
   String get pronunciationAssessing => 'Preparing your score…';
 
   @override
-  String get pronunciationStop => 'Stop and assess';
+  String get pronunciationStop => 'Stop recording';
 
   @override
   String get pronunciationContinueWithoutScore => 'Continue without a score';
@@ -10218,4 +10218,51 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get homeActionConfirmStay => 'Keep playing';
+
+  @override
+  String get savedAddTranslation => 'Add a translation';
+
+  @override
+  String get booksSavedOtherLanguage =>
+      'This page was saved in another language. Korean text and available English translations are shown.';
+
+  @override
+  String get savedOriginalMeaning => 'Original saved meaning';
+
+  @override
+  String get pronunciationRequestScore => 'Get a score';
+
+  @override
+  String get savedTranslationUnavailable =>
+      'No English translation is saved yet.';
+
+  @override
+  String get pronunciationReplay => 'Listen to my recording';
+
+  @override
+  String get flashcardRomanizationFront => 'Show on the front';
+
+  @override
+  String get pronunciationFinishingRecording => 'Finishing recording…';
+
+  @override
+  String get pronunciationReplayUnavailable =>
+      'Your recording could not play. Try again or make a new recording.';
+
+  @override
+  String get flashcardRomanizationBack => 'Show on the back';
+
+  @override
+  String get ttsUnavailablePlayback =>
+      'Audio could not play on this device. Check the volume or connected headphones, then try again.';
+
+  @override
+  String get pronunciationLocalRecordingHint =>
+      'Your recording stays temporarily on this device. It is deleted when you leave this screen.';
+
+  @override
+  String get pronunciationReplayStop => 'Stop my recording';
+
+  @override
+  String get flashcardRomanization => 'Romanization';
 }

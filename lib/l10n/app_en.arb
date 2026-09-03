@@ -11,8 +11,23 @@
   "paywallFreeLaunch": "All learning content is open for the free launch. Subscriptions are not available yet.",
   "paywallAiLimits": "Your current allowance: {book} book analyses and {pronunciation} pronunciation checks per UTC day.",
   "paywallNextReset": "Next reset: {time} UTC",
-  "@paywallAiLimits": {"placeholders": {"book": {"type": "int"}, "pronunciation": {"type": "int"}}},
-  "@paywallNextReset": {"placeholders": {"time": {"type": "String"}}},
+  "@paywallAiLimits": {
+    "placeholders": {
+      "book": {
+        "type": "int"
+      },
+      "pronunciation": {
+        "type": "int"
+      }
+    }
+  },
+  "@paywallNextReset": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "accountAdditionalProviderTitle": "Connect another sign-in method",
   "accountAdditionalProviderConsent": "First, verify your current account. Then Google or Apple will be connected to that same account. If Apple hides your email address, you also consent to associating your Apple identity with this account’s data. Your learning progress stays here.",
   "accountProviderCollisionTitle": "Already connected to another account",
@@ -89,14 +104,18 @@
   "reviewHubStartSelected": "{n, plural, one{Practice 1 word} other{Practice {n} words}}",
   "@reviewHubStartSelected": {
     "placeholders": {
-      "n": {"type": "int"}
+      "n": {
+        "type": "int"
+      }
     }
   },
   "reviewHubCalendarTooltip": "Calendar",
   "reviewHubDeckLabel": "{words, plural, one{1 word} other{{words} words}}",
   "@reviewHubDeckLabel": {
     "placeholders": {
-      "words": {"type": "int"}
+      "words": {
+        "type": "int"
+      }
     }
   },
   "homeReviewTitle": "Today's review",
@@ -224,7 +243,14 @@
   "bookshelfPackLearnedMeta": "{learned} of {total} learned",
   "@bookshelfPackLearnedMeta": {
     "description": "Custom pack tile progress — words learned of total",
-    "placeholders": {"learned": {"type": "int"}, "total": {"type": "int"}}
+    "placeholders": {
+      "learned": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
   },
   "bookshelfPageTitle": "Page",
   "bookshelfPageNotFoundTitle": "Page not found",
@@ -423,20 +449,28 @@
   "silbenCellPosition": "Row {row}, column {column}",
   "@silbenCellPosition": {
     "placeholders": {
-      "row": {"type": "int"},
-      "column": {"type": "int"}
+      "row": {
+        "type": "int"
+      },
+      "column": {
+        "type": "int"
+      }
     }
   },
   "silbenCellMembership": "Words: {memberships}",
   "@silbenCellMembership": {
     "placeholders": {
-      "memberships": {"type": "String"}
+      "memberships": {
+        "type": "String"
+      }
     }
   },
   "silbenCellActiveWord": "Active word: {word}",
   "@silbenCellActiveWord": {
     "placeholders": {
-      "word": {"type": "String"}
+      "word": {
+        "type": "String"
+      }
     }
   },
   "silbenCellOpen": "Open",
@@ -1086,7 +1120,11 @@
   "vocabPackLearnRepeatSuffix": " · +{n, plural, one{1 repeat} other{{n} repeats}}",
   "@vocabPackLearnRepeatSuffix": {
     "description": "Learn stage counter suffix for re-served (missed) cards",
-    "placeholders": {"n": {"type": "int"}}
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
   },
   "vocabPackDontKnow": "Don't know",
   "vocabPackGotIt": "Got it",
@@ -1105,8 +1143,12 @@
   "contentShareBody": "{korean}\n{gloss}\nhangul-sori.com",
   "@contentShareBody": {
     "placeholders": {
-      "korean": {"type": "String"},
-      "gloss": {"type": "String"}
+      "korean": {
+        "type": "String"
+      },
+      "gloss": {
+        "type": "String"
+      }
     }
   },
   "contentShareFailedTitle": "The image could not be shared",
@@ -1624,10 +1666,10 @@
   "listeningDialogueStart": "Listen to the dialogue",
   "listeningSceneIntro": "Scene",
   "listeningParticipants": "Speakers",
-  "listeningLineCount": "{count, plural, =1{1 line} other{{count} lines}}",
+  "listeningLineCount": "{n} lines",
   "@listeningLineCount": {
     "placeholders": {
-      "count": {
+      "n": {
         "type": "int"
       }
     }
@@ -1698,14 +1740,6 @@
   "listeningShelfEmpty": "not stocked yet",
   "listeningShelfScenarioCount": "{n} scenarios",
   "@listeningShelfScenarioCount": {
-    "placeholders": {
-      "n": {
-        "type": "int"
-      }
-    }
-  },
-  "listeningLineCount": "{n} lines",
-  "@listeningLineCount": {
     "placeholders": {
       "n": {
         "type": "int"
@@ -3576,8 +3610,12 @@
   "ilduWorldBuiltCount": "{built} of {total} buildings",
   "@ilduWorldBuiltCount": {
     "placeholders": {
-      "built": { "type": "int" },
-      "total": { "type": "int" }
+      "built": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
     }
   },
   "ilduWorldOpenState": "Open",
@@ -3590,7 +3628,9 @@
   "ilduWorldLockedEyebrow": "Choosing a level alone unlocks nothing",
   "ilduWorldLockedTitle": "Complete verified learning steps at {level}.",
   "@ilduWorldLockedTitle": {
-    "placeholders": { "level": {} }
+    "placeholders": {
+      "level": {}
+    }
   },
   "ilduWorldLockedBody": "Verified learning evidence turns this planned site into a complete building. Placement and free browsing do not count.",
   "ilduWorldLockedCta": "See the matching mission",
@@ -3599,7 +3639,9 @@
   "ilduWorldDecorPlace": "Place",
   "ilduWorldDecorRequires": "From {level}",
   "@ilduWorldDecorRequires": {
-    "placeholders": { "level": {} }
+    "placeholders": {
+      "level": {}
+    }
   },
   "ilduWorldSaveError": "Your courtyard layout could not be saved locally.",
   "hanokWorldEarlyEyebrow": "Your courtyard · A1",
@@ -3976,7 +4018,7 @@
   "soriStageGyeFlow": "Mission complete → lantern → shared Hanok progress",
   "pronunciationTitle": "Pronunciation studio",
   "pronunciationEyebrow": "PRONUNCIATION PRACTICE",
-  "pronunciationIntro": "Listen first. Then record up to 10 seconds if you want an assessment.",
+  "pronunciationIntro": "Listen first. Record up to 10 seconds, then listen to your voice and compare.",
   "pronunciationPhrasesLoading": "Loading pronunciation practice …",
   "pronunciationPhrasesUnavailableTitle": "Pronunciation practice unavailable",
   "pronunciationPhrasesUnavailableBody": "The pronunciation practice could not be loaded. Please try again.",
@@ -3986,7 +4028,7 @@
   "pronunciationRecord": "Record my voice",
   "pronunciationRecording": "Recording…",
   "pronunciationAssessing": "Preparing your score…",
-  "pronunciationStop": "Stop and assess",
+  "pronunciationStop": "Stop recording",
   "pronunciationContinueWithoutScore": "Continue without a score",
   "pronunciationNextPhrase": "Next phrase",
   "pronunciationConsentTitle": "Use your voice for an assessment?",
@@ -4231,14 +4273,20 @@
   "mediaPhraseProgress": "{current} of {total}",
   "@mediaPhraseProgress": {
     "placeholders": {
-      "current": {"type": "int"},
-      "total": {"type": "int"}
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
     }
   },
   "mediaPhraseListenTarget": "Listen to {phrase}",
   "@mediaPhraseListenTarget": {
     "placeholders": {
-      "phrase": {"type": "String"}
+      "phrase": {
+        "type": "String"
+      }
     }
   },
   "mediaPhrasePrevious": "Previous",
@@ -4255,8 +4303,12 @@
   "onboardingV2StoryProgress": "Page {current} of {total}",
   "@onboardingV2StoryProgress": {
     "placeholders": {
-      "current": {"type": "int"},
-      "total": {"type": "int"}
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
     }
   },
   "onboardingV2Story1Eyebrow": "Your learning path",
@@ -4470,7 +4522,9 @@
   "settingsCourseStartConfirmDescription": "Your sequential course will restart at {level}, replacing its current course progress. Other practice records, XP, rewards, and collections stay unchanged; earlier units are not marked complete.",
   "@settingsCourseStartConfirmDescription": {
     "placeholders": {
-      "level": {"type": "String"}
+      "level": {
+        "type": "String"
+      }
     }
   },
   "settingsCourseStartConfirmAction": "Change starting point",
@@ -4497,7 +4551,9 @@
   "guideScenarioCategoryCount": "{count, plural, one{1 scenario} other{{count} scenarios}}",
   "@guideScenarioCategoryCount": {
     "placeholders": {
-      "count": {"type": "int"}
+      "count": {
+        "type": "int"
+      }
     }
   },
   "guideModulePersonalizedStartStep1": "Your learning goal changes the order of recommendations and this checklist. It does not change difficulty, XP, or rewards.",
@@ -4558,15 +4614,23 @@
   "studyLibraryViewChoice": "{view}, {count, plural, one{1 item} other{{count} items}}",
   "@studyLibraryViewChoice": {
     "placeholders": {
-      "view": {"type": "String"},
-      "count": {"type": "int"}
+      "view": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
     }
   },
   "studyLibraryViewSelected": "{view}. {count, plural, one{1 item shown} other{{count} items shown}}",
   "@studyLibraryViewSelected": {
     "placeholders": {
-      "view": {"type": "String"},
-      "count": {"type": "int"}
+      "view": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
     }
   },
   "studyLibraryFavoritesDescription": "A heart is a no-pressure favorite. Favorites do not enter review by themselves.",
@@ -4593,7 +4657,9 @@
   "studyLibraryUnresolvedBody": "This favorite is still kept, but its original content ({id}) cannot be displayed right now.",
   "@studyLibraryUnresolvedBody": {
     "placeholders": {
-      "id": {"type": "String"}
+      "id": {
+        "type": "String"
+      }
     }
   },
   "studyLibraryBookmarkUnavailableTitle": "Some saved bookmarks are unavailable",
@@ -4604,13 +4670,17 @@
   "studyLibrarySaveBookmarkFor": "Save bookmark for {title}",
   "@studyLibrarySaveBookmarkFor": {
     "placeholders": {
-      "title": {"type": "String"}
+      "title": {
+        "type": "String"
+      }
     }
   },
   "studyLibraryRemoveBookmarkFor": "Remove only the bookmark for {title}",
   "@studyLibraryRemoveBookmarkFor": {
     "placeholders": {
-      "title": {"type": "String"}
+      "title": {
+        "type": "String"
+      }
     }
   },
   "studyLibraryBookmarkSavedStatus": "Bookmark saved. Your heart and all source collections are unchanged.",
@@ -4624,8 +4694,12 @@
   "todayGuideProgress": "{completed} of {total} topics completed",
   "@todayGuideProgress": {
     "placeholders": {
-      "completed": {"type": "int"},
-      "total": {"type": "int"}
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
     }
   },
   "todayGuideOpenHub": "Open the full app guide",
@@ -4635,5 +4709,19 @@
   "homeActionConfirmTitle": "Leave this round?",
   "homeActionConfirmBody": "Your progress in this round will be lost if you go to the home screen now.",
   "homeActionConfirmLeave": "Go home",
-  "homeActionConfirmStay": "Keep playing"
+  "homeActionConfirmStay": "Keep playing",
+  "savedAddTranslation": "Add a translation",
+  "booksSavedOtherLanguage": "This page was saved in another language. Korean text and available English translations are shown.",
+  "savedOriginalMeaning": "Original saved meaning",
+  "pronunciationRequestScore": "Get a score",
+  "savedTranslationUnavailable": "No English translation is saved yet.",
+  "pronunciationReplay": "Listen to my recording",
+  "flashcardRomanizationFront": "Show on the front",
+  "pronunciationFinishingRecording": "Finishing recording…",
+  "pronunciationReplayUnavailable": "Your recording could not play. Try again or make a new recording.",
+  "flashcardRomanizationBack": "Show on the back",
+  "ttsUnavailablePlayback": "Audio could not play on this device. Check the volume or connected headphones, then try again.",
+  "pronunciationLocalRecordingHint": "Your recording stays temporarily on this device. It is deleted when you leave this screen.",
+  "pronunciationReplayStop": "Stop my recording",
+  "flashcardRomanization": "Romanization"
 }

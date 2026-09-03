@@ -31,8 +31,9 @@ void main() {
       jsonEncode(<String, Object>{pack.id: pack.toLocalJson()}),
     );
 
-    final records = await const ProductionStudyLibraryCustomPackReader()
-        .readCustomPackItems();
+    final records = await const ProductionStudyLibraryCustomPackReader(
+      languageCode: 'en',
+    ).readCustomPackItems();
 
     expect(records, hasLength(1));
     expect(records.single.key.type, StudyLibraryItemType.word);
@@ -71,8 +72,9 @@ void main() {
         }),
       );
 
-      final records = await const ProductionStudyLibraryCustomPackReader()
-          .readCustomPackItems();
+      final records = await const ProductionStudyLibraryCustomPackReader(
+        languageCode: 'en',
+      ).readCustomPackItems();
 
       expect(
         records
@@ -188,7 +190,9 @@ void main() {
         for (final key in initial.keys) key: preferences.get(key),
       };
 
-      final snapshot = await createProductionStudyLibraryRepository().load();
+      final snapshot = await createProductionStudyLibraryRepository(
+        languageCode: 'en',
+      ).load();
 
       expect(snapshot.bookmarkHealth, StudyLibraryBookmarkHealth.healthy);
       expect(

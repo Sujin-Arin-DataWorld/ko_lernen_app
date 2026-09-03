@@ -85,6 +85,7 @@ CustomPack _packWithWordCount(int count) => CustomPack.manual(
         : _word.copyWithEditable(
             korean: '단어$index',
             translationDe: 'Detailed meaning $index',
+            translationEn: 'English meaning $index',
           ),
   ),
   createdAt: DateTime.utc(2026, 8, 22),
@@ -154,7 +155,10 @@ void main() {
             textScale: viewport.textScale,
           );
           expect(find.text(_packName), findsOneWidget);
-          await _scrollTo(tester, find.text(_word.translationDe));
+          await _scrollTo(
+            tester,
+            find.text(_word.translationFor(locale.languageCode)),
+          );
           expect(tester.takeException(), isNull);
         }
       }
@@ -187,7 +191,10 @@ void main() {
       size: const Size(390, 844),
       textScale: 1.3,
     );
-    await _scrollTo(tester, find.text(_word.translationDe));
+    await _scrollTo(
+      tester,
+      find.text(_word.translationFor(locale.languageCode)),
+    );
     await _expectEnabledSemantics(tester, '${t.wbEditWordTitle}: 사랑');
     await _expectEnabledSemantics(tester, '${t.ttsListen}: 사랑');
     await _expectEnabledSemantics(tester, '${t.btnDelete}: 사랑');
@@ -270,14 +277,20 @@ void main() {
       }
 
       for (final word in fourWordPack.words.take(2)) {
-        await _scrollTo(tester, find.text(word.translationDe));
+        await _scrollTo(
+          tester,
+          find.text(word.translationFor(locale.languageCode)),
+        );
         final wordCard = find.ancestor(
-          of: find.text(word.translationDe),
+          of: find.text(word.translationFor(locale.languageCode)),
           matching: find.byType(SoriCard),
         );
         expect(wordCard, findsOneWidget);
         expect(tester.widget<SoriCard>(wordCard).onTap, isNull);
-        _expectStaticSemantics(tester, '${word.korean}. ${word.translationDe}');
+        _expectStaticSemantics(
+          tester,
+          '${word.korean}. ${word.translationFor(locale.languageCode)}',
+        );
         await _expectActionSemantics(
           tester,
           '${t.wbEditWordTitle}: ${word.korean}',
@@ -528,6 +541,7 @@ void main() {
         size: const Size(320, 640),
         textScale: 2,
       );
+      await _scrollTo(tester, find.text(t.bookshelfCreatePackCta));
       await tester.tap(find.text(t.bookshelfCreatePackCta));
       await tester.pumpAndSettle();
       final pageName = tester.widget<SoriTextField>(find.byType(SoriTextField));

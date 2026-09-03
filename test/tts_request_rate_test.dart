@@ -38,6 +38,54 @@ class _FakePlatform implements TtsPlaybackPlatform {
 }
 
 void main() {
+  for (final stage in ['stop', 'start', 'completion', 'timeout']) {
+    test('device $stage failure has a distinct playback diagnosis', () async {
+      final platform = _FakePlatform()
+        ..throwStops = stage == 'stop' ? 1 : 0
+        ..failFileStart = stage == 'start';
+      final playbackFailures = <String>[];
+      final resolutionFailures = <String>[];
+      final engine = TtsPlaybackEngine(
+        resolveAudio: (text, voice) async => const TtsAudio.path('test.mp3'),
+        platform: platform,
+        completionTimeout: const Duration(milliseconds: 20),
+        onPlaybackFailed: playbackFailures.add,
+        onResolutionFailed: resolutionFailures.add,
+      );
+      final result = engine.speak(
+        text: '안녕하세요',
+        voice: 'female',
+        baseRate: 0.42,
+      );
+      if (stage == 'completion') {
+        await Future<void>.delayed(Duration.zero);
+        platform.fileSessions['test.mp3']!.complete(false);
+      }
+
+      expect(await result, isFalse);
+      expect(playbackFailures, hasLength(1));
+      expect(resolutionFailures, isEmpty);
+      await engine.dispose();
+    });
+  }
+
+  test('explicitly stopped playback does not show a device failure', () async {
+    final platform = _FakePlatform();
+    final failures = <String>[];
+    final engine = TtsPlaybackEngine(
+      resolveAudio: (text, voice) async => const TtsAudio.path('test.mp3'),
+      platform: platform,
+      onPlaybackFailed: failures.add,
+    );
+    final result = engine.speak(text: '안녕하세요', voice: 'female', baseRate: 0.42);
+    await Future<void>.delayed(Duration.zero);
+    await engine.stop();
+    expect(await result, isFalse);
+    expect(failures, isEmpty);
+    platform.fileSessions['test.mp3']!.complete(false);
+    await engine.dispose();
+  });
+
   test('speech context bypasses iOS silent mode and ducks other audio', () {
     final context = TtsSpeechAudioContext.build();
 

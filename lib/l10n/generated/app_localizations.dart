@@ -14919,7 +14919,7 @@ abstract class AppL10n {
   /// No description provided for @pronunciationIntro.
   ///
   /// In de, this message translates to:
-  /// **'Höre zuerst zu. Nimm danach freiwillig bis zu 10 Sekunden für eine Bewertung auf.'**
+  /// **'Höre zuerst zu. Nimm bis zu 10 Sekunden auf und vergleiche deine Stimme mit dem Beispiel.'**
   String get pronunciationIntro;
 
   /// No description provided for @pronunciationPhrasesLoading.
@@ -14979,7 +14979,7 @@ abstract class AppL10n {
   /// No description provided for @pronunciationStop.
   ///
   /// In de, this message translates to:
-  /// **'Stoppen und bewerten'**
+  /// **'Aufnahme stoppen'**
   String get pronunciationStop;
 
   /// No description provided for @pronunciationContinueWithoutScore.
@@ -17387,6 +17387,90 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Weiterspielen'**
   String get homeActionConfirmStay;
+
+  /// No description provided for @savedAddTranslation.
+  ///
+  /// In de, this message translates to:
+  /// **'Übersetzung ergänzen'**
+  String get savedAddTranslation;
+
+  /// No description provided for @booksSavedOtherLanguage.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Seite wurde in einer anderen Sprache gespeichert. Du siehst den koreanischen Text und die verfügbaren deutschen Übersetzungen.'**
+  String get booksSavedOtherLanguage;
+
+  /// No description provided for @savedOriginalMeaning.
+  ///
+  /// In de, this message translates to:
+  /// **'Ursprünglich gespeicherte Bedeutung'**
+  String get savedOriginalMeaning;
+
+  /// No description provided for @pronunciationRequestScore.
+  ///
+  /// In de, this message translates to:
+  /// **'Bewertung anfordern'**
+  String get pronunciationRequestScore;
+
+  /// No description provided for @savedTranslationUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine deutsche Übersetzung gespeichert.'**
+  String get savedTranslationUnavailable;
+
+  /// No description provided for @pronunciationReplay.
+  ///
+  /// In de, this message translates to:
+  /// **'Meine Aufnahme anhören'**
+  String get pronunciationReplay;
+
+  /// No description provided for @flashcardRomanizationFront.
+  ///
+  /// In de, this message translates to:
+  /// **'Auf der Vorderseite anzeigen'**
+  String get flashcardRomanizationFront;
+
+  /// No description provided for @pronunciationFinishingRecording.
+  ///
+  /// In de, this message translates to:
+  /// **'Aufnahme wird beendet…'**
+  String get pronunciationFinishingRecording;
+
+  /// No description provided for @pronunciationReplayUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Aufnahme konnte nicht abgespielt werden. Versuche es erneut oder nimm sie neu auf.'**
+  String get pronunciationReplayUnavailable;
+
+  /// No description provided for @flashcardRomanizationBack.
+  ///
+  /// In de, this message translates to:
+  /// **'Auf der Rückseite anzeigen'**
+  String get flashcardRomanizationBack;
+
+  /// No description provided for @ttsUnavailablePlayback.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Ton konnte auf diesem Gerät nicht abgespielt werden. Prüfe die Lautstärke oder verbundene Kopfhörer und versuche es erneut.'**
+  String get ttsUnavailablePlayback;
+
+  /// No description provided for @pronunciationLocalRecordingHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Aufnahme bleibt vorübergehend auf diesem Gerät. Wenn du diesen Bildschirm verlässt, wird sie gelöscht.'**
+  String get pronunciationLocalRecordingHint;
+
+  /// No description provided for @pronunciationReplayStop.
+  ///
+  /// In de, this message translates to:
+  /// **'Meine Aufnahme stoppen'**
+  String get pronunciationReplayStop;
+
+  /// No description provided for @flashcardRomanization.
+  ///
+  /// In de, this message translates to:
+  /// **'Umschrift'**
+  String get flashcardRomanization;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

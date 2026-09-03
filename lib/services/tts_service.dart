@@ -81,6 +81,9 @@ enum TtsUnavailableReason {
 
   /// 모든 해석 경로가 끝났지만 재생 가능한 프리미엄 오디오가 없었다.
   audioUnavailable,
+
+  /// 오디오는 있지만 기기에서 재생을 시작하거나 끝내지 못했다.
+  playbackFailed,
 }
 
 /// Cloud TTS refused this request.
@@ -280,6 +283,7 @@ class TtsPlaybackEngine {
     this.completionTimeout = const Duration(seconds: 30),
     this.errorReporter,
     this.onResolutionFailed,
+    this.onPlaybackFailed,
   });
 
   final TtsAudioResolver resolveAudio;
@@ -294,6 +298,9 @@ class TtsPlaybackEngine {
   // 불려, TtsService 가 unavailable(오프라인 추정) 배너를 그 계열에만
   // 한정할 수 있게 한다.
   final TtsErrorReporter? onResolutionFailed;
+  // Keep device playback failures distinct from missing/network audio. A
+  // cancelled or superseded request must not show a failure for the new one.
+  final TtsErrorReporter? onPlaybackFailed;
   Future<void> _platformTail = Future<void>.value();
   Completer<void>? _cancellation;
   int _generation = 0;
@@ -365,6 +372,9 @@ class TtsPlaybackEngine {
       return false;
     }
     if (!await stopCurrent) {
+      if (!_disposed && generation == _generation) {
+        onPlaybackFailed?.call('TTS could not stop previous playback.');
+      }
       return false;
     }
     if (_disposed || generation != _generation) return false;
@@ -396,9 +406,16 @@ class TtsPlaybackEngine {
       });
     } catch (error) {
       errorReporter?.call('TTS platform playback start failed: $error');
+      if (!_disposed && generation == _generation) {
+        onPlaybackFailed?.call('TTS audio playback could not start.');
+      }
       return false;
     }
-    if (session == null || _disposed || generation != _generation) {
+    if (_disposed || generation != _generation) {
+      return false;
+    }
+    if (session == null) {
+      onPlaybackFailed?.call('TTS audio playback could not start.');
       return false;
     }
     bool completed;
@@ -418,6 +435,7 @@ class TtsPlaybackEngine {
       completed = false;
     }
     if (!completed && !_disposed && generation == _generation) {
+      onPlaybackFailed?.call('TTS audio playback did not complete.');
       try {
         await _serialize<void>(() async {
           if (!_disposed && generation == _generation) {
@@ -549,9 +567,8 @@ class TtsService {
     // tts_unavailable_banner.dart 가 애초에 존재하는 이유다)까지
     // "오프라인이세요?" 로 오표시했었다(post-review, finding 1b 후속수정).
     errorReporter: (message) => lastError = message,
-    // post-review: unavailable 배너는 오직 "해석 실패"(아예 재생할 오디오가
-    // 없음) 계열에서만 켠다 — 예외뿐 아니라 모든 티어가 정상적으로 null 을
-    // 반환한 경우도 TtsPlaybackEngine.speak() 가 이 콜백으로 보고한다.
+    // Resolution failures keep their missing-audio/network reason. Device
+    // playback failures use the separate callback below.
     onResolutionFailed: (_) {
       // _resolveAudio 의 각 티어가 이미 구체적 사유(quota/offline/...)로
       // unavailable 을 채웠다면 여기서 일반 사유로 덮어쓰지 않는다 —
@@ -561,6 +578,8 @@ class TtsService {
         _reportUnavailable(TtsUnavailableReason.audioUnavailable);
       }
     },
+    onPlaybackFailed: (_) =>
+        _reportUnavailable(TtsUnavailableReason.playbackFailed),
   );
 
   /// 웹 전용 메모리 캐시 — 파일시스템이 없어 1단을 여기에 둔다.

@@ -50,8 +50,15 @@ void main() {
       expect(bookmarks.single.key.id, grammar.pattern);
       expect(bookmarks.single.primaryText, grammar.pattern);
       expect(CustomPackService.containsKorean(grammar.pattern), isTrue);
+      final mirror = CustomPackService.getById(
+        CustomPackService.quickPackId,
+      )!.words.singleWhere((word) => word.korean == grammar.pattern);
+      expect(mirror.exampleFor('en'), grammar.exampleEn);
+      expect(mirror.exampleFor('de'), grammar.exampleGerman);
 
-      final snapshot = await createProductionStudyLibraryRepository().load();
+      final snapshot = (await tester.runAsync(
+        () => createProductionStudyLibraryRepository(languageCode: 'en').load(),
+      ))!;
       expect(snapshot.entries, hasLength(1));
       expect(snapshot.entries.single.key.type, StudyLibraryItemType.grammar);
       expect(snapshot.entries.single.primaryText, grammar.pattern);
@@ -60,8 +67,9 @@ void main() {
         await TypedStudyBookmarkStore.production().remove(bookmarks.single.key),
         TypedStudyBookmarkMutationResult.removed,
       );
-      final afterRemoval = await createProductionStudyLibraryRepository()
-          .load();
+      final afterRemoval = (await tester.runAsync(
+        () => createProductionStudyLibraryRepository(languageCode: 'en').load(),
+      ))!;
       expect(afterRemoval.entries, isEmpty);
       expect(
         TypedStudyBookmarkStore.production()
@@ -100,7 +108,9 @@ void main() {
       expect(bookmarks.single.primaryText, phrase.ko);
       expect(CustomPackService.containsKorean(phrase.ko), isTrue);
 
-      final snapshot = await createProductionStudyLibraryRepository().load();
+      final snapshot = (await tester.runAsync(
+        () => createProductionStudyLibraryRepository(languageCode: 'en').load(),
+      ))!;
       expect(snapshot.entries, hasLength(1));
       expect(snapshot.entries.single.key.type, StudyLibraryItemType.sentence);
       expect(snapshot.entries.single.key.id, phrase.id);

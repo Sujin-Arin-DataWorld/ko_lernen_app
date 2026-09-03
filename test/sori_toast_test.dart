@@ -4,6 +4,38 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/widgets/sori/toast.dart';
 
 void main() {
+  testWidgets('notice expires while a modal route is still open', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Builder(
+          builder: (context) => Scaffold(
+            body: FilledButton(
+              onPressed: () => showModalBottomSheet<void>(
+                context: context,
+                builder: (sheetContext) => TextButton(
+                  onPressed: () => soriNotice(sheetContext, 'Temporary notice'),
+                  child: const Text('Show notice'),
+                ),
+              ),
+              child: const Text('Open sheet'),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.tap(find.text('Open sheet'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Show notice'));
+    await tester.pumpAndSettle();
+    expect(find.byType(SnackBar), findsOneWidget);
+    await tester.pump(const Duration(seconds: 3));
+    await tester.pumpAndSettle();
+    expect(find.text('Show notice'), findsOneWidget);
+    expect(find.byType(SnackBar), findsNothing);
+  });
+
   testWidgets('rapid notices replace instead of queueing', (tester) async {
     await tester.pumpWidget(
       MaterialApp(

@@ -6,6 +6,79 @@ import 'package:ko_lernen_app/services/pronunciation_assessment_client.dart';
 
 void main() {
   test(
+    'default beta blocks all assessment transport at the gateway boundary',
+    () async {
+      var calls = 0;
+      Future<Object?> invoke({
+        required String callableName,
+        required Map<String, Object?> request,
+        required HttpsCallableOptions callableOptions,
+      }) async {
+        calls++;
+        return null;
+      }
+
+      expect(freePronunciationAssessmentEnabled, isFalse);
+      for (final gateway in [
+        FirebasePronunciationAssessmentGateway(invoke),
+        FirebasePronunciationAssessmentGateway.production(
+          invokerForRegion: (_) => invoke,
+        ),
+      ]) {
+        for (var retry = 0; retry < 2; retry++) {
+          await expectLater(
+            gateway.assess(
+              pcm16: Uint8List(20),
+              referenceText: '안녕하세요',
+              assessmentId: 'p-123456-abcdef12',
+            ),
+            throwsA(
+              isA<PronunciationAssessmentFailure>().having(
+                (e) => e.retryable,
+                'retryable',
+                isFalse,
+              ),
+            ),
+          );
+        }
+      }
+      expect(calls, 0);
+    },
+  );
+
+  test(
+    'a missing deployed callable is diagnosed as service unavailable',
+    () async {
+      final gateway = FirebasePronunciationAssessmentGateway(
+        ({
+          required callableName,
+          required request,
+          required callableOptions,
+        }) async => throw FirebaseFunctionsException(
+          code: 'not-found',
+          message: 'The requested function was not found.',
+        ),
+        enabled: true,
+      );
+
+      await expectLater(
+        gateway.assess(
+          pcm16: Uint8List(20),
+          referenceText: '안녕하세요',
+          assessmentId: 'p-123456-abcdef12',
+        ),
+        throwsA(
+          isA<PronunciationAssessmentFailure>().having(
+            (failure) => failure.category,
+            'category',
+            PronunciationAssessmentFailureCategory.unavailable,
+          ),
+        ),
+      );
+    },
+  );
+
+  test(
     'production gateway uses regional callable and limited App Check token',
     () async {
       String? region;
@@ -13,6 +86,7 @@ void main() {
       Map<String, Object?>? payload;
       HttpsCallableOptions? options;
       final gateway = FirebasePronunciationAssessmentGateway.production(
+        enabled: true,
         invokerForRegion: (selectedRegion) {
           region = selectedRegion;
           return ({
@@ -62,6 +136,7 @@ void main() {
           required request,
           required callableOptions,
         }) async => throw StateError('transport must not run'),
+        enabled: true,
       );
 
       Future<void> expectInvalid({
@@ -112,6 +187,7 @@ void main() {
           'completenessScore': 100,
           'rawProviderResponse': 'must never be accepted',
         },
+        enabled: true,
       );
 
       await expectLater(

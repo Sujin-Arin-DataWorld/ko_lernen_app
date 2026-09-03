@@ -43,9 +43,9 @@ class MemoryFirestore {
   }
 }
 
-const azure = {RecognitionStatus: "Success", NBest: [{PronunciationAssessment: {
+const azure = {RecognitionStatus: "Success", NBest: [{
   PronScore: 90, AccuracyScore: 91, FluencyScore: 92, CompletenessScore: 93,
-}}]};
+}]};
 function request(data = {}) {
   return {auth: {uid: "user-1"}, app: {appId: "app-1"}, data: {
     audioBase64: "AAECAw==", referenceText: "안녕하세요", assessmentId: "assessment-123", ...data,
@@ -59,6 +59,7 @@ function harness({providerTimeoutMs = 15000} = {}) {
   class HttpsError extends Error { constructor(code, message, details) { super(message); this.code = code; this.details = details; } }
   const module = {exports: {}};
   const context = {module, exports: module.exports, Buffer, URL, Date, AbortController,
+    process: {env: {PRONUNCIATION_ASSESSMENT_MODE: "azure_f0"}},
     setTimeout: (fn, delay) => setTimeout(fn, Math.min(delay, providerTimeoutMs)), clearTimeout,
     fetch: async (...args) => { calls.push(args); return provider(...args); },
     require: (name) => {
@@ -409,4 +410,24 @@ test("late recovered claim gets a full recovery window from actual dispatch", as
   await receipts.transition(input, owner.ownerToken, "pending");
   now = new Date("2026-09-04T10:00:01Z");
   assert.equal((await receipts.claim(input)).state, "pending");
+});
+
+test("recovered claim reserves free audio once in its actual UTC dispatch month", async () => {
+  const {PronunciationReceipts} = require("../billable_receipts");
+  const {validatePronunciationRequest} = require("../pronunciation_request_guard");
+  const db = new MemoryFirestore();
+  let now = new Date("2026-09-30T23:59:00Z");
+  const receipts = new PronunciationReceipts(db, {now: () => now});
+  const input = validatePronunciationRequest(request());
+  const old = await receipts.claim(input);
+  now = new Date("2026-10-01T00:00:01Z");
+  const current = await receipts.claim(input);
+  assert.equal(await receipts.transition(input, old.ownerToken, "pending"), false);
+  assert.equal(db.store.has("service_usage/pronunciation_free_2026-09"), false);
+  assert.equal(db.store.has("service_usage/pronunciation_free_2026-10"), false);
+  assert.equal(await receipts.transition(input, current.ownerToken, "pending"), true);
+  assert.equal(db.store.get("service_usage/pronunciation_free_2026-10").audioSeconds, 1);
+  assert.equal(await receipts.transition(input, current.ownerToken, "pending"), false);
+  assert.equal(db.store.get("service_usage/pronunciation_free_2026-10").audioSeconds, 1);
+  assert.equal(db.store.has("service_usage/pronunciation_free_2026-09"), false);
 });

@@ -69,6 +69,42 @@ import 'quest_engines/uebersetzen_quest.dart';
 /// Top-level + public → die Index-Mathematik ist rein testbar.
 enum ScenarioStage { intro, vocab, dialog, grammar, rollenspiel, quest, result }
 
+/// Reuse the scene's authored meaning without treating a comprehension answer
+/// (which may describe an intention) as a literal translation of the audio.
+String scenarioListeningTranscriptTranslation(
+  Scenario scenario,
+  QuestSpec quest,
+  String language,
+) {
+  final audio = (quest.data['audioKo'] as String? ?? '').trim();
+  if (audio.isEmpty) {
+    return '';
+  }
+  for (final line in scenario.dialog) {
+    if (line.ko.trim() == audio) {
+      return line.pick(language);
+    }
+  }
+  for (final word in scenario.vocab) {
+    if (word.korean.trim() == audio) {
+      return word.note?.pick(language) ?? '';
+    }
+  }
+  // The default question asks for the sentence's meaning. Custom questions
+  // may instead ask about intent; their answers are not audio translations.
+  if (quest.data['question'] == null) {
+    final options = quest.data['options'];
+    final correct = (quest.data['correctIndex'] as num?)?.toInt() ?? 0;
+    if (options is List && correct >= 0 && correct < options.length) {
+      final option = options[correct];
+      if (option is Map && option[language] is String) {
+        return option[language] as String;
+      }
+    }
+  }
+  return '';
+}
+
 const _scenarioIntroHorizontalFocalPoints = <double>[
   -0.24,
   -0.12,
@@ -1481,6 +1517,11 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         questWidget = HoerverstehenQuest(
           key: ValueKey('quest-$_currentQuestIndex'),
           data: spec.data,
+          transcriptTranslation: scenarioListeningTranscriptTranslation(
+            _scenario!,
+            spec,
+            Localizations.localeOf(context).languageCode,
+          ),
           audioEnabled: widget.previewFixture == null,
           onComplete: (r) {
             _onQuestComplete(r);

@@ -39,7 +39,8 @@ class StudyLibraryScreen extends StatefulWidget {
 }
 
 class _StudyLibraryScreenState extends State<StudyLibraryScreen> {
-  late final StudyLibraryRepository _repository;
+  late StudyLibraryRepository _repository;
+  String? _languageCode;
   late final TypedStudyBookmarkStore _bookmarkStore;
   StudyLibrarySnapshot? _snapshot;
   Object? _error;
@@ -55,9 +56,22 @@ class _StudyLibraryScreenState extends State<StudyLibraryScreen> {
     super.initState();
     _bookmarkStore =
         widget.bookmarkStore ?? TypedStudyBookmarkStore.production();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final languageCode = Localizations.localeOf(context).languageCode;
+    if (_languageCode == languageCode) {
+      return;
+    }
+    _languageCode = languageCode;
     _repository =
         widget.repository ??
-        createProductionStudyLibraryRepository(bookmarkStore: _bookmarkStore);
+        createProductionStudyLibraryRepository(
+          bookmarkStore: _bookmarkStore,
+          languageCode: languageCode,
+        );
     unawaited(_load());
   }
 
@@ -120,6 +134,7 @@ class _StudyLibraryScreenState extends State<StudyLibraryScreen> {
                 key: entry.key,
                 primaryText: entry.primaryText,
                 secondaryText: entry.secondaryText,
+                secondaryLanguage: _languageCode,
               ),
             );
       if (!mounted) return;
@@ -656,7 +671,10 @@ class _StudyLibraryEntryCard extends StatelessWidget {
         ? entry.primaryText
         : t.studyLibraryUnresolvedTitle;
     final secondary = entry.isResolved
-        ? entry.secondaryText
+        ? (entry.secondaryText ??
+              (entry.isSaved && entry.key.type != StudyLibraryItemType.hangul
+                  ? t.savedTranslationUnavailable
+                  : null))
         : t.studyLibraryUnresolvedBody(entry.key.id);
     final statuses = <String>[
       if (entry.isLiked) t.studyLibraryFavoriteStatus,

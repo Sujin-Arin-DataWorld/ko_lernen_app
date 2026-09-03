@@ -11,6 +11,8 @@ const {PronunciationRequestError, pronunciationProviderBreaker,
   validatePronunciationRequest, pcm16ToWav, parseAzureAssessment,
 } = require("./pronunciation_request_guard");
 
+const {freeTierAssessmentEnabled} = require("./pronunciation_free_tier");
+
 initializeApp();
 const AZURE_SPEECH_KEY = defineSecret("AZURE_SPEECH_KEY");
 const AZURE_SPEECH_REGION = "germanywestcentral";
@@ -52,9 +54,13 @@ function unavailable(state = "uncertain") {
 
 exports.assessPronunciation = onCall({
   region: "europe-west3", enforceAppCheck: true, consumeAppCheckToken: true,
-  timeoutSeconds: 30, memory: "256MiB", maxInstances: 20, secrets: [AZURE_SPEECH_KEY],
+  timeoutSeconds: 30, memory: "256MiB", minInstances: 0, maxInstances: 1, concurrency: 1,
+  secrets: freeTierAssessmentEnabled(process.env) ? [AZURE_SPEECH_KEY] : [],
 }, async (request) => {
   try {
+    if (!freeTierAssessmentEnabled(process.env)) {
+      throw unavailable("disabled");
+    }
     const validated = validatePronunciationRequest(request);
     // One server Auth read per request, outside retryable Firestore transactions.
     let user;

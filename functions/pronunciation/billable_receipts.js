@@ -4,6 +4,7 @@ const {createHash, randomUUID} = require("node:crypto");
 const {PronunciationRequestError, nextQuotaState, pronunciationReplayId,
   pronunciationReplayFromDocument, pronunciationReplayDocument} = require("./pronunciation_request_guard");
 const {resolvePronunciationPolicy, readCostControl, prepareCostReservation} = require("./ai_policy");
+const {nextFreeTierUsage} = require("./pronunciation_free_tier");
 
 const LEASE_MS = 60_000;
 const RESULT_MS = 15 * 60_000;
@@ -88,10 +89,21 @@ class PronunciationReceipts {
       const source = target === "pending" || target === "refunded" ? "claimed" : "pending";
       if (!data || data.ownerToken !== ownerToken || data.state !== source || millis(data.leaseExpiresAt) <= now.getTime()) return false;
       let cost;
+      let freeTier;
       if (target === "pending") {
         const config = await readCostControl(this.db, tx, now);
         if (config.dailyUnitLimit === 0) throw new PronunciationRequestError("resource-exhausted", "AI service paused.");
         cost = await prepareCostReservation(this.db, tx, now, config, data.costReservation);
+        // Reserve F0 audio time atomically with the dispatch marker. Only the
+        // current owner of an undispatched claim reaches this transition.
+        const month = now.toISOString().slice(0, 7);
+        const ref = this.db.collection("service_usage").doc(`pronunciation_free_${month}`);
+        const usage = await tx.get(ref);
+        const next = nextFreeTierUsage(usage.exists ? usage.data() : null, input.audio.length);
+        if (next === null) {
+          throw new PronunciationRequestError("resource-exhausted", "Free assessment limit reached.");
+        }
+        freeTier = {ref, payload: {...next, updatedAt: now}};
       }
       if (target === "refunded") {
         const snapshot = await tx.get(refs.quota);
@@ -103,6 +115,11 @@ class PronunciationReceipts {
         tx.delete(refs.receipt);
       } else {
         if (cost?.ref) tx.set(cost.ref, cost.payload);
+        // Never refund after dispatch: even an uncertain provider response may
+        // have consumed the free allowance. Replays do not enter this branch.
+        if (freeTier) {
+          tx.set(freeTier.ref, freeTier.payload);
+        }
         if (target === "completed") {
           const safe = pronunciationReplayDocument(scores, now);
           const result = pronunciationReplayFromDocument(safe, input.assessmentId, now);

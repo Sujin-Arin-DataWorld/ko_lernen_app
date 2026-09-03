@@ -257,7 +257,10 @@ final class _EntryAccumulator {
     return StudyLibraryEntry(
       key: key,
       primaryText: selected?.primaryText ?? key.id,
-      secondaryText: selected?.secondaryText,
+      secondaryText: presentations
+          .map((record) => record.secondaryText)
+          .whereType<String>()
+          .firstOrNull,
       sources: sources,
       isResolved: selected != null,
       isLiked: isLiked,

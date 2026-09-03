@@ -16,6 +16,7 @@ class HoerverstehenQuest extends StatefulWidget {
     required this.data,
     required this.onComplete,
     this.audioEnabled = true,
+    this.transcriptTranslation = '',
     this.onContinue,
     this.isLast = false,
     this.allowDontKnow = false,
@@ -24,6 +25,9 @@ class HoerverstehenQuest extends StatefulWidget {
   final Map<String, dynamic> data;
   final void Function(QuestResult) onComplete;
   final bool audioEnabled;
+
+  /// Authored translation of the audio, distinct from an inference answer.
+  final String transcriptTranslation;
   final VoidCallback? onContinue;
   final bool isLast;
   final bool allowDontKnow;
@@ -141,6 +145,7 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
     final surfaces = SoriSurfaces.of(context);
     final question = _localizedDataText('question', languageCode);
     final instruction = _localizedDataText('instruction', languageCode);
+    final explanation = _localizedDataText('explanation', languageCode).trim();
 
     return QuestLayout(
       showTtsSpeed: true,
@@ -158,9 +163,24 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
         children: [
           SoriPromptCard(
             key: const ValueKey('quest-audio'),
-            sentence: question.isEmpty ? t.questListeningQuestion : question,
+            sentence: _resolved != null
+                ? _audioKo
+                : (question.isEmpty ? t.questListeningQuestion : question),
             onReplay: widget.audioEnabled ? _playTts : null,
           ),
+          if (_resolved != null) ...[
+            if (widget.transcriptTranslation.trim().isNotEmpty) ...[
+              const SizedBox(height: Spacing.sm),
+              Text(
+                widget.transcriptTranslation,
+                style: SoriTextTheme.of(context).gloss,
+              ),
+            ],
+            if (explanation.isNotEmpty) ...[
+              const SizedBox(height: Spacing.sm),
+              Text(explanation, style: SoriTextTheme.of(context).bodySmall),
+            ],
+          ],
           if (instruction.isNotEmpty) ...[
             const SizedBox(height: Spacing.xs),
             Text(

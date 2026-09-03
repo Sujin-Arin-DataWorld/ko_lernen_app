@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
 import '../services/custom_pack_service.dart';
+import '../services/data_loader.dart';
+import '../services/saved_word_localization.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
@@ -67,17 +69,41 @@ class _WordbookSearchBodyState extends State<WordbookSearchBody> {
     _load();
   }
 
-  void _load() {
-    // Alle Custom-Pack-Wörter zusammenführen + per koreanischem String dedupen.
-    final seen = <String>{};
+  Future<void> _load() async {
+    // Keep every saved meaning until the active display language is known.
+    // Pack recency must not discard a translation that another pack contains.
     final words = <ExtractedWord>[];
     for (final p in CustomPackService.getAll()) {
       for (final w in p.words) {
-        if (w.korean.trim().isEmpty) continue;
-        if (seen.add(w.korean)) words.add(w);
+        if (w.korean.trim().isEmpty) {
+          continue;
+        }
+        words.add(w);
       }
     }
     setState(() => _all = words);
+    final vocab = await DataLoader.loadVocab();
+    if (mounted) {
+      setState(
+        () =>
+            _all = words.map((word) => localizeSavedWord(word, vocab)).toList(),
+      );
+    }
+  }
+
+  List<ExtractedWord> get _wordsForCurrentLanguage {
+    final language = Localizations.localeOf(context).languageCode;
+    final byKorean = <String, ExtractedWord>{};
+    for (final word in _all) {
+      final korean = word.korean.trim();
+      final previous = byKorean[korean];
+      if (previous == null ||
+          (previous.translationFor(language).trim().isEmpty &&
+              word.translationFor(language).trim().isNotEmpty)) {
+        byKorean[korean] = word;
+      }
+    }
+    return byKorean.values.toList();
   }
 
   void _clearQuery() {
@@ -87,17 +113,23 @@ class _WordbookSearchBodyState extends State<WordbookSearchBody> {
 
   List<String> get _posOptions {
     final set = <String>{};
-    for (final w in _all) {
-      if (w.posDe.trim().isNotEmpty) set.add(w.posDe.trim());
+    for (final w in _wordsForCurrentLanguage) {
+      if (w.posFor(Localizations.localeOf(context).languageCode).isNotEmpty) {
+        set.add(w.posDe.trim());
+      }
     }
     return set.toList()..sort();
   }
 
-  List<ExtractedWord> get _filtered {
+  List<ExtractedWord> _filtered(String? selectedPos) {
     final q = _query.trim().toLowerCase();
-    return _all.where((w) {
-      if (_pos != null && w.posDe.trim() != _pos) return false;
-      if (q.isEmpty) return true;
+    return _wordsForCurrentLanguage.where((w) {
+      if (selectedPos != null && w.posDe.trim() != selectedPos) {
+        return false;
+      }
+      if (q.isEmpty) {
+        return true;
+      }
       return w.korean.toLowerCase().contains(q) ||
           w.translationDe.toLowerCase().contains(q) ||
           w.translationEn.toLowerCase().contains(q) ||
@@ -114,8 +146,11 @@ class _WordbookSearchBodyState extends State<WordbookSearchBody> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final results = _filtered;
     final posOptions = _posOptions;
+    // A locale change can choose a duplicate with different POS metadata. Only
+    // apply filters that are still visible, including for the selected chip.
+    final selectedPos = posOptions.contains(_pos) ? _pos : null;
+    final results = _filtered(selectedPos);
     final filterMaxHeight = MediaQuery.sizeOf(context).height < 700
         ? 112.0
         : 160.0;
@@ -186,8 +221,10 @@ class _WordbookSearchBodyState extends State<WordbookSearchBody> {
                               child: SoriChip(
                                 key: const ValueKey('wordbook-pos-all'),
                                 label: t.wbPosAll,
-                                selected: _pos == null,
-                                icon: _pos == null ? Icons.check_rounded : null,
+                                selected: selectedPos == null,
+                                icon: selectedPos == null
+                                    ? Icons.check_rounded
+                                    : null,
                                 variant: SoriChipVariant.outlined,
                                 idleBorderColor:
                                     Theme.of(context).brightness ==
@@ -206,9 +243,19 @@ class _WordbookSearchBodyState extends State<WordbookSearchBody> {
                                 ),
                                 child: SoriChip(
                                   key: ValueKey('wordbook-pos-$p'),
-                                  label: p,
-                                  selected: _pos == p,
-                                  icon: _pos == p ? Icons.check_rounded : null,
+                                  label: _all
+                                      .firstWhere(
+                                        (word) => word.posDe.trim() == p,
+                                      )
+                                      .posFor(
+                                        Localizations.localeOf(
+                                          context,
+                                        ).languageCode,
+                                      ),
+                                  selected: selectedPos == p,
+                                  icon: selectedPos == p
+                                      ? Icons.check_rounded
+                                      : null,
                                   variant: SoriChipVariant.outlined,
                                   idleBorderColor:
                                       Theme.of(context).brightness ==
@@ -285,15 +332,11 @@ class _WordRow extends StatelessWidget {
     final s = SoriSurfaces.of(context);
     final t = AppL10n.of(context);
     final languageCode = Localizations.localeOf(context).languageCode;
-    final preferredMeaning = languageCode == 'en'
-        ? word.translationEn
-        : word.translationDe;
-    final fallbackMeaning = languageCode == 'en'
-        ? word.translationDe
-        : word.translationEn;
-    final meaning = preferredMeaning.isNotEmpty
-        ? preferredMeaning
-        : fallbackMeaning;
+    final translation = word.translationFor(languageCode);
+    final meaning = translation.isNotEmpty
+        ? translation
+        : t.savedTranslationUnavailable;
+    final partOfSpeech = word.posFor(languageCode);
     final ttsLabel = '${t.ttsListen}: ${word.korean}';
     void speak() {
       // ignore: discarded_futures
@@ -314,18 +357,18 @@ class _WordRow extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _WordTitle(word: word),
-                    if (word.posDe.trim().isNotEmpty) ...[
+                    if (partOfSpeech.isNotEmpty) ...[
                       const SizedBox(height: Spacing.xs),
-                      _PartOfSpeech(label: word.posDe),
+                      _PartOfSpeech(label: partOfSpeech),
                     ],
                   ],
                 )
               : Row(
                   children: [
                     Flexible(child: _WordTitle(word: word)),
-                    if (word.posDe.trim().isNotEmpty) ...[
+                    if (partOfSpeech.isNotEmpty) ...[
                       const SizedBox(width: Spacing.sm),
-                      Flexible(child: _PartOfSpeech(label: word.posDe)),
+                      Flexible(child: _PartOfSpeech(label: partOfSpeech)),
                     ],
                   ],
                 );

@@ -172,9 +172,11 @@ void main() {
       srsReader: const _SrsReader([]),
       bookmarkReader: ProductionStudyLibraryBookmarkReader(
         bookmarkStorage.store,
+        languageCode: 'en',
       ),
     );
 
+    await tester.runAsync(repository.load);
     await tester.pumpWidget(
       _app(
         StudyLibraryScreen(
@@ -183,7 +185,8 @@ void main() {
         ),
       ),
     );
-    await tester.pumpAndSettle();
+
+    await _settleLibrary(tester, repository);
 
     expect(find.text('Some saved bookmarks are unavailable'), findsOneWidget);
     expect(find.textContaining('newer app version'), findsOneWidget);
@@ -228,9 +231,11 @@ void main() {
         srsReader: const _SrsReader([]),
         bookmarkReader: ProductionStudyLibraryBookmarkReader(
           bookmarkStorage.store,
+          languageCode: 'en',
         ),
       );
 
+      await tester.runAsync(repository.load);
       await tester.pumpWidget(
         _app(
           StudyLibraryScreen(
@@ -239,7 +244,8 @@ void main() {
           ),
         ),
       );
-      await tester.pumpAndSettle();
+
+      await _settleLibrary(tester, repository);
 
       final action = find.byKey(
         ValueKey('study-library-bookmark-action-${key.encoded}'),
@@ -249,7 +255,7 @@ void main() {
       await tester.pump();
       expect(find.text('Save bookmark'), findsOneWidget);
       await tester.tap(action);
-      await tester.pumpAndSettle();
+      await _settleLibrary(tester, repository);
 
       expect(bookmarkStorage.store.read().bookmarks.single.key, key);
       expect(bookmarkStorage.writeCount, 1);
@@ -260,7 +266,7 @@ void main() {
       expect(find.text('Favorite'), findsOneWidget);
 
       await tester.tap(action);
-      await tester.pumpAndSettle();
+      await _settleLibrary(tester, repository);
 
       expect(bookmarkStorage.store.read().bookmarks, isEmpty);
       expect(bookmarkStorage.writeCount, 2);
@@ -272,7 +278,7 @@ void main() {
         bookshelfRecords.single.sources.single.origin,
         StudyLibraryOrigin.bookshelf,
       );
-      final after = await repository.load();
+      final after = (await tester.runAsync(repository.load))!;
       final entry = after.entries.single;
       expect(entry.isLiked, isTrue);
       expect(entry.isSaved, isTrue);
@@ -322,6 +328,15 @@ void main() {
   });
 }
 
+Future<void> _settleLibrary(
+  WidgetTester tester,
+  StudyLibraryRepository repository,
+) async {
+  await tester.pump();
+  await tester.runAsync(repository.load);
+  await tester.pumpAndSettle();
+}
+
 Future<void> _openViewSheet(WidgetTester tester) async {
   final selector = find.byKey(const ValueKey('study-library-view-selector'));
   await tester.drag(find.byType(ListView), const Offset(0, 1000));
@@ -338,6 +353,17 @@ Future<void> _selectView(WidgetTester tester, StudyLibraryView view) async {
 }
 
 Future<void> _openTypeSheet(WidgetTester tester) async {
+  await tester.drag(find.byType(ListView), const Offset(0, 1000));
+  await tester.pumpAndSettle();
+  await tester.scrollUntilVisible(
+    find.byKey(const ValueKey('study-library-type-selector')),
+    100,
+  );
+  await Scrollable.ensureVisible(
+    tester.element(find.byKey(const ValueKey('study-library-type-selector'))),
+    alignment: 0.5,
+  );
+  await tester.pumpAndSettle();
   await tester.tap(find.byKey(const ValueKey('study-library-type-selector')));
   await tester.pumpAndSettle();
 }

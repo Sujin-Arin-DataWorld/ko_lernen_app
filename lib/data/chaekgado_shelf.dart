@@ -95,10 +95,8 @@ const Map<LearnerLevel, List<ChaekgadoSlot>> kChaekgadoSlots = {
     ChaekgadoSlot('dating', 'SocialDating'),
     ChaekgadoSlot('fandom', 'SocialFandom'),
   ],
-  // C1/C2 — 재고는 12칸 중 4~6칸뿐이다(2026-08-18 기준). 나머지는 카드 아트
-  // 없이 소품만 놓고 출시한다(ChaekgadoShelfCase 의 count==0 처리) — 24칸을
-  // 전부 채워야 했던 옛 카드 그리드안과 달리, 이 결정 덕에 신규 아트 0장으로
-  // 간다. 콘텐츠가 늘면 그때 해당 칸만 카드를 뽑는다.
+  // C1/C2 also have complete card artwork. Content availability only controls
+  // the empty-state label; it must not replace a category's approved image.
   LearnerLevel.c1: [
     ChaekgadoSlot('briefing', 'C1Briefing'),
     ChaekgadoSlot('uncertainty', 'C1Uncertainty'),
