@@ -221,6 +221,44 @@ void main() {
     );
   });
 
+  group('재생 시작 콜백(onPlaybackStarted) — post-review T1.1', () {
+    test('해석 성공 + startAudio 성공에서만 정확히 1회 불린다', () async {
+      final throwingCalls = <void>[];
+      final throwingEngine = TtsPlaybackEngine(
+        resolveAudio: (text, voice) async => const TtsAudio.path('/tmp/ok.mp3'),
+        platform: const _ThrowingStartPlatform(),
+        onPlaybackStarted: () => throwingCalls.add(null),
+      );
+      expect(
+        await throwingEngine.speak(text: 'x', voice: 'female', baseRate: 0.42),
+        isFalse,
+      );
+      expect(throwingCalls, isEmpty, reason: '재생-기전 실패에서는 콜백이 불리면 안 된다');
+      final startedCalls = <void>[];
+      final startingEngine = TtsPlaybackEngine(
+        resolveAudio: (text, voice) async => const TtsAudio.path('/tmp/ok.mp3'),
+        platform: const _StartingPlatform(),
+        onPlaybackStarted: () => startedCalls.add(null),
+      );
+      expect(
+        await startingEngine.speak(text: 'x', voice: 'female', baseRate: 0.42),
+        isTrue,
+      );
+      expect(startedCalls, hasLength(1));
+      final missingCalls = <void>[];
+      final missingEngine = TtsPlaybackEngine(
+        resolveAudio: (text, voice) async => null,
+        platform: const _StartingPlatform(),
+        onPlaybackStarted: () => missingCalls.add(null),
+      );
+      expect(
+        await missingEngine.speak(text: 'x', voice: 'female', baseRate: 0.42),
+        isFalse,
+      );
+      expect(missingCalls, isEmpty);
+    });
+  });
+
   test('TtsAudio 는 경로 또는 바이트 중 하나만 갖는다', () {
     const byPath = TtsAudio.path('/tmp/a.mp3');
     expect(byPath.path, '/tmp/a.mp3');
@@ -254,6 +292,17 @@ class _ThrowingStartPlatform implements TtsPlaybackPlatform {
   @override
   Future<TtsPlaybackSession?> startAudio(TtsAudio audio, double rate) async {
     throw StateError('platform start failed');
+  }
+
+  @override
+  Future<void> stop() async {}
+}
+
+class _StartingPlatform implements TtsPlaybackPlatform {
+  const _StartingPlatform();
+  @override
+  Future<TtsPlaybackSession?> startAudio(TtsAudio audio, double rate) async {
+    return TtsPlaybackSession(Future<bool>.value(true));
   }
 
   @override

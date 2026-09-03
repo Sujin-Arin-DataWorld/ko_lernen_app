@@ -254,6 +254,9 @@ class TtsFilePlayback {
   }
 }
 
+/// SoriSpeech(파사드)와 TtsService(엔진 배선)가 공유하는 재생 3단계.
+enum TtsSpeechPhase { idle, resolving, speaking }
+
 /// Executes one TTS request with an immutable, request-local playback rate.
 class TtsPlaybackEngine {
   TtsPlaybackEngine({
@@ -262,6 +265,7 @@ class TtsPlaybackEngine {
     this.completionTimeout = const Duration(seconds: 30),
     this.errorReporter,
     this.onResolutionFailed,
+    this.onPlaybackStarted,
   });
 
   final TtsAudioResolver resolveAudio;
@@ -276,6 +280,9 @@ class TtsPlaybackEngine {
   // 불려, TtsService 가 unavailable(오프라인 추정) 배너를 그 계열에만
   // 한정할 수 있게 한다.
   final TtsErrorReporter? onResolutionFailed;
+  /// 해석 성공 + startAudio 성공(세션 획득)이 둘 다 확정된 직후 정확히
+  /// 1회 불린다. 해석 실패·재생-기전 실패에서는 절대 불리지 않는다.
+  final VoidCallback? onPlaybackStarted;
   Future<void> _platformTail = Future<void>.value();
   Completer<void>? _cancellation;
   int _generation = 0;
@@ -383,6 +390,7 @@ class TtsPlaybackEngine {
     if (session == null || _disposed || generation != _generation) {
       return false;
     }
+    onPlaybackStarted?.call();
     bool completed;
     try {
       completed = await Future.any<bool>([
@@ -520,6 +528,10 @@ class TtsService {
   static String? lastError;
   static final TtsInstallationIdProvider _installationIdProvider =
       TtsInstallationIdProvider();
+  /// [speaking](레거시 bool)과 별개인 3단 재생 상태. `SoriSpeech.phase`가
+  /// 이 리스너를 구독해 resolving→speaking 승격 신호로 쓴다(Task 2).
+  static final ValueNotifier<TtsSpeechPhase> phase =
+      ValueNotifier<TtsSpeechPhase>(TtsSpeechPhase.idle);
   static final TtsPlaybackEngine _playbackEngine = TtsPlaybackEngine(
     resolveAudio: _resolveAudio,
     platform: const _ServicePlaybackPlatform(),
@@ -542,6 +554,7 @@ class TtsService {
         _reportUnavailable(TtsUnavailableReason.audioUnavailable);
       }
     },
+    onPlaybackStarted: () => phase.value = TtsSpeechPhase.speaking,
   );
 
   /// 웹 전용 메모리 캐시 — 파일시스템이 없어 1단을 여기에 둔다.
@@ -607,6 +620,7 @@ class TtsService {
       // 새 발화가 이미 시작됐으면(토큰 불일치) 종료 처리를 그쪽에 맡긴다.
       if (token == _speakToken) {
         speaking.value = false;
+        phase.value = TtsSpeechPhase.idle;
         AudioPolicy.instance.noteSpeechEnded();
       }
     });
