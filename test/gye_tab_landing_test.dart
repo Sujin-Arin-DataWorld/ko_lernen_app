@@ -14,6 +14,7 @@ import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/gye_hanok.dart';
 import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
+import 'package:ko_lernen_app/widgets/sori/updating_scene.dart';
 
 void main() {
   setUp(() async {
@@ -46,16 +47,28 @@ void main() {
       find.text('Allein lernen ist vollständig. Zusammen kann es wärmer sein.'),
       findsOneWidget,
     );
-    expect(find.byType(GyeShowcaseArtwork), findsOneWidget);
     expect(
       find.byType(GyeHanok),
       findsNothing,
       reason: '빈 화면은 진행도 레이어 8장을 한꺼번에 합성하지 않는다',
     );
-    final showcase = tester.widget<Image>(
-      find.byKey(const ValueKey('gye-showcase-artwork')),
-    );
-    expect((showcase.image as AssetImage).assetName, GyeShowcaseArtwork.asset);
+    // Jin 2026-09-03: kHanokWorldUpdating swaps the showcase poster for
+    // SoriUpdatingScene while compound-map art is retired — the asset-level
+    // assertions below only apply on the (currently dormant) non-updating
+    // path.
+    if (kHanokWorldUpdating) {
+      expect(find.byType(SoriUpdatingScene), findsOneWidget);
+      expect(find.byType(GyeShowcaseArtwork), findsNothing);
+    } else {
+      expect(find.byType(GyeShowcaseArtwork), findsOneWidget);
+      final showcase = tester.widget<Image>(
+        find.byKey(const ValueKey('gye-showcase-artwork')),
+      );
+      expect(
+        (showcase.image as AssetImage).assetName,
+        GyeShowcaseArtwork.asset,
+      );
+    }
     expect(
       GyeShowcaseArtwork.videoAsset,
       'assets/video/gye/gye_shared_hanok_build.mp4',

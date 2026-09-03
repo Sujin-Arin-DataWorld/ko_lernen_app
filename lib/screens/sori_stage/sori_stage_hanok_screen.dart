@@ -17,6 +17,7 @@ import '../../widgets/sori/personal_hanok_map.dart';
 import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/reward_thumb.dart';
 import '../../widgets/sori/screen_background.dart';
+import '../../widgets/sori/updating_scene.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/window_class.dart';
 import '../bojagi_screen.dart' show kBojagiClosed;
@@ -226,10 +227,9 @@ class _HanokMapSliver extends StatelessWidget {
         // 보이면 된다(스크롤 단서, test/sori_stage_hanok_fold_test.dart와 동일
         // 기준). reduce-motion은 두 상태를 즉시 스냅한다.
         final expandedHeight = math.min(w * 3 / 4, 320.0);
-        final collapsedHeight = math.max(w * 0.25, 88.0).clamp(
-          88.0,
-          expandedHeight,
-        );
+        final collapsedHeight = math
+            .max(w * 0.25, 88.0)
+            .clamp(88.0, expandedHeight);
         return SliverPersistentHeader(
           pinned: true,
           delegate: _HanokMapHeaderDelegate(
@@ -282,7 +282,9 @@ class _HanokMapHeaderDelegate extends SliverPersistentHeaderDelegate {
     final rawProgress = clampedShrink / range;
     // reduce-motion: 중간 보간 없이 두 상태를 즉시 스냅한다(WCAG 2.3.3) —
     // 패럴랙스도 함께 스냅해 진행에 따라 계속 흘러가는 움직임을 없앤다.
-    final progress = reduceMotion ? (rawProgress < 0.5 ? 0.0 : 1.0) : rawProgress;
+    final progress = reduceMotion
+        ? (rawProgress < 0.5 ? 0.0 : 1.0)
+        : rawProgress;
     final currentExtent = (maxExtent - shrinkOffset).clamp(
       minExtent,
       maxExtent,
@@ -292,7 +294,17 @@ class _HanokMapHeaderDelegate extends SliverPersistentHeaderDelegate {
 
     final projection = this.projection;
     Widget mapArt;
-    if (projection == null) {
+    if (kHanokWorldUpdating) {
+      // Jin 2026-09-03: compound map(항공 부감 합성)이 "지저분하고 이미
+      // 안 쓰는 이미지"라 판단돼, 새 지도가 착지할 때까지 단일 스틸 +
+      // 베일로 대체한다. 탭·힌트 스크림·고스트 예고는 함께 끈다
+      // (kHanokWorldUpdating을 false로 되돌리면 아래 기존 경로가 다시 산다).
+      mapArt = SoriUpdatingScene(
+        asset: 'assets/illustrations/hanok/estate_overview.webp',
+        message: t.soriStageHanokUpdating,
+        alignment: Alignment.center,
+      );
+    } else if (projection == null) {
       mapArt = ColoredBox(color: s.surfaceAlt);
     } else {
       // §W-F F3.2: 0단계(빈 터)는 지도가 텅 비어 보인다 — 다음 단계 PNG를
@@ -347,49 +359,54 @@ class _HanokMapHeaderDelegate extends SliverPersistentHeaderDelegate {
                   // 크롭한다. 이전엔 32×24 참조 박스를 ~12배 확대해 라벨·마커·
                   // 패딩까지 함께 스케일됐다(showTargets:false라 우연히 안
                   // 보였을 뿐) — 실폭이면 향후 오버레이도 정상 크기로 그려진다.
-                  child: SizedBox(width: width, height: width * 3 / 4, child: mapArt),
+                  child: SizedBox(
+                    width: width,
+                    height: width * 3 / 4,
+                    child: mapArt,
+                  ),
                 ),
               ),
             ),
-            Positioned(
-              left: 0,
-              right: 0,
-              bottom: 0,
-              child: Visibility(
-                visible: hintOpacity > 0,
-                maintainState: false,
-                child: Opacity(
-                  opacity: hintOpacity,
-                  child: IgnorePointer(
-                    child: Container(
-                      padding: const EdgeInsets.fromLTRB(
-                        Spacing.md,
-                        Spacing.lg,
-                        Spacing.md,
-                        Spacing.sm,
-                      ),
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Colors.black.withValues(alpha: 0),
-                            Colors.black.withValues(alpha: 0.5),
-                          ],
+            if (!kHanokWorldUpdating)
+              Positioned(
+                left: 0,
+                right: 0,
+                bottom: 0,
+                child: Visibility(
+                  visible: hintOpacity > 0,
+                  maintainState: false,
+                  child: Opacity(
+                    opacity: hintOpacity,
+                    child: IgnorePointer(
+                      child: Container(
+                        padding: const EdgeInsets.fromLTRB(
+                          Spacing.md,
+                          Spacing.lg,
+                          Spacing.md,
+                          Spacing.sm,
                         ),
-                      ),
-                      // §16 타이포 가드: 화면 콘텐츠를 ellipsis 로 숨기지 않는다 —
-                      // 잘림 대신 자연 줄바꿈(컨테이너에 고정 높이가 없어
-                      // 오버플로 위험 없음).
-                      child: Text(
-                        t.hanokWorldMapHint,
-                        style: tt.meta.copyWith(color: Colors.white),
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Colors.black.withValues(alpha: 0),
+                              Colors.black.withValues(alpha: 0.5),
+                            ],
+                          ),
+                        ),
+                        // §16 타이포 가드: 화면 콘텐츠를 ellipsis 로 숨기지 않는다 —
+                        // 잘림 대신 자연 줄바꿈(컨테이너에 고정 높이가 없어
+                        // 오버플로 위험 없음).
+                        child: Text(
+                          t.hanokWorldMapHint,
+                          style: tt.meta.copyWith(color: Colors.white),
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
-            ),
           ],
         ),
       ),

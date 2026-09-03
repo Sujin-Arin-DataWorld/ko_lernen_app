@@ -8707,6 +8707,10 @@ class AppL10nEn extends AppL10n {
   String get soriStageHanokBody => 'Every word you learn builds here.';
 
   @override
+  String get soriStageHanokUpdating =>
+      'Your hanok is being rebuilt. Back soon.';
+
+  @override
   String get soriStageOpenMap => 'Open Hanok map';
 
   @override
@@ -8727,6 +8731,9 @@ class AppL10nEn extends AppL10n {
   @override
   String get soriStageGyeFlow =>
       'Mission complete → lantern → shared Hanok progress';
+
+  @override
+  String get soriStageGyeUpdating => 'The shared courtyard is being rebuilt.';
 
   @override
   String get gyeStepMission => 'Mission';

@@ -14,6 +14,7 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/avatar.dart';
 import 'package:ko_lernen_app/widgets/sori/stepper.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
+import 'package:ko_lernen_app/widgets/sori/updating_scene.dart';
 
 import 'support/real_fonts.dart';
 
@@ -135,7 +136,12 @@ void main() {
         const ValueKey('sori-collapsing-header-expanded'),
       );
       final stepper = find.byType(SoriStepper);
-      final poster = find.byKey(const ValueKey('gye-showcase-artwork'));
+      // Jin 2026-09-03: kHanokWorldUpdating swaps the showcase poster
+      // for SoriUpdatingScene while compound-map art is retired — same
+      // fold slot, different widget/key.
+      final poster = kHanokWorldUpdating
+          ? find.byType(SoriUpdatingScene)
+          : find.byKey(const ValueKey('gye-showcase-artwork'));
       final cta = find.text(t.gyeFindOrCreate);
 
       expect(header, findsOneWidget);
@@ -301,12 +307,14 @@ void main() {
 
     // skipOffstage:false — at 1.6x text scale these can legitimately sit
     // beyond the fold; this test only asserts they exist and nothing threw.
+    expect(find.byType(SoriStepper, skipOffstage: false), findsOneWidget);
     expect(
-      find.byType(SoriStepper, skipOffstage: false),
-      findsOneWidget,
-    );
-    expect(
-      find.byKey(const ValueKey('gye-showcase-artwork'), skipOffstage: false),
+      kHanokWorldUpdating
+          ? find.byType(SoriUpdatingScene, skipOffstage: false)
+          : find.byKey(
+              const ValueKey('gye-showcase-artwork'),
+              skipOffstage: false,
+            ),
       findsOneWidget,
     );
     expect(tester.takeException(), isNull);

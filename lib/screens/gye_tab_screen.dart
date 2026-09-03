@@ -20,6 +20,7 @@ import '../widgets/sori/age_gate_prompt.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/stepper.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/updating_scene.dart';
 import '../widgets/sori/window_class.dart';
 
 /// **Lerngruppe(계) 탭** — BottomNav 탭 3 (D4-5 방향 C: 탭 유지 + 맥락화).
@@ -136,7 +137,8 @@ class _GyeTabScreenState extends State<GyeTabScreen>
 
   VoidCallback _resolvedOnContinueSolo(BuildContext context) =>
       widget.onContinueSolo ??
-      () => Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
+      () =>
+          Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
 
   /// **스텝퍼 슬리버** (§W-G2 item 1) — `SoriStageGyeScreen`이 아니라 여기서
   /// 그린다. 현재 단계는 `metas`(이 위젯만 아는 값)에서 파생해야 하므로,
@@ -393,7 +395,14 @@ List<Widget> _introContent(
       borderRadius: SoriRadius.brLg,
       child: AspectRatio(
         aspectRatio: 393 / 220,
-        child: const GyeShowcaseArtwork(),
+        // Jin 2026-09-03: 이 쇼케이스도 compound-map 계열 자산이라
+        // kHanokWorldUpdating 동안은 같은 베일로 가린다.
+        child: kHanokWorldUpdating
+            ? SoriUpdatingScene(
+                asset: 'assets/illustrations/hanok/estate_overview.webp',
+                message: t.soriStageGyeUpdating,
+              )
+            : const GyeShowcaseArtwork(),
       ),
     ),
     const SizedBox(height: Spacing.xs),
@@ -402,11 +411,7 @@ List<Widget> _introContent(
     // 반면 이 문장은 "이건 미리보기고 강제가 아니다"를 밝힌다 — 서로 다른
     // 정보라 별도 일러스트 없이 캡션만 하나 더 얹는다(§W-G G5.4: 새
     // 일러스트는 이 포스터와 시각 중복이라 생략, 보고 참조).
-    Text(
-      t.gyeEmptyPreviewCaption,
-      textAlign: TextAlign.center,
-      style: tt.meta,
-    ),
+    Text(t.gyeEmptyPreviewCaption, textAlign: TextAlign.center, style: tt.meta),
     const SizedBox(height: Spacing.sm),
     // §P5-1-3: 문단 3개 → 1줄 칩 카드 3개. 기존 장문 키 3종은 삭제하지
     // 않고 ⓘ 상세 시트로 강등 (§C-2 원칙: 정보는 버리지 않고 강등한다).
@@ -417,9 +422,7 @@ List<Widget> _introContent(
           _ShortPointCard(
             icon: Icons.groups_2_outlined,
             text: t.gyeExplainWhatShort,
-            trailing: _DetailsInfoButton(
-              onTap: () => _showGyeDetails(context),
-            ),
+            trailing: _DetailsInfoButton(onTap: () => _showGyeDetails(context)),
           ),
           const SizedBox(height: Spacing.xs),
           _ShortPointCard(icon: Icons.spa_outlined, text: t.gyeExplainWhyShort),
@@ -664,7 +667,19 @@ class _GyeCard extends StatelessWidget {
               children: [
                 // §W-G2 item 3: 정적 씬 — 목록 카드 N개가 동시에
                 // 영구 반복 애니메이션을 도는 것을 막는다.
-                GyeHanok(meta: gye, animate: false),
+                // Jin 2026-09-03: kHanokWorldUpdating 동안은 이 미니 씬도
+                // 같은 베일로 가린다 — 진행 링·이름·멤버 수·chevron은 그대로.
+                // messageAlignment(0, -0.45): 우하단 진행 링과 겹쳐 문구가
+                // "erneu…"로 잘리는 것(Fable PNG 열람 지적)을 피해 상단
+                // 1/3로 올린다.
+                if (kHanokWorldUpdating)
+                  SoriUpdatingScene(
+                    asset: 'assets/illustrations/hanok/estate_overview.webp',
+                    message: t.soriStageGyeUpdating,
+                    messageAlignment: const Alignment(0, -0.45),
+                  )
+                else
+                  GyeHanok(meta: gye, animate: false),
                 if (progress.hasWeeklyGoal)
                   Positioned(
                     right: Spacing.sm,

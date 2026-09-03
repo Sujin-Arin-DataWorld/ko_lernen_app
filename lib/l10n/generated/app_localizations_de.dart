@@ -8750,6 +8750,10 @@ class AppL10nDe extends AppL10n {
   String get soriStageHanokBody => 'Jedes Wort baut hier weiter.';
 
   @override
+  String get soriStageHanokUpdating =>
+      'Dein Hanok wird gerade erneuert. Bald wieder da.';
+
+  @override
   String get soriStageOpenMap => 'Hanok-Karte öffnen';
 
   @override
@@ -8770,6 +8774,9 @@ class AppL10nDe extends AppL10n {
   @override
   String get soriStageGyeFlow =>
       'Mission abschließen → Laterne → gemeinsame Hanok';
+
+  @override
+  String get soriStageGyeUpdating => 'Der gemeinsame Hof wird gerade erneuert.';
 
   @override
   String get gyeStepMission => 'Mission';

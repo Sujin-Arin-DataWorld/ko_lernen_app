@@ -15198,6 +15198,12 @@ abstract class AppL10n {
   /// **'Jedes Wort baut hier weiter.'**
   String get soriStageHanokBody;
 
+  /// No description provided for @soriStageHanokUpdating.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Hanok wird gerade erneuert. Bald wieder da.'**
+  String get soriStageHanokUpdating;
+
   /// No description provided for @soriStageOpenMap.
   ///
   /// In de, this message translates to:
@@ -15239,6 +15245,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Mission abschließen → Laterne → gemeinsame Hanok'**
   String get soriStageGyeFlow;
+
+  /// No description provided for @soriStageGyeUpdating.
+  ///
+  /// In de, this message translates to:
+  /// **'Der gemeinsame Hof wird gerade erneuert.'**
+  String get soriStageGyeUpdating;
 
   /// No description provided for @gyeStepMission.
   ///
