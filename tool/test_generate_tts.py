@@ -882,6 +882,55 @@ class TtsGeneratorContractTest(unittest.TestCase):
         ]
         self.assertEqual(stale_lines, [f"STALE\t{stale_path}"])
 
+    def test_confirm_delete_requires_delete_stale(self):
+        # I3(a) — the destructive path (--delete-stale --confirm-delete)
+        # previously had no coverage at all for the argparse guard that
+        # rejects --confirm-delete without --delete-stale.
+        with patch("builtins.print"), patch("sys.stderr"):
+            with self.assertRaises(SystemExit) as ctx:
+                generate_tts.main(["--verify-storage", "--confirm-delete"])
+        self.assertNotEqual(ctx.exception.code, 0)
+
+    def test_delete_stale_with_confirm_calls_delete_remote_objects_with_stale_set(
+        self,
+    ):
+        # I3(a) — pins the destructive --verify-storage --delete-stale
+        # --confirm-delete path: delete_remote_objects must be called with
+        # exactly the stale set (never the expected/remote sets themselves),
+        # and a run with nothing missing must still exit 0.
+        pairs = [("female", "안녕하세요")]
+        remote_path = generate_tts.cache_relative_path("female", "안녕하세요")
+        stale_path = "tts/v3/female/deadbeef00000000000000000000000000000000.mp3"
+        with (
+            patch.object(generate_tts, "collect", return_value=pairs),
+            patch.object(generate_tts.shutil, "which", return_value="gcloud"),
+            patch.object(
+                generate_tts, "remote_cache_objects",
+                return_value={remote_path: 4096, stale_path: 4096},
+            ),
+            patch.object(generate_tts, "delete_remote_objects") as delete,
+            patch.object(generate_tts.subprocess, "run") as run,
+            patch("builtins.print"),
+        ):
+            result = generate_tts.main(
+                ["--verify-storage", "--delete-stale", "--confirm-delete"]
+            )
+        self.assertEqual(result, 0)
+        delete.assert_called_once_with({stale_path})
+        run.assert_not_called()
+
+    def test_delete_remote_objects_chunks_at_fifty_paths_per_call(self):
+        # I3(b) — delete_remote_objects must chunk like the download path
+        # (<=50 paths per `gcloud storage rm` invocation) instead of putting
+        # an unbounded argv on one process.
+        paths = {f"tts/v3/female/{i:040d}.mp3" for i in range(120)}
+        with (
+            patch.object(generate_tts.shutil, "which", return_value="gcloud"),
+            patch.object(generate_tts.subprocess, "run") as run,
+        ):
+            generate_tts.delete_remote_objects(paths)
+        self.assertEqual(run.call_count, 3)
+
     def test_missing_from_storage_mode_reads_remote_before_synthesizing(self):
         # FIX-2a(2026-09-01 정정): --missing-from-storage 와 --synthesize 는
         # 같은 그룹의 서로 다른 모드다 — 결손분만 합성하는

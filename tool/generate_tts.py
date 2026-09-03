@@ -542,18 +542,24 @@ def remote_cache_paths():
     }
 
 
-def delete_remote_objects(paths):
-    """Permanently remove the given immutable v3 objects from Storage."""
-    if not paths:
-        return
-    subprocess.run(
-        gcloud_argv(
-            "storage", "rm",
-            *(f"gs://{BUCKET}/{path}" for path in sorted(paths)),
-            "--project", PROJECT,
-        ),
-        check=True,
-    )
+def delete_remote_objects(paths, chunk_size=50):
+    """Permanently remove the given immutable v3 objects from Storage.
+
+    Chunked the same way as download_first_line_bundle's batched copy: one
+    `gcloud storage rm` invocation per chunk of at most `chunk_size` objects,
+    instead of a single unbounded process for the whole set.
+    """
+    ordered = sorted(paths)
+    for start in range(0, len(ordered), chunk_size):
+        chunk = ordered[start : start + chunk_size]
+        subprocess.run(
+            gcloud_argv(
+                "storage", "rm",
+                *(f"gs://{BUCKET}/{path}" for path in chunk),
+                "--project", PROJECT,
+            ),
+            check=True,
+        )
 
 
 def download_first_line_bundle(manifest_items, project_root=ROOT, chunk_size=50):
