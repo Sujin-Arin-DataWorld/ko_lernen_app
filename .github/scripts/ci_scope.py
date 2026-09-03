@@ -96,7 +96,9 @@ def scopes_for_paths(paths: Iterable[str]) -> dict[str, bool]:
         if path.startswith(".github/"):
             return _all_scopes()
 
-        if path.startswith("ios/") or path in {"pubspec.yaml", "pubspec.lock"}:
+        if path.startswith("ios/") or path in {
+            "pubspec.yaml", "pubspec.lock", "test/support/native_test_host.dart",
+        }:
             result["app"] = True
             result["ios"] = True
             continue
@@ -123,6 +125,8 @@ def scopes_for_paths(paths: Iterable[str]) -> dict[str, bool]:
         if path == "functions/gye/access_policy.js" or path.startswith("test/fixtures/access_policy/"):
             for consumer in ("app", "book", "gye", "pronunciation"):
                 result[consumer] = True
+            if path == "test/fixtures/access_policy/cost-v1.json":
+                result["tts"] = True
             continue
 
         if path in {"functions/pronunciation/service_cost_policy.js",

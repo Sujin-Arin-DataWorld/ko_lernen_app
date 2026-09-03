@@ -324,6 +324,7 @@ jobs:
           xcodebuild test -quiet -workspace ios/Runner.xcworkspace -scheme Runner \
             -destination "platform=iOS Simulator,id=$simulator_id" \
             -only-testing:RunnerTests CODE_SIGNING_ALLOWED=NO \
+            FLUTTER_TARGET=test/support/native_test_host.dart FLUTTER_BUILD_MODE=debug \
             -resultBundlePath "$RUNNER_TEMP/native-privacy.xcresult"
       - name: Retain native test results
         if: always()

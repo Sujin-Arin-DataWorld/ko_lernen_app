@@ -158,6 +158,19 @@ void main() {
     () {
       final source = File('ios/Runner/AppDelegate.swift').readAsStringSync();
       expect(source, contains('PrivateTtsPlayerPlugin.register(with:'));
+      final registration = source
+          .split(
+            'static func register(with registrar: FlutterPluginRegistrar) {',
+          )
+          .last
+          .split('\n  }')
+          .first;
+      expect(registration, contains('let instance = PrivateTtsPlayerPlugin()'));
+      expect(
+        registration,
+        contains('registrar.addMethodCallDelegate(instance, channel: channel)'),
+      );
+      expect(registration, contains('registrar.publish(instance)'));
       expect(source, contains('AVAudioPlayer(data:'));
       expect(source, isNot(contains('contentsOf:')));
       expect(source, isNot(contains('FileManager')));

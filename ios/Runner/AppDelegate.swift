@@ -28,7 +28,10 @@ final class PrivateTtsPlayerPlugin: NSObject, FlutterPlugin, AVAudioPlayerDelega
 
   static func register(with registrar: FlutterPluginRegistrar) {
     let channel = FlutterMethodChannel(name: "hangul_sori/private_tts", binaryMessenger: registrar.messenger())
-    registrar.addMethodCallDelegate(PrivateTtsPlayerPlugin(), channel: channel)
+    let instance = PrivateTtsPlayerPlugin()
+    registrar.addMethodCallDelegate(instance, channel: channel)
+    // Flutter sends detachFromEngine only to the published plugin instance.
+    registrar.publish(instance)
   }
 
   func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {

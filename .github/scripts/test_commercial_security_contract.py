@@ -1,6 +1,7 @@
 """Prelaunch dependency/runtime and privacy checks must stay in CI."""
 import json
 from pathlib import Path
+import re
 import unittest
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -51,6 +52,18 @@ class CommercialSecurityContractTest(unittest.TestCase):
         self.assertIn(bootstrap, job)
         self.assertIn(dependencies, job)
         self.assertLess(job.index(bootstrap), job.index(dependencies))
+
+    def test_ios_tests_use_an_isolated_debug_host_without_app_or_network_imports(self):
+        workflow = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
+        job = workflow.split("  ios-native-build:", 1)[1].split("  release-internal:", 1)[0]
+        native_test = job.split("xcodebuild test", 1)[1]
+        self.assertIn("FLUTTER_TARGET=test/support/native_test_host.dart", native_test)
+        self.assertIn("FLUTTER_BUILD_MODE=debug", native_test)
+        host = (ROOT / "test/support/native_test_host.dart").read_text(encoding="utf-8")
+        directives = re.findall(r"^\s*(?:import|export|part)\s+['\"]([^'\"]+)['\"]", host, re.MULTILINE)
+        self.assertEqual(directives, ["package:flutter/widgets.dart"])
+        self.assertIn("void main()", host)
+        self.assertIn("runApp(const SizedBox.shrink())", host)
 
 
 if __name__ == "__main__":

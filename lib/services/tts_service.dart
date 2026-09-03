@@ -526,7 +526,8 @@ class TtsService {
   static const int _maxBytes = 5 * 1024 * 1024; // 5MB/파일 상한
 
   // ── 내부 상태 ──────────────────────────────────────────────────────
-  static final AudioPlayer _player = AudioPlayer();
+  static AudioPlayer? _existingPlayer;
+  static AudioPlayer get _player => _existingPlayer ??= AudioPlayer();
   static Directory? _cacheDir;
   static String? lastError;
   static final TtsInstallationIdProvider _installationIdProvider =
@@ -755,7 +756,9 @@ class TtsService {
       return;
     }
     try {
-      await _player.stop();
+      // Cold stop/account cleanup must not initialize a native plugin merely
+      // to stop it. Playback still creates the shared player on first use.
+      await _existingPlayer?.stop();
     } catch (_) {}
   }
 

@@ -44,7 +44,8 @@ class CiScopeTest(unittest.TestCase):
 
     def test_ios_native_and_plugin_contracts_require_unsigned_build(self):
         for path in ["ios/Runner/AppDelegate.swift", "ios/Runner/PrivateTtsPlayer.swift",
-                     "ios/Podfile.lock", "pubspec.yaml", "pubspec.lock"]:
+                     "ios/Podfile.lock", "pubspec.yaml", "pubspec.lock",
+                     "test/support/native_test_host.dart"]:
             self.assert_enabled([path], "app", "ios")
 
     def test_shared_firestore_contract_selects_consumers(self):
@@ -72,6 +73,12 @@ class CiScopeTest(unittest.TestCase):
                      "functions/tts/service_cost_policy.js",
                      "functions/analyze_korean_text/ai_policy.py"]:
             self.assert_enabled([path], "book", "pronunciation", "tts")
+
+    def test_cost_fixture_only_change_includes_tts_consumer(self):
+        self.assert_enabled(
+            ["test/fixtures/access_policy/cost-v1.json"],
+            "app", "book", "gye", "pronunciation", "tts",
+        )
 
     def test_firebase_config_selects_declared_runtime_contracts(self):
         # auth_cleanup is a gen-1 Auth trigger and is not in firebase.json's
