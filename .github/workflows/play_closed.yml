@@ -169,6 +169,223 @@ jobs:
           echo "version-code=$version_code" >> "$GITHUB_OUTPUT"
           echo "name=${GITHUB_RUN_NUMBER} · closed · ${short_sha}" >> "$GITHUB_OUTPUT"
 
+      # R4 (tool/android_release_evidence.py): independently verifies the
+      # exact built AAB's native symbols reached Crashlytics before the Play
+      # upload runs. Off by default -- vars.ANDROID_SYMBOL_EVIDENCE_GATE must
+      # be explicitly set to 'true'. See docs/runbooks/android-symbol-evidence.md
+      # for the secrets/variables to provision and the one-time harvest that
+      # fills tool/android_release_tools.json's sha256 placeholders.
+      - name: Symbol evidence gate status
+        shell: bash
+        env:
+          GATE_ENABLED: ${{ vars.ANDROID_SYMBOL_EVIDENCE_GATE }}
+        run: |
+          set -euo pipefail
+          if [[ "$GATE_ENABLED" == "true" ]]; then
+            echo "Symbol evidence gate: ENABLED (runs and must pass before the Play upload step)."
+          else
+            echo "Symbol evidence gate: DISABLED (release path unchanged)."
+            echo "Harvest values for tool/android_release_tools.json (nothing downloaded here):"
+            for name in java node; do
+              path="$(command -v "$name" || true)"
+              if [[ -n "$path" ]]; then
+                echo "  $name: $path"
+                sha256sum "$path"
+              else
+                echo "  $name: not found on this runner (no existing setup step installed it)"
+              fi
+            done
+          fi
+
+      - name: Read pinned release-toolchain versions
+        if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'
+        id: toolchain
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - >> "$GITHUB_OUTPUT" <<'PY'
+          import json
+          with open("tool/android_release_tools.json", encoding="utf-8") as handle:
+              config = json.load(handle)
+          for tool, fields in config.items():
+              prefix = tool.replace("-", "_")
+              for field, value in fields.items():
+                  print(f"{prefix}_{field}={value}")
+          PY
+
+      - name: Pin release-toolchain Java
+        if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'
+        uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3 # v4
+        with:
+          distribution: temurin
+          java-version: ${{ steps.toolchain.outputs.java_version }}
+
+      - name: Pin release-toolchain Node
+        if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: ${{ steps.toolchain.outputs.node_version }}
+
+      - name: Download and verify bundletool
+        if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'
+        id: bundletool
+        shell: bash
+        env:
+          BUNDLETOOL_URL: ${{ steps.toolchain.outputs.bundletool_url }}
+          BUNDLETOOL_SHA256: ${{ steps.toolchain.outputs.bundletool_sha256 }}
+          BUNDLETOOL_VERSION: ${{ steps.toolchain.outputs.bundletool_version }}
+        run: |
+          set -euo pipefail
+          jar="$RUNNER_TEMP/bundletool-all-${BUNDLETOOL_VERSION}.jar"
+          curl -fsSL --retry 3 -o "$jar" "$BUNDLETOOL_URL"
+          echo "${BUNDLETOOL_SHA256}  $jar" | sha256sum -c -
+          echo "bundletool_jar=$jar" >> "$GITHUB_OUTPUT"
+
+      - name: Install and verify firebase-tools
+        if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'
+        id: firebase-tools
+        shell: bash
+        env:
+          FIREBASE_TOOLS_VERSION: ${{ steps.toolchain.outputs.firebase_tools_version }}
+          FIREBASE_TOOLS_SHA256: ${{ steps.toolchain.outputs.firebase_tools_sha256 }}
+        run: |
+          set -euo pipefail
+          scratch="$RUNNER_TEMP/firebase-tools-scratch"
+          mkdir -p "$scratch"
+          npm install --no-save --no-audit --no-fund --prefix "$scratch" \
+            "firebase-tools@${FIREBASE_TOOLS_VERSION}"
+          firebase_js="$scratch/node_modules/firebase-tools/lib/bin/firebase.js"
+          echo "${FIREBASE_TOOLS_SHA256}  $firebase_js" | sha256sum -c -
+          echo "firebase_js=$firebase_js" >> "$GITHUB_OUTPUT"
+
+      - name: Write release-evidence tools manifest
+        if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'
+        id: tools-json
+        shell: bash
+        env:
+          JAVA_BIN_SHA256: ${{ steps.toolchain.outputs.java_sha256 }}
+          NODE_BIN_SHA256: ${{ steps.toolchain.outputs.node_sha256 }}
+          BUNDLETOOL_JAR: ${{ steps.bundletool.outputs.bundletool_jar }}
+          BUNDLETOOL_JAR_SHA256: ${{ steps.toolchain.outputs.bundletool_sha256 }}
+          FIREBASE_JS: ${{ steps.firebase-tools.outputs.firebase_js }}
+          FIREBASE_JS_SHA256: ${{ steps.toolchain.outputs.firebase_tools_sha256 }}
+        run: |
+          set -euo pipefail
+          export JAVA_BIN="$(command -v java)"
+          export NODE_BIN="$(command -v node)"
+          manifest="$RUNNER_TEMP/release-evidence-tools.json"
+          python3 - > "$manifest" <<'PY'
+          import json
+          import os
+          java_bin = os.environ["JAVA_BIN"]
+          node_bin = os.environ["NODE_BIN"]
+          bundletool_jar = os.environ["BUNDLETOOL_JAR"]
+          firebase_js = os.environ["FIREBASE_JS"]
+          print(json.dumps({
+              "bundletool": {
+                  "argv": [java_bin, "-jar", bundletool_jar],
+                  "sha256": {java_bin: os.environ["JAVA_BIN_SHA256"],
+                             bundletool_jar: os.environ["BUNDLETOOL_JAR_SHA256"]},
+              },
+              "firebase": {
+                  "argv": [node_bin, firebase_js],
+                  "sha256": {node_bin: os.environ["NODE_BIN_SHA256"],
+                             firebase_js: os.environ["FIREBASE_JS_SHA256"]},
+              },
+          }))
+          PY
+          echo "manifest=$manifest" >> "$GITHUB_OUTPUT"
+
+      - name: Materialise Firebase credentials
+        if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'
+        shell: bash
+        env:
+          FIREBASE_SYMBOLS_SA_JSON: ${{ secrets.FIREBASE_SYMBOLS_SA_JSON }}
+        run: |
+          set -euo pipefail
+          if [[ -z "$FIREBASE_SYMBOLS_SA_JSON" ]]; then
+            echo "::error::Missing required secret: FIREBASE_SYMBOLS_SA_JSON"
+            exit 1
+          fi
+          if [[ -n "${FIREBASE_TOKEN:-}" ]]; then
+            echo "::error::FIREBASE_TOKEN must not be set; this gate authenticates only via GOOGLE_APPLICATION_CREDENTIALS."
+            exit 1
+          fi
+          (
+            umask 077
+            printf '%s' "$FIREBASE_SYMBOLS_SA_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          )
+
+      - name: Upload and verify Crashlytics symbol evidence
+        if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'
+        id: symbol-evidence
+        shell: bash
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/firebase-sa.json
+          TOOLS_JSON: ${{ steps.tools-json.outputs.manifest }}
+          VERSION_CODE: ${{ steps.release-meta.outputs.version-code }}
+          FIREBASE_ANDROID_APP_ID: ${{ vars.FIREBASE_ANDROID_APP_ID }}
+        run: |
+          set -euo pipefail
+          aab=build/app/outputs/bundle/release/app-release.aab
+          expected_sha256="$(cut -d' ' -f1 "$aab.sha256")"
+          receipt="$RUNNER_TEMP/symbol-receipt.json"
+          common_args=(
+            --aab "$aab"
+            --symbols build/app/outputs/symbols
+            --google-services android/app/google-services.json
+            --receipt "$receipt"
+            --tools-json "$TOOLS_JSON"
+            --git-sha "$GITHUB_SHA"
+            --run-id "$GITHUB_RUN_ID"
+            --run-attempt "$GITHUB_RUN_ATTEMPT"
+            --version-code "$VERSION_CODE"
+            --firebase-app-id "$FIREBASE_ANDROID_APP_ID"
+            --expected-aab-sha256 "$expected_sha256"
+          )
+          python3 tool/android_release_evidence.py upload "${common_args[@]}"
+          python3 tool/android_release_evidence.py verify "${common_args[@]}"
+          echo "receipt=$receipt" >> "$GITHUB_OUTPUT"
+
+      - name: Archive symbol evidence
+        if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'
+        id: archive-evidence
+        shell: bash
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/firebase-sa.json
+          TOOLS_JSON: ${{ steps.tools-json.outputs.manifest }}
+          VERSION_CODE: ${{ steps.release-meta.outputs.version-code }}
+          FIREBASE_ANDROID_APP_ID: ${{ vars.FIREBASE_ANDROID_APP_ID }}
+          RECEIPT: ${{ steps.symbol-evidence.outputs.receipt }}
+        run: |
+          set -euo pipefail
+          aab=build/app/outputs/bundle/release/app-release.aab
+          expected_sha256="$(cut -d' ' -f1 "$aab.sha256")"
+          archive_dir="$RUNNER_TEMP/symbol-evidence"
+          python3 tool/android_release_evidence.py archive \
+            --aab "$aab" \
+            --symbols build/app/outputs/symbols \
+            --google-services android/app/google-services.json \
+            --receipt "$RECEIPT" \
+            --tools-json "$TOOLS_JSON" \
+            --git-sha "$GITHUB_SHA" \
+            --run-id "$GITHUB_RUN_ID" \
+            --run-attempt "$GITHUB_RUN_ATTEMPT" \
+            --version-code "$VERSION_CODE" \
+            --firebase-app-id "$FIREBASE_ANDROID_APP_ID" \
+            --expected-aab-sha256 "$expected_sha256" \
+            --archive-dir "$archive_dir"
+          echo "archive-dir=$archive_dir" >> "$GITHUB_OUTPUT"
+
+      - name: Preserve symbol evidence artifact
+        if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: android-symbol-evidence-v${{ steps.release-meta.outputs.version-code }}-${{ github.sha }}
+          path: ${{ steps.archive-evidence.outputs.archive-dir }}
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Preserve AAB and Dart symbols
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
