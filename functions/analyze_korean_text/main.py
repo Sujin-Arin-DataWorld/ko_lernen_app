@@ -50,6 +50,8 @@ from security import (
     KKEUNMARI_DICTIONARY_QUOTA_POLICY,
     KKEUNMARI_QUOTA_SCOPE,
     AuthenticationFailed,
+    AccountUnavailable,
+    RequestContentMismatch,
     CircuitBreaker,
     DeadlineBudget,
     FirestoreIdempotencyGate,
@@ -57,6 +59,8 @@ from security import (
     QuotaExceeded,
     QuotaStoreUnavailable,
     analysis_request_id,
+    analysis_payload_fingerprint,
+    sanitize_analysis_result,
     configure_deepl_http_deadlines,
     provider_timeout_seconds,
     run_with_deadline,
@@ -728,23 +732,36 @@ def analyze_korean_text(request: Request) -> Response:
     request_id = analysis_request_id(
         caller.uid, lang, text, structured_units
     )
+    client_request_id = body.get("requestId")
+    if client_request_id is not None:
+        if not isinstance(client_request_id, str) or not re.fullmatch(r"[A-Za-z0-9_-]{8,128}", client_request_id):
+            return _warning_response("invalid_request_id", 400)
+        request_id = hashlib.sha256(
+            f"book_analysis_v1\0{caller.uid}\0id\0{client_request_id}".encode("utf-8")
+        ).hexdigest()
     receipts = _idempotency_gate()
-    must_consume = receipts.claim(request_id, kind="book_analysis_v1")
-    consumed = False
-    if must_consume:
-        try:
-            _quota_gate().consume(caller.uid)
-            consumed = True
-        except QuotaExceeded as error:
-            receipts.abandon(request_id, "book_analysis_v1")
-            return _warning_response(
-                "rate_limited",
-                429,
-                retry_after_seconds=error.retry_after_seconds,
-            )
-        except QuotaStoreUnavailable:
-            receipts.abandon(request_id, "book_analysis_v1")
-            return _warning_response("service_unavailable", 503)
+    try:
+        claim = receipts.claim(request_id, uid=caller.uid,
+            fingerprint=analysis_payload_fingerprint(lang, text, structured_units))
+        if claim["state"] == "completed":
+            result = claim["result"]
+            return _analysis_response(result["analysisLanguage"], **{
+                key: value for key, value in result.items() if key != "analysisLanguage"})
+        if claim["state"] == "pending":
+            return _warning_response("analysis_pending", 409, retry_after_seconds=2)
+        if claim["state"] != "claimed":
+            return _warning_response("analysis_uncertain", 503, retry_after_seconds=30)
+        owner_token = claim["ownerToken"]
+        if not receipts.transition(request_id, uid=caller.uid, owner_token=owner_token, target="pending"):
+            return _warning_response("analysis_uncertain", 503, retry_after_seconds=30)
+    except QuotaExceeded as error:
+        return _warning_response("rate_limited", 429, retry_after_seconds=error.retry_after_seconds)
+    except RequestContentMismatch:
+        return _warning_response("request_content_mismatch", 409)
+    except AccountUnavailable:
+        return _warning_response("account_unavailable", 403)
+    except QuotaStoreUnavailable:
+        return _warning_response("service_unavailable", 503)
 
     try:
         response = _complete_book_analysis(
@@ -753,21 +770,24 @@ def analyze_korean_text(request: Request) -> Response:
             structured_units=structured_units,
             quality_warnings=quality_warnings,
         )
-        receipts.complete(request_id, "book_analysis_v1")
-        return response
+        result = sanitize_analysis_result(response.get_json())
+        if "translation_unavailable" in result["warnings"]:
+            receipts.transition(request_id, uid=caller.uid, owner_token=owner_token, target="uncertain")
+            return _warning_response("analysis_uncertain", 503, retry_after_seconds=30)
+        if not receipts.transition(request_id, uid=caller.uid, owner_token=owner_token,
+                target="completed", result=result):
+            return _warning_response("analysis_uncertain", 503, retry_after_seconds=30)
+        return _analysis_response(result["analysisLanguage"], **{
+            key: value for key, value in result.items() if key != "analysisLanguage"})
+    except AccountUnavailable:
+        return _warning_response("account_unavailable", 403)
     except Exception:
-        _LOGGER.exception("book_analysis_unhandled")
-        if consumed:
-            _release_quota_best_effort(caller.uid)
-        receipts.abandon(request_id, "book_analysis_v1")
-        return _warning_response("service_unavailable", 503)
-
-
-def _release_quota_best_effort(uid: str) -> None:
-    try:
-        _quota_gate().release(uid)
-    except Exception:
-        _LOGGER.warning("book_analysis_quota_release_failed")
+        _LOGGER.warning("book_analysis_uncertain")
+        try:
+            receipts.transition(request_id, uid=caller.uid, owner_token=owner_token, target="uncertain")
+        except (QuotaStoreUnavailable, AccountUnavailable):
+            pass  # Durable pending receipt still prevents a second dispatch.
+        return _warning_response("analysis_uncertain", 503, retry_after_seconds=30)
 
 
 def _complete_book_analysis(

@@ -5,6 +5,50 @@ import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/premium_service.dart';
 
 void main() {
+  test('SDK identity lookup cannot recapture a new same-UID epoch', () async {
+    final sessions = CloudWriteSessionController()..acquire('uid-a');
+    final client = _RevenueCatClient();
+    final lookup = Completer<bool>();
+    final binder = PremiumIdentityBinder(
+      client,
+      sessions: sessions,
+      initialUid: 'uid-a',
+      identityMatches: (_) => lookup.future,
+    );
+    final pending = binder.bind('uid-a');
+    await Future<void>.delayed(Duration.zero);
+    sessions.acquire('uid-a');
+    lookup.complete(false);
+    expect(await pending, CloudWriteResult.stale);
+    expect(client.events, isEmpty);
+  });
+  test(
+    'direct purchase binding and auth rebinding share one serial queue',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final client = _RevenueCatClient();
+      final binder = PremiumIdentityBinder(
+        client,
+        sessions: sessions,
+        initialUid: 'uid-a',
+      );
+      final purchase = Completer<bool>();
+      final operation = binder.runBound<bool>(
+        uid: 'uid-a',
+        action: () => purchase.future,
+      );
+      await Future<void>.delayed(Duration.zero);
+      sessions.acquire('uid-b');
+      final switching = binder.bind('uid-b');
+      await Future<void>.delayed(Duration.zero);
+      expect(client.events, isEmpty);
+      purchase.complete(true);
+      expect(await operation, isNull);
+      expect(await switching, CloudWriteResult.completed);
+      expect(client.events, ['login:uid-b']);
+    },
+  );
+
   test(
     'late RevenueCat completion cannot advance stale binding state',
     () async {

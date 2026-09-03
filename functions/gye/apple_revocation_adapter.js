@@ -2,12 +2,15 @@
 
 const {
   createPrivateKey,
+  createPublicKey,
   sign,
+  verify,
 } = require("node:crypto");
 
 const APPLE_AUDIENCE = "https://appleid.apple.com";
 const APPLE_TOKEN_URL = `${APPLE_AUDIENCE}/auth/token`;
 const APPLE_REVOKE_URL = `${APPLE_AUDIENCE}/auth/revoke`;
+const APPLE_KEYS_URL = `${APPLE_AUDIENCE}/auth/keys`;
 const CLIENT_SECRET_LIFETIME_SECONDS = 300;
 const APPLE_REQUEST_TIMEOUT_MILLIS = 15000;
 const MAX_AUTHORIZATION_CODE_LENGTH = 4096;
@@ -132,6 +135,8 @@ function createClientSecret({
 
 function createAppleRevocationAdapter({
   getClientId,
+  getServicesId = () => '',
+  getRedirectUri = () => '',
   getTeamId,
   getKeyId,
   getPrivateKey,
@@ -146,6 +151,59 @@ function createAppleRevocationAdapter({
       typeof nowSeconds !== "function") {
     throw new TypeError("Apple revocation adapter dependencies are required.");
   }
+
+  // Cache only Apple's public signing keys, never codes or user tokens.
+  let cachedKeys;
+  let keysExpireAt = 0;
+  const verifyExchangeIdentity = async (token, clientId, expectedSubject, now) => {
+    let parts;
+    let header;
+    let claims;
+    try {
+      parts = requiredProviderToken(token).split('.');
+      if (parts.length !== 3) fail('apple/revocation-identity-mismatch');
+      header = JSON.parse(Buffer.from(parts[0], 'base64url').toString('utf8'));
+      claims = JSON.parse(Buffer.from(parts[1], 'base64url').toString('utf8'));
+    } catch {
+      fail('apple/revocation-identity-mismatch');
+    }
+    if (header.alg !== 'RS256' || !isBoundedString(header.kid, 128) ||
+        claims.iss !== APPLE_AUDIENCE || claims.aud !== clientId ||
+        claims.sub !== expectedSubject || !Number.isSafeInteger(claims.exp) ||
+        claims.exp <= now) {
+      fail('apple/revocation-identity-mismatch');
+    }
+    if (!cachedKeys || now >= keysExpireAt) {
+      try {
+        const response = await fetch(APPLE_KEYS_URL, {
+          method: 'GET', redirect: 'error',
+          signal: AbortSignal.timeout(APPLE_REQUEST_TIMEOUT_MILLIS),
+        });
+        if (response?.status !== 200) fail('apple/revocation-response-invalid');
+        const body = await response.json();
+        if (!Array.isArray(body?.keys) || body.keys.length > 10 || body.keys.length === 0) {
+          fail('apple/revocation-response-invalid');
+        }
+        cachedKeys = body.keys;
+        keysExpireAt = now + 300;
+      } catch {
+        fail('apple/revocation-network-failed');
+      }
+    }
+    const matches = cachedKeys.filter((key) => key.kid === header.kid &&
+      key.kty === 'RSA' && key.alg === 'RS256' && key.use === 'sig' &&
+      isBoundedString(key.n, 1024) && isBoundedString(key.e, 16));
+    if (matches.length !== 1) fail('apple/revocation-identity-mismatch');
+    try {
+      if (!verify('RSA-SHA256', Buffer.from(`${parts[0]}.${parts[1]}`),
+        createPublicKey({ key: matches[0], format: 'jwk' }),
+        Buffer.from(parts[2], 'base64url'))) {
+        fail('apple/revocation-identity-mismatch');
+      }
+    } catch {
+      fail('apple/revocation-identity-mismatch');
+    }
+  };
 
   const postForm = async (url, fields) => {
     let response;
@@ -181,15 +239,32 @@ function createAppleRevocationAdapter({
 
   return async function revokeAppleAuthorizationCode({
     authorizationCode,
+    clientKind = 'native',
+    expectedSubject,
   } = {}) {
     const transientCode = requiredAuthorizationCode(authorizationCode);
+    if (!['native', 'web'].includes(clientKind) ||
+        !isBoundedString(expectedSubject, 255) || /[\s\u0000-\u001f]/u.test(expectedSubject)) {
+      fail('apple/revocation-input-invalid');
+    }
     let clientId;
+    let redirectUri;
     let teamId;
     let keyId;
     let privateKey;
     let issuedAt;
     try {
-      clientId = requiredClientId(getClientId());
+      clientId = requiredClientId(clientKind === 'web' ? getServicesId() : getClientId());
+      if (clientKind === 'web') {
+        redirectUri = getRedirectUri();
+        const url = new URL(redirectUri);
+        if (url.protocol !== 'https:' || !url.hostname.includes('.') ||
+            /^[0-9.]+$/u.test(url.hostname) || url.hostname.endsWith('.localhost') ||
+            url.username || url.password || url.port || url.search || url.hash ||
+            redirectUri !== url.href) {
+          fail('apple/revocation-config-invalid');
+        }
+      }
       teamId = requiredAppleIdentifier(getTeamId());
       keyId = requiredAppleIdentifier(getKeyId());
       privateKey = requiredPrivateKey(getPrivateKey());
@@ -211,6 +286,7 @@ function createAppleRevocationAdapter({
       client_secret: clientSecret,
       code: transientCode,
       grant_type: "authorization_code",
+      ...(redirectUri ? { redirect_uri: redirectUri } : {}),
     });
     let tokenResponse;
     try {
@@ -224,6 +300,7 @@ function createAppleRevocationAdapter({
     } catch {
       fail("apple/revocation-response-invalid");
     }
+    await verifyExchangeIdentity(tokenResponse?.id_token, clientId, expectedSubject, issuedAt);
     await postForm(APPLE_REVOKE_URL, {
       client_id: clientId,
       client_secret: clientSecret,

@@ -11,22 +11,31 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/vocab_pack_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 
+import 'support/access_sdk_harness.dart';
+
 /// §H 프리미엄 티저 (2026-08-14) — 파괴-복원 센서.
 ///
 /// A2+ 레벨의 프리미엄 잠금은 기존엔 **탭 후 인터스티셜에서만** 드러났다
 /// (카드는 일반 카드처럼 보임 → 전환 기회 유실). 이 테스트는 세 가지를 고정한다:
 /// 1. A2 브라우즈 + 비프리미엄 → 카드에 골드 왕관 칩(premium 상태)이 보인다.
 /// 2. A1(무료 레벨)에는 왕관 칩이 없다.
-/// 3. `premiumNotifier` 가 true 가 되면(구매/복원) 칩이 **즉시** 사라진다.
+/// 3. 알림값만으로 권한을 얻지 않으며, 서버 검증된 권한 갱신 뒤 칩이 사라진다.
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+
+  final access = AccessSdkHarness();
+  setUpAll(() async {
+    SharedPreferences.setMockInitialValues({});
+    await access.initialize();
+  });
+  tearDownAll(access.dispose);
 
   setUp(() async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({'kl_user_level': 'a1'});
     await Storage.init();
     DataLoader.reset();
-    premiumNotifier.value = false;
+    await access.setPremium(false);
   });
 
   tearDown(() {
@@ -74,14 +83,23 @@ void main() {
     expect(crown, findsNothing);
   });
 
-  testWidgets('구매(premiumNotifier=true) 즉시 왕관 칩이 사라진다', (tester) async {
+  testWidgets('알림값은 권한이 아니며 서버 검증 후 왕관 칩이 사라진다', (tester) async {
     await Storage.setBrowseLevelCode('a2');
     await pumpPacks(tester);
     expect(crown, findsWidgets);
 
     premiumNotifier.value = true;
     await tester.pump();
+    expect(PremiumService.hasContentAccess, isFalse);
+    expect(crown, findsWidgets);
 
+    // Return the notification to the real current state, then exercise the
+    // production SDK -> controller -> notifier update rather than minting access.
+    await access.setPremium(false);
+    await access.setPremium(true);
+    await tester.pump();
+
+    expect(PremiumService.isPremium, isTrue);
     expect(crown, findsNothing);
   });
 }

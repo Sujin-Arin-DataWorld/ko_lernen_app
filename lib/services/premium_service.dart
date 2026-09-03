@@ -1,30 +1,57 @@
 import 'dart:async';
 
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import '../models/access_snapshot.dart';
+import 'access_snapshot_controller.dart';
 import 'account/cloud_write_session.dart';
 import 'storage_service.dart';
 
-/// Globaler Premium-Status. Wie [paletteVariantNotifier] ein Top-Level
-/// [ValueNotifier] — Screens können per [ValueListenableBuilder] live darauf
-/// reagieren (Lock-Badges ein-/ausblenden, Paywall-Sperren etc.).
+/// Legacy-named content notifier for lock badges. Membership and AI policy use
+/// [accessSnapshotNotifier], never this build-aware content flag.
 final ValueNotifier<bool> premiumNotifier = ValueNotifier<bool>(
   PremiumService.fullAccessBuild,
 );
 
-enum PremiumPurchaseOutcome { purchased, cancelled, failed }
+final ValueNotifier<AccessSnapshot?> accessSnapshotNotifier = ValueNotifier(
+  null,
+);
 
-enum PremiumRestoreOutcome { restored, none, failed }
+enum PremiumPurchaseOutcome {
+  purchased,
+  cancelled,
+  pending,
+  signInRequired,
+  stale,
+  failed,
+}
+
+enum PremiumRestoreOutcome {
+  restored,
+  none,
+  pending,
+  cancelled,
+  signInRequired,
+  stale,
+  failed,
+}
 
 PremiumPurchaseOutcome premiumPurchaseOutcomeForError(Object error) {
   if (error is PlatformException &&
       PurchasesErrorHelper.getErrorCode(error) ==
           PurchasesErrorCode.purchaseCancelledError) {
     return PremiumPurchaseOutcome.cancelled;
+  }
+  if (error is PlatformException &&
+      PurchasesErrorHelper.getErrorCode(error) ==
+          PurchasesErrorCode.paymentPendingError) {
+    return PremiumPurchaseOutcome.pending;
   }
   return PremiumPurchaseOutcome.failed;
 }
@@ -55,10 +82,14 @@ class PremiumIdentityBinder {
     this.client, {
     required this.sessions,
     String? initialUid,
+    this.identityMatches,
   }) : _boundUid = initialUid;
 
   final RevenueCatIdentityClient client;
   final CloudWriteSessionController sessions;
+  final Future<bool> Function(String uid)? identityMatches;
+  Future<void> _queue = Future<void>.value();
+  bool _bindingUncertain = false;
   String? _boundUid;
   StreamSubscription<void>? _subscription;
   String? _pendingUid;
@@ -82,7 +113,7 @@ class PremiumIdentityBinder {
             }
           } catch (error) {
             onError?.call(error);
-            debugPrint('PremiumService: logIn/logOut failed — $error');
+            debugPrint('PremiumService: identity binding failed.');
           }
         })
         .listen((_) {});
@@ -103,35 +134,98 @@ class PremiumIdentityBinder {
       }
     } catch (error) {
       onError?.call(error);
-      debugPrint('Premium identity retry failed: $error');
+      debugPrint('PremiumService: identity retry failed.');
     }
   }
 
-  Future<CloudWriteResult> bind(String? uid) async {
+  Future<T> _serialized<T>(Future<T> Function() action) {
+    final result = _queue.then((_) => action());
+    _queue = result.then<void>((_) {}, onError: (Object _, StackTrace __) {});
+    return result;
+  }
+
+  Future<CloudWriteResult> bind(String? uid) {
+    final expected = sessions.current;
+    return _serialized(() async {
+      if (sessions.current != expected) {
+        return CloudWriteResult.stale;
+      }
+      return _bind(uid);
+    });
+  }
+
+  /// The SDK identity cannot change during an in-flight store operation. Any
+  /// Firebase transition still invalidates its result immediately.
+  Future<T?> runBound<T>({
+    required String uid,
+    required Future<T> Function() action,
+  }) {
+    final expected = sessions.current;
+    return _serialized(() async {
+      final fence = CloudWriteFence(sessions);
+      if (expected == null ||
+          fence.verify(expected, uid: uid) != CloudWriteResult.completed ||
+          await _bind(uid) != CloudWriteResult.completed) {
+        return null;
+      }
+      if (fence.verify(expected, uid: uid) != CloudWriteResult.completed) {
+        return null;
+      }
+      final result = await action();
+      if (fence.verify(expected, uid: uid) != CloudWriteResult.completed) {
+        return null;
+      }
+      return result;
+    });
+  }
+
+  Future<CloudWriteResult> _bind(String? uid) async {
     final operationUid = uid ?? _boundUid;
     if (operationUid == null) {
       return CloudWriteResult.completed;
     }
     final fence = CloudWriteFence(sessions);
-    if (fence.readySnapshot(operationUid) == null) {
+    final expected = fence.readySnapshot(operationUid);
+    if (expected == null) {
       return CloudWriteResult.blocked;
     }
-    if (uid == _boundUid) {
-      return CloudWriteResult.completed;
+    if (uid == _boundUid && !_bindingUncertain) {
+      if (uid != null &&
+          identityMatches != null &&
+          !await identityMatches!(uid)) {
+        _bindingUncertain = true;
+      } else {
+        return fence.verify(expected, uid: operationUid);
+      }
+    }
+    if (fence.verify(expected, uid: operationUid) !=
+        CloudWriteResult.completed) {
+      return CloudWriteResult.stale;
     }
     if (_boundUid == null) {
       return CloudWriteResult.blocked;
     }
 
     if (uid != null) {
-      final loginResult = await fence.run(
+      final loginResult = await fence.runWithSnapshot(
+        snapshot: expected,
         uid: uid,
         action: () => client.logIn(uid),
       );
       if (loginResult != CloudWriteResult.completed) {
+        _bindingUncertain = true;
         return loginResult;
       }
+      if (identityMatches != null && !await identityMatches!(uid)) {
+        _bindingUncertain = true;
+        return CloudWriteResult.blocked;
+      }
+      if (fence.verify(expected, uid: uid) != CloudWriteResult.completed) {
+        _bindingUncertain = true;
+        return CloudWriteResult.stale;
+      }
       _boundUid = uid;
+      _bindingUncertain = false;
       return CloudWriteResult.completed;
     }
     return CloudWriteResult.blocked;
@@ -159,199 +253,594 @@ PurchasesConfiguration revenueCatConfiguration({
   return PurchasesConfiguration(apiKey)..appUserID = uid;
 }
 
-/// **PremiumService** — €5/Monat Abo über RevenueCat (`purchases_flutter`).
-///
-/// Designprinzip (wie [AuthService] bei Firebase): **läuft immer, crasht nie**.
-/// Ohne konfigurierte RevenueCat-Keys bleibt der Kauf deaktiviert, ohne Exception
-/// oder roten Screen. Ein erster vollständig kostenloser Store-Release setzt
-/// `FREE_LAUNCH=true` und öffnet alle Inhalte ohne RevenueCat.
-///
-/// Keys werden via `--dart-define` injiziert (nicht ins Repo committen):
-/// ```
-/// flutter run --dart-define=RC_ANDROID_KEY=goog_xxx --dart-define=RC_IOS_KEY=appl_xxx
-/// ```
-/// Im RevenueCat-Dashboard: ein Entitlement `premium` + ein Offering (mit
-/// monatlichem Paket) anlegen, die Store-Produkte in Play Console / App Store
-/// Connect verknüpfen.
+/// A store request never grants access itself: only the server snapshot does.
+class PremiumPurchaseController {
+  PremiumPurchaseController({
+    required this.sessions,
+    required this.binder,
+    required this.identity,
+    required this.enabled,
+    required this.hasPremium,
+    required this.refreshAccess,
+    required this.purchasePackage,
+    required this.restorePurchases,
+  }) {
+    sessions.changes.addListener(_pendingSessionChanged);
+  }
+  final CloudWriteSessionController sessions;
+  final PremiumIdentityBinder binder;
+  final ({String? uid, bool isAnonymous}) Function() identity;
+  final bool Function() enabled;
+  final bool Function() hasPremium;
+  final Future<void> Function() refreshAccess;
+  final Future<bool> Function(Package) purchasePackage;
+  final Future<bool> Function() restorePurchases;
+  bool _busy = false;
+  bool _disposed = false;
+  Timer? _pendingTimer;
+  CloudWriteSession? _pendingSession;
+  int _pendingGeneration = 0;
+  static const _pendingRetryDelays = [
+    Duration(seconds: 2),
+    Duration(seconds: 5),
+    Duration(seconds: 15),
+    Duration(seconds: 30),
+    Duration(minutes: 1),
+    Duration(minutes: 5),
+  ];
+
+  bool _matches(String uid, CloudWriteSession? session) =>
+      !_disposed &&
+      identity().uid == uid &&
+      !identity().isAnonymous &&
+      session != null &&
+      sessions.current == session &&
+      session.mode == CloudWriteMode.ready;
+
+  void _pendingSessionChanged() {
+    if (_pendingSession != null && sessions.current != _pendingSession) {
+      _cancelPendingReconciliation();
+    }
+  }
+
+  void _cancelPendingReconciliation() {
+    _pendingGeneration++;
+    _pendingTimer?.cancel();
+    _pendingTimer = null;
+    _pendingSession = null;
+  }
+
+  void _reconcilePending(String uid, CloudWriteSession? session) {
+    _cancelPendingReconciliation();
+    if (_disposed || !_matches(uid, session) || hasPremium()) {
+      return;
+    }
+    _pendingSession = session;
+    final generation = _pendingGeneration;
+    void schedule(int attempt) {
+      _pendingTimer = Timer(_pendingRetryDelays[attempt], () async {
+        _pendingTimer = null;
+        if (_disposed || generation != _pendingGeneration) {
+          return;
+        }
+        if (!_matches(uid, session) || hasPremium()) {
+          _cancelPendingReconciliation();
+          return;
+        }
+        try {
+          // Only re-read server authority. Never retry a store operation.
+          await refreshAccess();
+        } on Object {
+          // A temporary failure consumes this bounded verification attempt.
+        }
+        if (_disposed || generation != _pendingGeneration) {
+          return;
+        }
+        if (!_matches(uid, session) ||
+            hasPremium() ||
+            attempt + 1 == _pendingRetryDelays.length) {
+          _cancelPendingReconciliation();
+          return;
+        }
+        schedule(attempt + 1);
+      });
+    }
+
+    schedule(0);
+  }
+
+  void dispose() {
+    _disposed = true;
+    _cancelPendingReconciliation();
+    sessions.changes.removeListener(_pendingSessionChanged);
+  }
+
+  Future<PremiumPurchaseOutcome> purchase(Package package) async {
+    final user = identity();
+    final uid = user.uid;
+    final session = sessions.current;
+    if (uid == null || user.isAnonymous) {
+      return PremiumPurchaseOutcome.signInRequired;
+    }
+    if (_disposed || !enabled() || _busy || !isMonthlyPackage(package)) {
+      return PremiumPurchaseOutcome.failed;
+    }
+    if (hasPremium()) {
+      return PremiumPurchaseOutcome.purchased;
+    }
+    _busy = true;
+    try {
+      final outcome = await binder.runBound<PremiumPurchaseOutcome>(
+        uid: uid,
+        action: () async {
+          if (!_matches(uid, session)) {
+            return PremiumPurchaseOutcome.stale;
+          }
+          // Binding may have waited behind another operation while a fresh
+          // server grant arrived. Recheck at the last point before the store.
+          if (hasPremium()) {
+            return PremiumPurchaseOutcome.purchased;
+          }
+          await purchasePackage(package);
+          if (!_matches(uid, session)) {
+            return PremiumPurchaseOutcome.stale;
+          }
+          await refreshAccess();
+          if (!_matches(uid, session)) {
+            return PremiumPurchaseOutcome.stale;
+          }
+          return hasPremium()
+              ? PremiumPurchaseOutcome.purchased
+              : PremiumPurchaseOutcome.pending;
+        },
+      );
+      final result =
+          outcome ??
+          (_matches(uid, session)
+              ? PremiumPurchaseOutcome.failed
+              : PremiumPurchaseOutcome.stale);
+      if (result == PremiumPurchaseOutcome.pending) {
+        _reconcilePending(uid, session);
+      }
+      return result;
+    } on Object catch (error) {
+      final result = _matches(uid, session)
+          ? premiumPurchaseOutcomeForError(error)
+          : PremiumPurchaseOutcome.stale;
+      if (result == PremiumPurchaseOutcome.pending) {
+        _reconcilePending(uid, session);
+      }
+      return result;
+    } finally {
+      _busy = false;
+    }
+  }
+
+  Future<PremiumRestoreOutcome> restore() async {
+    final user = identity();
+    final uid = user.uid;
+    final session = sessions.current;
+    if (uid == null || user.isAnonymous) {
+      return PremiumRestoreOutcome.signInRequired;
+    }
+    if (_disposed || !enabled() || _busy) {
+      return PremiumRestoreOutcome.failed;
+    }
+    _busy = true;
+    try {
+      final outcome = await binder.runBound<PremiumRestoreOutcome>(
+        uid: uid,
+        action: () async {
+          if (!_matches(uid, session)) {
+            return PremiumRestoreOutcome.stale;
+          }
+          final sdkActive = await restorePurchases();
+          if (!_matches(uid, session)) {
+            return PremiumRestoreOutcome.stale;
+          }
+          await refreshAccess();
+          if (!_matches(uid, session)) {
+            return PremiumRestoreOutcome.stale;
+          }
+          return hasPremium()
+              ? PremiumRestoreOutcome.restored
+              : sdkActive
+              ? PremiumRestoreOutcome.pending
+              : PremiumRestoreOutcome.none;
+        },
+      );
+      final result =
+          outcome ??
+          (_matches(uid, session)
+              ? PremiumRestoreOutcome.failed
+              : PremiumRestoreOutcome.stale);
+      if (result == PremiumRestoreOutcome.pending) {
+        _reconcilePending(uid, session);
+      }
+      return result;
+    } on Object catch (error) {
+      if (!_matches(uid, session)) {
+        return PremiumRestoreOutcome.stale;
+      }
+      final result = switch (premiumPurchaseOutcomeForError(error)) {
+        PremiumPurchaseOutcome.cancelled => PremiumRestoreOutcome.cancelled,
+        PremiumPurchaseOutcome.pending => PremiumRestoreOutcome.pending,
+        _ => PremiumRestoreOutcome.failed,
+      };
+      if (result == PremiumRestoreOutcome.pending) {
+        _reconcilePending(uid, session);
+      }
+      return result;
+    } finally {
+      _busy = false;
+    }
+  }
+}
+
+bool isMonthlyPackage(Package package) =>
+    package.packageType == PackageType.monthly &&
+    package.storeProduct.subscriptionPeriod == 'P1M';
+
+Package? monthlyOfferingPackage(Offering? offering) {
+  final monthly = offering?.monthly;
+  return monthly != null && isMonthlyPackage(monthly) ? monthly : null;
+}
+
+/// Server access is initialized in every build, even when native billing is off.
 class PremiumService {
   PremiumService._();
 
-  /// Entitlement-ID aus dem RevenueCat-Dashboard.
   static const String entitlementId = 'premium';
-
-  /// Tester-only build override. `BETA_UNLOCK_ALL=true` unlocks premium
-  /// content; without it, normal entitlement gating remains active.
   static const bool betaUnlockAll = bool.fromEnvironment(
     'BETA_UNLOCK_ALL',
     defaultValue: false,
   );
-
-  /// Production build switch for an initial, fully free release. This differs
-  /// from [betaUnlockAll]: it is an intentional product mode, not a tester
-  /// override. It prevents RevenueCat initialization and opens every gate.
   static const bool freeLaunch = bool.fromEnvironment(
     'FREE_LAUNCH',
     defaultValue: false,
   );
-
   static const bool fullAccessBuild = betaUnlockAll || freeLaunch;
-
   static const String _androidKey = String.fromEnvironment('RC_ANDROID_KEY');
   static const String _iosKey = String.fromEnvironment('RC_IOS_KEY');
-
+  static const String accessEnvironment = String.fromEnvironment(
+    'ACCESS_ENVIRONMENT',
+    defaultValue: 'PRODUCTION',
+  );
   static bool _configured = false;
+  static bool _started = false;
+  static Future<void>? _billingInit;
   static PremiumIdentityBinder? _identityBinder;
+  static AccessSnapshotController? _access;
+  static PremiumPurchaseController? _purchases;
+  static final Stopwatch _clock = Stopwatch()..start();
+  static String? _observedUid;
+  static bool? _observedAnonymous;
+  static Timer? _expiryTimer;
+  static AppLifecycleListener? _lifecycle;
 
-  /// `true` wenn echtes Abo aktiv, lokaler Dev-Override, ODER Beta-Unlock.
-  static bool get isPremium => fullAccessBuild || premiumNotifier.value;
+  static ({String? uid, bool isAnonymous}) _identity() {
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      return (uid: user?.uid, isAnonymous: user?.isAnonymous ?? true);
+    } on Object {
+      return (uid: null, isAnonymous: true);
+    }
+  }
 
-  /// Ob RevenueCat erfolgreich konfiguriert wurde (für Settings/Debug-Anzeige).
+  static AccessSnapshot? get accessSnapshot {
+    final session = cloudWriteSessionController.current;
+    if (_identity().uid != session?.uid) {
+      return null;
+    }
+    return _access?.snapshot;
+  }
+
+  /// Membership, never inferred from free content or a development override.
+  static bool get isPremium => accessSnapshot?.hasPremium ?? false;
+  static bool get hasContentAccess =>
+      fullAccessBuild ||
+      isPremium ||
+      (kDebugMode && Storage.devPremiumOverride);
   static bool get isConfigured => _configured;
+  static bool get requiresSignIn =>
+      _identity().uid == null || _identity().isAnonymous;
+  static bool get purchasesEnabled =>
+      !freeLaunch && !betaUnlockAll && _configured;
 
-  /// Best-effort Init in `main()` — wirft nie. Der synchron laufende erste
-  /// Teil (Cache anwenden) sorgt dafür, dass Gating sofort korrekt ist, auch
-  /// wenn `init()` nicht awaited wird.
   static Future<void> init() async {
-    // 1) Lokalen Cache sofort anwenden → Gating ist instant & offline-fähig.
-    _applyEntitlement(Storage.premiumCached);
-
-    // 2) First free release / web / fehlende Keys → kein RevenueCat.
-    if (freeLaunch) return;
-    if (kIsWeb) return;
-    final key = _platformKey();
-    if (key.isEmpty) return;
-    String? uid;
-    try {
-      uid = FirebaseAuth.instance.currentUser?.uid;
-    } catch (_) {
+    if (_started) {
       return;
     }
-    if (uid == null ||
-        CloudWriteFence(cloudWriteSessionController).readySnapshot(uid) ==
-            null) {
-      return;
-    }
-
-    // 3) RevenueCat konfigurieren + live aktualisieren.
+    _started = true;
+    // No read of Storage.premiumCached: an unscoped boolean is not authority.
     try {
-      await Purchases.configure(
-        revenueCatConfiguration(apiKey: key, appUserId: uid),
-      );
-      _configured = true;
-      Purchases.addCustomerInfoUpdateListener(_onCustomerInfo);
-      _bindFirebaseIdentity(uid);
-      _onCustomerInfo(await Purchases.getCustomerInfo());
-    } catch (e) {
-      debugPrint('PremiumService: init skipped — $e');
-    }
-  }
-
-  /// RevenueCat-`appUserID` an die Firebase-UID koppeln, damit das Abo dem
-  /// **Konto** folgt (Gerätewechsel, Reinstall, Google/Apple-Login) statt einer
-  /// gerätelokalen anonymen RC-ID. Reagiert auf UID-Wechsel (Konto-Wechsel oder
-  /// Neu-Anmeldung nach Konto-Löschung). Best-effort — ohne Firebase passiert
-  /// nichts, kein Crash.
-  static void _bindFirebaseIdentity(String configuredUid) {
-    try {
-      final binder = _identityBinder ??= PremiumIdentityBinder(
-        const PurchasesIdentityClient(),
+      final preferences = await SharedPreferences.getInstance();
+      _access = AccessSnapshotController(
         sessions: cloudWriteSessionController,
-        initialUid: configuredUid,
+        store: PreferencesAccessSnapshotStore(preferences),
+        environment: accessEnvironment,
+        fetch: () async {
+          final before = _identity().uid;
+          final response =
+              await FirebaseFunctions.instanceFor(region: 'europe-west3')
+                  .httpsCallable(
+                    'getAccessSnapshot',
+                    options: HttpsCallableOptions(
+                      limitedUseAppCheckToken: true,
+                    ),
+                  )
+                  .call();
+          if (_identity().uid != before) {
+            throw StateError('Stale access response');
+          }
+          return Map<String, dynamic>.from(response.data as Map);
+        },
+        wallMillis: () => DateTime.now().millisecondsSinceEpoch,
+        elapsedMillis: () => _clock.elapsedMilliseconds,
+      )..addListener(_publish);
+      _observedUid = _identity().uid;
+      _observedAnonymous = _identity().isAnonymous;
+      cloudWriteSessionController.changes.addListener(_sessionChanged);
+      _lifecycle ??= AppLifecycleListener(
+        onResume: () {
+          unawaited(refreshAccess());
+        },
+        onPause: () => _access?.checkpoint(),
       );
-      binder.start(
-        FirebaseAuth.instance.userChanges().map((user) => user?.uid),
-      );
-    } catch (_) {
-      // Firebase nicht verfügbar (z.B. Web ohne Config) — RC bleibt anonym.
+      // A resume event and this lightweight timer enforce expiry without restart.
+      _expiryTimer ??= Timer.periodic(const Duration(minutes: 1), (_) {
+        _publish();
+        _access?.checkpoint();
+      });
+      FirebaseAuth.instance.userChanges().listen((user) {
+        final changed =
+            user?.uid != _observedUid ||
+            user?.isAnonymous != _observedAnonymous;
+        _observedUid = user?.uid;
+        _observedAnonymous = user?.isAnonymous;
+        if (changed) {
+          _access?.invalidateIdentity();
+          _publish();
+        }
+        unawaited(refreshAccess());
+        unawaited(_ensureBilling());
+      });
+      _publish();
+      await refreshAccess();
+      await _ensureBilling();
+    } on Object {
+      // Missing Firebase configuration or offline startup must not block learning.
+      _publish();
     }
   }
 
-  static String _platformKey() {
-    if (defaultTargetPlatform == TargetPlatform.iOS ||
-        defaultTargetPlatform == TargetPlatform.macOS) {
-      return _iosKey;
+  static void _sessionChanged() {
+    _publish();
+    unawaited(refreshAccess());
+    unawaited(_ensureBilling());
+  }
+
+  static Future<void> refreshAccess() async {
+    final uid = _identity().uid;
+    if (uid == null || cloudWriteSessionController.current?.uid != uid) {
+      _publish();
+      return;
     }
-    return _androidKey;
+    await _access?.refresh();
+    _publish();
   }
 
-  static void _onCustomerInfo(CustomerInfo info) {
-    final active = info.entitlements.active.containsKey(entitlementId);
-    _applyEntitlement(active);
-    // Nur den ECHTEN Entitlement-Status cachen (Dev-Override nicht persistieren).
-    // ignore: discarded_futures
-    Storage.setPremiumCached(active);
+  static void _publish() {
+    premiumNotifier.value = hasContentAccess;
+    accessSnapshotNotifier.value = accessSnapshot;
   }
 
-  /// Effektiver Status = echtes Entitlement, lokaler Dev-Override, ODER Beta-Unlock.
-  static void _applyEntitlement(bool active) {
-    premiumNotifier.value =
-        fullAccessBuild || active || Storage.devPremiumOverride;
-  }
-
-  /// Aktuelles Offering (für die Paywall). `null` wenn nicht konfiguriert
-  /// oder kein Offering hinterlegt.
-  static Future<Offering?> currentOffering() async {
-    if (!_configured) return null;
+  static Future<void> _ensureBilling() async {
+    if (freeLaunch ||
+        betaUnlockAll ||
+        kIsWeb ||
+        (defaultTargetPlatform != TargetPlatform.iOS &&
+            defaultTargetPlatform != TargetPlatform.android)) {
+      return;
+    }
+    final key = defaultTargetPlatform == TargetPlatform.iOS
+        ? _iosKey
+        : _androidKey;
+    if (key.isEmpty || requiresSignIn) {
+      return;
+    }
+    final existing = _billingInit;
+    if (existing != null) {
+      await existing;
+      // The identity may have changed while configuration was in flight.
+      if (_configured) {
+        try {
+          await _identityBinder?.bind(requiresSignIn ? null : _identity().uid);
+        } on Object {
+          // Failed identity transitions stay unbound for purchase checks.
+        }
+      }
+      return;
+    }
+    final work = _configureOrBind(key);
+    _billingInit = work;
     try {
-      return (await Purchases.getOfferings()).current;
-    } catch (e) {
-      debugPrint('PremiumService: getOfferings failed — $e');
+      await work;
+    } finally {
+      _billingInit = null;
+    }
+  }
+
+  static Future<bool> _sdkIdentityMatches(String uid) async =>
+      await Purchases.appUserID == uid && !await Purchases.isAnonymous;
+
+  static Future<void> _configureOrBind(String key) async {
+    final user = _identity();
+    final uid = user.uid;
+    if (uid == null || user.isAnonymous) {
+      return;
+    }
+    final session = CloudWriteFence(
+      cloudWriteSessionController,
+    ).readySnapshot(uid);
+    if (session == null) {
+      return;
+    }
+    try {
+      if (!_configured) {
+        await Purchases.configure(
+          revenueCatConfiguration(apiKey: key, appUserId: uid),
+        );
+        // SDK process state may have changed even if Firebase changed meanwhile.
+        _configured = true;
+        _identityBinder = PremiumIdentityBinder(
+          const PurchasesIdentityClient(),
+          sessions: cloudWriteSessionController,
+          initialUid: uid,
+          identityMatches: _sdkIdentityMatches,
+        );
+        _identityBinder!.start(
+          FirebaseAuth.instance.userChanges().map(
+            (user) => user == null || user.isAnonymous ? null : user.uid,
+          ),
+        );
+        _purchases = PremiumPurchaseController(
+          sessions: cloudWriteSessionController,
+          binder: _identityBinder!,
+          identity: _identity,
+          enabled: () => purchasesEnabled,
+          hasPremium: () => isPremium,
+          refreshAccess: refreshAccess,
+          purchasePackage: (package) async {
+            final result = await Purchases.purchase(
+              PurchaseParams.package(package),
+            );
+            return result.customerInfo.entitlements.active.containsKey(
+              entitlementId,
+            );
+          },
+          restorePurchases: () async => (await Purchases.restorePurchases())
+              .entitlements
+              .active
+              .containsKey(entitlementId),
+        );
+        Purchases.addCustomerInfoUpdateListener(_onCustomerInfo);
+      }
+      if (_identity().uid == uid &&
+          !requiresSignIn &&
+          cloudWriteSessionController.current == session) {
+        await _identityBinder!.bind(uid);
+      }
+    } on Object {
+      // Purchase retry may reattempt binding; errors never grant access.
+    }
+  }
+
+  static void _onCustomerInfo(CustomerInfo _) {
+    // RC events have no reliable current UID tag (originalAppUserId is an alias).
+    // Never apply their entitlements directly. Ask our authenticated server.
+    unawaited(refreshAccess());
+  }
+
+  static Future<Offering?> currentOffering() async {
+    final expectedUid = _identity().uid;
+    final expectedSession = cloudWriteSessionController.current;
+    await _ensureBilling();
+    final user = _identity();
+    final uid = user.uid;
+    if (!purchasesEnabled ||
+        uid == null ||
+        user.isAnonymous ||
+        uid != expectedUid ||
+        cloudWriteSessionController.current != expectedSession) {
+      return null;
+    }
+    try {
+      return await _identityBinder?.runBound<Offering?>(
+        uid: uid,
+        action: () async => (await Purchases.getOfferings()).current,
+      );
+    } on Object {
       return null;
     }
   }
 
-  /// Kauf eines Pakets. Nutzerabbruch und echter Fehler bleiben getrennt,
-  /// damit die App einen freiwilligen Abbruch nicht als Fehlermeldung zeigt.
   static Future<PremiumPurchaseOutcome> purchase(Package package) async {
-    if (!_configured) return PremiumPurchaseOutcome.failed;
-    try {
-      // v9+: purchase(PurchaseParams) liefert ein PurchaseResult mit CustomerInfo.
-      final result = await Purchases.purchase(PurchaseParams.package(package));
-      _onCustomerInfo(result.customerInfo);
-      return isPremium
-          ? PremiumPurchaseOutcome.purchased
-          : PremiumPurchaseOutcome.failed;
-    } on Object catch (error) {
-      final outcome = premiumPurchaseOutcomeForError(error);
-      if (outcome == PremiumPurchaseOutcome.failed) {
-        debugPrint('PremiumService: purchase not completed — $error');
-      }
-      return outcome;
+    if (requiresSignIn) {
+      return PremiumPurchaseOutcome.signInRequired;
     }
+    final uid = _identity().uid;
+    final session = cloudWriteSessionController.current;
+    await _ensureBilling();
+    if (_identity().uid != uid ||
+        requiresSignIn ||
+        cloudWriteSessionController.current != session) {
+      return PremiumPurchaseOutcome.stale;
+    }
+    return await _purchases?.purchase(package) ?? PremiumPurchaseOutcome.failed;
   }
 
-  /// Käufe wiederherstellen (Pflicht für Store-Review). Kein früherer Kauf
-  /// und ein SDK-Fehler bleiben getrennt.
   static Future<PremiumRestoreOutcome> restore() async {
-    if (!_configured) return PremiumRestoreOutcome.failed;
+    if (requiresSignIn) {
+      return PremiumRestoreOutcome.signInRequired;
+    }
+    final uid = _identity().uid;
+    final session = cloudWriteSessionController.current;
+    await _ensureBilling();
+    if (_identity().uid != uid ||
+        requiresSignIn ||
+        cloudWriteSessionController.current != session) {
+      return PremiumRestoreOutcome.stale;
+    }
+    return await _purchases?.restore() ?? PremiumRestoreOutcome.failed;
+  }
+
+  /// Use RevenueCat's verified original-store management link, not device OS.
+  static Future<Uri?> managementUrl() async {
+    final expectedUid = _identity().uid;
+    final expectedSession = cloudWriteSessionController.current;
+    await _ensureBilling();
+    final uid = _identity().uid;
+    if (!_configured ||
+        uid == null ||
+        requiresSignIn ||
+        _identityBinder == null ||
+        uid != expectedUid ||
+        cloudWriteSessionController.current != expectedSession) {
+      return null;
+    }
     try {
-      _onCustomerInfo(await Purchases.restorePurchases());
-      return isPremium
-          ? PremiumRestoreOutcome.restored
-          : PremiumRestoreOutcome.none;
-    } on Object catch (error) {
-      debugPrint('PremiumService: restore failed — $error');
-      return PremiumRestoreOutcome.failed;
+      final raw = await _identityBinder!.runBound<String?>(
+        uid: uid,
+        action: () async => (await Purchases.getCustomerInfo()).managementURL,
+      );
+      final uri = raw == null ? null : Uri.tryParse(raw);
+      if (uri?.scheme != 'https' ||
+          !const {'apps.apple.com', 'play.google.com'}.contains(uri?.host)) {
+        return null;
+      }
+      return uri;
+    } on Object {
+      return null;
     }
   }
 
-  /// Lokaler Test-Schalter (Settings → Debug). Erlaubt das Prüfen von Gating +
-  /// Paywall ohne RevenueCat-Dashboard. Verändert NICHT den echten Kaufstatus.
-  static Future<void> setDevOverride(bool v) async {
-    await Storage.setDevPremiumOverride(v);
-    _applyEntitlement(Storage.premiumCached);
+  static Future<void> setDevOverride(bool value) async {
+    if (!kDebugMode) {
+      return;
+    }
+    await Storage.setDevPremiumOverride(value);
+    _publish();
   }
 
-  /// Gate-Helfer. Gibt `true` zurück wenn Premium aktiv ist; sonst öffnet es
-  /// die Paywall (`/paywall`) und gibt zurück, ob danach Premium aktiv ist.
-  ///
-  /// ```dart
-  /// if (!await PremiumService.gate(context)) return; // abgebrochen
-  /// ```
   static Future<bool> gate(BuildContext context) async {
-    if (isPremium) return true;
-    if (!context.mounted) return false;
-    final purchased = await Navigator.of(context).pushNamed('/paywall');
-    return purchased == true || isPremium;
+    if (hasContentAccess) {
+      return true;
+    }
+    if (!context.mounted) {
+      return false;
+    }
+    await Navigator.of(context).pushNamed('/paywall');
+    return hasContentAccess;
   }
 }

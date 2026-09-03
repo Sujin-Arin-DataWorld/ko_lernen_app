@@ -32,8 +32,8 @@ void main() {
     expect(_filesContaining('GoogleOAuthClient.signIn()'), <String>{
       'lib/services/auth_service.dart',
     });
-    expect(_filesContaining('SignInWithApple.getAppleIDCredential('), <String>{
-      'lib/services/auth_service.dart',
+    expect(_filesContaining('SignInWithApple.getAppleIDCredential'), <String>{
+      'lib/services/account/apple_oauth_request.dart',
     });
   });
 
@@ -59,6 +59,7 @@ void main() {
     await tester.pumpWidget(
       _app(
         PaywallScreen(
+          requiresSignIn: () => false,
           offeringLoader: () async => _offering,
           purchaseOperation: (_) async {
             purchaseCalls++;
@@ -83,6 +84,7 @@ void main() {
     await tester.pumpWidget(
       _app(
         PaywallScreen(
+          requiresSignIn: () => false,
           offeringLoader: () async => _offering,
           purchaseOperation: (_) async => PremiumPurchaseOutcome.failed,
         ),
@@ -103,6 +105,7 @@ void main() {
     await tester.pumpWidget(
       _app(
         PaywallScreen(
+          requiresSignIn: () => false,
           offeringLoader: () async => _offering,
           restoreOperation: () async => PremiumRestoreOutcome.failed,
         ),

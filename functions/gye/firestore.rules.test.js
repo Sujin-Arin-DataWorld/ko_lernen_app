@@ -2103,3 +2103,20 @@ test("legacy translation cache and quota ledgers stay server-only", async () => 
     kind: "tampered",
   }));
 });
+
+test("commercial authority, cost and personal results are server-only at every depth", async () => {
+  for (const name of ["premium_grants", "customer_entitlements", "billing_event_receipts", "billing_customers",
+    "access_rate_limits", "service_cost_controls", "service_cost_ledgers", "service_idempotency_results"]) {
+    await environment.withSecurityRulesDisabled(async (context) => {
+      await setDoc(doc(context.firestore(), name, "learner"), {ownerUid: "learner", status: "active"});
+    });
+    for (const db of [client("learner"), client("other"), environment.unauthenticatedContext().firestore()]) {
+      const ref = doc(db, name, "learner");
+      await assertFails(getDoc(ref));
+      await assertFails(getDocs(collection(db, name)));
+      await assertFails(setDoc(ref, {ownerUid: "learner", status: "active"}));
+      await assertFails(deleteDoc(ref));
+      await assertFails(setDoc(doc(db, name, "learner", "nested", "forged"), {premium: true}));
+    }
+  }
+});

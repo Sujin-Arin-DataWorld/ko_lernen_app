@@ -17,7 +17,6 @@ from security import (  # noqa: E402
     DEEPL_HTTP_MAX_RETRIES,
     DEEPL_HTTP_TIMEOUT_SECONDS,
     DeadlineBudget,
-    FirestoreIdempotencyGate,
     QuotaExceeded,
     QuotaState,
     analysis_request_id,
@@ -257,30 +256,7 @@ class IdempotencyPolicyTest(unittest.TestCase):
             )
         )
 
-    def test_claim_before_work_skips_a_second_charge_even_while_pending(self):
-        store: dict[str, dict[str, object]] = {}
-        gate = FirestoreIdempotencyGate(
-            firestore_client=_FakeIdempotencyClient(store)
-        )
-        request_id = analysis_request_id("user-1", "de", "학생이에요.", None)
 
-        self.assertTrue(gate.claim(request_id, kind="book_analysis_v1"))
-        self.assertFalse(gate.claim(request_id, kind="book_analysis_v1"))
-        self.assertEqual(store[request_id]["state"], "pending")
-        gate.complete(request_id, "book_analysis_v1")
-        self.assertFalse(gate.claim(request_id, kind="book_analysis_v1"))
-        self.assertEqual(set(store[request_id]), {"kind", "state", "expiresAt"})
-
-    def test_abandoned_pending_receipt_lets_a_later_retry_consume(self):
-        store: dict[str, dict[str, object]] = {}
-        gate = FirestoreIdempotencyGate(
-            firestore_client=_FakeIdempotencyClient(store)
-        )
-        request_id = analysis_request_id("user-1", "de", "학생이에요.", None)
-
-        self.assertTrue(gate.claim(request_id, kind="book_analysis_v1"))
-        gate.abandon(request_id, "book_analysis_v1")
-        self.assertTrue(gate.claim(request_id, kind="book_analysis_v1"))
 
     def test_shared_deadline_budget_blocks_a_second_provider_call(self):
         clock = {"now": 0.0}
@@ -314,41 +290,6 @@ class IdempotencyPolicyTest(unittest.TestCase):
         self.assertEqual(
             http_client.max_network_retries, DEEPL_HTTP_MAX_RETRIES
         )
-
-
-class _FakeIdempotencyClient:
-    def __init__(self, store: dict[str, dict[str, object]]):
-        self.store = store
-
-    def collection(self, _name: str) -> "_FakeIdempotencyClient":
-        return self
-
-    def document(self, document_id: str) -> "_FakeIdempotencyDocument":
-        return _FakeIdempotencyDocument(self.store, document_id)
-
-
-class _FakeIdempotencyDocument:
-    def __init__(self, store: dict[str, dict[str, object]], document_id: str):
-        self.store = store
-        self.document_id = document_id
-
-    def get(self, **_kwargs: object) -> "_FakeIdempotencySnapshot":
-        return _FakeIdempotencySnapshot(self.store.get(self.document_id))
-
-    def set(self, data: dict[str, object]) -> None:
-        self.store[self.document_id] = data
-
-    def delete(self) -> None:
-        self.store.pop(self.document_id, None)
-
-
-class _FakeIdempotencySnapshot:
-    def __init__(self, data: dict[str, object] | None):
-        self._data = data
-        self.exists = data is not None
-
-    def to_dict(self) -> dict[str, object] | None:
-        return self._data
 
 
 if __name__ == "__main__":

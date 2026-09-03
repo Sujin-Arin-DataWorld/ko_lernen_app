@@ -439,6 +439,7 @@ void main() {
           operationId: 'operation-1',
           expectedVersion: 4,
           authorizationCode: 'one-use-code',
+          clientKind: AppleAuthorizationClientKind.web,
         ),
       );
 
@@ -450,6 +451,7 @@ void main() {
             'operationId': 'operation-1',
             'expectedVersion': 4,
             'authorizationCode': 'one-use-code',
+            'clientKind': 'web',
           },
         ),
       );

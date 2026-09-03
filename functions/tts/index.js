@@ -7,7 +7,7 @@
  *
  * 흐름:
  *   1. sha1("{voice}|{text}") 로 키 계산 (클라/사전생성 스크립트와 동일 규칙)
- *   2. Storage `tts/v3/{voice}/{hash}.mp3` 이미 있으면 다운로드해 반환 (재합성 방지)
+ *   2. 승인 코퍼스만 `tts/v3`; 개인 음성은 UID 전용 `tts_private`와 24h 만료
  *   3. 없으면 service_idempotency 를 선점한 승자만 한도를 깎고 Cloud TTS 를 부른다
  *   4. 동시 재시도는 Storage 를 잠시 기다렸다가, 없으면 합성 없이 503
  *   응답: { audioBase64 }  — 클라가 디코드해 즉시 재생 + 로컬 캐시
@@ -22,7 +22,9 @@ const { HttpsError, onCall } = require("firebase-functions/v2/https");
 const { setGlobalOptions } = require("firebase-functions/v2");
 const admin = require("firebase-admin");
 const textToSpeech = require("@google-cloud/text-to-speech");
-const { cacheKey } = require("./tts_contract");
+const { scopedCacheKey, privateMetadataIsCurrent, cacheSaveOptions } = require("./tts_privacy");
+const { ServiceCostError } = require("./service_cost_policy");
+const { confirmTtsCost } = require("./tts_cost_adapter");
 const {
   CALLABLE_OPTIONS,
   SYNTH_DEADLINE_MS,
@@ -65,10 +67,16 @@ function sleep(ms) {
   });
 }
 
-async function loadUsableAudio(fileRef) {
+async function loadUsableAudio(fileRef, key) {
   const [exists] = await fileRef.exists();
   if (!exists) {
     return null;
+  }
+  if (!key.isCanonical) {
+    const [metadata] = await fileRef.getMetadata();
+    if (!privateMetadataIsCurrent(metadata)) {
+      return null;
+    }
   }
   const [buf] = await fileRef.download();
   if (isUsableAudioBuffer(buf)) {
@@ -82,10 +90,10 @@ async function loadUsableAudio(fileRef) {
   return null;
 }
 
-async function waitForUsableAudio(fileRef) {
+async function waitForUsableAudio(fileRef, key) {
   for (let attempt = 0; attempt < INFLIGHT_POLL_ATTEMPTS; attempt += 1) {
     await sleep(INFLIGHT_POLL_MS);
-    const audioBuffer = await loadUsableAudio(fileRef);
+    const audioBuffer = await loadUsableAudio(fileRef, key);
     if (isUsableAudioBuffer(audioBuffer)) {
       return audioBuffer;
     }
@@ -116,14 +124,37 @@ async function synthesizeTts(request) {
     try {
       const { text, voice, installationId } = validateTtsRequest(request);
 
-      const key = cacheKey(voice, text);
+      const key = scopedCacheKey(request.auth.uid, voice, text);
       const voiceKey = key.voice;
       const db = admin.firestore();
       const fileRef = admin.storage().bucket(BUCKET).file(key.storagePath);
+      const assertAccountActive = async () => {
+        const marker = await db.collection("account_deletions").doc(request.auth.uid).get();
+        if (marker.exists) {
+          throw new HttpsError("failed-precondition", "Account deletion is in progress.");
+        }
+      };
+      const responseFor = async (bytes) => {
+        await assertAccountActive();
+        if (key.isCanonical) return { audioBase64: bytes.toString("base64"), cacheScope: "canonical" };
+        const [metadata] = await fileRef.getMetadata();
+        if (!privateMetadataIsCurrent(metadata)) {
+          throw new HttpsError("unavailable", "TTS audio is not available.");
+        }
+        await assertAccountActive();
+        // The deletion fence is asynchronous; it may cross the exact expiry.
+        const serverNowMillis = Date.now();
+        if (!privateMetadataIsCurrent(metadata, serverNowMillis)) {
+          throw new HttpsError("unavailable", "TTS audio is not available.");
+        }
+        return { audioBase64: bytes.toString("base64"), cacheScope: "private",
+          expiresAtMillis: Number(metadata.metadata.expiresAtMillis), serverNowMillis };
+      };
+      await assertAccountActive();
 
-      let audioBuffer = await loadUsableAudio(fileRef);
+      let audioBuffer = await loadUsableAudio(fileRef, key);
       if (isUsableAudioBuffer(audioBuffer)) {
-        return { audioBase64: audioBuffer.toString("base64") };
+        return await responseFor(audioBuffer);
       }
 
       let claim;
@@ -151,11 +182,21 @@ async function synthesizeTts(request) {
         );
       }
 
+      let costReservation;
       if (consume) {
-        const quota = await underDailyTtsQuotas(db, {
-          uid: request.auth.uid,
-          installationId,
-        });
+        let quota;
+        try {
+          quota = await underDailyTtsQuotas(db, {
+            uid: request.auth.uid,
+            installationId,
+          });
+        } catch (error) {
+          // No synthesis has begun. Release only this undispatched replay lock;
+          // a possibly committed cost transaction is deliberately never refunded.
+          try { await abandonTtsReplay(db, key.storagePath); } catch { /* bounded receipt TTL */ }
+          throw error;
+        }
+        costReservation = quota.costReservation;
         if (!quota.allowed) {
           try {
             await abandonTtsReplay(db, key.storagePath);
@@ -172,10 +213,10 @@ async function synthesizeTts(request) {
         }
       }
 
-      audioBuffer = await loadUsableAudio(fileRef);
+      audioBuffer = await loadUsableAudio(fileRef, key);
       let plan = ttsSynthesisPlan(claim, isUsableAudioBuffer(audioBuffer));
       if (plan.action === "wait") {
-        audioBuffer = await waitForUsableAudio(fileRef);
+        audioBuffer = await waitForUsableAudio(fileRef, key);
         plan = ttsSynthesisPlan(claim, isUsableAudioBuffer(audioBuffer));
       }
       if (plan.action === "wait") {
@@ -206,12 +247,22 @@ async function synthesizeTts(request) {
             }
           }
         } else {
+          await confirmTtsCost(db, costReservation);
+          await assertAccountActive();
           audioBuffer = await synthesizeSpeech(text, voiceKey);
-          await fileRef.save(audioBuffer, {
-            contentType: "audio/mpeg",
-            resumable: false,
-            metadata: { cacheControl: "public, max-age=31536000" },
-          });
+          await assertAccountActive();
+          await fileRef.save(audioBuffer, cacheSaveOptions(key));
+          try {
+            await assertAccountActive();
+          } catch (error) {
+            if (!key.isCanonical) {
+              // Storage cannot join a Firestore transaction. Close the save race
+              // before responding; denied direct reads + TTL remain fail-closed
+              // if the compensating delete itself transiently fails.
+              await fileRef.delete({ ignoreNotFound: true });
+            }
+            throw error;
+          }
           ttsProviderBreaker.recordSuccess();
         }
         try {
@@ -241,9 +292,20 @@ async function synthesizeTts(request) {
         throw error;
       }
 
-      return { audioBase64: audioBuffer.toString("base64") };
+      try {
+        return await responseFor(audioBuffer);
+      } catch (error) {
+        if (!key.isCanonical) {
+          try {
+            await fileRef.delete({ ignoreNotFound: true });
+          } catch {
+            // Direct reads remain denied and the lifecycle rule expires residue.
+          }
+        }
+        throw error;
+      }
     } catch (e) {
-      if (e instanceof TtsRequestError) {
+      if (e instanceof TtsRequestError || e instanceof ServiceCostError) {
         throw new HttpsError(e.code, e.message);
       }
       if (e instanceof HttpsError) {

@@ -1,106 +1,19 @@
 "use strict";
 
 const {initializeApp} = require("firebase-admin/app");
-const {getFirestore, FieldValue} = require("firebase-admin/firestore");
+const {getFirestore} = require("firebase-admin/firestore");
+const {getAuth} = require("firebase-admin/auth");
 const {HttpsError, onCall} = require("firebase-functions/v2/https");
 const {defineSecret} = require("firebase-functions/params");
-const {
-  IDEMPOTENCY_COLLECTION,
-  PronunciationRequestError,
-  isPendingPronunciationReplay,
-  pendingPronunciationDocument,
-  pronunciationProviderBreaker,
-  pronunciationReplayDocument,
-  pronunciationReplayFromDocument,
-  pronunciationReplayId,
-  validatePronunciationRequest,
-  pcm16ToWav,
-  parseAzureAssessment,
-  nextQuotaState,
-  previousQuotaState,
+const {PronunciationReceipts} = require("./billable_receipts");
+const {ServiceCostError} = require("./service_cost_policy");
+const {PronunciationRequestError, pronunciationProviderBreaker,
+  validatePronunciationRequest, pcm16ToWav, parseAzureAssessment,
 } = require("./pronunciation_request_guard");
 
 initializeApp();
-
 const AZURE_SPEECH_KEY = defineSecret("AZURE_SPEECH_KEY");
 const AZURE_SPEECH_REGION = "germanywestcentral";
-
-async function consumeQuota(db, uid, now = new Date()) {
-  const ref = db.collection("users").doc(uid)
-    .collection("pronunciation_rate_limits").doc("current");
-  return db.runTransaction(async (transaction) => {
-    const snapshot = await transaction.get(ref);
-    const previous = snapshot.exists ? snapshot.data() : {};
-    const next = nextQuotaState(previous, now);
-    if (next === null) return false;
-    transaction.set(ref, {
-      ...next,
-      updatedAt: FieldValue.serverTimestamp(),
-    });
-    return true;
-  });
-}
-
-async function releaseQuota(db, uid, now = new Date()) {
-  const ref = db.collection("users").doc(uid)
-    .collection("pronunciation_rate_limits").doc("current");
-  return db.runTransaction(async (transaction) => {
-    const snapshot = await transaction.get(ref);
-    if (!snapshot.exists) {
-      return false;
-    }
-    const next = previousQuotaState(snapshot.data(), now);
-    if (next === null) {
-      return false;
-    }
-    transaction.set(ref, {
-      ...next,
-      updatedAt: FieldValue.serverTimestamp(),
-    });
-    return true;
-  });
-}
-
-async function claimPronunciationReplay(db, uid, assessmentId) {
-  const ref = db
-    .collection(IDEMPOTENCY_COLLECTION)
-    .doc(pronunciationReplayId(uid, assessmentId));
-  return db.runTransaction(async (transaction) => {
-    const snapshot = await transaction.get(ref);
-    const data = snapshot.exists ? snapshot.data() : null;
-    const replay = pronunciationReplayFromDocument(data, assessmentId);
-    if (replay) {
-      return {replay, consume: false};
-    }
-    if (isPendingPronunciationReplay(data, assessmentId)) {
-      return {replay: null, consume: false};
-    }
-    transaction.set(ref, pendingPronunciationDocument(assessmentId));
-    return {replay: null, consume: true};
-  });
-}
-
-async function savePronunciationReplay(db, uid, scores) {
-  await db
-    .collection(IDEMPOTENCY_COLLECTION)
-    .doc(pronunciationReplayId(uid, scores.assessmentId))
-    .set(pronunciationReplayDocument(scores));
-}
-
-async function abandonPronunciationReplay(db, uid, assessmentId) {
-  const ref = db
-    .collection(IDEMPOTENCY_COLLECTION)
-    .doc(pronunciationReplayId(uid, assessmentId));
-  await db.runTransaction(async (transaction) => {
-    const snapshot = await transaction.get(ref);
-    if (!snapshot.exists) {
-      return;
-    }
-    if (isPendingPronunciationReplay(snapshot.data(), assessmentId)) {
-      transaction.delete(ref);
-    }
-  });
-}
 
 async function callAzure({audio, referenceText, signal}) {
   const url = new URL(
@@ -132,90 +45,57 @@ async function callAzure({audio, referenceText, signal}) {
   return response.json();
 }
 
+
+function unavailable(state = "uncertain") {
+  return new HttpsError("unavailable", "Pronunciation assessment unavailable.", {state, retryAfterSeconds: 30});
+}
+
 exports.assessPronunciation = onCall({
-  region: "europe-west3",
-  enforceAppCheck: true,
-  consumeAppCheckToken: true,
-  timeoutSeconds: 30,
-  memory: "256MiB",
-  maxInstances: 20,
-  secrets: [AZURE_SPEECH_KEY],
+  region: "europe-west3", enforceAppCheck: true, consumeAppCheckToken: true,
+  timeoutSeconds: 30, memory: "256MiB", maxInstances: 20, secrets: [AZURE_SPEECH_KEY],
 }, async (request) => {
   try {
-    const input = validatePronunciationRequest(request);
-    const claim = await claimPronunciationReplay(
-      getFirestore(),
-      input.uid,
-      input.assessmentId,
-    );
-    if (claim.replay) {
-      return claim.replay;
+    const validated = validatePronunciationRequest(request);
+    // One server Auth read per request, outside retryable Firestore transactions.
+    let user;
+    try { user = await getAuth().getUser(validated.uid); }
+    catch { throw new HttpsError("unauthenticated", "Account unavailable."); }
+    if (user?.uid !== validated.uid || user.disabled === true) {
+      throw new HttpsError("unauthenticated", "Account unavailable.");
     }
+    const input = {...validated, accountCreatedAt: Date.parse(user?.metadata?.creationTime)};
+    const receipts = new PronunciationReceipts(getFirestore());
+    const claim = await receipts.claim(input);
+    if (claim.state === "completed") return claim.replay;
+    if (claim.state === "pending") throw new HttpsError("aborted", "Assessment in progress.", {state: "pending", retryAfterSeconds: 2});
+    if (claim.state !== "claimed") throw unavailable();
     if (!pronunciationProviderBreaker.allow()) {
-      if (claim.consume) {
-        await abandonPronunciationReplay(
-          getFirestore(),
-          input.uid,
-          input.assessmentId,
-        );
-      }
-      throw new HttpsError("unavailable", "Pronunciation assessment unavailable.");
+      await receipts.transition(input, claim.ownerToken, "refunded");
+      throw unavailable("not-started");
     }
-    let consumed = false;
-    if (claim.consume) {
-      if (!(await consumeQuota(getFirestore(), input.uid))) {
-        await abandonPronunciationReplay(
-          getFirestore(),
-          input.uid,
-          input.assessmentId,
-        );
-        throw new HttpsError("resource-exhausted", "Pronunciation limit reached.");
-      }
-      consumed = true;
-    }
+    // Commit the dispatch marker before Azure; a crash after this point is
+    // uncertain, never proof that the provider did not process this request.
+    if (!await receipts.transition(input, claim.ownerToken, "pending")) throw unavailable();
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 15000);
     try {
-      const providerResult = await callAzure({...input, signal: controller.signal});
-      const parsed = parseAzureAssessment(providerResult, input.assessmentId);
+      const raw = await callAzure({...input, signal: controller.signal});
+      const parsed = parseAzureAssessment(raw, input.assessmentId);
       pronunciationProviderBreaker.recordSuccess();
-      try {
-        await savePronunciationReplay(getFirestore(), input.uid, parsed);
-      } catch {
-        // Keep the scored result even if the short-lived receipt cannot be stored.
-      }
+      if (!await receipts.transition(input, claim.ownerToken, "completed", parsed)) throw unavailable();
       return parsed;
     } catch (error) {
       pronunciationProviderBreaker.recordFailure();
-      if (consumed) {
-        try {
-          await releaseQuota(getFirestore(), input.uid);
-        } catch {
-          // Keep the original provider failure; never leak refund internals.
-        }
-      }
-      try {
-        await abandonPronunciationReplay(
-          getFirestore(),
-          input.uid,
-          input.assessmentId,
-        );
-      } catch {
-        // A leftover pending receipt expires; do not hide the provider error.
-      }
-      throw error;
+      try { await receipts.transition(input, claim.ownerToken, "uncertain"); } catch { /* durable pending still blocks retry */ }
+      if (error instanceof PronunciationRequestError && error.code === "permission-denied") throw error;
+      throw unavailable();
     } finally {
       clearTimeout(timeout);
     }
   } catch (error) {
     if (error instanceof HttpsError) throw error;
-    if (error instanceof PronunciationRequestError) {
-      throw new HttpsError(error.code, error.message);
-    }
-    // Do not log audio, reference text, provider payloads, or account details.
-    throw new HttpsError("unavailable", "Pronunciation assessment unavailable.");
+    if (error instanceof PronunciationRequestError || error instanceof ServiceCostError) throw new HttpsError(error.code, error.message);
+    // Never log audio, reference text, tokens, or provider payloads.
+    throw unavailable("storage-unavailable");
   }
 });
-
-module.exports.consumeQuota = consumeQuota;
-module.exports.releaseQuota = releaseQuota;
