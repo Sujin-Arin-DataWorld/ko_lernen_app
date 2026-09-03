@@ -3046,6 +3046,10 @@
   "diktatListenSlow": "Listen to audio slowly",
   "diktatSpacingHint": "Almost! Check the word spacing",
   "diktatShowMeaning": "Show meaning",
+  "diktatMeaningKo": "In Korean",
+  "@diktatMeaningKo": {
+    "description": "Label for the Korean paraphrase line shown after a Diktat quest is completed (§9-3, T2.4)."
+  },
   "diktatSpellingHint": "Almost there. Check your spelling.",
   "questDiagOrder": "The words are right, but the order is not.",
   "questDiagParticle": "Almost! Check the particle (조사)",
