@@ -165,10 +165,14 @@ same as `batchim`/`sentence` already did pre-T2.2):
   through `ScenarioPlayerScreen`'s `_buildQuest`, also on the default
   `correctFeedback`).
 
-A whole-project `flutter test --no-pub` was also started as a further net
-beyond this sweep; not required by the brief's gate (which names the 4 files
-above), so it did not block this report — its result, if worth recording, is
-noted separately.
+A whole-project `flutter test --no-pub` was also run as a further net beyond
+this sweep (not required by the brief's gate, which names the 4 files above).
+Result: **5808 tests, all passed, exit code 0**. The only non-test-name
+console output in the log is `klAccount: deletion.failed other:StateError`/
+`other:FlutterError` and `deletion.cleanupFailed ...` lines from
+`test/widgets/settings_screen_test.dart`'s error-path cases (e.g. "deletion
+failure is recoverable and redacts private details") — expected stderr from
+those tests intentionally exercising failure handling, not a regression.
 
 ## Behavior changes worth flagging (not gating — this task's stated purpose)
 
