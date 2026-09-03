@@ -865,7 +865,7 @@ class TtsService {
         if (await file.exists().timeout(_diskTimeout)) {
           final localBytes = await file.readAsBytes().timeout(_diskTimeout);
           if (TtsCacheKey.isUsableAudio(localBytes)) {
-            await _touchCacheFile(file);
+            unawaited(_touchCacheFile(file));
             return TtsAudio.path(file.path);
           }
           try {
