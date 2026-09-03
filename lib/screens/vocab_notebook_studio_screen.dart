@@ -12,6 +12,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/section_header.dart';
+import '../widgets/sori/speakable.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
@@ -219,7 +220,13 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(word.korean, style: SoriTextTheme.of(context).h3),
+                        SoriSpeakable(
+                          text: word.korean,
+                          child: Text(
+                            word.korean,
+                            style: SoriTextTheme.of(context).h3,
+                          ),
+                        ),
                         const SizedBox(height: 2),
                         Text(
                           language == 'en' && word.translationEn.isNotEmpty

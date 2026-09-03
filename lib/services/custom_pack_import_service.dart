@@ -49,7 +49,11 @@ ExtractedWord buildCustomPackEditedWord({
   ExtractedWord? existing,
 }) {
   final language = translationLanguage == 'en' ? 'en' : 'de';
-  final englishMeaning = language == 'en' ? meaning : translationEn;
+  final englishMeaning = language == 'en'
+      ? meaning
+      : (translationEn.isNotEmpty
+            ? translationEn
+            : (existing?.translationFor('en') ?? ''));
   if (existing == null) {
     return ExtractedWord.manual(
       korean: korean,
@@ -62,7 +66,9 @@ ExtractedWord buildCustomPackEditedWord({
   }
   return existing.copyWithEditable(
     korean: korean,
-    translationDe: meaning,
+    translationDe: language == 'en' && existing.translationFor('de').isNotEmpty
+        ? existing.translationDe
+        : meaning,
     translationEn: englishMeaning,
     translationLanguage: language,
     exampleKorean: exampleKorean,

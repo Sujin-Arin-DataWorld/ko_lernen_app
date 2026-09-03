@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:ko_lernen_app/services/tts_service.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 
 /// 검수#13⑤ 보강 — `SoriSpeech.speak`/`prefetch` 가 **하나의** in-flight
@@ -46,10 +47,15 @@ void main() {
       reason: 'speak() 가 진행 중인 prefetch 와 별도로 해석을 냈다 — in-flight 맵이 공유되지 않음',
     );
     expect(speakStarted, isFalse, reason: 'prefetch 완료 전에는 아직 재생이 시작되면 안 된다');
+    // I2 (컨트롤러 룰링): 사용자가 방금 speak()를 눌렀고 오디오가 아직
+    // 준비되지 않았다 — 진행 중인 prefetch에 올라타는 승격이어도 idle이
+    // 아니라 resolving이어야 handleTap이 이 창에서 재합류 대신 stop을
+    // 선택한다. speaking으로 승격되는 것은 여전히 금지(위 speakStarted
+    // 단언이 그것을 이미 검증한다).
     expect(
-      SoriSpeech.speaking.value,
-      isFalse,
-      reason: 'prefetch 대기만으로 인디케이터가 재생 중이 되면 안 된다',
+      SoriSpeech.phase.value,
+      TtsSpeechPhase.resolving,
+      reason: 'prefetch 승격 중에도 사용자 탭이 idle로 보이면 안 된다(빈 재생중 표시)',
     );
 
     prefetchCompleter.complete();

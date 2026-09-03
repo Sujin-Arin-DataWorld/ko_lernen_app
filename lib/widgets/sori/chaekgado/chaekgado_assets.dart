@@ -7,6 +7,12 @@ library;
 
 const String _chaekgadoAssetRoot = 'assets/hangul_sori_chaekgado_asset_pack_v1';
 
+/// Supplied faceted wood and paper, cropped at runtime to the responsive grid.
+const String kChaekgadoBookcaseFrame =
+    '$_chaekgadoAssetRoot/bookcase/chaekgado_bookcase_foreground_frame.png';
+const String kChaekgadoBookcaseBackplate =
+    '$_chaekgadoAssetRoot/bookcase/chaekgado_bookcase_backplate.png';
+
 /// 듣기 카드 아트 — `assets/illustrations/listening/{imageKey}.webp`.
 ///
 /// 칸 = 정물 한 점(08-19 §3-①). 같은 50여 장이 선반 칸과 두루마리 머리에

@@ -65,6 +65,58 @@ void main() {
   });
 
   group('BookPage round-trip', () {
+    test('legacy English grammar saves retain German example provenance', () {
+      final legacy = <String, dynamic>{
+        'korean': '은/는',
+        'translationDe': 'Markiert das Satzthema.',
+        'translationEn': 'Marks the topic of the sentence.',
+        'translationLanguage': 'en',
+        'exampleKorean': '저는 학생이에요.',
+        'exampleDe': 'Ich bin Student.',
+      };
+      for (final restore in [
+        ExtractedWord.fromLocalJson,
+        ExtractedWord.fromPortableJson,
+      ]) {
+        final word = restore(legacy);
+        expect(word.translationFor('en'), legacy['translationEn']);
+        expect(word.exampleFor('en'), isEmpty);
+        expect(word.exampleFor('de'), 'Ich bin Student.');
+        expect(word.toPortableJson()['exampleLanguage'], 'de');
+        final roundTrip = restore(word.toPortableJson());
+        expect(roundTrip.exampleFor('en'), isEmpty);
+        expect(roundTrip.exampleFor('de'), 'Ich bin Student.');
+      }
+    });
+
+    test('legacy English OCR and explicit example language stay English', () {
+      for (final englishMeaning in ['', 'student']) {
+        final legacy = <String, dynamic>{
+          'korean': '학생',
+          'translationDe': 'student',
+          'translationEn': englishMeaning,
+          'translationLanguage': 'en',
+          'exampleDe': 'I am a student.',
+        };
+        for (final restore in [
+          ExtractedWord.fromLocalJson,
+          ExtractedWord.fromPortableJson,
+        ]) {
+          final word = restore(legacy);
+          expect(word.exampleFor('en'), 'I am a student.');
+          expect(word.exampleFor('de'), isEmpty);
+          final explicit = restore({
+            ...legacy,
+            'translationDe': 'Student',
+            'translationEn': 'student',
+            'exampleLanguage': 'en',
+          });
+          expect(explicit.exampleFor('en'), 'I am a student.');
+          expect(explicit.exampleFor('de'), isEmpty);
+        }
+      }
+    });
+
     test('toLocalJson → fromJson preserves all fields', () {
       final p = _samplePage();
       final json = p.toLocalJson();

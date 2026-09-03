@@ -9,6 +9,7 @@ import '../services/vocab_notebook_parser.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/speakable.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/text_field.dart';
 import '../widgets/sori/toast.dart';
@@ -202,7 +203,13 @@ class _VocabNotebookResultScreenState extends State<VocabNotebookResultScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(pair.korean, style: SoriTextTheme.of(context).h3),
+                  SoriSpeakable(
+                    text: pair.korean,
+                    child: Text(
+                      pair.korean,
+                      style: SoriTextTheme.of(context).h3,
+                    ),
+                  ),
                   if (hanja != null && hanja.hanja.isNotEmpty) ...[
                     const SizedBox(height: 2),
                     Text(

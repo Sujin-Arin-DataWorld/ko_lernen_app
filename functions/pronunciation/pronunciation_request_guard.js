@@ -41,7 +41,7 @@ function validatePronunciationRequest(request) {
   if (!request || !request.auth || typeof request.auth.uid !== "string") {
     throw new PronunciationRequestError("unauthenticated", "Authentication required.");
   }
-  if (!request.app || typeof request.app.appId !== "string") {
+  if (!request.app || typeof request.app.appId !== "string" || !request.app.appId || request.app.alreadyConsumed === true) {
     throw new PronunciationRequestError("failed-precondition", "App verification required.");
   }
   const data = request.data;
@@ -91,9 +91,11 @@ function score(value) {
 }
 
 function parseAzureAssessment(raw, assessmentId) {
+  // callAzure uses the short-audio REST API. Aggregate scores are directly
+  // on the best hypothesis, not inside the Speech SDK's nested result shape.
   const assessment = raw && raw.RecognitionStatus === "Success" &&
     Array.isArray(raw.NBest) && raw.NBest[0]
-    ? raw.NBest[0].PronunciationAssessment
+    ? raw.NBest[0]
     : null;
   if (!assessment || typeof assessment !== "object") {
     throw new PronunciationRequestError("unavailable", "Pronunciation assessment unavailable.");
@@ -111,7 +113,7 @@ function parseAzureAssessment(raw, assessmentId) {
   return {assessmentId, pronunciationScore, accuracyScore, fluencyScore, completenessScore};
 }
 
-function nextQuotaState(previous, now) {
+function nextQuotaState(previous, now, {minuteLimit = MINUTE_LIMIT, dayLimit = DAY_LIMIT} = {}) {
   const minuteBucket = now.toISOString().slice(0, 16);
   const dayBucket = now.toISOString().slice(0, 10);
   const minuteCount = previous && previous.minuteBucket === minuteBucket
@@ -120,7 +122,7 @@ function nextQuotaState(previous, now) {
   const dayCount = previous && previous.dayBucket === dayBucket
     ? Number(previous.dayCount) || 0
     : 0;
-  if (minuteCount >= MINUTE_LIMIT || dayCount >= DAY_LIMIT) return null;
+  if (minuteCount >= minuteLimit || dayCount >= dayLimit) return null;
   return {
     minuteBucket,
     minuteCount: minuteCount + 1,

@@ -172,9 +172,11 @@ void main() {
       srsReader: const _SrsReader([]),
       bookmarkReader: ProductionStudyLibraryBookmarkReader(
         bookmarkStorage.store,
+        languageCode: 'en',
       ),
     );
 
+    await tester.runAsync(repository.load);
     await tester.pumpWidget(
       _app(
         StudyLibraryScreen(
@@ -183,7 +185,8 @@ void main() {
         ),
       ),
     );
-    await tester.pumpAndSettle();
+
+    await _settleLibrary(tester, repository);
 
     expect(find.text('Some saved bookmarks are unavailable'), findsOneWidget);
     expect(find.textContaining('newer app version'), findsOneWidget);
@@ -228,9 +231,11 @@ void main() {
         srsReader: const _SrsReader([]),
         bookmarkReader: ProductionStudyLibraryBookmarkReader(
           bookmarkStorage.store,
+          languageCode: 'en',
         ),
       );
 
+      await tester.runAsync(repository.load);
       await tester.pumpWidget(
         _app(
           StudyLibraryScreen(
@@ -239,7 +244,8 @@ void main() {
           ),
         ),
       );
-      await tester.pumpAndSettle();
+
+      await _settleLibrary(tester, repository);
 
       final action = find.byKey(
         ValueKey('study-library-bookmark-action-${key.encoded}'),
@@ -249,7 +255,7 @@ void main() {
       await tester.pump();
       expect(find.text('Save bookmark'), findsOneWidget);
       await tester.tap(action);
-      await tester.pumpAndSettle();
+      await _settleLibrary(tester, repository);
 
       expect(bookmarkStorage.store.read().bookmarks.single.key, key);
       expect(bookmarkStorage.writeCount, 1);
@@ -260,7 +266,7 @@ void main() {
       expect(find.text('Favorite'), findsOneWidget);
 
       await tester.tap(action);
-      await tester.pumpAndSettle();
+      await _settleLibrary(tester, repository);
 
       expect(bookmarkStorage.store.read().bookmarks, isEmpty);
       expect(bookmarkStorage.writeCount, 2);
@@ -272,7 +278,7 @@ void main() {
         bookshelfRecords.single.sources.single.origin,
         StudyLibraryOrigin.bookshelf,
       );
-      final after = await repository.load();
+      final after = (await tester.runAsync(repository.load))!;
       final entry = after.entries.single;
       expect(entry.isLiked, isTrue);
       expect(entry.isSaved, isTrue);
@@ -322,6 +328,15 @@ void main() {
   });
 }
 
+Future<void> _settleLibrary(
+  WidgetTester tester,
+  StudyLibraryRepository repository,
+) async {
+  await tester.pump();
+  await tester.runAsync(repository.load);
+  await tester.pumpAndSettle();
+}
+
 Future<void> _openViewSheet(WidgetTester tester) async {
   final selector = find.byKey(const ValueKey('study-library-view-selector'));
   await tester.drag(find.byType(ListView), const Offset(0, 1000));
@@ -345,6 +360,14 @@ Future<void> _openTypeSheet(WidgetTester tester) async {
   // 잔상과 같은 화면좌표에서 충돌한다(실측: hit test가 RenderAnimatedOpacity/
   // _RenderTheater 체인 아래 다른 아이콘 글리프에 맞았다). 스크롤 가능
   // 목록 안의 크롬 행이므로 ensureVisible 로 명시적으로 자리를 잡는다.
+  // origin/main §259 쪽은 리스트를 먼저 드래그해 스크롤 위치까지 맞춘 뒤
+  // scrollUntilVisible/Scrollable.ensureVisible로 자리를 잡는다 — 서로 다른
+  // 하위 문제(목록 스크롤 위치 vs 전환 오버레이 히트테스트 경합)를 다루므로
+  // 병합 시 둘 다 유지한다.
+  await tester.drag(find.byType(ListView), const Offset(0, 1000));
+  await tester.pumpAndSettle();
+  await tester.scrollUntilVisible(f, 100);
+  await Scrollable.ensureVisible(tester.element(f), alignment: 0.5);
   await tester.ensureVisible(f);
   await tester.pump();
   await tester.tap(f);

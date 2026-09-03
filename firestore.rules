@@ -621,6 +621,33 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
+    // Access and billing authority are available only through attested server
+    // endpoints. Even a document owner cannot mint or edit an entitlement.
+    match /premium_grants/{document=**} {
+      allow read, write: if false;
+    }
+    match /customer_entitlements/{document=**} {
+      allow read, write: if false;
+    }
+    match /billing_event_receipts/{document=**} {
+      allow read, write: if false;
+    }
+    match /billing_customers/{document=**} {
+      allow read, write: if false;
+    }
+    match /access_rate_limits/{document=**} {
+      allow read, write: if false;
+    }
+    match /service_cost_controls/{document=**} {
+      allow read, write: if false;
+    }
+    match /service_cost_ledgers/{document=**} {
+      allow read, write: if false;
+    }
+    match /service_idempotency_results/{document=**} {
+      allow read, write: if false;
+    }
+
     // Book-analysis translations are written and read only through Admin SDK.
     // Document ids are one-way hashes and clients must not enumerate cached
     // translations or bypass the authenticated analysis endpoint.

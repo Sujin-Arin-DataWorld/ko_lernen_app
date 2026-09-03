@@ -9,28 +9,82 @@ import 'tts_cache_key.dart';
 /// Validated rootBundle authority for canonical first-dialog TTS audio.
 ///
 /// The manifest never scans arbitrary bundle paths.  Only rows that explicitly
-/// declare `bundled: true` can populate this lookup, and every such row is
-/// checked for cache-key parity, MP3 shape, and SHA-256 before use.
+/// declare `bundled: true` can populate this lookup.  [load] only validates
+/// *metadata* (schema/key/path-format/duplicate keys) — it never touches the
+/// declared mp3 bytes.  Actual bytes are read, MP3-shape-checked, and
+/// SHA-256-verified lazily, one row at a time, the first time [bytesFor] is
+/// asked for that key; the outcome (bytes or null) is memoised so a repeated
+/// request never re-reads or re-hashes the asset.  This keeps first-utterance
+/// latency independent of how many rows the manifest declares.
 final class TtsBundledManifest {
-  TtsBundledManifest._(this._assetByCacheKey);
+  TtsBundledManifest._(this._rowsByCacheKey);
 
   static const String assetPath = 'assets/data/tts_first_line_manifest.json';
 
   static AssetBundle _bundle = rootBundle;
   static Future<TtsBundledManifest>? _loading;
 
-  final Map<String, String> _assetByCacheKey;
+  final Map<String, _BundledRow> _rowsByCacheKey;
+
+  /// Per-key memoised outcome of a bytes resolution attempt (bytes, or null
+  /// on any read/validation failure). Absence of a key here just means
+  /// "not requested yet" — see [_bytesLoading] for in-flight de-duplication.
+  final Map<String, Uint8List?> _bytesCache = <String, Uint8List?>{};
+  final Map<String, Future<Uint8List?>> _bytesLoading =
+      <String, Future<Uint8List?>>{};
 
   static Future<TtsBundledManifest> load() {
     return _loading ??= _loadValidated(_bundle);
   }
 
-  String? assetFor(TtsCacheKey key) => _assetByCacheKey[_lookupKey(key)];
+  String? assetFor(TtsCacheKey key) => _rowsByCacheKey[_lookupKey(key)]?.path;
 
-  /// Read through the same injectable bundle used for manifest validation.
-  static Future<Uint8List> readAsset(String path) async {
-    final data = await _bundle.load(path);
-    return data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+  /// Lazily loads, validates (MP3 shape + SHA-256), and memoises the bytes
+  /// declared for [key]'s row. Never throws — a missing row, a missing
+  /// asset, an MPEG-shape failure, or a hash mismatch all resolve to `null`
+  /// so callers fall through to the existing disk → Storage → callable
+  /// chain. Concurrent requests for the same key share one underlying read.
+  Future<Uint8List?> bytesFor(TtsCacheKey key) {
+    final lookup = _lookupKey(key);
+    if (_bytesCache.containsKey(lookup)) {
+      return Future<Uint8List?>.value(_bytesCache[lookup]);
+    }
+    return _bytesLoading.putIfAbsent(lookup, () => _resolveBytes(lookup));
+  }
+
+  Future<Uint8List?> _resolveBytes(String lookup) async {
+    Uint8List? resolved;
+    try {
+      resolved = await _readAndValidate(lookup);
+    } finally {
+      _bytesCache[lookup] = resolved;
+      _bytesLoading.remove(lookup);
+    }
+    return resolved;
+  }
+
+  Future<Uint8List?> _readAndValidate(String lookup) async {
+    final row = _rowsByCacheKey[lookup];
+    if (row == null) {
+      return null;
+    }
+    try {
+      final data = await _bundle.load(row.path);
+      final bytes = data.buffer.asUint8List(
+        data.offsetInBytes,
+        data.lengthInBytes,
+      );
+      if (!TtsCacheKey.isUsableAudio(bytes)) {
+        return null;
+      }
+      if (sha256.convert(bytes).toString() != row.sha256) {
+        return null;
+      }
+      return bytes;
+    } catch (_) {
+      // Missing/corrupt declared asset — never throw out of bytesFor.
+      return null;
+    }
   }
 
   @visibleForTesting
@@ -67,7 +121,7 @@ final class TtsBundledManifest {
       throw const FormatException('TTS bundled manifest scenario count drift');
     }
 
-    final assets = <String, String>{};
+    final rows = <String, _BundledRow>{};
     final scenarioIds = <String>{};
     var bundledCount = 0;
     for (var index = 0; index < rawItems.length; index++) {
@@ -129,46 +183,36 @@ final class TtsBundledManifest {
           'TTS manifest item $index has invalid bundled metadata',
         );
       }
-      final ByteData data;
-      try {
-        data = await bundle.load(bundledPath);
-      } catch (error) {
-        throw FormatException(
-          'TTS manifest item $index declares a missing asset: $bundledPath ($error)',
-        );
-      }
-      final bytes = data.buffer.asUint8List(
-        data.offsetInBytes,
-        data.lengthInBytes,
-      );
-      if (!TtsCacheKey.isUsableAudio(bytes)) {
-        throw FormatException(
-          'TTS manifest item $index declares invalid MPEG bytes: $bundledPath',
-        );
-      }
-      final actualSha256 = sha256.convert(bytes).toString();
-      if (actualSha256 != expectedSha256) {
-        throw FormatException(
-          'TTS manifest item $index bundled SHA-256 mismatch: $bundledPath',
-        );
-      }
+      // Bytes are intentionally NOT read here — existence, MPEG shape, and
+      // SHA-256 are all checked lazily per-key in bytesFor(). Only the
+      // metadata shape (path prefix/suffix, 64-hex sha) and duplicate-key
+      // conflicts are validated eagerly at load() time.
       final lookup = _lookupKey(key);
-      final previous = assets[lookup];
-      if (previous != null && previous != bundledPath) {
+      final previous = rows[lookup];
+      if (previous != null && previous.path != bundledPath) {
         throw FormatException(
           'Conflicting duplicate TTS cache key: ${key.storagePath}',
         );
       }
-      assets[lookup] = bundledPath;
+      rows[lookup] = _BundledRow(bundledPath, expectedSha256);
     }
     if (decoded['bundledCount'] != bundledCount) {
       throw const FormatException('TTS bundled manifest bundled count drift');
     }
-    return TtsBundledManifest._(Map.unmodifiable(assets));
+    return TtsBundledManifest._(Map.unmodifiable(rows));
   }
 
   static String _lookupKey(TtsCacheKey key) =>
       '${key.revision}/${key.voice}/${key.hash}';
+}
+
+/// One manifest-declared bundled row: the asset path to read and the
+/// SHA-256 the bytes must hash to. Validated for format at [load] time;
+/// the bytes themselves are only fetched lazily via [TtsBundledManifest.bytesFor].
+final class _BundledRow {
+  const _BundledRow(this.path, this.sha256);
+  final String path;
+  final String sha256;
 }
 
 extension TtsBundledCachePath on TtsCacheKey {

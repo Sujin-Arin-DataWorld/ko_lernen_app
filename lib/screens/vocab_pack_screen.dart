@@ -17,6 +17,7 @@ import '../services/course_activity_reporter.dart';
 import '../services/course_mission_navigation.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/learn_session_queue.dart';
+import '../services/korean_romanization.dart';
 import '../services/pack_progress_service.dart';
 import '../services/pack_session_srs_ledger.dart';
 import '../services/quiz_distractor_service.dart';
@@ -27,6 +28,7 @@ import '../services/vocab_pack_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/flip_card.dart';
+import '../widgets/flashcard_romanization_action.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
@@ -173,6 +175,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   // 틀려도 ease 가 세션 안에서 연타로 깎이지 않게. (오답 카운터는 매번 셈.)
   final Set<String> _learnSrsRated = {};
   bool _flipped = false;
+  bool _romanizationOnFront = Storage.flashcardRomanizationOnFront;
   // 앞면을 보는 것만으로는 단어 뜻을 가르쳤다고 볼 수 없다. 카드 뒷면을 한 번
   // 연 뒤에만 판정/스와이프를 허용해, Boss 단어를 포함한 모든 Learn 단어가
   // 평가 전 의도적으로 노출되도록 한다.
@@ -429,7 +432,25 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         _learnRepeatCount++;
       }
     });
-    if (_learnQueue?.isDone ?? true) {
+    // 큐 변이(markKnown/markUnknown/defer)는 여기 도달하기 전에 호출부에서
+    // 이미 끝나 있다 — 그래서 여기 시점의 current는 "새로 보이는 카드"고
+    // peekNext는 "그 다음 카드"다. 방금 넘긴 카드(이미 끝난 일)가 아니라
+    // 이 둘을 미리 데운다(Task 3 fix round 1 — R2: 이전 라운드의
+    // "cur=방금 넘긴 카드" 프리페치는 실사용 가치가 없는 dead weight였다).
+    final queue = _learnQueue;
+    if (queue != null && !queue.isDone) {
+      final upcoming = queue.current;
+      if (upcoming != null) {
+        // ignore: discarded_futures
+        SoriSpeech.prefetch(upcoming.korean);
+      }
+      final after = queue.peekNext;
+      if (after != null) {
+        // ignore: discarded_futures
+        SoriSpeech.prefetch(after.korean);
+      }
+    }
+    if (queue?.isDone ?? true) {
       // Stage 1 끝 — 모든 current-pack 단어를 Learn에서 의도적으로 노출한 뒤
       // wordsLearned 기록 및 평가 단계로 진입.
       // ignore: discarded_futures
@@ -477,6 +498,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       posDe: cur.posDe,
       exampleKorean: cur.exampleKorean,
       exampleDe: cur.exampleGerman,
+      exampleEn: cur.exampleEnglish,
       source: 'content_bookmark',
     );
   }
@@ -579,6 +601,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _choices = null;
     });
     _prepareNextQuestion();
+    if (_quizQuestions.length > 1) {
+      // ignore: discarded_futures
+      SoriSpeech.prefetch(_quizQuestions[1].korean);
+    }
     // 퀴즈도 "듣고 고르기"로 통일 — 첫 단어 자동 발음 재생.
     _speakCurrent();
     // 스테이지 전환 인라인 배너 — 최초 1회만 (모달보다 학습 흐름 덜 끊음).
@@ -617,6 +643,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _choices = null;
     });
     _prepareNextQuestion();
+    if (_bossQuestions.length > 1) {
+      // ignore: discarded_futures
+      SoriSpeech.prefetch(_bossQuestions[1].korean);
+    }
     // Boss 첫 단어 자동 발음 재생.
     _speakCurrent();
     // 스테이지 전환 인라인 배너 — 최초 1회만.
@@ -798,6 +828,13 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _choices = null;
     });
     _prepareNextQuestion();
+    // 850ms 광고 타이머 동안 그 다음 문항(현재+1) 오디오를 미리 데운다 —
+    // 지금 말할 문항 자체는 바로 아래 _speakCurrent()가 처리한다.
+    final list = isQuiz ? _quizQuestions : _bossQuestions;
+    if (_qIdx + 1 < list.length) {
+      // ignore: discarded_futures
+      SoriSpeech.prefetch(list[_qIdx + 1].korean);
+    }
     // 퀴즈·보스 모두 다음 단어 자동 발음(듣고 고르기 통일).
     _speakCurrent();
   }
@@ -972,6 +1009,14 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       title: title,
       homeEscape: SoriHomeEscape(confirmWhen: _hasSubmittedAssessment),
       actions: [
+        if (_stage == _Stage.learn)
+          FlashcardRomanizationAction(
+            onFront: _romanizationOnFront,
+            onChanged: (value) {
+              setState(() => _romanizationOnFront = value);
+              unawaited(Storage.setFlashcardRomanizationOnFront(value));
+            },
+          ),
         if (addable != null)
           AddToWordbookButton(
             korean: addable.korean,
@@ -981,6 +1026,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
             posDe: addable.posDe,
             exampleKorean: addable.exampleKorean,
             exampleDe: addable.exampleGerman,
+            exampleEn: addable.exampleEnglish,
             compact: true,
             // The pack's modal three-step coach owns first admission. Queue
             // the global wordbook spotlight until that sheet has closed.
@@ -1114,8 +1160,13 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                           v: cur,
                           h: h,
                           headlineSize: headlineSize,
+                          romanizationOnFront: _romanizationOnFront,
                         ),
-                        back: _FlipBack(v: cur, h: h),
+                        back: _FlipBack(
+                          v: cur,
+                          h: h,
+                          romanizationOnFront: _romanizationOnFront,
+                        ),
                       );
                     },
                   ),
@@ -1146,7 +1197,12 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
             letterSpacing: -0.5,
             lineHeight: 1.05,
           );
-          return _FlipFront(v: v, h: h, headlineSize: headlineSize);
+          return _FlipFront(
+            v: v,
+            h: h,
+            headlineSize: headlineSize,
+            romanizationOnFront: _romanizationOnFront,
+          );
         },
       ),
     );
@@ -1319,6 +1375,7 @@ class _StageBar extends StatelessWidget {
 
 class _FlipFront extends StatelessWidget {
   final Vocab v;
+  final bool romanizationOnFront;
 
   /// 카드가 놓인 세로 영역의 바운드 높이 — 학습 텍스트를 카드에 비례해 키우는
   /// 기준. `_buildLearn` 의 LayoutBuilder 가 넘겨준다.
@@ -1331,6 +1388,7 @@ class _FlipFront extends StatelessWidget {
     required this.v,
     required this.h,
     required this.headlineSize,
+    required this.romanizationOnFront,
   });
 
   @override
@@ -1382,16 +1440,18 @@ class _FlipFront extends StatelessWidget {
                   SoriSpeech.speak(v.korean);
                 },
               ),
-              SizedBox(height: soriFillSize(h, 0.02, 6, 16)),
-              Text(
-                '[${v.romanization}]',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: soriFillSize(h, 0.048, 16, 28),
-                  color: s.textMuted,
-                  fontStyle: FontStyle.italic,
+              if (romanizationOnFront && v.romanization.isNotEmpty) ...[
+                SizedBox(height: soriFillSize(h, 0.02, 6, 16)),
+                Text(
+                  '[${v.romanization}]',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: soriFillSize(h, 0.048, 16, 28),
+                    color: s.textMuted,
+                    fontStyle: FontStyle.italic,
+                  ),
                 ),
-              ),
+              ],
             ],
           ),
           // 인라인 아이콘 + 힌트 — Text.rich라 좁은 폭에서 자연스럽게 줄바꿈.
@@ -1423,11 +1483,16 @@ class _FlipFront extends StatelessWidget {
 
 class _FlipBack extends StatelessWidget {
   final Vocab v;
+  final bool romanizationOnFront;
 
   /// 카드가 놓인 세로 영역의 바운드 높이 — 학습 텍스트를 카드에 비례해 키우는
   /// 기준. `_buildLearn` 의 LayoutBuilder 가 넘겨준다.
   final double h;
-  const _FlipBack({required this.v, required this.h});
+  const _FlipBack({
+    required this.v,
+    required this.h,
+    required this.romanizationOnFront,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -1470,6 +1535,17 @@ class _FlipBack extends StatelessWidget {
                   color: s.textMuted,
                 ),
               ),
+              if (!romanizationOnFront && v.romanization.isNotEmpty) ...[
+                SizedBox(height: soriFillSize(h, 0.02, 6, 14)),
+                Text(
+                  '[${v.romanization}]',
+                  textAlign: TextAlign.center,
+                  style: SoriTextTheme.of(context).bodySmall.copyWith(
+                    fontSize: soriFillSize(h, 0.045, 14, 26),
+                    color: s.textMuted,
+                  ),
+                ),
+              ],
             ],
           ),
           // 예문(한국어 + 번역)을 한 묶음으로 — 탭하면 예문 발음, 길게 누르면
@@ -1509,6 +1585,16 @@ class _FlipBack extends StatelessWidget {
                       fontSize: soriFillSize(h, 0.072, 18, 38),
                       fontWeight: FontWeight.w600,
                       height: 1.25,
+                    ),
+                  ),
+                  SizedBox(height: soriFillSize(h, 0.02, 4, 16)),
+                  Text(
+                    romanizeKorean(v.exampleKorean),
+                    textAlign: TextAlign.center,
+                    style: SoriTextTheme.of(context).bodySmall.copyWith(
+                      fontSize: soriFillSize(h, 0.042, 13, 24),
+                      color: s.textMuted,
+                      height: 1.3,
                     ),
                   ),
                   SizedBox(height: soriFillSize(h, 0.02, 4, 16)),

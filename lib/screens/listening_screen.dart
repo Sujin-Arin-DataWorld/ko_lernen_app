@@ -160,7 +160,7 @@ class _ListeningScreenState extends State<ListeningScreen>
   /// 두루마리 머리 그림 = 칸에 놓인 것과 **같은 카드 아트**. 시트가 선반에서
   /// 뽑혀 나온 물건으로 읽히려면 두 곳이 같은 그림이어야 한다.
   ///
-  /// 아직 아트가 없는 키(C1/C2 다수)는 칸과 같은 폴백 사다리를 탄다 —
+  /// 파일을 읽지 못한 키는 칸과 같은 폴백 사다리를 탄다 —
   /// 카테고리 비네트 → 책더미 → 표면색 면.
   Widget _scrollIllustration(ChaekgadoSlot slot, int slotIndex) {
     final cluster = chaekgadoBookClusterAsset(slotIndex < 0 ? 0 : slotIndex);
@@ -174,8 +174,8 @@ class _ListeningScreenState extends State<ListeningScreen>
     return Image.asset(
       chaekgadoCardAsset(slot.imageKey),
       fit: BoxFit.cover,
-      // 아트 세이프가 12~88% 라 세로 중앙보다 살짝 위를 본다(칸과 같은 값).
-      alignment: const Alignment(0, -0.1),
+      // Keep the lower-positioned subject visible, as on the shelf itself.
+      alignment: Alignment.bottomCenter,
       errorBuilder: (_, _, _) => vignette == null
           ? clusterImage
           : Image.asset(

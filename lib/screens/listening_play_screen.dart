@@ -318,6 +318,11 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
                     label: t.listeningTitle,
                     value: t.listeningLineCount(_scenario.dialog.length),
                   ),
+                  const SizedBox(height: Spacing.lg),
+                  const TtsSpeedControl(
+                    mode: TtsSpeedControlMode.row,
+                    minInteractiveHeight: 48,
+                  ),
                 ],
               ),
             ),

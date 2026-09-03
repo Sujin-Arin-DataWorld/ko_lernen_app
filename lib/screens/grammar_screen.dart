@@ -505,6 +505,7 @@ class _GrammarScreenState extends State<GrammarScreen>
       posDe: grammar.typeDe,
       exampleKorean: grammar.exampleKorean,
       exampleDe: grammar.exampleGerman,
+      exampleEn: grammar.exampleEn,
       sourceUnitId: grammar.id,
       source: 'grammar',
     );

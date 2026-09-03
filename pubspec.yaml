@@ -137,6 +137,8 @@ flutter:
 
   assets:
     - assets/data/
+    - assets/tts/v3/female/
+    - assets/tts/v3/male/
     - docs/data/cultural_glossary.json
     - assets/icons/
     - assets/illustrations/hanok/
@@ -192,9 +194,9 @@ flutter:
     # 책가도 서재 소품 — 6레벨 공용, 칸별 아트 아님.
     # Approved Chaekgado listening system. Flutter does not recurse through
     # asset directories, so every runtime leaf directory is explicit.
-    # bookcase/slices/{backplate,frame}/ 는 2026-08-23 에 번들에서 빠졌다 —
-    # 나무를 CustomPainter 로 그리면서 프레임 PNG 6장이 고아가 됐고,
-    # 격리 폴더(pending_review)로 옮겼다.
+    # Original faceted bookcase layers are cropped in the responsive grid.
+    - assets/hangul_sori_chaekgado_asset_pack_v1/bookcase/chaekgado_bookcase_foreground_frame.png
+    - assets/hangul_sori_chaekgado_asset_pack_v1/bookcase/chaekgado_bookcase_backplate.png
     - assets/hangul_sori_chaekgado_asset_pack_v1/scroll/hoeren_scroll_top.png
     - assets/hangul_sori_chaekgado_asset_pack_v1/scroll/hoeren_scroll_body_tile.png
     - assets/hangul_sori_chaekgado_asset_pack_v1/scroll/hoeren_scroll_bottom.png

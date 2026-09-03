@@ -5,6 +5,12 @@ import 'package:cloud_functions/cloud_functions.dart';
 
 import 'pronunciation_progress_service.dart';
 
+/// Independent of curriculum/beta unlocks: local practice never needs this.
+const bool freePronunciationAssessmentEnabled = bool.fromEnvironment(
+  'ENABLE_FREE_PRONUNCIATION_ASSESSMENT',
+  defaultValue: false,
+);
+
 enum PronunciationAssessmentFailureCategory {
   invalidRequest,
   authenticationRequired,
@@ -61,12 +67,19 @@ typedef PronunciationCallableInvoker =
 
 class FirebasePronunciationAssessmentGateway
     implements PronunciationAssessmentGateway {
-  FirebasePronunciationAssessmentGateway(this._invoke);
+  FirebasePronunciationAssessmentGateway(
+    this._invoke, {
+    this.enabled = freePronunciationAssessmentEnabled,
+  });
+
+  final bool enabled;
 
   factory FirebasePronunciationAssessmentGateway.production({
     PronunciationCallableInvoker Function(String region)? invokerForRegion,
+    bool enabled = freePronunciationAssessmentEnabled,
   }) => FirebasePronunciationAssessmentGateway(
     (invokerForRegion ?? _firebaseInvokerForRegion)(_functionRegion),
+    enabled: enabled,
   );
 
   static const String _functionRegion = 'europe-west3';
@@ -95,6 +108,12 @@ class FirebasePronunciationAssessmentGateway
     required String referenceText,
     required String assessmentId,
   }) async {
+    if (!enabled) {
+      throw const PronunciationAssessmentFailure(
+        PronunciationAssessmentFailureCategory.unavailable,
+        retryable: false,
+      );
+    }
     final normalizedReference = referenceText.trim();
     if (pcm16.isEmpty ||
         pcm16.length > maxPcmBytes ||
@@ -191,6 +210,7 @@ PronunciationAssessmentFailure _firebaseFailure(String code) => switch (code) {
     retryable: true,
   ),
   'unavailable' ||
+  'not-found' ||
   'deadline-exceeded' ||
   'internal' => const PronunciationAssessmentFailure(
     PronunciationAssessmentFailureCategory.unavailable,

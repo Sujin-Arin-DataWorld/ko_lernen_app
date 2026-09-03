@@ -322,7 +322,10 @@ void main() {
     await tester.pump();
     expect(find.text(_firstKo), findsOneWidget);
     expect(find.text(_secondKo), findsOneWidget);
+    expect(find.text('Lange Zeile'), findsOneWidget);
+    expect(find.text('Ja, gern.'), findsOneWidget);
     expect(find.byTooltip(t.contentActionLike), findsWidgets);
+    await tester.ensureVisible(find.text(t.listeningReplay).first);
     await tester.tap(find.text(t.listeningReplay).first);
     await tester.pump();
     expect(Storage.xp, 40);

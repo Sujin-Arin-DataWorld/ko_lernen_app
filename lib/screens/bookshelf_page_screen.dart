@@ -1,9 +1,15 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
+import '../models/vocab.dart';
 import '../services/bookshelf_service.dart';
 import '../services/custom_pack_service.dart';
+import '../services/data_loader.dart';
+import '../services/saved_word_localization.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
@@ -33,11 +39,38 @@ class BookshelfPageScreen extends StatefulWidget {
 
 class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
   BookPage? _page;
+  List<Vocab> _vocab = const [];
+  Map<String, Map<String, dynamic>> _grammarPatterns = const {};
 
   @override
   void initState() {
     super.initState();
     _page = BookshelfService.getById(widget.pageId);
+    // ignore: discarded_futures
+    _loadSavedTranslations();
+  }
+
+  Future<void> _loadSavedTranslations() async {
+    final vocab = await DataLoader.loadVocab();
+    Map<String, Map<String, dynamic>> patterns = const {};
+    try {
+      final raw = await rootBundle.loadString(
+        'assets/data/grammar_patterns.json',
+      );
+      final data = jsonDecode(raw) as List;
+      patterns = {
+        for (final pattern in data.cast<Map<String, dynamic>>())
+          pattern['id'] as String: pattern,
+      };
+    } on Object {
+      // The saved Korean matches remain readable if the catalog is unavailable.
+    }
+    if (mounted) {
+      setState(() {
+        _vocab = vocab;
+        _grammarPatterns = patterns;
+      });
+    }
   }
 
   Future<void> _delete() async {
@@ -115,6 +148,7 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
     }
 
     final page = _page!;
+    final language = Localizations.localeOf(context).languageCode;
     final hasWords = page.words.isNotEmpty;
     final extractedText = page.extractedText.isEmpty
         ? t.bookshelfEmptyPreview
@@ -147,6 +181,14 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
         ),
         const SizedBox(height: Spacing.lg),
 
+        if (page.analysisLanguage != language) ...[
+          Text(
+            t.booksSavedOtherLanguage,
+            style: SoriTextTheme.of(context).bodySmall,
+          ),
+          const SizedBox(height: Spacing.lg),
+        ],
+
         if (hasWords) ...[
           SoriButton(
             label: t.bookshelfCreatePackCta,
@@ -161,13 +203,25 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
 
         if (page.words.isNotEmpty) ...[
           _SectionLabel(label: t.bookResultSectionWords),
-          ...page.words.map((w) => _MiniWordRow(word: w)),
+          ...page.words.map(
+            (w) => _MiniWordRow(word: localizeSavedWord(w, _vocab)),
+          ),
           const SizedBox(height: Spacing.lg),
         ],
 
         if (page.grammar.isNotEmpty) ...[
           _SectionLabel(label: t.bookResultSectionGrammar),
-          ...page.grammar.map((g) => _MiniGrammarRow(hit: g)),
+          ...page.grammar.map(
+            (g) => _MiniGrammarRow(
+              hit: g,
+              name:
+                  (_grammarPatterns[g.patternId]?['name_$language']
+                      as String?) ??
+                  (page.analysisLanguage == language
+                      ? g.nameDe
+                      : g.matchedText),
+            ),
+          ),
           const SizedBox(height: Spacing.lg),
         ],
 
@@ -175,10 +229,27 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
           _SectionLabel(label: t.bookResultSectionSentences),
           ...page.sentences
               .take(10)
-              .map((sent) => _MiniSentenceRow(sentence: sent)),
+              .map(
+                (sent) => _MiniSentenceRow(
+                  sentence: sent,
+                  translation: _sentenceTranslation(sent, language),
+                ),
+              ),
         ],
       ],
     );
+  }
+
+  String _sentenceTranslation(TranslatedSentence sentence, String language) {
+    if (sentence.translationLanguage == language) {
+      return sentence.translationDe;
+    }
+    for (final vocab in _vocab) {
+      if (vocab.exampleKorean.trim() == sentence.korean.trim()) {
+        return vocab.exampleFor(language);
+      }
+    }
+    return '';
   }
 }
 
@@ -208,11 +279,18 @@ class _MiniWordRow extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(word.korean, style: SoriTextTheme.of(context).cardTitle),
-                if (word.translationDe.isNotEmpty)
-                  Text(
-                    word.translationDe,
-                    style: SoriTextTheme.of(context).bodySmall,
-                  ),
+                Text(
+                  word
+                          .translationFor(
+                            Localizations.localeOf(context).languageCode,
+                          )
+                          .isEmpty
+                      ? AppL10n.of(context).savedTranslationUnavailable
+                      : word.translationFor(
+                          Localizations.localeOf(context).languageCode,
+                        ),
+                  style: SoriTextTheme.of(context).bodySmall,
+                ),
               ],
             ),
           ),
@@ -225,7 +303,8 @@ class _MiniWordRow extends StatelessWidget {
 
 class _MiniGrammarRow extends StatelessWidget {
   final GrammarHit hit;
-  const _MiniGrammarRow({required this.hit});
+  final String name;
+  const _MiniGrammarRow({required this.hit, required this.name});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -233,8 +312,8 @@ class _MiniGrammarRow extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(hit.nameDe, style: SoriTextTheme.of(context).cardTitle),
-          if (hit.matchedText.isNotEmpty)
+          Text(name, style: SoriTextTheme.of(context).cardTitle),
+          if (hit.matchedText.isNotEmpty && hit.matchedText != name)
             Text(
               '"${hit.matchedText}"',
               style: SoriTextTheme.of(
@@ -249,7 +328,8 @@ class _MiniGrammarRow extends StatelessWidget {
 
 class _MiniSentenceRow extends StatelessWidget {
   final TranslatedSentence sentence;
-  const _MiniSentenceRow({required this.sentence});
+  final String translation;
+  const _MiniSentenceRow({required this.sentence, required this.translation});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -265,9 +345,9 @@ class _MiniSentenceRow extends StatelessWidget {
                   sentence.korean,
                   style: SoriTextTheme.of(context).cardTitle,
                 ),
-                if (sentence.translationDe.isNotEmpty)
+                if (translation.isNotEmpty)
                   Text(
-                    sentence.translationDe,
+                    translation,
                     style: SoriTextTheme.of(
                       context,
                     ).bodySmall.copyWith(fontStyle: FontStyle.italic),

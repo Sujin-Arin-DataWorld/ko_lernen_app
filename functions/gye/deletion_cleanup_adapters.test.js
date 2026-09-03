@@ -10,6 +10,7 @@ const {
 const {
   createGyeDeletionPageCleaner,
 } = require("./deletion_gye_page");
+const { createDeletionWorkerRuntime } = require("./account_operations_runtime");
 const {
   anonymizeFeed,
   anonymizeMeta,
@@ -309,7 +310,7 @@ class FakeFirestore {
   }
 }
 
-function createHarness({ serverOwned = true, cleanupPage } = {}) {
+function createHarness({ serverOwned = true, cleanupPage, storageBucket } = {}) {
   const firestore = new FakeFirestore();
   firestore.seed("account_deletions/source", {
     serverOwned,
@@ -354,6 +355,7 @@ function createHarness({ serverOwned = true, cleanupPage } = {}) {
     return { done: true };
   };
   const makeAdapters = () => createDeletionCleanupAdapters({
+    storageBucket: storageBucket || { getFiles: async () => [[]] },
     firestore,
     fieldValue: fieldValue(),
     documentIdFieldPath: "__name__",
@@ -372,6 +374,99 @@ function createHarness({ serverOwned = true, cleanupPage } = {}) {
   };
 }
 
+function processorWorkerFor(h) {
+  const operationPath = "account_operations/op";
+  h.firestore.seed(operationPath, { ...h.firestore.value(operationPath), phase: "processorCleanupPending" });
+  const claim = () => ({ operation: h.firestore.value(operationPath), leaseVersion: 1, leaseAcquired: true });
+  return createDeletionWorkerRuntime({
+    repository: {
+      claimDeletionWork: async ({ workerId }) => {
+        const operation = h.firestore.value(operationPath);
+        h.firestore.seed(operationPath, { ...operation, workerLease: { ...operation.workerLease, workerId } });
+        return claim();
+      },
+      renewDeletionLease: async () => claim(),
+      checkpointDeletionWork: async ({ toPhase }) => {
+        if (toPhase) h.firestore.seed(operationPath, { ...h.firestore.value(operationPath), phase: toPhase });
+        return claim();
+      },
+      recordDeletionWorkFailure: async () => { throw new Error("unexpected worker failure"); },
+    },
+    auth: { deleteUser: async () => { throw new Error("auth stage must not rerun"); } },
+    deleteUserTreePage: async () => { throw new Error("user-tree stage must not rerun"); },
+    cleanupCommunity: async () => { throw new Error("community stage must not rerun"); },
+    cleanupProcessor: h.adapters.cleanupProcessor,
+    nowMillis: () => NOW_MILLIS,
+    newWorkerInvocationId: () => "processor-version-test",
+  });
+}
+
+for (const oldCheckpoint of [false, true]) {
+test(`processor cleanup deletes UID private TTS and hashed billable receipts only (old checkpoint: ${oldCheckpoint})`, async () => {
+  const objects = new Set(["tts_private/source/v3/female/a.mp3", "tts_private/other/v3/female/a.mp3"]);
+  const storageBucket = { getFiles: async ({ prefix, maxResults, autoPaginate }) => {
+    assert.equal(prefix, "tts_private/source/");
+    assert.equal(maxResults, 2);
+    assert.equal(autoPaginate, false);
+    return [[...objects].filter((name) => name.startsWith(prefix)).map((name) => ({
+      name, delete: async () => objects.delete(name),
+    }))];
+  } };
+  const h = createHarness({ storageBucket });
+  if (oldCheckpoint) {
+    h.firestore.seed("account_deletions/source", {
+      ...h.firestore.value("account_deletions/source"),
+      processorCleanupState: { operationId: "op", categoryIndex: 3, cursor: null, done: true },
+    });
+  }
+  const ownerHash = require("node:crypto").createHash("sha256").update("source").digest("hex");
+  h.firestore.seed("service_idempotency/book", { ownerSubjectHash: ownerHash, kind: "book_analysis_v1" });
+  h.firestore.seed("service_idempotency/pronunciation", { ownerSubjectHash: ownerHash, kind: "pronunciation_v1" });
+  h.firestore.seed("service_idempotency/other", { ownerSubjectHash: "different-owner", kind: "book_analysis_v1" });
+  h.firestore.seed("service_idempotency_results/book", { ownerSubjectHash: ownerHash, result: { sentences: [] } });
+  h.firestore.seed("service_idempotency_results/other", { ownerSubjectHash: "different-owner", result: { sentences: [] } });
+  for (const collection of ["premium_grants", "customer_entitlements", "access_rate_limits", "billing_event_receipts", "billing_customers"]) {
+    h.firestore.seed(`${collection}/source`, { ownerSubjectHash: ownerHash, ownerUid: "source" });
+    h.firestore.seed(`${collection}/other`, { ownerSubjectHash: "different-owner", ownerUid: "other" });
+  }
+  const worker = oldCheckpoint ? processorWorkerFor(h) : null;
+  let result;
+  let steps = 0;
+  do {
+    assert.ok(++steps <= 32, "processor stages must reach a bounded completion");
+    result = worker
+      ? { done: (await worker.processDeletionOperation({ operationId: "op", workerId: "test-worker" })).phase === "completed" }
+      : await h.adapters.cleanupProcessor({ uid: "source", operationId: "op", workerFence: WORKER_FENCE });
+    if (result.done) {
+      assert.equal([...objects].some((name) => name.startsWith("tts_private/source/")), false,
+        "the worker may checkpoint completed only after private objects are gone");
+    }
+  } while (!result.done);
+  assert.equal(h.firestore.value("account_deletions/source").processorCleanupState.schemaVersion, 2);
+  assert.deepEqual([...objects], ["tts_private/other/v3/female/a.mp3"]);
+  assert.equal(h.firestore.value("service_idempotency/book"), undefined);
+  assert.equal(h.firestore.value("service_idempotency/pronunciation"), undefined);
+  assert.ok(h.firestore.value("service_idempotency/other"));
+  assert.equal(h.firestore.value("service_idempotency_results/book"), undefined);
+  assert.ok(h.firestore.value("service_idempotency_results/other"));
+  for (const collection of ["premium_grants", "customer_entitlements", "access_rate_limits", "billing_event_receipts", "billing_customers"]) {
+    assert.equal(h.firestore.value(`${collection}/source`), undefined);
+    assert.ok(h.firestore.value(`${collection}/other`));
+  }
+});
+}
+
+test("unknown future processor plan fails closed without marking cleanup complete", async () => {
+  const h = createHarness();
+  h.firestore.seed("account_deletions/source", {
+    ...h.firestore.value("account_deletions/source"),
+    processorCleanupState: { operationId: "op", schemaVersion: 99, categoryIndex: 3, done: true },
+  });
+  await assert.rejects(h.adapters.cleanupProcessor({
+    uid: "source", operationId: "op", workerFence: WORKER_FENCE,
+  }), { code: "unsupported-processor-cleanup-version" });
+});
+
 function createRealAdapters(firestore) {
   const values = fieldValue();
   const cleaner = createGyeDeletionPageCleaner({
@@ -385,6 +480,7 @@ function createRealAdapters(firestore) {
     shouldDeleteReportForUid,
   });
   return createDeletionCleanupAdapters({
+    storageBucket: { getFiles: async () => [[]] },
     firestore,
     fieldValue: values,
     documentIdFieldPath: "__name__",

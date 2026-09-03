@@ -9,13 +9,73 @@ class AppL10nEn extends AppL10n {
   AppL10nEn([String locale = 'en']) : super(locale);
 
   @override
+  String get paywallSignInToContinue => 'Connect account';
+
+  @override
+  String get paywallSignInRequired =>
+      'Connect your Google or Apple account first. Purchases stay linked to this account.';
+
+  @override
+  String get paywallPending =>
+      'Confirmation is pending. Access updates after server verification.';
+
+  @override
+  String get paywallCancelled => 'Purchase cancelled. No access was unlocked.';
+
+  @override
+  String get paywallActive => 'Premium is already active';
+
+  @override
+  String get paywallTesterActive => 'Your approved tester access is active';
+
+  @override
+  String get paywallManage => 'Manage subscription in its original store';
+
+  @override
+  String get paywallManageUnavailable =>
+      'Open subscription management in the store where you subscribed.';
+
+  @override
+  String get paywallFreeLaunch =>
+      'All learning content is open for the free launch. Subscriptions are not available yet.';
+
+  @override
+  String paywallAiLimits(int book, int pronunciation) {
+    return 'Your current allowance: $book book analyses and $pronunciation pronunciation checks per UTC day.';
+  }
+
+  @override
+  String paywallNextReset(String time) {
+    return 'Next reset: $time UTC';
+  }
+
+  @override
+  String get accountAdditionalProviderTitle => 'Connect another sign-in method';
+
+  @override
+  String get accountAdditionalProviderConsent =>
+      'First, verify your current account. Then Google or Apple will be connected to that same account. If Apple hides your email address, you also consent to associating your Apple identity with this account’s data. Your learning progress stays here.';
+
+  @override
+  String get accountProviderCollisionTitle =>
+      'Already connected to another account';
+
+  @override
+  String get accountProviderCollisionBody =>
+      'This sign-in method belongs to another account. Your current account and learning progress have not been replaced. Use a different sign-in method.';
+
+  @override
+  String get accountAppleConfigurationBody =>
+      'Apple sign-in has not been configured in this app version yet. Use your current sign-in method for now or contact support.';
+
+  @override
   String get paywallTitle => 'Hangul Sori Premium';
 
   @override
   String get paywallSubtitle => 'Learn Korean whenever you want.';
 
   @override
-  String get paywallBenefit1 => 'All vocabulary packs (A2 · B1 · B2)';
+  String get paywallBenefit1 => 'All vocabulary packs (A2 through C2)';
 
   @override
   String get paywallBenefit2 => 'All conversation scenarios';
@@ -24,14 +84,10 @@ class AppL10nEn extends AppL10n {
   String get paywallBenefit3 => 'Unlimited reviews';
 
   @override
-  String get paywallBenefit4 =>
-      'Your personal AI course with new content every day';
+  String get paywallBenefit4 => '50 pronunciation checks per UTC day';
 
   @override
-  String get paywallBenefit5 => 'Book snapshot without a daily limit';
-
-  @override
-  String get paywallPriceFallback => '€5 / month';
+  String get paywallBenefit5 => '20 book analyses per UTC day';
 
   @override
   String get paywallPricePerMonth => '/ month';
@@ -2163,6 +2219,9 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get speechIndicatorIdle => 'Not playing';
+
+  @override
+  String get speechIndicatorResolving => 'Loading';
 
   @override
   String contentShareBody(String korean, String gloss) {
@@ -8686,7 +8745,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get pronunciationIntro =>
-      'Listen first. Then record up to 10 seconds if you want an assessment.';
+      'Listen first. Record up to 10 seconds, then listen to your voice and compare.';
 
   @override
   String get pronunciationPhrasesLoading => 'Loading pronunciation practice …';
@@ -8719,7 +8778,7 @@ class AppL10nEn extends AppL10n {
   String get pronunciationAssessing => 'Preparing your score…';
 
   @override
-  String get pronunciationStop => 'Stop and assess';
+  String get pronunciationStop => 'Stop recording';
 
   @override
   String get pronunciationContinueWithoutScore => 'Continue without a score';
@@ -10348,4 +10407,51 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get closeActionLabel => 'Close';
+
+  @override
+  String get savedAddTranslation => 'Add a translation';
+
+  @override
+  String get booksSavedOtherLanguage =>
+      'This page was saved in another language. Korean text and available English translations are shown.';
+
+  @override
+  String get savedOriginalMeaning => 'Original saved meaning';
+
+  @override
+  String get pronunciationRequestScore => 'Get a score';
+
+  @override
+  String get savedTranslationUnavailable =>
+      'No English translation is saved yet.';
+
+  @override
+  String get pronunciationReplay => 'Listen to my recording';
+
+  @override
+  String get flashcardRomanizationFront => 'Show on the front';
+
+  @override
+  String get pronunciationFinishingRecording => 'Finishing recording…';
+
+  @override
+  String get pronunciationReplayUnavailable =>
+      'Your recording could not play. Try again or make a new recording.';
+
+  @override
+  String get flashcardRomanizationBack => 'Show on the back';
+
+  @override
+  String get ttsUnavailablePlayback =>
+      'Audio could not play on this device. Check the volume or connected headphones, then try again.';
+
+  @override
+  String get pronunciationLocalRecordingHint =>
+      'Your recording stays temporarily on this device. It is deleted when you leave this screen.';
+
+  @override
+  String get pronunciationReplayStop => 'Stop my recording';
+
+  @override
+  String get flashcardRomanization => 'Romanization';
 }

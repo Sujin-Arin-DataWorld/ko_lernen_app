@@ -142,6 +142,12 @@ class VocabPackService {
     'a1_seasons': ('Jahreszeiten & Wetter', 'Seasons & Weather'),
     'a1_shopping_basic': ('Einkaufen (Basis)', 'Basic Shopping'),
     'a1_exclamations': ('Ausrufe', 'Exclamations'),
+    'a1_particles_in_use': ('Herkunft & Sprache', 'Background & Language'),
+    'a1_repair_language': (
+      'Nachfragen & Verstehen',
+      'Asking for Clarification',
+    ),
+    'a1_payment_delivery': ('Bezahlen & Lieferung', 'Payment & Delivery'),
     // A2
     'a2_daily': ('Alltag (A2)', 'Daily Life (A2)'),
     'a2_feelings': ('Gefühle', 'Feelings'),
@@ -180,6 +186,7 @@ class VocabPackService {
     'a2_hobby': ('Hobbys & Freizeit', 'Hobbies & Free Time'),
     'a2_natural_spoken': ('Umgangssprache', 'Spoken Korean'),
     'a2_bbq_culture': ('BBQ-Kultur', 'BBQ Culture'),
+    'a2_plans_proposals': ('Verabredungen & Pläne', 'Plans & Arrangements'),
     // B1
     'b1_daily': ('Alltag (B1)', 'Daily Life (B1)'),
     'b1_descriptions': ('Beschreibung (B1)', 'Descriptions (B1)'),
@@ -206,6 +213,7 @@ class VocabPackService {
     'b1_verbs_daily': ('Nützliche Verben (B1)', 'Useful Verbs (B1)'),
     'b1_descriptions_adj': ('Eigenschaften (B1)', 'Qualities (B1)'),
     'b1_time_life': ('Zeit & Lebenslauf', 'Time & Life Stages'),
+    'b1_work_softening': ('Absprachen im Beruf', 'Workplace Communication'),
     // B2
     'b2_society': ('Gesellschaft (B2)', 'Society (B2)'),
     'b2_thinking': ('Denken & Abstraktion', 'Thinking & Abstraction'),

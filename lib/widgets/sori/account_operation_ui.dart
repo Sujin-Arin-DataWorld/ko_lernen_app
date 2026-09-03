@@ -288,14 +288,23 @@ Future<void> runConfirmedAccountLink(
   BuildContext context, {
   required AccountUiOperations operations,
   required AccountLinkProvider provider,
+  bool additionalProvider = false,
   Future<void> Function()? onCompleted,
 }) async {
   final t = AppL10n.of(context);
   final confirmed = await showSoriDialog<bool>(
     context: context,
     builder: (dialogContext) => SoriDialog(
-      title: Text(t.accountSafeConnectTitle),
-      content: Text(t.accountSafeConnectExplain),
+      title: Text(
+        additionalProvider
+            ? t.accountAdditionalProviderTitle
+            : t.accountSafeConnectTitle,
+      ),
+      content: Text(
+        additionalProvider
+            ? t.accountAdditionalProviderConsent
+            : t.accountSafeConnectExplain,
+      ),
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(dialogContext, false),
@@ -323,11 +332,13 @@ Future<void> runConfirmedAccountLink(
         // manual Settings → Backup. Fire-and-forget: the completed link must
         // not wait on (or fail with) the backup. Runs after the admission
         // lane released (link() has returned), so it cannot deadlock.
-        unawaited(
-          CloudSync.backup().catchError((Object error) {
-            AccountFailureDiagnostics.log('link.autoBackupFailed', error);
-          }),
-        );
+        if (!additionalProvider) {
+          unawaited(
+            CloudSync.backup().catchError((Object error) {
+              AccountFailureDiagnostics.log('link.autoBackupFailed', error);
+            }),
+          );
+        }
         await onCompleted?.call();
       case AccountUiLinkCancelled():
         // 사용자가 직접 닫았다 — 이 경우에만 조용히 돌아간다.
@@ -338,6 +349,18 @@ Future<void> runConfirmedAccountLink(
           context,
           title: t.accountLinkUnavailableTitle,
           body: t.accountLinkUnavailableBody,
+        );
+      case AccountUiProviderCollision():
+        await _showLinkProblem(
+          context,
+          title: t.accountProviderCollisionTitle,
+          body: t.accountProviderCollisionBody,
+        );
+      case AccountUiAppleConfigurationMissing():
+        await _showLinkProblem(
+          context,
+          title: t.accountLinkUnavailableTitle,
+          body: t.accountAppleConfigurationBody,
         );
       case AccountUiLinkFailed(:final reason):
         await _showLinkProblem(
@@ -354,12 +377,21 @@ Future<void> runConfirmedAccountLink(
             context,
             operations: operations,
             provider: provider,
+            additionalProvider: additionalProvider,
             onCompleted: onCompleted,
           ),
         );
       case AccountUiLinkBlocked():
         await _showBlocked(context, operations);
       case AccountUiLinkConflict(:final conflict):
+        if (additionalProvider) {
+          await _showLinkProblem(
+            context,
+            title: t.accountProviderCollisionTitle,
+            body: t.accountProviderCollisionBody,
+          );
+          return;
+        }
         _showProgress(context, t.accountOperationInProgress);
         final result = await operations.confirmReplacement(conflict);
         if (!context.mounted) return;
@@ -386,6 +418,7 @@ Future<void> runConfirmedAccountLink(
         context,
         operations: operations,
         provider: provider,
+        additionalProvider: additionalProvider,
         onCompleted: onCompleted,
       ),
     );

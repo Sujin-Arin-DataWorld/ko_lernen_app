@@ -12,14 +12,23 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/vocab_pack.dart';
+import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/vocab_pack_service.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   group('Vocab.fromRow', () {
     test('handles legacy 8-column row (no pack info)', () {
       final v = Vocab.fromRow(const [
-        '안녕', 'annyeong', 'Hallo', 'A1',
-        'Ausdruck', '안녕!', 'Hallo!', 'Begrüßung',
+        '안녕',
+        'annyeong',
+        'Hallo',
+        'A1',
+        'Ausdruck',
+        '안녕!',
+        'Hallo!',
+        'Begrüßung',
       ]);
       expect(v.korean, '안녕');
       expect(v.packId, '');
@@ -29,9 +38,17 @@ void main() {
 
     test('handles 11-column row (with pack info)', () {
       final v = Vocab.fromRow(const [
-        '안녕', 'annyeong', 'Hallo', 'A1',
-        'Ausdruck', '안녕!', 'Hallo!', 'Begrüßung',
-        'a1_greetings_1', '2', 'true',
+        '안녕',
+        'annyeong',
+        'Hallo',
+        'A1',
+        'Ausdruck',
+        '안녕!',
+        'Hallo!',
+        'Begrüßung',
+        'a1_greetings_1',
+        '2',
+        'true',
       ]);
       expect(v.packId, 'a1_greetings_1');
       expect(v.packOrder, 2);
@@ -40,12 +57,32 @@ void main() {
 
     test('handles is_review_boss capitalization variants', () {
       final v1 = Vocab.fromRow(const [
-        'a', 'a', 'A', 'A1', '', '', '', 'T', 'p', '1', 'TRUE',
+        'a',
+        'a',
+        'A',
+        'A1',
+        '',
+        '',
+        '',
+        'T',
+        'p',
+        '1',
+        'TRUE',
       ]);
       expect(v1.isReviewBoss, true);
 
       final v2 = Vocab.fromRow(const [
-        'a', 'a', 'A', 'A1', '', '', '', 'T', 'p', '1', 'False',
+        'a',
+        'a',
+        'A',
+        'A1',
+        '',
+        '',
+        '',
+        'T',
+        'p',
+        '1',
+        'False',
       ]);
       expect(v2.isReviewBoss, false);
     });
@@ -94,6 +131,20 @@ void main() {
   });
 
   group('VocabPackService.displayLabel', () {
+    test('every shipped pack has a localized DE and EN title', () async {
+      final packIds = (await DataLoader.loadVocab())
+          .map((word) => word.packId)
+          .where((id) => id.isNotEmpty)
+          .toSet();
+      expect(packIds, isNotEmpty);
+      for (final language in ['de', 'en']) {
+        final missing = packIds.where(
+          (id) => VocabPackService.displayLabel(id, lang: language) == id,
+        );
+        expect(missing, isEmpty, reason: '$language pack titles are missing');
+      }
+    });
+
     test('known pack → DE label', () {
       expect(
         VocabPackService.displayLabel('a1_greetings', lang: 'de'),
@@ -144,22 +195,22 @@ void main() {
   });
 }
 
-Vocab _v(String korean, {
+Vocab _v(
+  String korean, {
   String packId = '',
   int packOrder = 0,
   bool isBoss = false,
   String level = 'A1',
-}) =>
-    Vocab(
-      korean: korean,
-      romanization: korean,
-      german: korean,
-      level: level,
-      posDe: '',
-      exampleKorean: '',
-      exampleGerman: '',
-      topic: '',
-      packId: packId,
-      packOrder: packOrder,
-      isReviewBoss: isBoss,
-    );
+}) => Vocab(
+  korean: korean,
+  romanization: korean,
+  german: korean,
+  level: level,
+  posDe: '',
+  exampleKorean: '',
+  exampleGerman: '',
+  topic: '',
+  packId: packId,
+  packOrder: packOrder,
+  isReviewBoss: isBoss,
+);

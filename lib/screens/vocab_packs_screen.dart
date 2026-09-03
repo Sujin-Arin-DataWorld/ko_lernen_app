@@ -210,7 +210,7 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
     // Premium-Gate: A1 ist kostenlos, A2/B1/B2 erfordern ein Abo.
     // Freie Nutzer dürfen alle Level durchstöbern (Verkaufsfläche); erst das
     // Lernen eines A2/B1/B2-Packs öffnet die Paywall.
-    if (_level != 'A1' && !PremiumService.isPremium) {
+    if (_level != 'A1' && !PremiumService.hasContentAccess) {
       PremiumService.gate(context).then((ok) {
         if (ok && mounted) _openPack(pack);
       });
@@ -437,7 +437,7 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
                                 // §H 티저: A2+ 비프리미엄이면 카드에서 미리 알린다
                                 // — 탭은 기존 _onPackTap 의 게이트가 그대로 받는다.
                                 premium:
-                                    _level != 'A1' && !PremiumService.isPremium,
+                                    _level != 'A1' && !PremiumService.hasContentAccess,
                                 onTap: () => _onPackTap(e.pack),
                                 onLockedTap: () => _onLockedTap(e.pack),
                               );

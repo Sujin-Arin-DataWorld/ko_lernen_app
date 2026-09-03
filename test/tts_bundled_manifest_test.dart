@@ -15,7 +15,7 @@ void main() {
   });
 
   test(
-    'checked baseline manifest is valid, empty, and single-flight',
+    'checked baseline manifest is valid, cache-hit-aware, and single-flight',
     () async {
       TtsBundledManifest.resetForTesting();
       final first = TtsBundledManifest.load();
@@ -88,59 +88,57 @@ void main() {
     );
   });
 
-  test('missing declared asset is rejected', () async {
-    final bytes = _validMp3();
-    final item = _item(
-      scenarioId: 'missing',
-      text: '없는 파일',
-      assetPath: 'assets/tts/v3/male/missing.mp3',
-      bytes: bytes,
-    );
-    TtsBundledManifest.resetForTesting(
-      bundle: _bundle(_manifest(<Map<String, dynamic>>[item])),
-    );
+  test(
+    'missing declared asset loads fine but bytesFor resolves null',
+    () async {
+      final bytes = _validMp3();
+      final item = _item(
+        scenarioId: 'missing',
+        text: '없는 파일',
+        assetPath: 'assets/tts/v3/male/missing.mp3',
+        bytes: bytes,
+      );
+      // The declared asset is never registered in the fake bundle — byte
+      // validation is now lazy, so load() no longer touches it at all.
+      TtsBundledManifest.resetForTesting(
+        bundle: _bundle(_manifest(<Map<String, dynamic>>[item])),
+      );
 
-    await expectLater(
-      TtsBundledManifest.load(),
-      throwsA(
-        isA<FormatException>().having(
-          (error) => error.message,
-          'message',
-          contains('missing asset'),
-        ),
-      ),
-    );
-  });
+      final manifest = await TtsBundledManifest.load();
+      final key = TtsCacheKey.forRequest(voice: 'male', text: '없는 파일');
 
-  test('bundled SHA mismatch is rejected', () async {
-    final bytes = _validMp3();
-    final item = _item(
-      scenarioId: 'hash',
-      text: '해시 불일치',
-      assetPath: 'assets/tts/v3/male/hash.mp3',
-      bytes: bytes,
-    )..['bundledSha256'] = List<String>.filled(64, '0').join();
-    TtsBundledManifest.resetForTesting(
-      bundle: _bundle(
-        _manifest(<Map<String, dynamic>>[item]),
-        <String, Uint8List>{item['bundledAssetPath']! as String: bytes},
-      ),
-    );
-
-    await expectLater(
-      TtsBundledManifest.load(),
-      throwsA(
-        isA<FormatException>().having(
-          (error) => error.message,
-          'message',
-          contains('SHA-256 mismatch'),
-        ),
-      ),
-    );
-  });
+      expect(manifest.assetFor(key), 'assets/tts/v3/male/missing.mp3');
+      expect(await manifest.bytesFor(key), isNull);
+    },
+  );
 
   test(
-    'invalid MPEG bytes are rejected even when their hash matches',
+    'bundled SHA mismatch loads fine but bytesFor resolves null',
+    () async {
+      final bytes = _validMp3();
+      final item = _item(
+        scenarioId: 'hash',
+        text: '해시 불일치',
+        assetPath: 'assets/tts/v3/male/hash.mp3',
+        bytes: bytes,
+      )..['bundledSha256'] = List<String>.filled(64, '0').join();
+      TtsBundledManifest.resetForTesting(
+        bundle: _bundle(
+          _manifest(<Map<String, dynamic>>[item]),
+          <String, Uint8List>{item['bundledAssetPath']! as String: bytes},
+        ),
+      );
+
+      final manifest = await TtsBundledManifest.load();
+      final key = TtsCacheKey.forRequest(voice: 'male', text: '해시 불일치');
+
+      expect(await manifest.bytesFor(key), isNull);
+    },
+  );
+
+  test(
+    'invalid MPEG bytes load fine but bytesFor resolves null even when '
+    'their hash matches',
     () async {
       final bytes = Uint8List.fromList(List<int>.filled(64, 7));
       final item = _item(
@@ -156,16 +154,10 @@ void main() {
         ),
       );
 
-      await expectLater(
-        TtsBundledManifest.load(),
-        throwsA(
-          isA<FormatException>().having(
-            (error) => error.message,
-            'message',
-            contains('invalid MPEG'),
-          ),
-        ),
-      );
+      final manifest = await TtsBundledManifest.load();
+      final key = TtsCacheKey.forRequest(voice: 'male', text: '잘못된 파일');
+
+      expect(await manifest.bytesFor(key), isNull);
     },
   );
 
@@ -189,8 +181,53 @@ void main() {
     expect(audio!.path, isNull);
     expect(audio.bytes, orderedEquals(bytes));
     expect(bundle.loadCount[TtsBundledManifest.assetPath], 1);
-    expect(bundle.loadCount[item['bundledAssetPath']], 2);
+    expect(
+      bundle.loadCount[item['bundledAssetPath']],
+      1,
+      reason: 'bytesFor loads the declared asset exactly once (lazy, no '
+          'second readAsset)',
+    );
   });
+
+  test(
+    'bytesFor resolves the real first checked-in bundled row from rootBundle',
+    () async {
+      // M5 — pins one real manifest item end-to-end against the actual
+      // asset shipped in assets/tts/v3/, using the default (non-fake)
+      // rootBundle. flutter test resolves pubspec-declared assets from disk,
+      // so no bundle override is needed here (unlike the synthetic-bundle
+      // tests above).
+      TtsBundledManifest.resetForTesting();
+      final manifestJson =
+          jsonDecode(
+                File(
+                  'assets/data/tts_first_line_manifest.json',
+                ).readAsStringSync(),
+              )
+              as Map<String, dynamic>;
+      final items = (manifestJson['items'] as List<dynamic>)
+          .cast<Map<String, dynamic>>();
+      final firstBundled = items.firstWhere(
+        (item) => item['bundled'] == true,
+      );
+      final key = TtsCacheKey.forRequest(
+        voice: firstBundled['voice'] as String,
+        text: firstBundled['normalizedText'] as String,
+      );
+
+      final manifest = await TtsBundledManifest.load();
+      final bytes = await manifest.bytesFor(key);
+
+      expect(
+        bytes,
+        isNotNull,
+        reason:
+            'first checked-in bundled row (${firstBundled['scenarioId']}) '
+            'must resolve real bytes from the shipped asset',
+      );
+      expect(TtsCacheKey.isUsableAudio(bytes!), isTrue);
+    },
+  );
 
   test('resolver source preserves bundle, disk, Storage, callable order', () {
     final source = File('lib/services/tts_service.dart').readAsStringSync();

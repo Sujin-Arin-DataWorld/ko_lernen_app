@@ -15,12 +15,13 @@ import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 /// 카드 진입 시 좌상단에 [SoriSpeechIndicator]가 뜨고, 그걸 탭하면 카드 탭
 /// (플립)과 같은 히트테스트 아레나에 섞이지 않고 재생만 트리거된다.
 ///
-/// 진입 + 카드 전환(Skip) 자동재생은 `TtsService.speaking` 플래그가 아니라
+/// 진입 + 카드 전환(Skip) 자동재생은 `TtsService.phase` 상태가 아니라
 /// `SoriSpeech.speakImpl` 가짜 리졸버로 호출된 텍스트를 직접 세어 고정한다 —
-/// `speaking` 은 이전 호출의 엔진 Future 가 아직 안 끝났으면(테스트 환경엔
-/// 플랫폼 채널이 없어 완료가 보장되지 않는다) true 로 눌어붙어 있을 수 있어
-/// "이번 전환이 실제로 새로 발화했는가"를 구분하지 못한다. `speakImpl` 콜
-/// 리스트는 결정적이고, `playOnEnter` 호출을 지우면 즉시 실패한다.
+/// `phase` 는 이전 호출의 엔진 Future 가 아직 안 끝났으면(테스트 환경엔
+/// 플랫폼 채널이 없어 완료가 보장되지 않는다) speaking 으로 눌어붙어 있을
+/// 수 있어 "이번 전환이 실제로 새로 발화했는가"를 구분하지 못한다.
+/// `speakImpl` 콜 리스트는 결정적이고, `playOnEnter` 호출을 지우면 즉시
+/// 실패한다.
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 

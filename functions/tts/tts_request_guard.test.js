@@ -49,6 +49,7 @@ test("expensive TTS callable enforces App Check and matches the 12s client", () 
   assert.equal(CALLABLE_OPTIONS.enforceAppCheck, true);
   assert.equal(CALLABLE_OPTIONS.consumeAppCheckToken, true);
   assert.equal(CALLABLE_OPTIONS.timeoutSeconds, 12);
+  assert.equal(CALLABLE_OPTIONS.maxInstances, 20);
 });
 
 test("rejects anonymous callers before any synthesis work", () => {
@@ -184,7 +185,7 @@ test("usage ledgers expire two UTC days after the counted day", async () => {
     now,
   });
 
-  const stored = [...db.documents.values()];
+  const stored = [...db.documents.entries()].filter(([key]) => key.startsWith("usage/")).map(([, value]) => value);
   assert.equal(stored.length, 3);
   for (const document of stored) {
     assert.deepEqual(document.expiresAt, quotaExpiresAt("2026-08-16"));
@@ -354,7 +355,10 @@ function uuidFor(account, installation) {
 
 class FakeFirestore {
   constructor() {
-    this.documents = new Map();
+    this.documents = new Map([["service_cost_controls/ai_v1", {
+      schemaVersion: 1, approvedBy: "Jin", approvalRef: "local-test-only", approvedAt: new Date(0),
+      dailyUnitLimit: 10000, bookReservationUnits: 10, pronunciationReservationUnits: 2, ttsReservationUnits: 3,
+    }]]);
   }
 
   collection(name) {
@@ -372,6 +376,7 @@ class FakeFirestore {
     const writes = [];
     const tx = {
       get: async (ref) => {
+        assert.equal(writes.length, 0, "Firestore forbids reads after writes");
         const data = this.documents.get(ref.path);
         return {
           exists: data !== undefined,

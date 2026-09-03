@@ -1011,7 +1011,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             if (mounted) setState(() {});
           },
         ),
-        if (!providers.isDurable)
+        if (!providers.isGoogleLinked ||
+            (!providers.isAppleLinked &&
+                _accountOperations.appleSignInAvailable))
           ValueListenableBuilder<CloudBackupDeletionJournalState>(
             valueListenable: _cloudDataDeletionJournalState,
             builder: (context, cloudDeletionState, _) {
@@ -1021,22 +1023,32 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 operations: _accountOperations,
                 builder: (context, linkAvailable) => Column(
                   children: [
-                    ListTile(
-                      leading: const Icon(
-                        Icons.cloud_outlined,
-                        color: SoriColors.primary,
+                    if (!providers.isGoogleLinked)
+                      ListTile(
+                        leading: const Icon(
+                          Icons.cloud_outlined,
+                          color: SoriColors.primary,
+                        ),
+                        title: Text(t.settingsCloudSignInPrompt),
+                        subtitle: Text(
+                          providers.isDurable
+                              ? t.accountAdditionalProviderTitle
+                              : t.settingsCloudSignInDesc,
+                        ),
+                        onTap: linkAvailable && durableActionsAvailable
+                            ? _onGoogleTap
+                            : () => _showActionLocked(cloudDeletionState),
                       ),
-                      title: Text(t.settingsCloudSignInPrompt),
-                      subtitle: Text(t.settingsCloudSignInDesc),
-                      onTap: linkAvailable && durableActionsAvailable
-                          ? _onGoogleTap
-                          : () => _showActionLocked(cloudDeletionState),
-                    ),
-                    if (AuthService.appleSignInAvailable)
+                    if (!providers.isAppleLinked &&
+                        _accountOperations.appleSignInAvailable)
                       ListTile(
                         leading: const Icon(Icons.apple),
                         title: Text(t.authAppleSignIn),
-                        subtitle: Text(t.settingsCloudSignInDesc),
+                        subtitle: Text(
+                          providers.isDurable
+                              ? t.accountAdditionalProviderTitle
+                              : t.settingsCloudSignInDesc,
+                        ),
                         onTap: linkAvailable && durableActionsAvailable
                             ? _onAppleTap
                             : () => _showActionLocked(cloudDeletionState),
@@ -1924,6 +1936,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
       context,
       operations: _accountOperations,
       provider: AccountLinkProvider.google,
+      additionalProvider:
+          (widget.account ?? AuthService.accountSnapshot).providers.isDurable,
       onCompleted: () async {
         if (mounted) setState(() {});
       },
@@ -1935,6 +1949,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
       context,
       operations: _accountOperations,
       provider: AccountLinkProvider.apple,
+      additionalProvider:
+          (widget.account ?? AuthService.accountSnapshot).providers.isDurable,
       onCompleted: () async {
         if (mounted) setState(() {});
       },

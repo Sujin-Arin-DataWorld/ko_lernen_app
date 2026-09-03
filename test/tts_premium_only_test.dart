@@ -221,6 +221,104 @@ void main() {
     );
   });
 
+  group('재생 시작 콜백(onPlaybackStarted) — post-review T1.1', () {
+    test('해석 성공 + startAudio 성공에서만 정확히 1회, 텍스트와 함께 불린다', () async {
+      final throwingCalls = <String>[];
+      final throwingEngine = TtsPlaybackEngine(
+        resolveAudio: (text, voice) async => const TtsAudio.path('/tmp/ok.mp3'),
+        platform: const _ThrowingStartPlatform(),
+        onPlaybackStarted: (text, voice) => throwingCalls.add(text),
+      );
+      expect(
+        await throwingEngine.speak(text: 'x', voice: 'female', baseRate: 0.42),
+        isFalse,
+      );
+      expect(throwingCalls, isEmpty, reason: '재생-기전 실패에서는 콜백이 불리면 안 된다');
+      final startedCalls = <String>[];
+      final startingEngine = TtsPlaybackEngine(
+        resolveAudio: (text, voice) async => const TtsAudio.path('/tmp/ok.mp3'),
+        platform: const _StartingPlatform(),
+        onPlaybackStarted: (text, voice) => startedCalls.add(text),
+      );
+      expect(
+        await startingEngine.speak(text: 'x', voice: 'female', baseRate: 0.42),
+        isTrue,
+      );
+      expect(
+        startedCalls,
+        ['x'],
+        reason:
+            'SoriSpeech가 이 텍스트로 자기 요청과 대조해 승격 여부를 판단한다'
+            '(Fix round 1, finding 1) — trim된 원문 그대로 와야 한다',
+      );
+      final missingCalls = <String>[];
+      final missingEngine = TtsPlaybackEngine(
+        resolveAudio: (text, voice) async => null,
+        platform: const _StartingPlatform(),
+        onPlaybackStarted: (text, voice) => missingCalls.add(text),
+      );
+      expect(
+        await missingEngine.speak(text: 'x', voice: 'female', baseRate: 0.42),
+        isFalse,
+      );
+      expect(missingCalls, isEmpty);
+    });
+
+    test(
+      'stop() 은 phase 를 idle 로 되돌린다 (카드 전환 정지 시 speaking 고착 방지, fix round 1)',
+      () async {
+        // TtsService._player(audioplayers AudioPlayer)는 최초 접근 시
+        // ServicesBinding.instance 를 요구한다 — 순수 유닛 테스트에는 바인딩이
+        // 없어 그냥 부르면 하위 스트림/채널 호출이 걸린다. TestWidgetsFlutterBinding
+        // 을 초기화하면(이 테스트에만 영향, 나머지 9개는 플랫폼 채널을 안 써서
+        // 무관) 표준 테스트용 바인딩이 생겨 채널 호출이 MissingPluginException
+        // 으로 정상 실패하고, TtsService.stop() 내부의 기존 best-effort
+        // try/catch(_stopPlatforms/TtsPlaybackEngine.stop)가 그걸 삼킨다.
+        TestWidgetsFlutterBinding.ensureInitialized();
+        TtsService.phase.value = TtsSpeechPhase.speaking;
+        TtsService.activeSpeechText = '학교';
+        final pending = TtsService.stop();
+        // phase/activeSpeechText 리셋은 stop() 안에서 async 없이 즉시(동기)
+        // 실행되므로 반환 Future 를 기다리기 전에도 이미 반영돼 있다.
+        expect(TtsService.phase.value, TtsSpeechPhase.idle);
+        expect(
+          TtsService.activeSpeechText,
+          isNull,
+          reason:
+              'stop() 뒤에 남은 activeSpeechText는 다음 무관한 재생이 '
+              '엉뚱하게 speaking으로 오인 승격되는 통로가 된다(Fix round 1, finding 1)',
+        );
+        await pending;
+        expect(TtsService.phase.value, TtsSpeechPhase.idle);
+        expect(TtsService.activeSpeechText, isNull);
+      },
+    );
+  });
+
+  test(
+    'markSpeechStarting() 은 phase를 resolving으로 되돌리고 '
+    'activeSpeechText를 지운다 (F1)',
+    () {
+      TestWidgetsFlutterBinding.ensureInitialized();
+      TtsService.phase.value = TtsSpeechPhase.speaking;
+      TtsService.activeSpeechText = '학교';
+
+      TtsService.markSpeechStarting();
+
+      expect(TtsService.phase.value, TtsSpeechPhase.resolving);
+      expect(
+        TtsService.activeSpeechText,
+        isNull,
+        reason:
+            '직전 발화의 activeSpeechText를 남겨두면, 새 발화가 아직 자기 '
+            'activeSpeechText를 쓰기 전 우연히 같은 텍스트로 대조돼 잘못 '
+            '승격될 수 있다',
+      );
+
+      TtsService.phase.value = TtsSpeechPhase.idle;
+    },
+  );
+
   test('TtsAudio 는 경로 또는 바이트 중 하나만 갖는다', () {
     const byPath = TtsAudio.path('/tmp/a.mp3');
     expect(byPath.path, '/tmp/a.mp3');
@@ -254,6 +352,17 @@ class _ThrowingStartPlatform implements TtsPlaybackPlatform {
   @override
   Future<TtsPlaybackSession?> startAudio(TtsAudio audio, double rate) async {
     throw StateError('platform start failed');
+  }
+
+  @override
+  Future<void> stop() async {}
+}
+
+class _StartingPlatform implements TtsPlaybackPlatform {
+  const _StartingPlatform();
+  @override
+  Future<TtsPlaybackSession?> startAudio(TtsAudio audio, double rate) async {
+    return TtsPlaybackSession(Future<bool>.value(true));
   }
 
   @override

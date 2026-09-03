@@ -1,5 +1,6 @@
 import json
 import os
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -159,7 +160,10 @@ class TtsGeneratorContractTest(unittest.TestCase):
         self.assertEqual(manifest["cacheRevision"], "v3")
         self.assertEqual(manifest["scenarioCount"], 126)
         self.assertEqual(len(manifest["items"]), 126)
-        self.assertEqual(manifest["bundledCount"], 0)
+        # Task 7 (지시서 4.4 / 스윕 tts-07): 125개 유니크 첫 문장 mp3가 실제로
+        # assets/tts/v3/ 에 다운로드돼 커밋됐다 — 126개 항목(2개가 같은
+        # storagePath 공유) 전부 bundled:true 여야 한다.
+        self.assertEqual(manifest["bundledCount"], 126)
         ids = [item["scenarioId"] for item in manifest["items"]]
         self.assertEqual(len(ids), len(set(ids)))
         order = [
@@ -181,12 +185,19 @@ class TtsGeneratorContractTest(unittest.TestCase):
         self.assertTrue(
             all(len(item["sourceSha256"]) == 64 for item in manifest["items"])
         )
-        self.assertTrue(all(not item["bundled"] for item in manifest["items"]))
+        self.assertTrue(all(item["bundled"] for item in manifest["items"]))
         self.assertTrue(
-            all(item["bundledAssetPath"] is None for item in manifest["items"])
+            all(
+                item["bundledAssetPath"] is not None
+                and item["bundledAssetPath"].startswith("assets/tts/v3/")
+                for item in manifest["items"]
+            )
         )
         self.assertTrue(
-            all(item["bundledSha256"] is None for item in manifest["items"])
+            all(
+                item["bundledSha256"] is not None and len(item["bundledSha256"]) == 64
+                for item in manifest["items"]
+            )
         )
 
     def test_first_line_manifest_selects_first_dialog_and_legacy_voice_rule(self):
@@ -718,6 +729,100 @@ class TtsGeneratorContractTest(unittest.TestCase):
         self.assertEqual(argv[4], f"gs://{generate_tts.BUCKET}/{relative_path}")
         self.assertNotIn("rsync", argv)
 
+    def test_download_first_line_bundle_dedupes_shared_storage_paths(self):
+        items = [
+            {"storagePath": "tts/v3/female/aaa.mp3", "voice": "female", "cacheHashSha1": "aaa"},
+            {
+                # 두 시나리오가 같은 (voice, text) 첫 문장을 공유(126개 중 125
+                # 유니크). 같은 storagePath는 한 번만 다운로드해야 한다.
+                "storagePath": "tts/v3/female/aaa.mp3",
+                "voice": "female",
+                "cacheHashSha1": "aaa",
+            },
+            {"storagePath": "tts/v3/male/bbb.mp3", "voice": "male", "cacheHashSha1": "bbb"},
+        ]
+        calls = []
+
+        def fake_run(argv, check=True):
+            calls.append(argv)
+            target = argv[4]
+            # >= MIN_REMOTE_MP3_BYTES (256): 43 bytes would fail the same
+            # size floor real downloads are held to.
+            with open(target, "wb") as handle:
+                handle.write(b"ID3" + bytes(300))
+            return subprocess.CompletedProcess(argv, 0)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            with (
+                patch.object(generate_tts.shutil, "which", return_value="gcloud"),
+                patch.object(generate_tts.subprocess, "run", side_effect=fake_run),
+            ):
+                downloaded = generate_tts.download_first_line_bundle(
+                    items, project_root=tmp
+                )
+        self.assertEqual(len(calls), 2, "중복 storagePath는 한 번만 다운로드해야 한다")
+        self.assertEqual(len(downloaded), 2)
+
+    def test_download_first_line_bundle_batches_multi_item_voice_directories(self):
+        # 실제 125개 다운로드는 목소리당 한 프로세스(청크 <=chunk_size)로 묶어야
+        # 파일당 gcloud 프로세스 125개(각 ~10-16s)를 피한다 — 컨트롤러 룰링.
+        items = [
+            {"storagePath": f"tts/v3/female/{name}.mp3", "voice": "female", "cacheHashSha1": name}
+            for name in ("aaa", "bbb", "ccc")
+        ]
+        calls = []
+
+        def fake_run(argv, check=True):
+            calls.append(argv)
+            # Multi-source form: [... "cp", src1, src2, ..., dest_dir, "--project", PROJECT]
+            # Single-source form: [... "cp", src, dest_file, "--project", PROJECT]
+            dest = argv[-3]
+            sources = argv[3:-3]
+            if len(sources) == 1:
+                with open(dest, "wb") as handle:
+                    handle.write(b"ID3" + bytes(300))
+            else:
+                for source in sources:
+                    digest = source.rsplit("/", 1)[-1]
+                    with open(os.path.join(dest, digest), "wb") as handle:
+                        handle.write(b"ID3" + bytes(300))
+            return subprocess.CompletedProcess(argv, 0)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            with (
+                patch.object(generate_tts.shutil, "which", return_value="gcloud"),
+                patch.object(generate_tts.subprocess, "run", side_effect=fake_run),
+            ):
+                downloaded = generate_tts.download_first_line_bundle(
+                    items, project_root=tmp, chunk_size=2
+                )
+                voice_dir = os.path.join(tmp, "assets", "tts", "v3", "female")
+                remaining = sorted(os.listdir(voice_dir))
+
+        # chunk_size=2 over 3 items => one batched call (2 sources) + one
+        # single-source call, never one process per file.
+        self.assertEqual(len(calls), 2)
+        self.assertEqual(len(downloaded), 3)
+        self.assertEqual(remaining, ["aaa.mp3", "bbb.mp3", "ccc.mp3"])
+
+    def test_download_first_line_bundle_skips_an_already_valid_local_file(self):
+        items = [{"storagePath": "tts/v3/female/aaa.mp3", "voice": "female", "cacheHashSha1": "aaa"}]
+        with tempfile.TemporaryDirectory() as tmp:
+            voice_dir = os.path.join(tmp, "assets", "tts", "v3", "female")
+            os.makedirs(voice_dir)
+            existing = os.path.join(voice_dir, "aaa.mp3")
+            with open(existing, "wb") as handle:
+                handle.write(b"ID3" + bytes(300))
+            with (
+                patch.object(generate_tts.shutil, "which", return_value="gcloud"),
+                patch.object(generate_tts.subprocess, "run") as run,
+            ):
+                downloaded = generate_tts.download_first_line_bundle(
+                    items, project_root=tmp
+                )
+        run.assert_not_called()
+        self.assertEqual(downloaded, [])
+
     def test_verify_storage_mode_reaches_its_own_read_only_branch(self):
         # FIX-2a(2026-09-01 정정): --verify-storage 는 이제 --demo/--dry-run
         # 등과 같은 그룹의 정식 모드다 — 합성/업로드 코드를 전혀 안 타고
@@ -744,6 +849,128 @@ class TtsGeneratorContractTest(unittest.TestCase):
         auth.assert_not_called()
         synth.assert_not_called()
         run.assert_not_called()
+
+    def test_delete_stale_requires_verify_storage(self):
+        with patch("builtins.print"), patch("sys.stderr"):
+            with self.assertRaises(SystemExit) as ctx:
+                generate_tts.main(["--delete-stale"])
+        self.assertNotEqual(ctx.exception.code, 0)
+
+    def test_verify_storage_lists_stale_paths_without_deleting(self):
+        pairs = [("female", "안녕하세요")]
+        remote_path = generate_tts.cache_relative_path("female", "안녕하세요")
+        stale_path = "tts/v3/female/deadbeef00000000000000000000000000000000.mp3"
+        with (
+            patch.object(generate_tts, "collect", return_value=pairs),
+            patch.object(generate_tts.shutil, "which", return_value="gcloud"),
+            patch.object(
+                generate_tts, "remote_cache_objects",
+                return_value={remote_path: 4096, stale_path: 4096},
+            ),
+            patch.object(generate_tts, "delete_remote_objects") as delete,
+            patch.object(generate_tts.subprocess, "run") as run,
+            patch("builtins.print") as printed,
+        ):
+            result = generate_tts.main(["--verify-storage", "--delete-stale"])
+        self.assertEqual(result, 0)
+        delete.assert_not_called()
+        run.assert_not_called()
+        stale_lines = [
+            call.args[0]
+            for call in printed.call_args_list
+            if call.args and str(call.args[0]).startswith("STALE\t")
+        ]
+        self.assertEqual(stale_lines, [f"STALE\t{stale_path}"])
+
+    def test_verify_storage_without_delete_stale_does_not_list_stale_paths(self):
+        # F4 — a bare --verify-storage run (the CI completeness gate) must
+        # print only the stale *count* in the summary line, never one
+        # STALE\t line per object. With thousands of already-stale objects
+        # (voice-migration debris etc.) the unconditional per-path listing
+        # was thousands of lines of CI noise; the per-path preview is only
+        # useful together with --delete-stale (see the sibling test below).
+        pairs = [("female", "안녕하세요")]
+        remote_path = generate_tts.cache_relative_path("female", "안녕하세요")
+        stale_path = "tts/v3/female/deadbeef00000000000000000000000000000000.mp3"
+        with (
+            patch.object(generate_tts, "collect", return_value=pairs),
+            patch.object(generate_tts.shutil, "which", return_value="gcloud"),
+            patch.object(
+                generate_tts, "remote_cache_objects",
+                return_value={remote_path: 4096, stale_path: 4096},
+            ),
+            patch.object(generate_tts, "delete_remote_objects") as delete,
+            patch.object(generate_tts.subprocess, "run") as run,
+            patch("builtins.print") as printed,
+        ):
+            result = generate_tts.main(["--verify-storage"])
+        self.assertEqual(result, 0)
+        delete.assert_not_called()
+        run.assert_not_called()
+        stale_lines = [
+            call.args[0]
+            for call in printed.call_args_list
+            if call.args and str(call.args[0]).startswith("STALE\t")
+        ]
+        self.assertEqual(stale_lines, [])
+        summary_lines = [
+            call.args[0]
+            for call in printed.call_args_list
+            if call.args and str(call.args[0]).startswith("Storage verify")
+        ]
+        self.assertEqual(
+            summary_lines,
+            ["Storage verify — expected 1, remote 2, missing 0, stale 1"],
+        )
+
+    def test_confirm_delete_requires_delete_stale(self):
+        # I3(a) — the destructive path (--delete-stale --confirm-delete)
+        # previously had no coverage at all for the argparse guard that
+        # rejects --confirm-delete without --delete-stale.
+        with patch("builtins.print"), patch("sys.stderr"):
+            with self.assertRaises(SystemExit) as ctx:
+                generate_tts.main(["--verify-storage", "--confirm-delete"])
+        self.assertNotEqual(ctx.exception.code, 0)
+
+    def test_delete_stale_with_confirm_calls_delete_remote_objects_with_stale_set(
+        self,
+    ):
+        # I3(a) — pins the destructive --verify-storage --delete-stale
+        # --confirm-delete path: delete_remote_objects must be called with
+        # exactly the stale set (never the expected/remote sets themselves),
+        # and a run with nothing missing must still exit 0.
+        pairs = [("female", "안녕하세요")]
+        remote_path = generate_tts.cache_relative_path("female", "안녕하세요")
+        stale_path = "tts/v3/female/deadbeef00000000000000000000000000000000.mp3"
+        with (
+            patch.object(generate_tts, "collect", return_value=pairs),
+            patch.object(generate_tts.shutil, "which", return_value="gcloud"),
+            patch.object(
+                generate_tts, "remote_cache_objects",
+                return_value={remote_path: 4096, stale_path: 4096},
+            ),
+            patch.object(generate_tts, "delete_remote_objects") as delete,
+            patch.object(generate_tts.subprocess, "run") as run,
+            patch("builtins.print"),
+        ):
+            result = generate_tts.main(
+                ["--verify-storage", "--delete-stale", "--confirm-delete"]
+            )
+        self.assertEqual(result, 0)
+        delete.assert_called_once_with({stale_path})
+        run.assert_not_called()
+
+    def test_delete_remote_objects_chunks_at_fifty_paths_per_call(self):
+        # I3(b) — delete_remote_objects must chunk like the download path
+        # (<=50 paths per `gcloud storage rm` invocation) instead of putting
+        # an unbounded argv on one process.
+        paths = {f"tts/v3/female/{i:040d}.mp3" for i in range(120)}
+        with (
+            patch.object(generate_tts.shutil, "which", return_value="gcloud"),
+            patch.object(generate_tts.subprocess, "run") as run,
+        ):
+            generate_tts.delete_remote_objects(paths)
+        self.assertEqual(run.call_count, 3)
 
     def test_missing_from_storage_mode_reads_remote_before_synthesizing(self):
         # FIX-2a(2026-09-01 정정): --missing-from-storage 와 --synthesize 는

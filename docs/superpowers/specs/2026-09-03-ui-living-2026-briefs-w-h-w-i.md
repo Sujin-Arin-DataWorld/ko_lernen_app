@@ -165,3 +165,7 @@ W-I 는 **PR-2(W-H) 머지 후 origin/main 에서 새 브랜치**로 실행(스�
 
 ---
 
+
+## I-I. (Jin 결정 2026-09-03) compound map 폐기 후보
+
+Jin: Hanok 탭의 항공 부감 합성 지도(`PersonalHanokMap` compound 분기, `assets/illustrations/personal_hanok_v*`, `WorldMapViewport`)는 "지저분하고 이미 안 쓰는 이미지". PR-1(W-K 1b)에서 Hanok 탭 프리뷰를 단계 일러스트(`hanok_stages/stage_*_light.png`)로 교체했으므로 compound map의 남은 참조는 프로덕션 라우트가 없는 `HanokWorldScreen` 비임베드 경로뿐이다. W-I에서: 참조 0 재확인 → `PersonalHanokMap` compound 분기·`WorldMapViewport`·`personal_hanok_v*` 에셋을 `assets_unused/`로 이동(pubspec 선언 제거) + `personal_hanok_map_golden_test` 3건 정리. **Jin 게이트**(에셋 이동은 보고 후).

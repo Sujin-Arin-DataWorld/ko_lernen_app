@@ -137,6 +137,8 @@ class ListeningPlaybackController extends ChangeNotifier {
     revealedCount = lines.length;
     currentIndex = lines.isEmpty ? -1 : lines.length - 1;
     ttsFailed = false;
+    // Review supplies the meaning immediately; learners can still hide a line.
+    expandedTranslations.addAll(Iterable<int>.generate(lines.length));
     notifyListeners();
   }
 

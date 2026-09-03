@@ -15,6 +15,7 @@ final class TypedStudyBookmark {
     required StudyItemKey key,
     required String primaryText,
     String? secondaryText,
+    String? secondaryLanguage,
     String sourceUnitId = '',
   }) {
     final primary = primaryText.trim();
@@ -30,6 +31,9 @@ final class TypedStudyBookmark {
       key: key,
       primaryText: primary,
       secondaryText: secondary == null || secondary.isEmpty ? null : secondary,
+      secondaryLanguage: const {'de', 'en'}.contains(secondaryLanguage)
+          ? secondaryLanguage
+          : null,
       sourceUnitId: sourceUnitId.trim(),
     );
   }
@@ -38,12 +42,16 @@ final class TypedStudyBookmark {
     required this.key,
     required this.primaryText,
     required this.secondaryText,
+    required this.secondaryLanguage,
     required this.sourceUnitId,
   });
 
   final StudyItemKey key;
   final String primaryText;
   final String? secondaryText;
+
+  /// Null for legacy bookmarks whose explanation language was never saved.
+  final String? secondaryLanguage;
   final String sourceUnitId;
 
   Map<String, Object> toJson() => <String, Object>{
@@ -51,6 +59,7 @@ final class TypedStudyBookmark {
     'id': key.id,
     'primaryText': primaryText,
     if (secondaryText case final value?) 'secondaryText': value,
+    if (secondaryLanguage case final value?) 'secondaryLanguage': value,
     if (sourceUnitId.isNotEmpty) 'sourceUnitId': sourceUnitId,
   };
 
@@ -63,11 +72,13 @@ final class TypedStudyBookmark {
     final rawId = json['id'];
     final rawPrimary = json['primaryText'];
     final rawSecondary = json['secondaryText'];
+    final rawSecondaryLanguage = json['secondaryLanguage'];
     final rawSourceUnitId = json['sourceUnitId'];
     if (rawType is! String ||
         rawId is! String ||
         rawPrimary is! String ||
         (rawSecondary != null && rawSecondary is! String) ||
+        (rawSecondaryLanguage != null && rawSecondaryLanguage is! String) ||
         (rawSourceUnitId != null && rawSourceUnitId is! String)) {
       throw const FormatException('Typed bookmark fields are invalid.');
     }
@@ -82,6 +93,7 @@ final class TypedStudyBookmark {
         key: StudyItemKey(type: type, id: rawId),
         primaryText: rawPrimary,
         secondaryText: rawSecondary as String?,
+        secondaryLanguage: rawSecondaryLanguage as String?,
         sourceUnitId: rawSourceUnitId as String? ?? '',
       );
     } on ArgumentError catch (error) {
@@ -95,11 +107,17 @@ final class TypedStudyBookmark {
       other.key == key &&
       other.primaryText == primaryText &&
       other.secondaryText == secondaryText &&
+      other.secondaryLanguage == secondaryLanguage &&
       other.sourceUnitId == sourceUnitId;
 
   @override
-  int get hashCode =>
-      Object.hash(key, primaryText, secondaryText, sourceUnitId);
+  int get hashCode => Object.hash(
+    key,
+    primaryText,
+    secondaryText,
+    secondaryLanguage,
+    sourceUnitId,
+  );
 }
 
 final class TypedStudyBookmarkReadResult {
