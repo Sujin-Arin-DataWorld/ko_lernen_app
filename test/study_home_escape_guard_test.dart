@@ -49,7 +49,8 @@ void main() {
     'lib/screens/hard_choice_quiz_screen.dart':
         '!_done && (_idx > 0 || _locked)',
     'lib/screens/kkeunmari_screen.dart': '_end == _End.none && _remaining > 0',
-    'lib/screens/pronunciation_studio_screen.dart': '_recording || _assessing',
+    'lib/screens/pronunciation_studio_screen.dart':
+        '_captureBusy || _assessing',
     'lib/screens/review_session_screen.dart': '!_done && _reviewed > 0',
     'lib/screens/satz_arcade_screen.dart': '_hasSubmittedAnswer',
     'lib/screens/scenario_player_screen.dart': '_stage > 0 && !_isResultStage',
@@ -186,7 +187,7 @@ void main() {
     );
   });
 
-  test('pronunciation protects recording and assessment only', () {
+  test('pronunciation protects all capture transitions and assessment', () {
     final source = _blankStringsAndComments(
       File('lib/screens/pronunciation_studio_screen.dart').readAsStringSync(),
     );
@@ -199,13 +200,24 @@ void main() {
       escapes.any(
         (escape) =>
             escape.contains(
-              _normalizeWhitespace('confirmWhen: _recording || _assessing,'),
+              _normalizeWhitespace('confirmWhen: _captureBusy || _assessing,'),
             ) ||
             escape.contains(
-              _normalizeWhitespace('confirmWhen: _recording || _assessing)'),
+              _normalizeWhitespace('confirmWhen: _captureBusy || _assessing)'),
             ),
       ),
       isTrue,
+    );
+    // Keep the helper's full safety contract explicit: preparation and PCM
+    // finalization still own audio resources even when _recording is false.
+    expect(
+      _normalizeWhitespace(source),
+      contains(
+        _normalizeWhitespace(
+          'bool get _captureBusy => '
+          '_preparingRecording || _recording || _finishingRecording;',
+        ),
+      ),
     );
   });
 }

@@ -48,6 +48,12 @@ import 'package:ko_lernen_app/widgets/sori/window_class.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
+  // Wordbook search also reads the vocabulary now. Warm the real bundle before
+  // any widget test can leave a pending asset future in its fake async zone.
+  setUpAll(() async {
+    expect(await DataLoader.loadVocab(), isNotEmpty);
+  });
+
   setUp(() async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({

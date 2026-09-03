@@ -112,8 +112,21 @@ class ExtractedWord {
     return _resolvedExampleLanguage == 'en' ? '' : exampleDe;
   }
 
-  String get _resolvedExampleLanguage =>
-      exampleLanguage.isEmpty ? translationLanguage : exampleLanguage;
+  String get _resolvedExampleLanguage {
+    if (exampleLanguage.isNotEmpty) {
+      return exampleLanguage;
+    }
+    // Legacy curated/grammar saves kept literal DE and EN meanings, but
+    // exampleDe was always German even when the interface language was EN.
+    // English OCR/import instead mirrored its primary meaning into both slots
+    // (or left translationEn empty), with an English example in exampleDe.
+    if (translationDe.trim().isNotEmpty &&
+        translationEn.trim().isNotEmpty &&
+        translationDe.trim() != translationEn.trim()) {
+      return 'de';
+    }
+    return translationLanguage;
+  }
 
   String posFor(String languageCode) {
     if (languageCode != 'en') {
@@ -226,9 +239,11 @@ class ExtractedWord {
     exampleKorean: _safeWordExample(j['exampleKorean']),
     exampleDe: _safeWordMeaning(j['exampleDe']),
     exampleEn: _safeWordMeaning(j['exampleEn']),
-    exampleLanguage: _bookLanguage(
-      j['exampleLanguage'] ?? j['translationLanguage'],
-    ),
+    exampleLanguage: switch (j['exampleLanguage']) {
+      'de' => 'de',
+      'en' => 'en',
+      _ => '',
+    },
     definitionKo: _safeWordDefinition(j['definitionKo']),
     imagePath: _managedRefFor(j['imagePath'], ManagedMediaKind.word) ?? '',
     savedToPackId: j['savedToPackId'] as String?,
@@ -246,9 +261,11 @@ class ExtractedWord {
         exampleKorean: _safeWordExample(j['exampleKorean']),
         exampleDe: _safeWordMeaning(j['exampleDe']),
         exampleEn: _safeWordMeaning(j['exampleEn']),
-        exampleLanguage: _bookLanguage(
-          j['exampleLanguage'] ?? j['translationLanguage'],
-        ),
+        exampleLanguage: switch (j['exampleLanguage']) {
+          'de' => 'de',
+          'en' => 'en',
+          _ => '',
+        },
         definitionKo: _safeWordDefinition(j['definitionKo']),
         imagePath: '',
         savedToPackId: j['savedToPackId'] as String?,

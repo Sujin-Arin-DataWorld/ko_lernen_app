@@ -14,6 +14,7 @@ import 'package:ko_lernen_app/screens/hard_words_screen.dart';
 import 'package:ko_lernen_app/screens/review_session_screen.dart';
 import 'package:ko_lernen_app/screens/wordbook_search_screen.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
+import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_error.dart';
@@ -27,7 +28,7 @@ const _safeInsets = EdgeInsets.only(top: 44, bottom: 34);
 const _savedWord = ExtractedWord(
   korean: '사랑',
   romanization: 'sarang',
-  posDe: 'ausführliches koreanisches Substantiv',
+  posDe: 'Substantiv',
   translationDe: 'eine beständige tiefe Zuneigung',
   translationEn: 'a lasting and deep affection',
   translationLanguage: 'en',
@@ -67,16 +68,37 @@ CustomPack get _savedPack => CustomPack.manual(
   createdAt: DateTime.utc(2026, 8, 22),
 );
 
-ExtractedWord _filterWord(int index) => ExtractedWord.manual(
-  korean: '필터단어$index',
-  romanization: 'filter$index',
-  posDe: 'Ausführliche einzigartige Wortart Nummer $index',
-  translationDe: 'Bedeutung $index',
-  translationEn: 'meaning $index',
-);
+const _localizedFilterPartsOfSpeech = <String>[
+  'Adjektiv',
+  'Adverb',
+  'Ausdruck',
+  'Interjektion',
+  'Konjunktion',
+  'Partikel',
+  'Pronomen',
+  'Zahlwort',
+  'Verbphrase',
+];
+
+ExtractedWord _filterWord(int index, {required String language}) =>
+    ExtractedWord.manual(
+      korean: '필터단어$index',
+      romanization: 'filter$index',
+      posDe: language == 'de'
+          ? 'Ausführliche einzigartige Wortart Nummer $index'
+          : _localizedFilterPartsOfSpeech[index],
+      translationDe: 'Bedeutung $index',
+      translationEn: 'meaning $index',
+    );
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+
+  // Complete the real asset read before a widget's fake async zone can cache
+  // an unfinished rootBundle future while resolving saved-word translations.
+  setUpAll(() async {
+    expect(await DataLoader.loadVocab(), isNotEmpty);
+  });
 
   setUp(() async {
     Storage.resetForTesting();
@@ -157,9 +179,12 @@ void main() {
       );
 
       final allFilter = find.byKey(const ValueKey('wordbook-pos-all'));
-      final nounFilter = find.byKey(
-        const ValueKey('wordbook-pos-ausführliches koreanisches Substantiv'),
+      final nounFilter = find.byKey(const ValueKey('wordbook-pos-Substantiv'));
+      expect(
+        find.descendant(of: nounFilter, matching: find.text('Noun')),
+        findsOneWidget,
       );
+      expect(find.text('Substantiv'), findsNothing);
       expect(tester.getSize(allFilter).height, greaterThanOrEqualTo(48));
       final allData = tester.getSemantics(allFilter).getSemanticsData();
       expect(allData.flagsCollection.isButton, isTrue);
@@ -203,21 +228,26 @@ void main() {
     'many long filters scroll without consuming the short result surface',
     (tester) async {
       _resetViewAfterTest(tester);
-      final words = List<ExtractedWord>.generate(9, _filterWord);
-      await CustomPackService.save(
-        CustomPack.manual(
-          id: 'many-filter-pack',
-          name: 'Many filters',
-          words: words,
-          createdAt: DateTime.utc(2026, 8, 22, 1),
-        ),
-      );
       const cases = <({Size size, double textScale})>[
         (size: Size(320, 640), textScale: 2),
         (size: Size(360, 400), textScale: 1),
       ];
 
       for (final locale in const <Locale>[Locale('de'), Locale('en')]) {
+        // Keep authored long-label stress in German. English uses the supported
+        // translated POS labels, since unknown German prose is hidden there.
+        final words = List<ExtractedWord>.generate(
+          9,
+          (index) => _filterWord(index, language: locale.languageCode),
+        );
+        await CustomPackService.save(
+          CustomPack.manual(
+            id: 'many-filter-pack',
+            name: 'Many filters',
+            words: words,
+            createdAt: DateTime.utc(2026, 8, 22, 1),
+          ),
+        );
         for (final testCase in cases) {
           await _pumpScreen(
             tester,
@@ -231,11 +261,18 @@ void main() {
             matching: find.byType(Scrollable),
           );
           expect(filterScroll, findsOneWidget);
+          final sortedPartsOfSpeech = words.map((word) => word.posDe).toList()
+            ..sort();
           final lastFilter = find.byKey(
-            const ValueKey(
-              'wordbook-pos-Ausführliche einzigartige Wortart Nummer 8',
-            ),
+            ValueKey('wordbook-pos-${sortedPartsOfSpeech.last}'),
           );
+          for (final word in words) {
+            expect(
+              find.byKey(ValueKey('wordbook-pos-${word.posDe}')),
+              findsOneWidget,
+            );
+            expect(find.text(word.posFor(locale.languageCode)), findsWidgets);
+          }
           await tester.scrollUntilVisible(
             lastFilter,
             80,
@@ -251,6 +288,144 @@ void main() {
           expect(tester.takeException(), isNull);
         }
       }
+    },
+  );
+
+  for (final newerLanguage in const ['de', 'en']) {
+    testWidgets(
+      'search keeps available meanings when $newerLanguage pack is newer',
+      (tester) async {
+        _resetViewAfterTest(tester);
+        for (final language in const ['de', 'en']) {
+          await CustomPackService.save(
+            CustomPack.manual(
+              id: 'duplicate-$language',
+              name: 'Duplicate $language',
+              createdAt: DateTime.utc(
+                2026,
+                8,
+                language == newerLanguage ? 24 : 23,
+              ),
+              words: [
+                ExtractedWord.manual(
+                  korean: '우리말연습단어',
+                  translationDe: language == 'de'
+                      ? 'mein eigener deutscher Begriff'
+                      : '',
+                  translationEn: language == 'en'
+                      ? 'my own English meaning'
+                      : '',
+                ),
+              ],
+            ),
+          );
+        }
+        for (final locale in const [Locale('en'), Locale('de')]) {
+          await _pumpScreen(
+            tester,
+            const WordbookSearchScreen(),
+            locale: locale,
+            size: const Size(390, 844),
+            textScale: 1.3,
+          );
+          await _scrollTo(tester, find.text('우리말연습단어'));
+          expect(find.text('우리말연습단어'), findsOneWidget);
+          expect(
+            find.text(
+              locale.languageCode == 'en'
+                  ? 'my own English meaning'
+                  : 'mein eigener deutscher Begriff',
+            ),
+            findsOneWidget,
+          );
+        }
+      },
+    );
+  }
+
+  testWidgets(
+    'locale switch ignores a hidden POS filter without replacing search state',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      _resetViewAfterTest(tester);
+      await CustomPackService.save(
+        CustomPack.manual(
+          id: 'locale-filter-de',
+          name: 'German word',
+          createdAt: DateTime.utc(2026, 8, 24),
+          words: [
+            ExtractedWord.manual(
+              korean: '우리말연습단어',
+              posDe: 'Nomen',
+              translationDe: 'mein eigener deutscher Begriff',
+            ),
+          ],
+        ),
+      );
+      await CustomPackService.save(
+        CustomPack.manual(
+          id: 'locale-filter-en',
+          name: 'English word',
+          createdAt: DateTime.utc(2026, 8, 23),
+          words: [
+            ExtractedWord.manual(
+              korean: '우리말연습단어',
+              translationDe: '',
+              translationEn: 'my own English meaning',
+            ),
+          ],
+        ),
+      );
+      await _pumpScreen(
+        tester,
+        const WordbookSearchScreen(),
+        locale: const Locale('de'),
+        size: const Size(390, 844),
+        textScale: 1.3,
+      );
+      final searchState = tester.state(find.byType(WordbookSearchBody));
+      final nounFilter = find.byKey(const ValueKey('wordbook-pos-Nomen'));
+      await tester.tap(nounFilter);
+      await tester.pump();
+      expect(
+        tester
+            .getSemantics(nounFilter)
+            .getSemanticsData()
+            .flagsCollection
+            .isSelected,
+        ui.Tristate.isTrue,
+      );
+      _expectLiveSemantics(
+        tester,
+        lookupAppL10n(const Locale('de')).wbSearchCount(1),
+      );
+
+      await _pumpScreen(
+        tester,
+        const WordbookSearchScreen(),
+        locale: const Locale('en'),
+        size: const Size(390, 844),
+        textScale: 1.3,
+        preserveState: true,
+      );
+      expect(tester.state(find.byType(WordbookSearchBody)), same(searchState));
+      expect(nounFilter, findsNothing);
+      expect(find.text('my own English meaning'), findsOneWidget);
+      final allFilter = find.byKey(const ValueKey('wordbook-pos-all'));
+      expect(
+        tester
+            .getSemantics(allFilter)
+            .getSemanticsData()
+            .flagsCollection
+            .isSelected,
+        ui.Tristate.isTrue,
+      );
+      _expectLiveSemantics(
+        tester,
+        lookupAppL10n(const Locale('en')).wbSearchCount(3),
+      );
+      expect(tester.takeException(), isNull);
+      semantics.dispose();
     },
   );
 
@@ -397,11 +572,14 @@ Future<void> _pumpScreen(
   required Locale locale,
   required Size size,
   required double textScale,
+  bool preserveState = false,
 }) async {
   tester.view.physicalSize = size;
   tester.view.devicePixelRatio = 1;
-  await tester.pumpWidget(const SizedBox.shrink());
-  await tester.pump();
+  if (!preserveState) {
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump();
+  }
   await tester.pumpWidget(
     MaterialApp(
       debugShowCheckedModeBanner: false,

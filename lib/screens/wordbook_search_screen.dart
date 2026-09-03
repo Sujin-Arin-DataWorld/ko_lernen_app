@@ -70,13 +70,15 @@ class _WordbookSearchBodyState extends State<WordbookSearchBody> {
   }
 
   Future<void> _load() async {
-    // Alle Custom-Pack-Wörter zusammenführen + per koreanischem String dedupen.
-    final seen = <String>{};
+    // Keep every saved meaning until the active display language is known.
+    // Pack recency must not discard a translation that another pack contains.
     final words = <ExtractedWord>[];
     for (final p in CustomPackService.getAll()) {
       for (final w in p.words) {
-        if (w.korean.trim().isEmpty) continue;
-        if (seen.add(w.korean)) words.add(w);
+        if (w.korean.trim().isEmpty) {
+          continue;
+        }
+        words.add(w);
       }
     }
     setState(() => _all = words);
@@ -89,6 +91,21 @@ class _WordbookSearchBodyState extends State<WordbookSearchBody> {
     }
   }
 
+  List<ExtractedWord> get _wordsForCurrentLanguage {
+    final language = Localizations.localeOf(context).languageCode;
+    final byKorean = <String, ExtractedWord>{};
+    for (final word in _all) {
+      final korean = word.korean.trim();
+      final previous = byKorean[korean];
+      if (previous == null ||
+          (previous.translationFor(language).trim().isEmpty &&
+              word.translationFor(language).trim().isNotEmpty)) {
+        byKorean[korean] = word;
+      }
+    }
+    return byKorean.values.toList();
+  }
+
   void _clearQuery() {
     _ctrl.clear();
     setState(() => _query = '');
@@ -96,7 +113,7 @@ class _WordbookSearchBodyState extends State<WordbookSearchBody> {
 
   List<String> get _posOptions {
     final set = <String>{};
-    for (final w in _all) {
+    for (final w in _wordsForCurrentLanguage) {
       if (w.posFor(Localizations.localeOf(context).languageCode).isNotEmpty) {
         set.add(w.posDe.trim());
       }
@@ -104,11 +121,15 @@ class _WordbookSearchBodyState extends State<WordbookSearchBody> {
     return set.toList()..sort();
   }
 
-  List<ExtractedWord> get _filtered {
+  List<ExtractedWord> _filtered(String? selectedPos) {
     final q = _query.trim().toLowerCase();
-    return _all.where((w) {
-      if (_pos != null && w.posDe.trim() != _pos) return false;
-      if (q.isEmpty) return true;
+    return _wordsForCurrentLanguage.where((w) {
+      if (selectedPos != null && w.posDe.trim() != selectedPos) {
+        return false;
+      }
+      if (q.isEmpty) {
+        return true;
+      }
       return w.korean.toLowerCase().contains(q) ||
           w.translationDe.toLowerCase().contains(q) ||
           w.translationEn.toLowerCase().contains(q) ||
@@ -125,8 +146,11 @@ class _WordbookSearchBodyState extends State<WordbookSearchBody> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final results = _filtered;
     final posOptions = _posOptions;
+    // A locale change can choose a duplicate with different POS metadata. Only
+    // apply filters that are still visible, including for the selected chip.
+    final selectedPos = posOptions.contains(_pos) ? _pos : null;
+    final results = _filtered(selectedPos);
     final filterMaxHeight = MediaQuery.sizeOf(context).height < 700
         ? 112.0
         : 160.0;
@@ -197,8 +221,10 @@ class _WordbookSearchBodyState extends State<WordbookSearchBody> {
                               child: SoriChip(
                                 key: const ValueKey('wordbook-pos-all'),
                                 label: t.wbPosAll,
-                                selected: _pos == null,
-                                icon: _pos == null ? Icons.check_rounded : null,
+                                selected: selectedPos == null,
+                                icon: selectedPos == null
+                                    ? Icons.check_rounded
+                                    : null,
                                 variant: SoriChipVariant.outlined,
                                 idleBorderColor:
                                     Theme.of(context).brightness ==
@@ -226,8 +252,10 @@ class _WordbookSearchBodyState extends State<WordbookSearchBody> {
                                           context,
                                         ).languageCode,
                                       ),
-                                  selected: _pos == p,
-                                  icon: _pos == p ? Icons.check_rounded : null,
+                                  selected: selectedPos == p,
+                                  icon: selectedPos == p
+                                      ? Icons.check_rounded
+                                      : null,
                                   variant: SoriChipVariant.outlined,
                                   idleBorderColor:
                                       Theme.of(context).brightness ==
