@@ -12,6 +12,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 import 'account/account_failure_reason.dart';
+import 'account/apple_oauth_request.dart';
+import 'account/durable_provider_link.dart';
 import 'account/account_deletion_status_receipt.dart';
 import 'account/account_operation_client.dart';
 import 'account/account_reconciliation.dart';
@@ -1519,7 +1521,16 @@ class _FirebaseAccountDeletionOperations implements AccountDeletionOperations {
   Future<AccountOperationResult> completeAppleRevocation(
     AppleRevocationCompletionRequest request,
   ) {
-    return client.completeAppleRevocation(request);
+    return client.completeAppleRevocation(
+      AppleRevocationCompletionRequest(
+        operationId: request.operationId,
+        expectedVersion: request.expectedVersion,
+        authorizationCode: request.authorizationCode,
+        clientKind: !kIsWeb && defaultTargetPlatform == TargetPlatform.android
+            ? AppleAuthorizationClientKind.web
+            : AppleAuthorizationClientKind.native,
+      ),
+    );
   }
 
   @override
@@ -2414,14 +2425,15 @@ class AuthService {
     }
   }
 
-  /// Apple Sign-In ist nur auf Apple-Plattformen verfügbar (App-Store-
-  /// Richtlinie 4.8 verlangt es, sobald Google-Login angeboten wird).
+  /// Android opens Apple's browser consent flow. Missing release metadata is
+  /// reported on selection, rather than hiding the user's only sign-in method.
   static bool get appleSignInAvailable {
     if (kIsWeb) {
       return false;
     }
     return defaultTargetPlatform == TargetPlatform.iOS ||
-        defaultTargetPlatform == TargetPlatform.macOS;
+        defaultTargetPlatform == TargetPlatform.macOS ||
+        defaultTargetPlatform == TargetPlatform.android;
   }
 
   static String? get displayName => current?.displayName ?? current?.email;
@@ -2605,6 +2617,9 @@ class AuthService {
   /// Existing-account collisions preserve the primary anonymous session and
   /// require explicit confirmation through [AccountTransitionCoordinator].
   static Future<User?> linkWithGoogle() {
+    if (isDurableLinked) {
+      return _linkAdditionalProvider(AccountLinkProvider.google);
+    }
     return _runDurableIdentityMutation(() async {
       final auth = _auth;
       // ⚠️ Firebase 미초기화는 **사용자 취소가 아니다**. 예전에는 둘 다 null 을
@@ -2653,6 +2668,9 @@ class AuthService {
   /// Anonymen User mit Apple-Account verlinken (iOS — App-Store-Pflicht 4.8).
   /// Existing-account collisions never activate the target implicitly.
   static Future<User?> linkWithApple() {
+    if (isDurableLinked) {
+      return _linkAdditionalProvider(AccountLinkProvider.apple);
+    }
     return _runDurableIdentityMutation(() async {
       final auth = _auth;
       // Google 과 같은 이유 — 시스템 불가와 사용자 취소를 구분한다.
@@ -2699,6 +2717,49 @@ class AuthService {
       final linked = (attempt as AnonymousCredentialLinked<User?>).value;
       await _maybeSetAppleName(linked, appleCredential);
       return _activateSignedInUser(linked, sourceUid: sourceUid);
+    });
+  }
+
+  static Future<User?> _linkAdditionalProvider(AccountLinkProvider provider) {
+    final user = current;
+    final session = cloudWriteSessionController.current;
+    if (user == null) {
+      throw const AccountLinkUnavailable();
+    }
+    return _runDurableIdentityMutation(() async {
+      if (current?.uid != user.uid ||
+          user.isAnonymous ||
+          session == null ||
+          cloudWriteSessionController.current != session) {
+        throw const AccountLinkSafetyFailure();
+      }
+      final outcome = await linkAdditionalDurableProvider<AuthCredential>(
+        provider: provider,
+        sourceUid: user.uid,
+        sessions: cloudWriteSessionController,
+        currentUid: () => current?.uid,
+        currentProviderIds: () =>
+            current?.providerData.map((p) => p.providerId) ?? const [],
+        acquireCredential: (provider, assertCurrent) =>
+            _acquireFreshProviderCredential(
+              provider,
+              assertCurrent: assertCurrent,
+            ),
+        reauthenticate: (credential) async {
+          await user.reauthenticateWithCredential(credential);
+        },
+        linkCredential: (credential) async =>
+            (await user.linkWithCredential(credential)).user?.uid,
+        reload: user.reload,
+      );
+      if (current?.uid != user.uid ||
+          cloudWriteSessionController.current != session) {
+        throw const AccountLinkSafetyFailure();
+      }
+      if (outcome == DurableProviderLinkOutcome.collision) {
+        throw const DurableProviderLinkCollision();
+      }
+      return current;
     });
   }
 
@@ -3264,20 +3325,24 @@ class AuthService {
   }
 
   static Future<AuthCredential> _acquireFreshProviderCredential(
-    AccountLinkProvider provider,
-  ) async {
+    AccountLinkProvider provider, {
+    void Function()? assertCurrent,
+  }) async {
     switch (provider) {
       case AccountLinkProvider.google:
-        final googleUser = await GoogleOAuthClient.signIn();
+        final googleUser = await GoogleOAuthClient.signInFresh(
+          assertCurrent: assertCurrent ?? () {},
+        );
+        assertCurrent?.call();
         if (googleUser == null) {
           throw FirebaseAuthException(
             code: 'target-verification-cancelled',
             message: 'Target verification was cancelled.',
           );
         }
-        return GoogleOAuthClient.credentialFromAuthentication(
-          await googleUser.authentication,
-        );
+        final authentication = await googleUser.authentication;
+        assertCurrent?.call();
+        return GoogleOAuthClient.credentialFromAuthentication(authentication);
       case AccountLinkProvider.apple:
         final rawNonce = _generateNonce();
         final apple = await _requestAppleIdCredential(
@@ -3285,6 +3350,7 @@ class AuthService {
           includeFullName: false,
           cancelReturnsNull: false,
         );
+        assertCurrent?.call();
         if (apple == null) {
           throw FirebaseAuthException(
             code: 'target-verification-cancelled',
@@ -3345,12 +3411,13 @@ class AuthService {
     required bool cancelReturnsNull,
   }) async {
     try {
-      return await SignInWithApple.getAppleIDCredential(
-        scopes: [
-          AppleIDAuthorizationScopes.email,
-          if (includeFullName) AppleIDAuthorizationScopes.fullName,
-        ],
+      final android =
+          !kIsWeb && defaultTargetPlatform == TargetPlatform.android;
+      return await requestAppleOAuthCredential(
+        android: android,
         nonce: nonce,
+        state: _generateNonce(),
+        includeFullName: includeFullName,
       );
     } on SignInWithAppleAuthorizationException catch (error) {
       if (error.code == AuthorizationErrorCode.canceled) {

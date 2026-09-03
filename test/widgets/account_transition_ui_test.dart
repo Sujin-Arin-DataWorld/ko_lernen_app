@@ -27,6 +27,40 @@ void main() {
     await Storage.init();
   });
 
+  testWidgets(
+    'Apple-only profile offers Google and requires association consent',
+    (tester) async {
+      final operations = _FakeAccountUiOperations();
+      tester.view.physicalSize = const Size(400, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(
+        _wrap(
+          ProfileScreen(
+            account: const AuthAccountSnapshot(
+              providers: AuthProviderState(
+                isGoogleLinked: false,
+                isAppleLinked: true,
+              ),
+            ),
+            accountOperations: operations,
+          ),
+        ),
+      );
+      await tester.pump();
+      await _revealProfile(tester, find.text('Mit Google sichern'));
+      await tester.tap(find.text('Mit Google sichern'));
+      await tester.pumpAndSettle();
+      expect(find.text('Weitere Anmeldemethode verbinden'), findsOneWidget);
+      expect(operations.linkCalls, isEmpty);
+      await tester.tap(find.text('Sicher verbinden'));
+      await tester.pump();
+      expect(operations.linkCalls, [AccountLinkProvider.google]);
+      expect(operations.confirmCalls, 0);
+    },
+  );
+
   test('Gye actions are disabled for every non-ready account session', () {
     expect(gyeActionsAvailable(null), isFalse);
     expect(
@@ -50,6 +84,38 @@ void main() {
         reason: mode.name,
       );
     }
+  });
+
+  testWidgets('durable provider collision never starts account replacement', (
+    tester,
+  ) async {
+    final operations = _FakeAccountUiOperations()
+      ..linkResult = const AccountUiProviderCollision();
+    await tester.pumpWidget(
+      _wrap(
+        Builder(
+          builder: (context) => TextButton(
+            onPressed: () => runConfirmedAccountLink(
+              context,
+              operations: operations,
+              provider: AccountLinkProvider.google,
+              additionalProvider: true,
+            ),
+            child: const Text('connect'),
+          ),
+        ),
+      ),
+    );
+    await tester.tap(find.text('connect'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Sicher verbinden'));
+    await tester.pumpAndSettle();
+    expect(
+      find.text('Bereits mit einem anderen Konto verbunden'),
+      findsOneWidget,
+    );
+    expect(operations.confirmCalls, 0);
+    expect(operations.resumeCalls, 0);
   });
 
   testWidgets('profile starts no account work before explicit confirmation', (
@@ -583,8 +649,7 @@ void main() {
   );
 }
 
-Future<AccountUiPendingState> _readsNone() async =>
-    AccountUiPendingState.none;
+Future<AccountUiPendingState> _readsNone() async => AccountUiPendingState.none;
 
 const _guest = AuthAccountSnapshot(
   providers: AuthProviderState(isGoogleLinked: false, isAppleLinked: false),

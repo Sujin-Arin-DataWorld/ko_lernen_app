@@ -16,6 +16,7 @@ from concurrent.futures import ThreadPoolExecutor
 from concurrent.futures import TimeoutError as FuturesTimeout
 from dataclasses import dataclass
 from typing import Any, Callable, Mapping, Sequence
+from ai_policy import resolve_book_policy, read_cost_control, prepare_cost_reservation
 
 
 DEFAULT_ALLOWED_APP_IDS = frozenset(
@@ -523,105 +524,200 @@ def configure_deepl_http_deadlines() -> None:
     http_client.max_network_retries = DEEPL_HTTP_MAX_RETRIES
 
 
-class FirestoreIdempotencyGate:
-    """Short-lived server-only receipts so identical retries skip a second charge."""
+class RequestContentMismatch(Exception):
+    """A client request ID was reused for a different payload."""
 
-    def __init__(
-        self,
-        *,
-        firestore_client: Any | None = None,
-        now: Callable[[], dt.datetime] | None = None,
-    ):
-        self._firestore_client = firestore_client
-        self._now = now or (lambda: dt.datetime.now(dt.timezone.utc))
 
-    def _client(self) -> Any:
-        if self._firestore_client is not None:
-            return self._firestore_client
-        from google.cloud import firestore  # type: ignore
+class AccountUnavailable(Exception):
+    """A durable account-deletion fence blocks billable work and replay."""
 
-        self._firestore_client = firestore.Client()
-        return self._firestore_client
 
-    def _reference(self, document_id: str) -> Any:
-        return self._client().collection(IDEMPOTENCY_COLLECTION).document(
-            document_id
-        )
+def analysis_payload_fingerprint(lang, text, units):
+    import json
+    payload = json.dumps([lang, text, units], ensure_ascii=False, separators=(",", ":"))
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
-    def seen(self, document_id: str, *, kind: str) -> bool:
+
+def sanitize_analysis_result(payload):
+    """Only response-schema fields; never request bodies, audio, tokens or UID."""
+    import json
+    item_fields = {
+        "words": {"korean", "romanization", "pos", "translation", "definitionKo",
+                  "example", "exampleTranslation", "sourceUnitId"},
+        "expressions": {"korean", "translation", "sourceUnitId"},
+        "sentences": {"korean", "translation", "sourceUnitId"},
+        "grammar": {"id", "nameDe", "matched", "level", "explanationDe", "sourceUnitId"},
+    }
+    result = {
+        name: [{key: value for key, value in item.items()
+                if key in fields and isinstance(value, str)}
+               for item in payload.get(name, []) if isinstance(item, dict)]
+        for name, fields in item_fields.items()
+    }
+    result["warnings"] = [value for value in payload.get("warnings", [])
+                          if isinstance(value, str)]
+    result["analysisLanguage"] = payload.get("analysisLanguage", "de")
+    if result["analysisLanguage"] not in {"de", "en"}:
+        raise ValueError("invalid_result_language")
+    if len(json.dumps(result, ensure_ascii=False).encode("utf-8")) > 500_000:
+        raise ValueError("result_too_large")
+    return result
+
+
+class FirestoreIdempotencyGate(FirestoreQuotaGate):
+    """Atomic reservation and owner-fenced dispatch; not provider exactly-once.
+
+    Derived results may replay for 15 minutes. The hashed tombstone remains for
+    24 hours and prevents automatic re-dispatch after result expiry or timeout.
+    """
+
+    def __init__(self, *, firestore_client=None, now=None, policy=BOOK_ANALYSIS_QUOTA_POLICY,
+                 resolve_policy=None):
+        super().__init__(firestore_client=firestore_client, now=now, policy=policy)
+        self._resolve_policy = resolve_policy
+
+    def _access_policy(self, uid, transaction, now, account_created_at):
+        access = resolve_book_policy(self._client(), uid, transaction, now, account_created_at)
+        return QuotaPolicy(access["bookDailyLimit"], BURST_LIMIT, BURST_WINDOW_SECONDS)
+
+    def _reference(self, document_id):
+        return self._client().collection(IDEMPOTENCY_COLLECTION).document(document_id)
+
+    def _result_reference(self, document_id):
+        return self._client().collection("service_idempotency_results").document(document_id)
+
+    def _fence(self, transaction, uid):
+        marker = self._client().collection("account_deletions").document(uid)
+        if marker.get(transaction=transaction).exists:
+            raise AccountUnavailable()
+
+    def _transaction(self, action):
         try:
-            snapshot = self._reference(document_id).get()
-            if not snapshot.exists:
-                return False
-            return is_current_idempotency(
-                snapshot.to_dict(),
-                self._now(),
-                kind=kind,
-            )
-        except Exception:
-            return False
+            from google.cloud import firestore
+            return firestore.transactional(action)(self._client().transaction())
+        except (QuotaExceeded, RequestContentMismatch, AccountUnavailable):
+            raise
+        except Exception as error:
+            raise QuotaStoreUnavailable() from error
 
-    def claim(self, document_id: str, *, kind: str) -> bool:
-        """Reserve the receipt before quota. True means this caller must consume."""
-
+    def claim(self, document_id, *, uid, fingerprint, kind="book_analysis_v1"):
+        import secrets
+        from firebase_admin import auth
+        # Resolve current identity once before any retryable transaction. The
+        # request body and ID token custom claims cannot supply this generation.
         try:
+            user = auth.get_user(uid)
+        except Exception as error:
+            raise AccountUnavailable() from error
+        if user.uid != uid or user.disabled:
+            raise AccountUnavailable()
+        account_created_at = getattr(getattr(user, "user_metadata", None), "creation_timestamp", None)
+        # Node Admin UserMetadata.creationTime uses a whole-second UTC string.
+        # Match that public precision; do not invent a cross-SDK millisecond ID.
+        from access_policy import millis
+        account_created_at = millis(account_created_at)
+        if account_created_at is not None:
+            account_created_at = account_created_at // 1000 * 1000
+        owner = secrets.token_hex(32)
+        def claim_in_transaction(transaction):
             reference = self._reference(document_id)
+            ledger = self._ledger_reference(uid)
             now = self._now().astimezone(dt.timezone.utc)
-            client = self._client()
-            if getattr(client, "transaction", None) is None:
-                return self._claim_once(reference, kind, now)
-            from google.cloud import firestore  # type: ignore
+            self._fence(transaction, uid)
+            policy = (self._resolve_policy(uid, transaction, now)
+                      if self._resolve_policy else self._access_policy(uid, transaction, now, account_created_at))
+            snapshot = reference.get(transaction=transaction)
+            data = snapshot.to_dict() if snapshot.exists else None
+            expiry = _as_utc_datetime((data or {}).get("dedupeExpiresAt") or (data or {}).get("expiresAt"))
+            if data and expiry and expiry > now:
+                if data.get("fingerprint") and data["fingerprint"] != fingerprint:
+                    raise RequestContentMismatch()
+                response_expiry = _as_utc_datetime(data.get("responseExpiresAt"))
+                if data.get("state") == "completed" and response_expiry and response_expiry > now:
+                    saved = self._result_reference(document_id).get(transaction=transaction)
+                    result = saved.to_dict() if saved.exists else {}
+                    result_expiry = _as_utc_datetime(result.get("expiresAt"))
+                    if result.get("ownerToken") == data.get("ownerToken") and result_expiry and result_expiry > now:
+                        return {"state": "completed", "result": sanitize_analysis_result(result["result"])}
+                lease = _as_utc_datetime(data.get("leaseExpiresAt"))
+                if data.get("state") == "claimed" and lease and lease <= now:
+                    transaction.set(reference, {**data, "ownerToken": owner,
+                        "leaseExpiresAt": now + dt.timedelta(seconds=60)})
+                    return {"state": "claimed", "ownerToken": owner}
+                active = data.get("state") in {"claimed", "pending"} and lease and lease > now
+                return {"state": "pending" if active else "uncertain"}
+            expires_at = now + dt.timedelta(hours=24)
+            base = {"kind": kind, "fingerprint": fingerprint,
+                    "ownerSubjectHash": hashlib.sha256(uid.encode("utf-8")).hexdigest(),
+                    "dedupeExpiresAt": expires_at, "expiresAt": expires_at}
+            # Old pending receipts did not prove whether an external call started.
+            if data and not data.get("dedupeExpiresAt"):
+                transaction.set(reference, {**base, "state": "uncertain"})
+                return {"state": "uncertain"}
+            quota = ledger.get(transaction=transaction)
+            updated = consume_quota_state(
+                _quota_state_from_document(quota.to_dict() if quota.exists else None),
+                now, policy=policy)
+            config = read_cost_control(self._client(), transaction, now)
+            cost = prepare_cost_reservation(self._client(), transaction, now, config)
+            transaction.set(cost["reference"], cost["payload"])
+            transaction.set(ledger, self._payload(updated, now))
+            transaction.set(reference, {**base, "state": "claimed", "ownerToken": owner,
+                "leaseExpiresAt": now + dt.timedelta(seconds=60), "costReservation": cost["reservation"],
+                "reservation": {"day": updated.day,
+                                "burstWindowStartedAt": updated.burst_window_started_at}})
+            return {"state": "claimed", "ownerToken": owner}
+        return self._transaction(claim_in_transaction)
 
-            transaction = client.transaction()
+    def transition(self, document_id, *, uid, owner_token, target, result=None):
+        if target not in {"pending", "completed", "uncertain", "refunded"}:
+            raise ValueError("invalid_receipt_transition")
+        safe_result = sanitize_analysis_result(result) if target == "completed" else None
 
-            @firestore.transactional
-            def claim_in_transaction(transaction: Any) -> bool:
-                snapshot = reference.get(transaction=transaction)
-                data = snapshot.to_dict() if snapshot.exists else None
-                if is_current_idempotency(data, now, kind=kind):
-                    return False
-                transaction.set(
-                    reference,
-                    idempotency_payload(kind, now, state="pending"),
-                )
-                return True
-
-            return claim_in_transaction(transaction)
-        except Exception:
-            return True
-
-    def _claim_once(self, reference: Any, kind: str, now: dt.datetime) -> bool:
-        snapshot = reference.get()
-        data = snapshot.to_dict() if snapshot.exists else None
-        if is_current_idempotency(data, now, kind=kind):
-            return False
-        reference.set(idempotency_payload(kind, now, state="pending"))
-        return True
-
-    def complete(self, document_id: str, kind: str) -> None:
-        try:
-            self._reference(document_id).set(
-                idempotency_payload(kind, self._now(), state="completed")
-            )
-        except Exception:
-            return
-
-    def remember(self, document_id: str, kind: str) -> None:
-        self.complete(document_id, kind)
-
-    def abandon(self, document_id: str, kind: str) -> None:
-        """Drop an in-flight pending receipt so a later retry can be charged."""
-
-        try:
+        def transition_in_transaction(transaction):
             reference = self._reference(document_id)
-            snapshot = reference.get()
-            if not snapshot.exists:
-                return
-            data = snapshot.to_dict() or {}
-            if data.get("kind") != kind or data.get("state") != "pending":
-                return
-            delete = getattr(reference, "delete", None)
-            if delete is not None:
-                delete()
-        except Exception:
-            return
+            ledger = self._ledger_reference(uid)
+            now = self._now().astimezone(dt.timezone.utc)
+            self._fence(transaction, uid)
+            snapshot = reference.get(transaction=transaction)
+            data = snapshot.to_dict() if snapshot.exists else None
+            source = "claimed" if target in {"pending", "refunded"} else "pending"
+            lease = _as_utc_datetime((data or {}).get("leaseExpiresAt"))
+            if not data or data.get("ownerToken") != owner_token or data.get("state") != source or not lease or lease <= now:
+                return False
+            cost = None
+            if target == "pending":
+                config = read_cost_control(self._client(), transaction, now)
+                if config["dailyUnitLimit"] == 0:
+                    raise QuotaExceeded(_retry_after_next_day(now))
+                cost = prepare_cost_reservation(self._client(), transaction, now, config, data.get("costReservation"))
+            if target == "refunded":
+                snapshot = ledger.get(transaction=transaction)
+                quota = _quota_state_from_document(snapshot.to_dict() if snapshot.exists else None)
+                reservation = data["reservation"]
+                updated = QuotaState(
+                    day=quota.day,
+                    daily_count=max(0, quota.daily_count - 1) if quota.day == reservation["day"] else quota.daily_count,
+                    burst_window_started_at=quota.burst_window_started_at,
+                    burst_count=max(0, quota.burst_count - 1) if quota.burst_window_started_at == reservation["burstWindowStartedAt"] else quota.burst_count)
+                transaction.set(ledger, self._payload(updated, now))
+                transaction.delete(reference)
+            else:
+                payload = {**data, "state": target}
+                if cost:
+                    payload["costReservation"] = cost["reservation"]
+                    if "reference" in cost:
+                        transaction.set(cost["reference"], cost["payload"])
+                if target == "pending":
+                    payload.update(leaseExpiresAt=now + dt.timedelta(seconds=60),
+                                   dedupeExpiresAt=now + dt.timedelta(hours=24),
+                                   expiresAt=now + dt.timedelta(hours=24))
+                if target == "completed":
+                    payload["responseExpiresAt"] = idempotency_expires_at(now)
+                    transaction.set(self._result_reference(document_id), {
+                        "kind": data["kind"], "ownerToken": owner_token,
+                        "ownerSubjectHash": data["ownerSubjectHash"],
+                        "result": safe_result, "expiresAt": idempotency_expires_at(now)})
+                transaction.set(reference, payload)
+            return True
+        return self._transaction(transition_in_transaction)

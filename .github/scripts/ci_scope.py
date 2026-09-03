@@ -14,7 +14,7 @@ from pathlib import PurePosixPath
 from typing import Iterable
 
 
-SCOPES = ("app", "website", "book", "gye", "pronunciation", "tts", "auth_cleanup")
+SCOPES = ("app", "website", "book", "gye", "pronunciation", "tts", "auth_cleanup", "ios")
 
 TASK_SCOPE = {
     "full": SCOPES,
@@ -25,6 +25,7 @@ TASK_SCOPE = {
     "pronunciation": ("pronunciation",),
     "tts": ("tts",),
     "auth-cleanup": ("auth_cleanup",),
+    "ios": ("app", "ios"),
     "release-internal": ("app",),
     "release-website": ("website",),
 }
@@ -95,6 +96,13 @@ def scopes_for_paths(paths: Iterable[str]) -> dict[str, bool]:
         if path.startswith(".github/"):
             return _all_scopes()
 
+        if path.startswith("ios/") or path in {
+            "pubspec.yaml", "pubspec.lock", "test/support/native_test_host.dart",
+        }:
+            result["app"] = True
+            result["ios"] = True
+            continue
+
         if path.startswith("hangul-sori-site-local/") or path in WEBSITE_ROOT_FILES:
             result["website"] = True
             continue
@@ -102,6 +110,35 @@ def scopes_for_paths(paths: Iterable[str]) -> dict[str, bool]:
         if path in SHARED_CULTURAL_GLOSSARY_FILES:
             result["app"] = True
             result["website"] = True
+            continue
+
+        # The public TTS allowlist is derived from runtime learning content.
+        # Verify both checked-in copies whenever a collector input changes.
+        if path.startswith("assets/data/") or path in {
+            "tool/generate_tts.py", "tool/polish_tts.py",
+            "lib/data/hangul_data.dart", "lib/services/placement_diagnostic.dart",
+        }:
+            result["app"] = True
+            result["tts"] = True
+            continue
+
+        if path == "functions/gye/access_policy.js" or path.startswith("test/fixtures/access_policy/"):
+            for consumer in ("app", "book", "gye", "pronunciation"):
+                result[consumer] = True
+            if path == "test/fixtures/access_policy/cost-v1.json":
+                result["tts"] = True
+            continue
+
+        if path in {"functions/pronunciation/service_cost_policy.js",
+                    "functions/tts/service_cost_policy.js",
+                    "functions/analyze_korean_text/ai_policy.py"}:
+            for consumer in ("book", "pronunciation", "tts"):
+                result[consumer] = True
+            continue
+
+        if path == "storage.rules":
+            for consumer in ("app", "gye", "tts"):
+                result[consumer] = True
             continue
 
         if path.startswith("functions/analyze_korean_text/"):

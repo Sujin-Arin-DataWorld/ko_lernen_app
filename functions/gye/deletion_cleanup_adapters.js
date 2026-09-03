@@ -21,6 +21,15 @@ const DEDICATION_COLLECTIONS = new Set([
   "decor_dedication_mutations",
 ]);
 const LEGACY_INVOCATION_STEP_BUDGET = 32;
+const HASH_OWNED_PROCESSOR_COLLECTIONS = Object.freeze([
+  "service_idempotency", "service_idempotency_results", "premium_grants",
+  "customer_entitlements", "access_rate_limits",
+  "billing_event_receipts", "billing_customers",
+]);
+const PRIVATE_TTS_PROCESSOR_INDEX = 3 + HASH_OWNED_PROCESSOR_COLLECTIONS.length;
+// Bump when the stage plan grows or changes meaning. Older checkpoints must
+// replay the idempotent stages, including checkpoints previously marked done.
+const PROCESSOR_CLEANUP_SCHEMA_VERSION = 2;
 
 function cleanupFailure(code) {
   const error = new Error("Account deletion cleanup rejected unsafe state.");
@@ -111,6 +120,7 @@ function createDeletionCleanupAdapters({
   documentIdFieldPath,
   cleanupGyeForDeletedUserPage,
   notificationOutboxBelongsToUid,
+  storageBucket,
   nowMillis = () => Date.now(),
   pageSize = DEFAULT_PAGE_SIZE,
 } = {}) {
@@ -570,6 +580,15 @@ function createDeletionCleanupAdapters({
   }
 
   function processorCategory(index, uid) {
+    if (index >= 3 && index < PRIVATE_TTS_PROCESSOR_INDEX) {
+      const ownerSubjectHash = crypto.createHash("sha256").update(uid).digest("hex");
+      return {
+        query: firestore.collection(HASH_OWNED_PROCESSOR_COLLECTIONS[index - 3])
+          .where("ownerSubjectHash", "==", ownerSubjectHash),
+        belongs: (data) => data.ownerSubjectHash === ownerSubjectHash,
+        cursorFor: (document) => document.id,
+      };
+    }
     switch (index) {
       case 0:
         return {
@@ -615,8 +634,14 @@ function createDeletionCleanupAdapters({
       deadlineMillis,
       run: async ({ transaction, markerRef, markerData }) => {
         const current = markerData.processorCleanupState;
-        if (current?.operationId === operationId) return current;
+        if (current?.operationId === operationId) {
+          if (current.schemaVersion === PROCESSOR_CLEANUP_SCHEMA_VERSION) return current;
+          if (current.schemaVersion !== undefined && current.schemaVersion !== 1) {
+            throw cleanupFailure("unsupported-processor-cleanup-version");
+          }
+        }
         const state = {
+          schemaVersion: PROCESSOR_CLEANUP_SCHEMA_VERSION,
           operationId,
           categoryIndex: 0,
           cursor: null,
@@ -649,6 +674,45 @@ function createDeletionCleanupAdapters({
       deadlineMillis,
     });
     if (state.done === true) return { done: true };
+    if (state.categoryIndex === PRIVATE_TTS_PROCESSOR_INDEX) {
+      if (!storageBucket || typeof storageBucket.getFiles !== "function") {
+        throw cleanupFailure("private-tts-cleanup-unavailable");
+      }
+      const fence = (run) => fencedTransaction({
+        uid: sourceUid, operationId: operation, workerFence, legacyGeneration,
+        deadlineMillis, run,
+      });
+      await fence(async () => {});
+      const prefix = `tts_private/${sourceUid}/`;
+      const [files] = await storageBucket.getFiles({
+        prefix, autoPaginate: false, maxResults: limit,
+      });
+      for (const file of files) {
+        if (typeof file.name !== "string" || !file.name.startsWith(prefix)) {
+          throw cleanupFailure("private-tts-cleanup-scope-mismatch");
+        }
+        await fence(async () => {});
+        await file.delete({ ignoreNotFound: true });
+      }
+      return fence(async ({ transaction, markerRef, markerData }) => {
+        const current = markerData.processorCleanupState;
+        if (current?.operationId !== operation ||
+            current.categoryIndex !== PRIVATE_TTS_PROCESSOR_INDEX) {
+          throw cleanupFailure("cleanup-progress-changed");
+        }
+        // Re-list on the next invocation after every nonempty page. No cursor
+        // skips objects while deletion removes the preceding page.
+        const done = files.length === 0;
+        transaction.update(markerRef, {
+          processorCleanupState: {
+            ...current,
+            categoryIndex: done ? PRIVATE_TTS_PROCESSOR_INDEX + 1 : PRIVATE_TTS_PROCESSOR_INDEX,
+            done,
+          },
+        });
+        return { done };
+      });
+    }
     const category = processorCategory(state.categoryIndex, sourceUid);
     if (!category) {
       return fencedTransaction({
@@ -709,7 +773,7 @@ function createDeletionCleanupAdapters({
         const nextCategoryIndex = pageComplete
           ? state.categoryIndex + 1
           : state.categoryIndex;
-        const done = nextCategoryIndex >= 3;
+        const done = nextCategoryIndex > PRIVATE_TTS_PROCESSOR_INDEX;
         transaction.update(markerRef, {
           processorCleanupState: {
             ...current,

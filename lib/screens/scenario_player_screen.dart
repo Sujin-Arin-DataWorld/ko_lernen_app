@@ -760,7 +760,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     }
     // Premium-Gate (M4): A1-Szenarien frei, A2/B1/B2 erfordern ein Abo.
     // Deckt alle Einstiege ab (Home-CTA, Skill-Path, Szenarien-Liste).
-    if (s.level != LearnerLevel.a1 && !PremiumService.isPremium) {
+    if (s.level != LearnerLevel.a1 && !PremiumService.hasContentAccess) {
       final ok = await PremiumService.gate(context);
       if (!mounted || !_loadLifecycle.canContinue) {
         return;

@@ -24,6 +24,12 @@ void main() {
     );
   });
 
+  test('cold TTS stop does not initialize a native audio player', () async {
+    // Deliberately no Flutter binding or platform-channel mock: stopping an
+    // unused service must not construct a plugin merely to release it.
+    await TtsService.stop().timeout(const Duration(seconds: 2));
+  });
+
   test('strict TTS cleanup propagates cache lookup failure', () async {
     await expectLater(
       TtsService.clearCacheStrict(

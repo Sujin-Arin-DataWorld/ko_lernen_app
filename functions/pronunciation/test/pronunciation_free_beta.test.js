@@ -24,8 +24,11 @@ function request(id = "recording-12345678", seconds = 10, uid = "learner-1") {
 }
 
 function harness({mode, seed = [], provider, now = "2026-09-03T12:00:00Z"} = {}) {
-  const records = new Map(seed);
-  const calls = {database: 0, reads: 0, writes: 0, provider: 0, secret: 0};
+  const records = new Map([["service_cost_controls/ai_v1", {
+    schemaVersion: 1, approvedBy: "Jin", approvalRef: "local-test-only", approvedAt: new Date(0),
+    dailyUnitLimit: 10000, bookReservationUnits: 10, pronunciationReservationUnits: 2, ttsReservationUnits: 3,
+  }], ...seed]);
+  const calls = {auth: 0, database: 0, reads: 0, writes: 0, provider: 0, secret: 0};
   let transactionTail = Promise.resolve();
   const document = (documentPath) => ({
     path: documentPath,
@@ -40,13 +43,15 @@ function harness({mode, seed = [], provider, now = "2026-09-03T12:00:00Z"} = {})
     runTransaction(callback) {
       const result = transactionTail.then(async () => {
         const updates = [];
+        let written = false;
         const value = await callback({
           get: async (ref) => {
+            assert.equal(written, false, "Firestore requires reads before writes");
             calls.reads++;
             return {exists: records.has(ref.path), data: () => records.get(ref.path)};
           },
-          set: (ref, data) => updates.push(() => records.set(ref.path, data)),
-          delete: (ref) => updates.push(() => records.delete(ref.path)),
+          set: (ref, data) => { written = true; updates.push(() => records.set(ref.path, data)); },
+          delete: (ref) => { written = true; updates.push(() => records.delete(ref.path)); },
         });
         for (const update of updates) { calls.writes++; update(); }
         return value;
@@ -78,6 +83,10 @@ function harness({mode, seed = [], provider, now = "2026-09-03T12:00:00Z"} = {})
       if (name === "firebase-admin/app") {
         return {initializeApp() {}};
       }
+      if (name === "firebase-admin/auth") {
+        return {getAuth: () => { calls.auth++; return {getUser: async (uid) => ({uid,
+          disabled: false, metadata: {creationTime: new Date(0).toISOString()}})}; }};
+      }
       if (name === "firebase-admin/firestore") {
         return {
           getFirestore: () => { calls.database++; return db; },
@@ -98,6 +107,15 @@ function harness({mode, seed = [], provider, now = "2026-09-03T12:00:00Z"} = {})
       if (name === "./pronunciation_request_guard") {
         return {...guard, pronunciationProviderBreaker: new guard.CircuitBreaker()};
       }
+      if (name === "./billable_receipts") {
+        const {PronunciationReceipts} = require("../billable_receipts");
+        return {PronunciationReceipts: class extends PronunciationReceipts {
+          constructor(database) { super(database, {now: () => new ClockDate()}); }
+        }};
+      }
+      if (name === "./service_cost_policy") {
+        return require("../service_cost_policy");
+      }
       if (name === "./pronunciation_free_tier") {
         return require("../pronunciation_free_tier");
       }
@@ -108,12 +126,12 @@ function harness({mode, seed = [], provider, now = "2026-09-03T12:00:00Z"} = {})
   return {assess: moduleStub.exports.assessPronunciation, calls, records};
 }
 
-test("default and paid modes perform no database, secret, or provider work", async () => {
+test("default and paid modes perform no auth, database, secret, or provider work", async () => {
   for (const mode of [undefined, "disabled", "azure_s0", "true", "AZURE_F0"]) {
     const app = harness({mode});
     assert.equal(app.assess.options.secrets.length, 0);
     await assert.rejects(app.assess(request()), (error) => error.code === "unavailable");
-    assert.deepEqual(app.calls, {database: 0, reads: 0, writes: 0, provider: 0, secret: 0});
+    assert.deepEqual(app.calls, {auth: 0, database: 0, reads: 0, writes: 0, provider: 0, secret: 0});
   }
 });
 
@@ -153,7 +171,10 @@ test("a provider failure does not refund audio that may already have been billed
   const app = harness({mode: "azure_f0", provider: async () => { throw new Error("timeout"); }});
   await assert.rejects(app.assess(request()), (error) => error.code === "unavailable");
   assert.equal(app.records.get(usagePath)?.audioSeconds, 10);
-  assert.equal(app.records.get("users/learner-1/pronunciation_rate_limits/current").dayCount, 0);
+  assert.equal(app.records.get("users/learner-1/pronunciation_rate_limits/current").dayCount, 1);
+  await assert.rejects(app.assess(request()), (error) => error.code === "unavailable");
+  assert.equal(app.calls.provider, 1);
+  assert.equal(app.records.get(usagePath).audioSeconds, 10);
 });
 
 test("a pending duplicate never sends the same recording twice", async () => {
@@ -173,7 +194,7 @@ test("a pending duplicate never sends the same recording twice", async () => {
   await providerStarted;
   const duplicate = app.assess(request());
   // The rejection must happen before the first provider response is released.
-  await assert.rejects(duplicate, (error) => error.code === "unavailable");
+  await assert.rejects(duplicate, (error) => error.code === "aborted");
   finish({ok: true, json: async () => ({RecognitionStatus: "Success", NBest: [scores]})});
   await first;
   assert.equal(app.calls.provider, 1);
@@ -197,5 +218,7 @@ test("malformed or already exhausted usage fails closed", async () => {
     const app = harness({mode: "azure_f0", seed: [[usagePath, {audioSeconds}]]});
     await assert.rejects(app.assess(request()), (error) => error.code === "resource-exhausted");
     assert.equal(app.calls.provider, 0);
+    const receipt = [...app.records].find(([key]) => key.startsWith("service_idempotency/"))[1];
+    assert.equal(receipt.state, "claimed", "failed reservation must not commit a dispatch marker");
   }
 });

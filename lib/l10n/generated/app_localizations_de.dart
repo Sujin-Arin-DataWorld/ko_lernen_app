@@ -9,31 +9,67 @@ class AppL10nDe extends AppL10n {
   AppL10nDe([String locale = 'de']) : super(locale);
 
   @override
-  String get flashcardRomanization => 'Umschrift';
+  String get paywallSignInToContinue => 'Konto verbinden';
 
   @override
-  String get booksSavedOtherLanguage =>
-      'Diese Seite wurde in einer anderen Sprache gespeichert. Du siehst den koreanischen Text und die verfügbaren deutschen Übersetzungen.';
+  String get paywallSignInRequired =>
+      'Verbinde zuerst dein Google- oder Apple-Konto. Käufe bleiben an dieses Konto gebunden.';
 
   @override
-  String get savedTranslationUnavailable =>
-      'Noch keine deutsche Übersetzung gespeichert.';
+  String get paywallPending =>
+      'Die Bestätigung steht noch aus. Dein Zugang wird nach der Serverprüfung aktualisiert.';
 
   @override
-  String get savedOriginalMeaning => 'Ursprünglich gespeicherte Bedeutung';
+  String get paywallCancelled =>
+      'Kauf abgebrochen. Es wurde kein Zugang freigeschaltet.';
 
   @override
-  String get savedAddTranslation => 'Übersetzung ergänzen';
+  String get paywallActive => 'Premium ist bereits aktiv';
 
   @override
-  String get flashcardRomanizationFront => 'Auf der Vorderseite anzeigen';
+  String get paywallTesterActive =>
+      'Dein freigegebener Tester-Zugang ist aktiv';
 
   @override
-  String get flashcardRomanizationBack => 'Auf der Rückseite anzeigen';
+  String get paywallManage => 'Abo im ursprünglichen Store verwalten';
 
   @override
-  String get ttsUnavailablePlayback =>
-      'Der Ton konnte auf diesem Gerät nicht abgespielt werden. Prüfe die Lautstärke oder verbundene Kopfhörer und versuche es erneut.';
+  String get paywallManageUnavailable =>
+      'Öffne die Aboverwaltung in dem Store, in dem du das Abo abgeschlossen hast.';
+
+  @override
+  String get paywallFreeLaunch =>
+      'Alle Lerninhalte sind zum kostenlosen Start offen. Ein Abo ist derzeit nicht verfügbar.';
+
+  @override
+  String paywallAiLimits(int book, int pronunciation) {
+    return 'Dein aktuelles Kontingent: $book Buchanalysen und $pronunciation Ausspracheprüfungen pro UTC-Tag.';
+  }
+
+  @override
+  String paywallNextReset(String time) {
+    return 'Nächster Reset: $time UTC';
+  }
+
+  @override
+  String get accountAdditionalProviderTitle =>
+      'Weitere Anmeldemethode verbinden';
+
+  @override
+  String get accountAdditionalProviderConsent =>
+      'Du bestätigst zuerst dein aktuelles Konto. Danach wird Google oder Apple mit demselben Konto verbunden. Wenn Apple deine E-Mail-Adresse verbirgt, stimmst du damit auch der Verknüpfung deiner Apple-Identität mit den Daten dieses Kontos zu. Dein Lernfortschritt bleibt erhalten.';
+
+  @override
+  String get accountProviderCollisionTitle =>
+      'Bereits mit einem anderen Konto verbunden';
+
+  @override
+  String get accountProviderCollisionBody =>
+      'Diese Anmeldemethode gehört bereits zu einem anderen Konto. Dein aktuelles Konto und dein Lernfortschritt wurden nicht ersetzt. Verwende eine andere Anmeldemethode.';
+
+  @override
+  String get accountAppleConfigurationBody =>
+      'Apple-Anmeldung ist in dieser App-Version noch nicht eingerichtet. Verwende vorerst deine bisherige Anmeldemethode oder kontaktiere den Support.';
 
   @override
   String get paywallTitle => 'Hangul Sori Premium';
@@ -42,7 +78,7 @@ class AppL10nDe extends AppL10n {
   String get paywallSubtitle => 'Koreanisch lernen, wann du willst.';
 
   @override
-  String get paywallBenefit1 => 'Alle Vokabel-Pakete (A2 · B1 · B2)';
+  String get paywallBenefit1 => 'Alle Vokabel-Pakete (A2 bis C2)';
 
   @override
   String get paywallBenefit2 => 'Alle Gesprächs-Szenarien';
@@ -51,14 +87,10 @@ class AppL10nDe extends AppL10n {
   String get paywallBenefit3 => 'Unbegrenzte Wiederholungen';
 
   @override
-  String get paywallBenefit4 =>
-      'Dein persönlicher KI-Kurs mit neuen Inhalten jeden Tag';
+  String get paywallBenefit4 => '50 Ausspracheprüfungen pro UTC-Tag';
 
   @override
-  String get paywallBenefit5 => 'Buchschnappschuss ohne Tageslimit';
-
-  @override
-  String get paywallPriceFallback => '5 € / Monat';
+  String get paywallBenefit5 => '20 Buchanalysen pro UTC-Tag';
 
   @override
   String get paywallPricePerMonth => '/ Monat';
@@ -8608,26 +8640,6 @@ class AppL10nDe extends AppL10n {
   String get pronunciationStop => 'Aufnahme stoppen';
 
   @override
-  String get pronunciationFinishingRecording => 'Aufnahme wird beendet…';
-
-  @override
-  String get pronunciationLocalRecordingHint =>
-      'Deine Aufnahme bleibt vorübergehend auf diesem Gerät. Wenn du diesen Bildschirm verlässt, wird sie gelöscht.';
-
-  @override
-  String get pronunciationReplay => 'Meine Aufnahme anhören';
-
-  @override
-  String get pronunciationReplayStop => 'Meine Aufnahme stoppen';
-
-  @override
-  String get pronunciationReplayUnavailable =>
-      'Deine Aufnahme konnte nicht abgespielt werden. Versuche es erneut oder nimm sie neu auf.';
-
-  @override
-  String get pronunciationRequestScore => 'Bewertung anfordern';
-
-  @override
   String get pronunciationContinueWithoutScore => 'Ohne Bewertung weiter';
 
   @override
@@ -10256,4 +10268,51 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get homeActionConfirmStay => 'Weiterspielen';
+
+  @override
+  String get savedAddTranslation => 'Übersetzung ergänzen';
+
+  @override
+  String get booksSavedOtherLanguage =>
+      'Diese Seite wurde in einer anderen Sprache gespeichert. Du siehst den koreanischen Text und die verfügbaren deutschen Übersetzungen.';
+
+  @override
+  String get savedOriginalMeaning => 'Ursprünglich gespeicherte Bedeutung';
+
+  @override
+  String get pronunciationRequestScore => 'Bewertung anfordern';
+
+  @override
+  String get savedTranslationUnavailable =>
+      'Noch keine deutsche Übersetzung gespeichert.';
+
+  @override
+  String get pronunciationReplay => 'Meine Aufnahme anhören';
+
+  @override
+  String get flashcardRomanizationFront => 'Auf der Vorderseite anzeigen';
+
+  @override
+  String get pronunciationFinishingRecording => 'Aufnahme wird beendet…';
+
+  @override
+  String get pronunciationReplayUnavailable =>
+      'Deine Aufnahme konnte nicht abgespielt werden. Versuche es erneut oder nimm sie neu auf.';
+
+  @override
+  String get flashcardRomanizationBack => 'Auf der Rückseite anzeigen';
+
+  @override
+  String get ttsUnavailablePlayback =>
+      'Der Ton konnte auf diesem Gerät nicht abgespielt werden. Prüfe die Lautstärke oder verbundene Kopfhörer und versuche es erneut.';
+
+  @override
+  String get pronunciationLocalRecordingHint =>
+      'Deine Aufnahme bleibt vorübergehend auf diesem Gerät. Wenn du diesen Bildschirm verlässt, wird sie gelöscht.';
+
+  @override
+  String get pronunciationReplayStop => 'Meine Aufnahme stoppen';
+
+  @override
+  String get flashcardRomanization => 'Umschrift';
 }

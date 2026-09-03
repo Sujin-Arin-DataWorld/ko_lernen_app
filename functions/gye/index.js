@@ -37,10 +37,11 @@ const {
 } = require("firebase-admin/firestore");
 const { getAuth } = require("firebase-admin/auth");
 const { getMessaging } = require("firebase-admin/messaging");
+const { getStorage } = require("firebase-admin/storage");
 const { randomBytes } = require("node:crypto");
 const { v1: { FirestoreClient } } = require("@google-cloud/firestore");
 const functionsLogger = require("firebase-functions/logger");
-const { defineSecret } = require("firebase-functions/params");
+const { defineSecret, defineString, defineBoolean } = require("firebase-functions/params");
 const { onDocumentWritten, onDocumentCreated, onDocumentDeleted } =
   require("firebase-functions/v2/firestore");
 const { onSchedule } = require("firebase-functions/v2/scheduler");
@@ -112,6 +113,15 @@ const {
 const {
   createAppleRevocationAdapter,
 } = require("./apple_revocation_adapter");
+const { appleOAuthCallback } = require("./apple_oauth_callback");
+const {
+  ACCESS_CALLABLE_OPTIONS, AccessFailure, createAccessRuntime,
+} = require("./access_runtime");
+const {
+  BILLING_WEBHOOK_OPTIONS, BILLING_WORKER_OPTIONS, BILLING_SCHEDULE_OPTIONS,
+  createBillingRuntime,
+} = require("./billing_runtime");
+const { createRevenueCatFetcher } = require("./billing_provider");
 const {
   createCloudBackupDeletionCallable,
   createCloudBackupDeletionRuntime,
@@ -148,11 +158,75 @@ const appleRevokeClientId = defineSecret("APPLE_REVOKE_CLIENT_ID");
 const appleRevokeTeamId = defineSecret("APPLE_REVOKE_TEAM_ID");
 const appleRevokeKeyId = defineSecret("APPLE_REVOKE_KEY_ID");
 const appleRevokePrivateKey = defineSecret("APPLE_REVOKE_PRIVATE_KEY");
+// Public Apple console metadata; safe-empty until explicitly configured.
+const appleServicesId = defineString("APPLE_SERVICES_ID", { default: "" });
+const appleRedirectUri = defineString("APPLE_REDIRECT_URI", { default: "" });
+const accessEnvironment = defineString("ACCESS_ENVIRONMENT", { default: "PRODUCTION" });
+const accessPhase = defineString("ACCESS_PHASE", { default: "free_launch" });
+const billingEnabled = defineBoolean("BILLING_ENABLED", { default: false });
+const billingRestorePolicy = defineString("BILLING_RESTORE_POLICY", { default: "" });
+const billingEntitlementId = defineString("RC_ENTITLEMENT_ID", { default: "premium" });
+const rcServerApiKey = defineSecret("RC_SERVER_API_KEY");
+const rcWebhookAuthorization = defineSecret("RC_WEBHOOK_AUTHORIZATION");
+const rcWebhookSigningSecret = defineSecret("RC_WEBHOOK_SIGNING_SECRET");
+const billingHandlers = createBillingRuntime({
+  firestore: db,
+  auth,
+  fetchSubscriber: createRevenueCatFetcher({getApiKey: () => rcServerApiKey.value()}),
+  getConfig: () => ({
+    enabled: billingEnabled.value(),
+    restorePolicy: billingRestorePolicy.value(),
+    entitlementId: billingEntitlementId.value(),
+    // Lazy access keeps webhook credentials out of worker/scheduler bindings.
+    get authorization() { return rcWebhookAuthorization.value(); },
+    get signingSecret() { return rcWebhookSigningSecret.value(); },
+  }),
+});
+exports.revenueCatWebhook = onRequest({
+  ...BILLING_WEBHOOK_OPTIONS, cors: false,
+  secrets: [rcWebhookAuthorization, rcWebhookSigningSecret],
+}, billingHandlers.webhook);
+exports.processRevenueCatEvent = onDocumentCreated({
+  ...BILLING_WORKER_OPTIONS,
+  document: "billing_event_receipts/{eventId}",
+  secrets: [rcServerApiKey],
+}, (event) => billingHandlers.processEvent(event.params.eventId));
+exports.refreshRevenueCatAccess = onSchedule({
+  ...BILLING_SCHEDULE_OPTIONS, secrets: [rcServerApiKey],
+}, async () => {
+  const result = await billingHandlers.sweep();
+  if (result.needsReviewCandidates > 0) {
+    functionsLogger.warn("Billing verification requires operator review.", {
+      needsReviewCandidateCount: result.needsReviewCandidates,
+    });
+  }
+  return result;
+});
+const accessHandlers = createAccessRuntime({
+  firestore: db,
+  auth,
+  getEnvironment: () => accessEnvironment.value(),
+  getPhase: () => accessPhase.value(),
+});
+exports.getAccessSnapshot = onCall(ACCESS_CALLABLE_OPTIONS, async (request) => {
+  try {
+    return await accessHandlers.getAccessSnapshot(request);
+  } catch (error) {
+    throw new HttpsError(error instanceof AccessFailure ? error.code : "unavailable",
+      "Account access could not be verified.");
+  }
+});
+exports.appleOAuthCallback = onRequest({
+  region: "europe-west3", invoker: "public", cors: false,
+  maxInstances: 5, timeoutSeconds: 15,
+}, appleOAuthCallback);
 const keyedDeletionProofDigest = createKeyedDeletionProofDigest({
   getSecret: () => deletionProofHmacKey.value(),
 });
 const revokeAppleAuthorizationCode = createAppleRevocationAdapter({
   getClientId: () => appleRevokeClientId.value(),
+  getServicesId: () => appleServicesId.value(),
+  getRedirectUri: () => appleRedirectUri.value(),
   getTeamId: () => appleRevokeTeamId.value(),
   getKeyId: () => appleRevokeKeyId.value(),
   getPrivateKey: () => appleRevokePrivateKey.value(),
@@ -299,6 +373,7 @@ exports.setGyeDecorationDedication = createGyeDedicationCallable({
 const deletionCleanupAdapters = createDeletionCleanupAdapters({
   firestore: db,
   fieldValue: FieldValue,
+  storageBucket: getStorage().bucket("ko-lernen-app.firebasestorage.app"),
   documentIdFieldPath: FieldPath.documentId(),
   cleanupGyeForDeletedUserPage: createGyeDeletionPageCleaner({
     firestore: db,

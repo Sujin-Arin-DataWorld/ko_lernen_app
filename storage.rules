@@ -2,8 +2,8 @@ rules_version = '2';
 
 // Hangul Sori — Storage Security Rules
 //
-// TTS mp3 (사전생성 + 동적 CF 캐시).
-//   - 읽기 = 인증된 앱 사용자만 (익명 로그인 포함). 공개 아님.
+// TTS mp3: admin-confirmed learning corpus is public get-only.
+// Personal/OCR synthesis is private and callable-only.
 //   - 쓰기 = 차단. 사전생성 스크립트(gsutil, Jin 자격) · Cloud Function
 //            admin SDK 만 기록 (admin SDK 는 client rules 를 우회).
 //
@@ -13,16 +13,22 @@ rules_version = '2';
 service firebase.storage {
   match /b/{bucket}/o {
 
-    // 고품질 발음 mp3 — tts/{voice}/{sha1}.mp3
-    //
-    // 2026-08-12: read 를 공개로 완화. 근거(실기기 logcat):
-    //   "NetworkRequest: no auth token for request" → 403 → OS 기계음 폴백.
-    // 앱 시작 직후 익명 로그인 완료 전(또는 로그인 실패 시) 재생을 누르면
-    // auth 가 비어 전 화면이 기계음이 됐다. 내용물은 공개 학습 콘텐츠의
-    // 발음 mp3 뿐이고 파일명이 sha1 이라 열거 불가 — 사용자 데이터 없음.
-    match /tts/{allPaths=**} {
-      allow read: if true;
+    // Only admin-verified corpus objects may be public. Existing unclassified
+    // legacy objects need approved migration; a hash filename is not privacy.
+    match /tts/v3/{voice}/{fileName} {
+      allow get: if voice in ['female', 'male']
+        && fileName.matches('^[a-f0-9]{40}\\.mp3$')
+        && 'canonical' in resource.metadata
+        && resource.metadata.canonical == 'true';
+      allow list: if false;
       allow write: if false;
+    }
+
+    // Personal/OCR audio is returned only by the authenticated callable, which
+    // checks UID, expiry and deletion fences before reading or returning bytes.
+    // This service never issues download tokens for this prefix.
+    match /tts_private/{allPaths=**} {
+      allow read, write: if false;
     }
 
     // 그 외 전부 차단

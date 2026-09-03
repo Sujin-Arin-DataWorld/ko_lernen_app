@@ -1,5 +1,6 @@
 const crypto = require("node:crypto");
 const { normalizeVoice } = require("./tts_contract");
+const { prepareTtsCost } = require("./tts_cost_adapter");
 
 const CALLABLE_OPTIONS = Object.freeze({
   cors: true,
@@ -9,6 +10,7 @@ const CALLABLE_OPTIONS = Object.freeze({
   timeoutSeconds: 12,
   enforceAppCheck: true,
   consumeAppCheckToken: true,
+  maxInstances: 20,
 });
 
 class TtsRequestError extends Error {
@@ -308,6 +310,9 @@ async function underDailyTtsQuotas(
       }
     }
 
+    const cost = await prepareTtsCost(db, tx, now);
+    tx.set(cost.ref, cost.payload);
+
     for (let index = 0; index < specs.length; index += 1) {
       const spec = specs[index];
       tx.set(
@@ -323,7 +328,7 @@ async function underDailyTtsQuotas(
         { merge: true },
       );
     }
-    return { allowed: true, exceededScope: null };
+    return { allowed: true, exceededScope: null, costReservation: cost.reservation };
   });
 }
 

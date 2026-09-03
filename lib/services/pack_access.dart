@@ -8,7 +8,7 @@ import 'premium_service.dart';
 /// 홈 히어로·홈 미리보기·`/path` 노드의 중복 인라인 게이트를 이걸로 수렴 —
 /// 정책이 바뀌면 이 한 곳만 고친다.
 Future<bool> ensurePackAccess(BuildContext context, {required String level}) {
-  if (level.toUpperCase() == 'A1' || PremiumService.isPremium) {
+  if (level.toUpperCase() == 'A1' || PremiumService.hasContentAccess) {
     return Future.value(true);
   }
   return PremiumService.gate(context);

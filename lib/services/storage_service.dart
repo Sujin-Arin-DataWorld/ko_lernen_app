@@ -1243,11 +1243,10 @@ class Storage {
   static bool _b(String k, [bool dflt = false]) => _prefs?.getBool(k) ?? dflt;
   static Future<void> _sb(String k, bool v) async => _prefs?.setBool(k, v);
 
-  // ───────── Premium / Abo (RevenueCat-Cache) ─────────
-  // `premiumCached` spiegelt das echte RevenueCat-Entitlement (offline-fähig,
-  // bei jedem CustomerInfo-Update aktualisiert). `devPremiumOverride` ist ein
-  // lokaler Test-Schalter (Settings → Debug), um Gating + Paywall ohne
-  // Dashboard-Setup zu prüfen — verändert NICHT den echten Kaufstatus.
+  // ───────── Legacy Premium migration keys (not access authority) ─────────
+  // PremiumService deliberately ignores premiumCached: it has no UID, epoch,
+  // environment or expiry. Access uses the validated server snapshot instead.
+  // devPremiumOverride affects debug content only, never billing or server AI.
   static bool get premiumCached => _b('kl_premium_cached');
   static Future<void> setPremiumCached(bool v) => _sb('kl_premium_cached', v);
 
