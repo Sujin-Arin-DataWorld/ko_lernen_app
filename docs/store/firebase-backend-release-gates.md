@@ -229,6 +229,12 @@ W7의 TTS 로딩/프리패치, Living의 스타일 변경, W9의 배포 소유�
   형식은 `schemaVersion:1`, `approvedBy:"Jin"`, `approvalRef`, `environment`,
   `action:"grant"|"revoke"`, `uids`다. 이 메타데이터는 사람 승인 자체의 암호학적 증명이 아니다.
   명단 검토와 제한된 ADC/IAM을 운영자가 책임지며 파일은 저장소/로그에 올리지 않는다.
+- 구독·테스터 권한의 `accountCreatedAt`은 서버 Auth 생성 시각과 일치해야 한다.
+  누락·불일치 문서는 Premium으로 인정하지 않는다. 구독은 검증된 provider 재조회와
+  reconciliation으로 발급하고, 테스터 재부여는 새 명단 승인을 거친다. 값을 추측해 채우지 않는다.
+  Admin Node 공개 metadata는 초 단위이므로 Python도 같은 정밀도를 쓴다. 관리자가 같은 UID를
+  같은 초 안에 삭제·재생성한 경우는 이 필드로 구별하지 못한다. 운영 복구에 UID 재사용을
+  금지하고 새 UID·새 승인을 사용한다. 정상 앱 삭제의 marker/cleanup 절차는 계속 적용한다.
 - 기본은 read-only dry-run이다. `--project ko-lernen-app --approved-roster <검증된 파일>`로
   건수만 확인하고 명시적 승인 뒤에만 `--apply`한다. 이 작업에서 실제 권한 부여는 하지 않았다.
   feedback passport나 `BETA_UNLOCK_ALL`로 생성하지 않는다. 재생성 UID는 새 승인이 필요하다.
