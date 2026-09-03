@@ -69,7 +69,10 @@ void main() {
     );
 
     // _touchCacheFile은 unawaited best-effort라 resolveAudioForTesting이
-    // 반환한 시점에 아직 안 끝났을 수 있다 — 최대 2초 폴링한다.
+    // 반환한 시점에 아직 안 끝났을 수 있다 — 최대 6초 폴링한다(40 x 150ms).
+    // 2초(옛 40 x 50ms)는 프로덕션 _diskTimeout과 정확히 같아서, 느린
+    // 러너에서는 setLastModified와 폴링 타임아웃이 함께 만료돼 헤드룸이
+    // 없었다(하드닝 최종 리뷰 M5).
     var touched = false;
     for (var i = 0; i < 40; i++) {
       if (DateTime.now().difference(file.lastModifiedSync()) <
@@ -77,7 +80,7 @@ void main() {
         touched = true;
         break;
       }
-      await Future<void>.delayed(const Duration(milliseconds: 50));
+      await Future<void>.delayed(const Duration(milliseconds: 150));
     }
     expect(
       touched,

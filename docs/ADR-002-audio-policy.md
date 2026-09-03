@@ -2,7 +2,7 @@
 
 **Status:** Accepted — 2026-08-02 구현 (Jin 지시 "이 세션에서 진행"). §9 단계 1·3·4·5 완료:
 `lib/services/audio_policy.dart` + `kl_snd_*` Storage 키 + 설정 UI(Ton 섹션) + 볼륨 리터럴
-이관(래칫 `test/audio_policy_guard_test.dart`) + 더킹 훅(`TtsService.speaking`) + AudioContext.
+이관(래칫 `test/audio_policy_guard_test.dart`) + 더킹 훅(`TtsService.phase`, idle/resolving/speaking) + AudioContext.
 **잔여:** §9-6 ambience 화면 배선(§11-1 Jin 결정 대기 — 그 전까지
 설정의 Hintergrundklänge·더킹 토글은 가청 효과 없음) · §7-1 speech 음소거 스낵바 +
 ambience/cinematic 미리듣기 2종(영상 오디오라 lease 경유 필요) · §5-2 복원 250ms 램프
@@ -389,7 +389,7 @@ Storage 키 · 기본 on · 기본 볼륨 · `app_de.arb` 라벨 · `app_de.arb`
 
 ### 6-6. `test/tts_ducking_test.dart`
 
-`TtsService.speaking` 을 가짜로 true → `volumeFor(ambience)` 가 0.25배 → false →
+`TtsService.phase` 를 가짜로 `speaking` → `volumeFor(ambience)` 가 0.25배 → `idle` →
 200 ms 뒤 복원. `gameFeedback` 은 **안 변함**을 같이 검증한다.
 
 ### 6-7. `test/l10n_parity_test.dart` (신규, 래칫)
