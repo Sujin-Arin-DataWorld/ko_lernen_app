@@ -15,7 +15,7 @@ const millis = (value) => value?.toMillis ? value.toMillis() : new Date(value ||
 class PronunciationReceipts {
   constructor(db, {now = () => new Date(), resolvePolicy} = {}) {
     this.db = db; this.now = now;
-    this.resolvePolicy = resolvePolicy || ((uid, tx, at) => resolvePronunciationPolicy(db, uid, tx, at));
+    this.resolvePolicy = resolvePolicy || ((uid, tx, at, created) => resolvePronunciationPolicy(db, uid, tx, at, created));
   }
   refs(input) {
     return {
@@ -35,7 +35,7 @@ class PronunciationReceipts {
     return this.db.runTransaction(async (tx) => {
       const now = this.now();
       await this.fence(tx, refs.marker);
-      const policy = await this.resolvePolicy(input.uid, tx, now);
+      const policy = await this.resolvePolicy(input.uid, tx, now, input.accountCreatedAt);
       const snapshot = await tx.get(refs.receipt);
       const data = snapshot.exists ? snapshot.data() : null;
       if (data && millis(data.dedupeExpiresAt || data.expiresAt) > now.getTime()) {

@@ -60,6 +60,7 @@ function createAccessRuntime({firestore, auth, now = Date.now,
     if (user?.uid !== uid || user.disabled === true) {
       throw new AccessFailure("unauthenticated");
     }
+    const accountCreatedAt = Date.parse(user?.metadata?.creationTime);
     try {
       const at = now();
       const environment = getEnvironment();
@@ -74,7 +75,7 @@ function createAccessRuntime({firestore, auth, now = Date.now,
         const count = previous.minute === minute &&
           Number.isSafeInteger(previous.count) && previous.count >= 0 ? previous.count : 0;
         if (count >= 30) throw new AccessFailure("resource-exhausted");
-        const snapshot = resolveAccess({uid, environment, phase, now: at, ...authority});
+        const snapshot = resolveAccess({uid, environment, phase, now: at, ...authority, accountCreatedAt});
         transaction.set(rateRef, {
           ownerSubjectHash, minute, count: count + 1, expiresAt: new Date(at + DAY_MILLIS),
         });

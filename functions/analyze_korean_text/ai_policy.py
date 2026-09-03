@@ -5,13 +5,14 @@ import os
 from access_policy import bounded_text, entitlement_document_id, millis, resolve_access, safe_int
 
 
-def resolve_book_policy(client, uid, transaction, now):
+def resolve_book_policy(client, uid, transaction, now, account_created_at=None):
     environment = os.environ.get("ACCESS_ENVIRONMENT", "PRODUCTION")
     phase = os.environ.get("ACCESS_PHASE", "free_launch")
     grant = client.collection("premium_grants").document(uid).get(transaction=transaction)
     entitlement = client.collection("customer_entitlements").document(
         entitlement_document_id(uid, environment)).get(transaction=transaction)
     return resolve_access(uid=uid, environment=environment, phase=phase, now=now,
+                          account_created_at=account_created_at,
                           grant=grant.to_dict() if grant.exists else None,
                           entitlement=entitlement.to_dict() if entitlement.exists else None)
 

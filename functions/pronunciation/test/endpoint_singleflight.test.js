@@ -54,6 +54,7 @@ function request(data = {}) {
 function harness({providerTimeoutMs = 15000} = {}) {
   const db = new MemoryFirestore();
   const calls = [];
+  let user = {disabled: false, metadata: {creationTime: new Date(0).toISOString()}};
   let provider = async () => ({ok: true, json: async () => azure});
   class HttpsError extends Error { constructor(code, message, details) { super(message); this.code = code; this.details = details; } }
   const module = {exports: {}};
@@ -62,6 +63,10 @@ function harness({providerTimeoutMs = 15000} = {}) {
     fetch: async (...args) => { calls.push(args); return provider(...args); },
     require: (name) => {
       if (name === "firebase-admin/app") return {initializeApp() {}};
+      if (name === "firebase-admin/auth") return {getAuth: () => ({getUser: async (uid) => {
+        if (user instanceof Error) throw user;
+        return {uid, ...user};
+      }})};
       if (name === "firebase-admin/firestore") return {getFirestore: () => db, FieldValue: {serverTimestamp: () => "server-time"}};
       if (name === "firebase-functions/v2/https") return {HttpsError, onCall: (_options, handler) => handler};
       if (name === "firebase-functions/params") return {defineSecret: () => ({value: () => "test-only"})};
@@ -70,7 +75,8 @@ function harness({providerTimeoutMs = 15000} = {}) {
   };
   vm.runInNewContext(fs.readFileSync(path.join(__dirname, "..", "index.js"), "utf8"), context);
   require("../pronunciation_request_guard").pronunciationProviderBreaker.recordSuccess();
-  return {db, calls, api: module.exports, run: module.exports.assessPronunciation, setProvider: (fn) => { provider = fn; }};
+  return {db, calls, api: module.exports, run: module.exports.assessPronunciation,
+    setUser: (value) => { user = value; }, setProvider: (fn) => { provider = fn; }};
 }
 
 test("actual callable ten concurrent duplicates execute Azure once and reserve once", async () => {
@@ -147,10 +153,35 @@ function seedDaily(h, dayCount) {
 }
 
 function testerGrant(overrides = {}) {
-  return {schemaVersion: 1, ownerUid: "user-1", environment: "PRODUCTION", revision: 1,
+  return {schemaVersion: 1, ownerUid: "user-1", environment: "PRODUCTION", revision: 1, accountCreatedAt: 0,
     kind: "closed_tester_lifetime", status: "active", approvedBy: "Jin", approvedAt: new Date(0),
     approvalRef: "local-test-roster", grantId: "local-test-grant", ...overrides};
 }
+
+test("actual pronunciation callable rejects stale premium authority after same UID recreation", async () => {
+  for (const kind of ["tester", "subscription"]) {
+    const h = harness(); seedDaily(h, 5);
+    const key = kind === "tester" ? "premium_grants/user-1" :
+      `customer_entitlements/PRODUCTION_${require("node:crypto").createHash("sha256").update("user-1").digest("hex")}`;
+    h.db.store.set(key, {...testerGrant(), accountCreatedAt: 0,
+      providerCheckedAt: Date.now(), accessUntil: Date.now() + 60000});
+    await h.run(request({assessmentId: "before-recreation"}));
+    h.setUser({uid: "user-1", metadata: {creationTime: new Date(1000).toISOString()}});
+    await assert.rejects(h.run(request({assessmentId: "after-recreation", accountCreatedAt: 0})),
+      {code: "resource-exhausted"});
+    assert.equal(h.calls.length, 1);
+    assert.equal(h.db.store.get("users/user-1/pronunciation_rate_limits/current").dayCount, 6);
+  }
+});
+
+test("pronunciation Auth absence, disability and UID mismatch fail before provider or ledger", async () => {
+  for (const user of [new Error("missing"), {disabled: true}, {uid: "different"}]) {
+    const h = harness(); h.setUser(user);
+    await assert.rejects(h.run(request()), {code: "unauthenticated"});
+    assert.equal(h.calls.length, 0);
+    assert.equal(h.db.store.size, 1);
+  }
+});
 
 test("free launch full content never elevates actual AI quota from five", async () => {
   const h = harness(); seedDaily(h, 5);
@@ -172,6 +203,7 @@ test("server approved tester and verified subscription allow fifty, preserving u
     if (source === "tester") h.db.store.set("premium_grants/user-1", testerGrant());
     else h.db.store.set(`customer_entitlements/PRODUCTION_${require("node:crypto").createHash("sha256").update("user-1").digest("hex")}`, {
       schemaVersion: 1, ownerUid: "user-1", environment: "PRODUCTION", revision: 1,
+      accountCreatedAt: 0,
       status: "active", providerCheckedAt: Date.now() - 1000, accessUntil: Date.now() + 60000,
     });
     await h.run(request());
@@ -191,6 +223,7 @@ test("forged or mismatched server grant and stale subscription do not raise quot
   const h = harness(); seedDaily(h, 5);
   h.db.store.set(`customer_entitlements/PRODUCTION_${require("node:crypto").createHash("sha256").update("user-1").digest("hex")}`, {
     schemaVersion: 1, ownerUid: "user-1", environment: "PRODUCTION", revision: 1, status: "active",
+    accountCreatedAt: 0,
     providerCheckedAt: Date.now() - 4 * 86400000, accessUntil: Date.now() + 60000,
   });
   await assert.rejects(h.run(request()), {code: "resource-exhausted"});

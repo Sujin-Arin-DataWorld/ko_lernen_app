@@ -114,6 +114,7 @@ test("authenticated raw-body ingestion persists pending before 200 and duplicate
   await f.runtime.processEvent(id);
   assert.equal(f.fetchCount(), 1);
   assert.equal(f.records.get(path()).status, "active");
+  assert.equal(f.records.get(path()).accountCreatedAt, NOW - DAY);
   assert.equal((await f.ingest()).statusCode, 200);
   await f.runtime.processEvent(id);
   assert.equal(f.fetchCount(), 1);

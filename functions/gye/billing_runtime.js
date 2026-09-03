@@ -103,9 +103,9 @@ function createBillingRuntime({firestore, auth, fetchSubscriber, now = Date.now,
       throw new Error("Identity verification unavailable.");
     }
   }
-  function snapshot(uid, environment, revision, at, state) {
+  function snapshot(uid, environment, revision, at, state, accountCreatedAt) {
     return {schemaVersion: 1, ownerUid: uid, ownerSubjectHash: subjectHash(uid),
-      environment, revision, ...state, providerCheckedAt: state.providerCheckedAt ?? at};
+      environment, revision, accountCreatedAt, ...state, providerCheckedAt: state.providerCheckedAt ?? at};
   }
   function completed(job, status, at) {
     // Retain only dedup/integrity metadata, never a provider payload or raw UID.
@@ -154,7 +154,7 @@ function createBillingRuntime({firestore, auth, fetchSubscriber, now = Date.now,
               leaseOwner: null, leaseUntil: 0});
             tx.set(entitlements.doc(context.id), snapshot(context.uid, event.environment,
               (context.entitlement.revision || 0) + 1, at,
-              {status: "inactive", accessUntil: at}));
+              {status: "inactive", accessUntil: at}, context.created));
           }
         }
         tx.set(jobRef, completed(base, "quarantined", at));
@@ -265,7 +265,8 @@ function createBillingRuntime({firestore, auth, fetchSubscriber, now = Date.now,
       const previous = entitlementDoc.exists ? entitlementDoc.data() : {};
       const blocked = outcome === "quarantined";
       const verified = blocked ? {status: "inactive", accessUntil: at, providerCheckedAt: at} : state;
-      tx.set(entitlementRef, snapshot(job.ownerUid, job.environment, (previous.revision || 0) + 1, at, verified));
+      tx.set(entitlementRef, snapshot(job.ownerUid, job.environment, (previous.revision || 0) + 1,
+        at, verified, work.job.accountCreatedAt));
       const refreshed = {...withoutRefreshDue(cleared), identityBlocked: blocked};
       if (verified.status === "active") {
         refreshed.refreshDueAt = Math.min(at + DAY_MILLIS, verified.accessUntil);

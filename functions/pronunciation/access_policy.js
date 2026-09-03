@@ -37,24 +37,25 @@ function boundedText(value, max) {
     Buffer.byteLength(value, "utf8") <= max && !/[\u0000-\u001f\u007f]/u.test(value);
 }
 
-function matchesAuthority(value, uid, environment) {
+function matchesAuthority(value, uid, environment, accountCreatedAt) {
   return value?.schemaVersion === 1 && value.ownerUid === uid &&
+    millis(accountCreatedAt) !== null && millis(value.accountCreatedAt) === accountCreatedAt &&
     value.environment === environment && Number.isSafeInteger(value.revision) &&
     value.revision > 0;
 }
 
-function activeTesterGrant(grant, uid, environment, now) {
+function activeTesterGrant(grant, uid, environment, now, accountCreatedAt) {
   const approvedAt = millis(grant?.approvedAt);
-  return matchesAuthority(grant, uid, environment) &&
+  return matchesAuthority(grant, uid, environment, accountCreatedAt) &&
     grant.kind === "closed_tester_lifetime" && grant.status === "active" &&
     boundedText(grant.grantId, 128) && grant.approvedBy === "Jin" &&
     boundedText(grant.approvalRef, 512) && approvedAt !== null && approvedAt <= now;
 }
 
-function activeSubscription(entitlement, uid, environment, now) {
+function activeSubscription(entitlement, uid, environment, now, accountCreatedAt) {
   const checkedAt = millis(entitlement?.providerCheckedAt);
   const accessUntil = millis(entitlement?.accessUntil);
-  return matchesAuthority(entitlement, uid, environment) &&
+  return matchesAuthority(entitlement, uid, environment, accountCreatedAt) &&
     entitlement.status === "active" && checkedAt !== null && checkedAt <= now &&
     checkedAt + PAID_OFFLINE_MILLIS > now && accessUntil !== null && accessUntil > now;
 }
@@ -64,14 +65,18 @@ function activeSubscription(entitlement, uid, environment, now) {
  * feedback passports are intentionally not inputs to authority resolution.
  * All wire timestamps are UTC epoch milliseconds (never device time).
  */
-function resolveAccess({uid, environment, phase, now, grant, entitlement}) {
+function resolveAccess({uid, environment, phase, now, grant, entitlement, accountCreatedAt}) {
   if (!validUid(uid) || !ACCESS_ENVIRONMENTS.has(environment) ||
       !ACCESS_PHASES.has(phase) || millis(now) === null) {
     throw new TypeError("Invalid access policy context.");
   }
   now = millis(now);
-  const tester = activeTesterGrant(grant, uid, environment, now);
-  const subscriber = activeSubscription(entitlement, uid, environment, now);
+  // Only server Auth metadata supplies this context. Legacy documents without
+  // a generation are not silently rebound to whichever account now owns a UID.
+  accountCreatedAt = millis(accountCreatedAt);
+  if (accountCreatedAt !== null && accountCreatedAt > now) accountCreatedAt = null;
+  const tester = activeTesterGrant(grant, uid, environment, now, accountCreatedAt);
+  const subscriber = activeSubscription(entitlement, uid, environment, now, accountCreatedAt);
   const premium = tester || subscriber;
   const source = tester ? "closed_tester_lifetime" : subscriber ? "subscription" :
     phase === "free_launch" ? "free_launch" : "free";
@@ -80,7 +85,7 @@ function resolveAccess({uid, environment, phase, now, grant, entitlement}) {
     Math.min(accessUntil, millis(entitlement.providerCheckedAt) + PAID_OFFLINE_MILLIS) : now;
   const authorityRevision = tester ? grant.revision : subscriber ? entitlement.revision : 0;
   const revision = createHash("sha256")
-    .update(JSON.stringify([1, uid, environment, phase, source, authorityRevision, accessUntil]))
+    .update(JSON.stringify([1, uid, environment, phase, source, authorityRevision, accessUntil, accountCreatedAt]))
     .digest("hex");
   return Object.freeze({
     schemaVersion: 1,

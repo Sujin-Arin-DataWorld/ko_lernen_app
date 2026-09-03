@@ -52,6 +52,7 @@ const f = require(process.argv[1]);
 const {resolveAccess} = require(process.argv[2]);
 process.stdout.write(JSON.stringify(f.cases.map(c => resolveAccess({
   uid:f.uid, now:f.now, environment:c.environment || 'PRODUCTION', phase:c.phase || 'free_launch',
+  accountCreatedAt: Object.hasOwn(c, 'accountCreatedAt') ? c.accountCreatedAt : f.accountCreatedAt,
   grant:c.grant ? {...f.grant,...c.grant} : null,
   entitlement:c.entitlement ? {...f.entitlement,...c.entitlement} : null}))));
 '''
@@ -60,6 +61,7 @@ process.stdout.write(JSON.stringify(f.cases.map(c => resolveAccess({
         for case, expected in zip(fixture["cases"], canonical):
             with self.subTest(case=case["name"]):
                 actual = resolve_access(uid=fixture["uid"], now=fixture["now"],
+                    account_created_at=case.get("accountCreatedAt", fixture["accountCreatedAt"]),
                     environment=case.get("environment", "PRODUCTION"), phase=case.get("phase", "free_launch"),
                     grant={**fixture["grant"], **case["grant"]} if "grant" in case else None,
                     entitlement={**fixture["entitlement"], **case["entitlement"]} if "entitlement" in case else None)

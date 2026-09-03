@@ -40,7 +40,7 @@ function fixture(seed = {}) {
   let authCalls = 0;
   const auth = {getUser: async (requested) => {
     authCalls += 1;
-    return {uid: requested, disabled: false};
+    return {uid: requested, disabled: false, metadata: {creationTime: new Date(0).toISOString()}};
   }};
   const runtime = createAccessRuntime({firestore, auth, now: () => NOW,
     getEnvironment: () => "PRODUCTION", getPhase: () => "free_launch"});
@@ -72,6 +72,7 @@ test("free guest identity receives server policy, not an RC entitlement", async 
 
 test("only approved server grant grants tester premium", async () => {
   const f = fixture({[`premium_grants/${uid}`]: {
+    accountCreatedAt: 0,
     schemaVersion: 1, ownerUid: uid, environment: "PRODUCTION", revision: 1,
     kind: "closed_tester_lifetime", status: "active", grantId: "roster-001",
     approvedAt: NOW - 1, approvedBy: "Jin", approvalRef: "approved-001",
@@ -81,9 +82,30 @@ test("only approved server grant grants tester premium", async () => {
   assert.equal(result.pronunciationDailyLimit, 50);
 });
 
+test("manually recreated same UID cannot reuse existing subscription or tester grant", async () => {
+  const created = NOW - 10000;
+  for (const kind of ["tester", "subscription"]) {
+    const key = kind === "tester" ? `premium_grants/${uid}` :
+      `customer_entitlements/${entitlementDocumentId(uid, "PRODUCTION")}`;
+    const authority = {schemaVersion: 1, ownerUid: uid, environment: "PRODUCTION",
+      revision: 1, accountCreatedAt: created, status: "active",
+      kind: "closed_tester_lifetime", grantId: "approved", approvedBy: "Jin",
+      approvalRef: "roster", approvedAt: NOW - 1,
+      providerCheckedAt: NOW, accessUntil: NOW + 60000};
+    const f = fixture({[key]: authority});
+    f.auth.getUser = async () => ({uid, metadata: {creationTime: new Date(created).toISOString()}});
+    assert.equal((await f.runtime.getAccessSnapshot(f.request)).bookDailyLimit, 20);
+    f.auth.getUser = async () => ({uid, metadata: {creationTime: new Date(created + 1000).toISOString()}});
+    assert.equal((await f.runtime.getAccessSnapshot(f.request)).bookDailyLimit, 3);
+    delete authority.accountCreatedAt;
+    assert.equal((await f.runtime.getAccessSnapshot(f.request)).bookDailyLimit, 3);
+  }
+});
+
 test("environment-specific snapshot lookup cannot consume sandbox state", async () => {
   const f = fixture({
     [`customer_entitlements/${entitlementDocumentId(uid, "SANDBOX")}`]: {
+      accountCreatedAt: 0,
       schemaVersion: 1, ownerUid: uid, environment: "SANDBOX", revision: 1,
       status: "active", accessUntil: NOW + 100_000, providerCheckedAt: NOW,
     },

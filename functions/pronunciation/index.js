@@ -2,6 +2,7 @@
 
 const {initializeApp} = require("firebase-admin/app");
 const {getFirestore} = require("firebase-admin/firestore");
+const {getAuth} = require("firebase-admin/auth");
 const {HttpsError, onCall} = require("firebase-functions/v2/https");
 const {defineSecret} = require("firebase-functions/params");
 const {PronunciationReceipts} = require("./billable_receipts");
@@ -54,7 +55,15 @@ exports.assessPronunciation = onCall({
   timeoutSeconds: 30, memory: "256MiB", maxInstances: 20, secrets: [AZURE_SPEECH_KEY],
 }, async (request) => {
   try {
-    const input = validatePronunciationRequest(request);
+    const validated = validatePronunciationRequest(request);
+    // One server Auth read per request, outside retryable Firestore transactions.
+    let user;
+    try { user = await getAuth().getUser(validated.uid); }
+    catch { throw new HttpsError("unauthenticated", "Account unavailable."); }
+    if (user?.uid !== validated.uid || user.disabled === true) {
+      throw new HttpsError("unauthenticated", "Account unavailable.");
+    }
+    const input = {...validated, accountCreatedAt: Date.parse(user?.metadata?.creationTime)};
     const receipts = new PronunciationReceipts(getFirestore());
     const claim = await receipts.claim(input);
     if (claim.state === "completed") return claim.replay;

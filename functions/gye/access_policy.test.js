@@ -15,6 +15,7 @@ for (const entry of fixture.cases) {
   test(`shared wire snapshot: ${entry.name}`, () => {
     const actual = resolveAccess({
       uid: fixture.uid, now: fixture.now,
+      accountCreatedAt: Object.hasOwn(entry, "accountCreatedAt") ? entry.accountCreatedAt : fixture.accountCreatedAt,
       environment: entry.environment || "PRODUCTION",
       phase: entry.phase || "free_launch",
       grant: entry.grant ? {...fixture.grant, ...entry.grant} : null,
@@ -32,18 +33,37 @@ const NOW = Date.parse("2026-09-03T12:00:00Z");
 const DAY = 86_400_000;
 const uid = "account-A";
 const grant = {
+  accountCreatedAt: NOW - 2 * DAY,
   schemaVersion: 1, ownerUid: uid, environment: "PRODUCTION", revision: 1,
   kind: "closed_tester_lifetime", status: "active", grantId: "approval-001",
   approvedAt: NOW - DAY, approvedBy: "Jin", approvalRef: "approved-roster-001",
 };
 const entitlement = {
+  accountCreatedAt: NOW - 2 * DAY,
   schemaVersion: 1, ownerUid: uid, environment: "PRODUCTION", revision: 1,
   status: "active", accessUntil: NOW + 5 * DAY, providerCheckedAt: NOW - 1000,
 };
 function access(overrides = {}) {
   return resolveAccess({uid, now: NOW, environment: "PRODUCTION",
+    accountCreatedAt: NOW - 2 * DAY,
     phase: "free_launch", ...overrides});
 }
+
+test("both premium authorities require matching server Auth creation generation", () => {
+  const created = NOW - 2 * DAY;
+  for (const [field, document] of [["grant", grant], ["entitlement", entitlement]]) {
+    assert.equal(access({[field]: {...document, accountCreatedAt: created},
+      accountCreatedAt: created}).bookDailyLimit, 20);
+    for (const stored of [undefined, null, created - 1, "invalid"]) {
+      assert.equal(access({[field]: {...document, accountCreatedAt: stored},
+        accountCreatedAt: created}).bookDailyLimit, 3);
+    }
+    for (const current of [undefined, null, created + 1, NOW + 1]) {
+      assert.equal(access({[field]: {...document, accountCreatedAt: created},
+        accountCreatedAt: current}).bookDailyLimit, 3);
+    }
+  }
+});
 
 test("free launch opens content without promoting ordinary AI allowance", () => {
   const actual = access();

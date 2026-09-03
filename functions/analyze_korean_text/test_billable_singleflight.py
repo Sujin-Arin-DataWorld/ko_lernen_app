@@ -5,6 +5,7 @@ import hashlib
 import threading
 import time
 import unittest
+from types import SimpleNamespace
 from concurrent.futures import ThreadPoolExecutor
 from unittest import mock
 
@@ -94,9 +95,12 @@ class BillableEndpointTest(unittest.TestCase):
         self.receipts = FirestoreIdempotencyGate(firestore_client=self.db, now=lambda: self.now)
         self.quota = FirestoreQuotaGate(firestore_client=self.db, now=lambda: self.now)
         self.calls = 0
+        self.auth_user = SimpleNamespace(uid="user-1", disabled=False,
+                                        user_metadata=SimpleNamespace(creation_timestamp=0))
         self.provider = lambda **kwargs: endpoint._analysis_response("de")
         self.patches = [
             mock.patch("google.cloud.firestore.transactional", transactional),
+            mock.patch("firebase_admin.auth.get_user", side_effect=lambda uid: self.auth_user),
             mock.patch.object(endpoint, "verify_caller", return_value=Caller("user-1", "app-1")),
             mock.patch.object(endpoint, "_idempotency_gate", return_value=self.receipts),
             mock.patch.object(endpoint, "_quota_gate", return_value=self.quota),
@@ -125,6 +129,7 @@ class BillableEndpointTest(unittest.TestCase):
 
     def grant(self, **overrides):
         return {"schemaVersion": 1, "ownerUid": "user-1", "environment": "PRODUCTION", "revision": 1,
+                "accountCreatedAt": 0,
                 "kind": "closed_tester_lifetime", "status": "active", "approvedBy": "Jin", "approvedAt": 0,
                 "grantId": "local-test-grant", "approvalRef": "local-test-roster", **overrides}
 
@@ -133,6 +138,37 @@ class BillableEndpointTest(unittest.TestCase):
         self.assertEqual(self.run_request(tier="premium", isPremium=True, FREE_LAUNCH=True,
                                          premiumGrant=self.grant(), feedbackPassport=True).status_code, 429)
         self.assertEqual(self.calls, 0)
+
+    def test_existing_premium_authority_cannot_survive_manual_same_uid_recreation(self):
+        for source in ["tester", "subscription"]:
+            with self.subTest(source=source):
+                # Node Admin exposes creationTime via UTC strings (seconds);
+                # Python exposes the same account's original millisecond value.
+                self.auth_user.user_metadata.creation_timestamp = 999
+                self.seed_daily(3)
+                key = ("premium_grants/user-1" if source == "tester" else
+                       "customer_entitlements/PRODUCTION_" + hashlib.sha256(b"user-1").hexdigest())
+                self.db.store[key] = {**self.grant(), "accountCreatedAt": 0,
+                    "providerCheckedAt": int(self.now.timestamp() * 1000),
+                    "accessUntil": int(self.now.timestamp() * 1000) + 60000}
+                before = self.calls
+                self.assertEqual(self.run_request(requestId="before-" + source).status_code, 200)
+                self.auth_user.user_metadata.creation_timestamp = 1000
+                self.assertEqual(self.run_request(requestId="recreated-" + source,
+                                                 accountCreatedAt=0).status_code, 429)
+                self.assertEqual(self.calls, before + 1)
+                self.assertEqual(self.ledger()["dailyCount"], 4)
+                self.db.store.pop(key)
+
+    def test_book_disabled_missing_or_wrong_auth_user_never_dispatches(self):
+        for user in [SimpleNamespace(uid="user-1", disabled=True),
+                     SimpleNamespace(uid="other", disabled=False)]:
+            self.auth_user = user
+            self.assertEqual(self.run_request().status_code, 403)
+            self.assertEqual(self.calls, 0)
+        with mock.patch("firebase_admin.auth.get_user", side_effect=ValueError("missing")):
+            self.assertEqual(self.run_request().status_code, 403)
+        self.assertFalse(any(k.startswith("service_quota_ledgers/") for k in self.db.store))
 
     def test_server_tester_subscription_and_tier_transitions_preserve_count(self):
         for source in ["tester", "subscription"]:
@@ -144,6 +180,7 @@ class BillableEndpointTest(unittest.TestCase):
                 else:
                     key = "customer_entitlements/PRODUCTION_" + hashlib.sha256(b"user-1").hexdigest()
                     self.db.store[key] = {"schemaVersion": 1, "ownerUid": "user-1", "environment": "PRODUCTION",
+                        "accountCreatedAt": 0,
                         "revision": 1, "status": "active", "providerCheckedAt": int(self.now.timestamp() * 1000),
                         "accessUntil": int(self.now.timestamp() * 1000) + 60000}
                 self.assertEqual(self.run_request(requestId="request-" + source).status_code, 200)
@@ -161,6 +198,7 @@ class BillableEndpointTest(unittest.TestCase):
         self.db.store.pop("premium_grants/user-1")
         key = "customer_entitlements/PRODUCTION_" + hashlib.sha256(b"user-1").hexdigest()
         self.db.store[key] = {"schemaVersion": 1, "ownerUid": "user-1", "environment": "PRODUCTION", "revision": 1,
+            "accountCreatedAt": 0,
             "status": "active", "providerCheckedAt": int((self.now - dt.timedelta(days=4)).timestamp() * 1000),
             "accessUntil": int(self.now.timestamp() * 1000) + 60000}
         self.assertEqual(self.run_request().status_code, 429)

@@ -15,6 +15,7 @@ test("deployment-package access policy is identical to canonical Gye source", ()
 for (const c of fixtures.cases) {
   test(`shared access contract: ${c.name}`, () => {
     const access = resolveAccess({uid: fixtures.uid, now: fixtures.now,
+      accountCreatedAt: Object.hasOwn(c, "accountCreatedAt") ? c.accountCreatedAt : fixtures.accountCreatedAt,
       environment: c.environment || "PRODUCTION", phase: c.phase || "free_launch",
       grant: c.grant ? {...fixtures.grant, ...c.grant} : null,
       entitlement: c.entitlement ? {...fixtures.entitlement, ...c.entitlement} : null});

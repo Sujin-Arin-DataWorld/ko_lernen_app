@@ -16,6 +16,26 @@ function payload(overrides = {}) {
 const context = {environment: "PRODUCTION", entitlementId: "premium", now: NOW,
   accountCreatedAt: NOW - 2 * DAY};
 
+test("raw v1 Google base-plan metadata preserves product-key lookup and environment isolation", () => {
+  // Raw v1 is keyed by product ID; SDK CustomerInfo may compose product:plan.
+  // Shape: revenuecat.com/docs/api-v1/customer-info-model and purchases-ios PR #2654.
+  // Synthetic dates/identifiers, not a captured customer or store-release proof.
+  const raw = {request_date_ms: NOW, subscriber: {
+    entitlements: {premium: {product_identifier: "premium_access",
+      expires_date: new Date(NOW + DAY).toISOString()}},
+    subscriptions: {premium_access: {product_plan_identifier: "monthly",
+      store: "play_store", is_sandbox: false, ownership_type: "PURCHASED",
+      period_type: "normal", original_purchase_date: new Date(NOW - DAY).toISOString(),
+      expires_date: new Date(NOW + DAY).toISOString()}},
+  }};
+  assert.deepEqual(normalizeSubscriber(raw, context), {status: "active",
+    store: "play_store", accessUntil: NOW + DAY, providerCheckedAt: NOW});
+  assert.equal(normalizeSubscriber(raw, {...context, environment: "SANDBOX"}).status, "inactive");
+  raw.subscriber.subscriptions.premium_access.is_sandbox = true;
+  assert.equal(normalizeSubscriber(raw, context).status, "inactive");
+  assert.equal(normalizeSubscriber(raw, {...context, environment: "SANDBOX"}).status, "active");
+});
+
 test("provider normalization rejects cross-env, nonmonthly ownership, refund, old account purchase, pause", () => {
   assert.equal(normalizeSubscriber(payload(), context).status, "active");
   for (const override of [{is_sandbox: true}, {is_sandbox: undefined},

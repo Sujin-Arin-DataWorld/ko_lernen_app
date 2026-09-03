@@ -576,8 +576,8 @@ class FirestoreIdempotencyGate(FirestoreQuotaGate):
         super().__init__(firestore_client=firestore_client, now=now, policy=policy)
         self._resolve_policy = resolve_policy
 
-    def _access_policy(self, uid, transaction, now):
-        access = resolve_book_policy(self._client(), uid, transaction, now)
+    def _access_policy(self, uid, transaction, now, account_created_at):
+        access = resolve_book_policy(self._client(), uid, transaction, now, account_created_at)
         return QuotaPolicy(access["bookDailyLimit"], BURST_LIMIT, BURST_WINDOW_SECONDS)
 
     def _reference(self, document_id):
@@ -602,6 +602,22 @@ class FirestoreIdempotencyGate(FirestoreQuotaGate):
 
     def claim(self, document_id, *, uid, fingerprint, kind="book_analysis_v1"):
         import secrets
+        from firebase_admin import auth
+        # Resolve current identity once before any retryable transaction. The
+        # request body and ID token custom claims cannot supply this generation.
+        try:
+            user = auth.get_user(uid)
+        except Exception as error:
+            raise AccountUnavailable() from error
+        if user.uid != uid or user.disabled:
+            raise AccountUnavailable()
+        account_created_at = getattr(getattr(user, "user_metadata", None), "creation_timestamp", None)
+        # Node Admin UserMetadata.creationTime uses a whole-second UTC string.
+        # Match that public precision; do not invent a cross-SDK millisecond ID.
+        from access_policy import millis
+        account_created_at = millis(account_created_at)
+        if account_created_at is not None:
+            account_created_at = account_created_at // 1000 * 1000
         owner = secrets.token_hex(32)
         def claim_in_transaction(transaction):
             reference = self._reference(document_id)
@@ -609,7 +625,7 @@ class FirestoreIdempotencyGate(FirestoreQuotaGate):
             now = self._now().astimezone(dt.timezone.utc)
             self._fence(transaction, uid)
             policy = (self._resolve_policy(uid, transaction, now)
-                      if self._resolve_policy else self._access_policy(uid, transaction, now))
+                      if self._resolve_policy else self._access_policy(uid, transaction, now, account_created_at))
             snapshot = reference.get(transaction=transaction)
             data = snapshot.to_dict() if snapshot.exists else None
             expiry = _as_utc_datetime((data or {}).get("dedupeExpiresAt") or (data or {}).get("expiresAt"))
