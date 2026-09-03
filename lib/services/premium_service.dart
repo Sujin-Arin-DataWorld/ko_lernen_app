@@ -264,7 +264,9 @@ class PremiumPurchaseController {
     required this.refreshAccess,
     required this.purchasePackage,
     required this.restorePurchases,
-  });
+  }) {
+    sessions.changes.addListener(_pendingSessionChanged);
+  }
   final CloudWriteSessionController sessions;
   final PremiumIdentityBinder binder;
   final ({String? uid, bool isAnonymous}) Function() identity;
@@ -274,13 +276,84 @@ class PremiumPurchaseController {
   final Future<bool> Function(Package) purchasePackage;
   final Future<bool> Function() restorePurchases;
   bool _busy = false;
+  bool _disposed = false;
+  Timer? _pendingTimer;
+  CloudWriteSession? _pendingSession;
+  int _pendingGeneration = 0;
+  static const _pendingRetryDelays = [
+    Duration(seconds: 2),
+    Duration(seconds: 5),
+    Duration(seconds: 15),
+    Duration(seconds: 30),
+    Duration(minutes: 1),
+    Duration(minutes: 5),
+  ];
 
   bool _matches(String uid, CloudWriteSession? session) =>
+      !_disposed &&
       identity().uid == uid &&
       !identity().isAnonymous &&
       session != null &&
       sessions.current == session &&
       session.mode == CloudWriteMode.ready;
+
+  void _pendingSessionChanged() {
+    if (_pendingSession != null && sessions.current != _pendingSession) {
+      _cancelPendingReconciliation();
+    }
+  }
+
+  void _cancelPendingReconciliation() {
+    _pendingGeneration++;
+    _pendingTimer?.cancel();
+    _pendingTimer = null;
+    _pendingSession = null;
+  }
+
+  void _reconcilePending(String uid, CloudWriteSession? session) {
+    _cancelPendingReconciliation();
+    if (_disposed || !_matches(uid, session) || hasPremium()) {
+      return;
+    }
+    _pendingSession = session;
+    final generation = _pendingGeneration;
+    void schedule(int attempt) {
+      _pendingTimer = Timer(_pendingRetryDelays[attempt], () async {
+        _pendingTimer = null;
+        if (_disposed || generation != _pendingGeneration) {
+          return;
+        }
+        if (!_matches(uid, session) || hasPremium()) {
+          _cancelPendingReconciliation();
+          return;
+        }
+        try {
+          // Only re-read server authority. Never retry a store operation.
+          await refreshAccess();
+        } on Object {
+          // A temporary failure consumes this bounded verification attempt.
+        }
+        if (_disposed || generation != _pendingGeneration) {
+          return;
+        }
+        if (!_matches(uid, session) ||
+            hasPremium() ||
+            attempt + 1 == _pendingRetryDelays.length) {
+          _cancelPendingReconciliation();
+          return;
+        }
+        schedule(attempt + 1);
+      });
+    }
+
+    schedule(0);
+  }
+
+  void dispose() {
+    _disposed = true;
+    _cancelPendingReconciliation();
+    sessions.changes.removeListener(_pendingSessionChanged);
+  }
 
   Future<PremiumPurchaseOutcome> purchase(Package package) async {
     final user = identity();
@@ -289,7 +362,7 @@ class PremiumPurchaseController {
     if (uid == null || user.isAnonymous) {
       return PremiumPurchaseOutcome.signInRequired;
     }
-    if (!enabled() || _busy || !isMonthlyPackage(package)) {
+    if (_disposed || !enabled() || _busy || !isMonthlyPackage(package)) {
       return PremiumPurchaseOutcome.failed;
     }
     if (hasPremium()) {
@@ -302,6 +375,11 @@ class PremiumPurchaseController {
         action: () async {
           if (!_matches(uid, session)) {
             return PremiumPurchaseOutcome.stale;
+          }
+          // Binding may have waited behind another operation while a fresh
+          // server grant arrived. Recheck at the last point before the store.
+          if (hasPremium()) {
+            return PremiumPurchaseOutcome.purchased;
           }
           await purchasePackage(package);
           if (!_matches(uid, session)) {
@@ -316,14 +394,23 @@ class PremiumPurchaseController {
               : PremiumPurchaseOutcome.pending;
         },
       );
-      return outcome ??
+      final result =
+          outcome ??
           (_matches(uid, session)
               ? PremiumPurchaseOutcome.failed
               : PremiumPurchaseOutcome.stale);
+      if (result == PremiumPurchaseOutcome.pending) {
+        _reconcilePending(uid, session);
+      }
+      return result;
     } on Object catch (error) {
-      return _matches(uid, session)
+      final result = _matches(uid, session)
           ? premiumPurchaseOutcomeForError(error)
           : PremiumPurchaseOutcome.stale;
+      if (result == PremiumPurchaseOutcome.pending) {
+        _reconcilePending(uid, session);
+      }
+      return result;
     } finally {
       _busy = false;
     }
@@ -336,7 +423,7 @@ class PremiumPurchaseController {
     if (uid == null || user.isAnonymous) {
       return PremiumRestoreOutcome.signInRequired;
     }
-    if (!enabled() || _busy) {
+    if (_disposed || !enabled() || _busy) {
       return PremiumRestoreOutcome.failed;
     }
     _busy = true;
@@ -362,19 +449,28 @@ class PremiumPurchaseController {
               : PremiumRestoreOutcome.none;
         },
       );
-      return outcome ??
+      final result =
+          outcome ??
           (_matches(uid, session)
               ? PremiumRestoreOutcome.failed
               : PremiumRestoreOutcome.stale);
+      if (result == PremiumRestoreOutcome.pending) {
+        _reconcilePending(uid, session);
+      }
+      return result;
     } on Object catch (error) {
       if (!_matches(uid, session)) {
         return PremiumRestoreOutcome.stale;
       }
-      return switch (premiumPurchaseOutcomeForError(error)) {
+      final result = switch (premiumPurchaseOutcomeForError(error)) {
         PremiumPurchaseOutcome.cancelled => PremiumRestoreOutcome.cancelled,
         PremiumPurchaseOutcome.pending => PremiumRestoreOutcome.pending,
         _ => PremiumRestoreOutcome.failed,
       };
+      if (result == PremiumRestoreOutcome.pending) {
+        _reconcilePending(uid, session);
+      }
+      return result;
     } finally {
       _busy = false;
     }
@@ -465,9 +561,15 @@ class PremiumService {
         environment: accessEnvironment,
         fetch: () async {
           final before = _identity().uid;
-          final response = await FirebaseFunctions.instanceFor(
-            region: 'europe-west3',
-          ).httpsCallable('getAccessSnapshot').call();
+          final response =
+              await FirebaseFunctions.instanceFor(region: 'europe-west3')
+                  .httpsCallable(
+                    'getAccessSnapshot',
+                    options: HttpsCallableOptions(
+                      limitedUseAppCheckToken: true,
+                    ),
+                  )
+                  .call();
           if (_identity().uid != before) {
             throw StateError('Stale access response');
           }

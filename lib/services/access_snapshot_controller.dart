@@ -158,6 +158,10 @@ class AccessSnapshotController extends ChangeNotifier {
       return;
     }
     final request = ++_request;
+    // Start before transport: serverNow can precede response delivery. Charging
+    // the whole round trip is conservative and never extends the server lease.
+    final startedWall = wallMillis();
+    final startedElapsed = elapsedMillis();
     try {
       final data = await fetch();
       if (_disposed || request != _request || sessions.current != session) {
@@ -169,11 +173,26 @@ class AccessSnapshotController extends ChangeNotifier {
           (_snapshot != null && value.serverNow < _snapshot!.serverNow)) {
         return;
       }
+      final arrivedWall = wallMillis();
+      final wallAge = arrivedWall - startedWall;
+      final elapsedAge = elapsedMillis() - startedElapsed;
+      final transitAge = wallAge > elapsedAge ? wallAge : elapsedAge;
+      if (wallAge < 0 ||
+          elapsedAge < 0 ||
+          (value.hasPremium &&
+              !value.canUseOffline(Duration(milliseconds: transitAge)))) {
+        _snapshot = null;
+        _persist(null);
+        notifyListeners();
+        return;
+      }
       _session = session;
       _snapshot = value;
-      _receivedWall = wallMillis();
-      _highWaterWall = _receivedWall;
-      _receivedElapsed = elapsedMillis();
+      // Preserve monotonic-only transit age on disk too, so restarting cannot
+      // restore time already consumed while the response was in flight.
+      _receivedWall = arrivedWall - transitAge;
+      _highWaterWall = arrivedWall;
+      _receivedElapsed = startedElapsed;
       _save(value);
       notifyListeners();
     } on Object {

@@ -1,5 +1,8 @@
 import 'dart:async';
 
+// The Flutter test SDK already supplies fake_async; no runtime dependency.
+// ignore: depend_on_referenced_packages
+import 'package:fake_async/fake_async.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
@@ -49,7 +52,7 @@ void main() {
   Future<bool> Function()? buying;
   Future<bool> Function()? restoring;
   Future<void> Function()? refresh;
-  setUp(() {
+  void initialize() {
     sessions = CloudWriteSessionController()..acquire('a');
     identity = (uid: 'a', isAnonymous: false);
     premium = false;
@@ -83,8 +86,13 @@ void main() {
         return await restoring?.call() ?? true;
       },
     );
+  }
+
+  setUp(initialize);
+  tearDown(() async {
+    controller.dispose();
+    await binder.dispose();
   });
-  tearDown(() => binder.dispose());
 
   test('guest purchases and restores never invoke the SDK', () async {
     identity = (uid: 'a', isAnonymous: true);
@@ -112,6 +120,19 @@ void main() {
     expect(await controller.purchase(monthly), PremiumPurchaseOutcome.failed);
     expect(purchases, 0);
   });
+  test(
+    'grant received while binding prevents a duplicate store purchase',
+    () async {
+      final login = Completer<void>();
+      sdk.login = login.future;
+      final pending = controller.purchase(monthly);
+      await Future<void>.delayed(Duration.zero);
+      premium = true;
+      login.complete();
+      expect(await pending, PremiumPurchaseOutcome.purchased);
+      expect(purchases, 0);
+    },
+  );
   test('SDK current identity mismatch blocks a purchase', () async {
     sdk.keepWrongIdentity = true;
     expect(await controller.purchase(monthly), PremiumPurchaseOutcome.failed);
@@ -232,6 +253,102 @@ void main() {
     expect(purchases, 1);
     expect(restores, 0);
   });
+  test(
+    'foreground pending purchase reconciles a later server grant without another store call',
+    () {
+      fakeAsync((clock) {
+        initialize();
+        PremiumPurchaseOutcome? outcome;
+        controller.purchase(monthly).then((value) => outcome = value);
+        clock.flushMicrotasks();
+        expect(outcome, PremiumPurchaseOutcome.pending);
+        expect(refreshes, 1);
+        refresh = () async => premium = true;
+        clock.elapse(const Duration(seconds: 2));
+        expect(refreshes, 2);
+        expect(premium, isTrue);
+        expect(purchases, 1);
+        clock.elapse(const Duration(minutes: 20));
+        expect(refreshes, 2);
+        expect(restores, 0);
+      });
+    },
+  );
+  test('pending verification is bounded even if every later refresh fails', () {
+    fakeAsync((clock) {
+      initialize();
+      controller.purchase(monthly);
+      clock.flushMicrotasks();
+      refresh = () async => throw StateError('offline');
+      clock.elapse(const Duration(minutes: 20));
+      expect(refreshes, 7); // One immediate lookup plus six bounded retries.
+      expect(purchases, 1);
+      expect(premium, isFalse);
+      expect(clock.nonPeriodicTimerCount, 0);
+    });
+  });
+  test(
+    'pending restore and provider payment-pending both reconcile without repeating the store action',
+    () {
+      fakeAsync((clock) {
+        initialize();
+        PremiumRestoreOutcome? outcome;
+        controller.restore().then((value) => outcome = value);
+        clock.flushMicrotasks();
+        expect(outcome, PremiumRestoreOutcome.pending);
+        refresh = () async => premium = true;
+        clock.elapse(const Duration(seconds: 2));
+        expect(premium, isTrue);
+        expect(restores, 1);
+
+        premium = false;
+        buying = () async => throw PlatformException(code: '20');
+        controller.purchase(monthly);
+        clock.flushMicrotasks();
+        clock.elapse(const Duration(seconds: 2));
+        expect(premium, isTrue);
+        expect(purchases, 1);
+      });
+    },
+  );
+  test('pending retries stop at account or same-UID epoch transitions', () {
+    fakeAsync((clock) {
+      initialize();
+      controller.purchase(monthly);
+      clock.flushMicrotasks();
+      sessions.acquire('a');
+      clock.elapse(const Duration(minutes: 20));
+      expect(refreshes, 1);
+      expect(clock.nonPeriodicTimerCount, 0);
+      controller.purchase(monthly);
+      clock.flushMicrotasks();
+      identity = (uid: 'b', isAnonymous: false);
+      sessions.acquire('b');
+      clock.elapse(const Duration(minutes: 20));
+      expect(refreshes, 2);
+      expect(premium, isFalse);
+    });
+  });
+  test(
+    'an in-flight pending refresh cannot continue after an epoch change',
+    () {
+      fakeAsync((clock) {
+        initialize();
+        controller.purchase(monthly);
+        clock.flushMicrotasks();
+        final response = Completer<void>();
+        refresh = () => response.future;
+        clock.elapse(const Duration(seconds: 2));
+        expect(refreshes, 2);
+        sessions.acquire('a');
+        response.complete();
+        clock.flushMicrotasks();
+        clock.elapse(const Duration(minutes: 20));
+        expect(refreshes, 2);
+        expect(clock.nonPeriodicTimerCount, 0);
+      });
+    },
+  );
 }
 
 class _Client implements RevenueCatIdentityClient {

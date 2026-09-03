@@ -95,6 +95,126 @@ void main() {
     expect(controller.snapshot, isNull);
   });
   test(
+    'response already expired in transit cannot establish an offline lease',
+    () async {
+      final response = Completer<Map<String, dynamic>>();
+      create(() => response.future);
+      final pending = controller.refresh();
+      wall += 2000;
+      elapsed += 2000;
+      response.complete({
+        ...snapshot(),
+        'accessUntil': 172801000,
+        'offlineUntil': 172801000,
+      });
+      await pending;
+      expect(controller.snapshot, isNull);
+      await Future<void>.delayed(Duration.zero);
+      expect(store.read(), isNull);
+    },
+  );
+  test(
+    'transport time remains charged after refresh and cache restart',
+    () async {
+      final response = Completer<Map<String, dynamic>>();
+      create(() => response.future);
+      final pending = controller.refresh();
+      wall += 400;
+      elapsed += 400;
+      response.complete({
+        ...snapshot(),
+        'accessUntil': 172801000,
+        'offlineUntil': 172801000,
+      });
+      await pending;
+      expect(controller.snapshot?.hasPremium, isTrue);
+      await Future<void>.delayed(Duration.zero);
+      controller.dispose();
+      elapsed = 0;
+      create(() async => throw StateError('offline'));
+      wall += 600;
+      elapsed += 600;
+      expect(controller.snapshot, isNull);
+    },
+  );
+  test(
+    'monotonic transit time bounds lease even if wall clock does not advance',
+    () async {
+      final response = Completer<Map<String, dynamic>>();
+      create(() => response.future);
+      final pending = controller.refresh();
+      elapsed += 1000;
+      response.complete({
+        ...snapshot(),
+        'accessUntil': 172801000,
+        'offlineUntil': 172801000,
+      });
+      await pending;
+      expect(controller.snapshot, isNull);
+    },
+  );
+  test(
+    'monotonic-only transit age remains charged after cache restart',
+    () async {
+      final response = Completer<Map<String, dynamic>>();
+      create(() => response.future);
+      final pending = controller.refresh();
+      elapsed += 400;
+      response.complete({
+        ...snapshot(),
+        'accessUntil': 172801000,
+        'offlineUntil': 172801000,
+      });
+      await pending;
+      expect(controller.snapshot?.hasPremium, isTrue);
+      await Future<void>.delayed(Duration.zero);
+      controller.dispose();
+      elapsed = 0;
+      create(() async => throw StateError('offline'));
+      wall += 600;
+      elapsed += 600;
+      expect(controller.snapshot, isNull);
+    },
+  );
+  test('wall rollback during a request cannot create a fresh lease', () async {
+    final response = Completer<Map<String, dynamic>>();
+    create(() => response.future);
+    final pending = controller.refresh();
+    wall--;
+    elapsed++;
+    response.complete(snapshot());
+    await pending;
+    expect(controller.snapshot, isNull);
+  });
+  test(
+    'failed refresh retains original expiry without restarting its clock',
+    () async {
+      var calls = 0;
+      final response = Completer<Map<String, dynamic>>();
+      create(
+        () => ++calls == 1
+            ? Future.value({
+                ...snapshot(),
+                'accessUntil': 172801000,
+                'offlineUntil': 172801000,
+              })
+            : response.future,
+      );
+      await controller.refresh();
+      wall += 400;
+      elapsed += 400;
+      final pending = controller.refresh();
+      wall += 400;
+      elapsed += 400;
+      response.completeError(StateError('offline'));
+      await pending;
+      expect(controller.snapshot?.hasPremium, isTrue);
+      wall += 200;
+      elapsed += 200;
+      expect(controller.snapshot, isNull);
+    },
+  );
+  test(
     'offline lease expires at subscription expiry without touching progress',
     () async {
       create(() async => snapshot());
