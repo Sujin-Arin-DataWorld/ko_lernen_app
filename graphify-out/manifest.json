@@ -8706,9 +8706,9 @@
     "semantic_hash": ""
   },
   ".github/workflows/ci.yml": {
-    "mtime": 1788397443.8089793,
-    "seen": 1788398152.0457904,
-    "ast_hash": "864ac800f5fa3756235510423ed6530e",
+    "mtime": 1788401058.3160956,
+    "seen": 1788402293.9648058,
+    "ast_hash": "7840295b1562d3f9e11bda2ae72df14f",
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-07-29-account-transition-and-deletion/task-6-report.md": {
@@ -13884,9 +13884,9 @@
     "semantic_hash": ""
   },
   "docs/store/firebase-backend-release-gates.md": {
-    "mtime": 1788399190.9916973,
-    "seen": 1788399996.150992,
-    "ast_hash": "2b0627543476e5b78c1fe0d8986ad8c4",
+    "mtime": 1788401600.0809639,
+    "seen": 1788402294.0212424,
+    "ast_hash": "3b65a14ba10813fd54bf66e70287754b",
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-09-01-handoff-verification-and-release/ios-manual-runbook.md": {
@@ -13920,9 +13920,9 @@
     "semantic_hash": ""
   },
   ".github/scripts/test_commercial_security_contract.py": {
-    "mtime": 1788397421.1209755,
-    "seen": 1788398152.0378518,
-    "ast_hash": "069ae6539a9fec036b3ebaca7bab1c64",
+    "mtime": 1788401036.1753848,
+    "seen": 1788402293.3427749,
+    "ast_hash": "16f0958703d32903dfe940db10a12fc3",
     "semantic_hash": ""
   },
   "functions/analyze_korean_text/access_policy.py": {
