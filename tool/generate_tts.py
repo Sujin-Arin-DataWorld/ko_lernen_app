@@ -542,6 +542,20 @@ def remote_cache_paths():
     }
 
 
+def delete_remote_objects(paths):
+    """Permanently remove the given immutable v3 objects from Storage."""
+    if not paths:
+        return
+    subprocess.run(
+        gcloud_argv(
+            "storage", "rm",
+            *(f"gs://{BUCKET}/{path}" for path in sorted(paths)),
+            "--project", PROJECT,
+        ),
+        check=True,
+    )
+
+
 def download_first_line_bundle(manifest_items, project_root=ROOT, chunk_size=50):
     """Download every unique first-line storagePath into assets/tts/<rev>/<voice>/.
 
@@ -1350,6 +1364,16 @@ def _parse_args(argv=None):
             "--scenario-pending-manifest."
         ),
     )
+    parser.add_argument(
+        "--delete-stale",
+        action="store_true",
+        help="With --verify-storage, list Storage objects the corpus no longer references.",
+    )
+    parser.add_argument(
+        "--confirm-delete",
+        action="store_true",
+        help="With --delete-stale, actually delete the listed objects (default: dry-run).",
+    )
     args = parser.parse_args(argv)
     if args.verification_output and not (
         args.verify_storage and args.scenario_pending_manifest
@@ -1358,6 +1382,10 @@ def _parse_args(argv=None):
             "--verification-output requires --verify-storage and "
             "--scenario-pending-manifest"
         )
+    if args.delete_stale and not args.verify_storage:
+        parser.error("--delete-stale requires --verify-storage")
+    if args.confirm_delete and not args.delete_stale:
+        parser.error("--confirm-delete requires --delete-stale")
     if args.demo and args.scenario_pending_manifest:
         parser.error("--demo cannot be combined with --scenario-pending-manifest")
     if (args.write_first_line_manifest or args.check_first_line_manifest) and (
@@ -1498,6 +1526,11 @@ def main(argv=None):
         )
         for path in missing:
             print(f"MISSING\t{path}")
+        for path in unexpected:
+            print(f"STALE\t{path}")
+        if args.delete_stale and args.confirm_delete and unexpected:
+            delete_remote_objects(set(unexpected))
+            print(f"deleted {len(unexpected)} stale object(s)")
         return 1 if missing else 0
 
     if not API_KEY:

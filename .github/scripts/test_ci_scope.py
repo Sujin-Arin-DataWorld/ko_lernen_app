@@ -34,6 +34,14 @@ class CiScopeTest(unittest.TestCase):
             "auth_cleanup",
         )
 
+    def test_content_shard_change_selects_only_content_gate(self):
+        self.assert_enabled(["assets/data/scenarios_a1.json"], "content")
+        self.assert_enabled(["assets/data/cloze.json"], "content")
+        self.assert_enabled(["assets/data/korean_vocab.csv"], "content")
+
+    def test_tts_function_change_is_not_conflated_with_content_scope(self):
+        self.assert_enabled(["functions/tts/index.js"], "tts")
+
     def test_shared_firestore_contract_selects_consumers(self):
         self.assert_enabled(
             ["firestore.rules"],

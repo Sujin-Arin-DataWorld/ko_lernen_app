@@ -14,7 +14,10 @@ from pathlib import PurePosixPath
 from typing import Iterable
 
 
-SCOPES = ("app", "website", "book", "gye", "pronunciation", "tts", "auth_cleanup")
+SCOPES = (
+    "app", "website", "book", "gye", "pronunciation", "tts", "auth_cleanup",
+    "content",
+)
 
 TASK_SCOPE = {
     "full": SCOPES,
@@ -25,6 +28,7 @@ TASK_SCOPE = {
     "pronunciation": ("pronunciation",),
     "tts": ("tts",),
     "auth-cleanup": ("auth_cleanup",),
+    "content": ("content",),
     "release-internal": ("app",),
     "release-website": ("website",),
 }
@@ -118,6 +122,21 @@ def scopes_for_paths(paths: Iterable[str]) -> dict[str, bool]:
 
         if path.startswith("functions/tts/"):
             result["tts"] = True
+            continue
+
+        if path.startswith("assets/data/scenarios_") and path.endswith(".json"):
+            result["content"] = True
+            continue
+
+        if path in {
+            "assets/data/cloze.json",
+            "assets/data/satz_sentences.json",
+            "assets/data/smalltalk.json",
+            "assets/data/silben_puzzles.json",
+            "assets/data/korean_vocab.csv",
+            "assets/data/grammar.csv",
+        }:
+            result["content"] = True
             continue
 
         if path.startswith("functions/auth_cleanup/"):

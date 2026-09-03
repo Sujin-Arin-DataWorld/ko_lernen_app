@@ -850,6 +850,38 @@ class TtsGeneratorContractTest(unittest.TestCase):
         synth.assert_not_called()
         run.assert_not_called()
 
+    def test_delete_stale_requires_verify_storage(self):
+        with patch("builtins.print"), patch("sys.stderr"):
+            with self.assertRaises(SystemExit) as ctx:
+                generate_tts.main(["--delete-stale"])
+        self.assertNotEqual(ctx.exception.code, 0)
+
+    def test_verify_storage_lists_stale_paths_without_deleting(self):
+        pairs = [("female", "안녕하세요")]
+        remote_path = generate_tts.cache_relative_path("female", "안녕하세요")
+        stale_path = "tts/v3/female/deadbeef00000000000000000000000000000000.mp3"
+        with (
+            patch.object(generate_tts, "collect", return_value=pairs),
+            patch.object(generate_tts.shutil, "which", return_value="gcloud"),
+            patch.object(
+                generate_tts, "remote_cache_objects",
+                return_value={remote_path: 4096, stale_path: 4096},
+            ),
+            patch.object(generate_tts, "delete_remote_objects") as delete,
+            patch.object(generate_tts.subprocess, "run") as run,
+            patch("builtins.print") as printed,
+        ):
+            result = generate_tts.main(["--verify-storage", "--delete-stale"])
+        self.assertEqual(result, 0)
+        delete.assert_not_called()
+        run.assert_not_called()
+        stale_lines = [
+            call.args[0]
+            for call in printed.call_args_list
+            if call.args and str(call.args[0]).startswith("STALE\t")
+        ]
+        self.assertEqual(stale_lines, [f"STALE\t{stale_path}"])
+
     def test_missing_from_storage_mode_reads_remote_before_synthesizing(self):
         # FIX-2a(2026-09-01 정정): --missing-from-storage 와 --synthesize 는
         # 같은 그룹의 서로 다른 모드다 — 결손분만 합성하는
