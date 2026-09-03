@@ -977,8 +977,17 @@ class TtsService {
 
   /// 쓰기 16회 또는 마지막 prune 후 5분 중 먼저 오는 조건에서만 스캔한다
   /// (§9 룰링 4). best-effort — prune 실패가 재생 경로를 막지 않는다.
+  ///
+  /// _pruneInFlight가 이미 true면(다른 prune이 스캔 중) 스로틀 카운터를
+  /// 리셋하지 않는다(M3) — 리셋해버리면 아래 pruneCacheBestEffort 호출은
+  /// 가드에 걸려 즉시 0을 반환하는 no-op인데도 "방금 prune했다"고
+  /// 기록해, 진행 중이던 prune이 끝난 뒤에도 다음 실제 기회까지 카운터가
+  /// 처음부터 다시 쌓여야 한다.
   static void _maybePruneCache(Directory directory) {
     _cacheWritesSincePrune++;
+    if (_pruneInFlight) {
+      return;
+    }
     final last = _lastPruneAt;
     final dueByCount = _cacheWritesSincePrune >= _pruneWriteThreshold;
     final dueByTime =
@@ -990,6 +999,16 @@ class TtsService {
     _lastPruneAt = DateTime.now();
     unawaited(pruneCacheBestEffort(directory: directory));
   }
+
+  @visibleForTesting
+  static void maybePruneCacheForTesting(Directory directory) =>
+      _maybePruneCache(directory);
+
+  @visibleForTesting
+  static int get cacheWritesSincePruneForTesting => _cacheWritesSincePrune;
+
+  @visibleForTesting
+  static DateTime? get lastPruneAtForTesting => _lastPruneAt;
 
   /// 임시 파일에 쓰고 rename 으로 갈아끼운다.
   ///

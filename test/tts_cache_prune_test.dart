@@ -116,6 +116,32 @@ void main() {
     // 예외를 던지지 않고 조용히 끝나면 성공 — 재생 경로를 막지 않는다.
   });
 
+  test(
+    'prune이 이미 진행 중이면 due여도 스로틀 카운터를 리셋하지 않는다 (M3)',
+    () async {
+      TtsService.resetPruneStateForTesting();
+      TtsService.setPruneInFlightForTesting(true);
+
+      // lastPruneAt이 null이라 dueByTime은 즉시 참이 된다 — 고쳐지지
+      // 않았다면 in-flight 상태여도 카운터가 리셋되며 "방금 prune했다"고
+      // 잘못 기록한다.
+      TtsService.maybePruneCacheForTesting(sandbox);
+
+      expect(
+        TtsService.cacheWritesSincePruneForTesting,
+        1,
+        reason: '쓰기는 계속 세어야 진행 중인 prune이 끝난 뒤 다음 기회를 놓치지 않는다',
+      );
+      expect(
+        TtsService.lastPruneAtForTesting,
+        isNull,
+        reason: 'in-flight 상태에서는 "지금 prune했다"고 기록하면 안 된다',
+      );
+
+      TtsService.setPruneInFlightForTesting(false);
+    },
+  );
+
   test('tts_v3_ 로 시작하지 않는 .mp3 파일은 prune 대상이 아니다', () async {
     await writeCacheFile(
       'other_app_cache.mp3',
