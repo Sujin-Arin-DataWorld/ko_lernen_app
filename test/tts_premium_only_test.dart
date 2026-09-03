@@ -257,6 +257,27 @@ void main() {
       );
       expect(missingCalls, isEmpty);
     });
+
+    test(
+      'stop() 은 phase 를 idle 로 되돌린다 (카드 전환 정지 시 speaking 고착 방지, fix round 1)',
+      () async {
+        // TtsService._player(audioplayers AudioPlayer)는 최초 접근 시
+        // ServicesBinding.instance 를 요구한다 — 순수 유닛 테스트에는 바인딩이
+        // 없어 그냥 부르면 하위 스트림/채널 호출이 걸린다. TestWidgetsFlutterBinding
+        // 을 초기화하면(이 테스트에만 영향, 나머지 9개는 플랫폼 채널을 안 써서
+        // 무관) 표준 테스트용 바인딩이 생겨 채널 호출이 MissingPluginException
+        // 으로 정상 실패하고, TtsService.stop() 내부의 기존 best-effort
+        // try/catch(_stopPlatforms/TtsPlaybackEngine.stop)가 그걸 삼킨다.
+        TestWidgetsFlutterBinding.ensureInitialized();
+        TtsService.phase.value = TtsSpeechPhase.speaking;
+        final pending = TtsService.stop();
+        // phase 리셋은 stop() 안에서 async 없이 즉시(동기) 실행되므로 반환
+        // Future 를 기다리기 전에도 이미 반영돼 있다.
+        expect(TtsService.phase.value, TtsSpeechPhase.idle);
+        await pending;
+        expect(TtsService.phase.value, TtsSpeechPhase.idle);
+      },
+    );
   });
 
   test('TtsAudio 는 경로 또는 바이트 중 하나만 갖는다', () {

@@ -729,6 +729,7 @@ class TtsService {
     // 건너뛰어진다 — 새 발화가 끼어들었을 때와 같은 처리다.
     _speakToken++;
     speaking.value = false;
+    phase.value = TtsSpeechPhase.idle;
     // 지연 복원(noteSpeechEnded)이 아니라 즉시 복원이다 — 정지했으니 이어질
     // 다음 문장이 없고, 200ms 타이머를 새로 걸면 방금 없앤 문제가 되살아난다.
     AudioPolicy.instance.restoreDuckNow();
