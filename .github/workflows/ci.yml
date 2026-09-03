@@ -622,7 +622,11 @@ jobs:
   tts-storage-verify:
     name: TTS Storage completeness (content)
     needs: changes
-    if: needs.changes.outputs.content == 'true'
+    # Draft pull requests do not spend Actions minutes; mark ready for review
+    # (or push to main) to run the gate. Same style as the build job's guard.
+    if: >-
+      needs.changes.outputs.content == 'true' &&
+      (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
