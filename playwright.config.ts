@@ -1,79 +1,66 @@
 import { defineConfig, devices } from '@playwright/test';
+import { execFileSync } from 'node:child_process';
 
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
+const appBaseUrl = 'http://127.0.0.1:4173';
+const phoneViewport = { width: 390, height: 844 };
+const wideViewport = { width: 1440, height: 960 };
+const gitSha =
+  process.env.GITHUB_SHA ??
+  execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
 
-/**
- * See https://playwright.dev/docs/test-configuration.
- */
 export default defineConfig({
   testDir: './tests',
-  /* Run tests in files in parallel */
   fullyParallel: true,
-  /* Fail the build on CI if you accidentally left test.only in the source code. */
-  forbidOnly: !!process.env.CI,
-  /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
-  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+  forbidOnly: true,
+  retries: 0,
+  timeout: 45_000,
+  metadata: { gitSha },
+  reporter: [['line'], ['html', { open: 'never' }]],
   use: {
-    /* Base URL to use in actions like `await page.goto('')`. */
-    // baseURL: 'http://localhost:3000',
-
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    baseURL: appBaseUrl,
+    serviceWorkers: 'block',
+    screenshot: 'only-on-failure',
+    trace: 'retain-on-failure',
+    video: 'retain-on-failure',
   },
-
-  /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: 'chromium-phone',
+      use: { ...devices['Desktop Chrome'], viewport: phoneViewport },
     },
-
     {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      name: 'chromium-wide',
+      use: { ...devices['Desktop Chrome'], viewport: wideViewport },
     },
-
     {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      name: 'firefox-phone',
+      use: {
+        ...devices['Desktop Firefox'],
+        viewport: phoneViewport,
+      },
     },
-
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
-
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // },
+    {
+      name: 'firefox-wide',
+      use: { ...devices['Desktop Firefox'], viewport: wideViewport },
+    },
+    {
+      name: 'webkit-phone',
+      use: {
+        ...devices['Desktop Safari'],
+        viewport: phoneViewport,
+      },
+    },
+    {
+      name: 'webkit-wide',
+      use: { ...devices['Desktop Safari'], viewport: wideViewport },
+    },
   ],
-
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://localhost:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
+  webServer: {
+    command:
+      'flutter build web --release --no-web-resources-cdn && python -m http.server 4173 --bind 127.0.0.1 --directory build/web',
+    url: `${appBaseUrl}/`,
+    reuseExistingServer: false,
+    // Includes the full release build; separate from the browser's 30s boot budget.
+    timeout: 600_000,
+  },
 });
