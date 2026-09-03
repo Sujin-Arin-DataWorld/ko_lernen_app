@@ -45,9 +45,34 @@ class SoriSpeech {
   static final Map<String, Future<bool>> _pendingPrefetches = {};
   static final Map<Future<bool>, Future<bool>> _promotionPrefetches = {};
 
-  /// 화면이 구독하는 발화 상태. 저수준 서비스의 전역 notifier를 화면에
-  /// 직접 노출하지 않아 테스트 주입·실패·취소 경로도 같은 상태 계약을 탄다.
+  /// 화면이 구독하는 발화 상태(레거시 호환) — `phase`에서 파생된다.
   static final ValueNotifier<bool> speaking = ValueNotifier<bool>(false);
+
+  /// idle/resolving/speaking 3단. 신규 발화는 즉시 resolving으로 보이고,
+  /// 실제 재생이 시작된 순간(TtsService.phase 승격 신호)에만 speaking이
+  /// 된다 — 해석 시작 전에 이미 재생 중으로 보이던 기존 결함의 근본 수정.
+  static final ValueNotifier<TtsSpeechPhase> phase =
+      ValueNotifier<TtsSpeechPhase>(TtsSpeechPhase.idle)
+        ..addListener(_syncSpeakingFromPhase);
+  static bool _engineListenerBound = false;
+  static void _syncSpeakingFromPhase() {
+    speaking.value = phase.value == TtsSpeechPhase.speaking;
+  }
+
+  /// TtsService.phase(엔진 레이어)가 실제 재생 시작을 알릴 때만 우리 phase를
+  /// speaking으로 승격한다. 늦게 도착한 신호가 이미 취소/완료된 발화를
+  /// 오염시키지 않도록 활성 키가 있을 때만 반응한다.
+  static void _onEnginePhaseChanged() {
+    if (TtsService.phase.value != TtsSpeechPhase.speaking) return;
+    if (_activeSpeechKey == null) return;
+    phase.value = TtsSpeechPhase.speaking;
+  }
+
+  static void _bindEngineListenerOnce() {
+    if (_engineListenerBound) return;
+    _engineListenerBound = true;
+    TtsService.phase.addListener(_onEnginePhaseChanged);
+  }
 
   static int _speechGeneration = 0;
   static String? _activeSpeechKey;
@@ -84,7 +109,7 @@ class SoriSpeech {
     _promotionPrefetches.clear();
     ++_speechGeneration;
     _activeSpeechKey = null;
-    speaking.value = false;
+    phase.value = TtsSpeechPhase.idle;
     speakImpl = (text, voice) => TtsService.speak(text, voice: voice);
     speakSlowImpl = (text, voice) => TtsService.speakSlow(text, voice: voice);
     prefetchImpl = (text, voice) => TtsService.prefetch(text, voice: voice);
@@ -153,6 +178,7 @@ class SoriSpeech {
     Future<bool> Function(String text, String voice) resolver, {
     Future<bool>? pending,
   }) {
+    _bindEngineListenerOnce();
     final previousKey = _activeSpeechKey;
     if (previousKey != null && previousKey != key) {
       // 승격이 덮고 있던 prefetch가 아직 진행 중이면 공용 맵에 복원한다.
@@ -161,9 +187,13 @@ class SoriSpeech {
     }
     final generation = ++_speechGeneration;
     _activeSpeechKey = key;
-    // pending prefetch 뒤의 승격은 의도만 지금 캡처하고, 실제 resolver가
-    // 시작될 때 speaking을 올린다. 캐시 대기 중을 재생 중으로 알리지 않는다.
-    speaking.value = pending == null;
+    // 신규 speak(pending 없음)는 즉시 resolving. pending 승격(이미 진행 중인
+    // prefetch에 올라타는 경우)은 그 prefetch가 끝날 때까지 idle로 남는다
+    // (기존 bool 계약과 동일). 실제 speaking 전환은 두 경우 모두
+    // TtsService.phase 리스너의 승격에서만 일어난다.
+    phase.value = pending == null
+        ? TtsSpeechPhase.resolving
+        : TtsSpeechPhase.idle;
 
     Future<bool> resolve() async {
       if (previousKey != null && previousKey != key) {
@@ -179,7 +209,6 @@ class SoriSpeech {
           final alreadyPlayed = await pending;
           if (generation != _speechGeneration) return false;
           if (alreadyPlayed) return true;
-          speaking.value = true;
         }
         return await resolver(text, voice);
       } catch (_) {
@@ -200,7 +229,7 @@ class SoriSpeech {
       }
       if (generation == _speechGeneration && _activeSpeechKey == key) {
         _activeSpeechKey = null;
-        speaking.value = false;
+        phase.value = TtsSpeechPhase.idle;
       }
     });
     _playbackFlights.add(future);
@@ -299,7 +328,7 @@ class SoriSpeech {
     if (activeKey != null) {
       _cancelFlightAndRestorePrefetch(activeKey);
     }
-    speaking.value = false;
+    phase.value = TtsSpeechPhase.idle;
     try {
       await stopImpl();
     } catch (_) {
@@ -363,28 +392,36 @@ class SoriSpeechIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
     final t = AppL10n.of(context);
-    return ValueListenableBuilder<bool>(
-      valueListenable: SoriSpeech.speaking,
-      builder: (context, speaking, _) {
-        // 재생 중엔 탭이 재생을 다시 걸지 않고 멈춘다. 예전엔 둘 다
-        // speak() 뿐이라, 재생 중 탭이 이미 진행 중인 요청에 합류만 하고
-        // 끝나는 사실상 아무 일도 안 하는 조작이었다 — 그런데도 값(value)은
-        // "재생 중"이라는, 대응하는 조작이 있는 것처럼 들리는 상태를
-        // 알렸다(WCAG 4.1.2). 두 onTap 이 반드시 같은 분기를 타야 하므로
-        // 한 곳에 묶는다 — 따로 적으면 이 버그가 재발한다.
+    return ValueListenableBuilder<TtsSpeechPhase>(
+      valueListenable: SoriSpeech.phase,
+      builder: (context, phase, _) {
         void handleTap() {
-          if (speaking) {
+          if (phase != TtsSpeechPhase.idle) {
             SoriSpeech.stop();
           } else {
             SoriSpeech.speak(text, voice: voice);
           }
         }
 
+        final semanticsValue = switch (phase) {
+          TtsSpeechPhase.idle => t.speechIndicatorIdle,
+          TtsSpeechPhase.resolving => t.speechIndicatorResolving,
+          TtsSpeechPhase.speaking => t.speechIndicatorSpeaking,
+        };
+        final icon = switch (phase) {
+          TtsSpeechPhase.idle => Icons.volume_up_rounded,
+          TtsSpeechPhase.resolving => Icons.hourglass_top_rounded,
+          TtsSpeechPhase.speaking => Icons.graphic_eq_rounded,
+        };
+        final iconAlpha = phase == TtsSpeechPhase.resolving ? 0.6 : 1.0;
+
         return Semantics(
           button: true,
           label: t.speechIndicatorLabel,
-          value: speaking ? t.speechIndicatorSpeaking : t.speechIndicatorIdle,
+          value: semanticsValue,
           onTap: handleTap,
+          // 48x48 터치 타깃 안 44x44 원형 배지(s.surface 0.85) + 18px 아이콘 —
+          // 기존 SizedBox/Center/DecoratedBox 구조는 그대로, icon/alpha만 phase값을 따른다.
           child: ExcludeSemantics(
             child: SoriPressable(
               onTap: handleTap,
@@ -401,11 +438,11 @@ class SoriSpeechIndicator extends StatelessWidget {
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
-                        speaking
-                            ? Icons.graphic_eq_rounded
-                            : Icons.volume_up_rounded,
+                        icon,
                         size: 18,
-                        color: SoriColors.contentCta,
+                        color: SoriColors.contentCta.withValues(
+                          alpha: iconAlpha,
+                        ),
                       ),
                     ),
                   ),

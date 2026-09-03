@@ -1085,6 +1085,7 @@
   "speechIndicatorLabel": "Read aloud",
   "speechIndicatorSpeaking": "Playing",
   "speechIndicatorIdle": "Not playing",
+  "speechIndicatorResolving": "Loading",
   "contentShareBody": "{korean}\n{gloss}\nhangul-sori.com",
   "@contentShareBody": {
     "placeholders": {

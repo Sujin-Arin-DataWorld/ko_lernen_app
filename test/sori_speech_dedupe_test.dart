@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:ko_lernen_app/services/tts_service.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 
 /// 검수#13⑤ 보강 — `SoriSpeech.speak`/`prefetch` 가 **하나의** in-flight
@@ -47,9 +48,9 @@ void main() {
     );
     expect(speakStarted, isFalse, reason: 'prefetch 완료 전에는 아직 재생이 시작되면 안 된다');
     expect(
-      SoriSpeech.speaking.value,
-      isFalse,
-      reason: 'prefetch 대기만으로 인디케이터가 재생 중이 되면 안 된다',
+      SoriSpeech.phase.value,
+      TtsSpeechPhase.idle,
+      reason: 'prefetch 완료 전에는 speaking으로 승격되면 안 된다',
     );
 
     prefetchCompleter.complete();

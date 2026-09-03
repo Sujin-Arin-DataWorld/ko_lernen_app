@@ -1,9 +1,11 @@
+import 'dart:async';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/services/tts_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 
@@ -52,7 +54,7 @@ void main() {
 
   testWidgets('재생 중 값은 대기 값과 다르다', (tester) async {
     final semantics = tester.ensureSemantics();
-    SoriSpeech.speaking.value = true;
+    SoriSpeech.phase.value = TtsSpeechPhase.speaking;
     await tester.pumpWidget(host());
     await tester.pump();
 
@@ -91,7 +93,7 @@ void main() {
     expect(speakCalls, ['학교'], reason: '대기 중 탭은 재생을 걸어야 한다');
     expect(stopCalls, 0);
 
-    SoriSpeech.speaking.value = true;
+    SoriSpeech.phase.value = TtsSpeechPhase.speaking;
     await tester.pump();
 
     await tester.tap(find.byType(SoriSpeechIndicator));
@@ -100,5 +102,23 @@ void main() {
     expect(speakCalls, [
       '학교',
     ], reason: '재생 중 탭이 speak 를 다시 걸면 안 된다 — 조작 불가능한 상태가 재발한다');
+  });
+
+  testWidgets('해석 중(resolving)에는 로딩 값을 읽어주고 아이콘이 hourglass다', (tester) async {
+    final semantics = tester.ensureSemantics();
+    final completion = Completer<bool>();
+    SoriSpeech.speakImpl = (text, voice) => completion.future;
+    await tester.pumpWidget(host());
+    await tester.tap(find.byType(SoriSpeechIndicator));
+    await tester.pump();
+    final t = await AppL10n.delegate.load(const Locale('de'));
+    final node = tester.getSemantics(
+      find.bySemanticsLabel(t.speechIndicatorLabel),
+    );
+    expect(node.getSemanticsData().value, t.speechIndicatorResolving);
+    expect(find.byIcon(Icons.hourglass_top_rounded), findsOneWidget);
+    completion.complete(true);
+    await tester.pump();
+    semantics.dispose();
   });
 }

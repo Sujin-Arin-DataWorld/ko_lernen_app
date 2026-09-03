@@ -1092,6 +1092,7 @@
   "speechIndicatorLabel": "Vorlesen",
   "speechIndicatorSpeaking": "Wird vorgelesen",
   "speechIndicatorIdle": "Nicht aktiv",
+  "speechIndicatorResolving": "Wird geladen",
   "contentShareBody": "{korean}\n{gloss}\nhangul-sori.com",
   "@contentShareBody": {
     "placeholders": {

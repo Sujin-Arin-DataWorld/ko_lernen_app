@@ -3757,6 +3757,12 @@ abstract class AppL10n {
   /// **'Nicht aktiv'**
   String get speechIndicatorIdle;
 
+  /// No description provided for @speechIndicatorResolving.
+  ///
+  /// In de, this message translates to:
+  /// **'Wird geladen'**
+  String get speechIndicatorResolving;
+
   /// No description provided for @contentShareBody.
   ///
   /// In de, this message translates to:
