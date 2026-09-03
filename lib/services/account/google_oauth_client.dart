@@ -18,10 +18,7 @@ class GoogleOAuthIdTokenMissing implements Exception {
       'Google Sign-In did not return an ID token for Firebase Auth.';
 }
 
-/// Single configured [GoogleSignIn] for every link / reauth / sign-out path.
-///
-/// `GoogleSignIn()` is a process-wide factory singleton: the first
-/// unconfigured call would lock later calls out of `serverClientId`.
+/// Consistent [GoogleSignIn] configuration for link / reauth / sign-out paths.
 class GoogleOAuthClient {
   const GoogleOAuthClient._();
 
@@ -62,6 +59,27 @@ class GoogleOAuthClient {
   }
 
   static Future<GoogleSignInAccount?> signIn() => instance().signIn();
+
+  /// Google Sign-In 6.x can return a cached account without opening native UI.
+  /// Clear only this provider's SDK session, never Firebase or granted access,
+  /// then fence the account before starting the explicit chooser.
+  static Future<GoogleSignInAccount?> signInFresh({
+    required void Function() assertCurrent,
+    GoogleSignIn? client,
+  }) async {
+    final google = client ?? instance();
+    assertCurrent();
+    try {
+      await google.signOut();
+    } finally {
+      assertCurrent();
+    }
+    try {
+      return await google.signIn();
+    } finally {
+      assertCurrent();
+    }
+  }
 
   static Future<GoogleSignInAccount?> signInSilently({
     bool suppressErrors = true,

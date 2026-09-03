@@ -59,6 +59,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+/android/.kotlin/
 
 # ── Release signing — NEVER commit ──────────────────────────
 # Keystore + Passwords. Loss = unable to update Play Store app.

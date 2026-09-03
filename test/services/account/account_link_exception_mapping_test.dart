@@ -6,8 +6,25 @@ import 'package:ko_lernen_app/services/account/account_transition_coordinator.da
 import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
 import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
 import 'package:ko_lernen_app/services/account/google_oauth_client.dart';
+import 'package:ko_lernen_app/services/account/durable_provider_link.dart';
+import 'package:ko_lernen_app/services/account/apple_oauth_configuration.dart';
 
 void main() {
+  test('durable collision is not anonymous replacement or generic failure', () {
+    final result = mapAccountLinkException(
+      const DurableProviderLinkCollision(),
+    );
+    expect(result, isA<AccountUiProviderCollision>());
+  });
+  test(
+    'missing Apple configuration is unavailable, not silent cancellation',
+    () {
+      final result = mapAccountLinkException(
+        const AppleOAuthConfigurationMissing(),
+      );
+      expect(result, isA<AccountUiAppleConfigurationMissing>());
+    },
+  );
   test('user-cancel platform codes stay cancelled, not failed', () {
     for (final code in <String>[
       'sign_in_canceled',

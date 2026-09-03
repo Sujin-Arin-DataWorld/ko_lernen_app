@@ -218,17 +218,21 @@ class AccountOperationStatusRequest {
   Map<String, Object?> toJson() => {'operationId': _validated(operationId)};
 }
 
+enum AppleAuthorizationClientKind { native, web }
+
 @immutable
 class AppleRevocationCompletionRequest {
   const AppleRevocationCompletionRequest({
     required this.operationId,
     required this.expectedVersion,
     required this.authorizationCode,
+    this.clientKind = AppleAuthorizationClientKind.native,
   });
 
   final String operationId;
   final int expectedVersion;
   final String authorizationCode;
+  final AppleAuthorizationClientKind clientKind;
 
   Map<String, Object?> toJson() {
     if (expectedVersion < 0) {
@@ -241,6 +245,7 @@ class AppleRevocationCompletionRequest {
       'operationId': _validated(operationId),
       'expectedVersion': expectedVersion,
       'authorizationCode': _validated(authorizationCode),
+      'clientKind': clientKind.name,
     };
   }
 }

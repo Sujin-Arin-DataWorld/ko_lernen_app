@@ -402,10 +402,18 @@ class SoriSpeakable extends StatelessWidget {
 /// 직접 감싸 `_Stamp`(content_feed.dart)와 같은 패턴으로 바꿨다 — 시각
 /// 배지(44dp 원)·아이콘(18) 크기는 그대로다.
 class SoriSpeechIndicator extends StatelessWidget {
-  const SoriSpeechIndicator({super.key, required this.text, this.voice});
+  const SoriSpeechIndicator({
+    super.key,
+    required this.text,
+    this.voice,
+    this.onTap,
+  });
 
   final String text;
   final String? voice;
+
+  /// Lets a recording screen release its microphone/local player first.
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -415,6 +423,10 @@ class SoriSpeechIndicator extends StatelessWidget {
       valueListenable: SoriSpeech.phase,
       builder: (context, phase, _) {
         void handleTap() {
+          if (onTap != null) {
+            onTap!();
+            return;
+          }
           if (phase != TtsSpeechPhase.idle) {
             SoriSpeech.stop();
           } else {

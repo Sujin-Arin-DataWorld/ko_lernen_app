@@ -34,10 +34,14 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() async {
+    SoriSpeech.resetForTesting();
+    SoriSpeech.stopImpl = () async {};
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues(const {});
     await Storage.init();
   });
+
+  tearDown(SoriSpeech.resetForTesting);
 
   for (final locale in const [Locale('de'), Locale('en')]) {
     for (final viewport in const <({Size size, double textScale})>[
@@ -116,12 +120,11 @@ void main() {
           final button = tester.widget<SoriButton>(action);
           expect(button.label, label);
           expect(button.maxLines, isNull);
+          if (label == t.pronunciationRecord) {
+            expect(button.variant, SoriButtonVariant.filled);
+            expect(button.fullWidth, isTrue);
+          }
         }
-        final recordAction = tester.widget<SoriButton>(
-          find.byKey(const ValueKey('pronunciation-record-action')),
-        );
-        expect(recordAction.variant, SoriButtonVariant.filled);
-        expect(recordAction.fullWidth, isTrue);
         expect(
           tester.widget<Column>(
             find.byKey(const ValueKey('pronunciation-diagnostic-feed')),
@@ -154,6 +157,7 @@ void main() {
           phrases: const [_phrase],
           recorder: recorder,
           gateway: gateway,
+          cloudAssessmentEnabled: true,
         ),
       ),
     );
@@ -164,13 +168,23 @@ void main() {
         .onTap!();
     await tester.pump();
     await tester.pump();
-    expect(find.widgetWithText(SoriButton, 'Stop and assess'), findsOneWidget);
+    expect(find.widgetWithText(SoriButton, 'Stop recording'), findsOneWidget);
 
     tester
-        .widget<SoriButton>(find.widgetWithText(SoriButton, 'Stop and assess'))
+        .widget<SoriButton>(find.widgetWithText(SoriButton, 'Stop recording'))
         .onTap!();
     await tester.pump();
 
+    await tester.runAsync(
+      () async => Future<void>.delayed(const Duration(milliseconds: 20)),
+    );
+    await tester.pump();
+    final requestScore = find.byKey(
+      const ValueKey('pronunciation-assess-action'),
+    );
+    await _scrollUntilBuilt(tester, requestScore);
+    tester.widget<SoriButton>(requestScore).onTap!();
+    await tester.pump();
     final assessing = find.widgetWithText(SoriButton, 'Preparing your score…');
     expect(assessing, findsOneWidget);
     expect(tester.widget<SoriButton>(assessing).onTap, isNull);

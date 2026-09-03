@@ -379,7 +379,7 @@ void main() {
       expect(find.byType(ChaekgadoShelfCase), findsNothing);
       expect(find.text('Beides'), findsNothing);
       expect(find.text('Koreanisch'), findsNothing);
-      expect(find.byType(TtsSpeedControl), findsOneWidget);
+      _expectListeningSpeedControls(tester);
       expect(
         tester.getRect(find.byType(ListeningPlayScreen)),
         const Offset(0, 0) & const Size(390, 844),
@@ -445,11 +445,7 @@ void main() {
       );
       await tester.pump();
       await tester.pump();
-      expect(find.byType(TtsSpeedControl), findsOneWidget);
-      expect(
-        tester.widget<TtsSpeedControl>(find.byType(TtsSpeedControl)).mode,
-        TtsSpeedControlMode.compact,
-      );
+      _expectListeningSpeedControls(tester);
       expect(find.text('Beides'), findsNothing);
       expect(find.byType(ChaekgadoShelfCase), findsNothing);
       await tester.pump(const Duration(milliseconds: 300));
@@ -490,6 +486,27 @@ Future<void> _tapText(WidgetTester tester, String text) async {
   await tester.ensureVisible(finder.last);
   await tester.pump();
   await tester.tap(finder.last);
+}
+
+void _expectListeningSpeedControls(WidgetTester tester) {
+  // The intro exposes presets before playback; the header action remains
+  // available after the intro is replaced by the conversation.
+  expect(find.byType(TtsSpeedControl), findsNWidgets(2));
+  final header = find.descendant(
+    of: find.byType(TtsSpeedAction),
+    matching: find.byType(TtsSpeedControl),
+  );
+  expect(header, findsOneWidget);
+  expect(
+    tester.widget<TtsSpeedControl>(header).mode,
+    TtsSpeedControlMode.compact,
+  );
+  final presets = find.byWidgetPredicate(
+    (widget) =>
+        widget is TtsSpeedControl && widget.mode == TtsSpeedControlMode.row,
+  );
+  expect(presets, findsOneWidget);
+  expect(tester.widget<TtsSpeedControl>(presets).minInteractiveHeight, 48);
 }
 
 ContentFeedbackCard _expectFeedback(

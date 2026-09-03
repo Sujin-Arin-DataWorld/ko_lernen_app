@@ -4,6 +4,34 @@ import 'package:ko_lernen_app/features/study_library/study_library.dart';
 void main() {
   group('StudyLibraryRepository', () {
     test(
+      'missing typed translation retains a localized lower-priority source',
+      () async {
+        final key = StudyItemKey(type: StudyLibraryItemType.word, id: '학교');
+        final snapshot = await _repository(
+          bookmarks: [
+            _record(
+              key,
+              StudyLibraryOrigin.typedBookmark,
+              'typed',
+              primary: '학교',
+            ),
+          ],
+          bookshelf: [
+            _record(
+              key,
+              StudyLibraryOrigin.bookshelf,
+              'page',
+              primary: '학교',
+              secondary: 'school',
+            ),
+          ],
+        ).load();
+        expect(snapshot.entries.single.primaryText, '학교');
+        expect(snapshot.entries.single.secondaryText, 'school');
+      },
+    );
+
+    test(
       'merges multiple origins and uses deterministic presentation priority',
       () async {
         final key = StudyItemKey(type: StudyLibraryItemType.word, id: ' 사과 ');

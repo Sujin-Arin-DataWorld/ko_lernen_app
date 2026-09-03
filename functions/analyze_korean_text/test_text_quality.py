@@ -98,7 +98,8 @@ class KoreanAnalysisEndpointQualityTest(unittest.TestCase):
         # idempotency deterministic here; the real gate has its own contract
         # coverage in test_security.py and test_endpoint_security.py.
         self.receipts = mock.Mock()
-        self.receipts.claim.return_value = True
+        self.receipts.claim.return_value = {"state": "claimed", "ownerToken": "test-owner"}
+        self.receipts.transition.return_value = True
         patcher = mock.patch.object(
             self.endpoint,
             "_idempotency_gate",
@@ -200,7 +201,7 @@ class KoreanAnalysisEndpointQualityTest(unittest.TestCase):
         )
         self.assertIn("non_korean_segments_ignored", body["warnings"])
         self.assertIn("unexpected_script_filtered", body["warnings"])
-        gate.consume.assert_called_once_with("verified-user")
+        self.assertEqual(self.receipts.claim.call_args.kwargs["uid"], "verified-user")
 
     def test_translation_failures_are_propagated_as_a_warning(self):
         endpoint = self.endpoint
@@ -224,12 +225,8 @@ class KoreanAnalysisEndpointQualityTest(unittest.TestCase):
                 response = endpoint.analyze_korean_text(self.request)
 
         body = response.get_json()
-        self.assertIn("translation_unavailable", body["warnings"])
-        self.assertEqual(
-            body["sentences"],
-            [{"korean": "저는 학생이에요.", "translation": ""}],
-        )
-        self.assertEqual(body["analysisLanguage"], "de")
+        self.assertEqual(response.status_code, 503)
+        self.assertEqual(body, {"warnings": ["analysis_uncertain"]})
 
     def test_structured_units_keep_sentences_and_expressions_separate(self):
         endpoint = self.endpoint

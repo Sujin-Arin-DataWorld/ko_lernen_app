@@ -33,6 +33,7 @@ Future<WordbookAddResult> addToWordbook(
   String posDe = '',
   String exampleKorean = '',
   String exampleDe = '',
+  String exampleEn = '',
   String definitionKo = '',
   String source = 'manual',
 }) {
@@ -50,6 +51,7 @@ Future<WordbookAddResult> addToWordbook(
     posDe: posDe,
     exampleKorean: exampleKorean,
     exampleDe: exampleDe,
+    exampleEn: exampleEn,
     definitionKo: definitionKo,
     source: source,
   );
@@ -66,6 +68,8 @@ Future<WordbookAddResult> _addToWordbook({
   required String posDe,
   required String exampleKorean,
   required String exampleDe,
+  required String exampleEn,
+  String exampleLanguage = '',
   required String definitionKo,
   required String source,
 }) async {
@@ -80,6 +84,8 @@ Future<WordbookAddResult> _addToWordbook({
       posDe: posDe.trim(),
       exampleKorean: exampleKorean.trim(),
       exampleDe: exampleDe.trim(),
+      exampleEn: exampleEn.trim(),
+      exampleLanguage: exampleLanguage,
       definitionKo: definitionKo.trim(),
     ),
   );
@@ -111,6 +117,7 @@ Future<WordbookAddResult> addTypedBookmarkWithWordbookMirror(
   String posDe = '',
   String exampleKorean = '',
   String exampleDe = '',
+  String exampleEn = '',
   String definitionKo = '',
   String sourceUnitId = '',
   String source = 'manual',
@@ -127,6 +134,11 @@ Future<WordbookAddResult> addTypedBookmarkWithWordbookMirror(
   final preferredTranslation = translationLanguage == 'en'
       ? (translationEn.trim().isNotEmpty ? translationEn : translationDe)
       : (translationDe.trim().isNotEmpty ? translationDe : translationEn);
+  // Typed curriculum callers pass separate literal DE/EN fields. Preserve the
+  // language of the selected slot even when the requested slot is absent.
+  final preferredLanguage = translationLanguage == 'en'
+      ? (translationEn.trim().isNotEmpty ? 'en' : 'de')
+      : (translationDe.trim().isNotEmpty ? 'de' : 'en');
 
   try {
     final mutation = await TypedStudyBookmarkStore.production().upsert(
@@ -134,6 +146,7 @@ Future<WordbookAddResult> addTypedBookmarkWithWordbookMirror(
         key: StudyItemKey(type: itemType, id: itemId),
         primaryText: korean,
         secondaryText: preferredTranslation,
+        secondaryLanguage: preferredLanguage,
         sourceUnitId: sourceUnitId,
       ),
     );
@@ -153,11 +166,13 @@ Future<WordbookAddResult> addTypedBookmarkWithWordbookMirror(
     korean: korean,
     translationDe: translationDe,
     translationEn: translationEn,
-    translationLanguage: translationLanguage,
+    translationLanguage: preferredLanguage,
     romanization: romanization,
     posDe: posDe,
     exampleKorean: exampleKorean,
     exampleDe: exampleDe,
+    exampleEn: exampleEn,
+    exampleLanguage: 'de',
     definitionKo: definitionKo,
     source: source,
   );
@@ -178,6 +193,7 @@ class AddToWordbookButton extends StatefulWidget {
   final String posDe;
   final String exampleKorean;
   final String exampleDe;
+  final String exampleEn;
   final bool compact;
   final bool coachEnabled;
 
@@ -191,6 +207,7 @@ class AddToWordbookButton extends StatefulWidget {
     this.posDe = '',
     this.exampleKorean = '',
     this.exampleDe = '',
+    this.exampleEn = '',
     this.compact = false,
     this.coachEnabled = true,
   });
@@ -274,6 +291,7 @@ class _AddToWordbookButtonState extends State<AddToWordbookButton> {
     posDe: widget.posDe,
     exampleKorean: widget.exampleKorean,
     exampleDe: widget.exampleDe,
+    exampleEn: widget.exampleEn,
   );
 
   @override

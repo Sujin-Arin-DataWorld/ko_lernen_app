@@ -16,7 +16,7 @@ from typing import Iterable
 
 SCOPES = (
     "app", "website", "book", "gye", "pronunciation", "tts", "auth_cleanup",
-    "content",
+    "ios", "content",
 )
 
 TASK_SCOPE = {
@@ -28,6 +28,7 @@ TASK_SCOPE = {
     "pronunciation": ("pronunciation",),
     "tts": ("tts",),
     "auth-cleanup": ("auth_cleanup",),
+    "ios": ("app", "ios"),
     "content": ("content",),
     "release-internal": ("app",),
     "release-website": ("website",),
@@ -99,6 +100,13 @@ def scopes_for_paths(paths: Iterable[str]) -> dict[str, bool]:
         if path.startswith(".github/"):
             return _all_scopes()
 
+        if path.startswith("ios/") or path in {
+            "pubspec.yaml", "pubspec.lock", "test/support/native_test_host.dart",
+        }:
+            result["app"] = True
+            result["ios"] = True
+            continue
+
         if path.startswith("hangul-sori-site-local/") or path in WEBSITE_ROOT_FILES:
             result["website"] = True
             continue
@@ -106,6 +114,60 @@ def scopes_for_paths(paths: Iterable[str]) -> dict[str, bool]:
         if path in SHARED_CULTURAL_GLOSSARY_FILES:
             result["app"] = True
             result["website"] = True
+            continue
+
+        # Content shard files are bundled Flutter assets (read directly by 23
+        # Flutter test files) AND part of the public TTS allowlist derived
+        # from runtime learning content — they must select app+tts+content.
+        # This check must run before the general assets/data/ rule below,
+        # which also matches these paths but does not know about `content`.
+        if path.startswith("assets/data/scenarios_") and path.endswith(".json"):
+            result["app"] = True
+            result["tts"] = True
+            result["content"] = True
+            continue
+
+        if path in {
+            "assets/data/cloze.json",
+            "assets/data/satz_sentences.json",
+            "assets/data/smalltalk.json",
+            "assets/data/silben_puzzles.json",
+            "assets/data/korean_vocab.csv",
+            "assets/data/grammar.csv",
+        }:
+            # Same reasoning as above: these are also bundled Flutter assets.
+            result["app"] = True
+            result["tts"] = True
+            result["content"] = True
+            continue
+
+        # The public TTS allowlist is derived from runtime learning content.
+        # Verify both checked-in copies whenever a collector input changes.
+        if path.startswith("assets/data/") or path in {
+            "tool/generate_tts.py", "tool/polish_tts.py",
+            "lib/data/hangul_data.dart", "lib/services/placement_diagnostic.dart",
+        }:
+            result["app"] = True
+            result["tts"] = True
+            continue
+
+        if path == "functions/gye/access_policy.js" or path.startswith("test/fixtures/access_policy/"):
+            for consumer in ("app", "book", "gye", "pronunciation"):
+                result[consumer] = True
+            if path == "test/fixtures/access_policy/cost-v1.json":
+                result["tts"] = True
+            continue
+
+        if path in {"functions/pronunciation/service_cost_policy.js",
+                    "functions/tts/service_cost_policy.js",
+                    "functions/analyze_korean_text/ai_policy.py"}:
+            for consumer in ("book", "pronunciation", "tts"):
+                result[consumer] = True
+            continue
+
+        if path == "storage.rules":
+            for consumer in ("app", "gye", "tts"):
+                result[consumer] = True
             continue
 
         if path.startswith("functions/analyze_korean_text/"):
@@ -122,26 +184,6 @@ def scopes_for_paths(paths: Iterable[str]) -> dict[str, bool]:
 
         if path.startswith("functions/tts/"):
             result["tts"] = True
-            continue
-
-        if path.startswith("assets/data/scenarios_") and path.endswith(".json"):
-            # Bundled at build time, so 23 Flutter test files read these
-            # data files directly — the app gate must run alongside content.
-            result["app"] = True
-            result["content"] = True
-            continue
-
-        if path in {
-            "assets/data/cloze.json",
-            "assets/data/satz_sentences.json",
-            "assets/data/smalltalk.json",
-            "assets/data/silben_puzzles.json",
-            "assets/data/korean_vocab.csv",
-            "assets/data/grammar.csv",
-        }:
-            # Same reasoning as above: these are also bundled Flutter assets.
-            result["app"] = True
-            result["content"] = True
             continue
 
         if path.startswith("functions/auth_cleanup/"):

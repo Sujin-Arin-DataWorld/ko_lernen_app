@@ -7,10 +7,13 @@ import 'package:image_picker/image_picker.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
 import '../models/custom_pack.dart';
+import '../models/vocab.dart';
 import '../services/book_analysis_service.dart';
 import '../services/book_image_service.dart';
 import '../services/custom_pack_service.dart';
 import '../services/custom_pack_import_service.dart';
+import '../services/data_loader.dart';
+import '../services/saved_word_localization.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../services/word_image_service.dart';
@@ -57,6 +60,7 @@ class CustomPackEditScreen extends StatefulWidget {
 class _CustomPackEditScreenState extends State<CustomPackEditScreen>
     with ScreenCoachMixin<CustomPackEditScreen> {
   CustomPack? _pack;
+  List<Vocab> _vocab = const [];
   bool _wordDeleteInFlight = false;
 
   // ── 코치마크 타겟 ──
@@ -89,7 +93,25 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
   void initState() {
     super.initState();
     _pack = CustomPackService.getById(widget.packId);
+    _loadVocabulary();
     scheduleCoach();
+  }
+
+  Future<void> _loadVocabulary() async {
+    final vocab = await DataLoader.loadVocab();
+    if (mounted) {
+      setState(() => _vocab = vocab);
+    }
+  }
+
+  String _displayMeaning(ExtractedWord word) {
+    final meaning = localizeSavedWord(
+      word,
+      _vocab,
+    ).translationFor(Localizations.localeOf(context).languageCode);
+    return meaning.isEmpty
+        ? AppL10n.of(context).savedTranslationUnavailable
+        : meaning;
   }
 
   void _reload() {
@@ -452,7 +474,7 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
                 ),
                 child: _WordTile(
                   word: words[i],
-                  meaning: words[i].translationDe,
+                  meaning: _displayMeaning(words[i]),
                   onTap: () => _addOrEdit(index: i),
                   onSpeak: () => _speakKorean(words[i].korean),
                   onDelete: () => _deleteWord(i),
@@ -726,6 +748,8 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
   bool _autoLoading = false;
   bool _photoBusy = false;
   String? _autoNote;
+  bool _meaningLocaleInitialized = false;
+  String _initialMeaning = '';
 
   @override
   void initState() {
@@ -745,6 +769,25 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
       // ignore: discarded_futures
       _consumeRecoveredWord();
     });
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_meaningLocaleInitialized) {
+      return;
+    }
+    _meaningLocaleInitialized = true;
+    final existing = widget.existing;
+    if (existing == null) {
+      return;
+    }
+    final language = Localizations.localeOf(context).languageCode;
+    _meaning.text = existing.translationFor(language);
+    _initialMeaning = _meaning.text.trim();
+    if (_meaning.text.isNotEmpty) {
+      _translationLanguage = language;
+    }
   }
 
   Future<void> _consumeRecoveredWord() async {
@@ -924,10 +967,20 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
     final t = AppL10n.of(context);
     final existing = widget.existing;
     final korean = sanitizeCustomPackKoreanWord(_korean.text);
-    final language =
-        _translationLanguage ??
-        (Localizations.localeOf(context).languageCode == 'en' ? 'en' : 'de');
-    final meaning = _meaning.text.trim();
+    final enteredMeaning = _meaning.text.trim();
+    final missingTranslationUnchanged =
+        existing != null && _initialMeaning.isEmpty && enteredMeaning.isEmpty;
+    final meaning = missingTranslationUnchanged
+        ? existing.originalTranslation
+        : enteredMeaning;
+    final activeLanguage = Localizations.localeOf(context).languageCode == 'en'
+        ? 'en'
+        : 'de';
+    // An unchanged fallback keeps its original provenance. New learner input
+    // belongs to the language of the editor, including legacy DE-only cards.
+    final language = !missingTranslationUnchanged && meaning != _initialMeaning
+        ? activeLanguage
+        : (_translationLanguage ?? activeLanguage);
     final word = buildCustomPackEditedWord(
       existing: existing,
       korean: korean,
@@ -1024,7 +1077,19 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
             ),
           ),
         const SizedBox(height: 4),
-        SoriTextField(controller: _meaning, labelText: t.wbFieldMeaning),
+        SoriTextField(
+          controller: _meaning,
+          labelText: t.wbFieldMeaning,
+          helperText:
+              widget.existing != null &&
+                  widget.existing!
+                      .translationFor(
+                        Localizations.localeOf(context).languageCode,
+                      )
+                      .isEmpty
+              ? '${t.savedOriginalMeaning}: ${widget.existing!.originalTranslation}'
+              : null,
+        ),
         if (_definitionKo.isNotEmpty) ...[
           const SizedBox(height: 6),
           Text(_definitionKo, style: SoriTextTheme.of(context).bodySmall),

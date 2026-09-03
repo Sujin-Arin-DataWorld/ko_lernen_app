@@ -86,7 +86,7 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('pronunciation copy and actions survive 320dp and 200%', (
+  testWidgets('pronunciation local practice survives 320dp and 200%', (
     tester,
   ) async {
     final semantics = tester.ensureSemantics();
@@ -112,18 +112,40 @@ void main() {
     expect(find.byType(SoriScreenBackground), findsOneWidget);
     _expectAdaptiveTitle(tester, 'Aussprache-Studio');
 
-    const intro =
-        'Höre zuerst zu. Nimm danach freiwillig bis zu 10 Sekunden für eine Bewertung auf.';
-    final introText = tester.widget<Text>(find.text(intro));
+    final screen = find.byType(PronunciationStudioScreen);
+    final t = AppL10n.of(tester.element(screen));
+    expect(
+      tester.widget<PronunciationStudioScreen>(screen).cloudAssessmentEnabled,
+      isFalse,
+    );
+    final introText = tester.widget<Text>(find.text(t.pronunciationIntro));
     expect(introText.maxLines, isNull);
     expect(introText.overflow, isNull);
 
+    final recordAction = find.widgetWithText(SoriButton, t.pronunciationRecord);
+    await _centerInScrollable(tester, recordAction);
+    _expectButtonSemantics(tester, recordAction, t.pronunciationRecord);
+
+    final localHint = find.text(t.pronunciationLocalRecordingHint);
+    await _centerInScrollable(tester, localHint);
+    final hintText = tester.widget<Text>(localHint);
+    expect(hintText.maxLines, isNull);
+    expect(hintText.overflow, isNull);
+    expect(
+      find.byKey(const ValueKey('pronunciation-assess-action')),
+      findsNothing,
+    );
+
     final continueAction = find.widgetWithText(
       SoriButton,
-      'Ohne Bewertung weiter',
+      t.pronunciationContinueWithoutScore,
     );
     await _centerInScrollable(tester, continueAction, delta: 240);
-    _expectButtonSemantics(tester, continueAction, 'Ohne Bewertung weiter');
+    _expectButtonSemantics(
+      tester,
+      continueAction,
+      t.pronunciationContinueWithoutScore,
+    );
     expect(tester.takeException(), isNull);
     semantics.dispose();
   });

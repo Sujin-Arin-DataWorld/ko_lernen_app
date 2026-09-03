@@ -19,6 +19,8 @@ import 'account_transition_journal.dart';
 import 'cloud_backup_deletion.dart';
 import 'cloud_write_session.dart';
 import 'google_oauth_client.dart';
+import 'apple_oauth_configuration.dart';
+import 'durable_provider_link.dart';
 
 sealed class AccountUiLinkResult {
   const AccountUiLinkResult();
@@ -40,6 +42,14 @@ class AccountUiLinkConflict extends AccountUiLinkResult {
   const AccountUiLinkConflict(this.conflict);
 
   final ExistingAccountLinkConflict conflict;
+}
+
+class AccountUiProviderCollision extends AccountUiLinkResult {
+  const AccountUiProviderCollision();
+}
+
+class AccountUiAppleConfigurationMissing extends AccountUiLinkResult {
+  const AccountUiAppleConfigurationMissing();
 }
 
 /// 연동을 시도조차 할 수 없었다 — Firebase 가 없거나 초기화되지 않았다.
@@ -242,7 +252,13 @@ class ProductionAccountUiOperations
 
   @override
   Future<AccountUiLinkResult> link(AccountLinkProvider provider) async {
+    final sourceUid = AuthService.current?.uid;
+    final sourceSession = cloudWriteSessionController.current;
     if (await refreshPendingState() != AccountUiPendingState.none) {
+      return const AccountUiLinkBlocked();
+    }
+    if (sourceUid != AuthService.current?.uid ||
+        sourceSession != cloudWriteSessionController.current) {
       return const AccountUiLinkBlocked();
     }
     if (providerLinker case final linkProvider?) {
@@ -486,6 +502,12 @@ class _CoordinatorAccountUiReplacementFlow implements AccountUiReplacementFlow {
 /// retryable server-side configuration failure, not a quiet cancel.
 @visibleForTesting
 AccountUiLinkResult mapAccountLinkException(Object error) {
+  if (error is DurableProviderLinkCollision) {
+    return const AccountUiProviderCollision();
+  }
+  if (error is AppleOAuthConfigurationMissing) {
+    return const AccountUiAppleConfigurationMissing();
+  }
   if (error is ExistingAccountLinkConflict) {
     return AccountUiLinkConflict(error);
   }
@@ -527,6 +549,7 @@ bool isUserCancelledAuthCode(String? code) {
     case 'ERROR_CANCELED':
     case 'reauth-cancelled':
     case 'target-verification-cancelled':
+    case 'web-context-cancelled':
       return true;
     default:
       return false;

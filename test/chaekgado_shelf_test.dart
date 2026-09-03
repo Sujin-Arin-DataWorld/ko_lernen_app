@@ -21,8 +21,8 @@ import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 /// 2. **칸이 읽을 수 있는 크기다** — 어느 폰에서도 폭 ≥150dp·높이 ≥88dp.
 ///    2026-08-23 전면 재작성 전에는 103dp×37dp 였다(48dp 탭 규정 위반).
 /// 3. 짧은 DE 이름표가 칸 안에서 두 줄 안에 들어간다 — 실제 폰트로 잰다.
-/// 4. 재고 0 칸이 폴백 정물 + 빈 문구로 그려진다(C1/C2 를 아트 0장으로
-///    출시하기 위한 장치). 진행은 붓선, 완료는 도장이다.
+/// 4. 재고 0 칸도 승인 아트를 유지하며 빈 문구로 구별한다.
+///    진행은 붓선, 완료는 도장이다.
 /// 5. 두루마리가 **널판 밑에서 풀린다** — 화면 아래에 전폭으로 붙고, 중간
 ///    프레임은 최종보다 아래에 있다(위로 올라온다). 항목이 많으면 시트가
 ///    화면의 [kChaekgadoSheetMaxFraction] 에서 멈추고 목록이 시트 안에서
@@ -80,8 +80,12 @@ void main() {
 
   group('ChaekgadoShelfCase', () {
     test('칸 정물은 듣기 카드 아트에서 오고, 폴백 사다리가 살아 있다', () {
-      // 나무는 이제 PNG 가 아니라 페인터가 그린다 — backplate/frame 상수는
-      // 2026-08-23 에 삭제됐고 파일도 assets_unused/pending_review/ 로 갔다.
+      for (final asset in [
+        kChaekgadoBookcaseFrame,
+        kChaekgadoBookcaseBackplate,
+      ]) {
+        expect(File(asset).existsSync(), isTrue, reason: '$asset is missing');
+      }
       expect(chaekgadoCardAsset('A1Cafe'), endsWith('listening/A1Cafe.webp'));
       expect(
         File(chaekgadoCardAsset('A1Cafe')).existsSync(),
@@ -98,6 +102,28 @@ void main() {
       expect(chaekgadoCategoryVignetteAsset('briefing'), isNull);
     });
 
+    testWidgets(
+      'original bookcase and themed art remain visible in empty slots',
+      (tester) async {
+        await pumpShelf(tester, const [
+          ChaekgadoCompartment(
+            slug: 'methodology',
+            label: 'Methodology',
+            imageKey: 'C1Methodology',
+          ),
+        ]);
+        final assets = tester
+            .widgetList<Image>(find.byType(Image))
+            .map((image) => image.image);
+        expect(assets, contains(const AssetImage(kChaekgadoBookcaseFrame)));
+        expect(
+          assets,
+          contains(AssetImage(chaekgadoCardAsset('C1Methodology'))),
+        );
+        expect(tester.takeException(), isNull);
+      },
+    );
+
     testWidgets('칸 수가 달라도 전부 그려지고 빈 칸이 안 남는다 (12·15·18·24)', (tester) async {
       for (final n in [12, 15, 18, 24]) {
         await pumpShelf(tester, cells(n));
@@ -110,9 +136,13 @@ void main() {
           );
         }
 
-        final shelfWidth = tester.getSize(find.byType(ChaekgadoShelfCase)).width;
+        final shelfWidth = tester
+            .getSize(find.byType(ChaekgadoShelfCase))
+            .width;
         final first = tester.getSize(find.byKey(chaekgadoCompartmentKey('s0')));
-        final second = tester.getSize(find.byKey(chaekgadoCompartmentKey('s1')));
+        final second = tester.getSize(
+          find.byKey(chaekgadoCompartmentKey('s1')),
+        );
         // 첫 칸은 전폭 — 15(홀수)가 1 + 7×2 로 떨어지는 이유다.
         expect(first.width, greaterThan(second.width * 1.9));
 
@@ -137,7 +167,9 @@ void main() {
         Size(800, 1280),
       ]) {
         await pumpShelf(tester, cells(15), size: size);
-        final narrow = tester.getSize(find.byKey(chaekgadoCompartmentKey('s1')));
+        final narrow = tester.getSize(
+          find.byKey(chaekgadoCompartmentKey('s1')),
+        );
         expect(
           narrow.width,
           greaterThanOrEqualTo(150),
@@ -179,7 +211,8 @@ void main() {
           expect(
             painter.didExceedMaxLines,
             isFalse,
-            reason: '"$label"(${slot.imageKey})이 ${maxWidth.round()}dp 두 줄을 넘겼다',
+            reason:
+                '"$label"(${slot.imageKey})이 ${maxWidth.round()}dp 두 줄을 넘겼다',
           );
           painter.dispose();
         }
@@ -195,12 +228,7 @@ void main() {
           count: 3,
           progress: 0.5,
         ),
-        ChaekgadoCompartment(
-          slug: 'b',
-          label: 'Fertig',
-          count: 2,
-          progress: 1,
-        ),
+        ChaekgadoCompartment(slug: 'b', label: 'Fertig', count: 2, progress: 1),
         ChaekgadoCompartment(slug: 'c', label: 'Frisch', count: 4),
         ChaekgadoCompartment(slug: 'd', label: 'Empty'),
       ]);
@@ -322,9 +350,7 @@ void main() {
       expect(find.text('S0'), findsOneWidget);
     });
 
-    testWidgets('항목이 많아도 시트는 화면 상한에서 멈추고 목록이 안에서 스크롤된다', (
-      tester,
-    ) async {
+    testWidgets('항목이 많아도 시트는 화면 상한에서 멈추고 목록이 안에서 스크롤된다', (tester) async {
       await openScroll(tester, items: 12);
       await tester.pumpAndSettle();
 

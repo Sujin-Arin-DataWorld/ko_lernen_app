@@ -2480,8 +2480,8 @@ async () => {
         provider: "apple.com",
       }),
     },
-    revokeAppleAuthorizationCode: async ({ authorizationCode, uid }) => {
-      revokedCodes.push({ authorizationCode, uid });
+    revokeAppleAuthorizationCode: async ({ authorizationCode, uid, clientKind, expectedSubject }) => {
+      revokedCodes.push({ authorizationCode, uid, clientKind, expectedSubject });
     },
   });
   const requested = await createDeletionOperation(harness.handlers, "apple");
@@ -2511,6 +2511,8 @@ async () => {
   assert.deepEqual(revokedCodes, [{
     authorizationCode: rawAppleCode,
     uid: "apple-account",
+    clientKind: 'native',
+    expectedSubject: 'apple-subject',
   }]);
   assert.equal(
     JSON.stringify(Array.from(harness.firestore.documents.entries()))

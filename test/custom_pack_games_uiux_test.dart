@@ -149,7 +149,7 @@ void main() {
     );
   });
 
-  test('ExtractedWord selects the active meaning with a safe fallback', () {
+  test('ExtractedWord selects the active meaning without another language', () {
     expect(_words.first.translationFor('de'), 'Schule');
     expect(_words.first.translationFor('en'), 'school');
     const legacy = ExtractedWord(
@@ -162,7 +162,8 @@ void main() {
       exampleDe: '',
       savedToPackId: null,
     );
-    expect(legacy.translationFor('en'), 'legacy meaning');
+    expect(legacy.translationFor('en'), isEmpty);
+    expect(legacy.originalTranslation, 'legacy meaning');
   });
 
   for (final locale in const [Locale('de'), Locale('en')]) {
@@ -614,52 +615,32 @@ void main() {
     semantics.dispose();
   });
 
-  testWidgets('all custom games render the reviewed fallback meaning', (
-    tester,
-  ) async {
-    final fallbackWords = _words.take(4).map(_withoutEnglish).toList();
-
-    await _pumpGame(
-      tester,
-      CustomPackQuizScreen(packId: _packId, words: fallbackWords),
-      locale: const Locale('en'),
-      viewport: _viewports[2],
-    );
-    await _pumpUntil(tester, find.byType(QuizChoice));
-    final quizMeanings = tester
-        .widgetList<QuizChoice>(find.byType(QuizChoice))
-        .map((choice) => choice.text)
-        .toSet();
-    expect(
-      quizMeanings,
-      fallbackWords.map((word) => word.translationDe).toSet(),
-    );
-
-    await _pumpGame(
-      tester,
-      CustomPackMatchingScreen(packId: _packId, words: fallbackWords),
-      locale: const Locale('en'),
-      viewport: _viewports[2],
-    );
-    await _pumpUntil(tester, _firstVisibleKoreanFinder());
-    expect(
-      fallbackWords.any(
-        (word) =>
-            find.bySemanticsLabel(word.translationDe).evaluate().isNotEmpty,
-      ),
-      isTrue,
-    );
-
-    await _pumpGame(
-      tester,
-      CustomPackTypingScreen(packId: _packId, words: [fallbackWords.first]),
-      locale: const Locale('en'),
-      viewport: _viewports[2],
-    );
-    await _pumpUntil(tester, find.byType(SoriTextField));
-    expect(find.text(fallbackWords.first.translationDe), findsOneWidget);
-    _expectNoException(tester);
-  });
+  testWidgets(
+    'custom games exclude words without a translation in the active language',
+    (tester) async {
+      final legacyWords = _words.take(4).map(_withoutEnglish).toList();
+      for (final game in <Widget>[
+        CustomPackQuizScreen(packId: _packId, words: legacyWords),
+        CustomPackMatchingScreen(packId: _packId, words: legacyWords),
+        CustomPackTypingScreen(packId: _packId, words: legacyWords),
+      ]) {
+        await _pumpGame(
+          tester,
+          game,
+          locale: const Locale('en'),
+          viewport: _viewports[2],
+        );
+        await tester.pumpAndSettle();
+        expect(find.byType(QuizChoice), findsNothing);
+        expect(find.byType(SoriTextField), findsNothing);
+        for (final word in legacyWords) {
+          expect(find.text(word.translationDe), findsNothing);
+          expect(find.bySemanticsLabel(word.translationDe), findsNothing);
+        }
+        _expectNoException(tester);
+      }
+    },
+  );
 
   testWidgets('mid-round locale switches preserve progress and evidence', (
     tester,

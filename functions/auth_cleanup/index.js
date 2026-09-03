@@ -29,7 +29,7 @@
  * 않고** gcloud 로만 배포한다.
  *
  * 배포 (저장소 루트에서):
- *   gcloud functions deploy on_auth_user_deleted --no-gen2 --runtime=nodejs20 \
+ *   gcloud functions deploy on_auth_user_deleted --no-gen2 --runtime=nodejs22 \
  *     --region=europe-west3 --source=functions/auth_cleanup \
  *     --entry-point=on_auth_user_deleted \
  *     --trigger-event=providers/firebase.auth/eventTypes/user.delete \

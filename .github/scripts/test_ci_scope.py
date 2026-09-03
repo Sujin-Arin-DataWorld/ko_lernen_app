@@ -35,15 +35,35 @@ class CiScopeTest(unittest.TestCase):
         )
 
     def test_content_shard_change_selects_app_and_content_gates(self):
-        self.assert_enabled(["assets/data/scenarios_a1.json"], "app", "content")
-        self.assert_enabled(["assets/data/cloze.json"], "app", "content")
-        self.assert_enabled(["assets/data/korean_vocab.csv"], "app", "content")
+        # Content shards are also canonical TTS inputs after the origin/main
+        # merge, so they now pull in `tts` alongside `app` and `content`.
+        self.assert_enabled(["assets/data/scenarios_a1.json"], "app", "tts", "content")
+        self.assert_enabled(["assets/data/cloze.json"], "app", "tts", "content")
+        self.assert_enabled(["assets/data/korean_vocab.csv"], "app", "tts", "content")
 
-    def test_unlisted_assets_data_file_selects_app_only(self):
-        self.assert_enabled(["assets/data/foo.json"], "app")
+    def test_unlisted_assets_data_file_selects_app_and_tts(self):
+        self.assert_enabled(["assets/data/foo.json"], "app", "tts")
 
     def test_tts_function_change_is_not_conflated_with_content_scope(self):
         self.assert_enabled(["functions/tts/index.js"], "tts")
+
+    def test_canonical_tts_inputs_also_verify_server_allowlist(self):
+        # assets/data/scenarios_a1.json is also a content shard (see
+        # test_content_shard_change_selects_app_and_content_gates above), so
+        # it additionally selects `content`; the other canonical inputs are
+        # not content shards and stay at app+tts.
+        self.assert_enabled(["assets/data/scenarios_a1.json"], "app", "tts", "content")
+        for path in ["assets/data/tts_canonical_manifest.json",
+                     "tool/generate_tts.py", "tool/polish_tts.py",
+                     "lib/data/hangul_data.dart",
+                     "lib/services/placement_diagnostic.dart"]:
+            self.assert_enabled([path], "app", "tts")
+
+    def test_ios_native_and_plugin_contracts_require_unsigned_build(self):
+        for path in ["ios/Runner/AppDelegate.swift", "ios/Runner/PrivateTtsPlayer.swift",
+                     "ios/Podfile.lock", "pubspec.yaml", "pubspec.lock",
+                     "test/support/native_test_host.dart"]:
+            self.assert_enabled([path], "app", "ios")
 
     def test_shared_firestore_contract_selects_consumers(self):
         self.assert_enabled(
@@ -56,6 +76,25 @@ class CiScopeTest(unittest.TestCase):
             ["firestore.indexes.json"],
             "book",
             "gye",
+        )
+
+    def test_storage_privacy_selects_rules_and_callable_consumers(self):
+        self.assert_enabled(["storage.rules"], "app", "gye", "tts")
+
+    def test_canonical_access_policy_selects_all_contract_consumers(self):
+        for path in ["functions/gye/access_policy.js", "test/fixtures/access_policy/v1.json"]:
+            self.assert_enabled([path], "app", "book", "gye", "pronunciation")
+
+    def test_cost_contract_selects_deployment_local_mirrors(self):
+        for path in ["functions/pronunciation/service_cost_policy.js",
+                     "functions/tts/service_cost_policy.js",
+                     "functions/analyze_korean_text/ai_policy.py"]:
+            self.assert_enabled([path], "book", "pronunciation", "tts")
+
+    def test_cost_fixture_only_change_includes_tts_consumer(self):
+        self.assert_enabled(
+            ["test/fixtures/access_policy/cost-v1.json"],
+            "app", "book", "gye", "pronunciation", "tts",
         )
 
     def test_firebase_config_selects_declared_runtime_contracts(self):

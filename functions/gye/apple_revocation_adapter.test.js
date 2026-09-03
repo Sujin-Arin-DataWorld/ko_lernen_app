@@ -3,17 +3,40 @@
 const assert = require("node:assert/strict");
 const {
   generateKeyPairSync,
+  sign,
   verify,
 } = require("node:crypto");
 const test = require("node:test");
 
 const {
-  createAppleRevocationAdapter,
+  createAppleRevocationAdapter: buildAdapter,
 } = require("./apple_revocation_adapter");
 
 const APPLE_TOKEN_URL = "https://appleid.apple.com/auth/token";
 const APPLE_REVOKE_URL = "https://appleid.apple.com/auth/revoke";
 const NOW_SECONDS = 1_800_000_000;
+const appleSigningKeys = generateKeyPairSync('rsa', { modulusLength: 2048 });
+const appleJwk = { ...appleSigningKeys.publicKey.export({ format: 'jwk' }),
+  kid: 'apple-test-key', alg: 'RS256', use: 'sig' };
+
+function createAppleRevocationAdapter(options) {
+  return buildAdapter({ ...options, fetch: (url, init) =>
+    url === 'https://appleid.apple.com/auth/keys'
+      ? Promise.resolve({ status: 200, json: async () => ({ keys: [appleJwk] }) })
+      : options.fetch(url, init) });
+}
+
+function exchangeIdToken(overrides = {}) {
+  // This body is delivered by the pinned Apple token endpoint over TLS, not
+  // accepted as a caller-provided identity assertion.
+  const header = Buffer.from(JSON.stringify({ alg: 'RS256', kid: appleJwk.kid })).toString('base64url');
+  const payload = Buffer.from(JSON.stringify({
+    iss: 'https://appleid.apple.com', aud: 'com.example.hangulsori',
+    sub: 'apple-subject', exp: NOW_SECONDS + 3600, ...overrides,
+  })).toString('base64url');
+  const body = `${header}.${payload}`;
+  return `${body}.${sign('RSA-SHA256', Buffer.from(body), appleSigningKeys.privateKey).toString('base64url')}`;
+}
 
 function decodeJsonSegment(segment) {
   return JSON.parse(Buffer.from(segment, "base64url").toString("utf8"));
@@ -57,6 +80,7 @@ async () => {
             return {
               access_token: "transient-access-token",
               refresh_token: "transient-refresh-token",
+              id_token: exchangeIdToken(),
               token_type: "Bearer",
               expires_in: 3600,
             };
@@ -68,7 +92,7 @@ async () => {
     nowSeconds: () => NOW_SECONDS,
   });
 
-  await revoke({ authorizationCode: "one-time-code" });
+  await revoke({ authorizationCode: "one-time-code", expectedSubject: 'apple-subject' });
 
   assert.equal(calls.length, 2);
   assert.equal(calls[0].url, APPLE_TOKEN_URL);
@@ -129,6 +153,75 @@ async () => {
   assert.equal(Array.from(revokeForm.keys()).length, 4);
 });
 
+test('Android code uses allowlisted Services ID and registered redirect', async () => {
+  const { privateKey } = generateKeyPairSync('ec', { namedCurve: 'prime256v1' });
+  const calls = [];
+  const revoke = createAppleRevocationAdapter({
+    ...testSecrets(privateKey.export({ format: 'pem', type: 'pkcs8' })),
+    getServicesId: () => 'com.example.hangulsori.web',
+    getRedirectUri: () => 'https://auth.example.com/apple/callback',
+    nowSeconds: () => NOW_SECONDS,
+    fetch: async (url, options) => {
+      calls.push({ url, form: new URLSearchParams(options.body) });
+      return { status: 200, json: async () => ({ refresh_token: 'refresh',
+        id_token: exchangeIdToken({ aud: 'com.example.hangulsori.web' }) }) };
+    },
+  });
+  await revoke({ authorizationCode: 'code', clientKind: 'web', expectedSubject: 'apple-subject' });
+  assert.equal(calls[0].form.get('client_id'), 'com.example.hangulsori.web');
+  assert.equal(calls[0].form.get('redirect_uri'), 'https://auth.example.com/apple/callback');
+  assert.equal(calls[1].form.get('client_id'), 'com.example.hangulsori.web');
+});
+
+test('rejects a forged Apple signature before revoke', async () => {
+  const { privateKey } = generateKeyPairSync('ec', { namedCurve: 'prime256v1' });
+  const calls = [];
+  const token = exchangeIdToken().split('.');
+  token[2] = Buffer.alloc(256, 42).toString('base64url');
+  const revoke = createAppleRevocationAdapter({
+    ...testSecrets(privateKey.export({ format: 'pem', type: 'pkcs8' })),
+    nowSeconds: () => NOW_SECONDS,
+    fetch: async (url) => {
+      calls.push(url);
+      return { status: 200, json: async () => ({ refresh_token: 'refresh', id_token: token.join('.') }) };
+    },
+  });
+  await assert.rejects(() => revoke({ authorizationCode: 'code', expectedSubject: 'apple-subject' }),
+    { code: 'apple/revocation-identity-mismatch' });
+  assert.deepEqual(calls, [APPLE_TOKEN_URL]);
+});
+
+test('untrusted client kinds and missing trusted subject stop before network', async () => {
+  let calls = 0;
+  const revoke = createAppleRevocationAdapter({ ...testSecrets('unused'), fetch: async () => { calls++; } });
+  for (const input of [{ clientKind: 'attacker.client', expectedSubject: 'apple-subject' },
+    { clientKind: 'native' }]) {
+    await assert.rejects(() => revoke({ authorizationCode: 'code', ...input }),
+      { code: 'apple/revocation-input-invalid' });
+  }
+  assert.equal(calls, 0);
+});
+
+for (const claims of [{ sub: 'another-apple-account' }, { aud: 'other.client' },
+  { iss: 'https://attacker.example' }, { exp: NOW_SECONDS - 1 }]) {
+  test(`mismatched Apple exchange identity cannot revoke: ${JSON.stringify(claims)}`, async () => {
+    const { privateKey } = generateKeyPairSync('ec', { namedCurve: 'prime256v1' });
+    const calls = [];
+    const revoke = createAppleRevocationAdapter({
+      ...testSecrets(privateKey.export({ format: 'pem', type: 'pkcs8' })),
+      nowSeconds: () => NOW_SECONDS,
+      fetch: async (url) => {
+        calls.push(url);
+        return { status: 200, json: async () => ({ refresh_token: 'refresh',
+          id_token: exchangeIdToken(claims) }) };
+      },
+    });
+    await assert.rejects(() => revoke({ authorizationCode: 'code', expectedSubject: 'apple-subject' }),
+      { code: 'apple/revocation-identity-mismatch' });
+    assert.deepEqual(calls, [APPLE_TOKEN_URL]);
+  });
+}
+
 test("invalid secret material fails with a stable redacted code", async () => {
   const rawCode = "never-log-or-return-me";
   const revoke = createAppleRevocationAdapter({
@@ -140,7 +233,7 @@ test("invalid secret material fails with a stable redacted code", async () => {
   });
 
   await assert.rejects(
-    () => revoke({ authorizationCode: rawCode }),
+    () => revoke({ authorizationCode: rawCode, expectedSubject: 'apple-subject' }),
     (error) => {
       assert.equal(error.code, "apple/revocation-config-invalid");
       assert.equal(errorText(error).includes(rawCode), false);
@@ -175,7 +268,7 @@ async (t) => {
       nowSeconds: () => NOW_SECONDS,
     });
     await assert.rejects(
-      () => revoke({ authorizationCode: rawCode }),
+      () => revoke({ authorizationCode: rawCode, expectedSubject: 'apple-subject' }),
       (error) => {
         assert.equal(error.code, "apple/revocation-provider-failed");
         assert.equal(errorText(error).includes(rawCode), false);
@@ -194,7 +287,7 @@ async (t) => {
       nowSeconds: () => NOW_SECONDS,
     });
     await assert.rejects(
-      () => revoke({ authorizationCode: rawCode }),
+      () => revoke({ authorizationCode: rawCode, expectedSubject: 'apple-subject' }),
       (error) => {
         assert.equal(error.code, "apple/revocation-network-failed");
         assert.equal(errorText(error).includes(rawCode), false);
@@ -216,7 +309,7 @@ async (t) => {
       nowSeconds: () => NOW_SECONDS,
     });
     await assert.rejects(
-      () => revoke({ authorizationCode: rawCode }),
+      () => revoke({ authorizationCode: rawCode, expectedSubject: 'apple-subject' }),
       (error) => {
         assert.equal(error.code, "apple/revocation-response-invalid");
         assert.equal(errorText(error).includes(rawCode), false);
@@ -236,7 +329,7 @@ async (t) => {
           return {
             status: 200,
             async json() {
-              return { refresh_token: "exchange-refresh-token" };
+              return { refresh_token: "exchange-refresh-token", id_token: exchangeIdToken() };
             },
           };
         }
@@ -250,7 +343,7 @@ async (t) => {
       nowSeconds: () => NOW_SECONDS,
     });
     await assert.rejects(
-      () => revoke({ authorizationCode: rawCode }),
+      () => revoke({ authorizationCode: rawCode, expectedSubject: 'apple-subject' }),
       (error) => {
         assert.equal(error.code, "apple/revocation-provider-failed");
         assert.equal(errorText(error).includes(rawCode), false);
@@ -271,7 +364,7 @@ async (t) => {
           return {
             status: 200,
             async json() {
-              return { refresh_token: refreshToken };
+              return { refresh_token: refreshToken, id_token: exchangeIdToken() };
             },
           };
         }
@@ -280,7 +373,7 @@ async (t) => {
       nowSeconds: () => NOW_SECONDS,
     });
     await assert.rejects(
-      () => revoke({ authorizationCode: rawCode }),
+      () => revoke({ authorizationCode: rawCode, expectedSubject: 'apple-subject' }),
       (error) => {
         assert.equal(error.code, "apple/revocation-network-failed");
         assert.equal(errorText(error).includes(rawCode), false);
