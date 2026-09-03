@@ -2658,9 +2658,9 @@
     "semantic_hash": ""
   },
   "lib/services/tts_service.dart": {
-    "mtime": 1788410094.6280746,
-    "seen": 1788412669.1584568,
-    "ast_hash": "c768b2120d318148ad22faaac4a24926",
+    "mtime": 1788427209.793002,
+    "seen": 1788441365.396018,
+    "ast_hash": "8c81665614f3a2764f900fc08f0dbc24",
     "semantic_hash": ""
   },
   "lib/services/vocab_notebook_parser.dart": {
@@ -6156,9 +6156,9 @@
     "semantic_hash": ""
   },
   "test/tts_premium_only_test.dart": {
-    "mtime": 1788397439.6153684,
-    "seen": 1788412669.1608517,
-    "ast_hash": "1981684219236b8b947010ac8fcd534d",
+    "mtime": 1788418370.7145286,
+    "seen": 1788419440.1571972,
+    "ast_hash": "cb3bc2f10b9c48dc527546c0d4820d1d",
     "semantic_hash": ""
   },
   "test/tts_request_rate_test.dart": {
@@ -6684,9 +6684,9 @@
     "semantic_hash": ""
   },
   "tool/generate_tts.py": {
-    "mtime": 1788409955.2515163,
-    "seen": 1788412669.1611927,
-    "ast_hash": "d2587bfe24dba71056983e2257c3369f",
+    "mtime": 1788418497.8130398,
+    "seen": 1788419440.188145,
+    "ast_hash": "148a745c6e2d6d98553735456eef31eb",
     "semantic_hash": ""
   },
   "tool/hanok_a1_kit.py": {
@@ -6870,9 +6870,9 @@
     "semantic_hash": ""
   },
   "tool/test_generate_tts.py": {
-    "mtime": 1788409925.727336,
-    "seen": 1788412669.1613545,
-    "ast_hash": "db128482248568fa258ccfdc92eaabde",
+    "mtime": 1788418506.9854188,
+    "seen": 1788419440.2002218,
+    "ast_hash": "b451b3563fcb032e18f560eeb27d8d0e",
     "semantic_hash": ""
   },
   "tool/test_hanok_a1_kit.py": {
@@ -8706,9 +8706,9 @@
     "semantic_hash": ""
   },
   ".github/workflows/ci.yml": {
-    "mtime": 1788409153.1779938,
-    "seen": 1788412669.1630547,
-    "ast_hash": "3b7c8e00eff32de936b987c936da717f",
+    "mtime": 1788423592.3517723,
+    "seen": 1788441365.6925094,
+    "ast_hash": "907de92f587f19714f49a7c9d1b0c57b",
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-07-29-account-transition-and-deletion/task-6-report.md": {
@@ -11694,9 +11694,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/speakable.dart": {
-    "mtime": 1788409723.0629559,
-    "seen": 1788412669.1588905,
-    "ast_hash": "e591a78bf1a28ae483acf901fb97e21c",
+    "mtime": 1788427233.9309516,
+    "seen": 1788441365.4215586,
+    "ast_hash": "e99dce3d6fa15fdfb8c665fb445cb47b",
     "semantic_hash": ""
   },
   "test/chrome_row_test.dart": {
@@ -11742,9 +11742,9 @@
     "semantic_hash": ""
   },
   "test/review_session_screen_speakable_test.dart": {
-    "mtime": 1788390901.696239,
-    "seen": 1788412669.1603208,
-    "ast_hash": "a470d51373483daad3934e580114fe36",
+    "mtime": 1788427252.8913372,
+    "seen": 1788441365.5131478,
+    "ast_hash": "bd4c5cd5d59cdbe364272c4ea8d46654",
     "semantic_hash": ""
   },
   "test/sori_chip_semantics_test.dart": {
@@ -11772,9 +11772,9 @@
     "semantic_hash": ""
   },
   "test/speakable_semantics_test.dart": {
-    "mtime": 1788397439.6177201,
-    "seen": 1788412669.1607144,
-    "ast_hash": "67d6fa0f2ba2af6c1f02685f755261a8",
+    "mtime": 1788418361.2825818,
+    "seen": 1788419440.1425571,
+    "ast_hash": "ec482fdcdb58ef0d7d66ba6eda02b069",
     "semantic_hash": ""
   },
   "test/vocab_pack_quiz_save_test.dart": {
@@ -13920,9 +13920,9 @@
     "semantic_hash": ""
   },
   "test/chosung_quiz_audio_test.dart": {
-    "mtime": 1788410256.9610667,
-    "seen": 1788412669.1592665,
-    "ast_hash": "e04bd63d81391831fc88f1c86c3486c5",
+    "mtime": 1788422922.7152035,
+    "seen": 1788441365.4411526,
+    "ast_hash": "15a94d40b9ea763b21cd75b49697258e",
     "semantic_hash": ""
   },
   "test/custom_pack_typing_haptic_test.dart": {
@@ -13938,15 +13938,15 @@
     "semantic_hash": ""
   },
   "test/vocab_notebook_audio_test.dart": {
-    "mtime": 1788402641.260693,
-    "seen": 1788412669.160909,
-    "ast_hash": "773a14627a5d071d022f0277a9061520",
+    "mtime": 1788422959.5930755,
+    "seen": 1788441365.5508804,
+    "ast_hash": "62b07e1120315a18b46cdbd14ffc9db6",
     "semantic_hash": ""
   },
   "test/vocab_pack_screen_prefetch_test.dart": {
-    "mtime": 1788410313.0359201,
-    "seen": 1788412669.1609745,
-    "ast_hash": "d491cce0c3868fb1f1e5911600e153c3",
+    "mtime": 1788423037.309785,
+    "seen": 1788441365.554626,
+    "ast_hash": "632819e5fd9f1b66b020359a5062720e",
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-09-03-w7-pr1-tts/final-fix-wave-report.md": {
@@ -13962,9 +13962,9 @@
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-09-03-w7-pr1-tts/progress.md": {
-    "mtime": 1788412151.7615044,
-    "seen": 1788412669.1631186,
-    "ast_hash": "12fd31459d13e979e70b04acd6fa5a8e",
+    "mtime": 1788441149.1920092,
+    "seen": 1788441365.696122,
+    "ast_hash": "8e8371faa1639ed2dcdb7c0482d0a13a",
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-09-03-w7-pr1-tts/task-1-report.md": {
@@ -14025,6 +14025,54 @@
     "mtime": 1788390899.4475904,
     "seen": 1788412669.1641705,
     "ast_hash": "68f4d626b9590a00c3a8d166d0712f4e",
+    "semantic_hash": ""
+  },
+  "test/auto_speech_test_stub_guard_test.dart": {
+    "mtime": 1788426928.6995566,
+    "seen": 1788441365.435832,
+    "ast_hash": "d9293011e457de26624bb8737695ba19",
+    "semantic_hash": ""
+  },
+  "test/sori_speech_phase_matrix_test.dart": {
+    "mtime": 1788427712.2663095,
+    "seen": 1788441365.5345547,
+    "ast_hash": "15c5763966b4018f13e729823d124768",
+    "semantic_hash": ""
+  },
+  "test/support/sori_speech_stubs.dart": {
+    "mtime": 1788426948.7802427,
+    "seen": 1788441365.544917,
+    "ast_hash": "814983cd565f300592ae4d099fbac93a",
+    "semantic_hash": ""
+  },
+  "test/tts_disk_tier_test.dart": {
+    "mtime": 1788423388.4341824,
+    "seen": 1788441365.547235,
+    "ast_hash": "4bcce71af5c9cc6b3caee3cd829eb399",
+    "semantic_hash": ""
+  },
+  "tool/check_brief_anchors.py": {
+    "mtime": 1788439963.9672074,
+    "seen": 1788441365.5637863,
+    "ast_hash": "c93ed9c39d916add9f832bebd9cdf547",
+    "semantic_hash": ""
+  },
+  "tool/test_check_brief_anchors.py": {
+    "mtime": 1788439992.1710196,
+    "seen": 1788441365.5773199,
+    "ast_hash": "87d9fa321e2e2efc9298424dcd1126df",
+    "semantic_hash": ""
+  },
+  ".superpowers/sdd/2026-09-03-w7-pr1-tts/fix-wave-2-report.md": {
+    "mtime": 1788419525.937837,
+    "seen": 1788441365.6959255,
+    "ast_hash": "62f5e6d47ef9ec4778e280fb41dad8e5",
+    "semantic_hash": ""
+  },
+  ".superpowers/sdd/2026-09-03-w7-pr1-tts/hardening-3-report.md": {
+    "mtime": 1788440184.6337147,
+    "seen": 1788441365.6961186,
+    "ast_hash": "335edc3a855fbaaae3cc614f5c4d7802",
     "semantic_hash": ""
   }
 }
