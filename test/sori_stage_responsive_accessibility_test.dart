@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:ko_lernen_app/data/sori_activity_catalog.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/personal_hanok.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_catalog_screen.dart';
+import 'package:ko_lernen_app/services/hanok_stage_service.dart';
+import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/avatar.dart';
 
 void main() {
   for (final size in const <Size>[
@@ -60,12 +65,10 @@ void main() {
 
       expect(tester.takeException(), isNull);
       expect(find.byType(SoriStageCatalogScreen), findsOneWidget);
-      expect(
-        find.byTooltip(
-          fixture.locale.languageCode == 'de' ? 'Profil' : 'Profile',
-        ),
-        findsOneWidget,
-      );
+      // §W-G2 item 4: 프로필 진입점이 raw IconButton(tooltip)에서
+      // SoriAvatar(Semantics label, Tooltip 없음)로 바뀌었다 — 같은 목적지
+      // /profile 을 여는 위젯이 정확히 하나인지로 계약을 유지한다.
+      expect(find.byType(SoriAvatar), findsOneWidget);
     });
   }
 
@@ -181,8 +184,39 @@ Widget _catalogApp({
     ),
     child: child!,
   ),
-  home: const SoriStageCatalogScreen(tab: SoriStageTab.learn),
+  // §LAYOUT-2(J12): inject an inProgress 37/100 snapshot for every Learn
+  // entry — the cell-height budget must include the real numeric progress
+  // suffix (` · 37 / 100`), not just the three bare state labels.
+  home: SoriStageCatalogScreen(
+    tab: SoriStageTab.learn,
+    loadSnapshot: () async => _inProgressSnapshot(),
+  ),
   onGenerateRoute: (_) => MaterialPageRoute<void>(
     builder: (_) => const Scaffold(body: Text('route')),
   ),
 );
+
+SoriStageProgressionSnapshot _inProgressSnapshot() =>
+    SoriStageProgressionSnapshot(
+      today: const TodayLearningSnapshot(pick: null),
+      hanok: PersonalHanokProjection.from(
+        const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
+      ),
+      quests: const [],
+      pendingBojagiCount: 0,
+      stampCount: 0,
+      xp: 0,
+      streakDays: 0,
+      todayReward: null,
+      activityProgress: {
+        for (final entry in soriActivityCatalog.where(
+          (entry) => entry.tab == SoriStageTab.learn,
+        ))
+          entry.id: SoriActivityProgress(
+            activityId: entry.id,
+            state: SoriActivityState.inProgress,
+            current: 37,
+            target: 100,
+          ),
+      },
+    );

@@ -7,7 +7,6 @@ import 'package:flutter/services.dart';
 import '../models/feedback_completion.dart';
 import '../models/guide_contract.dart';
 import '../widgets/sori/tokens.dart';
-import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/chrome_row.dart';
@@ -18,7 +17,6 @@ import '../widgets/sori/dialog.dart';
 import '../widgets/sori/content_share_recovery.dart';
 import '../services/liked_content_service.dart';
 import '../widgets/sori/responsive.dart';
-import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/section_header.dart';
 import '../widgets/sori/spotlight_coach.dart';
@@ -222,55 +220,47 @@ class _HangulScreenState extends State<HangulScreen>
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    return Scaffold(
-      appBar: SoriAppBar(
-        title: t.screenHangulTitle,
-        textScale: MediaQuery.textScalerOf(context).scale(1),
-        viewportWidth: MediaQuery.sizeOf(context).width,
-        actions: const [TtsSpeedAction()],
-        bottom: TabBar(
-          key: _tabBarKey,
-          controller: _tabs,
-          indicatorColor: SoriColors.primary,
-          labelColor: SoriColors.primary,
-          unselectedLabelColor: SoriSurfaces.of(context).textMuted,
-          tabs: [
-            Tab(
-              icon: const Icon(Icons.grid_view_rounded),
-              text: t.hangulTabOverview,
-            ),
-            Tab(icon: const Icon(Icons.style_outlined), text: t.hangulTabCards),
-            Tab(icon: const Icon(Icons.gesture), text: t.hangulTabWrite),
-          ],
-        ),
-      ),
-      body: SoriScreenBackground(
-        child: SafeArea(
-          top: false,
-          child: TabBarView(
-            controller: _tabs,
-            // 탭 넘김 스와이프는 **개요 탭에서만** 켠다.
-            //
-            // 카드 탭과 쓰기 탭은 둘 다 가로 드래그를 스스로 쓴다 — 카드는
-            // 카드 탭은 세로 피드(이전/다음 글자), 쓰기는 손가락 그리기와 좌우 이동.
-            // TabBarView 의 가로 드래그 인식기는 제스처 아레나에서 카드의
-            // Pan 인식기를 이겨버리기 때문에, 켜두면 카드를 미는 대신 탭이
-            // 넘어간다(2026-08-18 실측). 탭 전환은 상단 TabBar 로 한다.
-            physics: _tabIndex == 0
-                ? null
-                : const NeverScrollableScrollPhysics(),
-            children: [
-              _OverviewTab(speak: _speakJamo),
-              _CardsTab(
-                onFinish: _finishCards,
-                random: widget.cardsRandom ?? math.Random(),
-                speak: _speakJamo,
-                prefetch: _prefetch,
-              ),
-              _WriteTab(onFinish: _finishWriting, speak: _speakJamo),
-            ],
+    return SoriStudyFrame(
+      title: t.screenHangulTitle,
+      actions: const [TtsSpeedAction()],
+      padding: EdgeInsets.zero,
+      bottom: TabBar(
+        key: _tabBarKey,
+        controller: _tabs,
+        indicatorColor: SoriColors.primary,
+        labelColor: SoriColors.primary,
+        unselectedLabelColor: SoriSurfaces.of(context).textMuted,
+        tabs: [
+          Tab(
+            icon: const Icon(Icons.grid_view_rounded),
+            text: t.hangulTabOverview,
           ),
-        ),
+          Tab(icon: const Icon(Icons.style_outlined), text: t.hangulTabCards),
+          Tab(icon: const Icon(Icons.gesture), text: t.hangulTabWrite),
+        ],
+      ),
+      child: TabBarView(
+        controller: _tabs,
+        // 탭 넘김 스와이프는 **개요 탭에서만** 켠다.
+        //
+        // 카드 탭과 쓰기 탭은 둘 다 가로 드래그를 스스로 쓴다 — 카드는
+        // 카드 탭은 세로 피드(이전/다음 글자), 쓰기는 손가락 그리기와 좌우 이동.
+        // TabBarView 의 가로 드래그 인식기는 제스처 아레나에서 카드의
+        // Pan 인식기를 이겨버리기 때문에, 켜두면 카드를 미는 대신 탭이
+        // 넘어간다(2026-08-18 실측). 탭 전환은 상단 TabBar 로 한다.
+        physics: _tabIndex == 0
+            ? null
+            : const NeverScrollableScrollPhysics(),
+        children: [
+          _OverviewTab(speak: _speakJamo),
+          _CardsTab(
+            onFinish: _finishCards,
+            random: widget.cardsRandom ?? math.Random(),
+            speak: _speakJamo,
+            prefetch: _prefetch,
+          ),
+          _WriteTab(onFinish: _finishWriting, speak: _speakJamo),
+        ],
       ),
     );
   }
@@ -287,22 +277,26 @@ class _OverviewTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    return ListView(
-      key: const Key('hangul-overview-scroll'),
-      padding: soriClampPadding(
-        MediaQuery.sizeOf(context).width,
-        base: const EdgeInsets.fromLTRB(12, 12, 12, 24),
+    return SoriContentClamp(
+      base: const EdgeInsets.fromLTRB(12, 12, 12, 24),
+      builder: (context, padding) => ListView(
+        key: const Key('hangul-overview-scroll'),
+        padding: padding,
+        children: [
+          _SectionLabel('${t.hangulConsonantsLabel} (${consonants.length})'),
+          _CharGrid(
+            chars: consonants,
+            color: SoriColors.primary,
+            speak: speak,
+          ),
+          const SizedBox(height: 24),
+          _SectionLabel('${t.hangulVowelsLabel} (${vowels.length})'),
+          _CharGrid(chars: vowels, color: SoriColors.info, speak: speak),
+          const SizedBox(height: 24),
+          _SectionLabel(t.hangulSyllableLabel),
+          const _SyllableDemo(),
+        ],
       ),
-      children: [
-        _SectionLabel('${t.hangulConsonantsLabel} (${consonants.length})'),
-        _CharGrid(chars: consonants, color: SoriColors.primary, speak: speak),
-        const SizedBox(height: 24),
-        _SectionLabel('${t.hangulVowelsLabel} (${vowels.length})'),
-        _CharGrid(chars: vowels, color: SoriColors.info, speak: speak),
-        const SizedBox(height: 24),
-        _SectionLabel(t.hangulSyllableLabel),
-        const _SyllableDemo(),
-      ],
     );
   }
 }
@@ -399,25 +393,31 @@ class _CharCell extends StatelessWidget {
             fit: BoxFit.scaleDown,
             child: Text(
               char.letter,
-              style: TextStyle(
+              style: SoriTextTheme.of(context).caption.copyWith(
                 fontFamily: SoriFonts.sans,
                 fontSize: 36,
-                fontWeight: FontWeight.w900,
+                fontWeight: FontWeight.w700,
                 color: color,
                 height: 1,
               ),
             ),
           ),
           const SizedBox(height: 3),
-          Text(
-            char.romanization,
-            style: TextStyle(
-              fontFamily: SoriFonts.sans,
-              fontSize: 11,
-              color: color.withValues(alpha: 0.75),
-              fontStyle: FontStyle.italic,
-              fontWeight: FontWeight.w600,
-              height: 1,
+          // §W-A2: 이 로마자 표기는 공백 없는 짧은 라틴 문자열(예: "ga")이라
+          // 200% 배율에서 줄바꿈으로 흡수가 안 되고 고정 그리드 셀을 넘긴다
+          // — 위 글자와 같은 FittedBox(scaleDown) 관용구를 적용한다.
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              char.romanization,
+              style: SoriTextTheme.of(context).caption.copyWith(
+                fontFamily: SoriFonts.sans,
+                fontSize: 13,
+                color: color.withValues(alpha: 0.75),
+                fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.w600,
+                height: 1,
+              ),
             ),
           ),
         ],
@@ -457,9 +457,9 @@ class _DetailSheet extends StatelessWidget {
             children: [
               Text(
                 char.letter,
-                style: TextStyle(
+                style: SoriTextTheme.of(context).caption.copyWith(
                   fontSize: 92,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w700,
                   color: color,
                   height: 1,
                 ),
@@ -467,7 +467,7 @@ class _DetailSheet extends StatelessWidget {
               const SizedBox(height: 6),
               Text(
                 '[${char.romanization}]',
-                style: TextStyle(
+                style: SoriTextTheme.of(context).caption.copyWith(
                   fontSize: 18,
                   color: color.withValues(alpha: 0.85),
                   fontStyle: FontStyle.italic,
@@ -482,7 +482,7 @@ class _DetailSheet extends StatelessWidget {
                   Localizations.localeOf(context).languageCode,
                 ),
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: SoriTextTheme.of(context).caption.copyWith(
                   fontSize: 14,
                   color: SoriSurfaces.of(context).text,
                   height: 1.5,
@@ -536,15 +536,15 @@ class _SyllableDemo extends StatelessWidget {
                                 SoriAdaptiveWidth.criticalActionRow;
                         final syllable = Text(
                           e.$1,
-                          style: const TextStyle(
+                          style: SoriTextTheme.of(context).caption.copyWith(
                             fontSize: 32,
-                            fontWeight: FontWeight.w800,
+                            fontWeight: FontWeight.w700,
                             color: SoriColors.info,
                           ),
                         );
                         final romanization = Text(
                           e.$3,
-                          style: const TextStyle(
+                          style: SoriTextTheme.of(context).caption.copyWith(
                             color: SoriColors.primary,
                             fontWeight: FontWeight.w700,
                             fontStyle: FontStyle.italic,
@@ -552,13 +552,15 @@ class _SyllableDemo extends StatelessWidget {
                         );
                         final equals = Text(
                           '=',
-                          style: TextStyle(color: surfaces.textMuted),
+                          style: SoriTextTheme.of(
+                            context,
+                          ).caption.copyWith(color: surfaces.textMuted),
                         );
                         final components = <Widget>[
                           for (var i = 0; i < e.$2.length; i++) ...[
                             Text(
                               e.$2[i],
-                              style: const TextStyle(
+                              style: SoriTextTheme.of(context).caption.copyWith(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w700,
                               ),
@@ -566,7 +568,9 @@ class _SyllableDemo extends StatelessWidget {
                             if (i < e.$2.length - 1)
                               Text(
                                 ' + ',
-                                style: TextStyle(color: surfaces.textDim),
+                                style: SoriTextTheme.of(
+                                  context,
+                                ).caption.copyWith(color: surfaces.textDim),
                               ),
                           ],
                         ];
@@ -903,9 +907,9 @@ class _CardsTabState extends State<_CardsTab> {
       child: Text(
         c.letter,
         textAlign: TextAlign.center,
-        style: TextStyle(
+        style: SoriTextTheme.of(context).caption.copyWith(
           fontSize: soriFillSize(h, 0.40, 110, 200),
-          fontWeight: FontWeight.w800,
+          fontWeight: FontWeight.w700,
           color: SoriColors.primary,
         ),
       ),
@@ -929,9 +933,9 @@ class _CardsTabState extends State<_CardsTab> {
         child: Text(
           c.letter,
           textAlign: TextAlign.center,
-          style: TextStyle(
+          style: SoriTextTheme.of(context).caption.copyWith(
             fontSize: soriFillSize(h, 0.16, 60, 110),
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w700,
             color: SoriColors.primary,
           ),
         ),
@@ -942,7 +946,7 @@ class _CardsTabState extends State<_CardsTab> {
           Text(
             '[${c.romanization}]',
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: SoriTextTheme.of(context).caption.copyWith(
               fontSize: soriFillSize(h, 0.05, 20, 30),
               color: SoriColors.info,
               fontStyle: FontStyle.italic,
@@ -955,7 +959,7 @@ class _CardsTabState extends State<_CardsTab> {
             child: Text(
               c.descriptionFor(lang),
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: SoriTextTheme.of(context).caption.copyWith(
                 fontSize: soriFillSize(h, 0.045, 13, 22),
                 color: s.text,
                 height: 1.5,
@@ -982,9 +986,9 @@ class _CardsTabState extends State<_CardsTab> {
                 children: [
                   Text(
                     c.exampleWord,
-                    style: TextStyle(
+                    style: SoriTextTheme.of(context).caption.copyWith(
                       fontSize: soriFillSize(h, 0.075, 22, 40),
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w700,
                       color: SoriColors.primary,
                     ),
                   ),
@@ -1014,7 +1018,7 @@ class _CardsTabState extends State<_CardsTab> {
               const SizedBox(height: 2),
               Text(
                 c.exampleFor(lang),
-                style: TextStyle(
+                style: SoriTextTheme.of(context).caption.copyWith(
                   fontSize: soriFillSize(h, 0.05, 13, 26),
                   color: s.text,
                   fontWeight: FontWeight.w600,

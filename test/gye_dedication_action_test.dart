@@ -75,7 +75,7 @@ Widget _host({
 Future<void> _openAndConfirmFirstCandidate(WidgetTester tester) async {
   await tester.tap(find.text('Exhibit'));
   await tester.pumpAndSettle();
-  await tester.tap(find.text('Tray table (소반)'));
+  await tester.tap(find.text('Tray table'));
   await tester.pumpAndSettle();
   expect(find.text('Show this in the courtyard?'), findsOneWidget);
   await tester.tap(find.text('Show in courtyard'));
@@ -352,7 +352,7 @@ void main() {
 
     await tester.tap(find.text('Exhibit'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Writing desk (서안)'));
+    await tester.tap(find.text('Writing desk'));
     await tester.pumpAndSettle();
     expect(find.text('Show this in the courtyard?'), findsOneWidget);
 

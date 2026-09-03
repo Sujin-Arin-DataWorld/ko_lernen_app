@@ -209,23 +209,30 @@ SoriRadius.brPill // BorderRadius.all(Radius.circular(999))
 
 | 토큰 | 폰트 | 번들 웨이트 | 용도 |
 |---|---|---|---|
-| `SoriFonts.sans` | Wanted Sans | 400/500/600/700/800 | 기본 UI, DE/EN 전체, 학습 본문·숫자 |
+| `SoriFonts.sans` | Paperlogy | 400/500/600/700 | 기본 UI, DE/EN 전체, 학습 본문·숫자 |
 | `SoriFonts.culture` | Maru Buri | **400/600만** | 짧은 한국어 문화 타이틀·완성 순간 전용 |
 
 > Maru Buri는 버튼·메뉴·긴 본문이나 DE/EN 카피에는 쓰지 않는다. 번들에 700/800 페이스가 없어 그 굵기를 요청하면 조용히 **합성 볼드**로 렌더된다 — `SoriTextTheme.cultureTitle`(w600)처럼 번들 웨이트 안에서만 쓴다.
 
-#### SoriTextTheme 프리셋 (발췌)
+#### SoriTextTheme 프리셋 (발췌, 2026-09-03 §A3 재정의)
 | 토큰 | 크기 | 굵기 | 폰트 | 용도 |
 |---|---|---|---|---|
-| `tt.hero` | 38 | w800 | sans | 페이지 대형 헤드라인 |
-| `tt.display` | 32 | w800 | sans | Display heading |
-| `tt.h1` | 24 | w800 | sans | 화면 제목 |
-| `tt.h2` | 20 | w800 | sans | 섹션 제목 |
-| `tt.h3` | 17 | w700 | sans | 소제목 |
+| `tt.hero` | 36 | w600 | **culture** | 페이지 대형 헤드라인 (2026-09-03 §E7: 40→36) |
+| `tt.display` | 32 | w600 | **culture** | Display heading |
+| `tt.h1` | 26 | w600 | **culture** | 화면 제목 |
+| `tt.h2` | 22 | w600 | **culture** | 섹션 제목 |
+| `tt.h3` | 18 | w700 | sans | 소제목 |
 | `tt.cultureTitle` | 21 | w600 | **culture** | 문화 카드 안의 짧은 한국어 표제 |
-| `tt.cardTitle` | 15 | w700 | sans | 카드 제목 (§4.3: 카드 제목 w800 금지) |
-| `tt.body` | 15 | w500 | sans | 본문 |
-| `tt.numeral` | 30 | w800 | sans (tabular) | 스트릭·XP 큰 숫자 |
+| `tt.cardTitle` | 17 | w700 | sans | 카드 제목 (§4.3: 카드 제목 w800 금지) |
+| `tt.body` | 16 | w500 | sans | 본문 |
+| `tt.label` | 14 | w700 | sans | 라벨 |
+| `tt.caption` / `tt.meta` / `tt.cardSubtitle` | 13.5 | w500 | sans | 보조 텍스트 하한(13 아래 금지) |
+| `tt.chromeTitle` | 20 | w700 | sans | 앱바 크롬 전용(`SoriAppBar`, §A4) |
+| `tt.numeral` | 30 | w600 | **culture** (tabular) | 스트릭·XP 큰 숫자 |
+
+> 2026-09-03: 헤드라인(hero/display/h1/h2/numeral)이 Wanted Sans/Paperlogy(sans) 에서
+> Maru Buri(**culture**, w600)로 이동했다 — h3 이하는 sans 그대로. 상세 배경은
+> `lib/widgets/sori/tokens.dart`의 `SoriTextTheme` doc 주석 참조.
 
 **가드 테스트** — 위반 재발 방지:
 - `test/typography_guard_test.dart` — `FontWeight.w800`/`w900` 래칫(내려가기만 한다), `fontFamily: '...'` 문자열 리터럴 0.

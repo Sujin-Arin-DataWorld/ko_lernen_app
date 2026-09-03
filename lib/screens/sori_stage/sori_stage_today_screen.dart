@@ -8,6 +8,7 @@ import '../../data/sori_activity_catalog.dart';
 import '../../features/guide/today_guide_section.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/feedback_completion.dart';
+import '../../models/hanok_stage.dart';
 import '../../models/quest.dart';
 import '../../models/sori_stage_progression.dart';
 import '../../services/decoration_reward_service.dart';
@@ -23,14 +24,20 @@ import '../../widgets/sori/activity_illustration.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/character_clip.dart';
+import '../../widgets/sori/cultural_help.dart';
 import '../../widgets/sori/hanok_stage_names.dart';
 import '../../widgets/sori/home_hero.dart';
 import '../../widgets/sori/mascot_preference.dart';
 import '../../widgets/sori/milestone_celebration.dart';
+import '../../widgets/sori/motion.dart';
+import '../../widgets/sori/placed_decoration.dart'
+    show decorName, decorTerm, kAvailableDecorations;
+import '../../widgets/sori/progress_meter.dart';
 import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/reward_icon.dart';
 import '../../widgets/sori/reward_thumb.dart';
 import '../../widgets/sori/section_header.dart';
+import '../../widgets/sori/sori_term.dart';
 import '../../widgets/sori/spotlight_coach.dart';
 import '../../widgets/sori/stats_top_bar.dart';
 import '../../widgets/sori/tokens.dart';
@@ -482,6 +489,29 @@ class _TodayContent extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final todayUnavailable = snapshot.today.isUnavailable;
+    // §W-D D6: 미션·보자기·한옥·섹션 2개 — 실제로 그려지는 블록 순서대로
+    // 40ms 씩 늘려 stagger 한다(최대 6블록, 이 화면은 그 안에 든다).
+    // reduce-motion 은 SoriEntrance 자체가 처리한다(§ 재확인 필요 없음).
+    var entranceIndex = 0;
+    Widget stagger(Widget child) {
+      final delay = Duration(milliseconds: 40 * entranceIndex.clamp(0, 5));
+      entranceIndex++;
+      return SoriEntrance(delay: delay, child: child);
+    }
+
+    // §W-D D3: "Fast geschafft"(≥60%)·"Als Nächstes"(<60%) — 둘 다 이미
+    // closestQuests 가 상위 3개로 자른 같은 리스트를 fraction 으로 나눌 뿐,
+    // 모델에 새 조회를 추가하지 않는다.
+    final closestQuests = snapshot.closestQuests;
+    final nearlyComplete = closestQuests
+        .where((quest) => quest.fraction >= 0.6)
+        .take(3)
+        .toList(growable: false);
+    final upNext = closestQuests
+        .where((quest) => quest.fraction < 0.6)
+        .take(3)
+        .toList(growable: false);
+
     return SoriContentClamp(
       maxWidth: SoriMaxWidth.hub,
       base: Spacing.page,
@@ -495,10 +525,12 @@ class _TodayContent extends StatelessWidget {
             const SizedBox(height: Spacing.sm),
             const TodayGuideChecklistSection(),
             const SizedBox(height: Spacing.lg),
-            _TodayMissionStage(
-              key: missionTourKey,
-              snapshot: snapshot,
-              onActivityReturned: onRefresh,
+            stagger(
+              _TodayMissionStage(
+                key: missionTourKey,
+                snapshot: snapshot,
+                onActivityReturned: onRefresh,
+              ),
             ),
             // A partial Today snapshot must not look like a complete daily
             // dashboard. In particular, neither reward collection nor
@@ -506,17 +538,37 @@ class _TodayContent extends StatelessWidget {
             if (!todayUnavailable) ...[
               if (snapshot.pendingBojagiCount > 0) ...[
                 const SizedBox(height: Spacing.lg),
-                _PendingBojagi(count: snapshot.pendingBojagiCount),
+                stagger(_PendingBojagi(count: snapshot.pendingBojagiCount)),
               ],
               const SizedBox(height: Spacing.xl),
-              _HanokProgress(snapshot: snapshot),
-              if (snapshot.closestQuests.isNotEmpty) ...[
+              stagger(_HanokProgress(snapshot: snapshot)),
+              if (nearlyComplete.isNotEmpty) ...[
                 const SizedBox(height: Spacing.xl),
-                // §D: 섹션 제목은 SoriSectionHeader(골드 hairline) 규격 —
-                // 자체 하단 여백(Spacing.sm)을 갖는다.
-                SoriSectionHeader(t.soriStageClosestQuests),
-                for (final quest in snapshot.closestQuests)
-                  _QuestProgressRow(progress: quest),
+                stagger(
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // §D: 섹션 제목은 SoriSectionHeader(골드 hairline)
+                      // 규격 — 자체 하단 여백(Spacing.sm)을 갖는다.
+                      SoriSectionHeader(t.soriStageClosestQuests),
+                      for (final quest in nearlyComplete)
+                        _QuestProgressRow(progress: quest),
+                    ],
+                  ),
+                ),
+              ],
+              if (upNext.isNotEmpty) ...[
+                const SizedBox(height: Spacing.xl),
+                stagger(
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SoriSectionHeader(t.soriStageNextQuests),
+                      for (final quest in upNext)
+                        _QuestProgressRow(progress: quest),
+                    ],
+                  ),
+                ),
               ],
             ],
           ],
@@ -609,48 +661,40 @@ class _TodayMissionStage extends StatelessWidget {
                 ),
                 if (contract != null && contract.items.isNotEmpty) ...[
                   const SizedBox(height: Spacing.lg),
-                  // §P3-1: ' · ' 조인 문자열 대신 아이템별 칩 — items 는
-                  // kind 가 아이템마다 다르다 (단일 roofing 아이콘 금지).
-                  LayoutBuilder(
-                    builder: (context, constraints) => Wrap(
-                      spacing: Spacing.md,
-                      runSpacing: Spacing.xs,
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      children: [
-                        Text(
-                          '${t.soriStagePossibleReward}:',
-                          style: tt.label.copyWith(
-                            color: SoriActivityColors.onHanokStage,
+                  // §W-D D5.2: "Mögliche Belohnung:" 은 골드 라벨보다
+                  // 낮은 위계 — meta(13.5) + white@0.8.
+                  Text(
+                    '${t.soriStagePossibleReward}:',
+                    style: tt.meta.copyWith(
+                      color: Colors.white.withValues(alpha: 0.8),
+                    ),
+                  ),
+                  const SizedBox(height: Spacing.sm),
+                  // §W-D D5.1: 세로 3열(아이콘 위·라벨 아래) — items 는 kind 가
+                  // 아이템마다 다르다(단일 roofing 아이콘 금지 원칙 유지).
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      for (final item in contract.items)
+                        Expanded(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                soriRewardIcon(item.kind),
+                                size: 20,
+                                color: SoriColors.gold,
+                              ),
+                              const SizedBox(height: Spacing.xs),
+                              Text(
+                                localCopy(context, item.label),
+                                textAlign: TextAlign.center,
+                                style: tt.label.copyWith(color: Colors.white),
+                              ),
+                            ],
                           ),
                         ),
-                        for (final item in contract.items)
-                          ConstrainedBox(
-                            constraints: BoxConstraints(
-                              maxWidth: constraints.maxWidth,
-                            ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Icon(
-                                  soriRewardIcon(item.kind),
-                                  size: 16,
-                                  color: SoriColors.gold,
-                                ),
-                                const SizedBox(width: Spacing.xs),
-                                Flexible(
-                                  child: Text(
-                                    localCopy(context, item.label),
-                                    softWrap: true,
-                                    style: tt.label.copyWith(
-                                      color: SoriActivityColors.onHanokStage,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                      ],
-                    ),
+                    ],
                   ),
                 ],
                 const SizedBox(height: Spacing.xl),
@@ -862,12 +906,14 @@ class _PendingBojagi extends StatelessWidget {
       t.soriStageBojagiBody,
       t.soriStageOpenBojagi,
     ].join('. ');
+    void openBojagi() => Navigator.of(context).pushNamed('/bojagi');
     return Semantics(
       button: true,
       label: semanticsLabel,
+      onTap: openBojagi,
       child: ExcludeSemantics(
         child: InkWell(
-          onTap: () => Navigator.of(context).pushNamed('/bojagi'),
+          onTap: openBojagi,
           borderRadius: BorderRadius.circular(SoriRadius.md),
           child: Container(
             constraints: const BoxConstraints(minHeight: 88),
@@ -949,24 +995,86 @@ class _PendingBojagi extends StatelessWidget {
   }
 }
 
+/// Secondary "Romanization · Hangul" line under the next-piece stage name —
+/// the D2/D8 counterpart to [_questCulturalTerm]. Skipped when
+/// [hanokStageTerm] mirrors [hanokStageDisplayName] (§W-C rule: no term to
+/// add). When it does differ but has no glossary entry, falls back to plain
+/// [SoriTextTheme.meta] text instead of the tappable [SoriTerm].
+Widget _hanokStageTermLine(BuildContext context, AppL10n t, HanokStage stage) {
+  final term = hanokStageTerm(t, stage);
+  if (term == hanokStageDisplayName(t, stage)) {
+    return const SizedBox.shrink();
+  }
+  final style = SoriTextTheme.of(context).meta;
+  final termId = hanokStageGlossaryTermId(stage);
+  final child = termId == null
+      ? Text(term, style: style)
+      : SoriTerm(
+          termId: termId,
+          text: term,
+          style: style,
+          surface: 'today_hanok_next_piece',
+        );
+  return Padding(padding: const EdgeInsets.only(top: Spacing.xs), child: child);
+}
+
 class _HanokProgress extends StatelessWidget {
   const _HanokProgress({required this.snapshot});
   final SoriStageProgressionSnapshot snapshot;
+
+  /// 다음 부재 썸네일 — 한옥 건축 단계 슬러그가 마당 장식 자산으로도 있으면
+  /// [SoriRewardThumb], 없으면(현재 전 단계가 그렇다) 배너와 같은 기존
+  /// 아이콘으로 강등한다(§W-D D2.3).
+  Widget _nextPieceThumb(SoriSurfaces s, HanokStage stage) {
+    const size = 56.0;
+    final child = kAvailableDecorations.contains(stage.assetSlug)
+        ? SoriRewardThumb(
+            slug: stage.assetSlug,
+            earned: true,
+            size: size,
+            semantic: '',
+          )
+        : const ExcludeSemantics(
+            child: Icon(
+              Icons.home_work_outlined,
+              size: 28,
+              color: SoriColors.primaryDark,
+            ),
+          );
+    return Container(
+      width: size,
+      height: size,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(color: s.surfaceAlt, shape: BoxShape.circle),
+      child: child,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final tt = SoriTextTheme.of(context);
+    final s = SoriSurfaces.of(context);
     final built = snapshot.hanok.unlocked.length;
-    const total = 7;
+    final total = snapshot.hanok.constructionTotal;
     final stage = snapshot.hanok.structureStage;
+    // §W-D D2.4: 0단계는 배너가 텅 비어 보인다 — 다음 단계 PNG를 살짝
+    // 겹쳐 "이게 다음에 온다"는 고스트 예고. 파일이 없으면 조용히 생략.
+    final ghostStage = stage == HanokStage.empty
+        ? HanokStage.values[stage.ordinal + 1]
+        : null;
     return InkWell(
       onTap: () => Navigator.of(context).pushNamed('/hanok'),
       borderRadius: BorderRadius.circular(SoriRadius.lg),
       child: Container(
-        clipBehavior: Clip.antiAlias,
+        // §W-D D2.4: clipBehavior 를 여기 두면 Container 의 자체 ClipPath 가
+        // boxShadow 까지 잘라낸다(illustrated_card.dart 의 동일 회피 패턴) —
+        // 클립은 아래 이미지 전용 ClipRRect 하나로만 국한한다.
         decoration: BoxDecoration(
-          color: SoriColors.primarySoft,
+          color: SoriColors.lightSurfaceRaised,
+          border: Border.all(color: s.border),
           borderRadius: BorderRadius.circular(SoriRadius.lg),
+          boxShadow: SoriElevation.low,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -974,15 +1082,16 @@ class _HanokProgress extends StatelessWidget {
             // §P3-3a: 아이콘 텍스트 → 한옥 스테이지 배너 (기존 12장 리졸버
             // 규약 `hanok_stages/stage_{slug}_light.png` 재사용 — 신규 매핑
             // 함수 발명 금지). 미존재 시 기존 아이콘 행으로 강등.
-            Stack(
-              children: [
-                ClipRRect(
-                  borderRadius: const BorderRadius.vertical(
-                    top: Radius.circular(SoriRadius.lg),
-                  ),
-                  child: AspectRatio(
-                    aspectRatio: 16 / 5,
-                    child: Image.asset(
+            ClipRRect(
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(SoriRadius.lg),
+              ),
+              child: AspectRatio(
+                aspectRatio: 16 / 5,
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    Image.asset(
                       'assets/illustrations/hanok_stages/'
                       'stage_${stage.assetSlug}_light.png',
                       fit: BoxFit.cover,
@@ -997,25 +1106,19 @@ class _HanokProgress extends StatelessWidget {
                         ),
                       ),
                     ),
-                  ),
-                ),
-                Positioned(
-                  right: Spacing.md,
-                  bottom: Spacing.sm,
-                  child: Text(
-                    '$built / $total',
-                    // §D: 진행 수치는 tabular — 조각이 늘어도 자리 흔들림
-                    // 없음. 배너 위 가독을 위해 밝은 바탕 필.
-                    style: tt.h3.copyWith(
-                      fontFeatures: const [FontFeature.tabularFigures()],
-                      color: SoriColors.primaryDark,
-                      backgroundColor: SoriColors.lightSurfaceRaised.withValues(
-                        alpha: 0.85,
+                    if (ghostStage != null)
+                      Opacity(
+                        opacity: 0.22,
+                        child: Image.asset(
+                          'assets/illustrations/hanok_stages/'
+                          'stage_${ghostStage.assetSlug}_light.png',
+                          fit: BoxFit.cover,
+                          errorBuilder: (_, _, _) => const SizedBox.shrink(),
+                        ),
                       ),
-                    ),
-                  ),
+                  ],
                 ),
-              ],
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(Spacing.xl),
@@ -1024,19 +1127,38 @@ class _HanokProgress extends StatelessWidget {
                 children: [
                   Text(t.soriStageHanokNow, style: tt.h3),
                   const SizedBox(height: Spacing.md),
-                  LinearProgressIndicator(
-                    value: snapshot.hanok.constructionFraction,
-                    minHeight: 12,
-                    borderRadius: BorderRadius.circular(SoriRadius.sm),
+                  SoriProgressMeter.segments(
+                    filled: built,
+                    total: total,
+                    height: 12,
                     color: SoriColors.primaryDark,
+                    label: t.soriStageHanokPieces(built, total),
                   ),
-                  const SizedBox(height: Spacing.sm),
-                  Text(
-                    // §P3-3a: enum 원문("empty") 노출 수리 — exhaustive
-                    // DE/EN 매핑 (hanok_stage_names.dart).
-                    '${t.soriStageNextPiece}: '
-                    '${hanokStageDisplayName(t, stage)}',
-                    style: tt.label,
+                  const SizedBox(height: Spacing.lg),
+                  Row(
+                    children: [
+                      _nextPieceThumb(s, stage),
+                      const SizedBox(width: Spacing.md),
+                      Expanded(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              t.soriStageNextPiece,
+                              style: tt.label.copyWith(color: s.textMuted),
+                            ),
+                            Text(
+                              // §P3-3a: enum 원문("empty") 노출 수리 —
+                              // exhaustive DE/EN 매핑 (hanok_stage_names.dart).
+                              hanokStageDisplayName(t, stage),
+                              style: tt.body,
+                            ),
+                            _hanokStageTermLine(context, t, stage),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -1048,9 +1170,56 @@ class _HanokProgress extends StatelessWidget {
   }
 }
 
+/// Secondary "Romanization · Hangul" line under a quest reward's name —
+/// only when the glossary actually links [decorationSlug] to a term (most
+/// slugs do not) and the term adds something [decorName] does not already
+/// say (§W-C C3).
+Widget _questCulturalTerm(BuildContext context, String decorationSlug) {
+  return CulturalGlossaryBuilder(
+    builder: (context, glossary) {
+      final termId = glossary?.termIdForDecoration(decorationSlug);
+      if (termId == null) {
+        return const SizedBox.shrink();
+      }
+      final t = AppL10n.of(context);
+      final term = decorTerm(t, decorationSlug);
+      if (term == decorName(t, decorationSlug)) {
+        return const SizedBox.shrink();
+      }
+      return Padding(
+        padding: const EdgeInsets.only(top: 2),
+        child: SoriTerm(
+          termId: termId,
+          text: term,
+          style: SoriTextTheme.of(context).meta,
+          surface: 'today_quest_row',
+        ),
+      );
+    },
+  );
+}
+
 class _QuestProgressRow extends StatelessWidget {
   const _QuestProgressRow({required this.progress});
   final QuestProgress progress;
+
+  /// §W-D D4: 56dp 한지 원형 매트(`s.surfaceAlt` 원) + 보상 썸네일.
+  Widget _thumbMat(SoriSurfaces s, String slug, bool earned) {
+    const size = 56.0;
+    return Container(
+      width: size,
+      height: size,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(color: s.surfaceAlt, shape: BoxShape.circle),
+      child: SoriRewardThumb(
+        slug: slug,
+        earned: earned,
+        size: size,
+        semantic: '',
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final definition = kQuestCatalog.firstWhere(
@@ -1058,6 +1227,7 @@ class _QuestProgressRow extends StatelessWidget {
     );
     final language = Localizations.localeOf(context).languageCode;
     final tt = SoriTextTheme.of(context);
+    final s = SoriSurfaces.of(context);
     // §P3-3b: 맨 ListTile → SoriCard(compact) 규율 + 보상 썸네일(퀘스트가
     // 언락하는 마당 장식 — quests 화면과 같은 SoriRewardThumb 공용 위젯).
     return Padding(
@@ -1067,11 +1237,7 @@ class _QuestProgressRow extends StatelessWidget {
         onTap: () => Navigator.of(context).pushNamed('/quests'),
         child: Row(
           children: [
-            SoriRewardThumb(
-              slug: definition.decorationSlug,
-              earned: progress.completed,
-              semantic: '',
-            ),
+            _thumbMat(s, definition.decorationSlug, progress.completed),
             const SizedBox(width: Spacing.md),
             Expanded(
               child: Column(
@@ -1081,20 +1247,13 @@ class _QuestProgressRow extends StatelessWidget {
                     language == 'de' ? definition.name.de : definition.name.en,
                     style: tt.cardTitle,
                   ),
-                  const SizedBox(height: 6),
-                  LinearProgressIndicator(
+                  _questCulturalTerm(context, definition.decorationSlug),
+                  const SizedBox(height: Spacing.xs),
+                  SoriProgressMeter.bar(
                     value: progress.fraction,
-                    minHeight: 8,
-                    borderRadius: BorderRadius.circular(SoriRadius.xs),
+                    label: '${progress.current} / ${progress.target}',
                   ),
                 ],
-              ),
-            ),
-            const SizedBox(width: Spacing.md),
-            Text(
-              '${progress.current} / ${progress.target}',
-              style: tt.label.copyWith(
-                fontFeatures: const [FontFeature.tabularFigures()],
               ),
             ),
           ],

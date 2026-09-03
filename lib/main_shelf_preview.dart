@@ -201,7 +201,7 @@ class _ShelfPreviewScreenState extends State<_ShelfPreviewScreen> {
                 'Für dieses Fach gibt es noch keine Szenarien.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 12,
+                  fontSize: 13.5,
                   color: SoriColors.lightTextMuted,
                 ),
               ),

@@ -188,7 +188,7 @@ class DureBoard extends StatelessWidget {
                         text: '$total',
                         style: TextStyle(
                           fontSize: 16,
-                          fontWeight: FontWeight.w900,
+                          fontWeight: FontWeight.w700,
                           color: done ? SoriColors.gold : SoriColors.primary,
                         ),
                       ),
@@ -235,7 +235,7 @@ class DureBoard extends StatelessWidget {
               Text(
                 t.gyeDureEmpty,
                 style: TextStyle(
-                  fontSize: 12,
+                  fontSize: 13.5,
                   color: s.textMuted,
                   fontStyle: FontStyle.italic,
                 ),
@@ -282,7 +282,7 @@ class DureBoard extends StatelessWidget {
                     child: Text(
                       allIn ? t.gyeChallengeDone : t.gyeChallengeTitle,
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 13.5,
                         fontWeight: allIn ? FontWeight.w800 : FontWeight.w600,
                         color: allIn ? SoriColors.tiger : s.textMuted,
                       ),
@@ -291,7 +291,7 @@ class DureBoard extends StatelessWidget {
                   Text(
                     '${contributors.length}/${members.length}',
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 13.5,
                       fontWeight: FontWeight.w800,
                       color: allIn ? SoriColors.tiger : s.textMuted,
                     ),
@@ -365,7 +365,7 @@ class _MemberChip extends StatelessWidget {
           Text(
             name,
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 13.5,
               fontWeight: isMe ? FontWeight.w800 : FontWeight.w600,
               color: s.text,
             ),
@@ -374,7 +374,7 @@ class _MemberChip extends StatelessWidget {
           Text(
             titleLabel,
             style: TextStyle(
-              fontSize: 10.5,
+              fontSize: 13,
               fontWeight: FontWeight.w800,
               color: titleColor,
             ),
@@ -383,7 +383,7 @@ class _MemberChip extends StatelessWidget {
           Text(
             '$count',
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 13.5,
               fontWeight: FontWeight.w800,
               color: color,
             ),

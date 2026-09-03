@@ -7,6 +7,12 @@
 > **복원법**: 아래 표의 원경로로 `git mv` 한 줄이면 끝 (pubspec은 디렉터리 단위 등록이라 추가 수정 불필요).
 > 예: `git mv assets_unused/video/tiger_greet.mp4 assets/video/`
 
+## 0. 서체 (5) — 교체됨
+
+| 파일 | 원경로 | 무엇 / 왜 미사용 |
+|---|---|---|
+| `fonts/WantedSans/*.otf` (5) + `OFL.txt` | `assets/fonts/WantedSans/` | 2026-08-19 Pretendard→Wanted Sans 교체분. 2026-09-03 Jin 지시로 본문/UI 서체를 **Paperlogy**(`assets/fonts/Paperlogy/`)로 재교체. 복원하려면 `git mv` 후 `pubspec.yaml` fonts 블록과 `lib/widgets/sori/tokens.dart`의 `SoriFonts.sans`를 `WantedSans`로 되돌릴 것 |
+
 ## 1. 구버전 영상 (2) — 대체됨
 
 | 파일 | 원경로 | 무엇 / 왜 미사용 |

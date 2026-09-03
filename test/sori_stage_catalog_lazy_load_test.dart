@@ -7,6 +7,8 @@ import 'package:ko_lernen_app/screens/sori_stage/sori_stage_catalog_screen.dart'
 import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 
+import 'support/sori_stage_pump.dart';
+
 SoriStageProgressionSnapshot _snapshot() => SoriStageProgressionSnapshot(
   today: const TodayLearningSnapshot(pick: null),
   hanok: PersonalHanokProjection.from(
@@ -40,7 +42,7 @@ void main() {
           ),
         ),
       );
-      await tester.pumpAndSettle();
+      await pumpSoriStage(tester);
 
       expect(calls, 0);
     },
@@ -78,11 +80,11 @@ void main() {
           ),
         ),
       );
-      await tester.pumpAndSettle();
+      await pumpSoriStage(tester);
       expect(calls, 0);
 
       await tester.tap(find.text('activate'));
-      await tester.pumpAndSettle();
+      await pumpSoriStage(tester);
 
       expect(calls, 1);
     },
@@ -125,19 +127,19 @@ void main() {
           ),
         ),
       );
-      await tester.pumpAndSettle();
+      await pumpSoriStage(tester);
       expect(calls, 0);
 
       await tester.tap(find.text('activate'));
-      await tester.pumpAndSettle();
+      await pumpSoriStage(tester);
       expect(calls, 1);
 
       await tester.tap(find.text('deactivate'));
-      await tester.pumpAndSettle();
+      await pumpSoriStage(tester);
       expect(calls, 1);
 
       await tester.tap(find.text('activate'));
-      await tester.pumpAndSettle();
+      await pumpSoriStage(tester);
       expect(calls, 2);
     },
   );

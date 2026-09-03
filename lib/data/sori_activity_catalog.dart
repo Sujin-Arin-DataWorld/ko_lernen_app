@@ -26,7 +26,7 @@ const _xp = RewardContractItem(
   kind: SoriRewardKind.xp,
   label: SoriLocalizedCopy(
     de: 'Lern-XP',
-    en: 'Learning XP',
+    en: 'XP',
     key: SoriCopyKey.rewardXp,
   ),
 );
@@ -34,8 +34,8 @@ const _xp = RewardContractItem(
 const _quest = RewardContractItem(
   kind: SoriRewardKind.questProgress,
   label: SoriLocalizedCopy(
-    de: 'Passende Quest',
-    en: 'Related quest',
+    de: 'Quest',
+    en: 'Quest',
     key: SoriCopyKey.rewardQuest,
   ),
 );
@@ -43,8 +43,8 @@ const _hanok = RewardContractItem(
   kind: SoriRewardKind.hanokProgress,
   permanent: true,
   label: SoriLocalizedCopy(
-    de: 'Verifizierter Hanok-Baufortschritt',
-    en: 'Verified Hanok construction progress',
+    de: 'Hanok-Bauteil',
+    en: 'Hanok piece',
     key: SoriCopyKey.rewardHanok,
   ),
 );

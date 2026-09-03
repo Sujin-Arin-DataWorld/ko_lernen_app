@@ -123,7 +123,7 @@ class SoriCharacterHero extends StatelessWidget {
           style: TextStyle(
             fontFamily: SoriFonts.sans,
             fontSize: greetingSize,
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.w700,
             color: s.text,
             letterSpacing: -0.7,
             height: 1.05,

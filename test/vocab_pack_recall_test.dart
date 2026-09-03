@@ -140,7 +140,9 @@ void main() {
 
     final t = AppL10n.of(tester.element(find.byType(VocabPackRecallScreen)));
     expect(find.byType(SoriHomeAction), findsOneWidget);
-    expect(find.byTooltip(t.btnClose), findsOneWidget);
+    // §B2(2026-09-03): the frame-owned close (X) is a Semantics button with
+    // a label, not an IconButton with a Tooltip.
+    expect(find.bySemanticsLabel(t.closeActionLabel), findsOneWidget);
     expect(
       tester
           .widget<SoriHomeAction>(find.byType(SoriHomeAction))
@@ -436,7 +438,19 @@ void main() {
 
       await openAndAnswer();
       expect(Storage.srsCard('하나')!.reviewCount, 1);
-      await tester.tap(find.byIcon(Icons.close));
+      // §B2(2026-09-03): the frame-owned close icon is close_rounded, and
+      // now follows the same confirm rule as home — an answer was just
+      // submitted, so confirmWhen is true and a leave-confirm sheet appears.
+      // The pushed-below VocabPackResultScreen stays mounted
+      // (maintainState), so scope the tap to the recall screen's own close.
+      await tester.tap(
+        find.descendant(
+          of: find.byType(VocabPackRecallScreen),
+          matching: find.byIcon(Icons.close_rounded),
+        ),
+      );
+      await tester.pumpAndSettle();
+      await tester.tap(find.text(t.homeActionConfirmLeave));
       await tester.pumpAndSettle();
 
       await openAndAnswer();

@@ -10,9 +10,11 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 
 /// `q_punggyeong` 의 고정 후보 3종 — 서비스의 stable index 계약 그대로.
-const _guk = 'Chrysanthemen-Bild (국화)';
-const _juk = 'Bambus-Bild (대나무)';
-const _chaekgado = 'Bücherwand-Wandschirm (책가도)';
+/// §W-C H6: decorName 은 이제 독일어 이름만 반환한다(괄호 속 한글 로마자/한글은
+/// decorTerm 로 분리됐다) — 이 상수들도 새 포맷을 그대로 따른다.
+const _guk = 'Chrysanthemen-Bild';
+const _juk = 'Bambus-Bild';
+const _chaekgado = 'Bücherwand-Wandschirm';
 
 Future<void> _pump(WidgetTester tester) async {
   await tester.pumpWidget(
@@ -63,9 +65,10 @@ Future<void> _pumpBojagiMotion(WidgetTester tester) async {
   // 한 번 넘겨 완료될 기회를 준 뒤, 다음 fake-time frame에 상태를 반영한다.
   await tester.pump();
   await tester.runAsync(() => Future<void>.delayed(Duration.zero));
-  // 후보 카드의 SoriEntrance는 reduce-motion에서도 initState에서 최대 180ms
-  // stagger timer를 만든다. 540ms entrance까지 끝나는 800ms를 진행해 test
-  // 종료 시 남는 FakeTimer가 없게 한다.
+  // §MOTION-1(J5) 이후 후보 카드의 SoriEntrance는 reduce-motion에서 타이머를
+  // 아예 예약하지 않는다(더 이상 드레인할 FakeTimer가 없다) — 이 800ms는
+  // 이제 위 CircularProgressIndicator/서비스 Future 진행 표시기 사유로만
+  // 남아 있다.
   await tester.pump(const Duration(milliseconds: 800));
   await tester.pump();
 }
@@ -159,9 +162,9 @@ void main() {
     await _pumpBojagiMotion(tester);
 
     expect(find.text('Such dir eins aus'), findsOneWidget);
-    expect(find.text('Schreibpult (서안)'), findsOneWidget);
-    expect(find.text('Schreibzeug (문방사우)'), findsOneWidget);
-    expect(find.text('Pflaumenblüten-Bild (매화)'), findsOneWidget);
+    expect(find.text('Schreibpult'), findsOneWidget);
+    expect(find.text('Schreibzeug'), findsOneWidget);
+    expect(find.text('Pflaumenblüten-Bild'), findsOneWidget);
   });
 
   testWidgets('전체 수집 후에는 꾸러미를 명시적으로 보관 처리한다', (tester) async {

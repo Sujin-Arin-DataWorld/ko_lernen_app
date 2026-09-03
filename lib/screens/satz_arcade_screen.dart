@@ -277,12 +277,6 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
       homeEscape: SoriHomeEscape(confirmWhen: _hasSubmittedAnswer),
       eyebrow:
           '${_idx + 1} / ${_round.length} · ${t.quizScore(_passed, _round.length)}',
-      leading: IconButton(
-        icon: const Icon(Icons.close),
-        tooltip: t.btnClose,
-        constraints: const BoxConstraints.tightFor(width: 48, height: 48),
-        onPressed: () => Navigator.of(context).maybePop(),
-      ),
       child: SoriAdaptiveStudyBody(
         minHeight: 520,
         child: Column(

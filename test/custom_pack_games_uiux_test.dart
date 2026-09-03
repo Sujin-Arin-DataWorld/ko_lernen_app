@@ -185,7 +185,7 @@ void main() {
           await _pumpUntil(tester, find.byType(QuizChoice));
           expect(find.byType(SoriStudyFrame), findsOneWidget);
           expect(find.byType(SoriHomeAction), findsOneWidget);
-          _expectTooltipButton(tester, t.btnClose, minHeight: 48);
+          _expectCloseAction(tester, t.closeActionLabel, minHeight: 48);
           final quizKorean = _visibleKorean();
           _expectTooltipButton(
             tester,
@@ -233,7 +233,7 @@ void main() {
           );
           await _pumpUntil(tester, _firstVisibleKoreanFinder());
           expect(find.byType(SoriHomeAction), findsOneWidget);
-          _expectTooltipButton(tester, t.btnClose, minHeight: 48);
+          _expectCloseAction(tester, t.closeActionLabel, minHeight: 48);
           final visibleMatchingWords = _words
               .where(
                 (word) =>
@@ -272,7 +272,7 @@ void main() {
           await _pumpUntil(tester, find.byType(SoriTextField));
           expect(find.byType(SoriTextField), findsOneWidget);
           expect(find.byType(SoriHomeAction), findsOneWidget);
-          _expectTooltipButton(tester, t.btnClose, minHeight: 48);
+          _expectCloseAction(tester, t.closeActionLabel, minHeight: 48);
           expect(
             _words.any(
               (word) => find
@@ -1000,6 +1000,22 @@ void _expectTooltipButton(
   expect(data.flagsCollection.isButton, isTrue);
   expect(data.hasAction(ui.SemanticsAction.tap), isTrue);
   expect(data.tooltip, tooltip);
+  expect(tester.getSize(finder).height, greaterThanOrEqualTo(minHeight));
+}
+
+// §B2(2026-09-03): SoriStudyFrame's frame-owned close (X) is a Semantics
+// button with a label, not an IconButton with a Tooltip — same a11y
+// contract (button flag, tap action, 48dp touch target), different finder.
+void _expectCloseAction(
+  WidgetTester tester,
+  String label, {
+  required double minHeight,
+}) {
+  final finder = find.bySemanticsLabel(label);
+  expect(finder, findsOneWidget);
+  final data = tester.getSemantics(finder).getSemanticsData();
+  expect(data.flagsCollection.isButton, isTrue);
+  expect(data.hasAction(ui.SemanticsAction.tap), isTrue);
   expect(tester.getSize(finder).height, greaterThanOrEqualTo(minHeight));
 }
 

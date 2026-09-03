@@ -246,12 +246,6 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
       ),
       eyebrow:
           '${_idx + 1} / ${_round.length} · ${t.quizScore(_score, _round.length)}',
-      leading: IconButton(
-        icon: const Icon(Icons.close),
-        tooltip: t.btnClose,
-        constraints: const BoxConstraints.tightFor(width: 48, height: 48),
-        onPressed: () => Navigator.of(context).maybePop(),
-      ),
       actions: const [TtsSpeedAction()],
       child: SoriAdaptiveStudyBody(
         minHeight: 520,

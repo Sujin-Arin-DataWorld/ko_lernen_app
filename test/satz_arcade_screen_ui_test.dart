@@ -68,7 +68,9 @@ void main() {
         expect(frame.eyebrow, '1 / 1 · ${t.quizScore(0, 1)}');
         expect(find.byType(SoriHomeAction), findsOneWidget);
 
-        final close = find.byTooltip(t.btnClose);
+        // §B2(2026-09-03): the frame-owned close (X) is a Semantics button
+        // with a label, not an IconButton with a Tooltip.
+        final close = find.bySemanticsLabel(t.closeActionLabel);
         expect(close, findsOneWidget);
         final closeSize = tester.getSize(close);
         expect(closeSize.width, greaterThanOrEqualTo(48));

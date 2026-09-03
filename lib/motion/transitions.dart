@@ -2,13 +2,18 @@ import 'package:flutter/material.dart';
 
 /// **SoriTransitions** — "살아있는 한옥"의 공유 화면 전환 레이어.
 ///
-/// 표준 [MaterialPageRoute]의 옆으로-미는 슬라이드는 "상자 더미" 느낌을 준다.
-/// 여기 전환은 *깊이감*으로 — fade + 미세 scale-in — 화면이 다가오듯 들어온다.
-/// 앱의 모든 라우트가 이 전환을 쓴다 (`main.dart` `onGenerateRoute`).
+/// §B1(2026-09-03): 일반 라우트는 [page] — 플랫폼 네이티브 전환
+/// ([SoriPageRoute], `theme.dart`의 `pageTransitionsTheme`가 실제 애니메이션을
+/// 고른다: Android predictive-back, iOS/macOS Cupertino 슬라이드, 그 외
+/// fade-upwards). `main.dart` `onGenerateRoute` 전부가 이걸 쓴다. [fadeScale]은
+/// 첫 실행(온보딩) 전용으로 남는다 — [firstRun]이 그 계약을 감싼다.
 class SoriTransitions {
   SoriTransitions._();
 
-  /// 부드러운 fade + 깊이 scale-in. 0.94→1.0 으로 화면이 "다가온다".
+  /// 첫 실행(온보딩) 전용 fade + 깊이 scale-in. 0.94→1.0 으로 화면이
+  /// "다가온다". 일반 라우트는 [page]를 쓴다 — 이 전환은 온보딩 시퀀스([firstRun])
+  /// 밖에서 새로 쓰지 않는다 — `test/route_transition_test.dart`가 파일
+  /// 집합을 고정한다.
   static Route<T> fadeScale<T>(
     WidgetBuilder builder, {
     RouteSettings? settings,
@@ -67,4 +72,42 @@ class SoriTransitions {
       reduceMotion: MediaQuery.disableAnimationsOf(context),
     );
   }
+
+  /// 일반 라우트의 플랫폼 네이티브 전환. `theme.dart`의
+  /// `pageTransitionsTheme`가 실제 애니메이션(플랫폼별 predictive-back/
+  /// Cupertino/fade-upwards)을 고르고, 이 헬퍼는 축약-동작 대응만 얹는다 —
+  /// [SoriPageRoute] 참고.
+  static Route<T> page<T>(WidgetBuilder builder, {RouteSettings? settings}) {
+    return SoriPageRoute<T>(builder: builder, settings: settings);
+  }
+}
+
+/// [SoriTransitions.page]가 만드는 [MaterialPageRoute] — 플랫폼별 실제
+/// 전환은 `theme.dart`의 `pageTransitionsTheme`가 고른다(Android
+/// predictive-back, iOS/macOS Cupertino 슬라이드, 그 외 fade-upwards). 이
+/// 라우트는 그 위에 축약된 동작(reduce-motion) 시 duration을 0으로 낮추는
+/// 책임만 더한다.
+class SoriPageRoute<T> extends MaterialPageRoute<T> {
+  SoriPageRoute({required super.builder, super.settings, this.reduceMotion});
+
+  /// 테스트 전용 오버라이드 — 운영 코드는 항상 null을 넘겨
+  /// [WidgetsBinding.instance.platformDispatcher.accessibilityFeatures]에서
+  /// 실시간으로 읽는다.
+  final bool? reduceMotion;
+
+  bool get _shouldReduceMotion =>
+      reduceMotion ??
+      WidgetsBinding
+          .instance
+          .platformDispatcher
+          .accessibilityFeatures
+          .disableAnimations;
+
+  @override
+  Duration get transitionDuration =>
+      _shouldReduceMotion ? Duration.zero : super.transitionDuration;
+
+  @override
+  Duration get reverseTransitionDuration =>
+      _shouldReduceMotion ? Duration.zero : super.reverseTransitionDuration;
 }

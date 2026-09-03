@@ -87,8 +87,15 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
     expect(find.text('1 of 5'), findsOneWidget);
+    // §B2(2026-09-03): 닫기(X)는 이제 홈 액션과 같은 확인 규칙을 따른다 —
+    // 첫 퀘스트에 이미 들어와 있으니(stage > 0) 확인 시트가 뜨고, "떠나기"를
+    // 골라야 onExit이 불린다.
     await tester.tap(find.byIcon(Icons.close_rounded));
-    await tester.pump();
+    await tester.pumpAndSettle();
+    final t = await AppL10n.delegate.load(const Locale('en'));
+    expect(find.text(t.homeActionConfirmTitle), findsOneWidget);
+    await tester.tap(find.text(t.homeActionConfirmLeave));
+    await tester.pumpAndSettle();
     expect(exitCalls, 1);
     expect(saveCalls, 0);
   });

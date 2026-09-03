@@ -230,7 +230,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
                         style: SoriTextTheme.of(context).body.copyWith(
                           color: s.text,
                           fontSize: 18,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                     )

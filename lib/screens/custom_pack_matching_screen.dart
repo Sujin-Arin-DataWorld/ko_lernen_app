@@ -283,12 +283,6 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
       homeEscape: SoriHomeEscape(
         confirmWhen: !_roundDone && (_matched.isNotEmpty || _misses > 0),
       ),
-      leading: IconButton(
-        tooltip: t.btnClose,
-        constraints: const BoxConstraints.tightFor(width: 48, height: 48),
-        icon: const Icon(Icons.close),
-        onPressed: () => Navigator.of(context).maybePop(),
-      ),
       actions: const [TtsSpeedAction()],
       padding: EdgeInsets.zero,
       child: _roundDone

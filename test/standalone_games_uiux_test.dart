@@ -335,15 +335,14 @@ void main() {
           );
 
           final t = AppL10n.of(tester.element(find.byType(SoriStudyFrame)));
-          if (game.name == 'speed') {
-            expect(find.byIcon(Icons.close), findsOneWidget, reason: game.name);
-          } else if (game.name == 'chosung' || game.name == 'silben') {
-            expect(
-              find.byIcon(Icons.arrow_back_ios_new),
-              findsOneWidget,
-              reason: game.name,
-            );
-          }
+          // §B2(2026-09-03): every SoriStudyFrame screen now shares the same
+          // frame-owned close (X) icon — the per-screen arrow-back/close
+          // split this used to check is gone.
+          expect(
+            find.byIcon(Icons.close_rounded),
+            findsOneWidget,
+            reason: game.name,
+          );
           if (game.name == 'chosung' && locale.languageCode == 'en') {
             expect(
               _vocab

@@ -134,7 +134,7 @@ class _StageBadge extends StatelessWidget {
           Text(
             _stageShortLabel(stage),
             style: TextStyle(
-              fontSize: 11,
+              fontSize: 13,
               fontWeight: FontWeight.w700,
               color: s.text,
             ),

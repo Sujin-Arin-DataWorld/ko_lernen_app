@@ -138,6 +138,10 @@ void main() {
     expect(find.text(l10n.homeHeroGreetingMorning), findsOneWidget);
   });
 
+  // W-C2: q_jangdokdae's QuestDefinition.name.en changed from
+  // 'Jangdokdae (jar terrace)' to 'Jar terrace' (H6 — quest_catalog.dart
+  // names now match decorName* ARB values; the SoriTerm secondary line
+  // carries the romanization/hangul instead).
   testWidgets('실제 보상 2종과 가장 가까운 퀘스트 썸네일까지 렌더한다', (tester) async {
     tester.view.physicalSize = const Size(390, 844);
     tester.view.devicePixelRatio = 1;
@@ -146,20 +150,26 @@ void main() {
 
     await pumpToday(tester, snapshot: _richSnapshot());
 
-    expect(find.text('Learning XP'), findsOneWidget);
-    expect(find.text('Related quest'), findsOneWidget);
+    expect(find.text('XP'), findsOneWidget);
+    expect(find.text('Quest'), findsOneWidget);
 
     await tester.scrollUntilVisible(
-      find.text('Jangdokdae (jar terrace)'),
+      find.text('Jar terrace'),
       260,
       scrollable: find.byType(Scrollable).first,
     );
     await tester.pump();
 
     expect(find.byType(SoriRewardThumb), findsOneWidget);
-    expect(find.text('Jangdokdae (jar terrace)'), findsOneWidget);
+    expect(find.text('Jar terrace'), findsOneWidget);
     expect(find.text('3 / 15'), findsOneWidget);
     expect(tester.takeException(), isNull);
+
+    // §MOTION-1(J5): reduce-motion (pumpToday sets disableAnimations:
+    // true) now schedules 0 timers — SoriEntrance judges reduce-motion
+    // once in didChangeDependencies and never schedules a delay Timer,
+    // so no settle pump is needed here anymore.
+    await tester.pump();
   });
 
   testWidgets('long German reward wraps at 320dp and 200 percent text', (
@@ -186,6 +196,9 @@ void main() {
 
     expect(find.text('Verifizierter Hanok-Baufortschritt'), findsOneWidget);
     expect(tester.takeException(), isNull);
+
+    // §MOTION-1(J5) — 위 테스트와 같은 이유로 더 이상 필요 없다.
+    await tester.pump();
   });
 }
 
@@ -236,11 +249,19 @@ SoriStageProgressionSnapshot _richSnapshot() => SoriStageProgressionSnapshot(
       RewardContractItem(
         kind: SoriRewardKind.xp,
         amount: 15,
-        label: SoriLocalizedCopy(de: 'Lern-XP', en: 'Learning XP'),
+        label: SoriLocalizedCopy(
+          key: SoriCopyKey.rewardXp,
+          de: 'Lern-XP',
+          en: 'XP',
+        ),
       ),
       RewardContractItem(
         kind: SoriRewardKind.questProgress,
-        label: SoriLocalizedCopy(de: 'Passende Quest', en: 'Related quest'),
+        label: SoriLocalizedCopy(
+          key: SoriCopyKey.rewardQuest,
+          de: 'Quest',
+          en: 'Quest',
+        ),
       ),
     ],
   ),

@@ -79,10 +79,7 @@ class TtsSpeedControl extends StatelessWidget {
           children: [
             Icon(Icons.speed_rounded, size: 16, color: s.textMuted),
             const SizedBox(width: Spacing.xs),
-            Text(
-              t.ttsSpeedLabel,
-              style: TextStyle(fontSize: 12, color: s.textMuted),
-            ),
+            Text(t.ttsSpeedLabel, style: SoriTextTheme.of(context).caption),
           ],
         ),
         const SizedBox(height: Spacing.xs),
@@ -95,7 +92,7 @@ class TtsSpeedControl extends StatelessWidget {
                 label: t.ttsSpeedChip(_fmt(preset)),
                 accent: SoriColors.info,
                 selected: (speed - preset).abs() < 0.01,
-                fontSize: 11,
+                fontSize: 13.5,
                 horizontalPadding: 7,
                 minInteractiveHeight: minInteractiveHeight,
                 onTap: () {

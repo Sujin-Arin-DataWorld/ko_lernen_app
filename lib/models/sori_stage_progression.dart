@@ -60,8 +60,6 @@ class SoriLocalizedCopy {
   final SoriCopyKey? key;
   final String? activityId;
   final bool isActivityDescription;
-
-  String resolve(String languageCode) => languageCode == 'de' ? de : en;
 }
 
 @immutable

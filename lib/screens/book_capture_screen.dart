@@ -603,8 +603,12 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
       appBarTitle: title,
       maxWidth: SoriMaxWidth.focus,
       padding: const EdgeInsets.all(Spacing.lg),
+      // §W-A2: 200% 배율에서 부제(긴 독일어 문장, 288dp 폭)가 실측 900px+ 를
+      // 요구해 기본 1.9배로는 부족했다 — 이 화면만 2.4배로 올린다(정상
+      // 세로 390×844 는 minHeight=660 이 그대로 안 넘어 스크롤 없음 유지).
       builder: (context, padding) => SoriAdaptiveStudyBody(
         minHeight: 660,
+        maxScaleBoost: 1.4,
         child: Padding(
           padding: padding,
           child: Column(

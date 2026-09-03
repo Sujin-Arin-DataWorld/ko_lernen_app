@@ -95,7 +95,8 @@ void main() {
     await tester.pump(const Duration(milliseconds: 500));
 
     expect(find.byType(SoriHomeAction), findsOneWidget);
-    expect(find.byIcon(Icons.close), findsOneWidget);
+    // §B2(2026-09-03): the frame-owned close action uses close_rounded.
+    expect(find.byIcon(Icons.close_rounded), findsOneWidget);
   });
 
   testWidgets('앞면(flipped=false) 우측 드래그 → SRS 미기록 (§C-1-1 regression)', (

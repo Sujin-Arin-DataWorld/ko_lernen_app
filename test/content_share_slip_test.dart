@@ -13,13 +13,12 @@ import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 /// 그린다 — 꼬리말 사각형 띠가 textColumn 을 넘어 마진 검사를 깨고, 크기
 /// 이분 탐색도 실기기와 다르게 돈다 (`chaekgado_shelf_test.dart` 와 같은 이유).
 Future<void> _loadRealFonts() async {
-  final loader = FontLoader('WantedSans');
+  final loader = FontLoader('Paperlogy');
   for (final path in const [
-    'assets/fonts/WantedSans/WantedSans-Regular.otf',
-    'assets/fonts/WantedSans/WantedSans-Medium.otf',
-    'assets/fonts/WantedSans/WantedSans-SemiBold.otf',
-    'assets/fonts/WantedSans/WantedSans-Bold.otf',
-    'assets/fonts/WantedSans/WantedSans-ExtraBold.otf',
+    'assets/fonts/Paperlogy/Paperlogy-Regular.ttf',
+    'assets/fonts/Paperlogy/Paperlogy-Medium.ttf',
+    'assets/fonts/Paperlogy/Paperlogy-SemiBold.ttf',
+    'assets/fonts/Paperlogy/Paperlogy-Bold.ttf',
   ]) {
     final bytes = File(path).readAsBytesSync();
     loader.addFont(Future.value(ByteData.view(bytes.buffer)));

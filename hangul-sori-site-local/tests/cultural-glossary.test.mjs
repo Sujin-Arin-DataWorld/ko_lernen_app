@@ -5,7 +5,7 @@ import test from "node:test";
 const canonicalUrl = new URL("../../docs/data/cultural_glossary.json", import.meta.url);
 const publicUrl = new URL("../public/data/cultural_glossary.json", import.meta.url);
 
-test("publishes the canonical 15-entry cultural glossary byte for byte", async () => {
+test("publishes the canonical 23-entry cultural glossary byte for byte", async () => {
   const [canonical, published] = await Promise.all([
     readFile(canonicalUrl),
     readFile(publicUrl),
@@ -14,10 +14,10 @@ test("publishes the canonical 15-entry cultural glossary byte for byte", async (
 
   const catalog = JSON.parse(canonical.toString("utf8"));
   assert.equal(catalog.schemaVersion, 1);
-  assert.equal(catalog.entries.length, 15);
+  assert.equal(catalog.entries.length, 23);
   assert.deepEqual(
     new Set(catalog.entries.map((entry) => entry.termId)),
-    new Set(["hanok", "gye", "sarangbang", "madang", "jongga", "dancheong", "bojagi", "jangdokdae", "munbangsau", "maehwa", "sagunja", "gat", "chaekgado", "soban", "jagae_mungap"]),
+    new Set(["hanok", "gye", "sarangbang", "sarangchae", "madang", "jongga", "dancheong", "bojagi", "jangdokdae", "munbangsau", "maehwa", "sagunja", "gat", "chaekgado", "soban", "jagae_mungap", "dojangcheop", "kkachi", "daecheong", "haengnangchae", "anchae", "huwon", "sadang"]),
   );
 
   const decorationSlugs = [];

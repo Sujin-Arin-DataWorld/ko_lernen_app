@@ -84,6 +84,36 @@
       ]
     },
     {
+      "termId": "sarangchae",
+      "ko": "사랑채",
+      "romanization": "Sarangchae",
+      "localizations": {
+        "de": {
+          "meaning": "Sarangchae heißt das Nebengebäude eines größeren Hanok, in dem der Hausherr wohnte, arbeitete und Gäste empfing.",
+          "story": "Der Sarangbang war ein Raum darin. Vom Tor aus lag der Sarangchae vorn, der Anchae der Familie dahinter. Gastfreundschaft zuerst, Privates geschützt."
+        },
+        "en": {
+          "meaning": "A sarangchae is the annex of a larger hanok where the master of the house lived, worked, and received guests.",
+          "story": "The sarangbang was one room inside it. Seen from the gate, the sarangchae stood in front and the family's anchae behind. Hospitality first, privacy protected."
+        },
+        "ko": {
+          "meaning": "사랑채는 큰 한옥에서 바깥주인이 지내며 일하고 손님을 맞던 별채예요.",
+          "story": "사랑방은 그 안의 한 방이에요. 대문에서 보면 사랑채가 앞, 식구들의 안채가 뒤에 있어 손님맞이는 앞에서, 살림은 안쪽에서 지켰어요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "국가한옥센터 한옥의 공간",
+          "url": "https://www.hanokdb.kr/theology/sub_03"
+        },
+        {
+          "title": "국가한옥센터 한옥의 종류",
+          "url": "https://www.hanokdb.kr/theology/sub_02"
+        }
+      ]
+    },
+    {
       "termId": "madang",
       "ko": "마당",
       "romanization": "Madang",
@@ -411,6 +441,214 @@
         {
           "title": "국립중앙박물관 나전칠기",
           "url": "https://www.museum.go.kr/MUSEUM/contents/M0201050400.do?relicId=27184&schM=view&showHallId=758"
+        }
+      ]
+    },
+    {
+      "termId": "dojangcheop",
+      "ko": "도장첩",
+      "romanization": "Dojangcheop",
+      "localizations": {
+        "de": {
+          "meaning": "Ein Dojangcheop ist ein Album, in dem Abdrücke von Dojang, geschnitzten Namens- und Kunststempeln, gesammelt wurden.",
+          "story": "In Hangul Sori füllt sich dein Dojangcheop mit Dancheong-Stempeln: Jedes abgeschlossene Wortpaket hinterlässt einen Abdruck."
+        },
+        "en": {
+          "meaning": "A dojangcheop is an album that collected impressions of dojang, carved personal name and art seals.",
+          "story": "In Hangul Sori, your dojangcheop fills with dancheong stamps: every finished word pack leaves an imprint."
+        },
+        "ko": {
+          "meaning": "도장첩은 이름이나 그림에 쓰는 도장을 찍어 모아 두던 첩이에요.",
+          "story": "한글소리에서는 단청 도장으로 도장첩이 채워져요. 단어 꾸러미를 마칠 때마다 도장이 하나씩 찍혀요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "국가유산포털 한국인장의 개요",
+          "url": "https://www.heritage.go.kr/heri/html/HtmlPage.do?pg=/inj/injangInfo.jsp&pageNo=4_3_1_1"
+        }
+      ]
+    },
+    {
+      "termId": "kkachi",
+      "ko": "까치",
+      "romanization": "Kkachi",
+      "localizations": {
+        "de": {
+          "meaning": "Die Elster (까치) gilt in Korea traditionell als Glücksbote: Ihr Ruf soll gute Nachrichten und Besuch ankündigen.",
+          "story": "In Volksbildern neckt die selbstbewusste Elster den mächtigen Tiger. Ihr Nest im Hanok erinnert an Hangul Soris eigenes Elstern-Maskottchen."
+        },
+        "en": {
+          "meaning": "The magpie (까치) is traditionally seen in Korea as a bearer of good luck: its call is said to announce good news and visitors.",
+          "story": "In folk paintings, the confident magpie teases the mighty tiger. Its nest in your hanok echoes Hangul Sori's own magpie mascot."
+        },
+        "ko": {
+          "meaning": "까치는 한국에서 전통적으로 좋은 소식과 손님을 알리는 길조로 여겨졌어요.",
+          "story": "까치호랑이 민화에서 까치는 당당하게 호랑이를 놀리듯 그려져요. 한옥에 놓인 둥지는 한글소리의 까치 마스코트와도 이어져요."
+        }
+      },
+      "decorationSlugs": [
+        "decoration_kkachi_nest"
+      ],
+      "sources": [
+        {
+          "title": "Wikipedia Oriental Magpie",
+          "url": "https://en.wikipedia.org/wiki/Oriental_magpie"
+        },
+        {
+          "title": "The Korea Times Tigers and Magpies at Leeum",
+          "url": "https://www.koreatimes.co.kr/lifestyle/koreanheritage/20250912/tigers-and-magpies-korean-folk-arts-odd-couple-in-spotlight-at-leeum"
+        }
+      ]
+    },
+    {
+      "termId": "daecheong",
+      "ko": "대청",
+      "romanization": "Daecheong",
+      "localizations": {
+        "de": {
+          "meaning": "Daecheong ist die breite, offene Holzdiele in der Mitte eines Hanok, die die Zimmer der Familie miteinander verbindet.",
+          "story": "Bei Hochzeiten, Ahnenriten und großen Festen versammelte sich hier die ganze Familie; im Sommer diente die luftige Diele auch als kühler Rückzugsort."
+        },
+        "en": {
+          "meaning": "Daecheong is the broad, open wooden-floored hall at the center of a hanok, connecting the family's rooms to one another.",
+          "story": "Weddings, ancestral rites, and big family events gathered everyone here; in summer the airy floor also served as a cool retreat from the heat."
+        },
+        "ko": {
+          "meaning": "대청은 한옥 가운데에 있는 넓은 나무 마루로, 방과 방을 이어주는 공간이에요.",
+          "story": "혼례나 제사 같은 집안의 큰 행사가 이곳에서 열렸고, 바람이 잘 통해 여름에는 시원한 쉼터가 되기도 했어요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "국가한옥센터 한옥의 공간",
+          "url": "https://www.hanokdb.kr/theology/sub_03"
+        },
+        {
+          "title": "한국민족문화대백과사전 대청",
+          "url": "https://encykorea.aks.ac.kr/Article/E0014835"
+        }
+      ]
+    },
+    {
+      "termId": "haengnangchae",
+      "ko": "행랑채",
+      "romanization": "Haengnangchae",
+      "localizations": {
+        "de": {
+          "meaning": "Haengnangchae nennt man die Gebäudereihe beiderseits des Haupttors, in der Bedienstete wohnten und Vorräte lagerten.",
+          "story": "Ställe, Kammern und Lagerräume reihten sich hier aneinander; bei großen Häusern konnte dieser Trakt viele Räume umfassen, bei einfachen Höfen fehlte er oft ganz."
+        },
+        "en": {
+          "meaning": "Haengnangchae is the row of rooms on either side of the main gate, where servants lived and household supplies were stored.",
+          "story": "Stables, small rooms, and storage lined up here side by side; a large estate could hold many such rooms, while a modest household often had none at all."
+        },
+        "ko": {
+          "meaning": "행랑채는 대문 양쪽에 늘어선 건물로, 일꾼들이 지내고 살림살이를 두던 곳이에요.",
+          "story": "마구간과 방, 곳간이 나란히 있었고, 큰 집은 방이 여러 칸이었지만 작은 살림집에는 아예 없기도 했어요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "국가한옥센터 한옥의 공간",
+          "url": "https://www.hanokdb.kr/theology/sub_03"
+        },
+        {
+          "title": "한국민족문화대백과사전 행랑채",
+          "url": "https://encykorea.aks.ac.kr/Article/E0062810"
+        }
+      ]
+    },
+    {
+      "termId": "anchae",
+      "ko": "안채",
+      "romanization": "Anchae",
+      "localizations": {
+        "de": {
+          "meaning": "Anchae ist der innerste Wohnbereich eines Hanok, in dem die Frauen des Hauses lebten und den Alltag lenkten.",
+          "story": "Ein Zwischengang oder Innentor trennte ihn vom Sarangchae; nur Familie und weibliche Gäste durften diesen geschützten Bereich betreten."
+        },
+        "en": {
+          "meaning": "Anchae is the innermost living area of a hanok, where the women of the household lived and ran daily life.",
+          "story": "An inner corridor or middle gate separated it from the sarangchae; only family and female guests were welcomed into this protected space."
+        },
+        "ko": {
+          "meaning": "안채는 한옥의 가장 안쪽에 있는 살림 공간으로, 집안 여성들이 지내며 살림을 이끌던 곳이에요.",
+          "story": "사랑채와는 중문이나 복도로 나뉘어 있었고, 가족과 여성 손님만 드나들 수 있는 곳이었어요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "국가한옥센터 한옥의 공간",
+          "url": "https://www.hanokdb.kr/theology/sub_03"
+        },
+        {
+          "title": "한국민족문화대백과사전 안채",
+          "url": "https://encykorea.aks.ac.kr/Article/E0071924"
+        }
+      ]
+    },
+    {
+      "termId": "huwon",
+      "ko": "후원",
+      "romanization": "Huwon",
+      "localizations": {
+        "de": {
+          "meaning": "Huwon ist der Garten hinter dem Hauptgebäude eines Hanok, oft in Terrassen an einem Hang angelegt.",
+          "story": "Steinstufen folgten dem natürlichen Gefälle, dazwischen wuchsen Blumen und Bäume; hier fand die Familie einen ruhigen Rückzugsort abseits des Alltags."
+        },
+        "en": {
+          "meaning": "Huwon is the garden behind a hanok's main building, often laid out in terraces that follow a hillside.",
+          "story": "Stone steps followed the natural slope, with flowers and trees planted between them; here the family found a quiet retreat away from daily life."
+        },
+        "ko": {
+          "meaning": "후원은 한옥 본채 뒤에 있는 정원으로, 흔히 언덕의 경사를 살려 계단식으로 꾸몄어요.",
+          "story": "돌계단 사이사이에 꽃과 나무를 심어, 가족이 일상에서 벗어나 조용히 쉴 수 있는 공간이 되었어요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "국가한옥센터 한옥의 공간",
+          "url": "https://www.hanokdb.kr/theology/sub_03"
+        },
+        {
+          "title": "한국민족문화대백과사전 정원",
+          "url": "https://encykorea.aks.ac.kr/Article/E0050664"
+        }
+      ]
+    },
+    {
+      "termId": "sadang",
+      "ko": "사당",
+      "romanization": "Sadang",
+      "localizations": {
+        "de": {
+          "meaning": "Sadang ist das Gebäude, in dem eine Familie die Gedenktafeln ihrer Ahnen aufbewahrte und ihnen Riten widmete.",
+          "story": "Es stand meist im hintersten, ruhigsten Teil des Grundstücks, oft von einer eigenen Mauer umgeben; nicht jeder durfte diesen heiligen Ort einfach betreten."
+        },
+        "en": {
+          "meaning": "Sadang is the building where a family kept its ancestors' memorial tablets and performed rites in their honor.",
+          "story": "It usually stood in the deepest, quietest part of the property, often behind its own wall; not everyone was free to simply walk in."
+        },
+        "ko": {
+          "meaning": "사당은 조상의 위패를 모시고 제사를 지내던 건물이에요.",
+          "story": "집에서 가장 깊고 조용한 자리에 담장을 두르고 자리했으며, 누구나 함부로 드나들 수 있는 곳은 아니었어요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "국가한옥센터 한옥의 공간",
+          "url": "https://www.hanokdb.kr/theology/sub_03"
+        },
+        {
+          "title": "우리역사넷 사당, 조상신을 모시는 곳",
+          "url": "https://contents.history.go.kr/front/km/print.do?levelId=km_019_0030_0020_0020"
         }
       ]
     }

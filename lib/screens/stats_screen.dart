@@ -517,7 +517,7 @@ class _XpCard extends StatelessWidget {
                   icon: Icons.movie_outlined,
                   accent: SoriColors.primary,
                   variant: SoriChipVariant.soft,
-                  fontSize: 11,
+                  fontSize: 13.5,
                 ),
               ),
             ],
@@ -532,7 +532,7 @@ class _XpCard extends StatelessWidget {
           Text(
             badgesTitle,
             style: SoriTextTheme.of(context).cardSubtitle.copyWith(
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w700,
               letterSpacing: 0.5,
             ),
           ),
@@ -554,7 +554,7 @@ class _XpCard extends StatelessWidget {
                   label: '${meta['emoji']} ${meta['label']}',
                   accent: SoriColors.warning,
                   variant: SoriChipVariant.soft,
-                  fontSize: 12,
+                  fontSize: 13.5,
                 );
               }).toList(),
             ),

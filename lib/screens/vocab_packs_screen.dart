@@ -18,6 +18,7 @@ import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/level_filter_bar.dart';
@@ -306,6 +307,8 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
             icon: const Icon(Icons.workspace_premium_outlined),
             tooltip: t.dojangTitle,
             onPressed: () => Navigator.of(context).pushNamed('/dojangcheop'),
+            onLongPress: () =>
+                showCulturalTermSheetForId(context, 'dojangcheop'),
           ),
         ],
       ),

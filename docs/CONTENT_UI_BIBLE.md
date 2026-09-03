@@ -16,7 +16,7 @@
 3. **하트와 보관은 다른 기능이다.** 더블탭/`♡` = 좋아요(감정, 나중에 놀이). 책갈피 = 단어장 보관(공부용 아카이브). 둘을 한 동작으로 합치지 않는다. 상세 §12.
 4. **한 장 = 한 화면.** 기기 높이 안에서 본문이 잘리지 않게 담고, 다음 장은 아래로 넘긴다. 플레이어와 책장/규칙 패널을 같은 화면에 겹치지 않는다.
 5. **콘텐츠 플레이어에서 네모 카드(hero `SoriCard`)를 뺀다.** 한지 배경 위에 글과 소리가 바로 앉는다. 카드는 허브·목록·선택지처럼 *고르는* 자리에만 남긴다.
-6. **폰트는 2개뿐: Wanted Sans + Maru Buri.** `SoriFonts.sans`(기본 UI, DE/EN 전체)와 `SoriFonts.culture`(짧은 한국 문화 타이틀·완성 순간 전용, 번들 400/600만). 새 웹폰트·키즈 폰트 추가 금지, `fontFamily` 하드코딩 금지 — 항상 `SoriTextTheme` 토큰 경유. 위계는 기본적으로 크기·굵기만.
+6. **폰트는 2개뿐: Paperlogy + Maru Buri.** `SoriFonts.sans`(기본 UI, DE/EN 전체)와 `SoriFonts.culture`(짧은 한국 문화 타이틀·완성 순간 전용, 번들 400/600만). 새 웹폰트·키즈 폰트 추가 금지, `fontFamily` 하드코딩 금지 — 항상 `SoriTextTheme` 토큰 경유. 위계는 기본적으로 크기·굵기만.
 7. **`i` 대신 `?`가 뒤집기다.** 한 번 탭하면 뜻/뒷면이 한지 위에서 뒤집힌다. 정보 시트가 아니다.
 8. **공유는 1등 동작이다.** 시스템 공유 + 생성된 이야기 이미지. 화면 스크린샷이나 검정 테두리 디지털 카드가 아니다. 이미지 3안은 §13. **잠금: A 두루마리.** B는 장면이 단어를 잡아먹을 위험, C는 너무 조용해서 기각.
 
@@ -635,3 +635,18 @@ ui-ux-pro-max `favorites bookmark` 검색은 칩 리플로우만 나와 매칭 �
 
 **웨이브 배선:** §15-§18(토큰·컴포넌트·가드)은 W3 첫 태스크로 랜딩. §19
 이행표(화면별 실제 적용)는 W5. 이 §20 거버넌스 절차는 W3부터 상시.
+
+## §21. 보상 카피 단일 원천
+
+`SoriLocalizedCopy`의 de/en 리터럴은 ARB 미러이며 화면은 항상
+`localCopy(context, copy)`(`lib/widgets/sori/localized_copy.dart`) — 별도
+resolver 메서드는 존재하지 않는다. `SoriLocalizedCopy.key`(`SoriCopyKey`)가
+있으면 `AppL10n.soriStageCatalogCopy(key.name)`(ARB ICU select)가 우선,
+`activityId`가 있으면 `soriStageActivityTitle`/`soriStageActivityDescription`
+이 우선, 리터럴 de/en 직접 반환은 프로덕션 밖(테스트 픽스처) 전용 폴백이다.
+
+## §22. 문화 용어 — 로마자·한글 보조 줄
+
+로마자 · 한글 보조 줄은 글로서리 항목이 있는 용어에만 노출(`hanokStageTerm`/
+`decorTerm` 공통) — 매칭되는 `CulturalGlossary` termId 없이 `SoriTerm`을 달지
+않는다("문 없는 용어" 금지, §COPY-2/§COPY-3 J8).

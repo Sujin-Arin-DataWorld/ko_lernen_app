@@ -2,9 +2,28 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/data/sori_activity_catalog.dart';
+import 'package:ko_lernen_app/l10n/generated/app_localizations_de.dart';
+import 'package:ko_lernen_app/l10n/generated/app_localizations_en.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 
 void main() {
+  // §COPY-1(J7)(a): every SoriCopyKey the model can carry must resolve to a
+  // real ARB `soriStageCatalogCopy` select branch, not the ICU `other`
+  // fallback — a key without a branch would silently render generic
+  // "Reward"/"Belohnung" copy instead of the intended chip text.
+  test('every SoriCopyKey resolves to a real ARB branch, not the ICU other fallback', () {
+    for (final key in SoriCopyKey.values) {
+      expect(
+        AppL10nEn().soriStageCatalogCopy(key.name),
+        isNot(AppL10nEn().soriStageCatalogCopy('__none__')),
+      );
+      expect(
+        AppL10nDe().soriStageCatalogCopy(key.name),
+        isNot(AppL10nDe().soriStageCatalogCopy('__none__')),
+      );
+    }
+  });
+
   test('Learn catalog maps every approved content family exactly once', () {
     final learn = soriActivityCatalog
         .where((entry) => entry.tab == SoriStageTab.learn)

@@ -586,10 +586,6 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
         confirmWhen:
             !_roundComplete && (_roundIndex > 0 || _state != _State.waiting),
       ),
-      leading: IconButton(
-        icon: const Icon(Icons.arrow_back_ios_new, size: 20),
-        onPressed: () => Navigator.pop(context),
-      ),
       actions: [
         // 현재 글자를 내 단어장에 담기.
         AddToWordbookButton(
@@ -684,7 +680,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                               autofocus: true,
                               textAlign: TextAlign.center,
                               hintText: t.chosungInputHint,
-                              style: const TextStyle(
+                              style: SoriTextTheme.of(context).caption.copyWith(
                                 fontSize: 22,
                                 fontWeight: FontWeight.w700,
                               ),
@@ -731,8 +727,8 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                       Text(
                         AppL10n.of(context).chosungPadHiddenNote,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 12.5,
+                        style: SoriTextTheme.of(context).caption.copyWith(
+                          fontSize: 13.5,
                           color: SoriColors.darkTextMuted,
                         ),
                       ),
@@ -855,9 +851,9 @@ class _RoundSummaryCard extends StatelessWidget {
             const SizedBox(height: Spacing.sm),
             Text(
               t.chosungRoundDoneTitle,
-              style: TextStyle(
+              style: SoriTextTheme.of(context).caption.copyWith(
                 fontSize: 22,
-                fontWeight: FontWeight.w900,
+                fontWeight: FontWeight.w700,
                 color: accent,
               ),
             ),
@@ -888,9 +884,9 @@ class _RoundSummaryCard extends StatelessWidget {
                   const SizedBox(width: 5),
                   Text(
                     t.gameNewBest,
-                    style: const TextStyle(
+                    style: SoriTextTheme.of(context).caption.copyWith(
                       fontSize: 14,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w700,
                       color: SoriColors.gold,
                     ),
                   ),
@@ -901,7 +897,7 @@ class _RoundSummaryCard extends StatelessWidget {
               const SizedBox(height: Spacing.md),
               Text(
                 recommendation!,
-                style: TextStyle(
+                style: SoriTextTheme.of(context).caption.copyWith(
                   fontSize: 14,
                   color: s.textMuted,
                   fontWeight: FontWeight.w600,
@@ -949,7 +945,7 @@ class _Stat extends StatelessWidget {
       ),
       child: Text(
         label,
-        style: TextStyle(
+        style: SoriTextTheme.of(context).caption.copyWith(
           color: color,
           fontWeight: FontWeight.w700,
           fontSize: 13,
@@ -1065,9 +1061,9 @@ class _QuizCard extends StatelessWidget {
                 text: word,
                 child: Text(
                   word,
-                  style: const TextStyle(
+                  style: SoriTextTheme.of(context).caption.copyWith(
                     fontSize: 22,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w700,
                     color: SoriColors.success,
                   ),
                 ),
@@ -1078,7 +1074,7 @@ class _QuizCard extends StatelessWidget {
                   children: [
                     Text(
                       t.chosungAnswerLabel(word),
-                      style: const TextStyle(
+                      style: SoriTextTheme.of(context).caption.copyWith(
                         fontSize: 19,
                         fontWeight: FontWeight.w700,
                         color: SoriColors.danger,
@@ -1087,7 +1083,7 @@ class _QuizCard extends StatelessWidget {
                     const SizedBox(height: 4),
                     Text(
                       translation,
-                      style: TextStyle(fontSize: 14, color: s.textMuted),
+                      style: SoriTextTheme.of(context).caption.copyWith(fontSize: 14, color: s.textMuted),
                     ),
                   ],
                 ),
@@ -1098,7 +1094,7 @@ class _QuizCard extends StatelessWidget {
               _State.waiting => Text(
                 translation,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: SoriTextTheme.of(context).caption.copyWith(
                   fontSize: 20,
                   color: s.text,
                   fontWeight: FontWeight.w700,

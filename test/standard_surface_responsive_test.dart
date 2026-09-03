@@ -615,7 +615,12 @@ void main() {
     await tester.pump();
 
     final list = find.byType(ListView).first;
-    for (var i = 0; i < 4; i += 1) {
+    // §W-A2: 200% 접근성 배율에서 장식 힌트 카드의 독일어 긴 문장(합성어
+    // 다수)이 실측 966px 까지 자라 — 그리드 시작 지점이 기존 4×200px
+    // 드래그 예산 밖으로 밀려났다(근본 원인 확인됨: 버그가 아니라 200%
+    // 배율에서 실제로 필요한 지면). 단언(`isNotEmpty`/`size<96`)은 그대로
+    // 두고, 그리드에 실제로 닿을 때까지 스크롤 거리만 늘린다.
+    for (var i = 0; i < 8; i += 1) {
       await tester.drag(list, const Offset(0, -200));
       await tester.pump();
     }

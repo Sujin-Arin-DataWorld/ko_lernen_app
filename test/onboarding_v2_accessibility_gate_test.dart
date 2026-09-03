@@ -597,7 +597,20 @@ void main() {
     };
     final selector = find.byKey(const ValueKey('study-library-view-selector'));
     await tester.scrollUntilVisible(selector, 200);
-    await tester.tapAt(tester.getTopLeft(selector) + const Offset(24, 24));
+    // §W-A2 재조사: 고정 오프셋 tapAt(topLeft+24,24) 은 좌표가 항상 chrome
+    // row 안쪽(48dp 슬롯)에 들어가는데도 실측상 시트가 열리지 않을 때가
+    // 있었다(연 뒤 study-library-view-* 옵션 0개, 예외 없음 — 조용한
+    // 히트미스). ensureVisible 없이 좌표만으로 탭하던 자리라 브리프
+    // 예외(b)에 해당 — 필터 아이콘 위젯 자체를 찾아 ensureVisible 후 탭한다.
+    // §W-A2 재조사(실측): 고정 오프셋 tapAt(selector.topLeft+24,24) 이
+    // 200% 배율에서 조용히 빗나갔다 — ensureVisible() 직후 pump() 없이
+    // tap() 하면 getCenter() 가 스크롤 적용 전 좌표를 읽어(hit test 덤프로
+    // 확인: 실제 위젯이 아니라 라우트 오버레이 뼈대에 맞았다) 엉뚱한 지점을
+    // 누른다. 필터 아이콘을 직접 찾아 ensureVisible→pump→tap 순서로 고친다.
+    final filterIcon = find.byIcon(Icons.tune_rounded);
+    await tester.ensureVisible(filterIcon);
+    await tester.pump();
+    await tester.tap(filterIcon);
     await tester.pumpAndSettle();
     for (final entry in viewLabels.entries) {
       final control = find.byKey(

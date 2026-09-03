@@ -12,8 +12,7 @@ import 'sori/tokens.dart';
 /// 계획 §8.1(오류 = 태고 정적) · ASSET_GAP §3-2(신규 이미지 0, 배선만).
 /// 정지 PNG 다. 캐릭터 **클립**(`tiger_walking_front.mp4` 등)은 오류·로딩에
 /// 쓰지 않는다 — 디코더 예산 규정.
-const String kTaegoErrorAsset =
-    'assets/illustrations/mascot/tiger_front.png';
+const String kTaegoErrorAsset = 'assets/illustrations/mascot/tiger_front.png';
 
 /// 오류 상태 — 부드럽게 등장하고, 일러스트가 잔잔히 호흡한다.
 ///
@@ -46,10 +45,12 @@ class AppError extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final minHeight = constraints.hasBoundedHeight
-            ? math.max(0.0, constraints.maxHeight - Spacing.xl * 2)
+            ? math.max(0.0, constraints.maxHeight - Spacing.lg * 2)
             : 0.0;
+        // §W-A2: 토큰 확대(§A3)로 재시도 버튼이 뷰포트 밖(2px)으로 밀렸다
+        // — 바깥 패딩을 xl(24)→lg(16)로 좁힌다.
         return SingleChildScrollView(
-          padding: const EdgeInsets.all(Spacing.xl),
+          padding: const EdgeInsets.all(Spacing.lg),
           child: ConstrainedBox(
             constraints: BoxConstraints(minHeight: minHeight),
             child: Center(

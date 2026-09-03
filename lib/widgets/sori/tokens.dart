@@ -35,6 +35,8 @@ class Spacing {
   /// 표준 페이지 패딩 (2026-08-13 UI 개편 Phase 1).
   /// SoriStage 화면들이 손으로 쓰던 `fromLTRB(20, 20, 20, 48)` 리터럴의 토큰화 —
   /// 위 20 = 헤더 위 숨, 아래 48 = 스크롤 끝 여유. 새 화면은 이걸 쓴다.
+  /// `page.bottom`(48)은 스크롤뷰 마지막 슬리버에만. 헤더/섹션 슬리버에
+  /// `padding` 전체를 넘기지 말 것(LAYOUT-1).
   static const EdgeInsets page = EdgeInsets.fromLTRB(20, 20, 20, 48);
 }
 
@@ -568,10 +570,10 @@ class SoriMotion {
 }
 
 // ─────────────────────────────────────────────────────────────────────────
-// TEXT — Wanted Sans 중앙 TextStyle 토큰
+// TEXT — Paperlogy 중앙 TextStyle 토큰
 // ─────────────────────────────────────────────────────────────────────────
 /// 앱 폰트 패밀리 상수 — 역할로만 선택한다.
-/// - [sans] Wanted Sans: UI·DE/EN·학습 본문·숫자의 기본 폰트.
+/// - [sans] Paperlogy: UI·DE/EN·학습 본문·숫자의 기본 폰트.
 /// - [culture] Maru Buri: 짧은 한국어 문화 제목과 특별한 완료 순간 전용.
 ///   버튼·메뉴·긴 본문에는 사용하지 않는다.
 ///
@@ -580,10 +582,54 @@ class SoriMotion {
 /// 그려져 한·독 혼용 줄에서 서체·굵기·베이스라인이 갈렸다. "단일 폰트" 전제가
 /// 한글에서 처음으로 성립한다. `test/font_bundle_guard_test.dart` 가 번들 폰트의
 /// 한글·독일어 글리프를 검사해 재발을 막는다.
+///
+/// **2026-09-03 재교체**: Jin 지시로 Wanted Sans → Paperlogy(OFL, 400/500/
+/// 600/700 4무게 번들). 헤드라인(hero/display/h1/h2/numeral)은 [culture]
+/// (Maru Buri w600)로 분리했다 — §A2 참조.
 class SoriFonts {
   SoriFonts._();
-  static const String sans = 'WantedSans';
+  static const String sans = 'Paperlogy';
   static const String culture = 'MaruBuri';
+}
+
+/// Context-free type spec — size/weight/letterSpacing/height만, 색·family
+/// 없음. [SoriTextTheme] 게터 하나와, `BuildContext` 없이 같은 수치로 레이아웃을
+/// 재본 소비자(예: `SoriAppBar`의 측정 전용 상수)가 **같은 상수**를 참조하게
+/// 해서 둘이 조용히 갈라지는 걸 구조적으로 막는다(§W-A2 d, 2026-09-03).
+class SoriTypeSpec {
+  const SoriTypeSpec({
+    required this.size,
+    required this.weight,
+    required this.letterSpacing,
+    required this.height,
+  });
+
+  final double size;
+  final FontWeight weight;
+  final double letterSpacing;
+  final double height;
+}
+
+class SoriTypeSpecs {
+  SoriTypeSpecs._();
+
+  /// `SoriAppBar` 타이틀 크롬. [SoriTextTheme.chromeTitle] 과
+  /// `lib/theme.dart`의 `AppBarTheme.titleTextStyle` 둘 다 이 상수에서 만든다.
+  static const chromeTitle = SoriTypeSpec(
+    size: 20,
+    weight: FontWeight.w700,
+    letterSpacing: -0.2,
+    height: 1.3,
+  );
+
+  /// 헤드라인 위 소형 대문자 라벨. [SoriTextTheme.eyebrow] 와
+  /// `SoriAppBar`의 측정 전용 상수가 공유한다.
+  static const eyebrow = SoriTypeSpec(
+    size: 13,
+    weight: FontWeight.w700,
+    letterSpacing: 1.2,
+    height: 1.2,
+  );
 }
 
 /// 모든 Sori 컴포넌트가 따르는 TextStyle 프리셋.
@@ -595,56 +641,70 @@ class SoriFonts {
 /// 사이즈·weight·letter-spacing·height 만 중앙화.
 ///
 /// **타이포 보이스(2026-08-20)**: 현대적 학습 UI 80 + 한국적 문화 정체성 20.
-/// 기본 위계는 Wanted Sans의 크기·굵기로 만들고, 검증된 한국어 문화 맥락에만
+/// 기본 위계는 Paperlogy의 크기·굵기로 만들고, 검증된 한국어 문화 맥락에만
 /// Maru Buri를 제한적으로 사용한다.
 class SoriTextTheme {
   final SoriSurfaces _s;
 
   const SoriTextTheme._(this._s);
 
+  /// Context-free constructor for consumers that already hold a
+  /// [SoriSurfaces] (e.g. `AppTheme._buildTextTheme`) — single source so
+  /// the Material [TextTheme] can't drift from [SoriTextTheme] (§A4).
+  const SoriTextTheme.forSurfaces(SoriSurfaces s) : this._(s);
+
   static SoriTextTheme of(BuildContext context) =>
       SoriTextTheme._(SoriSurfaces.of(context));
 
-  // ── Display / Heading (Pretendard ExtraBold — 통일) ───────────────────
-  // 위계는 크기·굵기로만. Pretendard w800 번들 → 합성볼드 아닌 진짜 ExtraBold.
+  // ── Display / Heading (Maru Buri w600 — 2026-09-03 헤드라인 문화화) ────
+  // 위계는 크기·굵기로만. 헤드라인(hero/display/h1/h2/numeral)은 Maru Buri
+  // w600(번들 400/600) — 진짜 SemiBold, 합성볼드 아님. h3 이하는 sans.
   TextStyle get display => _base(
     fontSize: 32,
-    weight: FontWeight.w800,
-    letterSpacing: -0.5,
+    weight: FontWeight.w600,
+    letterSpacing: -0.2,
     height: 1.15,
+    fontFamily: SoriFonts.culture,
   );
 
   /// 페이지 대형 헤드라인 (2026-08-13 UI 개편 Phase 1).
   /// Vocabulary급 "화면당 1메시지" 위계의 앵커 — [eyebrow] 와 짝으로 쓴다.
   /// [display](32) 는 컴팩트 맥락용으로 유지.
+  ///
+  /// **2026-09-03 §E7**: 40 → 36. 390dp에서 "Wähle, wie du lernen
+  /// möchtest." 가 3줄·≈130dp를 차지해 첫 화면을 과점했다(Fable 시각 심사).
+  /// MaruBuri w600/letterSpacing 은 그대로.
   TextStyle get hero => _base(
-    fontSize: 38,
-    weight: FontWeight.w800,
-    letterSpacing: -0.8,
+    fontSize: 36,
+    weight: FontWeight.w600,
+    letterSpacing: -0.2,
     height: 1.08,
+    fontFamily: SoriFonts.culture,
   );
 
   /// 헤드라인 위의 소형 대문자 라벨 (자간 넓힘, 기본 석간주).
   /// `SoriStageRootHeader` 가 손으로 쓰던 패턴의 토큰화 — 호출부에서
   /// `.toUpperCase()` 는 직접 한다 (독일어 ß 등 로케일 정책은 호출부 소관).
   TextStyle get eyebrow => _base(
-    fontSize: 12,
-    weight: FontWeight.w700,
-    letterSpacing: 1.4,
-    height: 1.2,
+    fontSize: SoriTypeSpecs.eyebrow.size,
+    weight: SoriTypeSpecs.eyebrow.weight,
+    letterSpacing: SoriTypeSpecs.eyebrow.letterSpacing,
+    height: SoriTypeSpecs.eyebrow.height,
     color: SoriColors.accent,
   );
   TextStyle get h1 => _base(
-    fontSize: 24,
-    weight: FontWeight.w800,
-    letterSpacing: -0.4,
+    fontSize: 26,
+    weight: FontWeight.w600,
+    letterSpacing: -0.2,
     height: 1.25,
+    fontFamily: SoriFonts.culture,
   );
   TextStyle get h2 => _base(
-    fontSize: 20,
-    weight: FontWeight.w800,
-    letterSpacing: -0.3,
+    fontSize: 22,
+    weight: FontWeight.w600,
+    letterSpacing: -0.2,
     height: 1.3,
+    fontFamily: SoriFonts.culture,
   );
 
   /// 문화 카드 안의 짧은 한국어 표제.
@@ -659,13 +719,14 @@ class SoriTextTheme {
   /// 큰 통계 숫자 — tabular(자릿수 정렬). 스트릭·XP 히어로 수치.
   TextStyle get numeral => _base(
     fontSize: 30,
-    weight: FontWeight.w800,
+    weight: FontWeight.w600,
     letterSpacing: -0.2,
     height: 1.1,
     tabular: true,
+    fontFamily: SoriFonts.culture,
   );
   TextStyle get h3 => _base(
-    fontSize: 17,
+    fontSize: 18,
     weight: FontWeight.w700,
     letterSpacing: -0.2,
     height: 1.3,
@@ -673,13 +734,13 @@ class SoriTextTheme {
 
   // ── Body ─────────────────────────────────────────────────────────────
   TextStyle get body => _base(
-    fontSize: 15,
+    fontSize: 16,
     weight: FontWeight.w500,
-    letterSpacing: -0.1,
+    letterSpacing: 0,
     height: 1.45,
   );
   TextStyle get bodySmall => _base(
-    fontSize: 14,
+    fontSize: 15,
     weight: FontWeight.w500,
     letterSpacing: -0.05,
     height: 1.4,
@@ -688,7 +749,7 @@ class SoriTextTheme {
 
   // ── Caption / Label ──────────────────────────────────────────────────
   TextStyle get caption => _base(
-    fontSize: 12.5,
+    fontSize: 13.5,
     weight: FontWeight.w500,
     letterSpacing: 0,
     height: 1.35,
@@ -697,7 +758,7 @@ class SoriTextTheme {
 
   /// Content-player Korean hero. Hierarchy is size/weight only — no new font.
   TextStyle get koDisplay => _base(
-    fontSize: 28,
+    fontSize: 30,
     weight: FontWeight.w700,
     letterSpacing: -0.4,
     height: 1.25,
@@ -705,43 +766,54 @@ class SoriTextTheme {
 
   /// Content-player DE/EN gloss under the Korean word.
   TextStyle get gloss => _base(
-    fontSize: 17,
+    fontSize: 18,
     weight: FontWeight.w500,
     letterSpacing: -0.1,
     height: 1.4,
     color: _s.textMuted,
   );
 
-  /// Content-player chrome (progress `3 / 12`, hints). Do not go below 12.5.
+  /// Content-player chrome (progress `3 / 12`, hints). Do not go below 13.
   TextStyle get meta => _base(
-    fontSize: 12.5,
+    fontSize: 13.5,
     weight: FontWeight.w500,
     letterSpacing: 0,
     height: 1.35,
     color: _s.textMuted,
   );
   TextStyle get label => _base(
-    fontSize: 13,
+    fontSize: 14,
     weight: FontWeight.w700,
-    letterSpacing: 0.2,
+    letterSpacing: 0,
     height: 1.2,
   );
 
   // ── Card (앱 최빈 패턴 — 카드 제목/부제. B-2 타이포 통일 2026-06-12) ──
   // §4.3 (2026-08-04): 카드 제목 = 15~17 w700 — w800 금지 규정에 맞춰
-  // 14/w800 → 15/w700. 위계는 크기 차(제목 15 vs 본문 12~13)로 낸다.
+  // 14/w800 → 15/w700. 2026-09-03: 스케일 재정의로 17/w700. 위계는 크기 차
+  // (제목 17 vs 본문 13.5~16)로 낸다.
   TextStyle get cardTitle => _base(
-    fontSize: 15,
+    fontSize: 17,
     weight: FontWeight.w700,
     letterSpacing: -0.2,
     height: 1.3,
   );
   TextStyle get cardSubtitle => _base(
-    fontSize: 12,
+    fontSize: 13.5,
     weight: FontWeight.w500,
     letterSpacing: 0,
     height: 1.35,
     color: _s.textMuted,
+  );
+
+  /// 앱바 타이틀 크롬 전용 토큰 (2026-09-03, §A4). 화면 헤드라인은 [h2]가
+  /// 맡고, 내비게이션 크롬은 [h2]가 Maru Buri 로 이동한 뒤에도 sans/w700을
+  /// 유지한다 — `SoriAppBar` 의 옛 사설 상수를 대체한다.
+  TextStyle get chromeTitle => _base(
+    fontSize: SoriTypeSpecs.chromeTitle.size,
+    weight: SoriTypeSpecs.chromeTitle.weight,
+    letterSpacing: SoriTypeSpecs.chromeTitle.letterSpacing,
+    height: SoriTypeSpecs.chromeTitle.height,
   );
 
   TextStyle _base({

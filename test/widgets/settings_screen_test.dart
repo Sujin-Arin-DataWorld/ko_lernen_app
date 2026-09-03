@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -310,6 +311,59 @@ void main() {
     expect(version, findsOneWidget);
   });
 
+  testWidgets(
+    // §RELEASE-2(J13): long-pressing the About row copies the exact
+    // displayed version string to the clipboard and shows a confirmation
+    // notice — the injected reader string flows through unchanged.
+    'long-pressing the About row copies the version string to the clipboard',
+    (tester) async {
+      tester.view.physicalSize = const Size(400, 1000);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      final clipboardCalls = <String>[];
+      tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+        SystemChannels.platform,
+        (call) async {
+          if (call.method == 'Clipboard.setData') {
+            clipboardCalls.add(
+              (call.arguments as Map)['text'] as String,
+            );
+          }
+          return null;
+        },
+      );
+      addTearDown(
+        () => tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+          SystemChannels.platform,
+          null,
+        ),
+      );
+
+      await tester.pumpWidget(
+        _wrap(
+          SettingsScreen(
+            account: _guest,
+            accountOperations: _SettingsAccountOperations(),
+            cloudDataDeletionJournalState: cloudJournalState,
+            appVersionReader: const _FixedAppVersionReader(
+              '2.0.8 (2224) · e35ea785',
+            ),
+          ),
+        ),
+      );
+      await tester.pump();
+
+      final version = find.text('Version 2.0.8 (2224) · e35ea785');
+      await _ensureSettingsActionVisible(tester, version);
+      await tester.longPress(version);
+      await tester.pump();
+
+      expect(clipboardCalls, ['Version 2.0.8 (2224) · e35ea785']);
+    },
+  );
+
   testWidgets('founder story is available from About, not first-run setup', (
     tester,
   ) async {
@@ -332,8 +386,13 @@ void main() {
     );
     await tester.pump();
 
+    // §W-A2 재조사(실측): 이 설정 목록의 maxScrollExtent 가 11346px 로
+    // 커졌다(§A3 토큰 확대분) — scrollUntilVisible 기본 delta(200)·최대
+    // 시도(50)로는 10000px 까지만 닿아 이 항목(그 너머) 을 못 찾고
+    // "No element" 로 죽었다. delta 를 키워 같은 예산 안에서 끝까지 닿게
+    // 한다(단언은 그대로, 스크롤 메커니즘만 보정).
     final story = find.text('Warum Hangul Sori entstand');
-    await _ensureSettingsActionVisible(tester, story);
+    await _ensureSettingsActionVisible(tester, story, scrollDelta: 500);
     await tester.tap(story);
     await tester.pumpAndSettle();
 

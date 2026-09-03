@@ -1072,7 +1072,7 @@ class _CompareLine extends StatelessWidget {
           // §4.3: 독일어 대문자 변환 금지 — 원문 케이스 유지.
           label,
           style: SoriTextTheme.of(context).label.copyWith(
-            fontSize: 10.5,
+            fontSize: 13,
             color: accent ?? SoriSurfaces.of(context).textMuted,
             letterSpacing: 0.7,
             height: 1.2,

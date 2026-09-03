@@ -37,7 +37,6 @@ class SoriIllustratedCard extends StatelessWidget {
     this.footer,
     this.state = SoriIllustratedCardState.normal,
     this.overlay,
-    this.imageOverlay,
     this.onTap,
     this.onLongPress,
     this.semanticsLabel,
@@ -62,11 +61,6 @@ class SoriIllustratedCard extends StatelessWidget {
   /// [SoriIllustratedCardState.cleared] 일 때 우상단에 얹는 위젯 (단청 도장).
   final Widget? overlay;
 
-  /// 이미지 슬롯 **내부** 우하단에 얹는 위젯 (§P4-3 — 분(分) 미니 필 등).
-  /// ⚠️ 카드 전체 Stack 이 아니라 이미지 ClipRRect 안에 배치된다 — 밖에
-  /// 두면 footer 위에 얹힌다. 기본 null — 기존 호출부(팩 그리드 등) 영향 0.
-  final Widget? imageOverlay;
-
   final VoidCallback? onTap;
   final VoidCallback? onLongPress;
   final String? semanticsLabel;
@@ -87,6 +81,25 @@ class SoriIllustratedCard extends StatelessWidget {
     final light = s.brightness == Brightness.light;
     final raised = light ? SoriColors.lightSurfaceRaised : s.surface;
 
+    final titleAndFooter = [
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: tt.cardTitle.copyWith(
+              color: _locked ? s.text.withValues(alpha: 0.55) : s.text,
+            ),
+          ),
+          if (subtitle != null) ...[
+            const SizedBox(height: 2),
+            Text(subtitle!, style: tt.cardSubtitle),
+          ],
+        ],
+      ),
+      if (footer != null) ...[const SizedBox(height: Spacing.xs), footer!],
+    ];
+
     final Widget body = Padding(
       padding: const EdgeInsets.fromLTRB(
         Spacing.md,
@@ -94,33 +107,31 @@ class SoriIllustratedCard extends StatelessWidget {
         Spacing.md,
         Spacing.md,
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: shrinkWrap ? MainAxisSize.min : MainAxisSize.max,
-        // 고정 높이(그리드 셀)에서는 footer 를 바닥에 핀 — 비고정에서는
-        // 내용 흐름대로.
-        mainAxisAlignment: shrinkWrap
-            ? MainAxisAlignment.start
-            : MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: tt.cardTitle.copyWith(
-                  color: _locked ? s.text.withValues(alpha: 0.55) : s.text,
+      child: shrinkWrap
+          ? Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: titleAndFooter,
+            )
+          // §LAYOUT-2(J12): 측정 계약이 깨졌을 때만 켜지는 마지막 그물 —
+          // 켜지면 버그, illustrated_card_overflow_guard_test 가 실패한다.
+          // 고정 높이 그리드 셀에서 title/subtitle(§A3 토큰 확대) + footer 가
+          // 이미지 슬롯 밑 남은 공간을 넘칠 때만 footer를 바닥에 핀 채로
+          // SingleChildScrollView가 흡수한다 — 평소엔 시각 변화 0.
+          : LayoutBuilder(
+              builder: (context, constraints) => SingleChildScrollView(
+                key: const ValueKey('sori-illustrated-card-body-scroll'),
+                physics: const ClampingScrollPhysics(),
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: titleAndFooter,
+                  ),
                 ),
               ),
-              if (subtitle != null) ...[
-                const SizedBox(height: 2),
-                Text(subtitle!, style: tt.cardSubtitle),
-              ],
-            ],
-          ),
-          if (footer != null) ...[const SizedBox(height: Spacing.xs), footer!],
-        ],
-      ),
+            ),
     );
 
     final card = Container(
@@ -144,29 +155,11 @@ class SoriIllustratedCard extends StatelessWidget {
                 ),
                 child: AspectRatio(
                   aspectRatio: imageAspectRatio,
-                  // §P4-3: imageOverlay 는 이미지 슬롯 내부 Stack — 필이
-                  // 이미지 위에만 얹히고 footer 를 침범하지 않는다.
-                  child: imageOverlay == null
-                      ? _Illustration(
-                          asset: illustrationAsset,
-                          fallback: fallback,
-                          dimmed: _locked,
-                        )
-                      : Stack(
-                          fit: StackFit.expand,
-                          children: [
-                            _Illustration(
-                              asset: illustrationAsset,
-                              fallback: fallback,
-                              dimmed: _locked,
-                            ),
-                            Positioned(
-                              right: Spacing.xs + 2,
-                              bottom: Spacing.xs + 2,
-                              child: imageOverlay!,
-                            ),
-                          ],
-                        ),
+                  child: _Illustration(
+                    asset: illustrationAsset,
+                    fallback: fallback,
+                    dimmed: _locked,
+                  ),
                 ),
               ),
               if (shrinkWrap) body else Expanded(child: body),

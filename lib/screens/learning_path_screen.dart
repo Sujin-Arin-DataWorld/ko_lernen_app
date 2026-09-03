@@ -375,6 +375,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
       maxWidth: SoriMaxWidth.hub,
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 48),
       actions: [
+        const CulturalHelpButton(termId: 'madang'),
         // §6.2-①: 현재 노드로 점프 (자동 스크롤과 병행).
         IconButton(
           key: const ValueKey('path-jump-to-now'),

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'tokens.dart';
@@ -10,6 +12,9 @@ import 'tokens.dart';
 /// 모두 컨트롤러 1개 + 가벼운 Transform — 60fps 부담 없음.
 
 /// 화면 진입 등장 애니메이션. 처음 빌드 시 1회 재생, 이후 정지.
+///
+/// reduce-motion 은 타이머·컨트롤러 진행 없이 즉시 최종 상태. 첫
+/// didChangeDependencies 에서 1회 판정 — 이후 꺼져도 재등장 없음.
 class SoriEntrance extends StatefulWidget {
   final Widget child;
 
@@ -39,22 +44,40 @@ class SoriEntrance extends StatefulWidget {
 class _SoriEntranceState extends State<SoriEntrance>
     with SingleTickerProviderStateMixin {
   late final AnimationController _c;
+  Timer? _delayTimer;
+  bool _started = false;
 
   @override
   void initState() {
     super.initState();
     _c = AnimationController(vsync: this, duration: widget.duration);
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_started) {
+      return;
+    }
+    _started = true;
+    if (SoriMotion.reduceMotion(context)) {
+      _c.value = 1.0;
+      return;
+    }
     if (widget.delay == Duration.zero) {
       _c.forward();
     } else {
-      Future<void>.delayed(widget.delay, () {
-        if (mounted) _c.forward();
+      _delayTimer = Timer(widget.delay, () {
+        if (mounted) {
+          _c.forward();
+        }
       });
     }
   }
 
   @override
   void dispose() {
+    _delayTimer?.cancel();
     _c.dispose();
     super.dispose();
   }
@@ -76,6 +99,99 @@ class _SoriEntranceState extends State<SoriEntrance>
             ),
           ),
         );
+      },
+      child: widget.child,
+    );
+  }
+}
+
+/// 은은한 "숨쉬는" 강조 — scale 1.0↔[maxScale]를 반복 왕복한다
+/// (2026-09-03, §E4). "이어하기" 히어로 카드처럼 "여기서 계속" 신호를
+/// 미세하게 준다 — 알림·배지처럼 눈에 튀지 않게, idle 호흡 커브로.
+///
+/// reduce-motion 이면 [child]를 그대로 돌려준다([SoriEntrance]와 같은 계약).
+///
+/// 활성 TickerMode 에서는 무한 반복 — 위젯 테스트는 `pumpAndSettle` 대신
+/// `test/support/sori_stage_pump.dart` 를 쓴다.
+class SoriPulse extends StatefulWidget {
+  const SoriPulse({
+    super.key,
+    required this.child,
+    this.maxScale = 1.02,
+    this.duration = const Duration(milliseconds: 2400),
+  });
+
+  final Widget child;
+
+  /// 왕복 정점의 scale. 기본 1.02 — 카드 전체가 눈에 띄게 커지지 않는다.
+  final double maxScale;
+
+  /// 한 방향(1.0→[maxScale] 또는 그 반대)의 재생 시간.
+  final Duration duration;
+
+  @override
+  State<SoriPulse> createState() => _SoriPulseState();
+}
+
+class _SoriPulseState extends State<SoriPulse>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _c;
+  bool _running = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _c = AnimationController(vsync: this, duration: widget.duration);
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _syncMotion();
+  }
+
+  @override
+  void didUpdateWidget(covariant SoriPulse oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.duration != widget.duration) {
+      _c.duration = widget.duration;
+    }
+    _syncMotion();
+  }
+
+  void _syncMotion() {
+    final enabled =
+        !SoriMotion.reduceMotion(context) &&
+        TickerMode.valuesOf(context).enabled;
+    if (enabled == _running) {
+      return;
+    }
+    _running = enabled;
+    if (enabled) {
+      _c.repeat(reverse: true);
+    } else {
+      _c.stop();
+      _c.value = 0;
+    }
+  }
+
+  @override
+  void dispose() {
+    _c.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (SoriMotion.reduceMotion(context)) {
+      return widget.child;
+    }
+    return AnimatedBuilder(
+      animation: _c,
+      builder: (_, child) {
+        final t = SoriAnimation.idleCurve.transform(_c.value);
+        final scale = 1.0 + (widget.maxScale - 1.0) * t;
+        return Transform.scale(scale: scale, child: child);
       },
       child: widget.child,
     );

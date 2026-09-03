@@ -5,6 +5,7 @@ import 'dart:async';
 import '../data/personal_hanok_catalog.dart';
 import '../data/personal_hanok_venue_catalog.dart';
 import '../l10n/generated/app_localizations.dart';
+import '../models/cultural_glossary.dart';
 import '../models/hanok_build_narrative.dart';
 import '../models/personal_hanok.dart';
 import '../services/analytics_service.dart';
@@ -25,6 +26,7 @@ import '../widgets/sori/personal_hanok_venue_sheet.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
+import '../widgets/sori/sori_term.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 import '../widgets/sori/world_map_viewport.dart';
@@ -369,12 +371,117 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
     );
   }
 
+  /// Embedded-tab rendering (§W-F F2) — the content that used to be the
+  /// standalone screen's `ListView` children, now sliver-shaped so the Hanok
+  /// tab (`SoriStageHanokScreen`) can host it inside one continuous
+  /// `CustomScrollView` alongside its own pinned collapsing header and the
+  /// decorative map preview it renders separately (from
+  /// `SoriStageProgressionSnapshot.hanok`, §W-F F1/F3). This intentionally
+  /// excludes the interactive compound map + zone hotspots: the tab's
+  /// preview is a single whole-tap surface to `/hanok` instead, so the full
+  /// zone-by-zone browsing experience here is carried by the place list and
+  /// its detail panel exactly as it already was.
+  List<Widget> buildEmbeddedSlivers(
+    BuildContext context,
+    PersonalHanokProjection projection,
+  ) {
+    final t = AppL10n.of(context);
+    // §W-F2: same clamp function + same maxWidth as the tab's own header
+    // and shortcut-row padding (sori_stage_hanok_screen.dart) — 20 left/right
+    // so all three stay aligned at any width, not just on phones.
+    final padding = soriClampPadding(
+      MediaQuery.sizeOf(context).width,
+      maxWidth: SoriMaxWidth.world,
+      base: const EdgeInsets.fromLTRB(20, 0, 20, Spacing.xxxl),
+    );
+    final sidePadding = EdgeInsets.symmetric(horizontal: padding.left);
+    final activeReveal = _activeReveal;
+    Widget padded(Widget child) => Padding(padding: sidePadding, child: child);
+    // §W-F F1: `_WorldIntroduction`'s eyebrow/title/body is dropped here —
+    // the owning tab's `SoriCollapsingHeader` already carries that framing,
+    // and stacking a second full editorial header directly beneath the tab
+    // header and the map preview pushed the accessible place list well past
+    // the fold on common phone heights (measured at 390dp, §W-F F4).
+    // §W-F2: no extra leading gap here — the shortcut row's own bottom
+    // padding already separates it from the place list, and the fold
+    // budget (map restored to full size, §W-F2 §1) has no room to spare.
+    return [
+      if (projection.usesCompoundMap) ...[
+        SliverToBoxAdapter(
+          child: padded(
+            _WorldPlaceList(
+              projection: projection,
+              onSelectZone: _selectZone,
+              showHeading: false,
+            ),
+          ),
+        ),
+        const SliverToBoxAdapter(child: SizedBox(height: Spacing.lg)),
+        SliverToBoxAdapter(
+          child: padded(
+            HanokSelectedPlacePanel(
+              selectedZone: _selectedZone,
+              zoneLabel: (zone) => _zoneLabel(t, zone),
+              zonePurpose: (zone) => _zonePurpose(t, zone),
+              todayExpressionKo:
+                  _narrative?.receipt.nextExpressionKo ??
+                  _narrative?.receipt.latestSafeExpressionKo,
+              todaySceneMinutes: 4,
+              onOpen: _openSelectedZone,
+            ),
+          ),
+        ),
+        const SliverToBoxAdapter(child: SizedBox(height: Spacing.lg)),
+        SliverToBoxAdapter(child: padded(_GyeBridge(onOpen: _openGyeHub))),
+      ] else
+        SliverToBoxAdapter(
+          child: padded(
+            _EarlyBuildPlan(
+              projection: projection,
+              narrative: _narrative,
+              onExploreHouse: _exploreEarlyHouse,
+              onOpenNextScene: () =>
+                  Navigator.of(context).pushNamed('/course/mission'),
+            ),
+          ),
+        ),
+      if (activeReveal != null)
+        SliverToBoxAdapter(
+          child: padded(
+            PersonalHanokUnlockReveal(
+              key: ValueKey('personal-hanok-unlock-${activeReveal.name}'),
+              projection: projection,
+              milestone: activeReveal,
+              milestoneLabel: _milestoneLabel(t, activeReveal),
+              onDone: _completeActiveReveal,
+            ),
+          ),
+        ),
+      SliverToBoxAdapter(child: SizedBox(height: padding.bottom)),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
     final projection = _projection;
     final activeReveal = _activeReveal;
+    if (widget.embedded) {
+      // §W-F F2: the sliver equivalent of the `AppLoading()` branch below —
+      // still a single, well-formed sliver so the owning `CustomScrollView`
+      // never receives a bare non-sliver child while progress is loading.
+      return projection == null
+          ? const SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: Spacing.xxxl),
+                child: Center(child: AppLoading()),
+              ),
+            )
+          : SliverMainAxisGroup(
+              slivers: buildEmbeddedSlivers(context, projection),
+            );
+    }
     return Scaffold(
       backgroundColor: s.bg,
       appBar: widget.embedded
@@ -520,7 +627,18 @@ class _WorldPlaceList extends StatelessWidget {
   final PersonalHanokProjection projection;
   final ValueChanged<PersonalHanokZone> onSelectZone;
 
-  const _WorldPlaceList({required this.projection, required this.onSelectZone});
+  /// §W-F F1/F4: the Hanok tab's own collapsing header and map preview
+  /// already frame this section, so its embedded call omits the repeated
+  /// "Places" title/body — that reclaims the vertical budget the fold test
+  /// needs to keep the first place on the first frame. Defaults to `true`
+  /// so the standalone (non-embedded) screen is unchanged.
+  final bool showHeading;
+
+  const _WorldPlaceList({
+    required this.projection,
+    required this.onSelectZone,
+    this.showHeading = true,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -533,6 +651,57 @@ class _WorldPlaceList extends StatelessWidget {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
     final s = SoriSurfaces.of(context);
+    final rows = CulturalGlossaryBuilder(
+      builder: (context, glossary) => Column(
+        children: [
+          for (final place in places) ...[
+            SoriCard(
+              key: ValueKey('hanok-world-place-${place.zone.name}'),
+              variant: SoriCardVariant.compact,
+              accent: SoriColors.primary,
+              onTap: () => onSelectZone(place.zone),
+              child: Row(
+                children: [
+                  const Icon(Icons.place_outlined, color: SoriColors.primary),
+                  const SizedBox(width: Spacing.sm),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(_zoneLabel(t, place.zone), style: text.label),
+                        _zoneCulturalTerm(context, glossary, place.zone),
+                        const SizedBox(height: 2),
+                        Text(
+                          _zonePurpose(t, place.zone),
+                          style: text.caption.copyWith(color: s.textMuted),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Icon(
+                    Icons.chevron_right_rounded,
+                    color: SoriColors.primary,
+                  ),
+                ],
+              ),
+            ),
+            if (place != places.last) const SizedBox(height: Spacing.sm),
+          ],
+        ],
+      ),
+    );
+    if (!showHeading) {
+      // §W-F2: the embedded call has no title/body left to justify a second
+      // tinted card frame right under the tab's own header + map — its
+      // `Spacing.lg` (16dp) padding was pure overhead once the heading was
+      // already gone. Rows keep their own `compact` card look; only the
+      // outer wrapper is dropped.
+      return Semantics(
+        container: true,
+        label: t.hanokWorldPlacesTitle,
+        child: rows,
+      );
+    }
     return Semantics(
       container: true,
       label: t.hanokWorldPlacesTitle,
@@ -550,38 +719,7 @@ class _WorldPlaceList extends StatelessWidget {
               style: text.bodySmall.copyWith(color: s.textMuted),
             ),
             const SizedBox(height: Spacing.md),
-            for (final place in places) ...[
-              SoriCard(
-                key: ValueKey('hanok-world-place-${place.zone.name}'),
-                variant: SoriCardVariant.compact,
-                accent: SoriColors.primary,
-                onTap: () => onSelectZone(place.zone),
-                child: Row(
-                  children: [
-                    const Icon(Icons.place_outlined, color: SoriColors.primary),
-                    const SizedBox(width: Spacing.sm),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(_zoneLabel(t, place.zone), style: text.label),
-                          const SizedBox(height: 2),
-                          Text(
-                            _zonePurpose(t, place.zone),
-                            style: text.caption.copyWith(color: s.textMuted),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const Icon(
-                      Icons.chevron_right_rounded,
-                      color: SoriColors.primary,
-                    ),
-                  ],
-                ),
-              ),
-              if (place != places.last) const SizedBox(height: Spacing.sm),
-            ],
+            rows,
           ],
         ),
       ),
@@ -762,6 +900,33 @@ String? hanokRouteForZone(PersonalHanokZone zone) => switch (zone) {
   PersonalHanokZone.sadang => '/dojangcheop',
   PersonalHanokZone.gyeRoad => null,
 };
+
+/// Secondary "Romanization · Hangul" line under a place's label — built
+/// straight from the glossary entry itself (not a new ARB pair) since the
+/// entry already carries both. The zone -> termId mapping itself lives in
+/// `world_map_viewport.dart`'s [personalHanokZoneTermId] (§W-J2 item 2) so
+/// this list and [HanokSelectedPlacePanel] can never drift onto different
+/// term ids for the same room.
+Widget _zoneCulturalTerm(
+  BuildContext context,
+  CulturalGlossary? glossary,
+  PersonalHanokZone zone,
+) {
+  final termId = personalHanokZoneTermId(zone);
+  final entry = termId == null ? null : glossary?.entry(termId);
+  if (entry == null) {
+    return const SizedBox.shrink();
+  }
+  return Padding(
+    padding: const EdgeInsets.only(top: 2),
+    child: SoriTerm(
+      termId: entry.termId,
+      text: '${entry.romanization} · ${entry.korean}',
+      style: SoriTextTheme.of(context).caption,
+      surface: 'hanok_world_places',
+    ),
+  );
+}
 
 String _zoneLabel(AppL10n t, PersonalHanokZone zone) => switch (zone) {
   PersonalHanokZone.sarangbang => t.hanokZoneSarangbang,

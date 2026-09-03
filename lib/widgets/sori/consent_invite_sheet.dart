@@ -143,7 +143,7 @@ class _ConsentInviteBodyState extends State<_ConsentInviteBody> {
                       style: TextStyle(
                         fontFamily: SoriFonts.sans,
                         fontSize: 20,
-                        fontWeight: FontWeight.w900,
+                        fontWeight: FontWeight.w700,
                         color: s.text,
                         height: 1.25,
                       ),
@@ -250,7 +250,7 @@ class _ConsentInviteBodyState extends State<_ConsentInviteBody> {
                 Text(
                   subtitle,
                   style: TextStyle(
-                    fontSize: 12.5,
+                    fontSize: 13.5,
                     height: 1.4,
                     color: s.textMuted,
                   ),
