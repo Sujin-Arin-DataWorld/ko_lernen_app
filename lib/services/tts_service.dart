@@ -810,16 +810,18 @@ class TtsService {
     final key = TtsCacheKey.forRequest(voice: voice, text: text);
 
     // 1. Manifest-declared rootBundle bytes. The manifest loader validates
-    // schema/key/path/hash/MPEG shape before exposing a path, and this request
-    // validates the selected bytes again before playback. Any bundle failure
-    // preserves the pre-existing disk → Storage → callable chain.
+    // schema/key/path/hash format eagerly at load() time; bytesFor() reads,
+    // MPEG-shape-checks, and SHA-256-verifies the declared bytes lazily —
+    // once per key, memoised — the first time this row is actually needed.
+    // Any bundle failure preserves the pre-existing disk → Storage → callable
+    // chain.
     final bundledPath = await key.bundledAssetPath();
     if (bundledPath != null) {
       try {
-        final bundledBytes = await TtsBundledManifest.readAsset(
-          bundledPath,
-        ).timeout(_diskTimeout);
-        if (TtsCacheKey.isUsableAudio(bundledBytes)) {
+        final bundledBytes = await (await TtsBundledManifest.load())
+            .bytesFor(key)
+            .timeout(_diskTimeout);
+        if (bundledBytes != null) {
           return TtsAudio.bytes(bundledBytes);
         }
       } on TimeoutException {

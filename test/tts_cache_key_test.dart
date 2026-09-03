@@ -87,7 +87,7 @@ void main() {
       source,
       contains('final bundledPath = await key.bundledAssetPath()'),
     );
-    expect(source, contains('TtsBundledManifest.readAsset'));
+    expect(source, contains('.bytesFor(key)'));
     expect(source, contains('TtsSynthesisBlocked'));
     expect(source, contains('already in progress'));
     expect(source, contains('resource-exhausted'));
