@@ -38,9 +38,8 @@ SoriSpeechStub stubSoriSpeech({bool completeSpeak = true}) {
     stub.spokenSlow.add(text);
     return completeSpeak ? Future.value(true) : pendingCompleter!.future;
   };
-  SoriSpeech.prefetchImpl = (text, voice) {
+  SoriSpeech.prefetchImpl = (text, voice) async {
     stub.prefetched.add(text);
-    return Future.value(true);
   };
   SoriSpeech.stopImpl = () async {
     stub.stops++;
