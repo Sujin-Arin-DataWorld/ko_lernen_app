@@ -134,6 +134,10 @@ void main() {
       findsOneWidget,
       reason: '해석이 끝나기 전까지는 resolving 아이콘이어야 한다',
     );
+    // Fix round 1(finding 1) 이후 승격은 텍스트 일치까지 요구한다 —
+    // host()가 렌더링한 SoriSpeechIndicator(text: '학교')와 같은 텍스트로
+    // 실제 엔진이 재생을 시작했다는 신호를 재현한다.
+    TtsService.activeSpeechText = '학교';
     TtsService.phase.value = TtsSpeechPhase.speaking;
     await tester.pump();
     expect(find.byIcon(Icons.graphic_eq_rounded), findsOneWidget);

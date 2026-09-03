@@ -60,11 +60,19 @@ class SoriSpeech {
   }
 
   /// TtsService.phase(엔진 레이어)가 실제 재생 시작을 알릴 때만 우리 phase를
-  /// speaking으로 승격한다. 늦게 도착한 신호가 이미 취소/완료된 발화를
-  /// 오염시키지 않도록 활성 키가 있을 때만 반응한다.
+  /// speaking으로 승격한다. 단순히 "활성 키가 있다"만으로는 부족하다 — 화면
+  /// 어딘가에서 TtsService.speak() 를 직접 불러(예: 리뷰 세션의 보너스
+  /// 문구) 전혀 무관한 재생이 시작돼도 전역 TtsService.phase 는
+  /// speaking으로 바뀌므로, 우리가 지금 resolving으로 띄운 요청의 텍스트와
+  /// 엔진이 방금 재생을 시작한 텍스트가 실제로 같은지 대조해야 한다
+  /// (Fix round 1, finding 1). 늦게 도착한 신호가 그 사이 새 세대로
+  /// 넘어간 발화를 오염시키지 않도록, 이 텍스트를 기록했던 세대가 아직도
+  /// 현재 세대인지까지 함께 확인한다.
   static void _onEnginePhaseChanged() {
     if (TtsService.phase.value != TtsSpeechPhase.speaking) return;
-    if (_activeSpeechKey == null) return;
+    if (_activeSpeechText == null) return;
+    if (TtsService.activeSpeechText != _activeSpeechText) return;
+    if (_activeSpeechGeneration != _speechGeneration) return;
     phase.value = TtsSpeechPhase.speaking;
   }
 
@@ -76,6 +84,13 @@ class SoriSpeech {
 
   static int _speechGeneration = 0;
   static String? _activeSpeechKey;
+
+  /// resolving으로 전환한 요청의 trim된 텍스트 — [_onEnginePhaseChanged]가
+  /// TtsService.activeSpeechText와 대조하는 식별자(Fix round 1, finding 1).
+  static String? _activeSpeechText;
+
+  /// [_activeSpeechText]를 기록한 시점의 [_speechGeneration] 스냅샷.
+  static int _activeSpeechGeneration = 0;
 
   /// 실제 재생 호출 지점 — 테스트가 `TtsService`/Firebase 없이 가짜
   /// 카운팅 리졸버로 갈아끼울 수 있게 훅으로 둔다. 기본은 진짜 서비스.
@@ -109,7 +124,14 @@ class SoriSpeech {
     _promotionPrefetches.clear();
     ++_speechGeneration;
     _activeSpeechKey = null;
+    _activeSpeechText = null;
     phase.value = TtsSpeechPhase.idle;
+    // 엔진 레이어(TtsService)도 함께 되돌린다 — 안 그러면 이전 테스트가
+    // 남긴 speaking/activeSpeechText가 ValueNotifier의 "같은 값 재대입은
+    // 리스너를 안 부른다" 특성과 겹쳐 다음 테스트의 승격 신호를 조용히
+    // 삼킬 수 있다(Fix round 1, finding 2).
+    TtsService.phase.value = TtsSpeechPhase.idle;
+    TtsService.activeSpeechText = null;
     speakImpl = (text, voice) => TtsService.speak(text, voice: voice);
     speakSlowImpl = (text, voice) => TtsService.speakSlow(text, voice: voice);
     prefetchImpl = (text, voice) => TtsService.prefetch(text, voice: voice);
@@ -187,6 +209,8 @@ class SoriSpeech {
     }
     final generation = ++_speechGeneration;
     _activeSpeechKey = key;
+    _activeSpeechText = text.trim();
+    _activeSpeechGeneration = generation;
     // 신규 speak(pending 없음)는 즉시 resolving. pending 승격(이미 진행 중인
     // prefetch에 올라타는 경우)은 그 prefetch가 끝날 때까지 idle로 남는다
     // (기존 bool 계약과 동일). 실제 speaking 전환은 두 경우 모두
@@ -229,6 +253,7 @@ class SoriSpeech {
       }
       if (generation == _speechGeneration && _activeSpeechKey == key) {
         _activeSpeechKey = null;
+        _activeSpeechText = null;
         phase.value = TtsSpeechPhase.idle;
       }
     });
@@ -325,6 +350,7 @@ class SoriSpeech {
     final activeKey = _activeSpeechKey;
     ++_speechGeneration;
     _activeSpeechKey = null;
+    _activeSpeechText = null;
     if (activeKey != null) {
       _cancelFlightAndRestorePrefetch(activeKey);
     }

@@ -121,4 +121,47 @@ void main() {
     await tester.pump();
     semantics.dispose();
   });
+
+  test(
+    '무관한 엔진 재생은 resolving 인디케이터를 승격시키지 않는다 (Fix round 1, finding 1)',
+    () async {
+      final completion = Completer<bool>();
+      SoriSpeech.speakImpl = (text, voice) => completion.future;
+
+      final speakFuture = SoriSpeech.speak('A');
+      expect(SoriSpeech.phase.value, TtsSpeechPhase.resolving);
+
+      // 화면 어딘가의 무관한 TtsService.speak() 직접 호출(예: 리뷰 세션
+      // 보너스 문구)이 전역 엔진 phase를 speaking으로 바꾸는 상황을 재현한다
+      // — 재생 중인 텍스트('B')는 우리가 resolving으로 띄운 텍스트('A')와
+      // 다르다.
+      TtsService.activeSpeechText = 'B';
+      TtsService.phase.value = TtsSpeechPhase.speaking;
+
+      expect(
+        SoriSpeech.phase.value,
+        TtsSpeechPhase.resolving,
+        reason: '엔진이 재생을 시작한 텍스트가 우리 요청과 다르면 승격돼선 안 된다',
+      );
+
+      completion.complete(true);
+      expect(await speakFuture, isTrue);
+    },
+  );
+
+  test('일치하는 엔진 재생은 speaking으로 승격한다 (Fix round 1, finding 1)', () async {
+    final completion = Completer<bool>();
+    SoriSpeech.speakImpl = (text, voice) => completion.future;
+
+    final speakFuture = SoriSpeech.speak('A');
+    expect(SoriSpeech.phase.value, TtsSpeechPhase.resolving);
+
+    TtsService.activeSpeechText = 'A';
+    TtsService.phase.value = TtsSpeechPhase.speaking;
+
+    expect(SoriSpeech.phase.value, TtsSpeechPhase.speaking);
+
+    completion.complete(true);
+    expect(await speakFuture, isTrue);
+  });
 }

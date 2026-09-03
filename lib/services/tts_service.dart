@@ -39,6 +39,7 @@ class TtsAudio {
 typedef TtsAudioResolver =
     Future<TtsAudio?> Function(String text, String voice);
 typedef TtsErrorReporter = void Function(String message);
+typedef TtsPlaybackStarted = void Function(String text, String voice);
 
 /// 프리미엄 오디오를 못 들려주는 이유. UI 가 사람 말로 옮겨 보여준다.
 ///
@@ -280,9 +281,10 @@ class TtsPlaybackEngine {
   // 불려, TtsService 가 unavailable(오프라인 추정) 배너를 그 계열에만
   // 한정할 수 있게 한다.
   final TtsErrorReporter? onResolutionFailed;
+
   /// 해석 성공 + startAudio 성공(세션 획득)이 둘 다 확정된 직후 정확히
   /// 1회 불린다. 해석 실패·재생-기전 실패에서는 절대 불리지 않는다.
-  final VoidCallback? onPlaybackStarted;
+  final TtsPlaybackStarted? onPlaybackStarted;
   Future<void> _platformTail = Future<void>.value();
   Completer<void>? _cancellation;
   int _generation = 0;
@@ -390,7 +392,7 @@ class TtsPlaybackEngine {
     if (session == null || _disposed || generation != _generation) {
       return false;
     }
-    onPlaybackStarted?.call();
+    onPlaybackStarted?.call(trimmed, normalizedVoice);
     bool completed;
     try {
       completed = await Future.any<bool>([
@@ -528,10 +530,17 @@ class TtsService {
   static String? lastError;
   static final TtsInstallationIdProvider _installationIdProvider =
       TtsInstallationIdProvider();
+
   /// [speaking](레거시 bool)과 별개인 3단 재생 상태. `SoriSpeech.phase`가
   /// 이 리스너를 구독해 resolving→speaking 승격 신호로 쓴다(Task 2).
   static final ValueNotifier<TtsSpeechPhase> phase =
       ValueNotifier<TtsSpeechPhase>(TtsSpeechPhase.idle);
+
+  /// 지금 어떤 텍스트가 재생 중인지(엔진 레이어 식별자). `SoriSpeech`가
+  /// 자신이 resolving으로 올린 요청과 이 값을 대조해, 무관한 다른
+  /// speak() 호출이 자기 인디케이터를 잘못 speaking으로 승격시키지
+  /// 않도록 막는다(Fix round 1, finding 1).
+  static String? activeSpeechText;
   static final TtsPlaybackEngine _playbackEngine = TtsPlaybackEngine(
     resolveAudio: _resolveAudio,
     platform: const _ServicePlaybackPlatform(),
@@ -554,7 +563,10 @@ class TtsService {
         _reportUnavailable(TtsUnavailableReason.audioUnavailable);
       }
     },
-    onPlaybackStarted: () => phase.value = TtsSpeechPhase.speaking,
+    onPlaybackStarted: (text, voice) {
+      activeSpeechText = text;
+      phase.value = TtsSpeechPhase.speaking;
+    },
   );
 
   /// 웹 전용 메모리 캐시 — 파일시스템이 없어 1단을 여기에 둔다.
@@ -621,6 +633,7 @@ class TtsService {
       if (token == _speakToken) {
         speaking.value = false;
         phase.value = TtsSpeechPhase.idle;
+        activeSpeechText = null;
         AudioPolicy.instance.noteSpeechEnded();
       }
     });
@@ -730,6 +743,7 @@ class TtsService {
     _speakToken++;
     speaking.value = false;
     phase.value = TtsSpeechPhase.idle;
+    activeSpeechText = null;
     // 지연 복원(noteSpeechEnded)이 아니라 즉시 복원이다 — 정지했으니 이어질
     // 다음 문장이 없고, 200ms 타이머를 새로 걸면 방금 없앤 문제가 되살아난다.
     AudioPolicy.instance.restoreDuckNow();
