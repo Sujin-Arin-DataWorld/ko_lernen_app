@@ -289,6 +289,26 @@ class _MigrationRun {
         return _success(DataMigrationStatus.fresh);
       }
 
+      final pending =
+          registry.keys
+              .where((version) => version > from! && version <= target)
+              .toList()
+            ..sort();
+
+      if (pending.isEmpty && recovery == null) {
+        // A version bump with no registered steps needs only its stamp — the
+        // same native commit reconciliation as a real migration, but without
+        // capturing every `kl_` key into a second preference (double storage)
+        // or risking `invalidBackup` on an unusual value type for a release
+        // that never touches data. `stepsStarted` stays false: there is
+        // nothing to restore, because nothing but the version marker moved.
+        await _commit();
+        return _success(
+          DataMigrationStatus.migrated,
+          cleanupFailure: await _cleanup(),
+        );
+      }
+
       phase = DataMigrationPhase.prepare;
       if (recovery == null) {
         final snapshot = _Snapshot.capture(prefs, phase);
@@ -303,11 +323,6 @@ class _MigrationRun {
       // Check the complete persisted pair and original marker before steps.
       _readRecovery(_readMarker());
 
-      final pending =
-          registry.keys
-              .where((version) => version > from! && version <= target)
-              .toList()
-            ..sort();
       stepsStarted = true;
       for (final version in pending) {
         phase = DataMigrationPhase.steps;
@@ -351,6 +366,10 @@ class _MigrationRun {
     } finally {
       // Also invalidate on partial writes and failed restores. SharedPreferences
       // itself can remain unverified after a reload failure; writes stay locked.
+      // Runs on every execute() call, including the upToDate/fresh/no-step-bump
+      // no-op paths — that per-startup cost is accepted so this stays one rule
+      // ("any exit invalidates") instead of a path-dependent one that a future
+      // added branch could silently fall outside of.
       Storage.resetCachesAfterExternalWrite();
     }
   }
@@ -712,6 +731,11 @@ class _Snapshot {
   }
 
   bool matches(SharedPreferences prefs) {
+    // runtimeType comparison assumes native int/double stay distinct on
+    // reload, which native platforms preserve; web (dart2js) can blur a
+    // stored 2.0 back into an int and read as a false mismatch here. Web is
+    // smoke-only for this service, so that gap is accepted rather than
+    // widened into a numeric `==` that would also blur real type drift.
     final keys = prefs.getKeys().where(_isDataKey).toSet();
     if (keys.length != values.length || !keys.containsAll(values.keys)) {
       return false;

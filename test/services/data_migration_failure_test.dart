@@ -173,6 +173,58 @@ void main() {
     );
   });
 
+  group('a version bump with no registered steps needs no snapshot', () {
+    test(
+      'empty registry stamps the version without ever writing backup or '
+      'journal, even past a value type the snapshot codec cannot represent',
+      () async {
+        await boot({
+          _version: 1,
+          'kl_keep': 'original',
+          'kl_not_finite': double.nan,
+          'kl_list': <Object?>['one', 2],
+        });
+        final before = Map<String, Object>.of(native.values);
+        final result = await run(steps: const {});
+
+        expect(result.status, DataMigrationStatus.migrated);
+        expect(result.writesAllowed, isTrue);
+        expect(result.failureCode, isNull);
+        expect(native.values[_version], 2);
+        expect(native.values.containsKey(_backup), isFalse);
+        expect(native.values.containsKey(_journal), isFalse);
+        expect(native.operations, isNot(contains('set:$_backup')));
+        expect(native.operations, isNot(contains('set:$_journal')));
+        // Nothing but the version marker moved — the unsupported values that
+        // would have failed `_Snapshot.capture` on the full path are
+        // untouched, because that path was never entered.
+        final unrelated = Map<String, Object>.of(native.values)
+          ..remove(_version);
+        final beforeUnrelated = Map<String, Object>.of(before)
+          ..remove(_version);
+        expect(unrelated, beforeUnrelated);
+      },
+    );
+
+    test(
+      'the same bump with one registered step still writes backup and '
+      'journal',
+      () async {
+        await boot();
+        final result = await run();
+
+        expect(result.status, DataMigrationStatus.migrated);
+        expect(native.values[_version], 2);
+        // The full path did run: backup and journal were written during the
+        // migration, even though a successful run cleans them up afterward.
+        expect(native.operations, contains('set:$_backup'));
+        expect(native.operations, contains('set:$_journal'));
+        expect(native.values.containsKey(_backup), isFalse);
+        expect(native.values.containsKey(_journal), isFalse);
+      },
+    );
+  });
+
   group('recovery validates the complete original before mutation', () {
     final invalidBackups = <String, Object>{
       'late invalid typed value':
