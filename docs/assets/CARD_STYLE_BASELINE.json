@@ -198,6 +198,19 @@
         24
       ]
     },
+    "assets/illustrations/activities/my_words.webp": {
+      "sha256": "21c775be5d9cd625426f9094f8294f1e8225316a7030da2527818f0f2babefdf",
+      "kb": 89.7,
+      "ivoryFrac": 0.6024,
+      "fine": 4.959,
+      "coarse": 0.673,
+      "uniqueColors": 44606,
+      "top8": 0.6726,
+      "patchXY": [
+        376,
+        24
+      ]
+    },
     "assets/illustrations/activities/pronunciation.webp": {
       "sha256": "fb6d9be0f7f0a4eeb0f0bce6a66743dd16ed3d4cff9467d76d91dd9961992391",
       "kb": 92.0,
