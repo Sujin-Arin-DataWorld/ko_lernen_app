@@ -1111,6 +1111,43 @@ void main() {
       expect(stub.spoken, isEmpty);
     });
   });
+
+  group(
+    'SoriGaps.optionGap — 선택형 퀘스트 4종의 옵션 타일 사이 간격은 12dp (지시서 4.8/4.10)',
+    () {
+      for (final engineName in const [
+        'listening',
+        'translation',
+        'cloze',
+        'particle',
+      ]) {
+        testWidgets('$engineName: 첫 두 옵션 타일 사이 SizedBox 높이는 12', (tester) async {
+          final engine = _engines.singleWhere((e) => e.name == engineName);
+          await _pumpQuest(
+            tester,
+            engine.build((_) {}, () {}, false),
+            locale: const Locale('de'),
+            viewport: _viewports[2],
+          );
+
+          final tile0 = find.byKey(const ValueKey('answer-0'));
+          final tile1 = find.byKey(const ValueKey('answer-1'));
+          expect(tile0, findsOneWidget);
+          expect(tile1, findsOneWidget);
+
+          final gap =
+              tester.getTopLeft(tile1).dy - tester.getBottomLeft(tile0).dy;
+          expect(
+            gap,
+            moreOrLessEquals(SoriGaps.optionGap, epsilon: 0.5),
+            reason:
+                '$engineName 옵션 타일 사이 간격이 SoriGaps.optionGap(12)이 아니다 '
+                '(실측 $gap)',
+          );
+        });
+      }
+    },
+  );
 }
 
 Future<void> _pumpQuest(

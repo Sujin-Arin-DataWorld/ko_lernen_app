@@ -158,7 +158,7 @@ class _LueckenQuestState extends State<LueckenQuest> {
             padding: const EdgeInsets.symmetric(vertical: Spacing.md),
             child: _sentenceView(context),
           ),
-          const SizedBox(height: Spacing.lg),
+          const SizedBox(height: SoriGaps.questionToOptions),
           for (final entry in _options.asMap().entries) ...[
             SoriAnswerTile(
               key: ValueKey('answer-${entry.key}'),
@@ -168,7 +168,7 @@ class _LueckenQuestState extends State<LueckenQuest> {
               selected: _selected == entry.key,
               onTap: _resolved == null ? () => _select(entry.key) : null,
             ),
-            const SizedBox(height: Spacing.sm),
+            const SizedBox(height: SoriGaps.optionGap),
           ],
         ],
       ),

@@ -92,7 +92,7 @@ class SoriAnswerTray extends StatelessWidget {
       curve: Curves.easeOut,
       constraints: BoxConstraints(minHeight: minHeight),
       width: double.infinity,
-      padding: const EdgeInsets.all(Spacing.md),
+      padding: const EdgeInsets.all(SoriGaps.paragraphGap),
       decoration: BoxDecoration(
         color: surfaces.surface,
         borderRadius: BorderRadius.circular(SoriRadius.lg),
@@ -346,7 +346,7 @@ class SoriPromptCard extends StatelessWidget {
                       size: 22,
                     ),
                   ),
-                  const SizedBox(width: Spacing.sm),
+                  const SizedBox(width: SoriGaps.chromeToContent),
                 ],
                 Expanded(
                   child: Column(
@@ -362,7 +362,7 @@ class SoriPromptCard extends StatelessWidget {
                         ),
                       ),
                       if (replayable) ...[
-                        const SizedBox(height: Spacing.xs),
+                        const SizedBox(height: SoriGaps.headingToBody),
                         Row(
                           children: [
                             Expanded(
@@ -505,7 +505,7 @@ class SoriAnswerTile extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(width: Spacing.sm),
+                    const SizedBox(width: SoriGaps.cardGap),
                     Expanded(
                       child: Text(
                         label,
@@ -591,7 +591,7 @@ class ScenarioQuestAction extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: Spacing.sm),
+            const SizedBox(height: SoriGaps.labelToField),
           ],
           if (onSubmit != null)
             SoriButton.filled(
@@ -655,7 +655,7 @@ class ScenarioQuestAction extends StatelessWidget {
                   ],
                 ),
         ),
-        if (!result) const SizedBox(height: Spacing.sm),
+        if (!result) const SizedBox(height: SoriGaps.sectionGap),
         SoriButton.filled(
           key: const ValueKey('quest-continue'),
           label: isLast ? t.questViewResult : t.questNext,

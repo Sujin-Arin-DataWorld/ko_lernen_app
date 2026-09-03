@@ -192,7 +192,7 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
               ).bodySmall.copyWith(color: surfaces.textMuted),
             ),
           ],
-          const SizedBox(height: Spacing.lg),
+          const SizedBox(height: SoriGaps.questionToOptions),
           for (final entry in _options.asMap().entries) ...[
             SoriAnswerTile(
               key: ValueKey('answer-${entry.key}'),
@@ -204,7 +204,7 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
               selected: _selected == entry.key,
               onTap: _resolved == null ? () => _select(entry.key) : null,
             ),
-            const SizedBox(height: Spacing.sm),
+            const SizedBox(height: SoriGaps.optionGap),
           ],
         ],
       ),

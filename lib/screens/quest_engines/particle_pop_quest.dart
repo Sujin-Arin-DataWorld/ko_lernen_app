@@ -355,7 +355,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
               onTap: () => SoriSpeech.speak(_fullSentence),
             ),
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: SoriGaps.questionToOptions),
 
           // Partikel-Chips
           for (final entry in _options.asMap().entries) ...[
@@ -368,7 +368,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
               onTap: _completed ? null : () => _onAccept(entry.key),
               compact: true,
             ),
-            const SizedBox(height: Spacing.sm),
+            const SizedBox(height: SoriGaps.optionGap),
           ],
         ],
       ),

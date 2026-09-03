@@ -144,7 +144,7 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           SoriPromptCard(sentence: _prompt(langCode)),
-          const SizedBox(height: Spacing.lg),
+          const SizedBox(height: SoriGaps.questionToOptions),
           for (final entry in _options.asMap().entries) ...[
             SoriAnswerTile(
               key: ValueKey('answer-${entry.key}'),
@@ -154,7 +154,7 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
               selected: _selected == entry.key,
               onTap: _resolved == null ? () => _select(entry.key) : null,
             ),
-            const SizedBox(height: Spacing.sm),
+            const SizedBox(height: SoriGaps.optionGap),
           ],
         ],
       ),
