@@ -6,16 +6,20 @@ import 'dart:math' as math;
 import 'package:audioplayers/audioplayers.dart';
 import 'package:crypto/crypto.dart';
 import 'package:cloud_functions/cloud_functions.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'audio_policy.dart';
+import 'account/cloud_write_session.dart';
 import 'analytics_service.dart';
 import 'storage_service.dart';
 import 'tts_bundled_manifest.dart';
 import 'tts_installation_id.dart';
 import 'tts_cache_key.dart';
+import 'tts_canonical_manifest.dart';
+import 'tts_private_cache.dart';
 
 export 'tts_cache_key.dart';
 
@@ -548,6 +552,17 @@ class TtsService {
   /// 상한을 두는 이유: 한 세션에서 수백 줄을 들으면 탭이 무거워진다.
   static final Map<String, Uint8List> _memoryCache = <String, Uint8List>{};
   static const int _memoryCacheEntries = 64;
+  static TtsPrivateCache? _privateCache;
+
+  static TtsPrivateCache get _privateAudioCache =>
+      _privateCache ??= TtsPrivateCache(
+        sessions: cloudWriteSessionController,
+        onInvalidate: () {
+          // Historical unclassified cache entries are disposable audio only.
+          unawaited(stop());
+          unawaited(clearCache());
+        },
+      );
 
   /// 지금 왜 소리가 안 나는지. null 이면 문제 없음.
   ///
@@ -791,6 +806,15 @@ class TtsService {
       }
     }
 
+    // Only checked-in corpus keys may use the legacy shared tiers. Unknown
+    // text never reads old public disk, memory or Storage audio.
+    if (!await TtsCanonicalManifest.contains(key)) {
+      if (!allowSynthesis) {
+        return null;
+      }
+      return _resolvePrivateAudio(text, key);
+    }
+
     // 웹은 파일시스템이 없다. 예전에는 여기서 1~3단이 통째로 죽고 OS 음성만
     // 남아 브라우저 독일어 음성이 한국어를 읽었다. 이제 같은 Storage 객체를
     // 메모리로 받아 재생한다 — 웹도 프리미엄이다.
@@ -899,6 +923,91 @@ class TtsService {
     String voice, {
     bool allowSynthesis = false,
   }) => _resolveAudio(text, voice, allowSynthesis: allowSynthesis);
+
+  static String? _authenticatedUid() {
+    try {
+      return FirebaseAuth.instance.currentUser?.uid;
+    } catch (_) {
+      // Firebase can be unconfigured on web/tests or not initialized yet.
+      return null;
+    }
+  }
+
+  static Future<TtsAudio?> _resolvePrivateAudio(
+    String text,
+    TtsCacheKey key,
+  ) async {
+    final uid = _authenticatedUid();
+    final session = cloudWriteSessionController.current;
+    if (uid == null ||
+        session?.uid != uid ||
+        session?.mode != CloudWriteMode.ready) {
+      return null;
+    }
+    DateTime? expiresAt;
+    try {
+      final bytes = await _privateAudioCache.resolve(
+        key.storagePath,
+        serverExpiry: () => expiresAt,
+        fetch: () async {
+          final installationId = await _installationIdProvider.getOrCreate();
+          if (_authenticatedUid() != uid ||
+              cloudWriteSessionController.current != session) {
+            return null;
+          }
+          return takeCallableAudio(
+            invoke: () async {
+              if (_authenticatedUid() != uid ||
+                  cloudWriteSessionController.current != session) {
+                return null;
+              }
+              final result = await _functions
+                  .httpsCallable(
+                    _functionName,
+                    options: HttpsCallableOptions(
+                      timeout: _netTimeout,
+                      limitedUseAppCheckToken: true,
+                    ),
+                  )
+                  .call<Map<String, dynamic>>(
+                    buildTtsCallableData(
+                      text: text,
+                      voice: key.voice,
+                      installationId: installationId,
+                    ),
+                  );
+              final expiry = result.data['expiresAtMillis'];
+              final b64 = result.data['audioBase64'];
+              if (result.data['cacheScope'] != 'private' ||
+                  expiry is! num ||
+                  !expiry.isFinite ||
+                  b64 is! String ||
+                  b64.isEmpty ||
+                  _authenticatedUid() != uid ||
+                  cloudWriteSessionController.current != session) {
+                return null;
+              }
+              expiresAt = DateTime.fromMillisecondsSinceEpoch(expiry.toInt());
+              final decoded = base64Decode(b64);
+              return TtsCacheKey.isUsableAudio(decoded) ? decoded : null;
+            },
+          );
+        },
+      );
+      if (bytes == null ||
+          _authenticatedUid() != uid ||
+          cloudWriteSessionController.current != session) {
+        return null;
+      }
+      return TtsAudio.bytes(bytes);
+    } on TtsSynthesisBlocked catch (blocked) {
+      _reportUnavailable(blocked.reason);
+      rethrow;
+    } catch (_) {
+      _reportUnavailable(TtsUnavailableReason.offline);
+      return null;
+    }
+  }
 
   /// 받은 바이트를 플랫폼에 맞게 캐시하고 재생 가능한 형태로 감싼다.
   static Future<TtsAudio> _cacheAndWrap(
@@ -1048,7 +1157,13 @@ class TtsService {
   static Future<void> clearCacheStrict({
     Future<Directory> Function()? cacheDirectory,
   }) async {
+    _privateCache?.clear();
+    _memoryCache.clear();
+    _prefetchAttempted.clear();
     try {
+      if (kIsWeb && cacheDirectory == null) {
+        return;
+      }
       final dir = await (cacheDirectory ?? _strictCacheDirectory)();
       if (await dir.exists()) {
         await dir.delete(recursive: true);

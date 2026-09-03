@@ -35,13 +35,16 @@ test "$(node -p 'JSON.parse(require("fs").readFileSync(".firebaserc", "utf8")).p
 
 ## 2. 로컬/CI preflight
 
-Node 함수는 저장소가 지정한 Node 22를 사용한다. Auth cleanup만 Gen1 Node 20이다.
+Node 함수는 Gen1 Auth cleanup을 포함해 저장소가 지정한 Node 22를 사용한다.
+Node 20은 2026-04-30 deprecated, 2026-10-30 decommission 예정이므로 새 후보는
+Node 22로 검증한다. [공식 runtime 지원 일정](https://docs.cloud.google.com/functions/docs/runtime-support).
 Firestore rules emulator에는 Java도 필요하다.
 
 ```bash
 npm ci --prefix functions/gye
 npm test --prefix functions/gye
 npm --prefix functions/gye run test:rules
+npm --prefix functions/gye run test:storage-rules
 
 npm ci --prefix functions/tts
 npm test --prefix functions/tts
@@ -146,7 +149,7 @@ debug-token 성공은 Play Integrity, App Attest, DeviceCheck, Azure production 
 
 ```bash
 gcloud functions deploy on_auth_user_deleted \
-  --no-gen2 --runtime=nodejs20 --region=europe-west3 \
+  --no-gen2 --runtime=nodejs22 --region=europe-west3 \
   --source=functions/auth_cleanup --entry-point=on_auth_user_deleted \
   --trigger-event=providers/firebase.auth/eventTypes/user.delete \
   --trigger-resource=ko-lernen-app --project=ko-lernen-app --retry
@@ -176,3 +179,79 @@ Firestore TTL ACTIVE, owner-approved legacy cache cleanup을 모두 요구한다
 
 source test, deploy command 성공, console 처리, 실제 기기 동작은 서로 다른 증거다.
 하나를 다른 하나의 완료로 기록하지 않는다.
+
+## 9. Commercial stability 동반 변경의 추가 게이트
+
+W7의 TTS 로딩/프리패치, Living의 스타일 변경, W9의 배포 소유권은 유지한다.
+아래는 기존 배포에 추가되는 안전 조건이며 새로운 자동 배포 경로가 아니다.
+
+### Auth와 Apple
+
+- `APPLE_SERVICES_ID`와 `APPLE_REDIRECT_URI`는 공개 설정이지만 실제 등록된 값만 사용한다.
+  Dart release define과 서버 parameter를 일치시키고 Apple Services ID를 native App ID와 연결한다.
+- `appleOAuthCallback`은 고정 Android package/scheme으로만 반환하는 공개 HTTPS POST relay다.
+  HTTPS 반환 URL 등록, Firebase Apple provider audience, 서명 지문/SHA 설정은 콘솔에서 검증한다.
+- Google-only→Apple, Apple-only→Google, iOS→Android→iOS 왕복에서 같은 Firebase UID와
+  기존 학습 기록을 확인한다. 취소·충돌·네트워크 끊김·앱 재시작·삭제도 실제 기기로 검증한다.
+- `apple-revocation-unavailable`은 계정 삭제 대체 경로이지 Apple 권한 철회 성공이 아니다.
+
+### 개인정보와 배포 순서
+
+- source corpus로 생성한 TTS canonical manifest를 `python functions/tts/build_canonical_manifest.py --check`로 검증한다.
+  public canonical만 기존 `tts/v3/{voice}/{hash}.mp3`를 유지한다. 개인 합성은 UID-private이다.
+- `functions/tts/privacy_migration.js`는 로컬 inventory→검토 가능한 계획만 만든다.
+  실제 이름/generation inventory, canonical 비교, 승인 해시 없이 live metadata/token을 수정하지 않는다.
+- 운영자가 승인한 canonical metadata `canonical=true` 표시와 legacy download-token 철회를
+  완료해야 새 public get-only 규칙을 적용한다. 버킷/객체 IAM·ACL 우회 공개도 별도 확인한다.
+  이미 다운로드된 사본이나 과거에 공개된 내용은 소급 회수할 수 없다.
+- `storage_lifecycle.template.json`은 기존 bucket lifecycle에 **병합할 템플릿**이다.
+  기존 규칙을 덮어쓰지 않는다. `tts_private/` 객체 접근은24시간에 종료되고 물리 삭제는 eventual이다.
+  soft-delete/versioning/retention 정책과 실제 잔존 기간을 운영자가 함께 확인한다.
+- 개인 클라이언트 음성은 메모리 전용이며 UID/epoch 변경 시 무효화한다. 앱 재시작 뒤에는
+  네트워크가 필요하다. 구형 응답에는 private scope/expiry가 없으므로 새 클라이언트가 거부한다.
+  백엔드·메타데이터·규칙·클라이언트의 배포 순서를 W9에서 함께 검증한다.
+- `service_idempotency_results.expiresAt` TTL은15분 결과 보관, `service_idempotency.expiresAt`은
+  책/발음24시간 hash-only 중복 방지다. API 접근 만료와 Firestore TTL 실제 삭제는 별개다.
+- `premium_grants`, `customer_entitlements`, `billing_customers`, billing receipts, access rate
+  documents는 서버 전용이며 계정 삭제 어댑터가 소유자 해시로 제거한다. late completion이
+  삭제 계정을 다시 만드는지 계정 삭제 worker와 합동 검증한다.
+
+### 테스터 권한과 비용 중단 장치
+
+- 명시적으로 Jin이 승인한 최대100UID 명단만 `functions/gye/manage_premium_grants.js`에 입력한다.
+  형식은 `schemaVersion:1`, `approvedBy:"Jin"`, `approvalRef`, `environment`,
+  `action:"grant"|"revoke"`, `uids`다. 이 메타데이터는 사람 승인 자체의 암호학적 증명이 아니다.
+  명단 검토와 제한된 ADC/IAM을 운영자가 책임지며 파일은 저장소/로그에 올리지 않는다.
+- 기본은 read-only dry-run이다. `--project ko-lernen-app --approved-roster <검증된 파일>`로
+  건수만 확인하고 명시적 승인 뒤에만 `--apply`한다. 이 작업에서 실제 권한 부여는 하지 않았다.
+  feedback passport나 `BETA_UNLOCK_ALL`로 생성하지 않는다. 재생성 UID는 새 승인이 필요하다.
+- `service_cost_controls/ai_v1`은 `schemaVersion:1`, `approvedBy:"Jin"`, `approvalRef`,
+  `approvedAt`, `dailyUnitLimit`, `bookReservationUnits`, `pronunciationReservationUnits`,
+  `ttsReservationUnits`를 요구한다. 모든 요청 가중치는 양수, 하루 한도는0이상 정수다.
+  누락/잘못된 설정/한도0/소진은 새 외부 처리 전에 fail-closed다. 검증을 위해 임의 운영 예산을 넣지 않는다.
+- `service_cost_ledgers/YYYY-MM-DD`는 두 환경·책·발음·새 TTS 합성의 비용 예약을 함께 제한한다.
+  TTL은 UTC day+2일이다. 이미 처리했는지 불명확한 요청의 비용은 환급하지 않는다.
+  가중치는 **설정된 보수적 예약 단위**이지 실제 유로 비용 측정값이 아니다.
+- 최대 허용 입력의 provider 비용, 중복/실패/재시도, TTS, Firestore·함수·Storage 비용을 측정한다.
+  원문/음성 대신 비식별 비용 표본의 n/평균/p95/max와 산출 근거를 남긴다. 무료 사용자 비용도 포함한다.
+- 스토어 실제 정산 순수입과 무료/구독 사용자 사용 분포를 대조해 €5/월·20/50 정책을 승인한다.
+  비용이 맞지 않거나 측정 증거가 없으면 유료 전환을 중단한다. 가격/한도를 자동으로 바꾸지 않는다.
+  거절된 트래픽도 Auth/Firestore/인프라 비용이 있으므로 앱 한도는 계정 농장 방어의 완전한 증명이 아니다.
+
+### 결제 운영과 출시 판정
+
+- [구독 런북](subscription-setup-runbook.md)의 신규 구매/갱신/취소/만료/환불/복원/보류/유예
+  매트릭스를 두 스토어에서 실제 후보 빌드로 수행한다. TestFlight는 sandbox다.
+- Billing 기본 비활성, server environment 분리, Keep original App User ID 콘솔 설정, worker
+  retry/scheduler 배포와 Secret 최소 바인딩을 검증한다. 새 Secret이 필요한 결제 함수까지 포함한
+  전체 Gye deploy는 설정이 준비될 때까지 실행하지 않는다. 임의 Secret placeholder로 통과시키지 않는다.
+- 미완료 결제 작업은 TTL로 버리지 않는다.7일 이상 지연되면 hourly 재시도와 aggregate review
+  경고를 발생시킨다. 일반 pending/실패율도 운영 알림을 설정하고7일 전에 고객 지원이 개입한다.
+  완료 receipt는 UID를 제거한 최소 hash-only metadata를30일 TTL로 보관한다.
+- 실제 무료 공개 후 최소14일의 crash-free/ANR, 로그인 성공률, 삭제 큐, pending결제, AI 비용을
+  관찰한다. 테스트나 시간이 적힌 문서로 실제 관찰 기간을 대체하지 않는다.
+- 마이크/Azure 발음 평가, 개인 TTS 수명, 서버 권한/결제 처리에 맞게 공개 개인정보 문서와
+  스토어 Data Safety/App Privacy 답변을 W9 소유자가 검토한다. 기존 "음성 녹음 없음" 문구는
+  발음 평가가 포함된 후보의 제출 문구로 재사용하면 안 된다.
+- fullSHA source→CI→배포revision→스토어업로드→설치기기→운영관찰의 각 증거가 없으면
+  "상용화100%"로 표기하지 않는다. 코드를 main에 병합하는 것은 판매 활성화가 아니다.

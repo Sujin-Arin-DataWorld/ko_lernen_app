@@ -196,6 +196,8 @@ class _ProfileScreenState extends State<ProfileScreen>
         context,
         operations: _accountOperations,
         provider: provider,
+        additionalProvider:
+            (widget.account ?? AuthService.accountSnapshot).providers.isDurable,
         onCompleted: () async {
           if (mounted) setState(() {});
         },
@@ -708,6 +710,19 @@ class _ProfileScreenState extends State<ProfileScreen>
                 builder: (context, linkAvailable) => linked
                     ? _ConnectedCard(
                         name: name ?? providerLabel,
+                        onConnectGoogle: providers.isGoogleLinked
+                            ? null
+                            : () => _connectWith(AccountLinkProvider.google),
+                        onConnectApple:
+                            providers.isAppleLinked ||
+                                !_accountOperations.appleSignInAvailable
+                            ? null
+                            : () => _connectWith(AccountLinkProvider.apple),
+                        linksEnabled:
+                            !_busy &&
+                            linkAvailable &&
+                            cloudDeletionState ==
+                                CloudBackupDeletionJournalState.clear,
                         onSignOut:
                             linkAvailable &&
                                 cloudDeletionState ==
@@ -944,7 +959,16 @@ class _GuestCard extends StatelessWidget {
 class _ConnectedCard extends StatelessWidget {
   final String? name;
   final VoidCallback? onSignOut;
-  const _ConnectedCard({required this.name, required this.onSignOut});
+  final VoidCallback? onConnectGoogle;
+  final VoidCallback? onConnectApple;
+  final bool linksEnabled;
+  const _ConnectedCard({
+    required this.name,
+    required this.onSignOut,
+    this.onConnectGoogle,
+    this.onConnectApple,
+    this.linksEnabled = true,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -982,6 +1006,20 @@ class _ConnectedCard extends StatelessWidget {
             style: SoriTextTheme.of(context).bodySmall,
           ),
           const SizedBox(height: 12),
+          if (onConnectGoogle != null)
+            SoriButton.outlined(
+              label: t.settingsCloudSignInPrompt,
+              icon: Icons.cloud_outlined,
+              onTap: linksEnabled ? onConnectGoogle : null,
+              fullWidth: true,
+            ),
+          if (onConnectApple != null)
+            SoriButton.outlined(
+              label: t.authAppleSignIn,
+              icon: Icons.apple,
+              onTap: linksEnabled ? onConnectApple : null,
+              fullWidth: true,
+            ),
           Align(
             alignment: Alignment.centerLeft,
             child: SoriButton.ghost(

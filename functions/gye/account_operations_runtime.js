@@ -2510,6 +2510,16 @@ function createAccountOperationRuntime({
         data.authorizationCode,
         "apple-authorization-code-required",
       );
+      // A bounded selector is not an OAuth client ID. Actual IDs and redirect
+      // URLs are server configuration, and the adapter verifies Apple audience.
+      const clientKind = data.clientKind === undefined ? 'native' : data.clientKind;
+      const subjects = identity.decoded?.firebase?.identities?.['apple.com'];
+      if (!['native', 'web'].includes(clientKind) ||
+          !Array.isArray(subjects) || subjects.length !== 1 ||
+          typeof subjects[0] !== 'string' || !subjects[0]) {
+        throw repositoryFailure('invalid-operation');
+      }
+      const expectedSubject = subjects[0];
       const visible = await repository.get({
         operationId,
         actorUid: identity.uid,
@@ -2579,6 +2589,8 @@ function createAccountOperationRuntime({
           await revokeAppleAuthorizationCode({
             authorizationCode,
             uid: identity.uid,
+            clientKind,
+            expectedSubject,
           });
         } catch (error) {
           // TN3194: missing/placeholder Apple revoke secrets must not

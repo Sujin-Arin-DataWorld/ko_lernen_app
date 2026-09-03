@@ -1,26 +1,33 @@
 # 구독 운영 셋업 런북 — Hangul Sori €5/월 Premium (RevenueCat)
 
-> 작성: 2026-06-03 · 대상: Jin (운영) · 코드 상태: **완료** (M4, `58c3c76`)
-> 이 문서는 **코드가 아니라 대시보드 작업**이다. 아래 5단계만 끝내면 결제가 실제로 작동한다.
+> 갱신: 2026-09-03 · 대상: Jin (운영) · 무료 공개 후 유료 전환용 운영 계약.
+> 소스 구현·CI·백엔드 배포·스토어 처리·실기기 검증은 서로 다른 증거다.
+> 아래 설정만으로 결제 완료를 주장하지 않는다. 모든 출시 게이트 통과 전에는 판매를 켜지 않는다.
 
 ---
 
-## 0. 지금 상태 (왜 코드는 안 건드려도 되나)
+## 0. 출시 순서와 권한 계약
 
-코드에 이미 있는 것 (검증함):
+소스 검증 대상(실제 운영 상태가 아님):
 
 | 요소 | 위치 | 비고 |
 |---|---|---|
-| 구독 서비스 | `lib/services/premium_service.dart` | RevenueCat `purchases_flutter ^10.2.0`. 키 없으면 **무료 모드**(크래시 X) |
-| 페이월 UI | `lib/screens/paywall_screen.dart` | €5/월 단일 플랜, 구매/복원, l10n DE/EN |
+| 구독 서비스 | `lib/services/premium_service.dart` | RevenueCat SDK는 구매를 처리하고 서버 스냅샷이 권한을 결정. 키/검증 누락 시 구매 비활성 |
+| 페이월 UI | `lib/screens/paywall_screen.dart` | 스토어의 월간 상품·현지 가격, 구매/복원/대기 상태, DE/EN |
 | 게이팅 | 단어팩 비A1·시나리오 비A1·홈 | `PremiumService.gate(context)` → 무료면 `/paywall` |
 | Dev 토글 | `lib/screens/settings_screen.dart` (Debug) | 대시보드 없이 무료↔프리미엄 전환 테스트 |
 
-**코드가 기대하는 고정값** (대시보드에서 이 이름 그대로 써야 함):
+무료 공개 빌드는 `FREE_LAUNCH=true`로 번들 콘텐츠를 개방하며 구독 판매는 비활성이다.
+무료 공개 후 실제 14일 운영 관찰, 아래 실기기·비용·정책 게이트를 통과한 뒤에만 유료로 전환한다.
+유료 단계는 A1 무료, A2–C2 Premium이다. 일반 사용자 AI는 책3회/발음5회,
+구독자와 Jin 승인 평생 테스터는 책20회/발음50회(UTC 하루)다. 로그인·복원·등급 변경은
+이미 사용한 한도를 초기화하지 않는다. 빌드 플래그나 피드백 제출은 테스터 승인 증거가 아니다.
 
-- Entitlement ID = **`premium`** (`premium_service.dart:29`)
-- 패키지 = **Monthly** (`o.monthly` 우선, 없으면 첫 패키지로 폴백)
-- 가격 표시 = 스토어 상품의 `priceString` → **€5는 코드가 아니라 Play Console 상품에서 설정**
+**대시보드와 서버가 일치해야 하는 고정값**:
+
+- Entitlement ID = **`premium`** (서버 `RC_ENTITLEMENT_ID`와 동일)
+- 패키지 = **Monthly**. 월간 상품이 없으면 구매 비활성; 연간/첫 상품 폴백 금지.
+- 가격 표시 = 스토어 상품의 `priceString`와 실제 월간 주기. €5/월은 승인 대기 초안이며 비용 검증 전 판매하지 않는다.
 - 키 주입 = `--dart-define=RC_ANDROID_KEY=goog_…` / `RC_IOS_KEY=appl_…` (공개 SDK 키, **시크릿 키 아님**)
 - 앱 패키지명 = **`com.sujinarin.ko_lernen_app`**
 
@@ -39,7 +46,7 @@
    - 유형: **자동 갱신**
    - 결제 주기: **매월(P1M)**
    - 가격: **€5.00** (독일 기준 → 다른 나라는 자동 환산, 필요시 조정)
-4. 기본 요금제를 **활성화**.
+4. 샌드박스 검증에 필요한 상태와 실제 판매 활성화는 구분한다. 실제 판매 활성화는 최종 출시 승인 뒤에만 한다.
 5. (선택) 무료 체험/할인은 **혜택(Offer)**로 나중에 추가 가능 — 지금은 스킵.
 
 > ⚠️ 상품은 활성 상태여야 RevenueCat·앱에서 보인다. "초안"이면 offering이 비어 페이월이 폴백 가격만 표시.
@@ -66,7 +73,23 @@ RevenueCat이 구매 상태를 서버에서 검증하려면 Play Developer API �
 1. **Entitlements > + New**: ID = **`premium`** (이름 정확히! 코드가 이 문자열로 검사).
 2. **Products > + Import** → Play의 `premium_monthly:monthly` 가져오기 → entitlement `premium`에 연결.
 3. **Offerings > Default offering** → **Package 추가** → 타입 **Monthly ($rc_monthly)** → 위 상품 연결.
-   - 코드가 `offering.monthly`를 먼저 보므로 **Monthly 패키지로** 넣는 게 가장 깔끔.
+   - **Monthly 패키지가 필수**다. 다른 기간의 상품을 대신 표시하지 않는다.
+
+### 2-4. 서버 연결과 계정 소유권
+
+- RevenueCat Restore Behavior는 **Keep with original App User ID**로 확인하고 콘솔 증거를 보존한다.
+  `BILLING_RESTORE_POLICY=keep_original` 문자열만으로 콘솔 설정을 증명할 수 없다.
+- 구매/복원은 Google 또는 Apple이 연결된 Firebase UID와 완료된 RevenueCat 바인딩을 요구한다.
+  두 제공자를 추가 연결해도 UID는 그대로다. 이메일·Apple 비공개 이메일·RevenueCat alias는 자동 계정 병합 근거가 아니다.
+- Gye 코드베이스의 `revenueCatWebhook`, `processRevenueCatEvent`, `refreshRevenueCatAccess`와
+  `getAccessSnapshot`을 exact-SHA로 검증한다. 서버 기본 `BILLING_ENABLED=false`를 유지하다가
+  승인된 샌드박스 설정에서 먼저 켠다. `ACCESS_ENVIRONMENT`는 PRODUCTION/SANDBOX를 명시한다.
+- Secret Manager의 `RC_SERVER_API_KEY`, `RC_WEBHOOK_AUTHORIZATION`, `RC_WEBHOOK_SIGNING_SECRET`을
+  역할별로 바인딩한다. 두 웹훅 인증 방식이 설정되면 둘 다 일치해야 한다. 값은 로그/문서에 남기지 않는다.
+- 웹훅은 최소 작업을 영속화한 뒤 응답하고 최신 구독자를 다시 조회한다. 취소 의사만으로
+  아직 유효한 구독을 박탈하지 않지만 만료·환불·철회는 최신 검증 결과로 반영한다.
+- 테스트와 운영 권한은 분리한다. TestFlight 구매는 sandbox다. 계정 삭제는 구독 취소가 아니다.
+  사용자에게 원래 구매한 스토어의 관리 경로와 별도 취소 필요성을 안내한다.
 
 ---
 
@@ -74,6 +97,7 @@ RevenueCat이 구매 상태를 서버에서 검증하려면 Play Developer API �
 
 ### Production subscription AAB (feedback disabled)
 
+이 명령은 **유료 전환 승인 후**의 빌드 예시이며 현재 판매 허가가 아니다.
 공개 SDK 키는 repo에 커밋하지 말고 저장소 루트의 PowerShell 세션에만 주입한다.
 아래 guard는 키가 없거나 형식이 틀리면 빌드 전에 중단한다. 이 production 명령에는
 테스터 피드백 define을 넣지 않는다.
@@ -95,7 +119,8 @@ flutter build appbundle --release --obfuscate --split-debug-info=build/app/outpu
 ## STEP 4 — 샌드박스 결제 테스트 (실제 청구 X)
 
 1. Play Console → **설정 > 라이선스 테스트** → 테스트할 Google 계정(Gmail) 추가.
-2. 그 계정이 로그인된 실기기에 **내부 테스트 트랙**으로 배포된 앱 설치 (사이드로드 APK는 결제 안 됨 — Play 경유 필수).
+2. 그 계정이 로그인된 실기기에 내부 테스트 후보를 설치한다. 라이선스 테스터는 조건에 맞는
+   사이드로드 빌드도 사용할 수 있지만, 최종 게이트는 실제 스토어 배포 후보로 확인한다.
 3. 앱에서 비A1 단어팩/시나리오 진입 → 페이월 → 구매 → "테스트 카드"로 결제(청구 안 됨).
 4. 결제 후 게이팅이 풀리는지 + RevenueCat 대시보드 **Overview**에 이벤트 뜨는지 확인.
 5. **복원** 버튼 → 앱 재설치 후에도 프리미엄 복구되는지 (스토어 심사 필수 항목).
@@ -116,6 +141,13 @@ flutter build appbundle --release --obfuscate --split-debug-info=build/app/outpu
 - [ ] 구매 후 앱 재시작해도 프리미엄 유지 (오프라인 캐시)
 - [ ] 복원 동작
 - [ ] RevenueCat Overview에 구매/갱신 이벤트 수신
+- [ ] 두 스토어 각각 신규 구매·복원·재설치·갱신·해지·만료·환불/철회·결제 보류·유예를 확인
+- [ ] Google→Apple 추가 연결 및 iOS→Android 왕복에서 UID/학습 기록/구독 소유권 유지
+- [ ] 기존 두 계정 충돌은 병합·교체 없이 안전하게 종료
+- [ ] 늦은 웹훅/구매 완료가 계정 전환·삭제 후 다른 UID를 활성화하지 않음
+- [ ] 오프라인 구독은 최대72시간 및 알려진 만료일까지, 테스터는 최대30일 뒤 재검증
+- [ ] 원문/음성/토큰 없이 pending 최장 시간·실패율·비용·삭제 큐 적체 관측 및 운영자 알림 확인
+- [ ] [백엔드 출시 게이트](firebase-backend-release-gates.md)의 비용 승인과 개인정보 마이그레이션 완료
 
 ---
 
@@ -145,3 +177,9 @@ flutter build appbundle --release --obfuscate --split-debug-info=build/app/outpu
 - **공개 SDK 키**(`goog_`/`appl_`)는 앱에 들어가도 되는 값이지만, repo 평문 커밋은 지양 → `--dart-define` 또는 CI 시크릿.
 - RevenueCat **Secret API Key**(`sk_…`)와 Google **서비스계정 JSON**은 절대 앱/`repo`에 넣지 말 것 (서버/대시보드 전용).
 - 기존 `.gitignore`가 `.env*` 처리 중 — 키 메모는 거기 두면 안전.
+
+공식 검증 참고: [고객 식별](https://www.revenuecat.com/docs/customers/identifying-customers),
+[웹훅](https://www.revenuecat.com/docs/integrations/webhooks),
+[Google 결제 테스트](https://developer.android.com/google/play/billing/test),
+[TestFlight sandbox](https://www.revenuecat.com/docs/test-and-launch/sandbox/apple-app-store).
+무시 파일도 보안 저장소는 아니다. Secret payload를 작업 디렉터리에 메모하지 않는다.

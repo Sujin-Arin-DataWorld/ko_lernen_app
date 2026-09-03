@@ -1,0 +1,27 @@
+{
+  "now": 1788436800000,
+  "config": {"schemaVersion": 1, "approvedBy": "Jin", "approvalRef": "test-only-no-real-budget", "approvedAt": 1788436799000, "dailyUnitLimit": 20, "bookReservationUnits": 10, "pronunciationReservationUnits": 2, "ttsReservationUnits": 3},
+  "cases": [
+    {"name": "new book reservation", "wantUnits": 10},
+    {"name": "last book slot", "reservedUnits": 10, "wantUnits": 20},
+    {"name": "cap exhausted", "reservedUnits": 11, "wantCode": "resource-exhausted"},
+    {"name": "absent approval", "missingControl": true, "wantCode": "unavailable"},
+    {"name": "zero cap stop", "config": {"dailyUnitLimit": 0}, "wantCode": "resource-exhausted"},
+    {"name": "self approved", "config": {"approvedBy": "self"}, "wantCode": "unavailable"},
+    {"name": "future approval", "config": {"approvedAt": 1788436800001}, "wantCode": "unavailable"},
+    {"name": "empty reference", "config": {"approvalRef": " "}, "wantCode": "unavailable"},
+    {"name": "noninteger cap", "config": {"dailyUnitLimit": 0.1}, "wantCode": "unavailable"},
+    {"name": "boolean cap", "config": {"dailyUnitLimit": true}, "wantCode": "unavailable"},
+    {"name": "negative cap", "config": {"dailyUnitLimit": -1}, "wantCode": "unavailable"},
+    {"name": "unsafe cap", "config": {"dailyUnitLimit": 9007199254740992}, "wantCode": "unavailable"},
+    {"name": "book weight zero", "config": {"bookReservationUnits": 0}, "wantCode": "unavailable"},
+    {"name": "pronunciation weight missing", "config": {"pronunciationReservationUnits": null}, "wantCode": "unavailable"},
+    {"name": "tts weight missing", "config": {"ttsReservationUnits": null}, "wantCode": "unavailable"},
+    {"name": "malformed ledger", "reservedUnits": -1, "wantCode": "unavailable"},
+    {"name": "recheck existing", "reservedUnits": 10, "existing": {"day": "2026-09-03", "units": 10}, "wantUnits": 10},
+    {"name": "recheck lowered cap", "config": {"dailyUnitLimit": 9}, "reservedUnits": 10, "existing": {"day": "2026-09-03", "units": 10}, "wantCode": "resource-exhausted"},
+    {"name": "reclaimed prior UTC day", "reservedUnits": 0, "existing": {"day": "2026-09-02", "units": 10}, "wantUnits": 10},
+    {"name": "TTS consumes book remainder", "kind": "tts", "reservedUnits": 18, "wantCode": "resource-exhausted"},
+    {"name": "pronunciation consumes exact remainder", "kind": "pronunciation", "reservedUnits": 18, "wantUnits": 20}
+  ]
+}

@@ -39,9 +39,6 @@ test("pins Azure processing to Germany West Central", () => {
   assert.match(source, /const AZURE_SPEECH_REGION = "germanywestcentral";/);
   assert.doesNotMatch(source, /defineString\([^)]*REGION/i);
   assert.doesNotMatch(source, /process\.env\.[A-Z_]*REGION/);
-  assert.match(source, /claimPronunciationReplay/);
-  assert.match(source, /abandonPronunciationReplay/);
-  assert.match(source, /savePronunciationReplay/);
 });
 
 test("validates auth, App Check, size, text, and assessment id", () => {

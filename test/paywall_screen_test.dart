@@ -5,11 +5,173 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/access_snapshot.dart';
 import 'package:ko_lernen_app/screens/paywall_screen.dart';
 import 'package:ko_lernen_app/services/premium_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 
 void main() {
+  testWidgets(
+    'annual-only offering disables purchase without a fabricated monthly price',
+    (tester) async {
+      var purchases = 0;
+      const annual = Package(
+        'annual',
+        PackageType.annual,
+        StoreProduct(
+          'annual',
+          'Annual',
+          'Annual',
+          50,
+          '€50.00',
+          'EUR',
+          subscriptionPeriod: 'P1Y',
+        ),
+        _context,
+      );
+      await tester.pumpWidget(
+        _app(
+          PaywallScreen(
+            requiresSignIn: () => false,
+            offeringLoader: () async => const Offering('annual', 'Annual', {}, [
+              annual,
+            ], annual: annual),
+            purchaseOperation: (_) async {
+              purchases++;
+              return PremiumPurchaseOutcome.purchased;
+            },
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      final t = AppL10n.of(tester.element(find.byType(PaywallScreen)));
+      expect(find.text(t.paywallNotAvailable), findsOneWidget);
+      expect(find.textContaining('€50.00'), findsNothing);
+      final action = tester.widget<Semantics>(
+        find.byWidgetPredicate(
+          (w) =>
+              w is Semantics &&
+              w.properties.label == t.paywallCtaStart &&
+              w.properties.button == true,
+        ),
+      );
+      expect(action.properties.enabled, isFalse);
+      await tester.tap(find.text(t.paywallCtaStart));
+      expect(purchases, 0);
+    },
+  );
+
+  testWidgets(
+    'guest goes to existing account connection before purchase or restore',
+    (tester) async {
+      var purchases = 0;
+      await tester.pumpWidget(
+        _app(
+          PaywallScreen(
+            requiresSignIn: () => true,
+            offeringLoader: () async => null,
+            purchaseOperation: (_) async {
+              purchases++;
+              return PremiumPurchaseOutcome.purchased;
+            },
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Connect account'));
+      await tester.pumpAndSettle();
+      expect(find.text('Account connection'), findsOneWidget);
+      expect(purchases, 0);
+    },
+  );
+
+  testWidgets(
+    'active subscription and approved tester never see duplicate purchase CTA',
+    (tester) async {
+      final access = ValueNotifier<AccessSnapshot?>(
+        _premiumSnapshot('subscription'),
+      );
+      addTearDown(access.dispose);
+      await tester.pumpWidget(
+        _app(
+          PaywallScreen(
+            requiresSignIn: () => false,
+            accessListenable: access,
+            offeringLoader: () async => _offering,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('Unlock Premium'), findsNothing);
+      expect(find.text('Premium is already active'), findsOneWidget);
+      expect(
+        find.text('Manage subscription in its original store'),
+        findsOneWidget,
+      );
+      access.value = _premiumSnapshot('closed_tester_lifetime');
+      await tester.pumpAndSettle();
+      expect(find.text('Unlock Premium'), findsNothing);
+      expect(
+        find.text('Your approved tester access is active'),
+        findsOneWidget,
+      );
+      expect(
+        find.text('Manage subscription in its original store'),
+        findsNothing,
+      );
+    },
+  );
+
+  testWidgets('terms and privacy are working links and quotas are bounded', (
+    tester,
+  ) async {
+    final links = <Uri>[];
+    await tester.pumpWidget(
+      _app(
+        PaywallScreen(
+          requiresSignIn: () => false,
+          offeringLoader: () async => _offering,
+          openLink: (uri) async {
+            links.add(uri);
+            return true;
+          },
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    final t = AppL10n.of(tester.element(find.byType(PaywallScreen)));
+    for (final label in [t.settingsTermsTitle, t.settingsPrivacyTitle]) {
+      await tester.ensureVisible(find.text(label));
+      await tester.tap(find.text(label));
+      await tester.pump();
+    }
+    expect(links.map((uri) => uri.path), ['/terms', '/privacy']);
+    expect(find.text(t.paywallAiLimits(3, 5)), findsOneWidget);
+    expect(find.textContaining('20'), findsWidgets);
+    expect(find.textContaining('50'), findsWidgets);
+    expect(find.textContaining('UTC'), findsWidgets);
+  });
+
+  testWidgets(
+    'pending purchase keeps paywall open with explicit server confirmation status',
+    (tester) async {
+      await tester.pumpWidget(
+        _app(
+          PaywallScreen(
+            requiresSignIn: () => false,
+            offeringLoader: () async => _offering,
+            purchaseOperation: (_) async => PremiumPurchaseOutcome.pending,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Unlock Premium'));
+      await tester.pump();
+      final t = AppL10n.of(tester.element(find.byType(PaywallScreen)));
+      expect(find.text(t.paywallPending), findsOneWidget);
+      expect(find.byType(PaywallScreen), findsOneWidget);
+    },
+  );
   testWidgets('offering load owns an accessible disabled purchase state', (
     tester,
   ) async {
@@ -18,6 +180,7 @@ void main() {
     await tester.pumpWidget(
       _app(
         PaywallScreen(
+          requiresSignIn: () => false,
           offeringLoader: () => loader.future,
           purchaseOperation: (_) async {
             purchaseCalls++;
@@ -58,6 +221,7 @@ void main() {
     await tester.pumpWidget(
       _app(
         PaywallScreen(
+          requiresSignIn: () => false,
           offeringLoader: () => loader.future,
           restoreOperation: () async {
             restoreCalls++;
@@ -84,6 +248,7 @@ void main() {
     await tester.pumpWidget(
       _app(
         PaywallScreen(
+          requiresSignIn: () => false,
           offeringLoader: () async => _offering,
           purchaseOperation: (_) => purchase.future,
         ),
@@ -148,7 +313,10 @@ void main() {
   ) async {
     await tester.pumpWidget(
       _app(
-        PaywallScreen(offeringLoader: () async => throw StateError('offline')),
+        PaywallScreen(
+          requiresSignIn: () => false,
+          offeringLoader: () async => throw StateError('offline'),
+        ),
       ),
     );
     await tester.pumpAndSettle();
@@ -164,7 +332,10 @@ void main() {
     final semantics = tester.ensureSemantics();
     await tester.pumpWidget(
       _app(
-        PaywallScreen(offeringLoader: () async => _offering),
+        PaywallScreen(
+          requiresSignIn: () => false,
+          offeringLoader: () async => _offering,
+        ),
         locale: const Locale('de'),
       ),
     );
@@ -197,7 +368,10 @@ void main() {
         tester.view.devicePixelRatio = 1;
         await tester.pumpWidget(
           _app(
-            PaywallScreen(offeringLoader: () async => _offering),
+            PaywallScreen(
+              requiresSignIn: () => false,
+              offeringLoader: () async => _offering,
+            ),
             locale: locale,
             textScale: viewport.textScale,
           ),
@@ -212,10 +386,18 @@ void main() {
         expect(find.byTooltip(t.paywallClose), findsOneWidget);
         expect(tester.takeException(), isNull);
 
-        await tester.ensureVisible(find.text(t.paywallLegal));
-        await tester.pumpAndSettle();
-        expect(find.text(t.paywallCtaStart).hitTestable(), findsOneWidget);
-        expect(find.text(t.paywallCtaRestore).hitTestable(), findsOneWidget);
+        for (final label in [
+          t.paywallCtaStart,
+          t.paywallCtaRestore,
+          t.paywallLegal,
+          t.settingsTermsTitle,
+          t.settingsPrivacyTitle,
+        ]) {
+          await tester.ensureVisible(find.text(label));
+          await tester.pumpAndSettle();
+          expect(find.text(label).hitTestable(), findsOneWidget);
+          expect(tester.takeException(), isNull);
+        }
       }
     }
   });
@@ -237,7 +419,24 @@ Widget _app(
     child: child!,
   ),
   home: home,
+  routes: {'/profile': (_) => const Scaffold(body: Text('Account connection'))},
 );
+
+AccessSnapshot _premiumSnapshot(String source) => AccessSnapshot.fromJson({
+  'schemaVersion': 1,
+  'ownerUid': 'a',
+  'environment': 'PRODUCTION',
+  'revision': 'a' * 64,
+  'source': source,
+  'contentAccess': 'all',
+  'aiPolicyId': 'premium_v1',
+  'bookDailyLimit': 20,
+  'pronunciationDailyLimit': 50,
+  'serverNow': 172800000,
+  'accessUntil': source == 'subscription' ? 259200000 : null,
+  'offlineUntil': 259200000,
+  'nextResetAt': 259200000,
+});
 
 const _context = PresentedOfferingContext('default', null, null);
 const _product = StoreProduct(

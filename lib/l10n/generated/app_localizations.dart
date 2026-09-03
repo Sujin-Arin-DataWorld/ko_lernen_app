@@ -97,6 +97,102 @@ abstract class AppL10n {
     Locale('en'),
   ];
 
+  /// No description provided for @paywallSignInToContinue.
+  ///
+  /// In de, this message translates to:
+  /// **'Konto verbinden'**
+  String get paywallSignInToContinue;
+
+  /// No description provided for @paywallSignInRequired.
+  ///
+  /// In de, this message translates to:
+  /// **'Verbinde zuerst dein Google- oder Apple-Konto. Käufe bleiben an dieses Konto gebunden.'**
+  String get paywallSignInRequired;
+
+  /// No description provided for @paywallPending.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Bestätigung steht noch aus. Dein Zugang wird nach der Serverprüfung aktualisiert.'**
+  String get paywallPending;
+
+  /// No description provided for @paywallCancelled.
+  ///
+  /// In de, this message translates to:
+  /// **'Kauf abgebrochen. Es wurde kein Zugang freigeschaltet.'**
+  String get paywallCancelled;
+
+  /// No description provided for @paywallActive.
+  ///
+  /// In de, this message translates to:
+  /// **'Premium ist bereits aktiv'**
+  String get paywallActive;
+
+  /// No description provided for @paywallTesterActive.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein freigegebener Tester-Zugang ist aktiv'**
+  String get paywallTesterActive;
+
+  /// No description provided for @paywallManage.
+  ///
+  /// In de, this message translates to:
+  /// **'Abo im ursprünglichen Store verwalten'**
+  String get paywallManage;
+
+  /// No description provided for @paywallManageUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Öffne die Aboverwaltung in dem Store, in dem du das Abo abgeschlossen hast.'**
+  String get paywallManageUnavailable;
+
+  /// No description provided for @paywallFreeLaunch.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Lerninhalte sind zum kostenlosen Start offen. Ein Abo ist derzeit nicht verfügbar.'**
+  String get paywallFreeLaunch;
+
+  /// No description provided for @paywallAiLimits.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein aktuelles Kontingent: {book} Buchanalysen und {pronunciation} Ausspracheprüfungen pro UTC-Tag.'**
+  String paywallAiLimits(int book, int pronunciation);
+
+  /// No description provided for @paywallNextReset.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächster Reset: {time} UTC'**
+  String paywallNextReset(String time);
+
+  /// No description provided for @accountAdditionalProviderTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Weitere Anmeldemethode verbinden'**
+  String get accountAdditionalProviderTitle;
+
+  /// No description provided for @accountAdditionalProviderConsent.
+  ///
+  /// In de, this message translates to:
+  /// **'Du bestätigst zuerst dein aktuelles Konto. Danach wird Google oder Apple mit demselben Konto verbunden. Wenn Apple deine E-Mail-Adresse verbirgt, stimmst du damit auch der Verknüpfung deiner Apple-Identität mit den Daten dieses Kontos zu. Dein Lernfortschritt bleibt erhalten.'**
+  String get accountAdditionalProviderConsent;
+
+  /// No description provided for @accountProviderCollisionTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Bereits mit einem anderen Konto verbunden'**
+  String get accountProviderCollisionTitle;
+
+  /// No description provided for @accountProviderCollisionBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Anmeldemethode gehört bereits zu einem anderen Konto. Dein aktuelles Konto und dein Lernfortschritt wurden nicht ersetzt. Verwende eine andere Anmeldemethode.'**
+  String get accountProviderCollisionBody;
+
+  /// No description provided for @accountAppleConfigurationBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Apple-Anmeldung ist in dieser App-Version noch nicht eingerichtet. Verwende vorerst deine bisherige Anmeldemethode oder kontaktiere den Support.'**
+  String get accountAppleConfigurationBody;
+
   /// No description provided for @paywallTitle.
   ///
   /// In de, this message translates to:
@@ -112,7 +208,7 @@ abstract class AppL10n {
   /// No description provided for @paywallBenefit1.
   ///
   /// In de, this message translates to:
-  /// **'Alle Vokabel-Pakete (A2 · B1 · B2)'**
+  /// **'Alle Vokabel-Pakete (A2 bis C2)'**
   String get paywallBenefit1;
 
   /// No description provided for @paywallBenefit2.
@@ -130,20 +226,14 @@ abstract class AppL10n {
   /// No description provided for @paywallBenefit4.
   ///
   /// In de, this message translates to:
-  /// **'Dein persönlicher KI-Kurs mit neuen Inhalten jeden Tag'**
+  /// **'50 Ausspracheprüfungen pro UTC-Tag'**
   String get paywallBenefit4;
 
   /// No description provided for @paywallBenefit5.
   ///
   /// In de, this message translates to:
-  /// **'Buchschnappschuss ohne Tageslimit'**
+  /// **'20 Buchanalysen pro UTC-Tag'**
   String get paywallBenefit5;
-
-  /// No description provided for @paywallPriceFallback.
-  ///
-  /// In de, this message translates to:
-  /// **'5 € / Monat'**
-  String get paywallPriceFallback;
 
   /// No description provided for @paywallPricePerMonth.
   ///

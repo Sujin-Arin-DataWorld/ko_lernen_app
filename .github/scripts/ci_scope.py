@@ -104,6 +104,33 @@ def scopes_for_paths(paths: Iterable[str]) -> dict[str, bool]:
             result["website"] = True
             continue
 
+        # The public TTS allowlist is derived from runtime learning content.
+        # Verify both checked-in copies whenever a collector input changes.
+        if path.startswith("assets/data/") or path in {
+            "tool/generate_tts.py", "tool/polish_tts.py",
+            "lib/data/hangul_data.dart", "lib/services/placement_diagnostic.dart",
+        }:
+            result["app"] = True
+            result["tts"] = True
+            continue
+
+        if path == "functions/gye/access_policy.js" or path.startswith("test/fixtures/access_policy/"):
+            for consumer in ("app", "book", "gye", "pronunciation"):
+                result[consumer] = True
+            continue
+
+        if path in {"functions/pronunciation/service_cost_policy.js",
+                    "functions/tts/service_cost_policy.js",
+                    "functions/analyze_korean_text/ai_policy.py"}:
+            for consumer in ("book", "pronunciation", "tts"):
+                result[consumer] = True
+            continue
+
+        if path == "storage.rules":
+            for consumer in ("app", "gye", "tts"):
+                result[consumer] = True
+            continue
+
         if path.startswith("functions/analyze_korean_text/"):
             result["book"] = True
             continue

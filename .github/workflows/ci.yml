@@ -568,6 +568,14 @@ jobs:
         working-directory: functions/gye
         run: npm run test:rules
 
+      - name: Test canonical and private TTS Storage rules
+        working-directory: functions/gye
+        run: npm run test:storage-rules
+
+      - name: Test billing transaction and deletion races
+        working-directory: functions/gye
+        run: npm run test:billing-emulator
+
   pronunciation-functions-security:
     name: Pronunciation function security
     needs: changes
@@ -614,6 +622,14 @@ jobs:
         working-directory: functions/tts
         run: npm ci
 
+      - name: Set up Python for canonical corpus verification
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Verify canonical TTS allowlists match runtime content
+        run: python functions/tts/build_canonical_manifest.py --check
+
       - name: Test cache-key and request-guard contracts
         working-directory: functions/tts
         run: npm test
@@ -628,10 +644,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Node 20
+      - name: Set up Node 22
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: npm
           cache-dependency-path: functions/auth_cleanup/package-lock.json
 

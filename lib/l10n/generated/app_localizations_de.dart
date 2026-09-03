@@ -9,13 +9,76 @@ class AppL10nDe extends AppL10n {
   AppL10nDe([String locale = 'de']) : super(locale);
 
   @override
+  String get paywallSignInToContinue => 'Konto verbinden';
+
+  @override
+  String get paywallSignInRequired =>
+      'Verbinde zuerst dein Google- oder Apple-Konto. Käufe bleiben an dieses Konto gebunden.';
+
+  @override
+  String get paywallPending =>
+      'Die Bestätigung steht noch aus. Dein Zugang wird nach der Serverprüfung aktualisiert.';
+
+  @override
+  String get paywallCancelled =>
+      'Kauf abgebrochen. Es wurde kein Zugang freigeschaltet.';
+
+  @override
+  String get paywallActive => 'Premium ist bereits aktiv';
+
+  @override
+  String get paywallTesterActive =>
+      'Dein freigegebener Tester-Zugang ist aktiv';
+
+  @override
+  String get paywallManage => 'Abo im ursprünglichen Store verwalten';
+
+  @override
+  String get paywallManageUnavailable =>
+      'Öffne die Aboverwaltung in dem Store, in dem du das Abo abgeschlossen hast.';
+
+  @override
+  String get paywallFreeLaunch =>
+      'Alle Lerninhalte sind zum kostenlosen Start offen. Ein Abo ist derzeit nicht verfügbar.';
+
+  @override
+  String paywallAiLimits(int book, int pronunciation) {
+    return 'Dein aktuelles Kontingent: $book Buchanalysen und $pronunciation Ausspracheprüfungen pro UTC-Tag.';
+  }
+
+  @override
+  String paywallNextReset(String time) {
+    return 'Nächster Reset: $time UTC';
+  }
+
+  @override
+  String get accountAdditionalProviderTitle =>
+      'Weitere Anmeldemethode verbinden';
+
+  @override
+  String get accountAdditionalProviderConsent =>
+      'Du bestätigst zuerst dein aktuelles Konto. Danach wird Google oder Apple mit demselben Konto verbunden. Wenn Apple deine E-Mail-Adresse verbirgt, stimmst du damit auch der Verknüpfung deiner Apple-Identität mit den Daten dieses Kontos zu. Dein Lernfortschritt bleibt erhalten.';
+
+  @override
+  String get accountProviderCollisionTitle =>
+      'Bereits mit einem anderen Konto verbunden';
+
+  @override
+  String get accountProviderCollisionBody =>
+      'Diese Anmeldemethode gehört bereits zu einem anderen Konto. Dein aktuelles Konto und dein Lernfortschritt wurden nicht ersetzt. Verwende eine andere Anmeldemethode.';
+
+  @override
+  String get accountAppleConfigurationBody =>
+      'Apple-Anmeldung ist in dieser App-Version noch nicht eingerichtet. Verwende vorerst deine bisherige Anmeldemethode oder kontaktiere den Support.';
+
+  @override
   String get paywallTitle => 'Hangul Sori Premium';
 
   @override
   String get paywallSubtitle => 'Koreanisch lernen, wann du willst.';
 
   @override
-  String get paywallBenefit1 => 'Alle Vokabel-Pakete (A2 · B1 · B2)';
+  String get paywallBenefit1 => 'Alle Vokabel-Pakete (A2 bis C2)';
 
   @override
   String get paywallBenefit2 => 'Alle Gesprächs-Szenarien';
@@ -24,14 +87,10 @@ class AppL10nDe extends AppL10n {
   String get paywallBenefit3 => 'Unbegrenzte Wiederholungen';
 
   @override
-  String get paywallBenefit4 =>
-      'Dein persönlicher KI-Kurs mit neuen Inhalten jeden Tag';
+  String get paywallBenefit4 => '50 Ausspracheprüfungen pro UTC-Tag';
 
   @override
-  String get paywallBenefit5 => 'Buchschnappschuss ohne Tageslimit';
-
-  @override
-  String get paywallPriceFallback => '5 € / Monat';
+  String get paywallBenefit5 => '20 Buchanalysen pro UTC-Tag';
 
   @override
   String get paywallPricePerMonth => '/ Monat';

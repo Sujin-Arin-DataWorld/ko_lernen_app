@@ -309,7 +309,7 @@ class FakeFirestore {
   }
 }
 
-function createHarness({ serverOwned = true, cleanupPage } = {}) {
+function createHarness({ serverOwned = true, cleanupPage, storageBucket } = {}) {
   const firestore = new FakeFirestore();
   firestore.seed("account_deletions/source", {
     serverOwned,
@@ -354,6 +354,7 @@ function createHarness({ serverOwned = true, cleanupPage } = {}) {
     return { done: true };
   };
   const makeAdapters = () => createDeletionCleanupAdapters({
+    storageBucket: storageBucket || { getFiles: async () => [[]] },
     firestore,
     fieldValue: fieldValue(),
     documentIdFieldPath: "__name__",
@@ -372,6 +373,43 @@ function createHarness({ serverOwned = true, cleanupPage } = {}) {
   };
 }
 
+test("processor cleanup deletes UID private TTS and hashed billable receipts only", async () => {
+  const objects = new Set(["tts_private/source/v3/female/a.mp3", "tts_private/other/v3/female/a.mp3"]);
+  const storageBucket = { getFiles: async ({ prefix, maxResults, autoPaginate }) => {
+    assert.equal(prefix, "tts_private/source/");
+    assert.equal(maxResults, 2);
+    assert.equal(autoPaginate, false);
+    return [[...objects].filter((name) => name.startsWith(prefix)).map((name) => ({
+      name, delete: async () => objects.delete(name),
+    }))];
+  } };
+  const h = createHarness({ storageBucket });
+  const ownerHash = require("node:crypto").createHash("sha256").update("source").digest("hex");
+  h.firestore.seed("service_idempotency/book", { ownerSubjectHash: ownerHash, kind: "book_analysis_v1" });
+  h.firestore.seed("service_idempotency/pronunciation", { ownerSubjectHash: ownerHash, kind: "pronunciation_v1" });
+  h.firestore.seed("service_idempotency/other", { ownerSubjectHash: "different-owner", kind: "book_analysis_v1" });
+  h.firestore.seed("service_idempotency_results/book", { ownerSubjectHash: ownerHash, result: { sentences: [] } });
+  h.firestore.seed("service_idempotency_results/other", { ownerSubjectHash: "different-owner", result: { sentences: [] } });
+  for (const collection of ["premium_grants", "customer_entitlements", "access_rate_limits", "billing_event_receipts", "billing_customers"]) {
+    h.firestore.seed(`${collection}/source`, { ownerSubjectHash: ownerHash, ownerUid: "source" });
+    h.firestore.seed(`${collection}/other`, { ownerSubjectHash: "different-owner", ownerUid: "other" });
+  }
+  let result;
+  do {
+    result = await h.adapters.cleanupProcessor({ uid: "source", operationId: "op", workerFence: WORKER_FENCE });
+  } while (!result.done);
+  assert.deepEqual([...objects], ["tts_private/other/v3/female/a.mp3"]);
+  assert.equal(h.firestore.value("service_idempotency/book"), undefined);
+  assert.equal(h.firestore.value("service_idempotency/pronunciation"), undefined);
+  assert.ok(h.firestore.value("service_idempotency/other"));
+  assert.equal(h.firestore.value("service_idempotency_results/book"), undefined);
+  assert.ok(h.firestore.value("service_idempotency_results/other"));
+  for (const collection of ["premium_grants", "customer_entitlements", "access_rate_limits", "billing_event_receipts", "billing_customers"]) {
+    assert.equal(h.firestore.value(`${collection}/source`), undefined);
+    assert.ok(h.firestore.value(`${collection}/other`));
+  }
+});
+
 function createRealAdapters(firestore) {
   const values = fieldValue();
   const cleaner = createGyeDeletionPageCleaner({
@@ -385,6 +423,7 @@ function createRealAdapters(firestore) {
     shouldDeleteReportForUid,
   });
   return createDeletionCleanupAdapters({
+    storageBucket: { getFiles: async () => [[]] },
     firestore,
     fieldValue: values,
     documentIdFieldPath: "__name__",
