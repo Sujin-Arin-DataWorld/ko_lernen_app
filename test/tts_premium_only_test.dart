@@ -295,6 +295,30 @@ void main() {
     );
   });
 
+  test(
+    'markSpeechStarting() 은 phase를 resolving으로 되돌리고 '
+    'activeSpeechText를 지운다 (F1)',
+    () {
+      TestWidgetsFlutterBinding.ensureInitialized();
+      TtsService.phase.value = TtsSpeechPhase.speaking;
+      TtsService.activeSpeechText = '학교';
+
+      TtsService.markSpeechStarting();
+
+      expect(TtsService.phase.value, TtsSpeechPhase.resolving);
+      expect(
+        TtsService.activeSpeechText,
+        isNull,
+        reason:
+            '직전 발화의 activeSpeechText를 남겨두면, 새 발화가 아직 자기 '
+            'activeSpeechText를 쓰기 전 우연히 같은 텍스트로 대조돼 잘못 '
+            '승격될 수 있다',
+      );
+
+      TtsService.phase.value = TtsSpeechPhase.idle;
+    },
+  );
+
   test('TtsAudio 는 경로 또는 바이트 중 하나만 갖는다', () {
     const byPath = TtsAudio.path('/tmp/a.mp3');
     expect(byPath.path, '/tmp/a.mp3');

@@ -601,6 +601,21 @@ class TtsService {
   static final ValueNotifier<bool> speaking = ValueNotifier<bool>(false);
   static int _speakToken = 0;
 
+  /// 새 발화가 시작될 때 [phase]를 확실히 resolving으로 되돌린다(F1).
+  ///
+  /// [ValueNotifier]는 같은 값을 다시 대입하면 리스너를 부르지 않는다.
+  /// 직전 발화(A)가 이미 재생 중이면 [phase]는 이미 speaking인데, 새 발화
+  /// (B)가 들어와도 이 값을 리셋하지 않으면 나중에 엔진이 B의 재생 시작을
+  /// 알리며 `phase.value = speaking`을 다시 대입해도(A 때와 같은 값)
+  /// 아무 리스너도 안 불린다 — `SoriSpeech._onEnginePhaseChanged`가 실행되지
+  /// 않아 B의 인디케이터가 재생 내내 hourglass(resolving)에 고정된다.
+  /// speaking→resolving으로의 실제 전환을 여기서 한 번 끼워 넣으면, 뒤이은
+  /// resolving→speaking 승격이 항상 진짜 값 변화가 되어 리스너를 깨운다.
+  static void markSpeechStarting() {
+    phase.value = TtsSpeechPhase.resolving;
+    activeSpeechText = null;
+  }
+
   static FirebaseStorage get _storage =>
       FirebaseStorage.instanceFor(bucket: _bucket);
   static FirebaseFunctions get _functions =>
@@ -622,6 +637,7 @@ class TtsService {
     }
     unavailable.value = null;
     final token = ++_speakToken;
+    markSpeechStarting();
     speaking.value = true;
     AudioPolicy.instance.noteSpeechStarted();
     Analytics.ttsPlayed(
