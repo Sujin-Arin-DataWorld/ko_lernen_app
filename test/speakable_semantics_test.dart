@@ -164,4 +164,58 @@ void main() {
     completion.complete(true);
     expect(await speakFuture, isTrue);
   });
+
+  test(
+    '연속 발화 — B가 시작해도 엔진 phase가 이미 speaking이면 같은 값 재대입이라 '
+    '리스너가 안 불려 B의 승격 신호를 놓친다 (F1)',
+    () async {
+      // A가 재생 중일 때 TtsService.phase는 이미 speaking이다. 두 번째
+      // speak(B)가 들어오면 SoriSpeech는 즉시 resolving으로 내려가지만,
+      // 엔진(TtsPlaybackEngine.onPlaybackStarted)이 B의 시작을 알릴 때
+      // `phase.value = speaking`을 다시 대입해도 값이 바뀌지 않으므로
+      // ValueNotifier는 리스너(_onEnginePhaseChanged)를 부르지 않는다 —
+      // B의 인디케이터가 재생 내내 hourglass에 고정된다. 이 테스트는 오늘의
+      // 엔진 동작(A→B 사이 phase를 한 번도 resolving으로 되돌리지 않음)을
+      // 그대로 흉내내 이 결함을 재현한다. stopImpl은 no-op으로 갈아끼운다 —
+      // 실제 TtsService.stop()이 이 자리에서 불리면 phase를 idle로 되돌려
+      // 버려 (SoriSpeech._publishSpeak가 키가 바뀔 때 stop을 부르므로) 우리가
+      // 재현하려는 "엔진이 값을 안 바꾼다" 상황 자체가 사라진다.
+      SoriSpeech.stopImpl = () async {};
+      final completionA = Completer<bool>();
+      final completionB = Completer<bool>();
+      var call = 0;
+      SoriSpeech.speakImpl = (text, voice) {
+        call++;
+        return call == 1 ? completionA.future : completionB.future;
+      };
+
+      final speakFutureA = SoriSpeech.speak('A');
+      TtsService.activeSpeechText = 'A';
+      TtsService.phase.value = TtsSpeechPhase.speaking;
+      expect(SoriSpeech.phase.value, TtsSpeechPhase.speaking);
+
+      final speakFutureB = SoriSpeech.speak('B');
+      expect(SoriSpeech.phase.value, TtsSpeechPhase.resolving);
+
+      // 오늘의 TtsService.speak()는 여기서 phase를 resolving으로 되돌리는
+      // 어떤 호출도 하지 않는다 — 바로 onPlaybackStarted가 같은 값을 다시
+      // 쓴다.
+      TtsService.activeSpeechText = 'B';
+      TtsService.phase.value = TtsSpeechPhase.speaking;
+
+      expect(
+        SoriSpeech.phase.value,
+        TtsSpeechPhase.speaking,
+        reason:
+            'B가 실제로 재생을 시작했는데도 SoriSpeech.phase가 resolving에 '
+            '고착된다면, ValueNotifier의 같은 값 재대입 무시(no-notify)가 '
+            '승격 신호를 삼켰다는 뜻이다',
+      );
+
+      completionA.complete(true);
+      completionB.complete(true);
+      await speakFutureA;
+      await speakFutureB;
+    },
+  );
 }
