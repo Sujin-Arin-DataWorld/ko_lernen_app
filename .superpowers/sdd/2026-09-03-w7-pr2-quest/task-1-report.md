@@ -184,3 +184,205 @@ correct.
    are labeled buttons'` test now exercises an unstubbed real `SoriSpeech.speak`
    path (see Unexpected observations) — acceptable as-is, or should a follow-up
    task stub it?
+
+---
+
+# Fix round 1 (Fable 룰링, 2026-09-04)
+
+Fable verdict on `be0a7062`: FIX-REQUIRED — the original brief's entry-autoplay
+design was wrong for the three choice-quiz engines. Approved as-is: dialog-stage
+autoplay, `TtsService`→`SoriSpeech` unification in the 5 engines, the
+`audioEnabled` field pattern, dialog tests.
+
+## STEP 0 — canonical-corpus facts (read-only)
+
+Read `functions/tts/build_canonical_manifest.py` (41 lines): it writes
+`assets/data/tts_canonical_manifest.json` as `{schemaVersion, cacheRevision,
+voices: {female: [sha1...], male: [sha1...]}}` by calling
+`tool/generate_tts.py`'s `collect()` and hashing every `(voice, text)` pair
+with `cache_sha1` — **the manifest stores hashes only, never raw text**.
+
+Read `tool/generate_tts.py:672-900` (`collect()`, section 9 "시나리오 퀘스트
+데이터의 오디오 문자열"). The quest-data branch is:
+
+```python
+if qtype in ("satzBauen", "batchimDrop", "hoerverstehen"):
+    add_auto(data.get("audioKo"))
+elif qtype == "diktat":
+    add_auto(data.get("audioKo") or data.get("targetKo"))
+elif qtype == "particlePop":
+    options = data.get("options") or []
+    idx = int(data.get("correctIndex") or 0)
+    if 0 <= idx < len(options):
+        add_auto((data.get("prefix") or "") + options[idx] + (data.get("suffix") or ""))
+```
+
+There is no `elif` branch for `luecken` or `uebersetzen` at all. Only
+`particlePop` has a dedicated, unconditional collector — every `particlePop`
+quest's `_fullSentence` is guaranteed canonical. `luecken` and `uebersetzen`
+have zero dedicated collection.
+
+Confirmed empirically (script: computed `cache_sha1(auto_voice(text), text)`
+for real quest data pulled from `assets/data/scenarios_*.json`, checked
+membership in the actual `voices[...]` hash sets):
+
+| engine | example scenario | text checked | canonical? |
+|---|---|---|---|
+| particlePop | a1_theme_park_date_choices | fullSentence = "롤러코스터를 타고 싶어." | True |
+| (only 1 particlePop quest exists in the whole corpus) | | | |
+| luecken | a1_theme_park_date_choices | blanked "롤러코스터를 타___ 싶어." | False |
+| luecken | a1_theme_park_date_choices | filled "롤러코스터를 타고 싶어." | True (coincidence — identical string to the particlePop row above, same scenario) |
+| luecken | a2_theme_park_date_break | blanked "많이 피곤해 보이___ 것 같아." | False |
+| luecken | a2_theme_park_date_break | filled "많이 피곤해 보이는 것 같아." | False |
+| luecken | b1_theme_park_date_thrill | blanked "두 번이나 돌 ___ 몰랐어." | False |
+| luecken | b1_theme_park_date_thrill | filled "두 번이나 돌 줄은 몰랐어." | False |
+| uebersetzen | airport_arrival | answer "네, 여기 있어요." | True (coincidence — same string as that scenario's own dialog line, collected by section 2, not by any uebersetzen-specific rule) |
+| uebersetzen | bakery_payment_bag | answer "아니요, 괜찮아요." | False |
+| uebersetzen | bakery_queue | answer "이 빵 계산해 주세요." | False |
+
+Conclusion: particlePop is reliably canonical (dedicated collector, every
+instance). luecken and uebersetzen are not — the one "True" hit each is
+pure coincidence (the string also happens to be collected from a different
+source, usually the scenario's own dialogue), and 2 of 3 real samples for both
+engines miss. Implementing readback for luecken/uebersetzen as literally
+specified would ship a feature that mostly shows the "answer unavailable"
+banner.
+
+## STEP 1 — implementation
+
+(a) Removed entry autoplay from `luecken_quest.dart` (deleted the
+`initState()` override added in round 1 entirely, and the now-dead
+`import '../../widgets/sori/speakable.dart'`) and `particle_pop_quest.dart`
+(deleted only the `WidgetsBinding.instance.addPostFrameCallback` block from
+`initState()`; kept the `AnimationController` setup). Kept the `audioEnabled`
+field on both (now unconsumed inside `LueckenQuest`, per the ruling) and left
+particle_pop's existing manual "replay" button (`onTap: () =>
+SoriSpeech.speak(_fullSentence)`, already converted from `TtsService` in round
+1) untouched.
+
+(b) Post-reveal readback — particlePop only (luecken/uebersetzen blocked
+per STEP 0). In `particle_pop_quest.dart`'s `_checkSelection()`, added
+`if (widget.audioEnabled) { SoriSpeech.speak(_fullSentence); }` right after
+`setState(() => _showExplanation = true)` in both resolution branches: the
+`isCorrect` branch and the `_tries >= 2` (wrong, exhausted) branch. Did not
+touch `luecken_quest.dart`'s `_check()` or `uebersetzen_quest.dart` — no
+readback call added to either, matching "for any engine whose text is not
+canonical, do not add readback."
+
+(c) Tests — replaced the round-1 entry-autoplay group in
+`test/quest_engines_uiux_test.dart` with a new group,
+"선택형 퀘스트는 진입 시 무음이고, particlePop만 답 공개 후 정답 문장을 1회 읽는다"
+(7 tests): luecken silent through entry+correct-reveal and through
+entry+2-wrong-reveal; uebersetzen the same two cases; particlePop silent at
+entry then exactly one `SoriSpeech.speak(_fullSentence)` after a correct
+reveal, the same after a 2-wrong reveal, and silent throughout when
+`audioEnabled: false`. Also wired `audioEnabled: widget.previewFixture ==
+null` for `UebersetzenQuest` in `scenario_player_screen.dart`'s `_buildQuest`
+(added the field to the widget — unused internally for now, see below).
+
+(d) Dialog path gap — checked `scenario_player_screen.dart:201`
+(`buildScenarioStagePlan`): `ScenarioStage.intro` is the unconditional first
+element of the returned list (no guard, no variant), so `_plan.first` can
+never be `ScenarioStage.dialog` in the normal (non-preview) load path;
+`scenarioInitialStageIndex` (line 214-221) only ever returns 0 or the first
+quest index. Cited and left as-is — no code change for (d).
+
+### `uebersetzen_quest.dart` `audioEnabled` field — added but unused
+
+Per (c)'s explicit instruction I added `this.audioEnabled = true,` /
+`final bool audioEnabled;` to `UebersetzenQuest`, matching the same
+constructor-field pattern as the other two engines, and wired the call site.
+Nothing inside `UebersetzenQuest`'s body reads it yet — no `SoriSpeech` call
+exists there, by design (STEP 0: blocked on canonical corpus). This is
+intentionally dead code for now; a doc comment on the field explains why and
+points at W9-C as the unblock path.
+
+## Test-design note: not every new test is a genuine round-1/round-2 discriminator
+
+Of the 7 new tests, the RED capture (production code stashed back to the
+round-1 commit) showed 4 fail red and 3 pass unchanged:
+- luecken "정답 공개 후에도 무음" and "2회 오답 공개 후에도 무음" — RED (round-1
+  code auto-played on entry, so `stub.spoken` wasn't empty).
+- particlePop's two readback tests — RED (round-1 code had no readback at
+  all, and entry autoplay produced a stray call the "진입 시 무음" pre-check now
+  catches).
+- uebersetzen's two silence tests — pass under both round-1 and this
+  round's code, because `uebersetzen_quest.dart` never had any `SoriSpeech`
+  call in either round. These are legitimate regression-locks (they'll catch
+  a future accidental readback addition), just not discriminators for this
+  specific fix.
+- particlePop's `audioEnabled: false` test — pass under both rounds too,
+  for the same reason (false disables both round-1's entry autoplay and this
+  round's readback, so the assertion holds either way). Also a legitimate
+  invariant lock, not a discriminator.
+
+I strengthened the particlePop 2-wrong test with an explicit "무음" check
+after the pump and after the first wrong attempt (before the reveal), because
+without it the test passed for the wrong reason under round-1 code (entry
+autoplay happened to produce the identical single-element list the readback
+would also produce) — a coincidence, not a real assertion of when the
+speech happened.
+
+## Verification
+
+RED (production `lib/` changes for this round stashed, updated test file
+present) — `flutter test --no-pub test/quest_engines_uiux_test.dart
+--plain-name "선택형 퀘스트는"`: 4 failed / 3 passed (failures matched
+expectations exactly — `Expected: empty / Actual: ['안___']` for luecken,
+`Expected: empty / Actual: ['저는 학생이에요.']` for particlePop, twice).
+
+GREEN (production code restored): `test/quest_engines_uiux_test.dart` full
+file 28/28 passed (21 pre-existing + 7 new).
+
+- `flutter analyze --no-pub`: 0 issues (full project, ~87s).
+- `dart format --set-exit-if-changed`: flagged `test/quest_engines_uiux_test.dart`
+  (cosmetic line-wrap only, from the new group); applied `dart format`,
+  re-ran analyze -> still 0, re-ran the test file -> still 28/28.
+- `flutter test --no-pub test/quest_engines_uiux_test.dart
+  test/scenario_player_ui_test.dart test/content_audio_policy_guard_test.dart
+  test/auto_speech_test_stub_guard_test.dart`: 47/47 passed, 0 failed.
+- Each file run alone: `quest_engines_uiux_test.dart` 28/28,
+  `scenario_player_ui_test.dart` 10/10 (unaffected by this round — (d) needed
+  no code change so nothing here changed), `content_audio_policy_guard_test.dart`
+  8/8, `auto_speech_test_stub_guard_test.dart` 1/1.
+- `git grep -n "TtsService" -- lib/screens/quest_engines/luecken_quest.dart
+  lib/screens/quest_engines/uebersetzen_quest.dart
+  lib/screens/quest_engines/particle_pop_quest.dart
+  lib/screens/quest_engines/hoerverstehen_quest.dart
+  lib/screens/quest_engines/diktat_quest.dart` (the original T2.1 5-file
+  scope): 0 matches.
+- `git grep -n "TtsService" -- lib/screens/quest_engines/` (STEP 2's literal,
+  directory-wide command): 2 matches, both in `batchim_drop_quest.dart`
+  (lines ~161, ~474) — this file was never in T2.1's FILES list in either
+  round (Fable's own round-1 approval text names "the 5 engines"), so I did
+  not touch it; flagging the discrepancy between STEP 2's literal command and
+  T2.1's actual scope rather than silently expanding scope or silently
+  reporting a false "clean."
+- `git diff --check`: clean (exit 0, only a benign CRLF-on-touch warning
+  from git, no reported whitespace errors).
+
+## Diffstat (this round, lib/ + test/)
+
+```
+ lib/screens/quest_engines/luecken_quest.dart      |  11 --
+ lib/screens/quest_engines/particle_pop_quest.dart |  15 +-
+ lib/screens/quest_engines/uebersetzen_quest.dart  |   8 ++
+ lib/screens/scenario_player_screen.dart           |   1 +
+ test/quest_engines_uiux_test.dart                 | 162 +++++++++++++++++++---
+ 5 files changed, 165 insertions(+), 32 deletions(-)
+```
+
+## Questions (max 3)
+
+1. `batchim_drop_quest.dart` still has 2 `TtsService` literals (never in
+   T2.1's scope in either round) — should STEP 2's directory-wide grep be
+   read as a signal that batchim should move to `SoriSpeech` too, or is that
+   still T2.2/out of this task's scope?
+2. Is the `uebersetzen_quest.dart` `audioEnabled` field (declared, wired at
+   the call site, but internally unused) the right way to leave it, or would
+   you rather it stayed off entirely until W9-C actually unblocks the readback?
+3. For particlePop's post-reveal readback, I fire it on both the correct
+   branch and the 2-wrong-exhausted branch of `_checkSelection()`, but not
+   from `_revealAnswer()` (the separate "don't know yet" escape hatch, which
+   also completes the quest). Was that the intended boundary, or should
+   "don't know" reveals get the readback too?
