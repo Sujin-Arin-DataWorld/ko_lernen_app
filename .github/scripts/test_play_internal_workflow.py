@@ -26,7 +26,11 @@ class PlayInternalWorkflowTest(unittest.TestCase):
         self.assertIn("flutter build appbundle --release --obfuscate", release)
         self.assertIn("ANDROID_UPLOAD_KEYSTORE_BASE64", release)
         self.assertIn("GOOGLE_PLAY_SERVICE_ACCOUNT_JSON", release)
-        self.assertIn("r0adkll/upload-google-play@v1.1.5", release)
+        # SHA-pinned by tool/release_integrity.py (W1): the version comment
+        # is the reviewable stand-in for the old bare "@v1.1.5" tag ref.
+        self.assertRegex(
+            release, r"r0adkll/upload-google-play@[0-9a-f]{40} # v1\.1\.5\b"
+        )
         self.assertIn("Build signed internal-testing bundle", release)
         self.assertNotIn("closed-testing bundle", release)
         self.assertEqual(release.count("r0adkll/upload-google-play"), 1)
@@ -46,7 +50,11 @@ class PlayInternalWorkflowTest(unittest.TestCase):
         play_uploads = [
             action for action in uses if "upload-google-play" in action
         ]
-        self.assertEqual(play_uploads, ["r0adkll/upload-google-play@v1.1.5"])
+        self.assertEqual(len(play_uploads), 1)
+        # SHA-pinned by tool/release_integrity.py (W1): owner/repo@<40-hex>.
+        self.assertRegex(
+            play_uploads[0], r"^r0adkll/upload-google-play@[0-9a-f]{40}$"
+        )
         ios_uploads = [
             action
             for action in uses
