@@ -166,3 +166,64 @@ golden_test.dart`·`sori_stage_visual_evidence_test.dart`에 나오는 `quests: 
    satz_bauen)에 골든 테스트가 전혀 없다 — 옵션 간격처럼 순수 시각 변경이 생겨도
    회귀를 잡을 안전망이 없다는 뜻이다. W7 PR2 범위에 골든 신설을 넣을지, 별도
    백로그로 뺄지 결정이 필요하다.
+
+## Fix round 1 (Fable FIX-REQUIRED on 4741408a, 2026-09-04)
+
+**판정**: 열린 질문 1번(quest_flow.dart의 cardGap/labelToField/paragraphGap 사이트가
+토큰명 의미와 거리가 있다)이 정확했고, 지시서의 "잔여 6토큰을 quest_flow.dart 어딘가에
+배선하라"는 지시 자체가 결함이었다고 Fable이 판정했다. 아래 4가지를 수정했다.
+
+### 1. quest_flow.dart 6곳 전부 원복
+
+`git diff 4382a8e8 -- lib/screens/quest_engines/quest_flow.dart` 로 원복 확인 —
+T2.3 이전 baseline과 바이트 동일:
+
+| 위치 | 되돌린 값 |
+|---|---|
+| `SoriAnswerTray` 카드 패딩 | `SoriGaps.paragraphGap` → `Spacing.md` |
+| `SoriPromptCard` 아이콘→텍스트 | `SoriGaps.chromeToContent` → `Spacing.sm` |
+| `SoriPromptCard` 문장→재생행 | `SoriGaps.headingToBody` → `Spacing.xs` |
+| `SoriAnswerTile` 배지→라벨 | `SoriGaps.cardGap` → `Spacing.sm` |
+| `ScenarioQuestAction` 힌트→제출버튼 | `SoriGaps.labelToField` → `Spacing.sm` |
+| `ScenarioQuestAction` 결과→계속버튼 | `SoriGaps.sectionGap` → `Spacing.sm` |
+
+유지: 4개 선택형 엔진(hoerverstehen/luecken/uebersetzen/particle_pop)의
+`optionGap`/`questionToOptions` 배선, `satz_bauen_quest.dart`의 `compactGap`
+개명, `quest_engines_uiux_test.dart`의 12dp 지오메트리 단언 4개.
+
+### 2. SoriGaps 가드 재설계
+
+`test/sori_gaps_usage_guard_test.dart`를 두 테스트로 재작성:
+
+- `optionGap`/`questionToOptions`: **필수** — tokens.dart 밖 lib/에 참조 없으면
+  즉시 실패(지시서 4.8/4.10의 실제 배선 대상).
+- 나머지 6토큰: `test/auto_speech_test_stub_guard_test.dart`의
+  `knownUnstubbedTestFiles`/`knownUnstubbedCap` 패턴을 그대로 미러링한
+  `knownUnadoptedGaps`(6개, 알파벳순) + `knownUnadoptedCap`(=6) down-only
+  래칫. 두 단언: (a) 허용 목록 밖에서 새 미채택 토큰이 생기면 실패,
+  (b) 허용 목록의 토큰이 실제로 채택되면(더 이상 미사용이 아니면) 실패 —
+  목록에서 지우고 캡을 낮춰야 통과한다. Doc comment에 자연 채택처 명시:
+  W7 PR4 크롬(chromeToContent, cardGap), W8 폼(labelToField), 표준 페이지
+  (sectionGap/paragraphGap/headingToBody) — 의미가 맞는 곳에서만 채택, 가드
+  통과 목적의 임의 배선 금지를 재차 명시.
+
+### 3. 검증
+
+- 5개 파일 개별 실행(다중 파일 러너 결함 회피) 전부 GREEN:
+  `sori_gaps_usage_guard_test`(2), `quest_engines_uiux_test`(32),
+  `spacing_literal_guard_test`(1), `quest_explicit_flow_test`(31),
+  `scenario_player_ui_test`(10) = **76/76**.
+- `flutter analyze --no-pub` 전체: **0 issues**.
+- `git diff --check`: 클린.
+- **뮤테이션 체크**: 4개 선택형 엔진 전부에서 `SoriGaps.optionGap` 참조를
+  일시 제거(lib/ 전체 참조 0으로 만듦) → 가드 FAIL 확인
+  (`optionGap 는 지시서 4.8/4.10의 필수 배선 토큰인데 ... 참조가 없다`) →
+  4개 파일을 커밋된 상태로 복원, 가드 재실행 GREEN 재확인. 단일 엔진
+  1곳만 제거하는 뮤테이션은(요청 문구 그대로 해석하면) 나머지 3곳이 여전히
+  참조를 남겨 가드가 실패하지 않는다 — 이건 "lib/ 전체에서 ≥1 참조"라는
+  가드 설계 자체의 정상 동작이라 판단해 전체 제거로 뮤테이션을 강화했다.
+
+### 커밋
+
+`0f474698` — `fix(quest): quest_flow의 의미 불일치 토큰 치환 6곳 되돌림 +
+SoriGaps 가드를 필수 2토큰·미채택 래칫으로 재설계 (Fable 리뷰)`.
