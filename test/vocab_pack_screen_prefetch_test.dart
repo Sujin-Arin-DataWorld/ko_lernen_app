@@ -111,7 +111,11 @@ void main() {
         .where((korean) => korean != spoken[0] && korean != spoken[1])
         .toList();
     expect(remaining, hasLength(1));
-    expect(prefetched, contains(remaining.single));
+    // M7: _advanceQuiz는 list[_qIdx + 1]단 하나만 프리페치한다(Learn의
+    // current+peekNext 2건짜리와 다름) — contains()는 여분의 잘못된
+    // 프리페치가 섞여도 통과해버리므로 정확히 이 한 단어만 프리페치됐는지
+    // 단언한다.
+    expect(prefetched, [remaining.single]);
   });
 }
 Future<AppL10n> _pumpPack(WidgetTester tester, VocabPack pack) async {
