@@ -966,20 +966,20 @@
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations.dart": {
-    "mtime": 1788398128.8849623,
-    "seen": 1788398152.0387816,
+    "mtime": 1788410200.6839674,
+    "seen": 1788412897.9614196,
     "ast_hash": "cf9a6f554ef13177d9618f3348ea6773",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_de.dart": {
-    "mtime": 1788398128.4147322,
-    "seen": 1788398152.0387852,
+    "mtime": 1788410200.5078657,
+    "seen": 1788412897.961422,
     "ast_hash": "d4c1c77c97d84aea413b603c106c0e36",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_en.dart": {
-    "mtime": 1788398128.6333485,
-    "seen": 1788398152.0387886,
+    "mtime": 1788410200.5892434,
+    "seen": 1788412897.961424,
     "ast_hash": "ef21c74404e2798d816bdb84c34c3408",
     "semantic_hash": ""
   },
@@ -8706,9 +8706,9 @@
     "semantic_hash": ""
   },
   ".github/workflows/ci.yml": {
-    "mtime": 1788408488.1254559,
-    "seen": 1788409136.527332,
-    "ast_hash": "ccecd5d46a1aeb7beed3af2a205422ae",
+    "mtime": 1788412367.7507298,
+    "seen": 1788412898.3601012,
+    "ast_hash": "737c56555e2e45a37c0910d64ca7d4d1",
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-07-29-account-transition-and-deletion/task-6-report.md": {
@@ -13884,9 +13884,9 @@
     "semantic_hash": ""
   },
   "docs/store/firebase-backend-release-gates.md": {
-    "mtime": 1788408488.1265352,
-    "seen": 1788409136.7161856,
-    "ast_hash": "9c4057a900c18e647dc7c64994d6bf8d",
+    "mtime": 1788412367.7537303,
+    "seen": 1788412898.400235,
+    "ast_hash": "dae7e16e5895fcc5e6ad2d45d2174e84",
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-09-01-handoff-verification-and-release/ios-manual-runbook.md": {
@@ -13920,9 +13920,9 @@
     "semantic_hash": ""
   },
   ".github/scripts/test_commercial_security_contract.py": {
-    "mtime": 1788408462.5344582,
-    "seen": 1788409134.836833,
-    "ast_hash": "d719367c2ac2a72328c529e49c64311e",
+    "mtime": 1788412341.400537,
+    "seen": 1788412897.897938,
+    "ast_hash": "21c8daf8bd8dc314328b8eea92eac9b9",
     "semantic_hash": ""
   },
   "functions/analyze_korean_text/access_policy.py": {
