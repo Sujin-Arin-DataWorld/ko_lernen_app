@@ -38,7 +38,7 @@ void main() {
       expect(providers.isGoogleLinked, isTrue);
     });
 
-    testWidgets('profile presents an Apple-only account as connected', (
+    testWidgets('profile keeps Apple connected and offers the missing provider', (
       tester,
     ) async {
       await tester.pumpWidget(
@@ -69,7 +69,8 @@ void main() {
       );
       await tester.pump();
       expect(find.text('Angemeldet: Apple'), findsOneWidget);
-      expect(find.text('Mit Google sichern'), findsNothing);
+      expect(find.text('Mit Google sichern'), findsOneWidget);
+      expect(find.text('Mit Apple anmelden'), findsNothing);
 
       await tester.pumpWidget(const SizedBox.shrink());
       await tester.pump();
@@ -106,6 +107,8 @@ void main() {
       );
       await tester.pump();
       expect(find.text('Angemeldet: Google und Apple'), findsOneWidget);
+      expect(find.text('Mit Google sichern'), findsNothing);
+      expect(find.text('Mit Apple anmelden'), findsNothing);
 
       await tester.pumpWidget(const SizedBox.shrink());
       await tester.pump();
@@ -161,7 +164,8 @@ void main() {
           scrollable: find.byType(Scrollable).first,
         );
         expect(signedIn, findsOneWidget);
-        expect(find.text('Mit Google sichern'), findsNothing);
+        expect(find.text('Mit Google sichern'), findsOneWidget);
+        expect(find.text('Mit Apple anmelden'), findsNothing);
       },
     );
   });

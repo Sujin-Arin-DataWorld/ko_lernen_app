@@ -1009,14 +1009,12 @@ class _ConnectedCard extends StatelessWidget {
           if (onConnectGoogle != null)
             SoriButton.outlined(
               label: t.settingsCloudSignInPrompt,
-              icon: Icons.cloud_outlined,
               onTap: linksEnabled ? onConnectGoogle : null,
               fullWidth: true,
             ),
           if (onConnectApple != null)
             SoriButton.outlined(
               label: t.authAppleSignIn,
-              icon: Icons.apple,
               onTap: linksEnabled ? onConnectApple : null,
               fullWidth: true,
             ),

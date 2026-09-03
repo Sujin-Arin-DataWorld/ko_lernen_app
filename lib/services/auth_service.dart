@@ -3330,7 +3330,9 @@ class AuthService {
   }) async {
     switch (provider) {
       case AccountLinkProvider.google:
-        final googleUser = await GoogleOAuthClient.signIn();
+        final googleUser = await GoogleOAuthClient.signInFresh(
+          assertCurrent: assertCurrent ?? () {},
+        );
         assertCurrent?.call();
         if (googleUser == null) {
           throw FirebaseAuthException(

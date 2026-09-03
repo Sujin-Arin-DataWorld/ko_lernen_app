@@ -1029,11 +1029,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           Icons.cloud_outlined,
                           color: SoriColors.primary,
                         ),
-                        title: Text(
-                          providers.isDurable
-                              ? t.settingsCloudSignInPrompt
-                              : t.settingsCloudSignInPrompt,
-                        ),
+                        title: Text(t.settingsCloudSignInPrompt),
                         subtitle: Text(
                           providers.isDurable
                               ? t.accountAdditionalProviderTitle

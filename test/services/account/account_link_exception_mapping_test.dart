@@ -14,8 +14,7 @@ void main() {
     final result = mapAccountLinkException(
       const DurableProviderLinkCollision(),
     );
-    expect(result, isNot(isA<AccountUiLinkConflict>()));
-    expect(result, isNot(isA<AccountUiLinkFailed>()));
+    expect(result, isA<AccountUiProviderCollision>());
   });
   test(
     'missing Apple configuration is unavailable, not silent cancellation',
@@ -23,8 +22,7 @@ void main() {
       final result = mapAccountLinkException(
         const AppleOAuthConfigurationMissing(),
       );
-      expect(result, isNot(isA<AccountUiLinkCancelled>()));
-      expect(result, isNot(isA<AccountUiLinkFailed>()));
+      expect(result, isA<AccountUiAppleConfigurationMissing>());
     },
   );
   test('user-cancel platform codes stay cancelled, not failed', () {
