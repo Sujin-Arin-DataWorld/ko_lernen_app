@@ -849,6 +849,7 @@ class TtsService {
         if (await file.exists().timeout(_diskTimeout)) {
           final localBytes = await file.readAsBytes().timeout(_diskTimeout);
           if (TtsCacheKey.isUsableAudio(localBytes)) {
+            await _touchCacheFile(file);
             return TtsAudio.path(file.path);
           }
           try {
@@ -959,6 +960,21 @@ class TtsService {
   }
 
   /// 매 쓰기마다 전체 스캔하면 캐시가 커질수록 재생 지연에 영향을 준다 —
+  /// 캐시 히트 시 mtime을 지금으로 갱신 — mtime 기반 prune(§9-4)이 진짜
+  /// LRU가 되려면 "지금 다시 재생된" 파일도 최신으로 보여야 한다. 갱신
+  /// 실패는 best-effort로 삼킨다 — 재생 경로를 막으면 안 된다(M2).
+  static Future<void> _touchCacheFile(File file) async {
+    try {
+      await file.setLastModified(DateTime.now()).timeout(_diskTimeout);
+    } catch (_) {
+      // best-effort — mtime 갱신 실패가 재생을 막으면 안 된다.
+    }
+  }
+
+  @visibleForTesting
+  static Future<void> touchCacheFileForTesting(File file) =>
+      _touchCacheFile(file);
+
   /// 쓰기 16회 또는 마지막 prune 후 5분 중 먼저 오는 조건에서만 스캔한다
   /// (§9 룰링 4). best-effort — prune 실패가 재생 경로를 막지 않는다.
   static void _maybePruneCache(Directory directory) {

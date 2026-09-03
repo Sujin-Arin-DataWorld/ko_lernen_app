@@ -90,6 +90,32 @@ void main() {
     );
     TtsService.setPruneInFlightForTesting(false);
   });
+  test('캐시 히트 시 mtime을 지금으로 갱신해 진짜 LRU가 되게 한다 (M2)', () async {
+    final oldTime = DateTime.now().subtract(const Duration(days: 1));
+    await writeCacheFile('tts_v3_female_aaaa.mp3', 100, oldTime);
+    final file = File(
+      '${sandbox.path}${Platform.pathSeparator}tts_v3_female_aaaa.mp3',
+    );
+
+    await TtsService.touchCacheFileForTesting(file);
+
+    final refreshed = await file.stat();
+    expect(
+      refreshed.modified.isAfter(oldTime),
+      isTrue,
+      reason: '히트한 파일의 mtime이 갱신되지 않으면 최근에 다시 재생한 파일도 '
+          '오래된 파일처럼 prune에서 먼저 지워진다',
+    );
+  });
+
+  test('mtime 갱신 실패는 무시된다(best-effort, 존재하지 않는 파일)', () async {
+    final missing = File(
+      '${sandbox.path}${Platform.pathSeparator}does_not_exist.mp3',
+    );
+    await TtsService.touchCacheFileForTesting(missing);
+    // 예외를 던지지 않고 조용히 끝나면 성공 — 재생 경로를 막지 않는다.
+  });
+
   test('tts_v3_ 로 시작하지 않는 .mp3 파일은 prune 대상이 아니다', () async {
     await writeCacheFile(
       'other_app_cache.mp3',
