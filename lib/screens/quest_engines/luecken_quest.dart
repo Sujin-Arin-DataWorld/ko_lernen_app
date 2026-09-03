@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/sound_service.dart';
-import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/tokens.dart';
 import 'quest_flow.dart';
 import 'quest_layout.dart';
@@ -43,16 +42,6 @@ class _LueckenQuestState extends State<LueckenQuest> {
   List<String> get _options =>
       (widget.data['options'] as List? ?? const []).cast<String>();
   int get _correctIndex => (widget.data['correctIndex'] as num?)?.toInt() ?? 0;
-
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted && widget.audioEnabled) {
-        SoriSpeech.speak(_sentence);
-      }
-    });
-  }
 
   void _select(int index) {
     if (_resolved != null) return;

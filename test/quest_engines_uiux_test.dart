@@ -809,17 +809,23 @@ void main() {
     },
   );
 
-  // 지시서 4.5(T2.1): 선택형 퀘스트는 진입 시 문제 문장을 1회 자동재생한다.
-  //
-  // uebersetzen(번역 선택형)은 이 그룹에서 제외한다 — 스키마상 프롬프트가
-  // DE/EN(promptDe/promptEn)뿐이고, 발화 가능한 한국어 문장은 오직
-  // options[i].ko(정답 포함 각 선택지)뿐이다. 진입 시 정답 옵션의 ko를
-  // 자동재생하면 사용자가 고르기도 전에 정답을 읽어 주는 꼴이 되어
-  // luecken/particlePop과 달리 "정답을 드러내지 않는 문제 문장"이 없다
-  // (브리프 결함 — T2.1 REPORT의 질문 참고, 구현자가 임의로 정답 텍스트를
-  // 재생하도록 설계를 바꾸지 않았다).
-  group('선택형 퀘스트(luecken·particlePop)는 진입 시 문제 문장을 1회 자동재생한다', () {
-    testWidgets('luecken은 빈칸 문장을 1회 자동재생한다', (tester) async {
+  // Fix round 1 (Fable 룰링, 2026-09-04): STEP 0에서 tool/generate_tts.py의
+  // collect()를 직접 읽고 실제 콘텐츠(assets/data/scenarios_*.json)로
+  // 재확인한 결과 -- particlePop만 _fullSentence
+  // (prefix+options[correctIndex]+suffix)를 모든 퀘스트에 대해 무조건
+  // 수집하는 전용 분기가 있어 canonical corpus 소속이 보장된다. luecken
+  // (빈칸 채운 완성문)과 uebersetzen(options[correctIndex].ko)은 전용
+  // 수집 분기가 없다 -- 다른 소스(예: 시나리오 대화문)와 텍스트가 우연히
+  // 같을 때만 canonical이었고, 실측 예시 각 3건 중 1건만 canonical이었다
+  // (2/3 miss, task-1-report.md STEP 0 표 참고). 그래서:
+  //  - 세 엔진 모두 진입 시 무음이다(entry autoplay 제거, Fix round 1 (a)).
+  //  - particlePop만 답 공개 직후(정답이든 2회 오답 소진 뒤 공개든) 정답
+  //    문장을 1회 읽는다(Fix round 1 (b)).
+  //  - luecken·uebersetzen은 답 공개 후에도 계속 무음이다 -- "정답을
+  //    canonical corpus에서 못 찾음" 배너가 뜨는 걸 알면서 배선하지
+  //    않는다(blocked on canonical corpus -> W9-C 콘텐츠 파이프라인行).
+  group('선택형 퀘스트는 진입 시 무음이고, particlePop만 답 공개 후 정답 문장을 1회 읽는다', () {
+    testWidgets('luecken은 정답 공개 후에도 무음이다(canonical 아님)', (tester) async {
       final stub = stubSoriSpeech();
       await _pumpQuest(
         tester,
@@ -835,11 +841,18 @@ void main() {
         locale: const Locale('de'),
         viewport: _viewports[2],
       );
+      expect(stub.spoken, isEmpty, reason: '진입 시 무음');
 
-      expect(stub.spoken, ['안___']);
+      await _tapPointerOwned(tester, find.byKey(const ValueKey('answer-0')));
+      await _tapPointerOwned(
+        tester,
+        find.byKey(const ValueKey('quest-submit')),
+      );
+
+      expect(stub.spoken, isEmpty, reason: '답 공개 후에도 무음');
     });
 
-    testWidgets('luecken은 audioEnabled=false면 자동재생하지 않는다', (tester) async {
+    testWidgets('luecken은 2회 오답 공개 후에도 무음이다', (tester) async {
       final stub = stubSoriSpeech();
       await _pumpQuest(
         tester,
@@ -849,18 +862,88 @@ void main() {
             'correctIndex': 0,
             'options': ['녕', '녕히'],
           },
-          audioEnabled: false,
           onComplete: (_) {},
           onContinue: () {},
         ),
         locale: const Locale('de'),
         viewport: _viewports[2],
       );
+
+      final wrong = find.byKey(const ValueKey('answer-1'));
+      final submit = find.byKey(const ValueKey('quest-submit'));
+      await _tapPointerOwned(tester, wrong);
+      await _tapPointerOwned(tester, submit);
+      await _tapPointerOwned(tester, wrong);
+      await _tapPointerOwned(tester, submit);
 
       expect(stub.spoken, isEmpty);
     });
 
-    testWidgets('particlePop은 완성 문장을 1회 자동재생한다', (tester) async {
+    testWidgets('uebersetzen은 정답 공개 후에도 무음이다(canonical 아님)', (tester) async {
+      final stub = stubSoriSpeech();
+      await _pumpQuest(
+        tester,
+        UebersetzenQuest(
+          data: const {
+            'promptDe': 'Hallo',
+            'promptEn': 'Hello',
+            'correctIndex': 0,
+            'options': [
+              {'ko': '안녕'},
+              {'ko': '감사'},
+            ],
+          },
+          onComplete: (_) {},
+          onContinue: () {},
+        ),
+        locale: const Locale('de'),
+        viewport: _viewports[2],
+      );
+      expect(stub.spoken, isEmpty, reason: '진입 시 무음');
+
+      await _tapPointerOwned(tester, find.byKey(const ValueKey('answer-0')));
+      await _tapPointerOwned(
+        tester,
+        find.byKey(const ValueKey('quest-submit')),
+      );
+
+      expect(stub.spoken, isEmpty, reason: '답 공개 후에도 무음');
+    });
+
+    testWidgets('uebersetzen은 2회 오답 공개 후에도 무음이다', (tester) async {
+      final stub = stubSoriSpeech();
+      await _pumpQuest(
+        tester,
+        UebersetzenQuest(
+          data: const {
+            'promptDe': 'Hallo',
+            'promptEn': 'Hello',
+            'correctIndex': 0,
+            'options': [
+              {'ko': '안녕'},
+              {'ko': '감사'},
+            ],
+          },
+          onComplete: (_) {},
+          onContinue: () {},
+        ),
+        locale: const Locale('de'),
+        viewport: _viewports[2],
+      );
+
+      final wrong = find.byKey(const ValueKey('answer-1'));
+      final submit = find.byKey(const ValueKey('quest-submit'));
+      await _tapPointerOwned(tester, wrong);
+      await _tapPointerOwned(tester, submit);
+      await _tapPointerOwned(tester, wrong);
+      await _tapPointerOwned(tester, submit);
+
+      expect(stub.spoken, isEmpty);
+    });
+
+    testWidgets('particlePop은 진입 시 무음이고 정답 공개 직후 완성 문장을 1회 읽는다', (
+      tester,
+    ) async {
       final stub = stubSoriSpeech();
       await _pumpQuest(
         tester,
@@ -878,12 +961,53 @@ void main() {
         ),
         locale: const Locale('de'),
         viewport: _viewports[2],
+      );
+      expect(stub.spoken, isEmpty, reason: '진입 시 무음');
+
+      await _tapPointerOwned(tester, find.byKey(const ValueKey('answer-0')));
+      await _tapPointerOwned(
+        tester,
+        find.byKey(const ValueKey('quest-submit')),
       );
 
       expect(stub.spoken, ['저는 학생이에요.']);
     });
 
-    testWidgets('particlePop은 audioEnabled=false면 자동재생하지 않는다', (tester) async {
+    testWidgets('particlePop은 2회 오답 공개 직후 완성 문장을 1회 읽는다', (tester) async {
+      final stub = stubSoriSpeech();
+      await _pumpQuest(
+        tester,
+        ParticlePopQuest(
+          data: const {
+            'prefix': '저',
+            'suffix': ' 학생이에요.',
+            'correctIndex': 0,
+            'options': ['는', '가'],
+            'explanationDe': 'Nach einem Vokal steht 는.',
+            'explanationEn': 'Use 는 after a vowel.',
+          },
+          onComplete: (_) {},
+          onContinue: () {},
+        ),
+        locale: const Locale('de'),
+        viewport: _viewports[2],
+      );
+      expect(stub.spoken, isEmpty, reason: '진입 시 무음');
+
+      final wrong = find.byKey(const ValueKey('answer-1'));
+      final submit = find.byKey(const ValueKey('quest-submit'));
+      await _tapPointerOwned(tester, wrong);
+      await _tapPointerOwned(tester, submit);
+      expect(stub.spoken, isEmpty, reason: '1회 오답만으로는 아직 결과가 공개되지 않는다');
+      await _tapPointerOwned(tester, wrong);
+      await _tapPointerOwned(tester, submit);
+
+      expect(stub.spoken, ['저는 학생이에요.']);
+    });
+
+    testWidgets('particlePop은 audioEnabled=false면 답 공개 후에도 읽지 않는다', (
+      tester,
+    ) async {
       final stub = stubSoriSpeech();
       await _pumpQuest(
         tester,
@@ -902,6 +1026,12 @@ void main() {
         ),
         locale: const Locale('de'),
         viewport: _viewports[2],
+      );
+
+      await _tapPointerOwned(tester, find.byKey(const ValueKey('answer-0')));
+      await _tapPointerOwned(
+        tester,
+        find.byKey(const ValueKey('quest-submit')),
       );
 
       expect(stub.spoken, isEmpty);
