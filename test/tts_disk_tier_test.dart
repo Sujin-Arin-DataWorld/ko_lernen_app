@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/services/tts_bundled_manifest.dart';
+import 'package:ko_lernen_app/services/tts_canonical_manifest.dart';
 import 'package:ko_lernen_app/services/tts_service.dart';
 
 /// Task D — 디스크 캐시 히트 경로(_resolveAudio 2단)를 실제 파일시스템으로
@@ -12,11 +13,21 @@ import 'package:ko_lernen_app/services/tts_service.dart';
 /// 디스크 히트만 결정적으로 검증할 수 있다 — `resolveAudioForTesting`의
 /// 기본 `allowSynthesis: false`와 무관하게, 디스크 히트는 3/4단(Storage/CF)에
 /// 닿기도 전에 반환된다.
+///
+/// origin/main 병합(#254) 이후 `_resolveAudio`는 번들 1단과 디스크 2단
+/// 사이에 `TtsCanonicalManifest.contains` 게이트를 새로 둔다 — 미검수
+/// 텍스트는 (allowSynthesis:false 일 때) 디스크/Storage 를 아예 건드리지
+/// 않고 곧장 null 을 반환한다. 그래서 이 텍스트는 (a) 번들 1단엔 없고
+/// (assets/data/tts_first_line_manifest.json 의 126개 시나리오 첫 대사가
+/// 아니고) (b) canonical manifest(assets/data/tts_canonical_manifest.json)
+/// 에는 있는 — grammar.csv 예문(번들 대상이 아닌 검수 완료 문구) — 이어야
+/// 한다. `디스크 히트 테스트`는 canonical manifest에 없어 이 게이트에서
+/// 막혀버리므로 쓸 수 없다.
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   const voice = 'female';
-  const text = '디스크 히트 테스트';
+  const text = '먹지 않아요.';
 
   late Directory dir;
 
@@ -46,6 +57,19 @@ void main() {
       reason:
           '테스트 문구($text)가 실제 first-line manifest에 새로 실리면 disk-tier 테스트가 '
           '무의미해진다 — 다른 미실린 문구로 바꿀 것',
+    );
+
+    // origin/main 병합(#254)의 canonical-manifest 게이트가 이 텍스트를
+    // 막지 않는지 먼저 확인한다 — 막히면 _resolveAudio가 disk 2단에
+    // 도달하기도 전에 null을 반환해 이 테스트의 전제 자체가 깨진다.
+    expect(
+      await TtsCanonicalManifest.contains(key),
+      isTrue,
+      reason:
+          '테스트 문구($text)가 canonical manifest(assets/data/'
+          'tts_canonical_manifest.json)에서 빠지면 _resolveAudio의 '
+          'canonical 게이트가 disk 2단 이전에 null을 반환해 이 테스트가 '
+          '무의미해진다 — canonical manifest에 있는 다른 미번들 문구로 바꿀 것',
     );
 
     final file = File('${dir.path}/${key.localFileName}');
