@@ -957,6 +957,17 @@ class TtsService {
     bool allowSynthesis = false,
   }) => _resolveAudio(text, voice, allowSynthesis: allowSynthesis);
 
+  /// 테스트 전용 — 디스크 캐시 티어가 참조하는 디렉터리를 임시 디렉터리로
+  /// 갈아끼운다. `_ensureCacheDir()`은 `_cacheDir`가 이미 있으면 그대로
+  /// 반환하므로, 이 세터로 미리 채워 두면 실제 `path_provider`/플랫폼
+  /// 채널 없이도 [resolveAudioForTesting]이 디스크 2단까지 결정적으로
+  /// 도달한다. `null`로 되돌리면 다음 `_ensureCacheDir()` 호출이 다시 실제
+  /// 캐시 디렉터리를 조회한다 — 테스트 tearDown에서 반드시 되돌릴 것.
+  @visibleForTesting
+  static void setCacheDirForTesting(Directory? dir) {
+    _cacheDir = dir;
+  }
+
   /// 받은 바이트를 플랫폼에 맞게 캐시하고 재생 가능한 형태로 감싼다.
   static Future<TtsAudio> _cacheAndWrap(
     TtsCacheKey key,
