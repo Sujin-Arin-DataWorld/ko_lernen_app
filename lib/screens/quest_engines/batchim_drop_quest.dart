@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/sound_service.dart';
-import '../../services/tts_service.dart';
+import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/tokens.dart';
 import 'quest_flow.dart';
 import 'quest_layout.dart';
@@ -158,7 +158,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
     super.initState();
     // 진입 시 자동 1회 TTS 재생
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      TtsService.speak(_audioKo);
+      SoriSpeech.speak(_audioKo);
     });
   }
 
@@ -471,6 +471,6 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
 
   void _playAudio() {
     HapticFeedback.lightImpact();
-    TtsService.speak(_audioKo);
+    SoriSpeech.speak(_audioKo);
   }
 }

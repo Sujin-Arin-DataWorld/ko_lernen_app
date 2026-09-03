@@ -18,6 +18,7 @@ class UebersetzenQuest extends StatefulWidget {
     this.onContinue,
     this.isLast = false,
     this.allowDontKnow = false,
+    this.correctFeedback = const SoriQuestCorrectFeedback(),
   });
 
   final Map<String, dynamic> data;
@@ -32,6 +33,7 @@ class UebersetzenQuest extends StatefulWidget {
   final VoidCallback? onContinue;
   final bool isLast;
   final bool allowDontKnow;
+  final SoriQuestCorrectFeedback correctFeedback;
 
   @override
   State<UebersetzenQuest> createState() => _UebersetzenQuestState();
@@ -82,7 +84,7 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
   void _check() {
     if (_selected < 0 || _resolved != null) return;
     if (_selected == _correctIndex) {
-      HapticFeedback.lightImpact();
+      widget.correctFeedback.play(context);
       setState(() => _resolved = true);
       _report(true);
       return;

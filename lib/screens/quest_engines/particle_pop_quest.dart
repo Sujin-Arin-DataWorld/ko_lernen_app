@@ -20,6 +20,7 @@ class ParticlePopQuest extends StatefulWidget {
   final VoidCallback? onContinue;
   final bool isLast;
   final bool allowDontKnow;
+  final SoriQuestCorrectFeedback correctFeedback;
 
   const ParticlePopQuest({
     super.key,
@@ -29,6 +30,7 @@ class ParticlePopQuest extends StatefulWidget {
     this.onContinue,
     this.isLast = false,
     this.allowDontKnow = false,
+    this.correctFeedback = const SoriQuestCorrectFeedback(),
   });
 
   @override
@@ -116,7 +118,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
 
     final instant = MediaQuery.disableAnimationsOf(context);
     if (isCorrect) {
-      HapticFeedback.heavyImpact();
+      widget.correctFeedback.play(context);
       setState(() {
         _droppedIndex = idx;
         _completed = true;

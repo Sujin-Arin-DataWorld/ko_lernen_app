@@ -427,66 +427,140 @@ void main() {
     },
   );
 
-  testWidgets(
-    'batchim and sentence success each dispatch burst sound and haptic once',
-    (tester) async {
-      for (final engine in const ['batchim', 'sentence']) {
-        var burstCalls = 0;
-        var soundCalls = 0;
-        var hapticCalls = 0;
-        final feedback = SoriQuestCorrectFeedback(
-          burst: (_) => burstCalls++,
-          sound: () => soundCalls++,
-          haptic: () => hapticCalls++,
-        );
-        final quest = engine == 'batchim'
-            ? BatchimDropQuest(
-                data: const {
-                  'audioKo': '안녕',
-                  'targetWord': '안녕',
-                  'targetSyllableIndex': 1,
-                  'correctIndex': 0,
-                  'options': ['ㅇ', 'ㄴ'],
-                },
-                onComplete: (_) {},
-                correctFeedback: feedback,
-              )
-            : SatzBauenQuest(
-                data: const {
-                  'targetKo': '안녕',
-                  'promptDe': 'Hallo',
-                  'promptEn': 'Hello',
-                },
-                onComplete: (_) {},
-                correctFeedback: feedback,
-              );
-        await _pumpQuest(
-          tester,
-          quest,
-          locale: const Locale('en'),
-          viewport: _viewports[2],
-        );
+  testWidgets('7종 엔진 모두 정답 제출 시 burst·sound·haptic을 각 1회씩만 내보낸다 (지시서 4.7)', (
+    tester,
+  ) async {
+    // diktat(진입 자동재생)·particle(답 공개 후 읽기)이 실제 TtsService로
+    // 새는 걸 막는다 — auto_speech_test_stub_guard_test.dart의 T3 함정.
+    stubSoriSpeech();
+    for (final engine in const [
+      'listening',
+      'translation',
+      'cloze',
+      'particle',
+      'batchim',
+      'sentence',
+      'dictation',
+    ]) {
+      var burstCalls = 0;
+      var soundCalls = 0;
+      var hapticCalls = 0;
+      final feedback = SoriQuestCorrectFeedback(
+        burst: (_) => burstCalls++,
+        sound: () => soundCalls++,
+        haptic: () => hapticCalls++,
+      );
+      // 데이터 픽스처는 위 `_engines` 목록과 동일 — 재사용.
+      final Widget quest = switch (engine) {
+        'listening' => HoerverstehenQuest(
+          data: const {
+            'audioKo': '안녕',
+            'question': {
+              'de': 'Was bedeutet dieser Satz?',
+              'en': 'What does this sentence mean?',
+            },
+            'instruction': {
+              'de': 'Wähle die passende Bedeutung.',
+              'en': 'Choose the matching meaning.',
+            },
+            'correctIndex': 0,
+            'options': [
+              {'de': 'Hallo', 'en': 'Hello'},
+              {'de': 'Danke', 'en': 'Thanks'},
+            ],
+          },
+          onComplete: (_) {},
+          correctFeedback: feedback,
+        ),
+        'translation' => UebersetzenQuest(
+          data: const {
+            'promptDe': 'Hallo',
+            'promptEn': 'Hello',
+            'correctIndex': 0,
+            'options': [
+              {'ko': '안녕'},
+              {'ko': '감사'},
+            ],
+          },
+          onComplete: (_) {},
+          correctFeedback: feedback,
+        ),
+        'cloze' => LueckenQuest(
+          data: const {
+            'sentence': '안___',
+            'correctIndex': 0,
+            'options': ['녕', '녕히'],
+          },
+          onComplete: (_) {},
+          correctFeedback: feedback,
+        ),
+        'particle' => ParticlePopQuest(
+          data: const {
+            'prefix': '저',
+            'suffix': ' 학생이에요.',
+            'correctIndex': 0,
+            'options': ['는', '가'],
+            'explanationDe': 'Nach einem Vokal steht 는.',
+            'explanationEn': 'Use 는 after a vowel.',
+          },
+          onComplete: (_) {},
+          correctFeedback: feedback,
+        ),
+        'batchim' => BatchimDropQuest(
+          data: const {
+            'audioKo': '안녕',
+            'targetWord': '안녕',
+            'targetSyllableIndex': 1,
+            'correctIndex': 0,
+            'options': ['ㅇ', 'ㄴ'],
+          },
+          onComplete: (_) {},
+          correctFeedback: feedback,
+        ),
+        'sentence' => SatzBauenQuest(
+          data: const {
+            'targetKo': '안녕 하세요',
+            'promptDe': 'Sage höflich Hallo.',
+            'promptEn': 'Say hello politely.',
+            'audioKo': '안녕 하세요',
+            'distractors': ['감사'],
+          },
+          onComplete: (_) {},
+          correctFeedback: feedback,
+        ),
+        'dictation' => DiktatQuest(
+          data: const {
+            'targetKo': '안녕 하세요',
+            'audioKo': '안녕 하세요',
+            'promptDe': 'Sage höflich Hallo.',
+            'promptEn': 'Say hello politely.',
+          },
+          onComplete: (_) {},
+          correctFeedback: feedback,
+        ),
+        _ => throw StateError('Unknown quest engine: $engine'),
+      };
+      await _pumpQuest(
+        tester,
+        quest,
+        locale: const Locale('en'),
+        viewport: _viewports[2],
+      );
 
-        if (engine == 'batchim') {
-          await _tapPointerOwned(
-            tester,
-            find.byKey(const ValueKey('answer-0')),
-          );
-        } else {
-          await _tapPointerOwned(tester, find.bySemanticsLabel('안녕'));
-        }
+      await _enterCorrectResponse(tester, engine);
+      if (engine != 'listening') {
         await _tapPointerOwned(
           tester,
           find.byKey(const ValueKey('quest-submit')),
         );
-        await tester.pump();
-
-        expect(burstCalls, 1, reason: engine);
-        expect(soundCalls, 1, reason: engine);
-        expect(hapticCalls, 1, reason: engine);
       }
-    },
-  );
+      await tester.pump();
+
+      expect(burstCalls, 1, reason: engine);
+      expect(soundCalls, 1, reason: engine);
+      expect(hapticCalls, 1, reason: engine);
+    }
+  });
 
   testWidgets(
     'success keeps a live announcement without a duplicate lower label',

@@ -35,6 +35,7 @@ class DiktatQuest extends StatefulWidget {
   final bool isLast;
   final bool allowWordBankFallback;
   final bool allowDontKnow;
+  final SoriQuestCorrectFeedback correctFeedback;
 
   const DiktatQuest({
     super.key,
@@ -44,6 +45,7 @@ class DiktatQuest extends StatefulWidget {
     this.isLast = false,
     this.allowWordBankFallback = false,
     this.allowDontKnow = false,
+    this.correctFeedback = const SoriQuestCorrectFeedback(),
   });
 
   @override
@@ -396,7 +398,7 @@ class _DiktatQuestState extends State<DiktatQuest> {
     final input = _ctrl.text;
 
     if (DiktatQuest.isAccepted(input, _acceptedTargets)) {
-      HapticFeedback.lightImpact();
+      widget.correctFeedback.play(context);
       setState(() {
         _completed = true;
         _feedback = _Feedback.correct;
