@@ -9,6 +9,10 @@ key and a wrong scope gate -- brief-authoring errors a 2-second check would
 have caught. This tool never writes anything; it only reads the brief and
 the source files its anchors point at.
 
+Note: a backtick-quoted term naming an external concept (a Dart lint rule
+such as `comment_references`, a package, an SDK type) reads as MISSING
+since it names no symbol in the file -- intentional; read the table.
+
 Usage:
     python tool/check_brief_anchors.py <brief.md> [--root DIR] [--window N]
 """
@@ -25,7 +29,7 @@ PATH_RE = re.compile(
     r"(?P<path>[A-Za-z0-9_./-]+\.(?:%s))(?::(?P<l1>\d+)(?:-(?P<l2>\d+))?)?" % EXTS
 )
 L_ANCHOR_RE = re.compile(r"\bL(\d+)(?:-(\d+))?\b")
-IDENT_RE = re.compile(r"`([A-Za-z_][A-Za-z0-9_.]*)`")
+IDENT_RE = re.compile(r"`([A-Za-z_][A-Za-z0-9_.]*)(?:\([^`]*\)|\s*=[^`]*)?`")
 SEARCH_DIRS = ("lib", "test", "tool", ".github", "docs")
 SKIP_DIRS = {".dart_tool", "build", ".git"}
 
@@ -52,14 +56,18 @@ def _resolve(path_str: str, root: Path):
 
 
 def _find(name: str, flines: list[str], lo: int, hi: int):
-    """First 1-indexed line in [lo, hi] (clamped) containing `name` or, for
-    a dotted identifier, its last segment. None if not found."""
+    """First 1-indexed line in [lo, hi] (clamped) with `name` (or, dotted,
+    its last segment) at a token boundary -- `stop` must not match inside
+    `stopImpl`; lookarounds, not `\\b` (Korean is a `re` word char too)."""
     last = name.rsplit(".", 1)[-1]
+    boundary = r"(?<![A-Za-z0-9_])%s(?![A-Za-z0-9_])"
+    full_re = re.compile(boundary % re.escape(name))
+    last_re = full_re if last == name else re.compile(boundary % re.escape(last))
     lo = max(1, lo)
     hi = min(len(flines), hi)
     for i in range(lo, hi + 1):
         text = flines[i - 1]
-        if name in text or last in text:
+        if full_re.search(text) or last_re.search(text):
             return i
     return None
 

@@ -185,6 +185,56 @@ class CheckBriefAnchorsTest(unittest.TestCase):
         self.assertRegex(ok_summary, pattern)
         self.assertRegex(missing_summary, pattern)
 
+    # -- Fix round 1 (Fable review on 6cb03aeb): F1 token-boundary matching --
+
+    def test_9_prefix_substring_is_not_a_false_match(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _mk(root, "lib/a.dart", _lines_file(5, {3: "const _cacheDir = 1;"}))
+            code, rows, summary = _run(root, "check `lib/a.dart:3` sets `cacheDir`\n")
+        self.assertEqual(code, 1)
+        self.assertEqual(len(rows), 1)
+        status, _, _, detail = rows[0]
+        self.assertEqual(status, "MISSING")
+        self.assertIn("cacheDir", detail)
+        self.assertIn("not found", detail)
+
+    def test_10_suffix_substring_is_not_a_false_match(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _mk(root, "lib/a.dart", _lines_file(5, {3: "stopImpl();"}))
+            code, rows, summary = _run(root, "check `lib/a.dart:3` sets `stop`\n")
+        self.assertEqual(code, 1)
+        self.assertEqual(len(rows), 1)
+        status, _, _, detail = rows[0]
+        self.assertEqual(status, "MISSING")
+        self.assertIn("stop", detail)
+        self.assertIn("not found", detail)
+
+    def test_11_underscore_prefixed_name_matches_via_lookaround(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _mk(root, "lib/a.dart", _lines_file(5, {3: "const _cacheDir = 1;"}))
+            code, rows, summary = _run(root, "check `lib/a.dart:3` sets `_cacheDir`\n")
+        self.assertEqual(code, 0)
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0][0], "OK")
+
+    # -- Fix round 1: F2 call/assignment backtick forms --
+
+    def test_12_call_and_assignment_backtick_forms_are_checked(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _mk(root, "lib/a.dart", _lines_file(5, {3: "void foo() { bar(1); }"}))
+            brief = "see `lib/a.dart:3` -- `foo()` and `bar(x: 1)` and `baz =`\n"
+            code, rows, summary = _run(root, brief)
+        self.assertEqual(code, 1)
+        self.assertEqual(len(rows), 3)
+        by_detail_prefix = {r[3].split(" ", 1)[0]: r[0] for r in rows}
+        self.assertEqual(by_detail_prefix["foo"], "OK")
+        self.assertEqual(by_detail_prefix["bar"], "OK")
+        self.assertEqual(by_detail_prefix["baz"], "MISSING")
+
 
 if __name__ == "__main__":
     unittest.main()
