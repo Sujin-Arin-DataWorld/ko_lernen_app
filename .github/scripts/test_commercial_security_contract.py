@@ -53,6 +53,26 @@ class CommercialSecurityContractTest(unittest.TestCase):
         self.assertIn(dependencies, job)
         self.assertLess(job.index(bootstrap), job.index(dependencies))
 
+    def test_ios_job_pins_and_verifies_xcode_and_both_sdks_before_preparation(self):
+        workflow = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
+        job = workflow.split("  ios-native-build:", 1)[1].split("  release-internal:", 1)[0]
+        job_env = job.split("    env:\n", 1)[1].split("    steps:\n", 1)[0]
+        self.assertIn("DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer", job_env)
+        diagnostic = job.split("      - name: Verify pinned Xcode and iOS SDKs\n", 1)[1].split("      - name:", 1)[0]
+        self.assertIn("set -euo pipefail", diagnostic)
+        self.assertIn('test -d "$DEVELOPER_DIR"', diagnostic)
+        self.assertIn('xcode_version="$(xcodebuild -version)"', diagnostic)
+        self.assertIn('test "${xcode_version%%$\'\\n\'*}" = "Xcode 26.3"', diagnostic)
+        self.assertIn("for sdk in iphoneos iphonesimulator; do", diagnostic)
+        self.assertIn('xcrun --sdk "$sdk" --show-sdk-version', diagnostic)
+        self.assertIn('xcrun --sdk "$sdk" --show-sdk-path', diagnostic)
+        self.assertIn('test "$sdk_version" = "26.2"', diagnostic)
+        self.assertIn('"$DEVELOPER_DIR"/*) ;;', diagnostic)
+        self.assertIn("exit 1", diagnostic)
+        self.assertNotIn("|| true", diagnostic)
+        self.assertLess(job.index("Verify pinned Xcode and iOS SDKs"), job.index("bash ios/ci_scripts/ci_post_clone.sh"))
+        self.assertNotIn("xcode-select --switch", job)
+
     def test_ios_tests_use_an_isolated_debug_host_without_app_or_network_imports(self):
         workflow = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
         job = workflow.split("  ios-native-build:", 1)[1].split("  release-internal:", 1)[0]

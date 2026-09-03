@@ -63,6 +63,20 @@ CI는 의존성 설치 전에 `python -m pip install --upgrade pip==26.2.1`로 �
 후속 keyring 회귀 수정을 포함한 버전이다. 배포 시에는 실제 buildpack의 도구 버전과
 해결된 런타임 의존성도 별도로 기록·감사한다. 로컬 venv의 취약점0은 운영 이미지의 증명이 아니다.
 
+### 개발 도구 감사의 잔여 항목
+
+Gye의 `firebase-tools` → `@google-cloud/pubsub5.3.1` → `@opentelemetry/core1.30.1`
+경로는 잠금 파일에서 `dev:true`다. 운영 의존성 감사와 전체 개발 의존성 감사를 구분한다.
+[GHSA-8988-4f7v-96qf](https://github.com/advisories/GHSA-8988-4f7v-96qf)의 moderate
+Baggage 입력 메모리 문제는 core2.8.0에서 수정됐지만, 현재 호환 PubSub5.x는 core1.x를
+요구한다. 임의 major override나 오래된 Firebase CLI로의 자동 downgrade를 하지 않는다.
+상위 도구의 호환 릴리스가 준비되면 별도 검증 후 갱신하며, 배포 환경의 실제 dev 제외 여부도 확인한다.
+
+그동안 개발 도구/에뮬레이터는 공개 네트워크에 노출하지 않고, Node 기본 HTTP 헤더 한도를
+키우지 않는다. HTTP 한도는 Pub/Sub 같은 비HTTP 전달의 보호가 아니므로 신뢰하지 않는
+Baggage를 도구에 전달하지 않거나 입력 경계에서 크기를 제한한다. 이는 개발 도구 운영 조건이며,
+운영 서버에 해당 문제가 없다는 실측이나 전체 의존성 취약점0의 주장이 아니다.
+
 ## 3. TTS와 shared Firestore 설정
 
 TTS는 빈 요청 거절, quota 환급, callable 12초 timeout, provider 7초 deadline,
@@ -223,6 +237,10 @@ W7의 TTS 로딩/프리패치, Living의 스타일 변경, W9의 배포 소유�
 - iOS 개인 재생은 `AVAudioPlayer(data:)`를 쓰는 앱 소유 브리지다. PR/main의 unsigned
   iOS 빌드와 simulator `RunnerTests`를 통과해야 한다. 이는 실제 기기의 재생·중단·계정 전환·
   삭제 시 메모리 해제와 임시 파일 미생성 확인을 대신하지 않는다. desktop 개인 재생은 차단한다.
+- iOS CI는 Xcode26.3을 명시적으로 선택하고 준비·빌드·테스트에 같은 `DEVELOPER_DIR`를 쓴다.
+  현재 `device_info_plus13.2.0`의 iOS26.1 API는 구형 SDK로 컴파일되지 않으므로
+  `macos-15`의 기본 Xcode를 호환성 증거로 삼지 않는다. W9의 실제 Xcode Cloud/서명 빌드도
+  호환 SDK를 선택했는지 별도 확인한다. 이 CI 변경은 Xcode Cloud 콘솔 설정을 바꾸지 않는다.
 - `service_idempotency_results.expiresAt` TTL은15분 결과 보관, `service_idempotency.expiresAt`은
   책/발음24시간 hash-only 중복 방지다. API 접근 만료와 Firestore TTL 실제 삭제는 별개다.
 - `premium_grants`, `customer_entitlements`, `billing_customers`, billing receipts, access rate

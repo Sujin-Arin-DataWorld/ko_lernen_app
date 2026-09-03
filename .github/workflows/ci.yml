@@ -307,9 +307,29 @@ jobs:
     timeout-minutes: 45
     env:
       CI_PRIMARY_REPOSITORY_PATH: ${{ github.workspace }}
+      # device_info_plus 13.2 requires declarations absent from the runner's
+      # default Xcode 16.4 SDK. Keep setup, device build and simulator on one SDK.
+      DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Verify pinned Xcode and iOS SDKs
+        run: |
+          set -euo pipefail
+          test -d "$DEVELOPER_DIR"
+          xcode_version="$(xcodebuild -version)"
+          printf '%s\n' "$xcode_version"
+          test "${xcode_version%%$'\n'*}" = "Xcode 26.3"
+          for sdk in iphoneos iphonesimulator; do
+            sdk_version="$(xcrun --sdk "$sdk" --show-sdk-version)"
+            sdk_path="$(xcrun --sdk "$sdk" --show-sdk-path)"
+            printf '%s SDK %s: %s\n' "$sdk" "$sdk_version" "$sdk_path"
+            test "$sdk_version" = "26.2"
+            case "$sdk_path" in
+              "$DEVELOPER_DIR"/*) ;;
+              *) echo "SDK resolved outside the pinned Xcode" >&2; exit 1 ;;
+            esac
+          done
       - name: Prepare existing pinned iOS toolchain and plugins
         run: bash ios/ci_scripts/ci_post_clone.sh
       - name: Compile release app without signing
