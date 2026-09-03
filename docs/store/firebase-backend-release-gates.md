@@ -241,6 +241,10 @@ W7의 TTS 로딩/프리패치, Living의 스타일 변경, W9의 배포 소유�
   현재 `device_info_plus13.2.0`의 iOS26.1 API는 구형 SDK로 컴파일되지 않으므로
   `macos-15`의 기본 Xcode를 호환성 증거로 삼지 않는다. W9의 실제 Xcode Cloud/서명 빌드도
   호환 SDK를 선택했는지 별도 확인한다. 이 CI 변경은 Xcode Cloud 콘솔 설정을 바꾸지 않는다.
+- unsigned release 빌드와 simulator `RunnerTests`는 서로 의존하지 않는 별도 잡이며,
+  각각45분 제한 안에 성공해야 한다. simulator 잡은 전체 빌드·테스트 로그와 `.xcresult`를
+  `native-privacy-results` 아티팩트로 항상 보관한다(3일). 업로드 성공만으로 테스트 통과를
+  인정하지 않고 실제 XCTest 실행·결과를 확인한다.
 - `service_idempotency_results.expiresAt` TTL은15분 결과 보관, `service_idempotency.expiresAt`은
   책/발음24시간 hash-only 중복 방지다. API 접근 만료와 Firestore TTL 실제 삭제는 별개다.
 - `premium_grants`, `customer_entitlements`, `billing_customers`, billing receipts, access rate

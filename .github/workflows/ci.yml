@@ -298,7 +298,7 @@ jobs:
   # Compile native privacy/auth bridges without signing or store access.
   # Reuse the existing Xcode Cloud dependency setup; publishing remains W9-owned.
   ios-native-build:
-    name: Unsigned iOS build and native tests
+    name: Unsigned iOS release build
     needs: changes
     if: >-
       needs.changes.outputs.ios == 'true' &&
@@ -336,23 +336,62 @@ jobs:
         run: |
           export PATH="$HOME/flutter/bin:$HOME/.pub-cache/bin:$PATH"
           flutter build ios --release --no-codesign
+
+  # The cold simulator build must not share its 45-minute clock with the device
+  # release compile. Both independent jobs retain the same toolchain contract.
+  ios-native-tests:
+    name: iOS simulator native tests
+    needs: changes
+    if: >-
+      needs.changes.outputs.ios == 'true' &&
+      (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
+    runs-on: macos-15
+    timeout-minutes: 45
+    env:
+      CI_PRIMARY_REPOSITORY_PATH: ${{ github.workspace }}
+      DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Verify pinned Xcode and iOS SDKs
+        run: |
+          set -euo pipefail
+          test -d "$DEVELOPER_DIR"
+          xcode_version="$(xcodebuild -version)"
+          printf '%s\n' "$xcode_version"
+          test "${xcode_version%%$'\n'*}" = "Xcode 26.3"
+          for sdk in iphoneos iphonesimulator; do
+            sdk_version="$(xcrun --sdk "$sdk" --show-sdk-version)"
+            sdk_path="$(xcrun --sdk "$sdk" --show-sdk-path)"
+            printf '%s SDK %s: %s\n' "$sdk" "$sdk_version" "$sdk_path"
+            test "$sdk_version" = "26.2"
+            case "$sdk_path" in
+              "$DEVELOPER_DIR"/*) ;;
+              *) echo "SDK resolved outside the pinned Xcode" >&2; exit 1 ;;
+            esac
+          done
+      - name: Prepare existing pinned iOS toolchain and plugins
+        run: bash ios/ci_scripts/ci_post_clone.sh
       - name: Run native privacy tests on an installed iPhone simulator
         run: |
           set -euo pipefail
           export PATH="$HOME/flutter/bin:$HOME/.pub-cache/bin:$PATH"
           simulator_id="$(xcrun simctl list devices available -j | python3 -c 'import json,sys; devices=json.load(sys.stdin)["devices"]; print(next(d["udid"] for runtime, group in devices.items() if "iOS-" in runtime for d in group if d["isAvailable"] and d["name"].startswith("iPhone")))')"
-          xcodebuild test -quiet -workspace ios/Runner.xcworkspace -scheme Runner \
+          xcodebuild test -workspace ios/Runner.xcworkspace -scheme Runner \
             -destination "platform=iOS Simulator,id=$simulator_id" \
             -only-testing:RunnerTests CODE_SIGNING_ALLOWED=NO \
             FLUTTER_TARGET=test/support/native_test_host.dart FLUTTER_BUILD_MODE=debug \
-            -resultBundlePath "$RUNNER_TEMP/native-privacy.xcresult"
+            -resultBundlePath "$RUNNER_TEMP/native-privacy.xcresult" \
+            2>&1 | tee "$RUNNER_TEMP/native-privacy-build-test.log"
       - name: Retain native test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: native-privacy-results
-          path: ${{ runner.temp }}/native-privacy.xcresult
-          if-no-files-found: ignore
+          path: |
+            ${{ runner.temp }}/native-privacy.xcresult
+            ${{ runner.temp }}/native-privacy-build-test.log
+          if-no-files-found: error
           retention-days: 3
 
   # Android 자동배포는 Google Play **내부 테스트(internal)** 만 쓴다.

@@ -8,6 +8,13 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 class CommercialSecurityContractTest(unittest.TestCase):
+    def ios_jobs(self):
+        workflow = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
+        jobs = dict(re.findall(r"(?ms)^  ([\w-]+):\n(.*?)(?=^  [\w-]+:\n|\Z)", workflow.split("\njobs:\n", 1)[1]))
+        for name in ("ios-native-build", "ios-native-tests"):
+            self.assertIn(name, list(jobs))
+        return jobs["ios-native-build"], jobs["ios-native-tests"]
+
     def test_all_node_function_sources_target_supported_node22(self):
         for name in ("gye", "tts", "pronunciation", "auth_cleanup"):
             package = json.loads((ROOT / "functions" / name / "package.json").read_text(encoding="utf-8"))
@@ -30,19 +37,23 @@ class CommercialSecurityContractTest(unittest.TestCase):
         self.assertIn("python functions/tts/build_canonical_manifest.py --check", tts_job)
 
     def test_ios_gate_reuses_existing_setup_without_signing_or_upload(self):
-        workflow = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
-        self.assertIn("  ios-native-build:", workflow)
-        if "  ios-native-build:" not in workflow:
-            return
-        job = workflow.split("  ios-native-build:", 1)[1].split("  release-internal:", 1)[0]
-        self.assertIn("needs.changes.outputs.ios == 'true'", job)
-        self.assertIn("bash ios/ci_scripts/ci_post_clone.sh", job)
-        self.assertIn("flutter build ios --release --no-codesign", job)
-        self.assertIn("xcrun simctl list devices available -j", job)
-        self.assertIn("xcodebuild test", job)
-        self.assertIn("-only-testing:RunnerTests", job)
-        self.assertIn("CODE_SIGNING_ALLOWED=NO", job)
-        self.assertNotIn("secrets.", job)
+        release, simulator = self.ios_jobs()
+        for job in (release, simulator):
+            self.assertIn("needs.changes.outputs.ios == 'true'", job)
+            self.assertIn("github.event.pull_request.draft == false", job)
+            self.assertRegex(job, r"(?m)^    needs: changes$")
+            self.assertIn("timeout-minutes: 45", job)
+            self.assertIn("runs-on: macos-15", job)
+            self.assertIn("bash ios/ci_scripts/ci_post_clone.sh", job)
+            self.assertNotIn("continue-on-error", job)
+            self.assertNotIn("secrets.", job)
+        self.assertIn("flutter build ios --release --no-codesign", release)
+        self.assertNotIn("xcodebuild test", release)
+        self.assertNotIn("flutter build ios --release", simulator)
+        self.assertIn("xcrun simctl list devices available -j", simulator)
+        self.assertIn("xcodebuild test", simulator)
+        self.assertIn("-only-testing:RunnerTests", simulator)
+        self.assertIn("CODE_SIGNING_ALLOWED=NO", simulator)
 
     def test_book_ci_updates_pip_before_installing_function_dependencies(self):
         workflow = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
@@ -54,11 +65,15 @@ class CommercialSecurityContractTest(unittest.TestCase):
         self.assertLess(job.index(bootstrap), job.index(dependencies))
 
     def test_ios_job_pins_and_verifies_xcode_and_both_sdks_before_preparation(self):
-        workflow = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
-        job = workflow.split("  ios-native-build:", 1)[1].split("  release-internal:", 1)[0]
-        job_env = job.split("    env:\n", 1)[1].split("    steps:\n", 1)[0]
-        self.assertIn("DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer", job_env)
-        diagnostic = job.split("      - name: Verify pinned Xcode and iOS SDKs\n", 1)[1].split("      - name:", 1)[0]
+        diagnostics = []
+        for job in self.ios_jobs():
+            job_env = job.split("    env:\n", 1)[1].split("    steps:\n", 1)[0]
+            self.assertIn("DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer", job_env)
+            diagnostics.append(job.split("      - name: Verify pinned Xcode and iOS SDKs\n", 1)[1].split("      - name:", 1)[0])
+            self.assertLess(job.index("Verify pinned Xcode and iOS SDKs"), job.index("bash ios/ci_scripts/ci_post_clone.sh"))
+            self.assertNotIn("xcode-select --switch", job)
+        self.assertEqual(diagnostics[0], diagnostics[1])
+        diagnostic = diagnostics[0]
         self.assertIn("set -euo pipefail", diagnostic)
         self.assertIn('test -d "$DEVELOPER_DIR"', diagnostic)
         self.assertIn('xcode_version="$(xcodebuild -version)"', diagnostic)
@@ -70,12 +85,25 @@ class CommercialSecurityContractTest(unittest.TestCase):
         self.assertIn('"$DEVELOPER_DIR"/*) ;;', diagnostic)
         self.assertIn("exit 1", diagnostic)
         self.assertNotIn("|| true", diagnostic)
-        self.assertLess(job.index("Verify pinned Xcode and iOS SDKs"), job.index("bash ios/ci_scripts/ci_post_clone.sh"))
-        self.assertNotIn("xcode-select --switch", job)
+
+    def test_ios_simulator_logs_preserve_test_exit_status_and_always_upload(self):
+        _, simulator = self.ios_jobs()
+        native_step = simulator.split("      - name: Run native privacy tests on an installed iPhone simulator\n", 1)[1].split("      - name:", 1)[0]
+        self.assertIn("set -euo pipefail", native_step)
+        self.assertIn("xcodebuild test -workspace", native_step)
+        self.assertNotIn("-quiet", native_step)
+        self.assertIn('2>&1 | tee "$RUNNER_TEMP/native-privacy-build-test.log"', native_step)
+        self.assertNotIn("||", native_step)
+        self.assertNotIn("if:", native_step)
+        artifact = simulator.split("      - name: Retain native test results\n", 1)[1]
+        self.assertIn("if: always()", artifact)
+        self.assertIn("${{ runner.temp }}/native-privacy.xcresult", artifact)
+        self.assertIn("${{ runner.temp }}/native-privacy-build-test.log", artifact)
+        self.assertIn("if-no-files-found: error", artifact)
+        self.assertIn("retention-days: 3", artifact)
 
     def test_ios_tests_use_an_isolated_debug_host_without_app_or_network_imports(self):
-        workflow = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
-        job = workflow.split("  ios-native-build:", 1)[1].split("  release-internal:", 1)[0]
+        _, job = self.ios_jobs()
         native_test = job.split("xcodebuild test", 1)[1]
         self.assertIn("FLUTTER_TARGET=test/support/native_test_host.dart", native_test)
         self.assertIn("FLUTTER_BUILD_MODE=debug", native_test)
