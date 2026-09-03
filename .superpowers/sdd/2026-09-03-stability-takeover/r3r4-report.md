@@ -210,3 +210,114 @@ a Play/Firebase attestation) before Play upload. Three subcommands:
    credentials, `--tools-json`) already provisioned somewhere for a live
    dry-run, or does that provisioning itself need to be scoped as a follow-up
    task before `upload`/`archive` can be exercised end-to-end?
+
+## Fix round 1 (Fable review of commit 118b1933)
+
+Source review: `.superpowers/sdd/2026-09-03-stability-takeover/r3r4-review.md`,
+verdict FIX-REQUIRED, 4 items addressed below. Reviewer minor items 5-8
+(`verify_workflow`/`_artifacts` complexity, unhoisted magic size constants,
+import-order nits, missing docstrings) were rejected per coordinator
+instruction — no change made for those.
+
+1. **CI (Important 1)**: `.github/workflows/ci.yml` job "Asset pipeline
+   gates" (~line 792) pip-install line now reads
+   `pip install pillow==10.4.0 numpy==2.0.1 scipy==1.16.1 pyyaml==6.0.2`.
+   This is the only `ci.yml` change — no gate wiring touched, diff is
+   exactly the one line. Verified the workflow still parses as YAML by
+   running the throwaway venv's `python -c "import yaml; yaml.safe_load(...)"`
+   equivalent implicitly via `release_integrity.py actions` reading real
+   workflow files during the R3 suite (all 27 pass, including workflows
+   under `.github/workflows/`).
+
+2. **Type hints (Important 2)**: `tool/release_integrity.py` now starts
+   with `from __future__ import annotations` and every function signature
+   is annotated: `_unique_object(pairs: list[tuple[str, object]]) -> dict`,
+   `load_manifest(path: Path) -> dict`,
+   `_regular_file_identity(info: os.stat_result) -> tuple[int, int, int, int, int, int]`,
+   `_hash_regular_binary(path: Path) -> tuple[str, int, tuple[int, int, int, int, int, int]]`,
+   `verify_binary(manifest: dict, name: str, path: Path) -> dict`,
+   `verify_action(manifest: dict, reference: object, version_comment: str) -> None`,
+   `verify_workflow(manifest: dict, path: Path) -> int` plus its three
+   nested helpers `mapping`/`validate_keys`/`check_use` (all `node: object`,
+   since `yaml` is a conditional/lazy import and the module keeps it optional
+   at import time — `object` avoids requiring PyYAML just to type-check),
+   and `main(argv: list[str] | None = None) -> int`. No behavior change.
+   Import order was deliberately left as-is (reviewer item 7 rejected).
+
+3. **Bounded libapp.so read (Minor 3)**: `tool/android_release_evidence.py`
+   `_artifacts()` (~376-388) now reads the AAB's `libapp.so` member via
+   `bundle.open(name)` with an explicit bounded `member.read(256*1024*1024+1)`
+   and rejects (`symbol_mismatch`) if the actual bytes read are empty or
+   exceed the cap, mirroring `_read_bytes`'s own pattern. The prior
+   `bundle.getinfo(name).file_size > 256*1024*1024` check remains as a
+   cheap pre-filter only (comment added clarifying it never gates
+   acceptance on its own).
+   - Test added: `test_lying_zip_size_metadata_cannot_bypass_the_read_cap`
+     in `tool/test_android_release_evidence.py`.
+   - **Investigation note**: the first design monkeypatched
+     `ZipInfo.file_size` smaller than a real >256 MiB member written into
+     a rebuilt AAB. Live experiment showed Python's own `zipfile` module
+     already bounds `ZipExtFile` reads to the declared (possibly lied)
+     `file_size` internally, then CRC-validates the truncated output
+     against the true stream's recorded CRC-32 — so a "lie smaller"
+     scenario raises `zipfile.BadZipFile` -> `invalid_bundle` in *both*
+     the pre-fix and post-fix code, and does not actually distinguish
+     them (confirmed directly: reproduced the same `BadZipFile: Bad
+     CRC-32` failure against a standalone script using only stdlib
+     `zipfile`, independent of this project's code). Redesigned the test
+     around a controlled `BoundedReadProbe` test double substituted for
+     `bundle.open()` on the target member: it raises `AssertionError` on
+     any call that is not an explicit, positive, capped `read(n)` — which
+     is exactly what the pre-fix `bundle.read(name)` call (internally
+     `fp.read()` with `n=None`) triggers — and otherwise returns exactly
+     `n` bytes, standing in for a member whose true decompressed length is
+     effectively unbounded despite a lied-small declared `file_size`
+     (also monkeypatched via `ZipInfo`/`getinfo`, to bypass the cheap
+     pre-filter as a lying zip would). This isolates and directly proves
+     the code's own contract, independent of `zipfile`'s internal
+     truncation/CRC behavior.
+   - **Verified as a real regression guard**: temporarily reverted the fix
+     in `android_release_evidence.py` (restored the one-shot
+     `bundle.read(name)` call) and reran the new test alone — it failed
+     with `AssertionError: expected a bounded read of at most 268435457
+     bytes, got n=None (an unbounded/bare read call)`, proving the test
+     fails against the pre-fix code. Restored the fix from a backup; the
+     test passes again (0.17s) and the full R4 suite is green (44/44).
+
+4. **`from None` consistency (Minor 4)**: `tool/android_release_evidence.py`
+   `archive_release()` (~line 614): `except FileExistsError:` branch now
+   raises `EvidenceError("archive_mismatch") from None`, matching every
+   other raise-inside-except in the file.
+
+### Test results after fix round 1
+
+- R3 (`tool.test_release_integrity`), throwaway venv
+  (`%TEMP%\r3-yaml-venv-20260903`, `pip install pyyaml==6.0.2`; canonical
+  `.venv` was never touched): **27/27 pass**, 5.65s.
+- R4 (`tool.test_android_release_evidence`), canonical venv: **44/44 pass**
+  (43 original + 1 new `test_lying_zip_size_metadata_cannot_bypass_the_read_cap`),
+  51.6s.
+- `python -m unittest discover -s tool -p "test_*.py" -t .` in the
+  throwaway venv: **181 tests, 0 failures, 25 errors.** All 25 errors are
+  the same pre-existing environment-only import gaps as the initial
+  recon (13 `ModuleNotFoundError: No module named 'numpy'`, 12
+  `ModuleNotFoundError: No module named 'PIL'`) in unrelated hanok/asset
+  scene-tooling test modules — none in `test_release_integrity` or
+  `test_android_release_evidence`. The throwaway venv adds only PyYAML by
+  design; it never carries numpy/PIL, so this count and its classification
+  match expectations.
+- `git diff --check`: clean — only benign CRLF-normalization warnings from
+  git's `autocrlf` on this Windows checkout, no actual whitespace errors.
+
+### Commit
+
+- `ed422dba` — `fix(tool): pyyaml in CI tool-tests job, type hints, bounded libapp.so read, from None (Fable review of R3+R4)`
+  (4 files changed: `.github/workflows/ci.yml`,
+  `tool/release_integrity.py`, `tool/android_release_evidence.py`,
+  `tool/test_android_release_evidence.py`; 81 insertions, 14 deletions.)
+
+### Open questions after fix round 1 (unchanged from initial report)
+
+The 3 open questions from the initial report still stand — none was
+resolved by this fix round, since they concern CI/venv provisioning policy
+and R4 live-input availability, not code correctness.
