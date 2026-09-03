@@ -243,3 +243,29 @@ AST만 사용): 511개 미캐시 파일 재추출, 16 workers. 결과: **43740 n
    `flashcard_language_preferences_test.dart`)를 `stubSoriSpeech()`로
    옮기는 후속 작업은 별도 태스크로 남겨둘지 확인 필요(이번 범위 밖으로
    명시됐지만 부채로 인지되어야 함).
+
+## Post-merge fix (커밋 `d4b39c45`)
+
+머지 과정에서 `lib/screens/pronunciation_studio_screen.dart:493`이 병합
+베이스의 `final stopping = SoriSpeech.speaking.value;`(구 bool — `speak`
+호출 즉시, 즉 resolving 시작 시점부터 `true`)에서
+`SoriSpeech.phase.value == TtsSpeechPhase.speaking`으로 자동/수동 치환돼
+행동 회귀가 생겼다. `phase == speaking`은 엔진이 재생 시작을 승격시킨
+**이후**에만 참이라, resolving 구간(사용자가 듣기 버튼을 누른 직후 ~
+오디오 재생 개시 전) 중에 다시 탭하면 정지가 아니라 재발화가 걸렸다.
+
+Fable 판정: `SoriSpeechIndicator.handleTap`(`lib/widgets/sori/speakable.dart:430`)
+이 이미 `phase != TtsSpeechPhase.idle` → stop 규칙을 쓰고 있으므로,
+`_listenToModel`도 같은 규칙을 따르도록 맞췄다.
+
+- 수정: `final stopping = SoriSpeech.phase.value != TtsSpeechPhase.idle;`
+  로 교체, 인라인 주석에 "같은 규칙" 근거 명시.
+- 회귀 테스트 추가(`test/pronunciation_studio_screen_test.dart`):
+  `stubSoriSpeech(completeSpeak: false)`로 speak future를 pending시켜
+  두고, 첫 탭 후 phase가 `resolving`에 머문 상태에서 두 번째 탭 →
+  `SoriSpeech.stop()`(스텁 `stops` 카운터)이 호출되고 재발화가 없으며
+  phase가 `idle`로 돌아오는지 확인. 기존 "listen taps never open the
+  microphone" 테스트의 단언은 그대로 유지(R2).
+- 검증: `flutter test --no-pub test/pronunciation_studio_screen_test.dart`
+  26/26 통과(신규 1건 포함), `flutter analyze --no-pub` 0 issues.
+- 커밋: `d4b39c45` (production fix + regression test, 단일 커밋).
