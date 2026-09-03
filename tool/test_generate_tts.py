@@ -1,5 +1,6 @@
 import json
 import os
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -159,7 +160,10 @@ class TtsGeneratorContractTest(unittest.TestCase):
         self.assertEqual(manifest["cacheRevision"], "v3")
         self.assertEqual(manifest["scenarioCount"], 126)
         self.assertEqual(len(manifest["items"]), 126)
-        self.assertEqual(manifest["bundledCount"], 0)
+        # Task 7 (지시서 4.4 / 스윕 tts-07): 125개 유니크 첫 문장 mp3가 실제로
+        # assets/tts/v3/ 에 다운로드돼 커밋됐다 — 126개 항목(2개가 같은
+        # storagePath 공유) 전부 bundled:true 여야 한다.
+        self.assertEqual(manifest["bundledCount"], 126)
         ids = [item["scenarioId"] for item in manifest["items"]]
         self.assertEqual(len(ids), len(set(ids)))
         order = [
@@ -181,12 +185,19 @@ class TtsGeneratorContractTest(unittest.TestCase):
         self.assertTrue(
             all(len(item["sourceSha256"]) == 64 for item in manifest["items"])
         )
-        self.assertTrue(all(not item["bundled"] for item in manifest["items"]))
+        self.assertTrue(all(item["bundled"] for item in manifest["items"]))
         self.assertTrue(
-            all(item["bundledAssetPath"] is None for item in manifest["items"])
+            all(
+                item["bundledAssetPath"] is not None
+                and item["bundledAssetPath"].startswith("assets/tts/v3/")
+                for item in manifest["items"]
+            )
         )
         self.assertTrue(
-            all(item["bundledSha256"] is None for item in manifest["items"])
+            all(
+                item["bundledSha256"] is not None and len(item["bundledSha256"]) == 64
+                for item in manifest["items"]
+            )
         )
 
     def test_first_line_manifest_selects_first_dialog_and_legacy_voice_rule(self):
@@ -717,6 +728,100 @@ class TtsGeneratorContractTest(unittest.TestCase):
         self.assertEqual(argv[1:3], ["storage", "cp"])
         self.assertEqual(argv[4], f"gs://{generate_tts.BUCKET}/{relative_path}")
         self.assertNotIn("rsync", argv)
+
+    def test_download_first_line_bundle_dedupes_shared_storage_paths(self):
+        items = [
+            {"storagePath": "tts/v3/female/aaa.mp3", "voice": "female", "cacheHashSha1": "aaa"},
+            {
+                # 두 시나리오가 같은 (voice, text) 첫 문장을 공유(126개 중 125
+                # 유니크). 같은 storagePath는 한 번만 다운로드해야 한다.
+                "storagePath": "tts/v3/female/aaa.mp3",
+                "voice": "female",
+                "cacheHashSha1": "aaa",
+            },
+            {"storagePath": "tts/v3/male/bbb.mp3", "voice": "male", "cacheHashSha1": "bbb"},
+        ]
+        calls = []
+
+        def fake_run(argv, check=True):
+            calls.append(argv)
+            target = argv[4]
+            # >= MIN_REMOTE_MP3_BYTES (256): 43 bytes would fail the same
+            # size floor real downloads are held to.
+            with open(target, "wb") as handle:
+                handle.write(b"ID3" + bytes(300))
+            return subprocess.CompletedProcess(argv, 0)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            with (
+                patch.object(generate_tts.shutil, "which", return_value="gcloud"),
+                patch.object(generate_tts.subprocess, "run", side_effect=fake_run),
+            ):
+                downloaded = generate_tts.download_first_line_bundle(
+                    items, project_root=tmp
+                )
+        self.assertEqual(len(calls), 2, "중복 storagePath는 한 번만 다운로드해야 한다")
+        self.assertEqual(len(downloaded), 2)
+
+    def test_download_first_line_bundle_batches_multi_item_voice_directories(self):
+        # 실제 125개 다운로드는 목소리당 한 프로세스(청크 <=chunk_size)로 묶어야
+        # 파일당 gcloud 프로세스 125개(각 ~10-16s)를 피한다 — 컨트롤러 룰링.
+        items = [
+            {"storagePath": f"tts/v3/female/{name}.mp3", "voice": "female", "cacheHashSha1": name}
+            for name in ("aaa", "bbb", "ccc")
+        ]
+        calls = []
+
+        def fake_run(argv, check=True):
+            calls.append(argv)
+            # Multi-source form: [... "cp", src1, src2, ..., dest_dir, "--project", PROJECT]
+            # Single-source form: [... "cp", src, dest_file, "--project", PROJECT]
+            dest = argv[-3]
+            sources = argv[3:-3]
+            if len(sources) == 1:
+                with open(dest, "wb") as handle:
+                    handle.write(b"ID3" + bytes(300))
+            else:
+                for source in sources:
+                    digest = source.rsplit("/", 1)[-1]
+                    with open(os.path.join(dest, digest), "wb") as handle:
+                        handle.write(b"ID3" + bytes(300))
+            return subprocess.CompletedProcess(argv, 0)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            with (
+                patch.object(generate_tts.shutil, "which", return_value="gcloud"),
+                patch.object(generate_tts.subprocess, "run", side_effect=fake_run),
+            ):
+                downloaded = generate_tts.download_first_line_bundle(
+                    items, project_root=tmp, chunk_size=2
+                )
+                voice_dir = os.path.join(tmp, "assets", "tts", "v3", "female")
+                remaining = sorted(os.listdir(voice_dir))
+
+        # chunk_size=2 over 3 items => one batched call (2 sources) + one
+        # single-source call, never one process per file.
+        self.assertEqual(len(calls), 2)
+        self.assertEqual(len(downloaded), 3)
+        self.assertEqual(remaining, ["aaa.mp3", "bbb.mp3", "ccc.mp3"])
+
+    def test_download_first_line_bundle_skips_an_already_valid_local_file(self):
+        items = [{"storagePath": "tts/v3/female/aaa.mp3", "voice": "female", "cacheHashSha1": "aaa"}]
+        with tempfile.TemporaryDirectory() as tmp:
+            voice_dir = os.path.join(tmp, "assets", "tts", "v3", "female")
+            os.makedirs(voice_dir)
+            existing = os.path.join(voice_dir, "aaa.mp3")
+            with open(existing, "wb") as handle:
+                handle.write(b"ID3" + bytes(300))
+            with (
+                patch.object(generate_tts.shutil, "which", return_value="gcloud"),
+                patch.object(generate_tts.subprocess, "run") as run,
+            ):
+                downloaded = generate_tts.download_first_line_bundle(
+                    items, project_root=tmp
+                )
+        run.assert_not_called()
+        self.assertEqual(downloaded, [])
 
     def test_verify_storage_mode_reaches_its_own_read_only_branch(self):
         # FIX-2a(2026-09-01 정정): --verify-storage 는 이제 --demo/--dry-run

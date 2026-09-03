@@ -111,7 +111,7 @@ void main() {
   });
 
   test(
-    'first-line bundle tier is manifest-only and declares no fake audio dir',
+    'first-line bundle tier bundles the immutable first-dialog corpus',
     () {
       final manifestFile = File('assets/data/tts_first_line_manifest.json');
       final loaderSource = File(
@@ -120,16 +120,18 @@ void main() {
       final pubspec = File('pubspec.yaml').readAsStringSync();
       final manifest =
           jsonDecode(manifestFile.readAsStringSync()) as Map<String, dynamic>;
-
       expect(manifestFile.existsSync(), isTrue);
       expect(manifest['scenarioCount'], 126);
-      expect(manifest['bundledCount'], 0);
-      expect(pubspec, contains('- assets/data/'));
       expect(
-        pubspec,
-        isNot(contains('- assets/tts/')),
-        reason: '0-byte baseline must not bundle a nonexistent audio directory',
+        manifest['bundledCount'],
+        126,
+        reason:
+            'bundledCount는 시나리오(항목) 단위 합계라 126 — 그중 2개 시나리오가 같은 '
+            '(voice,text) 첫 대사를 공유해 실제 고유 mp3 파일 수는 125개뿐이다',
       );
+      expect(pubspec, contains('- assets/data/'));
+      expect(pubspec, contains('- assets/tts/v3/female/'));
+      expect(pubspec, contains('- assets/tts/v3/male/'));
       expect(
         loaderSource,
         contains('assets/data/tts_first_line_manifest.json'),

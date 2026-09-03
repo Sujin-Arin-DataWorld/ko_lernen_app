@@ -233,7 +233,9 @@ def _pubspec_declares_tts_assets(project_root):
             source = handle.read()
     except OSError:
         return False
-    return re.search(r"(?m)^\s*-\s+assets/tts/\s*$", source) is not None
+    female = re.search(r"(?m)^\s*-\s+assets/tts/v3/female/\s*$", source)
+    male = re.search(r"(?m)^\s*-\s+assets/tts/v3/male/\s*$", source)
+    return bool(female and male)
 
 
 def _bundled_first_line(project_root, voice, digest, storage_path):
@@ -538,6 +540,113 @@ def remote_cache_paths():
         for path, size in remote_cache_objects().items()
         if size >= MIN_REMOTE_MP3_BYTES
     }
+
+
+def download_first_line_bundle(manifest_items, project_root=ROOT, chunk_size=50):
+    """Download every unique first-line storagePath into assets/tts/<rev>/<voice>/.
+
+    Read-only against Storage (`storage cp` from `gs://` to a local path) —
+    never uploads or deletes. `manifest_items` may repeat the same
+    `storagePath` (two scenarios can share one first line); each unique path
+    is downloaded exactly once.
+
+    A lone pending item still uses a direct single-source
+    `storage cp <src> <local .part>` call, written atomically via
+    `.part` -> `os.replace`. When a voice directory has more than one
+    pending item, they are batched into one
+    `storage cp <src1> <src2> ... <scratch-dir>` invocation per chunk of at
+    most `chunk_size` sources (instead of one process per file — each
+    process costs roughly 10-16s, so 125 individually would dominate a
+    real run); every file fetched into the scratch dir is then validated
+    and atomically `os.replace`-d into its final name before the scratch
+    dir is removed. Either way, each file is verified (MP3 signature and
+    minimum size) before being promoted, and a local file that is already
+    present and already a usable MP3 is skipped rather than re-fetched.
+    """
+
+    def _validate(storage_path, data):
+        if len(data) < MIN_REMOTE_MP3_BYTES or not _usable_manifest_mp3(data):
+            raise ValueError(f"downloaded object is not a usable MP3: {storage_path}")
+
+    seen_paths = set()
+    unique_items = []
+    for item in manifest_items:
+        storage_path = item["storagePath"]
+        if storage_path in seen_paths:
+            continue
+        seen_paths.add(storage_path)
+        unique_items.append(item)
+
+    by_voice = {}
+    for item in unique_items:
+        by_voice.setdefault(item["voice"], []).append(item)
+
+    downloaded = []
+    for voice, voice_items in by_voice.items():
+        voice_dir = os.path.join(project_root, "assets", "tts", TTS_CACHE_REVISION, voice)
+        os.makedirs(voice_dir, exist_ok=True)
+
+        pending = []
+        for item in voice_items:
+            target = os.path.join(voice_dir, f"{item['cacheHashSha1']}.mp3")
+            if os.path.isfile(target) and os.path.getsize(target) >= MIN_REMOTE_MP3_BYTES:
+                with open(target, "rb") as handle:
+                    existing = handle.read()
+                if _usable_manifest_mp3(existing):
+                    continue  # already downloaded and valid; re-runs skip it
+            pending.append(item)
+
+        for start in range(0, len(pending), chunk_size):
+            chunk = pending[start : start + chunk_size]
+
+            if len(chunk) == 1:
+                item = chunk[0]
+                storage_path = item["storagePath"]
+                target = os.path.join(voice_dir, f"{item['cacheHashSha1']}.mp3")
+                tmp = target + ".part"
+                subprocess.run(
+                    gcloud_argv(
+                        "storage", "cp", f"gs://{BUCKET}/{storage_path}", tmp,
+                        "--project", PROJECT,
+                    ),
+                    check=True,
+                )
+                with open(tmp, "rb") as handle:
+                    data = handle.read()
+                try:
+                    _validate(storage_path, data)
+                except ValueError:
+                    os.remove(tmp)
+                    raise
+                os.replace(tmp, target)
+                downloaded.append(target)
+                continue
+
+            scratch = os.path.join(voice_dir, f".batch-{start}.part")
+            os.makedirs(scratch, exist_ok=True)
+            sources = [f"gs://{BUCKET}/{item['storagePath']}" for item in chunk]
+            subprocess.run(
+                gcloud_argv("storage", "cp", *sources, scratch, "--project", PROJECT),
+                check=True,
+            )
+            try:
+                for item in chunk:
+                    storage_path = item["storagePath"]
+                    fetched = os.path.join(scratch, f"{item['cacheHashSha1']}.mp3")
+                    target = os.path.join(voice_dir, f"{item['cacheHashSha1']}.mp3")
+                    if not os.path.isfile(fetched):
+                        raise ValueError(
+                            f"downloaded object is missing from batch copy: {storage_path}"
+                        )
+                    with open(fetched, "rb") as handle:
+                        data = handle.read()
+                    _validate(storage_path, data)
+                    os.replace(fetched, target)
+                    downloaded.append(target)
+            finally:
+                shutil.rmtree(scratch, ignore_errors=True)
+
+    return downloaded
 
 
 def collect():
@@ -1216,6 +1325,11 @@ def _parse_args(argv=None):
             "반드시 의도적으로만."
         ),
     )
+    modes.add_argument(
+        "--download-first-line-bundle",
+        action="store_true",
+        help="Download every unique first-line-manifest storagePath into assets/tts/ (network; Jin's machine only).",
+    )
     parser.add_argument(
         "--workers",
         type=int,
@@ -1304,6 +1418,21 @@ def main(argv=None):
         print(
             f"first-line manifest: {manifest['scenarioCount']} scenarios, "
             f"{manifest['bundledCount']} bundled -> {target}"
+        )
+        return 0
+
+    if args.download_first_line_bundle:
+        if shutil.which("gcloud") is None and shutil.which("gcloud.cmd") is None:
+            raise SystemExit(
+                "TTS 실행 중단: gcloud가 PATH에 없습니다. Google Cloud SDK를 "
+                "설치하고 Storage 인증을 마친 뒤 다시 실행하세요."
+            )
+        manifest = build_first_line_manifest(ROOT)
+        downloaded = download_first_line_bundle(manifest["items"], ROOT)
+        unique_paths = {item["storagePath"] for item in manifest["items"]}
+        print(
+            f"다운로드 {len(downloaded)}개 (유니크 storagePath {len(unique_paths)}개) "
+            f"-> assets/tts/{TTS_CACHE_REVISION}/"
         )
         return 0
 

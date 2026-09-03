@@ -15,7 +15,7 @@ void main() {
   });
 
   test(
-    'checked baseline manifest is valid, empty, and single-flight',
+    'checked baseline manifest is valid, cache-hit-aware, and single-flight',
     () async {
       TtsBundledManifest.resetForTesting();
       final first = TtsBundledManifest.load();
