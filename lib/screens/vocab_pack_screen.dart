@@ -432,7 +432,25 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         _learnRepeatCount++;
       }
     });
-    if (_learnQueue?.isDone ?? true) {
+    // 큐 변이(markKnown/markUnknown/defer)는 여기 도달하기 전에 호출부에서
+    // 이미 끝나 있다 — 그래서 여기 시점의 current는 "새로 보이는 카드"고
+    // peekNext는 "그 다음 카드"다. 방금 넘긴 카드(이미 끝난 일)가 아니라
+    // 이 둘을 미리 데운다(Task 3 fix round 1 — R2: 이전 라운드의
+    // "cur=방금 넘긴 카드" 프리페치는 실사용 가치가 없는 dead weight였다).
+    final queue = _learnQueue;
+    if (queue != null && !queue.isDone) {
+      final upcoming = queue.current;
+      if (upcoming != null) {
+        // ignore: discarded_futures
+        SoriSpeech.prefetch(upcoming.korean);
+      }
+      final after = queue.peekNext;
+      if (after != null) {
+        // ignore: discarded_futures
+        SoriSpeech.prefetch(after.korean);
+      }
+    }
+    if (queue?.isDone ?? true) {
       // Stage 1 끝 — 모든 current-pack 단어를 Learn에서 의도적으로 노출한 뒤
       // wordsLearned 기록 및 평가 단계로 진입.
       // ignore: discarded_futures
@@ -583,6 +601,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _choices = null;
     });
     _prepareNextQuestion();
+    if (_quizQuestions.length > 1) {
+      // ignore: discarded_futures
+      SoriSpeech.prefetch(_quizQuestions[1].korean);
+    }
     // 퀴즈도 "듣고 고르기"로 통일 — 첫 단어 자동 발음 재생.
     _speakCurrent();
     // 스테이지 전환 인라인 배너 — 최초 1회만 (모달보다 학습 흐름 덜 끊음).
@@ -621,6 +643,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _choices = null;
     });
     _prepareNextQuestion();
+    if (_bossQuestions.length > 1) {
+      // ignore: discarded_futures
+      SoriSpeech.prefetch(_bossQuestions[1].korean);
+    }
     // Boss 첫 단어 자동 발음 재생.
     _speakCurrent();
     // 스테이지 전환 인라인 배너 — 최초 1회만.
@@ -802,6 +828,13 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _choices = null;
     });
     _prepareNextQuestion();
+    // 850ms 광고 타이머 동안 그 다음 문항(현재+1) 오디오를 미리 데운다 —
+    // 지금 말할 문항 자체는 바로 아래 _speakCurrent()가 처리한다.
+    final list = isQuiz ? _quizQuestions : _bossQuestions;
+    if (_qIdx + 1 < list.length) {
+      // ignore: discarded_futures
+      SoriSpeech.prefetch(list[_qIdx + 1].korean);
+    }
     // 퀴즈·보스 모두 다음 단어 자동 발음(듣고 고르기 통일).
     _speakCurrent();
   }

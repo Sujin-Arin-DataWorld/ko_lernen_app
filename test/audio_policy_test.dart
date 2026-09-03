@@ -1,6 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/services/audio_policy.dart';
+import 'package:ko_lernen_app/services/sound_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -50,6 +51,24 @@ void main() {
     expect(policy.volumeFor(SoundChannel.gameFeedback), 0.0);
     expect(policy.volumeFor(SoundChannel.companion), closeTo(0.70, 1e-9));
     expect(policy.volumeFor(SoundChannel.speech), 1.0);
+  });
+
+  test('gameFeedback 채널이 음소거면 SoundService가 playImpl을 부르지 않는다 (M4)', () async {
+    // 테스트 시임이 볼륨 게이트보다 먼저 있으면 음소거 채널이 관측 불가능
+    // 해진다 — 시임이 실제 AudioPlayer 호출 대신 훅을 부르는 코드이므로,
+    // 게이트 자체를 우회해버린다.
+    final played = <String>[];
+    SoundService.playImpl = played.add;
+    addTearDown(SoundService.resetForTesting);
+
+    await policy.setChannelOn(SoundChannel.gameFeedback, false);
+    SoundService.correct();
+
+    expect(
+      played,
+      isEmpty,
+      reason: 'volumeFor(gameFeedback) <= 0 이면 playImpl도 호출되면 안 된다',
+    );
   });
 
   test('슬라이더 0 → on 이어도 0.0', () async {

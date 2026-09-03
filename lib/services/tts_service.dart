@@ -57,6 +57,7 @@ class TtsAudio {
 typedef TtsAudioResolver =
     Future<TtsAudio?> Function(String text, String voice);
 typedef TtsErrorReporter = void Function(String message);
+typedef TtsPlaybackStarted = void Function(String text, String voice);
 
 /// 프리미엄 오디오를 못 들려주는 이유. UI 가 사람 말로 옮겨 보여준다.
 ///
@@ -275,6 +276,9 @@ class TtsFilePlayback {
   }
 }
 
+/// SoriSpeech(파사드)와 TtsService(엔진 배선)가 공유하는 재생 3단계.
+enum TtsSpeechPhase { idle, resolving, speaking }
+
 /// Executes one TTS request with an immutable, request-local playback rate.
 class TtsPlaybackEngine {
   TtsPlaybackEngine({
@@ -284,6 +288,7 @@ class TtsPlaybackEngine {
     this.errorReporter,
     this.onResolutionFailed,
     this.onPlaybackFailed,
+    this.onPlaybackStarted,
   });
 
   final TtsAudioResolver resolveAudio;
@@ -301,6 +306,10 @@ class TtsPlaybackEngine {
   // Keep device playback failures distinct from missing/network audio. A
   // cancelled or superseded request must not show a failure for the new one.
   final TtsErrorReporter? onPlaybackFailed;
+
+  /// 해석 성공 + startAudio 성공(세션 획득)이 둘 다 확정된 직후 정확히
+  /// 1회 불린다. 해석 실패·재생-기전 실패에서는 절대 불리지 않는다.
+  final TtsPlaybackStarted? onPlaybackStarted;
   Future<void> _platformTail = Future<void>.value();
   Completer<void>? _cancellation;
   int _generation = 0;
@@ -418,6 +427,7 @@ class TtsPlaybackEngine {
       onPlaybackFailed?.call('TTS audio playback could not start.');
       return false;
     }
+    onPlaybackStarted?.call(trimmed, normalizedVoice);
     bool completed;
     try {
       completed = await Future.any<bool>([
@@ -550,6 +560,15 @@ class TtsService {
   static const Duration _diskTimeout = Duration(seconds: 2);
   static const int _maxBytes = 5 * 1024 * 1024; // 5MB/파일 상한
 
+  /// 로컬 TTS mp3 캐시 디렉터리 총량 상한(§9 룰링 4 — 확정 80MB). [_maxBytes]
+  /// 와 혼동 금지 — 그건 단일 오브젝트 다운로드 상한이다.
+  static const int _maxCacheTotalBytes = 80 * 1024 * 1024;
+  static const int _pruneWriteThreshold = 16;
+  static const Duration _pruneMinInterval = Duration(minutes: 5);
+  static int _cacheWritesSincePrune = 0;
+  static DateTime? _lastPruneAt;
+  static bool _pruneInFlight = false;
+
   // ── 내부 상태 ──────────────────────────────────────────────────────
   static AudioPlayer? _existingPlayer;
   static AudioPlayer get _player => _existingPlayer ??= AudioPlayer();
@@ -557,6 +576,18 @@ class TtsService {
   static String? lastError;
   static final TtsInstallationIdProvider _installationIdProvider =
       TtsInstallationIdProvider();
+
+  /// idle/resolving/speaking 3단 재생 상태 — 발화 상태의 단일 출처.
+  /// `SoriSpeech.phase`가 이 리스너를 구독해 resolving→speaking 승격
+  /// 신호로 쓴다(Task 2).
+  static final ValueNotifier<TtsSpeechPhase> phase =
+      ValueNotifier<TtsSpeechPhase>(TtsSpeechPhase.idle);
+
+  /// 지금 어떤 텍스트가 재생 중인지(엔진 레이어 식별자). `SoriSpeech`가
+  /// 자신이 resolving으로 올린 요청과 이 값을 대조해, 무관한 다른
+  /// speak() 호출이 자기 인디케이터를 잘못 speaking으로 승격시키지
+  /// 않도록 막는다(Fix round 1, finding 1).
+  static String? activeSpeechText;
   static final TtsPlaybackEngine _playbackEngine = TtsPlaybackEngine(
     resolveAudio: _resolveAudio,
     platform: const _ServicePlaybackPlatform(),
@@ -580,6 +611,10 @@ class TtsService {
     },
     onPlaybackFailed: (_) =>
         _reportUnavailable(TtsUnavailableReason.playbackFailed),
+    onPlaybackStarted: (text, voice) {
+      activeSpeechText = text;
+      phase.value = TtsSpeechPhase.speaking;
+    },
   );
 
   /// 웹 전용 메모리 캐시 — 파일시스템이 없어 1단을 여기에 둔다.
@@ -646,9 +681,22 @@ class TtsService {
   /// 사용자가 배너를 닫았거나, 다음 발화가 성공했다.
   static void clearUnavailable() => unavailable.value = null;
 
-  /// 발화 중 여부 — [AudioPolicy] 더킹·UI 표시용 (ADR-002 §5-2).
-  static final ValueNotifier<bool> speaking = ValueNotifier<bool>(false);
   static int _speakToken = 0;
+
+  /// 새 발화가 시작될 때 [phase]를 확실히 resolving으로 되돌린다(F1).
+  ///
+  /// [ValueNotifier]는 같은 값을 다시 대입하면 리스너를 부르지 않는다.
+  /// 직전 발화(A)가 이미 재생 중이면 [phase]는 이미 speaking인데, 새 발화
+  /// (B)가 들어와도 이 값을 리셋하지 않으면 나중에 엔진이 B의 재생 시작을
+  /// 알리며 `phase.value = speaking`을 다시 대입해도(A 때와 같은 값)
+  /// 아무 리스너도 안 불린다 — `SoriSpeech._onEnginePhaseChanged`가 실행되지
+  /// 않아 B의 인디케이터가 재생 내내 hourglass(resolving)에 고정된다.
+  /// speaking→resolving으로의 실제 전환을 여기서 한 번 끼워 넣으면, 뒤이은
+  /// resolving→speaking 승격이 항상 진짜 값 변화가 되어 리스너를 깨운다.
+  static void markSpeechStarting() {
+    phase.value = TtsSpeechPhase.resolving;
+    activeSpeechText = null;
+  }
 
   static FirebaseStorage get _storage =>
       FirebaseStorage.instanceFor(bucket: _bucket);
@@ -671,7 +719,7 @@ class TtsService {
     }
     unavailable.value = null;
     final token = ++_speakToken;
-    speaking.value = true;
+    markSpeechStarting();
     AudioPolicy.instance.noteSpeechStarted();
     Analytics.ttsPlayed(
       contentType: text.trim().contains(RegExp(r'[\s.!?]'))
@@ -689,7 +737,8 @@ class TtsService {
     result.whenComplete(() {
       // 새 발화가 이미 시작됐으면(토큰 불일치) 종료 처리를 그쪽에 맡긴다.
       if (token == _speakToken) {
-        speaking.value = false;
+        phase.value = TtsSpeechPhase.idle;
+        activeSpeechText = null;
         AudioPolicy.instance.noteSpeechEnded();
       }
     });
@@ -797,7 +846,8 @@ class TtsService {
     // 토큰을 올리면 speak(366행)이 발급한 값과 달라져 그 완료 블록이 통째로
     // 건너뛰어진다 — 새 발화가 끼어들었을 때와 같은 처리다.
     _speakToken++;
-    speaking.value = false;
+    phase.value = TtsSpeechPhase.idle;
+    activeSpeechText = null;
     // 지연 복원(noteSpeechEnded)이 아니라 즉시 복원이다 — 정지했으니 이어질
     // 다음 문장이 없고, 200ms 타이머를 새로 걸면 방금 없앤 문제가 되살아난다.
     AudioPolicy.instance.restoreDuckNow();
@@ -865,16 +915,18 @@ class TtsService {
     final key = TtsCacheKey.forRequest(voice: voice, text: text);
 
     // 1. Manifest-declared rootBundle bytes. The manifest loader validates
-    // schema/key/path/hash/MPEG shape before exposing a path, and this request
-    // validates the selected bytes again before playback. Any bundle failure
-    // preserves the pre-existing disk → Storage → callable chain.
+    // schema/key/path/hash format eagerly at load() time; bytesFor() reads,
+    // MPEG-shape-checks, and SHA-256-verifies the declared bytes lazily —
+    // once per key, memoised — the first time this row is actually needed.
+    // Any bundle failure preserves the pre-existing disk → Storage → callable
+    // chain.
     final bundledPath = await key.bundledAssetPath();
     if (bundledPath != null) {
       try {
-        final bundledBytes = await TtsBundledManifest.readAsset(
-          bundledPath,
-        ).timeout(_diskTimeout);
-        if (TtsCacheKey.isUsableAudio(bundledBytes)) {
+        final bundledBytes = await (await TtsBundledManifest.load())
+            .bytesFor(key)
+            .timeout(_diskTimeout);
+        if (bundledBytes != null) {
           return TtsAudio.bytes(bundledBytes);
         }
       } on TimeoutException {
@@ -911,6 +963,7 @@ class TtsService {
         if (await file.exists().timeout(_diskTimeout)) {
           final localBytes = await file.readAsBytes().timeout(_diskTimeout);
           if (TtsCacheKey.isUsableAudio(localBytes)) {
+            unawaited(_touchCacheFile(file));
             return TtsAudio.path(file.path);
           }
           try {
@@ -1001,6 +1054,17 @@ class TtsService {
     String voice, {
     bool allowSynthesis = false,
   }) => _resolveAudio(text, voice, allowSynthesis: allowSynthesis);
+
+  /// 테스트 전용 — 디스크 캐시 티어가 참조하는 디렉터리를 임시 디렉터리로
+  /// 갈아끼운다. `_ensureCacheDir()`은 `_cacheDir`가 이미 있으면 그대로
+  /// 반환하므로, 이 세터로 미리 채워 두면 실제 `path_provider`/플랫폼
+  /// 채널 없이도 [resolveAudioForTesting]이 디스크 2단까지 결정적으로
+  /// 도달한다. `null`로 되돌리면 다음 `_ensureCacheDir()` 호출이 다시 실제
+  /// 캐시 디렉터리를 조회한다 — 테스트 tearDown에서 반드시 되돌릴 것.
+  @visibleForTesting
+  static void setCacheDirForTesting(Directory? dir) {
+    _cacheDir = dir;
+  }
 
   static String? _authenticatedUid() {
     if (_privateUidForTesting != null) {
@@ -1133,8 +1197,60 @@ class TtsService {
       return TtsAudio.bytes(data);
     }
     await _writeAtomically(file, data);
+    _maybePruneCache(file.parent);
     return TtsAudio.path(file.path);
   }
+
+  /// 캐시 히트 시 mtime을 지금으로 갱신 — mtime 기반 prune(§9-4)이 진짜
+  /// LRU가 되려면 "지금 다시 재생된" 파일도 최신으로 보여야 한다. 갱신
+  /// 실패는 best-effort로 삼킨다 — 재생 경로를 막으면 안 된다(M2).
+  static Future<void> _touchCacheFile(File file) async {
+    try {
+      await file.setLastModified(DateTime.now()).timeout(_diskTimeout);
+    } catch (_) {
+      // best-effort — mtime 갱신 실패가 재생을 막으면 안 된다.
+    }
+  }
+
+  @visibleForTesting
+  static Future<void> touchCacheFileForTesting(File file) =>
+      _touchCacheFile(file);
+
+  /// 매 쓰기마다 전체 스캔하면 캐시가 커질수록 재생 지연에 영향을 준다 —
+  /// 쓰기 16회 또는 마지막 prune 후 5분 중 먼저 오는 조건에서만 스캔한다
+  /// (§9 룰링 4). best-effort — prune 실패가 재생 경로를 막지 않는다.
+  ///
+  /// _pruneInFlight가 이미 true면(다른 prune이 스캔 중) 스로틀 카운터를
+  /// 리셋하지 않는다(M3) — 리셋해버리면 아래 pruneCacheBestEffort 호출은
+  /// 가드에 걸려 즉시 0을 반환하는 no-op인데도 "방금 prune했다"고
+  /// 기록해, 진행 중이던 prune이 끝난 뒤에도 다음 실제 기회까지 카운터가
+  /// 처음부터 다시 쌓여야 한다.
+  static void _maybePruneCache(Directory directory) {
+    _cacheWritesSincePrune++;
+    if (_pruneInFlight) {
+      return;
+    }
+    final last = _lastPruneAt;
+    final dueByCount = _cacheWritesSincePrune >= _pruneWriteThreshold;
+    final dueByTime =
+        last == null || DateTime.now().difference(last) >= _pruneMinInterval;
+    if (!dueByCount && !dueByTime) {
+      return;
+    }
+    _cacheWritesSincePrune = 0;
+    _lastPruneAt = DateTime.now();
+    unawaited(pruneCacheBestEffort(directory: directory));
+  }
+
+  @visibleForTesting
+  static void maybePruneCacheForTesting(Directory directory) =>
+      _maybePruneCache(directory);
+
+  @visibleForTesting
+  static int get cacheWritesSincePruneForTesting => _cacheWritesSincePrune;
+
+  @visibleForTesting
+  static DateTime? get lastPruneAtForTesting => _lastPruneAt;
 
   /// 임시 파일에 쓰고 rename 으로 갈아끼운다.
   ///
@@ -1335,6 +1451,99 @@ class TtsService {
     }
   }
 
+  /// 디렉터리 총 바이트가 [maxBytes](기본 [_maxCacheTotalBytes])를 넘으면
+  /// mtime이 가장 오래된 mp3부터 지워 예산 이하로 맞춘다. `.part`는 삭제
+  /// 대상에서 제외한다(파일명이 정확히 `.mp3`로 끝나는 항목만 대상이라
+  /// `foo.mp3.part`는 구조적으로 걸러진다). 파일명이 `tts_v3_`로 시작하지
+  /// 않는 `.mp3`는 이 캐시가 만든 파일이 아니므로 건드리지 않는다(동결
+  /// 계약: `tts_v3_{voice}_{sha1}[_r1].mp3`). 개별 항목의 stat/delete 실패는
+  /// 그 항목만 건너뛰고 나머지 정리는 계속한다 — 디렉터리 자체를 조회하지
+  /// 못하는 실패(목록 실패/디렉터리 없음)만 전파한다. 동시 호출은 겹치지
+  /// 않도록 진행 중이면 즉시 0을 반환한다. 반환값 = 실제로 삭제한 바이트.
+  @visibleForTesting
+  static Future<int> pruneCacheStrict({
+    Directory? directory,
+    int? maxBytes,
+  }) async {
+    if (_pruneInFlight) {
+      return 0;
+    }
+    _pruneInFlight = true;
+    try {
+      final dir = directory ?? await _strictCacheDirectory();
+      final budget = maxBytes ?? _maxCacheTotalBytes;
+      final entries = <_TtsCacheFileStat>[];
+      var total = 0;
+      await for (final entity in dir.list()) {
+        if (entity is! File) {
+          continue;
+        }
+        final name = entity.uri.pathSegments.last;
+        if (!name.startsWith('tts_v3_') || !name.endsWith('.mp3')) {
+          continue;
+        }
+        FileStat stat;
+        try {
+          stat = await entity.stat();
+        } catch (_) {
+          continue; // 스캔 중 사라진 파일 — 이 항목만 건너뛴다.
+        }
+        if (stat.size < 0) {
+          continue; // notFound stat — 실제로는 없는 파일.
+        }
+        total += stat.size;
+        entries.add(_TtsCacheFileStat(entity, stat.size, stat.modified));
+      }
+      if (total <= budget) {
+        return 0;
+      }
+      entries.sort((a, b) => a.modified.compareTo(b.modified));
+      var freed = 0;
+      for (final entry in entries) {
+        if (total - freed <= budget) {
+          break;
+        }
+        try {
+          await entry.file.delete();
+        } catch (_) {
+          continue; // 삭제 실패한 항목만 건너뛰고 나머지 정리를 계속한다.
+        }
+        freed += entry.bytes;
+      }
+      return freed;
+    } finally {
+      _pruneInFlight = false;
+    }
+  }
+
+  /// [pruneCacheStrict]의 best-effort 래퍼(`clearCache`와 같은 이분법).
+  static Future<void> pruneCacheBestEffort({
+    Directory? directory,
+    int? maxBytes,
+  }) async {
+    try {
+      await pruneCacheStrict(directory: directory, maxBytes: maxBytes);
+    } catch (_) {
+      // best effort
+    }
+  }
+
+  /// 테스트 전용 — 스로틀 카운터와 동시 실행 가드를 초기 상태로 되돌린다.
+  @visibleForTesting
+  static void resetPruneStateForTesting() {
+    _pruneInFlight = false;
+    _cacheWritesSincePrune = 0;
+    _lastPruneAt = null;
+  }
+
+  /// 테스트 전용 — 동시 실행 가드 플래그를 직접 설정한다(느린 디렉터리
+  /// 목록을 흉내내지 않고도 in-flight 가드 경로를 결정적으로 검증하기
+  /// 위함). 실서비스 코드는 이 세터를 호출하지 않는다.
+  @visibleForTesting
+  static void setPruneInFlightForTesting(bool value) {
+    _pruneInFlight = value;
+  }
+
   static Future<Directory> _strictCacheDirectory() async {
     if (_cacheDir case final cached?) {
       return cached;
@@ -1377,4 +1586,11 @@ class TtsService {
   static Future<void> _reapplySpeechAudioContext() =>
       _preparePlaybackForTesting?.call() ??
       TtsSpeechAudioContext.reapply(_player.setAudioContext);
+}
+
+class _TtsCacheFileStat {
+  const _TtsCacheFileStat(this.file, this.bytes, this.modified);
+  final File file;
+  final int bytes;
+  final DateTime modified;
 }

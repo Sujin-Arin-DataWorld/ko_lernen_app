@@ -2223,6 +2223,9 @@ class AppL10nDe extends AppL10n {
   String get speechIndicatorIdle => 'Nicht aktiv';
 
   @override
+  String get speechIndicatorResolving => 'Wird geladen';
+
+  @override
   String contentShareBody(String korean, String gloss) {
     return '$korean\n$gloss\nhangul-sori.com';
   }

@@ -21,6 +21,15 @@ class SoundService {
   /// 신규 코드는 `AudioPolicy.instance.volumeFor(...)` 를 직접 쓸 것.
   static bool get enabled => AudioPolicy.instance.masterOn;
 
+  /// 테스트 시임 — 설정되면 실제 AudioPlayer/에셋 없이 재생 요청을 기록만
+  /// 한다(`SoriSpeech.speakImpl`과 같은 패턴). 프로덕션은 null.
+  @visibleForTesting
+  static void Function(String asset)? playImpl;
+  @visibleForTesting
+  static void resetForTesting() {
+    playImpl = null;
+  }
+
   /// 짧은 효과음 재생. fire-and-forget. 완료 시 player 자동 해제.
   static Future<void> _play(String asset) async {
     if (kIsWeb) {
@@ -28,6 +37,14 @@ class SoundService {
     }
     final volume = AudioPolicy.instance.volumeFor(SoundChannel.gameFeedback);
     if (volume <= 0) {
+      return;
+    }
+    // 테스트 시임은 볼륨 게이트 *뒤*에 있어야 한다 — 앞에 있으면 훅이 실제
+    // AudioPlayer 대신 재생 요청을 기록하느라 게이트 자체를 우회해버려서,
+    // 채널이 음소거인데도 "재생됐다"고 관측된다(M4).
+    final hook = playImpl;
+    if (hook != null) {
+      hook(asset);
       return;
     }
     AudioPlayer? player;

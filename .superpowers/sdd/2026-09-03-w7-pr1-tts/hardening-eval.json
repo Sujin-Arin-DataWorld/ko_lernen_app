@@ -1,0 +1,127 @@
+{
+  "threshold": 0.80,
+  "units": [
+    {
+      "id": "U0",
+      "label": "Fable supervision (briefs, verdicts, direct code reads)",
+      "scores": {"accuracy": 4, "clarity": 5, "completeness": 5},
+      "weighted": 0.92,
+      "pass": true,
+      "evidence": [
+        "hardening-2-brief.md:50 -- brief states 'SoriSpeech.speak itself calls stopImpl() once before speakImpl' as if unconditional; only true on the key-switch branch (speakable.dart:216-218). Caught by the implementer (hardening-2-report.md Step 2), self-recorded as a lesson in progress.md.",
+        "hardening-3-brief.md:5 -- gives a worktree-relative venv path as if it exists; none existed, forcing the D3 implementer to build a 217MB duplicate venv with Pillow/numpy/scipy before Fable's fix-round correction to the canonical path.",
+        "progress.md (tail) -- all 4 of Fable's verdicts (D1 FIX-REQUIRED, D2 APPROVE, D3 FIX-REQUIRED, D3-fix APPROVE) match independent re-reading of the diffs in this evaluation.",
+        "hardening-3-report.md fix round -- no separate hardening-3-review.md file exists; Fable performed the review function itself via direct code read for D3 and caught 2 Important-severity bugs (F1 substring false-match, F2 skipped call/assignment backtick forms), independently confirmed via git show 7adaadb4."
+      ],
+      "optimize": [
+        "When a brief asserts a control-flow fact used for a count assertion, trace the branch before writing it or hedge it as conditional -- hardening-2-brief.md:50 is the concrete miss.",
+        "Briefs should carry the absolute canonical interpreter path rather than a worktree-relative one -- hardening-3-brief.md:5 is the concrete miss."
+      ]
+    },
+    {
+      "id": "U1",
+      "label": "Dispatch 1 (A+D+E) as delivered -- 445188b3..4f3227e4",
+      "scores": {"accuracy": 3, "clarity": 4, "completeness": 4},
+      "weighted": 0.72,
+      "pass": false,
+      "evidence": [
+        "test/auto_speech_test_stub_guard_test.dart:76-77 (pre-fix, at 4f3227e4) -- isStubbed accepted SoriSpeech.resetForTesting( alone as stub evidence; that call restores the REAL TtsService.* delegates (speakable.dart:135-138), i.e. it is structurally the T3 trap the guard exists to prevent. Confirmed by direct diff read; hardening-1-review.md Important finding 1.",
+        "test/auto_speech_test_stub_guard_test.dart:68,73,75,79 (pre-fix) -- 4 brace-less if statements, violating AGENTS.md:335 (explicit documented house rule citing real prior incidents). Confirmed via git show a6ae93f8^.",
+        "test/support/sori_speech_stubs.dart:30-39 (pre-fix) -- speak/speakSlow shared one Completer under completeSpeak:false, so completing one would resolve both (Minor, currently unexercised). Confirmed via diff at a6ae93f8.",
+        "No standalone hardening-1-report.md was produced (confirmed: only hardening-1-review.md exists for D1); RED/GREEN/diffstat evidence is scattered across 4 commit messages instead of one consolidated report as D2/D3 later used."
+      ],
+      "optimize": [
+        "test/auto_speech_test_stub_guard_test.dart:76-77 -- require stubSoriSpeech( or an explicit speakImpl = assignment as stub evidence; do not accept SoriSpeech.resetForTesting( alone.",
+        "test/auto_speech_test_stub_guard_test.dart:68,73,75,79 -- wrap all 4 single-line if bodies in braces per AGENTS.md:335.",
+        "test/support/sori_speech_stubs.dart:30-39 -- give speak() and speakSlow() independent Completers instead of one shared instance."
+      ]
+    },
+    {
+      "id": "U2",
+      "label": "Dispatch 1 fix round 1 -- a6ae93f8",
+      "scores": {"accuracy": 5, "clarity": 5, "completeness": 5},
+      "weighted": 1.00,
+      "pass": true,
+      "evidence": [
+        "git show a6ae93f8 -- test/auto_speech_test_stub_guard_test.dart -- marker changed to require stubSoriSpeech( or speakImpl =; verified speakSlowImpl = does not accidentally satisfy the speakImpl = substring (Slow breaks it) so speakSlow-only stubs are not falsely accepted.",
+        "git show a6ae93f8 -- test/auto_speech_test_stub_guard_test.dart:68,73,75,79 -- all 4 sites now wrapped in braces.",
+        "git show a6ae93f8 -- test/support/sori_speech_stubs.dart:19-53 -- speakCompleter/speakSlowCompleter are now distinct Completer<bool> fields, each hook awaits only its own future.",
+        "hardening-2-review.md Checklist 1a-1d -- independent reviewer confirms all 3 fix items OK plus allowlist/cap unchanged (60 entries)."
+      ],
+      "optimize": [
+        "No action needed -- all 3 hardening-1-review.md findings verified closed with zero new offenders and zero regressions."
+      ]
+    },
+    {
+      "id": "U3",
+      "label": "Dispatch 2 C (bool removal) -- 173aff94",
+      "scores": {"accuracy": 5, "clarity": 5, "completeness": 5},
+      "weighted": 1.00,
+      "pass": true,
+      "evidence": [
+        "git show 173aff94 -- matches brief FILES list exactly: tts_service.dart definition+3 writes removed, speakable.dart field+cascade+_syncSpeakingFromPhase removed, doc comments reworded to avoid dangling comment_references (no removed identifier left in any doc comment).",
+        "hardening-2-review.md Checklist item 2 -- grep confirms only unrelated speaking members remain (TtsSpeechPhase.speaking, CurriculumLanguageDomain.speaking, SoriActivityColor speaking); AudioPolicy call sites (tts_service.dart:640,659,770) untouched.",
+        "hardening-2-report.md Step 1 -- diffstat 3 files, 15 insertions/24 deletions (DONE criterion was <=4 files); 46/46 frozen tests green; analyze 0."
+      ],
+      "optimize": [
+        "No action needed -- scoped exactly to the two dead ValueNotifier<bool> members plus 3 doc-comment rewords, verified by an independent reviewer with APPROVE."
+      ]
+    },
+    {
+      "id": "U4",
+      "label": "Dispatch 2 B (phase matrix test) -- 47685843",
+      "scores": {"accuracy": 4, "clarity": 5, "completeness": 5},
+      "weighted": 0.92,
+      "pass": true,
+      "evidence": [
+        "git show 47685843:test/sori_speech_phase_matrix_test.dart -- rows 4/5 correctly compute stub.stops==1 by tracing that previousKey==null skips the key-switch stopImpl branch (speakable.dart:199/216), working around the brief's imprecise row-5 premise (see U0) with an inline comment -- verified against hardening-2-review.md's independent row-by-row trace, all 10 rows OK.",
+        "hardening-2-review.md Minor finding 2 -- the file's own microtask-turn framing does not strictly hold for row 1 (synchronous call since previousKey==null); harmless but attributable to this file's docstring.",
+        "git show 47685843 | grep for brace-less if statements -- none found.",
+        "hardening-2-report.md Step 2 -- GREEN-first pinning explicitly stated per brief allowance; non-vacuity confirmed by deliberately mutating row 2's expected value and observing a real failure before reverting."
+      ],
+      "optimize": [
+        "test/sori_speech_phase_matrix_test.dart row 1 -- add a one-line comment noting the resolver call is synchronous (previousKey==null, no stopImpl gate) so the file's own framing is self-consistent, per hardening-2-review.md Minor 2."
+      ]
+    },
+    {
+      "id": "U5",
+      "label": "Dispatch 3 (F tool) as delivered -- 6cb03aeb",
+      "scores": {"accuracy": 3, "clarity": 4, "completeness": 4},
+      "weighted": 0.72,
+      "pass": false,
+      "evidence": [
+        "tool/check_brief_anchors.py:54 (_find, pre-fix at 6cb03aeb) -- plain substring check (name in text or last in text) let invented names pass as OK if they were substrings of real identifiers (invented cacheDir would match inside real _cacheDir; invented stop inside real stopImpl) -- defeats the tool's own stated primary purpose (the invented-name case, hardening-3-brief.md:19). Confirmed via git show 6cb03aeb and the exact fix in 7adaadb4.",
+        "tool/check_brief_anchors.py:28 (IDENT_RE, pre-fix) -- only matched bare identifiers, silently skipping backtick tokens with call parens or = suffix (markSpeechStarting(), speakImpl =), undercounting checked identifiers.",
+        "hardening-3-report.md Fix round 1 section -- Fable's direct code evaluation found both as Important severity; both independently reproduced by re-reading the pre-fix file in this evaluation.",
+        "hardening-3-report.md env note -- brief's relative venv path (see U0) led to a 217MB duplicate venv being created inside the worktree with Pillow/numpy/scipy installed, left in place undeleted even after the fix round switched to the canonical path -- disclosed but unresolved residue."
+      ],
+      "optimize": [
+        "tool/check_brief_anchors.py:54 (_find) -- replace substring in checks with token-boundary lookaround regex so invented names cannot match as substrings of real identifiers.",
+        "tool/check_brief_anchors.py:28 (IDENT_RE) -- extend the pattern to capture the leading identifier of backtick forms with a trailing call or assignment suffix.",
+        "tool/check_brief_anchors.py module docstring (top) -- add a note that backtick-quoted external concepts (lint rule names, packages) will read as MISSING by design."
+      ]
+    },
+    {
+      "id": "U6",
+      "label": "Dispatch 3 fix round 1 -- 7adaadb4",
+      "scores": {"accuracy": 5, "clarity": 5, "completeness": 5},
+      "weighted": 1.00,
+      "pass": true,
+      "evidence": [
+        "git show 7adaadb4 -- tool/check_brief_anchors.py -- _find now compiles token-boundary lookarounds (not \b, correctly justified in-code since Korean is a re word char too); IDENT_RE extended to capture call/assignment backtick forms.",
+        "git show 7adaadb4:tool/check_brief_anchors.py | wc -l = 200 -- exactly at the DONE cap, not over, matching the report's claim.",
+        "hardening-3-report.md Fix round 1 GREEN log -- 12/12 own tests (4 new covering exactly the F1 substring/lookaround sub-cases and F2's call/assignment forms).",
+        "hardening-3-report.md Real run 1 and 2 -- re-run against hardening-2-brief.md (39 OK / 2 MISSING, both re-explained as legitimate) and self-referentially against hardening-3-brief.md itself (14 OK / 7 MISSING, all 7 explained as illustrative placeholders/fixture paths, not defects)."
+      ],
+      "optimize": [
+        "No action needed -- both Important findings verified fixed with new regression tests and two independent real-run brief checks."
+      ]
+    }
+  ],
+  "overall": 0.90,
+  "trajectory": "Both hardening pairs improved from round 0 to their fix round: D1 rose 0.72 (U1, 2 Important + 1 Minor defect: guard heuristic hole, 4 brace violations, shared completer) to 1.00 (U2, all three verified closed with zero new offenders). D3 rose 0.72 (U5, 2 Important defects undermining the tool's own invented-name-detection purpose: substring false-match, skipped call/assignment identifier forms) to 1.00 (U6, both fixed with 4 new regression tests and two independent real-run verifications, file exactly at the 200-line cap). Both fix rounds were single-pass: no second FIX-REQUIRED verdict was needed for either D1 or D3 after their respective fix commits.",
+  "history": [
+    {"iteration": 0, "note": "D1 as-delivered (U1) and D3 as-delivered (U5) both scored 0.72, below threshold, each carrying 2 Important-severity defects caught by Fable's direct code read (D1: sonnet review plus Fable; D3: Fable alone, no separate reviewer dispatched)."},
+    {"iteration": 1, "note": "D1 fix round (U2) and D3 fix round (U6) both scored 1.00 after a single fix commit each; independently re-verified via git diff in this evaluation, not just by re-reading the implementer's own report."}
+  ]
+}

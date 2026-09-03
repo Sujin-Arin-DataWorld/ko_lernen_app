@@ -16,7 +16,7 @@
     "assets/data/scenarios_c2.json": "e39a0c9ce3b086e65bd9b5b842cb7b11f157d9dbc594caba065f4bd87796a8cc"
   },
   "scenarioCount": 126,
-  "bundledCount": 0,
+  "bundledCount": 126,
   "items": [
     {
       "scenarioId": "a1_theme_park_date_choices",
@@ -28,9 +28,9 @@
       "normalizedText": "수진아, 우리 저거 탈까?",
       "cacheHashSha1": "ad4165f5112bdbfa8b3c4317e4b83ef25a5737c2",
       "storagePath": "tts/v3/male/ad4165f5112bdbfa8b3c4317e4b83ef25a5737c2.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/ad4165f5112bdbfa8b3c4317e4b83ef25a5737c2.mp3",
+      "bundled": true,
+      "bundledSha256": "fa689fba4f16aef302b7e0138c5c177ee7005cff6b95da8d9054c27c6dd0096a"
     },
     {
       "scenarioId": "airport_arrival",
@@ -42,9 +42,9 @@
       "normalizedText": "안녕하세요. 여권 주세요.",
       "cacheHashSha1": "6407e927bc6667125ae9ce92196d332c1c9b2413",
       "storagePath": "tts/v3/male/6407e927bc6667125ae9ce92196d332c1c9b2413.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/6407e927bc6667125ae9ce92196d332c1c9b2413.mp3",
+      "bundled": true,
+      "bundledSha256": "2efd28c725b36f618321a2aa40f9369b34d19bacea04caef30c115204044e520"
     },
     {
       "scenarioId": "bakery_payment_bag",
@@ -56,9 +56,9 @@
       "normalizedText": "봉투 필요하세요?",
       "cacheHashSha1": "b12085d024c2424346b97aa8e9c143722f6f4600",
       "storagePath": "tts/v3/female/b12085d024c2424346b97aa8e9c143722f6f4600.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/b12085d024c2424346b97aa8e9c143722f6f4600.mp3",
+      "bundled": true,
+      "bundledSha256": "23fa445c538aa6f6ab7e115c866f6cf0965d41764d61848b3b2110af82f289ab"
     },
     {
       "scenarioId": "bakery_queue",
@@ -70,9 +70,9 @@
       "normalizedText": "이 빵 계산해 주세요.",
       "cacheHashSha1": "833323421451665c98af5afed8bdac8e8dabd3a5",
       "storagePath": "tts/v3/male/833323421451665c98af5afed8bdac8e8dabd3a5.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/833323421451665c98af5afed8bdac8e8dabd3a5.mp3",
+      "bundled": true,
+      "bundledSha256": "0bd0ca35548c2bb564b455f27a15760bdeb25b7858560ec7ed3c390e01fb7e03"
     },
     {
       "scenarioId": "break_glass_apology",
@@ -84,9 +84,9 @@
       "normalizedText": "죄송해요. 잔을 깼어요.",
       "cacheHashSha1": "a644a7ecc3b12a404e91337b92deed671ea86dc3",
       "storagePath": "tts/v3/male/a644a7ecc3b12a404e91337b92deed671ea86dc3.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/a644a7ecc3b12a404e91337b92deed671ea86dc3.mp3",
+      "bundled": true,
+      "bundledSha256": "7b2c4763b78882969b1cd30eafa1278ae4455114631417e0a1d40dabc490b8a8"
     },
     {
       "scenarioId": "bunshik_tteokbokki",
@@ -98,9 +98,9 @@
       "normalizedText": "주문하시겠어요?",
       "cacheHashSha1": "b540925b28dbc557da561ddb72a627989382d97b",
       "storagePath": "tts/v3/male/b540925b28dbc557da561ddb72a627989382d97b.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/b540925b28dbc557da561ddb72a627989382d97b.mp3",
+      "bundled": true,
+      "bundledSha256": "45e65f3620419e692deb86197b03d4a4e8e925b942749bf2507890cac4a054a0"
     },
     {
       "scenarioId": "cafe_dessert_sold_out",
@@ -112,9 +112,9 @@
       "normalizedText": "딸기 케이크 있어요?",
       "cacheHashSha1": "3afc025f1d784db4aac122ea4daf58f4608a6662",
       "storagePath": "tts/v3/female/3afc025f1d784db4aac122ea4daf58f4608a6662.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/3afc025f1d784db4aac122ea4daf58f4608a6662.mp3",
+      "bundled": true,
+      "bundledSha256": "92554ef67fd11cb3c02d57e2149ce059504f869cc54072e2f64eb9e035aebbcc"
     },
     {
       "scenarioId": "clarify_repeat",
@@ -126,9 +126,9 @@
       "normalizedText": "시청은 몇 번 출구예요?",
       "cacheHashSha1": "3d329b0765907fed9da5a8c275127cf31b21bcbb",
       "storagePath": "tts/v3/male/3d329b0765907fed9da5a8c275127cf31b21bcbb.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/3d329b0765907fed9da5a8c275127cf31b21bcbb.mp3",
+      "bundled": true,
+      "bundledSha256": "5f068662291c73b525b742eae027d1f42702950e5b74ea10d2dcfcd7c975dab9"
     },
     {
       "scenarioId": "dance_class_register",
@@ -140,9 +140,9 @@
       "normalizedText": "레나, 여기 서세요.",
       "cacheHashSha1": "358d9c472f729bbd0fbddde4d002764e0b1ec83a",
       "storagePath": "tts/v3/female/358d9c472f729bbd0fbddde4d002764e0b1ec83a.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/358d9c472f729bbd0fbddde4d002764e0b1ec83a.mp3",
+      "bundled": true,
+      "bundledSha256": "20eabcb4f97cf87087bf1818d8372e70b3058ea480a5dad19163fd1db068c48f"
     },
     {
       "scenarioId": "favorite_korean_music",
@@ -154,9 +154,9 @@
       "normalizedText": "한국 음악도 좋아해요?",
       "cacheHashSha1": "05e4dec3d375e372c11a7a45d76db988c65cc4b6",
       "storagePath": "tts/v3/female/05e4dec3d375e372c11a7a45d76db988c65cc4b6.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/05e4dec3d375e372c11a7a45d76db988c65cc4b6.mp3",
+      "bundled": true,
+      "bundledSha256": "77b8ccc1b519576343643b6bc139a46da85a2b2ac5db5732cbc9de06b37266fd"
     },
     {
       "scenarioId": "first_class_meeting",
@@ -168,9 +168,9 @@
       "normalizedText": "안녕하세요. 오늘 첫 수업이에요?",
       "cacheHashSha1": "4442ec2ca52642e2eddd6fd20f07dcfe7070bee8",
       "storagePath": "tts/v3/female/4442ec2ca52642e2eddd6fd20f07dcfe7070bee8.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/4442ec2ca52642e2eddd6fd20f07dcfe7070bee8.mp3",
+      "bundled": true,
+      "bundledSha256": "d7dfb9626566d769490386d7d81cbb1756a99127deb3b8410d9142043811456c"
     },
     {
       "scenarioId": "home_morning_routine",
@@ -182,9 +182,9 @@
       "normalizedText": "교통카드 어디 있어?",
       "cacheHashSha1": "6144acd2570026bb7b87d37c5e64824d31777c5d",
       "storagePath": "tts/v3/male/6144acd2570026bb7b87d37c5e64824d31777c5d.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/6144acd2570026bb7b87d37c5e64824d31777c5d.mp3",
+      "bundled": true,
+      "bundledSha256": "c2f5bc817a1044f28f112d0fd7b357cf3f995bc9fc4b04553ed4f00ec8055683"
     },
     {
       "scenarioId": "introduce_yourself",
@@ -196,9 +196,9 @@
       "normalizedText": "안녕하세요. 저는 수진이에요.",
       "cacheHashSha1": "9c3a4ca91f6c0a9f68ae7100ef7a1da959259e51",
       "storagePath": "tts/v3/female/9c3a4ca91f6c0a9f68ae7100ef7a1da959259e51.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/9c3a4ca91f6c0a9f68ae7100ef7a1da959259e51.mp3",
+      "bundled": true,
+      "bundledSha256": "58f4e5731bfb87f88a3e5a9117958f5e97dfa84f3f5f064023248c2c7692c426"
     },
     {
       "scenarioId": "kakao_contact_after_class",
@@ -210,9 +210,9 @@
       "normalizedText": "우리 과제 같이 해요.",
       "cacheHashSha1": "e323a2de1730f589d7efba74a0472ef48fd448c4",
       "storagePath": "tts/v3/female/e323a2de1730f589d7efba74a0472ef48fd448c4.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/e323a2de1730f589d7efba74a0472ef48fd448c4.mp3",
+      "bundled": true,
+      "bundledSha256": "e2aab1c94321e1c8b30d9d13d012fc43f9bceb850f26e4bfbfacb622f57bfeec"
     },
     {
       "scenarioId": "korea_stay_smalltalk",
@@ -224,9 +224,9 @@
       "normalizedText": "한국에 언제 왔어요?",
       "cacheHashSha1": "8d98042fc6bbb30cd316548fec2fbebeb81c2eef",
       "storagePath": "tts/v3/female/8d98042fc6bbb30cd316548fec2fbebeb81c2eef.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/8d98042fc6bbb30cd316548fec2fbebeb81c2eef.mp3",
+      "bundled": true,
+      "bundledSha256": "164a0fbc2b24b216b2fb69a9e909df614639ec6a0046de5925df63f1be575a52"
     },
     {
       "scenarioId": "mart_grocery",
@@ -238,9 +238,9 @@
       "normalizedText": "저기요. 두부는 어디에 있어요?",
       "cacheHashSha1": "b41189ee075dca0bed5f878fcd6d1835d2155cda",
       "storagePath": "tts/v3/male/b41189ee075dca0bed5f878fcd6d1835d2155cda.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/b41189ee075dca0bed5f878fcd6d1835d2155cda.mp3",
+      "bundled": true,
+      "bundledSha256": "6f307b16d28d4adbd139371277f89da9546453c4ce09c6450fe34006d552ea31"
     },
     {
       "scenarioId": "meeting_time",
@@ -252,9 +252,9 @@
       "normalizedText": "오늘 몇 시에 만나요?",
       "cacheHashSha1": "cbb9449a81a788b459bd378f9ac4caf31fe08eb3",
       "storagePath": "tts/v3/male/cbb9449a81a788b459bd378f9ac4caf31fe08eb3.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/cbb9449a81a788b459bd378f9ac4caf31fe08eb3.mp3",
+      "bundled": true,
+      "bundledSha256": "029601316443b2caf5a74c54eafbce8742e52f981692f7c08abff8ef6c9b9d8e"
     },
     {
       "scenarioId": "subway_step_apology",
@@ -266,9 +266,9 @@
       "normalizedText": "앗, 죄송합니다.",
       "cacheHashSha1": "7127bdac1f1035b5999dbcdbfe2935ea4adbd4b3",
       "storagePath": "tts/v3/male/7127bdac1f1035b5999dbcdbfe2935ea4adbd4b3.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/7127bdac1f1035b5999dbcdbfe2935ea4adbd4b3.mp3",
+      "bundled": true,
+      "bundledSha256": "bcfbf90091c26a0de3ecbcb3915ed662bfd07f3e2f1f4619b92723670cbd12dc"
     },
     {
       "scenarioId": "survival_day_capstone",
@@ -280,9 +280,9 @@
       "normalizedText": "몇 시에 나가?",
       "cacheHashSha1": "cb8591283d5fb5781072bc1e749d1f18d7bbad1a",
       "storagePath": "tts/v3/male/cb8591283d5fb5781072bc1e749d1f18d7bbad1a.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/cb8591283d5fb5781072bc1e749d1f18d7bbad1a.mp3",
+      "bundled": true,
+      "bundledSha256": "9a41cae6ac0cf5c143c0d17195e5e7ebe286c9481eb7b8d4a8b7115d7e6bd4d6"
     },
     {
       "scenarioId": "taxi_kakao",
@@ -294,9 +294,9 @@
       "normalizedText": "이 근처 맞으시죠?",
       "cacheHashSha1": "87f48676860413d906de0274af3c43e7591816ca",
       "storagePath": "tts/v3/male/87f48676860413d906de0274af3c43e7591816ca.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/87f48676860413d906de0274af3c43e7591816ca.mp3",
+      "bundled": true,
+      "bundledSha256": "89a4939a7da6060de9759d916060583965fcd5bffe7a8fced7aeade3fb66eec4"
     },
     {
       "scenarioId": "umbrella_weather",
@@ -308,9 +308,9 @@
       "normalizedText": "비 와요?",
       "cacheHashSha1": "125576d99cf125cc8384aa35516290474750a980",
       "storagePath": "tts/v3/male/125576d99cf125cc8384aa35516290474750a980.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/125576d99cf125cc8384aa35516290474750a980.mp3",
+      "bundled": true,
+      "bundledSha256": "1c63cb827223fd8b462d955e39af60928e27262450b30040278254977fe3ffd3"
     },
     {
       "scenarioId": "a2_theme_park_date_break",
@@ -322,9 +322,9 @@
       "normalizedText": "수진아, 괜찮아? 많이 피곤해 보여.",
       "cacheHashSha1": "210d60b4e6f529187483ca9ec6645f332790730a",
       "storagePath": "tts/v3/male/210d60b4e6f529187483ca9ec6645f332790730a.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/210d60b4e6f529187483ca9ec6645f332790730a.mp3",
+      "bundled": true,
+      "bundledSha256": "6c87129192c1982450eecb540aab562eefddf655156a095356fdc08255bf4116"
     },
     {
       "scenarioId": "clothing_refund_size",
@@ -336,9 +336,9 @@
       "normalizedText": "무엇을 도와드릴까요?",
       "cacheHashSha1": "ad7c3fde657f9619f02e32a7201fe86df18949c4",
       "storagePath": "tts/v3/female/ad7c3fde657f9619f02e32a7201fe86df18949c4.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/ad7c3fde657f9619f02e32a7201fe86df18949c4.mp3",
+      "bundled": true,
+      "bundledSha256": "4b0b6ffbdc276dbf5458e8a8761fb2cd6a70e509194c40f8cd4eefb342266da7"
     },
     {
       "scenarioId": "convenience_parcel_pickup",
@@ -350,9 +350,9 @@
       "normalizedText": "어서 오세요.",
       "cacheHashSha1": "4929a18b96304c90d8b69e9874d661c1bbd6eea1",
       "storagePath": "tts/v3/female/4929a18b96304c90d8b69e9874d661c1bbd6eea1.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/4929a18b96304c90d8b69e9874d661c1bbd6eea1.mp3",
+      "bundled": true,
+      "bundledSha256": "fef023ff19999ac4d3a3683a7d941601a1d6664e63005bafff5967a4759ed216"
     },
     {
       "scenarioId": "delivery_dinner_spicy",
@@ -364,9 +364,9 @@
       "normalizedText": "와, 생각보다 너무 매워요.",
       "cacheHashSha1": "5f30d02014dfb6f5a924c3c6ecd79078d7a7ef05",
       "storagePath": "tts/v3/male/5f30d02014dfb6f5a924c3c6ecd79078d7a7ef05.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/5f30d02014dfb6f5a924c3c6ecd79078d7a7ef05.mp3",
+      "bundled": true,
+      "bundledSha256": "1535067605890155d2446279dc03aba201ed04500b7354cf92252c5f9e001dc1"
     },
     {
       "scenarioId": "email_attachment_twice",
@@ -378,9 +378,9 @@
       "normalizedText": "마야, 메일에 첨부파일이 없어요.",
       "cacheHashSha1": "cf0d7fa21037b8d44b917138b9d96b8af450151e",
       "storagePath": "tts/v3/female/cf0d7fa21037b8d44b917138b9d96b8af450151e.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/cf0d7fa21037b8d44b917138b9d96b8af450151e.mp3",
+      "bundled": true,
+      "bundledSha256": "35768340f9677c9da4d2e9ce7a0ac8ad824491290d8f6e763739631fc85e4ce7"
     },
     {
       "scenarioId": "favorite_drama_chat",
@@ -392,9 +392,9 @@
       "normalizedText": "한국에 온 지 얼마나 됐어요?",
       "cacheHashSha1": "f82402270089f0fbb4a201f27dc403aa031fce56",
       "storagePath": "tts/v3/female/f82402270089f0fbb4a201f27dc403aa031fce56.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/f82402270089f0fbb4a201f27dc403aa031fce56.mp3",
+      "bundled": true,
+      "bundledSha256": "32e42774fa29142f88108c846d46691b2944941b385023c61d731d336af8b709"
     },
     {
       "scenarioId": "forgot_house_key",
@@ -406,9 +406,9 @@
       "normalizedText": "나 큰일 났어. 열쇠를 방에 두고 왔어.",
       "cacheHashSha1": "2697422373d8aaafc5361b9182e705e49a37014e",
       "storagePath": "tts/v3/male/2697422373d8aaafc5361b9182e705e49a37014e.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/2697422373d8aaafc5361b9182e705e49a37014e.mp3",
+      "bundled": true,
+      "bundledSha256": "ecea6daca8a1ec260b6dbdee3c1712c714b9ab8ddd8e8d5fa040ff5be5e9efa0"
     },
     {
       "scenarioId": "forgot_presentation_cable",
@@ -420,9 +420,9 @@
       "normalizedText": "큰일이야. 케이블을 안 가져왔어.",
       "cacheHashSha1": "c879138828ffa04125c413ff637eab520435ee77",
       "storagePath": "tts/v3/male/c879138828ffa04125c413ff637eab520435ee77.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/c879138828ffa04125c413ff637eab520435ee77.mp3",
+      "bundled": true,
+      "bundledSha256": "220ab0c6362b4ca0f5bb67249fb8b6a112deb34e23a161f90eb9108307fa6f1e"
     },
     {
       "scenarioId": "friend_cancelled_plan",
@@ -434,9 +434,9 @@
       "normalizedText": "갑자기 취소해서 미안해.",
       "cacheHashSha1": "30b375d8473d925bbe394f3ecfdeffca414989d2",
       "storagePath": "tts/v3/female/30b375d8473d925bbe394f3ecfdeffca414989d2.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/30b375d8473d925bbe394f3ecfdeffca414989d2.mp3",
+      "bundled": true,
+      "bundledSha256": "2ad2a2c602e63030d438b0cec56ba5d649d61e26b012177ac726f49c842753a3"
     },
     {
       "scenarioId": "group_chat_photo_permission",
@@ -448,9 +448,9 @@
       "normalizedText": "이 사진 올려도 돼?",
       "cacheHashSha1": "2a3073af90f3c12172f5a663785440834054cba3",
       "storagePath": "tts/v3/female/2a3073af90f3c12172f5a663785440834054cba3.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/2a3073af90f3c12172f5a663785440834054cba3.mp3",
+      "bundled": true,
+      "bundledSha256": "c4bb6649dd75cafe6692e89dc0608ee03f2bac5400af0731f28f85aa61310798"
     },
     {
       "scenarioId": "gym_class_cancel",
@@ -462,9 +462,9 @@
       "normalizedText": "안녕하세요. 무엇을 도와드릴까요?",
       "cacheHashSha1": "9ca17f1e4eea2bf971d6de67f0543f46801357fb",
       "storagePath": "tts/v3/female/9ca17f1e4eea2bf971d6de67f0543f46801357fb.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/9ca17f1e4eea2bf971d6de67f0543f46801357fb.mp3",
+      "bundled": true,
+      "bundledSha256": "57bdc1a1ae143e4416d4b0df0e5ea3c4709c586ee3c459aeeb502f46875c15e1"
     },
     {
       "scenarioId": "jeju_bus_missed",
@@ -476,9 +476,9 @@
       "normalizedText": "다니엘, 우리 막차를 놓쳤어.",
       "cacheHashSha1": "b0043ad387ee5005d9f9b89cbb89e310c1277ac1",
       "storagePath": "tts/v3/female/b0043ad387ee5005d9f9b89cbb89e310c1277ac1.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/b0043ad387ee5005d9f9b89cbb89e310c1277ac1.mp3",
+      "bundled": true,
+      "bundledSha256": "8b3666a92f3809dab31a91b1a6712659924b91225280f8a3b89b6d69966523ef"
     },
     {
       "scenarioId": "library_card_problem",
@@ -490,9 +490,9 @@
       "normalizedText": "저기요. 카드가 안 돼요.",
       "cacheHashSha1": "171e97e8f91e35ec617b07d8ff33c9806a865a14",
       "storagePath": "tts/v3/female/171e97e8f91e35ec617b07d8ff33c9806a865a14.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/171e97e8f91e35ec617b07d8ff33c9806a865a14.mp3",
+      "bundled": true,
+      "bundledSha256": "16819a2dea644a9f672d46b6302d7b6a98278ec849bb5706d8af6e1c7073cd56"
     },
     {
       "scenarioId": "package_wrong_door",
@@ -504,9 +504,9 @@
       "normalizedText": "네, 무슨 일이세요?",
       "cacheHashSha1": "e15ee7dbcb688d131b30dad14f129f5270a2412d",
       "storagePath": "tts/v3/male/e15ee7dbcb688d131b30dad14f129f5270a2412d.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/e15ee7dbcb688d131b30dad14f129f5270a2412d.mp3",
+      "bundled": true,
+      "bundledSha256": "92681a97cf29deff3d3c56b34dcda622931b46a8a5cdc0f0d0848cc6695e206f"
     },
     {
       "scenarioId": "pharmacy_cold_medicine",
@@ -518,9 +518,9 @@
       "normalizedText": "어디가 불편하세요?",
       "cacheHashSha1": "2b5191a04239cba57b7d4a294b4c438ba817073a",
       "storagePath": "tts/v3/female/2b5191a04239cba57b7d4a294b4c438ba817073a.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/2b5191a04239cba57b7d4a294b4c438ba817073a.mp3",
+      "bundled": true,
+      "bundledSha256": "00e96d5f168de42d76207ba2c36ffde196e20207a8ed106d9b37fd462fe123a0"
     },
     {
       "scenarioId": "plans_with_friend",
@@ -532,9 +532,9 @@
       "normalizedText": "토요일에 이 전시 보러 갈래요?",
       "cacheHashSha1": "1d7887da21cd79c00ee1ef261bbc6e93d777beee",
       "storagePath": "tts/v3/male/1d7887da21cd79c00ee1ef261bbc6e93d777beee.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/1d7887da21cd79c00ee1ef261bbc6e93d777beee.mp3",
+      "bundled": true,
+      "bundledSha256": "8755da7ecba22154d34b486ba5f309a5b2105c1f440248db8a884a27ac10e801"
     },
     {
       "scenarioId": "running_late",
@@ -546,9 +546,9 @@
       "normalizedText": "지하철이 늦어서 십 분쯤 늦을 것 같아.",
       "cacheHashSha1": "2d93d61161f108cd4f2755f9e30f4340d99d6814",
       "storagePath": "tts/v3/female/2d93d61161f108cd4f2755f9e30f4340d99d6814.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/2d93d61161f108cd4f2755f9e30f4340d99d6814.mp3",
+      "bundled": true,
+      "bundledSha256": "a091a2b48d89375171e396a6acf6153990aedc47ff0dbe80dd410b02b6018666"
     },
     {
       "scenarioId": "samgyeopsal_first_time",
@@ -560,9 +560,9 @@
       "normalizedText": "이제 먹어도 돼요?",
       "cacheHashSha1": "4a038cab87792344f54dfd4983131c086ab775a9",
       "storagePath": "tts/v3/male/4a038cab87792344f54dfd4983131c086ab775a9.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/4a038cab87792344f54dfd4983131c086ab775a9.mp3",
+      "bundled": true,
+      "bundledSha256": "c8a7aa10a7ef4004f2cfbdd9fd26a5586b1ae889bd6ec858b57f6e70564cfaea"
     },
     {
       "scenarioId": "shared_document_old_version",
@@ -574,9 +574,9 @@
       "normalizedText": "레나, 나 예전 파일을 고쳤어.",
       "cacheHashSha1": "7d8d5350fd4700f9db04e3e5d985a5a734ce3195",
       "storagePath": "tts/v3/male/7d8d5350fd4700f9db04e3e5d985a5a734ce3195.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/7d8d5350fd4700f9db04e3e5d985a5a734ce3195.mp3",
+      "bundled": true,
+      "bundledSha256": "b884c6726027065fa0f98a483d5aca855f2c8d9edafc63db6032f1934e52aece"
     },
     {
       "scenarioId": "taxi_slow_down",
@@ -588,9 +588,9 @@
       "normalizedText": "기사님, 천천히 좀 가 주실 수 있을까요?",
       "cacheHashSha1": "51a101757439622e7ff9ee5892a4e8b6dfc8db51",
       "storagePath": "tts/v3/female/51a101757439622e7ff9ee5892a4e8b6dfc8db51.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/51a101757439622e7ff9ee5892a4e8b6dfc8db51.mp3",
+      "bundled": true,
+      "bundledSha256": "5076af735c382c7703b17d530e82a4151e687a5dac2936bae172f526f94dcf0b"
     },
     {
       "scenarioId": "train_seat_swap",
@@ -602,9 +602,9 @@
       "normalizedText": "죄송한데, 여기 제 자리예요.",
       "cacheHashSha1": "4a0028940ac584417a0924cc912ff7971a9d3e5d",
       "storagePath": "tts/v3/male/4a0028940ac584417a0924cc912ff7971a9d3e5d.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/4a0028940ac584417a0924cc912ff7971a9d3e5d.mp3",
+      "bundled": true,
+      "bundledSha256": "0c5f5fb4402ff0673c90fbe89ea55ff9a6b40f73602131c2bc136976690bc874"
     },
     {
       "scenarioId": "ai_summary_wrong_fact",
@@ -616,9 +616,9 @@
       "normalizedText": "요약에는 행사가 5월 12일이라고 되어 있는데 원문은 21일이에요.",
       "cacheHashSha1": "ae58a40c02a3e63eec72a2267cf4074401dbad4b",
       "storagePath": "tts/v3/female/ae58a40c02a3e63eec72a2267cf4074401dbad4b.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/ae58a40c02a3e63eec72a2267cf4074401dbad4b.mp3",
+      "bundled": true,
+      "bundledSha256": "caedf0c263883a8a5e154ab70ddef4c0aca50a1dea175f7a043a64c1c404a04d"
     },
     {
       "scenarioId": "apartment_recycling_mixup",
@@ -630,9 +630,9 @@
       "normalizedText": "죄송한데, 그건 종이류가 아닌 것 같아요.",
       "cacheHashSha1": "f0d5847d32e21e65c7731460b5d79e64c1b8dc5a",
       "storagePath": "tts/v3/male/f0d5847d32e21e65c7731460b5d79e64c1b8dc5a.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/f0d5847d32e21e65c7731460b5d79e64c1b8dc5a.mp3",
+      "bundled": true,
+      "bundledSha256": "c8133b092c15c4dca0ba12160104a6ae16d1ada81756c660a10ca00f92d6b6b8"
     },
     {
       "scenarioId": "b1_theme_park_date_thrill",
@@ -644,9 +644,9 @@
       "normalizedText": "올라갈 때 탁탁탁탁 나는 소리, 진짜 좋지 않았어?",
       "cacheHashSha1": "7bbde55cbd6adf14243c9f1567afea7ed9f20717",
       "storagePath": "tts/v3/male/7bbde55cbd6adf14243c9f1567afea7ed9f20717.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/7bbde55cbd6adf14243c9f1567afea7ed9f20717.mp3",
+      "bundled": true,
+      "bundledSha256": "826daa01266fcc5513c443cca19574d954a8a89eacc80d7837a6d090a7f0d4b0"
     },
     {
       "scenarioId": "birthday_expectation_gap",
@@ -658,9 +658,9 @@
       "normalizedText": "제가 준비하려던 게 부담스러웠어요?",
       "cacheHashSha1": "9314d2187d183e8c8e4eb1c236485f41f4bc9016",
       "storagePath": "tts/v3/female/9314d2187d183e8c8e4eb1c236485f41f4bc9016.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/9314d2187d183e8c8e4eb1c236485f41f4bc9016.mp3",
+      "bundled": true,
+      "bundledSha256": "9a584b97b03ff2d70d87f77d80cbe9c7f8f9d0bd00ec369ad6a5bf93b5abb4fb"
     },
     {
       "scenarioId": "cancelled_trip_hurt_feelings",
@@ -672,9 +672,9 @@
       "normalizedText": "작업이 늦어져서 오후 표로 바꿨어.",
       "cacheHashSha1": "24c3384e2bb112673ad3f5b393a433e660a6ee48",
       "storagePath": "tts/v3/male/24c3384e2bb112673ad3f5b393a433e660a6ee48.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/24c3384e2bb112673ad3f5b393a433e660a6ee48.mp3",
+      "bundled": true,
+      "bundledSha256": "0359e967d9de39d623276dc2d1076a27c8f3b7423cb67deb4ef67f7d1de344f2"
     },
     {
       "scenarioId": "community_festival_shift",
@@ -686,9 +686,9 @@
       "normalizedText": "축제 봉사 담당입니다. 무슨 일이세요?",
       "cacheHashSha1": "a7bd31743279569a42282d1b032b844a3465c40e",
       "storagePath": "tts/v3/male/a7bd31743279569a42282d1b032b844a3465c40e.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/a7bd31743279569a42282d1b032b844a3465c40e.mp3",
+      "bundled": true,
+      "bundledSha256": "cca038a7fb6b2af4f5dd836fcd96dddb7360f4a1e9effd41046e95fa74642ba6"
     },
     {
       "scenarioId": "company_instagram_wrong_account",
@@ -700,9 +700,9 @@
       "normalizedText": "큰일 났어요. 회사 인스타그램 계정에 제 개인 스토리를 올렸어요.",
       "cacheHashSha1": "b5b31f85ef514023ca281a47a8d20307c9766bf6",
       "storagePath": "tts/v3/female/b5b31f85ef514023ca281a47a8d20307c9766bf6.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/b5b31f85ef514023ca281a47a8d20307c9766bf6.mp3",
+      "bundled": true,
+      "bundledSha256": "957b87c6dc526c0e21b6cadbb74a9ce4478b54969788e71244faa436ae8e4ff2"
     },
     {
       "scenarioId": "date_or_friendly_coffee",
@@ -714,9 +714,9 @@
       "normalizedText": "아까 친구가 우리 데이트하냐고 물어서 좀 당황했어요.",
       "cacheHashSha1": "b05f9b3dc64f2b788e9717071feaf269aa04827e",
       "storagePath": "tts/v3/female/b05f9b3dc64f2b788e9717071feaf269aa04827e.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/b05f9b3dc64f2b788e9717071feaf269aa04827e.mp3",
+      "bundled": true,
+      "bundledSha256": "c043abb8d0ae8956f719634f2e7b41c35935bce775b91199651a7235bf036ce9"
     },
     {
       "scenarioId": "food_delivery_wrong_order",
@@ -728,9 +728,9 @@
       "normalizedText": "고객센터입니다. 어떤 문제가 있으세요?",
       "cacheHashSha1": "5f318efc9ce3cc400b6f6fe93629548c71b4b83f",
       "storagePath": "tts/v3/female/5f318efc9ce3cc400b6f6fe93629548c71b4b83f.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/5f318efc9ce3cc400b6f6fe93629548c71b4b83f.mp3",
+      "bundled": true,
+      "bundledSha256": "bb1ba50393e689dd10ff83fb3126d23938594abde8ed88e69162ed66abdc9580"
     },
     {
       "scenarioId": "jeju_rain_plan_change",
@@ -742,9 +742,9 @@
       "normalizedText": "바람이 너무 세서 배가 취소됐대.",
       "cacheHashSha1": "167cda1a805a47f9ddbd86e819e3a2a7aaf22bd2",
       "storagePath": "tts/v3/female/167cda1a805a47f9ddbd86e819e3a2a7aaf22bd2.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/167cda1a805a47f9ddbd86e819e3a2a7aaf22bd2.mp3",
+      "bundled": true,
+      "bundledSha256": "2214b312dc8f7b190f1817285c019e85798bf4b713c28962b435ab93737cbd32"
     },
     {
       "scenarioId": "ktx_sold_out_alternative",
@@ -756,9 +756,9 @@
       "normalizedText": "세 시 KTX는 다 매진이야.",
       "cacheHashSha1": "e00397e7a7ef099b77d5a95ba7511f5fb72a9f85",
       "storagePath": "tts/v3/male/e00397e7a7ef099b77d5a95ba7511f5fb72a9f85.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/e00397e7a7ef099b77d5a95ba7511f5fb72a9f85.mp3",
+      "bundled": true,
+      "bundledSha256": "aa9e288d386a25b769ed1bfdbac94edfc2fc9a1e486e036272a26264331290fc"
     },
     {
       "scenarioId": "noisy_neighbor_evening",
@@ -770,9 +770,9 @@
       "normalizedText": "네, 무슨 일이세요?",
       "cacheHashSha1": "e15ee7dbcb688d131b30dad14f129f5270a2412d",
       "storagePath": "tts/v3/male/e15ee7dbcb688d131b30dad14f129f5270a2412d.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/e15ee7dbcb688d131b30dad14f129f5270a2412d.mp3",
+      "bundled": true,
+      "bundledSha256": "92681a97cf29deff3d3c56b34dcda622931b46a8a5cdc0f0d0848cc6695e206f"
     },
     {
       "scenarioId": "park_pet_manners",
@@ -784,9 +784,9 @@
       "normalizedText": "죄송한데, 줄이 길어서 넘어질 뻔했어요.",
       "cacheHashSha1": "ca309f05d316da0752145d9b983866e97dbce59a",
       "storagePath": "tts/v3/male/ca309f05d316da0752145d9b983866e97dbce59a.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/ca309f05d316da0752145d9b983866e97dbce59a.mp3",
+      "bundled": true,
+      "bundledSha256": "6059563061c8d59005ae22b83b30306efbe2da06de2cc39a1ab50877e4a06957"
     },
     {
       "scenarioId": "reel_caption_misunderstanding",
@@ -798,9 +798,9 @@
       "normalizedText": "웃기려고 쓴 건데 가게를 비꼬는 것처럼 보여.",
       "cacheHashSha1": "cddba3576c6c28def39931185fc0dbdc3047ed3b",
       "storagePath": "tts/v3/female/cddba3576c6c28def39931185fc0dbdc3047ed3b.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/cddba3576c6c28def39931185fc0dbdc3047ed3b.mp3",
+      "bundled": true,
+      "bundledSha256": "fa4de93a343c384ebce77ac4e62c8320b25fcfefcaa1acc0bce9a7dd568432fb"
     },
     {
       "scenarioId": "running_injury_training_plan",
@@ -812,9 +812,9 @@
       "normalizedText": "다니엘, 아까부터 계속 절뚝거리는데 괜찮아?",
       "cacheHashSha1": "4ab25e02abec8c2635600b3199f8c52be19da177",
       "storagePath": "tts/v3/female/4ab25e02abec8c2635600b3199f8c52be19da177.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/4ab25e02abec8c2635600b3199f8c52be19da177.mp3",
+      "bundled": true,
+      "bundledSha256": "8b98f3bc30b8bf230116baa66965b22db8b4db527be1a3412acf135b92b27983"
     },
     {
       "scenarioId": "secondhand_hidden_defect",
@@ -826,9 +826,9 @@
       "normalizedText": "잠깐만요. 글에는 이 흠집이 없었는데요.",
       "cacheHashSha1": "e671509fe441d84895ff2b3919a4b78d7c8ede4e",
       "storagePath": "tts/v3/male/e671509fe441d84895ff2b3919a4b78d7c8ede4e.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/e671509fe441d84895ff2b3919a4b78d7c8ede4e.mp3",
+      "bundled": true,
+      "bundledSha256": "fa4f3994a44ec53ba38f63d957e5205e9e667f4cd866b061dcdafd34c64af257"
     },
     {
       "scenarioId": "shared_cup_recycling",
@@ -840,9 +840,9 @@
       "normalizedText": "회의가 끝날 때마다 일회용 컵이 너무 많이 남아요.",
       "cacheHashSha1": "cec7191f13e8a62a7068e2299349b6ed08415153",
       "storagePath": "tts/v3/female/cec7191f13e8a62a7068e2299349b6ed08415153.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/cec7191f13e8a62a7068e2299349b6ed08415153.mp3",
+      "bundled": true,
+      "bundledSha256": "a124753a38ce571a97189040da07c09fee832eceac07ba4fe75cf6c3e8b7a3d5"
     },
     {
       "scenarioId": "speech_level_after_friendship",
@@ -854,9 +854,9 @@
       "normalizedText": "레나, 우리 이제 말 놓을까?",
       "cacheHashSha1": "feedbe0f15a9e3ee569a6da54fbe979df1bc4db7",
       "storagePath": "tts/v3/female/feedbe0f15a9e3ee569a6da54fbe979df1bc4db7.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/feedbe0f15a9e3ee569a6da54fbe979df1bc4db7.mp3",
+      "bundled": true,
+      "bundledSha256": "f8a193de60f8fc0cf291886dd49fb75c3104898663ecb1a5a9bfbffd394c6dae"
     },
     {
       "scenarioId": "subscription_cancel_charge",
@@ -868,9 +868,9 @@
       "normalizedText": "고객센터입니다. 무엇을 확인해 드릴까요?",
       "cacheHashSha1": "aa4c646c57f62cda134dbd72f02f2da620164ee4",
       "storagePath": "tts/v3/female/aa4c646c57f62cda134dbd72f02f2da620164ee4.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/aa4c646c57f62cda134dbd72f02f2da620164ee4.mp3",
+      "bundled": true,
+      "bundledSha256": "20187d74a100cd3e10e011d8453e3c1b3bbaebf9982b7ef65e49f89b69b15915"
     },
     {
       "scenarioId": "team_update_indirect_speech",
@@ -882,9 +882,9 @@
       "normalizedText": "다른 팀에서 시간이 바뀔 수도 있다고 연락이 왔어요.",
       "cacheHashSha1": "25389d831a806a8390cf59edcb6e585ae6f959c6",
       "storagePath": "tts/v3/female/25389d831a806a8390cf59edcb6e585ae6f959c6.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/25389d831a806a8390cf59edcb6e585ae6f959c6.mp3",
+      "bundled": true,
+      "bundledSha256": "2bcfbe18ad34accae719d82677f742366dbd6a8d4927dca15d4848b2c9a9fce3"
     },
     {
       "scenarioId": "work_message_too_direct",
@@ -896,9 +896,9 @@
       "normalizedText": "마야, ‘오늘 안에 가능하실까요?’만 보내면 조금 재촉하는 것처럼 들려요.",
       "cacheHashSha1": "27f7ae512dfee5fdaf7b22cd60a9fab4cee4e485",
       "storagePath": "tts/v3/female/27f7ae512dfee5fdaf7b22cd60a9fab4cee4e485.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/27f7ae512dfee5fdaf7b22cd60a9fab4cee4e485.mp3",
+      "bundled": true,
+      "bundledSha256": "69b0ec4c46f3b6cbf4191188be6702eaf33cb5c49a015f986bc241fd9750e82e"
     },
     {
       "scenarioId": "accessible_festival_route",
@@ -910,9 +910,9 @@
       "normalizedText": "포토존 줄이 경사로 앞까지 이어져서 지나갈 수가 없어요.",
       "cacheHashSha1": "ecfab5af1e858e2ab7b861d168e2b9c026921392",
       "storagePath": "tts/v3/male/ecfab5af1e858e2ab7b861d168e2b9c026921392.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/ecfab5af1e858e2ab7b861d168e2b9c026921392.mp3",
+      "bundled": true,
+      "bundledSha256": "e2860ae7eef75ffc5189ea94afbc9dc1d7152d0ce7abb675f3352f0d9e7f2fa2"
     },
     {
       "scenarioId": "ai_image_disclosure",
@@ -924,9 +924,9 @@
       "normalizedText": "이 배경은 시안용이니까 굳이 설명하지 않아도 되지 않을까요?",
       "cacheHashSha1": "8157ec1b75f1507ebd2f50a28b3f4224ccc7b17c",
       "storagePath": "tts/v3/female/8157ec1b75f1507ebd2f50a28b3f4224ccc7b17c.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/8157ec1b75f1507ebd2f50a28b3f4224ccc7b17c.mp3",
+      "bundled": true,
+      "bundledSha256": "e20c82016969efa70e8d3f450904fdd1554e09ec3fd07448900ad3012be24869"
     },
     {
       "scenarioId": "b2_theme_park_date_safety",
@@ -938,9 +938,9 @@
       "normalizedText": "출발하기 전에 주머니 다 확인했어?",
       "cacheHashSha1": "baebe23862623a43fffb43f5464ad1910d3d991d",
       "storagePath": "tts/v3/male/baebe23862623a43fffb43f5464ad1910d3d991d.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/baebe23862623a43fffb43f5464ad1910d3d991d.mp3",
+      "bundled": true,
+      "bundledSha256": "2b75a9858aaf5a9805f97281732be10830d730c02b5ddf29a37cf19c7f907728"
     },
     {
       "scenarioId": "brand_private_account_boundary",
@@ -952,9 +952,9 @@
       "normalizedText": "마야가 개인 계정에 올리는 후기처럼 현장감 있게 쓰면 어떨까요?",
       "cacheHashSha1": "ffa2bb53c93fa83b044d03e19255d4a81b3dccdc",
       "storagePath": "tts/v3/female/ffa2bb53c93fa83b044d03e19255d4a81b3dccdc.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/ffa2bb53c93fa83b044d03e19255d4a81b3dccdc.mp3",
+      "bundled": true,
+      "bundledSha256": "b0d68725a4366b15f23a13c6f9d21cceb19923adf14a981006943d60446e883d"
     },
     {
       "scenarioId": "community_event_compromise",
@@ -966,9 +966,9 @@
       "normalizedText": "영화제가 골목 상권에는 도움이 된다는 의견이 많습니다.",
       "cacheHashSha1": "9d9a25bba4100b7a3a9ad23655c2af43b86a19bb",
       "storagePath": "tts/v3/male/9d9a25bba4100b7a3a9ad23655c2af43b86a19bb.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/9d9a25bba4100b7a3a9ad23655c2af43b86a19bb.mp3",
+      "bundled": true,
+      "bundledSha256": "beda655a2908422ef504c5a1b0b9414cd2a67d64e12a6a74872f1c95ca480ed8"
     },
     {
       "scenarioId": "delivery_refund_evidence",
@@ -980,9 +980,9 @@
       "normalizedText": "불편을 드려 죄송합니다. 음식은 모두 그대로 있나요?",
       "cacheHashSha1": "ebfcf87a0def5901a5ceaa60c13f0060c87f6a53",
       "storagePath": "tts/v3/female/ebfcf87a0def5901a5ceaa60c13f0060c87f6a53.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/ebfcf87a0def5901a5ceaa60c13f0060c87f6a53.mp3",
+      "bundled": true,
+      "bundledSha256": "75957a5400a94e2aaa28bc60e5eb30cf74332f90b95b832be8742fa2e2048b16"
     },
     {
       "scenarioId": "direct_feedback_misread",
@@ -994,9 +994,9 @@
       "normalizedText": "아까 ‘이건 다시 해야 해’라고만 해서 제 작업이 전부 별로라는 줄 알았어요.",
       "cacheHashSha1": "4a3e3ee76591511863b0f062ca853618f9b2628a",
       "storagePath": "tts/v3/female/4a3e3ee76591511863b0f062ca853618f9b2628a.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/4a3e3ee76591511863b0f062ca853618f9b2628a.mp3",
+      "bundled": true,
+      "bundledSha256": "c43ae2b006d1e8f546f86dd08b7f2894611127358d06b49152f89bdbc0ab3b2b"
     },
     {
       "scenarioId": "feedback_specific_example",
@@ -1008,9 +1008,9 @@
       "normalizedText": "다음 프로젝트에서는 조금 더 주도적으로 움직였으면 해요.",
       "cacheHashSha1": "b7b3e15e70b5051c27a78b673dcbc1f040fc598f",
       "storagePath": "tts/v3/female/b7b3e15e70b5051c27a78b673dcbc1f040fc598f.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/b7b3e15e70b5051c27a78b673dcbc1f040fc598f.mp3",
+      "bundled": true,
+      "bundledSha256": "ec493661eea5841af25813e2a1eabc5435ad9121628f4c7a7ab505ad8db40405"
     },
     {
       "scenarioId": "filming_permission",
@@ -1022,9 +1022,9 @@
       "normalizedText": "가게 안을 잠깐 촬영해도 괜찮으세요?",
       "cacheHashSha1": "3272d8c84cb02a22f049b74ea92298a8f9c3fb29",
       "storagePath": "tts/v3/male/3272d8c84cb02a22f049b74ea92298a8f9c3fb29.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/3272d8c84cb02a22f049b74ea92298a8f9c3fb29.mp3",
+      "bundled": true,
+      "bundledSha256": "ae9c63819263831fdba744b2f9a5a358923363cc768d4cc4a1b644036816691f"
     },
     {
       "scenarioId": "freelance_scope_change",
@@ -1036,9 +1036,9 @@
       "normalizedText": "분위기가 생각과 달라서 촬영부터 다시 하면 좋겠습니다.",
       "cacheHashSha1": "94dd45f2359463dfffb40970dce47b7f728e189c",
       "storagePath": "tts/v3/male/94dd45f2359463dfffb40970dce47b7f728e189c.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/94dd45f2359463dfffb40970dce47b7f728e189c.mp3",
+      "bundled": true,
+      "bundledSha256": "78542239bf400399d30091fb7c59231554a18166757673ad7b636a5fe350e00f"
     },
     {
       "scenarioId": "fremdschaemen_live",
@@ -1050,9 +1050,9 @@
       "normalizedText": "오늘 라이브 어땠어? 분위기 좋았지?",
       "cacheHashSha1": "37d3abfdda8a31903a4795c092a8a13e13299350",
       "storagePath": "tts/v3/female/37d3abfdda8a31903a4795c092a8a13e13299350.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/37d3abfdda8a31903a4795c092a8a13e13299350.mp3",
+      "bundled": true,
+      "bundledSha256": "63cb2b57b0898c19bac904dea32844837c2b097c0fe54799df072dde5584ff4c"
     },
     {
       "scenarioId": "library_quiet_zone_conflict",
@@ -1064,9 +1064,9 @@
       "normalizedText": "죄송한데 여기서는 계속 통화하시면 안 돼요.",
       "cacheHashSha1": "7fb0b29d5b9d9a48cd27cbb1b5f873414440327b",
       "storagePath": "tts/v3/male/7fb0b29d5b9d9a48cd27cbb1b5f873414440327b.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/7fb0b29d5b9d9a48cd27cbb1b5f873414440327b.mp3",
+      "bundled": true,
+      "bundledSha256": "4e24a5de7d04868ccde44d7a820522497eccced1e6fe7644c18ab9bcf4527719"
     },
     {
       "scenarioId": "meeting_disagreement_evidence",
@@ -1078,9 +1078,9 @@
       "normalizedText": "이 영상은 조회 수가 가장 높으니 성과가 좋았다고 볼 수 있겠어요.",
       "cacheHashSha1": "e43144ee0d25b3856d238c2d3eb798ee88cfe522",
       "storagePath": "tts/v3/female/e43144ee0d25b3856d238c2d3eb798ee88cfe522.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/e43144ee0d25b3856d238c2d3eb798ee88cfe522.mp3",
+      "bundled": true,
+      "bundledSha256": "24d2b477a08b3156c2b6740d116046de1a0eeecb22e69f2de53dc9e00a5235a2"
     },
     {
       "scenarioId": "meeting_opening_context",
@@ -1092,9 +1092,9 @@
       "normalizedText": "저는 이 회의가 처음이라 먼저 확인하고 싶어요.",
       "cacheHashSha1": "ebf2ea80ce0b6de54a93309e7e8bd05be1e741fc",
       "storagePath": "tts/v3/female/ebf2ea80ce0b6de54a93309e7e8bd05be1e741fc.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/ebf2ea80ce0b6de54a93309e7e8bd05be1e741fc.mp3",
+      "bundled": true,
+      "bundledSha256": "c6672594f5a495ab018cb3d2f6eeb0be4f82142854563ed44974d0074307c955"
     },
     {
       "scenarioId": "neighborhood_filming_notice",
@@ -1106,9 +1106,9 @@
       "normalizedText": "여기에 삼각대를 두면 사람들이 지나가기 어렵지 않을까요?",
       "cacheHashSha1": "5d0de878387982dbe083163f4217ab1b3557b816",
       "storagePath": "tts/v3/male/5d0de878387982dbe083163f4217ab1b3557b816.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/5d0de878387982dbe083163f4217ab1b3557b816.mp3",
+      "bundled": true,
+      "bundledSha256": "2e3dea4723795e07ee2e729929d7f8aac9b5dd628d492f70740c51ca0d5ef1c5"
     },
     {
       "scenarioId": "partner_family_titles",
@@ -1120,9 +1120,9 @@
       "normalizedText": "부모님을 어떻게 부르는 게 편할까요?",
       "cacheHashSha1": "9828d44e2d8a9cdebd6237efec50160e4704c58d",
       "storagePath": "tts/v3/male/9828d44e2d8a9cdebd6237efec50160e4704c58d.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/9828d44e2d8a9cdebd6237efec50160e4704c58d.mp3",
+      "bundled": true,
+      "bundledSha256": "5347f144c12544ff0c5766ba67e8551ea2db2fb14d1afa267cd4f1cd41f0e5dc"
     },
     {
       "scenarioId": "portfolio_interview_gap",
@@ -1134,9 +1134,9 @@
       "normalizedText": "이 기간에는 등록된 프로젝트가 없는데, 어떤 일을 하셨나요?",
       "cacheHashSha1": "9fa6f9cbcdb620cc9b06b5302f8d3c72eedc3da3",
       "storagePath": "tts/v3/female/9fa6f9cbcdb620cc9b06b5302f8d3c72eedc3da3.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/9fa6f9cbcdb620cc9b06b5302f8d3c72eedc3da3.mp3",
+      "bundled": true,
+      "bundledSha256": "c4683fc392c76c0c8a5f3954d3c4aa0c2e33d8b8e4dbf6154cbb3bf8126cef76"
     },
     {
       "scenarioId": "recycling_policy_pilot",
@@ -1148,9 +1148,9 @@
       "normalizedText": "새 기기를 쓰면 냄새는 줄지만 화면이 복잡하다는 의견도 있어요.",
       "cacheHashSha1": "d72e0ea46ca8ffa4e8588d17ed1e68f2b8eda2ac",
       "storagePath": "tts/v3/female/d72e0ea46ca8ffa4e8588d17ed1e68f2b8eda2ac.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/d72e0ea46ca8ffa4e8588d17ed1e68f2b8eda2ac.mp3",
+      "bundled": true,
+      "bundledSha256": "b936bca0338d28cd0439d7c4a196ef20f2ca195f2742cb6c4ea600b34d18a97f"
     },
     {
       "scenarioId": "rental_repair_deposit",
@@ -1162,9 +1162,9 @@
       "normalizedText": "이 얼룩은 새로 생긴 것 같아서 수리비를 확인해야겠어요.",
       "cacheHashSha1": "23938cfc10174a8d1d9cfab66eab7632eefc639b",
       "storagePath": "tts/v3/female/23938cfc10174a8d1d9cfab66eab7632eefc639b.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/23938cfc10174a8d1d9cfab66eab7632eefc639b.mp3",
+      "bundled": true,
+      "bundledSha256": "94a5f02772d80e9adf7508b81ef12ba8c89e2765dc27e8a3f7bb658406d7a33b"
     },
     {
       "scenarioId": "train_delay_connection",
@@ -1176,9 +1176,9 @@
       "normalizedText": "이 지연 때문에 다음 열차를 놓칠 가능성이 큰데 변경할 수 있을까요?",
       "cacheHashSha1": "65e7c18e06c6dacc834388a26382d59006028948",
       "storagePath": "tts/v3/male/65e7c18e06c6dacc834388a26382d59006028948.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/65e7c18e06c6dacc834388a26382d59006028948.mp3",
+      "bundled": true,
+      "bundledSha256": "8106eec730e27abb814ed4e7ddc32c44d84217297e8ac2b2a5986989270c5523"
     },
     {
       "scenarioId": "wedding_invitation_expectation",
@@ -1190,9 +1190,9 @@
       "normalizedText": "동료한테 청첩장을 받았어요. 그날 약속을 취소해야겠죠?",
       "cacheHashSha1": "a62010b8f96d2080d4d4a88c3a9f4e466221e484",
       "storagePath": "tts/v3/female/a62010b8f96d2080d4d4a88c3a9f4e466221e484.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/a62010b8f96d2080d4d4a88c3a9f4e466221e484.mp3",
+      "bundled": true,
+      "bundledSha256": "16d121fa289a100f716c4d54138fdac6ec397ba4bb99954cffea92727898ad90"
     },
     {
       "scenarioId": "after_hours_messages",
@@ -1204,9 +1204,9 @@
       "normalizedText": "퇴근 뒤 메시지가 오면 급한 건지 내일 봐도 되는 건지 모르겠어요.",
       "cacheHashSha1": "9168e3f0f51a6394f11f214083bcac00a4c6d093",
       "storagePath": "tts/v3/female/9168e3f0f51a6394f11f214083bcac00a4c6d093.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/9168e3f0f51a6394f11f214083bcac00a4c6d093.mp3",
+      "bundled": true,
+      "bundledSha256": "af913512c59f8275b6bb3672c8226c3b95fcdd17417ac2a9f5f4d8d5af57ff74"
     },
     {
       "scenarioId": "ai_interview_screening_transparency",
@@ -1218,9 +1218,9 @@
       "normalizedText": "기술 설명을 길게 넣으면 지원자가 더 혼란스러울 수 있어요.",
       "cacheHashSha1": "4dfc905925bcc7bad3b7542eae8dece247f2e3e6",
       "storagePath": "tts/v3/female/4dfc905925bcc7bad3b7542eae8dece247f2e3e6.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/4dfc905925bcc7bad3b7542eae8dece247f2e3e6.mp3",
+      "bundled": true,
+      "bundledSha256": "64e5c1d20491482f8f8003762ee5e3e4a3f9cd6252c41c1c6a8b569241c70b99"
     },
     {
       "scenarioId": "ai_translation_voice_loss",
@@ -1232,9 +1232,9 @@
       "normalizedText": "자동 자막은 짧고 읽기 쉬워졌는데 무엇이 문제야?",
       "cacheHashSha1": "dc34bf057d81664da4d8f28cc107154cdb2ce378",
       "storagePath": "tts/v3/male/dc34bf057d81664da4d8f28cc107154cdb2ce378.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/dc34bf057d81664da4d8f28cc107154cdb2ce378.mp3",
+      "bundled": true,
+      "bundledSha256": "fa8b3b5b55f26fb2df219e97ea9e0e190ed756fc0ba3d2ea5d298393f84fbe35"
     },
     {
       "scenarioId": "anonymous_survey_trust",
@@ -1246,9 +1246,9 @@
       "normalizedText": "이름과 이메일을 받지 않으니 익명 설문이라고 안내해도 되겠죠?",
       "cacheHashSha1": "e06867c2d005e000a3526a3705e0bc14373f673f",
       "storagePath": "tts/v3/female/e06867c2d005e000a3526a3705e0bc14373f673f.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/e06867c2d005e000a3526a3705e0bc14373f673f.mp3",
+      "bundled": true,
+      "bundledSha256": "a120db7fe570f7a2b38df5ab6805d9b1dd68d1d8f624f8845ee39f2bd7cfe162"
     },
     {
       "scenarioId": "c1_theme_park_date_next_time",
@@ -1260,9 +1260,9 @@
       "normalizedText": "어, 뭐야. 오늘은 운영 안 하나 봐.",
       "cacheHashSha1": "e9f8e10acb39acaca6951337e31291e4b94d5f6b",
       "storagePath": "tts/v3/male/e9f8e10acb39acaca6951337e31291e4b94d5f6b.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/e9f8e10acb39acaca6951337e31291e4b94d5f6b.mp3",
+      "bundled": true,
+      "bundledSha256": "0da1d51e4e75e03c7e7df830ac202ba9d2a9ccf5e9dc05e4ea89facb2ceed3ab"
     },
     {
       "scenarioId": "deepfake_verification",
@@ -1274,9 +1274,9 @@
       "normalizedText": "영상이 이미 크게 퍼졌으니 발언 내용을 중심으로 기사를 내죠.",
       "cacheHashSha1": "dafbb31dd9e7f07e4f245298b7ddd48e73cd98bd",
       "storagePath": "tts/v3/female/dafbb31dd9e7f07e4f245298b7ddd48e73cd98bd.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/dafbb31dd9e7f07e4f245298b7ddd48e73cd98bd.mp3",
+      "bundled": true,
+      "bundledSha256": "7bcadbd85a9e2c1b8119c8dfe1ff4e77e4cbaa9ab8977b08a3261879e2267677"
     },
     {
       "scenarioId": "delivery_rider_safety_tradeoff",
@@ -1288,9 +1288,9 @@
       "normalizedText": "‘빠른 배달’ 배지는 고객이 가게를 빨리 고르게 하고 주문도 늘렸습니다.",
       "cacheHashSha1": "2be4429e33d0f5d1429d0061570692e98ab7c972",
       "storagePath": "tts/v3/male/2be4429e33d0f5d1429d0061570692e98ab7c972.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/2be4429e33d0f5d1429d0061570692e98ab7c972.mp3",
+      "bundled": true,
+      "bundledSha256": "645ad2ce4d3f1a90fce806bd638c4934526e5f7bb98cc9b182983a50ffff8684"
     },
     {
       "scenarioId": "fan_translation_credit",
@@ -1302,9 +1302,9 @@
       "normalizedText": "팬들이 자발적으로 올린 번역이니 공식 자막에 일부 활용해도 되지 않을까요?",
       "cacheHashSha1": "7927e8722843f7c3e498b6c4a4a0670ffe3febb2",
       "storagePath": "tts/v3/female/7927e8722843f7c3e498b6c4a4a0670ffe3febb2.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/7927e8722843f7c3e498b6c4a4a0670ffe3febb2.mp3",
+      "bundled": true,
+      "bundledSha256": "f18c747a3d3ea1991343b7a570f591c8875151f166f4749d98d6c70906baf1b0"
     },
     {
       "scenarioId": "gentrification_storefront",
@@ -1316,9 +1316,9 @@
       "normalizedText": "홍보 이후 방문객과 카드 매출이 모두 늘었습니다.",
       "cacheHashSha1": "6a660992d1302c32d270c2d8f644f58e2861190c",
       "storagePath": "tts/v3/male/6a660992d1302c32d270c2d8f644f58e2861190c.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/6a660992d1302c32d270c2d8f644f58e2861190c.mp3",
+      "bundled": true,
+      "bundledSha256": "a703ca8d52e7f18c28309719a3233d0c42af3588a6fc874aa95b93965bb0e7bc"
     },
     {
       "scenarioId": "heatwave_shelter_access",
@@ -1330,9 +1330,9 @@
       "normalizedText": "이 지역은 기준보다 많은 폭염 쉼터를 운영하고 있습니다.",
       "cacheHashSha1": "822968db39486894a5bfc7fc08d3b00fb42892f1",
       "storagePath": "tts/v3/male/822968db39486894a5bfc7fc08d3b00fb42892f1.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/822968db39486894a5bfc7fc08d3b00fb42892f1.mp3",
+      "bundled": true,
+      "bundledSha256": "01e092a34189c0db8856fa15bbfd5fe2ce29ad0294a7d768719b451ffbe23b8d"
     },
     {
       "scenarioId": "kiosk_generation_access",
@@ -1344,9 +1344,9 @@
       "normalizedText": "무인 주문 전환 뒤 평균 대기 시간이 2분 줄었습니다.",
       "cacheHashSha1": "c14d2c3e805b1520243feb3baa9a75e19354a24c",
       "storagePath": "tts/v3/male/c14d2c3e805b1520243feb3baa9a75e19354a24c.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/c14d2c3e805b1520243feb3baa9a75e19354a24c.mp3",
+      "bundled": true,
+      "bundledSha256": "67afc2b1055daa217a5821b95679950738ec8aad3278d7a28fc3152af38bd3ae"
     },
     {
       "scenarioId": "museum_label_multiple_views",
@@ -1358,9 +1358,9 @@
       "normalizedText": "설명문은 짧아야 해서 이 도구가 생활을 편리하게 했다는 점만 남겼습니다.",
       "cacheHashSha1": "2f9e6442a0f42c75ee3df9c3073aa86526f3c876",
       "storagePath": "tts/v3/male/2f9e6442a0f42c75ee3df9c3073aa86526f3c876.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/2f9e6442a0f42c75ee3df9c3073aa86526f3c876.mp3",
+      "bundled": true,
+      "bundledSha256": "ad83b59ccfb9360b097749b40c00ea7c847752a0f771b31a52c1c3dce6bf54a8"
     },
     {
       "scenarioId": "nightlife_noise_balance",
@@ -1372,9 +1372,9 @@
       "normalizedText": "야간 영업 이후 매출과 고용이 늘어 영업시간을 줄이기는 어렵습니다.",
       "cacheHashSha1": "dcdc2d82319476a89b37a3a950a57a8463e6b550",
       "storagePath": "tts/v3/male/dcdc2d82319476a89b37a3a950a57a8463e6b550.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/dcdc2d82319476a89b37a3a950a57a8463e6b550.mp3",
+      "bundled": true,
+      "bundledSha256": "cea0e69213a77eab294cb8230bf1e89941b30bdef2c7cfff7e2b4290006860b0"
     },
     {
       "scenarioId": "platform_moderation_appeal",
@@ -1386,9 +1386,9 @@
       "normalizedText": "표현이 거칠었던 건 인정하지만 계좌와 피해 방식까지 전부 가려졌어요.",
       "cacheHashSha1": "2174b8b39c335183650ba2b1aeb503bf69a1eb78",
       "storagePath": "tts/v3/male/2174b8b39c335183650ba2b1aeb503bf69a1eb78.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/2174b8b39c335183650ba2b1aeb503bf69a1eb78.mp3",
+      "bundled": true,
+      "bundledSha256": "5f64269b0a7714c1265c27b33f7fc45ce3a7602f884f138759f93f170d8fb10a"
     },
     {
       "scenarioId": "public_consultation_access",
@@ -1400,9 +1400,9 @@
       "normalizedText": "설문 응답이 천 건을 넘어서 참여는 충분했다고 보고 있습니다.",
       "cacheHashSha1": "d7914926857640cd21248ccab0675468c8223e7d",
       "storagePath": "tts/v3/male/d7914926857640cd21248ccab0675468c8223e7d.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/d7914926857640cd21248ccab0675468c8223e7d.mp3",
+      "bundled": true,
+      "bundledSha256": "cd9531c1a70a6f83629c6720ed084fcab084067118f91020129a9b8ad776e580"
     },
     {
       "scenarioId": "research_limits_presentation",
@@ -1414,9 +1414,9 @@
       "normalizedText": "‘도시 청년의 주거 인식이 바뀌었다’는 제목이 관심을 끌기는 합니다.",
       "cacheHashSha1": "e8ea832ad5c977218c3c1e494ea0442a49644d69",
       "storagePath": "tts/v3/female/e8ea832ad5c977218c3c1e494ea0442a49644d69.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/e8ea832ad5c977218c3c1e494ea0442a49644d69.mp3",
+      "bundled": true,
+      "bundledSha256": "0d3219f10f0562d1245f4f7045a4681653381041ebb2b4523957ebbf04c6a3bf"
     },
     {
       "scenarioId": "school_phone_rule",
@@ -1428,9 +1428,9 @@
       "normalizedText": "수업 시작 전에 휴대폰을 모두 걷으면 집중 문제가 줄어들 겁니다.",
       "cacheHashSha1": "31b8dd0b7a8384aed5302ec5d5cae0d54f9e5808",
       "storagePath": "tts/v3/male/31b8dd0b7a8384aed5302ec5d5cae0d54f9e5808.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/31b8dd0b7a8384aed5302ec5d5cae0d54f9e5808.mp3",
+      "bundled": true,
+      "bundledSha256": "54abb19a3ba2ccf97d6774793732ff594bee55aab9c043b05fbd1febe3695470"
     },
     {
       "scenarioId": "tradition_reinterpreted_stage",
@@ -1442,9 +1442,9 @@
       "normalizedText": "젊은 관객에게 닿으려면 도입부를 줄이고 후렴을 더 강하게 만들면 어떨까요?",
       "cacheHashSha1": "380b76c0061d4b4fa4ec1b42eeb1de7c4db2d861",
       "storagePath": "tts/v3/female/380b76c0061d4b4fa4ec1b42eeb1de7c4db2d861.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/380b76c0061d4b4fa4ec1b42eeb1de7c4db2d861.mp3",
+      "bundled": true,
+      "bundledSha256": "115807c19b55c72dded899dc5bc7e2e80760924cc989a84d7b03f172082d8d46"
     },
     {
       "scenarioId": "training_data_copyright",
@@ -1456,9 +1456,9 @@
       "normalizedText": "시안 반응이 좋아서 이 이미지를 최종 캠페인에도 쓰고 싶습니다.",
       "cacheHashSha1": "65fcb2a4171fa77a525bc09229b0c5a578977a24",
       "storagePath": "tts/v3/male/65fcb2a4171fa77a525bc09229b0c5a578977a24.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/65fcb2a4171fa77a525bc09229b0c5a578977a24.mp3",
+      "bundled": true,
+      "bundledSha256": "e577bdb08fa54ace1414602d9a40edc3d2a51e1ab9c095440fd1e6a8ca05d66b"
     },
     {
       "scenarioId": "workload_allocation_hidden_labor",
@@ -1470,9 +1470,9 @@
       "normalizedText": "업무표를 보면 세 사람의 산출물 수는 거의 같습니다.",
       "cacheHashSha1": "4b48f69437af0003063abfd87a53478edbc54051",
       "storagePath": "tts/v3/female/4b48f69437af0003063abfd87a53478edbc54051.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/4b48f69437af0003063abfd87a53478edbc54051.mp3",
+      "bundled": true,
+      "bundledSha256": "82ced81f6c85d8a3265f95889b81ba65997ccadf34127f4143035233e03f2d30"
     },
     {
       "scenarioId": "youth_housing_plain_language",
@@ -1484,9 +1484,9 @@
       "normalizedText": "조건을 줄이면 정확성이 떨어질 수 있어서 원문을 유지해야 합니다.",
       "cacheHashSha1": "01a8911397eb63fbac983f7fbb6a6376ef9499d5",
       "storagePath": "tts/v3/male/01a8911397eb63fbac983f7fbb6a6376ef9499d5.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/01a8911397eb63fbac983f7fbb6a6376ef9499d5.mp3",
+      "bundled": true,
+      "bundledSha256": "9c3f255517a5df0a31f7f84bf4a87fb618ea2cf366b05ea63c9ed5d22bfbc2c3"
     },
     {
       "scenarioId": "ai_hiring_appeal",
@@ -1498,9 +1498,9 @@
       "normalizedText": "영상 업로드 오류가 있었는데 결과에는 점수만 나오고 설명은 없었습니다.",
       "cacheHashSha1": "2f617ebcfcbc45391b5e291501e950c6747e4640",
       "storagePath": "tts/v3/male/2f617ebcfcbc45391b5e291501e950c6747e4640.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/2f617ebcfcbc45391b5e291501e950c6747e4640.mp3",
+      "bundled": true,
+      "bundledSha256": "6d1e8ebd1950c676a718bd19c019fcd8a3eaf61a766199da7aad6a809a02afa3"
     },
     {
       "scenarioId": "automated_benefit_denial",
@@ -1512,9 +1512,9 @@
       "normalizedText": "통지에는 ‘기준 미충족’이라고만 쓰여 있어서 어떤 자료가 문제인지 알 수 없었습니다.",
       "cacheHashSha1": "a8e9666a44f50a8937585b6692244d7ebc30bdd3",
       "storagePath": "tts/v3/male/a8e9666a44f50a8937585b6692244d7ebc30bdd3.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/a8e9666a44f50a8937585b6692244d7ebc30bdd3.mp3",
+      "bundled": true,
+      "bundledSha256": "e37aad731f7ea70955e49a691933f33fec4621760434aa7ccb77e05d8eec538a"
     },
     {
       "scenarioId": "autonomous_delivery_liability",
@@ -1526,9 +1526,9 @@
       "normalizedText": "가게 입장에서는 로봇 회사든 운영 업체든 한 곳에서 빨리 보상받고 싶습니다.",
       "cacheHashSha1": "5af2bddd116ddc2a26312f6416c8c96433e3f0ad",
       "storagePath": "tts/v3/male/5af2bddd116ddc2a26312f6416c8c96433e3f0ad.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/5af2bddd116ddc2a26312f6416c8c96433e3f0ad.mp3",
+      "bundled": true,
+      "bundledSha256": "f1639440f5a3145d75b65ce3fcd628b393c25a0bc6d1e35fa2d926095e0699a9"
     },
     {
       "scenarioId": "c2_theme_park_date_reflection",
@@ -1540,9 +1540,9 @@
       "normalizedText": "오늘 줄도 오래 섰고, 물도 잔뜩 맞았는데 이상하게 기분이 좋다.",
       "cacheHashSha1": "d5da8733322327d9e4c1b1dce9ffaf6a83a7c91e",
       "storagePath": "tts/v3/male/d5da8733322327d9e4c1b1dce9ffaf6a83a7c91e.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/d5da8733322327d9e4c1b1dce9ffaf6a83a7c91e.mp3",
+      "bundled": true,
+      "bundledSha256": "700fc63c4c1da4808e05725ae5d8c5941b6ba1c2bffa1a3c3e9cb160fd27fdea"
     },
     {
       "scenarioId": "causal_claim_headline",
@@ -1554,9 +1554,9 @@
       "normalizedText": "‘이 앱이 건강을 개선한다’고 써야 독자가 연구 의미를 바로 이해합니다.",
       "cacheHashSha1": "e28a54ac59ad675163b42e4553fbfbe39e11b0c9",
       "storagePath": "tts/v3/female/e28a54ac59ad675163b42e4553fbfbe39e11b0c9.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/e28a54ac59ad675163b42e4553fbfbe39e11b0c9.mp3",
+      "bundled": true,
+      "bundledSha256": "932540ba177a46fe93bfe30412846ba2c8118934fbc5dad2aaa389bc9a670473"
     },
     {
       "scenarioId": "central_local_disaster_responsibility",
@@ -1568,9 +1568,9 @@
       "normalizedText": "중앙 경보가 늦게 내려와 현장에서는 판단할 정보가 부족했습니다.",
       "cacheHashSha1": "eec467bb5e23858bfc992eb7eb4118aeb85f95d8",
       "storagePath": "tts/v3/male/eec467bb5e23858bfc992eb7eb4118aeb85f95d8.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/eec467bb5e23858bfc992eb7eb4118aeb85f95d8.mp3",
+      "bundled": true,
+      "bundledSha256": "1a64b936a246b4ead44a0c332fa5c365896d59de541deec10f4d2ac96504b6cf"
     },
     {
       "scenarioId": "climate_model_local_decision",
@@ -1582,9 +1582,9 @@
       "normalizedText": "모델마다 침수 지도가 달라서 어느 결과를 기준으로 삼아야 할지 모르겠습니다.",
       "cacheHashSha1": "8e4adf074a14a997d1f90d1f4b624ed310c583cf",
       "storagePath": "tts/v3/male/8e4adf074a14a997d1f90d1f4b624ed310c583cf.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/8e4adf074a14a997d1f90d1f4b624ed310c583cf.mp3",
+      "bundled": true,
+      "bundledSha256": "052dbc95f78f23f2413cdec6d53e4a9551c51cd55f33e21f079d9ee13a58faac"
     },
     {
       "scenarioId": "diaspora_name_identity",
@@ -1596,9 +1596,9 @@
       "normalizedText": "등록 시스템에서는 제 이름을 ‘June’으로 바꾸면 검색이 쉽다고 합니다.",
       "cacheHashSha1": "315e2dcef9f905a27dd0bd41fb7a4355791c6de8",
       "storagePath": "tts/v3/male/315e2dcef9f905a27dd0bd41fb7a4355791c6de8.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/315e2dcef9f905a27dd0bd41fb7a4355791c6de8.mp3",
+      "bundled": true,
+      "bundledSha256": "1825abd5d77e31a8ca4d15082e19a5e294c19af7bc709a0f7e73aa3d510b2ab3"
     },
     {
       "scenarioId": "emergency_price_controls",
@@ -1610,9 +1610,9 @@
       "normalizedText": "재난 중 생수 가격이 급등하지 않도록 즉시 상한을 두어야 합니다.",
       "cacheHashSha1": "dda193fd037e8baf1c12124c878a760d0111dd4a",
       "storagePath": "tts/v3/male/dda193fd037e8baf1c12124c878a760d0111dd4a.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/dda193fd037e8baf1c12124c878a760d0111dd4a.mp3",
+      "bundled": true,
+      "bundledSha256": "0d01041fd8b48d47c5a5ae6be7fe6729bc600f906866f736a17650941fb44612"
     },
     {
       "scenarioId": "fact_check_label_power",
@@ -1624,9 +1624,9 @@
       "normalizedText": "숫자 하나가 틀렸으니 전체 주장에 ‘거짓’ 라벨을 붙이는 편이 명확합니다.",
       "cacheHashSha1": "9cc5aca510c16747ca99a10f292486c0522df7eb",
       "storagePath": "tts/v3/male/9cc5aca510c16747ca99a10f292486c0522df7eb.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/9cc5aca510c16747ca99a10f292486c0522df7eb.mp3",
+      "bundled": true,
+      "bundledSha256": "1212e425513d332e59d809b0500799e333c28243bfe7e7b2afe63cbdbf9c4aea"
     },
     {
       "scenarioId": "family_memory_conflict",
@@ -1638,9 +1638,9 @@
       "normalizedText": "가족 사진 밑에 ‘모두가 기다리던 새 출발’이라고 쓰려고 했어요.",
       "cacheHashSha1": "322120298cfafd8d43f26a09852b39d0e7fc9cb9",
       "storagePath": "tts/v3/female/322120298cfafd8d43f26a09852b39d0e7fc9cb9.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/322120298cfafd8d43f26a09852b39d0e7fc9cb9.mp3",
+      "bundled": true,
+      "bundledSha256": "ff6bc18c45ba6d5a8a51c42db11d74a06a5bfb75390c139ffa3a69e9667b8408"
     },
     {
       "scenarioId": "hidden_gem_local_impact",
@@ -1652,9 +1652,9 @@
       "normalizedText": "영상 덕분에 가게 매출이 늘었다는 연락을 받아서 처음에는 좋은 일이라고만 생각했습니다.",
       "cacheHashSha1": "22b94f270c97a54b2897d3921f6bf185f10edb08",
       "storagePath": "tts/v3/male/22b94f270c97a54b2897d3921f6bf185f10edb08.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/22b94f270c97a54b2897d3921f6bf185f10edb08.mp3",
+      "bundled": true,
+      "bundledSha256": "26afe759ecb9f62b1bd9a22266293b1581b0ff6328be4478886df579a8aaf2b4"
     },
     {
       "scenarioId": "housing_tax_intergenerational",
@@ -1666,9 +1666,9 @@
       "normalizedText": "오늘 토론은 집 없는 청년과 집 가진 노년의 갈등을 중심으로 보겠습니다.",
       "cacheHashSha1": "6339e420ca9c79772709e7709480ce87509c4a95",
       "storagePath": "tts/v3/female/6339e420ca9c79772709e7709480ce87509c4a95.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/6339e420ca9c79772709e7709480ce87509c4a95.mp3",
+      "bundled": true,
+      "bundledSha256": "d68e1af8c4bd49e7e5db493e47bcf996130a0c415f6100b579bb8e2782cb2afe"
     },
     {
       "scenarioId": "medical_uncertainty_consent",
@@ -1680,9 +1680,9 @@
       "normalizedText": "초기 연구에서 위험이 절반으로 줄었다고 설명하면 핵심이 잘 전달될 겁니다.",
       "cacheHashSha1": "410906e8bd01e68862d4e83c5598f49664d5499d",
       "storagePath": "tts/v3/female/410906e8bd01e68862d4e83c5598f49664d5499d.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/410906e8bd01e68862d4e83c5598f49664d5499d.mp3",
+      "bundled": true,
+      "bundledSha256": "1c81bbe16575cc4e1a589533bbaf0354c6ff57838a5f3792b1186541c8bf3fc1"
     },
     {
       "scenarioId": "passive_voice_accountability",
@@ -1694,9 +1694,9 @@
       "normalizedText": "아직 개인 책임자를 확정하지 못했으니 ‘자료 유출이 발생했다’고 쓰는 게 안전합니다.",
       "cacheHashSha1": "defc488f1a7087f55e836b71edbbfff769781170",
       "storagePath": "tts/v3/male/defc488f1a7087f55e836b71edbbfff769781170.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/defc488f1a7087f55e836b71edbbfff769781170.mp3",
+      "bundled": true,
+      "bundledSha256": "ecc400f96bd671f82c50f3b23e2fe77dc21605b870da56e0c5f3210b89c16249"
     },
     {
       "scenarioId": "poll_question_framing",
@@ -1708,9 +1708,9 @@
       "normalizedText": "‘세금 낭비를 막기 위한 규제에 찬성하십니까?’면 목적과 쟁점이 한눈에 들어옵니다.",
       "cacheHashSha1": "19ff9377c35103ca4c5fe93430adbc765fac6a57",
       "storagePath": "tts/v3/female/19ff9377c35103ca4c5fe93430adbc765fac6a57.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/19ff9377c35103ca4c5fe93430adbc765fac6a57.mp3",
+      "bundled": true,
+      "bundledSha256": "b4d6150c957c5c6684075a1467a2ce3f607084453dcbfd2a20555401c38be9a6"
     },
     {
       "scenarioId": "protest_order_and_rights",
@@ -1722,9 +1722,9 @@
       "normalizedText": "지난 집회 때 도로가 오래 막혔으니 앞으로는 도심 집회를 더 엄격하게 제한해야 합니다.",
       "cacheHashSha1": "71ec8a9f16a9cd1adefc5ac7cc294efe2c14cf89",
       "storagePath": "tts/v3/male/71ec8a9f16a9cd1adefc5ac7cc294efe2c14cf89.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/71ec8a9f16a9cd1adefc5ac7cc294efe2c14cf89.mp3",
+      "bundled": true,
+      "bundledSha256": "3dc00a3caf3925de1f8dd8522263b69d950749c536b6ece132c001a03edf7412"
     },
     {
       "scenarioId": "relationship_story_reframing",
@@ -1736,9 +1736,9 @@
       "normalizedText": "아까 친구들 앞에서 첫눈에 반했다고 말한 거, 저는 조금 불편했어요.",
       "cacheHashSha1": "e74aaaf6bd27862b7b8db5221316b94b32e447ff",
       "storagePath": "tts/v3/female/e74aaaf6bd27862b7b8db5221316b94b32e447ff.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/e74aaaf6bd27862b7b8db5221316b94b32e447ff.mp3",
+      "bundled": true,
+      "bundledSha256": "489555796e86516dabead14cb1c8e47e04f5237b1e367084d04c60a0d9dbe067"
     },
     {
       "scenarioId": "replication_failure_response",
@@ -1750,9 +1750,9 @@
       "normalizedText": "같은 절차를 썼는데 효과가 없었으니 원 연구는 틀렸다고 발표해야 합니다.",
       "cacheHashSha1": "7b7116e40af632584a2b6ef7fb9f900ae30ef36a",
       "storagePath": "tts/v3/female/7b7116e40af632584a2b6ef7fb9f900ae30ef36a.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/7b7116e40af632584a2b6ef7fb9f900ae30ef36a.mp3",
+      "bundled": true,
+      "bundledSha256": "55776591e74a73213b0bb401e0583fbf2912ede6231d7a4c3addf4ea075a18d9"
     },
     {
       "scenarioId": "we_translation_identity",
@@ -1764,9 +1764,9 @@
       "normalizedText": "영어 자막에서는 우리를 계속 ‘we residents’로 통일했어. 더 자연스럽지 않아?",
       "cacheHashSha1": "d2f78a032e8750867c0b68617152b935f6790ef7",
       "storagePath": "tts/v3/male/d2f78a032e8750867c0b68617152b935f6790ef7.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/d2f78a032e8750867c0b68617152b935f6790ef7.mp3",
+      "bundled": true,
+      "bundledSha256": "354a039282321e508e2a56781c21cf27244d03ec6a22363942b206148d6b90cb"
     },
     {
       "scenarioId": "welfare_fraud_presumption",
@@ -1778,9 +1778,9 @@
       "normalizedText": "허위 신청을 줄이려면 첫 화면부터 처벌 가능성을 강하게 알려야 합니다.",
       "cacheHashSha1": "df0a1f6d8076bc887ee40e5b2eb80c2bfc3c4b2e",
       "storagePath": "tts/v3/male/df0a1f6d8076bc887ee40e5b2eb80c2bfc3c4b2e.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/male/df0a1f6d8076bc887ee40e5b2eb80c2bfc3c4b2e.mp3",
+      "bundled": true,
+      "bundledSha256": "865b3ac4a08bb4f98d481c57044f92615910078b675fb9d1babc309e3ba4f938"
     }
   ]
 }

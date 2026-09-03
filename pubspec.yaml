@@ -137,6 +137,8 @@ flutter:
 
   assets:
     - assets/data/
+    - assets/tts/v3/female/
+    - assets/tts/v3/male/
     - docs/data/cultural_glossary.json
     - assets/icons/
     - assets/illustrations/hanok/

@@ -14,7 +14,10 @@ from pathlib import PurePosixPath
 from typing import Iterable
 
 
-SCOPES = ("app", "website", "book", "gye", "pronunciation", "tts", "auth_cleanup", "ios")
+SCOPES = (
+    "app", "website", "book", "gye", "pronunciation", "tts", "auth_cleanup",
+    "ios", "content",
+)
 
 TASK_SCOPE = {
     "full": SCOPES,
@@ -26,6 +29,7 @@ TASK_SCOPE = {
     "tts": ("tts",),
     "auth-cleanup": ("auth_cleanup",),
     "ios": ("app", "ios"),
+    "content": ("content",),
     "release-internal": ("app",),
     "release-website": ("website",),
 }
@@ -110,6 +114,31 @@ def scopes_for_paths(paths: Iterable[str]) -> dict[str, bool]:
         if path in SHARED_CULTURAL_GLOSSARY_FILES:
             result["app"] = True
             result["website"] = True
+            continue
+
+        # Content shard files are bundled Flutter assets (read directly by 23
+        # Flutter test files) AND part of the public TTS allowlist derived
+        # from runtime learning content — they must select app+tts+content.
+        # This check must run before the general assets/data/ rule below,
+        # which also matches these paths but does not know about `content`.
+        if path.startswith("assets/data/scenarios_") and path.endswith(".json"):
+            result["app"] = True
+            result["tts"] = True
+            result["content"] = True
+            continue
+
+        if path in {
+            "assets/data/cloze.json",
+            "assets/data/satz_sentences.json",
+            "assets/data/smalltalk.json",
+            "assets/data/silben_puzzles.json",
+            "assets/data/korean_vocab.csv",
+            "assets/data/grammar.csv",
+        }:
+            # Same reasoning as above: these are also bundled Flutter assets.
+            result["app"] = True
+            result["tts"] = True
+            result["content"] = True
             continue
 
         # The public TTS allowlist is derived from runtime learning content.

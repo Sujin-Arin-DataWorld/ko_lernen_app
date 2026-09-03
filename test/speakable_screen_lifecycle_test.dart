@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/services/cloze_loader.dart';
+import 'package:ko_lernen_app/services/tts_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/cloze_prompt.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
@@ -125,16 +126,24 @@ void main() {
   testWidgets('화면 dispose 뒤 발화 완료는 UI 예외를 만들지 않는다', (tester) async {
     final completion = Completer<bool>();
     SoriSpeech.speakImpl = (text, voice) => completion.future;
-
     await tester.pumpWidget(host());
     await tester.tap(find.byType(SoriSpeechIndicator));
     await tester.pump();
+    expect(
+      find.byIcon(Icons.hourglass_top_rounded),
+      findsOneWidget,
+      reason: '해석이 끝나기 전까지는 resolving 아이콘이어야 한다',
+    );
+    // Fix round 1(finding 1) 이후 승격은 텍스트 일치까지 요구한다 —
+    // host()가 렌더링한 SoriSpeechIndicator(text: '학교')와 같은 텍스트로
+    // 실제 엔진이 재생을 시작했다는 신호를 재현한다.
+    TtsService.activeSpeechText = '학교';
+    TtsService.phase.value = TtsSpeechPhase.speaking;
+    await tester.pump();
     expect(find.byIcon(Icons.graphic_eq_rounded), findsOneWidget);
-
     await tester.pumpWidget(const SizedBox.shrink());
     completion.complete(true);
     await tester.pump();
-
     expect(tester.takeException(), isNull);
   });
 
@@ -145,7 +154,7 @@ void main() {
     await tester.pumpWidget(host());
     await tester.tap(find.byType(SoriSpeechIndicator));
     await tester.pump();
-    expect(find.byIcon(Icons.graphic_eq_rounded), findsOneWidget);
+    expect(find.byIcon(Icons.hourglass_top_rounded), findsOneWidget);
 
     completion.completeError(StateError('offline'));
     await tester.pump();

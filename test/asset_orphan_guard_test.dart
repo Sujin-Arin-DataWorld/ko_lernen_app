@@ -36,6 +36,10 @@ void main() {
     // 배치한다. 화면은 manifest 외부의 임의 경로를 허용하지 않는다.
     'assets/illustrations/personal_hanok_v3/world/':
         'assets/illustrations/personal_hanok_v3/world/',
+    // sha1 파일명이라 lib/ 소스에 리터럴로 안 나온다 — tts_bundled_manifest.dart
+    // 가 'assets/tts/' 접두사만 검사(런타임 검증)해 조립한다.
+    'assets/tts/v3/female/': 'assets/tts/',
+    'assets/tts/v3/male/': 'assets/tts/',
   };
 
   /// 파일명이 런타임에 조립되는 **개별 파일**. 폴더째 면제할 수 없는 자리다 —

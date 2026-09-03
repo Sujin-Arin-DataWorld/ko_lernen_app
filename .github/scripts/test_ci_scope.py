@@ -34,9 +34,26 @@ class CiScopeTest(unittest.TestCase):
             "auth_cleanup",
         )
 
+    def test_content_shard_change_selects_app_and_content_gates(self):
+        # Content shards are also canonical TTS inputs after the origin/main
+        # merge, so they now pull in `tts` alongside `app` and `content`.
+        self.assert_enabled(["assets/data/scenarios_a1.json"], "app", "tts", "content")
+        self.assert_enabled(["assets/data/cloze.json"], "app", "tts", "content")
+        self.assert_enabled(["assets/data/korean_vocab.csv"], "app", "tts", "content")
+
+    def test_unlisted_assets_data_file_selects_app_and_tts(self):
+        self.assert_enabled(["assets/data/foo.json"], "app", "tts")
+
+    def test_tts_function_change_is_not_conflated_with_content_scope(self):
+        self.assert_enabled(["functions/tts/index.js"], "tts")
+
     def test_canonical_tts_inputs_also_verify_server_allowlist(self):
-        for path in ["assets/data/scenarios_a1.json",
-                     "assets/data/tts_canonical_manifest.json",
+        # assets/data/scenarios_a1.json is also a content shard (see
+        # test_content_shard_change_selects_app_and_content_gates above), so
+        # it additionally selects `content`; the other canonical inputs are
+        # not content shards and stay at app+tts.
+        self.assert_enabled(["assets/data/scenarios_a1.json"], "app", "tts", "content")
+        for path in ["assets/data/tts_canonical_manifest.json",
                      "tool/generate_tts.py", "tool/polish_tts.py",
                      "lib/data/hangul_data.dart",
                      "lib/services/placement_diagnostic.dart"]:

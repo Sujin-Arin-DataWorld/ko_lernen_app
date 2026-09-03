@@ -45,12 +45,46 @@ class SoriSpeech {
   static final Map<String, Future<bool>> _pendingPrefetches = {};
   static final Map<Future<bool>, Future<bool>> _promotionPrefetches = {};
 
-  /// 화면이 구독하는 발화 상태. 저수준 서비스의 전역 notifier를 화면에
-  /// 직접 노출하지 않아 테스트 주입·실패·취소 경로도 같은 상태 계약을 탄다.
-  static final ValueNotifier<bool> speaking = ValueNotifier<bool>(false);
+  /// idle/resolving/speaking 3단 — 화면이 직접 구독하는 발화 상태의
+  /// 단일 출처. 신규 발화는 즉시 resolving으로 보이고, 실제 재생이
+  /// 시작된 순간(TtsService.phase 승격 신호)에만 speaking이 된다 —
+  /// 해석 시작 전에 이미 재생 중으로 보이던 기존 결함의 근본 수정.
+  static final ValueNotifier<TtsSpeechPhase> phase =
+      ValueNotifier<TtsSpeechPhase>(TtsSpeechPhase.idle);
+  static bool _engineListenerBound = false;
+
+  /// TtsService.phase(엔진 레이어)가 실제 재생 시작을 알릴 때만 우리 phase를
+  /// speaking으로 승격한다. 단순히 "활성 키가 있다"만으로는 부족하다 — 화면
+  /// 어딘가에서 TtsService.speak() 를 직접 불러(예: 리뷰 세션의 보너스
+  /// 문구) 전혀 무관한 재생이 시작돼도 전역 TtsService.phase 는
+  /// speaking으로 바뀌므로, 우리가 지금 resolving으로 띄운 요청의 텍스트와
+  /// 엔진이 방금 재생을 시작한 텍스트가 실제로 같은지 대조해야 한다
+  /// (Fix round 1, finding 1). 늦게 도착한 신호가 그 사이 새 세대로
+  /// 넘어간 발화를 오염시키지 않도록, 이 텍스트를 기록했던 세대가 아직도
+  /// 현재 세대인지까지 함께 확인한다.
+  static void _onEnginePhaseChanged() {
+    if (TtsService.phase.value != TtsSpeechPhase.speaking) return;
+    if (_activeSpeechText == null) return;
+    if (TtsService.activeSpeechText != _activeSpeechText) return;
+    if (_activeSpeechGeneration != _speechGeneration) return;
+    phase.value = TtsSpeechPhase.speaking;
+  }
+
+  static void _bindEngineListenerOnce() {
+    if (_engineListenerBound) return;
+    _engineListenerBound = true;
+    TtsService.phase.addListener(_onEnginePhaseChanged);
+  }
 
   static int _speechGeneration = 0;
   static String? _activeSpeechKey;
+
+  /// resolving으로 전환한 요청의 trim된 텍스트 — [_onEnginePhaseChanged]가
+  /// TtsService.activeSpeechText와 대조하는 식별자(Fix round 1, finding 1).
+  static String? _activeSpeechText;
+
+  /// [_activeSpeechText]를 기록한 시점의 [_speechGeneration] 스냅샷.
+  static int _activeSpeechGeneration = 0;
 
   /// 실제 재생 호출 지점 — 테스트가 `TtsService`/Firebase 없이 가짜
   /// 카운팅 리졸버로 갈아끼울 수 있게 훅으로 둔다. 기본은 진짜 서비스.
@@ -84,7 +118,14 @@ class SoriSpeech {
     _promotionPrefetches.clear();
     ++_speechGeneration;
     _activeSpeechKey = null;
-    speaking.value = false;
+    _activeSpeechText = null;
+    phase.value = TtsSpeechPhase.idle;
+    // 엔진 레이어(TtsService)도 함께 되돌린다 — 안 그러면 이전 테스트가
+    // 남긴 speaking/activeSpeechText가 ValueNotifier의 "같은 값 재대입은
+    // 리스너를 안 부른다" 특성과 겹쳐 다음 테스트의 승격 신호를 조용히
+    // 삼킬 수 있다(Fix round 1, finding 2).
+    TtsService.phase.value = TtsSpeechPhase.idle;
+    TtsService.activeSpeechText = null;
     speakImpl = (text, voice) => TtsService.speak(text, voice: voice);
     speakSlowImpl = (text, voice) => TtsService.speakSlow(text, voice: voice);
     prefetchImpl = (text, voice) => TtsService.prefetch(text, voice: voice);
@@ -153,6 +194,7 @@ class SoriSpeech {
     Future<bool> Function(String text, String voice) resolver, {
     Future<bool>? pending,
   }) {
+    _bindEngineListenerOnce();
     final previousKey = _activeSpeechKey;
     if (previousKey != null && previousKey != key) {
       // 승격이 덮고 있던 prefetch가 아직 진행 중이면 공용 맵에 복원한다.
@@ -161,9 +203,14 @@ class SoriSpeech {
     }
     final generation = ++_speechGeneration;
     _activeSpeechKey = key;
-    // pending prefetch 뒤의 승격은 의도만 지금 캡처하고, 실제 resolver가
-    // 시작될 때 speaking을 올린다. 캐시 대기 중을 재생 중으로 알리지 않는다.
-    speaking.value = pending == null;
+    _activeSpeechText = text.trim();
+    _activeSpeechGeneration = generation;
+    // 신규 speak든 pending 승격(이미 진행 중인 prefetch에 올라타는 경우)이든
+    // 사용자가 방금 눌렀고 오디오가 아직 준비되지 않은 상태이므로 즉시
+    // resolving으로 전환한다 — 이 창에서 다시 탭하면 재합류가 아니라
+    // stop이 돼야 한다(handleTap 계약). 실제 speaking 전환은 두 경우 모두
+    // TtsService.phase 리스너의 승격에서만 일어난다.
+    phase.value = TtsSpeechPhase.resolving;
 
     Future<bool> resolve() async {
       if (previousKey != null && previousKey != key) {
@@ -179,7 +226,6 @@ class SoriSpeech {
           final alreadyPlayed = await pending;
           if (generation != _speechGeneration) return false;
           if (alreadyPlayed) return true;
-          speaking.value = true;
         }
         return await resolver(text, voice);
       } catch (_) {
@@ -200,7 +246,8 @@ class SoriSpeech {
       }
       if (generation == _speechGeneration && _activeSpeechKey == key) {
         _activeSpeechKey = null;
-        speaking.value = false;
+        _activeSpeechText = null;
+        phase.value = TtsSpeechPhase.idle;
       }
     });
     _playbackFlights.add(future);
@@ -296,10 +343,11 @@ class SoriSpeech {
     final activeKey = _activeSpeechKey;
     ++_speechGeneration;
     _activeSpeechKey = null;
+    _activeSpeechText = null;
     if (activeKey != null) {
       _cancelFlightAndRestorePrefetch(activeKey);
     }
-    speaking.value = false;
+    phase.value = TtsSpeechPhase.idle;
     try {
       await stopImpl();
     } catch (_) {
@@ -371,32 +419,40 @@ class SoriSpeechIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
     final t = AppL10n.of(context);
-    return ValueListenableBuilder<bool>(
-      valueListenable: SoriSpeech.speaking,
-      builder: (context, speaking, _) {
-        // 재생 중엔 탭이 재생을 다시 걸지 않고 멈춘다. 예전엔 둘 다
-        // speak() 뿐이라, 재생 중 탭이 이미 진행 중인 요청에 합류만 하고
-        // 끝나는 사실상 아무 일도 안 하는 조작이었다 — 그런데도 값(value)은
-        // "재생 중"이라는, 대응하는 조작이 있는 것처럼 들리는 상태를
-        // 알렸다(WCAG 4.1.2). 두 onTap 이 반드시 같은 분기를 타야 하므로
-        // 한 곳에 묶는다 — 따로 적으면 이 버그가 재발한다.
+    return ValueListenableBuilder<TtsSpeechPhase>(
+      valueListenable: SoriSpeech.phase,
+      builder: (context, phase, _) {
         void handleTap() {
           if (onTap != null) {
             onTap!();
             return;
           }
-          if (speaking) {
+          if (phase != TtsSpeechPhase.idle) {
             SoriSpeech.stop();
           } else {
             SoriSpeech.speak(text, voice: voice);
           }
         }
 
+        final semanticsValue = switch (phase) {
+          TtsSpeechPhase.idle => t.speechIndicatorIdle,
+          TtsSpeechPhase.resolving => t.speechIndicatorResolving,
+          TtsSpeechPhase.speaking => t.speechIndicatorSpeaking,
+        };
+        final icon = switch (phase) {
+          TtsSpeechPhase.idle => Icons.volume_up_rounded,
+          TtsSpeechPhase.resolving => Icons.hourglass_top_rounded,
+          TtsSpeechPhase.speaking => Icons.graphic_eq_rounded,
+        };
+        final iconAlpha = phase == TtsSpeechPhase.resolving ? 0.6 : 1.0;
+
         return Semantics(
           button: true,
           label: t.speechIndicatorLabel,
-          value: speaking ? t.speechIndicatorSpeaking : t.speechIndicatorIdle,
+          value: semanticsValue,
           onTap: handleTap,
+          // 48x48 터치 타깃 안 44x44 원형 배지(s.surface 0.85) + 18px 아이콘 —
+          // 기존 SizedBox/Center/DecoratedBox 구조는 그대로, icon/alpha만 phase값을 따른다.
           child: ExcludeSemantics(
             child: SoriPressable(
               onTap: handleTap,
@@ -413,11 +469,11 @@ class SoriSpeechIndicator extends StatelessWidget {
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
-                        speaking
-                            ? Icons.graphic_eq_rounded
-                            : Icons.volume_up_rounded,
+                        icon,
                         size: 18,
-                        color: SoriColors.contentCta,
+                        color: SoriColors.contentCta.withValues(
+                          alpha: iconAlpha,
+                        ),
                       ),
                     ),
                   ),
@@ -437,7 +493,7 @@ class SoriSpeechIndicator extends StatelessWidget {
 ///
 /// [didPushNext]/[deactivate] 의 `TtsService.stop()` 은 **다음 프레임으로
 /// 미룬다**(검수#13 보강 fix 2). 둘 다 화면 트리가 교체되는 빌드/레이아웃
-/// 단계 한복판에서 불릴 수 있는데, `TtsService.stop()` 은 전역 `speaking`
+/// 단계 한복판에서 불릴 수 있는데, `TtsService.stop()` 은 전역 `phase`
 /// ValueNotifier 를 동기로 뒤집어 그걸 구독하는 [SoriSpeechIndicator]의
 /// `ValueListenableBuilder` 가 build 중에 다시 setState 를 시도하게
 /// 만든다("setState() or markNeedsBuild() called during build" — T13,

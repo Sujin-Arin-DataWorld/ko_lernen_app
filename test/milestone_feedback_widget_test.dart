@@ -16,6 +16,7 @@ import 'package:ko_lernen_app/services/content_feedback_service.dart';
 import 'package:ko_lernen_app/services/decoration_reward_service.dart';
 import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
+import 'package:ko_lernen_app/services/sound_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -199,6 +200,62 @@ void main() {
     expect(Storage.celebratedMilestones, ['streak_3']);
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump(const Duration(seconds: 2));
+  });
+
+  Future<void> openMilestone(
+    WidgetTester tester,
+    Milestone milestone,
+    Key key,
+  ) async {
+    final completion = FeedbackCompletion.milestone(
+      createId: () => 'w-${milestone.id}',
+      milestoneId: milestone.id,
+      milestoneType: milestone.type.name,
+      value: milestone.value,
+    );
+    await tester.pumpWidget(
+      _feedbackHost(
+        Builder(
+          builder: (context) => Scaffold(
+            body: Center(
+              child: ElevatedButton(
+                key: key,
+                onPressed: () => showMilestoneCelebration(
+                  context,
+                  milestone,
+                  feedbackContext: completion.context,
+                ),
+                child: const Text('open'),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.tap(find.byKey(key));
+    await tester.pump();
+  }
+
+  testWidgets('SoundService.levelUp은 level 마일스톤에서만 불린다', (tester) async {
+    final played = <String>[];
+    SoundService.playImpl = played.add;
+    addTearDown(SoundService.resetForTesting);
+    await openMilestone(
+      tester,
+      const Milestone(MilestoneType.level, 5),
+      const Key('open-level-celebration'),
+    );
+    expect(played, ['sfx/levelup.wav']);
+    played.clear();
+    // 첫 축하 시트가 남아 두 번째 버튼 탭을 가리지 않도록 트리를 완전히 갈아치운다.
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump();
+    await openMilestone(
+      tester,
+      const Milestone(MilestoneType.streak, 7),
+      const Key('open-streak-celebration'),
+    );
+    expect(played, isEmpty, reason: 'streak 마일스톤은 levelUp SFX를 내면 안 된다');
   });
 }
 
