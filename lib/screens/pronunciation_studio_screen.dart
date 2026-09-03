@@ -490,7 +490,8 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
     if (phrase == null || _captureBusy || _assessing || _audioTransition) {
       return;
     }
-    final stopping = SoriSpeech.phase.value == TtsSpeechPhase.speaking;
+    // Resolving or speaking → stop, same rule as SoriSpeechIndicator.handleTap.
+    final stopping = SoriSpeech.phase.value != TtsSpeechPhase.idle;
     final generation = ++_playbackGeneration;
     setState(() {
       _replaying = false;

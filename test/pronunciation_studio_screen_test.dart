@@ -17,6 +17,8 @@ import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'support/sori_speech_stubs.dart';
+
 void main() {
   setUp(() async {
     SoriSpeech.resetForTesting();
@@ -72,6 +74,39 @@ void main() {
     expect(find.text('Record my voice'), findsOneWidget);
     expect(find.text('Stop recording'), findsNothing);
   });
+
+  testWidgets(
+    'a second tap while still resolving stops instead of re-speaking '
+    '(regression: resolving must count as active, same rule as '
+    'SoriSpeechIndicator.handleTap)',
+    (tester) async {
+      tester.view.devicePixelRatio = 1;
+      tester.view.physicalSize = const Size(393, 852);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      addTearDown(tester.view.resetPhysicalSize);
+      final recorder = _FakeRecorder(permission: true);
+      final stub = stubSoriSpeech(completeSpeak: false);
+      await tester.pumpWidget(_app(recorder));
+      await tester.pumpAndSettle();
+
+      final listen = find.byType(SoriSpeechIndicator);
+      await tester.tap(listen);
+      await tester.pump();
+      expect(stub.spoken, ['안녕하세요']);
+      // speak() never completed, so the engine never promoted resolving to
+      // speaking — this is the exact window the regression tapped into.
+      expect(SoriSpeech.phase.value, TtsSpeechPhase.resolving);
+
+      // Second tap while still resolving must stop, not re-speak — same
+      // rule as SoriSpeechIndicator.handleTap (phase != idle -> stop).
+      await tester.tap(listen);
+      await tester.pump();
+
+      expect(stub.stops, 1);
+      expect(stub.spoken, ['안녕하세요']); // no second speak call
+      expect(SoriSpeech.phase.value, TtsSpeechPhase.idle);
+    },
+  );
 
   testWidgets('microphone waits for playback to release the audio session', (
     tester,
