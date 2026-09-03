@@ -524,6 +524,12 @@ class TtsService {
   static const Duration _diskTimeout = Duration(seconds: 2);
   static const int _maxBytes = 5 * 1024 * 1024; // 5MB/파일 상한
 
+  /// 로컬 TTS mp3 캐시 디렉터리 총량 상한(§9 룰링 4 — 확정 80MB). [_maxBytes]
+  /// 와 혼동 금지 — 그건 단일 오브젝트 다운로드 상한이다.
+  static const int _maxCacheTotalBytes = 80 * 1024 * 1024;
+  static int _cacheWritesSincePrune = 0;
+  static DateTime? _lastPruneAt;
+
   // ── 내부 상태 ──────────────────────────────────────────────────────
   static final AudioPlayer _player = AudioPlayer();
   static Directory? _cacheDir;
@@ -943,7 +949,26 @@ class TtsService {
       return TtsAudio.bytes(data);
     }
     await _writeAtomically(file, data);
+    _maybePruneCache(file.parent);
     return TtsAudio.path(file.path);
+  }
+
+  /// 매 쓰기마다 전체 스캔하면 캐시가 커질수록 재생 지연에 영향을 준다 —
+  /// 쓰기 16회 또는 마지막 prune 후 5분 중 먼저 오는 조건에서만 스캔한다
+  /// (§9 룰링 4). best-effort — prune 실패가 재생 경로를 막지 않는다.
+  static void _maybePruneCache(Directory directory) {
+    _cacheWritesSincePrune++;
+    final last = _lastPruneAt;
+    final dueByCount = _cacheWritesSincePrune >= 16;
+    final dueByTime =
+        last == null ||
+        DateTime.now().difference(last) >= const Duration(minutes: 5);
+    if (!dueByCount && !dueByTime) {
+      return;
+    }
+    _cacheWritesSincePrune = 0;
+    _lastPruneAt = DateTime.now();
+    unawaited(pruneCacheBestEffort(directory: directory));
   }
 
   /// 임시 파일에 쓰고 rename 으로 갈아끼운다.
@@ -1087,6 +1112,53 @@ class TtsService {
     }
   }
 
+  /// 디렉터리 총 바이트가 [maxBytes](기본 [_maxCacheTotalBytes])를 넘으면
+  /// mtime이 가장 오래된 mp3부터 지워 예산 이하로 맞춘다. `.part`는 삭제
+  /// 대상에서 제외한다. 반환값 = 삭제한 바이트. 디렉터리 조회 실패는 전파.
+  @visibleForTesting
+  static Future<int> pruneCacheStrict({
+    Directory? directory,
+    int? maxBytes,
+  }) async {
+    final dir = directory ?? await _strictCacheDirectory();
+    final budget = maxBytes ?? _maxCacheTotalBytes;
+    final entries = <_TtsCacheFileStat>[];
+    var total = 0;
+    await for (final entity in dir.list()) {
+      if (entity is! File || !entity.path.endsWith('.mp3')) {
+        continue;
+      }
+      final stat = await entity.stat();
+      total += stat.size;
+      entries.add(_TtsCacheFileStat(entity, stat.size, stat.modified));
+    }
+    if (total <= budget) {
+      return 0;
+    }
+    entries.sort((a, b) => a.modified.compareTo(b.modified));
+    var freed = 0;
+    for (final entry in entries) {
+      if (total - freed <= budget) {
+        break;
+      }
+      await entry.file.delete();
+      freed += entry.bytes;
+    }
+    return freed;
+  }
+
+  /// [pruneCacheStrict]의 best-effort 래퍼(`clearCache`와 같은 이분법).
+  static Future<void> pruneCacheBestEffort({
+    Directory? directory,
+    int? maxBytes,
+  }) async {
+    try {
+      await pruneCacheStrict(directory: directory, maxBytes: maxBytes);
+    } catch (_) {
+      // best effort
+    }
+  }
+
   static Future<Directory> _strictCacheDirectory() async {
     if (_cacheDir case final cached?) {
       return cached;
@@ -1122,4 +1194,11 @@ class TtsService {
   /// 컨텍스트([AudioPolicy.applyPlatformAudioContext]) 몫.
   static Future<void> _reapplySpeechAudioContext() =>
       TtsSpeechAudioContext.reapply(_player.setAudioContext);
+}
+
+class _TtsCacheFileStat {
+  const _TtsCacheFileStat(this.file, this.bytes, this.modified);
+  final File file;
+  final int bytes;
+  final DateTime modified;
 }
