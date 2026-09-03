@@ -9,6 +9,8 @@ import 'package:ko_lernen_app/screens/grammar_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 
+import 'support/sori_speech_stubs.dart';
+
 /// §NAV-2(J4) — `GrammarScreen._openChoicePractice` (the free-practice CTA,
 /// `grammar-choice-cta`) moved off `SoriTransitions.fadeScale` onto
 /// `SoriTransitions.page`. `grammar_choice_quiz_route_test.dart` only
@@ -19,6 +21,12 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() async {
+    // GrammarScreen/GrammarChoiceQuizScreen are auto-speech screens
+    // (content_audio_policy_guard_test.dart's targetScreens) — stub
+    // SoriSpeech so an unmocked speak() doesn't fall through to the real
+    // TtsService and lock an in-flight key forever (PR1 T3 trap,
+    // test/auto_speech_test_stub_guard_test.dart).
+    stubSoriSpeech();
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues(<String, Object>{});
     await Storage.init();
