@@ -1,6 +1,7 @@
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart' show debugPrint, visibleForTesting;
+import 'package:flutter/foundation.dart'
+    show debugPrint, listEquals, visibleForTesting;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'storage_service.dart';
@@ -19,12 +20,35 @@ enum DataMigrationStatus {
   /// 단계를 실행해 현재 버전으로 올렸다.
   migrated,
 
-  /// 단계가 실패했다. 백업으로 되돌렸고 버전은 올리지 않았다.
+  /// 안전한 완료를 확인하지 못했다. 복구가 필요할 수 있어 쓰기를 잠갔다.
   failed,
 
   /// 저장된 버전이 앱보다 **새롭다**(다운그레이드). 옛 코드가 새 포맷을
   /// 망가뜨리지 않도록 학습 데이터 쓰기를 잠갔다.
   futureVersion,
+}
+
+/// 자유 텍스트나 사용자 데이터를 포함하지 않는 실패 분류.
+enum DataMigrationFailureCode {
+  alreadyRunning,
+  invalidMetadata,
+  invalidBackup,
+  readFailed,
+  writeRejected,
+  writeFailed,
+  stepFailed,
+  recoveryFailed,
+  outcomeUnknown,
+}
+
+enum DataMigrationPhase {
+  acquire,
+  read,
+  prepare,
+  steps,
+  commit,
+  restore,
+  cleanup,
 }
 
 /// 마이그레이션 결과 스냅샷.
@@ -34,12 +58,18 @@ class DataMigrationResult {
     required this.fromVersion,
     required this.toVersion,
     this.error,
+    this.failureCode,
+    this.failurePhase,
+    this.cleanupPending = false,
   });
 
   final DataMigrationStatus status;
-  final int fromVersion;
+  final int? fromVersion;
   final int toVersion;
   final Object? error;
+  final DataMigrationFailureCode? failureCode;
+  final DataMigrationPhase? failurePhase;
+  final bool cleanupPending;
 
   /// 학습 데이터 write 를 허용해도 되는 상태인지.
   bool get writesAllowed =>
@@ -47,7 +77,14 @@ class DataMigrationResult {
       status != DataMigrationStatus.futureVersion;
 
   /// Crashlytics custom key 로 보내기 적합한 짧은 값. 자유 텍스트·PII 없음.
-  String get diagnosticValue => '${status.name}:$fromVersion→$toVersion';
+  String get diagnosticValue {
+    final version = '${fromVersion ?? 'unknown'}→$toVersion';
+    final failure = failureCode;
+    if (failure != null) {
+      return '${status.name}:$version:${failure.name}:${failurePhase?.name}';
+    }
+    return '${status.name}:$version';
+  }
 
   @override
   String toString() => 'DataMigrationResult($diagnosticValue)';
@@ -62,7 +99,11 @@ class DataMigrationResult {
 /// - 중간 실패 시 재시도 가능하다(journal + 백업 복원).
 /// - 마이그레이션 **전에** 백업을 만든다.
 /// - **완료된 뒤에만** 스키마 버전을 올린다.
-/// - 삭제·초기화와 같은 흐름에 섞지 않는다(이 서비스는 `kl_` 키를 지우지 않는다).
+/// - 복원은 원본 값을 먼저 쓰고, 그 뒤에만 새로 생긴 `kl_` 키를 지운다.
+///
+/// SharedPreferences는 원자적 트랜잭션/전원 손실 내구성을 보장하지 않는다.
+/// 여기서는 native reload로 관측된 결과만 판단한다. Storage의 잠금 범위는
+/// 기존 SRS/팩 학습 쓰기뿐이며, 다른 저장 경로의 전역 잠금은 아니다.
 ///
 /// ## 지금 등록된 단계가 없는 이유
 ///
@@ -76,8 +117,9 @@ class DataMigrationResult {
 /// 3. 진단 키(`schemaVersion`)를 제공한다.
 ///
 /// 러너 자체는 주입된 단계로 전수 테스트된다(`test/data_migration_test.dart`).
-/// 다음 포맷 변경 때는 [currentSchemaVersion] 을 올리고 [_productionSteps] 에
-/// 그 버전 키로 단계를 추가하면 된다.
+/// 실제 프로덕션 단계를 등록하기 전에는 별도의 startup/cloud 쓰기 정지
+/// (quiescence) 검토가 필수다. 현재 잠금은 XP·전체 `kl_`·클라우드 복원을 막지
+/// 않으므로, 버전 번호와 단계만 추가해 앱 시작 안전성이 확보되지는 않는다.
 abstract final class DataMigrationService {
   /// 이 앱 빌드가 이해하는 로컬 스키마 버전.
   ///
@@ -108,6 +150,7 @@ abstract final class DataMigrationService {
   ];
 
   static DataMigrationResult? _lastResult;
+  static bool _running = false;
 
   /// 이번 실행의 마이그레이션 결과. [run] 전에는 null.
   static DataMigrationResult? get lastResult => _lastResult;
@@ -125,207 +168,568 @@ abstract final class DataMigrationService {
     @visibleForTesting Map<int, DataMigrationStep>? steps,
     @visibleForTesting SharedPreferences? preferences,
     @visibleForTesting int? targetVersion,
-  }) async {
-    final prefs = preferences ?? await SharedPreferences.getInstance();
+  }) {
     final target = targetVersion ?? currentSchemaVersion;
-    final registry = steps ?? _productionSteps;
-
-    final stored = prefs.getInt(versionPreferenceKey);
-    final from = stored ?? _inferBaseline(prefs, target);
-
-    if (stored == null) {
-      // 새 설치든 baseline 추정이든, 도장을 먼저 찍어야 다음 실행이 안정적이다.
-      await prefs.setInt(versionPreferenceKey, from);
-    }
-
-    if (from > target) {
-      Storage.lockLearningWrites('schema downgrade: stored=$from app=$target');
-      return _finish(
-        DataMigrationResult(
-          status: DataMigrationStatus.futureVersion,
-          fromVersion: from,
-          toVersion: target,
-        ),
-      );
-    }
-
-    if (from == target) {
-      // 앞선 실행이 중간에 죽어 journal 이 남아 있을 수 있다. 정리하고 끝낸다.
-      await _clearJournalAndBackup(prefs);
-      Storage.unlockLearningWrites();
-      return _finish(
-        DataMigrationResult(
-          status: stored == null
-              ? DataMigrationStatus.fresh
-              : DataMigrationStatus.upToDate,
-          fromVersion: from,
-          toVersion: target,
-        ),
-      );
-    }
-
-    final pending = registry.keys.where((v) => v > from && v <= target).toList()
-      ..sort();
-    if (pending.isEmpty) {
-      // 실행할 단계가 없는 버전 상승(예: 버전만 올린 릴리스). 도장만 옮긴다.
-      await prefs.setInt(versionPreferenceKey, target);
-      await _clearJournalAndBackup(prefs);
-      Storage.unlockLearningWrites();
-      return _finish(
-        DataMigrationResult(
-          status: DataMigrationStatus.migrated,
-          fromVersion: from,
-          toVersion: target,
-        ),
-      );
-    }
-
-    // 백업 먼저. 앞선 실행이 남긴 백업이 있으면 **그걸 유지**한다 — 중간까지
-    // 변형된 현재 상태로 덮어쓰면 원본으로 되돌릴 수 없다.
-    if ((prefs.getString(backupPreferenceKey) ?? '').isEmpty) {
-      await prefs.setString(backupPreferenceKey, _snapshot(prefs));
-    }
-    await prefs.setString(
-      journalPreferenceKey,
-      jsonEncode({'from': from, 'to': target, 'phase': 'started'}),
-    );
-
-    try {
-      for (final version in pending) {
-        await registry[version]!(prefs);
-        await prefs.setString(
-          journalPreferenceKey,
-          jsonEncode({
-            'from': from,
-            'to': target,
-            'phase': 'step_done',
-            'step': version,
-          }),
-        );
-      }
-    } catch (error) {
-      debugPrint('DataMigration: 단계 실패 — 백업으로 되돌린다: $error');
-      await _restoreBackup(prefs);
-      // 버전은 올리지 않는다 → 다음 실행이 처음부터 다시 시도한다.
-      Storage.lockLearningWrites('migration failed at $from→$target');
-      return _finish(
+    // Admission precedes every await. Reentrant callers must not await the
+    // active Future or change its lock, journal or lastResult.
+    if (_running) {
+      return Future.value(
         DataMigrationResult(
           status: DataMigrationStatus.failed,
-          fromVersion: from,
+          fromVersion: null,
           toVersion: target,
-          error: error,
+          failureCode: DataMigrationFailureCode.alreadyRunning,
+          failurePhase: DataMigrationPhase.acquire,
         ),
       );
     }
-
-    // **완료된 뒤에만** 버전을 올린다.
-    await prefs.setInt(versionPreferenceKey, target);
-    await _clearJournalAndBackup(prefs);
-    Storage.unlockLearningWrites();
-    return _finish(
-      DataMigrationResult(
-        status: DataMigrationStatus.migrated,
-        fromVersion: from,
-        toVersion: target,
-      ),
-    );
+    _running = true;
+    Storage.lockLearningWrites('migration:acquire');
+    return _runOwned(preferences, target, steps ?? _productionSteps);
   }
 
-  /// 버전 키가 없는 설치의 출발점을 추정한다.
-  ///
-  /// 학습 흔적이 있으면 **1**(모든 기존 설치의 baseline), 없으면 현재 버전.
-  static int _inferBaseline(SharedPreferences prefs, int target) {
-    final existing = _existingInstallMarkers.any(prefs.containsKey);
-    return existing ? 1 : target;
-  }
-
-  /// `kl_` 키 전체의 타입 보존 스냅샷.
-  ///
-  /// 단계가 어떤 키를 건드릴지 모르므로 넓게 뜬다. 스냅샷은 실제 마이그레이션이
-  /// 있을 때만 만들어지므로(위 `pending.isEmpty` 분기) 상시 비용이 아니다.
-  /// 백업 키·journal 키 자신은 제외한다(자기 참조 방지).
-  static String _snapshot(SharedPreferences prefs) {
-    final data = <String, Object?>{};
-    for (final key in prefs.getKeys()) {
-      if (!key.startsWith('kl_') ||
-          key == backupPreferenceKey ||
-          key == journalPreferenceKey) {
-        continue;
-      }
-      final value = prefs.get(key);
-      if (value is List<String>) {
-        data[key] = {'t': 'sl', 'v': value};
-      } else if (value is String) {
-        data[key] = {'t': 's', 'v': value};
-      } else if (value is int) {
-        data[key] = {'t': 'i', 'v': value};
-      } else if (value is double) {
-        data[key] = {'t': 'd', 'v': value};
-      } else if (value is bool) {
-        data[key] = {'t': 'b', 'v': value};
-      }
-    }
-    return jsonEncode(data);
-  }
-
-  /// 백업으로 되돌린다. 백업 이후 **생긴** `kl_` 키는 지운다 — 반쯤 마이그레이션된
-  /// 잔재가 남으면 다음 시도가 깨끗한 상태에서 시작하지 못한다.
-  static Future<void> _restoreBackup(SharedPreferences prefs) async {
-    final raw = prefs.getString(backupPreferenceKey) ?? '';
-    if (raw.isEmpty) {
-      return;
-    }
-    Object? decoded;
+  static Future<DataMigrationResult> _runOwned(
+    SharedPreferences? preferences,
+    int target,
+    Map<int, DataMigrationStep> registry,
+  ) async {
     try {
-      decoded = jsonDecode(raw);
-    } catch (_) {
-      debugPrint('DataMigration: 백업이 손상돼 복원을 건너뛴다');
-      return;
+      return _finish(
+        await _MigrationRun(preferences, target, registry).execute(),
+      );
+    } finally {
+      _running = false;
     }
-    if (decoded is! Map<String, dynamic>) {
-      return;
-    }
-
-    for (final key in prefs.getKeys().toList()) {
-      if (key.startsWith('kl_') &&
-          key != backupPreferenceKey &&
-          key != journalPreferenceKey &&
-          !decoded.containsKey(key)) {
-        await prefs.remove(key);
-      }
-    }
-
-    for (final entry in decoded.entries) {
-      final wrapped = entry.value;
-      if (wrapped is! Map<String, dynamic>) {
-        continue;
-      }
-      final value = wrapped['v'];
-      switch (wrapped['t']) {
-        case 's':
-          await prefs.setString(entry.key, value as String);
-        case 'i':
-          await prefs.setInt(entry.key, value as int);
-        case 'd':
-          await prefs.setDouble(entry.key, (value as num).toDouble());
-        case 'b':
-          await prefs.setBool(entry.key, value as bool);
-        case 'sl':
-          await prefs.setStringList(entry.key, (value as List).cast<String>());
-      }
-    }
-    // 복원된 값은 캐시와 어긋나 있다.
-    Storage.resetCachesAfterExternalWrite();
-  }
-
-  static Future<void> _clearJournalAndBackup(SharedPreferences prefs) async {
-    await prefs.remove(journalPreferenceKey);
-    await prefs.remove(backupPreferenceKey);
   }
 
   static DataMigrationResult _finish(DataMigrationResult result) {
     _lastResult = result;
     debugPrint('DataMigration: $result');
     return result;
+  }
+}
+
+const _versionKey = DataMigrationService.versionPreferenceKey;
+const _backupKey = DataMigrationService.backupPreferenceKey;
+const _journalKey = DataMigrationService.journalPreferenceKey;
+
+bool _isDataKey(String key) =>
+    key.startsWith('kl_') && key != _backupKey && key != _journalKey;
+
+class _MigrationFailure implements Exception {
+  const _MigrationFailure(this.code, this.phase);
+  final DataMigrationFailureCode code;
+  final DataMigrationPhase phase;
+}
+
+/// State belongs to one admitted invocation, never to overlapping callers.
+class _MigrationRun {
+  _MigrationRun(this._preferences, this.target, this.registry);
+
+  final SharedPreferences? _preferences;
+  final int target;
+  final Map<int, DataMigrationStep> registry;
+  SharedPreferences? _loaded;
+  SharedPreferences get prefs => _loaded!;
+  DataMigrationPhase phase = DataMigrationPhase.acquire;
+  int? from;
+  int? originalMarker;
+  bool stepsStarted = false;
+  bool committed = false;
+
+  Future<DataMigrationResult> execute() async {
+    try {
+      _loaded = _preferences ?? await SharedPreferences.getInstance();
+      phase = DataMigrationPhase.read;
+      await _reload();
+      if (target <= 0) {
+        throw _failure(DataMigrationFailureCode.invalidMetadata);
+      }
+      originalMarker = _readMarker();
+      from = originalMarker ?? _inferBaseline(prefs.getKeys(), target);
+      if (from! > target) {
+        return DataMigrationResult(
+          status: DataMigrationStatus.futureVersion,
+          fromVersion: from,
+          toVersion: target,
+        );
+      }
+
+      var recovery = _readRecovery(originalMarker);
+      if (recovery != null && originalMarker == recovery.journal.to) {
+        // A marker at the journal destination is committed, even if the
+        // previous setter threw after persistence. Never restore this backup.
+        if (originalMarker == target) {
+          committed = true;
+          return _success(
+            DataMigrationStatus.upToDate,
+            cleanupFailure: await _cleanup(),
+          );
+        }
+        // Finish an older committed transaction before starting a newer one.
+        final cleanupFailure = await _cleanup();
+        if (cleanupFailure != null) {
+          throw cleanupFailure;
+        }
+        recovery = null;
+      } else if (recovery != null) {
+        // An interrupted unstamped migration may have removed all install
+        // markers. Infer from the validated original, not the partial dataset.
+        from = recovery.journal.from;
+        await _restore();
+      }
+
+      if (originalMarker == target) {
+        return _success(DataMigrationStatus.upToDate);
+      }
+      if (from == target) {
+        // A new install only needs its first stamp, with the same native commit
+        // reconciliation as a real migration. There are no steps to roll back.
+        await _commit();
+        return _success(DataMigrationStatus.fresh);
+      }
+
+      phase = DataMigrationPhase.prepare;
+      if (recovery == null) {
+        final snapshot = _Snapshot.capture(prefs, phase);
+        final raw = snapshot.encode();
+        await _checked(() => prefs.setString(_backupKey, raw));
+        await _reload();
+        if (prefs.get(_backupKey) != raw) {
+          throw _failure(DataMigrationFailureCode.writeRejected);
+        }
+      }
+      await _writeJournal();
+      // Check the complete persisted pair and original marker before steps.
+      _readRecovery(_readMarker());
+
+      final pending =
+          registry.keys
+              .where((version) => version > from! && version <= target)
+              .toList()
+            ..sort();
+      stepsStarted = true;
+      for (final version in pending) {
+        phase = DataMigrationPhase.steps;
+        try {
+          await registry[version]!(prefs);
+        } catch (_) {
+          throw _failure(DataMigrationFailureCode.stepFailed);
+        }
+        await _writeJournal(step: version);
+      }
+      await _commit();
+      return _success(
+        DataMigrationStatus.migrated,
+        cleanupFailure: await _cleanup(),
+      );
+    } catch (error) {
+      var failure = error is _MigrationFailure
+          ? error
+          : _failure(DataMigrationFailureCode.readFailed);
+      if (stepsStarted &&
+          !committed &&
+          failure.code != DataMigrationFailureCode.outcomeUnknown) {
+        try {
+          await _restore();
+        } on _MigrationFailure catch (restoreFailure) {
+          failure = restoreFailure;
+        } catch (_) {
+          failure = _failure(DataMigrationFailureCode.recoveryFailed);
+        }
+      }
+      await _refreshAfterFailure();
+      final result = DataMigrationResult(
+        status: DataMigrationStatus.failed,
+        fromVersion: from,
+        toVersion: target,
+        failureCode: failure.code,
+        failurePhase: failure.phase,
+      );
+      Storage.lockLearningWrites(result.diagnosticValue);
+      return result;
+    } finally {
+      // Also invalidate on partial writes and failed restores. SharedPreferences
+      // itself can remain unverified after a reload failure; writes stay locked.
+      Storage.resetCachesAfterExternalWrite();
+    }
+  }
+
+  DataMigrationResult _success(
+    DataMigrationStatus status, {
+    _MigrationFailure? cleanupFailure,
+  }) {
+    Storage.unlockLearningWrites();
+    return DataMigrationResult(
+      status: status,
+      fromVersion: from,
+      toVersion: target,
+      cleanupPending: cleanupFailure != null,
+      failureCode: cleanupFailure?.code,
+      failurePhase: cleanupFailure?.phase,
+    );
+  }
+
+  _MigrationFailure _failure(DataMigrationFailureCode code) =>
+      _MigrationFailure(code, phase);
+
+  Future<void> _checked(Future<bool> Function() mutation) async {
+    final bool accepted;
+    try {
+      accepted = await mutation();
+    } catch (_) {
+      throw _failure(DataMigrationFailureCode.writeFailed);
+    }
+    if (!accepted) {
+      throw _failure(DataMigrationFailureCode.writeRejected);
+    }
+  }
+
+  Future<void> _reload({
+    DataMigrationFailureCode code = DataMigrationFailureCode.readFailed,
+  }) async {
+    try {
+      await prefs.reload();
+    } catch (_) {
+      throw _failure(code);
+    }
+  }
+
+  Future<void> _refreshAfterFailure() async {
+    if (_loaded != null) {
+      try {
+        await prefs.reload();
+      } catch (_) {
+        // The typed failure remains the only diagnostic. Never print data or
+        // exceptions from the persistence platform.
+      }
+    }
+  }
+
+  int? _readMarker() {
+    if (!prefs.containsKey(_versionKey)) {
+      return null;
+    }
+    final marker = prefs.get(_versionKey);
+    if (marker is! int || marker <= 0) {
+      throw _failure(DataMigrationFailureCode.invalidMetadata);
+    }
+    return marker;
+  }
+
+  _Recovery? _readRecovery(int? marker) {
+    final hasJournal = prefs.containsKey(_journalKey);
+    final hasBackup = prefs.containsKey(_backupKey);
+    if (!hasJournal) {
+      if (hasBackup) {
+        // Without a journal there is no trusted destination/commit relation.
+        throw _failure(DataMigrationFailureCode.invalidBackup);
+      }
+      return null;
+    }
+    final journal = _Journal.parse(prefs.get(_journalKey), phase);
+    if (journal.to > target) {
+      throw _failure(DataMigrationFailureCode.invalidMetadata);
+    }
+    final snapshot = hasBackup
+        ? _Snapshot.parse(prefs.get(_backupKey), phase)
+        : null;
+    if (snapshot != null) {
+      final original = snapshot.values[_versionKey];
+      final baseline =
+          original ?? _inferBaseline(snapshot.values.keys, journal.to);
+      if (baseline != journal.from) {
+        throw _failure(DataMigrationFailureCode.invalidBackup);
+      }
+      if (marker != original && marker != journal.to) {
+        throw _failure(DataMigrationFailureCode.invalidMetadata);
+      }
+    } else if (marker != journal.to) {
+      // Backup-first cleanup may legitimately leave only a committed journal.
+      throw _failure(DataMigrationFailureCode.invalidBackup);
+    }
+    return _Recovery(journal, snapshot);
+  }
+
+  Future<void> _writeJournal({int? step}) async {
+    final raw = jsonEncode({
+      'from': from,
+      'to': target,
+      'phase': step == null ? 'started' : 'step_done',
+      if (step != null) 'step': step,
+    });
+    await _checked(() => prefs.setString(_journalKey, raw));
+    await _reload();
+    if (prefs.get(_journalKey) != raw) {
+      throw _failure(DataMigrationFailureCode.writeRejected);
+    }
+  }
+
+  Future<void> _commit() async {
+    if (stepsStarted) {
+      // A step may have damaged the recovery metadata. Verify the full pair
+      // again before committing; malformed recovery evidence is not disposable.
+      if (_readRecovery(_readMarker()) == null) {
+        throw _failure(DataMigrationFailureCode.invalidBackup);
+      }
+    }
+    phase = DataMigrationPhase.commit;
+    _MigrationFailure? writeFailure;
+    try {
+      await _checked(() => prefs.setInt(_versionKey, target));
+    } on _MigrationFailure catch (failure) {
+      writeFailure = failure;
+    }
+    // shared_preferences 2.5.5 changes its cache before the native result. Both
+    // false and thrown writes may require reconciliation, never cached reads.
+    await _reload(code: DataMigrationFailureCode.outcomeUnknown);
+    final marker = prefs.get(_versionKey);
+    if (marker is int && marker == target) {
+      committed = true;
+      return;
+    }
+    if ((marker is int || marker == null) &&
+        marker == originalMarker &&
+        (marker != null || !prefs.containsKey(_versionKey))) {
+      throw writeFailure ?? _failure(DataMigrationFailureCode.writeRejected);
+    }
+    throw _failure(DataMigrationFailureCode.outcomeUnknown);
+  }
+
+  Future<void> _restore() async {
+    phase = DataMigrationPhase.restore;
+    try {
+      await _reload(code: DataMigrationFailureCode.recoveryFailed);
+      final marker = _readMarker();
+      final recovery = _readRecovery(marker);
+      final snapshot = recovery?.snapshot;
+      if (recovery == null || snapshot == null) {
+        throw _failure(DataMigrationFailureCode.invalidBackup);
+      }
+      if (marker == recovery.journal.to) {
+        // Only _commit is allowed to establish commitment in this invocation.
+        // An unexpected marker changed by a step must not trigger a rollback.
+        throw _failure(DataMigrationFailureCode.outcomeUnknown);
+      }
+      // Validate everything above before the first write or removal below.
+      for (final entry in snapshot.values.entries) {
+        await _checked(() => _setValue(entry.key, entry.value));
+      }
+      for (final key in prefs.getKeys().where(_isDataKey).toList()) {
+        if (!snapshot.values.containsKey(key)) {
+          await _checked(() => prefs.remove(key));
+        }
+      }
+      await _reload(code: DataMigrationFailureCode.recoveryFailed);
+      if (!snapshot.matches(prefs)) {
+        throw _failure(DataMigrationFailureCode.recoveryFailed);
+      }
+    } on _MigrationFailure catch (failure) {
+      if (failure.code == DataMigrationFailureCode.writeFailed ||
+          failure.code == DataMigrationFailureCode.writeRejected) {
+        throw _failure(DataMigrationFailureCode.recoveryFailed);
+      }
+      rethrow;
+    } finally {
+      Storage.resetCachesAfterExternalWrite();
+    }
+  }
+
+  Future<bool> _setValue(String key, Object value) => switch (value) {
+    String v => prefs.setString(key, v),
+    int v => prefs.setInt(key, v),
+    double v => prefs.setDouble(key, v),
+    bool v => prefs.setBool(key, v),
+    List<String> v => prefs.setStringList(key, v),
+    _ => throw _failure(DataMigrationFailureCode.invalidBackup),
+  };
+
+  Future<_MigrationFailure?> _cleanup() async {
+    phase = DataMigrationPhase.cleanup;
+    try {
+      await _reload();
+      final marker = _readMarker();
+      final recovery = _readRecovery(marker);
+      if (recovery != null && marker != recovery.journal.to) {
+        throw _failure(DataMigrationFailureCode.invalidMetadata);
+      }
+      // Leave the journal until backup removal is confirmed, so a restart can
+      // distinguish committed cleanup from an orphan original snapshot.
+      for (final key in [_backupKey, _journalKey]) {
+        if (prefs.containsKey(key)) {
+          await _checked(() => prefs.remove(key));
+          await _reload();
+          if (prefs.containsKey(key)) {
+            throw _failure(DataMigrationFailureCode.writeRejected);
+          }
+        }
+      }
+      return null;
+    } on _MigrationFailure catch (failure) {
+      if (failure.code == DataMigrationFailureCode.invalidBackup ||
+          failure.code == DataMigrationFailureCode.invalidMetadata) {
+        rethrow;
+      }
+      await _refreshAfterFailure();
+      return failure;
+    }
+  }
+}
+
+int _inferBaseline(Iterable<String> keys, int target) =>
+    DataMigrationService._existingInstallMarkers.any(keys.contains)
+    ? 1
+    : target;
+
+class _Recovery {
+  const _Recovery(this.journal, this.snapshot);
+  final _Journal journal;
+  final _Snapshot? snapshot;
+}
+
+class _Journal {
+  const _Journal(this.from, this.to);
+  final int from;
+  final int to;
+
+  static _Journal parse(Object? raw, DataMigrationPhase phase) {
+    final failure = _MigrationFailure(
+      DataMigrationFailureCode.invalidMetadata,
+      phase,
+    );
+    try {
+      if (raw is! String) {
+        throw failure;
+      }
+      final decoded = jsonDecode(raw);
+      if (decoded is! Map<String, dynamic>) {
+        throw failure;
+      }
+      final from = decoded['from'];
+      final to = decoded['to'];
+      final state = decoded['phase'];
+      if (from is! int || to is! int || from <= 0 || to <= from) {
+        throw failure;
+      }
+      if (state == 'started' && decoded.length == 3) {
+        return _Journal(from, to);
+      }
+      final step = decoded['step'];
+      if (state == 'step_done' &&
+          decoded.length == 4 &&
+          step is int &&
+          step > from &&
+          step <= to) {
+        return _Journal(from, to);
+      }
+      throw failure;
+    } catch (_) {
+      throw failure;
+    }
+  }
+}
+
+class _Snapshot {
+  const _Snapshot(this.values);
+  final Map<String, Object> values;
+
+  static _Snapshot capture(SharedPreferences prefs, DataMigrationPhase phase) {
+    final values = <String, Object>{};
+    for (final key in prefs.getKeys().where(_isDataKey)) {
+      final value = prefs.get(key);
+      if (value is String ||
+          value is bool ||
+          value is int ||
+          (value is double && value.isFinite) ||
+          (value is List && value.every((item) => item is String))) {
+        // Native codecs may return List<Object?> for a string array. Validate
+        // all elements before normalizing the snapshot's in-memory type.
+        values[key] = value is List ? List<String>.from(value) : value!;
+      } else {
+        throw _MigrationFailure(DataMigrationFailureCode.invalidBackup, phase);
+      }
+    }
+    return _Snapshot(values);
+  }
+
+  String encode() => jsonEncode(
+    values.map(
+      (key, value) => MapEntry(key, {
+        't': switch (value) {
+          String() => 's',
+          int() => 'i',
+          double() => 'd',
+          bool() => 'b',
+          List<String>() => 'sl',
+          _ => throw StateError('invalid snapshot type'),
+        },
+        'v': value,
+      }),
+    ),
+  );
+
+  static _Snapshot parse(Object? raw, DataMigrationPhase phase) {
+    final failure = _MigrationFailure(
+      DataMigrationFailureCode.invalidBackup,
+      phase,
+    );
+    try {
+      if (raw is! String) {
+        throw failure;
+      }
+      final decoded = jsonDecode(raw);
+      if (decoded is! Map<String, dynamic>) {
+        throw failure;
+      }
+      final values = <String, Object>{};
+      for (final entry in decoded.entries) {
+        final wrapped = entry.value;
+        if (!_isDataKey(entry.key) ||
+            wrapped is! Map<String, dynamic> ||
+            wrapped.length != 2 ||
+            !wrapped.containsKey('v')) {
+          throw failure;
+        }
+        final value = wrapped['v'];
+        final Object validated = switch (wrapped['t']) {
+          's' when value is String => value,
+          'i' when value is int => value,
+          'd' when value is num && value.isFinite => value.toDouble(),
+          'b' when value is bool => value,
+          'sl' when value is List && value.every((item) => item is String) =>
+            List<String>.from(value),
+          _ => throw failure,
+        };
+        if (entry.key == _versionKey && (validated is! int || validated <= 0)) {
+          throw failure;
+        }
+        values[entry.key] = validated;
+      }
+      return _Snapshot(values);
+    } catch (_) {
+      throw failure;
+    }
+  }
+
+  bool matches(SharedPreferences prefs) {
+    final keys = prefs.getKeys().where(_isDataKey).toSet();
+    if (keys.length != values.length || !keys.containsAll(values.keys)) {
+      return false;
+    }
+    for (final entry in values.entries) {
+      final actual = prefs.get(entry.key);
+      final expected = entry.value;
+      if (expected is List<String>) {
+        if (actual is! List ||
+            !actual.every((item) => item is String) ||
+            !listEquals(List<String>.from(actual), expected)) {
+          return false;
+        }
+      } else if (actual.runtimeType != expected.runtimeType ||
+          actual != expected) {
+        return false;
+      }
+    }
+    return true;
   }
 }
