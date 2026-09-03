@@ -18,6 +18,7 @@ import '../widgets/sori/celebration.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/chrome_row.dart';
+import '../widgets/sori/speakable.dart';
 import '../widgets/sori/chosung_hint.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/sori_icon.dart';
@@ -1060,32 +1061,39 @@ class _QuizCard extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             switch (state) {
-              _State.correct => Text(
-                word,
-                style: const TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w800,
-                  color: SoriColors.success,
+              _State.correct => SoriSpeakable(
+                text: word,
+                child: Text(
+                  word,
+                  style: const TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w800,
+                    color: SoriColors.success,
+                  ),
                 ),
               ),
-              _State.wrong => Column(
-                children: [
-                  Text(
-                    t.chosungAnswerLabel(word),
-                    style: const TextStyle(
-                      fontSize: 19,
-                      fontWeight: FontWeight.w700,
-                      color: SoriColors.danger,
+              _State.wrong => SoriSpeakable(
+                text: word,
+                child: Column(
+                  children: [
+                    Text(
+                      t.chosungAnswerLabel(word),
+                      style: const TextStyle(
+                        fontSize: 19,
+                        fontWeight: FontWeight.w700,
+                        color: SoriColors.danger,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    translation,
-                    style: TextStyle(fontSize: 14, color: s.textMuted),
-                  ),
-                ],
+                    const SizedBox(height: 4),
+                    Text(
+                      translation,
+                      style: TextStyle(fontSize: 14, color: s.textMuted),
+                    ),
+                  ],
+                ),
               ),
-              // 뜻 항상 표시 — 글자를 떠올리는 핵심 단서.
+              // waiting에는 정답 단어가 아직 화면에 없으므로 SoriSpeakable을
+              // 절대 붙이지 않는다(정답 유출 방지).
               _State.waiting => Text(
                 translation,
                 textAlign: TextAlign.center,

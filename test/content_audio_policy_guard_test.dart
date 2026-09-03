@@ -19,6 +19,9 @@ void main() {
     'lib/screens/quest_engines/quest_flow.dart',
     'lib/screens/cloze_game_screen.dart',
     'lib/screens/scenario_player_screen.dart',
+    'lib/screens/vocab_notebook_result_screen.dart',
+    'lib/screens/vocab_notebook_studio_screen.dart',
+    'lib/screens/chosung_quiz_screen.dart',
   ];
 
   setUpAll(() {
