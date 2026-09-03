@@ -337,8 +337,8 @@ jobs:
           export PATH="$HOME/flutter/bin:$HOME/.pub-cache/bin:$PATH"
           flutter build ios --release --no-codesign
 
-  # The cold simulator build must not share its 45-minute clock with the device
-  # release compile. Both independent jobs retain the same toolchain contract.
+  # The cold Intel simulator setup/build needs its own bounded 75-minute clock;
+  # device release keeps 45 minutes. Both jobs retain the same toolchain contract.
   ios-native-tests:
     name: iOS simulator native tests
     needs: changes
@@ -347,7 +347,7 @@ jobs:
       (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
     # Locked ML Kit binaries provide x86_64 simulator slices, not arm64 simulator.
     runs-on: macos-15-intel
-    timeout-minutes: 45
+    timeout-minutes: 75
     env:
       CI_PRIMARY_REPOSITORY_PATH: ${{ github.workspace }}
       DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer

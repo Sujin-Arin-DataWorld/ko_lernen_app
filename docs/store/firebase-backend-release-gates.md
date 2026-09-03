@@ -242,13 +242,16 @@ W7의 TTS 로딩/프리패치, Living의 스타일 변경, W9의 배포 소유�
   `macos-15`의 기본 Xcode를 호환성 증거로 삼지 않는다. W9의 실제 Xcode Cloud/서명 빌드도
   호환 SDK를 선택했는지 별도 확인한다. 이 CI 변경은 Xcode Cloud 콘솔 설정을 바꾸지 않는다.
 - unsigned release 빌드와 simulator `RunnerTests`는 서로 의존하지 않는 별도 잡이며,
-  각각45분 제한 안에 성공해야 한다. simulator 잡은 전체 빌드·테스트 로그와 `.xcresult`를
+  release는45분, 콜드 Intel simulator는75분 제한 안에 성공해야 한다. simulator 잡은
+  전체 빌드·테스트 로그와 `.xcresult`를
   `native-privacy-results` 아티팩트로 항상 보관한다(3일). 업로드 성공만으로 테스트 통과를
   인정하지 않고 실제 XCTest 실행·결과를 확인한다.
 - 잠긴 ML Kit 의존성은 arm64 기기용·x86_64 simulator용 바이너리를 제공하므로 simulator
   잡만 `macos-15-intel`에서 실행하고 `uname -m`이 `x86_64`인지 준비 전에 검증한다.
   destination과 빌드 `ARCHS`도 `x86_64`로 고정한다. unsigned release는 기존 arm64
   `macos-15` 잡을 유지한다. Intel XCTest 통과는 arm64 실기기 QA를 대신하지 않는다.
+  simulator75분은 준비15분28초·계속 진행 중이던 빌드27분39초 뒤45분 제한에 도달한
+  관측에 따른 유한한 다음 검증 예산이다. 완료 시간 예측이나 테스트 통과 면제가 아니다.
 - `service_idempotency_results.expiresAt` TTL은15분 결과 보관, `service_idempotency.expiresAt`은
   책/발음24시간 hash-only 중복 방지다. API 접근 만료와 Firestore TTL 실제 삭제는 별개다.
 - `premium_grants`, `customer_entitlements`, `billing_customers`, billing receipts, access rate

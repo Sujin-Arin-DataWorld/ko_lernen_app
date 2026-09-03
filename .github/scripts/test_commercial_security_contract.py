@@ -42,7 +42,6 @@ class CommercialSecurityContractTest(unittest.TestCase):
             self.assertIn("needs.changes.outputs.ios == 'true'", job)
             self.assertIn("github.event.pull_request.draft == false", job)
             self.assertRegex(job, r"(?m)^    needs: changes$")
-            self.assertIn("timeout-minutes: 45", job)
             self.assertIn("bash ios/ci_scripts/ci_post_clone.sh", job)
             self.assertNotIn("continue-on-error", job)
             self.assertNotIn("secrets.", job)
@@ -53,6 +52,14 @@ class CommercialSecurityContractTest(unittest.TestCase):
         self.assertIn("xcodebuild test", simulator)
         self.assertIn("-only-testing:RunnerTests", simulator)
         self.assertIn("CODE_SIGNING_ALLOWED=NO", simulator)
+
+    def test_ios_jobs_have_distinct_bounded_release_and_cold_intel_budgets(self):
+        release, simulator = self.ios_jobs()
+        for job, expected in ((release, "45"), (simulator, "75")):
+            self.assertEqual(re.findall(r"(?m)^    timeout-minutes: (.+)$", job), [expected])
+            self.assertNotIn("continue-on-error", job)
+        self.assertIn("xcodebuild test", simulator)
+        self.assertIn("-only-testing:RunnerTests", simulator)
 
     def test_ios_simulator_uses_native_intel_for_locked_mlkit_slices(self):
         release, simulator = self.ios_jobs()
