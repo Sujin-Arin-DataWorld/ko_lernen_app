@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/sound_service.dart';
-import '../../services/tts_service.dart';
 import '../../widgets/sori/button.dart';
+import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/tokens.dart';
 import 'quest_flow.dart';
 import 'quest_layout.dart';
@@ -16,6 +16,7 @@ import 'quest_models.dart';
 class ParticlePopQuest extends StatefulWidget {
   final Map<String, dynamic> data;
   final void Function(QuestResult) onComplete;
+  final bool audioEnabled;
   final VoidCallback? onContinue;
   final bool isLast;
   final bool allowDontKnow;
@@ -24,6 +25,7 @@ class ParticlePopQuest extends StatefulWidget {
     super.key,
     required this.data,
     required this.onComplete,
+    this.audioEnabled = true,
     this.onContinue,
     this.isLast = false,
     this.allowDontKnow = false,
@@ -80,6 +82,11 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
       begin: 1.0,
       end: 1.04,
     ).animate(CurvedAnimation(parent: _scaleCtrl, curve: Curves.easeOut));
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted && widget.audioEnabled) {
+        SoriSpeech.speak(_fullSentence);
+      }
+    });
   }
 
   @override
@@ -338,7 +345,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
               label: t.questReplayAudio,
               semanticLabel: t.questReplayAudio,
               icon: Icons.volume_up_rounded,
-              onTap: () => TtsService.speak(_fullSentence),
+              onTap: () => SoriSpeech.speak(_fullSentence),
             ),
           ),
           const SizedBox(height: 24),

@@ -23,6 +23,8 @@ import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/tts_speed_control.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
+import 'support/sori_speech_stubs.dart';
+
 const _safeInsets = EdgeInsets.only(top: 44, bottom: 34);
 
 const _viewports = <({Size size, double textScale})>[
@@ -806,6 +808,105 @@ void main() {
       }
     },
   );
+
+  // 지시서 4.5(T2.1): 선택형 퀘스트는 진입 시 문제 문장을 1회 자동재생한다.
+  //
+  // uebersetzen(번역 선택형)은 이 그룹에서 제외한다 — 스키마상 프롬프트가
+  // DE/EN(promptDe/promptEn)뿐이고, 발화 가능한 한국어 문장은 오직
+  // options[i].ko(정답 포함 각 선택지)뿐이다. 진입 시 정답 옵션의 ko를
+  // 자동재생하면 사용자가 고르기도 전에 정답을 읽어 주는 꼴이 되어
+  // luecken/particlePop과 달리 "정답을 드러내지 않는 문제 문장"이 없다
+  // (브리프 결함 — T2.1 REPORT의 질문 참고, 구현자가 임의로 정답 텍스트를
+  // 재생하도록 설계를 바꾸지 않았다).
+  group('선택형 퀘스트(luecken·particlePop)는 진입 시 문제 문장을 1회 자동재생한다', () {
+    testWidgets('luecken은 빈칸 문장을 1회 자동재생한다', (tester) async {
+      final stub = stubSoriSpeech();
+      await _pumpQuest(
+        tester,
+        LueckenQuest(
+          data: const {
+            'sentence': '안___',
+            'correctIndex': 0,
+            'options': ['녕', '녕히'],
+          },
+          onComplete: (_) {},
+          onContinue: () {},
+        ),
+        locale: const Locale('de'),
+        viewport: _viewports[2],
+      );
+
+      expect(stub.spoken, ['안___']);
+    });
+
+    testWidgets('luecken은 audioEnabled=false면 자동재생하지 않는다', (tester) async {
+      final stub = stubSoriSpeech();
+      await _pumpQuest(
+        tester,
+        LueckenQuest(
+          data: const {
+            'sentence': '안___',
+            'correctIndex': 0,
+            'options': ['녕', '녕히'],
+          },
+          audioEnabled: false,
+          onComplete: (_) {},
+          onContinue: () {},
+        ),
+        locale: const Locale('de'),
+        viewport: _viewports[2],
+      );
+
+      expect(stub.spoken, isEmpty);
+    });
+
+    testWidgets('particlePop은 완성 문장을 1회 자동재생한다', (tester) async {
+      final stub = stubSoriSpeech();
+      await _pumpQuest(
+        tester,
+        ParticlePopQuest(
+          data: const {
+            'prefix': '저',
+            'suffix': ' 학생이에요.',
+            'correctIndex': 0,
+            'options': ['는', '가'],
+            'explanationDe': 'Nach einem Vokal steht 는.',
+            'explanationEn': 'Use 는 after a vowel.',
+          },
+          onComplete: (_) {},
+          onContinue: () {},
+        ),
+        locale: const Locale('de'),
+        viewport: _viewports[2],
+      );
+
+      expect(stub.spoken, ['저는 학생이에요.']);
+    });
+
+    testWidgets('particlePop은 audioEnabled=false면 자동재생하지 않는다', (tester) async {
+      final stub = stubSoriSpeech();
+      await _pumpQuest(
+        tester,
+        ParticlePopQuest(
+          data: const {
+            'prefix': '저',
+            'suffix': ' 학생이에요.',
+            'correctIndex': 0,
+            'options': ['는', '가'],
+            'explanationDe': 'Nach einem Vokal steht 는.',
+            'explanationEn': 'Use 는 after a vowel.',
+          },
+          audioEnabled: false,
+          onComplete: (_) {},
+          onContinue: () {},
+        ),
+        locale: const Locale('de'),
+        viewport: _viewports[2],
+      );
+
+      expect(stub.spoken, isEmpty);
+    });
+  });
 }
 
 Future<void> _pumpQuest(

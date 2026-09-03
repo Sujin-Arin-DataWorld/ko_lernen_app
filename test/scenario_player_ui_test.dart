@@ -21,6 +21,7 @@ import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
 import 'support/scenario_fixtures.dart';
+import 'support/sori_speech_stubs.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -273,10 +274,58 @@ void main() {
       );
       await tester.pump();
 
-      expect(speakCalls, [(text: spokenText, voice: profileVoice)]);
+      // 계약 변경(지시서 4.5, T2.1): 대사 스테이지 진입 자체가 첫 대사를
+      // 1회 자동재생하므로, 이 단일 대사 시나리오에서는 자동재생과 탭이
+      // 같은 (텍스트, 보이스) 쌍을 두 번 만든다.
+      expect(speakCalls, [
+        (text: spokenText, voice: profileVoice),
+        (text: spokenText, voice: profileVoice),
+      ]);
       expect(tester.takeException(), isNull);
     },
   );
+
+  testWidgets('스테이지 전환마다 대표 문장 1회 자동재생, 뒤로 전환 시 정지', (tester) async {
+    final stub = stubSoriSpeech();
+
+    await _pumpPlayer(
+      tester,
+      child: ScenarioPlayerScreen.preview(
+        fixture: const ScenarioPlayerPreviewFixture.action(
+          scenario: scenarioAirportArrivalFixture,
+          stage: ScenarioStage.vocab,
+        ),
+      ),
+      size: const Size(390, 844),
+      textScale: 1.3,
+    );
+
+    expect(stub.spoken, isEmpty, reason: '대사 스테이지에 들어가기 전에는 자동재생이 없다');
+
+    // vocab → dialog: 첫 대사(officer, '여권 보여주세요.')를 1회 자동재생.
+    await tester.tap(find.text('Weiter'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+
+    expect(stub.spoken, ['여권 보여주세요.']);
+
+    // dialog → grammar: 대사 스테이지가 아니므로 추가 자동재생이 없다
+    // (순차 전체 읽기 금지, §9-1 룰링 — 1회만).
+    await tester.tap(find.text('Weiter'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+
+    expect(stub.spoken, ['여권 보여주세요.']);
+    expect(stub.stops, 0);
+
+    // 뒤로/화면 이탈 시 정지 — ContentSpeechController.deactivate()가
+    // 다음 프레임에 TtsService.stop()을 예약한다(speakable.dart 계약).
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump();
+
+    expect(stub.stops, greaterThanOrEqualTo(1));
+    expect(tester.takeException(), isNull);
+  });
 
   testWidgets('DE and EN states remain reachable across the viewport matrix', (
     tester,

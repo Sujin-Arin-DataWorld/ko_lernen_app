@@ -595,6 +595,10 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   bool _questReady = true; // false → Quest läuft noch, Next-Button deaktiviert
   int _roleplayTurnIndex = 0;
   late final PageController _pageCtrl;
+  // 대사 스테이지 진입 시 대표 문장(첫 대사) 1회 자동재생 + 전환 시 정지
+  // (지시서 4.5). ContentSpeechController 배선은 review_session_screen.dart
+  // 선례를 그대로 따른다.
+  final _speech = ContentSpeechController();
   // Quest-Indizes, die der Nutzer NICHT bestanden hat. Wird in _persistResult
   // konsumiert, um deren Ziel-Vokabeln SRS-mäßig herabzustufen (error-aware
   // review).
@@ -694,6 +698,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       _canDoResult = preview.result;
       _pageCtrl = PageController(initialPage: _stage);
       _startIntroAudioPrefetch(scenario);
+      if (_plan[_stage] == ScenarioStage.dialog) {
+        _autoPlayDialogEntry(scenario);
+      }
       return;
     }
     _pageCtrl = PageController();
@@ -702,10 +709,35 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final route = ModalRoute.of(context);
+    if (route != null) _speech.subscribe(route);
+  }
+
+  @override
+  void deactivate() {
+    _speech.deactivate();
+    super.deactivate();
+  }
+
+  @override
   void dispose() {
+    _speech.dispose();
     _abandonTracker?.dispose();
     _pageCtrl.dispose();
     super.dispose();
+  }
+
+  /// 대사 스테이지의 대표 문장(첫 대사) 1회 자동재생 — 순차 전체 읽기가
+  /// 아니라 진입 시 한 번만(지시서 4.5, §9-1 룰링).
+  void _autoPlayDialogEntry(Scenario scenario) {
+    if (scenario.dialog.isEmpty) return;
+    final first = scenario.dialog.first;
+    _speech.playOnEnter(
+      first.ko,
+      voice: scenario.voiceForSpeaker(first.speaker),
+    );
   }
 
   Future<void> _loadScenario() async {
@@ -936,6 +968,12 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       final sc = _scenario;
       if (sc != null) {
         _ensureFeedbackCompletion(sc);
+      }
+    }
+    if (nextKind == ScenarioStage.dialog) {
+      final sc = _scenario;
+      if (sc != null) {
+        _autoPlayDialogEntry(sc);
       }
     }
     setState(() {
@@ -1545,6 +1583,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         questWidget = LueckenQuest(
           key: ValueKey('quest-$_currentQuestIndex'),
           data: spec.data,
+          audioEnabled: widget.previewFixture == null,
           onComplete: (r) {
             _onQuestComplete(r);
           },
@@ -1556,6 +1595,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         questWidget = ParticlePopQuest(
           key: ValueKey('quest-$_currentQuestIndex'),
           data: spec.data,
+          audioEnabled: widget.previewFixture == null,
           onComplete: (r) {
             _onQuestComplete(r);
           },

@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/sound_service.dart';
-import '../../services/tts_service.dart';
+import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/tokens.dart';
 import 'quest_flow.dart';
 import 'quest_layout.dart';
@@ -66,7 +66,7 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted && widget.audioEnabled) {
-        TtsService.speak(_audioKo);
+        SoriSpeech.speak(_audioKo);
       }
     });
   }
@@ -74,7 +74,7 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
   Future<void> _playTts() async {
     if (!widget.audioEnabled) return;
     HapticFeedback.selectionClick();
-    await TtsService.speak(_audioKo);
+    await SoriSpeech.speak(_audioKo);
   }
 
   void _select(int index) {
