@@ -7,6 +7,7 @@ void main() {
     sandbox = await Directory.systemTemp.createTemp('tts_cache_prune_');
   });
   tearDown(() async {
+    TtsService.resetPruneStateForTesting();
     await sandbox.delete(recursive: true);
   });
   Future<void> writeCacheFile(String name, int bytes, DateTime modified) async {
@@ -69,5 +70,47 @@ void main() {
       throwsA(isA<FileSystemException>()),
     );
     await TtsService.pruneCacheBestEffort(directory: missing, maxBytes: 0);
+  });
+  test('이미 실행 중인 prune이 있으면 즉시 0을 반환하고 아무것도 지우지 않는다', () async {
+    await writeCacheFile(
+      'tts_v3_female_aaaa.mp3',
+      500,
+      DateTime.now().subtract(const Duration(minutes: 10)),
+    );
+    TtsService.setPruneInFlightForTesting(true);
+    final freed = await TtsService.pruneCacheStrict(
+      directory: sandbox,
+      maxBytes: 0,
+    );
+    expect(freed, 0, reason: '동시 실행 가드가 걸리면 스캔·삭제 없이 즉시 반환해야 한다');
+    expect(
+      exists('tts_v3_female_aaaa.mp3'),
+      isTrue,
+      reason: 'in-flight 상태에서는 어떤 파일도 지워지면 안 된다',
+    );
+    TtsService.setPruneInFlightForTesting(false);
+  });
+  test('tts_v3_ 로 시작하지 않는 .mp3 파일은 prune 대상이 아니다', () async {
+    await writeCacheFile(
+      'other_app_cache.mp3',
+      500,
+      DateTime.now().subtract(const Duration(minutes: 30)),
+    );
+    await writeCacheFile('tts_v3_female_aaaa.mp3', 500, DateTime.now());
+    final freed = await TtsService.pruneCacheStrict(
+      directory: sandbox,
+      maxBytes: 0,
+    );
+    expect(
+      freed,
+      500,
+      reason: 'tts_v3_ 파일만 예산 계산·삭제 대상이라 500만 지워야 한다',
+    );
+    expect(
+      exists('other_app_cache.mp3'),
+      isTrue,
+      reason: 'tts_v3_ 접두사가 없는 .mp3는 이 캐시가 만든 파일이 아니므로 건드리면 안 된다',
+    );
+    expect(exists('tts_v3_female_aaaa.mp3'), isFalse);
   });
 }

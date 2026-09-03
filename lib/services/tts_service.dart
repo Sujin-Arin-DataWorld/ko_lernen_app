@@ -527,8 +527,11 @@ class TtsService {
   /// 로컬 TTS mp3 캐시 디렉터리 총량 상한(§9 룰링 4 — 확정 80MB). [_maxBytes]
   /// 와 혼동 금지 — 그건 단일 오브젝트 다운로드 상한이다.
   static const int _maxCacheTotalBytes = 80 * 1024 * 1024;
+  static const int _pruneWriteThreshold = 16;
+  static const Duration _pruneMinInterval = Duration(minutes: 5);
   static int _cacheWritesSincePrune = 0;
   static DateTime? _lastPruneAt;
+  static bool _pruneInFlight = false;
 
   // ── 내부 상태 ──────────────────────────────────────────────────────
   static final AudioPlayer _player = AudioPlayer();
@@ -959,10 +962,9 @@ class TtsService {
   static void _maybePruneCache(Directory directory) {
     _cacheWritesSincePrune++;
     final last = _lastPruneAt;
-    final dueByCount = _cacheWritesSincePrune >= 16;
+    final dueByCount = _cacheWritesSincePrune >= _pruneWriteThreshold;
     final dueByTime =
-        last == null ||
-        DateTime.now().difference(last) >= const Duration(minutes: 5);
+        last == null || DateTime.now().difference(last) >= _pruneMinInterval;
     if (!dueByCount && !dueByTime) {
       return;
     }
@@ -1114,37 +1116,67 @@ class TtsService {
 
   /// 디렉터리 총 바이트가 [maxBytes](기본 [_maxCacheTotalBytes])를 넘으면
   /// mtime이 가장 오래된 mp3부터 지워 예산 이하로 맞춘다. `.part`는 삭제
-  /// 대상에서 제외한다. 반환값 = 삭제한 바이트. 디렉터리 조회 실패는 전파.
+  /// 대상에서 제외한다(파일명이 정확히 `.mp3`로 끝나는 항목만 대상이라
+  /// `foo.mp3.part`는 구조적으로 걸러진다). 파일명이 `tts_v3_`로 시작하지
+  /// 않는 `.mp3`는 이 캐시가 만든 파일이 아니므로 건드리지 않는다(동결
+  /// 계약: `tts_v3_{voice}_{sha1}[_r1].mp3`). 개별 항목의 stat/delete 실패는
+  /// 그 항목만 건너뛰고 나머지 정리는 계속한다 — 디렉터리 자체를 조회하지
+  /// 못하는 실패(목록 실패/디렉터리 없음)만 전파한다. 동시 호출은 겹치지
+  /// 않도록 진행 중이면 즉시 0을 반환한다. 반환값 = 실제로 삭제한 바이트.
   @visibleForTesting
   static Future<int> pruneCacheStrict({
     Directory? directory,
     int? maxBytes,
   }) async {
-    final dir = directory ?? await _strictCacheDirectory();
-    final budget = maxBytes ?? _maxCacheTotalBytes;
-    final entries = <_TtsCacheFileStat>[];
-    var total = 0;
-    await for (final entity in dir.list()) {
-      if (entity is! File || !entity.path.endsWith('.mp3')) {
-        continue;
-      }
-      final stat = await entity.stat();
-      total += stat.size;
-      entries.add(_TtsCacheFileStat(entity, stat.size, stat.modified));
-    }
-    if (total <= budget) {
+    if (_pruneInFlight) {
       return 0;
     }
-    entries.sort((a, b) => a.modified.compareTo(b.modified));
-    var freed = 0;
-    for (final entry in entries) {
-      if (total - freed <= budget) {
-        break;
+    _pruneInFlight = true;
+    try {
+      final dir = directory ?? await _strictCacheDirectory();
+      final budget = maxBytes ?? _maxCacheTotalBytes;
+      final entries = <_TtsCacheFileStat>[];
+      var total = 0;
+      await for (final entity in dir.list()) {
+        if (entity is! File) {
+          continue;
+        }
+        final name = entity.uri.pathSegments.last;
+        if (!name.startsWith('tts_v3_') || !name.endsWith('.mp3')) {
+          continue;
+        }
+        FileStat stat;
+        try {
+          stat = await entity.stat();
+        } catch (_) {
+          continue; // 스캔 중 사라진 파일 — 이 항목만 건너뛴다.
+        }
+        if (stat.size < 0) {
+          continue; // notFound stat — 실제로는 없는 파일.
+        }
+        total += stat.size;
+        entries.add(_TtsCacheFileStat(entity, stat.size, stat.modified));
       }
-      await entry.file.delete();
-      freed += entry.bytes;
+      if (total <= budget) {
+        return 0;
+      }
+      entries.sort((a, b) => a.modified.compareTo(b.modified));
+      var freed = 0;
+      for (final entry in entries) {
+        if (total - freed <= budget) {
+          break;
+        }
+        try {
+          await entry.file.delete();
+        } catch (_) {
+          continue; // 삭제 실패한 항목만 건너뛰고 나머지 정리를 계속한다.
+        }
+        freed += entry.bytes;
+      }
+      return freed;
+    } finally {
+      _pruneInFlight = false;
     }
-    return freed;
   }
 
   /// [pruneCacheStrict]의 best-effort 래퍼(`clearCache`와 같은 이분법).
@@ -1157,6 +1189,22 @@ class TtsService {
     } catch (_) {
       // best effort
     }
+  }
+
+  /// 테스트 전용 — 스로틀 카운터와 동시 실행 가드를 초기 상태로 되돌린다.
+  @visibleForTesting
+  static void resetPruneStateForTesting() {
+    _pruneInFlight = false;
+    _cacheWritesSincePrune = 0;
+    _lastPruneAt = null;
+  }
+
+  /// 테스트 전용 — 동시 실행 가드 플래그를 직접 설정한다(느린 디렉터리
+  /// 목록을 흉내내지 않고도 in-flight 가드 경로를 결정적으로 검증하기
+  /// 위함). 실서비스 코드는 이 세터를 호출하지 않는다.
+  @visibleForTesting
+  static void setPruneInFlightForTesting(bool value) {
+    _pruneInFlight = value;
   }
 
   static Future<Directory> _strictCacheDirectory() async {
