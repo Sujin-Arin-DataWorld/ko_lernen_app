@@ -373,10 +373,19 @@ def _artifacts(request: BuildRequest) -> dict:
                 if not match or match[1] not in abi_arch:
                     raise EvidenceError("invalid_bundle")
                 arch = abi_arch[match[1]]
+                # Cheap pre-filter only: central-directory file_size is metadata
+                # a crafted zip can misstate, so it never gates acceptance below.
                 if arch not in result or bundle.getinfo(name).file_size > 256 * 1024 * 1024:
                     raise EvidenceError("symbol_mismatch")
                 _, machine, elf_class = ARCHITECTURES[arch]
-                if _elf(bundle.read(name), machine, elf_class, debug=False) != result[arch]["buildId"]:
+                # Bound the actual decompressed bytes read, not the declared
+                # metadata, so a misstated file_size cannot smuggle an
+                # oversized member past the cap (mirrors _read_bytes above).
+                with bundle.open(name) as member:
+                    content = member.read(256 * 1024 * 1024 + 1)
+                if not content or len(content) > 256 * 1024 * 1024:
+                    raise EvidenceError("symbol_mismatch")
+                if _elf(content, machine, elf_class, debug=False) != result[arch]["buildId"]:
                     raise EvidenceError("symbol_mismatch")
                 bundled.add(arch)
             if bundled != set(result):
@@ -604,7 +613,7 @@ def archive_release(request: BuildRequest, receipt_path: Path, destination: Path
             target.mkdir(mode=0o700)
         except FileExistsError:
             if not target.is_dir():
-                raise EvidenceError("archive_mismatch")
+                raise EvidenceError("archive_mismatch") from None
             _verify_archive(target, expected)
             return target
         (target / "symbols").mkdir(mode=0o700)

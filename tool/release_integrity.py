@@ -14,6 +14,8 @@ read-only check detects drift during verification, not replacement afterward.
 Workflow wiring is deliberately separate from this helper.
 """
 
+from __future__ import annotations
+
 import argparse
 import hashlib
 import json
@@ -39,7 +41,7 @@ class IntegrityError(Exception):
     """A safe, fixed diagnostic code, never underlying input or exception text."""
 
 
-def _unique_object(pairs):
+def _unique_object(pairs: list[tuple[str, object]]) -> dict:
     result = {}
     for key, value in pairs:
         if key in result:
@@ -48,7 +50,7 @@ def _unique_object(pairs):
     return result
 
 
-def load_manifest(path):
+def load_manifest(path: Path) -> dict:
     try:
         data = json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=_unique_object)
     except (OSError, UnicodeError, ValueError):
@@ -88,14 +90,14 @@ def load_manifest(path):
     return data
 
 
-def _regular_file_identity(info):
+def _regular_file_identity(info: os.stat_result) -> tuple[int, int, int, int, int, int]:
     if not stat.S_ISREG(info.st_mode):
         raise IntegrityError("binary_unavailable")
     return (info.st_dev, info.st_ino, info.st_mode, info.st_size,
             info.st_mtime_ns, info.st_ctime_ns)
 
 
-def _hash_regular_binary(path):
+def _hash_regular_binary(path: Path) -> tuple[str, int, tuple[int, int, int, int, int, int]]:
     # Do not bless a link or directory that can resolve to different bytes.
     before = _regular_file_identity(path.lstat())
     digest = hashlib.sha256()
@@ -117,7 +119,7 @@ def _hash_regular_binary(path):
     return digest.hexdigest(), size, after_path
 
 
-def verify_binary(manifest, name, path):
+def verify_binary(manifest: dict, name: str, path: Path) -> dict:
     if name not in manifest["binaries"]:
         raise IntegrityError("unknown_binary")
     try:
@@ -136,7 +138,7 @@ def verify_binary(manifest, name, path):
     return {"binary": name, "sha256": actual, "bytes": size}
 
 
-def verify_action(manifest, reference, version_comment):
+def verify_action(manifest: dict, reference: object, version_comment: str) -> None:
     if not isinstance(reference, str):
         raise IntegrityError("invalid_workflow")
     repository, separator, sha = reference.partition("@")
@@ -149,7 +151,7 @@ def verify_action(manifest, reference, version_comment):
         raise IntegrityError("version_comment_mismatch")
 
 
-def verify_workflow(manifest, path):
+def verify_workflow(manifest: dict, path: Path) -> int:
     try:
         import yaml
     except ImportError:
@@ -180,7 +182,7 @@ def verify_workflow(manifest, path):
     except (OSError, UnicodeError, yaml.YAMLError, RecursionError):
         raise IntegrityError("invalid_workflow") from None
 
-    def mapping(node):
+    def mapping(node: object) -> dict:
         if not isinstance(node, yaml.MappingNode):
             raise IntegrityError("invalid_workflow")
         result = {}
@@ -190,7 +192,7 @@ def verify_workflow(manifest, path):
             result[key.value] = value
         return result
 
-    def validate_keys(node):
+    def validate_keys(node: object) -> None:
         if isinstance(node, yaml.MappingNode):
             for value in mapping(node).values():
                 validate_keys(value)
@@ -207,7 +209,7 @@ def verify_workflow(manifest, path):
     lines = source.splitlines()
     checked = 0
 
-    def check_use(node):
+    def check_use(node: object) -> None:
         if (
             not isinstance(node, yaml.ScalarNode)
             or node.tag != "tag:yaml.org,2002:str"
@@ -237,7 +239,7 @@ def verify_workflow(manifest, path):
     return checked
 
 
-def main(argv=None):
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, default=MANIFEST)
     commands = parser.add_subparsers(dest="command", required=True)

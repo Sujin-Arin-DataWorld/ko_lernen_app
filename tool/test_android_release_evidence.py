@@ -19,6 +19,7 @@ import sys
 import tempfile
 import time
 import unittest
+import unittest.mock
 import zipfile
 from pathlib import Path
 
@@ -267,6 +268,61 @@ class AndroidReleaseEvidenceTest(unittest.TestCase):
     def test_nested_symbol_directories_are_not_silently_ignored(self):
         (self.symbols / "stale").mkdir()
         self.assert_rejected_without_upload()
+
+    def test_lying_zip_size_metadata_cannot_bypass_the_read_cap(self):
+        # base/lib/armeabi-v7a/libapp.so's central-directory file_size is
+        # attacker-crafted metadata a hostile AAB can misstate; monkeypatch
+        # ZipInfo.file_size to lie that it is tiny, bypassing the cheap
+        # metadata pre-filter. A bounded-read probe stands in for the real
+        # decompressed member: it refuses any call that is not an explicit,
+        # capped read (raising AssertionError on a bare/unbounded .read(),
+        # which is what "bundle.read(name)" -- the pre-fix call -- would
+        # issue) and, when asked for the allowed maximum + 1 bytes, returns
+        # exactly that many, simulating a real member whose true decompressed
+        # length is unbounded/huge despite the lied-small metadata. This
+        # isolates the code's own contract (mirrors _read_bytes: bound the
+        # actual bytes read, never trust declared size) from zipfile's own
+        # CRC/truncation behavior, which independently -- and separately --
+        # already rejects a truthfully mismatched declared size.
+        target = "base/lib/armeabi-v7a/libapp.so"
+        maximum = 256 * 1024 * 1024
+        real_getinfo = zipfile.ZipFile.getinfo
+        real_open = zipfile.ZipFile.open
+
+        def lying_getinfo(zip_self, name):
+            info = real_getinfo(zip_self, name)
+            if name == target:
+                info.file_size = 4096  # lies: claims a tiny member
+            return info
+
+        class BoundedReadProbe:
+            def read(self_probe, n=None):
+                if not isinstance(n, int) or n <= 0 or n > maximum + 1:
+                    raise AssertionError(
+                        f"expected a bounded read of at most {maximum + 1} "
+                        f"bytes, got n={n!r} (an unbounded/bare read call)")
+                return b"\x00" * n
+
+            def __enter__(self_probe):
+                return self_probe
+
+            def __exit__(self_probe, *exc_info):
+                return False
+
+        def fake_open(zip_self, name, *args, **kwargs):
+            if name == target:
+                return BoundedReadProbe()
+            return real_open(zip_self, name, *args, **kwargs)
+
+        with unittest.mock.patch.object(zipfile.ZipFile, "getinfo", lying_getinfo), \
+             unittest.mock.patch.object(zipfile.ZipFile, "open", fake_open):
+            try:
+                self.upload()
+            except evidence.EvidenceError as error:
+                self.assertEqual(error.code, "symbol_mismatch")
+            else:
+                self.fail("lying declared size was accepted")
+            self.assertEqual(self.uploads(), [])
 
     def test_wrong_architecture_elf_never_uploads(self):
         (self.symbols / "app.android-arm64.symbols").write_bytes(elf_fixture(62))
