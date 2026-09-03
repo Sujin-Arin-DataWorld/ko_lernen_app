@@ -1532,8 +1532,15 @@ def main(argv=None):
         )
         for path in missing:
             print(f"MISSING\t{path}")
-        for path in unexpected:
-            print(f"STALE\t{path}")
+        if args.delete_stale:
+            # Plain `--verify-storage` runs (e.g. the CI gate) only care about
+            # the stale *count* in the summary line above — with thousands of
+            # already-stale objects (voice-migration debris etc.) printing
+            # one STALE line per path is pure noise there. The per-path
+            # listing is only useful as a dry-run preview of what
+            # --delete-stale would remove, so gate it on that flag.
+            for path in unexpected:
+                print(f"STALE\t{path}")
         if args.delete_stale and args.confirm_delete and unexpected:
             delete_remote_objects(set(unexpected))
             print(f"deleted {len(unexpected)} stale object(s)")

@@ -882,6 +882,47 @@ class TtsGeneratorContractTest(unittest.TestCase):
         ]
         self.assertEqual(stale_lines, [f"STALE\t{stale_path}"])
 
+    def test_verify_storage_without_delete_stale_does_not_list_stale_paths(self):
+        # F4 — a bare --verify-storage run (the CI completeness gate) must
+        # print only the stale *count* in the summary line, never one
+        # STALE\t line per object. With thousands of already-stale objects
+        # (voice-migration debris etc.) the unconditional per-path listing
+        # was thousands of lines of CI noise; the per-path preview is only
+        # useful together with --delete-stale (see the sibling test below).
+        pairs = [("female", "안녕하세요")]
+        remote_path = generate_tts.cache_relative_path("female", "안녕하세요")
+        stale_path = "tts/v3/female/deadbeef00000000000000000000000000000000.mp3"
+        with (
+            patch.object(generate_tts, "collect", return_value=pairs),
+            patch.object(generate_tts.shutil, "which", return_value="gcloud"),
+            patch.object(
+                generate_tts, "remote_cache_objects",
+                return_value={remote_path: 4096, stale_path: 4096},
+            ),
+            patch.object(generate_tts, "delete_remote_objects") as delete,
+            patch.object(generate_tts.subprocess, "run") as run,
+            patch("builtins.print") as printed,
+        ):
+            result = generate_tts.main(["--verify-storage"])
+        self.assertEqual(result, 0)
+        delete.assert_not_called()
+        run.assert_not_called()
+        stale_lines = [
+            call.args[0]
+            for call in printed.call_args_list
+            if call.args and str(call.args[0]).startswith("STALE\t")
+        ]
+        self.assertEqual(stale_lines, [])
+        summary_lines = [
+            call.args[0]
+            for call in printed.call_args_list
+            if call.args and str(call.args[0]).startswith("Storage verify")
+        ]
+        self.assertEqual(
+            summary_lines,
+            ["Storage verify — expected 1, remote 2, missing 0, stale 1"],
+        )
+
     def test_confirm_delete_requires_delete_stale(self):
         # I3(a) — the destructive path (--delete-stale --confirm-delete)
         # previously had no coverage at all for the argparse guard that
