@@ -486,9 +486,9 @@
     "semantic_hash": ""
   },
   "functions/tts/index.js": {
-    "mtime": 1788395804.7494714,
-    "seen": 1788398152.0382628,
-    "ast_hash": "206209df7c0f638bc30e905d790e2f1b",
+    "mtime": 1788399053.6482468,
+    "seen": 1788399994.9300475,
+    "ast_hash": "abdd8530f68f092c78874f644543a2a3",
     "semantic_hash": ""
   },
   "functions/tts/package.json": {
@@ -2658,9 +2658,9 @@
     "semantic_hash": ""
   },
   "lib/services/tts_service.dart": {
-    "mtime": 1788397549.3150384,
-    "seen": 1788398152.040016,
-    "ast_hash": "e86f03655505b41326d2d77e450c4448",
+    "mtime": 1788399269.5795236,
+    "seen": 1788399995.2337153,
+    "ast_hash": "02ec282dcd0e4d57020d388045a53cc4",
     "semantic_hash": ""
   },
   "lib/services/vocab_notebook_parser.dart": {
@@ -9276,9 +9276,9 @@
     "semantic_hash": ""
   },
   "docs/LISTENING_CARD_RECIPE.md": {
-    "mtime": 1788391831.6405864,
-    "seen": 1788398152.0461879,
-    "ast_hash": "c3a73666b9a6b220dfac975d52affc29",
+    "mtime": 1788398294.7098396,
+    "seen": 1788399996.1163077,
+    "ast_hash": "803a40dbd820d56c7116cbe79a50362a",
     "semantic_hash": ""
   },
   "docs/LOCALIZATION_DEEP_DIVE_2026-06-09.md": {
@@ -13884,9 +13884,9 @@
     "semantic_hash": ""
   },
   "docs/store/firebase-backend-release-gates.md": {
-    "mtime": 1788397394.9687984,
-    "seen": 1788398152.0469217,
-    "ast_hash": "859f76ee597bd764e94e17d6cf28d2a2",
+    "mtime": 1788399190.9916973,
+    "seen": 1788399996.150992,
+    "ast_hash": "2b0627543476e5b78c1fe0d8986ad8c4",
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-09-01-handoff-verification-and-release/ios-manual-runbook.md": {
@@ -14106,9 +14106,9 @@
     "semantic_hash": ""
   },
   "functions/tts/private_tts.test.js": {
-    "mtime": 1788396205.4264357,
-    "seen": 1788398152.0382786,
-    "ast_hash": "a6209815f533de0f09255522b4773e15",
+    "mtime": 1788398978.1960413,
+    "seen": 1788399994.9316757,
+    "ast_hash": "414dabf1c75eb27b3082e6a1b6de63d0",
     "semantic_hash": ""
   },
   "functions/tts/service_cost_policy.js": {
@@ -14178,15 +14178,15 @@
     "semantic_hash": ""
   },
   "lib/services/tts_private_cache.dart": {
-    "mtime": 1788392914.4895313,
-    "seen": 1788398152.0400078,
-    "ast_hash": "6b728122b655adf4ba5e91e1efa5b09c",
+    "mtime": 1788399393.315184,
+    "seen": 1788399995.2337053,
+    "ast_hash": "8044d4f6fb2e8b0dc5e6ed60d4e68b38",
     "semantic_hash": ""
   },
   "lib/services/tts_private_playback.dart": {
-    "mtime": 1788396324.8423882,
-    "seen": 1788398152.0400114,
-    "ast_hash": "d4768302da2a864d5ec00e9286ed63d0",
+    "mtime": 1788399267.2394416,
+    "seen": 1788399995.2337105,
+    "ast_hash": "e7b55e74f74b8b4da0c6692eccc16f38",
     "semantic_hash": ""
   },
   "test/fixtures/access_policy/cost-v1.json": {
@@ -14274,21 +14274,39 @@
     "semantic_hash": ""
   },
   "test/tts_private_cache_test.dart": {
-    "mtime": 1788393123.138933,
-    "seen": 1788398152.0429497,
-    "ast_hash": "bf62cebc2a7c73c8cbb7c10684185327",
+    "mtime": 1788399269.590525,
+    "seen": 1788399995.6996531,
+    "ast_hash": "b20bc11ca58ba0fe58555e943e37687c",
     "semantic_hash": ""
   },
   "test/tts_private_playback_test.dart": {
-    "mtime": 1788397447.4164507,
-    "seen": 1788398152.042953,
-    "ast_hash": "5a57950f2c7146dc0c708ee41861fd2e",
+    "mtime": 1788399269.5955346,
+    "seen": 1788399995.6996582,
+    "ast_hash": "b8a2c9fbad66775b7a1855340d9e1288",
     "semantic_hash": ""
   },
   "graphify-out/memory/2026-09-01-handoff-verification-and-release-record.md": {
     "mtime": 1788391838.1657465,
     "seen": 1788398152.0471158,
     "ast_hash": "68f4d626b9590a00c3a8d166d0712f4e",
+    "semantic_hash": ""
+  },
+  "test/tts_private_android_boundary_test.dart": {
+    "mtime": 1788399439.5692272,
+    "seen": 1788399995.6996422,
+    "ast_hash": "ef1638cfb077e3d339d8c93446542313",
+    "semantic_hash": ""
+  },
+  "test/tts_private_boundary_test.dart": {
+    "mtime": 1788399604.5224452,
+    "seen": 1788399995.699647,
+    "ast_hash": "3259cd5501a7a76b4f32eaaea0f7b0bf",
+    "semantic_hash": ""
+  },
+  "docs/Hangul Sori \uc571 \uc810\uac80 \ud6c4 \uac1c\uc120 \uc0ac\ud56d \uc9c0\uc2dc\uc11c.md": {
+    "mtime": 1788398294.705839,
+    "seen": 1788399996.114761,
+    "ast_hash": "ab03ebaec487a269b8f1d9d67bd255aa",
     "semantic_hash": ""
   }
 }
