@@ -298,13 +298,13 @@ jobs:
   # Compile native privacy/auth bridges without signing or store access.
   # Reuse the existing Xcode Cloud dependency setup; publishing remains W9-owned.
   ios-native-build:
-    name: Unsigned iOS native build
+    name: Unsigned iOS build and native tests
     needs: changes
     if: >-
       needs.changes.outputs.ios == 'true' &&
       (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
     runs-on: macos-15
-    timeout-minutes: 35
+    timeout-minutes: 45
     env:
       CI_PRIMARY_REPOSITORY_PATH: ${{ github.workspace }}
     steps:
@@ -316,6 +316,23 @@ jobs:
         run: |
           export PATH="$HOME/flutter/bin:$HOME/.pub-cache/bin:$PATH"
           flutter build ios --release --no-codesign
+      - name: Run native privacy tests on an installed iPhone simulator
+        run: |
+          set -euo pipefail
+          export PATH="$HOME/flutter/bin:$HOME/.pub-cache/bin:$PATH"
+          simulator_id="$(xcrun simctl list devices available -j | python3 -c 'import json,sys; devices=json.load(sys.stdin)["devices"]; print(next(d["udid"] for runtime, group in devices.items() if "iOS-" in runtime for d in group if d["isAvailable"] and d["name"].startswith("iPhone")))')"
+          xcodebuild test -quiet -workspace ios/Runner.xcworkspace -scheme Runner \
+            -destination "platform=iOS Simulator,id=$simulator_id" \
+            -only-testing:RunnerTests CODE_SIGNING_ALLOWED=NO \
+            -resultBundlePath "$RUNNER_TEMP/native-privacy.xcresult"
+      - name: Retain native test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-privacy-results
+          path: ${{ runner.temp }}/native-privacy.xcresult
+          if-no-files-found: ignore
+          retention-days: 3
 
   # Android 자동배포는 Google Play **내부 테스트(internal)** 만 쓴다.
   # 비공개 테스트(Closed Testing / alpha)·공개 테스트(beta)·Production·
@@ -551,7 +568,9 @@ jobs:
           cache-dependency-path: functions/analyze_korean_text/requirements.txt
 
       - name: Install function dependencies
-        run: pip install -r functions/analyze_korean_text/requirements.txt
+        run: |
+          python -m pip install --upgrade pip==26.2.1
+          python -m pip install -r functions/analyze_korean_text/requirements.txt
 
       - name: Test function security boundary
         working-directory: functions/analyze_korean_text

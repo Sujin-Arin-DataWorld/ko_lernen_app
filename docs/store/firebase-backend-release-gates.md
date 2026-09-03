@@ -58,6 +58,10 @@ npm test --prefix functions/auth_cleanup
 
 Book Gen2는 Python 3.12와 별도 dependencies가 필요하다. 정확한 preflight와 source
 closure는 [cloud-function-deploy.md](cloud-function-deploy.md)를 따른다.
+CI는 의존성 설치 전에 `python -m pip install --upgrade pip==26.2.1`로 빌드 도구를
+고정한다. [pip 공식 변경 기록](https://pip.pypa.io/en/stable/news/)의 보안 수정과
+후속 keyring 회귀 수정을 포함한 버전이다. 배포 시에는 실제 buildpack의 도구 버전과
+해결된 런타임 의존성도 별도로 기록·감사한다. 로컬 venv의 취약점0은 운영 이미지의 증명이 아니다.
 
 ## 3. TTS와 shared Firestore 설정
 
@@ -210,6 +214,9 @@ W7의 TTS 로딩/프리패치, Living의 스타일 변경, W9의 배포 소유�
 - 개인 클라이언트 음성은 메모리 전용이며 UID/epoch 변경 시 무효화한다. 앱 재시작 뒤에는
   네트워크가 필요하다. 구형 응답에는 private scope/expiry가 없으므로 새 클라이언트가 거부한다.
   백엔드·메타데이터·규칙·클라이언트의 배포 순서를 W9에서 함께 검증한다.
+- iOS 개인 재생은 `AVAudioPlayer(data:)`를 쓰는 앱 소유 브리지다. PR/main의 unsigned
+  iOS 빌드와 simulator `RunnerTests`를 통과해야 한다. 이는 실제 기기의 재생·중단·계정 전환·
+  삭제 시 메모리 해제와 임시 파일 미생성 확인을 대신하지 않는다. desktop 개인 재생은 차단한다.
 - `service_idempotency_results.expiresAt` TTL은15분 결과 보관, `service_idempotency.expiresAt`은
   책/발음24시간 hash-only 중복 방지다. API 접근 만료와 Firestore TTL 실제 삭제는 별개다.
 - `premium_grants`, `customer_entitlements`, `billing_customers`, billing receipts, access rate

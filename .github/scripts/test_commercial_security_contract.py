@@ -37,7 +37,20 @@ class CommercialSecurityContractTest(unittest.TestCase):
         self.assertIn("needs.changes.outputs.ios == 'true'", job)
         self.assertIn("bash ios/ci_scripts/ci_post_clone.sh", job)
         self.assertIn("flutter build ios --release --no-codesign", job)
+        self.assertIn("xcrun simctl list devices available -j", job)
+        self.assertIn("xcodebuild test", job)
+        self.assertIn("-only-testing:RunnerTests", job)
+        self.assertIn("CODE_SIGNING_ALLOWED=NO", job)
         self.assertNotIn("secrets.", job)
+
+    def test_book_ci_updates_pip_before_installing_function_dependencies(self):
+        workflow = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
+        job = workflow.split("  book-analysis-security:", 1)[1].split("  gye-functions-security:", 1)[0]
+        bootstrap = "python -m pip install --upgrade pip==26.2.1"
+        dependencies = "python -m pip install -r functions/analyze_korean_text/requirements.txt"
+        self.assertIn(bootstrap, job)
+        self.assertIn(dependencies, job)
+        self.assertLess(job.index(bootstrap), job.index(dependencies))
 
 
 if __name__ == "__main__":
