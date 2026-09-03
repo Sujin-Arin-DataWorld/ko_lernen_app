@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../data/milestone.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/content_feedback.dart';
+import '../../services/sound_service.dart';
 import '../../services/storage_service.dart';
 import 'button.dart';
 import 'celebration.dart';
@@ -22,6 +23,9 @@ Future<void> showMilestoneCelebration(
   required ContentFeedbackContext feedbackContext,
 }) async {
   SoriCelebration.burst(context);
+  if (milestone.type == MilestoneType.level) {
+    SoundService.levelUp();
+  }
   await showSoriSheet<void>(
     context: context,
     builder: (ctx) =>
