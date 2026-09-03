@@ -14,7 +14,7 @@ from pathlib import PurePosixPath
 from typing import Iterable
 
 
-SCOPES = ("app", "website", "book", "gye", "pronunciation", "tts", "auth_cleanup")
+SCOPES = ("app", "website", "book", "gye", "pronunciation", "tts", "auth_cleanup", "ios")
 
 TASK_SCOPE = {
     "full": SCOPES,
@@ -25,6 +25,7 @@ TASK_SCOPE = {
     "pronunciation": ("pronunciation",),
     "tts": ("tts",),
     "auth-cleanup": ("auth_cleanup",),
+    "ios": ("app", "ios"),
     "release-internal": ("app",),
     "release-website": ("website",),
 }
@@ -94,6 +95,11 @@ def scopes_for_paths(paths: Iterable[str]) -> dict[str, bool]:
         # Workflow and selector changes validate every branch of the selector.
         if path.startswith(".github/"):
             return _all_scopes()
+
+        if path.startswith("ios/") or path in {"pubspec.yaml", "pubspec.lock"}:
+            result["app"] = True
+            result["ios"] = True
+            continue
 
         if path.startswith("hangul-sori-site-local/") or path in WEBSITE_ROOT_FILES:
             result["website"] = True

@@ -56,6 +56,7 @@ on:
           - book
           - gye
           - pronunciation
+          - ios
           - release-internal
           - release-website
           - regenerate-goldens
@@ -91,6 +92,7 @@ jobs:
       pronunciation: ${{ steps.scope.outputs.pronunciation }}
       tts: ${{ steps.scope.outputs.tts }}
       auth_cleanup: ${{ steps.scope.outputs.auth_cleanup }}
+      ios: ${{ steps.scope.outputs.ios }}
       flutter_test_mode: ${{ steps.flutter_tests.outputs.flutter_test_mode }}
       flutter_tests: ${{ steps.flutter_tests.outputs.flutter_tests }}
     steps:
@@ -292,6 +294,28 @@ jobs:
       - name: Build web (release)
         if: github.event_name != 'pull_request'
         run: flutter build web --release
+
+  # Compile native privacy/auth bridges without signing or store access.
+  # Reuse the existing Xcode Cloud dependency setup; publishing remains W9-owned.
+  ios-native-build:
+    name: Unsigned iOS native build
+    needs: changes
+    if: >-
+      needs.changes.outputs.ios == 'true' &&
+      (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
+    runs-on: macos-15
+    timeout-minutes: 35
+    env:
+      CI_PRIMARY_REPOSITORY_PATH: ${{ github.workspace }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Prepare existing pinned iOS toolchain and plugins
+        run: bash ios/ci_scripts/ci_post_clone.sh
+      - name: Compile release app without signing
+        run: |
+          export PATH="$HOME/flutter/bin:$HOME/.pub-cache/bin:$PATH"
+          flutter build ios --release --no-codesign
 
   # Android 자동배포는 Google Play **내부 테스트(internal)** 만 쓴다.
   # 비공개 테스트(Closed Testing / alpha)·공개 테스트(beta)·Production·

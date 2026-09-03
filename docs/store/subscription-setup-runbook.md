@@ -15,7 +15,7 @@
 | 구독 서비스 | `lib/services/premium_service.dart` | RevenueCat SDK는 구매를 처리하고 서버 스냅샷이 권한을 결정. 키/검증 누락 시 구매 비활성 |
 | 페이월 UI | `lib/screens/paywall_screen.dart` | 스토어의 월간 상품·현지 가격, 구매/복원/대기 상태, DE/EN |
 | 게이팅 | 단어팩 비A1·시나리오 비A1·홈 | `PremiumService.gate(context)` → 무료면 `/paywall` |
-| Dev 토글 | `lib/screens/settings_screen.dart` (Debug) | 대시보드 없이 무료↔프리미엄 전환 테스트 |
+| Dev 토글 | `lib/screens/settings_screen.dart` (Debug) | 로컬 콘텐츠 게이트만 테스트; 회원권·AI 권한은 부여하지 않음 |
 
 무료 공개 빌드는 `FREE_LAUNCH=true`로 번들 콘텐츠를 개방하며 구독 판매는 비활성이다.
 무료 공개 후 실제 14일 운영 관찰, 아래 실기기·비용·정책 게이트를 통과한 뒤에만 유료로 전환한다.
@@ -49,7 +49,7 @@
 4. 샌드박스 검증에 필요한 상태와 실제 판매 활성화는 구분한다. 실제 판매 활성화는 최종 출시 승인 뒤에만 한다.
 5. (선택) 무료 체험/할인은 **혜택(Offer)**로 나중에 추가 가능 — 지금은 스킵.
 
-> ⚠️ 상품은 활성 상태여야 RevenueCat·앱에서 보인다. "초안"이면 offering이 비어 페이월이 폴백 가격만 표시.
+> ⚠️ 상품·기본 요금제와 RevenueCat 연결 상태를 확인한다. 월간 offering이 없으면 가격을 만들어 표시하지 않고 구매를 비활성화한다.
 
 ---
 
@@ -105,11 +105,11 @@ RevenueCat이 구매 상태를 서버에서 검증하려면 Play Developer API �
 ```powershell
 $env:RC_ANDROID_KEY = '<paste-live-RevenueCat-Android-SDK-key>'
 if ([string]::IsNullOrWhiteSpace($env:RC_ANDROID_KEY) -or $env:RC_ANDROID_KEY -notmatch '^goog_[A-Za-z0-9_-]{8,}$') { throw 'Set RC_ANDROID_KEY to the live RevenueCat Android SDK key before building.' }
-flutter build appbundle --release --obfuscate --split-debug-info=build/app/outputs/symbols --dart-define=RC_ANDROID_KEY=$env:RC_ANDROID_KEY --dart-define=BETA_UNLOCK_ALL=false
+flutter build appbundle --release --obfuscate --split-debug-info=build/app/outputs/symbols --dart-define=RC_ANDROID_KEY=$env:RC_ANDROID_KEY --dart-define=BETA_UNLOCK_ALL=false --dart-define=FREE_LAUNCH=false --dart-define=ACCESS_ENVIRONMENT=PRODUCTION
 # iOS 추가 시: --dart-define=RC_IOS_KEY=appl_xxxxxxxxxxxx
 ```
 
-- 키 없이 빌드하면 `PremiumService`가 조용히 무료 모드 → 크래시 안 나지만 **결제도 안 됨**. 실제 출시 빌드엔 반드시 키 주입.
+- 키 없이 빌드하면 스토어 구매/복원은 비활성이다. 서버 회원권 확인과 승인된 무료 콘텐츠 접근은 별개로 동작한다. 유료 전환 빌드에는 올바른 SDK 키가 필요하다.
 - `--dart-define`은 컴파일 타임 상수 → AAB마다 들어간다. CI 쓰면 환경변수로.
 - Play Billing 권한(`com.android.vending.BILLING`)은 `purchases_flutter`가 매니페스트 머지로 **자동 추가**(수동 선언 불필요). 빌드 후 merged manifest에서 한 번 확인하면 안심.
 - 빌드가 `minSdk` 관련 에러를 내면 `android/app/build.gradle.kts`의 `minSdk`를 명시적으로 올려 (현재 `flutter.minSdkVersion` 상속).
@@ -133,9 +133,9 @@ flutter build appbundle --release --obfuscate --split-debug-info=build/app/outpu
 
 - [ ] 설정 → Debug → **Dev Premium 토글 ON** → 비A1 팩/시나리오 잠금 해제되는지
 - [ ] 토글 OFF → 다시 페이월 뜨는지
-- [ ] 페이월에 가격이 `€5,00 / Monat`처럼 뜨는지 (offering 연결됐을 때) / 아니면 폴백 문구
+- [ ] 월간 offering이 있을 때 실제 현지 가격/주기를 표시하고, 없을 때는 가격을 만들지 않고 구매를 막는지
 
-그 다음 실결제:
+그 다음 실제 기기의 샌드박스 결제(테스트 결제 수단 확인 후):
 
 - [ ] 라이선스 테스터 계정으로 샌드박스 구매 성공
 - [ ] 구매 후 앱 재시작해도 프리미엄 유지 (오프라인 캐시)
@@ -165,10 +165,10 @@ flutter build appbundle --release --obfuscate --split-debug-info=build/app/outpu
 
 | 증상 | 원인 / 해결 |
 |---|---|
-| 페이월이 폴백 가격만, 구매 버튼 "이용 불가" | offering/패키지 미연결, 또는 STEP 2-2 서비스계정 권한 미전파(최대 36h) |
+| 가격이 없고 구매 버튼 "이용 불가" | 월간 offering/패키지/주기, SDK 키, 서비스계정 권한과 전파 상태 확인 |
 | 샌드박스에서 "상품을 찾을 수 없음" | 앱이 Play 트랙에 업로드 안 됨 / 상품 "초안" 상태 / 테스터 계정 미등록 |
-| 구매했는데 프리미엄 안 풀림 | entitlement ID가 `premium`이 아님 (대소문자·철자) → 코드는 정확히 `premium`만 검사 |
-| 결제 화면 자체가 안 뜸 | 키 미주입(무료 모드) → `--dart-define=RC_ANDROID_KEY=` 확인 |
+| 구매했는데 프리미엄 안 풀림 | Firebase/RevenueCat UID, entitlement 매핑, 환경, 웹훅·작업 큐와 getAccessSnapshot 검증 상태를 순서대로 확인; SDK 구매 성공만으로 권한을 부여하지 않음 |
+| 결제 화면 자체가 안 뜸 | 무료 빌드 여부, durable 로그인·UID 바인딩, SDK 키·월간 offering 확인 |
 
 ---
 
@@ -176,7 +176,7 @@ flutter build appbundle --release --obfuscate --split-debug-info=build/app/outpu
 
 - **공개 SDK 키**(`goog_`/`appl_`)는 앱에 들어가도 되는 값이지만, repo 평문 커밋은 지양 → `--dart-define` 또는 CI 시크릿.
 - RevenueCat **Secret API Key**(`sk_…`)와 Google **서비스계정 JSON**은 절대 앱/`repo`에 넣지 말 것 (서버/대시보드 전용).
-- 기존 `.gitignore`가 `.env*` 처리 중 — 키 메모는 거기 두면 안전.
+- `.gitignore`는 유출 방지 저장소가 아니다. Secret Manager와 승인된 자격 증명 전달 경로를 사용하고 키를 로컬 메모로 남기지 않는다.
 
 공식 검증 참고: [고객 식별](https://www.revenuecat.com/docs/customers/identifying-customers),
 [웹훅](https://www.revenuecat.com/docs/integrations/webhooks),

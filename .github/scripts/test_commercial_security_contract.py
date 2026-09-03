@@ -28,6 +28,17 @@ class CommercialSecurityContractTest(unittest.TestCase):
         tts_job = workflow.split("  tts-functions-security:", 1)[1].split("  auth-cleanup-functions-security:", 1)[0]
         self.assertIn("python functions/tts/build_canonical_manifest.py --check", tts_job)
 
+    def test_ios_gate_reuses_existing_setup_without_signing_or_upload(self):
+        workflow = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
+        self.assertIn("  ios-native-build:", workflow)
+        if "  ios-native-build:" not in workflow:
+            return
+        job = workflow.split("  ios-native-build:", 1)[1].split("  release-internal:", 1)[0]
+        self.assertIn("needs.changes.outputs.ios == 'true'", job)
+        self.assertIn("bash ios/ci_scripts/ci_post_clone.sh", job)
+        self.assertIn("flutter build ios --release --no-codesign", job)
+        self.assertNotIn("secrets.", job)
+
 
 if __name__ == "__main__":
     unittest.main()

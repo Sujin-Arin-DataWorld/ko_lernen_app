@@ -42,6 +42,11 @@ class CiScopeTest(unittest.TestCase):
                      "lib/services/placement_diagnostic.dart"]:
             self.assert_enabled([path], "app", "tts")
 
+    def test_ios_native_and_plugin_contracts_require_unsigned_build(self):
+        for path in ["ios/Runner/AppDelegate.swift", "ios/Runner/PrivateTtsPlayer.swift",
+                     "ios/Podfile.lock", "pubspec.yaml", "pubspec.lock"]:
+            self.assert_enabled([path], "app", "ios")
+
     def test_shared_firestore_contract_selects_consumers(self):
         self.assert_enabled(
             ["firestore.rules"],
