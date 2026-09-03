@@ -29,16 +29,23 @@ export 'tts_cache_key.dart';
 /// 정본은 기존 디스크/번들/웹 캐시를 유지한다. 개인 음성은 UID 세션을
 /// 끝까지 전달하며 메모리 전용 플레이어로만 재생한다.
 class TtsAudio {
-  const TtsAudio.path(String this.path) : bytes = null, privateSession = null;
+  const TtsAudio.path(String this.path)
+    : bytes = null,
+      privateSession = null,
+      privateAudio = null;
   const TtsAudio.bytes(Uint8List this.bytes)
     : path = null,
-      privateSession = null;
-  const TtsAudio.privateBytes(Uint8List this.bytes, CloudWriteSession session)
+      privateSession = null,
+      privateAudio = null;
+  TtsAudio.privateBytes(TtsPrivateAudio audio)
     : path = null,
-      privateSession = session;
+      bytes = audio.bytes,
+      privateSession = audio.session,
+      privateAudio = audio;
 
   /// Personal audio retains its identity fence through the playback boundary.
   final CloudWriteSession? privateSession;
+  final TtsPrivateAudio? privateAudio;
 
   /// 캐시된 mp3 의 절대 경로. 웹에서는 null.
   final String? path;
@@ -563,16 +570,48 @@ class TtsService {
   static TtsPrivateCache? _privateCache;
   static final TtsPrivatePlayback _privatePlayback = TtsPrivatePlayback();
   static bool _privateBytesPlaying = false;
+  static CloudWriteSessionController _privateSessions =
+      cloudWriteSessionController;
+  static String? Function()? _privateUidForTesting;
+  static Future<Map<String, dynamic>> Function(Map<String, String>)?
+  _privateInvokeForTesting;
+  static DateTime Function()? _privateNowForTesting;
+  static Duration Function()? _privateElapsedForTesting;
+  static Future<void> Function()? _preparePlaybackForTesting;
 
-  static TtsPrivateCache get _privateAudioCache =>
-      _privateCache ??= TtsPrivateCache(
-        sessions: cloudWriteSessionController,
-        onInvalidate: () {
-          // Historical unclassified cache entries are disposable audio only.
-          unawaited(stop());
-          unawaited(clearCache());
-        },
-      );
+  @visibleForTesting
+  static void configurePrivateForTesting({
+    CloudWriteSessionController? sessions,
+    String? Function()? authenticatedUid,
+    Future<Map<String, dynamic>> Function(Map<String, String>)? invoke,
+    DateTime Function()? now,
+    Duration Function()? elapsed,
+    Future<void> Function()? preparePlayback,
+  }) {
+    _privateCache?.dispose();
+    _privateCache = null;
+    _privateSessions = sessions ?? cloudWriteSessionController;
+    _privateUidForTesting = authenticatedUid;
+    _privateInvokeForTesting = invoke;
+    _privateNowForTesting = now;
+    _privateElapsedForTesting = elapsed;
+    _preparePlaybackForTesting = preparePlayback;
+  }
+
+  static TtsPrivateCache
+  get _privateAudioCache => _privateCache ??= TtsPrivateCache(
+    sessions: _privateSessions,
+    now: _privateNowForTesting,
+    elapsed: _privateElapsedForTesting,
+    onInvalidate: () {
+      // The private cache has already synchronously revoked its leases.
+      // Preserve canonical disk/memory/prefetch state across identity changes;
+      // only explicit account-deletion/reset cleanup clears shared caches.
+      if (_privateBytesPlaying || _privatePlayback.requiresStop) {
+        unawaited(stop());
+      }
+    },
+  );
 
   /// 지금 왜 소리가 안 나는지. null 이면 문제 없음.
   ///
@@ -945,6 +984,9 @@ class TtsService {
   }) => _resolveAudio(text, voice, allowSynthesis: allowSynthesis);
 
   static String? _authenticatedUid() {
+    if (_privateUidForTesting != null) {
+      return _privateUidForTesting!();
+    }
     try {
       return FirebaseAuth.instance.currentUser?.uid;
     } catch (_) {
@@ -963,69 +1005,74 @@ class TtsService {
       return null;
     }
     final uid = _authenticatedUid();
-    final session = cloudWriteSessionController.current;
+    final session = _privateSessions.current;
     if (uid == null ||
         session == null ||
         session.uid != uid ||
         session.mode != CloudWriteMode.ready) {
       return null;
     }
-    DateTime? expiresAt;
+    TtsPrivateServerTiming? serverTiming;
     try {
-      final bytes = await _privateAudioCache.resolve(
+      final audio = await _privateAudioCache.resolve(
         key.storagePath,
-        serverExpiry: () => expiresAt,
+        serverTiming: () => serverTiming,
         fetch: () async {
           final installationId = await _installationIdProvider.getOrCreate();
           if (_authenticatedUid() != uid ||
-              cloudWriteSessionController.current != session) {
+              _privateSessions.current != session) {
             return null;
           }
           return takeCallableAudio(
             invoke: () async {
               if (_authenticatedUid() != uid ||
-                  cloudWriteSessionController.current != session) {
+                  _privateSessions.current != session) {
                 return null;
               }
-              final result = await _functions
-                  .httpsCallable(
-                    _functionName,
-                    options: HttpsCallableOptions(
-                      timeout: _netTimeout,
-                      limitedUseAppCheckToken: true,
-                    ),
-                  )
-                  .call<Map<String, dynamic>>(
-                    buildTtsCallableData(
-                      text: text,
-                      voice: key.voice,
-                      installationId: installationId,
-                    ),
-                  );
-              final expiry = result.data['expiresAtMillis'];
-              final b64 = result.data['audioBase64'];
-              if (result.data['cacheScope'] != 'private' ||
+              final data = await _invokePrivateCallable(
+                buildTtsCallableData(
+                  text: text,
+                  voice: key.voice,
+                  installationId: installationId,
+                ),
+              );
+              final expiry = data['expiresAtMillis'];
+              final serverNow = data['serverNowMillis'];
+              final b64 = data['audioBase64'];
+              if (data['cacheScope'] != 'private' ||
                   expiry is! num ||
                   !expiry.isFinite ||
+                  expiry < 0 ||
+                  expiry > 9007199254740991 ||
+                  expiry.toInt() != expiry ||
+                  serverNow is! num ||
+                  !serverNow.isFinite ||
+                  serverNow < 0 ||
+                  serverNow > 9007199254740991 ||
+                  serverNow.toInt() != serverNow ||
                   b64 is! String ||
                   b64.isEmpty ||
                   _authenticatedUid() != uid ||
-                  cloudWriteSessionController.current != session) {
+                  _privateSessions.current != session) {
                 return null;
               }
-              expiresAt = DateTime.fromMillisecondsSinceEpoch(expiry.toInt());
+              serverTiming = (
+                expiresAtMillis: expiry.toInt(),
+                serverNowMillis: serverNow.toInt(),
+              );
               final decoded = base64Decode(b64);
               return TtsCacheKey.isUsableAudio(decoded) ? decoded : null;
             },
           );
         },
       );
-      if (bytes == null ||
+      if (audio == null ||
+          !audio.isCurrent ||
           _authenticatedUid() != uid ||
-          cloudWriteSessionController.current != session) {
+          _privateSessions.current != session) {
         return null;
       }
-      return TtsAudio.privateBytes(bytes, session);
+      return TtsAudio.privateBytes(audio);
     } on TtsSynthesisBlocked catch (blocked) {
       _reportUnavailable(blocked.reason);
       rethrow;
@@ -1033,6 +1080,24 @@ class TtsService {
       _reportUnavailable(TtsUnavailableReason.offline);
       return null;
     }
+  }
+
+  static Future<Map<String, dynamic>> _invokePrivateCallable(
+    Map<String, String> data,
+  ) async {
+    if (_privateInvokeForTesting != null) {
+      return _privateInvokeForTesting!(data);
+    }
+    return (await _functions
+            .httpsCallable(
+              _functionName,
+              options: HttpsCallableOptions(
+                timeout: _netTimeout,
+                limitedUseAppCheckToken: true,
+              ),
+            )
+            .call<Map<String, dynamic>>(data))
+        .data;
   }
 
   /// 받은 바이트를 플랫폼에 맞게 캐시하고 재생 가능한 형태로 감싼다.
@@ -1124,9 +1189,10 @@ class TtsService {
     final privateSession = audio.privateSession;
     bool identityIsCurrent() =>
         privateSession != null &&
+        audio.privateAudio?.isCurrent == true &&
         privateSession.mode == CloudWriteMode.ready &&
         _authenticatedUid() == privateSession.uid &&
-        cloudWriteSessionController.current == privateSession;
+        _privateSessions.current == privateSession;
     final privateRoute = TtsPrivatePlayback.routeFor(
       defaultTargetPlatform,
       isWeb: kIsWeb,
@@ -1164,10 +1230,21 @@ class TtsService {
       final done = _player.onPlayerComplete.first.then((_) => true);
       return await TtsFilePlayback.start(
         completion: _guardCompletion(done, errorPrefix: 'mp3 재생 완료 대기 실패'),
-        play: () => _player.play(
-          source,
-          volume: AudioPolicy.instance.volumeFor(SoundChannel.speech),
-        ),
+        play: () async {
+          final volume = AudioPolicy.instance.volumeFor(SoundChannel.speech);
+          if (privateSession == null) {
+            await _player.play(source, volume: volume);
+          } else {
+            // AudioPlayer.play awaits native volume/source setup internally.
+            // Prepare first, then revalidate immediately before native resume.
+            await _player.setSource(source);
+            await _player.setVolume(volume);
+            if (!identityIsCurrent()) {
+              throw StateError('Private audio is no longer available.');
+            }
+            await _player.resume();
+          }
+        },
         setRate: _player.setPlaybackRate,
         stop: _player.stop,
         onError: (error) {
@@ -1272,6 +1349,13 @@ class TtsService {
   /// iOS 는 duckOthers 와 respectSilence 병용이 금지(playAndRecord 강제)라
   /// 여기서는 respectSilence 를 걸지 않는다 — 무음 스위치 존중은 SFX 전역
   /// 컨텍스트([AudioPolicy.applyPlatformAudioContext]) 몫.
+  @visibleForTesting
+  static Future<TtsPlaybackSession?> startAudioForTesting(
+    TtsAudio audio,
+    double rate,
+  ) => _startAudio(audio, rate);
+
   static Future<void> _reapplySpeechAudioContext() =>
+      _preparePlaybackForTesting?.call() ??
       TtsSpeechAudioContext.reapply(_player.setAudioContext);
 }

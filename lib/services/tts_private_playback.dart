@@ -13,6 +13,7 @@ final class TtsPrivatePlayback {
   int _nextId = 0;
   int? _activeId;
   int? _pendingStopId;
+  bool get requiresStop => _activeId != null || _pendingStopId != null;
 
   static PrivateTtsRoute routeFor(
     TargetPlatform platform, {

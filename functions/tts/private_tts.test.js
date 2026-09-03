@@ -71,7 +71,7 @@ function harness({ duringSynthesis, duringSave, duringMetadata, duringAccountRea
     "./tts_request_guard": { ...guard, ttsProviderBreaker: new guard.CircuitBreaker() },
   };
   vm.runInNewContext(fs.readFileSync(path.join(__dirname, "index.js"), "utf8"), {
-    require: (name) => mocks[name] || require(name), exports, Buffer,
+    require: (name) => mocks[name] || require(name), exports, Buffer, Date,
     console: { ...console, error: (...args) => logs.push(args), warn: (...args) => logs.push(args) },
     setTimeout, clearTimeout,
   }, { filename: "tts/index.js" });
@@ -98,8 +98,24 @@ test("private response exposes only cache policy metadata, never text or object 
   const response = await h.invoke();
   assert.equal(response.cacheScope, "private");
   assert.equal(typeof response.expiresAtMillis, "number");
+  assert.equal(typeof response.serverNowMillis, "number");
+  assert.ok(response.expiresAtMillis > response.serverNowMillis);
+  assert.ok(response.expiresAtMillis - response.serverNowMillis <= 86400000);
   assert.equal(JSON.stringify(response).includes(PERSONAL), false);
   assert.equal("storagePath" in response, false);
+});
+
+test("private cache hits return fresh server time without extending object expiry", async (t) => {
+  let now = Date.now();
+  t.mock.method(Date, "now", () => now);
+  const h = harness();
+  const first = await h.invoke("alice", {serverNowMillis: 0, expiresAtMillis: Number.MAX_SAFE_INTEGER});
+  now += 86340000;
+  const cached = await h.invoke();
+  assert.equal(cached.expiresAtMillis, first.expiresAtMillis);
+  assert.equal(cached.serverNowMillis, now);
+  assert.equal(cached.expiresAtMillis - cached.serverNowMillis, 60000);
+  assert.equal(h.syntheses(), 1);
 });
 
 test("unknown legacy public objects are never downloaded for private text", async () => {

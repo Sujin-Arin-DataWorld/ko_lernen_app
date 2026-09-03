@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/tts_private_playback.dart';
+import 'package:ko_lernen_app/services/tts_private_cache.dart';
 import 'package:ko_lernen_app/services/tts_service.dart';
 
 void main() {
@@ -29,13 +30,21 @@ void main() {
 
   test(
     'private payload preserves identity while canonical bytes stay public',
-    () {
-      const session = CloudWriteSession(
-        uid: 'alice',
-        epoch: 4,
-        mode: CloudWriteMode.ready,
+    () async {
+      final sessions = CloudWriteSessionController();
+      final session = sessions.acquire('alice');
+      final cache = TtsPrivateCache(sessions: sessions);
+      final lease = await cache.resolve(
+        'key',
+        fetch: () async => bytes,
+        serverTiming: () => (serverNowMillis: 1000, expiresAtMillis: 60000),
       );
-      expect(TtsAudio.privateBytes(bytes, session).privateSession, session);
+      final audio = TtsAudio.privateBytes(lease!);
+      expect(audio.privateSession, session);
+      expect(audio.privateAudio, same(lease));
+      cache.clear();
+      expect(audio.privateAudio!.isCurrent, isFalse);
+      cache.dispose();
       expect(TtsAudio.bytes(bytes).privateSession, isNull);
     },
   );
@@ -111,6 +120,40 @@ void main() {
     );
     expect(calls, isEmpty);
   });
+
+  test(
+    'delayed stop rechecks private validity before starting replacement',
+    () async {
+      var current = true;
+      final stopped = Completer<void>();
+      messenger.setMockMethodCallHandler(channel, (call) async {
+        calls.add(call);
+        return call.method == 'play' ? completed.future : stopped.future;
+      });
+      final first = playback.play(
+        bytes,
+        rate: 1,
+        volume: 1,
+        isCurrent: () => current,
+      );
+      await Future<void>.delayed(Duration.zero);
+      final stopping = playback.stop();
+      final next = playback.play(
+        bytes,
+        rate: 1,
+        volume: 1,
+        isCurrent: () => current,
+      );
+      await Future<void>.delayed(Duration.zero);
+      current = false;
+      stopped.complete();
+      await stopping;
+      expect(await next, isFalse);
+      completed.complete(true);
+      expect(await first, isFalse);
+      expect(calls.where((call) => call.method == 'play').length, 1);
+    },
+  );
 
   test(
     'failed native release is retried and blocks new private playback',

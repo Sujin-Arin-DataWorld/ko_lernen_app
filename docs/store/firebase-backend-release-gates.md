@@ -211,8 +211,14 @@ W7의 TTS 로딩/프리패치, Living의 스타일 변경, W9의 배포 소유�
 - `storage_lifecycle.template.json`은 기존 bucket lifecycle에 **병합할 템플릿**이다.
   기존 규칙을 덮어쓰지 않는다. `tts_private/` 객체 접근은24시간에 종료되고 물리 삭제는 eventual이다.
   soft-delete/versioning/retention 정책과 실제 잔존 기간을 운영자가 함께 확인한다.
-- 개인 클라이언트 음성은 메모리 전용이며 UID/epoch 변경 시 무효화한다. 앱 재시작 뒤에는
-  네트워크가 필요하다. 구형 응답에는 private scope/expiry가 없으므로 새 클라이언트가 거부한다.
+- 개인 클라이언트 음성은 메모리 전용이며 UID/epoch/클라우드 쓰기 모드 변경 시 개인 상태만
+  무효화한다. 이 경로는 공개 canonical 학습 음성의 오프라인 캐시를 삭제하지 않는다.
+  명시적인 전체 계정 삭제·로컬 초기화는 별도의 전체 정리 경로를 사용한다.
+- 개인 응답에는 `cacheScope`, `expiresAtMillis`, `serverNowMillis`가 모두 필요하다. 클라이언트는
+  서버가 계산할 수 있는 잔여 시간에서 요청 경과 시간을 보수적으로 차감하며, 단조 시간과
+  관찰된 벽시계 진행을 함께 확인한다. 시계 역행·소진된 응답은 거부하고 실제 재생 직전에도
+  같은 UID/epoch와 수명을 재검증한다. 기기 시각이 서버보다 느리다고 수명이 늘어나면 안 된다.
+  앱 재시작 뒤에는 네트워크가 필요하고 필수 필드가 없는 구형 개인 응답은 거부한다.
   백엔드·메타데이터·규칙·클라이언트의 배포 순서를 W9에서 함께 검증한다.
 - iOS 개인 재생은 `AVAudioPlayer(data:)`를 쓰는 앱 소유 브리지다. PR/main의 unsigned
   iOS 빌드와 simulator `RunnerTests`를 통과해야 한다. 이는 실제 기기의 재생·중단·계정 전환·

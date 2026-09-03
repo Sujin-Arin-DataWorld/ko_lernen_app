@@ -143,11 +143,12 @@ async function synthesizeTts(request) {
         }
         await assertAccountActive();
         // The deletion fence is asynchronous; it may cross the exact expiry.
-        if (!privateMetadataIsCurrent(metadata)) {
+        const serverNowMillis = Date.now();
+        if (!privateMetadataIsCurrent(metadata, serverNowMillis)) {
           throw new HttpsError("unavailable", "TTS audio is not available.");
         }
         return { audioBase64: bytes.toString("base64"), cacheScope: "private",
-          expiresAtMillis: Number(metadata.metadata.expiresAtMillis) };
+          expiresAtMillis: Number(metadata.metadata.expiresAtMillis), serverNowMillis };
       };
       await assertAccountActive();
 
