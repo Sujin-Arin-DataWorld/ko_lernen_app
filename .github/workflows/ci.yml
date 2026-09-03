@@ -630,8 +630,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Fail with a clear message when the GCS secret is missing
+        env:
+          GCS_TTS_VERIFY_SA_JSON: ${{ secrets.GCS_TTS_VERIFY_SA_JSON }}
         run: |
-          if [ -z "${{ secrets.GCS_TTS_VERIFY_SA_JSON }}" ]; then
+          set -euo pipefail
+          if [ -z "${GCS_TTS_VERIFY_SA_JSON}" ]; then
             echo "::error::GCS_TTS_VERIFY_SA_JSON is not set — ask Jin to register a storage.objectViewer service account key (W9-A) before this gate can run."
             exit 1
           fi
