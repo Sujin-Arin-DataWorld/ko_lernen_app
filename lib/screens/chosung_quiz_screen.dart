@@ -1092,6 +1092,7 @@ class _QuizCard extends StatelessWidget {
                   ],
                 ),
               ),
+              // 뜻 항상 표시 — 글자를 떠올리는 핵심 단서.
               // waiting에는 정답 단어가 아직 화면에 없으므로 SoriSpeakable을
               // 절대 붙이지 않는다(정답 유출 방지).
               _State.waiting => Text(

@@ -62,4 +62,29 @@ void main() {
     // "Timer is still pending" 프레임워크 불변식 검사에 걸린다.
     await tester.pump(const Duration(milliseconds: 750));
   });
+
+  testWidgets('오답을 제출해도 카드 탭으로 정답 발음을 재생할 수 있다 (M6)', (tester) async {
+    final spoken = <String>[];
+    SoriSpeech.speakImpl = (text, voice) async {
+      spoken.add(text);
+      return true;
+    };
+    await tester.pumpWidget(host());
+    await tester.pump();
+    await tester.enterText(find.byType(TextField), '바나나');
+    await tester.testTextInput.receiveAction(TextInputAction.done);
+    await tester.pump();
+    expect(find.byType(SoriSpeakable), findsOneWidget);
+    await tester.tap(find.byType(SoriSpeakable));
+    await tester.pump();
+    expect(
+      spoken,
+      ['사과'],
+      reason: '뜻 유출 방지 카드에서도 발음은 항상 정답 단어여야 한다',
+    );
+    // 오답 제출은 1000ms 뒤 다음 문항으로 넘어가는 Future.delayed를 예약한다
+    // (chosung_quiz_screen.dart _submit) — 테스트 종료 전에 흘려보내지 않으면
+    // "Timer is still pending" 프레임워크 불변식 검사에 걸린다.
+    await tester.pump(const Duration(milliseconds: 1050));
+  });
 }
