@@ -1540,7 +1540,43 @@
         },
         "measuredAt": "2026-08-30, 93 files (packs 14 + listening 53 incl. C2Translation + activities 26, word_web/vocab_notebook 재그레인 후)"
       },
-      "knownDeviations": {},
+      "knownDeviations": {
+        "C1-source-original": {
+          "approvedBy": "Jin",
+          "approvedAt": "2026-09-01",
+          "members": [
+            "C1Access",
+            "C1Attribution",
+            "C1Conflict",
+            "C1Consent",
+            "C1Critique",
+            "C1Facework",
+            "C1InvisibleLabor",
+            "C1Mediation",
+            "C1Methodology",
+            "C1Policy",
+            "C1Uncertainty"
+          ],
+          "runtimeCommit": "37afe400dc1b8bde735d4cbbe36c2622beaf10a7",
+          "sourceManifest": "assets_unused/pending_review/listening_cards/c1_source_original/MANIFEST.json",
+          "pipeline": "supplied PNG -> RGB -> LANCZOS 800x600 -> WebP per-asset approved quality (see source manifest) method6; no color correction, blur, or added grain",
+          "exemptGates": [
+            "ivoryFracMin",
+            "ivoryPatchWindow",
+            "fineGrainSD",
+            "coarseGrainSD"
+          ],
+          "retainedGates": [
+            "format",
+            "mode",
+            "dimensions",
+            "fileKB",
+            "palettePresence",
+            "uniqueColorsMin",
+            "sha256 ledger"
+          ]
+        }
+      },
       "knownDeviationsNote": "게이트 실측 대역 밖이지만 승인으로 수용된 파일을 커밋 참조와 함께 기록한다. 비어 있으면 전 멤버가 대역 안이라는 뜻이다.",
       "postProcess": [
         "scripts/finish_listening_card.sh KEY URL (다운로드 -> 4:3 검사 -> LANCZOS 800x600 -> apply_paper_grain 기본값 -> WebP q84 method6 -> tool/check_card_style.py 게이트 -> 통과 시 배치 + --register)",
