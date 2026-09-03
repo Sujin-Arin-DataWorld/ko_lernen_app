@@ -43,7 +43,6 @@ class CommercialSecurityContractTest(unittest.TestCase):
             self.assertIn("github.event.pull_request.draft == false", job)
             self.assertRegex(job, r"(?m)^    needs: changes$")
             self.assertIn("timeout-minutes: 45", job)
-            self.assertIn("runs-on: macos-15", job)
             self.assertIn("bash ios/ci_scripts/ci_post_clone.sh", job)
             self.assertNotIn("continue-on-error", job)
             self.assertNotIn("secrets.", job)
@@ -54,6 +53,24 @@ class CommercialSecurityContractTest(unittest.TestCase):
         self.assertIn("xcodebuild test", simulator)
         self.assertIn("-only-testing:RunnerTests", simulator)
         self.assertIn("CODE_SIGNING_ALLOWED=NO", simulator)
+
+    def test_ios_simulator_uses_native_intel_for_locked_mlkit_slices(self):
+        release, simulator = self.ios_jobs()
+        self.assertRegex(release, r"(?m)^    runs-on: macos-15$")
+        self.assertRegex(simulator, r"(?m)^    runs-on: macos-15-intel$")
+        guard_name = "Verify native Intel simulator host"
+        self.assertIn(guard_name, simulator)
+        guard = simulator.split(f"      - name: {guard_name}\n", 1)[1].split("      - name:", 1)[0]
+        self.assertIn("set -euo pipefail", guard)
+        self.assertIn('host_arch="$(uname -m)"', guard)
+        self.assertIn('test "$host_arch" = "x86_64"', guard)
+        self.assertNotIn("||", guard)
+        self.assertLess(simulator.index(guard_name), simulator.index("bash ios/ci_scripts/ci_post_clone.sh"))
+        native_test = simulator.split("xcodebuild test", 1)[1]
+        self.assertIn('-destination "platform=iOS Simulator,id=$simulator_id,arch=x86_64"', native_test)
+        self.assertIn("ARCHS=x86_64 ONLY_ACTIVE_ARCH=YES", native_test)
+        self.assertNotIn("ARCHS=x86_64", release)
+        self.assertNotIn(guard_name, release)
 
     def test_book_ci_updates_pip_before_installing_function_dependencies(self):
         workflow = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
