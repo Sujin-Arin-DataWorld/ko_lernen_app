@@ -76,3 +76,10 @@ Ruling M3: in _maybePruneCache skip the counter reset when _pruneInFlight is tru
 Ruling M4: move the playImpl seam below the volume gate — cost: none. M5/M6/M7/M8: include (small). M1: record deviation, keep bools (follow-up removal of both zero-consumer bools noted). M9: leave.
 Final fix wave: ONE dispatch (C1, C2, I1, I2, I3(+rm chunking), M2, M3, M4, M5, M6, M7, M8) + ledger commit (I4) at the end.
 Final fix wave: implemented (commits 10e4c8af..c97b0c13) — full suite 5503 passed / 0 failed / 14 skipped, analyze No issues found
+Final fix wave: re-review dispatched (b374e0f2..f1c1e3d6)
+Final fix wave re-review (opus): all 13 findings ADDRESSED, no new Critical/Important.
+Final: parked — split doc comment at tts_service.dart:962/:978 (M2 insertion cut _maybePruneCache's first doc line) — Ruling: docs-only, fix in the next PR touching tts_service.dart.
+Final: parked — M2 call site (tts_service.dart:852 `_touchCacheFile`) not pinned by a test (helper is) — Ruling: real but nothing downstream depends on it; add a resolve-path test when the disk tier gets its next test seam.
+Final: parked — I1 `_bytesCache` retains decoded bundled bytes (≤ ~2.1MB) for the run; M4 seam now also below kIsWeb; M2 touch awaited (bounded by _diskTimeout) — Ruling: accepted as-is.
+Final: parked — M1 TtsService.speaking not derived from phase (spec deviation recorded); both `speaking` bools have zero consumers → follow-up removal candidate.
+W7 PR1 complete: 6414e2c1..HEAD, full suite 5503/0/14 on the code tree (docs-only commits after), analyze 0. Integration decision → Jin (push/PR only on explicit request).
