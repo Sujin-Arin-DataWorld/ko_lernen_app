@@ -7,8 +7,12 @@ import '../models/book_page.dart';
 import '../models/custom_pack.dart';
 import '../models/feedback_completion.dart';
 import '../services/custom_pack_service.dart';
+import '../services/data_loader.dart';
+import '../services/saved_word_localization.dart';
+import '../services/korean_romanization.dart';
 import '../services/storage_service.dart';
 import '../widgets/flip_card.dart';
+import '../widgets/flashcard_romanization_action.dart';
 import '../widgets/managed_media_image.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/mascot_preference.dart';
@@ -56,6 +60,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
   CustomPack? _pack;
   int _idx = 0;
   bool _flipped = false;
+  bool _romanizationOnFront = Storage.flashcardRomanizationOnFront;
   // 앞면으로 다시 돌아와도 이 카드의 답을 이미 본 사실은 유지한다.
   // 판정/스킵으로 다음 카드가 서빙될 때만 초기화한다.
   bool _cardRevealed = false;
@@ -95,6 +100,49 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
         ? pack
         : pack.copyWith(words: widget.words);
     scheduleCoach();
+    // ignore: discarded_futures
+    _loadSavedTranslations();
+  }
+
+  Future<void> _loadSavedTranslations() async {
+    final catalog = await DataLoader.loadVocab();
+    if (!mounted || _pack == null || catalog.isEmpty) {
+      return;
+    }
+    setState(() {
+      _pack = _pack!.copyWith(
+        words: [
+          for (final word in _pack!.words) localizeSavedWord(word, catalog),
+        ],
+      );
+    });
+  }
+
+  Future<void> _editTranslation() async {
+    final selected = _pack?.words.map((word) => word.korean).toSet();
+    await Navigator.of(
+      context,
+    ).pushNamed('/custom_pack/edit', arguments: widget.packId);
+    if (!mounted) {
+      return;
+    }
+    final updated = CustomPackService.getById(widget.packId);
+    if (updated == null) {
+      return;
+    }
+    setState(() {
+      _pack = widget.words == null
+          ? updated
+          : updated.copyWith(
+              words: updated.words
+                  .where((w) => selected!.contains(w.korean))
+                  .toList(),
+            );
+      if (_idx >= _pack!.words.length) {
+        _idx = 0;
+      }
+    });
+    await _loadSavedTranslations();
   }
 
   // §P2-5 플립 게이트 힌트 칩 트리거.
@@ -165,7 +213,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     await shareContentStoryWithRecovery(
       context: context,
       korean: w.korean,
-      gloss: w.translationDe,
+      gloss: w.translationFor(Localizations.localeOf(context).languageCode),
     );
   }
 
@@ -258,7 +306,17 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
         icon: const Icon(Icons.close),
         onPressed: () => Navigator.of(context).maybePop(),
       ),
-      actions: const [TtsSpeedAction()],
+      actions: [
+        FlashcardRomanizationAction(
+          onFront: _romanizationOnFront,
+          onChanged: (value) {
+            setState(() => _romanizationOnFront = value);
+            // ignore: discarded_futures
+            Storage.setFlashcardRomanizationOnFront(value);
+          },
+        ),
+        const TtsSpeedAction(),
+      ],
       child: SoriAdaptiveStudyBody(
         minHeight: 560,
         child: Column(
@@ -317,8 +375,13 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                           front: _Front(
                             word: w,
                             deckKoreans: [for (final x in pack.words) x.korean],
+                            romanizationOnFront: _romanizationOnFront,
                           ),
-                          back: _Back(word: w),
+                          back: _Back(
+                            word: w,
+                            romanizationOnFront: _romanizationOnFront,
+                            onAddTranslation: _editTranslation,
+                          ),
                         ),
                       ),
                     ),
@@ -333,7 +396,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
   }
 
   /// 덱 스택 underlay 용 앞면 슬롯 — 본 카드와 동일한 지오메트리 경로.
-  Widget _faceSlot(CustomPack pack, dynamic word) {
+  Widget _faceSlot(CustomPack pack, ExtractedWord word) {
     return Center(
       child: FractionallySizedBox(
         heightFactor: 0.82,
@@ -342,6 +405,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
           child: _Front(
             word: word,
             deckKoreans: [for (final x in pack.words) x.korean],
+            romanizationOnFront: _romanizationOnFront,
           ),
         ),
       ),
@@ -437,12 +501,17 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
 }
 
 class _Front extends StatelessWidget {
-  final dynamic word; // ExtractedWord
+  final ExtractedWord word;
+  final bool romanizationOnFront;
 
   /// 팩 전체 표제어 — 제시어 크기를 덱에서 가장 긴 단어 기준으로 한 번 정해
   /// 카드마다 크기가 요동치지 않게 한다 ([soriUniformFitSize]).
   final List<String> deckKoreans;
-  const _Front({required this.word, required this.deckKoreans});
+  const _Front({
+    required this.word,
+    required this.deckKoreans,
+    required this.romanizationOnFront,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -506,7 +575,8 @@ class _Front extends StatelessWidget {
                   Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      if (word.romanization.isNotEmpty) ...[
+                      if (romanizationOnFront &&
+                          word.romanization.isNotEmpty) ...[
                         Text(
                           '[${word.romanization}]',
                           textAlign: TextAlign.center,
@@ -541,11 +611,21 @@ class _Front extends StatelessWidget {
 }
 
 class _Back extends StatelessWidget {
-  final dynamic word; // ExtractedWord
-  const _Back({required this.word});
+  final ExtractedWord word;
+  final bool romanizationOnFront;
+  final VoidCallback onAddTranslation;
+  const _Back({
+    required this.word,
+    required this.romanizationOnFront,
+    required this.onAddTranslation,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final languageCode = Localizations.localeOf(context).languageCode;
+    final meaning = word.translationFor(languageCode);
+    final example = word.exampleFor(languageCode);
+    final pos = word.posFor(languageCode);
     return SoriCard(
       variant: SoriCardVariant.hero,
       accent: SoriColors.success,
@@ -577,9 +657,7 @@ class _Back extends StatelessWidget {
                       // 뜻은 고정 크기 + 줄바꿈 — FittedBox 축소는 뜻 길이마다
                       // 카드 글씨를 요동치게 한다 (단어 길이별 크기 변동 금지).
                       Text(
-                        word.translationDe.isNotEmpty
-                            ? word.translationDe
-                            : (word.posDe.isNotEmpty ? word.posDe : '-'),
+                        meaning.isNotEmpty ? meaning : word.korean,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: soriFillSize(h, 0.085, 22, 38),
@@ -587,12 +665,23 @@ class _Back extends StatelessWidget {
                           height: 1.15,
                         ),
                       ),
-                      if ((HanjaLexicon.lookup(word.korean as String)?.hanja ??
-                              '')
+                      if (meaning.isEmpty) ...[
+                        const SizedBox(height: Spacing.sm),
+                        Text(
+                          AppL10n.of(context).savedTranslationUnavailable,
+                          textAlign: TextAlign.center,
+                          style: SoriTextTheme.of(context).bodySmall,
+                        ),
+                        TextButton(
+                          onPressed: onAddTranslation,
+                          child: Text(AppL10n.of(context).savedAddTranslation),
+                        ),
+                      ],
+                      if ((HanjaLexicon.lookup(word.korean)?.hanja ?? '')
                           .isNotEmpty) ...[
                         SizedBox(height: soriFillSize(h, 0.012, 4, 10)),
                         Text(
-                          HanjaLexicon.lookup(word.korean as String)!.hanja,
+                          HanjaLexicon.lookup(word.korean)!.hanja,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: soriFillSize(h, 0.05, 13, 24),
@@ -603,10 +692,10 @@ class _Back extends StatelessWidget {
                           ),
                         ),
                       ],
-                      if ((word.posDe as String).isNotEmpty) ...[
+                      if (pos.isNotEmpty) ...[
                         SizedBox(height: soriFillSize(h, 0.014, 4, 12)),
                         Text(
-                          word.posDe,
+                          pos,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: soriFillSize(h, 0.05, 13, 30),
@@ -614,11 +703,23 @@ class _Back extends StatelessWidget {
                           ),
                         ),
                       ],
+                      if (!romanizationOnFront &&
+                          word.romanization.isNotEmpty) ...[
+                        SizedBox(height: soriFillSize(h, 0.014, 4, 12)),
+                        Text(
+                          '[${word.romanization}]',
+                          textAlign: TextAlign.center,
+                          style: SoriTextTheme.of(context).bodySmall.copyWith(
+                            fontSize: soriFillSize(h, 0.05, 13, 30),
+                            color: SoriSurfaces.of(context).textMuted,
+                          ),
+                        ),
+                      ],
                     ],
                   ),
                   // 예문(한국어 + 번역)을 한 묶음으로 — 탭하면 예문 발음,
                   // 길게 누르면 느리게 (인라인 스피커 아이콘이 affordance).
-                  if ((word.exampleKorean as String).isNotEmpty)
+                  if (word.exampleKorean.isNotEmpty)
                     SoriPressable(
                       haptic: SoriHaptic.light,
                       onTap: () {
@@ -654,10 +755,19 @@ class _Back extends StatelessWidget {
                               height: 1.25,
                             ),
                           ),
-                          if ((word.exampleDe as String).isNotEmpty) ...[
+                          SizedBox(height: soriFillSize(h, 0.012, 4, 14)),
+                          Text(
+                            romanizeKorean(word.exampleKorean),
+                            textAlign: TextAlign.center,
+                            style: SoriTextTheme.of(context).bodySmall.copyWith(
+                              fontSize: soriFillSize(h, 0.042, 13, 24),
+                              color: SoriSurfaces.of(context).textMuted,
+                            ),
+                          ),
+                          if (example.isNotEmpty) ...[
                             SizedBox(height: soriFillSize(h, 0.012, 4, 14)),
                             Text(
-                              word.exampleDe,
+                              example,
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: soriFillSize(h, 0.05, 13, 30),

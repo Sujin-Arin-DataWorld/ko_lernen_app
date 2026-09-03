@@ -56,6 +56,8 @@ class ExtractedWord {
   final String translationLanguage;
   final String exampleKorean; // 추출 텍스트 중 첫 등장 문장 (옵션)
   final String exampleDe;
+  final String exampleEn;
+  final String exampleLanguage;
   final String definitionKo; // 우리말샘 국어사전 뜻풀이 (옵션, 없으면 '')
   final String imagePath; // 첨부 사진 로컬 경로 (옵션, 없으면 ''). 앱 문서 폴더.
   final String? savedToPackId; // 저장한 custom pack id (null = 미저장)
@@ -69,6 +71,8 @@ class ExtractedWord {
     required this.translationEn,
     required this.exampleKorean,
     required this.exampleDe,
+    this.exampleEn = '',
+    this.exampleLanguage = '',
     required this.savedToPackId,
     this.translationLanguage = 'de',
     this.definitionKo = '',
@@ -76,12 +80,73 @@ class ExtractedWord {
     this.sourceUnitId = '',
   });
 
-  /// Meaning shown for the active app locale, with the other reviewed
-  /// translation as a fail-safe for legacy or partially populated packs.
+  /// Only return a meaning known to belong to the requested language.
+  /// Old English OCR/import rows may still use the legacy German-named slot.
   String translationFor(String languageCode) {
-    final preferred = languageCode == 'en' ? translationEn : translationDe;
-    final fallback = languageCode == 'en' ? translationDe : translationEn;
-    return preferred.trim().isNotEmpty ? preferred : fallback;
+    if (languageCode == 'en') {
+      return translationEn.trim().isNotEmpty
+          ? translationEn
+          : (translationLanguage == 'en' ? translationDe : '');
+    }
+    if (translationLanguage == 'en' &&
+        (translationEn.trim().isEmpty ||
+            translationDe.trim() == translationEn.trim())) {
+      return '';
+    }
+    return translationDe;
+  }
+
+  /// Retained original meaning for explicit editing, never a locale fallback.
+  String get originalTranslation => translationLanguage == 'en'
+      ? (translationEn.trim().isNotEmpty ? translationEn : translationDe)
+      : translationDe;
+
+  /// Old analysis responses store the requested language in exampleDe.
+  /// Never present that German-only example as an English learning cue.
+  String exampleFor(String languageCode) {
+    if (languageCode == 'en') {
+      return exampleEn.isNotEmpty
+          ? exampleEn
+          : (_resolvedExampleLanguage == 'en' ? exampleDe : '');
+    }
+    return _resolvedExampleLanguage == 'en' ? '' : exampleDe;
+  }
+
+  String get _resolvedExampleLanguage =>
+      exampleLanguage.isEmpty ? translationLanguage : exampleLanguage;
+
+  String posFor(String languageCode) {
+    if (languageCode != 'en') {
+      return posDe;
+    }
+    return const {
+          'Nomen': 'Noun',
+          'Substantiv': 'Noun',
+          'Verb': 'Verb',
+          'Adjektiv': 'Adjective',
+          'Adverb': 'Adverb',
+          'Pronomen': 'Pronoun',
+          'Partikel': 'Particle',
+          'Interjektion': 'Interjection',
+          'Ausdruck': 'Expression',
+          'Phrase': 'Phrase',
+          'Zahlwort': 'Numeral',
+          'Konjunktion': 'Conjunction',
+          'Verbphrase': 'Verb phrase',
+        }[posDe] ??
+        (const {
+              'Noun',
+              'Adjective',
+              'Pronoun',
+              'Particle',
+              'Interjection',
+              'Expression',
+              'Numeral',
+              'Conjunction',
+              'Verb phrase',
+            }.contains(posDe)
+            ? posDe
+            : '');
   }
 
   /// 사용자가 손으로 입력하는 단어 ("나만의 단어장"). 옵션 필드는 기본 빈 값.
@@ -94,6 +159,8 @@ class ExtractedWord {
     String posDe = '',
     String exampleKorean = '',
     String exampleDe = '',
+    String exampleEn = '',
+    String exampleLanguage = '',
     String definitionKo = '',
     String imagePath = '',
   }) => ExtractedWord(
@@ -105,6 +172,10 @@ class ExtractedWord {
     translationLanguage: _bookLanguage(translationLanguage),
     exampleKorean: _safeWordExample(exampleKorean),
     exampleDe: _safeWordMeaning(exampleDe),
+    exampleEn: _safeWordMeaning(exampleEn),
+    exampleLanguage: exampleLanguage.isEmpty
+        ? _bookLanguage(translationLanguage)
+        : _bookLanguage(exampleLanguage),
     definitionKo: _safeWordDefinition(definitionKo),
     imagePath: imagePath,
     savedToPackId: null,
@@ -119,6 +190,8 @@ class ExtractedWord {
     'translationLanguage': translationLanguage,
     'exampleKorean': exampleKorean,
     'exampleDe': exampleDe,
+    'exampleEn': exampleEn,
+    'exampleLanguage': _resolvedExampleLanguage,
     'definitionKo': definitionKo,
     'imagePath': _managedRefFor(imagePath, ManagedMediaKind.word) ?? '',
     'savedToPackId': savedToPackId,
@@ -134,6 +207,8 @@ class ExtractedWord {
     'translationLanguage': translationLanguage,
     'exampleKorean': exampleKorean,
     'exampleDe': exampleDe,
+    'exampleEn': exampleEn,
+    'exampleLanguage': _resolvedExampleLanguage,
     'definitionKo': definitionKo,
     'savedToPackId': savedToPackId,
     if (sourceUnitId.isNotEmpty) 'sourceUnitId': sourceUnitId,
@@ -150,6 +225,10 @@ class ExtractedWord {
     translationLanguage: _bookLanguage(j['translationLanguage']),
     exampleKorean: _safeWordExample(j['exampleKorean']),
     exampleDe: _safeWordMeaning(j['exampleDe']),
+    exampleEn: _safeWordMeaning(j['exampleEn']),
+    exampleLanguage: _bookLanguage(
+      j['exampleLanguage'] ?? j['translationLanguage'],
+    ),
     definitionKo: _safeWordDefinition(j['definitionKo']),
     imagePath: _managedRefFor(j['imagePath'], ManagedMediaKind.word) ?? '',
     savedToPackId: j['savedToPackId'] as String?,
@@ -166,6 +245,10 @@ class ExtractedWord {
         translationLanguage: _bookLanguage(j['translationLanguage']),
         exampleKorean: _safeWordExample(j['exampleKorean']),
         exampleDe: _safeWordMeaning(j['exampleDe']),
+        exampleEn: _safeWordMeaning(j['exampleEn']),
+        exampleLanguage: _bookLanguage(
+          j['exampleLanguage'] ?? j['translationLanguage'],
+        ),
         definitionKo: _safeWordDefinition(j['definitionKo']),
         imagePath: '',
         savedToPackId: j['savedToPackId'] as String?,
@@ -185,6 +268,8 @@ class ExtractedWord {
         translationLanguage: translationLanguage,
         exampleKorean: exampleKorean,
         exampleDe: exampleDe,
+        exampleEn: exampleEn,
+        exampleLanguage: _resolvedExampleLanguage,
         definitionKo: definitionKo,
         imagePath: imagePath,
         sourceUnitId: sourceUnitId,
@@ -199,6 +284,9 @@ class ExtractedWord {
     String? translationEn,
     String? translationLanguage,
     String? exampleKorean,
+    String? exampleDe,
+    String? exampleEn,
+    String? exampleLanguage,
     String? definitionKo,
     String? imagePath,
     bool clearImage = false,
@@ -212,7 +300,9 @@ class ExtractedWord {
       translationLanguage ?? this.translationLanguage,
     ),
     exampleKorean: _safeWordExample(exampleKorean ?? this.exampleKorean),
-    exampleDe: exampleDe,
+    exampleDe: _safeWordMeaning(exampleDe ?? this.exampleDe),
+    exampleEn: _safeWordMeaning(exampleEn ?? this.exampleEn),
+    exampleLanguage: exampleLanguage ?? _resolvedExampleLanguage,
     definitionKo: _safeWordDefinition(definitionKo ?? this.definitionKo),
     imagePath: clearImage ? '' : (imagePath ?? this.imagePath),
     sourceUnitId: sourceUnitId,

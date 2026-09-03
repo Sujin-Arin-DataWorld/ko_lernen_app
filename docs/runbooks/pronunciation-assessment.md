@@ -5,6 +5,63 @@ printing speech audio, Korean reference text, account identifiers, or secret
 values. It does not authorize a deploy. Run deployment and physical-device
 checks only in their separately approved release step.
 
+## Beta cost policy
+
+Beta builds default to local recording practice. The Dart define
+`ENABLE_FREE_PRONUNCIATION_ASSESSMENT` defaults to `false`, independently of
+`BETA_UNLOCK_ALL`. Stopping a recording does not upload it. Learners can replay
+their recording on the device and continue without a scored result. Temporary
+recording playback files, where required by the platform, are separate from
+the model-voice cache and are removed when the recording is discarded.
+Existing model-voice TTS is unchanged; it is the user's explicit cost exception.
+
+The callable also defaults to disabled. Unless
+`PRONUNCIATION_ASSESSMENT_MODE=azure_f0`, it rejects requests before reading
+Firestore or a secret and before contacting Azure. It has no warm instances,
+at most one instance, and one concurrent request. Disabled deployments bind no
+secret, including at cold start. Redeploy when changing this server mode so
+the secret binding matches it. There is no paid fallback.
+
+Free assessment must remain disabled until all of the following are verified:
+
+1. The Azure resource associated with `AZURE_SPEECH_KEY` is a dedicated
+   `SpeechServices` resource with SKU **F0** in **germanywestcentral**. Verify
+   the resource itself, not a key's name or the presence of trial credit. For
+   example, with the resource owner signed in to Azure CLI:
+
+   ```powershell
+   az cognitiveservices account show --resource-group <resource-group> `
+     --name <speech-resource> `
+     --query '{name:name,kind:kind,location:location,sku:sku.name}' --output json
+   ```
+
+2. The secret is bound to that verified F0 resource through the approved
+   secret-management process. Never copy it into the app, a Dart define, Git,
+   screenshots, or command output. The application mode is an activation
+   switch, not a live Azure SKU check. Recheck the resource after any key,
+   resource, or billing-tier change; an S0 resource is not approved for beta.
+3. Only then set `PRONUNCIATION_ASSESSMENT_MODE=azure_f0` in the pronunciation
+   codebase's deployment environment and build the approved client with
+   `--dart-define=ENABLE_FREE_PRONUNCIATION_ASSESSMENT=true`. Missing or
+   unverified settings stay disabled. The normal release approval, exact-SHA
+   CI, consent, Auth, App Check, and signed-device gates still apply.
+
+The server reserves rounded-up audio seconds in the private document
+`service_usage/pronunciation_free_YYYY-MM` before sending audio. The shared
+limit is 18,000 seconds per UTC calendar month across all learners, in addition
+to the existing per-user limits. The document contains aggregate usage and an
+update timestamp, never audio, reference text, or learner identifiers. The
+default-deny Firestore rule keeps it inaccessible to clients. A failed or
+timed-out provider call does not refund this monthly reservation because the
+audio might already have been processed. A completed replay costs no further
+audio allowance; an in-flight duplicate is not sent again.
+
+Azure's own F0 quota still applies, including any usage outside this callable.
+An exhausted quota or unavailable provider must preserve local replay and
+unscored practice. Do not upgrade to S0, switch providers, or use paid credits
+automatically. These controls limit assessment costs; they do not claim that
+all existing Firebase or TTS services are free.
+
 ## Fixed contract
 
 - Firebase project: `ko-lernen-app` (from `.firebaserc`).
@@ -15,7 +72,8 @@ checks only in their separately approved release step.
 - App Check enforcement and limited-use token consumption are enabled.
 - The client sends mono 16 kHz PCM16 and reuses one `assessmentId` when it
   retries the same captured recording.
-- The callable secret binding is `AZURE_SPEECH_KEY`.
+- The enabled callable secret binding is `AZURE_SPEECH_KEY`; disabled
+  deployments have an empty secret binding.
 
 The callable region and Azure provider region are different concepts. Do not
 change one to make it look like the other.
@@ -33,7 +91,7 @@ flutter test --no-pub test/pronunciation_studio_screen_test.dart test/pronunciat
 Also confirm the source contract before a release:
 
 ```powershell
-rg -n 'region: "europe-west3"|enforceAppCheck: true|consumeAppCheckToken: true|secrets: \[AZURE_SPEECH_KEY\]' functions/pronunciation/index.js
+rg -n 'region: "europe-west3"|enforceAppCheck: true|consumeAppCheckToken: true|secrets: freeTierAssessmentEnabled' functions/pronunciation/index.js
 rg -n 'limitedUseAppCheckToken: true|_functionRegion = .europe-west3.' lib/services/pronunciation_assessment_client.dart
 ```
 
@@ -88,7 +146,9 @@ does not prove Play Integrity, App Attest, or DeviceCheck on a release build.
 ## Anonymous-auth gate
 
 The app startup coordinator calls `AuthService.ensureSignedIn()`, and the
-callable rejects a request without `request.auth.uid`.
+callable rejects a request without `request.auth.uid`. These checks apply to
+optional online assessment; local recording and replay do not require cloud
+authentication or upload consent.
 
 1. In Firebase Console > Authentication > Sign-in method, confirm Anonymous is
    enabled for `ko-lernen-app`.
@@ -106,7 +166,8 @@ callable rejects a request without `request.auth.uid`.
 `FirebasePronunciationAssessmentGateway.production()` targets
 `europe-west3`. The repository does not currently call
 `useFunctionsEmulator`, so starting Firebase emulators alone does not redirect
-the app; an ordinary debug build still calls production.
+the app. The default debug build does not request assessment. A debug build
+explicitly enabling free assessment still targets production.
 
 - `npm test --prefix functions/pronunciation` is a local unit/contract test. It
   does not contact Azure or a deployed callable.
@@ -139,7 +200,12 @@ The final device pass remains a human/device gate. Record separately:
 - platform, OS version, build number, and debug or release mode;
 - microphone consent accepted and declined paths;
 - OS microphone permission denied and accepted paths;
-- listen, record, stop, score, retry-same-recording, and continue-without-score;
+- model voice, record, stop, replay/stop own recording, optional explicit score,
+  retry-same-recording, and continue-without-score;
+- default build: recording, replay, and unscored practice make no assessment
+  callable request and never display a fabricated passing score;
+- F0-enabled build: upload consent occurs only at the explicit score action;
+- free quota exhaustion: local replay and unscored practice remain available;
 - backgrounding or leaving while recording and while awaiting a score;
 - App Check provider used and whether the request reached the deployed
   `europe-west3` callable;

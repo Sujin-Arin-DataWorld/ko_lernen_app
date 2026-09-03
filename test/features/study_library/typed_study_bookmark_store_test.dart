@@ -5,6 +5,33 @@ import 'package:ko_lernen_app/features/study_library/study_library.dart';
 
 void main() {
   group('TypedStudyBookmarkStore', () {
+    test('preserves language provenance and legacy text without guessing', () {
+      final raw = <String, Object>{
+        'type': 'word',
+        'id': 'legacy',
+        'primaryText': '옛말',
+        'secondaryText': 'Alte Bedeutung',
+      };
+      for (final language in ['de', 'en']) {
+        final bookmark = TypedStudyBookmark.fromJson({
+          ...raw,
+          'secondaryLanguage': language,
+        });
+        expect(bookmark.secondaryLanguage, language);
+        expect(TypedStudyBookmark.fromJson(bookmark.toJson()), bookmark);
+      }
+      final legacy = TypedStudyBookmark.fromJson(raw);
+      expect(legacy.secondaryLanguage, isNull);
+      expect(
+        TypedStudyBookmark.fromJson(legacy.toJson()).secondaryText,
+        'Alte Bedeutung',
+      );
+      expect(
+        () => TypedStudyBookmark.fromJson({...raw, 'secondaryLanguage': 7}),
+        throwsFormatException,
+      );
+    });
+
     test('round-trips every item type without flattening', () async {
       final storage = _MemoryRawStorage();
       final store = storage.store;

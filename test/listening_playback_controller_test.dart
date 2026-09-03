@@ -86,6 +86,24 @@ void main() {
     controller.dispose();
   });
 
+  test(
+    'review reveals meanings and still lets learners hide a translation',
+    () async {
+      final controller = ListeningPlaybackController(
+        lines: _lines,
+        speak: (text, {required voice}) async => true,
+        stop: () async {},
+        onCompleted: () async {},
+      );
+      await controller.enterReview();
+      expect(controller.expandedTranslations, {0, 1, 2});
+      await controller.toggleTranslation(1);
+      expect(controller.expandedTranslations, {0, 2});
+      expect(controller.phase, ListeningPlaybackPhase.review);
+      controller.dispose();
+    },
+  );
+
   test('a thrown TTS error and lifecycle stop both pause safely', () async {
     var stops = 0;
     final controller = ListeningPlaybackController(

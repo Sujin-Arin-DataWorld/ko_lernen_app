@@ -44,7 +44,7 @@ void main() {
     expect(word.translationLanguage, 'de');
   });
 
-  test('manual and auto-filled English edits mirror the legacy slot', () {
+  test('English edits preserve an existing German meaning', () {
     final manual = buildCustomPackEditedWord(
       korean: '학생',
       meaning: 'student',
@@ -56,6 +56,7 @@ void main() {
       existing: ExtractedWord.manual(
         korean: '학생',
         translationDe: 'Schüler',
+        exampleDe: 'Ich bin Schüler.',
         imagePath: 'word:photo.jpg',
       ),
       korean: '학생',
@@ -65,12 +66,55 @@ void main() {
       translationLanguage: 'en',
     );
 
+    expect(manual.translationDe, 'student');
+    expect(edited.translationDe, 'Schüler');
     for (final word in [manual, edited]) {
-      expect(word.translationDe, 'student');
       expect(word.translationEn, 'student');
       expect(word.translationLanguage, 'en');
     }
     expect(edited.imagePath, 'word:photo.jpg');
+    expect(edited.exampleFor('en'), isEmpty);
+    expect(edited.exampleFor('de'), 'Ich bin Schüler.');
+  });
+
+  test('editing legacy English OCR does not create a fake German meaning', () {
+    final legacy = ExtractedWord.manual(
+      korean: '학생',
+      translationDe: 'old English',
+      translationLanguage: 'en',
+    );
+    final edited = buildCustomPackEditedWord(
+      existing: legacy,
+      korean: legacy.korean,
+      meaning: 'new English',
+      exampleKorean: '',
+      definitionKo: '',
+      translationLanguage: 'en',
+    );
+    expect(edited.translationFor('en'), 'new English');
+    expect(edited.translationFor('de'), isEmpty);
+    final german = buildCustomPackEditedWord(
+      existing: legacy,
+      korean: legacy.korean,
+      meaning: 'Schüler',
+      exampleKorean: '',
+      definitionKo: '',
+      translationLanguage: 'de',
+    );
+    expect(german.translationFor('de'), 'Schüler');
+    expect(german.translationFor('en'), 'old English');
+    expect(
+      ExtractedWord.fromPortableJson(
+        german.toPortableJson(),
+      ).translationFor('en'),
+      'old English',
+    );
+    expect(
+      ExtractedWord.fromPortableJson(
+        edited.toPortableJson(),
+      ).translationFor('de'),
+      isEmpty,
+    );
   });
 
   test('manual and CSV words remove unsupported and format controls', () {
@@ -116,10 +160,7 @@ void main() {
   });
 
   test('merge keeps the first Korean headword and stops at 8000', () {
-    final first = ExtractedWord.manual(
-      korean: '학교',
-      translationDe: 'Schule',
-    );
+    final first = ExtractedWord.manual(korean: '학교', translationDe: 'Schule');
     final duplicate = ExtractedWord.manual(
       korean: '학교',
       translationDe: 'school',

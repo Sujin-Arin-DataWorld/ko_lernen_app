@@ -3,48 +3,20 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../dancheong_stamp.dart';
-import '../hanok/hanji_texture.dart';
-import '../hanok_tokens.dart';
 import '../tokens.dart';
 import 'chaekgado_assets.dart';
 import 'scroll_palette.dart';
 
-/// 책가도 목재 5색 — `docs/HANDOFF_HOEREN_REDESIGN_2026-08-19.md` §3-② 의
-/// 승인 팔레트를 그대로 옮긴 것이다. **신규 안료가 아니다**: 널판 3톤·윗변
-/// 석간주 어긋남선·장 안쪽이 그 표의 값이며, 값을 고칠 땐 그 문서가 먼저다.
-/// 나무를 PNG 가 아니라 [CustomPainter] 로 그리는 이유도 같은 절(② 나무 =
-/// 면 3톤 + 어긋남) — 프레임 PNG 는 기둥 위치와 투명 여백이 베이크돼 있어
-/// dp 그리드에서는 재사용이 불가능하다.
-abstract final class _ChaekgadoWood {
-  /// 널판 위 밴드 30%.
-  static const Color plankLight = Color(0xFFA87F55);
-
-  /// 널판 중간 밴드 44%.
-  static const Color plankMid = Color(0xFF8E6646);
-
-  /// 널판 아래 밴드 26%.
-  static const Color plankDark = Color(0xFF5C4028);
-
-  /// 리소 2판 어긋남 — 널판 윗변 1px 석간주.
-  static const Color misregister = Color(0xFFB94B32);
-
-  /// 장 안쪽(칸 뒤) 먹갈색 면.
-  static const Color carcass = Color(0xFF3E2B1B);
-}
-
-/// dp 그리드 — 레이아웃을 PNG 가 아니라 이 수치가 정한다.
+/// The grid keeps readable targets while original artwork supplies the wood.
 abstract final class _Grid {
   static const double sidePillar = 12;
   static const double centerPillar = 10;
-  static const double plank = 10;
-  static const double crown = 24;
-  static const double base = 14;
-  static const double cellAspect = 0.6;
-  static const double minCellHeight = 88;
-  static const double maxCellHeight = 116;
-
-  /// 행마다 홀짝으로 교차하는 어긋남 각(±0.5°).
-  static const double skew = 0.5 * math.pi / 180;
+  static const double plank = 20;
+  static const double crown = 38;
+  static const double base = 44;
+  static const double cellAspect = 0.75;
+  static const double minCellHeight = 144;
+  static const double maxCellHeight = 196;
 }
 
 /// 붓선(진행)과 완료 도장을 테스트가 집을 수 있게 하는 공개 키.
@@ -89,17 +61,9 @@ class ChaekgadoCompartment {
   bool get isStocked => count > 0;
 }
 
-/// 책가도 서재 — **dp 그리드가 레이아웃을 정하고 나무는 페인터가 그린다.**
-///
-/// 2026-08-23 전면 재작성(계획 `cheerful-percolating-shore.md` P1). 이전 판은
-/// 1254px 캔버스의 슬롯 좌표를 하드코딩해 칸이 103dp 폭·37dp 높이로 쪼그라들고
-/// 가용폭의 27%가 PNG 속 투명 여백으로 사라졌다. 지금은:
-///
-/// - 기둥 12dp(중앙 10dp)를 빼고 남는 폭을 칸이 반씩 갖는다.
-/// - 칸 높이 = `(칸폭 × 0.6).clamp(88, 116)` — 어느 폭에서도 48dp 탭 규정 위.
-/// - **첫 칸은 전폭**이라 15칸(홀수)이 1 + 7×2 로 정확히 떨어진다. 죽은 빈
-///   칸이 구조적으로 사라진다.
-/// - 칸 내부는 듣기 카드 아트 한 장(규칙 ① 칸 = 정물 한 점).
+/// The supplied faceted Chaekgado bookcase, assembled around responsive cells.
+/// Original wood is cropped at runtime, so transparent source margins do not
+/// shrink targets and category count does not stretch the whole cabinet.
 class ChaekgadoShelfCase extends StatelessWidget {
   const ChaekgadoShelfCase({
     super.key,
@@ -145,7 +109,7 @@ class ChaekgadoShelfCase extends StatelessWidget {
           1.0,
           (width - _Grid.sidePillar * 2 - _Grid.centerPillar) / 2,
         );
-        final cellHeight = (cellWidth * _Grid.cellAspect).clamp(
+        final cellHeight = (cellWidth * _Grid.cellAspect + 36).clamp(
           _Grid.minCellHeight,
           _Grid.maxCellHeight,
         );
@@ -175,9 +139,6 @@ class ChaekgadoShelfCase extends StatelessWidget {
 
         return Stack(
           children: [
-            const Positioned.fill(
-              child: ColoredBox(color: _ChaekgadoWood.carcass),
-            ),
             Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -186,8 +147,6 @@ class ChaekgadoShelfCase extends StatelessWidget {
                 ...band,
               ],
             ),
-            // 그레인 1겹 — 08-19 §3-② "그레인 1겹 multiply(전체)".
-            const Positioned.fill(child: IgnorePointer(child: _WoodGrain())),
           ],
         );
       },
@@ -210,10 +169,20 @@ class _ShelfRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final children = <Widget>[const _Pillar(width: _Grid.sidePillar)];
+    final children = <Widget>[
+      const _Pillar(
+        width: _Grid.sidePillar,
+        source: Rect.fromLTRB(163, 352, 233, 502),
+      ),
+    ];
     for (var i = 0; i < cells.length; i++) {
       if (i > 0) {
-        children.add(const _Pillar(width: _Grid.centerPillar));
+        children.add(
+          const _Pillar(
+            width: _Grid.centerPillar,
+            source: Rect.fromLTRB(594, 352, 650, 502),
+          ),
+        );
       }
       children.add(
         Expanded(
@@ -227,12 +196,55 @@ class _ShelfRow extends StatelessWidget {
         ),
       );
     }
-    children.add(const _Pillar(width: _Grid.sidePillar));
+    children.add(
+      const _Pillar(
+        width: _Grid.sidePillar,
+        source: Rect.fromLTRB(1007, 352, 1078, 502),
+      ),
+    );
     return Row(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: children,
     );
   }
+}
+
+/// Source rectangles follow bookcase/layout.json; no image bytes are changed.
+class _BookcaseCrop extends StatelessWidget {
+  const _BookcaseCrop({
+    this.asset = kChaekgadoBookcaseFrame,
+    required this.source,
+  });
+
+  final String asset;
+  final Rect source;
+
+  @override
+  Widget build(BuildContext context) => LayoutBuilder(
+    builder: (context, constraints) {
+      final scaleX = constraints.maxWidth / source.width;
+      final scaleY = constraints.maxHeight / source.height;
+      return ClipRect(
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            Positioned(
+              left: -source.left * scaleX,
+              top: -source.top * scaleY,
+              width: 1254 * scaleX,
+              height: 1254 * scaleY,
+              child: Image.asset(
+                asset,
+                fit: BoxFit.fill,
+                excludeFromSemantics: true,
+                filterQuality: FilterQuality.medium,
+              ),
+            ),
+          ],
+        ),
+      );
+    },
+  );
 }
 
 class _Plank extends StatelessWidget {
@@ -242,108 +254,29 @@ class _Plank extends StatelessWidget {
   final int rowIndex;
 
   @override
-  Widget build(BuildContext context) {
-    return Transform(
-      transform: Matrix4.skewY(rowIndex.isEven ? _Grid.skew : -_Grid.skew),
-      alignment: Alignment.center,
-      child: SizedBox(
-        height: height,
-        child: const CustomPaint(painter: _PlankPainter()),
-      ),
-    );
-  }
+  Widget build(BuildContext context) => SizedBox(
+    height: height,
+    child: _BookcaseCrop(
+      source: rowIndex == 0
+          ? const Rect.fromLTRB(151, 47, 1091, 144)
+          : height == _Grid.base
+          ? const Rect.fromLTRB(151, 1081, 1091, 1205)
+          : const Rect.fromLTRB(163, 300, 1078, 352),
+    ),
+  );
 }
 
 class _Pillar extends StatelessWidget {
-  const _Pillar({required this.width});
+  const _Pillar({required this.width, required this.source});
 
   final double width;
+  final Rect source;
 
   @override
   Widget build(BuildContext context) => SizedBox(
     width: width,
-    child: const CustomPaint(painter: _PillarPainter()),
+    child: _BookcaseCrop(source: source),
   );
-}
-
-/// 널판 — 가로 3톤 하드엣지(30/44/26) + 윗변 1px 석간주 어긋남.
-class _PlankPainter extends CustomPainter {
-  const _PlankPainter();
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    if (size.width <= 0 || size.height <= 0) {
-      return;
-    }
-    const bands = <(double, Color)>[
-      (0.30, _ChaekgadoWood.plankLight),
-      (0.44, _ChaekgadoWood.plankMid),
-      (0.26, _ChaekgadoWood.plankDark),
-    ];
-    final paint = Paint();
-    var y = 0.0;
-    for (final (fraction, color) in bands) {
-      final bandHeight = size.height * fraction;
-      paint.color = color;
-      // +0.5 는 하드엣지 사이에 반투명 이음매가 생기지 않게 하는 겹침이다.
-      canvas.drawRect(Rect.fromLTWH(0, y, size.width, bandHeight + 0.5), paint);
-      y += bandHeight;
-    }
-    canvas.drawRect(
-      Rect.fromLTWH(0, 0, size.width, 1),
-      Paint()..color = _ChaekgadoWood.misregister.withValues(alpha: 0.28),
-    );
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
-}
-
-/// 기둥 — 세로 3면. 빛은 왼쪽 위에서 온다(F-A camera 규약).
-class _PillarPainter extends CustomPainter {
-  const _PillarPainter();
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    if (size.width <= 0 || size.height <= 0) {
-      return;
-    }
-    const faces = <(double, Color)>[
-      (0.28, _ChaekgadoWood.plankLight),
-      (0.46, _ChaekgadoWood.plankMid),
-      (0.26, _ChaekgadoWood.plankDark),
-    ];
-    final paint = Paint();
-    var x = 0.0;
-    for (final (fraction, color) in faces) {
-      final faceWidth = size.width * fraction;
-      paint.color = color;
-      canvas.drawRect(Rect.fromLTWH(x, 0, faceWidth + 0.5, size.height), paint);
-      x += faceWidth;
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
-}
-
-/// 나무 위 결 한 겹. 새 텍스처를 만들지 않고 정본 [HanjiTexture] 를 그대로
-/// 쓴다 — 베이스 워시를 알파 0 으로 넘기면 사각형은 안 보이고 섬유·티끌만
-/// 남는다(RGB 는 크림이라 페인터가 "밝은 종이" 쪽 결 색을 고른다).
-class _WoodGrain extends StatelessWidget {
-  const _WoodGrain();
-
-  @override
-  Widget build(BuildContext context) {
-    return Opacity(
-      opacity: 0.5,
-      child: HanjiTexture(
-        color: HanokColors.hanjiCream.withValues(alpha: 0),
-        noiseAlpha: 0.05,
-        child: const SizedBox.expand(),
-      ),
-    );
-  }
 }
 
 /// 칸 하나 = 정물 한 점.
@@ -383,11 +316,23 @@ class _Compartment extends StatelessWidget {
           child: Stack(
             fit: StackFit.expand,
             children: [
-              _CellGround(
-                slug: data.slug,
-                imageKey: data.imageKey,
-                assetIndex: assetIndex,
-                stocked: stocked,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Expanded(
+                    child: _CellGround(
+                      slug: data.slug,
+                      imageKey: data.imageKey,
+                      assetIndex: assetIndex,
+                    ),
+                  ),
+                  _CellTag(
+                    data: data,
+                    emptyLabel: emptyLabel,
+                    progress: progress,
+                    stamped: done,
+                  ),
+                ],
               ),
               if (done)
                 Positioned(
@@ -395,17 +340,6 @@ class _Compartment extends StatelessWidget {
                   bottom: 4,
                   child: _CompletionStamp(slug: data.slug),
                 ),
-              Positioned(
-                left: 0,
-                right: 0,
-                bottom: 0,
-                child: _CellTag(
-                  data: data,
-                  emptyLabel: emptyLabel,
-                  progress: progress,
-                  stamped: done,
-                ),
-              ),
             ],
           ),
         ),
@@ -420,33 +354,27 @@ class _CellGround extends StatelessWidget {
     required this.slug,
     required this.imageKey,
     required this.assetIndex,
-    required this.stocked,
   });
 
   final String slug;
   final String? imageKey;
   final int assetIndex;
-  final bool stocked;
 
   @override
   Widget build(BuildContext context) {
     final key = imageKey;
-    if (!stocked || key == null) {
+    if (key == null) {
       return _fallback(context);
     }
-    return Image.asset(
-      chaekgadoCardAsset(key),
-      fit: BoxFit.cover,
-      // 2026-09-01 실측 교정: 소스(800×600, 4:3)는 RECIPE 규약대로 피사체
-      // 질량중심이 세로 60~77% 다. 이 칸(cellAspect 0.6, 1.667 종횡비)의
-      // BoxFit.cover 는 소스 세로의 80%만 보여준다(가시폭). 중앙-살짝-위
-      // (-0.1)로 정렬하면 가시창이 9~89%가 돼 피사체 대다수(60~88%)가
-      // 이름표(_CellTag, 칸 아래 ~20%)에 가려지거나 잘렸다 — 75장 vis%
-      // 실측(스크래치패드 vis_percent.py) 최저 18.9%. 하단 정렬(1.0)은
-      // 가시창을 소스 20~100%로 밀어 질량중심 밴드 전체(60~77%)를
-      // 담는다 — 최저 39.9%로 개선(이름표 그래디언트와 합치면 57%+).
-      alignment: const Alignment(0, 1.0),
-      errorBuilder: (_, _, _) => _fallback(context),
+    // Preserve the full illustration, including the wide first compartment.
+    // Captions occupy their own row and cannot cover a lower-positioned subject.
+    return ColoredBox(
+      color: SoriScrollPalette.paper,
+      child: Image.asset(
+        chaekgadoCardAsset(key),
+        fit: BoxFit.contain,
+        errorBuilder: (_, _, _) => _fallback(context),
+      ),
     );
   }
 
@@ -464,6 +392,10 @@ class _CellGround extends StatelessWidget {
       fit: StackFit.expand,
       children: [
         const ColoredBox(color: SoriScrollPalette.paper),
+        const _BookcaseCrop(
+          asset: kChaekgadoBookcaseBackplate,
+          source: Rect.fromLTRB(234, 144, 594, 300),
+        ),
         Padding(
           padding: const EdgeInsets.all(Spacing.sm),
           child: vignette == null
@@ -480,8 +412,7 @@ class _CellGround extends StatelessWidget {
   }
 }
 
-/// 붓선(진행) + 이름표. 이름표는 아트 위에 앉으므로 표면색 띠를 깔아 대비를
-/// 지킨다(꼬리표 대비 ≥ 7:1, 08-19 §3 접근성).
+/// Progress and captions sit below the illustration so no subject is obscured.
 class _CellTag extends StatelessWidget {
   const _CellTag({
     required this.data,
@@ -514,22 +445,7 @@ class _CellTag extends StatelessWidget {
             ),
           ),
         DecoratedBox(
-          // 2026-09-01: 단색(0.92) → 세로 그래디언트(0.55→0.92). 아래쪽
-          // 정렬 크롭(위 alignment 주석)이 이름표 바로 위까지 피사체를
-          // 끌어오므로, 이름표 상단(글줄 바로 위 여백)만이라도 살짝
-          // 비치게 해 가려지는 면적을 더 줄인다. 글자가 앉는 하단은
-          // 여전히 0.92 로 대비(≥7:1)를 지킨다 — 글자 위가 아니라
-          // 글자 위 여백만 옅어진다.
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                surfaces.surface.withValues(alpha: 0.55),
-                surfaces.surface.withValues(alpha: 0.92),
-              ],
-            ),
-          ),
+          decoration: BoxDecoration(color: surfaces.surface),
           child: Padding(
             padding: EdgeInsets.fromLTRB(
               // 완료 도장이 좌하단에 찍히는 칸은 글이 도장을 피한다.

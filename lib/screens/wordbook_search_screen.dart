@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
 import '../services/custom_pack_service.dart';
+import '../services/data_loader.dart';
+import '../services/saved_word_localization.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
@@ -67,7 +69,7 @@ class _WordbookSearchBodyState extends State<WordbookSearchBody> {
     _load();
   }
 
-  void _load() {
+  Future<void> _load() async {
     // Alle Custom-Pack-Wörter zusammenführen + per koreanischem String dedupen.
     final seen = <String>{};
     final words = <ExtractedWord>[];
@@ -78,6 +80,13 @@ class _WordbookSearchBodyState extends State<WordbookSearchBody> {
       }
     }
     setState(() => _all = words);
+    final vocab = await DataLoader.loadVocab();
+    if (mounted) {
+      setState(
+        () =>
+            _all = words.map((word) => localizeSavedWord(word, vocab)).toList(),
+      );
+    }
   }
 
   void _clearQuery() {
@@ -88,7 +97,9 @@ class _WordbookSearchBodyState extends State<WordbookSearchBody> {
   List<String> get _posOptions {
     final set = <String>{};
     for (final w in _all) {
-      if (w.posDe.trim().isNotEmpty) set.add(w.posDe.trim());
+      if (w.posFor(Localizations.localeOf(context).languageCode).isNotEmpty) {
+        set.add(w.posDe.trim());
+      }
     }
     return set.toList()..sort();
   }
@@ -206,7 +217,15 @@ class _WordbookSearchBodyState extends State<WordbookSearchBody> {
                                 ),
                                 child: SoriChip(
                                   key: ValueKey('wordbook-pos-$p'),
-                                  label: p,
+                                  label: _all
+                                      .firstWhere(
+                                        (word) => word.posDe.trim() == p,
+                                      )
+                                      .posFor(
+                                        Localizations.localeOf(
+                                          context,
+                                        ).languageCode,
+                                      ),
                                   selected: _pos == p,
                                   icon: _pos == p ? Icons.check_rounded : null,
                                   variant: SoriChipVariant.outlined,
@@ -285,15 +304,11 @@ class _WordRow extends StatelessWidget {
     final s = SoriSurfaces.of(context);
     final t = AppL10n.of(context);
     final languageCode = Localizations.localeOf(context).languageCode;
-    final preferredMeaning = languageCode == 'en'
-        ? word.translationEn
-        : word.translationDe;
-    final fallbackMeaning = languageCode == 'en'
-        ? word.translationDe
-        : word.translationEn;
-    final meaning = preferredMeaning.isNotEmpty
-        ? preferredMeaning
-        : fallbackMeaning;
+    final translation = word.translationFor(languageCode);
+    final meaning = translation.isNotEmpty
+        ? translation
+        : t.savedTranslationUnavailable;
+    final partOfSpeech = word.posFor(languageCode);
     final ttsLabel = '${t.ttsListen}: ${word.korean}';
     void speak() {
       // ignore: discarded_futures
@@ -314,18 +329,18 @@ class _WordRow extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _WordTitle(word: word),
-                    if (word.posDe.trim().isNotEmpty) ...[
+                    if (partOfSpeech.isNotEmpty) ...[
                       const SizedBox(height: Spacing.xs),
-                      _PartOfSpeech(label: word.posDe),
+                      _PartOfSpeech(label: partOfSpeech),
                     ],
                   ],
                 )
               : Row(
                   children: [
                     Flexible(child: _WordTitle(word: word)),
-                    if (word.posDe.trim().isNotEmpty) ...[
+                    if (partOfSpeech.isNotEmpty) ...[
                       const SizedBox(width: Spacing.sm),
-                      Flexible(child: _PartOfSpeech(label: word.posDe)),
+                      Flexible(child: _PartOfSpeech(label: partOfSpeech)),
                     ],
                   ],
                 );

@@ -18,33 +18,126 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   setUp(() async {
+    SoriSpeech.resetForTesting();
+    SoriSpeech.stopImpl = () async {};
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues(<String, Object>{});
     await Storage.init();
   });
 
-  testWidgets('declining voice consent keeps listen-and-repeat available', (
+  tearDown(SoriSpeech.resetForTesting);
+
+  testWidgets('listen taps never open the microphone or change to recording', (
     tester,
   ) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(393, 852);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    addTearDown(tester.view.resetPhysicalSize);
+    final recorder = _FakeRecorder(permission: true);
+    final playback = <Completer<bool>>[];
+    SoriSpeech.speakImpl = (text, voice) {
+      expect(text, '안녕하세요');
+      final completion = Completer<bool>();
+      playback.add(completion);
+      return completion.future;
+    };
+    await tester.pumpWidget(_app(recorder));
+    await tester.pumpAndSettle();
+
+    final listen = find.byType(SoriSpeechIndicator);
+    await tester.tap(listen);
+    await tester.pump();
+    expect(playback, hasLength(1));
+    expect(SoriSpeech.speaking.value, isTrue);
+    expect(recorder.permissionRequests, 0);
+    expect(recorder.startCalls, 0);
+    expect(find.text('Record my voice'), findsOneWidget);
+    expect(find.text('Stop recording'), findsNothing);
+
+    playback.single.complete(false);
+    await tester.pumpAndSettle();
+    await tester.tap(listen);
+    await tester.pump();
+    expect(playback, hasLength(2));
+    playback.last.complete(true);
+    await tester.pumpAndSettle();
+    expect(recorder.permissionRequests, 0);
+    expect(recorder.startCalls, 0);
+    expect(find.text('Record my voice'), findsOneWidget);
+    expect(find.text('Stop recording'), findsNothing);
+  });
+
+  testWidgets('microphone waits for playback to release the audio session', (
+    tester,
+  ) async {
+    await Storage.setPronunciationConsent(true);
+    final stopped = Completer<void>();
+    SoriSpeech.stopImpl = () => stopped.future;
     final recorder = _FakeRecorder(permission: true);
     await tester.pumpWidget(_app(recorder));
     await tester.pumpAndSettle();
 
-    tester
-        .widget<SoriButton>(find.widgetWithText(SoriButton, 'Record my voice'))
-        .onTap!();
+    _invokeButton(tester, 'Record my voice');
+    await tester.pump();
+    expect(recorder.permissionRequests, 0);
+    expect(recorder.startCalls, 0);
+    expect(find.text('Stop recording'), findsNothing);
+
+    stopped.complete();
+    await tester.pump();
+    await tester.pump();
+    expect(recorder.startCalls, 1);
+    expect(find.text('Stop recording'), findsOneWidget);
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump();
+  });
+
+  testWidgets('leaving while playback stops cannot open the microphone', (
+    tester,
+  ) async {
+    await Storage.setPronunciationConsent(true);
+    final stopped = Completer<void>();
+    SoriSpeech.stopImpl = () => stopped.future;
+    final recorder = _FakeRecorder(permission: true);
+    await tester.pumpWidget(_app(recorder));
+    await tester.pumpAndSettle();
+
+    _invokeButton(tester, 'Record my voice');
+    await tester.pump();
+    await tester.pumpWidget(const SizedBox.shrink());
+    stopped.complete();
+    await tester.pump();
+    expect(recorder.startCalls, 0);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('declining voice consent keeps local recording available', (
+    tester,
+  ) async {
+    final recorder = _FakeRecorder(
+      permission: true,
+      chunks: [
+        Uint8List.fromList([0, 0, 1, 0]),
+      ],
+    );
+    final gateway = _FailingGateway();
+    await tester.pumpWidget(_app(recorder, gateway: gateway));
+    await tester.pumpAndSettle();
+    _invokeButton(tester, 'Record my voice');
+    await tester.pump();
+    await tester.pump();
+    expect(find.text('Use your voice for an assessment?'), findsNothing);
+    _invokeButton(tester, 'Stop recording');
+    await _requestScore(tester);
     await tester.pumpAndSettle();
     expect(find.text('Use your voice for an assessment?'), findsOneWidget);
-
     await tester.tap(find.text('Practise without a score'));
     await tester.pumpAndSettle();
-
     expect(Storage.pronunciationConsent, isFalse);
-    expect(recorder.permissionRequests, 0);
-    expect(find.byType(SoriSpeechIndicator), findsOneWidget);
-    final notice = find.textContaining('Voice assessment is off');
-    await _scrollUntilBuilt(tester, notice);
-    expect(notice, findsOneWidget);
+    expect(recorder.permissionRequests, 1);
+    expect(gateway.calls, 0);
+    expect(find.text('Listen to my recording'), findsOneWidget);
   });
 
   testWidgets('microphone denial does not remove basic practice controls', (
@@ -88,14 +181,13 @@ void main() {
           .onTap!();
       await tester.pump();
       await tester.pump();
-      expect(find.text('Stop and assess'), findsOneWidget);
+      expect(find.text('Stop recording'), findsOneWidget);
       await tester.pump();
       tester
-          .widget<SoriButton>(
-            find.widgetWithText(SoriButton, 'Stop and assess'),
-          )
+          .widget<SoriButton>(find.widgetWithText(SoriButton, 'Stop recording'))
           .onTap!();
       await tester.pump();
+      await _requestScore(tester);
       await tester.runAsync(() async {
         for (var i = 0; i < 20 && gateway.calls == 0; i++) {
           await Future<void>.delayed(const Duration(milliseconds: 5));
@@ -238,9 +330,10 @@ void main() {
     );
 
     tester
-        .widget<SoriButton>(find.widgetWithText(SoriButton, 'Stop and assess'))
+        .widget<SoriButton>(find.widgetWithText(SoriButton, 'Stop recording'))
         .onTap!();
     await tester.pump();
+    await _requestScore(tester);
     await tester.runAsync(() async {
       for (var attempt = 0; attempt < 20 && gateway.calls == 0; attempt++) {
         await Future<void>.delayed(const Duration(milliseconds: 5));
@@ -565,6 +658,7 @@ Widget _app(
   home: PronunciationStudioScreen(
     recorder: recorder,
     gateway: gateway,
+    cloudAssessmentEnabled: true,
     phraseLoader: phraseLoader ?? _loadTestPhrases,
   ),
 );
@@ -585,7 +679,7 @@ Future<void> _captureAndAssess(
   await tester.pump();
   await tester.pump();
   _invokeButton(tester, t.pronunciationStop);
-  await tester.pump();
+  await _requestScore(tester);
   await tester.runAsync(() async {
     for (var i = 0; i < 40 && !callStarted(); i++) {
       await Future<void>.delayed(const Duration(milliseconds: 5));
@@ -596,6 +690,17 @@ Future<void> _captureAndAssess(
   } else {
     await tester.pump();
   }
+}
+
+Future<void> _requestScore(WidgetTester tester) async {
+  await tester.runAsync(
+    () async => Future<void>.delayed(const Duration(milliseconds: 20)),
+  );
+  await tester.pump();
+  final score = find.byKey(const ValueKey('pronunciation-assess-action'));
+  await _scrollUntilBuilt(tester, score);
+  tester.widget<SoriButton>(score).onTap!();
+  await tester.pump();
 }
 
 Future<void> _scrollUntilBuilt(WidgetTester tester, Finder target) async {
@@ -616,6 +721,7 @@ class _FakeRecorder implements PronunciationRecorder {
   final bool permission;
   final List<Uint8List> chunks;
   int permissionRequests = 0;
+  int startCalls = 0;
 
   @override
   Future<bool> requestPermission() async {
@@ -624,8 +730,10 @@ class _FakeRecorder implements PronunciationRecorder {
   }
 
   @override
-  Future<Stream<Uint8List>> startPcm16Stream() async =>
-      Stream<Uint8List>.fromIterable(chunks);
+  Future<Stream<Uint8List>> startPcm16Stream() async {
+    startCalls++;
+    return Stream<Uint8List>.fromIterable(chunks);
+  }
 
   @override
   Future<void> stop() async {}

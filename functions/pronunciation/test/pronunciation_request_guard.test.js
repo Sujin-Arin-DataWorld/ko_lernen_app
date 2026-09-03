@@ -83,16 +83,17 @@ test("wraps raw 16 kHz mono PCM16 in a bounded WAV container", () => {
   assert.deepEqual(wav.subarray(44), pcm);
 });
 
-test("returns only validated aggregate Azure scores", () => {
+test("returns only aggregate scores from the Azure short-audio REST response", () => {
+  // REST scores are directly on NBest[0], unlike Speech SDK result JSON.
+  // https://learn.microsoft.com/azure/ai-services/speech-service/rest-speech-to-text-short#sample-responses
   const parsed = parseAzureAssessment({
     RecognitionStatus: "Success",
     NBest: [{
-      PronunciationAssessment: {
-        PronScore: 82.5,
-        AccuracyScore: 84,
-        FluencyScore: 79,
-        CompletenessScore: 100,
-      },
+      PronScore: 82.5,
+      AccuracyScore: 84,
+      FluencyScore: 79,
+      CompletenessScore: 100,
+      Display: "안녕하세요",
       Words: [{Word: "안녕하세요"}],
     }],
   }, "p-123456-abcdef12");
@@ -107,6 +108,24 @@ test("returns only validated aggregate Azure scores", () => {
     () => parseAzureAssessment({RecognitionStatus: "Success", NBest: [{}]}, "p-123456-abcdef12"),
     (error) => error.code === "unavailable",
   );
+});
+
+test("rejects unsuccessful, incomplete, and invalid REST assessment results", () => {
+  const scores = {
+    PronScore: 82.5, AccuracyScore: 84, FluencyScore: 79, CompletenessScore: 100,
+  };
+  for (const raw of [
+    {RecognitionStatus: "NoMatch", NBest: [scores]},
+    {RecognitionStatus: "Success", NBest: []},
+    {RecognitionStatus: "Success", NBest: [{...scores, FluencyScore: undefined}]},
+    {RecognitionStatus: "Success", NBest: [{...scores, AccuracyScore: 101}]},
+    {RecognitionStatus: "Success", NBest: [{...scores, PronScore: "82.5"}]},
+  ]) {
+    assert.throws(
+      () => parseAzureAssessment(raw, "p-123456-abcdef12"),
+      (error) => error instanceof PronunciationRequestError && error.code === "unavailable",
+    );
+  }
 });
 
 test("allows 5 per minute and 50 per day with exact boundary resets", () => {

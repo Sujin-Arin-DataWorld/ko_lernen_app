@@ -9,6 +9,33 @@ class AppL10nDe extends AppL10n {
   AppL10nDe([String locale = 'de']) : super(locale);
 
   @override
+  String get flashcardRomanization => 'Umschrift';
+
+  @override
+  String get booksSavedOtherLanguage =>
+      'Diese Seite wurde in einer anderen Sprache gespeichert. Du siehst den koreanischen Text und die verfügbaren deutschen Übersetzungen.';
+
+  @override
+  String get savedTranslationUnavailable =>
+      'Noch keine deutsche Übersetzung gespeichert.';
+
+  @override
+  String get savedOriginalMeaning => 'Ursprünglich gespeicherte Bedeutung';
+
+  @override
+  String get savedAddTranslation => 'Übersetzung ergänzen';
+
+  @override
+  String get flashcardRomanizationFront => 'Auf der Vorderseite anzeigen';
+
+  @override
+  String get flashcardRomanizationBack => 'Auf der Rückseite anzeigen';
+
+  @override
+  String get ttsUnavailablePlayback =>
+      'Der Ton konnte auf diesem Gerät nicht abgespielt werden. Prüfe die Lautstärke oder verbundene Kopfhörer und versuche es erneut.';
+
+  @override
   String get paywallTitle => 'Hangul Sori Premium';
 
   @override
@@ -8544,7 +8571,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get pronunciationIntro =>
-      'Höre zuerst zu. Nimm danach freiwillig bis zu 10 Sekunden für eine Bewertung auf.';
+      'Höre zuerst zu. Nimm bis zu 10 Sekunden auf und vergleiche deine Stimme mit dem Beispiel.';
 
   @override
   String get pronunciationPhrasesLoading =>
@@ -8578,7 +8605,27 @@ class AppL10nDe extends AppL10n {
   String get pronunciationAssessing => 'Bewertung wird erstellt…';
 
   @override
-  String get pronunciationStop => 'Stoppen und bewerten';
+  String get pronunciationStop => 'Aufnahme stoppen';
+
+  @override
+  String get pronunciationFinishingRecording => 'Aufnahme wird beendet…';
+
+  @override
+  String get pronunciationLocalRecordingHint =>
+      'Deine Aufnahme bleibt vorübergehend auf diesem Gerät. Wenn du diesen Bildschirm verlässt, wird sie gelöscht.';
+
+  @override
+  String get pronunciationReplay => 'Meine Aufnahme anhören';
+
+  @override
+  String get pronunciationReplayStop => 'Meine Aufnahme stoppen';
+
+  @override
+  String get pronunciationReplayUnavailable =>
+      'Deine Aufnahme konnte nicht abgespielt werden. Versuche es erneut oder nimm sie neu auf.';
+
+  @override
+  String get pronunciationRequestScore => 'Bewertung anfordern';
 
   @override
   String get pronunciationContinueWithoutScore => 'Ohne Bewertung weiter';

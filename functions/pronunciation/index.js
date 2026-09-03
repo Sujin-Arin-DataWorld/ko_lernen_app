@@ -19,11 +19,29 @@ const {
   nextQuotaState,
   previousQuotaState,
 } = require("./pronunciation_request_guard");
+const {
+  freeTierAssessmentEnabled,
+  nextFreeTierUsage,
+} = require("./pronunciation_free_tier");
 
 initializeApp();
 
 const AZURE_SPEECH_KEY = defineSecret("AZURE_SPEECH_KEY");
 const AZURE_SPEECH_REGION = "germanywestcentral";
+
+async function consumeFreeTierBudget(db, audioBytes, now = new Date()) {
+  const month = now.toISOString().slice(0, 7);
+  const ref = db.collection("service_usage").doc(`pronunciation_free_${month}`);
+  return db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(ref);
+    const next = nextFreeTierUsage(snapshot.exists ? snapshot.data() : null, audioBytes);
+    if (next === null) {
+      return false;
+    }
+    transaction.set(ref, {...next, updatedAt: FieldValue.serverTimestamp()});
+    return true;
+  });
+}
 
 async function consumeQuota(db, uid, now = new Date()) {
   const ref = db.collection("users").doc(uid)
@@ -32,7 +50,9 @@ async function consumeQuota(db, uid, now = new Date()) {
     const snapshot = await transaction.get(ref);
     const previous = snapshot.exists ? snapshot.data() : {};
     const next = nextQuotaState(previous, now);
-    if (next === null) return false;
+    if (next === null) {
+      return false;
+    }
     transaction.set(ref, {
       ...next,
       updatedAt: FieldValue.serverTimestamp(),
@@ -138,10 +158,15 @@ exports.assessPronunciation = onCall({
   consumeAppCheckToken: true,
   timeoutSeconds: 30,
   memory: "256MiB",
-  maxInstances: 20,
-  secrets: [AZURE_SPEECH_KEY],
+  minInstances: 0,
+  maxInstances: 1,
+  concurrency: 1,
+  secrets: freeTierAssessmentEnabled(process.env) ? [AZURE_SPEECH_KEY] : [],
 }, async (request) => {
   try {
+    if (!freeTierAssessmentEnabled(process.env)) {
+      throw new HttpsError("unavailable", "Pronunciation assessment unavailable.");
+    }
     const input = validatePronunciationRequest(request);
     const claim = await claimPronunciationReplay(
       getFirestore(),
@@ -150,6 +175,11 @@ exports.assessPronunciation = onCall({
     );
     if (claim.replay) {
       return claim.replay;
+    }
+    if (!claim.consume) {
+      // A request for this recording is already in flight. Do not submit it
+      // again or consume another share of the free monthly allowance.
+      throw new HttpsError("unavailable", "Pronunciation assessment is still processing.");
     }
     if (!pronunciationProviderBreaker.allow()) {
       if (claim.consume) {
@@ -174,8 +204,16 @@ exports.assessPronunciation = onCall({
       consumed = true;
     }
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 15000);
+    let timeout;
+    let providerStarted = false;
     try {
+      if (!(await consumeFreeTierBudget(getFirestore(), input.audio.length))) {
+        throw new HttpsError("resource-exhausted", "Free assessment limit reached.");
+      }
+      // Reserve audio time before sending it. An uncertain provider response
+      // may already have consumed the allowance, so this budget is not refunded.
+      timeout = setTimeout(() => controller.abort(), 15000);
+      providerStarted = true;
       const providerResult = await callAzure({...input, signal: controller.signal});
       const parsed = parseAzureAssessment(providerResult, input.assessmentId);
       pronunciationProviderBreaker.recordSuccess();
@@ -186,7 +224,9 @@ exports.assessPronunciation = onCall({
       }
       return parsed;
     } catch (error) {
-      pronunciationProviderBreaker.recordFailure();
+      if (providerStarted) {
+        pronunciationProviderBreaker.recordFailure();
+      }
       if (consumed) {
         try {
           await releaseQuota(getFirestore(), input.uid);
@@ -208,7 +248,9 @@ exports.assessPronunciation = onCall({
       clearTimeout(timeout);
     }
   } catch (error) {
-    if (error instanceof HttpsError) throw error;
+    if (error instanceof HttpsError) {
+      throw error;
+    }
     if (error instanceof PronunciationRequestError) {
       throw new HttpsError(error.code, error.message);
     }
@@ -219,3 +261,4 @@ exports.assessPronunciation = onCall({
 
 module.exports.consumeQuota = consumeQuota;
 module.exports.releaseQuota = releaseQuota;
+module.exports.consumeFreeTierBudget = consumeFreeTierBudget;

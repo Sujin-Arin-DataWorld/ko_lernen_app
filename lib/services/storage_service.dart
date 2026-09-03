@@ -1643,6 +1643,12 @@ class Storage {
     preferences: preferences,
   );
 
+  /// Keep the existing front reading aid until the learner chooses the back.
+  static bool get flashcardRomanizationOnFront =>
+      _b('kl_flashcard_romanization_front', true);
+  static Future<void> setFlashcardRomanizationOnFront(bool value) =>
+      _sb('kl_flashcard_romanization_front', value);
+
   // ───────── App / Streak ─────────
   static String get lastOpenDate => _s('kl_last_open_date'); // 'YYYY-MM-DD'
   static int get streakDays => _i('kl_streak_days');

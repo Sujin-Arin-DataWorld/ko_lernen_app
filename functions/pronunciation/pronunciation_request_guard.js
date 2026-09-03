@@ -91,9 +91,11 @@ function score(value) {
 }
 
 function parseAzureAssessment(raw, assessmentId) {
+  // callAzure uses the short-audio REST API. Aggregate scores are directly
+  // on the best hypothesis, not inside the Speech SDK's nested result shape.
   const assessment = raw && raw.RecognitionStatus === "Success" &&
     Array.isArray(raw.NBest) && raw.NBest[0]
-    ? raw.NBest[0].PronunciationAssessment
+    ? raw.NBest[0]
     : null;
   if (!assessment || typeof assessment !== "object") {
     throw new PronunciationRequestError("unavailable", "Pronunciation assessment unavailable.");

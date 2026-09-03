@@ -34,6 +34,8 @@ class TtsUnavailableBanner extends StatelessWidget {
         return t.ttsUnavailableOffline;
       case TtsUnavailableReason.audioUnavailable:
         return t.ttsUnavailableAudio;
+      case TtsUnavailableReason.playbackFailed:
+        return t.ttsUnavailablePlayback;
     }
   }
 
