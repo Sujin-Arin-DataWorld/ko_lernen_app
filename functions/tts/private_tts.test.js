@@ -8,7 +8,7 @@ const { cacheKey } = require("./tts_contract");
 
 const AUDIO = Buffer.concat([Buffer.from("ID3"), Buffer.alloc(80, 7)]);
 const PERSONAL = "개인용 비공개 예문 7193";
-function harness({ duringSynthesis, duringSave, duringMetadata } = {}) {
+function harness({ duringSynthesis, duringSave, duringMetadata, duringAccountRead } = {}) {
   const documents = new Map([["service_cost_controls/ai_v1", {
     schemaVersion: 1, approvedBy: "Jin", approvalRef: "local-test-only", approvedAt: new Date(0),
     dailyUnitLimit: 10000, bookReservationUnits: 10, pronunciationReservationUnits: 2, ttsReservationUnits: 3,
@@ -16,8 +16,12 @@ function harness({ duringSynthesis, duringSave, duringMetadata } = {}) {
   const objects = new Map();
   const reads = [];
   const writes = [];
+  const logs = [];
   let syntheses = 0;
-  const ref = (p) => ({ path: p, get: async () => snap(p),
+  const ref = (p) => ({ path: p, get: async () => {
+    if (p.startsWith("account_deletions/") && duringAccountRead) await duringAccountRead();
+    return snap(p);
+  },
     set: async (value) => documents.set(p, value) });
   const snap = (p) => ({ exists: documents.has(p), data: () => documents.get(p) });
   let tail = Promise.resolve();
@@ -67,10 +71,11 @@ function harness({ duringSynthesis, duringSave, duringMetadata } = {}) {
     "./tts_request_guard": { ...guard, ttsProviderBreaker: new guard.CircuitBreaker() },
   };
   vm.runInNewContext(fs.readFileSync(path.join(__dirname, "index.js"), "utf8"), {
-    require: (name) => mocks[name] || require(name), exports, Buffer, console,
+    require: (name) => mocks[name] || require(name), exports, Buffer,
+    console: { ...console, error: (...args) => logs.push(args), warn: (...args) => logs.push(args) },
     setTimeout, clearTimeout,
   }, { filename: "tts/index.js" });
-  return { documents, objects, reads, writes, syntheses: () => syntheses,
+  return { documents, objects, reads, writes, logs, syntheses: () => syntheses,
     invoke: (uid = "alice", data = {}) => exports.synthesize_tts({
       auth: { uid }, data: { text: PERSONAL, voice: "female", ...data },
     }) };
@@ -167,6 +172,7 @@ test("uncertain TTS retains cost reservation and cannot retry past whole service
   await assert.rejects(h.invoke());
   await assert.rejects(h.invoke(), {code: "resource-exhausted"});
   assert.equal(h.syntheses(), 1);
+  assert.deepEqual(h.logs, [["synthesize_tts error", "internal"]]);
 });
 
 test("TTS cached private response remains available while service spending is paused", async () => {
@@ -195,5 +201,19 @@ test("deletion during the final metadata read cannot escape the response fence",
   const h = harness({ duringMetadata: ({ documents }) =>
     documents.set("account_deletions/alice", { state: "active" }) });
   await assert.rejects(h.invoke(), { code: "failed-precondition" });
+  assert.equal(h.objects.size, 0);
+});
+
+test("expiry crossed during final account read never returns private bytes", async (t) => {
+  let now = Date.now();
+  t.mock.method(Date, "now", () => now);
+  let finalMetadataRead = false;
+  const h = harness({
+    duringMetadata: () => { finalMetadataRead = true; },
+    duringAccountRead: () => {
+      if (finalMetadataRead) now += 86400000;
+    },
+  });
+  await assert.rejects(h.invoke(), { code: "unavailable" });
   assert.equal(h.objects.size, 0);
 });

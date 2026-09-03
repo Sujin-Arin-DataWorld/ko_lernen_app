@@ -142,6 +142,10 @@ async function synthesizeTts(request) {
           throw new HttpsError("unavailable", "TTS audio is not available.");
         }
         await assertAccountActive();
+        // The deletion fence is asynchronous; it may cross the exact expiry.
+        if (!privateMetadataIsCurrent(metadata)) {
+          throw new HttpsError("unavailable", "TTS audio is not available.");
+        }
         return { audioBase64: bytes.toString("base64"), cacheScope: "private",
           expiresAtMillis: Number(metadata.metadata.expiresAtMillis) };
       };

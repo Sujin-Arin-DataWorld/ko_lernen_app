@@ -27,6 +27,9 @@ const HASH_OWNED_PROCESSOR_COLLECTIONS = Object.freeze([
   "billing_event_receipts", "billing_customers",
 ]);
 const PRIVATE_TTS_PROCESSOR_INDEX = 3 + HASH_OWNED_PROCESSOR_COLLECTIONS.length;
+// Bump when the stage plan grows or changes meaning. Older checkpoints must
+// replay the idempotent stages, including checkpoints previously marked done.
+const PROCESSOR_CLEANUP_SCHEMA_VERSION = 2;
 
 function cleanupFailure(code) {
   const error = new Error("Account deletion cleanup rejected unsafe state.");
@@ -631,8 +634,14 @@ function createDeletionCleanupAdapters({
       deadlineMillis,
       run: async ({ transaction, markerRef, markerData }) => {
         const current = markerData.processorCleanupState;
-        if (current?.operationId === operationId) return current;
+        if (current?.operationId === operationId) {
+          if (current.schemaVersion === PROCESSOR_CLEANUP_SCHEMA_VERSION) return current;
+          if (current.schemaVersion !== undefined && current.schemaVersion !== 1) {
+            throw cleanupFailure("unsupported-processor-cleanup-version");
+          }
+        }
         const state = {
+          schemaVersion: PROCESSOR_CLEANUP_SCHEMA_VERSION,
           operationId,
           categoryIndex: 0,
           cursor: null,

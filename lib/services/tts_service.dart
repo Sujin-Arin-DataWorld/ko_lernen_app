@@ -20,18 +20,25 @@ import 'tts_installation_id.dart';
 import 'tts_cache_key.dart';
 import 'tts_canonical_manifest.dart';
 import 'tts_private_cache.dart';
+import 'tts_private_playback.dart';
 
 export 'tts_cache_key.dart';
 
 /// 해결된 프리미엄 오디오 한 건.
 ///
-/// io 호스트는 mp3 를 디스크에 캐시하고 경로로 재생하고, 웹은 파일시스템이
-/// 없어 같은 바이트를 메모리에서 재생한다. **둘 다 `tts/v3/...` 의 같은
-/// Chirp3-HD 객체다** — 플랫폼이 바꾸는 건 플레이어에 건네는 방법뿐이고,
-/// 들리는 소리는 같다.
+/// 정본은 기존 디스크/번들/웹 캐시를 유지한다. 개인 음성은 UID 세션을
+/// 끝까지 전달하며 메모리 전용 플레이어로만 재생한다.
 class TtsAudio {
-  const TtsAudio.path(String this.path) : bytes = null;
-  const TtsAudio.bytes(Uint8List this.bytes) : path = null;
+  const TtsAudio.path(String this.path) : bytes = null, privateSession = null;
+  const TtsAudio.bytes(Uint8List this.bytes)
+    : path = null,
+      privateSession = null;
+  const TtsAudio.privateBytes(Uint8List this.bytes, CloudWriteSession session)
+    : path = null,
+      privateSession = session;
+
+  /// Personal audio retains its identity fence through the playback boundary.
+  final CloudWriteSession? privateSession;
 
   /// 캐시된 mp3 의 절대 경로. 웹에서는 null.
   final String? path;
@@ -553,6 +560,8 @@ class TtsService {
   static final Map<String, Uint8List> _memoryCache = <String, Uint8List>{};
   static const int _memoryCacheEntries = 64;
   static TtsPrivateCache? _privateCache;
+  static final TtsPrivatePlayback _privatePlayback = TtsPrivatePlayback();
+  static bool _privateBytesPlaying = false;
 
   static TtsPrivateCache get _privateAudioCache =>
       _privateCache ??= TtsPrivateCache(
@@ -737,6 +746,14 @@ class TtsService {
   }
 
   static Future<void> _stopPlatforms() async {
+    await _privatePlayback.stop();
+    if (_privateBytesPlaying) {
+      // release drops the retained Dart BytesSource. Keep the flag on failure
+      // so cleanup retries and the next private playback cannot skip release.
+      await _player.release();
+      _privateBytesPlaying = false;
+      return;
+    }
     try {
       await _player.stop();
     } catch (_) {}
@@ -937,11 +954,17 @@ class TtsService {
     String text,
     TtsCacheKey key,
   ) async {
+    if (TtsPrivatePlayback.routeFor(defaultTargetPlatform, isWeb: kIsWeb) ==
+        PrivateTtsRoute.denied) {
+      _reportUnavailable(TtsUnavailableReason.audioUnavailable);
+      return null;
+    }
     final uid = _authenticatedUid();
     final session = cloudWriteSessionController.current;
     if (uid == null ||
-        session?.uid != uid ||
-        session?.mode != CloudWriteMode.ready) {
+        session == null ||
+        session.uid != uid ||
+        session.mode != CloudWriteMode.ready) {
       return null;
     }
     DateTime? expiresAt;
@@ -999,7 +1022,7 @@ class TtsService {
           cloudWriteSessionController.current != session) {
         return null;
       }
-      return TtsAudio.bytes(bytes);
+      return TtsAudio.privateBytes(bytes, session);
     } on TtsSynthesisBlocked catch (blocked) {
       _reportUnavailable(blocked.reason);
       rethrow;
@@ -1095,12 +1118,45 @@ class TtsService {
     TtsAudio audio,
     double playbackRate,
   ) async {
+    final privateSession = audio.privateSession;
+    bool identityIsCurrent() =>
+        privateSession != null &&
+        privateSession.mode == CloudWriteMode.ready &&
+        _authenticatedUid() == privateSession.uid &&
+        cloudWriteSessionController.current == privateSession;
+    final privateRoute = TtsPrivatePlayback.routeFor(
+      defaultTargetPlatform,
+      isWeb: kIsWeb,
+    );
+    if (privateSession != null &&
+        (!identityIsCurrent() || privateRoute == PrivateTtsRoute.denied)) {
+      _reportUnavailable(TtsUnavailableReason.audioUnavailable);
+      return null;
+    }
+    if (privateSession != null && privateRoute == PrivateTtsRoute.iosMemory) {
+      await _reapplySpeechAudioContext();
+      if (!identityIsCurrent()) {
+        return null;
+      }
+      return TtsPlaybackSession(
+        _privatePlayback.play(
+          audio.bytes!,
+          rate: playbackRate,
+          volume: AudioPolicy.instance.volumeFor(SoundChannel.speech),
+          isCurrent: identityIsCurrent,
+        ),
+      );
+    }
     final path = audio.path;
     final source = path != null
         ? DeviceFileSource(path)
         : BytesSource(audio.bytes!, mimeType: 'audio/mpeg');
     try {
       await _reapplySpeechAudioContext();
+      if (privateSession != null && !identityIsCurrent()) {
+        return null;
+      }
+      _privateBytesPlaying = privateSession != null;
       // 완료 대기 future 를 play 전에 준비 (짧은 mp3 의 complete race 방지).
       final done = _player.onPlayerComplete.first.then((_) => true);
       return await TtsFilePlayback.start(
@@ -1160,6 +1216,13 @@ class TtsService {
     _privateCache?.clear();
     _memoryCache.clear();
     _prefetchAttempted.clear();
+    await stop();
+    // Public stop is best-effort; deletion must surface uncertain private release.
+    await _privatePlayback.stop();
+    if (_privateBytesPlaying) {
+      await _player.release();
+      _privateBytesPlaying = false;
+    }
     try {
       if (kIsWeb && cacheDirectory == null) {
         return;
