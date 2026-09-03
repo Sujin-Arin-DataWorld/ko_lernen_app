@@ -282,3 +282,140 @@ None. Every MISSING row across both real runs is explained above; nothing crashe
 1. Same as round 0 #1: should external-concept identifiers (`comment_references`, `build` as a skip-dir name) be suppressed with a small denylist? Left as-is -- F3's docstring note is the agreed-upon fix for this round.
 2. Should the path-token grammar special-case `<...>`-wrapped CLI placeholders and `N..M`-style range shorthands so a grammar/spec document like this brief checks fully clean? Not requested in this fix round; flagged for a future pass if the tool is ever run against documentation rather than task briefs.
 3. Same as round 0 #2 (multi-anchor union-window + first-anchor row label) -- unaffected by this round's changes, still open.
+
+---
+
+# Final fix wave (opus whole-branch review, `hardening-final-review.md`)
+
+Two commits, per the coordinator's "group 1+2 / 3+4+5+6" option:
+
+- `8139f9f6` -- items 1+2 (I1/I2/M1 in `tool/check_brief_anchors.py` + M2/M3 in `test/auto_speech_test_stub_guard_test.dart`)
+- `4c5b1ba2` -- items 3+4+5 (M5 disk-tier poll headroom, M4 ADR-002 wording, M7 `.gitignore`)
+
+Item 6 (verify) is folded into this section rather than a commit. `progress.md` untouched. A graphify run was live in this worktree during the whole wave (`git status` showed 12 modified + several untracked `graphify-out/...` paths throughout) -- every `git add` below named exact files, never `-A`/`.`, so none of that was swept in.
+
+## Diffstat per item
+
+```
+8139f9f6 fix(tool,test): repo-root/assets path resolution + import-line skip in check_brief_anchors; guard allowlist ratchets down (I1/I2/M1/M2/M3)
+ test/auto_speech_test_stub_guard_test.dart | 27 +++++++++++++++--
+ tool/check_brief_anchors.py                | 26 +++++++++++++----
+ tool/test_check_brief_anchors.py           | 47 ++++++++++++++++++++++++++++++
+ 3 files changed, 92 insertions(+), 8 deletions(-)
+
+4c5b1ba2 fix(test,docs): disk-tier poll headroom, ADR-002 phase wording, ignore .venv/ (M5/M4/M7)
+ .gitignore                   | 5 +++++
+ docs/ADR-002-audio-policy.md | 4 ++--
+ test/tts_disk_tier_test.dart | 7 +++++--
+ 3 files changed, 12 insertions(+), 4 deletions(-)
+```
+
+`tool/check_brief_anchors.py` line count: **216** (raised cap 220, not exceeded).
+
+## What changed (item 1 -- I1/I2/M1)
+
+- **I1**: `_resolve` now tries `root / path_str` first for every token (bare or slash-qualified), so repo-root files (`pubspec.yaml`, `AGENTS.md`, `analysis_options.yaml`) and dir-qualified `assets/...` paths resolve directly; only a bare filename with no direct hit still falls back to the `SEARCH_DIRS` walk, which now includes `assets`.
+- **I2**: a `PATH_RE` match is skipped when the literal 8 characters before it end in `package:` or `dart:`, and when the matched path itself starts with `../`.
+- **M1**: docstring-only -- added a sentence stating that a backtick-quoted prose word anywhere after a path token binds to that path (nearest-preceding-path heuristic), a known limit, not a bug. No behavior change, as instructed.
+- Tests added (16 total now, was 12): `test_13` (I1a, repo-root bare file), `test_14` (I1b, dir-qualified `assets/data/x.json` and bare `x.json` under `assets`), `test_15` (I2c+../, `package:flutter/material.dart` import and a `../../services/sound_service.dart` relative import both produce zero rows), `test_16` (I2d, a contrived `dart:async.dart` token to prove the `dart:`-prefix skip actually fires, since real `dart:` imports rarely carry a recognised extension on their own).
+
+## What changed (item 2 -- M2/M3)
+
+- **M2**: after `unstubbed` is computed, `stale = knownUnstubbedTestFiles.where((f) => !unstubbed.contains(f))` and `expect(stale, isEmpty, reason: '고쳐졌거나 사라진 파일은 허용 목록에서 지우고 knownUnstubbedCap을 낮출 것: ...')`. Allowlist (60 entries) and cap (60) both left unchanged.
+- **M3**: docstring rewritten to say exactly what each marker proves -- `stubSoriSpeech(` stubs all four hooks (speak/speakSlow/prefetch/stop); a bare `speakImpl =` only proves speak is stubbed, prefetch/stop may still reach the real service, and that is accepted as evidence only because the T3 trap the guard exists for is specifically the speak in-flight lock.
+
+## Mutation check (M2, item 2)
+
+Baseline run (before mutation) -- clean:
+
+```
+00:00 +0: 자동 발화 화면을 pumpWidget하는 테스트는 SoriSpeech를 스텁한다
+00:10 +1: All tests passed!
+```
+
+Mutated (`knownUnstubbedTestFiles` +`'test/zz_not_a_file_test.dart'`, `knownUnstubbedCap` 60->61, so only the new `stale` assertion could trip):
+
+```
+00:00 +0 -1: 자동 발화 화면을 pumpWidget하는 테스트는 SoriSpeech를 스텁한다 [E]
+  Expected: empty
+    Actual: ['test/zz_not_a_file_test.dart']
+  고쳐졌거나 사라진 파일은 허용 목록에서 지우고 knownUnstubbedCap을 낮출 것: test/zz_not_a_file_test.dart
+
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test\auto_speech_test_stub_guard_test.dart 126:5    main.<fn>
+
+00:00 +0 -1: Some tests failed.
+```
+
+FAILED exactly on the new `stale` assertion (line 126, the `newOffenders` assertion above it never tripped, since the fake path was never a real offender). Reverted both lines; re-ran -- back to `All tests passed!` (diff after revert contains only the intended M2 addition, confirmed via `git diff`).
+
+## Per-brief tool table (all real briefs, fixed tool, canonical venv)
+
+| Brief | OK | DRIFT | MISSING | exit | remaining MISSING all legit? |
+|---|---|---|---|---|---|
+| task-1-brief.md | 20 | 1 | 2 | 1 | yes |
+| task-2-brief.md | 40 | 0 | 3 | 1 | yes |
+| task-3-brief.md | 21 | 1 | 2 | 1 | 1 of 2 (see below) |
+| task-4-brief.md | 29 | 2 | 4 | 1 | yes |
+| task-5-brief.md | 22 | 0 | 3 | 1 | yes |
+| task-6-brief.md | 17 | 1 | 3 | 1 | yes |
+| task-7-brief.md | 38 | 1 | 1 | 1 | yes |
+| task-8-brief.md | 35 | 1 | 5 | 1 | yes |
+| hardening-2-brief.md | 39 | 0 | 2 | 1 | yes (round-0/1 explanations, unchanged) |
+| hardening-3-brief.md | 14 | 0 | 7 | 1 | yes (round-1 explanations, unchanged) |
+
+Reviewer's two named benchmarks, confirmed fixed: **task-7 8 -> 1** (the 1 remaining is M1-class, not an import/repo-root false positive) and **task-5 15 (12 import lines) -> 3** (all 3 remaining are M1-class; all 12 import-line false positives are gone -- verified by grep-counting `import '` lines in task-5-brief.md and confirming none appear in its output table).
+
+### Classification of every remaining MISSING row
+
+The overwhelming majority (31 of 32 total MISSING rows across the 8 task briefs + 2 hardening briefs) are the **M1 heuristic limit documented this round**: an identifier or anchor textually follows a path token on the same brief line but semantically describes a *different* file, class, or concept than the one nearest-preceding-path binds it to. Verified per row, not asserted:
+
+- **task-1 `speakable.dart:330-333` `onResolutionFailed`/`errorReporter`** -- these are `TtsPlaybackEngine` constructor fields defined in `tts_service.dart` (see task-1-brief.md's own Interfaces section); bound to the nearer `speakable.dart` mention earlier in the sentence.
+- **task-2 `content_audio_policy_guard_test.dart:426-437`/`:313-342` (EOF) + `phase`** -- the real file is **143 lines** (verified: `wc -l`); L313-342/L426-437 cannot be in it. `lib/widgets/sori/speakable.dart` is 564 lines and plausibly holds the `SoriSpeakable`/`phase`-subscription content the sentence describes -- bound to the wrong (nearer) path.
+- **task-3 `vocab_pack_screen.dart:686-693` `voice`** -- `voice` is a parameter name of `SoriSpeech.prefetch` (defined in `speakable.dart`), described here as "call it with voice omitted", not a literal token expected inside `vocab_pack_screen.dart`.
+- **task-4 (x4)** -- `SoriSpeech.speakImpl`/`spoken` describe the *new* file being authored (`vocab_notebook_audio_test.dart`, the first, not-yet-existing path on that line) using shared test-stub infrastructure; `SoriSpeakable` describes a *production* widget-wrapping change, not literal content of the existing test file it got bound to.
+- **task-5 (x3)** -- `MilestoneType`/`AudioPolicy`/`SoundService._play` are other classes/services referenced for context, not symbols expected inside `custom_pack_quiz_screen.dart`.
+- **task-6 (x3)** -- `_maxBytes`(L515)/`_cacheDir` are production constants; `account_cleanup_test.dart` is **111 lines** (verified), so L515 cannot be in it -- almost certainly `tts_service.dart` (1312 lines).
+- **task-7 `pubspec.yaml` `bundledCount`** -- a JSON-manifest/Dart-test assertion key, not literal `pubspec.yaml` content; `pubspec.yaml` is only the nearest-preceding path because it was mentioned two sentences earlier for an unrelated reason (the 3 added asset lines).
+- **task-8 (x5, 2 are EOF)** -- `test_verify_storage_mode_reaches_its_own_read_only_branch`(L721-746)/`test_bare_invocation_is_rejected`(L546-554) cannot be in `.github/scripts/test_ci_scope.py` (**128 lines**, verified) but fit comfortably in `tool/test_generate_tts.py` (1011 lines, verified); `modes` is a real Python variable, confirmed at `tool/generate_tts.py:1297` (`modes = parser.add_mutually_exclusive_group(...)`), not in `test_ci_scope.py`.
+- **hardening-2 (x2)** and **hardening-3 (x7)** -- unchanged from rounds 0/1 (`comment_references` = external Dart lint-rule name; `_syncSpeakingFromPhase` = already-deleted symbol; hardening-3's 7 are the grammar spec's own illustrative examples/placeholders, see the round-1 section above).
+
+**The one row that is not cleanly "legit" under invented/deleted/external-concept:** `task-3 brief:30 helpers/deck_actions.dart no such file`, from `import 'helpers/deck_actions.dart';`. This is a same-directory-relative Dart import (no `package:` scheme, no leading `../`), which is inherently ambiguous for a text-only checker -- it is syntactically indistinguishable from a real repo-root-relative citation, and resolving it correctly would require knowing which file the `import` statement lives inside (not derivable from the brief text). This falls outside the literally-specified I2 fix (`package:`/`dart:` prefix and `../`-prefix only) and I did not extend the skip to bare `import '...'` tokens generally, to stay inside the round's precisely itemized scope rather than invent an unrequested heuristic. Flagged as an open question below rather than silently left unexplained.
+
+## GREEN log (item 6 -- verify)
+
+```
+flutter test --no-pub test/auto_speech_test_stub_guard_test.dart test/tts_disk_tier_test.dart test/content_audio_policy_guard_test.dart
+...
+00:03 +10: All tests passed!
+```
+10/10 (1 guard + 1 disk-tier + 8 `content_audio_policy_guard_test`).
+
+```
+flutter analyze --no-pub
+Analyzing w7-pr1-tts-20260903...
+No issues found! (ran in 125.1s)
+```
+
+```
+C:\dev\hangulsori\ko_lernen_app\.venv\Scripts\python.exe -X utf8 -m unittest tool.test_check_brief_anchors -v
+...
+Ran 16 tests in 0.165s
+OK
+```
+
+```
+git diff --check -- .gitignore docs/ADR-002-audio-policy.md test/auto_speech_test_stub_guard_test.dart test/tts_disk_tier_test.dart tool/check_brief_anchors.py tool/test_check_brief_anchors.py
+(clean, exit 0 -- restricted to this wave's own files since an unrestricted `git diff --check` against the whole working tree pulls in the concurrent graphify run's untracked/modified output and is not a meaningful signal for this wave)
+```
+
+## Unexpected failures
+
+None. The full Flutter suite was not run (as instructed). `graphify-out/` was observed changing live throughout (12 tracked files modified, several new untracked `cache/ast/...json` files appeared between checks) but was never staged or touched by either commit.
+
+## Open questions (final fix wave, <=3)
+
+1. `task-3-brief.md:30`'s `helpers/deck_actions.dart` (a bare same-directory-relative Dart import) is a residual false MISSING outside this round's literal I1/I2 scope (`package:`/`dart:`/`../` only). Should a future round extend the skip to any path token immediately preceded by `import '`/`import "` generally, regardless of prefix?
+2. M1 accounts for 31 of 32 total MISSING rows across the 10 real briefs. Docstring-only was the agreed fix for this round -- is the volume here (now precisely measured, not just described) enough to justify the behavior fix the original review offered as an alternative ("bind in either direction, or require an identifier to look like code")?
+3. M6 (ledger commit hygiene -- keep `*-report.md` out of code commits, land `hardening-2-report.md` + this review doc + `progress.md` together) and M8 (graphify-out ignore rule) were named in the review but not included in this round's numbered items and were left untouched, per the coordinator's explicit "do NOT touch graphify-out/" instruction for this dispatch.
