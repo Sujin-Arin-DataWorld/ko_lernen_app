@@ -34,10 +34,13 @@ class CiScopeTest(unittest.TestCase):
             "auth_cleanup",
         )
 
-    def test_content_shard_change_selects_only_content_gate(self):
-        self.assert_enabled(["assets/data/scenarios_a1.json"], "content")
-        self.assert_enabled(["assets/data/cloze.json"], "content")
-        self.assert_enabled(["assets/data/korean_vocab.csv"], "content")
+    def test_content_shard_change_selects_app_and_content_gates(self):
+        self.assert_enabled(["assets/data/scenarios_a1.json"], "app", "content")
+        self.assert_enabled(["assets/data/cloze.json"], "app", "content")
+        self.assert_enabled(["assets/data/korean_vocab.csv"], "app", "content")
+
+    def test_unlisted_assets_data_file_selects_app_only(self):
+        self.assert_enabled(["assets/data/foo.json"], "app")
 
     def test_tts_function_change_is_not_conflated_with_content_scope(self):
         self.assert_enabled(["functions/tts/index.js"], "tts")

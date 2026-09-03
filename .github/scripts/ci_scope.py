@@ -125,6 +125,9 @@ def scopes_for_paths(paths: Iterable[str]) -> dict[str, bool]:
             continue
 
         if path.startswith("assets/data/scenarios_") and path.endswith(".json"):
+            # Bundled at build time, so 23 Flutter test files read these
+            # data files directly — the app gate must run alongside content.
+            result["app"] = True
             result["content"] = True
             continue
 
@@ -136,6 +139,8 @@ def scopes_for_paths(paths: Iterable[str]) -> dict[str, bool]:
             "assets/data/korean_vocab.csv",
             "assets/data/grammar.csv",
         }:
+            # Same reasoning as above: these are also bundled Flutter assets.
+            result["app"] = True
             result["content"] = True
             continue
 
