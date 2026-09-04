@@ -18,12 +18,9 @@ import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
 import 'package:ko_lernen_app/screens/first_voice_success_screen.dart';
 import 'package:ko_lernen_app/screens/intro_gate_screen.dart';
-import 'package:ko_lernen_app/screens/onboarding_level_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_preview_screen.dart';
-import 'package:ko_lernen_app/screens/onboarding_start_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_journey_screen.dart';
 import 'package:ko_lernen_app/screens/placement_diagnostic_screen.dart';
-import 'package:ko_lernen_app/screens/quick_onboarding_screen.dart';
 import 'package:ko_lernen_app/screens/splash_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -580,31 +577,6 @@ void main() {
     await _disposeEntry(tester);
   });
 
-  testWidgets('onboarding choices announce their selected transition', (
-    tester,
-  ) async {
-    final semantics = tester.ensureSemantics();
-    final t = lookupAppL10n(const Locale('en'));
-    await _pumpEntry(
-      tester,
-      OnboardingStartScreen.preview(openPlacement: () async {}),
-      locale: const Locale('en'),
-      viewport: (size: const Size(390, 844), textScale: 1.3),
-    );
-
-    final travel = _cardWithText(t.onboardingStartTravelTitle);
-    final people = _cardWithText(t.onboardingStartPeopleTitle);
-    _expectAction(tester, travel, minHeight: 48, selected: ui.Tristate.isTrue);
-    _expectAction(tester, people, minHeight: 48, selected: ui.Tristate.isFalse);
-
-    await _tapPointerOwned(tester, people);
-    _expectAction(tester, travel, minHeight: 48, selected: ui.Tristate.isFalse);
-    _expectAction(tester, people, minHeight: 48, selected: ui.Tristate.isTrue);
-    expect(tester.takeException(), isNull);
-    await _disposeEntry(tester);
-    semantics.dispose();
-  });
-
   testWidgets(
     'required character cards expose tap semantics and confirmation',
     (tester) async {
@@ -746,47 +718,6 @@ void main() {
     semantics.dispose();
   });
 
-  testWidgets('level compare rows remain executable across the locked matrix', (
-    tester,
-  ) async {
-    final semantics = tester.ensureSemantics();
-    for (final locale in const [Locale('de'), Locale('en')]) {
-      final t = lookupAppL10n(locale);
-      for (final viewport in _viewports) {
-        await _pumpEntry(
-          tester,
-          const OnboardingLevelScreen(),
-          locale: locale,
-          viewport: viewport,
-        );
-
-        final compare = find.bySemanticsLabel(t.onboardingCompareCta);
-        await _tapPointerOwned(tester, compare);
-        await tester.pump(const Duration(milliseconds: 500));
-        expect(find.text(t.onboardingCompareTitle), findsOneWidget);
-
-        final row = find.bySemanticsLabel(
-          RegExp('^A1 ·.*${RegExp.escape(t.onboardingCompareColCan)}:'),
-        );
-        expect(row, findsOneWidget);
-        await _centerInScrollable(tester, row);
-        _expectAction(tester, row, minHeight: 48);
-        _expectReachableInSafeArea(
-          tester,
-          row,
-          viewport.size,
-          reason:
-              'compare row ${locale.languageCode} '
-              '${viewport.size} @${viewport.textScale}',
-        );
-        _expectPointerOwned(tester, row);
-        expect(tester.takeException(), isNull);
-        await _disposeEntry(tester);
-      }
-    }
-    semantics.dispose();
-  });
-
   testWidgets('preview advances without an animated intermediate state', (
     tester,
   ) async {
@@ -849,15 +780,6 @@ List<_EntryFixture> _fixtures(AppL10n t) => [
     actionMayExceedViewport: false,
   ),
   (
-    name: 'quick onboarding',
-    build: () => const QuickOnboardingScreen(),
-    anchor: (_) => find.text(t.onboardingStartTitle),
-    action: (_) => find.bySemanticsLabel(t.onboardingStartPrimary),
-    safeVisual: null,
-    actionUsesSafeArea: true,
-    actionMayExceedViewport: false,
-  ),
-  (
     name: 'consent',
     build: () => ConsentScreen.preview(onPreviewAccepted: () {}),
     anchor: (_) => find.text(t.consentTitle),
@@ -865,24 +787,6 @@ List<_EntryFixture> _fixtures(AppL10n t) => [
     safeVisual: null,
     actionUsesSafeArea: true,
     actionMayExceedViewport: false,
-  ),
-  (
-    name: 'onboarding start',
-    build: () => OnboardingStartScreen.preview(openPlacement: () async {}),
-    anchor: (_) => find.text(t.onboardingStartTitle),
-    action: (_) => find.bySemanticsLabel(t.onboardingStartPrimary),
-    safeVisual: null,
-    actionUsesSafeArea: true,
-    actionMayExceedViewport: false,
-  ),
-  (
-    name: 'onboarding level',
-    build: () => const OnboardingLevelScreen(),
-    anchor: (_) => find.text(t.onboardingTitle),
-    action: (_) => find.bySemanticsLabel(RegExp(r'^A1 ·')),
-    safeVisual: null,
-    actionUsesSafeArea: true,
-    actionMayExceedViewport: true,
   ),
   (
     name: 'onboarding preview',
@@ -1147,9 +1051,6 @@ Future<void> _centerInScrollable(WidgetTester tester, Finder finder) async {
   );
   await tester.pump();
 }
-
-Finder _cardWithText(String label) =>
-    find.ancestor(of: find.text(label), matching: find.byType(SoriCard)).first;
 
 void _expectAction(
   WidgetTester tester,

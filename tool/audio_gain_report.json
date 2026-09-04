@@ -11,8 +11,8 @@
     "gameFeedback": "audit-only",
     "companion": "audit-only"
   },
-  "assetCount": 39,
-  "audioStreamCount": 22,
+  "assetCount": 38,
+  "audioStreamCount": 21,
   "decoderErrorCount": 0,
   "targetIssueCount": 0,
   "assets": [
@@ -697,24 +697,6 @@
       "truePeakDbtp": null,
       "targetDb": -40.0,
       "calculatedGain": null,
-      "decoderError": null,
-      "normalizedDerivative": null
-    },
-    {
-      "path": "assets/video/loops/welcome-hero.mp4",
-      "channel": "ambience",
-      "sourceSha256": "04a22306fca701935f39778e2750d00df24830a4716533a6c6f5885b55266553",
-      "hasAudio": true,
-      "codec": "aac",
-      "channels": 2,
-      "sampleRateHz": 44100,
-      "durationSeconds": 5.085011,
-      "meanDb": -35.5,
-      "integratedLufs": -32.79,
-      "maxDb": -18.7,
-      "truePeakDbtp": -18.63,
-      "targetDb": -40.0,
-      "calculatedGain": 0.595662,
       "decoderError": null,
       "normalizedDerivative": null
     }

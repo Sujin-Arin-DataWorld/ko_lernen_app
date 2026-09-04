@@ -22,6 +22,9 @@ analyzer:
     # 전부 깨져 `flutter analyze` 가 수백 개 undefined_identifier 로 실패한다.
     # (2026-07-31 실제 발생) 문서 폴더는 통째로 제외한다.
     - docs/**
+    # assets_unused/ 는 격리된(더 이상 배선되지 않는) 코드·에셋 보관소 —
+    # pubspec에도 없어 번들되지 않는다. 분석·컴파일 대상에서도 뺀다.
+    - assets_unused/**
 
 include: package:flutter_lints/flutter.yaml
 

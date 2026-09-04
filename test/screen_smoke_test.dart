@@ -15,7 +15,6 @@ import 'package:ko_lernen_app/screens/learning_path_screen.dart';
 import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
 import 'package:ko_lernen_app/screens/intro_gate_screen.dart';
 import 'package:ko_lernen_app/screens/listening_screen.dart';
-import 'package:ko_lernen_app/screens/onboarding_level_screen.dart';
 import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
 import 'package:ko_lernen_app/screens/personal_room_furnish_screen.dart';
 import 'package:ko_lernen_app/screens/sarangbang_furnish_screen.dart';
@@ -77,7 +76,6 @@ void main() {
     ),
     'stats': const StatsScreen(),
     'settings': const SettingsScreen(),
-    'onboarding': const OnboardingLevelScreen(),
     'companion selection': const CharacterSelectionScreen(optional: true),
   };
 
@@ -112,11 +110,9 @@ Widget _wrap(Widget child) {
     localizationsDelegates: AppL10n.localizationsDelegates,
     home: child,
     onGenerateRoute: (settings) {
-      if (settings.name == '/' || settings.name == '/onboarding') {
+      if (settings.name == '/') {
         return MaterialPageRoute<void>(
-          builder: (_) => settings.name == '/'
-              ? const SoriStageTodayScreen()
-              : const OnboardingLevelScreen(),
+          builder: (_) => const SoriStageTodayScreen(),
         );
       }
       return null;

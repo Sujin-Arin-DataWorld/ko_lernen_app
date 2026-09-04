@@ -17,7 +17,6 @@ import 'package:ko_lernen_app/screens/gye_screen.dart';
 import 'package:ko_lernen_app/screens/gye_tab_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_preview_screens.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
-import 'package:ko_lernen_app/screens/onboarding_start_screen.dart';
 import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
 import 'package:ko_lernen_app/screens/profile_screen.dart';
 import 'package:ko_lernen_app/screens/quest_engines/hoerverstehen_quest.dart';
@@ -61,11 +60,10 @@ void main() {
       registry.panelIds,
       uxPreviewPanels.map((panel) => panel.id).toList(),
     );
-    expect(registry.panelIds.toSet(), hasLength(30));
+    expect(registry.panelIds.toSet(), hasLength(29));
 
     final expectedTypes = <String, Type>{
       '01A': ConsentScreen,
-      '01B': OnboardingStartScreen,
       '01C': FirstVoiceSuccessScreen,
       '01D': CharacterSelectionScreen,
       '02A': SoriStageTodayPreviewScreen,
@@ -326,22 +324,6 @@ void main() {
         await tester.pump();
       }
 
-      await tester.pumpWidget(const UxPreviewApp(initialPanelId: '01B'));
-      final existingLearner = find.text('Ich kann schon etwas');
-      await tester.scrollUntilVisible(
-        existingLearner,
-        180,
-        scrollable: find.byType(Scrollable).first,
-      );
-      await tester.ensureVisible(existingLearner);
-      await tester.pump();
-      await tester.tap(existingLearner);
-      await tester.pump();
-      await tester.ensureVisible(find.text('Level wählen'));
-      await tester.tap(find.text('Level wählen'));
-      await tester.pump();
-      expect(await _preferencesSnapshot(), before);
-
       await tester.pumpWidget(const UxPreviewApp(initialPanelId: '05B'));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 150));
@@ -547,7 +529,7 @@ void main() {
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
 
-      for (final id in const ['01B', '02B', '03B', '04C', '05B', '06A']) {
+      for (final id in const ['01A', '02B', '03B', '04C', '05B', '06A']) {
         await tester.pumpWidget(UxPreviewApp(initialPanelId: id));
         await tester.pump();
         await tester.pump(const Duration(milliseconds: 150));

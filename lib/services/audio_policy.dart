@@ -182,11 +182,11 @@ class AudioPolicy extends ChangeNotifier {
   static const Map<String, double> _ambienceGain = {
     'assets/video/loops/hanok_construction.mp4': 0.095,
     'assets/video/loops/hanok_jongga.mp4': 0.575,
-    'assets/video/loops/welcome-hero.mp4': 0.596,
     // study_scholar(−40.0)·study_classroom(−45.8) → 1.0 클램프
     // (video_player 는 감쇠만 가능, 증폭 불가 — 기준 이하 원본은 그대로).
-    // kkeunmari_hero·porch는 2026-09-04 PR3-T1로 재생 호출부가 없어
-    // assets_unused/ 로 격리됨 — 표에서도 제거(assets_unused/README.md 참조).
+    // kkeunmari_hero·porch는 2026-09-04 PR3-T1로, welcome-hero는
+    // 2026-09-04 PR3-T2로 재생 호출부가 없어 assets_unused/ 로 격리됨 —
+    // 표에서도 제거(assets_unused/README.md 참조).
   };
 
   @visibleForTesting

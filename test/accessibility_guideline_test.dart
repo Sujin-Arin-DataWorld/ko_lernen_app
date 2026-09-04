@@ -7,8 +7,6 @@ import 'package:ko_lernen_app/models/personal_hanok.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
 import 'package:ko_lernen_app/screens/gye_tab_screen.dart';
-import 'package:ko_lernen_app/screens/onboarding_level_screen.dart';
-import 'package:ko_lernen_app/screens/onboarding_start_screen.dart';
 import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/screens/scenarios_list_screen.dart';
@@ -73,8 +71,8 @@ void main() {
     'stats': StatsScreen.new,
     'consent': ConsentScreen.new,
     // §G (2026-08-14): 온보딩 진입 2화면 — 설문 옵션·레벨 사다리가 터치 밀집.
-    'onboarding start': OnboardingStartScreen.new,
-    'onboarding level': OnboardingLevelScreen.new,
+    // 2026-09-04 PR3-T2: 두 화면 모두 죽은 사슬이라 assets_unused/ 로
+    // 격리됐다 — 매트릭스에서도 제거(assets_unused/README.md 참조).
     // §D (2026-08-14): 기본 셸의 첫 화면 — 미션 스테이지·보자기·한옥 진행이
     // 상호작용 밀집 구간이라 매트릭스에 상주시킨다. 픽스처 주입으로
     // Storage/실시간 시각에 묶이지 않는다.

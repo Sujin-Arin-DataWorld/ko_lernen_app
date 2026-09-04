@@ -42,7 +42,6 @@ import 'package:ko_lernen_app/screens/satz_arcade_screen.dart';
 import 'package:ko_lernen_app/screens/scenarios_list_screen.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/screens/smalltalk_screen.dart';
-import 'package:ko_lernen_app/screens/onboarding_start_screen.dart';
 import 'package:ko_lernen_app/screens/speed_match_screen.dart';
 import 'package:ko_lernen_app/screens/stats_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
@@ -79,7 +78,6 @@ Map<String, Widget> responsiveScreens() => <String, Widget>{
   'hard words': const HardWordsScreen(),
   'legacy vocab': const LegacyVocabScreen(),
   'consent': const ConsentScreen(),
-  'onboarding start': const OnboardingStartScreen(),
   'first voice success': const FirstVoiceSuccessScreen(
     canDo: 'Ich kann jemanden begrüßen.',
   ),

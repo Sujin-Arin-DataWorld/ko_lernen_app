@@ -112,3 +112,38 @@ hotel·market·restaurant) 포스터와는 무관 — 그 포스터들은 지금
 > "상수가 가리키는 파일이 실재하는가"만 보고 그 반대(디스크에 있는데 상수에
 > 없는 것)는 안 봤다. 2026-08-07 에 양방향으로 바꾸자마자 위 2 개가 나왔다.
 > 전 폴더 검사는 `test/asset_orphan_guard_test.dart` 가 맡는다.
+
+## 7. welcome-hero 온보딩 체인 3화면 + 히어로 영상 — 2026-09-04 (PR3-T2)
+
+옛 온보딩 화면 3개(`OnboardingLevelScreen`·`OnboardingStartScreen`·
+`QuickOnboardingScreen`)가 서로만 참조하는 죽은 사슬이었다. `lib/main.dart`
+라우팅에는 세 클래스 이름이 한 번도 나오지 않고, 옛 경로 이름들(`/quick_onboarding`
+`/onboarding/legacy-level` `/onboarding/start`)은 전부 새 온보딩
+(`OnboardingV2JourneyScreen`)을 만든다. 2026-09-04 전수 grep으로 앱 코드 중
+유일한 참조가 디버그 갤러리 `lib/screens/ux_preview_app.dart`(패널 `01B`)
+한 줄임을 재확인(Jin 승인, 지시서 3.2). **삭제가 아니라 격리** —
+`HanokHeader.kLoopAssets`·`AudioPolicy._ambienceGain`에서도 `welcome-hero`
+항목을 함께 제거해 상수와 파일이 같이 움직이게 했고, 디버그 갤러리에서도
+`01B` 패널을 뺐다(`lib/models/ux_preview_catalog.dart`).
+
+세 화면의 히어로 포스터 상수 `OnboardingLevelScreen.kHeroPoster`가 가리키던
+`assets/illustrations/mascot/magpie_tiger_together.png`는 `stats_screen.dart`·
+`mascot.dart`가 계속 정본으로 쓰는 **살아 있는** 마스코트 아트라 이번 이동
+대상에서 뺐다.
+
+| 파일 | 원경로 | 무엇 / 왜 미사용 |
+|---|---|---|
+| `retired_code/screens/onboarding_level_screen.dart` | `lib/screens/` | 옛 A1~C1 레벨 사다리 화면. `OnboardingStartScreen`만 이 화면으로 이동했다 |
+| `retired_code/screens/onboarding_start_screen.dart` | `lib/screens/` | 옛 학습 동기 설문 화면. `QuickOnboardingScreen`만 이 화면으로 이동했다 |
+| `retired_code/screens/quick_onboarding_screen.dart` | `lib/screens/` | 위 두 화면으로 가는 진입점. 라우팅 콜사이트가 없다 |
+| `retired_code/test/onboarding_start_screen_test.dart` | `test/` | 위 화면 전용 테스트. 격리와 함께 실행 대상에서 뺐다 |
+| `retired_code/test/quick_onboarding_screen_test.dart` | `test/` | 〃 |
+| `video/loops/welcome-hero.mp4` | `assets/video/loops/` | `OnboardingLevelScreen`의 히어로 앰비언트 루프(585KB). 화면이 격리되며 유일한 콜사이트가 사라졌다 |
+
+**복원법**: 세 화면과 두 테스트를 `git mv`로 원경로에 되돌리고, `analysis_options.yaml`
+`exclude`에서 `assets_unused/**` 아래 이 파일들이 다시 빠지는지 확인할 필요는
+없다(폴더 단위 제외라 자동 반영). `welcome-hero.mp4`를 되돌리고
+`HanokHeader.kLoopAssets`·`AudioPolicy._ambienceGain`에 항목을 다시 추가하고,
+`lib/screens/ux_preview_app.dart`와 `lib/models/ux_preview_catalog.dart`에
+`01B` 패널을 다시 배선하면 된다. `test/welcome_hero_retired_test.dart`가
+이 격리를 하향 전용으로 지키므로, 복원할 때는 그 테스트부터 지울 것.

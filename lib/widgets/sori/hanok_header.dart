@@ -78,7 +78,6 @@ class HanokHeader extends StatelessWidget {
     'study_classroom',
     'study_scholar',
     'taego-joy-duo',
-    'welcome-hero',
   };
 
   /// 'assets/illustrations/hanok/porch.png'

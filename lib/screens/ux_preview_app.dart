@@ -36,7 +36,6 @@ import 'gye_screen.dart';
 import 'gye_tab_screen.dart';
 import 'hanok_world_screen.dart';
 import 'learning_path_screen.dart';
-import 'onboarding_start_screen.dart';
 import 'practice_hub_screen.dart';
 import 'profile_screen.dart';
 import 'sarangbang_screen.dart';
@@ -57,10 +56,6 @@ class UxPreviewRegistry {
 
   Widget buildPanel(UxPreviewPanel panel) => switch (panel.id) {
     '01A' => ConsentScreen.preview(onPreviewAccepted: _ignore),
-    '01B' => OnboardingStartScreen.preview(
-      initialMotivation: LearnerMotivation.travel,
-      openPlacement: () async {},
-    ),
     '01C' => FirstVoiceSuccessScreen(
       canDo: _greetingUnit.canDo.de,
       phrase: '안녕하세요.',
