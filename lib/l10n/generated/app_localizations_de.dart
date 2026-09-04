@@ -5347,7 +5347,7 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String get grammarPlanStartCta => 'Los geht\'s';
+  String get grammarPlanStartCta => 'Starten';
 
   @override
   String grammarPlanDayHeader(int day, int total) {
@@ -5800,9 +5800,6 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get milestoneVocabBody => 'Wort für Wort kommst du ans Ziel!';
-
-  @override
-  String get milestoneCta => 'Weiter';
 
   @override
   String get feedbackCompletionContinue => 'Weiter';

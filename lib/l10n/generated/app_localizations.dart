@@ -9273,7 +9273,7 @@ abstract class AppL10n {
   /// No description provided for @grammarPlanStartCta.
   ///
   /// In de, this message translates to:
-  /// **'Los geht\'s'**
+  /// **'Starten'**
   String get grammarPlanStartCta;
 
   /// No description provided for @grammarPlanDayHeader.
@@ -10031,12 +10031,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Wort für Wort kommst du ans Ziel!'**
   String get milestoneVocabBody;
-
-  /// No description provided for @milestoneCta.
-  ///
-  /// In de, this message translates to:
-  /// **'Weiter'**
-  String get milestoneCta;
 
   /// No description provided for @feedbackCompletionContinue.
   ///

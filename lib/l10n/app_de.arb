@@ -2732,7 +2732,7 @@
       }
     }
   },
-  "grammarPlanStartCta": "Los geht's",
+  "grammarPlanStartCta": "Starten",
   "grammarPlanDayHeader": "Tag {day} von {total}",
   "@grammarPlanDayHeader": {
     "placeholders": {
@@ -2944,7 +2944,6 @@
   "milestoneStreakBody": "Regelmäßiges Lernen zahlt sich aus. Weiter so!",
   "milestoneLevelBody": "Dein Koreanisch wächst mit jedem Tag.",
   "milestoneVocabBody": "Wort für Wort kommst du ans Ziel!",
-  "milestoneCta": "Weiter",
   "feedbackCompletionContinue": "Weiter",
   "practiceEyebrow": "Ohne Tagesmission",
   "practiceTitle": "Was willst du gerade festigen?",
