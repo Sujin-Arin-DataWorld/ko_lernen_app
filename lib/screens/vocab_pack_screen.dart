@@ -1398,76 +1398,88 @@ class _FlipFront extends StatelessWidget {
     // 발음 정보(듣기 버튼 + 로마자)는 한 묶음으로 두어 흩어지지 않게 한다.
     // FlipCard._fitFace 가 이미 SingleChildScrollView + minHeight 로 감싸므로
     // 넘칠 땐 스크롤로 안전(별도 스크롤 래핑 불필요).
-    return SoriCard(
-      variant: SoriCardVariant.hero,
-      accent: SoriColors.info,
-      tinted: true,
-      // P1 이중 안전벨트: SoriCard 는 width: null 이면 내재폭 — 슬롯 핀과
-      // 별개로 카드 자체도 항상 가용폭을 채운다 (단어 길이별 폭 신축 금지).
-      width: double.infinity,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          // 제시어 — 카드를 채우는 대형 헤드라인. 크기는 덱 공유값
-          // ([headlineSize]) 하나로 고정 — FittedBox 는 실측 오차용 안전망일 뿐
-          // 정상 경로에서는 절대 개입하지 않는다 (단어 길이별 크기 요동 금지).
-          FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Text(
-              v.korean,
-              textAlign: TextAlign.center,
-              maxLines: 1,
-              style: TextStyle(
-                fontSize: headlineSize,
-                fontWeight: FontWeight.w700,
-                letterSpacing: -0.5,
-                height: 1.05,
-              ),
-            ),
-          ),
-          // 듣기 버튼 + 로마자를 한 묶음으로(발음 정보끼리 붙어 있게).
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SoriSpeechIndicator(text: v.korean),
-              if (romanizationOnFront && v.romanization.isNotEmpty) ...[
-                SizedBox(height: soriFillSize(h, 0.02, 6, 16)),
-                Text(
-                  '[${v.romanization}]',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: soriFillSize(h, 0.048, 16, 28),
-                    color: s.textMuted,
-                    fontStyle: FontStyle.italic,
+    // §A3 지시서 2.9: 듣기 아이콘은 카드박스 상단 왼쪽 구석. 카드 자체를
+    // Stack 으로 감싸 Positioned(top/left: Spacing.sm) 로 얹는다(카드 밖
+    // Stack 이 카드 렌더 결과를 그대로 감싸는 content_feed.dart topAccessory
+    // 와 같은 좌표계 — 24dp 이내 계약을 지키려면 카드 자체 padding 안쪽이
+    // 아니라 카드 렌더 rect 기준이어야 한다). 본문엔 인디케이터 높이만큼
+    // 위 패딩을 더해 헤드라인과 겹치지 않게 한다.
+    return Stack(
+      fit: StackFit.passthrough,
+      children: [
+        SoriCard(
+          variant: SoriCardVariant.hero,
+          accent: SoriColors.info,
+          tinted: true,
+          // P1 이중 안전벨트: SoriCard 는 width: null 이면 내재폭 — 슬롯 핀과
+          // 별개로 카드 자체도 항상 가용폭을 채운다 (단어 길이별 폭 신축 금지).
+          width: double.infinity,
+          child: Padding(
+            padding: const EdgeInsets.only(top: Spacing.xxxl),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                // 제시어 — 카드를 채우는 대형 헤드라인. 크기는 덱 공유값
+                // ([headlineSize]) 하나로 고정 — FittedBox 는 실측 오차용
+                // 안전망일 뿐 정상 경로에서는 절대 개입하지 않는다
+                // (단어 길이별 크기 요동 금지).
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    v.korean,
+                    textAlign: TextAlign.center,
+                    maxLines: 1,
+                    style: TextStyle(
+                      fontSize: headlineSize,
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: -0.5,
+                      height: 1.05,
+                    ),
                   ),
                 ),
-              ],
-            ],
-          ),
-          // 인라인 아이콘 + 힌트 — Text.rich라 좁은 폭에서 자연스럽게 줄바꿈.
-          Text.rich(
-            TextSpan(
-              children: [
-                WidgetSpan(
-                  alignment: PlaceholderAlignment.middle,
-                  child: Icon(
-                    Icons.touch_app_outlined,
-                    size: 14,
+                if (romanizationOnFront && v.romanization.isNotEmpty)
+                  Text(
+                    '[${v.romanization}]',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: soriFillSize(h, 0.048, 16, 28),
+                      color: s.textMuted,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                // 인라인 아이콘 + 힌트 — Text.rich라 좁은 폭에서 자연스럽게
+                // 줄바꿈.
+                Text.rich(
+                  TextSpan(
+                    children: [
+                      WidgetSpan(
+                        alignment: PlaceholderAlignment.middle,
+                        child: Icon(
+                          Icons.touch_app_outlined,
+                          size: 14,
+                          color: s.textDim,
+                        ),
+                      ),
+                      const WidgetSpan(child: SizedBox(width: 4)),
+                      TextSpan(text: AppL10n.of(context).vocabPackTapToFlip),
+                    ],
+                  ),
+                  style: TextStyle(
+                    fontSize: soriFillSize(h, 0.032, 12.5, 20),
                     color: s.textDim,
                   ),
                 ),
-                const WidgetSpan(child: SizedBox(width: 4)),
-                TextSpan(text: AppL10n.of(context).vocabPackTapToFlip),
               ],
             ),
-            style: TextStyle(
-              fontSize: soriFillSize(h, 0.032, 12.5, 20),
-              color: s.textDim,
-            ),
           ),
-        ],
-      ),
+        ),
+        Positioned(
+          top: Spacing.sm,
+          left: Spacing.sm,
+          child: SoriSpeechIndicator(text: v.korean),
+        ),
+      ],
     );
   }
 }
