@@ -11076,6 +11076,12 @@ abstract class AppL10n {
   /// **'Auf Koreanisch'**
   String get diktatMeaningKo;
 
+  /// Screen-reader-only live announcement fired once when the Diktat meaning toggle is opened (not on close). WCAG 4.1.3 (PR4-T4).
+  ///
+  /// In de, this message translates to:
+  /// **'Bedeutung wird angezeigt.'**
+  String get diktatMeaningRevealed;
+
   /// No description provided for @diktatSpellingHint.
   ///
   /// In de, this message translates to:

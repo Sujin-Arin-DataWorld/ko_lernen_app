@@ -3186,6 +3186,10 @@
   "@diktatMeaningKo": {
     "description": "Label for the Korean paraphrase line shown after a Diktat quest is completed (§9-3, T2.4)."
   },
+  "diktatMeaningRevealed": "Bedeutung wird angezeigt.",
+  "@diktatMeaningRevealed": {
+    "description": "Screen-reader-only live announcement fired once when the Diktat meaning toggle is opened (not on close). WCAG 4.1.3 (PR4-T4)."
+  },
   "diktatSpellingHint": "Fast richtig. Achte auf die Schreibweise.",
   "questDiagOrder": "Die Wörter stimmen, aber die Reihenfolge noch nicht.",
   "questDiagParticle": "Fast! Achte auf die Partikel (조사)",

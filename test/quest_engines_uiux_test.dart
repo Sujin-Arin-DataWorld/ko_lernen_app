@@ -730,6 +730,66 @@ void main() {
   );
 
   testWidgets(
+    'dictation meaning toggle announces the reveal once via a live region '
+    'and exposes its expanded state, without repeating on close (WCAG 4.1.3)',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      try {
+        final t = lookupAppL10n(const Locale('en'));
+        await _pumpQuest(
+          tester,
+          _engines.last.build((_) {}, () {}, false),
+          locale: const Locale('en'),
+          viewport: _viewports[2],
+        );
+
+        await _enterCorrectResponse(tester, 'dictation');
+        await _tapPointerOwned(
+          tester,
+          find.byKey(const ValueKey('quest-submit')),
+        );
+
+        final toggle = find.byKey(const ValueKey('diktat-meaning-toggle'));
+        expect(toggle, findsOneWidget);
+        expect(
+          tester.getSemantics(toggle).getSemanticsData().flagsCollection.isExpanded,
+          ui.Tristate.isFalse,
+          reason: '닫힌 상태에서는 접힘 상태가 스크린리더에 드러나야 한다',
+        );
+
+        await _tapPointerOwned(tester, toggle);
+
+        _expectLiveRegion(tester, t.diktatMeaningRevealed);
+        expect(
+          tester.getSemantics(toggle).getSemanticsData().flagsCollection.isExpanded,
+          ui.Tristate.isTrue,
+          reason: '열린 상태에서는 펼침 상태가 스크린리더에 드러나야 한다',
+        );
+
+        await _tapPointerOwned(tester, toggle);
+
+        expect(
+          find.byWidgetPredicate(
+            (widget) =>
+                widget is Semantics &&
+                widget.properties.liveRegion == true &&
+                widget.properties.label == t.diktatMeaningRevealed,
+          ),
+          findsNothing,
+          reason: '닫을 때는 알림이 반복되면 안 된다',
+        );
+        expect(
+          tester.getSemantics(toggle).getSemanticsData().flagsCollection.isExpanded,
+          ui.Tristate.isFalse,
+        );
+        _expectNoException(tester);
+      } finally {
+        semantics.dispose();
+      }
+    },
+  );
+
+  testWidgets(
     'batchim particle and sentence audio controls keep non-color and reduced '
     'motion contracts',
     (tester) async {
