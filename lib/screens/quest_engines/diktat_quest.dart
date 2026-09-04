@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/sound_service.dart';
-import '../../services/tts_service.dart';
 import '../../widgets/sori/button.dart';
+import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/text_field.dart';
 import '../../widgets/sori/tokens.dart';
 import 'quest_flow.dart';
@@ -25,9 +25,14 @@ import 'quest_models.dart';
 ///   "audioKo":  "강남역까지 가주세요.",
 ///   "promptDe": "Bis zur Gangnam Station, bitte.",
 ///   "promptEn": "To Gangnam Station, please.",
+///   "promptKo": "강남역 쪽으로 가 주세요.",
 ///   "acceptedVariants": ["강남역까지 가 주세요"]
 /// }
 /// ```
+/// `promptKo` ist optional (§9-3 룰링) — eine leicht verständliche
+/// koreanische Paraphrase/Synonym des Zielsatzes, **muss** sich von
+/// `targetKo` unterscheiden. Wird nur nach Abschluss in der
+/// "Bedeutung zeigen"-Aufklappe gezeigt, nie vorher.
 class DiktatQuest extends StatefulWidget {
   final Map<String, dynamic> data;
   final void Function(QuestResult) onComplete;
@@ -35,6 +40,7 @@ class DiktatQuest extends StatefulWidget {
   final bool isLast;
   final bool allowWordBankFallback;
   final bool allowDontKnow;
+  final SoriQuestCorrectFeedback correctFeedback;
 
   const DiktatQuest({
     super.key,
@@ -44,6 +50,7 @@ class DiktatQuest extends StatefulWidget {
     this.isLast = false,
     this.allowWordBankFallback = false,
     this.allowDontKnow = false,
+    this.correctFeedback = const SoriQuestCorrectFeedback(),
   });
 
   @override
@@ -318,6 +325,7 @@ class _DiktatQuestState extends State<DiktatQuest> {
       : _targetKo;
   String get _promptDe => (widget.data['promptDe'] as String?) ?? '';
   String get _promptEn => (widget.data['promptEn'] as String?) ?? '';
+  String get _promptKo => (widget.data['promptKo'] as String?)?.trim() ?? '';
   List<String> get _acceptedVariants {
     final raw = widget.data['acceptedVariants'];
     if (raw is! List) {
@@ -382,11 +390,11 @@ class _DiktatQuestState extends State<DiktatQuest> {
   }
 
   Future<void> _playTts() async {
-    await TtsService.speak(_audioKo);
+    await SoriSpeech.speak(_audioKo);
   }
 
   Future<void> _playSlow() async {
-    await TtsService.speakSlow(_audioKo);
+    await SoriSpeech.speakSlow(_audioKo);
   }
 
   Future<void> _check() async {
@@ -396,7 +404,7 @@ class _DiktatQuestState extends State<DiktatQuest> {
     final input = _ctrl.text;
 
     if (DiktatQuest.isAccepted(input, _acceptedTargets)) {
-      HapticFeedback.lightImpact();
+      widget.correctFeedback.play(context);
       setState(() {
         _completed = true;
         _feedback = _Feedback.correct;
@@ -582,26 +590,76 @@ class _DiktatQuestState extends State<DiktatQuest> {
           ],
           const SizedBox(height: Spacing.sm),
 
-          // Bedeutung-Toggle (Hilfe).
-          Align(
-            alignment: Alignment.centerLeft,
-            child: TextButton.icon(
-              onPressed: () => setState(() => _showMeaning = !_showMeaning),
-              icon: Icon(
-                _showMeaning
-                    ? Icons.lightbulb_rounded
-                    : Icons.lightbulb_outline_rounded,
-                size: 18,
-                color: SoriColors.gold,
-              ),
-              label: Text(
-                _showMeaning ? _meaning(langCode) : t.diktatShowMeaning,
-                style: SoriTextTheme.of(
-                  context,
-                ).bodySmall.copyWith(color: s.textMuted),
+          // Bedeutung-Toggle (Hilfe) — erst nach Abschluss sichtbar (§9-3).
+          if (_completed) ...[
+            Align(
+              alignment: Alignment.centerLeft,
+              child: TextButton.icon(
+                key: const ValueKey('diktat-meaning-toggle'),
+                onPressed: () => setState(() => _showMeaning = !_showMeaning),
+                icon: Icon(
+                  _showMeaning
+                      ? Icons.lightbulb_rounded
+                      : Icons.lightbulb_outline_rounded,
+                  size: 18,
+                  color: SoriColors.gold,
+                ),
+                label: Text(
+                  t.diktatShowMeaning,
+                  style: SoriTextTheme.of(
+                    context,
+                  ).bodySmall.copyWith(color: s.textMuted),
+                ),
               ),
             ),
-          ),
+            if (_showMeaning) ...[
+              const SizedBox(height: Spacing.xs),
+              Padding(
+                padding: const EdgeInsets.only(left: Spacing.md),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      _meaning(langCode),
+                      style: SoriTextTheme.of(
+                        context,
+                      ).bodySmall.copyWith(color: s.textMuted),
+                    ),
+                    if (_promptKo.isNotEmpty) ...[
+                      const SizedBox(height: Spacing.xs),
+                      // 라벨과 값을 하나의 시맨틱 노드로 합친다 — 분리돼
+                      // 있으면 스크린리더가 "한국어로", "{텍스트}"를 서로
+                      // 무관한 두 정지점으로 읽는다(a11y MEDIUM, WCAG
+                      // 1.3.1).
+                      MergeSemantics(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              t.diktatMeaningKo,
+                              style: SoriTextTheme.of(
+                                context,
+                              ).bodySmall.copyWith(
+                                color: s.textMuted,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            Text(
+                              _promptKo,
+                              key: const ValueKey('diktat-meaning-ko'),
+                              style: SoriTextTheme.of(
+                                context,
+                              ).bodySmall.copyWith(color: s.textMuted),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ],
+                ),
+              ),
+            ],
+          ],
           if (widget.allowWordBankFallback) ...[
             const SizedBox(height: Spacing.xs),
             Align(

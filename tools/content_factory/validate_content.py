@@ -1741,6 +1741,7 @@ class ContentValidator:
                     canonical=data.get("targetKo"),
                     surface_only=True,
                 )
+                self._validate_diktat_prompt_ko(source, label, data)
         elif kind == "schreiben" and not data:
             self.issue(source, f"{label} schreiben needs data")
 
@@ -1852,6 +1853,25 @@ class ContentValidator:
                     source,
                     f"{label} acceptedVariants must preserve the canonical lexical sequence",
                 )
+
+    def _validate_diktat_prompt_ko(
+        self,
+        source: str,
+        label: str,
+        data: dict[str, Any],
+    ) -> None:
+        # §9-3 룰링: promptKo는 선택 필드(쉬운 한국어 풀이/동의어) — 있으면
+        # 비어 있지 않은 문자열이어야 하고, targetKo와 (앞뒤 공백 제외)
+        # 동일해서는 안 된다(같으면 "풀이"가 아니라 그냥 복붙이다).
+        if "promptKo" not in data:
+            return
+        prompt_ko = data.get("promptKo")
+        if not self._is_nonempty_string(prompt_ko):
+            self.issue(source, f"{label} promptKo must be a nonempty string")
+            return
+        target_ko = data.get("targetKo")
+        if isinstance(target_ko, str) and prompt_ko.strip() == target_ko.strip():
+            self.issue(source, f"{label} promptKo must differ from targetKo")
 
     @staticmethod
     def _is_nonempty_string(value: Any) -> bool:

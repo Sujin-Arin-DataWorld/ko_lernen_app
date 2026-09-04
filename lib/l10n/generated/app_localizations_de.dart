@@ -6411,6 +6411,9 @@ class AppL10nDe extends AppL10n {
   String get diktatShowMeaning => 'Bedeutung zeigen';
 
   @override
+  String get diktatMeaningKo => 'Auf Koreanisch';
+
+  @override
   String get diktatSpellingHint => 'Fast richtig. Achte auf die Schreibweise.';
 
   @override

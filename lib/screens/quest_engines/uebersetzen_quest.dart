@@ -9,6 +9,12 @@ import 'quest_layout.dart';
 import 'quest_models.dart';
 
 /// Translation quest with an explicit select, submit, feedback, continue flow.
+///
+/// 정답 텍스트(options[correctIndex].ko)가 canonical TTS corpus에 보장되어
+/// 있지 않다(STEP 0, Fix round 1 — tool/generate_tts.py collect()에
+/// uebersetzen 전용 수집 분기가 없다) — 그래서 자동재생도 답 공개 후 읽기도
+/// 배선하지 않는다. W9-C 콘텐츠 파이프라인이 canonical 오디오를 보장하게
+/// 되면 SoriSpeech 호출을 추가한다.
 class UebersetzenQuest extends StatefulWidget {
   const UebersetzenQuest({
     super.key,
@@ -17,6 +23,7 @@ class UebersetzenQuest extends StatefulWidget {
     this.onContinue,
     this.isLast = false,
     this.allowDontKnow = false,
+    this.correctFeedback = const SoriQuestCorrectFeedback(),
   });
 
   final Map<String, dynamic> data;
@@ -24,6 +31,7 @@ class UebersetzenQuest extends StatefulWidget {
   final VoidCallback? onContinue;
   final bool isLast;
   final bool allowDontKnow;
+  final SoriQuestCorrectFeedback correctFeedback;
 
   @override
   State<UebersetzenQuest> createState() => _UebersetzenQuestState();
@@ -74,7 +82,7 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
   void _check() {
     if (_selected < 0 || _resolved != null) return;
     if (_selected == _correctIndex) {
-      HapticFeedback.lightImpact();
+      widget.correctFeedback.play(context);
       setState(() => _resolved = true);
       _report(true);
       return;
@@ -134,7 +142,7 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           SoriPromptCard(sentence: _prompt(langCode)),
-          const SizedBox(height: Spacing.lg),
+          const SizedBox(height: SoriGaps.questionToOptions),
           for (final entry in _options.asMap().entries) ...[
             SoriAnswerTile(
               key: ValueKey('answer-${entry.key}'),
@@ -144,7 +152,7 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
               selected: _selected == entry.key,
               onTap: _resolved == null ? () => _select(entry.key) : null,
             ),
-            const SizedBox(height: Spacing.sm),
+            const SizedBox(height: SoriGaps.optionGap),
           ],
         ],
       ),

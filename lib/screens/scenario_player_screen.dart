@@ -5,6 +5,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../features/study_library/study_library_models.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/course_mission_step_plan.dart';
 import '../models/course_practice_context.dart';
@@ -596,6 +597,10 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   bool _questReady = true; // false → Quest läuft noch, Next-Button deaktiviert
   int _roleplayTurnIndex = 0;
   late final PageController _pageCtrl;
+  // 대사 스테이지 진입 시 대표 문장(첫 대사) 1회 자동재생 + 전환 시 정지
+  // (지시서 4.5). ContentSpeechController 배선은 review_session_screen.dart
+  // 선례를 그대로 따른다.
+  final _speech = ContentSpeechController();
   // Quest-Indizes, die der Nutzer NICHT bestanden hat. Wird in _persistResult
   // konsumiert, um deren Ziel-Vokabeln SRS-mäßig herabzustufen (error-aware
   // review).
@@ -695,6 +700,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       _canDoResult = preview.result;
       _pageCtrl = PageController(initialPage: _stage);
       _startIntroAudioPrefetch(scenario);
+      if (_plan[_stage] == ScenarioStage.dialog) {
+        _autoPlayDialogEntry(scenario);
+      }
       return;
     }
     _pageCtrl = PageController();
@@ -703,10 +711,35 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final route = ModalRoute.of(context);
+    if (route != null) _speech.subscribe(route);
+  }
+
+  @override
+  void deactivate() {
+    _speech.deactivate();
+    super.deactivate();
+  }
+
+  @override
   void dispose() {
+    _speech.dispose();
     _abandonTracker?.dispose();
     _pageCtrl.dispose();
     super.dispose();
+  }
+
+  /// 대사 스테이지의 대표 문장(첫 대사) 1회 자동재생 — 순차 전체 읽기가
+  /// 아니라 진입 시 한 번만(지시서 4.5, §9-1 룰링).
+  void _autoPlayDialogEntry(Scenario scenario) {
+    if (scenario.dialog.isEmpty) return;
+    final first = scenario.dialog.first;
+    _speech.playOnEnter(
+      first.ko,
+      voice: scenario.voiceForSpeaker(first.speaker),
+    );
   }
 
   Future<void> _loadScenario() async {
@@ -937,6 +970,12 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       final sc = _scenario;
       if (sc != null) {
         _ensureFeedbackCompletion(sc);
+      }
+    }
+    if (nextKind == ScenarioStage.dialog) {
+      final sc = _scenario;
+      if (sc != null) {
+        _autoPlayDialogEntry(sc);
       }
     }
     setState(() {
@@ -1459,6 +1498,34 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                                     ).bodySmall.copyWith(color: ss.textDim),
                                   ),
                                 ],
+                                const SizedBox(height: Spacing.xs),
+                                // 대사를 내 단어장에 담기(§9-2: 책갈피만, 하트
+                                // 없음). AddToWordbookButton 은 자체
+                                // IconButton으로 탭을 소비하므로 카드 전체의
+                                // onTap(재생) 아레나로 전파되지 않는다.
+                                //
+                                // 대사 한 줄은 문장이다 — smalltalk_screen.dart
+                                // `_savePhrase`와 같은 typed bookmark 경로
+                                // (itemType: sentence)로 저장하고 활성
+                                // 로케일을 넘긴다(PR2 리뷰 Important 3-a/3-b).
+                                // semanticLabel은 줄마다 다른 접근성 이름을
+                                // 붙인다 — 카드가 여럿이면 같은 이름의 버튼이
+                                // 여러 개 뜨는 문제(a11y HIGH, WCAG 4.1.2).
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: AddToWordbookButton(
+                                    compact: true,
+                                    korean: line.ko,
+                                    translationDe: line.de,
+                                    translationEn: line.en,
+                                    translationLanguage: lang,
+                                    itemType: StudyLibraryItemType.sentence,
+                                    itemId: line.ko,
+                                    sourceUnitId: sc.id,
+                                    source: 'scenario_player',
+                                    semanticLabel: '${t.wbAddTooltip}: ${line.ko}',
+                                  ),
+                                ),
                               ],
                             ),
                           ),
@@ -1557,6 +1624,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         questWidget = ParticlePopQuest(
           key: ValueKey('quest-$_currentQuestIndex'),
           data: spec.data,
+          audioEnabled: widget.previewFixture == null,
           onComplete: (r) {
             _onQuestComplete(r);
           },

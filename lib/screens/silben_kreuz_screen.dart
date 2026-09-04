@@ -12,7 +12,6 @@ import '../services/learner_level_selection.dart';
 import '../services/silben_puzzle_loader.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
-import '../services/tts_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
@@ -22,6 +21,7 @@ import '../widgets/sori/chrome_row.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/speakable.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
@@ -327,7 +327,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
         if (w.cells.every(_locked.contains)) {
           _spoken.add(w.answer);
           SoundService.correct();
-          TtsService.speak(
+          SoriSpeech.speak(
             w.exampleKo.isEmpty
                 ? w.answer
                 : '${w.answer}. ${w.exampleKoSpoken}',
@@ -356,6 +356,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   @override
   void dispose() {
     _wrongFeedbackTimer?.cancel();
+    SoriSpeech.stop();
     super.dispose();
   }
 

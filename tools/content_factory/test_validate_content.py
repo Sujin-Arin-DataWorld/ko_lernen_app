@@ -151,6 +151,66 @@ class ContentValidatorTest(unittest.TestCase):
             ),
         )
 
+    def test_dictation_prompt_ko_is_optional_but_must_differ_from_target(self) -> None:
+        base = {
+            "targetKo": "강남역까지 가주세요.",
+            "promptDe": "Bis zur Gangnam Station, bitte.",
+            "promptEn": "To Gangnam Station, please.",
+        }
+
+        # promptKo 없음 — 허용(§9-3: 선택 필드).
+        validator = ContentValidator()
+        validator._validate_quest(
+            "fixture.json",
+            "fixture",
+            0,
+            {"type": "diktat", "data": dict(base)},
+        )
+        self.assertEqual(self._messages(validator), [])
+
+        # promptKo가 targetKo와 다른 쉬운 한국어 풀이 — 허용.
+        valid = dict(base, promptKo="지하철역 쪽으로 가 주세요.")
+        validator = ContentValidator()
+        validator._validate_quest(
+            "fixture.json",
+            "fixture",
+            0,
+            {"type": "diktat", "data": valid},
+        )
+        self.assertEqual(self._messages(validator), [])
+
+        # promptKo가 targetKo와 (앞뒤 공백 제외) 동일 — 거부.
+        same_as_target = dict(base, promptKo="  강남역까지 가주세요.  ")
+        validator = ContentValidator()
+        validator._validate_quest(
+            "fixture.json",
+            "fixture",
+            0,
+            {"type": "diktat", "data": same_as_target},
+        )
+        self.assertTrue(
+            any(
+                "promptKo must differ from targetKo" in message
+                for message in self._messages(validator)
+            ),
+        )
+
+        # promptKo가 공백뿐 — 거부.
+        blank = dict(base, promptKo="   ")
+        validator = ContentValidator()
+        validator._validate_quest(
+            "fixture.json",
+            "fixture",
+            0,
+            {"type": "diktat", "data": blank},
+        )
+        self.assertTrue(
+            any(
+                "promptKo must be a nonempty string" in message
+                for message in self._messages(validator)
+            ),
+        )
+
     def test_audit_graph_counts_must_match_curriculum(self) -> None:
         audit = copy.deepcopy(self._asset_json("content_audit_manifest.json"))
         audit["graph"]["courseUnits"] -= 1

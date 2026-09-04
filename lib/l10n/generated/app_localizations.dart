@@ -11070,6 +11070,12 @@ abstract class AppL10n {
   /// **'Bedeutung zeigen'**
   String get diktatShowMeaning;
 
+  /// Label for the Korean paraphrase line shown after a Diktat quest is completed (§9-3, T2.4).
+  ///
+  /// In de, this message translates to:
+  /// **'Auf Koreanisch'**
+  String get diktatMeaningKo;
+
   /// No description provided for @diktatSpellingHint.
   ///
   /// In de, this message translates to:

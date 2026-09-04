@@ -433,7 +433,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     // 유한 높이에서는 문제 내용만 내부 스크롤하고 CTA는 엄지 영역에 고정한다.
     // 무한 높이 부모에서는 flex를 쓰지 않고 자연 높이로 흘려 기존 임베드 호출도
     // 안전하게 유지한다.
-    final sectionGap = widget.compact ? Spacing.sm : Spacing.md;
+    final compactGap = widget.compact ? Spacing.sm : Spacing.md;
     final slotCount =
         SatzBauenQuest.tokenize(_targetKo).length + (_punct != null ? 1 : 0);
 
@@ -446,7 +446,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
           speakText: _audioKo.isEmpty ? null : _audioKo,
           compact: widget.compact,
         ),
-        SizedBox(height: sectionGap),
+        SizedBox(height: compactGap),
         Text(
           t.questBuildAnswerLabel,
           style: SoriTextTheme.of(
@@ -460,7 +460,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
             context,
           ).bodySmall.copyWith(color: s.textMuted),
         ),
-        SizedBox(height: sectionGap),
+        SizedBox(height: compactGap),
         SoriAnswerTray(
           minHeight: widget.compact ? 72 : 96,
           accent: revealedOk
@@ -491,7 +491,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
                 )
               : const SizedBox.shrink(),
         ),
-        SizedBox(height: sectionGap),
+        SizedBox(height: compactGap),
         LayoutBuilder(
           builder: (context, constraints) {
             final columns = constraints.maxWidth < SoriBreakpoints.narrowPhone
@@ -533,7 +533,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     return QuestLayout(
       content: exerciseBody,
       action: action,
-      gap: sectionGap,
+      gap: compactGap,
       showTtsSpeed: _audioKo.isNotEmpty && widget.showSpeedControl,
     );
   }

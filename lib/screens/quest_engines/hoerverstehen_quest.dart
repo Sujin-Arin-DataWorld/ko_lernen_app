@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/sound_service.dart';
-import '../../services/tts_service.dart';
+import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/tokens.dart';
 import 'quest_flow.dart';
 import 'quest_layout.dart';
@@ -20,6 +20,7 @@ class HoerverstehenQuest extends StatefulWidget {
     this.onContinue,
     this.isLast = false,
     this.allowDontKnow = false,
+    this.correctFeedback = const SoriQuestCorrectFeedback(),
   });
 
   final Map<String, dynamic> data;
@@ -31,6 +32,7 @@ class HoerverstehenQuest extends StatefulWidget {
   final VoidCallback? onContinue;
   final bool isLast;
   final bool allowDontKnow;
+  final SoriQuestCorrectFeedback correctFeedback;
 
   @override
   State<HoerverstehenQuest> createState() => _HoerverstehenQuestState();
@@ -66,7 +68,7 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted && widget.audioEnabled) {
-        TtsService.speak(_audioKo);
+        SoriSpeech.speak(_audioKo);
       }
     });
   }
@@ -74,7 +76,7 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
   Future<void> _playTts() async {
     if (!widget.audioEnabled) return;
     HapticFeedback.selectionClick();
-    await TtsService.speak(_audioKo);
+    await SoriSpeech.speak(_audioKo);
   }
 
   void _select(int index) {
@@ -98,7 +100,7 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
   void _check() {
     if (_selected < 0 || _resolved != null) return;
     if (_selected == _correctIndex) {
-      HapticFeedback.lightImpact();
+      widget.correctFeedback.play(context);
       setState(() => _resolved = true);
       _report(true);
       return;
@@ -190,7 +192,7 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
               ).bodySmall.copyWith(color: surfaces.textMuted),
             ),
           ],
-          const SizedBox(height: Spacing.lg),
+          const SizedBox(height: SoriGaps.questionToOptions),
           for (final entry in _options.asMap().entries) ...[
             SoriAnswerTile(
               key: ValueKey('answer-${entry.key}'),
@@ -202,7 +204,7 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
               selected: _selected == entry.key,
               onTap: _resolved == null ? () => _select(entry.key) : null,
             ),
-            const SizedBox(height: Spacing.sm),
+            const SizedBox(height: SoriGaps.optionGap),
           ],
         ],
       ),

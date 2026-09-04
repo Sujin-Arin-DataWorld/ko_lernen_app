@@ -9,6 +9,8 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
+import 'support/sori_speech_stubs.dart';
+
 const _horizontal = SilbenWord(
   dir: 'h',
   row: 1,
@@ -54,6 +56,7 @@ void main() {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({'kl_tut_silben_kreuz': true});
     await Storage.init();
+    stubSoriSpeech();
   });
 
   testWidgets(

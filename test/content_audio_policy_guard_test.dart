@@ -22,6 +22,7 @@ void main() {
     'lib/screens/vocab_notebook_result_screen.dart',
     'lib/screens/vocab_notebook_studio_screen.dart',
     'lib/screens/chosung_quiz_screen.dart',
+    'lib/screens/silben_kreuz_screen.dart',
   ];
 
   setUpAll(() {

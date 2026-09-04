@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/sound_service.dart';
-import '../../services/tts_service.dart';
 import '../../widgets/sori/button.dart';
+import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/tokens.dart';
 import 'quest_flow.dart';
 import 'quest_layout.dart';
@@ -16,17 +16,21 @@ import 'quest_models.dart';
 class ParticlePopQuest extends StatefulWidget {
   final Map<String, dynamic> data;
   final void Function(QuestResult) onComplete;
+  final bool audioEnabled;
   final VoidCallback? onContinue;
   final bool isLast;
   final bool allowDontKnow;
+  final SoriQuestCorrectFeedback correctFeedback;
 
   const ParticlePopQuest({
     super.key,
     required this.data,
     required this.onComplete,
+    this.audioEnabled = true,
     this.onContinue,
     this.isLast = false,
     this.allowDontKnow = false,
+    this.correctFeedback = const SoriQuestCorrectFeedback(),
   });
 
   @override
@@ -114,7 +118,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
 
     final instant = MediaQuery.disableAnimationsOf(context);
     if (isCorrect) {
-      HapticFeedback.heavyImpact();
+      widget.correctFeedback.play(context);
       setState(() {
         _droppedIndex = idx;
         _completed = true;
@@ -127,6 +131,13 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
         await Future<void>.delayed(const Duration(milliseconds: 200));
       }
       if (mounted) setState(() => _showExplanation = true);
+      // 답 공개 후 정답 문장 1회 읽기(Fable 룰링, Fix round 1) — _fullSentence는
+      // tool/generate_tts.py collect()의 particlePop 전용 브랜치가 모든
+      // particlePop 퀘스트에 대해 무조건 수집하므로 canonical corpus에
+      // 있음이 보장된다(STEP 0 확인).
+      if (mounted && widget.audioEnabled) {
+        SoriSpeech.speak(_fullSentence);
+      }
       _report(true);
     } else {
       HapticFeedback.mediumImpact();
@@ -153,6 +164,9 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
           await Future<void>.delayed(const Duration(milliseconds: 200));
         }
         if (mounted) setState(() => _showExplanation = true);
+        if (mounted && widget.audioEnabled) {
+          SoriSpeech.speak(_fullSentence);
+        }
         _report(false);
       } else if (mounted) {
         setState(() => _droppedIndex = null);
@@ -338,10 +352,10 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
               label: t.questReplayAudio,
               semanticLabel: t.questReplayAudio,
               icon: Icons.volume_up_rounded,
-              onTap: () => TtsService.speak(_fullSentence),
+              onTap: () => SoriSpeech.speak(_fullSentence),
             ),
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: SoriGaps.questionToOptions),
 
           // Partikel-Chips
           for (final entry in _options.asMap().entries) ...[
@@ -354,7 +368,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
               onTap: _completed ? null : () => _onAccept(entry.key),
               compact: true,
             ),
-            const SizedBox(height: Spacing.sm),
+            const SizedBox(height: SoriGaps.optionGap),
           ],
         ],
       ),

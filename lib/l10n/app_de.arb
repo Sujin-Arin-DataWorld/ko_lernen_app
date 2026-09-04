@@ -3182,6 +3182,10 @@
   "diktatListenSlow": "Audio langsam anhören",
   "diktatSpacingHint": "Fast! Achte auf die Wortabstände",
   "diktatShowMeaning": "Bedeutung zeigen",
+  "diktatMeaningKo": "Auf Koreanisch",
+  "@diktatMeaningKo": {
+    "description": "Label for the Korean paraphrase line shown after a Diktat quest is completed (§9-3, T2.4)."
+  },
   "diktatSpellingHint": "Fast richtig. Achte auf die Schreibweise.",
   "questDiagOrder": "Die Wörter stimmen, aber die Reihenfolge noch nicht.",
   "questDiagParticle": "Fast! Achte auf die Partikel (조사)",
