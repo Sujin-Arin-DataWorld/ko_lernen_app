@@ -629,56 +629,54 @@ class _DiktatQuestState extends State<DiktatQuest> {
               const SizedBox(height: Spacing.xs),
               // 펼쳐질 때만 존재하는 위젯이라 새로 생성될 때 liveRegion이
               // 1회 발화한다 — 접을 때는 이 서브트리 자체가 사라지므로
-              // 반복 낭독이 없다. 안의 실제 텍스트 시맨틱은
-              // ExcludeSemantics로 접어 label 하나로만 발화한다(닫힌 뒤
-              // 남는 개별 노드가 없다).
+              // 반복 낭독이 없다. label을 따로 붙이지 않는다 — 하위 텍스트
+              // 노드들이 그대로 container의 발화 내용을 구성하게 해
+              // 스크린리더가 실제 뜻 텍스트를 읽을 수 있게 한다(고정
+              // 안내 문구로 뜻 내용을 가리지 않는다).
               Semantics(
                 container: true,
                 liveRegion: true,
-                label: t.diktatMeaningRevealed,
-                child: ExcludeSemantics(
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: Spacing.md),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          _meaning(langCode),
-                          style: SoriTextTheme.of(
-                            context,
-                          ).bodySmall.copyWith(color: s.textMuted),
-                        ),
-                        if (_promptKo.isNotEmpty) ...[
-                          const SizedBox(height: Spacing.xs),
-                          // 라벨과 값을 하나의 시맨틱 노드로 합친다 — 분리돼
-                          // 있으면 스크린리더가 "한국어로", "{텍스트}"를 서로
-                          // 무관한 두 정지점으로 읽는다(a11y MEDIUM, WCAG
-                          // 1.3.1).
-                          MergeSemantics(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  t.diktatMeaningKo,
-                                  style: SoriTextTheme.of(context).bodySmall
-                                      .copyWith(
-                                        color: s.textMuted,
-                                        fontWeight: FontWeight.w700,
-                                      ),
-                                ),
-                                Text(
-                                  _promptKo,
-                                  key: const ValueKey('diktat-meaning-ko'),
-                                  style: SoriTextTheme.of(
-                                    context,
-                                  ).bodySmall.copyWith(color: s.textMuted),
-                                ),
-                              ],
-                            ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: Spacing.md),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        _meaning(langCode),
+                        style: SoriTextTheme.of(
+                          context,
+                        ).bodySmall.copyWith(color: s.textMuted),
+                      ),
+                      if (_promptKo.isNotEmpty) ...[
+                        const SizedBox(height: Spacing.xs),
+                        // 라벨과 값을 하나의 시맨틱 노드로 합친다 — 분리돼
+                        // 있으면 스크린리더가 "한국어로", "{텍스트}"를 서로
+                        // 무관한 두 정지점으로 읽는다(a11y MEDIUM, WCAG
+                        // 1.3.1).
+                        MergeSemantics(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                t.diktatMeaningKo,
+                                style: SoriTextTheme.of(context).bodySmall
+                                    .copyWith(
+                                      color: s.textMuted,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                              ),
+                              Text(
+                                _promptKo,
+                                key: const ValueKey('diktat-meaning-ko'),
+                                style: SoriTextTheme.of(
+                                  context,
+                                ).bodySmall.copyWith(color: s.textMuted),
+                              ),
+                            ],
                           ),
-                        ],
+                        ),
                       ],
-                    ),
+                    ],
                   ),
                 ),
               ),

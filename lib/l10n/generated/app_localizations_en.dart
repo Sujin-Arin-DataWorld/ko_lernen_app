@@ -6388,9 +6388,6 @@ class AppL10nEn extends AppL10n {
   String get diktatMeaningKo => 'In Korean';
 
   @override
-  String get diktatMeaningRevealed => 'Meaning is shown.';
-
-  @override
   String get diktatSpellingHint => 'Almost there. Check your spelling.';
 
   @override
