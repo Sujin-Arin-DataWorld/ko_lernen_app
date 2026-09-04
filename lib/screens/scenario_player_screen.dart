@@ -1735,6 +1735,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         questWidget = UebersetzenQuest(
           key: ValueKey('quest-$_currentQuestIndex'),
           data: spec.data,
+          audioEnabled: widget.previewFixture == null,
           onComplete: (r) {
             _onQuestComplete(r);
           },
@@ -1746,6 +1747,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         questWidget = LueckenQuest(
           key: ValueKey('quest-$_currentQuestIndex'),
           data: spec.data,
+          audioEnabled: widget.previewFixture == null,
           onComplete: (r) {
             _onQuestComplete(r);
           },

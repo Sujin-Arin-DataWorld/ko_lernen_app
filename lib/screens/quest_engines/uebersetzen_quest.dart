@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/sound_service.dart';
+import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/tokens.dart';
 import 'quest_flow.dart';
 import 'quest_layout.dart';
@@ -10,16 +11,18 @@ import 'quest_models.dart';
 
 /// Translation quest with an explicit select, submit, feedback, continue flow.
 ///
-/// 정답 텍스트(options[correctIndex].ko)가 canonical TTS corpus에 보장되어
-/// 있지 않다(STEP 0, Fix round 1 — tool/generate_tts.py collect()에
-/// uebersetzen 전용 수집 분기가 없다) — 그래서 자동재생도 답 공개 후 읽기도
-/// 배선하지 않는다. W9-C 콘텐츠 파이프라인이 canonical 오디오를 보장하게
-/// 되면 SoriSpeech 호출을 추가한다.
+/// 답 공개 직후(정답이든 2회 오답 소진 뒤 공개든) 정답 옵션(options
+/// [correctIndex].ko)을 1회 읽는다(widget.audioEnabled 게이트) —
+/// particle_pop_quest.dart:134-140과 동일한 패턴. 이 텍스트는
+/// tool/generate_tts.py collect()의 uebersetzen 전용 분기가 모든
+/// uebersetzen 퀘스트에 대해 무조건 수집하므로 canonical TTS corpus(#254
+/// 게이트)에 있음이 보장된다(지시서 2.9, T1에서 배선).
 class UebersetzenQuest extends StatefulWidget {
   const UebersetzenQuest({
     super.key,
     required this.data,
     required this.onComplete,
+    this.audioEnabled = true,
     this.onContinue,
     this.isLast = false,
     this.allowDontKnow = false,
@@ -28,6 +31,7 @@ class UebersetzenQuest extends StatefulWidget {
 
   final Map<String, dynamic> data;
   final void Function(QuestResult) onComplete;
+  final bool audioEnabled;
   final VoidCallback? onContinue;
   final bool isLast;
   final bool allowDontKnow;
@@ -50,6 +54,14 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
   }
 
   int get _correctIndex => (widget.data['correctIndex'] as num?)?.toInt() ?? 0;
+
+  /// 정답 옵션의 ko 텍스트 — tool/generate_tts.py collect()의 uebersetzen
+  /// 분기(`options[correctIndex]['ko']`)와 동일한 규칙이라야 canonical
+  /// corpus 키가 일치한다.
+  String get _fullSentence {
+    if (_correctIndex < 0 || _correctIndex >= _options.length) return '';
+    return (_options[_correctIndex]['ko'] as String?) ?? '';
+  }
 
   String _prompt(String langCode) {
     if (langCode == 'en') {
@@ -84,6 +96,9 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
     if (_selected == _correctIndex) {
       widget.correctFeedback.play(context);
       setState(() => _resolved = true);
+      if (widget.audioEnabled) {
+        SoriSpeech.speak(_fullSentence);
+      }
       _report(true);
       return;
     }
@@ -97,6 +112,9 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
         _selected = _correctIndex;
         _resolved = false;
       });
+      if (widget.audioEnabled) {
+        SoriSpeech.speak(_fullSentence);
+      }
       _report(false);
     } else {
       setState(() => _lastWrong = _selected);
