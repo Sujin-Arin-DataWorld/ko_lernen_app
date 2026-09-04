@@ -1520,6 +1520,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                                     translationLanguage: lang,
                                     itemType: StudyLibraryItemType.sentence,
                                     itemId: line.ko,
+                                    sourceUnitId: sc.id,
                                     source: 'scenario_player',
                                     semanticLabel: '${t.wbAddTooltip}: ${line.ko}',
                                   ),

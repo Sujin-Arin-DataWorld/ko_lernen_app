@@ -158,7 +158,9 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
     super.initState();
     // 진입 시 자동 1회 TTS 재생
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) SoriSpeech.speak(_audioKo);
+      if (mounted) {
+        SoriSpeech.speak(_audioKo);
+      }
     });
   }
 

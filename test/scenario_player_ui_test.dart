@@ -374,6 +374,12 @@ void main() {
       expect(bookmarks.single.key.id, '여권 보여주세요.');
       expect(bookmarks.single.primaryText, '여권 보여주세요.');
       expect(bookmarks.single.secondaryLanguage, 'de');
+      expect(
+        bookmarks.single.sourceUnitId,
+        scenarioAirportArrivalFixture.id,
+        reason: 'provenance는 smalltalk_screen.dart:598처럼 출처 단위를 '
+            '남겨야 한다(대사 줄엔 고유 id가 없어 시나리오 id를 쓴다)',
+      );
 
       // 호환 미러: 단어 게임/플래시카드가 계속 보는 quickAdd 팩.
       final pack = CustomPackService.getById(CustomPackService.quickPackId);
