@@ -1430,16 +1430,7 @@ class _FlipFront extends StatelessWidget {
           Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              IconButton(
-                icon: Icon(
-                  Icons.volume_up_rounded,
-                  size: soriFillSize(h, 0.085, 28, 52),
-                ),
-                onPressed: () {
-                  // ignore: discarded_futures
-                  SoriSpeech.speak(v.korean);
-                },
-              ),
+              SoriSpeechIndicator(text: v.korean),
               if (romanizationOnFront && v.romanization.isNotEmpty) ...[
                 SizedBox(height: soriFillSize(h, 0.02, 6, 16)),
                 Text(
