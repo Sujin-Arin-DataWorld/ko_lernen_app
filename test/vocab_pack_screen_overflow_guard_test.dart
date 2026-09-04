@@ -113,7 +113,7 @@ void main() {
       final pack = _pack(4);
       final t = await _pump(tester, pack);
 
-      // 1번째 카드 "몰라요" → reinsertGap=3 뒤(=큐 끝)에 재삽입.
+      // 1번째 카드 "몰라요" → 큐 끝에 재삽입.
       await _revealAndTap(tester, t.vocabPackDontKnow);
       // 2, 3, 4번째 카드 "알아요" → 큐를 소진해 재출제된 1번 카드가 다시
       // 서빙된다 — 칩 라벨이 "4 / 4 · +1 Wdh." 로 가장 길어지는 상태.

@@ -48,7 +48,7 @@ void main() {
     stub.prefetched.clear();
     // 이어서 새 current(단어2)에 DontKnow. learn_session_queue.dart의
     // markUnknown()은 queue.first(단어2)를 제거하고
-    // insert(min(reinsertGap=3, 남은 길이=1), 단어2)로 재삽입한다 —
+    // 남은 카드 뒤에 단어2를 재삽입한다 —
     // [단어3] → insert(1, 단어2) → [단어3,단어2]. 그 시점의
     // current=단어3, peekNext=단어2(방금 재삽입된 카드) — 이 순서로
     // 프리페치되어야 한다(소스 확인, 추측 아님).

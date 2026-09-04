@@ -107,24 +107,24 @@ void main() {
       reason: 'Learn judgments stay unavailable until the gloss is revealed',
     );
 
-    // 단어1 뜻을 확인한 뒤 몰라요 → 분자 유지, 단어2 서빙.
+    // 단어1 뜻을 확인한 뒤 몰라요 → 처음 보는 단어2가 서빙되므로 분자 증가.
     await _revealAndTapButton(tester, t.vocabPackDontKnow);
     await _settle(tester);
     expect(find.text('재단어2'), findsOneWidget);
-    expect(find.text('1 / 4'), findsOneWidget);
+    expect(find.text('2 / 4'), findsOneWidget);
     expect(Storage.wrongCountOf('재단어1'), 1);
 
     // 단어2·3 알아요 → 단어1이 다시 나온다.
     await _revealAndTapButton(tester, t.vocabPackGotIt);
     await _settle(tester);
     expect(find.text('재단어3'), findsOneWidget);
-    expect(find.text('2 / 4'), findsOneWidget);
+    expect(find.text('3 / 4'), findsOneWidget);
 
     await _revealAndTapButton(tester, t.vocabPackGotIt);
     await _settle(tester);
     // Current-pack Boss word is intentionally taught before either assessment.
     expect(find.text('재단어4'), findsOneWidget);
-    expect(find.text('3 / 4'), findsOneWidget);
+    expect(find.text('4 / 4'), findsOneWidget);
 
     await _revealAndTapButton(tester, t.vocabPackGotIt);
     await _settle(tester);
