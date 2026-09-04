@@ -8816,14 +8816,14 @@
     {
       "id": "satz_b1_0168",
       "level": "b1",
-      "targetKo": "일정 충돌이 생겨서 현우가 어머니께 먼저 전화드렸어요.",
-      "promptDe": "Wegen einer Terminüberschneidung rief Hyunwoo zuerst seine Mutter an.",
-      "promptEn": "When schedules clashed, Hyunwoo called his mother first.",
+      "targetKo": "명절 계획을 두고 의견 충돌이 있어서 현우가 어머니께 먼저 전화드렸어요.",
+      "promptDe": "Weil es beim Feiertagsplan zu einer Meinungsverschiedenheit kam, rief Hyunwoo zuerst seine Mutter an.",
+      "promptEn": "Because there was a disagreement over the holiday plans, Hyunwoo called his mother first.",
       "distractors": [
         "안전했어요",
         "안정적으로"
       ],
-      "vocabKo": "일정 충돌"
+      "vocabKo": "의견 충돌"
     },
     {
       "id": "satz_b1_0169",
