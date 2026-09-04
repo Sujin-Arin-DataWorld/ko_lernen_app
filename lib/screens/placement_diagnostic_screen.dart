@@ -130,7 +130,9 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
           t.placementNoRecording,
           style: SoriTextTheme.of(context).bodySmall,
         ),
-        const SizedBox(height: Spacing.xl),
+        // §W-A2: 토큰 확대로 390×844 기본 배율에서 5px 스크롤이 새로
+        // 생겼다 — xl(24)→lg(16)로 좁혀 스크롤 없음 계약을 회복한다.
+        const SizedBox(height: Spacing.lg),
         SoriCard(
           variant: SoriCardVariant.hero,
           accent: SoriColors.primary,
@@ -247,7 +249,9 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
             ],
           ),
         ),
-        const SizedBox(height: Spacing.xl),
+        // §W-A2: 토큰 확대로 390×844 기본 배율에서 5px 스크롤이 새로
+        // 생겼다 — xl(24)→lg(16)로 좁혀 스크롤 없음 계약을 회복한다.
+        const SizedBox(height: Spacing.lg),
         Text(t.placementChooseYourself, style: SoriTextTheme.of(context).h3),
         const SizedBox(height: Spacing.sm),
         for (final level in const ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'])

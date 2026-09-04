@@ -429,10 +429,6 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       homeEscape: SoriHomeEscape(
         confirmWhen: !_solved && (_locked.isNotEmpty || _wrongTick > 0),
       ),
-      leading: IconButton(
-        icon: const Icon(Icons.arrow_back_ios_new, size: 20),
-        onPressed: () => Navigator.pop(context),
-      ),
       actions: const [TtsSpeedAction()],
       padding: EdgeInsets.zero,
       child: p == null
@@ -551,7 +547,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                   syllable,
                   style: TextStyle(
                     fontSize: size * 0.5,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w700,
                     color: SoriColors.success,
                   ),
                 )
@@ -656,7 +652,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                     p.pool[i],
                     style: TextStyle(
                       fontSize: 20,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w700,
                       color: s.text,
                     ),
                   ),
@@ -745,7 +741,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                     Text(
                       done ? '${w.answer} · ${w.german}' : w.german,
                       style: TextStyle(
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w700,
                         fontSize: 15,
                         color: done
                             ? SoriColors.success
@@ -757,15 +753,13 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                     const SizedBox(height: 2),
                     Text(
                       w.exampleDe,
-                      style: TextStyle(fontSize: 12.5, color: s.textMuted),
+                      style: SoriTextTheme.of(context).caption,
                     ),
                     Text(
                       w.exampleKo,
-                      style: TextStyle(
-                        fontSize: 12.5,
-                        color: s.textMuted,
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: SoriTextTheme.of(
+                        context,
+                      ).caption.copyWith(fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),
@@ -792,7 +786,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
               '${t.wordleResultWin} +$_xpPerPuzzle XP',
               style: const TextStyle(
                 fontSize: 18,
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w700,
                 color: SoriColors.success,
               ),
             ),

@@ -130,7 +130,7 @@ class _LueckenQuestState extends State<LueckenQuest> {
               color: _selected < 0 ? surfaces.textMuted : SoriColors.primary,
               decoration: TextDecoration.underline,
               decorationColor: SoriColors.primary,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w700,
             ),
           ),
           TextSpan(text: parts.sublist(1).join('___')),

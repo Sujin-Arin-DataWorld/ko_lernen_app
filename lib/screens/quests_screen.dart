@@ -21,10 +21,11 @@ import '../widgets/sori/reward_thumb.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
-import '../widgets/sori/placed_decoration.dart' show decorName;
+import '../widgets/sori/placed_decoration.dart' show decorName, decorTerm;
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/section_header.dart';
+import '../widgets/sori/sori_term.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
@@ -288,6 +289,37 @@ class _QuestsScreenState extends State<QuestsScreen>
   }
 }
 
+/// Secondary "Romanization · Hangul" line under a quest's reward name —
+/// only when the glossary links [decorationSlug] to a term and that term
+/// says something [decorName] does not already (§W-C C3). Independent of
+/// the "?" [CulturalDecorationHelpButton] dedup above: every tile with a
+/// term gets its own inline line, unlike the help button, which only shows
+/// once per term to avoid repeating the same "?" down a long list.
+Widget _questTileCulturalTerm(BuildContext context, String decorationSlug) {
+  return CulturalGlossaryBuilder(
+    builder: (context, glossary) {
+      final termId = glossary?.termIdForDecoration(decorationSlug);
+      if (termId == null) {
+        return const SizedBox.shrink();
+      }
+      final t = AppL10n.of(context);
+      final term = decorTerm(t, decorationSlug);
+      if (term == decorName(t, decorationSlug)) {
+        return const SizedBox.shrink();
+      }
+      return Padding(
+        padding: const EdgeInsets.only(top: 2),
+        child: SoriTerm(
+          termId: termId,
+          text: term,
+          style: SoriTextTheme.of(context).meta,
+          surface: 'quests_tile',
+        ),
+      );
+    },
+  );
+}
+
 class _QuestTile extends StatelessWidget {
   final QuestProgress q;
   final bool showCulturalHelp;
@@ -361,6 +393,7 @@ class _QuestTile extends StatelessWidget {
                         color: isLocked ? s.textDim : s.text,
                       ),
                     ),
+                    _questTileCulturalTerm(context, def.decorationSlug),
                     if (def.type == QuestType.seasonal) ...[
                       const SizedBox(height: Spacing.xs),
                       Text(

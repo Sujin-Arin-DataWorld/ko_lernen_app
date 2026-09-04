@@ -21,3 +21,38 @@ String hanokStageDisplayName(AppL10n t, HanokStage stage) => switch (stage) {
   HanokStage.sideBuilding => t.hanokStageNameSideBuilding,
   HanokStage.jongga => t.hanokStageNameJongga,
 };
+
+/// Bilingual-neutral "Romanization · Hangul" companion to
+/// [hanokStageDisplayName] (H6, §W-C). Only `dancheong`/`sideBuilding`/
+/// `jongga` currently ship as bare romanizations with a real Korean-origin
+/// identity behind them (단청/사랑채/종가); the other stages are plain
+/// German/English construction-progress words with no established loanword
+/// in the shipped copy, so their term mirrors the display name on purpose —
+/// callers should skip the secondary line when the two are equal.
+String hanokStageTerm(AppL10n t, HanokStage stage) => switch (stage) {
+  HanokStage.empty => t.hanokStageTermEmpty,
+  HanokStage.foundation => t.hanokStageTermFoundation,
+  HanokStage.pillars => t.hanokStageTermPillars,
+  HanokStage.beams => t.hanokStageTermBeams,
+  HanokStage.thatchRoof => t.hanokStageTermThatchRoof,
+  HanokStage.tileRoofPartial => t.hanokStageTermTileRoofPartial,
+  HanokStage.tileRoofComplete => t.hanokStageTermTileRoofComplete,
+  HanokStage.dancheong => t.hanokStageTermDancheong,
+  HanokStage.gate => t.hanokStageTermGate,
+  HanokStage.windows => t.hanokStageTermWindows,
+  HanokStage.sideBuilding => t.hanokStageTermSideBuilding,
+  HanokStage.jongga => t.hanokStageTermJongga,
+};
+
+/// [HanokStage] → [CulturalGlossary] termId (§W-D D8, §COPY-2/J8). Only the
+/// three stages whose [hanokStageTerm] actually differs from
+/// [hanokStageDisplayName] have a matching glossary entry today. The rest
+/// return null and their caller falls back to plain text (no door — §COPY-3
+/// Option A). term 값을 채우려면 같은 PR 에서 글로서리 항목과 termId
+/// 매핑을 함께 추가한다(문 없는 용어 금지).
+String? hanokStageGlossaryTermId(HanokStage stage) => switch (stage) {
+  HanokStage.dancheong => 'dancheong',
+  HanokStage.sideBuilding => 'sarangchae',
+  HanokStage.jongga => 'jongga',
+  _ => null,
+};

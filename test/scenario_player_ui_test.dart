@@ -76,7 +76,7 @@ void main() {
 
     expect(find.byType(SoriStudyFrame), findsOneWidget);
     expect(find.byType(AppLoading), findsOneWidget);
-    expect(find.byTooltip('Schließen'), findsOneWidget);
+    expect(find.bySemanticsLabel('Schließen'), findsOneWidget);
     expect(find.byType(CircularProgressIndicator), findsNothing);
     expect(tester.takeException(), isNull);
   });
@@ -163,7 +163,7 @@ void main() {
         textScale: 2,
       );
 
-      await tester.tap(find.byTooltip('Schließen'));
+      await tester.tap(find.bySemanticsLabel('Schließen'));
       await tester.pump();
       expect(find.byType(ScenarioPlayerScreen), findsOneWidget);
 
@@ -498,7 +498,7 @@ void main() {
           ),
         );
         expect(title.overflow, TextOverflow.clip);
-        expect(find.byTooltip(_closeLabel(locale)), findsOneWidget);
+        expect(find.bySemanticsLabel(_closeLabel(locale)), findsOneWidget);
 
         if (testCase.stage == ScenarioStage.result) {
           final returnLabel = locale.languageCode == 'de'
@@ -551,6 +551,47 @@ void main() {
   });
 
   testWidgets(
+    // §NAV-4(J3): _scenarioExitButton's outer Semantics must repeat the
+    // ExcludeSemantics-wrapped SoriPressable's onTap, or a screen reader's
+    // double-tap does nothing (the same defect home_action.dart:56-62/
+    // :114-121 already guards against). The intro/vocab/result matrix
+    // above already covers the `_stage > 0 && !_isResultStage` confirm
+    // gate via a pointer tap; this asserts the Semantics contract itself
+    // and that *performing the Semantics action* (not a pointer tap)
+    // reaches the same confirm sheet.
+    'exit control exposes a tappable Semantics node repeating its inner action',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      await _pumpPreview(
+        tester,
+        stage: ScenarioStage.vocab,
+        size: const Size(390, 844),
+        textScale: 1.3,
+      );
+
+      final closeFinder = find.bySemanticsLabel('Schließen');
+      expect(closeFinder, findsOneWidget);
+      final semanticsData = tester
+          .getSemantics(closeFinder)
+          .getSemanticsData();
+      expect(semanticsData.flagsCollection.isButton, isTrue);
+      expect(semanticsData.hasAction(ui.SemanticsAction.tap), isTrue);
+      expect(tester.getSize(closeFinder).height, greaterThanOrEqualTo(48));
+
+      final nodeId = tester.getSemantics(closeFinder).id;
+      // ignore: deprecated_member_use
+      tester.binding.pipelineOwner.semanticsOwner!.performAction(
+        nodeId,
+        ui.SemanticsAction.tap,
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('Runde verlassen?'), findsOneWidget);
+
+      semantics.dispose();
+    },
+  );
+
+  testWidgets(
     'changed vocabulary and dialogue states cover the full DE and EN matrix',
     (tester) async {
       const viewports = <({Size size, double scale})>[
@@ -575,7 +616,7 @@ void main() {
             final nextLabel = locale.languageCode == 'de' ? 'Weiter' : 'Next';
             expect(find.text(nextLabel), findsOneWidget);
             expect(
-              find.byTooltip(
+              find.bySemanticsLabel(
                 locale.languageCode == 'de' ? 'Schließen' : 'Close',
               ),
               findsOneWidget,

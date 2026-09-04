@@ -95,15 +95,17 @@
 ### 3-2. 🟡 빈/오류 상태 — 대부분 "새 이미지 아님", 기존 에셋 배선 (재생성 규칙 정확 적용)
 계획 §8.1 표준: 빈=`SoriEmptyState`(조이) · 오류=`app_error`(태고). **두 위젯 모두 이미 마스코트 폴백 슬롯이 있다** → 새 일러스트를 그리는 게 아니라 **기존 마스코트 PNG를 넘겨 배선**한다.
 
-| 상황(화면) | 상태 | 배선할 기존 에셋(재생성 X) | 신규 이미지? |
-|---|---|---|---|
-| 빈 Lerngruppe (§6.4) | 빈 | `mascot/magpie_perched.png` + 기존 `gye/gye_*.png` 합성(=`gye_hanok` 위젯 재사용) | ❌ 위젯 합성 |
-| Meine Wörter 빈 | 빈 | `mascot/magpie_wave.png` | ❌ 배선만 |
-| Knifflige Wörter 없음("Keine Sorgenkinder") | 빈 | `mascot/magpie_celebrate.png` | ❌ 배선만 |
-| 복습 완료("Alles erledigt!") | 빈 | `mascot/magpie_celebrate.png` | ❌ 배선만 |
-| 빈 퀘스트 | 빈 | `mascot/magpie_encourage.png` | ❌ 배선만 |
-| 오프라인/오류 전반 | 오류 | `mascot/tiger_front.png`(신규 정본·당당한 직립) or `tiger_neutral.png` | ❌ 배선만 |
-| 책장 빈 | 빈 | `book/book_empty_shelf.png` (이미 존재·배선됨) | ✅ 이미 있음 |
+| 상황(화면) | 상태 | 배선할 기존 에셋(재생성 X) | 신규 이미지? | 상태(2026-09-03) |
+|---|---|---|---|---|
+| 빈 Lerngruppe (§6.4) | 빈 | `mascot/magpie_perched.png` + 기존 `gye/gye_*.png` 합성(=`gye_hanok` 위젯 재사용) | ❌ 위젯 합성 | 미배선(W-G 몫 — `gye_tab_screen.dart`의 `_IntroEmpty`가 대신 courtyard showcase 아트를 씀, magpie 없음) |
+| Meine Wörter 빈 | 빈 | `mascot/magpie_wave.png` | ❌ 배선만 | ✅ `custom_pack_edit_screen.dart:435` |
+| Knifflige Wörter 없음("Keine Sorgenkinder") | 빈 | `mascot/magpie_celebrate.png` | ❌ 배선만 | ✅ `hard_words_screen.dart:208` |
+| 복습 완료("Alles erledigt!") | 빈 | `mascot/magpie_celebrate.png` | ❌ 배선만 | ✅ `review_hub_screen.dart:172` |
+| 빈 퀘스트 | 빈 | `mascot/magpie_encourage.png` | ❌ 배선만 | ✅ `quests_screen.dart:247` |
+| 오프라인/오류 전반 | 오류 | `mascot/tiger_front.png`(신규 정본·당당한 직립) or `tiger_neutral.png` | ❌ 배선만 | ✅ `app_error.dart:15`(**기본값 배선** — `kTaegoErrorAsset`) |
+| 책장 빈 | 빈 | `book/book_empty_shelf.png` (이미 존재·배선됨) | ✅ 이미 있음 | ✅ 그대로 |
+
+> **갱신 2026-09-03(§COPY-5 J15)**: 위 7행 중 5행(Meine Wörter·Knifflige·복습 완료·빈 퀘스트·오프라인/오류)이 배선 완료됐고, 잔여 1행(빈 Lerngruppe)은 W-G 몫으로 남아 있다. "신규 이미지?" 열은 원문 그대로 "새 이미지 필요 없음"을 뜻한다 — ❌가 미완료를 뜻하지 않는다.
 
 > 결론: **빈/오류는 이미지 제작 과제가 아니라 코드 배선 과제.** 새 배경 장식을 원하면 그때만 신규(저우선). 재생성 규칙과 정확히 부합.
 

@@ -56,7 +56,13 @@ void main() {
       );
       await tester.pump();
 
-      expect(find.text('Dancheong patterns'), findsOneWidget);
+      // §W-C C3: the series title now wraps "Dancheong" in a tappable
+      // SoriTerm.span pointing at the glossary entry, so the heading is no
+      // longer a single plain Text('Dancheong patterns') — it is a
+      // Text.rich with "Dancheong" as its own inline widget and " patterns"
+      // as the trailing plain span.
+      expect(find.text('Dancheong'), findsOneWidget);
+      expect(find.textContaining('patterns'), findsOneWidget);
       expect(find.text('Korean everyday culture'), findsOneWidget);
       expect(find.text('Soban table'), findsOneWidget);
       expect(

@@ -103,4 +103,28 @@ void main() {
     expect(progress.permanentElementCount, 8);
     expect(progress.weeklyFraction, 1);
   });
+
+  group('currentStepFor (§W-G2 item 1)', () {
+    test('an empty membership list is step 0', () {
+      expect(GyeLanternProgress.currentStepFor(const [], elementCount: 8), 0);
+    });
+
+    test('a courtyard mid-way through its weekly goal is still step 0', () {
+      final metas = [_meta(weeklyGoalPacks: 10, weeklyGoalProgress: 5)];
+      expect(GyeLanternProgress.currentStepFor(metas, elementCount: 8), 0);
+    });
+
+    test('a courtyard that reached its weekly goal is step 1', () {
+      final metas = [_meta(weeklyGoalPacks: 10, weeklyGoalProgress: 10)];
+      expect(GyeLanternProgress.currentStepFor(metas, elementCount: 8), 1);
+    });
+
+    test('one of several courtyards reaching goal is enough for step 1', () {
+      final metas = [
+        _meta(weeklyGoalPacks: 10, weeklyGoalProgress: 3),
+        _meta(weeklyGoalPacks: 5, weeklyGoalProgress: 5),
+      ];
+      expect(GyeLanternProgress.currentStepFor(metas, elementCount: 8), 1);
+    });
+  });
 }

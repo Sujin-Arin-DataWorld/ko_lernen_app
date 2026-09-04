@@ -832,7 +832,9 @@ class _RoomInventoryTile extends StatelessWidget {
                 borderRadius: SoriRadius.brSm,
                 onTap: onTap,
                 child: Padding(
-                  padding: const EdgeInsets.all(Spacing.sm),
+                  // §W-A2: caption(13.5) 확대로 2px 부족했다 — 타일 안쪽
+                  // 패딩을 sm(8)→xs(4)로 줄여 라벨 줄에 여유를 준다.
+                  padding: const EdgeInsets.all(Spacing.xs),
                   child: Stack(
                     children: [
                       Column(

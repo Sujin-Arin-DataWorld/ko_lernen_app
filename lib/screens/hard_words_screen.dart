@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/vocab.dart';
+import '../motion/transitions.dart';
 import '../services/review_deck_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
@@ -151,8 +152,8 @@ class _HardWordsBodyState extends State<HardWordsBody>
           fullWidth: true,
           onTap: () async {
             await Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (_) =>
+              SoriTransitions.page(
+                (_) =>
                     HardChoiceQuizScreen(deck: _hard, title: t.hardQuizTitle),
               ),
             );
@@ -170,8 +171,8 @@ class _HardWordsBodyState extends State<HardWordsBody>
           fullWidth: true,
           onTap: () async {
             await Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (_) => ReviewSessionScreen(
+              SoriTransitions.page(
+                (_) => ReviewSessionScreen(
                   deck: _hard,
                   title: t.hardWordsTitle,
                   feedbackContentId: 'hard_words',

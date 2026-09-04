@@ -187,7 +187,12 @@ void main() {
     await _pumpUntilVisible(tester, find.byType(SoriContentFeed));
     await tester.tap(find.byKey(deckActionKey('flip')));
     await tester.pump();
-    await tester.tap(find.text('Sample answer'));
+    // §W-A2 재조사: 카드 뒷면 텍스트가 토큰 확대로 커져 ensureVisible 없이
+    // 탭하면 조용히 빗나갈 수 있다 — 실측 확인된 관용구를 동일 적용한다.
+    final sampleAnswer = find.text('Sample answer');
+    await tester.ensureVisible(sampleAnswer);
+    await tester.pump();
+    await tester.tap(sampleAnswer);
     await tester.pump();
 
     final inlineAudio = find.byTooltip(RegExp(r'^Listen: '));

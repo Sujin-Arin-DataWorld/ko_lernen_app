@@ -282,7 +282,7 @@ class _Slot extends StatelessWidget {
           text,
           style: TextStyle(
             fontSize: 24,
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.w700,
             color: accent,
           ),
         ),
@@ -298,7 +298,7 @@ class _Slot extends StatelessWidget {
           child: Text(
             text,
             style: TextStyle(
-              fontSize: 10,
+              fontSize: 13,
               fontWeight: FontWeight.w800,
               color: accent.withValues(alpha: 0.75),
             ),

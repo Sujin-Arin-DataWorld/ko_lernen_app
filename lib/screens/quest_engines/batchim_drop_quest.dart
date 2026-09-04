@@ -266,7 +266,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
               style: SoriTextTheme.of(context).koDisplay.copyWith(
                 color: s.text,
                 fontSize: 56,
-                fontWeight: FontWeight.w900,
+                fontWeight: FontWeight.w700,
                 height: 1.1,
               ),
             ),
@@ -315,7 +315,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
             style: SoriTextTheme.of(context).koDisplay.copyWith(
               color: _completed ? _resolvedAccent : s.text,
               fontSize: 56,
-              fontWeight: FontWeight.w900,
+              fontWeight: FontWeight.w700,
               height: 1.1,
             ),
           ),
@@ -339,7 +339,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
                   style: SoriTextTheme.of(context).body.copyWith(
                     color: slotTextColor,
                     fontSize: 20,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),

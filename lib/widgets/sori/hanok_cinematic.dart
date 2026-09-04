@@ -246,7 +246,7 @@ class _ToastBanner extends StatelessWidget {
               Text(
                 intro!,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 12, color: s.textMuted),
+                style: SoriTextTheme.of(context).caption,
               ),
             const SizedBox(height: 2),
             Text(

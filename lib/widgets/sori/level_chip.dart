@@ -20,7 +20,7 @@ class SoriLevelChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
       decoration: BoxDecoration(
         color: color ?? HanokLevelPalette.of(code),
         borderRadius: SoriRadius.brSm,
@@ -29,7 +29,7 @@ class SoriLevelChip extends StatelessWidget {
         code,
         style: SoriTextTheme.of(
           context,
-        ).label.copyWith(fontSize: 11, color: Colors.white),
+        ).label.copyWith(fontSize: 13, color: Colors.white),
       ),
     );
   }

@@ -531,7 +531,7 @@ class _CoachTooltip extends StatelessWidget {
                         style: const TextStyle(
                           fontFamily: SoriFonts.sans,
                           fontSize: 15,
-                          fontWeight: FontWeight.w900,
+                          fontWeight: FontWeight.w700,
                           color: Color(0xFF0E1A18),
                           letterSpacing: -0.2,
                           height: 1.3,
@@ -591,10 +591,10 @@ class _CoachTooltip extends StatelessWidget {
                       '${stepIndex + 1} / $totalSteps',
                       style: const TextStyle(
                         fontFamily: SoriFonts.sans,
-                        fontSize: 12,
+                        fontSize: 13.5,
                         fontWeight: FontWeight.w700,
                         // 구 #6B827D 은 흰 카드 위 4.11:1 로 WCAG AA(4.5) 미달이었다
-                        // (2026-08-07 접근성 게이트). 12px 는 large text 예외에도
+                        // (2026-08-07 접근성 게이트). 13.5px 도 large text 예외에
                         // 못 들어가므로 아래 Überspringen 과 같은 톤으로 맞춘다.
                         color: Color(0xFF4A6560),
                         fontFeatures: [FontFeature.tabularFigures()],

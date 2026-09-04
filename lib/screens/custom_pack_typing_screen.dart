@@ -256,12 +256,6 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
     return SoriStudyFrame(
       title: t.wbTyping,
       homeEscape: SoriHomeEscape(confirmWhen: _idx > 0 || _correct != null),
-      leading: IconButton(
-        tooltip: t.btnClose,
-        constraints: const BoxConstraints.tightFor(width: 48, height: 48),
-        icon: const Icon(Icons.close),
-        onPressed: () => Navigator.of(context).maybePop(),
-      ),
       actions: const [TtsSpeedAction()],
       child: SoriAdaptiveStudyBody(
         minHeight: 450,

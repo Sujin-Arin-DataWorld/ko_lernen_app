@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import '../data/chaekgado_shelf.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/scenario.dart';
+import '../motion/transitions.dart';
 import '../services/learner_level_selection.dart';
 import '../services/scenario_loader.dart';
 import '../services/storage_service.dart';
@@ -146,9 +147,9 @@ class _ListeningScreenState extends State<ListeningScreen>
       return;
     }
     await Navigator.of(context).push(
-      MaterialPageRoute<void>(
+      SoriTransitions.page<void>(
+        (_) => ListeningPlayScreen(scenario: scenario),
         settings: const RouteSettings(name: '/listening/play'),
-        builder: (_) => ListeningPlayScreen(scenario: scenario),
       ),
     );
     if (mounted) {

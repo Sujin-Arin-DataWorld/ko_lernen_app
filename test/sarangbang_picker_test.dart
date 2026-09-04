@@ -60,11 +60,11 @@ void main() {
         onResult: (v) => result = v,
       );
 
-      expect(find.text('Schreibpult (서안)'), findsOneWidget);
+      expect(find.text('Schreibpult'), findsOneWidget);
       // 현재 놓여 있는 것에는 체크가 붙는다.
       expect(find.byIcon(Icons.check_circle_rounded), findsOneWidget);
 
-      await tester.tap(find.text('Tabletttisch (소반)'));
+      await tester.tap(find.text('Tabletttisch'));
       await tester.pumpAndSettle();
       expect(result, 'decoration_soban');
     });

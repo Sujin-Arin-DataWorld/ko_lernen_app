@@ -204,14 +204,19 @@ void main() {
         ),
       );
       expect(appBar.title, 'Einreise am Flughafen');
-      final closeIcon = find.descendant(
-        of: find.byType(SoriAppBar),
-        matching: find.byIcon(Icons.close_rounded),
+      // §B2(2026-09-03): the frame-owned close (X) is a Semantics button
+      // with a label ("Schließen" in de), not an IconButton with a tooltip.
+      // `Icon` itself always wraps in its own unlabeled Semantics, so this
+      // finds the labeled ancestor directly instead of walking up from the
+      // icon.
+      expect(
+        find.descendant(
+          of: find.byType(SoriAppBar),
+          matching: find.byIcon(Icons.close_rounded),
+        ),
+        findsOneWidget,
       );
-      final close = tester.widget<IconButton>(
-        find.ancestor(of: closeIcon, matching: find.byType(IconButton)),
-      );
-      expect(close.tooltip, isNotEmpty);
+      expect(find.bySemanticsLabel('Schließen'), findsOneWidget);
       expect(title.maxLines, isNotNull);
       expect(title.overflow, TextOverflow.clip);
       expect(find.text('1 von 7'), findsOneWidget);

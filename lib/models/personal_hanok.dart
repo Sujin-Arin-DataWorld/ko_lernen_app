@@ -118,6 +118,11 @@ class PersonalHanokProjection {
       constructionMilestones.where(unlocked.contains).length /
       constructionMilestones.length;
 
+  /// Denominator for [constructionFraction] — the Today Hanok card reads
+  /// this instead of re-deriving `constructionMilestones.length` itself
+  /// (§W-D D2, was a hardcoded `const total = 7` in the screen).
+  int get constructionTotal => constructionMilestones.length;
+
   bool isUnlocked(PersonalHanokMilestone milestone) =>
       unlocked.contains(milestone);
 

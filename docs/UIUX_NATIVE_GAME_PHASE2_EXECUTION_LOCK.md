@@ -72,7 +72,7 @@ and themes.
 ## Design Contract
 
 - Reuse `lib/widgets/sori` and `ThemeData`.
-- Use `SoriFonts.sans` (`WantedSans`) for UI and `SoriFonts.culture`
+- Use `SoriFonts.sans` (`Paperlogy`) for UI and `SoriFonts.culture`
   (`MaruBuri`) only for cultural display headings.
 - Use `compact`, `medium`, and `expanded` window classes plus `SoriMaxWidth` and
   `SoriTypeScale`; do not invent breakpoints.

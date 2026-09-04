@@ -104,23 +104,20 @@ void main() {
       tester.view.devicePixelRatio = 1;
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
+      // 실제 표면은 LevelFilterBar 가로 스크롤; 픽스처는 줄바꿈 허용 —
+      // Linux 폰트 메트릭에서 328dp Row가 1px 넘침(2026-09-04).
       await tester.pumpWidget(
         _wrap(
-          Row(
-            mainAxisSize: MainAxisSize.min,
+          Wrap(
+            spacing: Spacing.sm,
+            runSpacing: Spacing.xs,
             children: const [
               SoriLevelChip(code: 'A1'),
-              SizedBox(width: 8),
               SoriLevelChip(code: 'A2'),
-              SizedBox(width: 8),
               SoriLevelChip(code: 'B1'),
-              SizedBox(width: 8),
               SoriLevelChip(code: 'B2'),
-              SizedBox(width: 8),
               SoriLevelChip(code: 'C1'),
-              SizedBox(width: 8),
               SoriLevelChip(code: 'C2'),
-              SizedBox(width: 8),
               SoriLevelChip(code: '0', color: HanokColors.hanjiInk),
             ],
           ),
@@ -128,7 +125,7 @@ void main() {
       );
       await tester.pump(const Duration(milliseconds: 200));
       await expectLater(
-        find.byType(Row).first,
+        find.byType(Wrap).first,
         matchesGoldenFile('baselines/level_chips.png'),
       );
     });

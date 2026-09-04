@@ -10,6 +10,7 @@ void main() {
     'hanok',
     'gye',
     'sarangbang',
+    'sarangchae',
     'madang',
     'jongga',
     'dancheong',
@@ -22,6 +23,13 @@ void main() {
     'chaekgado',
     'soban',
     'jagae_mungap',
+    'dojangcheop',
+    'kkachi',
+    'daecheong',
+    'haengnangchae',
+    'anchae',
+    'huwon',
+    'sadang',
   };
   const expectedDecorationLinks = <String, String>{
     'decoration_jangdokdae': 'jangdokdae',
@@ -35,6 +43,7 @@ void main() {
     'decoration_chaekgado': 'chaekgado',
     'decoration_soban': 'soban',
     'decoration_jagae_mungap': 'jagae_mungap',
+    'decoration_kkachi_nest': 'kkachi',
   };
 
   late CulturalGlossary catalog;
@@ -44,12 +53,20 @@ void main() {
     catalog = CulturalGlossary.fromJsonString(raw);
   });
 
-  test('catalog contains exactly the 15 approved term IDs', () {
-    expect(catalog.entries, hasLength(15));
+  test('catalog contains exactly the 23 approved term IDs', () {
+    expect(catalog.entries, hasLength(23));
     expect(
       catalog.entries.map((entry) => entry.termId).toSet(),
       expectedTermIds,
     );
+  });
+
+  test('sarangchae entry exists with a bare romanization and no decoration link', () {
+    final sarangchae = catalog.entries.singleWhere(
+      (entry) => entry.termId == 'sarangchae',
+    );
+    expect(sarangchae.romanization, 'Sarangchae');
+    expect(sarangchae.decorationSlugs, isEmpty);
   });
 
   test('every entry has clean DE, EN, KO copy within the character limits', () {
@@ -75,6 +92,10 @@ void main() {
         expect(uri.host, isNotEmpty);
       }
     }
+  });
+
+  test('kkachi nest decoration resolves to the kkachi term', () {
+    expect(catalog.termIdForDecoration('decoration_kkachi_nest'), 'kkachi');
   });
 
   test('decoration links are explicit, unique, and point to shipped slugs', () {

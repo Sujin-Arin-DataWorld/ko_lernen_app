@@ -11,6 +11,7 @@ import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/chip.dart';
 import '../../widgets/sori/external_link.dart';
+import '../../widgets/sori/localized_copy.dart';
 import '../../widgets/sori/pressable.dart';
 import '../../widgets/sori/sheet.dart';
 import '../../widgets/sori/tokens.dart';
@@ -122,7 +123,7 @@ class _OnboardingStoryScreenState extends State<OnboardingStoryScreen> {
               body: page.body,
               announcementLabel: '$progress. ${page.title}',
             ),
-            const SizedBox(height: Spacing.xl),
+            const SizedBox(height: Spacing.md),
             _StoryInteraction(
               page: page,
               setup: copy.setup,
@@ -949,11 +950,16 @@ class _ChapterRow extends StatelessWidget {
           ),
           if (trailing != null) ...[
             const SizedBox(width: Spacing.sm),
-            Text(
-              trailing!,
-              style: SoriTextTheme.of(context).meta.copyWith(
-                color: SoriColors.accent,
-                fontWeight: FontWeight.w800,
+            // §W-A2: 고정폭 트레일링 라벨이 이미지+간격과 합쳐 행 폭을
+            // 넘기던 자리 — Flexible 로 감싸 줄바꿈으로 흡수한다(잘림 아님).
+            Flexible(
+              child: Text(
+                trailing!,
+                textAlign: TextAlign.right,
+                style: SoriTextTheme.of(context).meta.copyWith(
+                  color: SoriColors.accent,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
             ),
           ],
@@ -1192,7 +1198,6 @@ class _RewardCatalogPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final text = SoriTextTheme.of(context);
-    final languageCode = Localizations.localeOf(context).languageCode;
     return Semantics(
       key: const ValueKey('onboarding-v2-reward-catalog'),
       container: true,
@@ -1218,9 +1223,9 @@ class _RewardCatalogPreview extends StatelessWidget {
               for (final example in projection.examples)
                 SoriChip(
                   key: ValueKey('onboarding-v2-reward-${example.kind.name}'),
-                  label: example.label.resolve(languageCode),
+                  label: localCopy(context, example.label),
                   semanticLabel: copy.possibleRewardBuilder(
-                    example.label.resolve(languageCode),
+                    localCopy(context, example.label),
                   ),
                   icon: _rewardIcon(example.kind),
                   accent: accent,

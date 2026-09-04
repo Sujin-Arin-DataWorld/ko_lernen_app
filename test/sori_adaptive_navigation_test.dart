@@ -56,7 +56,8 @@ void main() {
     // 2026-08-19: 글자 배율은 SoriTypeScale(MaterialApp.builder) 하나로 모았다
     // — 이 테스트는 builder 를 안 쓰므로 label fontSize 는 이제 comfort 배율
     // 없이 토큰값 그대로 나온다.
-    expect(tester.widget<Text>(find.text('Practice')).style!.fontSize, 13);
+    // 2026-09-03 §A4: Material titleSmall 13→14(§W-A2 예시 그대로).
+    expect(tester.widget<Text>(find.text('Practice')).style!.fontSize, 14);
     expect(find.text('Practice'), findsOneWidget);
   });
 

@@ -113,7 +113,7 @@ class SoriPathTrail extends StatelessWidget {
   /// 라벨 블록 높이 — 시스템 글자 크기 설정을 존중한다.
   /// (고정값이면 큰 글자 설정에서 라벨이 잘리거나 오버플로가 난다.)
   static double labelBlockHeight(BuildContext context) {
-    final scaled = MediaQuery.textScalerOf(context).scale(12);
+    final scaled = MediaQuery.textScalerOf(context).scale(13.5);
     return scaled * 1.3 + 10;
   }
 
@@ -253,13 +253,13 @@ class _TrailNode extends StatelessWidget {
                     child: Text(
                       stop.label,
                       // §4.3: 경로 라벨 말줄임 1줄 금지 — 2줄 허용
-                      // (라벨 영역 ≈36px: 12px×1.3 두 줄 수용, 1.3× 글씨는
-                      // 실기기 확인 항목).
+                      // (라벨 영역은 labelBlockHeight() 가 13.5px×1.3 두 줄
+                      // 기준으로 동적 계산 — 1.3× 글씨는 실기기 확인 항목).
                       maxLines: 2,
                       textAlign: TextAlign.center,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 13.5,
                         height: 1.3,
                         fontWeight: locked ? FontWeight.w600 : FontWeight.w700,
                         // 잠금도 본문 대비를 유지 — opacity로 뭉개지 않는다.
@@ -528,7 +528,7 @@ class _NowDiscState extends State<_NowDisc>
             Positioned(
               bottom: 0,
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 2),
+                padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 3),
                 decoration: BoxDecoration(
                   color: SoriColors.tiger,
                   borderRadius: SoriRadius.brPill,
@@ -539,7 +539,7 @@ class _NowDiscState extends State<_NowDisc>
                   // w800/w900 은 typography_guard_test 의 래칫 상한에 걸린다
                   // (Pretendard 는 400~800만 번들 → w900 은 어차피 800으로 렌더).
                   style: const TextStyle(
-                    fontSize: 11,
+                    fontSize: 13,
                     fontWeight: FontWeight.w700,
                     letterSpacing: 0.3,
                     color: SoriColors.lightText,

@@ -9,6 +9,8 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'support/sori_stage_pump.dart';
+
 void main() {
   testWidgets('catalog shows a receipt after returning with a real delta', (
     tester,
@@ -55,8 +57,14 @@ void main() {
       200,
       scrollable: find.byType(Scrollable).first,
     );
-    await tester.ensureVisible(find.text('Course'));
-    await tester.pumpAndSettle();
+    // §E3: 기본 ensureVisible(alignment 0)은 타깃을 뷰포트 맨 위에 맞춘다 —
+    // 그 자리는 이제 SoriCollapsingHeader의 pinned 56dp 크롬 바 밑이라 탭이
+    // 안 먹는다. alignment 0.5(가운데 정렬)로 그 밴드를 확실히 벗어난다.
+    await Scrollable.ensureVisible(
+      tester.element(find.text('Course')),
+      alignment: 0.5,
+    );
+    await pumpSoriStage(tester);
     // §W2-Task2 (검수#7 Step 7): capture() 의 기본 네트워크 절반
     // (SoriStageProgressionService.loadNetworkBeforeFields)은 실제
     // QuestTracker.computeAll()/HanokStructureProjectionService.loadCurrent()
@@ -71,27 +79,24 @@ void main() {
       await tester.tap(find.text('Course'));
       await tester.pump();
     });
-    await tester.pumpAndSettle();
+    await pumpSoriStage(tester);
     await tester.tap(find.text('Complete activity'));
     // §W2 후속: 여기서 기다리는 것은 capture() 의 나머지 절반이다 — pop 으로
     // openActivity() 가 끝난 뒤 진짜 존에 묶인 networkFuture 가 풀리고,
     // compare() 가 delta 를 만들고, 리시트 시트가 push 된다. 고정 3초 실시간
-    // 대기는 느린 CI 에서 부족(플레이크)하고 빠른 머신에선 낭비였다. 아래
-    // 단언이 보는 바로 그 위젯이 뜰 때까지 100ms 간격으로 폴링하고(상한 10초)
-    // 뜨는 즉시 빠져나온다 — 상한을 넘겨도 단언은 그대로 실패한다(가드 불변).
-    await tester.runAsync(() async {
-      final deadline = DateTime.now().add(const Duration(seconds: 10));
-      while (DateTime.now().isBefore(deadline)) {
-        await tester.pump();
-        if (find.text('+20 Learning XP').evaluate().isNotEmpty) {
-          break;
-        }
-        await Future<void>.delayed(const Duration(milliseconds: 100));
-      }
-    });
-    await tester.pumpAndSettle();
+    // 대기는 느린 CI 에서 부족(플레이크)하고 빠른 머신에선 낭비였다 —
+    // pumpUntilFound(§MOTION-2 J6, test/support/sori_stage_pump.dart)가
+    // 100ms 간격으로 폴링하고(상한 10초) 뜨는 즉시 빠져나온다 — 상한을
+    // 넘겨도 아래 단언은 그대로 실패한다(가드 불변).
+    await pumpUntilFound(tester, find.text('+20 XP'));
+    // §E4: returning from 'course' makes it this catalog's "Weiter mit…"
+    // hero, wrapped in the endlessly repeating SoriPulse — pumpAndSettle()
+    // never quiesces with an indefinite AnimationController running behind
+    // the receipt sheet. A few bounded pumps let the sheet's own entrance
+    // transition finish without waiting on that unrelated idle animation.
+    await pumpSoriStage(tester, settle: const Duration(milliseconds: 400));
 
-    expect(find.text('+20 Learning XP'), findsOneWidget);
+    expect(find.text('+20 XP'), findsOneWidget);
     expect(
       find.text('Your learning moved the journey forward.'),
       findsOneWidget,

@@ -355,7 +355,7 @@ class _ContentFeedbackCardState extends State<ContentFeedbackCard> {
                       betaMissionCatalog.length,
                     ),
                     style: const TextStyle(
-                      fontSize: 12,
+                      fontSize: 13.5,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
@@ -374,7 +374,7 @@ class _ContentFeedbackCardState extends State<ContentFeedbackCard> {
                     l10n.testerFeedbackNextMission(_missionLabel(l10n, next)),
                     key: const Key('content-feedback-next-mission'),
                     style: const TextStyle(
-                      fontSize: 12,
+                      fontSize: 13.5,
                       fontWeight: FontWeight.w700,
                     ),
                   ),

@@ -12,7 +12,7 @@ import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 /// 직접 읽어 `가`·`힣`·`ㄱ`·`ä`·`ß` 가 있는지 본다.
 void main() {
   test('font roles keep UI sans and culture display separate', () {
-    expect(SoriFonts.sans, 'WantedSans');
+    expect(SoriFonts.sans, 'Paperlogy');
     expect(SoriFonts.culture, 'MaruBuri');
   });
 

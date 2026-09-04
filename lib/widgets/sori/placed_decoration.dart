@@ -154,6 +154,54 @@ String decorName(AppL10n t, String slug) => switch (slug) {
   _ => t.decorNameFallback,
 };
 
+/// Bilingual-neutral "Romanization · Hangul" term for every shipped
+/// decoration — the H6 companion to [decorName] (§W-C). Kept as a static ARB
+/// pair (not derived from [decorName]) so translators can adjust either
+/// independently. Slugs with no distinct Korean-origin term to add beyond
+/// what [decorName] already carries fall through to the same fallback text,
+/// so callers can skip the secondary line when `decorTerm == decorName`.
+String decorTerm(AppL10n t, String slug) => switch (slug) {
+  'decoration_munbangsau' => t.decorTermMunbangsau,
+  'decoration_seoan' => t.decorTermSeoan,
+  'decoration_chaekgado' => t.decorTermChaekgado,
+  'decoration_gat_buchae' => t.decorTermGatBuchae,
+  'decoration_jagae_mungap' => t.decorTermJagaeMungap,
+  'decoration_soban' => t.decorTermSoban,
+  'decoration_sagunja_maehwa' => t.decorTermSagunjaMaehwa,
+  'decoration_sagunja_nan' => t.decorTermSagunjaNan,
+  'decoration_sagunja_guk' => t.decorTermSagunjaGuk,
+  'decoration_sagunja_juk' => t.decorTermSagunjaJuk,
+  'decoration_pyeonaek' => t.decorTermPyeonaek,
+  'decoration_jangdokdae' => t.decorTermJangdokdae,
+  'decoration_maehwa' => t.decorTermMaehwa,
+  'decoration_sonamu' => t.decorTermSonamu,
+  'decoration_pond' => t.decorTermPond,
+  // 슬러그는 상위어 석등(石燈)·영구 데이터 키, 용어는 브리프 §3.5 대로 그려진 장명등(長明燈).
+  // 의도된 불일치 — 슬러그 개명 금지. 등 글로서리 항목을 추가하는 시점에 용어(장명등/석등)를 결정한다.
+  'decoration_seokdeung' => t.decorTermSeokdeung,
+  'decoration_punggyeong' => t.decorTermPunggyeong,
+  'decoration_doldam' => t.decorTermDoldam,
+  'decoration_kkachi_nest' => t.decorTermKkachiNest,
+  'decoration_dokkaebi_fire' => t.decorTermDokkaebiFire,
+  'decoration_seollal_flag' => t.decorTermSeollalFlag,
+  'decoration_chuseok_moon' => t.decorTermChuseokMoon,
+  'decoration_hangeulday_plaque' => t.decorTermHangeuldayPlaque,
+  'decoration_kite' => t.decorTermKite,
+  'decoration_sabangtakja' => t.decorTermSabangtakja,
+  'decoration_boryo_set' => t.decorTermBoryoSet,
+  'decoration_bangseok_pair' => t.decorTermBangseokPair,
+  'decoration_bandaji' => t.decorTermBandaji,
+  'decoration_hwaro' => t.decorTermHwaro,
+  'decoration_deungjan' => t.decorTermDeungjan,
+  'decoration_geomungo' => t.decorTermGeomungo,
+  'decoration_baduk' => t.decorTermBaduk,
+  'decoration_mokchim' => t.decorTermMokchim,
+  'decoration_byeongpung_small' => t.decorTermByeongpungSmall,
+  'decoration_gobi' => t.decorTermGobi,
+  'decoration_hyangno' => t.decorTermHyangno,
+  _ => t.decorNameFallback,
+};
+
 /// 슬롯 안에서 아이템이 어디에 붙는가.
 enum DecorAnchor {
   /// 바닥에 놓이는 것 — 아래 모서리를 슬롯 바닥에 맞춘다(마당과 같은 규약).

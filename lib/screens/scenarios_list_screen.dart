@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import '../features/scenarios/scenario_browse_query.dart';
 import '../models/guide_contract.dart';
 import '../models/scenario.dart';
+import '../motion/transitions.dart';
 import '../services/scenario_loader.dart';
 import '../services/scene_asset_resolver.dart';
 import '../services/storage_service.dart';
@@ -737,22 +738,28 @@ class _LevelProgressChip extends StatelessWidget {
           borderRadius: SoriRadius.brPill,
           border: Border.all(color: tint.withValues(alpha: 0.32), width: 1),
         ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            if (locked) ...[
-              Icon(Icons.lock_outline_rounded, size: 11, color: tint),
-              const SizedBox(width: 4),
-            ],
-            Text(
-              label,
-              style: SoriTextTheme.of(context).meta.copyWith(
-                fontWeight: FontWeight.w700,
-                color: tint,
-                letterSpacing: 0.2,
+        // §W-A2: 레벨 칩(고정폭 배지) — 본문이 아니라 크롬성 배지라
+        // FittedBox(scaleDown) 이 허용된다(200% 배율에서 214dp 폭을
+        // 넘던 자리).
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              if (locked) ...[
+                Icon(Icons.lock_outline_rounded, size: 11, color: tint),
+                const SizedBox(width: 4),
+              ],
+              Text(
+                label,
+                style: SoriTextTheme.of(context).meta.copyWith(
+                  fontWeight: FontWeight.w700,
+                  color: tint,
+                  letterSpacing: 0.2,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -779,8 +786,8 @@ class _NextRecommended extends StatelessWidget {
     void openScenario() {
       Navigator.of(context)
           .push(
-            MaterialPageRoute(
-              builder: (_) => ScenarioPlayerScreen(
+            SoriTransitions.page(
+              (_) => ScenarioPlayerScreen(
                 scenarioId: scenario.id,
                 levelHint: scenario.level,
               ),
@@ -823,23 +830,28 @@ class _NextRecommended extends StatelessWidget {
         vertical: Spacing.sm,
       ),
       decoration: BoxDecoration(color: accent, borderRadius: SoriRadius.brPill),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            t.scenariosPathStartCta,
-            style: SoriTextTheme.of(context).label.copyWith(
-              color: SoriColors.onFill(accent),
-              letterSpacing: 0.3,
+      // §W-A2: CTA 필(크롬성 배지) — 200% 배율에서 214dp 폭을 넘던 자리.
+      // FittedBox(scaleDown) 은 크롬·칩에 허용된다.
+      child: FittedBox(
+        fit: BoxFit.scaleDown,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              t.scenariosPathStartCta,
+              style: SoriTextTheme.of(context).label.copyWith(
+                color: SoriColors.onFill(accent),
+                letterSpacing: 0.3,
+              ),
             ),
-          ),
-          const SizedBox(width: Spacing.xs),
-          Icon(
-            Icons.arrow_forward_rounded,
-            size: 14,
-            color: SoriColors.onFill(accent),
-          ),
-        ],
+            const SizedBox(width: Spacing.xs),
+            Icon(
+              Icons.arrow_forward_rounded,
+              size: 14,
+              color: SoriColors.onFill(accent),
+            ),
+          ],
+        ),
       ),
     );
     return Semantics(

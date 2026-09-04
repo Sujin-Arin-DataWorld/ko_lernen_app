@@ -42,7 +42,9 @@ class SoriSectionHeader extends StatelessWidget {
           ),
           if (trailing != null) ...[
             const SizedBox(width: Spacing.sm),
-            trailing!,
+            // §W-A2: 고정폭 trailing 이 제목·헤어라인과 합쳐 폭을 넘던
+            // 자리 — Flexible 로 감싸 필요하면 줄바꿈으로 흡수한다.
+            Flexible(child: trailing!),
           ],
         ],
       ),

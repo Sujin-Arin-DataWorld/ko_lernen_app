@@ -75,7 +75,9 @@ void main() {
         expect(instruction.style?.fontSize, type.meta.fontSize);
         expect(instruction.style?.fontWeight, type.meta.fontWeight);
 
-        final closeAction = find.byTooltip(t.btnClose);
+        // §B2(2026-09-03): the frame-owned close (X) is a Semantics button
+        // with a label, not an IconButton with a Tooltip.
+        final closeAction = find.bySemanticsLabel(t.closeActionLabel);
         expect(closeAction, findsOneWidget);
         final closeSize = tester.getSize(closeAction);
         expect(closeSize.width, greaterThanOrEqualTo(48));

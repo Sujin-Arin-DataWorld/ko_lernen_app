@@ -96,7 +96,8 @@ void main() {
 
         final t = AppL10n.of(tester.element(find.byType(ClozeGameScreen)));
         expect(find.byType(SoriHomeAction), findsOneWidget);
-        expect(find.byIcon(Icons.close), findsOneWidget);
+        // §B2(2026-09-03): the frame-owned close action uses close_rounded.
+        expect(find.byIcon(Icons.close_rounded), findsOneWidget);
         final pronunciation = t.ttsListen;
         final speakAction = find.byKey(const Key('cloze-prompt-speak'));
         expect(speakAction, findsOneWidget);

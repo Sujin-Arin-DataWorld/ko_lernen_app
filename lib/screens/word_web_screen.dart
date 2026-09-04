@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/learner_level.dart';
 import '../models/word_relation.dart';
+import '../motion/transitions.dart';
 import '../services/learner_level_selection.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
@@ -204,8 +205,8 @@ class _WordWebScreenState extends State<WordWebScreen>
                       fullWidth: true,
                       onTap: () {
                         Navigator.of(context).push(
-                          MaterialPageRoute<void>(
-                            builder: (_) => WordWebQuizScreen(
+                          SoriTransitions.page<void>(
+                            (_) => WordWebQuizScreen(
                               clusters: _visible,
                               distractorClusters: _all,
                             ),
@@ -245,37 +246,43 @@ class _WordWebScreenState extends State<WordWebScreen>
                   style: SoriTextTheme.of(context).bodySmall,
                 ),
                 const SizedBox(height: Spacing.xs),
-                Wrap(
-                  spacing: Spacing.md,
-                  runSpacing: Spacing.xs,
-                  children: [
-                    SoriChip(
-                      key: const ValueKey('word-web-filter-learned'),
-                      label: t.wordWebLearnedFilter,
-                      selected: _scope == WordWebScope.learned,
-                      icon: _scope == WordWebScope.learned
-                          ? Icons.check_rounded
-                          : null,
-                      accent: SoriColors.accent,
-                      variant: SoriChipVariant.outlined,
-                      maxLines: null,
-                      minInteractiveHeight: 48,
-                      onTap: () => _setScope(WordWebScope.learned),
-                    ),
-                    SoriChip(
-                      key: const ValueKey('word-web-filter-level'),
-                      label: t.wordWebLevelFilter,
-                      selected: _scope == WordWebScope.level,
-                      icon: _scope == WordWebScope.level
-                          ? Icons.check_rounded
-                          : null,
-                      accent: SoriColors.accent,
-                      variant: SoriChipVariant.outlined,
-                      maxLines: null,
-                      minInteractiveHeight: 48,
-                      onTap: () => _setScope(WordWebScope.level),
-                    ),
-                  ],
+                // §W-A2 재조사(실측): 200%·320dp 에서 두 칩이 한 줄에 안
+                // 들어가 Wrap 이 세로로 접혀(2줄×48dp) 헤더 Row 가 61px
+                // 넘쳤다 — 세로로 접히는 대신 가로 스크롤로 항상 한 줄을
+                // 유지한다(칩 폭이 아무리 커져도 헤더 높이가 고정된다).
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      SoriChip(
+                        key: const ValueKey('word-web-filter-learned'),
+                        label: t.wordWebLearnedFilter,
+                        selected: _scope == WordWebScope.learned,
+                        icon: _scope == WordWebScope.learned
+                            ? Icons.check_rounded
+                            : null,
+                        accent: SoriColors.accent,
+                        variant: SoriChipVariant.outlined,
+                        maxLines: null,
+                        minInteractiveHeight: 48,
+                        onTap: () => _setScope(WordWebScope.learned),
+                      ),
+                      const SizedBox(width: Spacing.md),
+                      SoriChip(
+                        key: const ValueKey('word-web-filter-level'),
+                        label: t.wordWebLevelFilter,
+                        selected: _scope == WordWebScope.level,
+                        icon: _scope == WordWebScope.level
+                            ? Icons.check_rounded
+                            : null,
+                        accent: SoriColors.accent,
+                        variant: SoriChipVariant.outlined,
+                        maxLines: null,
+                        minInteractiveHeight: 48,
+                        onTap: () => _setScope(WordWebScope.level),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -328,8 +335,8 @@ class _WordWebScreenState extends State<WordWebScreen>
       accent: SoriColors.accent,
       onTap: () {
         Navigator.of(context).push(
-          MaterialPageRoute<void>(
-            builder: (_) => WordWebStudyScreen(cluster: cluster),
+          SoriTransitions.page<void>(
+            (_) => WordWebStudyScreen(cluster: cluster),
           ),
         );
       },

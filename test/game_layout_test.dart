@@ -25,7 +25,7 @@ import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 /// 800×1280 에서 Blitz-Paare 는 화면의 63%, Satz bauen 은 57% 가 빈 공간이었고,
 /// 보기 버튼은 폰·태블릿 모두 42~53dp 로 **완전히 동일**했다. `SoriStudyScale`
 /// 이 붙어 있어도 그건 본문 글씨만 키우고 버튼 높이엔 안 걸린다.
-/// 앱이 실제로 쓰는 Wanted Sans 를 로드한다.
+/// 앱이 실제로 쓰는 Paperlogy 를 로드한다.
 ///
 /// ⛔ 이게 없으면 `flutter test` 는 **모든 글자를 같은 폭의 사각형으로 그리는
 /// 테스트 폰트**를 쓴다. 글자 폭 기반 판정(`didExceedMaxLines`)이 실기기와
@@ -34,13 +34,12 @@ import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 /// 배율에서 테스트 폰트로 4/4 잘림 → Pretendard 로 0/4). 글자가 칸에 맞는지
 /// 보는 테스트를 가짜 폰트로 돌리면 아무것도 검증하지 못한다.
 Future<void> _loadRealFonts() async {
-  final loader = FontLoader('WantedSans');
+  final loader = FontLoader('Paperlogy');
   for (final path in const [
-    'assets/fonts/WantedSans/WantedSans-Regular.otf',
-    'assets/fonts/WantedSans/WantedSans-Medium.otf',
-    'assets/fonts/WantedSans/WantedSans-SemiBold.otf',
-    'assets/fonts/WantedSans/WantedSans-Bold.otf',
-    'assets/fonts/WantedSans/WantedSans-ExtraBold.otf',
+    'assets/fonts/Paperlogy/Paperlogy-Regular.ttf',
+    'assets/fonts/Paperlogy/Paperlogy-Medium.ttf',
+    'assets/fonts/Paperlogy/Paperlogy-SemiBold.ttf',
+    'assets/fonts/Paperlogy/Paperlogy-Bold.ttf',
   ]) {
     final bytes = File(path).readAsBytesSync();
     loader.addFont(Future.value(ByteData.view(bytes.buffer)));

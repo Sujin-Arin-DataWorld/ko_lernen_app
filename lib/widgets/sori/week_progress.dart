@@ -147,7 +147,7 @@ class _Stone extends StatelessWidget {
             label,
             style: TextStyle(
               fontFamily: SoriFonts.sans,
-              fontSize: 11,
+              fontSize: 13,
               fontWeight: FontWeight.w700,
               color: isToday ? SoriColors.goldOnLight : s.textMuted,
             ),
@@ -206,7 +206,7 @@ class DailyGoalCard extends StatelessWidget {
                 '$today/$goal XP',
                 style: TextStyle(
                   fontFamily: SoriFonts.sans,
-                  fontSize: 12,
+                  fontSize: 13.5,
                   fontWeight: FontWeight.w700,
                   color: s.textMuted,
                   fontFeatures: const [FontFeature.tabularFigures()],

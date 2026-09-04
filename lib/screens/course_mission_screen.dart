@@ -5,6 +5,7 @@ import '../models/course_mission_brief.dart';
 import '../models/course_mastery.dart';
 import '../models/curriculum.dart';
 import '../models/scenario.dart';
+import '../motion/transitions.dart';
 import '../services/analytics_service.dart';
 import '../services/course_mission_navigation.dart';
 import '../services/onboarding_companion_service.dart';
@@ -162,9 +163,8 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
 
     final languageCode = Localizations.localeOf(context).languageCode;
     await Navigator.of(context).push<void>(
-      MaterialPageRoute<void>(
-        builder: (_) =>
-            FirstVoiceSuccessScreen(canDo: unit.canDo.pick(languageCode)),
+      SoriTransitions.page<void>(
+        (_) => FirstVoiceSuccessScreen(canDo: unit.canDo.pick(languageCode)),
       ),
     );
   }

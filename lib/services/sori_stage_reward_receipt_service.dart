@@ -89,7 +89,7 @@ abstract final class SoriStageRewardReceiptService {
       delta: after.xp - before.xp,
       label: const SoriLocalizedCopy(
         de: 'Lern-XP',
-        en: 'Learning XP',
+        en: 'XP',
         key: SoriCopyKey.rewardXp,
       ),
     );

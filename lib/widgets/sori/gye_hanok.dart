@@ -64,19 +64,23 @@ class GyeHanok extends StatefulWidget {
   final GyeMeta meta;
   final Iterable<GyeDedication> dedications;
 
+  /// The "building" element's gentle breathing pulse (§W-G2 item 3). Default
+  /// `true` keeps the full-scale detail scene (`gye_screen.dart`) as it was.
+  /// List-card previews (`gye_tab_screen.dart`'s `_GyeCard`) pass `false` —
+  /// one `AnimationController` per visible card, repeating forever, is a
+  /// real battery/frame cost once a member has several courtyards, and it
+  /// was also the direct cause of a `pumpAndSettle()` timeout in
+  /// `gye_tab_landing_test.dart`'s populated-list test. Treated identically
+  /// to reduce-motion internally — both stop the controller and hold it at
+  /// its resting value.
+  final bool animate;
+
   const GyeHanok({
     super.key,
     required this.meta,
     this.dedications = const <GyeDedication>[],
+    this.animate = true,
   });
-
-  @override
-  State<GyeHanok> createState() => _GyeHanokState();
-}
-
-class _GyeHanokState extends State<GyeHanok>
-    with SingleTickerProviderStateMixin {
-  late final AnimationController _pulse;
 
   // (slug, leftFrac, bottomFrac, widthFrac) — 리스트 순서 = 뒤→앞 z순 + 잠금 해제 순.
   // PIL 합성 프리뷰(393×280)로 보정한 시안값. 실기기에서 미세 조정 가능.
@@ -94,6 +98,20 @@ class _GyeHanokState extends State<GyeHanok>
     (slug: 'gye_bridge', left: 0.40, bottom: 0.085, width: 0.20),
   ];
 
+  /// [_elements]의 길이 — [GyeLanternProgress.fromMeta]의 `elementCount`
+  /// 인자와 항상 같은 값이어야 한다(§W-G G2). 계 목록 카드의 진행 링이
+  /// 이 씬과 같은 임계값으로 채워지려면 두 호출부가 같은 요소 수를 써야
+  /// 하므로, 사설 상수를 복제하는 대신 여기서 공개한다.
+  static int get elementCount => _elements.length;
+
+  @override
+  State<GyeHanok> createState() => _GyeHanokState();
+}
+
+class _GyeHanokState extends State<GyeHanok>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _pulse;
+
   @override
   void initState() {
     super.initState();
@@ -110,7 +128,7 @@ class _GyeHanokState extends State<GyeHanok>
   }
 
   void _syncPulse() {
-    final shouldAnimate = !SoriMotion.reduceMotion(context);
+    final shouldAnimate = widget.animate && !SoriMotion.reduceMotion(context);
     if (shouldAnimate) {
       if (!_pulse.isAnimating) {
         _pulse.repeat(reverse: true);
@@ -122,13 +140,23 @@ class _GyeHanokState extends State<GyeHanok>
   }
 
   @override
+  void didUpdateWidget(covariant GyeHanok oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.animate != widget.animate) {
+      _syncPulse();
+    }
+  }
+
+  @override
   void dispose() {
     _pulse.dispose();
     super.dispose();
   }
 
-  GyeLanternProgress get _progress =>
-      GyeLanternProgress.fromMeta(widget.meta, elementCount: _elements.length);
+  GyeLanternProgress get _progress => GyeLanternProgress.fromMeta(
+    widget.meta,
+    elementCount: GyeHanok.elementCount,
+  );
 
   /// 요소 기본 실체화 — 완성(1.0) / 다음=기존 주간 목표 비율 / 그 뒤=ghost.
   double _baseOpacity(int i, GyeLanternProgress progress) {
@@ -144,7 +172,9 @@ class _GyeHanokState extends State<GyeHanok>
   @override
   Widget build(BuildContext context) {
     final progress = _progress;
-    final reduce = SoriMotion.reduceMotion(context);
+    // `!widget.animate` is treated exactly like reduce-motion — a static
+    // scene either way (§W-G2 item 3).
+    final reduce = SoriMotion.reduceMotion(context) || !widget.animate;
     return MadangBackground(
       stage: HanokStage.jongga,
       child: LayoutBuilder(
@@ -153,7 +183,7 @@ class _GyeHanokState extends State<GyeHanok>
           final h = c.maxHeight;
           Widget content() => Stack(
             children: [
-              for (var i = 0; i < _elements.length; i++)
+              for (var i = 0; i < GyeHanok._elements.length; i++)
                 _element(i, progress, w, h, reduce),
               GyeDedicationLayer(dedications: widget.dedications),
             ],
@@ -189,8 +219,8 @@ class _GyeHanokState extends State<GyeHanok>
     final opacity = building ? (base + p * 0.14).clamp(0.0, 1.0) : base;
 
     Widget child = Image.asset(
-      'assets/illustrations/gye/${_elements[i].slug}.png',
-      width: w * _elements[i].width,
+      'assets/illustrations/gye/${GyeHanok._elements[i].slug}.png',
+      width: w * GyeHanok._elements[i].width,
       fit: BoxFit.contain,
       gaplessPlayback: true,
       errorBuilder: (_, __, ___) => const SizedBox.shrink(),
@@ -206,9 +236,9 @@ class _GyeHanokState extends State<GyeHanok>
     }
 
     return Positioned(
-      left: w * _elements[i].left,
-      bottom: h * _elements[i].bottom,
-      width: w * _elements[i].width,
+      left: w * GyeHanok._elements[i].left,
+      bottom: h * GyeHanok._elements[i].bottom,
+      width: w * GyeHanok._elements[i].width,
       child: IgnorePointer(
         child: Opacity(opacity: opacity, child: child),
       ),

@@ -50,7 +50,7 @@ void main() {
       findsOneWidget,
     );
     expect(find.text('${t.soriStagePossibleReward}:'), findsOneWidget);
-    expect(find.text('Learning XP'), findsOneWidget);
+    expect(find.text('XP'), findsOneWidget);
   });
 
   testWidgets('purpose never changes the Today companion message', (
@@ -157,7 +157,7 @@ void main() {
       expect(find.text(t.homeUnavailableCta), findsOneWidget);
       expect(find.text(t.soriStageMissionAction), findsNothing);
       expect(find.text('${t.soriStagePossibleReward}:'), findsNothing);
-      expect(find.text('Learning XP'), findsNothing);
+      expect(find.text('XP'), findsNothing);
       expect(find.textContaining(t.soriStageBojagiTitle), findsNothing);
       expect(find.text(t.soriStageHanokNow), findsNothing);
       expect(find.text(t.soriStageClosestQuests), findsNothing);
@@ -187,6 +187,16 @@ void main() {
         },
       );
 
+      // §W-A2 재조사(실측): 토큰 확대로 이 화면 위쪽 "가이드 허브" 섹션이
+      // 커져, 오프라인 카드("Connection paused")가 스크롤 없이는 화면 밖에
+      // 있었다(scrollUntilVisible 로 실측 확인: 스크롤 전 allText 에 없다가
+      // 스크롤 후 나타남). 실제로 스크롤해 도달 가능한 요소이므로 여기서
+      // 명시적으로 스크롤한다.
+      await tester.scrollUntilVisible(
+        find.text(t.homeUnavailableEyebrow),
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
       expect(find.text(t.homeUnavailableEyebrow), findsOneWidget);
       expect(find.text(t.homeUnavailableCta), findsNothing);
       expect(find.text(t.soriStageMissionAction), findsNothing);
@@ -195,18 +205,29 @@ void main() {
         findsOneWidget,
       );
 
-      await tester.tap(
-        find.byKey(const ValueKey('sori-today-unavailable-retry')),
+      final retryButton = find.byKey(
+        const ValueKey('sori-today-unavailable-retry'),
       );
+      await tester.ensureVisible(retryButton);
+      await tester.pump();
+      await tester.tap(retryButton, warnIfMissed: true);
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 400));
 
       expect(loads, 2);
       expect(find.text(t.homeUnavailableEyebrow), findsNothing);
-      expect(
-        find.widgetWithText(SoriButton, t.soriStageMissionStart),
-        findsOneWidget,
+      final missionStart = find.widgetWithText(
+        SoriButton,
+        t.soriStageMissionStart,
       );
+      if (missionStart.evaluate().isEmpty) {
+        await tester.scrollUntilVisible(
+          missionStart,
+          -200,
+          scrollable: find.byType(Scrollable).first,
+        );
+      }
+      expect(missionStart, findsOneWidget);
     },
   );
 
@@ -347,7 +368,11 @@ SoriStageProgressionSnapshot _snapshot(
     items: [
       RewardContractItem(
         kind: SoriRewardKind.xp,
-        label: SoriLocalizedCopy(de: 'Lern-XP', en: 'Learning XP'),
+        label: SoriLocalizedCopy(
+          key: SoriCopyKey.rewardXp,
+          de: 'Lern-XP',
+          en: 'XP',
+        ),
       ),
     ],
   ),
