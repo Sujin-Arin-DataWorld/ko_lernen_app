@@ -63,7 +63,34 @@ APK에 들어간 적조차 없음. 코드 참조도 0. 순수 레포 보관물.
 
 ---
 
-## 5. 검토 대기 `pending_review/` (3) — 2026-08-07
+## 5. 재생되지 않는 루프 영상 7종 — 2026-09-04 (PR3-T1)
+
+8월 말 두 차례 리팩터(선택 카드/헤더 배선 변경)가 위 "이번에 이동 **안 한** 것들"
+목록의 `video/loops/` 7편 배선을 지웠는데 파일만 남았다. 2026-09-04 전수 grep으로
+`lib/` 어디에도 재생 호출부가 없음을 재확인(Jin 승인, 지시서 3.7). **삭제가
+아니라 격리** — `HanokHeader.kLoopAssets`(`lib/widgets/sori/hanok_header.dart`)와
+`AudioPolicy._ambienceGain`(`lib/services/audio_policy.dart`)에서도 짝 항목을
+제거해 상수와 파일이 함께 움직이게 했다. `tool/audit_scene_assets.py`에 도달성
+검사(`find_hanok_loop_reachability_issues`)를 추가해 앞으로 이런 드리프트가
+나면 `--check`가 issue로 잡는다.
+
+| 파일 | 원경로 | 무엇 / 왜 미사용 |
+|---|---|---|
+| `video/loops/kkeunmari_hero.mp4` + `illustrations/hanok/kkeunmari_hero.png` | `assets/video/loops/`, `assets/illustrations/hanok/` | 끈마리 히어로 앰비언트 루프+포스터 짝. `HanokHeader` 콜사이트가 없다 |
+| `video/loops/porch.mp4` + `illustrations/hanok/porch.png` | 〃 | 툇마루 앰비언트 루프+포스터 짝. 콜사이트 없음 |
+| `video/loops/scene_cafe.mp4` | `assets/video/loops/` | 카페 시나리오 앰비언트 루프. `SceneAssetResolver.loopAsset`가 만들 수는 있는 경로지만 그 메서드 자체를 부르는 화면이 없다(포스터만 `posterAsset`로 씀) |
+| `video/loops/scene_directions.mp4` | 〃 | 길찾기 시나리오 앰비언트 루프. 위와 동일 사유 |
+| `video/loops/scene_hotel.mp4` | 〃 | 호텔 시나리오 앰비언트 루프. 위와 동일 사유 |
+| `video/loops/scene_market.mp4` | 〃 | 시장 시나리오 앰비언트 루프. 위와 동일 사유 |
+| `video/loops/scene_restaurant.mp4` | 〃 | 식당 시나리오 앰비언트 루프. 위와 동일 사유 |
+
+**복원법**: `git mv`로 원경로 되돌리고, `kLoopAssets`에 이름 추가 + 해당
+`HanokHeader`(또는 `SceneAssetResolver.loopAsset` 호출부) 배선을 실제로 만들면
+된다. `scene_*` 5편은 `assets/illustrations/scenes/*.png`(cafe·directions·
+hotel·market·restaurant) 포스터와는 무관 — 그 포스터들은 지금도 정적 배경으로
+살아 있으니 건드리지 않았다.
+
+## 6. 검토 대기 `pending_review/` (3) — 2026-08-07
 
 번들(pubspec 등록 폴더)에 들어가면서 코드 참조가 0 이던 것들. **삭제가 아니라
 격리**다 — 되살릴 근거가 나오면 원경로로 `git mv` 하면 그대로 복구된다.

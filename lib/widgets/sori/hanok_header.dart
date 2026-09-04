@@ -75,13 +75,6 @@ class HanokHeader extends StatelessWidget {
   static const Set<String> kLoopAssets = {
     'hanok_construction',
     'hanok_jongga',
-    'kkeunmari_hero',
-    'porch',
-    'scene_cafe',
-    'scene_directions',
-    'scene_hotel',
-    'scene_market',
-    'scene_restaurant',
     'study_classroom',
     'study_scholar',
     'taego-joy-duo',
