@@ -627,19 +627,32 @@ class _DiktatQuestState extends State<DiktatQuest> {
                     ),
                     if (_promptKo.isNotEmpty) ...[
                       const SizedBox(height: Spacing.xs),
-                      Text(
-                        t.diktatMeaningKo,
-                        style: SoriTextTheme.of(context).bodySmall.copyWith(
-                          color: s.textMuted,
-                          fontWeight: FontWeight.w700,
+                      // 라벨과 값을 하나의 시맨틱 노드로 합친다 — 분리돼
+                      // 있으면 스크린리더가 "한국어로", "{텍스트}"를 서로
+                      // 무관한 두 정지점으로 읽는다(a11y MEDIUM, WCAG
+                      // 1.3.1).
+                      MergeSemantics(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              t.diktatMeaningKo,
+                              style: SoriTextTheme.of(
+                                context,
+                              ).bodySmall.copyWith(
+                                color: s.textMuted,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            Text(
+                              _promptKo,
+                              key: const ValueKey('diktat-meaning-ko'),
+                              style: SoriTextTheme.of(
+                                context,
+                              ).bodySmall.copyWith(color: s.textMuted),
+                            ),
+                          ],
                         ),
-                      ),
-                      Text(
-                        _promptKo,
-                        key: const ValueKey('diktat-meaning-ko'),
-                        style: SoriTextTheme.of(
-                          context,
-                        ).bodySmall.copyWith(color: s.textMuted),
                       ),
                     ],
                   ],

@@ -184,6 +184,14 @@ Future<WordbookAddResult> addTypedBookmarkWithWordbookMirror(
 /// 첫 노출 시(세션 1회·`tutWordbookSeen` false) 자기 위치에 스포트라이트
 /// 코치마크를 띄워 "북마크로 저장→복습→내 단어카드"를 안내한다. 6개 학습
 /// 화면(review·chosung·wordle·vocab_pack·smalltalk·scenario_player) 무수정.
+///
+/// [itemType]이 `null`이면(기본값) 기존과 동일하게 [addToWordbook] 경로로
+/// 저장한다 — 단어만 다루는 모든 기존 호출부는 무수정으로 그대로 동작한다.
+/// [itemType]을 주면(예: 문장을 책갈피할 때) 대신
+/// [addTypedBookmarkWithWordbookMirror]를 쓴다 — smalltalk_screen.dart의
+/// `_savePhrase`가 쓰는 것과 같은 정본 경로다. 저장 성패를 아이콘이
+/// 반영하는 [CustomPackService.containsKorean] 판정은 두 경로 모두 같은
+/// CustomPack 미러에 쓰므로 그대로 맞다(PR2 리뷰 Important 3-a/3-b).
 class AddToWordbookButton extends StatefulWidget {
   final String korean;
   final String translationDe;
@@ -196,6 +204,21 @@ class AddToWordbookButton extends StatefulWidget {
   final String exampleEn;
   final bool compact;
   final bool coachEnabled;
+
+  /// null이 아니면 단어가 아닌 타입(예: sentence)으로 typed bookmark 경로에
+  /// 저장한다.
+  final StudyLibraryItemType? itemType;
+
+  /// [itemType]이 non-null일 때만 쓰인다. null이면 [korean]으로 대체한다.
+  final String? itemId;
+  final String? sourceUnitId;
+  final String? source;
+
+  /// compact 아이콘 버튼의 접근성 이름/툴팁 override. null이면 기존과
+  /// 동일하게 `t.wbAddTooltip`을 쓴다 — 한 화면에 버튼이 여럿일 때(예:
+  /// 대사 카드 한 줄마다 하나씩) 줄마다 구분되는 이름을 붙이는 용도
+  /// (a11y HIGH, WCAG 4.1.2).
+  final String? semanticLabel;
 
   const AddToWordbookButton({
     super.key,
@@ -210,6 +233,11 @@ class AddToWordbookButton extends StatefulWidget {
     this.exampleEn = '',
     this.compact = false,
     this.coachEnabled = true,
+    this.itemType,
+    this.itemId,
+    this.sourceUnitId,
+    this.source,
+    this.semanticLabel,
   });
 
   @override
@@ -281,18 +309,39 @@ class _AddToWordbookButtonState extends State<AddToWordbookButton> {
     });
   }
 
-  Future<void> _add(BuildContext context) => addToWordbook(
-    context,
-    korean: widget.korean,
-    translationDe: widget.translationDe,
-    translationEn: widget.translationEn,
-    translationLanguage: widget.translationLanguage,
-    romanization: widget.romanization,
-    posDe: widget.posDe,
-    exampleKorean: widget.exampleKorean,
-    exampleDe: widget.exampleDe,
-    exampleEn: widget.exampleEn,
-  );
+  Future<WordbookAddResult> _add(BuildContext context) {
+    final itemType = widget.itemType;
+    if (itemType != null) {
+      return addTypedBookmarkWithWordbookMirror(
+        context,
+        itemType: itemType,
+        itemId: widget.itemId ?? widget.korean,
+        korean: widget.korean,
+        translationDe: widget.translationDe,
+        translationEn: widget.translationEn,
+        translationLanguage: widget.translationLanguage,
+        romanization: widget.romanization,
+        posDe: widget.posDe,
+        exampleKorean: widget.exampleKorean,
+        exampleDe: widget.exampleDe,
+        exampleEn: widget.exampleEn,
+        sourceUnitId: widget.sourceUnitId ?? '',
+        source: widget.source ?? 'manual',
+      );
+    }
+    return addToWordbook(
+      context,
+      korean: widget.korean,
+      translationDe: widget.translationDe,
+      translationEn: widget.translationEn,
+      translationLanguage: widget.translationLanguage,
+      romanization: widget.romanization,
+      posDe: widget.posDe,
+      exampleKorean: widget.exampleKorean,
+      exampleDe: widget.exampleDe,
+      exampleEn: widget.exampleEn,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -310,7 +359,7 @@ class _AddToWordbookButtonState extends State<AddToWordbookButton> {
         if (widget.compact) {
           return IconButton(
             key: _coachKey,
-            tooltip: t.wbAddTooltip,
+            tooltip: widget.semanticLabel ?? t.wbAddTooltip,
             icon: Icon(icon),
             color: color,
             constraints: const BoxConstraints.tightFor(

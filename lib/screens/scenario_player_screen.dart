@@ -5,6 +5,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../features/study_library/study_library_models.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/course_mission_step_plan.dart';
 import '../models/course_practice_context.dart';
@@ -1501,6 +1502,14 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                                 // 없음). AddToWordbookButton 은 자체
                                 // IconButton으로 탭을 소비하므로 카드 전체의
                                 // onTap(재생) 아레나로 전파되지 않는다.
+                                //
+                                // 대사 한 줄은 문장이다 — smalltalk_screen.dart
+                                // `_savePhrase`와 같은 typed bookmark 경로
+                                // (itemType: sentence)로 저장하고 활성
+                                // 로케일을 넘긴다(PR2 리뷰 Important 3-a/3-b).
+                                // semanticLabel은 줄마다 다른 접근성 이름을
+                                // 붙인다 — 카드가 여럿이면 같은 이름의 버튼이
+                                // 여러 개 뜨는 문제(a11y HIGH, WCAG 4.1.2).
                                 Align(
                                   alignment: Alignment.centerRight,
                                   child: AddToWordbookButton(
@@ -1508,6 +1517,11 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                                     korean: line.ko,
                                     translationDe: line.de,
                                     translationEn: line.en,
+                                    translationLanguage: lang,
+                                    itemType: StudyLibraryItemType.sentence,
+                                    itemId: line.ko,
+                                    source: 'scenario_player',
+                                    semanticLabel: '${t.wbAddTooltip}: ${line.ko}',
                                   ),
                                 ),
                               ],
