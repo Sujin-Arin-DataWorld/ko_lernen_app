@@ -1398,10 +1398,19 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           // 재생 속도 조절 — 전역 배수 컨트롤 (모든 화면과 공유·영속).
           const TtsSpeedControl(mode: TtsSpeedControlMode.row),
           const SizedBox(height: Spacing.lg),
-          ...sc.dialog.map((line) {
+          ...sc.dialog.asMap().entries.map((entry) {
+            final index = entry.key;
+            final line = entry.value;
             final isUser = line.speaker == 'user';
             final isNarrator = line.speaker == 'narrator';
             final bubbleAccent = _speakerAccent(line.speaker);
+            // 첫 대사만 진입 시 자동재생된다(_autoPlayDialogEntry, 지시서
+            // 4.5) — WCAG 1.4.2는 3초 넘는 자동재생에 정지 수단을
+            // 요구하므로, 그 문장에만 탭=정지가 가능한
+            // SoriSpeechIndicator를 배선한다(자동재생과 같은 텍스트·
+            // 보이스). 다른 줄은 기존 카드 전체 탭 재생만 유지 — 중복
+            // 컨트롤을 만들지 않는다.
+            final isAutoPlayTarget = index == 0;
 
             return Padding(
               padding: const EdgeInsets.only(bottom: Spacing.md),
@@ -1417,20 +1426,47 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                   ],
                   Flexible(
                     child: isNarrator
-                        ? SoriSpeakable(
-                            text: line.ko,
-                            voice: 'male',
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                vertical: Spacing.xs,
-                              ),
-                              child: Text(
-                                line.ko,
-                                style: SoriTextTheme.of(context).bodySmall
-                                    .copyWith(fontStyle: FontStyle.italic),
-                              ),
-                            ),
-                          )
+                        ? (isAutoPlayTarget
+                              ? Row(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.center,
+                                  children: [
+                                    SoriSpeechIndicator(
+                                      text: line.ko,
+                                      voice: sc.voiceForSpeaker(
+                                        line.speaker,
+                                      ),
+                                    ),
+                                    const SizedBox(width: Spacing.xs),
+                                    Expanded(
+                                      child: Text(
+                                        line.ko,
+                                        style: SoriTextTheme.of(context)
+                                            .bodySmall
+                                            .copyWith(
+                                              fontStyle: FontStyle.italic,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              : SoriSpeakable(
+                                  text: line.ko,
+                                  voice: 'male',
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      vertical: Spacing.xs,
+                                    ),
+                                    child: Text(
+                                      line.ko,
+                                      style: SoriTextTheme.of(context)
+                                          .bodySmall
+                                          .copyWith(
+                                            fontStyle: FontStyle.italic,
+                                          ),
+                                    ),
+                                  ),
+                                ))
                         : SoriCard(
                             variant: SoriCardVariant.compact,
                             accent: bubbleAccent,
@@ -1478,15 +1514,28 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                                       ),
                                     ),
                                     const SizedBox(width: Spacing.sm),
-                                    // 버블 전체가 탭 대상이므로 아이콘은 시각적
-                                    // 힌트만 담당(별도 GestureDetector 불필요).
-                                    Icon(
-                                      Icons.volume_up_rounded,
-                                      color: bubbleAccent.withValues(
-                                        alpha: 0.7,
+                                    if (isAutoPlayTarget)
+                                      // 자동재생 대상 줄 — 탭=정지가 되는
+                                      // 실제 컨트롤(WCAG 1.4.2). 버블
+                                      // 전체 탭(재생)과 별도 아레나로
+                                      // 자기 탭을 직접 처리한다.
+                                      SoriSpeechIndicator(
+                                        text: line.ko,
+                                        voice: sc.voiceForSpeaker(
+                                          line.speaker,
+                                        ),
+                                      )
+                                    else
+                                      // 버블 전체가 탭 대상이므로 아이콘은
+                                      // 시각적 힌트만 담당(별도
+                                      // GestureDetector 불필요).
+                                      Icon(
+                                        Icons.volume_up_rounded,
+                                        color: bubbleAccent.withValues(
+                                          alpha: 0.7,
+                                        ),
+                                        size: 18,
                                       ),
-                                      size: 18,
-                                    ),
                                   ],
                                 ),
                                 if (line.pick(lang).isNotEmpty) ...[

@@ -13,6 +13,7 @@ import 'package:ko_lernen_app/services/course_progress_service.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/tts_service.dart' show TtsSpeechPhase;
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_error.dart';
 import 'package:ko_lernen_app/widgets/app_loading.dart';
@@ -399,6 +400,60 @@ void main() {
         reason: '책갈피 탭은 카드 재생(SoriSpeech.speak)을 트리거하지 않아야 한다 — '
             'onTap 아레나로 전파되지 않는다',
       );
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets(
+    '첫 대사(자동재생 대상)에 SoriSpeechIndicator로 재생 정지 컨트롤이 있다 (WCAG 1.4.2)',
+    (tester) async {
+      final stub = stubSoriSpeech(completeSpeak: false);
+
+      await _pumpPreview(
+        tester,
+        stage: ScenarioStage.dialog,
+        size: const Size(390, 844),
+        textScale: 1.3,
+      );
+
+      // 진입 자동재생이 첫 대사를 speak 요청했다. completeSpeak:false라
+      // future가 pending 상태로 남아 phase가 idle로 돌아오지 않는다 —
+      // "3초 넘게 이어지는 자동재생"을 흉내내는 이 테스트의 전제.
+      expect(stub.spoken, ['여권 보여주세요.']);
+      expect(SoriSpeech.phase.value, isNot(TtsSpeechPhase.idle));
+
+      final firstLineVoice = scenarioAirportArrivalFixture.voiceForSpeaker(
+        'officer',
+      );
+      final indicator = find.byWidgetPredicate(
+        (widget) =>
+            widget is SoriSpeechIndicator &&
+            widget.text == '여권 보여주세요.' &&
+            widget.voice == firstLineVoice,
+      );
+      expect(
+        indicator,
+        findsOneWidget,
+        reason: '자동재생 대상 문장과 같은 (텍스트, 보이스)로 배선된 정지 가능 컨트롤이 있어야 한다',
+      );
+
+      // 둘째 대사는 자동재생 대상이 아니므로 중복 정지 컨트롤을 만들지 않는다.
+      final secondLineIndicator = find.byWidgetPredicate(
+        (widget) =>
+            widget is SoriSpeechIndicator && widget.text == '네, 여기 있어요.',
+      );
+      expect(secondLineIndicator, findsNothing);
+
+      await tester.tap(indicator);
+      await tester.pump();
+
+      expect(
+        stub.stops,
+        1,
+        reason: '재생 중 탭은 정지여야 한다(WCAG 1.4.2) — 다시 재생을 걸면 안 된다',
+      );
+      expect(stub.spoken, ['여권 보여주세요.']);
+      expect(SoriSpeech.phase.value, TtsSpeechPhase.idle);
       expect(tester.takeException(), isNull);
     },
   );
