@@ -135,7 +135,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
       // tool/generate_tts.py collect()의 particlePop 전용 브랜치가 모든
       // particlePop 퀘스트에 대해 무조건 수집하므로 canonical corpus에
       // 있음이 보장된다(STEP 0 확인).
-      if (widget.audioEnabled) {
+      if (mounted && widget.audioEnabled) {
         SoriSpeech.speak(_fullSentence);
       }
       _report(true);
@@ -164,7 +164,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
           await Future<void>.delayed(const Duration(milliseconds: 200));
         }
         if (mounted) setState(() => _showExplanation = true);
-        if (widget.audioEnabled) {
+        if (mounted && widget.audioEnabled) {
           SoriSpeech.speak(_fullSentence);
         }
         _report(false);

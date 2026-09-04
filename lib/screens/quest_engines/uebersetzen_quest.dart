@@ -9,12 +9,17 @@ import 'quest_layout.dart';
 import 'quest_models.dart';
 
 /// Translation quest with an explicit select, submit, feedback, continue flow.
+///
+/// 정답 텍스트(options[correctIndex].ko)가 canonical TTS corpus에 보장되어
+/// 있지 않다(STEP 0, Fix round 1 — tool/generate_tts.py collect()에
+/// uebersetzen 전용 수집 분기가 없다) — 그래서 자동재생도 답 공개 후 읽기도
+/// 배선하지 않는다. W9-C 콘텐츠 파이프라인이 canonical 오디오를 보장하게
+/// 되면 SoriSpeech 호출을 추가한다.
 class UebersetzenQuest extends StatefulWidget {
   const UebersetzenQuest({
     super.key,
     required this.data,
     required this.onComplete,
-    this.audioEnabled = true,
     this.onContinue,
     this.isLast = false,
     this.allowDontKnow = false,
@@ -23,13 +28,6 @@ class UebersetzenQuest extends StatefulWidget {
 
   final Map<String, dynamic> data;
   final void Function(QuestResult) onComplete;
-  // 정답 텍스트(options[correctIndex].ko)가 canonical TTS corpus에 보장되어
-  // 있지 않다(STEP 0, Fix round 1 — tool/generate_tts.py collect()에
-  // uebersetzen 전용 수집 분기가 없다) — 그래서 현재는 자동재생도 답 공개
-  // 후 읽기도 배선하지 않는다. 이 필드는 다른 두 엔진과 배선 패턴을
-  // 맞춰두기 위한 것으로, W9-C 콘텐츠 파이프라인이 canonical 오디오를
-  // 보장하게 되면 이 필드를 소비하는 SoriSpeech 호출을 추가한다.
-  final bool audioEnabled;
   final VoidCallback? onContinue;
   final bool isLast;
   final bool allowDontKnow;

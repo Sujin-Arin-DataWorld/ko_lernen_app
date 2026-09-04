@@ -9,12 +9,16 @@ import 'quest_layout.dart';
 import 'quest_models.dart';
 
 /// Cloze quest with explicit confirmation and a two-attempt resolution.
+///
+/// 정답 텍스트가 canonical TTS corpus에 보장되어 있지 않다(STEP 0, Fix round 1
+/// — tool/generate_tts.py collect()에 luecken 전용 수집 분기가 없다) — 그래서
+/// 자동재생도 답 공개 후 읽기도 배선하지 않는다. W9-C 콘텐츠 파이프라인이
+/// canonical 오디오를 보장하게 되면 SoriSpeech 호출을 추가한다.
 class LueckenQuest extends StatefulWidget {
   const LueckenQuest({
     super.key,
     required this.data,
     required this.onComplete,
-    this.audioEnabled = true,
     this.onContinue,
     this.isLast = false,
     this.allowDontKnow = false,
@@ -23,7 +27,6 @@ class LueckenQuest extends StatefulWidget {
 
   final Map<String, dynamic> data;
   final void Function(QuestResult) onComplete;
-  final bool audioEnabled;
   final VoidCallback? onContinue;
   final bool isLast;
   final bool allowDontKnow;

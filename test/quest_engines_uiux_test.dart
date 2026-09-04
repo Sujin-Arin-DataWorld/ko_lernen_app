@@ -1110,6 +1110,59 @@ void main() {
 
       expect(stub.spoken, isEmpty);
     });
+
+    testWidgets(
+      'particlePop: 2회 오답 공개 딜레이 중 위젯이 사라지면 mounted 가드가 발화를 막는다 (PR2 리뷰 Important 1)',
+      (tester) async {
+        final stub = stubSoriSpeech();
+        // disableAnimations: false — _checkSelection의 200ms 지연을 실제로
+        // 흐르게 해야 그 도중에 dispose할 수 있다(instant 경로는 지연 없이
+        // 동기로 끝나 버려 이 회귀를 재현하지 못한다).
+        await _pumpQuest(
+          tester,
+          ParticlePopQuest(
+            data: const {
+              'prefix': '저',
+              'suffix': ' 학생이에요.',
+              'correctIndex': 0,
+              'options': ['는', '가'],
+              'explanationDe': 'Nach einem Vokal steht 는.',
+              'explanationEn': 'Use 는 after a vowel.',
+            },
+            onComplete: (_) {},
+            onContinue: () {},
+          ),
+          locale: const Locale('de'),
+          viewport: _viewports[2],
+          disableAnimations: false,
+        );
+
+        final wrong = find.byKey(const ValueKey('answer-1'));
+        final submit = find.byKey(const ValueKey('quest-submit'));
+
+        // 1회차 오답 — 그 200ms 플래시 지연을 먼저 흘려보낸다.
+        await _tapPointerOwned(tester, wrong);
+        await _tapPointerOwned(tester, submit);
+        await tester.pump(const Duration(milliseconds: 250));
+
+        // 2회차 오답(소진) — 첫 200ms 플래시 지연은 흘려보낸다(그 안의
+        // `setState`는 mounted 가드가 없는 별개의 기존 결함이라 disposed
+        // 상태로 통과시키면 이 테스트가 다른 이유로 실패한다 — PR2 리뷰
+        // Minor 참고, 범위 밖). 그 다음 이어지는 "정답 공개" 200ms 지연
+        // (`await Future<void>.delayed(200ms)`, particle_pop_quest.dart:164)
+        // 도중에 위젯을 화면에서 치운다. mounted 가드가 없으면 다음 화면에서
+        // SoriSpeech.speak(_fullSentence)가 새로 시작해 버린다
+        // (particle_pop_quest.dart:167-169).
+        await _tapPointerOwned(tester, wrong);
+        await _tapPointerOwned(tester, submit);
+        await tester.pump(const Duration(milliseconds: 250));
+        await tester.pumpWidget(const SizedBox.shrink());
+        await tester.pump(const Duration(milliseconds: 400));
+
+        expect(stub.spoken, isEmpty, reason: 'dispose 후에는 발화하지 않아야 한다');
+        expect(tester.takeException(), isNull);
+      },
+    );
   });
 
   group(
@@ -1142,6 +1195,59 @@ void main() {
             moreOrLessEquals(SoriGaps.optionGap, epsilon: 0.5),
             reason:
                 '$engineName 옵션 타일 사이 간격이 SoriGaps.optionGap(12)이 아니다 '
+                '(실측 $gap)',
+          );
+        });
+      }
+    },
+  );
+
+  group(
+    'SoriGaps.questionToOptions — 선택형 퀘스트 4종의 질문 영역과 첫 옵션 타일 사이 간격은 '
+    '24dp (지시서 4.8/4.10)',
+    () {
+      for (final engineName in const [
+        'listening',
+        'translation',
+        'cloze',
+        'particle',
+      ]) {
+        testWidgets('$engineName: 질문 영역과 첫 옵션 타일 사이 간격은 24', (tester) async {
+          final engine = _engines.singleWhere((e) => e.name == engineName);
+          await _pumpQuest(
+            tester,
+            engine.build((_) {}, () {}, false),
+            locale: const Locale('de'),
+            viewport: _viewports[2],
+          );
+
+          final tile0 = find.byKey(const ValueKey('answer-0'));
+          expect(tile0, findsOneWidget);
+
+          // 4개 엔진 모두 `content` Column에서 옵션 목록 바로 앞에
+          // `const SizedBox(height: SoriGaps.questionToOptions)`를 정확히
+          // 1개만 둔다 — 그 SizedBox의 위쪽 끝이 곧 질문 영역의 아래쪽
+          // 끝이다(둘 사이엔 다른 위젯이 없다).
+          final questionGap = find.byWidgetPredicate(
+            (widget) =>
+                widget is SizedBox &&
+                widget.height == SoriGaps.questionToOptions,
+          );
+          expect(
+            questionGap,
+            findsOneWidget,
+            reason:
+                '$engineName: SoriGaps.questionToOptions SizedBox이 정확히 '
+                '1개여야 한다',
+          );
+
+          final gap =
+              tester.getTopLeft(tile0).dy - tester.getTopLeft(questionGap).dy;
+          expect(
+            gap,
+            moreOrLessEquals(24, epsilon: 0.5),
+            reason:
+                '$engineName 질문 영역과 첫 옵션 타일 사이 간격이 24dp가 아니다 '
                 '(실측 $gap)',
           );
         });

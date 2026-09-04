@@ -356,7 +356,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   @override
   void dispose() {
     _wrongFeedbackTimer?.cancel();
-    unawaited(SoriSpeech.stop());
+    SoriSpeech.stop();
     super.dispose();
   }
 
