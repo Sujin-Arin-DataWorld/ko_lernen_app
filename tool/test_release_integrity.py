@@ -5,6 +5,7 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import re
 import subprocess
 import sys
 import tempfile
@@ -308,6 +309,30 @@ class ReleaseIntegrityTest(unittest.TestCase):
         result = self.run_check("manifest")
         self.assert_failure(result, "invalid_manifest")
         self.assertNotIn("synthetic-secret", result.stdout + result.stderr)
+
+    def test_repository_workflows_are_fully_pinned(self):
+        # Guards against a new unpinned `uses:` ever slipping into a real
+        # workflow: run the real verifier against the real manifest and the
+        # real workflow files, and require every `uses:` line to be checked
+        # (an added-but-unpinned action would fail closed via mutable_action
+        # before this count comparison, and a missed action would make the
+        # checked count fall short of the line count). Requires PyYAML; if it
+        # is unavailable this test fails rather than skipping, so a CI runner
+        # that forgot to install PyYAML still fails the workflow-pin gate.
+        repo_root = Path(__file__).resolve().parent.parent
+        manifest = integrity.load_manifest(integrity.MANIFEST)
+        uses_line = re.compile(r"^\s*(?:-\s*)?uses:\s")
+        for name in ("ci.yml", "play_closed.yml", "playwright.yml"):
+            with self.subTest(workflow=name):
+                path = repo_root / ".github" / "workflows" / name
+                expected = sum(
+                    1
+                    for line in path.read_text(encoding="utf-8").splitlines()
+                    if uses_line.match(line)
+                )
+                self.assertGreater(expected, 0, f"no uses: lines found in {name}")
+                checked = integrity.verify_workflow(manifest, path)
+                self.assertEqual(checked, expected)
 
 
 if __name__ == "__main__":

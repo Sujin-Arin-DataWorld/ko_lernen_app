@@ -1,0 +1,19 @@
+{
+  "bundletool": {
+    "version": "1.18.3",
+    "url": "https://github.com/google/bundletool/releases/download/1.18.3/bundletool-all-1.18.3.jar",
+    "sha256": "<fill from harvest step>"
+  },
+  "firebase-tools": {
+    "version": "15.29.0",
+    "sha256": "<fill from harvest step>"
+  },
+  "java": {
+    "version": "17.0.20.1+1",
+    "sha256": "<fill from harvest step>"
+  },
+  "node": {
+    "version": "24.20.0",
+    "sha256": "<fill from harvest step>"
+  }
+}

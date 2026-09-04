@@ -28,6 +28,14 @@
     "r0adkll/upload-google-play": {
       "version": "v1.1.5",
       "sha": "e738b9dd8f2476ea806d921b64aacd24f34515a5"
+    },
+    "google-github-actions/auth": {
+      "version": "v2",
+      "sha": "c200f3691d83b41bf9bbd8638997a462592937ed"
+    },
+    "google-github-actions/setup-gcloud": {
+      "version": "v2",
+      "sha": "e427ad8a34f8676edf47cf7d7925499adf3eb74f"
     }
   },
   "binaries": {
