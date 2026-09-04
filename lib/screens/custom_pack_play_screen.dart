@@ -510,17 +510,28 @@ class _Front extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SoriCard(
-      variant: SoriCardVariant.hero,
-      accent: SoriColors.info,
-      tinted: true,
-      // P1 이중 안전벨트: 슬롯 핀과 별개로 카드 자체도 항상 가용폭을 채운다.
-      width: double.infinity,
-      // 카드 안쪽 높이를 폰트·간격 기준으로 삼아 텍스트가 카드에 비례해 커지고
-      // (기기 무관 균일 충전율) 세로는 spaceEvenly 로 카드를 채운다. 콘텐츠가
-      // 카드보다 커지는 드문 경우엔 SingleChildScrollView 가 스크롤로 받아낸다.
-      child: LayoutBuilder(
-        builder: (context, constraints) {
+    // §A3 지시서 2.9: 듣기 아이콘은 카드박스 상단 왼쪽 구석. _FlipFront
+    // (vocab_pack_screen.dart)와 같은 패턴 — 카드 자체를 Stack 으로 감싸
+    // content_feed.dart topAccessory 와 같은 좌표계(카드 렌더 rect 기준)로
+    // Positioned(top/left: Spacing.sm) 를 얹는다. 본문엔 인디케이터 높이만큼
+    // 위 패딩을 더해 헤드라인과 겹치지 않게 한다.
+    return Stack(
+      fit: StackFit.passthrough,
+      children: [
+        SoriCard(
+          variant: SoriCardVariant.hero,
+          accent: SoriColors.info,
+          tinted: true,
+          // P1 이중 안전벨트: 슬롯 핀과 별개로 카드 자체도 항상 가용폭을 채운다.
+          width: double.infinity,
+          // 카드 안쪽 높이를 폰트·간격 기준으로 삼아 텍스트가 카드에 비례해
+          // 커지고(기기 무관 균일 충전율) 세로는 spaceEvenly 로 카드를 채운다.
+          // 콘텐츠가 카드보다 커지는 드문 경우엔 SingleChildScrollView 가
+          // 스크롤로 받아낸다.
+          child: Padding(
+            padding: const EdgeInsets.only(top: Spacing.xxxl),
+            child: LayoutBuilder(
+              builder: (context, constraints) {
           final h = constraints.maxHeight.isFinite
               ? constraints.maxHeight
               // FlipCard._fitFace scroll-wraps this face → maxHeight is unbounded;
@@ -566,32 +577,30 @@ class _Front extends StatelessWidget {
                       ),
                     ),
                   ),
-                  // 로마자 + 듣기 버튼을 한 묶음으로(발음 정보끼리 붙어 있게).
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      if (romanizationOnFront &&
-                          word.romanization.isNotEmpty) ...[
-                        Text(
-                          '[${word.romanization}]',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: soriFillSize(h, 0.052, 14, 30),
-                            color: Colors.black54,
-                            fontStyle: FontStyle.italic,
-                          ),
-                        ),
-                        SizedBox(height: soriFillSize(h, 0.03, 8, 20)),
-                      ],
-                      SoriSpeechIndicator(text: word.korean),
-                    ],
-                  ),
+                  if (romanizationOnFront && word.romanization.isNotEmpty)
+                    Text(
+                      '[${word.romanization}]',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: soriFillSize(h, 0.052, 14, 30),
+                        color: Colors.black54,
+                        fontStyle: FontStyle.italic,
+                      ),
+                    ),
                 ],
               ),
             ),
           );
-        },
-      ),
+                },
+              ),
+            ),
+          ),
+        Positioned(
+          top: Spacing.sm,
+          left: Spacing.sm,
+          child: SoriSpeechIndicator(text: word.korean),
+        ),
+      ],
     );
   }
 }

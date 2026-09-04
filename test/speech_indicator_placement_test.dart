@@ -2,6 +2,8 @@
 // SoriSpeechIndicator 가 그 표면의 카드(SoriCard/SoriContentFeed 조상)
 // 좌상단 8dp 부근에 있는지 — 하단 중앙/우측 정렬로 회귀하지 않는지 — 를
 // rect 비교로 고정한다. 360x640 1개 뷰포트.
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,6 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/vocab_pack.dart';
+import 'package:ko_lernen_app/screens/custom_pack_play_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -141,6 +144,64 @@ void main() {
             packLoader: (_) async => pack,
             siblingPacksLoader: (_) async => [pack],
           ),
+        ),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
+
+      expectIndicatorAtCardTopLeft(tester, korean: korean);
+      expect(tester.takeException(), isNull);
+    });
+  });
+
+  group('custom_pack_play_screen 앞면', () {
+    const customPackId = 'cp_placement_test';
+    const korean = '도서관';
+    final customPackJson = jsonEncode({
+      customPackId: {
+        'name': 'Placement Test Pack',
+        'sourcePageId': 'page_test',
+        'createdAt': '2026-01-01T00:00:00.000Z',
+        'words': [
+          {
+            'korean': korean,
+            'romanization': 'doseogwan',
+            'pos_de': 'N.',
+            'translation_de': 'Bibliothek',
+            'translation_en': 'Library',
+            'example_korean': '$korean 예문',
+            'example_de': 'Beispiel',
+            'definition_ko': '',
+            'image_path': '',
+            'saved_to_pack_id': null,
+          },
+        ],
+      },
+    });
+
+    setUp(() async {
+      Storage.resetForTesting();
+      SharedPreferences.setMockInitialValues({
+        'kl_user_level': 'a1',
+        'kl_tut_cpPlay': true,
+        'kl_tut_soriDeck': true,
+        'kl_tut_wordbook': true,
+        'kl_custom_packs_v1': customPackJson,
+      });
+      await Storage.init();
+    });
+
+    testWidgets('SoriSpeechIndicator 가 카드 좌상단에 있다', (tester) async {
+      stubSoriSpeech();
+      _setViewport(tester);
+      await tester.pumpWidget(
+        MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.light,
+          locale: const Locale('de'),
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          home: const CustomPackPlayScreen(packId: customPackId),
         ),
       );
       await tester.pump();
