@@ -1496,6 +1496,20 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                                     ).bodySmall.copyWith(color: ss.textDim),
                                   ),
                                 ],
+                                const SizedBox(height: Spacing.xs),
+                                // 대사를 내 단어장에 담기(§9-2: 책갈피만, 하트
+                                // 없음). AddToWordbookButton 은 자체
+                                // IconButton으로 탭을 소비하므로 카드 전체의
+                                // onTap(재생) 아레나로 전파되지 않는다.
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: AddToWordbookButton(
+                                    compact: true,
+                                    korean: line.ko,
+                                    translationDe: line.de,
+                                    translationEn: line.en,
+                                  ),
+                                ),
                               ],
                             ),
                           ),

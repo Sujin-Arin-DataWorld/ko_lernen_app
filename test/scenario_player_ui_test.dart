@@ -10,6 +10,7 @@ import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/services/course_progress_service.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
+import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_error.dart';
@@ -324,6 +325,66 @@ void main() {
     await tester.pump();
 
     expect(stub.stops, greaterThanOrEqualTo(1));
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('대사 카드 책갈피 탭은 quickAdd 1회', (tester) async {
+    CustomPackService.revision.value = 0;
+    final stub = stubSoriSpeech();
+
+    await _pumpPreview(
+      tester,
+      stage: ScenarioStage.dialog,
+      size: const Size(390, 844),
+      textScale: 1.3,
+    );
+
+    // 대사 스테이지 진입 자동재생(T2.1)이 이미 첫 대사를 1회 읽었다 — 책갈피
+    // 탭은 이 이력을 건드리지 않아야 한다(§9-2: 책갈피만, 재생 트리거 아님).
+    expect(stub.spoken, ['여권 보여주세요.']);
+    expect(CustomPackService.containsKorean('여권 보여주세요.'), isFalse);
+
+    await tester.tap(find.byIcon(Icons.bookmark_add_outlined).first);
+    await tester.pumpAndSettle();
+
+    final pack = CustomPackService.getById(CustomPackService.quickPackId);
+    expect(pack, isNotNull);
+    expect(
+      pack!.words.where((w) => w.korean == '여권 보여주세요.').length,
+      1,
+      reason: '탭 1회는 quickAdd 1회여야 한다(중복 없음)',
+    );
+    expect(
+      stub.spoken,
+      ['여권 보여주세요.'],
+      reason: '책갈피 탭은 카드 재생(SoriSpeech.speak)을 트리거하지 않아야 한다 — '
+          'onTap 아레나로 전파되지 않는다',
+    );
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('대사 카드 본문 탭은 여전히 발화를 1회 추가한다', (tester) async {
+    final stub = stubSoriSpeech();
+
+    await _pumpPreview(
+      tester,
+      stage: ScenarioStage.dialog,
+      size: const Size(390, 844),
+      textScale: 1.3,
+    );
+
+    expect(stub.spoken, ['여권 보여주세요.'], reason: '진입 자동재생 1회');
+
+    await tester.tap(
+      find.bySemanticsLabel(RegExp(r'^Aussprache: 여권 보여주세요\.')),
+    );
+    await tester.pump();
+
+    expect(
+      stub.spoken,
+      ['여권 보여주세요.', '여권 보여주세요.'],
+      reason: '책갈피 버튼을 추가해도 카드 본문 탭 재생 계약은 그대로여야 한다',
+    );
     expect(tester.takeException(), isNull);
   });
 
