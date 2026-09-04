@@ -22,6 +22,10 @@ import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 import 'package:ko_lernen_app/widgets/sori/spotlight_coach.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
+// Sheet-button labels come from AppL10n rather than English literals so this
+// test keeps passing if the copy changes again (as it did for the start CTA).
+final AppL10n _l10n = lookupAppL10n(const Locale('en'));
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -132,7 +136,7 @@ void main() {
 
       await tester.tap(find.byKey(const Key('grammar-plan-items-3')));
       await tester.pump();
-      _tapSheetButton(tester, "Let's go");
+      _tapSheetButton(tester, _l10n.grammarPlanStartCta);
       await tester.pump(const Duration(milliseconds: 500));
 
       final plan = GrammarPlanService.decodePlans(
@@ -214,7 +218,7 @@ void main() {
         findsOneWidget,
       );
       expect(find.byType(ContentFeedbackCard), findsNothing);
-      _tapSheetButton(tester, 'Later');
+      _tapSheetButton(tester, _l10n.grammarPlanCompletionSkip);
       await tester.pump(const Duration(milliseconds: 500));
       expect(
         find.byKey(const Key('grammar-plan-completion-sheet')),
@@ -265,7 +269,7 @@ void main() {
       feed.onNext!();
       feed.onNext!();
       await tester.pump(const Duration(milliseconds: 500));
-      _tapSheetButton(tester, 'Practice');
+      _tapSheetButton(tester, _l10n.grammarPlanCompletionCta);
       await tester.pump(const Duration(milliseconds: 500));
 
       expect(pushedSettings?.name, '/grammar_choice_quiz');
@@ -310,7 +314,7 @@ void main() {
         find.byKey(const Key('grammar-plan-onboarding-sheet')),
         findsOneWidget,
       );
-      _tapSheetButton(tester, "Let's go");
+      _tapSheetButton(tester, _l10n.grammarPlanStartCta);
       await tester.pump(const Duration(milliseconds: 500));
 
       final plans = GrammarPlanService.decodePlans(Storage.grammarPlanRawJson);
@@ -379,7 +383,7 @@ void main() {
         findsOneWidget,
       );
 
-      _tapSheetButton(tester, "Let's go");
+      _tapSheetButton(tester, _l10n.grammarPlanStartCta);
       await tester.pump(const Duration(milliseconds: 500));
       await tester.tap(find.byType(FlipCard));
       await tester.pump();
