@@ -8860,11 +8860,11 @@
     {
       "id": "cloze_a1_0154",
       "level": "a1",
-      "sentenceKo": "＿＿＿ 타이밍을 놓쳐서 한 박자 늦었어요.",
+      "sentenceKo": "＿＿＿ 타이밍이 한 박자 늦었어요.",
       "answer": "절하는",
-      "fullKo": "절하는 타이밍을 놓쳐서 한 박자 늦었어요.",
-      "de": "Ich verpasste den richtigen Moment und verbeugte mich einen Takt zu spät.",
-      "en": "I missed the timing and bowed one beat late.",
+      "fullKo": "절하는 타이밍이 한 박자 늦었어요.",
+      "de": "Meine Verbeugung kam einen Takt zu spät.",
+      "en": "My bow was a beat late.",
       "distractors": [
         "요리하는",
         "청소하는",
