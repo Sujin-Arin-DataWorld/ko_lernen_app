@@ -98,13 +98,14 @@ void main() {
       ],
     );
 
-    Future<void> pump(WidgetTester tester) async {
+    Future<void> pump(WidgetTester tester, {VocabPack? sourcePack}) async {
+      final selectedPack = sourcePack ?? pack();
       await tester.pumpWidget(
         app(
           VocabPackScreen(
-            packId: 'a1_vg_1',
-            packLoader: (_) async => pack(),
-            siblingPacksLoader: (_) async => [pack()],
+            packId: selectedPack.id,
+            packLoader: (_) async => selectedPack,
+            siblingPacksLoader: (_) async => [selectedPack],
           ),
         ),
       );
@@ -126,8 +127,8 @@ void main() {
       expect(find.text('둘째'), findsOneWidget, reason: '↓ 는 전진(재삽입)');
       expect(Storage.wrongCountOf('하나'), 0);
       expect(Storage.srsCard('하나')?.reviewCount ?? 0, 0);
-      // 진행 분자 유지 (defer 는 큐를 비우지 않는다).
-      expect(find.text('1 / 3'), findsOneWidget);
+      // 다음 고유 카드를 처음 보여 줬으므로 화면 카운터도 전진한다.
+      expect(find.text('2 / 3'), findsOneWidget);
 
       // 다음 카드 = 앞면(뜻 미노출) + 판정 비활성: 우측 드래그 → 기록 0.
       expect(find.text('GER-2'), findsNothing);
@@ -138,7 +139,33 @@ void main() {
       expect(Storage.wrongCountOf('둘째'), 0);
     });
 
-    testWidgets('책갈피 저장: quickAdd 1회 · 전진 없음 · SRS 0 · 앞면에서도 동작', (tester) async {
+    testWidgets('↓ 연속 스킵: 8개 고유 카드를 모두 본 뒤에만 첫 카드 재출제', (tester) async {
+      fixViewport(tester);
+      final eightWordPack = VocabPack(
+        id: 'a1_vg_2',
+        level: 'A1',
+        words: [
+          for (var i = 1; i <= 8; i++) word(i, '단어$i', packId: 'a1_vg_2'),
+        ],
+      );
+      await pump(tester, sourcePack: eightWordPack);
+
+      for (var i = 1; i <= 8; i++) {
+        expect(find.text('단어$i'), findsOneWidget);
+        expect(find.textContaining('$i / 8'), findsOneWidget);
+        await tester.drag(find.text('단어$i'), const Offset(0, 350));
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 100));
+      }
+
+      expect(find.text('단어1'), findsOneWidget);
+      expect(find.textContaining('8 / 8'), findsOneWidget);
+      expect(Storage.vokSeenIds, isEmpty, reason: '스킵은 학습 완료로 저장하지 않는다');
+    });
+
+    testWidgets('책갈피 저장: quickAdd 1회 · 전진 없음 · SRS 0 · 앞면에서도 동작', (
+      tester,
+    ) async {
       fixViewport(tester);
       await pump(tester);
       expect(find.text('하나'), findsOneWidget);

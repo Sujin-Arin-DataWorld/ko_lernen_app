@@ -94,8 +94,8 @@ void main() {
     );
     final t = await _pump(tester, pack);
 
-    // 1번째 카드(반복단어1)에서 "몰라요" → reinsertGap=3 뒤(=큐 끝)에
-    // 재삽입되어 재출제 대상이 된다.
+    // 1번째 카드(반복단어1)에서 "몰라요" → 큐 끝에 재삽입되어
+    // 재출제 대상이 된다.
     await _revealAndTapButton(tester, t.vocabPackDontKnow);
     await _settle(tester);
 

@@ -26,19 +26,19 @@ void main() {
     expect(q.servedPosition, 3); // 완료 후에도 분모를 넘지 않는다
   });
 
-  test('markUnknown reinserts after reinsertGap cards', () {
+  test('markUnknown reinserts after every currently queued card', () {
     final q = _q(['a', 'b', 'c', 'd', 'e']);
     expect(q.markUnknown(), LearnAnswerOutcome.requeued);
-    // 남은 [b,c,d,e] 의 index 3 에 삽입 → b,c,d,a,e
+    // 아직 보지 않은 [b,c,d,e] 뒤에 재삽입 → b,c,d,e,a
     final served = <String>[];
     while (!q.isDone) {
       served.add(q.current!);
       q.markKnown();
     }
-    expect(served, ['b', 'c', 'd', 'a', 'e']);
+    expect(served, ['b', 'c', 'd', 'e', 'a']);
   });
 
-  test('reinsert gap clamps to remaining length (near the end)', () {
+  test('unknown on the final card re-serves it immediately', () {
     final q = _q(['a', 'b']);
     q.markKnown(); // a 제거 → [b]
     expect(q.markUnknown(), LearnAnswerOutcome.requeued); // [b] 그대로 재삽입
@@ -59,13 +59,21 @@ void main() {
     },
   );
 
-  test('servedPosition holds during re-asks (denominator never changes)', () {
-    final q = _q(['a', 'b', 'c']);
-    q.markUnknown(); // a 재삽입 → 남은 고유 3
-    expect(q.servedPosition, 1);
-    q.markKnown(); // b 또는 재배치된 순서의 head 제거
-    expect(q.servedPosition, 2);
-    expect(q.uniqueTotal, 3);
+  test('servedPosition counts first presentations and holds on repeats', () {
+    final q = _q(['a', 'b', 'c', 'd', 'e']);
+    q.markUnknown(); // a 재삽입 → b,c,d,e,a
+    expect(q.servedPosition, 2, reason: 'b는 두 번째로 처음 보는 카드다');
+    q.markKnown(); // b 제거 → c,d,e,a
+    expect(q.servedPosition, 3);
+    q.markKnown(); // c 제거 → d,e,a
+    expect(q.servedPosition, 4);
+    q.markKnown(); // d 제거 → e,a
+    expect(q.servedPosition, 5);
+    q.markKnown(); // e 제거 → a; a는 재출제
+    expect(q.current, 'a');
+    expect(q.currentIsRepeat, isTrue);
+    expect(q.servedPosition, 5, reason: '재출제는 고유 카드 수를 늘리지 않는다');
+    expect(q.uniqueTotal, 5);
   });
 
   test(
@@ -82,6 +90,26 @@ void main() {
       for (var i = 0; i < 10; i++) {
         expect(q.missesOf('w$i'), 3);
       }
+    },
+  );
+
+  test(
+    'repeated markUnknown visits every unique card before the first repeat',
+    () {
+      final words = List.generate(8, (i) => 'w${i + 1}');
+      final q = _q(words);
+      final served = <String>[];
+
+      for (var i = 0; i < words.length; i++) {
+        served.add(q.current!);
+        expect(q.servedPosition, i + 1);
+        expect(q.markUnknown(), LearnAnswerOutcome.requeued);
+      }
+
+      expect(served, words);
+      expect(q.current, 'w1');
+      expect(q.currentIsRepeat, isTrue);
+      expect(q.servedPosition, words.length);
     },
   );
 
@@ -104,29 +132,51 @@ void main() {
 
   // ── §P2-4 defer() + peekNext ──────────────────────────────────────────
 
-  test('defer reinserts after reinsertGap without counting a miss', () {
+  test('defer moves the card to the tail without counting a miss', () {
     final q = _q(['a', 'b', 'c', 'd', 'e']);
     expect(q.defer(), LearnAnswerOutcome.deferred);
-    // markUnknown 과 동일 기하 — 남은 [b,c,d,e] 의 index 3 에 삽입.
+    // 스킵한 a는 아직 보지 않은 카드 전체가 나온 뒤 다시 서빙된다.
     final served = <String>[];
     while (!q.isDone) {
       served.add(q.current!);
       q.markKnown();
     }
-    expect(served, ['b', 'c', 'd', 'a', 'e']);
+    expect(served, ['b', 'c', 'd', 'e', 'a']);
   });
 
-  test('defer x10 never graduates and keeps uniqueTotal', () {
-    final q = _q(['a', 'b']);
-    for (var i = 0; i < 10; i++) {
-      expect(q.defer(), LearnAnswerOutcome.deferred);
-      expect(q.isDone, isFalse, reason: 'defer 는 큐를 비우지 않는다');
+  test(
+    'defer x10 never graduates, visits both cards, and keeps uniqueTotal',
+    () {
+      final q = _q(['a', 'b']);
+      final served = <String>[];
+      for (var i = 0; i < 10; i++) {
+        served.add(q.current!);
+        expect(q.defer(), LearnAnswerOutcome.deferred);
+        expect(q.isDone, isFalse, reason: 'defer 는 큐를 비우지 않는다');
+      }
+      expect(served, ['a', 'b', 'a', 'b', 'a', 'b', 'a', 'b', 'a', 'b']);
+      expect(q.missesOf('a'), 0);
+      expect(q.missesOf('b'), 0);
+      expect(q.uniqueTotal, 2);
+      expect(q.servedPosition, 2);
+    },
+  );
+
+  test('repeated defer visits every unique card before the first repeat', () {
+    final words = List.generate(8, (i) => 'w${i + 1}');
+    final q = _q(words);
+    final served = <String>[];
+
+    for (var i = 0; i < words.length; i++) {
+      served.add(q.current!);
+      expect(q.servedPosition, i + 1);
+      q.defer();
     }
-    expect(q.missesOf('a'), 0);
-    expect(q.missesOf('b'), 0);
-    expect(q.uniqueTotal, 2);
-    // 진행바 후퇴 금지 — servedPosition 은 defer 로 변하지 않는다.
-    expect(q.servedPosition, 1);
+
+    expect(served, words);
+    expect(q.current, 'w1');
+    expect(q.currentIsRepeat, isTrue);
+    expect(q.servedPosition, words.length);
   });
 
   test('defer on a single-card queue re-serves the same card', () {
@@ -159,11 +209,12 @@ void main() {
 
   test('markUnknown 이후 재삽입된 카드가 다시 나오면 재출제다', () {
     final q = _q(['a', 'b', 'c', 'd', 'e']);
-    q.markUnknown(); // a 재삽입 → b,c,d,a,e. 지금 current 는 b(최초 서빙).
+    q.markUnknown(); // a 재삽입 → b,c,d,e,a. 지금 current 는 b(최초 서빙).
     expect(q.currentIsRepeat, isFalse);
-    q.markKnown(); // b 제거 → c,d,a,e
-    q.markKnown(); // c 제거 → d,a,e
-    q.markKnown(); // d 제거 → a,e — a 가 다시 current
+    q.markKnown(); // b 제거 → c,d,e,a
+    q.markKnown(); // c 제거 → d,e,a
+    q.markKnown(); // d 제거 → e,a
+    q.markKnown(); // e 제거 → a — a 가 다시 current
     expect(q.currentIsRepeat, isTrue);
   });
 
