@@ -264,6 +264,13 @@ String? _infoPlistVariantId(Map<String, _PbxObject> objects) => _firstId(
       _scalar(object.body, 'name') == 'InfoPlist.strings',
 );
 
+String? _privacyManifestId(Map<String, _PbxObject> objects) => _firstId(
+  objects,
+  (object) =>
+      _isType(object, 'PBXFileReference') &&
+      _scalar(object.body, 'path') == 'PrivacyInfo.xcprivacy',
+);
+
 String? _runnerGroupId(Map<String, _PbxObject> objects) => _firstId(
   objects,
   (object) =>
@@ -325,9 +332,45 @@ bool _isExactlyOnceInRunnerResources(Map<String, _PbxObject> objects) {
   return matchingBuildIds.length == 1;
 }
 
+bool _isPrivacyManifestExactlyOnceInRunnerGroup(
+  Map<String, _PbxObject> objects,
+) {
+  final groupId = _runnerGroupId(objects);
+  final manifestId = _privacyManifestId(objects);
+  if (groupId == null || manifestId == null) {
+    return false;
+  }
+  return _listIds(
+        objects[groupId]!.body,
+        'children',
+      ).where((id) => id == manifestId).length ==
+      1;
+}
+
+bool _isPrivacyManifestExactlyOnceInRunnerResources(
+  Map<String, _PbxObject> objects,
+) {
+  final phaseId = _runnerResourcesPhaseId(objects);
+  final manifestId = _privacyManifestId(objects);
+  if (phaseId == null || manifestId == null) {
+    return false;
+  }
+  final matchingBuildIds = <String>[];
+  for (final buildId in _listIds(objects[phaseId]!.body, 'files')) {
+    final build = objects[buildId];
+    if (build != null &&
+        _isType(build, 'PBXBuildFile') &&
+        _scalar(build.body, 'fileRef') == manifestId) {
+      matchingBuildIds.add(buildId);
+    }
+  }
+  return matchingBuildIds.length == 1;
+}
+
 IosStoreContractResult inspectIosStoreContract({
   required String projectSource,
   required String infoPlistSource,
+  required String privacyManifestSource,
   required String appIconSource,
   required String deStringsSource,
   required String enStringsSource,
@@ -383,6 +426,22 @@ IosStoreContractResult inspectIosStoreContract({
       'InfoPlist.strings is not registered in Runner Resources exactly once',
     );
   }
+  if (!privacyManifestSource.contains('<key>NSPrivacyAccessedAPITypes</key>') ||
+      !privacyManifestSource.contains(
+        '<key>NSPrivacyCollectedDataTypes</key>',
+      )) {
+    violations.add('PrivacyInfo.xcprivacy content is incomplete');
+  }
+  if (!_isPrivacyManifestExactlyOnceInRunnerGroup(objects)) {
+    violations.add(
+      'PrivacyInfo.xcprivacy is not registered in the Runner group exactly once',
+    );
+  }
+  if (!_isPrivacyManifestExactlyOnceInRunnerResources(objects)) {
+    violations.add(
+      'PrivacyInfo.xcprivacy is not registered in Runner Resources exactly once',
+    );
+  }
   if (!_hasKnownGermanRegion(projectSource)) {
     violations.add('German is missing from Xcode knownRegions');
   }
@@ -411,6 +470,9 @@ void main() {
   final result = inspectIosStoreContract(
     projectSource: readIosStoreSource('ios/Runner.xcodeproj/project.pbxproj'),
     infoPlistSource: readIosStoreSource('ios/Runner/Info.plist'),
+    privacyManifestSource: readIosStoreSource(
+      'ios/Runner/PrivacyInfo.xcprivacy',
+    ),
     appIconSource: readIosStoreSource(
       'ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json',
     ),

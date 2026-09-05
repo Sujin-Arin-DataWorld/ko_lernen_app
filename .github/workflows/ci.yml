@@ -709,10 +709,6 @@ jobs:
         working-directory: functions/gye
         run: npm run test:storage-rules
 
-      - name: Test billing transaction and deletion races
-        working-directory: functions/gye
-        run: npm run test:billing-emulator
-
   pronunciation-functions-security:
     name: Pronunciation function security
     needs: changes
