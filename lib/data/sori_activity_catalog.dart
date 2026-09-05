@@ -294,26 +294,10 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     reward: _contract('word_web', _finishSession, [_noDirectReward]),
     learnSection: SoriLearnSection.explore,
   ),
-  _entry(
-    id: 'vocab_notebook',
-    tab: SoriStageTab.learn,
-    de: 'Vokabelheft',
-    en: 'Vocab notebook',
-    descriptionDe: 'Dein Heft fotografieren und genau diese Wörter üben.',
-    descriptionEn: 'Photograph your notebook and practice those exact words.',
-    route: '/vocab_notebook',
-    minutes: 4,
-    color: SoriActivityColorRole.listening,
-    icon: 'camera',
-    reward: _contract('vocab_notebook', _finishSession, [_noDirectReward]),
-    detailRouteAliases: const <String>[
-      '/vocab_notebook/result',
-      '/vocab_notebook/practice',
-      '/vocab_notebook/nuance',
-      '/vocab_notebook/studio',
-    ],
-    learnSection: SoriLearnSection.review,
-  ),
+  // W10 T-L2: 'vocab_notebook' 타일 제거 — Vokabelheft는 이제 카탈로그 타일이
+  // 아니라 Meine Wörter("my_words") 화면의 "+" 시트에서만 들어간다. 라우트
+  // ('/vocab_notebook' 및 그 별칭들)와 화면은 그대로 살아 있다 — 여기서
+  // 지우는 것은 Lernen 탭 카드뿐이다.
   _entry(
     id: 'daily_game',
     tab: SoriStageTab.games,
