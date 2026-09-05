@@ -14,19 +14,11 @@ final ValueNotifier<AccessSnapshot?> accessSnapshotNotifier = ValueNotifier(
   null,
 );
 
-/// Initializes the server-owned access snapshot used by AI quota enforcement.
-///
-/// The class name is retained for source compatibility. Store billing and
-/// subscription purchases are intentionally absent; all learning content is
-/// available regardless of account or build flags.
-class PremiumService {
-  PremiumService._();
+/// Fetches and observes the server-owned access snapshot used for AI quotas.
+class AccessSnapshotService {
+  AccessSnapshotService._();
 
-  static const bool freeLaunch = true;
-  static const bool fullAccessBuild = true;
-  static const bool purchasesEnabled = false;
-  static const bool isConfigured = false;
-  static const String accessEnvironment = String.fromEnvironment(
+  static const String _environment = String.fromEnvironment(
     'ACCESS_ENVIRONMENT',
     defaultValue: 'PRODUCTION',
   );
@@ -56,14 +48,6 @@ class PremiumService {
     return _access?.snapshot;
   }
 
-  /// Historical server authority state is diagnostic only and never gates access.
-  static bool get isPremium => accessSnapshot?.hasPremium ?? false;
-
-  static bool get hasContentAccess => true;
-
-  static bool get requiresSignIn =>
-      _identity().uid == null || _identity().isAnonymous;
-
   static Future<void> init() async {
     if (_started) {
       return;
@@ -73,14 +57,14 @@ class PremiumService {
       final preferences = await SharedPreferences.getInstance();
       _access = AccessSnapshotController(
         sessions: cloudWriteSessionController,
-        store: PreferencesAccessSnapshotStore(preferences),
-        environment: accessEnvironment,
+        store: await PreferencesAccessSnapshotStore.create(preferences),
+        environment: _environment,
         fetch: () async {
           final before = _identity().uid;
           final response =
               await FirebaseFunctions.instanceFor(region: 'europe-west3')
                   .httpsCallable(
-                    'getAccessSnapshot',
+                    'getUniversalAccessSnapshot',
                     options: HttpsCallableOptions(
                       limitedUseAppCheckToken: true,
                     ),
@@ -145,7 +129,4 @@ class PremiumService {
   static void _publish() {
     accessSnapshotNotifier.value = accessSnapshot;
   }
-
-  /// Kept as a compatibility boundary for existing navigation helpers.
-  static Future<bool> gate(BuildContext context) async => true;
 }

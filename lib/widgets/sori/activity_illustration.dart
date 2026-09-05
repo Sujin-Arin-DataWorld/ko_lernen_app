@@ -18,12 +18,6 @@ bool isActivityLocked(
 String activityIllustrationAsset(String activityId) =>
     'assets/illustrations/activities/$activityId.webp';
 
-/// 보상/페이월 일러스트 규약 — `reward/{name}.webp`. 활동 일러스트와 같은
-/// 폴백 우선 배포 계약: 파일이 도착하면 errorBuilder 폴백 대신 그려진다
-/// (§H paywall_hero 등. 리터럴 에셋 무결성 가드는 실재 파일만 고정한다).
-String rewardIllustrationAsset(String name) =>
-    'assets/illustrations/reward/$name.webp';
-
 // ─── §C-1-10: 레이어 역전 수리 ──────────────────────────────
 // soriActivityColor / soriActivityIcon 을 widget 층(여기)으로 이동.
 // screen 층 sori_stage_common.dart 에서는 re-export 한다.

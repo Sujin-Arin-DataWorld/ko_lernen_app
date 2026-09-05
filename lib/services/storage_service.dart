@@ -3856,7 +3856,7 @@ class Storage {
 
   /// Clears only scenario completion and stars when a new approved corpus
   /// generation becomes active. The immutable XP ledger, SRS, notes,
-  /// purchases, account data, and Hanok placement are deliberately untouched.
+  /// account data, and Hanok placement are deliberately untouched.
   /// The generation marker is written last, making an interrupted migration
   /// safely repeatable.
   static Future<bool> migrateScenarioProgressGeneration(

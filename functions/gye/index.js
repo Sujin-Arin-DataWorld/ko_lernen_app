@@ -157,16 +157,22 @@ const appleRevokePrivateKey = defineSecret("APPLE_REVOKE_PRIVATE_KEY");
 const appleServicesId = defineString("APPLE_SERVICES_ID", { default: "" });
 const appleRedirectUri = defineString("APPLE_REDIRECT_URI", { default: "" });
 const accessEnvironment = defineString("ACCESS_ENVIRONMENT", { default: "PRODUCTION" });
-const accessPhase = defineString("ACCESS_PHASE", { default: "free_launch" });
 const accessHandlers = createAccessRuntime({
   firestore: db,
   auth,
   getEnvironment: () => accessEnvironment.value(),
-  getPhase: () => accessPhase.value(),
 });
 exports.getAccessSnapshot = onCall(ACCESS_CALLABLE_OPTIONS, async (request) => {
   try {
     return await accessHandlers.getAccessSnapshot(request);
+  } catch (error) {
+    throw new HttpsError(error instanceof AccessFailure ? error.code : "unavailable",
+      "Account access could not be verified.");
+  }
+});
+exports.getUniversalAccessSnapshot = onCall(ACCESS_CALLABLE_OPTIONS, async (request) => {
+  try {
+    return await accessHandlers.getUniversalAccessSnapshot(request);
   } catch (error) {
     throw new HttpsError(error instanceof AccessFailure ? error.code : "unavailable",
       "Account access could not be verified.");

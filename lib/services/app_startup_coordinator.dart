@@ -75,7 +75,7 @@ class AppStartupCoordinator {
     required this.resumeMediaCleanup,
     required this.resumeBookshelfSync,
     required this.resumeAccountOperation,
-    required this.initializePremium,
+    required this.initializeAccessSnapshot,
     required this.enablePush,
     required this.notificationsEnabled,
   });
@@ -96,7 +96,7 @@ class AppStartupCoordinator {
   final StartupStep resumeMediaCleanup;
   final StartupStep resumeBookshelfSync;
   final StartupStep resumeAccountOperation;
-  final StartupStep initializePremium;
+  final StartupStep initializeAccessSnapshot;
   final StartupStep enablePush;
   final bool Function() notificationsEnabled;
 
@@ -185,7 +185,7 @@ class AppStartupCoordinator {
     // Reachable only when every durable account journal was clear, so the
     // sync cannot race a deletion resume in the admission lane.
     await resumeCloudAutoSync();
-    await initializePremium();
+    await initializeAccessSnapshot();
     if (notificationsEnabled()) {
       await enablePush();
     }

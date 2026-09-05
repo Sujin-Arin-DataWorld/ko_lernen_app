@@ -82,7 +82,7 @@ class CiScopeTest(unittest.TestCase):
         self.assert_enabled(["storage.rules"], "app", "gye", "tts")
 
     def test_canonical_access_policy_selects_all_contract_consumers(self):
-        for path in ["functions/gye/access_policy.js", "test/fixtures/access_policy/v1.json"]:
+        for path in ["functions/gye/access_policy.js", "test/fixtures/access_policy/v2.json"]:
             self.assert_enabled([path], "app", "book", "gye", "pronunciation")
 
     def test_cost_contract_selects_deployment_local_mirrors(self):

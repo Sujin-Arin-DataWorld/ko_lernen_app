@@ -29,7 +29,7 @@ import 'services/content_feedback_lifecycle.dart';
 import 'services/picker_recovery_service.dart';
 import 'services/palette_service.dart';
 import 'services/pack_session_srs_ledger.dart';
-import 'services/premium_service.dart';
+import 'services/access_snapshot_service.dart';
 import 'services/scene_asset_resolver.dart';
 import 'services/splash_gate.dart';
 import 'services/notification_service.dart';
@@ -401,9 +401,9 @@ Future<void> _startCloudServices() async {
         );
       }
     },
-    initializePremium: () async {
+    initializeAccessSnapshot: () async {
       await PaletteService.fetchAndApply();
-      await PremiumService.init();
+      await AccessSnapshotService.init();
     },
     enablePush: () async {
       await pushService.enable();

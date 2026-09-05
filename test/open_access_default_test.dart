@@ -3,15 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/services/pack_access.dart';
-import 'package:ko_lernen_app/services/premium_service.dart';
 
 void main() {
-  test('every build has open learning access and no purchases', () {
-    expect(PremiumService.fullAccessBuild, isTrue);
-    expect(PremiumService.hasContentAccess, isTrue);
-    expect(PremiumService.purchasesEnabled, isFalse);
-  });
-
   testWidgets('every CEFR pack level passes the shared access boundary', (
     tester,
   ) async {

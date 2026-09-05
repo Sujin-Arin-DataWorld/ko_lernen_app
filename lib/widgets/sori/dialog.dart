@@ -5,8 +5,8 @@ import 'tokens.dart';
 /// Opens an app-owned dialog with one route contract.
 ///
 /// The route stays inside the safe area, traps keyboard traversal, and requests
-/// focus when it opens. Platform permission dialogs, OAuth browsers, and store
-/// billing sheets do not use this API because the app does not own them.
+/// focus when it opens. Platform-owned surfaces such as permission dialogs and
+/// OAuth browsers do not use this API because the app does not own them.
 Future<T?> showSoriDialog<T>({
   required BuildContext context,
   required WidgetBuilder builder,

@@ -9,7 +9,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_core_platform_interface/firebase_core_platform_interface.dart';
 
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
-import 'package:ko_lernen_app/services/premium_service.dart';
+import 'package:ko_lernen_app/services/access_snapshot_service.dart';
 
 class AccessSdkHarness {
   static const uid = 'verified-access-test';
@@ -22,7 +22,7 @@ class AccessSdkHarness {
     FirebaseFunctionsPlatform.instance = functions;
     cloudWriteSessionController.acquire(uid);
     await runZoned(
-      PremiumService.init,
+      AccessSnapshotService.init,
       zoneSpecification: ZoneSpecification(
         createPeriodicTimer: (self, parent, zone, period, callback) {
           final timer = parent.createPeriodicTimer(zone, period, callback);
@@ -132,18 +132,16 @@ class _Callable extends HttpsCallablePlatform {
     ));
     final now = DateTime.now().millisecondsSinceEpoch;
     return {
-      'schemaVersion': 1,
+      'schemaVersion': 2,
       'ownerUid': AccessSdkHarness.uid,
       'environment': 'PRODUCTION',
       'revision': 'a' * 64,
-      'source': 'free_launch',
+      'source': 'universal',
       'contentAccess': 'all',
-      'aiPolicyId': 'premium_v1',
+      'aiPolicyId': 'universal_v1',
       'bookDailyLimit': 20,
       'pronunciationDailyLimit': 50,
       'serverNow': now,
-      'accessUntil': null,
-      'offlineUntil': now,
       'nextResetAt': (now ~/ 86400000 + 1) * 86400000,
     };
   }

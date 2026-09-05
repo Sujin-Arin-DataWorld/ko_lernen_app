@@ -170,7 +170,7 @@ class BillableEndpointTest(unittest.TestCase):
             self.assertEqual(self.run_request().status_code, 403)
         self.assertFalse(any(k.startswith("service_quota_ledgers/") for k in self.db.store))
 
-    def test_server_tester_subscription_and_tier_transitions_preserve_count(self):
+    def test_legacy_authority_changes_preserve_the_common_count(self):
         for source in ["tester", "subscription"]:
             with self.subTest(source=source):
                 self.seed_daily(19)

@@ -7,7 +7,7 @@ Jin 확정 §1-5: 아날로그 질감 = **리소그래프 인쇄 느낌** — �
 기존 `apply_paper_grain.py`(휘도 전용 fine 5.0/coarse 4.0)의 **확장**이다 —
 기존 스크립트는 배포 세트의 정본 이력으로 보존한다.
 
-⚠️ 전제: 번들 39장(activities 24 + packs 14 + reward/paywall_hero)은 전부
+⚠️ 전제: 번들 38장(activities 24 + packs 14)은 전부
 이미 fine 5.0/coarse 4.0 그레인이 구워져 있고 원본은 소멸됐다. 따라서
 ① 그레인 단계는 **추가분(delta)만** 얹는다.
 
@@ -20,21 +20,21 @@ Jin 확정 §1-5: 아날로그 질감 = **리소그래프 인쇄 느낌** — �
 | ⑤ 웜 캐스트 | 4% overlay #F4E8D0 (Hanji Ivory) |
 | 시드 | crc32(파일명) — 파일별 결정적 재현 |
 
-적용 대상: 위 39장 전부. `gye/`·`hanok_stages/`·`stamps/`(투명 PNG·레이어
+적용 대상: 위 38장 전부. `gye/`·`hanok_stages/`·`stamps/`(투명 PNG·레이어
 합성물)는 **스코프 제외** — Jin 별도 결정.
 
-⛔ 게이트 (§J-1): 샘플 3장(packs/bamboo · activities/listening ·
-reward/paywall_hero) before/after 를 Jin 이 승인하기 전에는 번들 일괄 처리
+⛔ 게이트 (§J-1): 샘플 2장(packs/bamboo · activities/listening)의
+before/after 를 Jin 이 승인하기 전에는 번들 일괄 처리
 금지. 그래서 기본 모드는 `--samples`(번들 밖 리뷰 폴더에만 출력)이고, 번들
 덮어쓰기는 `--apply --jin-approved --approval-sha256 <샘플 manifest hash>`
-세 값이 모두 있어야 실행된다. 대상 39장의 원본 해시도 일치해야 하므로 이미
+세 값이 모두 있어야 실행된다. 대상 38장의 원본 해시도 일치해야 하므로 이미
 처리했거나 리뷰 뒤 바뀐 번들에 효과가 중복 적용되지 않는다.
 
 사용 (venv 에 pillow numpy 필요):
     python3 -m venv .grain-venv && .grain-venv/bin/pip install pillow numpy
-    # 1) Jin 게이트용 샘플 3장 (번들 무접촉):
+    # 1) Jin 게이트용 샘플 2장 (번들 무접촉):
     .grain-venv/bin/python scripts/apply_riso_v2.py --samples
-    # 2) 승인 후 번들 39장 일괄 (출력된 manifest hash 사용, q88 장당 ≤70KB 강제):
+    # 2) 승인 후 번들 38장 일괄 (출력된 manifest hash 사용, q88 장당 ≤70KB 강제):
     .grain-venv/bin/python scripts/apply_riso_v2.py --apply --jin-approved \
       --approval-sha256 <approval_manifest.json SHA-256>
 """
@@ -69,7 +69,6 @@ MAX_WEBP_BYTES = 70 * 1024
 SAMPLES = [
     'assets/illustrations/packs/bamboo.webp',
     'assets/illustrations/activities/listening.webp',
-    'assets/illustrations/reward/paywall_hero.webp',
 ]
 
 TARGET_PREIMAGE_SHA256 = {
@@ -111,7 +110,6 @@ TARGET_PREIMAGE_SHA256 = {
     'assets/illustrations/packs/taegeuk.webp': '134b57e57d590f67a44a308718a801971bc96c6a9647ee859c42c3f279585091',
     'assets/illustrations/packs/vine.webp': '7e1327c786c346c137f0843390ccbbf958f6d026ce69670ab3de5b61ba5838be',
     'assets/illustrations/packs/wave.webp': '6a9cf0f7e3975eb538a85ddeda2d869b410139d516a02cd1c03305bee375340f',
-    'assets/illustrations/reward/paywall_hero.webp': '70cc70333ebc8a9e088e160a9c8504c0f41550b9256fbe06a11d33e53c62750d',
 }
 
 SAMPLE_OUT_DIR = 'docs/assets/riso_samples_2026-08-14'
@@ -327,9 +325,6 @@ def _discover_batch_targets() -> set[str]:
             for name in os.listdir(directory)
             if name.endswith('.webp')
         )
-    target = 'assets/illustrations/reward/paywall_hero.webp'
-    if os.path.isfile(target):
-        targets.add(target)
     return targets
 
 
@@ -396,7 +391,7 @@ def main() -> int:
     parser.add_argument('--samples', action='store_true',
                         help='Jin 게이트용 샘플 3장 (번들 무접촉)')
     parser.add_argument('--apply', action='store_true',
-                        help='번들 39장 일괄 덮어쓰기 (게이트 필요)')
+                        help='번들 38장 일괄 덮어쓰기 (게이트 필요)')
     parser.add_argument('--jin-approved', action='store_true',
                         help='샘플 승인 완료 확인 — --apply 의 필수 게이트')
     parser.add_argument('--approval-sha256',

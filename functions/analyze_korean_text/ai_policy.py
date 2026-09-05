@@ -7,9 +7,7 @@ from access_policy import bounded_text, millis, resolve_access, safe_int
 
 def resolve_book_policy(client, uid, transaction, now, account_created_at=None):
     environment = os.environ.get("ACCESS_ENVIRONMENT", "PRODUCTION")
-    phase = os.environ.get("ACCESS_PHASE", "free_launch")
-    return resolve_access(uid=uid, environment=environment, phase=phase, now=now,
-                          account_created_at=account_created_at)
+    return resolve_access(uid=uid, environment=environment, now=now)
 
 
 def read_cost_control(client, transaction, now):

@@ -184,7 +184,7 @@ test("pronunciation Auth absence, disability and UID mismatch fail before provid
   }
 });
 
-test("all authenticated users receive the former highest pronunciation quota", async () => {
+test("all authenticated users receive the universal fifty-request quota", async () => {
   const h = harness(); seedDaily(h, 49);
   await h.run(request({tier: "premium", isPremium: true, FREE_LAUNCH: true,
     premiumGrant: testerGrant(), feedbackPassport: true, uid: "tester"}));

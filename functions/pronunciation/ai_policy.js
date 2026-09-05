@@ -3,10 +3,9 @@
 const {resolveAccess} = require("./access_policy");
 const {readCostControl, prepareCostReservation} = require("./service_cost_policy");
 
-async function resolvePronunciationPolicy(db, uid, tx, now, accountCreatedAt) {
+async function resolvePronunciationPolicy(db, uid, tx, now) {
   const environment = process.env.ACCESS_ENVIRONMENT || "PRODUCTION";
-  const phase = process.env.ACCESS_PHASE || "free_launch";
-  const access = resolveAccess({uid, environment, phase, now: now.getTime(), accountCreatedAt});
+  const access = resolveAccess({uid, environment, now: now.getTime()});
   return {minuteLimit: 5, dayLimit: access.pronunciationDailyLimit};
 }
 

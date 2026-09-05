@@ -358,7 +358,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
       soriNotice(context, t.pathLockedHint);
       return;
     }
-    // Premium-Gate 단일화 — ensurePackAccess (A1 frei, A2/B1/B2 Abo).
+    // 모든 레벨의 공통 접근 경계다. 결제나 구독 상태와 무관하게 허용한다.
     final ok = await ensurePackAccess(context, level: pack.level);
     if (!ok || !mounted) return;
     await Navigator.pushNamed(context, '/vocab/pack', arguments: pack.id);

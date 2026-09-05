@@ -75,9 +75,6 @@
 -dontwarn com.google.mlkit.vision.text.korean.KoreanTextRecognizerOptions$Builder
 -dontwarn com.google.mlkit.vision.text.korean.KoreanTextRecognizerOptions
 
--keep class com.android.billingclient.**         { *; }
--dontwarn com.android.billingclient.**
-
 # ── image_picker / image_cropper (uCrop) ───────────────────────────────────
 -keep class io.flutter.plugins.imagepicker.**    { *; }
 -keep class com.yalantis.ucrop.**                { *; }

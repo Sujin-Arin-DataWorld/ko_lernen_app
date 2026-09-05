@@ -2,6 +2,8 @@
 
 const {DAY_MILLIS, resolveAccess, subjectHash, validUid} = require("./access_policy");
 
+const LEGACY_CACHE_MILLIS = 30 * DAY_MILLIS;
+
 const ACCESS_CALLABLE_OPTIONS = Object.freeze({
   region: "europe-west3",
   enforceAppCheck: true,
@@ -17,20 +19,40 @@ class AccessFailure extends Error {
   }
 }
 
-/** The account-deletion fence remains transactional, but retired premium and
- * subscription documents no longer participate in access decisions.
- */
-async function readAccessAuthority({firestore, transaction, uid}) {
+/** Keep the account-deletion fence in the same transaction as rate limiting. */
+async function assertAccountAvailable({firestore, transaction, uid}) {
   const deletionRef = firestore.collection("account_deletions").doc(uid);
   const deletion = await transaction.get(deletionRef);
   if (deletion.exists) throw new AccessFailure("failed-precondition");
   return {};
 }
 
+/**
+ * Compatibility wire format for already-released clients that only parse
+ * schema v1 and recognize the former highest-tier source vocabulary. This is
+ * an adapter over universal access, not an entitlement or billing decision.
+ */
+function legacyCompatibilitySnapshot(snapshot) {
+  return Object.freeze({
+    schemaVersion: 1,
+    ownerUid: snapshot.ownerUid,
+    environment: snapshot.environment,
+    revision: snapshot.revision,
+    source: "closed_tester_lifetime",
+    contentAccess: snapshot.contentAccess,
+    aiPolicyId: "premium_v1",
+    bookDailyLimit: snapshot.bookDailyLimit,
+    pronunciationDailyLimit: snapshot.pronunciationDailyLimit,
+    serverNow: snapshot.serverNow,
+    accessUntil: null,
+    offlineUntil: snapshot.serverNow + LEGACY_CACHE_MILLIS,
+    nextResetAt: snapshot.nextResetAt,
+  });
+}
+
 function createAccessRuntime({firestore, auth, now = Date.now,
-  getEnvironment = () => process.env.ACCESS_ENVIRONMENT || "PRODUCTION",
-  getPhase = () => process.env.ACCESS_PHASE || "free_launch"}) {
-  async function getAccessSnapshot(request) {
+  getEnvironment = () => process.env.ACCESS_ENVIRONMENT || "PRODUCTION"}) {
+  async function getSnapshot(request, adapt) {
     const uid = request?.auth?.uid;
     if (!validUid(uid)) throw new AccessFailure("unauthenticated");
     if (typeof request?.app?.appId !== "string" || !request.app.appId ||
@@ -50,22 +72,20 @@ function createAccessRuntime({firestore, auth, now = Date.now,
     if (user?.uid !== uid || user.disabled === true) {
       throw new AccessFailure("unauthenticated");
     }
-    const accountCreatedAt = Date.parse(user?.metadata?.creationTime);
     try {
       const at = now();
       const environment = getEnvironment();
-      const phase = getPhase();
       const ownerSubjectHash = subjectHash(uid);
       const rateRef = firestore.collection("access_rate_limits").doc(ownerSubjectHash);
       return await firestore.runTransaction(async (transaction) => {
-        const authority = await readAccessAuthority({firestore, transaction, uid});
+        await assertAccountAvailable({firestore, transaction, uid});
         const rate = await transaction.get(rateRef);
         const minute = Math.floor(at / 60_000);
         const previous = rate.exists ? rate.data() : {};
         const count = previous.minute === minute &&
           Number.isSafeInteger(previous.count) && previous.count >= 0 ? previous.count : 0;
         if (count >= 30) throw new AccessFailure("resource-exhausted");
-        const snapshot = resolveAccess({uid, environment, phase, now: at, ...authority, accountCreatedAt});
+        const snapshot = adapt(resolveAccess({uid, environment, now: at}));
         transaction.set(rateRef, {
           ownerSubjectHash, minute, count: count + 1, expiresAt: new Date(at + DAY_MILLIS),
         });
@@ -76,8 +96,11 @@ function createAccessRuntime({firestore, auth, now = Date.now,
       throw new AccessFailure("unavailable");
     }
   }
-  return {getAccessSnapshot};
+  return {
+    getAccessSnapshot: (request) => getSnapshot(request, legacyCompatibilitySnapshot),
+    getUniversalAccessSnapshot: (request) => getSnapshot(request, (snapshot) => snapshot),
+  };
 }
 
 module.exports = {ACCESS_CALLABLE_OPTIONS, AccessFailure,
-  readAccessAuthority, createAccessRuntime};
+  assertAccountAvailable, legacyCompatibilitySnapshot, createAccessRuntime};

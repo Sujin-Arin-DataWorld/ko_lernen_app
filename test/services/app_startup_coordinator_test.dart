@@ -24,7 +24,7 @@ void main() {
       resumeMediaCleanup: () async => events.add('media-resume'),
       resumeBookshelfSync: () async => events.add('bookshelf-resume'),
       resumeAccountOperation: () async => events.add('protected-resume'),
-      initializePremium: () async => events.add('premium'),
+      initializeAccessSnapshot: () async => events.add('access-snapshot'),
       enablePush: () async => events.add('push'),
       notificationsEnabled: () => true,
     );
@@ -40,10 +40,13 @@ void main() {
       'first-link-resume',
       'media-resume',
       'bookshelf-resume',
-      'premium',
+      'access-snapshot',
       'push',
     ]);
-    expect(events.indexOf('app-check'), lessThan(events.indexOf('premium')));
+    expect(
+      events.indexOf('app-check'),
+      lessThan(events.indexOf('access-snapshot')),
+    );
   });
 
   test(
@@ -69,7 +72,7 @@ void main() {
         resumeMediaCleanup: () async => events.add('media-resume'),
         resumeBookshelfSync: () async => events.add('bookshelf-resume'),
         resumeAccountOperation: () async => events.add('resume-existing'),
-        initializePremium: () async => events.add('premium'),
+        initializeAccessSnapshot: () async => events.add('access-snapshot'),
         enablePush: () async => events.add('push'),
         notificationsEnabled: () => true,
       );
@@ -95,7 +98,7 @@ void main() {
       resumeMediaCleanup: () async => events.add('media-resume'),
       resumeBookshelfSync: () async => events.add('bookshelf-resume'),
       resumeAccountOperation: () async => events.add('resume'),
-      initializePremium: () async => events.add('premium'),
+      initializeAccessSnapshot: () async => events.add('access-snapshot'),
       enablePush: () async => events.add('push'),
       notificationsEnabled: () => true,
     );
@@ -126,7 +129,7 @@ void main() {
         resumeMediaCleanup: () async => events.add('media'),
         resumeBookshelfSync: () async => events.add('bookshelf'),
         resumeAccountOperation: () async => events.add('deletion-resume'),
-        initializePremium: () async => events.add('premium'),
+        initializeAccessSnapshot: () async => events.add('access-snapshot'),
         enablePush: () async => events.add('push'),
         notificationsEnabled: () => true,
       );
@@ -151,7 +154,7 @@ void main() {
       resumeMediaCleanup: () async => events.add('media'),
       resumeBookshelfSync: () async => events.add('bookshelf'),
       resumeAccountOperation: () async => events.add('deletion-resume'),
-      initializePremium: () async => events.add('premium'),
+      initializeAccessSnapshot: () async => events.add('access-snapshot'),
       enablePush: () async => events.add('push'),
       notificationsEnabled: () => true,
     );
@@ -178,7 +181,7 @@ void main() {
         resumeMediaCleanup: () async => events.add('media'),
         resumeBookshelfSync: () async => events.add('bookshelf'),
         resumeAccountOperation: () async => events.add('remote-delete-resume'),
-        initializePremium: () async => events.add('premium'),
+        initializeAccessSnapshot: () async => events.add('access-snapshot'),
         enablePush: () async => events.add('push'),
         notificationsEnabled: () => true,
       );
@@ -208,7 +211,7 @@ void main() {
         resumeAccountDeletionByReceipt: () async {
           events.add('receipt-resume');
         },
-        initializePremium: () async => events.add('premium'),
+        initializeAccessSnapshot: () async => events.add('access-snapshot'),
         enablePush: () async => events.add('push'),
         notificationsEnabled: () => true,
       );
@@ -242,7 +245,7 @@ void main() {
           events.add('activation-finalize');
           activationPending = false;
         },
-        initializePremium: () async => events.add('premium'),
+        initializeAccessSnapshot: () async => events.add('access-snapshot'),
         enablePush: () async => events.add('push'),
         notificationsEnabled: () => true,
       );
@@ -257,7 +260,7 @@ void main() {
         'ready',
         'media',
         'bookshelf',
-        'premium',
+        'access-snapshot',
         'push',
       ]);
     },
@@ -291,7 +294,7 @@ void main() {
           events.add('activation-finalize:$liveUid');
           activationPending = false;
         },
-        initializePremium: () async => events.add('premium'),
+        initializeAccessSnapshot: () async => events.add('access-snapshot'),
         enablePush: () async => events.add('push'),
         notificationsEnabled: () => true,
       );
@@ -307,7 +310,7 @@ void main() {
         'ready:new-anonymous',
         'media',
         'bookshelf',
-        'premium',
+        'access-snapshot',
         'push',
       ]);
     },
@@ -336,7 +339,7 @@ void main() {
       resumeBookshelfSync: () async => events.add('bookshelf'),
       resumeAccountOperation: () async => events.add('deletion-resume'),
       resumeCloudBackupDeletion: () async => events.add('cloud-delete-resume'),
-      initializePremium: () async => events.add('premium'),
+      initializeAccessSnapshot: () async => events.add('access-snapshot'),
       enablePush: () async => events.add('push'),
       notificationsEnabled: () => true,
     );
@@ -367,7 +370,7 @@ void main() {
         resumeMediaCleanup: () async => events.add('media'),
         resumeBookshelfSync: () async => events.add('bookshelf'),
         resumeAccountOperation: () async => events.add('deletion-resume'),
-        initializePremium: () async => events.add('premium'),
+        initializeAccessSnapshot: () async => events.add('access-snapshot'),
         enablePush: () async => events.add('push'),
         notificationsEnabled: () => true,
       );
@@ -393,7 +396,7 @@ void main() {
         resumeBookshelfSync: () async => events.add('bookshelf'),
         resumeAccountOperation: () async => events.add('resume'),
         resumeCloudAutoSync: () async => events.add('auto-sync'),
-        initializePremium: () async => events.add('premium'),
+        initializeAccessSnapshot: () async => events.add('access-snapshot'),
         enablePush: () async => events.add('push'),
         notificationsEnabled: () => false,
       );
@@ -406,7 +409,7 @@ void main() {
         'media',
         'bookshelf',
         'auto-sync',
-        'premium',
+        'access-snapshot',
       ]);
     },
   );
@@ -431,7 +434,7 @@ void main() {
       resumeAccountOperation: () async => events.add('resume'),
       resumeCloudBackupDeletion: () async => events.add('cloud-delete-resume'),
       resumeCloudAutoSync: () async => events.add('auto-sync'),
-      initializePremium: () async => events.add('premium'),
+      initializeAccessSnapshot: () async => events.add('access-snapshot'),
       enablePush: () async => events.add('push'),
       notificationsEnabled: () => true,
     );
@@ -460,7 +463,7 @@ void main() {
         resumeMediaCleanup: () async {},
         resumeBookshelfSync: () async {},
         resumeAccountOperation: () async => events.add('remote-delete-resume'),
-        initializePremium: () async {},
+        initializeAccessSnapshot: () async {},
         enablePush: () async {},
         notificationsEnabled: () => false,
       );

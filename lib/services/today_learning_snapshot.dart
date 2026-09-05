@@ -15,9 +15,8 @@ import 'storage_service.dart';
 
 /// The established learning surface for a recommendation.
 ///
-/// This is data only. Pack access remains an existing entitlement gate at the
-/// point of navigation; reading a snapshot neither grants access nor writes
-/// progress.
+/// This is data only. Pack access is universally open, while navigation still
+/// validates the destination; reading a snapshot never writes progress.
 class TodayLearningDestination {
   final String route;
   final Object? arguments;
