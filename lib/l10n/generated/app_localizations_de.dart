@@ -5242,6 +5242,10 @@ class AppL10nDe extends AppL10n {
   String get grammarPlanOnboardingTitle => 'Wie viele Muster pro Tag?';
 
   @override
+  String get grammarPlanOnboardingBody =>
+      'Du siehst jeden Tag nur diese Muster. Tempo und Niveau kannst du oben jederzeit ändern.';
+
+  @override
   String grammarPlanItemsPerDayOption(int n) {
     return '$n pro Tag';
   }
@@ -5252,6 +5256,11 @@ class AppL10nDe extends AppL10n {
   @override
   String grammarPlanDayHeader(int day, int total) {
     return 'Tag $day von $total';
+  }
+
+  @override
+  String grammarPlanCardCounter(int n, int m) {
+    return 'Karte $n von $m';
   }
 
   @override

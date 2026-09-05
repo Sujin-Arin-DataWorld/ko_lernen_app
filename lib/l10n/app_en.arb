@@ -2563,6 +2563,7 @@
   "grammarPlanLevelLabel": "Level",
   "grammarPlanEditTooltip": "Change level or pace",
   "grammarPlanOnboardingTitle": "How many patterns per day?",
+  "grammarPlanOnboardingBody": "You only see these patterns each day. You can change the pace and level at the top any time.",
   "grammarPlanItemsPerDayOption": "{n} per day",
   "@grammarPlanItemsPerDayOption": {
     "placeholders": {
@@ -2579,6 +2580,17 @@
         "type": "int"
       },
       "total": {
+        "type": "int"
+      }
+    }
+  },
+  "grammarPlanCardCounter": "Card {n} of {m}",
+  "@grammarPlanCardCounter": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "m": {
         "type": "int"
       }
     }

@@ -2692,6 +2692,7 @@
   "grammarPlanLevelLabel": "Niveau",
   "grammarPlanEditTooltip": "Niveau oder Tempo ändern",
   "grammarPlanOnboardingTitle": "Wie viele Muster pro Tag?",
+  "grammarPlanOnboardingBody": "Du siehst jeden Tag nur diese Muster. Tempo und Niveau kannst du oben jederzeit ändern.",
   "grammarPlanItemsPerDayOption": "{n} pro Tag",
   "@grammarPlanItemsPerDayOption": {
     "placeholders": {
@@ -2708,6 +2709,17 @@
         "type": "int"
       },
       "total": {
+        "type": "int"
+      }
+    }
+  },
+  "grammarPlanCardCounter": "Karte {n} von {m}",
+  "@grammarPlanCardCounter": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "m": {
         "type": "int"
       }
     }

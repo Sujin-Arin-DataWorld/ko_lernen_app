@@ -9072,6 +9072,12 @@ abstract class AppL10n {
   /// **'Wie viele Muster pro Tag?'**
   String get grammarPlanOnboardingTitle;
 
+  /// No description provided for @grammarPlanOnboardingBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Du siehst jeden Tag nur diese Muster. Tempo und Niveau kannst du oben jederzeit ändern.'**
+  String get grammarPlanOnboardingBody;
+
   /// No description provided for @grammarPlanItemsPerDayOption.
   ///
   /// In de, this message translates to:
@@ -9089,6 +9095,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Tag {day} von {total}'**
   String grammarPlanDayHeader(int day, int total);
+
+  /// No description provided for @grammarPlanCardCounter.
+  ///
+  /// In de, this message translates to:
+  /// **'Karte {n} von {m}'**
+  String grammarPlanCardCounter(int n, int m);
 
   /// No description provided for @grammarPlanCompletionTitle.
   ///

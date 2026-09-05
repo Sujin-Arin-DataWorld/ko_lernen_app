@@ -5217,6 +5217,10 @@ class AppL10nEn extends AppL10n {
   String get grammarPlanOnboardingTitle => 'How many patterns per day?';
 
   @override
+  String get grammarPlanOnboardingBody =>
+      'You only see these patterns each day. You can change the pace and level at the top any time.';
+
+  @override
   String grammarPlanItemsPerDayOption(int n) {
     return '$n per day';
   }
@@ -5227,6 +5231,11 @@ class AppL10nEn extends AppL10n {
   @override
   String grammarPlanDayHeader(int day, int total) {
     return 'Day $day of $total';
+  }
+
+  @override
+  String grammarPlanCardCounter(int n, int m) {
+    return 'Card $n of $m';
   }
 
   @override
