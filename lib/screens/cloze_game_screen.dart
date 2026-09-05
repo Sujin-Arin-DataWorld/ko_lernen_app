@@ -413,6 +413,13 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
     final item = _round[_idx];
     final options = item.options(_roundId * 100 + _idx);
     final revealed = _picked != null;
+    final promptCard = ClozePromptCard(
+      item: item,
+      lang: lang,
+      gloss: _vocabByKo[item.answer]?.translationFor(lang),
+      picked: _picked,
+      pickedWrong: _picked != null && !item.accepts(_picked!),
+    );
 
     return SoriStudyFrame(
       title: t.clozeTitle,
@@ -438,16 +445,13 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
             Flexible(
               flex: 3,
               child: SingleChildScrollView(
-                child: SoriSpeakable(
-                  text: item.fullKo,
-                  child: ClozePromptCard(
-                    item: item,
-                    lang: lang,
-                    gloss: _vocabByKo[item.answer]?.translationFor(lang),
-                    picked: _picked,
-                    pickedWrong: _picked != null && !item.accepts(_picked!),
-                  ),
-                ),
+                // Fable R1 스포일러 정정: item.fullKo 는 빈칸이 채워진 "정답"
+                // 문장이다 — 공개 전(picked == null)에 탭-재생 래퍼를 씌우면
+                // 사용자가 카드를 탭해 답을 미리 들을 수 있었다. 공개 후에만
+                // SoriSpeakable 로 감싼다("진입 무음, 답 공개 후 읽기").
+                child: revealed
+                    ? SoriSpeakable(text: item.fullKo, child: promptCard)
+                    : promptCard,
               ),
             ),
             const SizedBox(height: Spacing.xl),

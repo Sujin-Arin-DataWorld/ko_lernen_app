@@ -179,14 +179,20 @@ class ClozePromptCard extends StatelessWidget {
             ),
           ),
         ),
-        Positioned(
-          top: Spacing.sm,
-          left: Spacing.sm,
-          child: SoriSpeechIndicator(
-            key: const Key('cloze-prompt-speak'),
-            text: item.fullKo,
+        // Fable R1 스포일러 정정: 답 공개 전(picked == null)에는 완성 문장을
+        // 들을 수 있으면 안 된다 — 인디케이터가 곧 item.fullKo(정답이 채워진
+        // 문장) 재생 버튼이므로, 공개 상태에서만 렌더한다. 예약해 둔 상단
+        // 패딩(위 Padding.fromLTRB)은 인디케이터 유무와 무관하게 그대로 —
+        // 등장 시 레이아웃이 흔들리지 않는다.
+        if (picked != null)
+          Positioned(
+            top: Spacing.sm,
+            left: Spacing.sm,
+            child: SoriSpeechIndicator(
+              key: const Key('cloze-prompt-speak'),
+              text: item.fullKo,
+            ),
           ),
-        ),
       ],
     );
   }
