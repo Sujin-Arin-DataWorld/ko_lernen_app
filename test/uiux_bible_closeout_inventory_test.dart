@@ -107,8 +107,8 @@ void main() {
       }
     }
 
-    expect(seen, hasLength(112));
-    expect(documented, hasLength(112));
+    expect(seen, hasLength(109));
+    expect(documented, hasLength(109));
     expect(seen.difference(documented), isEmpty);
     expect(documented.difference(seen), isEmpty);
   });

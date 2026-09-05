@@ -3,9 +3,9 @@ import 'package:ko_lernen_app/models/ux_preview_catalog.dart';
 
 void main() {
   test('catalog contains every 01A-07D mockup exactly once', () {
+    // 01B (welcome-hero 온보딩 목업) 는 2026-09-04 PR3 에서 그 화면과 함께 격리되어 제외됨.
     const expected = <String>{
       '01A',
-      '01B',
       '01C',
       '01D',
       '02A',
@@ -36,7 +36,7 @@ void main() {
       '07D',
     };
 
-    expect(uxPreviewPanels, hasLength(30));
+    expect(uxPreviewPanels, hasLength(29));
     expect(uxPreviewPanels.map((panel) => panel.id).toSet(), expected);
   });
 
