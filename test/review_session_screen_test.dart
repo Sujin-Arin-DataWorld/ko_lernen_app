@@ -96,6 +96,13 @@ void main() {
     },
   );
 
+  testWidgets('review session opts into snap feed physics (지시서 1.7)', (
+    tester,
+  ) async {
+    await _pumpReview(tester);
+    expect(_feed(tester).physics, FeedPhysics.snap);
+  });
+
   testWidgets(
     'history exposes semantic navigation and oldest-card downward fling stays put',
     (tester) async {

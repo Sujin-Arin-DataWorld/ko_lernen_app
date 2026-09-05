@@ -647,6 +647,11 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                   },
                   child: SoriContentFeed(
                     key: _answerRowKey,
+                    // 1.7 잔여 — 복습 피드만 snap 물리로 옵트인한다. 전역
+                    // 기본값(legacy)은 다른 화면에 그대로 남는다
+                    // (feed_physics_candidates_test.dart 의 legacy 기본
+                    // 단언 참고).
+                    physics: FeedPhysics.snap,
                     judgmentsEnabled: browsingHistory || _cardRevealed,
                     onBlockedJudgment: browsingHistory
                         ? null
