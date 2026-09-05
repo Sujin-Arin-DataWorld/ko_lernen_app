@@ -8577,6 +8577,15 @@ class AppL10nEn extends AppL10n {
       'Every activity stays connected to your quests and Hanok.';
 
   @override
+  String get soriStageLearnSectionToday => 'Learn today';
+
+  @override
+  String get soriStageLearnSectionExplore => 'Explore & practice';
+
+  @override
+  String get soriStageLearnSectionReview => 'Review';
+
+  @override
   String get soriStageGamesTitle => 'Play with a clear purpose.';
 
   @override

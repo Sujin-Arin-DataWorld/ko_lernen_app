@@ -90,6 +90,7 @@ ActivityCatalogEntry _entry({
   Object? arguments,
   List<String> detailRouteAliases = const <String>[],
   ActivityUnlockCondition unlock = const ActivityUnlockCondition.unlocked(),
+  SoriLearnSection? learnSection,
 }) => ActivityCatalogEntry(
   id: id,
   tab: tab,
@@ -109,6 +110,7 @@ ActivityCatalogEntry _entry({
   ownsRoute: ownsRoute,
   detailRouteAliases: detailRouteAliases,
   unlock: unlock,
+  learnSection: learnSection,
 );
 
 /// One stable, testable inventory for every learner-facing Sori Stage entry.
@@ -127,6 +129,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.completion,
     icon: 'route',
     reward: _contract('course', _verifiedLearning, [_xp, _hanok, _quest]),
+    learnSection: SoriLearnSection.today,
   ),
   _entry(
     id: 'hangul',
@@ -140,6 +143,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.review,
     icon: 'hangul',
     reward: _contract('hangul', _finishSession, [_quest]),
+    learnSection: SoriLearnSection.explore,
   ),
   _entry(
     id: 'calligraphy',
@@ -153,6 +157,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.review,
     icon: 'brush',
     reward: _contract('calligraphy', _finishSession, [_quest]),
+    learnSection: SoriLearnSection.explore,
   ),
   _entry(
     id: 'pronunciation',
@@ -166,6 +171,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.speaking,
     icon: 'mic',
     reward: _contract('pronunciation', _verifiedLearning, [_quest]),
+    learnSection: SoriLearnSection.explore,
   ),
   _entry(
     id: 'vocab_packs',
@@ -180,6 +186,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.listening,
     icon: 'cards',
     reward: _contract('vocab_packs', _firstClear, [_xp, _stamp, _quest]),
+    learnSection: SoriLearnSection.today,
   ),
   _entry(
     id: 'srs',
@@ -194,6 +201,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.review,
     icon: 'repeat',
     reward: _contract('srs', _finishSession, [_xp, _quest]),
+    learnSection: SoriLearnSection.review,
   ),
   _entry(
     id: 'my_words',
@@ -213,19 +221,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.review,
     icon: 'bookshelf',
     reward: _contract('my_words', _finishSession, [_noDirectReward]),
-  ),
-  _entry(
-    id: 'word_web',
-    tab: SoriStageTab.learn,
-    de: 'Nuancen & Gegenteile',
-    en: 'Nuances & opposites',
-    descriptionDe: 'Synonyme, Gegenteile und Wendungen zu deinen Wörtern.',
-    descriptionEn: 'Synonyms, opposites and expressions for your words.',
-    route: '/word_web',
-    minutes: 6,
-    color: SoriActivityColorRole.review,
-    icon: 'hub',
-    reward: _contract('word_web', _finishSession, [_noDirectReward]),
+    learnSection: SoriLearnSection.review,
   ),
   _entry(
     id: 'grammar',
@@ -239,6 +235,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.completion,
     icon: 'grammar',
     reward: _contract('grammar', _finishSession, [_noDirectReward]),
+    learnSection: SoriLearnSection.today,
   ),
   _entry(
     id: 'listening',
@@ -252,6 +249,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.listening,
     icon: 'headphones',
     reward: _contract('listening', _finishSession, [_xp]),
+    learnSection: SoriLearnSection.explore,
   ),
   _entry(
     id: 'scenarios',
@@ -266,6 +264,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.speaking,
     icon: 'dialogue',
     reward: _contract('scenarios', _verifiedLearning, [_xp, _hanok, _quest]),
+    learnSection: SoriLearnSection.explore,
   ),
   _entry(
     id: 'smalltalk',
@@ -279,6 +278,21 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.speaking,
     icon: 'chat',
     reward: _contract('smalltalk', _finishSession, [_noDirectReward]),
+    learnSection: SoriLearnSection.explore,
+  ),
+  _entry(
+    id: 'word_web',
+    tab: SoriStageTab.learn,
+    de: 'Nuancen & Gegenteile',
+    en: 'Nuances & opposites',
+    descriptionDe: 'Synonyme, Gegenteile und Wendungen zu deinen Wörtern.',
+    descriptionEn: 'Synonyms, opposites and expressions for your words.',
+    route: '/word_web',
+    minutes: 6,
+    color: SoriActivityColorRole.review,
+    icon: 'hub',
+    reward: _contract('word_web', _finishSession, [_noDirectReward]),
+    learnSection: SoriLearnSection.explore,
   ),
   _entry(
     id: 'vocab_notebook',
@@ -298,6 +312,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
       '/vocab_notebook/nuance',
       '/vocab_notebook/studio',
     ],
+    learnSection: SoriLearnSection.review,
   ),
   _entry(
     id: 'daily_game',

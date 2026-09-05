@@ -14958,6 +14958,24 @@ abstract class AppL10n {
   /// **'Jede Aktivität bleibt mit deinen Quests und deiner Hanok verbunden.'**
   String get soriStageLearnBody;
 
+  /// No description provided for @soriStageLearnSectionToday.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute lernen'**
+  String get soriStageLearnSectionToday;
+
+  /// No description provided for @soriStageLearnSectionExplore.
+  ///
+  /// In de, this message translates to:
+  /// **'Entdecken & üben'**
+  String get soriStageLearnSectionExplore;
+
+  /// No description provided for @soriStageLearnSectionReview.
+  ///
+  /// In de, this message translates to:
+  /// **'Wiederholen'**
+  String get soriStageLearnSectionReview;
+
   /// No description provided for @soriStageGamesTitle.
   ///
   /// In de, this message translates to:
