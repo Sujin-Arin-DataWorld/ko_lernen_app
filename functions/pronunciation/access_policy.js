@@ -93,10 +93,13 @@ function resolveAccess({uid, environment, phase, now, grant, entitlement, accoun
     environment,
     revision,
     source,
-    contentAccess: premium || phase === "free_launch" ? "all" : "a1",
-    aiPolicyId: premium ? "premium_v1" : "free_v1",
-    bookDailyLimit: premium ? 20 : 3,
-    pronunciationDailyLimit: premium ? 50 : 5,
+    // Subscription sales are disabled. Every authenticated learner receives
+    // the former highest access tier; authority data is retained only for
+    // migration and account-cleanup compatibility.
+    contentAccess: "all",
+    aiPolicyId: "premium_v1",
+    bookDailyLimit: 20,
+    pronunciationDailyLimit: 50,
     serverNow: now,
     accessUntil,
     offlineUntil,

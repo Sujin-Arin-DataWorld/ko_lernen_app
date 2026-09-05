@@ -97,72 +97,6 @@ abstract class AppL10n {
     Locale('en'),
   ];
 
-  /// No description provided for @paywallSignInToContinue.
-  ///
-  /// In de, this message translates to:
-  /// **'Konto verbinden'**
-  String get paywallSignInToContinue;
-
-  /// No description provided for @paywallSignInRequired.
-  ///
-  /// In de, this message translates to:
-  /// **'Verbinde zuerst dein Google- oder Apple-Konto. Käufe bleiben an dieses Konto gebunden.'**
-  String get paywallSignInRequired;
-
-  /// No description provided for @paywallPending.
-  ///
-  /// In de, this message translates to:
-  /// **'Die Bestätigung steht noch aus. Dein Zugang wird nach der Serverprüfung aktualisiert.'**
-  String get paywallPending;
-
-  /// No description provided for @paywallCancelled.
-  ///
-  /// In de, this message translates to:
-  /// **'Kauf abgebrochen. Es wurde kein Zugang freigeschaltet.'**
-  String get paywallCancelled;
-
-  /// No description provided for @paywallActive.
-  ///
-  /// In de, this message translates to:
-  /// **'Premium ist bereits aktiv'**
-  String get paywallActive;
-
-  /// No description provided for @paywallTesterActive.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein freigegebener Tester-Zugang ist aktiv'**
-  String get paywallTesterActive;
-
-  /// No description provided for @paywallManage.
-  ///
-  /// In de, this message translates to:
-  /// **'Abo im ursprünglichen Store verwalten'**
-  String get paywallManage;
-
-  /// No description provided for @paywallManageUnavailable.
-  ///
-  /// In de, this message translates to:
-  /// **'Öffne die Aboverwaltung in dem Store, in dem du das Abo abgeschlossen hast.'**
-  String get paywallManageUnavailable;
-
-  /// No description provided for @paywallFreeLaunch.
-  ///
-  /// In de, this message translates to:
-  /// **'Alle Lerninhalte sind zum kostenlosen Start offen. Ein Abo ist derzeit nicht verfügbar.'**
-  String get paywallFreeLaunch;
-
-  /// No description provided for @paywallAiLimits.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein aktuelles Kontingent: {book} Buchanalysen und {pronunciation} Ausspracheprüfungen pro UTC-Tag.'**
-  String paywallAiLimits(int book, int pronunciation);
-
-  /// No description provided for @paywallNextReset.
-  ///
-  /// In de, this message translates to:
-  /// **'Nächster Reset: {time} UTC'**
-  String paywallNextReset(String time);
-
   /// No description provided for @accountAdditionalProviderTitle.
   ///
   /// In de, this message translates to:
@@ -192,120 +126,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Apple-Anmeldung ist in dieser App-Version noch nicht eingerichtet. Verwende vorerst deine bisherige Anmeldemethode oder kontaktiere den Support.'**
   String get accountAppleConfigurationBody;
-
-  /// No description provided for @paywallTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Hangul Sori Premium'**
-  String get paywallTitle;
-
-  /// No description provided for @paywallSubtitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Koreanisch lernen, wann du willst.'**
-  String get paywallSubtitle;
-
-  /// No description provided for @paywallBenefit1.
-  ///
-  /// In de, this message translates to:
-  /// **'Alle Vokabel-Pakete (A2 bis C2)'**
-  String get paywallBenefit1;
-
-  /// No description provided for @paywallBenefit2.
-  ///
-  /// In de, this message translates to:
-  /// **'Alle Gesprächs-Szenarien'**
-  String get paywallBenefit2;
-
-  /// No description provided for @paywallBenefit3.
-  ///
-  /// In de, this message translates to:
-  /// **'Unbegrenzte Wiederholungen'**
-  String get paywallBenefit3;
-
-  /// No description provided for @paywallBenefit4.
-  ///
-  /// In de, this message translates to:
-  /// **'50 Ausspracheprüfungen pro UTC-Tag'**
-  String get paywallBenefit4;
-
-  /// No description provided for @paywallBenefit5.
-  ///
-  /// In de, this message translates to:
-  /// **'20 Buchanalysen pro UTC-Tag'**
-  String get paywallBenefit5;
-
-  /// No description provided for @paywallPricePerMonth.
-  ///
-  /// In de, this message translates to:
-  /// **'/ Monat'**
-  String get paywallPricePerMonth;
-
-  /// No description provided for @paywallEyebrow.
-  ///
-  /// In de, this message translates to:
-  /// **'Premium'**
-  String get paywallEyebrow;
-
-  /// No description provided for @paywallCtaStart.
-  ///
-  /// In de, this message translates to:
-  /// **'Premium freischalten'**
-  String get paywallCtaStart;
-
-  /// No description provided for @paywallCtaRestore.
-  ///
-  /// In de, this message translates to:
-  /// **'Käufe wiederherstellen'**
-  String get paywallCtaRestore;
-
-  /// No description provided for @paywallClose.
-  ///
-  /// In de, this message translates to:
-  /// **'Vielleicht später'**
-  String get paywallClose;
-
-  /// No description provided for @paywallLegal.
-  ///
-  /// In de, this message translates to:
-  /// **'Jederzeit kündbar. Das Abo verlängert sich automatisch, bis du kündigst.'**
-  String get paywallLegal;
-
-  /// No description provided for @paywallNotAvailable.
-  ///
-  /// In de, this message translates to:
-  /// **'Abos sind in dieser Version noch nicht verfügbar.'**
-  String get paywallNotAvailable;
-
-  /// No description provided for @paywallProcessing.
-  ///
-  /// In de, this message translates to:
-  /// **'Einen Moment …'**
-  String get paywallProcessing;
-
-  /// No description provided for @paywallSuccess.
-  ///
-  /// In de, this message translates to:
-  /// **'Premium ist aktiv. Viel Spaß!'**
-  String get paywallSuccess;
-
-  /// No description provided for @paywallFailed.
-  ///
-  /// In de, this message translates to:
-  /// **'Kauf nicht abgeschlossen.'**
-  String get paywallFailed;
-
-  /// No description provided for @paywallRestoreNone.
-  ///
-  /// In de, this message translates to:
-  /// **'Keine früheren Käufe gefunden.'**
-  String get paywallRestoreNone;
-
-  /// No description provided for @paywallRestoreFailed.
-  ///
-  /// In de, this message translates to:
-  /// **'Käufe konnten nicht wiederhergestellt werden. Versuche es erneut.'**
-  String get paywallRestoreFailed;
 
   /// No description provided for @streakDisplay.
   ///
@@ -2143,12 +1963,6 @@ abstract class AppL10n {
   /// **'gesperrt'**
   String get packStateLocked;
 
-  /// No description provided for @packStatePremium.
-  ///
-  /// In de, this message translates to:
-  /// **'Premium'**
-  String get packStatePremium;
-
   /// No description provided for @packStateCleared.
   ///
   /// In de, this message translates to:
@@ -3763,12 +3577,6 @@ abstract class AppL10n {
   /// **'Tippen zum Umdrehen'**
   String get vocabPackLearnHint;
 
-  /// Learn stage counter suffix for re-served (missed) cards
-  ///
-  /// In de, this message translates to:
-  /// **' · +{n, plural, one{1 Wdh.} other{{n} Wdh.}}'**
-  String vocabPackLearnRepeatSuffix(int n);
-
   /// No description provided for @vocabPackDontKnow.
   ///
   /// In de, this message translates to:
@@ -4284,24 +4092,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Dadurch werden dein Firebase-Konto, deine Google- und Apple-Verknüpfungen, das Firestore-Cloud-Backup und lokale Lerndaten auf diesem Gerät gelöscht. Das lässt sich nicht rückgängig machen. Google oder Apple bitten dich zur Bestätigung eventuell um eine erneute Anmeldung.'**
   String get settingsAccountDeleteConfirmBody;
-
-  /// No description provided for @settingsAccountDeleteSubscriptionWarning.
-  ///
-  /// In de, this message translates to:
-  /// **'Ein App-Store- oder Play-Store-Abo wird dadurch nicht gekündigt.'**
-  String get settingsAccountDeleteSubscriptionWarning;
-
-  /// No description provided for @settingsManageSubscription.
-  ///
-  /// In de, this message translates to:
-  /// **'Store-Abo verwalten'**
-  String get settingsManageSubscription;
-
-  /// No description provided for @settingsManageSubscriptionFailed.
-  ///
-  /// In de, this message translates to:
-  /// **'Die Aboverwaltung konnte nicht geöffnet werden.'**
-  String get settingsManageSubscriptionFailed;
 
   /// No description provided for @settingsAccountDeleteSuccess.
   ///

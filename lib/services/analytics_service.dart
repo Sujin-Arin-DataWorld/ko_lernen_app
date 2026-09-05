@@ -945,27 +945,6 @@ class Analytics {
     );
   }
 
-  // ── Monetization hooks (wire now, activate when subscriptions launch) ────
-  /// A paywall was shown. [placement]: onboarding/pack_lock/streak_freeze/…
-  static Future<void> paywallViewed({required String placement}) {
-    return logEvent('paywall_viewed', parameters: {'placement': placement});
-  }
-
-  /// The user initiated a purchase (tapped buy). Revenue is recorded
-  /// server-side by RevenueCat as `purchase` — never put revenue here.
-  static Future<void> subscribeStarted({
-    required String productId,
-    String? placement,
-  }) {
-    return logEvent(
-      'subscribe_started',
-      parameters: {
-        'product_id': productId,
-        if (placement != null) 'placement': placement,
-      },
-    );
-  }
-
   // ── Drop-off funnel (onboarding step / abandon / hanok loop) ────────────
   /// A single onboarding screen was reached. Complements `onboarding_start`/
   /// `onboarding_completed` with per-screen granularity so drop-off between

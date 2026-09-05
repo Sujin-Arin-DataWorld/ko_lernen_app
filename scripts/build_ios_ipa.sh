@@ -3,15 +3,11 @@
 #
 # 사용:
 #   export APPLE_TEAM_ID=ABCDE12345      # developer.apple.com → Membership details
-#   # 초기 완전 무료 출시:
-#   FREE_LAUNCH=1 bash scripts/build_ios_ipa.sh
-#
-#   # 내부테스터(TestFlight) — Android 내부테스트와 같은 계약:
-#   TESTER_BUILD=1 bash scripts/build_ios_ipa.sh
-#
-#   # 구독 출시:
-#   export RC_IOS_KEY=appl_xxxxxxxx      # RevenueCat 공개 Apple SDK 키
+#   # 무료 공개 출시:
 #   bash scripts/build_ios_ipa.sh
+#
+#   # 내부테스터(TestFlight) — 무료 전체 접근 + 피드백 도구:
+#   TESTER_BUILD=1 bash scripts/build_ios_ipa.sh
 #
 # 결과:  build/ios/ipa/*.ipa  (App Store Connect 에 올릴 그 파일)
 # 절차 전체(계정 등록~업로드~심사)는 docs/store/APPSTORE_UPLOAD_KO.md 참조.
@@ -21,8 +17,6 @@
 # teamID 는 커밋본을 고치지 않고 임시 복사본에만 주입한다.
 #
 # 옵션 환경변수:
-#   FREE_LAUNCH=1        모든 학습 접근을 열고 RevenueCat을 초기화하지 않는
-#                        초기 무료 출시 모드. RC_IOS_KEY 불필요.
 #   SKIP_POD_INSTALL=1   pod install 생략 (직전 빌드에서 Pods 그대로 재사용)
 #   SKIP_PUB_GET=1       flutter pub get 생략 (직전에 성공했고 lockfile을 재사용)
 #   SKIP_VERIFY=1        dart 검증 게이트 생략 (권장하지 않음 — 디버깅용)
@@ -72,38 +66,17 @@ xcrun --find xcodebuild >/dev/null 2>&1 ||
   die "APPLE_TEAM_ID 는 10자여야 한다 (지금 ${#APPLE_TEAM_ID}자)."
 ok "APPLE_TEAM_ID (10자)"
 
-# 내부테스터 빌드 — Android 내부테스트(.github/workflows/ci.yml 의
-# release-internal)와 **같은 dart-define 계약**을 쓴다. 이게 없으면 iOS 만
-# FREE_LAUNCH 로 굽게 되는데, 그건 프로덕션 무료 출시 모드라 RevenueCat 을
-# 아예 초기화하지 않는다 — 두 플랫폼 테스터가 서로 다른 코드 경로를 밟는다.
-# BETA_UNLOCK_ALL 은 테스터 오버라이드라 결제 게이팅 코드는 그대로 돈다.
+# 구독·결제는 제거되었고 모든 빌드가 같은 무료 전체 접근 정책을 쓴다.
+# TESTER_BUILD 는 접근권한이 아니라 피드백 도구만 추가한다.
 tester_build="${TESTER_BUILD:-0}"
+release_defines=()
 if [ "$tester_build" = "1" ]; then
-  [ "${FREE_LAUNCH:-0}" = "0" ] ||
-    die "TESTER_BUILD 와 FREE_LAUNCH 는 같이 못 쓴다 — 전자는 테스터 오버라이드, 후자는 프로덕션 무료 출시 모드다."
   release_defines=(
-    --dart-define=BETA_UNLOCK_ALL=true
     --dart-define=ENABLE_TESTER_FEEDBACK=true
   )
-  ok "TESTER_BUILD=1 (내부테스터 · Android release-internal 과 동일 계약)"
+  ok "TESTER_BUILD=1 (무료 전체 접근 · 내부테스터 피드백 활성화)"
 else
-
-free_launch="${FREE_LAUNCH:-0}"
-case "$free_launch" in
-1)
-  release_defines=(--dart-define=FREE_LAUNCH=true)
-  ok "FREE_LAUNCH=1 (초기 무료 출시 · 모든 학습 접근 열림 · RevenueCat 미초기화)"
-  ;;
-0)
-  : "${RC_IOS_KEY:?RC_IOS_KEY 미설정 — 초기 무료 출시는 FREE_LAUNCH=1, 구독 출시는 RevenueCat Project Settings → API keys 의 공개 Apple SDK 키를 설정}"
-  case "$RC_IOS_KEY" in
-  appl_*) ok "RC_IOS_KEY (appl_ 접두사)" ;;
-  *) die "RC_IOS_KEY 가 Apple 공개 SDK 키가 아니다 (appl_ 로 시작해야 함). secret 키를 앱에 넣지 말 것." ;;
-  esac
-  release_defines=(--dart-define=FREE_LAUNCH=false "--dart-define=RC_IOS_KEY=$RC_IOS_KEY")
-  ;;
-*) die "FREE_LAUNCH 는 0 또는 1만 가능하다 (초기 무료 출시는 FREE_LAUNCH=1)." ;;
-esac
+  ok "무료 전체 접근 공개 빌드"
 fi
 
 [ -s ios/Runner/GoogleService-Info.plist ] ||

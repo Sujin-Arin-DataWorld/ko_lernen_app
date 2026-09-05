@@ -10,7 +10,6 @@ import '../services/course_mission_navigation.dart';
 import '../models/pack_progress.dart';
 import '../models/vocab_pack.dart';
 import '../services/pack_progress_service.dart';
-import '../services/premium_service.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/storage_service.dart';
 import '../services/vocab_pack_service.dart';
@@ -72,21 +71,7 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
     // and the sequential course mission.
     final code = Storage.browseLevelCode ?? Storage.placementLevelCode;
     _level = _normalizeLevel(code);
-    // §H 프리미엄 티저: 구매/복원 직후 골드 왕관 칩이 즉시 사라지게.
-    premiumNotifier.addListener(_onPremiumChanged);
     _load();
-  }
-
-  void _onPremiumChanged() {
-    if (mounted) {
-      setState(() {});
-    }
-  }
-
-  @override
-  void dispose() {
-    premiumNotifier.removeListener(_onPremiumChanged);
-    super.dispose();
   }
 
   String _normalizeLevel(String? code) {
@@ -207,15 +192,6 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
   }
 
   void _onPackTap(VocabPack pack) {
-    // Premium-Gate: A1 ist kostenlos, A2/B1/B2 erfordern ein Abo.
-    // Freie Nutzer dürfen alle Level durchstöbern (Verkaufsfläche); erst das
-    // Lernen eines A2/B1/B2-Packs öffnet die Paywall.
-    if (_level != 'A1' && !PremiumService.hasContentAccess) {
-      PremiumService.gate(context).then((ok) {
-        if (ok && mounted) _openPack(pack);
-      });
-      return;
-    }
     _openPack(pack);
   }
 
@@ -434,10 +410,6 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
                                   lang: languageCode,
                                 ),
                                 progress: e.progress,
-                                // §H 티저: A2+ 비프리미엄이면 카드에서 미리 알린다
-                                // — 탭은 기존 _onPackTap 의 게이트가 그대로 받는다.
-                                premium:
-                                    _level != 'A1' && !PremiumService.hasContentAccess,
                                 onTap: () => _onPackTap(e.pack),
                                 onLockedTap: () => _onLockedTap(e.pack),
                               );

@@ -11,9 +11,6 @@ enum SoriIllustratedCardState {
   /// 잠김 — 일러스트 딤 + 우상단 자물쇠 칩.
   locked,
 
-  /// 프리미엄 티저 — 우상단 골드 왕관 칩 (탭하면 페이월로 보내는 용도).
-  premium,
-
   /// 클리어 — [overlay] (예: 단청 도장)를 우상단에 얹는다.
   cleared,
 }
@@ -171,12 +168,6 @@ class SoriIllustratedCard extends StatelessWidget {
               right: Spacing.sm,
               child: _LockChip(),
             ),
-          if (state == SoriIllustratedCardState.premium)
-            const Positioned(
-              top: Spacing.sm,
-              right: Spacing.sm,
-              child: _PremiumChip(),
-            ),
           if (state == SoriIllustratedCardState.cleared && overlay != null)
             Positioned(top: -4, right: -4, child: overlay!),
         ],
@@ -241,26 +232,6 @@ class _LockChip extends StatelessWidget {
         border: Border.all(color: s.border),
       ),
       child: Icon(Icons.lock_rounded, size: 14, color: s.textMuted),
-    );
-  }
-}
-
-class _PremiumChip extends StatelessWidget {
-  const _PremiumChip();
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      decoration: const BoxDecoration(
-        color: SoriColors.gold,
-        borderRadius: SoriRadius.brPill,
-      ),
-      child: Icon(
-        Icons.workspace_premium_rounded,
-        size: 14,
-        color: SoriColors.onGoldFill,
-      ),
     );
   }
 }

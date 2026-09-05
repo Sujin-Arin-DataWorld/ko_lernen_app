@@ -56,28 +56,28 @@ test("both premium authorities require matching server Auth creation generation"
       accountCreatedAt: created}).bookDailyLimit, 20);
     for (const stored of [undefined, null, created - 1, "invalid"]) {
       assert.equal(access({[field]: {...document, accountCreatedAt: stored},
-        accountCreatedAt: created}).bookDailyLimit, 3);
+        accountCreatedAt: created}).bookDailyLimit, 20);
     }
     for (const current of [undefined, null, created + 1, NOW + 1]) {
       assert.equal(access({[field]: {...document, accountCreatedAt: created},
-        accountCreatedAt: current}).bookDailyLimit, 3);
+        accountCreatedAt: current}).bookDailyLimit, 20);
     }
   }
 });
 
-test("free launch opens content without promoting ordinary AI allowance", () => {
+test("free launch opens content with the highest service allowance", () => {
   const actual = access();
   assert.equal(actual.contentAccess, "all");
   assert.equal(actual.source, "free_launch");
-  assert.equal(actual.bookDailyLimit, 3);
-  assert.equal(actual.pronunciationDailyLimit, 5);
+  assert.equal(actual.bookDailyLimit, 20);
+  assert.equal(actual.pronunciationDailyLimit, 50);
   assert.equal(actual.nextResetAt, Date.parse("2026-09-04T00:00:00Z"));
 });
 
-test("paid-phase free users only have A1 and ordinary AI", () => {
+test("paid-phase configuration cannot reintroduce a subscription gate", () => {
   assert.deepEqual([access({phase: "paid"}).contentAccess,
     access({phase: "paid"}).bookDailyLimit,
-    access({phase: "paid"}).pronunciationDailyLimit], ["a1", 3, 5]);
+    access({phase: "paid"}).pronunciationDailyLimit], ["all", 20, 50]);
 });
 
 test("approved lifetime grant overrides phase and bounded subscription expiry", () => {
@@ -103,7 +103,7 @@ test("feedback passports, beta flags and malformed or foreign grants confer noth
     const actual = access({phase: "paid", grant: candidate,
       betaUnlockAll: true, premium: true});
     assert.equal(actual.source, "free");
-    assert.equal(actual.bookDailyLimit, 3);
+    assert.equal(actual.bookDailyLimit, 20);
   }
 });
 

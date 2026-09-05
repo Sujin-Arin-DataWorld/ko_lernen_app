@@ -74,9 +74,8 @@ versionCode를 확인하기 전에는 버전이나 출시일을 추측해 쓰지
 - 선택형 타이핑 회상은 연습이다. 팩 clear, 다음 팩 unlock, XP, stamp, 코스 진행을
   막거나 바꾸지 않는다.
 - 70% Boss clear, 영구 clear, 다음 팩 unlock, XP, stamp의 기존 동작을 유지한다.
-- BETA_UNLOCK_ALL=true는 **내부 테스트 전용** premium entitlement override다.
-  Closed Testing 후보에는 주입하지 않는다. 저장된 pack progress, 70% clear,
-  다음 팩 잠금 해제는 어느 빌드에서도 우회하지 않는다.
+- 모든 후보는 별도 premium 플래그 없이 전체 콘텐츠에 접근한다. 저장된 pack progress,
+  70% clear, 다음 팩 잠금 해제 같은 학습 순서는 어느 빌드에서도 우회하지 않는다.
 - ENABLE_TESTER_FEEDBACK=true는 Android의 구조화된 tester feedback만 켠다. 학습
   흐름의 조건이나 새 telemetry가 아니다.
 
@@ -146,7 +145,7 @@ flutter test --concurrency=1 \
   test/learning_data_recovery_test.dart \
   test/data_migration_test.dart \
   test/arb_l10n_guard_test.dart
-flutter test --dart-define=BETA_UNLOCK_ALL=true test/pack_progress_service_test.dart
+flutter test test/pack_progress_service_test.dart
 flutter analyze
 flutter test
 git diff --exit-code

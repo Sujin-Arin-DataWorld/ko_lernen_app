@@ -1,57 +1,10 @@
 {
   "@@locale": "en",
-  "paywallSignInToContinue": "Connect account",
-  "paywallSignInRequired": "Connect your Google or Apple account first. Purchases stay linked to this account.",
-  "paywallPending": "Confirmation is pending. Access updates after server verification.",
-  "paywallCancelled": "Purchase cancelled. No access was unlocked.",
-  "paywallActive": "Premium is already active",
-  "paywallTesterActive": "Your approved tester access is active",
-  "paywallManage": "Manage subscription in its original store",
-  "paywallManageUnavailable": "Open subscription management in the store where you subscribed.",
-  "paywallFreeLaunch": "All learning content is open for the free launch. Subscriptions are not available yet.",
-  "paywallAiLimits": "Your current allowance: {book} book analyses and {pronunciation} pronunciation checks per UTC day.",
-  "paywallNextReset": "Next reset: {time} UTC",
-  "@paywallAiLimits": {
-    "placeholders": {
-      "book": {
-        "type": "int"
-      },
-      "pronunciation": {
-        "type": "int"
-      }
-    }
-  },
-  "@paywallNextReset": {
-    "placeholders": {
-      "time": {
-        "type": "String"
-      }
-    }
-  },
   "accountAdditionalProviderTitle": "Connect another sign-in method",
   "accountAdditionalProviderConsent": "First, verify your current account. Then Google or Apple will be connected to that same account. If Apple hides your email address, you also consent to associating your Apple identity with this account’s data. Your learning progress stays here.",
   "accountProviderCollisionTitle": "Already connected to another account",
   "accountProviderCollisionBody": "This sign-in method belongs to another account. Your current account and learning progress have not been replaced. Use a different sign-in method.",
   "accountAppleConfigurationBody": "Apple sign-in has not been configured in this app version yet. Use your current sign-in method for now or contact support.",
-  "paywallTitle": "Hangul Sori Premium",
-  "paywallSubtitle": "Learn Korean whenever you want.",
-  "paywallBenefit1": "All vocabulary packs (A2 through C2)",
-  "paywallBenefit2": "All conversation scenarios",
-  "paywallBenefit3": "Unlimited reviews",
-  "paywallBenefit4": "50 pronunciation checks per UTC day",
-  "paywallBenefit5": "20 book analyses per UTC day",
-  "paywallPricePerMonth": "/ month",
-  "paywallEyebrow": "Premium",
-  "paywallCtaStart": "Unlock Premium",
-  "paywallCtaRestore": "Restore purchases",
-  "paywallClose": "Maybe later",
-  "paywallLegal": "Cancel anytime. The subscription renews automatically until you cancel.",
-  "paywallNotAvailable": "Subscriptions aren't available in this build yet.",
-  "paywallProcessing": "One moment…",
-  "paywallSuccess": "Premium is active. Enjoy!",
-  "paywallFailed": "Purchase not completed.",
-  "paywallRestoreNone": "No previous purchases found.",
-  "paywallRestoreFailed": "Purchases could not be restored. Try again.",
   "streakDisplay": "{days, plural, one{1 day} other{{days} days}}",
   "@streakDisplay": {
     "placeholders": {
@@ -585,7 +538,6 @@
   },
   "customPackCsvHint": "안녕하세요, hello\\n사과, apple",
   "packStateLocked": "locked",
-  "packStatePremium": "Premium",
   "packStateCleared": "cleared",
   "packStateAvailable": "available",
   "packSemantics": "Pack {title}, {state}, {learned} of {total} learned",
@@ -1121,15 +1073,6 @@
   "vocabPackPlayTitle": "Pack practice",
   "vocabPackFinishSaveError": "Your progress could not be saved. Please try again.",
   "vocabPackLearnHint": "Tap to flip",
-  "vocabPackLearnRepeatSuffix": " · +{n, plural, one{1 repeat} other{{n} repeats}}",
-  "@vocabPackLearnRepeatSuffix": {
-    "description": "Learn stage counter suffix for re-served (missed) cards",
-    "placeholders": {
-      "n": {
-        "type": "int"
-      }
-    }
-  },
   "vocabPackDontKnow": "Don't know",
   "vocabPackGotIt": "Got it",
   "deckActionSave": "Save",
@@ -1261,9 +1204,6 @@
   "settingsAccountDeleteDesc": "Deletes your Firebase account, cloud backup, and local progress.",
   "settingsAccountDeleteConfirmTitle": "Delete account permanently?",
   "settingsAccountDeleteConfirmBody": "This deletes your Firebase account, Google and Apple links, Firestore cloud backup, and local learning data on this device. This cannot be undone. Google or Apple may ask you to sign in again to confirm.",
-  "settingsAccountDeleteSubscriptionWarning": "This does not cancel an App Store or Play Store subscription.",
-  "settingsManageSubscription": "Manage store subscription",
-  "settingsManageSubscriptionFailed": "Subscription management could not be opened.",
   "settingsAccountDeleteSuccess": "Account and data deleted",
   "settingsAccountDeleteFailed": "Deletion failed: {error}",
   "@settingsAccountDeleteFailed": {

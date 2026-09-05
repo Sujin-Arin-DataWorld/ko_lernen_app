@@ -82,7 +82,6 @@ flutter build appbundle --release --obfuscate \
   --dart-define=GIT_COMMIT="$release_sha"
 ```
 
-Closed Testing 후보에는 내부 테스터 전용 premium entitlement override인
-BETA_UNLOCK_ALL을 주입하지 않는다. 저장된 팩 진행도, 70% clear, 다음 팩 잠금 해제도
-우회하지 않는다. 전체 후보 절차와 14일 종료 기준은
+모든 빌드는 결제·구독 플래그 없이 전체 학습 콘텐츠를 연다. 저장된 팩 진행도,
+70% clear, 다음 팩 잠금 해제 같은 학습 순서는 그대로 유지한다. 전체 후보 절차와 14일 종료 기준은
 docs/store/closed-testing-checklist-v2.md를 따른다.

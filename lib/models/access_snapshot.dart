@@ -72,12 +72,10 @@ class AccessSnapshot {
       invalid();
     }
 
-    final premium =
-        source == 'subscription' || source == 'closed_tester_lifetime';
-    if (policy != (premium ? 'premium_v1' : 'free_v1') ||
-        book != (premium ? 20 : 3) ||
-        pronunciation != (premium ? 50 : 5) ||
-        content != (source == 'free' ? 'a1' : 'all') ||
+    if (policy != 'premium_v1' ||
+        book != 20 ||
+        pronunciation != 50 ||
+        content != 'all' ||
         offlineUntil < serverNow) {
       invalid();
     }

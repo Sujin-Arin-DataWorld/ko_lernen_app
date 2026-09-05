@@ -66,11 +66,11 @@ test("free guest identity receives server policy, not an RC entitlement", async 
   const result = await f.runtime.getAccessSnapshot(f.request);
   assert.equal(result.ownerUid, uid);
   assert.equal(result.source, "free_launch");
-  assert.equal(result.bookDailyLimit, 3);
+  assert.equal(result.bookDailyLimit, 20);
   assert.equal(f.authCalls(), 1);
 });
 
-test("only approved server grant grants tester premium", async () => {
+test("retired tester grants no longer change open access", async () => {
   const f = fixture({[`premium_grants/${uid}`]: {
     accountCreatedAt: 0,
     schemaVersion: 1, ownerUid: uid, environment: "PRODUCTION", revision: 1,
@@ -78,7 +78,7 @@ test("only approved server grant grants tester premium", async () => {
     approvedAt: NOW - 1, approvedBy: "Jin", approvalRef: "approved-001",
   }});
   const result = await f.runtime.getAccessSnapshot(f.request);
-  assert.equal(result.source, "closed_tester_lifetime");
+  assert.equal(result.source, "free_launch");
   assert.equal(result.pronunciationDailyLimit, 50);
 });
 
@@ -96,9 +96,9 @@ test("manually recreated same UID cannot reuse existing subscription or tester g
     f.auth.getUser = async () => ({uid, metadata: {creationTime: new Date(created).toISOString()}});
     assert.equal((await f.runtime.getAccessSnapshot(f.request)).bookDailyLimit, 20);
     f.auth.getUser = async () => ({uid, metadata: {creationTime: new Date(created + 1000).toISOString()}});
-    assert.equal((await f.runtime.getAccessSnapshot(f.request)).bookDailyLimit, 3);
+    assert.equal((await f.runtime.getAccessSnapshot(f.request)).bookDailyLimit, 20);
     delete authority.accountCreatedAt;
-    assert.equal((await f.runtime.getAccessSnapshot(f.request)).bookDailyLimit, 3);
+    assert.equal((await f.runtime.getAccessSnapshot(f.request)).bookDailyLimit, 20);
   }
 });
 
@@ -110,7 +110,7 @@ test("environment-specific snapshot lookup cannot consume sandbox state", async 
       status: "active", accessUntil: NOW + 100_000, providerCheckedAt: NOW,
     },
   });
-  assert.equal((await f.runtime.getAccessSnapshot(f.request)).bookDailyLimit, 3);
+  assert.equal((await f.runtime.getAccessSnapshot(f.request)).bookDailyLimit, 20);
 });
 
 test("deleted, disabled, missing or mismatched identities get no access snapshot", async () => {
@@ -137,17 +137,14 @@ test("concurrent access polling is bounded atomically", async () => {
     r.reason.code === "resource-exhausted").length, 5);
 });
 
-test("access and billing registration retain attestation and least-privilege secrets", () => {
+test("access remains registered and retired billing handlers are absent", () => {
   const deployed = require("./index");
   assert.equal(typeof deployed.getAccessSnapshot, "function");
   assert.equal(typeof deployed.appleOAuthCallback, "function");
-  assert.equal(typeof deployed.revenueCatWebhook, "function");
-  assert.equal(typeof deployed.processRevenueCatEvent, "function");
-  assert.equal(typeof deployed.refreshRevenueCatAccess, "function");
+  assert.equal(deployed.revenueCatWebhook, undefined);
+  assert.equal(deployed.processRevenueCatEvent, undefined);
+  assert.equal(deployed.refreshRevenueCatAccess, undefined);
   const secrets = (fn) => (fn.__endpoint.secretEnvironmentVariables || []).map((v) => v.key).sort();
   assert.deepEqual(secrets(deployed.getAccessSnapshot), []);
   assert.deepEqual(secrets(deployed.appleOAuthCallback), []);
-  assert.deepEqual(secrets(deployed.revenueCatWebhook), ["RC_WEBHOOK_AUTHORIZATION", "RC_WEBHOOK_SIGNING_SECRET"]);
-  assert.deepEqual(secrets(deployed.processRevenueCatEvent), ["RC_SERVER_API_KEY"]);
-  assert.deepEqual(secrets(deployed.refreshRevenueCatAccess), ["RC_SERVER_API_KEY"]);
 });

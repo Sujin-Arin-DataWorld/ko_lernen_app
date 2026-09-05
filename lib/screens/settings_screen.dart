@@ -4,7 +4,6 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../widgets/sori/button.dart';
 import '../widgets/sori/dialog.dart';
@@ -27,7 +26,6 @@ import '../services/privacy_consent_service.dart';
 import '../services/word_image_service.dart';
 import '../widgets/sori/sheet.dart';
 import '../services/personalized_lesson_service.dart';
-import '../services/premium_service.dart';
 import '../services/tts_service.dart';
 import '../services/locale_service.dart';
 import '../services/data_loader.dart';
@@ -269,54 +267,6 @@ class AccountDeletionWorkflow {
   }
 }
 
-Uri? subscriptionManagementUri(TargetPlatform platform, {bool isWeb = false}) {
-  if (isWeb) {
-    return null;
-  }
-  if (platform == TargetPlatform.iOS || platform == TargetPlatform.macOS) {
-    return Uri.parse('https://apps.apple.com/account/subscriptions');
-  }
-  if (platform == TargetPlatform.android) {
-    return Uri.parse('https://play.google.com/store/account/subscriptions');
-  }
-  return null;
-}
-
-class SubscriptionManagementException implements Exception {
-  const SubscriptionManagementException(this.message);
-
-  final String message;
-
-  @override
-  String toString() => message;
-}
-
-class SubscriptionManagementLauncher {
-  const SubscriptionManagementLauncher({
-    required this.platform,
-    required this.isWeb,
-    required this.launchExternal,
-  });
-
-  final TargetPlatform platform;
-  final bool isWeb;
-  final Future<bool> Function(Uri uri) launchExternal;
-
-  Future<void> open() async {
-    final uri = subscriptionManagementUri(platform, isWeb: isWeb);
-    if (uri == null) {
-      throw const SubscriptionManagementException(
-        'Subscription management is unavailable on this platform.',
-      );
-    }
-    if (!await launchExternal(uri)) {
-      throw const SubscriptionManagementException(
-        'The subscription management route could not open.',
-      );
-    }
-  }
-}
-
 enum SettingsInitialFocus {
   courseStart,
   browseLevel,
@@ -385,7 +335,6 @@ class SettingsScreen extends StatefulWidget {
     super.key,
     this.account,
     this.accountDeletionWorkflow,
-    this.subscriptionManager,
     this.accountOperations,
     this.cloudDataDeletion,
     this.cloudDataDeletionJournalState,
@@ -397,7 +346,6 @@ class SettingsScreen extends StatefulWidget {
 
   final AuthAccountSnapshot? account;
   final AccountDeletionWorkflow? accountDeletionWorkflow;
-  final SubscriptionManagementLauncher? subscriptionManager;
   final AccountUiOperations? accountOperations;
   final Future<CloudWriteResult> Function()? cloudDataDeletion;
   final ValueListenable<CloudBackupDeletionJournalState>?
@@ -450,15 +398,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
   get _cloudDataDeletionJournalState =>
       widget.cloudDataDeletionJournalState ??
       AuthService.cloudBackupDeletionJournalState;
-
-  SubscriptionManagementLauncher get _subscriptionManager =>
-      widget.subscriptionManager ??
-      SubscriptionManagementLauncher(
-        platform: defaultTargetPlatform,
-        isWeb: kIsWeb,
-        launchExternal: (uri) =>
-            launchUrl(uri, mode: LaunchMode.externalApplication),
-      );
 
   NotificationSettingsOperations get _notificationOperations =>
       widget.notificationOperations ??
@@ -1294,30 +1233,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
         ),
 
-        // ── DEBUG: Premium-Override (nur im Debug-Build sichtbar) ──
-        // Damit Gating + Paywall ohne RevenueCat-Dashboard testbar sind.
-        // Wird im Release-Build NICHT angezeigt (kein Gratis-Premium-Schalter).
-        if (kDebugMode) ...[
-          _Section(label: 'DEBUG'),
-          SwitchListTile(
-            secondary: const Icon(
-              Icons.workspace_premium_outlined,
-              color: SoriColors.gold,
-            ),
-            title: const Text('Premium (Dev-Override)'),
-            subtitle: Text(
-              'Nur Debug: testet Gating/Paywall ohne RevenueCat',
-              style: SoriTextTheme.of(context).cardSubtitle,
-            ),
-            value: Storage.devPremiumOverride,
-            activeThumbColor: SoriColors.gold,
-            onChanged: (v) async {
-              await PremiumService.setDevOverride(v);
-              if (mounted) setState(() {});
-            },
-          ),
-        ],
-
         // ── About ──
         _Section(label: t.settingsAbout),
         ListTile(
@@ -1889,18 +1804,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
     }
   }
 
-  Future<void> _openSubscriptionManagement() async {
-    final t = AppL10n.of(context);
-    try {
-      await _subscriptionManager.open();
-    } catch (_) {
-      if (!mounted) {
-        return;
-      }
-      soriToast(context, t.settingsManageSubscriptionFailed);
-    }
-  }
-
   void _showOfflineDialog({required Future<void> Function() retry}) {
     final t = AppL10n.of(context);
     showSoriDialog<void>(
@@ -2092,9 +1995,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
     _showDangerConfirm(
       title: t.settingsAccountDeleteConfirmTitle,
       body: t.settingsAccountDeleteConfirmBody,
-      warning: t.settingsAccountDeleteSubscriptionWarning,
-      secondaryActionLabel: t.settingsManageSubscription,
-      onSecondaryAction: _openSubscriptionManagement,
       confirmLabel: t.btnDelete,
       onConfirm: _onDeleteAccount,
     );

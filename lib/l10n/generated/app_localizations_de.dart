@@ -9,49 +9,6 @@ class AppL10nDe extends AppL10n {
   AppL10nDe([String locale = 'de']) : super(locale);
 
   @override
-  String get paywallSignInToContinue => 'Konto verbinden';
-
-  @override
-  String get paywallSignInRequired =>
-      'Verbinde zuerst dein Google- oder Apple-Konto. Käufe bleiben an dieses Konto gebunden.';
-
-  @override
-  String get paywallPending =>
-      'Die Bestätigung steht noch aus. Dein Zugang wird nach der Serverprüfung aktualisiert.';
-
-  @override
-  String get paywallCancelled =>
-      'Kauf abgebrochen. Es wurde kein Zugang freigeschaltet.';
-
-  @override
-  String get paywallActive => 'Premium ist bereits aktiv';
-
-  @override
-  String get paywallTesterActive =>
-      'Dein freigegebener Tester-Zugang ist aktiv';
-
-  @override
-  String get paywallManage => 'Abo im ursprünglichen Store verwalten';
-
-  @override
-  String get paywallManageUnavailable =>
-      'Öffne die Aboverwaltung in dem Store, in dem du das Abo abgeschlossen hast.';
-
-  @override
-  String get paywallFreeLaunch =>
-      'Alle Lerninhalte sind zum kostenlosen Start offen. Ein Abo ist derzeit nicht verfügbar.';
-
-  @override
-  String paywallAiLimits(int book, int pronunciation) {
-    return 'Dein aktuelles Kontingent: $book Buchanalysen und $pronunciation Ausspracheprüfungen pro UTC-Tag.';
-  }
-
-  @override
-  String paywallNextReset(String time) {
-    return 'Nächster Reset: $time UTC';
-  }
-
-  @override
   String get accountAdditionalProviderTitle =>
       'Weitere Anmeldemethode verbinden';
 
@@ -70,66 +27,6 @@ class AppL10nDe extends AppL10n {
   @override
   String get accountAppleConfigurationBody =>
       'Apple-Anmeldung ist in dieser App-Version noch nicht eingerichtet. Verwende vorerst deine bisherige Anmeldemethode oder kontaktiere den Support.';
-
-  @override
-  String get paywallTitle => 'Hangul Sori Premium';
-
-  @override
-  String get paywallSubtitle => 'Koreanisch lernen, wann du willst.';
-
-  @override
-  String get paywallBenefit1 => 'Alle Vokabel-Pakete (A2 bis C2)';
-
-  @override
-  String get paywallBenefit2 => 'Alle Gesprächs-Szenarien';
-
-  @override
-  String get paywallBenefit3 => 'Unbegrenzte Wiederholungen';
-
-  @override
-  String get paywallBenefit4 => '50 Ausspracheprüfungen pro UTC-Tag';
-
-  @override
-  String get paywallBenefit5 => '20 Buchanalysen pro UTC-Tag';
-
-  @override
-  String get paywallPricePerMonth => '/ Monat';
-
-  @override
-  String get paywallEyebrow => 'Premium';
-
-  @override
-  String get paywallCtaStart => 'Premium freischalten';
-
-  @override
-  String get paywallCtaRestore => 'Käufe wiederherstellen';
-
-  @override
-  String get paywallClose => 'Vielleicht später';
-
-  @override
-  String get paywallLegal =>
-      'Jederzeit kündbar. Das Abo verlängert sich automatisch, bis du kündigst.';
-
-  @override
-  String get paywallNotAvailable =>
-      'Abos sind in dieser Version noch nicht verfügbar.';
-
-  @override
-  String get paywallProcessing => 'Einen Moment …';
-
-  @override
-  String get paywallSuccess => 'Premium ist aktiv. Viel Spaß!';
-
-  @override
-  String get paywallFailed => 'Kauf nicht abgeschlossen.';
-
-  @override
-  String get paywallRestoreNone => 'Keine früheren Käufe gefunden.';
-
-  @override
-  String get paywallRestoreFailed =>
-      'Käufe konnten nicht wiederhergestellt werden. Versuche es erneut.';
 
   @override
   String streakDisplay(int days) {
@@ -1208,9 +1105,6 @@ class AppL10nDe extends AppL10n {
   String get packStateLocked => 'gesperrt';
 
   @override
-  String get packStatePremium => 'Premium';
-
-  @override
   String get packStateCleared => 'geschafft';
 
   @override
@@ -2179,17 +2073,6 @@ class AppL10nDe extends AppL10n {
   String get vocabPackLearnHint => 'Tippen zum Umdrehen';
 
   @override
-  String vocabPackLearnRepeatSuffix(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n Wdh.',
-      one: '1 Wdh.',
-    );
-    return ' · +$_temp0';
-  }
-
-  @override
   String get vocabPackDontKnow => 'Weiß ich nicht';
 
   @override
@@ -2474,17 +2357,6 @@ class AppL10nDe extends AppL10n {
   @override
   String get settingsAccountDeleteConfirmBody =>
       'Dadurch werden dein Firebase-Konto, deine Google- und Apple-Verknüpfungen, das Firestore-Cloud-Backup und lokale Lerndaten auf diesem Gerät gelöscht. Das lässt sich nicht rückgängig machen. Google oder Apple bitten dich zur Bestätigung eventuell um eine erneute Anmeldung.';
-
-  @override
-  String get settingsAccountDeleteSubscriptionWarning =>
-      'Ein App-Store- oder Play-Store-Abo wird dadurch nicht gekündigt.';
-
-  @override
-  String get settingsManageSubscription => 'Store-Abo verwalten';
-
-  @override
-  String get settingsManageSubscriptionFailed =>
-      'Die Aboverwaltung konnte nicht geöffnet werden.';
 
   @override
   String get settingsAccountDeleteSuccess => 'Konto und Daten gelöscht';

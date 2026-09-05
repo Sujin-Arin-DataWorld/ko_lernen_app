@@ -81,14 +81,6 @@ dependencies:
   # ── 공유 (Phase 5.2 — 커스텀팩 친구 공유) ───────────────────
   share_plus: ^13.3.0
 
-  # ── Abo / In-App-Kauf (RevenueCat) — €5/Monat Premium ───
-  # ⚠️ Nach dem Hinzufügen `flutter pub get` ausführen.
-  #    RevenueCat-Dashboard: Entitlement "premium" + Offering (Monatspaket)
-  #    anlegen und Store-Produkte verknüpfen. Public-SDK-Keys via
-  #    --dart-define=RC_ANDROID_KEY=goog_… / RC_IOS_KEY=appl_… injizieren.
-  #    Ohne Keys läuft PremiumService im "kostenlos"-Modus (kein Crash).
-  purchases_flutter: ^10.7.0
-
   # ── Lokale Benachrichtigungen (M3) — tägliche Lern-Erinnerung ───
   # Erfordert Android core library desugaring (siehe android/app/build.gradle.kts)
   # + Manifest-Receiver. zonedSchedule braucht die lokale IANA-Zeitzone.

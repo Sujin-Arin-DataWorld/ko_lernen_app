@@ -50,7 +50,6 @@ import 'models/personal_room.dart';
 import 'models/scenario.dart';
 import 'screens/splash_screen.dart';
 import 'screens/daily_char_sheet.dart';
-import 'screens/paywall_screen.dart';
 import 'screens/review_session_screen.dart';
 import 'screens/review_hub_screen.dart';
 import 'screens/smalltalk_screen.dart';
@@ -927,11 +926,6 @@ class _KoLernenAppState extends State<KoLernenApp> {
             case '/profile':
               return SoriTransitions.page(
                 (_) => const ProfileScreen(),
-                settings: settings,
-              );
-            case '/paywall':
-              return SoriTransitions.page(
-                (_) => const PaywallScreen(),
                 settings: settings,
               );
             case '/review':

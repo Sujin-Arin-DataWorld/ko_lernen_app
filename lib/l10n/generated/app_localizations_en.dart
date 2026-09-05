@@ -9,47 +9,6 @@ class AppL10nEn extends AppL10n {
   AppL10nEn([String locale = 'en']) : super(locale);
 
   @override
-  String get paywallSignInToContinue => 'Connect account';
-
-  @override
-  String get paywallSignInRequired =>
-      'Connect your Google or Apple account first. Purchases stay linked to this account.';
-
-  @override
-  String get paywallPending =>
-      'Confirmation is pending. Access updates after server verification.';
-
-  @override
-  String get paywallCancelled => 'Purchase cancelled. No access was unlocked.';
-
-  @override
-  String get paywallActive => 'Premium is already active';
-
-  @override
-  String get paywallTesterActive => 'Your approved tester access is active';
-
-  @override
-  String get paywallManage => 'Manage subscription in its original store';
-
-  @override
-  String get paywallManageUnavailable =>
-      'Open subscription management in the store where you subscribed.';
-
-  @override
-  String get paywallFreeLaunch =>
-      'All learning content is open for the free launch. Subscriptions are not available yet.';
-
-  @override
-  String paywallAiLimits(int book, int pronunciation) {
-    return 'Your current allowance: $book book analyses and $pronunciation pronunciation checks per UTC day.';
-  }
-
-  @override
-  String paywallNextReset(String time) {
-    return 'Next reset: $time UTC';
-  }
-
-  @override
   String get accountAdditionalProviderTitle => 'Connect another sign-in method';
 
   @override
@@ -67,66 +26,6 @@ class AppL10nEn extends AppL10n {
   @override
   String get accountAppleConfigurationBody =>
       'Apple sign-in has not been configured in this app version yet. Use your current sign-in method for now or contact support.';
-
-  @override
-  String get paywallTitle => 'Hangul Sori Premium';
-
-  @override
-  String get paywallSubtitle => 'Learn Korean whenever you want.';
-
-  @override
-  String get paywallBenefit1 => 'All vocabulary packs (A2 through C2)';
-
-  @override
-  String get paywallBenefit2 => 'All conversation scenarios';
-
-  @override
-  String get paywallBenefit3 => 'Unlimited reviews';
-
-  @override
-  String get paywallBenefit4 => '50 pronunciation checks per UTC day';
-
-  @override
-  String get paywallBenefit5 => '20 book analyses per UTC day';
-
-  @override
-  String get paywallPricePerMonth => '/ month';
-
-  @override
-  String get paywallEyebrow => 'Premium';
-
-  @override
-  String get paywallCtaStart => 'Unlock Premium';
-
-  @override
-  String get paywallCtaRestore => 'Restore purchases';
-
-  @override
-  String get paywallClose => 'Maybe later';
-
-  @override
-  String get paywallLegal =>
-      'Cancel anytime. The subscription renews automatically until you cancel.';
-
-  @override
-  String get paywallNotAvailable =>
-      'Subscriptions aren\'t available in this build yet.';
-
-  @override
-  String get paywallProcessing => 'One moment…';
-
-  @override
-  String get paywallSuccess => 'Premium is active. Enjoy!';
-
-  @override
-  String get paywallFailed => 'Purchase not completed.';
-
-  @override
-  String get paywallRestoreNone => 'No previous purchases found.';
-
-  @override
-  String get paywallRestoreFailed =>
-      'Purchases could not be restored. Try again.';
 
   @override
   String streakDisplay(int days) {
@@ -1202,9 +1101,6 @@ class AppL10nEn extends AppL10n {
   String get packStateLocked => 'locked';
 
   @override
-  String get packStatePremium => 'Premium';
-
-  @override
   String get packStateCleared => 'cleared';
 
   @override
@@ -2168,17 +2064,6 @@ class AppL10nEn extends AppL10n {
   String get vocabPackLearnHint => 'Tap to flip';
 
   @override
-  String vocabPackLearnRepeatSuffix(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n repeats',
-      one: '1 repeat',
-    );
-    return ' · +$_temp0';
-  }
-
-  @override
   String get vocabPackDontKnow => 'Don\'t know';
 
   @override
@@ -2460,17 +2345,6 @@ class AppL10nEn extends AppL10n {
   @override
   String get settingsAccountDeleteConfirmBody =>
       'This deletes your Firebase account, Google and Apple links, Firestore cloud backup, and local learning data on this device. This cannot be undone. Google or Apple may ask you to sign in again to confirm.';
-
-  @override
-  String get settingsAccountDeleteSubscriptionWarning =>
-      'This does not cancel an App Store or Play Store subscription.';
-
-  @override
-  String get settingsManageSubscription => 'Manage store subscription';
-
-  @override
-  String get settingsManageSubscriptionFailed =>
-      'Subscription management could not be opened.';
 
   @override
   String get settingsAccountDeleteSuccess => 'Account and data deleted';

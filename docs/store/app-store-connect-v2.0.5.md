@@ -81,8 +81,8 @@ folders locally with `tool/check_app_store_screenshots.py`.
 1. On an authorized macOS workstation, complete
    [ios-external-setup.md](ios-external-setup.md) without committing secrets:
    Apple Team/signing, `GoogleService-Info.plist`, Firebase iOS options, APNs,
-   and URL scheme. This first release uses `FREE_LAUNCH=1`, so do not configure
-   RevenueCat or subscription products for this archive.
+   and URL scheme. The app no longer contains a purchase SDK or paid learning
+   gates, so do not configure subscription products for this archive.
 2. Run `dart run tool/verify_ios_store_contract.dart` and
    `dart run tool/verify_ios_firebase_config.dart`. The Firebase checker is
    expected to fail until the external configuration is complete.
@@ -91,7 +91,8 @@ folders locally with `tool/check_app_store_screenshots.py`.
    privacy-manifest or SDK disclosures using the actual archive, not guesses.
 4. Install through TestFlight on an iPad and an iPhone. Verify guest review
    path, navigation, tablet rotations, text scaling, optional camera/photo
-   permissions, account deletion, and any configured account or purchase flow.
+   permissions, and account deletion. Confirm that every learning pack opens
+   without a purchase or subscription prompt.
 5. Reconcile App Privacy, URLs, screenshots, review notes, age rating, and
    export-compliance answers in App Store Connect, then submit for review.
 

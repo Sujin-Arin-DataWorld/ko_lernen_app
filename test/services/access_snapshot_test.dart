@@ -53,7 +53,13 @@ void main() {
         expect(snapshot.bookDailyLimit, entry['wantBook']);
         expect(snapshot.pronunciationDailyLimit, entry['wantPronunciation']);
         expect(snapshot.hasAllContent, entry['wantContent'] == 'all');
-        expect(snapshot.hasPremium, entry['wantBook'] == 20);
+        expect(
+          snapshot.hasPremium,
+          const {
+            'subscription',
+            'closed_tester_lifetime',
+          }.contains(entry['wantSource']),
+        );
         expect(snapshot.revision, matches(RegExp(r'^[a-f0-9]{64}$')));
         expect(snapshot.nextResetAt, (snapshot.serverNow ~/ day + 1) * day);
         final lease = snapshot.offlineUntil - snapshot.serverNow;
@@ -79,7 +85,9 @@ void main() {
             expect(snapshot.accessUntil, isNull);
           }
         } else {
-          expect(snapshot.aiPolicyId, 'free_v1');
+          expect(snapshot.aiPolicyId, 'premium_v1');
+          expect(snapshot.bookDailyLimit, 20);
+          expect(snapshot.pronunciationDailyLimit, 50);
           expect(lease, 0);
           expect(snapshot.accessUntil, isNull);
         }
@@ -87,19 +95,16 @@ void main() {
     );
   }
 
-  test('snapshot separates free content from premium AI authority', () {
+  test('open-access snapshot carries the highest service quotas', () {
     final free = AccessSnapshot.fromJson({
       ...payload(source: 'free_launch'),
-      'aiPolicyId': 'free_v1',
-      'bookDailyLimit': 3,
-      'pronunciationDailyLimit': 5,
       'accessUntil': null,
       'offlineUntil': serverNow,
     });
     expect(free.hasAllContent, isTrue);
     expect(free.hasPremium, isFalse);
-    expect(free.bookDailyLimit, 3);
-    expect(free.pronunciationDailyLimit, 5);
+    expect(free.bookDailyLimit, 20);
+    expect(free.pronunciationDailyLimit, 50);
   });
 
   test('subscription cache expires at exactly its verified offline bound', () {
@@ -136,7 +141,7 @@ void main() {
       {'environment': 'typo'},
       {'revision': ''},
       {'source': 'beta_build'},
-      {'source': 'free', 'aiPolicyId': 'premium_v1'},
+      {'source': 'free', 'aiPolicyId': 'free_v1'},
       {'bookDailyLimit': 999},
       {'pronunciationDailyLimit': 999},
       {'offlineUntil': serverNow + 4 * day},

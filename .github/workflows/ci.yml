@@ -539,7 +539,6 @@ jobs:
           flutter build appbundle --release --obfuscate
           --split-debug-info=build/app/outputs/symbols
           --dart-define=ENABLE_TESTER_FEEDBACK=true
-          --dart-define=BETA_UNLOCK_ALL=true
           --dart-define=GIT_COMMIT=${{ github.sha }}
 
       - name: Preserve Android failure diagnostics

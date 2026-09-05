@@ -8,8 +8,8 @@
      추측값을 박아 두면 남의 팀으로 서명 시도를 하게 되므로 일부러 비워 둔다.
 
   사용법은 docs/store/ios-external-setup.md 의 "Archive and export" 절 참고.
-  요약: flutter build ipa 를 release 로 돌리면서 RevenueCat iOS 공개키를
-  dart-define 으로 넘기고, export options 로 이 파일을 지정한다. archive 를
+  요약: flutter build ipa 를 release 로 돌리면서 export options 로 이 파일을
+  지정한다. archive 를
   직접 만들 때는 xcodebuild archive 뒤 exportArchive 에 이 파일을 넘긴다.
   (명령 원문은 XML 주석에 이중 하이픈을 못 넣어 문서 쪽에 둔다.)
 

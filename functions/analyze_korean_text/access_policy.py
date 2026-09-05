@@ -72,8 +72,9 @@ def resolve_access(*, uid, environment, phase, now, grant=None, entitlement=None
     revision_input = json.dumps([1, uid, environment, phase, source, authority_revision, access_until, account_created_at], ensure_ascii=False, separators=(",", ":"))
     return {"schemaVersion": 1, "ownerUid": uid, "environment": environment,
             "revision": hashlib.sha256(revision_input.encode("utf-8")).hexdigest(), "source": source,
-            "contentAccess": "all" if premium or phase == "free_launch" else "a1",
-            "aiPolicyId": "premium_v1" if premium else "free_v1",
-            "bookDailyLimit": 20 if premium else 3, "pronunciationDailyLimit": 50 if premium else 5,
+            # Subscription sales are disabled. Every authenticated learner
+            # receives the former highest access tier.
+            "contentAccess": "all", "aiPolicyId": "premium_v1",
+            "bookDailyLimit": 20, "pronunciationDailyLimit": 50,
             "serverNow": now, "accessUntil": access_until, "offlineUntil": offline_until,
             "nextResetAt": (now // DAY_MILLIS + 1) * DAY_MILLIS}

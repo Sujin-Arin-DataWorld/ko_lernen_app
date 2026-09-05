@@ -1,8 +1,6 @@
 "use strict";
 
-const {
-  DAY_MILLIS, entitlementDocumentId, resolveAccess, subjectHash, validUid,
-} = require("./access_policy");
+const {DAY_MILLIS, resolveAccess, subjectHash, validUid} = require("./access_policy");
 
 const ACCESS_CALLABLE_OPTIONS = Object.freeze({
   region: "europe-west3",
@@ -19,22 +17,14 @@ class AccessFailure extends Error {
   }
 }
 
-/** Access is resolved exclusively from server-controlled documents. Keeping
- * these reads inside the caller's transaction also fences account deletion.
+/** The account-deletion fence remains transactional, but retired premium and
+ * subscription documents no longer participate in access decisions.
  */
-async function readAccessAuthority({firestore, transaction, uid, environment}) {
+async function readAccessAuthority({firestore, transaction, uid}) {
   const deletionRef = firestore.collection("account_deletions").doc(uid);
-  const grantRef = firestore.collection("premium_grants").doc(uid);
-  const entitlementRef = firestore.collection("customer_entitlements")
-    .doc(entitlementDocumentId(uid, environment));
-  const [deletion, grant, entitlement] = await Promise.all([
-    transaction.get(deletionRef), transaction.get(grantRef), transaction.get(entitlementRef),
-  ]);
+  const deletion = await transaction.get(deletionRef);
   if (deletion.exists) throw new AccessFailure("failed-precondition");
-  return {
-    grant: grant.exists ? grant.data() : null,
-    entitlement: entitlement.exists ? entitlement.data() : null,
-  };
+  return {};
 }
 
 function createAccessRuntime({firestore, auth, now = Date.now,
@@ -68,7 +58,7 @@ function createAccessRuntime({firestore, auth, now = Date.now,
       const ownerSubjectHash = subjectHash(uid);
       const rateRef = firestore.collection("access_rate_limits").doc(ownerSubjectHash);
       return await firestore.runTransaction(async (transaction) => {
-        const authority = await readAccessAuthority({firestore, transaction, uid, environment});
+        const authority = await readAccessAuthority({firestore, transaction, uid});
         const rate = await transaction.get(rateRef);
         const minute = Math.floor(at / 60_000);
         const previous = rate.exists ? rate.data() : {};

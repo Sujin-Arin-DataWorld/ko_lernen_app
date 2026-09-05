@@ -142,7 +142,7 @@ flutter run --release -d <기기ID>   # 출시와 같은 코드 경로
 - [ ] 자산 누락 없음 (영상·PNG·CSV·JSON — errorBuilder 폴백이 뜨는 곳이 있는지)
 - [ ] Firebase 설정이 release 서명에 물려 있음
 - [ ] Google 로그인 동작 (release 서명 SHA-1/SHA-256 이 Firebase 콘솔에 등록돼 있어야 함)
-- [ ] 결제·구독 (RevenueCat + Play Billing / StoreKit)
+- [ ] Premium/paywall/결제·복원 화면 없이 모든 학습 콘텐츠 접근 가능
 - [ ] 알림 도달
 - [ ] deep link
 - [ ] 기존 설치 위에 업데이트해도 **학습 데이터 유지** (§8)
@@ -256,9 +256,9 @@ CI 는 1.3배까지 자동 검사한다. **최대 배율은 사람이 본다.**
 > 계정 연동 3갈래(취소/불가/실패)는 2026-08-06 에 분리했고 CI가 고정한다. **나머지 비동기 작업은
 > 아직 감사되지 않았다** — 이번 라운드에서 화면별로 훑고 발견한 것을 여기 적는다.
 
-중요 작업(계정 삭제·결제)은 버튼 잠금만으로 부족하다. **서버가 같은 요청을 두 번 받아도 한 번만
+중요 작업(계정 삭제)은 버튼 잠금만으로 부족하다. **서버가 같은 요청을 두 번 받아도 한 번만
 처리되는 idempotent 구조**여야 한다. 확인 지점: 계정 삭제 journal(`kl_account_deletion_journal_v1`),
-클라우드 백업 삭제 journal, RevenueCat 복원.
+클라우드 백업 삭제 journal.
 
 ---
 

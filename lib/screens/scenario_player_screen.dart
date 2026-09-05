@@ -22,7 +22,6 @@ import '../services/course_mission_navigation.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/data_loader.dart';
 import '../services/hanok_stage_service.dart';
-import '../services/premium_service.dart';
 import '../services/analytics_service.dart';
 import '../services/quest_abandon_tracker.dart';
 import '../services/scenario_loader.dart';
@@ -820,18 +819,6 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         : null;
     if (!mounted || !_loadLifecycle.canContinue) {
       return;
-    }
-    // Premium-Gate (M4): A1-Szenarien frei, A2/B1/B2 erfordern ein Abo.
-    // Deckt alle Einstiege ab (Home-CTA, Skill-Path, Szenarien-Liste).
-    if (s.level != LearnerLevel.a1 && !PremiumService.hasContentAccess) {
-      final ok = await PremiumService.gate(context);
-      if (!mounted || !_loadLifecycle.canContinue) {
-        return;
-      }
-      if (!ok) {
-        _popAfterLoadExit();
-        return;
-      }
     }
     if (!mounted || !_loadLifecycle.canContinue) {
       return;

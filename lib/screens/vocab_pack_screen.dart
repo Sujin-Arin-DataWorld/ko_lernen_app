@@ -168,8 +168,8 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
 
   _Stage _stage = _Stage.learn;
 
-  // Stage 1 (learn) state — 재출제 큐 (테스터 피드백 ②: "몰라요"가 세션 내에서
-  // 차이를 만들도록). null = 로드 전.
+  // Stage 1 (learn) state. `몰라요`는 SRS/오답 기록에 남지만, 모든 고유
+  // 카드를 한 번씩 확인한 뒤에는 평가 단계로 넘어간다. null = 로드 전.
   LearnSessionQueue<Vocab>? _learnQueue;
   // SRS 는 단어당 **최초 답변 1회만** 평가 — 재출제로 같은 단어를 여러 번
   // 틀려도 ease 가 세션 안에서 연타로 깎이지 않게. (오답 카운터는 매번 셈.)
@@ -184,10 +184,6 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   // 인덱스가 함께 바뀌면 FlipCard가 다음 카드 내용 위로 reverse 애니메이션을
   // 돌려 뒷면(뜻)이 먼저 보인다. 새 key로 State를 새로 만들면 항상 앞면 시작.
   int _learnServe = 0;
-  // 이 세션에서 재출제로 다시 나온 카드 수 — "3/9 · +2 Wdh." 표시용
-  // (지시서 검수#21: 별도 칩이 아니라 숫자에 병기).
-  int _learnRepeatCount = 0;
-
   // Stage 2 (quiz) + Stage 3 (boss) state
   int _qIdx = 0;
   int _quizCorrect = 0;
@@ -424,20 +420,27 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   void _advanceLearn() {
     final pack = _pack;
     if (pack == null) return;
+    final queue = _learnQueue;
     setState(() {
       _flipped = false;
       _learnCardRevealed = false;
       _learnServe++;
-      if (_learnQueue?.currentIsRepeat ?? false) {
-        _learnRepeatCount++;
-      }
     });
+    if (queue?.hasCompletedFirstPass ?? true) {
+      // 모든 현재 팩 카드를 한 번씩 확인했으면 즉시 평가 단계로 넘어간다.
+      // `몰라요`/defer가 재삽입한 카드 때문에 화면이 n / n에서 멈추면
+      // 사용자는 완료했는데도 연습문제가 열리지 않는 것으로 보게 된다.
+      // 오답은 이미 SRS와 wrongCount에 기록됐고 Quiz/Boss에서 다시 평가한다.
+      // ignore: discarded_futures
+      PackProgressService.recordWordLearned(pack);
+      _enterQuiz();
+      return;
+    }
     // 큐 변이(markKnown/markUnknown/defer)는 여기 도달하기 전에 호출부에서
     // 이미 끝나 있다 — 그래서 여기 시점의 current는 "새로 보이는 카드"고
     // peekNext는 "그 다음 카드"다. 방금 넘긴 카드(이미 끝난 일)가 아니라
     // 이 둘을 미리 데운다(Task 3 fix round 1 — R2: 이전 라운드의
     // "cur=방금 넘긴 카드" 프리페치는 실사용 가치가 없는 dead weight였다).
-    final queue = _learnQueue;
     if (queue != null && !queue.isDone) {
       final upcoming = queue.current;
       if (upcoming != null) {
@@ -449,13 +452,6 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         // ignore: discarded_futures
         SoriSpeech.prefetch(after.korean);
       }
-    }
-    if (queue?.isDone ?? true) {
-      // Stage 1 끝 — 모든 current-pack 단어를 Learn에서 의도적으로 노출한 뒤
-      // wordsLearned 기록 및 평가 단계로 진입.
-      // ignore: discarded_futures
-      PackProgressService.recordWordLearned(pack);
-      _enterQuiz();
     }
   }
 
@@ -530,9 +526,8 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     );
   }
 
-  /// ↓ 스킵 (§P2-2) — **기록 없는 미루기**. SRS/오답/ledger 금지 대상이 아닌
-  /// 건 재서빙 리셋뿐이다: defer 는 큐를 비우지 않으므로 `_advanceLearn` 의
-  /// `isDone→_enterQuiz` 분기는 발동 불가.
+  /// ↓ 스킵 (§P2-2) — **기록 없는 미루기**. 아직 보지 않은 카드가 있으면
+  /// 그 뒤로 보내고, 모든 고유 카드를 한 번씩 확인한 시점에는 평가로 간다.
   void _learnDefer() {
     final queue = _learnQueue;
     if (queue == null || queue.isDone) {
@@ -1085,11 +1080,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         Row(
           children: [
             SoriChip(
-              // 분모 = 고유 단어 수(고정). 재출제 중에는 분자가 유지된다.
-              // +N Wdh. = 이 세션에서 재출제로 다시 나온 카드 수(지시서 검수#21).
+              // 분모 = 고유 단어 수(고정). 마지막 고유 카드를 판정하면 바로
+              // Quiz/Boss로 넘어가므로 n / n에서 Learn이 멈추지 않는다.
               label:
-                  '${_learnQueue?.servedPosition ?? 1} / ${_learnQueue?.uniqueTotal ?? _learnWords.length}'
-                  '${_learnRepeatCount > 0 ? t.vocabPackLearnRepeatSuffix(_learnRepeatCount) : ''}',
+                  '${_learnQueue?.servedPosition ?? 1} / ${_learnQueue?.uniqueTotal ?? _learnWords.length}',
               accent: SoriColors.info,
             ),
             const SizedBox(width: Spacing.sm),

@@ -16,14 +16,10 @@ Map<String, dynamic> snapshot({
   'environment': environment,
   'revision': 'a' * 64,
   'source': source,
-  'contentAccess': source == 'free' ? 'a1' : 'all',
-  'aiPolicyId': source == 'free' || source == 'free_launch'
-      ? 'free_v1'
-      : 'premium_v1',
-  'bookDailyLimit': source == 'free' || source == 'free_launch' ? 3 : 20,
-  'pronunciationDailyLimit': source == 'free' || source == 'free_launch'
-      ? 5
-      : 50,
+  'contentAccess': 'all',
+  'aiPolicyId': 'premium_v1',
+  'bookDailyLimit': 20,
+  'pronunciationDailyLimit': 50,
   'serverNow': now,
   'accessUntil': source == 'subscription' ? now + 86400000 : null,
   'offlineUntil': source == 'subscription'
@@ -60,13 +56,13 @@ void main() {
   tearDown(() => controller.dispose());
 
   test(
-    'server resolves free-launch content without claiming premium AI',
+    'server resolves free-launch content with the highest service quotas',
     () async {
       create(() async => snapshot(source: 'free_launch'));
       await controller.refresh();
       expect(controller.snapshot?.hasAllContent, isTrue);
       expect(controller.snapshot?.hasPremium, isFalse);
-      expect(controller.snapshot?.bookDailyLimit, 3);
+      expect(controller.snapshot?.bookDailyLimit, 20);
     },
   );
   test(
