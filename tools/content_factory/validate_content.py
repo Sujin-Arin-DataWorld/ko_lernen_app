@@ -84,6 +84,7 @@ GRAMMAR_HEADER = [
 
 # These shipped rows predate the level-ID contract.  Keeping the exception
 # explicit means future generated rows cannot silently repeat the mistake.
+# relevel batch 002 (2026-09-05, #268): 시아버지 A1→B1
 LEGACY_VOCAB_LEVEL_EXCEPTIONS = frozenset(
     (
         "vocab_b1_0013",
@@ -102,8 +103,15 @@ LEGACY_VOCAB_LEVEL_EXCEPTIONS = frozenset(
         "vocab_b2_0118",
         "vocab_b2_0145",
         "vocab_b2_0146",
+        "vocab_a1_0216",
     )
 )
+
+# relevel batch 002 (2026-09-05, #268): 시아버지 A1→B1
+LEGACY_CLOZE_LEVEL_EXCEPTIONS = frozenset(("cloze_a1_0104",))
+
+# relevel batch 002 (2026-09-05, #268): 시아버지 A1→B1
+LEGACY_SATZ_LEVEL_EXCEPTIONS = frozenset(("satz_a1_0068",))
 
 # Existing content was authored before the hearing-quest requirement.  Every
 # new scenario must have one; this baseline allowlist makes that ratchet real.
@@ -597,7 +605,7 @@ class ContentValidator:
                 self.issue(name, f"{ident} level must be an A1-C2 string")
             if not re.fullmatch(r"satz_(a1|a2|b1|b2|c1|c2)_\d+", ident):
                 self.issue(name, f"{ident} has invalid satz id")
-            elif ident.split("_")[1] != level:
+            elif ident.split("_")[1] != level and ident not in LEGACY_SATZ_LEVEL_EXCEPTIONS:
                 self.issue(name, f"{ident} id level disagrees with {level}")
             for field in ("targetKo", "promptDe", "promptEn", "vocabKo"):
                 if not self._is_nonempty_string(item.get(field)):
@@ -1663,7 +1671,7 @@ class ContentValidator:
                 self.issue(name, f"{ident} level must be an A1-C2 string")
             if not re.fullmatch(r"cloze_(a1|a2|b1|b2|c1|c2)_\d+", ident):
                 self.issue(name, f"{ident} has invalid cloze id")
-            elif ident.split("_")[1] != level:
+            elif ident.split("_")[1] != level and ident not in LEGACY_CLOZE_LEVEL_EXCEPTIONS:
                 self.issue(name, f"{ident} id level disagrees with {level}")
             if kind == "cloze":
                 for field in ("sentenceKo", "answer", "fullKo", "de", "en", "topic"):
