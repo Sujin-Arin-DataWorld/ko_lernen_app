@@ -1,0 +1,2073 @@
+[
+  {
+    "id": "c1_w10_uncertainty",
+    "level": "c1",
+    "emoji": "📊",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "아직 확정되지 않은 수치를 고객에게 전하는 법",
+      "de": "Wie man dem Kunden noch unsichere Zahlen mitteilt",
+      "en": "How to tell the client about numbers that aren't final yet"
+    },
+    "intro": {
+      "ko": "분석팀이 예측치를 냈지만 표본이 작아서 고객에게 어떻게 설명할지 고민합니다.",
+      "de": "Das Analyseteam hat eine Prognose erstellt, ist sich aber wegen der kleinen Stichprobe unsicher, wie es das dem Kunden erklären soll.",
+      "en": "The analytics team has a forecast, but with such a small sample, they're unsure how to explain it to the client."
+    },
+    "courseUnitId": "c1_01_evidence_public_reasoning",
+    "playerCharacterId": "sujin",
+    "participantIds": [
+      "sujin",
+      "manager"
+    ],
+    "relationshipContext": "team_lead_and_analyst",
+    "intent": "decide_how_to_present_uncertain_forecast_to_client",
+    "shelf": "c1_uncertainty",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "예측치",
+        "note": {
+          "ko": "앞으로 있을 일을 미리 계산한 값",
+          "de": "Prognosewert",
+          "en": "forecast value"
+        }
+      },
+      {
+        "korean": "표본",
+        "note": {
+          "ko": "전체를 알아보기 위해 뽑은 일부",
+          "de": "Stichprobe",
+          "en": "sample"
+        }
+      },
+      {
+        "korean": "오차 범위",
+        "note": {
+          "ko": "실제 값과 차이가 날 수 있는 정도",
+          "de": "Fehlerspanne",
+          "en": "margin of error"
+        }
+      },
+      {
+        "korean": "고객사",
+        "note": {
+          "ko": "거래하는 고객 회사",
+          "de": "Kundenunternehmen",
+          "en": "client company"
+        }
+      },
+      {
+        "korean": "확정된 것처럼",
+        "note": {
+          "ko": "이미 최종적으로 정해진 것처럼",
+          "de": "als wäre es bereits endgültig entschieden",
+          "en": "as if it were already finalized"
+        }
+      },
+      {
+        "korean": "근거",
+        "note": {
+          "ko": "주장을 뒷받침하는 이유나 자료",
+          "de": "Grundlage",
+          "en": "basis, grounds"
+        }
+      },
+      {
+        "korean": "데이터를 감안하면",
+        "note": {
+          "ko": "데이터라는 사정을 고려에 넣으면",
+          "de": "wenn man die Daten berücksichtigt",
+          "en": "if you take the data into account"
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_evidence_reasoning"
+    ],
+    "surfaceFormIds": [],
+    "sidekick": "christian",
+    "grammarIds": [
+      "grammar_c1_rather_than",
+      "grammar_c1_taking_into_account"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)ㄹ 바에야",
+        "de": "V-(으)ㄹ 바에야: die weniger schlechte Option",
+        "en": "V-(으)ㄹ 바에야: choosing the less undesirable option"
+      },
+      "explanation": {
+        "ko": "둘 다 마음에 안 들 때 그나마 나은 쪽을 고를 때 -(으)ㄹ 바에야를 써요.",
+        "de": "Wenn beide Optionen unbefriedigend sind, wählt man mit -(으)ㄹ 바에야 die weniger schlechte aus.",
+        "en": "Use -(으)ㄹ 바에야 when both options are unsatisfying and you're picking the less bad one."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "manager",
+        "ko": "이번 예측치를 고객사에 어떻게 전달할지 오늘 정해야 합니다.",
+        "de": "Wir müssen heute entscheiden, wie wir dem Kunden diese Prognose mitteilen.",
+        "en": "We need to decide today how to present this forecast to the client."
+      },
+      {
+        "speaker": "user",
+        "ko": "표본이 작아서 오차 범위가 꽤 넓게 나왔습니다.",
+        "de": "Die Stichprobe ist klein, deshalb ist die Fehlerspanne ziemlich groß ausgefallen.",
+        "en": "The sample is small, so the margin of error came out quite wide."
+      },
+      {
+        "speaker": "manager",
+        "ko": "그래도 숫자 하나는 있어야 발표가 될 것 같습니다.",
+        "de": "Trotzdem brauchen wir wohl eine einzige Zahl, damit die Präsentation funktioniert.",
+        "en": "Still, we probably need one number for the presentation to work."
+      },
+      {
+        "speaker": "user",
+        "ko": "불확실한 수치를 확정된 것처럼 보여줄 바에야 범위로 제시하는 게 낫습니다.",
+        "de": "Bevor wir unsichere Zahlen als endgültig zeigen, stellen wir sie besser als Spanne dar.",
+        "en": "Rather than show uncertain figures as if they were final, it's better to present a range."
+      },
+      {
+        "speaker": "manager",
+        "ko": "그럼 고객이 오히려 더 불안해하지 않겠습니까?",
+        "de": "Könnte der Kunde dadurch nicht sogar unsicherer werden?",
+        "en": "Wouldn't that make the client even more uneasy, though?"
+      },
+      {
+        "speaker": "user",
+        "ko": "지금까지 나온 데이터를 감안하면 범위로 말씀드리는 쪽이 더 정직합니다.",
+        "de": "Wenn man die bisherigen Daten berücksichtigt, ist es ehrlicher, eine Spanne zu nennen.",
+        "en": "Taking the data we have so far into account, giving a range is actually more honest."
+      },
+      {
+        "speaker": "manager",
+        "ko": "그럼 발표 자료에 오차 범위도 같이 넣어 주십시오.",
+        "de": "Dann fügen Sie bitte die Fehlerspanne auch in die Präsentationsunterlagen ein.",
+        "en": "Then please include the margin of error in the presentation materials as well."
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 표본 크기도 같이 밝혀서 근거를 분명히 하겠습니다.",
+        "de": "Ja, ich gebe auch die Stichprobengröße an, damit die Grundlage klar ist.",
+        "en": "Sure, I'll note the sample size too so the basis is clear."
+      },
+      {
+        "speaker": "manager",
+        "ko": "좋습니다. 그렇게 하면 나중에 문제 될 일도 없겠습니다.",
+        "de": "Gut. So dürfte es später auch keine Probleme geben.",
+        "en": "Good. That way there shouldn't be any issues later either."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_c1_w10_uncertainty_hear",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "불확실한 수치를 확정된 것처럼 보여줄 바에야 범위로 제시하는 게 낫습니다.",
+          "options": [
+            {
+              "de": "Bevor wir unsichere Zahlen als endgültig zeigen, stellen wir sie besser als Spanne dar.",
+              "en": "Rather than show uncertain figures as if they were final, it's better to present a range."
+            },
+            {
+              "de": "Die Stichprobe ist klein, deshalb ist die Fehlerspanne ziemlich groß ausgefallen.",
+              "en": "The sample is small, so the margin of error came out quite wide."
+            },
+            {
+              "de": "Könnte der Kunde dadurch nicht sogar unsicherer werden?",
+              "en": "Wouldn't that make the client even more uneasy, though?"
+            },
+            {
+              "de": "Dann fügen Sie bitte die Fehlerspanne auch in die Präsentationsunterlagen ein.",
+              "en": "Then please include the margin of error in the presentation materials as well."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_c1_w10_uncertainty_translate",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Wenn man die bisherigen Daten berücksichtigt, ist es ehrlicher, eine Spanne zu nennen.",
+          "promptEn": "Taking the data we have so far into account, giving a range is actually more honest.",
+          "options": [
+            {
+              "ko": "지금까지 나온 데이터를 감안하면 범위로 말씀드리는 쪽이 더 정직합니다."
+            },
+            {
+              "ko": "이번 예측치를 고객사에 어떻게 전달할지 오늘 정해야 합니다."
+            },
+            {
+              "ko": "그래도 숫자 하나는 있어야 발표가 될 것 같습니다."
+            },
+            {
+              "ko": "네, 표본 크기도 같이 밝혀서 근거를 분명히 하겠습니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_c1_w10_uncertainty_build",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네, 표본 크기도 같이 밝혀서 근거를 분명히 하겠습니다.",
+          "promptDe": "Ja, ich gebe auch die Stichprobengröße an, damit die Grundlage klar ist.",
+          "promptEn": "Sure, I'll note the sample size too so the basis is clear.",
+          "distractors": [
+            "예측치",
+            "고객사"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 144
+  },
+  {
+    "id": "c1_w10_access",
+    "level": "c1",
+    "emoji": "🔒",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "계약서 폴더 접근 권한을 요청할 때",
+      "de": "Wenn man Zugriff auf den Vertragsordner beantragt",
+      "en": "Requesting access to the contracts folder"
+    },
+    "intro": {
+      "ko": "마야가 캠페인 자료 때문에 계약서 폴더 접근 권한을 신청했는데 팀장이 범위를 제한하려 합니다.",
+      "de": "Maya beantragt für die Kampagne Zugriff auf den Vertragsordner, doch der Teamleiter möchte den Umfang einschränken.",
+      "en": "Maya requests access to the contracts folder for the campaign, but the team lead wants to limit the scope."
+    },
+    "courseUnitId": "c1_02_inclusive_sustainable_systems",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "manager"
+    ],
+    "relationshipContext": "team_lead_and_marketing_associate",
+    "intent": "request_access_to_a_restricted_contracts_folder",
+    "shelf": "c1_access",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "접근 권한",
+        "note": {
+          "ko": "어떤 자료나 장소에 들어갈 수 있는 자격",
+          "de": "Zugriffsrecht",
+          "en": "access right"
+        }
+      },
+      {
+        "korean": "계약서",
+        "note": {
+          "ko": "약속한 내용을 적은 문서",
+          "de": "Vertrag",
+          "en": "contract"
+        }
+      },
+      {
+        "korean": "승인",
+        "note": {
+          "ko": "요청한 내용을 허락하는 것",
+          "de": "Genehmigung",
+          "en": "approval"
+        }
+      },
+      {
+        "korean": "폴더",
+        "note": {
+          "ko": "여러 문서를 모아 두는 공간",
+          "de": "Ordner",
+          "en": "folder"
+        }
+      },
+      {
+        "korean": "조심스럽습니다",
+        "note": {
+          "ko": "실수하지 않도록 신경 쓰는 태도입니다",
+          "de": "ist vorsichtig",
+          "en": "is being cautious"
+        }
+      },
+      {
+        "korean": "여지",
+        "note": {
+          "ko": "무언가를 더 생각하거나 할 수 있는 가능성",
+          "de": "Spielraum",
+          "en": "room, latitude"
+        }
+      },
+      {
+        "korean": "부장님",
+        "note": {
+          "ko": "부서를 이끄는 윗사람을 높여 부르는 말",
+          "de": "Abteilungsleiter (höflich)",
+          "en": "department head (polite)"
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_inclusive_systems"
+    ],
+    "surfaceFormIds": [],
+    "sidekick": "christian",
+    "grammarIds": [
+      "grammar_c1_unless_condition",
+      "grammar_c1_room_for"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-지 않는 한",
+        "de": "V-지 않는 한: notwendige Bedingung",
+        "en": "V-지 않는 한: a necessary condition"
+      },
+      "explanation": {
+        "ko": "어떤 조건이 채워지지 않으면 결과가 안 바뀐다고 말할 때 -지 않는 한을 써요.",
+        "de": "Man benutzt -지 않는 한, um zu sagen, dass sich etwas nicht ändert, solange eine Bedingung nicht erfüllt ist.",
+        "en": "Use -지 않는 한 to say a result won't change unless a certain condition is met."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "이번 캠페인 자료 준비 때문에 계약서 폴더 접근 권한이 필요합니다.",
+        "de": "Für die Vorbereitung der Kampagne brauche ich Zugriff auf den Vertragsordner.",
+        "en": "I need access to the contracts folder to prepare the campaign materials."
+      },
+      {
+        "speaker": "manager",
+        "ko": "그 폴더에는 다른 브랜드 계약 조건도 같이 들어 있어서 조심스럽습니다.",
+        "de": "In dem Ordner liegen auch die Vertragsbedingungen anderer Marken, deshalb bin ich vorsichtig.",
+        "en": "That folder also holds contract terms for other brands, so I'm cautious about it."
+      },
+      {
+        "speaker": "user",
+        "ko": "저는 이번 브랜드 계약서 한 건만 확인하면 됩니다.",
+        "de": "Ich muss nur einen einzigen Vertrag für diese Marke einsehen.",
+        "en": "I only need to check one contract, the one for this brand."
+      },
+      {
+        "speaker": "manager",
+        "ko": "부장님이 승인하지 않는 한 전체 폴더는 열어 드릴 수 없습니다.",
+        "de": "Solange der Abteilungsleiter nicht zustimmt, kann ich Ihnen den ganzen Ordner nicht öffnen.",
+        "en": "Unless the department head approves it, I can't open the whole folder for you."
+      },
+      {
+        "speaker": "user",
+        "ko": "그러면 그 계약서 한 건만 따로 공유해 주실 여지가 있을까요?",
+        "de": "Gibt es dann die Möglichkeit, mir nur diesen einen Vertrag separat freizugeben?",
+        "en": "Then would there be room to share just that one contract separately?"
+      },
+      {
+        "speaker": "manager",
+        "ko": "그 정도는 검토해 볼 여지가 있습니다.",
+        "de": "Das lässt sich zumindest prüfen.",
+        "en": "That much, I can at least consider."
+      },
+      {
+        "speaker": "user",
+        "ko": "감사합니다. 오늘 중으로 확인해 주시면 도움이 되겠습니다.",
+        "de": "Danke. Es würde mir sehr helfen, wenn Sie das noch heute prüfen könnten.",
+        "en": "Thank you. It would help a lot if you could check today."
+      },
+      {
+        "speaker": "manager",
+        "ko": "네, 검토해서 오후까지 따로 보내 드리겠습니다.",
+        "de": "Ja, ich prüfe es und schicke es Ihnen bis heute Nachmittag gesondert zu.",
+        "en": "Yes, I'll review it and send it to you separately by this afternoon."
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 기다리겠습니다. 신경 써 주셔서 감사합니다.",
+        "de": "Gut, ich warte darauf. Danke, dass Sie sich darum kümmern.",
+        "en": "Okay, I'll wait. Thank you for taking care of this."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_c1_w10_access_hear",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "부장님이 승인하지 않는 한 전체 폴더는 열어 드릴 수 없습니다.",
+          "options": [
+            {
+              "de": "Solange der Abteilungsleiter nicht zustimmt, kann ich Ihnen den ganzen Ordner nicht öffnen.",
+              "en": "Unless the department head approves it, I can't open the whole folder for you."
+            },
+            {
+              "de": "Für die Vorbereitung der Kampagne brauche ich Zugriff auf den Vertragsordner.",
+              "en": "I need access to the contracts folder to prepare the campaign materials."
+            },
+            {
+              "de": "In dem Ordner liegen auch die Vertragsbedingungen anderer Marken, deshalb bin ich vorsichtig.",
+              "en": "That folder also holds contract terms for other brands, so I'm cautious about it."
+            },
+            {
+              "de": "Das lässt sich zumindest prüfen.",
+              "en": "That much, I can at least consider."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_c1_w10_access_translate",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Gibt es dann die Möglichkeit, mir nur diesen einen Vertrag separat freizugeben?",
+          "promptEn": "Then would there be room to share just that one contract separately?",
+          "options": [
+            {
+              "ko": "그러면 그 계약서 한 건만 따로 공유해 주실 여지가 있을까요?"
+            },
+            {
+              "ko": "저는 이번 브랜드 계약서 한 건만 확인하면 됩니다."
+            },
+            {
+              "ko": "감사합니다. 오늘 중으로 확인해 주시면 도움이 되겠습니다."
+            },
+            {
+              "ko": "네, 기다리겠습니다. 신경 써 주셔서 감사합니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_c1_w10_access_build",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네, 검토해서 오후까지 따로 보내 드리겠습니다.",
+          "promptDe": "Ja, ich prüfe es und schicke es Ihnen bis heute Nachmittag gesondert zu.",
+          "promptEn": "Yes, I'll review it and send it to you separately by this afternoon.",
+          "distractors": [
+            "접근",
+            "계약서"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 141
+  },
+  {
+    "id": "c1_w10_labor",
+    "level": "c1",
+    "emoji": "🧹",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "화난 고객을 달래는 일도 성과일까",
+      "de": "Zählt es als Leistung, aufgebrachte Kunden zu beruhigen?",
+      "en": "Does calming down angry clients count as work?"
+    },
+    "intro": {
+      "ko": "동료가 연말 평가에서 실적표에 안 잡히는 감정노동을 인정받고 싶어합니다.",
+      "de": "Ein Kollege möchte, dass die emotionale Arbeit, die in der Leistungstabelle nicht auftaucht, bei der Jahresbewertung anerkannt wird.",
+      "en": "A coworker wants the emotional labor that doesn't show up on the performance sheet to be recognized in the year-end review."
+    },
+    "courseUnitId": "c1_06_intimacy_safety_design",
+    "playerCharacterId": "coworker",
+    "participantIds": [
+      "coworker",
+      "manager"
+    ],
+    "relationshipContext": "manager_and_employee_review",
+    "intent": "get_invisible_emotional_labor_recognized_in_a_review",
+    "shelf": "c1_labor",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "실적표",
+        "note": {
+          "ko": "이룬 성과를 숫자로 정리한 표",
+          "de": "Leistungstabelle",
+          "en": "performance sheet"
+        }
+      },
+      {
+        "korean": "항의 전화",
+        "note": {
+          "ko": "불만을 말하려고 거는 전화",
+          "de": "Beschwerdeanruf",
+          "en": "complaint call"
+        }
+      },
+      {
+        "korean": "계량화",
+        "note": {
+          "ko": "숫자로 잴 수 있게 만드는 것",
+          "de": "Quantifizierung",
+          "en": "quantification"
+        }
+      },
+      {
+        "korean": "화난 고객을 진정시키느라",
+        "note": {
+          "ko": "화가 난 고객의 흥분을 가라앉히느라",
+          "de": "weil man aufgebrachte Kunden beruhigen musste",
+          "en": "because of having to calm angry customers down"
+        }
+      },
+      {
+        "korean": "평가표",
+        "note": {
+          "ko": "사람이나 성과를 판단해 적는 표",
+          "de": "Bewertungsformular",
+          "en": "evaluation form"
+        }
+      },
+      {
+        "korean": "항목",
+        "note": {
+          "ko": "표나 목록에서 나뉜 한 부분",
+          "de": "Punkt, Posten",
+          "en": "item"
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_intimacy_safety"
+    ],
+    "surfaceFormIds": [],
+    "sidekick": "christian",
+    "grammarIds": [
+      "grammar_c1_excessive_result",
+      "grammar_c1_given_situation"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-는 마당에",
+        "de": "V-는 마당에: eine bereits laufende Situation",
+        "en": "V-는 마당에: given an already unfolding situation"
+      },
+      "explanation": {
+        "ko": "이미 벌어지고 있는 상황을 전제로 뒤 내용을 말할 때 -는 마당에를 써요.",
+        "de": "Man benutzt -는 마당에, um eine bereits laufende Situation als Ausgangspunkt für die folgende Aussage zu nehmen.",
+        "en": "Use -는 마당에 to state something based on a situation that is already unfolding."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "manager",
+        "ko": "이번 평가는 실적표에 나온 숫자를 기준으로 진행하려고 합니다.",
+        "de": "Bei dieser Bewertung wollen wir uns an den Zahlen aus der Leistungstabelle orientieren.",
+        "en": "For this review, I'd like to go by the numbers on the performance sheet."
+      },
+      {
+        "speaker": "user",
+        "ko": "숫자만 보면 제가 처리한 항의 전화 건수는 표에 안 남습니다.",
+        "de": "Wenn man nur auf die Zahlen schaut, tauchen die Beschwerdeanrufe, die ich bearbeitet habe, in der Tabelle gar nicht auf.",
+        "en": "If you just look at the numbers, the complaint calls I've handled don't show up in the sheet at all."
+      },
+      {
+        "speaker": "manager",
+        "ko": "항의 전화도 업무이긴 한데 계량화하기가 어렵긴 하네요.",
+        "de": "Beschwerdeanrufe sind zwar auch Arbeit, aber schwer messbar, das stimmt.",
+        "en": "Complaint calls are work too, but they're hard to quantify, that's true."
+      },
+      {
+        "speaker": "user",
+        "ko": "화난 고객을 진정시키느라 회의 시간을 넘긴 나머지 다른 업무가 밀린 적도 많습니다.",
+        "de": "Weil ich aufgebrachte Kunden beruhigen musste und dadurch Besprechungszeiten überzogen habe, ist anderes liegen geblieben.",
+        "en": "Because I've gone over meeting times calming angry customers, other work has often piled up as a result."
+      },
+      {
+        "speaker": "manager",
+        "ko": "그런 상황이 계속되는 마당에 평가표만 그대로 두는 건 불공평하겠네요.",
+        "de": "Wenn sich diese Situation weiter fortsetzt, wäre es unfair, das Bewertungsformular unverändert zu lassen.",
+        "en": "Given that this keeps happening, it would be unfair to leave the evaluation form as it is."
+      },
+      {
+        "speaker": "user",
+        "ko": "항의 응대 건수만이라도 따로 기록하면 좋겠습니다.",
+        "de": "Es wäre gut, wenn zumindest die Zahl der bearbeiteten Beschwerden separat erfasst würde.",
+        "en": "It would help if at least the number of complaint calls I handle were tracked separately."
+      },
+      {
+        "speaker": "manager",
+        "ko": "좋은 생각입니다. 다음 달부터 항목을 하나 추가하겠습니다.",
+        "de": "Gute Idee. Ab nächstem Monat füge ich dafür einen eigenen Punkt hinzu.",
+        "en": "Good idea. I'll add a separate item for that starting next month."
+      },
+      {
+        "speaker": "user",
+        "ko": "감사합니다. 그러면 다른 팀원들도 비슷한 부분을 말하기 편해질 것 같습니다.",
+        "de": "Danke. Dann dürfte es auch anderen Teammitgliedern leichter fallen, Ähnliches anzusprechen.",
+        "en": "Thank you. That should also make it easier for other team members to bring up similar things."
+      },
+      {
+        "speaker": "manager",
+        "ko": "맞습니다. 보이는 일만 일이 아니라는 걸 이번에 다시 느꼈습니다.",
+        "de": "Genau. Mir ist wieder klar geworden, dass nicht nur das Sichtbare als Arbeit zählt.",
+        "en": "Right. This reminded me that visible tasks aren't the only kind of work."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_c1_w10_labor_hear",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "화난 고객을 진정시키느라 회의 시간을 넘긴 나머지 다른 업무가 밀린 적도 많습니다.",
+          "options": [
+            {
+              "de": "Weil ich aufgebrachte Kunden beruhigen musste und dadurch Besprechungszeiten überzogen habe, ist anderes liegen geblieben.",
+              "en": "Because I've gone over meeting times calming angry customers, other work has often piled up as a result."
+            },
+            {
+              "de": "Bei dieser Bewertung wollen wir uns an den Zahlen aus der Leistungstabelle orientieren.",
+              "en": "For this review, I'd like to go by the numbers on the performance sheet."
+            },
+            {
+              "de": "Beschwerdeanrufe sind zwar auch Arbeit, aber schwer messbar, das stimmt.",
+              "en": "Complaint calls are work too, but they're hard to quantify, that's true."
+            },
+            {
+              "de": "Gute Idee. Ab nächstem Monat füge ich dafür einen eigenen Punkt hinzu.",
+              "en": "Good idea. I'll add a separate item for that starting next month."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_c1_w10_labor_translate",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Wenn sich diese Situation weiter fortsetzt, wäre es unfair, das Bewertungsformular unverändert zu lassen.",
+          "promptEn": "Given that this keeps happening, it would be unfair to leave the evaluation form as it is.",
+          "options": [
+            {
+              "ko": "그런 상황이 계속되는 마당에 평가표만 그대로 두는 건 불공평하겠네요."
+            },
+            {
+              "ko": "숫자만 보면 제가 처리한 항의 전화 건수는 표에 안 남습니다."
+            },
+            {
+              "ko": "항의 응대 건수만이라도 따로 기록하면 좋겠습니다."
+            },
+            {
+              "ko": "감사합니다. 그러면 다른 팀원들도 비슷한 부분을 말하기 편해질 것 같습니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_c1_w10_labor_build",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "항의 응대 건수만이라도 따로 기록하면 좋겠습니다.",
+          "promptDe": "Es wäre gut, wenn zumindest die Zahl der bearbeiteten Beschwerden separat erfasst würde.",
+          "promptEn": "It would help if at least the number of complaint calls I handle were tracked separately.",
+          "distractors": [
+            "실적표",
+            "평가표"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 146
+  },
+  {
+    "id": "c1_w10_conflict_interest",
+    "level": "c1",
+    "emoji": "⚖️",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "심사에서 이해관계를 미리 밝히기",
+      "de": "Einen Interessenkonflikt vor der Begutachtung offenlegen",
+      "en": "Disclosing a conflict of interest before a review"
+    },
+    "intro": {
+      "ko": "현아가 지원자 중 한 명과 개인적으로 아는 사이라서 심사 전에 이 사실을 알립니다.",
+      "de": "Hyuna kennt eine der Bewerberinnen persönlich und teilt das vor der Begutachtung mit.",
+      "en": "Hyuna personally knows one of the applicants and discloses this before the review."
+    },
+    "courseUnitId": "c1_01_evidence_public_reasoning",
+    "playerCharacterId": "hyuna",
+    "participantIds": [
+      "hyuna",
+      "professor"
+    ],
+    "relationshipContext": "review_committee_members",
+    "intent": "disclose_a_conflict_of_interest_and_request_recusal",
+    "shelf": "c1_conflict_interest",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "지원자",
+        "note": {
+          "ko": "일자리나 자격에 지원한 사람",
+          "de": "Bewerber",
+          "en": "applicant"
+        }
+      },
+      {
+        "korean": "심사",
+        "note": {
+          "ko": "자격이나 수준을 판단하는 절차",
+          "de": "Begutachtung",
+          "en": "review, evaluation"
+        }
+      },
+      {
+        "korean": "후배",
+        "note": {
+          "ko": "나이나 경력이 자기보다 어린 동료",
+          "de": "jüngere Kollegin",
+          "en": "junior colleague"
+        }
+      },
+      {
+        "korean": "기준",
+        "note": {
+          "ko": "판단할 때 따르는 원칙",
+          "de": "Kriterium",
+          "en": "standard, criterion"
+        }
+      },
+      {
+        "korean": "경력",
+        "note": {
+          "ko": "그동안 해 온 일의 이력",
+          "de": "Erfahrung",
+          "en": "career experience"
+        }
+      },
+      {
+        "korean": "논문",
+        "note": {
+          "ko": "연구 결과를 정리한 글",
+          "de": "wissenschaftliche Arbeit",
+          "en": "academic paper"
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_evidence_reasoning"
+    ],
+    "surfaceFormIds": [],
+    "sidekick": "christian",
+    "grammarIds": [
+      "grammar_c1_regardless_noun",
+      "grammar_c1_two_sides"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N을/를 불문하고",
+        "de": "N을/를 불문하고: unabhängig von N",
+        "en": "N을/를 불문하고: regardless of N"
+      },
+      "explanation": {
+        "ko": "무엇이든 상관없이 같다고 말할 때 N을/를 불문하고를 써요.",
+        "de": "Man benutzt N을/를 불문하고, um zu sagen, dass etwas unabhängig von N gleich gilt.",
+        "en": "Use N을/를 불문하고 to say something applies the same way regardless of N."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "professor",
+        "ko": "오늘 지원서 다섯 건을 같이 검토하겠습니다.",
+        "de": "Heute prüfen wir gemeinsam fünf Bewerbungen.",
+        "en": "Today we'll review five applications together."
+      },
+      {
+        "speaker": "user",
+        "ko": "시작하기 전에 말씀드릴 게 있습니다.",
+        "de": "Bevor wir beginnen, möchte ich etwas ansprechen.",
+        "en": "Before we start, there's something I should mention."
+      },
+      {
+        "speaker": "professor",
+        "ko": "네, 말씀하세요.",
+        "de": "Ja, bitte.",
+        "en": "Yes, go ahead."
+      },
+      {
+        "speaker": "user",
+        "ko": "지원자 중 한 명이 예전에 같이 연구했던 후배입니다.",
+        "de": "Eine der Bewerberinnen ist eine ehemalige Kollegin, mit der ich früher zusammen geforscht habe.",
+        "en": "One of the applicants is a former junior colleague I used to do research with."
+      },
+      {
+        "speaker": "professor",
+        "ko": "그렇다면 그 지원자 심사에서는 빠지시는 게 좋겠습니다.",
+        "de": "Dann wäre es besser, wenn Sie sich bei dieser Bewerbung aus der Begutachtung zurückziehen.",
+        "en": "Then it would be better for you to step back from evaluating that particular applicant."
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 저도 같은 생각입니다. 다만 나머지 네 건은 계속 참여하고 싶습니다.",
+        "de": "Ja, das sehe ich genauso. Bei den übrigen vier Bewerbungen möchte ich aber weiter mitwirken.",
+        "en": "Yes, I agree. But I'd still like to take part in the other four."
+      },
+      {
+        "speaker": "professor",
+        "ko": "지원자의 배경을 불문하고 같은 기준으로 보시면 문제없습니다.",
+        "de": "Solange Sie unabhängig vom Hintergrund der Bewerberin dieselben Kriterien anwenden, ist das kein Problem.",
+        "en": "As long as you apply the same standard regardless of the applicant's background, that's fine."
+      },
+      {
+        "speaker": "user",
+        "ko": "이 지원자는 경력은 짧은 한편 최근 발표한 논문의 질은 높습니다.",
+        "de": "Diese Bewerberin hat zwar wenig Erfahrung, aber die Qualität ihrer letzten Publikation ist hoch.",
+        "en": "This applicant has little experience, while the quality of her recent paper is high."
+      },
+      {
+        "speaker": "professor",
+        "ko": "그 부분은 기록해 두고 다른 위원들과 같이 논의하겠습니다.",
+        "de": "Das halte ich fest und bespreche es mit den anderen Gutachtern.",
+        "en": "I'll note that down and discuss it with the other reviewers."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_c1_w10_conflict_interest_hear",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "지원자의 배경을 불문하고 같은 기준으로 보시면 문제없습니다.",
+          "options": [
+            {
+              "de": "Solange Sie unabhängig vom Hintergrund der Bewerberin dieselben Kriterien anwenden, ist das kein Problem.",
+              "en": "As long as you apply the same standard regardless of the applicant's background, that's fine."
+            },
+            {
+              "de": "Heute prüfen wir gemeinsam fünf Bewerbungen.",
+              "en": "Today we'll review five applications together."
+            },
+            {
+              "de": "Eine der Bewerberinnen ist eine ehemalige Kollegin, mit der ich früher zusammen geforscht habe.",
+              "en": "One of the applicants is a former junior colleague I used to do research with."
+            },
+            {
+              "de": "Dann wäre es besser, wenn Sie sich bei dieser Bewerbung aus der Begutachtung zurückziehen.",
+              "en": "Then it would be better for you to step back from evaluating that particular applicant."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_c1_w10_conflict_interest_translate",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Diese Bewerberin hat zwar wenig Erfahrung, aber die Qualität ihrer letzten Publikation ist hoch.",
+          "promptEn": "This applicant has little experience, while the quality of her recent paper is high.",
+          "options": [
+            {
+              "ko": "이 지원자는 경력은 짧은 한편 최근 발표한 논문의 질은 높습니다."
+            },
+            {
+              "ko": "시작하기 전에 말씀드릴 게 있습니다."
+            },
+            {
+              "ko": "네, 말씀하세요."
+            },
+            {
+              "ko": "그 부분은 기록해 두고 다른 위원들과 같이 논의하겠습니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_c1_w10_conflict_interest_build",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네, 저도 같은 생각입니다. 다만 나머지 네 건은 계속 참여하고 싶습니다.",
+          "promptDe": "Ja, das sehe ich genauso. Bei den übrigen vier Bewerbungen möchte ich aber weiter mitwirken.",
+          "promptEn": "Yes, I agree. But I'd still like to take part in the other four.",
+          "distractors": [
+            "지원자",
+            "심사"
+          ]
+        }
+      }
+    ],
+    "culturalNote": {
+      "title": {
+        "ko": "연줄과 심사의 공정성",
+        "de": "Beziehungen und die Fairness von Begutachtungen",
+        "en": "Connections and the fairness of reviews"
+      },
+      "body": {
+        "ko": "한국에서는 학연이나 인맥이 얽힌 경우가 많아서, 이해관계를 미리 밝히고 스스로 빠지는 태도가 특히 신뢰를 얻는 행동으로 여겨져요.",
+        "de": "In Korea sind Beziehungen über Schule oder Netzwerke oft eng verflochten, weshalb es besonders vertrauensbildend wirkt, einen Interessenkonflikt offenzulegen und sich von selbst zurückzuziehen.",
+        "en": "In Korea, school ties and personal networks are often deeply intertwined, so proactively disclosing a conflict of interest and stepping back is seen as especially trust-building."
+      }
+    },
+    "xpReward": 149
+  },
+  {
+    "id": "c1_w10_clinical",
+    "level": "c1",
+    "emoji": "🩺",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "임상 연구 참여 동의서 설명 듣기",
+      "de": "Die Einwilligungserklärung für eine klinische Studie erklärt bekommen",
+      "en": "Hearing the informed consent explanation for a clinical study"
+    },
+    "intro": {
+      "ko": "현아가 새로운 치료법 연구에 참여할지 고민하며 연구자에게 위험과 대안을 묻습니다.",
+      "de": "Hyuna überlegt, an einer Studie zu einer neuen Behandlungsmethode teilzunehmen, und fragt die Forscherin nach Risiken und Alternativen.",
+      "en": "Hyuna is considering joining a study on a new treatment and asks the researcher about the risks and alternatives."
+    },
+    "courseUnitId": "c1_01_evidence_public_reasoning",
+    "playerCharacterId": "hyuna",
+    "participantIds": [
+      "hyuna",
+      "researcher"
+    ],
+    "relationshipContext": "researcher_and_prospective_participant",
+    "intent": "ask_about_risks_and_alternatives_before_giving_consent",
+    "shelf": "c1_clinical",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "임상시험",
+        "note": {
+          "ko": "약이나 치료법의 효과를 확인하는 연구",
+          "de": "klinische Studie",
+          "en": "clinical trial"
+        }
+      },
+      {
+        "korean": "부작용",
+        "note": {
+          "ko": "치료 중 원래 목적과 다르게 나타나는 증상",
+          "de": "Nebenwirkung",
+          "en": "side effect"
+        }
+      },
+      {
+        "korean": "어지럼증",
+        "note": {
+          "ko": "머리가 어지러운 증상",
+          "de": "Schwindel",
+          "en": "dizziness"
+        }
+      },
+      {
+        "korean": "장기",
+        "note": {
+          "ko": "오랜 기간에 걸친 것",
+          "de": "langfristig",
+          "en": "long-term"
+        }
+      },
+      {
+        "korean": "치료법",
+        "note": {
+          "ko": "병을 낫게 하는 방법",
+          "de": "Behandlungsmethode",
+          "en": "treatment method"
+        }
+      },
+      {
+        "korean": "중단",
+        "note": {
+          "ko": "하던 일을 중간에 멈추는 것",
+          "de": "Abbruch",
+          "en": "discontinuation, stopping"
+        }
+      },
+      {
+        "korean": "불이익",
+        "note": {
+          "ko": "손해가 되는 조건이나 결과",
+          "de": "Nachteil",
+          "en": "disadvantage"
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_evidence_reasoning"
+    ],
+    "surfaceFormIds": [],
+    "sidekick": "christian",
+    "grammarIds": [
+      "grammar_c1_limited_to",
+      "grammar_c1_even_accounting_for"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N에 국한하면",
+        "de": "N에 국한하면: auf N beschränkt",
+        "en": "N에 국한하면: limited to N"
+      },
+      "explanation": {
+        "ko": "범위를 좁혀서 그 안에서만 판단할 때 N에 국한하면을 써요.",
+        "de": "Man benutzt N에 국한하면, um eine Bewertung auf einen engeren Bereich zu beschränken.",
+        "en": "Use N에 국한하면 to judge something only within a narrower scope."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "researcher",
+        "ko": "이 연구는 새로운 약물의 효과를 확인하는 임상시험입니다.",
+        "de": "Diese Studie soll die Wirkung eines neuen Medikaments überprüfen.",
+        "en": "This study is a clinical trial to check the effect of a new drug."
+      },
+      {
+        "speaker": "user",
+        "ko": "부작용은 어느 정도로 알려져 있나요?",
+        "de": "Wie stark sind die bekannten Nebenwirkungen?",
+        "en": "How severe are the known side effects?"
+      },
+      {
+        "speaker": "researcher",
+        "ko": "초기 결과에 국한하면 가벼운 두통과 어지럼증 정도입니다.",
+        "de": "Beschränkt man sich auf die frühen Ergebnisse, sind es leichte Kopfschmerzen und Schwindel.",
+        "en": "Limited to the early results, it's mostly mild headaches and dizziness."
+      },
+      {
+        "speaker": "user",
+        "ko": "그 결과를 감안하더라도 안심할 수 있는 건 아니겠죠.",
+        "de": "Auch wenn man dieses Ergebnis berücksichtigt, kann man sich wohl nicht ganz beruhigt fühlen.",
+        "en": "Even taking that result into account, it's probably not quite reassuring."
+      },
+      {
+        "speaker": "researcher",
+        "ko": "맞습니다. 장기 부작용은 아직 다 파악되지 않았습니다.",
+        "de": "Richtig. Langzeitnebenwirkungen sind noch nicht vollständig erfasst.",
+        "en": "That's right. Long-term side effects aren't fully known yet."
+      },
+      {
+        "speaker": "user",
+        "ko": "참여하지 않으면 다른 치료법도 받을 수 있나요?",
+        "de": "Wenn ich nicht teilnehme, kann ich dann eine andere Behandlung bekommen?",
+        "en": "If I don't take part, can I still get a different treatment?"
+      },
+      {
+        "speaker": "researcher",
+        "ko": "네, 기존 치료법도 그대로 선택하실 수 있습니다.",
+        "de": "Ja, Sie können sich weiterhin für die bisherige Behandlung entscheiden.",
+        "en": "Yes, you can still choose the existing treatment."
+      },
+      {
+        "speaker": "user",
+        "ko": "그럼 참여 중에 그만두고 싶으면 언제든 가능한가요?",
+        "de": "Kann ich dann während der Teilnahme jederzeit aufhören, wenn ich das möchte?",
+        "en": "Then if I want to stop during the study, is that possible at any time?"
+      },
+      {
+        "speaker": "researcher",
+        "ko": "물론입니다. 중단하셔도 불이익은 전혀 없습니다.",
+        "de": "Selbstverständlich. Auch bei einem Abbruch entstehen Ihnen keinerlei Nachteile.",
+        "en": "Of course. There's absolutely no disadvantage if you withdraw."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_c1_w10_clinical_hear",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "초기 결과에 국한하면 가벼운 두통과 어지럼증 정도입니다.",
+          "options": [
+            {
+              "de": "Beschränkt man sich auf die frühen Ergebnisse, sind es leichte Kopfschmerzen und Schwindel.",
+              "en": "Limited to the early results, it's mostly mild headaches and dizziness."
+            },
+            {
+              "de": "Diese Studie soll die Wirkung eines neuen Medikaments überprüfen.",
+              "en": "This study is a clinical trial to check the effect of a new drug."
+            },
+            {
+              "de": "Wenn ich nicht teilnehme, kann ich dann eine andere Behandlung bekommen?",
+              "en": "If I don't take part, can I still get a different treatment?"
+            },
+            {
+              "de": "Kann ich dann während der Teilnahme jederzeit aufhören, wenn ich das möchte?",
+              "en": "Then if I want to stop during the study, is that possible at any time?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_c1_w10_clinical_translate",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Auch wenn man dieses Ergebnis berücksichtigt, kann man sich wohl nicht ganz beruhigt fühlen.",
+          "promptEn": "Even taking that result into account, it's probably not quite reassuring.",
+          "options": [
+            {
+              "ko": "그 결과를 감안하더라도 안심할 수 있는 건 아니겠죠."
+            },
+            {
+              "ko": "부작용은 어느 정도로 알려져 있나요?"
+            },
+            {
+              "ko": "맞습니다. 장기 부작용은 아직 다 파악되지 않았습니다."
+            },
+            {
+              "ko": "네, 기존 치료법도 그대로 선택하실 수 있습니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_c1_w10_clinical_build",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "물론입니다. 중단하셔도 불이익은 전혀 없습니다.",
+          "promptDe": "Selbstverständlich. Auch bei einem Abbruch entstehen Ihnen keinerlei Nachteile.",
+          "promptEn": "Of course. There's absolutely no disadvantage if you withdraw.",
+          "distractors": [
+            "부작용",
+            "치료법"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 143
+  },
+  {
+    "id": "c1_w10_methodology",
+    "level": "c1",
+    "emoji": "🔍",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "설문 표본이 결론을 뒷받침하는지 따지기",
+      "de": "Prüfen, ob die Umfragestichprobe die Schlussfolgerung stützt",
+      "en": "Checking whether the survey sample supports the conclusion"
+    },
+    "intro": {
+      "ko": "현아가 지도 교수와 함께 설문 결과가 실제로 무엇을 보여주는지 검토합니다.",
+      "de": "Hyuna geht gemeinsam mit ihrer Betreuerin durch, was die Umfrageergebnisse tatsächlich zeigen.",
+      "en": "Hyuna and her advisor go over what the survey results actually show."
+    },
+    "courseUnitId": "c1_03_media_evidence_literacy",
+    "playerCharacterId": "hyuna",
+    "participantIds": [
+      "hyuna",
+      "professor"
+    ],
+    "relationshipContext": "graduate_student_and_advisor",
+    "intent": "critique_a_survey_samples_ability_to_support_the_conclusion",
+    "shelf": "c1_methodology",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "응답자",
+        "note": {
+          "ko": "설문에 답한 사람",
+          "de": "Befragte",
+          "en": "respondent"
+        }
+      },
+      {
+        "korean": "표본",
+        "note": {
+          "ko": "전체를 알아보기 위해 뽑은 일부",
+          "de": "Stichprobe",
+          "en": "sample"
+        }
+      },
+      {
+        "korean": "경향",
+        "note": {
+          "ko": "어떤 방향으로 나타나는 흐름",
+          "de": "Tendenz",
+          "en": "tendency"
+        }
+      },
+      {
+        "korean": "연령대",
+        "note": {
+          "ko": "나이를 범위로 나눈 구간",
+          "de": "Altersgruppe",
+          "en": "age range"
+        }
+      },
+      {
+        "korean": "한쪽으로 치우쳐",
+        "note": {
+          "ko": "한쪽으로 쏠려",
+          "de": "einseitig (auf eine Seite geneigt)",
+          "en": "skewed to one side"
+        }
+      },
+      {
+        "korean": "한계",
+        "note": {
+          "ko": "더 나아가지 못하는 범위",
+          "de": "Grenze",
+          "en": "limitation"
+        }
+      },
+      {
+        "korean": "순서",
+        "note": {
+          "ko": "일이 진행되는 차례",
+          "de": "Reihenfolge",
+          "en": "order, sequence"
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_media_evidence"
+    ],
+    "surfaceFormIds": [],
+    "sidekick": "christian",
+    "grammarIds": [
+      "grammar_c1_difficult_to_conclude_batch20",
+      "grammar_c1_effect_varies_by"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "A/V-다고 단정하기 어렵다",
+        "de": "-다고 단정하기 어렵다: keine sichere Schlussfolgerung",
+        "en": "-다고 단정하기 어렵다: hard to state as certain"
+      },
+      "explanation": {
+        "ko": "근거가 충분하지 않아 확실하게 말하기 힘들 때 -다고 단정하기 어렵다를 써요.",
+        "de": "Man benutzt -다고 단정하기 어렵다, wenn die Belege nicht ausreichen, um etwas eindeutig zu behaupten.",
+        "en": "Use -다고 단정하기 어렵다 when the evidence isn't strong enough to state something as certain."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "professor",
+        "ko": "응답자가 서른 명밖에 안 되는데 결론이 너무 단정적이네요.",
+        "de": "Es gibt nur dreißig Befragte, aber die Schlussfolgerung klingt zu eindeutig.",
+        "en": "There are only thirty respondents, but the conclusion sounds too definitive."
+      },
+      {
+        "speaker": "user",
+        "ko": "표본이 이렇게 적으면 효과가 있다고 단정하기 어렵습니다.",
+        "de": "Bei einer so kleinen Stichprobe ist es schwer, eindeutig von einer Wirkung zu sprechen.",
+        "en": "With such a small sample, it's hard to conclude there's a real effect."
+      },
+      {
+        "speaker": "professor",
+        "ko": "그럼 표현을 어떻게 바꾸는 게 좋을까요?",
+        "de": "Wie sollten wir die Formulierung dann ändern?",
+        "en": "So how should we change the wording, then?"
+      },
+      {
+        "speaker": "user",
+        "ko": "경향이 보인다 정도로 조심스럽게 써야 할 것 같습니다.",
+        "de": "Wir sollten es vorsichtiger formulieren, etwa als eine erkennbare Tendenz.",
+        "en": "I think we should phrase it more carefully, as something like an observed tendency."
+      },
+      {
+        "speaker": "professor",
+        "ko": "응답자 연령대도 한쪽으로 치우쳐 있던데요.",
+        "de": "Auch das Alter der Befragten war ziemlich einseitig verteilt.",
+        "en": "The respondents' age range was also quite skewed."
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 연령대에 따라 효과가 달라질 수 있어서 그 부분도 밝혀야 합니다.",
+        "de": "Ja, die Wirkung kann je nach Altersgruppe unterschiedlich ausfallen, das sollten wir angeben.",
+        "en": "Right, the effect may vary by age group, so we need to state that too."
+      },
+      {
+        "speaker": "professor",
+        "ko": "한계를 먼저 밝히고 나서 결과를 제시하는 순서가 낫겠습니다.",
+        "de": "Es wäre besser, zuerst die Grenzen zu nennen und danach die Ergebnisse zu zeigen.",
+        "en": "It would be better to state the limitations first and present the results after."
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 그렇게 순서를 바꿔서 다시 정리하겠습니다.",
+        "de": "Ja, ich ordne die Reihenfolge entsprechend um und überarbeite es.",
+        "en": "Yes, I'll rearrange the order and revise it that way."
+      },
+      {
+        "speaker": "professor",
+        "ko": "좋습니다. 그래야 나중에 오해도 줄어들 겁니다.",
+        "de": "Gut. So dürften später auch Missverständnisse abnehmen.",
+        "en": "Good. That should also reduce misunderstandings later on."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_c1_w10_methodology_hear",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "표본이 이렇게 적으면 효과가 있다고 단정하기 어렵습니다.",
+          "options": [
+            {
+              "de": "Bei einer so kleinen Stichprobe ist es schwer, eindeutig von einer Wirkung zu sprechen.",
+              "en": "With such a small sample, it's hard to conclude there's a real effect."
+            },
+            {
+              "de": "Es gibt nur dreißig Befragte, aber die Schlussfolgerung klingt zu eindeutig.",
+              "en": "There are only thirty respondents, but the conclusion sounds too definitive."
+            },
+            {
+              "de": "Auch das Alter der Befragten war ziemlich einseitig verteilt.",
+              "en": "The respondents' age range was also quite skewed."
+            },
+            {
+              "de": "Es wäre besser, zuerst die Grenzen zu nennen und danach die Ergebnisse zu zeigen.",
+              "en": "It would be better to state the limitations first and present the results after."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_c1_w10_methodology_translate",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ja, die Wirkung kann je nach Altersgruppe unterschiedlich ausfallen, das sollten wir angeben.",
+          "promptEn": "Right, the effect may vary by age group, so we need to state that too.",
+          "options": [
+            {
+              "ko": "네, 연령대에 따라 효과가 달라질 수 있어서 그 부분도 밝혀야 합니다."
+            },
+            {
+              "ko": "그럼 표현을 어떻게 바꾸는 게 좋을까요?"
+            },
+            {
+              "ko": "경향이 보인다 정도로 조심스럽게 써야 할 것 같습니다."
+            },
+            {
+              "ko": "네, 그렇게 순서를 바꿔서 다시 정리하겠습니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_c1_w10_methodology_build",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "한계를 먼저 밝히고 나서 결과를 제시하는 순서가 낫겠습니다.",
+          "promptDe": "Es wäre besser, zuerst die Grenzen zu nennen und danach die Ergebnisse zu zeigen.",
+          "promptEn": "It would be better to state the limitations first and present the results after.",
+          "distractors": [
+            "응답자",
+            "연령대"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 147
+  },
+  {
+    "id": "c1_w10_facework",
+    "level": "c1",
+    "emoji": "🙇",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "실수를 지적하되 체면은 지켜 주기",
+      "de": "Einen Fehler ansprechen, ohne das Gesicht zu verletzen",
+      "en": "Pointing out a mistake without making someone lose face"
+    },
+    "intro": {
+      "ko": "안드레아가 마야의 보고서 오류를 다른 사람 없는 자리에서 조용히 짚어 줍니다.",
+      "de": "Andrea weist Maya unter vier Augen leise auf einen Fehler im Bericht hin.",
+      "en": "Andrea quietly points out an error in Maya's report when no one else is around."
+    },
+    "courseUnitId": "c1_06_intimacy_safety_design",
+    "playerCharacterId": "andrea",
+    "participantIds": [
+      "andrea",
+      "maya"
+    ],
+    "relationshipContext": "team_lead_and_junior_colleague",
+    "intent": "correct_a_mistake_privately_while_preserving_face",
+    "shelf": "c1_facework",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "보고서",
+        "note": {
+          "ko": "일이나 조사 결과를 정리해 알리는 글",
+          "de": "Bericht",
+          "en": "report"
+        }
+      },
+      {
+        "korean": "단독",
+        "note": {
+          "ko": "다른 사람 없이 혼자 하는 것",
+          "de": "eigenständig",
+          "en": "solo, on one's own"
+        }
+      },
+      {
+        "korean": "수치",
+        "note": {
+          "ko": "조사나 계산으로 나온 숫자",
+          "de": "Zahl",
+          "en": "figure, numeric value"
+        }
+      },
+      {
+        "korean": "실력",
+        "note": {
+          "ko": "일을 해낼 수 있는 능력",
+          "de": "Fähigkeit",
+          "en": "ability, skill"
+        }
+      },
+      {
+        "korean": "제출",
+        "note": {
+          "ko": "서류나 결과물을 냄",
+          "de": "Abgabe",
+          "en": "submission"
+        }
+      },
+      {
+        "korean": "마음이 편합니다",
+        "note": {
+          "ko": "걱정이 없고 편안하게 느껴집니다",
+          "de": "fühlt sich erleichtert",
+          "en": "feels at ease"
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_intimacy_safety"
+    ],
+    "surfaceFormIds": [],
+    "sidekick": "christian",
+    "grammarIds": [
+      "grammar_c1_family_framing"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N라는 점에서",
+        "de": "N라는 점에서: N als Rahmen der Bewertung",
+        "en": "N라는 점에서: evaluating within a given frame"
+      },
+      "explanation": {
+        "ko": "어떤 사실을 특별한 조건으로 놓고 그 안에서 평가할 때 N라는 점에서를 써요.",
+        "de": "Man benutzt N라는 점에서, um eine Tatsache als besonderen Rahmen zu setzen und die Bewertung darauf zu beziehen.",
+        "en": "Use N라는 점에서 to frame a fact as the relevant condition and evaluate something within that frame."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "잠깐 시간 괜찮으면 보고서 하나만 같이 볼까요?",
+        "de": "Hätten Sie kurz Zeit, uns gemeinsam einen Bericht anzusehen?",
+        "en": "Do you have a moment to look over a report together?"
+      },
+      {
+        "speaker": "maya",
+        "ko": "네, 어제 낸 캠페인 보고서 말씀이시죠?",
+        "de": "Ja, meinen Sie den Kampagnenbericht von gestern?",
+        "en": "Yes, do you mean the campaign report from yesterday?"
+      },
+      {
+        "speaker": "user",
+        "ko": "이번이 마야 씨 첫 단독 보고서라는 점에서 이 정도면 잘한 편입니다.",
+        "de": "Da das Ihr allererster eigenständiger Bericht ist, ist das schon richtig gut gelungen.",
+        "en": "Given that this is your very first report done solo, this turned out quite well."
+      },
+      {
+        "speaker": "maya",
+        "ko": "감사합니다. 신경 좀 썼습니다.",
+        "de": "Danke. Ich habe mir Mühe gegeben.",
+        "en": "Thank you. I put some effort into it."
+      },
+      {
+        "speaker": "user",
+        "ko": "다만 세 번째 표의 수치 하나가 지난달 자료랑 안 맞습니다.",
+        "de": "Allerdings stimmt eine Zahl in der dritten Tabelle nicht mit den Daten vom letzten Monat überein.",
+        "en": "But one figure in the third table doesn't match last month's data."
+      },
+      {
+        "speaker": "maya",
+        "ko": "어, 정말요? 바로 확인해 볼게요.",
+        "de": "Oh, wirklich? Das prüfe ich sofort.",
+        "en": "Oh, really? I'll check that right away."
+      },
+      {
+        "speaker": "user",
+        "ko": "실수는 짚고 넘어가야 하지만, 마야 씨 실력을 낮게 보는 건 아닙니다.",
+        "de": "Fehler muss man ansprechen, bevor man weitermacht, aber das heißt nicht, dass ich weniger von Ihren Fähigkeiten halte.",
+        "en": "Mistakes need to be addressed before moving on, but that doesn't mean I think less of your ability."
+      },
+      {
+        "speaker": "maya",
+        "ko": "말씀해 주셔서 오히려 마음이 편합니다.",
+        "de": "Dass Sie es mir sagen, macht es mir eigentlich leichter.",
+        "en": "Actually, hearing it from you puts me more at ease."
+      },
+      {
+        "speaker": "user",
+        "ko": "다음부터는 제출 전에 저와 한 번만 더 확인해요.",
+        "de": "Prüfen wir es ab jetzt vor der Abgabe einfach noch einmal gemeinsam.",
+        "en": "Let's just double-check together once more before submitting from now on."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_c1_w10_facework_hear",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "이번이 마야 씨 첫 단독 보고서라는 점에서 이 정도면 잘한 편입니다.",
+          "options": [
+            {
+              "de": "Da das Ihr allererster eigenständiger Bericht ist, ist das schon richtig gut gelungen.",
+              "en": "Given that this is your very first report done solo, this turned out quite well."
+            },
+            {
+              "de": "Hätten Sie kurz Zeit, uns gemeinsam einen Bericht anzusehen?",
+              "en": "Do you have a moment to look over a report together?"
+            },
+            {
+              "de": "Allerdings stimmt eine Zahl in der dritten Tabelle nicht mit den Daten vom letzten Monat überein.",
+              "en": "But one figure in the third table doesn't match last month's data."
+            },
+            {
+              "de": "Oh, wirklich? Das prüfe ich sofort.",
+              "en": "Oh, really? I'll check that right away."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_c1_w10_facework_translate",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Fehler muss man ansprechen, bevor man weitermacht, aber das heißt nicht, dass ich weniger von Ihren Fähigkeiten halte.",
+          "promptEn": "Mistakes need to be addressed before moving on, but that doesn't mean I think less of your ability.",
+          "options": [
+            {
+              "ko": "실수는 짚고 넘어가야 하지만, 마야 씨 실력을 낮게 보는 건 아닙니다."
+            },
+            {
+              "ko": "네, 어제 낸 캠페인 보고서 말씀이시죠?"
+            },
+            {
+              "ko": "감사합니다. 신경 좀 썼습니다."
+            },
+            {
+              "ko": "말씀해 주셔서 오히려 마음이 편합니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_c1_w10_facework_build",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "다음부터는 제출 전에 저와 한 번만 더 확인해요.",
+          "promptDe": "Prüfen wir es ab jetzt vor der Abgabe einfach noch einmal gemeinsam.",
+          "promptEn": "Let's just double-check together once more before submitting from now on.",
+          "distractors": [
+            "보고서",
+            "수치"
+          ]
+        }
+      }
+    ],
+    "culturalNote": {
+      "title": {
+        "ko": "체면을 지켜 주는 피드백",
+        "de": "Rückmeldung, die das Gesicht wahrt",
+        "en": "Feedback that preserves face"
+      },
+      "body": {
+        "ko": "한국 직장에서는 실수를 지적할 때도 다른 사람 앞에서 망신 주지 않고 따로 불러 말하는 걸 중요하게 여겨요.",
+        "de": "In koreanischen Büros ist es wichtig, Fehler nicht vor anderen anzusprechen, sondern die Person separat beiseitezunehmen, um sie nicht bloßzustellen.",
+        "en": "In Korean workplaces, pointing out a mistake privately rather than in front of others is considered important so the person isn't embarrassed."
+      }
+    },
+    "xpReward": 142
+  },
+  {
+    "id": "c1_w10_friends",
+    "level": "c1",
+    "emoji": "☕",
+    "register": "casual",
+    "speechStyle": "casual",
+    "title": {
+      "ko": "오래된 친구 사이, 달라진 형편 이야기하기",
+      "de": "Mit einer alten Freundin über die unterschiedliche Lebenslage sprechen",
+      "en": "Talking with an old friend about how differently things have turned out"
+    },
+    "intro": {
+      "ko": "수진과 현아가 오랜만에 만났는데 형편 차이 때문에 서로 조심스러워합니다.",
+      "de": "Sujin und Hyuna treffen sich nach langer Zeit, sind aber wegen ihrer unterschiedlichen Lebenslage vorsichtig miteinander.",
+      "en": "Sujin and Hyuna meet after a long time, but they're cautious with each other because of how differently their lives have turned out."
+    },
+    "courseUnitId": "c1_06_intimacy_safety_design",
+    "playerCharacterId": "sujin",
+    "participantIds": [
+      "sujin",
+      "hyuna"
+    ],
+    "relationshipContext": "longtime_close_friends",
+    "intent": "address_growing_distance_and_unequal_costs_honestly",
+    "shelf": "c1_friends",
+    "backdrop": "cafe",
+    "vocab": [
+      {
+        "korean": "서운해",
+        "note": {
+          "ko": "기대와 달라서 마음이 살짝 아파",
+          "de": "ist enttäuscht",
+          "en": "feels a little hurt"
+        }
+      },
+      {
+        "korean": "밥값",
+        "note": {
+          "ko": "식사할 때 드는 돈",
+          "de": "Essenskosten",
+          "en": "cost of a meal"
+        }
+      },
+      {
+        "korean": "형편",
+        "note": {
+          "ko": "살림이나 경제 상황",
+          "de": "Lebenslage, finanzielle Situation",
+          "en": "circumstances"
+        }
+      },
+      {
+        "korean": "빠듯해",
+        "note": {
+          "ko": "여유가 별로 없어",
+          "de": "ist knapp",
+          "en": "is tight (financially)"
+        }
+      },
+      {
+        "korean": "솔직하게",
+        "note": {
+          "ko": "숨기지 않고 있는 그대로",
+          "de": "ehrlich",
+          "en": "honestly"
+        }
+      },
+      {
+        "korean": "진작",
+        "note": {
+          "ko": "훨씬 전에, 더 일찍",
+          "de": "schon längst, früher",
+          "en": "sooner, before now"
+        }
+      },
+      {
+        "korean": "과언",
+        "note": {
+          "ko": "실제보다 지나치게 강조한 말",
+          "de": "Übertreibung",
+          "en": "exaggeration"
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_intimacy_safety"
+    ],
+    "surfaceFormIds": [],
+    "sidekick": "christian",
+    "grammarIds": [
+      "grammar_c1_even_at_cost",
+      "grammar_c1_no_exaggeration"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "A/V-다고 해도 과언이 아니다",
+        "de": "-다고 해도 과언이 아니다: keine Übertreibung",
+        "en": "-다고 해도 과언이 아니다: it's no exaggeration to say"
+      },
+      "explanation": {
+        "ko": "표현이 세지만 근거가 있어서 정당하다고 할 때 -다고 해도 과언이 아니다를 써요.",
+        "de": "Man benutzt -다고 해도 과언이 아니다 für eine starke, aber begründbare Aussage.",
+        "en": "Use -다고 해도 과언이 아니다 for a strong claim that is nonetheless justified."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "hyuna",
+        "ko": "오랜만이다. 요즘 통 연락이 안 됐네.",
+        "de": "Lange nicht gesehen. In letzter Zeit haben wir uns kaum gemeldet.",
+        "en": "It's been a while. We really haven't been in touch lately."
+      },
+      {
+        "speaker": "user",
+        "ko": "미안, 요즘 일이 좀 바빴어.",
+        "de": "Sorry, ich war in letzter Zeit ziemlich beschäftigt mit der Arbeit.",
+        "en": "Sorry, I've been pretty busy with work lately."
+      },
+      {
+        "speaker": "hyuna",
+        "ko": "너는 늘 바쁘잖아. 나도 이해는 하는데 가끔 서운해.",
+        "de": "Du bist doch immer beschäftigt. Ich verstehe das schon, aber manchmal bin ich trotzdem enttäuscht.",
+        "en": "You're always busy. I get it, but sometimes it still makes me a little hurt."
+      },
+      {
+        "speaker": "user",
+        "ko": "서운했다는 말, 이제라도 해 줘서 고마워.",
+        "de": "Danke, dass du mir das jetzt trotzdem gesagt hast, dass du enttäuscht warst.",
+        "en": "Thanks for telling me you were hurt, even now."
+      },
+      {
+        "speaker": "hyuna",
+        "ko": "그리고 요즘 밥값도 매번 내가 낸 거 알아?",
+        "de": "Und weißt du, dass ich in letzter Zeit jedes Mal das Essen bezahlt habe?",
+        "en": "And did you know I've been the one paying for meals every time lately?"
+      },
+      {
+        "speaker": "user",
+        "ko": "이번엔 내가 서운한 소리를 듣는 한이 있어도 솔직하게 다 말할게.",
+        "de": "Diesmal sage ich alles ehrlich, selbst wenn ich dafür hören muss, dass du enttäuscht bist.",
+        "en": "This time I'll say everything honestly, even if it means hearing that you're upset with me."
+      },
+      {
+        "speaker": "hyuna",
+        "ko": "그래, 그럼 나도 솔직히 말할게. 요즘 형편이 좀 빠듯해.",
+        "de": "Gut, dann sage ich auch ehrlich: Mir geht es finanziell gerade etwas knapp.",
+        "en": "Okay, then I'll be honest too. Money's been a bit tight for me lately."
+      },
+      {
+        "speaker": "user",
+        "ko": "진작 말하지 그랬어. 다음부터는 내가 낼 때도 있어야지.",
+        "de": "Das hättest du früher sagen können. Ab jetzt zahle ich auch mal.",
+        "en": "You should've said something sooner. I should take turns paying from now on."
+      },
+      {
+        "speaker": "hyuna",
+        "ko": "우리가 이렇게 솔직하게 얘기한 적이 없었다고 해도 과언이 아니야.",
+        "de": "Es ist keine Übertreibung zu sagen, dass wir noch nie so ehrlich miteinander gesprochen haben.",
+        "en": "It's not an exaggeration to say we've never talked this honestly before."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_c1_w10_friends_hear",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "이번엔 내가 서운한 소리를 듣는 한이 있어도 솔직하게 다 말할게.",
+          "options": [
+            {
+              "de": "Diesmal sage ich alles ehrlich, selbst wenn ich dafür hören muss, dass du enttäuscht bist.",
+              "en": "This time I'll say everything honestly, even if it means hearing that you're upset with me."
+            },
+            {
+              "de": "Lange nicht gesehen. In letzter Zeit haben wir uns kaum gemeldet.",
+              "en": "It's been a while. We really haven't been in touch lately."
+            },
+            {
+              "de": "Du bist doch immer beschäftigt. Ich verstehe das schon, aber manchmal bin ich trotzdem enttäuscht.",
+              "en": "You're always busy. I get it, but sometimes it still makes me a little hurt."
+            },
+            {
+              "de": "Und weißt du, dass ich in letzter Zeit jedes Mal das Essen bezahlt habe?",
+              "en": "And did you know I've been the one paying for meals every time lately?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_c1_w10_friends_translate",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Gut, dann sage ich auch ehrlich: Mir geht es finanziell gerade etwas knapp.",
+          "promptEn": "Okay, then I'll be honest too. Money's been a bit tight for me lately.",
+          "options": [
+            {
+              "ko": "그래, 그럼 나도 솔직히 말할게. 요즘 형편이 좀 빠듯해."
+            },
+            {
+              "ko": "미안, 요즘 일이 좀 바빴어."
+            },
+            {
+              "ko": "서운했다는 말, 이제라도 해 줘서 고마워."
+            },
+            {
+              "ko": "진작 말하지 그랬어. 다음부터는 내가 낼 때도 있어야지."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_c1_w10_friends_build",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "우리가 이렇게 솔직하게 얘기한 적이 없었다고 해도 과언이 아니야.",
+          "promptDe": "Es ist keine Übertreibung zu sagen, dass wir noch nie so ehrlich miteinander gesprochen haben.",
+          "promptEn": "It's not an exaggeration to say we've never talked this honestly before.",
+          "distractors": [
+            "밥값",
+            "형편"
+          ]
+        }
+      }
+    ],
+    "culturalNote": {
+      "title": {
+        "ko": "친구 사이의 돈 이야기",
+        "de": "Über Geld unter Freunden sprechen",
+        "en": "Talking about money between friends"
+      },
+      "body": {
+        "ko": "한국에서는 친한 사이일수록 돈 문제를 직접 말하기 어려워해서, 누가 더 자주 냈는지 같은 이야기를 오래 참다가 꺼내는 경우가 많아요.",
+        "de": "In Korea fällt es gerade engen Freunden schwer, offen über Geld zu sprechen, sodass Themen wie ungleiche Ausgaben oft lange aufgeschoben werden, bevor sie zur Sprache kommen.",
+        "en": "In Korea, the closer the friendship, the harder it can be to talk about money directly, so topics like who's been paying more often tend to stay unspoken for a long time."
+      }
+    },
+    "xpReward": 150
+  },
+  {
+    "id": "c1_w10_fandom",
+    "level": "c1",
+    "emoji": "🎤",
+    "register": "casual",
+    "speechStyle": "casual",
+    "title": {
+      "ko": "팬과 아티스트 사이, 어디까지가 선일까",
+      "de": "Wo verläuft die Grenze zwischen Fans und Künstlerin?",
+      "en": "Where's the line between fans and an artist?"
+    },
+    "intro": {
+      "ko": "마야가 한 아이돌의 사생활이 담긴 영상이 퍼진 일을 두고 현아와 이야기합니다.",
+      "de": "Maya spricht mit Hyuna darüber, dass ein Video aus dem Privatleben eines Idols verbreitet wurde.",
+      "en": "Maya talks with Hyuna about a video showing an idol's private life that has been spreading around."
+    },
+    "courseUnitId": "c1_05_fan_labor_sustainability",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "hyuna"
+    ],
+    "relationshipContext": "close_friends_and_fellow_fans",
+    "intent": "draw_a_boundary_between_fan_affection_and_an_artists_privacy",
+    "shelf": "c1_fandom",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "사생활",
+        "note": {
+          "ko": "남에게 알리고 싶지 않은 개인적인 생활",
+          "de": "Privatleben",
+          "en": "private life"
+        }
+      },
+      {
+        "korean": "찍혀서 퍼졌더라",
+        "note": {
+          "ko": "촬영되어서 여러 사람에게 넓게 알려졌더라",
+          "de": "wurde gefilmt und hat sich verbreitet",
+          "en": "(I saw that it) got filmed and spread"
+        }
+      },
+      {
+        "korean": "애정",
+        "note": {
+          "ko": "누군가를 아끼고 좋아하는 마음",
+          "de": "Zuneigung",
+          "en": "affection"
+        }
+      },
+      {
+        "korean": "침해",
+        "note": {
+          "ko": "남의 권리나 영역을 함부로 넘어서는 것",
+          "de": "Übergriff",
+          "en": "intrusion"
+        }
+      },
+      {
+        "korean": "눈치 보여",
+        "note": {
+          "ko": "다른 사람 반응이 신경 쓰여 불편해",
+          "de": "fühlt sich unwohl",
+          "en": "feels self-conscious, awkward"
+        }
+      },
+      {
+        "korean": "이슈",
+        "note": {
+          "ko": "사람들 사이에서 화제가 되는 일",
+          "de": "Thema",
+          "en": "issue"
+        }
+      },
+      {
+        "korean": "별개",
+        "note": {
+          "ko": "서로 관련이 없는 다른 것",
+          "de": "etwas Getrenntes",
+          "en": "a separate thing"
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_fan_labor"
+    ],
+    "surfaceFormIds": [],
+    "sidekick": "christian",
+    "grammarIds": [
+      "grammar_c1_leaning_on",
+      "grammar_c1_excluded_in_process"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N에 기대어",
+        "de": "N에 기대어: sich auf N berufen",
+        "en": "N에 기대어: leaning on N as a basis"
+      },
+      "explanation": {
+        "ko": "어떤 것을 근거나 핑계로 삼아 행동할 때 N에 기대어를 써요.",
+        "de": "Man benutzt N에 기대어, um etwas als Grundlage oder Vorwand für eine Handlung zu nehmen.",
+        "en": "Use N에 기대어 to describe acting by leaning on something as a basis or excuse."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "이 영상 봤어? 사생활 부분까지 다 찍혀서 퍼졌더라.",
+        "de": "Hast du das Video gesehen? Sogar Privates wurde gefilmt und verbreitet.",
+        "en": "Did you see this video? Even private moments got filmed and spread around."
+      },
+      {
+        "speaker": "hyuna",
+        "ko": "봤어. 그런데 그거 팬이 몰래 찍은 거라며.",
+        "de": "Ja, hab ich gesehen. Aber das hat doch heimlich ein Fan gefilmt, oder?",
+        "en": "Yeah, I saw it. But wasn't that secretly filmed by a fan?"
+      },
+      {
+        "speaker": "user",
+        "ko": "응, 애정이 있으니까 그런 것도 괜찮다고 생각한 것 같아.",
+        "de": "Ja, ich glaube, sie dachte, das sei okay, weil sie ihn so gern mag.",
+        "en": "Yeah, I think she figured it was fine because she likes him so much."
+      },
+      {
+        "speaker": "hyuna",
+        "ko": "친밀감에 기대서 사생활까지 요구하면 그건 애정이 아니라 침해야.",
+        "de": "Wenn man sich auf die Nähe beruft und dabei sogar Privates verlangt, ist das keine Zuneigung mehr, sondern ein Übergriff.",
+        "en": "Leaning on that closeness to demand even private moments isn't affection anymore, it's an intrusion."
+      },
+      {
+        "speaker": "user",
+        "ko": "맞아. 근데 팬들 사이에서는 이런 말 하기가 좀 눈치 보여.",
+        "de": "Stimmt. Aber unter Fans ist es irgendwie unangenehm, so etwas zu sagen.",
+        "en": "True. But among fans, it feels awkward to say something like that."
+      },
+      {
+        "speaker": "hyuna",
+        "ko": "이슈가 커지는 과정에서 그런 조심스러운 목소리가 배제되기 쉬워.",
+        "de": "Während dieses Thema größer wird, werden vorsichtige Stimmen wie diese leicht ausgeschlossen.",
+        "en": "As an issue like this grows bigger, cautious voices like that easily get left out."
+      },
+      {
+        "speaker": "user",
+        "ko": "그래서 나는 그냥 조용히 있었는데 이제 한마디는 해야겠어.",
+        "de": "Deshalb bin ich einfach still geblieben, aber jetzt sollte ich wohl doch was sagen.",
+        "en": "That's why I just stayed quiet, but now I think I should say something."
+      },
+      {
+        "speaker": "hyuna",
+        "ko": "좋아. 팬으로서 좋아하는 마음과 상대의 사생활은 별개라고 말해 봐.",
+        "de": "Gut. Sag einfach, dass die eigene Zuneigung als Fan und die Privatsphäre der anderen Person zwei verschiedene Dinge sind.",
+        "en": "Good. Just say that being a fan and respecting someone's privacy are two separate things."
+      },
+      {
+        "speaker": "user",
+        "ko": "응, 그렇게 써 볼게. 다른 팬들도 이해해 주면 좋겠다.",
+        "de": "Ja, so schreibe ich es. Ich hoffe, die anderen Fans verstehen das auch.",
+        "en": "Okay, I'll write it that way. I hope other fans understand too."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_c1_w10_fandom_hear",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "친밀감에 기대서 사생활까지 요구하면 그건 애정이 아니라 침해야.",
+          "options": [
+            {
+              "de": "Wenn man sich auf die Nähe beruft und dabei sogar Privates verlangt, ist das keine Zuneigung mehr, sondern ein Übergriff.",
+              "en": "Leaning on that closeness to demand even private moments isn't affection anymore, it's an intrusion."
+            },
+            {
+              "de": "Hast du das Video gesehen? Sogar Privates wurde gefilmt und verbreitet.",
+              "en": "Did you see this video? Even private moments got filmed and spread around."
+            },
+            {
+              "de": "Ja, ich glaube, sie dachte, das sei okay, weil sie ihn so gern mag.",
+              "en": "Yeah, I think she figured it was fine because she likes him so much."
+            },
+            {
+              "de": "Gut. Sag einfach, dass die eigene Zuneigung als Fan und die Privatsphäre der anderen Person zwei verschiedene Dinge sind.",
+              "en": "Good. Just say that being a fan and respecting someone's privacy are two separate things."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_c1_w10_fandom_translate",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Während dieses Thema größer wird, werden vorsichtige Stimmen wie diese leicht ausgeschlossen.",
+          "promptEn": "As an issue like this grows bigger, cautious voices like that easily get left out.",
+          "options": [
+            {
+              "ko": "이슈가 커지는 과정에서 그런 조심스러운 목소리가 배제되기 쉬워."
+            },
+            {
+              "ko": "봤어. 그런데 그거 팬이 몰래 찍은 거라며."
+            },
+            {
+              "ko": "맞아. 근데 팬들 사이에서는 이런 말 하기가 좀 눈치 보여."
+            },
+            {
+              "ko": "그래서 나는 그냥 조용히 있었는데 이제 한마디는 해야겠어."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_c1_w10_fandom_build",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "좋아. 팬으로서 좋아하는 마음과 상대의 사생활은 별개라고 말해 봐.",
+          "promptDe": "Gut. Sag einfach, dass die eigene Zuneigung als Fan und die Privatsphäre der anderen Person zwei verschiedene Dinge sind.",
+          "promptEn": "Good. Just say that being a fan and respecting someone's privacy are two separate things.",
+          "distractors": [
+            "침해",
+            "이슈"
+          ]
+        }
+      }
+    ],
+    "culturalNote": {
+      "title": {
+        "ko": "사생팬과 경계",
+        "de": "'Sasaeng'-Fans und Grenzen",
+        "en": "'Sasaeng' fans and boundaries"
+      },
+      "body": {
+        "ko": "한국에서는 아이돌의 사생활을 몰래 쫓는 팬을 '사생팬'이라고 따로 부르는데, 애정과 침해를 가르는 기준으로 자주 언급돼요.",
+        "de": "In Korea nennt man Fans, die heimlich das Privatleben von Idols verfolgen, eigens 'Sasaeng-Fans' – ein Begriff, der oft als Grenze zwischen Zuneigung und Übergriff genannt wird.",
+        "en": "In Korea, fans who secretly track an idol's private life are given their own label, 'sasaeng fans' – a term often invoked to mark the line between affection and intrusion."
+      }
+    },
+    "xpReward": 145
+  }
+]
