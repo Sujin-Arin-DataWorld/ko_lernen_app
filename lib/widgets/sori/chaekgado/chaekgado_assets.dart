@@ -8,6 +8,11 @@
 /// scroll-bottom constants that only the old shelf (`ChaekgadoShelfCase`) and
 /// scroll sheet (`ChaekgadoScroll`) used were removed here when those widgets
 /// moved to `assets_unused/retired_code/`.
+///
+/// W10 PR-C F3 (2026-09-06): `kHoerenScrollShortCard` had no remaining
+/// caller in `lib/` or `test/` (T-H4's note that the category list screen
+/// still called it was stale) — removed here, and its PNG moved to
+/// `assets_unused/hangul_sori_chaekgado_asset_pack_v1/scroll/`.
 library;
 
 const String _chaekgadoAssetRoot = 'assets/hangul_sori_chaekgado_asset_pack_v1';
@@ -25,13 +30,6 @@ String chaekgadoCardAsset(String imageKey) =>
 
 const String kHoerenScrollTop =
     '$_chaekgadoAssetRoot/scroll/hoeren_scroll_top.png';
-
-/// W10 T-H4 시점엔 이 상수의 유일한 소비자(`SoriShortScrollCard`, 옛
-/// scroll_sheet.dart)가 assets_unused/로 격리돼 활성 코드에서는 미사용이다.
-/// 브리프가 이 상수 자체의 삭제는 지시하지 않아(4종 삭제 목록에 없음) 값만
-/// 남긴다 — 파일(`hoeren_scroll_short_card.png`)도 이동 목록에 없다.
-const String kHoerenScrollShortCard =
-    '$_chaekgadoAssetRoot/scroll/hoeren_scroll_short_card.png';
 
 const Map<String, String> _categoryVignettes = {
   'transit': 'vignette_01_transport.png',

@@ -198,10 +198,10 @@ flutter:
     # 격리되며 bookcase 원목 레이어·책더미 폴백(books/transparent/)·
     # 두루마리 몸통/바닥 타일(scroll_body_tile/scroll_bottom)이 고아가 됐다
     # — 같은 상대경로로 assets_unused/hangul_sori_chaekgado_asset_pack_v1/에
-    # 옮기고 여기서 뺀다. kHoerenScrollTop(축 띠)·kHoerenScrollShortCard는
-    # 카테고리 목록 화면(T-H3)이 계속 부른다.
+    # 옮기고 여기서 뺀다. kHoerenScrollTop(축 띠)만 카테고리 목록 화면(T-H3)이
+    # 계속 부른다. W10 PR-C F3: kHoerenScrollShortCard(미사용 확정)도 같은
+    # 상대경로로 assets_unused/에 옮기고 여기서 뺐다.
     - assets/hangul_sori_chaekgado_asset_pack_v1/scroll/hoeren_scroll_top.png
-    - assets/hangul_sori_chaekgado_asset_pack_v1/scroll/hoeren_scroll_short_card.png
     - assets/hangul_sori_chaekgado_asset_pack_v1/categories/transparent/
     # 공유 이미지 두루마리 소재 — ShareSlipRenderer. F-D-share (STYLE_LOCK.json).
     - assets/illustrations/share/
