@@ -7585,6 +7585,18 @@ abstract class AppL10n {
   /// **'Schweres Quiz: Schreibweise'**
   String get hardWordsHardQuizCta;
 
+  /// No description provided for @hardWordsSectionAuto.
+  ///
+  /// In de, this message translates to:
+  /// **'Bleibt einfach nicht hängen'**
+  String get hardWordsSectionAuto;
+
+  /// No description provided for @hardWordsSectionLiked.
+  ///
+  /// In de, this message translates to:
+  /// **'Gelikt'**
+  String get hardWordsSectionLiked;
+
   /// No description provided for @hardQuizTitle.
   ///
   /// In de, this message translates to:
@@ -7973,6 +7985,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Wörter aus einem Foto'**
   String get myWordsPhotoSheetTitle;
+
+  /// No description provided for @myWordsPhotoBookOptionSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Seite aus einem Lehrbuch – wird zur Wortliste'**
+  String get myWordsPhotoBookOptionSubtitle;
+
+  /// No description provided for @myWordsPhotoNotebookOptionSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein eigenes Vokabelheft – deine eigene Liste'**
+  String get myWordsPhotoNotebookOptionSubtitle;
 
   /// No description provided for @wbSearchHint.
   ///

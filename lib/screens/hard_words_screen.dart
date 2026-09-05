@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/vocab.dart';
 import '../motion/transitions.dart';
+import '../services/liked_content_service.dart';
 import '../services/review_deck_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
@@ -13,6 +14,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/section_header.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
@@ -75,6 +77,11 @@ class _HardWordsBodyState extends State<HardWordsBody>
   bool _loading = true;
   bool _loadFailed = false;
   List<Vocab> _hard = const [];
+  // 지시서 1.6 룰링(Fable): Schwierig 탭 = 자동 산출(leech/오답) ∪ 하트한
+  // 단어. 두 출처를 따로 들고 있다가 렌더링에서만 섹션 헤더로 나눠 보여준다
+  // — _hard 자체는(퀴즈/집중복습 CTA 가 쓰는) 합집합 그대로 유지한다.
+  List<Vocab> _hardAuto = const [];
+  List<Vocab> _hardLiked = const [];
 
   // ── 코치마크 타겟 ──
   final GlobalKey _listKey = GlobalKey();
@@ -112,7 +119,8 @@ class _HardWordsBodyState extends State<HardWordsBody>
         _loadFailed = false;
       });
     }
-    List<Vocab> hard = const [];
+    List<Vocab> hardAuto = const [];
+    List<Vocab> hardLiked = const [];
     var loadFailed = false;
     try {
       final all =
@@ -120,17 +128,35 @@ class _HardWordsBodyState extends State<HardWordsBody>
       // Extra-Lernset = SRS leech 휴리스틱 ∪ 명시적 오답 3회+ (레벨 불문).
       // 오답 카운터는 즉시 반응하므로 한 세션에서 3번 틀린 단어도 바로 잡힌다
       // (2026-08-13 테스터 피드백 ③).
-      final ids = {
+      final autoIds = {
         ...Storage.hardIds(all.map((v) => v.korean)),
         ...Storage.frequentlyMissedIds(all.map((v) => v.korean)),
       };
-      hard = all.where((v) => ids.contains(v.korean)).toList();
+      hardAuto = all.where((v) => autoIds.contains(v.korean)).toList();
+      // 지시서 1.6 룰링: Schwierig 탭에 하트한 단어도 포함한다.
+      // LikedContentService.vocab 종류의 id 는 legacy_vocab/review_session/
+      // vocab_pack/custom_pack_play 의 _likeCurrent 가 전부 word.korean 을
+      // 그대로 쓰므로, 여기서도 같은 키로 안전하게 대조할 수 있다(스키마
+      // 변경 불필요).
+      final likedVocabIds = {
+        for (final item in LikedContentService.all())
+          if (item.kind == LikedContentService.vocab) item.id,
+      };
+      hardLiked = all
+          .where(
+            (v) =>
+                likedVocabIds.contains(v.korean) &&
+                !autoIds.contains(v.korean),
+          )
+          .toList();
     } catch (_) {
       loadFailed = true;
     }
     if (!mounted) return;
     setState(() {
-      _hard = hard;
+      _hardAuto = hardAuto;
+      _hardLiked = hardLiked;
+      _hard = [...hardAuto, ...hardLiked];
       _loading = false;
       _loadFailed = loadFailed;
     });
@@ -239,10 +265,7 @@ class _HardWordsBodyState extends State<HardWordsBody>
         children: [
           header,
           const SizedBox(height: Spacing.sm),
-          for (final word in _hard) ...[
-            _HardWordTile(word: word),
-            const SizedBox(height: Spacing.xs),
-          ],
+          ..._sectionedTiles(t),
           const SizedBox(height: Spacing.md),
           actionBlock,
         ],
@@ -260,7 +283,7 @@ class _HardWordsBodyState extends State<HardWordsBody>
           child: header,
         ),
         Expanded(
-          child: ListView.separated(
+          child: ListView(
             key: _listKey,
             padding: EdgeInsets.fromLTRB(
               padding.left,
@@ -268,14 +291,40 @@ class _HardWordsBodyState extends State<HardWordsBody>
               padding.right,
               padding.bottom,
             ),
-            itemCount: _hard.length,
-            separatorBuilder: (_, __) => const SizedBox(height: Spacing.xs),
-            itemBuilder: (_, i) => _HardWordTile(word: _hard[i]),
+            children: _sectionedTiles(t),
           ),
         ),
         SoriBottomActionArea(child: actionBlock),
       ],
     );
+  }
+
+  /// 자동 산출 ∪ 하트한 단어 타일들. 두 출처가 실제로 섞일 때만(하트한
+  /// 단어가 있을 때만) 섹션 헤더 2개로 나눠 보여준다 — 하트한 단어가 없으면
+  /// 지금까지와 동일하게 헤더 없이 자동 목록만 보인다.
+  List<Widget> _sectionedTiles(AppL10n t) {
+    if (_hardLiked.isEmpty) {
+      return [
+        for (final word in _hardAuto) ...[
+          _HardWordTile(word: word),
+          const SizedBox(height: Spacing.xs),
+        ],
+      ];
+    }
+    return [
+      if (_hardAuto.isNotEmpty) ...[
+        SoriSectionHeader(t.hardWordsSectionAuto),
+        for (final word in _hardAuto) ...[
+          _HardWordTile(word: word),
+          const SizedBox(height: Spacing.xs),
+        ],
+      ],
+      SoriSectionHeader(t.hardWordsSectionLiked),
+      for (final word in _hardLiked) ...[
+        _HardWordTile(word: word),
+        const SizedBox(height: Spacing.xs),
+      ],
+    ];
   }
 }
 

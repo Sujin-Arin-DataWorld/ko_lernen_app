@@ -91,6 +91,8 @@ void main() {
   });
 
   testWidgets('like stamp does not call bookmark', (tester) async {
+    // 지시서 1.24 룰링: 카드에는 하트 버튼이 없다 — 좋아요는 더블탭 전용이다
+    // (원래는 스탬프 행의 좋아요 버튼을 눌렀으나, 그 버튼 자체가 제거됐다).
     var like = 0;
     var bookmark = 0;
     await tester.pumpWidget(
@@ -102,12 +104,60 @@ void main() {
         ),
       ),
     );
-    final t = await AppL10n.delegate.load(const Locale('de'));
-    await tester.tap(find.bySemanticsLabel(t.contentActionLike));
+    await tester.tap(find.text('한국말'));
+    await tester.pump(const Duration(milliseconds: 50));
+    await tester.tap(find.text('한국말'));
     await tester.pump();
     expect(like, 1);
     expect(bookmark, 0);
   });
+
+  testWidgets(
+    'heart button is gone from the stamp row; double-tap still likes and '
+    'shows the liked badge, bookmark stays a real button',
+    (tester) async {
+      final t = await AppL10n.delegate.load(const Locale('de'));
+      var like = 0;
+      var bookmark = 0;
+      await tester.pumpWidget(
+        wrap(
+          SoriContentFeed(
+            onLike: () => like++,
+            onBookmark: () => bookmark++,
+            liked: false,
+            child: const SizedBox.expand(child: Text('한국말')),
+          ),
+        ),
+      );
+
+      // 하트 버튼 finder 0개.
+      expect(find.bySemanticsLabel(t.contentActionLike), findsNothing);
+      // 북마크 버튼 1개(유일한 버튼으로 남는다).
+      expect(find.bySemanticsLabel(t.contentActionBookmark), findsOneWidget);
+      // liked == false 이므로 배지도 없다.
+      expect(find.bySemanticsLabel(t.contentActionLikeLiked), findsNothing);
+
+      await tester.tap(find.text('한국말'));
+      await tester.pump(const Duration(milliseconds: 50));
+      await tester.tap(find.text('한국말'));
+      await tester.pump();
+      expect(like, 1);
+      expect(bookmark, 0);
+
+      // 부모가 liked 상태를 반영해 다시 그리면 우상단에 배지 1개가 뜬다.
+      await tester.pumpWidget(
+        wrap(
+          SoriContentFeed(
+            onLike: () => like++,
+            onBookmark: () => bookmark++,
+            liked: true,
+            child: const SizedBox.expand(child: Text('한국말')),
+          ),
+        ),
+      );
+      expect(find.bySemanticsLabel(t.contentActionLikeLiked), findsOneWidget);
+    },
+  );
 
   testWidgets('judgment labels stack without truncation at 320dp and 200%', (
     tester,
@@ -229,11 +279,11 @@ void main() {
   );
 
   testWidgets(
-    'like stamp announces liked state, not just the static action name',
+    'liked badge announces the liked state but is not an interactive button',
     (tester) async {
-      // 접근성 후속수정 A2 — 북마크 스탬프는 지시서 1.24 검수에서 value 를
-      // 받았는데(위 테스트) 좋아요는 그때 비대칭으로 남았다. 라벨("Gefällt
-      // mir")만으로는 스크린 리더가 찜/안 찜을 구분 못 했다.
+      // 지시서 1.24 룰링으로 좋아요 버튼 자체가 사라졌다 — 이전에는 이
+      // 스탬프의 value 가 찜/안 찜을 안내했지만, 이제 그 역할은 liked ==
+      // true 일 때만 나타나는 카드 우상단 배지가 맡는다(비대화형).
       final semantics = tester.ensureSemantics();
       final t = await AppL10n.delegate.load(const Locale('de'));
 
@@ -246,11 +296,11 @@ void main() {
           ),
         ),
       );
-      final notLiked = tester
-          .getSemantics(find.bySemanticsLabel(t.contentActionLike))
-          .getSemanticsData();
-      expect(notLiked.label, t.contentActionLike, reason: '동작명은 그대로 유지');
-      expect(notLiked.value, t.contentActionLikeNotLiked);
+      expect(
+        find.bySemanticsLabel(t.contentActionLikeLiked),
+        findsNothing,
+        reason: 'liked == false 일 때는 배지가 없다',
+      );
 
       await tester.pumpWidget(
         wrap(
@@ -261,14 +311,13 @@ void main() {
           ),
         ),
       );
-      final liked = tester
-          .getSemantics(find.bySemanticsLabel(t.contentActionLike))
+      final badge = tester
+          .getSemantics(find.bySemanticsLabel(t.contentActionLikeLiked))
           .getSemanticsData();
-      expect(liked.value, t.contentActionLikeLiked);
       expect(
-        liked.value,
-        isNot(notLiked.value),
-        reason: '좋아요 전/후 안내가 달라야 한다 — 라벨이 같아도 값이 상태를 말해야 함',
+        badge.flagsCollection.isButton,
+        isFalse,
+        reason: '하트 배지는 버튼이 아니다 — 탭해도 아무 일도 없어야 함',
       );
 
       semantics.dispose();

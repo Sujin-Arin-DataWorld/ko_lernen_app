@@ -39,6 +39,11 @@ class MyWordsScreen extends StatelessWidget {
           navigator.pushNamed<void>(routeName);
         }
 
+        final s = SoriSurfaces.of(sheetContext);
+        // 지시서 1.19 정리: "+" 시트는 두 옵션을 설명 없이 나열했었다 —
+        // 이 Column 전체가 "Foto einlesen" 섹션 하나고, 각 옵션에 한 줄
+        // 부제를 붙여 책 캡처와 내 단어장의 차이를 밝힌다. 라우트·
+        // captureMode·BookCaptureScreen 자체는 건드리지 않는다.
         return Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -48,18 +53,46 @@ class MyWordsScreen extends StatelessWidget {
               style: SoriTextTheme.of(sheetContext).h3,
             ),
             const SizedBox(height: Spacing.lg),
-            SoriButton(
-              label: t.bookCaptureTitle,
-              variant: SoriButtonVariant.outlined,
-              fullWidth: true,
-              onTap: () => open('/book'),
+            MergeSemantics(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  SoriButton(
+                    label: t.bookCaptureTitle,
+                    variant: SoriButtonVariant.outlined,
+                    fullWidth: true,
+                    onTap: () => open('/book'),
+                  ),
+                  const SizedBox(height: Spacing.xs),
+                  Text(
+                    t.myWordsPhotoBookOptionSubtitle,
+                    style: SoriTextTheme.of(
+                      sheetContext,
+                    ).bodySmall.copyWith(color: s.textMuted),
+                  ),
+                ],
+              ),
             ),
             const SizedBox(height: Spacing.sm),
-            SoriButton(
-              label: t.vocabNotebookTitle,
-              variant: SoriButtonVariant.outlined,
-              fullWidth: true,
-              onTap: () => open('/vocab_notebook'),
+            MergeSemantics(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  SoriButton(
+                    label: t.vocabNotebookTitle,
+                    variant: SoriButtonVariant.outlined,
+                    fullWidth: true,
+                    onTap: () => open('/vocab_notebook'),
+                  ),
+                  const SizedBox(height: Spacing.xs),
+                  Text(
+                    t.myWordsPhotoNotebookOptionSubtitle,
+                    style: SoriTextTheme.of(
+                      sheetContext,
+                    ).bodySmall.copyWith(color: s.textMuted),
+                  ),
+                ],
+              ),
             ),
           ],
         );
@@ -139,14 +172,20 @@ class MyWordsScreen extends StatelessWidget {
                       tabs: [
                         Tab(
                           key: const ValueKey('my-words-tab-search'),
+                          icon: const Icon(Icons.search_rounded),
+                          iconMargin: const EdgeInsets.only(bottom: Spacing.xs),
                           text: t.myWordsTabSearch,
                         ),
                         Tab(
                           key: const ValueKey('my-words-tab-shelf'),
+                          icon: const Icon(Icons.bookmark_rounded),
+                          iconMargin: const EdgeInsets.only(bottom: Spacing.xs),
                           text: t.myWordsTabShelf,
                         ),
                         Tab(
                           key: const ValueKey('my-words-tab-difficult'),
+                          icon: const Icon(Icons.favorite_rounded),
+                          iconMargin: const EdgeInsets.only(bottom: Spacing.xs),
                           text: t.myWordsTabDifficult,
                         ),
                       ],
