@@ -227,6 +227,10 @@
       },
       {
         "id": "quest_a1_w10_taxi_stay_build",
+        "conceptIds": [
+          "concept_a1_directions",
+          "concept_request_polite"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "어서 오세요. 성함이 어떻게 되세요?",
@@ -471,6 +475,10 @@
       },
       {
         "id": "quest_a1_w10_eat_build",
+        "conceptIds": [
+          "concept_request_polite",
+          "concept_object_particle"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "다 해서 만 천 원이에요.",
@@ -695,6 +703,10 @@
       },
       {
         "id": "quest_a1_w10_repeat_build",
+        "conceptIds": [
+          "concept_a1_clarification",
+          "concept_a1_health_safety"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "식사 후에 드세요.",
@@ -927,6 +939,10 @@
       },
       {
         "id": "quest_a1_w10_partner_build",
+        "conceptIds": [
+          "concept_a1_titles_relationships",
+          "concept_greeting_politeness"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "괜찮아요. 신발은 여기서 벗으세요.",
@@ -1174,6 +1190,10 @@
       },
       {
         "id": "quest_a1_w10_numbers_build",
+        "conceptIds": [
+          "concept_a1_time_numbers",
+          "concept_a1_contact_address"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "이만 오천 원이에요.",
@@ -1410,6 +1430,10 @@
       },
       {
         "id": "quest_a1_w10_phone_build",
+        "conceptIds": [
+          "concept_a1_contact_address",
+          "concept_a1_time_numbers"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "두 명이에요.",
@@ -1634,6 +1658,10 @@
       },
       {
         "id": "quest_a1_w10_wayfinding_build",
+        "conceptIds": [
+          "concept_a1_directions",
+          "concept_request_polite"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "아니요, 저건 편의점이에요. 은행은 편의점 앞에 있어요.",
@@ -1858,6 +1886,10 @@
       },
       {
         "id": "quest_a1_w10_fandom_build",
+        "conceptIds": [
+          "concept_a1_titles_relationships",
+          "concept_request_polite"
+        ],
         "type": "satzBauen",
         "data": {
           "targetKo": "포토카드나 배지도 있어요. 같이 볼까요?",
