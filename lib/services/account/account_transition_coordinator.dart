@@ -28,9 +28,15 @@ class AnonymousCredentialLinked<T> extends AnonymousCredentialLinkResult {
 @immutable
 class ExistingAccountLinkConflict extends AnonymousCredentialLinkResult
     implements Exception {
-  const ExistingAccountLinkConflict(this.provider);
+  const ExistingAccountLinkConflict(this.provider, {this.credential});
 
   final AccountLinkProvider provider;
+
+  /// The credential that collided with an existing account, when the caller
+  /// supplied one. `T4a` forwards this so a client-side account switch can
+  /// reuse the exact credential instead of asking the user to authenticate
+  /// twice.
+  final AuthCredential? credential;
 
   @override
   String toString() =>
@@ -75,6 +81,7 @@ Future<AnonymousCredentialLinkResult> attemptAnonymousCredentialLink<T>({
   bool sourceIsAnonymous = true,
   required String? Function() currentUid,
   required Future<T> Function() linkCredential,
+  AuthCredential? credential,
 }) {
   if (!sourceIsAnonymous) {
     throw const DurableAccountTransitionNotSupported();
@@ -87,6 +94,7 @@ Future<AnonymousCredentialLinkResult> attemptAnonymousCredentialLink<T>({
     sourceUid: sourceUid,
     currentUid: currentUid,
     linkCredential: linkCredential,
+    credential: credential,
   );
 }
 
@@ -95,6 +103,7 @@ Future<AnonymousCredentialLinkResult> _attemptAnonymousCredentialLink<T>({
   required String sourceUid,
   required String? Function() currentUid,
   required Future<T> Function() linkCredential,
+  AuthCredential? credential,
 }) async {
   try {
     final value = await linkCredential();
@@ -111,7 +120,7 @@ Future<AnonymousCredentialLinkResult> _attemptAnonymousCredentialLink<T>({
     if (currentUid() != sourceUid) {
       throw const AccountLinkSafetyFailure();
     }
-    return ExistingAccountLinkConflict(provider);
+    return ExistingAccountLinkConflict(provider, credential: credential);
   }
 }
 
