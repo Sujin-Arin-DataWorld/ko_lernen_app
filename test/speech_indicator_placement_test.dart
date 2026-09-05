@@ -3,20 +3,25 @@
 // 좌상단 8dp 부근에 있는지 — 하단 중앙/우측 정렬로 회귀하지 않는지 — 를
 // rect 비교로 고정한다. 360x640 1개 뷰포트.
 import 'dart:convert';
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/learner_level.dart';
+import 'package:ko_lernen_app/models/pronunciation_phrase.dart';
 import 'package:ko_lernen_app/models/smalltalk.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/vocab_pack.dart';
 import 'package:ko_lernen_app/screens/custom_pack_play_screen.dart';
 import 'package:ko_lernen_app/screens/grammar_screen.dart';
+import 'package:ko_lernen_app/screens/pronunciation_studio_screen.dart';
 import 'package:ko_lernen_app/screens/smalltalk_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
+import 'package:ko_lernen_app/services/pronunciation_recorder.dart';
 import 'package:ko_lernen_app/services/smalltalk_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -355,4 +360,58 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   });
+
+  group('pronunciation_studio_screen 카드', () {
+    setUp(() async {
+      Storage.resetForTesting();
+      SharedPreferences.setMockInitialValues(<String, Object>{});
+      await Storage.init();
+    });
+
+    testWidgets('SoriSpeechIndicator 가 카드 좌상단에 있다', (tester) async {
+      stubSoriSpeech();
+      _setViewport(tester);
+      const phrase = PronunciationPhrase(
+        id: 'pronunciation_a1_0001',
+        level: LearnerLevel.a1,
+        ko: '안녕하세요',
+        de: 'Guten Tag.',
+        en: 'Hello.',
+        focus: 'ㅎ 발음',
+      );
+      await tester.pumpWidget(
+        MaterialApp(
+          locale: const Locale('en'),
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          home: PronunciationStudioScreen(
+            recorder: _NoPermissionRecorder(),
+            cloudAssessmentEnabled: true,
+            phraseLoader: () async => const [phrase],
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expectIndicatorAtCardTopLeft(tester, korean: phrase.ko);
+      expect(tester.takeException(), isNull);
+    });
+  });
+}
+
+/// 이 표면은 배치만 확인하면 되므로 마이크 권한을 항상 거부해 녹음 흐름을
+/// 건드리지 않는다.
+class _NoPermissionRecorder implements PronunciationRecorder {
+  @override
+  Future<bool> requestPermission() async => false;
+
+  @override
+  Future<Stream<Uint8List>> startPcm16Stream() async =>
+      const Stream<Uint8List>.empty();
+
+  @override
+  Future<void> stop() async {}
+
+  @override
+  Future<void> dispose() async {}
 }

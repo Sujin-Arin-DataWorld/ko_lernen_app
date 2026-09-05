@@ -720,36 +720,45 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
                 style: type.body,
               ),
               const SizedBox(height: Spacing.lg),
-              SoriCard(
-                variant: SoriCardVariant.base,
-                accent: SoriActivityColors.speaking,
-                tinted: true,
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: ExcludeSemantics(
-                        excluding: speechDisabled,
-                        child: IgnorePointer(
-                          ignoring: speechDisabled,
-                          child: SoriSpeechIndicator(
-                            text: phrase.ko,
-                            onTap: () => unawaited(_listenToModel()),
-                          ),
+              // §A3 지시서 2.9: 듣기 아이콘은 카드박스 상단 왼쪽 구석 —
+              // 기존 우측 상단(Align centerRight)을 카드 Stack 위
+              // Positioned(top/left: Spacing.sm) 로 옮긴다(vocab_pack_screen
+              // .dart _FlipFront 와 같은 패턴). onTap(마이크 세션 넘기기)은
+              // 그대로 유지.
+              Stack(
+                fit: StackFit.passthrough,
+                children: [
+                  SoriCard(
+                    variant: SoriCardVariant.base,
+                    accent: SoriActivityColors.speaking,
+                    tinted: true,
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: Spacing.xxxl),
+                      child: Semantics(
+                        label: phrase.ko,
+                        child: Text(
+                          phrase.ko,
+                          textAlign: TextAlign.center,
+                          style: type.koDisplay.copyWith(fontSize: 36),
                         ),
                       ),
                     ),
-                    const SizedBox(height: Spacing.sm),
-                    Semantics(
-                      label: phrase.ko,
-                      child: Text(
-                        phrase.ko,
-                        textAlign: TextAlign.center,
-                        style: type.koDisplay.copyWith(fontSize: 36),
+                  ),
+                  Positioned(
+                    top: Spacing.sm,
+                    left: Spacing.sm,
+                    child: ExcludeSemantics(
+                      excluding: speechDisabled,
+                      child: IgnorePointer(
+                        ignoring: speechDisabled,
+                        child: SoriSpeechIndicator(
+                          text: phrase.ko,
+                          onTap: () => unawaited(_listenToModel()),
+                        ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               const SizedBox(height: Spacing.lg),
               SoriButton.filled(
