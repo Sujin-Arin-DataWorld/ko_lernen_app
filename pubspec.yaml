@@ -1,7 +1,7 @@
 name: ko_lernen_app
 description: "Hangul Sori (한글소리) — Koreanisch lernen: Hangul, Vokabeln, Grammatik & Spiele"
 publish_to: 'none'
-version: 2.0.8+30
+version: 2.0.8+31
 
 environment:
   sdk: ^3.12.0
