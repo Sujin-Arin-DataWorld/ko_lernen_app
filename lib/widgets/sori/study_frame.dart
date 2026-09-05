@@ -148,17 +148,27 @@ class SoriAdaptiveStudyBody extends StatelessWidget {
     required this.minHeight,
     required this.child,
     this.maxScaleBoost = 0.9,
+    this.fillViewport = false,
   });
 
   final double minHeight;
   final Widget child;
   final double maxScaleBoost;
 
+  /// W10 T-V1(2026-09-05): [SoriMinHeightScroll.fillViewport] 로 그대로
+  /// 전달 — 긴 뷰포트에서도 본문이 위쪽에 뭉치지 않고 세로 전체로 퍼지게
+  /// 한다(Jin D-4 신고).
+  final bool fillViewport;
+
   @override
   Widget build(BuildContext context) {
     final textScale = MediaQuery.textScalerOf(context).scale(1);
     final scaleProgress = (textScale - 1).clamp(0.0, 1.0);
     final accessibleMinHeight = minHeight * (1 + scaleProgress * maxScaleBoost);
-    return SoriMinHeightScroll(minHeight: accessibleMinHeight, child: child);
+    return SoriMinHeightScroll(
+      minHeight: accessibleMinHeight,
+      fillViewport: fillViewport,
+      child: child,
+    );
   }
 }

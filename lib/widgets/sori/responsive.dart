@@ -284,10 +284,19 @@ class SoriMinHeightScroll extends StatelessWidget {
   final Widget child;
   final double minHeight;
 
+  /// W10 T-V1(2026-09-05): 참이면 뷰포트가 [minHeight] 보다 **길 때도**
+  /// 유한 높이를 그대로 상자에 채운다 — 안의 Column이 `Spacer`/`Expanded`/
+  /// `mainAxisAlignment` 로 그 높이 전체에 분배될 수 있게(= "본문이 위쪽에
+  /// 뭉친다" D-4 신고의 근본 원인: [SoriStandardPage] 등이 항상 `ListView` 라
+  /// 짧은 콘텐츠가 위에 붙고 아래가 빈다). `false`(기본값)면 기존 동작과
+  /// 완전히 같다 — 짧을 때만 스크롤 상자를 만든다.
+  final bool fillViewport;
+
   const SoriMinHeightScroll({
     super.key,
     required this.child,
     required this.minHeight,
+    this.fillViewport = false,
   });
 
   @override
@@ -302,6 +311,18 @@ class SoriMinHeightScroll extends StatelessWidget {
         //    죽어 **화면이 통째로 빈다**(2026-08-12 Flughafen 시나리오 사고).
         //    하단 고정이 필요하면 flex 대신 `MainAxisAlignment.spaceBetween`
         //    2-자식 패턴을 써라 — 유한 높이에서만 벌어지고 무한에서는 무해하다.
+        if (fillViewport && c.maxHeight.isFinite) {
+          // 항상 뷰포트 높이를 최소 높이로 준다 — 짧으면 그대로, 길면 아래가
+          // Spacer/Expanded 로 채워진다. `IntrinsicHeight` 로 감싸 Column이
+          // 그 높이에 맞춰 자신을 측정하게 하고, 콘텐츠가 실제로 더 크면
+          // `SingleChildScrollView` 가 넘침 대신 스크롤을 허용한다.
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: c.maxHeight),
+              child: IntrinsicHeight(child: child),
+            ),
+          );
+        }
         if (!c.maxHeight.isFinite || c.maxHeight >= minHeight) return child;
         return SingleChildScrollView(
           child: SizedBox(height: minHeight, child: child),
