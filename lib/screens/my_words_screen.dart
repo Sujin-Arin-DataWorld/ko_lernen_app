@@ -139,14 +139,20 @@ class MyWordsScreen extends StatelessWidget {
                       tabs: [
                         Tab(
                           key: const ValueKey('my-words-tab-search'),
+                          icon: const Icon(Icons.search_rounded),
+                          iconMargin: const EdgeInsets.only(bottom: Spacing.xs),
                           text: t.myWordsTabSearch,
                         ),
                         Tab(
                           key: const ValueKey('my-words-tab-shelf'),
+                          icon: const Icon(Icons.bookmark_rounded),
+                          iconMargin: const EdgeInsets.only(bottom: Spacing.xs),
                           text: t.myWordsTabShelf,
                         ),
                         Tab(
                           key: const ValueKey('my-words-tab-difficult'),
+                          icon: const Icon(Icons.favorite_rounded),
+                          iconMargin: const EdgeInsets.only(bottom: Spacing.xs),
                           text: t.myWordsTabDifficult,
                         ),
                       ],

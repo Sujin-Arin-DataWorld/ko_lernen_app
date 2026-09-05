@@ -2123,6 +2123,8 @@
   "hardWordsEmptyBody": "No especially hard words right now. If a word keeps giving you trouble, it will show up here.",
   "hardWordsStudyCta": "Drill these",
   "hardWordsHardQuizCta": "Hard quiz: spelling",
+  "hardWordsSectionAuto": "Just won't stick",
+  "hardWordsSectionLiked": "Liked",
   "hardQuizTitle": "Hard quiz",
   "hardQuizHint": "Pick the correct spelling.",
   "hardQuizCorrectFeedback": "Correct: {word}",

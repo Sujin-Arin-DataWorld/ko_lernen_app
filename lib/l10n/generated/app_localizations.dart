@@ -7585,6 +7585,18 @@ abstract class AppL10n {
   /// **'Schweres Quiz: Schreibweise'**
   String get hardWordsHardQuizCta;
 
+  /// No description provided for @hardWordsSectionAuto.
+  ///
+  /// In de, this message translates to:
+  /// **'Bleibt einfach nicht hängen'**
+  String get hardWordsSectionAuto;
+
+  /// No description provided for @hardWordsSectionLiked.
+  ///
+  /// In de, this message translates to:
+  /// **'Gelikt'**
+  String get hardWordsSectionLiked;
+
   /// No description provided for @hardQuizTitle.
   ///
   /// In de, this message translates to:

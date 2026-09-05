@@ -4344,6 +4344,12 @@ class AppL10nEn extends AppL10n {
   String get hardWordsHardQuizCta => 'Hard quiz: spelling';
 
   @override
+  String get hardWordsSectionAuto => 'Just won\'t stick';
+
+  @override
+  String get hardWordsSectionLiked => 'Liked';
+
+  @override
   String get hardQuizTitle => 'Hard quiz';
 
   @override

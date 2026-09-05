@@ -4366,6 +4366,12 @@ class AppL10nDe extends AppL10n {
   String get hardWordsHardQuizCta => 'Schweres Quiz: Schreibweise';
 
   @override
+  String get hardWordsSectionAuto => 'Bleibt einfach nicht hängen';
+
+  @override
+  String get hardWordsSectionLiked => 'Gelikt';
+
+  @override
   String get hardQuizTitle => 'Schweres Quiz';
 
   @override

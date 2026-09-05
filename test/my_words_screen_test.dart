@@ -58,6 +58,36 @@ void main() {
     },
   );
 
+  testWidgets('tabs carry search/bookmark/heart icons (1.6 룰링)', (
+    tester,
+  ) async {
+    await tester.pumpWidget(_host(const MyWordsScreen()));
+    await tester.pump();
+
+    expect(
+      find.descendant(
+        of: find.byKey(const ValueKey('my-words-tab-search')),
+        matching: find.byIcon(Icons.search_rounded),
+      ),
+      findsOneWidget,
+    );
+    expect(
+      find.descendant(
+        of: find.byKey(const ValueKey('my-words-tab-shelf')),
+        matching: find.byIcon(Icons.bookmark_rounded),
+      ),
+      findsOneWidget,
+    );
+    expect(
+      find.descendant(
+        of: find.byKey(const ValueKey('my-words-tab-difficult')),
+        matching: find.byIcon(Icons.favorite_rounded),
+      ),
+      findsOneWidget,
+    );
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('+ Photo sheet keeps the two existing named destinations', (
     tester,
   ) async {
