@@ -2623,6 +2623,300 @@ async () => {
   assert.equal(JSON.stringify(stored).includes(rawAppleCode), false);
 });
 
+test("accepts Apple revocation immediately at deletionRequested, " +
+    "before the worker reaches appleRevocationPending", async () => {
+  const rawAppleCode = "apple-code-accepted-at-deletion-requested";
+  const revokedCodes = [];
+  const harness = createHarness({
+    tokens: {
+      apple: decodedToken({
+        uid: "apple-early-account",
+        provider: "apple.com",
+      }),
+    },
+    revokeAppleAuthorizationCode: async ({
+      authorizationCode,
+      uid,
+      clientKind,
+      expectedSubject,
+    }) => {
+      revokedCodes.push({
+        authorizationCode,
+        uid,
+        clientKind,
+        expectedSubject,
+      });
+    },
+  });
+  const requested = await createDeletionOperation(harness.handlers, "apple");
+  assert.equal(requested.phase, "deletionRequested");
+
+  const result = await harness.handlers.completeAppleRevocation(
+    callableRequest("apple", {
+      operationId: requested.operationId,
+      expectedVersion: requested.version,
+      authorizationCode: rawAppleCode,
+    }),
+  );
+
+  assert.equal(result.phase, "deletionRequested");
+  assert.deepEqual(revokedCodes, [{
+    authorizationCode: rawAppleCode,
+    uid: "apple-early-account",
+    clientKind: "native",
+    expectedSubject: "apple-subject",
+  }]);
+  const stored = harness.firestore
+    .valuesIn("account_operations")
+    .find((operation) => operation.id === requested.operationId);
+  assert.equal(stored.phase, "deletionRequested");
+  assert.equal(stored.deletionProgress.appleRevocationComplete, true);
+  assert.equal(stored.deletionProgress.statusCode, null);
+  assert.equal(JSON.stringify(stored).includes(rawAppleCode), false);
+  // The scheduled worker must not see an unexpired lease from this
+  // callable (worker-lease-held) after the early Apple revocation.
+  assert.equal(
+    Number.isFinite(stored.workerLease?.leaseUntilMillis) &&
+      stored.workerLease.leaseUntilMillis > harness.clock.now,
+    false,
+  );
+});
+
+test("accepts Apple revocation immediately mid-tree at userTreeDeleting, " +
+    "preserving the deletion cursor", async () => {
+  const rawAppleCode = "apple-code-accepted-mid-tree";
+  const harness = createHarness({
+    tokens: {
+      apple: decodedToken({
+        uid: "apple-mid-tree-account",
+        provider: "apple.com",
+      }),
+    },
+    revokeAppleAuthorizationCode: async () => {},
+  });
+  const requested = await createDeletionOperation(harness.handlers, "apple");
+  const worker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: { async deleteUser() {} },
+    deleteUserTreePage: async () => ({ done: false, nextCursor: "cursor-1" }),
+    cleanupCommunity: async () => {},
+    cleanupProcessor: async () => {},
+    nowMillis: () => harness.clock.now,
+  });
+  const midTree = await worker.processDeletionOperation({
+    operationId: requested.operationId,
+    workerId: "worker-one",
+  });
+  assert.equal(midTree.phase, "userTreeDeleting");
+
+  const result = await harness.handlers.completeAppleRevocation(
+    callableRequest("apple", {
+      operationId: requested.operationId,
+      expectedVersion: midTree.version,
+      authorizationCode: rawAppleCode,
+    }),
+  );
+
+  assert.equal(result.phase, "userTreeDeleting");
+  const stored = harness.firestore
+    .valuesIn("account_operations")
+    .find((operation) => operation.id === requested.operationId);
+  assert.equal(stored.phase, "userTreeDeleting");
+  assert.equal(stored.deletionProgress.cursor, "cursor-1");
+  assert.equal(stored.deletionProgress.userTreeComplete, false);
+  assert.equal(stored.deletionProgress.appleRevocationComplete, true);
+});
+
+// BLOCKED (TN-2026-09-05 T3, reported to Fable, not resolved here):
+// account_operations.js nextPhases()'s "userTreeDeleting" case (lines
+// ~168-171), enforced by transitionOperation()'s `allowed` gate (lines
+// ~197-200), permits userTreeDeleting -> authDeleted only when
+// `appleRevocationRequired` is false. nextPhases()/normalizeOperation()
+// operate on the pure phase-machine record and never see
+// `deletionProgress.appleRevocationComplete` (a repository/runtime-layer
+// concept), so it cannot express "revocation already completed early" as
+// an exception, and a direct checkpoint throws invalid-operation-transition.
+// `appleRevocationRequired` cannot be flipped to false to route around this
+// either: completeAppleRevocation's own idempotent-return branch (checked
+// before the terminal-phase check) requires it to stay true for the whole
+// operation lifetime. Left as a todo pending a decision on whether to teach
+// the transition table about completed-early revocation.
+test("skips appleRevocationPending entirely when the worker finishes the " +
+    "tree after an early Apple revocation", {
+  todo: "blocked by account_operations.js nextPhases() for userTreeDeleting" +
+    " (see comment above) -- needs a state-machine decision, not resolved" +
+    " unilaterally in T3",
+}, async () => {
+  const harness = createHarness({
+    tokens: {
+      apple: decodedToken({
+        uid: "apple-early-account-2",
+        provider: "apple.com",
+      }),
+    },
+    revokeAppleAuthorizationCode: async () => {},
+  });
+  const requested = await createDeletionOperation(harness.handlers, "apple");
+  await harness.handlers.completeAppleRevocation(callableRequest("apple", {
+    operationId: requested.operationId,
+    expectedVersion: requested.version,
+    authorizationCode: "apple-code-consumed-before-tree-completes",
+  }));
+
+  const authDeleteCalls = [];
+  const worker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: {
+      async deleteUser(uid) {
+        authDeleteCalls.push(uid);
+      },
+    },
+    deleteUserTreePage: async () => ({ done: true, nextCursor: null }),
+    cleanupCommunity: async () => {},
+    cleanupProcessor: async () => {},
+    nowMillis: () => harness.clock.now,
+  });
+  const phasesSeen = [];
+  let result;
+  for (let index = 0; index < 10; index += 1) {
+    result = await worker.processDeletionOperation({
+      operationId: requested.operationId,
+      workerId: "worker-one",
+    });
+    phasesSeen.push(result.phase);
+    if (result.phase === "authDeleted") break;
+  }
+
+  assert.equal(result.phase, "authDeleted");
+  assert.equal(phasesSeen.includes("appleRevocationPending"), false);
+  assert.deepEqual(authDeleteCalls, ["apple-early-account-2"]);
+});
+
+test("worker resolves appleRevocationPending in the very next tick with no " +
+    "further Apple call after an early revocation, and never re-revokes",
+async () => {
+  const revokeCalls = [];
+  const harness = createHarness({
+    tokens: {
+      apple: decodedToken({
+        uid: "apple-early-account-3",
+        provider: "apple.com",
+      }),
+    },
+    revokeAppleAuthorizationCode: async ({ authorizationCode }) => {
+      revokeCalls.push(authorizationCode);
+    },
+  });
+  const requested = await createDeletionOperation(harness.handlers, "apple");
+  await harness.handlers.completeAppleRevocation(callableRequest("apple", {
+    operationId: requested.operationId,
+    expectedVersion: requested.version,
+    authorizationCode: "apple-code-consumed-before-tree-completes",
+  }));
+  assert.deepEqual(revokeCalls, ["apple-code-consumed-before-tree-completes"]);
+
+  const authDeleteCalls = [];
+  const worker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: {
+      async deleteUser(uid) {
+        authDeleteCalls.push(uid);
+      },
+    },
+    deleteUserTreePage: async () => ({ done: true, nextCursor: null }),
+    cleanupCommunity: async () => {},
+    cleanupProcessor: async () => {},
+    nowMillis: () => harness.clock.now,
+  });
+  const result = await runWorkerUntil(
+    worker,
+    requested.operationId,
+    "authDeleted",
+  );
+
+  assert.equal(result.phase, "authDeleted");
+  // The worker still visits appleRevocationPending once (nextPhases()
+  // requires the hop), but resolves it without calling Apple again.
+  assert.deepEqual(revokeCalls, ["apple-code-consumed-before-tree-completes"]);
+  assert.deepEqual(authDeleteCalls, ["apple-early-account-3"]);
+});
+
+test("keeps an early-phase deletion pending with only a safe resumable " +
+    "failure code when Apple revocation fails", async () => {
+  const rawAppleCode = "apple-code-rejected-with-network-failure";
+  const harness = createHarness({
+    tokens: {
+      apple: decodedToken({
+        uid: "apple-retry-early-account",
+        provider: "apple.com",
+      }),
+    },
+    revokeAppleAuthorizationCode: async () => {
+      throw new Error(`provider rejected ${rawAppleCode}`);
+    },
+  });
+  const requested = await createDeletionOperation(harness.handlers, "apple");
+
+  await rejectsWithSafeCode(
+    harness.handlers.completeAppleRevocation(callableRequest("apple", {
+      operationId: requested.operationId,
+      expectedVersion: requested.version,
+      authorizationCode: rawAppleCode,
+    })),
+    "internal",
+    "account-operation-failed",
+  );
+
+  const stored = harness.firestore
+    .valuesIn("account_operations")
+    .find((operation) => operation.id === requested.operationId);
+  assert.equal(stored.phase, "deletionRequested");
+  assert.equal(
+    stored.deletionProgress.statusCode,
+    "apple-revocation-retryable",
+  );
+  assert.notEqual(stored.deletionProgress.appleRevocationComplete, true);
+  assert.equal(JSON.stringify(stored).includes(rawAppleCode), false);
+});
+
+test("continues an early-phase deletion when Apple revoke secrets are " +
+    "unconfigured", async () => {
+  const rawAppleCode = "apple-code-unconfigured-secrets-early-phase";
+  const harness = createHarness({
+    tokens: {
+      apple: decodedToken({
+        uid: "apple-unconfigured-early-account",
+        provider: "apple.com",
+      }),
+    },
+    revokeAppleAuthorizationCode: async () => {
+      const error = new Error("Apple revocation is not configured.");
+      error.code = "apple/revocation-config-invalid";
+      throw error;
+    },
+  });
+  const requested = await createDeletionOperation(harness.handlers, "apple");
+
+  const result = await harness.handlers.completeAppleRevocation(
+    callableRequest("apple", {
+      operationId: requested.operationId,
+      expectedVersion: requested.version,
+      authorizationCode: rawAppleCode,
+    }),
+  );
+
+  assert.equal(result.phase, "deletionRequested");
+  const stored = harness.firestore
+    .valuesIn("account_operations")
+    .find((operation) => operation.id === requested.operationId);
+  assert.equal(stored.deletionProgress.appleRevocationComplete, true);
+  assert.equal(
+    stored.deletionProgress.statusCode,
+    "apple-revocation-unavailable",
+  );
+  assert.equal(JSON.stringify(stored).includes(rawAppleCode), false);
+});
+
 test("renews a server worker lease and fences the superseded lease token",
 async () => {
   const harness = createHarness();
