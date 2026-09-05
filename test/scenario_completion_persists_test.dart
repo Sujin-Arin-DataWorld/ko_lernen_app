@@ -214,6 +214,15 @@ Future<void> _warmUpCourseGraph(WidgetTester tester) async {
 /// 완료까지 진행한다. 실제 ScenarioPlayerScreen을 대화 없이(빈 dialog)
 /// intro → 단어 → 문법 → 퀘스트 → 결과 순으로 밟는다
 /// (test/scenario_srs_persistence_flow_test.dart와 동일한 스테이지 수).
+///
+/// 지시서 4.11(A2)로 luecken 퀘스트가 "옵션 탭 즉시 판정"으로 바뀌어
+/// 별도 확인 버튼(`Antwort prüfen`/`onSubmit`)이 사라졌다
+/// (lib/screens/quest_engines/luecken_quest.dart의 `_select`가 바로
+/// `_check()`를 호출 — hoerverstehen_quest.dart와 동일한 계약). 오답 탭을
+/// 두 번(첫 탭=1회차 오답 허용, 두 번째 탭=시도 소진→정답 공개) 반복해
+/// 예전에 "오답 선택 + 확인 버튼 2회"로 만들던 0/1(0성) 결과와 동일한
+/// 판정을 재현한다. 정답 공개 뒤에 뜨는 CTA(`quest-continue`, 이 시나리오는
+/// 퀘스트가 1개뿐이라 isLast=true → 라벨은 `Ergebnis ansehen`)만 탭한다.
 Future<void> _failTheOnlyQuest(WidgetTester tester, Scenario scenario) async {
   await tester.pumpWidget(
     MaterialApp(
@@ -242,11 +251,12 @@ Future<void> _failTheOnlyQuest(WidgetTester tester, Scenario scenario) async {
 
   final wrongAnswer = find.byKey(const ValueKey('answer-1'));
   await tester.ensureVisible(wrongAnswer);
+  // 1회차 오답 — 즉시 판정되지만 아직 시도가 남아 재탭을 허용한다
+  // (luecken_quest.dart `_check()`의 `_tries >= 2` 게이트).
   await tester.tap(wrongAnswer);
-  await tester.pump();
-  await _tapText(tester, 'Antwort prüfen');
   await tester.pump(const Duration(milliseconds: 220));
-  await _tapText(tester, 'Antwort prüfen');
+  // 2회차 오답 — 시도 소진으로 정답이 공개되고 결과가 즉시 보고된다.
+  await tester.tap(wrongAnswer);
   await tester.pump(const Duration(milliseconds: 220));
   await _tapText(tester, 'Ergebnis ansehen');
   await tester.pump(const Duration(milliseconds: 400));
