@@ -577,6 +577,25 @@ void main() {
       findsOneWidget,
     );
   });
+
+  testWidgets(
+    'the pace chip semantic label includes the per-day count '
+    '(a11y, W10 T-G2a)',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      await _storePlans({
+        'a1': const GrammarStudyPlan(
+          level: 'a1',
+          itemsPerDay: 3,
+          servedIdsByDate: {},
+        ),
+      });
+      await _pumpGrammar(tester);
+
+      expect(find.bySemanticsLabel(RegExp('3 per day.*')), findsOneWidget);
+      semantics.dispose();
+    },
+  );
 }
 
 Future<void> _storePlans(Map<String, GrammarStudyPlan> plans) =>

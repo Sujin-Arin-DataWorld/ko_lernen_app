@@ -1294,7 +1294,8 @@ class _GrammarScreenState extends State<GrammarScreen>
                               label: t.grammarPlanItemsPerDayOption(
                                 plan.itemsPerDay,
                               ),
-                              semanticLabel: t.grammarPlanEditTooltip,
+                              semanticLabel:
+                                  '${t.grammarPlanItemsPerDayOption(plan.itemsPerDay)}, ${t.grammarPlanEditTooltip}',
                               icon: Icons.tune_rounded,
                               accent: SoriColors.info,
                               variant: SoriChipVariant.soft,
