@@ -9102,12 +9102,6 @@ abstract class AppL10n {
   /// **'GESAMTER LERNWEG'**
   String get reviewDemoSectionJourney;
 
-  /// No description provided for @reviewDemoPanelGoal.
-  ///
-  /// In de, this message translates to:
-  /// **'Ziel und Startpunkt'**
-  String get reviewDemoPanelGoal;
-
   /// No description provided for @reviewDemoPanelCompanion.
   ///
   /// In de, this message translates to:

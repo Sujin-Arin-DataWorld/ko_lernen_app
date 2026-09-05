@@ -5258,9 +5258,6 @@ class AppL10nDe extends AppL10n {
   String get reviewDemoSectionJourney => 'GESAMTER LERNWEG';
 
   @override
-  String get reviewDemoPanelGoal => 'Ziel und Startpunkt';
-
-  @override
   String get reviewDemoPanelCompanion => 'Lernbegleitung wählen';
 
   @override

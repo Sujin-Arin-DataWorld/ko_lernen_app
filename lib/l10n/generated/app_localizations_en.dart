@@ -5235,9 +5235,6 @@ class AppL10nEn extends AppL10n {
   String get reviewDemoSectionJourney => 'FULL LEARNING JOURNEY';
 
   @override
-  String get reviewDemoPanelGoal => 'Goals and starting point';
-
-  @override
   String get reviewDemoPanelCompanion => 'Choose a learning companion';
 
   @override
