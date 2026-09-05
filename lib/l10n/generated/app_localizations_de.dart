@@ -5219,6 +5219,12 @@ class AppL10nDe extends AppL10n {
   String get grammarChoiceCta => 'Mit Beispielen üben';
 
   @override
+  String get grammarPlanLevelLabel => 'Niveau';
+
+  @override
+  String get grammarPlanEditTooltip => 'Niveau oder Tempo ändern';
+
+  @override
   String get grammarPlanOnboardingTitle => 'Wie viele Muster pro Tag?';
 
   @override

@@ -2556,6 +2556,8 @@
   "grammarHard": "Difficult",
   "grammarPreviousCard": "Previous card",
   "grammarChoiceCta": "Practice with examples",
+  "grammarPlanLevelLabel": "Level",
+  "grammarPlanEditTooltip": "Change level or pace",
   "grammarPlanOnboardingTitle": "How many patterns per day?",
   "grammarPlanItemsPerDayOption": "{n} per day",
   "@grammarPlanItemsPerDayOption": {

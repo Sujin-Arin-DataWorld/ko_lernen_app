@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/generated/app_localizations.dart';
 import '../../services/cloze_loader.dart';
 import 'card.dart';
 import 'game_layout.dart';
@@ -129,56 +128,66 @@ class ClozePromptCard extends StatelessWidget {
         ? SoriColors.primary
         : (pickedWrong ? SoriColors.danger : SoriColors.success);
 
-    return SoriCard(
-      variant: SoriCardVariant.hero,
-      accent: SoriColors.primary,
-      tinted: true,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: Spacing.xl,
-          horizontal: Spacing.md,
-        ),
-        child: Column(
-          children: [
-            Text.rich(
-              TextSpan(
-                children: [
-                  TextSpan(text: slot.before, style: koStyle),
+    // §A3 지시서 2.9: 듣기 아이콘은 카드박스 상단 왼쪽 구석. 하단 중앙
+    // IconButton 을 걷어내고 카드 자체를 Stack 으로 감싸 content_feed.dart
+    // topAccessory 와 같은 좌표계(카드 렌더 rect 기준)로
+    // Positioned(top/left: Spacing.sm) 를 얹는다. 본문엔 인디케이터 높이만큼
+    // 위 패딩을 더해 문장과 겹치지 않게 한다.
+    return Stack(
+      fit: StackFit.passthrough,
+      children: [
+        SoriCard(
+          variant: SoriCardVariant.hero,
+          accent: SoriColors.primary,
+          tinted: true,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(
+              Spacing.md,
+              Spacing.xl + Spacing.xxxl,
+              Spacing.md,
+              Spacing.xl,
+            ),
+            child: Column(
+              children: [
+                Text.rich(
                   TextSpan(
-                    text: slot.slot,
-                    style: koStyle.copyWith(color: slotColor),
+                    children: [
+                      TextSpan(text: slot.before, style: koStyle),
+                      TextSpan(
+                        text: slot.slot,
+                        style: koStyle.copyWith(color: slotColor),
+                      ),
+                      TextSpan(text: slot.after, style: koStyle),
+                    ],
                   ),
-                  TextSpan(text: slot.after, style: koStyle),
-                ],
-              ),
-              textAlign: TextAlign.center,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: Spacing.lg),
+                Text.rich(
+                  TextSpan(
+                    children: [
+                      for (final seg in segments)
+                        TextSpan(
+                          text: seg.text,
+                          style: seg.emph ? emphStyle : baseStyle,
+                        ),
+                    ],
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
-            const SizedBox(height: Spacing.lg),
-            Text.rich(
-              TextSpan(
-                children: [
-                  for (final seg in segments)
-                    TextSpan(
-                      text: seg.text,
-                      style: seg.emph ? emphStyle : baseStyle,
-                    ),
-                ],
-              ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: Spacing.sm),
-            SizedBox.square(
-              dimension: 48,
-              child: IconButton(
-                key: const Key('cloze-prompt-speak'),
-                icon: const Icon(Icons.volume_up_rounded, size: 26),
-                tooltip: AppL10n.of(context).ttsListen,
-                onPressed: () => SoriSpeech.speak(item.fullKo),
-              ),
-            ),
-          ],
+          ),
         ),
-      ),
+        Positioned(
+          top: Spacing.sm,
+          left: Spacing.sm,
+          child: SoriSpeechIndicator(
+            key: const Key('cloze-prompt-speak'),
+            text: item.fullKo,
+          ),
+        ),
+      ],
     );
   }
 }

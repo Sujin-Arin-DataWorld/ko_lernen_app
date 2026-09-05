@@ -815,7 +815,15 @@ def collect():
     #       hoerverstehen_quest.dart:51)
     #    - diktat: data.audioKo 가 비면 targetKo (diktat_quest.dart:147)
     #    - particlePop: prefix + options[correctIndex] + suffix
-    #      (particle_pop_quest.dart:59 _fullSentence)
+    #      (particle_pop_quest.dart:73 _fullSentence) — 답 공개 후 1회 읽기가
+    #      모든 particlePop 퀘스트에 대해 canonical corpus 소속을 보장한다
+    #      (particle_pop_quest.dart:134-140).
+    #    - luecken: sentence의 첫 '___'를 options[correctIndex]로 채운 완성문
+    #      (luecken_quest.dart _sentenceView의 parts.first+answer+
+    #       parts.sublist(1).join('___')과 동일 — 지시서 2.9, 답 공개 후 1회
+    #       읽기).
+    #    - uebersetzen: options[correctIndex].ko (uebersetzen_quest.dart의
+    #       옵션 타일 label과 동일 — 지시서 2.9, 답 공개 후 1회 읽기).
     for scenario in _load_scenarios():
         for quest in scenario.get("quests", []):
             data = quest.get("data") or {}
@@ -833,6 +841,24 @@ def collect():
                         + options[idx]
                         + (data.get("suffix") or "")
                     )
+            elif qtype == "luecken":
+                sentence = data.get("sentence") or ""
+                options = data.get("options") or []
+                idx = int(data.get("correctIndex") or 0)
+                if sentence and 0 <= idx < len(options):
+                    add_auto(sentence.replace("___", options[idx], 1))
+            elif qtype == "uebersetzen":
+                options = data.get("options") or []
+                idx = int(data.get("correctIndex") or 0)
+                if 0 <= idx < len(options):
+                    option = options[idx]
+                    ko = (
+                        (option.get("ko") or "").strip()
+                        if isinstance(option, dict)
+                        else ""
+                    )
+                    if ko:
+                        add_auto(ko)
 
     # 10. 한글 화면 + 오늘의 글자 — Dart const 소스라 정규식으로 추출.
     #    2026-08-12 전수조사: 이 세 부류가 미수집 → 한글 탭이 전부 OS 폴백.

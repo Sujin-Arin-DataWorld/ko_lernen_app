@@ -18,6 +18,7 @@ import 'package:ko_lernen_app/widgets/sori/cloze_prompt.dart';
 import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 import 'package:ko_lernen_app/widgets/sori/sheet.dart';
+import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
@@ -98,10 +99,15 @@ void main() {
         expect(find.byType(SoriHomeAction), findsOneWidget);
         // §B2(2026-09-03): the frame-owned close action uses close_rounded.
         expect(find.byIcon(Icons.close_rounded), findsOneWidget);
-        final pronunciation = t.ttsListen;
+        // §A3(2026-09-05): raw IconButton/tooltip 은 SoriSpeechIndicator 로
+        // 치환됐다 — 접근성 라벨은 이제 Semantics(label: speechIndicatorLabel).
         final speakAction = find.byKey(const Key('cloze-prompt-speak'));
         expect(speakAction, findsOneWidget);
-        expect(tester.widget<IconButton>(speakAction).tooltip, pronunciation);
+        expect(
+          tester.widget<SoriSpeechIndicator>(speakAction).text,
+          _item.fullKo,
+        );
+        expect(find.bySemanticsLabel(t.speechIndicatorLabel), findsOneWidget);
         final speakSize = tester.getSize(speakAction);
         expect(speakSize.width, greaterThanOrEqualTo(48));
         expect(speakSize.height, greaterThanOrEqualTo(48));

@@ -157,57 +157,65 @@ void main() {
     );
   });
 
-  testWidgets('resolved intro prefetches exactly the first dialog line', (
-    tester,
-  ) async {
-    CourseProgressService.shared.resetForTesting();
-    await tester.runAsync(CurriculumCatalog.load);
-    final calls = <(String, String)>[];
-    var speakCalls = 0;
-    SoriSpeech.prefetchImpl = (text, voice) async {
-      calls.add((text, voice));
-    };
-    SoriSpeech.speakImpl = (text, voice) async {
-      speakCalls += 1;
-      return true;
-    };
+  testWidgets(
+    'resolved intro prefetches every dialog line (지시서 4.3, 상한 12줄)',
+    (tester) async {
+      CourseProgressService.shared.resetForTesting();
+      await tester.runAsync(CurriculumCatalog.load);
+      final calls = <(String, String)>[];
+      var speakCalls = 0;
+      SoriSpeech.prefetchImpl = (text, voice) async {
+        calls.add((text, voice));
+      };
+      SoriSpeech.speakImpl = (text, voice) async {
+        speakCalls += 1;
+        return true;
+      };
 
-    await _pumpPlayer(
-      tester,
-      ScenarioPlayerScreen(
-        scenarioId: scenarioAirportArrivalFixture.id,
-        scenarioLoader: (_) async => scenarioAirportArrivalFixture,
-      ),
-    );
+      await _pumpPlayer(
+        tester,
+        ScenarioPlayerScreen(
+          scenarioId: scenarioAirportArrivalFixture.id,
+          scenarioLoader: (_) async => scenarioAirportArrivalFixture,
+        ),
+      );
 
-    expect(calls, const <(String, String)>[('여권 보여주세요.', 'male')]);
-    expect(speakCalls, 0, reason: 'prefetch must never autoplay');
-  });
+      // scenarioAirportArrivalFixture.dialog 는 2줄(officer/male,
+      // user/female) — 더 이상 첫 줄만이 아니라 둘 다 prefetch된다.
+      expect(calls, const <(String, String)>[
+        ('여권 보여주세요.', 'male'),
+        ('네, 여기 있어요.', 'female'),
+      ]);
+      expect(speakCalls, 0, reason: 'prefetch must never autoplay');
+    },
+  );
 
-  testWidgets('one intro state calls its injected prefetcher once on rebuild', (
-    tester,
-  ) async {
-    final calls = <ScenarioIntroAudioPrefetchRequest>[];
-    Future<void> prefetch(ScenarioIntroAudioPrefetchRequest request) async {
-      calls.add(request);
-    }
+  testWidgets(
+    'one intro state calls its injected prefetcher once per line, never again on rebuild',
+    (tester) async {
+      final calls = <ScenarioIntroAudioPrefetchRequest>[];
+      Future<void> prefetch(ScenarioIntroAudioPrefetchRequest request) async {
+        calls.add(request);
+      }
 
-    Widget buildPlayer() => ScenarioPlayerScreen.preview(
-      key: const ValueKey<String>('same-intro-player'),
-      fixture: const ScenarioPlayerPreviewFixture.action(
-        scenario: scenarioAirportArrivalFixture,
-        stage: ScenarioStage.intro,
-      ),
-      introAudioPrefetcher: prefetch,
-    );
+      Widget buildPlayer() => ScenarioPlayerScreen.preview(
+        key: const ValueKey<String>('same-intro-player'),
+        fixture: const ScenarioPlayerPreviewFixture.action(
+          scenario: scenarioAirportArrivalFixture,
+          stage: ScenarioStage.intro,
+        ),
+        introAudioPrefetcher: prefetch,
+      );
 
-    await _pumpPlayer(tester, buildPlayer());
-    expect(calls, hasLength(1));
+      await _pumpPlayer(tester, buildPlayer());
+      // scenarioAirportArrivalFixture.dialog 는 2줄 — 진입 시 둘 다 한 번씩.
+      expect(calls, hasLength(2));
 
-    await tester.pumpWidget(_host(buildPlayer()));
-    await tester.pump();
-    expect(calls, hasLength(1));
-  });
+      await tester.pumpWidget(_host(buildPlayer()));
+      await tester.pump();
+      expect(calls, hasLength(2), reason: '리빌드로 다시 prefetch하지 않는다');
+    },
+  );
 
   testWidgets('a pending prefetch never delays the Begin action', (
     tester,

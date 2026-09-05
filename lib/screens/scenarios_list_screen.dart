@@ -659,9 +659,15 @@ class _LessonPathHeader extends StatelessWidget {
                   locked: lvl.rank > userLevel.rank,
                   label: t.scenariosPathLevelProgress(
                     lvl.display,
+                    // 완료 여부는 별 개수(>0)가 아니라 키 존재로 셈 — 0성
+                    // 최초 완료도 Storage.setScenarioStars()가 반드시 키로
+                    // 기록한다(코스 체크포인트 "0/2→1/2" 판정의 입력, 지시서
+                    // 4.15). 여기서 stars[id] > 0 만 세면 퀘스트 과반 미만
+                    // (0성)으로 끝낸 정상 완료가 이 배지에서 영원히
+                    // "미완료"로 남는다.
                     all
                         .where((sc) => sc.level == lvl)
-                        .where((sc) => (stars[sc.id] ?? 0) > 0)
+                        .where((sc) => stars.containsKey(sc.id))
                         .length,
                     all.where((sc) => sc.level == lvl).length,
                   ),

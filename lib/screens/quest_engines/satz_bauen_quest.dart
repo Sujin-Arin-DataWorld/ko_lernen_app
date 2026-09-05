@@ -446,7 +446,9 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
           speakText: _audioKo.isEmpty ? null : _audioKo,
           compact: widget.compact,
         ),
-        SizedBox(height: compactGap),
+        // 지시서 4.8 — 문제(질문 카드)와 "Deine Antwort bauen"(→선택 칩)
+        // 사이는 다른 선택형 퀘스트의 질문↔옵션 간격과 같은 토큰을 쓴다.
+        const SizedBox(height: SoriGaps.questionToOptions),
         Text(
           t.questBuildAnswerLabel,
           style: SoriTextTheme.of(

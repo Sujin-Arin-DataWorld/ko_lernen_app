@@ -132,13 +132,19 @@ class _GrammarScreenState extends State<GrammarScreen>
   bool _planCompletionShown = false;
   bool _planDayCompletedForVisit = false;
 
+  /// 지시서 1.11 — 온보딩 시트에서 고른 플랜 레벨. `Storage.grammarPlanLevel`
+  /// 로 영속되어(Fable R1) 화면을 나갔다 다시 들어와도 그대로 이어진다. null이면
+  /// [_userLevelForPlan](전역 사용자 레벨)을 그대로 따른다(아직 한 번도 고른
+  /// 적이 없는 경우). `Storage.userLevelCode` 자체는 건드리지 않는다.
+  String? _planLevel;
+
   bool get _isCoursePractice => widget.courseContext != null;
 
   String get _userLevelForPlan =>
       LearnerLevel.fromCode(Storage.userLevelCode)?.code ?? 'a1';
 
   GrammarStudyPlan? get _activePlan =>
-      _isCoursePractice ? null : _plans[_userLevelForPlan];
+      _isCoursePractice ? null : _plans[_planLevel ?? _userLevelForPlan];
 
   List<Grammar> _curatedRowsForPlan(GrammarStudyPlan plan) =>
       GrammarPlanService.curatedRowsForLevel(_all, plan.level);
@@ -191,6 +197,7 @@ class _GrammarScreenState extends State<GrammarScreen>
   void initState() {
     super.initState();
     _idx = Storage.grammarLastIdx;
+    _planLevel = Storage.grammarPlanLevel;
     _load();
     scheduleCoach();
     Analytics.lessonStarted(lessonType: 'grammar');
@@ -257,7 +264,9 @@ class _GrammarScreenState extends State<GrammarScreen>
                 ? userLvl
                 : 'Alle');
       final plans = GrammarPlanService.decodePlans(Storage.grammarPlanRawJson);
-      final activePlan = _isCoursePractice ? null : plans[_userLevelForPlan];
+      final activePlan = _isCoursePractice
+          ? null
+          : plans[_planLevel ?? _userLevelForPlan];
       final planCompletedToday =
           activePlan?.servedIdsByDate.containsKey(Storage.todayIso()) ?? false;
       final initialSlice = activePlan == null || planCompletedToday
@@ -556,7 +565,9 @@ class _GrammarScreenState extends State<GrammarScreen>
     var started = false;
     try {
       final t = AppL10n.of(context);
-      var itemsPerDay = GrammarPlanService.defaultItemsPerDay;
+      var planLevel = _planLevel ?? _userLevelForPlan;
+      var itemsPerDay =
+          _plans[planLevel]?.itemsPerDay ?? GrammarPlanService.defaultItemsPerDay;
       var isStarting = false;
       await showSoriSheet<void>(
         context: context,
@@ -568,6 +579,25 @@ class _GrammarScreenState extends State<GrammarScreen>
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Text(
+                    t.grammarPlanLevelLabel,
+                    style: SoriTextTheme.of(sheetContext).label,
+                  ),
+                  const SizedBox(height: Spacing.sm),
+                  SoriLevelFilterBar(
+                    key: const Key('grammar-plan-level-bar'),
+                    selected: planLevel,
+                    onChanged: (level) {
+                      if (isStarting || level == null || level == planLevel) {
+                        return;
+                      }
+                      setSheetState(() {
+                        planLevel = level;
+                        itemsPerDay = _plans[level]?.itemsPerDay ?? itemsPerDay;
+                      });
+                    },
+                  ),
+                  const SizedBox(height: Spacing.lg),
                   Text(
                     t.grammarPlanOnboardingTitle,
                     style: SoriTextTheme.of(sheetContext).h3,
@@ -614,19 +644,37 @@ class _GrammarScreenState extends State<GrammarScreen>
                         ? null
                         : () async {
                             setSheetState(() => isStarting = true);
+                            final chosenLevel = planLevel;
                             final next = Map<String, GrammarStudyPlan>.of(
                               _plans,
                             );
-                            final plan = GrammarStudyPlan(
-                              level: _userLevelForPlan,
-                              itemsPerDay: itemsPerDay,
-                              servedIdsByDate: const {},
-                            );
-                            next[_userLevelForPlan] = plan;
+                            final existing = next[chosenLevel];
+                            final existingFinished =
+                                existing != null &&
+                                GrammarPlanService.todaysSlice(
+                                  curatedRows:
+                                      GrammarPlanService.curatedRowsForLevel(
+                                        _all,
+                                        chosenLevel,
+                                      ),
+                                  plan: existing,
+                                ).isEmpty;
+                            // 이미 있는(끝나지 않은) 플랜을 고르면 진행을
+                            // 이어간다 — 리셋은 새 레벨이거나 그 레벨을 이미
+                            // 다 끝냈을 때만(지시서 1.11).
+                            final plan = existing == null || existingFinished
+                                ? GrammarStudyPlan(
+                                    level: chosenLevel,
+                                    itemsPerDay: itemsPerDay,
+                                    servedIdsByDate: const {},
+                                  )
+                                : existing.copyWith(itemsPerDay: itemsPerDay);
+                            next[chosenLevel] = plan;
                             try {
                               await Storage.setGrammarPlanRawJson(
                                 GrammarPlanService.encodePlans(next),
                               );
+                              await Storage.setGrammarPlanLevel(chosenLevel);
                             } catch (_) {
                               if (mounted && sheetContext.mounted) {
                                 setSheetState(() => isStarting = false);
@@ -637,6 +685,7 @@ class _GrammarScreenState extends State<GrammarScreen>
                             started = true;
                             setState(() {
                               _plans = next;
+                              _planLevel = chosenLevel;
                               _applyPlanSlice(plan);
                             });
                             Navigator.of(sheetContext).pop();
@@ -885,7 +934,7 @@ class _GrammarScreenState extends State<GrammarScreen>
         servedIds: servedIds,
       );
       final next = Map<String, GrammarStudyPlan>.of(_plans)
-        ..[_userLevelForPlan] = updated;
+        ..[plan.level] = updated;
       await Storage.setGrammarPlanRawJson(GrammarPlanService.encodePlans(next));
       if (!mounted) return;
       _planCompletionShown = true;
@@ -1188,15 +1237,36 @@ class _GrammarScreenState extends State<GrammarScreen>
                   key: const Key('grammar-plan-day-header'),
                   child: Column(
                     children: [
-                      Text(
-                        t.grammarPlanDayHeader(
-                          plan.completedDays + 1,
-                          GrammarPlanService.totalDays(
-                            _curatedRowsForPlan(plan),
-                            plan.itemsPerDay,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            t.grammarPlanDayHeader(
+                              plan.completedDays + 1,
+                              GrammarPlanService.totalDays(
+                                _curatedRowsForPlan(plan),
+                                plan.itemsPerDay,
+                              ),
+                            ),
+                            style: SoriTextTheme.of(context).label,
                           ),
-                        ),
-                        style: SoriTextTheme.of(context).label,
+                          const SizedBox(width: Spacing.xs),
+                          // 지시서 1.11 — 플랜이 이미 도는 중에도 레벨/페이스를
+                          // 다시 고를 수 있는 유일한 진입점(그 외엔 '플랜
+                          // 완료' 또는 '레벨 필터가 아직 없음'일 때만 시트가
+                          // 열린다).
+                          SizedBox(
+                            width: 48,
+                            height: 48,
+                            child: IconButton(
+                              key: const Key('grammar-plan-edit-button'),
+                              iconSize: 20,
+                              icon: const Icon(Icons.tune_rounded),
+                              tooltip: t.grammarPlanEditTooltip,
+                              onPressed: _showPlanOnboardingSheet,
+                            ),
+                          ),
+                        ],
                       ),
                       const SizedBox(height: Spacing.xs),
                       Wrap(
@@ -1328,39 +1398,43 @@ class _GrammarScreenState extends State<GrammarScreen>
                                   g.pattern,
                                 ),
                                 bookmarkLabel: t.deckActionSave,
-                                child: Stack(
-                                  alignment: Alignment.bottomCenter,
-                                  children: [
-                                    FlipCard(
-                                      key: _cardKey,
-                                      flipped: _flipped,
-                                      onTap: canRecordCheckpoint
-                                          ? () => _showCheckpoint(
+                                // §A3 지시서 2.9: 듣기 아이콘은 카드박스
+                                // 상단 왼쪽 구석 — 카드 하단 중앙의 자체
+                                // 원형 _ListenButton 을 걷어내고
+                                // SoriContentFeed 의 topAccessory 슬롯을
+                                // 쓴다(review_session_screen.dart:672 와
+                                // 같은 패턴). 체크포인트 카드는 원래도
+                                // 듣기 버튼이 없었다(canRecordCheckpoint).
+                                topAccessory: canRecordCheckpoint
+                                    ? null
+                                    : () {
+                                        final speakKorean =
+                                            GrammarStudyCopy.fromGrammar(
                                               g,
-                                              assessmentLink!,
-                                            )
-                                          : _onFlip,
-                                      front: canRecordCheckpoint
-                                          ? _CourseCheckpointFront(
-                                              g: g,
-                                              cardHeight: cardH,
-                                            )
-                                          : _Front(g: g, cardHeight: cardH),
-                                      back: _Back(g: g, cardHeight: cardH),
-                                    ),
-                                    if (!canRecordCheckpoint)
-                                      Positioned(
-                                        bottom: 8,
-                                        child: _ListenButton(
-                                          korean: GrammarStudyCopy.fromGrammar(
-                                            g,
-                                            Localizations.localeOf(
-                                              context,
-                                            ).languageCode,
-                                          ).speakKorean,
-                                        ),
-                                      ),
-                                  ],
+                                              Localizations.localeOf(
+                                                context,
+                                              ).languageCode,
+                                            ).speakKorean;
+                                        return speakKorean.isEmpty
+                                            ? null
+                                            : SoriSpeechIndicator(
+                                                text: speakKorean,
+                                              );
+                                      }(),
+                                child: FlipCard(
+                                  key: _cardKey,
+                                  flipped: _flipped,
+                                  onTap: canRecordCheckpoint
+                                      ? () =>
+                                            _showCheckpoint(g, assessmentLink!)
+                                      : _onFlip,
+                                  front: canRecordCheckpoint
+                                      ? _CourseCheckpointFront(
+                                          g: g,
+                                          cardHeight: cardH,
+                                        )
+                                      : _Front(g: g, cardHeight: cardH),
+                                  back: _Back(g: g, cardHeight: cardH),
                                 ),
                               ),
                             );
@@ -1747,47 +1821,6 @@ class _Front extends StatelessWidget {
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-/// 카드 안 하단 중앙의 듣기 버튼.
-///
-/// 읽어 주는 문장 바로 옆에 두는 게 맞다 — 예전에는 카드 밖 액션 바에 있어서
-/// 무엇을 읽는지가 위치로 드러나지 않았다. 탭 대상은 48dp 로, 최소 44×44
-/// 권고보다 크게 잡았다(카드 전체 탭=뒤집기와 겹치므로 오조작이 비싸다).
-class _ListenButton extends StatelessWidget {
-  const _ListenButton({required this.korean});
-
-  final String korean;
-
-  @override
-  Widget build(BuildContext context) {
-    if (korean.isEmpty) {
-      return const SizedBox.shrink();
-    }
-    final t = AppL10n.of(context);
-    return Semantics(
-      button: true,
-      label: t.btnHoeren,
-      child: GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTap: () => SoriSpeech.speak(korean),
-        child: Material(
-          color: SoriColors.lightSurfaceRaised,
-          shape: const CircleBorder(),
-          elevation: 1,
-          child: const SizedBox(
-            width: 48,
-            height: 48,
-            child: Icon(
-              Icons.volume_up_rounded,
-              size: 22,
-              color: SoriColors.primary,
-            ),
-          ),
         ),
       ),
     );

@@ -9030,6 +9030,18 @@ abstract class AppL10n {
   /// **'Mit Beispielen üben'**
   String get grammarChoiceCta;
 
+  /// No description provided for @grammarPlanLevelLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Niveau'**
+  String get grammarPlanLevelLabel;
+
+  /// No description provided for @grammarPlanEditTooltip.
+  ///
+  /// In de, this message translates to:
+  /// **'Niveau oder Tempo ändern'**
+  String get grammarPlanEditTooltip;
+
   /// No description provided for @grammarPlanOnboardingTitle.
   ///
   /// In de, this message translates to:

@@ -141,13 +141,15 @@ void main() {
       expect(find.text('Lücke füllen'), findsOneWidget);
 
       // Two wrong attempts complete the real Lückentext quest as failed.
+      // 지시서 4.11 — 옵션 탭 1회로 즉시 판정되므로 별도 확인 버튼
+      // ("Antwort prüfen")이 더 이상 없다 — 오답 타일을 두 번 탭한다.
       final wrongAnswer = find.byKey(const ValueKey('answer-1'));
       await tester.ensureVisible(wrongAnswer);
       await tester.tap(wrongAnswer);
       await tester.pump();
-      await _tapText(tester, 'Antwort prüfen');
       await tester.pump(const Duration(milliseconds: 220));
-      await _tapText(tester, 'Antwort prüfen');
+      await tester.ensureVisible(wrongAnswer);
+      await tester.tap(wrongAnswer);
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 220));
       await _tapText(tester, 'Ergebnis ansehen');

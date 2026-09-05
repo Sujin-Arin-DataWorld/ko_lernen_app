@@ -200,8 +200,10 @@ void main() {
 
             expect(find.byType(QuestLayout), findsOneWidget);
             final submit = find.bySemanticsLabel(t.questCheckAnswer);
-            if (engine.name == 'listening') {
-              expect(submit, findsNothing);
+            // 지시서 4.11 — 즉시 판정 엔진(listening·translation·cloze·
+            // particle)에는 확인 버튼 자체가 없다.
+            if (_instantJudgmentEngines.contains(engine.name)) {
+              expect(submit, findsNothing, reason: engine.name);
             } else {
               _expectButton(tester, submit, enabled: false, minHeight: 48);
               _expectVisibleInView(tester, submit, viewport.size);
@@ -239,7 +241,7 @@ void main() {
             }
 
             await _enterCorrectResponse(tester, engine.name);
-            if (engine.name != 'listening') {
+            if (!_instantJudgmentEngines.contains(engine.name)) {
               _expectButton(tester, submit, enabled: true, minHeight: 48);
               await _tapPointerOwned(tester, submit);
             }
@@ -367,14 +369,19 @@ void main() {
       final particle = _engines.singleWhere(
         (engine) => engine.name == 'particle',
       );
+      // 지시서 4.11의 즉시 판정 때문에 옵션 탭이 바로 _checkSelection을
+      // 돈다 — 오답은 200ms 플래시 뒤 슬롯이 비므로(disableAnimations:
+      // false로 실제 타이밍을 흘려야) 그 플래시 프레임에서 대비를 잰다.
       await _pumpQuest(
         tester,
         particle.build((_) {}, () {}, false),
         locale: const Locale('en'),
         viewport: _viewports[2],
+        disableAnimations: false,
       );
       await _tapPointerOwned(tester, find.byKey(const ValueKey('answer-1')));
       _expectParticleSlotTextContrast(tester, '가');
+      await tester.pump(const Duration(milliseconds: 250));
       await _tapPointerOwned(tester, find.byKey(const ValueKey('answer-0')));
       _expectParticleSlotTextContrast(tester, '는');
       _expectNoException(tester);
@@ -548,7 +555,9 @@ void main() {
       );
 
       await _enterCorrectResponse(tester, engine);
-      if (engine != 'listening') {
+      // listening·translation·cloze·particle은 지시서 4.11의 즉시 판정
+      // 엔진이라 확인 버튼이 없다 — 옵션 탭 한 번으로 이미 판정됐다.
+      if (!_instantJudgmentEngines.contains(engine)) {
         await _tapPointerOwned(
           tester,
           find.byKey(const ValueKey('quest-submit')),
@@ -612,27 +621,28 @@ void main() {
           final wrong = find.bySemanticsLabel(wrongLabel);
           _expectButton(tester, wrong, enabled: true, minHeight: 48);
           _expectBoundaryContrast(tester, wrong);
+          // 지시서 4.11 — 즉시 판정 엔진에는 확인 버튼이 없다.
+          expect(find.bySemanticsLabel(t.questCheckAnswer), findsNothing);
           await _tapPointerOwned(tester, wrong);
 
-          final selectedWrong = find.bySemanticsLabel(
-            '$wrongLabel, ${t.questAnswerSelected}',
+          // 옵션 탭 1회로 바로 판정된다 — 오답은 "selected"가 아니라
+          // "wrong" 상태 접미사로 즉시 드러난다(아직 소진 전이라 계속
+          // 선택된 상태이기도 하다: selected=true·state=wrong).
+          final revealedWrong = find.bySemanticsLabel(
+            '$wrongLabel, ${t.questWrong}',
           );
           _expectButton(
             tester,
-            selectedWrong,
+            revealedWrong,
             enabled: true,
             selected: ui.Tristate.isTrue,
             minHeight: 48,
           );
-          final submit = find.bySemanticsLabel(t.questCheckAnswer);
-          _expectButton(tester, submit, enabled: true, minHeight: 48);
-          await _tapPointerOwned(tester, submit);
           _expectLiveRegion(tester, t.questTryAgainHint);
           _expectTextContrast(tester, t.questTryAgainHint);
 
           final correct = find.bySemanticsLabel(correctLabel);
           await _tapPointerOwned(tester, correct);
-          await _tapPointerOwned(tester, submit);
 
           expect(results, hasLength(1));
           expect(results.single.passed, isTrue);
@@ -966,23 +976,20 @@ void main() {
     },
   );
 
-  // Fix round 1 (Fable 룰링, 2026-09-04): STEP 0에서 tool/generate_tts.py의
-  // collect()를 직접 읽고 실제 콘텐츠(assets/data/scenarios_*.json)로
-  // 재확인한 결과 -- particlePop만 _fullSentence
-  // (prefix+options[correctIndex]+suffix)를 모든 퀘스트에 대해 무조건
-  // 수집하는 전용 분기가 있어 canonical corpus 소속이 보장된다. luecken
-  // (빈칸 채운 완성문)과 uebersetzen(options[correctIndex].ko)은 전용
-  // 수집 분기가 없다 -- 다른 소스(예: 시나리오 대화문)와 텍스트가 우연히
-  // 같을 때만 canonical이었고, 실측 예시 각 3건 중 1건만 canonical이었다
-  // (2/3 miss, task-1-report.md STEP 0 표 참고). 그래서:
-  //  - 세 엔진 모두 진입 시 무음이다(entry autoplay 제거, Fix round 1 (a)).
-  //  - particlePop만 답 공개 직후(정답이든 2회 오답 소진 뒤 공개든) 정답
-  //    문장을 1회 읽는다(Fix round 1 (b)).
-  //  - luecken·uebersetzen은 답 공개 후에도 계속 무음이다 -- "정답을
-  //    canonical corpus에서 못 찾음" 배너가 뜨는 걸 알면서 배선하지
-  //    않는다(blocked on canonical corpus -> W9-C 콘텐츠 파이프라인行).
-  group('선택형 퀘스트는 진입 시 무음이고, particlePop만 답 공개 후 정답 문장을 1회 읽는다', () {
-    testWidgets('luecken은 정답 공개 후에도 무음이다(canonical 아님)', (tester) async {
+  // Fix round 2 (Fable 룰링, 2026-09-05, 지시서 2.9): tool/generate_tts.py의
+  // collect()에 luecken(빈칸 채운 완성문)·uebersetzen(options[correctIndex]
+  // .ko) 전용 수집 분기가 추가돼(#254 게이트 통과) 세 엔진 모두 답 공개
+  // 문장이 canonical corpus 소속임이 보장된다(tool/test_generate_tts.py
+  // test_collect_includes_luecken_uebersetzen_and_particle_pop_full_sentences
+  // 참고). 그래서 particle_pop_quest.dart:134-140의 정본 패턴을 luecken·
+  // uebersetzen에도 그대로 적용한다:
+  //  - 세 엔진 모두 진입 시 무음이다(entry autoplay 없음).
+  //  - 세 엔진 모두 답 공개 직후(정답이든 2회 오답 소진 뒤 공개든) 정답
+  //    완성 문장을 1회 읽는다(widget.audioEnabled 게이트).
+  group('선택형 퀘스트는 진입 시 무음이고, 답 공개 후 정답 문장을 1회 읽는다', () {
+    testWidgets('luecken은 옵션 탭 1회로 즉시 판정되고 정답 공개 직후 완성 문장을 1회 읽는다', (
+      tester,
+    ) async {
       final stub = stubSoriSpeech();
       await _pumpQuest(
         tester,
@@ -999,17 +1006,18 @@ void main() {
         viewport: _viewports[2],
       );
       expect(stub.spoken, isEmpty, reason: '진입 시 무음');
-
-      await _tapPointerOwned(tester, find.byKey(const ValueKey('answer-0')));
-      await _tapPointerOwned(
-        tester,
+      expect(
         find.byKey(const ValueKey('quest-submit')),
+        findsNothing,
+        reason: '지시서 4.11 — 즉시 판정 엔진에는 별도 확인 버튼이 없다',
       );
 
-      expect(stub.spoken, isEmpty, reason: '답 공개 후에도 무음');
+      await _tapPointerOwned(tester, find.byKey(const ValueKey('answer-0')));
+
+      expect(stub.spoken, ['안녕']);
     });
 
-    testWidgets('luecken은 2회 오답 공개 후에도 무음이다', (tester) async {
+    testWidgets('luecken은 2회 오답(탭 2회) 공개 직후 완성 문장을 1회 읽는다', (tester) async {
       final stub = stubSoriSpeech();
       await _pumpQuest(
         tester,
@@ -1027,16 +1035,41 @@ void main() {
       );
 
       final wrong = find.byKey(const ValueKey('answer-1'));
-      final submit = find.byKey(const ValueKey('quest-submit'));
       await _tapPointerOwned(tester, wrong);
-      await _tapPointerOwned(tester, submit);
+      expect(stub.spoken, isEmpty, reason: '1회 오답만으로는 아직 결과가 공개되지 않는다');
       await _tapPointerOwned(tester, wrong);
-      await _tapPointerOwned(tester, submit);
+
+      expect(stub.spoken, ['안녕']);
+    });
+
+    testWidgets('luecken은 audioEnabled=false면 답 공개 후에도 읽지 않는다', (
+      tester,
+    ) async {
+      final stub = stubSoriSpeech();
+      await _pumpQuest(
+        tester,
+        LueckenQuest(
+          data: const {
+            'sentence': '안___',
+            'correctIndex': 0,
+            'options': ['녕', '녕히'],
+          },
+          audioEnabled: false,
+          onComplete: (_) {},
+          onContinue: () {},
+        ),
+        locale: const Locale('de'),
+        viewport: _viewports[2],
+      );
+
+      await _tapPointerOwned(tester, find.byKey(const ValueKey('answer-0')));
 
       expect(stub.spoken, isEmpty);
     });
 
-    testWidgets('uebersetzen은 정답 공개 후에도 무음이다(canonical 아님)', (tester) async {
+    testWidgets('uebersetzen은 옵션 탭 1회로 즉시 판정되고 정답 공개 직후 완성 문장을 1회 읽는다', (
+      tester,
+    ) async {
       final stub = stubSoriSpeech();
       await _pumpQuest(
         tester,
@@ -1057,17 +1090,18 @@ void main() {
         viewport: _viewports[2],
       );
       expect(stub.spoken, isEmpty, reason: '진입 시 무음');
-
-      await _tapPointerOwned(tester, find.byKey(const ValueKey('answer-0')));
-      await _tapPointerOwned(
-        tester,
+      expect(
         find.byKey(const ValueKey('quest-submit')),
+        findsNothing,
+        reason: '지시서 4.11 — 즉시 판정 엔진에는 별도 확인 버튼이 없다',
       );
 
-      expect(stub.spoken, isEmpty, reason: '답 공개 후에도 무음');
+      await _tapPointerOwned(tester, find.byKey(const ValueKey('answer-0')));
+
+      expect(stub.spoken, ['안녕']);
     });
 
-    testWidgets('uebersetzen은 2회 오답 공개 후에도 무음이다', (tester) async {
+    testWidgets('uebersetzen은 2회 오답(탭 2회) 공개 직후 완성 문장을 1회 읽는다', (tester) async {
       final stub = stubSoriSpeech();
       await _pumpQuest(
         tester,
@@ -1089,16 +1123,43 @@ void main() {
       );
 
       final wrong = find.byKey(const ValueKey('answer-1'));
-      final submit = find.byKey(const ValueKey('quest-submit'));
       await _tapPointerOwned(tester, wrong);
-      await _tapPointerOwned(tester, submit);
+      expect(stub.spoken, isEmpty, reason: '1회 오답만으로는 아직 결과가 공개되지 않는다');
       await _tapPointerOwned(tester, wrong);
-      await _tapPointerOwned(tester, submit);
+
+      expect(stub.spoken, ['안녕']);
+    });
+
+    testWidgets('uebersetzen은 audioEnabled=false면 답 공개 후에도 읽지 않는다', (
+      tester,
+    ) async {
+      final stub = stubSoriSpeech();
+      await _pumpQuest(
+        tester,
+        UebersetzenQuest(
+          data: const {
+            'promptDe': 'Hallo',
+            'promptEn': 'Hello',
+            'correctIndex': 0,
+            'options': [
+              {'ko': '안녕'},
+              {'ko': '감사'},
+            ],
+          },
+          audioEnabled: false,
+          onComplete: (_) {},
+          onContinue: () {},
+        ),
+        locale: const Locale('de'),
+        viewport: _viewports[2],
+      );
+
+      await _tapPointerOwned(tester, find.byKey(const ValueKey('answer-0')));
 
       expect(stub.spoken, isEmpty);
     });
 
-    testWidgets('particlePop은 진입 시 무음이고 정답 공개 직후 완성 문장을 1회 읽는다', (
+    testWidgets('particlePop은 옵션 탭 1회로 즉시 판정되고 정답 공개 직후 완성 문장을 1회 읽는다', (
       tester,
     ) async {
       final stub = stubSoriSpeech();
@@ -1120,17 +1181,18 @@ void main() {
         viewport: _viewports[2],
       );
       expect(stub.spoken, isEmpty, reason: '진입 시 무음');
+      expect(
+        find.byKey(const ValueKey('quest-submit')),
+        findsNothing,
+        reason: '지시서 4.11 — 즉시 판정 엔진에는 별도 확인 버튼이 없다',
+      );
 
       await _tapPointerOwned(tester, find.byKey(const ValueKey('answer-0')));
-      await _tapPointerOwned(
-        tester,
-        find.byKey(const ValueKey('quest-submit')),
-      );
 
       expect(stub.spoken, ['저는 학생이에요.']);
     });
 
-    testWidgets('particlePop은 2회 오답 공개 직후 완성 문장을 1회 읽는다', (tester) async {
+    testWidgets('particlePop은 2회 오답(탭 2회) 공개 직후 완성 문장을 1회 읽는다', (tester) async {
       final stub = stubSoriSpeech();
       await _pumpQuest(
         tester,
@@ -1152,12 +1214,9 @@ void main() {
       expect(stub.spoken, isEmpty, reason: '진입 시 무음');
 
       final wrong = find.byKey(const ValueKey('answer-1'));
-      final submit = find.byKey(const ValueKey('quest-submit'));
       await _tapPointerOwned(tester, wrong);
-      await _tapPointerOwned(tester, submit);
       expect(stub.spoken, isEmpty, reason: '1회 오답만으로는 아직 결과가 공개되지 않는다');
       await _tapPointerOwned(tester, wrong);
-      await _tapPointerOwned(tester, submit);
 
       expect(stub.spoken, ['저는 학생이에요.']);
     });
@@ -1186,10 +1245,6 @@ void main() {
       );
 
       await _tapPointerOwned(tester, find.byKey(const ValueKey('answer-0')));
-      await _tapPointerOwned(
-        tester,
-        find.byKey(const ValueKey('quest-submit')),
-      );
 
       expect(stub.spoken, isEmpty);
     });
@@ -1221,23 +1276,20 @@ void main() {
         );
 
         final wrong = find.byKey(const ValueKey('answer-1'));
-        final submit = find.byKey(const ValueKey('quest-submit'));
 
-        // 1회차 오답 — 그 200ms 플래시 지연을 먼저 흘려보낸다.
+        // 1회차 오답 — 탭 1회로 즉시 판정된다(지시서 4.11). 그 200ms 플래시
+        // 지연을 흘려보낸다.
         await _tapPointerOwned(tester, wrong);
-        await _tapPointerOwned(tester, submit);
         await tester.pump(const Duration(milliseconds: 250));
 
         // 2회차 오답(소진) — 첫 200ms 플래시 지연은 흘려보낸다(그 안의
         // `setState`는 mounted 가드가 없는 별개의 기존 결함이라 disposed
         // 상태로 통과시키면 이 테스트가 다른 이유로 실패한다 — PR2 리뷰
         // Minor 참고, 범위 밖). 그 다음 이어지는 "정답 공개" 200ms 지연
-        // (`await Future<void>.delayed(200ms)`, particle_pop_quest.dart:164)
+        // (`await Future<void>.delayed(200ms)`, particle_pop_quest.dart 참고)
         // 도중에 위젯을 화면에서 치운다. mounted 가드가 없으면 다음 화면에서
-        // SoriSpeech.speak(_fullSentence)가 새로 시작해 버린다
-        // (particle_pop_quest.dart:167-169).
+        // SoriSpeech.speak(_fullSentence)가 새로 시작해 버린다.
         await _tapPointerOwned(tester, wrong);
-        await _tapPointerOwned(tester, submit);
         await tester.pump(const Duration(milliseconds: 250));
         await tester.pumpWidget(const SizedBox.shrink());
         await tester.pump(const Duration(milliseconds: 400));
@@ -1337,6 +1389,99 @@ void main() {
       }
     },
   );
+
+  testWidgets(
+    'satz_bauen: 질문 카드와 "Deine Antwort bauen" 사이 간격은 SoriGaps.questionToOptions'
+    '(24) (지시서 4.8)',
+    (tester) async {
+      final t = lookupAppL10n(const Locale('de'));
+      await _pumpQuest(
+        tester,
+        SatzBauenQuest(
+          data: const {
+            'targetKo': '안녕 하세요',
+            'promptDe': 'Sage höflich Hallo.',
+            'promptEn': 'Say hello politely.',
+            'distractors': ['감사'],
+          },
+          onComplete: (_) {},
+          onContinue: () {},
+        ),
+        locale: const Locale('de'),
+        viewport: _viewports[2],
+      );
+
+      final promptBottom = tester
+          .getBottomLeft(find.byKey(const ValueKey('quest-prompt-card')))
+          .dy;
+      final labelTop = tester
+          .getTopLeft(find.text(t.questBuildAnswerLabel))
+          .dy;
+      final gap = labelTop - promptBottom;
+      expect(
+        gap,
+        moreOrLessEquals(SoriGaps.questionToOptions, epsilon: 0.5),
+        reason: '질문 카드와 정답 조립 레이블 사이 간격이 24dp가 아니다 (실측 $gap)',
+      );
+    },
+  );
+
+  group('선택지 글씨 크기는 16 이상이다 (지시서 4.12)', () {
+    for (final entry
+        in const <(String engine, String label)>[
+          ('listening', 'Hallo'),
+          ('translation', '안녕'),
+          ('cloze', '녕'),
+          ('particle', '는'),
+        ]) {
+      testWidgets('${entry.$1}: 옵션 텍스트 fontSize ≥ 16', (tester) async {
+        final engine = _engines.singleWhere((e) => e.name == entry.$1);
+        await _pumpQuest(
+          tester,
+          engine.build((_) {}, () {}, false),
+          locale: const Locale('de'),
+          viewport: _viewports[2],
+        );
+
+        final optionText = tester.widget<Text>(
+          find.descendant(
+            of: find.byKey(const ValueKey('answer-0')),
+            matching: find.text(entry.$2),
+          ),
+        );
+        expect(
+          optionText.style?.fontSize,
+          greaterThanOrEqualTo(16),
+          reason: '${entry.$1} 옵션 텍스트 fontSize가 16 미만이다',
+        );
+      });
+    }
+
+    testWidgets('satz_bauen: 조립 칩(단어 뱅크) 텍스트 fontSize ≥ 16', (tester) async {
+      await _pumpQuest(
+        tester,
+        SatzBauenQuest(
+          data: const {
+            'targetKo': '안녕 하세요',
+            'promptDe': 'Sage höflich Hallo.',
+            'promptEn': 'Say hello politely.',
+            'distractors': ['감사'],
+          },
+          onComplete: (_) {},
+          onContinue: () {},
+        ),
+        locale: const Locale('de'),
+        viewport: _viewports[2],
+      );
+
+      final tileText = tester.widget<Text>(find.text('안녕'));
+      expect(
+        tileText.style?.fontSize,
+        greaterThanOrEqualTo(16),
+        reason: 'satz_bauen 조립 칩 텍스트 fontSize가 16 미만이다',
+      );
+    });
+  });
 }
 
 Future<void> _pumpQuest(
@@ -1382,6 +1527,18 @@ Future<void> _pumpQuest(
   );
   await tester.pump();
 }
+
+/// 지시서 4.11 — 옵션 탭 1회로 바로 판정되는(별도 확인 버튼이 없는) 엔진.
+/// listening(hoerverstehen)은 원래부터 즉시 판정이었고, translation
+/// (uebersetzen)·cloze(luecken)·particle(particlePop)이 이번에 합류했다.
+/// satz_bauen(문장 조립형)은 대상이 아니다(Jin: "문장 음절별 선택하는 건
+/// 오케이").
+const Set<String> _instantJudgmentEngines = {
+  'listening',
+  'translation',
+  'cloze',
+  'particle',
+};
 
 Future<void> _enterCorrectResponse(
   WidgetTester tester,

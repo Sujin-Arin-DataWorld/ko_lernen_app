@@ -1381,6 +1381,29 @@ class Storage {
   static Future<void> setGrammarPlanRawJson(String json) =>
       _ss('kl_gram_plan_v1', json);
 
+  /// §A5 (Fable R1, 2026-09-05): which plan level the grammar-screen
+  /// onboarding sheet last started/changed to. Screen state (`_planLevel`)
+  /// alone does not survive leaving and reopening the screen, so without this
+  /// the plan silently falls back to [userLevelCode] on every fresh visit —
+  /// a learner who built a B1 plan would be served A1 again. Null means no
+  /// level has ever been chosen, or the stored value is not a valid
+  /// [LearnerLevel] code. This never changes [userLevelCode] itself.
+  static const String grammarPlanLevelPreferenceKey = 'kl_gram_plan_level_v1';
+
+  static String? get grammarPlanLevel =>
+      _optionalLearnerLevelCode(grammarPlanLevelPreferenceKey);
+
+  static Future<void> setGrammarPlanLevel(String? level) async {
+    if (level == null) {
+      await _prefs?.remove(grammarPlanLevelPreferenceKey);
+      return;
+    }
+    await _ss(
+      grammarPlanLevelPreferenceKey,
+      _requiredLearnerLevelCode(level),
+    );
+  }
+
   /// Strict cloud-restore-only writer. A fresh local value wins after the
   /// reload boundary; the caller's session guard is then checked immediately
   /// before the platform setter.

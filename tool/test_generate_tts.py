@@ -543,6 +543,77 @@ class TtsGeneratorContractTest(unittest.TestCase):
         male_count = len(pairs) - female_count
         self.assertLessEqual(abs(female_count - male_count), len(pairs) * 0.05)
 
+    def test_collect_includes_luecken_uebersetzen_and_particle_pop_full_sentences(
+        self,
+    ):
+        """지시서 2.9 — 답 공개 후 1회 읽기는 정답 완성문이 canonical corpus에
+        있어야 한다(#254 게이트). 세 퀘스트 타입 각각의 파생 완성문을 합성
+        시나리오 fixture로 검증한다(luecken은 sentence의 '___'를
+        options[correctIndex]로 치환, uebersetzen은 options[correctIndex].ko,
+        particlePop은 prefix+options[correctIndex]+suffix)."""
+        synthetic_scenario = {
+            "id": "scenario_test_quest_collect",
+            "quests": [
+                {
+                    "id": "quest_test_luecken",
+                    "type": "luecken",
+                    "data": {
+                        "sentence": "롤러코스터를 타___ 싶어.",
+                        "options": ["고", "면", "서", "지만"],
+                        "correctIndex": 0,
+                    },
+                },
+                {
+                    "id": "quest_test_uebersetzen",
+                    "type": "uebersetzen",
+                    "data": {
+                        "promptDe": "Ja, hier bitte.",
+                        "options": [
+                            {"ko": "네, 여기 있어요."},
+                            {"ko": "안녕하세요."},
+                        ],
+                        "correctIndex": 0,
+                    },
+                },
+                {
+                    "id": "quest_test_particle_pop",
+                    "type": "particlePop",
+                    "data": {
+                        "prefix": "저는 학생",
+                        "suffix": " 아니에요.",
+                        "options": ["이", "가", "은", "는"],
+                        "correctIndex": 0,
+                    },
+                },
+            ],
+        }
+        synthetic_sources = [
+            {
+                "sourceShard": "scenarios_test.json",
+                "sourcePath": "assets/data/scenarios_test.json",
+                "sourceSha256": "0" * 64,
+                "scenario": synthetic_scenario,
+            }
+        ]
+        with patch.object(
+            generate_tts,
+            "load_canonical_scenario_sources",
+            return_value=synthetic_sources,
+        ):
+            pairs = set(generate_tts.collect())
+
+        expected_texts = {
+            "롤러코스터를 타고 싶어.",  # luecken: 빈칸 -> options[0]
+            "네, 여기 있어요.",  # uebersetzen: options[0].ko
+            "저는 학생이 아니에요.",  # particlePop: prefix+options[0]+suffix
+        }
+        for text in expected_texts:
+            self.assertIn(
+                (generate_tts.auto_voice(text), text),
+                pairs,
+                msg=f"collect()가 {text!r} 를 auto 음성으로 수집하지 않았다",
+            )
+
     def test_gcloud_calls_use_an_argument_vector_without_a_shell(self):
         with patch.object(
             generate_tts.shutil,
