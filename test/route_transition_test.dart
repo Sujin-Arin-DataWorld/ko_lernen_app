@@ -75,14 +75,13 @@ void main() {
     test(
       'MaterialPageRoute construction is confined to dev-only screens',
       () {
-        // 운영 화면은 전부 SoriTransitions.page로 옮겼다. 남는 4곳은 dev 전용
-        // 미리보기 하네스 3개와, 라우트에 물려 있지 않은 죽은 화면
-        // (onboarding_level_screen.dart, §B1 확정 사실 참고) 뿐이다.
+        // 운영 화면은 전부 SoriTransitions.page로 옮겼다. 남는 건 dev 전용
+        // 미리보기 하네스 3개뿐이다 — onboarding_level_screen.dart는
+        // assets_unused/retired_code/로 격리되어 lib에서 사라졌다.
         const allowedFiles = <String>{
           'lib/screens/app_review_demo_screen.dart',
           'lib/screens/ux_preview_app.dart',
           'lib/screens/ux_preview_gallery_screen.dart',
-          'lib/screens/onboarding_level_screen.dart',
         };
         final invocation = RegExp(r'MaterialPageRoute\s*(<[^>]*>)?\s*\(');
         final offenders = Directory('lib')
@@ -104,18 +103,16 @@ void main() {
       'SoriTransitions.fadeScale is confined to first-run files',
       () {
         // consent/intro_gate/splash/onboarding_v2_journey는 firstRun 래퍼
-        // (transitions.dart:58-73)를 쓰므로 여기 안 잡힌다. **W-I I-B가
-        // onboarding_level/preview/start(+NAV-3 승인 시 onboarding_journey)를
-        // 삭제하면 이 집합과 위 MaterialPageRoute 허용목록
-        // (onboarding_level_screen.dart)을 함께 줄인다.**
+        // (transitions.dart:58-73)를 쓰므로 여기 안 잡힌다.
+        // onboarding_level_screen.dart·onboarding_start_screen.dart는
+        // assets_unused/retired_code/로 격리되어 lib에서 사라졌으므로
+        // 이 집합에서도 뺐다.
         const allowedFiles = <String>{
           'lib/motion/transitions.dart',
           'lib/services/onboarding_journey.dart',
           'lib/screens/character_selection_screen.dart',
           'lib/screens/first_voice_success_screen.dart',
-          'lib/screens/onboarding_level_screen.dart',
           'lib/screens/onboarding_preview_screen.dart',
-          'lib/screens/onboarding_start_screen.dart',
         };
         final invocation = RegExp(r'\bfadeScale\s*(<[^>]*>)?\s*\(');
         final offenders = Directory('lib')

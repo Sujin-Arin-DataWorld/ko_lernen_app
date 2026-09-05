@@ -175,7 +175,6 @@ const List<String> knownUnstubbedTestFiles = <String>[
   'test/hangul_write_gate_test.dart',
   'test/legacy_vocab_flipgate_test.dart',
   'test/onboarding_flow_test.dart',
-  'test/onboarding_start_screen_test.dart',
   'test/responsive_short_height_test.dart',
   'test/scenario_can_do_result_flow_test.dart',
   'test/scenario_grammar_resolution_test.dart',
@@ -213,4 +212,4 @@ const List<String> knownUnstubbedTestFiles = <String>[
   'test/vocab_pack_uniform_card_test.dart',
   'test/wordbook_spotlight_coach_test.dart',
 ];
-const int knownUnstubbedCap = 62; // 2026-09-03 origin/main 병합 재기준선 — 늘리기 금지
+const int knownUnstubbedCap = 61; // 2026-09-05 onboarding_start_screen_test.dart 격리로 하향
