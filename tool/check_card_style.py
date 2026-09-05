@@ -46,6 +46,9 @@ import style_lock  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 FAMILY = "F-E-cards"
+# 아이보리 지면·합성 그레인을 쓰지 않는 원본충실(full-bleed) 카드 프로파일.
+# 밴드를 넓히는 대신 이 계보를 따로 재는 것이 F-E-cards 의 편차 처리 방식이다.
+SOURCE_ORIGINAL_PROFILE = "C1-source-original"
 BASELINE_PATH = ROOT / "docs" / "assets" / "CARD_STYLE_BASELINE.json"
 
 # ---- 측정 공식 상수 (grainFormulaVersion=1) --------------------------------
@@ -361,8 +364,10 @@ def _family_dir_webps(lock: dict) -> list[Path]:
     return files
 
 
-def _stats_entry(path: Path, result: dict) -> dict:
-    return {
+def _stats_entry(
+    path: Path, result: dict, profile: str | None = None
+) -> dict:
+    entry = {
         "sha256": sha256_of(path),
         "kb": result["kb"],
         "ivoryFrac": result["ivoryFrac"],
@@ -372,6 +377,9 @@ def _stats_entry(path: Path, result: dict) -> dict:
         "top8": result["top8"],
         "patchXY": result["patchXY"],
     }
+    if profile:
+        entry["profile"] = profile
+    return entry
 
 
 def run_baseline(lock: dict) -> int:
@@ -461,7 +469,7 @@ def run_all(lock: dict) -> tuple[list[dict], int]:
         else:
             checker = (
                 check_source_original
-                if entry.get("profile") == "C1-source-original"
+                if entry.get("profile") == SOURCE_ORIGINAL_PROFILE
                 else check
             )
             result = checker(path, lock)
@@ -489,8 +497,11 @@ def run_all(lock: dict) -> tuple[list[dict], int]:
     return results, failures
 
 
-def run_register(lock: dict, target: Path) -> tuple[list[dict], int]:
-    result = check(target, lock)
+def run_register(
+    lock: dict, target: Path, profile: str | None = None
+) -> tuple[list[dict], int]:
+    checker = check_source_original if profile else check
+    result = checker(target, lock)
     if not result["ok"]:
         print(f"[fail] {result['path']}: 게이트 실패 — 등록 거부")
         return [result], 1
@@ -514,7 +525,7 @@ def run_register(lock: dict, target: Path) -> tuple[list[dict], int]:
         "grainFormulaVersion": GRAIN_FORMULA_VERSION,
         "files": {},
     }
-    baseline["files"][rel] = _stats_entry(target, result)
+    baseline["files"][rel] = _stats_entry(target, result, profile)
     baseline["files"] = dict(sorted(baseline["files"].items()))
     _write_baseline(baseline)
     print(f"[registered] {rel} -> {BASELINE_PATH.relative_to(ROOT).as_posix()}")
@@ -524,8 +535,28 @@ def run_register(lock: dict, target: Path) -> tuple[list[dict], int]:
     lock_path = style_lock.STYLE_LOCK_PATH
     original = lock_path.read_text(encoding="utf-8")
     data = json.loads(original)
-    members = data["families"][FAMILY]["members"]
-    if stem in members:
+    family = data["families"][FAMILY]
+    # 프로파일 카드는 가족 멤버이면서 편차 명부에도 올라야 한다. 편차 명부에서
+    # 빠지면 스윕이 엄격 경로로 재서 통과하지 못한다.
+    targets: list[tuple[list, str]] = [
+        (family["members"], f"families.{FAMILY}.members")
+    ]
+    if profile:
+        deviations = family.get("knownDeviations", {})
+        if profile not in deviations:
+            result["failures"].append(
+                f"STYLE_LOCK.json 에 families.{FAMILY}.knownDeviations."
+                f"{profile} 가 없다 — 편차 계보를 먼저 선언하라"
+            )
+            result["ok"] = False
+            return [result], 1
+        targets.append((
+            deviations[profile]["members"],
+            f"families.{FAMILY}.knownDeviations.{profile}.members",
+        ))
+
+    pending = [(arr, where) for arr, where in targets if stem not in arr]
+    if not pending:
         print(f"[ok] {stem} 은 이미 members 에 있다")
         return [result], 0
     rendered = json.dumps(json.loads(original), indent=2, ensure_ascii=False) + "\n"
@@ -533,18 +564,21 @@ def run_register(lock: dict, target: Path) -> tuple[list[dict], int]:
         print(
             "[warn] STYLE_LOCK.json 이 json.dumps(indent=2) 라운드트립과 다르다 — "
             "무관한 바이트 변경을 피하려고 자동 쓰기를 생략한다. 아래 줄을 "
-            f"families.{FAMILY}.members 에 수동으로 추가하라:"
+            "각 배열에 수동으로 추가하라:"
         )
-        print(f'        "{stem}",')
+        for _, where in pending:
+            print(f'        "{stem}",   -> {where}')
         return [result], 0
-    members.append(stem)
-    members.sort()
+    for arr, _ in pending:
+        arr.append(stem)
+        arr.sort()
     lock_path.write_text(
         json.dumps(data, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
         newline="\n",  # Windows 에서 CRLF 오염 방지
     )
-    print(f"[registered] {stem} -> STYLE_LOCK.json families.{FAMILY}.members")
+    for _, where in pending:
+        print(f"[registered] {stem} -> STYLE_LOCK.json {where}")
     return [result], 0
 
 
@@ -560,6 +594,9 @@ def main(argv: list[str] | None = None) -> int:
                         help="전량 실측 -> 사이드카 작성 + 제안 게이트 출력")
     parser.add_argument("--register", type=Path, metavar="FILE",
                         help="후보 검사 통과 시 사이드카+members 에 등록")
+    parser.add_argument("--profile", choices=[SOURCE_ORIGINAL_PROFILE],
+                        help="원본충실 카드로 등록 — 아이보리 패치·합성 그레인 "
+                             "요구를 빼고 판정하고 편차 명부에도 올린다")
     parser.add_argument("--report", type=Path, help="전체 JSON 결과를 여기에 쓴다")
     args = parser.parse_args(argv)
 
@@ -574,7 +611,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.all:
         results, failures = run_all(lock)
     elif args.register:
-        results, failures = run_register(lock, args.register)
+        results, failures = run_register(lock, args.register, args.profile)
     else:
         if not args.targets:
             parser.error("pass FILE targets, --all, --baseline or --register FILE")

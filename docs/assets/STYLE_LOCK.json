@@ -1556,7 +1556,8 @@
             "C1Mediation",
             "C1Methodology",
             "C1Policy",
-            "C1Uncertainty"
+            "C1Uncertainty",
+            "scenarios"
           ],
           "runtimeCommit": "37afe400dc1b8bde735d4cbbe36c2622beaf10a7",
           "sourceManifest": "assets_unused/pending_review/listening_cards/c1_source_original/MANIFEST.json",
@@ -1575,7 +1576,9 @@
             "palettePresence",
             "uniqueColorsMin",
             "sha256 ledger"
-          ]
+          ],
+          "note": "2026-09-05: scenarios 를 이 계보로 편입했다. C1 시리즈에서 시작한 이름이지만 계약은 시리즈가 아니라 기법이다 — 공급된 PNG 팔레트와 원본 종이 질감을 그대로 두고 합성 아이보리 패치·그레인을 얹지 않는다. scenarios 의 원본은 별도 아카이브에 있다(sourceManifestExtra).",
+          "sourceManifestExtra": "assets_unused/pending_review/listening_cards/activities_source_original/MANIFEST.json"
         }
       },
       "knownDeviationsNote": "게이트 실측 대역 밖이지만 승인으로 수용된 파일을 커밋 참조와 함께 기록한다. 비어 있으면 전 멤버가 대역 안이라는 뜻이다.",
