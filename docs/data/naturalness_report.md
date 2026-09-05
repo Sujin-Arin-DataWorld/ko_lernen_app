@@ -297,3 +297,10 @@ distractor(오답 배분어) 말음 받침의 불합치**라는 단일하고 결
 
 `particle_mismatch`(834건)는 위 합계에 포함하지 않음 — 개별 심사 대상이 아니라
 "particle_mismatch 834건 — 기계적 처리 제안" 절의 결정적 파이프라인 승인 대상.
+
+## 후속 — 절단 어간 16건: 어미 편입으로 해소(2026-09-05)
+
+위 표의 dangling_stem(16) 은 배치 A 심사에서 DEFECT-ITEM 판정을 받은 항목이다.
+지시서 2.8 에 따라 `tool/fix_dangling_stems.py` 로 빈칸 바로 뒤 어미(지/니/기/는/자)를
+answer·distractors 로 편입하고 sentenceKo 에서 제거해 16건 전부 문법을 성립시켰다
+(fullKo/de/en 불변, `test/cloze_dangling_stem_ratchet_test.dart` 상한 0으로 하향).

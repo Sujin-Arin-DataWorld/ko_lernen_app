@@ -12,30 +12,14 @@ import 'package:flutter_test/flutter_test.dart';
 //   (answer + "다") 가 korean_vocab.csv 의 "korean" 열(표제어 전체 집합)에
 //   존재하면 절단으로 판정한다.
 //
-// 이 가드는 **데이터를 고치지 않는다** — 현재 실측 히트(16건, 2026-09-04)를
-// 상한으로 못 박아 더 늘지 않게만 막는다. 상한은 내려갈 수만 있다 — 데이터를
-// 고쳐 히트가 줄면 이 상수들도 같이 줄여라. 절대 올리지 마라.
+// 이 가드는 **데이터를 고치지 않는다** — 히트가 새로 늘지 않게만 막는다.
+// 상한은 내려갈 수만 있다. 2026-09-05: tool/fix_dangling_stems.py 로 종전
+// 16건 전부 해소(빈칸 뒤 어미를 answer/distractors 로 편입) — 상한 0으로
+// 하향. 절대 올리지 마라.
 
-const int knownDanglingStemCap = 16; // 2026-09-04 실측 고정. 내리는 것만 허용.
+const int knownDanglingStemCap = 0; // 2026-09-05 실측 고정. 내리는 것만 허용.
 
-const Set<String> knownDanglingStemIds = {
-  'cloze_a2_0082',
-  'cloze_b1_0109',
-  'cloze_b1_0118',
-  'cloze_b1_0119',
-  'cloze_b1_0126',
-  'cloze_b1_0131',
-  'cloze_b1_0153',
-  'cloze_b2_0264',
-  'cloze_c1_0064',
-  'cloze_c1_0075',
-  'cloze_c1_0076',
-  'cloze_c2_0062',
-  'cloze_c2_0063',
-  'cloze_c2_0064',
-  'cloze_c2_0075',
-  'cloze_c2_0076',
-};
+const Set<String> knownDanglingStemIds = {};
 
 /// tool/audit_content_naturalness.py::check_dangling_stem 의 Dart 이식.
 /// 규칙을 벗어난 임의 완화(예: 앞뒤 공백 무시 이상의 정규화)는 하지 않는다.

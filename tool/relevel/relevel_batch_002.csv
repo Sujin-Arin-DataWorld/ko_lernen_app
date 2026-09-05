@@ -1,0 +1,13 @@
+id,korean,old_level,new_level,target_pack,reason
+vocab_a1_0028,지하철,A1,A2,a2_transport,below_topic 아님(sino3_low) — topic Verkehr 최빈값 A2
+vocab_a1_0026,핸드폰,A1,B1,b1_tech_society_1,sino3_low+below_topic — topic Technologie 최빈값 B1
+vocab_a1_0103,말하다,A1,B2,b2_communication,below_topic — topic Kommunikation 최빈값 B2
+vocab_a1_0115,좋다,A1,B1,b1_descriptions_1,below_topic — topic Beschreibung 최빈값 B1
+vocab_a1_0116,크다,A1,B1,b1_descriptions_1,below_topic — topic Beschreibung 최빈값 B1
+vocab_a1_0117,작다,A1,B1,b1_descriptions_1,below_topic — topic Beschreibung 최빈값 B1
+vocab_a1_0122,귀엽다,A1,B1,b1_descriptions_1,below_topic — topic Beschreibung 최빈값 B1
+vocab_a1_0123,조용하다,A1,B1,b1_descriptions_1,below_topic — topic Beschreibung 최빈값 B1
+vocab_a1_0124,시끄럽다,A1,B1,b1_descriptions_1,below_topic — topic Beschreibung 최빈값 B1
+vocab_a1_0125,어렵다,A1,B1,b1_descriptions_1,below_topic — topic Beschreibung 최빈값 B1
+vocab_a1_0128,길다,A1,B1,b1_descriptions_1,below_topic — topic Beschreibung 최빈값 B1
+vocab_a1_0129,짧다,A1,B1,b1_descriptions_1,below_topic — topic Beschreibung 최빈값 B1

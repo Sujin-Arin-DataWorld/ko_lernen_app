@@ -8109,7 +8109,7 @@
     },
     {
       "id": "cloze_a1_0104",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "남편 집에 가니까 ＿＿＿께서 환하게 반겨주셨어요.",
       "answer": "시아버지",
       "fullKo": "남편 집에 가니까 시아버지께서 환하게 반겨주셨어요.",
@@ -9580,15 +9580,15 @@
     {
       "id": "cloze_a2_0082",
       "level": "a2",
-      "sentenceKo": "＿＿＿지 않아도 천천히 말하면 통해요.",
-      "answer": "유창하",
+      "sentenceKo": "＿＿＿ 않아도 천천히 말하면 통해요.",
+      "answer": "유창하지",
       "fullKo": "유창하지 않아도 천천히 말하면 통해요.",
       "de": "Auch ohne fließendes Koreanisch versteht man langsames Sprechen.",
       "en": "Even if it's not fluent, speaking slowly still gets through.",
       "distractors": [
-        "세배하러 가",
-        "싸 주",
-        "일찍 일어나"
+        "세배하러 가지",
+        "싸 주지",
+        "일찍 일어나지"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -11305,15 +11305,15 @@
     {
       "id": "cloze_b1_0109",
       "level": "b1",
-      "sentenceKo": "긴 이야기는 ＿＿＿니 핵심만 남았어요.",
-      "answer": "요약해서 전하",
+      "sentenceKo": "긴 이야기는 ＿＿＿ 핵심만 남았어요.",
+      "answer": "요약해서 전하니",
       "fullKo": "긴 이야기는 요약해서 전하니 핵심만 남았어요.",
       "de": "Die lange Rede gab ich knapp weiter, so blieb nur der Kern.",
       "en": "I passed the long story on as a summary, so only the core was left.",
       "distractors": [
-        "끼어드",
-        "눈치 보",
-        "다시 확인하"
+        "끼어드니",
+        "눈치 보니",
+        "다시 확인하니"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -11440,30 +11440,30 @@
     {
       "id": "cloze_b1_0118",
       "level": "b1",
-      "sentenceKo": "＿＿＿지 말라고 현우가 귓속말로 했어요.",
-      "answer": "대충 하",
+      "sentenceKo": "＿＿＿ 말라고 현우가 귓속말로 했어요.",
+      "answer": "대충 하지",
       "fullKo": "대충 하지 말라고 현우가 귓속말로 했어요.",
       "de": "Mach es nicht zu ungenau, flüsterte Hyunwoo.",
       "en": "Hyunwoo whispered not to do it too roughly.",
       "distractors": [
-        "웃고 넘기",
-        "이불 개",
-        "자리 피하"
+        "웃고 넘기지",
+        "이불 개지",
+        "자리 피하지"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
     {
       "id": "cloze_b1_0119",
       "level": "b1",
-      "sentenceKo": "쉬운 질문은 ＿＿＿니 표정이 밝아졌어요.",
-      "answer": "직접 대답하",
+      "sentenceKo": "쉬운 질문은 ＿＿＿ 표정이 밝아졌어요.",
+      "answer": "직접 대답하니",
       "fullKo": "쉬운 질문은 직접 대답하니 표정이 밝아졌어요.",
       "de": "Als ich die leichten Fragen selbst beantwortete, hellten sich die Gesichter auf.",
       "en": "When I answered the easy questions myself, their faces brightened.",
       "distractors": [
-        "문 열어 두",
-        "물로 받으",
-        "방문 두드리"
+        "문 열어 두니",
+        "물로 받으니",
+        "방문 두드리니"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -11560,15 +11560,15 @@
     {
       "id": "cloze_b1_0126",
       "level": "b1",
-      "sentenceKo": "＿＿＿기 전에 자리에서 일어나 물을 마셨어요.",
-      "answer": "취하",
+      "sentenceKo": "＿＿＿ 전에 자리에서 일어나 물을 마셨어요.",
+      "answer": "취하기",
       "fullKo": "취하기 전에 자리에서 일어나 물을 마셨어요.",
       "de": "Bevor ich betrunken wurde, stand ich auf und trank Wasser.",
       "en": "Before getting drunk I stood up and drank water.",
       "distractors": [
-        "방문 두드리",
-        "분위기 맞추",
-        "빠뜨리"
+        "방문 두드리기",
+        "분위기 맞추기",
+        "빠뜨리기"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -11635,15 +11635,15 @@
     {
       "id": "cloze_b1_0131",
       "level": "b1",
-      "sentenceKo": "취하신 분 옆에서는 ＿＿＿는 게 안전했어요.",
-      "answer": "자리 피하",
+      "sentenceKo": "취하신 분 옆에서는 ＿＿＿ 게 안전했어요.",
+      "answer": "자리 피하는",
       "fullKo": "취하신 분 옆에서는 자리 피하는 게 안전했어요.",
       "de": "Neben einer angetrunkenen Person wegzugehen war sicherer.",
       "en": "It was safer to move away from someone who had had too much.",
       "distractors": [
-        "방문 두드리",
-        "분위기 맞추",
-        "빠뜨리"
+        "방문 두드리는",
+        "분위기 맞추는",
+        "빠뜨리는"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -11965,15 +11965,15 @@
     {
       "id": "cloze_b1_0153",
       "level": "b1",
-      "sentenceKo": "잠자리 ＿＿＿니 둘이 편해졌어요.",
-      "answer": "경계 다시 정하",
+      "sentenceKo": "잠자리 ＿＿＿ 둘이 편해졌어요.",
+      "answer": "경계 다시 정하니",
       "fullKo": "잠자리 경계 다시 정하니 둘이 편해졌어요.",
       "de": "Als wir die Schlafregelung neu festlegten, wurde es für uns beide leichter.",
       "en": "Once we reset the sleeping arrangement, it got easier for both of us.",
       "distractors": [
-        "통역을 맡으",
-        "하루만 가",
-        "공백만 보내"
+        "통역을 맡으니",
+        "하루만 가니",
+        "공백만 보내니"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -13780,15 +13780,15 @@
     {
       "id": "cloze_b2_0264",
       "level": "b2",
-      "sentenceKo": "＿＿＿니 악수 타이밍이 맞았어요.",
-      "answer": "관계부터 말하",
+      "sentenceKo": "＿＿＿ 악수 타이밍이 맞았어요.",
+      "answer": "관계부터 말하니",
       "fullKo": "관계부터 말하니 악수 타이밍이 맞았어요.",
       "de": "Zuerst die Beziehung zu nennen traf den Moment zum Handschlag.",
       "en": "Naming the relationship first hit the handshake timing.",
       "distractors": [
-        "예를 갖추",
-        "용돈 드리",
-        "호칭을 미루"
+        "예를 갖추니",
+        "용돈 드리니",
+        "호칭을 미루니"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -13975,15 +13975,15 @@
     {
       "id": "cloze_c1_0064",
       "level": "c1",
-      "sentenceKo": "＿＿＿자 다음 명절 표가 달라졌어요.",
-      "answer": "자리를 재협상하",
+      "sentenceKo": "＿＿＿ 다음 명절 표가 달라졌어요.",
+      "answer": "자리를 재협상하자",
       "fullKo": "자리를 재협상하자 다음 명절 표가 달라졌어요.",
       "de": "Den Platz neu zu verhandeln änderte den Plan für das nächste Fest.",
       "en": "Renegotiating my place changed the chart for the next holiday.",
       "distractors": [
-        "프레임을 드러내",
-        "공평을 설계하",
-        "구조를 바꾸"
+        "프레임을 드러내자",
+        "공평을 설계하자",
+        "구조를 바꾸자"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -14140,30 +14140,30 @@
     {
       "id": "cloze_c1_0075",
       "level": "c1",
-      "sentenceKo": "＿＿＿자 감사의 대상이 달라졌어요.",
-      "answer": "노동을 보이게 하",
+      "sentenceKo": "＿＿＿ 감사의 대상이 달라졌어요.",
+      "answer": "노동을 보이게 하자",
       "fullKo": "노동을 보이게 하자 감사의 대상이 달라졌어요.",
       "de": "Arbeit sichtbar zu machen verschob, wem gedankt wurde.",
       "en": "Making labor visible changed who received thanks.",
       "distractors": [
-        "구조를 바꾸",
-        "다시 명명하",
-        "손님으로 두"
+        "구조를 바꾸자",
+        "다시 명명하자",
+        "손님으로 두자"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
     {
       "id": "cloze_c1_0076",
       "level": "c1",
-      "sentenceKo": "＿＿＿니 감정이 아니라 표가 남았어요.",
-      "answer": "공평을 설계하",
+      "sentenceKo": "＿＿＿ 감정이 아니라 표가 남았어요.",
+      "answer": "공평을 설계하니",
       "fullKo": "공평을 설계하니 감정이 아니라 표가 남았어요.",
       "de": "Fairness zu entwerfen ließ eine Tabelle statt nur Gefühle.",
       "en": "Designing fairness left a chart, not only feelings.",
       "distractors": [
-        "자리를 재협상하",
-        "프레임을 드러내",
-        "구조를 바꾸"
+        "자리를 재협상하니",
+        "프레임을 드러내니",
+        "구조를 바꾸니"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -14305,45 +14305,45 @@
     {
       "id": "cloze_c2_0062",
       "level": "c2",
-      "sentenceKo": "＿＿＿니 방이 잠시 조용해졌다가 다시 숨이 돌아왔어요.",
-      "answer": "권력을 호명하",
+      "sentenceKo": "＿＿＿ 방이 잠시 조용해졌다가 다시 숨이 돌아왔어요.",
+      "answer": "권력을 호명하니",
       "fullKo": "권력을 호명하니 방이 잠시 조용해졌다가 다시 숨이 돌아왔어요.",
       "de": "Macht beim Namen zu nennen machte die Raumstille kurz, dann kam der Atem zurück.",
       "en": "Naming the power quieted the room, then breath returned.",
       "distractors": [
-        "이름을 되찾으",
-        "자리를 문서화하",
-        "절차를 요구하"
+        "이름을 되찾으니",
+        "자리를 문서화하니",
+        "절차를 요구하니"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
     {
       "id": "cloze_c2_0063",
       "level": "c2",
-      "sentenceKo": "기분이 아니라 ＿＿＿니 다음 결정이 투명해졌어요.",
-      "answer": "절차를 요구하",
+      "sentenceKo": "기분이 아니라 ＿＿＿ 다음 결정이 투명해졌어요.",
+      "answer": "절차를 요구하니",
       "fullKo": "기분이 아니라 절차를 요구하니 다음 결정이 투명해졌어요.",
       "de": "Nicht Stimmung, ein Verfahren zu verlangen machte die nächste Entscheidung klarer.",
       "en": "Demanding a procedure, not a mood, made the next decision clearer.",
       "distractors": [
-        "기억을 재배치하",
-        "서사를 공유하",
-        "이름을 되찾으"
+        "기억을 재배치하니",
+        "서사를 공유하니",
+        "이름을 되찾으니"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
     {
       "id": "cloze_c2_0064",
       "level": "c2",
-      "sentenceKo": "＿＿＿자 기억 싸움이 줄었어요.",
-      "answer": "자리를 문서화하",
+      "sentenceKo": "＿＿＿ 기억 싸움이 줄었어요.",
+      "answer": "자리를 문서화하자",
       "fullKo": "자리를 문서화하자 기억 싸움이 줄었어요.",
       "de": "Den Platz zu dokumentieren verringerte den Streit um Erinnerung.",
       "en": "Documenting my place reduced fights over memory.",
       "distractors": [
-        "이름을 되찾",
-        "절차를 요구하",
-        "권력을 호명하"
+        "이름을 되찾자",
+        "절차를 요구하자",
+        "권력을 호명하자"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -14500,30 +14500,30 @@
     {
       "id": "cloze_c2_0075",
       "level": "c2",
-      "sentenceKo": "＿＿＿자 내가 손님만은 아니게 됐어요.",
-      "answer": "기억을 재배치하",
+      "sentenceKo": "＿＿＿ 내가 손님만은 아니게 됐어요.",
+      "answer": "기억을 재배치하자",
       "fullKo": "기억을 재배치하자 내가 손님만은 아니게 됐어요.",
       "de": "Erinnerung neu zu ordnen machte mich zu mehr als nur Gast.",
       "en": "Rearranging memory made me more than only a guest.",
       "distractors": [
-        "서사를 공유하",
-        "이름을 되찾",
-        "자리를 문서화하"
+        "서사를 공유하자",
+        "이름을 되찾자",
+        "자리를 문서화하자"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
     {
       "id": "cloze_c2_0076",
       "level": "c2",
-      "sentenceKo": "＿＿＿자 한 사람의 농담이 모두의 역사가 되지 않았어요.",
-      "answer": "서사를 공유하",
+      "sentenceKo": "＿＿＿ 한 사람의 농담이 모두의 역사가 되지 않았어요.",
+      "answer": "서사를 공유하자",
       "fullKo": "서사를 공유하자 한 사람의 농담이 모두의 역사가 되지 않았어요.",
       "de": "Die Erzählung zu teilen hinderte den Witz einer Person, aller Geschichte zu werden.",
       "en": "Sharing authorship stopped one person's joke from becoming everyone's history.",
       "distractors": [
-        "자리를 문서화하",
-        "절차를 요구하",
-        "권력을 호명하"
+        "자리를 문서화하자",
+        "절차를 요구하자",
+        "권력을 호명하자"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
