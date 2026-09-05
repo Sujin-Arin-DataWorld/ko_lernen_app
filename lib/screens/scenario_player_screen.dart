@@ -192,6 +192,35 @@ Future<void> _prefetchScenarioIntroAudio(
   ScenarioIntroAudioPrefetchRequest request,
 ) => SoriSpeech.prefetch(request.text, voice: request.voice);
 
+/// 상한 — 진입 시 한 번에 prefetch하는 대사 줄 수. 대부분의 시나리오는 이
+/// 아래지만, 아주 긴 대화가 매 진입마다 캐시/네트워크를 과도하게 쓰지
+/// 않도록 막는다(지시서 4.3).
+const int scenarioDialoguePrefetchLineLimit = 12;
+
+/// 진입 시 prefetch할 모든 대사 줄(화자별 보이스, 최대
+/// [scenarioDialoguePrefetchLineLimit]줄) — [scenarioIntroAudioPrefetchFor]는
+/// 계약(첫 대사·번들 매니페스트)이 걸린 첫 줄 전용이라 그대로 두고, 이
+/// 함수가 나머지 줄까지 덧붙인다. 자동재생(_autoPlayDialogEntry)은 여전히
+/// 첫 줄 1회뿐 — 이 목록은 캐시만 채우고 재생하지 않는다.
+List<ScenarioIntroAudioPrefetchRequest> scenarioDialoguePrefetchRequestsFor(
+  Scenario scenario, {
+  int limit = scenarioDialoguePrefetchLineLimit,
+}) {
+  final requests = <ScenarioIntroAudioPrefetchRequest>[];
+  for (final line in scenario.dialog.take(limit)) {
+    final text = line.ko;
+    if (text.trim().isEmpty) {
+      continue;
+    }
+    final voice = TtsVoicePolicy.resolve(
+      text: text,
+      voice: scenario.voiceForSpeaker(line.speaker),
+    );
+    requests.add(ScenarioIntroAudioPrefetchRequest(text: text, voice: voice));
+  }
+  return requests;
+}
+
 /// Baut den Stage-Plan. `quest` erscheint [questCount]-mal. Rein (keine State),
 /// damit Stage-Zählung/Quest-Index-Mapping per Unit-Test abgesichert sind.
 List<ScenarioStage> buildScenarioStagePlan({
@@ -861,8 +890,8 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         _plan[_stage] != ScenarioStage.intro) {
       return;
     }
-    final request = scenarioIntroAudioPrefetchFor(scenario);
-    if (request == null) {
+    final requests = scenarioDialoguePrefetchRequestsFor(scenario);
+    if (requests.isEmpty) {
       return;
     }
     final prefetcher =
@@ -872,9 +901,13 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       return;
     }
     _introAudioPrefetchStarted = true;
-    unawaited(
-      Future<void>.sync(() => prefetcher(request)).catchError((Object _) {}),
-    );
+    // 줄마다 독립적으로 fire-and-forget — 한 줄의 prefetch 실패가 나머지
+    // 줄의 캐시 채움을 막지 않는다.
+    for (final request in requests) {
+      unawaited(
+        Future<void>.sync(() => prefetcher(request)).catchError((Object _) {}),
+      );
+    }
   }
 
   Future<List<Grammar>> _resolveGrammar(Scenario scenario) async {

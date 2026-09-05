@@ -725,6 +725,52 @@ void main() {
       }
     },
   );
+
+  testWidgets(
+    '진입 시 모든 대사 줄(≤12)을 prefetch하고 speak는 첫 줄만 1회 (지시서 4.3)',
+    (tester) async {
+      // scenarioAirportArrivalFixture.dialog 는 2줄(officer/male,
+      // user/female) — 상한 12줄 이내라 둘 다 prefetch 대상이다.
+      CourseProgressService.shared.resetForTesting();
+      await tester.runAsync(CurriculumCatalog.load);
+      final stub = stubSoriSpeech();
+
+      await _pumpPlayer(
+        tester,
+        child: ScenarioPlayerScreen(
+          scenarioId: scenarioAirportArrivalFixture.id,
+          scenarioLoader: (_) async => scenarioAirportArrivalFixture,
+        ),
+        size: const Size(390, 844),
+        textScale: 1.3,
+      );
+
+      // 진입(인트로) 시점에 전체 대사가 이미 prefetch돼 있어야 한다 —
+      // 아직 자동재생(speak)은 한 번도 없어야 한다.
+      expect(stub.prefetched, ['여권 보여주세요.', '네, 여기 있어요.']);
+      expect(stub.spoken, isEmpty, reason: 'prefetch는 재생하지 않는다');
+
+      // intro → vocab → dialog: dialog 진입 시 첫 줄만 자동재생된다.
+      await tester.tap(find.text("Los geht's!"));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 400));
+      await tester.tap(find.text('Weiter'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 400));
+
+      expect(
+        stub.spoken,
+        ['여권 보여주세요.'],
+        reason: '자동재생은 여전히 대사 첫 줄 1회뿐이다(_autoPlayDialogEntry 불변)',
+      );
+      expect(
+        stub.prefetched,
+        ['여권 보여주세요.', '네, 여기 있어요.'],
+        reason: '재진입 없이 다시 prefetch를 반복하지 않는다',
+      );
+      expect(tester.takeException(), isNull);
+    },
+  );
 }
 
 Future<void> _pumpPreview(
