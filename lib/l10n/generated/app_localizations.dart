@@ -15102,6 +15102,18 @@ abstract class AppL10n {
   /// **'Höre zuerst zu. Nimm bis zu 10 Sekunden auf und vergleiche deine Stimme mit dem Beispiel.'**
   String get pronunciationIntro;
 
+  /// No description provided for @pronunciationScoringSoonTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Bewertung kommt bald'**
+  String get pronunciationScoringSoonTitle;
+
+  /// No description provided for @pronunciationScoringSoonBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Die automatische Aussprache-Bewertung ist noch nicht freigeschaltet. Anhören, Aufnehmen und Vergleichen funktionieren schon jetzt.'**
+  String get pronunciationScoringSoonBody;
+
   /// No description provided for @pronunciationPhrasesLoading.
   ///
   /// In de, this message translates to:
@@ -15411,7 +15423,7 @@ abstract class AppL10n {
   /// No description provided for @soriStageActivityDescription.
   ///
   /// In de, this message translates to:
-  /// **'{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Jeden Tag ein Schriftzeichen entdecken.} pronunciation{Hören, nachsprechen und auf Wunsch bewerten.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Wörter genau im richtigen Moment auffrischen.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} word_web{Synonyme, Gegenteile und Wendungen zu deinen Wörtern.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} vocab_notebook{Dein Heft fotografieren und genau diese Wörter üben.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} my_words{Suchen, Regal und schwierige Wörter an einem Ort.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_quiz{Ein Wortpaket im Bücherregal auswählen.} custom_matching{Deine Wörter als Paare festigen.} custom_typing{Deine Wörter aktiv aus dem Gedächtnis holen.} other{Weiterlernen.}}}'**
+  /// **'{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Jeden Tag ein Schriftzeichen entdecken.} pronunciation{Hören, nachsprechen und auf Wunsch bewerten. Bewertung folgt später.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Wörter genau im richtigen Moment auffrischen.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} word_web{Synonyme, Gegenteile und Wendungen zu deinen Wörtern.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} vocab_notebook{Dein Heft fotografieren und genau diese Wörter üben.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} my_words{Suchen, Regal und schwierige Wörter an einem Ort.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_quiz{Ein Wortpaket im Bücherregal auswählen.} custom_matching{Deine Wörter als Paare festigen.} custom_typing{Deine Wörter aktiv aus dem Gedächtnis holen.} other{Weiterlernen.}}}'**
   String soriStageActivityDescription(String activityId);
 
   /// No description provided for @soriStageCatalogCopy.

@@ -8704,6 +8704,13 @@ class AppL10nDe extends AppL10n {
       'Höre zuerst zu. Nimm bis zu 10 Sekunden auf und vergleiche deine Stimme mit dem Beispiel.';
 
   @override
+  String get pronunciationScoringSoonTitle => 'Bewertung kommt bald';
+
+  @override
+  String get pronunciationScoringSoonBody =>
+      'Die automatische Aussprache-Bewertung ist noch nicht freigeschaltet. Anhören, Aufnehmen und Vergleichen funktionieren schon jetzt.';
+
+  @override
   String get pronunciationPhrasesLoading =>
       'Ausspracheübungen werden geladen …';
 
@@ -8918,7 +8925,8 @@ class AppL10nDe extends AppL10n {
       'course': 'Dein geführter Weg durch echte Situationen.',
       'hangul': 'Silben bauen und sicher lesen.',
       'calligraphy': 'Jeden Tag ein Schriftzeichen entdecken.',
-      'pronunciation': 'Hören, nachsprechen und auf Wunsch bewerten.',
+      'pronunciation':
+          'Hören, nachsprechen und auf Wunsch bewerten. Bewertung folgt später.',
       'vocab_packs': 'Wörter nach Alltagsthema lernen.',
       'srs': 'Wörter genau im richtigen Moment auffrischen.',
       'hard_words': 'Gezielt an deinen Stolperwörtern arbeiten.',

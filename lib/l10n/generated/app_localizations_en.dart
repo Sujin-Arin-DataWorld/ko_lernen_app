@@ -8659,6 +8659,13 @@ class AppL10nEn extends AppL10n {
       'Listen first. Record up to 10 seconds, then listen to your voice and compare.';
 
   @override
+  String get pronunciationScoringSoonTitle => 'Scoring coming soon';
+
+  @override
+  String get pronunciationScoringSoonBody =>
+      'Automatic pronunciation scoring is not switched on yet. Listening, recording and comparing already work.';
+
+  @override
   String get pronunciationPhrasesLoading => 'Loading pronunciation practice …';
 
   @override
@@ -8869,7 +8876,8 @@ class AppL10nEn extends AppL10n {
       'course': 'Your guided path through real situations.',
       'hangul': 'Build syllables and read with confidence.',
       'calligraphy': 'Discover one character every day.',
-      'pronunciation': 'Listen, repeat, and optionally assess.',
+      'pronunciation':
+          'Listen, repeat, and optionally assess. Scoring comes later.',
       'vocab_packs': 'Learn words by everyday topic.',
       'srs': 'Refresh words at just the right moment.',
       'hard_words': 'Focus on the words that trip you up.',
