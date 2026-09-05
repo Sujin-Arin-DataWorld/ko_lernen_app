@@ -4605,11 +4605,11 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get myWordsPhotoBookOptionSubtitle =>
-      'Seite aus einem Lehrbuch – wird zur Wortliste';
+      'Lies eine Seite aus einem Lehrbuch ein und erhalte eine Wortliste';
 
   @override
   String get myWordsPhotoNotebookOptionSubtitle =>
-      'Dein eigenes Vokabelheft – deine eigene Liste';
+      'Dein eigenes Vokabelheft wird zu deiner eigenen Wortliste';
 
   @override
   String get wbSearchHint => 'Wort oder Bedeutung suchen …';

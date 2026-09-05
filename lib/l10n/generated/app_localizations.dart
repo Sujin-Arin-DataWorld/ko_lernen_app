@@ -7989,13 +7989,13 @@ abstract class AppL10n {
   /// No description provided for @myWordsPhotoBookOptionSubtitle.
   ///
   /// In de, this message translates to:
-  /// **'Seite aus einem Lehrbuch – wird zur Wortliste'**
+  /// **'Lies eine Seite aus einem Lehrbuch ein und erhalte eine Wortliste'**
   String get myWordsPhotoBookOptionSubtitle;
 
   /// No description provided for @myWordsPhotoNotebookOptionSubtitle.
   ///
   /// In de, this message translates to:
-  /// **'Dein eigenes Vokabelheft – deine eigene Liste'**
+  /// **'Dein eigenes Vokabelheft wird zu deiner eigenen Wortliste'**
   String get myWordsPhotoNotebookOptionSubtitle;
 
   /// No description provided for @wbSearchHint.

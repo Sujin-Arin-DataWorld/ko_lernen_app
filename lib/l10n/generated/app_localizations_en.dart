@@ -4583,11 +4583,11 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get myWordsPhotoBookOptionSubtitle =>
-      'A textbook page — becomes a word list';
+      'Scan a textbook page and get a word list';
 
   @override
   String get myWordsPhotoNotebookOptionSubtitle =>
-      'Your own vocab notebook — your own list';
+      'Your own vocab notebook becomes your own word list';
 
   @override
   String get wbSearchHint => 'Search word or meaning…';
