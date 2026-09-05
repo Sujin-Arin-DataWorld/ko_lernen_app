@@ -434,6 +434,76 @@ void main() {
     },
   );
 
+  testWidgets(
+    'answer tiles communicate correct/wrong/selected via icon-free border color (지시서 4.6)',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      try {
+        final t = lookupAppL10n(const Locale('en'));
+        const states = <(String, SoriAnswerState, Color)>[
+          ('idle', SoriAnswerState.idle, SoriColors.lightBorderStrong),
+          ('selected', SoriAnswerState.selected, SoriColors.primary),
+          ('correct', SoriAnswerState.correct, SoriColors.success),
+          ('wrong', SoriAnswerState.wrong, SoriColors.danger),
+        ];
+        await _pumpQuest(
+          tester,
+          Column(
+            children: [
+              for (final entry in states)
+                SoriAnswerTile(
+                  key: ValueKey('answer-icon-free-${entry.$1}'),
+                  label: entry.$1,
+                  index: 0,
+                  state: entry.$2,
+                  selected: false,
+                  onTap: () {},
+                ),
+            ],
+          ),
+          locale: const Locale('en'),
+          viewport: _viewports[2],
+        );
+
+        final tiles = find.byType(SoriAnswerTile);
+        expect(tiles, findsNWidgets(states.length));
+        expect(
+          find.descendant(of: tiles, matching: find.byType(Icon)),
+          findsNothing,
+          reason: '4.6 — 정오 표시는 아이콘 없이 색상으로만 전달한다',
+        );
+        for (final entry in states) {
+          final tile = find.byKey(ValueKey('answer-icon-free-${entry.$1}'));
+          final container = tester.widget<AnimatedContainer>(
+            find.descendant(of: tile, matching: find.byType(AnimatedContainer)),
+          );
+          final border =
+              (container.decoration! as BoxDecoration).border! as Border;
+          expect(
+            border.top.color,
+            entry.$3,
+            reason: '${entry.$1} 테두리 색이 상태 색과 달라야 할 이유가 없다',
+          );
+          if (entry.$2 != SoriAnswerState.idle) {
+            final status = switch (entry.$2) {
+              SoriAnswerState.selected => t.questAnswerSelected,
+              SoriAnswerState.correct => t.questCorrect,
+              SoriAnswerState.wrong => t.questWrong,
+              SoriAnswerState.idle => throw StateError('unreachable'),
+            };
+            expect(
+              find.bySemanticsLabel('${entry.$1}, $status'),
+              findsOneWidget,
+              reason: '아이콘이 없어도 상태는 Semantics 라벨로 전달돼야 한다',
+            );
+          }
+        }
+      } finally {
+        semantics.dispose();
+      }
+    },
+  );
+
   testWidgets('7종 엔진 모두 정답 제출 시 burst·sound·haptic을 각 1회씩만 내보낸다 (지시서 4.7)', (
     tester,
   ) async {
@@ -761,7 +831,11 @@ void main() {
         final toggle = find.byKey(const ValueKey('diktat-meaning-toggle'));
         expect(toggle, findsOneWidget);
         expect(
-          tester.getSemantics(toggle).getSemanticsData().flagsCollection.isExpanded,
+          tester
+              .getSemantics(toggle)
+              .getSemanticsData()
+              .flagsCollection
+              .isExpanded,
           ui.Tristate.isFalse,
           reason: '닫힌 상태에서는 접힘 상태가 스크린리더에 드러나야 한다',
         );
@@ -789,7 +863,11 @@ void main() {
           reason: '펼친 뒤에는 뜻 텍스트가 시맨틱 트리에서 발견돼야 한다',
         );
         expect(
-          tester.getSemantics(toggle).getSemanticsData().flagsCollection.isExpanded,
+          tester
+              .getSemantics(toggle)
+              .getSemanticsData()
+              .flagsCollection
+              .isExpanded,
           ui.Tristate.isTrue,
           reason: '열린 상태에서는 펼침 상태가 스크린리더에 드러나야 한다',
         );
@@ -812,7 +890,11 @@ void main() {
           reason: '접으면 뜻 텍스트 노드도 함께 사라져야 한다',
         );
         expect(
-          tester.getSemantics(toggle).getSemanticsData().flagsCollection.isExpanded,
+          tester
+              .getSemantics(toggle)
+              .getSemanticsData()
+              .flagsCollection
+              .isExpanded,
           ui.Tristate.isFalse,
         );
         _expectNoException(tester);
@@ -1042,9 +1124,7 @@ void main() {
       expect(stub.spoken, ['안녕']);
     });
 
-    testWidgets('luecken은 audioEnabled=false면 답 공개 후에도 읽지 않는다', (
-      tester,
-    ) async {
+    testWidgets('luecken은 audioEnabled=false면 답 공개 후에도 읽지 않는다', (tester) async {
       final stub = stubSoriSpeech();
       await _pumpQuest(
         tester,
@@ -1309,7 +1389,9 @@ void main() {
         'cloze',
         'particle',
       ]) {
-        testWidgets('$engineName: 첫 두 옵션 타일 사이 SizedBox 높이는 12', (tester) async {
+        testWidgets('$engineName: 첫 두 옵션 타일 사이 SizedBox 높이는 12', (
+          tester,
+        ) async {
           final engine = _engines.singleWhere((e) => e.name == engineName);
           await _pumpQuest(
             tester,
@@ -1337,58 +1419,54 @@ void main() {
     },
   );
 
-  group(
-    'SoriGaps.questionToOptions — 선택형 퀘스트 4종의 질문 영역과 첫 옵션 타일 사이 간격은 '
-    '24dp (지시서 4.8/4.10)',
-    () {
-      for (final engineName in const [
-        'listening',
-        'translation',
-        'cloze',
-        'particle',
-      ]) {
-        testWidgets('$engineName: 질문 영역과 첫 옵션 타일 사이 간격은 24', (tester) async {
-          final engine = _engines.singleWhere((e) => e.name == engineName);
-          await _pumpQuest(
-            tester,
-            engine.build((_) {}, () {}, false),
-            locale: const Locale('de'),
-            viewport: _viewports[2],
-          );
+  group('SoriGaps.questionToOptions — 선택형 퀘스트 4종의 질문 영역과 첫 옵션 타일 사이 간격은 '
+      '24dp (지시서 4.8/4.10)', () {
+    for (final engineName in const [
+      'listening',
+      'translation',
+      'cloze',
+      'particle',
+    ]) {
+      testWidgets('$engineName: 질문 영역과 첫 옵션 타일 사이 간격은 24', (tester) async {
+        final engine = _engines.singleWhere((e) => e.name == engineName);
+        await _pumpQuest(
+          tester,
+          engine.build((_) {}, () {}, false),
+          locale: const Locale('de'),
+          viewport: _viewports[2],
+        );
 
-          final tile0 = find.byKey(const ValueKey('answer-0'));
-          expect(tile0, findsOneWidget);
+        final tile0 = find.byKey(const ValueKey('answer-0'));
+        expect(tile0, findsOneWidget);
 
-          // 4개 엔진 모두 `content` Column에서 옵션 목록 바로 앞에
-          // `const SizedBox(height: SoriGaps.questionToOptions)`를 정확히
-          // 1개만 둔다 — 그 SizedBox의 위쪽 끝이 곧 질문 영역의 아래쪽
-          // 끝이다(둘 사이엔 다른 위젯이 없다).
-          final questionGap = find.byWidgetPredicate(
-            (widget) =>
-                widget is SizedBox &&
-                widget.height == SoriGaps.questionToOptions,
-          );
-          expect(
-            questionGap,
-            findsOneWidget,
-            reason:
-                '$engineName: SoriGaps.questionToOptions SizedBox이 정확히 '
-                '1개여야 한다',
-          );
+        // 4개 엔진 모두 `content` Column에서 옵션 목록 바로 앞에
+        // `const SizedBox(height: SoriGaps.questionToOptions)`를 정확히
+        // 1개만 둔다 — 그 SizedBox의 위쪽 끝이 곧 질문 영역의 아래쪽
+        // 끝이다(둘 사이엔 다른 위젯이 없다).
+        final questionGap = find.byWidgetPredicate(
+          (widget) =>
+              widget is SizedBox && widget.height == SoriGaps.questionToOptions,
+        );
+        expect(
+          questionGap,
+          findsOneWidget,
+          reason:
+              '$engineName: SoriGaps.questionToOptions SizedBox이 정확히 '
+              '1개여야 한다',
+        );
 
-          final gap =
-              tester.getTopLeft(tile0).dy - tester.getTopLeft(questionGap).dy;
-          expect(
-            gap,
-            moreOrLessEquals(24, epsilon: 0.5),
-            reason:
-                '$engineName 질문 영역과 첫 옵션 타일 사이 간격이 24dp가 아니다 '
-                '(실측 $gap)',
-          );
-        });
-      }
-    },
-  );
+        final gap =
+            tester.getTopLeft(tile0).dy - tester.getTopLeft(questionGap).dy;
+        expect(
+          gap,
+          moreOrLessEquals(24, epsilon: 0.5),
+          reason:
+              '$engineName 질문 영역과 첫 옵션 타일 사이 간격이 24dp가 아니다 '
+              '(실측 $gap)',
+        );
+      });
+    }
+  });
 
   testWidgets(
     'satz_bauen: 질문 카드와 "Deine Antwort bauen" 사이 간격은 SoriGaps.questionToOptions'
@@ -1414,9 +1492,7 @@ void main() {
       final promptBottom = tester
           .getBottomLeft(find.byKey(const ValueKey('quest-prompt-card')))
           .dy;
-      final labelTop = tester
-          .getTopLeft(find.text(t.questBuildAnswerLabel))
-          .dy;
+      final labelTop = tester.getTopLeft(find.text(t.questBuildAnswerLabel)).dy;
       final gap = labelTop - promptBottom;
       expect(
         gap,
@@ -1427,13 +1503,12 @@ void main() {
   );
 
   group('선택지 글씨 크기는 16 이상이다 (지시서 4.12)', () {
-    for (final entry
-        in const <(String engine, String label)>[
-          ('listening', 'Hallo'),
-          ('translation', '안녕'),
-          ('cloze', '녕'),
-          ('particle', '는'),
-        ]) {
+    for (final entry in const <(String engine, String label)>[
+      ('listening', 'Hallo'),
+      ('translation', '안녕'),
+      ('cloze', '녕'),
+      ('particle', '는'),
+    ]) {
       testWidgets('${entry.$1}: 옵션 텍스트 fontSize ≥ 16', (tester) async {
         final engine = _engines.singleWhere((e) => e.name == entry.$1);
         await _pumpQuest(
