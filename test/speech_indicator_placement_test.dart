@@ -15,7 +15,9 @@ import 'package:ko_lernen_app/screens/custom_pack_play_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/services/cloze_loader.dart';
 import 'package:ko_lernen_app/widgets/sori/card.dart';
+import 'package:ko_lernen_app/widgets/sori/cloze_prompt.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 
@@ -208,6 +210,55 @@ void main() {
       await tester.pump(const Duration(milliseconds: 300));
 
       expectIndicatorAtCardTopLeft(tester, korean: korean);
+      expect(tester.takeException(), isNull);
+    });
+  });
+
+  group('cloze_prompt 카드', () {
+    const item = ClozeItem(
+      level: 'a1',
+      sentenceKo: '오늘은 ＿＿＿ 합니다.',
+      answer: '공부를',
+      fullKo: '오늘은 공부를 합니다.',
+      de: 'Heute lerne ich.',
+      en: 'Today I study.',
+      distractors: ['운동을', '요리를', '독서를'],
+    );
+
+    testWidgets('SoriSpeechIndicator 가 카드 좌상단에 있다', (tester) async {
+      stubSoriSpeech();
+      _setViewport(tester);
+      await tester.pumpWidget(
+        MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.light,
+          locale: const Locale('de'),
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          home: const Scaffold(
+            body: Center(
+              child: SizedBox(
+                width: 320,
+                child: ClozePromptCard(item: item, lang: 'de', gloss: 'lerne'),
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.pump();
+
+      final cardFinder = find.byType(SoriCard);
+      expect(cardFinder, findsOneWidget);
+      final indicatorFinder = find.byType(SoriSpeechIndicator);
+      expect(indicatorFinder, findsOneWidget);
+
+      final cardRect = tester.getRect(cardFinder);
+      final indicatorRect = tester.getRect(indicatorFinder);
+      expect(
+        indicatorRect.left - cardRect.left,
+        inInclusiveRange(-1.0, 24.0),
+      );
+      expect(indicatorRect.top - cardRect.top, inInclusiveRange(-1.0, 24.0));
       expect(tester.takeException(), isNull);
     });
   });
