@@ -94,7 +94,12 @@ class SoriCollapsingHeader extends StatelessWidget {
 
   Widget _buildExpanded(BuildContext context) =>
       expandedBuilder?.call(context) ??
-      SoriPageHeader(eyebrow: eyebrow, title: title, body: body, trailing: trailing);
+      SoriPageHeader(
+        eyebrow: eyebrow,
+        title: title,
+        body: body,
+        trailing: trailing,
+      );
 
   /// [SoriPageHeader]의 실제 레이아웃(eyebrow + xs 갭 → hero title → sm 갭 +
   /// body, trailing 있으면 Row)을 `TextPainter`로 그대로 재현한다 — 렌더와
@@ -146,8 +151,22 @@ class SoriCollapsingHeader extends StatelessWidget {
           context,
           constraints.crossAxisExtent,
         );
+        // 이 pinned 슬리버의 높이가 뷰포트 전체 높이에 닿거나 넘으면, 그
+        // 프레임에서 뒤따르는 슬리버(레벨 필터·그리드 등)가 아예 레이아웃을
+        // 못 받는다 — 320dp 폭 + 200% 글자 + 조금 긴 body 문자열 조합에서
+        // 재현됨(2026-09-05, W10 T-H4 조사, listening_screen.dart). 뷰포트의
+        // 60%로 상한을 둬 "헤더가 화면 전체를 삼키는" 극단만 막는다 —
+        // 보통 폭/스케일에서는 실측값이 이 상한보다 한참 작아 시각 변화 0.
+        final viewportCeiling = constraints.viewportMainAxisExtent.isFinite
+            ? (constraints.viewportMainAxisExtent * 0.6).clamp(
+                kToolbarHeight,
+                double.infinity,
+              )
+            : double.infinity;
         final expandedHeight = measured < kToolbarHeight
             ? kToolbarHeight
+            : measured > viewportCeiling
+            ? viewportCeiling
             : measured;
         return SliverPersistentHeader(
           pinned: true,

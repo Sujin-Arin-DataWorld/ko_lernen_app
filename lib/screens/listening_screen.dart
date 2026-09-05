@@ -220,11 +220,13 @@ class _ListeningScreenState extends State<ListeningScreen>
 
     final footer = Row(
       children: [
+        // §16 타이포 래칫: 화면 콘텐츠를 ellipsis로 숨기지 않는다 — 좁은
+        // 칸에서는 대신 줄바꿈한다. _cellAspectRatio 의 측정도 같은 방식
+        // (TextPainter.layout, maxLines 제한 없음)이라 셀 높이가 이미 그
+        // 줄바꿈만큼 잡혀 있다.
         Expanded(
           child: Text(
             stocked ? '$doneCount/${compartment.count}' : t.listeningShelfEmpty,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
             style: SoriTextTheme.of(context).meta,
           ),
         ),
