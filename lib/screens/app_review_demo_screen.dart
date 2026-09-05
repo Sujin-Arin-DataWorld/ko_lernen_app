@@ -70,7 +70,6 @@ class _AppReviewDemoScreenState extends State<AppReviewDemoScreen> {
 }
 
 const _reviewDemoPanelIds = <String>[
-  '01B',
   '01D',
   '02A',
   '02B',
@@ -87,6 +86,9 @@ const _reviewDemoPanelIds = <String>[
   '07D',
 ];
 
+// Every id above must exist in `uxPreviewPanels` (lib/models/ux_preview_catalog.dart);
+// `singleWhere` throws a StateError otherwise, so retired catalog ids must be
+// removed from this list in the same change.
 final _reviewDemoPanels = List<UxPreviewPanel>.unmodifiable(
   _reviewDemoPanelIds.map(
     (id) => uxPreviewPanels.singleWhere((panel) => panel.id == id),
@@ -104,7 +106,6 @@ String _sectionLabel(AppL10n t, UxPreviewSection section) => switch (section) {
 };
 
 String _panelTitle(AppL10n t, String id) => switch (id) {
-  '01B' => t.reviewDemoPanelGoal,
   '01D' => t.reviewDemoPanelCompanion,
   '02A' => t.reviewDemoPanelToday,
   '02B' => t.reviewDemoPanelMission,

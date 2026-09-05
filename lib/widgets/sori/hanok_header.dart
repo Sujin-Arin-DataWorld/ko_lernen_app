@@ -75,21 +75,13 @@ class HanokHeader extends StatelessWidget {
   static const Set<String> kLoopAssets = {
     'hanok_construction',
     'hanok_jongga',
-    'kkeunmari_hero',
-    'porch',
-    'scene_cafe',
-    'scene_directions',
-    'scene_hotel',
-    'scene_market',
-    'scene_restaurant',
     'study_classroom',
     'study_scholar',
     'taego-joy-duo',
-    'welcome-hero',
   };
 
-  /// 'assets/illustrations/hanok/porch.png'
-  ///   → 'assets/video/loops/porch.mp4'
+  /// `assets/illustrations/hanok/study_scholar.png`
+  ///   → `assets/video/loops/study_scholar.mp4`
   ///
   /// 짝이 되는 루프가 [kLoopAssets] 에 없으면 **null** — 없는 파일로
   /// 플레이어를 만들지 않는다.

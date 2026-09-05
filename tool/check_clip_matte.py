@@ -79,12 +79,15 @@ FLOOR_GRID = 192
 # `tool/whiten_clip_matte.py` 주석). 해결은 자산 재렌더이고, 그때 이 값을 내리면 된다.
 # 지금 이 게이트의 역할은 **더 나빠지는 것을 막는 것**이다.
 FLOOR_GREY_BUDGET: dict[str, float] = {
-    "magpie_bob.mp4": 0.69,
-    "magpie_bob2.mp4": 0.70,
+    # 2026-09-04 재실측: 위 네 값은 지난 실측치보다 훨씬 여유가 컸다(승인이
+    # 아니라 방치였다). `python tool/check_clip_matte.py` 실측치(4.4/1.7/2.7/4.4%)
+    # + 0.03 여유로 하향한다 — 그림자가 재발해도 이제 예산이 잡아낸다.
+    "magpie_bob.mp4": 0.074,
+    "magpie_bob2.mp4": 0.047,
     "magpie_celebrate.mp4": 0.12,
-    "magpie_choose.mp4": 0.53,
+    "magpie_choose.mp4": 0.057,
     "magpie_flight.mp4": 0.18,
-    "magpie_walking_front.mp4": 0.23,
+    "magpie_walking_front.mp4": 0.074,
     "tiger_choose.mp4": 0.25,
 }
 # 목록에 없는 클립의 기본 예산. 깨끗한 호랑이 클립이 0.5~1.4% 라 넉넉하다.

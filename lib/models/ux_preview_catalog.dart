@@ -33,11 +33,6 @@ const uxPreviewPanels = <UxPreviewPanel>[
     title: 'Pflicht-Einwilligung',
   ),
   UxPreviewPanel(
-    id: '01B',
-    section: UxPreviewSection.onboarding,
-    title: 'Ziel und Startpunkt',
-  ),
-  UxPreviewPanel(
     id: '01C',
     section: UxPreviewSection.onboarding,
     title: 'Erste Stimme',

@@ -2557,63 +2557,6 @@ class AppL10nDe extends AppL10n {
   String get onboardingGoal15min => '15 Minuten';
 
   @override
-  String get onboardingStartEyebrow => 'Dein Einstieg';
-
-  @override
-  String get onboardingStartTitle => 'Wofür willst du Koreanisch können?';
-
-  @override
-  String get onboardingStartBody =>
-      'So merken wir uns, womit du anfängst. Das ist kein Test.';
-
-  @override
-  String get onboardingStartTravelTitle => 'Unterwegs in Korea';
-
-  @override
-  String get onboardingStartTravelBody =>
-      'Café, Weg fragen, einkaufen, Hilfe holen';
-
-  @override
-  String get onboardingStartPeopleTitle => 'Mit Menschen sprechen';
-
-  @override
-  String get onboardingStartPeopleBody => 'Freunde, Familie und Alltag';
-
-  @override
-  String get onboardingStartWorkTitle => 'Studium oder Arbeit';
-
-  @override
-  String get onboardingStartWorkBody => 'Höflich fragen und mitkommen';
-
-  @override
-  String get onboardingStartPoint => 'Startpunkt';
-
-  @override
-  String get onboardingStartNewTitle => 'Ich fange neu an';
-
-  @override
-  String get onboardingStartNewBody => 'Gleich mit Hören und Sprechen';
-
-  @override
-  String get onboardingStartExistingTitle => 'Ich kann schon etwas';
-
-  @override
-  String get onboardingStartExistingBody =>
-      'Level wählen oder acht bis zehn Fragen beantworten';
-
-  @override
-  String get onboardingStartPrimary => 'Meine erste Szene starten';
-
-  @override
-  String get onboardingStartChooseLevel => 'Level wählen';
-
-  @override
-  String get onboardingStartLoading => 'Deine erste Szene wird vorbereitet …';
-
-  @override
-  String get onboardingStartChangePoint => 'Startpunkt ändern';
-
-  @override
   String get onboardingFirstSceneTravelCanDo =>
       'Ich kann bei der Einreise höflich antworten.';
 
@@ -2707,47 +2650,22 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String get onboardingTitle => 'Was ist dein Level?';
-
-  @override
-  String get onboardingSubtitle =>
-      'Wir fangen dort an, wo du stehst. Frühere Level bleiben offen, spätere schaltest du frei.';
-
-  @override
   String get onboardingLevelA1 => 'Anfänger';
-
-  @override
-  String get onboardingLevelA1Desc => 'Ich fange gerade an';
 
   @override
   String get onboardingLevelA2 => 'Grundkenntnisse';
 
   @override
-  String get onboardingLevelA2Desc => 'Begrüßungen, einfache Bestellungen';
-
-  @override
   String get onboardingLevelB1 => 'Mittelstufe';
-
-  @override
-  String get onboardingLevelB1Desc => 'Alltagsgespräche klappen schon';
 
   @override
   String get onboardingLevelB2 => 'Fortgeschritten';
 
   @override
-  String get onboardingLevelB2Desc => 'Flüssig, auch mit Nuancen';
-
-  @override
   String get onboardingLevelC1 => 'Kompetent';
 
   @override
-  String get onboardingLevelC1Desc => 'Belege, Behörden, feine Unterschiede';
-
-  @override
   String get onboardingLevelC2 => 'Expertenniveau';
-
-  @override
-  String get onboardingLevelC2Desc => 'Texte zerlegen und bewusst formulieren';
 
   @override
   String get onboardingExampleA1Trans => 'Hallo / Guten Tag.';
@@ -2770,41 +2688,6 @@ class AppL10nDe extends AppL10n {
   @override
   String get onboardingExampleC2Trans =>
       'Wer Schweigen als Zustimmung wertet, kann schon durch den Rahmen einer Frage Beteiligung einschränken.';
-
-  @override
-  String get onboardingSkip => 'Später entscheiden (A1 als Start)';
-
-  @override
-  String get onboardingPrompt =>
-      'Wähle dein Level. Du kannst es später in den Einstellungen ändern.';
-
-  @override
-  String get onboardingTigerGreeting => 'Willkommen!\nWo möchtest du starten?';
-
-  @override
-  String get onboardingDifficulty => 'Schwierigkeit';
-
-  @override
-  String get onboardingExampleLabel => 'So klingt dieses Level';
-
-  @override
-  String get onboardingCompareCta => 'Unsicher? Level vergleichen';
-
-  @override
-  String get onboardingCompareTitle => 'Was ändert sich pro Level?';
-
-  @override
-  String get onboardingCompareIntro =>
-      'Frühere Level bleiben offen. Dein Level kannst du jederzeit in den Einstellungen ändern.';
-
-  @override
-  String get onboardingCompareColCan => 'Das kannst du schon';
-
-  @override
-  String get onboardingCompareColLearn => 'Das lernst du hier';
-
-  @override
-  String get onboardingCompareClose => 'Alles klar';
 
   @override
   String get onboardingLevelA1Can => 'Du kennst vielleicht ein paar Wörter.';
@@ -5258,9 +5141,6 @@ class AppL10nDe extends AppL10n {
   String get reviewDemoSectionJourney => 'GESAMTER LERNWEG';
 
   @override
-  String get reviewDemoPanelGoal => 'Ziel und Startpunkt';
-
-  @override
   String get reviewDemoPanelCompanion => 'Lernbegleitung wählen';
 
   @override
@@ -6870,9 +6750,6 @@ class AppL10nDe extends AppL10n {
   String testerFeedbackNextMission(String mission) {
     return 'Nächste Beta-Mission: $mission';
   }
-
-  @override
-  String get onboardingDiagnosticCta => 'Unsicher? 8 Fragen beantworten';
 
   @override
   String get placementTitle => 'Kurzer Einstufungscheck';

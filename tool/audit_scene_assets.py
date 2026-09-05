@@ -17,6 +17,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import sys
 from collections import Counter, defaultdict
 from dataclasses import dataclass
@@ -33,6 +34,8 @@ REPORT_PATH = ROOT / "docs" / "data" / "scene_asset_report.md"
 INVENTORY_PATH = ROOT / "docs" / "data" / "scene_asset_inventory.json"
 GENERATION_MANIFEST_PATH = ROOT / "docs" / "data" / "scene_art_generation_manifest.json"
 RESOLVER_PATH = ROOT / "lib" / "services" / "scene_asset_resolver.dart"
+HANOK_HEADER_PATH = ROOT / "lib" / "widgets" / "sori" / "hanok_header.dart"
+LIB_DIR = ROOT / "lib"
 CATEGORY_POSTER_LOCK_PATH = (
     ROOT / "docs" / "data" / "scene_category_poster_lock.json"
 )
@@ -1061,6 +1064,73 @@ def _load_category_lock_with_issues() -> tuple[Optional[Mapping[str, object]], l
         ]
 
 
+_KLOOP_ASSETS_RE = re.compile(r"kLoopAssets\s*=\s*\{(?P<body>.*?)\};", re.S)
+_KLOOP_ITEM_RE = re.compile(r"'([^']+)'")
+
+
+def _load_hanok_loop_names(path: Path = HANOK_HEADER_PATH) -> list[str]:
+    """Parse the `HanokHeader.kLoopAssets` literal set out of its source file.
+
+    Kept as a regex scrape (not a Dart import) so this stays a dependency-free
+    Python script — the same trade-off the rest of this file makes for
+    `RESOLVER_PATH`/`_generated_from`.
+    """
+    text = path.read_text(encoding="utf-8")
+    match = _KLOOP_ASSETS_RE.search(text)
+    if not match:
+        raise ValueError(
+            f"kLoopAssets literal not found in {path.as_posix()!r} — "
+            "the audit's parser and the widget have drifted apart."
+        )
+    return _KLOOP_ITEM_RE.findall(match.group("body"))
+
+
+def find_hanok_loop_reachability_issues(
+    *,
+    hanok_header_path: Path = HANOK_HEADER_PATH,
+    lib_dir: Path = LIB_DIR,
+) -> list[dict]:
+    """Flag `HanokHeader.kLoopAssets` entries no live code can ever reach.
+
+    A name is "reachable" when some other file under `lib/` mentions it —
+    either as a `HanokHeader(asset: ...)` poster whose filename stem derives
+    the loop, an explicit `loopAsset:` override, a direct `SoriPosterLoop`/
+    `videoAsset` call site, or a `SceneAssetResolver` dedicated/category loop
+    path. All of those routes literally spell the asset's base name somewhere
+    in a `.dart` file other than `hanok_header.dart` itself (which only
+    *declares* the set) — so a plain substring scan catches every route
+    without hand-modelling each widget's plumbing. If a name never appears
+    outside the declaration, nothing in `lib/` can ever play it: dead entry.
+    """
+    names = _load_hanok_loop_names(hanok_header_path)
+    header_resolved = hanok_header_path.resolve()
+    dart_files = [
+        path
+        for path in sorted(lib_dir.rglob("*.dart"))
+        if path.resolve() != header_resolved
+    ]
+    texts: list[str] = []
+    for path in dart_files:
+        try:
+            texts.append(path.read_text(encoding="utf-8"))
+        except (OSError, UnicodeDecodeError):
+            continue
+    issues: list[dict] = []
+    for name in names:
+        if not any(name in text for text in texts):
+            issues.append(
+                _issue(
+                    "hanok_loop_unreachable",
+                    "kLoopAssets entry has no HanokHeader call site or "
+                    "SceneAssetResolver reference anywhere under lib/ — "
+                    "no screen can ever play it.",
+                    id=name,
+                    path=_project_path(hanok_header_path, ROOT),
+                )
+            )
+    return issues
+
+
 def _scan_loop_summary(refs: Iterable[ScenarioRef]) -> dict:
     all_files = (
         sorted(path.name for path in LOOP_DIR.iterdir() if path.is_file())
@@ -1278,6 +1348,7 @@ def main(argv: Optional[list[str]] = None) -> int:
                 *inventory["issues"],
                 *category_lock_issues,
                 *manifest_issues,
+                *find_hanok_loop_reachability_issues(),
             ]
         )
         result = strict_exit_code(inventory)
@@ -1302,7 +1373,11 @@ def main(argv: Optional[list[str]] = None) -> int:
         category_lock=category_lock,
     )
     inventory["issues"] = _dedupe_issues(
-        [*inventory["issues"], *category_lock_issues]
+        [
+            *inventory["issues"],
+            *category_lock_issues,
+            *find_hanok_loop_reachability_issues(),
+        ]
     )
     loop_summary = _scan_loop_summary(refs)
     json_path = _resolve_cli_path(args.json)

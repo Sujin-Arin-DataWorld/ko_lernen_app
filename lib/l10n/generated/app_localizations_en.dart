@@ -2541,63 +2541,6 @@ class AppL10nEn extends AppL10n {
   String get onboardingGoal15min => '15 minutes';
 
   @override
-  String get onboardingStartEyebrow => 'Your start';
-
-  @override
-  String get onboardingStartTitle => 'What do you need Korean for?';
-
-  @override
-  String get onboardingStartBody =>
-      'This just picks where you start. It\'s not a test.';
-
-  @override
-  String get onboardingStartTravelTitle => 'Getting around Korea';
-
-  @override
-  String get onboardingStartTravelBody =>
-      'Cafés, asking the way, shops, getting help';
-
-  @override
-  String get onboardingStartPeopleTitle => 'Talking with people';
-
-  @override
-  String get onboardingStartPeopleBody => 'Friends, family and everyday life';
-
-  @override
-  String get onboardingStartWorkTitle => 'Study or work';
-
-  @override
-  String get onboardingStartWorkBody => 'Ask and understand politely';
-
-  @override
-  String get onboardingStartPoint => 'Starting point';
-
-  @override
-  String get onboardingStartNewTitle => 'I\'m just starting';
-
-  @override
-  String get onboardingStartNewBody => 'Straight into listening and speaking';
-
-  @override
-  String get onboardingStartExistingTitle => 'I already know some Korean';
-
-  @override
-  String get onboardingStartExistingBody =>
-      'Choose a level or answer eight to ten questions';
-
-  @override
-  String get onboardingStartPrimary => 'Start my first scene';
-
-  @override
-  String get onboardingStartChooseLevel => 'Choose a level';
-
-  @override
-  String get onboardingStartLoading => 'Preparing your first scene…';
-
-  @override
-  String get onboardingStartChangePoint => 'Change starting point';
-
-  @override
   String get onboardingFirstSceneTravelCanDo =>
       'I can answer politely at immigration.';
 
@@ -2689,49 +2632,22 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get onboardingTitle => 'What\'s your level?';
-
-  @override
-  String get onboardingSubtitle =>
-      'We start where you are. Earlier levels stay open. Later ones unlock as you go.';
-
-  @override
   String get onboardingLevelA1 => 'Beginner';
-
-  @override
-  String get onboardingLevelA1Desc => 'Just starting out';
 
   @override
   String get onboardingLevelA2 => 'Basic';
 
   @override
-  String get onboardingLevelA2Desc => 'Greetings, simple orders';
-
-  @override
   String get onboardingLevelB1 => 'Intermediate';
-
-  @override
-  String get onboardingLevelB1Desc => 'Everyday conversations already work';
 
   @override
   String get onboardingLevelB2 => 'Advanced';
 
   @override
-  String get onboardingLevelB2Desc => 'Fluent, including nuance';
-
-  @override
   String get onboardingLevelC1 => 'Proficient';
 
   @override
-  String get onboardingLevelC1Desc =>
-      'Evidence, institutions, fine distinctions';
-
-  @override
   String get onboardingLevelC2 => 'Expert';
-
-  @override
-  String get onboardingLevelC2Desc =>
-      'Break texts down and choose your wording';
 
   @override
   String get onboardingExampleA1Trans => 'Hello / Hi.';
@@ -2754,41 +2670,6 @@ class AppL10nEn extends AppL10n {
   @override
   String get onboardingExampleC2Trans =>
       'If you take silence as yes, the way you ask can already shut people out.';
-
-  @override
-  String get onboardingSkip => 'Skip for now (starts at A1)';
-
-  @override
-  String get onboardingPrompt =>
-      'Choose your level. You can change it later in Settings.';
-
-  @override
-  String get onboardingTigerGreeting => 'Welcome!\nWhere do you want to start?';
-
-  @override
-  String get onboardingDifficulty => 'Difficulty';
-
-  @override
-  String get onboardingExampleLabel => 'What this level sounds like';
-
-  @override
-  String get onboardingCompareCta => 'Not sure? Compare the levels';
-
-  @override
-  String get onboardingCompareTitle => 'What changes at each level?';
-
-  @override
-  String get onboardingCompareIntro =>
-      'Earlier levels stay open. You can change your level anytime in Settings.';
-
-  @override
-  String get onboardingCompareColCan => 'What you can already do';
-
-  @override
-  String get onboardingCompareColLearn => 'What you\'ll learn here';
-
-  @override
-  String get onboardingCompareClose => 'Got it';
 
   @override
   String get onboardingLevelA1Can => 'You may know a few words already.';
@@ -5235,9 +5116,6 @@ class AppL10nEn extends AppL10n {
   String get reviewDemoSectionJourney => 'FULL LEARNING JOURNEY';
 
   @override
-  String get reviewDemoPanelGoal => 'Goals and starting point';
-
-  @override
   String get reviewDemoPanelCompanion => 'Choose a learning companion';
 
   @override
@@ -6836,9 +6714,6 @@ class AppL10nEn extends AppL10n {
   String testerFeedbackNextMission(String mission) {
     return 'Next beta mission: $mission';
   }
-
-  @override
-  String get onboardingDiagnosticCta => 'Not sure? Answer 8 questions';
 
   @override
   String get placementTitle => 'Quick placement check';

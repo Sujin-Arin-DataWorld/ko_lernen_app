@@ -11176,7 +11176,7 @@
       "de": "Nach der Aufenthaltsdauer gefragt sagte ich, ich plane eine Verlängerung bis nächstes Jahr.",
       "en": "Asked about the length of stay, I said I plan to extend through next year.",
       "distractors": [
-        "일정 충돌",
+        "결혼 계획",
         "일정표 공유",
         "읽씹"
       ],
@@ -11763,7 +11763,7 @@
       "distractors": [
         "이성 친구",
         "이직 생각",
-        "일정 충돌"
+        "손 씻기"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -12250,11 +12250,11 @@
     {
       "id": "cloze_b1_0172",
       "level": "b1",
-      "sentenceKo": "＿＿＿이 생겨서 현우가 어머니께 먼저 전화드렸어요.",
-      "answer": "일정 충돌",
-      "fullKo": "일정 충돌이 생겨서 현우가 어머니께 먼저 전화드렸어요.",
-      "de": "Wegen einer Terminüberschneidung rief Hyunwoo zuerst seine Mutter an.",
-      "en": "When schedules clashed, Hyunwoo called his mother first.",
+      "sentenceKo": "명절 계획을 두고 ＿＿＿이 있어서 현우가 어머니께 먼저 전화드렸어요.",
+      "answer": "의견 충돌",
+      "fullKo": "명절 계획을 두고 의견 충돌이 있어서 현우가 어머니께 먼저 전화드렸어요.",
+      "de": "Weil es beim Feiertagsplan zu einer Meinungsverschiedenheit kam, rief Hyunwoo zuerst seine Mutter an.",
+      "en": "Because there was a disagreement over the holiday plans, Hyunwoo called his mother first.",
       "distractors": [
         "명절 예산",
         "방 배정",
@@ -12317,7 +12317,7 @@
       "en": "To stay in the holiday budget I chose only fruit.",
       "distractors": [
         "이직 생각",
-        "일정 충돌",
+        "결혼 준비 비용",
         "일정표 공유"
       ],
       "topic": "Partnerschaft & koreanische Familie"

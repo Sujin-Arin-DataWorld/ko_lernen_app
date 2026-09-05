@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ko_lernen_app/screens/onboarding_level_screen.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 
 /// 마스코트·히어로 정지 그림 **잠금** (Jin 2026-08-25).
@@ -15,6 +14,12 @@ import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 ///    옛 `hanok/welcome-hero.png` 는 폐기했다.
 ///
 /// 자산을 바꾸려면 이 테스트를 **먼저** 고쳐야 한다. 그게 잠금의 목적이다.
+///
+/// 2026-09-04 PR3-T2: 이 상수의 원래 소유자였던 `OnboardingLevelScreen`
+/// (`OnboardingLevelScreen.kHeroPoster`)이 죽은 사슬이라 `assets_unused/`
+/// 로 격리됐다. 상수 자체는 사라졌지만 이 png는 `stats_screen.dart`·
+/// `mascot.dart` 주석이 계속 정본으로 지목하므로 잠금은 문자열 리터럴로
+/// 재구성해 유지한다.
 void main() {
   const tigerAsset = 'assets/illustrations/mascot/tiger_front.png';
   const heroPoster = 'assets/illustrations/mascot/magpie_tiger_together.png';
@@ -32,7 +37,6 @@ void main() {
   });
 
   test('onboarding hero poster is locked to the canonical pair art', () {
-    expect(OnboardingLevelScreen.kHeroPoster, heroPoster);
     expect(File(heroPoster).existsSync(), isTrue, reason: '$heroPoster 없음');
   });
 
