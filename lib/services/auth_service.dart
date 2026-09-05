@@ -1,27 +1,26 @@
 import 'dart:convert';
 import 'dart:math';
 
-import 'package:cloud_functions/cloud_functions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:crypto/crypto.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_app_check/firebase_app_check.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
+import '../models/course_mastery.dart';
+import 'account/account_failure_diagnostics.dart';
 import 'account/account_failure_reason.dart';
 import 'account/apple_oauth_request.dart';
 import 'account/durable_provider_link.dart';
 import 'account/account_deletion_status_receipt.dart';
 import 'account/account_operation_client.dart';
 import 'account/account_reconciliation.dart';
+import 'account/account_switch_coordinator.dart';
 import 'account/account_transition_coordinator.dart';
 import 'account/account_transition_journal.dart';
 import 'account/cloud_backup_deletion.dart';
 import 'account/cloud_write_session.dart';
-import 'account/firebase_app_check_initializer.dart';
 import 'account/first_link_backfill.dart';
 import 'account/first_link_backfill_journal.dart';
 import 'account/google_oauth_client.dart';
@@ -1746,381 +1745,34 @@ class UserDataDeletionCoordinator {
   }
 }
 
-/// Hybrid-Auth — **immer** anonym eingeloggt. Optional kann der
-/// User mit Google verlinken, um Cloud-Backup zu aktivieren.
-///
-/// **Web-Sicherheit**: Firebase ist auf Web fragil (JS-Interop) — wenn keine
-/// Firebase-Config vorliegt, wirft `FirebaseAuth.instance` eine
-/// `FirebaseException`, die als JS-`TypeError` durchschlägt und z.B. die
-/// Settings-Seite rot crashen lässt. Daher fangen **alle Lese-Getter**
-/// Ausnahmen ab und liefern sichere Defaults; Aktions-Methoden brechen
-/// sauber ab, wenn Firebase nicht verfügbar ist. Auf Android (mit
-/// google-services.json) greifen die Guards nie — normales Verhalten.
-@immutable
-class TemporaryFirebaseUser {
-  const TemporaryFirebaseUser({required this.uid, required this.isAnonymous});
-
-  final String uid;
-  final bool isAnonymous;
-}
-
-abstract interface class TemporaryFirebaseAuthContext {
-  AccountOperationGateway get operationGateway;
-  Future<TemporaryFirebaseUser> signIn(AuthCredential credential);
-  Future<void> dispose();
-}
-
-abstract interface class TemporaryFirebaseReconciliationContext
-    implements TemporaryFirebaseAuthContext {
-  FirebaseAccountReconciliationRemote reconciliationRemote({
-    required String fenceUid,
-  });
-}
-
-typedef TemporaryFirebaseAuthContextFactory =
-    Future<TemporaryFirebaseAuthContext> Function();
-typedef FreshProviderCredential =
-    Future<AuthCredential> Function(AccountLinkProvider provider);
-typedef SilentGoogleActivationCredential = Future<AuthCredential?> Function();
-typedef ExplicitAppleActivationCredential = Future<AuthCredential> Function();
-
-class FirebaseIsolatedTargetVerifier implements IsolatedTargetVerifier {
-  FirebaseIsolatedTargetVerifier({
-    TemporaryFirebaseAuthContextFactory? openContext,
-    FreshProviderCredential? acquireCredential,
-  }) : _openContext = openContext ?? _openTemporaryFirebaseContext,
-       _acquireCredential =
-           acquireCredential ?? AuthService._acquireFreshProviderCredential;
-
-  final TemporaryFirebaseAuthContextFactory _openContext;
-  final FreshProviderCredential _acquireCredential;
+/// Production [AccountSwitchIdentity]: the ONE primary `FirebaseAuth`
+/// instance, never an isolated/secondary app.
+class _FirebaseAccountSwitchIdentity implements AccountSwitchIdentity {
+  const _FirebaseAccountSwitchIdentity();
 
   @override
-  Future<VerifiedTargetContext> verify(AccountLinkProvider provider) async {
-    final context = await _openContext();
-    try {
-      final credential = await _acquireCredential(provider);
-      final user = await context.signIn(credential);
-      if (user.uid.trim().isEmpty || user.isAnonymous) {
-        throw const AccountLinkSafetyFailure();
-      }
-      if (context is TemporaryFirebaseReconciliationContext) {
-        return _FirebaseVerifiedReconciliationTargetContext(
-          context: context,
-          user: user,
-        );
-      }
-      return _FirebaseVerifiedTargetContext(context: context, user: user);
-    } catch (_) {
-      await context.dispose();
-      rethrow;
+  String? get currentUid => AuthService.current?.uid;
+
+  @override
+  bool get currentIsAnonymous => AuthService.current?.isAnonymous ?? false;
+
+  @override
+  Future<String> signInWithCredential(AuthCredential credential) async {
+    final auth = AuthService._auth;
+    if (auth == null) {
+      throw const AccountLinkUnavailable();
     }
-  }
-
-  static Future<TemporaryFirebaseAuthContext>
-  _openTemporaryFirebaseContext() async {
-    final primary = Firebase.app();
-    final random = Random.secure();
-    final suffix = List<int>.generate(
-      16,
-      (_) => random.nextInt(256),
-    ).map((value) => value.toRadixString(16).padLeft(2, '0')).join();
-    final app = await Firebase.initializeApp(
-      name: 'account-transition-$suffix',
-      options: primary.options,
-    );
-    return initializeTemporaryContextWithCleanup(
-      initializeContext: () => initializeTemporaryAppCheckThen(
-        initializerFactory: FirebaseAppCheckInitializer.productionWithActivator,
-        activate:
-            ({providerWeb, required providerAndroid, required providerApple}) {
-              return FirebaseAppCheck.instanceFor(app: app).activate(
-                providerWeb: providerWeb,
-                providerAndroid: providerAndroid,
-                providerApple: providerApple,
-              );
-            },
-        afterActivation: () async => _PluginTemporaryFirebaseAuthContext(app),
-      ),
-      deleteApp: app.delete,
-    );
-  }
-
-  /// Activates App Check before a temporary target context can expose an auth
-  /// or callable client. The factory seam proves that secondary Firebase apps
-  /// use the same Web key/provider policy as the primary app.
-  static Future<T> initializeTemporaryAppCheckThen<T>({
-    required FirebaseAppCheckInitializerFactory initializerFactory,
-    required FirebaseAppCheckActivator activate,
-    required Future<T> Function() afterActivation,
-  }) async {
-    await initializerFactory(activate: activate).initialize();
-    return afterActivation();
-  }
-
-  /// Ensures a failed asynchronous secondary-App Check activation cannot leak
-  /// the isolated Firebase app that was just created for reconciliation.
-  static Future<T> initializeTemporaryContextWithCleanup<T>({
-    required Future<T> Function() initializeContext,
-    required Future<void> Function() deleteApp,
-  }) async {
-    try {
-      return await initializeContext();
-    } catch (_) {
-      await deleteApp();
-      rethrow;
-    }
-  }
-}
-
-class _FirebaseVerifiedTargetContext implements AccountOperationTargetContext {
-  const _FirebaseVerifiedTargetContext({
-    required TemporaryFirebaseAuthContext context,
-    required TemporaryFirebaseUser user,
-  }) : this._(context, user);
-
-  const _FirebaseVerifiedTargetContext._(this._context, this._user);
-
-  final TemporaryFirebaseAuthContext _context;
-  final TemporaryFirebaseUser _user;
-
-  @override
-  String get uid => _user.uid;
-
-  @override
-  bool get isAnonymous => _user.isAnonymous;
-
-  @override
-  AccountOperationGateway get operationGateway => _context.operationGateway;
-
-  @override
-  Future<void> dispose() => _context.dispose();
-}
-
-class _FirebaseVerifiedReconciliationTargetContext
-    extends _FirebaseVerifiedTargetContext
-    implements AccountReconciliationTargetContext {
-  const _FirebaseVerifiedReconciliationTargetContext({
-    required TemporaryFirebaseReconciliationContext context,
-    required super.user,
-  }) : _reconciliationContext = context,
-       super(context: context);
-
-  final TemporaryFirebaseReconciliationContext _reconciliationContext;
-
-  @override
-  FirebaseAccountReconciliationRemote reconciliationRemote({
-    required String fenceUid,
-  }) => _reconciliationContext.reconciliationRemote(fenceUid: fenceUid);
-}
-
-class _PluginTemporaryFirebaseAuthContext
-    implements TemporaryFirebaseReconciliationContext {
-  _PluginTemporaryFirebaseAuthContext(this._app)
-    : _auth = FirebaseAuth.instanceFor(app: _app),
-      operationGateway = AccountOperationClient(
-        transport: FirebaseFunctionsAccountOperationTransport.fromFunctions(
-          FirebaseFunctions.instanceFor(
-            app: _app,
-            region: AccountOperationClient.region,
-          ),
-        ),
-      );
-
-  final FirebaseApp _app;
-  final FirebaseAuth _auth;
-  late final FirebaseFirestore _firestore = FirebaseFirestore.instanceFor(
-    app: _app,
-  );
-  bool _disposed = false;
-
-  @override
-  final AccountOperationGateway operationGateway;
-
-  @override
-  FirebaseAccountReconciliationRemote reconciliationRemote({
-    required String fenceUid,
-  }) {
-    return FirebaseAccountReconciliationRemote.firestore(
-      firestore: _firestore,
-      fenceUid: fenceUid,
-    );
-  }
-
-  @override
-  Future<TemporaryFirebaseUser> signIn(AuthCredential credential) async {
-    if (_disposed) {
-      throw const AccountLinkSafetyFailure();
-    }
-    final result = await _auth.signInWithCredential(credential);
-    final user = result.user;
+    final user = (await auth.signInWithCredential(credential)).user;
     if (user == null) {
-      throw const AccountLinkSafetyFailure();
+      throw const AccountLinkUnavailable();
     }
-    return TemporaryFirebaseUser(uid: user.uid, isAnonymous: user.isAnonymous);
-  }
-
-  @override
-  Future<void> dispose() async {
-    if (_disposed) return;
-    _disposed = true;
-    try {
-      await _auth.signOut();
-    } finally {
-      await _app.delete();
-    }
+    return user.uid;
   }
 }
 
-class FirebaseAccountTransitionIdentity implements AccountTransitionIdentity {
-  const FirebaseAccountTransitionIdentity()
-    : this._(null, null, null, null, null, null);
-
-  const FirebaseAccountTransitionIdentity._(
-    this._currentUid,
-    this._currentIsAnonymous,
-    this._acquireGoogleCredentialSilently,
-    this._acquireAppleCredentialExplicitly,
-    this._signIn,
-    this._signOut,
-  );
-
-  @visibleForTesting
-  factory FirebaseAccountTransitionIdentity.test({
-    required String? Function() currentUid,
-    required bool Function() currentIsAnonymous,
-    required SilentGoogleActivationCredential acquireGoogleCredentialSilently,
-    required ExplicitAppleActivationCredential acquireAppleCredentialExplicitly,
-    required Future<String?> Function(AuthCredential credential) signIn,
-    required Future<void> Function() signOut,
-  }) => FirebaseAccountTransitionIdentity._(
-    currentUid,
-    currentIsAnonymous,
-    acquireGoogleCredentialSilently,
-    acquireAppleCredentialExplicitly,
-    signIn,
-    signOut,
-  );
-
-  final String? Function()? _currentUid;
-  final bool Function()? _currentIsAnonymous;
-  final SilentGoogleActivationCredential? _acquireGoogleCredentialSilently;
-  final ExplicitAppleActivationCredential? _acquireAppleCredentialExplicitly;
-  final Future<String?> Function(AuthCredential credential)? _signIn;
-  final Future<void> Function()? _signOut;
-
-  @override
-  String? get currentUid =>
-      _currentUid == null ? AuthService.current?.uid : _currentUid();
-
-  @override
-  bool get currentIsAnonymous =>
-      _currentIsAnonymous?.call() ??
-      (AuthService.current?.isAnonymous ?? false);
-
-  @override
-  Future<void> activateTarget(
-    AccountLinkProvider provider, {
-    required String expectedTargetUid,
-    required CloudWriteSession expectedSourceSession,
-    required CloudWriteSessionController sessions,
-    required bool allowMissingSource,
-  }) async {
-    if (expectedTargetUid.trim().isEmpty) {
-      throw const AccountLinkSafetyFailure();
-    }
-    _assertSource(
-      expectedSourceSession,
-      sessions,
-      allowMissingSource: allowMissingSource,
-    );
-    final credential = await _acquireActivationCredential(provider);
-    _assertSource(
-      expectedSourceSession,
-      sessions,
-      allowMissingSource: allowMissingSource,
-    );
-    _assertSource(
-      expectedSourceSession,
-      sessions,
-      allowMissingSource: allowMissingSource,
-    );
-    final signedInUid =
-        await (_signIn?.call(credential) ?? _signInPrimary(credential));
-    try {
-      sessions.assertCurrent(expectedSourceSession);
-    } on StateError {
-      await _signOutActivationIfOwned(signedInUid: signedInUid);
-      throw const AccountLinkSafetyFailure();
-    }
-    if (signedInUid != expectedTargetUid ||
-        currentUid != expectedTargetUid ||
-        currentIsAnonymous) {
-      await _signOutActivationIfOwned(signedInUid: signedInUid);
-      throw const AccountLinkSafetyFailure();
-    }
-  }
-
-  Future<void> _signOutActivationIfOwned({required String? signedInUid}) async {
-    final liveUid = currentUid;
-    if (signedInUid == null || liveUid != signedInUid) {
-      return;
-    }
-    // FirebaseAuth exposes no auth-incarnation token here. A concurrent auth
-    // replacement that resolves to the exact same UID cannot be distinguished
-    // from this call's sign-in; UID-exact ownership is the current model limit.
-    await _signOutPrimary();
-  }
-
-  Future<AuthCredential> _acquireActivationCredential(
-    AccountLinkProvider provider,
-  ) async {
-    switch (provider) {
-      case AccountLinkProvider.google:
-        final credential =
-            await (_acquireGoogleCredentialSilently?.call() ??
-                AuthService._acquireGoogleActivationCredentialSilently());
-        if (credential == null) {
-          throw const AccountLinkSafetyFailure();
-        }
-        return credential;
-      case AccountLinkProvider.apple:
-        return _acquireAppleCredentialExplicitly?.call() ??
-            AuthService._acquireAppleActivationCredentialExplicitly();
-    }
-  }
-
-  void _assertSource(
-    CloudWriteSession expected,
-    CloudWriteSessionController sessions, {
-    required bool allowMissingSource,
-  }) {
-    try {
-      sessions.assertCurrent(expected);
-    } on StateError {
-      throw const AccountLinkSafetyFailure();
-    }
-    final uid = currentUid;
-    if (uid == expected.uid && currentIsAnonymous) return;
-    if (allowMissingSource && uid == null) return;
-    throw const AccountLinkSafetyFailure();
-  }
-
-  Future<String?> _signInPrimary(AuthCredential credential) async {
-    final auth = AuthService._auth;
-    if (auth == null) throw const AccountLinkSafetyFailure();
-    return (await auth.signInWithCredential(credential)).user?.uid;
-  }
-
-  Future<void> _signOutPrimary() async {
-    final testSignOut = _signOut;
-    if (testSignOut != null) return testSignOut();
-    final auth = AuthService._auth;
-    if (auth != null) await auth.signOut();
-  }
-}
-
-typedef ReplacementJournalReader = Future<AccountTransitionJournal?> Function();
+typedef LegacyReplacementJournalPresence = Future<bool> Function();
+typedef LegacyReplacementJournalDiscard = Future<void> Function();
+typedef AccountSwitchJournalReader = Future<AccountSwitchJournal?> Function();
 typedef DeletionJournalReader = Future<AccountDeletionJournal?> Function();
 typedef DeletionStatusReceiptReader =
     Future<AccountDeletionStatusReceipt?> Function();
@@ -2131,7 +1783,9 @@ typedef CloudBackupDeletionJournalReader =
 class AccountStartupJournalResolver {
   const AccountStartupJournalResolver({
     required this.sessions,
-    required this.readReplacement,
+    required this.hasLegacyReplacementJournal,
+    required this.discardLegacyReplacement,
+    required this.readSwitch,
     required this.readDeletion,
     this.readDeletionStatusReceipt,
     this.isDeletionReceiptRecoveryIdentitySafe,
@@ -2140,7 +1794,9 @@ class AccountStartupJournalResolver {
   });
 
   final CloudWriteSessionController sessions;
-  final ReplacementJournalReader readReplacement;
+  final LegacyReplacementJournalPresence hasLegacyReplacementJournal;
+  final LegacyReplacementJournalDiscard discardLegacyReplacement;
+  final AccountSwitchJournalReader readSwitch;
   final DeletionJournalReader readDeletion;
   final DeletionStatusReceiptReader? readDeletionStatusReceipt;
   final DeletionReceiptRecoveryIdentityGuard?
@@ -2151,27 +1807,36 @@ class AccountStartupJournalResolver {
   Future<AccountStartupRestoration> restore(String? liveUid) async {
     final normalizedUid = liveUid?.trim();
     try {
-      final replacement = await readReplacement();
+      // A legacy server-replacement journal (pre-T4b) can never lock linking
+      // or deletion again: any content at that key — even unparseable — is
+      // discarded immediately and startup continues as if it were absent.
+      if (await hasLegacyReplacementJournal()) {
+        await discardLegacyReplacement();
+        AccountFailureDiagnostics.log(
+          'startup.legacyReplacementJournalDiscarded',
+          null,
+        );
+      }
+      final switchJournal = await readSwitch();
       final deletion = await readDeletion();
       final deletionReceipt = deletion == null
           ? null
           : await readDeletionStatusReceipt?.call();
       final feedbackActivation = await readFeedbackActivation?.call();
       final cloudBackupDeletion = await readCloudBackupDeletion?.call();
-      replacement?.toJson();
       deletion?.toJson();
       feedbackActivation?.toJson();
       cloudBackupDeletion?.toJson();
       final journalCount = <Object?>[
-        replacement,
+        switchJournal,
         deletion ?? feedbackActivation,
         cloudBackupDeletion,
       ].where((journal) => journal != null).length;
       if (journalCount > 1) {
         return const AccountStartupRestoration.blocked();
       }
-      if (replacement != null) {
-        return _restoreReplacement(replacement, normalizedUid);
+      if (switchJournal != null) {
+        return const AccountStartupRestoration.switchPending();
       }
       if (feedbackActivation != null) {
         if (feedbackActivation.operation?.phase !=
@@ -2194,28 +1859,6 @@ class AccountStartupJournalResolver {
     } catch (_) {
       return const AccountStartupRestoration.blocked();
     }
-  }
-
-  AccountStartupRestoration _restoreReplacement(
-    AccountTransitionJournal journal,
-    String? liveUid,
-  ) {
-    if (liveUid == journal.session.uid) {
-      if (!_resumeExact(journal.session, liveUid!)) {
-        return const AccountStartupRestoration.blocked();
-      }
-      return AccountStartupRestoration.replacement(journal.session);
-    }
-    final sourceMayBeDeleted =
-        journal.replacementPhase == AccountReplacementPhase.cleanupStarting ||
-        journal.replacementPhase == AccountReplacementPhase.cleanupPending ||
-        journal.replacementPhase == AccountReplacementPhase.activationPending;
-    final targetIsLive =
-        liveUid != null && liveUid == journal.replacementTargetUid;
-    if (sourceMayBeDeleted && (liveUid == null || targetIsLive)) {
-      return const AccountStartupRestoration.replacement(null);
-    }
-    return const AccountStartupRestoration.blocked();
   }
 
   AccountStartupRestoration _restoreDeletion(
@@ -2299,6 +1942,16 @@ class AccountStartupJournalResolver {
   }
 }
 
+/// Hybrid-Auth — **immer** anonym eingeloggt. Optional kann der
+/// User mit Google verlinken, um Cloud-Backup zu aktivieren.
+///
+/// **Web-Sicherheit**: Firebase ist auf Web fragil (JS-Interop) — wenn keine
+/// Firebase-Config vorliegt, wirft `FirebaseAuth.instance` eine
+/// `FirebaseException`, die als JS-`TypeError` durchschlägt und z.B. die
+/// Settings-Seite rot crashen lässt. Daher fangen **alle Lese-Getter**
+/// Ausnahmen ab und liefern sichere Defaults; Aktions-Methoden brechen
+/// sauber ab, wenn Firebase nicht verfügbar ist. Auf Android (mit
+/// google-services.json) greifen die Guards nie — normales Verhalten.
 class AuthService {
   static const accountDeletionCheckpointPreferenceKey =
       Storage.accountDeletionCheckpointPreferenceKey;
@@ -2369,13 +2022,6 @@ class AuthService {
     return FreshAnonymousAccountOperationGateway(
       gateway: gateway,
       freshness: _anonymousSourceAuthFreshness(),
-    );
-  }
-
-  static ReplacementAccountOperations replacementAccountOperations() {
-    final gateway = AccountOperationClient.firebase();
-    return CallableReplacementAccountOperations(
-      source: _anonymousSourceOperationGateway(gateway),
     );
   }
 
@@ -2513,7 +2159,7 @@ class AuthService {
     try {
       final preferences = await SharedPreferences.getInstance();
       await preferences.reload();
-      return preferences.containsKey(AccountTransitionJournal.storageKey) ||
+      return preferences.containsKey(AccountSwitchJournal.storageKey) ||
           preferences.containsKey(accountDeletionCheckpointPreferenceKey) ||
           preferences.containsKey(
             accountDeletionFeedbackActivationCheckpointPreferenceKey,
@@ -2595,12 +2241,16 @@ class AuthService {
     String? liveUid,
   ) async {
     final preferences = await SharedPreferences.getInstance();
-    final replacementStore = SharedPreferencesReplacementTransitionJournalStore(
-      preferences,
-    );
     return AccountStartupJournalResolver(
       sessions: cloudWriteSessionController,
-      readReplacement: replacementStore.read,
+      hasLegacyReplacementJournal: () async {
+        await preferences.reload();
+        return preferences.containsKey(AccountTransitionJournal.storageKey);
+      },
+      discardLegacyReplacement: () async {
+        await preferences.remove(AccountTransitionJournal.storageKey);
+      },
+      readSwitch: SharedPreferencesAccountSwitchJournalStore(preferences).read,
       readDeletion: _accountDeletionJournalStore.read,
       readDeletionStatusReceipt: _accountDeletionStatusReceiptStore.read,
       isDeletionReceiptRecoveryIdentitySafe: (liveUid) {
@@ -2615,7 +2265,7 @@ class AuthService {
 
   /// Anonymen User mit Google-Account verlinken.
   /// Existing-account collisions preserve the primary anonymous session and
-  /// require explicit confirmation through [AccountTransitionCoordinator].
+  /// require explicit confirmation through [switchToExistingAccount].
   static Future<User?> linkWithGoogle() {
     if (isDurableLinked) {
       return _linkAdditionalProvider(AccountLinkProvider.google);
@@ -2654,6 +2304,7 @@ class AuthService {
           final result = await user.linkWithCredential(credential);
           return result.user;
         },
+        credential: credential,
       );
       if (attempt is ExistingAccountLinkConflict) {
         throw attempt;
@@ -2710,6 +2361,7 @@ class AuthService {
           final result = await user.linkWithCredential(credential);
           return result.user;
         },
+        credential: credential,
       );
       if (attempt is ExistingAccountLinkConflict) {
         throw attempt;
@@ -2761,6 +2413,114 @@ class AuthService {
       }
       return current;
     });
+  }
+
+  /// Signs the primary Firebase Auth instance into the existing durable
+  /// account [conflict] collided with, then merges this device's local
+  /// progress into that account. Replaces the old server-owned "replacement"
+  /// flow: the standard Firebase `signInWithCredential` pattern, run entirely
+  /// client-side inside the durable admission lane.
+  static Future<AccountSwitchResult> switchToExistingAccount(
+    ExistingAccountLinkConflict conflict, {
+    required Map<String, PackCatalogEntry> catalog,
+    required CourseMasteryReconciliationMerger courseMasteryMerger,
+  }) {
+    return _runDurableIdentityMutation(() async {
+      final credential = conflict.credential;
+      if (credential == null) {
+        throw const AccountLinkSafetyFailure();
+      }
+      final preferences = await SharedPreferences.getInstance();
+      return _accountSwitchCoordinator(
+        preferences,
+        courseMasteryMerger: courseMasteryMerger,
+      ).switchToExisting(
+        provider: conflict.provider,
+        credential: credential,
+        sourceUid: current?.uid ?? '',
+        catalog: catalog,
+      );
+    });
+  }
+
+  /// Resumes a durable account-switch journal left by a crash between the
+  /// primary sign-in and the reconciliation merge.
+  static Future<AccountSwitchResult> resumePendingAccountSwitch({
+    required Map<String, PackCatalogEntry> catalog,
+    required CourseMasteryReconciliationMerger courseMasteryMerger,
+  }) {
+    return runDurableAccountAdmission<AccountSwitchResult>(
+      allowAccountSwitchJournal: true,
+      onAdmitted: () async {
+        final preferences = await SharedPreferences.getInstance();
+        return _accountSwitchCoordinator(
+          preferences,
+          courseMasteryMerger: courseMasteryMerger,
+        ).resume(liveUid: current?.uid, catalog: catalog);
+      },
+      onBlocked: () async =>
+          const AccountSwitchResult(AccountSwitchStatus.failed),
+    );
+  }
+
+  static AccountSwitchCoordinator _accountSwitchCoordinator(
+    SharedPreferences preferences, {
+    required CourseMasteryReconciliationMerger courseMasteryMerger,
+  }) {
+    return AccountSwitchCoordinator(
+      sessions: cloudWriteSessionController,
+      identity: const _FirebaseAccountSwitchIdentity(),
+      journalStore: SharedPreferencesAccountSwitchJournalStore(preferences),
+      localPreflight: () async {
+        await LocalAccountReconciliationStore.load();
+      },
+      ownershipTransition: ({required oldUid, required transition}) =>
+          _pushOwnershipTransitions.run(oldUid: oldUid, transition: transition),
+      rebindPush: () async {
+        if (Storage.notificationsEnabled) {
+          await pushService.bindCurrentUser();
+        }
+      },
+      reconcile:
+          ({
+            required targetUid,
+            required session,
+            required operationId,
+            required catalog,
+          }) {
+            return FirebaseAccountReconciliationAdapter(
+              uid: targetUid,
+              fenceUid: targetUid,
+              session: session,
+              sessions: cloudWriteSessionController,
+              remote: FirebaseAccountReconciliationRemote.firestore(
+                firestore: FirebaseFirestore.instance,
+                fenceUid: targetUid,
+              ),
+            ).coordinator(
+                journalStore: SharedPreferencesAccountTransitionJournalStore(
+                  preferences,
+                  storageKey: AccountSwitchJournal.reconciliationStorageKey,
+                ),
+                courseMasteryMerger: courseMasteryMerger,
+              )
+              .reconcile(
+                session: session,
+                operationId: operationId,
+                catalog: catalog,
+              );
+          },
+      activateBackfill: (uid) async {
+        await _firstDurableLinkActivation.activate(
+          sourceUid: uid,
+          linkedUid: uid,
+          linkedIsAnonymous: false,
+        );
+      },
+      clearReconciliationJournal: () async {
+        await preferences.remove(AccountSwitchJournal.reconciliationStorageKey);
+      },
+    );
   }
 
   /// Apple liefert den Namen nur beim allerersten Login — übernehmen, wenn
@@ -2846,14 +2606,14 @@ class AuthService {
     required Future<T> Function() onAdmitted,
     required Future<T> Function() onBlocked,
     bool allowAccountDeletionCheckpoint = false,
-    bool allowReplacementTransitionJournal = false,
+    bool allowAccountSwitchJournal = false,
     bool allowFeedbackActivationCheckpoint = false,
   }) {
     return runCloudBackupDeletionAdmission<T>(
       onAdmitted: () async {
         final clear = await _otherDurableAccountJournalsAreClear(
           allowAccountDeletionCheckpoint: allowAccountDeletionCheckpoint,
-          allowReplacementTransitionJournal: allowReplacementTransitionJournal,
+          allowAccountSwitchJournal: allowAccountSwitchJournal,
           allowFeedbackActivationCheckpoint: allowFeedbackActivationCheckpoint,
         );
         return clear ? onAdmitted() : onBlocked();
@@ -2886,7 +2646,7 @@ class AuthService {
           }
           final clear = await _otherDurableAccountJournalsAreClear(
             allowAccountDeletionCheckpoint: false,
-            allowReplacementTransitionJournal: false,
+            allowAccountSwitchJournal: false,
             allowFeedbackActivationCheckpoint: true,
           );
           return clear ? onAdmitted() : onBlocked();
@@ -2900,14 +2660,14 @@ class AuthService {
 
   static Future<bool> _otherDurableAccountJournalsAreClear({
     required bool allowAccountDeletionCheckpoint,
-    required bool allowReplacementTransitionJournal,
+    required bool allowAccountSwitchJournal,
     bool allowFeedbackActivationCheckpoint = false,
   }) async {
     try {
       final preferences = await SharedPreferences.getInstance();
       await preferences.reload();
-      if (!allowReplacementTransitionJournal &&
-          preferences.containsKey(AccountTransitionJournal.storageKey)) {
+      if (!allowAccountSwitchJournal &&
+          preferences.containsKey(AccountSwitchJournal.storageKey)) {
         return false;
       }
       return (allowAccountDeletionCheckpoint ||
@@ -2963,7 +2723,7 @@ class AuthService {
       _cloudBackupDeletionCoordinator.run(
         canStart: () => _otherDurableAccountJournalsAreClear(
           allowAccountDeletionCheckpoint: false,
-          allowReplacementTransitionJournal: false,
+          allowAccountSwitchJournal: false,
         ),
       );
 
@@ -3361,27 +3121,6 @@ class AuthService {
           'apple.com',
         ).credential(idToken: apple.identityToken, rawNonce: rawNonce);
     }
-  }
-
-  /// Reuses only the account selected by the immediately preceding isolated
-  /// Google verification. A missing/expired cached session is a resumable
-  /// activation failure; it must never open a second interactive chooser.
-  static Future<AuthCredential?>
-  _acquireGoogleActivationCredentialSilently() async {
-    final googleUser = await GoogleOAuthClient.signInSilently(
-      suppressErrors: false,
-      reAuthenticate: false,
-    );
-    if (googleUser == null) return null;
-    return GoogleOAuthClient.credentialFromAuthentication(
-      await googleUser.authentication,
-    );
-  }
-
-  /// Apple credentials are intentionally single-use and nonce-bound, so
-  /// activation keeps the existing fresh Sign in with Apple prompt.
-  static Future<AuthCredential> _acquireAppleActivationCredentialExplicitly() {
-    return _acquireFreshProviderCredential(AccountLinkProvider.apple);
   }
 
   static Future<String?> _reauthenticateWithApple(User user) async {

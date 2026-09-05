@@ -8,6 +8,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/profile_screen.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/services/account/account_operation_client.dart';
+import 'package:ko_lernen_app/services/account/account_switch_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
 import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
@@ -999,20 +1000,13 @@ class _AlwaysReadyAccountOperations implements AccountUiOperations {
   bool get appleSignInAvailable => false;
 
   @override
-  Future<bool> cancelReplacement() async => false;
-
-  @override
-  Future<AccountTransitionResult> confirmReplacement(
-    ExistingAccountLinkConflict conflict,
-  ) async => const AccountTransitionResult(AccountTransitionStatus.blocked);
-
-  @override
   Future<AccountUiLinkResult> link(AccountLinkProvider provider) async =>
       const AccountUiLinkBlocked();
 
   @override
-  Future<AccountTransitionResult> resumeReplacement() async =>
-      const AccountTransitionResult(AccountTransitionStatus.blocked);
+  Future<AccountSwitchResult> switchToExisting(
+    ExistingAccountLinkConflict conflict,
+  ) async => const AccountSwitchResult(AccountSwitchStatus.failed);
 }
 
 Widget _wrap(Widget child) {

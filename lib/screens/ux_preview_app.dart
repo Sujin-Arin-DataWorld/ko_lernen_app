@@ -16,6 +16,7 @@ import '../models/scenario.dart';
 import '../models/scenario_can_do_result.dart';
 import '../models/sori_stage_progression.dart';
 import '../models/ux_preview_catalog.dart';
+import '../services/account/account_switch_coordinator.dart';
 import '../services/account/account_transition_coordinator.dart';
 import '../services/account/account_ui_operations.dart';
 import '../services/account/cloud_backup_deletion.dart';
@@ -423,20 +424,13 @@ class _PreviewAccountUiOperations implements AccountUiOperations {
   bool get appleSignInAvailable => false;
 
   @override
-  Future<bool> cancelReplacement() async => false;
-
-  @override
-  Future<AccountTransitionResult> confirmReplacement(
-    ExistingAccountLinkConflict conflict,
-  ) async => const AccountTransitionResult(AccountTransitionStatus.blocked);
-
-  @override
   Future<AccountUiLinkResult> link(AccountLinkProvider provider) async =>
       const AccountUiLinkBlocked();
 
   @override
-  Future<AccountTransitionResult> resumeReplacement() async =>
-      const AccountTransitionResult(AccountTransitionStatus.blocked);
+  Future<AccountSwitchResult> switchToExisting(
+    ExistingAccountLinkConflict conflict,
+  ) async => const AccountSwitchResult(AccountSwitchStatus.failed);
 }
 
 const _greetingUnit = CourseUnit(

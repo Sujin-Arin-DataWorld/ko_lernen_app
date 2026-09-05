@@ -105,22 +105,65 @@ void main() {
   });
 
   test(
-    'replacement journal fences startup before auth creation or ready sync',
+    'switch-pending journal resumes the switch, then continues normal startup',
     () async {
       final events = <String>[];
-      final restored = const CloudWriteSession(
-        uid: 'anonymous-source',
-        epoch: 12,
-        mode: CloudWriteMode.reconciling,
-      );
       final coordinator = AppStartupCoordinator(
         initializeFirebase: () async => true,
         initializeAppCheck: () async => events.add('app-check'),
-        ensureSignedIn: () async => events.add('auth-create'),
-        currentUserId: () => 'anonymous-source',
+        ensureSignedIn: () async => events.add('auth'),
+        currentUserId: () => 'durable-target',
         restorePendingAccountState: (liveUid) async {
           events.add('restore:$liveUid');
-          return AccountStartupRestoration.replacement(restored);
+          return const AccountStartupRestoration.switchPending();
+        },
+        resumeAccountSwitch: () async => events.add('switch-resume'),
+        synchronizeReadySession: (uid) => events.add('ready:$uid'),
+        resumeFeedbackOutbox: () async => events.add('feedback-resume'),
+        resumeFirstDurableLinkBackfill: () async =>
+            events.add('first-link-resume'),
+        resumeMediaCleanup: () async => events.add('media'),
+        resumeBookshelfSync: () async => events.add('bookshelf'),
+        resumeAccountOperation: () async => events.add('deletion-resume'),
+        resumeCloudAutoSync: () async => events.add('auto-sync'),
+        initializePremium: () async => events.add('premium'),
+        enablePush: () async => events.add('push'),
+        notificationsEnabled: () => true,
+      );
+
+      expect(await coordinator.start(), isTrue);
+      expect(events, <String>[
+        'app-check',
+        'restore:durable-target',
+        'auth',
+        'switch-resume',
+        'auth',
+        'ready:durable-target',
+        'feedback-resume',
+        'first-link-resume',
+        'media',
+        'bookshelf',
+        'auto-sync',
+        'premium',
+        'push',
+      ]);
+    },
+  );
+
+  test(
+    'a failing switch resume is swallowed and startup still completes',
+    () async {
+      final events = <String>[];
+      final coordinator = AppStartupCoordinator(
+        initializeFirebase: () async => true,
+        initializeAppCheck: () async => events.add('app-check'),
+        ensureSignedIn: () async => events.add('auth'),
+        currentUserId: () => 'durable-target',
+        restorePendingAccountState: (_) async =>
+            const AccountStartupRestoration.switchPending(),
+        resumeAccountSwitch: () async {
+          events.add('switch-resume');
+          throw StateError('merge deferred');
         },
         synchronizeReadySession: (uid) => events.add('ready:$uid'),
         resumeMediaCleanup: () async => events.add('media'),
@@ -132,7 +175,17 @@ void main() {
       );
 
       expect(await coordinator.start(), isTrue);
-      expect(events, <String>['app-check', 'restore:anonymous-source']);
+      expect(events, <String>[
+        'app-check',
+        'auth',
+        'switch-resume',
+        'auth',
+        'ready:durable-target',
+        'media',
+        'bookshelf',
+        'premium',
+        'push',
+      ]);
     },
   );
 

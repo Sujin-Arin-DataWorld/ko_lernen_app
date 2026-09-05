@@ -16,30 +16,31 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   test(
-    'persisted replacement is surfaced by a fresh production reader',
+    'a legacy replacement journal is ignored by a fresh production reader',
     () async {
       SharedPreferences.setMockInitialValues(<String, Object>{});
       final preferences = await SharedPreferences.getInstance();
-      await SharedPreferencesReplacementTransitionJournalStore(
-        preferences,
-      ).write(
-        AccountTransitionJournal.fromSession(
-          const CloudWriteSession(
-            uid: 'anonymous-source',
-            epoch: 3,
-            mode: CloudWriteMode.quiesced,
-          ),
-          replacementProvider: 'google',
-          replacementTargetUid: 'durable-target',
-          replacementRequestKey: 'replacement-request-1',
-          replacementPhase: AccountReplacementPhase.targetVerified,
+      await preferences.setString(
+        AccountTransitionJournal.storageKey,
+        jsonEncode(
+          AccountTransitionJournal.fromSession(
+            const CloudWriteSession(
+              uid: 'anonymous-source',
+              epoch: 3,
+              mode: CloudWriteMode.quiesced,
+            ),
+            replacementProvider: 'google',
+            replacementTargetUid: 'durable-target',
+            replacementRequestKey: 'replacement-request-1',
+            replacementPhase: AccountReplacementPhase.targetVerified,
+          ).toJson(),
         ),
       );
 
       const operations = ProductionAccountUiOperations();
       final state = await operations.refreshPendingState();
 
-      expect(state, AccountUiPendingState.replacementCancellable);
+      expect(state, AccountUiPendingState.none);
       expect(operations.pendingState.value, state);
     },
   );
@@ -120,12 +121,7 @@ void main() {
     },
   );
 
-  for (final pending in <String>[
-    'replacement',
-    'activation',
-    'deletion',
-    'cloud-backup-deletion',
-  ]) {
+  for (final pending in <String>['deletion', 'cloud-backup-deletion']) {
     test('persisted $pending blocks provider OAuth before linker', () async {
       SharedPreferences.setMockInitialValues(<String, Object>{});
       final preferences = await SharedPreferences.getInstance();
@@ -134,7 +130,7 @@ void main() {
           AuthService.accountDeletionCheckpointPreferenceKey,
           jsonEncode(_completedDeletion().toJson()),
         );
-      } else if (pending == 'cloud-backup-deletion') {
+      } else {
         await preferences.setString(
           CloudBackupDeletionJournal.storageKey,
           jsonEncode(
@@ -147,14 +143,6 @@ void main() {
               requestKey: 'Z' * 43,
             ).toJson(),
           ),
-        );
-      } else {
-        await SharedPreferencesReplacementTransitionJournalStore(
-          preferences,
-        ).write(
-          pending == 'activation'
-              ? _activationPendingReplacement()
-              : _cancellableReplacement(),
         );
       }
       var providerCalls = 0;
@@ -172,38 +160,6 @@ void main() {
       expect(operations.pendingState.value, isNot(AccountUiPendingState.none));
     });
   }
-}
-
-AccountTransitionJournal _cancellableReplacement() {
-  return AccountTransitionJournal.fromSession(
-    const CloudWriteSession(
-      uid: 'anonymous-source',
-      epoch: 3,
-      mode: CloudWriteMode.quiesced,
-    ),
-    replacementProvider: 'google',
-    replacementTargetUid: 'durable-target',
-    replacementRequestKey: 'replacement-request-1',
-    replacementPhase: AccountReplacementPhase.targetVerified,
-  );
-}
-
-AccountTransitionJournal _activationPendingReplacement() {
-  return AccountTransitionJournal.fromSession(
-    const CloudWriteSession(
-      uid: 'anonymous-source',
-      epoch: 4,
-      mode: CloudWriteMode.cleanupPending,
-    ),
-    replacementProvider: 'google',
-    replacementTargetUid: 'durable-target',
-    replacementRequestKey: 'replacement-request-2',
-    replacementPhase: AccountReplacementPhase.activationPending,
-    replacementOperationId: 'replacement-operation-2',
-    replacementOperationVersion: 5,
-    reconciliationOperationId: 'replacement-operation-2',
-    reconciliationCheckpoint: ReconciliationCheckpoint.completed,
-  );
 }
 
 AccountDeletionJournal _completedDeletion() {

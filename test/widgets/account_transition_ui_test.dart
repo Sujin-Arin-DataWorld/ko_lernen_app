@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/profile_screen.dart';
 import 'package:ko_lernen_app/screens/gye_screen.dart';
+import 'package:ko_lernen_app/services/account/account_switch_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
 import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
@@ -57,7 +58,7 @@ void main() {
       await tester.tap(find.text('Sicher verbinden'));
       await tester.pump();
       expect(operations.linkCalls, [AccountLinkProvider.google]);
-      expect(operations.confirmCalls, 0);
+      expect(operations.switchCalls, 0);
     },
   );
 
@@ -114,8 +115,7 @@ void main() {
       find.text('Bereits mit einem anderen Konto verbunden'),
       findsOneWidget,
     );
-    expect(operations.confirmCalls, 0);
-    expect(operations.resumeCalls, 0);
+    expect(operations.switchCalls, 0);
   });
 
   testWidgets('profile starts no account work before explicit confirmation', (
@@ -147,219 +147,228 @@ void main() {
     ]);
   });
 
-  testWidgets('profile surfaces persisted replacement before a new link', (
-    tester,
-  ) async {
-    final operations = _FakeAccountUiOperations()
-      ..pending.value = AccountUiPendingState.replacementCancellable;
-    tester.view.physicalSize = const Size(400, 900);
-    tester.view.devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);
+  testWidgets(
+    'a link conflict shows the switch dialog and does nothing until confirmed',
+    (tester) async {
+      final operations = _FakeAccountUiOperations()
+        ..linkResult = const AccountUiLinkConflict(
+          ExistingAccountLinkConflict(AccountLinkProvider.google),
+        );
+      await tester.pumpWidget(
+        _wrap(
+          Builder(
+            builder: (context) => TextButton(
+              onPressed: () => runConfirmedAccountLink(
+                context,
+                operations: operations,
+                provider: AccountLinkProvider.google,
+              ),
+              child: const Text('connect'),
+            ),
+          ),
+        ),
+      );
+      await tester.tap(find.text('connect'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Sicher verbinden'));
+      await tester.pumpAndSettle();
 
-    await tester.pumpWidget(
-      _wrap(ProfileScreen(account: _guest, accountOperations: operations)),
-    );
-    await tester.pump();
+      expect(find.text('Mit bestehendem Konto fortfahren?'), findsOneWidget);
+      expect(operations.switchCalls, 0);
 
-    await _revealProfile(tester, find.text('Kontowechsel fortsetzen'));
-    expect(find.text('Kontowechsel fortsetzen'), findsOneWidget);
-    expect(find.text('Wechsel abbrechen'), findsOneWidget);
-    // The locked connect button stays tappable (reroutes to resume) but can
-    // never start a new provider link while the replacement is persisted.
-    await _revealProfile(
-      tester,
-      find.widgetWithText(SoriButton, 'Mit Google sichern'),
-    );
-    final newLink = tester.widget<SoriButton>(
-      find.widgetWithText(SoriButton, 'Mit Google sichern'),
-    );
-    expect(newLink.onTap, isNotNull);
-    expect(operations.linkCalls, isEmpty);
+      await tester.tap(find.text('Abbrechen'));
+      await tester.pumpAndSettle();
 
-    await _revealProfile(tester, find.text('Wechsel abbrechen'));
-    await tester.tap(find.text('Wechsel abbrechen'));
-    await tester.pump();
-    expect(operations.cancelCalls, 1);
-    await tester.tap(find.text('Fortsetzen'));
-    await tester.pump();
+      expect(operations.switchCalls, 0);
+    },
+  );
 
-    expect(operations.resumeCalls, 1);
-    expect(operations.linkCalls, isEmpty);
-  });
+  testWidgets(
+    'confirming the switch dialog calls switchToExisting once and completes',
+    (tester) async {
+      final operations = _FakeAccountUiOperations()
+        ..linkResult = const AccountUiLinkConflict(
+          ExistingAccountLinkConflict(AccountLinkProvider.google),
+        )
+        ..switchResult = const AccountSwitchResult(
+          AccountSwitchStatus.completed,
+          targetUid: 'durable-target',
+        );
+      var completedCalls = 0;
+      final sessions = CloudWriteSessionController()..acquire('durable-target');
+      AuthService.overrideCloudBackupDeletionCoordinatorForTesting(
+        CloudBackupDeletionCoordinator(
+          sessions: sessions,
+          currentUid: () => 'durable-target',
+          journalStore: _ClearCloudBackupDeletionJournalStore(),
+          gateway: _UnusedCloudBackupDeletionGateway(),
+        ),
+      );
+      CloudSync.overrideOperationsForTesting(
+        backupWithResult: () async => CloudWriteResult.completed,
+      );
+      addTearDown(() {
+        CloudSync.resetOperationsForTesting();
+        AuthService.resetCloudBackupDeletionForTesting();
+      });
 
-  testWidgets('persisted cancel false stays recoverable without async error', (
-    tester,
-  ) async {
-    final operations = _FakeAccountUiOperations()
-      ..pending.value = AccountUiPendingState.replacementCancellable
-      ..cancelResult = false;
-    tester.view.physicalSize = const Size(400, 900);
-    tester.view.devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);
-    await tester.pumpWidget(
-      _wrap(ProfileScreen(account: _guest, accountOperations: operations)),
-    );
-    await tester.pump();
+      await tester.pumpWidget(
+        _wrap(
+          Builder(
+            builder: (context) => TextButton(
+              onPressed: () => runConfirmedAccountLink(
+                context,
+                operations: operations,
+                provider: AccountLinkProvider.google,
+                onCompleted: () async {
+                  completedCalls += 1;
+                },
+              ),
+              child: const Text('connect'),
+            ),
+          ),
+        ),
+      );
+      await tester.tap(find.text('connect'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Sicher verbinden'));
+      await tester.pumpAndSettle();
 
-    await _revealProfile(tester, find.text('Wechsel abbrechen'));
-    await tester.tap(find.text('Wechsel abbrechen'));
-    await tester.pump();
+      await tester.tap(find.text('Konto wechseln'));
+      for (var i = 0; i < 8; i += 1) {
+        await tester.pump(const Duration(milliseconds: 50));
+      }
 
-    await _revealProfile(tester, find.text('Verbindung nicht abgeschlossen'));
-    expect(find.text('Verbindung nicht abgeschlossen'), findsOneWidget);
-    expect(find.textContaining('Support'), findsOneWidget);
-    expect(find.textContaining('private'), findsNothing);
-    expect(tester.takeException(), isNull);
+      expect(operations.switchCalls, 1);
+      expect(completedCalls, 1);
+      expect(tester.takeException(), isNull);
+    },
+  );
 
-    operations.cancelResult = true;
-    await _revealProfile(tester, find.text('Erneut versuchen'));
-    await tester.tap(find.text('Erneut versuchen'));
-    await tester.pump();
-    expect(operations.cancelCalls, 2);
-    expect(operations.linkCalls, isEmpty);
-    expect(tester.takeException(), isNull);
-  });
+  testWidgets(
+    'a deferred merge shows the merge-pending dialog and still completes',
+    (tester) async {
+      final operations = _FakeAccountUiOperations()
+        ..linkResult = const AccountUiLinkConflict(
+          ExistingAccountLinkConflict(AccountLinkProvider.google),
+        )
+        ..switchResult = const AccountSwitchResult(
+          AccountSwitchStatus.mergeDeferred,
+          targetUid: 'durable-target',
+        );
+      var completedCalls = 0;
 
-  testWidgets('persisted cancel throw stays recoverable and redacted', (
-    tester,
-  ) async {
-    final operations = _FakeAccountUiOperations()
-      ..pending.value = AccountUiPendingState.replacementCancellable
-      ..cancelFailure = StateError('private cancel proof');
-    tester.view.physicalSize = const Size(400, 900);
-    tester.view.devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);
-    await tester.pumpWidget(
-      _wrap(ProfileScreen(account: _guest, accountOperations: operations)),
-    );
-    await tester.pump();
+      await tester.pumpWidget(
+        _wrap(
+          Builder(
+            builder: (context) => TextButton(
+              onPressed: () => runConfirmedAccountLink(
+                context,
+                operations: operations,
+                provider: AccountLinkProvider.google,
+                onCompleted: () async {
+                  completedCalls += 1;
+                },
+              ),
+              child: const Text('connect'),
+            ),
+          ),
+        ),
+      );
+      await tester.tap(find.text('connect'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Sicher verbinden'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Konto wechseln'));
+      await tester.pumpAndSettle();
 
-    await _revealProfile(tester, find.text('Wechsel abbrechen'));
-    await tester.tap(find.text('Wechsel abbrechen'));
-    await tester.pump();
+      expect(operations.switchCalls, 1);
+      expect(find.text('Angemeldet – Zusammenführung folgt'), findsOneWidget);
 
-    await _revealProfile(tester, find.text('Verbindung nicht abgeschlossen'));
-    expect(find.text('Verbindung nicht abgeschlossen'), findsOneWidget);
-    expect(find.textContaining('private cancel proof'), findsNothing);
-    expect(find.text('Kontowechsel fortsetzen'), findsOneWidget);
-    expect(tester.takeException(), isNull);
+      await tester.tap(find.text('Schließen'));
+      await tester.pump();
 
-    operations.cancelFailure = null;
-    await _revealProfile(tester, find.text('Erneut versuchen'));
-    await tester.tap(find.text('Erneut versuchen'));
-    await tester.pump();
-    expect(operations.cancelCalls, 2);
-    expect(operations.linkCalls, isEmpty);
-    expect(tester.takeException(), isNull);
-  });
+      expect(completedCalls, 1);
+    },
+  );
 
-  testWidgets('collision is confirmed through coordinator and can be resumed', (
+  testWidgets('a failed switch shows the safe-failure dialog with retry', (
     tester,
   ) async {
     final operations = _FakeAccountUiOperations()
       ..linkResult = const AccountUiLinkConflict(
         ExistingAccountLinkConflict(AccountLinkProvider.google),
       )
-      ..replacementResult = const AccountTransitionResult(
-        AccountTransitionStatus.reconciliationPending,
-      );
-    tester.view.physicalSize = const Size(400, 900);
-    tester.view.devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);
+      ..switchResult = const AccountSwitchResult(AccountSwitchStatus.failed);
+
     await tester.pumpWidget(
-      _wrap(ProfileScreen(account: _guest, accountOperations: operations)),
+      _wrap(
+        Builder(
+          builder: (context) => TextButton(
+            onPressed: () => runConfirmedAccountLink(
+              context,
+              operations: operations,
+              provider: AccountLinkProvider.google,
+            ),
+            child: const Text('connect'),
+          ),
+        ),
+      ),
     );
-    await tester.pump();
-
-    await _revealProfile(tester, find.text('Mit Google sichern'));
-    await tester.tap(find.text('Mit Google sichern'));
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 300));
+    await tester.tap(find.text('connect'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Sicher verbinden'));
-    await tester.pump();
-    await tester.pump();
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Konto wechseln'));
+    await tester.pumpAndSettle();
 
-    await _revealProfile(tester, find.text('Kontowechsel fortsetzen'));
-    expect(operations.confirmCalls, 1);
-    expect(find.text('Kontowechsel fortsetzen'), findsOneWidget);
-
-    await tester.tap(find.text('Fortsetzen'));
-    await tester.pump();
-
-    expect(operations.resumeCalls, 1);
-  });
-
-  testWidgets('failed cancellation becomes a recoverable safe state', (
-    tester,
-  ) async {
-    final operations = _FakeAccountUiOperations()
-      ..linkResult = const AccountUiLinkConflict(
-        ExistingAccountLinkConflict(AccountLinkProvider.google),
-      )
-      ..replacementResult = const AccountTransitionResult(
-        AccountTransitionStatus.reconciliationPending,
-      )
-      ..cancelResult = false;
-    tester.view.physicalSize = const Size(400, 900);
-    tester.view.devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);
-    await tester.pumpWidget(
-      _wrap(ProfileScreen(account: _guest, accountOperations: operations)),
-    );
-    await tester.pump();
-
-    await _revealProfile(tester, find.text('Mit Google sichern'));
-    await tester.tap(find.text('Mit Google sichern'));
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 300));
-    await tester.tap(find.text('Sicher verbinden'));
-    await tester.pump();
-    await tester.pump();
-    await _revealProfile(tester, find.text('Wechsel abbrechen'));
-    await tester.tap(find.text('Wechsel abbrechen'));
-    await tester.pump();
-
-    await _revealProfile(tester, find.text('Verbindung nicht abgeschlossen'));
-    expect(operations.cancelCalls, 1);
+    expect(operations.switchCalls, 1);
     expect(find.text('Verbindung nicht abgeschlossen'), findsOneWidget);
     expect(find.text('Erneut versuchen'), findsOneWidget);
-  });
 
-  testWidgets('raw Firebase errors and proof material never reach the UI', (
-    tester,
-  ) async {
-    final operations = _FakeAccountUiOperations()
-      ..linkFailure = FirebaseAuthException(
-        code: 'internal-error',
-        message: 'proof-secret-123 private server detail',
-      );
-    tester.view.physicalSize = const Size(400, 900);
-    tester.view.devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);
-    await tester.pumpWidget(
-      _wrap(ProfileScreen(account: _guest, accountOperations: operations)),
-    );
-    await tester.pump();
-
-    await _revealProfile(tester, find.text('Mit Google sichern'));
-    await tester.tap(find.text('Mit Google sichern'));
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 300));
+    // Retry restarts the whole confirmed-link flow from its safe-connect
+    // confirmation, not just the switch step.
+    await tester.tap(find.text('Erneut versuchen'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Sicher verbinden'));
-    await tester.pump();
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Konto wechseln'));
+    await tester.pumpAndSettle();
 
-    await _revealProfile(tester, find.text('Verbindung nicht abgeschlossen'));
-    expect(find.textContaining('proof-secret-123'), findsNothing);
-    expect(find.textContaining('private server detail'), findsNothing);
-    expect(find.text('Verbindung nicht abgeschlossen'), findsOneWidget);
-    expect(find.text('Erneut versuchen'), findsOneWidget);
+    expect(operations.switchCalls, 2);
   });
+
+  testWidgets(
+    'raw Firebase errors and proof material never reach the UI',
+    (tester) async {
+      final operations = _FakeAccountUiOperations()
+        ..linkFailure = FirebaseAuthException(
+          code: 'internal-error',
+          message: 'proof-secret-123 private server detail',
+        );
+      tester.view.physicalSize = const Size(400, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(
+        _wrap(ProfileScreen(account: _guest, accountOperations: operations)),
+      );
+      await tester.pump();
+
+      await _revealProfile(tester, find.text('Mit Google sichern'));
+      await tester.tap(find.text('Mit Google sichern'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
+      await tester.tap(find.text('Sicher verbinden'));
+      await tester.pump();
+
+      await _revealProfile(tester, find.text('Verbindung nicht abgeschlossen'));
+      expect(find.textContaining('proof-secret-123'), findsNothing);
+      expect(find.textContaining('private server detail'), findsNothing);
+      expect(find.text('Verbindung nicht abgeschlossen'), findsOneWidget);
+      expect(find.text('Erneut versuchen'), findsOneWidget);
+    },
+  );
 
   testWidgets('account nudge uses the same confirmed safe operation flow', (
     tester,
@@ -393,11 +402,11 @@ void main() {
     await shown;
   });
 
-  testWidgets('account nudge disables new link while resume remains visible', (
+  testWidgets('account nudge disables new link while a durable journal blocks it', (
     tester,
   ) async {
     final operations = _FakeAccountUiOperations()
-      ..pending.value = AccountUiPendingState.replacementCancellable;
+      ..pending.value = AccountUiPendingState.blocked;
     await tester.pumpWidget(_wrap(const SizedBox()));
     final context = tester.element(find.byType(SizedBox));
 
@@ -413,8 +422,8 @@ void main() {
       find.widgetWithText(SoriButton, 'Mit Google verbinden'),
     );
     expect(connect.onTap, isNull);
-    expect(find.text('Fortsetzen'), findsOneWidget);
-    expect(find.text('Wechsel abbrechen'), findsOneWidget);
+    expect(find.text('Dein Konto ist geschützt'), findsOneWidget);
+    expect(find.text('Status aktualisieren'), findsOneWidget);
     expect(operations.linkCalls, isEmpty);
 
     Navigator.of(context).pop();
@@ -422,87 +431,90 @@ void main() {
     await shown;
   });
 
-  testWidgets('pending remote deletion retries through its exact callback', (
-    tester,
-  ) async {
-    final operations = _FakeAccountUiOperations()
-      ..pending.value = AccountUiPendingState.deletionRemotePending;
-    var retryCalls = 0;
+  testWidgets(
+    'pending remote deletion retries through its exact callback',
+    (tester) async {
+      final operations = _FakeAccountUiOperations()
+        ..pending.value = AccountUiPendingState.deletionRemotePending;
+      var retryCalls = 0;
 
-    await tester.pumpWidget(
-      _wrap(
-        AccountPendingOperationPanel(
-          operations: operations,
-          retryLocalDeletion: () async {
-            retryCalls += 1;
-            operations.pending.value = AccountUiPendingState.none;
-          },
+      await tester.pumpWidget(
+        _wrap(
+          AccountPendingOperationPanel(
+            operations: operations,
+            retryLocalDeletion: () async {
+              retryCalls += 1;
+              operations.pending.value = AccountUiPendingState.none;
+            },
+          ),
         ),
-      ),
-    );
-    await tester.pump();
+      );
+      await tester.pump();
 
-    await tester.tap(find.text('Erneut versuchen'));
-    await tester.pump();
+      await tester.tap(find.text('Erneut versuchen'));
+      await tester.pump();
 
-    expect(retryCalls, 1);
-    expect(find.text('Erneut versuchen'), findsNothing);
-    expect(tester.takeException(), isNull);
-  });
+      expect(retryCalls, 1);
+      expect(find.text('Erneut versuchen'), findsNothing);
+      expect(tester.takeException(), isNull);
+    },
+  );
 
-  testWidgets('blocked panel resumes a pending cloud deletion journal', (
-    tester,
-  ) async {
-    final operations = _FakeAccountUiOperations()
-      ..pending.value = AccountUiPendingState.blocked;
-    final cloudState = ValueNotifier<CloudBackupDeletionJournalState>(
-      CloudBackupDeletionJournalState.pending,
-    );
-    addTearDown(cloudState.dispose);
-    var resumeCalls = 0;
+  testWidgets(
+    'blocked panel resumes a pending cloud deletion journal',
+    (tester) async {
+      final operations = _FakeAccountUiOperations()
+        ..pending.value = AccountUiPendingState.blocked;
+      final cloudState = ValueNotifier<CloudBackupDeletionJournalState>(
+        CloudBackupDeletionJournalState.pending,
+      );
+      addTearDown(cloudState.dispose);
+      var resumeCalls = 0;
 
-    await tester.pumpWidget(
-      _wrap(
-        AccountPendingOperationPanel(
-          operations: operations,
-          cloudDeletionState: cloudState,
-          resumeCloudDeletion: () async {
-            resumeCalls += 1;
-            cloudState.value = CloudBackupDeletionJournalState.clear;
-            operations.pending.value = AccountUiPendingState.none;
-          },
+      await tester.pumpWidget(
+        _wrap(
+          AccountPendingOperationPanel(
+            operations: operations,
+            cloudDeletionState: cloudState,
+            resumeCloudDeletion: () async {
+              resumeCalls += 1;
+              cloudState.value = CloudBackupDeletionJournalState.clear;
+              operations.pending.value = AccountUiPendingState.none;
+            },
+          ),
         ),
-      ),
-    );
-    await tester.pump();
+      );
+      await tester.pump();
 
-    // The blocked card names the resumable journal and offers its resume —
-    // the old text-only dead end is gone.
-    expect(find.text('Cloud-Löschung wird fortgesetzt'), findsOneWidget);
-    await tester.tap(find.text('Jetzt fortsetzen'));
-    await tester.pump();
+      // The blocked card names the resumable journal and offers its resume —
+      // the old text-only dead end is gone.
+      expect(find.text('Cloud-Löschung wird fortgesetzt'), findsOneWidget);
+      await tester.tap(find.text('Jetzt fortsetzen'));
+      await tester.pump();
 
-    expect(resumeCalls, 1);
-    expect(find.text('Jetzt fortsetzen'), findsNothing);
-    expect(tester.takeException(), isNull);
-  });
+      expect(resumeCalls, 1);
+      expect(find.text('Jetzt fortsetzen'), findsNothing);
+      expect(tester.takeException(), isNull);
+    },
+  );
 
-  testWidgets('blocked panel without a cloud journal offers a status refresh', (
-    tester,
-  ) async {
-    final operations = _FakeAccountUiOperations()
-      ..pending.value = AccountUiPendingState.blocked;
+  testWidgets(
+    'blocked panel without a cloud journal offers a status refresh',
+    (tester) async {
+      final operations = _FakeAccountUiOperations()
+        ..pending.value = AccountUiPendingState.blocked;
 
-    await tester.pumpWidget(
-      _wrap(AccountPendingOperationPanel(operations: operations)),
-    );
-    await tester.pump();
+      await tester.pumpWidget(
+        _wrap(AccountPendingOperationPanel(operations: operations)),
+      );
+      await tester.pump();
 
-    expect(find.text('Dein Konto ist geschützt'), findsOneWidget);
-    await tester.tap(find.text('Status aktualisieren'));
-    await tester.pump();
-    expect(tester.takeException(), isNull);
-  });
+      expect(find.text('Dein Konto ist geschützt'), findsOneWidget);
+      await tester.tap(find.text('Status aktualisieren'));
+      await tester.pump();
+      expect(tester.takeException(), isNull);
+    },
+  );
 
   testWidgets('successful link fires one best-effort root backup', (
     tester,
@@ -685,14 +697,10 @@ class _FakeAccountUiOperations
   final List<AccountLinkProvider> linkCalls = <AccountLinkProvider>[];
   AccountUiLinkResult linkResult = const AccountUiLinkCompleted();
   Object? linkFailure;
-  AccountTransitionResult replacementResult = const AccountTransitionResult(
-    AccountTransitionStatus.completed,
+  AccountSwitchResult switchResult = const AccountSwitchResult(
+    AccountSwitchStatus.completed,
   );
-  int confirmCalls = 0;
-  int resumeCalls = 0;
-  int cancelCalls = 0;
-  bool cancelResult = true;
-  Object? cancelFailure;
+  int switchCalls = 0;
   final ValueNotifier<AccountUiPendingState> pending =
       ValueNotifier<AccountUiPendingState>(AccountUiPendingState.none);
 
@@ -706,21 +714,6 @@ class _FakeAccountUiOperations
   bool get appleSignInAvailable => false;
 
   @override
-  Future<bool> cancelReplacement() async {
-    cancelCalls += 1;
-    if (cancelFailure case final failure?) throw failure;
-    return cancelResult;
-  }
-
-  @override
-  Future<AccountTransitionResult> confirmReplacement(
-    ExistingAccountLinkConflict conflict,
-  ) async {
-    confirmCalls += 1;
-    return replacementResult;
-  }
-
-  @override
   Future<AccountUiLinkResult> link(AccountLinkProvider provider) async {
     linkCalls.add(provider);
     if (linkFailure case final failure?) throw failure;
@@ -728,9 +721,11 @@ class _FakeAccountUiOperations
   }
 
   @override
-  Future<AccountTransitionResult> resumeReplacement() async {
-    resumeCalls += 1;
-    return replacementResult;
+  Future<AccountSwitchResult> switchToExisting(
+    ExistingAccountLinkConflict conflict,
+  ) async {
+    switchCalls += 1;
+    return switchResult;
   }
 }
 

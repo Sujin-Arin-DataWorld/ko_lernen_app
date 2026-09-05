@@ -457,74 +457,6 @@ void main() {
       );
     });
 
-    test(
-      'uses source auth for anonymous replacement preparation and cancellation',
-      () async {
-        final transport = _FakeTransport()
-          ..responses.addAll([
-            _replacementResponse('prepared', version: 0),
-            _replacementResponse('cancelled', version: 1),
-          ]);
-        final client = AccountOperationClient(transport: transport);
-
-        await client.prepareAnonymousReplacement(
-          const AnonymousReplacementPrepareRequest(
-            targetUid: 'durable-target',
-            requestKey: 'request-1',
-          ),
-        );
-        await client.cancelAnonymousReplacement(
-          const ReplacementAdvanceRequest(
-            operationId: 'replacement-1',
-            expectedVersion: 0,
-          ),
-        );
-
-        expect(transport.calls, <AccountOperationTransportCall>[
-          const AccountOperationTransportCall(
-            name: 'prepareAnonymousReplacement',
-            data: {'targetUid': 'durable-target', 'requestKey': 'request-1'},
-          ),
-          const AccountOperationTransportCall(
-            name: 'cancelAnonymousReplacement',
-            data: {'operationId': 'replacement-1', 'expectedVersion': 0},
-          ),
-        ]);
-      },
-    );
-
-    test(
-      'replacement advances use the verified target auth transport',
-      () async {
-        final transport = _FakeTransport()
-          ..responses.addAll([
-            _replacementResponse('targetVerified', version: 1),
-            _replacementResponse('reconciling', version: 2),
-            _replacementResponse('sourceCleanupPending', version: 3),
-          ]);
-        final client = AccountOperationClient(transport: transport);
-        const request = ReplacementAdvanceRequest(
-          operationId: 'replacement-1',
-          expectedVersion: 0,
-        );
-
-        await client.attachReplacementTarget(request);
-        await client.commitReplacementReconciliation(request);
-        await client.startSourceCleanup(request);
-
-        expect(transport.calls.map((call) => call.name), <String>[
-          'attachReplacementTarget',
-          'commitReplacementReconciliation',
-          'startSourceCleanup',
-        ]);
-        for (final call in transport.calls) {
-          expect(call.data, {
-            'operationId': 'replacement-1',
-            'expectedVersion': 0,
-          });
-        }
-      },
-    );
   });
 
   group('anonymous source auth freshness', () {
@@ -536,7 +468,7 @@ void main() {
         bool? forced;
         String? refreshedUid;
         final transport = _FakeTransport()
-          ..responses.add(_replacementResponse('prepared', version: 0));
+          ..responses.add(_deletionResponse('deletionRequested', version: 0));
         final source = FreshAnonymousAccountOperationGateway(
           gateway: AccountOperationClient(transport: transport),
           freshness: FirebaseAnonymousSourceAuthFreshness(
@@ -550,11 +482,11 @@ void main() {
           ),
         );
 
-        await source.prepareAnonymousReplacement(
+        await source.requestAnonymousAccountDeletion(
           expectedSession: expected,
-          request: const AnonymousReplacementPrepareRequest(
-            targetUid: 'durable-target',
+          request: const AccountDeletionRequest(
             requestKey: 'request-1',
+            terminalStatusReceipt: _terminalStatusReceipt,
           ),
         );
 
@@ -564,68 +496,44 @@ void main() {
       },
     );
 
-    for (final sourceCall in <String>[
-      'prepare',
-      'cancel',
-      'anonymous deletion',
-    ]) {
-      test(
-        '$sourceCall is not invoked when the exact session changes during refresh',
-        () async {
-          final sessions = CloudWriteSessionController();
-          final expected = sessions.acquire('anonymous-source');
-          final transport = _FakeTransport();
-          final source = FreshAnonymousAccountOperationGateway(
-            gateway: AccountOperationClient(transport: transport),
-            freshness: FirebaseAnonymousSourceAuthFreshness(
-              sessions: sessions,
-              currentIdentity: () =>
-                  (uid: 'anonymous-source', isAnonymous: true),
-              refreshIdToken:
-                  ({required expectedUid, required forceRefresh}) async {
-                    sessions.transition(CloudWriteMode.quiesced);
-                  },
-            ),
-          );
+    test(
+      'anonymous deletion is not invoked when the exact session changes during refresh',
+      () async {
+        final sessions = CloudWriteSessionController();
+        final expected = sessions.acquire('anonymous-source');
+        final transport = _FakeTransport();
+        final source = FreshAnonymousAccountOperationGateway(
+          gateway: AccountOperationClient(transport: transport),
+          freshness: FirebaseAnonymousSourceAuthFreshness(
+            sessions: sessions,
+            currentIdentity: () =>
+                (uid: 'anonymous-source', isAnonymous: true),
+            refreshIdToken:
+                ({required expectedUid, required forceRefresh}) async {
+                  sessions.transition(CloudWriteMode.quiesced);
+                },
+          ),
+        );
 
-          final call = switch (sourceCall) {
-            'prepare' => source.prepareAnonymousReplacement(
-              expectedSession: expected,
-              request: const AnonymousReplacementPrepareRequest(
-                targetUid: 'durable-target',
-                requestKey: 'request-1',
-              ),
+        await expectLater(
+          source.requestAnonymousAccountDeletion(
+            expectedSession: expected,
+            request: const AccountDeletionRequest(
+              requestKey: 'request-1',
+              terminalStatusReceipt: _terminalStatusReceipt,
             ),
-            'cancel' => source.cancelAnonymousReplacement(
-              expectedSession: expected,
-              request: const ReplacementAdvanceRequest(
-                operationId: 'replacement-1',
-                expectedVersion: 0,
-              ),
+          ),
+          throwsA(
+            isA<AccountOperationFailure>().having(
+              (failure) => failure.code,
+              'code',
+              AccountOperationFailureCode.blocked,
             ),
-            _ => source.requestAnonymousAccountDeletion(
-              expectedSession: expected,
-              request: const AccountDeletionRequest(
-                requestKey: 'request-1',
-                terminalStatusReceipt: _terminalStatusReceipt,
-              ),
-            ),
-          };
-
-          await expectLater(
-            call,
-            throwsA(
-              isA<AccountOperationFailure>().having(
-                (failure) => failure.code,
-                'code',
-                AccountOperationFailureCode.blocked,
-              ),
-            ),
-          );
-          expect(transport.calls, isEmpty);
-        },
-      );
-    }
+          ),
+        );
+        expect(transport.calls, isEmpty);
+      },
+    );
 
     for (final sessionChange in <String>['uid', 'epoch', 'mode']) {
       test(
@@ -660,11 +568,11 @@ void main() {
           );
 
           await expectLater(
-            source.prepareAnonymousReplacement(
+            source.requestAnonymousAccountDeletion(
               expectedSession: expected,
-              request: const AnonymousReplacementPrepareRequest(
-                targetUid: 'durable-target',
+              request: const AccountDeletionRequest(
                 requestKey: 'request-1',
+                terminalStatusReceipt: _terminalStatusReceipt,
               ),
             ),
             throwsA(
@@ -698,11 +606,11 @@ void main() {
 
       Object? caught;
       try {
-        await source.prepareAnonymousReplacement(
+        await source.requestAnonymousAccountDeletion(
           expectedSession: expected,
-          request: const AnonymousReplacementPrepareRequest(
-            targetUid: 'durable-target',
+          request: const AccountDeletionRequest(
             requestKey: 'request-1',
+            terminalStatusReceipt: _terminalStatusReceipt,
           ),
         );
       } catch (error) {
@@ -737,11 +645,11 @@ void main() {
         );
 
         await expectLater(
-          source.cancelAnonymousReplacement(
+          source.requestAnonymousAccountDeletion(
             expectedSession: expected,
-            request: const ReplacementAdvanceRequest(
-              operationId: 'replacement-1',
-              expectedVersion: 0,
+            request: const AccountDeletionRequest(
+              requestKey: 'request-1',
+              terminalStatusReceipt: _terminalStatusReceipt,
             ),
           ),
           throwsA(isA<AccountOperationFailure>()),
@@ -753,13 +661,10 @@ void main() {
   });
 }
 
-Map<String, Object?> _replacementResponse(
-  String phase, {
-  required int version,
-}) {
+Map<String, Object?> _deletionResponse(String phase, {required int version}) {
   return {
-    'operationId': 'replacement-1',
-    'kind': 'replacement',
+    'operationId': 'deletion-1',
+    'kind': 'deletion',
     'phase': phase,
     'version': version,
     'attemptCount': 0,

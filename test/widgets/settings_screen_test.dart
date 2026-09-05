@@ -12,6 +12,7 @@ import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
 import 'package:ko_lernen_app/services/account/cloud_restore_result.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
+import 'package:ko_lernen_app/services/account/account_switch_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
@@ -550,14 +551,14 @@ void main() {
   });
 
   testWidgets(
-    'settings keeps pending resume visible and reroutes new link to resume',
+    'settings keeps a blocked account journal visible and reroutes new link to the locked dialog',
     (tester) async {
       tester.view.physicalSize = const Size(400, 1000);
       tester.view.devicePixelRatio = 1;
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
       final operations = _SettingsAccountOperations()
-        ..pending.value = AccountUiPendingState.replacementCancellable;
+        ..pending.value = AccountUiPendingState.blocked;
 
       await tester.pumpWidget(
         _wrap(
@@ -571,11 +572,10 @@ void main() {
       await tester.pump();
       await _ensureSettingsActionVisible(
         tester,
-        find.text('Kontowechsel fortsetzen'),
+        find.text('Dein Konto ist geschützt'),
       );
 
-      expect(find.text('Fortsetzen'), findsOneWidget);
-      expect(find.text('Wechsel abbrechen'), findsOneWidget);
+      expect(find.text('Status aktualisieren'), findsOneWidget);
       await _ensureSettingsActionVisible(
         tester,
         find.text('Mit Google sichern'),
@@ -586,7 +586,7 @@ void main() {
           matching: find.byType(ListTile),
         ),
       );
-      // The locked tile stays tappable but explains the pending replacement
+      // The locked tile stays tappable but explains the block
       // instead of starting provider OAuth (no dead buttons).
       expect(linkTile.onTap, isNotNull);
       await tester.tap(find.text('Mit Google sichern'));
@@ -654,14 +654,14 @@ void main() {
   );
 
   testWidgets(
-    'account transition pending reroutes durable backup and restore to resume',
+    'blocked account journal reroutes durable backup and restore to the locked dialog',
     (tester) async {
       tester.view.physicalSize = const Size(400, 1000);
       tester.view.devicePixelRatio = 1;
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
       final operations = _SettingsAccountOperations()
-        ..pending.value = AccountUiPendingState.replacementCancellable;
+        ..pending.value = AccountUiPendingState.blocked;
 
       await tester.pumpWidget(
         _wrap(
@@ -686,7 +686,8 @@ void main() {
         );
         expect(tile.onTap, isNotNull, reason: label);
       }
-      // A locked tap opens the resume dialog; the cloud operation never runs.
+      // A locked tap opens the locked-account dialog; the cloud operation
+      // never runs.
       // (Restore is the last tile ensured visible above, so tap that one.)
       await tester.tap(find.text('Von Cloud wiederherstellen'));
       await tester.pumpAndSettle();
@@ -753,13 +754,11 @@ void main() {
       await tester.tap(find.text('Schließen'));
       await tester.pumpAndSettle();
 
-      releasePersistedRead.complete(
-        AccountUiPendingState.replacementCancellable,
-      );
+      releasePersistedRead.complete(AccountUiPendingState.blocked);
       await tester.pump();
 
       // Once the journal is known, the account-delete tap reroutes to the
-      // replacement resume dialog — still no new-deletion confirm.
+      // locked-account dialog — still no new-deletion confirm.
       final delete = find.text('Konto und alle Daten löschen');
       await _ensureSettingsActionVisible(tester, delete);
       await tester.tap(delete);
@@ -1504,22 +1503,15 @@ class _SettingsAccountOperations
   bool get appleSignInAvailable => false;
 
   @override
-  Future<bool> cancelReplacement() async => true;
-
-  @override
-  Future<AccountTransitionResult> confirmReplacement(
-    ExistingAccountLinkConflict conflict,
-  ) async => const AccountTransitionResult(AccountTransitionStatus.completed);
-
-  @override
   Future<AccountUiLinkResult> link(AccountLinkProvider provider) async {
     linkCalls += 1;
     return const AccountUiLinkCompleted();
   }
 
   @override
-  Future<AccountTransitionResult> resumeReplacement() async =>
-      const AccountTransitionResult(AccountTransitionStatus.completed);
+  Future<AccountSwitchResult> switchToExisting(
+    ExistingAccountLinkConflict conflict,
+  ) async => const AccountSwitchResult(AccountSwitchStatus.completed);
 }
 
 class _DelayedJournalAccountOperations extends _SettingsAccountOperations {

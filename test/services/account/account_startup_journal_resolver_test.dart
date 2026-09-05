@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/services/account/account_deletion_status_receipt.dart';
 import 'package:ko_lernen_app/services/account/account_operation_client.dart';
-import 'package:ko_lernen_app/services/account/account_transition_journal.dart';
+import 'package:ko_lernen_app/services/account/account_switch_coordinator.dart';
 import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/app_startup_coordinator.dart';
@@ -10,56 +10,75 @@ import 'package:ko_lernen_app/services/auth_service.dart';
 
 void main() {
   test(
-    'rehydrates exact replacement source fence before ready startup',
+    'a legacy replacement journal is discarded and startup continues as none',
     () async {
       final sessions = CloudWriteSessionController();
-      final journal = _replacementJournal(
-        mode: CloudWriteMode.reconciling,
-        phase: AccountReplacementPhase.reconciling,
-      );
+      var discardCalls = 0;
       final resolver = AccountStartupJournalResolver(
         sessions: sessions,
-        readReplacement: () async => journal,
+        hasLegacyReplacementJournal: () async => true,
+        discardLegacyReplacement: () async {
+          discardCalls += 1;
+        },
+        readSwitch: () async => null,
         readDeletion: () async => null,
       );
 
       final restored = await resolver.restore('anonymous-source');
 
-      expect(restored.kind, AccountStartupRestorationKind.replacement);
-      expect(restored.session, journal.session);
-      expect(sessions.current, journal.session);
-      expect(sessions.current?.mode, CloudWriteMode.reconciling);
-    },
-  );
-
-  test(
-    'source-deleted activation pending stays fenced without auth creation',
-    () async {
-      final sessions = CloudWriteSessionController();
-      final resolver = AccountStartupJournalResolver(
-        sessions: sessions,
-        readReplacement: () async => _replacementJournal(
-          mode: CloudWriteMode.cleanupPending,
-          phase: AccountReplacementPhase.activationPending,
-        ),
-        readDeletion: () async => null,
-      );
-
-      final restored = await resolver.restore(null);
-
-      expect(restored.kind, AccountStartupRestorationKind.replacement);
-      expect(restored.session, isNull);
+      expect(restored.kind, AccountStartupRestorationKind.none);
+      expect(discardCalls, 1);
       expect(sessions.current, isNull);
     },
   );
 
   test(
-    'malformed journal fails closed and never creates a ready session',
+    'an unparseable legacy replacement journal is still discarded',
+    () async {
+      final sessions = CloudWriteSessionController();
+      var discardCalls = 0;
+      final resolver = AccountStartupJournalResolver(
+        sessions: sessions,
+        hasLegacyReplacementJournal: () async => true,
+        discardLegacyReplacement: () async {
+          discardCalls += 1;
+        },
+        readSwitch: () async => null,
+        readDeletion: () async => null,
+      );
+
+      final restored = await resolver.restore(null);
+
+      expect(restored.kind, AccountStartupRestorationKind.none);
+      expect(discardCalls, 1);
+    },
+  );
+
+  test('a pending account switch journal resolves to switchPending', () async {
+    final sessions = CloudWriteSessionController();
+    final resolver = AccountStartupJournalResolver(
+      sessions: sessions,
+      hasLegacyReplacementJournal: () async => false,
+      discardLegacyReplacement: () async {},
+      readSwitch: () async => _switchJournal(),
+      readDeletion: () async => null,
+    );
+
+    final restored = await resolver.restore('anonymous-source');
+
+    expect(restored.kind, AccountStartupRestorationKind.switchPending);
+    expect(sessions.current, isNull);
+  });
+
+  test(
+    'malformed durable state fails closed and never creates a ready session',
     () async {
       final sessions = CloudWriteSessionController();
       final resolver = AccountStartupJournalResolver(
         sessions: sessions,
-        readReplacement: () async => throw const FormatException('invalid'),
+        hasLegacyReplacementJournal: () async => false,
+        discardLegacyReplacement: () async {},
+        readSwitch: () async => throw const FormatException('invalid'),
         readDeletion: () async => null,
       );
 
@@ -70,14 +89,13 @@ void main() {
     },
   );
 
-  test('simultaneous replacement and deletion journals fail closed', () async {
+  test('simultaneous switch and deletion journals fail closed', () async {
     final sessions = CloudWriteSessionController();
     final resolver = AccountStartupJournalResolver(
       sessions: sessions,
-      readReplacement: () async => _replacementJournal(
-        mode: CloudWriteMode.reconciling,
-        phase: AccountReplacementPhase.reconciling,
-      ),
+      hasLegacyReplacementJournal: () async => false,
+      discardLegacyReplacement: () async {},
+      readSwitch: () async => _switchJournal(),
       readDeletion: () async =>
           _deletionJournal(AccountOperationPhase.deletionRequested),
     );
@@ -94,7 +112,9 @@ void main() {
       final sessions = CloudWriteSessionController();
       final resolver = AccountStartupJournalResolver(
         sessions: sessions,
-        readReplacement: () async => null,
+        hasLegacyReplacementJournal: () async => false,
+        discardLegacyReplacement: () async {},
+        readSwitch: () async => null,
         readDeletion: () async =>
             _deletionJournal(AccountOperationPhase.completed),
       );
@@ -119,7 +139,9 @@ void main() {
       );
       final resolver = AccountStartupJournalResolver(
         sessions: sessions,
-        readReplacement: () async => null,
+        hasLegacyReplacementJournal: () async => false,
+        discardLegacyReplacement: () async {},
+        readSwitch: () async => null,
         readDeletion: () async => journal,
         readDeletionStatusReceipt: () async => receipt,
         isDeletionReceiptRecoveryIdentitySafe: (uid) => uid == 'new-anonymous',
@@ -142,7 +164,9 @@ void main() {
       final checkpoint = _deletionJournal(AccountOperationPhase.completed);
       final resolver = AccountStartupJournalResolver(
         sessions: sessions,
-        readReplacement: () async => null,
+        hasLegacyReplacementJournal: () async => false,
+        discardLegacyReplacement: () async {},
+        readSwitch: () async => null,
         readDeletion: () async => null,
         readFeedbackActivation: () async => checkpoint,
       );
@@ -164,7 +188,9 @@ void main() {
       final checkpoint = _deletionJournal(AccountOperationPhase.completed);
       final resolver = AccountStartupJournalResolver(
         sessions: sessions,
-        readReplacement: () async => null,
+        hasLegacyReplacementJournal: () async => false,
+        discardLegacyReplacement: () async {},
+        readSwitch: () async => null,
         readDeletion: () async => checkpoint,
         readFeedbackActivation: () async => checkpoint,
       );
@@ -183,7 +209,9 @@ void main() {
     final sessions = CloudWriteSessionController();
     final resolver = AccountStartupJournalResolver(
       sessions: sessions,
-      readReplacement: () async => null,
+      hasLegacyReplacementJournal: () async => false,
+      discardLegacyReplacement: () async {},
+      readSwitch: () async => null,
       readDeletion: () async =>
           _deletionJournal(AccountOperationPhase.completed),
       readFeedbackActivation: () async => AccountDeletionJournal(
@@ -216,7 +244,9 @@ void main() {
     final journal = _deletionJournal(AccountOperationPhase.deletionRequested);
     final resolver = AccountStartupJournalResolver(
       sessions: sessions,
-      readReplacement: () async => null,
+      hasLegacyReplacementJournal: () async => false,
+      discardLegacyReplacement: () async {},
+      readSwitch: () async => null,
       readDeletion: () async => journal,
     );
 
@@ -240,7 +270,9 @@ void main() {
       );
       final resolver = AccountStartupJournalResolver(
         sessions: sessions,
-        readReplacement: () async => null,
+        hasLegacyReplacementJournal: () async => false,
+        discardLegacyReplacement: () async {},
+        readSwitch: () async => null,
         readDeletion: () async => journal,
         readDeletionStatusReceipt: () async => receipt,
       );
@@ -271,7 +303,9 @@ void main() {
       );
       final resolver = AccountStartupJournalResolver(
         sessions: sessions,
-        readReplacement: () async => null,
+        hasLegacyReplacementJournal: () async => false,
+        discardLegacyReplacement: () async {},
+        readSwitch: () async => null,
         readDeletion: () async => journal,
         readDeletionStatusReceipt: () async => receipt,
       );
@@ -302,7 +336,9 @@ void main() {
       );
       final resolver = AccountStartupJournalResolver(
         sessions: sessions,
-        readReplacement: () async => null,
+        hasLegacyReplacementJournal: () async => false,
+        discardLegacyReplacement: () async {},
+        readSwitch: () async => null,
         readDeletion: () async => journal,
         readDeletionStatusReceipt: () async => receipt,
         isDeletionReceiptRecoveryIdentitySafe: (uid) => uid == 'fresh-anon',
@@ -330,7 +366,9 @@ void main() {
     );
     final resolver = AccountStartupJournalResolver(
       sessions: sessions,
-      readReplacement: () async => null,
+      hasLegacyReplacementJournal: () async => false,
+      discardLegacyReplacement: () async {},
+      readSwitch: () async => null,
       readDeletion: () async => journal,
       readDeletionStatusReceipt: () async => receipt,
     );
@@ -355,7 +393,9 @@ void main() {
       );
       final resolver = AccountStartupJournalResolver(
         sessions: sessions,
-        readReplacement: () async => null,
+        hasLegacyReplacementJournal: () async => false,
+        discardLegacyReplacement: () async {},
+        readSwitch: () async => null,
         readDeletion: () async => null,
         readCloudBackupDeletion: () async => journal,
       );
@@ -369,25 +409,14 @@ void main() {
   );
 }
 
-AccountTransitionJournal _replacementJournal({
-  required CloudWriteMode mode,
-  required AccountReplacementPhase phase,
-}) {
-  final cleanup =
-      phase == AccountReplacementPhase.cleanupPending ||
-      phase == AccountReplacementPhase.activationPending;
-  return AccountTransitionJournal.fromSession(
-    CloudWriteSession(uid: 'anonymous-source', epoch: 8, mode: mode),
-    replacementProvider: 'google',
-    replacementTargetUid: 'durable-target',
-    replacementRequestKey: 'request-key-1',
-    replacementPhase: phase,
-    replacementOperationId: 'replacement-operation-1',
-    replacementOperationVersion: 4,
-    reconciliationOperationId: 'replacement-operation-1',
-    reconciliationCheckpoint: cleanup
-        ? ReconciliationCheckpoint.completed
-        : ReconciliationCheckpoint.remoteRead,
+AccountSwitchJournal _switchJournal() {
+  return const AccountSwitchJournal(
+    version: AccountSwitchJournal.currentVersion,
+    sourceUid: 'anonymous-source',
+    targetUid: 'durable-target',
+    provider: 'google',
+    operationId: 'switch-operation-1',
+    createdAtMillis: 0,
   );
 }
 

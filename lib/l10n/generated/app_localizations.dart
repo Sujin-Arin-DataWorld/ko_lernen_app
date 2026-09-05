@@ -8580,29 +8580,35 @@ abstract class AppL10n {
   /// **'Konto und Lernfortschritt werden sicher geprüft …'**
   String get accountOperationInProgress;
 
-  /// No description provided for @accountOperationResumeTitle.
+  /// Title of the dialog confirming a switch to an existing durable account after a link collision.
   ///
   /// In de, this message translates to:
-  /// **'Kontowechsel fortsetzen'**
-  String get accountOperationResumeTitle;
+  /// **'Mit bestehendem Konto fortfahren?'**
+  String get accountSwitchTitle;
 
-  /// No description provided for @accountOperationResumeBody.
+  /// Explains that confirming signs the user into the existing account and merges local progress into it.
   ///
   /// In de, this message translates to:
-  /// **'Der sichere Kontowechsel ist gespeichert. Deine Daten bleiben geschützt, bis alle Schritte abgeschlossen sind.'**
-  String get accountOperationResumeBody;
+  /// **'Dieses Google- oder Apple-Konto ist bereits mit einem anderen Hangul-Sori-Profil verbunden. Du wirst dort angemeldet, und dein Lernfortschritt von diesem Gerät wird mit dem Konto zusammengeführt.'**
+  String get accountSwitchBody;
 
-  /// No description provided for @accountOperationResume.
+  /// Confirm button label for the account-switch dialog.
   ///
   /// In de, this message translates to:
-  /// **'Fortsetzen'**
-  String get accountOperationResume;
+  /// **'Konto wechseln'**
+  String get accountSwitchConfirm;
 
-  /// No description provided for @accountOperationCancel.
+  /// Title shown after the account switch signed in but the local-progress merge could not complete yet.
   ///
   /// In de, this message translates to:
-  /// **'Wechsel abbrechen'**
-  String get accountOperationCancel;
+  /// **'Angemeldet – Zusammenführung folgt'**
+  String get accountSwitchDeferredTitle;
+
+  /// Explains that the merge will resume automatically on next launch once connected.
+  ///
+  /// In de, this message translates to:
+  /// **'Du bist jetzt mit deinem bestehenden Konto angemeldet. Dein Lernfortschritt von diesem Gerät wird beim nächsten Start zusammengeführt, sobald eine Verbindung besteht.'**
+  String get accountSwitchDeferredBody;
 
   /// No description provided for @accountOperationBlockedTitle.
   ///
