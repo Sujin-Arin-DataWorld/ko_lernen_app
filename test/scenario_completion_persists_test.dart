@@ -30,6 +30,8 @@ import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 
+import 'support/sori_speech_stubs.dart';
+
 const _questWord = '실패 단어';
 const _wrongWord = '오답 단어';
 
@@ -84,6 +86,11 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() async {
+    // ScenarioPlayerScreen은 content_audio_policy_guard_test.dart의 자동
+    // 발화 화면 목록에 있다 — 이 파일의 두 시나리오는 dialog가 비어 있어
+    // 실제로 speak가 걸리지 않지만, auto_speech_test_stub_guard_test.dart는
+    // 정적 스캔이라 실행 여부와 무관하게 스텁 증거를 요구한다(T3 교훈).
+    stubSoriSpeech();
     final view =
         TestWidgetsFlutterBinding.instance.platformDispatcher.views.first;
     view.physicalSize = const Size(480, 900);
