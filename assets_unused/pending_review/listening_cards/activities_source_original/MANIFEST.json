@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "status": "source_archive_not_runtime",
+  "family": "activities-source-original",
+  "profile": "C1-source-original",
+  "sourceRoot": "assets_unused/pending_review/listening_cards/activities_source_original/",
+  "runtimeRoot": "assets/illustrations/activities/",
+  "pipeline": "supplied PNG -> RGB -> LANCZOS 800x600 -> WebP per-asset approved quality method6; no color correction, blur, or added grain",
+  "suppliedCount": 2,
+  "assets": [
+    {
+      "source": "scenarios_source_1448x1086.png",
+      "sourceSha256": "f99aa27d6f04d1b8601bb6336b352b7eb4912d7061045a0e057d2eaac30fb1b1",
+      "sourceBytes": 2727526,
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "promoted": true,
+      "webpQuality": 91,
+      "runtime": "assets/illustrations/activities/scenarios.webp",
+      "runtimeSha256": "18cb3326242d36bc1ce5ca7c7e5a04cfed5495f330a1b380411f5acdad29fdda",
+      "runtimeBytes": 106340,
+      "runtimeSize": [
+        800,
+        600
+      ]
+    },
+    {
+      "source": "Lernaktivität.png",
+      "sourceSha256": "eb9b12a82a8a972de1a490dad71a9efc284380e0a23dcb55db30823536054baf",
+      "sourceBytes": 2743032,
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "promoted": false,
+      "heldBecause": "소비처가 없다 — Lernaktivität 는 독일어 UI 문자열이지 자산 참조가 아니다. 화면이 생기면 승격한다."
+    }
+  ]
+}

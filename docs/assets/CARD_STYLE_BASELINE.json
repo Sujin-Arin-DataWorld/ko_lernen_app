@@ -225,17 +225,18 @@
       ]
     },
     "assets/illustrations/activities/scenarios.webp": {
-      "sha256": "fa8df13eff1dacd1d2f0cda4c3809bd85fd44bbdb6de850fa81b46f7f7311372",
-      "kb": 89.1,
-      "ivoryFrac": 0.594,
-      "fine": 4.676,
-      "coarse": 0.875,
-      "uniqueColors": 41431,
-      "top8": 0.7038,
+      "sha256": "18cb3326242d36bc1ce5ca7c7e5a04cfed5495f330a1b380411f5acdad29fdda",
+      "kb": 103.8,
+      "ivoryFrac": 0.4894,
+      "fine": 2.809,
+      "coarse": 0.545,
+      "uniqueColors": 38282,
+      "top8": 0.7176,
       "patchXY": [
-        264,
-        24
-      ]
+        552,
+        48
+      ],
+      "profile": "C1-source-original"
     },
     "assets/illustrations/activities/sentence_arcade.webp": {
       "sha256": "83ea42125bf1a21000423fff29c10dad079a4527f38fdece270cae4f6c87c312",

@@ -1,0 +1,454 @@
+{
+  "schemaVersion": 1,
+  "status": "pending_visual_and_in_world_approval",
+  "estateId": "ildu-gotaek-v3",
+  "buildingId": "sarangchae",
+  "planVersion": "sarangchae-v1",
+  "canvas": [
+    2512,
+    1680
+  ],
+  "registration": {
+    "centerX": 1250.0,
+    "groundY": 1421,
+    "alphaThreshold": 8
+  },
+  "master": {
+    "file": "stage_12_complete_v3_base.png",
+    "sha256": "f2c01142f465b9353e0b9546a00f167891753039d9c910620d83cd924a077212",
+    "source": "assets_unused/pending_review/personal_hanok_v3/sarangchae_try07_edit.png"
+  },
+  "stages": [
+    {
+      "sequence": 1,
+      "labelKo": "자리 잡기",
+      "stageId": "sarangchae-site",
+      "base": {
+        "file": "stage_01_site.png",
+        "sha256": "2e8d481d7caba49c168a16d99e59737630a4583d49dea8da4e5668736b0440ec",
+        "size": [
+          2512,
+          1680
+        ],
+        "alphaBbox": [
+          38,
+          1057,
+          2462,
+          1421
+        ]
+      },
+      "overlays": [],
+      "compositeSha256": "2e8d481d7caba49c168a16d99e59737630a4583d49dea8da4e5668736b0440ec",
+      "compositeAlphaBbox": [
+        38,
+        1057,
+        2462,
+        1421
+      ]
+    },
+    {
+      "sequence": 2,
+      "labelKo": "초석·돌기단",
+      "stageId": "sarangchae-foundation",
+      "base": {
+        "file": "stage_02_foundation.png",
+        "sha256": "c2548395977a96f89b796546f8c44c8553876c93d4ebbef14b186ff97eb6cab1",
+        "size": [
+          2512,
+          1680
+        ],
+        "alphaBbox": [
+          90,
+          1093,
+          2409,
+          1421
+        ]
+      },
+      "overlays": [],
+      "compositeSha256": "c2548395977a96f89b796546f8c44c8553876c93d4ebbef14b186ff97eb6cab1",
+      "compositeAlphaBbox": [
+        90,
+        1093,
+        2409,
+        1421
+      ]
+    },
+    {
+      "sequence": 3,
+      "labelKo": "앞뒤 기둥·마루틀",
+      "stageId": "sarangchae-posts-floor-frame",
+      "base": {
+        "file": "stage_03_posts_floor.png",
+        "sha256": "da114a061c46c88bb87c8c20dbafa8bac87e206d8e8a1696f6ed6cbc9a5d4baf",
+        "size": [
+          2512,
+          1680
+        ],
+        "alphaBbox": [
+          89,
+          588,
+          2411,
+          1421
+        ]
+      },
+      "overlays": [],
+      "compositeSha256": "da114a061c46c88bb87c8c20dbafa8bac87e206d8e8a1696f6ed6cbc9a5d4baf",
+      "compositeAlphaBbox": [
+        89,
+        588,
+        2411,
+        1421
+      ]
+    },
+    {
+      "sequence": 4,
+      "labelKo": "보·도리",
+      "stageId": "sarangchae-beams-purlins",
+      "base": {
+        "file": "stage_04_beams_purlins.png",
+        "sha256": "5bf51ed6064ae6cfb396d2520da3658b635314aac7fb0cad33d732b1c94254c3",
+        "size": [
+          2512,
+          1680
+        ],
+        "alphaBbox": [
+          60,
+          263,
+          2440,
+          1421
+        ]
+      },
+      "overlays": [],
+      "compositeSha256": "5bf51ed6064ae6cfb396d2520da3658b635314aac7fb0cad33d732b1c94254c3",
+      "compositeAlphaBbox": [
+        60,
+        263,
+        2440,
+        1421
+      ]
+    },
+    {
+      "sequence": 5,
+      "labelKo": "서까래·산자",
+      "stageId": "sarangchae-rafters-sanja",
+      "base": {
+        "file": "stage_05_rafters_sanja.png",
+        "sha256": "03f3226743ccc58906512f4a37cce0e40bddbbede4cbccf9edfbfcb3b379ba39",
+        "size": [
+          2512,
+          1680
+        ],
+        "alphaBbox": [
+          50,
+          231,
+          2451,
+          1421
+        ]
+      },
+      "overlays": [],
+      "compositeSha256": "03f3226743ccc58906512f4a37cce0e40bddbbede4cbccf9edfbfcb3b379ba39",
+      "compositeAlphaBbox": [
+        50,
+        231,
+        2451,
+        1421
+      ]
+    },
+    {
+      "sequence": 6,
+      "labelKo": "지붕바탕",
+      "stageId": "sarangchae-roof-bed",
+      "base": {
+        "file": "stage_06_roof_bed.png",
+        "sha256": "e9008a5df338a70cac598547fa3a563d58b961057d6e2db86d42c4dd81641c38",
+        "size": [
+          2512,
+          1680
+        ],
+        "alphaBbox": [
+          30,
+          257,
+          2469,
+          1421
+        ]
+      },
+      "overlays": [],
+      "compositeSha256": "e9008a5df338a70cac598547fa3a563d58b961057d6e2db86d42c4dd81641c38",
+      "compositeAlphaBbox": [
+        30,
+        257,
+        2469,
+        1421
+      ]
+    },
+    {
+      "sequence": 7,
+      "labelKo": "기와",
+      "stageId": "sarangchae-roof-tiles",
+      "base": {
+        "file": "stage_07_roof_tiles.png",
+        "sha256": "c56bc5e95ad284167a76c4a69fe49b7e2b3b4f96d26619d0665c426a198e0b9e",
+        "size": [
+          2512,
+          1680
+        ],
+        "alphaBbox": [
+          34,
+          270,
+          2467,
+          1421
+        ]
+      },
+      "overlays": [],
+      "compositeSha256": "c56bc5e95ad284167a76c4a69fe49b7e2b3b4f96d26619d0665c426a198e0b9e",
+      "compositeAlphaBbox": [
+        34,
+        270,
+        2467,
+        1421
+      ]
+    },
+    {
+      "sequence": 8,
+      "labelKo": "마루·누마루",
+      "stageId": "sarangchae-floor-numaru",
+      "base": {
+        "file": "stage_08_floor_numaru.png",
+        "sha256": "3e6ca00c440e906871cac9ef4e3b515eb8ff7f46c6c76343388a807c4b5a4728",
+        "size": [
+          2512,
+          1680
+        ],
+        "alphaBbox": [
+          36,
+          236,
+          2465,
+          1421
+        ]
+      },
+      "overlays": [],
+      "compositeSha256": "3e6ca00c440e906871cac9ef4e3b515eb8ff7f46c6c76343388a807c4b5a4728",
+      "compositeAlphaBbox": [
+        36,
+        236,
+        2465,
+        1421
+      ]
+    },
+    {
+      "sequence": 9,
+      "labelKo": "벽체",
+      "stageId": "sarangchae-wall-infill",
+      "base": {
+        "file": "stage_09_wall_infill.png",
+        "sha256": "af351ed3848016b09439fee87d11abfdb0b0b3aea790f75e1aca7bdb08fd464e",
+        "size": [
+          2512,
+          1680
+        ],
+        "alphaBbox": [
+          34,
+          231,
+          2465,
+          1421
+        ]
+      },
+      "overlays": [],
+      "compositeSha256": "af351ed3848016b09439fee87d11abfdb0b0b3aea790f75e1aca7bdb08fd464e",
+      "compositeAlphaBbox": [
+        34,
+        231,
+        2465,
+        1421
+      ]
+    },
+    {
+      "sequence": 10,
+      "labelKo": "창호 설치 중",
+      "stageId": "sarangchae-changho",
+      "base": {
+        "file": "stage_10_changho.png",
+        "sha256": "d35692475e4c5703c43dd0c2927a3251f2d34dfc1232072349faa9e740fa193c",
+        "size": [
+          2512,
+          1680
+        ],
+        "alphaBbox": [
+          42,
+          247,
+          2458,
+          1421
+        ]
+      },
+      "overlays": [
+        {
+          "file": "stage_10_work_props.png",
+          "sha256": "76ada17eb8ae88191825e121154e17ca9031bb9c8ad41ca437093222f333e567",
+          "size": [
+            2512,
+            1680
+          ],
+          "alphaBbox": [
+            1633,
+            991,
+            2047,
+            1421
+          ]
+        }
+      ],
+      "compositeSha256": "aa0dbbec7da5047a35304862fea7f8b7f5532538559479e66e6e7074c08df84f",
+      "compositeAlphaBbox": [
+        42,
+        247,
+        2458,
+        1421
+      ]
+    },
+    {
+      "sequence": 11,
+      "labelKo": "현판 설치",
+      "stageId": "sarangchae-hyeonpan",
+      "base": {
+        "file": "stage_10_changho.png",
+        "sha256": "d35692475e4c5703c43dd0c2927a3251f2d34dfc1232072349faa9e740fa193c",
+        "size": [
+          2512,
+          1680
+        ],
+        "alphaBbox": [
+          42,
+          247,
+          2458,
+          1421
+        ]
+      },
+      "overlays": [
+        {
+          "file": "stage_11_hyeonpan_work.png",
+          "sha256": "af27f65f82f5bf81f0b13508db4a76f825d5ae7308c69dd5e99b5e4de2a1d5d8",
+          "size": [
+            2512,
+            1680
+          ],
+          "alphaBbox": [
+            760,
+            1210,
+            1677,
+            1329
+          ]
+        }
+      ],
+      "compositeSha256": "27441aa0ebbda3658e4b0da540efe06f6d553d784c7e693c3e4c5aeee7a17409",
+      "compositeAlphaBbox": [
+        42,
+        247,
+        2458,
+        1421
+      ]
+    },
+    {
+      "sequence": 12,
+      "labelKo": "완성 V3 사랑채",
+      "stageId": "sarangchae-complete",
+      "base": {
+        "file": "stage_12_complete_v3_base.png",
+        "sha256": "f2c01142f465b9353e0b9546a00f167891753039d9c910620d83cd924a077212",
+        "size": [
+          2512,
+          1680
+        ],
+        "alphaBbox": [
+          42,
+          247,
+          2458,
+          1421
+        ]
+      },
+      "overlays": [
+        {
+          "file": "stage_12_hyeonpan_installed.png",
+          "sha256": "759f062ca1cf43ede7ac14eb0a99e51153d2f043af799bf279cd122db52735ce",
+          "size": [
+            2512,
+            1680
+          ],
+          "alphaBbox": [
+            1038,
+            668,
+            1708,
+            765
+          ]
+        }
+      ],
+      "compositeSha256": "7603777c8b6d87f0ec5a1c6ee24a72884495665c3514d366b360f00a0f602651",
+      "compositeAlphaBbox": [
+        42,
+        247,
+        2458,
+        1421
+      ]
+    }
+  ],
+  "worldReview": {
+    "worldAsset": "assets/illustrations/personal_hanok_v3/world/ildu-wall-masterplan-v1.png",
+    "worldAssetSha256": "6c9438312ed828e8d2afac9bee9af728ad22933de0639dabf30def82bb165b7e",
+    "anchor": {
+      "x": 48.2,
+      "y": 55.8,
+      "width": 29,
+      "rotation": 0
+    },
+    "renderedSpriteSize": [
+      699,
+      467
+    ],
+    "renderedSpriteOffset": [
+      814,
+      1230
+    ]
+  },
+  "reviewArtifacts": [
+    {
+      "file": "qa/sarangchae_12_stage_review.png",
+      "sha256": "2e0f21bcfe316cc994f71df8a4f152368f4fa17344e18a4a473fe1e586a255b9",
+      "size": [
+        3240,
+        920
+      ],
+      "alphaBbox": [
+        0,
+        0,
+        3240,
+        920
+      ]
+    },
+    {
+      "file": "qa/sarangchae_in_world_hyeonpan_review.png",
+      "sha256": "0f9f42a9e3d2e818edeab0f1a505da2cd472dacef16d6045babef52890e54692",
+      "size": [
+        2412,
+        2622
+      ],
+      "alphaBbox": [
+        0,
+        0,
+        2412,
+        2622
+      ]
+    },
+    {
+      "file": "qa/sarangchae_in_world_hyeonpan_detail.png",
+      "sha256": "80bfa8427b3bd5b740eb8b8368b993b5ed38e6247fe223b9e6bb2ad0e9406c44",
+      "size": [
+        1900,
+        1400
+      ],
+      "alphaBbox": [
+        0,
+        0,
+        1900,
+        1400
+      ]
+    }
+  ]
+}
