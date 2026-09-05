@@ -4435,114 +4435,6 @@ abstract class AppL10n {
   /// **'15 Minuten'**
   String get onboardingGoal15min;
 
-  /// No description provided for @onboardingStartEyebrow.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein Einstieg'**
-  String get onboardingStartEyebrow;
-
-  /// No description provided for @onboardingStartTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Wofür willst du Koreanisch können?'**
-  String get onboardingStartTitle;
-
-  /// No description provided for @onboardingStartBody.
-  ///
-  /// In de, this message translates to:
-  /// **'So merken wir uns, womit du anfängst. Das ist kein Test.'**
-  String get onboardingStartBody;
-
-  /// No description provided for @onboardingStartTravelTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Unterwegs in Korea'**
-  String get onboardingStartTravelTitle;
-
-  /// No description provided for @onboardingStartTravelBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Café, Weg fragen, einkaufen, Hilfe holen'**
-  String get onboardingStartTravelBody;
-
-  /// No description provided for @onboardingStartPeopleTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Mit Menschen sprechen'**
-  String get onboardingStartPeopleTitle;
-
-  /// No description provided for @onboardingStartPeopleBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Freunde, Familie und Alltag'**
-  String get onboardingStartPeopleBody;
-
-  /// No description provided for @onboardingStartWorkTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Studium oder Arbeit'**
-  String get onboardingStartWorkTitle;
-
-  /// No description provided for @onboardingStartWorkBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Höflich fragen und mitkommen'**
-  String get onboardingStartWorkBody;
-
-  /// No description provided for @onboardingStartPoint.
-  ///
-  /// In de, this message translates to:
-  /// **'Startpunkt'**
-  String get onboardingStartPoint;
-
-  /// No description provided for @onboardingStartNewTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Ich fange neu an'**
-  String get onboardingStartNewTitle;
-
-  /// No description provided for @onboardingStartNewBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Gleich mit Hören und Sprechen'**
-  String get onboardingStartNewBody;
-
-  /// No description provided for @onboardingStartExistingTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Ich kann schon etwas'**
-  String get onboardingStartExistingTitle;
-
-  /// No description provided for @onboardingStartExistingBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Level wählen oder acht bis zehn Fragen beantworten'**
-  String get onboardingStartExistingBody;
-
-  /// No description provided for @onboardingStartPrimary.
-  ///
-  /// In de, this message translates to:
-  /// **'Meine erste Szene starten'**
-  String get onboardingStartPrimary;
-
-  /// No description provided for @onboardingStartChooseLevel.
-  ///
-  /// In de, this message translates to:
-  /// **'Level wählen'**
-  String get onboardingStartChooseLevel;
-
-  /// No description provided for @onboardingStartLoading.
-  ///
-  /// In de, this message translates to:
-  /// **'Deine erste Szene wird vorbereitet …'**
-  String get onboardingStartLoading;
-
-  /// No description provided for @onboardingStartChangePoint.
-  ///
-  /// In de, this message translates to:
-  /// **'Startpunkt ändern'**
-  String get onboardingStartChangePoint;
-
   /// No description provided for @onboardingFirstSceneTravelCanDo.
   ///
   /// In de, this message translates to:
@@ -4705,29 +4597,11 @@ abstract class AppL10n {
   /// **'Schritt {current} von {total}'**
   String missionContextStep(int current, int total);
 
-  /// No description provided for @onboardingTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Was ist dein Level?'**
-  String get onboardingTitle;
-
-  /// No description provided for @onboardingSubtitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Wir fangen dort an, wo du stehst. Frühere Level bleiben offen, spätere schaltest du frei.'**
-  String get onboardingSubtitle;
-
   /// No description provided for @onboardingLevelA1.
   ///
   /// In de, this message translates to:
   /// **'Anfänger'**
   String get onboardingLevelA1;
-
-  /// No description provided for @onboardingLevelA1Desc.
-  ///
-  /// In de, this message translates to:
-  /// **'Ich fange gerade an'**
-  String get onboardingLevelA1Desc;
 
   /// No description provided for @onboardingLevelA2.
   ///
@@ -4735,23 +4609,11 @@ abstract class AppL10n {
   /// **'Grundkenntnisse'**
   String get onboardingLevelA2;
 
-  /// No description provided for @onboardingLevelA2Desc.
-  ///
-  /// In de, this message translates to:
-  /// **'Begrüßungen, einfache Bestellungen'**
-  String get onboardingLevelA2Desc;
-
   /// No description provided for @onboardingLevelB1.
   ///
   /// In de, this message translates to:
   /// **'Mittelstufe'**
   String get onboardingLevelB1;
-
-  /// No description provided for @onboardingLevelB1Desc.
-  ///
-  /// In de, this message translates to:
-  /// **'Alltagsgespräche klappen schon'**
-  String get onboardingLevelB1Desc;
 
   /// No description provided for @onboardingLevelB2.
   ///
@@ -4759,35 +4621,17 @@ abstract class AppL10n {
   /// **'Fortgeschritten'**
   String get onboardingLevelB2;
 
-  /// No description provided for @onboardingLevelB2Desc.
-  ///
-  /// In de, this message translates to:
-  /// **'Flüssig, auch mit Nuancen'**
-  String get onboardingLevelB2Desc;
-
   /// No description provided for @onboardingLevelC1.
   ///
   /// In de, this message translates to:
   /// **'Kompetent'**
   String get onboardingLevelC1;
 
-  /// No description provided for @onboardingLevelC1Desc.
-  ///
-  /// In de, this message translates to:
-  /// **'Belege, Behörden, feine Unterschiede'**
-  String get onboardingLevelC1Desc;
-
   /// No description provided for @onboardingLevelC2.
   ///
   /// In de, this message translates to:
   /// **'Expertenniveau'**
   String get onboardingLevelC2;
-
-  /// No description provided for @onboardingLevelC2Desc.
-  ///
-  /// In de, this message translates to:
-  /// **'Texte zerlegen und bewusst formulieren'**
-  String get onboardingLevelC2Desc;
 
   /// No description provided for @onboardingExampleA1Trans.
   ///
@@ -4824,72 +4668,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Wer Schweigen als Zustimmung wertet, kann schon durch den Rahmen einer Frage Beteiligung einschränken.'**
   String get onboardingExampleC2Trans;
-
-  /// No description provided for @onboardingSkip.
-  ///
-  /// In de, this message translates to:
-  /// **'Später entscheiden (A1 als Start)'**
-  String get onboardingSkip;
-
-  /// No description provided for @onboardingPrompt.
-  ///
-  /// In de, this message translates to:
-  /// **'Wähle dein Level. Du kannst es später in den Einstellungen ändern.'**
-  String get onboardingPrompt;
-
-  /// No description provided for @onboardingTigerGreeting.
-  ///
-  /// In de, this message translates to:
-  /// **'Willkommen!\nWo möchtest du starten?'**
-  String get onboardingTigerGreeting;
-
-  /// No description provided for @onboardingDifficulty.
-  ///
-  /// In de, this message translates to:
-  /// **'Schwierigkeit'**
-  String get onboardingDifficulty;
-
-  /// No description provided for @onboardingExampleLabel.
-  ///
-  /// In de, this message translates to:
-  /// **'So klingt dieses Level'**
-  String get onboardingExampleLabel;
-
-  /// No description provided for @onboardingCompareCta.
-  ///
-  /// In de, this message translates to:
-  /// **'Unsicher? Level vergleichen'**
-  String get onboardingCompareCta;
-
-  /// No description provided for @onboardingCompareTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Was ändert sich pro Level?'**
-  String get onboardingCompareTitle;
-
-  /// No description provided for @onboardingCompareIntro.
-  ///
-  /// In de, this message translates to:
-  /// **'Frühere Level bleiben offen. Dein Level kannst du jederzeit in den Einstellungen ändern.'**
-  String get onboardingCompareIntro;
-
-  /// No description provided for @onboardingCompareColCan.
-  ///
-  /// In de, this message translates to:
-  /// **'Das kannst du schon'**
-  String get onboardingCompareColCan;
-
-  /// No description provided for @onboardingCompareColLearn.
-  ///
-  /// In de, this message translates to:
-  /// **'Das lernst du hier'**
-  String get onboardingCompareColLearn;
-
-  /// No description provided for @onboardingCompareClose.
-  ///
-  /// In de, this message translates to:
-  /// **'Alles klar'**
-  String get onboardingCompareClose;
 
   /// No description provided for @onboardingLevelA1Can.
   ///
@@ -11897,12 +11675,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Nächste Beta-Mission: {mission}'**
   String testerFeedbackNextMission(String mission);
-
-  /// No description provided for @onboardingDiagnosticCta.
-  ///
-  /// In de, this message translates to:
-  /// **'Unsicher? 8 Fragen beantworten'**
-  String get onboardingDiagnosticCta;
 
   /// No description provided for @placementTitle.
   ///
