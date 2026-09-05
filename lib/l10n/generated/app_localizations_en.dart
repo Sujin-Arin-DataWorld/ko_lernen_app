@@ -3224,10 +3224,6 @@ class AppL10nEn extends AppL10n {
   String get listeningHubEyebrow => 'LISTEN';
 
   @override
-  String get listeningHubBody =>
-      'Pick a shelf and listen to real everyday dialogues.';
-
-  @override
   String get listeningSubtitle => 'Hear a scenario at natural speed';
 
   @override

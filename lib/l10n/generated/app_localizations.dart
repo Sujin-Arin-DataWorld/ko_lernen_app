@@ -5587,12 +5587,6 @@ abstract class AppL10n {
   /// **'HÖREN'**
   String get listeningHubEyebrow;
 
-  /// No description provided for @listeningHubBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Wähle ein Regal und hör dir echte Alltagsdialoge an.'**
-  String get listeningHubBody;
-
   /// No description provided for @listeningSubtitle.
   ///
   /// In de, this message translates to:

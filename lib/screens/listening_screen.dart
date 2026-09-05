@@ -333,7 +333,6 @@ class _ListeningScreenState extends State<ListeningScreen>
             sliver: SoriCollapsingHeader(
               eyebrow: t.listeningHubEyebrow,
               title: t.listeningTitle,
-              body: t.listeningHubBody,
               collapsedTitle: t.listeningTitle,
             ),
           ),
