@@ -1444,7 +1444,8 @@
     "surfaceFormIds": [],
     "sidekick": "christian",
     "grammarIds": [
-      "grammar_c1_family_framing"
+      "grammar_c1_family_framing",
+      "grammar_c1_but_not"
     ],
     "grammarBlock": {
       "title": {
@@ -1497,7 +1498,7 @@
       },
       {
         "speaker": "user",
-        "ko": "실수는 짚고 넘어가야 하지만, 마야 씨 실력을 낮게 보는 건 아닙니다.",
+        "ko": "실수는 짚고 넘어가되, 마야 씨 실력을 낮게 보는 건 아닙니다.",
         "de": "Fehler muss man ansprechen, bevor man weitermacht, aber das heißt nicht, dass ich weniger von Ihren Fähigkeiten halte.",
         "en": "Mistakes need to be addressed before moving on, but that doesn't mean I think less of your ability."
       },
@@ -1549,7 +1550,7 @@
           "promptEn": "Mistakes need to be addressed before moving on, but that doesn't mean I think less of your ability.",
           "options": [
             {
-              "ko": "실수는 짚고 넘어가야 하지만, 마야 씨 실력을 낮게 보는 건 아닙니다."
+              "ko": "실수는 짚고 넘어가되, 마야 씨 실력을 낮게 보는 건 아닙니다."
             },
             {
               "ko": "네, 어제 낸 캠페인 보고서 말씀이시죠?"
