@@ -18,7 +18,7 @@ import 'package:ko_lernen_app/services/tts_service.dart';
 /// 사이에 `TtsCanonicalManifest.contains` 게이트를 새로 둔다 — 미검수
 /// 텍스트는 (allowSynthesis:false 일 때) 디스크/Storage 를 아예 건드리지
 /// 않고 곧장 null 을 반환한다. 그래서 이 텍스트는 (a) 번들 1단엔 없고
-/// (assets/data/tts_first_line_manifest.json 의 126개 시나리오 첫 대사가
+/// (assets/data/tts_first_line_manifest.json 의 151개 시나리오 첫 대사가
 /// 아니고) (b) canonical manifest(assets/data/tts_canonical_manifest.json)
 /// 에는 있는 — grammar.csv 예문(번들 대상이 아닌 검수 완료 문구) — 이어야
 /// 한다. `디스크 히트 테스트`는 canonical manifest에 없어 이 게이트에서

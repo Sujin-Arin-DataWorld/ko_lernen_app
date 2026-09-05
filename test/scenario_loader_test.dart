@@ -52,7 +52,7 @@ void main() {
       ScenarioLoader.reset();
       final list = await ScenarioLoader.load();
       expect(ScenarioLoader.lastError, isNull);
-      expect(list, hasLength(126));
+      expect(list, hasLength(151));
       // A canonical scene with a pragmatic note survives parsing.
       final bakeryQueue = list.where((s) => s.id == 'bakery_queue');
       expect(bakeryQueue, isNotEmpty);

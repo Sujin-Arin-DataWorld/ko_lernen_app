@@ -50,7 +50,7 @@ class ShelfAssignmentTest(unittest.TestCase):
     def test_assignment_covers_the_live_corpus_exactly(self) -> None:
         live = _live_levels()
         scenarios = scenario_store.load_scenarios(DATA)
-        self.assertEqual(len(live), 126)
+        self.assertEqual(len(live), 151)
         for item in scenarios:
             shelf = str(item.get("shelf") or "")
             self.assertIn(shelf, ALL_SHELVES, item["id"])
@@ -60,7 +60,7 @@ class ShelfAssignmentTest(unittest.TestCase):
         self.assertTrue(set(ASSIGNMENT).issubset(ALL_SHELVES))
         # The appendix remains an immutable migration map for the retired
         # legacy corpus; current canonical scenarios carry their own shelf.
-        self.assertEqual(len(SHELF_BY_ID), 419)
+        self.assertEqual(len(SHELF_BY_ID), 444)
 
     def test_interest_shelves_are_stocked_at_every_level(self) -> None:
         # 관심 3칸은 Batch 11 승격으로 전 레벨이 채워졌다.  한 레벨이라도 비면
