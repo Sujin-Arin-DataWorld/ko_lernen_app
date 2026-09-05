@@ -11,6 +11,8 @@ import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+final AppL10n _l10n = lookupAppL10n(const Locale('en'));
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -132,10 +134,7 @@ void main() {
     await tester.tap(find.text('See result'));
     await tester.pump();
     expect(find.text('1 of 1 correct'), findsOneWidget);
-    expect(
-      find.text('This practice does not change your course progress.'),
-      findsOneWidget,
-    );
+    expect(find.text(_l10n.grammarChoicePracticeOnly), findsOneWidget);
     expect(Storage.grammarHard, isEmpty);
     expect(Storage.xp, 0);
     expect(Storage.srsRawJson, beforeSrs);

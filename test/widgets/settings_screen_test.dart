@@ -27,6 +27,8 @@ import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 
+final AppL10n _l10n = lookupAppL10n(const Locale('de'));
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   late ValueNotifier<CloudBackupDeletionJournalState> cloudJournalState;
@@ -269,7 +271,7 @@ void main() {
       );
       settingsScroll.position.jumpTo(settingsScroll.position.minScrollExtent);
       await tester.pump();
-      final courseStart = find.text('Startpunkt im Kurs');
+      final courseStart = find.text(_l10n.settingsCourseStartTitle);
       await _ensureSettingsActionVisible(tester, courseStart);
       final courseTile = tester.widget<ListTile>(
         find.ancestor(of: courseStart, matching: find.byType(ListTile)),

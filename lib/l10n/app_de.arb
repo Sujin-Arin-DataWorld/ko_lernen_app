@@ -135,10 +135,10 @@
   "settingsNotifDenied": "Benachrichtigungen sind deaktiviert. Erlaube sie in den Systemeinstellungen.",
   "notificationTitle": "Hangul Sori",
   "notificationBody": "Taego wartet schon. Zeit für Koreanisch! 🐯",
-  "homeCourseTitle": "Dein Tageskurs",
+  "homeCourseTitle": "Dein Lernpfad heute",
   "homeCourseDesc": "Auf deine Schwächen & Interessen zugeschnitten",
   "settingsInterestsTitle": "Interessen",
-  "settingsInterestsSubtitle": "Themen für deinen Tageskurs",
+  "settingsInterestsSubtitle": "Themen für deinen Lernpfad",
   "interestsSheetTitle": "Was interessiert dich?",
   "interestEveryday": "Alltag",
   "interestFoodShopping": "Essen & Einkaufen",
@@ -1467,7 +1467,7 @@
   "scenarioCanDoReviewTitle": "Noch nicht sicher.",
   "scenarioCanDoReviewBody": "Dieser Checkpoint wurde gespeichert, liegt aber unter der bestätigten Schwelle dieser Mission. Übe die Szene noch einmal.",
   "scenarioCanDoPracticeTitle": "Übung gespeichert.",
-  "scenarioCanDoPracticeBody": "Diese Szene ist als Übung gespeichert und verändert deinen Kurs-Schritt nicht.",
+  "scenarioCanDoPracticeBody": "Diese Szene ist als Übung gespeichert und verändert deinen Lernpfad-Schritt nicht.",
   "scenarioXpEarned": "+{xp} XP",
   "@scenarioXpEarned": {
     "placeholders": {
@@ -2296,7 +2296,7 @@
     }
   },
   "wordWebEmptyTitle": "Noch kein Netz",
-  "wordWebEmptyBody": "Lerne Wörter in einem Paket, im Kurs oder in einem Spiel. Dann erscheinen hier Nachbarn, Gegenteile und Wendungen zu genau diesen Wörtern.",
+  "wordWebEmptyBody": "Lerne Wörter in einem Paket, im Lernpfad oder in einem Spiel. Dann erscheinen hier Nachbarn, Gegenteile und Wendungen zu genau diesen Wörtern.",
   "wordWebLoadErrorTitle": "Netz nicht geladen",
   "wordWebLoadErrorBody": "Die Nuancen-Datei konnte nicht gelesen werden. Das ist kein leerer Lernstand. Versuch es noch einmal.",
   "wordWebBrowseLevelCta": "Wörter auf meinem Niveau ansehen",
@@ -2431,7 +2431,7 @@
       }
     }
   },
-  "pathTitle": "Dein Weg",
+  "pathTitle": "Lernpfad",
   "pathHanokStage": "Hanok · Stufe {n}/12",
   "@pathHanokStage": {
     "placeholders": {
@@ -2465,7 +2465,7 @@
   "pathStoryTitle": "Du baust vom Begrüßen zum Leben.",
   "pathStoryBody": "Jeder Abschnitt endet mit einer Situation, die du selbst lösen kannst.",
   "pathOpenCurrentMission": "Aktuelle Mission öffnen",
-  "pathCourseMissionsTitle": "Kursmissionen",
+  "pathCourseMissionsTitle": "Lernpfad-Missionen",
   "pathCourseMissionsBody": "Ein klarer nächster Schritt verbindet Wortschatz, Grammatik, Spiele und Szenarien.",
   "pathStatusCurrent": "weiter",
   "pathStatusCompleted": "fertig",
@@ -2552,9 +2552,9 @@
   "profileLearningGoalNotSet": "Wähle, was dich zum Koreanischen bringt",
   "profileLearningStartPoint": "Mein Startpunkt",
   "profileLearningStartPointConfirmTitle": "Startpunkt ändern?",
-  "profileLearningStartPointConfirmBody": "Dabei werden dein bisheriger Kursfortschritt, abgeschlossene Einheiten, Übungsnachweise und Szenen-Checks zurückgesetzt. Gespeicherte Vokabeln und Kontodaten bleiben erhalten.",
+  "profileLearningStartPointConfirmBody": "Dabei werden dein bisheriger Lernpfad-Fortschritt, abgeschlossene Einheiten, Übungsnachweise und Szenen-Checks zurückgesetzt. Gespeicherte Vokabeln und Kontodaten bleiben erhalten.",
   "profileLearningStartPointConfirmCancel": "Abbrechen",
-  "profileLearningStartPointConfirmAction": "Ändern und Kursfortschritt zurücksetzen",
+  "profileLearningStartPointConfirmAction": "Ändern und Lernpfad-Fortschritt zurücksetzen",
   "profileLearningStartPointChangeFailed": "Der Startpunkt konnte nicht geändert werden. Versuche es erneut.",
   "profileLearningCompanion": "Lernbegleitung",
   "profileSpaceSection": "Mein Raum",
@@ -2769,7 +2769,7 @@
       }
     }
   },
-  "grammarChoicePracticeOnly": "Diese Übung verändert deinen Kursfortschritt nicht.",
+  "grammarChoicePracticeOnly": "Diese Übung verändert deinen Lernpfad-Fortschritt nicht.",
   "grammarChoiceAgain": "Neue Runde",
   "grammarChoiceBack": "Zur Grammatik",
   "grammarChoiceUnavailableTitle": "Noch keine Übung verfügbar",
@@ -2829,7 +2829,7 @@
   "gyePromiseDirectionsTitle": "Lasst drei Personen nach dem Weg fragen üben.",
   "gyePromiseSelfIntroductionTitle": "Lasst drei Personen sich vorstellen üben.",
   "gyePromiseBody": "Jede Person hilft mit einer abgeschlossenen, passenden Lernhandlung.",
-  "gyePromiseEligibility": "Als Beitrag zählt nur die passende kursgebundene Szene mit mindestens 70 %.",
+  "gyePromiseEligibility": "Als Beitrag zählt nur die passende Lernpfad-Szene mit mindestens 70 %.",
   "gyePromiseProgress": "{done} von {target} Laternen leuchten",
   "@gyePromiseProgress": {
     "placeholders": {
@@ -2841,7 +2841,7 @@
       }
     }
   },
-  "gyePromiseRemaining": "Noch {count} {count, plural, =1{kursgebundener Szenenbeitrag} other{kursgebundene Szenenbeiträge}} diese Woche",
+  "gyePromiseRemaining": "Noch {count} {count, plural, =1{Lernpfad-Szenenbeitrag} other{Lernpfad-Szenenbeiträge}} diese Woche",
   "@gyePromiseRemaining": {
     "placeholders": {
       "count": {
@@ -3349,8 +3349,8 @@
   },
   "placementChooseYourself": "Oder selbst wählen",
   "courseMissionTitle": "Deine nächste Mission",
-  "courseMissionTitleShort": "Kursmission",
-  "courseMissionLoadError": "Die Kursdaten konnten nicht geladen werden.",
+  "courseMissionTitleShort": "Lernpfad-Mission",
+  "courseMissionLoadError": "Die Lernpfad-Daten konnten nicht geladen werden.",
   "courseMissionCompleteTitle": "Mission abgeschlossen",
   "courseMissionCompleteBody": "Du hast alle Lernschritte dieser Mission abgeschlossen.",
   "courseMissionNow": "jetzt",
@@ -3500,7 +3500,7 @@
   "courseReassessmentOralUnavailableTitle": "Verifizierter Sprechnachweis ist noch nicht verfügbar",
   "courseReassessmentOralUnavailableBody": "Die aktuelle zehnsekündige Nachsprechübung trainiert nur die Aussprache und darf dieses Fähigkeitssiegel nicht vergeben. Eine eigene 45- bis 120-sekündige freie Sprechprüfung wird erst nach Prüfung von Einwilligung, Datenschutz und Bewertung freigeschaltet.",
   "courseReassessmentPrerequisiteTitle": "Ein früherer Nachweis fehlt noch",
-  "courseReassessmentPrerequisiteBody": "Schließe zuerst den verknüpften Nachweis ab. Dein Kurszeiger wird dabei nicht zurückgesetzt.",
+  "courseReassessmentPrerequisiteBody": "Schließe zuerst den verknüpften Nachweis ab. Dein Lernpfad-Zeiger wird dabei nicht zurückgesetzt.",
   "courseReassessmentOpenPrerequisite": "Fehlenden Nachweis öffnen",
   "courseReassessmentPassedTitle": "Nachweis bestanden",
   "courseReassessmentPassedBody": "{score} %. Nur das Ergebnis und seine genaue Aufgabenherkunft wurden gespeichert.",
@@ -3524,7 +3524,7 @@
   "courseReassessmentRetry": "Antwort überarbeiten",
   "courseReassessmentFinish": "Fertig",
   "courseReassessmentCompleteTitle": "Sprechen und Schreiben bestätigt",
-  "courseReassessmentCompleteBody": "Alle erforderlichen produktiven Nachweise für diese Fähigkeit sind geprüft. Deine Kursposition ist unverändert geblieben.",
+  "courseReassessmentCompleteBody": "Alle erforderlichen produktiven Nachweise für diese Fähigkeit sind geprüft. Deine Lernpfad-Position ist unverändert geblieben.",
   "courseReassessmentModeGuidedProduction": "Geführte eigene Antwort",
   "courseReassessmentModeDictation": "Diktat",
   "courseReassessmentModeConnectedProduction": "Zusammenhängend schreiben",
@@ -3674,7 +3674,7 @@
     }
   },
   "hanokNarrativeStarting": "Bau: {stage}. Beginne mit deiner ersten Szene.",
-  "hanokNarrativeMaterialSource": "Kursszenen formen die Struktur. Pakete, Wiederholungen und Quests fügen Material und Dekor hinzu.",
+  "hanokNarrativeMaterialSource": "Lernpfad-Szenen formen die Struktur. Pakete, Wiederholungen und Quests fügen Material und Dekor hinzu.",
   "@hanokNarrativeStarting": {
     "placeholders": {
       "stage": {
@@ -4299,7 +4299,7 @@
   "soriStageActivityInProgress": "In Arbeit",
   "soriStageActivityCompleted": "Abgeschlossen",
   "soriStageActivityNew": "Neu",
-  "soriStageActivityTitle": "{activityId, select, course{Kurs} hangul{Hangul} calligraphy{Buchstabe des Tages} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{Wiederholen} hard_words{Schwierige Wörter} word_web{Nuancen & Gegenteile} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} vocab_notebook{Vokabelheft} bookshelf{Bücherregal} word_search{Wortsuche} my_words{Meine Wörter} daily_game{Tageschallenge} chosung{Anlaut-Quiz} syllable_cross{Silben-Rätsel} cloze{Lückentext} speed_match{Blitz-Paare} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_quiz{Eigenes Quiz} custom_matching{Eigenes Matching} custom_typing{Eigenes Tippen} other{Lernaktivität}}}",
+  "soriStageActivityTitle": "{activityId, select, course{Lernpfad} hangul{Hangul} calligraphy{Buchstabe des Tages} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{Wiederholen} hard_words{Schwierige Wörter} word_web{Nuancen & Gegenteile} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} vocab_notebook{Vokabelheft} bookshelf{Bücherregal} word_search{Wortsuche} my_words{Meine Wörter} daily_game{Tageschallenge} chosung{Anlaut-Quiz} syllable_cross{Silben-Rätsel} cloze{Lückentext} speed_match{Blitz-Paare} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_quiz{Eigenes Quiz} custom_matching{Eigenes Matching} custom_typing{Eigenes Tippen} other{Lernaktivität}}}",
   "@soriStageActivityTitle": {
     "placeholders": {
       "activityId": {
@@ -4520,7 +4520,7 @@
   "onboardingV2Next": "Weiter",
   "onboardingV2Loading": "Deine Anleitung wird vorbereitet …",
   "onboardingV2Saving": "Deine Auswahl wird gespeichert …",
-  "onboardingV2CourseHistoryConflict": "Zu diesem Kursstart gibt es bereits Lernfortschritt. Behalte zum Abschließen der Einrichtung die aktuelle Stufe; später kannst du den Kurs in den Einstellungen ausdrücklich neu starten.",
+  "onboardingV2CourseHistoryConflict": "Zu diesem Lernpfad-Start gibt es bereits Lernfortschritt. Behalte zum Abschließen der Einrichtung die aktuelle Stufe; später kannst du den Lernpfad in den Einstellungen ausdrücklich neu starten.",
   "onboardingV2StoryFinish": "Meinen Start auswählen",
   "onboardingV2StoryProgress": "Seite {current} von {total}",
   "@onboardingV2StoryProgress": {
@@ -4696,7 +4696,7 @@
   "onboardingV2SetupLearnHereLabel": "Damit beginnst du hier",
   "onboardingV2SetupCompareAction": "Level vergleichen",
   "onboardingV2SetupCompareTitle": "Welcher Startpunkt passt?",
-  "onboardingV2SetupCompareBody": "Deine Wahl ist dein Lernstart, kein Kenntnisnachweis; Kurs-Start und Stöber-Level bleiben später einzeln änderbar.",
+  "onboardingV2SetupCompareBody": "Deine Wahl ist dein Lernstart, kein Kenntnisnachweis; Lernpfad-Start und Stöber-Level bleiben später einzeln änderbar.",
   "onboardingV2SetupCompareClose": "Vergleich schließen",
   "onboardingV2SetupContinue": "Auswahl übernehmen",
   "onboardingV2LevelA1ExampleKo": "안녕하세요.",
@@ -4729,10 +4729,10 @@
   "onboardingV2ConfirmationStart": "Gemeinsam starten",
   "onboardingV2ConfirmationChange": "Anderen Lernfreund wählen",
   "settingsLearningLevelsSection": "Lernstufen",
-  "settingsCourseStartTitle": "Startpunkt im Kurs",
-  "settingsCourseStartDescription": "Legt fest, wo dein fortlaufender Kurs beginnt. Eine neue Wahl ersetzt den aktuellen Kurspfad; frühere Einheiten gelten dadurch weder als beherrscht noch erhältst du XP oder Belohnungen.",
+  "settingsCourseStartTitle": "Startpunkt im Lernpfad",
+  "settingsCourseStartDescription": "Legt fest, wo dein fortlaufender Lernpfad beginnt. Eine neue Wahl ersetzt den aktuellen Lernpfad; frühere Einheiten gelten dadurch weder als beherrscht noch erhältst du XP oder Belohnungen.",
   "settingsBrowseLevelTitle": "Stufe zum Stöbern",
-  "settingsBrowseLevelDescription": "Filtert nur Bibliotheken und Szenarien. Dein Kursfortschritt bleibt unverändert.",
+  "settingsBrowseLevelDescription": "Filtert nur Bibliotheken und Szenarien. Dein Lernpfad-Fortschritt bleibt unverändert.",
   "settingsRecheckLevelTitle": "Mein Level neu einschätzen",
   "settingsRecheckLevelDescription": "Mache freiwillig einen Test mit acht Aufgaben. Das Ergebnis ist eine Empfehlung; den Startpunkt wählst weiterhin du.",
   "settingsCompanionVisibleTitle": "Lernfreund anzeigen",
@@ -4740,8 +4740,8 @@
   "settingsGuideSection": "App-Anleitung",
   "settingsGuideTitle": "Hangul-Sori-Anleitung öffnen",
   "settingsGuideDescription": "Sieh jederzeit nach, wie Lernen, Spiele, gespeicherte Inhalte, Belohnungen, dein Buch und wichtige Einstellungen funktionieren.",
-  "settingsCourseStartConfirmTitle": "Startpunkt im Kurs ändern?",
-  "settingsCourseStartConfirmDescription": "Dein fortlaufender Kurs startet bei {level} neu und ersetzt den bisherigen Kursfortschritt. Andere Übungsdaten, XP, Belohnungen und Sammlungen bleiben erhalten; frühere Einheiten gelten nicht als abgeschlossen.",
+  "settingsCourseStartConfirmTitle": "Startpunkt im Lernpfad ändern?",
+  "settingsCourseStartConfirmDescription": "Dein fortlaufender Lernpfad startet bei {level} neu und ersetzt den bisherigen Lernpfad-Fortschritt. Andere Übungsdaten, XP, Belohnungen und Sammlungen bleiben erhalten; frühere Einheiten gelten nicht als abgeschlossen.",
   "@settingsCourseStartConfirmDescription": {
     "placeholders": {
       "level": {
@@ -4779,7 +4779,7 @@
     }
   },
   "guideModulePersonalizedStartStep1": "Dein Lernziel ändert die Reihenfolge der Empfehlungen und dieser Startliste. Schwierigkeit, XP und Belohnungen bleiben gleich.",
-  "guideModulePersonalizedStartStep2": "Der Kurs-Startpunkt setzt nach deiner Bestätigung fest, wo dein Kurs beginnt. Die Stufe zum Stöbern filtert nur Bibliotheken und Szenarien.",
+  "guideModulePersonalizedStartStep2": "Der Lernpfad-Startpunkt setzt nach deiner Bestätigung fest, wo dein Lernpfad beginnt. Die Stufe zum Stöbern filtert nur Bibliotheken und Szenarien.",
   "guideModuleLearnStep1": "Hangeul-Übersicht, Karten und Schreiben sind getrennte Reiter. Öffne nur die Übung, die du gerade brauchst.",
   "guideModuleLearnStep2": "Unter Lernen findest du außerdem Hören, Aussprache und Szenarien nach Level. Kategorien stammen aus dem aktuellen Katalog; diese Anleitung erfindet keine Zuordnung.",
   "guideModuleLearnStep3": "Ein Zielbereich kann seinen eigenen kontextbezogenen Hinweis einblenden. Die Anleitung schickt dich nie automatisch durch mehrere Bereiche und setzt bereits abgeschlossene Hinweise nicht zurück.",
@@ -4792,10 +4792,10 @@
   "guideModuleGamesStep1": "Hinweise helfen während eines Spiels. Ihre Nutzung zählt aber nicht als selbstständiger Abruf oder als Beherrschung.",
   "guideModuleGamesStep2": "XP, persönliche Rekorde und Quest-Fortschritt entstehen nur durch unterstützte abgeschlossene Aktivitäten. Das Ansehen dieser Anleitung vergibt nichts.",
   "guideModuleGamesStep3": "Stempel können mit Bojagi und Dekorationen verbunden sein. Im Hanok-Bereich siehst du das derzeit verfügbare Stempelbuch, Inventar und die Raumgestaltung.",
-  "guideModuleSettingsStep1": "Kurs-Startpunkt und Stufe zum Stöbern sind getrennte Einstellungen: Die eine ändert den Kurs nach Bestätigung, die andere nur Inhaltsfilter.",
+  "guideModuleSettingsStep1": "Lernpfad-Startpunkt und Stufe zum Stöbern sind getrennte Einstellungen: Die eine ändert den Lernpfad nach Bestätigung, die andere nur Inhaltsfilter.",
   "guideModuleSettingsStep2": "Ausgewählte Figur und Figurenanzeige sind getrennt. Du kannst Taego oder Joy behalten und die Figur auf dem Bildschirm ausblenden.",
   "guideModuleSettingsStep3": "Lege das allgemeine Sprechtempo in den Einstellungen fest. Unterstützte Audioseiten haben zusätzlich einen Geschwindigkeits-Chip; die App-Anleitung kannst du jederzeit in den Einstellungen erneut öffnen.",
-  "guideModuleActionCourseStart": "Kurs-Startpunkt",
+  "guideModuleActionCourseStart": "Lernpfad-Startpunkt",
   "guideModuleActionBrowseLevel": "Stufe zum Stöbern",
   "guideModuleActionHangulOverview": "Hangeul-Übersicht",
   "guideModuleActionHangulCards": "Hangeul-Karten",
@@ -4809,7 +4809,7 @@
   "guideModuleActionVoiceSpeed": "Sprechtempo",
   "guideModuleActionGuideSettings": "App-Anleitung in den Einstellungen",
   "guideTopicPersonalizedStartTitle": "Ein Start, der zu mir passt",
-  "guideTopicPersonalizedStartDescription": "Erfahre, wie dein Ziel die Startliste und Empfehlungen sortiert und warum Kurs-Startpunkt und Stufe zum Stöbern verschieden sind.",
+  "guideTopicPersonalizedStartDescription": "Erfahre, wie dein Ziel die Startliste und Empfehlungen sortiert und warum Lernpfad-Startpunkt und Stufe zum Stöbern verschieden sind.",
   "guideTopicLearnTitle": "Lernen",
   "guideTopicLearnDescription": "Finde Hangeul-Zeichen, Schreiben, Hören, Aussprache sowie Szenarien und Kategorien für dein Level.",
   "guideTopicMyBookTitle": "Mein Buch",
@@ -4819,7 +4819,7 @@
   "guideTopicGamesAndRewardsTitle": "Spielen und Belohnungen",
   "guideTopicGamesAndRewardsDescription": "Sieh, wie Hinweise, XP, persönliche Rekorde, Quests, Stempel, Bojagi, Accessoires und Raumgestaltung mit echten Lernaktivitäten zusammenhängen.",
   "guideTopicSettingsTitle": "Meine Einstellungen",
-  "guideTopicSettingsDescription": "Ändere Kurs-Startpunkt, Stufe zum Stöbern, Figur, Figurenanzeige und Sprechtempo in den Einstellungen. Auf unterstützten Audioseiten kannst du das Tempo außerdem direkt über den Geschwindigkeits-Chip ändern oder diese Anleitung erneut öffnen.",
+  "guideTopicSettingsDescription": "Ändere Lernpfad-Startpunkt, Stufe zum Stöbern, Figur, Figurenanzeige und Sprechtempo in den Einstellungen. Auf unterstützten Audioseiten kannst du das Tempo außerdem direkt über den Geschwindigkeits-Chip ändern oder diese Anleitung erneut öffnen.",
   "studyLibraryAppBarTitle": "Lernsammlung",
   "studyLibraryEyebrow": "FAVORITEN & GESPEICHERT",
   "studyLibraryTitle": "Alles, was du behalten möchtest",

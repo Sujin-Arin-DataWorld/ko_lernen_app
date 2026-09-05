@@ -11,6 +11,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'support/sori_stage_pump.dart';
 
+final AppL10n _l10n = lookupAppL10n(const Locale('en'));
+
 void main() {
   testWidgets('catalog shows a receipt after returning with a real delta', (
     tester,
@@ -52,8 +54,9 @@ void main() {
     // §C-1-11 히어로 카드(단어팩 대형 진입)가 상단에 추가되어 'Course' 타일이
     // 기본 뷰포트의 lazy sliver 밖에 있을 수 있다 — 빌드시킨 뒤(scrollUntil)
     // 뷰포트 안으로 정렬(ensureVisible)하고 탭.
+    final courseTile = _l10n.soriStageActivityTitle('course');
     await tester.scrollUntilVisible(
-      find.text('Course'),
+      find.text(courseTile),
       200,
       scrollable: find.byType(Scrollable).first,
     );
@@ -61,7 +64,7 @@ void main() {
     // 그 자리는 이제 SoriCollapsingHeader의 pinned 56dp 크롬 바 밑이라 탭이
     // 안 먹는다. alignment 0.5(가운데 정렬)로 그 밴드를 확실히 벗어난다.
     await Scrollable.ensureVisible(
-      tester.element(find.text('Course')),
+      tester.element(find.text(courseTile)),
       alignment: 0.5,
     );
     await pumpSoriStage(tester);
@@ -76,7 +79,7 @@ void main() {
     // 진짜 존(zone) 안에서 tap 을 실행해 그 이어달리기를 진짜 이벤트 루프에
     // 묶는다.
     await tester.runAsync(() async {
-      await tester.tap(find.text('Course'));
+      await tester.tap(find.text(courseTile));
       await tester.pump();
     });
     await pumpSoriStage(tester);

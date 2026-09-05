@@ -326,7 +326,7 @@ class AppL10nDe extends AppL10n {
   String get notificationBody => 'Taego wartet schon. Zeit für Koreanisch! 🐯';
 
   @override
-  String get homeCourseTitle => 'Dein Tageskurs';
+  String get homeCourseTitle => 'Dein Lernpfad heute';
 
   @override
   String get homeCourseDesc => 'Auf deine Schwächen & Interessen zugeschnitten';
@@ -335,7 +335,7 @@ class AppL10nDe extends AppL10n {
   String get settingsInterestsTitle => 'Interessen';
 
   @override
-  String get settingsInterestsSubtitle => 'Themen für deinen Tageskurs';
+  String get settingsInterestsSubtitle => 'Themen für deinen Lernpfad';
 
   @override
   String get interestsSheetTitle => 'Was interessiert dich?';
@@ -2950,7 +2950,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get scenarioCanDoPracticeBody =>
-      'Diese Szene ist als Übung gespeichert und verändert deinen Kurs-Schritt nicht.';
+      'Diese Szene ist als Übung gespeichert und verändert deinen Lernpfad-Schritt nicht.';
 
   @override
   String scenarioXpEarned(int xp) {
@@ -4421,7 +4421,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get wordWebEmptyBody =>
-      'Lerne Wörter in einem Paket, im Kurs oder in einem Spiel. Dann erscheinen hier Nachbarn, Gegenteile und Wendungen zu genau diesen Wörtern.';
+      'Lerne Wörter in einem Paket, im Lernpfad oder in einem Spiel. Dann erscheinen hier Nachbarn, Gegenteile und Wendungen zu genau diesen Wörtern.';
 
   @override
   String get wordWebLoadErrorTitle => 'Netz nicht geladen';
@@ -4647,7 +4647,7 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String get pathTitle => 'Dein Weg';
+  String get pathTitle => 'Lernpfad';
 
   @override
   String pathHanokStage(int n) {
@@ -4690,7 +4690,7 @@ class AppL10nDe extends AppL10n {
   String get pathOpenCurrentMission => 'Aktuelle Mission öffnen';
 
   @override
-  String get pathCourseMissionsTitle => 'Kursmissionen';
+  String get pathCourseMissionsTitle => 'Lernpfad-Missionen';
 
   @override
   String get pathCourseMissionsBody =>
@@ -4857,14 +4857,14 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get profileLearningStartPointConfirmBody =>
-      'Dabei werden dein bisheriger Kursfortschritt, abgeschlossene Einheiten, Übungsnachweise und Szenen-Checks zurückgesetzt. Gespeicherte Vokabeln und Kontodaten bleiben erhalten.';
+      'Dabei werden dein bisheriger Lernpfad-Fortschritt, abgeschlossene Einheiten, Übungsnachweise und Szenen-Checks zurückgesetzt. Gespeicherte Vokabeln und Kontodaten bleiben erhalten.';
 
   @override
   String get profileLearningStartPointConfirmCancel => 'Abbrechen';
 
   @override
   String get profileLearningStartPointConfirmAction =>
-      'Ändern und Kursfortschritt zurücksetzen';
+      'Ändern und Lernpfad-Fortschritt zurücksetzen';
 
   @override
   String get profileLearningStartPointChangeFailed =>
@@ -5326,7 +5326,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get grammarChoicePracticeOnly =>
-      'Diese Übung verändert deinen Kursfortschritt nicht.';
+      'Diese Übung verändert deinen Lernpfad-Fortschritt nicht.';
 
   @override
   String get grammarChoiceAgain => 'Neue Runde';
@@ -5513,7 +5513,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get gyePromiseEligibility =>
-      'Als Beitrag zählt nur die passende kursgebundene Szene mit mindestens 70 %.';
+      'Als Beitrag zählt nur die passende Lernpfad-Szene mit mindestens 70 %.';
 
   @override
   String gyePromiseProgress(int done, int target) {
@@ -5525,8 +5525,8 @@ class AppL10nDe extends AppL10n {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'kursgebundene Szenenbeiträge',
-      one: 'kursgebundener Szenenbeitrag',
+      other: 'Lernpfad-Szenenbeiträge',
+      one: 'Lernpfad-Szenenbeitrag',
     );
     return 'Noch $count $_temp0 diese Woche';
   }
@@ -6815,11 +6815,11 @@ class AppL10nDe extends AppL10n {
   String get courseMissionTitle => 'Deine nächste Mission';
 
   @override
-  String get courseMissionTitleShort => 'Kursmission';
+  String get courseMissionTitleShort => 'Lernpfad-Mission';
 
   @override
   String get courseMissionLoadError =>
-      'Die Kursdaten konnten nicht geladen werden.';
+      'Die Lernpfad-Daten konnten nicht geladen werden.';
 
   @override
   String get courseMissionCompleteTitle => 'Mission abgeschlossen';
@@ -7058,7 +7058,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get courseReassessmentPrerequisiteBody =>
-      'Schließe zuerst den verknüpften Nachweis ab. Dein Kurszeiger wird dabei nicht zurückgesetzt.';
+      'Schließe zuerst den verknüpften Nachweis ab. Dein Lernpfad-Zeiger wird dabei nicht zurückgesetzt.';
 
   @override
   String get courseReassessmentOpenPrerequisite => 'Fehlenden Nachweis öffnen';
@@ -7094,7 +7094,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get courseReassessmentCompleteBody =>
-      'Alle erforderlichen produktiven Nachweise für diese Fähigkeit sind geprüft. Deine Kursposition ist unverändert geblieben.';
+      'Alle erforderlichen produktiven Nachweise für diese Fähigkeit sind geprüft. Deine Lernpfad-Position ist unverändert geblieben.';
 
   @override
   String get courseReassessmentModeGuidedProduction =>
@@ -7440,7 +7440,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get hanokNarrativeMaterialSource =>
-      'Kursszenen formen die Struktur. Pakete, Wiederholungen und Quests fügen Material und Dekor hinzu.';
+      'Lernpfad-Szenen formen die Struktur. Pakete, Wiederholungen und Quests fügen Material und Dekor hinzu.';
 
   @override
   String get sarangbangTitle => 'Studierstube';
@@ -8887,7 +8887,7 @@ class AppL10nDe extends AppL10n {
   @override
   String soriStageActivityTitle(String activityId) {
     String _temp0 = intl.Intl.selectLogic(activityId, {
-      'course': 'Kurs',
+      'course': 'Lernpfad',
       'hangul': 'Hangul',
       'calligraphy': 'Buchstabe des Tages',
       'pronunciation': 'Aussprache',
@@ -9357,7 +9357,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingV2CourseHistoryConflict =>
-      'Zu diesem Kursstart gibt es bereits Lernfortschritt. Behalte zum Abschließen der Einrichtung die aktuelle Stufe; später kannst du den Kurs in den Einstellungen ausdrücklich neu starten.';
+      'Zu diesem Lernpfad-Start gibt es bereits Lernfortschritt. Behalte zum Abschließen der Einrichtung die aktuelle Stufe; später kannst du den Lernpfad in den Einstellungen ausdrücklich neu starten.';
 
   @override
   String get onboardingV2StoryFinish => 'Meinen Start auswählen';
@@ -9762,7 +9762,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingV2SetupCompareBody =>
-      'Deine Wahl ist dein Lernstart, kein Kenntnisnachweis; Kurs-Start und Stöber-Level bleiben später einzeln änderbar.';
+      'Deine Wahl ist dein Lernstart, kein Kenntnisnachweis; Lernpfad-Start und Stöber-Level bleiben später einzeln änderbar.';
 
   @override
   String get onboardingV2SetupCompareClose => 'Vergleich schließen';
@@ -9872,18 +9872,18 @@ class AppL10nDe extends AppL10n {
   String get settingsLearningLevelsSection => 'Lernstufen';
 
   @override
-  String get settingsCourseStartTitle => 'Startpunkt im Kurs';
+  String get settingsCourseStartTitle => 'Startpunkt im Lernpfad';
 
   @override
   String get settingsCourseStartDescription =>
-      'Legt fest, wo dein fortlaufender Kurs beginnt. Eine neue Wahl ersetzt den aktuellen Kurspfad; frühere Einheiten gelten dadurch weder als beherrscht noch erhältst du XP oder Belohnungen.';
+      'Legt fest, wo dein fortlaufender Lernpfad beginnt. Eine neue Wahl ersetzt den aktuellen Lernpfad; frühere Einheiten gelten dadurch weder als beherrscht noch erhältst du XP oder Belohnungen.';
 
   @override
   String get settingsBrowseLevelTitle => 'Stufe zum Stöbern';
 
   @override
   String get settingsBrowseLevelDescription =>
-      'Filtert nur Bibliotheken und Szenarien. Dein Kursfortschritt bleibt unverändert.';
+      'Filtert nur Bibliotheken und Szenarien. Dein Lernpfad-Fortschritt bleibt unverändert.';
 
   @override
   String get settingsRecheckLevelTitle => 'Mein Level neu einschätzen';
@@ -9910,11 +9910,12 @@ class AppL10nDe extends AppL10n {
       'Sieh jederzeit nach, wie Lernen, Spiele, gespeicherte Inhalte, Belohnungen, dein Buch und wichtige Einstellungen funktionieren.';
 
   @override
-  String get settingsCourseStartConfirmTitle => 'Startpunkt im Kurs ändern?';
+  String get settingsCourseStartConfirmTitle =>
+      'Startpunkt im Lernpfad ändern?';
 
   @override
   String settingsCourseStartConfirmDescription(String level) {
-    return 'Dein fortlaufender Kurs startet bei $level neu und ersetzt den bisherigen Kursfortschritt. Andere Übungsdaten, XP, Belohnungen und Sammlungen bleiben erhalten; frühere Einheiten gelten nicht als abgeschlossen.';
+    return 'Dein fortlaufender Lernpfad startet bei $level neu und ersetzt den bisherigen Lernpfad-Fortschritt. Andere Übungsdaten, XP, Belohnungen und Sammlungen bleiben erhalten; frühere Einheiten gelten nicht als abgeschlossen.';
   }
 
   @override
@@ -10003,7 +10004,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get guideModulePersonalizedStartStep2 =>
-      'Der Kurs-Startpunkt setzt nach deiner Bestätigung fest, wo dein Kurs beginnt. Die Stufe zum Stöbern filtert nur Bibliotheken und Szenarien.';
+      'Der Lernpfad-Startpunkt setzt nach deiner Bestätigung fest, wo dein Lernpfad beginnt. Die Stufe zum Stöbern filtert nur Bibliotheken und Szenarien.';
 
   @override
   String get guideModuleLearnStep1 =>
@@ -10055,7 +10056,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get guideModuleSettingsStep1 =>
-      'Kurs-Startpunkt und Stufe zum Stöbern sind getrennte Einstellungen: Die eine ändert den Kurs nach Bestätigung, die andere nur Inhaltsfilter.';
+      'Lernpfad-Startpunkt und Stufe zum Stöbern sind getrennte Einstellungen: Die eine ändert den Lernpfad nach Bestätigung, die andere nur Inhaltsfilter.';
 
   @override
   String get guideModuleSettingsStep2 =>
@@ -10066,7 +10067,7 @@ class AppL10nDe extends AppL10n {
       'Lege das allgemeine Sprechtempo in den Einstellungen fest. Unterstützte Audioseiten haben zusätzlich einen Geschwindigkeits-Chip; die App-Anleitung kannst du jederzeit in den Einstellungen erneut öffnen.';
 
   @override
-  String get guideModuleActionCourseStart => 'Kurs-Startpunkt';
+  String get guideModuleActionCourseStart => 'Lernpfad-Startpunkt';
 
   @override
   String get guideModuleActionBrowseLevel => 'Stufe zum Stöbern';
@@ -10110,7 +10111,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get guideTopicPersonalizedStartDescription =>
-      'Erfahre, wie dein Ziel die Startliste und Empfehlungen sortiert und warum Kurs-Startpunkt und Stufe zum Stöbern verschieden sind.';
+      'Erfahre, wie dein Ziel die Startliste und Empfehlungen sortiert und warum Lernpfad-Startpunkt und Stufe zum Stöbern verschieden sind.';
 
   @override
   String get guideTopicLearnTitle => 'Lernen';
@@ -10145,7 +10146,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get guideTopicSettingsDescription =>
-      'Ändere Kurs-Startpunkt, Stufe zum Stöbern, Figur, Figurenanzeige und Sprechtempo in den Einstellungen. Auf unterstützten Audioseiten kannst du das Tempo außerdem direkt über den Geschwindigkeits-Chip ändern oder diese Anleitung erneut öffnen.';
+      'Ändere Lernpfad-Startpunkt, Stufe zum Stöbern, Figur, Figurenanzeige und Sprechtempo in den Einstellungen. Auf unterstützten Audioseiten kannst du das Tempo außerdem direkt über den Geschwindigkeits-Chip ändern oder diese Anleitung erneut öffnen.';
 
   @override
   String get studyLibraryAppBarTitle => 'Lernsammlung';

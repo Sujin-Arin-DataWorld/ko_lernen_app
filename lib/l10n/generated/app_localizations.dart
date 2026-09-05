@@ -598,7 +598,7 @@ abstract class AppL10n {
   /// No description provided for @homeCourseTitle.
   ///
   /// In de, this message translates to:
-  /// **'Dein Tageskurs'**
+  /// **'Dein Lernpfad heute'**
   String get homeCourseTitle;
 
   /// No description provided for @homeCourseDesc.
@@ -616,7 +616,7 @@ abstract class AppL10n {
   /// No description provided for @settingsInterestsSubtitle.
   ///
   /// In de, this message translates to:
-  /// **'Themen für deinen Tageskurs'**
+  /// **'Themen für deinen Lernpfad'**
   String get settingsInterestsSubtitle;
 
   /// No description provided for @interestsSheetTitle.
@@ -5128,7 +5128,7 @@ abstract class AppL10n {
   /// No description provided for @scenarioCanDoPracticeBody.
   ///
   /// In de, this message translates to:
-  /// **'Diese Szene ist als Übung gespeichert und verändert deinen Kurs-Schritt nicht.'**
+  /// **'Diese Szene ist als Übung gespeichert und verändert deinen Lernpfad-Schritt nicht.'**
   String get scenarioCanDoPracticeBody;
 
   /// No description provided for @scenarioXpEarned.
@@ -7666,7 +7666,7 @@ abstract class AppL10n {
   /// No description provided for @wordWebEmptyBody.
   ///
   /// In de, this message translates to:
-  /// **'Lerne Wörter in einem Paket, im Kurs oder in einem Spiel. Dann erscheinen hier Nachbarn, Gegenteile und Wendungen zu genau diesen Wörtern.'**
+  /// **'Lerne Wörter in einem Paket, im Lernpfad oder in einem Spiel. Dann erscheinen hier Nachbarn, Gegenteile und Wendungen zu genau diesen Wörtern.'**
   String get wordWebEmptyBody;
 
   /// No description provided for @wordWebLoadErrorTitle.
@@ -8049,7 +8049,7 @@ abstract class AppL10n {
   /// No description provided for @pathTitle.
   ///
   /// In de, this message translates to:
-  /// **'Dein Weg'**
+  /// **'Lernpfad'**
   String get pathTitle;
 
   /// No description provided for @pathHanokStage.
@@ -8121,7 +8121,7 @@ abstract class AppL10n {
   /// No description provided for @pathCourseMissionsTitle.
   ///
   /// In de, this message translates to:
-  /// **'Kursmissionen'**
+  /// **'Lernpfad-Missionen'**
   String get pathCourseMissionsTitle;
 
   /// No description provided for @pathCourseMissionsBody.
@@ -8397,7 +8397,7 @@ abstract class AppL10n {
   /// No description provided for @profileLearningStartPointConfirmBody.
   ///
   /// In de, this message translates to:
-  /// **'Dabei werden dein bisheriger Kursfortschritt, abgeschlossene Einheiten, Übungsnachweise und Szenen-Checks zurückgesetzt. Gespeicherte Vokabeln und Kontodaten bleiben erhalten.'**
+  /// **'Dabei werden dein bisheriger Lernpfad-Fortschritt, abgeschlossene Einheiten, Übungsnachweise und Szenen-Checks zurückgesetzt. Gespeicherte Vokabeln und Kontodaten bleiben erhalten.'**
   String get profileLearningStartPointConfirmBody;
 
   /// No description provided for @profileLearningStartPointConfirmCancel.
@@ -8409,7 +8409,7 @@ abstract class AppL10n {
   /// No description provided for @profileLearningStartPointConfirmAction.
   ///
   /// In de, this message translates to:
-  /// **'Ändern und Kursfortschritt zurücksetzen'**
+  /// **'Ändern und Lernpfad-Fortschritt zurücksetzen'**
   String get profileLearningStartPointConfirmAction;
 
   /// No description provided for @profileLearningStartPointChangeFailed.
@@ -9213,7 +9213,7 @@ abstract class AppL10n {
   /// No description provided for @grammarChoicePracticeOnly.
   ///
   /// In de, this message translates to:
-  /// **'Diese Übung verändert deinen Kursfortschritt nicht.'**
+  /// **'Diese Übung verändert deinen Lernpfad-Fortschritt nicht.'**
   String get grammarChoicePracticeOnly;
 
   /// No description provided for @grammarChoiceAgain.
@@ -9555,7 +9555,7 @@ abstract class AppL10n {
   /// No description provided for @gyePromiseEligibility.
   ///
   /// In de, this message translates to:
-  /// **'Als Beitrag zählt nur die passende kursgebundene Szene mit mindestens 70 %.'**
+  /// **'Als Beitrag zählt nur die passende Lernpfad-Szene mit mindestens 70 %.'**
   String get gyePromiseEligibility;
 
   /// No description provided for @gyePromiseProgress.
@@ -9567,7 +9567,7 @@ abstract class AppL10n {
   /// No description provided for @gyePromiseRemaining.
   ///
   /// In de, this message translates to:
-  /// **'Noch {count} {count, plural, =1{kursgebundener Szenenbeitrag} other{kursgebundene Szenenbeiträge}} diese Woche'**
+  /// **'Noch {count} {count, plural, =1{Lernpfad-Szenenbeitrag} other{Lernpfad-Szenenbeiträge}} diese Woche'**
   String gyePromiseRemaining(int count);
 
   /// No description provided for @gyePromiseContributionCompleteTitle.
@@ -11775,13 +11775,13 @@ abstract class AppL10n {
   /// No description provided for @courseMissionTitleShort.
   ///
   /// In de, this message translates to:
-  /// **'Kursmission'**
+  /// **'Lernpfad-Mission'**
   String get courseMissionTitleShort;
 
   /// No description provided for @courseMissionLoadError.
   ///
   /// In de, this message translates to:
-  /// **'Die Kursdaten konnten nicht geladen werden.'**
+  /// **'Die Lernpfad-Daten konnten nicht geladen werden.'**
   String get courseMissionLoadError;
 
   /// No description provided for @courseMissionCompleteTitle.
@@ -12171,7 +12171,7 @@ abstract class AppL10n {
   /// No description provided for @courseReassessmentPrerequisiteBody.
   ///
   /// In de, this message translates to:
-  /// **'Schließe zuerst den verknüpften Nachweis ab. Dein Kurszeiger wird dabei nicht zurückgesetzt.'**
+  /// **'Schließe zuerst den verknüpften Nachweis ab. Dein Lernpfad-Zeiger wird dabei nicht zurückgesetzt.'**
   String get courseReassessmentPrerequisiteBody;
 
   /// No description provided for @courseReassessmentOpenPrerequisite.
@@ -12231,7 +12231,7 @@ abstract class AppL10n {
   /// No description provided for @courseReassessmentCompleteBody.
   ///
   /// In de, this message translates to:
-  /// **'Alle erforderlichen produktiven Nachweise für diese Fähigkeit sind geprüft. Deine Kursposition ist unverändert geblieben.'**
+  /// **'Alle erforderlichen produktiven Nachweise für diese Fähigkeit sind geprüft. Deine Lernpfad-Position ist unverändert geblieben.'**
   String get courseReassessmentCompleteBody;
 
   /// No description provided for @courseReassessmentModeGuidedProduction.
@@ -12825,7 +12825,7 @@ abstract class AppL10n {
   /// No description provided for @hanokNarrativeMaterialSource.
   ///
   /// In de, this message translates to:
-  /// **'Kursszenen formen die Struktur. Pakete, Wiederholungen und Quests fügen Material und Dekor hinzu.'**
+  /// **'Lernpfad-Szenen formen die Struktur. Pakete, Wiederholungen und Quests fügen Material und Dekor hinzu.'**
   String get hanokNarrativeMaterialSource;
 
   /// No description provided for @sarangbangTitle.
@@ -15417,7 +15417,7 @@ abstract class AppL10n {
   /// No description provided for @soriStageActivityTitle.
   ///
   /// In de, this message translates to:
-  /// **'{activityId, select, course{Kurs} hangul{Hangul} calligraphy{Buchstabe des Tages} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{Wiederholen} hard_words{Schwierige Wörter} word_web{Nuancen & Gegenteile} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} vocab_notebook{Vokabelheft} bookshelf{Bücherregal} word_search{Wortsuche} my_words{Meine Wörter} daily_game{Tageschallenge} chosung{Anlaut-Quiz} syllable_cross{Silben-Rätsel} cloze{Lückentext} speed_match{Blitz-Paare} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_quiz{Eigenes Quiz} custom_matching{Eigenes Matching} custom_typing{Eigenes Tippen} other{Lernaktivität}}}'**
+  /// **'{activityId, select, course{Lernpfad} hangul{Hangul} calligraphy{Buchstabe des Tages} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{Wiederholen} hard_words{Schwierige Wörter} word_web{Nuancen & Gegenteile} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} vocab_notebook{Vokabelheft} bookshelf{Bücherregal} word_search{Wortsuche} my_words{Meine Wörter} daily_game{Tageschallenge} chosung{Anlaut-Quiz} syllable_cross{Silben-Rätsel} cloze{Lückentext} speed_match{Blitz-Paare} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_quiz{Eigenes Quiz} custom_matching{Eigenes Matching} custom_typing{Eigenes Tippen} other{Lernaktivität}}}'**
   String soriStageActivityTitle(String activityId);
 
   /// No description provided for @soriStageActivityDescription.
@@ -15867,7 +15867,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2CourseHistoryConflict.
   ///
   /// In de, this message translates to:
-  /// **'Zu diesem Kursstart gibt es bereits Lernfortschritt. Behalte zum Abschließen der Einrichtung die aktuelle Stufe; später kannst du den Kurs in den Einstellungen ausdrücklich neu starten.'**
+  /// **'Zu diesem Lernpfad-Start gibt es bereits Lernfortschritt. Behalte zum Abschließen der Einrichtung die aktuelle Stufe; später kannst du den Lernpfad in den Einstellungen ausdrücklich neu starten.'**
   String get onboardingV2CourseHistoryConflict;
 
   /// No description provided for @onboardingV2StoryFinish.
@@ -16557,7 +16557,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2SetupCompareBody.
   ///
   /// In de, this message translates to:
-  /// **'Deine Wahl ist dein Lernstart, kein Kenntnisnachweis; Kurs-Start und Stöber-Level bleiben später einzeln änderbar.'**
+  /// **'Deine Wahl ist dein Lernstart, kein Kenntnisnachweis; Lernpfad-Start und Stöber-Level bleiben später einzeln änderbar.'**
   String get onboardingV2SetupCompareBody;
 
   /// No description provided for @onboardingV2SetupCompareClose.
@@ -16755,13 +16755,13 @@ abstract class AppL10n {
   /// No description provided for @settingsCourseStartTitle.
   ///
   /// In de, this message translates to:
-  /// **'Startpunkt im Kurs'**
+  /// **'Startpunkt im Lernpfad'**
   String get settingsCourseStartTitle;
 
   /// No description provided for @settingsCourseStartDescription.
   ///
   /// In de, this message translates to:
-  /// **'Legt fest, wo dein fortlaufender Kurs beginnt. Eine neue Wahl ersetzt den aktuellen Kurspfad; frühere Einheiten gelten dadurch weder als beherrscht noch erhältst du XP oder Belohnungen.'**
+  /// **'Legt fest, wo dein fortlaufender Lernpfad beginnt. Eine neue Wahl ersetzt den aktuellen Lernpfad; frühere Einheiten gelten dadurch weder als beherrscht noch erhältst du XP oder Belohnungen.'**
   String get settingsCourseStartDescription;
 
   /// No description provided for @settingsBrowseLevelTitle.
@@ -16773,7 +16773,7 @@ abstract class AppL10n {
   /// No description provided for @settingsBrowseLevelDescription.
   ///
   /// In de, this message translates to:
-  /// **'Filtert nur Bibliotheken und Szenarien. Dein Kursfortschritt bleibt unverändert.'**
+  /// **'Filtert nur Bibliotheken und Szenarien. Dein Lernpfad-Fortschritt bleibt unverändert.'**
   String get settingsBrowseLevelDescription;
 
   /// No description provided for @settingsRecheckLevelTitle.
@@ -16821,13 +16821,13 @@ abstract class AppL10n {
   /// No description provided for @settingsCourseStartConfirmTitle.
   ///
   /// In de, this message translates to:
-  /// **'Startpunkt im Kurs ändern?'**
+  /// **'Startpunkt im Lernpfad ändern?'**
   String get settingsCourseStartConfirmTitle;
 
   /// No description provided for @settingsCourseStartConfirmDescription.
   ///
   /// In de, this message translates to:
-  /// **'Dein fortlaufender Kurs startet bei {level} neu und ersetzt den bisherigen Kursfortschritt. Andere Übungsdaten, XP, Belohnungen und Sammlungen bleiben erhalten; frühere Einheiten gelten nicht als abgeschlossen.'**
+  /// **'Dein fortlaufender Lernpfad startet bei {level} neu und ersetzt den bisherigen Lernpfad-Fortschritt. Andere Übungsdaten, XP, Belohnungen und Sammlungen bleiben erhalten; frühere Einheiten gelten nicht als abgeschlossen.'**
   String settingsCourseStartConfirmDescription(String level);
 
   /// No description provided for @settingsCourseStartConfirmAction.
@@ -16971,7 +16971,7 @@ abstract class AppL10n {
   /// No description provided for @guideModulePersonalizedStartStep2.
   ///
   /// In de, this message translates to:
-  /// **'Der Kurs-Startpunkt setzt nach deiner Bestätigung fest, wo dein Kurs beginnt. Die Stufe zum Stöbern filtert nur Bibliotheken und Szenarien.'**
+  /// **'Der Lernpfad-Startpunkt setzt nach deiner Bestätigung fest, wo dein Lernpfad beginnt. Die Stufe zum Stöbern filtert nur Bibliotheken und Szenarien.'**
   String get guideModulePersonalizedStartStep2;
 
   /// No description provided for @guideModuleLearnStep1.
@@ -17049,7 +17049,7 @@ abstract class AppL10n {
   /// No description provided for @guideModuleSettingsStep1.
   ///
   /// In de, this message translates to:
-  /// **'Kurs-Startpunkt und Stufe zum Stöbern sind getrennte Einstellungen: Die eine ändert den Kurs nach Bestätigung, die andere nur Inhaltsfilter.'**
+  /// **'Lernpfad-Startpunkt und Stufe zum Stöbern sind getrennte Einstellungen: Die eine ändert den Lernpfad nach Bestätigung, die andere nur Inhaltsfilter.'**
   String get guideModuleSettingsStep1;
 
   /// No description provided for @guideModuleSettingsStep2.
@@ -17067,7 +17067,7 @@ abstract class AppL10n {
   /// No description provided for @guideModuleActionCourseStart.
   ///
   /// In de, this message translates to:
-  /// **'Kurs-Startpunkt'**
+  /// **'Lernpfad-Startpunkt'**
   String get guideModuleActionCourseStart;
 
   /// No description provided for @guideModuleActionBrowseLevel.
@@ -17151,7 +17151,7 @@ abstract class AppL10n {
   /// No description provided for @guideTopicPersonalizedStartDescription.
   ///
   /// In de, this message translates to:
-  /// **'Erfahre, wie dein Ziel die Startliste und Empfehlungen sortiert und warum Kurs-Startpunkt und Stufe zum Stöbern verschieden sind.'**
+  /// **'Erfahre, wie dein Ziel die Startliste und Empfehlungen sortiert und warum Lernpfad-Startpunkt und Stufe zum Stöbern verschieden sind.'**
   String get guideTopicPersonalizedStartDescription;
 
   /// No description provided for @guideTopicLearnTitle.
@@ -17211,7 +17211,7 @@ abstract class AppL10n {
   /// No description provided for @guideTopicSettingsDescription.
   ///
   /// In de, this message translates to:
-  /// **'Ändere Kurs-Startpunkt, Stufe zum Stöbern, Figur, Figurenanzeige und Sprechtempo in den Einstellungen. Auf unterstützten Audioseiten kannst du das Tempo außerdem direkt über den Geschwindigkeits-Chip ändern oder diese Anleitung erneut öffnen.'**
+  /// **'Ändere Lernpfad-Startpunkt, Stufe zum Stöbern, Figur, Figurenanzeige und Sprechtempo in den Einstellungen. Auf unterstützten Audioseiten kannst du das Tempo außerdem direkt über den Geschwindigkeits-Chip ändern oder diese Anleitung erneut öffnen.'**
   String get guideTopicSettingsDescription;
 
   /// No description provided for @studyLibraryAppBarTitle.
