@@ -334,15 +334,8 @@ void main() {
     });
   });
 
-  group('HanokHeader — 선언 비율이 에셋 실제 비율과 맞는가', () {
-    // Wortkette 히어로가 1254×700(1.79) 인데 10/3(3.33) 프레임에 cover 로
-    // 들어가 세로의 46% 가 잘려 나갔다("동영상이 잘려"). 프레임을 에셋에
-    // 맞추면 에셋 재작업 없이 해결된다.
-    test('kkeunmari_hero 는 잘리지 않는다', () {
-      final r = _pngAspect('assets/illustrations/hanok/kkeunmari_hero.png');
-      expect(r, closeTo(1254 / 700, 0.001));
-    });
-  });
+  // kkeunmari_hero 는 2026-09-04 PR3 에서 격리되어 더 이상 번들되지 않는다.
+  // 되살릴 때 이 종횡비 단언도 함께 되살려라.
 }
 
 /// 지연 타이머(오답 되돌리기 700ms · 정답 진행 1100ms)를 흘려보낸다.
@@ -352,12 +345,6 @@ void main() {
 /// 돌기 때문에 teardown 에서 pump 하면 이미 늦는다.
 Future<void> _drainTimers(WidgetTester tester) async {
   await tester.pump(const Duration(seconds: 3));
-}
-
-double _pngAspect(String path) {
-  final bytes = File(path).readAsBytesSync();
-  final d = ByteData.sublistView(Uint8List.fromList(bytes));
-  return d.getUint32(16) / d.getUint32(20);
 }
 
 List<double> _tapHeights(WidgetTester tester) {
