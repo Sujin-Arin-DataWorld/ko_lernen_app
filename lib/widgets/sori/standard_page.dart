@@ -149,6 +149,7 @@ class SoriStandardPage extends StatelessWidget {
     this.controller,
     this.physics,
     this.showHome = true,
+    this.fill = false,
   }) : assert(
          headline != null || (eyebrow == null && description == null),
          'eyebrow와 description은 headline이 있을 때만 사용할 수 있다.',
@@ -172,6 +173,13 @@ class SoriStandardPage extends StatelessWidget {
   /// §B3(2026-09-03) — [SoriStandardFrame.showHome] 참고.
   final bool showHome;
 
+  /// W10 T-V2(2026-09-05, Jin D-4): 짧고 고정된 콘텐츠(예: 오늘의 글자,
+  /// 단어장 실습 허브)가 긴 뷰포트에서 위쪽에 뭉치지 않도록 세로 중앙
+  /// 배치한다. `true`면 `ListView` 대신 [SoriMinHeightScroll] 로 감싼
+  /// `Column(center)` 을 쓴다 — 콘텐츠가 뷰포트보다 길면 그대로 스크롤한다.
+  /// 목록형 화면(항목 수가 늘어날 수 있는 화면)은 `false`(기본값)로 둔다.
+  final bool fill;
+
   @override
   Widget build(BuildContext context) {
     final header = headline == null
@@ -192,19 +200,36 @@ class SoriStandardPage extends StatelessWidget {
       padding: padding,
       particles: particles,
       showHome: showHome,
-      builder: (context, resolvedPadding) => ListView(
-        controller: controller,
-        physics: physics,
-        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-        padding: resolvedPadding,
-        children: [
+      builder: (context, resolvedPadding) {
+        final content = [
           if (header != null) ...[
             header,
             if (children.isNotEmpty) const SizedBox(height: Spacing.xl),
           ],
           ...children,
-        ],
-      ),
+        ];
+        if (fill) {
+          return SoriMinHeightScroll(
+            minHeight: 0,
+            fillViewport: true,
+            child: Padding(
+              padding: resolvedPadding,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: content,
+              ),
+            ),
+          );
+        }
+        return ListView(
+          controller: controller,
+          physics: physics,
+          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+          padding: resolvedPadding,
+          children: content,
+        );
+      },
     );
   }
 }

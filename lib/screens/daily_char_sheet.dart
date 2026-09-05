@@ -63,6 +63,7 @@ class DailyCalligraphyRouteScreen extends StatelessWidget {
           ? t.dailyCharSubtitle
           : t.dailyCharFallbackSubtitle,
       maxWidth: SoriMaxWidth.form,
+      fill: true,
       children: [
         _DailyCharSheet(character: resolvedCharacter, showIntro: false),
       ],
