@@ -132,13 +132,19 @@ class _GrammarScreenState extends State<GrammarScreen>
   bool _planCompletionShown = false;
   bool _planDayCompletedForVisit = false;
 
+  /// 지시서 1.11 — 온보딩 시트에서 고른 플랜 레벨(화면 상태 한정, 이 방문
+  /// 동안만 유지). null이면 [_userLevelForPlan](전역 사용자 레벨)을 그대로
+  /// 따른다. 시트에서 실제로 레벨을 고르기 전까지는 세팅하지 않는다 —
+  /// `Storage.userLevelCode` 자체는 건드리지 않는다.
+  String? _planLevel;
+
   bool get _isCoursePractice => widget.courseContext != null;
 
   String get _userLevelForPlan =>
       LearnerLevel.fromCode(Storage.userLevelCode)?.code ?? 'a1';
 
   GrammarStudyPlan? get _activePlan =>
-      _isCoursePractice ? null : _plans[_userLevelForPlan];
+      _isCoursePractice ? null : _plans[_planLevel ?? _userLevelForPlan];
 
   List<Grammar> _curatedRowsForPlan(GrammarStudyPlan plan) =>
       GrammarPlanService.curatedRowsForLevel(_all, plan.level);
@@ -257,7 +263,9 @@ class _GrammarScreenState extends State<GrammarScreen>
                 ? userLvl
                 : 'Alle');
       final plans = GrammarPlanService.decodePlans(Storage.grammarPlanRawJson);
-      final activePlan = _isCoursePractice ? null : plans[_userLevelForPlan];
+      final activePlan = _isCoursePractice
+          ? null
+          : plans[_planLevel ?? _userLevelForPlan];
       final planCompletedToday =
           activePlan?.servedIdsByDate.containsKey(Storage.todayIso()) ?? false;
       final initialSlice = activePlan == null || planCompletedToday
@@ -556,7 +564,9 @@ class _GrammarScreenState extends State<GrammarScreen>
     var started = false;
     try {
       final t = AppL10n.of(context);
-      var itemsPerDay = GrammarPlanService.defaultItemsPerDay;
+      var planLevel = _planLevel ?? _userLevelForPlan;
+      var itemsPerDay =
+          _plans[planLevel]?.itemsPerDay ?? GrammarPlanService.defaultItemsPerDay;
       var isStarting = false;
       await showSoriSheet<void>(
         context: context,
@@ -568,6 +578,25 @@ class _GrammarScreenState extends State<GrammarScreen>
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Text(
+                    t.grammarPlanLevelLabel,
+                    style: SoriTextTheme.of(sheetContext).label,
+                  ),
+                  const SizedBox(height: Spacing.sm),
+                  SoriLevelFilterBar(
+                    key: const Key('grammar-plan-level-bar'),
+                    selected: planLevel,
+                    onChanged: (level) {
+                      if (isStarting || level == null || level == planLevel) {
+                        return;
+                      }
+                      setSheetState(() {
+                        planLevel = level;
+                        itemsPerDay = _plans[level]?.itemsPerDay ?? itemsPerDay;
+                      });
+                    },
+                  ),
+                  const SizedBox(height: Spacing.lg),
                   Text(
                     t.grammarPlanOnboardingTitle,
                     style: SoriTextTheme.of(sheetContext).h3,
@@ -614,15 +643,32 @@ class _GrammarScreenState extends State<GrammarScreen>
                         ? null
                         : () async {
                             setSheetState(() => isStarting = true);
+                            final chosenLevel = planLevel;
                             final next = Map<String, GrammarStudyPlan>.of(
                               _plans,
                             );
-                            final plan = GrammarStudyPlan(
-                              level: _userLevelForPlan,
-                              itemsPerDay: itemsPerDay,
-                              servedIdsByDate: const {},
-                            );
-                            next[_userLevelForPlan] = plan;
+                            final existing = next[chosenLevel];
+                            final existingFinished =
+                                existing != null &&
+                                GrammarPlanService.todaysSlice(
+                                  curatedRows:
+                                      GrammarPlanService.curatedRowsForLevel(
+                                        _all,
+                                        chosenLevel,
+                                      ),
+                                  plan: existing,
+                                ).isEmpty;
+                            // 이미 있는(끝나지 않은) 플랜을 고르면 진행을
+                            // 이어간다 — 리셋은 새 레벨이거나 그 레벨을 이미
+                            // 다 끝냈을 때만(지시서 1.11).
+                            final plan = existing == null || existingFinished
+                                ? GrammarStudyPlan(
+                                    level: chosenLevel,
+                                    itemsPerDay: itemsPerDay,
+                                    servedIdsByDate: const {},
+                                  )
+                                : existing.copyWith(itemsPerDay: itemsPerDay);
+                            next[chosenLevel] = plan;
                             try {
                               await Storage.setGrammarPlanRawJson(
                                 GrammarPlanService.encodePlans(next),
@@ -637,6 +683,7 @@ class _GrammarScreenState extends State<GrammarScreen>
                             started = true;
                             setState(() {
                               _plans = next;
+                              _planLevel = chosenLevel;
                               _applyPlanSlice(plan);
                             });
                             Navigator.of(sheetContext).pop();
@@ -885,7 +932,7 @@ class _GrammarScreenState extends State<GrammarScreen>
         servedIds: servedIds,
       );
       final next = Map<String, GrammarStudyPlan>.of(_plans)
-        ..[_userLevelForPlan] = updated;
+        ..[plan.level] = updated;
       await Storage.setGrammarPlanRawJson(GrammarPlanService.encodePlans(next));
       if (!mounted) return;
       _planCompletionShown = true;
@@ -1188,15 +1235,38 @@ class _GrammarScreenState extends State<GrammarScreen>
                   key: const Key('grammar-plan-day-header'),
                   child: Column(
                     children: [
-                      Text(
-                        t.grammarPlanDayHeader(
-                          plan.completedDays + 1,
-                          GrammarPlanService.totalDays(
-                            _curatedRowsForPlan(plan),
-                            plan.itemsPerDay,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            t.grammarPlanDayHeader(
+                              plan.completedDays + 1,
+                              GrammarPlanService.totalDays(
+                                _curatedRowsForPlan(plan),
+                                plan.itemsPerDay,
+                              ),
+                            ),
+                            style: SoriTextTheme.of(context).label,
                           ),
-                        ),
-                        style: SoriTextTheme.of(context).label,
+                          const SizedBox(width: Spacing.xs),
+                          // 지시서 1.11 — 플랜이 이미 도는 중에도 레벨/페이스를
+                          // 다시 고를 수 있는 유일한 진입점(그 외엔 '플랜
+                          // 완료' 또는 '레벨 필터가 아직 없음'일 때만 시트가
+                          // 열린다).
+                          SizedBox(
+                            width: 32,
+                            height: 32,
+                            child: IconButton(
+                              key: const Key('grammar-plan-edit-button'),
+                              padding: EdgeInsets.zero,
+                              visualDensity: VisualDensity.compact,
+                              iconSize: 18,
+                              icon: const Icon(Icons.tune_rounded),
+                              tooltip: t.grammarPlanEditTooltip,
+                              onPressed: _showPlanOnboardingSheet,
+                            ),
+                          ),
+                        ],
                       ),
                       const SizedBox(height: Spacing.xs),
                       Wrap(

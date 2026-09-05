@@ -398,6 +398,69 @@ void main() {
       );
     },
   );
+
+  testWidgets(
+    'picking a different level in the onboarding sheet plans that level '
+    'without touching the global user level (지시서 1.11)',
+    (tester) async {
+      final curatedB1 = GrammarPlanService.curatedRowsForLevel(
+        await DataLoader.loadGrammar(),
+        'B1',
+      );
+      await _pumpGrammar(tester);
+
+      await tester.tap(find.widgetWithText(SoriChip, 'B1'));
+      await tester.pump();
+      _tapSheetButton(tester, _l10n.grammarPlanStartCta);
+      await tester.pump(const Duration(milliseconds: 500));
+
+      final plans = GrammarPlanService.decodePlans(Storage.grammarPlanRawJson);
+      expect(plans.containsKey('a1'), isFalse);
+      expect(plans['b1']?.itemsPerDay, GrammarPlanService.defaultItemsPerDay);
+      expect(plans['b1']?.servedIdsByDate, isEmpty);
+      expect(Storage.userLevelCode, 'a1');
+      expect(find.byKey(const Key('grammar-plan-day-header')), findsOneWidget);
+      expect(find.text(curatedB1[0].pattern), findsWidgets);
+    },
+  );
+
+  testWidgets(
+    'reselecting the currently active, unfinished level keeps its progress '
+    '(지시서 1.11)',
+    (tester) async {
+      await _storePlans({
+        'a1': const GrammarStudyPlan(
+          level: 'a1',
+          itemsPerDay: 5,
+          servedIdsByDate: {
+            '2026-08-20': ['grammar_a1_placeholder'],
+          },
+        ),
+      });
+      await _pumpGrammar(tester);
+      expect(
+        find.byKey(const Key('grammar-plan-onboarding-sheet')),
+        findsNothing,
+      );
+
+      await tester.tap(find.byKey(const Key('grammar-plan-edit-button')));
+      await tester.pump(const Duration(milliseconds: 500));
+      expect(
+        find.byKey(const Key('grammar-plan-onboarding-sheet')),
+        findsOneWidget,
+      );
+      _tapSheetButton(tester, _l10n.grammarPlanStartCta);
+      await tester.pump(const Duration(milliseconds: 500));
+
+      final plan = GrammarPlanService.decodePlans(
+        Storage.grammarPlanRawJson,
+      )['a1'];
+      expect(plan?.servedIdsByDate, {
+        '2026-08-20': ['grammar_a1_placeholder'],
+      });
+      expect(Storage.userLevelCode, 'a1');
+    },
+  );
 }
 
 Future<void> _storePlans(Map<String, GrammarStudyPlan> plans) =>

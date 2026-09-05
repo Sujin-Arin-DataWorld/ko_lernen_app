@@ -2685,6 +2685,8 @@
   "grammarHard": "Schwierig",
   "grammarPreviousCard": "Vorherige Karte",
   "grammarChoiceCta": "Mit Beispielen üben",
+  "grammarPlanLevelLabel": "Niveau",
+  "grammarPlanEditTooltip": "Niveau oder Tempo ändern",
   "grammarPlanOnboardingTitle": "Wie viele Muster pro Tag?",
   "grammarPlanItemsPerDayOption": "{n} pro Tag",
   "@grammarPlanItemsPerDayOption": {

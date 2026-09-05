@@ -5194,6 +5194,12 @@ class AppL10nEn extends AppL10n {
   String get grammarChoiceCta => 'Practice with examples';
 
   @override
+  String get grammarPlanLevelLabel => 'Level';
+
+  @override
+  String get grammarPlanEditTooltip => 'Change level or pace';
+
+  @override
   String get grammarPlanOnboardingTitle => 'How many patterns per day?';
 
   @override
