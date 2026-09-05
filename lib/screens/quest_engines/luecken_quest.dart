@@ -9,7 +9,8 @@ import 'quest_flow.dart';
 import 'quest_layout.dart';
 import 'quest_models.dart';
 
-/// Cloze quest with explicit confirmation and a two-attempt resolution.
+/// Cloze quest with immediate per-tap judgment and a two-attempt resolution
+/// (지시서 4.11 — 옵션 탭 즉시 판정, 별도 확인 버튼 없음).
 ///
 /// 답 공개 직후(정답이든 2회 오답 소진 뒤 공개든) 빈칸을 채운 완성 문장을
 /// 1회 읽는다(widget.audioEnabled 게이트) — particle_pop_quest.dart:134-140과
@@ -69,6 +70,9 @@ class _LueckenQuestState extends State<LueckenQuest> {
       _selected = index;
       _lastWrong = null;
     });
+    // 지시서 4.11 — 옵션 탭 즉시 판정. 별도 확인 버튼 없이 hoerverstehen_
+    // quest.dart:82-89(_select가 _check()를 바로 호출)와 동일한 흐름.
+    _check();
   }
 
   void _report(bool passed) {
@@ -166,8 +170,10 @@ class _LueckenQuestState extends State<LueckenQuest> {
     return QuestLayout(
       contentAlignment: Alignment.center,
       action: ScenarioQuestAction(
-        canSubmit: _selected >= 0,
-        onSubmit: _check,
+        // 지시서 4.11 — _select가 즉시 판정하므로 별도 확인 버튼이 없다
+        // (hoerverstehen_quest.dart와 동일한 계약).
+        canSubmit: false,
+        onSubmit: null,
         resolved: _resolved,
         onContinue: widget.onContinue,
         isLast: widget.isLast,

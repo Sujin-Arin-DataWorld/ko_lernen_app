@@ -100,6 +100,9 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
       _droppedIndex = idx;
       _lastWrong = null;
     });
+    // 지시서 4.11 — 드롭/탭 즉시 판정. 별도 확인 버튼 없이 hoerverstehen_
+    // quest.dart:82-89(_select가 _check()를 바로 호출)와 동일한 흐름.
+    await _checkSelection();
   }
 
   void _report(bool passed) {
@@ -312,8 +315,10 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
     return QuestLayout(
       showTtsSpeed: true,
       action: ScenarioQuestAction(
-        canSubmit: _droppedIndex != null,
-        onSubmit: _checkSelection,
+        // 지시서 4.11 — _onAccept가 즉시 판정하므로 별도 확인 버튼이 없다
+        // (hoerverstehen_quest.dart와 동일한 계약).
+        canSubmit: false,
+        onSubmit: null,
         resolved: _completed ? _passed : null,
         onContinue: widget.onContinue,
         isLast: widget.isLast,

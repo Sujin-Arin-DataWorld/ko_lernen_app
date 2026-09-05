@@ -138,6 +138,10 @@ void main() {
     });
   }
 
+  // 지시서 4.11 — 즉시 판정 엔진(hoerverstehen=0, uebersetzen=2, luecken=3,
+  // particlePop=4)에는 확인 버튼이 없다. diktat=1·batchimDrop=5·
+  // satzBauen=6은 여전히 명시적 확인 버튼을 쓴다.
+  const instantQuestIndexes = {0, 2, 3, 4};
   for (final questIndex in const [0, 1, 2, 3, 4, 5, 6]) {
     testWidgets('engine $questIndex fits a 390dp frame', (tester) async {
       await tester.binding.setSurfaceSize(const Size(390, 760));
@@ -148,7 +152,10 @@ void main() {
       expect(tester.takeException(), isNull);
       expect(
         find.byKey(const ValueKey('quest-submit')),
-        questIndex == 0 ? findsNothing : findsOneWidget,
+        instantQuestIndexes.contains(questIndex)
+            ? findsNothing
+            : findsOneWidget,
+        reason: 'questIndex=$questIndex',
       );
     });
   }

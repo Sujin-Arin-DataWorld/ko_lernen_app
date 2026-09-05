@@ -7,6 +7,7 @@ import 'package:ko_lernen_app/screens/quest_engines/diktat_quest.dart';
 import 'package:ko_lernen_app/screens/quest_engines/hoerverstehen_quest.dart';
 import 'package:ko_lernen_app/screens/quest_engines/luecken_quest.dart';
 import 'package:ko_lernen_app/screens/quest_engines/particle_pop_quest.dart';
+import 'package:ko_lernen_app/screens/quest_engines/quest_flow.dart';
 import 'package:ko_lernen_app/screens/quest_engines/quest_models.dart';
 import 'package:ko_lernen_app/screens/quest_engines/satz_bauen_quest.dart';
 import 'package:ko_lernen_app/screens/quest_engines/uebersetzen_quest.dart';
@@ -114,29 +115,34 @@ void main() {
     ),
   };
 
-  testWidgets('listening judges immediately without a confirmation action', (
-    tester,
-  ) async {
-    var resultCalls = 0;
-    var continueCalls = 0;
-    await tester.pumpWidget(
-      _host(
-        cases['listening']!((_) => resultCalls++, () => continueCalls++, false),
-      ),
-    );
-    await tester.pump();
+  // 지시서 4.11 — 옵션 탭 1회로 바로 판정되는(별도 확인 버튼이 없는) 엔진.
+  // listening(hoerverstehen)은 원래부터 즉시 판정이었고, translation
+  // (uebersetzen)·cloze(luecken)·particle(particlePop)이 이번에 합류했다.
+  const instantByTap = {'listening', 'translation', 'cloze', 'particle'};
 
-    expect(find.byKey(const ValueKey('quest-submit')), findsNothing);
-    await tester.tap(find.byKey(const ValueKey('answer-0')));
-    await tester.pump();
+  for (final key in instantByTap) {
+    testWidgets('$key judges immediately without a confirmation action', (
+      tester,
+    ) async {
+      var resultCalls = 0;
+      var continueCalls = 0;
+      await tester.pumpWidget(
+        _host(cases[key]!((_) => resultCalls++, () => continueCalls++, false)),
+      );
+      await tester.pump();
 
-    expect(resultCalls, 1);
-    expect(continueCalls, 0);
-    expect(find.byKey(const ValueKey('quest-continue')), findsOneWidget);
-  });
+      expect(find.byKey(const ValueKey('quest-submit')), findsNothing);
+      await tester.tap(find.byKey(const ValueKey('answer-0')));
+      await tester.pump();
+
+      expect(resultCalls, 1, reason: key);
+      expect(continueCalls, 0, reason: key);
+      expect(find.byKey(const ValueKey('quest-continue')), findsOneWidget);
+    });
+  }
 
   for (final entry in cases.entries.where(
-    (entry) => entry.key != 'listening',
+    (entry) => !instantByTap.contains(entry.key),
   )) {
     testWidgets('${entry.key} requires submit and emits one result', (
       tester,
@@ -229,7 +235,7 @@ void main() {
       await tester.pumpWidget(_host(entry.value((_) {}, () {}, false)));
       await tester.pump();
       await _chooseWrong(tester, entry.key);
-      if (entry.key != 'listening') {
+      if (!instantByTap.contains(entry.key)) {
         await tester.tap(find.byKey(const ValueKey('quest-submit')));
       }
       await tester.pump();
@@ -260,7 +266,7 @@ void main() {
 
       for (var attempt = 0; attempt < 2; attempt++) {
         await _chooseWrong(tester, entry.key);
-        if (entry.key != 'listening') {
+        if (!instantByTap.contains(entry.key)) {
           await tester.tap(find.byKey(const ValueKey('quest-submit')));
         }
         await tester.pump();
@@ -356,8 +362,12 @@ void main() {
     final lastBottom = tester
         .getBottomLeft(find.byKey(const ValueKey('answer-3')))
         .dy;
+    // 지시서 4.11 — cloze는 더 이상 별도 확인 버튼(quest-submit)이 없다
+    // (즉시 판정). QuestLayout이 여전히 ScenarioQuestAction을 하단에
+    // 고정하므로(내용이 비어 있어도 그 자리에 존재), 그 위젯의 위치를
+    // "고정 액션 영역의 시작"으로 삼는다.
     final actionTop = tester
-        .getTopLeft(find.byKey(const ValueKey('quest-submit')))
+        .getTopLeft(find.byType(ScenarioQuestAction))
         .dy;
     expect(firstTop, greaterThan(120));
     expect(lastBottom, lessThan(actionTop));
