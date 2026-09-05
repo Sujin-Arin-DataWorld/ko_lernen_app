@@ -497,7 +497,7 @@ class AppL10nEn extends AppL10n {
   String get btnApply => 'Apply';
 
   @override
-  String get btnPlay => 'Play';
+  String get btnPlay => 'Practice';
 
   @override
   String get btnDelete => 'Delete';
@@ -5324,7 +5324,7 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get grammarPlanStartCta => 'Let\'s go';
+  String get grammarPlanStartCta => 'Start';
 
   @override
   String grammarPlanDayHeader(int day, int total) {
@@ -5781,9 +5781,6 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get milestoneVocabBody => 'Word by word, you\'re getting there!';
-
-  @override
-  String get milestoneCta => 'Keep going';
 
   @override
   String get feedbackCompletionContinue => 'Continue';

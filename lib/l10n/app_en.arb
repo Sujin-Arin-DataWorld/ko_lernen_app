@@ -193,7 +193,7 @@
   "btnRetry": "Try again",
   "btnClose": "Close",
   "btnApply": "Apply",
-  "btnPlay": "Play",
+  "btnPlay": "Practice",
   "btnDelete": "Delete",
   "gameLoading": "Preparing game…",
   "gameRoundProgress": "Round {current} of {total}",
@@ -2603,7 +2603,7 @@
       }
     }
   },
-  "grammarPlanStartCta": "Let's go",
+  "grammarPlanStartCta": "Start",
   "grammarPlanDayHeader": "Day {day} of {total}",
   "@grammarPlanDayHeader": {
     "placeholders": {
@@ -2815,7 +2815,6 @@
   "milestoneStreakBody": "Regular practice pays off. Keep it up!",
   "milestoneLevelBody": "Your Korean grows every single day.",
   "milestoneVocabBody": "Word by word, you're getting there!",
-  "milestoneCta": "Keep going",
   "feedbackCompletionContinue": "Continue",
   "practiceEyebrow": "Without today's mission",
   "practiceTitle": "What do you want to strengthen?",

@@ -730,6 +730,89 @@ void main() {
   );
 
   testWidgets(
+    'dictation meaning toggle announces the reveal once via a live region '
+    'and exposes its expanded state, without repeating on close (WCAG 4.1.3)',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      try {
+        await _pumpQuest(
+          tester,
+          _engines.last.build((_) {}, () {}, false),
+          locale: const Locale('en'),
+          viewport: _viewports[2],
+        );
+
+        await _enterCorrectResponse(tester, 'dictation');
+        await _tapPointerOwned(
+          tester,
+          find.byKey(const ValueKey('quest-submit')),
+        );
+
+        final toggle = find.byKey(const ValueKey('diktat-meaning-toggle'));
+        expect(toggle, findsOneWidget);
+        expect(
+          tester.getSemantics(toggle).getSemanticsData().flagsCollection.isExpanded,
+          ui.Tristate.isFalse,
+          reason: '닫힌 상태에서는 접힘 상태가 스크린리더에 드러나야 한다',
+        );
+
+        await _tapPointerOwned(tester, toggle);
+
+        // liveRegion 컨테이너 자체는 label 없이(container: true) 존재해야
+        // 한다 — 하위의 실제 뜻 텍스트가 발화 내용을 구성해야 하기 때문이다.
+        expect(
+          find.byWidgetPredicate(
+            (widget) =>
+                widget is Semantics &&
+                widget.container == true &&
+                widget.properties.liveRegion == true &&
+                widget.properties.label == null,
+          ),
+          findsOneWidget,
+          reason: 'liveRegion 컨테이너는 고정 label이 아니라 내용으로 발화해야 한다',
+        );
+        // 펼친 뒤에는 뜻 텍스트 자체가 스크린리더에 노출돼야 한다 — 고정
+        // 안내 문구 뒤에 숨어서는 안 된다(회귀 방지: ExcludeSemantics 금지).
+        expect(
+          find.bySemanticsLabel('Say hello politely.'),
+          findsOneWidget,
+          reason: '펼친 뒤에는 뜻 텍스트가 시맨틱 트리에서 발견돼야 한다',
+        );
+        expect(
+          tester.getSemantics(toggle).getSemanticsData().flagsCollection.isExpanded,
+          ui.Tristate.isTrue,
+          reason: '열린 상태에서는 펼침 상태가 스크린리더에 드러나야 한다',
+        );
+
+        await _tapPointerOwned(tester, toggle);
+
+        expect(
+          find.byWidgetPredicate(
+            (widget) =>
+                widget is Semantics &&
+                widget.container == true &&
+                widget.properties.liveRegion == true,
+          ),
+          findsNothing,
+          reason: '닫을 때는 알림이 반복되면 안 된다',
+        );
+        expect(
+          find.bySemanticsLabel('Say hello politely.'),
+          findsNothing,
+          reason: '접으면 뜻 텍스트 노드도 함께 사라져야 한다',
+        );
+        expect(
+          tester.getSemantics(toggle).getSemanticsData().flagsCollection.isExpanded,
+          ui.Tristate.isFalse,
+        );
+        _expectNoException(tester);
+      } finally {
+        semantics.dispose();
+      }
+    },
+  );
+
+  testWidgets(
     'batchim particle and sentence audio controls keep non-color and reduced '
     'motion contracts',
     (tester) async {

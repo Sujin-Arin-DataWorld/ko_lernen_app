@@ -173,9 +173,16 @@ void main() {
     // 아이콘은 1개 이상 — 예문 SoriPressable 단언이 핵심이다.)
     expect(find.textContaining('하나 예문입니다.'), findsOneWidget);
     expect(find.byIcon(Icons.volume_up_rounded), findsWidgets);
-    final pressable = tester.widget<SoriPressable>(
-      find.byType(SoriPressable).first,
+    // `.first` 는 더 이상 안전하지 않다: 앞면이 SoriSpeechIndicator (내부에
+    // SoriPressable(onTap:) 이지만 onLongPress 는 없음)로 바뀌면서, 덱 스택이
+    // 렌더하는 다음 카드 앞면의 SoriPressable 이 트리 순서상 먼저 잡힌다.
+    // 예문 텍스트의 조상 SoriPressable 을 직접 지목해야 한다.
+    final examplePressableFinder = find.ancestor(
+      of: find.textContaining('하나 예문입니다.'),
+      matching: find.byType(SoriPressable),
     );
+    expect(examplePressableFinder, findsOneWidget);
+    final pressable = tester.widget<SoriPressable>(examplePressableFinder);
     expect(pressable.onTap, isNotNull);
     expect(pressable.onLongPress, isNotNull);
 

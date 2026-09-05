@@ -463,11 +463,28 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     return LayoutBuilder(
       builder: (context, constraints) {
         // gap 6→10: 셀이 붙어 보여 교차 구조가 안 읽혔다(2026-08-12 Jin).
-        const gap = 10.0;
-        final cell = math.min(
-          52.0,
-          (constraints.maxWidth - (p.cols - 1) * gap) / p.cols,
-        );
+        // 최소 터치 영역 48을 우선 보장한다: 좁은 화면(360dp)에서는
+        // gap을 먼저 줄여 48을 확보하고, gap이 0까지 줄어도 모자라면
+        // 그때만 48 미만을 허용하되 격자가 가로로 넘치지 않게 한다
+        // (2026-09-04 스윕 sub-48dp).
+        const maxGap = 10.0;
+        const minCell = 48.0;
+        final cols = p.cols;
+        double cellFor(double gap) =>
+            math.min(52.0, (constraints.maxWidth - (cols - 1) * gap) / cols);
+        var gap = maxGap;
+        var cell = cellFor(gap);
+        if (cell < minCell) {
+          final cellNoGap = math.min(52.0, constraints.maxWidth / cols);
+          if (cellNoGap >= minCell && cols > 1) {
+            gap = ((constraints.maxWidth - minCell * cols) / (cols - 1))
+                .clamp(0.0, maxGap);
+            cell = cellFor(gap);
+          } else {
+            gap = 0.0;
+            cell = cellNoGap;
+          }
+        }
         return Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,

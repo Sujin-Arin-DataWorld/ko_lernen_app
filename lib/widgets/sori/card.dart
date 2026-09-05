@@ -65,6 +65,11 @@ class SoriCard extends StatefulWidget {
   /// tappable card는 button 역할로 트리에 등록된다.
   final String? semanticLabel;
 
+  /// 접근성 value — 버튼의 현재 상태를 스크린리더에 알린다(예: 재생/정지
+  /// 토글의 "재생 중"/"정지됨"). null이면 값 없이 label만 노출한다
+  /// (기존 호출부는 전부 이 기본값으로 영향 없음).
+  final String? semanticValue;
+
   const SoriCard({
     super.key,
     required this.child,
@@ -80,6 +85,7 @@ class SoriCard extends StatefulWidget {
     this.selectable = false,
     this.selected = false,
     this.semanticLabel,
+    this.semanticValue,
   }) : assert(selectable || !selected, 'selected는 selectable 카드 전용');
 
   /// 카드가 실제로 칠하는 배경색 — build 와 **같은 계산**을 외부에 노출한다.
@@ -270,6 +276,7 @@ class _SoriCardState extends State<SoriCard> {
       button: true,
       enabled: true,
       label: widget.semanticLabel,
+      value: widget.semanticValue,
       selected: widget.selectable ? widget.selected : null,
       child: SoriPressable(
         onTap: widget.onTap,

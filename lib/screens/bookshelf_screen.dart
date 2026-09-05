@@ -500,7 +500,10 @@ class _CustomPackTile extends StatelessWidget {
         child: LayoutBuilder(
           builder: (context, constraints) {
             final stackActions =
-                MediaQuery.textScalerOf(context).scale(1) >= 1.6 ||
+                // PR4-T5: btnPlay(EN) "Play"->"Practice" 정정으로 이 행의
+                // 텍스트가 길어져 1.3배율에서도 2.8px 오버플로가 났다 —
+                // 임계값을 1.6에서 1.3으로 낮춰 더 일찍 세로 배치로 접는다.
+                MediaQuery.textScalerOf(context).scale(1) >= 1.3 ||
                 constraints.maxWidth < SoriAdaptiveWidth.labelValueRow;
             final learnedCount = CustomPackService.learnedWordCount(pack);
             final identityLabel =

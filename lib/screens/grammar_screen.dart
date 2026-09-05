@@ -1381,7 +1381,7 @@ class _GrammarScreenState extends State<GrammarScreen>
               // 진행바 → [듣기] 위치 [되돌리기]. Hören 과 같은 배치다.
               // Zurück 은 전진 흐름을 막지 않도록 작은 실행취소 아이콘
               // 하나로 줄였고(Tinder 의 Rewind 위계), 첫 카드에서는 되돌릴
-              // 것이 없으므로 꺼진다. 두 아이콘 모두 44×44 터치 영역이다.
+              // 것이 없으므로 꺼진다. 두 아이콘 모두 48×48 터치 영역이다.
               SoriProgressBar(
                 value: _filtered.isEmpty ? 0 : (_idx + 1) / _filtered.length,
                 thickness: 6,
@@ -1393,7 +1393,7 @@ class _GrammarScreenState extends State<GrammarScreen>
                 children: [
                   // 듣기는 카드 안(읽어 주는 문장 옆)으로 옮겼다. 균형을
                   // 위해 실행취소와 같은 폭만 비워 카운터를 가운데 둔다.
-                  const SizedBox(width: 44),
+                  const SizedBox(width: 48),
                   Expanded(
                     child: Center(
                       child: Text(
@@ -1405,8 +1405,8 @@ class _GrammarScreenState extends State<GrammarScreen>
                     ),
                   ),
                   SizedBox(
-                    width: 44,
-                    height: 44,
+                    width: 48,
+                    height: 48,
                     child: IconButton(
                       key: const Key('grammar-undo'),
                       tooltip: t.btnPrev,

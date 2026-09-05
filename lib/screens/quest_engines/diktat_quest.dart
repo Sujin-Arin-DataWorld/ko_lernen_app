@@ -594,68 +594,90 @@ class _DiktatQuestState extends State<DiktatQuest> {
           if (_completed) ...[
             Align(
               alignment: Alignment.centerLeft,
-              child: TextButton.icon(
-                key: const ValueKey('diktat-meaning-toggle'),
-                onPressed: () => setState(() => _showMeaning = !_showMeaning),
-                icon: Icon(
-                  _showMeaning
-                      ? Icons.lightbulb_rounded
-                      : Icons.lightbulb_outline_rounded,
-                  size: 18,
-                  color: SoriColors.gold,
-                ),
-                label: Text(
-                  t.diktatShowMeaning,
-                  style: SoriTextTheme.of(
-                    context,
-                  ).bodySmall.copyWith(color: s.textMuted),
+              // 펼침/접힘 상태를 스크린리더에 노출한다 — 버튼 자체의
+              // 시맨틱 상태(WCAG 4.1.2). 내용이 열릴 때의 알림은 아래
+              // liveRegion Semantics가 별도로 맡는다(WCAG 4.1.3).
+              // MergeSemantics로 감싸 TextButton이 내부적으로 만드는
+              // button/tap 노드와 expanded 플래그를 한 노드로 합친다 —
+              // 안 그러면 별도 조상 노드가 생겨 스크린리더가 같은
+              // 컨트롤을 두 노드로 쪼개 읽는다.
+              child: MergeSemantics(
+                child: Semantics(
+                  expanded: _showMeaning,
+                  child: TextButton.icon(
+                    key: const ValueKey('diktat-meaning-toggle'),
+                    onPressed: () =>
+                        setState(() => _showMeaning = !_showMeaning),
+                    icon: Icon(
+                      _showMeaning
+                          ? Icons.lightbulb_rounded
+                          : Icons.lightbulb_outline_rounded,
+                      size: 18,
+                      color: SoriColors.gold,
+                    ),
+                    label: Text(
+                      t.diktatShowMeaning,
+                      style: SoriTextTheme.of(
+                        context,
+                      ).bodySmall.copyWith(color: s.textMuted),
+                    ),
+                  ),
                 ),
               ),
             ),
             if (_showMeaning) ...[
               const SizedBox(height: Spacing.xs),
-              Padding(
-                padding: const EdgeInsets.only(left: Spacing.md),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      _meaning(langCode),
-                      style: SoriTextTheme.of(
-                        context,
-                      ).bodySmall.copyWith(color: s.textMuted),
-                    ),
-                    if (_promptKo.isNotEmpty) ...[
-                      const SizedBox(height: Spacing.xs),
-                      // 라벨과 값을 하나의 시맨틱 노드로 합친다 — 분리돼
-                      // 있으면 스크린리더가 "한국어로", "{텍스트}"를 서로
-                      // 무관한 두 정지점으로 읽는다(a11y MEDIUM, WCAG
-                      // 1.3.1).
-                      MergeSemantics(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              t.diktatMeaningKo,
-                              style: SoriTextTheme.of(
-                                context,
-                              ).bodySmall.copyWith(
-                                color: s.textMuted,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                            Text(
-                              _promptKo,
-                              key: const ValueKey('diktat-meaning-ko'),
-                              style: SoriTextTheme.of(
-                                context,
-                              ).bodySmall.copyWith(color: s.textMuted),
-                            ),
-                          ],
-                        ),
+              // 펼쳐질 때만 존재하는 위젯이라 새로 생성될 때 liveRegion이
+              // 1회 발화한다 — 접을 때는 이 서브트리 자체가 사라지므로
+              // 반복 낭독이 없다. label을 따로 붙이지 않는다 — 하위 텍스트
+              // 노드들이 그대로 container의 발화 내용을 구성하게 해
+              // 스크린리더가 실제 뜻 텍스트를 읽을 수 있게 한다(고정
+              // 안내 문구로 뜻 내용을 가리지 않는다).
+              Semantics(
+                container: true,
+                liveRegion: true,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: Spacing.md),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        _meaning(langCode),
+                        style: SoriTextTheme.of(
+                          context,
+                        ).bodySmall.copyWith(color: s.textMuted),
                       ),
+                      if (_promptKo.isNotEmpty) ...[
+                        const SizedBox(height: Spacing.xs),
+                        // 라벨과 값을 하나의 시맨틱 노드로 합친다 — 분리돼
+                        // 있으면 스크린리더가 "한국어로", "{텍스트}"를 서로
+                        // 무관한 두 정지점으로 읽는다(a11y MEDIUM, WCAG
+                        // 1.3.1).
+                        MergeSemantics(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                t.diktatMeaningKo,
+                                style: SoriTextTheme.of(context).bodySmall
+                                    .copyWith(
+                                      color: s.textMuted,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                              ),
+                              Text(
+                                _promptKo,
+                                key: const ValueKey('diktat-meaning-ko'),
+                                style: SoriTextTheme.of(
+                                  context,
+                                ).bodySmall.copyWith(color: s.textMuted),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ],
-                  ],
+                  ),
                 ),
               ),
             ],

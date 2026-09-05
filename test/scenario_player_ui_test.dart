@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -13,6 +14,7 @@ import 'package:ko_lernen_app/services/course_progress_service.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/tts_service.dart' show TtsSpeechPhase;
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_error.dart';
 import 'package:ko_lernen_app/widgets/app_loading.dart';
@@ -404,6 +406,102 @@ void main() {
   );
 
   testWidgets(
+    '첫 대사(자동재생 대상) 카드 하나가 재생 정지 컨트롤이다 (WCAG 1.4.2) — '
+    '별도 인디케이터를 중첩하지 않는다 (WCAG 4.1.2)',
+    (tester) async {
+      final stub = stubSoriSpeech(completeSpeak: false);
+      final semantics = tester.ensureSemantics();
+
+      await _pumpPreview(
+        tester,
+        stage: ScenarioStage.dialog,
+        size: const Size(390, 844),
+        textScale: 1.3,
+      );
+
+      // 진입 자동재생이 첫 대사를 speak 요청했다. completeSpeak:false라
+      // future가 pending 상태로 남아 phase가 idle로 돌아오지 않는다 —
+      // "3초 넘게 이어지는 자동재생"을 흉내내는 이 테스트의 전제.
+      expect(stub.spoken, ['여권 보여주세요.']);
+      expect(SoriSpeech.phase.value, isNot(TtsSpeechPhase.idle));
+
+      // 리뷰 High: 카드(재생) 안에 별도 SoriSpeechIndicator(재생/정지
+      // 토글)를 또 넣으면 같은 위치에 버튼 시맨틱이 중첩된다. 자동재생
+      // 대상 줄에는 그 컴포넌트를 아예 두지 않는다 — 컨트롤은 카드 하나뿐.
+      final indicator = find.byWidgetPredicate(
+        (widget) =>
+            widget is SoriSpeechIndicator && widget.text == '여권 보여주세요.',
+      );
+      expect(
+        indicator,
+        findsNothing,
+        reason: '자동재생 대상 줄은 카드 하나가 유일한 컨트롤이어야 한다 — '
+            '별도 인디케이터를 두면 버튼 시맨틱이 중첩된다(WCAG 4.1.2)',
+      );
+
+      // 둘째 대사는 자동재생 대상이 아니므로 중복 정지 컨트롤을 만들지 않는다.
+      final secondLineIndicator = find.byWidgetPredicate(
+        (widget) =>
+            widget is SoriSpeechIndicator && widget.text == '네, 여기 있어요.',
+      );
+      expect(secondLineIndicator, findsNothing);
+
+      // 첫 대사 카드 자체가 정지 가능한 컨트롤이다 — 카드의 버튼 시맨틱
+      // label로 찾는다(다른 줄과 구분되는 고유 이름, a11y HIGH 회귀 방지).
+      final card = find.bySemanticsLabel(
+        RegExp(r'^Aussprache: 여권 보여주세요\.'),
+      );
+      expect(card, findsOneWidget);
+      final beforeTapData = tester.getSemantics(card).getSemanticsData();
+      expect(beforeTapData.flagsCollection.isButton, isTrue);
+      expect(
+        beforeTapData.value,
+        'Wird geladen',
+        reason: 'resolving 단계에서는 SoriSpeechIndicator와 같은 arb 키'
+            '(speechIndicatorResolving)를 카드 value로 노출해야 한다',
+      );
+
+      // 첫 대사 카드 시맨틱 서브트리 안의 button 노드는 정확히 2개여야
+      // 한다 — 카드 자신(재생/정지, 통합 컨트롤)과 책갈피
+      // (AddToWordbookButton, 별개 동작·별개 라벨)뿐이다. 예전엔
+      // SoriSpeechIndicator가 카드 안에 하나 더 있어 재생 위치에 동작이
+      // 다른 버튼 2개(카드=재생 전용 / 인디케이터=토글 정지)가
+      // 중첩됐다(리뷰 High, WCAG 4.1.2) — 그 회귀가 재발하면 이 카운트가
+      // 3으로 늘어난다.
+      final buttonNodeCount = _countButtonSemanticsNodes(
+        tester.getSemantics(card),
+      );
+      expect(
+        buttonNodeCount,
+        2,
+        reason: '카드(재생/정지 통합 컨트롤) + 책갈피 버튼만 있어야 한다 — '
+            '3개 이상이면 같은 자리에 재생 컨트롤이 중첩된 것이다(WCAG 4.1.2)',
+      );
+
+      await tester.tap(card);
+      await tester.pump();
+
+      expect(
+        stub.stops,
+        1,
+        reason: '재생 중 탭은 정지여야 한다(WCAG 1.4.2) — 다시 재생을 걸면 안 된다',
+      );
+      expect(stub.spoken, ['여권 보여주세요.']);
+      expect(SoriSpeech.phase.value, TtsSpeechPhase.idle);
+
+      final afterTapData = tester.getSemantics(card).getSemanticsData();
+      expect(
+        afterTapData.value,
+        'Nicht aktiv',
+        reason: '정지 후에는 speechIndicatorIdle 문구로 돌아와야 한다',
+      );
+
+      expect(tester.takeException(), isNull);
+      semantics.dispose();
+    },
+  );
+
+  testWidgets(
     'EN 로케일에서 대사 카드 책갈피는 translationLanguage=en으로 저장된다 '
     '(PR2 리뷰 Important 3-b)',
     (tester) async {
@@ -707,3 +805,15 @@ Future<void> _scrollTo(WidgetTester tester, Finder finder) async {
 
 String _closeLabel(Locale locale) =>
     locale.languageCode == 'de' ? 'Schließen' : 'Close';
+
+/// [root]를 포함해 그 시맨틱 서브트리 안에서 `button` 플래그를 가진
+/// 노드 개수를 센다 — 대사 카드 안에 재생 컨트롤이 중첩되지 않았는지
+/// 검증하는 데 쓴다(리뷰 High, WCAG 4.1.2).
+int _countButtonSemanticsNodes(SemanticsNode root) {
+  var count = root.getSemanticsData().flagsCollection.isButton ? 1 : 0;
+  root.visitChildren((child) {
+    count += _countButtonSemanticsNodes(child);
+    return true;
+  });
+  return count;
+}

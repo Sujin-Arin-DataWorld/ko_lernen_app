@@ -583,16 +583,7 @@ class _Front extends StatelessWidget {
                         ),
                         SizedBox(height: soriFillSize(h, 0.03, 8, 20)),
                       ],
-                      IconButton(
-                        icon: Icon(
-                          Icons.volume_up_rounded,
-                          size: soriFillSize(h, 0.09, 28, 56),
-                        ),
-                        onPressed: () {
-                          // ignore: discarded_futures
-                          SoriSpeech.speak(word.korean);
-                        },
-                      ),
+                      SoriSpeechIndicator(text: word.korean),
                     ],
                   ),
                 ],
