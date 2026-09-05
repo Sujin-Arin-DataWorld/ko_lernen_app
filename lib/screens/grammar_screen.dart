@@ -1398,39 +1398,43 @@ class _GrammarScreenState extends State<GrammarScreen>
                                   g.pattern,
                                 ),
                                 bookmarkLabel: t.deckActionSave,
-                                child: Stack(
-                                  alignment: Alignment.bottomCenter,
-                                  children: [
-                                    FlipCard(
-                                      key: _cardKey,
-                                      flipped: _flipped,
-                                      onTap: canRecordCheckpoint
-                                          ? () => _showCheckpoint(
+                                // §A3 지시서 2.9: 듣기 아이콘은 카드박스
+                                // 상단 왼쪽 구석 — 카드 하단 중앙의 자체
+                                // 원형 _ListenButton 을 걷어내고
+                                // SoriContentFeed 의 topAccessory 슬롯을
+                                // 쓴다(review_session_screen.dart:672 와
+                                // 같은 패턴). 체크포인트 카드는 원래도
+                                // 듣기 버튼이 없었다(canRecordCheckpoint).
+                                topAccessory: canRecordCheckpoint
+                                    ? null
+                                    : () {
+                                        final speakKorean =
+                                            GrammarStudyCopy.fromGrammar(
                                               g,
-                                              assessmentLink!,
-                                            )
-                                          : _onFlip,
-                                      front: canRecordCheckpoint
-                                          ? _CourseCheckpointFront(
-                                              g: g,
-                                              cardHeight: cardH,
-                                            )
-                                          : _Front(g: g, cardHeight: cardH),
-                                      back: _Back(g: g, cardHeight: cardH),
-                                    ),
-                                    if (!canRecordCheckpoint)
-                                      Positioned(
-                                        bottom: 8,
-                                        child: _ListenButton(
-                                          korean: GrammarStudyCopy.fromGrammar(
-                                            g,
-                                            Localizations.localeOf(
-                                              context,
-                                            ).languageCode,
-                                          ).speakKorean,
-                                        ),
-                                      ),
-                                  ],
+                                              Localizations.localeOf(
+                                                context,
+                                              ).languageCode,
+                                            ).speakKorean;
+                                        return speakKorean.isEmpty
+                                            ? null
+                                            : SoriSpeechIndicator(
+                                                text: speakKorean,
+                                              );
+                                      }(),
+                                child: FlipCard(
+                                  key: _cardKey,
+                                  flipped: _flipped,
+                                  onTap: canRecordCheckpoint
+                                      ? () =>
+                                            _showCheckpoint(g, assessmentLink!)
+                                      : _onFlip,
+                                  front: canRecordCheckpoint
+                                      ? _CourseCheckpointFront(
+                                          g: g,
+                                          cardHeight: cardH,
+                                        )
+                                      : _Front(g: g, cardHeight: cardH),
+                                  back: _Back(g: g, cardHeight: cardH),
                                 ),
                               ),
                             );
@@ -1817,47 +1821,6 @@ class _Front extends StatelessWidget {
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-/// 카드 안 하단 중앙의 듣기 버튼.
-///
-/// 읽어 주는 문장 바로 옆에 두는 게 맞다 — 예전에는 카드 밖 액션 바에 있어서
-/// 무엇을 읽는지가 위치로 드러나지 않았다. 탭 대상은 48dp 로, 최소 44×44
-/// 권고보다 크게 잡았다(카드 전체 탭=뒤집기와 겹치므로 오조작이 비싸다).
-class _ListenButton extends StatelessWidget {
-  const _ListenButton({required this.korean});
-
-  final String korean;
-
-  @override
-  Widget build(BuildContext context) {
-    if (korean.isEmpty) {
-      return const SizedBox.shrink();
-    }
-    final t = AppL10n.of(context);
-    return Semantics(
-      button: true,
-      label: t.btnHoeren,
-      child: GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTap: () => SoriSpeech.speak(korean),
-        child: Material(
-          color: SoriColors.lightSurfaceRaised,
-          shape: const CircleBorder(),
-          elevation: 1,
-          child: const SizedBox(
-            width: 48,
-            height: 48,
-            child: Icon(
-              Icons.volume_up_rounded,
-              size: 22,
-              color: SoriColors.primary,
-            ),
-          ),
         ),
       ),
     );

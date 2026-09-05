@@ -12,7 +12,9 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/vocab_pack.dart';
 import 'package:ko_lernen_app/screens/custom_pack_play_screen.dart';
+import 'package:ko_lernen_app/screens/grammar_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
+import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/services/cloze_loader.dart';
@@ -259,6 +261,54 @@ void main() {
         inInclusiveRange(-1.0, 24.0),
       );
       expect(indicatorRect.top - cardRect.top, inInclusiveRange(-1.0, 24.0));
+      expect(tester.takeException(), isNull);
+    });
+  });
+
+  group('grammar_screen 카드', () {
+    setUp(() async {
+      Storage.resetForTesting();
+      SharedPreferences.setMockInitialValues({});
+      await Storage.init();
+      await Storage.setTutSeen('grammar');
+      await Storage.setTutSeen('soriDeck');
+      DataLoader.reset();
+      await DataLoader.loadGrammar();
+    });
+
+    testWidgets('SoriSpeechIndicator 가 SoriContentFeed 좌상단에 있다', (
+      tester,
+    ) async {
+      stubSoriSpeech();
+      _setViewport(tester);
+      await tester.pumpWidget(
+        MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.light,
+          locale: const Locale('de'),
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          builder: (context, child) {
+            final media = MediaQuery.of(context);
+            return MediaQuery(
+              data: media.copyWith(disableAnimations: true),
+              child: child!,
+            );
+          },
+          home: const GrammarScreen(),
+        ),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
+      if (find
+          .byKey(const Key('grammar-plan-onboarding-sheet'))
+          .evaluate()
+          .isNotEmpty) {
+        await tester.tapAt(const Offset(8, 8));
+        await tester.pump(const Duration(milliseconds: 300));
+      }
+
+      expectIndicatorAtContentFeedTopLeft(tester);
       expect(tester.takeException(), isNull);
     });
   });
