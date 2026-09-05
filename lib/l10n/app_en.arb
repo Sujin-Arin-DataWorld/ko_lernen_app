@@ -3204,7 +3204,7 @@
   "placementChooseYourself": "Or choose yourself",
   "courseMissionTitle": "Your next mission",
   "courseMissionTitleShort": "Learning path mission",
-  "courseMissionLoadError": "The learning path data could not be loaded.",
+  "courseMissionLoadError": "The learning path could not be loaded.",
   "courseMissionCompleteTitle": "Mission complete",
   "courseMissionCompleteBody": "You have completed every learning step in this mission.",
   "courseMissionNow": "now",

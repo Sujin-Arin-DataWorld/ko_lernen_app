@@ -3350,7 +3350,7 @@
   "placementChooseYourself": "Oder selbst wählen",
   "courseMissionTitle": "Deine nächste Mission",
   "courseMissionTitleShort": "Lernpfad-Mission",
-  "courseMissionLoadError": "Die Lernpfad-Daten konnten nicht geladen werden.",
+  "courseMissionLoadError": "Der Lernpfad konnte nicht geladen werden.",
   "courseMissionCompleteTitle": "Mission abgeschlossen",
   "courseMissionCompleteBody": "Du hast alle Lernschritte dieser Mission abgeschlossen.",
   "courseMissionNow": "jetzt",

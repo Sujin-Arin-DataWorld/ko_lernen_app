@@ -6819,7 +6819,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get courseMissionLoadError =>
-      'Die Lernpfad-Daten konnten nicht geladen werden.';
+      'Der Lernpfad konnte nicht geladen werden.';
 
   @override
   String get courseMissionCompleteTitle => 'Mission abgeschlossen';

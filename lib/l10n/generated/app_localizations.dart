@@ -11781,7 +11781,7 @@ abstract class AppL10n {
   /// No description provided for @courseMissionLoadError.
   ///
   /// In de, this message translates to:
-  /// **'Die Lernpfad-Daten konnten nicht geladen werden.'**
+  /// **'Der Lernpfad konnte nicht geladen werden.'**
   String get courseMissionLoadError;
 
   /// No description provided for @courseMissionCompleteTitle.

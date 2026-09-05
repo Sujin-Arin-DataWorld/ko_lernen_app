@@ -6782,8 +6782,7 @@ class AppL10nEn extends AppL10n {
   String get courseMissionTitleShort => 'Learning path mission';
 
   @override
-  String get courseMissionLoadError =>
-      'The learning path data could not be loaded.';
+  String get courseMissionLoadError => 'The learning path could not be loaded.';
 
   @override
   String get courseMissionCompleteTitle => 'Mission complete';
