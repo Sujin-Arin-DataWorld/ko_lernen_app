@@ -1662,6 +1662,8 @@
   "vocabSlowHint": "Lang drücken: langsam",
   "vocabEmptyFavorites": "Noch nichts gemerkt\nTippe auf das Lesezeichen, um Wörter zu speichern.",
   "listeningTitle": "Hören",
+  "listeningHubEyebrow": "HÖREN",
+  "listeningHubBody": "Wähle ein Regal und hör dir echte Alltagsdialoge an.",
   "listeningSubtitle": "Hör ein Szenario in natürlichem Tempo",
   "listeningSelectScenario": "Szenario wählen",
   "listeningSpeedLabel": "Tempo",
@@ -1751,6 +1753,20 @@
   "@listeningShelfScenarioCount": {
     "placeholders": {
       "n": {
+        "type": "int"
+      }
+    }
+  },
+  "listeningShelfCardSemantics": "{label}, {done} von {total} gehört",
+  "@listeningShelfCardSemantics": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "done": {
+        "type": "int"
+      },
+      "total": {
         "type": "int"
       }
     }
