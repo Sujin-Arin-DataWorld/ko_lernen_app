@@ -85,7 +85,7 @@
 
   <section class="section active" id="lang-en" lang="en" role="tabpanel">
     <h1>Account &amp; Data Deletion</h1>
-    <p class="meta"><strong>Last updated:</strong> 30 July 2026</p>
+    <p class="meta"><strong>Last updated:</strong> 6 September 2026</p>
 
     <div class="card primary">
       <h2 style="margin-top:0">Primary self-service method</h2>
@@ -106,10 +106,10 @@
     <table>
       <thead><tr><th>Action</th><th>What it does</th><th>What it does not do</th></tr></thead>
       <tbody>
-        <tr><td><strong>Reset local data</strong></td><td>Clears local learning state, app-managed book/word images, and local TTS cache on this device.</td><td>Does not prove deletion of a Firebase, RevenueCat, store, or previously transmitted Analytics/Crashlytics record.</td></tr>
-        <tr><td><strong>Delete cloud backup</strong></td><td>Deletes known learning-backup fields and backup subcollections under the current Firebase UID while keeping the Firebase account.</td><td>Does not cancel subscriptions or delete the account, RevenueCat customer, Gye identity, or local data.</td></tr>
-        <tr><td><strong>Delete account</strong></td><td>In a verified protected release, runs the full workflow described below and removes the current Firebase Authentication account.</td><td>Does not automatically cancel store billing or directly erase the RevenueCat customer profile.</td></tr>
-        <tr><td><strong>Uninstall</strong></td><td>The operating system removes this installation's local app data.</td><td>Does not prove deletion of the existing Firebase/RevenueCat server identity or data already sent to providers.</td></tr>
+        <tr><td><strong>Reset local data</strong></td><td>Clears local learning state, app-managed book/word images, and local TTS cache on this device.</td><td>Does not prove deletion of Firebase records, previously transmitted Analytics/Crashlytics data, or any historical store or former billing-provider record.</td></tr>
+        <tr><td><strong>Delete cloud backup</strong></td><td>Deletes known learning-backup fields and backup subcollections under the current Firebase UID while keeping the Firebase account.</td><td>Does not delete the account, Gye identity, local data, or any historical store or former billing-provider record.</td></tr>
+        <tr><td><strong>Delete account</strong></td><td>In a verified protected release, runs the full workflow described below and removes the current Firebase Authentication account.</td><td>Does not erase historical store or former billing-provider records outside app control or subject to retention duties.</td></tr>
+        <tr><td><strong>Uninstall</strong></td><td>The operating system removes this installation's local app data.</td><td>Does not delete the Firebase server identity, provider data already transmitted, or historical store or former billing-provider records.</td></tr>
       </tbody>
     </table>
 
@@ -130,17 +130,17 @@
     <h2>One-time continuation link</h2>
     <p>A release build may provide a first-party continuation link after an authenticated in-app request. Its one-time proof is stored only in the URL fragment, removed from the address bar before any network request, and submitted as JSON only to Hangul Sori's configured first-party endpoint. The page always shows the same neutral status for missing, malformed, invalid, expired, used, successful, or network-failed requests. Do not paste the link or proof into email, chat, analytics, or another form.</p>
 
-    <h2>Subscriptions and RevenueCat</h2>
+    <h2>Free access and historical store records</h2>
     <div class="card warning">
-      <p><strong>Deleting an account does not cancel a subscription.</strong> Cancel it separately in Google Play or the App Store subscription settings. Store transaction history may be retained under store, accounting, tax, fraud-prevention, or other legal requirements.</p>
+      <p><strong>The current app has no subscription, purchase SDK, paywall, paid learning gate, or billing-processing path.</strong> All learning content is available free of charge, so deleting an account does not need to cancel any current Hangul Sori subscription.</p>
     </div>
-    <p>The mobile deletion workflow does not currently delete the RevenueCat customer profile. For a processor-side RevenueCat erasure request, contact <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>. We will help route the request, but cannot promise deletion of records that RevenueCat, Google, or Apple must retain legally or that remain under verified project/provider retention controls.</p>
+    <p>If an older app version or store account created a historical transaction, refund and retention questions remain subject to the applicable store, former billing provider, and legal obligations. Contact <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a> for help locating such a record. The current app creates no new billing-customer or transaction records.</p>
 
     <h2>Limits and timing</h2>
-    <p>After the protected workflow is released and verified, known app-controlled account data is deleted or scheduled for retry by that workflow. Gye cleanup and remote push-token cleanup are durable/retryable and may not finish synchronously. Turning off Crashlytics can delete only unsent local reports on a best-effort basis. Already transmitted Analytics, Crashlytics, translation-cache, TTS, purchase, transaction, or provider logs follow the applicable live project/provider settings; this repository does not prove one universal retention period.</p>
+    <p>After the protected workflow is released and verified, known app-controlled account data is deleted or scheduled for retry by that workflow. Gye cleanup and remote push-token cleanup are durable/retryable and may not finish synchronously. Turning off Crashlytics can delete only unsent local reports on a best-effort basis. Already transmitted Analytics, Crashlytics, translation-cache, TTS, or other provider logs—and any historical transaction record created by an older app version—follow the applicable live project/provider settings and legal retention duties. The current app creates no new purchase or billing records; this repository does not prove one universal retention period.</p>
 
     <h2>If you cannot use the app</h2>
-    <p>Email <a href="mailto:hello@hangul-sori.com?subject=Hangul%20Sori%20account%20deletion">hello@hangul-sori.com</a> with the subject “Hangul Sori account deletion”. State whether the account was guest-only, Google-linked, or Apple-linked and provide only the information needed to locate and verify the request. Support is the fallback and the contact for RevenueCat-side requests; this page has no web form that asks for a proof. When the control is present, the in-app button is the primary deletion method.</p>
+    <p>Email <a href="mailto:hello@hangul-sori.com?subject=Hangul%20Sori%20account%20deletion">hello@hangul-sori.com</a> with the subject “Hangul Sori account deletion”. State whether the account was guest-only, Google-linked, or Apple-linked and provide only the information needed to locate and verify the request. Support is the fallback and can also help route a question about a historical store or former billing-provider record; this page has no web form that asks for a proof. When the control is present, the in-app button is the primary deletion method.</p>
 
     <h2>Need another data request?</h2>
     <p>For access, correction, export, or a targeted deletion question, email <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>. See the <a href="privacy.html">Privacy Policy</a> for the data categories and services involved.</p>
@@ -148,7 +148,7 @@
 
   <section class="section" id="lang-de" lang="de" role="tabpanel">
     <h1>Konto &amp; Daten löschen</h1>
-    <p class="meta"><strong>Zuletzt aktualisiert:</strong> 30. Juli 2026</p>
+    <p class="meta"><strong>Zuletzt aktualisiert:</strong> 6. September 2026</p>
 
     <div class="card primary">
       <h2 style="margin-top:0">Primärer Selbstbedienungsweg</h2>
@@ -169,10 +169,10 @@
     <table>
       <thead><tr><th>Aktion</th><th>Wirkung</th><th>Nicht enthalten</th></tr></thead>
       <tbody>
-        <tr><td><strong>Lokale Daten zurücksetzen</strong></td><td>Löscht lokalen Lernstand, appverwaltete Wortbilder und lokalen TTS-Cache auf diesem Gerät.</td><td>Beweist keine Löschung von Firebase-/RevenueCat-/Store-Daten oder bereits übertragenen Analytics-/Crashlytics-Berichten.</td></tr>
-        <tr><td><strong>Cloud-Backup löschen</strong></td><td>Löscht bekannte Lern-Backup-Felder und -Unterkollektionen der aktuellen Firebase-UID; das Firebase-Konto bleibt bestehen.</td><td>Kündigt kein Abo und löscht weder Konto, RevenueCat-Kunde, Gye-Identität noch lokale Daten.</td></tr>
-        <tr><td><strong>Konto löschen</strong></td><td>Führt in einem geprüften geschützten Release den vollständigen Ablauf unten aus und löscht das aktuelle Firebase-Authentication-Konto.</td><td>Kündigt keine Store-Zahlung automatisch und löscht das RevenueCat-Kundenprofil nicht direkt.</td></tr>
-        <tr><td><strong>Deinstallieren</strong></td><td>Das Betriebssystem entfernt lokale Daten dieser Installation.</td><td>Beweist keine Löschung der bestehenden Firebase-/RevenueCat-Serveridentität oder bereits übertragener Daten.</td></tr>
+        <tr><td><strong>Lokale Daten zurücksetzen</strong></td><td>Löscht lokalen Lernstand, appverwaltete Wortbilder und lokalen TTS-Cache auf diesem Gerät.</td><td>Beweist keine Löschung von Firebase-Daten, bereits übertragenen Analytics-/Crashlytics-Daten oder historischen Store-Daten bzw. Daten eines früheren Zahlungsdienstleisters.</td></tr>
+        <tr><td><strong>Cloud-Backup löschen</strong></td><td>Löscht bekannte Lern-Backup-Felder und -Unterkollektionen der aktuellen Firebase-UID; das Firebase-Konto bleibt bestehen.</td><td>Löscht weder Konto, Gye-Identität, lokale Daten noch historische Store-Daten bzw. Daten eines früheren Zahlungsdienstleisters.</td></tr>
+        <tr><td><strong>Konto löschen</strong></td><td>Führt in einem geprüften geschützten Release den vollständigen Ablauf unten aus und löscht das aktuelle Firebase-Authentication-Konto.</td><td>Löscht keine historischen Store-Daten oder Daten eines früheren Zahlungsdienstleisters, die außerhalb der App-Kontrolle liegen oder Aufbewahrungspflichten unterliegen.</td></tr>
+        <tr><td><strong>Deinstallieren</strong></td><td>Das Betriebssystem entfernt lokale Daten dieser Installation.</td><td>Löscht weder die Firebase-Serveridentität noch bereits übertragene Providerdaten oder historische Store-Daten bzw. Daten eines früheren Zahlungsdienstleisters.</td></tr>
       </tbody>
     </table>
 
@@ -193,17 +193,17 @@
     <h2>Einmaliger Fortsetzungslink</h2>
     <p>Ein Release-Build kann nach einer authentifizierten Anfrage in der App einen First-Party-Fortsetzungslink bereitstellen. Sein einmaliger Nachweis steht nur im URL-Fragment, wird vor jeder Netzwerkanfrage aus der Adresszeile entfernt und ausschließlich als JSON an den konfigurierten Hangul-Sori-Endpunkt gesendet. Die Seite zeigt bei fehlenden, fehlerhaften, ungültigen, abgelaufenen, verwendeten, erfolgreichen oder netzwerkbedingt fehlgeschlagenen Anfragen immer denselben neutralen Status. Link oder Nachweis bitte nicht in E-Mail, Chat, Analytics oder ein anderes Formular kopieren.</p>
 
-    <h2>Abos und RevenueCat</h2>
+    <h2>Kostenfreier Zugang und historische Store-Daten</h2>
     <div class="card warning">
-      <p><strong>Kontolöschung kündigt kein Abo.</strong> Die Kündigung muss separat in den Abonnement-Einstellungen von Google Play bzw. App Store erfolgen. Store-Transaktionsdaten können aufgrund von Store-, Buchhaltungs-, Steuer-, Betrugspräventions- oder anderen gesetzlichen Vorgaben aufbewahrt werden.</p>
+      <p><strong>Die aktuelle App enthält kein Abo, kein Kauf-SDK, keine Paywall, keine kostenpflichtige Lernschranke und keine Zahlungsabwicklung.</strong> Alle Lerninhalte sind kostenlos verfügbar; deshalb ist bei der Kontolöschung kein aktuelles Hangul-Sori-Abo zu kündigen.</p>
     </div>
-    <p>Der mobile Löschablauf löscht derzeit kein RevenueCat-Kundenprofil. Für eine RevenueCat-seitige Löschanfrage bitte <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a> kontaktieren. Wir helfen bei der Weiterleitung, versprechen aber keine Löschung von Daten, die RevenueCat, Google oder Apple gesetzlich aufbewahren müssen oder die verifizierten Projekt-/Providerfristen unterliegen.</p>
+    <p>Falls eine ältere App-Version oder ein Store-Konto einen historischen Transaktionsdatensatz erzeugt hat, richten sich Erstattung und Aufbewahrung nach dem jeweiligen Store, dem früheren Zahlungsdienstleister und gesetzlichen Pflichten. Beim Auffinden eines solchen Datensatzes hilft <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>. Die aktuelle App erstellt keine neuen Kunden- oder Transaktionsdatensätze für Abrechnungen.</p>
 
     <h2>Grenzen und Dauer</h2>
-    <p>Nach Freigabe und Prüfung des geschützten Ablaufs werden bekannte, von der App kontrollierte Kontodaten gelöscht oder zur Wiederholung vorgemerkt. Gye-Bereinigung und entfernte Push-Token-Bereinigung sind dauerhaft wiederholbar und müssen nicht synchron abgeschlossen sein. Beim Ausschalten von Crashlytics können nur ungesendete lokale Berichte bestmöglich gelöscht werden. Bereits übertragene Analytics-, Crashlytics-, Übersetzungs-Cache-, TTS-, Kauf-, Transaktions- oder Provider-Logs folgen den Live-Projekt-/Provider-Einstellungen; das Repository belegt keine einheitliche Aufbewahrungsfrist.</p>
+    <p>Nach Freigabe und Prüfung des geschützten Ablaufs werden bekannte, von der App kontrollierte Kontodaten gelöscht oder zur Wiederholung vorgemerkt. Gye-Bereinigung und entfernte Push-Token-Bereinigung sind dauerhaft wiederholbar und müssen nicht synchron abgeschlossen sein. Beim Ausschalten von Crashlytics können nur ungesendete lokale Berichte bestmöglich gelöscht werden. Bereits übertragene Analytics-, Crashlytics-, Übersetzungs-Cache-, TTS- oder andere Provider-Logs sowie historische Transaktionsdaten aus einer älteren App-Version folgen den Live-Projekt-/Provider-Einstellungen und gesetzlichen Aufbewahrungspflichten. Die aktuelle App erstellt keine neuen Kauf- oder Abrechnungsdatensätze; das Repository belegt keine einheitliche Aufbewahrungsfrist.</p>
 
     <h2>Wenn die App nicht nutzbar ist</h2>
-    <p>E-Mail an <a href="mailto:hello@hangul-sori.com?subject=Hangul%20Sori%20Konto%20loeschen">hello@hangul-sori.com</a> mit dem Betreff „Hangul Sori Konto löschen“. Bitte angeben, ob das Konto nur Gast, Google-verknüpft oder Apple-verknüpft war, und nur die zur Zuordnung/Prüfung nötigen Angaben senden. Support ist der Ausweichweg und Kontakt für RevenueCat-Anfragen; diese Seite enthält kein Webformular, das einen Nachweis anfordert. Wenn vorhanden, ist der In-App-Button der primäre Löschweg.</p>
+    <p>E-Mail an <a href="mailto:hello@hangul-sori.com?subject=Hangul%20Sori%20Konto%20loeschen">hello@hangul-sori.com</a> mit dem Betreff „Hangul Sori Konto löschen“. Bitte angeben, ob das Konto nur Gast, Google-verknüpft oder Apple-verknüpft war, und nur die zur Zuordnung/Prüfung nötigen Angaben senden. Support ist der Ausweichweg und hilft auch bei der Weiterleitung von Fragen zu historischen Store-Daten oder Daten eines früheren Zahlungsdienstleisters; diese Seite enthält kein Webformular, das einen Nachweis anfordert. Wenn vorhanden, ist der In-App-Button der primäre Löschweg.</p>
 
     <h2>Weitere Datenanfrage</h2>
     <p>Für Auskunft, Berichtigung, Export oder eine gezielte Löschfrage: <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>. Kategorien und Dienste beschreibt die <a href="privacy.html">Datenschutzerklärung</a>.</p>
@@ -211,7 +211,7 @@
 
   <section class="section" id="lang-ko" lang="ko" role="tabpanel">
     <h1>계정 및 데이터 삭제</h1>
-    <p class="meta"><strong>최종 갱신:</strong> 2026년 7월 30일</p>
+    <p class="meta"><strong>최종 갱신:</strong> 2026년 9월 6일</p>
 
     <div class="card primary">
       <h2 style="margin-top:0">기본 직접 삭제 방법</h2>
@@ -232,10 +232,10 @@
     <table>
       <thead><tr><th>작업</th><th>삭제되는 내용</th><th>삭제되지 않는 내용</th></tr></thead>
       <tbody>
-        <tr><td><strong>로컬 데이터 초기화</strong></td><td>이 기기의 로컬 학습 상태, 앱 관리 단어 이미지, 로컬 TTS 캐시를 지웁니다.</td><td>Firebase, RevenueCat, 스토어 또는 이미 전송된 Analytics/Crashlytics 기록의 서버 삭제를 증명하지 않습니다.</td></tr>
-        <tr><td><strong>클라우드 백업 삭제</strong></td><td>Firebase 계정은 유지하면서 현재 UID의 알려진 학습 백업 필드와 하위 컬렉션을 삭제합니다.</td><td>구독, 계정, RevenueCat 고객, Gye 식별자 또는 로컬 데이터는 삭제하지 않습니다.</td></tr>
-        <tr><td><strong>계정 삭제</strong></td><td>검증된 보호 릴리스에서 아래 전체 절차를 실행하고 현재 Firebase Authentication 계정을 삭제합니다.</td><td>스토어 결제를 자동으로 취소하거나 RevenueCat 고객 프로필을 직접 삭제하지 않습니다.</td></tr>
-        <tr><td><strong>앱 제거</strong></td><td>운영체제가 이 설치의 로컬 앱 데이터를 제거합니다.</td><td>기존 Firebase/RevenueCat 서버 식별자나 이미 공급자에게 전송된 데이터의 삭제를 증명하지 않습니다.</td></tr>
+        <tr><td><strong>로컬 데이터 초기화</strong></td><td>이 기기의 로컬 학습 상태, 앱 관리 단어 이미지, 로컬 TTS 캐시를 지웁니다.</td><td>Firebase 기록, 이미 전송된 Analytics/Crashlytics 데이터 또는 역사적 스토어·과거 결제 공급자 기록의 삭제를 증명하지 않습니다.</td></tr>
+        <tr><td><strong>클라우드 백업 삭제</strong></td><td>Firebase 계정은 유지하면서 현재 UID의 알려진 학습 백업 필드와 하위 컬렉션을 삭제합니다.</td><td>계정, Gye 식별자, 로컬 데이터 또는 역사적 스토어·과거 결제 공급자 기록은 삭제하지 않습니다.</td></tr>
+        <tr><td><strong>계정 삭제</strong></td><td>검증된 보호 릴리스에서 아래 전체 절차를 실행하고 현재 Firebase Authentication 계정을 삭제합니다.</td><td>앱이 제어하지 않거나 보관 의무가 적용되는 역사적 스토어·과거 결제 공급자 기록은 삭제하지 않습니다.</td></tr>
+        <tr><td><strong>앱 제거</strong></td><td>운영체제가 이 설치의 로컬 앱 데이터를 제거합니다.</td><td>Firebase 서버 식별자, 이미 전송된 공급자 데이터 또는 역사적 스토어·과거 결제 공급자 기록은 삭제하지 않습니다.</td></tr>
       </tbody>
     </table>
 
@@ -256,17 +256,17 @@
     <h2>일회용 계속 진행 링크</h2>
     <p>출시 빌드는 앱에서 인증된 요청을 한 뒤 자사 계속 진행 링크를 제공할 수 있습니다. 일회용 증명은 URL 프래그먼트에만 들어가며, 네트워크 요청 전에 주소창에서 제거되고, 설정된 Hangul Sori 자사 엔드포인트로만 JSON 전송됩니다. 페이지는 링크 없음, 형식 오류, 무효, 만료, 사용됨, 성공 또는 네트워크 실패를 구분하지 않고 항상 같은 중립 상태를 표시합니다. 링크나 증명을 이메일, 채팅, Analytics 또는 다른 양식에 붙여 넣지 마세요.</p>
 
-    <h2>구독 및 RevenueCat</h2>
+    <h2>무료 접근 및 역사적 스토어 기록</h2>
     <div class="card warning">
-      <p><strong>계정 삭제는 구독을 취소하지 않습니다.</strong> Google Play 또는 App Store 구독 설정에서 별도로 취소해야 합니다. 스토어 거래 내역은 스토어, 회계, 세금, 사기 방지 또는 기타 법적 의무에 따라 보관될 수 있습니다.</p>
+      <p><strong>현재 앱에는 구독, 구매 SDK, paywall, 유료 학습 제한 또는 결제 처리 경로가 없습니다.</strong> 모든 학습 콘텐츠는 무료로 제공되므로 계정 삭제 시 현재 한글소리 구독을 취소할 필요가 없습니다.</p>
     </div>
-    <p>모바일 계정 삭제 절차는 현재 RevenueCat 고객 프로필을 삭제하지 않습니다. RevenueCat 측 삭제 요청은 <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>으로 문의하세요. 요청 전달을 지원하지만 RevenueCat, Google 또는 Apple이 법적으로 보관해야 하는 기록이나 확인된 프로젝트/공급자 보관 설정의 기록까지 삭제된다고 약속할 수는 없습니다.</p>
+    <p>이전 앱 버전이나 스토어 계정에서 역사적 거래 기록이 생성된 경우 환불과 보관은 해당 스토어, 과거 결제 공급자 및 법적 의무를 따릅니다. 해당 기록 확인에 도움이 필요하면 <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>으로 문의하세요. 현재 앱은 새로운 결제 고객 또는 거래 기록을 만들지 않습니다.</p>
 
     <h2>처리 한계와 시간</h2>
-    <p>보호된 절차가 출시되고 검증된 뒤에는 앱이 제어하는 알려진 계정 데이터를 삭제하거나 재시도 대상으로 기록합니다. Gye 정리와 원격 푸시 토큰 정리는 지속적으로 재시도되므로 동시에 끝나지 않을 수 있습니다. Crashlytics를 끌 때는 전송 전 로컬 보고서만 최선의 방식으로 삭제할 수 있습니다. 이미 전송된 Analytics, Crashlytics, 번역 캐시, TTS, 구매, 거래 또는 공급자 로그는 실제 프로젝트/공급자 설정을 따르며, 저장소는 하나의 고정 보관 기간을 증명하지 않습니다.</p>
+    <p>보호된 절차가 출시되고 검증된 뒤에는 앱이 제어하는 알려진 계정 데이터를 삭제하거나 재시도 대상으로 기록합니다. Gye 정리와 원격 푸시 토큰 정리는 지속적으로 재시도되므로 동시에 끝나지 않을 수 있습니다. Crashlytics를 끌 때는 전송 전 로컬 보고서만 최선의 방식으로 삭제할 수 있습니다. 이미 전송된 Analytics, Crashlytics, 번역 캐시, TTS 또는 기타 공급자 로그와 이전 앱 버전에서 만들어진 역사적 거래 기록은 실제 프로젝트/공급자 설정과 법적 보관 의무를 따릅니다. 현재 앱은 새로운 구매 또는 결제 기록을 만들지 않으며, 저장소는 하나의 고정 보관 기간을 증명하지 않습니다.</p>
 
     <h2>앱을 사용할 수 없는 경우</h2>
-    <p><a href="mailto:hello@hangul-sori.com?subject=Hangul%20Sori%20account%20deletion">hello@hangul-sori.com</a>으로 제목을 “Hangul Sori 계정 삭제”로 보내세요. 게스트 전용, Google 연결, Apple 연결 중 어떤 계정이었는지 적고 요청 확인에 필요한 최소 정보만 보내주세요. 지원 이메일은 보조 방법이자 RevenueCat 측 요청 창구입니다. 이 페이지에는 증명을 요구하는 웹 양식이 없으며, 설치된 빌드에 기능이 있으면 앱 내 버튼이 기본 삭제 방법입니다.</p>
+    <p><a href="mailto:hello@hangul-sori.com?subject=Hangul%20Sori%20account%20deletion">hello@hangul-sori.com</a>으로 제목을 “Hangul Sori 계정 삭제”로 보내세요. 게스트 전용, Google 연결, Apple 연결 중 어떤 계정이었는지 적고 요청 확인에 필요한 최소 정보만 보내주세요. 지원 이메일은 보조 방법이며 역사적 스토어·과거 결제 공급자 기록 문의의 전달도 지원합니다. 이 페이지에는 증명을 요구하는 웹 양식이 없으며, 설치된 빌드에 기능이 있으면 앱 내 버튼이 기본 삭제 방법입니다.</p>
 
     <h2>다른 데이터 요청</h2>
     <p>열람, 정정, 내보내기 또는 특정 데이터 삭제 문의: <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>. 관련 데이터와 서비스는 <a href="privacy.html">개인정보 처리방침</a>을 확인하세요.</p>

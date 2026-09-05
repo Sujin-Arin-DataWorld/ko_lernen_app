@@ -302,7 +302,7 @@ CI 는 1.3배까지 자동 검사한다. **최대 배율은 사람이 본다.**
 | 선택 UI | Material 계열 | 필요하면 Cupertino 계열 |
 | 공유 | 시스템 share sheet | 시스템 share sheet |
 | 설정 이동 | Android 설정 구조 | iOS 설정 구조 |
-| 결제·구독 | Google Play Billing | StoreKit |
+| 구매·구독 부재 | Play Billing 권한·SDK·상품 없음 | StoreKit 구매 SDK·상품 없음 |
 
 - [ ] Android 시스템 Back 이 모든 화면에서 기대대로 동작 (특히 다이얼로그·바텀시트·게임 중)
 - [ ] iOS 스와이프 백이 학습 진행을 날리지 않음

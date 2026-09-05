@@ -203,4 +203,4 @@ test "$(plutil -extract aps-environment raw /tmp/hangul-sori-entitlements.plist)
 test "$(/usr/libexec/PlistBuddy -c 'Print :com.apple.developer.applesignin:0' /tmp/hangul-sori-entitlements.plist)" = Default
 ```
 
-These build, signing, notification-delivery, Apple-authentication, Google-authentication, and purchase checks require macOS, Xcode, real credentials, and physical-device/sandbox testing. They cannot be completed on Windows.
+These build, signing, notification-delivery, Apple-authentication, Google-authentication, and no-purchase verification checks require macOS, Xcode, real credentials, the final signed archive, and physical-device testing. They cannot be completed on Windows.

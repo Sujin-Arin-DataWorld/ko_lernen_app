@@ -8,8 +8,9 @@ checks only in their separately approved release step.
 ## Beta cost policy
 
 Beta builds default to local recording practice. The Dart define
-`ENABLE_FREE_PRONUNCIATION_ASSESSMENT` defaults to `false`, independently of
-`BETA_UNLOCK_ALL`. Stopping a recording does not upload it. Learners can replay
+`ENABLE_FREE_PRONUNCIATION_ASSESSMENT` defaults to `false`. It controls only
+whether scored assessment is offered; it does not change content access or the
+common server quota. Stopping a recording does not upload it. Learners can replay
 their recording on the device and continue without a scored result. Temporary
 recording playback files, where required by the platform, are separate from
 the model-voice cache and are removed when the recording is discarded.
@@ -42,8 +43,9 @@ Free assessment must remain disabled until all of the following are verified:
    resource, or billing-tier change; an S0 resource is not approved for beta.
 3. Verify the existing server-owned `service_cost_controls/ai_v1` approval
    and daily reservation budget. The F0 switch does not bypass the shared AI
-   cost gate, server entitlement validation, or per-user limits. Missing,
-   malformed, unapproved, or exhausted cost controls still block assessment.
+   cost gate or the same server-owned per-user quota applied to every
+   authenticated learner. Missing, malformed, unapproved, or exhausted cost
+   controls still block assessment.
    Do not create or raise this approval merely to make a smoke test pass.
 4. Only then set `PRONUNCIATION_ASSESSMENT_MODE=azure_f0` in the pronunciation
    codebase's deployment environment and build the approved client with

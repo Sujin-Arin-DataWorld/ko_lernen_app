@@ -3,6 +3,10 @@
 > 2026-08-13 작성 (Claude). 두 갈래 리서치(EU/독일 법률 · GA4/Firebase 베스트프랙티스)와
 > 실제 구현을 합친 단일 참조. **재디자인된 UI가 이벤트를 어디에 물릴지**와 **법적으로 안전한
 > 데이터 활용**의 정본. ⚠️ 표시는 변호사/DPO 최종 검토 필요(엔지니어링 가이드이지 법률 자문 아님).
+>
+> **2026-09-06 무료 공개 계약 반영:** 현재 앱의 모든 학습 콘텐츠는 무료이며 구매 SDK,
+> 구독 상품, paywall, 유료 접근 제한 또는 결제 처리 경로가 없다. 따라서 구매·구독 관련
+> Analytics 이벤트와 user property는 정의하거나 수집하지 않는다.
 
 ## 0. 원칙 (모든 결정의 기준)
 
@@ -23,20 +27,20 @@
 | 광고 식별자 제거 | ✅ | Android: `AD_ID` 권한 `tools:node=remove` + `adid=false`(기존). iOS: `GOOGLE_ANALYTICS_IDFV_COLLECTION_ENABLED=NO` + ad-personalization 기본 거부(신규) → **ATT 프롬프트 불필요** |
 | 동의 UX | ✅ | 첫 실행 `consent_screen`은 환영+ToS/개인정보 링크만(추적 요청 없음). Analytics·Crash 동의는 **첫 성공(첫 팩 결과) 직후 `ConsentInviteSheet`**: 동등한 두 버튼(Ja/Nicht jetzt)+개별설정 링크, 1회만(nagging 금지), <16 자동 제외. 설정에서 철회 |
 | Analytics 서비스 | ✅ | `lib/services/analytics_service.dart` — 동의+미성년 게이트 no-op 래퍼(주입식·테스트가능), `screen_view` 옵저버, 타입드 이벤트, `setUserProperty`·`syncUserProperties()` |
-| 배선된 이벤트 | ✅ | **타입드 16종 전량 배선 완료 (2026-08-13, 레거시 셸)**: 기존 `screen_view`·`pack_completed`·`onboarding_level_selected`·`book_capture_analyzed`·`custom_pack_created`·`gye_created/joined` + `quiz_completed`·`game_started/completed`·`lesson_started/completed`·`onboarding_start/completed`·`placement_completed`·`tts_played`·`wordbook_add`·`streak_extended/milestone`·`daily_goal_met`·`feature_used`·`paywall_viewed`·`subscribe_started` |
+| 배선된 학습·활성화 이벤트 | ✅ | **레거시 셸 배선 완료**: `screen_view`·`pack_completed`·`onboarding_level_selected`·`book_capture_analyzed`·`custom_pack_created`·`gye_created/joined`·`quiz_completed`·`game_started/completed`·`lesson_started/completed`·`onboarding_start/completed`·`placement_completed`·`tts_played`·`wordbook_add`·`streak_extended/milestone`·`daily_goal_met`·`feature_used`. 구매·구독 이벤트는 정의·배선하지 않음 |
 | 드롭오프 퍼널 이벤트 6종 | ✅ | **2026-08-18 추가 배선** — 온보딩 스텝, 중도포기, 실패사유, 한옥 꾸미기 루프. §2 "드롭오프 퍼널" 절 참조 |
 | user property (startup 동기화) | ✅ | `learner_level`, `ui_language`, `notif_opt_in`, `streak_bucket` — `main.dart`에서 `Analytics.syncUserProperties()` |
 | Consent Mode v2 | ⬜ 불필요 | 광고 없는 분석-전용 앱엔 hard gate가 더 깔끔. **광고(AdMob) 도입 시** 추가 |
 
-## 2. 이벤트 & user property 스키마 (레거시 셸에 배선 완료)
+## 2. 이벤트 & user property 스키마 (학습·활성화 계측)
 
-> ✅ **전량 배선 완료 (2026-08-13, Mac).** 아래 타입드 메서드는 전부 `Analytics.xxx()`로 존재하며
+> ✅ **학습·활성화 이벤트 배선 완료 (2026-08-13, Mac).** 아래 타입드 메서드는 `Analytics.xxx()`로 존재하며
 > (동의 없으면 no-op), 이제 **레거시 셸 화면에 호출까지 연결**됐다(재디자인 없음 → 실제 사용 화면 기준).
 > 위치: lesson=hangul/grammar/scenario/listening · quiz=vocab_boss · game=chosung/wordle/kkeunmari/matching/typing ·
 > onboarding=onboarding_start/flow_service · placement=placement_diagnostic · tts=tts_service(중앙, content_type 휴리스틱) ·
 > wordbook=wordbook_add(`source` 파라미터, 기본 manual) · streak=main.dart 부트 · daily_goal=home(1일 1회 dedup) ·
-> feature_used=dojangcheop · paywall/subscribe=paywall_screen(`placement` 파라미터). 검증: `analyze` 0 · 전체 테스트 3,270 통과.
-> **미세조정 여지:** wordbook `source`·paywall `placement`를 호출부에서 구체값으로 전달, daily_goal_met를 더 많은 XP 퍼널에 연결.
+> feature_used=dojangcheop. 검증: `analyze` 0 · 전체 테스트 3,270 통과.
+> **미세조정 여지:** wordbook `source`를 호출부에서 구체값으로 전달하고 daily_goal_met를 더 많은 XP 퍼널에 연결.
 
 새 화면에서 아래 타입드 메서드만 호출하면 된다(전부 `Analytics.xxx()`로 이미 존재, 동의 없으면 no-op). **저카디널리티·PII 금지** 규칙을 지킬 것.
 
@@ -48,11 +52,13 @@
 5. `gameStarted` / `gameCompleted` `{game_type}` — 5개 미니게임을 이벤트 2개로(이름 예산 절약)
 6. `ttsPlayed` `{content_type}` — 차별화 기능 사용률
 7. `wordbookAdded` `{source, count}`, `featureUsed(feature_name, surface?)` — 기능 채택
-8. `paywallViewed` / `subscribeStarted` — 구독 출시 전 baseline 확보(수익은 RevenueCat 서버사이드 `purchase`가 정본, 여기 금지)
+
+현재 무료 앱 계약에서 `paywall_viewed`, `subscribe_started`, `purchase` 같은 구매 퍼널 이벤트는
+수집하지 않는다. 같은 의미의 별칭 이벤트나 구매 상태 user property도 추가하지 않는다.
 
 ### user property (≤24자, ≤25개, 예약접두사 금지)
 `learner_level`(선택 레벨) · `ui_language` · `notif_opt_in` · `streak_bucket` — **구현됨**.
-추가 권장: `has_placement`, `placement_level`(측정 레벨, 선택과 분리 = 인사이트), `hanok_stage`, `gye_member`, `subscription_status`(구독 시). PII 금지.
+추가 권장: `has_placement`, `placement_level`(측정 레벨, 선택과 분리 = 인사이트), `hanok_stage`, `gye_member`. PII 금지. 구매·구독 상태 property는 추가하지 않는다.
 
 ### GA4 하드 리밋 (지킬 것)
 이벤트명 ≤40자·문자시작 · param ≤25/event · param값 ≤100자 · 이벤트명 ≤500종 · user property ≤25 · 커스텀 디멘전 50 event/25 user. 예약접두사 `firebase_`·`google_`·`ga_` 금지. 고카디널리티 param(원시 id·타임스탬프 체인)은 "(other)"로 뭉개짐 → BigQuery로 우회.
@@ -81,17 +87,17 @@
 
 ## 3. 콘솔/스토어 설정 (Jin — 코드 아님)
 
-- **GA4**: 데이터 보존 **2개월**(기본 14 아님), **Google signals OFF**, **BigQuery export 연결**(무샘플링·무임계 심층분석·Firestore 조인), Key event 지정(첫 `lesson_completed`, 추후 `purchase`).
+- **GA4**: 데이터 보존 **2개월**(기본 14 아님), **Google signals OFF**, **BigQuery export 연결**(무샘플링·무임계 심층분석·Firestore 조인), Key event는 첫 `lesson_completed` 같은 학습 성과만 지정한다. 구매 이벤트는 수집·지정하지 않는다.
 - **커스텀 디멘전 등록**: `level`·`pack_id`·`game_type`·`lesson_type`·`accuracy_band`·`feature_name`(안 하면 GA4 UI에 안 보임). `streak_length`·raw `gye_id`·`transaction_id`는 등록 금지(고카디널리티).
 - **Apple App Privacy**: Identifiers(Device ID)·Usage(Product Interaction)·Diagnostics 선언, **"Data Not Used to Track You"**(IDFA/광고 없음). **Google Play Data Safety** 동일하게.
 - **개인정보처리방침**: Firebase Analytics(사용측정)·Crashlytics(크래시진단) 명시, 근거 Art. 6(1)(a)+§25 TDDDG, 수신자 Google Ireland+Google LLC(US, processor), 전송 안전장치 **SCC + DPF**, 보존(GA4 2개월+Crashlytics 90일), 권리·철회(Art. 7(3))·감독기관 신고권.
 
 ## 4. 데이터로 앱 개선하기
 
-- **Funnel exploration**: 활성화 퍼널(`first_open→onboarding_start→level_selected→placement→onboarding_completed→첫 완료`)·페이월 퍼널의 이탈 지점.
-- **Audiences**: `activated`·`at_risk`(7일 미접속)·`placement_takers`·`paywall_viewed_no_purchase` → A/B 타깃·Remote Config 조건.
+- **Funnel exploration**: 활성화 퍼널(`first_open→onboarding_start→level_selected→placement→onboarding_completed→첫 완료`)과 학습 시작→완료→연습 전환의 이탈 지점.
+- **Audiences**: `activated`·`at_risk`(7일 미접속)·`placement_takers`·`quest_abandoners` → A/B 타깃·Remote Config 조건.
 - **Retention report**: D1/D7/D30 곡선(자동, 커스텀 이벤트 불필요). `learner_level`·`has_placement` 코호트 비교로 배치의 효과 증명.
-- **Remote Config + A/B Testing**: 실험을 지표에 묶는다(온보딩 순서→활성화율, 페이월 위치→`subscribe_started`, 스트릭 알림 문구→D7). 상관이 아닌 인과 결정.
+- **Remote Config + A/B Testing**: 실험을 지표에 묶는다(온보딩 순서→활성화율, 학습·연습 진입 문구→완료율, 스트릭 알림 문구→D7). 상관이 아닌 인과 결정.
 - **DebugView**: 새 이벤트/param/property는 배포 전 여기서 초 단위 QA(표준 리포트는 ~24h 지연).
 
 ## 5. 액션 체크리스트 (⚠️ = 변호사/DPO)
@@ -128,9 +134,9 @@
 Sori Stage 5탭이 아니라 **레거시 셸의 화면들**이다. Sori Stage 화면은 코드에 그대로 남아
 있고 `--dart-define=ENABLE_SORI_STAGE=true`로만 보인다.
 
-- [ ] **타입드 이벤트 16종 배선.** §2에 정의만 되어 있고 호출부가 없다. 실제로 호출되는
-      것은 `pack_completed`·`onboarding_level_selected`·`book_capture_analyzed`·
-      `custom_pack_created`·`gye_created/joined` 6개뿐이다. 레거시 화면 기준으로 물린다.
+- [x] **학습·활성화 타입드 이벤트 배선.** 이 2026-08-13 인수인계 항목은 이후 레거시
+      화면 기준으로 완료됐다. 현재 범위와 위치는 §1~2가 정본이며 구매·구독 이벤트는
+      범위에서 제외한다.
 - [ ] **파라미터 허용 목록 + 택소노미 계약 테스트.** §0 원칙 2("PII 절대 금지")가 지금은
       **규칙으로만** 존재한다. `Analytics.logEvent(name, parameters: {...})`가 public이라
       호출부에서 임의의 키·값을 넘길 수 있다. 허용 키 집합을 상수로 두고, 전체 이벤트를
@@ -215,4 +221,4 @@ Sori Stage 5탭이 아니라 **레거시 셸의 화면들**이다. Sori Stage �
 
 ### 참고 (근거 출처 요약)
 - §25 TDDDG / EDPB Guidelines 2/2023(스마트폰=단말기) / Planet49(pre-ticked 금지) / EDPB 05/2020(freely given·granular·withdrawal) / DSGVO Art. 8(독일 16세).
-- Firebase data-collection 설정 플래그, GA4 자동수집 이벤트·리밋, RevenueCat→Firebase 통합(서버사이드 `purchase`), Apple Privacy Manifest.
+- Firebase data-collection 설정 플래그, GA4 자동수집 이벤트·리밋, 무료 앱의 구매 이벤트 미수집 계약, Apple Privacy Manifest.

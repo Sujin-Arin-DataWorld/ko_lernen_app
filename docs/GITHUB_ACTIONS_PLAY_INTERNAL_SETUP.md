@@ -71,14 +71,12 @@ Console에서 수동으로 만들어야 한다. 현재 package는
 - AAB를 Google Play **내부 테스트(`internal`)** 에 `completed` 상태로 업로드함
 - 비공개 테스트·공개 테스트·Production 트랙은 그대로 둔다
 
-내부 테스트 빌드는 기존 수동 계약과 동일하게
-`ENABLE_TESTER_FEEDBACK=true`, `BETA_UNLOCK_ALL=true`, exact `GIT_COMMIT`을
-주입한다. 이 플래그는 AAB 내용이지 Play 트랙이 아니다. Production·Closed
-Testing 빌드에는 쓰지 않는다.
+내부 테스트 빌드는 현재 `ci.yml`과 동일하게 `ENABLE_TESTER_FEEDBACK=true`와 exact
+`GIT_COMMIT`만 주입한다. 별도의 접근 해제 플래그는 사용하지 않는다. 모든 학습 콘텐츠는
+구매·구독·Play 트랙과 무관하게 같은 무료 공개 런타임 계약으로 열린다.
 
-Closed Testing 수동 빌드는 `ENABLE_TESTER_FEEDBACK=true`와 exact `GIT_COMMIT`만
-주입한다. `BETA_UNLOCK_ALL`은 주입하지 않아 내부 테스터 전용 entitlement override가
-비공개 트랙으로 넘어가지 않는다.
+Closed Testing 수동 빌드도 같은 두 값만 주입하며 동일한 무료 접근 계약을 사용한다.
+Internal과 Closed의 차이는 업로드 트랙과 실행 방식이지 학습 콘텐츠 접근 권한이 아니다.
 
 자동 실행 실패를 수정한 뒤 다시 올릴 때는 GitHub Actions의 `CI` workflow를 열고
 `Run workflow`에서 `release-internal`을 선택한다. 이 수동 재실행도 먼저 Flutter
