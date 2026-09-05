@@ -1425,6 +1425,63 @@ void main() {
       );
     },
   );
+
+  group('선택지 글씨 크기는 16 이상이다 (지시서 4.12)', () {
+    for (final entry
+        in const <(String engine, String label)>[
+          ('listening', 'Hallo'),
+          ('translation', '안녕'),
+          ('cloze', '녕'),
+          ('particle', '는'),
+        ]) {
+      testWidgets('${entry.$1}: 옵션 텍스트 fontSize ≥ 16', (tester) async {
+        final engine = _engines.singleWhere((e) => e.name == entry.$1);
+        await _pumpQuest(
+          tester,
+          engine.build((_) {}, () {}, false),
+          locale: const Locale('de'),
+          viewport: _viewports[2],
+        );
+
+        final optionText = tester.widget<Text>(
+          find.descendant(
+            of: find.byKey(const ValueKey('answer-0')),
+            matching: find.text(entry.$2),
+          ),
+        );
+        expect(
+          optionText.style?.fontSize,
+          greaterThanOrEqualTo(16),
+          reason: '${entry.$1} 옵션 텍스트 fontSize가 16 미만이다',
+        );
+      });
+    }
+
+    testWidgets('satz_bauen: 조립 칩(단어 뱅크) 텍스트 fontSize ≥ 16', (tester) async {
+      await _pumpQuest(
+        tester,
+        SatzBauenQuest(
+          data: const {
+            'targetKo': '안녕 하세요',
+            'promptDe': 'Sage höflich Hallo.',
+            'promptEn': 'Say hello politely.',
+            'distractors': ['감사'],
+          },
+          onComplete: (_) {},
+          onContinue: () {},
+        ),
+        locale: const Locale('de'),
+        viewport: _viewports[2],
+      );
+
+      final tileText = tester.widget<Text>(find.text('안녕'));
+      expect(
+        tileText.style?.fontSize,
+        greaterThanOrEqualTo(16),
+        reason: 'satz_bauen 조립 칩 텍스트 fontSize가 16 미만이다',
+      );
+    });
+  });
 }
 
 Future<void> _pumpQuest(
