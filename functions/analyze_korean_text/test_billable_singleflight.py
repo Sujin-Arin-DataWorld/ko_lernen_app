@@ -133,19 +133,19 @@ class BillableEndpointTest(unittest.TestCase):
                 "kind": "closed_tester_lifetime", "status": "active", "approvedBy": "Jin", "approvedAt": 0,
                 "grantId": "local-test-grant", "approvalRef": "local-test-roster", **overrides}
 
-    def test_free_launch_and_forged_client_premium_never_raise_book_limit(self):
-        self.seed_daily(3)
+    def test_forged_client_premium_never_exceeds_universal_book_limit(self):
+        self.seed_daily(20)
         self.assertEqual(self.run_request(tier="premium", isPremium=True, FREE_LAUNCH=True,
                                          premiumGrant=self.grant(), feedbackPassport=True).status_code, 429)
         self.assertEqual(self.calls, 0)
 
-    def test_existing_premium_authority_cannot_survive_manual_same_uid_recreation(self):
+    def test_legacy_premium_authority_cannot_change_universal_limit_across_uid_recreation(self):
         for source in ["tester", "subscription"]:
             with self.subTest(source=source):
                 # Node Admin exposes creationTime via UTC strings (seconds);
                 # Python exposes the same account's original millisecond value.
                 self.auth_user.user_metadata.creation_timestamp = 999
-                self.seed_daily(3)
+                self.seed_daily(19)
                 key = ("premium_grants/user-1" if source == "tester" else
                        "customer_entitlements/PRODUCTION_" + hashlib.sha256(b"user-1").hexdigest())
                 self.db.store[key] = {**self.grant(), "accountCreatedAt": 0,
@@ -157,7 +157,7 @@ class BillableEndpointTest(unittest.TestCase):
                 self.assertEqual(self.run_request(requestId="recreated-" + source,
                                                  accountCreatedAt=0).status_code, 429)
                 self.assertEqual(self.calls, before + 1)
-                self.assertEqual(self.ledger()["dailyCount"], 4)
+                self.assertEqual(self.ledger()["dailyCount"], 20)
                 self.db.store.pop(key)
 
     def test_book_disabled_missing_or_wrong_auth_user_never_dispatches(self):
@@ -190,7 +190,7 @@ class BillableEndpointTest(unittest.TestCase):
                 self.assertEqual(self.ledger()["dailyCount"], 20)
 
     def test_malformed_environment_uid_and_stale_authority_do_not_raise_quota(self):
-        self.seed_daily(3)
+        self.seed_daily(20)
         for patch in [{"ownerUid": "other"}, {"environment": "SANDBOX"}, {"status": "revoked"},
                       {"schemaVersion": 2}, {"approvedAt": int(self.now.timestamp() * 1000) + 60000}]:
             self.db.store["premium_grants/user-1"] = self.grant(**patch)
