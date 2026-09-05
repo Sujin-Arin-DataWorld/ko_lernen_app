@@ -20,23 +20,17 @@ import 'storage_service.dart';
 class TodayLearningDestination {
   final String route;
   final Object? arguments;
-  final String? packAccessLevel;
 
-  const TodayLearningDestination({
-    required this.route,
-    this.arguments,
-    this.packAccessLevel,
-  });
+  const TodayLearningDestination({required this.route, this.arguments});
 
   @override
   bool operator ==(Object other) =>
       other is TodayLearningDestination &&
       other.route == route &&
-      other.arguments == arguments &&
-      other.packAccessLevel == packAccessLevel;
+      other.arguments == arguments;
 
   @override
-  int get hashCode => Object.hash(route, arguments, packAccessLevel);
+  int get hashCode => Object.hash(route, arguments);
 }
 
 /// Pure route contract for the existing recommendation engine.
@@ -46,7 +40,6 @@ TodayLearningDestination? todayLearningDestinationFor(MissionPick? pick) =>
       PackPick(:final pack) => TodayLearningDestination(
         route: '/vocab/pack',
         arguments: pack.id,
-        packAccessLevel: pack.level.toUpperCase(),
       ),
       ReviewPick() => const TodayLearningDestination(route: '/review'),
       ScenarioPick(:final scenarioId) => TodayLearningDestination(

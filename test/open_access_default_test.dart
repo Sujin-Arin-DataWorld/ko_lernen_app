@@ -1,28 +1,19 @@
 import 'dart:io';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ko_lernen_app/services/pack_access.dart';
 
 void main() {
-  testWidgets('every CEFR pack level passes the shared access boundary', (
-    tester,
-  ) async {
-    late BuildContext context;
-    await tester.pumpWidget(
-      MaterialApp(
-        home: Builder(
-          builder: (value) {
-            context = value;
-            return const SizedBox();
-          },
-        ),
-      ),
-    );
+  test('no deny-capable pack access boundary remains in app source', () {
+    final sourceFiles = Directory('lib')
+        .listSync(recursive: true)
+        .whereType<File>()
+        .where((file) => file.path.endsWith('.dart'))
+        .toList();
+    final dart = sourceFiles.map((file) => file.readAsStringSync()).join('\n');
 
-    for (final level in ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']) {
-      expect(await ensurePackAccess(context, level: level), isTrue);
-    }
+    expect(File('lib/services/pack_access.dart').existsSync(), isFalse);
+    expect(dart, isNot(contains('ensurePackAccess')));
+    expect(dart, isNot(contains('packAccessLevel')));
   });
 
   test('store purchase SDK and paywall route are absent from app source', () {

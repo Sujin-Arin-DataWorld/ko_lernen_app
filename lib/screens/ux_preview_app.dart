@@ -387,7 +387,6 @@ Widget _gyePanel({required bool courtyardFocus}) {
           today: today,
           contentLinks: [_gyePromiseAssessLink],
         ),
-    ensureTodayPackAccess: (_) async => true,
     openTodayRoute: (_, __) async {},
     onOpenMembers: _ignore,
     onOpenSafeMessage: _ignore,

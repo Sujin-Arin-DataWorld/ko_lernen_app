@@ -14,7 +14,6 @@ import '../services/course_progress_service.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/hanok_stage_service.dart';
 import '../services/hanok_structure_projection_service.dart';
-import '../services/pack_access.dart';
 import '../services/pack_progress_service.dart';
 import '../services/storage_service.dart';
 import '../services/vocab_pack_service.dart';
@@ -358,9 +357,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
       soriNotice(context, t.pathLockedHint);
       return;
     }
-    // 모든 레벨의 공통 접근 경계다. 결제나 구독 상태와 무관하게 허용한다.
-    final ok = await ensurePackAccess(context, level: pack.level);
-    if (!ok || !mounted) return;
+    if (!mounted) return;
     await Navigator.pushNamed(context, '/vocab/pack', arguments: pack.id);
     if (mounted) {
       await _load();

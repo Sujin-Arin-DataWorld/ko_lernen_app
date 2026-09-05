@@ -233,7 +233,6 @@ void main() {
                   today: today,
                   contentLinks: [exactLink],
                 ),
-            ensureTodayPackAccess: (_) async => true,
             openTodayRoute: (route, arguments) async {
               openedRoute = route;
               openedArguments = arguments;
@@ -329,7 +328,6 @@ void main() {
                 today: today,
                 contentLinks: const [],
               ),
-          ensureTodayPackAccess: (_) async => true,
           openTodayRoute: (route, _) async => openedRoute = route,
           enableCoach: false,
         ),

@@ -666,14 +666,14 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   @override
   String get coachId => 'scenario';
 
-  /// 시나리오 로드됨 + 프리미엄 게이트 화면 아님(= 실제 콘텐츠 화면).
+  /// 시나리오가 로드되어 실제 콘텐츠 화면을 표시할 준비가 됐다.
   @override
   bool get coachReady => _scenario != null;
 
   @override
   List<SpotlightStep> buildCoachSteps(BuildContext context) {
     final t = AppL10n.of(context);
-    // 프리미엄 게이트를 통과한 시나리오만 코치 표시.
+    // 실제 시나리오가 준비된 경우에만 코치를 표시한다.
     if (_scenario == null) {
       return [];
     }

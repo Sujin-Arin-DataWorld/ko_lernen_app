@@ -71,12 +71,12 @@ audio allowance; an in-flight duplicate is not sent again.
 An enabled request validates Auth and an unused App Check token, then reads
 the current Auth user once outside the retryable Firestore transaction.
 Missing, disabled, or mismatched users are rejected. Server Auth creation
-time fences entitlement documents against reuse after account recreation.
+time fences service documents against reuse after account recreation.
 The `account_deletions` marker is checked on receipt claim and every
 transition, including completed-result retrieval. Client tier flags never
-grant authority. Free users receive five assessments per UTC day and server
-approved testers or verified subscribers receive fifty; all retain the
-five-per-minute limit. These limits are additional to the F0 monthly cap.
+grant authority. Every authenticated user receives fifty assessments per UTC
+day and retains the five-per-minute limit. These limits are additional to the
+F0 monthly cap.
 
 `service_idempotency` stores a UID-scoped request receipt with an audio/text
 fingerprint hash, owner token, state, quota reservations, a 60-second lease,

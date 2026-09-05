@@ -208,5 +208,5 @@ or fixed provider retention periods.
   [Google closed-testing guidance](https://support.google.com/googleplay/android-developer/answer/14151465?hl=en);
   account eligibility and tester-day status are console facts, not repository
   facts.
-- Public policy: `https://hangul-sori.com/privacy.html`
+- Public policy: `https://hangul-sori.com/privacy`
 - Public deletion page: `https://hangul-sori.com/account-deletion`

@@ -389,7 +389,7 @@ def run_apply(approval_sha256: str) -> int:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--samples', action='store_true',
-                        help='Jin 게이트용 샘플 3장 (번들 무접촉)')
+                        help='Jin 게이트용 샘플 2장 (번들 무접촉)')
     parser.add_argument('--apply', action='store_true',
                         help='번들 38장 일괄 덮어쓰기 (게이트 필요)')
     parser.add_argument('--jin-approved', action='store_true',

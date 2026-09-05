@@ -129,7 +129,8 @@ Organizer → Distribute App으로도 올릴 수 있다.
 ## 6. ⑤ TestFlight → 심사 제출
 
 1. TestFlight 탭에서 빌드 확인 → **수출 규정 준수** 질문에 답 (아래 참고)
-2. 실기기에서 최소 한 번 설치해 확인 — 특히 Google 로그인·Apple 로그인·구독 복원·푸시
+2. 실기기에서 최소 한 번 설치해 확인 — 특히 Google 로그인·Apple 로그인·모든 학습 콘텐츠
+   직접 접근·접근 스냅샷·푸시(구매·복원·paywall 화면이 없어야 함)
 3. 스토어 등재 정보 채우기: [`listing-de.md`](listing-de.md) / [`listing-en.md`](listing-en.md)
 4. 스크린샷 업로드: [`screenshot-shotlist.md`](screenshot-shotlist.md) · `tool/check_app_store_screenshots.py` 로 규격 검사
 5. 개인정보 설문: [`data-safety.md`](data-safety.md) — Google Play 것과 별도 문서다

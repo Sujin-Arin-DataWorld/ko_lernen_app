@@ -352,7 +352,7 @@ Future<void> _startCloudServices() async {
       return available;
     },
     // App Check activate 실패는 여기서 삼킨다: 이게 던지면 coordinator.start()
-    // 전체가 중단돼 익명 로그인·아웃박스·프리미엄·푸시까지 다 죽는다.
+    // 전체가 중단돼 익명 로그인·아웃박스·접근 스냅샷·푸시까지 다 죽는다.
     // 활성화 실패 시 보호된 callable 만 개별적으로 거부되는 편이
     // (서버 enforceAppCheck) 클라우드 스택 전멸보다 낫다.
     initializeAppCheck: () async {
@@ -612,7 +612,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 behavior: HitTestBehavior.opaque,
                 onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
                 // 발음이 안 나올 때 이유를 한 줄로 띄운다. OS 음성 폴백을
-                // 지운 뒤로 프리미엄을 못 받으면 무음인데, 이유 없는 무음은
+                // 지운 뒤로 서버 오디오를 못 받으면 무음인데, 이유 없는 무음은
                 // 고장과 구분이 안 된다.
                 child: TtsUnavailableBanner(child: child ?? const SizedBox()),
               ),

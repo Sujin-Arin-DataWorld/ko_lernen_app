@@ -275,6 +275,11 @@ W7의 TTS 로딩/프리패치, Living의 스타일 변경, W9의 배포 소유�
   `getAccessSnapshot`은 같은 공통 정책을 구버전 파서가 이해하는 schema v1 모양으로만 변환한다.
   이 호환 함수도 grant·entitlement 문서를 읽지 않으며 두 함수는 같은 Auth, App Check,
   계정 삭제 fence와 rate-limit 문서를 공유한다. 둘 중 하나만 단독 배포하지 않는다.
+- 배포 직전에 `firebase functions:list --project ko-lernen-app`으로 운영 함수를 새로
+  조회해 결과를 release receipt에 남긴다. `getAccessSnapshot`,
+  `getUniversalAccessSnapshot`, `revenueCatWebhook`, `processRevenueCatEvent`,
+  `refreshRevenueCatAccess`의 실제 존재 여부를 이름별로 확인한다. 과거 결제 함수가 있으면
+  이름과 region을 다시 대조한 뒤에만 명시적으로 삭제하고, 없다는 이전 조회를 재사용하지 않는다.
 - Gye 전체 codebase 대신 두 접근 함수만 정확히 배포한다:
   `firebase --config firebase.json deploy --only functions:gye-firebase-functions:getAccessSnapshot,functions:gye-firebase-functions:getUniversalAccessSnapshot --project ko-lernen-app`.
   배포 뒤 두 함수의 update time과 서명 앱 요청을 각각 검증한다.
@@ -311,3 +316,15 @@ W7의 TTS 로딩/프리패치, Living의 스타일 변경, W9의 배포 소유�
   발음 평가가 포함된 후보의 제출 문구로 재사용하면 안 된다.
 - fullSHA source→CI→배포revision→스토어업로드→설치기기→운영관찰의 각 증거가 없으면
   "상용화100%"로 표기하지 않는다. 코드를 main에 병합하는 것은 판매 활성화가 아니다.
+
+### Firebase Hosting 공개 묶음
+
+- `docs/` 전체를 Hosting root로 쓰지 않는다. 이 폴더에는 내부 계획·감사 자료·검토 문서가
+  함께 있으므로 `node scripts/prepare_firebase_hosting.cjs`가 만드는
+  `build/firebase-hosting`의 명시적 11개 파일만 배포한다.
+- 배포 전 `.github/scripts/test_firebase_hosting_contract.py`를 실행하고 산출물에 `.md`나
+  `.json`이 없으며 원본과 byte-for-byte로 같은지 확인한다. 그 다음에만
+  `firebase --config firebase.json deploy --only hosting --project ko-lernen-app`을 실행한다.
+- 이 명령은 Firebase 기본 사이트만 갱신한다. `hangul-sori.com`은 별도 Cloudflare 공개
+  경로이므로 이 배포의 성공을 해당 도메인 갱신 증거로 쓰지 않고, 스토어 URL은 실제 도메인에서
+  각각 다시 확인한다.

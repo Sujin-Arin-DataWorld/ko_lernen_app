@@ -213,7 +213,7 @@ CI 는 1.3배까지 자동 검사한다. **최대 배율은 사람이 본다.**
 
 - [ ] 시스템 다크에서 상태바·내비게이션바 아이콘이 보이는지
 - [ ] 키보드가 앱 배경과 부딪히지 않는지
-- [ ] 시스템 다이얼로그(권한·공유·결제)가 읽히는지
+- [ ] 시스템 다이얼로그(권한·공유)가 읽히는지
 
 > **알려진 미결**: `CharacterClipPlayer` 에는 다크 게이트가 있지만 `TigerGreetClip`·`TigerStageVideo`
 > 에는 없다(AGENTS.md 2026-08-06). 다크 배경에서 `ColorFiltered`+`multiply` 매트는 밝은 배경 전용이라
@@ -336,7 +336,7 @@ CI 는 lease 코디네이터의 **논리**를 검증한다. 실제 디코더는 
       **지연 가능**(Analytics·비필수 캐시·추천·preload·대용량 manifest)이 실제로 나뉘어 있는지
 - [ ] cold start 시간 측정 (`--profile` 빌드)
 
-> 현재 `main()` 은 Firebase·인증·결제·FCM 을 `unawaited(_startCloudServices())` 로 뒤로 미루고,
+> 현재 `main()` 은 Firebase·인증·접근 스냅샷·FCM 을 `unawaited(_startCloudServices())` 로 뒤로 미루고,
 > 로컬 스키마 점검만 동기로 한다. **Firebase 실패가 앱 시작을 막지 않되 실패 사실은
 > `DiagnosticKey.firebaseReady` 로 기록된다.**
 

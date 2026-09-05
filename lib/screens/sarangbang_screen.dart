@@ -8,7 +8,6 @@ import '../models/personal_room.dart';
 import '../models/room_layout.dart';
 import '../services/decoration_reward_service.dart';
 import '../services/hanok_build_narrative_service.dart';
-import '../services/pack_access.dart';
 import '../services/quest_tracker.dart';
 import '../services/room_layout_service.dart';
 import '../services/storage_service.dart';
@@ -239,7 +238,6 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
     }
     final opened = await TodayLearningNavigation.open(
       snapshot.destination,
-      ensurePackAccess: (level) => ensurePackAccess(context, level: level),
       openRoute: (route, arguments) async {
         await Navigator.of(context).pushNamed(route, arguments: arguments);
       },

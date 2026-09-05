@@ -49,7 +49,10 @@
     }
   ],
   "hosting": {
-    "public": "docs",
+    "public": "build/firebase-hosting",
+    "predeploy": [
+      "node scripts/prepare_firebase_hosting.cjs"
+    ],
     "ignore": [
       "firebase.json",
       "**/.*",

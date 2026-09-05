@@ -44,8 +44,13 @@ APP_DOC_PREFIXES = (
     "docs/assets/",
 )
 APP_DOC_FILES = {
+    "docs/account-deletion-page.js",
+    "docs/account-deletion.html",
+    "docs/impressum.html",
+    "docs/index.html",
     "docs/privacy.html",
     "docs/support.html",
+    "docs/terms.html",
     "docs/SESSION_CHANGES_2026-07-31.md",
 }
 WEBSITE_ROOT_FILES = {

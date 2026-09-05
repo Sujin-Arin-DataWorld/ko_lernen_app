@@ -11,7 +11,6 @@ import '../services/account/cloud_write_session.dart';
 import '../services/gye_dedication_service.dart';
 import '../services/gye_service.dart';
 import '../services/gye_weekly_promise_navigation.dart';
-import '../services/pack_access.dart';
 import '../services/storage_service.dart';
 import '../services/today_learning_navigation.dart';
 import '../services/today_learning_snapshot.dart';
@@ -54,7 +53,6 @@ class GyeScreen extends StatefulWidget {
     this.feedUpdates,
     this.loadTodaySnapshot,
     this.resolvePromiseNavigation,
-    this.ensureTodayPackAccess,
     this.openTodayRoute,
     this.onOpenMembers,
     this.onOpenSafeMessage,
@@ -82,7 +80,6 @@ class GyeScreen extends StatefulWidget {
     TodayLearningSnapshot today,
   )?
   resolvePromiseNavigation;
-  final Future<bool> Function(String level)? ensureTodayPackAccess;
   final Future<void> Function(String route, Object? arguments)? openTodayRoute;
   final VoidCallback? onOpenMembers;
 
@@ -192,9 +189,6 @@ class _GyeScreenState extends State<GyeScreen>
     }
     final opened = await TodayLearningNavigation.open(
       destination,
-      ensurePackAccess:
-          widget.ensureTodayPackAccess ??
-          (level) => ensurePackAccess(context, level: level),
       openRoute:
           widget.openTodayRoute ??
           (route, arguments) async {
