@@ -597,6 +597,83 @@ class _DialogueBubble extends StatelessWidget {
     final user = line.speaker == 'user';
     final surfaces = SoriSurfaces.of(context);
     final bubbleRadius = BorderRadius.circular(narrator ? 12 : 20);
+    final messageContent = Column(
+      crossAxisAlignment: narrator
+          ? CrossAxisAlignment.center
+          : CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        if (!narrator)
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              _NeutralAvatar(name: speakerName),
+              const SizedBox(width: Spacing.xs),
+              Flexible(
+                child: Text(
+                  speakerName,
+                  style: SoriTextTheme.of(
+                    context,
+                  ).meta.copyWith(color: SoriColors.contentCta),
+                ),
+              ),
+            ],
+          )
+        else
+          Text(
+            speakerName,
+            style: SoriTextTheme.of(
+              context,
+            ).meta.copyWith(color: surfaces.textMuted),
+          ),
+        const SizedBox(height: Spacing.xs),
+        Text(
+          line.ko,
+          textAlign: narrator ? TextAlign.center : TextAlign.start,
+          style: SoriTextTheme.of(
+            context,
+          ).koDisplay.copyWith(fontSize: 20, fontWeight: FontWeight.w600),
+        ),
+        if (translationExpanded && gloss.isNotEmpty && gloss != line.ko) ...[
+          const SizedBox(height: Spacing.sm),
+          Text(gloss, style: SoriTextTheme.of(context).gloss),
+        ],
+      ],
+    );
+    // 지시서 1.24 룰링: 말풍선엔 하트 버튼이 없다 — review 단계에서만 이
+    // 메시지 영역(아바타·이름·본문·번역) 더블탭으로 찜하고, liked 일 때
+    // 우상단 비대화형 배지로 보여준다. 버튼 Wrap(재생·번역·단어장·공유)은
+    // 이 제스처 밖에 둬야 한다 — 안에 넣으면 그 버튼들을 한 번만 눌러도
+    // DoubleTapGestureRecognizer 가 판정 타이머를 붙잡아 위젯 트리 정리
+    // 시점에 "Timer still pending" 으로 테스트가 죽는다.
+    final likeableMessage = review
+        ? GestureDetector(
+            onDoubleTap: onLike,
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                messageContent,
+                if (liked)
+                  Positioned(
+                    top: -6,
+                    right: -6,
+                    child: Semantics(
+                      // 이 배지가 부모 말풍선의 병합 라벨('$speakerName: ...')
+                      // 안에 묻히지 않고 "Gelikt"만 독립적으로 안내되도록
+                      // container: true 로 별도 시맨틱스 노드를 강제한다.
+                      container: true,
+                      label: AppL10n.of(context).contentActionLikeLiked,
+                      child: const Icon(
+                        Icons.favorite_rounded,
+                        size: 16,
+                        color: SoriColors.like,
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          )
+        : messageContent;
     final bubbleSurface = Container(
       constraints: BoxConstraints(
         maxWidth: narrator
@@ -619,41 +696,7 @@ class _DialogueBubble extends StatelessWidget {
             ? CrossAxisAlignment.center
             : CrossAxisAlignment.start,
         children: [
-          if (!narrator)
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                _NeutralAvatar(name: speakerName),
-                const SizedBox(width: Spacing.xs),
-                Flexible(
-                  child: Text(
-                    speakerName,
-                    style: SoriTextTheme.of(
-                      context,
-                    ).meta.copyWith(color: SoriColors.contentCta),
-                  ),
-                ),
-              ],
-            )
-          else
-            Text(
-              speakerName,
-              style: SoriTextTheme.of(
-                context,
-              ).meta.copyWith(color: surfaces.textMuted),
-            ),
-          const SizedBox(height: Spacing.xs),
-          Text(
-            line.ko,
-            textAlign: narrator ? TextAlign.center : TextAlign.start,
-            style: SoriTextTheme.of(
-              context,
-            ).koDisplay.copyWith(fontSize: 20, fontWeight: FontWeight.w600),
-          ),
-          if (translationExpanded && gloss.isNotEmpty && gloss != line.ko) ...[
-            const SizedBox(height: Spacing.sm),
-            Text(gloss, style: SoriTextTheme.of(context).gloss),
-          ],
+          likeableMessage,
           const SizedBox(height: Spacing.xs),
           Wrap(
             spacing: Spacing.xs,
@@ -677,12 +720,6 @@ class _DialogueBubble extends StatelessWidget {
                       : showTranslationLabel,
                 ),
               ),
-              if (review)
-                IconButton(
-                  tooltip: likeLabel,
-                  onPressed: onLike,
-                  icon: Icon(liked ? Icons.favorite : Icons.favorite_border),
-                ),
               if (review && line.ko.isNotEmpty)
                 AddToWordbookButton(
                   korean: line.ko,

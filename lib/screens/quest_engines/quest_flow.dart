@@ -398,7 +398,9 @@ class SoriPromptCard extends StatelessWidget {
 }
 
 /// Shared, accessible answer row used by scenario choice engines.
-/// State is communicated by icon and semantics as well as color.
+/// 4.6(2026-09-05) — state is communicated by border/tint color and
+/// Semantics only; a status icon used to sit next to the label and cover
+/// answer text on narrow screens, so it was removed.
 class SoriAnswerTile extends StatelessWidget {
   const SoriAnswerTile({
     super.key,
@@ -427,23 +429,14 @@ class SoriAnswerTile extends StatelessWidget {
     final duration = MediaQuery.disableAnimationsOf(context)
         ? Duration.zero
         : const Duration(milliseconds: 200);
-    final (accent, icon, status) = switch (state) {
-      SoriAnswerState.idle => (idleBorder, null, ''),
-      SoriAnswerState.selected => (
-        SoriColors.primary,
-        Icons.check_circle_outline_rounded,
-        t.questAnswerSelected,
-      ),
-      SoriAnswerState.correct => (
-        SoriColors.success,
-        Icons.check_circle_rounded,
-        t.questCorrect,
-      ),
-      SoriAnswerState.wrong => (
-        SoriColors.danger,
-        Icons.cancel_rounded,
-        t.questWrong,
-      ),
+    // 4.6 정오 표시는 색상 전용이다(아이콘이 좁은 화면에서 답 텍스트를
+    // 가리는 문제) — Semantics(label)이 correct/wrong/selected 를 이미
+    // 문구로 전달하므로 스크린리더 정보 손실은 없다.
+    final (accent, status) = switch (state) {
+      SoriAnswerState.idle => (idleBorder, ''),
+      SoriAnswerState.selected => (SoriColors.primary, t.questAnswerSelected),
+      SoriAnswerState.correct => (SoriColors.success, t.questCorrect),
+      SoriAnswerState.wrong => (SoriColors.danger, t.questWrong),
     };
     final emphasized = state != SoriAnswerState.idle;
 
@@ -517,10 +510,6 @@ class SoriAnswerTile extends StatelessWidget {
                         ),
                       ),
                     ),
-                    if (icon != null) ...[
-                      const SizedBox(width: Spacing.sm),
-                      Icon(icon, color: accent, size: 22),
-                    ],
                   ],
                 ),
               ),

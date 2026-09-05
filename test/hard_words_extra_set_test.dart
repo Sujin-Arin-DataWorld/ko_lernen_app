@@ -9,6 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/screens/hard_words_screen.dart';
+import 'package:ko_lernen_app/services/liked_content_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 
@@ -75,4 +76,70 @@ void main() {
     expect(find.text(t.hardWordsEmptyTitle), findsOneWidget);
     expect(find.text(t.hardWordsHardQuizCta), findsNothing);
   });
+
+  testWidgets(
+    'liked word joins the auto set under two section headers (1.6 룰링)',
+    (tester) async {
+      // leech 조건도, 명시적 오답 3회+도 아니지만 하트한 단어.
+      await LikedContentService.toggle(
+        kind: LikedContentService.vocab,
+        id: '하트단어',
+      );
+      for (var i = 0; i < 3; i++) {
+        await Storage.incrementWrongCount('자동단어');
+      }
+
+      await _pump(tester, [_v('자동단어'), _v('하트단어'), _v('멀쩡한단어')]);
+      final t = await AppL10n.delegate.load(const Locale('de'));
+
+      expect(find.text('자동단어'), findsOneWidget);
+      expect(find.text('하트단어'), findsOneWidget);
+      expect(find.text('멀쩡한단어'), findsNothing);
+      expect(find.text(t.hardWordsSectionAuto), findsOneWidget);
+      expect(find.text(t.hardWordsSectionLiked), findsOneWidget);
+      // 합집합 카운트: 자동 1 + 좋아요 1 = 2.
+      expect(find.text(t.hardWordsSubtitle(2)), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets(
+    'no liked words at all keeps the plain auto-only list (no headers)',
+    (tester) async {
+      for (var i = 0; i < 3; i++) {
+        await Storage.incrementWrongCount('자동단어');
+      }
+
+      await _pump(tester, [_v('자동단어'), _v('멀쩡한단어')]);
+      final t = await AppL10n.delegate.load(const Locale('de'));
+
+      expect(find.text('자동단어'), findsOneWidget);
+      // 하트한 단어가 하나도 없으면(합집합이 필요 없으면) 지금까지처럼
+      // 헤더 없이 목록만 보인다.
+      expect(find.text(t.hardWordsSectionAuto), findsNothing);
+      expect(find.text(t.hardWordsSectionLiked), findsNothing);
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets(
+    'liked-only word still gets its own section header even with no '
+    'auto-hard words',
+    (tester) async {
+      await LikedContentService.toggle(
+        kind: LikedContentService.vocab,
+        id: '하트단어',
+      );
+
+      await _pump(tester, [_v('하트단어'), _v('멀쩡한단어')]);
+      final t = await AppL10n.delegate.load(const Locale('de'));
+
+      expect(find.text('하트단어'), findsOneWidget);
+      // auto 섹션은 비어 있으니 그 헤더는 없지만, liked 헤더는 있어야
+      // "왜 안 어려운 단어가 Schwierig 탭에 있는지" 가 설명된다.
+      expect(find.text(t.hardWordsSectionAuto), findsNothing);
+      expect(find.text(t.hardWordsSectionLiked), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    },
+  );
 }

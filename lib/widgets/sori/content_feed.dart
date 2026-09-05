@@ -345,6 +345,25 @@ class _SoriContentFeedState extends State<SoriContentFeed>
                     child: SoriDeckFlipHint(trigger: widget.flipHintTrigger!),
                   ),
                 ),
+              // 지시서 1.24 룰링: 카드에 좋아요 버튼은 없다 — 더블탭으로만
+              // 찜한다. liked 일 때만 우상단에 비대화형 배지로 보여준다.
+              if (widget.liked)
+                Positioned(
+                  top: Spacing.sm,
+                  right: Spacing.sm,
+                  child: Semantics(
+                    // 이 카드를 감싸는 상위 위젯이 나중에 라벨 있는 Semantics
+                    // 컨테이너를 두르더라도 이 배지 라벨이 거기 병합돼
+                    // 묻히지 않도록 독립 노드를 강제한다.
+                    container: true,
+                    label: t.contentActionLikeLiked,
+                    child: const Icon(
+                      Icons.favorite_rounded,
+                      size: 16,
+                      color: SoriColors.like,
+                    ),
+                  ),
+                ),
               Center(child: SoriLikeBurst(visible: _burst)),
             ],
           ),
@@ -463,30 +482,10 @@ class SoriContentActions extends StatelessWidget {
                   color: SoriColors.contentCta,
                   onTap: onShare,
                 ),
-              if (showLike)
-                // like 는 bookmark 와 달리 저장소 스트림이 없어 감쌀
-                // ValueListenableBuilder 가 없다 — 대신 Builder 로 자체
-                // context 를 얻어 AppL10n.of 를 이 가지가 실제로 그려질
-                // 때만(=showLike 일 때만) 부른다. 최상단에서 무조건 호출하면
-                // 로케일 델리게이트가 없는 좁은 위젯 테스트(judgment 라벨
-                // 레이아웃만 보는 것들)에서 판정과 무관하게 죽는다.
-                Builder(
-                  builder: (context) {
-                    final t = AppL10n.of(context);
-                    return _Stamp(
-                      name: 'like',
-                      label: likeLabel,
-                      value: liked
-                          ? t.contentActionLikeLiked
-                          : t.contentActionLikeNotLiked,
-                      icon: liked
-                          ? Icons.favorite_rounded
-                          : Icons.favorite_border_rounded,
-                      color: liked ? SoriColors.like : s.text,
-                      onTap: onLike,
-                    );
-                  },
-                ),
+              // 지시서 1.24 룰링: 하트 버튼은 스탬프 행에서 제거됐다 — 좋아요는
+              // 더블탭 전용이고, liked 상태는 SoriContentFeed 의 카드
+              // 우상단 배지가 대신 알린다. onLike/showLike/liked/likeLabel
+              // 은 호출자 변경을 최소화하려고 API 자체는 남겨둔다.
               if (showBookmark)
                 // 담긴 상태는 저장소가 직접 말한다. 예전에는 저장 성공을
                 // 스낵바로 알렸는데 그게 안 사라졌다 — 알림을 없앤 자리를

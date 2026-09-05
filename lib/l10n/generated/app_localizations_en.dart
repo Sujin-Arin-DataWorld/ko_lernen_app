@@ -4344,6 +4344,12 @@ class AppL10nEn extends AppL10n {
   String get hardWordsHardQuizCta => 'Hard quiz: spelling';
 
   @override
+  String get hardWordsSectionAuto => 'Just won\'t stick';
+
+  @override
+  String get hardWordsSectionLiked => 'Liked';
+
+  @override
   String get hardQuizTitle => 'Hard quiz';
 
   @override
@@ -4574,6 +4580,14 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get myWordsPhotoSheetTitle => 'Words from a photo';
+
+  @override
+  String get myWordsPhotoBookOptionSubtitle =>
+      'Scan a textbook page and get a word list';
+
+  @override
+  String get myWordsPhotoNotebookOptionSubtitle =>
+      'Your own vocab notebook becomes your own word list';
 
   @override
   String get wbSearchHint => 'Search word or meaning…';

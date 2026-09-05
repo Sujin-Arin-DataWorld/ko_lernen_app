@@ -206,25 +206,39 @@ void main() {
       return true;
     };
 
-    await tester.pumpWidget(
-      MaterialApp(
+    // Fable R1 스포일러 정정(2026-09-05): item.fullKo 는 빈칸이 채워진 정답
+    // 문장이다. 실제 화면(cloze_game_screen.dart)은 답 공개 후(picked !=
+    // null)에만 SoriSpeakable 로 카드를 감싼다 — 이 하네스도 같은 게이팅을
+    // 재현해야 "공개 전 탭은 무음" 계약을 검증할 수 있다.
+    Widget host({required String? picked}) {
+      final card = ClozePromptCard(
+        item: _clozeItem,
+        lang: 'de',
+        gloss: 'lerne',
+        picked: picked,
+      );
+      return MaterialApp(
         locale: const Locale('de'),
         supportedLocales: AppL10n.supportedLocales,
         localizationsDelegates: AppL10n.localizationsDelegates,
         home: Scaffold(
-          body: SoriSpeakable(
-            text: _clozeItem.fullKo,
-            child: const ClozePromptCard(
-              item: _clozeItem,
-              lang: 'de',
-              gloss: 'lerne',
-            ),
-          ),
+          body: picked == null
+              ? card
+              : SoriSpeakable(text: _clozeItem.fullKo, child: card),
         ),
-      ),
-    );
+      );
+    }
 
+    // 공개 전: 인디케이터가 렌더되지 않고, 카드를 탭해도 무음이어야 한다.
+    await tester.pumpWidget(host(picked: null));
+    expect(find.byKey(const Key('cloze-prompt-speak')), findsNothing);
     await tester.tap(find.text('오늘은 ＿＿＿ 합니다.'));
+    await tester.pump();
+    expect(spoken, isEmpty);
+
+    // 공개 후: 카드 배경 탭 1회, 인디케이터 탭 1회 = 각각 정확히 한 번씩.
+    await tester.pumpWidget(host(picked: _clozeItem.answer));
+    await tester.tap(find.text(_clozeItem.fullKo));
     await tester.pump();
     expect(spoken, [_clozeItem.fullKo]);
 

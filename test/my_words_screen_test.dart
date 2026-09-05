@@ -58,6 +58,36 @@ void main() {
     },
   );
 
+  testWidgets('tabs carry search/bookmark/heart icons (1.6 룰링)', (
+    tester,
+  ) async {
+    await tester.pumpWidget(_host(const MyWordsScreen()));
+    await tester.pump();
+
+    expect(
+      find.descendant(
+        of: find.byKey(const ValueKey('my-words-tab-search')),
+        matching: find.byIcon(Icons.search_rounded),
+      ),
+      findsOneWidget,
+    );
+    expect(
+      find.descendant(
+        of: find.byKey(const ValueKey('my-words-tab-shelf')),
+        matching: find.byIcon(Icons.bookmark_rounded),
+      ),
+      findsOneWidget,
+    );
+    expect(
+      find.descendant(
+        of: find.byKey(const ValueKey('my-words-tab-difficult')),
+        matching: find.byIcon(Icons.favorite_rounded),
+      ),
+      findsOneWidget,
+    );
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('+ Photo sheet keeps the two existing named destinations', (
     tester,
   ) async {
@@ -81,6 +111,9 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text(t.bookCaptureTitle), findsOneWidget);
     expect(find.text(t.vocabNotebookTitle), findsOneWidget);
+    // 지시서 1.19 정리: 설명 없이 나열되던 두 옵션에 한 줄 부제가 붙는다.
+    expect(find.text(t.myWordsPhotoBookOptionSubtitle), findsOneWidget);
+    expect(find.text(t.myWordsPhotoNotebookOptionSubtitle), findsOneWidget);
     await tester.tap(find.text(t.bookCaptureTitle));
     await tester.pumpAndSettle();
     expect(routes.last, '/book');

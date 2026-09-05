@@ -83,18 +83,38 @@ void main() {
         expect(closeSize.width, greaterThanOrEqualTo(48));
         expect(closeSize.height, greaterThanOrEqualTo(48));
 
-        final speakAction = find.byKey(const Key('cloze-prompt-speak'));
-        expect(speakAction, findsOneWidget);
-        final speakSize = tester.getSize(speakAction);
-        expect(speakSize.width, greaterThanOrEqualTo(48));
-        expect(speakSize.height, greaterThanOrEqualTo(48));
+        // Fable R1 스포일러 정정(2026-09-05): item.fullKo 는 빈칸이 채워진
+        // 정답 문장이라, 답 공개 전엔 인디케이터 자체가 렌더되면 안 된다.
+        expect(
+          find.byKey(const Key('cloze-prompt-speak')),
+          findsNothing,
+          reason: '공개 전엔 인디케이터가 아예 렌더되면 안 된다',
+        );
 
         for (final option in [_item.answer, ..._item.distractors]) {
           final choice = find.widgetWithText(QuizChoice, option);
           expect(choice, findsOneWidget);
           expect(tester.getSize(choice).height, greaterThanOrEqualTo(48));
         }
+
+        // 오답을 골라 공개한다 — 오답은 700ms 뒤 되돌아올 뿐 다음 문제로
+        // 넘어가지 않으니, 공개 상태에서 인디케이터를 검증할 시간이 넉넉하다.
+        // 좁은 뷰포트에서는 선택지가 자체 스크롤 영역 밖에 있을 수 있어
+        // 탭 전에 스크롤해 보이게 한다.
+        final wrongChoice = find.text(_item.distractors.first);
+        await tester.ensureVisible(wrongChoice);
+        await tester.pump();
+        await tester.tap(wrongChoice);
+        await tester.pump();
+
+        final speakAction = find.byKey(const Key('cloze-prompt-speak'));
+        expect(speakAction, findsOneWidget, reason: '공개 후엔 인디케이터가 보여야 한다');
+        final speakSize = tester.getSize(speakAction);
+        expect(speakSize.width, greaterThanOrEqualTo(48));
+        expect(speakSize.height, greaterThanOrEqualTo(48));
         expect(tester.takeException(), isNull);
+
+        await tester.pump(const Duration(milliseconds: 700));
       });
     }
 

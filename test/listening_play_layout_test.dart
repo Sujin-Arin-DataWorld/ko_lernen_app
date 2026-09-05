@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/screens/listening_play_screen.dart';
+import 'package:ko_lernen_app/services/liked_content_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
@@ -324,13 +325,87 @@ void main() {
     expect(find.text(_secondKo), findsOneWidget);
     expect(find.text('Lange Zeile'), findsOneWidget);
     expect(find.text('Ja, gern.'), findsOneWidget);
-    expect(find.byTooltip(t.contentActionLike), findsWidgets);
+    // 지시서 1.24 룰링: 말풍선에도 하트 버튼은 없다 — 더블탭으로만 찜한다
+    // (더블탭 동작 자체는 아래 전용 테스트가 확인한다).
+    expect(find.byTooltip(t.contentActionLike), findsNothing);
     await tester.ensureVisible(find.text(t.listeningReplay).first);
     await tester.tap(find.text(t.listeningReplay).first);
     await tester.pump();
     expect(Storage.xp, 40);
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets(
+    'double-tap on a review bubble likes it and shows the corner badge',
+    (tester) async {
+      // 지시서 1.24 룰링: 말풍선에도 하트 버튼이 없다 — review 단계에서 더블탭
+      // 하면 찜해지고, 찜한 줄은 우상단 비대화형 배지로 안내한다. 큰 뷰포트 +
+      // 기본 textScale 로 전체 대화가 스크롤 없이 한 화면에 들어오게 해서,
+      // 위 테스트에서 관찰된 review 진입 직후의 스크롤 흔들림을 피한다.
+      tester.view.physicalSize = const Size(800, 2000);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final semantics = tester.ensureSemantics();
+
+      await tester.pumpWidget(
+        _app(
+          ListeningPlayScreen(
+            scenario: _scenario(),
+            speechPlayer: (text, {required voice}) async => true,
+            stopPlayer: () async {},
+          ),
+        ),
+      );
+      await tester.pump();
+      final t = AppL10n.of(tester.element(find.byType(ListeningPlayScreen)));
+      await tester.tap(find.text(t.listeningDialogueStart));
+      await tester.pump();
+      await tester.pump();
+      await _pumpUntil(
+        tester,
+        () => Storage.completedScenarios.contains('play_layout'),
+      );
+      await tester.tap(find.text(t.listeningReviewCta));
+      await tester.pump();
+      expect(find.text(_firstKo), findsOneWidget);
+
+      expect(
+        LikedContentService.isLiked(
+          kind: LikedContentService.listening,
+          id: 'play_layout:0',
+        ),
+        isFalse,
+      );
+      expect(find.bySemanticsLabel(t.contentActionLikeLiked), findsNothing);
+
+      await tester.tap(find.text(_firstKo));
+      await tester.pump(const Duration(milliseconds: 50));
+      await tester.tap(find.text(_firstKo));
+      // 소진: 두 번째 탭이 스스로 새로 여는 DoubleTapGestureRecognizer 의
+      // 40ms 추적 타이머(kDoubleTapMinTime)를 흘려보낸다 — 안 하면 "Timer
+      // still pending" 으로 테스트 종료 시점에 실패한다.
+      await tester.pump(const Duration(milliseconds: 50));
+
+      expect(
+        LikedContentService.isLiked(
+          kind: LikedContentService.listening,
+          id: 'play_layout:0',
+        ),
+        isTrue,
+      );
+      expect(find.bySemanticsLabel(t.contentActionLikeLiked), findsOneWidget);
+      // 두 번째 줄은 안 건드렸으니 그대로 안 찜한 상태.
+      expect(
+        LikedContentService.isLiked(
+          kind: LikedContentService.listening,
+          id: 'play_layout:1',
+        ),
+        isFalse,
+      );
+      semantics.dispose();
+    },
+  );
 
   testWidgets('screen re-entry completes without granting XP again', (
     tester,

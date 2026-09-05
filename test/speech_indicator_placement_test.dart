@@ -245,11 +245,20 @@ void main() {
           locale: const Locale('de'),
           supportedLocales: AppL10n.supportedLocales,
           localizationsDelegates: AppL10n.localizationsDelegates,
-          home: const Scaffold(
+          // Fable R1 스포일러 정정 이후 인디케이터는 답 공개(picked != null)
+          // 상태에서만 렌더한다 — 배치 검증도 그 상태를 펌프해야 한다. `item`
+          // 은 const지만 `item.answer`는 필드 접근이라 const 표현식이 될 수
+          // 없으므로(컴파일 오류) 이 서브트리는 const를 뺀다.
+          home: Scaffold(
             body: Center(
               child: SizedBox(
                 width: 320,
-                child: ClozePromptCard(item: item, lang: 'de', gloss: 'lerne'),
+                child: ClozePromptCard(
+                  item: item,
+                  lang: 'de',
+                  gloss: 'lerne',
+                  picked: item.answer,
+                ),
               ),
             ),
           ),

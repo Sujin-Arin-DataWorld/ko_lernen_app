@@ -7,6 +7,8 @@ import 'package:ko_lernen_app/models/silben_puzzle.dart';
 import 'package:ko_lernen_app/screens/silben_kreuz_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/card.dart';
+import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
 import 'support/sori_speech_stubs.dart';
@@ -52,11 +54,13 @@ const _puzzle = SilbenPuzzle(
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
+  late SoriSpeechStub speechStub;
+
   setUp(() async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({'kl_tut_silben_kreuz': true});
     await Storage.init();
-    stubSoriSpeech();
+    speechStub = stubSoriSpeech();
   });
 
   testWidgets(
@@ -157,6 +161,49 @@ void main() {
     expect(activeLane.color, SoriColors.info.withValues(alpha: 0.06));
     expect(inactive.color, isNot(SoriColors.info.withValues(alpha: 0.06)));
   });
+
+  testWidgets(
+    'completing a word surfaces the clue-card speak indicator at its top-left',
+    (tester) async {
+      await _pumpPuzzle(tester);
+
+      expect(
+        find.byType(SoriSpeechIndicator),
+        findsNothing,
+        reason: '완성된 단어가 없으면 단서 카드에 인디케이터가 없어야 한다',
+      );
+
+      final horizontalClue = find.byKey(const ValueKey('silben-clue-0'));
+      await _tapVisible(tester, horizontalClue);
+      await _tapVisible(tester, find.bySemanticsLabel('가'));
+      await _tapVisible(tester, find.bySemanticsLabel('나'));
+      await _tapVisible(tester, find.bySemanticsLabel('다'));
+
+      // T1(1.7/2.9) — 단어 완성 자동 발화(_onTileTap)와 같은 텍스트 규칙
+      // (exampleKo 있으면 답+예문)으로 마지막 완성 단어를 가리킨다.
+      expect(speechStub.spoken, ['가나다. 가나다를 읽어요.']);
+
+      final indicator = find.byKey(const Key('silben-clue-speak'));
+      expect(indicator, findsOneWidget);
+      expect(
+        tester.widget<SoriSpeechIndicator>(indicator).text,
+        '가나다. 가나다를 읽어요.',
+      );
+
+      final localStack = find
+          .ancestor(of: indicator, matching: find.byType(Stack))
+          .first;
+      final cardFinder = find.descendant(
+        of: localStack,
+        matching: find.byType(SoriCard),
+      );
+      final cardRect = tester.getRect(cardFinder);
+      final indicatorRect = tester.getRect(indicator);
+      expect(indicatorRect.left - cardRect.left, inInclusiveRange(-1.0, 24.0));
+      expect(indicatorRect.top - cardRect.top, inInclusiveRange(-1.0, 24.0));
+      expect(tester.takeException(), isNull);
+    },
+  );
 
   for (final size in [const Size(320, 640), const Size(720, 1024)]) {
     testWidgets(

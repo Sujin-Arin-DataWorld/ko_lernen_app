@@ -285,6 +285,11 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
     // 되어 `n / 10 richtig` 카운터가 의미를 잃는다.
     final firstTry = !_retried;
     setState(() => _picked = option);
+    // 2.9 잔여 — 답 공개 직후(정/오답 무관) 완성 문장을 1회 자동으로 읽는다.
+    // 카드 좌상단 인디케이터(cloze_prompt.dart)·탭 재생은 같은
+    // item.fullKo 텍스트를 쓰므로 SoriSpeech 의 텍스트별 in-flight
+    // dedupe 로 인디케이터 탭=정지 계약이 그대로 성립한다.
+    SoriSpeech.speak(item.fullKo);
 
     if (firstTry) {
       Storage.srsReview(item.answer, gotIt: ok); // Kontext-Abruf → Haupt-SRS
@@ -408,6 +413,13 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
     final item = _round[_idx];
     final options = item.options(_roundId * 100 + _idx);
     final revealed = _picked != null;
+    final promptCard = ClozePromptCard(
+      item: item,
+      lang: lang,
+      gloss: _vocabByKo[item.answer]?.translationFor(lang),
+      picked: _picked,
+      pickedWrong: _picked != null && !item.accepts(_picked!),
+    );
 
     return SoriStudyFrame(
       title: t.clozeTitle,
@@ -433,16 +445,13 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
             Flexible(
               flex: 3,
               child: SingleChildScrollView(
-                child: SoriSpeakable(
-                  text: item.fullKo,
-                  child: ClozePromptCard(
-                    item: item,
-                    lang: lang,
-                    gloss: _vocabByKo[item.answer]?.translationFor(lang),
-                    picked: _picked,
-                    pickedWrong: _picked != null && !item.accepts(_picked!),
-                  ),
-                ),
+                // Fable R1 스포일러 정정: item.fullKo 는 빈칸이 채워진 "정답"
+                // 문장이다 — 공개 전(picked == null)에 탭-재생 래퍼를 씌우면
+                // 사용자가 카드를 탭해 답을 미리 들을 수 있었다. 공개 후에만
+                // SoriSpeakable 로 감싼다("진입 무음, 답 공개 후 읽기").
+                child: revealed
+                    ? SoriSpeakable(text: item.fullKo, child: promptCard)
+                    : promptCard,
               ),
             ),
             const SizedBox(height: Spacing.xl),

@@ -63,6 +63,10 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   Map<(int, int), List<SilbenWord>> _memberships = const {};
   final Set<(int, int)> _locked = {};
   final Set<String> _spoken = {};
+  // 1.7 잔여(2.9) — 단서 카드 좌상단 인디케이터의 text 를 위해 가장 최근에
+  // 완성된 단어를 기억한다. `_spoken`은 완성 여부만 알 뿐 순서를 노출하지
+  // 않으므로 별도 필드가 필요하다.
+  SilbenWord? _lastCompletedWord;
   List<bool> _tileUsed = [];
   (int, int)? _selected;
   // 사용자가 지금 풀고 있는 단어. 한 칸을 맞힌 뒤 커서를 **이 단어 안에서**
@@ -222,6 +226,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       _memberships = p.memberships;
       _locked.clear();
       _spoken.clear();
+      _lastCompletedWord = null;
       _tileUsed = List.filled(p.pool.length, false);
       _solved = false;
       _selected = null;
@@ -298,6 +303,13 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     }
   }
 
+  /// 완성된 단어를 발음할 때 쓰는 텍스트 — exampleKo 가 있으면 답+예문,
+  /// 없으면 답만. 완성 시 자동 발화(_onTileTap)와 단서 카드 좌상단
+  /// 인디케이터(_clues)가 같은 규칙을 공유해야 인디케이터 탭=정지가
+  /// 실제로 그 발화를 멈춘다(같은 텍스트 → 같은 SoriSpeech in-flight 키).
+  String _speechFor(SilbenWord w) =>
+      w.exampleKo.isEmpty ? w.answer : '${w.answer}. ${w.exampleKoSpoken}';
+
   void _onTileTap(int i) {
     if (_solved || _tileUsed[i]) {
       return;
@@ -326,12 +338,9 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
         }
         if (w.cells.every(_locked.contains)) {
           _spoken.add(w.answer);
+          _lastCompletedWord = w;
           SoundService.correct();
-          SoriSpeech.speak(
-            w.exampleKo.isEmpty
-                ? w.answer
-                : '${w.answer}. ${w.exampleKoSpoken}',
-          );
+          SoriSpeech.speak(_speechFor(w));
         }
       }
       if (_locked.length == _solution.length) {
@@ -477,8 +486,10 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
         if (cell < minCell) {
           final cellNoGap = math.min(52.0, constraints.maxWidth / cols);
           if (cellNoGap >= minCell && cols > 1) {
-            gap = ((constraints.maxWidth - minCell * cols) / (cols - 1))
-                .clamp(0.0, maxGap);
+            gap = ((constraints.maxWidth - minCell * cols) / (cols - 1)).clamp(
+              0.0,
+              maxGap,
+            );
             cell = cellFor(gap);
           } else {
             gap = 0.0;
@@ -689,7 +700,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                 ? a.word.row - b.word.row
                 : a.word.col - b.word.col,
           );
-    return SoriCard(
+    final card = SoriCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -699,6 +710,24 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
           ],
         ],
       ),
+    );
+    // 1.7 잔여(2.9) — 완성된 단어가 1개 이상일 때만 좌상단 듣기 아이콘을
+    // 얹는다. 미완성 상태(0개)엔 재생할 음성이 아직 없으므로 인디케이터
+    // 자체를 넣지 않는다.
+    final lastCompleted = _lastCompletedWord;
+    if (_spoken.isEmpty || lastCompleted == null) return card;
+    return Stack(
+      children: [
+        card,
+        Positioned(
+          top: Spacing.sm,
+          left: Spacing.sm,
+          child: SoriSpeechIndicator(
+            key: const Key('silben-clue-speak'),
+            text: _speechFor(lastCompleted),
+          ),
+        ),
+      ],
     );
   }
 
@@ -768,10 +797,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                       ),
                     ),
                     const SizedBox(height: 2),
-                    Text(
-                      w.exampleDe,
-                      style: SoriTextTheme.of(context).caption,
-                    ),
+                    Text(w.exampleDe, style: SoriTextTheme.of(context).caption),
                     Text(
                       w.exampleKo,
                       style: SoriTextTheme.of(
