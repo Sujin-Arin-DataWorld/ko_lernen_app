@@ -1389,6 +1389,42 @@ void main() {
       }
     },
   );
+
+  testWidgets(
+    'satz_bauen: 질문 카드와 "Deine Antwort bauen" 사이 간격은 SoriGaps.questionToOptions'
+    '(24) (지시서 4.8)',
+    (tester) async {
+      final t = lookupAppL10n(const Locale('de'));
+      await _pumpQuest(
+        tester,
+        SatzBauenQuest(
+          data: const {
+            'targetKo': '안녕 하세요',
+            'promptDe': 'Sage höflich Hallo.',
+            'promptEn': 'Say hello politely.',
+            'distractors': ['감사'],
+          },
+          onComplete: (_) {},
+          onContinue: () {},
+        ),
+        locale: const Locale('de'),
+        viewport: _viewports[2],
+      );
+
+      final promptBottom = tester
+          .getBottomLeft(find.byKey(const ValueKey('quest-prompt-card')))
+          .dy;
+      final labelTop = tester
+          .getTopLeft(find.text(t.questBuildAnswerLabel))
+          .dy;
+      final gap = labelTop - promptBottom;
+      expect(
+        gap,
+        moreOrLessEquals(SoriGaps.questionToOptions, epsilon: 0.5),
+        reason: '질문 카드와 정답 조립 레이블 사이 간격이 24dp가 아니다 (실측 $gap)',
+      );
+    },
+  );
 }
 
 Future<void> _pumpQuest(
