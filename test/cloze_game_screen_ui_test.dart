@@ -107,10 +107,7 @@ void main() {
           tester.widget<SoriSpeechIndicator>(speakAction).text,
           _item.fullKo,
         );
-        expect(
-          find.bySemanticsLabel(t.speechIndicatorLabel),
-          findsOneWidget,
-        );
+        expect(find.bySemanticsLabel(t.speechIndicatorLabel), findsOneWidget);
         final speakSize = tester.getSize(speakAction);
         expect(speakSize.width, greaterThanOrEqualTo(48));
         expect(speakSize.height, greaterThanOrEqualTo(48));

@@ -674,7 +674,10 @@ class _PhraseCardState extends State<_PhraseCard> {
         // 기존 테스트 계약(smalltalk-speak) 그대로 옮긴다.
         topAccessory: p.ko.isEmpty
             ? null
-            : SoriSpeechIndicator(key: const Key('smalltalk-speak'), text: p.ko),
+            : SoriSpeechIndicator(
+                key: const Key('smalltalk-speak'),
+                text: p.ko,
+              ),
         child: KeyedSubtree(
           key: widget.coachKey,
           child: LayoutBuilder(

@@ -532,69 +532,70 @@ class _Front extends StatelessWidget {
             padding: const EdgeInsets.only(top: Spacing.xxxl),
             child: LayoutBuilder(
               builder: (context, constraints) {
-          final h = constraints.maxHeight.isFinite
-              ? constraints.maxHeight
-              // FlipCard._fitFace scroll-wraps this face → maxHeight is unbounded;
-              // the real card height arrives as minHeight from its ConstrainedBox,
-              // so text scales with the device instead of a fixed 360 baseline.
-              : (constraints.minHeight.isFinite && constraints.minHeight > 0
-                    ? constraints.minHeight
-                    : 360.0);
-          return SingleChildScrollView(
-            physics: kSoriCardFacePhysics,
-            child: ConstrainedBox(
-              constraints: BoxConstraints(minHeight: h),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  if (word.imagePath.isNotEmpty)
-                    ManagedMediaImage(
-                      reference: word.imagePath,
-                      width: 220,
-                      height: 120,
-                      borderRadius: BorderRadius.circular(SoriRadius.md),
-                    ),
-                  // 단어 — 카드를 채우는 대형 헤드라인. 크기는 덱 공유값 하나로
-                  // 고정 (단어 길이별 요동 금지) — FittedBox 는 실측 오차용
-                  // 안전망일 뿐 정상 경로에서는 개입하지 않는다.
-                  FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: Text(
-                      word.korean,
-                      textAlign: TextAlign.center,
-                      maxLines: 1,
-                      style: TextStyle(
-                        fontSize: soriUniformFitSize(
-                          context,
-                          texts: deckKoreans,
-                          maxWidth: constraints.maxWidth,
-                          cap: soriFillSize(h, 0.19, 34, 92),
-                          min: 30,
-                          letterSpacing: -0.5,
+                final h = constraints.maxHeight.isFinite
+                    ? constraints.maxHeight
+                    // FlipCard._fitFace scroll-wraps this face → maxHeight is unbounded;
+                    // the real card height arrives as minHeight from its ConstrainedBox,
+                    // so text scales with the device instead of a fixed 360 baseline.
+                    : (constraints.minHeight.isFinite &&
+                              constraints.minHeight > 0
+                          ? constraints.minHeight
+                          : 360.0);
+                return SingleChildScrollView(
+                  physics: kSoriCardFacePhysics,
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(minHeight: h),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        if (word.imagePath.isNotEmpty)
+                          ManagedMediaImage(
+                            reference: word.imagePath,
+                            width: 220,
+                            height: 120,
+                            borderRadius: BorderRadius.circular(SoriRadius.md),
+                          ),
+                        // 단어 — 카드를 채우는 대형 헤드라인. 크기는 덱 공유값 하나로
+                        // 고정 (단어 길이별 요동 금지) — FittedBox 는 실측 오차용
+                        // 안전망일 뿐 정상 경로에서는 개입하지 않는다.
+                        FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            word.korean,
+                            textAlign: TextAlign.center,
+                            maxLines: 1,
+                            style: TextStyle(
+                              fontSize: soriUniformFitSize(
+                                context,
+                                texts: deckKoreans,
+                                maxWidth: constraints.maxWidth,
+                                cap: soriFillSize(h, 0.19, 34, 92),
+                                min: 30,
+                                letterSpacing: -0.5,
+                              ),
+                              fontWeight: FontWeight.w700,
+                              letterSpacing: -0.5,
+                            ),
+                          ),
                         ),
-                        fontWeight: FontWeight.w700,
-                        letterSpacing: -0.5,
-                      ),
+                        if (romanizationOnFront && word.romanization.isNotEmpty)
+                          Text(
+                            '[${word.romanization}]',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: soriFillSize(h, 0.052, 14, 30),
+                              color: Colors.black54,
+                              fontStyle: FontStyle.italic,
+                            ),
+                          ),
+                      ],
                     ),
                   ),
-                  if (romanizationOnFront && word.romanization.isNotEmpty)
-                    Text(
-                      '[${word.romanization}]',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: soriFillSize(h, 0.052, 14, 30),
-                        color: Colors.black54,
-                        fontStyle: FontStyle.italic,
-                      ),
-                    ),
-                ],
-              ),
-            ),
-          );
-                },
-              ),
+                );
+              },
             ),
           ),
+        ),
         Positioned(
           top: Spacing.sm,
           left: Spacing.sm,

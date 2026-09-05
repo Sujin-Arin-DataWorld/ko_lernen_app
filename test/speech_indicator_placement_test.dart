@@ -264,10 +264,7 @@ void main() {
 
       final cardRect = tester.getRect(cardFinder);
       final indicatorRect = tester.getRect(indicatorFinder);
-      expect(
-        indicatorRect.left - cardRect.left,
-        inInclusiveRange(-1.0, 24.0),
-      );
+      expect(indicatorRect.left - cardRect.left, inInclusiveRange(-1.0, 24.0));
       expect(indicatorRect.top - cardRect.top, inInclusiveRange(-1.0, 24.0));
       expect(tester.takeException(), isNull);
     });
