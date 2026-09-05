@@ -9,12 +9,15 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/smalltalk.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/vocab_pack.dart';
 import 'package:ko_lernen_app/screens/custom_pack_play_screen.dart';
 import 'package:ko_lernen_app/screens/grammar_screen.dart';
+import 'package:ko_lernen_app/screens/smalltalk_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
+import 'package:ko_lernen_app/services/smalltalk_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/services/cloze_loader.dart';
@@ -307,6 +310,46 @@ void main() {
         await tester.tapAt(const Offset(8, 8));
         await tester.pump(const Duration(milliseconds: 300));
       }
+
+      expectIndicatorAtContentFeedTopLeft(tester);
+      expect(tester.takeException(), isNull);
+    });
+  });
+
+  group('smalltalk_screen 카드', () {
+    setUpAll(() async {
+      SmalltalkLoader.reset();
+      await SmalltalkLoader.load();
+    });
+
+    setUp(() async {
+      Storage.resetForTesting();
+      SharedPreferences.setMockInitialValues({
+        'kl_user_level': 'a1',
+        'kl_tut_smalltalk': true,
+        'kl_tut_wordbook': true,
+      });
+      await Storage.init();
+    });
+
+    testWidgets('SoriSpeechIndicator 가 SoriContentFeed 좌상단에 있다', (
+      tester,
+    ) async {
+      stubSoriSpeech();
+      _setViewport(tester);
+      final phrase = SmalltalkLoader.phrases.first;
+      await tester.pumpWidget(
+        MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.light,
+          locale: const Locale('de'),
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          home: SmalltalkScreen(phrases: <SmalltalkPhrase>[phrase]),
+        ),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
 
       expectIndicatorAtContentFeedTopLeft(tester);
       expect(tester.takeException(), isNull);

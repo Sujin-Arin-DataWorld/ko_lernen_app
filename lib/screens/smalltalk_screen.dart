@@ -668,6 +668,13 @@ class _PhraseCardState extends State<_PhraseCard> {
         onBookmark: () => unawaited(_savePhrase()),
         onFlip: () =>
             setState(() => _showConversationGuide = !_showConversationGuide),
+        // §A3 지시서 2.9: 듣기 아이콘은 카드박스 상단 왼쪽 구석 — 본문
+        // 중앙의 자체 원형 _SpeakButton 을 걷어내고 topAccessory 슬롯을
+        // 쓴다(review_session_screen.dart:672 와 같은 패턴). key 는
+        // 기존 테스트 계약(smalltalk-speak) 그대로 옮긴다.
+        topAccessory: p.ko.isEmpty
+            ? null
+            : SoriSpeechIndicator(key: const Key('smalltalk-speak'), text: p.ko),
         child: KeyedSubtree(
           key: widget.coachKey,
           child: LayoutBuilder(
@@ -696,8 +703,6 @@ class _PhraseCardState extends State<_PhraseCard> {
                         ),
                         const SizedBox(height: Spacing.sm),
                         SoriPhraseWrap(p.translation(lang), style: tt.gloss),
-                        const SizedBox(height: Spacing.md),
-                        _SpeakButton(korean: p.ko),
                         const SizedBox(height: Spacing.md),
                         if (!_canRecordRelationshipCheckpoint ||
                             _submittedRelationshipContext != null)
@@ -808,44 +813,6 @@ class _PhraseCardState extends State<_PhraseCard> {
                 ),
               );
             },
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _SpeakButton extends StatelessWidget {
-  const _SpeakButton({required this.korean});
-
-  final String korean;
-
-  @override
-  Widget build(BuildContext context) {
-    if (korean.isEmpty) {
-      return const SizedBox.shrink();
-    }
-    final t = AppL10n.of(context);
-    return Semantics(
-      button: true,
-      label: t.btnHoeren,
-      child: Center(
-        child: GestureDetector(
-          behavior: HitTestBehavior.opaque,
-          onTap: () => SoriSpeech.speak(korean),
-          child: Material(
-            color: SoriColors.primary.withValues(alpha: 0.12),
-            shape: const CircleBorder(),
-            child: const SizedBox(
-              key: Key('smalltalk-speak'),
-              width: 52,
-              height: 52,
-              child: Icon(
-                Icons.volume_up_rounded,
-                size: 24,
-                color: SoriColors.primary,
-              ),
-            ),
           ),
         ),
       ),
