@@ -36,35 +36,27 @@
         }
       },
       {
-        "korean": "공항에서 게스트하우스까지 가 주세요.",
+        "korean": "주소는 여기 있어요.",
         "note": {
           "ko": "장면 핵심 표현",
-          "de": "Bitte fahren Sie mich vom Flughafen zum Gästehaus.",
-          "en": "Please take me from the airport to the guesthouse."
+          "de": "Hier ist die Adresse.",
+          "en": "Here's the address."
         }
       },
       {
-        "korean": "주소가 어떻게 되세요?",
+        "korean": "삼십 분쯤 걸려요.",
         "note": {
           "ko": "장면 핵심 표현",
-          "de": "Wie lautet die Adresse?",
-          "en": "What's the address?"
+          "de": "Es dauert etwa dreißig Minuten.",
+          "en": "It takes about thirty minutes."
         }
       },
       {
-        "korean": "이 주소로 가 주세요.",
+        "korean": "트렁크에 넣어 드릴게요.",
         "note": {
           "ko": "장면 핵심 표현",
-          "de": "Bitte fahren Sie zu dieser Adresse.",
-          "en": "Please go to this address."
-        }
-      },
-      {
-        "korean": "짐이 많으세요?",
-        "note": {
-          "ko": "장면 핵심 표현",
-          "de": "Haben Sie viel Gepäck?",
-          "en": "Do you have a lot of luggage?"
+          "de": "Ich lege sie in den Kofferraum.",
+          "en": "I'll put it in the trunk."
         }
       },
       {
@@ -76,11 +68,19 @@
         }
       },
       {
-        "korean": "성함을 말씀해 주세요.",
+        "korean": "얼마예요?",
         "note": {
           "ko": "장면 핵심 표현",
-          "de": "Wie ist Ihr Name, bitte?",
-          "en": "Could you tell me your name, please?"
+          "de": "Was macht das?",
+          "en": "How much is it?"
+        }
+      },
+      {
+        "korean": "성함이 어떻게 되세요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie ist Ihr Name?",
+          "en": "What's your name?"
         }
       },
       {
@@ -99,7 +99,7 @@
     "surfaceFormIds": [],
     "grammarIds": [
       "grammar_a1_from_to",
-      "grammar_a1_service_request"
+      "grammar_a1_polite_past"
     ],
     "grammarBlock": {
       "title": {
@@ -122,33 +122,27 @@
       },
       {
         "speaker": "user",
-        "ko": "공항에서 게스트하우스까지 가 주세요.",
-        "de": "Bitte fahren Sie mich vom Flughafen zum Gästehaus.",
-        "en": "Please take me from the airport to the guesthouse."
+        "ko": "게스트하우스요. 주소는 여기 있어요.",
+        "de": "Zum Gästehaus. Hier ist die Adresse.",
+        "en": "To the guesthouse. Here's the address."
       },
       {
         "speaker": "driver",
-        "ko": "네, 손님. 주소가 어떻게 되세요?",
-        "de": "Gut. Wie lautet die Adresse?",
-        "en": "Sure. What's the address?"
+        "ko": "네, 손님. 공항에서 거기까지 삼십 분쯤 걸려요.",
+        "de": "Gut. Vom Flughafen bis dahin dauert es etwa dreißig Minuten.",
+        "en": "Sure. It takes about thirty minutes from the airport to there."
       },
       {
         "speaker": "user",
-        "ko": "여기예요. 이 주소로 가 주세요.",
-        "de": "Hier. Bitte fahren Sie zu dieser Adresse.",
-        "en": "Here. Please go to this address."
+        "ko": "네, 알겠어요. 가방이 하나 있어요.",
+        "de": "Okay, verstanden. Ich habe eine Tasche.",
+        "en": "Okay, got it. I have one bag."
       },
       {
         "speaker": "driver",
-        "ko": "짐이 많으세요?",
-        "de": "Haben Sie viel Gepäck?",
-        "en": "Do you have a lot of luggage?"
-      },
-      {
-        "speaker": "user",
-        "ko": "아니요, 가방 하나예요.",
-        "de": "Nein, nur eine Tasche.",
-        "en": "No, just one bag."
+        "ko": "트렁크에 넣어 드릴게요.",
+        "de": "Ich lege sie in den Kofferraum.",
+        "en": "I'll put it in the trunk."
       },
       {
         "speaker": "driver",
@@ -158,15 +152,21 @@
       },
       {
         "speaker": "user",
-        "ko": "감사합니다.",
-        "de": "Danke.",
-        "en": "Thank you."
+        "ko": "얼마예요?",
+        "de": "Was macht das?",
+        "en": "How much is it?"
+      },
+      {
+        "speaker": "driver",
+        "ko": "이만 천 원이에요.",
+        "de": "Das macht 21.000 Won.",
+        "en": "That's 21,000 won."
       },
       {
         "speaker": "landlord",
-        "ko": "어서 오세요. 성함을 말씀해 주세요.",
-        "de": "Willkommen. Wie ist Ihr Name, bitte?",
-        "en": "Welcome. Could you tell me your name, please?"
+        "ko": "어서 오세요. 성함이 어떻게 되세요?",
+        "de": "Willkommen. Wie ist Ihr Name?",
+        "en": "Welcome. What's your name?"
       },
       {
         "speaker": "user",
@@ -180,23 +180,23 @@
         "id": "quest_a1_w10_taxi_stay_hear",
         "type": "hoerverstehen",
         "data": {
-          "audioKo": "공항에서 게스트하우스까지 가 주세요.",
+          "audioKo": "네, 손님. 공항에서 거기까지 삼십 분쯤 걸려요.",
           "options": [
             {
-              "de": "Bitte fahren Sie mich vom Flughafen zum Gästehaus.",
-              "en": "Please take me from the airport to the guesthouse."
+              "de": "Gut. Vom Flughafen bis dahin dauert es etwa dreißig Minuten.",
+              "en": "Sure. It takes about thirty minutes from the airport to there."
             },
             {
-              "de": "Wie lautet die Adresse?",
-              "en": "What's the address?"
-            },
-            {
-              "de": "Haben Sie viel Gepäck?",
-              "en": "Do you have a lot of luggage?"
+              "de": "Ich lege sie in den Kofferraum.",
+              "en": "I'll put it in the trunk."
             },
             {
               "de": "Wir sind da. Hier ist es.",
               "en": "We're here. This is it."
+            },
+            {
+              "de": "Willkommen. Wie ist Ihr Name?",
+              "en": "Welcome. What's your name?"
             }
           ],
           "correctIndex": 0
@@ -206,20 +206,20 @@
         "id": "quest_a1_w10_taxi_stay_translate",
         "type": "uebersetzen",
         "data": {
-          "promptDe": "Hier. Bitte fahren Sie zu dieser Adresse.",
-          "promptEn": "Here. Please go to this address.",
+          "promptDe": "Okay, verstanden. Ich habe eine Tasche.",
+          "promptEn": "Okay, got it. I have one bag.",
           "options": [
             {
-              "ko": "여기예요. 이 주소로 가 주세요."
+              "ko": "네, 알겠어요. 가방이 하나 있어요."
             },
             {
-              "ko": "공항에서 게스트하우스까지 가 주세요."
+              "ko": "트렁크에 넣어 드릴게요."
             },
             {
-              "ko": "짐이 많으세요?"
+              "ko": "얼마예요?"
             },
             {
-              "ko": "다 왔어요. 여기예요."
+              "ko": "크리스티안이에요. 예약했어요."
             }
           ],
           "correctIndex": 0
@@ -229,12 +229,12 @@
         "id": "quest_a1_w10_taxi_stay_build",
         "type": "satzBauen",
         "data": {
-          "targetKo": "어서 오세요. 성함을 말씀해 주세요.",
-          "promptDe": "Willkommen. Wie ist Ihr Name, bitte?",
-          "promptEn": "Welcome. Could you tell me your name, please?",
+          "targetKo": "어서 오세요. 성함이 어떻게 되세요?",
+          "promptDe": "Willkommen. Wie ist Ihr Name?",
+          "promptEn": "Welcome. What's your name?",
           "distractors": [
             "가방",
-            "짐이",
+            "트렁크",
             "를"
           ]
         }
@@ -304,6 +304,14 @@
         }
       },
       {
+        "korean": "더 필요한 거 있으세요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Brauchen Sie sonst noch etwas?",
+          "en": "Do you need anything else?"
+        }
+      },
+      {
         "korean": "얼마예요?",
         "note": {
           "ko": "장면 핵심 표현",
@@ -312,11 +320,11 @@
         }
       },
       {
-        "korean": "육천 원이에요.",
+        "korean": "다 해서 만 천 원이에요.",
         "note": {
           "ko": "장면 핵심 표현",
-          "de": "Das macht 6.000 Won.",
-          "en": "That's 6,000 won."
+          "de": "Das macht zusammen 11.000 Won.",
+          "en": "That's 11,000 won altogether."
         }
       },
       {
@@ -388,21 +396,21 @@
       },
       {
         "speaker": "clerk",
-        "ko": "샌드위치도 필요하세요?",
-        "de": "Brauchen Sie auch ein Sandwich?",
-        "en": "Do you need a sandwich too?"
+        "ko": "더 필요한 거 있으세요?",
+        "de": "Brauchen Sie sonst noch etwas?",
+        "en": "Do you need anything else?"
       },
       {
         "speaker": "user",
-        "ko": "네, 하나 주세요. 얼마예요?",
-        "de": "Ja, eins bitte. Was macht das?",
-        "en": "Yes, one please. How much is it?"
+        "ko": "샌드위치도 하나 주세요. 얼마예요?",
+        "de": "Ich nehme auch ein Sandwich. Was macht das?",
+        "en": "I'll also have a sandwich. How much is it?"
       },
       {
         "speaker": "clerk",
-        "ko": "육천 원이에요.",
-        "de": "Das macht 6.000 Won.",
-        "en": "That's 6,000 won."
+        "ko": "다 해서 만 천 원이에요.",
+        "de": "Das macht zusammen 11.000 Won.",
+        "en": "That's 11,000 won altogether."
       },
       {
         "speaker": "user",
@@ -431,8 +439,8 @@
               "en": "Will you eat here or take it to go?"
             },
             {
-              "de": "Brauchen Sie auch ein Sandwich?",
-              "en": "Do you need a sandwich too?"
+              "de": "Brauchen Sie sonst noch etwas?",
+              "en": "Do you need anything else?"
             }
           ],
           "correctIndex": 0
@@ -455,7 +463,7 @@
               "ko": "아이스로 주세요."
             },
             {
-              "ko": "네, 하나 주세요. 얼마예요?"
+              "ko": "샌드위치도 하나 주세요. 얼마예요?"
             }
           ],
           "correctIndex": 0
@@ -465,9 +473,9 @@
         "id": "quest_a1_w10_eat_build",
         "type": "satzBauen",
         "data": {
-          "targetKo": "육천 원이에요.",
-          "promptDe": "Das macht 6.000 Won.",
-          "promptEn": "That's 6,000 won.",
+          "targetKo": "다 해서 만 천 원이에요.",
+          "promptDe": "Das macht zusammen 11.000 Won.",
+          "promptEn": "That's 11,000 won altogether.",
           "distractors": [
             "아이스",
             "포장",
@@ -772,11 +780,19 @@
         }
       },
       {
-        "korean": "반갑다고 하셨어요.",
+        "korean": "안에서 기다리세요.",
         "note": {
           "ko": "장면 핵심 표현",
-          "de": "Sie hat gesagt, sie freut sich.",
-          "en": "She said she's happy."
+          "de": "Sie wartet drinnen.",
+          "en": "She's waiting inside."
+        }
+      },
+      {
+        "korean": "아주 좋아하세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Sie freut sich sehr.",
+          "en": "She's very happy."
         }
       },
       {
@@ -812,9 +828,9 @@
     "dialog": [
       {
         "speaker": "sujin",
-        "ko": "여기예요. 우리 집에 오신 거 처음이죠?",
-        "de": "Hier ist es. Das ist dein erster Besuch bei mir zu Hause, oder?",
-        "en": "Here it is. This is your first time visiting my home, right?"
+        "ko": "여기예요. 우리 집은 처음이죠?",
+        "de": "Hier ist es. Du bist zum ersten Mal bei mir zu Hause, oder?",
+        "en": "Here it is. This is your first time at my home, right?"
       },
       {
         "speaker": "user",
@@ -836,9 +852,9 @@
       },
       {
         "speaker": "sujin",
-        "ko": "와, 감사해요. 엄마가 어서 들어오시래요.",
-        "de": "Wow, danke. Meine Mutter sagt, komm rein.",
-        "en": "Wow, thanks. My mom says come in."
+        "ko": "와, 감사해요. 엄마가 안에서 기다리세요.",
+        "de": "Wow, danke. Meine Mutter wartet drinnen.",
+        "en": "Wow, thanks. My mom is waiting inside."
       },
       {
         "speaker": "user",
@@ -848,9 +864,9 @@
       },
       {
         "speaker": "sujin",
-        "ko": "엄마가 반갑다고 하셨어요. 편하게 계세요.",
-        "de": "Meine Mutter hat gesagt, sie freut sich. Mach es dir bequem.",
-        "en": "My mom said she's happy to meet you. Make yourself at home."
+        "ko": "엄마가 아주 좋아하세요. 편하게 계세요.",
+        "de": "Meine Mutter freut sich sehr. Mach es dir bequem.",
+        "en": "My mom is very happy. Make yourself at home."
       },
       {
         "speaker": "user",
@@ -864,11 +880,11 @@
         "id": "quest_a1_w10_partner_hear",
         "type": "hoerverstehen",
         "data": {
-          "audioKo": "와, 감사해요. 엄마가 어서 들어오시래요.",
+          "audioKo": "와, 감사해요. 엄마가 안에서 기다리세요.",
           "options": [
             {
-              "de": "Wow, danke. Meine Mutter sagt, komm rein.",
-              "en": "Wow, thanks. My mom says come in."
+              "de": "Wow, danke. Meine Mutter wartet drinnen.",
+              "en": "Wow, thanks. My mom is waiting inside."
             },
             {
               "de": "Ja, ich bin ein bisschen nervös.",
@@ -879,8 +895,8 @@
               "en": "It's fine. Take off your shoes here."
             },
             {
-              "de": "Meine Mutter hat gesagt, sie freut sich. Mach es dir bequem.",
-              "en": "My mom said she's happy to meet you. Make yourself at home."
+              "de": "Meine Mutter freut sich sehr. Mach es dir bequem.",
+              "en": "My mom is very happy. Make yourself at home."
             }
           ],
           "correctIndex": 0
@@ -999,11 +1015,11 @@
         }
       },
       {
-        "korean": "전화번호",
+        "korean": "전화번호도 필요해요?",
         "note": {
           "ko": "장면 핵심 표현",
-          "de": "Telefonnummer",
-          "en": "phone number"
+          "de": "Brauchen Sie auch meine Telefonnummer?",
+          "en": "Do you need my phone number too?"
         }
       },
       {
@@ -1077,9 +1093,9 @@
       },
       {
         "speaker": "user",
-        "ko": "전화번호도 남겨야 돼요?",
-        "de": "Muss ich auch meine Telefonnummer hinterlassen?",
-        "en": "Do I need to leave my phone number too?"
+        "ko": "전화번호도 필요해요?",
+        "de": "Brauchen Sie auch meine Telefonnummer?",
+        "en": "Do you need my phone number too?"
       },
       {
         "speaker": "clerk",
@@ -1147,7 +1163,7 @@
               "ko": "커트 예약하고 싶어요."
             },
             {
-              "ko": "전화번호도 남겨야 돼요?"
+              "ko": "전화번호도 필요해요?"
             },
             {
               "ko": "공일공, 일이삼사, 오육칠팔이에요."
@@ -1283,7 +1299,7 @@
     "dialog": [
       {
         "speaker": "server",
-        "ko": "여보세요, 다정식당이에요.",
+        "ko": "네, 다정식당입니다.",
         "de": "Hallo, hier ist das Restaurant Dajeong.",
         "en": "Hello, this is Dajeong Restaurant."
       },
@@ -1455,7 +1471,7 @@
         }
       },
       {
-        "korean": "얼마나 걸어요?",
+        "korean": "얼마나 걸려요?",
         "note": {
           "ko": "장면 핵심 표현",
           "de": "Wie lange dauert es?",
@@ -1471,7 +1487,7 @@
         }
       },
       {
-        "korean": "표지판",
+        "korean": "간판",
         "note": {
           "ko": "장면 핵심 표현",
           "de": "Schild",
@@ -1531,9 +1547,9 @@
       },
       {
         "speaker": "user",
-        "ko": "얼마나 걸어요?",
-        "de": "Wie lange muss ich laufen?",
-        "en": "How long is the walk?"
+        "ko": "얼마나 걸려요?",
+        "de": "Wie lange dauert es?",
+        "en": "How long does it take?"
       },
       {
         "speaker": "resident",
@@ -1543,9 +1559,9 @@
       },
       {
         "speaker": "user",
-        "ko": "저 표지판이 은행이에요?",
-        "de": "Ist das Schild dort die Bank?",
-        "en": "Is that sign there the bank?"
+        "ko": "저 간판이 은행이에요?",
+        "de": "Ist das Schild da die Bank?",
+        "en": "Is that sign the bank?"
       },
       {
         "speaker": "resident",
@@ -1555,15 +1571,9 @@
       },
       {
         "speaker": "user",
-        "ko": "아, 알겠어요.",
-        "de": "Ah, verstanden.",
-        "en": "Ah, got it."
-      },
-      {
-        "speaker": "user",
-        "ko": "감사합니다.",
-        "de": "Danke.",
-        "en": "Thank you."
+        "ko": "아, 알겠습니다. 감사합니다.",
+        "de": "Ah, verstanden. Danke.",
+        "en": "Ah, got it. Thank you."
       },
       {
         "speaker": "resident",
@@ -1610,13 +1620,13 @@
               "ko": "한 오 분쯤 걸려요."
             },
             {
-              "ko": "얼마나 걸어요?"
+              "ko": "얼마나 걸려요?"
             },
             {
-              "ko": "저 표지판이 은행이에요?"
+              "ko": "저 간판이 은행이에요?"
             },
             {
-              "ko": "아, 알겠어요."
+              "ko": "아, 알겠습니다. 감사합니다."
             }
           ],
           "correctIndex": 0
@@ -1630,7 +1640,7 @@
           "promptDe": "Nein, das ist ein Convenience-Store. Die Bank ist davor.",
           "promptEn": "No, that's a convenience store. The bank is in front of it.",
           "distractors": [
-            "표지판",
+            "간판",
             "쭉",
             "로"
           ]
@@ -1749,9 +1759,9 @@
     "dialog": [
       {
         "speaker": "maya",
-        "ko": "크리스티안, 여기 봐! 이 앨범 예쁘지 않아요?",
-        "de": "Christian, schau mal! Ist dieses Album nicht schön?",
-        "en": "Christian, look! Isn't this album pretty?"
+        "ko": "크리스티안, 여기 봐요! 이 앨범 예쁘죠?",
+        "de": "Christian, schau mal! Dieses Album ist schön, oder?",
+        "en": "Christian, look! This album is pretty, right?"
       },
       {
         "speaker": "user",
