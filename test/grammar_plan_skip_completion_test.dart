@@ -13,6 +13,8 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 
+import 'support/sori_speech_stubs.dart';
+
 /// W10 T-G1 — 뒤집기 전 슬라이딩(onSkip)이 플랜 모드의 하루치 안에서
 /// 무한 순환하던 버그의 회귀 방지(지시서 1.11/1.12).
 ///
@@ -28,6 +30,7 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() async {
+    stubSoriSpeech();
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({
       'kl_user_level': 'a1',
