@@ -30,6 +30,8 @@ import 'package:ko_lernen_app/widgets/sori/text_field.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
+import 'support/sori_speech_stubs.dart';
+
 const _safeInsets = EdgeInsets.only(top: 44, bottom: 34);
 late ByteData _assetManifest;
 
@@ -202,6 +204,12 @@ void main() {
       'kl_tut_wordbook': true,
     });
     await Storage.init();
+    // T1(2.9) — chosung_quiz_screen.dart _submit()이 이제 답 공개 직후
+    // SoriSpeech.speak을 자동 호출한다(이미 있던 silben 완성-단어 자동
+    // 발화와 같은 경로). 이 파일은 10라운드를 실제로 제출/스킵하고 완성
+    // 단어도 만들 수 있으므로, 스텁 없이는 실제 TtsService로 흘러
+    // in-flight 키를 잠근다(T3 함정, auto_speech_test_stub_guard_test.dart).
+    stubSoriSpeech();
   });
 
   tearDown(() {

@@ -361,6 +361,10 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
         _wrong++;
       }
     });
+    // 2.9 잔여 — 답 공개 직후(정/오답 무관) 정답 단어를 1회 자동으로 읽는다.
+    // 카드 좌상단 인디케이터(_QuizCard)·탭 재생(SoriSpeakable)과 같은
+    // word 텍스트를 쓰므로 in-flight dedupe 로 탭=정지 계약이 성립한다.
+    SoriSpeech.speak(_card.korean);
     // Persistenz + Haptik
     if (ok) {
       HapticFeedback.lightImpact();
@@ -396,6 +400,8 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
       _wrong++;
       _state = _State.wrong;
     });
+    // 2.9 잔여 — 스킵도 정답 공개이므로 동일하게 1회 자동으로 읽는다.
+    SoriSpeech.speak(_card.korean);
     Storage.incChosungWrong();
     _combo = 0;
     Storage.srsReview(_card.korean, gotIt: false); // M1: Skip = nicht gewusst
@@ -1035,74 +1041,93 @@ class _QuizCard extends StatelessWidget {
       _State.wrong => '${t.statsWrong}. ${t.chosungAnswerLabel(word)}',
       _State.waiting => null,
     };
+    // 2.9 잔여 — 좌상단 듣기 아이콘은 답이 공개된 상태(정/오답)에서만.
+    // waiting 에는 정답 단어가 화면에도 음성에도 없으므로 인디케이터 자체를
+    // 아예 넣지 않는다(정답 유출 방지, 위 SoriSpeakable 주석과 같은 이유).
+    final revealed = state != _State.waiting;
     return Semantics(
       container: true,
       liveRegion: announcement != null,
       label: announcement,
-      child: SoriCard(
-        variant: SoriCardVariant.hero,
-        accent: accent,
-        tinted: true,
-        width: double.infinity,
-        padding: const EdgeInsets.all(Spacing.xl),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ChosungHint(
-              word: word,
-              mode: mode,
-              accent: accent,
-              vowelLabel: t.chosungSlotVowel,
-              jongsungLabel: t.chosungSlotBatchim,
-            ),
-            const SizedBox(height: 16),
-            switch (state) {
-              _State.correct => SoriSpeakable(
-                text: word,
-                child: Text(
-                  word,
-                  style: SoriTextTheme.of(context).caption.copyWith(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w700,
-                    color: SoriColors.success,
-                  ),
+      child: Stack(
+        children: [
+          SoriCard(
+            variant: SoriCardVariant.hero,
+            accent: accent,
+            tinted: true,
+            width: double.infinity,
+            padding: const EdgeInsets.all(Spacing.xl),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ChosungHint(
+                  word: word,
+                  mode: mode,
+                  accent: accent,
+                  vowelLabel: t.chosungSlotVowel,
+                  jongsungLabel: t.chosungSlotBatchim,
                 ),
-              ),
-              _State.wrong => SoriSpeakable(
-                text: word,
-                child: Column(
-                  children: [
-                    Text(
-                      t.chosungAnswerLabel(word),
+                const SizedBox(height: 16),
+                switch (state) {
+                  _State.correct => SoriSpeakable(
+                    text: word,
+                    child: Text(
+                      word,
                       style: SoriTextTheme.of(context).caption.copyWith(
-                        fontSize: 19,
+                        fontSize: 22,
                         fontWeight: FontWeight.w700,
-                        color: SoriColors.danger,
+                        color: SoriColors.success,
                       ),
                     ),
-                    const SizedBox(height: 4),
-                    Text(
-                      translation,
-                      style: SoriTextTheme.of(context).caption.copyWith(fontSize: 14, color: s.textMuted),
+                  ),
+                  _State.wrong => SoriSpeakable(
+                    text: word,
+                    child: Column(
+                      children: [
+                        Text(
+                          t.chosungAnswerLabel(word),
+                          style: SoriTextTheme.of(context).caption.copyWith(
+                            fontSize: 19,
+                            fontWeight: FontWeight.w700,
+                            color: SoriColors.danger,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          translation,
+                          style: SoriTextTheme.of(
+                            context,
+                          ).caption.copyWith(fontSize: 14, color: s.textMuted),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                  // 뜻 항상 표시 — 글자를 떠올리는 핵심 단서.
+                  // waiting에는 정답 단어가 아직 화면에 없으므로 SoriSpeakable을
+                  // 절대 붙이지 않는다(정답 유출 방지).
+                  _State.waiting => Text(
+                    translation,
+                    textAlign: TextAlign.center,
+                    style: SoriTextTheme.of(context).caption.copyWith(
+                      fontSize: 20,
+                      color: s.text,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                },
+              ],
+            ),
+          ),
+          if (revealed)
+            Positioned(
+              top: Spacing.sm,
+              left: Spacing.sm,
+              child: SoriSpeechIndicator(
+                key: const Key('chosung-quiz-speak'),
+                text: word,
               ),
-              // 뜻 항상 표시 — 글자를 떠올리는 핵심 단서.
-              // waiting에는 정답 단어가 아직 화면에 없으므로 SoriSpeakable을
-              // 절대 붙이지 않는다(정답 유출 방지).
-              _State.waiting => Text(
-                translation,
-                textAlign: TextAlign.center,
-                style: SoriTextTheme.of(context).caption.copyWith(
-                  fontSize: 20,
-                  color: s.text,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            },
-          ],
-        ),
+            ),
+        ],
       ),
     );
   }
