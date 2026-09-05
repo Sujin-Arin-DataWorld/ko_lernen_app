@@ -389,47 +389,25 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     icon: 'chain',
     reward: _contract('kkeunmari', _finishSession, [_xp, _best, _quest]),
   ),
+  // W10 T-L3: 'custom_quiz' + 'custom_matching' + 'custom_typing' 세 타일을
+  // 하나로 합친다 — 셋 다 '/my_words'(Meine Wörter)로 들어가 그 안에서
+  // 퀴즈/매칭/타이핑을 고르므로 카탈로그 레벨의 세 타일은 중복이었다.
+  // minutes 는 셋 중 최댓값(5), 일러스트는 custom_quiz 것을 재사용한다
+  // (activities/custom_practice.webp — 기존 custom_quiz.webp 를 git mv).
   _entry(
-    id: 'custom_quiz',
+    id: 'custom_practice',
     tab: SoriStageTab.games,
-    de: 'Eigenes Quiz',
-    en: 'Custom quiz',
-    descriptionDe: 'Ein Wortpaket im Bücherregal auswählen.',
-    descriptionEn: 'Choose a word pack from your bookshelf.',
+    de: 'Eigene Wörter üben',
+    en: 'Practice my words',
+    descriptionDe:
+        'Quiz, Matching und Tippen mit deinen gespeicherten Wörtern.',
+    descriptionEn: 'Quiz, matching and typing with your saved words.',
     route: '/my_words',
     ownsRoute: false,
     minutes: 5,
     color: SoriActivityColorRole.listening,
     icon: 'quiz',
-    reward: _contract('custom_quiz', _finishSession, [_xp, _best]),
-  ),
-  _entry(
-    id: 'custom_matching',
-    tab: SoriStageTab.games,
-    de: 'Eigenes Matching',
-    en: 'Custom matching',
-    descriptionDe: 'Deine Wörter als Paare festigen.',
-    descriptionEn: 'Strengthen your words as pairs.',
-    route: '/my_words',
-    ownsRoute: false,
-    minutes: 4,
-    color: SoriActivityColorRole.completion,
-    icon: 'matching',
-    reward: _contract('custom_matching', _finishSession, [_xp]),
-  ),
-  _entry(
-    id: 'custom_typing',
-    tab: SoriStageTab.games,
-    de: 'Eigenes Tippen',
-    en: 'Custom typing',
-    descriptionDe: 'Deine Wörter aktiv aus dem Gedächtnis holen.',
-    descriptionEn: 'Actively recall your own words.',
-    route: '/my_words',
-    ownsRoute: false,
-    minutes: 5,
-    color: SoriActivityColorRole.review,
-    icon: 'keyboard',
-    reward: _contract('custom_typing', _finishSession, [_xp, _best]),
+    reward: _contract('custom_practice', _finishSession, [_xp, _best]),
   ),
 ]);
 

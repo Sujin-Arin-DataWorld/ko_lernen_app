@@ -8920,9 +8920,7 @@ class AppL10nDe extends AppL10n {
       'speed_match': 'Blitz-Paare',
       'sentence_arcade': 'Satz-Arcade',
       'kkeunmari': 'Kkeunmari',
-      'custom_quiz': 'Eigenes Quiz',
-      'custom_matching': 'Eigenes Matching',
-      'custom_typing': 'Eigenes Tippen',
+      'custom_practice': 'Eigene Wörter üben',
       'other': 'Lernaktivität',
     });
     return '$_temp0';
@@ -8956,9 +8954,8 @@ class AppL10nDe extends AppL10n {
       'speed_match': 'Bedeutungen schnell und sicher verbinden.',
       'sentence_arcade': 'Sätze unter Zeitdruck richtig bauen.',
       'kkeunmari': 'Eine Wortkette gegen den Tiger spielen.',
-      'custom_quiz': 'Ein Wortpaket im Bücherregal auswählen.',
-      'custom_matching': 'Deine Wörter als Paare festigen.',
-      'custom_typing': 'Deine Wörter aktiv aus dem Gedächtnis holen.',
+      'custom_practice':
+          'Quiz, Matching und Tippen mit deinen gespeicherten Wörtern.',
       'other': 'Weiterlernen.',
     });
     return '$_temp0';

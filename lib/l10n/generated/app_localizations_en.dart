@@ -8871,9 +8871,7 @@ class AppL10nEn extends AppL10n {
       'speed_match': 'Speed pairs',
       'sentence_arcade': 'Sentence arcade',
       'kkeunmari': 'Kkeunmari',
-      'custom_quiz': 'Custom quiz',
-      'custom_matching': 'Custom matching',
-      'custom_typing': 'Custom typing',
+      'custom_practice': 'Practice my words',
       'other': 'Learning activity',
     });
     return '$_temp0';
@@ -8908,9 +8906,7 @@ class AppL10nEn extends AppL10n {
       'speed_match': 'Match meanings quickly and accurately.',
       'sentence_arcade': 'Build sentences under time pressure.',
       'kkeunmari': 'Play a word chain against the tiger.',
-      'custom_quiz': 'Choose a word pack from your bookshelf.',
-      'custom_matching': 'Strengthen your words as pairs.',
-      'custom_typing': 'Actively recall your own words.',
+      'custom_practice': 'Quiz, matching and typing with your saved words.',
       'other': 'Continue learning.',
     });
     return '$_temp0';

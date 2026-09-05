@@ -51,6 +51,8 @@ void main() {
     final games = soriActivityCatalog
         .where((entry) => entry.tab == SoriStageTab.games)
         .toList();
+    // W10 T-L3: 'custom_quiz'/'custom_matching'/'custom_typing' 세 타일 →
+    // 'custom_practice' 하나로 통합(셋 다 '/my_words'로 들어가던 중복).
     expect(games.map((entry) => entry.id).toSet(), <String>{
       'daily_game',
       'chosung',
@@ -59,17 +61,15 @@ void main() {
       'speed_match',
       'sentence_arcade',
       'kkeunmari',
-      'custom_quiz',
-      'custom_matching',
-      'custom_typing',
+      'custom_practice',
     });
-    expect(games, hasLength(10));
+    expect(games, hasLength(8)); // W10 T-L3 (was 10)
   });
 
   test('every entry has one stable id and complete action/reward metadata', () {
     expect(
       soriActivityCatalog.map((entry) => entry.id).toSet(),
-      hasLength(22), // W10 T-L2 (was 23)
+      hasLength(20), // W10 T-L2+T-L3 (was 23, then 22, now 20)
     );
     for (final entry in soriActivityCatalog) {
       expect(entry.route, startsWith('/'), reason: entry.id);
@@ -122,11 +122,9 @@ void main() {
       );
     }
 
-    for (final id in const <String>[
-      'custom_quiz',
-      'custom_matching',
-      'custom_typing',
-    ]) {
+    // W10 T-L3: single merged launcher tile (was three: custom_quiz/
+    // custom_matching/custom_typing).
+    for (final id in const <String>['custom_practice']) {
       final launcher = soriActivityCatalog.singleWhere(
         (entry) => entry.id == id,
       );

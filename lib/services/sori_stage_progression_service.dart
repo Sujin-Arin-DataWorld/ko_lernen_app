@@ -148,9 +148,16 @@ abstract final class SoriStageProgressionService {
     'speed_match': Storage.gameBest('speed_match'),
     'sentence_arcade': Storage.gameBest('satz_arcade'),
     'kkeunmari': Storage.gameBest('kkeunmari'),
-    'custom_quiz': Storage.gameBest('cp_quiz'),
-    'custom_matching': Storage.gameBest('cp_matching'),
-    'custom_typing': Storage.gameBest('cp_typing'),
+    // W10 T-L3: the catalog merged 'custom_quiz'/'custom_matching'/
+    // 'custom_typing' into one 'custom_practice' tile — the three
+    // underlying per-mode scores still live separately in Storage (the
+    // quiz/matching/typing exercises inside Meine Wörter are unchanged),
+    // so this takes their max, same pattern as 'syllable_cross' above.
+    'custom_practice': <int>[
+      Storage.gameBest('cp_quiz'),
+      Storage.gameBest('cp_matching'),
+      Storage.gameBest('cp_typing'),
+    ].reduce((left, right) => left > right ? left : right),
   });
 
   static Future<int> _loadGyeLanternCount() =>
