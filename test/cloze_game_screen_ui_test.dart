@@ -23,6 +23,8 @@ import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
+import 'support/sori_speech_stubs.dart';
+
 const _item = ClozeItem(
   level: 'a1',
   sentenceKo: '오늘은 ＿＿＿ 합니다.',
@@ -36,12 +38,19 @@ const _item = ClozeItem(
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
+  late SoriSpeechStub speechStub;
+
   setUp(() async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues(const {});
     await Storage.init();
     await ClozeLoader.load();
     await DataLoader.loadVocab();
+    // T1(2.9) — _pick() 이 답 공개 직후 SoriSpeech.speak 을 자동 호출한다.
+    // 스텁 없이는 이 파일의 기존 탭 테스트들이 실제 TtsService 로 흘러
+    // in-flight 키를 잠근다(auto_speech_test_stub_guard_test.dart 의 T3
+    // 함정) — 모든 테스트를 보호하려면 파일 단위 setUp 에 걸어야 한다.
+    speechStub = stubSoriSpeech();
   });
 
   for (final locale in const [Locale('de'), Locale('en')]) {
@@ -385,6 +394,59 @@ void main() {
     expect(find.text(t.btnClose), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets(
+    'reveals the completed sentence via one auto-speak on correct pick',
+    (tester) async {
+      _configureView(tester, const Size(390, 844));
+
+      await tester.pumpWidget(
+        _host(
+          locale: const Locale('de'),
+          textScale: 1,
+          child: const ClozeGameScreen(items: [_item]),
+        ),
+      );
+      await _pumpUntilVisible(tester, find.byType(ClozePromptCard));
+      expect(speechStub.spoken, isEmpty, reason: '진입 시 무음이어야 한다');
+
+      await tester.tap(find.text(_item.answer));
+      await tester.pump();
+      expect(
+        speechStub.spoken,
+        [_item.fullKo],
+        reason: '답 공개 직후 완성 문장을 1회 자동으로 읽어야 한다',
+      );
+      expect(tester.takeException(), isNull);
+      await tester.pump(const Duration(milliseconds: 1100));
+    },
+  );
+
+  testWidgets(
+    'reveals the completed sentence via one auto-speak on a wrong pick too',
+    (tester) async {
+      _configureView(tester, const Size(390, 844));
+
+      await tester.pumpWidget(
+        _host(
+          locale: const Locale('de'),
+          textScale: 1,
+          child: const ClozeGameScreen(items: [_item]),
+        ),
+      );
+      await _pumpUntilVisible(tester, find.byType(ClozePromptCard));
+
+      await tester.tap(find.text(_item.distractors.first));
+      await tester.pump();
+      expect(
+        speechStub.spoken,
+        [_item.fullKo],
+        reason: '오답이어도 정/오답 무관하게 완성 문장을 1회 자동으로 읽어야 한다',
+      );
+      expect(tester.takeException(), isNull);
+      await tester.pump(const Duration(milliseconds: 700));
+    },
+  );
 }
 
 ({String level, ClozeTopicGroupId group}) _firstLevelWithZeroGroup(

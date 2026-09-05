@@ -285,6 +285,11 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
     // 되어 `n / 10 richtig` 카운터가 의미를 잃는다.
     final firstTry = !_retried;
     setState(() => _picked = option);
+    // 2.9 잔여 — 답 공개 직후(정/오답 무관) 완성 문장을 1회 자동으로 읽는다.
+    // 카드 좌상단 인디케이터(cloze_prompt.dart)·탭 재생은 같은
+    // item.fullKo 텍스트를 쓰므로 SoriSpeech 의 텍스트별 in-flight
+    // dedupe 로 인디케이터 탭=정지 계약이 그대로 성립한다.
+    SoriSpeech.speak(item.fullKo);
 
     if (firstTry) {
       Storage.srsReview(item.answer, gotIt: ok); // Kontext-Abruf → Haupt-SRS

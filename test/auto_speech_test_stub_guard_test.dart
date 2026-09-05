@@ -154,7 +154,6 @@ const List<String> knownUnstubbedTestFiles = <String>[
   'test/airport_arrival_roleplay_layout_test.dart',
   'test/c0_level_selection_test.dart',
   'test/circular_feedback_widget_test.dart',
-  'test/cloze_game_screen_ui_test.dart',
   'test/course_mission_build_activity_test.dart',
   'test/course_practice_screen_test.dart',
   'test/culture_note_loader_lifecycle_test.dart',
@@ -212,4 +211,4 @@ const List<String> knownUnstubbedTestFiles = <String>[
   'test/vocab_pack_uniform_card_test.dart',
   'test/wordbook_spotlight_coach_test.dart',
 ];
-const int knownUnstubbedCap = 61; // 2026-09-05 onboarding_start_screen_test.dart 격리로 하향
+const int knownUnstubbedCap = 60; // 2026-09-05 cloze_game_screen_ui_test.dart 스텁 도입으로 하향
