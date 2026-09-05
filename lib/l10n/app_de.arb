@@ -2407,6 +2407,8 @@
   "myWordsTabDifficult": "Schwierig",
   "myWordsPhotoAction": "+ Foto",
   "myWordsPhotoSheetTitle": "Wörter aus einem Foto",
+  "myWordsPhotoBookOptionSubtitle": "Seite aus einem Lehrbuch – wird zur Wortliste",
+  "myWordsPhotoNotebookOptionSubtitle": "Dein eigenes Vokabelheft – deine eigene Liste",
   "wbSearchHint": "Wort oder Bedeutung suchen …",
   "wbSearchClear": "Suche löschen",
   "wbSearchEmpty": "Keine Treffer",

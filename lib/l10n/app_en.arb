@@ -2278,6 +2278,8 @@
   "myWordsTabDifficult": "Difficult",
   "myWordsPhotoAction": "+ Photo",
   "myWordsPhotoSheetTitle": "Words from a photo",
+  "myWordsPhotoBookOptionSubtitle": "A textbook page — becomes a word list",
+  "myWordsPhotoNotebookOptionSubtitle": "Your own vocab notebook — your own list",
   "wbSearchHint": "Search word or meaning…",
   "wbSearchClear": "Clear search",
   "wbSearchEmpty": "No matches",

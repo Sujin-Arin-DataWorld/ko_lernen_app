@@ -4604,6 +4604,14 @@ class AppL10nDe extends AppL10n {
   String get myWordsPhotoSheetTitle => 'Wörter aus einem Foto';
 
   @override
+  String get myWordsPhotoBookOptionSubtitle =>
+      'Seite aus einem Lehrbuch – wird zur Wortliste';
+
+  @override
+  String get myWordsPhotoNotebookOptionSubtitle =>
+      'Dein eigenes Vokabelheft – deine eigene Liste';
+
+  @override
   String get wbSearchHint => 'Wort oder Bedeutung suchen …';
 
   @override

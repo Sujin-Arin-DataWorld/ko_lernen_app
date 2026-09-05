@@ -111,6 +111,9 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text(t.bookCaptureTitle), findsOneWidget);
     expect(find.text(t.vocabNotebookTitle), findsOneWidget);
+    // 지시서 1.19 정리: 설명 없이 나열되던 두 옵션에 한 줄 부제가 붙는다.
+    expect(find.text(t.myWordsPhotoBookOptionSubtitle), findsOneWidget);
+    expect(find.text(t.myWordsPhotoNotebookOptionSubtitle), findsOneWidget);
     await tester.tap(find.text(t.bookCaptureTitle));
     await tester.pumpAndSettle();
     expect(routes.last, '/book');

@@ -4582,6 +4582,14 @@ class AppL10nEn extends AppL10n {
   String get myWordsPhotoSheetTitle => 'Words from a photo';
 
   @override
+  String get myWordsPhotoBookOptionSubtitle =>
+      'A textbook page — becomes a word list';
+
+  @override
+  String get myWordsPhotoNotebookOptionSubtitle =>
+      'Your own vocab notebook — your own list';
+
+  @override
   String get wbSearchHint => 'Search word or meaning…';
 
   @override
