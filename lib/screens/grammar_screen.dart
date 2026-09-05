@@ -132,10 +132,10 @@ class _GrammarScreenState extends State<GrammarScreen>
   bool _planCompletionShown = false;
   bool _planDayCompletedForVisit = false;
 
-  /// 지시서 1.11 — 온보딩 시트에서 고른 플랜 레벨(화면 상태 한정, 이 방문
-  /// 동안만 유지). null이면 [_userLevelForPlan](전역 사용자 레벨)을 그대로
-  /// 따른다. 시트에서 실제로 레벨을 고르기 전까지는 세팅하지 않는다 —
-  /// `Storage.userLevelCode` 자체는 건드리지 않는다.
+  /// 지시서 1.11 — 온보딩 시트에서 고른 플랜 레벨. `Storage.grammarPlanLevel`
+  /// 로 영속되어(Fable R1) 화면을 나갔다 다시 들어와도 그대로 이어진다. null이면
+  /// [_userLevelForPlan](전역 사용자 레벨)을 그대로 따른다(아직 한 번도 고른
+  /// 적이 없는 경우). `Storage.userLevelCode` 자체는 건드리지 않는다.
   String? _planLevel;
 
   bool get _isCoursePractice => widget.courseContext != null;
@@ -197,6 +197,7 @@ class _GrammarScreenState extends State<GrammarScreen>
   void initState() {
     super.initState();
     _idx = Storage.grammarLastIdx;
+    _planLevel = Storage.grammarPlanLevel;
     _load();
     scheduleCoach();
     Analytics.lessonStarted(lessonType: 'grammar');
@@ -673,6 +674,7 @@ class _GrammarScreenState extends State<GrammarScreen>
                               await Storage.setGrammarPlanRawJson(
                                 GrammarPlanService.encodePlans(next),
                               );
+                              await Storage.setGrammarPlanLevel(chosenLevel);
                             } catch (_) {
                               if (mounted && sheetContext.mounted) {
                                 setSheetState(() => isStarting = false);
@@ -1254,13 +1256,11 @@ class _GrammarScreenState extends State<GrammarScreen>
                           // 완료' 또는 '레벨 필터가 아직 없음'일 때만 시트가
                           // 열린다).
                           SizedBox(
-                            width: 32,
-                            height: 32,
+                            width: 48,
+                            height: 48,
                             child: IconButton(
                               key: const Key('grammar-plan-edit-button'),
-                              padding: EdgeInsets.zero,
-                              visualDensity: VisualDensity.compact,
-                              iconSize: 18,
+                              iconSize: 20,
                               icon: const Icon(Icons.tune_rounded),
                               tooltip: t.grammarPlanEditTooltip,
                               onPressed: _showPlanOnboardingSheet,

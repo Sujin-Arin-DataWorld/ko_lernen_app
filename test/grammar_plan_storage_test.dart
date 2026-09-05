@@ -50,4 +50,58 @@ void main() {
     expect(Storage.grammarSeen, ['pattern_1']);
     expect(Storage.grammarHard, ['pattern_2']);
   });
+
+  test('grammarPlanLevel defaults to null', () async {
+    await Storage.init();
+
+    expect(Storage.grammarPlanLevel, isNull);
+  });
+
+  test('grammarPlanLevel persists a valid level code across reinit', () async {
+    await Storage.init();
+
+    await Storage.setGrammarPlanLevel('b1');
+
+    expect(Storage.grammarPlanLevel, 'b1');
+    final preferences = await SharedPreferences.getInstance();
+    expect(preferences.getString('kl_gram_plan_level_v1'), 'b1');
+
+    Storage.resetForTesting();
+    await Storage.init();
+
+    expect(Storage.grammarPlanLevel, 'b1');
+  });
+
+  test('grammarPlanLevel(null) clears the stored key', () async {
+    await Storage.init();
+    await Storage.setGrammarPlanLevel('b1');
+
+    await Storage.setGrammarPlanLevel(null);
+
+    expect(Storage.grammarPlanLevel, isNull);
+    final preferences = await SharedPreferences.getInstance();
+    expect(preferences.containsKey('kl_gram_plan_level_v1'), isFalse);
+  });
+
+  test('grammarPlanLevel setter rejects an unknown level code', () async {
+    await Storage.init();
+
+    expect(
+      () => Storage.setGrammarPlanLevel('not-a-level'),
+      throwsArgumentError,
+    );
+  });
+
+  test(
+    'grammarPlanLevel does not change userLevelCode or vice versa',
+    () async {
+      await Storage.init();
+      await Storage.setUserLevelCode('a1');
+
+      await Storage.setGrammarPlanLevel('c1');
+
+      expect(Storage.userLevelCode, 'a1');
+      expect(Storage.grammarPlanLevel, 'c1');
+    },
+  );
 }
