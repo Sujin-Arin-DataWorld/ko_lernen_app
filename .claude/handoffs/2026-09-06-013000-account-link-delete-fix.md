@@ -1,7 +1,8 @@
 # 2026-09-06 계정 연동·삭제 근본 수정 인수인계
 
 > Jin 요청: "계정삭제 안 되고, 구글·애플 연동 안 되는 문제를 완벽히 해결." Fable 설계·Sonnet 구현 체제.
-> 브랜치 `claude/account-fix-20260905` · 워크트리 `C:/dev/hangulsori/ko_lernen_app_worktrees/account-fix-20260905` · 기준 `origin/main ef0f0cec` · **로컬 커밋 10개, 미푸시, PR 미생성.**
+> 브랜치 `claude/account-fix-20260905` · 워크트리 `C:/dev/hangulsori/ko_lernen_app_worktrees/account-fix-20260905` · 기준 `origin/main ef0f0cec` · ~~로컬 커밋 10개, 미푸시, PR 미생성.~~
+> **→ 2026-09-06 갱신: PR #275로 main에 squash 병합(`c3f5a71f`), rules+함수 11종 배포 완료. 후속 3건·릴리스 상태는 `2026-09-06-203000-account-followups-release.md`가 최신이다.**
 > 설계 SSoT(원인 표·증거·태스크별 구현 결과·편차·외부 작업): `docs/superpowers/plans/2026-09-05-account-link-delete-fix.md`.
 
 ## 지금 상태 (한 줄)
