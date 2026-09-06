@@ -3091,6 +3091,9 @@ class AppL10nDe extends AppL10n {
   String get listeningTitle => 'Hören';
 
   @override
+  String get listeningHubEyebrow => 'HÖREN';
+
+  @override
   String get listeningSubtitle => 'Hör ein Szenario in natürlichem Tempo';
 
   @override
@@ -3240,6 +3243,11 @@ class AppL10nDe extends AppL10n {
   @override
   String listeningShelfScenarioCount(int n) {
     return '$n Szenarien';
+  }
+
+  @override
+  String listeningShelfCardSemantics(String label, int done, int total) {
+    return '$label, $done von $total gehört';
   }
 
   @override
@@ -4817,17 +4825,21 @@ class AppL10nDe extends AppL10n {
       'Konto und Lernfortschritt werden sicher geprüft …';
 
   @override
-  String get accountOperationResumeTitle => 'Kontowechsel fortsetzen';
+  String get accountSwitchTitle => 'Mit bestehendem Konto fortfahren?';
 
   @override
-  String get accountOperationResumeBody =>
-      'Der sichere Kontowechsel ist gespeichert. Deine Daten bleiben geschützt, bis alle Schritte abgeschlossen sind.';
+  String get accountSwitchBody =>
+      'Dieses Google- oder Apple-Konto ist bereits mit einem anderen Hangul-Sori-Profil verbunden. Du wirst dort angemeldet, und dein Lernfortschritt von diesem Gerät wird mit dem Konto zusammengeführt.';
 
   @override
-  String get accountOperationResume => 'Fortsetzen';
+  String get accountSwitchConfirm => 'Konto wechseln';
 
   @override
-  String get accountOperationCancel => 'Wechsel abbrechen';
+  String get accountSwitchDeferredTitle => 'Angemeldet, Zusammenführung folgt';
+
+  @override
+  String get accountSwitchDeferredBody =>
+      'Du bist jetzt mit deinem bestehenden Konto angemeldet. Dein Lernfortschritt von diesem Gerät wird beim nächsten Start zusammengeführt, sobald eine Verbindung besteht.';
 
   @override
   String get accountOperationBlockedTitle => 'Dein Konto ist geschützt';
@@ -8462,6 +8474,15 @@ class AppL10nDe extends AppL10n {
       'Jede Aktivität bleibt mit deinen Quests und deiner Hanok verbunden.';
 
   @override
+  String get soriStageLearnSectionToday => 'Heute lernen';
+
+  @override
+  String get soriStageLearnSectionExplore => 'Entdecken & üben';
+
+  @override
+  String get soriStageLearnSectionReview => 'Wiederholen';
+
+  @override
   String get soriStageGamesTitle => 'Spiele mit einem klaren Ziel.';
 
   @override
@@ -8751,9 +8772,7 @@ class AppL10nDe extends AppL10n {
       'speed_match': 'Blitz-Paare',
       'sentence_arcade': 'Satz-Arcade',
       'kkeunmari': 'Kkeunmari',
-      'custom_quiz': 'Eigenes Quiz',
-      'custom_matching': 'Eigenes Matching',
-      'custom_typing': 'Eigenes Tippen',
+      'custom_practice': 'Eigene Wörter üben',
       'other': 'Lernaktivität',
     });
     return '$_temp0';
@@ -8787,9 +8806,8 @@ class AppL10nDe extends AppL10n {
       'speed_match': 'Bedeutungen schnell und sicher verbinden.',
       'sentence_arcade': 'Sätze unter Zeitdruck richtig bauen.',
       'kkeunmari': 'Eine Wortkette gegen den Tiger spielen.',
-      'custom_quiz': 'Ein Wortpaket im Bücherregal auswählen.',
-      'custom_matching': 'Deine Wörter als Paare festigen.',
-      'custom_typing': 'Deine Wörter aktiv aus dem Gedächtnis holen.',
+      'custom_practice':
+          'Quiz, Matching und Tippen mit deinen gespeicherten Wörtern.',
       'other': 'Weiterlernen.',
     });
     return '$_temp0';

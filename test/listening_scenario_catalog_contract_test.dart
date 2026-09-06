@@ -2,6 +2,10 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/data/chaekgado_shelf.dart';
+import 'package:ko_lernen_app/models/learner_level.dart';
+
+import 'support/scenario_json.dart';
 
 void main() {
   test('every shipped scenario has playable Korean dialogue data', () {
@@ -48,7 +52,7 @@ void main() {
     }
 
     expect(files, hasLength(6));
-    expect(scenarioCount, 126);
+    expect(scenarioCount, 178);
     expect(problems, isEmpty, reason: problems.take(20).join('\n'));
     expect(longestKoreanLine, greaterThanOrEqualTo(60));
     expect(
@@ -56,5 +60,25 @@ void main() {
       isNotEmpty,
       reason: 'Generic neutral speaker icons must keep supporting catalog IDs.',
     );
+  });
+
+  test('현재 코퍼스에서 책가도 90칸 중 빈 칸이 0이다', () {
+    final counts = <String, int>{
+      for (final level in LearnerLevel.values)
+        for (final slot in kChaekgadoSlots[level]!)
+          chaekgadoShelfId(level, slot.slug): 0,
+    };
+    expect(counts, hasLength(90));
+
+    for (final raw in allScenarioJson()) {
+      final shelf = (raw['shelf'] as String?)?.trim() ?? '';
+      if (counts.containsKey(shelf)) {
+        counts[shelf] = counts[shelf]! + 1;
+      }
+    }
+
+    final empty = counts.entries.where((entry) => entry.value == 0).map((entry) => entry.key).toList()
+      ..sort();
+    expect(empty, isEmpty, reason: empty.join(', '));
   });
 }

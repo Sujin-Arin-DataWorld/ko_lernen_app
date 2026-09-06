@@ -158,12 +158,12 @@ class TtsGeneratorContractTest(unittest.TestCase):
         self.assertEqual(manifest["schemaVersion"], 1)
         self.assertEqual(manifest["kind"], "tts_first_line_manifest")
         self.assertEqual(manifest["cacheRevision"], "v3")
-        self.assertEqual(manifest["scenarioCount"], 126)
-        self.assertEqual(len(manifest["items"]), 126)
-        # Task 7 (지시서 4.4 / 스윕 tts-07): 125개 유니크 첫 문장 mp3가 실제로
-        # assets/tts/v3/ 에 다운로드돼 커밋됐다 — 126개 항목(2개가 같은
-        # storagePath 공유) 전부 bundled:true 여야 한다.
-        self.assertEqual(manifest["bundledCount"], 126)
+        self.assertEqual(manifest["scenarioCount"], 178)
+        self.assertEqual(len(manifest["items"]), 178)
+        # Task 7 (지시서 4.4 / 스윕 tts-07), W10 Wave 2로 178편 갱신: 176개
+        # 유니크 첫 문장 mp3가 실제로 assets/tts/v3/ 에 다운로드돼 커밋됐다 —
+        # 178개 항목(2개가 같은 storagePath 공유) 전부 bundled:true 여야 한다.
+        self.assertEqual(manifest["bundledCount"], 178)
         ids = [item["scenarioId"] for item in manifest["items"]]
         self.assertEqual(len(ids), len(set(ids)))
         order = [
@@ -247,6 +247,47 @@ class TtsGeneratorContractTest(unittest.TestCase):
         self.assertEqual(officer["firstDialogKo"], "여권 보여주세요.")
         self.assertEqual(officer["voice"], "male")
 
+    def test_source_sha256_is_line_ending_independent(self):
+        """CRLF(윈도우 autocrlf 워킹카피)와 LF(Linux CI 체크아웃) 원본이 같은
+        내용이면 sourceSha256/전체 매니페스트가 동일해야 한다 — 아니면
+        --check-first-line-manifest 가 플랫폼에 따라 다른 결과를 낸다."""
+        payload = {
+            "scenarios": [
+                {
+                    "id": "crlf_lf_parity",
+                    "dialog": [
+                        {"speaker": "officer", "ko": "여권을 보여주세요."},
+                    ],
+                },
+            ]
+        }
+        encoded_lf = json.dumps(payload, ensure_ascii=False, indent=2).encode("utf-8")
+        encoded_crlf = encoded_lf.replace(b"\n", b"\r\n")
+        self.assertIn(b"\n", encoded_lf)
+        self.assertNotIn(b"\r", encoded_lf)
+        self.assertNotEqual(encoded_lf, encoded_crlf)
+
+        manifests = {}
+        for label, raw in (("lf", encoded_lf), ("crlf", encoded_crlf)):
+            with tempfile.TemporaryDirectory() as temp:
+                root = os.path.abspath(temp)
+                data_dir = os.path.join(root, "assets", "data")
+                os.makedirs(data_dir)
+                with open(os.path.join(data_dir, "scenarios_a1.json"), "wb") as handle:
+                    handle.write(raw)
+                manifests[label] = generate_tts.build_first_line_manifest(root)
+
+        item_lf = manifests["lf"]["items"][0]
+        item_crlf = manifests["crlf"]["items"][0]
+        self.assertEqual(item_lf["sourceSha256"], item_crlf["sourceSha256"])
+        self.assertEqual(
+            manifests["lf"]["generatedFrom"], manifests["crlf"]["generatedFrom"]
+        )
+        self.assertEqual(
+            generate_tts.render_first_line_manifest(manifests["lf"]),
+            generate_tts.render_first_line_manifest(manifests["crlf"]),
+        )
+
     def test_first_line_manifest_render_is_byte_stable(self):
         manifest = generate_tts.build_first_line_manifest(generate_tts.ROOT)
         first = generate_tts.render_first_line_manifest(manifest)
@@ -321,7 +362,7 @@ class TtsGeneratorContractTest(unittest.TestCase):
             with open(output, encoding="utf-8") as handle:
                 written = json.load(handle)
 
-        self.assertEqual(written["scenarioCount"], 126)
+        self.assertEqual(written["scenarioCount"], 178)
         auth.assert_not_called()
         synth.assert_not_called()
         remote.assert_not_called()

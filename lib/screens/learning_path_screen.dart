@@ -375,69 +375,112 @@ class _LearningPathScreenState extends State<LearningPathScreen>
         ),
         const SizedBox(width: Spacing.xs),
       ],
-      builder: (context, resolvedPadding) => _loading
-          ? const AppLoading()
-          : RefreshIndicator(
-              onRefresh: _load,
-              child: ListView(
-                padding: resolvedPadding,
-                children: [
-                  if (_courseUnits.isNotEmpty && _courseSnapshot != null) ...[
-                    _CourseMissionPath(
-                      courseUnits: _courseUnits,
-                      snapshot: _courseSnapshot!,
-                      lang: Localizations.localeOf(context).languageCode,
-                      filterLevel:
-                          (LearnerLevel.fromCode(_courseLevel) ??
-                                  LearnerLevel.a1)
-                              .code,
-                      currentNodeKey: _currentCourseNodeKey,
-                      onTapUnit: (unit) async {
-                        await Navigator.pushNamed(
-                          context,
-                          '/course/mission',
-                          arguments: unit.id,
-                        );
-                        if (mounted) await _load();
-                      },
-                    ),
-                    const SizedBox(height: Spacing.xl),
-                  ],
-                  SoriButton.outlined(
-                    key: const ValueKey('path-legacy-practice-toggle'),
-                    label: _showLegacyPractice
-                        ? t.pathHideMorePractice
-                        : t.pathShowMorePractice,
-                    trailingIcon: _showLegacyPractice
-                        ? Icons.expand_less_rounded
-                        : Icons.expand_more_rounded,
-                    fullWidth: true,
-                    onTap: () => setState(
-                      () => _showLegacyPractice = !_showLegacyPractice,
-                    ),
-                  ),
-                  if (_showLegacyPractice)
-                    KeyedSubtree(
-                      key: const ValueKey('path-legacy-practice-content'),
-                      child: Column(
-                        children: [
-                          const SizedBox(height: Spacing.lg),
-                          _HanokHeader(
-                            stage: _stage,
-                            cleared: _clearedTotal,
-                            total: _packTotal,
-                          ),
-                          const SizedBox(height: Spacing.xl),
-                          // 선택한 레벨만 렌더 — 전체 A1~C2 나열 대신.
-                          for (final g in _groups)
-                            if (g.level == _selectedLevel)
-                              ..._levelSection(t, g),
-                        ],
-                      ),
-                    ),
-                ],
-              ),
+      builder: (context, resolvedPadding) {
+        if (_loading) {
+          return const AppLoading();
+        }
+        // 접힌(기본) 상태 = 코스 미션 경로(있으면) + 토글 버튼뿐이다. 이
+        // 서브트리에는 내부 LayoutBuilder가 없어 fillViewport의
+        // IntrinsicHeight 측정과 안전하게 함께 쓸 수 있다.
+        final collapsedChildren = <Widget>[
+          if (_courseUnits.isNotEmpty && _courseSnapshot != null) ...[
+            _CourseMissionPath(
+              courseUnits: _courseUnits,
+              snapshot: _courseSnapshot!,
+              lang: Localizations.localeOf(context).languageCode,
+              filterLevel:
+                  (LearnerLevel.fromCode(_courseLevel) ?? LearnerLevel.a1).code,
+              currentNodeKey: _currentCourseNodeKey,
+              onTapUnit: (unit) async {
+                await Navigator.pushNamed(
+                  context,
+                  '/course/mission',
+                  arguments: unit.id,
+                );
+                if (mounted) await _load();
+              },
             ),
+            const SizedBox(height: Spacing.xl),
+          ],
+          SoriButton.outlined(
+            key: const ValueKey('path-legacy-practice-toggle'),
+            label: _showLegacyPractice
+                ? t.pathHideMorePractice
+                : t.pathShowMorePractice,
+            trailingIcon: _showLegacyPractice
+                ? Icons.expand_less_rounded
+                : Icons.expand_more_rounded,
+            fullWidth: true,
+            onTap: () =>
+                setState(() => _showLegacyPractice = !_showLegacyPractice),
+          ),
+        ];
+
+        return RefreshIndicator(
+          onRefresh: _load,
+          // W10 T-V3(2026-09-05, Jin D-4): 접힌 기본 상태는 카드 몇 개 +
+          // 버튼 하나뿐이라 긴 뷰포트에서 위쪽에 뭉쳤다 — 그때만
+          // ConstrainedBox(minHeight)+IntrinsicHeight 로 감싸 중앙 정렬한다.
+          // 펼친 상태는 `SoriPathTrail` 내부의 `LayoutBuilder` 가
+          // IntrinsicHeight 측정과 함께 쓸 수 없어(2026-09-05 실측,
+          // "LayoutBuilder does not support returning intrinsic dimensions")
+          // 자연 높이 그대로 둔다.
+          //
+          // 바깥 `SingleChildScrollView`는 두 상태 모두에서 **같은 위젯**으로
+          // 유지한다(자식만 바뀐다) — `ListView`(Sliver 기반)로 매번 새로 만들면
+          // ①뷰포트 밖 자식이 지연 생성돼 스크롤 없이 `find`로 안 잡히고,
+          // ②토글 직후 스크롤 위치가 초기화돼 방금 누른 토글 버튼 자체가
+          // 화면 밖으로 밀려난다(2026-09-05 실측 회귀). `SingleChildScrollView`
+          // +`Column`은 항상 자식을 전부 즉시 빌드하고, 위젯 타입이 안 바뀌니
+          // 스크롤 위치도 자연히 이어진다.
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              final content = _showLegacyPractice
+                  ? Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        ...collapsedChildren,
+                        KeyedSubtree(
+                          key: const ValueKey('path-legacy-practice-content'),
+                          child: Column(
+                            children: [
+                              const SizedBox(height: Spacing.lg),
+                              _HanokHeader(
+                                stage: _stage,
+                                cleared: _clearedTotal,
+                                total: _packTotal,
+                              ),
+                              const SizedBox(height: Spacing.xl),
+                              // 선택한 레벨만 렌더 — 전체 A1~C2 나열 대신.
+                              for (final g in _groups)
+                                if (g.level == _selectedLevel)
+                                  ..._levelSection(t, g),
+                            ],
+                          ),
+                        ),
+                      ],
+                    )
+                  : ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minHeight: constraints.maxHeight.isFinite
+                            ? constraints.maxHeight
+                            : 0,
+                      ),
+                      child: IntrinsicHeight(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: collapsedChildren,
+                        ),
+                      ),
+                    );
+              return SingleChildScrollView(
+                child: Padding(padding: resolvedPadding, child: content),
+              );
+            },
+          ),
+        );
+      },
     );
   }
 

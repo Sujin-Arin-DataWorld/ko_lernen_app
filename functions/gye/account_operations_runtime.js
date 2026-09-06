@@ -47,6 +47,14 @@ const ACTIONABLE_DELETION_PHASES = Object.freeze([
   "sourceCleanupPending",
   ...NORMAL_DELETION_PHASES,
 ]);
+// Phases at which completeAppleRevocation may accept a revocation before the
+// scheduled worker has advanced the operation to appleRevocationPending
+// (TN-2026-09-05 T3): Apple authorization codes expire in ~5 minutes, well
+// before the worker's multi-tick schedule would otherwise reach that phase.
+const EARLY_APPLE_REVOCATION_PHASES = new Set([
+  "deletionRequested",
+  "userTreeDeleting",
+]);
 const TERMINAL_PHASES = new Set(["completed", "blocked", "cancelled"]);
 const AUTH_MAX_AGE_SECONDS = 300;
 const ANONYMOUS_RATE_WINDOW_MILLIS = 300_000;
@@ -1522,7 +1530,12 @@ function createFirestoreAccountOperationRepository({
           activeLease.leaseUntilMillis > currentTime) {
         throw repositoryFailure("worker-lease-held");
       }
-      if (operation.phase === "deletionRequested") {
+      // The Apple-revocation callable claims the lease to persist revocation
+      // progress without advancing the deletion phase (TN-2026-09-05 T3):
+      // an early `deletionRequested` claim must not silently fast-forward
+      // the operation into `userTreeDeleting` out from under the caller.
+      if (operation.phase === "deletionRequested" &&
+          allowAppleRevocationInput !== true) {
         operation = transitionOperation(operation, {
           toPhase: "userTreeDeleting",
           expectedVersion: operation.version,
@@ -2001,6 +2014,23 @@ function createDeletionWorkerRuntime({
           },
         });
       }
+      // NOTE (TN-2026-09-05 T3): an earlier attempt skipped this transition
+      // entirely when claim.progress.appleRevocationComplete was already
+      // true (set by an early completeAppleRevocation call at
+      // deletionRequested/userTreeDeleting). That direct
+      // userTreeDeleting -> authDeleted checkpoint is rejected by
+      // account_operations.js's nextPhases()/transitionOperation() with
+      // invalid-operation-transition: nextPhases() decides purely from
+      // {phase, appleRevocationRequired} and has no visibility into
+      // deletionProgress, so it always demands the appleRevocationPending
+      // hop when appleRevocationRequired is true. appleRevocationRequired
+      // itself cannot be flipped to false early either, since
+      // completeAppleRevocation's own idempotent-return branch depends on
+      // it staying true for the operation's whole lifetime. Left as the
+      // pre-existing unconditional hop (reported to Fable rather than
+      // changing the phase-transition table unilaterally); the
+      // appleRevocationPending branch below already resolves in the very
+      // next tick with no further Apple API call once progress is complete.
       if (operation.appleRevocationRequired) {
         return checkpoint({ toPhase: "appleRevocationPending" });
       }
@@ -2536,7 +2566,14 @@ function createAccountOperationRuntime({
       ].includes(visible.phase)) {
         return operationResult(visible);
       }
-      if (visible.phase !== "appleRevocationPending" ||
+      // TN-2026-09-05 T3: Apple authorization codes expire in ~5 minutes,
+      // long before the scheduled worker's multi-tick schedule would reach
+      // appleRevocationPending on its own. deletionRequested/userTreeDeleting
+      // may hand in the code early; the revocation is recorded as progress
+      // with no phase transition, and the worker later skips
+      // appleRevocationPending once it sees the completed progress.
+      const isEarlyPhase = EARLY_APPLE_REVOCATION_PHASES.has(visible.phase);
+      if ((visible.phase !== "appleRevocationPending" && !isEarlyPhase) ||
           visible.version !== expectedVersion) {
         throw repositoryFailure("stale-operation-version");
       }
@@ -2557,8 +2594,10 @@ function createAccountOperationRuntime({
         allowAppleRevocationInput: true,
       });
       let operation = claim.operation;
-      if (operation.version !== expectedVersion ||
-          operation.phase !== "appleRevocationPending") {
+      const claimedPhaseMatches = isEarlyPhase
+        ? EARLY_APPLE_REVOCATION_PHASES.has(operation.phase)
+        : operation.phase === "appleRevocationPending";
+      if (operation.version !== expectedVersion || !claimedPhaseMatches) {
         throw repositoryFailure("stale-operation-version");
       }
       const renew = async () => {
@@ -2581,6 +2620,41 @@ function createAccountOperationRuntime({
         });
         operation = claim.operation;
       };
+
+      if (isEarlyPhase) {
+        // No worker lease should outlive this callable: checkpoint() below
+        // always sets workerLease.leaseUntilMillis to "now", so the
+        // scheduled worker is never blocked by worker-lease-held.
+        if (!claim.progress.appleRevocationComplete) {
+          await renew();
+          let revocationUnavailable = false;
+          try {
+            await revokeAppleAuthorizationCode({
+              authorizationCode,
+              uid: identity.uid,
+              clientKind,
+              expectedSubject,
+            });
+          } catch (error) {
+            if (error?.code !== "apple/revocation-config-invalid") {
+              await checkpoint({
+                progress: { statusCode: "apple-revocation-retryable" },
+              });
+              throw repositoryFailure("apple-revocation-pending");
+            }
+            revocationUnavailable = true;
+          }
+          await checkpoint({
+            progress: {
+              appleRevocationComplete: true,
+              statusCode: revocationUnavailable
+                ? "apple-revocation-unavailable"
+                : null,
+            },
+          });
+        }
+        return operationResult(operation);
+      }
 
       if (!claim.progress.appleRevocationComplete) {
         await renew();

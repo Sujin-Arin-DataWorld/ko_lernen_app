@@ -13,12 +13,21 @@ import '../../widgets/sori/activity_sheet.dart';
 import '../../widgets/sori/avatar.dart';
 import '../../widgets/sori/collapsing_header.dart';
 import '../../widgets/sori/illustrated_card.dart';
+import '../../widgets/sori/illustrated_card_grid.dart';
 import '../../widgets/sori/motion.dart';
 import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/screen_background.dart';
+import '../../widgets/sori/section_header.dart';
 import '../../widgets/sori/tokens.dart';
 import 'sori_stage_common.dart';
 import 'sori_stage_reward_receipt_sheet.dart';
+
+// W10 T-H1: `cellAspectRatioCacheKey` moved to `illustrated_card_grid.dart`
+// (shared with the listening hub grid). Re-exported so existing callers of
+// this library (e.g. test/sori_stage_cell_aspect_ratio_cache_test.dart) keep
+// resolving it from the same import path — a frozen assertion, not touched.
+export '../../widgets/sori/illustrated_card_grid.dart'
+    show cellAspectRatioCacheKey;
 
 class SoriStageCatalogScreen extends StatefulWidget {
   const SoriStageCatalogScreen({
@@ -79,11 +88,24 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
     // §E4: 마지막으로 연 활동이 이 탭에 있으면 그 활동을 "이어하기" 히어로로
     // 승격한다 — 이 탭에 없으면(다른 탭 활동이었거나 기록이 없으면) 기존
     // 기본(vocab_packs/daily_game)으로 되돌아간다.
+    // §W10 T-L1: Learn 탭은 여기서 한 걸음 더 좁힌다 — 마지막 활동이 "오늘"
+    // 섹션 소속일 때만 이어하기 히어로로 승격한다. 탐색/복습 활동은 여전히
+    // 기록되고(다음에 열 때 유용) 그 활동 자체는 자기 섹션의 평범한 카드로
+    // 보이지만, 히어로 자리(오늘 섹션 최상단)는 항상 "오늘" 활동만 차지한다
+    // — Games 탭은 섹션이 없으므로 기존 규칙 그대로.
     final defaultHeroId = isGames ? 'daily_game' : 'vocab_packs';
     final lastActivityId = Storage.lastActivityId;
-    final isContinuingHero =
-        lastActivityId != null &&
-        entries.any((entry) => entry.id == lastActivityId);
+    ActivityCatalogEntry? lastActivityEntry;
+    for (final entry in entries) {
+      if (entry.id == lastActivityId) {
+        lastActivityEntry = entry;
+        break;
+      }
+    }
+    final isContinuingHero = isGames
+        ? lastActivityEntry != null
+        : lastActivityEntry != null &&
+              lastActivityEntry.learnSection == SoriLearnSection.today;
     final heroId = isContinuingHero ? lastActivityId : defaultHeroId;
     ActivityCatalogEntry? heroEntry;
     for (final entry in entries) {
@@ -92,223 +114,319 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
         break;
       }
     }
-    final gridEntries = heroEntry == null
-        ? entries
-        : entries.where((entry) => entry.id != heroEntry!.id).toList();
-    final gridTitles = gridEntries.map(
-      (entry) => localCopy(context, entry.title),
-    );
-    // §E2: 메타 라인(분)도 title/footer 처럼 카드 높이에 들어가므로 같이 잰다.
-    final gridSubtitles = gridEntries.map(
-      (entry) => t.soriStageMinutes(entry.minutes),
-    );
-    final footerLabels = <String>[
-      t.soriStageActivityNew,
-      t.soriStageActivityInProgress,
-      t.soriStageActivityCompleted,
-      for (final entry in gridEntries)
-        if (entry.unlock.explanation case final explanation?)
-          localCopy(context, explanation),
-    ];
     return Scaffold(
       body: SoriScreenBackground(
         child: SafeArea(
           child: SoriContentClamp(
             maxWidth: 880,
             base: const EdgeInsets.fromLTRB(20, 20, 20, 48),
-            builder: (context, padding) => LayoutBuilder(
-              builder: (context, constraints) {
-                // §C-1-4: 패딩 뺀 실제 가용폭으로 컬럼 산출 —
-                // discover_screen.dart:349 패턴. 기존은 클램프 전 전체 폭이
-                // 들어가 1280dp에서 880px 안에 6열 → 18px 오버플로.
-                final double available =
-                    constraints.maxWidth - padding.horizontal;
-                final baseColumns = soriGridColumns(
-                  available,
-                  target: 160,
-                  min: 2,
-                  outerPadding: 0,
-                  spacing: Spacing.md,
-                );
-                final textScale =
-                    MediaQuery.textScalerOf(context).scale(14) / 14;
-                final columns =
-                    textScale >= 1.6 && available < SoriBreakpoints.grid
-                    ? 1
-                    : baseColumns;
-                final double cellWidth =
-                    (available - Spacing.md * (columns - 1)) / columns;
-                return CustomScrollView(
-                  slivers: [
-                    // §E3: 상단 여백은 접히는 헤더 앞에서 먼저 스크롤돼 사라진다
-                    // — 헤더 자체는 pinned 로 56dp까지 접히며 화면에 남는다.
-                    SliverToBoxAdapter(child: SizedBox(height: padding.top)),
-                    SliverPadding(
-                      padding: EdgeInsets.only(
-                        left: padding.left,
-                        right: padding.right,
-                      ),
-                      sliver: SoriCollapsingHeader(
-                        eyebrow: isGames
-                            ? t.soriStageNavGames
-                            : t.soriStageNavLearn,
-                        title: isGames
-                            ? t.soriStageGamesTitle
-                            : t.soriStageLearnTitle,
-                        body: isGames
-                            ? t.soriStageGamesBody
-                            : t.soriStageLearnBody,
-                        collapsedTitle: isGames
-                            ? t.soriStageNavGames
-                            : t.soriStageNavLearn,
-                        // §W-G2 item 4(Fable 승인, 2026-09-03): 프로필
-                        // 진입 아이콘 → SoriAvatar. Gye 탭이 이미 같은
-                        // 위젯으로 바꿔 뒀고(§W-G G3), Hanok 탭은 프로필
-                        // 진입점 자체가 없어 손대지 않는다 — trailingSlots
-                        // 기본값 1 그대로.
-                        trailing: const SoriAvatar(),
-                      ),
+            builder: (context, padding) {
+              // W10 T-H1: column count + measured childAspectRatio now
+              // live in SoriIllustratedCardGrid (a sliver) — it reads the
+              // available cross-axis width from the SliverPadding below
+              // itself, so this no longer needs its own box LayoutBuilder.
+              return CustomScrollView(
+                slivers: [
+                  // §E3: 상단 여백은 접히는 헤더 앞에서 먼저 스크롤돼 사라진다
+                  // — 헤더 자체는 pinned 로 56dp까지 접히며 화면에 남는다.
+                  SliverToBoxAdapter(child: SizedBox(height: padding.top)),
+                  SliverPadding(
+                    padding: EdgeInsets.only(
+                      left: padding.left,
+                      right: padding.right,
                     ),
-                    // §LAYOUT-1: 헤더→첫 콘텐츠 간격은 섹션 간격(xl=24) 하나.
-                    // 페이지 하단 여백(48)은 그리드 끝(아래 SliverPadding)에서만
-                    // — Spacing.page.bottom 을 헤더 슬리버에도 겹쳐 더하지 않는다.
-                    const SliverToBoxAdapter(
-                      child: SizedBox(height: Spacing.xl),
+                    sliver: SoriCollapsingHeader(
+                      eyebrow: isGames
+                          ? t.soriStageNavGames
+                          : t.soriStageNavLearn,
+                      title: isGames
+                          ? t.soriStageGamesTitle
+                          : t.soriStageLearnTitle,
+                      body: isGames
+                          ? t.soriStageGamesBody
+                          : t.soriStageLearnBody,
+                      collapsedTitle: isGames
+                          ? t.soriStageNavGames
+                          : t.soriStageNavLearn,
+                      // §W-G2 item 4(Fable 승인, 2026-09-03): 프로필
+                      // 진입 아이콘 → SoriAvatar. Gye 탭이 이미 같은
+                      // 위젯으로 바꿔 뒀고(§W-G G3), Hanok 탭은 프로필
+                      // 진입점 자체가 없어 손대지 않는다 — trailingSlots
+                      // 기본값 1 그대로.
+                      trailing: const SoriAvatar(),
                     ),
-                    FutureBuilder<SoriStageProgressionSnapshot>(
-                      future: _progress,
-                      builder: (context, snapshot) {
-                        final ready =
-                            snapshot.connectionState == ConnectionState.done &&
-                            !snapshot.hasError;
-                        final activityProgress = ready
-                            ? snapshot.data?.activityProgress
+                  ),
+                  // §LAYOUT-1: 헤더→첫 콘텐츠 간격은 섹션 간격(xl=24) 하나.
+                  // 페이지 하단 여백(48)은 그리드 끝(아래 SliverPadding)에서만
+                  // — Spacing.page.bottom 을 헤더 슬리버에도 겹쳐 더하지 않는다.
+                  // §W10 T-L1: Learn 탭에서는 이 간격이 첫 섹션 제목
+                  // (SoriSectionHeader) 앞으로 온다 — Games 탭은 그대로
+                  // 히어로/그리드 앞.
+                  const SliverToBoxAdapter(
+                    child: SizedBox(height: Spacing.xl),
+                  ),
+                  FutureBuilder<SoriStageProgressionSnapshot>(
+                    future: _progress,
+                    builder: (context, snapshot) {
+                      final ready =
+                          snapshot.connectionState == ConnectionState.done &&
+                          !snapshot.hasError;
+                      final activityProgress = ready
+                          ? snapshot.data?.activityProgress
+                          : null;
+                      Widget buildHeroCard(ActivityCatalogEntry hero) {
+                        Widget card = _ActivityGridCard(
+                          entry: hero,
+                          hero: true,
+                          progress: activityProgress?[hero.id],
+                          loadSnapshot:
+                              widget.loadSnapshot ??
+                              SoriStageProgressionService.load,
+                          onActivityReturned: _reload,
+                        );
+                        if (isContinuingHero) {
+                          card = SoriPulse(child: card);
+                        }
+                        return card;
+                      }
+
+                      if (isGames) {
+                        final gridEntries = heroEntry == null
+                            ? entries
+                            : entries
+                                  .where((entry) => entry.id != heroEntry!.id)
+                                  .toList();
+                        return SliverMainAxisGroup(
+                          slivers: [
+                            if (heroEntry case final hero?)
+                              _heroSectionSliver(
+                                context: context,
+                                padding: padding,
+                                isContinuingHero: isContinuingHero,
+                                t: t,
+                                heroCard: buildHeroCard(hero),
+                              ),
+                            _sectionGridSliver(
+                              context: context,
+                              t: t,
+                              entries: gridEntries,
+                              activityProgress: activityProgress,
+                              padding: padding,
+                              bottomPadding: padding.bottom,
+                              loadSnapshot:
+                                  widget.loadSnapshot ??
+                                  SoriStageProgressionService.load,
+                              onActivityReturned: _reload,
+                            ),
+                          ],
+                        );
+                      }
+
+                      // §W10 T-L1: Learn 탭 — 오늘/탐색/복습 세 섹션을
+                      // 순서대로 렌더한다. 히어로는 항상 "오늘" 섹션 안,
+                      // 그 섹션 제목 바로 아래에 온다 — 다른 섹션은 그리드
+                      // 카드만 있다. 각 섹션의 카드 종횡비는 그 섹션의
+                      // 타이틀/서브타이틀/풋터만으로 실측한다(섹션 간에
+                      // 서로 다른 카드 높이를 강제하지 않는다).
+                      const sectionOrder = <SoriLearnSection>[
+                        SoriLearnSection.today,
+                        SoriLearnSection.explore,
+                        SoriLearnSection.review,
+                      ];
+                      final sectionTitles = <SoriLearnSection, String>{
+                        SoriLearnSection.today: t.soriStageLearnSectionToday,
+                        SoriLearnSection.explore:
+                            t.soriStageLearnSectionExplore,
+                        SoriLearnSection.review:
+                            t.soriStageLearnSectionReview,
+                      };
+                      final slivers = <Widget>[];
+                      for (var i = 0; i < sectionOrder.length; i++) {
+                        final section = sectionOrder[i];
+                        final sectionEntries = entries
+                            .where((entry) => entry.learnSection == section)
+                            .toList();
+                        final sectionHero =
+                            heroEntry != null &&
+                                heroEntry.learnSection == section
+                            ? heroEntry
                             : null;
-                        // §LAYOUT-2(J12): once the snapshot resolves, measure
-                        // each entry's *actual* rendered state string (label +
-                        // real progress suffix) instead of the three bare
-                        // state labels above — a worst-case constant
-                        // ('999 / 999' always) would pad every card's white
-                        // space (L4); this instead grows the cell height by
-                        // exactly what the FutureBuilder's second frame draws.
-                        // The cache in _cellAspectRatio keys on footerLabels
-                        // content, so this list changing between the
-                        // optimistic first frame and the resolved frame
-                        // invalidates the cache automatically (one height
-                        // jump, not per-frame recomputation).
-                        final progressFooterLabels = activityProgress == null
-                            ? const <String>[]
-                            : [
-                                for (final entry in gridEntries)
-                                  if (activityProgress[entry.id]
-                                      case final progress?)
-                                    activityStateText(
-                                      activityStateLabel(
-                                        context,
-                                        t,
-                                        progress.state,
-                                        entry,
-                                      ),
-                                      progress.current,
-                                      progress.target,
-                                    ),
-                              ];
-                        Widget? heroCard;
-                        if (heroEntry case final hero?) {
-                          heroCard = _ActivityGridCard(
-                            entry: hero,
-                            hero: true,
-                            progress: activityProgress?[hero.id],
+                        final sectionGridEntries = sectionHero == null
+                            ? sectionEntries
+                            : sectionEntries
+                                  .where(
+                                    (entry) => entry.id != sectionHero.id,
+                                  )
+                                  .toList();
+                        if (i > 0) {
+                          slivers.add(
+                            const SliverToBoxAdapter(
+                              child: SizedBox(height: Spacing.xl),
+                            ),
+                          );
+                        }
+                        slivers.add(
+                          SliverPadding(
+                            padding: EdgeInsets.only(
+                              left: padding.left,
+                              right: padding.right,
+                            ),
+                            sliver: SliverToBoxAdapter(
+                              child: SoriSectionHeader(sectionTitles[section]!),
+                            ),
+                          ),
+                        );
+                        slivers.add(
+                          const SliverToBoxAdapter(
+                            child: SizedBox(height: Spacing.md),
+                          ),
+                        );
+                        if (sectionHero != null) {
+                          slivers.add(
+                            _heroSectionSliver(
+                              context: context,
+                              padding: padding,
+                              isContinuingHero: isContinuingHero,
+                              t: t,
+                              heroCard: buildHeroCard(sectionHero),
+                            ),
+                          );
+                        }
+                        final isLastSection = i == sectionOrder.length - 1;
+                        slivers.add(
+                          _sectionGridSliver(
+                            context: context,
+                            t: t,
+                            entries: sectionGridEntries,
+                            activityProgress: activityProgress,
+                            padding: padding,
+                            bottomPadding: isLastSection ? padding.bottom : 0,
                             loadSnapshot:
                                 widget.loadSnapshot ??
                                 SoriStageProgressionService.load,
                             onActivityReturned: _reload,
-                          );
-                          if (isContinuingHero) {
-                            heroCard = SoriPulse(child: heroCard);
-                          }
-                        }
-                        return SliverMainAxisGroup(
-                          slivers: [
-                            if (heroCard != null)
-                              SliverPadding(
-                                padding: EdgeInsets.only(
-                                  left: padding.left,
-                                  right: padding.right,
-                                  bottom: Spacing.md,
-                                ),
-                                sliver: SliverToBoxAdapter(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      if (isContinuingHero) ...[
-                                        Text(
-                                          t.soriStageContinueEyebrow
-                                              .toUpperCase(),
-                                          style: SoriTextTheme.of(
-                                            context,
-                                          ).eyebrow,
-                                        ),
-                                        const SizedBox(height: Spacing.xs),
-                                      ],
-                                      heroCard,
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            SliverPadding(
-                              padding: EdgeInsets.only(
-                                left: padding.left,
-                                right: padding.right,
-                                bottom: padding.bottom,
-                              ),
-                              sliver: SliverGrid(
-                                gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: columns,
-                                      mainAxisSpacing: Spacing.md,
-                                      crossAxisSpacing: Spacing.md,
-                                      childAspectRatio: _cellAspectRatio(
-                                        context,
-                                        cellWidth,
-                                        titles: gridTitles,
-                                        subtitles: gridSubtitles,
-                                        footerLabels: [
-                                          ...footerLabels,
-                                          ...progressFooterLabels,
-                                        ],
-                                      ),
-                                    ),
-                                delegate: SliverChildBuilderDelegate((
-                                  context,
-                                  index,
-                                ) {
-                                  final entry = gridEntries[index];
-                                  return _ActivityGridCard(
-                                    entry: entry,
-                                    progress: activityProgress?[entry.id],
-                                    loadSnapshot:
-                                        widget.loadSnapshot ??
-                                        SoriStageProgressionService.load,
-                                    onActivityReturned: _reload,
-                                  );
-                                }, childCount: gridEntries.length),
-                              ),
-                            ),
-                          ],
+                          ),
                         );
-                      },
-                    ),
-                  ],
-                );
-              },
-            ),
+                      }
+                      return SliverMainAxisGroup(slivers: slivers);
+                    },
+                  ),
+                ],
+              );
+            },
           ),
         ),
       ),
     );
   }
+}
+
+/// §W10 T-L1: the hero card band — the optional "CONTINUE WITH" eyebrow plus
+/// the hero card itself. Shared by the Games tab's single hero slot and the
+/// Learn tab's "today" section hero slot.
+Widget _heroSectionSliver({
+  required BuildContext context,
+  required EdgeInsets padding,
+  required bool isContinuingHero,
+  required AppL10n t,
+  required Widget heroCard,
+}) => SliverPadding(
+  padding: EdgeInsets.only(
+    left: padding.left,
+    right: padding.right,
+    bottom: Spacing.md,
+  ),
+  sliver: SliverToBoxAdapter(
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (isContinuingHero) ...[
+          Text(
+            t.soriStageContinueEyebrow.toUpperCase(),
+            style: SoriTextTheme.of(context).eyebrow,
+          ),
+          const SizedBox(height: Spacing.xs),
+        ],
+        heroCard,
+      ],
+    ),
+  ),
+);
+
+/// §W10 T-L1: one grid of activity cards, measured and laid out from just
+/// its own [entries] — extracted from the previous single whole-tab grid so
+/// each Learn-tab section can size its cards independently (§LAYOUT-2(J12)
+/// measurement contract unchanged, just scoped per call).
+///
+/// §W10 T-H1: the column count + measured `childAspectRatio` are computed
+/// by [SoriIllustratedCardGrid] itself (a `SliverLayoutBuilder` reading the
+/// cross-axis extent this sliver is given) — shared with the listening hub
+/// grid, same target/min/max and `Spacing.md` gaps, same output.
+Widget _sectionGridSliver({
+  required BuildContext context,
+  required AppL10n t,
+  required List<ActivityCatalogEntry> entries,
+  required Map<String, SoriActivityProgress>? activityProgress,
+  required EdgeInsets padding,
+  required double bottomPadding,
+  required Future<SoriStageProgressionSnapshot> Function() loadSnapshot,
+  required VoidCallback onActivityReturned,
+}) {
+  final gridTitles = entries.map((entry) => localCopy(context, entry.title));
+  // §E2: 메타 라인(분)도 title/footer 처럼 카드 높이에 들어가므로 같이 잰다.
+  final gridSubtitles = entries.map(
+    (entry) => t.soriStageMinutes(entry.minutes),
+  );
+  final footerLabels = <String>[
+    t.soriStageActivityNew,
+    t.soriStageActivityInProgress,
+    t.soriStageActivityCompleted,
+    for (final entry in entries)
+      if (entry.unlock.explanation case final explanation?)
+        localCopy(context, explanation),
+  ];
+  // §LAYOUT-2(J12): once the snapshot resolves, measure each entry's
+  // *actual* rendered state string (label + real progress suffix) instead
+  // of the three bare state labels above — a worst-case constant ('999 /
+  // 999' always) would pad every card's white space (L4); this instead
+  // grows the cell height by exactly what the FutureBuilder's second frame
+  // draws. The cache in _cellAspectRatio keys on footerLabels content, so
+  // this list changing between the optimistic first frame and the resolved
+  // frame invalidates the cache automatically (one height jump, not
+  // per-frame recomputation).
+  final progressFooterLabels = activityProgress == null
+      ? const <String>[]
+      : [
+          for (final entry in entries)
+            if (activityProgress[entry.id] case final progress?)
+              activityStateText(
+                activityStateLabel(context, t, progress.state, entry),
+                progress.current,
+                progress.target,
+              ),
+        ];
+  return SliverPadding(
+    padding: EdgeInsets.only(
+      left: padding.left,
+      right: padding.right,
+      bottom: bottomPadding,
+    ),
+    sliver: SoriIllustratedCardGrid(
+      itemCount: entries.length,
+      titles: gridTitles,
+      subtitles: gridSubtitles,
+      footerLabels: [...footerLabels, ...progressFooterLabels],
+      itemBuilder: (context, index) {
+        final entry = entries[index];
+        return _ActivityGridCard(
+          entry: entry,
+          progress: activityProgress?[entry.id],
+          loadSnapshot: loadSnapshot,
+          onActivityReturned: onActivityReturned,
+        );
+      },
+    ),
+  );
 }
 
 /// 2026-08-14 Phase 3: 활동 카드 — [SoriIllustratedCard] 규격.
@@ -401,153 +519,6 @@ class _ActivityGridCard extends StatelessWidget {
           : t.soriStageActivityDetails(title),
     );
   }
-}
-
-/// §W2-Task5: `_cellAspectRatio` 는 그리드 엔트리 전체 타이틀·풋터를
-/// `TextPainter.layout()` 으로 실측한다 — 셀 폭·텍스트 스케일·로케일·문자열
-/// 목록이 그대로면 매 build() 마다 다시 잴 필요가 없다. 이 키가 같으면
-/// 이전 결과를 재사용한다.
-String cellAspectRatioCacheKey({
-  required double cellWidth,
-  required double textScale,
-  required String locale,
-  required Iterable<String> titles,
-  required Iterable<String> footerLabels,
-}) {
-  final buffer = StringBuffer()
-    ..write(cellWidth.toStringAsFixed(2))
-    ..write('|')
-    ..write(textScale.toStringAsFixed(3))
-    ..write('|')
-    ..write(locale)
-    ..write('|')
-    ..writeAll(titles, '')
-    ..write('|')
-    ..writeAll(footerLabels, '');
-  return buffer.toString();
-}
-
-// §정리#3: 이전엔 단일 엔트리(마지막 키 1개)였다 — Learn/Games 두 탭이 한
-// 셸 패스 안에서 서로 다른 키로 번갈아 rebuild 되면 서로를 매번 몰아내
-// 캐시가 무의미해졌다. 탭 개수만큼(여유 포함) 담을 수 있는 작은 맵으로
-// 바꾸고, 꽉 차면 가장 먼저 넣은(오래된) 항목부터 버린다(삽입 순서 = Map
-// 순회 순서라 별도 타임스탬프 없이 `keys.first` 로 충분). 동작(캐시 키
-// 계산·반환값)은 그대로다.
-const int _cellAspectRatioCacheCapacity = 4;
-final Map<String, double> _cellAspectRatioCache = <String, double>{};
-
-/// Grid ratio derived from the 4:3 image plus the measured localized title,
-/// meta (분) subtitle line, and status footer. Every string remains available
-/// while cards in a row keep the same height.
-///
-/// §E2 (L4): 이전엔 subtitle(분 메타 라인)이 이미지 우하단 필이라 카드
-/// 본문 높이에 안 들어갔다. 이제 title 아래 텍스트 줄이 됐으니 실측에
-/// 포함해야 한다 — 안 그러면 그리드 셀 바닥에 빈 공간이 남는다.
-double _cellAspectRatio(
-  BuildContext context,
-  double cellWidth, {
-  required Iterable<String> titles,
-  required Iterable<String> subtitles,
-  required Iterable<String> footerLabels,
-}) {
-  if (!cellWidth.isFinite || cellWidth <= 0) {
-    return 0.78;
-  }
-  final scaler = MediaQuery.textScalerOf(context);
-  final direction = Directionality.of(context);
-  final locale = Localizations.localeOf(context);
-  final textScale = scaler.scale(14) / 14;
-  // subtitles 는 titles 와 1:1로 대응하는 파생값(같은 entry 집합)이라 titles가
-  // 이미 캐시 키를 정확히 구분한다 — cellAspectRatioCacheKey 시그니처는 그대로
-  // 둔다(다른 곳에서 직접 호출하는 계약을 안 건드린다).
-  final cacheKey = cellAspectRatioCacheKey(
-    cellWidth: cellWidth,
-    textScale: textScale,
-    locale: locale.toLanguageTag(),
-    titles: titles,
-    footerLabels: footerLabels,
-  );
-  final cached = _cellAspectRatioCache[cacheKey];
-  if (cached != null) {
-    return cached;
-  }
-  final tt = SoriTextTheme.of(context);
-  final titleStyle = tt.cardTitle;
-  final subtitleStyle = tt.cardSubtitle;
-  // §LAYOUT-2(J12): must match the rendered style exactly —
-  // _StateLabel renders w600, not the bare tt.cardSubtitle weight.
-  final footerStyle = tt.cardSubtitle.copyWith(fontWeight: FontWeight.w600);
-  const double bodyPadding = Spacing.sm + Spacing.md;
-  final bodyWidth = (cellWidth - Spacing.md * 2).clamp(1.0, double.infinity);
-  final title = _maxMeasuredTextHeight(
-    texts: titles,
-    style: titleStyle,
-    maxWidth: bodyWidth,
-    scaler: scaler,
-    direction: direction,
-    locale: locale,
-  );
-  final subtitle = _maxMeasuredTextHeight(
-    texts: subtitles,
-    style: subtitleStyle,
-    maxWidth: bodyWidth,
-    scaler: scaler,
-    direction: direction,
-    locale: locale,
-  );
-  // Footer text sits to the right of an 8dp dot + Spacing.xs(4) gap — 12 total.
-  const double footerLeadWidth = 8 + Spacing.xs;
-  final footer = _maxMeasuredTextHeight(
-    texts: footerLabels,
-    style: footerStyle,
-    maxWidth: (bodyWidth - footerLeadWidth).clamp(1.0, double.infinity),
-    scaler: scaler,
-    direction: direction,
-    locale: locale,
-  );
-  // Two physical border pixels plus a small rounding allowance keep the
-  // fixed-height grid honest at tablet comfort scale and 200% OS text.
-  const double layoutAllowance = 4;
-  // §E2: subtitle 위 SizedBox(height: 2) — illustrated_card.dart의 제목→
-  // 서브타이틀 간격과 정확히 맞춘다.
-  const double subtitleGap = 2;
-  final double height =
-      cellWidth / (4 / 3) +
-      bodyPadding +
-      title +
-      subtitleGap +
-      subtitle +
-      Spacing.xs +
-      footer +
-      layoutAllowance;
-  final ratio = cellWidth / height;
-  if (_cellAspectRatioCache.length >= _cellAspectRatioCacheCapacity) {
-    _cellAspectRatioCache.remove(_cellAspectRatioCache.keys.first);
-  }
-  _cellAspectRatioCache[cacheKey] = ratio;
-  return ratio;
-}
-
-double _maxMeasuredTextHeight({
-  required Iterable<String> texts,
-  required TextStyle style,
-  required double maxWidth,
-  required TextScaler scaler,
-  required TextDirection direction,
-  required Locale locale,
-}) {
-  var height = scaler.scale(style.fontSize ?? 14) * (style.height ?? 1);
-  for (final text in texts) {
-    final painter = TextPainter(
-      text: TextSpan(text: text, style: style),
-      textDirection: direction,
-      textScaler: scaler,
-      locale: locale,
-    )..layout(maxWidth: maxWidth);
-    height = height < painter.height ? painter.height : height;
-    painter.dispose();
-  }
-  return height;
 }
 
 /// 카드 footer: 상태 라벨 (텍스트만, 간결).

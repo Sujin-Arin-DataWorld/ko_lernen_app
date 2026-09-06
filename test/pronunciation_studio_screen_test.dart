@@ -275,7 +275,10 @@ void main() {
       await _scrollUntilBuilt(tester, continueAction);
       await tester.tap(continueAction);
       await tester.pump();
-      await tester.drag(find.byType(ListView), const Offset(0, 1000));
+      // W10 T-V3(2026-09-05): 바깥 컨테이너가 ListView → SoriAdaptiveStudyBody
+      // (SingleChildScrollView 로 내려감) 로 바뀌었다 — 스크롤 위젯 타입만
+      // 갱신, 단언 대상(다음 phrase 노출)은 그대로다.
+      await tester.drag(find.byType(SingleChildScrollView), const Offset(0, 1000));
       await tester.pump();
       expect(find.text(c2.ko), findsOneWidget);
     },
@@ -741,9 +744,11 @@ Future<void> _requestScore(WidgetTester tester) async {
 }
 
 Future<void> _scrollUntilBuilt(WidgetTester tester, Finder target) async {
-  final listView = find.byType(ListView).first;
+  // W10 T-V3(2026-09-05): 바깥 컨테이너가 ListView → SoriAdaptiveStudyBody
+  // (SingleChildScrollView 로 내려감) 로 바뀌었다 — 스크롤 위젯 타입만 갱신.
+  final scrollable = find.byType(SingleChildScrollView).first;
   for (var attempt = 0; attempt < 12 && target.evaluate().isEmpty; attempt++) {
-    await tester.drag(listView, const Offset(0, -160));
+    await tester.drag(scrollable, const Offset(0, -160));
     await tester.pump();
   }
   if (target.evaluate().isNotEmpty) {

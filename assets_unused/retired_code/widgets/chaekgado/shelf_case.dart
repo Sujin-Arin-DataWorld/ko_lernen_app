@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import '../../../data/chaekgado_shelf.dart' show ChaekgadoCompartment;
 import '../dancheong_stamp.dart';
 import '../tokens.dart';
 import 'chaekgado_assets.dart';
@@ -29,37 +30,6 @@ const Key kChaekgadoStampKey = ValueKey('chaekgado_stamp');
 
 /// 칸 하나의 좌표·크기를 재려는 테스트용 키.
 Key chaekgadoCompartmentKey(String slug) => ValueKey('chaekgado_cell_$slug');
-
-@immutable
-class ChaekgadoCompartment {
-  /// [shortLabel] 을 안 주면 [label] 을 그대로 쓴다 — 짧은 이름이 따로 없는
-  /// 프리뷰·테스트 자리를 위해서다.
-  const ChaekgadoCompartment({
-    required this.slug,
-    required this.label,
-    String? shortLabel,
-    this.imageKey,
-    this.count = 0,
-    this.progress = 0,
-  }) : shortLabel = shortLabel ?? label;
-
-  final String slug;
-
-  /// 긴 이름 — 스크린리더와 두루마리 머리글이 쓴다.
-  final String label;
-
-  /// 칸 위에 실제로 찍히는 1~2 단어 이름 (눈 전용).
-  final String shortLabel;
-
-  /// `assets/illustrations/listening/{imageKey}.webp` 의 키.
-  /// 없거나 파일이 없으면 비네트 → 책더미로 내려간다.
-  final String? imageKey;
-
-  final int count;
-  final double progress;
-
-  bool get isStocked => count > 0;
-}
 
 /// The supplied faceted Chaekgado bookcase, assembled around responsive cells.
 /// Original wood is cropped at runtime, so transparent source margins do not

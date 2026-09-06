@@ -1,0 +1,301 @@
+{
+  "version": 1,
+  "batch": "22",
+  "status": "merged",
+  "provenance": {
+    "scope": "W10 Wave 1 scenario expansion: A1 8, A2 8, B1 9 = 25 scenarios filling existing empty/thin Chaekgado shelf compartments across the three levels (Jin decision D-3).",
+    "requiresJinReview": true,
+    "approval": {
+      "authority": "Fable (designer direct read) + Jin pending",
+      "approvedAt": "2026-09-05",
+      "scope": "All 25 scenarios reviewed by Fable via direct draft read (1st revision already reflected in commits bf43862d, b2baff4a, 0c567d9f). Jin's explicit sign-off is pending; recorded here so the integration transaction can proceed per the W10 PR-S / T-S3 Wave 1 brief."
+    },
+    "modelLanguageQa": "MODEL_QA_PASS",
+    "humanLanguageQaClaim": false,
+    "mergedAt": "2026-09-05"
+  },
+  "artifacts": [
+    {
+      "kind": "scenario",
+      "draft": "tools/content_factory/drafts/w10_wave1_scenario.json",
+      "review": "tools/content_factory/review/w10_wave1_scenarios.csv",
+      "collection": "scenarios",
+      "count": 25,
+      "levels": {
+        "a1": 8,
+        "a2": 8,
+        "b1": 9
+      }
+    }
+  ],
+  "recordCount": 25,
+  "questCount": 75,
+  "contentLinks": [
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_w10_taxi_stay",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions",
+        "concept_request_polite"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_w10_eat",
+      "courseUnitId": "a1_04_order_request_object",
+      "conceptIds": [
+        "concept_request_polite",
+        "concept_object_particle"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_w10_repeat",
+      "courseUnitId": "a1_08_clarify_repair",
+      "conceptIds": [
+        "concept_a1_clarification",
+        "concept_a1_health_safety"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_w10_partner",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships",
+        "concept_greeting_politeness"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_w10_numbers",
+      "courseUnitId": "a1_05_numbers_time",
+      "conceptIds": [
+        "concept_a1_time_numbers",
+        "concept_a1_contact_address"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_w10_phone",
+      "courseUnitId": "a1_07_contact_address",
+      "conceptIds": [
+        "concept_a1_contact_address",
+        "concept_a1_time_numbers"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_w10_wayfinding",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions",
+        "concept_request_polite"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_w10_fandom",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships",
+        "concept_request_polite"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_w10_money",
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_w10_buy",
+      "courseUnitId": "a2_05_delivery_services",
+      "conceptIds": [
+        "concept_a2_services"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_w10_apt",
+      "courseUnitId": "a2_05_delivery_services",
+      "conceptIds": [
+        "concept_a2_services"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_w10_partner",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_w10_enrolment",
+      "courseUnitId": "a2_04_feelings_health",
+      "conceptIds": [
+        "concept_a2_feelings"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_w10_booking",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_formal",
+        "concept_proposal_polite",
+        "concept_proposal_casual"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_w10_friends",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_w10_fandom",
+      "courseUnitId": "a2_01_haeyo_transition",
+      "conceptIds": [
+        "concept_action_formal",
+        "concept_action_polite"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_w10_repair",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_w10_bill",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_w10_form",
+      "courseUnitId": "b1_06_life_capstone",
+      "conceptIds": [
+        "concept_b1_life"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_w10_partner",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_w10_insurance",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_w10_incident",
+      "courseUnitId": "b1_01_experience_reasons",
+      "conceptIds": [
+        "concept_b1_reasons_experience"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_w10_cancellation",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_w10_friends",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_w10_fandom",
+      "courseUnitId": "b1_01_experience_reasons",
+      "conceptIds": [
+        "concept_b1_reasons_experience"
+      ],
+      "role": "practice"
+    }
+  ],
+  "backdrops": {
+    "a1_w10_taxi_stay": "taxi",
+    "a1_w10_eat": "cafe",
+    "a1_w10_repeat": "pharmacy",
+    "a1_w10_partner": "home",
+    "a1_w10_numbers": "salon",
+    "a1_w10_phone": "restaurant",
+    "a1_w10_wayfinding": "directions",
+    "a1_w10_fandom": "market",
+    "a2_w10_money": "bank",
+    "a2_w10_buy": "market",
+    "a2_w10_apt": "home",
+    "a2_w10_partner": "home",
+    "a2_w10_enrolment": "office",
+    "a2_w10_booking": "restaurant",
+    "a2_w10_friends": "restaurant",
+    "a2_w10_fandom": "market",
+    "b1_w10_repair": "home",
+    "b1_w10_bill": "cafe",
+    "b1_w10_form": "office",
+    "b1_w10_partner": "home",
+    "b1_w10_insurance": "home",
+    "b1_w10_incident": "directions",
+    "b1_w10_cancellation": "office",
+    "b1_w10_friends": "cafe",
+    "b1_w10_fandom": "cafe"
+  },
+  "mergeOrder": [
+    "scenario + contentLinks + scenario backdrop + audit manifest"
+  ]
+}

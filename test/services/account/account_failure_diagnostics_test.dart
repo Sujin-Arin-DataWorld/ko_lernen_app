@@ -177,6 +177,95 @@ void main() {
       expect(AccountFailureDiagnostics.describeAll(const []), 'none');
     });
   });
+
+  // 이 그룹은 T1(Crashlytics 비치명 기록) 계약을 검증한다: `log`/`logAll` 은
+  // 기존 debugPrint 줄을 그대로 유지하면서, 주입 가능한 [AccountFailureDiagnostics.sink]
+  // 로 redacted [AccountFailureRecord] 를 반드시 전달해야 한다.
+  group('sink', () {
+    tearDown(AccountFailureDiagnostics.resetSinkForTesting);
+
+    test(
+      'log() feeds the injected sink a redacted record without the raw '
+      'exception message',
+      () {
+        final captured = <(String, AccountFailureRecord)>[];
+        AccountFailureDiagnostics.sink =
+            (line, record) => captured.add((line, record));
+
+        final error = FirebaseAuthException(
+          code: 'credential-already-in-use',
+          message: 'SECRET-RAW-MESSAGE',
+        );
+        AccountFailureDiagnostics.log('link.failed', error);
+
+        expect(captured, hasLength(1));
+        final (line, record) = captured.single;
+        expect(record.stage, 'link.failed');
+        expect(record.code, AccountFailureDiagnostics.describe(error));
+        expect(
+          line,
+          '${AccountFailureDiagnostics.logTag}: link.failed ${record.code}',
+        );
+        expect(line, isNot(contains('SECRET-RAW-MESSAGE')));
+        expect(record.toString(), isNot(contains('SECRET-RAW-MESSAGE')));
+      },
+    );
+
+    test('log() propagates detail into the record and the line suffix', () {
+      final captured = <(String, AccountFailureRecord)>[];
+      AccountFailureDiagnostics.sink =
+          (line, record) => captured.add((line, record));
+
+      AccountFailureDiagnostics.log('x', null, detail: 'status=blocked');
+
+      expect(captured, hasLength(1));
+      final (line, record) = captured.single;
+      expect(record.stage, 'x');
+      expect(record.code, AccountFailureDiagnostics.describe(null));
+      expect(record.detail, 'status=blocked');
+      expect(
+        line,
+        '${AccountFailureDiagnostics.logTag}: x ${record.code} status=blocked',
+      );
+    });
+
+    test('logAll() emits one record per cause with matching codes', () {
+      final captured = <(String, AccountFailureRecord)>[];
+      AccountFailureDiagnostics.sink =
+          (line, record) => captured.add((line, record));
+
+      final e1 = FirebaseAuthException(
+        code: 'user-mismatch',
+        message: 'ignored',
+      );
+      final e2 = TimeoutException('ignored');
+      AccountFailureDiagnostics.logAll('deletion.cleanupFailed', [e1, e2]);
+
+      expect(captured, hasLength(2));
+      expect(captured[0].$1, isNot(isEmpty));
+      expect(captured[0].$2.stage, 'deletion.cleanupFailed');
+      expect(captured[0].$2.code, AccountFailureDiagnostics.describe(e1));
+      expect(captured[1].$2.stage, 'deletion.cleanupFailed');
+      expect(captured[1].$2.code, AccountFailureDiagnostics.describe(e2));
+    });
+
+    test(
+      'resetSinkForTesting() restores a default sink that never throws '
+      'when Firebase is not initialised',
+      () {
+        AccountFailureDiagnostics.sink = (line, record) {
+          throw StateError('should not be called after reset');
+        };
+
+        AccountFailureDiagnostics.resetSinkForTesting();
+
+        expect(
+          () => AccountFailureDiagnostics.log('y', StateError('boom')),
+          returnsNormally,
+        );
+      },
+    );
+  });
 }
 
 class _LeakyError implements Exception {

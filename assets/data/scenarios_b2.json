@@ -4363,6 +4363,2125 @@
       ],
       "shelf": "b2_dating",
       "backdrop": "theme_park"
+    },
+    {
+      "id": "b2_w10_negotiate",
+      "level": "b2",
+      "emoji": "🤝",
+      "register": "business",
+      "speechStyle": "business",
+      "title": {
+        "ko": "촬영 조건, 다시 협상하기",
+        "de": "Drehbedingungen neu verhandeln",
+        "en": "Renegotiating the shoot terms"
+      },
+      "intro": {
+        "ko": "다니엘이 새 영상 프로젝트를 제안받았는데 수정 횟수 제한이 없어서 조건을 다시 협상합니다.",
+        "de": "Daniel bekommt ein neues Videoprojekt angeboten, bei dem die Zahl der Korrekturrunden nicht begrenzt ist, deshalb verhandelt er die Bedingungen neu.",
+        "en": "Daniel is offered a new video project with no cap on revision rounds, so he renegotiates the terms."
+      },
+      "courseUnitId": "b2_03_precise_requests",
+      "playerCharacterId": "daniel",
+      "participantIds": [
+        "daniel",
+        "manager"
+      ],
+      "relationshipContext": "client",
+      "intent": "negotiate_a_freelance_rate_with_a_counter_offer",
+      "shelf": "b2_negotiate",
+      "backdrop": "office",
+      "vocab": [
+        {
+          "korean": "촬영",
+          "note": {
+            "ko": "영상이나 사진을 찍는 일",
+            "de": "Dreh/Aufnahme",
+            "en": "filming/shoot"
+          }
+        },
+        {
+          "korean": "수정",
+          "note": {
+            "ko": "내용을 고치는 것",
+            "de": "Korrektur/Überarbeitung",
+            "en": "revision"
+          }
+        },
+        {
+          "korean": "단가",
+          "note": {
+            "ko": "한 건당 정해진 가격",
+            "de": "Stückpreis/Honorarsatz",
+            "en": "unit rate/fee"
+          }
+        },
+        {
+          "korean": "일정",
+          "note": {
+            "ko": "일을 하기로 정한 시간 계획",
+            "de": "Zeitplan",
+            "en": "schedule"
+          }
+        },
+        {
+          "korean": "계약서",
+          "note": {
+            "ko": "약속한 조건을 적은 문서",
+            "de": "Vertrag",
+            "en": "contract"
+          }
+        },
+        {
+          "korean": "조건",
+          "note": {
+            "ko": "일이 이루어지기 위한 요구 사항",
+            "de": "Bedingung",
+            "en": "condition"
+          }
+        },
+        {
+          "korean": "반나절",
+          "note": {
+            "ko": "하루의 절반쯤 되는 시간",
+            "de": "ein halber Tag",
+            "en": "half a day"
+          }
+        },
+        {
+          "korean": "부담",
+          "note": {
+            "ko": "힘들게 느껴지는 책임이나 비용",
+            "de": "Belastung",
+            "en": "burden"
+          }
+        }
+      ],
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "grammarIds": [
+        "grammar_b2_instead_tradeoff",
+        "grammar_b2_rather_than_direct"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-는 대신",
+          "de": "V-는 대신: statt dessen / im Austausch dafür",
+          "en": "V-는 대신: instead of / in exchange for"
+        },
+        "explanation": {
+          "ko": "한 조건을 양보하는 대신 다른 조건을 얻고 싶을 때 -는 대신을 써요.",
+          "de": "Mit -는 대신 gibt man in einem Punkt nach und verlangt im Gegenzug etwas anderes.",
+          "en": "Use -는 대신 to give way on one point while asking for something else in return."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "manager",
+          "ko": "이번 브랜드 영상은 이틀 촬영에 백오십만 원으로 생각하고 있습니다.",
+          "de": "Für dieses Markenvideo denken wir an 1,5 Millionen Won für einen zweitägigen Dreh.",
+          "en": "For this brand video, we're thinking 1.5 million won for a two-day shoot."
+        },
+        {
+          "speaker": "user",
+          "ko": "일정은 괜찮은데 수정 횟수 제한이 없다는 점이 걸립니다.",
+          "de": "Der Zeitplan ist in Ordnung, aber die unbegrenzte Anzahl an Korrekturrunden stört mich.",
+          "en": "The schedule is fine, but the part about unlimited revision rounds bothers me."
+        },
+        {
+          "speaker": "manager",
+          "ko": "보통 두세 번이면 끝나서 큰 부담은 없을 겁니다.",
+          "de": "Normalerweise ist es nach zwei, drei Runden erledigt, das dürfte also keine große Belastung sein.",
+          "en": "It's usually done after two or three rounds, so that shouldn't be much of a burden."
+        },
+        {
+          "speaker": "user",
+          "ko": "그래도 미리 정해 두는 게 나을 것 같은데요. 수정은 세 번까지로 하면 어떨까요?",
+          "de": "Trotzdem wäre es wahrscheinlich besser, das vorher festzulegen. Wie wäre es, die Korrekturen auf drei zu begrenzen?",
+          "en": "Still, it'd probably be better to set that in advance. How about capping revisions at three?"
+        },
+        {
+          "speaker": "manager",
+          "ko": "그럼 수정을 세 번으로 제한하는 대신 단가를 조금 낮출 수 있을까요?",
+          "de": "Wenn wir dann die Korrekturen auf drei begrenzen, könnten wir im Gegenzug das Honorar etwas senken?",
+          "en": "If we cap the revisions at three, then, could we lower the rate a bit in exchange?"
+        },
+        {
+          "speaker": "user",
+          "ko": "단가를 낮추기보다 둘째 날 촬영을 반나절로 줄이는 방법은 어떨까요?",
+          "de": "Anstatt das Honorar zu senken, wie wäre es, den zweiten Drehtag um einen halben Tag zu kürzen?",
+          "en": "Rather than lowering the rate, how about shortening the second shoot day by half a day?"
+        },
+        {
+          "speaker": "manager",
+          "ko": "반나절만 줄이면 결과물을 확인할 시간이 부족할 것 같습니다.",
+          "de": "Wenn wir nur einen halben Tag kürzen, dürfte uns die Zeit fehlen, das Ergebnis zu prüfen.",
+          "en": "If we only cut half a day, we probably won't have enough time to check the results."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 일정은 그대로 두는 대신 수정은 세 번, 단가는 백사십만 원으로 하겠습니다.",
+          "de": "Dann lassen wir den Zeitplan wie er ist, aber vereinbaren drei Korrekturen und ein Honorar von 1,4 Millionen Won.",
+          "en": "Then we'll keep the schedule as is, but agree on three revisions and a rate of 1.4 million won."
+        },
+        {
+          "speaker": "manager",
+          "ko": "좋습니다. 그 조건으로 계약서를 다시 정리하겠습니다.",
+          "de": "Gut. Ich stelle den Vertrag mit diesen Bedingungen neu zusammen.",
+          "en": "Good. I'll redraft the contract with these terms."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_w10_negotiate_hear",
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "그럼 수정을 세 번으로 제한하는 대신 단가를 조금 낮출 수 있을까요?",
+            "options": [
+              {
+                "de": "Wenn wir dann die Korrekturen auf drei begrenzen, könnten wir im Gegenzug das Honorar etwas senken?",
+                "en": "If we cap the revisions at three, then, could we lower the rate a bit in exchange?"
+              },
+              {
+                "de": "Für dieses Markenvideo denken wir an 1,5 Millionen Won für einen zweitägigen Dreh.",
+                "en": "For this brand video, we're thinking 1.5 million won for a two-day shoot."
+              },
+              {
+                "de": "Normalerweise ist es nach zwei, drei Runden erledigt, das dürfte also keine große Belastung sein.",
+                "en": "It's usually done after two or three rounds, so that shouldn't be much of a burden."
+              },
+              {
+                "de": "Wenn wir nur einen halben Tag kürzen, dürfte uns die Zeit fehlen, das Ergebnis zu prüfen.",
+                "en": "If we only cut half a day, we probably won't have enough time to check the results."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_w10_negotiate_translate",
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Dann lassen wir den Zeitplan wie er ist, aber vereinbaren drei Korrekturen und ein Honorar von 1,4 Millionen Won.",
+            "promptEn": "Then we'll keep the schedule as is, but agree on three revisions and a rate of 1.4 million won.",
+            "options": [
+              {
+                "ko": "그럼 일정은 그대로 두는 대신 수정은 세 번, 단가는 백사십만 원으로 하겠습니다."
+              },
+              {
+                "ko": "이번 브랜드 영상은 이틀 촬영에 백오십만 원으로 생각하고 있습니다."
+              },
+              {
+                "ko": "보통 두세 번이면 끝나서 큰 부담은 없을 겁니다."
+              },
+              {
+                "ko": "단가를 낮추기보다 둘째 날 촬영을 반나절로 줄이는 방법은 어떨까요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_w10_negotiate_build",
+          "type": "satzBauen",
+          "data": {
+            "targetKo": "좋습니다. 그 조건으로 계약서를 다시 정리하겠습니다.",
+            "promptDe": "Gut. Ich stelle den Vertrag mit diesen Bedingungen neu zusammen.",
+            "promptEn": "Good. I'll redraft the contract with these terms.",
+            "distractors": [
+              "수정을",
+              "단가는"
+            ]
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "프리랜서 원천징수 3.3%",
+          "de": "3,3 % Quellensteuer für Freelancer",
+          "en": "3.3% withholding tax for freelancers"
+        },
+        "body": {
+          "ko": "한국에서는 개인 프리랜서에게 대금을 지급할 때 보통 소득의 3.3%를 원천징수하고 나머지를 입금해요. 그래서 계약서에 적힌 금액과 실제로 받는 금액이 조금 달라요.",
+          "de": "In Korea behält der Auftraggeber bei Zahlungen an freiberufliche Einzelpersonen meist 3,3 % als Quellensteuer ein und überweist den Rest. Deshalb weicht der im Vertrag genannte Betrag leicht vom tatsächlich ausgezahlten Betrag ab.",
+          "en": "In Korea, when paying an individual freelancer, the client usually withholds 3.3% of the income as tax and transfers the rest. So the amount written in the contract differs slightly from what actually gets deposited."
+        }
+      },
+      "xpReward": 135
+    },
+    {
+      "id": "b2_w10_notice",
+      "level": "b2",
+      "emoji": "📨",
+      "register": "polite",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "과태료 이의신청, 다시 접수하기",
+        "de": "Einspruch gegen das Bußgeld erneut einreichen",
+        "en": "Resubmitting an objection to a fine"
+      },
+      "intro": {
+        "ko": "다니엘이 제출한 주정차 위반 이의신청이 기각되자 사진 증거를 들어 다시 이의를 제기합니다.",
+        "de": "Nachdem Daniels eingereichter Einspruch gegen den Parkverstoß abgelehnt wurde, legt er mit Fotobeweisen erneut Einspruch ein.",
+        "en": "After Daniel's submitted objection to a parking violation is rejected, he raises the objection again using photo evidence."
+      },
+      "courseUnitId": "b2_04_complaint_resolution",
+      "playerCharacterId": "daniel",
+      "participantIds": [
+        "daniel",
+        "official"
+      ],
+      "relationshipContext": "official",
+      "intent": "formally_object_to_a_rejected_parking_fine_appeal",
+      "shelf": "b2_notice",
+      "backdrop": "home",
+      "vocab": [
+        {
+          "korean": "이의신청",
+          "note": {
+            "ko": "결정에 동의하지 않아 다시 봐 달라고 요청하는 것",
+            "de": "Einspruch",
+            "en": "objection/appeal"
+          }
+        },
+        {
+          "korean": "기각",
+          "note": {
+            "ko": "신청이나 요구를 받아들이지 않는 것",
+            "de": "Ablehnung",
+            "en": "rejection"
+          }
+        },
+        {
+          "korean": "단속",
+          "note": {
+            "ko": "규정을 지키는지 확인하고 제재하는 일",
+            "de": "Kontrolle/Ahndung",
+            "en": "enforcement/crackdown"
+          }
+        },
+        {
+          "korean": "표지판",
+          "note": {
+            "ko": "안내나 규정을 적어 세워 둔 판",
+            "de": "Schild",
+            "en": "sign"
+          }
+        },
+        {
+          "korean": "첨부",
+          "note": {
+            "ko": "문서에 다른 자료를 덧붙이는 것",
+            "de": "Anhang/Beifügung",
+            "en": "attachment"
+          }
+        },
+        {
+          "korean": "상급",
+          "note": {
+            "ko": "더 위의 등급이나 단계",
+            "de": "übergeordnet",
+            "en": "higher-level"
+          }
+        },
+        {
+          "korean": "접수",
+          "note": {
+            "ko": "서류나 신청을 받는 것",
+            "de": "Annahme/Einreichung",
+            "en": "submission/receipt"
+          }
+        }
+      ],
+      "conceptIds": [
+        "concept_b2_complaint"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "grammarIds": [
+        "grammar_b2_established_premise",
+        "grammar_b2_indirect_speech"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄴ 이상",
+          "de": "V-(으)ㄴ 이상: da nun einmal / wenn schon",
+          "en": "V-(으)ㄴ 이상: now that / given that"
+        },
+        "explanation": {
+          "ko": "이미 벌어진 일을 전제로 그다음 결론이나 의무를 말할 때 -(으)ㄴ 이상을 써요.",
+          "de": "Man benutzt -(으)ㄴ 이상, um ausgehend von einer bereits eingetretenen Tatsache eine Folge oder Pflicht auszudrücken.",
+          "en": "Use -(으)ㄴ 이상 to state a consequence or obligation based on something that has already happened."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "official",
+          "ko": "네, 주정차 단속 민원 담당입니다. 어떤 내용이시죠?",
+          "de": "Ja, hier ist die Zuständige für Parkverstoß-Anliegen. Worum geht es?",
+          "en": "Yes, this is the parking enforcement complaints desk. What can I help you with?"
+        },
+        {
+          "speaker": "user",
+          "ko": "지난주에 제출한 이의신청이 기각됐다는 문자를 받아서 다시 연락드렸습니다.",
+          "de": "Ich habe letzte Woche eine SMS bekommen, dass mein eingereichter Einspruch abgelehnt wurde, deshalb melde ich mich noch einmal.",
+          "en": "I got a text last week saying my submitted objection was rejected, so I'm calling again."
+        },
+        {
+          "speaker": "official",
+          "ko": "네, 확인해 보니 표지판이 있는 구간이라 단속이 정당하다고 봤습니다.",
+          "de": "Ja, laut unserer Prüfung war das ein Bereich mit Beschilderung, deshalb wurde die Kontrolle als rechtmäßig eingestuft.",
+          "en": "Yes, based on our review, that was an area with signage, so the enforcement was judged valid."
+        },
+        {
+          "speaker": "user",
+          "ko": "그런데 그 표지판이 나뭇가지에 가려서 안 보였다는 사진을 이미 첨부했습니다.",
+          "de": "Aber ich habe bereits ein Foto beigefügt, das zeigt, dass dieses Schild von einem Ast verdeckt war und nicht zu sehen war.",
+          "en": "But I already attached a photo showing that sign was hidden behind a tree branch and wasn't visible."
+        },
+        {
+          "speaker": "official",
+          "ko": "민원이 한 번 기각된 이상 같은 근거로는 재심사가 어렵습니다.",
+          "de": "Da der Einspruch bereits einmal abgelehnt wurde, ist eine erneute Prüfung mit derselben Begründung schwierig.",
+          "en": "Since the objection has already been rejected once, a re-review on the same grounds is difficult."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 이 건에 관해서 상급 부서에 다시 검토를 요청할 수 있을까요?",
+          "de": "Könnte ich dann bezüglich dieses Falls eine erneute Prüfung bei einer übergeordneten Abteilung beantragen?",
+          "en": "Then could I request a review of this case from a higher department?"
+        },
+        {
+          "speaker": "official",
+          "ko": "네, 이의신청서에 사진과 이번 통화 내용을 함께 적어서 다시 접수하시면 됩니다.",
+          "de": "Ja, Sie können den Einspruch erneut einreichen, wenn Sie das Foto und den Inhalt dieses Gesprächs mit aufführen.",
+          "en": "Yes, you can resubmit the objection if you include the photo and the content of this call."
+        },
+        {
+          "speaker": "user",
+          "ko": "알겠습니다. 오늘 안에 새 신청서를 작성해서 보내겠습니다.",
+          "de": "Verstanden. Ich werde noch heute einen neuen Antrag erstellen und einreichen.",
+          "en": "Understood. I'll write up a new application and submit it today."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_w10_notice_hear",
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "민원이 한 번 기각된 이상 같은 근거로는 재심사가 어렵습니다.",
+            "options": [
+              {
+                "de": "Da der Einspruch bereits einmal abgelehnt wurde, ist eine erneute Prüfung mit derselben Begründung schwierig.",
+                "en": "Since the objection has already been rejected once, a re-review on the same grounds is difficult."
+              },
+              {
+                "de": "Ja, hier ist die Zuständige für Parkverstoß-Anliegen. Worum geht es?",
+                "en": "Yes, this is the parking enforcement complaints desk. What can I help you with?"
+              },
+              {
+                "de": "Ja, laut unserer Prüfung war das ein Bereich mit Beschilderung, deshalb wurde die Kontrolle als rechtmäßig eingestuft.",
+                "en": "Yes, based on our review, that was an area with signage, so the enforcement was judged valid."
+              },
+              {
+                "de": "Ja, Sie können den Einspruch erneut einreichen, wenn Sie das Foto und den Inhalt dieses Gesprächs mit aufführen.",
+                "en": "Yes, you can resubmit the objection if you include the photo and the content of this call."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_w10_notice_translate",
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Könnte ich dann bezüglich dieses Falls eine erneute Prüfung bei einer übergeordneten Abteilung beantragen?",
+            "promptEn": "Then could I request a review of this case from a higher department?",
+            "options": [
+              {
+                "ko": "그럼 이 건에 관해서 상급 부서에 다시 검토를 요청할 수 있을까요?"
+              },
+              {
+                "ko": "지난주에 제출한 이의신청이 기각됐다는 문자를 받아서 다시 연락드렸습니다."
+              },
+              {
+                "ko": "그런데 그 표지판이 나뭇가지에 가려서 안 보였다는 사진을 이미 첨부했습니다."
+              },
+              {
+                "ko": "알겠습니다. 오늘 안에 새 신청서를 작성해서 보내겠습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_w10_notice_build",
+          "type": "satzBauen",
+          "data": {
+            "targetKo": "알겠습니다. 오늘 안에 새 신청서를 작성해서 보내겠습니다.",
+            "promptDe": "Verstanden. Ich werde noch heute einen neuen Antrag erstellen und einreichen.",
+            "promptEn": "Understood. I'll write up a new application and submit it today.",
+            "distractors": [
+              "표지판이",
+              "기각됐다는"
+            ]
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "과태료 이의신청과 재심사",
+          "de": "Einspruch gegen ein Bußgeld und erneute Prüfung",
+          "en": "Objecting to a fine and requesting review"
+        },
+        "body": {
+          "ko": "한국에서는 주정차 위반 같은 과태료에 이의가 있으면 문자나 서류로 통지받은 뒤 정해진 기간 안에 이의신청서를 낼 수 있는데, 한 번 기각돼도 새 증거가 있으면 다시 접수할 수 있어요.",
+          "de": "In Korea kann man bei einem Bußgeld wie einem Parkverstoß nach der Benachrichtigung per SMS oder Schreiben innerhalb einer festgelegten Frist Einspruch einlegen; auch nach einer Ablehnung lässt sich mit neuen Beweisen erneut Einspruch einreichen.",
+          "en": "In Korea, if you have an objection to a fine like a parking violation, you can file a written objection within a set period after being notified by text or letter; even after a rejection, you can resubmit with new evidence."
+        }
+      },
+      "xpReward": 132
+    },
+    {
+      "id": "b2_w10_travel",
+      "level": "b2",
+      "emoji": "✈️",
+      "register": "polite",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "결항 후 책임자에게 요청하기",
+        "de": "Nach dem Ausfall den Verantwortlichen um Hilfe bitten",
+        "en": "Asking a supervisor for help after a cancellation"
+      },
+      "intro": {
+        "ko": "마야의 항공편이 결항되고 직원이 이틀 후 좌석만 제안하자 책임자에게 다른 방법을 요청합니다.",
+        "de": "Mayas Flug fällt aus, und da der Mitarbeiter nur einen Platz in zwei Tagen anbieten kann, bittet sie den Verantwortlichen um eine andere Lösung.",
+        "en": "Maya's flight is cancelled, and when the staff can only offer a seat in two days, she asks the supervisor for another solution."
+      },
+      "courseUnitId": "b2_04_complaint_resolution",
+      "playerCharacterId": "maya",
+      "participantIds": [
+        "maya",
+        "clerk",
+        "manager"
+      ],
+      "relationshipContext": "service",
+      "intent": "escalate_a_flight_cancellation_to_a_supervisor",
+      "shelf": "b2_travel",
+      "backdrop": "airport",
+      "vocab": [
+        {
+          "korean": "결항",
+          "note": {
+            "ko": "항공편이 취소되는 것",
+            "de": "Flugausfall",
+            "en": "flight cancellation"
+          }
+        },
+        {
+          "korean": "항공편",
+          "note": {
+            "ko": "비행기 운항 편",
+            "de": "Flugverbindung",
+            "en": "flight"
+          }
+        },
+        {
+          "korean": "옵션",
+          "note": {
+            "ko": "선택할 수 있는 방법",
+            "de": "Option",
+            "en": "option"
+          }
+        },
+        {
+          "korean": "담당",
+          "note": {
+            "ko": "어떤 일을 맡아서 처리하는 것",
+            "de": "Zuständigkeit",
+            "en": "in charge (of)"
+          }
+        },
+        {
+          "korean": "제휴 항공사",
+          "note": {
+            "ko": "서로 협력하기로 한 다른 항공사",
+            "de": "Partnerfluggesellschaft",
+            "en": "partner airline"
+          }
+        },
+        {
+          "korean": "책임자",
+          "note": {
+            "ko": "일의 결과에 책임을 지는 사람",
+            "de": "verantwortliche Person",
+            "en": "person in charge"
+          }
+        },
+        {
+          "korean": "일정",
+          "note": {
+            "ko": "일을 하기로 정한 시간 계획",
+            "de": "Zeitplan/Termin",
+            "en": "schedule"
+          }
+        }
+      ],
+      "conceptIds": [
+        "concept_b2_complaint"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "grammarIds": [
+        "grammar_b2_despite",
+        "grammar_b2_formal_arrangement"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N에도 불구하고",
+          "de": "N에도 불구하고: trotz",
+          "en": "N에도 불구하고: despite"
+        },
+        "explanation": {
+          "ko": "어려운 상황을 인정하면서도 그것과 상관없이 행동하거나 요청할 때 -에도 불구하고를 써요.",
+          "de": "Man benutzt -에도 불구하고, um eine schwierige Lage anzuerkennen und trotzdem zu handeln oder zu bitten.",
+          "en": "Use -에도 불구하고 to acknowledge a difficult situation while still acting or asking regardless."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "clerk",
+          "ko": "죄송하지만 오늘 항공편이 전부 결항됐습니다.",
+          "de": "Es tut mir leid, aber alle heutigen Flüge sind ausgefallen.",
+          "en": "I'm sorry, but all of today's flights have been cancelled."
+        },
+        {
+          "speaker": "user",
+          "ko": "다음 항공편은 언제 가능한가요?",
+          "de": "Wann ist der nächste Flug möglich?",
+          "en": "When is the next available flight?"
+        },
+        {
+          "speaker": "clerk",
+          "ko": "지금으로선 이틀 후에 자리가 있습니다.",
+          "de": "Im Moment gibt es erst in zwei Tagen wieder einen Platz.",
+          "en": "Right now there's a seat available only in two days."
+        },
+        {
+          "speaker": "user",
+          "ko": "이틀 후면 일정에 큰 문제가 생기는데, 다른 방법이 없을까요?",
+          "de": "In zwei Tagen gibt es ein großes Problem mit meinem Zeitplan, gibt es keine andere Möglichkeit?",
+          "en": "In two days there'd be a big problem with my schedule, isn't there another way?"
+        },
+        {
+          "speaker": "clerk",
+          "ko": "저희 쪽에서는 더 드릴 수 있는 옵션이 없습니다.",
+          "de": "Von unserer Seite gibt es keine weiteren Optionen, die wir anbieten können.",
+          "en": "There aren't any further options we can offer on our end."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 책임자분과 이야기할 수 있을까요? 급한 일정이라서요.",
+          "de": "Könnte ich dann mit einer verantwortlichen Person sprechen? Es ist ein dringender Termin.",
+          "en": "Could I speak with the person in charge, then? It's an urgent schedule."
+        },
+        {
+          "speaker": "manager",
+          "ko": "제가 담당 매니저입니다. 상황을 들어 보겠습니다.",
+          "de": "Ich bin der zuständige Manager. Ich höre mir die Situation an.",
+          "en": "I'm the manager in charge. Let me hear the situation."
+        },
+        {
+          "speaker": "user",
+          "ko": "기상 상황에도 불구하고 오늘 안에 다른 항공사 편으로라도 갈 방법이 있는지 궁금합니다.",
+          "de": "Ich frage mich, ob es trotz der Wetterlage eine Möglichkeit gibt, heute notfalls mit einer anderen Fluggesellschaft zu fliegen.",
+          "en": "I'm wondering whether, despite the weather situation, there's a way to fly with another airline today, even if that's what it takes."
+        },
+        {
+          "speaker": "manager",
+          "ko": "제휴 항공사 좌석을 확인해서 가능하면 오늘 중으로 연결해 드리도록 하겠습니다.",
+          "de": "Ich prüfe die Plätze bei der Partnerfluggesellschaft und werde versuchen, Sie noch heute umzubuchen.",
+          "en": "I'll check seats with our partner airline and arrange to get you connected today if possible."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_w10_travel_hear",
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "기상 상황에도 불구하고 오늘 안에 다른 항공사 편으로라도 갈 방법이 있는지 궁금합니다.",
+            "options": [
+              {
+                "de": "Ich frage mich, ob es trotz der Wetterlage eine Möglichkeit gibt, heute notfalls mit einer anderen Fluggesellschaft zu fliegen.",
+                "en": "I'm wondering whether, despite the weather situation, there's a way to fly with another airline today, even if that's what it takes."
+              },
+              {
+                "de": "Es tut mir leid, aber alle heutigen Flüge sind ausgefallen.",
+                "en": "I'm sorry, but all of today's flights have been cancelled."
+              },
+              {
+                "de": "Im Moment gibt es erst in zwei Tagen wieder einen Platz.",
+                "en": "Right now there's a seat available only in two days."
+              },
+              {
+                "de": "Von unserer Seite gibt es keine weiteren Optionen, die wir anbieten können.",
+                "en": "There aren't any further options we can offer on our end."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_w10_travel_translate",
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Ich prüfe die Plätze bei der Partnerfluggesellschaft und werde versuchen, Sie noch heute umzubuchen.",
+            "promptEn": "I'll check seats with our partner airline and arrange to get you connected today if possible.",
+            "options": [
+              {
+                "ko": "제휴 항공사 좌석을 확인해서 가능하면 오늘 중으로 연결해 드리도록 하겠습니다."
+              },
+              {
+                "ko": "죄송하지만 오늘 항공편이 전부 결항됐습니다."
+              },
+              {
+                "ko": "지금으로선 이틀 후에 자리가 있습니다."
+              },
+              {
+                "ko": "제가 담당 매니저입니다. 상황을 들어 보겠습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_w10_travel_build",
+          "type": "satzBauen",
+          "data": {
+            "targetKo": "그럼 책임자분과 이야기할 수 있을까요? 급한 일정이라서요.",
+            "promptDe": "Könnte ich dann mit einer verantwortlichen Person sprechen? Es ist ein dringender Termin.",
+            "promptEn": "Could I speak with the person in charge, then? It's an urgent schedule.",
+            "distractors": [
+              "결항됐습니다",
+              "옵션이"
+            ]
+          }
+        }
+      ],
+      "culturalNote": null,
+      "xpReward": 138
+    },
+    {
+      "id": "b2_w10_health",
+      "level": "b2",
+      "emoji": "💊",
+      "register": "polite",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "약 부작용, 미리 확인하기",
+        "de": "Nebenwirkungen vorab abklären",
+        "en": "Checking medication side effects in advance"
+      },
+      "intro": {
+        "ko": "레나가 처방약을 받으러 약국에 갔다가 졸림 부작용이 걱정돼서 대안을 물어봅니다.",
+        "de": "Lena geht in die Apotheke, um ihr verschriebenes Medikament abzuholen, und fragt wegen der Sorge vor der Nebenwirkung Müdigkeit nach einer Alternative.",
+        "en": "Lena goes to the pharmacy to pick up her prescribed medicine and asks about an alternative because she's worried about the drowsiness side effect."
+      },
+      "courseUnitId": "b2_03_precise_requests",
+      "playerCharacterId": "lena",
+      "participantIds": [
+        "lena",
+        "pharmacist"
+      ],
+      "relationshipContext": "service",
+      "intent": "ask_about_medication_side_effects_and_alternatives",
+      "shelf": "b2_health",
+      "backdrop": "pharmacy",
+      "vocab": [
+        {
+          "korean": "처방전",
+          "note": {
+            "ko": "의사가 약을 정해 적어 주는 문서",
+            "de": "Rezept",
+            "en": "prescription"
+          }
+        },
+        {
+          "korean": "부작용",
+          "note": {
+            "ko": "약을 먹었을 때 생기는 원치 않는 반응",
+            "de": "Nebenwirkung",
+            "en": "side effect"
+          }
+        },
+        {
+          "korean": "항히스타민제",
+          "note": {
+            "ko": "알레르기 증상을 줄여 주는 약",
+            "de": "Antihistaminikum",
+            "en": "antihistamine"
+          }
+        },
+        {
+          "korean": "식후",
+          "note": {
+            "ko": "밥을 먹은 뒤",
+            "de": "nach dem Essen",
+            "en": "after meals"
+          }
+        },
+        {
+          "korean": "효과",
+          "note": {
+            "ko": "약이나 방법이 만들어 내는 결과",
+            "de": "Wirkung",
+            "en": "effect"
+          }
+        },
+        {
+          "korean": "종류",
+          "note": {
+            "ko": "같은 무리 안에서 나뉘는 갈래",
+            "de": "Art/Sorte",
+            "en": "kind/type"
+          }
+        },
+        {
+          "korean": "처방 범위",
+          "note": {
+            "ko": "처방에서 허용되는 범위",
+            "de": "Verordnungsrahmen",
+            "en": "scope of the prescription"
+          }
+        }
+      ],
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "grammarIds": [
+        "grammar_b2_worry",
+        "grammar_b2_not_automatic_conclusion"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ까 봐",
+          "de": "V-(으)ㄹ까 봐: aus Sorge, dass",
+          "en": "V-(으)ㄹ까 봐: worried that"
+        },
+        "explanation": {
+          "ko": "어떤 일이 생길까 걱정돼서 미리 대비하거나 물어볼 때 -(으)ㄹ까 봐를 써요.",
+          "de": "Man benutzt -(으)ㄹ까 봐, wenn man aus Sorge, dass etwas passieren könnte, im Voraus vorsorgt oder nachfragt.",
+          "en": "Use -(으)ㄹ까 봐 when you ask or prepare in advance out of worry that something might happen."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "pharmacist",
+          "ko": "처방전 확인했습니다. 하루 세 번, 식후에 드시면 됩니다.",
+          "de": "Ich habe das Rezept geprüft. Sie nehmen es dreimal täglich nach dem Essen.",
+          "en": "I've checked the prescription. Take it three times a day after meals."
+        },
+        {
+          "speaker": "user",
+          "ko": "이 약 중에 부작용으로 졸릴 수 있는 게 있을까요? 오후에 수업이 있어서요.",
+          "de": "Gibt es unter diesen Medikamenten eines, das als Nebenwirkung müde machen kann? Ich habe nämlich nachmittags Unterricht.",
+          "en": "Is there one among these medicines where drowsiness is a side effect? I have class in the afternoon, you see."
+        },
+        {
+          "speaker": "pharmacist",
+          "ko": "이 항히스타민제는 졸릴 수 있는데, 졸릴까 봐 걱정되시면 저녁에만 드셔도 됩니다.",
+          "de": "Dieses Antihistaminikum kann müde machen, aber wenn Sie deswegen besorgt sind, können Sie es auch nur abends nehmen.",
+          "en": "This antihistamine can make you drowsy, but if you're worried about that, you can just take it in the evening only."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 낮에 먹을 건 덜 졸린 걸로 바꿀 수 있나요?",
+          "de": "Könnten Sie dann das, was ich tagsüber nehme, gegen etwas mit weniger Müdigkeit austauschen?",
+          "en": "Then could you swap what I take during the day for something less drowsy?"
+        },
+        {
+          "speaker": "pharmacist",
+          "ko": "네, 처방 범위 안에서 졸림이 덜한 종류로 바꿔 드리겠습니다. 다만 효과가 조금 늦게 나타날 수 있습니다.",
+          "de": "Ja, ich tausche es innerhalb des verordneten Rahmens gegen eine Sorte mit weniger Müdigkeit aus. Allerdings kann die Wirkung etwas später einsetzen.",
+          "en": "Yes, within what's allowed by the prescription, I'll swap it for a kind with less drowsiness. However, the effect may kick in a bit later."
+        },
+        {
+          "speaker": "user",
+          "ko": "효과가 늦게 나타난다고 해서 안 듣는 것은 아니죠?",
+          "de": "Nur weil die Wirkung später einsetzt, heißt das doch nicht, dass es nicht wirkt, oder?",
+          "en": "Just because the effect kicks in later doesn't mean it won't work, right?"
+        },
+        {
+          "speaker": "pharmacist",
+          "ko": "네, 시간이 조금 더 걸릴 뿐이고 효과는 똑같습니다.",
+          "de": "Richtig, es dauert nur etwas länger, die Wirkung ist dieselbe.",
+          "en": "Right, it just takes a bit longer, but the effect is the same."
+        },
+        {
+          "speaker": "user",
+          "ko": "알겠습니다. 그럼 그 약으로 부탁드립니다.",
+          "de": "Verstanden. Dann nehme ich bitte dieses Medikament.",
+          "en": "Got it. Then I'll go with that medicine, please."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_w10_health_hear",
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "네, 처방 범위 안에서 졸림이 덜한 종류로 바꿔 드리겠습니다. 다만 효과가 조금 늦게 나타날 수 있습니다.",
+            "options": [
+              {
+                "de": "Ja, ich tausche es innerhalb des verordneten Rahmens gegen eine Sorte mit weniger Müdigkeit aus. Allerdings kann die Wirkung etwas später einsetzen.",
+                "en": "Yes, within what's allowed by the prescription, I'll swap it for a kind with less drowsiness. However, the effect may kick in a bit later."
+              },
+              {
+                "de": "Ich habe das Rezept geprüft. Sie nehmen es dreimal täglich nach dem Essen.",
+                "en": "I've checked the prescription. Take it three times a day after meals."
+              },
+              {
+                "de": "Dieses Antihistaminikum kann müde machen, aber wenn Sie deswegen besorgt sind, können Sie es auch nur abends nehmen.",
+                "en": "This antihistamine can make you drowsy, but if you're worried about that, you can just take it in the evening only."
+              },
+              {
+                "de": "Richtig, es dauert nur etwas länger, die Wirkung ist dieselbe.",
+                "en": "Right, it just takes a bit longer, but the effect is the same."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_w10_health_translate",
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Nur weil die Wirkung später einsetzt, heißt das doch nicht, dass es nicht wirkt, oder?",
+            "promptEn": "Just because the effect kicks in later doesn't mean it won't work, right?",
+            "options": [
+              {
+                "ko": "효과가 늦게 나타난다고 해서 안 듣는 것은 아니죠?"
+              },
+              {
+                "ko": "이 약 중에 부작용으로 졸릴 수 있는 게 있을까요? 오후에 수업이 있어서요."
+              },
+              {
+                "ko": "그럼 낮에 먹을 건 덜 졸린 걸로 바꿀 수 있나요?"
+              },
+              {
+                "ko": "알겠습니다. 그럼 그 약으로 부탁드립니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_w10_health_build",
+          "type": "satzBauen",
+          "data": {
+            "targetKo": "알겠습니다. 그럼 그 약으로 부탁드립니다.",
+            "promptDe": "Verstanden. Dann nehme ich bitte dieses Medikament.",
+            "promptEn": "Got it. Then I'll go with that medicine, please.",
+            "distractors": [
+              "처방전",
+              "항히스타민제는"
+            ]
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "약 봉지로 나오는 조제약",
+          "de": "Medikamente in Tagesportionsbeuteln",
+          "en": "Medicine sorted into daily pouches"
+        },
+        "body": {
+          "ko": "한국 약국에서는 처방약을 낱알 그대로 주기보다 하루 세 번, 며칠 분을 작은 봉지에 나눠 담아 주는 경우가 많아서 언제 먹을 약인지 헷갈리지 않아요.",
+          "de": "In koreanischen Apotheken werden verschreibungspflichtige Medikamente oft nicht lose abgegeben, sondern für mehrere Tage in kleine Tütchen nach Einnahmezeit sortiert, sodass man nicht durcheinanderkommt, wann man was nehmen soll.",
+          "en": "Korean pharmacies often don't hand out prescribed pills loose but instead sort several days' worth into small pouches by time of day, so it's easy to keep track of when to take what."
+        }
+      },
+      "xpReward": 130
+    },
+    {
+      "id": "b2_w10_partner",
+      "level": "b2",
+      "emoji": "👪",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "title": {
+        "ko": "미리 알려 주는 게 좋겠어",
+        "de": "Es wäre besser, vorher Bescheid zu geben",
+        "en": "It would be better to let us know in advance"
+      },
+      "intro": {
+        "ko": "부모님이 예고 없이 자주 찾아오자 크리스티안이 조심스럽게 미리 연락해 달라고 부탁하고 싶어 합니다.",
+        "de": "Weil Sujins Eltern oft unangekündigt vorbeikommen, möchte Christian sie behutsam bitten, vorher Bescheid zu geben.",
+        "en": "Since Sujin's parents often drop by without notice, Christian wants to gently ask them to let them know in advance."
+      },
+      "courseUnitId": "b2_06_advanced_capstone",
+      "playerCharacterId": "christian",
+      "participantIds": [
+        "christian",
+        "sujin"
+      ],
+      "relationshipContext": "romantic_partner",
+      "intent": "negotiate_a_boundary_about_family_visits",
+      "shelf": "b2_partner",
+      "backdrop": "home",
+      "vocab": [
+        {
+          "korean": "부모님",
+          "note": {
+            "ko": "아버지와 어머니를 높여 부르는 말",
+            "de": "Eltern",
+            "en": "parents"
+          }
+        },
+        {
+          "korean": "화상 회의",
+          "note": {
+            "ko": "화면으로 얼굴을 보면서 하는 회의",
+            "de": "Videokonferenz",
+            "en": "video conference"
+          }
+        },
+        {
+          "korean": "부담",
+          "note": {
+            "ko": "힘들거나 불편하게 느껴지는 것",
+            "de": "Belastung",
+            "en": "burden"
+          }
+        },
+        {
+          "korean": "문자",
+          "note": {
+            "ko": "휴대폰으로 보내는 짧은 글",
+            "de": "SMS/Textnachricht",
+            "en": "text message"
+          }
+        },
+        {
+          "korean": "미리",
+          "note": {
+            "ko": "어떤 일이 일어나기 전에",
+            "de": "im Voraus",
+            "en": "in advance"
+          }
+        },
+        {
+          "korean": "곤란할 뿐만 아니라",
+          "note": {
+            "ko": "곤란한 데다가 다른 문제도 있다는 말",
+            "de": "nicht nur schwierig, sondern auch",
+            "en": "not only awkward but also"
+          }
+        },
+        {
+          "korean": "당황스러워",
+          "note": {
+            "ko": "갑작스러운 일에 놀라고 어찌할 바를 모른다는 말",
+            "de": "verwirrt/peinlich berührt",
+            "en": "flustered/embarrassed"
+          }
+        }
+      ],
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "grammarIds": [
+        "grammar_b2_contrast",
+        "grammar_b2_not_only"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-는 반면에",
+          "de": "V-는 반면에: während andererseits",
+          "en": "V-는 반면에: while, on the other hand"
+        },
+        "explanation": {
+          "ko": "한 상황의 좋은 점과 다른 사람에게는 힘든 점처럼 대조되는 두 면을 말할 때 -는 반면에를 써요.",
+          "de": "Man benutzt -는 반면에, um zwei gegensätzliche Seiten einer Situation zu benennen, z. B. einen Vorteil für die eine und eine Belastung für die andere Person.",
+          "en": "Use -는 반면에 to point out two contrasting sides of a situation, like a benefit for one person and a burden for another."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "저기, 요즘 부모님이 갑자기 오시는 일이 잦아진 것 같아.",
+          "de": "Also, in letzter Zeit kommen deine Eltern öfter ganz plötzlich vorbei, oder?",
+          "en": "So, it seems like your parents have been dropping by suddenly more often lately."
+        },
+        {
+          "speaker": "sujin",
+          "ko": "어, 그런가? 나는 별로 신경 안 썼는데.",
+          "de": "Ach, wirklich? Mir ist das gar nicht so aufgefallen.",
+          "en": "Oh, really? I hadn't really noticed."
+        },
+        {
+          "speaker": "user",
+          "ko": "부모님이 오시는 건 좋은데, 갑자기 오시면 나도 준비할 시간이 필요해.",
+          "de": "Es ist schön, dass deine Eltern kommen, aber wenn sie plötzlich kommen, brauche ich auch Zeit, mich vorzubereiten.",
+          "en": "It's nice that your parents come, but when it's sudden, I also need time to get ready."
+        },
+        {
+          "speaker": "sujin",
+          "ko": "부모님은 연락 없이 오시는 게 편하신 반면에 너한테는 부담일 수도 있겠다.",
+          "de": "Für deine Eltern ist es bequem, ohne vorherige Ankündigung zu kommen, aber für dich könnte das andererseits eine Belastung sein.",
+          "en": "It's convenient for your parents to come without notice, but that might be a burden for you, on the other hand."
+        },
+        {
+          "speaker": "user",
+          "ko": "맞아. 특히 화상 회의가 있을 때는 갑자기 오시면 곤란할 뿐만 아니라 좀 당황스러워.",
+          "de": "Genau. Besonders wenn ich eine Videokonferenz habe, ist es nicht nur schwierig, wenn sie plötzlich kommen, sondern auch ziemlich peinlich.",
+          "en": "Exactly. Especially when I have a video conference, it's not only awkward if they come suddenly, but also kind of embarrassing."
+        },
+        {
+          "speaker": "sujin",
+          "ko": "그럼 몇 시간 전에라도 문자로 미리 알려 달라고 부탁드려 볼까?",
+          "de": "Sollen wir sie dann bitten, wenigstens ein paar Stunden vorher per SMS Bescheid zu geben?",
+          "en": "Should we ask them to at least text us a few hours ahead, then?"
+        },
+        {
+          "speaker": "user",
+          "ko": "응, 그 정도면 나도 충분히 준비할 수 있을 것 같아.",
+          "de": "Ja, das würde mir wahrscheinlich reichen, um mich vorzubereiten.",
+          "en": "Yeah, that should be enough time for me to get ready."
+        },
+        {
+          "speaker": "sujin",
+          "ko": "알겠어. 오늘 저녁에 부모님께 자연스럽게 말씀드려 볼게.",
+          "de": "Alles klar. Ich spreche es heute Abend ganz natürlich bei meinen Eltern an.",
+          "en": "Okay. I'll bring it up naturally with my parents this evening."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_w10_partner_hear",
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "맞아. 특히 화상 회의가 있을 때는 갑자기 오시면 곤란할 뿐만 아니라 좀 당황스러워.",
+            "options": [
+              {
+                "de": "Genau. Besonders wenn ich eine Videokonferenz habe, ist es nicht nur schwierig, wenn sie plötzlich kommen, sondern auch ziemlich peinlich.",
+                "en": "Exactly. Especially when I have a video conference, it's not only awkward if they come suddenly, but also kind of embarrassing."
+              },
+              {
+                "de": "Ach, wirklich? Mir ist das gar nicht so aufgefallen.",
+                "en": "Oh, really? I hadn't really noticed."
+              },
+              {
+                "de": "Für deine Eltern ist es bequem, ohne vorherige Ankündigung zu kommen, aber für dich könnte das andererseits eine Belastung sein.",
+                "en": "It's convenient for your parents to come without notice, but that might be a burden for you, on the other hand."
+              },
+              {
+                "de": "Sollen wir sie dann bitten, wenigstens ein paar Stunden vorher per SMS Bescheid zu geben?",
+                "en": "Should we ask them to at least text us a few hours ahead, then?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_w10_partner_translate",
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Alles klar. Ich spreche es heute Abend ganz natürlich bei meinen Eltern an.",
+            "promptEn": "Okay. I'll bring it up naturally with my parents this evening.",
+            "options": [
+              {
+                "ko": "알겠어. 오늘 저녁에 부모님께 자연스럽게 말씀드려 볼게."
+              },
+              {
+                "ko": "어, 그런가? 나는 별로 신경 안 썼는데."
+              },
+              {
+                "ko": "부모님은 연락 없이 오시는 게 편하신 반면에 너한테는 부담일 수도 있겠다."
+              },
+              {
+                "ko": "그럼 몇 시간 전에라도 문자로 미리 알려 달라고 부탁드려 볼까?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_w10_partner_build",
+          "type": "satzBauen",
+          "data": {
+            "targetKo": "부모님이 오시는 건 좋은데, 갑자기 오시면 나도 준비할 시간이 필요해.",
+            "promptDe": "Es ist schön, dass deine Eltern kommen, aber wenn sie plötzlich kommen, brauche ich auch Zeit, mich vorzubereiten.",
+            "promptEn": "It's nice that your parents come, but when it's sudden, I also need time to get ready.",
+            "distractors": [
+              "화상 회의가",
+              "문자로"
+            ]
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "예고 없이 찾아오는 부모님",
+          "de": "Eltern, die unangekündigt vorbeikommen",
+          "en": "Parents who drop by unannounced"
+        },
+        "body": {
+          "ko": "한국에서는 부모와 자녀가 가까이 살면 미리 약속하지 않고 편하게 들르는 경우가 흔한 편이라, 상대에게 부담이 될 수 있다는 점을 조심스럽게 이야기하는 게 자연스러워요.",
+          "de": "In Korea ist es bei Eltern und Kindern, die nah beieinander wohnen, recht üblich, ohne vorherige Verabredung einfach vorbeizuschauen; deshalb ist es üblich, behutsam anzusprechen, dass das für die andere Person eine Belastung sein kann.",
+          "en": "In Korea, when parents and adult children live close by, it's fairly common to drop in casually without arranging it in advance, so it's natural to gently bring up that this might be a burden for the other person."
+        }
+      },
+      "xpReward": 140
+    },
+    {
+      "id": "b2_w10_hiring",
+      "level": "b2",
+      "emoji": "💼",
+      "register": "business",
+      "speechStyle": "business",
+      "title": {
+        "ko": "약점도 솔직하게, 조건도 정확하게",
+        "de": "Schwächen ehrlich, Bedingungen genau",
+        "en": "Honest about weaknesses, precise about conditions"
+      },
+      "intro": {
+        "ko": "현아가 논문을 쓰면서 할 수 있는 연구 보조 자리에 지원해 강점과 약점을 설명하고 근무 조건을 조율합니다.",
+        "de": "Hyuna bewirbt sich auf eine Stelle als wissenschaftliche Hilfskraft, die sie neben ihrer Abschlussarbeit ausüben kann, erklärt ihre Stärken und Schwächen und stimmt die Arbeitsbedingungen ab.",
+        "en": "Hyuna applies for a research assistant position she can do while writing her thesis, explains her strengths and weaknesses, and works out the conditions."
+      },
+      "courseUnitId": "b2_05_interview",
+      "playerCharacterId": "hyuna",
+      "participantIds": [
+        "hyuna",
+        "interviewer"
+      ],
+      "relationshipContext": "job_candidate",
+      "intent": "discuss_weaknesses_and_negotiate_part_time_conditions",
+      "shelf": "b2_hiring",
+      "backdrop": "office",
+      "vocab": [
+        {
+          "korean": "강점",
+          "note": {
+            "ko": "남보다 뛰어난 점",
+            "de": "Stärke",
+            "en": "strength"
+          }
+        },
+        {
+          "korean": "약점",
+          "note": {
+            "ko": "부족하거나 약한 점",
+            "de": "Schwäche",
+            "en": "weakness"
+          }
+        },
+        {
+          "korean": "마감",
+          "note": {
+            "ko": "일을 끝내야 하는 시점",
+            "de": "Frist/Abgabetermin",
+            "en": "deadline"
+          }
+        },
+        {
+          "korean": "정확성",
+          "note": {
+            "ko": "틀리지 않고 정확한 정도",
+            "de": "Genauigkeit",
+            "en": "accuracy"
+          }
+        },
+        {
+          "korean": "조건",
+          "note": {
+            "ko": "일이 이루어지기 위한 요구 사항",
+            "de": "Bedingung",
+            "en": "condition"
+          }
+        },
+        {
+          "korean": "근무 요일",
+          "note": {
+            "ko": "일하기로 정해진 요일",
+            "de": "Arbeitstag",
+            "en": "work day"
+          }
+        },
+        {
+          "korean": "지도 교수님",
+          "note": {
+            "ko": "논문을 지도해 주는 교수",
+            "de": "Betreuer/Doktorvater",
+            "en": "thesis advisor"
+          }
+        }
+      ],
+      "conceptIds": [
+        "concept_b2_interview"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "grammarIds": [
+        "grammar_b2_not_only",
+        "grammar_b2_despite"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ 뿐만 아니라",
+          "de": "V-(으)ㄹ 뿐만 아니라: nicht nur ... sondern auch",
+          "en": "V-(으)ㄹ 뿐만 아니라: not only ... but also"
+        },
+        "explanation": {
+          "ko": "한 가지 장점에 다른 장점을 덧붙여 강조할 때 -(으)ㄹ 뿐만 아니라를 써요.",
+          "de": "Man benutzt -(으)ㄹ 뿐만 아니라, um zu einem Vorteil einen weiteren hinzuzufügen und zu betonen.",
+          "en": "Use -(으)ㄹ 뿐만 아니라 to add one more strength to another and emphasize both."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "interviewer",
+          "ko": "지원자님의 강점과 약점을 하나씩 말씀해 주시겠어요?",
+          "de": "Könnten Sie uns jeweils eine Stärke und eine Schwäche von sich nennen?",
+          "en": "Could you tell us one strength and one weakness of yours?"
+        },
+        {
+          "speaker": "user",
+          "ko": "저는 자료를 꼼꼼히 확인할 뿐만 아니라 근거 없는 결론은 내리지 않는 편입니다.",
+          "de": "Ich prüfe Unterlagen nicht nur sorgfältig, sondern ziehe auch keine Schlüsse ohne Grundlage.",
+          "en": "I not only check materials carefully, but I also don't draw conclusions without evidence."
+        },
+        {
+          "speaker": "interviewer",
+          "ko": "약점은 어떤 부분이라고 생각하세요?",
+          "de": "Und was denken Sie, ist Ihre Schwäche?",
+          "en": "And what do you think your weakness is?"
+        },
+        {
+          "speaker": "user",
+          "ko": "마감이 촉박한데도 불구하고 속도보다 정확성을 먼저 챙기는 편이라 가끔 느리다는 말을 듣습니다.",
+          "de": "Obwohl die Frist knapp ist, kümmere ich mich zuerst um Genauigkeit statt um Geschwindigkeit, weshalb ich manchmal höre, ich sei langsam.",
+          "en": "Even though deadlines are tight, I tend to prioritize accuracy over speed, so I sometimes hear that I'm slow."
+        },
+        {
+          "speaker": "interviewer",
+          "ko": "이 자리는 논문을 쓰시는 동안 주 삼 일만 근무하시면 되는데 괜찮으신가요?",
+          "de": "Diese Stelle erfordert nur drei Tage pro Woche, während Sie an Ihrer Abschlussarbeit schreiben. Ist das für Sie in Ordnung?",
+          "en": "This position only requires three days a week while you're writing your thesis. Is that okay with you?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 그 조건이면 논문 일정도 지킬 수 있을 것 같습니다.",
+          "de": "Ja, mit dieser Bedingung könnte ich auch meinen Abschlussarbeit-Zeitplan einhalten.",
+          "en": "Yes, with that condition I think I could also keep up with my thesis schedule."
+        },
+        {
+          "speaker": "interviewer",
+          "ko": "근무 요일은 화, 목, 금으로 고정하려고 하는데 괜찮으신가요?",
+          "de": "Wir planen, die Arbeitstage auf Dienstag, Donnerstag und Freitag festzulegen. Passt das für Sie?",
+          "en": "We're planning to fix the work days as Tuesday, Thursday, and Friday. Does that work for you?"
+        },
+        {
+          "speaker": "user",
+          "ko": "화요일은 지도 교수님과 상담이 있어서 수요일로 바꿀 수 있을까요?",
+          "de": "Am Dienstag habe ich ein Gespräch mit meinem Betreuer, könnten wir das auf Mittwoch verschieben?",
+          "en": "I have a meeting with my advisor on Tuesdays. Could we change that to Wednesday instead?"
+        },
+        {
+          "speaker": "interviewer",
+          "ko": "네, 수요일로 조정해서 다시 안내해 드리겠습니다.",
+          "de": "Ja, ich passe es auf Mittwoch an und gebe Ihnen erneut Bescheid.",
+          "en": "Yes, I'll adjust it to Wednesday and let you know again."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_w10_hiring_hear",
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "이 자리는 논문을 쓰시는 동안 주 삼 일만 근무하시면 되는데 괜찮으신가요?",
+            "options": [
+              {
+                "de": "Diese Stelle erfordert nur drei Tage pro Woche, während Sie an Ihrer Abschlussarbeit schreiben. Ist das für Sie in Ordnung?",
+                "en": "This position only requires three days a week while you're writing your thesis. Is that okay with you?"
+              },
+              {
+                "de": "Könnten Sie uns jeweils eine Stärke und eine Schwäche von sich nennen?",
+                "en": "Could you tell us one strength and one weakness of yours?"
+              },
+              {
+                "de": "Und was denken Sie, ist Ihre Schwäche?",
+                "en": "And what do you think your weakness is?"
+              },
+              {
+                "de": "Wir planen, die Arbeitstage auf Dienstag, Donnerstag und Freitag festzulegen. Passt das für Sie?",
+                "en": "We're planning to fix the work days as Tuesday, Thursday, and Friday. Does that work for you?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_w10_hiring_translate",
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Obwohl die Frist knapp ist, kümmere ich mich zuerst um Genauigkeit statt um Geschwindigkeit, weshalb ich manchmal höre, ich sei langsam.",
+            "promptEn": "Even though deadlines are tight, I tend to prioritize accuracy over speed, so I sometimes hear that I'm slow.",
+            "options": [
+              {
+                "ko": "마감이 촉박한데도 불구하고 속도보다 정확성을 먼저 챙기는 편이라 가끔 느리다는 말을 듣습니다."
+              },
+              {
+                "ko": "저는 자료를 꼼꼼히 확인할 뿐만 아니라 근거 없는 결론은 내리지 않는 편입니다."
+              },
+              {
+                "ko": "네, 그 조건이면 논문 일정도 지킬 수 있을 것 같습니다."
+              },
+              {
+                "ko": "화요일은 지도 교수님과 상담이 있어서 수요일로 바꿀 수 있을까요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_w10_hiring_build",
+          "type": "satzBauen",
+          "data": {
+            "targetKo": "네, 수요일로 조정해서 다시 안내해 드리겠습니다.",
+            "promptDe": "Ja, ich passe es auf Mittwoch an und gebe Ihnen erneut Bescheid.",
+            "promptEn": "Yes, I'll adjust it to Wednesday and let you know again.",
+            "distractors": [
+              "지도 교수님과",
+              "근무 요일은"
+            ]
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "지도 교수님과의 정기 상담",
+          "de": "Regelmäßige Gespräche mit dem Betreuer",
+          "en": "Regular meetings with one's thesis advisor"
+        },
+        "body": {
+          "ko": "한국의 대학원에서는 지도 교수님과 정기적으로 만나 논문 진행 상황을 확인받는 것이 일반적이라, 아르바이트나 근무 일정을 짤 때도 그 상담 시간을 먼저 고려하는 경우가 많아요.",
+          "de": "An koreanischen Universitäten ist es üblich, sich regelmäßig mit dem Betreuer zu treffen, um den Fortschritt der Abschlussarbeit zu besprechen; deshalb wird dieser Termin bei der Planung von Nebenjobs oder Arbeitszeiten oft zuerst berücksichtigt.",
+          "en": "At Korean graduate schools, it's common to meet regularly with one's thesis advisor to check on progress, so that meeting time is often the first thing considered when scheduling part-time work."
+        }
+      },
+      "xpReward": 133
+    },
+    {
+      "id": "b2_w10_authorities",
+      "level": "b2",
+      "emoji": "🛂",
+      "register": "polite",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "체류 기간 연장, 늦기 전에 묻기",
+        "de": "Aufenthaltsverlängerung: rechtzeitig nachfragen",
+        "en": "Visa extension: asking before it's too late"
+      },
+      "intro": {
+        "ko": "레나가 체류 기간이 끝나기 전에 출입국사무소에서 연장 신청 기한과 필요 서류를 확인합니다.",
+        "de": "Bevor ihr Aufenthalt endet, erkundigt sich Lena bei der Ausländerbehörde nach der Frist und den nötigen Unterlagen für die Verlängerung.",
+        "en": "Before her stay period ends, Lena asks at the immigration office about the deadline and documents needed for an extension."
+      },
+      "courseUnitId": "b2_01_formal_opening",
+      "playerCharacterId": "lena",
+      "participantIds": [
+        "lena",
+        "official"
+      ],
+      "relationshipContext": "official",
+      "intent": "ask_about_a_visa_extension_deadline_and_consequences",
+      "shelf": "b2_authorities",
+      "backdrop": "office",
+      "vocab": [
+        {
+          "korean": "체류 기간",
+          "note": {
+            "ko": "한 나라에 머물러도 되는 기간",
+            "de": "Aufenthaltszeitraum",
+            "en": "period of stay"
+          }
+        },
+        {
+          "korean": "연장",
+          "note": {
+            "ko": "기간이나 길이를 늘리는 것",
+            "de": "Verlängerung",
+            "en": "extension"
+          }
+        },
+        {
+          "korean": "만료일",
+          "note": {
+            "ko": "효력이 끝나는 날짜",
+            "de": "Ablaufdatum",
+            "en": "expiration date"
+          }
+        },
+        {
+          "korean": "불법체류",
+          "note": {
+            "ko": "허가된 기간을 넘겨 머무는 것",
+            "de": "illegaler Aufenthalt",
+            "en": "illegal stay/overstay"
+          }
+        },
+        {
+          "korean": "재학증명서",
+          "note": {
+            "ko": "학교에 다니고 있음을 증명하는 서류",
+            "de": "Immatrikulationsbescheinigung",
+            "en": "certificate of enrollment"
+          }
+        },
+        {
+          "korean": "통장 잔고 증명서",
+          "note": {
+            "ko": "통장에 남은 돈을 증명하는 서류",
+            "de": "Kontostandsnachweis",
+            "en": "bank balance certificate"
+          }
+        },
+        {
+          "korean": "등록금",
+          "note": {
+            "ko": "학교에 내는 수업료",
+            "de": "Studiengebühr",
+            "en": "tuition fee"
+          }
+        }
+      ],
+      "conceptIds": [
+        "concept_b2_formal_opening"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "grammarIds": [
+        "grammar_b2_negative_consequence",
+        "grammar_b2_formal_cause"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-다가는",
+          "de": "V-다가는: wenn man so weitermacht, dann...",
+          "en": "V-다가는: if you keep doing X, then..."
+        },
+        "explanation": {
+          "ko": "지금 상태를 계속하면 나쁜 결과가 생길 거라고 경고할 때 -다가는을 써요.",
+          "de": "Man benutzt -다가는, um zu warnen, dass eine schlechte Folge eintritt, wenn man den jetzigen Zustand fortsetzt.",
+          "en": "Use -다가는 to warn that a bad result will happen if the current state continues."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "official",
+          "ko": "안녕하세요. 오늘은 어떤 업무로 오셨어요?",
+          "de": "Guten Tag. Weswegen sind Sie heute hier?",
+          "en": "Hello. What brings you in today?"
+        },
+        {
+          "speaker": "user",
+          "ko": "체류 기간 연장 신청 때문에 왔는데요, 언제까지 신청해야 하나요?",
+          "de": "Ich bin wegen der Verlängerung meines Aufenthaltszeitraums hier. Bis wann muss ich das beantragen?",
+          "en": "I'm here about extending my stay period. By when do I need to apply?"
+        },
+        {
+          "speaker": "official",
+          "ko": "만료일 네 달 전부터 신청하실 수 있고, 만료일 전까지는 꼭 접수하셔야 합니다.",
+          "de": "Sie können den Antrag ab vier Monaten vor dem Ablaufdatum stellen, müssen ihn aber unbedingt vor dem Ablaufdatum einreichen.",
+          "en": "You can apply starting four months before the expiration date, but you must be sure to submit it before the expiration date."
+        },
+        {
+          "speaker": "user",
+          "ko": "만약 그 날짜를 놓치면 어떻게 되나요?",
+          "de": "Was passiert, wenn ich dieses Datum verpasse?",
+          "en": "What happens if I miss that date?"
+        },
+        {
+          "speaker": "official",
+          "ko": "기한을 놓치다가는 불법체류로 처리되어서 벌금은 물론 앞으로 비자 발급에도 불이익이 있을 수 있습니다.",
+          "de": "Wenn Sie die Frist verpassen, kann das als illegaler Aufenthalt gewertet werden, wodurch nicht nur eine Geldstrafe, sondern auch Nachteile bei künftigen Visa entstehen können.",
+          "en": "If you miss the deadline, it can be treated as an illegal stay, which can result in a fine as well as disadvantages for future visa issuance."
+        },
+        {
+          "speaker": "user",
+          "ko": "그렇군요. 필요한 서류는 어떤 것들이 있나요?",
+          "de": "Verstehe. Welche Unterlagen werden benötigt?",
+          "en": "I see. What documents are needed?"
+        },
+        {
+          "speaker": "official",
+          "ko": "재학증명서와 통장 잔고 증명서가 필요합니다. 잔고가 부족하면 등록금 납부 영수증으로 대체할 수 있습니다.",
+          "de": "Sie benötigen eine Immatrikulationsbescheinigung und einen Kontostandsnachweis. Sollte der Kontostand zu niedrig sein, können Sie das durch eine Quittung über die gezahlte Studiengebühr ersetzen.",
+          "en": "You need a certificate of enrollment and a bank balance certificate. If your balance is low, you can substitute a tuition payment receipt."
+        },
+        {
+          "speaker": "user",
+          "ko": "알겠습니다. 서류는 이번 주 안에 준비해서 다시 오겠습니다.",
+          "de": "Verstanden. Ich bereite die Unterlagen diese Woche vor und komme dann wieder.",
+          "en": "Understood. I'll prepare the documents this week and come back."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_w10_authorities_hear",
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "기한을 놓치다가는 불법체류로 처리되어서 벌금은 물론 앞으로 비자 발급에도 불이익이 있을 수 있습니다.",
+            "options": [
+              {
+                "de": "Wenn Sie die Frist verpassen, kann das als illegaler Aufenthalt gewertet werden, wodurch nicht nur eine Geldstrafe, sondern auch Nachteile bei künftigen Visa entstehen können.",
+                "en": "If you miss the deadline, it can be treated as an illegal stay, which can result in a fine as well as disadvantages for future visa issuance."
+              },
+              {
+                "de": "Guten Tag. Weswegen sind Sie heute hier?",
+                "en": "Hello. What brings you in today?"
+              },
+              {
+                "de": "Sie können den Antrag ab vier Monaten vor dem Ablaufdatum stellen, müssen ihn aber unbedingt vor dem Ablaufdatum einreichen.",
+                "en": "You can apply starting four months before the expiration date, but you must be sure to submit it before the expiration date."
+              },
+              {
+                "de": "Sie benötigen eine Immatrikulationsbescheinigung und einen Kontostandsnachweis. Sollte der Kontostand zu niedrig sein, können Sie das durch eine Quittung über die gezahlte Studiengebühr ersetzen.",
+                "en": "You need a certificate of enrollment and a bank balance certificate. If your balance is low, you can substitute a tuition payment receipt."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_w10_authorities_translate",
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Ich bin wegen der Verlängerung meines Aufenthaltszeitraums hier. Bis wann muss ich das beantragen?",
+            "promptEn": "I'm here about extending my stay period. By when do I need to apply?",
+            "options": [
+              {
+                "ko": "체류 기간 연장 신청 때문에 왔는데요, 언제까지 신청해야 하나요?"
+              },
+              {
+                "ko": "만약 그 날짜를 놓치면 어떻게 되나요?"
+              },
+              {
+                "ko": "그렇군요. 필요한 서류는 어떤 것들이 있나요?"
+              },
+              {
+                "ko": "알겠습니다. 서류는 이번 주 안에 준비해서 다시 오겠습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_w10_authorities_build",
+          "type": "satzBauen",
+          "data": {
+            "targetKo": "알겠습니다. 서류는 이번 주 안에 준비해서 다시 오겠습니다.",
+            "promptDe": "Verstanden. Ich bereite die Unterlagen diese Woche vor und komme dann wieder.",
+            "promptEn": "Understood. I'll prepare the documents this week and come back.",
+            "distractors": [
+              "통장 잔고",
+              "만료일"
+            ]
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "체류 기간 연장과 정확한 기한",
+          "de": "Aufenthaltsverlängerung und die genaue Frist",
+          "en": "Visa extension and the exact deadline"
+        },
+        "body": {
+          "ko": "한국에서는 체류 기간이 하루라도 지나면 바로 불법체류로 처리될 수 있어서, 서류를 다 갖추지 못했더라도 만료일 전에 일단 신청 접수부터 해 두는 게 안전해요.",
+          "de": "In Korea kann schon ein einziger Tag nach Ablauf der Aufenthaltsfrist als illegaler Aufenthalt gelten; deshalb ist es sicherer, den Antrag vor dem Ablaufdatum einzureichen, selbst wenn noch nicht alle Unterlagen vollständig sind.",
+          "en": "In Korea, even a single day past your stay's expiration date can be treated as an illegal stay, so it's safer to at least submit your application before the deadline, even if you don't have every document ready yet."
+        }
+      },
+      "xpReward": 136
+    },
+    {
+      "id": "b2_w10_privacy",
+      "level": "b2",
+      "emoji": "🔒",
+      "register": "polite",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "안 쓰는 계정, 정보까지 삭제 요청하기",
+        "de": "Ungenutztes Konto: auch die Daten löschen lassen",
+        "en": "An unused account: requesting the data be deleted too"
+      },
+      "intro": {
+        "ko": "안드레아가 오래전에 만든 계정에 남은 개인 정보를 확인하고 삭제를 요청합니다.",
+        "de": "Andrea prüft, welche persönlichen Daten in einem lange nicht genutzten Konto noch gespeichert sind, und lässt sie löschen.",
+        "en": "Andrea checks what personal data remains in an account she made long ago and requests that it be deleted."
+      },
+      "courseUnitId": "b2_03_precise_requests",
+      "playerCharacterId": "andrea",
+      "participantIds": [
+        "andrea",
+        "official"
+      ],
+      "relationshipContext": "service",
+      "intent": "request_personal_data_deletion_and_confirm_what_is_stored",
+      "shelf": "b2_privacy",
+      "backdrop": "home",
+      "vocab": [
+        {
+          "korean": "연락처",
+          "note": {
+            "ko": "전화번호 같은 연락 정보",
+            "de": "Kontaktdaten",
+            "en": "contact information"
+          }
+        },
+        {
+          "korean": "결제 내역",
+          "note": {
+            "ko": "돈을 낸 기록",
+            "de": "Zahlungsverlauf",
+            "en": "payment history"
+          }
+        },
+        {
+          "korean": "삭제",
+          "note": {
+            "ko": "있던 것을 없애는 것",
+            "de": "Löschung",
+            "en": "deletion"
+          }
+        },
+        {
+          "korean": "본인 확인",
+          "note": {
+            "ko": "본인이 맞는지 확인하는 절차",
+            "de": "Identitätsprüfung",
+            "en": "identity verification"
+          }
+        },
+        {
+          "korean": "인증 링크",
+          "note": {
+            "ko": "확인을 위해 누르는 인터넷 주소",
+            "de": "Bestätigungslink",
+            "en": "verification link"
+          }
+        },
+        {
+          "korean": "계정",
+          "note": {
+            "ko": "서비스에 가입해서 만든 개인 자리",
+            "de": "Konto/Account",
+            "en": "account"
+          }
+        },
+        {
+          "korean": "저장",
+          "note": {
+            "ko": "자료를 없어지지 않게 보관하는 것",
+            "de": "Speicherung",
+            "en": "storage"
+          }
+        }
+      ],
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "grammarIds": [
+        "grammar_b2_include_total_scope",
+        "grammar_b2_explicit_formal_request"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N까지 포함해서",
+          "de": "N까지 포함해서: einschließlich bis hin zu",
+          "en": "N까지 포함해서: including even"
+        },
+        "explanation": {
+          "ko": "빠뜨리기 쉬운 항목까지 전부 넣어서 범위를 분명히 할 때 -까지 포함해서를 써요.",
+          "de": "Man benutzt -까지 포함해서, um auch leicht zu übersehende Punkte mit einzuschließen und den Umfang klarzustellen.",
+          "en": "Use -까지 포함해서 to explicitly include even easy-to-overlook items and make the scope clear."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "몇 년 전에 가입한 계정인데 지금 어떤 정보가 저장되어 있는지 확인하고 싶습니다.",
+          "de": "Das ist ein Konto, das ich vor einigen Jahren angelegt habe. Ich möchte prüfen, welche Daten aktuell gespeichert sind.",
+          "en": "This is an account I signed up for a few years ago. I'd like to check what information is currently stored."
+        },
+        {
+          "speaker": "official",
+          "ko": "네, 확인해 보니 이름과 연락처, 결제 내역이 남아 있습니다.",
+          "de": "Ja, laut unserer Prüfung sind Name, Kontaktdaten und Zahlungsverlauf noch gespeichert.",
+          "en": "Yes, based on our check, your name, contact information, and payment history are still stored."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 정보를 결제 내역까지 포함해서 전부 삭제해 주시기를 요청드립니다.",
+          "de": "Ich bitte darum, diese Daten einschließlich des Zahlungsverlaufs vollständig zu löschen.",
+          "en": "I'd like to request that all of that information, including the payment history, be deleted."
+        },
+        {
+          "speaker": "official",
+          "ko": "삭제하면 이전 주문 내역도 복구가 불가능한데 괜찮으신가요?",
+          "de": "Wenn wir löschen, ist auch die frühere Bestellhistorie nicht wiederherstellbar. Ist das für Sie in Ordnung?",
+          "en": "Once deleted, your past order history also can't be restored. Is that all right with you?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 더 이상 이용할 계획이 없어서 상관없습니다.",
+          "de": "Ja, das macht mir nichts aus, da ich den Dienst nicht mehr nutzen werde.",
+          "en": "Yes, that's fine, since I don't plan to use the service anymore."
+        },
+        {
+          "speaker": "official",
+          "ko": "그럼 본인 확인 후에 삭제 처리를 진행하겠습니다.",
+          "de": "Dann werden wir nach der Identitätsprüfung mit der Löschung fortfahren.",
+          "en": "Then we'll proceed with the deletion after identity verification."
+        },
+        {
+          "speaker": "user",
+          "ko": "확인 절차는 어떻게 하면 되나요?",
+          "de": "Wie läuft die Prüfung ab?",
+          "en": "How does the verification process work?"
+        },
+        {
+          "speaker": "official",
+          "ko": "가입하신 이메일로 인증 링크를 보내 드리겠습니다.",
+          "de": "Wir senden Ihnen einen Bestätigungslink an die bei der Anmeldung verwendete E-Mail-Adresse.",
+          "en": "We'll send a verification link to the email address you signed up with."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_w10_privacy_hear",
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "삭제하면 이전 주문 내역도 복구가 불가능한데 괜찮으신가요?",
+            "options": [
+              {
+                "de": "Wenn wir löschen, ist auch die frühere Bestellhistorie nicht wiederherstellbar. Ist das für Sie in Ordnung?",
+                "en": "Once deleted, your past order history also can't be restored. Is that all right with you?"
+              },
+              {
+                "de": "Ja, laut unserer Prüfung sind Name, Kontaktdaten und Zahlungsverlauf noch gespeichert.",
+                "en": "Yes, based on our check, your name, contact information, and payment history are still stored."
+              },
+              {
+                "de": "Dann werden wir nach der Identitätsprüfung mit der Löschung fortfahren.",
+                "en": "Then we'll proceed with the deletion after identity verification."
+              },
+              {
+                "de": "Wir senden Ihnen einen Bestätigungslink an die bei der Anmeldung verwendete E-Mail-Adresse.",
+                "en": "We'll send a verification link to the email address you signed up with."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_w10_privacy_translate",
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Ich bitte darum, diese Daten einschließlich des Zahlungsverlaufs vollständig zu löschen.",
+            "promptEn": "I'd like to request that all of that information, including the payment history, be deleted.",
+            "options": [
+              {
+                "ko": "그 정보를 결제 내역까지 포함해서 전부 삭제해 주시기를 요청드립니다."
+              },
+              {
+                "ko": "몇 년 전에 가입한 계정인데 지금 어떤 정보가 저장되어 있는지 확인하고 싶습니다."
+              },
+              {
+                "ko": "네, 더 이상 이용할 계획이 없어서 상관없습니다."
+              },
+              {
+                "ko": "확인 절차는 어떻게 하면 되나요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_w10_privacy_build",
+          "type": "satzBauen",
+          "data": {
+            "targetKo": "확인 절차는 어떻게 하면 되나요?",
+            "promptDe": "Wie läuft die Prüfung ab?",
+            "promptEn": "How does the verification process work?",
+            "distractors": [
+              "인증 링크를",
+              "본인 확인"
+            ]
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "개인정보 삭제 요구권",
+          "de": "Das Recht auf Löschung personenbezogener Daten",
+          "en": "The right to request deletion of personal data"
+        },
+        "body": {
+          "ko": "한국의 개인정보 보호법에 따르면 이용자는 회사가 가진 자신의 개인정보에 대해 열람과 삭제를 요구할 권리가 있어서, 서비스를 더 안 쓰더라도 그냥 두지 않고 직접 삭제를 요청하는 경우가 많아요.",
+          "de": "Nach dem koreanischen Datenschutzgesetz haben Nutzer das Recht, Einsicht in ihre bei einem Unternehmen gespeicherten personenbezogenen Daten zu verlangen und deren Löschung zu fordern; deshalb bitten viele Menschen aktiv um Löschung, statt ungenutzte Konten einfach stehen zu lassen.",
+          "en": "Under Korea's Personal Information Protection Act, users have the right to request access to and deletion of their personal data held by a company, so many people actively request deletion rather than just leaving an unused account as is."
+        }
+      },
+      "xpReward": 134
+    },
+    {
+      "id": "b2_w10_fandom",
+      "level": "b2",
+      "emoji": "🎤",
+      "register": "casual",
+      "speechStyle": "casual",
+      "title": {
+        "ko": "모금액 공개, 어디까지가 적당할까",
+        "de": "Wie viel von der Spendensumme offenlegen?",
+        "en": "How much of the donation total should be public?"
+      },
+      "intro": {
+        "ko": "마야와 운영진이 생일 지하철 광고 모금액 공개 범위를 놓고 의견이 갈려 절충안을 찾습니다.",
+        "de": "Maya und ein Organisator sind sich uneinig, wie viel von der Spendensumme für die Geburtstags-U-Bahn-Werbung offengelegt werden soll, und suchen einen Kompromiss.",
+        "en": "Maya and an organizer disagree about how much of the donation total for the birthday subway ad to make public, and look for a compromise."
+      },
+      "courseUnitId": "b2_06_advanced_capstone",
+      "playerCharacterId": "maya",
+      "participantIds": [
+        "maya",
+        "moderator"
+      ],
+      "relationshipContext": "peer",
+      "intent": "resolve_a_disagreement_about_fan_project_etiquette",
+      "shelf": "b2_fandom",
+      "backdrop": "cafe",
+      "vocab": [
+        {
+          "korean": "모금",
+          "note": {
+            "ko": "돈을 모으는 것",
+            "de": "Spendensammlung",
+            "en": "fundraising"
+          }
+        },
+        {
+          "korean": "총액",
+          "note": {
+            "ko": "전체를 합한 금액",
+            "de": "Gesamtsumme",
+            "en": "total amount"
+          }
+        },
+        {
+          "korean": "개인 정보",
+          "note": {
+            "ko": "한 사람에 관한 정보",
+            "de": "persönliche Daten",
+            "en": "personal information"
+          }
+        },
+        {
+          "korean": "공개",
+          "note": {
+            "ko": "여러 사람이 알 수 있게 드러내는 것",
+            "de": "Veröffentlichung",
+            "en": "disclosure/making public"
+          }
+        },
+        {
+          "korean": "운영진",
+          "note": {
+            "ko": "모임이나 활동을 관리하는 사람들",
+            "de": "Organisationsteam",
+            "en": "organizing team"
+          }
+        },
+        {
+          "korean": "공지",
+          "note": {
+            "ko": "여러 사람에게 알리는 글",
+            "de": "Ankündigung",
+            "en": "announcement"
+          }
+        },
+        {
+          "korean": "지하철 광고",
+          "note": {
+            "ko": "지하철역에 거는 광고",
+            "de": "U-Bahn-Werbung",
+            "en": "subway ad"
+          }
+        }
+      ],
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "grammarIds": [
+        "grammar_b2_topic_debate",
+        "grammar_b2_shared_merit"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 둘러싸고",
+          "de": "N을/를 둘러싸고: rund um / im Streit um",
+          "en": "N을/를 둘러싸고: surrounding, around (a disputed topic)"
+        },
+        "explanation": {
+          "ko": "어떤 주제를 놓고 의견이나 논쟁이 생겼을 때 그 대상을 -을/를 둘러싸고로 나타내요.",
+          "de": "Man benutzt -을/를 둘러싸고, um das Thema zu bezeichnen, um das herum Meinungsverschiedenheiten oder eine Debatte entstanden sind.",
+          "en": "Use -을/를 둘러싸고 to name the topic around which an opinion difference or debate has arisen."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "moderator",
+          "ko": "이번 지하철 광고 비용을 둘러싸고 회원들 사이에 의견이 갈렸어.",
+          "de": "Bei den Kosten für diese U-Bahn-Werbung gehen die Meinungen unter den Mitgliedern auseinander.",
+          "en": "Opinions among the members are split around the cost of this subway ad."
+        },
+        {
+          "speaker": "user",
+          "ko": "어떤 부분에서 의견이 갈린 거야?",
+          "de": "In welchem Punkt gehen die Meinungen denn auseinander?",
+          "en": "Which part are opinions split on?"
+        },
+        {
+          "speaker": "moderator",
+          "ko": "모금 총액을 공개하자는 쪽과 개인 정보라 안 된다는 쪽으로 나뉘었어.",
+          "de": "Die einen wollen die Gesamtsumme der Spenden veröffentlichen, die anderen sagen, das seien persönliche Daten.",
+          "en": "Some want to publicize the total donation amount, others say it's personal information and shouldn't be shared."
+        },
+        {
+          "speaker": "user",
+          "ko": "총액을 정확히 밝힌다는 점에서 투명하기는 하지만 개인별 금액이 드러날까 봐 걱정하는 사람도 있겠다.",
+          "de": "Auch wenn es transparent ist, die genaue Gesamtsumme offenzulegen, gibt es sicher Leute, die befürchten, dass dabei einzelne Beträge sichtbar werden.",
+          "en": "While it's transparent to reveal the exact total, some people are probably worried individual amounts might get exposed."
+        },
+        {
+          "speaker": "moderator",
+          "ko": "맞아. 그렇다고 아예 숨기면 신뢰를 잃을 수도 있고.",
+          "de": "Genau. Aber wenn wir es ganz verschweigen, könnten wir auch das Vertrauen verlieren.",
+          "en": "Right. But if we hide it completely, we might also lose trust."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 정확한 금액 대신 범위로만 공개하는 방법은 어때?",
+          "de": "Wie wäre es dann, statt des genauen Betrags nur eine Spanne zu veröffentlichen?",
+          "en": "How about publishing just a range instead of the exact amount, then?"
+        },
+        {
+          "speaker": "moderator",
+          "ko": "그거 괜찮다. 개인 정보를 지킨다는 점에서도 그게 더 낫겠어.",
+          "de": "Das klingt gut. Auch was den Schutz persönlicher Daten angeht, wäre das besser.",
+          "en": "That sounds good. It'd be better in terms of protecting personal information too."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 이번 공지에는 범위로만 적고 세부 내역은 운영진끼리만 공유하자.",
+          "de": "Dann schreiben wir in der nächsten Ankündigung nur die Spanne und teilen die Details nur unter den Organisatoren.",
+          "en": "Then let's write only the range in the next announcement and share the details only among the organizers."
+        },
+        {
+          "speaker": "moderator",
+          "ko": "좋아. 내가 공지 문구를 다시 정리해 볼게.",
+          "de": "Gut. Ich überarbeite den Ankündigungstext noch einmal.",
+          "en": "Good. I'll revise the announcement text."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_w10_fandom_hear",
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "총액을 정확히 밝힌다는 점에서 투명하기는 하지만 개인별 금액이 드러날까 봐 걱정하는 사람도 있겠다.",
+            "options": [
+              {
+                "de": "Auch wenn es transparent ist, die genaue Gesamtsumme offenzulegen, gibt es sicher Leute, die befürchten, dass dabei einzelne Beträge sichtbar werden.",
+                "en": "While it's transparent to reveal the exact total, some people are probably worried individual amounts might get exposed."
+              },
+              {
+                "de": "In welchem Punkt gehen die Meinungen denn auseinander?",
+                "en": "Which part are opinions split on?"
+              },
+              {
+                "de": "Wie wäre es dann, statt des genauen Betrags nur eine Spanne zu veröffentlichen?",
+                "en": "How about publishing just a range instead of the exact amount, then?"
+              },
+              {
+                "de": "Dann schreiben wir in der nächsten Ankündigung nur die Spanne und teilen die Details nur unter den Organisatoren.",
+                "en": "Then let's write only the range in the next announcement and share the details only among the organizers."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_w10_fandom_translate",
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Das klingt gut. Auch was den Schutz persönlicher Daten angeht, wäre das besser.",
+            "promptEn": "That sounds good. It'd be better in terms of protecting personal information too.",
+            "options": [
+              {
+                "ko": "그거 괜찮다. 개인 정보를 지킨다는 점에서도 그게 더 낫겠어."
+              },
+              {
+                "ko": "모금 총액을 공개하자는 쪽과 개인 정보라 안 된다는 쪽으로 나뉘었어."
+              },
+              {
+                "ko": "맞아. 그렇다고 아예 숨기면 신뢰를 잃을 수도 있고."
+              },
+              {
+                "ko": "좋아. 내가 공지 문구를 다시 정리해 볼게."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_w10_fandom_build",
+          "type": "satzBauen",
+          "data": {
+            "targetKo": "좋아. 내가 공지 문구를 다시 정리해 볼게.",
+            "promptDe": "Gut. Ich überarbeite den Ankündigungstext noch einmal.",
+            "promptEn": "Good. I'll revise the announcement text.",
+            "distractors": [
+              "모금 총액을",
+              "운영진끼리만"
+            ]
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "팬들의 생일 지하철 광고",
+          "de": "Geburtstags-U-Bahn-Werbung von Fans",
+          "en": "Fan-funded subway birthday ads"
+        },
+        "body": {
+          "ko": "한국 케이팝 팬덤 문화에서는 좋아하는 가수의 생일에 팬들이 돈을 모아 지하철역이나 건물 외벽에 축하 광고를 거는 경우가 흔해서, 모금과 관련된 투명성 문제가 자주 논의돼요.",
+          "de": "In der koreanischen K-Pop-Fankultur ist es üblich, dass Fans zum Geburtstag ihres Idols Geld sammeln, um Glückwunschanzeigen in U-Bahn-Stationen oder an Gebäudefassaden zu schalten; dabei wird oft über die Transparenz der Spendensammlung diskutiert.",
+          "en": "In Korean K-pop fan culture, it's common for fans to pool money to put up birthday congratulation ads in subway stations or on building facades for their favorite idol, and questions about the transparency of the fundraising are often discussed."
+        }
+      },
+      "xpReward": 145
     }
   ]
 }

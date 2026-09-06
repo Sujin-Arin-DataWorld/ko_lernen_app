@@ -13,6 +13,7 @@ library;
 import 'package:flutter/material.dart';
 
 import '../../services/hangul_util.dart';
+import 'tokens.dart';
 
 /// 사용자가 고르는 힌트 난이도.
 /// - [chosung]: 초성만 (어려움). 중성·받침은 점선 슬롯.
@@ -267,12 +268,25 @@ class _Slot extends StatelessWidget {
   final Color accent;
   const _Slot({required this.text, required this.filled, required this.accent});
 
+  // W10 T-V5(2026-09-05, Jin 신고): 30×40 상자 + 24px 텍스트가 큰 배율에서
+  // 글자 하단(특히 받침 있는 자모)을 잘랐다. 36×48 로 여유를 두고, 배율을
+  // 1.3배로 상한하고, 줄 높이를 1.0으로 고정해 여분 leading을 없앤다.
+  static const _slotSize = Size(36, 48);
+  static const _textHeightBehavior = TextHeightBehavior(
+    applyHeightToFirstAscent: false,
+    applyHeightToLastDescent: false,
+  );
+
   @override
   Widget build(BuildContext context) {
+    final tt = SoriTextTheme.of(context);
+    final textScaler = MediaQuery.textScalerOf(
+      context,
+    ).clamp(maxScaleFactor: 1.3);
     if (filled) {
       return Container(
-        width: 30,
-        height: 40,
+        width: _slotSize.width,
+        height: _slotSize.height,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: accent.withValues(alpha: 0.12),
@@ -280,29 +294,32 @@ class _Slot extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: TextStyle(
-            fontSize: 24,
+          style: tt.h3.copyWith(
+            height: 1.0,
             fontWeight: FontWeight.w700,
             color: accent,
           ),
+          textScaler: textScaler,
+          textHeightBehavior: _textHeightBehavior,
         ),
       );
     }
     // 채울 칸 — 점선 박스 + 무엇을 넣을지 라벨(모음/받침).
     return CustomPaint(
       painter: _DashedBoxPainter(color: accent.withValues(alpha: 0.65)),
-      child: SizedBox(
-        width: 30,
-        height: 40,
-        child: Center(
-          child: Text(
-            text,
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w800,
-              color: accent.withValues(alpha: 0.75),
-            ),
+      child: Container(
+        width: _slotSize.width,
+        height: _slotSize.height,
+        alignment: Alignment.center,
+        child: Text(
+          text,
+          style: tt.caption.copyWith(
+            height: 1.0,
+            fontWeight: FontWeight.w700,
+            color: accent.withValues(alpha: 0.75),
           ),
+          textScaler: textScaler,
+          textHeightBehavior: _textHeightBehavior,
         ),
       ),
     );

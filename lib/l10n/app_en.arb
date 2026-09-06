@@ -1546,6 +1546,7 @@
   "vocabSlowHint": "Long press: slow",
   "vocabEmptyFavorites": "Nothing saved yet\nTap the bookmark to save words.",
   "listeningTitle": "Listening",
+  "listeningHubEyebrow": "LISTEN",
   "listeningSubtitle": "Hear a scenario at natural speed",
   "listeningSelectScenario": "Choose scenario",
   "listeningSpeedLabel": "Speed",
@@ -1634,6 +1635,20 @@
   "@listeningShelfScenarioCount": {
     "placeholders": {
       "n": {
+        "type": "int"
+      }
+    }
+  },
+  "listeningShelfCardSemantics": "{label}, {done} of {total} listened",
+  "@listeningShelfCardSemantics": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "done": {
+        "type": "int"
+      },
+      "total": {
         "type": "int"
       }
     }
@@ -2384,10 +2399,26 @@
   "accountSafeConnectExplain": "Your local and cloud data are reviewed before anything is replaced. An existing account is never overwritten automatically.",
   "accountSafeConnectConfirm": "Connect safely",
   "accountOperationInProgress": "Checking your account and learning progress safely…",
-  "accountOperationResumeTitle": "Resume account switch",
-  "accountOperationResumeBody": "The safe account switch is saved. Your data stays protected until every step is complete.",
-  "accountOperationResume": "Resume",
-  "accountOperationCancel": "Cancel switch",
+  "accountSwitchTitle": "Continue with your existing account?",
+  "@accountSwitchTitle": {
+    "description": "Title of the dialog confirming a switch to an existing durable account after a link collision."
+  },
+  "accountSwitchBody": "This Google or Apple account is already linked to another Hangul Sori profile. You will be signed in there and the learning progress on this device will be merged into that account.",
+  "@accountSwitchBody": {
+    "description": "Explains that confirming signs the user into the existing account and merges local progress into it."
+  },
+  "accountSwitchConfirm": "Switch account",
+  "@accountSwitchConfirm": {
+    "description": "Confirm button label for the account-switch dialog."
+  },
+  "accountSwitchDeferredTitle": "Signed in, merge pending",
+  "@accountSwitchDeferredTitle": {
+    "description": "Title shown after the account switch signed in but the local-progress merge could not complete yet."
+  },
+  "accountSwitchDeferredBody": "You are now signed in to your existing account. The learning progress on this device will be merged on the next start once a connection is available.",
+  "@accountSwitchDeferredBody": {
+    "description": "Explains that the merge will resume automatically on next launch once connected."
+  },
   "accountOperationBlockedTitle": "Your account is protected",
   "accountOperationBlockedBody": "The switch was paused. Your existing data is untouched. You can try again later.",
   "accountOperationRetryTitle": "Connection not completed",
@@ -3959,6 +3990,9 @@
   "soriStageNextQuests": "Up next",
   "soriStageLearnTitle": "Choose how you want to learn.",
   "soriStageLearnBody": "Every activity stays connected to your quests and Hanok.",
+  "soriStageLearnSectionToday": "Learn today",
+  "soriStageLearnSectionExplore": "Explore & practice",
+  "soriStageLearnSectionReview": "Review",
   "soriStageGamesTitle": "Play with a clear purpose.",
   "soriStageGamesBody": "See the XP, personal best, and related quest before you start.",
   "soriStageContinueEyebrow": "Continue with",
@@ -4048,7 +4082,7 @@
   "soriStageActivityInProgress": "In progress",
   "soriStageActivityCompleted": "Completed",
   "soriStageActivityNew": "New",
-  "soriStageActivityTitle": "{activityId, select, course{Learning path} hangul{Hangul} calligraphy{Character of the day} pronunciation{Pronunciation} vocab_packs{Vocabulary packs} srs{Review} hard_words{Hard words} word_web{Nuances & opposites} grammar{Grammar} listening{Listening} scenarios{Real-life scenarios} smalltalk{Small Talk} book_capture{Scan a book} vocab_notebook{Vocab notebook} bookshelf{Bookshelf} word_search{Word search} my_words{My words} daily_game{Daily challenge} chosung{First-sound quiz} syllable_cross{Syllable puzzle} cloze{Fill the gap} speed_match{Speed pairs} sentence_arcade{Sentence arcade} kkeunmari{Kkeunmari} custom_quiz{Custom quiz} custom_matching{Custom matching} custom_typing{Custom typing} other{Learning activity}}}",
+  "soriStageActivityTitle": "{activityId, select, course{Learning path} hangul{Hangul} calligraphy{Character of the day} pronunciation{Pronunciation} vocab_packs{Vocabulary packs} srs{Review} hard_words{Hard words} word_web{Nuances & opposites} grammar{Grammar} listening{Listening} scenarios{Real-life scenarios} smalltalk{Small Talk} book_capture{Scan a book} vocab_notebook{Vocab notebook} bookshelf{Bookshelf} word_search{Word search} my_words{My words} daily_game{Daily challenge} chosung{First-sound quiz} syllable_cross{Syllable puzzle} cloze{Fill the gap} speed_match{Speed pairs} sentence_arcade{Sentence arcade} kkeunmari{Kkeunmari} custom_practice{Practice my words} other{Learning activity}}}",
   "@soriStageActivityTitle": {
     "placeholders": {
       "activityId": {
@@ -4056,7 +4090,7 @@
       }
     }
   },
-  "soriStageActivityDescription": "{activityId, select, course{Your guided path through real situations.} hangul{Build syllables and read with confidence.} calligraphy{Discover one character every day.} pronunciation{Listen, repeat, and optionally assess. Scoring comes later.} vocab_packs{Learn words by everyday topic.} srs{Refresh words at just the right moment.} hard_words{Focus on the words that trip you up.} word_web{Synonyms, opposites and expressions for your words.} grammar{Understand patterns and use them right away.} listening{Recognize short natural phrases.} scenarios{Practice cafés, transport, and conversations.} smalltalk{Connect short conversations naturally.} book_capture{Bring words in from your own material.} vocab_notebook{Photograph your notebook and practice those exact words.} bookshelf{Manage your pages and word lists.} word_search{Find a word and its learning paths.} my_words{Search, shelf, and difficult words in one place.} daily_game{A short mix for today.} chosung{Recognize words from their first sounds.} syllable_cross{Combine syllables and find words.} cloze{Recall the right word in a sentence.} speed_match{Match meanings quickly and accurately.} sentence_arcade{Build sentences under time pressure.} kkeunmari{Play a word chain against the tiger.} custom_quiz{Choose a word pack from your bookshelf.} custom_matching{Strengthen your words as pairs.} custom_typing{Actively recall your own words.} other{Continue learning.}}}",
+  "soriStageActivityDescription": "{activityId, select, course{Your guided path through real situations.} hangul{Build syllables and read with confidence.} calligraphy{Discover one character every day.} pronunciation{Listen, repeat, and optionally assess. Scoring comes later.} vocab_packs{Learn words by everyday topic.} srs{Refresh words at just the right moment.} hard_words{Focus on the words that trip you up.} word_web{Synonyms, opposites and expressions for your words.} grammar{Understand patterns and use them right away.} listening{Recognize short natural phrases.} scenarios{Practice cafés, transport, and conversations.} smalltalk{Connect short conversations naturally.} book_capture{Bring words in from your own material.} vocab_notebook{Photograph your notebook and practice those exact words.} bookshelf{Manage your pages and word lists.} word_search{Find a word and its learning paths.} my_words{Search, shelf, and difficult words in one place.} daily_game{A short mix for today.} chosung{Recognize words from their first sounds.} syllable_cross{Combine syllables and find words.} cloze{Recall the right word in a sentence.} speed_match{Match meanings quickly and accurately.} sentence_arcade{Build sentences under time pressure.} kkeunmari{Play a word chain against the tiger.} custom_practice{Quiz, matching and typing with your saved words.} other{Continue learning.}}}",
   "@soriStageActivityDescription": {
     "placeholders": {
       "activityId": {

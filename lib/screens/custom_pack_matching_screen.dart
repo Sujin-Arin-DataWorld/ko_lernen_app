@@ -18,6 +18,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
@@ -287,11 +288,24 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
       padding: EdgeInsets.zero,
       child: _roundDone
           ? _buildDone(t)
-          : SoriAdaptiveStudyBody(
-              minHeight: 560,
+          // W10 T-V3(2026-09-05, Jin D-4): 판이 560dp 남짓이라 태블릿 세로
+          // 화면에서 위쪽에 뭉쳤다. `SoriAdaptiveStudyBody(fillViewport:
+          // true)`는 내부 IntrinsicHeight가 세로 Expanded(타일 보드)와 함께
+          // 쓰이면 보드가 자기 내용 높이로만 굳어버려(2026-09-05 실측 —
+          // Expanded 콘텐츠는 IntrinsicHeight의 "필요한 높이" 계산에서
+          // 늘어나지 않는다) 못 쓴다. 대신 LayoutBuilder로 뷰포트 높이를
+          // 직접 재서 ConstrainedBox(minHeight)+Column(center)로 채우고,
+          // 보드는 Expanded 없이 평범한 자식으로 둔다(넘치면 스크롤).
+          // W10 PR-D(2026-09-06): `SoriMinHeightScroll(intrinsic: false)` 로
+          // 손레시피를 공용 헬퍼로 교체.
+          : SoriMinHeightScroll(
+              minHeight: 0,
+              fillViewport: true,
+              intrinsic: false,
               child: Padding(
                 padding: const EdgeInsets.all(Spacing.lg),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
@@ -316,56 +330,52 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
                       ),
                     ],
                     const SizedBox(height: Spacing.md),
-                    Expanded(
-                      child: KeyedSubtree(
-                        key: _boardKey,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            // 한국어 열
-                            Expanded(
-                              child: Column(
-                                children: [
-                                  for (var i = 0; i < _leftKo.length; i++)
-                                    _Tile(
-                                      label: _leftKo[i],
-                                      matched: _matched.contains(_leftKo[i]),
-                                      selected: _selLeft == i,
-                                      accent: SoriColors.primary,
-                                      enabled: !_matched.contains(_leftKo[i]),
-                                      onTap: () => _tapLeft(i),
-                                    ),
-                                ],
-                              ),
+                    KeyedSubtree(
+                      key: _boardKey,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // 한국어 열
+                          Expanded(
+                            child: Column(
+                              children: [
+                                for (var i = 0; i < _leftKo.length; i++)
+                                  _Tile(
+                                    label: _leftKo[i],
+                                    matched: _matched.contains(_leftKo[i]),
+                                    selected: _selLeft == i,
+                                    accent: SoriColors.primary,
+                                    enabled: !_matched.contains(_leftKo[i]),
+                                    onTap: () => _tapLeft(i),
+                                  ),
+                              ],
                             ),
-                            const SizedBox(width: Spacing.md),
-                            // 뜻 열
-                            Expanded(
-                              child: Column(
-                                children: [
-                                  for (final meaning in _rightMeanings)
-                                    _Tile(
-                                      label: meaning,
-                                      matched: _matched.any(
-                                        (ko) =>
-                                            _round
-                                                .firstWhere(
-                                                  (w) => w.korean == ko,
-                                                )
-                                                .translationFor(_languageCode)
-                                                .trim() ==
-                                            meaning,
-                                      ),
-                                      wrong: _wrongRight == meaning,
-                                      accent: SoriColors.accent,
-                                      enabled: _selLeft != null,
-                                      onTap: () => _tapRight(meaning),
+                          ),
+                          const SizedBox(width: Spacing.md),
+                          // 뜻 열
+                          Expanded(
+                            child: Column(
+                              children: [
+                                for (final meaning in _rightMeanings)
+                                  _Tile(
+                                    label: meaning,
+                                    matched: _matched.any(
+                                      (ko) =>
+                                          _round
+                                              .firstWhere((w) => w.korean == ko)
+                                              .translationFor(_languageCode)
+                                              .trim() ==
+                                          meaning,
                                     ),
-                                ],
-                              ),
+                                    wrong: _wrongRight == meaning,
+                                    accent: SoriColors.accent,
+                                    enabled: _selLeft != null,
+                                    onTap: () => _tapRight(meaning),
+                                  ),
+                              ],
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ],

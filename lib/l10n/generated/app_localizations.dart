@@ -5335,6 +5335,12 @@ abstract class AppL10n {
   /// **'Hören'**
   String get listeningTitle;
 
+  /// No description provided for @listeningHubEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'HÖREN'**
+  String get listeningHubEyebrow;
+
   /// No description provided for @listeningSubtitle.
   ///
   /// In de, this message translates to:
@@ -5580,6 +5586,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'{n} Szenarien'**
   String listeningShelfScenarioCount(int n);
+
+  /// No description provided for @listeningShelfCardSemantics.
+  ///
+  /// In de, this message translates to:
+  /// **'{label}, {done} von {total} gehört'**
+  String listeningShelfCardSemantics(String label, int done, int total);
 
   /// No description provided for @listeningShelfA1Transit.
   ///
@@ -8328,29 +8340,35 @@ abstract class AppL10n {
   /// **'Konto und Lernfortschritt werden sicher geprüft …'**
   String get accountOperationInProgress;
 
-  /// No description provided for @accountOperationResumeTitle.
+  /// Title of the dialog confirming a switch to an existing durable account after a link collision.
   ///
   /// In de, this message translates to:
-  /// **'Kontowechsel fortsetzen'**
-  String get accountOperationResumeTitle;
+  /// **'Mit bestehendem Konto fortfahren?'**
+  String get accountSwitchTitle;
 
-  /// No description provided for @accountOperationResumeBody.
+  /// Explains that confirming signs the user into the existing account and merges local progress into it.
   ///
   /// In de, this message translates to:
-  /// **'Der sichere Kontowechsel ist gespeichert. Deine Daten bleiben geschützt, bis alle Schritte abgeschlossen sind.'**
-  String get accountOperationResumeBody;
+  /// **'Dieses Google- oder Apple-Konto ist bereits mit einem anderen Hangul-Sori-Profil verbunden. Du wirst dort angemeldet, und dein Lernfortschritt von diesem Gerät wird mit dem Konto zusammengeführt.'**
+  String get accountSwitchBody;
 
-  /// No description provided for @accountOperationResume.
+  /// Confirm button label for the account-switch dialog.
   ///
   /// In de, this message translates to:
-  /// **'Fortsetzen'**
-  String get accountOperationResume;
+  /// **'Konto wechseln'**
+  String get accountSwitchConfirm;
 
-  /// No description provided for @accountOperationCancel.
+  /// Title shown after the account switch signed in but the local-progress merge could not complete yet.
   ///
   /// In de, this message translates to:
-  /// **'Wechsel abbrechen'**
-  String get accountOperationCancel;
+  /// **'Angemeldet, Zusammenführung folgt'**
+  String get accountSwitchDeferredTitle;
+
+  /// Explains that the merge will resume automatically on next launch once connected.
+  ///
+  /// In de, this message translates to:
+  /// **'Du bist jetzt mit deinem bestehenden Konto angemeldet. Dein Lernfortschritt von diesem Gerät wird beim nächsten Start zusammengeführt, sobald eine Verbindung besteht.'**
+  String get accountSwitchDeferredBody;
 
   /// No description provided for @accountOperationBlockedTitle.
   ///
@@ -14694,6 +14712,24 @@ abstract class AppL10n {
   /// **'Jede Aktivität bleibt mit deinen Quests und deiner Hanok verbunden.'**
   String get soriStageLearnBody;
 
+  /// No description provided for @soriStageLearnSectionToday.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute lernen'**
+  String get soriStageLearnSectionToday;
+
+  /// No description provided for @soriStageLearnSectionExplore.
+  ///
+  /// In de, this message translates to:
+  /// **'Entdecken & üben'**
+  String get soriStageLearnSectionExplore;
+
+  /// No description provided for @soriStageLearnSectionReview.
+  ///
+  /// In de, this message translates to:
+  /// **'Wiederholen'**
+  String get soriStageLearnSectionReview;
+
   /// No description provided for @soriStageGamesTitle.
   ///
   /// In de, this message translates to:
@@ -15153,13 +15189,13 @@ abstract class AppL10n {
   /// No description provided for @soriStageActivityTitle.
   ///
   /// In de, this message translates to:
-  /// **'{activityId, select, course{Lernpfad} hangul{Hangul} calligraphy{Buchstabe des Tages} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{Wiederholen} hard_words{Schwierige Wörter} word_web{Nuancen & Gegenteile} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} vocab_notebook{Vokabelheft} bookshelf{Bücherregal} word_search{Wortsuche} my_words{Meine Wörter} daily_game{Tageschallenge} chosung{Anlaut-Quiz} syllable_cross{Silben-Rätsel} cloze{Lückentext} speed_match{Blitz-Paare} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_quiz{Eigenes Quiz} custom_matching{Eigenes Matching} custom_typing{Eigenes Tippen} other{Lernaktivität}}}'**
+  /// **'{activityId, select, course{Lernpfad} hangul{Hangul} calligraphy{Buchstabe des Tages} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{Wiederholen} hard_words{Schwierige Wörter} word_web{Nuancen & Gegenteile} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} vocab_notebook{Vokabelheft} bookshelf{Bücherregal} word_search{Wortsuche} my_words{Meine Wörter} daily_game{Tageschallenge} chosung{Anlaut-Quiz} syllable_cross{Silben-Rätsel} cloze{Lückentext} speed_match{Blitz-Paare} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_practice{Eigene Wörter üben} other{Lernaktivität}}}'**
   String soriStageActivityTitle(String activityId);
 
   /// No description provided for @soriStageActivityDescription.
   ///
   /// In de, this message translates to:
-  /// **'{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Jeden Tag ein Schriftzeichen entdecken.} pronunciation{Hören, nachsprechen und auf Wunsch bewerten. Bewertung folgt später.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Wörter genau im richtigen Moment auffrischen.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} word_web{Synonyme, Gegenteile und Wendungen zu deinen Wörtern.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} vocab_notebook{Dein Heft fotografieren und genau diese Wörter üben.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} my_words{Suchen, Regal und schwierige Wörter an einem Ort.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_quiz{Ein Wortpaket im Bücherregal auswählen.} custom_matching{Deine Wörter als Paare festigen.} custom_typing{Deine Wörter aktiv aus dem Gedächtnis holen.} other{Weiterlernen.}}}'**
+  /// **'{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Jeden Tag ein Schriftzeichen entdecken.} pronunciation{Hören, nachsprechen und auf Wunsch bewerten. Bewertung folgt später.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Wörter genau im richtigen Moment auffrischen.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} word_web{Synonyme, Gegenteile und Wendungen zu deinen Wörtern.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} vocab_notebook{Dein Heft fotografieren und genau diese Wörter üben.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} my_words{Suchen, Regal und schwierige Wörter an einem Ort.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_practice{Quiz, Matching und Tippen mit deinen gespeicherten Wörtern.} other{Weiterlernen.}}}'**
   String soriStageActivityDescription(String activityId);
 
   /// No description provided for @soriStageCatalogCopy.

@@ -170,46 +170,6 @@ class AccountDeletionStatusByReceiptRequest {
 }
 
 @immutable
-class AnonymousReplacementPrepareRequest {
-  const AnonymousReplacementPrepareRequest({
-    required this.targetUid,
-    required this.requestKey,
-  });
-
-  final String targetUid;
-  final String requestKey;
-
-  Map<String, Object?> toJson() => {
-    'targetUid': _validated(targetUid),
-    'requestKey': _validated(requestKey),
-  };
-}
-
-@immutable
-class ReplacementAdvanceRequest {
-  const ReplacementAdvanceRequest({
-    required this.operationId,
-    required this.expectedVersion,
-  });
-
-  final String operationId;
-  final int expectedVersion;
-
-  Map<String, Object?> toJson() {
-    if (expectedVersion < 0) {
-      throw const AccountOperationFailure(
-        AccountOperationFailureCode.invalidRequest,
-        retryable: false,
-      );
-    }
-    return {
-      'operationId': _validated(operationId),
-      'expectedVersion': expectedVersion,
-    };
-  }
-}
-
-@immutable
 class AccountOperationStatusRequest {
   const AccountOperationStatusRequest({required this.operationId});
 
@@ -251,26 +211,6 @@ class AppleRevocationCompletionRequest {
 }
 
 abstract interface class AccountOperationGateway {
-  Future<AccountOperationResult> prepareAnonymousReplacement(
-    AnonymousReplacementPrepareRequest request,
-  );
-
-  Future<AccountOperationResult> attachReplacementTarget(
-    ReplacementAdvanceRequest request,
-  );
-
-  Future<AccountOperationResult> commitReplacementReconciliation(
-    ReplacementAdvanceRequest request,
-  );
-
-  Future<AccountOperationResult> startSourceCleanup(
-    ReplacementAdvanceRequest request,
-  );
-
-  Future<AccountOperationResult> cancelAnonymousReplacement(
-    ReplacementAdvanceRequest request,
-  );
-
   Future<AccountOperationResult> requestAccountDeletion(
     AccountDeletionRequest request,
   );
@@ -369,26 +309,6 @@ class FreshAnonymousAccountOperationGateway {
 
   final AccountOperationGateway gateway;
   final AnonymousSourceAuthFreshness freshness;
-
-  Future<AccountOperationResult> prepareAnonymousReplacement({
-    required CloudWriteSession expectedSession,
-    required AnonymousReplacementPrepareRequest request,
-  }) {
-    return _invoke(
-      expectedSession,
-      () => gateway.prepareAnonymousReplacement(request),
-    );
-  }
-
-  Future<AccountOperationResult> cancelAnonymousReplacement({
-    required CloudWriteSession expectedSession,
-    required ReplacementAdvanceRequest request,
-  }) {
-    return _invoke(
-      expectedSession,
-      () => gateway.cancelAnonymousReplacement(request),
-    );
-  }
 
   Future<AccountOperationResult> requestAnonymousAccountDeletion({
     required CloudWriteSession expectedSession,
@@ -537,66 +457,6 @@ class AccountOperationClient implements AccountOperationGateway {
 
   final AccountOperationTransport transport;
   final AccountOperationRetryDelay _retryDelay;
-
-  @override
-  Future<AccountOperationResult> prepareAnonymousReplacement(
-    AnonymousReplacementPrepareRequest request,
-  ) {
-    return _invoke(
-      AccountOperationTransportCall(
-        name: 'prepareAnonymousReplacement',
-        data: request.toJson(),
-      ),
-    );
-  }
-
-  @override
-  Future<AccountOperationResult> attachReplacementTarget(
-    ReplacementAdvanceRequest request,
-  ) {
-    return _invoke(
-      AccountOperationTransportCall(
-        name: 'attachReplacementTarget',
-        data: request.toJson(),
-      ),
-    );
-  }
-
-  @override
-  Future<AccountOperationResult> commitReplacementReconciliation(
-    ReplacementAdvanceRequest request,
-  ) {
-    return _invoke(
-      AccountOperationTransportCall(
-        name: 'commitReplacementReconciliation',
-        data: request.toJson(),
-      ),
-    );
-  }
-
-  @override
-  Future<AccountOperationResult> startSourceCleanup(
-    ReplacementAdvanceRequest request,
-  ) {
-    return _invoke(
-      AccountOperationTransportCall(
-        name: 'startSourceCleanup',
-        data: request.toJson(),
-      ),
-    );
-  }
-
-  @override
-  Future<AccountOperationResult> cancelAnonymousReplacement(
-    ReplacementAdvanceRequest request,
-  ) {
-    return _invoke(
-      AccountOperationTransportCall(
-        name: 'cancelAnonymousReplacement',
-        data: request.toJson(),
-      ),
-    );
-  }
 
   @override
   Future<AccountOperationResult> requestAccountDeletion(

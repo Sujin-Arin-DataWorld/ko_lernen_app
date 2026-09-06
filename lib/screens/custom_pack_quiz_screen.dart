@@ -263,7 +263,13 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
       actions: const [TtsSpeedAction()],
       child: SoriAdaptiveStudyBody(
         minHeight: 420,
+        // W10 T-V3(2026-09-05, Jin D-4): 문제 하나가 420dp 남짓이라 태블릿
+        // 세로 화면에서 위쪽에 뭉쳤다 — 뷰포트 전체를 채우고 세로 중앙
+        // 정렬한다(mainAxisAlignment 없이는 채워진 높이가 그냥 아래쪽에
+        // 빈 채로 남는다).
+        fillViewport: true,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Wrap(
@@ -345,7 +351,21 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
             // prompt card is present. Keep the learning prompt visible
             // and make only the answer list scroll, rather than letting
             // the whole result route overflow below the fold.
-            Expanded(
+            //
+            // W10 PR-D(2026-09-06): `Expanded`(FlexFit.tight) forces this
+            // region to consume *all* remaining flex space even when the
+            // four choices are short — the options then sit pinned to the
+            // top of that oversized box with dead space below, which reads
+            // as "content stuck at the top" on a tall viewport (the same
+            // D-4 symptom this PR fixes elsewhere) even though the outer
+            // `SoriAdaptiveStudyBody(fillViewport:true)` is centering
+            // correctly. `Flexible`(FlexFit.loose, the default) lets this
+            // region size to its own content when there's room to spare —
+            // the outer `mainAxisAlignment.center` then centers the whole
+            // question block — while still shrinking to the available
+            // space (and therefore scrolling via `SingleChildScrollView`)
+            // when a short viewport can't fit everything.
+            Flexible(
               child: SingleChildScrollView(
                 child: KeyedSubtree(
                   key: _optionsKey,

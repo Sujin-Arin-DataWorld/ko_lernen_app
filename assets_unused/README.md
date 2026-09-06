@@ -147,3 +147,24 @@ hotel·market·restaurant) 포스터와는 무관 — 그 포스터들은 지금
 `lib/screens/ux_preview_app.dart`와 `lib/models/ux_preview_catalog.dart`에
 `01B` 패널을 다시 배선하면 된다. `test/welcome_hero_retired_test.dart`가
 이 격리를 하향 전용으로 지키므로, 복원할 때는 그 테스트부터 지울 것.
+
+## 8. Spiele 사용자 팩 3타일 → 1타일 통합 — 2026-09-05 (W10 T-L3)
+
+`custom_quiz`·`custom_matching`·`custom_typing` 세 카탈로그 타일이 모두
+`/my_words`(Meine Wörter)로 들어가 그 안에서 퀴즈/매칭/타이핑을 고르는
+구조라 세 타일이 중복이었다(Jin 지시). 하나(`custom_practice`)로 합치며
+`custom_quiz.webp`는 `assets/illustrations/activities/custom_practice.webp`로
+이름을 바꿔 유지, 나머지 둘은 카탈로그에서 id가 사라져 `activityIllustrationAsset()`
+조립 경로(`activities/{id}.webp`)가 더는 가리키지 않으므로 격리한다.
+
+| 파일 | 원경로 | 무엇 / 왜 미사용 |
+|---|---|---|
+| `illustrations/activities/custom_matching.webp` | `assets/illustrations/activities/` | 옛 'custom_matching' 타일 일러스트. 카탈로그 id 삭제로 조립 경로가 더는 가리키지 않음 |
+| `illustrations/activities/custom_typing.webp` | `assets/illustrations/activities/` | 옛 'custom_typing' 타일 일러스트. 〃 |
+
+**복원법**: 셋을 분리하려면 `lib/data/sori_activity_catalog.dart`의
+`custom_practice` 엔트리를 다시 세 엔트리(`custom_quiz`/`custom_matching`/
+`custom_typing`)로 나누고, ARB의 `soriStageActivityTitle`/
+`soriStageActivityDescription` select에 세 branch를 되돌리고,
+`sori_stage_progression_service.dart`의 `_loadGameBests()`도 세 키로
+되돌린 뒤 두 파일을 원경로로 `git mv`하면 된다.

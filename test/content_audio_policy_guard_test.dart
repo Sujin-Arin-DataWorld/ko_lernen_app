@@ -122,13 +122,13 @@ void main() {
       final manifest =
           jsonDecode(manifestFile.readAsStringSync()) as Map<String, dynamic>;
       expect(manifestFile.existsSync(), isTrue);
-      expect(manifest['scenarioCount'], 126);
+      expect(manifest['scenarioCount'], 178);
       expect(
         manifest['bundledCount'],
-        126,
+        178,
         reason:
-            'bundledCount는 시나리오(항목) 단위 합계라 126 — 그중 2개 시나리오가 같은 '
-            '(voice,text) 첫 대사를 공유해 실제 고유 mp3 파일 수는 125개뿐이다',
+            'bundledCount는 시나리오(항목) 단위 합계라 178 — 그중 2개 시나리오가 같은 '
+            '(voice,text) 첫 대사를 공유해 실제 고유 mp3 파일 수는 176개뿐이다',
       );
       expect(pubspec, contains('- assets/data/'));
       expect(pubspec, contains('- assets/tts/v3/female/'));

@@ -280,14 +280,54 @@ int soriGridColumns(
 ///
 /// [minHeight] 는 "이 화면이 쓸 만하게 보이는 최소 높이"다. 상자의 높이가
 /// 무한(부모가 이미 스크롤 중)이면 아무것도 하지 않고 [child] 를 그대로 준다.
+///
+/// ## 어떤 레시피를 쓸지 ([fillViewport]: true 일 때만 해당)
+///
+/// - **`intrinsic: true`(기본값)** — 자식이 `Spacer`/`Expanded`/
+///   `mainAxisAlignment` 로 늘어나는 **flex 자식**일 때. `IntrinsicHeight` 가
+///   Column을 뷰포트 높이로 강제 측정시켜 flex 배분이 실제로 일어난다.
+/// - **`intrinsic: false`** — 자식 서브트리 어딘가에 **`LayoutBuilder`** 가
+///   있을 때(격자 셀 크기 측정 등) 또는 `Expanded` 콘텐츠가 있을 때. Flutter의
+///   `IntrinsicHeight` 는 "intrinsic dimensions"를 요구하는데 `LayoutBuilder`
+///   는 이를 지원하지 않아 즉시 크래시한다("LayoutBuilder does not support
+///   returning intrinsic dimensions") — 또 `IntrinsicHeight` 밑의 `Expanded`
+///   는 "필요한 높이" 계산에서 늘어나지 않아 기대한 크기가 안 나온다. 이때는
+///   `IntrinsicHeight` 없이 `ConstrainedBox(minHeight)` 만으로 채운다 —
+///   `RenderFlex`가 부모의 constrain된 최종 크기를 기준으로 `mainAxisAlignment`
+///   의 여유 공간을 다시 계산하므로(Flutter `_computeSizes`), `IntrinsicHeight`
+///   없이도 `mainAxisAlignment: MainAxisAlignment.center` 인 Column이 올바르게
+///   중앙 정렬된다 — 단 자식 Column에는 `Spacer`/`Expanded` 를 두면 안 된다
+///   (무한 높이 아래 flex 자식은 레이아웃이 죽는다, 위 경고 참고).
 class SoriMinHeightScroll extends StatelessWidget {
   final Widget child;
   final double minHeight;
+
+  /// W10 T-V1(2026-09-05): 참이면 뷰포트가 [minHeight] 보다 **길 때도**
+  /// 유한 높이를 그대로 상자에 채운다 — 안의 Column이 `Spacer`/`Expanded`/
+  /// `mainAxisAlignment` 로 그 높이 전체에 분배될 수 있게(= "본문이 위쪽에
+  /// 뭉친다" D-4 신고의 근본 원인: [SoriStandardPage] 등이 항상 `ListView` 라
+  /// 짧은 콘텐츠가 위에 붙고 아래가 빈다). `false`(기본값)면 기존 동작과
+  /// 완전히 같다 — 짧을 때만 스크롤 상자를 만든다.
+  final bool fillViewport;
+
+  /// W10 PR-D(2026-09-06): [fillViewport] 가 `true` 일 때만 의미가 있다.
+  /// 클래스 doc의 "어떤 레시피를 쓸지" 참고 — 기본 `true` 는 기존
+  /// `IntrinsicHeight` 레시피, `false` 는 `LayoutBuilder` 자손·`Expanded`
+  /// 콘텐츠가 있어 `IntrinsicHeight` 와 함께 쓸 수 없는 화면 전용이다.
+  final bool intrinsic;
+
+  /// [fillViewport] 로 생기는 내부 `SingleChildScrollView` 에 그대로 전달.
+  /// 화면에 텍스트 입력이 있어 드래그 시 키보드를 닫아야 하면 `onDrag` 로
+  /// 넘긴다(예: `vocab_notebook_result_screen.dart`).
+  final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
 
   const SoriMinHeightScroll({
     super.key,
     required this.child,
     required this.minHeight,
+    this.fillViewport = false,
+    this.intrinsic = true,
+    this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
   });
 
   @override
@@ -302,8 +342,22 @@ class SoriMinHeightScroll extends StatelessWidget {
         //    죽어 **화면이 통째로 빈다**(2026-08-12 Flughafen 시나리오 사고).
         //    하단 고정이 필요하면 flex 대신 `MainAxisAlignment.spaceBetween`
         //    2-자식 패턴을 써라 — 유한 높이에서만 벌어지고 무한에서는 무해하다.
+        if (fillViewport && c.maxHeight.isFinite) {
+          // 항상 뷰포트 높이를 최소 높이로 준다 — 짧으면 그대로, 길면 아래가
+          // Spacer/Expanded(intrinsic:true) 또는 mainAxisAlignment.center
+          // (intrinsic:false) 로 채워진다. 콘텐츠가 실제로 더 크면
+          // `SingleChildScrollView` 가 넘침 대신 스크롤을 허용한다.
+          return SingleChildScrollView(
+            keyboardDismissBehavior: keyboardDismissBehavior,
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: c.maxHeight),
+              child: intrinsic ? IntrinsicHeight(child: child) : child,
+            ),
+          );
+        }
         if (!c.maxHeight.isFinite || c.maxHeight >= minHeight) return child;
         return SingleChildScrollView(
+          keyboardDismissBehavior: keyboardDismissBehavior,
           child: SizedBox(height: minHeight, child: child),
         );
       },

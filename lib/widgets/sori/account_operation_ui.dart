@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/account/account_failure_diagnostics.dart';
 import '../../services/account/account_failure_reason.dart';
+import '../../services/account/account_switch_coordinator.dart';
 import '../../services/account/account_transition_coordinator.dart';
 import '../../services/account/account_ui_operations.dart';
 import '../../services/account/cloud_backup_deletion.dart';
@@ -147,27 +148,6 @@ class _AccountPendingOperationPanelState
     });
   }
 
-  Future<void> _cancelPersisted(AccountUiPendingStateSource source) async {
-    var failed = false;
-    try {
-      failed = !await widget.operations.cancelReplacement();
-    } catch (_) {
-      failed = true;
-    }
-    try {
-      await source.refreshPendingState();
-    } catch (_) {
-      failed = true;
-    }
-    if (failed && mounted) {
-      await showSafeAccountFailure(
-        context,
-        showSupport: true,
-        retry: () => _cancelPersisted(source),
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final source = _source;
@@ -203,9 +183,7 @@ class _AccountPendingOperationPanelState
       return const SizedBox.shrink();
     }
     final t = AppL10n.of(context);
-    final deletion =
-        state == AccountUiPendingState.deletionRemotePending ||
-        state == AccountUiPendingState.deletionLocalCleanup;
+    final deletion = state == AccountUiPendingState.deletionLocalCleanup;
     final blocked = state == AccountUiPendingState.blocked;
     final cloudResumable =
         blocked && cloudPending && widget.resumeCloudDeletion != null;
@@ -220,9 +198,7 @@ class _AccountPendingOperationPanelState
                   ? t.accountDeletionPendingTitle
                   : cloudResumable
                   ? t.accountLockedCloudDeletionTitle
-                  : blocked
-                  ? t.accountOperationBlockedTitle
-                  : t.accountOperationResumeTitle,
+                  : t.accountOperationBlockedTitle,
               style: const TextStyle(fontWeight: FontWeight.w800),
             ),
             const SizedBox(height: Spacing.sm),
@@ -231,9 +207,7 @@ class _AccountPendingOperationPanelState
                   ? t.accountDeletionPendingBody
                   : cloudResumable
                   ? t.accountLockedCloudDeletionBody
-                  : blocked
-                  ? t.accountOperationBlockedBody
-                  : t.accountOperationResumeBody,
+                  : t.accountOperationBlockedBody,
             ),
             const SizedBox(height: Spacing.md),
             if (deletion && widget.retryLocalDeletion != null)
@@ -244,7 +218,7 @@ class _AccountPendingOperationPanelState
                 },
                 child: Text(t.btnRetry),
               )
-            else if (blocked)
+            else
               // A blocked card must never be a dead end: resume the pending
               // cloud deletion when that journal is the blocker, otherwise
               // re-read the durable state so a fixed cause can unlock it.
@@ -260,22 +234,6 @@ class _AccountPendingOperationPanelState
                       ? t.accountLockedResumeNow
                       : t.accountLockedRefresh,
                 ),
-              )
-            else
-              Wrap(
-                spacing: Spacing.sm,
-                children: [
-                  if (state == AccountUiPendingState.replacementCancellable)
-                    TextButton(
-                      onPressed: () => _cancelPersisted(source),
-                      child: Text(t.accountOperationCancel),
-                    ),
-                  FilledButton(
-                    onPressed: () =>
-                        _resume(context, widget.operations, widget.onCompleted),
-                    child: Text(t.accountOperationResume),
-                  ),
-                ],
               ),
           ],
         ),
@@ -382,7 +340,19 @@ Future<void> runConfirmedAccountLink(
           ),
         );
       case AccountUiLinkBlocked():
-        await _showBlocked(context, operations);
+        final source = operations is AccountUiPendingStateSource
+            ? operations as AccountUiPendingStateSource
+            : null;
+        await _showLockedAction(
+          context,
+          title: t.accountOperationBlockedTitle,
+          body:
+              '${t.accountOperationBlockedBody}\n\n${t.accountOperationSupportBody}',
+          actionLabel: t.accountLockedRefresh,
+          action: () async {
+            await source?.refreshPendingState();
+          },
+        );
       case AccountUiLinkConflict(:final conflict):
         if (additionalProvider) {
           await _showLinkProblem(
@@ -392,16 +362,59 @@ Future<void> runConfirmedAccountLink(
           );
           return;
         }
+        final confirmedSwitch = await showSoriDialog<bool>(
+          context: context,
+          builder: (dialogContext) => SoriDialog(
+            title: Text(t.accountSwitchTitle),
+            content: Text(t.accountSwitchBody),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(dialogContext, false),
+                child: Text(t.btnCancel),
+              ),
+              FilledButton(
+                onPressed: () => Navigator.pop(dialogContext, true),
+                child: Text(t.accountSwitchConfirm),
+              ),
+            ],
+          ),
+        );
+        if (confirmedSwitch != true || !context.mounted) return;
         _showProgress(context, t.accountOperationInProgress);
-        final result = await operations.confirmReplacement(conflict);
+        final switchResult = await operations.switchToExisting(conflict);
         if (!context.mounted) return;
         Navigator.of(context, rootNavigator: true).pop();
-        await _presentTransitionResult(
-          context,
-          operations: operations,
-          result: result,
-          onCompleted: onCompleted,
-        );
+        switch (switchResult.status) {
+          case AccountSwitchStatus.completed:
+            // Same as the completed-link branch above: the first-link
+            // backfill only covers bookshelf + pack progress.
+            unawaited(
+              CloudSync.backup().catchError((Object error) {
+                AccountFailureDiagnostics.log('link.autoBackupFailed', error);
+              }),
+            );
+            await onCompleted?.call();
+          case AccountSwitchStatus.mergeDeferred:
+            // No CloudSync.backup() here — it would overwrite the unmerged
+            // cloud copy before the next-launch merge runs.
+            await _showLinkProblem(
+              context,
+              title: t.accountSwitchDeferredTitle,
+              body: t.accountSwitchDeferredBody,
+            );
+            await onCompleted?.call();
+          case AccountSwitchStatus.failed:
+            await showSafeAccountFailure(
+              context,
+              retry: () => runConfirmedAccountLink(
+                context,
+                operations: operations,
+                provider: provider,
+                additionalProvider: additionalProvider,
+                onCompleted: onCompleted,
+              ),
+            );
+        }
     }
   } catch (error) {
     // ⚠️ 예전엔 `catch (_)` 였다. Google 연동이 실패해도 오류 객체를 통째로
@@ -499,7 +512,6 @@ Future<void> showAccountActionLocked(
     );
   }
   switch (state) {
-    case AccountUiPendingState.deletionRemotePending:
     case AccountUiPendingState.deletionLocalCleanup:
       if (retryDeletion != null) {
         return _showLockedAction(
@@ -510,14 +522,6 @@ Future<void> showAccountActionLocked(
           action: retryDeletion,
         );
       }
-    case AccountUiPendingState.replacementCancellable:
-    case AccountUiPendingState.replacementResumable:
-      return _showResume(
-        context,
-        operations: operations,
-        canCancel: state == AccountUiPendingState.replacementCancellable,
-        onCompleted: null,
-      );
     case AccountUiPendingState.loading:
     case AccountUiPendingState.none:
     case AccountUiPendingState.blocked:
@@ -604,165 +608,6 @@ Future<void> showSafeAccountFailure(
             retry();
           },
           child: Text(t.btnRetry),
-        ),
-      ],
-    ),
-  );
-}
-
-Future<void> _presentTransitionResult(
-  BuildContext context, {
-  required AccountUiOperations operations,
-  required AccountTransitionResult result,
-  Future<void> Function()? onCompleted,
-}) async {
-  switch (result.status) {
-    case AccountTransitionStatus.completed:
-      await onCompleted?.call();
-    case AccountTransitionStatus.targetVerificationFailed:
-      await showSafeAccountFailure(
-        context,
-        retry: () => _resume(context, operations, onCompleted),
-      );
-    case AccountTransitionStatus.reconciliationPending:
-    case AccountTransitionStatus.cleanupPending:
-    case AccountTransitionStatus.activationPending:
-      await _showResume(
-        context,
-        operations: operations,
-        canCancel:
-            result.status == AccountTransitionStatus.reconciliationPending,
-        onCompleted: onCompleted,
-      );
-    case AccountTransitionStatus.blocked:
-      await _showBlocked(context, operations);
-  }
-}
-
-Future<void> _resume(
-  BuildContext context,
-  AccountUiOperations operations,
-  Future<void> Function()? onCompleted,
-) async {
-  final t = AppL10n.of(context);
-  _showProgress(context, t.accountOperationInProgress);
-  try {
-    final result = await operations.resumeReplacement();
-    if (!context.mounted) return;
-    Navigator.of(context, rootNavigator: true).pop();
-    await _presentTransitionResult(
-      context,
-      operations: operations,
-      result: result,
-      onCompleted: onCompleted,
-    );
-  } catch (_) {
-    if (!context.mounted) return;
-    Navigator.of(context, rootNavigator: true).pop();
-    await showSafeAccountFailure(
-      context,
-      retry: () => _resume(context, operations, onCompleted),
-    );
-  }
-}
-
-Future<void> _showResume(
-  BuildContext context, {
-  required AccountUiOperations operations,
-  required bool canCancel,
-  Future<void> Function()? onCompleted,
-}) {
-  final t = AppL10n.of(context);
-  return showSoriDialog<void>(
-    context: context,
-    builder: (dialogContext) => SoriDialog(
-      title: Text(t.accountOperationResumeTitle),
-      content: Text(t.accountOperationResumeBody),
-      actions: [
-        if (canCancel)
-          TextButton(
-            onPressed: () async {
-              final nav = Navigator.of(dialogContext);
-              try {
-                final cancelled = await operations.cancelReplacement();
-                if (!dialogContext.mounted) return;
-                nav.pop();
-                if (!cancelled && context.mounted) {
-                  await showSafeAccountFailure(
-                    context,
-                    retry: () => _retryCancel(context, operations),
-                  );
-                }
-              } catch (_) {
-                if (!dialogContext.mounted) return;
-                nav.pop();
-                if (context.mounted) {
-                  await showSafeAccountFailure(
-                    context,
-                    retry: () => _retryCancel(context, operations),
-                  );
-                }
-              }
-            },
-            child: Text(t.accountOperationCancel),
-          ),
-        FilledButton(
-          onPressed: () {
-            Navigator.pop(dialogContext);
-            _resume(context, operations, onCompleted);
-          },
-          child: Text(t.accountOperationResume),
-        ),
-      ],
-    ),
-  );
-}
-
-Future<void> _retryCancel(
-  BuildContext context,
-  AccountUiOperations operations,
-) async {
-  try {
-    final cancelled = await operations.cancelReplacement();
-    if (!cancelled && context.mounted) {
-      await showSafeAccountFailure(
-        context,
-        retry: () => _retryCancel(context, operations),
-      );
-    }
-  } catch (_) {
-    if (context.mounted) {
-      await showSafeAccountFailure(
-        context,
-        retry: () => _retryCancel(context, operations),
-      );
-    }
-  }
-}
-
-Future<void> _showBlocked(
-  BuildContext context,
-  AccountUiOperations operations,
-) {
-  final t = AppL10n.of(context);
-  return showSoriDialog<void>(
-    context: context,
-    builder: (dialogContext) => SoriDialog(
-      title: Text(t.accountOperationBlockedTitle),
-      content: Text(
-        '${t.accountOperationBlockedBody}\n\n${t.accountOperationSupportBody}',
-      ),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.pop(dialogContext),
-          child: Text(t.btnClose),
-        ),
-        FilledButton(
-          onPressed: () {
-            Navigator.pop(dialogContext);
-            _resume(context, operations, null);
-          },
-          child: Text(t.accountOperationResume),
         ),
       ],
     ),

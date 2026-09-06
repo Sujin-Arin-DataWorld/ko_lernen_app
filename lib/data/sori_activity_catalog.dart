@@ -90,6 +90,7 @@ ActivityCatalogEntry _entry({
   Object? arguments,
   List<String> detailRouteAliases = const <String>[],
   ActivityUnlockCondition unlock = const ActivityUnlockCondition.unlocked(),
+  SoriLearnSection? learnSection,
 }) => ActivityCatalogEntry(
   id: id,
   tab: tab,
@@ -109,6 +110,7 @@ ActivityCatalogEntry _entry({
   ownsRoute: ownsRoute,
   detailRouteAliases: detailRouteAliases,
   unlock: unlock,
+  learnSection: learnSection,
 );
 
 /// One stable, testable inventory for every learner-facing Sori Stage entry.
@@ -127,6 +129,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.completion,
     icon: 'route',
     reward: _contract('course', _verifiedLearning, [_xp, _hanok, _quest]),
+    learnSection: SoriLearnSection.today,
   ),
   _entry(
     id: 'hangul',
@@ -140,6 +143,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.review,
     icon: 'hangul',
     reward: _contract('hangul', _finishSession, [_quest]),
+    learnSection: SoriLearnSection.explore,
   ),
   _entry(
     id: 'calligraphy',
@@ -153,6 +157,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.review,
     icon: 'brush',
     reward: _contract('calligraphy', _finishSession, [_quest]),
+    learnSection: SoriLearnSection.explore,
   ),
   _entry(
     id: 'pronunciation',
@@ -166,6 +171,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.speaking,
     icon: 'mic',
     reward: _contract('pronunciation', _verifiedLearning, [_quest]),
+    learnSection: SoriLearnSection.explore,
   ),
   _entry(
     id: 'vocab_packs',
@@ -180,6 +186,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.listening,
     icon: 'cards',
     reward: _contract('vocab_packs', _firstClear, [_xp, _stamp, _quest]),
+    learnSection: SoriLearnSection.today,
   ),
   _entry(
     id: 'srs',
@@ -194,6 +201,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.review,
     icon: 'repeat',
     reward: _contract('srs', _finishSession, [_xp, _quest]),
+    learnSection: SoriLearnSection.review,
   ),
   _entry(
     id: 'my_words',
@@ -213,19 +221,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.review,
     icon: 'bookshelf',
     reward: _contract('my_words', _finishSession, [_noDirectReward]),
-  ),
-  _entry(
-    id: 'word_web',
-    tab: SoriStageTab.learn,
-    de: 'Nuancen & Gegenteile',
-    en: 'Nuances & opposites',
-    descriptionDe: 'Synonyme, Gegenteile und Wendungen zu deinen Wörtern.',
-    descriptionEn: 'Synonyms, opposites and expressions for your words.',
-    route: '/word_web',
-    minutes: 6,
-    color: SoriActivityColorRole.review,
-    icon: 'hub',
-    reward: _contract('word_web', _finishSession, [_noDirectReward]),
+    learnSection: SoriLearnSection.review,
   ),
   _entry(
     id: 'grammar',
@@ -239,6 +235,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.completion,
     icon: 'grammar',
     reward: _contract('grammar', _finishSession, [_noDirectReward]),
+    learnSection: SoriLearnSection.today,
   ),
   _entry(
     id: 'listening',
@@ -252,6 +249,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.listening,
     icon: 'headphones',
     reward: _contract('listening', _finishSession, [_xp]),
+    learnSection: SoriLearnSection.explore,
   ),
   _entry(
     id: 'scenarios',
@@ -266,6 +264,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.speaking,
     icon: 'dialogue',
     reward: _contract('scenarios', _verifiedLearning, [_xp, _hanok, _quest]),
+    learnSection: SoriLearnSection.explore,
   ),
   _entry(
     id: 'smalltalk',
@@ -279,26 +278,26 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.speaking,
     icon: 'chat',
     reward: _contract('smalltalk', _finishSession, [_noDirectReward]),
+    learnSection: SoriLearnSection.explore,
   ),
   _entry(
-    id: 'vocab_notebook',
+    id: 'word_web',
     tab: SoriStageTab.learn,
-    de: 'Vokabelheft',
-    en: 'Vocab notebook',
-    descriptionDe: 'Dein Heft fotografieren und genau diese Wörter üben.',
-    descriptionEn: 'Photograph your notebook and practice those exact words.',
-    route: '/vocab_notebook',
-    minutes: 4,
-    color: SoriActivityColorRole.listening,
-    icon: 'camera',
-    reward: _contract('vocab_notebook', _finishSession, [_noDirectReward]),
-    detailRouteAliases: const <String>[
-      '/vocab_notebook/result',
-      '/vocab_notebook/practice',
-      '/vocab_notebook/nuance',
-      '/vocab_notebook/studio',
-    ],
+    de: 'Nuancen & Gegenteile',
+    en: 'Nuances & opposites',
+    descriptionDe: 'Synonyme, Gegenteile und Wendungen zu deinen Wörtern.',
+    descriptionEn: 'Synonyms, opposites and expressions for your words.',
+    route: '/word_web',
+    minutes: 6,
+    color: SoriActivityColorRole.review,
+    icon: 'hub',
+    reward: _contract('word_web', _finishSession, [_noDirectReward]),
+    learnSection: SoriLearnSection.explore,
   ),
+  // W10 T-L2: 'vocab_notebook' 타일 제거 — Vokabelheft는 이제 카탈로그 타일이
+  // 아니라 Meine Wörter("my_words") 화면의 "+" 시트에서만 들어간다. 라우트
+  // ('/vocab_notebook' 및 그 별칭들)와 화면은 그대로 살아 있다 — 여기서
+  // 지우는 것은 Lernen 탭 카드뿐이다.
   _entry(
     id: 'daily_game',
     tab: SoriStageTab.games,
@@ -390,47 +389,25 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     icon: 'chain',
     reward: _contract('kkeunmari', _finishSession, [_xp, _best, _quest]),
   ),
+  // W10 T-L3: 'custom_quiz' + 'custom_matching' + 'custom_typing' 세 타일을
+  // 하나로 합친다 — 셋 다 '/my_words'(Meine Wörter)로 들어가 그 안에서
+  // 퀴즈/매칭/타이핑을 고르므로 카탈로그 레벨의 세 타일은 중복이었다.
+  // minutes 는 셋 중 최댓값(5), 일러스트는 custom_quiz 것을 재사용한다
+  // (activities/custom_practice.webp — 기존 custom_quiz.webp 를 git mv).
   _entry(
-    id: 'custom_quiz',
+    id: 'custom_practice',
     tab: SoriStageTab.games,
-    de: 'Eigenes Quiz',
-    en: 'Custom quiz',
-    descriptionDe: 'Ein Wortpaket im Bücherregal auswählen.',
-    descriptionEn: 'Choose a word pack from your bookshelf.',
+    de: 'Eigene Wörter üben',
+    en: 'Practice my words',
+    descriptionDe:
+        'Quiz, Matching und Tippen mit deinen gespeicherten Wörtern.',
+    descriptionEn: 'Quiz, matching and typing with your saved words.',
     route: '/my_words',
     ownsRoute: false,
     minutes: 5,
     color: SoriActivityColorRole.listening,
     icon: 'quiz',
-    reward: _contract('custom_quiz', _finishSession, [_xp, _best]),
-  ),
-  _entry(
-    id: 'custom_matching',
-    tab: SoriStageTab.games,
-    de: 'Eigenes Matching',
-    en: 'Custom matching',
-    descriptionDe: 'Deine Wörter als Paare festigen.',
-    descriptionEn: 'Strengthen your words as pairs.',
-    route: '/my_words',
-    ownsRoute: false,
-    minutes: 4,
-    color: SoriActivityColorRole.completion,
-    icon: 'matching',
-    reward: _contract('custom_matching', _finishSession, [_xp]),
-  ),
-  _entry(
-    id: 'custom_typing',
-    tab: SoriStageTab.games,
-    de: 'Eigenes Tippen',
-    en: 'Custom typing',
-    descriptionDe: 'Deine Wörter aktiv aus dem Gedächtnis holen.',
-    descriptionEn: 'Actively recall your own words.',
-    route: '/my_words',
-    ownsRoute: false,
-    minutes: 5,
-    color: SoriActivityColorRole.review,
-    icon: 'keyboard',
-    reward: _contract('custom_typing', _finishSession, [_xp, _best]),
+    reward: _contract('custom_practice', _finishSession, [_xp, _best]),
   ),
 ]);
 

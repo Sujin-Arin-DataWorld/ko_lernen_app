@@ -6,6 +6,12 @@ import '../services/today_learning_snapshot.dart';
 
 enum SoriStageTab { today, learn, games, hanok, gye }
 
+/// W10 T-L1: the Learn tab renders its catalog in three labeled sections —
+/// today's core learning path first, then the wider practice surface, then
+/// the review/reinforcement tools at the bottom (Jin, 2026-09-05). Games-tab
+/// entries never carry a section (stays `null`).
+enum SoriLearnSection { today, explore, review }
+
 enum SoriActivityColorRole {
   listening,
   speaking,
@@ -150,6 +156,7 @@ class ActivityCatalogEntry {
     this.detailRouteAliases = const <String>[],
     this.unlock = const ActivityUnlockCondition.unlocked(),
     this.arguments,
+    this.learnSection,
   });
 
   final String id;
@@ -165,6 +172,10 @@ class ActivityCatalogEntry {
   final bool ownsRoute;
   final List<String> detailRouteAliases;
   final ActivityUnlockCondition unlock;
+
+  /// W10 T-L1: which Learn-tab section this entry renders under. Always
+  /// `null` for `SoriStageTab.games` entries.
+  final SoriLearnSection? learnSection;
 }
 
 @immutable

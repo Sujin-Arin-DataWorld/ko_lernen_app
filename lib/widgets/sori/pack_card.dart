@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../data/pack_artwork_catalog.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/pack_progress.dart';
 import 'dancheong_stamp.dart';
@@ -9,8 +10,9 @@ import 'tokens.dart';
 /// Pack-Karten Tile für die Pack-Marktplatz-Grid.
 ///
 /// 2026-08-13 UI 개편 Phase 1: [SoriIllustratedCard] 규격으로 재구성 —
-/// 상단에 motif 별 일러스트 슬롯(`assets/illustrations/packs/{motif}.webp`,
-/// 규약 기반: 파일을 넣기만 하면 뜬다), 폴백은 기존 단청 도장.
+/// 상단에 승인된 팩 전용 일러스트를 우선 표시하고, 아직 제작되지 않은 팩은
+/// motif 일러스트(`assets/illustrations/packs/{motif}.webp`)를 유지한다.
+/// 이미지 로드 실패 시 최종 폴백은 기존 단청 도장이다.
 ///
 /// Zwei sichtbare Zustände:
 ///   - **available / inProgress** — 일러스트 + Progress-Dots + Tap-Action.
@@ -41,7 +43,7 @@ class PackCard extends StatelessWidget {
       state: _cleared
           ? SoriIllustratedCardState.cleared
           : SoriIllustratedCardState.normal,
-      illustrationAsset: 'assets/illustrations/packs/${motif.name}.webp',
+      illustrationAsset: PackArtworkCatalog.assetFor(packId, motif),
       fallback: DancheongStamp(motif: motif, size: 44, animate: false),
       overlay: _cleared
           ? DancheongStamp(

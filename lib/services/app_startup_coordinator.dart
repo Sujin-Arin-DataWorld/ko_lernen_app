@@ -13,7 +13,7 @@ Future<void> _noopStartupStep() async {}
 
 enum AccountStartupRestorationKind {
   none,
-  replacement,
+  switchPending,
   deletion,
   deletionReceiptPending,
   cloudBackupDeletion,
@@ -27,8 +27,9 @@ class AccountStartupRestoration {
     : kind = AccountStartupRestorationKind.none,
       session = null;
 
-  const AccountStartupRestoration.replacement(this.session)
-    : kind = AccountStartupRestorationKind.replacement;
+  const AccountStartupRestoration.switchPending()
+    : kind = AccountStartupRestorationKind.switchPending,
+      session = null;
 
   const AccountStartupRestoration.deletion(this.session)
     : kind = AccountStartupRestorationKind.deletion;
@@ -72,6 +73,7 @@ class AppStartupCoordinator {
     this.resumeCloudBackupDeletion = _noopStartupStep,
     this.resumeCloudAutoSync = _noopStartupStep,
     this.resumeAccountDeletionByReceipt = _noopStartupStep,
+    this.resumeAccountSwitch = _noopStartupStep,
     required this.resumeMediaCleanup,
     required this.resumeBookshelfSync,
     required this.resumeAccountOperation,
@@ -93,6 +95,7 @@ class AppStartupCoordinator {
   final StartupStep resumeCloudBackupDeletion;
   final StartupStep resumeCloudAutoSync;
   final StartupStep resumeAccountDeletionByReceipt;
+  final StartupStep resumeAccountSwitch;
   final StartupStep resumeMediaCleanup;
   final StartupStep resumeBookshelfSync;
   final StartupStep resumeAccountOperation;
@@ -112,9 +115,21 @@ class AppStartupCoordinator {
     if (restorePendingAccountState case final restore?) {
       final restoration = await restore(currentUserId()?.trim());
       switch (restoration.kind) {
-        case AccountStartupRestorationKind.replacement:
         case AccountStartupRestorationKind.blocked:
           return true;
+        case AccountStartupRestorationKind.switchPending:
+          // The switch already signed the primary auth into the target
+          // account before the crash/kill; sign back in and best-effort
+          // resume the merge, then fall through to normal startup — a
+          // deferred merge leaves the session `reconciling`, which
+          // synchronizeReadySession below already treats as `blocked`.
+          await ensureSignedIn();
+          try {
+            await resumeAccountSwitch();
+          } catch (_) {
+            // Logged inside AuthService.resumePendingAccountSwitch.
+          }
+          break;
         case AccountStartupRestorationKind.cloudBackupDeletion:
           // The persisted cloud-backup deletion owns startup, but its exact
           // request may safely resume here: the journal's request key is
@@ -152,11 +167,14 @@ class AppStartupCoordinator {
           // deletions use the capability-only status path below instead.
           return true;
         case AccountStartupRestorationKind.deletionReceiptPending:
-          // The source Auth user may already have been deleted by the worker.
-          // Resume only the capability-bound, read-only status path. Creating
-          // a replacement identity first would lose the exact recovery lane.
+          // The user-visible deletion already finished on this device (the
+          // Auth identity is already gone, and local cleanup either already
+          // ran or fences separately). This is now silent, best-effort
+          // background verification only — it must not fence the rest of
+          // startup. Run it before ensureSignedIn() below creates any
+          // replacement identity, then fall through to normal startup.
           await resumeAccountDeletionByReceipt();
-          return true;
+          break;
         case AccountStartupRestorationKind.none:
           break;
       }

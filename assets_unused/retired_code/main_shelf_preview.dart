@@ -8,6 +8,7 @@ library;
 
 import 'package:flutter/material.dart';
 
+import 'data/chaekgado_shelf.dart' show ChaekgadoCompartment;
 import 'theme.dart';
 import 'widgets/sori/chaekgado/scroll_sheet.dart';
 import 'widgets/sori/chaekgado/shelf_case.dart';

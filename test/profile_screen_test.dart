@@ -12,6 +12,7 @@ import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
 import 'package:ko_lernen_app/screens/profile_screen.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
+import 'package:ko_lernen_app/services/account/account_switch_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
 import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
@@ -782,12 +783,10 @@ void main() {
       );
       expect(signOut.onTap, isNotNull);
 
-      releasePersistedRead.complete(
-        AccountUiPendingState.replacementCancellable,
-      );
+      releasePersistedRead.complete(AccountUiPendingState.blocked);
       await tester.pump();
 
-      // Still locked — but the tap now reroutes to the replacement resume
+      // Still locked — but the tap now reroutes to the locked-account
       // dialog instead of silently doing nothing (and never signs out).
       signOut = tester.widget<SoriButton>(
         find.widgetWithText(SoriButton, 'Abmelden'),
@@ -985,14 +984,6 @@ class _DelayedLinkedAccountOperations
   @override
   ValueListenable<AccountUiPendingState> get pendingState => pending;
 
-  @override
-  Future<bool> cancelReplacement() async => false;
-
-  @override
-  Future<AccountTransitionResult> confirmReplacement(
-    ExistingAccountLinkConflict conflict,
-  ) async => const AccountTransitionResult(AccountTransitionStatus.blocked);
-
   void dispose() => pending.dispose();
 
   @override
@@ -1010,6 +1001,7 @@ class _DelayedLinkedAccountOperations
   }
 
   @override
-  Future<AccountTransitionResult> resumeReplacement() async =>
-      const AccountTransitionResult(AccountTransitionStatus.blocked);
+  Future<AccountSwitchResult> switchToExisting(
+    ExistingAccountLinkConflict conflict,
+  ) async => const AccountSwitchResult(AccountSwitchStatus.failed);
 }

@@ -6,7 +6,7 @@
 
 ## cloze.json
 
-859건.
+833건.
 
 | id | 마커 | 문장 |
 |---|---|---|
@@ -72,7 +72,6 @@
 | cloze_a1_0162 | particle_mismatch | ＿＿＿가 만두처럼 커졌어요. (distractor: 작은 정성) |
 | cloze_a1_0165 | particle_mismatch | ＿＿＿는 산에 올라가서 무덤가 풀을 깎는 일이에요. (distractor: 명절 증후군) |
 | cloze_a1_0166 | particle_mismatch | ＿＿＿는 김이 올라서 부엌이 뿌예졌어요. (distractor: 수저 놓) |
-| cloze_a1_0169 | particle_mismatch | ＿＿＿은 떼고 먹으라고 손짓하셨어요. (distractor: 손 씻기, 손님 슬리퍼) |
 | cloze_a1_0170 | particle_mismatch | ＿＿＿은 차 안에서 이미 시작됐어요. (distractor: 답례) |
 | cloze_a1_0171 | particle_mismatch | ＿＿＿를 지내기 전에는 웃음소리를 줄였어요. (distractor: 차례상, 처남) |
 | cloze_a1_0172 | particle_mismatch | ＿＿＿이 엘리베이터에서 먼저 손을 흔들었어요. (distractor: 설거지) |
@@ -171,7 +170,6 @@
 | cloze_a2_0073 | particle_mismatch | ＿＿＿이 부족해요. (distractor: 문자, 치마) |
 | cloze_a2_0074 | particle_mismatch | ＿＿＿가 있어요? (distractor: 호텔, 반) |
 | cloze_a2_0081 | particle_mismatch | ＿＿＿이 아니라 동아리에서 만났다고 했어요. (distractor: 세면 도구) |
-| cloze_a2_0082 | dangling_stem | 유창하지 않아도 천천히 말하면 통해요. (answer="유창하") |
 | cloze_a2_0083 | particle_mismatch | 어려운 말은 현우에게 ＿＿＿을 했어요. (distractor: 안부 전화) |
 | cloze_a2_0084 | particle_mismatch | ＿＿＿를 세 문장으로 준비해 갔어요. (distractor: 반말 연습, 반말 전환) |
 | cloze_a2_0086 | particle_mismatch | ＿＿＿을 묻길래 매운 건 조금 먹는다고 했어요. (distractor: 새해 목표) |
@@ -325,23 +323,17 @@
 | cloze_b1_0101 | particle_mismatch | ＿＿＿을 시험받는 기분은 회사보다 가족 식탁에서 더 컸어요. (distractor: 선물 감사, 선물 분배) |
 | cloze_b1_0104 | particle_mismatch | ＿＿＿는 하지 않고 범위만 말했어요. (distractor: 새벽 화장실) |
 | cloze_b1_0105 | particle_mismatch | ＿＿＿를 묻길래 동료가 친절하다고 했어요. (distractor: 결혼 계획, 계약직) |
-| cloze_b1_0109 | dangling_stem | 긴 이야기는 요약해서 전하니 핵심만 남았어요. (answer="요약해서 전하") |
 | cloze_b1_0111 | particle_mismatch | ＿＿＿가 사라질까 봐 현우가 손짓으로 멈췄어요. (distractor: 공지 확인, 교통 대란) |
 | cloze_b1_0116 | particle_mismatch | ＿＿＿을 바로잡으니 아버지가 오히려 고마워하셨어요. (distractor: 감사 메시지, 감정 정리) |
-| cloze_b1_0118 | dangling_stem | 대충 하지 말라고 현우가 귓속말로 했어요. (answer="대충 하") |
-| cloze_b1_0119 | dangling_stem | 쉬운 질문은 직접 대답하니 표정이 밝아졌어요. (answer="직접 대답하") |
 | cloze_b1_0120 | particle_mismatch | ＿＿＿을 때 두 손으로 하니 삼촌이 고개를 끄덕이셨어요. (distractor: 대충 하, 먼저 따르) |
 | cloze_b1_0121 | particle_mismatch | ＿＿＿를 때 병목을 가리니 현우가 잘했다고 했어요. (distractor: 다시 확인) |
 | cloze_b1_0123 | particle_mismatch | ＿＿＿은 안 한다고 하니 아버지가 물을 밀어 주셨어요. (distractor: 국적 문제, 뉘앙스) |
 | cloze_b1_0124 | particle_mismatch | ＿＿＿을 부르니 안심하라는 말이 나왔어요. (distractor: 감사 메시지, 감정 정리) |
 | cloze_b1_0125 | particle_mismatch | ＿＿＿는 위생 때문에 웃으며 거절했어요. (distractor: 명절 예산, 방 배정) |
-| cloze_b1_0126 | dangling_stem | 취하기 전에 자리에서 일어나 물을 마셨어요. (answer="취하") |
 | cloze_b1_0129 | particle_mismatch | ＿＿＿이 나오기 전에 현우가 화제를 바꿨어요. (distractor: 불 끄기, 사진 올리기, 새벽 메시지) |
-| cloze_b1_0131 | dangling_stem | 취하신 분 옆에서는 자리 피하는 게 안전했어요. (answer="자리 피하") |
 | cloze_b1_0132 | particle_mismatch | ＿＿＿이 따로라서 안도하면서도 서운했어요. (distractor: 감정 정리, 건배) |
 | cloze_b1_0137 | particle_mismatch | ＿＿＿는 현우가 대신 했어요. (distractor: 잠자리 예절, 존댓말 채팅) |
-| cloze_b1_0139 | particle_mismatch | ＿＿＿는 어른이 먼저 하라고 눈짓하셨어요. (distractor: 이직 생각, 일정 충돌) |
-| cloze_b1_0140 | particle_mismatch | ＿＿＿를 치우니 공간이 바로 거실이 됐어요. (distractor: 폭음, 한국어 능력) |
+| cloze_b1_0139 | particle_mismatch | ＿＿＿는 어른이 먼저 하라고 눈짓하셨어요. (distractor: 이직 생각) |
 | cloze_b1_0144 | particle_mismatch | 차 안에서 ＿＿＿를 솔직하게 나눴어요. (distractor: 야근, 양쪽 집) |
 | cloze_b1_0145 | particle_mismatch | ＿＿＿을 적으니 생각보다 짧아서 안도했어요. (distractor: 연봉 공개, 연휴 근무, 영상 인사) |
 | cloze_b1_0146 | particle_mismatch | ＿＿＿는 현우 엄마께 먼저 보냈어요. (distractor: 실수 목록) |
@@ -350,7 +342,6 @@
 | cloze_b1_0149 | particle_mismatch | ＿＿＿를 하니 긴장보다 따뜻함이 남았어요. (distractor: 야근, 양쪽 집) |
 | cloze_b1_0151 | particle_mismatch | ＿＿＿을 현우가 해 주니 덜 아팠어요. (distractor: 올해는 못 가요, 요약해서 전하다, 웃고 넘기다) |
 | cloze_b1_0152 | particle_mismatch | ＿＿＿을 적어 두니 다음 방문이 덜 무서웠어요. (distractor: 직장 분위기, 취업 비자) |
-| cloze_b1_0153 | dangling_stem | 잠자리 경계 다시 정하니 둘이 편해졌어요. (answer="경계 다시 정하") |
 | cloze_b1_0154 | particle_mismatch | ＿＿＿를 빠뜨릴 뻔해서 급히 보냈어요. (distractor: 취중진담, 칭찬 기억) |
 | cloze_b1_0157 | particle_mismatch | ＿＿＿이 길어질까 봐 짧게라도 답했어요. (distractor: 코골이 사과, 퇴사) |
 | cloze_b1_0158 | particle_mismatch | ＿＿＿을 안 해서 모임 시간을 헷갈렸어요. (distractor: 오해 풀기, 원격 근무, 월급 이야기) |
@@ -462,33 +453,25 @@
 | cloze_b2_0079 | particle_mismatch | 검토가 끝나는 대로 ＿＿＿을 보내드리겠습니다. (distractor: 이의 제기) |
 | cloze_b2_0080 | particle_mismatch | 확인된 결함에 대해 필요한 ＿＿＿를 이미 취했습니다. (distractor: 민원, 결함, 보상) |
 | cloze_b2_0172 | particle_mismatch | ＿＿＿을 기대하는 눈빛을 현우가 먼저 읽었어요. (distractor: 공식 소개, 단체 인사) |
-| cloze_b2_0173 | particle_mismatch | ＿＿＿이 과해서 자리가 오히려 불편했어요. (distractor: 공식 소개, 단체 인사) |
 | cloze_b2_0174 | particle_mismatch | ＿＿＿를 보느라 선물을 두 세트로 샀어요. (distractor: 각자 계산) |
 | cloze_b2_0175 | particle_mismatch | ＿＿＿는 농담 같지만 규칙이 진짜였어요. (distractor: 불공평, 사생활) |
 | cloze_b2_0176 | particle_mismatch | ＿＿＿는 며칠만이라고 선을 그었어요. (distractor: 제사 역할) |
 | cloze_b2_0177 | particle_mismatch | ＿＿＿을 문서로 적으니 싸움이 줄었어요. (distractor: 지방 쓰기) |
 | cloze_b2_0178 | particle_mismatch | ＿＿＿을 평가하지 않고 현우에게만 확인했어요. (distractor: 빚 이야기) |
 | cloze_b2_0179 | particle_mismatch | ＿＿＿을 묻는 게 날씨보다 안전한 시작이었어요. (distractor: 반복 요구, 봉투 준비) |
-| cloze_b2_0180 | particle_mismatch | ＿＿＿은 시간보다 성의로 보여 주려 했어요. (distractor: 제사 음식 배치) |
 | cloze_b2_0183 | particle_mismatch | ＿＿＿를 음력과 양력으로 둘 다 적었어요. (distractor: 예단) |
-| cloze_b2_0184 | particle_mismatch | ＿＿＿이 나와서 현우가 바로 화제를 접었어요. (distractor: 처가, 처가살이) |
 | cloze_b2_0188 | particle_mismatch | ＿＿＿이 길어지자 우선순위를 다시 매겼어요. (distractor: 연락 빈도, 예식 날짜) |
 | cloze_b2_0190 | particle_mismatch | ＿＿＿을 농담으로 넘기지 않고 일정을 말했어요. (distractor: 사진 공개, 상견례) |
 | cloze_b2_0191 | particle_mismatch | ＿＿＿를 존중한다고 하니 질문이 줄었어요. (distractor: 축문) |
-| cloze_b2_0194 | particle_mismatch | ＿＿＿를 표로 그리니 실수가 줄었어요. (distractor: 돈 농담, 며느리 역할, 명절 노동) |
 | cloze_b2_0196 | particle_mismatch | 동생을 ＿＿＿가 현우가 기침으로 막아 줬어요. (distractor: 한쪽에만, 각자 계산) |
-| cloze_b2_0198 | particle_mismatch | ＿＿＿은 작게, 그리고 바로 했어요. (distractor: 상견례, 서로의 속도) |
 | cloze_b2_0199 | particle_mismatch | ＿＿＿을 빼면 문장이 갑자기 차갑게 들렸어요. (distractor: 호칭 체계, 혼수, 휴식 교대) |
 | cloze_b2_0200 | particle_mismatch | ＿＿＿은 집 밖에서만 쓰기로 했어요. (distractor: 호칭 체계, 혼수) |
 | cloze_b2_0201 | particle_mismatch | ＿＿＿을 먼저 하니 긴장이 풀렸어요. (distractor: 혼수, 휴식 교대, 가족 기대) |
-| cloze_b2_0202 | particle_mismatch | ＿＿＿이라고 부르는 순간 현우 얼굴이 멈췄어요. (distractor: 제사 음식 배치) |
 | cloze_b2_0204 | particle_mismatch | 헷갈리면 ＿＿＿는 게 침묵보다 나았어요. (distractor: 선을 긋) |
 | cloze_b2_0207 | particle_mismatch | ＿＿＿는 제가 하지 않고 옆에서 종이만 잡았어요. (distractor: 전 부침, 제사 역할) |
 | cloze_b2_0210 | particle_mismatch | ＿＿＿은 듣지 못해도 고개를 숙이면 됐어요. (distractor: 설거지 교대, 술잔 올리기) |
 | cloze_b2_0212 | particle_mismatch | ＿＿＿은 상 옆이 아니라 끝난 뒤에만이었어요. (distractor: 음식 나르기, 자리 배치) |
-| cloze_b2_0213 | particle_mismatch | ＿＿＿이 없으면 조용히 서는 게 도움이었어요. (distractor: 호칭 공개) |
 | cloze_b2_0214 | particle_mismatch | ＿＿＿를 종이에 적어 주머니에 넣었어요. (distractor: 부모님 지원) |
-| cloze_b2_0216 | particle_mismatch | ＿＿＿를 건드리지 말라고 눈짓하셨어요. (distractor: 제사 역할, 제사상, 조상님) |
 | cloze_b2_0219 | particle_mismatch | ＿＿＿가 나와서 제가 밥값을 먼저 냈어요. (distractor: 양가 공평) |
 | cloze_b2_0222 | particle_mismatch | ＿＿＿은 가족 앞에서 자세히 말하지 않았어요. (distractor: 시월드) |
 | cloze_b2_0223 | particle_mismatch | ＿＿＿는 식탁이 아니라 나중에 둘이 하기로 했어요. (distractor: 예단, 음복) |
@@ -516,7 +499,6 @@
 | cloze_b2_0259 | particle_mismatch | ＿＿＿는 큰 소리보다 고개가 중요했어요. (distractor: 돈 농담, 며느리 역할) |
 | cloze_b2_0260 | particle_mismatch | ＿＿＿를 하자 삼촌이 괜찮다고 손짓하셨어요. (distractor: 며느리 역할, 명절 노동, 명절 순환) |
 | cloze_b2_0262 | particle_mismatch | ＿＿＿을 밖에서 낮추지 않기로 했어요. (distractor: 양가 회의, 연락 빈도) |
-| cloze_b2_0264 | dangling_stem | 관계부터 말하니 악수 타이밍이 맞았어요. (answer="관계부터 말하") |
 | cloze_b2_0268 | particle_mismatch | ＿＿＿는 한 분기 안에 측정 가능하게 정해요. (distractor: 성과 면담) |
 | cloze_b2_0270 | particle_mismatch | ＿＿＿은 형용사보다 사례로 적어요. (distractor: 목표 대비, 개선 과제) |
 | cloze_b2_0271 | particle_mismatch | ＿＿＿를 받은 날 바로 정리해요. (distractor: 성과 면담) |
@@ -608,7 +590,6 @@
 | cloze_c1_0058 | particle_mismatch | ＿＿＿가 웃음을 타고 와서 바로 지적하기 어려웠어요. (distractor: 포용적 호칭) |
 | cloze_c1_0060 | particle_mismatch | ＿＿＿가 누구인지 묻자 잠시 조용해졌어요. (distractor: 보이지 않는 일, 분배 기준, 성별 분업) |
 | cloze_c1_0061 | particle_mismatch | ＿＿＿가 의자보다 먼저 배치된다는 걸 그날 배웠어요. (distractor: 전통의 선택) |
-| cloze_c1_0064 | dangling_stem | 자리를 재협상하자 다음 명절 표가 달라졌어요. (answer="자리를 재협상하") |
 | cloze_c1_0065 | particle_mismatch | ＿＿＿이 상을 완성한다는 걸 설거지통에서 봤어요. (distractor: 역할 언어, 침묵의 동의) |
 | cloze_c1_0066 | particle_mismatch | ＿＿＿을 전통으로만 설명하면 대화가 멈췄어요. (distractor: 말의 자리) |
 | cloze_c1_0068 | particle_mismatch | ＿＿＿을 사진이 아니라 교대표로 남기기로 했어요. (distractor: 역할 언어, 침묵의 동의) |
@@ -616,8 +597,6 @@
 | cloze_c1_0070 | particle_mismatch | ＿＿＿은 칭찬 한 마디보다 다음 할 일을 나누는 것이었어요. (distractor: 침묵의 동의, 타자화) |
 | cloze_c1_0072 | particle_mismatch | ＿＿＿을 나이에서 체력으로 바꾸자 반발이 줄었어요. (distractor: 침묵의 동의, 타자화) |
 | cloze_c1_0073 | particle_mismatch | ＿＿＿를 합의로 보지 않기로 둘이 정했어요. (distractor: 분배 기준, 성별 분업, 소속 프레임) |
-| cloze_c1_0075 | dangling_stem | 노동을 보이게 하자 감사의 대상이 달라졌어요. (answer="노동을 보이게 하") |
-| cloze_c1_0076 | dangling_stem | 공평을 설계하니 감정이 아니라 표가 남았어요. (answer="공평을 설계하") |
 | cloze_c1_0077 | particle_mismatch | ＿＿＿을 숨기면 결론이 과해 보여요. (distractor: 과잉 일반화) |
 | cloze_c1_0078 | particle_mismatch | ＿＿＿을 인정해야 비교가 정직해져요. (distractor: 과잉 일반화) |
 | cloze_c1_0079 | particle_mismatch | ＿＿＿를 피하려고 적용 범위를 좁혀요. (distractor: 불확실성 구간, 표본 편향, 신뢰 구간) |
@@ -746,9 +725,6 @@
 | cloze_c2_0058 | particle_mismatch | ＿＿＿를 혈연으로만 두면 외부인은 영원히 손님이에요. (distractor: 공동 기억) |
 | cloze_c2_0059 | particle_mismatch | ＿＿＿를 깨지 않고도 질문을 하나 넣을 자리는 있었어요. (distractor: 말의 유산, 망각의 예절, 불복의 비용) |
 | cloze_c2_0061 | particle_mismatch | ＿＿＿을 계산하니 그날은 기록만 남기기로 했어요. (distractor: 호명의 거부, 호칭의 정치) |
-| cloze_c2_0062 | dangling_stem | 권력을 호명하니 방이 잠시 조용해졌다가 다시 숨이 돌아왔어요. (answer="권력을 호명하") |
-| cloze_c2_0063 | dangling_stem | 기분이 아니라 절차를 요구하니 다음 결정이 투명해졌어요. (answer="절차를 요구하") |
-| cloze_c2_0064 | dangling_stem | 자리를 문서화하자 기억 싸움이 줄었어요. (answer="자리를 문서화하") |
 | cloze_c2_0065 | particle_mismatch | ＿＿＿이 누구에게는 친밀이고 누구에게는 무례였어요. (distractor: 권한의 출처, 기록 주체) |
 | cloze_c2_0068 | particle_mismatch | ＿＿＿는 친근함의 가면을 쓰고 경계를 정했어요. (distractor: 순응 연출, 의사결정권, 이름 호명) |
 | cloze_c2_0069 | particle_mismatch | ＿＿＿은 아픈 질문을 다시 하지 않는 일이었어요. (distractor: 기록 주체, 대리 발화) |
@@ -756,8 +732,6 @@
 | cloze_c2_0071 | particle_mismatch | ＿＿＿를 무례가 아니라 자기 보호로 설명해 달라고 했어요. (distractor: 불복의 비용, 서사의 주인, 순응 연출) |
 | cloze_c2_0072 | particle_mismatch | ＿＿＿을 한 장의 사진으로 고정하지 않기로 했어요. (distractor: 말의 위계) |
 | cloze_c2_0073 | particle_mismatch | ＿＿＿이 다음 명절의 대본이 되지 않게 메모를 고쳤어요. (distractor: 권한의 출처, 기록 주체) |
-| cloze_c2_0075 | dangling_stem | 기억을 재배치하자 내가 손님만은 아니게 됐어요. (answer="기억을 재배치하") |
-| cloze_c2_0076 | dangling_stem | 서사를 공유하자 한 사람의 농담이 모두의 역사가 되지 않았어요. (answer="서사를 공유하") |
 | cloze_c2_0077 | particle_mismatch | ＿＿＿를 드러내지 않으면 선택이 자연스러워 보여요. (distractor: 주어 선택) |
 | cloze_c2_0078 | particle_mismatch | ＿＿＿가 '전쟁'이면 타협이 패배처럼 들려요. (distractor: 주어 선택) |
 | cloze_c2_0079 | particle_mismatch | ＿＿＿을 바꾸면 책임이 다른 자리에 놓여요. (distractor: 담론 전제, 은유 체계, 수동 은폐) |
@@ -910,241 +884,43 @@
 
 ## scenarios_*.json
 
-231건.
+33건.
 
 | id | 마커 | 문장 |
 |---|---|---|
-| a1_airport_cart#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| a1_card_topup#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| a1_city_service_route_batch20#dialog[00] | formality_mix | 실례합니다. 우체국은 어디에 있어요? |
-| a1_city_service_route_batch20#quest_a1_city_service_route_batch20_hear.options[0].ko | formality_mix | 실례합니다. 우체국은 어디에 있어요? |
-| a1_city_service_route_batch20#quest_a1_city_service_route_batch20_translate.options[0].ko | formality_mix | 실례합니다. 우체국은 어디에 있어요? |
-| a1_class_pencil#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| a1_dust_mask#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| a1_excuse_pass#dialog[01] | formality_mix | 실례합니다. 지나갈게요. |
-| a1_excuse_pass#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| a1_excuse_pass#quest_a1_excuse_pass_tr.options[0].ko | formality_mix | 실례합니다. 지나갈게요. |
-| a1_gate_code#dialog[04] | formality_mix | 알겠습니다. 그렇게 하세요. |
-| a1_gate_code#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| a1_hall_shoes#dialog[04] | formality_mix | 알겠습니다. 바로 그렇게 할게요. |
-| a1_hotel_key#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| a1_last_train#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| a1_market_bag#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| a1_neighbor_box#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| a1_numbers_floor_and_room#dialog[06] | formality_mix | 아, 여기 있네요. 고맙습니다. |
-| a1_numbers_total_price#dialog[05] | formality_mix | 삼천 원이요. 여기 있습니다. |
-| a1_numbers_total_price#dialog[06] | formality_mix | 네, 삼천 원 받았어요. 감사합니다. |
-| a1_numbers_total_price#quest_a1_numbers_total_price_hear.audioKo | formality_mix | 삼천 원이요. 여기 있습니다. |
-| a1_office_print#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| a1_parcel_weight#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| a1_partner_first_door#dialog[00] | formality_mix | 안녕하세요. 처음 뵙겠습니다. 현우의 친구입니다. |
-| a1_partner_first_door#quest_a1_partner_first_door_translate.options[0].ko | formality_mix | 안녕하세요. 처음 뵙겠습니다. 현우의 친구입니다. |
-| a1_partner_new_year_money#quest_a1_partner_new_year_money_translate.options[2].ko | formality_mix | 안녕하세요. 처음 뵙겠습니다. 현우의 친구입니다. |
-| a1_partner_seollal_bow#dialog[04] | formality_mix | 맛있어요. 감사합니다. |
-| a1_pharmacy_hours#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| a1_phone_read_back_address#dialog[06] | formality_mix | 알겠습니다. 십 분 안에 도착해요. |
-| a1_phone_read_back_address#dialog[07] | formality_mix | 감사합니다. 기다릴게요. |
-| a1_phone_text_instead#dialog[05] | formality_mix | 아, 감사합니다. 지금 들어가요. |
-| a1_phone_wrong_number#dialog[04] | formality_mix | 아, 제가 잘못 걸었네요. 죄송합니다. |
-| a1_phone_wrong_number#dialog[06] | formality_mix | 다시 걸어 볼게요. 감사합니다. |
-| a1_phone_wrong_number#quest_a1_phone_wrong_number_hear.audioKo | formality_mix | 아, 제가 잘못 걸었네요. 죄송합니다. |
-| a1_post_queue#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| a1_rice_shop#dialog[04] | formality_mix | 알겠습니다. 잠시만 기다려 주세요. |
-| a1_slow_speech#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| a1_stamp_ask#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| a1_station_rest#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| a1_subway_exit#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| a1_taxi_address#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| a1_thanks_seat#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| a1_trash_sort#dialog[04] | formality_mix | 알겠습니다. 그렇게 하세요. |
-| a1_trash_sort#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| a1_water_shop#dialog[04] | formality_mix | 알겠습니다. 잠시만 기다려 주세요. |
-| a1_water_shop#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| a1_wayfinding_sign_says#dialog[06] | formality_mix | 고맙습니다. 표지판을 못 봤어요. |
-| a1_wayfinding_this_way_right#dialog[00] | formality_mix | 실례합니다. 우체국이 이쪽이 맞아요? |
-| a1_youtube_shorts_last_night#dialog[02] | josa_dup | 고양이가 냉장고를 열었어. |
-| a1_youtube_shorts_last_night#quest_a1_youtube_shorts_last_night_hear.audioKo | josa_dup | 고양이가 냉장고를 열었어. |
-| a1_youtube_shorts_last_night#quest_a1_youtube_shorts_last_night_particle.particlePop | josa_dup | 고양이가 냉장고를 열었어. |
-| a2_airport_sim#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| a2_bank_number#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| a2_booth_line#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| a2_cafe_plug#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| a2_card_balance#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| a2_convenience_copy#dialog[04] | formality_mix | 알겠습니다. 잠시만 기다려 주세요. |
-| a2_convenience_copy#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| a2_dye_dark#dialog[04] | formality_mix | 알겠습니다. 잠시만 기다려 주세요. |
-| a2_food_bag#dialog[04] | formality_mix | 알겠습니다. 그렇게 하세요. |
-| a2_found_umbrella#dialog[04] | formality_mix | 알겠습니다. 잠시만 기다려 주세요. |
-| a2_found_umbrella#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| a2_front_desk#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| a2_gaming_cant_connect#quest_a2_gaming_cant_connect_tr.options[3].ko | josa_dup | 와이파이가 아예 안 돼. |
-| a2_hair_time#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| a2_handover_note#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| a2_id_pickup#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| a2_kpop_concert_queue#dialog[04] | formality_mix | 고맙습니다. 공연은 몇 시에 들어가나요? |
-| a2_label_phone#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| a2_market_change#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| a2_night_pay#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| a2_office_badge#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| a2_phone_plan#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| a2_quiet_ten#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| a2_recycle_box#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| a2_restaurant_split#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| a2_salon_cut#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| a2_shift_table#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| a2_taxi_wait#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| a2_volunteer_vest#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| airport_arrival#quest_airport_arrival_04.targetKo | formality_mix | 안녕하세요. 처음 뵙겠습니다. |
-| b1_bill_split#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| b1_cafe_invoice#dialog[04] | formality_mix | 알겠습니다. 잠시만 기다려 주세요. |
-| b1_case_status#dialog[04] | formality_mix | 알겠습니다. 잠시만 기다려 주세요. |
-| b1_civil_ticket#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| b1_claim_same_day#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| b1_connecting#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| b1_contract_appointment#dialog[01] | formality_mix | 네, 맞습니다. 부동산 사무실에서 기다리고 있을게요. |
-| b1_contract_appointment#dialog[03] | formality_mix | 미리 확인해 주셔서 좋습니다. 계약서 초안은 읽어 보셨어요? |
-| b1_covering_absence#dialog[02] | formality_mix | 감사합니다. 업무 분담은 오늘 오후에 다시 정할까요? |
-| b1_extra_paper#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| b1_followup_mail#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| b1_friends_he_said_that#dialog[00] | josa_dup | 어제 수진이가 너 화났다고 했는데, 진짜야? |
-| b1_guest_notice#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| b1_heating_safety_call#dialog[04] | formality_mix | 알겠습니다. 문제가 있으면 수리비가 생기기 전에 먼저 알려 드릴게요. |
-| b1_incident_lost_item_desk#quest_b1_incident_lost_item_desk_tr.options[1].ko | josa_dup | 갈색 가방이고 손잡이가 길어요. |
-| b1_incident_lost_item_desk#quest_b1_incident_lost_item_desk_tr.options[3].ko | josa_dup | 파란 우산이고 손잡이가 굽었어요. |
-| b1_intranet_form#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| b1_job_offer_conditions_batch20#dialog[05] | formality_mix | 팀 일정과 맞으면 가능합니다. 가능한 시간을 보내 주세요. |
-| b1_kpop_missing_goods#dialog[05] | formality_mix | 재발송하면 배송비는 저희가 냅니다. 3일 걸려요. |
-| b1_laundry_turn#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| b1_leak_report#dialog[01] | formality_mix | 불편을 드려 죄송합니다. 물이 많이 새는 편인가요? |
-| b1_leak_report#quest[00].audioKo | formality_mix | 불편을 드려 죄송합니다. 물이 많이 새는 편인가요? |
-| b1_mail_cc#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| b1_market_claim#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| b1_move_in_handover#dialog[03] | formality_mix | 좋습니다. 엘리베이터 사용 시간도 예약해 놓았어요. |
-| b1_move_in_handover#dialog[05] | formality_mix | 네, 확인해 두었습니다. 문제가 있으면 입주 후 사흘 안에 알려 주세요. |
-| b1_move_in_handover#quest[00].audioKo | formality_mix | 좋습니다. 엘리베이터 사용 시간도 예약해 놓았어요. |
-| b1_partner_salary_deflect#quest_b1_partner_salary_deflect_translate.options[0].ko | formality_mix | 안녕하세요. 처음 뵙겠습니다. 현우의 친구입니다. |
-| b1_pickup_delay#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| b1_proxy_form#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| b1_quote_change#dialog[04] | formality_mix | 알겠습니다. 잠시만 기다려 주세요. |
-| b1_refund_rule#dialog[04] | formality_mix | 알겠습니다. 잠시만 기다려 주세요. |
-| b1_refund_rule#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| b1_repair_photo#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| b1_reschedule_request#dialog[04] | formality_mix | 협조해 주시면 정말 감사하겠습니다. 회의실도 변경이 가능한지 부탁드려요. |
-| b1_reschedule_request#dialog[05] | formality_mix | 알겠습니다. 확정되는 대로 새 일정을 보내 드릴게요. |
-| b1_safety_vest#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| b1_taxi_receipt#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| b1_volunteer_gap#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| b1_waitlist#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| b1_work_deadline_soft_request#dialog[07] | formality_mix | 알겠습니다. 위험이 생기면 오늘 안에 다시 공유해 주세요. |
-| b2_airport_reseat#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| b2_assumption#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| b2_case_id#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| b2_chart_axes#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| b2_convenience_scan#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| b2_counter_offer#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| b2_cross_check#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| b2_daily_upstairs_noise#dialog[01] | formality_mix | 위층에 안내문을 붙였습니다. 시간대가 언제였나요? |
-| b2_direction_risk#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| b2_market_source#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| b2_metric_clear#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| b2_next_level#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| b2_on_site#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| b2_one_pager#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| b2_pharmacy_claim#dialog[04] | formality_mix | 알겠습니다. 잠시만 기다려 주세요. |
-| b2_pharmacy_claim#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| b2_privacy_data_scope#dialog[05] | formality_mix | 처리했습니다. 이미 입력된 값은 어떻게 할까요? |
-| b2_public_question#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| b2_quorum_wait#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| b2_read_receipt#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| b2_restaurant_note#dialog[04] | formality_mix | 알겠습니다. 잠시만 기다려 주세요. |
-| b2_restaurant_note#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| b2_restore_scope#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| b2_selective_edit#dialog[01] | formality_mix | 앞부분만 보여 주면 오해가 납니다. 전체를 써야 해요. |
-| b2_selective_edit#quest_b2_selective_edit_tr.options[0].ko | formality_mix | 앞부분만 보여 주면 오해가 납니다. 전체를 써야 해요. |
-| b2_self_fail#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| b2_source_check#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| b2_station_hold#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| b2_time_box#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| b2_youtube_collab_pitch#dialog[00] | formality_mix | 안녕하세요. 채널 협업을 제안하고자 연락드렸습니다. |
-| b2_youtube_collab_pitch#dialog[01] | formality_mix | 반갑습니다. 어떤 형태를 생각하고 계신가요? |
-| bunshik_tteokbokki#dialog[04] | formality_mix | 네, 알겠습니다. 음료는요? |
-| business_meeting_intro#dialog[00] | formality_mix | 어서 오세요. 먼 길 오셨네요. 저는 김은수라고 합니다. 프로젝트 총괄 담당입니다. |
-| business_meeting_intro#dialog[01] | formality_mix | 처음 뵙겠습니다. 명함 드려도 될까요? |
-| business_meeting_intro#dialog[02] | formality_mix | 감사합니다. 저도 드릴게요. 어떤 분야를 담당하고 계세요? |
-| business_meeting_intro#dialog[04] | formality_mix | 좋습니다. 이번 프로젝트 제안서 검토해 보셨나요? |
-| business_meeting_intro#dialog[05] | formality_mix | 네, 읽어봤습니다. 몇 가지 말씀드리고 싶은 부분이 있는데, 괜찮으시면 일정을 잡아서 다시 이야기해도 될까요? |
-| business_meeting_intro#dialog[06] | formality_mix | 물론이죠. 오늘은 인사 나누는 자리니까요. 앞으로 잘 부탁드립니다. |
-| business_meeting_intro#quest_business_meeting_intro_04.options[2].ko | formality_mix | 김레나라고 해요. 해외 마케팅 계획을 이미 출시했습니다. |
-| c1_attribution_reuse_without_credit#quest_c1_attribution_reuse_without_credit_tr.options[1].ko | formality_mix | 공개 자료는 출처가 필요 없습니다. |
-| c1_briefing_number#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| c1_clinical_informed_consent#dialog[07] | formality_mix | 언제든 됩니다. 그 문장도 같이 보여 드릴게요. |
-| c1_clinical_second_opinion#dialog[01] | formality_mix | 괜찮습니다. 편하게 말씀하세요. |
-| c1_clinical_second_opinion#dialog[07] | formality_mix | 그게 서로 편합니다. 일정만 알려 주세요. |
-| c1_leading_item#dialog[07] | formality_mix | 감사합니다. 그럼 그렇게 부탁드려요. |
-| c1_mediation_restate_position#dialog[03] | formality_mix | 시점이요? 그건 몰랐습니다. |
-| c1_question_window#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| c1_relative_risk#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| c1_speaking_slot#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| c1_survey_limits_briefing#dialog[00] | formality_mix | 주민 설문 결과가 나왔습니다. 바로 확대 사업안을 발표해도 될까요? |
-| c1_youtube_health_claims#dialog[03] | formality_mix | 아니요. 효과가 없다고 단정할 여지도 없습니다. 자료가 부족하다고 써야 합니다. |
-| c2_appeal_bot#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| c2_archive_gap#dialog[01] | formality_mix | 삼 월 기록이 없습니다. 있다고 채우지 말고 공백이라고 쓰세요. |
-| c2_archive_gap#quest_c2_archive_gap_tr.options[0].ko | formality_mix | 삼 월 기록이 없습니다. 있다고 채우지 말고 공백이라고 쓰세요. |
-| c2_jurisdiction_provisional_ruling_no_authority#dialog[02] | formality_mix | 아니요. 통지서만 보고 그대로 따랐습니다. |
-| c2_mandate_edge#dialog[01] | formality_mix | 가격을 정하는 일은 제 위임 밖이에요. 위로 가야 합니다. |
-| c2_mandate_edge#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
-| c2_mandate_edge#quest_c2_mandate_edge_tr.options[0].ko | formality_mix | 가격을 정하는 일은 제 위임 밖이에요. 위로 가야 합니다. |
-| c2_moving_affordability_definition_hearing#quest_c2_moving_affordability_definition_hearing_dict.targetKo | josa_dup | 소득 구간별 부담의 분포를 공개해야 평균이 가리는 차이가 드러납니다. |
-| c2_passive_hide#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| c2_representation_press_quote_not_official#dialog[01] | formality_mix | 저도 봤습니다. 인용 표시도 없더군요. |
-| c2_trace_log#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
-| c2_withdraw_deep#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| cafe_starbucks_basic#dialog[04] | formality_mix | 4,500원입니다. 카드로 결제하시겠어요? |
-| cafe_starbucks_basic#quest_cafe_starbucks_basic_05.options[0].ko | formality_mix | 주문 도와드리겠습니다. / 주문 도와드릴게요. |
-| cafe_starbucks_basic#quest_cafe_starbucks_basic_05.options[1].ko | formality_mix | 주문 도와드릴게요. / 주문 도와드리겠습니다. |
-| clinic_safety#quest_clinic_safety_06.options[0].ko | level_length | 열이 있고 머리가 많이 아파요. 도움이 필요해요. 의사 선생님을 불러 주세요. |
-| company_dinner_hoeshik#dialog[03] | formality_mix | 다음에 꼭 갈게요. 오늘 정말 잘 먹었습니다. |
-| complaint_delivery#dialog[00] | formality_mix | 안녕하세요, 고객센터입니다. 어떻게 도와드릴까요? |
-| complaint_delivery#dialog[02] | formality_mix | 불편을 드려서 정말 죄송합니다. 주문 번호 확인해 드려도 될까요? |
-| complaint_delivery#dialog[04] | formality_mix | 죄송합니다. 확인해 보니 포장 과정에서 오류가 있었네요. 교환과 환불 중 어떻게 해드릴까요? |
-| complaint_delivery#dialog[06] | formality_mix | 영업일 기준 2~3일 안에 처리해 드리겠습니다. 지금 바로 접수해 드릴게요. |
-| complaint_delivery#quest_complaint_delivery_04.options[3].ko | formality_mix | 상품이 늦었지만 교환은 필요 없습니다. 수거해 주십시오. |
-| delivery_address_confirmation#dialog[00] | formality_mix | 안녕하세요. 배달 기사입니다. 주소가 서울시 마포구 성산로 15, 302호 맞으세요? |
-| delivery_address_confirmation#dialog[00] | level_length | 안녕하세요. 배달 기사입니다. 주소가 서울시 마포구 성산로 15, 302호 맞으세요? |
-| delivery_address_confirmation#dialog[05] | formality_mix | 네, 메시지 확인할게요. 감사합니다. |
-| first_class_meeting#dialog[01] | formality_mix | 네, 처음이에요. 저는 레나입니다. |
-| first_class_meeting#quest_first_class_meeting_06.options[0].ko | formality_mix | 저는 레나입니다. 한국어 수업 처음이세요? |
-| first_class_meeting#quest_first_class_meeting_06.options[3].ko | formality_mix | 레나 씨입니다. 한국어를 가르치세요? |
-| food_delivery#dialog[01] | formality_mix | 죄송합니다. 주문 번호를 알려 주시겠어요? |
-| food_delivery#quest_food_delivery_01.audioKo | formality_mix | 콜라가 누락됐네요. 바로 보내 드리겠습니다. |
-| introduce_yourself#dialog[00] | formality_mix | 안녕하세요. 처음 뵙겠습니다. |
-| introduce_yourself#dialog[05] | formality_mix | 저도요. 잘 부탁드립니다. |
-| introduce_yourself#quest_introduce_yourself_06.options[0].ko | formality_mix | 연락처를 보내겠습니다. / 연락처를 보낼게요. / 연락처 보낼게. |
-| introduce_yourself#quest_introduce_yourself_06.options[1].ko | formality_mix | 연락처를 보낼게요. / 연락처를 보내겠습니다. / 연락처 보낼게. |
-| introduce_yourself#quest_introduce_yourself_06.options[2].ko | formality_mix | 연락처 보낼게. / 연락처를 보낼게요. / 연락처를 보내겠습니다. |
-| introduce_yourself#quest_introduce_yourself_07.options[0].ko | formality_mix | 저는 레나입니다. / 저는 레나예요. / 나는 레나야. |
-| introduce_yourself#quest_introduce_yourself_07.options[1].ko | formality_mix | 저는 레나예요. / 나는 레나야. / 저는 레나입니다. |
-| introduce_yourself#quest_introduce_yourself_07.options[2].ko | formality_mix | 나는 레나야. / 저는 레나입니다. / 저는 레나예요. |
-| job_interview#quest_job_interview_05.options[0].ko | formality_mix | 검토 시간을 연장해 주시기 바랍니다. / 가능하시다면 검토 시간을 조금 더 주실 수 있을까요? |
-| job_interview#quest_job_interview_05.options[1].ko | formality_mix | 검토 시간을 조금 더 주실 수 있을까요? / 검토 시간을 연장해 주시기 바랍니다. |
-| job_interview#quest_job_interview_05.options[2].ko | formality_mix | 검토 시간을 연장하겠습니다. / 가능하면 검토를 취소해 주세요. |
-| ktx_ticket#dialog[05] | formality_mix | 열 시 출발입니다. 좋은 여행 되세요. |
-| myeongdong_shopping#dialog[01] | formality_mix | 그냥 보는 거예요. 감사합니다. |
-| phone_messenger_reply#dialog[01] | level_length | 안녕하세요, 현우 씨. 반가워요. 제 전화번호는 010-3764-8291이에요. |
-| phone_messenger_reply#dialog[02] | formality_mix | 감사합니다. 카카오톡으로 수업 자료 보내 드릴게요. |
-| phone_messenger_reply#dialog[03] | formality_mix | 네, 감사합니다. 제 주소는 서울시 마포구 성산로 15예요. |
-| phone_messenger_reply#quest_phone_messenger_reply_06.options[0].ko | level_length | 제 전화번호는 010-3764-8291이고 주소는 성산로 15, 302호예요. 천천히 확인해 주세요. |
-| plans_with_friend#quest_plans_with_friend_04.options[3].ko | formality_mix | 같이 식사합시다. / 같이 식사해. / 같이 먹을까요? / 같이 먹겠습니다. |
-| survival_day_capstone#dialog[01] | formality_mix | 안녕하세요. 저는 레나입니다. |
-| survival_day_capstone#quest_survival_day_capstone_01.audioKo | formality_mix | 안녕하세요. 저는 레나입니다. |
-| survival_day_capstone#quest_survival_day_capstone_05.options[0].ko | formality_mix | 안녕하세요. 저는 레나입니다. / 떡볶이 한 인분 주세요. / 지하철역에 어떻게 가요? / 잘 못 알아들었어요. 천천히 다시 말씀해 주세요. |
-| survival_day_capstone#quest_survival_day_capstone_05.options[0].ko | level_length | 안녕하세요. 저는 레나입니다. / 떡볶이 한 인분 주세요. / 지하철역에 어떻게 가요? / 잘 못 알아들었어요. 천천히 다시 말씀해 주세요. |
-| survival_day_capstone#quest_survival_day_capstone_05.options[1].ko | level_length | 안녕. 나는 레나야. / 떡볶이 먹자. / 지하철역에 가. / 빨리 말해 줘. |
-| survival_day_capstone#quest_survival_day_capstone_05.options[2].ko | level_length | 저는 레나예요. / 주문하지 않을게요. / 택시를 탔어요. / 잘 알아들었어요. |
-| survival_day_capstone#quest_survival_day_capstone_05.options[3].ko | formality_mix | 처음 뵙겠습니다. / 계산했어요. / 길을 알아요. / 다시 말하지 마세요. |
-| survival_day_capstone#quest_survival_day_capstone_05.options[3].ko | level_length | 처음 뵙겠습니다. / 계산했어요. / 길을 알아요. / 다시 말하지 마세요. |
-| titles_relationship_distance#dialog[00] | formality_mix | 안녕하세요. 저는 레나입니다. |
-| titles_relationship_distance#dialog[05] | formality_mix | 네, 저도 반갑습니다. 다음에 봬요. |
+| anonymous_survey_trust#dialog[05] | formality_mix | 맞아요. 식별 가능한 사례를 쓰지 말라는 안내와 실제 보고 방식을 함께 설명해야 신뢰를 얻습니다. |
+| anonymous_survey_trust#quest_anonymous_survey_trust_03.targetKo | formality_mix | 맞아요. 식별 가능한 사례를 쓰지 말라는 안내와 실제 보고 방식을 함께 설명해야 신뢰를 얻습니다. |
+| bakery_queue#dialog[02] | formality_mix | 아, 죄송합니다. 줄 서 계신지 몰랐어요. |
+| bakery_queue#quest_bakery_queue_02.options[2].ko | formality_mix | 아, 죄송합니다. 줄 서 계신지 몰랐어요. |
+| community_festival_shift#dialog[00] | formality_mix | 축제 봉사 담당입니다. 무슨 일이세요? |
+| community_festival_shift#quest_community_festival_shift_01.audioKo | formality_mix | 축제 봉사 담당입니다. 무슨 일이세요? |
+| community_festival_shift#quest_community_festival_shift_02.options[1].ko | formality_mix | 축제 봉사 담당입니다. 무슨 일이세요? |
+| convenience_parcel_pickup#dialog[06] | formality_mix | 확인됐어요. 여기 있습니다. |
+| delivery_refund_evidence#dialog[00] | formality_mix | 불편을 드려 죄송합니다. 음식은 모두 그대로 있나요? |
+| delivery_refund_evidence#quest_delivery_refund_evidence_01.audioKo | formality_mix | 불편을 드려 죄송합니다. 음식은 모두 그대로 있나요? |
+| delivery_refund_evidence#quest_delivery_refund_evidence_02.options[1].ko | formality_mix | 불편을 드려 죄송합니다. 음식은 모두 그대로 있나요? |
+| food_delivery_wrong_order#dialog[00] | formality_mix | 고객센터입니다. 어떤 문제가 있으세요? |
+| food_delivery_wrong_order#quest_food_delivery_wrong_order_01.audioKo | formality_mix | 고객센터입니다. 어떤 문제가 있으세요? |
+| food_delivery_wrong_order#quest_food_delivery_wrong_order_02.options[1].ko | formality_mix | 고객센터입니다. 어떤 문제가 있으세요? |
+| library_quiet_zone_conflict#dialog[03] | formality_mix | 알려 주셔서 감사합니다. 바로 옮길게요. |
+| library_quiet_zone_conflict#quest_library_quiet_zone_conflict_02.options[3].ko | formality_mix | 알려 주셔서 감사합니다. 바로 옮길게요. |
+| meeting_opening_context#dialog[05] | formality_mix | 알겠습니다. 오늘 결정할 범위부터 메모할게요. |
+| meeting_opening_context#quest_meeting_opening_context_03.targetKo | formality_mix | 알겠습니다. 오늘 결정할 범위부터 메모할게요. |
+| noisy_neighbor_evening#dialog[05] | formality_mix | 감사합니다. 늦은 시간만 조심해 주세요. |
+| noisy_neighbor_evening#quest_noisy_neighbor_evening_03.targetKo | formality_mix | 감사합니다. 늦은 시간만 조심해 주세요. |
+| poll_question_framing#dialog[05] | formality_mix | 맞아요. 문항 순서 효과도 확인할 수 있도록 순서를 바꾼 표본을 두는 게 좋습니다. |
+| poll_question_framing#quest_poll_question_framing_03.targetKo | formality_mix | 맞아요. 문항 순서 효과도 확인할 수 있도록 순서를 바꾼 표본을 두는 게 좋습니다. |
+| rental_repair_deposit#dialog[05] | formality_mix | 좋습니다. 두 사진의 날짜도 함께 보내 드릴게요. |
+| rental_repair_deposit#quest_rental_repair_deposit_03.targetKo | formality_mix | 좋습니다. 두 사진의 날짜도 함께 보내 드릴게요. |
+| secondhand_hidden_defect#dialog[06] | formality_mix | 알겠습니다. 설명이 부족했네요. |
+| subscription_cancel_charge#dialog[00] | formality_mix | 고객센터입니다. 무엇을 확인해 드릴까요? |
+| subscription_cancel_charge#quest_subscription_cancel_charge_01.audioKo | formality_mix | 고객센터입니다. 무엇을 확인해 드릴까요? |
+| subscription_cancel_charge#quest_subscription_cancel_charge_02.options[1].ko | formality_mix | 고객센터입니다. 무엇을 확인해 드릴까요? |
+| taxi_slow_down#dialog[03] | formality_mix | 알겠습니다. 천천히 갈게요. |
+| taxi_slow_down#quest_taxi_slow_down_02.options[3].ko | formality_mix | 알겠습니다. 천천히 갈게요. |
+| train_seat_swap#dialog[05] | formality_mix | 알려 주셔서 감사합니다. 바로 옮길게요. |
+| train_seat_swap#quest_train_seat_swap_03.targetKo | formality_mix | 알려 주셔서 감사합니다. 바로 옮길게요. |
+| workload_allocation_hidden_labor#dialog[05] | formality_mix | 좋아요. 다음 회의록은 제가 맡겠습니다. |
 
 ## silben_puzzles.json
 
@@ -1158,7 +934,7 @@
 
 ## smalltalk.json
 
-6건.
+8건.
 
 | id | 마커 | 문장 |
 |---|---|---|
@@ -1167,31 +943,33 @@
 | smalltalk_b1_0051#followUp | formality_mix | 감사합니다. 인원을 확정하는 데 도움이 될 거예요. |
 | smalltalk_b2_0095 | josa_dup | 선을 긋고도 사이가 나빠지지 않으려면 어떻게 말해야 할까요? |
 | smalltalk_b2_0115#reply | formality_mix | 수요 변화와 규제, 지역별 소득도 함께 검토해야 합니다. |
+| smalltalk_b2_0123#followUp | formality_mix | 확인해 보겠습니다. 잠시만 기다려 주세요. |
+| smalltalk_b2_0123#reply | formality_mix | 확인해 보겠습니다. 잠시만 기다려 주세요. |
 | smalltalk_c1_0063#reply | josa_dup | 평균 하나로는 긴급도와 지역 차이가 가려져요. |
 
 ## 요약
 
-- 총 후보: **1119건** (대상 파일 7개 전부 스캔, 후보 있는 파일 6개)
+- 총 후보: **897건** (대상 파일 7개 전부 스캔, 후보 있는 파일 6개)
 
 ### 파일별 건수
 
-- cloze.json: 859건
+- cloze.json: 833건
 - grammar.csv: 0건
 - korean_vocab.csv: 10건
 - satz_sentences.json: 10건
-- scenarios_*.json: 231건
+- scenarios_*.json: 33건
 - silben_puzzles.json: 3건
-- smalltalk.json: 6건
+- smalltalk.json: 8건
 
 ### 마커별 건수
 
-- dangling_stem: 16건
-- particle_mismatch: 834건
+- dangling_stem: 0건
+- particle_mismatch: 824건
 - passive_pileup: 0건
 - e_daehae: 0건
-- josa_dup: 36건
-- formality_mix: 225건
-- level_length: 8건
+- josa_dup: 28건
+- formality_mix: 45건
+- level_length: 0건
 - answer_repeat: 0건
 
 ### 시드 5건 회고 노트 (Task 2 에서 교정 완료, 교정 전 상태 기준)

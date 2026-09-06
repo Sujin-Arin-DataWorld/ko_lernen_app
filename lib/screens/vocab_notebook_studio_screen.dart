@@ -176,6 +176,9 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
     return SoriStandardPage(
       appBarTitle: t.vocabNotebookStudioTitle,
       maxWidth: SoriMaxWidth.form,
+      // W10 T-V2(2026-09-05): 단어 카드 목록이 길어질 수 있는 화면이라, 짧을
+      // 때만(≤6) 세로 중앙 채움을 쓴다 — 길면 기존 ListView 스크롤을 유지한다.
+      fill: pack.words.length <= 6,
       children: <Widget>[
         Text(t.vocabNotebookStudioHint, style: SoriTextTheme.of(context).body),
         const SizedBox(height: Spacing.md),

@@ -3073,6 +3073,9 @@ class AppL10nEn extends AppL10n {
   String get listeningTitle => 'Listening';
 
   @override
+  String get listeningHubEyebrow => 'LISTEN';
+
+  @override
   String get listeningSubtitle => 'Hear a scenario at natural speed';
 
   @override
@@ -3221,6 +3224,11 @@ class AppL10nEn extends AppL10n {
   @override
   String listeningShelfScenarioCount(int n) {
     return '$n scenarios';
+  }
+
+  @override
+  String listeningShelfCardSemantics(String label, int done, int total) {
+    return '$label, $done of $total listened';
   }
 
   @override
@@ -4795,17 +4803,21 @@ class AppL10nEn extends AppL10n {
       'Checking your account and learning progress safely…';
 
   @override
-  String get accountOperationResumeTitle => 'Resume account switch';
+  String get accountSwitchTitle => 'Continue with your existing account?';
 
   @override
-  String get accountOperationResumeBody =>
-      'The safe account switch is saved. Your data stays protected until every step is complete.';
+  String get accountSwitchBody =>
+      'This Google or Apple account is already linked to another Hangul Sori profile. You will be signed in there and the learning progress on this device will be merged into that account.';
 
   @override
-  String get accountOperationResume => 'Resume';
+  String get accountSwitchConfirm => 'Switch account';
 
   @override
-  String get accountOperationCancel => 'Cancel switch';
+  String get accountSwitchDeferredTitle => 'Signed in, merge pending';
+
+  @override
+  String get accountSwitchDeferredBody =>
+      'You are now signed in to your existing account. The learning progress on this device will be merged on the next start once a connection is available.';
 
   @override
   String get accountOperationBlockedTitle => 'Your account is protected';
@@ -8419,6 +8431,15 @@ class AppL10nEn extends AppL10n {
       'Every activity stays connected to your quests and Hanok.';
 
   @override
+  String get soriStageLearnSectionToday => 'Learn today';
+
+  @override
+  String get soriStageLearnSectionExplore => 'Explore & practice';
+
+  @override
+  String get soriStageLearnSectionReview => 'Review';
+
+  @override
   String get soriStageGamesTitle => 'Play with a clear purpose.';
 
   @override
@@ -8704,9 +8725,7 @@ class AppL10nEn extends AppL10n {
       'speed_match': 'Speed pairs',
       'sentence_arcade': 'Sentence arcade',
       'kkeunmari': 'Kkeunmari',
-      'custom_quiz': 'Custom quiz',
-      'custom_matching': 'Custom matching',
-      'custom_typing': 'Custom typing',
+      'custom_practice': 'Practice my words',
       'other': 'Learning activity',
     });
     return '$_temp0';
@@ -8741,9 +8760,7 @@ class AppL10nEn extends AppL10n {
       'speed_match': 'Match meanings quickly and accurately.',
       'sentence_arcade': 'Build sentences under time pressure.',
       'kkeunmari': 'Play a word chain against the tiger.',
-      'custom_quiz': 'Choose a word pack from your bookshelf.',
-      'custom_matching': 'Strengthen your words as pairs.',
-      'custom_typing': 'Actively recall your own words.',
+      'custom_practice': 'Quiz, matching and typing with your saved words.',
       'other': 'Continue learning.',
     });
     return '$_temp0';

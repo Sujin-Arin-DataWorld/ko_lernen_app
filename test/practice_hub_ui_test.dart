@@ -9,6 +9,7 @@ import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/module_card.dart';
+import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
 void main() {
@@ -217,8 +218,13 @@ void main() {
 Finder _moduleCardWithTitle(String title) =>
     find.ancestor(of: find.text(title), matching: find.byType(ModuleCard));
 
+// W10 PR-D(2026-09-06): 페이지가 `SoriStandardPage(fill: true)` 로 바뀌며
+// 본문 스크롤이 `ListView` 가 아니라 `SoriMinHeightScroll` 이 만드는
+// `SingleChildScrollView` 다(연습 허브 접힌 상태 세로 중앙 정렬 수정). 시트는
+// `SoriStandardFrame` 바깥(별도 라우트)이라 이 파인더는 시트의 `ListView`
+// 를 절대 집지 않는다.
 Finder get _pageScrollable => find.descendant(
-  of: find.byType(ListView).first,
+  of: find.byType(SoriStandardFrame),
   matching: find.byType(Scrollable),
 );
 
