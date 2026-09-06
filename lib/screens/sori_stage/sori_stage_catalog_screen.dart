@@ -622,7 +622,18 @@ double _cellAspectRatio(
   // _StateLabel renders w600, not the bare tt.cardSubtitle weight.
   final footerStyle = tt.cardSubtitle.copyWith(fontWeight: FontWeight.w600);
   const double bodyPadding = Spacing.sm + Spacing.md;
-  final bodyWidth = (cellWidth - Spacing.md * 2).clamp(1.0, double.infinity);
+  // §W10 PR-B: `SoriIllustratedCard`의 바깥 `Container`가 쓰는
+  // `Border.all(width: 1)`(illustrated_card.dart)은 `BoxDecoration.padding`
+  // (== `border.dimensions`)을 통해 Flutter `Container`가 자식 폭을 좌우
+  // 각 1px씩 자동으로 인셋한다 — 실측 `bodyWidth`가 이 2px을 빼지 않으면
+  // 실제보다 넓은 폭으로 줄바꿈을 판정해, 그 경계에 걸린 타이틀(예:
+  // "Eigene Wörter üben")이 측정상 1줄인데 실제 렌더는 2줄이 되어 카드
+  // 본문이 오버플로할 수 있다(illustrated_card_overflow_guard_test).
+  const double cardBorderInset = 1 * 2;
+  final bodyWidth = (cellWidth - Spacing.md * 2 - cardBorderInset).clamp(
+    1.0,
+    double.infinity,
+  );
   final title = _maxMeasuredTextHeight(
     texts: titles,
     style: titleStyle,

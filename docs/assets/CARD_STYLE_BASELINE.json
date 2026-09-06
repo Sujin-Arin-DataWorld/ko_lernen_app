@@ -81,20 +81,7 @@
         24
       ]
     },
-    "assets/illustrations/activities/custom_matching.webp": {
-      "sha256": "2da3c678c109dffb164d36deb8749f6305cab1f8b6786f2675cbd725ab6978f2",
-      "kb": 93.0,
-      "ivoryFrac": 0.6737,
-      "fine": 4.773,
-      "coarse": 0.586,
-      "uniqueColors": 33366,
-      "top8": 0.7715,
-      "patchXY": [
-        392,
-        48
-      ]
-    },
-    "assets/illustrations/activities/custom_quiz.webp": {
+    "assets/illustrations/activities/custom_practice.webp": {
       "sha256": "95a789f432fdc149de12911407d1ef3df869222a1eefe62b9443110caeb688d0",
       "kb": 88.2,
       "ivoryFrac": 0.6431,
@@ -102,19 +89,6 @@
       "coarse": 0.655,
       "uniqueColors": 34815,
       "top8": 0.7348,
-      "patchXY": [
-        584,
-        24
-      ]
-    },
-    "assets/illustrations/activities/custom_typing.webp": {
-      "sha256": "9fc43c973d608f30b5cc509ea34ae1b9410fc11d6b440b5b2fffcee1bd080d19",
-      "kb": 87.8,
-      "ivoryFrac": 0.7102,
-      "fine": 5.032,
-      "coarse": 0.618,
-      "uniqueColors": 27349,
-      "top8": 0.8061,
       "patchXY": [
         584,
         24
