@@ -35,6 +35,35 @@ function assertInside(parent, candidate, label) {
   }
 }
 
+function assertRegularFileInside(parent, candidate, label) {
+  assertInside(parent, candidate, label);
+
+  const parentStats = fs.lstatSync(parent);
+  if (!parentStats.isDirectory() || parentStats.isSymbolicLink()) {
+    throw new Error(`${label} root must be a real directory: ${parent}`);
+  }
+
+  let current = parent;
+  const relativeParts = path.relative(parent, candidate).split(path.sep);
+  let candidateStats;
+  for (const part of relativeParts) {
+    current = path.join(current, part);
+    candidateStats = fs.lstatSync(current);
+    if (candidateStats.isSymbolicLink()) {
+      throw new Error(
+        `${label} must not traverse a symbolic link or reparse point: ${current}`,
+      );
+    }
+  }
+
+  const realParent = fs.realpathSync(parent);
+  const realCandidate = fs.realpathSync(candidate);
+  assertInside(realParent, realCandidate, `${label} real path`);
+  if (!candidateStats?.isFile()) {
+    throw new Error(`Public source is not a regular file: ${candidate}`);
+  }
+}
+
 function localReferences(html, sourceRelativePath) {
   const references = [];
   const attributePattern = /\b(?:href|src)\s*=\s*["']([^"']+)["']/giu;
@@ -94,10 +123,7 @@ function prepareHostingBundle() {
   const allowlist = new Set(publicFiles);
   for (const relativePath of publicFiles) {
     const source = path.resolve(sourceRoot, relativePath);
-    assertInside(sourceRoot, source, `Public source ${relativePath}`);
-    if (!fs.statSync(source).isFile()) {
-      throw new Error(`Public source is not a file: ${relativePath}`);
-    }
+    assertRegularFileInside(sourceRoot, source, `Public source ${relativePath}`);
 
     if (relativePath.endsWith(".html")) {
       const html = fs.readFileSync(source, "utf8");
@@ -114,6 +140,7 @@ function prepareHostingBundle() {
   fs.rmSync(outputRoot, { recursive: true, force: true });
   for (const relativePath of publicFiles) {
     const source = path.resolve(sourceRoot, relativePath);
+    assertRegularFileInside(sourceRoot, source, `Public source ${relativePath}`);
     const destination = path.resolve(outputRoot, relativePath);
     assertInside(outputRoot, destination, `Hosting destination ${relativePath}`);
     fs.mkdirSync(path.dirname(destination), { recursive: true });
