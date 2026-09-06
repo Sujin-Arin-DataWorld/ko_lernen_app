@@ -1,0 +1,1921 @@
+[
+  {
+    "id": "a1_w10_taxi_stay",
+    "level": "A1",
+    "emoji": "🧳",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "택시 타고 숙소까지 가기",
+      "de": "Mit dem Taxi zur Unterkunft",
+      "en": "Taking a taxi to the guesthouse"
+    },
+    "intro": {
+      "ko": "공항에 도착해서 택시를 타고 게스트하우스로 가요.",
+      "de": "Du kommst am Flughafen an und nimmst ein Taxi zu deinem Gästehaus.",
+      "en": "You land at the airport and take a taxi to your guesthouse."
+    },
+    "courseUnitId": "a1_06_transport_directions",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "driver",
+      "landlord"
+    ],
+    "relationshipContext": "service",
+    "intent": "state_destination_and_check_in",
+    "shelf": "a1_taxi_stay",
+    "backdrop": "taxi",
+    "vocab": [
+      {
+        "korean": "어디로 가세요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wohin fahren wir?",
+          "en": "Where are you headed?"
+        }
+      },
+      {
+        "korean": "주소는 여기 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Hier ist die Adresse.",
+          "en": "Here's the address."
+        }
+      },
+      {
+        "korean": "삼십 분쯤 걸려요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Es dauert etwa dreißig Minuten.",
+          "en": "It takes about thirty minutes."
+        }
+      },
+      {
+        "korean": "트렁크에 넣어 드릴게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich lege sie in den Kofferraum.",
+          "en": "I'll put it in the trunk."
+        }
+      },
+      {
+        "korean": "다 왔어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir sind da.",
+          "en": "We're here."
+        }
+      },
+      {
+        "korean": "얼마예요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Was macht das?",
+          "en": "How much is it?"
+        }
+      },
+      {
+        "korean": "성함이 어떻게 되세요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie ist Ihr Name?",
+          "en": "What's your name?"
+        }
+      },
+      {
+        "korean": "예약했어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich habe reserviert.",
+          "en": "I have a reservation."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a1_directions",
+      "concept_request_polite"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_from_to",
+      "grammar_a1_polite_past"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N에서 N까지",
+        "de": "Von ... bis ...",
+        "en": "From ... to ..."
+      },
+      "explanation": {
+        "ko": "출발지와 도착지를 함께 말할 때 N에서 N까지를 써요.",
+        "de": "Mit N에서 N까지 nennst du Start- und Zielort zusammen.",
+        "en": "Use N에서 N까지 to name a starting point and a destination together."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "driver",
+        "ko": "어디로 가세요?",
+        "de": "Wohin fahren wir?",
+        "en": "Where are you headed?"
+      },
+      {
+        "speaker": "user",
+        "ko": "게스트하우스요. 주소는 여기 있어요.",
+        "de": "Zum Gästehaus. Hier ist die Adresse.",
+        "en": "To the guesthouse. Here's the address."
+      },
+      {
+        "speaker": "driver",
+        "ko": "네, 손님. 공항에서 거기까지 삼십 분쯤 걸려요.",
+        "de": "Gut. Vom Flughafen bis dahin dauert es etwa dreißig Minuten.",
+        "en": "Sure. It takes about thirty minutes from the airport to there."
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 알겠어요. 가방이 하나 있어요.",
+        "de": "Okay, verstanden. Ich habe eine Tasche.",
+        "en": "Okay, got it. I have one bag."
+      },
+      {
+        "speaker": "driver",
+        "ko": "트렁크에 넣어 드릴게요.",
+        "de": "Ich lege sie in den Kofferraum.",
+        "en": "I'll put it in the trunk."
+      },
+      {
+        "speaker": "driver",
+        "ko": "다 왔어요. 여기예요.",
+        "de": "Wir sind da. Hier ist es.",
+        "en": "We're here. This is it."
+      },
+      {
+        "speaker": "user",
+        "ko": "얼마예요?",
+        "de": "Was macht das?",
+        "en": "How much is it?"
+      },
+      {
+        "speaker": "driver",
+        "ko": "이만 천 원이에요.",
+        "de": "Das macht 21.000 Won.",
+        "en": "That's 21,000 won."
+      },
+      {
+        "speaker": "landlord",
+        "ko": "어서 오세요. 성함이 어떻게 되세요?",
+        "de": "Willkommen. Wie ist Ihr Name?",
+        "en": "Welcome. What's your name?"
+      },
+      {
+        "speaker": "user",
+        "ko": "크리스티안이에요. 예약했어요.",
+        "de": "Ich bin Christian. Ich habe reserviert.",
+        "en": "I'm Christian. I have a reservation."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_a1_w10_taxi_stay_hear",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "네, 손님. 공항에서 거기까지 삼십 분쯤 걸려요.",
+          "options": [
+            {
+              "de": "Gut. Vom Flughafen bis dahin dauert es etwa dreißig Minuten.",
+              "en": "Sure. It takes about thirty minutes from the airport to there."
+            },
+            {
+              "de": "Ich lege sie in den Kofferraum.",
+              "en": "I'll put it in the trunk."
+            },
+            {
+              "de": "Wir sind da. Hier ist es.",
+              "en": "We're here. This is it."
+            },
+            {
+              "de": "Willkommen. Wie ist Ihr Name?",
+              "en": "Welcome. What's your name?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_a1_w10_taxi_stay_translate",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Okay, verstanden. Ich habe eine Tasche.",
+          "promptEn": "Okay, got it. I have one bag.",
+          "options": [
+            {
+              "ko": "네, 알겠어요. 가방이 하나 있어요."
+            },
+            {
+              "ko": "트렁크에 넣어 드릴게요."
+            },
+            {
+              "ko": "얼마예요?"
+            },
+            {
+              "ko": "크리스티안이에요. 예약했어요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_a1_w10_taxi_stay_build",
+        "conceptIds": [
+          "concept_a1_directions",
+          "concept_request_polite"
+        ],
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "어서 오세요. 성함이 어떻게 되세요?",
+          "promptDe": "Willkommen. Wie ist Ihr Name?",
+          "promptEn": "Welcome. What's your name?",
+          "distractors": [
+            "가방",
+            "트렁크",
+            "를"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 105,
+    "sidekick": "christian"
+  },
+  {
+    "id": "a1_w10_eat",
+    "level": "A1",
+    "emoji": "🧋",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "카페에서 커피와 샌드위치 주문하기",
+      "de": "Kaffee und Sandwich im Café bestellen",
+      "en": "Ordering coffee and a sandwich at a café"
+    },
+    "intro": {
+      "ko": "수업 가기 전에 카페에서 커피와 간단한 먹을 것을 주문해요.",
+      "de": "Vor dem Unterricht bestellst du im Café Kaffee und einen kleinen Snack.",
+      "en": "Before class, you order coffee and a small snack at a café."
+    },
+    "courseUnitId": "a1_04_order_request_object",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "clerk"
+    ],
+    "relationshipContext": "service",
+    "intent": "order_drink_and_snack",
+    "shelf": "a1_eat",
+    "backdrop": "cafe",
+    "vocab": [
+      {
+        "korean": "아메리카노",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Americano",
+          "en": "Americano"
+        }
+      },
+      {
+        "korean": "아이스로 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Als Eiskaffee, bitte.",
+          "en": "Iced, please."
+        }
+      },
+      {
+        "korean": "포장해 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Zum Mitnehmen, bitte.",
+          "en": "To go, please."
+        }
+      },
+      {
+        "korean": "샌드위치",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Sandwich",
+          "en": "Sandwich"
+        }
+      },
+      {
+        "korean": "더 필요한 거 있으세요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Brauchen Sie sonst noch etwas?",
+          "en": "Do you need anything else?"
+        }
+      },
+      {
+        "korean": "얼마예요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Was macht das?",
+          "en": "How much is it?"
+        }
+      },
+      {
+        "korean": "다 해서 만 천 원이에요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Das macht zusammen 11.000 Won.",
+          "en": "That's 11,000 won altogether."
+        }
+      },
+      {
+        "korean": "감사합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Danke.",
+          "en": "Thank you."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_request_polite",
+      "concept_object_particle"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_direction_means",
+      "grammar_a1_polite_request"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N(으)로",
+        "de": "N(으)로: Wahl/Mittel",
+        "en": "N(으)로: choice or means"
+      },
+      "explanation": {
+        "ko": "두 가지 중 하나를 고를 때 N(으)로 주세요라고 말해요.",
+        "de": "Mit N(으)로 주세요 wählst du zwischen zwei Möglichkeiten.",
+        "en": "Use N(으)로 주세요 to choose one of two options."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "clerk",
+        "ko": "어서 오세요. 뭐 드릴까요?",
+        "de": "Willkommen. Was darf's sein?",
+        "en": "Welcome. What can I get you?"
+      },
+      {
+        "speaker": "user",
+        "ko": "아메리카노 한 잔 주세요.",
+        "de": "Einen Americano, bitte.",
+        "en": "One Americano, please."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "따뜻한 걸로 드릴까요, 아이스로 드릴까요?",
+        "de": "Möchten Sie ihn warm oder als Eiskaffee?",
+        "en": "Would you like it hot or iced?"
+      },
+      {
+        "speaker": "user",
+        "ko": "아이스로 주세요.",
+        "de": "Als Eiskaffee, bitte.",
+        "en": "Iced, please."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "여기서 드시고 가세요, 포장이세요?",
+        "de": "Möchten Sie hier essen oder zum Mitnehmen?",
+        "en": "Will you eat here or take it to go?"
+      },
+      {
+        "speaker": "user",
+        "ko": "포장해 주세요.",
+        "de": "Zum Mitnehmen, bitte.",
+        "en": "To go, please."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "더 필요한 거 있으세요?",
+        "de": "Brauchen Sie sonst noch etwas?",
+        "en": "Do you need anything else?"
+      },
+      {
+        "speaker": "user",
+        "ko": "샌드위치도 하나 주세요. 얼마예요?",
+        "de": "Ich nehme auch ein Sandwich. Was macht das?",
+        "en": "I'll also have a sandwich. How much is it?"
+      },
+      {
+        "speaker": "clerk",
+        "ko": "다 해서 만 천 원이에요.",
+        "de": "Das macht zusammen 11.000 Won.",
+        "en": "That's 11,000 won altogether."
+      },
+      {
+        "speaker": "user",
+        "ko": "감사합니다.",
+        "de": "Danke.",
+        "en": "Thank you."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_a1_w10_eat_hear",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "따뜻한 걸로 드릴까요, 아이스로 드릴까요?",
+          "options": [
+            {
+              "de": "Möchten Sie ihn warm oder als Eiskaffee?",
+              "en": "Would you like it hot or iced?"
+            },
+            {
+              "de": "Einen Americano, bitte.",
+              "en": "One Americano, please."
+            },
+            {
+              "de": "Möchten Sie hier essen oder zum Mitnehmen?",
+              "en": "Will you eat here or take it to go?"
+            },
+            {
+              "de": "Brauchen Sie sonst noch etwas?",
+              "en": "Do you need anything else?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_a1_w10_eat_translate",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Zum Mitnehmen, bitte.",
+          "promptEn": "To go, please.",
+          "options": [
+            {
+              "ko": "포장해 주세요."
+            },
+            {
+              "ko": "아메리카노 한 잔 주세요."
+            },
+            {
+              "ko": "아이스로 주세요."
+            },
+            {
+              "ko": "샌드위치도 하나 주세요. 얼마예요?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_a1_w10_eat_build",
+        "conceptIds": [
+          "concept_request_polite",
+          "concept_object_particle"
+        ],
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "다 해서 만 천 원이에요.",
+          "promptDe": "Das macht zusammen 11.000 Won.",
+          "promptEn": "That's 11,000 won altogether.",
+          "distractors": [
+            "아이스",
+            "포장",
+            "를"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 100,
+    "sidekick": "christian"
+  },
+  {
+    "id": "a1_w10_repeat",
+    "level": "A1",
+    "emoji": "💊",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "약국에서 다시 천천히 말해 달라고 하기",
+      "de": "In der Apotheke um langsameres Sprechen bitten",
+      "en": "Asking the pharmacist to repeat slowly"
+    },
+    "intro": {
+      "ko": "약사가 하는 말을 잘 못 들어서 다시 천천히 말해 달라고 해요.",
+      "de": "Du hast die Erklärung der Apothekerin nicht ganz verstanden und bittest um Wiederholung.",
+      "en": "You didn't quite catch what the pharmacist said, so you ask her to repeat it slowly."
+    },
+    "courseUnitId": "a1_08_clarify_repair",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "pharmacist"
+    ],
+    "relationshipContext": "service",
+    "intent": "ask_to_repeat_slowly",
+    "shelf": "a1_repeat",
+    "backdrop": "pharmacy",
+    "vocab": [
+      {
+        "korean": "하루에 세 번",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "dreimal am Tag",
+          "en": "three times a day"
+        }
+      },
+      {
+        "korean": "잘 못 들었어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Das habe ich nicht verstanden.",
+          "en": "I didn't catch that."
+        }
+      },
+      {
+        "korean": "천천히",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "langsam",
+          "en": "slowly"
+        }
+      },
+      {
+        "korean": "천천히 좀 말씀해 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Bitte sagen Sie das ein bisschen langsamer.",
+          "en": "Please say that a bit more slowly."
+        }
+      },
+      {
+        "korean": "식사 전에",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "vor dem Essen",
+          "en": "before meals"
+        }
+      },
+      {
+        "korean": "식사 후에",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "nach dem Essen",
+          "en": "after meals"
+        }
+      },
+      {
+        "korean": "알겠습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Verstanden.",
+          "en": "Understood."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a1_clarification",
+      "concept_a1_health_safety"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_direction_time_particle",
+      "grammar_a1_please_particle"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N에",
+        "de": "Zeitpunkt-Partikel N에",
+        "en": "Time-point particle N에"
+      },
+      "explanation": {
+        "ko": "하루에, 식사 후에처럼 N에는 시점을 나타내요.",
+        "de": "N에 markiert einen Zeitpunkt, z. B. 하루에 oder 식사 후에.",
+        "en": "N에 marks a point in time, as in 하루에 or 식사 후에."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "pharmacist",
+        "ko": "이 약은 하루에 세 번 드세요.",
+        "de": "Nehmen Sie dieses Medikament dreimal am Tag.",
+        "en": "Take this medicine three times a day."
+      },
+      {
+        "speaker": "user",
+        "ko": "죄송해요. 잘 못 들었어요.",
+        "de": "Entschuldigung, das habe ich nicht verstanden.",
+        "en": "Sorry, I didn't quite catch that."
+      },
+      {
+        "speaker": "pharmacist",
+        "ko": "하루에 세 번 드시라고요.",
+        "de": "Ich sagte: dreimal am Tag.",
+        "en": "I said: three times a day."
+      },
+      {
+        "speaker": "user",
+        "ko": "천천히 좀 말씀해 주세요.",
+        "de": "Bitte sagen Sie das ein bisschen langsamer.",
+        "en": "Please say that a bit more slowly."
+      },
+      {
+        "speaker": "pharmacist",
+        "ko": "네. 아침, 점심, 저녁에 드세요.",
+        "de": "Okay. Nehmen Sie es morgens, mittags und abends.",
+        "en": "Okay. Take it in the morning, at noon, and in the evening."
+      },
+      {
+        "speaker": "user",
+        "ko": "식사 전에요, 식사 후에요?",
+        "de": "Vor oder nach dem Essen?",
+        "en": "Before or after meals?"
+      },
+      {
+        "speaker": "pharmacist",
+        "ko": "식사 후에 드세요.",
+        "de": "Nehmen Sie es nach dem Essen.",
+        "en": "Take it after meals."
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 알겠습니다. 감사합니다.",
+        "de": "Okay, verstanden. Danke.",
+        "en": "Okay, understood. Thank you."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_a1_w10_repeat_hear",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "하루에 세 번 드시라고요.",
+          "options": [
+            {
+              "de": "Ich sagte: dreimal am Tag.",
+              "en": "I said: three times a day."
+            },
+            {
+              "de": "Entschuldigung, das habe ich nicht verstanden.",
+              "en": "Sorry, I didn't quite catch that."
+            },
+            {
+              "de": "Okay. Nehmen Sie es morgens, mittags und abends.",
+              "en": "Okay. Take it in the morning, at noon, and in the evening."
+            },
+            {
+              "de": "Nehmen Sie es nach dem Essen.",
+              "en": "Take it after meals."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_a1_w10_repeat_translate",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Bitte sagen Sie das ein bisschen langsamer.",
+          "promptEn": "Please say that a bit more slowly.",
+          "options": [
+            {
+              "ko": "천천히 좀 말씀해 주세요."
+            },
+            {
+              "ko": "죄송해요. 잘 못 들었어요."
+            },
+            {
+              "ko": "식사 전에요, 식사 후에요?"
+            },
+            {
+              "ko": "식사 후에 드세요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_a1_w10_repeat_build",
+        "conceptIds": [
+          "concept_a1_clarification",
+          "concept_a1_health_safety"
+        ],
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "식사 후에 드세요.",
+          "promptDe": "Nehmen Sie es nach dem Essen.",
+          "promptEn": "Take it after meals.",
+          "distractors": [
+            "식사 전에",
+            "아침",
+            "좀"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 100,
+    "sidekick": "christian"
+  },
+  {
+    "id": "a1_w10_partner",
+    "level": "A1",
+    "emoji": "🎁",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "여자친구 집에 처음 인사드리러 가기",
+      "de": "Zum ersten Mal die Familie der Freundin besuchen",
+      "en": "Visiting your girlfriend's family for the first time"
+    },
+    "intro": {
+      "ko": "수진의 집에 처음 가서 수진 어머니께 인사드려요.",
+      "de": "Du besuchst Sujins Zuhause zum ersten Mal und begrüßt ihre Mutter.",
+      "en": "You visit Sujin's home for the first time and greet her mother."
+    },
+    "courseUnitId": "a1_11_titles_relationships",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "sujin"
+    ],
+    "relationshipContext": "romantic_partner",
+    "intent": "greet_partners_family_politely",
+    "shelf": "a1_partner",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "떨려요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich bin nervös.",
+          "en": "I'm nervous."
+        }
+      },
+      {
+        "korean": "신발은 여기서 벗으세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Zieh die Schuhe hier aus.",
+          "en": "Take off your shoes here."
+        }
+      },
+      {
+        "korean": "어머니께 드리는 거예요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Das ist für deine Mutter.",
+          "en": "This is for your mom."
+        }
+      },
+      {
+        "korean": "감사해요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Danke.",
+          "en": "Thanks."
+        }
+      },
+      {
+        "korean": "처음 뵙겠습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Es freut mich, Sie kennenzulernen.",
+          "en": "It's nice to meet you."
+        }
+      },
+      {
+        "korean": "안에서 기다리세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Sie wartet drinnen.",
+          "en": "She's waiting inside."
+        }
+      },
+      {
+        "korean": "아주 좋아하세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Sie freut sich sehr.",
+          "en": "She's very happy."
+        }
+      },
+      {
+        "korean": "편하게 계세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Mach es dir bequem.",
+          "en": "Make yourself at home."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a1_titles_relationships",
+      "concept_greeting_politeness"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_honorific_kke",
+      "grammar_a1_polite_request"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N께",
+        "de": "Honorativ-Partikel N께",
+        "en": "Honorific particle N께"
+      },
+      "explanation": {
+        "ko": "웃어른에게 무엇을 드릴 때 N한테 대신 N께를 써요.",
+        "de": "Gegenüber älteren Personen verwendest du N께 statt N한테.",
+        "en": "With elders, use the honorific N께 instead of N한테."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "sujin",
+        "ko": "여기예요. 우리 집은 처음이죠?",
+        "de": "Hier ist es. Du bist zum ersten Mal bei mir zu Hause, oder?",
+        "en": "Here it is. This is your first time at my home, right?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 좀 떨려요.",
+        "de": "Ja, ich bin ein bisschen nervös.",
+        "en": "Yeah, I'm a little nervous."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "괜찮아요. 신발은 여기서 벗으세요.",
+        "de": "Alles gut. Zieh die Schuhe hier aus.",
+        "en": "It's fine. Take off your shoes here."
+      },
+      {
+        "speaker": "user",
+        "ko": "이거 어머니께 드리는 거예요.",
+        "de": "Das hier ist für deine Mutter.",
+        "en": "This is for your mom."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "와, 감사해요. 엄마가 안에서 기다리세요.",
+        "de": "Wow, danke. Meine Mutter wartet drinnen.",
+        "en": "Wow, thanks. My mom is waiting inside."
+      },
+      {
+        "speaker": "user",
+        "ko": "처음 뵙겠습니다.",
+        "de": "Es freut mich, Sie kennenzulernen.",
+        "en": "It's nice to meet you."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "엄마가 아주 좋아하세요. 편하게 계세요.",
+        "de": "Meine Mutter freut sich sehr. Mach es dir bequem.",
+        "en": "My mom is very happy. Make yourself at home."
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 감사합니다.",
+        "de": "Danke.",
+        "en": "Thank you."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_a1_w10_partner_hear",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "와, 감사해요. 엄마가 안에서 기다리세요.",
+          "options": [
+            {
+              "de": "Wow, danke. Meine Mutter wartet drinnen.",
+              "en": "Wow, thanks. My mom is waiting inside."
+            },
+            {
+              "de": "Ja, ich bin ein bisschen nervös.",
+              "en": "Yeah, I'm a little nervous."
+            },
+            {
+              "de": "Alles gut. Zieh die Schuhe hier aus.",
+              "en": "It's fine. Take off your shoes here."
+            },
+            {
+              "de": "Meine Mutter freut sich sehr. Mach es dir bequem.",
+              "en": "My mom is very happy. Make yourself at home."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_a1_w10_partner_translate",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Das hier ist für deine Mutter.",
+          "promptEn": "This is for your mom.",
+          "options": [
+            {
+              "ko": "이거 어머니께 드리는 거예요."
+            },
+            {
+              "ko": "네, 좀 떨려요."
+            },
+            {
+              "ko": "괜찮아요. 신발은 여기서 벗으세요."
+            },
+            {
+              "ko": "처음 뵙겠습니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_a1_w10_partner_build",
+        "conceptIds": [
+          "concept_a1_titles_relationships",
+          "concept_greeting_politeness"
+        ],
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "괜찮아요. 신발은 여기서 벗으세요.",
+          "promptDe": "Alles gut. Zieh die Schuhe hier aus.",
+          "promptEn": "It's fine. Take off your shoes here.",
+          "distractors": [
+            "어머니께",
+            "편하게",
+            "을"
+          ]
+        }
+      }
+    ],
+    "culturalNote": {
+      "title": {
+        "ko": "첫 방문 예절",
+        "de": "Etikette beim ersten Besuch",
+        "en": "First-visit etiquette"
+      },
+      "body": {
+        "ko": "여자친구·남자친구 부모님을 처음 뵐 때는 작은 선물을 가져가고, 집에 들어가기 전에 현관에서 신발을 벗어요.",
+        "de": "Beim ersten Treffen mit den Eltern des Partners bringt man ein kleines Geschenk mit und zieht vor dem Betreten der Wohnung die Schuhe im Eingang aus.",
+        "en": "When meeting a partner's parents for the first time, it's common to bring a small gift and take off your shoes at the entrance before stepping inside."
+      }
+    },
+    "xpReward": 120,
+    "sidekick": "christian"
+  },
+  {
+    "id": "a1_w10_numbers",
+    "level": "A1",
+    "emoji": "💇",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "미용실에서 시간과 가격 확인하기",
+      "de": "Im Friseursalon Zeit und Preis klären",
+      "en": "Confirming the time and price at the hair salon"
+    },
+    "intro": {
+      "ko": "미용실에서 커트를 예약하고 가격과 시간, 전화번호를 확인해요.",
+      "de": "Im Friseursalon buchst du einen Haarschnitt und klärst Preis, Zeit und Telefonnummer.",
+      "en": "At the hair salon, you book a haircut and confirm the price, time, and your phone number."
+    },
+    "courseUnitId": "a1_05_numbers_time",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "clerk"
+    ],
+    "relationshipContext": "service",
+    "intent": "book_appointment_with_price_and_time",
+    "shelf": "a1_numbers",
+    "backdrop": "salon",
+    "vocab": [
+      {
+        "korean": "예약하고 싶어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich möchte einen Termin buchen.",
+          "en": "I'd like to book an appointment."
+        }
+      },
+      {
+        "korean": "세 시",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "drei Uhr",
+          "en": "three o'clock"
+        }
+      },
+      {
+        "korean": "가격이 얼마예요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Was kostet das?",
+          "en": "How much does it cost?"
+        }
+      },
+      {
+        "korean": "이만 오천 원",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "25.000 Won",
+          "en": "25,000 won"
+        }
+      },
+      {
+        "korean": "전화번호도 필요해요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Brauchen Sie auch meine Telefonnummer?",
+          "en": "Do you need my phone number too?"
+        }
+      },
+      {
+        "korean": "번호",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Nummer",
+          "en": "number"
+        }
+      },
+      {
+        "korean": "감사합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Danke.",
+          "en": "Thank you."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a1_time_numbers",
+      "concept_a1_contact_address"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_direction_time_particle",
+      "grammar_a1_also_particle"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N도",
+        "de": "N도: auch",
+        "en": "N도: also/too"
+      },
+      "explanation": {
+        "ko": "전화번호도처럼 N도는 앞에 나온 것에 하나를 더 더해요.",
+        "de": "N도 fügt etwas zu dem bereits Genannten hinzu, z. B. 전화번호도.",
+        "en": "N도 adds one more item to what was just mentioned, as in 전화번호도."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "clerk",
+        "ko": "어서 오세요. 어떻게 오셨어요?",
+        "de": "Willkommen. Womit kann ich Ihnen helfen?",
+        "en": "Welcome. How can I help you?"
+      },
+      {
+        "speaker": "user",
+        "ko": "커트 예약하고 싶어요.",
+        "de": "Ich möchte einen Termin zum Haareschneiden.",
+        "en": "I'd like to book a haircut."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "네. 오늘 세 시 괜찮으세요?",
+        "de": "Gut. Passt Ihnen heute drei Uhr?",
+        "en": "Sure. Does 3 o'clock today work?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 좋아요. 가격이 얼마예요?",
+        "de": "Ja, gut. Was kostet das?",
+        "en": "Yes, that's fine. How much does it cost?"
+      },
+      {
+        "speaker": "clerk",
+        "ko": "이만 오천 원이에요.",
+        "de": "Das sind 25.000 Won.",
+        "en": "That's 25,000 won."
+      },
+      {
+        "speaker": "user",
+        "ko": "전화번호도 필요해요?",
+        "de": "Brauchen Sie auch meine Telefonnummer?",
+        "en": "Do you need my phone number too?"
+      },
+      {
+        "speaker": "clerk",
+        "ko": "네, 번호 좀 말씀해 주세요.",
+        "de": "Ja, sagen Sie mir bitte Ihre Nummer.",
+        "en": "Yes, please tell me your number."
+      },
+      {
+        "speaker": "user",
+        "ko": "공일공, 일이삼사, 오육칠팔이에요.",
+        "de": "010, 1234, 5678.",
+        "en": "010, 1234, 5678."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "네, 세 시에 뵐게요.",
+        "de": "Gut, bis drei Uhr.",
+        "en": "Great, see you at three."
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 감사합니다.",
+        "de": "Danke.",
+        "en": "Thank you."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_a1_w10_numbers_hear",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "네. 오늘 세 시 괜찮으세요?",
+          "options": [
+            {
+              "de": "Gut. Passt Ihnen heute drei Uhr?",
+              "en": "Sure. Does 3 o'clock today work?"
+            },
+            {
+              "de": "Das sind 25.000 Won.",
+              "en": "That's 25,000 won."
+            },
+            {
+              "de": "Ja, sagen Sie mir bitte Ihre Nummer.",
+              "en": "Yes, please tell me your number."
+            },
+            {
+              "de": "Gut, bis drei Uhr.",
+              "en": "Great, see you at three."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_a1_w10_numbers_translate",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ja, gut. Was kostet das?",
+          "promptEn": "Yes, that's fine. How much does it cost?",
+          "options": [
+            {
+              "ko": "네, 좋아요. 가격이 얼마예요?"
+            },
+            {
+              "ko": "커트 예약하고 싶어요."
+            },
+            {
+              "ko": "전화번호도 필요해요?"
+            },
+            {
+              "ko": "공일공, 일이삼사, 오육칠팔이에요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_a1_w10_numbers_build",
+        "conceptIds": [
+          "concept_a1_time_numbers",
+          "concept_a1_contact_address"
+        ],
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "이만 오천 원이에요.",
+          "promptDe": "Das sind 25.000 Won.",
+          "promptEn": "That's 25,000 won.",
+          "distractors": [
+            "번호",
+            "세 시",
+            "를"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 110,
+    "sidekick": "christian"
+  },
+  {
+    "id": "a1_w10_phone",
+    "level": "A1",
+    "emoji": "📞",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "전화로 식당 자리 예약하기",
+      "de": "Telefonisch einen Tisch reservieren",
+      "en": "Booking a table by phone"
+    },
+    "intro": {
+      "ko": "저녁에 갈 식당에 전화해서 자리를 예약해요.",
+      "de": "Du rufst ein Restaurant an, um für den Abend einen Tisch zu reservieren.",
+      "en": "You call a restaurant to book a table for the evening."
+    },
+    "courseUnitId": "a1_07_contact_address",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "server"
+    ],
+    "relationshipContext": "service",
+    "intent": "make_a_phone_reservation",
+    "shelf": "a1_phone",
+    "backdrop": "restaurant",
+    "vocab": [
+      {
+        "korean": "여보세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Hallo.",
+          "en": "Hello."
+        }
+      },
+      {
+        "korean": "자리를 예약하고 싶어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich möchte einen Tisch reservieren.",
+          "en": "I'd like to book a table."
+        }
+      },
+      {
+        "korean": "몇 분이세요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Für wie viele Personen?",
+          "en": "For how many people?"
+        }
+      },
+      {
+        "korean": "두 명",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "zwei Personen",
+          "en": "two people"
+        }
+      },
+      {
+        "korean": "일곱 시",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "sieben Uhr",
+          "en": "seven o'clock"
+        }
+      },
+      {
+        "korean": "자리가 없어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Es ist kein Tisch frei.",
+          "en": "There's no table."
+        }
+      },
+      {
+        "korean": "여덟 시",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "acht Uhr",
+          "en": "eight o'clock"
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a1_contact_address",
+      "concept_a1_time_numbers"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_object_particle",
+      "grammar_a1_direction_means"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N을/를",
+        "de": "Objektpartikel N을/를",
+        "en": "Object particle N을/를"
+      },
+      "explanation": {
+        "ko": "자리를 예약하다처럼 목적어 뒤에 을/를을 붙여요.",
+        "de": "N을/를 markiert das Objekt eines Satzes, z. B. 자리를 예약하다.",
+        "en": "N을/를 marks the object of a sentence, as in 자리를 예약하다."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "server",
+        "ko": "네, 다정식당입니다.",
+        "de": "Hallo, hier ist das Restaurant Dajeong.",
+        "en": "Hello, this is Dajeong Restaurant."
+      },
+      {
+        "speaker": "user",
+        "ko": "여보세요. 자리를 예약하고 싶어요.",
+        "de": "Hallo. Ich möchte einen Tisch reservieren.",
+        "en": "Hello. I'd like to book a table."
+      },
+      {
+        "speaker": "server",
+        "ko": "네, 몇 분이세요?",
+        "de": "Gut, für wie viele Personen?",
+        "en": "Sure, for how many people?"
+      },
+      {
+        "speaker": "user",
+        "ko": "두 명이에요.",
+        "de": "Für zwei Personen.",
+        "en": "For two people."
+      },
+      {
+        "speaker": "server",
+        "ko": "언제 오실 거예요?",
+        "de": "Wann möchten Sie kommen?",
+        "en": "When would you like to come?"
+      },
+      {
+        "speaker": "user",
+        "ko": "오늘 저녁 일곱 시요.",
+        "de": "Heute Abend um sieben.",
+        "en": "This evening at seven."
+      },
+      {
+        "speaker": "server",
+        "ko": "죄송한데 일곱 시는 자리가 없어요.",
+        "de": "Entschuldigung, um sieben ist leider kein Tisch frei.",
+        "en": "Sorry, there's no table at seven."
+      },
+      {
+        "speaker": "user",
+        "ko": "그럼 여덟 시는 괜찮아요?",
+        "de": "Geht acht Uhr?",
+        "en": "Is eight o'clock okay then?"
+      },
+      {
+        "speaker": "server",
+        "ko": "네, 여덟 시는 가능해요.",
+        "de": "Ja, acht Uhr geht.",
+        "en": "Yes, eight works."
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 감사합니다.",
+        "de": "Danke.",
+        "en": "Thank you."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_a1_w10_phone_hear",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "오늘 저녁 일곱 시요.",
+          "options": [
+            {
+              "de": "Heute Abend um sieben.",
+              "en": "This evening at seven."
+            },
+            {
+              "de": "Für zwei Personen.",
+              "en": "For two people."
+            },
+            {
+              "de": "Entschuldigung, um sieben ist leider kein Tisch frei.",
+              "en": "Sorry, there's no table at seven."
+            },
+            {
+              "de": "Ja, acht Uhr geht.",
+              "en": "Yes, eight works."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_a1_w10_phone_translate",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Geht acht Uhr?",
+          "promptEn": "Is eight o'clock okay then?",
+          "options": [
+            {
+              "ko": "그럼 여덟 시는 괜찮아요?"
+            },
+            {
+              "ko": "두 명이에요."
+            },
+            {
+              "ko": "오늘 저녁 일곱 시요."
+            },
+            {
+              "ko": "죄송한데 일곱 시는 자리가 없어요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_a1_w10_phone_build",
+        "conceptIds": [
+          "concept_a1_contact_address",
+          "concept_a1_time_numbers"
+        ],
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "두 명이에요.",
+          "promptDe": "Für zwei Personen.",
+          "promptEn": "For two people.",
+          "distractors": [
+            "여덟 시",
+            "자리가",
+            "를"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 100,
+    "sidekick": "christian"
+  },
+  {
+    "id": "a1_w10_wayfinding",
+    "level": "A1",
+    "emoji": "🧭",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "지나가는 사람에게 은행 가는 길 묻기",
+      "de": "Einen Passanten nach dem Weg zur Bank fragen",
+      "en": "Asking a passerby for directions to the bank"
+    },
+    "intro": {
+      "ko": "길을 잘 몰라서 지나가는 사람에게 은행 가는 길을 물어봐요.",
+      "de": "Du kennst den Weg nicht und fragst einen Passanten nach der Bank.",
+      "en": "You don't know the way, so you ask a passerby for directions to the bank."
+    },
+    "courseUnitId": "a1_06_transport_directions",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "resident"
+    ],
+    "relationshipContext": "stranger",
+    "intent": "ask_for_directions_and_confirm_sign",
+    "shelf": "a1_wayfinding",
+    "backdrop": "directions",
+    "vocab": [
+      {
+        "korean": "은행이 어디에 있어요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wo ist die Bank?",
+          "en": "Where is the bank?"
+        }
+      },
+      {
+        "korean": "이 길로 쭉 가세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gehen Sie diese Straße geradeaus.",
+          "en": "Go straight down this street."
+        }
+      },
+      {
+        "korean": "얼마나 걸려요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie lange dauert es?",
+          "en": "How long does it take?"
+        }
+      },
+      {
+        "korean": "오 분쯤",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "ungefähr fünf Minuten",
+          "en": "about five minutes"
+        }
+      },
+      {
+        "korean": "간판",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Schild",
+          "en": "sign"
+        }
+      },
+      {
+        "korean": "편의점",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Convenience-Store",
+          "en": "convenience store"
+        }
+      },
+      {
+        "korean": "편의점 앞에",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "vor dem Convenience-Store",
+          "en": "in front of the convenience store"
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a1_directions",
+      "concept_request_polite"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_degree_question",
+      "grammar_a1_in_front"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "얼마나 + V",
+        "de": "얼마나 + Verb: wie sehr/lange",
+        "en": "얼마나 + verb: how much/long"
+      },
+      "explanation": {
+        "ko": "얼마나 걸어요?처럼 얼마나는 정도나 시간을 물을 때 써요.",
+        "de": "얼마나 fragt nach Grad oder Dauer, z. B. 얼마나 걸어요?",
+        "en": "얼마나 asks about degree or duration, as in 얼마나 걸어요?"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "저기요, 은행이 어디에 있어요?",
+        "de": "Entschuldigung, wo ist die Bank?",
+        "en": "Excuse me, where is the bank?"
+      },
+      {
+        "speaker": "resident",
+        "ko": "은행이요? 이 길로 쭉 가세요.",
+        "de": "Die Bank? Gehen Sie diese Straße geradeaus.",
+        "en": "The bank? Go straight down this street."
+      },
+      {
+        "speaker": "user",
+        "ko": "얼마나 걸려요?",
+        "de": "Wie lange dauert es?",
+        "en": "How long does it take?"
+      },
+      {
+        "speaker": "resident",
+        "ko": "한 오 분쯤 걸려요.",
+        "de": "Ungefähr fünf Minuten.",
+        "en": "About five minutes."
+      },
+      {
+        "speaker": "user",
+        "ko": "저 간판이 은행이에요?",
+        "de": "Ist das Schild da die Bank?",
+        "en": "Is that sign the bank?"
+      },
+      {
+        "speaker": "resident",
+        "ko": "아니요, 저건 편의점이에요. 은행은 편의점 앞에 있어요.",
+        "de": "Nein, das ist ein Convenience-Store. Die Bank ist davor.",
+        "en": "No, that's a convenience store. The bank is in front of it."
+      },
+      {
+        "speaker": "user",
+        "ko": "아, 알겠습니다. 감사합니다.",
+        "de": "Ah, verstanden. Danke.",
+        "en": "Ah, got it. Thank you."
+      },
+      {
+        "speaker": "resident",
+        "ko": "네, 조심히 가세요.",
+        "de": "Ja, kommen Sie gut an.",
+        "en": "Sure, take care."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_a1_w10_wayfinding_hear",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "은행이요? 이 길로 쭉 가세요.",
+          "options": [
+            {
+              "de": "Die Bank? Gehen Sie diese Straße geradeaus.",
+              "en": "The bank? Go straight down this street."
+            },
+            {
+              "de": "Ungefähr fünf Minuten.",
+              "en": "About five minutes."
+            },
+            {
+              "de": "Nein, das ist ein Convenience-Store. Die Bank ist davor.",
+              "en": "No, that's a convenience store. The bank is in front of it."
+            },
+            {
+              "de": "Ja, kommen Sie gut an.",
+              "en": "Sure, take care."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_a1_w10_wayfinding_translate",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ungefähr fünf Minuten.",
+          "promptEn": "About five minutes.",
+          "options": [
+            {
+              "ko": "한 오 분쯤 걸려요."
+            },
+            {
+              "ko": "얼마나 걸려요?"
+            },
+            {
+              "ko": "저 간판이 은행이에요?"
+            },
+            {
+              "ko": "아, 알겠습니다. 감사합니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_a1_w10_wayfinding_build",
+        "conceptIds": [
+          "concept_a1_directions",
+          "concept_request_polite"
+        ],
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "아니요, 저건 편의점이에요. 은행은 편의점 앞에 있어요.",
+          "promptDe": "Nein, das ist ein Convenience-Store. Die Bank ist davor.",
+          "promptEn": "No, that's a convenience store. The bank is in front of it.",
+          "distractors": [
+            "간판",
+            "쭉",
+            "로"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 105,
+    "sidekick": "christian"
+  },
+  {
+    "id": "a1_w10_fandom",
+    "level": "A1",
+    "emoji": "💿",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "굿즈 가게에서 좋아하는 가수 이야기하기",
+      "de": "Im Fan-Shop über den Lieblingssänger reden",
+      "en": "Talking about a favorite singer at the goods shop"
+    },
+    "intro": {
+      "ko": "마야와 함께 굿즈 가게에서 좋아하는 가수와 앨범을 구경해요.",
+      "de": "Du gehst mit Maya in einen Fan-Shop und schaut euch Alben eures Lieblingssängers an.",
+      "en": "You browse a K-pop goods shop with Maya and talk about your favorite singer's albums."
+    },
+    "courseUnitId": "a1_11_titles_relationships",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "maya"
+    ],
+    "relationshipContext": "close_friend",
+    "intent": "chat_about_favorite_group_while_shopping",
+    "shelf": "a1_fandom",
+    "backdrop": "market",
+    "vocab": [
+      {
+        "korean": "앨범",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Album",
+          "en": "album"
+        }
+      },
+      {
+        "korean": "가수",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Sänger",
+          "en": "singer"
+        }
+      },
+      {
+        "korean": "제일 좋아하는",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Lieblings-",
+          "en": "favorite"
+        }
+      },
+      {
+        "korean": "포토카드",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Fotokarte",
+          "en": "photocard"
+        }
+      },
+      {
+        "korean": "배지",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Anstecker",
+          "en": "badge"
+        }
+      },
+      {
+        "korean": "이번 앨범",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "das neue Album",
+          "en": "the new album"
+        }
+      },
+      {
+        "korean": "이걸로 살게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die nehme ich.",
+          "en": "I'll take this one."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a1_titles_relationships",
+      "concept_request_polite"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_or_particle",
+      "grammar_a1_also_particle"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N(이)나",
+        "de": "N(이)나: oder",
+        "en": "N(이)나: or"
+      },
+      "explanation": {
+        "ko": "포토카드나 배지처럼 N(이)나는 몇 가지 중 아무거나 괜찮을 때 써요.",
+        "de": "N(이)나 nennt mehrere Möglichkeiten, von denen jede in Ordnung ist, z. B. 포토카드나 배지.",
+        "en": "N(이)나 lists a few options where any of them is fine, as in 포토카드나 배지."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "maya",
+        "ko": "크리스티안, 여기 봐요! 이 앨범 예쁘죠?",
+        "de": "Christian, schau mal! Dieses Album ist schön, oder?",
+        "en": "Christian, look! This album is pretty, right?"
+      },
+      {
+        "speaker": "user",
+        "ko": "와, 진짜 예뻐요. 이 가수 누구예요?",
+        "de": "Wow, wirklich schön. Wer ist das für ein Sänger?",
+        "en": "Wow, really pretty. Who's this singer?"
+      },
+      {
+        "speaker": "maya",
+        "ko": "제가 제일 좋아하는 가수예요.",
+        "de": "Das ist mein Lieblingssänger.",
+        "en": "That's my favorite singer."
+      },
+      {
+        "speaker": "user",
+        "ko": "저도 이 노래 알아요! 진짜 좋아해요.",
+        "de": "Den Song kenne ich auch! Ich mag ihn wirklich.",
+        "en": "I know this song too! I really like it."
+      },
+      {
+        "speaker": "maya",
+        "ko": "포토카드나 배지도 있어요. 같이 볼까요?",
+        "de": "Es gibt auch Fotokarten oder Anstecker. Wollen wir mal schauen?",
+        "en": "There are photocards or badges too. Want to look together?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 좋아요. 저는 포토카드 하나 사고 싶어요.",
+        "de": "Ja, gern. Ich möchte eine Fotokarte kaufen.",
+        "en": "Yes, sure. I want to buy one photocard."
+      },
+      {
+        "speaker": "maya",
+        "ko": "이거 어때요? 이번 앨범 거예요.",
+        "de": "Wie wäre es mit der hier? Die ist aus dem neuen Album.",
+        "en": "How about this one? It's from the new album."
+      },
+      {
+        "speaker": "user",
+        "ko": "좋아요. 이걸로 살게요.",
+        "de": "Gut. Die nehme ich.",
+        "en": "Great. I'll take this one."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_a1_w10_fandom_hear",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "제가 제일 좋아하는 가수예요.",
+          "options": [
+            {
+              "de": "Das ist mein Lieblingssänger.",
+              "en": "That's my favorite singer."
+            },
+            {
+              "de": "Wow, wirklich schön. Wer ist das für ein Sänger?",
+              "en": "Wow, really pretty. Who's this singer?"
+            },
+            {
+              "de": "Es gibt auch Fotokarten oder Anstecker. Wollen wir mal schauen?",
+              "en": "There are photocards or badges too. Want to look together?"
+            },
+            {
+              "de": "Wie wäre es mit der hier? Die ist aus dem neuen Album.",
+              "en": "How about this one? It's from the new album."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_a1_w10_fandom_translate",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ja, gern. Ich möchte eine Fotokarte kaufen.",
+          "promptEn": "Yes, sure. I want to buy one photocard.",
+          "options": [
+            {
+              "ko": "네, 좋아요. 저는 포토카드 하나 사고 싶어요."
+            },
+            {
+              "ko": "와, 진짜 예뻐요. 이 가수 누구예요?"
+            },
+            {
+              "ko": "저도 이 노래 알아요! 진짜 좋아해요."
+            },
+            {
+              "ko": "이거 어때요? 이번 앨범 거예요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_a1_w10_fandom_build",
+        "conceptIds": [
+          "concept_a1_titles_relationships",
+          "concept_request_polite"
+        ],
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "포토카드나 배지도 있어요. 같이 볼까요?",
+          "promptDe": "Es gibt auch Fotokarten oder Anstecker. Wollen wir mal schauen?",
+          "promptEn": "There are photocards or badges too. Want to look together?",
+          "distractors": [
+            "가수",
+            "앨범",
+            "를"
+          ]
+        }
+      }
+    ],
+    "culturalNote": {
+      "title": {
+        "ko": "포토카드 문화",
+        "de": "Fotokarten-Kultur",
+        "en": "Photocard culture"
+      },
+      "body": {
+        "ko": "한국 팬들은 좋아하는 멤버를 최애라고 부르고, 앨범에서 겹치는 포토카드는 다른 팬과 교환하기도 해요.",
+        "de": "Fans in Korea nennen ihr Lieblingsmitglied 최애 und tauschen doppelte Fotokarten oft mit anderen Fans.",
+        "en": "Korean fans call their favorite member their 최애 (\"bias\") and often trade duplicate photocards with other fans."
+      }
+    },
+    "xpReward": 115,
+    "sidekick": "christian"
+  }
+]

@@ -90,6 +90,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "a1_taxi_stay": (
         "a1_airport_cart", "a1_taxi_address", "a1_direction_left",
         "a1_hotel_key", "airport_arrival", "hotel_checkin", "taxi_kakao",
+        "a1_w10_taxi_stay",
     ),
     "a1_counter": (
         "a1_market_bag", "a1_rice_shop", "a1_water_shop", "a1_mask_pack",
@@ -99,6 +100,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "a1_eat": (
         "a1_cafe_wifi", "a1_tea_order", "bunshik_tteokbokki",
+        "a1_w10_eat",
     ),
     "a1_home": (
         "a1_door_bell", "a1_floor_number", "a1_gate_code", "a1_hall_shoes",
@@ -114,6 +116,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "a1_repeat": (
         "a1_ask_again", "a1_slow_speech", "clarify_repeat",
         "a1_whiteboard_word", "a1_class_pencil", "survival_day_capstone",
+        "a1_w10_repeat",
     ),
     "a1_body": (
         "a1_pharmacy_hours", "a1_pharmacy_ointment", "a1_dust_mask",
@@ -123,19 +126,21 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "a1_partner_first_door", "a1_partner_gift_too_big",
         "a1_partner_more_side_dishes", "a1_partner_wrong_seat",
         "a1_partner_new_year_money", "a1_partner_seollal_bow",
-        "a1_partner_songpyeon_too_big",
+        "a1_partner_songpyeon_too_big", "a1_w10_partner",
     ),
     "a1_numbers": (
         "a1_numbers_floor_and_room",
         "a1_numbers_how_many_left",
         "a1_numbers_open_hours",
         "a1_numbers_total_price",
+        "a1_w10_numbers",
     ),
     "a1_phone": (
         "a1_phone_call_later",
         "a1_phone_read_back_address",
         "a1_phone_text_instead",
         "a1_phone_wrong_number",
+        "a1_w10_phone",
     ),
     "a1_wayfinding": (
         "a1_wayfinding_exit_number",
@@ -143,6 +148,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "a1_wayfinding_sign_says",
         "a1_wayfinding_this_way_right",
         "a1_city_service_route_batch20",
+        "a1_w10_wayfinding",
     ),
     "a1_friends": (
         "a1_friends_major_and_number", "a1_gaming_one_more_round",
@@ -153,6 +159,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "a1_fandom": (
         "a1_kpop_my_bias", "a1_youtube_shorts_last_night",
+        "a1_w10_fandom",
     ),
     "a2_move": (
         "a2_direction_bus", "a2_station_lost", "a2_seat_hold",
@@ -165,10 +172,12 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "a2_auto_debit", "a2_bank_number", "a2_card_balance",
         "a2_transfer_limit", "a2_bill_high", "a2_phone_plan",
         "a2_label_phone", "rent_bank_transfer", "a2_night_pay",
+        "a2_w10_money",
     ),
     "a2_buy": (
         "a2_market_change", "a2_water_set", "a2_convenience_copy",
         "a2_id_pickup", "myeongdong_shopping", "a2_food_bag",
+        "a2_w10_buy",
     ),
     "a2_eat": (
         "a2_cafe_plug", "a2_tea_taste", "a2_restaurant_split",
@@ -182,6 +191,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "a2_apt": (
         "a2_apt_sticker", "a2_guest_pass", "a2_quiet_ten", "a2_recycle_box",
         "a2_contract_read", "a2_flat_viewing_terms_batch20",
+        "a2_w10_apt",
     ),
     "a2_work": (
         "a2_handover_note", "a2_manager_leave", "a2_office_badge",
@@ -195,6 +205,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "a2_partner_banmal_slip", "a2_partner_group_chat_join",
         "a2_partner_morning_greeting", "a2_partner_hanbok_rental",
         "a2_partner_holiday_train", "a2_partner_leftover_bags",
+        "a2_w10_partner",
     ),
     "a2_delivery": (
         "a2_daily_late_delivery",
@@ -204,30 +215,35 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "a2_enrolment_class_signup",
         "a2_enrolment_level_test",
         "a2_enrolment_missing_document",
+        "a2_w10_enrolment",
     ),
     "a2_booking": (
         "a2_booking_change_date",
         "a2_booking_extra_person",
         "a2_booking_no_show_fee",
         "a2_booking_table_time",
+        "a2_w10_booking",
     ),
     "b1_insurance": (
         "b1_insurance_claim_documents",
         "b1_insurance_claim_rejected",
         "b1_insurance_deductible_share",
         "b1_insurance_what_is_covered",
+        "b1_w10_insurance",
     ),
     "b1_incident": (
         "b1_incident_leak_from_upstairs",
         "b1_incident_lost_item_desk",
         "b1_incident_parking_scratch",
         "b1_incident_witness_note",
+        "b1_w10_incident",
     ),
     "b1_cancellation": (
         "b1_cancellation_auto_payment",
         "b1_cancellation_early_penalty",
         "b1_cancellation_gym_membership",
         "b1_cancellation_move_out_notice",
+        "b1_w10_cancellation",
     ),
     "b2_hiring": (
         "b2_hiring_reference_consent",
@@ -235,15 +251,18 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "b2_hiring_salary_band",
         "b2_hiring_start_date",
         "b2_job_hunting_ai_screening",
+        "b2_w10_hiring",
     ),
     "b2_privacy": (
         "b2_privacy_data_scope",
         "b2_privacy_delete_request",
         "b2_privacy_retention_period",
         "b2_privacy_third_party",
+        "b2_w10_privacy",
     ),
     "a2_friends": (
         "a2_friends_weekend_slot", "a2_gaming_cant_connect",
+        "a2_w10_friends",
     ),
     "a2_dating": (
         "a2_dating_slow_replies",
@@ -251,11 +270,12 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "a2_fandom": (
         "a2_kpop_concert_queue", "a2_youtube_send_the_link",
+        "a2_w10_fandom",
     ),
     "b1_repair": (
         "b1_leak_report", "b1_repair_photo", "b1_repair_visit_followup",
         "b1_heating_safety_call", "b1_move_in_handover",
-        "b1_contract_appointment",
+        "b1_contract_appointment", "b1_w10_repair",
     ),
     "b1_refund": (
         "b1_refund_rule", "b1_warranty_week", "b1_market_claim",
@@ -264,7 +284,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "b1_bill": (
         "b1_bill_split", "b1_cafe_invoice", "b1_taxi_receipt",
-        "bank_account", "b1_daily_cut_the_bills",
+        "bank_account", "b1_daily_cut_the_bills", "b1_w10_bill",
     ),
     "b1_delay": (
         "b1_connecting", "b1_pickup_delay", "b1_typhoon_change",
@@ -273,7 +293,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "b1_form": (
         "b1_proxy_form", "b1_civil_ticket", "b1_case_status",
         "b1_school_letter", "b1_parent_slot", "b1_extra_paper",
-        "b1_scan_note", "b1_intranet_form",
+        "b1_scan_note", "b1_intranet_form", "b1_w10_form",
     ),
     "b1_team": (
         "b1_team_meeting_coordination", "b1_covering_absence",
@@ -295,9 +315,11 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "b1_partner_drink_table", "b1_partner_heavy_bags_home",
         "b1_partner_interpret_skip", "b1_partner_marriage_question",
         "b1_partner_overnight_door", "b1_partner_salary_deflect",
+        "b1_w10_partner",
     ),
     "b1_friends": (
         "b1_friends_he_said_that", "b1_gaming_team_voice",
+        "b1_w10_friends",
     ),
     "b1_dating": (
         "b1_dating_anniversary_gap",
@@ -305,6 +327,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "b1_fandom": (
         "b1_kpop_missing_goods", "b1_youtube_up_all_night",
+        "b1_w10_fandom",
     ),
     "b2_meeting": (
         "b2_agenda_swap", "b2_minutes_draft", "b2_quorum_wait",
@@ -320,6 +343,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "b2_counter_offer", "b2_must_have", "b2_limit_line",
         "b2_restore_scope", "b2_next_level", "job_interview",
         "b2_deadline_deferral_request",
+        "b2_w10_negotiate",
     ),
     "b2_contract": (
         "b2_contract_clause_inquiry", "b2_signature_scope_confirmation",
@@ -331,14 +355,17 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "b2_certified_mail", "b2_objection_status_request",
         "b2_remedy_plan_request", "b2_evidence_date",
         "b2_device_failure_escalation", "complaint_delivery",
+        "b2_w10_notice",
     ),
     "b2_travel": (
         "b2_airport_reseat", "b2_station_hold", "b2_taxi_escalate",
         "b2_direction_risk", "b2_on_site",
+        "b2_w10_travel",
     ),
     "b2_health": (
         "doctor_consultation", "b2_pharmacy_claim", "b2_convenience_scan",
         "b2_restaurant_note",
+        "b2_w10_health",
     ),
     "b2_public": (
         "b2_public_question", "b2_public_wording_feedback",
@@ -350,9 +377,11 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "b2_partner_dowry_joke", "b2_partner_inlaw_rotation",
         "b2_partner_photo_permission", "b2_partner_public_intro",
         "b2_partner_holiday_labor_chart",
+        "b2_w10_partner",
     ),
     "b2_authorities": (
         "b2_daily_upstairs_noise",
+        "b2_w10_authorities",
     ),
     "b2_friends": (
         "b2_friends_split_the_bill", "b2_gaming_ban_appeal",
@@ -364,6 +393,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "b2_fandom": (
         "b2_kpop_staff_interview", "b2_youtube_collab_pitch",
         "b2_kpop_local_festival_program",
+        "b2_w10_fandom",
     ),
     "c1_briefing": (
         "c1_briefing_number", "c1_leading_item", "c1_speaking_slot",
@@ -372,13 +402,16 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "c1_uncertainty": (
         "c1_sample_bias", "c1_uncertainty", "c1_relative_risk",
         "c1_survey_limits_briefing",
+        "c1_w10_uncertainty",
     ),
     "c1_access": (
         "c1_access_time",
+        "c1_w10_access",
     ),
     "c1_labor": (
         "c1_partner_invisible_labor", "c1_partner_guest_or_family",
         "c1_daily_migration_demography_policy_forum",
+        "c1_w10_labor",
     ),
     # C1/C2 에서는 관심 소재가 담화 기능과 겹쳐 보인다 —
     # c1_kpop_fan_labor 는 c1_labor 로, c1_gaming_playtime_policy 는
@@ -388,12 +421,14 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     # 메우고, 관심 소재는 소재 축에 둔다.
     "c1_methodology": (
         "c1_daily_prices_vs_data",
+        "c1_w10_methodology",
     ),
     "c1_conflict_interest": (
         "c1_conflict_interest_disclose_stake",
         "c1_conflict_interest_dual_role",
         "c1_conflict_interest_recuse_request",
         "c1_conflict_interest_sponsored_talk",
+        "c1_w10_conflict_interest",
     ),
     "c1_policy": (
         "c1_policy_exemption_edge",
@@ -409,6 +444,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "c1_clinical_informed_consent",
         "c1_clinical_second_opinion",
         "c1_clinical_trial_withdrawal",
+        "c1_w10_clinical",
     ),
     "c1_critique": (
         "c1_critique_anonymous_limits",
@@ -427,6 +463,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "c1_facework_correct_in_private",
         "c1_facework_decline_without_wound",
         "c1_facework_praise_before_others",
+        "c1_w10_facework",
     ),
     "c1_attribution": (
         "c1_attribution_author_order",
@@ -436,6 +473,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "c1_friends": (
         "c1_friends_venue_access", "c1_gaming_playtime_policy",
+        "c1_w10_friends",
     ),
     "c1_dating": (
         "c1_dating_app_safety",
@@ -444,6 +482,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "c1_fandom": (
         "c1_kpop_fan_labor", "c1_youtube_health_claims",
         "c1_kpop_platform_localization_review",
+        "c1_w10_fandom",
     ),
     "c2_automation": (
         "c2_appeal_bot", "c2_automated_decision_appeal",
@@ -453,6 +492,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "c2_record": (
         "c2_archive_gap", "c2_trace_log",
+        "c2_w10_record",
     ),
     "c2_discourse": (
         "c2_discourse_premise", "c2_passive_hide",
@@ -460,16 +500,19 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "c2_mandate": (
         "c2_mandate_edge", "c2_withdraw_deep",
+        "c2_w10_mandate",
     ),
     "c2_impact": (
         "c2_uneven_impact",
         "c2_daily_integration_metric_editorial",
+        "c2_w10_impact",
     ),
     "c2_memory": (
         "c2_partner_document_the_place", "c2_partner_name_and_memory",
     ),
     "c2_friends": (
         "c2_friends_quoted_privately", "c2_gaming_auto_sanction",
+        "c2_w10_friends",
     ),
     "c2_dating": (
         "c2_dating_romance_frames",
@@ -478,6 +521,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "c2_fandom": (
         "c2_kpop_fandom_language", "c2_youtube_algorithm_duty",
         "c2_kpop_authenticity_platform_panel",
+        "c2_w10_fandom",
     ),
     "c2_ethics": (
         "c2_ethics_consent_form_scope_gap",
@@ -490,24 +534,28 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "c2_history_merging_conflicting_testimonies",
         "c2_history_monument_inscription_agreement",
         "c2_history_sealed_records_disclosure_timing",
+        "c2_w10_history",
     ),
     "c2_aesthetic": (
         "c2_aesthetic_dialect_subtitle_flatten",
         "c2_aesthetic_poem_rhythm_meaning_loss",
         "c2_aesthetic_translator_editor_dispute",
         "c2_aesthetic_word_without_equivalent",
+        "c2_w10_aesthetic",
     ),
     "c2_limitation": (
         "c2_limitation_define_accrual_date",
         "c2_limitation_ex_officio_review_path",
         "c2_limitation_extension_premise_error_proof",
         "c2_limitation_notice_delay_appeal_window",
+        "c2_w10_limitation",
     ),
     "c2_jurisdiction": (
         "c2_jurisdiction_cross_border_premise",
         "c2_jurisdiction_even_if_authorized_escalate",
         "c2_jurisdiction_neither_claims_authority",
         "c2_jurisdiction_provisional_ruling_no_authority",
+        "c2_w10_jurisdiction",
     ),
     "c2_representation": (
         "c2_representation_fan_rep_mandate_defined",

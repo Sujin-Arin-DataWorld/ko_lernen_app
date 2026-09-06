@@ -320,6 +320,145 @@ class ContentValidatorTest(unittest.TestCase):
             ),
         )
 
+    def test_vocab_level_id_mismatch_is_rejected_unless_a_registered_legacy_exception(
+        self,
+    ) -> None:
+        with (Path("assets/data") / "korean_vocab.csv").open(
+            encoding="utf-8-sig",
+            newline="",
+        ) as handle:
+            reader = csv.DictReader(handle)
+            header = list(reader.fieldnames or [])
+            rows = list(reader)
+        by_id = {row["id"]: row for row in rows}
+
+        # Unregistered id/level mismatch must still fail closed.
+        mismatched_row = dict(rows[0])
+        mismatched_row["id"] = "vocab_a1_9999"
+        mismatched_row["level"] = "B1"
+
+        validator = ContentValidator()
+        original_load_csv = validator.load_csv
+
+        def load_csv(name: str):
+            if name == "korean_vocab.csv":
+                return header, [mismatched_row]
+            return original_load_csv(name)
+
+        validator.load_csv = load_csv  # type: ignore[method-assign]
+        validator.validate_vocab()
+        messages = self._messages(validator)
+        self.assertTrue(
+            any(
+                "id level disagrees with row level: vocab_a1_9999 vs B1" in m
+                for m in messages
+            ),
+        )
+
+        # relevel batch 002 (2026-09-05, #268): 시아버지 A1→B1 — registered
+        # exception must not trip the id/level check.
+        registered_row = dict(by_id["vocab_a1_0216"])
+        self.assertEqual(registered_row["level"].upper(), "B1")
+
+        validator2 = ContentValidator()
+
+        def load_csv2(name: str):
+            if name == "korean_vocab.csv":
+                return header, [registered_row]
+            return original_load_csv(name)
+
+        validator2.load_csv = load_csv2  # type: ignore[method-assign]
+        validator2.validate_vocab()
+        messages2 = self._messages(validator2)
+        self.assertFalse(any("id level disagrees" in m for m in messages2))
+
+    def test_cloze_level_id_mismatch_is_rejected_unless_a_registered_legacy_exception(
+        self,
+    ) -> None:
+        cloze = self._asset_json("cloze.json")
+        items_by_id = {item["id"]: item for item in cloze["items"]}
+
+        def single_item_payload(item: dict) -> dict:
+            payload = copy.deepcopy(cloze)
+            payload["items"] = [item]
+            level = item["level"]
+            payload["meta"]["total"] = 1
+            payload["meta"]["perLevel"] = {
+                lvl: (1 if lvl == level else 0)
+                for lvl in ("a1", "a2", "b1", "b2", "c1", "c2")
+            }
+            return payload
+
+        # Unregistered id/level mismatch must still fail closed.
+        mismatched = copy.deepcopy(items_by_id["cloze_a1_0001"])
+        mismatched["id"] = "cloze_a1_9999"
+        mismatched["level"] = "b1"
+
+        validator = self._with_json_override(
+            **{"cloze.json": single_item_payload(mismatched)},
+        )
+        validator.validate_cloze()
+        messages = self._messages(validator)
+        self.assertTrue(
+            any("cloze_a1_9999 id level disagrees with b1" in m for m in messages),
+        )
+
+        # relevel batch 002 (2026-09-05, #268): 시아버지 A1→B1 — registered
+        # exception must not trip the id/level check.
+        registered = items_by_id["cloze_a1_0104"]
+        self.assertEqual(registered["level"], "b1")
+
+        validator2 = self._with_json_override(
+            **{"cloze.json": single_item_payload(registered)},
+        )
+        validator2.validate_cloze()
+        messages2 = self._messages(validator2)
+        self.assertFalse(any("id level disagrees" in m for m in messages2))
+
+    def test_satz_level_id_mismatch_is_rejected_unless_a_registered_legacy_exception(
+        self,
+    ) -> None:
+        vocab_levels = ContentValidator().validate_vocab()
+        satz = self._asset_json("satz_sentences.json")
+        items_by_id = {item["id"]: item for item in satz["items"]}
+
+        def single_item_payload(item: dict) -> dict:
+            payload = copy.deepcopy(satz)
+            payload["items"] = [item]
+            level = item["level"]
+            payload["meta"]["total"] = 1
+            payload["meta"]["perLevel"] = {
+                lvl: (1 if lvl == level else 0)
+                for lvl in ("a1", "a2", "b1", "b2", "c1", "c2")
+            }
+            return payload
+
+        # Unregistered id/level mismatch must still fail closed.
+        mismatched = copy.deepcopy(items_by_id["satz_a1_0001"])
+        mismatched["id"] = "satz_a1_9999"
+        mismatched["level"] = "b1"
+
+        validator = self._with_json_override(
+            **{"satz_sentences.json": single_item_payload(mismatched)},
+        )
+        validator.validate_satz(vocab_levels)
+        messages = self._messages(validator)
+        self.assertTrue(
+            any("satz_a1_9999 id level disagrees with b1" in m for m in messages),
+        )
+
+        # relevel batch 002 (2026-09-05, #268): 시아버지 A1→B1 — registered
+        # exception must not trip the id/level check.
+        registered = items_by_id["satz_a1_0068"]
+        self.assertEqual(registered["level"], "b1")
+
+        validator2 = self._with_json_override(
+            **{"satz_sentences.json": single_item_payload(registered)},
+        )
+        validator2.validate_satz(vocab_levels)
+        messages2 = self._messages(validator2)
+        self.assertFalse(any("id level disagrees" in m for m in messages2))
+
     def test_stale_per_level_course_unit_audit_fails_closed(self) -> None:
         audit = copy.deepcopy(self._asset_json("content_audit_manifest.json"))
         audit["graph"]["courseUnitsByLevel"]["c2"] = 1
