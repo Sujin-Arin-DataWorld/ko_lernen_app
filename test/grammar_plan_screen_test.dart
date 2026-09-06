@@ -462,69 +462,138 @@ void main() {
     },
   );
 
+  testWidgets('the plan level chosen in the sheet persists across a revisit '
+      '(Fable direct-read fix R1)', (tester) async {
+    final curatedB1 = GrammarPlanService.curatedRowsForLevel(
+      await DataLoader.loadGrammar(),
+      'B1',
+    );
+    await _pumpGrammar(tester);
+
+    await tester.tap(find.widgetWithText(SoriChip, 'B1'));
+    await tester.pump();
+    _tapSheetButton(tester, _l10n.grammarPlanStartCta);
+    await tester.pump(const Duration(milliseconds: 500));
+
+    expect(Storage.grammarPlanLevel, 'b1');
+    expect(Storage.userLevelCode, 'a1');
+
+    // A fresh GrammarScreen state (as after leaving and reopening the
+    // screen) must resume the b1 plan instead of falling back to the
+    // global a1 user level — a plain screen-state field would forget the
+    // choice here.
+    await _pumpGrammar(tester);
+
+    expect(Storage.grammarPlanLevel, 'b1');
+    expect(
+      find.byKey(const Key('grammar-plan-onboarding-sheet')),
+      findsNothing,
+      reason: 'the b1 plan already exists, so onboarding must not reopen',
+    );
+    expect(find.byKey(const Key('grammar-plan-day-header')), findsOneWidget);
+    expect(find.text(curatedB1[0].pattern), findsWidgets);
+    final plans = GrammarPlanService.decodePlans(Storage.grammarPlanRawJson);
+    expect(plans.containsKey('a1'), isFalse);
+    expect(Storage.userLevelCode, 'a1');
+  });
+
+  testWidgets('the plan-edit icon button meets the 48dp touch target minimum', (
+    tester,
+  ) async {
+    await _storePlans({
+      'a1': const GrammarStudyPlan(
+        level: 'a1',
+        itemsPerDay: 5,
+        servedIdsByDate: {},
+      ),
+    });
+    await _pumpGrammar(tester);
+
+    final editButton = find.byKey(const Key('grammar-plan-edit-button'));
+    expect(editButton, findsOneWidget);
+
+    // IconButton 을 감싼 SizedBox 가 실제 터치 영역을 정한다
+    // (touch_target_48_test.dart 의 grammar-undo 와 같은 계약).
+    final sizedBox = find.ancestor(
+      of: editButton,
+      matching: find.byType(SizedBox),
+    );
+    final size = tester.getSize(sizedBox.first);
+    expect(size.width, greaterThanOrEqualTo(48));
+    expect(size.height, greaterThanOrEqualTo(48));
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets(
-    'the plan level chosen in the sheet persists across a revisit '
-    '(Fable direct-read fix R1)',
+    'the in-day card counter advances with each skip and the pace chip '
+    'reopens onboarding (W10 T-G2, 지시서 1.12)',
     (tester) async {
-      final curatedB1 = GrammarPlanService.curatedRowsForLevel(
+      final curated = GrammarPlanService.curatedRowsForLevel(
         await DataLoader.loadGrammar(),
-        'B1',
+        'A1',
       );
-      await _pumpGrammar(tester);
-
-      await tester.tap(find.widgetWithText(SoriChip, 'B1'));
-      await tester.pump();
-      _tapSheetButton(tester, _l10n.grammarPlanStartCta);
-      await tester.pump(const Duration(milliseconds: 500));
-
-      expect(Storage.grammarPlanLevel, 'b1');
-      expect(Storage.userLevelCode, 'a1');
-
-      // A fresh GrammarScreen state (as after leaving and reopening the
-      // screen) must resume the b1 plan instead of falling back to the
-      // global a1 user level — a plain screen-state field would forget the
-      // choice here.
-      await _pumpGrammar(tester);
-
-      expect(Storage.grammarPlanLevel, 'b1');
-      expect(
-        find.byKey(const Key('grammar-plan-onboarding-sheet')),
-        findsNothing,
-        reason: 'the b1 plan already exists, so onboarding must not reopen',
-      );
-      expect(find.byKey(const Key('grammar-plan-day-header')), findsOneWidget);
-      expect(find.text(curatedB1[0].pattern), findsWidgets);
-      final plans = GrammarPlanService.decodePlans(Storage.grammarPlanRawJson);
-      expect(plans.containsKey('a1'), isFalse);
-      expect(Storage.userLevelCode, 'a1');
-    },
-  );
-
-  testWidgets(
-    'the plan-edit icon button meets the 48dp touch target minimum',
-    (tester) async {
+      final totalDays = GrammarPlanService.totalDays(curated, 3);
       await _storePlans({
         'a1': const GrammarStudyPlan(
           level: 'a1',
-          itemsPerDay: 5,
+          itemsPerDay: 3,
           servedIdsByDate: {},
         ),
       });
       await _pumpGrammar(tester);
 
-      final editButton = find.byKey(const Key('grammar-plan-edit-button'));
-      expect(editButton, findsOneWidget);
+      expect(find.text('Card 1 of 3'), findsOneWidget);
+      expect(find.text('Day 1 of $totalDays'), findsOneWidget);
+      expect(find.text('3 per day'), findsOneWidget);
 
-      // IconButton 을 감싼 SizedBox 가 실제 터치 영역을 정한다
-      // (touch_target_48_test.dart 의 grammar-undo 와 같은 계약).
-      final sizedBox = find.ancestor(
-        of: editButton,
-        matching: find.byType(SizedBox),
+      tester.widget<SoriContentFeed>(find.byType(SoriContentFeed)).onSkip!();
+      await tester.pump();
+
+      expect(find.text('Card 2 of 3'), findsOneWidget);
+
+      await tester.tap(find.widgetWithText(SoriChip, '3 per day'));
+      await tester.pump(const Duration(milliseconds: 500));
+
+      expect(
+        find.byKey(const Key('grammar-plan-onboarding-sheet')),
+        findsOneWidget,
       );
-      final size = tester.getSize(sizedBox.first);
-      expect(size.width, greaterThanOrEqualTo(48));
-      expect(size.height, greaterThanOrEqualTo(48));
-      expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets('the onboarding sheet shows the pace/level change body copy '
+      '(W10 T-G3, 지시서 1.11)', (tester) async {
+    await _pumpGrammar(tester);
+
+    expect(
+      find.byKey(const Key('grammar-plan-onboarding-sheet')),
+      findsOneWidget,
+    );
+    expect(
+      find.text(
+        'You only see these patterns each day. '
+        'You can change the pace and level at the top any time.',
+      ),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets(
+    'the pace chip semantic label includes the per-day count '
+    '(a11y, W10 T-G2a)',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      await _storePlans({
+        'a1': const GrammarStudyPlan(
+          level: 'a1',
+          itemsPerDay: 3,
+          servedIdsByDate: {},
+        ),
+      });
+      await _pumpGrammar(tester);
+
+      expect(find.bySemanticsLabel(RegExp('3 per day.*')), findsOneWidget);
+      semantics.dispose();
     },
   );
 }

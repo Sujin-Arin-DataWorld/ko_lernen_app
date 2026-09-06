@@ -11,6 +11,8 @@ import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 /// [pathVisibleLevel] is the single source of truth for which CEFR level the
 /// Lernpfad renders. It must never return an empty/invalid level (the path
 /// would be blank) and must map onboarding codes to the upper-case pack code.
+final AppL10n _l10n = lookupAppL10n(const Locale('de'));
+
 void main() {
   test('falls back to A1 before onboarding or on invalid input', () {
     expect(pathVisibleLevel(null), 'A1');
@@ -129,13 +131,13 @@ void main() {
       ),
     );
 
-    expect(find.text('Dein Weg'), findsWidgets);
+    expect(find.text(_l10n.pathTitle), findsWidgets);
     expect(find.byKey(const ValueKey('path-course-row-a1_01')), findsNothing);
     expect(find.byKey(const ValueKey('path-course-row-a1_02')), findsOneWidget);
     expect(find.byKey(const ValueKey('path-course-row-a1_03')), findsOneWidget);
     expect(find.byKey(const ValueKey('path-course-row-a1_04')), findsOneWidget);
     expect(find.byKey(const ValueKey('path-course-row-a1_05')), findsNothing);
-    expect(find.text('Kursmissionen'), findsNothing);
+    expect(find.text(_l10n.pathCourseMissionsTitle), findsNothing);
     expect(find.text('fertig'), findsOneWidget);
     expect(find.text('weiter'), findsOneWidget);
     expect(find.text('später'), findsOneWidget);
