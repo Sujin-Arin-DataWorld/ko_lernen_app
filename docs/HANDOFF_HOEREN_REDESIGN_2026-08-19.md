@@ -1,5 +1,7 @@
 # 인수인계 — Hören "살아있는 책가도" 재설계 + 공유 이미지 패밀리
 
+> 2026-09-05: Jin 결정 D-2로 선반 UI는 카드 그리드로 전환(PR-C). 규칙 ①③만 카드 안에서 생존, 데이터 계층은 불변.
+
 **작성** 2026-08-19 (Claude Fable 5, Windows) · **기준** `origin/main` = `6fad2bab`
 **브랜치** `claude/hoeren-redesign-mockups-20260819` (워크트리 `.claude/worktrees/hoeren-redesign-20260819`)
 **이 세션이 만든 것** 비평 · 설계 · 목업 · 이 문서. **앱 코드 변경 0.** 구현은 다음 세션.

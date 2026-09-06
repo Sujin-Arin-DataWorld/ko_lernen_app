@@ -1622,6 +1622,7 @@
   "vocabSlowHint": "Long press: slow",
   "vocabEmptyFavorites": "Nothing saved yet\nTap the bookmark to save words.",
   "listeningTitle": "Listening",
+  "listeningHubEyebrow": "LISTEN",
   "listeningSubtitle": "Hear a scenario at natural speed",
   "listeningSelectScenario": "Choose scenario",
   "listeningSpeedLabel": "Speed",
@@ -1710,6 +1711,20 @@
   "@listeningShelfScenarioCount": {
     "placeholders": {
       "n": {
+        "type": "int"
+      }
+    }
+  },
+  "listeningShelfCardSemantics": "{label}, {done} of {total} listened",
+  "@listeningShelfCardSemantics": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "done": {
+        "type": "int"
+      },
+      "total": {
         "type": "int"
       }
     }

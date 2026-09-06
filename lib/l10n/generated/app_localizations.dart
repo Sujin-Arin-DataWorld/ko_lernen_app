@@ -5581,6 +5581,12 @@ abstract class AppL10n {
   /// **'Hören'**
   String get listeningTitle;
 
+  /// No description provided for @listeningHubEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'HÖREN'**
+  String get listeningHubEyebrow;
+
   /// No description provided for @listeningSubtitle.
   ///
   /// In de, this message translates to:
@@ -5826,6 +5832,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'{n} Szenarien'**
   String listeningShelfScenarioCount(int n);
+
+  /// No description provided for @listeningShelfCardSemantics.
+  ///
+  /// In de, this message translates to:
+  /// **'{label}, {done} von {total} gehört'**
+  String listeningShelfCardSemantics(String label, int done, int total);
 
   /// No description provided for @listeningShelfA1Transit.
   ///

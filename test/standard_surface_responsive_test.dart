@@ -32,10 +32,10 @@ import 'package:ko_lernen_app/services/word_image_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/dancheong_stamp.dart';
 import 'package:ko_lernen_app/widgets/app_loading.dart';
-import 'package:ko_lernen_app/widgets/sori/chaekgado/shelf_case.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_header.dart';
+import 'package:ko_lernen_app/widgets/sori/illustrated_card.dart';
 import 'package:ko_lernen_app/widgets/sori/level_filter_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/pack_card.dart';
 import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
@@ -479,8 +479,11 @@ void main() {
       final text = SoriTextTheme.of(screenContext);
       final levelLabel = find.text(t.filterLevel);
 
-      // 히어로·부제·섹션헤더는 2026-08-23 에 제거됐다 (Hören 새 단장 P1).
-      // AppBar 제목이 화면 이름을 이미 말하므로 선반이 첫 화면 요소다.
+      // 히어로·부제·섹션헤더는 2026-08-23 에 제거됐다 (Hören 새 단장 P1) —
+      // 단, W10 T-H2(Jin 결정 D-2, 2026-09-05)가 SoriCollapsingHeader
+      // (eyebrow/title/body)를 다시 들였다. 이 필드가 지키는 건 그
+      // *구체적인* 위젯(HanokHeader)과 옛 카피 3종이 없다는 것 뿐이라
+      // 그대로 둔다 — 레벨 라벨이 그리드보다 위에 있다는 순서만 확인한다.
       expect(find.byType(HanokHeader), findsNothing);
       expect(find.text(t.listeningSubtitle), findsNothing);
       expect(find.text(t.listeningSelectScenario), findsNothing);
@@ -490,7 +493,7 @@ void main() {
       expect(tester.widget<Text>(levelLabel).style, text.label);
       expect(
         tester.getTopLeft(levelLabel).dy,
-        lessThan(tester.getTopLeft(find.byType(ChaekgadoShelfCase)).dy),
+        lessThan(tester.getTopLeft(find.byType(SoriIllustratedCard).first).dy),
       );
       // SoriLevelFilterBar의 가로 ListView는 320dp/200%에서 6칩을 동시에
       // 마운트하지 못한다(뷰포트 폭 기준 가상화 — cacheExtent 무관, 실측
@@ -538,7 +541,7 @@ void main() {
       await tester.tap(c2Chip);
       await tester.pump();
       expect(tester.widget<SoriChip>(c2Chip).selected, isTrue);
-      expect(find.byType(ChaekgadoShelfCase), findsOneWidget);
+      expect(find.byType(SoriIllustratedCard), findsWidgets);
       expect(tester.takeException(), isNull);
     }
     semantics.dispose();
@@ -596,11 +599,18 @@ void main() {
           final screenContext = tester.element(find.byType(ListeningScreen));
           final t = AppL10n.of(screenContext);
           expect(find.text(t.filterLevel), findsOneWidget);
-          expect(find.byType(ChaekgadoShelfCase), findsOneWidget);
-          expect(
-            tester.getSize(find.byType(ChaekgadoShelfCase)).width,
-            lessThanOrEqualTo(SoriMaxWidth.hub),
-          );
+          final cardRects = tester
+              .widgetList<SoriIllustratedCard>(find.byType(SoriIllustratedCard))
+              .map((card) => tester.getRect(find.byWidget(card)))
+              .toList();
+          expect(cardRects, isNotEmpty);
+          final left = cardRects
+              .map((r) => r.left)
+              .reduce((a, b) => a < b ? a : b);
+          final right = cardRects
+              .map((r) => r.right)
+              .reduce((a, b) => a > b ? a : b);
+          expect(right - left, lessThanOrEqualTo(SoriMaxWidth.hub));
           expect(tester.takeException(), isNull);
         }
       }

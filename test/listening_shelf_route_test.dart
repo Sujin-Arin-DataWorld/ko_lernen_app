@@ -3,18 +3,20 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/screens/listening_screen.dart';
+import 'package:ko_lernen_app/screens/listening_shelf_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
-import 'package:ko_lernen_app/widgets/sori/chaekgado/scroll_sheet.dart';
-import 'package:ko_lernen_app/widgets/sori/chaekgado/shelf_case.dart';
+import 'package:ko_lernen_app/widgets/sori/illustrated_card.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-/// 듣기 화면의 **경로**를 지킨다: 서재 칸 → 두루마리 → 재생.
+/// 듣기 화면의 **경로**를 지킨다: 허브 카드 그리드 → 카테고리 목록 → 재생.
 ///
-/// `chaekgado_shelf_test.dart` 는 두 위젯을 각각 격리해서 검사하고,
-/// `scenario_shelf_contract_test.dart` 는 데이터의 shelf 값을 검사한다. 그 사이
-/// — **화면이 그 둘을 실제로 잇고 있는가** — 를 보는 센서가 없었다(2026-08-18).
-/// 배선이 끊겨도 두 쪽 다 green 이라 회귀가 조용히 지나간다.
+/// W10 T-H2 (Jin 결정 D-2): 책가도 선반/두루마리가 일러스트 카드 그리드로
+/// 바뀌었다 — 이 파일은 옛 `ChaekgadoShelfCase`/`showChaekgadoScroll` 대신
+/// `SoriIllustratedCard`/`ListeningShelfScreen`을 겨눈다.
+/// `scenario_shelf_contract_test.dart` 는 데이터의 shelf 값을 검사한다. 이
+/// 파일은 **화면이 그 데이터를 실제로 잇고 있는가**를 본다 — 배선이 끊겨도
+/// 데이터 쪽만 보면 green 이라 회귀가 조용히 지나갈 수 있다(2026-08-18 원 사고).
 ///
 /// 여기서 쓰는 shelf 문자열(`a1_friends`)은 실제 배정표의 값이다.
 /// `kChaekgadoSlots` 의 slug 철자가 어긋나면 칸이 조용히 비는데, 그 사고를
@@ -46,31 +48,13 @@ Widget _app(Widget home) => MaterialApp(
   home: home,
 );
 
-/// 칸 위에 찍히는 건 **짧은 이름**(`shortLabel`)이다 — 긴 이름은 스크린리더와
-/// 두루마리 머리글이 쓴다(2026-08-23 선반 재작성). 그래서 finder 는 짧은 쪽이다.
-///
-/// 15칸이라 아래쪽 칸은 뷰포트 밖에 있다. 먼저 보이게 한 뒤 누른다.
-/// `pumpAndSettle` 은 쓰지 않는다 — 이 화면에는 TTS 덕킹·마스코트 타이머가 상시로
-/// 돌아 절대 정지 상태에 도달하지 않는다.
-///
-/// 두루마리는 2026-08-23 부터 화면 아래에 붙는 전폭 시트다(P3). 슬라이드가
-/// 끝날 때까지 pump 해야 항목 좌표가 최종값이 된다.
-Future<void> _openCompartment(WidgetTester tester, String label) async {
-  final target = find.text(label);
-  await tester.ensureVisible(target);
-  await tester.pump();
-  await tester.tap(target);
-  await tester.pump();
-  await tester.pump(
-    kChaekgadoUnrollDuration + const Duration(milliseconds: 100),
-  );
-}
-
 void main() {
   setUp(() async {
     final view =
         TestWidgetsFlutterBinding.instance.platformDispatcher.views.first;
-    view.physicalSize = const Size(390, 844);
+    // 15칸 전체가 한 프레임에 지어지도록 세로로 아주 긴 뷰포트를 쓴다 —
+    // 그리드는 sliver라 짧은 뷰포트에서는 아래쪽 칸이 지연 생성된다.
+    view.physicalSize = const Size(390, 6000);
     view.devicePixelRatio = 1;
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({
@@ -88,7 +72,7 @@ void main() {
     view.resetDevicePixelRatio();
   });
 
-  testWidgets('서재는 그 레벨의 15칸을 전부 세운다', (tester) async {
+  testWidgets('허브는 그 레벨의 15칸을 카드로 세운다', (tester) async {
     await tester.pumpWidget(
       _app(
         ListeningScreen(
@@ -100,24 +84,54 @@ void main() {
     );
     await tester.pump();
     await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
 
-    final shelf = tester.widget<ChaekgadoShelfCase>(
-      find.byType(ChaekgadoShelfCase),
-    );
-    expect(shelf.compartments, hasLength(15));
-    expect(
-      shelf.compartments.map((c) => c.slug),
-      containsAll(<String>['friends', 'dating', 'fandom']),
-    );
-    // 재고는 배정된 칸에만 잡힌다 — 나머지 14칸은 0 이어야 한다.
-    final stocked = shelf.compartments.where((c) => c.isStocked).toList();
-    expect(stocked, hasLength(1));
-    expect(stocked.single.slug, 'friends');
-    expect(stocked.single.count, 1);
-    await tester.pump(const Duration(milliseconds: 400));
+    final cards = tester
+        .widgetList<SoriIllustratedCard>(find.byType(SoriIllustratedCard))
+        .toList();
+    expect(cards, hasLength(15));
+
+    // 관심 3칸(모든 레벨 공용)은 이름표로 존재를 확인한다.
+    expect(find.text('Freunde'), findsOneWidget);
+    expect(find.text('Dating'), findsOneWidget);
+    expect(find.text('Fandom'), findsOneWidget);
+
+    // 재고는 배정된 칸에만 잡힌다 — 나머지 14칸은 탭 불가(count 0)여야 한다.
+    final tappable = cards.where((c) => c.onTap != null).toList();
+    expect(tappable, hasLength(1));
+    expect(tappable.single.title, 'Freunde');
   });
 
-  testWidgets('칸을 누르면 그 칸의 시나리오만 두루마리에 펼쳐진다', (tester) async {
+  testWidgets("빈 칸 카드는 탭 불가이고 'noch nicht bestückt'를 보인다", (tester) async {
+    await tester.pumpWidget(
+      _app(
+        ListeningScreen(
+          scenariosLoader: () async => [
+            _scenario(id: 'f1', shelf: 'a1_friends', title: 'Zusammen zocken'),
+          ],
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+
+    final datingCard = tester.widget<SoriIllustratedCard>(
+      find.ancestor(
+        of: find.text('Dating'),
+        matching: find.byType(SoriIllustratedCard),
+      ),
+    );
+    expect(datingCard.onTap, isNull);
+    expect(datingCard.state, SoriIllustratedCardState.normal);
+
+    // 화면 전체에 빈 칸 라벨이 (여러 칸이 비었으니) 최소 한 번은 보인다.
+    expect(find.text('noch nicht bestückt'), findsWidgets);
+  });
+
+  testWidgets('카드 탭 → 목록 화면 → 항목 탭 → ListeningPlayScreen에 그 시나리오가 걸린다', (
+    tester,
+  ) async {
     await tester.pumpWidget(
       _app(
         ListeningScreen(
@@ -135,70 +149,40 @@ void main() {
     );
     await tester.pump();
     await tester.pump();
-    await tester.pump(const Duration(milliseconds: 400));
+    await tester.pump(const Duration(milliseconds: 300));
 
-    final shelfCase = tester.widget<ChaekgadoShelfCase>(
-      find.byType(ChaekgadoShelfCase),
-    );
-    final friends = shelfCase.compartments.firstWhere(
-      (c) => c.slug == 'friends',
-    );
-    expect(friends.count, 2);
-
-    await _openCompartment(tester, friends.shortLabel);
-
-    // 시트는 화면 아래에 전폭으로 붙는다 — 위쪽에 뜬 부유 다이얼로그가 아니다.
-    final sheet = tester.getRect(find.byType(SoriScrollFrame));
-    expect(sheet.bottom, moreOrLessEquals(844, epsilon: 1));
-    expect(sheet.left, moreOrLessEquals(0, epsilon: 0.5));
-    expect(sheet.width, moreOrLessEquals(390, epsilon: 0.5));
-
-    final items = tester
-        .widgetList<ChaekgadoScrollItem>(find.byType(ChaekgadoScrollItem))
-        .toList();
-    expect(items.map((i) => i.title), ['Zusammen zocken', 'Wochenende']);
-    // 다른 칸의 시나리오는 새어 들어오지 않는다.
-    expect(find.text('Wie nenne ich dich'), findsNothing);
-  });
-
-  testWidgets('두루마리에서 고른 시나리오가 실제로 재생 화면에 걸린다', (tester) async {
-    await tester.pumpWidget(
-      _app(
-        ListeningScreen(
-          scenariosLoader: () async => [
-            _scenario(id: 'f1', shelf: 'a1_friends', title: 'Zusammen zocken'),
-            _scenario(id: 'f2', shelf: 'a1_friends', title: 'Wochenende'),
-          ],
-        ),
+    final friendsCard = tester.widget<SoriIllustratedCard>(
+      find.ancestor(
+        of: find.text('Freunde'),
+        matching: find.byType(SoriIllustratedCard),
       ),
     );
-    await tester.pump();
+    expect(friendsCard.onTap, isNotNull);
+    friendsCard.onTap!();
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
 
-    final shelfCase = tester.widget<ChaekgadoShelfCase>(
-      find.byType(ChaekgadoShelfCase),
+    expect(find.byType(ListeningShelfScreen), findsOneWidget);
+    final shelfScreen = tester.widget<ListeningShelfScreen>(
+      find.byType(ListeningShelfScreen),
     );
-    final label = shelfCase.compartments
-        .firstWhere((c) => c.slug == 'friends')
-        .shortLabel;
+    expect(shelfScreen.scenarios.map((s) => s.title.de), [
+      'Zusammen zocken',
+      'Wochenende',
+    ]);
+    // 다른 칸의 시나리오는 새어 들어오지 않는다.
+    expect(find.text('Wie nenne ich dich'), findsNothing);
 
-    await _openCompartment(tester, label);
     await tester.tap(find.text('Wochenende'));
     await tester.pump();
-    await tester.pump(
-      kChaekgadoUnrollDuration + const Duration(milliseconds: 100),
-    );
+    await tester.pump(const Duration(milliseconds: 400));
 
-    // 재생은 별도 라우트다 — 두루마리가 닫히기만 하고 선택이 버려지면 실패.
     expect(find.byType(ListeningPlayScreen), findsOneWidget);
     expect(find.text('Dialog anhören'), findsOneWidget);
-    expect(find.text('Wochenende 한국어'), findsNothing);
-    expect(find.byType(ChaekgadoScrollItem), findsNothing);
     expect(
       find.descendant(
         of: find.byType(ListeningPlayScreen),
-        matching: find.byType(ChaekgadoShelfCase),
+        matching: find.byType(ListeningShelfScreen),
       ),
       findsNothing,
     );

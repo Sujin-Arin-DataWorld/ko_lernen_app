@@ -3221,6 +3221,9 @@ class AppL10nEn extends AppL10n {
   String get listeningTitle => 'Listening';
 
   @override
+  String get listeningHubEyebrow => 'LISTEN';
+
+  @override
   String get listeningSubtitle => 'Hear a scenario at natural speed';
 
   @override
@@ -3369,6 +3372,11 @@ class AppL10nEn extends AppL10n {
   @override
   String listeningShelfScenarioCount(int n) {
     return '$n scenarios';
+  }
+
+  @override
+  String listeningShelfCardSemantics(String label, int done, int total) {
+    return '$label, $done of $total listened';
   }
 
   @override

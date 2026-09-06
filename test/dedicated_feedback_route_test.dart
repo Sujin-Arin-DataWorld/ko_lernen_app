@@ -20,10 +20,10 @@ import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/chaekgado/shelf_case.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/chrome_row.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
+import 'package:ko_lernen_app/widgets/sori/illustrated_card_grid.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 import 'package:ko_lernen_app/widgets/sori/tts_speed_control.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -376,7 +376,7 @@ void main() {
       await tester.pump();
 
       expect(find.byType(ListeningPlayScreen), findsOneWidget);
-      expect(find.byType(ChaekgadoShelfCase), findsNothing);
+      expect(find.byType(SoriIllustratedCardGrid), findsNothing);
       expect(find.text('Beides'), findsNothing);
       expect(find.text('Koreanisch'), findsNothing);
       _expectListeningSpeedControls(tester);
@@ -447,7 +447,7 @@ void main() {
       await tester.pump();
       _expectListeningSpeedControls(tester);
       expect(find.text('Beides'), findsNothing);
-      expect(find.byType(ChaekgadoShelfCase), findsNothing);
+      expect(find.byType(SoriIllustratedCardGrid), findsNothing);
       await tester.pump(const Duration(milliseconds: 300));
 
       await tester.pumpWidget(

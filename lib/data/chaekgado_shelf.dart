@@ -1,5 +1,42 @@
+import 'package:flutter/foundation.dart' show immutable;
+
 import '../l10n/generated/app_localizations.dart';
 import '../models/learner_level.dart';
+
+/// 책가도 칸 하나의 표시·재고 데이터 — 원래 `widgets/sori/chaekgado/shelf_case.dart`
+/// 에 있었다(W10 T-H2 이전엔 그 파일의 `ChaekgadoShelfCase` 위젯과 짝이었다).
+/// 카드 그리드(D-2, W10)로 UI가 바뀐 뒤에도 **데이터 모양은 그대로** 재사용한다
+/// — `lib/screens/listening_screen.dart` 가 이 값들로 그리드 카드를 만든다.
+@immutable
+class ChaekgadoCompartment {
+  /// [shortLabel] 을 안 주면 [label] 을 그대로 쓴다 — 짧은 이름이 따로 없는
+  /// 프리뷰·테스트 자리를 위해서다.
+  const ChaekgadoCompartment({
+    required this.slug,
+    required this.label,
+    String? shortLabel,
+    this.imageKey,
+    this.count = 0,
+    this.progress = 0,
+  }) : shortLabel = shortLabel ?? label;
+
+  final String slug;
+
+  /// 긴 이름 — 스크린리더가 쓴다.
+  final String label;
+
+  /// 카드 위에 실제로 찍히는 1~2 단어 이름 (눈 전용).
+  final String shortLabel;
+
+  /// `assets/illustrations/listening/{imageKey}.webp` 의 키.
+  /// 없거나 파일이 없으면 비네트 → 책더미로 내려간다.
+  final String? imageKey;
+
+  final int count;
+  final double progress;
+
+  bool get isStocked => count > 0;
+}
 
 /// 책가도 서재 — 레벨당 15칸의 정본 (기능 9 + 기능확장 3 + 관심 3).
 ///

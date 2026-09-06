@@ -1,17 +1,21 @@
 /// Runtime paths for the approved Chaekgado visual system.
 ///
-/// Keep this separate from the scenario shelf data: the same bookcase,
-/// scroll, book clusters, and category vignettes are shared presentation
-/// assets, not learning-content records.
+/// Keep this separate from the scenario shelf data: the card art, scroll rod,
+/// and category vignettes are shared presentation assets, not
+/// learning-content records.
+///
+/// W10 T-H4 (Jin 결정 D-2): the bookcase/book-cluster/scroll-body/
+/// scroll-bottom constants that only the old shelf (`ChaekgadoShelfCase`) and
+/// scroll sheet (`ChaekgadoScroll`) used were removed here when those widgets
+/// moved to `assets_unused/retired_code/`.
+///
+/// W10 PR-C F3 (2026-09-06): `kHoerenScrollShortCard` had no remaining
+/// caller in `lib/` or `test/` (T-H4's note that the category list screen
+/// still called it was stale) — removed here, and its PNG moved to
+/// `assets_unused/hangul_sori_chaekgado_asset_pack_v1/scroll/`.
 library;
 
 const String _chaekgadoAssetRoot = 'assets/hangul_sori_chaekgado_asset_pack_v1';
-
-/// Supplied faceted wood and paper, cropped at runtime to the responsive grid.
-const String kChaekgadoBookcaseFrame =
-    '$_chaekgadoAssetRoot/bookcase/chaekgado_bookcase_foreground_frame.png';
-const String kChaekgadoBookcaseBackplate =
-    '$_chaekgadoAssetRoot/bookcase/chaekgado_bookcase_backplate.png';
 
 /// 듣기 카드 아트 — `assets/illustrations/listening/{imageKey}.webp`.
 ///
@@ -26,24 +30,6 @@ String chaekgadoCardAsset(String imageKey) =>
 
 const String kHoerenScrollTop =
     '$_chaekgadoAssetRoot/scroll/hoeren_scroll_top.png';
-const String kHoerenScrollBody =
-    '$_chaekgadoAssetRoot/scroll/hoeren_scroll_body_tile.png';
-const String kHoerenScrollBottom =
-    '$_chaekgadoAssetRoot/scroll/hoeren_scroll_bottom.png';
-const String kHoerenScrollShortCard =
-    '$_chaekgadoAssetRoot/scroll/hoeren_scroll_short_card.png';
-
-const List<String> kChaekgadoBookClusters = [
-  '$_chaekgadoAssetRoot/books/transparent/books_cluster_01.png',
-  '$_chaekgadoAssetRoot/books/transparent/books_cluster_02.png',
-  '$_chaekgadoAssetRoot/books/transparent/books_cluster_03.png',
-  '$_chaekgadoAssetRoot/books/transparent/books_cluster_04.png',
-  '$_chaekgadoAssetRoot/books/transparent/books_cluster_05.png',
-  '$_chaekgadoAssetRoot/books/transparent/books_cluster_06.png',
-];
-
-String chaekgadoBookClusterAsset(int index) =>
-    kChaekgadoBookClusters[index % kChaekgadoBookClusters.length];
 
 const Map<String, String> _categoryVignettes = {
   'transit': 'vignette_01_transport.png',
