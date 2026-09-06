@@ -75,38 +75,35 @@ void main() {
     expect(find.text('Stop recording'), findsNothing);
   });
 
-  testWidgets(
-    'a second tap while still resolving stops instead of re-speaking '
-    '(regression: resolving must count as active, same rule as '
-    'SoriSpeechIndicator.handleTap)',
-    (tester) async {
-      tester.view.devicePixelRatio = 1;
-      tester.view.physicalSize = const Size(393, 852);
-      addTearDown(tester.view.resetDevicePixelRatio);
-      addTearDown(tester.view.resetPhysicalSize);
-      final recorder = _FakeRecorder(permission: true);
-      final stub = stubSoriSpeech(completeSpeak: false);
-      await tester.pumpWidget(_app(recorder));
-      await tester.pumpAndSettle();
+  testWidgets('a second tap while still resolving stops instead of re-speaking '
+      '(regression: resolving must count as active, same rule as '
+      'SoriSpeechIndicator.handleTap)', (tester) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(393, 852);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    addTearDown(tester.view.resetPhysicalSize);
+    final recorder = _FakeRecorder(permission: true);
+    final stub = stubSoriSpeech(completeSpeak: false);
+    await tester.pumpWidget(_app(recorder));
+    await tester.pumpAndSettle();
 
-      final listen = find.byType(SoriSpeechIndicator);
-      await tester.tap(listen);
-      await tester.pump();
-      expect(stub.spoken, ['안녕하세요']);
-      // speak() never completed, so the engine never promoted resolving to
-      // speaking — this is the exact window the regression tapped into.
-      expect(SoriSpeech.phase.value, TtsSpeechPhase.resolving);
+    final listen = find.byType(SoriSpeechIndicator);
+    await tester.tap(listen);
+    await tester.pump();
+    expect(stub.spoken, ['안녕하세요']);
+    // speak() never completed, so the engine never promoted resolving to
+    // speaking — this is the exact window the regression tapped into.
+    expect(SoriSpeech.phase.value, TtsSpeechPhase.resolving);
 
-      // Second tap while still resolving must stop, not re-speak — same
-      // rule as SoriSpeechIndicator.handleTap (phase != idle -> stop).
-      await tester.tap(listen);
-      await tester.pump();
+    // Second tap while still resolving must stop, not re-speak — same
+    // rule as SoriSpeechIndicator.handleTap (phase != idle -> stop).
+    await tester.tap(listen);
+    await tester.pump();
 
-      expect(stub.stops, 1);
-      expect(stub.spoken, ['안녕하세요']); // no second speak call
-      expect(SoriSpeech.phase.value, TtsSpeechPhase.idle);
-    },
-  );
+    expect(stub.stops, 1);
+    expect(stub.spoken, ['안녕하세요']); // no second speak call
+    expect(SoriSpeech.phase.value, TtsSpeechPhase.idle);
+  });
 
   testWidgets('microphone waits for playback to release the audio session', (
     tester,
@@ -244,9 +241,9 @@ void main() {
   );
 
   testWidgets(
-    'uses cumulative phrases after normalizing the stored learner level',
+    'keeps higher-level phrases available regardless of stored learner level',
     (tester) async {
-      await Storage.setUserLevelCode('B1');
+      await Storage.setUserLevelCode('A1');
       const a1 = PronunciationPhrase(
         id: 'pronunciation_a1_0001',
         level: LearnerLevel.a1,
@@ -255,9 +252,9 @@ void main() {
         en: 'Hello.',
         focus: 'ㅎ 발음',
       );
-      const b1 = PronunciationPhrase(
-        id: 'pronunciation_b1_0001',
-        level: LearnerLevel.b1,
+      const c2 = PronunciationPhrase(
+        id: 'pronunciation_c2_0001',
+        level: LearnerLevel.c2,
         ko: '회의는 내일로 미뤄졌어요.',
         de: 'Das Treffen wurde auf morgen verschoben.',
         en: 'The meeting was postponed until tomorrow.',
@@ -268,7 +265,7 @@ void main() {
       await tester.pumpWidget(
         _app(
           recorder,
-          phraseLoader: () async => const <PronunciationPhrase>[a1, b1],
+          phraseLoader: () async => const <PronunciationPhrase>[a1, c2],
         ),
       );
       await tester.pumpAndSettle();
@@ -280,7 +277,7 @@ void main() {
       await tester.pump();
       await tester.drag(find.byType(ListView), const Offset(0, 1000));
       await tester.pump();
-      expect(find.text(b1.ko), findsOneWidget);
+      expect(find.text(c2.ko), findsOneWidget);
     },
   );
 

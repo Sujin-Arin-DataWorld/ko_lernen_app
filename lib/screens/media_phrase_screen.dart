@@ -3,11 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
-import '../models/learner_level.dart';
 import '../models/media_phrase.dart';
 import '../services/analytics_service.dart';
 import '../services/data_loader.dart';
-import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
@@ -18,17 +16,9 @@ import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
-/// Exact-level media practice. A C-level learner must never receive an A1
-/// greeting merely because it appears first in the asset.
-List<MediaPhrase> mediaPhrasesForLevel(
-  List<MediaPhrase> phrases,
-  String? levelCode,
-) {
-  final level = LearnerLevel.fromCode(levelCode) ?? LearnerLevel.a1;
-  return List<MediaPhrase>.unmodifiable(
-    phrases.where((phrase) => phrase.level.toUpperCase() == level.display),
-  );
-}
+/// The complete reviewed media corpus is open independently of placement.
+List<MediaPhrase> openMediaPhraseCatalog(List<MediaPhrase> phrases) =>
+    List<MediaPhrase>.unmodifiable(phrases);
 
 class MediaPhraseScreen extends StatefulWidget {
   const MediaPhraseScreen({super.key, this.loader, this.speaker});
@@ -68,9 +58,7 @@ class _MediaPhraseScreenState extends State<MediaPhraseScreen> {
           all.isEmpty &&
           DataLoader.mediaPhrasesError != null;
       setState(() {
-        _phrases = failed
-            ? const <MediaPhrase>[]
-            : mediaPhrasesForLevel(all, Storage.userLevelCode);
+        _phrases = failed ? const <MediaPhrase>[] : openMediaPhraseCatalog(all);
         _loading = false;
         _failed = failed;
         _index = 0;
@@ -92,7 +80,7 @@ class _MediaPhraseScreenState extends State<MediaPhraseScreen> {
     final t = AppL10n.of(context);
     return SoriStandardPage(
       appBarTitle: t.mediaPhraseTitle,
-      eyebrow: LearnerLevel.fromCode(Storage.userLevelCode)?.display ?? 'A1',
+      eyebrow: _phrases.isEmpty ? null : _phrases[_index].level.toUpperCase(),
       headline: t.mediaPhraseTitle,
       description: t.mediaPhraseDesc,
       maxWidth: SoriMaxWidth.prose,

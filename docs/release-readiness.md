@@ -190,9 +190,9 @@ until the release owner attaches dated evidence from the production system.
 ## Privacy publication and store evidence
 
 - [ ] Publish and visually review the exact English, German, and Korean versions
-  of `privacy.html` and `account-deletion.html` at:
-  `https://hangul-sori.com/privacy.html` and
-  `https://hangul-sori.com/account-deletion.html`.
+  sourced from `privacy.html` and `account-deletion.html` at:
+  `https://hangul-sori.com/privacy` and
+  `https://hangul-sori.com/account-deletion`.
 - [ ] Confirm the published controller identity, postal address, contact,
   processor list, data categories, locations, retention statements, the
   free-access/no-purchase-SDK contract, historical store/provider retention

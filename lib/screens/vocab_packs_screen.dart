@@ -25,15 +25,14 @@ import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/pack_card.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
-import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
 /// **Vocab Packs Screen** — Phase 2 의 새 vocab 진입 화면.
 ///
-/// 사용자 레벨의 모든 팩을 2-Spalten Grid 로 보여준다. 잠금 상태는
-/// `PackProgressService.effectiveStatus()` 로 계산. 첫 팩만 처음에 열려있고,
-/// 이전 팩 클리어 시 다음 팩 unlock.
+/// 사용자 레벨의 모든 팩을 2-Spalten Grid 로 보여주며 처음부터 직접 연다.
+/// 이전 앱이 저장한 순차 잠금도 `PackProgressService.effectiveStatus()`가
+/// 읽을 때 available로 정규화한다.
 ///
 /// 상단에는 진행 요약 ("A1: 3 / 24 클리어 — 기둥 세우는 중") +
 /// HanokHeader 이미지.
@@ -209,26 +208,9 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
           ),
         )
         .then((_) {
-          // 복귀 시 진행도 새로고침 — 보스 클리어 후 다음 팩 unlock 반영.
+          // 복귀 시 진행도 새로고침 — 학습/보스 진행 반영.
           if (mounted) _load();
         });
-  }
-
-  void _onLockedTap(VocabPack pack) {
-    final prev = PackProgressService.previousPackInLevel(
-      pack.id,
-      _packs.map((e) => e.pack).toList(),
-    );
-    final t = AppL10n.of(context);
-    final msg = prev == null
-        ? t.vocabPackLockedNoPrev
-        : t.vocabPackLockedHint(
-            VocabPackService.displayLabel(
-              prev.id,
-              lang: Localizations.localeOf(context).languageCode,
-            ),
-          );
-    soriNotice(context, msg, duration: const Duration(seconds: 2));
   }
 
   /// 미션 경로로 진입해 팩이 미션 그래프 링크로 좁혀진 상태인지.
@@ -398,7 +380,6 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
                                     context,
                                     cellWidth: cellWidth,
                                     titles: labels,
-                                    lockedHint: t.packLockedHintShort,
                                   ),
                                 ),
                             delegate: SliverChildBuilderDelegate((context, i) {
@@ -411,7 +392,6 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
                                 ),
                                 progress: e.progress,
                                 onTap: () => _onPackTap(e.pack),
-                                onLockedTap: () => _onLockedTap(e.pack),
                               );
                             }, childCount: _packs.length),
                           );
@@ -448,7 +428,6 @@ double _packCardMainAxisExtent(
   BuildContext context, {
   required double cellWidth,
   required Iterable<String> titles,
-  required String lockedHint,
 }) {
   final textScaler = MediaQuery.textScalerOf(context);
   final textDirection = Directionality.of(context);
@@ -468,7 +447,10 @@ double _packCardMainAxisExtent(
     painter.dispose();
   }
   final footerPainter = TextPainter(
-    text: TextSpan(text: lockedHint, style: textTheme.caption),
+    text: const TextSpan(
+      text: '999 / 999',
+      style: TextStyle(fontSize: 13.5, fontWeight: FontWeight.w600),
+    ),
     textDirection: textDirection,
     textScaler: textScaler,
     locale: locale,

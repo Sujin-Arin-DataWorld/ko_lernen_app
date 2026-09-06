@@ -4,7 +4,7 @@
 /// `FirestoreProgressService` 가 백업·복원 채널이다. PackProgress 객체는
 /// 두 채널 모두에서 사용 가능한 plain DTO.
 enum PackStatus {
-  /// 아직 잠금. 직전 팩 클리어 시 unlock.
+  /// 이전 앱이 저장한 레거시 순차 잠금 상태. 현재 UI는 이를 available로 정규화한다.
   locked,
 
   /// 잠금 해제됨. 한 번도 시작 안 함.
@@ -116,7 +116,10 @@ class PackProgress {
       );
 
   bool get isCleared => status == PackStatus.cleared;
-  bool get isUnlocked => status != PackStatus.locked;
+
+  /// `locked` is retained only to decode progress written by older releases.
+  /// Every shipped vocabulary pack is directly accessible now.
+  bool get isUnlocked => true;
   double get progressFraction =>
       wordsTotal == 0 ? 0.0 : (wordsLearned / wordsTotal).clamp(0.0, 1.0);
 }

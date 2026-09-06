@@ -341,8 +341,7 @@ class TodayLearningSnapshotLoader {
             .display;
     final view = await PackProgressService.loadLevelView(level);
     for (final entry in view) {
-      if (entry.progress.status != PackStatus.cleared &&
-          entry.progress.status != PackStatus.locked) {
+      if (entry.progress.status != PackStatus.cleared) {
         return entry;
       }
     }

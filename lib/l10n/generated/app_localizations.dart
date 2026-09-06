@@ -7474,7 +7474,7 @@ abstract class AppL10n {
   /// No description provided for @wordWebBrowseLevelCta.
   ///
   /// In de, this message translates to:
-  /// **'Wörter auf meinem Niveau ansehen'**
+  /// **'Alle Niveaus ansehen'**
   String get wordWebBrowseLevelCta;
 
   /// No description provided for @wordWebOpenVocabCta.
@@ -7498,7 +7498,7 @@ abstract class AppL10n {
   /// No description provided for @wordWebLevelFilter.
   ///
   /// In de, this message translates to:
-  /// **'Mein Niveau'**
+  /// **'Alle Niveaus'**
   String get wordWebLevelFilter;
 
   /// No description provided for @wordWebSynonymSection.

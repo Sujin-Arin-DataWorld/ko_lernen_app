@@ -99,11 +99,12 @@ and group attachment are visible in App Store Connect.
 ## Build-number note
 
 The repository version is whatever `pubspec.yaml` line 4 says at archive time
-(2026-09-01 기준 릴리스 트랙: `2.0.8+30`). For iOS/iPadOS, App Store
-Connect requires a unique version/build combination, so `2.0.8 (27)` does not
-collide with `2.0.7 (242)`. Xcode Cloud also assigns its own incrementing build
-number to distributed cloud builds, which App Store Connect uses. Verify the
-processed version/build shown in TestFlight rather than assuming either value.
+(current release candidate: `2.0.8+249`). A manual archive therefore uses
+`2.0.8 (249)` because `ios/ExportOptions.plist` disables automatic increments.
+Xcode Cloud also assigns its own incrementing build number to distributed cloud
+builds; the next processed build must be greater than the existing TestFlight
+build 248. Verify the processed version/build shown in TestFlight rather than
+assuming either value.
 
 Apple references:
 

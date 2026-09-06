@@ -4,7 +4,6 @@ import '../../l10n/generated/app_localizations.dart';
 import '../../models/pack_progress.dart';
 import 'dancheong_stamp.dart';
 import 'illustrated_card.dart';
-import 'sori_icon.dart';
 import 'tokens.dart';
 
 /// Pack-Karten Tile für die Pack-Marktplatz-Grid.
@@ -13,16 +12,15 @@ import 'tokens.dart';
 /// 상단에 motif 별 일러스트 슬롯(`assets/illustrations/packs/{motif}.webp`,
 /// 규약 기반: 파일을 넣기만 하면 뜬다), 폴백은 기존 단청 도장.
 ///
-/// Drei Zustände:
-///   - **locked**   — 딤 처리 + 자물쇠 칩 + "Vorher klären" 힌트.
+/// Zwei sichtbare Zustände:
 ///   - **available / inProgress** — 일러스트 + Progress-Dots + Tap-Action.
 ///   - **cleared**  — DancheongStamp Overlay rechts oben + tap nochmal.
+/// 저장된 레거시 `locked` 값도 직접 열 수 있는 일반 카드로 표시한다.
 class PackCard extends StatelessWidget {
   final String packId;
   final String title;
   final PackProgress progress;
   final VoidCallback? onTap;
-  final VoidCallback? onLockedTap;
 
   const PackCard({
     super.key,
@@ -30,10 +28,8 @@ class PackCard extends StatelessWidget {
     required this.title,
     required this.progress,
     this.onTap,
-    this.onLockedTap,
   });
 
-  bool get _locked => progress.status == PackStatus.locked;
   bool get _cleared => progress.status == PackStatus.cleared;
 
   @override
@@ -42,9 +38,7 @@ class PackCard extends StatelessWidget {
 
     return SoriIllustratedCard(
       title: title,
-      state: _locked
-          ? SoriIllustratedCardState.locked
-          : _cleared
+      state: _cleared
           ? SoriIllustratedCardState.cleared
           : SoriIllustratedCardState.normal,
       illustrationAsset: 'assets/illustrations/packs/${motif.name}.webp',
@@ -57,8 +51,8 @@ class PackCard extends StatelessWidget {
               stamped: true,
             )
           : null,
-      footer: _BottomRow(progress: progress, locked: _locked),
-      onTap: _locked ? onLockedTap : onTap,
+      footer: _BottomRow(progress: progress),
+      onTap: onTap,
       semanticsLabel: _semanticsLabel(context),
     );
   }
@@ -67,11 +61,7 @@ class PackCard extends StatelessWidget {
   /// 화면 전체를 독일어로 듣게 된다 (2026-08-18 l10n 스윕에서 발견).
   String _semanticsLabel(BuildContext context) {
     final t = AppL10n.of(context);
-    final state = _locked
-        ? t.packStateLocked
-        : _cleared
-        ? t.packStateCleared
-        : t.packStateAvailable;
+    final state = _cleared ? t.packStateCleared : t.packStateAvailable;
     return t.packSemantics(
       title,
       state,
@@ -83,29 +73,12 @@ class PackCard extends StatelessWidget {
 
 class _BottomRow extends StatelessWidget {
   final PackProgress progress;
-  final bool locked;
-  const _BottomRow({required this.progress, required this.locked});
+  const _BottomRow({required this.progress});
 
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
-    final text = SoriTextTheme.of(context);
-    final accent = locked ? s.text.withValues(alpha: 0.4) : SoriColors.info;
-    if (locked) {
-      return Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(SoriGlyph.locked, size: 11, color: accent),
-          const SizedBox(width: 3),
-          Flexible(
-            child: Text(
-              AppL10n.of(context).packLockedHintShort,
-              style: text.caption.copyWith(color: accent),
-            ),
-          ),
-        ],
-      );
-    }
+    const accent = SoriColors.info;
 
     final total = progress.wordsTotal;
     final learned = progress.wordsLearned.clamp(0, total);

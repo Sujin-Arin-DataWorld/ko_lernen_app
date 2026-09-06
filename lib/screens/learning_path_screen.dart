@@ -30,7 +30,6 @@ import '../widgets/sori/progress.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
-import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
@@ -294,8 +293,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
         continue;
       }
       for (final e in g.packs) {
-        if (e.progress.status != PackStatus.cleared &&
-            e.progress.status != PackStatus.locked) {
+        if (e.progress.status != PackStatus.cleared) {
           now = e.pack.id;
           break;
         }
@@ -351,12 +349,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
     WidgetsBinding.instance.addPostFrameCallback((_) => _autoScrollToTarget());
   }
 
-  Future<void> _openPack(VocabPack pack, PackStatus status) async {
-    final t = AppL10n.of(context);
-    if (status == PackStatus.locked) {
-      soriNotice(context, t.pathLockedHint);
-      return;
-    }
+  Future<void> _openPack(VocabPack pack) async {
     if (!mounted) return;
     await Navigator.pushNamed(context, '/vocab/pack', arguments: pack.id);
     if (mounted) {
@@ -495,7 +488,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
               nodeKey: e.pack.id == _nowPackId
                   ? _nowNodeKey
                   : (e.pack.id == _focusPackId ? _focusNodeKey : null),
-              onTap: () => _openPack(e.pack, e.progress.status),
+              onTap: () => _openPack(e.pack),
             ),
         ],
       ),

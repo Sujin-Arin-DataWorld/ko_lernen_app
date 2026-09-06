@@ -4283,7 +4283,7 @@ class AppL10nEn extends AppL10n {
       'The nuances file could not be read. This is not an empty study history. Try again.';
 
   @override
-  String get wordWebBrowseLevelCta => 'Browse words at my level';
+  String get wordWebBrowseLevelCta => 'Browse all levels';
 
   @override
   String get wordWebOpenVocabCta => 'Open vocabulary packs';
@@ -4295,7 +4295,7 @@ class AppL10nEn extends AppL10n {
   String get wordWebLearnedFilter => 'Learned';
 
   @override
-  String get wordWebLevelFilter => 'My level';
+  String get wordWebLevelFilter => 'All levels';
 
   @override
   String get wordWebSynonymSection => 'Similar words';

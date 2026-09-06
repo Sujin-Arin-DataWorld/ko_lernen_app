@@ -4303,7 +4303,7 @@ class AppL10nDe extends AppL10n {
       'Die Nuancen-Datei konnte nicht gelesen werden. Das ist kein leerer Lernstand. Versuch es noch einmal.';
 
   @override
-  String get wordWebBrowseLevelCta => 'Wörter auf meinem Niveau ansehen';
+  String get wordWebBrowseLevelCta => 'Alle Niveaus ansehen';
 
   @override
   String get wordWebOpenVocabCta => 'Wortpakete öffnen';
@@ -4315,7 +4315,7 @@ class AppL10nDe extends AppL10n {
   String get wordWebLearnedFilter => 'Gelernt';
 
   @override
-  String get wordWebLevelFilter => 'Mein Niveau';
+  String get wordWebLevelFilter => 'Alle Niveaus';
 
   @override
   String get wordWebSynonymSection => 'Ähnliche Wörter';
