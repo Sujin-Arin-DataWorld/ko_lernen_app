@@ -47,7 +47,7 @@ void main() {
     );
   });
 
-  test('all 151 runtime intro requests match the checked manifest keys', () {
+  test('all 178 runtime intro requests match the checked manifest keys', () {
     final manifest =
         jsonDecode(
               File(
@@ -76,9 +76,9 @@ void main() {
       );
     }
 
-    expect(scenarios, hasLength(151));
-    expect(items, hasLength(151));
-    expect(byId, hasLength(151));
+    expect(scenarios, hasLength(178));
+    expect(items, hasLength(178));
+    expect(byId, hasLength(178));
     for (final scenario in scenarios) {
       final request = scenarioIntroAudioPrefetchFor(scenario);
       final item = byId[scenario.id];

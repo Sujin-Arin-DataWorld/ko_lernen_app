@@ -46,7 +46,7 @@ void main() {
         expect(scenarios.length, greaterThanOrEqualTo(baseline.length));
       } else {
         expect(generation, 'canonical_120_v1');
-        expect(scenarios, hasLength(151));
+        expect(scenarios, hasLength(178));
         // The canonical corpus is a full redesign, so reused IDs are governed
         // by the new locked scene inventory rather than the legacy backdrop.
         return;
@@ -91,13 +91,15 @@ void main() {
     };
     // canonical_120_v1 정본 20편에 승인된 놀이동산 보충편 1편을 더한다.
     // W10 Wave 1(2026-09-05)이 A1 8·A2 8·B1 9편을 추가로 통합했다.
+    // W10 Wave 2(2026-09-06)가 B2 9·C1 9·C2 9편을 추가로 통합했다(책가도
+    // 빈 칸 27→0).
     const expectedCounts = <String, int>{
       'a1': 29,
       'a2': 29,
       'b1': 30,
-      'b2': 21,
-      'c1': 21,
-      'c2': 21,
+      'b2': 30,
+      'c1': 30,
+      'c2': 30,
     };
 
     test('레거시 단일 파일은 사라졌다', () {
@@ -109,7 +111,7 @@ void main() {
         final items = scenarioShardRoot(level)['scenarios'] as List;
         expect(items.length, expectedCounts[level], reason: level);
       }
-      expect(allScenarioJson().length, 151);
+      expect(allScenarioJson().length, 178);
     });
 
     test('샤드에는 자기 레벨만 들어 있다', () {

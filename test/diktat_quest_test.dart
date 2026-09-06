@@ -384,15 +384,15 @@ void main() {
     });
 
     test('the 120-scene core contains no legacy Diktat seed', () {
-      expect(scenarios, hasLength(151));
-      expect(coreScenarios, hasLength(145));
+      expect(scenarios, hasLength(178));
+      expect(coreScenarios, hasLength(172));
       expect(themeParkScenarios, hasLength(6));
       expect(coreDiktatQuests, isEmpty);
       expect(
         coreScenarios
             .expand((scenario) => scenario.quests)
             .where((quest) => quest.type == QuestType.satzBauen),
-        hasLength(145),
+        hasLength(172),
       );
     });
 
