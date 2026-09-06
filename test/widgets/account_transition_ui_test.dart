@@ -283,7 +283,8 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(operations.switchCalls, 1);
-      expect(find.text('Angemeldet – Zusammenführung folgt'), findsOneWidget);
+      final l10n = AppL10n.of(tester.element(find.text('Schließen')));
+      expect(find.text(l10n.accountSwitchDeferredTitle), findsOneWidget);
 
       await tester.tap(find.text('Schließen'));
       await tester.pump();
