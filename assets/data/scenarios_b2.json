@@ -5672,8 +5672,8 @@
         {
           "speaker": "interviewer",
           "ko": "이 자리는 논문을 쓰시는 동안 주 삼 일만 근무하시면 되는데 괜찮으신가요?",
-          "de": "Diese Stelle erfordert nur drei Tage pro Woche, während Sie an Ihrer Abschlussarbeit schreiben — ist das für Sie in Ordnung?",
-          "en": "This position only requires three days a week while you're writing your thesis — is that okay with you?"
+          "de": "Diese Stelle erfordert nur drei Tage pro Woche, während Sie an Ihrer Abschlussarbeit schreiben. Ist das für Sie in Ordnung?",
+          "en": "This position only requires three days a week while you're writing your thesis. Is that okay with you?"
         },
         {
           "speaker": "user",
@@ -5684,14 +5684,14 @@
         {
           "speaker": "interviewer",
           "ko": "근무 요일은 화, 목, 금으로 고정하려고 하는데 괜찮으신가요?",
-          "de": "Wir planen, die Arbeitstage auf Dienstag, Donnerstag und Freitag festzulegen — passt das für Sie?",
-          "en": "We're planning to fix the work days as Tuesday, Thursday, and Friday — does that work for you?"
+          "de": "Wir planen, die Arbeitstage auf Dienstag, Donnerstag und Freitag festzulegen. Passt das für Sie?",
+          "en": "We're planning to fix the work days as Tuesday, Thursday, and Friday. Does that work for you?"
         },
         {
           "speaker": "user",
           "ko": "화요일은 지도 교수님과 상담이 있어서 수요일로 바꿀 수 있을까요?",
           "de": "Am Dienstag habe ich ein Gespräch mit meinem Betreuer, könnten wir das auf Mittwoch verschieben?",
-          "en": "I have a meeting with my advisor on Tuesdays — could we change that to Wednesday instead?"
+          "en": "I have a meeting with my advisor on Tuesdays. Could we change that to Wednesday instead?"
         },
         {
           "speaker": "interviewer",
@@ -5708,8 +5708,8 @@
             "audioKo": "이 자리는 논문을 쓰시는 동안 주 삼 일만 근무하시면 되는데 괜찮으신가요?",
             "options": [
               {
-                "de": "Diese Stelle erfordert nur drei Tage pro Woche, während Sie an Ihrer Abschlussarbeit schreiben — ist das für Sie in Ordnung?",
-                "en": "This position only requires three days a week while you're writing your thesis — is that okay with you?"
+                "de": "Diese Stelle erfordert nur drei Tage pro Woche, während Sie an Ihrer Abschlussarbeit schreiben. Ist das für Sie in Ordnung?",
+                "en": "This position only requires three days a week while you're writing your thesis. Is that okay with you?"
               },
               {
                 "de": "Könnten Sie uns jeweils eine Stärke und eine Schwäche von sich nennen?",
@@ -5720,8 +5720,8 @@
                 "en": "And what do you think your weakness is?"
               },
               {
-                "de": "Wir planen, die Arbeitstage auf Dienstag, Donnerstag und Freitag festzulegen — passt das für Sie?",
-                "en": "We're planning to fix the work days as Tuesday, Thursday, and Friday — does that work for you?"
+                "de": "Wir planen, die Arbeitstage auf Dienstag, Donnerstag und Freitag festzulegen. Passt das für Sie?",
+                "en": "We're planning to fix the work days as Tuesday, Thursday, and Friday. Does that work for you?"
               }
             ],
             "correctIndex": 0
@@ -5893,8 +5893,8 @@
         {
           "speaker": "user",
           "ko": "체류 기간 연장 신청 때문에 왔는데요, 언제까지 신청해야 하나요?",
-          "de": "Ich bin wegen der Verlängerung meines Aufenthaltszeitraums hier — bis wann muss ich das beantragen?",
-          "en": "I'm here about extending my stay period — by when do I need to apply?"
+          "de": "Ich bin wegen der Verlängerung meines Aufenthaltszeitraums hier. Bis wann muss ich das beantragen?",
+          "en": "I'm here about extending my stay period. By when do I need to apply?"
         },
         {
           "speaker": "official",
@@ -5964,8 +5964,8 @@
           "id": "quest_b2_w10_authorities_translate",
           "type": "uebersetzen",
           "data": {
-            "promptDe": "Ich bin wegen der Verlängerung meines Aufenthaltszeitraums hier — bis wann muss ich das beantragen?",
-            "promptEn": "I'm here about extending my stay period — by when do I need to apply?",
+            "promptDe": "Ich bin wegen der Verlängerung meines Aufenthaltszeitraums hier. Bis wann muss ich das beantragen?",
+            "promptEn": "I'm here about extending my stay period. By when do I need to apply?",
             "options": [
               {
                 "ko": "체류 기간 연장 신청 때문에 왔는데요, 언제까지 신청해야 하나요?"
@@ -6120,8 +6120,8 @@
         {
           "speaker": "user",
           "ko": "몇 년 전에 가입한 계정인데 지금 어떤 정보가 저장되어 있는지 확인하고 싶습니다.",
-          "de": "Das ist ein Konto, das ich vor einigen Jahren angelegt habe — ich möchte prüfen, welche Daten aktuell gespeichert sind.",
-          "en": "This is an account I signed up for a few years ago — I'd like to check what information is currently stored."
+          "de": "Das ist ein Konto, das ich vor einigen Jahren angelegt habe. Ich möchte prüfen, welche Daten aktuell gespeichert sind.",
+          "en": "This is an account I signed up for a few years ago. I'd like to check what information is currently stored."
         },
         {
           "speaker": "official",
@@ -6138,8 +6138,8 @@
         {
           "speaker": "official",
           "ko": "삭제하면 이전 주문 내역도 복구가 불가능한데 괜찮으신가요?",
-          "de": "Wenn wir löschen, ist auch die frühere Bestellhistorie nicht wiederherstellbar — ist das für Sie in Ordnung?",
-          "en": "Once deleted, your past order history also can't be restored — is that all right with you?"
+          "de": "Wenn wir löschen, ist auch die frühere Bestellhistorie nicht wiederherstellbar. Ist das für Sie in Ordnung?",
+          "en": "Once deleted, your past order history also can't be restored. Is that all right with you?"
         },
         {
           "speaker": "user",
@@ -6174,8 +6174,8 @@
             "audioKo": "삭제하면 이전 주문 내역도 복구가 불가능한데 괜찮으신가요?",
             "options": [
               {
-                "de": "Wenn wir löschen, ist auch die frühere Bestellhistorie nicht wiederherstellbar — ist das für Sie in Ordnung?",
-                "en": "Once deleted, your past order history also can't be restored — is that all right with you?"
+                "de": "Wenn wir löschen, ist auch die frühere Bestellhistorie nicht wiederherstellbar. Ist das für Sie in Ordnung?",
+                "en": "Once deleted, your past order history also can't be restored. Is that all right with you?"
               },
               {
                 "de": "Ja, laut unserer Prüfung sind Name, Kontaktdaten und Zahlungsverlauf noch gespeichert.",

@@ -4721,7 +4721,7 @@
           "speaker": "official",
           "ko": "아니요, 그건 이 위임장만으로는 처리할 수 없고 별도 동의가 필요합니다.",
           "de": "Nein, das lässt sich nicht allein mit dieser Vollmacht erledigen, dafür ist eine gesonderte Zustimmung nötig.",
-          "en": "No, that can't be handled with this power of attorney alone — a separate consent is required for that."
+          "en": "No, that can't be handled with this power of attorney alone. A separate consent is required for that."
         },
         {
           "speaker": "user",
@@ -4763,7 +4763,7 @@
             "options": [
               {
                 "de": "Nein, das lässt sich nicht allein mit dieser Vollmacht erledigen, dafür ist eine gesonderte Zustimmung nötig.",
-                "en": "No, that can't be handled with this power of attorney alone — a separate consent is required for that."
+                "en": "No, that can't be handled with this power of attorney alone. A separate consent is required for that."
               },
               {
                 "de": "Ja, das ist bereits in der Vollmacht enthalten.",
@@ -4953,8 +4953,8 @@
         {
           "speaker": "moderator",
           "ko": "그 인원은 전체의 오 퍼센트도 안 되는데 정책 전체를 흔들 필요가 있을까요?",
-          "de": "Diese Gruppe macht nicht einmal fünf Prozent aus – muss man deshalb die gesamte Politik infrage stellen?",
-          "en": "That group is less than five percent of the total—does that really warrant questioning the whole policy?"
+          "de": "Diese Gruppe macht nicht einmal fünf Prozent aus. Muss man deshalb die gesamte Politik infrage stellen?",
+          "en": "That group is less than five percent of the total. Does that really warrant questioning the whole policy?"
         },
         {
           "speaker": "user",
@@ -4984,7 +4984,7 @@
           "speaker": "user",
           "ko": "감사합니다. 다음 회의 전까지 관련 자료를 정리해서 보내 드리겠습니다.",
           "de": "Danke. Ich stelle die entsprechenden Daten zusammen und werde sie Ihnen vor der nächsten Sitzung zukommen lassen.",
-          "en": "Thank you. I will put together the relevant data and send it to you before the next meeting."
+          "en": "Thank you. I'll put together the relevant data and send it to you before the next meeting."
         }
       ],
       "quests": [
@@ -5392,7 +5392,7 @@
           "speaker": "user",
           "ko": "그건 오독이 아니라 열린 해석이라고 생각해요.",
           "de": "Ich glaube, das ist keine Fehldeutung, sondern eine offene Interpretation.",
-          "en": "I don't think that's a misreading — I think it's an open interpretation."
+          "en": "I don't think that's a misreading. I think it's an open interpretation."
         },
         {
           "speaker": "lena",
@@ -5637,8 +5637,8 @@
         {
           "speaker": "official",
           "ko": "그 진단서가 남아 있었기에 망정이지, 안 그랬으면 신청 자체가 어려웠을 거예요.",
-          "de": "Zum Glück ist dieses Attest erhalten geblieben – sonst wäre der Antrag selbst kaum möglich gewesen.",
-          "en": "It's a good thing that certificate was kept — otherwise, filing at all would have been difficult."
+          "de": "Zum Glück ist dieses Attest erhalten geblieben. Sonst wäre der Antrag selbst kaum möglich gewesen.",
+          "en": "It's a good thing that certificate was kept. Otherwise, filing at all would have been difficult."
         },
         {
           "speaker": "user",
@@ -5684,8 +5684,8 @@
           "id": "quest_c2_w10_limitation_translate",
           "type": "uebersetzen",
           "data": {
-            "promptDe": "Zum Glück ist dieses Attest erhalten geblieben – sonst wäre der Antrag selbst kaum möglich gewesen.",
-            "promptEn": "It's a good thing that certificate was kept — otherwise, filing at all would have been difficult.",
+            "promptDe": "Zum Glück ist dieses Attest erhalten geblieben. Sonst wäre der Antrag selbst kaum möglich gewesen.",
+            "promptEn": "It's a good thing that certificate was kept. Otherwise, filing at all would have been difficult.",
             "options": [
               {
                 "ko": "그 진단서가 남아 있었기에 망정이지, 안 그랬으면 신청 자체가 어려웠을 거예요."
@@ -5962,8 +5962,8 @@
       "speechStyle": "casual",
       "title": {
         "ko": "우정으로 시작한 사업, 이제는 정리할 때",
-        "de": "Ein aus Freundschaft gestartetes Geschäft — Zeit für eine Klärung",
-        "en": "A business that started from friendship — time to sort it out"
+        "de": "Ein aus Freundschaft gestartetes Geschäft: Zeit für eine Klärung",
+        "en": "A business that started from friendship: time to sort it out"
       },
       "intro": {
         "ko": "현아와 다니엘은 함께 차린 작업실을 놓고 지분과 크레딧, 그리고 다니엘의 탈퇴 조건을 다시 이야기합니다.",
@@ -6184,8 +6184,8 @@
       "speechStyle": "business",
       "title": {
         "ko": "2차 창작, 어디까지 내 것이라 할 수 있을까",
-        "de": "Fanwerke — wie weit reicht das eigene Urheberrecht?",
-        "en": "Fan works — how far does ownership really go?"
+        "de": "Fanwerke: wie weit reicht das eigene Urheberrecht?",
+        "en": "Fan works: how far does ownership really go?"
       },
       "intro": {
         "ko": "레나는 자신의 2차 창작 만화를 무단으로 편집해 판매한 계정을 신고했지만, 운영진의 조치가 부족하다고 느낍니다.",
@@ -6297,8 +6297,8 @@
         {
           "speaker": "user",
           "ko": "판매까지 한 계정인데 경고만으로 끝내는 건 너무 약한 대응 아닌가요?",
-          "de": "Der Account hat sogar verkauft — reicht da eine bloße Warnung nicht viel zu schwach?",
-          "en": "The account actually sold it — isn't a mere warning much too weak a response?"
+          "de": "Der Account hat sogar verkauft. Reicht da eine bloße Warnung nicht viel zu schwach?",
+          "en": "The account actually sold it. Isn't a mere warning much too weak a response?"
         },
         {
           "speaker": "moderator",
@@ -6403,7 +6403,7 @@
         },
         "body": {
           "ko": "한국 팬덤 문화에서는 2차 창작을 대체로 허용하되 비상업적 공유를 전제로 하는 경우가 많아서, 유료 판매로 넘어가면 원작자나 다른 팬 창작자의 항의를 받기 쉬워요.",
-          "de": "In der koreanischen Fankultur wird Fanwerk meist toleriert, solange es nicht kommerziell geteilt wird — sobald es verkauft wird, kommt es leicht zu Beschwerden von Originalschöpfern oder anderen Fan-Autoren.",
+          "de": "In der koreanischen Fankultur wird Fanwerk meist toleriert, solange es nicht kommerziell geteilt wird. Sobald es verkauft wird, kommt es leicht zu Beschwerden von Originalschöpfern oder anderen Fan-Autoren.",
           "en": "Korean fan culture generally tolerates fan works on the premise that they stay non-commercial, so once something moves to paid sales, it easily draws objections from original creators or other fan creators."
         }
       },
