@@ -247,6 +247,47 @@ class TtsGeneratorContractTest(unittest.TestCase):
         self.assertEqual(officer["firstDialogKo"], "여권 보여주세요.")
         self.assertEqual(officer["voice"], "male")
 
+    def test_source_sha256_is_line_ending_independent(self):
+        """CRLF(윈도우 autocrlf 워킹카피)와 LF(Linux CI 체크아웃) 원본이 같은
+        내용이면 sourceSha256/전체 매니페스트가 동일해야 한다 — 아니면
+        --check-first-line-manifest 가 플랫폼에 따라 다른 결과를 낸다."""
+        payload = {
+            "scenarios": [
+                {
+                    "id": "crlf_lf_parity",
+                    "dialog": [
+                        {"speaker": "officer", "ko": "여권을 보여주세요."},
+                    ],
+                },
+            ]
+        }
+        encoded_lf = json.dumps(payload, ensure_ascii=False, indent=2).encode("utf-8")
+        encoded_crlf = encoded_lf.replace(b"\n", b"\r\n")
+        self.assertIn(b"\n", encoded_lf)
+        self.assertNotIn(b"\r", encoded_lf)
+        self.assertNotEqual(encoded_lf, encoded_crlf)
+
+        manifests = {}
+        for label, raw in (("lf", encoded_lf), ("crlf", encoded_crlf)):
+            with tempfile.TemporaryDirectory() as temp:
+                root = os.path.abspath(temp)
+                data_dir = os.path.join(root, "assets", "data")
+                os.makedirs(data_dir)
+                with open(os.path.join(data_dir, "scenarios_a1.json"), "wb") as handle:
+                    handle.write(raw)
+                manifests[label] = generate_tts.build_first_line_manifest(root)
+
+        item_lf = manifests["lf"]["items"][0]
+        item_crlf = manifests["crlf"]["items"][0]
+        self.assertEqual(item_lf["sourceSha256"], item_crlf["sourceSha256"])
+        self.assertEqual(
+            manifests["lf"]["generatedFrom"], manifests["crlf"]["generatedFrom"]
+        )
+        self.assertEqual(
+            generate_tts.render_first_line_manifest(manifests["lf"]),
+            generate_tts.render_first_line_manifest(manifests["crlf"]),
+        )
+
     def test_first_line_manifest_render_is_byte_stable(self):
         manifest = generate_tts.build_first_line_manifest(generate_tts.ROOT)
         first = generate_tts.render_first_line_manifest(manifest)

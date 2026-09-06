@@ -203,7 +203,10 @@ def load_canonical_scenario_sources(project_root=ROOT):
         scenarios = payload if isinstance(payload, list) else payload.get("scenarios", [])
         if not isinstance(scenarios, list):
             raise ValueError(f"canonical scenario shard {name} has no scenario list")
-        digest = hashlib.sha256(raw).hexdigest()
+        # CRLF/LF 독립 — 윈도우 autocrlf 워킹카피와 Linux CI가 같은 해시를 내도록
+        # 해싱 전에 개행을 LF로 통일한다(내용은 동일, 줄바꿈 바이트만 다름).
+        # mp3 바이트 해시(_bundled_first_line 등)는 이 정규화 대상이 아니다.
+        digest = hashlib.sha256(raw.replace(b"\r\n", b"\n")).hexdigest()
         for index, scenario in enumerate(scenarios):
             if not isinstance(scenario, dict):
                 raise ValueError(f"{name} scenario {index} must be an object")
