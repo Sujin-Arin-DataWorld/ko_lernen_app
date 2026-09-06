@@ -65,6 +65,7 @@ class _VocabNotebookPracticeScreenState
     return SoriStandardPage(
       appBarTitle: pack.displayName(),
       maxWidth: SoriMaxWidth.form,
+      fill: true,
       children: <Widget>[
         Text(
           t.vocabNotebookPracticeHint(pack.words.length),

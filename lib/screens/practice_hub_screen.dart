@@ -102,6 +102,13 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
         Spacing.lg,
         Spacing.xl,
       ),
+      // W10 PR-D(2026-09-06, Jin D-4): 접힌(기본) 상태가 카드 몇 개 + 토글
+      // 버튼뿐이라 태블릿 세로 화면에서 위쪽에 뭉쳤다. `_PurposeRouteList`
+      // 가 항상 그리는 `FeaturedModuleCard` 안에 `LayoutBuilder` 가 있어
+      // `fillIntrinsic: true`(IntrinsicHeight)와 함께 못 쓴다("LayoutBuilder
+      // does not support returning intrinsic dimensions") — `false` 로 채운다.
+      fill: true,
+      fillIntrinsic: false,
       children: [
         KeyedSubtree(
           key: _coachTargetKey,

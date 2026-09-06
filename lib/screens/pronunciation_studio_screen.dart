@@ -712,200 +712,213 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
 
           final speechDisabled = _captureBusy || _assessing || _audioTransition;
           final failure = _assessmentFailure;
-          return ListView(
-            children: [
-              Text(
-                t.pronunciationIntro,
-                textAlign: TextAlign.center,
-                style: type.body,
-              ),
-              const SizedBox(height: Spacing.lg),
-              if (!widget.cloudAssessmentEnabled) ...[
-                // W10 T-P1 (Jin 결정): 발음 채점은 아직 켜지 않았다 —
-                // 이용자가 마이크 버튼을 눌러 보기 전에 미리 알려 둔다.
-                Semantics(
-                  container: true,
-                  child: SoriCard(
-                    key: const ValueKey('pronunciation-scoring-soon-notice'),
-                    variant: SoriCardVariant.compact,
-                    accent: SoriColors.info,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Icon(Icons.schedule_rounded, color: SoriColors.info),
-                        const SizedBox(width: Spacing.md),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                t.pronunciationScoringSoonTitle,
-                                style: type.label,
-                              ),
-                              const SizedBox(height: Spacing.xs),
-                              Text(
-                                t.pronunciationScoringSoonBody,
-                                style: type.bodySmall,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+          // W10 T-V3(2026-09-05, Jin D-4): 바깥 컨테이너만 ListView →
+          // fillViewport 로 바꾼다 — 자식 목록은 그대로 둔다(병렬 PR-A가 인트로
+          // 텍스트 바로 뒤에 안내 카드를 넣을 예정이라 리베이스가 쉬워야 한다).
+          // 긴 뷰포트에서 콘텐츠가 위쪽에 뭉치지 않고 세로로 퍼지고, 콘텐츠가
+          // 넘치면(작은 화면·큰 글자) 그대로 스크롤한다.
+          return SoriAdaptiveStudyBody(
+            minHeight: 560,
+            fillViewport: true,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  t.pronunciationIntro,
+                  textAlign: TextAlign.center,
+                  style: type.body,
                 ),
                 const SizedBox(height: Spacing.lg),
-              ],
-              // §A3 지시서 2.9: 듣기 아이콘은 카드박스 상단 왼쪽 구석 —
-              // 기존 우측 상단(Align centerRight)을 카드 Stack 위
-              // Positioned(top/left: Spacing.sm) 로 옮긴다(vocab_pack_screen
-              // .dart _FlipFront 와 같은 패턴). onTap(마이크 세션 넘기기)은
-              // 그대로 유지.
-              Stack(
-                fit: StackFit.passthrough,
-                children: [
-                  SoriCard(
-                    variant: SoriCardVariant.base,
-                    accent: SoriActivityColors.speaking,
-                    tinted: true,
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: Spacing.xxxl),
-                      child: Semantics(
-                        label: phrase.ko,
-                        child: Text(
-                          phrase.ko,
-                          textAlign: TextAlign.center,
-                          style: type.koDisplay.copyWith(fontSize: 36),
-                        ),
+                if (!widget.cloudAssessmentEnabled) ...[
+                  // W10 T-P1 (Jin 결정): 발음 채점은 아직 켜지 않았다 —
+                  // 이용자가 마이크 버튼을 눌러 보기 전에 미리 알려 둔다.
+                  Semantics(
+                    container: true,
+                    child: SoriCard(
+                      key: const ValueKey('pronunciation-scoring-soon-notice'),
+                      variant: SoriCardVariant.compact,
+                      accent: SoriColors.info,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Icon(Icons.schedule_rounded, color: SoriColors.info),
+                          const SizedBox(width: Spacing.md),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  t.pronunciationScoringSoonTitle,
+                                  style: type.label,
+                                ),
+                                const SizedBox(height: Spacing.xs),
+                                Text(
+                                  t.pronunciationScoringSoonBody,
+                                  style: type.bodySmall,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                  Positioned(
-                    top: Spacing.sm,
-                    left: Spacing.sm,
-                    child: ExcludeSemantics(
-                      excluding: speechDisabled,
-                      child: IgnorePointer(
-                        ignoring: speechDisabled,
-                        child: SoriSpeechIndicator(
-                          text: phrase.ko,
-                          onTap: () => unawaited(_listenToModel()),
-                        ),
-                      ),
-                    ),
-                  ),
+                  const SizedBox(height: Spacing.lg),
                 ],
-              ),
-              const SizedBox(height: Spacing.lg),
-              SoriButton.filled(
-                key: const ValueKey('pronunciation-record-action'),
-                label: _recording
-                    ? t.pronunciationStop
-                    : (_finishingRecording
-                          ? t.pronunciationFinishingRecording
-                          : _assessing
-                          ? t.pronunciationAssessing
-                          : t.pronunciationRecord),
-                icon: _recording
-                    ? Icons.stop_circle_outlined
-                    : Icons.mic_rounded,
-                accent: SoriActivityColors.speaking,
-                fullWidth: true,
-                onTap:
-                    _preparingRecording ||
-                        _finishingRecording ||
-                        _assessing ||
-                        _audioTransition
-                    ? null
-                    : (_recording
-                          ? () => unawaited(_finishRecording())
-                          : _startRecording),
-              ),
-              const SizedBox(height: Spacing.md),
-              Text(t.pronunciationLocalRecordingHint, style: type.bodySmall),
-              if (_capturedAttempt != null) ...[
-                const SizedBox(height: Spacing.md),
-                SoriButton.outlined(
-                  key: const ValueKey('pronunciation-replay-action'),
-                  label: _replaying
-                      ? t.pronunciationReplayStop
-                      : t.pronunciationReplay,
-                  icon: _replaying
-                      ? Icons.stop_rounded
-                      : Icons.play_arrow_rounded,
-                  fullWidth: true,
-                  onTap: speechDisabled
-                      ? null
-                      : () => unawaited(_listenToRecording()),
+                // §A3 지시서 2.9: 듣기 아이콘은 카드박스 상단 왼쪽 구석 —
+                // 기존 우측 상단(Align centerRight)을 카드 Stack 위
+                // Positioned(top/left: Spacing.sm) 로 옮긴다(vocab_pack_screen
+                // .dart _FlipFront 와 같은 패턴). onTap(마이크 세션 넘기기)은
+                // 그대로 유지.
+                Stack(
+                  fit: StackFit.passthrough,
+                  children: [
+                    SoriCard(
+                      variant: SoriCardVariant.base,
+                      accent: SoriActivityColors.speaking,
+                      tinted: true,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: Spacing.xxxl),
+                        child: Semantics(
+                          label: phrase.ko,
+                          child: Text(
+                            phrase.ko,
+                            textAlign: TextAlign.center,
+                            style: type.koDisplay.copyWith(fontSize: 36),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: Spacing.sm,
+                      left: Spacing.sm,
+                      child: ExcludeSemantics(
+                        excluding: speechDisabled,
+                        child: IgnorePointer(
+                          ignoring: speechDisabled,
+                          child: SoriSpeechIndicator(
+                            text: phrase.ko,
+                            onTap: () => unawaited(_listenToModel()),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                if (widget.cloudAssessmentEnabled &&
-                    failure == null &&
-                    _result == null) ...[
-                  const SizedBox(height: Spacing.sm),
+                const SizedBox(height: Spacing.lg),
+                SoriButton.filled(
+                  key: const ValueKey('pronunciation-record-action'),
+                  label: _recording
+                      ? t.pronunciationStop
+                      : (_finishingRecording
+                            ? t.pronunciationFinishingRecording
+                            : _assessing
+                            ? t.pronunciationAssessing
+                            : t.pronunciationRecord),
+                  icon: _recording
+                      ? Icons.stop_circle_outlined
+                      : Icons.mic_rounded,
+                  accent: SoriActivityColors.speaking,
+                  fullWidth: true,
+                  onTap:
+                      _preparingRecording ||
+                          _finishingRecording ||
+                          _assessing ||
+                          _audioTransition
+                      ? null
+                      : (_recording
+                            ? () => unawaited(_finishRecording())
+                            : _startRecording),
+                ),
+                const SizedBox(height: Spacing.md),
+                Text(t.pronunciationLocalRecordingHint, style: type.bodySmall),
+                if (_capturedAttempt != null) ...[
+                  const SizedBox(height: Spacing.md),
                   SoriButton.outlined(
-                    key: const ValueKey('pronunciation-assess-action'),
-                    label: t.pronunciationRequestScore,
+                    key: const ValueKey('pronunciation-replay-action'),
+                    label: _replaying
+                        ? t.pronunciationReplayStop
+                        : t.pronunciationReplay,
+                    icon: _replaying
+                        ? Icons.stop_rounded
+                        : Icons.play_arrow_rounded,
                     fullWidth: true,
                     onTap: speechDisabled
                         ? null
-                        : () => unawaited(_retryAssessment()),
+                        : () => unawaited(_listenToRecording()),
                   ),
+                  if (widget.cloudAssessmentEnabled &&
+                      failure == null &&
+                      _result == null) ...[
+                    const SizedBox(height: Spacing.sm),
+                    SoriButton.outlined(
+                      key: const ValueKey('pronunciation-assess-action'),
+                      label: t.pronunciationRequestScore,
+                      fullWidth: true,
+                      onTap: speechDisabled
+                          ? null
+                          : () => unawaited(_retryAssessment()),
+                    ),
+                  ],
                 ],
+                const SizedBox(height: Spacing.md),
+                Column(
+                  key: const ValueKey('pronunciation-diagnostic-feed'),
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    if (_recording)
+                      _PronunciationStatusCard(
+                        label: t.pronunciationRecording,
+                        progress: true,
+                      ),
+                    if (_notice case final notice?)
+                      _PronunciationNoticeCard(notice: notice),
+                    if (_recorderFailed)
+                      _PronunciationDiagnosticCard(
+                        key: const ValueKey('pronunciation-recorder-failure'),
+                        title: t.pronunciationRecorderFailureTitle,
+                        body: t.pronunciationRecorderFailureBody,
+                        actionLabel: t.pronunciationRecordAgain,
+                        onAction: _startRecording,
+                      ),
+                    if (failure != null)
+                      _PronunciationDiagnosticCard(
+                        key: ValueKey(
+                          'pronunciation-diagnostic-${failure.name}',
+                        ),
+                        title: _failureCopy(t, failure).title,
+                        body: _failureCopy(t, failure).body,
+                        actionLabel:
+                            failure ==
+                                PronunciationAssessmentFailureCategory
+                                    .invalidRequest
+                            ? t.pronunciationRecordAgain
+                            : t.pronunciationRetrySameRecording,
+                        onAction:
+                            failure ==
+                                PronunciationAssessmentFailureCategory
+                                    .invalidRequest
+                            ? _startRecording
+                            : _retryAssessment,
+                      ),
+                    if (_result case final result?) _ScorePanel(result: result),
+                  ],
+                ),
+                const SizedBox(height: Spacing.md),
+                SoriButton.ghost(
+                  label: t.pronunciationContinueWithoutScore,
+                  onTap:
+                      _recording ||
+                          _finishingRecording ||
+                          _assessing ||
+                          _audioTransition
+                      ? null
+                      : _nextPhrase,
+                  fullWidth: true,
+                ),
               ],
-              const SizedBox(height: Spacing.md),
-              Column(
-                key: const ValueKey('pronunciation-diagnostic-feed'),
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  if (_recording)
-                    _PronunciationStatusCard(
-                      label: t.pronunciationRecording,
-                      progress: true,
-                    ),
-                  if (_notice case final notice?)
-                    _PronunciationNoticeCard(notice: notice),
-                  if (_recorderFailed)
-                    _PronunciationDiagnosticCard(
-                      key: const ValueKey('pronunciation-recorder-failure'),
-                      title: t.pronunciationRecorderFailureTitle,
-                      body: t.pronunciationRecorderFailureBody,
-                      actionLabel: t.pronunciationRecordAgain,
-                      onAction: _startRecording,
-                    ),
-                  if (failure != null)
-                    _PronunciationDiagnosticCard(
-                      key: ValueKey('pronunciation-diagnostic-${failure.name}'),
-                      title: _failureCopy(t, failure).title,
-                      body: _failureCopy(t, failure).body,
-                      actionLabel:
-                          failure ==
-                              PronunciationAssessmentFailureCategory
-                                  .invalidRequest
-                          ? t.pronunciationRecordAgain
-                          : t.pronunciationRetrySameRecording,
-                      onAction:
-                          failure ==
-                              PronunciationAssessmentFailureCategory
-                                  .invalidRequest
-                          ? _startRecording
-                          : _retryAssessment,
-                    ),
-                  if (_result case final result?) _ScorePanel(result: result),
-                ],
-              ),
-              const SizedBox(height: Spacing.md),
-              SoriButton.ghost(
-                label: t.pronunciationContinueWithoutScore,
-                onTap:
-                    _recording ||
-                        _finishingRecording ||
-                        _assessing ||
-                        _audioTransition
-                    ? null
-                    : _nextPhrase,
-                fullWidth: true,
-              ),
-            ],
+            ),
           );
         },
       ),
