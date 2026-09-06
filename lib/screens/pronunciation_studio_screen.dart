@@ -714,6 +714,42 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
                 style: type.body,
               ),
               const SizedBox(height: Spacing.lg),
+              if (!widget.cloudAssessmentEnabled) ...[
+                // W10 T-P1 (Jin 결정): 발음 채점은 아직 켜지 않았다 —
+                // 이용자가 마이크 버튼을 눌러 보기 전에 미리 알려 둔다.
+                Semantics(
+                  container: true,
+                  child: SoriCard(
+                    key: const ValueKey('pronunciation-scoring-soon-notice'),
+                    variant: SoriCardVariant.compact,
+                    accent: SoriColors.info,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(Icons.schedule_rounded, color: SoriColors.info),
+                        const SizedBox(width: Spacing.md),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                t.pronunciationScoringSoonTitle,
+                                style: type.label,
+                              ),
+                              const SizedBox(height: Spacing.xs),
+                              Text(
+                                t.pronunciationScoringSoonBody,
+                                style: type.bodySmall,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: Spacing.lg),
+              ],
               // §A3 지시서 2.9: 듣기 아이콘은 카드박스 상단 왼쪽 구석 —
               // 기존 우측 상단(Align centerRight)을 카드 Stack 위
               // Positioned(top/left: Spacing.sm) 로 옮긴다(vocab_pack_screen

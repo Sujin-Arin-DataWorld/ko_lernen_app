@@ -30,6 +30,8 @@ import 'package:ko_lernen_app/widgets/sori/responsive.dart';
 /// (`isGoogleLinked == false`), also muss die Gast-Karte mit dem Sichern-CTA
 /// rendern — ohne Build-Exception. (Mascot `animate: true` ist eine
 /// Endlos-Animation → `pumpAndSettle` würde hängen; daher endliche `pump`.)
+final AppL10n _l10n = lookupAppL10n(const Locale('de'));
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -157,11 +159,7 @@ void main() {
 
       expect(initializeCalls, 0);
       expect(
-        find.text(
-          'Dabei werden dein bisheriger Kursfortschritt, abgeschlossene '
-          'Einheiten, Übungsnachweise und Szenen-Checks zurückgesetzt. '
-          'Gespeicherte Vokabeln und Kontodaten bleiben erhalten.',
-        ),
+        find.text(_l10n.profileLearningStartPointConfirmBody),
         findsOneWidget,
       );
       expect(<String, Object?>{
@@ -944,7 +942,7 @@ Future<ListTile> _tile(WidgetTester tester, String key) async {
 Future<void> _chooseProfileLevel(WidgetTester tester, String levelLabel) async {
   await _selectProfileLevel(tester, levelLabel);
   expect(find.text('Startpunkt ändern?'), findsOneWidget);
-  await tester.tap(find.text('Ändern und Kursfortschritt zurücksetzen'));
+  await tester.tap(find.text(_l10n.profileLearningStartPointConfirmAction));
   await tester.pump();
 }
 

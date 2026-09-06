@@ -18,6 +18,8 @@ import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 
+final AppL10n _l10nDe = lookupAppL10n(const Locale('de'));
+
 void main() {
   setUp(() async {
     Storage.resetForTesting();
@@ -502,13 +504,7 @@ void main() {
         ),
         findsOneWidget,
       );
-      expect(
-        find.text(
-          'Als Beitrag zählt nur die passende kursgebundene Szene mit '
-          'mindestens 70 %.',
-        ),
-        findsOneWidget,
-      );
+      expect(find.text(_l10nDe.gyePromiseEligibility), findsOneWidget);
       expect(find.text('Meine heutige Szene öffnen'), findsOneWidget);
       expect(find.text('Anonymer Beitrag'), findsNWidgets(3));
       expect(find.text('Mina'), findsNothing);

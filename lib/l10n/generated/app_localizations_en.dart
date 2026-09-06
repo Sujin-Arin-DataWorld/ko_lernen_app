@@ -222,7 +222,7 @@ class AppL10nEn extends AppL10n {
       'Taego is ready when you are. Time for Korean! 🐯';
 
   @override
-  String get homeCourseTitle => 'Your daily course';
+  String get homeCourseTitle => 'Your learning path today';
 
   @override
   String get homeCourseDesc => 'Built around your weak spots and interests';
@@ -231,7 +231,7 @@ class AppL10nEn extends AppL10n {
   String get settingsInterestsTitle => 'Interests';
 
   @override
-  String get settingsInterestsSubtitle => 'Topics for your daily course';
+  String get settingsInterestsSubtitle => 'Topics for your learning path';
 
   @override
   String get interestsSheetTitle => 'What are you into?';
@@ -2806,7 +2806,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get scenarioCanDoPracticeBody =>
-      'This scene is stored as practice and does not change your course step.';
+      'This scene is stored as practice and does not change your learning path step.';
 
   @override
   String scenarioXpEarned(int xp) {
@@ -4273,7 +4273,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get wordWebEmptyBody =>
-      'Study words in a pack, the course, or a practice game. Then neighbors, opposites, and expressions for those exact words show up here.';
+      'Study words in a pack, the learning path, or a practice game. Then neighbors, opposites, and expressions for those exact words show up here.';
 
   @override
   String get wordWebLoadErrorTitle => 'Web did not load';
@@ -4499,7 +4499,7 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get pathTitle => 'Your path';
+  String get pathTitle => 'Learning path';
 
   @override
   String pathHanokStage(int n) {
@@ -4542,7 +4542,7 @@ class AppL10nEn extends AppL10n {
   String get pathOpenCurrentMission => 'Open current mission';
 
   @override
-  String get pathCourseMissionsTitle => 'Course missions';
+  String get pathCourseMissionsTitle => 'Learning path missions';
 
   @override
   String get pathCourseMissionsBody =>
@@ -4707,14 +4707,14 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get profileLearningStartPointConfirmBody =>
-      'This resets your current course progress, completed units, practice evidence, and scene checks. Saved vocabulary and account data remain intact.';
+      'This resets your current learning path progress, completed units, practice evidence, and scene checks. Saved vocabulary and account data remain intact.';
 
   @override
   String get profileLearningStartPointConfirmCancel => 'Cancel';
 
   @override
   String get profileLearningStartPointConfirmAction =>
-      'Change and reset course progress';
+      'Change and reset learning path progress';
 
   @override
   String get profileLearningStartPointChangeFailed =>
@@ -5091,6 +5091,10 @@ class AppL10nEn extends AppL10n {
   String get grammarPlanOnboardingTitle => 'How many patterns per day?';
 
   @override
+  String get grammarPlanOnboardingBody =>
+      'You only see these patterns each day. You can change the pace and level at the top any time.';
+
+  @override
   String grammarPlanItemsPerDayOption(int n) {
     return '$n per day';
   }
@@ -5101,6 +5105,11 @@ class AppL10nEn extends AppL10n {
   @override
   String grammarPlanDayHeader(int day, int total) {
     return 'Day $day of $total';
+  }
+
+  @override
+  String grammarPlanCardCounter(int n, int m) {
+    return 'Card $n of $m';
   }
 
   @override
@@ -5167,7 +5176,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get grammarChoicePracticeOnly =>
-      'This practice does not change your course progress.';
+      'This practice does not change your learning path progress.';
 
   @override
   String get grammarChoiceAgain => 'New round';
@@ -5356,7 +5365,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get gyePromiseEligibility =>
-      'Only the matching course-linked scene completed at 70% counts as a contribution.';
+      'Only the matching learning path scene completed at 70% counts as a contribution.';
 
   @override
   String gyePromiseProgress(int done, int target) {
@@ -5371,7 +5380,7 @@ class AppL10nEn extends AppL10n {
       other: 'contributions',
       one: 'contribution',
     );
-    return '$count more course-linked scene $_temp0 this week';
+    return '$count more learning path scene $_temp0 this week';
   }
 
   @override
@@ -6644,10 +6653,10 @@ class AppL10nEn extends AppL10n {
   String get courseMissionTitle => 'Your next mission';
 
   @override
-  String get courseMissionTitleShort => 'Course mission';
+  String get courseMissionTitleShort => 'Learning path mission';
 
   @override
-  String get courseMissionLoadError => 'The course data could not be loaded.';
+  String get courseMissionLoadError => 'The learning path could not be loaded.';
 
   @override
   String get courseMissionCompleteTitle => 'Mission complete';
@@ -6886,7 +6895,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get courseReassessmentPrerequisiteBody =>
-      'Complete the linked evidence first. Your position in the course will not be rewound.';
+      'Complete the linked evidence first. Your position in the learning path will not be rewound.';
 
   @override
   String get courseReassessmentOpenPrerequisite => 'Open missing evidence';
@@ -6921,7 +6930,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get courseReassessmentCompleteBody =>
-      'All required productive evidence for this ability has been checked. Your course position stayed unchanged.';
+      'All required productive evidence for this ability has been checked. Your learning path position stayed unchanged.';
 
   @override
   String get courseReassessmentModeGuidedProduction =>
@@ -7263,7 +7272,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get hanokNarrativeMaterialSource =>
-      'Course scenes shape the structure. Packs, reviews, and quests add materials and decor.';
+      'Learning path scenes shape the structure. Packs, reviews, and quests add materials and decor.';
 
   @override
   String get sarangbangTitle => 'Study room';
@@ -7570,7 +7579,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get hanokWorldPurposeDaecheong =>
-      'View your course path and choose the next available mission.';
+      'View your learning path and choose the next available mission.';
 
   @override
   String get hanokWorldPurposeHaengrang =>
@@ -8524,6 +8533,13 @@ class AppL10nEn extends AppL10n {
       'Listen first. Record up to 10 seconds, then listen to your voice and compare.';
 
   @override
+  String get pronunciationScoringSoonTitle => 'Scoring coming soon';
+
+  @override
+  String get pronunciationScoringSoonBody =>
+      'Automatic pronunciation scoring is not switched on yet. Listening, recording and comparing already work.';
+
+  @override
   String get pronunciationPhrasesLoading => 'Loading pronunciation practice …';
 
   @override
@@ -8696,7 +8712,7 @@ class AppL10nEn extends AppL10n {
   @override
   String soriStageActivityTitle(String activityId) {
     String _temp0 = intl.Intl.selectLogic(activityId, {
-      'course': 'Course',
+      'course': 'Learning path',
       'hangul': 'Hangul',
       'calligraphy': 'Character of the day',
       'pronunciation': 'Pronunciation',
@@ -8734,7 +8750,8 @@ class AppL10nEn extends AppL10n {
       'course': 'Your guided path through real situations.',
       'hangul': 'Build syllables and read with confidence.',
       'calligraphy': 'Discover one character every day.',
-      'pronunciation': 'Listen, repeat, and optionally assess.',
+      'pronunciation':
+          'Listen, repeat, and optionally assess. Scoring comes later.',
       'vocab_packs': 'Learn words by everyday topic.',
       'srs': 'Refresh words at just the right moment.',
       'hard_words': 'Focus on the words that trip you up.',
@@ -9166,7 +9183,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2CourseHistoryConflict =>
-      'This course start already has learning history. Keep its current level to finish setup; you can restart the course later in Settings.';
+      'This learning path start already has learning history. Keep its current level to finish setup; you can restart the learning path later in Settings.';
 
   @override
   String get onboardingV2StoryFinish => 'Choose my starting point';
@@ -9569,7 +9586,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2SetupCompareBody =>
-      'Your choice is your learning start, not proof of mastery; course start and browsing level stay separately changeable later.';
+      'Your choice is your learning start, not proof of mastery; learning path start and browsing level stay separately changeable later.';
 
   @override
   String get onboardingV2SetupCompareClose => 'Close comparison';
@@ -9679,18 +9696,18 @@ class AppL10nEn extends AppL10n {
   String get settingsLearningLevelsSection => 'Learning levels';
 
   @override
-  String get settingsCourseStartTitle => 'Course starting point';
+  String get settingsCourseStartTitle => 'Learning path starting point';
 
   @override
   String get settingsCourseStartDescription =>
-      'Changes where your sequential course begins. Choosing again replaces the current sequential course path; it never marks earlier units as mastered or awards XP or rewards.';
+      'Changes where your sequential learning path begins. Choosing again replaces the current sequential learning path; it never marks earlier units as mastered or awards XP or rewards.';
 
   @override
   String get settingsBrowseLevelTitle => 'Browse content level';
 
   @override
   String get settingsBrowseLevelDescription =>
-      'Filters libraries and scenarios only. It does not move your course progress.';
+      'Filters libraries and scenarios only. It does not move your learning path progress.';
 
   @override
   String get settingsRecheckLevelTitle => 'Recheck my level';
@@ -9717,11 +9734,12 @@ class AppL10nEn extends AppL10n {
       'Review learning, games, saved items, rewards, your book, and important settings at any time.';
 
   @override
-  String get settingsCourseStartConfirmTitle => 'Change course starting point?';
+  String get settingsCourseStartConfirmTitle =>
+      'Change learning path starting point?';
 
   @override
   String settingsCourseStartConfirmDescription(String level) {
-    return 'Your sequential course will restart at $level, replacing its current course progress. Other practice records, XP, rewards, and collections stay unchanged; earlier units are not marked complete.';
+    return 'Your sequential learning path will restart at $level, replacing its current learning path progress. Other practice records, XP, rewards, and collections stay unchanged; earlier units are not marked complete.';
   }
 
   @override
@@ -9808,7 +9826,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get guideModulePersonalizedStartStep2 =>
-      'Course starting point resets where your course begins after you confirm it. Browse level only filters libraries and scenarios.';
+      'Learning path starting point resets where your learning path begins after you confirm it. Browse level only filters libraries and scenarios.';
 
   @override
   String get guideModuleLearnStep1 =>
@@ -9860,7 +9878,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get guideModuleSettingsStep1 =>
-      'Course starting point and browse level are separate controls: one changes the course after confirmation, while the other changes content filters.';
+      'Learning path starting point and browse level are separate controls: one changes the learning path after confirmation, while the other changes content filters.';
 
   @override
   String get guideModuleSettingsStep2 =>
@@ -9871,7 +9889,7 @@ class AppL10nEn extends AppL10n {
       'Set the default voice speed in Settings. Supported audio screens also offer a speed chip, and the App guide can be reopened from Settings at any time.';
 
   @override
-  String get guideModuleActionCourseStart => 'Course starting point';
+  String get guideModuleActionCourseStart => 'Learning path starting point';
 
   @override
   String get guideModuleActionBrowseLevel => 'Browse level';
@@ -9914,7 +9932,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get guideTopicPersonalizedStartDescription =>
-      'See how your goal orders the starting checklist and recommendations, and how course starting point differs from browse level.';
+      'See how your goal orders the starting checklist and recommendations, and how learning path starting point differs from browse level.';
 
   @override
   String get guideTopicLearnTitle => 'Learn';
@@ -9949,7 +9967,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get guideTopicSettingsDescription =>
-      'Change course start, browse level, character, character visibility, and voice speed in Settings. You can also adjust speed with the speed chip on supported audio screens or reopen this guide.';
+      'Change learning path start, browse level, character, character visibility, and voice speed in Settings. You can also adjust speed with the speed chip on supported audio screens or reopen this guide.';
 
   @override
   String get studyLibraryAppBarTitle => 'Study library';
