@@ -230,11 +230,16 @@ void main() {
     // 통과하고 실제로는 아무 코드도 안 부르는 상태일 수 있어 여기서 잡는다.
     // 2026-09-01 감사 실측 — discover_catalog id와 이름만 겹치는 고아. 카탈로그
     // 매핑은 Jin 결정 대기. 이 목록은 줄이기만 한다.
+    // 2026-09-05 W10 T-L2 — 'vocab_notebook' 카드가 카탈로그에서 빠졌지만
+    // 라우트/화면은 그대로 살아 있다(같은 사유: discover_catalog id와 이름만
+    // 겹침). discover_catalog.dart 는 IconData 만 쓰고 자산 경로를 갖지
+    // 않아 이 webp 를 옮길 곳이 없다 — 같은 패턴이라 여기 합류시킨다.
     const activitiesOrphanAllowlist = <String>{
       'bookshelf',
       'book_capture',
       'hard_words',
       'word_search',
+      'vocab_notebook',
     };
 
     test('모든 activities/*.webp 가 soriActivityCatalog 의 id 다', () {

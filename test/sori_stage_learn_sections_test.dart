@@ -11,6 +11,8 @@ import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/widgets/sori/section_header.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'support/sori_stage_pump.dart';
+
 /// W10 T-L1: the Learn tab renders its catalog in three labeled sections —
 /// "Learn today" (the hero + core path), "Explore & practice", and "Review"
 /// — in that order, top to bottom. The Games tab is untouched: no section
@@ -52,8 +54,7 @@ void main() {
         ),
       ),
     );
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 300));
+    await pumpSoriStage(tester);
   }
 
   double topOf(WidgetTester tester, Finder finder) =>
