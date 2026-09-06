@@ -14,21 +14,28 @@
 // 였다(T-V3 로 고쳤다). 재실측은 이 파일이 GREEN 인 상태 자체가 회귀
 // 방지 증거다.
 //
-// 알려진 잔여 RED — UI 결함이 아니라 이 순수 widget-test 하네스의
-// 한계다(W10 PR-D 리포트 참고, 코드 레벨 예외 처리 없음):
-//   - `scenarios list`: `ScenarioLoader.load()` 가 `compute()`(isolate)로
-//     파싱한다 — 이 하네스에서 결과가 절대 안 돌아온다(실기기는 정상).
-//   - `app shell`/`home`: 스냅샷 로더가 같은 부류의 의존성을 물어 로딩
-//     스피너에 멈춘다.
-//   - `custom pack quiz`: 자체 화면 fillViewport+center 수정은 격리 실행
-//     시 통과한다 — 전체 스위트 안에서만 코치마크 스케줄링 타이밍으로
-//     이따금 실패한다(간헐적, 레이아웃 결함 아님).
-//   - `practice hub`: 접힌 상태가 진짜로 위쪽에 뭉친다(D-4 재현) —
-//     `SoriStandardPage.fill`/`SoriAdaptiveStudyBody(fillViewport:true)`
-//     은 내부적으로 IntrinsicHeight 를 쓰는데, `ModuleCard` 안에 있는
-//     LayoutBuilder 와 함께 못 쓴다("LayoutBuilder does not support
-//     returning intrinsic dimensions"). 안전한 수정은 SoriStandardPage 를
-//     거치지 않는 커스텀 프레임이 필요해 이번 스코프에서 보류했다.
+// W10 PR-D(2026-09-06): 아래 6건도 전부 GREEN 으로 고쳤다 — allowlist·
+// 스킵 없이, 각 화면이 이미 갖고 있거나(또는 새로 뚫은) 로더 주입 구멍으로
+// 실제 데이터를 즉시 반환하게 해 가드가 진짜 레이아웃을 판정하게 했다.
+//   - `scenarios list`: 프로덕션 `ScenarioLoader.load()` 는 `compute()`
+//     (isolate)로 파싱해 이 하네스에서 절대 안 돌아온다 — 기존
+//     `ScenariosListScreen.loadScenarios` 구멍(다른 화면 테스트와 동일
+//     패턴)으로 픽스처를 주입한다(`verticalFillGuardExtraScreens`).
+//   - `app shell`/`home`: Today 탭 스냅샷 로더도 같은 부류(내부적으로
+//     `compute()`류 의존)라 로딩 스피너에 멈춘다. `home`(`SoriStageTodayScreen
+//     .loadSnapshot`)은 기존 구멍을 그대로 쓰고, `app shell`(`AppShell`)은
+//     이 구멍이 없어 `AppShell.loadTodaySnapshot` → `SoriStageShell
+//     .loadTodaySnapshot` → `SoriStageTodayScreen.loadSnapshot` 로 새로
+//     뚫었다(`ListeningScreen.scenariosLoader`와 같은 패턴).
+//   - `custom pack quiz`: 격리 실행은 항상 통과했지만 전체 스위트 안에서
+//     코치마크(스포트라이트 오버레이) 스케줄링 타이밍에 따라 이따금
+//     실패했다 — 레이아웃 결함이 아니라 이 가드와 무관한 코치 UX 잡음이라
+//     `setUp`에서 화면별 코치마크를 전부 "이미 봄"으로 시작해 원천
+//     차단한다(다른 화면 테스트가 이미 쓰는 `kl_tut_<id>` 패턴).
+//   - `practice hub`: 접힌 상태가 진짜로 위쪽에 뭉쳤다(D-4 재현) —
+//     `SoriStandardPage(fill: true, fillIntrinsic: false)`(W10 PR-D 파트 A
+//     의 `SoriMinHeightScroll.intrinsic` 공용 레시피)로 `ModuleCard` 안의
+//     `LayoutBuilder` 와 충돌 없이 채웠다.
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -52,6 +59,20 @@ void main() {
       'kl_user_level': 'a1',
       'kl_streak_days': 3,
       'kl_xp': 40,
+      // W10 PR-D(2026-09-06): 화면별 코치마크(스포트라이트 오버레이)를 전부
+      // "이미 봄"으로 시작한다 — 이 가드는 레이아웃 채움을 재는 것이지 코치
+      // 오버레이 UX를 재는 게 아니다(그건 spotlight_coach_test.dart 등
+      // 전용 스위트 몫이다). 코치가 열리면 pump 타이밍에 따라 오버레이가
+      // 콘텐츠 위에 겹치거나 안 겹치는 게 갈려 `custom pack quiz` 처럼
+      // 전체 스위트 안에서만 이따금 실패하는 레이스가 생겼다 — 화면별 세로
+      // 채움 판정과 무관한 잡음이라 여기서 원천 차단한다.
+      for (final id in Storage.kScreenCoachIds) 'kl_tut_$id': true,
+      'kl_tut_book': true,
+      'kl_tut_vocab_pack': true,
+      'kl_tut_pack_quiz': true,
+      'kl_tut_pack_boss': true,
+      'kl_tut_home_tour': true,
+      'kl_tut_wordbook': true,
     });
     await Storage.init();
     DataLoader.reset();

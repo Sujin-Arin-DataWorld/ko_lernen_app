@@ -12,9 +12,11 @@ import 'package:flutter/material.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/book_page.dart';
+import 'package:ko_lernen_app/models/personal_hanok.dart';
 import 'package:ko_lernen_app/models/personal_room.dart';
 import 'package:ko_lernen_app/models/pronunciation_phrase.dart';
-import 'package:ko_lernen_app/models/learner_level.dart';
+import 'package:ko_lernen_app/models/scenario.dart';
+import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/character_selection_screen.dart';
@@ -59,8 +61,13 @@ import 'package:ko_lernen_app/screens/vocab_notebook_result_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_notebook_studio_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
 import 'package:ko_lernen_app/screens/silben_kreuz_screen.dart';
+import 'package:ko_lernen_app/services/hanok_stage_service.dart';
+import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/pronunciation_recorder.dart';
+import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
+
+import 'scenario_fixtures.dart';
 
 /// 반응형 회귀를 거는 화면들 — **무인자 생성자만**.
 ///
@@ -182,8 +189,66 @@ const _verticalFillGuardPhrases = <PronunciationPhrase>[
   ),
 ];
 
+/// W10 PR-D(2026-09-06): 순수 widget-test 하네스에서 `compute()`(isolate)로
+/// 끝나는 프로덕션 로더는 절대 안 돌아온다 — `scenarios list`/`app shell`/
+/// `home` 이 세로 채움 가드에서 로딩 스피너에 멈춰 RED였다. 각 화면이 이미
+/// 갖고 있는(또는 이 PR에서 새로 뚫은) 로더 주입 구멍으로 실측값을 즉시
+/// 반환해, 가드가 **실제 레이아웃**을 판정하게 한다 — allowlist가 아니라
+/// 진짜 데이터로 통과시킨다.
+SoriStageProgressionSnapshot _verticalFillGuardStageSnapshot() =>
+    SoriStageProgressionSnapshot(
+      today: const TodayLearningSnapshot(
+        pick: ReviewPick(dueCount: 12),
+        destination: TodayLearningDestination(route: '/review'),
+        dueCount: 12,
+      ),
+      hanok: PersonalHanokProjection.from(
+        const LevelRatios(a1: 1, a2: .5, b1: 0, b2: 0),
+      ),
+      quests: const [],
+      pendingBojagiCount: 1,
+      stampCount: 0,
+      xp: 320,
+      streakDays: 7,
+      todayReward: null,
+    );
+
+/// `scenarioAirportArrivalFixture` 하나만 넘기면 헤더+레벨 섹션 하나뿐이라
+/// 800×1280 처럼 긴 뷰포트에서 (진짜 결함이 아니라) **표본 데이터 부족**으로
+/// top=1%/bottom=51.5% 가 나와 55% 문턱을 살짝 놓친다 — 실제 프로덕션
+/// 카탈로그는 레벨마다 여러 시나리오가 있다. 리스트 화면 카드는 id/level/
+/// emoji/title/register 만 읽으므로(재생은 안 함) vocab/dialog/quests 는
+/// 빈 리스트로 충분하다.
+List<Scenario> _verticalFillGuardScenarios() => [
+  scenarioAirportArrivalFixture,
+  for (final level in [LearnerLevel.a1, LearnerLevel.a2, LearnerLevel.b1])
+    for (var i = 0; i < 3; i++)
+      Scenario(
+        id: 'w10-guard-${level.code}-$i',
+        level: level,
+        emoji: '📖',
+        register: Register.polite,
+        title: LocalizedText(
+          ko: '시나리오 ${level.code}-$i',
+          de: 'Szenario ${level.code}-$i',
+          en: 'Scenario ${level.code}-$i',
+        ),
+        intro: const LocalizedText(ko: '', de: '', en: ''),
+        vocab: const [],
+        grammarIds: const [],
+        dialog: const [],
+        quests: const [],
+      ),
+];
+
 /// [responsiveScreens] 에 얹는 추가 화면. `CustomPackService.save` 로
 /// [verticalFillGuardPackId] 팩을 미리 등록해 둔 뒤 호출할 것.
+///
+/// 여기 담긴 키가 [responsiveScreens] 와 겹치면(예: `scenarios list`,
+/// `app shell`, `home`) — 호출부가 두 맵을 스프레드로 합칠 때 이 맵이
+/// **나중**이라 이쪽이 이긴다. `responsiveScreens` 자체는 건드리지 않으므로
+/// (다른 반응형 스위트는 여전히 무인자 생성자를 그대로 쓴다) 이 교체는 세로
+/// 채움 가드에만 적용된다.
 Map<String, Widget> verticalFillGuardExtraScreens() => <String, Widget>{
   'pronunciation studio': const PronunciationStudioScreen(
     recorder: _NoopPronunciationRecorder(),
@@ -203,6 +268,21 @@ Map<String, Widget> verticalFillGuardExtraScreens() => <String, Widget>{
   'custom pack quiz': VocabNotebookGuardWidgets.quiz(),
   'custom pack matching': VocabNotebookGuardWidgets.matching(),
   'custom pack typing': VocabNotebookGuardWidgets.typing(),
+  // `ScenariosListScreen.loadScenarios` — 다른 화면 테스트(예:
+  // test/scenarios_list_screen_ui_test.dart)와 같은 시험용 구멍.
+  'scenarios list': ScenariosListScreen(
+    loadScenarios: () async => _verticalFillGuardScenarios(),
+  ),
+  // `AppShell.loadTodaySnapshot`(이 PR에서 새로 뚫음) — Today 탭까지 그대로
+  // 전달돼 5탭 셸 전체가 실제 데이터로 그려진다.
+  'app shell': AppShell(
+    loadTodaySnapshot: () async => _verticalFillGuardStageSnapshot(),
+  ),
+  // `SoriStageTodayScreen.loadSnapshot` — test/sori_stage_adaptive_chrome_test
+  // .dart 등 기존 Today 탭 테스트와 같은 시험용 구멍.
+  'home': SoriStageTodayScreen(
+    loadSnapshot: () async => _verticalFillGuardStageSnapshot(),
+  ),
 };
 
 /// 커스텀팩 게임 3종 — 별도 네임스페이스로 묶어 어떤 화면들이 짝인지 드러낸다.
