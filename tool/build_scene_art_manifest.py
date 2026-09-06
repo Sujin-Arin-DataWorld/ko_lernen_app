@@ -46,21 +46,21 @@ CATEGORY_ORDER = [
 ]
 LEVEL_ORDER = ["a1", "a2", "b1", "b2", "c1", "c2"]
 EXPECTED_CATEGORY_COUNTS = {
-    "office": 38,
-    "home": 44,
-    "cafe": 9,
+    "office": 57,
+    "home": 56,
+    "cafe": 16,
     "station": 9,
-    "market": 4,
+    "market": 7,
     "theme_park": 6,
     "convenience": 1,
-    "restaurant": 5,
-    "pharmacy": 1,
-    "directions": 5,
+    "restaurant": 8,
+    "pharmacy": 3,
+    "directions": 7,
     "hotel": 1,
-    "taxi": 2,
-    "airport": 1,
-    "bank": 0,
-    "salon": 0,
+    "taxi": 3,
+    "airport": 2,
+    "bank": 1,
+    "salon": 1,
 }
 
 CATEGORY_SETTING_KO = {
