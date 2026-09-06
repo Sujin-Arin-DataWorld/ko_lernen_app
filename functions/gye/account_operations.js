@@ -153,7 +153,7 @@ function createOrReuseOperation({ existingOperations, request }) {
   return { operation: requested, reused: false };
 }
 
-function nextPhases(operation) {
+function nextPhases(operation, { appleRevocationComplete = false } = {}) {
   switch (operation.phase) {
     case "prepared":
       return operation.kind === "replacement" ? ["targetVerified"] : ["deletionRequested"];
@@ -166,9 +166,15 @@ function nextPhases(operation) {
     case "deletionRequested":
       return ["userTreeDeleting"];
     case "userTreeDeleting":
-      return [operation.appleRevocationRequired
-        ? "appleRevocationPending"
-        : "authDeleted"];
+      if (!operation.appleRevocationRequired) return ["authDeleted"];
+      // An early completeAppleRevocation (accepted at deletionRequested /
+      // userTreeDeleting) persists deletionProgress.appleRevocationComplete;
+      // with that proof the worker may delete the Auth user directly instead
+      // of parking one tick in appleRevocationPending. The hop stays allowed
+      // so an older worker build keeps working against the same records.
+      return appleRevocationComplete
+        ? ["appleRevocationPending", "authDeleted"]
+        : ["appleRevocationPending"];
     case "authDeleted":
       return ["communityCleanupPending"];
     case "appleRevocationPending":
@@ -188,13 +194,21 @@ function requireExpectedVersion(operation, expectedVersion) {
   }
 }
 
-function transitionOperation(operation, { toPhase, expectedVersion, blockedReason } = {}) {
+function transitionOperation(operation, {
+  toPhase,
+  expectedVersion,
+  blockedReason,
+  appleRevocationComplete = false,
+} = {}) {
   const current = normalizeOperation(operation);
   requireExpectedVersion(current, expectedVersion);
   if (TERMINAL_PHASES.has(current.phase)) {
     throw operationError("terminal-operation", "Terminal operations cannot advance.");
   }
-  const allowed = toPhase === "blocked" || nextPhases(current).includes(toPhase);
+  const allowed = toPhase === "blocked" ||
+    nextPhases(current, {
+      appleRevocationComplete: appleRevocationComplete === true,
+    }).includes(toPhase);
   if (!allowed) {
     throw operationError("invalid-operation-transition", "The requested operation transition is not allowed.");
   }

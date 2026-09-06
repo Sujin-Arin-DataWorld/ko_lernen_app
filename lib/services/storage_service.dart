@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/scenario_corpus_generation.dart';
 
+import 'account/account_switch_coordinator.dart' show AccountSwitchJournal;
 import 'account/account_transition_journal.dart';
 import '../models/learner_level.dart';
 import '../models/personal_room.dart';
@@ -544,7 +545,8 @@ class Storage {
   static const cloudBackupDeletionJournalPreferenceKey =
       'kl_cloud_backup_deletion_journal_v1';
   static const _durableAccountJournalPreferenceKeys = <String>{
-    AccountTransitionJournal.storageKey,
+    AccountSwitchJournal.storageKey,
+    AccountTransitionJournal.switchReconciliationStorageKey,
     accountDeletionCheckpointPreferenceKey,
     accountDeletionFeedbackActivationCheckpointPreferenceKey,
     cloudBackupDeletionJournalPreferenceKey,
@@ -4676,16 +4678,17 @@ class Storage {
     if (allowJournalPreservingReset) {
       // A journal-preserving wipe never removes durable account journals, so
       // deletion-type journals may keep resuming after the local reset. The
-      // one exception is an active replacement transition: mid-merge the
-      // local data IS the reconciliation source, and wiping it could upload
-      // emptied state into the target account.
-      if (store.containsKey(AccountTransitionJournal.storageKey)) {
+      // one exception is an active account switch (pending switch journal or
+      // its reconciliation journal): mid-merge the local data IS the
+      // reconciliation source, and wiping it could upload emptied state into
+      // the target account.
+      if (_hasActiveAccountSwitchJournal(store)) {
         throw const CloudBackupDeletionResetBlockedException();
       }
       return;
     }
     final hasBlockingJournal =
-        store.containsKey(AccountTransitionJournal.storageKey) ||
+        _hasActiveAccountSwitchJournal(store) ||
         store.containsKey(cloudBackupDeletionJournalPreferenceKey) ||
         (!allowAccountDeletionCheckpoint &&
             (store.containsKey(accountDeletionCheckpointPreferenceKey) ||
@@ -4696,6 +4699,12 @@ class Storage {
       throw const CloudBackupDeletionResetBlockedException();
     }
   }
+
+  static bool _hasActiveAccountSwitchJournal(PreferenceRemovalStore store) =>
+      store.containsKey(AccountSwitchJournal.storageKey) ||
+      store.containsKey(
+        AccountTransitionJournal.switchReconciliationStorageKey,
+      );
 
   static Future<void> resetSession() async {
     // Game-Punkte zurücksetzen, Streak/Profil-Daten bleiben

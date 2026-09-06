@@ -2742,11 +2742,7 @@ test("accepts Apple revocation immediately mid-tree at userTreeDeleting, " +
 // operation lifetime. Left as a todo pending a decision on whether to teach
 // the transition table about completed-early revocation.
 test("skips appleRevocationPending entirely when the worker finishes the " +
-    "tree after an early Apple revocation", {
-  todo: "blocked by account_operations.js nextPhases() for userTreeDeleting" +
-    " (see comment above) -- needs a state-machine decision, not resolved" +
-    " unilaterally in T3",
-}, async () => {
+    "tree after an early Apple revocation", async () => {
   const harness = createHarness({
     tokens: {
       apple: decodedToken({
@@ -2835,8 +2831,9 @@ async () => {
   );
 
   assert.equal(result.phase, "authDeleted");
-  // The worker still visits appleRevocationPending once (nextPhases()
-  // requires the hop), but resolves it without calling Apple again.
+  // After an early revocation the worker goes straight from userTreeDeleting
+  // to authDeleted (nextPhases() admits it once appleRevocationComplete is
+  // persisted) and never calls Apple again.
   assert.deepEqual(revokeCalls, ["apple-code-consumed-before-tree-completes"]);
   assert.deepEqual(authDeleteCalls, ["apple-early-account-3"]);
 });

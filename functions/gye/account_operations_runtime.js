@@ -1646,16 +1646,17 @@ function createFirestoreAccountOperationRepository({
           lease.leaseUntilMillis <= currentTime) {
         throw repositoryFailure("stale-worker-lease");
       }
-      const operation = toPhase
-        ? transitionOperation(current, {
-          toPhase,
-          expectedVersion: current.version,
-        })
-        : current;
       const nextProgress = {
         ...workerProgress(stored),
         ...(progress || {}),
       };
+      const operation = toPhase
+        ? transitionOperation(current, {
+          toPhase,
+          expectedVersion: current.version,
+          appleRevocationComplete: nextProgress.appleRevocationComplete === true,
+        })
+        : current;
       const marker = operation.phase === "completed"
         ? await transaction.get(markerRef)
         : null;
@@ -2014,24 +2015,15 @@ function createDeletionWorkerRuntime({
           },
         });
       }
-      // NOTE (TN-2026-09-05 T3): an earlier attempt skipped this transition
-      // entirely when claim.progress.appleRevocationComplete was already
-      // true (set by an early completeAppleRevocation call at
-      // deletionRequested/userTreeDeleting). That direct
-      // userTreeDeleting -> authDeleted checkpoint is rejected by
-      // account_operations.js's nextPhases()/transitionOperation() with
-      // invalid-operation-transition: nextPhases() decides purely from
-      // {phase, appleRevocationRequired} and has no visibility into
-      // deletionProgress, so it always demands the appleRevocationPending
-      // hop when appleRevocationRequired is true. appleRevocationRequired
-      // itself cannot be flipped to false early either, since
-      // completeAppleRevocation's own idempotent-return branch depends on
-      // it staying true for the operation's whole lifetime. Left as the
-      // pre-existing unconditional hop (reported to Fable rather than
-      // changing the phase-transition table unilaterally); the
-      // appleRevocationPending branch below already resolves in the very
-      // next tick with no further Apple API call once progress is complete.
-      if (operation.appleRevocationRequired) {
+      // An early completeAppleRevocation (accepted at deletionRequested /
+      // userTreeDeleting) already persisted appleRevocationComplete, so the
+      // Auth user is deleted in this same tick: checkpointDeletionWork passes
+      // that progress flag to nextPhases(), which then admits the direct
+      // userTreeDeleting -> authDeleted transition. Without the proof the
+      // operation parks in appleRevocationPending until the client supplies
+      // the authorization code.
+      if (operation.appleRevocationRequired &&
+          !claim.progress.appleRevocationComplete) {
         return checkpoint({ toPhase: "appleRevocationPending" });
       }
       await renew();
