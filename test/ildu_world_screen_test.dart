@@ -25,7 +25,9 @@ void main() {
     );
   });
 
-  testWidgets('renders every estate building at iPhone width', (tester) async {
+  testWidgets('renders the spacious map fail-closed at iPhone width', (
+    tester,
+  ) async {
     tester.view.physicalSize = const Size(1179, 2556);
     tester.view.devicePixelRatio = 3;
     addTearDown(tester.view.resetPhysicalSize);
@@ -50,9 +52,10 @@ void main() {
 
     expect(find.text('Mein Ildu Gotaek'), findsOneWidget);
     expect(find.text('0 von 11 Gebäuden'), findsOneWidget);
+    expect(find.text('Bauplatz'), findsOneWidget);
     expect(
       find.text('Schließe bestätigte Lernschritte auf A1 ab.'),
-      findsNothing,
+      findsOneWidget,
     );
     final mapViewer = tester.widget<InteractiveViewer>(
       find.byType(InteractiveViewer),

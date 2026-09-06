@@ -12,6 +12,7 @@ import 'package:ko_lernen_app/screens/hanok_world_screen.dart';
 import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/personal_hanok_reveal_service.dart';
 import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
+import 'package:ko_lernen_app/widgets/sori/madang_background.dart';
 import 'package:ko_lernen_app/widgets/sori/personal_hanok_map.dart';
 import 'package:ko_lernen_app/widgets/sori/progress.dart';
 import 'package:ko_lernen_app/widgets/sori/world_map_viewport.dart';
@@ -46,7 +47,7 @@ void main() {
     expect(hanokRouteForZone(PersonalHanokZone.huwon), isNull);
   });
 
-  testWidgets('keeps every estate place available before old milestones', (
+  testWidgets('keeps the legacy courtyard before the estate gate opens', (
     tester,
   ) async {
     await tester.pumpWidget(
@@ -60,10 +61,10 @@ void main() {
     );
     await tester.pump();
 
-    expect(find.byType(WorldMapViewport), findsOneWidget);
+    expect(find.byType(MadangBackground), findsOneWidget);
     expect(
       find.byKey(const ValueKey('personal-hanok-zone-sarangbang')),
-      findsOneWidget,
+      findsNothing,
     );
   });
 
@@ -180,7 +181,7 @@ void main() {
     );
   });
 
-  testWidgets('03A keeps the estate and build story usable at 308dp ×1.3', (
+  testWidgets('03A keeps the safe-scene build story usable at 308dp ×1.3', (
     tester,
   ) async {
     tester.view.physicalSize = const Size(308, 900);
@@ -219,7 +220,7 @@ void main() {
       findsOneWidget,
     );
     final map = find.byType(PersonalHanokMap);
-    expect(tester.getSize(map).height, greaterThanOrEqualTo(231));
+    expect(tester.getSize(map).height, greaterThanOrEqualTo(278));
     final progress = find.text('1 von 2 Szenarien sicher gemeistert');
     await tester.dragUntilVisible(
       progress,
