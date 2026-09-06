@@ -150,6 +150,7 @@ class SoriStandardPage extends StatelessWidget {
     this.physics,
     this.showHome = true,
     this.fill = false,
+    this.fillIntrinsic = true,
   }) : assert(
          headline != null || (eyebrow == null && description == null),
          'eyebrow와 description은 headline이 있을 때만 사용할 수 있다.',
@@ -179,6 +180,12 @@ class SoriStandardPage extends StatelessWidget {
   /// `Column(center)` 을 쓴다 — 콘텐츠가 뷰포트보다 길면 그대로 스크롤한다.
   /// 목록형 화면(항목 수가 늘어날 수 있는 화면)은 `false`(기본값)로 둔다.
   final bool fill;
+
+  /// W10 PR-D(2026-09-06): [fill] 이 참일 때 [SoriMinHeightScroll.intrinsic]
+  /// 로 그대로 전달. `children` 서브트리에 `LayoutBuilder` 가 있으면
+  /// `false` 로 넘긴다 — [SoriMinHeightScroll]의 클래스 doc 참고
+  /// (예: `practice_hub_screen.dart`의 `ModuleCard`).
+  final bool fillIntrinsic;
 
   @override
   Widget build(BuildContext context) {
@@ -212,6 +219,7 @@ class SoriStandardPage extends StatelessWidget {
           return SoriMinHeightScroll(
             minHeight: 0,
             fillViewport: true,
+            intrinsic: fillIntrinsic,
             child: Padding(
               padding: resolvedPadding,
               child: Column(

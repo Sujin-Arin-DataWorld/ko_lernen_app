@@ -149,6 +149,7 @@ class SoriAdaptiveStudyBody extends StatelessWidget {
     required this.child,
     this.maxScaleBoost = 0.9,
     this.fillViewport = false,
+    this.intrinsic = true,
   });
 
   final double minHeight;
@@ -160,6 +161,11 @@ class SoriAdaptiveStudyBody extends StatelessWidget {
   /// 한다(Jin D-4 신고).
   final bool fillViewport;
 
+  /// W10 PR-D(2026-09-06): [SoriMinHeightScroll.intrinsic] 로 그대로 전달.
+  /// [child] 서브트리에 `LayoutBuilder` 가 있으면(격자 셀 크기 측정 등)
+  /// `false` 로 넘긴다 — [SoriMinHeightScroll]의 클래스 doc 참고.
+  final bool intrinsic;
+
   @override
   Widget build(BuildContext context) {
     final textScale = MediaQuery.textScalerOf(context).scale(1);
@@ -168,6 +174,7 @@ class SoriAdaptiveStudyBody extends StatelessWidget {
     return SoriMinHeightScroll(
       minHeight: accessibleMinHeight,
       fillViewport: fillViewport,
+      intrinsic: intrinsic,
       child: child,
     );
   }

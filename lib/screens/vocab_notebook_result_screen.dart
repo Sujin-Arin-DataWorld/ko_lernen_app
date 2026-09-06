@@ -9,6 +9,7 @@ import '../services/vocab_notebook_parser.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/speakable.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/text_field.dart';
@@ -323,51 +324,45 @@ class _VocabNotebookResultScreenState extends State<VocabNotebookResultScreen> {
 
         // W10 T-V3(2026-09-05, Jin D-4): 몇 쌍 안 되는 결과가 태블릿 세로
         // 화면에서 위쪽에 뭉쳤다 — `Expanded(ListView.builder)` 는 목록이
-        // 짧아도 남는 공간을 그냥 빈 채로 둔다. LayoutBuilder 로 뷰포트
-        // 높이를 재서 ConstrainedBox(minHeight)+Column(center) 로 채우고,
-        // 카드 수가 많아 넘치면 그대로 스크롤한다.
-        return LayoutBuilder(
-          builder: (context, constraints) {
-            return SingleChildScrollView(
-              key: const ValueKey('vocab-notebook-result-scroll'),
-              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-              child: ConstrainedBox(
-                constraints: BoxConstraints(
-                  minHeight: constraints.maxHeight.isFinite
-                      ? constraints.maxHeight
-                      : 0,
+        // 짧아도 남는 공간을 그냥 빈 채로 둔다. `SoriMinHeightScroll`
+        // (fillViewport, intrinsic: false)로 채우고, 카드 수가 많아 넘치면
+        // 그대로 스크롤한다. W10 PR-D(2026-09-06): 손레시피를 공용 헬퍼로
+        // 교체 — `key`는 내부 `SingleChildScrollView` 대신 이 위젯 자체에
+        // 둔다(`find.byKey` → `find.descendant`로 여전히 찾을 수 있다).
+        return SoriMinHeightScroll(
+          key: const ValueKey('vocab-notebook-result-scroll'),
+          minHeight: 0,
+          fillViewport: true,
+          intrinsic: false,
+          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsets.fromLTRB(
+                  resolvedPadding.left,
+                  resolvedPadding.top,
+                  resolvedPadding.right,
+                  0,
+                ),
+                child: _buildResultHeader(context, t),
+              ),
+              Padding(
+                padding: EdgeInsets.fromLTRB(
+                  resolvedPadding.left,
+                  0,
+                  resolvedPadding.right,
+                  resolvedPadding.bottom,
                 ),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(
-                        resolvedPadding.left,
-                        resolvedPadding.top,
-                        resolvedPadding.right,
-                        0,
-                      ),
-                      child: _buildResultHeader(context, t),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(
-                        resolvedPadding.left,
-                        0,
-                        resolvedPadding.right,
-                        resolvedPadding.bottom,
-                      ),
-                      child: Column(
-                        children: [
-                          for (var index = 0; index < _pairs.length; index++)
-                            _buildPairCard(context, t, index),
-                        ],
-                      ),
-                    ),
+                    for (var index = 0; index < _pairs.length; index++)
+                      _buildPairCard(context, t, index),
                   ],
                 ),
               ),
-            );
-          },
+            ],
+          ),
         );
       },
       bottomNavigationBar: inlineActions

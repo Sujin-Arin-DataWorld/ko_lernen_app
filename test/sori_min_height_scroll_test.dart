@@ -15,6 +15,7 @@ void main() {
     required double viewportHeight,
     required Widget child,
     bool fillViewport = true,
+    bool intrinsic = true,
   }) async {
     await tester.binding.setSurfaceSize(Size(400, viewportHeight));
     addTearDown(() => tester.binding.setSurfaceSize(null));
@@ -24,6 +25,7 @@ void main() {
           body: SoriMinHeightScroll(
             minHeight: 400,
             fillViewport: fillViewport,
+            intrinsic: intrinsic,
             child: child,
           ),
         ),
@@ -79,6 +81,49 @@ void main() {
       await tester.drag(find.text('tall'), const Offset(0, -300));
       await tester.pump();
       expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets(
+    'fillViewport+intrinsic:false — LayoutBuilder 자손과 함께 크래시 없이 '
+    '세로 중앙 정렬한다',
+    (tester) async {
+      final topKey = GlobalKey();
+      final bottomKey = GlobalKey();
+      await pump(
+        tester,
+        viewportHeight: 1280,
+        intrinsic: false,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(key: topKey, height: 100, child: const Text('top')),
+            // `IntrinsicHeight` 는 `LayoutBuilder` 자손과 함께 쓰면
+            // "LayoutBuilder does not support returning intrinsic
+            // dimensions" 로 크래시한다 — `intrinsic: false` 는 이 자손이
+            // 있어도 안전해야 한다(W10 PR-D).
+            LayoutBuilder(
+              builder: (context, c) => SizedBox(
+                height: 50,
+                width: c.maxWidth,
+                child: const Text('grid-like'),
+              ),
+            ),
+            SizedBox(key: bottomKey, height: 100, child: const Text('bottom')),
+          ],
+        ),
+      );
+
+      expect(tester.takeException(), isNull);
+
+      // 콘텐츠 총 높이 250(100+50+100)이 1280 뷰포트에서 위쪽에 뭉치지
+      // 않고 중앙에 있어야 한다 — top이 0 근처면 안 된다.
+      final topRect = tester.getRect(find.byKey(topKey));
+      final bottomRect = tester.getRect(find.byKey(bottomKey));
+      const contentHeight = 250.0;
+      final expectedTop = (1280 - contentHeight) / 2;
+      expect(topRect.top, closeTo(expectedTop, 1.0));
+      expect(bottomRect.bottom, closeTo(expectedTop + contentHeight, 1.0));
     },
   );
 

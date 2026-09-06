@@ -18,6 +18,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
@@ -295,105 +296,91 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
           // 늘어나지 않는다) 못 쓴다. 대신 LayoutBuilder로 뷰포트 높이를
           // 직접 재서 ConstrainedBox(minHeight)+Column(center)로 채우고,
           // 보드는 Expanded 없이 평범한 자식으로 둔다(넘치면 스크롤).
-          : LayoutBuilder(
-              builder: (context, constraints) {
-                return SingleChildScrollView(
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minHeight: constraints.maxHeight.isFinite
-                          ? constraints.maxHeight
-                          : 0,
+          // W10 PR-D(2026-09-06): `SoriMinHeightScroll(intrinsic: false)` 로
+          // 손레시피를 공용 헬퍼로 교체.
+          : SoriMinHeightScroll(
+              minHeight: 0,
+              fillViewport: true,
+              intrinsic: false,
+              child: Padding(
+                padding: const EdgeInsets.all(Spacing.lg),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      t.wbMatchingHint,
+                      style: tt.caption.copyWith(color: s.textMuted),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(Spacing.lg),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Text(
-                            t.wbMatchingHint,
-                            style: tt.caption.copyWith(color: s.textMuted),
+                    if (_statusMessage != null) ...[
+                      const SizedBox(height: Spacing.sm),
+                      Semantics(
+                        key: const ValueKey('custom-matching-feedback'),
+                        liveRegion: true,
+                        label: _statusMessage,
+                        child: Text(
+                          _statusMessage!,
+                          textAlign: TextAlign.center,
+                          style: tt.h3.copyWith(
+                            color: _statusMessage == t.statsCorrect
+                                ? SoriColors.primaryOnLight
+                                : SoriColors.danger,
                           ),
-                          if (_statusMessage != null) ...[
-                            const SizedBox(height: Spacing.sm),
-                            Semantics(
-                              key: const ValueKey('custom-matching-feedback'),
-                              liveRegion: true,
-                              label: _statusMessage,
-                              child: Text(
-                                _statusMessage!,
-                                textAlign: TextAlign.center,
-                                style: tt.h3.copyWith(
-                                  color: _statusMessage == t.statsCorrect
-                                      ? SoriColors.primaryOnLight
-                                      : SoriColors.danger,
-                                ),
-                              ),
-                            ),
-                          ],
-                          const SizedBox(height: Spacing.md),
-                          KeyedSubtree(
-                            key: _boardKey,
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                        ),
+                      ),
+                    ],
+                    const SizedBox(height: Spacing.md),
+                    KeyedSubtree(
+                      key: _boardKey,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // 한국어 열
+                          Expanded(
+                            child: Column(
                               children: [
-                                // 한국어 열
-                                Expanded(
-                                  child: Column(
-                                    children: [
-                                      for (var i = 0; i < _leftKo.length; i++)
-                                        _Tile(
-                                          label: _leftKo[i],
-                                          matched: _matched.contains(
-                                            _leftKo[i],
-                                          ),
-                                          selected: _selLeft == i,
-                                          accent: SoriColors.primary,
-                                          enabled: !_matched.contains(
-                                            _leftKo[i],
-                                          ),
-                                          onTap: () => _tapLeft(i),
-                                        ),
-                                    ],
+                                for (var i = 0; i < _leftKo.length; i++)
+                                  _Tile(
+                                    label: _leftKo[i],
+                                    matched: _matched.contains(_leftKo[i]),
+                                    selected: _selLeft == i,
+                                    accent: SoriColors.primary,
+                                    enabled: !_matched.contains(_leftKo[i]),
+                                    onTap: () => _tapLeft(i),
                                   ),
-                                ),
-                                const SizedBox(width: Spacing.md),
-                                // 뜻 열
-                                Expanded(
-                                  child: Column(
-                                    children: [
-                                      for (final meaning in _rightMeanings)
-                                        _Tile(
-                                          label: meaning,
-                                          matched: _matched.any(
-                                            (ko) =>
-                                                _round
-                                                    .firstWhere(
-                                                      (w) => w.korean == ko,
-                                                    )
-                                                    .translationFor(
-                                                      _languageCode,
-                                                    )
-                                                    .trim() ==
-                                                meaning,
-                                          ),
-                                          wrong: _wrongRight == meaning,
-                                          accent: SoriColors.accent,
-                                          enabled: _selLeft != null,
-                                          onTap: () => _tapRight(meaning),
-                                        ),
-                                    ],
+                              ],
+                            ),
+                          ),
+                          const SizedBox(width: Spacing.md),
+                          // 뜻 열
+                          Expanded(
+                            child: Column(
+                              children: [
+                                for (final meaning in _rightMeanings)
+                                  _Tile(
+                                    label: meaning,
+                                    matched: _matched.any(
+                                      (ko) =>
+                                          _round
+                                              .firstWhere((w) => w.korean == ko)
+                                              .translationFor(_languageCode)
+                                              .trim() ==
+                                          meaning,
+                                    ),
+                                    wrong: _wrongRight == meaning,
+                                    accent: SoriColors.accent,
+                                    enabled: _selLeft != null,
+                                    onTap: () => _tapRight(meaning),
                                   ),
-                                ),
                               ],
                             ),
                           ),
                         ],
                       ),
                     ),
-                  ),
-                );
-              },
+                  ],
+                ),
+              ),
             ),
     );
   }
