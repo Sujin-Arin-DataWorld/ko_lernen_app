@@ -4376,6 +4376,2038 @@
       ],
       "shelf": "c2_dating",
       "backdrop": "theme_park"
+    },
+    {
+      "id": "c2_w10_record",
+      "level": "c2",
+      "emoji": "🗄️",
+      "register": "business",
+      "speechStyle": "business",
+      "title": {
+        "ko": "화재로 사라진 등기부, 소유권을 어떻게 증명할까",
+        "de": "Wie man Eigentum aus einer Lücke im Grundbuch beweist",
+        "en": "Proving ownership when the land register has a gap"
+      },
+      "intro": {
+        "ko": "다니엘은 할아버지 땅의 등기부가 화재로 일부 사라진 시기를 증명하려고 구청 기록관을 찾았습니다.",
+        "de": "Daniel sucht das Bezirksarchiv auf, um Eigentum aus einer Zeit zu belegen, in der das Grundbuch durch einen Brand teilweise verloren ging.",
+        "en": "Daniel visits the district archive to prove ownership from a period when part of the land register was lost in a fire."
+      },
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "playerCharacterId": "daniel",
+      "participantIds": [
+        "daniel",
+        "official"
+      ],
+      "relationshipContext": "citizen_and_archive_official",
+      "intent": "reconstruct_a_missing_land_record_and_clarify_burden_of_proof",
+      "shelf": "c2_record",
+      "backdrop": "office",
+      "vocab": [
+        {
+          "korean": "등기부",
+          "note": {
+            "ko": "부동산의 소유 관계를 적어 두는 공식 장부",
+            "de": "Grundbuch",
+            "en": "land register"
+          }
+        },
+        {
+          "korean": "화재",
+          "note": {
+            "ko": "불이 나는 사고",
+            "de": "Brand",
+            "en": "fire (as an event)"
+          }
+        },
+        {
+          "korean": "공백",
+          "note": {
+            "ko": "기록이나 내용이 비어 있는 부분",
+            "de": "Lücke",
+            "en": "gap"
+          }
+        },
+        {
+          "korean": "명의",
+          "note": {
+            "ko": "문서에 올라 있는 사람의 이름",
+            "de": "eingetragener Name",
+            "en": "registered name/title"
+          }
+        },
+        {
+          "korean": "입증",
+          "note": {
+            "ko": "사실임을 증거로 밝히는 것",
+            "de": "Nachweis",
+            "en": "proof/substantiation"
+          }
+        },
+        {
+          "korean": "세금 고지서",
+          "note": {
+            "ko": "내야 할 세금 액수를 알려 주는 문서",
+            "de": "Steuerbescheid",
+            "en": "tax notice"
+          }
+        },
+        {
+          "korean": "소유권",
+          "note": {
+            "ko": "물건이나 땅을 가질 수 있는 법적 권리",
+            "de": "Eigentumsrecht",
+            "en": "ownership right"
+          }
+        }
+      ],
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "grammarIds": [
+        "grammar_c2_merely_on_grounds",
+        "grammar_c2_no_matter_how"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-았/었다는 이유만으로",
+          "de": "V-았/었다는 이유만으로: allein aus diesem Grund",
+          "en": "V-았/었다는 이유만으로: on that reason alone"
+        },
+        "explanation": {
+          "ko": "어떠한 사실 하나를 인정하면서도 그것만으로는 결론을 정당화하기에 부족하다고 말할 때 써요.",
+          "de": "Man erkennt eine Tatsache an, macht aber klar, dass sie allein die gezogene Schlussfolgerung nicht rechtfertigt.",
+          "en": "You acknowledge one fact but make clear that it alone isn't enough to justify the conclusion drawn from it."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "official",
+          "ko": "죄송하지만 1978년 화재로 그 시기 등기부 원본 일부가 사라져서 기록에 공백이 있습니다.",
+          "de": "Es tut mir leid, aber durch einen Brand 1978 ist ein Teil des Original-Grundbuchs verloren gegangen, deshalb gibt es aus dieser Zeit eine Lücke in den Aufzeichnungen.",
+          "en": "I'm sorry, but part of the original land register from that period was lost in a 1978 fire, so there's a gap in the records."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 할아버지 명의였다는 사실을 어떻게 입증할 수 있을까요?",
+          "de": "Wie kann ich dann beweisen, dass es auf den Namen meines Großvaters eingetragen war?",
+          "en": "Then how can I prove it was registered under my grandfather's name?"
+        },
+        {
+          "speaker": "official",
+          "ko": "아무리 자료가 부족하다 한들 세금 고지서나 이웃 증언 같은 간접 자료로 재구성할 여지가 있습니다.",
+          "de": "Wie unzureichend die Unterlagen auch sein mögen, es gibt Spielraum, sie mit indirekten Nachweisen wie Steuerbescheiden oder Zeugenaussagen von Nachbarn zu rekonstruieren.",
+          "en": "No matter how insufficient the materials may be, there's room to reconstruct it using indirect materials like tax notices or neighbor testimony."
+        },
+        {
+          "speaker": "user",
+          "ko": "기록이 일부 사라졌다는 이유만으로 소유권 자체를 부정할 수는 없는 거죠?",
+          "de": "Nur weil ein Teil der Aufzeichnungen verloren ging, kann man das Eigentum selbst doch nicht bestreiten, oder?",
+          "en": "Just because part of the record disappeared doesn't mean the ownership itself can be denied, right?"
+        },
+        {
+          "speaker": "official",
+          "ko": "맞습니다. 다만 입증 책임이 신청인에게 있다는 점은 유념하셔야 합니다.",
+          "de": "Das stimmt. Allerdings müssen Sie bedenken, dass die Beweislast beim Antragsteller liegt.",
+          "en": "That's right. However, you should keep in mind that the burden of proof lies with the applicant."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 어떤 자료부터 준비해서 제출하면 될까요?",
+          "de": "Welche Unterlagen sollte ich dann zuerst vorbereiten und einreichen?",
+          "en": "Then which documents should I prepare and submit first?"
+        },
+        {
+          "speaker": "official",
+          "ko": "가장 오래된 세금 고지서부터 연도순으로 내시면 검토가 훨씬 빨라집니다.",
+          "de": "Wenn Sie mit den ältesten Steuerbescheiden beginnen und sie der Reihe nach vorlegen, geht die Prüfung viel schneller.",
+          "en": "If you submit starting with the oldest tax notices in order, the review goes much faster."
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 알겠어요. 이번 주 안에 모아서 다시 방문할게요.",
+          "de": "Ja, verstanden. Ich sammle sie diese Woche und komme dann noch einmal vorbei.",
+          "en": "Yes, got it. I'll gather them this week and come back again."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c2_w10_record_hear",
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "맞습니다. 다만 입증 책임이 신청인에게 있다는 점은 유념하셔야 합니다.",
+            "options": [
+              {
+                "de": "Das stimmt. Allerdings müssen Sie bedenken, dass die Beweislast beim Antragsteller liegt.",
+                "en": "That's right. However, you should keep in mind that the burden of proof lies with the applicant."
+              },
+              {
+                "de": "Das stimmt nicht, die Beweislast liegt bei der Behörde.",
+                "en": "That's not true, the burden of proof lies with the agency."
+              },
+              {
+                "de": "Leider wurde der gesamte Antrag abgelehnt.",
+                "en": "Unfortunately, the entire application was rejected."
+              },
+              {
+                "de": "Die Unterlagen sind inzwischen wieder aufgetaucht.",
+                "en": "The documents have since turned up again."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_w10_record_translate",
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Nur weil ein Teil der Aufzeichnungen verloren ging, kann man das Eigentum selbst doch nicht bestreiten, oder?",
+            "promptEn": "Just because part of the record disappeared doesn't mean the ownership itself can be denied, right?",
+            "options": [
+              {
+                "ko": "기록이 일부 사라졌다는 이유만으로 소유권 자체를 부정할 수는 없는 거죠?"
+              },
+              {
+                "ko": "아무리 자료가 부족하다 한들 세금 고지서나 이웃 증언 같은 간접 자료로 재구성할 여지가 있습니다."
+              },
+              {
+                "ko": "그럼 할아버지 명의였다는 사실을 어떻게 입증할 수 있을까요?"
+              },
+              {
+                "ko": "네, 알겠어요. 이번 주 안에 모아서 다시 방문할게요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_w10_record_build",
+          "type": "satzBauen",
+          "data": {
+            "targetKo": "아무리 자료가 부족하다 한들 세금 고지서나 이웃 증언 같은 간접 자료로 재구성할 여지가 있습니다.",
+            "promptDe": "Wie unzureichend die Unterlagen auch sein mögen, es gibt Spielraum, sie mit indirekten Nachweisen wie Steuerbescheiden oder Zeugenaussagen von Nachbarn zu rekonstruieren.",
+            "promptEn": "No matter how insufficient the materials may be, there's room to reconstruct it using indirect materials like tax notices or neighbor testimony.",
+            "distractors": [
+              "등기부",
+              "화재로"
+            ]
+          }
+        }
+      ],
+      "culturalNote": null,
+      "xpReward": 150
+    },
+    {
+      "id": "c2_w10_mandate",
+      "level": "c2",
+      "emoji": "✍️",
+      "register": "business",
+      "speechStyle": "business",
+      "title": {
+        "ko": "위임장에 적힌 범위, 어디까지 대신할 수 있나",
+        "de": "Wie weit reicht eine Vollmacht wirklich",
+        "en": "How far a power of attorney actually reaches"
+      },
+      "intro": {
+        "ko": "안드레아는 어머니를 대신해 통장 업무를 볼 위임장을 준비하면서 대리인이 할 수 있는 일의 범위를 확인합니다.",
+        "de": "Andrea bereitet eine Vollmacht vor, um Bankgeschäfte für ihre Mutter zu erledigen, und lässt sich den genauen Umfang der Befugnisse erklären.",
+        "en": "Andrea is preparing a power of attorney to handle banking for her mother and checks exactly what the representative is allowed to do."
+      },
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "playerCharacterId": "andrea",
+      "participantIds": [
+        "andrea",
+        "official"
+      ],
+      "relationshipContext": "client_and_notary_official",
+      "intent": "clarify_the_scope_and_limits_of_a_power_of_attorney",
+      "shelf": "c2_mandate",
+      "backdrop": "office",
+      "vocab": [
+        {
+          "korean": "위임장",
+          "note": {
+            "ko": "다른 사람에게 일을 대신 맡긴다고 적은 문서",
+            "de": "Vollmacht",
+            "en": "power of attorney"
+          }
+        },
+        {
+          "korean": "예금",
+          "note": {
+            "ko": "은행에 맡겨 둔 돈",
+            "de": "Bankguthaben",
+            "en": "bank deposit/funds"
+          }
+        },
+        {
+          "korean": "인출",
+          "note": {
+            "ko": "맡겨 둔 돈을 찾는 것",
+            "de": "Abhebung",
+            "en": "withdrawal"
+          }
+        },
+        {
+          "korean": "이체",
+          "note": {
+            "ko": "돈을 다른 계좌로 옮기는 것",
+            "de": "Überweisung",
+            "en": "transfer"
+          }
+        },
+        {
+          "korean": "동의",
+          "note": {
+            "ko": "어떤 일에 찬성한다고 밝히는 것",
+            "de": "Zustimmung",
+            "en": "consent"
+          }
+        },
+        {
+          "korean": "성년후견",
+          "note": {
+            "ko": "판단 능력이 부족한 성인을 법원이 도와주는 제도",
+            "de": "Erwachsenenbetreuung",
+            "en": "adult guardianship"
+          }
+        },
+        {
+          "korean": "범위",
+          "note": {
+            "ko": "일이 미치는 한도",
+            "de": "Umfang",
+            "en": "scope"
+          }
+        }
+      ],
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "grammarIds": [
+        "grammar_c2_on_the_premise",
+        "grammar_c2_regardless_of_kin"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 전제로",
+          "de": "N을/를 전제로: unter der Voraussetzung von N",
+          "en": "N을/를 전제로: on the premise of N"
+        },
+        "explanation": {
+          "ko": "어떤 조건을 처음부터 정해 놓고 그 위에서 이야기를 시작한다는 것을 밝힐 때 써요.",
+          "de": "Man macht deutlich, dass man von Anfang an eine bestimmte Bedingung als Grundlage genommen hat.",
+          "en": "You make clear that a certain condition was set from the start as the basis for everything that follows."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "official",
+          "ko": "이 위임장은 예금 인출과 이체 업무를 대리하는 것을 전제로 작성돼 있습니다.",
+          "de": "Diese Vollmacht ist unter der Voraussetzung erstellt, dass Abhebungen und Überweisungen stellvertretend vorgenommen werden.",
+          "en": "This power of attorney is drawn up on the premise of representing withdrawals and transfers on the person's behalf."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 예금을 다른 상품으로 옮기는 것도 포함되나요?",
+          "de": "Ist es dann auch eingeschlossen, das Guthaben in ein anderes Produkt umzuschichten?",
+          "en": "Does that also include moving the funds into a different financial product?"
+        },
+        {
+          "speaker": "official",
+          "ko": "아니요, 그건 이 위임장만으로는 처리할 수 없고 별도 동의가 필요합니다.",
+          "de": "Nein, das lässt sich nicht allein mit dieser Vollmacht erledigen, dafür ist eine gesonderte Zustimmung nötig.",
+          "en": "No, that can't be handled with this power of attorney alone — a separate consent is required for that."
+        },
+        {
+          "speaker": "user",
+          "ko": "어머니가 나중에 판단이 어려워지시면 범위를 넓힐 방법이 있을까요?",
+          "de": "Falls es meiner Mutter später schwerfällt, Entscheidungen zu treffen, gibt es dann eine Möglichkeit, den Umfang zu erweitern?",
+          "en": "If it becomes hard for my mother to make decisions later, is there a way to broaden the scope?"
+        },
+        {
+          "speaker": "official",
+          "ko": "그런 경우에는 성년후견 절차를 먼저 밟으셔야 합니다.",
+          "de": "In einem solchen Fall müssen Sie zunächst das Betreuungsverfahren durchlaufen.",
+          "en": "In that case, you would need to go through the adult guardianship process first."
+        },
+        {
+          "speaker": "user",
+          "ko": "지금은 다른 자산과 무관하게 통장 관리 권한만 명확히 해 두고 싶어요.",
+          "de": "Im Moment möchte ich unabhängig von anderen Vermögenswerten erst einmal nur die Befugnis für die Kontoverwaltung klar festlegen.",
+          "en": "For now, regardless of other assets, I'd just like to clearly establish the authority over account management."
+        },
+        {
+          "speaker": "official",
+          "ko": "네, 그 범위라면 오늘 바로 작성해 드릴 수 있습니다.",
+          "de": "Ja, in diesem Umfang kann ich die Vollmacht heute gleich für Sie ausstellen.",
+          "en": "Yes, within that scope I can draw up the power of attorney for you today."
+        },
+        {
+          "speaker": "user",
+          "ko": "감사해요. 나중에 범위를 넓힐 때는 다시 방문하면 되죠?",
+          "de": "Danke. Wenn ich den Umfang später erweitern möchte, komme ich dann einfach noch einmal vorbei?",
+          "en": "Thank you. If I want to broaden the scope later, I can just come back again, right?"
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c2_w10_mandate_hear",
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "아니요, 그건 이 위임장만으로는 처리할 수 없고 별도 동의가 필요합니다.",
+            "options": [
+              {
+                "de": "Nein, das lässt sich nicht allein mit dieser Vollmacht erledigen, dafür ist eine gesonderte Zustimmung nötig.",
+                "en": "No, that can't be handled with this power of attorney alone — a separate consent is required for that."
+              },
+              {
+                "de": "Ja, das ist bereits in der Vollmacht enthalten.",
+                "en": "Yes, that's already included in the power of attorney."
+              },
+              {
+                "de": "Dafür brauchen Sie überhaupt keine Zustimmung.",
+                "en": "You don't need any consent for that at all."
+              },
+              {
+                "de": "Das Konto wurde inzwischen gesperrt.",
+                "en": "The account has since been frozen."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_w10_mandate_translate",
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "In einem solchen Fall müssen Sie zunächst das Betreuungsverfahren durchlaufen.",
+            "promptEn": "In that case, you would need to go through the adult guardianship process first.",
+            "options": [
+              {
+                "ko": "그런 경우에는 성년후견 절차를 먼저 밟으셔야 합니다."
+              },
+              {
+                "ko": "이 위임장은 예금 인출과 이체 업무를 대리하는 것을 전제로 작성돼 있습니다."
+              },
+              {
+                "ko": "그럼 예금을 다른 상품으로 옮기는 것도 포함되나요?"
+              },
+              {
+                "ko": "지금은 다른 자산과 무관하게 통장 관리 권한만 명확히 해 두고 싶어요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_w10_mandate_build",
+          "type": "satzBauen",
+          "data": {
+            "targetKo": "네, 그 범위라면 오늘 바로 작성해 드릴 수 있습니다.",
+            "promptDe": "Ja, in diesem Umfang kann ich die Vollmacht heute gleich für Sie ausstellen.",
+            "promptEn": "Yes, within that scope I can draw up the power of attorney for you today.",
+            "distractors": [
+              "위임장은",
+              "성년후견"
+            ]
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "위임장과 성년후견제도",
+          "de": "Vollmacht und das koreanische Betreuungssystem",
+          "en": "Power of attorney and Korea's adult guardianship system"
+        },
+        "body": {
+          "ko": "한국에서는 통장 관리 같은 제한된 위임장과, 판단 능력이 크게 떨어졌을 때 법원이 관여하는 성년후견제도가 별도로 구분돼 있어서, 위임장 하나로 모든 결정을 대신할 수는 없어요.",
+          "de": "In Korea unterscheidet man klar zwischen einer begrenzten Vollmacht, etwa für die Kontoverwaltung, und dem gerichtlich begleiteten Betreuungssystem für Fälle stark eingeschränkter Entscheidungsfähigkeit; eine einzelne Vollmacht deckt nicht automatisch alle Entscheidungen ab.",
+          "en": "Korea keeps a limited power of attorney, such as for account management, clearly separate from the court-supervised adult guardianship system used when someone's decision-making capacity is severely reduced, so a single power of attorney doesn't automatically cover every decision."
+        }
+      },
+      "xpReward": 150
+    },
+    {
+      "id": "c2_w10_impact",
+      "level": "c2",
+      "emoji": "📊",
+      "register": "business",
+      "speechStyle": "business",
+      "title": {
+        "ko": "평균은 누구의 경험을 가리는가",
+        "de": "Wen verdeckt der Durchschnitt?",
+        "en": "Whose experience does the average hide?"
+      },
+      "intro": {
+        "ko": "현아는 출퇴근 지원 정책이 평균적으로는 효과가 있지만 야간 근무자에게는 오히려 불리하다는 자료를 발표합니다.",
+        "de": "Hyuna stellt Daten vor, wonach ein Pendlerzuschuss im Schnitt wirkt, Nachtschichtarbeiter aber benachteiligt.",
+        "en": "Hyuna presents data showing a commuting subsidy works on average but disadvantages night-shift workers."
+      },
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "playerCharacterId": "hyuna",
+      "participantIds": [
+        "hyuna",
+        "moderator"
+      ],
+      "relationshipContext": "researcher_and_hearing_moderator",
+      "intent": "argue_the_uneven_distributional_effects_of_a_commuting_policy",
+      "shelf": "c2_impact",
+      "backdrop": "office",
+      "vocab": [
+        {
+          "korean": "지원책",
+          "note": {
+            "ko": "돕기 위해 마련한 정책",
+            "de": "Fördermaßnahme",
+            "en": "support policy"
+          }
+        },
+        {
+          "korean": "평균",
+          "note": {
+            "ko": "전체를 더해 나눈 값",
+            "de": "Durchschnitt",
+            "en": "average"
+          }
+        },
+        {
+          "korean": "통근",
+          "note": {
+            "ko": "집에서 직장까지 오가는 것",
+            "de": "Pendeln",
+            "en": "commuting"
+          }
+        },
+        {
+          "korean": "야간 근무자",
+          "note": {
+            "ko": "밤에 일하는 사람",
+            "de": "Nachtschichtarbeiter",
+            "en": "night-shift worker"
+          }
+        },
+        {
+          "korean": "비율",
+          "note": {
+            "ko": "전체에서 차지하는 몫",
+            "de": "Anteil",
+            "en": "proportion/ratio"
+          }
+        },
+        {
+          "korean": "관점",
+          "note": {
+            "ko": "사물을 바라보는 입장",
+            "de": "Blickwinkel",
+            "en": "viewpoint"
+          }
+        },
+        {
+          "korean": "소수",
+          "note": {
+            "ko": "적은 수",
+            "de": "Minderheit",
+            "en": "minority/small number"
+          }
+        }
+      ],
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "grammarIds": [
+        "grammar_c2_definition_by_viewpoint",
+        "grammar_c2_nothing_more_than"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 누구의 관점에서 정의하느냐에 따라",
+          "de": "N을/를 누구의 관점에서 정의하느냐에 따라: je nach Perspektive",
+          "en": "N을/를 누구의 관점에서 정의하느냐에 따라: depending on whose viewpoint defines N"
+        },
+        "explanation": {
+          "ko": "같은 말이라도 어느 입장에서 정의하느냐에 따라 결론이 달라진다는 것을 짚을 때 써요.",
+          "de": "Man macht deutlich, dass dieselbe Sache je nach Perspektive der Definition zu unterschiedlichen Schlüssen führt.",
+          "en": "You point out that the same term leads to different conclusions depending on whose perspective defines it."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "moderator",
+          "ko": "이번 지원책은 평균 통근 시간을 15분 줄인 것으로 나옵니다.",
+          "de": "Diese Förderung senkt laut den Zahlen die durchschnittliche Pendelzeit um 15 Minuten.",
+          "en": "According to the figures, this subsidy cuts the average commute time by 15 minutes."
+        },
+        {
+          "speaker": "user",
+          "ko": "평균만 보면 성공처럼 보이지만 야간 근무자 자료는 따로 봐야 합니다.",
+          "de": "Betrachtet man nur den Durchschnitt, wirkt es wie ein Erfolg, aber die Daten der Nachtschichtarbeiter muss man gesondert betrachten.",
+          "en": "Looking only at the average, it seems like a success, but the data for night-shift workers needs to be looked at separately."
+        },
+        {
+          "speaker": "moderator",
+          "ko": "그 인원은 전체의 오 퍼센트도 안 되는데 정책 전체를 흔들 필요가 있을까요?",
+          "de": "Diese Gruppe macht nicht einmal fünf Prozent aus – muss man deshalb die gesamte Politik infrage stellen?",
+          "en": "That group is less than five percent of the total—does that really warrant questioning the whole policy?"
+        },
+        {
+          "speaker": "user",
+          "ko": "인원 비율만 보면 작은 문제에 불과하지만 그들에게는 통근 자체가 불가능해집니다.",
+          "de": "Sieht man nur den Anteil, ist es nichts weiter als ein kleines Problem, aber für sie wird das Pendeln selbst unmöglich.",
+          "en": "Looking only at the head-count ratio, it's nothing more than a minor issue, but for them, commuting itself becomes impossible."
+        },
+        {
+          "speaker": "moderator",
+          "ko": "그럼 이 정책의 효과를 누구의 관점에서 정의하느냐에 따라 결론이 달라진다는 말씀이시죠?",
+          "de": "Sie meinen also, das Ergebnis hängt davon ab, aus wessen Sicht man die Wirkung dieser Politik definiert?",
+          "en": "So you're saying the conclusion changes depending on whose viewpoint defines this policy's effect?"
+        },
+        {
+          "speaker": "user",
+          "ko": "맞습니다. 다수의 평균과 소수의 생활, 둘 다 같은 무게로 봐야 합니다.",
+          "de": "Genau. Der Durchschnitt der Mehrheit und der Alltag der Minderheit müssen gleich schwer gewichtet werden.",
+          "en": "Exactly. The majority's average and the minority's daily reality need to be weighed equally."
+        },
+        {
+          "speaker": "moderator",
+          "ko": "그렇다면 야간 근무자를 위한 별도 지원 시간대를 검토해 보겠습니다.",
+          "de": "Dann werden wir ein gesondertes Förderzeitfenster für Nachtschichtarbeiter prüfen.",
+          "en": "Then we'll look into a separate support time window for night-shift workers."
+        },
+        {
+          "speaker": "user",
+          "ko": "감사합니다. 다음 회의 전까지 관련 자료를 정리해서 보내 드리겠습니다.",
+          "de": "Danke. Ich stelle die entsprechenden Daten zusammen und werde sie Ihnen vor der nächsten Sitzung zukommen lassen.",
+          "en": "Thank you. I will put together the relevant data and send it to you before the next meeting."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c2_w10_impact_hear",
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "인원 비율만 보면 작은 문제에 불과하지만 그들에게는 통근 자체가 불가능해집니다.",
+            "options": [
+              {
+                "de": "Sieht man nur den Anteil, ist es nichts weiter als ein kleines Problem, aber für sie wird das Pendeln selbst unmöglich.",
+                "en": "Looking only at the head-count ratio, it's nothing more than a minor issue, but for them, commuting itself becomes impossible."
+              },
+              {
+                "de": "Der Anteil ist so groß, dass die gesamte Politik gestoppt werden muss.",
+                "en": "The share is so large that the entire policy must be stopped."
+              },
+              {
+                "de": "Für diese Gruppe hat sich überhaupt nichts verändert.",
+                "en": "Nothing has changed for this group at all."
+              },
+              {
+                "de": "Nachtschichtarbeiter nutzen die Förderung inzwischen am meisten.",
+                "en": "Night-shift workers now use the subsidy the most."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_w10_impact_translate",
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Genau. Der Durchschnitt der Mehrheit und der Alltag der Minderheit müssen gleich schwer gewichtet werden.",
+            "promptEn": "Exactly. The majority's average and the minority's daily reality need to be weighed equally.",
+            "options": [
+              {
+                "ko": "맞습니다. 다수의 평균과 소수의 생활, 둘 다 같은 무게로 봐야 합니다."
+              },
+              {
+                "ko": "이번 지원책은 평균 통근 시간을 15분 줄인 것으로 나옵니다."
+              },
+              {
+                "ko": "그 인원은 전체의 오 퍼센트도 안 되는데 정책 전체를 흔들 필요가 있을까요?"
+              },
+              {
+                "ko": "그렇다면 야간 근무자를 위한 별도 지원 시간대를 검토해 보겠습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_w10_impact_build",
+          "type": "satzBauen",
+          "data": {
+            "targetKo": "그렇다면 야간 근무자를 위한 별도 지원 시간대를 검토해 보겠습니다.",
+            "promptDe": "Dann werden wir ein gesondertes Förderzeitfenster für Nachtschichtarbeiter prüfen.",
+            "promptEn": "Then we'll look into a separate support time window for night-shift workers.",
+            "distractors": [
+              "평균은",
+              "비율만"
+            ]
+          }
+        }
+      ],
+      "culturalNote": null,
+      "xpReward": 150
+    },
+    {
+      "id": "c2_w10_history",
+      "level": "c2",
+      "emoji": "🕊️",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "title": {
+        "ko": "사과 한마디로 끝날 수 있을까",
+        "de": "Kann eine Entschuldigung das wirklich beenden?",
+        "en": "Can one apology really settle it?"
+      },
+      "intro": {
+        "ko": "크리스티안과 수진은 오래된 마을 피해 사건에 대한 뒤늦은 사과 소식을 보며 진정한 화해에 무엇이 필요한지 이야기합니다.",
+        "de": "Christian und Sujin sehen die Nachricht von einer verspäteten Entschuldigung für einen alten Vorfall im Dorf und sprechen darüber, was echte Versöhnung braucht.",
+        "en": "Christian and Sujin watch news of a belated apology for an old incident in a village and talk about what real reconciliation requires."
+      },
+      "courseUnitId": "c2_05_relationship_narratives",
+      "playerCharacterId": "christian",
+      "participantIds": [
+        "christian",
+        "sujin"
+      ],
+      "relationshipContext": "romantic_partners",
+      "intent": "discuss_what_genuine_reconciliation_would_require",
+      "shelf": "c2_history",
+      "backdrop": "home",
+      "vocab": [
+        {
+          "korean": "사과",
+          "note": {
+            "ko": "잘못했다고 말하는 것",
+            "de": "Entschuldigung",
+            "en": "apology"
+          }
+        },
+        {
+          "korean": "책임",
+          "note": {
+            "ko": "어떤 일에 대해 맡아야 할 몫",
+            "de": "Verantwortung",
+            "en": "responsibility"
+          }
+        },
+        {
+          "korean": "피해자 가족",
+          "note": {
+            "ko": "피해를 입은 사람의 가족",
+            "de": "Familie der Opfer",
+            "en": "victims' family"
+          }
+        },
+        {
+          "korean": "형식적",
+          "note": {
+            "ko": "겉모습만 갖춘",
+            "de": "formell/oberflächlich",
+            "en": "formal/perfunctory"
+          }
+        },
+        {
+          "korean": "원인",
+          "note": {
+            "ko": "어떤 일이 일어난 까닭",
+            "de": "Ursache",
+            "en": "cause"
+          }
+        },
+        {
+          "korean": "화해",
+          "note": {
+            "ko": "다툼을 풀고 사이가 좋아지는 것",
+            "de": "Versöhnung",
+            "en": "reconciliation"
+          }
+        },
+        {
+          "korean": "재발 방지",
+          "note": {
+            "ko": "같은 일이 다시 일어나지 않게 막는 것",
+            "de": "Maßnahmen gegen Wiederholung",
+            "en": "prevention of recurrence"
+          }
+        }
+      ],
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "grammarIds": [
+        "grammar_c2_responsibility_remains",
+        "grammar_c2_nothing_more_than"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-았/었다고 해서 책임이 사라지는 것은 아니다",
+          "de": "V-았/었다고 해서 책임이 사라지는 것은 아니다: Verantwortung bleibt bestehen",
+          "en": "V-았/었다고 해서 책임이 사라지는 것은 아니다: responsibility does not simply disappear"
+        },
+        "explanation": {
+          "ko": "어떤 조건이 이루어졌다고 해서 그것 때문에 책임까지 자동으로 없어지지는 않는다고 반박할 때 써요.",
+          "de": "Man widerspricht der Annahme, dass eine bestimmte Bedingung automatisch auch die Verantwortung aufhebt.",
+          "en": "You push back on the idea that meeting some condition automatically erases the responsibility as well."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "sujin",
+          "ko": "사십 년 만에 사과했다는데, 그때 다친 사람들은 이미 대부분 돌아가셨대.",
+          "de": "Nach vierzig Jahren haben sie sich entschuldigt, aber die meisten der damals Verletzten sind wohl schon gestorben.",
+          "en": "They apologized after forty years, but most of the people who were hurt back then have apparently already passed away."
+        },
+        {
+          "speaker": "user",
+          "ko": "사과가 늦었다고 해서 책임이 사라지는 것은 아니잖아.",
+          "de": "Nur weil die Entschuldigung spät kam, heißt das nicht, dass die Verantwortung verschwindet, oder?",
+          "en": "Just because the apology came late doesn't mean the responsibility disappears, does it?"
+        },
+        {
+          "speaker": "sujin",
+          "ko": "맞아. 근데 사과문 한 장으로 그 세월을 다 갚을 수 있을까?",
+          "de": "Stimmt. Aber kann ein einziges Entschuldigungsschreiben all die verlorenen Jahre wirklich wiedergutmachen?",
+          "en": "True. But can a single apology letter really make up for all those lost years?"
+        },
+        {
+          "speaker": "user",
+          "ko": "책임을 인정한다면 피해자 가족한테 직접 설명하는 자리도 있어야지.",
+          "de": "Wenn man die Verantwortung anerkennt, sollte es auch ein Treffen geben, bei dem man es den Familien der Opfer direkt erklärt.",
+          "en": "If they're going to acknowledge responsibility, there should also be a session to explain it directly to the victims' families."
+        },
+        {
+          "speaker": "sujin",
+          "ko": "그러네. 그냥 문서로 끝내면 또 형식적이라는 말 나올 거야.",
+          "de": "Stimmt. Wenn sie es nur mit einem Dokument beenden, wird es wieder heißen, es sei nur eine Formsache.",
+          "en": "True. If they just settle it with a document, people will say again that it's just a formality."
+        },
+        {
+          "speaker": "user",
+          "ko": "그리고 왜 그때 그렇게 됐는지 원인도 같이 밝혀야 진짜 화해 아닐까.",
+          "de": "Und ich glaube, wirkliche Versöhnung bedeutet auch, offenzulegen, warum es damals überhaupt so weit kam.",
+          "en": "And I think real reconciliation also means uncovering why it happened that way back then."
+        },
+        {
+          "speaker": "sujin",
+          "ko": "듣고 보니 사과, 설명, 재발 방지, 이 세 가지가 다 있어야겠다.",
+          "de": "Wenn ich so darüber nachdenke, braucht es wohl alle drei: Entschuldigung, Erklärung und Maßnahmen gegen eine Wiederholung.",
+          "en": "Now that I think about it, you'd need all three: apology, explanation, and steps to prevent it happening again."
+        },
+        {
+          "speaker": "user",
+          "ko": "응, 하나만 있으면 결국 절반짜리 화해에 불과할 것 같아.",
+          "de": "Ja, wenn nur eins davon da ist, ist das am Ende wohl nichts weiter als eine halbe Versöhnung.",
+          "en": "Yeah, if only one of those is there, it'll end up being nothing more than half a reconciliation."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c2_w10_history_hear",
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "책임을 인정한다면 피해자 가족한테 직접 설명하는 자리도 있어야지.",
+            "options": [
+              {
+                "de": "Wenn man die Verantwortung anerkennt, sollte es auch ein Treffen geben, bei dem man es den Familien der Opfer direkt erklärt.",
+                "en": "If they're going to acknowledge responsibility, there should also be a session to explain it directly to the victims' families."
+              },
+              {
+                "de": "Verantwortung zu übernehmen ist völlig unnötig.",
+                "en": "Taking responsibility is completely unnecessary."
+              },
+              {
+                "de": "Die Familien haben bereits alle Antworten erhalten.",
+                "en": "The families have already received all their answers."
+              },
+              {
+                "de": "Ein Dokument allein reicht doch völlig aus.",
+                "en": "A document alone is completely sufficient."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_w10_history_translate",
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Wenn ich so darüber nachdenke, braucht es wohl alle drei: Entschuldigung, Erklärung und Maßnahmen gegen eine Wiederholung.",
+            "promptEn": "Now that I think about it, you'd need all three: apology, explanation, and steps to prevent it happening again.",
+            "options": [
+              {
+                "ko": "듣고 보니 사과, 설명, 재발 방지, 이 세 가지가 다 있어야겠다."
+              },
+              {
+                "ko": "사십 년 만에 사과했다는데, 그때 다친 사람들은 이미 대부분 돌아가셨대."
+              },
+              {
+                "ko": "맞아. 근데 사과문 한 장으로 그 세월을 다 갚을 수 있을까?"
+              },
+              {
+                "ko": "응, 하나만 있으면 결국 절반짜리 화해에 불과할 것 같아."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_w10_history_build",
+          "type": "satzBauen",
+          "data": {
+            "targetKo": "그리고 왜 그때 그렇게 됐는지 원인도 같이 밝혀야 진짜 화해 아닐까.",
+            "promptDe": "Und ich glaube, wirkliche Versöhnung bedeutet auch, offenzulegen, warum es damals überhaupt so weit kam.",
+            "promptEn": "And I think real reconciliation also means uncovering why it happened that way back then.",
+            "distractors": [
+              "사과가",
+              "책임을"
+            ]
+          }
+        }
+      ],
+      "culturalNote": null,
+      "xpReward": 150
+    },
+    {
+      "id": "c2_w10_aesthetic",
+      "level": "c2",
+      "emoji": "🎨",
+      "register": "business",
+      "speechStyle": "business",
+      "title": {
+        "ko": "작품의 의미는 누가 정하는가",
+        "de": "Wer bestimmt die Bedeutung eines Werks?",
+        "en": "Who decides what a work means?"
+      },
+      "intro": {
+        "ko": "레나는 마야의 설치 작품에 명확한 설명 문구를 붙이자고 제안하지만, 마야는 관객의 해석을 하나로 좁히는 것을 걱정합니다.",
+        "de": "Lena schlägt vor, Mayas Installation mit einer klaren erklärenden Beschriftung zu versehen, doch Maya befürchtet, die Deutung der Besucher werde dadurch zu sehr eingeengt.",
+        "en": "Lena suggests adding a clear explanatory label to Maya's installation, but Maya worries it will narrow visitors' interpretation too much."
+      },
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "playerCharacterId": "maya",
+      "participantIds": [
+        "maya",
+        "lena"
+      ],
+      "relationshipContext": "artist_and_curator",
+      "intent": "debate_a_works_intended_meaning_versus_its_reception",
+      "shelf": "c2_aesthetic",
+      "backdrop": "office",
+      "vocab": [
+        {
+          "korean": "작품",
+          "note": {
+            "ko": "만든 예술 결과물",
+            "de": "Werk",
+            "en": "artwork"
+          }
+        },
+        {
+          "korean": "의도",
+          "note": {
+            "ko": "무엇을 하려는 생각",
+            "de": "Absicht",
+            "en": "intention"
+          }
+        },
+        {
+          "korean": "해석",
+          "note": {
+            "ko": "뜻을 풀어서 이해하는 것",
+            "de": "Interpretation",
+            "en": "interpretation"
+          }
+        },
+        {
+          "korean": "전시",
+          "note": {
+            "ko": "작품을 사람들에게 보여 주는 행사",
+            "de": "Ausstellung",
+            "en": "exhibition"
+          }
+        },
+        {
+          "korean": "작가 노트",
+          "note": {
+            "ko": "작가가 작품에 대해 직접 쓴 짧은 글",
+            "de": "Künstlernotiz",
+            "en": "artist's note"
+          }
+        },
+        {
+          "korean": "관람객",
+          "note": {
+            "ko": "전시를 보러 온 사람",
+            "de": "Besucher",
+            "en": "visitor"
+          }
+        },
+        {
+          "korean": "참여",
+          "note": {
+            "ko": "어떤 활동에 함께하는 것",
+            "de": "Beteiligung",
+            "en": "participation"
+          }
+        }
+      ],
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "grammarIds": [
+        "grammar_c2_cannot_reduce_to",
+        "grammar_c2_regardless_of_kin"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N으로 환원할 수 없다",
+          "de": "N으로 환원할 수 없다: lässt sich nicht auf N reduzieren",
+          "en": "N으로 환원할 수 없다: cannot be reduced to N"
+        },
+        "explanation": {
+          "ko": "복잡한 현상을 하나의 기준이나 수치로 단순화하는 해석을 반박할 때 써요.",
+          "de": "Man widerspricht einer Interpretation, die ein komplexes Phänomen auf eine einzige Kennzahl reduziert.",
+          "en": "You reject an interpretation that collapses a complex phenomenon into a single measure."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "lena",
+          "ko": "관람객 설문을 보면 절반이 작품 의도를 전혀 다르게 이해하고 있습니다.",
+          "de": "Laut Besucherumfrage versteht die Hälfte die Absicht des Werks völlig anders.",
+          "en": "According to the visitor survey, half of them understand the work's intent completely differently."
+        },
+        {
+          "speaker": "user",
+          "ko": "그건 오독이 아니라 열린 해석이라고 생각해요.",
+          "de": "Ich glaube, das ist keine Fehldeutung, sondern eine offene Interpretation.",
+          "en": "I don't think that's a misreading — I think it's an open interpretation."
+        },
+        {
+          "speaker": "lena",
+          "ko": "그렇다고 해도 설명 없이는 사회적 메시지가 아예 안 읽힐 수도 있습니다.",
+          "de": "Trotzdem könnte die gesellschaftliche Botschaft ohne Erklärung überhaupt nicht ankommen.",
+          "en": "Even so, without an explanation the social message might not come across at all."
+        },
+        {
+          "speaker": "user",
+          "ko": "작품의 의미는 제 의도만이 아니라 관객이 만들어 가는 과정까지 포함한다고 봐요.",
+          "de": "Ich finde, die Bedeutung eines Werks umfasst nicht nur meine Absicht, sondern auch den Prozess, den das Publikum mitgestaltet.",
+          "en": "I think the meaning of a work includes not just my intention but also the process the audience builds."
+        },
+        {
+          "speaker": "lena",
+          "ko": "이해는 하지만 개인적 해석과 무관하게 전시 목적이 관람객 참여 유도라는 것도 무시할 수는 없어요.",
+          "de": "Ich verstehe das, aber unabhängig von der persönlichen Interpretation können wir auch nicht ignorieren, dass das Ausstellungsziel die Beteiligung der Besucher ist.",
+          "en": "I understand, but regardless of personal interpretation, we also can't ignore that the exhibition's purpose is to encourage visitor engagement."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 의도를 관객 참여 수치 하나로 환원할 수는 없다고 봐요.",
+          "de": "Ich finde, man kann diese Absicht nicht auf eine einzige Kennzahl zur Besucherbeteiligung reduzieren.",
+          "en": "I don't think that intent can be reduced to a single visitor-engagement number."
+        },
+        {
+          "speaker": "lena",
+          "ko": "그럼 문구 대신 짧은 작가 노트 정도는 어때요?",
+          "de": "Wie wäre es dann stattdessen mit einer kurzen Künstlernotiz anstelle einer Beschriftung?",
+          "en": "Then how about a short artist's note instead of a label?"
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아요. 정답을 주지 않는 선에서 같이 문장을 다듬어 봐요.",
+          "de": "Gut. Lassen Sie uns den Text gemeinsam so ausarbeiten, dass er keine eindeutige Antwort vorgibt.",
+          "en": "Good. Let's refine the wording together so it doesn't hand out a single right answer."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c2_w10_aesthetic_hear",
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "작품의 의미는 제 의도만이 아니라 관객이 만들어 가는 과정까지 포함한다고 봐요.",
+            "options": [
+              {
+                "de": "Ich finde, die Bedeutung eines Werks umfasst nicht nur meine Absicht, sondern auch den Prozess, den das Publikum mitgestaltet.",
+                "en": "I think the meaning of a work includes not just my intention but also the process the audience builds."
+              },
+              {
+                "de": "Die Bedeutung des Werks ist bereits vollständig festgelegt.",
+                "en": "The meaning of the work is already completely fixed."
+              },
+              {
+                "de": "Das Publikum darf das Werk gar nicht interpretieren.",
+                "en": "The audience isn't allowed to interpret the work at all."
+              },
+              {
+                "de": "Meine Absicht spielt für die Bedeutung keine Rolle.",
+                "en": "My intention plays no role in the meaning at all."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_w10_aesthetic_translate",
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Ich finde, man kann diese Absicht nicht auf eine einzige Kennzahl zur Besucherbeteiligung reduzieren.",
+            "promptEn": "I don't think that intent can be reduced to a single visitor-engagement number.",
+            "options": [
+              {
+                "ko": "그 의도를 관객 참여 수치 하나로 환원할 수는 없다고 봐요."
+              },
+              {
+                "ko": "관람객 설문을 보면 절반이 작품 의도를 전혀 다르게 이해하고 있습니다."
+              },
+              {
+                "ko": "그건 오독이 아니라 열린 해석이라고 생각해요."
+              },
+              {
+                "ko": "그럼 문구 대신 짧은 작가 노트 정도는 어때요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_w10_aesthetic_build",
+          "type": "satzBauen",
+          "data": {
+            "targetKo": "그럼 문구 대신 짧은 작가 노트 정도는 어때요?",
+            "promptDe": "Wie wäre es dann stattdessen mit einer kurzen Künstlernotiz anstelle einer Beschriftung?",
+            "promptEn": "Then how about a short artist's note instead of a label?",
+            "distractors": [
+              "작품의",
+              "관람객"
+            ]
+          }
+        }
+      ],
+      "culturalNote": null,
+      "xpReward": 150
+    },
+    {
+      "id": "c2_w10_limitation",
+      "level": "c2",
+      "emoji": "⏳",
+      "register": "business",
+      "speechStyle": "business",
+      "title": {
+        "ko": "소멸시효가 지나면 정말 끝인가",
+        "de": "Ist mit Ablauf der Verjährung wirklich alles vorbei?",
+        "en": "Once the limitation period passes, is it really over?"
+      },
+      "intro": {
+        "ko": "수진은 몇 년 전 피해에 대한 배상을 청구하려 하지만 담당자는 소멸시효가 이미 지났다고 설명합니다.",
+        "de": "Sujin möchte Schadensersatz für einen Vorfall vor einigen Jahren fordern, doch der Sachbearbeiter erklärt, die Verjährungsfrist sei bereits abgelaufen.",
+        "en": "Sujin wants to file a compensation claim for something that happened a few years ago, but the official explains the statute of limitations has already expired."
+      },
+      "courseUnitId": "c2_04_sanction_accountability",
+      "playerCharacterId": "sujin",
+      "participantIds": [
+        "sujin",
+        "official"
+      ],
+      "relationshipContext": "claimant_and_official",
+      "intent": "clarify_why_a_claim_is_time_barred_and_seek_an_exception",
+      "shelf": "c2_limitation",
+      "backdrop": "office",
+      "vocab": [
+        {
+          "korean": "배상",
+          "note": {
+            "ko": "입힌 손해를 돈이나 다른 방법으로 물어 주는 것",
+            "de": "Schadensersatz",
+            "en": "compensation"
+          }
+        },
+        {
+          "korean": "소멸시효",
+          "note": {
+            "ko": "정해진 기간이 지나면 권리가 없어지는 제도",
+            "de": "Verjährung",
+            "en": "statute of limitations"
+          }
+        },
+        {
+          "korean": "청구권",
+          "note": {
+            "ko": "무엇을 요구할 수 있는 법적 권리",
+            "de": "Anspruch",
+            "en": "right to claim"
+          }
+        },
+        {
+          "korean": "기산일",
+          "note": {
+            "ko": "기간을 계산하기 시작하는 날",
+            "de": "Fristbeginn",
+            "en": "start date of a period"
+          }
+        },
+        {
+          "korean": "예외 조항",
+          "note": {
+            "ko": "일반 규칙과 다르게 정한 항목",
+            "de": "Ausnahmeregelung",
+            "en": "exception clause"
+          }
+        },
+        {
+          "korean": "진단서",
+          "note": {
+            "ko": "의사가 병명이나 상태를 적어 주는 서류",
+            "de": "ärztliches Attest",
+            "en": "medical certificate"
+          }
+        },
+        {
+          "korean": "신청서",
+          "note": {
+            "ko": "무엇을 신청할 때 내는 서류",
+            "de": "Antragsformular",
+            "en": "application form"
+          }
+        }
+      ],
+      "conceptIds": [
+        "concept_c2_sanction_accountability"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "grammarIds": [
+        "grammar_c2_no_matter_how",
+        "grammar_c2_fortunate_counterfactual"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "아무리 V-ㄴ다 한들",
+          "de": "아무리 V-ㄴ다 한들: wie sehr auch immer",
+          "en": "아무리 V-ㄴ다 한들: no matter how much"
+        },
+        "explanation": {
+          "ko": "어떤 정도를 크게 인정하면서도 그것이 예상되는 결론으로 이어지지는 않는다고 반박할 때 써요.",
+          "de": "Man räumt ein hohes Ausmaß ein, bestreitet aber, dass daraus die erwartete Folge entsteht.",
+          "en": "You grant a large degree of something while denying that it leads to the expected consequence."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "삼 년 전 사고에 대한 배상을 이제라도 청구할 수 있을까요?",
+          "de": "Kann ich für den Unfall vor drei Jahren jetzt noch Schadensersatz fordern?",
+          "en": "Can I still file for compensation now for the accident three years ago?"
+        },
+        {
+          "speaker": "official",
+          "ko": "안타깝게도 소멸시효가 이미 지나서 청구권 자체가 사라진 상태입니다.",
+          "de": "Leider ist die Verjährungsfrist bereits abgelaufen, sodass der Anspruch selbst erloschen ist.",
+          "en": "Unfortunately the limitation period has already passed, so the claim itself has expired."
+        },
+        {
+          "speaker": "user",
+          "ko": "아무리 시간이 지났다 한들 제가 몰랐던 사실은 감안해 주셔야 하는 거 아닌가요?",
+          "de": "Wie viel Zeit auch vergangen sein mag, müssten Sie nicht berücksichtigen, dass ich davon nichts wusste?",
+          "en": "No matter how much time has passed, shouldn't the fact that I didn't know be taken into account?"
+        },
+        {
+          "speaker": "official",
+          "ko": "맞습니다. 그래서 기산일을 나중에 알게 된 시점부터 계산하는 예외 조항이 있습니다.",
+          "de": "Das stimmt. Deshalb gibt es eine Ausnahmeregelung, nach der die Frist erst ab dem Zeitpunkt läuft, an dem man davon erfährt.",
+          "en": "That's right. That's why there's an exception clause that calculates the period from when you actually found out."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 제가 사실을 알게 된 날짜를 증명하면 되는 거죠? 다행히 그날 병원 진단서를 받았어요.",
+          "de": "Dann muss ich also nur das Datum nachweisen, an dem ich davon erfahren habe, oder? Zum Glück habe ich an dem Tag ein ärztliches Attest bekommen.",
+          "en": "So I just need to prove the date when I found out, right? Luckily, I got a medical certificate from the hospital that day."
+        },
+        {
+          "speaker": "official",
+          "ko": "그 진단서가 남아 있었기에 망정이지, 안 그랬으면 신청 자체가 어려웠을 거예요.",
+          "de": "Zum Glück ist dieses Attest erhalten geblieben – sonst wäre der Antrag selbst kaum möglich gewesen.",
+          "en": "It's a good thing that certificate was kept — otherwise, filing at all would have been difficult."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 그 서류부터 다시 찾아볼게요.",
+          "de": "Dann suche ich zuerst dieses Dokument wieder heraus.",
+          "en": "Then I'll go find that document again first."
+        },
+        {
+          "speaker": "official",
+          "ko": "네, 준비되시면 신청서와 같이 제출해 주세요.",
+          "de": "Ja, wenn Sie es haben, reichen Sie es bitte zusammen mit dem Antrag ein.",
+          "en": "Yes, once you have it, please submit it together with the application."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c2_w10_limitation_hear",
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "맞습니다. 그래서 기산일을 나중에 알게 된 시점부터 계산하는 예외 조항이 있습니다.",
+            "options": [
+              {
+                "de": "Das stimmt. Deshalb gibt es eine Ausnahmeregelung, nach der die Frist erst ab dem Zeitpunkt läuft, an dem man davon erfährt.",
+                "en": "That's right. That's why there's an exception clause that calculates the period from when you actually found out."
+              },
+              {
+                "de": "Nein, für diesen Fall gibt es keine Ausnahme.",
+                "en": "No, there's no exception for this case."
+              },
+              {
+                "de": "Die Frist beginnt immer erst nach zehn Jahren.",
+                "en": "The period always starts only after ten years."
+              },
+              {
+                "de": "Der Anspruch kann niemals mehr geltend gemacht werden.",
+                "en": "The claim can never be asserted again."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_w10_limitation_translate",
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Zum Glück ist dieses Attest erhalten geblieben – sonst wäre der Antrag selbst kaum möglich gewesen.",
+            "promptEn": "It's a good thing that certificate was kept — otherwise, filing at all would have been difficult.",
+            "options": [
+              {
+                "ko": "그 진단서가 남아 있었기에 망정이지, 안 그랬으면 신청 자체가 어려웠을 거예요."
+              },
+              {
+                "ko": "삼 년 전 사고에 대한 배상을 이제라도 청구할 수 있을까요?"
+              },
+              {
+                "ko": "안타깝게도 소멸시효가 이미 지나서 청구권 자체가 사라진 상태입니다."
+              },
+              {
+                "ko": "그럼 제가 사실을 알게 된 날짜를 증명하면 되는 거죠? 다행히 그날 병원 진단서를 받았어요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_w10_limitation_build",
+          "type": "satzBauen",
+          "data": {
+            "targetKo": "그럼 그 서류부터 다시 찾아볼게요.",
+            "promptDe": "Dann suche ich zuerst dieses Dokument wieder heraus.",
+            "promptEn": "Then I'll go find that document again first.",
+            "distractors": [
+              "소멸시효가",
+              "진단서에"
+            ]
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "소멸시효의 기산일 예외",
+          "de": "Der Beginn der Verjährungsfrist als Ausnahme",
+          "en": "The exception for when the limitation period starts"
+        },
+        "body": {
+          "ko": "한국 민법에서는 원칙적으로 사고 발생일부터 소멸시효를 계산하지만, 피해 사실을 나중에 알게 된 경우에는 그 사실을 안 날부터 다시 기간을 계산해 주는 예외가 있어요.",
+          "de": "Im koreanischen Zivilrecht beginnt die Verjährungsfrist grundsätzlich mit dem Ereignis, doch wenn der Schaden erst später bekannt wird, läuft die Frist ausnahmsweise erst ab dem Zeitpunkt der Kenntnis.",
+          "en": "Under Korean civil law, the limitation period generally starts on the date of the incident, but if the harm is discovered later, there's an exception that starts the period from the date it was discovered."
+        }
+      },
+      "xpReward": 150
+    },
+    {
+      "id": "c2_w10_jurisdiction",
+      "level": "c2",
+      "emoji": "🧭",
+      "register": "business",
+      "speechStyle": "business",
+      "title": {
+        "ko": "책임을 서로 미루기 전에 관할부터 정하기",
+        "de": "Erst die Zuständigkeit klären, bevor man sich die Schuld zuschiebt",
+        "en": "Settling jurisdiction before passing the blame around"
+      },
+      "intro": {
+        "ko": "다니엘은 건물 경계에 걸친 하수구 문제로 두 부서를 오가며 담당 부서를 찾고 있습니다.",
+        "de": "Daniel läuft wegen eines Abwasserproblems an der Grundstücksgrenze zwischen zwei Ämtern hin und her, um die zuständige Stelle zu finden.",
+        "en": "Daniel is going back and forth between two departments over a drainage problem on a property boundary, trying to find who's actually responsible."
+      },
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "playerCharacterId": "daniel",
+      "participantIds": [
+        "daniel",
+        "clerk",
+        "official"
+      ],
+      "relationshipContext": "citizen_and_two_offices",
+      "intent": "pin_down_which_office_is_actually_responsible",
+      "shelf": "c2_jurisdiction",
+      "backdrop": "office",
+      "vocab": [
+        {
+          "korean": "하수구",
+          "note": {
+            "ko": "더러운 물이 빠져나가는 통로",
+            "de": "Abwasserkanal",
+            "en": "drain"
+          }
+        },
+        {
+          "korean": "경계",
+          "note": {
+            "ko": "두 지역을 나누는 선",
+            "de": "Grenze",
+            "en": "boundary"
+          }
+        },
+        {
+          "korean": "담당",
+          "note": {
+            "ko": "어떤 일을 맡아서 처리하는 것",
+            "de": "Zuständigkeit",
+            "en": "responsibility/charge"
+          }
+        },
+        {
+          "korean": "행정 구역",
+          "note": {
+            "ko": "행정을 위해 나눠 놓은 지역",
+            "de": "Verwaltungsbezirk",
+            "en": "administrative district"
+          }
+        },
+        {
+          "korean": "배관",
+          "note": {
+            "ko": "물이나 가스가 지나가는 관",
+            "de": "Leitung/Rohr",
+            "en": "pipe/piping"
+          }
+        },
+        {
+          "korean": "시설",
+          "note": {
+            "ko": "어떤 목적을 위해 만들어 둔 설비",
+            "de": "Anlage",
+            "en": "facility"
+          }
+        },
+        {
+          "korean": "소유",
+          "note": {
+            "ko": "물건을 가지고 있는 것",
+            "de": "Besitz/Eigentum",
+            "en": "ownership"
+          }
+        }
+      ],
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "grammarIds": [
+        "grammar_c2_regardless_of_kin",
+        "grammar_c2_likely_negative"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N와/과 무관하게",
+          "de": "N와/과 무관하게: unabhängig von N",
+          "en": "N와/과 무관하게: regardless of N"
+        },
+        "explanation": {
+          "ko": "어떤 결정이나 책임이 특정 요인과는 별개로 정해진다는 것을 밝힐 때 써요.",
+          "de": "Man stellt klar, dass eine Entscheidung oder Zuständigkeit unabhängig von einem bestimmten Faktor gilt.",
+          "en": "You make clear that a decision or responsibility applies independently of a particular factor."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "clerk",
+          "ko": "그 하수구는 옆 동네 경계에 있어서 저희 담당이 아니에요.",
+          "de": "Der Abwasserkanal liegt an der Grenze zum Nachbarbezirk, das fällt nicht in unseren Zuständigkeitsbereich.",
+          "en": "That drain is right at the border with the next district, so it's not our department's responsibility."
+        },
+        {
+          "speaker": "user",
+          "ko": "저쪽 부서에서는 여기가 담당이라고 했는데요.",
+          "de": "Bei der anderen Stelle hat man mir aber gesagt, hier sei man zuständig.",
+          "en": "But the other department told me this office was responsible."
+        },
+        {
+          "speaker": "clerk",
+          "ko": "행정 구역과 무관하게 배관 자체는 저희 시설이 아니라서요.",
+          "de": "Unabhängig vom Verwaltungsbezirk gehört die Leitung selbst nicht zu unseren Anlagen.",
+          "en": "Regardless of the administrative district, the pipe itself isn't our facility."
+        },
+        {
+          "speaker": "user",
+          "ko": "이런 식이면 계속 서로 떠넘기기 십상이잖아요.",
+          "de": "So wird man sich das doch nur ständig gegenseitig zuschieben.",
+          "en": "This way, it's just going to keep getting passed back and forth."
+        },
+        {
+          "speaker": "official",
+          "ko": "제가 시설과 담당자예요. 배관 소유 확인부터 해 드릴게요.",
+          "de": "Ich bin von der Anlagenverwaltung zuständig. Ich prüfe zuerst, wem die Leitung gehört.",
+          "en": "I'm the one responsible from facilities management. Let me first check who owns the pipe."
+        },
+        {
+          "speaker": "user",
+          "ko": "감사합니다. 확인되면 바로 연락 주시는 거죠?",
+          "de": "Danke. Sie melden sich dann sofort, sobald das geklärt ist, oder?",
+          "en": "Thank you. You'll contact me right away once it's confirmed, right?"
+        },
+        {
+          "speaker": "official",
+          "ko": "네, 오늘 안에 확인해서 다시 연락드릴게요.",
+          "de": "Ja, ich kläre es noch heute und melde mich wieder bei Ihnen.",
+          "en": "Yes, I'll check it today and get back to you."
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 그럼 연락 기다리겠습니다.",
+          "de": "Ja, dann warte ich auf Ihre Rückmeldung.",
+          "en": "Yes, then I'll wait for your call."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c2_w10_jurisdiction_hear",
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "행정 구역과 무관하게 배관 자체는 저희 시설이 아니라서요.",
+            "options": [
+              {
+                "de": "Unabhängig vom Verwaltungsbezirk gehört die Leitung selbst nicht zu unseren Anlagen.",
+                "en": "Regardless of the administrative district, the pipe itself isn't our facility."
+              },
+              {
+                "de": "Der Verwaltungsbezirk allein entscheidet, wer zuständig ist.",
+                "en": "The administrative district alone decides who's responsible."
+              },
+              {
+                "de": "Die Leitung gehört eindeutig zu unserer Anlage.",
+                "en": "The pipe clearly belongs to our facility."
+              },
+              {
+                "de": "Wir übernehmen jede Zuständigkeit ohne Prüfung.",
+                "en": "We take on any responsibility without checking."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_w10_jurisdiction_translate",
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "So wird man sich das doch nur ständig gegenseitig zuschieben.",
+            "promptEn": "This way, it's just going to keep getting passed back and forth.",
+            "options": [
+              {
+                "ko": "이런 식이면 계속 서로 떠넘기기 십상이잖아요."
+              },
+              {
+                "ko": "그 하수구는 옆 동네 경계에 있어서 저희 담당이 아니에요."
+              },
+              {
+                "ko": "저쪽 부서에서는 여기가 담당이라고 했는데요."
+              },
+              {
+                "ko": "네, 오늘 안에 확인해서 다시 연락드릴게요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_w10_jurisdiction_build",
+          "type": "satzBauen",
+          "data": {
+            "targetKo": "네, 오늘 안에 확인해서 다시 연락드릴게요.",
+            "promptDe": "Ja, ich kläre es noch heute und melde mich wieder bei Ihnen.",
+            "promptEn": "Yes, I'll check it today and get back to you.",
+            "distractors": [
+              "하수구는",
+              "행정 구역과"
+            ]
+          }
+        }
+      ],
+      "culturalNote": null,
+      "xpReward": 150
+    },
+    {
+      "id": "c2_w10_friends",
+      "level": "c2",
+      "emoji": "🤝",
+      "register": "casual",
+      "speechStyle": "casual",
+      "title": {
+        "ko": "우정으로 시작한 사업, 이제는 정리할 때",
+        "de": "Ein aus Freundschaft gestartetes Geschäft — Zeit für eine Klärung",
+        "en": "A business that started from friendship — time to sort it out"
+      },
+      "intro": {
+        "ko": "현아와 다니엘은 함께 차린 작업실을 놓고 지분과 크레딧, 그리고 다니엘의 탈퇴 조건을 다시 이야기합니다.",
+        "de": "Hyuna und Daniel sprechen erneut über Anteile, Namensnennung und die Bedingungen für Daniels Ausstieg aus ihrem gemeinsam gegründeten Studio.",
+        "en": "Hyuna and Daniel talk again about shares, credit, and the terms of Daniel's exit from the studio they founded together."
+      },
+      "courseUnitId": "c2_05_relationship_narratives",
+      "playerCharacterId": "hyuna",
+      "participantIds": [
+        "hyuna",
+        "daniel"
+      ],
+      "relationshipContext": "longtime_friends_and_business_partners",
+      "intent": "renegotiate_trust_credit_and_an_exit_from_a_shared_venture",
+      "shelf": "c2_friends",
+      "backdrop": "cafe",
+      "vocab": [
+        {
+          "korean": "크레딧",
+          "note": {
+            "ko": "작품에 참여한 사람의 이름을 밝히는 것",
+            "de": "Namensnennung/Credits",
+            "en": "credit"
+          }
+        },
+        {
+          "korean": "공동 대표",
+          "note": {
+            "ko": "두 사람 이상이 함께 맡는 대표 자리",
+            "de": "gleichberechtigte Gründer",
+            "en": "co-founder/co-CEO"
+          }
+        },
+        {
+          "korean": "지분",
+          "note": {
+            "ko": "회사에서 각자가 가진 몫",
+            "de": "Anteil",
+            "en": "share/stake"
+          }
+        },
+        {
+          "korean": "우정",
+          "note": {
+            "ko": "친구 사이의 정",
+            "de": "Freundschaft",
+            "en": "friendship"
+          }
+        },
+        {
+          "korean": "변호사",
+          "note": {
+            "ko": "법률 문제를 도와주는 전문가",
+            "de": "Anwalt",
+            "en": "lawyer"
+          }
+        },
+        {
+          "korean": "이름",
+          "note": {
+            "ko": "사람이나 작품을 부르는 말",
+            "de": "Name",
+            "en": "name"
+          }
+        },
+        {
+          "korean": "작품",
+          "note": {
+            "ko": "만든 결과물",
+            "de": "Werk/Projekt",
+            "en": "work/project"
+          }
+        }
+      ],
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "grammarIds": [
+        "grammar_c2_on_the_premise",
+        "grammar_c2_no_reduction_batch20"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 전제로",
+          "de": "N을/를 전제로: unter der Voraussetzung von N",
+          "en": "N을/를 전제로: on the premise of N"
+        },
+        "explanation": {
+          "ko": "어떤 조건을 처음부터 정해 놓고 그 위에서 이야기를 시작한다는 것을 밝힐 때 써요.",
+          "de": "Man macht deutlich, dass man von Anfang an eine bestimmte Bedingung als Grundlage genommen hat.",
+          "en": "You make clear that a certain condition was set from the start as the basis for everything that follows."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "요즘 네가 좀 지쳐 보여서, 우리 이 얘기 한번 제대로 해야 할 것 같아.",
+          "de": "Du wirkst in letzter Zeit ziemlich erschöpft, ich glaube, wir sollten das mal richtig besprechen.",
+          "en": "You've seemed pretty worn out lately, I think we need to really talk this through."
+        },
+        {
+          "speaker": "daniel",
+          "ko": "사실 크레딧에 내 이름이 항상 작게 들어가는 게 계속 마음에 걸렸어.",
+          "de": "Ehrlich gesagt hat mich immer gestört, dass mein Name im Abspann immer so klein steht.",
+          "en": "Honestly, it's always bothered me that my name always shows up so small in the credits."
+        },
+        {
+          "speaker": "user",
+          "ko": "우리가 처음에 공동 대표를 전제로 시작했는데 그 부분을 놓쳤네.",
+          "de": "Wir sind ja ursprünglich unter der Voraussetzung gleichberechtigter Gründer gestartet, und genau das haben wir übersehen.",
+          "en": "We started on the premise of being equal co-founders, and we overlooked exactly that part."
+        },
+        {
+          "speaker": "daniel",
+          "ko": "고마워. 근데 이제는 지분보다 그냥 조용히 나가고 싶은 마음이 더 커.",
+          "de": "Danke. Aber inzwischen wiegt der Wunsch, einfach ruhig auszusteigen, schwerer als die Anteile.",
+          "en": "Thanks. But at this point, the wish to just quietly step away outweighs the shares."
+        },
+        {
+          "speaker": "user",
+          "ko": "이걸 그냥 돈 문제로 환원해서는 안 될 것 같아. 우리 우정도 걸려 있잖아.",
+          "de": "Ich glaube, wir sollten das nicht einfach auf eine Geldfrage reduzieren. Unsere Freundschaft steht ja auch auf dem Spiel.",
+          "en": "I don't think we should just reduce this to a money issue. Our friendship is on the line too."
+        },
+        {
+          "speaker": "daniel",
+          "ko": "맞아. 그래서 지분 정리는 변호사한테 맡기고 우리끼리는 솔직하게 얘기하자.",
+          "de": "Stimmt. Deshalb sollten wir die Anteilsregelung dem Anwalt überlassen und untereinander einfach ehrlich reden.",
+          "en": "True. So let's leave the share settlement to a lawyer and just talk honestly between ourselves."
+        },
+        {
+          "speaker": "user",
+          "ko": "다음 작품에도 네 이름 크게 넣을게. 그건 진심이야.",
+          "de": "Ich werde deinen Namen auch beim nächsten Projekt groß mit reinnehmen. Das meine ich ernst.",
+          "en": "I'll put your name prominently on the next project too. I mean that sincerely."
+        },
+        {
+          "speaker": "daniel",
+          "ko": "고맙다. 그 말 들으니까 마음이 좀 편해지네.",
+          "de": "Danke. Wenn ich das höre, wird mir gleich leichter ums Herz.",
+          "en": "Thanks. Hearing that makes me feel a bit more at ease."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c2_w10_friends_hear",
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "이걸 그냥 돈 문제로 환원해서는 안 될 것 같아. 우리 우정도 걸려 있잖아.",
+            "options": [
+              {
+                "de": "Ich glaube, wir sollten das nicht einfach auf eine Geldfrage reduzieren. Unsere Freundschaft steht ja auch auf dem Spiel.",
+                "en": "I don't think we should just reduce this to a money issue. Our friendship is on the line too."
+              },
+              {
+                "de": "Das hier ist reine Geldsache, mehr nicht.",
+                "en": "This is purely about money, nothing more."
+              },
+              {
+                "de": "Unsere Freundschaft spielt dabei keine Rolle.",
+                "en": "Our friendship plays no role in this at all."
+              },
+              {
+                "de": "Wir sollten sofort alle Anteile verkaufen.",
+                "en": "We should sell all the shares immediately."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_w10_friends_translate",
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Wir sind ja ursprünglich unter der Voraussetzung gleichberechtigter Gründer gestartet, und genau das haben wir übersehen.",
+            "promptEn": "We started on the premise of being equal co-founders, and we overlooked exactly that part.",
+            "options": [
+              {
+                "ko": "우리가 처음에 공동 대표를 전제로 시작했는데 그 부분을 놓쳤네."
+              },
+              {
+                "ko": "사실 크레딧에 내 이름이 항상 작게 들어가는 게 계속 마음에 걸렸어."
+              },
+              {
+                "ko": "고마워. 근데 이제는 지분보다 그냥 조용히 나가고 싶은 마음이 더 커."
+              },
+              {
+                "ko": "고맙다. 그 말 들으니까 마음이 좀 편해지네."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_w10_friends_build",
+          "type": "satzBauen",
+          "data": {
+            "targetKo": "다음 작품에도 네 이름 크게 넣을게. 그건 진심이야.",
+            "promptDe": "Ich werde deinen Namen auch beim nächsten Projekt groß mit reinnehmen. Das meine ich ernst.",
+            "promptEn": "I'll put your name prominently on the next project too. I mean that sincerely.",
+            "distractors": [
+              "지분을",
+              "변호사한테"
+            ]
+          }
+        }
+      ],
+      "culturalNote": null,
+      "xpReward": 150
+    },
+    {
+      "id": "c2_w10_fandom",
+      "level": "c2",
+      "emoji": "🖋️",
+      "register": "business",
+      "speechStyle": "business",
+      "title": {
+        "ko": "2차 창작, 어디까지 내 것이라 할 수 있을까",
+        "de": "Fanwerke — wie weit reicht das eigene Urheberrecht?",
+        "en": "Fan works — how far does ownership really go?"
+      },
+      "intro": {
+        "ko": "레나는 자신의 2차 창작 만화를 무단으로 편집해 판매한 계정을 신고했지만, 운영진의 조치가 부족하다고 느낍니다.",
+        "de": "Lena hat einen Account gemeldet, der ihren Fan-Comic ohne Erlaubnis bearbeitet und verkauft hat, findet die Maßnahmen der Moderation aber unzureichend.",
+        "en": "Lena reported an account that edited and sold her fan comic without permission, but feels the moderators' response falls short."
+      },
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "playerCharacterId": "lena",
+      "participantIds": [
+        "lena",
+        "moderator"
+      ],
+      "relationshipContext": "fan_creator_and_community_moderator",
+      "intent": "defend_authorship_and_ownership_of_a_fan_made_work",
+      "shelf": "c2_fandom",
+      "backdrop": "home",
+      "vocab": [
+        {
+          "korean": "2차 창작",
+          "note": {
+            "ko": "원작을 바탕으로 팬이 새로 만든 작품",
+            "de": "Fanwerk",
+            "en": "fan-made work"
+          }
+        },
+        {
+          "korean": "계정",
+          "note": {
+            "ko": "온라인 서비스를 쓰기 위해 만든 개인 아이디",
+            "de": "Account",
+            "en": "account"
+          }
+        },
+        {
+          "korean": "경고",
+          "note": {
+            "ko": "잘못을 미리 알리며 조심하라고 하는 것",
+            "de": "Warnung",
+            "en": "warning"
+          }
+        },
+        {
+          "korean": "정지",
+          "note": {
+            "ko": "이용을 일시적으로 막는 것",
+            "de": "Sperrung",
+            "en": "suspension"
+          }
+        },
+        {
+          "korean": "판매",
+          "note": {
+            "ko": "돈을 받고 물건이나 작품을 파는 것",
+            "de": "Verkauf",
+            "en": "sale"
+          }
+        },
+        {
+          "korean": "커뮤니티",
+          "note": {
+            "ko": "같은 관심사를 가진 사람들의 모임",
+            "de": "Community",
+            "en": "community"
+          }
+        },
+        {
+          "korean": "이견",
+          "note": {
+            "ko": "다른 의견",
+            "de": "abweichende Meinung",
+            "en": "disagreement/dissenting view"
+          }
+        }
+      ],
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "christian",
+      "grammarIds": [
+        "grammar_c2_regardless_of",
+        "grammar_c2_no_more_than_doing"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 불문하고",
+          "de": "N을/를 불문하고: unabhängig von N (formell)",
+          "en": "N을/를 불문하고: regardless of N (formal)"
+        },
+        "explanation": {
+          "ko": "어떤 규칙이 특정 조건과 상관없이 똑같이 적용된다는 것을 formal한 어조로 밝힐 때 써요.",
+          "de": "Man erklärt in formellem Ton, dass eine Regel unabhängig von einer bestimmten Bedingung gleichermaßen gilt.",
+          "en": "You state in a formal tone that a rule applies equally regardless of a particular condition."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "제 2차 창작을 그대로 편집해서 유료로 판매한 계정을 신고했는데 아직 조치가 없어요.",
+          "de": "Ich habe einen Account gemeldet, der mein Fanwerk unverändert bearbeitet und kostenpflichtig verkauft hat, aber es gab noch keine Maßnahme.",
+          "en": "I reported an account that edited my fan work as-is and sold it for money, but there's been no action yet."
+        },
+        {
+          "speaker": "moderator",
+          "ko": "확인해 보니 경고 메시지를 보내는 데 그친 상태였습니다.",
+          "de": "Bei der Prüfung hat sich gezeigt, dass es bei einer Warnmeldung geblieben ist.",
+          "en": "On checking, it turned out things stopped at sending a warning message."
+        },
+        {
+          "speaker": "user",
+          "ko": "판매까지 한 계정인데 경고만으로 끝내는 건 너무 약한 대응 아닌가요?",
+          "de": "Der Account hat sogar verkauft — reicht da eine bloße Warnung nicht viel zu schwach?",
+          "en": "The account actually sold it — isn't a mere warning much too weak a response?"
+        },
+        {
+          "speaker": "moderator",
+          "ko": "장르나 팬덤 규모를 불문하고 상업적 이용은 계정 정지 대상이 맞습니다.",
+          "de": "Unabhängig von Genre oder Fandom-Größe führt kommerzielle Nutzung eigentlich zur Kontosperrung.",
+          "en": "Regardless of genre or fandom size, commercial use is in fact grounds for suspension."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 이번 건은 왜 정지가 아니라 경고에서 그친 거예요?",
+          "de": "Warum ist es dann in diesem Fall bei einer Warnung geblieben und nicht zur Sperrung gekommen?",
+          "en": "Then why did this case stop at a warning instead of a suspension?"
+        },
+        {
+          "speaker": "moderator",
+          "ko": "판정 실수였습니다. 다시 검토해서 정지 조치로 올리겠습니다.",
+          "de": "Das war ein Beurteilungsfehler. Wir prüfen es erneut und stufen es zur Sperrung hoch.",
+          "en": "That was a misjudgment. We'll review it again and escalate it to a suspension."
+        },
+        {
+          "speaker": "user",
+          "ko": "감사해요. 그리고 이견이 있는 분들도 신고 대신 댓글로 의견을 남겨 주셨으면 해요.",
+          "de": "Danke. Und ich würde mir wünschen, dass Leute mit anderer Meinung ihre Sicht per Kommentar äußern, statt zu melden.",
+          "en": "Thank you. And I'd also like people who disagree to leave their views in comments instead of reporting."
+        },
+        {
+          "speaker": "moderator",
+          "ko": "좋은 제안입니다. 커뮤니티 안내문에 그 내용도 추가하겠습니다.",
+          "de": "Das ist ein guter Vorschlag. Wir nehmen das auch in die Community-Richtlinien mit auf.",
+          "en": "That's a good suggestion. We'll add that to the community guidelines as well."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c2_w10_fandom_hear",
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "장르나 팬덤 규모를 불문하고 상업적 이용은 계정 정지 대상이 맞습니다.",
+            "options": [
+              {
+                "de": "Unabhängig von Genre oder Fandom-Größe führt kommerzielle Nutzung eigentlich zur Kontosperrung.",
+                "en": "Regardless of genre or fandom size, commercial use is in fact grounds for suspension."
+              },
+              {
+                "de": "Nur bei sehr großen Fandoms gilt diese Regel.",
+                "en": "This rule only applies to very large fandoms."
+              },
+              {
+                "de": "Kommerzielle Nutzung ist in jedem Fall erlaubt.",
+                "en": "Commercial use is allowed in every case."
+              },
+              {
+                "de": "Das Genre entscheidet allein über die Sperrung.",
+                "en": "The genre alone decides on suspension."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_w10_fandom_translate",
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Bei der Prüfung hat sich gezeigt, dass es bei einer Warnmeldung geblieben ist.",
+            "promptEn": "On checking, it turned out things stopped at sending a warning message.",
+            "options": [
+              {
+                "ko": "확인해 보니 경고 메시지를 보내는 데 그친 상태였습니다."
+              },
+              {
+                "ko": "제 2차 창작을 그대로 편집해서 유료로 판매한 계정을 신고했는데 아직 조치가 없어요."
+              },
+              {
+                "ko": "판매까지 한 계정인데 경고만으로 끝내는 건 너무 약한 대응 아닌가요?"
+              },
+              {
+                "ko": "판정 실수였습니다. 다시 검토해서 정지 조치로 올리겠습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_w10_fandom_build",
+          "type": "satzBauen",
+          "data": {
+            "targetKo": "판정 실수였습니다. 다시 검토해서 정지 조치로 올리겠습니다.",
+            "promptDe": "Das war ein Beurteilungsfehler. Wir prüfen es erneut und stufen es zur Sperrung hoch.",
+            "promptEn": "That was a misjudgment. We'll review it again and escalate it to a suspension.",
+            "distractors": [
+              "계정을",
+              "경고만으로"
+            ]
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "2차 창작과 비상업 원칙",
+          "de": "Fanwerke und das Prinzip der Nicht-Kommerzialität",
+          "en": "Fan works and the non-commercial principle"
+        },
+        "body": {
+          "ko": "한국 팬덤 문화에서는 2차 창작을 대체로 허용하되 비상업적 공유를 전제로 하는 경우가 많아서, 유료 판매로 넘어가면 원작자나 다른 팬 창작자의 항의를 받기 쉬워요.",
+          "de": "In der koreanischen Fankultur wird Fanwerk meist toleriert, solange es nicht kommerziell geteilt wird — sobald es verkauft wird, kommt es leicht zu Beschwerden von Originalschöpfern oder anderen Fan-Autoren.",
+          "en": "Korean fan culture generally tolerates fan works on the premise that they stay non-commercial, so once something moves to paid sales, it easily draws objections from original creators or other fan creators."
+        }
+      },
+      "xpReward": 150
     }
   ]
 }

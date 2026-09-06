@@ -1,0 +1,310 @@
+{
+  "version": 1,
+  "batch": "23",
+  "status": "merged",
+  "provenance": {
+    "scope": "W10 Wave 2 scenario expansion: B2 9, C1 9, C2 9 = 27 scenarios filling every remaining empty Chaekgado shelf compartment across the three levels (Jin decision D-3).",
+    "requiresJinReview": true,
+    "approval": {
+      "authority": "Fable (designer direct read) + Jin pending",
+      "approvedAt": "2026-09-06",
+      "scope": "27 scenarios reviewed by Fable via direct draft read across two revision passes (1st pass in commits dc9abf37, 796fc575, 92b5b5f3; 2nd pass correction to c1_w10_facework restoring the -되 pattern and grammar_c1_but_not, commit 34184ea8). Jin explicit sign-off is pending; recorded here so the integration transaction can proceed per the W10 PR-S / T-S3 Wave 2 brief."
+    },
+    "modelLanguageQa": "MODEL_QA_PASS",
+    "humanLanguageQaClaim": false,
+    "mergedAt": "2026-09-06"
+  },
+  "artifacts": [
+    {
+      "kind": "scenario",
+      "draft": "tools/content_factory/drafts/w10_wave2_scenario.json",
+      "review": "tools/content_factory/review/w10_wave2_scenarios.csv",
+      "collection": "scenarios",
+      "count": 27,
+      "levels": {
+        "b2": 9,
+        "c1": 9,
+        "c2": 9
+      }
+    }
+  ],
+  "recordCount": 27,
+  "questCount": 81,
+  "contentLinks": [
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_w10_negotiate",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_w10_notice",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": [
+        "concept_b2_complaint"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_w10_travel",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": [
+        "concept_b2_complaint"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_w10_health",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_w10_partner",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_w10_hiring",
+      "courseUnitId": "b2_05_interview",
+      "conceptIds": [
+        "concept_b2_interview"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_w10_authorities",
+      "courseUnitId": "b2_01_formal_opening",
+      "conceptIds": [
+        "concept_b2_formal_opening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_w10_privacy",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_w10_fandom",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_w10_uncertainty",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_w10_access",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_w10_labor",
+      "courseUnitId": "c1_06_intimacy_safety_design",
+      "conceptIds": [
+        "concept_c1_intimacy_safety"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_w10_conflict_interest",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_w10_clinical",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_w10_methodology",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_w10_facework",
+      "courseUnitId": "c1_06_intimacy_safety_design",
+      "conceptIds": [
+        "concept_c1_intimacy_safety"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_w10_friends",
+      "courseUnitId": "c1_06_intimacy_safety_design",
+      "conceptIds": [
+        "concept_c1_intimacy_safety"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_w10_fandom",
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "conceptIds": [
+        "concept_c1_fan_labor"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_w10_record",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_w10_mandate",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_w10_impact",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_w10_history",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_w10_aesthetic",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_w10_limitation",
+      "courseUnitId": "c2_04_sanction_accountability",
+      "conceptIds": [
+        "concept_c2_sanction_accountability"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_w10_jurisdiction",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_w10_friends",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_w10_fandom",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ],
+      "role": "practice"
+    }
+  ],
+  "backdrops": {
+    "b2_w10_negotiate": "office",
+    "b2_w10_notice": "home",
+    "b2_w10_travel": "airport",
+    "b2_w10_health": "pharmacy",
+    "b2_w10_partner": "home",
+    "b2_w10_hiring": "office",
+    "b2_w10_authorities": "office",
+    "b2_w10_privacy": "home",
+    "b2_w10_fandom": "cafe",
+    "c1_w10_uncertainty": "office",
+    "c1_w10_access": "office",
+    "c1_w10_labor": "office",
+    "c1_w10_conflict_interest": "office",
+    "c1_w10_clinical": "office",
+    "c1_w10_methodology": "office",
+    "c1_w10_facework": "office",
+    "c1_w10_friends": "cafe",
+    "c1_w10_fandom": "home",
+    "c2_w10_record": "office",
+    "c2_w10_mandate": "office",
+    "c2_w10_impact": "office",
+    "c2_w10_history": "home",
+    "c2_w10_aesthetic": "office",
+    "c2_w10_limitation": "office",
+    "c2_w10_jurisdiction": "office",
+    "c2_w10_friends": "cafe",
+    "c2_w10_fandom": "home"
+  },
+  "mergeOrder": [
+    "scenario + contentLinks + scenario backdrop + audit manifest"
+  ]
+}

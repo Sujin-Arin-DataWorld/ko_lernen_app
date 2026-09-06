@@ -251,12 +251,14 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "b2_hiring_salary_band",
         "b2_hiring_start_date",
         "b2_job_hunting_ai_screening",
+        "b2_w10_hiring",
     ),
     "b2_privacy": (
         "b2_privacy_data_scope",
         "b2_privacy_delete_request",
         "b2_privacy_retention_period",
         "b2_privacy_third_party",
+        "b2_w10_privacy",
     ),
     "a2_friends": (
         "a2_friends_weekend_slot", "a2_gaming_cant_connect",
@@ -341,6 +343,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "b2_counter_offer", "b2_must_have", "b2_limit_line",
         "b2_restore_scope", "b2_next_level", "job_interview",
         "b2_deadline_deferral_request",
+        "b2_w10_negotiate",
     ),
     "b2_contract": (
         "b2_contract_clause_inquiry", "b2_signature_scope_confirmation",
@@ -352,14 +355,17 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "b2_certified_mail", "b2_objection_status_request",
         "b2_remedy_plan_request", "b2_evidence_date",
         "b2_device_failure_escalation", "complaint_delivery",
+        "b2_w10_notice",
     ),
     "b2_travel": (
         "b2_airport_reseat", "b2_station_hold", "b2_taxi_escalate",
         "b2_direction_risk", "b2_on_site",
+        "b2_w10_travel",
     ),
     "b2_health": (
         "doctor_consultation", "b2_pharmacy_claim", "b2_convenience_scan",
         "b2_restaurant_note",
+        "b2_w10_health",
     ),
     "b2_public": (
         "b2_public_question", "b2_public_wording_feedback",
@@ -371,9 +377,11 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "b2_partner_dowry_joke", "b2_partner_inlaw_rotation",
         "b2_partner_photo_permission", "b2_partner_public_intro",
         "b2_partner_holiday_labor_chart",
+        "b2_w10_partner",
     ),
     "b2_authorities": (
         "b2_daily_upstairs_noise",
+        "b2_w10_authorities",
     ),
     "b2_friends": (
         "b2_friends_split_the_bill", "b2_gaming_ban_appeal",
@@ -385,6 +393,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "b2_fandom": (
         "b2_kpop_staff_interview", "b2_youtube_collab_pitch",
         "b2_kpop_local_festival_program",
+        "b2_w10_fandom",
     ),
     "c1_briefing": (
         "c1_briefing_number", "c1_leading_item", "c1_speaking_slot",
@@ -393,13 +402,16 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "c1_uncertainty": (
         "c1_sample_bias", "c1_uncertainty", "c1_relative_risk",
         "c1_survey_limits_briefing",
+        "c1_w10_uncertainty",
     ),
     "c1_access": (
         "c1_access_time",
+        "c1_w10_access",
     ),
     "c1_labor": (
         "c1_partner_invisible_labor", "c1_partner_guest_or_family",
         "c1_daily_migration_demography_policy_forum",
+        "c1_w10_labor",
     ),
     # C1/C2 에서는 관심 소재가 담화 기능과 겹쳐 보인다 —
     # c1_kpop_fan_labor 는 c1_labor 로, c1_gaming_playtime_policy 는
@@ -409,12 +421,14 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     # 메우고, 관심 소재는 소재 축에 둔다.
     "c1_methodology": (
         "c1_daily_prices_vs_data",
+        "c1_w10_methodology",
     ),
     "c1_conflict_interest": (
         "c1_conflict_interest_disclose_stake",
         "c1_conflict_interest_dual_role",
         "c1_conflict_interest_recuse_request",
         "c1_conflict_interest_sponsored_talk",
+        "c1_w10_conflict_interest",
     ),
     "c1_policy": (
         "c1_policy_exemption_edge",
@@ -430,6 +444,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "c1_clinical_informed_consent",
         "c1_clinical_second_opinion",
         "c1_clinical_trial_withdrawal",
+        "c1_w10_clinical",
     ),
     "c1_critique": (
         "c1_critique_anonymous_limits",
@@ -448,6 +463,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "c1_facework_correct_in_private",
         "c1_facework_decline_without_wound",
         "c1_facework_praise_before_others",
+        "c1_w10_facework",
     ),
     "c1_attribution": (
         "c1_attribution_author_order",
@@ -457,6 +473,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "c1_friends": (
         "c1_friends_venue_access", "c1_gaming_playtime_policy",
+        "c1_w10_friends",
     ),
     "c1_dating": (
         "c1_dating_app_safety",
@@ -465,6 +482,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "c1_fandom": (
         "c1_kpop_fan_labor", "c1_youtube_health_claims",
         "c1_kpop_platform_localization_review",
+        "c1_w10_fandom",
     ),
     "c2_automation": (
         "c2_appeal_bot", "c2_automated_decision_appeal",
@@ -474,6 +492,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "c2_record": (
         "c2_archive_gap", "c2_trace_log",
+        "c2_w10_record",
     ),
     "c2_discourse": (
         "c2_discourse_premise", "c2_passive_hide",
@@ -481,16 +500,19 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "c2_mandate": (
         "c2_mandate_edge", "c2_withdraw_deep",
+        "c2_w10_mandate",
     ),
     "c2_impact": (
         "c2_uneven_impact",
         "c2_daily_integration_metric_editorial",
+        "c2_w10_impact",
     ),
     "c2_memory": (
         "c2_partner_document_the_place", "c2_partner_name_and_memory",
     ),
     "c2_friends": (
         "c2_friends_quoted_privately", "c2_gaming_auto_sanction",
+        "c2_w10_friends",
     ),
     "c2_dating": (
         "c2_dating_romance_frames",
@@ -499,6 +521,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "c2_fandom": (
         "c2_kpop_fandom_language", "c2_youtube_algorithm_duty",
         "c2_kpop_authenticity_platform_panel",
+        "c2_w10_fandom",
     ),
     "c2_ethics": (
         "c2_ethics_consent_form_scope_gap",
@@ -511,24 +534,28 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "c2_history_merging_conflicting_testimonies",
         "c2_history_monument_inscription_agreement",
         "c2_history_sealed_records_disclosure_timing",
+        "c2_w10_history",
     ),
     "c2_aesthetic": (
         "c2_aesthetic_dialect_subtitle_flatten",
         "c2_aesthetic_poem_rhythm_meaning_loss",
         "c2_aesthetic_translator_editor_dispute",
         "c2_aesthetic_word_without_equivalent",
+        "c2_w10_aesthetic",
     ),
     "c2_limitation": (
         "c2_limitation_define_accrual_date",
         "c2_limitation_ex_officio_review_path",
         "c2_limitation_extension_premise_error_proof",
         "c2_limitation_notice_delay_appeal_window",
+        "c2_w10_limitation",
     ),
     "c2_jurisdiction": (
         "c2_jurisdiction_cross_border_premise",
         "c2_jurisdiction_even_if_authorized_escalate",
         "c2_jurisdiction_neither_claims_authority",
         "c2_jurisdiction_provisional_ruling_no_authority",
+        "c2_w10_jurisdiction",
     ),
     "c2_representation": (
         "c2_representation_fan_rep_mandate_defined",

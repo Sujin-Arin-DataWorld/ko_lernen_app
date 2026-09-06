@@ -1,7 +1,7 @@
 [
   {
     "id": "b2_w10_negotiate",
-    "level": "B2",
+    "level": "b2",
     "emoji": "🤝",
     "register": "business",
     "speechStyle": "business",
@@ -248,7 +248,7 @@
   },
   {
     "id": "b2_w10_notice",
-    "level": "B2",
+    "level": "b2",
     "emoji": "📨",
     "register": "polite",
     "speechStyle": "polite",
@@ -481,7 +481,7 @@
   },
   {
     "id": "b2_w10_travel",
-    "level": "B2",
+    "level": "b2",
     "emoji": "✈️",
     "register": "polite",
     "speechStyle": "polite",
@@ -710,7 +710,7 @@
   },
   {
     "id": "b2_w10_health",
-    "level": "B2",
+    "level": "b2",
     "emoji": "💊",
     "register": "polite",
     "speechStyle": "polite",
@@ -943,7 +943,7 @@
   },
   {
     "id": "b2_w10_partner",
-    "level": "B2",
+    "level": "b2",
     "emoji": "👪",
     "register": "intimate",
     "speechStyle": "intimate",
@@ -1176,7 +1176,7 @@
   },
   {
     "id": "b2_w10_hiring",
-    "level": "B2",
+    "level": "b2",
     "emoji": "💼",
     "register": "business",
     "speechStyle": "business",
@@ -1415,7 +1415,7 @@
   },
   {
     "id": "b2_w10_authorities",
-    "level": "B2",
+    "level": "b2",
     "emoji": "🛂",
     "register": "polite",
     "speechStyle": "polite",
@@ -1648,7 +1648,7 @@
   },
   {
     "id": "b2_w10_privacy",
-    "level": "B2",
+    "level": "b2",
     "emoji": "🔒",
     "register": "polite",
     "speechStyle": "polite",
@@ -1881,7 +1881,7 @@
   },
   {
     "id": "b2_w10_fandom",
-    "level": "B2",
+    "level": "b2",
     "emoji": "🎤",
     "register": "casual",
     "speechStyle": "casual",
