@@ -80,7 +80,8 @@ void main() {
   );
 
   test(
-    'direct services block a persisted pending journal without side effects',
+    'direct backup/restore still block on a persisted pending journal, but '
+    'account deletion (T5) tolerates it',
     () async {
       await journal.write(
         CloudBackupDeletionJournal.pending(
@@ -96,20 +97,11 @@ void main() {
       await CloudSync.backup();
       expect(await CloudSync.backupWithResult(), CloudWriteResult.blocked);
       expect(await CloudSync.restore(), isFalse);
-      await expectLater(
-        AuthService.deleteAccount(closeFeedback: () async {}),
-        throwsA(
-          isA<AccountOperationFailure>()
-              .having(
-                (failure) => failure.code,
-                'code',
-                AccountOperationFailureCode.blocked,
-              )
-              .having((failure) => failure.retryable, 'retryable', isFalse),
-        ),
-      );
+      // T5: a pending cloud-backup-deletion journal only cleans up server
+      // data and never locks the deletion lane — deleteAccount is admitted.
+      await AuthService.deleteAccount(closeFeedback: () async {});
 
-      expect(operations, isEmpty);
+      expect(operations, <String>['delete-account']);
     },
   );
 

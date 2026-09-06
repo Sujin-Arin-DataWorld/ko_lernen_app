@@ -45,39 +45,86 @@ void main() {
     },
   );
 
+  // T5: deletion accepts and finishes synchronously, so a non-completed
+  // deletion journal (request never reached the server, or a legacy
+  // mid-flight crash) no longer locks any account action — it is not even
+  // reported as pending. Only a locally-completed checkpoint (server data
+  // cleanup still running in the background) fences link/delete via
+  // `deletionLocalCleanup`, so the Settings panel can offer a local-cleanup
+  // retry.
+  for (final phase in <AccountOperationPhase>[
+    AccountOperationPhase.deletionRequested,
+    AccountOperationPhase.blocked,
+  ]) {
+    test(
+      'a non-completed deletion journal (${phase.name}) is reported as none',
+      () async {
+        SharedPreferences.setMockInitialValues(<String, Object>{});
+        final preferences = await SharedPreferences.getInstance();
+        await preferences.setString(
+          AuthService.accountDeletionCheckpointPreferenceKey,
+          jsonEncode(_nonCompletedDeletion(phase).toJson()),
+        );
+
+        const operations = ProductionAccountUiOperations();
+        final state = await operations.refreshPendingState();
+
+        expect(state, AccountUiPendingState.none);
+        expect(operations.pendingState.value, state);
+      },
+    );
+  }
+
   test(
-    'a pending remote account deletion stays resumable from settings',
+    'a locally-completed deletion checkpoint reports deletionLocalCleanup',
     () async {
       SharedPreferences.setMockInitialValues(<String, Object>{});
       final preferences = await SharedPreferences.getInstance();
       await preferences.setString(
         AuthService.accountDeletionCheckpointPreferenceKey,
-        jsonEncode(_remoteDeletionPending().toJson()),
+        jsonEncode(_completedDeletion().toJson()),
       );
 
       const operations = ProductionAccountUiOperations();
-      final state = await operations.refreshPendingState();
 
-      expect(state, AccountUiPendingState.deletionRemotePending);
-      expect(operations.pendingState.value, state);
+      expect(
+        await operations.refreshPendingState(),
+        AccountUiPendingState.deletionLocalCleanup,
+      );
     },
   );
 
-  test('a nonretryable remote deletion remains blocked', () async {
-    SharedPreferences.setMockInitialValues(<String, Object>{});
-    final preferences = await SharedPreferences.getInstance();
-    await preferences.setString(
-      AuthService.accountDeletionCheckpointPreferenceKey,
-      jsonEncode(_blockedRemoteDeletion().toJson()),
-    );
+  test(
+    'a pending cloud-backup-deletion journal alone is reported as none',
+    () async {
+      SharedPreferences.setMockInitialValues(<String, Object>{});
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.setString(
+        CloudBackupDeletionJournal.storageKey,
+        jsonEncode(
+          CloudBackupDeletionJournal.pending(
+            session: const CloudWriteSession(
+              uid: 'durable-source',
+              epoch: 6,
+              mode: CloudWriteMode.cleanupPending,
+            ),
+            requestKey: 'Z' * 43,
+          ).toJson(),
+        ),
+      );
 
-    const operations = ProductionAccountUiOperations();
+      const operations = ProductionAccountUiOperations();
 
-    expect(
-      await operations.refreshPendingState(),
-      AccountUiPendingState.blocked,
-    );
-  });
+      // The cloud-backup-deletion journal only fences cloud-data operations
+      // (see cloud_backup_deletion_test.dart / cloud_backup_deletion_service_
+      // admission_test.dart) — the Settings panel shows its own resume card
+      // via `cloudDeletionState`, so it must never lock link/delete too.
+      expect(
+        await operations.refreshPendingState(),
+        AccountUiPendingState.none,
+      );
+    },
+  );
 
   test(
     'a late failed durable read cannot overwrite a newer clear admission',
@@ -121,30 +168,15 @@ void main() {
     },
   );
 
-  for (final pending in <String>['deletion', 'cloud-backup-deletion']) {
-    test('persisted $pending blocks provider OAuth before linker', () async {
+  test(
+    'a completed deletion checkpoint still blocks provider OAuth before linker',
+    () async {
       SharedPreferences.setMockInitialValues(<String, Object>{});
       final preferences = await SharedPreferences.getInstance();
-      if (pending == 'deletion') {
-        await preferences.setString(
-          AuthService.accountDeletionCheckpointPreferenceKey,
-          jsonEncode(_completedDeletion().toJson()),
-        );
-      } else {
-        await preferences.setString(
-          CloudBackupDeletionJournal.storageKey,
-          jsonEncode(
-            CloudBackupDeletionJournal.pending(
-              session: const CloudWriteSession(
-                uid: 'durable-source',
-                epoch: 6,
-                mode: CloudWriteMode.cleanupPending,
-              ),
-              requestKey: 'Z' * 43,
-            ).toJson(),
-          ),
-        );
-      }
+      await preferences.setString(
+        AuthService.accountDeletionCheckpointPreferenceKey,
+        jsonEncode(_completedDeletion().toJson()),
+      );
       var providerCalls = 0;
       final operations = ProductionAccountUiOperations(
         providerLinker: (provider) async {
@@ -158,8 +190,42 @@ void main() {
       expect(result, isA<AccountUiLinkBlocked>());
       expect(providerCalls, 0);
       expect(operations.pendingState.value, isNot(AccountUiPendingState.none));
-    });
-  }
+    },
+  );
+
+  test(
+    'a pending cloud-backup-deletion journal no longer blocks provider OAuth',
+    () async {
+      SharedPreferences.setMockInitialValues(<String, Object>{});
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.setString(
+        CloudBackupDeletionJournal.storageKey,
+        jsonEncode(
+          CloudBackupDeletionJournal.pending(
+            session: const CloudWriteSession(
+              uid: 'durable-source',
+              epoch: 6,
+              mode: CloudWriteMode.cleanupPending,
+            ),
+            requestKey: 'Z' * 43,
+          ).toJson(),
+        ),
+      );
+      var providerCalls = 0;
+      final operations = ProductionAccountUiOperations(
+        providerLinker: (provider) async {
+          providerCalls += 1;
+          return const AccountUiLinkCompleted();
+        },
+      );
+
+      final result = await operations.link(AccountLinkProvider.google);
+
+      expect(result, isA<AccountUiLinkCompleted>());
+      expect(providerCalls, 1);
+      expect(operations.pendingState.value, AccountUiPendingState.none);
+    },
+  );
 }
 
 AccountDeletionJournal _completedDeletion() {
@@ -182,18 +248,27 @@ AccountDeletionJournal _completedDeletion() {
   );
 }
 
-AccountDeletionJournal _remoteDeletionPending() {
-  return AccountDeletionJournal.pending(
-    session: const CloudWriteSession(
-      uid: 'anonymous-source',
-      epoch: 5,
-      mode: CloudWriteMode.quiesced,
-    ),
-    requestKey: 'deletion-request-pending',
-  );
-}
-
-AccountDeletionJournal _blockedRemoteDeletion() {
+AccountDeletionJournal _nonCompletedDeletion(AccountOperationPhase phase) {
+  if (phase == AccountOperationPhase.blocked) {
+    return AccountDeletionJournal(
+      version: AccountDeletionJournal.currentVersion,
+      session: const CloudWriteSession(
+        uid: 'anonymous-source',
+        epoch: 5,
+        mode: CloudWriteMode.quiesced,
+      ),
+      requestKey: 'deletion-request-blocked',
+      operation: const AccountOperationResult(
+        operationId: 'deletion-operation-blocked',
+        kind: AccountOperationKind.deletion,
+        phase: AccountOperationPhase.blocked,
+        version: 1,
+        attemptCount: 1,
+        retryable: false,
+        blockedReason: AccountOperationBlockedReason.operationBlocked,
+      ),
+    );
+  }
   return AccountDeletionJournal(
     version: AccountDeletionJournal.currentVersion,
     session: const CloudWriteSession(
@@ -201,15 +276,14 @@ AccountDeletionJournal _blockedRemoteDeletion() {
       epoch: 5,
       mode: CloudWriteMode.quiesced,
     ),
-    requestKey: 'deletion-request-blocked',
-    operation: const AccountOperationResult(
-      operationId: 'deletion-operation-blocked',
+    requestKey: 'deletion-request-pending',
+    operation: AccountOperationResult(
+      operationId: 'deletion-operation-1',
       kind: AccountOperationKind.deletion,
-      phase: AccountOperationPhase.blocked,
+      phase: phase,
       version: 1,
       attemptCount: 1,
-      retryable: false,
-      blockedReason: AccountOperationBlockedReason.operationBlocked,
+      retryable: true,
     ),
   );
 }

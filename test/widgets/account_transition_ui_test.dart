@@ -432,10 +432,10 @@ void main() {
   });
 
   testWidgets(
-    'pending remote deletion retries through its exact callback',
+    'pending local-cleanup deletion retries through its exact callback',
     (tester) async {
       final operations = _FakeAccountUiOperations()
-        ..pending.value = AccountUiPendingState.deletionRemotePending;
+        ..pending.value = AccountUiPendingState.deletionLocalCleanup;
       var retryCalls = 0;
 
       await tester.pumpWidget(

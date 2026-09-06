@@ -107,6 +107,37 @@ void main() {
   });
 
   test(
+    'a deletion journal with no operation is cleared and reported as none',
+    () async {
+      final sessions = CloudWriteSessionController();
+      var discardCalls = 0;
+      final resolver = AccountStartupJournalResolver(
+        sessions: sessions,
+        hasLegacyReplacementJournal: () async => false,
+        discardLegacyReplacement: () async {},
+        readSwitch: () async => null,
+        readDeletion: () async => AccountDeletionJournal.pending(
+          session: const CloudWriteSession(
+            uid: 'anonymous-source',
+            epoch: 5,
+            mode: CloudWriteMode.quiesced,
+          ),
+          requestKey: 'deletion-request-1',
+        ),
+        discardDeletion: () async {
+          discardCalls += 1;
+        },
+      );
+
+      final restored = await resolver.restore('anonymous-source');
+
+      expect(restored.kind, AccountStartupRestorationKind.none);
+      expect(discardCalls, 1);
+      expect(sessions.current, isNull);
+    },
+  );
+
+  test(
     'completed remote deletion becomes local-cleanup-only checkpoint',
     () async {
       final sessions = CloudWriteSessionController();
@@ -144,7 +175,6 @@ void main() {
         readSwitch: () async => null,
         readDeletion: () async => journal,
         readDeletionStatusReceipt: () async => receipt,
-        isDeletionReceiptRecoveryIdentitySafe: (uid) => uid == 'new-anonymous',
       );
 
       final restored = await resolver.restore('new-anonymous');
@@ -258,7 +288,8 @@ void main() {
   });
 
   test(
-    'exact live source with a matching receipt uses status-only restoration',
+    'exact live source resumes explicitly even with a matching receipt '
+    'present (T5 drops the receipt-priority OAuth-avoidance special case)',
     () async {
       final sessions = CloudWriteSessionController();
       final journal = _deletionJournal(AccountOperationPhase.deletionRequested);
@@ -279,12 +310,9 @@ void main() {
 
       final restored = await resolver.restore('anonymous-source');
 
-      expect(
-        restored.kind,
-        AccountStartupRestorationKind.deletionReceiptPending,
-      );
-      expect(restored.session, isNull);
-      expect(sessions.current, isNull);
+      expect(restored.kind, AccountStartupRestorationKind.deletion);
+      expect(restored.session, journal.session);
+      expect(sessions.current, journal.session);
     },
   );
 
@@ -322,7 +350,8 @@ void main() {
   );
 
   test(
-    'pending receipt recovery rejects an arbitrary different anonymous identity',
+    'a non-completed journal for a different anonymous identity is '
+    'discarded and falls back to receipt verification, never blocked',
     () async {
       final sessions = CloudWriteSessionController();
       final journal = _deletionJournal(
@@ -334,6 +363,7 @@ void main() {
         terminalStatusReceipt: 'A' * 43,
         operationId: journal.operationId,
       );
+      var discardCalls = 0;
       final resolver = AccountStartupJournalResolver(
         sessions: sessions,
         hasLegacyReplacementJournal: () async => false,
@@ -341,43 +371,87 @@ void main() {
         readSwitch: () async => null,
         readDeletion: () async => journal,
         readDeletionStatusReceipt: () async => receipt,
-        isDeletionReceiptRecoveryIdentitySafe: (uid) => uid == 'fresh-anon',
+        discardDeletion: () async {
+          discardCalls += 1;
+        },
       );
 
       final arbitraryAnonymous = await resolver.restore('fresh-anon');
       final unrelated = await resolver.restore('durable-other');
 
-      expect(arbitraryAnonymous.kind, AccountStartupRestorationKind.blocked);
-      expect(unrelated.kind, AccountStartupRestorationKind.blocked);
+      expect(
+        arbitraryAnonymous.kind,
+        AccountStartupRestorationKind.deletionReceiptPending,
+      );
+      expect(
+        unrelated.kind,
+        AccountStartupRestorationKind.deletionReceiptPending,
+      );
+      expect(discardCalls, 2);
       expect(sessions.current, isNull);
     },
   );
 
-  test('mismatched receipt cannot recover a deletion journal', () async {
-    final sessions = CloudWriteSessionController();
-    final journal = _deletionJournal(
-      AccountOperationPhase.processorCleanupPending,
-    );
-    final receipt = AccountDeletionStatusReceipt.checked(
-      sourceUid: journal.session.uid,
-      requestKey: 'another-request',
-      terminalStatusReceipt: 'A' * 43,
-      operationId: journal.operationId,
-    );
-    final resolver = AccountStartupJournalResolver(
-      sessions: sessions,
-      hasLegacyReplacementJournal: () async => false,
-      discardLegacyReplacement: () async {},
-      readSwitch: () async => null,
-      readDeletion: () async => journal,
-      readDeletionStatusReceipt: () async => receipt,
-    );
+  test(
+    'an unmatched receipt still falls back to receipt verification, never '
+    'blocked (the resolver itself no longer validates receipt matching)',
+    () async {
+      final sessions = CloudWriteSessionController();
+      final journal = _deletionJournal(
+        AccountOperationPhase.processorCleanupPending,
+      );
+      final receipt = AccountDeletionStatusReceipt.checked(
+        sourceUid: journal.session.uid,
+        requestKey: 'another-request',
+        terminalStatusReceipt: 'A' * 43,
+        operationId: journal.operationId,
+      );
+      final resolver = AccountStartupJournalResolver(
+        sessions: sessions,
+        hasLegacyReplacementJournal: () async => false,
+        discardLegacyReplacement: () async {},
+        readSwitch: () async => null,
+        readDeletion: () async => journal,
+        readDeletionStatusReceipt: () async => receipt,
+      );
 
-    final restored = await resolver.restore(null);
+      final restored = await resolver.restore(null);
 
-    expect(restored.kind, AccountStartupRestorationKind.blocked);
-    expect(sessions.current, isNull);
-  });
+      expect(
+        restored.kind,
+        AccountStartupRestorationKind.deletionReceiptPending,
+      );
+      expect(sessions.current, isNull);
+    },
+  );
+
+  test(
+    'a discard failure never fences a deletion journal from resolving',
+    () async {
+      final sessions = CloudWriteSessionController();
+      final resolver = AccountStartupJournalResolver(
+        sessions: sessions,
+        hasLegacyReplacementJournal: () async => false,
+        discardLegacyReplacement: () async {},
+        readSwitch: () async => null,
+        readDeletion: () async => AccountDeletionJournal.pending(
+          session: const CloudWriteSession(
+            uid: 'anonymous-source',
+            epoch: 5,
+            mode: CloudWriteMode.quiesced,
+          ),
+          requestKey: 'deletion-request-1',
+        ),
+        discardDeletion: () async {
+          throw StateError('storage unavailable');
+        },
+      );
+
+      final restored = await resolver.restore('anonymous-source');
+
+      expect(restored.kind, AccountStartupRestorationKind.none);
+    },
+  );
 
   test(
     'pending cloud backup deletion restores its exact cleanup fence',

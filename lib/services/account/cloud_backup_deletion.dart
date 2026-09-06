@@ -401,10 +401,11 @@ class CloudBackupDeletionCoordinator {
   Future<T> runWithClearJournalAdmission<T>({
     required Future<T> Function() onAdmitted,
     required Future<T> Function() onBlocked,
+    bool allowPendingJournal = false,
   }) {
     return _authGate.run(() async {
       final state = await _refreshJournalState();
-      if (state != CloudBackupDeletionJournalState.clear) {
+      if (!allowPendingJournal && state != CloudBackupDeletionJournalState.clear) {
         return onBlocked();
       }
       return onAdmitted();

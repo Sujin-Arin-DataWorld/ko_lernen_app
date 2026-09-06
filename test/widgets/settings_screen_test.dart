@@ -597,14 +597,14 @@ void main() {
   );
 
   testWidgets(
-    'pending remote deletion offers retry but keeps reset actions locked',
+    'pending local-cleanup deletion offers retry but keeps reset actions locked',
     (tester) async {
       tester.view.physicalSize = const Size(400, 1000);
       tester.view.devicePixelRatio = 1;
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
       final operations = _SettingsAccountOperations()
-        ..pending.value = AccountUiPendingState.deletionRemotePending;
+        ..pending.value = AccountUiPendingState.deletionLocalCleanup;
 
       await tester.pumpWidget(
         _wrap(

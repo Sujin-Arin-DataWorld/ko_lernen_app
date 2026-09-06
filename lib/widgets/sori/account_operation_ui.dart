@@ -183,9 +183,7 @@ class _AccountPendingOperationPanelState
       return const SizedBox.shrink();
     }
     final t = AppL10n.of(context);
-    final deletion =
-        state == AccountUiPendingState.deletionRemotePending ||
-        state == AccountUiPendingState.deletionLocalCleanup;
+    final deletion = state == AccountUiPendingState.deletionLocalCleanup;
     final blocked = state == AccountUiPendingState.blocked;
     final cloudResumable =
         blocked && cloudPending && widget.resumeCloudDeletion != null;
@@ -514,7 +512,6 @@ Future<void> showAccountActionLocked(
     );
   }
   switch (state) {
-    case AccountUiPendingState.deletionRemotePending:
     case AccountUiPendingState.deletionLocalCleanup:
       if (retryDeletion != null) {
         return _showLockedAction(

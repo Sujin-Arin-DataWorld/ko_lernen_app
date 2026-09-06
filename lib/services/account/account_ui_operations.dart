@@ -75,13 +75,7 @@ enum AccountUiLinkFailureReason {
   unknown,
 }
 
-enum AccountUiPendingState {
-  loading,
-  none,
-  deletionRemotePending,
-  deletionLocalCleanup,
-  blocked,
-}
+enum AccountUiPendingState { loading, none, deletionLocalCleanup, blocked }
 
 abstract interface class AccountUiPendingStateSource {
   ValueListenable<AccountUiPendingState> get pendingState;
@@ -163,26 +157,13 @@ class ProductionAccountUiOperations
 
   /// A legacy replacement journal (pre-T4b) is never read here — it is
   /// discarded at startup (see `AccountStartupJournalResolver`) and can no
-  /// longer lock account actions.
+  /// longer lock account actions. A pending cloud-backup-deletion journal is
+  /// also never read here — the Settings panel already shows its own resume
+  /// card (`cloudDeletionState`) and it must never lock link/delete too.
   static Future<AccountUiPendingState> _readPendingState() async {
     final deletion = await AuthService.readAccountDeletionCheckpoint();
-    final cloudBackupDeletion =
-        await const SharedPreferencesCloudBackupDeletionJournalStore().read();
-    if (cloudBackupDeletion != null) {
-      return AccountUiPendingState.blocked;
-    }
-    if (deletion != null) {
-      final operation = deletion.operation;
-      if (operation?.phase == AccountOperationPhase.completed) {
-        return AccountUiPendingState.deletionLocalCleanup;
-      }
-      // A request that has not reached the server yet, or a retryable
-      // in-progress server operation, must remain recoverable. Resetting local
-      // state here would discard the exact journal needed to resume it.
-      if (operation == null || operation.retryable) {
-        return AccountUiPendingState.deletionRemotePending;
-      }
-      return AccountUiPendingState.blocked;
+    if (deletion?.operation?.phase == AccountOperationPhase.completed) {
+      return AccountUiPendingState.deletionLocalCleanup;
     }
     return AccountUiPendingState.none;
   }
@@ -205,6 +186,7 @@ class ProductionAccountUiOperations
       // The injectable linker represents the same provider wait as the real
       // AuthService path, so keep it inside the durable admission lane too.
       return AuthService.runDurableAccountAdmission<AccountUiLinkResult>(
+        allowCloudBackupDeletionJournal: true,
         onAdmitted: () => linkProvider(provider),
         onBlocked: () async => const AccountUiLinkBlocked(),
       );

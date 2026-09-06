@@ -167,11 +167,14 @@ class AppStartupCoordinator {
           // deletions use the capability-only status path below instead.
           return true;
         case AccountStartupRestorationKind.deletionReceiptPending:
-          // The source Auth user may already have been deleted by the worker.
-          // Resume only the capability-bound, read-only status path. Creating
-          // a replacement identity first would lose the exact recovery lane.
+          // The user-visible deletion already finished on this device (the
+          // Auth identity is already gone, and local cleanup either already
+          // ran or fences separately). This is now silent, best-effort
+          // background verification only — it must not fence the rest of
+          // startup. Run it before ensureSignedIn() below creates any
+          // replacement identity, then fall through to normal startup.
           await resumeAccountDeletionByReceipt();
-          return true;
+          break;
         case AccountStartupRestorationKind.none:
           break;
       }

@@ -50,7 +50,12 @@ void main() {
   );
 
   test(
-    'a locally completed journal is revalidated against exact server status',
+    // T5: identity recovery already ran synchronously when
+    // AccountDeletionCoordinator accepted the deletion, before this journal
+    // could ever be read back as already-completed here — so this resume
+    // path never touches the journal and never re-runs recovery for it.
+    'a locally completed journal (T5 checkpoint) is never re-touched, and '
+    'recovery never runs again',
     () async {
       final harness = await _Harness.create(
         journalPhase: AccountOperationPhase.completed,
@@ -63,7 +68,32 @@ void main() {
       expect(result, AccountDeletionReceiptRecoveryStatus.completed);
       expect(harness.statusCalls, 1);
       expect(harness.ackCalls, 1);
+      expect(harness.recoveryCalls, 0);
+      expect(harness.journalStore.writeCalls, 0);
+      expect(await harness.receiptStore.read(), isNull);
+    },
+  );
+
+  test(
+    // T5: a not-yet-completed journal is still this coordinator's own
+    // responsibility to finish (a legacy pre-T5 in-flight deletion) — it
+    // still upgrades the journal and runs recovery itself, exactly as
+    // before T5.
+    'a not-yet-completed legacy journal is upgraded to completed and '
+    'recovery runs once',
+    () async {
+      final harness = await _Harness.create(
+        status: _operation(AccountOperationPhase.completed, retryable: false),
+      );
+
+      final result = await harness.coordinator.resume();
+
+      expect(result, AccountDeletionReceiptRecoveryStatus.completed);
       expect(harness.recoveryCalls, 1);
+      expect(
+        harness.journalStore.journal?.operation?.phase,
+        AccountOperationPhase.completed,
+      );
     },
   );
 
@@ -72,7 +102,10 @@ void main() {
     AccountOperationPhase.cancelled,
   ]) {
     test(
-      'local completion never acknowledges authoritative ${terminalPhase.name}',
+      // T5: the user-visible deletion already finished on this device, so a
+      // later authoritative blocked/cancelled has nothing left to undo —
+      // give up silently (clear the receipt) instead of throwing.
+      'local completion gives up silently on authoritative ${terminalPhase.name}',
       () async {
         final harness = await _Harness.create(
           journalPhase: AccountOperationPhase.completed,
@@ -80,21 +113,13 @@ void main() {
           status: _operation(terminalPhase, retryable: false),
         );
 
-        await expectLater(
-          harness.coordinator.resume(),
-          throwsA(
-            isA<AccountOperationFailure>().having(
-              (failure) => failure.code,
-              'code',
-              AccountOperationFailureCode.blocked,
-            ),
-          ),
-        );
+        final result = await harness.coordinator.resume();
 
+        expect(result, AccountDeletionReceiptRecoveryStatus.completed);
         expect(harness.statusCalls, 1);
         expect(harness.ackCalls, 0);
         expect(harness.recoveryCalls, 0);
-        expect(await harness.receiptStore.read(), isNotNull);
+        expect(await harness.receiptStore.read(), isNull);
       },
     );
   }
@@ -154,7 +179,10 @@ void main() {
       expect(harness.statusCalls, 2);
       expect(harness.ackCalls, 2);
       expect(await harness.receiptStore.read(), isNull);
-      expect(harness.recoveryCalls, 1);
+      // T5: by the second call the journal is already the locally-completed
+      // checkpoint (written during the first call) — recovery must never
+      // run again for it.
+      expect(harness.recoveryCalls, 0);
     },
   );
 
@@ -289,6 +317,120 @@ void main() {
       },
     );
   }
+
+  // T5 §C — silent background verification with no journal at all: local
+  // cleanup has already cleared the deletion journal (and possibly the
+  // feedback-activation handoff too) and only the secure receipt remains.
+  group('no journal at all (T5)', () {
+    test('completed status acknowledges and clears, never recovers', () async {
+      final harness = await _Harness.create(
+        status: _operation(AccountOperationPhase.completed, retryable: false),
+        hasJournal: false,
+      );
+
+      final result = await harness.coordinator.resume();
+
+      expect(result, AccountDeletionReceiptRecoveryStatus.completed);
+      expect(harness.ackCalls, 1);
+      expect(harness.recoveryCalls, 0);
+      expect(harness.journalStore.writeCalls, 0);
+      expect(await harness.receiptStore.read(), isNull);
+    });
+
+    test('operationNotFound clears the receipt and reports completed', () async {
+      final harness =
+          await _Harness.create(
+            status: _operation(AccountOperationPhase.completed, retryable: false),
+            hasJournal: false,
+          )..statusFailure = const AccountOperationFailure(
+            AccountOperationFailureCode.operationNotFound,
+            retryable: false,
+          );
+
+      final result = await harness.coordinator.resume();
+
+      expect(result, AccountDeletionReceiptRecoveryStatus.completed);
+      expect(harness.ackCalls, 1);
+      expect(harness.recoveryCalls, 0);
+      expect(await harness.receiptStore.read(), isNull);
+    });
+
+    test('non-terminal status stays pending and keeps the receipt', () async {
+      final harness = await _Harness.create(
+        status: _operation(AccountOperationPhase.userTreeDeleting),
+        hasJournal: false,
+      );
+
+      final result = await harness.coordinator.resume();
+
+      expect(result, AccountDeletionReceiptRecoveryStatus.pending);
+      expect(harness.ackCalls, 0);
+      expect(harness.recoveryCalls, 0);
+      expect(harness.journalStore.writeCalls, 0);
+      expect(await harness.receiptStore.read(), isNotNull);
+    });
+
+    for (final terminalPhase in <AccountOperationPhase>[
+      AccountOperationPhase.blocked,
+      AccountOperationPhase.cancelled,
+    ]) {
+      test('authoritative ${terminalPhase.name} clears the receipt silently', () async {
+        final harness = await _Harness.create(
+          status: _operation(terminalPhase, retryable: false),
+          hasJournal: false,
+        );
+
+        final result = await harness.coordinator.resume();
+
+        expect(result, AccountDeletionReceiptRecoveryStatus.completed);
+        expect(harness.ackCalls, 0);
+        expect(harness.recoveryCalls, 0);
+        expect(await harness.receiptStore.read(), isNull);
+      });
+    }
+  });
+
+  test(
+    'locally-completed journal + receipt, non-terminal status: still '
+    'pending, journal untouched, recovery never runs (T5 5(d))',
+    () async {
+      final harness = await _Harness.create(
+        journalPhase: AccountOperationPhase.completed,
+        journalMode: CloudWriteMode.cleanupPending,
+        status: _operation(AccountOperationPhase.deletionRequested),
+      );
+
+      final result = await harness.coordinator.resume();
+
+      expect(result, AccountDeletionReceiptRecoveryStatus.pending);
+      expect(harness.recoveryCalls, 0);
+      expect(harness.journalStore.writeCalls, 0);
+      expect(
+        harness.journalStore.journal?.operation?.phase,
+        AccountOperationPhase.completed,
+      );
+      expect(await harness.receiptStore.read(), isNotNull);
+    },
+  );
+
+  test(
+    'a legacy non-completed journal for a different live anonymous identity '
+    'is discarded, then silent verification proceeds as if absent (T5 5(e))',
+    () async {
+      final harness = await _Harness.create(
+        status: _operation(AccountOperationPhase.completed, retryable: false),
+        identity: (uid: 'fresh-anonymous', isAnonymous: true),
+      );
+
+      final result = await harness.coordinator.resume();
+
+      expect(result, AccountDeletionReceiptRecoveryStatus.completed);
+      expect(harness.ackCalls, 1);
+      expect(harness.recoveryCalls, 0);
+      expect(harness.journalStore.writeCalls, 0);
+      expect(await harness.receiptStore.read(), isNull);
+    },
+  );
 }
 
 class _Harness {
@@ -307,25 +449,28 @@ class _Harness {
     CloudWriteMode journalMode = CloudWriteMode.quiesced,
     bool bindReceipt = true,
     bool restoreSession = false,
+    bool hasJournal = true,
     ({String? uid, bool isAnonymous}) identity = const (
       uid: null,
       isAnonymous: false,
     ),
   }) async {
     final journalStore = _JournalStore(
-      AccountDeletionJournal.pending(
-        session: CloudWriteSession(
-          uid: 'deleted-source',
-          epoch: 7,
-          mode: journalMode,
-        ),
-        requestKey: 'request-1',
-      ).copyWith(
-        operation: _operation(
-          journalPhase,
-          retryable: journalPhase != AccountOperationPhase.completed,
-        ),
-      ),
+      hasJournal
+          ? AccountDeletionJournal.pending(
+              session: CloudWriteSession(
+                uid: 'deleted-source',
+                epoch: 7,
+                mode: journalMode,
+              ),
+              requestKey: 'request-1',
+            ).copyWith(
+              operation: _operation(
+                journalPhase,
+                retryable: journalPhase != AccountOperationPhase.completed,
+              ),
+            )
+          : null,
     );
     final secureStorage = _SecureStorage();
     final receiptStore = AccountDeletionStatusReceiptStore(
@@ -429,12 +574,14 @@ class _JournalStore implements AccountDeletionJournalStore {
   AccountDeletionJournal? journal;
   void Function()? onWrite;
   int writeFailures = 0;
+  int writeCalls = 0;
 
   @override
   Future<AccountDeletionJournal?> read() async => journal;
 
   @override
   Future<void> write(AccountDeletionJournal value) async {
+    writeCalls += 1;
     if (writeFailures > 0) {
       writeFailures -= 1;
       throw StateError('journal unavailable');
@@ -445,6 +592,11 @@ class _JournalStore implements AccountDeletionJournalStore {
 
   @override
   Future<void> clearCompleted(String operationId) async {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> clearPending() async {
     throw UnimplementedError();
   }
 }
