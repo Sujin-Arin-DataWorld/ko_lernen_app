@@ -6,9 +6,11 @@ import '../l10n/generated/app_localizations.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../models/feedback_completion.dart';
+import '../models/scenario.dart';
 import '../services/data_loader.dart';
 import '../services/kkeunmari_dictionary_service.dart';
 import '../services/kkeunmari_engine.dart';
+import '../services/learner_level_selection.dart';
 import '../services/analytics_service.dart';
 import '../services/quest_abandon_tracker.dart';
 import '../services/sound_service.dart';
@@ -72,6 +74,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   bool _dictionaryChecking = false;
   int _roundGeneration = 0;
   String _errorMsg = '';
+  LearnerLevel _maxLevel = LearnerLevel.a1;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
   late final QuestAbandonTracker _abandonTracker;
   KkeunmariWord? _last; // 마지막으로 낸 단어 (chain 마지막)
@@ -174,6 +177,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     _roundGeneration++;
     _feedbackCompletion.reset();
     _cancelPendingTurnAction();
+    _maxLevel = learnerLevelForStoredCode(Storage.userLevelCode);
     try {
       final poolLoader = widget.poolLoader;
       if (poolLoader == null) {
@@ -220,7 +224,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       setState(() => _loading = false);
       return;
     }
-    final start = KkeunmariEngine.pickStart();
+    final start = KkeunmariEngine.pickStart(maxLevel: _maxLevel);
     setState(() {
       _chain = [start];
       _used
@@ -431,9 +435,9 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     }
 
     // The bundle-level `is_dead_end` is only a full-pool snapshot. A real
-    // turn must use the complete public pool and already-used words, otherwise
+    // turn must use the learner-level subset and already-used words, otherwise
     // a stale next_count can end a valid chain (or delay an impossible one).
-    if (KkeunmariEngine.nextCountFor(w.last, _used) == 0) {
+    if (KkeunmariEngine.nextCountFor(w.last, _used, maxLevel: _maxLevel) == 0) {
       _stopTimer();
       _schedulePendingTurnAction(
         _PendingTurnAction.deadEnd,
@@ -454,7 +458,11 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
 
   void _tigerMove() {
     if (!mounted || _end != _End.none) return;
-    final next = KkeunmariEngine.pickTigerNext(_required, _used);
+    final next = KkeunmariEngine.pickTigerNext(
+      _required,
+      _used,
+      maxLevel: _maxLevel,
+    );
     if (next == null) {
       _endGame(_End.tigerStuck);
       return;

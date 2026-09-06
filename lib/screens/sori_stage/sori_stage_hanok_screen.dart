@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../../models/hanok_stage.dart';
 import '../../models/personal_hanok.dart';
 import '../../models/sori_stage_progression.dart';
 import '../../services/hanok_stage_service.dart';
@@ -296,29 +297,46 @@ class _HanokMapHeaderDelegate extends SliverPersistentHeaderDelegate {
     if (kHanokWorldUpdating) {
       // Jin 2026-09-03: compound map(항공 부감 합성)이 "지저분하고 이미
       // 안 쓰는 이미지"라 판단돼, 새 지도가 착지할 때까지 단일 스틸 +
-      // 베일로 대체한다. 베일 자체는 전체 한옥 화면으로 여는 접근점을 유지하고,
-      // 힌트 스크림·고스트 예고만 끈다.
-      mapArt = Semantics(
-        button: true,
-        label: t.hanokWorldTitle,
-        child: GestureDetector(
-          behavior: HitTestBehavior.opaque,
-          onTap: () => Navigator.of(context).pushNamed('/hanok'),
-          child: SoriUpdatingScene(
-            asset: 'assets/illustrations/hanok/estate_overview.webp',
-            message: t.soriStageHanokUpdating,
-            alignment: Alignment.center,
-          ),
-        ),
+      // 베일로 대체한다. 탭·힌트 스크림·고스트 예고는 함께 끈다
+      // (kHanokWorldUpdating을 false로 되돌리면 아래 기존 경로가 다시 산다).
+      mapArt = SoriUpdatingScene(
+        asset: 'assets/illustrations/hanok/estate_overview.webp',
+        message: t.soriStageHanokUpdating,
+        alignment: Alignment.center,
       );
     } else if (projection == null) {
       mapArt = ColoredBox(color: s.surfaceAlt);
     } else {
-      mapArt = PersonalHanokMap(
-        projection: projection,
-        zoneLabel: (_) => '',
-        showTargets: false,
-        onTap: () => Navigator.of(context).pushNamed('/hanok'),
+      // §W-F F3.2: 0단계(빈 터)는 지도가 텅 비어 보인다 — 다음 단계 PNG를
+      // 살짝 겹쳐 "이게 다음에 온다"는 고스트 예고(Today 한옥 카드와 동일
+      // 규약, §W-D D2.4). 파일이 없으면 조용히 생략.
+      final ghostStage =
+          !projection.usesCompoundMap &&
+              projection.structureStage == HanokStage.empty
+          ? HanokStage.values[projection.structureStage.ordinal + 1]
+          : null;
+      mapArt = Stack(
+        fit: StackFit.expand,
+        children: [
+          PersonalHanokMap(
+            projection: projection,
+            zoneLabel: (_) => '',
+            showTargets: false,
+            onTap: () => Navigator.of(context).pushNamed('/hanok'),
+          ),
+          if (ghostStage != null)
+            IgnorePointer(
+              child: Opacity(
+                opacity: 0.22,
+                child: Image.asset(
+                  'assets/illustrations/hanok_stages/'
+                  'stage_${ghostStage.assetSlug}_light.png',
+                  fit: BoxFit.cover,
+                  errorBuilder: (_, _, _) => const SizedBox.shrink(),
+                ),
+              ),
+            ),
+        ],
       );
     }
 
