@@ -4946,17 +4946,21 @@ class AppL10nEn extends AppL10n {
       'Checking your account and learning progress safely…';
 
   @override
-  String get accountOperationResumeTitle => 'Resume account switch';
+  String get accountSwitchTitle => 'Continue with your existing account?';
 
   @override
-  String get accountOperationResumeBody =>
-      'The safe account switch is saved. Your data stays protected until every step is complete.';
+  String get accountSwitchBody =>
+      'This Google or Apple account is already linked to another Hangul Sori profile. You will be signed in there and the learning progress on this device will be merged into that account.';
 
   @override
-  String get accountOperationResume => 'Resume';
+  String get accountSwitchConfirm => 'Switch account';
 
   @override
-  String get accountOperationCancel => 'Cancel switch';
+  String get accountSwitchDeferredTitle => 'Signed in, merge pending';
+
+  @override
+  String get accountSwitchDeferredBody =>
+      'You are now signed in to your existing account. The learning progress on this device will be merged on the next start once a connection is available.';
 
   @override
   String get accountOperationBlockedTitle => 'Your account is protected';

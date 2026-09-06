@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/services/account/account_switch_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
 import 'package:ko_lernen_app/widgets/sori/account_operation_ui.dart';
@@ -182,14 +183,7 @@ class _FixedResultOperations implements AccountUiOperations {
   Future<AccountUiLinkResult> link(AccountLinkProvider provider) async => result;
 
   @override
-  Future<AccountTransitionResult> confirmReplacement(
+  Future<AccountSwitchResult> switchToExisting(
     ExistingAccountLinkConflict conflict,
-  ) async => const AccountTransitionResult(AccountTransitionStatus.blocked);
-
-  @override
-  Future<AccountTransitionResult> resumeReplacement() async =>
-      const AccountTransitionResult(AccountTransitionStatus.blocked);
-
-  @override
-  Future<bool> cancelReplacement() async => false;
+  ) async => const AccountSwitchResult(AccountSwitchStatus.failed);
 }

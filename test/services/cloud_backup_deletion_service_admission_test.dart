@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/services/account/account_operation_client.dart';
+import 'package:ko_lernen_app/services/account/account_switch_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_transition_journal.dart';
 import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
@@ -80,7 +81,8 @@ void main() {
   );
 
   test(
-    'direct services block a persisted pending journal without side effects',
+    'direct backup/restore still block on a persisted pending journal, but '
+    'account deletion (T5) tolerates it',
     () async {
       await journal.write(
         CloudBackupDeletionJournal.pending(
@@ -96,6 +98,23 @@ void main() {
       await CloudSync.backup();
       expect(await CloudSync.backupWithResult(), CloudWriteResult.blocked);
       expect(await CloudSync.restore(), isFalse);
+      // T5: a pending cloud-backup-deletion journal only cleans up server
+      // data and never locks the deletion lane — deleteAccount is admitted.
+      await AuthService.deleteAccount(closeFeedback: () async {});
+
+      expect(operations, <String>['delete-account']);
+    },
+  );
+
+  test(
+    'direct account deletion does not start beside an account-switch journal',
+    () async {
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.setString(
+        AccountSwitchJournal.storageKey,
+        _switchJournalJson(),
+      );
+
       await expectLater(
         AuthService.deleteAccount(closeFeedback: () async {}),
         throwsA(
@@ -114,28 +133,22 @@ void main() {
   );
 
   test(
-    'direct account deletion does not start beside a replacement checkpoint',
+    'a legacy replacement journal no longer blocks direct account deletion '
+    'admission',
     () async {
+      // Legacy replacement journals are discarded at startup
+      // (AccountStartupJournalResolver) and can no longer lock account
+      // actions — design doc
+      // docs/superpowers/plans/2026-09-05-account-link-delete-fix.md §1 rule 2.
       final preferences = await SharedPreferences.getInstance();
       await preferences.setString(
         AccountTransitionJournal.storageKey,
         'replacement-pending',
       );
 
-      await expectLater(
-        AuthService.deleteAccount(closeFeedback: () async {}),
-        throwsA(
-          isA<AccountOperationFailure>()
-              .having(
-                (failure) => failure.code,
-                'code',
-                AccountOperationFailureCode.blocked,
-              )
-              .having((failure) => failure.retryable, 'retryable', isFalse),
-        ),
-      );
+      await AuthService.deleteAccount(closeFeedback: () async {});
 
-      expect(operations, isEmpty);
+      expect(operations, <String>['delete-account']);
     },
   );
 
@@ -176,12 +189,12 @@ void main() {
   );
 
   test(
-    'direct sign out blocks a replacement checkpoint before identity work',
+    'direct sign out blocks an account-switch journal before identity work',
     () async {
       final preferences = await SharedPreferences.getInstance();
       await preferences.setString(
-        AccountTransitionJournal.storageKey,
-        'replacement-pending',
+        AccountSwitchJournal.storageKey,
+        _switchJournalJson(),
       );
 
       await expectLater(
@@ -239,12 +252,12 @@ void main() {
   );
 
   test(
-    'direct cloud deletion does not start beside a replacement checkpoint',
+    'direct cloud deletion does not start beside an account-switch journal',
     () async {
       final preferences = await SharedPreferences.getInstance();
       await preferences.setString(
-        AccountTransitionJournal.storageKey,
-        'replacement-pending',
+        AccountSwitchJournal.storageKey,
+        _switchJournalJson(),
       );
 
       expect(await AuthService.deleteCloudData(), CloudWriteResult.blocked);
@@ -344,6 +357,19 @@ void main() {
       ]);
       expect(journal.readCalls, 4);
     },
+  );
+}
+
+String _switchJournalJson() {
+  return jsonEncode(
+    const AccountSwitchJournal(
+      version: AccountSwitchJournal.currentVersion,
+      sourceUid: 'anon-1',
+      targetUid: 'durable-2',
+      provider: 'google',
+      operationId: '11111111-1111-4111-8111-111111111111',
+      createdAtMillis: 1,
+    ).toJson(),
   );
 }
 

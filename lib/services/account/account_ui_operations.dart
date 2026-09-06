@@ -1,9 +1,6 @@
-import 'dart:math';
-
 import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuthException;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart' show PlatformException;
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../models/course_mastery.dart';
 import '../auth_service.dart';
@@ -13,9 +10,8 @@ import '../curriculum_catalog.dart';
 import '../pack_progress_service.dart';
 import '../vocab_pack_service.dart';
 import 'account_operation_client.dart';
-import 'account_reconciliation.dart';
+import 'account_switch_coordinator.dart';
 import 'account_transition_coordinator.dart';
-import 'account_transition_journal.dart';
 import 'cloud_backup_deletion.dart';
 import 'cloud_write_session.dart';
 import 'google_oauth_client.dart';
@@ -79,15 +75,7 @@ enum AccountUiLinkFailureReason {
   unknown,
 }
 
-enum AccountUiPendingState {
-  loading,
-  none,
-  replacementCancellable,
-  replacementResumable,
-  deletionRemotePending,
-  deletionLocalCleanup,
-  blocked,
-}
+enum AccountUiPendingState { loading, none, deletionLocalCleanup, blocked }
 
 abstract interface class AccountUiPendingStateSource {
   ValueListenable<AccountUiPendingState> get pendingState;
@@ -98,11 +86,13 @@ abstract interface class AccountUiOperations {
   bool get appleSignInAvailable;
 
   Future<AccountUiLinkResult> link(AccountLinkProvider provider);
-  Future<AccountTransitionResult> confirmReplacement(
+
+  /// Signs the primary Firebase Auth instance into the existing durable
+  /// account [conflict] collided with, and merges this device's local
+  /// progress into that account.
+  Future<AccountSwitchResult> switchToExisting(
     ExistingAccountLinkConflict conflict,
   );
-  Future<AccountTransitionResult> resumeReplacement();
-  Future<bool> cancelReplacement();
 }
 
 typedef AccountUiProviderLinker =
@@ -111,63 +101,26 @@ typedef AccountUiProviderLinker =
 typedef AccountUiPendingStateReader = Future<AccountUiPendingState> Function();
 
 @visibleForTesting
-typedef AccountUiReplacementStatusPollDelay =
-    Future<void> Function(Duration delay);
-
-@visibleForTesting
 typedef AccountUiCurriculumCatalogLoader = Future<CurriculumCatalog> Function();
-
-@visibleForTesting
-typedef AccountUiTargetReconciliationFactory =
-    AccountReconciliationCoordinator Function({
-      required VerifiedTargetContext target,
-      required CloudWriteSession sourceSession,
-      required CloudWriteSessionController sessions,
-      required AccountTransitionJournalStore journalStore,
-      required CourseMasteryReconciliationMerger courseMasteryMerger,
-    });
-
-/// Test seam for exercising the UI-owned replacement route without Firebase.
-///
-/// Production always builds the coordinator-backed implementation below.
-@visibleForTesting
-abstract interface class AccountUiReplacementFlow {
-  Future<bool> cancel();
-  Future<AccountTransitionResult> confirm(ExistingAccountLinkConflict conflict);
-  Future<AccountTransitionResult> resume();
-}
-
-@visibleForTesting
-typedef AccountUiReplacementFlowFactory =
-    Future<AccountUiReplacementFlow> Function();
 
 class ProductionAccountUiOperations
     implements AccountUiOperations, AccountUiPendingStateSource {
   const ProductionAccountUiOperations({
     this.providerLinker,
     @visibleForTesting this.pendingStateReader,
-    @visibleForTesting this.replacementFlowFactory,
     @visibleForTesting this.curriculumCatalogLoader,
-    @visibleForTesting this.targetReconciliationFactory,
-    @visibleForTesting this.replacementAccountOperations,
-    @visibleForTesting this.replacementStatusPollDelay,
+    @visibleForTesting this.switchFlow,
   });
 
   final AccountUiProviderLinker? providerLinker;
   final AccountUiPendingStateReader? pendingStateReader;
-  final AccountUiReplacementFlowFactory? replacementFlowFactory;
   final AccountUiCurriculumCatalogLoader? curriculumCatalogLoader;
-  final AccountUiTargetReconciliationFactory? targetReconciliationFactory;
-  final ReplacementAccountOperations? replacementAccountOperations;
-  final AccountUiReplacementStatusPollDelay? replacementStatusPollDelay;
 
-  /// Status polling is deliberately short and bounded. The scheduled cleanup
-  /// worker can outlive this foreground window; in that case the durable
-  /// cleanupPending journal remains fenced and a later explicit/startup resume
-  /// continues the same operation instead of hammering the callable.
-  static const Duration replacementStatusPollInterval = Duration(seconds: 2);
-  static const int replacementStatusPollLimit = 30;
-  static const Duration replacementStatusPollWindow = Duration(minutes: 1);
+  /// Test seam for exercising the switch route without Firebase. Production
+  /// always calls through [AuthService.switchToExistingAccount].
+  @visibleForTesting
+  final Future<AccountSwitchResult> Function(ExistingAccountLinkConflict)?
+  switchFlow;
 
   static final ValueNotifier<AccountUiPendingState> _pendingState =
       ValueNotifier<AccountUiPendingState>(AccountUiPendingState.loading);
@@ -202,47 +155,15 @@ class ProductionAccountUiOperations
     return next;
   }
 
+  /// A legacy replacement journal (pre-T4b) is never read here — it is
+  /// discarded at startup (see `AccountStartupJournalResolver`) and can no
+  /// longer lock account actions. A pending cloud-backup-deletion journal is
+  /// also never read here — the Settings panel already shows its own resume
+  /// card (`cloudDeletionState`) and it must never lock link/delete too.
   static Future<AccountUiPendingState> _readPendingState() async {
-    final preferences = await SharedPreferences.getInstance();
-    final replacement =
-        await SharedPreferencesReplacementTransitionJournalStore(
-          preferences,
-        ).read();
     final deletion = await AuthService.readAccountDeletionCheckpoint();
-    final cloudBackupDeletion =
-        await const SharedPreferencesCloudBackupDeletionJournalStore().read();
-    if (cloudBackupDeletion != null) {
-      return AccountUiPendingState.blocked;
-    }
-    if (replacement != null && deletion != null) {
-      return AccountUiPendingState.blocked;
-    }
-    if (deletion != null) {
-      final operation = deletion.operation;
-      if (operation?.phase == AccountOperationPhase.completed) {
-        return AccountUiPendingState.deletionLocalCleanup;
-      }
-      // A request that has not reached the server yet, or a retryable
-      // in-progress server operation, must remain recoverable. Resetting local
-      // state here would discard the exact journal needed to resume it.
-      if (operation == null || operation.retryable) {
-        return AccountUiPendingState.deletionRemotePending;
-      }
-      return AccountUiPendingState.blocked;
-    }
-    if (replacement?.replacementPhase case final phase?) {
-      return switch (phase) {
-        AccountReplacementPhase.targetVerified ||
-        AccountReplacementPhase.prepared ||
-        AccountReplacementPhase.attached ||
-        AccountReplacementPhase.reconciling ||
-        AccountReplacementPhase.reconciled =>
-          AccountUiPendingState.replacementCancellable,
-        AccountReplacementPhase.cleanupStarting ||
-        AccountReplacementPhase.cleanupPending ||
-        AccountReplacementPhase.activationPending =>
-          AccountUiPendingState.replacementResumable,
-      };
+    if (deletion?.operation?.phase == AccountOperationPhase.completed) {
+      return AccountUiPendingState.deletionLocalCleanup;
     }
     return AccountUiPendingState.none;
   }
@@ -265,6 +186,7 @@ class ProductionAccountUiOperations
       // The injectable linker represents the same provider wait as the real
       // AuthService path, so keep it inside the durable admission lane too.
       return AuthService.runDurableAccountAdmission<AccountUiLinkResult>(
+        allowCloudBackupDeletionJournal: true,
         onAdmitted: () => linkProvider(provider),
         onBlocked: () async => const AccountUiLinkBlocked(),
       );
@@ -285,163 +207,26 @@ class ProductionAccountUiOperations
   }
 
   @override
-  Future<bool> cancelReplacement() async {
-    try {
-      return await AuthService.runDurableAccountAdmission<bool>(
-        allowReplacementTransitionJournal: true,
-        onAdmitted: () async {
-          final flow = await _createReplacementFlow();
-          return flow.cancel();
-        },
-        onBlocked: () async => false,
-      );
-    } finally {
-      await refreshPendingState();
-    }
-  }
-
-  @override
-  Future<AccountTransitionResult> confirmReplacement(
+  Future<AccountSwitchResult> switchToExisting(
     ExistingAccountLinkConflict conflict,
   ) async {
-    // 진단 계측(2026-08-07) — 동작은 바꾸지 않는다. 이 경로는 실패해도
-    // 예외를 던지지 않고 `blocked` 를 **반환**하므로, UI 의 catch 기반
-    // `link.failed` 로는 잡히지 않는다.
-    AccountFailureDiagnostics.log('link.confirm.start', null);
     try {
-      final result =
-          await AuthService.runDurableAccountAdmission<AccountTransitionResult>(
-            onAdmitted: () async {
-              final flow = await _createReplacementFlow();
-              return flow.confirm(conflict);
-            },
-            onBlocked: () async {
-              // 내구 저널이 이미 잡혀 있어 진입 자체가 거부된 경우.
-              AccountFailureDiagnostics.log(
-                'link.confirm.admissionBlocked',
-                null,
-              );
-              return const AccountTransitionResult(
-                AccountTransitionStatus.blocked,
-              );
-            },
-          );
-      AccountFailureDiagnostics.log(
-        'link.confirm.result',
-        null,
-        detail: 'status=${result.status.name}',
+      final flow = switchFlow;
+      if (flow != null) return await flow(conflict);
+      final composition = await loadAccountSwitchComposition(
+        curriculumCatalogLoader: curriculumCatalogLoader,
       );
-      return result;
+      return await AuthService.switchToExistingAccount(
+        conflict,
+        catalog: composition.catalog,
+        courseMasteryMerger: composition.courseMasteryMerger,
+      );
     } catch (error) {
-      AccountFailureDiagnostics.log('link.confirm.threw', error);
-      rethrow;
+      AccountFailureDiagnostics.log('switch.failed', error);
+      return const AccountSwitchResult(AccountSwitchStatus.failed);
     } finally {
       await refreshPendingState();
     }
-  }
-
-  @override
-  Future<AccountTransitionResult> resumeReplacement() async {
-    AccountFailureDiagnostics.log('link.resume.start', null);
-    try {
-      final result =
-          await AuthService.runDurableAccountAdmission<AccountTransitionResult>(
-            allowReplacementTransitionJournal: true,
-            onAdmitted: () async {
-              final flow = await _createReplacementFlow();
-              return flow.resume();
-            },
-            onBlocked: () async =>
-                const AccountTransitionResult(AccountTransitionStatus.blocked),
-          );
-      AccountFailureDiagnostics.log(
-        'link.resume.result',
-        null,
-        detail: 'status=${result.status.name}',
-      );
-      return result;
-    } catch (error) {
-      AccountFailureDiagnostics.log('link.resume.threw', error);
-      rethrow;
-    } finally {
-      await refreshPendingState();
-    }
-  }
-
-  Future<AccountUiReplacementFlow> _createReplacementFlow() async {
-    final factory = replacementFlowFactory;
-    if (factory != null) return factory();
-    final bundle = await createReplacementComposition();
-    return _CoordinatorAccountUiReplacementFlow(bundle);
-  }
-
-  @visibleForTesting
-  Future<AccountUiReplacementComposition> createReplacementComposition() async {
-    final preferences = await SharedPreferences.getInstance();
-    final journalStore = SharedPreferencesReplacementTransitionJournalStore(
-      preferences,
-    );
-    final packsFuture = VocabPackService.loadAll();
-    final courseMasteryMergerFuture = loadCourseMasteryMergerForTesting();
-    final packs = await packsFuture;
-    final courseMasteryMerger = await courseMasteryMergerFuture;
-    final catalog = <String, PackCatalogEntry>{
-      for (final pack in packs)
-        pack.id: PackCatalogEntry(
-          packId: pack.id,
-          level: pack.level,
-          wordsTotal: pack.total,
-        ),
-    };
-    final coordinator = AccountTransitionCoordinator(
-      sessions: cloudWriteSessionController,
-      identity: const FirebaseAccountTransitionIdentity(),
-      verifier: FirebaseIsolatedTargetVerifier(),
-      // The authenticated source gateway must always come from this factory:
-      // it force-refreshes and fences the anonymous source token.
-      operations:
-          replacementAccountOperations ??
-          AuthService.replacementAccountOperations(),
-      journalStore: journalStore,
-      createRequestKey: _newRequestKey,
-      maxStatusPolls: replacementStatusPollLimit,
-      pollDelay: () =>
-          (replacementStatusPollDelay ?? _waitForReplacementStatusPoll)(
-            replacementStatusPollInterval,
-          ),
-      reconcile:
-          ({
-            required target,
-            required session,
-            required operationId,
-            required catalog,
-          }) {
-            final reconciliation = targetReconciliationFactory != null
-                ? targetReconciliationFactory!(
-                    target: target,
-                    sourceSession: session,
-                    sessions: cloudWriteSessionController,
-                    journalStore: journalStore,
-                    courseMasteryMerger: courseMasteryMerger,
-                  )
-                : FirebaseTargetReconciliationFactory.create(
-                    target: target,
-                    sourceSession: session,
-                    sessions: cloudWriteSessionController,
-                    journalStore: journalStore,
-                    courseMasteryMerger: courseMasteryMerger,
-                  );
-            return reconciliation.reconcile(
-              session: session,
-              operationId: operationId,
-              catalog: catalog,
-            );
-          },
-    );
-    return AccountUiReplacementComposition(
-      coordinator: coordinator,
-      catalog: catalog,
-    );
   }
 
   @visibleForTesting
@@ -451,48 +236,32 @@ class ProductionAccountUiOperations
         await (curriculumCatalogLoader?.call() ?? CurriculumCatalog.load());
     return CourseMasteryService(curriculum).mergeForReconciliation;
   }
-
-  static String _newRequestKey() {
-    const alphabet =
-        '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_';
-    final random = Random.secure();
-    return List<String>.generate(
-      32,
-      (_) => alphabet[random.nextInt(alphabet.length)],
-    ).join();
-  }
-
-  static Future<void> _waitForReplacementStatusPoll(Duration delay) =>
-      Future<void>.delayed(delay);
 }
 
-@visibleForTesting
-class AccountUiReplacementComposition {
-  const AccountUiReplacementComposition({
-    required this.coordinator,
-    required this.catalog,
-  });
-
-  final AccountTransitionCoordinator coordinator;
-  final Map<String, PackCatalogEntry> catalog;
-}
-
-class _CoordinatorAccountUiReplacementFlow implements AccountUiReplacementFlow {
-  const _CoordinatorAccountUiReplacementFlow(this._bundle);
-
-  final AccountUiReplacementComposition _bundle;
-
-  @override
-  Future<bool> cancel() => _bundle.coordinator.cancel();
-
-  @override
-  Future<AccountTransitionResult> confirm(
-    ExistingAccountLinkConflict conflict,
-  ) => _bundle.coordinator.confirm(conflict, catalog: _bundle.catalog);
-
-  @override
-  Future<AccountTransitionResult> resume() =>
-      _bundle.coordinator.resume(catalog: _bundle.catalog);
+/// Loads the catalog and course-mastery merger a durable account switch needs
+/// to reconcile local progress into the target account. Shared by
+/// [ProductionAccountUiOperations.switchToExisting] and the startup
+/// `resumeAccountSwitch` step in `main.dart`.
+Future<({Map<String, PackCatalogEntry> catalog, CourseMasteryReconciliationMerger courseMasteryMerger})>
+loadAccountSwitchComposition({
+  AccountUiCurriculumCatalogLoader? curriculumCatalogLoader,
+}) async {
+  final packsFuture = VocabPackService.loadAll();
+  final curriculumFuture = curriculumCatalogLoader?.call() ?? CurriculumCatalog.load();
+  final packs = await packsFuture;
+  final curriculum = await curriculumFuture;
+  final catalog = <String, PackCatalogEntry>{
+    for (final pack in packs)
+      pack.id: PackCatalogEntry(
+        packId: pack.id,
+        level: pack.level,
+        wordsTotal: pack.total,
+      ),
+  };
+  return (
+    catalog: catalog,
+    courseMasteryMerger: CourseMasteryService(curriculum).mergeForReconciliation,
+  );
 }
 
 /// Maps every production link exception onto a distinct UI result.

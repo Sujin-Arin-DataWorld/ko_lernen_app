@@ -352,6 +352,14 @@ class _JournalStore implements AccountDeletionJournalStore {
     }
     journal = null;
   }
+
+  @override
+  Future<void> clearPending() async {
+    if (journal?.operation != null) {
+      throw StateError('pending journal mismatch');
+    }
+    journal = null;
+  }
 }
 
 class _CleanupOperations implements AccountDeletionCleanupOperations {

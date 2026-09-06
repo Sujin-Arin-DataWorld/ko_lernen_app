@@ -39,6 +39,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'firebase_options.dart';
 import 'services/account/account_failure_diagnostics.dart';
+import 'services/account/account_ui_operations.dart';
 import 'services/account/firebase_app_check_initializer.dart';
 import 'services/account/account_operation_client.dart';
 import 'services/app_startup_coordinator.dart';
@@ -382,6 +383,13 @@ Future<void> _startCloudServices() async {
         AuthService.resumePendingAccountDeletionByReceipt(
           closeFeedback: _contentFeedbackLifecycle.closeAndDiscard,
         ),
+    resumeAccountSwitch: () async {
+      final composition = await loadAccountSwitchComposition();
+      await AuthService.resumePendingAccountSwitch(
+        catalog: composition.catalog,
+        courseMasteryMerger: composition.courseMasteryMerger,
+      );
+    },
     resumeCloudBackupDeletion: () async {
       await AuthService.resumePendingCloudBackupDeletion();
     },

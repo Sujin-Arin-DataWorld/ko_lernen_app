@@ -537,12 +537,20 @@ abstract interface class AccountTransitionJournalStore {
 
 class SharedPreferencesAccountTransitionJournalStore
     implements AccountTransitionJournalStore {
-  SharedPreferencesAccountTransitionJournalStore(this.preferences);
+  SharedPreferencesAccountTransitionJournalStore(
+    this.preferences, {
+    this.storageKey = AccountTransitionJournal.storageKey,
+  });
 
   static const key = AccountTransitionJournal.storageKey;
   static Future<void> _mutationTail = Future<void>.value();
 
   final SharedPreferences preferences;
+
+  /// Isolates this store's journal from other stores of the same type — e.g.
+  /// the account-switch coordinator's reconciliation journal uses a distinct
+  /// key so it never collides with the primary transition journal.
+  final String storageKey;
 
   @override
   Future<AccountTransitionJournal?> read() => _serialized(_readUnlocked);
@@ -569,11 +577,11 @@ class SharedPreferencesAccountTransitionJournalStore
   }) => _serialized(() async {
     final current = await _readUnlocked();
     if (!_sameJournal(current, expected) || !isCurrent()) return false;
-    final removed = await preferences.remove(key);
-    if (!removed && preferences.containsKey(key)) {
+    final removed = await preferences.remove(storageKey);
+    if (!removed && preferences.containsKey(storageKey)) {
       throw StateError('Account transition journal delete failed.');
     }
-    return removed || !preferences.containsKey(key);
+    return removed || !preferences.containsKey(storageKey);
   });
 
   @override
@@ -590,7 +598,7 @@ class SharedPreferencesAccountTransitionJournalStore
 
   Future<AccountTransitionJournal?> _readUnlocked() async {
     await preferences.reload();
-    final raw = preferences.getString(key);
+    final raw = preferences.getString(storageKey);
     if (raw == null) return null;
     final decoded = jsonDecode(raw);
     if (decoded is! Map) {
@@ -603,7 +611,7 @@ class SharedPreferencesAccountTransitionJournalStore
 
   Future<void> _writeUnlocked(AccountTransitionJournal journal) async {
     final written = await preferences.setString(
-      key,
+      storageKey,
       jsonEncode(journal.toJson()),
     );
     if (!written) {

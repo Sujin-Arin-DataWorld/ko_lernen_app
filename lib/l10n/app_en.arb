@@ -2461,10 +2461,26 @@
   "accountSafeConnectExplain": "Your local and cloud data are reviewed before anything is replaced. An existing account is never overwritten automatically.",
   "accountSafeConnectConfirm": "Connect safely",
   "accountOperationInProgress": "Checking your account and learning progress safely…",
-  "accountOperationResumeTitle": "Resume account switch",
-  "accountOperationResumeBody": "The safe account switch is saved. Your data stays protected until every step is complete.",
-  "accountOperationResume": "Resume",
-  "accountOperationCancel": "Cancel switch",
+  "accountSwitchTitle": "Continue with your existing account?",
+  "@accountSwitchTitle": {
+    "description": "Title of the dialog confirming a switch to an existing durable account after a link collision."
+  },
+  "accountSwitchBody": "This Google or Apple account is already linked to another Hangul Sori profile. You will be signed in there and the learning progress on this device will be merged into that account.",
+  "@accountSwitchBody": {
+    "description": "Explains that confirming signs the user into the existing account and merges local progress into it."
+  },
+  "accountSwitchConfirm": "Switch account",
+  "@accountSwitchConfirm": {
+    "description": "Confirm button label for the account-switch dialog."
+  },
+  "accountSwitchDeferredTitle": "Signed in, merge pending",
+  "@accountSwitchDeferredTitle": {
+    "description": "Title shown after the account switch signed in but the local-progress merge could not complete yet."
+  },
+  "accountSwitchDeferredBody": "You are now signed in to your existing account. The learning progress on this device will be merged on the next start once a connection is available.",
+  "@accountSwitchDeferredBody": {
+    "description": "Explains that the merge will resume automatically on next launch once connected."
+  },
   "accountOperationBlockedTitle": "Your account is protected",
   "accountOperationBlockedBody": "The switch was paused. Your existing data is untouched. You can try again later.",
   "accountOperationRetryTitle": "Connection not completed",

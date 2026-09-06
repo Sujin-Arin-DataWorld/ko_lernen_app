@@ -1231,6 +1231,45 @@ void main() {
   );
 
   test(
+    'a custom storage key isolates one journal store from another',
+    () async {
+      SharedPreferences.setMockInitialValues({});
+      final preferences = await SharedPreferences.getInstance();
+      final primary = SharedPreferencesAccountTransitionJournalStore(
+        preferences,
+      );
+      final secondary = SharedPreferencesAccountTransitionJournalStore(
+        preferences,
+        storageKey: 'other-journal-key',
+      );
+      final journal = AccountTransitionJournal.fromSession(
+        const CloudWriteSession(
+          uid: 'uid-a',
+          epoch: 1,
+          mode: CloudWriteMode.reconciling,
+        ),
+        reconciliationOperationId: 'operation-1',
+      );
+
+      await primary.write(journal);
+
+      expect(await secondary.read(), isNull);
+      expect((await primary.read())?.reconciliationOperationId, 'operation-1');
+
+      final otherJournal = journal.copyWith(
+        reconciliationOperationId: 'operation-2',
+      );
+      await secondary.write(otherJournal);
+
+      expect((await primary.read())?.reconciliationOperationId, 'operation-1');
+      expect(
+        (await secondary.read())?.reconciliationOperationId,
+        'operation-2',
+      );
+    },
+  );
+
+  test(
     'concrete local store round-trips reconciliation-owned domains',
     () async {
       SharedPreferences.setMockInitialValues({});

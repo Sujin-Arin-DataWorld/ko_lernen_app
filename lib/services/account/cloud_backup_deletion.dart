@@ -398,13 +398,32 @@ class CloudBackupDeletionCoordinator {
   /// The callback remains inside the same serial lane as journal writes and
   /// compare-delete, preventing a second app-owned operation from observing
   /// or replacing the journal between admission and its side effect.
+  ///
+  /// [allowPendingJournal] may only admit when the journal store was read
+  /// successfully — a null journal, or a readable pending one. When the read
+  /// itself fails, identity-mutating admission still fails closed regardless
+  /// of [allowPendingJournal]; a read failure carries no proof the journal is
+  /// actually clear (or actually just this coordinator's own pending one).
   Future<T> runWithClearJournalAdmission<T>({
     required Future<T> Function() onAdmitted,
     required Future<T> Function() onBlocked,
+    bool allowPendingJournal = false,
   }) {
     return _authGate.run(() async {
-      final state = await _refreshJournalState();
-      if (state != CloudBackupDeletionJournalState.clear) {
+      _setJournalState(CloudBackupDeletionJournalState.loading);
+      CloudBackupDeletionJournal? journal;
+      try {
+        journal = await journalStore.read();
+      } catch (_) {
+        _setJournalState(CloudBackupDeletionJournalState.pending);
+        return onBlocked();
+      }
+      _setJournalState(
+        journal == null
+            ? CloudBackupDeletionJournalState.clear
+            : CloudBackupDeletionJournalState.pending,
+      );
+      if (!allowPendingJournal && journal != null) {
         return onBlocked();
       }
       return onAdmitted();

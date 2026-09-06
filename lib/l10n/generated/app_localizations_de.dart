@@ -4970,17 +4970,21 @@ class AppL10nDe extends AppL10n {
       'Konto und Lernfortschritt werden sicher geprüft …';
 
   @override
-  String get accountOperationResumeTitle => 'Kontowechsel fortsetzen';
+  String get accountSwitchTitle => 'Mit bestehendem Konto fortfahren?';
 
   @override
-  String get accountOperationResumeBody =>
-      'Der sichere Kontowechsel ist gespeichert. Deine Daten bleiben geschützt, bis alle Schritte abgeschlossen sind.';
+  String get accountSwitchBody =>
+      'Dieses Google- oder Apple-Konto ist bereits mit einem anderen Hangul-Sori-Profil verbunden. Du wirst dort angemeldet, und dein Lernfortschritt von diesem Gerät wird mit dem Konto zusammengeführt.';
 
   @override
-  String get accountOperationResume => 'Fortsetzen';
+  String get accountSwitchConfirm => 'Konto wechseln';
 
   @override
-  String get accountOperationCancel => 'Wechsel abbrechen';
+  String get accountSwitchDeferredTitle => 'Angemeldet, Zusammenführung folgt';
+
+  @override
+  String get accountSwitchDeferredBody =>
+      'Du bist jetzt mit deinem bestehenden Konto angemeldet. Dein Lernfortschritt von diesem Gerät wird beim nächsten Start zusammengeführt, sobald eine Verbindung besteht.';
 
   @override
   String get accountOperationBlockedTitle => 'Dein Konto ist geschützt';

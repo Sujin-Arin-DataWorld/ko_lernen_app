@@ -91,6 +91,89 @@ void main() {
     );
 
     test(
+      'runWithClearJournalAdmission admits a readable pending journal when '
+      'allowPendingJournal is true',
+      () async {
+        final sessions = CloudWriteSessionController()..acquire('durable');
+        final journal = _MemoryJournalStore()
+          ..value = CloudBackupDeletionJournal.pending(
+            session: sessions.transition(CloudWriteMode.cleanupPending),
+            requestKey: 'D' * 43,
+          );
+        final coordinator = CloudBackupDeletionCoordinator(
+          sessions: sessions,
+          currentUid: () => 'durable',
+          journalStore: journal,
+          gateway: _Gateway(),
+          createRequestKey: () => 'unused',
+        );
+        var admittedCalls = 0;
+        var blockedCalls = 0;
+
+        final result = await coordinator.runWithClearJournalAdmission<bool>(
+          allowPendingJournal: true,
+          onAdmitted: () async {
+            admittedCalls += 1;
+            return true;
+          },
+          onBlocked: () async {
+            blockedCalls += 1;
+            return false;
+          },
+        );
+
+        expect(result, isTrue);
+        expect(admittedCalls, 1);
+        expect(blockedCalls, 0);
+        expect(
+          coordinator.journalState.value,
+          CloudBackupDeletionJournalState.pending,
+        );
+      },
+    );
+
+    test(
+      'runWithClearJournalAdmission fails closed on a journal read failure '
+      'even when allowPendingJournal is true',
+      () async {
+        final journal = _MemoryJournalStore()..failedReads = 1;
+        final coordinator = CloudBackupDeletionCoordinator(
+          sessions: CloudWriteSessionController()..acquire('durable'),
+          currentUid: () => 'durable',
+          journalStore: journal,
+          gateway: _Gateway(),
+          createRequestKey: () => 'unused',
+        );
+        var admittedCalls = 0;
+        var blockedCalls = 0;
+
+        // A read failure carries no proof the journal is clear (or is just
+        // this coordinator's own pending one) — allowPendingJournal only
+        // tolerates a journal that was actually read, never an unreadable
+        // one, so identity-mutating admission must still fail closed.
+        final result = await coordinator.runWithClearJournalAdmission<bool>(
+          allowPendingJournal: true,
+          onAdmitted: () async {
+            admittedCalls += 1;
+            return true;
+          },
+          onBlocked: () async {
+            blockedCalls += 1;
+            return false;
+          },
+        );
+
+        expect(result, isFalse);
+        expect(admittedCalls, 0);
+        expect(blockedCalls, 1);
+        expect(
+          coordinator.journalState.value,
+          CloudBackupDeletionJournalState.pending,
+        );
+      },
+    );
+
+    test(
       'identity mutation waits for an in-flight deletion then rechecks its journal',
       () async {
         final callStarted = Completer<void>();
@@ -879,6 +962,7 @@ class _MemoryJournalStore implements CloudBackupDeletionJournalStore {
   int writeThenThrow = 0;
   int failedClears = 0;
   int clearThenThrow = 0;
+  int failedReads = 0;
   Completer<void>? readStarted;
   Future<void>? readBarrier;
   void Function(CloudBackupDeletionJournal journal)? onWrite;
@@ -904,6 +988,10 @@ class _MemoryJournalStore implements CloudBackupDeletionJournalStore {
   Future<CloudBackupDeletionJournal?> read() async {
     readStarted?.complete();
     await readBarrier;
+    if (failedReads > 0) {
+      failedReads -= 1;
+      throw StateError('journal read failed');
+    }
     return value;
   }
 
