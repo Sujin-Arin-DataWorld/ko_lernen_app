@@ -90,9 +90,9 @@ void main() {
     final reviewY = topOf(tester, sectionHeader('Review'));
 
     // Today section: hero (Vocabulary packs, default hero) + grid cards
-    // (Course, Grammar) all sit between the Today title and the Explore
-    // title.
-    for (final title in const ['Vocabulary packs', 'Course', 'Grammar']) {
+    // (Learning path, Grammar) all sit between the Today title and the
+    // Explore title.
+    for (final title in const ['Vocabulary packs', 'Learning path', 'Grammar']) {
       final y = topOf(tester, find.text(title));
       expect(
         y,
@@ -136,7 +136,7 @@ void main() {
 
     for (final title in const [
       'Vocabulary packs',
-      'Course',
+      'Learning path',
       'Grammar',
       'Hangul',
       'Character of the day',
