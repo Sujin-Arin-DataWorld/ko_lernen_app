@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:csv/csv.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/data/pack_artwork_catalog.dart';
 import 'package:ko_lernen_app/data/sori_activity_catalog.dart';
 import 'package:ko_lernen_app/data/sticker_catalog.dart';
 import 'package:ko_lernen_app/models/hanok_stage.dart';
@@ -253,8 +255,11 @@ void main() {
       );
     });
 
-    test('모든 packs/*.webp 가 DancheongMotif 의 name 이다', () {
-      final names = DancheongMotif.values.map((m) => m.name).toSet();
+    test('모든 packs/*.webp 가 보상 모티프 또는 승인된 팩 ID다', () {
+      final names = {
+        ...DancheongMotif.values.map((m) => m.name),
+        ...PackArtworkCatalog.dedicatedPackIds,
+      };
       final fileStems = _stemsOf(
         Directory('assets/illustrations/packs'),
         extension: '.webp',
@@ -264,9 +269,51 @@ void main() {
         orphaned,
         isEmpty,
         reason:
-            'assets/illustrations/packs/ 에 있는데 DancheongMotif 의 어느 name 과도 '
-            '안 맞습니다(고아): $orphaned',
+            'assets/illustrations/packs/ 에 있는데 보상 모티프나 승인된 팩 ID 어느 '
+            '쪽에도 없습니다(고아): $orphaned',
       );
+    });
+
+    test('25개 보상 모티프가 모두 PACKS WebP를 가진다', () {
+      final motifNames = DancheongMotif.values
+          .map((motif) => motif.name)
+          .toSet();
+      final fileStems = _stemsOf(
+        Directory('assets/illustrations/packs'),
+        extension: '.webp',
+      );
+      final missing = motifNames.difference(fileStems);
+
+      expect(DancheongMotif.values.length, 25);
+      expect(missing, isEmpty, reason: 'PACKS WebP가 없는 보상 모티프: $missing');
+    });
+
+    test('승인된 팩 ID는 CSV에 존재하고 전용 WebP를 가진다', () {
+      final rows = const CsvToListConverter(
+        eol: '\n',
+        shouldParseNumbers: false,
+      ).convert(File('assets/data/korean_vocab.csv').readAsStringSync());
+      final header = rows.first.map((cell) => cell.toString()).toList();
+      final packIdColumn = header.indexOf('pack_id');
+      expect(packIdColumn, greaterThanOrEqualTo(0));
+
+      final csvPackIds = rows
+          .skip(1)
+          .map((row) => row[packIdColumn].toString())
+          .where((id) => id.isNotEmpty)
+          .toSet();
+      final unknown = PackArtworkCatalog.dedicatedPackIds.difference(
+        csvPackIds,
+      );
+      final missingFiles = PackArtworkCatalog.dedicatedPackIds
+          .where(
+            (id) => !File('assets/illustrations/packs/$id.webp').existsSync(),
+          )
+          .toList();
+
+      expect(unknown, isEmpty, reason: 'CSV에 없는 전용 팩 ID: $unknown');
+      expect(missingFiles, isEmpty, reason: '전용 WebP가 없는 팩 ID: $missingFiles');
+      expect(PackArtworkCatalog.dedicatedPackIds.length, 113);
     });
   });
 

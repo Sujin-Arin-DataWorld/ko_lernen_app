@@ -1317,6 +1317,1475 @@
         24
       ]
     },
+    "assets/illustrations/packs/a1_body.webp": {
+      "sha256": "d78ac4b41247435a9f0cbc6f19b1e06bc1def47acd608fe37086ab0c44368d2b",
+      "kb": 95.0,
+      "ivoryFrac": 0.655,
+      "fine": 5.645,
+      "coarse": 0.837,
+      "uniqueColors": 26857,
+      "top8": 0.7621,
+      "patchXY": [
+        488,
+        0
+      ]
+    },
+    "assets/illustrations/packs/a1_city_services_2026_1.webp": {
+      "sha256": "4629b0264731ecd67087cf2f6cdb8d7c9687ebaa45f157f2b4dfa5de23395d53",
+      "kb": 97.4,
+      "ivoryFrac": 0.5896,
+      "fine": 6.016,
+      "coarse": 1.027,
+      "uniqueColors": 25142,
+      "top8": 0.7677,
+      "patchXY": [
+        400,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a1_daily_1.webp": {
+      "sha256": "3acc57de12d47559d27bd94cf12a091e82c7975bcb6e0c5328c501d630d681cd",
+      "kb": 100.4,
+      "ivoryFrac": 0.5838,
+      "fine": 6.16,
+      "coarse": 0.857,
+      "uniqueColors": 28149,
+      "top8": 0.7121,
+      "patchXY": [
+        136,
+        24
+      ]
+    },
+    "assets/illustrations/packs/a1_daily_2.webp": {
+      "sha256": "8a519798c74e4e37b3eb72d409a3831816ff599a66025eb108aa1ca32fecadd7",
+      "kb": 100.2,
+      "ivoryFrac": 0.6228,
+      "fine": 5.82,
+      "coarse": 0.924,
+      "uniqueColors": 33932,
+      "top8": 0.7208,
+      "patchXY": [
+        456,
+        0
+      ]
+    },
+    "assets/illustrations/packs/a1_daily_4.webp": {
+      "sha256": "5b93ae02dc2246730344159d316ccd46a2a3ab21bab7aed50a5cac99bf1750ba",
+      "kb": 91.9,
+      "ivoryFrac": 0.5956,
+      "fine": 5.58,
+      "coarse": 0.924,
+      "uniqueColors": 23881,
+      "top8": 0.7434,
+      "patchXY": [
+        288,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a1_descriptions.webp": {
+      "sha256": "cf0dff75578c6ed41aad427780e0399fa701cdd73e3467c6b9b4a344172e7b41",
+      "kb": 93.9,
+      "ivoryFrac": 0.6614,
+      "fine": 5.473,
+      "coarse": 1.059,
+      "uniqueColors": 24197,
+      "top8": 0.7384,
+      "patchXY": [
+        296,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a1_family_2.webp": {
+      "sha256": "de8e6f05c35d42d95fa64986e98dacaabebfbe391d1d32c37953b8dd665b6a70",
+      "kb": 97.0,
+      "ivoryFrac": 0.619,
+      "fine": 5.79,
+      "coarse": 1.152,
+      "uniqueColors": 33844,
+      "top8": 0.7242,
+      "patchXY": [
+        352,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a1_food_2.webp": {
+      "sha256": "7b1a46cb7f0ef104c79fd9e1baf59b221351574249b4c7032de98e957c76a76a",
+      "kb": 101.3,
+      "ivoryFrac": 0.6294,
+      "fine": 6.04,
+      "coarse": 1.033,
+      "uniqueColors": 27741,
+      "top8": 0.7155,
+      "patchXY": [
+        456,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a1_greetings_2.webp": {
+      "sha256": "4ebe42c7ab3b04bbdb3494d972e841710afa041fb025ded7b6ea8a1cca4429d2",
+      "kb": 95.5,
+      "ivoryFrac": 0.6719,
+      "fine": 5.655,
+      "coarse": 1.179,
+      "uniqueColors": 25309,
+      "top8": 0.7507,
+      "patchXY": [
+        616,
+        0
+      ]
+    },
+    "assets/illustrations/packs/a1_misc_2.webp": {
+      "sha256": "bc83ddb406ec680dbb1c9ba99f36018382249e170a9f7eed2d14b0f6f9859304",
+      "kb": 97.9,
+      "ivoryFrac": 0.6312,
+      "fine": 5.823,
+      "coarse": 0.865,
+      "uniqueColors": 29218,
+      "top8": 0.75,
+      "patchXY": [
+        144,
+        24
+      ]
+    },
+    "assets/illustrations/packs/a1_neighbors_hall_1.webp": {
+      "sha256": "823ce1d338f07ff5e78d8f811f2a4009f5bb84b4252bbccf66b3702c5143818c",
+      "kb": 94.1,
+      "ivoryFrac": 0.6132,
+      "fine": 5.889,
+      "coarse": 0.968,
+      "uniqueColors": 27622,
+      "top8": 0.7612,
+      "patchXY": [
+        376,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a1_numbers_1.webp": {
+      "sha256": "9cf939e063310227a8f336fe788b348cd981df866e8ab55e53c2508126ccf7e8",
+      "kb": 92.5,
+      "ivoryFrac": 0.694,
+      "fine": 5.858,
+      "coarse": 0.957,
+      "uniqueColors": 28676,
+      "top8": 0.7795,
+      "patchXY": [
+        352,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a1_numbers_2.webp": {
+      "sha256": "3b4314a4085f4afedec07fee3d0e1ba7141ad4753348ae31cfc45279454cec54",
+      "kb": 92.5,
+      "ivoryFrac": 0.6298,
+      "fine": 5.656,
+      "coarse": 1.0,
+      "uniqueColors": 27685,
+      "top8": 0.7438,
+      "patchXY": [
+        376,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a1_numbers_3.webp": {
+      "sha256": "c75974768a4d1f57507fd5bffcc2be1c3c6d741144da185dc55be519c1953b6f",
+      "kb": 100.0,
+      "ivoryFrac": 0.6317,
+      "fine": 5.994,
+      "coarse": 1.0,
+      "uniqueColors": 32603,
+      "top8": 0.7285,
+      "patchXY": [
+        160,
+        24
+      ]
+    },
+    "assets/illustrations/packs/a1_particles_in_use_1.webp": {
+      "sha256": "9b3ee63f7d9b00adb187a2695db3c903c5d180cb0a01c347927b8e97ed4b7bdc",
+      "kb": 92.6,
+      "ivoryFrac": 0.6737,
+      "fine": 5.767,
+      "coarse": 0.889,
+      "uniqueColors": 28726,
+      "top8": 0.7738,
+      "patchXY": [
+        144,
+        24
+      ]
+    },
+    "assets/illustrations/packs/a1_partner_chuseok_basic_1.webp": {
+      "sha256": "7c4c30daccddbb59d1f995dcf253fa04c1cc951aba296fca20dc9e4ee6f5d218",
+      "kb": 98.4,
+      "ivoryFrac": 0.6112,
+      "fine": 5.865,
+      "coarse": 0.984,
+      "uniqueColors": 37832,
+      "top8": 0.7002,
+      "patchXY": [
+        136,
+        24
+      ]
+    },
+    "assets/illustrations/packs/a1_partner_meet_names_1.webp": {
+      "sha256": "5e0b6d17e925c5c56d092844068ed163d0f5eab8925a664157bb8124f4c32531",
+      "kb": 93.2,
+      "ivoryFrac": 0.6612,
+      "fine": 5.762,
+      "coarse": 0.922,
+      "uniqueColors": 26910,
+      "top8": 0.8042,
+      "patchXY": [
+        144,
+        24
+      ]
+    },
+    "assets/illustrations/packs/a1_partner_photo_thanks_1.webp": {
+      "sha256": "c83fa18a7b350fa427f0b3fd9b282a16a8135273815bbe1a35558dd91434f3ed",
+      "kb": 97.2,
+      "ivoryFrac": 0.6502,
+      "fine": 5.864,
+      "coarse": 1.09,
+      "uniqueColors": 26693,
+      "top8": 0.7514,
+      "patchXY": [
+        352,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a1_partner_seollal_basic_1.webp": {
+      "sha256": "0a9e236d5a9ef3f30193a1fb3c0c6d832bb28bca1067e135ad29a030d63e2a67",
+      "kb": 97.3,
+      "ivoryFrac": 0.6466,
+      "fine": 5.72,
+      "coarse": 1.068,
+      "uniqueColors": 33866,
+      "top8": 0.7215,
+      "patchXY": [
+        152,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a1_partner_siblings_hello_1.webp": {
+      "sha256": "80bf41fa20b5c7d299e0be6b4b25f3d696f5aa7c2ab84115d2fd97113a9b29bf",
+      "kb": 94.9,
+      "ivoryFrac": 0.6447,
+      "fine": 5.559,
+      "coarse": 1.045,
+      "uniqueColors": 34875,
+      "top8": 0.7412,
+      "patchXY": [
+        640,
+        0
+      ]
+    },
+    "assets/illustrations/packs/a1_payment_delivery_1.webp": {
+      "sha256": "ba4f8687cf1d2fed1f288a0f7089538a4b011657e36155ef647ef894dba3f4a4",
+      "kb": 94.1,
+      "ivoryFrac": 0.5863,
+      "fine": 5.488,
+      "coarse": 1.172,
+      "uniqueColors": 23643,
+      "top8": 0.7813,
+      "patchXY": [
+        568,
+        0
+      ]
+    },
+    "assets/illustrations/packs/a1_position.webp": {
+      "sha256": "a714fe6ae2b5ff15654d230dfb7dd1046b25e630b0a4f9554ad66ba6603da099",
+      "kb": 96.8,
+      "ivoryFrac": 0.6308,
+      "fine": 5.843,
+      "coarse": 1.147,
+      "uniqueColors": 28737,
+      "top8": 0.72,
+      "patchXY": [
+        592,
+        0
+      ]
+    },
+    "assets/illustrations/packs/a1_post_office_1.webp": {
+      "sha256": "7f4840a3963fa94b716999ed95f9da5741a08950e9956c6154cac88b4e8775a4",
+      "kb": 98.3,
+      "ivoryFrac": 0.4848,
+      "fine": 5.783,
+      "coarse": 0.872,
+      "uniqueColors": 27397,
+      "top8": 0.6816,
+      "patchXY": [
+        288,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a1_repair_language_1.webp": {
+      "sha256": "83a3539278454d8b879ad2fd688a7c7d2bf9113aa00314514fa23a5459bde227",
+      "kb": 90.6,
+      "ivoryFrac": 0.6795,
+      "fine": 5.623,
+      "coarse": 0.964,
+      "uniqueColors": 25817,
+      "top8": 0.7951,
+      "patchXY": [
+        144,
+        24
+      ]
+    },
+    "assets/illustrations/packs/a1_self_intro.webp": {
+      "sha256": "62fb81bef2ec908b5b5ab5c9bc42064760065d4fa441c8337853b62455c2d981",
+      "kb": 102.2,
+      "ivoryFrac": 0.5906,
+      "fine": 6.133,
+      "coarse": 0.864,
+      "uniqueColors": 28037,
+      "top8": 0.7604,
+      "patchXY": [
+        448,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a1_sorry_thanks_1.webp": {
+      "sha256": "12e335c85a82a3ecb30d3592dd5d7af1db33e1dd9eb6fbfca040d87a22f1911d",
+      "kb": 96.8,
+      "ivoryFrac": 0.6555,
+      "fine": 5.787,
+      "coarse": 1.086,
+      "uniqueColors": 29374,
+      "top8": 0.7578,
+      "patchXY": [
+        400,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a1_subway_card_1.webp": {
+      "sha256": "e4bc6561c193c0aca3a962ad6cbd1e9d08e049b9da6d660dde2700ce94071015",
+      "kb": 97.2,
+      "ivoryFrac": 0.5747,
+      "fine": 5.85,
+      "coarse": 0.951,
+      "uniqueColors": 28513,
+      "top8": 0.6885,
+      "patchXY": [
+        136,
+        24
+      ]
+    },
+    "assets/illustrations/packs/a1_time_2.webp": {
+      "sha256": "4c9d28a7446e3a0a175e7b14fc695ab1748df3d2479b154f8938882524f0b852",
+      "kb": 95.2,
+      "ivoryFrac": 0.6257,
+      "fine": 5.754,
+      "coarse": 1.008,
+      "uniqueColors": 28751,
+      "top8": 0.8074,
+      "patchXY": [
+        376,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a1_time_3.webp": {
+      "sha256": "53b0437607c779028a22cbe657cab4c3c44e561aefcd21dc53aac02fca810bd2",
+      "kb": 94.4,
+      "ivoryFrac": 0.6251,
+      "fine": 5.711,
+      "coarse": 0.926,
+      "uniqueColors": 32958,
+      "top8": 0.7587,
+      "patchXY": [
+        456,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a1_weather_layer_1.webp": {
+      "sha256": "483c79ab56c53d4bcdf6739bcf1c9e0333cfd7be11fe4b8d4e1fc3357952b788",
+      "kb": 97.4,
+      "ivoryFrac": 0.612,
+      "fine": 5.705,
+      "coarse": 0.956,
+      "uniqueColors": 29632,
+      "top8": 0.7504,
+      "patchXY": [
+        352,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a1_weekend_promise_1.webp": {
+      "sha256": "4c6279f64b9f335ba35fcf929197bb58abea605eac15e9d136507bcb85fda694",
+      "kb": 99.7,
+      "ivoryFrac": 0.6263,
+      "fine": 5.825,
+      "coarse": 1.053,
+      "uniqueColors": 35229,
+      "top8": 0.7604,
+      "patchXY": [
+        376,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a2_apt_rules_1.webp": {
+      "sha256": "eac25a2caef5df6ba037f48e38f62f2453f371ef4e3a4b3f7042de9d251e1d69",
+      "kb": 97.4,
+      "ivoryFrac": 0.5778,
+      "fine": 5.799,
+      "coarse": 0.966,
+      "uniqueColors": 27927,
+      "top8": 0.7288,
+      "patchXY": [
+        144,
+        24
+      ]
+    },
+    "assets/illustrations/packs/a2_bank_counter_1.webp": {
+      "sha256": "bb865ef69813ae7ea08c5c2ea88ae58b64e07cf3341805cffde4aca99b915d1b",
+      "kb": 92.4,
+      "ivoryFrac": 0.6483,
+      "fine": 5.638,
+      "coarse": 0.899,
+      "uniqueColors": 27821,
+      "top8": 0.7698,
+      "patchXY": [
+        352,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a2_change_verbs_1.webp": {
+      "sha256": "4dffd5336a0aa6a6e6e89656427db126d993fac12f3d14a852bb101397aa7717",
+      "kb": 96.5,
+      "ivoryFrac": 0.6433,
+      "fine": 5.652,
+      "coarse": 0.996,
+      "uniqueColors": 31135,
+      "top8": 0.7241,
+      "patchXY": [
+        312,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a2_clothing_1.webp": {
+      "sha256": "c7b3bc14d0acba94608a82e33c77f4d2b26914e6b874f8de0d65befa928caa62",
+      "kb": 94.2,
+      "ivoryFrac": 0.6468,
+      "fine": 5.549,
+      "coarse": 1.072,
+      "uniqueColors": 25295,
+      "top8": 0.7133,
+      "patchXY": [
+        144,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a2_daily_1.webp": {
+      "sha256": "d010b20d5add9ce405ccd3745010f1b669cb0620c726465dfa1fbbaed2de5e84",
+      "kb": 101.6,
+      "ivoryFrac": 0.6135,
+      "fine": 5.806,
+      "coarse": 0.947,
+      "uniqueColors": 29207,
+      "top8": 0.7164,
+      "patchXY": [
+        488,
+        0
+      ]
+    },
+    "assets/illustrations/packs/a2_daily_2.webp": {
+      "sha256": "5af716046bd5fe749347d98d301e639a062cf45b745e24afb37768ea55500675",
+      "kb": 97.9,
+      "ivoryFrac": 0.6373,
+      "fine": 5.656,
+      "coarse": 1.014,
+      "uniqueColors": 31221,
+      "top8": 0.7487,
+      "patchXY": [
+        352,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a2_daily_3.webp": {
+      "sha256": "357a406692b4341e47026be17271751157fb7ef915f3b86c27baa48b95140cb0",
+      "kb": 97.4,
+      "ivoryFrac": 0.6145,
+      "fine": 5.889,
+      "coarse": 1.118,
+      "uniqueColors": 28801,
+      "top8": 0.7544,
+      "patchXY": [
+        544,
+        0
+      ]
+    },
+    "assets/illustrations/packs/a2_descriptions_2.webp": {
+      "sha256": "6bbbbc3c6991bcdfc5a51b6d0723f14258c58c13a3dee55d957991a5d0364518",
+      "kb": 90.5,
+      "ivoryFrac": 0.5965,
+      "fine": 5.61,
+      "coarse": 1.008,
+      "uniqueColors": 27137,
+      "top8": 0.7171,
+      "patchXY": [
+        640,
+        24
+      ]
+    },
+    "assets/illustrations/packs/a2_feelings_1.webp": {
+      "sha256": "2be5db388472aabbc9a21f5179c4e01c93916ae200b6b9a7058b2c0c70613edb",
+      "kb": 92.5,
+      "ivoryFrac": 0.6313,
+      "fine": 5.911,
+      "coarse": 1.12,
+      "uniqueColors": 31046,
+      "top8": 0.7557,
+      "patchXY": [
+        160,
+        24
+      ]
+    },
+    "assets/illustrations/packs/a2_feelings_2.webp": {
+      "sha256": "e6d363afeb2fdced3539d3486010c8f7ca04ad474c05b558b19d8f0ea1da4e14",
+      "kb": 103.0,
+      "ivoryFrac": 0.6085,
+      "fine": 5.89,
+      "coarse": 1.215,
+      "uniqueColors": 38343,
+      "top8": 0.7191,
+      "patchXY": [
+        376,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a2_festival_booth_1.webp": {
+      "sha256": "61941c6809fc1faeff472456abee4fc71c91b5926c4b7c1065fe33aedd8f1b92",
+      "kb": 98.1,
+      "ivoryFrac": 0.5935,
+      "fine": 5.853,
+      "coarse": 1.017,
+      "uniqueColors": 35696,
+      "top8": 0.725,
+      "patchXY": [
+        488,
+        0
+      ]
+    },
+    "assets/illustrations/packs/a2_food_1.webp": {
+      "sha256": "8e54a672c92e507dc46438a17b52f78eeb441cfde9f16b0e9fde63ace3d7595c",
+      "kb": 92.4,
+      "ivoryFrac": 0.6059,
+      "fine": 5.938,
+      "coarse": 1.033,
+      "uniqueColors": 23958,
+      "top8": 0.7844,
+      "patchXY": [
+        456,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a2_food_2.webp": {
+      "sha256": "ed4c8ea356be53376f6a4e1cb9cb834cd8706b60190bc610a30cdc32309f8bdb",
+      "kb": 103.3,
+      "ivoryFrac": 0.5276,
+      "fine": 6.014,
+      "coarse": 1.097,
+      "uniqueColors": 27613,
+      "top8": 0.7227,
+      "patchXY": [
+        296,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a2_food_more_1.webp": {
+      "sha256": "d1fc45661171b594c21b60db5c278cbc7ed70ab4359641d099a9959b7f281b34",
+      "kb": 96.3,
+      "ivoryFrac": 0.6121,
+      "fine": 5.74,
+      "coarse": 1.068,
+      "uniqueColors": 35566,
+      "top8": 0.7145,
+      "patchXY": [
+        640,
+        0
+      ]
+    },
+    "assets/illustrations/packs/a2_gym_class_1.webp": {
+      "sha256": "b1937466346da7a767374afa17cd6fb8f6049c0532a4e5d61453a3c2bc8ddf4b",
+      "kb": 99.2,
+      "ivoryFrac": 0.6203,
+      "fine": 5.932,
+      "coarse": 1.187,
+      "uniqueColors": 32714,
+      "top8": 0.7334,
+      "patchXY": [
+        632,
+        24
+      ]
+    },
+    "assets/illustrations/packs/a2_health_misc_1.webp": {
+      "sha256": "507baa3a9cf6e2e310c1285681c9abb0749794d1c557d0837012e88e03e12d6f",
+      "kb": 97.6,
+      "ivoryFrac": 0.6247,
+      "fine": 5.76,
+      "coarse": 0.984,
+      "uniqueColors": 32423,
+      "top8": 0.7399,
+      "patchXY": [
+        632,
+        24
+      ]
+    },
+    "assets/illustrations/packs/a2_health_misc_2.webp": {
+      "sha256": "cbd398d6d97395a8bd66f43e17c6135d5ce3c0fe3df9d56a874d13204857fe1a",
+      "kb": 92.6,
+      "ivoryFrac": 0.6598,
+      "fine": 5.576,
+      "coarse": 0.944,
+      "uniqueColors": 26302,
+      "top8": 0.7645,
+      "patchXY": [
+        232,
+        24
+      ]
+    },
+    "assets/illustrations/packs/a2_household_1.webp": {
+      "sha256": "5a339bcb92084a2ed7c4f8a0c61e27e2f7e5ba8d4775eff4df0832acd98f14ec",
+      "kb": 101.8,
+      "ivoryFrac": 0.6237,
+      "fine": 6.031,
+      "coarse": 0.865,
+      "uniqueColors": 29044,
+      "top8": 0.7463,
+      "patchXY": [
+        328,
+        0
+      ]
+    },
+    "assets/illustrations/packs/a2_housing_search_2026_1.webp": {
+      "sha256": "1c30acfdf84dec67bef6af7870c5d95d4b01ee81a9ef162f2e94371d7f1c41cd",
+      "kb": 101.8,
+      "ivoryFrac": 0.6102,
+      "fine": 5.816,
+      "coarse": 1.1,
+      "uniqueColors": 28999,
+      "top8": 0.7392,
+      "patchXY": [
+        488,
+        0
+      ]
+    },
+    "assets/illustrations/packs/a2_lost_found_1.webp": {
+      "sha256": "c73aa8aa176f9a1dd54ba55ef6fbf48f30f90247c49403f5f4542b2c11ce5438",
+      "kb": 96.3,
+      "ivoryFrac": 0.617,
+      "fine": 5.868,
+      "coarse": 1.044,
+      "uniqueColors": 23607,
+      "top8": 0.7836,
+      "patchXY": [
+        352,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a2_part_time_1.webp": {
+      "sha256": "c10e4837d8e31ff6a73e3e8985366b1faebdba155a136b8ed35c46af9c0f29cf",
+      "kb": 98.7,
+      "ivoryFrac": 0.5736,
+      "fine": 5.952,
+      "coarse": 0.977,
+      "uniqueColors": 27885,
+      "top8": 0.7226,
+      "patchXY": [
+        408,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a2_partner_banmal_switch_1.webp": {
+      "sha256": "6ef2f1ea87b3622bb299d7c3fb2ad181c8fdb8c244aa348c408ba1a332e3dac0",
+      "kb": 94.6,
+      "ivoryFrac": 0.6802,
+      "fine": 5.949,
+      "coarse": 1.163,
+      "uniqueColors": 22396,
+      "top8": 0.8111,
+      "patchXY": [
+        448,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a2_partner_chuseok_day_1.webp": {
+      "sha256": "50d299d946234e05f10fa2ac78ca4dc5ab26c3ed41b9d217149d6ec908786530",
+      "kb": 102.7,
+      "ivoryFrac": 0.6029,
+      "fine": 6.16,
+      "coarse": 0.991,
+      "uniqueColors": 26824,
+      "top8": 0.7592,
+      "patchXY": [
+        136,
+        24
+      ]
+    },
+    "assets/illustrations/packs/a2_partner_dinner_talk_1.webp": {
+      "sha256": "2a9726330a4e1bd6505cd3b75c644203eee65d85f1608d07ec7d8a2709d79c1c",
+      "kb": 100.9,
+      "ivoryFrac": 0.6393,
+      "fine": 5.812,
+      "coarse": 0.976,
+      "uniqueColors": 28611,
+      "top8": 0.7633,
+      "patchXY": [
+        568,
+        0
+      ]
+    },
+    "assets/illustrations/packs/a2_partner_hometown_trip_1.webp": {
+      "sha256": "4f27d0ef6d39527b8280c557f55963e439bcaccebf88bc68214a03c43a233bf8",
+      "kb": 99.4,
+      "ivoryFrac": 0.641,
+      "fine": 5.806,
+      "coarse": 1.149,
+      "uniqueColors": 41651,
+      "top8": 0.716,
+      "patchXY": [
+        352,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a2_partner_leftover_bags_1.webp": {
+      "sha256": "ae92faba8460fdd9e3f6d3599ef815b0af51c4655956cb0ab4efa54e5227994d",
+      "kb": 101.1,
+      "ivoryFrac": 0.5761,
+      "fine": 6.107,
+      "coarse": 1.285,
+      "uniqueColors": 32570,
+      "top8": 0.6701,
+      "patchXY": [
+        616,
+        24
+      ]
+    },
+    "assets/illustrations/packs/a2_partner_overnight_1.webp": {
+      "sha256": "7467c75987350bd9bd3e64a7e858291835bb73097025e92a92f37cb19a74278e",
+      "kb": 98.3,
+      "ivoryFrac": 0.6581,
+      "fine": 5.915,
+      "coarse": 0.884,
+      "uniqueColors": 24102,
+      "top8": 0.7623,
+      "patchXY": [
+        320,
+        24
+      ]
+    },
+    "assets/illustrations/packs/a2_partner_seollal_day_1.webp": {
+      "sha256": "4145d823f6f167029a6acf64e64d49f29a9dcaa3d9d4bfe922ac5f0a2e15d130",
+      "kb": 102.4,
+      "ivoryFrac": 0.5772,
+      "fine": 5.948,
+      "coarse": 1.096,
+      "uniqueColors": 39325,
+      "top8": 0.6961,
+      "patchXY": [
+        440,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a2_partner_sibling_tease_1.webp": {
+      "sha256": "cb39b84b50ef146705decaa4c519b3d7813f74afed441d84693dab539d1a6ed1",
+      "kb": 98.4,
+      "ivoryFrac": 0.5807,
+      "fine": 5.984,
+      "coarse": 0.847,
+      "uniqueColors": 33848,
+      "top8": 0.7426,
+      "patchXY": [
+        448,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a2_people_jobs_1.webp": {
+      "sha256": "c00a45bd7c35ad4d48d059ae5e775f7fe4ddf49ceb3e9531b921ec648ab14bcb",
+      "kb": 99.2,
+      "ivoryFrac": 0.6245,
+      "fine": 5.693,
+      "coarse": 0.935,
+      "uniqueColors": 31808,
+      "top8": 0.6859,
+      "patchXY": [
+        464,
+        0
+      ]
+    },
+    "assets/illustrations/packs/a2_phone_plan_1.webp": {
+      "sha256": "e3aeebeddaa62184272417b71ff41f2707d349f95c8f504c5523a6bb4b2c6f0b",
+      "kb": 95.8,
+      "ivoryFrac": 0.6796,
+      "fine": 5.832,
+      "coarse": 1.11,
+      "uniqueColors": 26043,
+      "top8": 0.7585,
+      "patchXY": [
+        432,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a2_plans_proposals_1.webp": {
+      "sha256": "53524a98eae7c4725d39300fd11db3b83711dc9d992d204a871526e6a0dde635",
+      "kb": 93.5,
+      "ivoryFrac": 0.6632,
+      "fine": 5.714,
+      "coarse": 1.053,
+      "uniqueColors": 24331,
+      "top8": 0.7996,
+      "patchXY": [
+        320,
+        0
+      ]
+    },
+    "assets/illustrations/packs/a2_restaurant_1.webp": {
+      "sha256": "7dbe44a3767c3f442ae2f57d5a3a69abda17a347c59d92fe39e7077cf6d9b6d4",
+      "kb": 95.9,
+      "ivoryFrac": 0.5623,
+      "fine": 5.801,
+      "coarse": 0.984,
+      "uniqueColors": 34849,
+      "top8": 0.7388,
+      "patchXY": [
+        448,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a2_salon_visit_1.webp": {
+      "sha256": "d93e7be918cdf5a7fe8ec98e2b96c30144e3478414ddaaafc70cb1968a1456df",
+      "kb": 100.6,
+      "ivoryFrac": 0.5715,
+      "fine": 5.89,
+      "coarse": 1.033,
+      "uniqueColors": 31505,
+      "top8": 0.7262,
+      "patchXY": [
+        328,
+        24
+      ]
+    },
+    "assets/illustrations/packs/a2_school_uni_1.webp": {
+      "sha256": "d1827b5097abeba22e6c57d4b6a11033bb3e1b373b04cbd3d6bfcfc10439be29",
+      "kb": 97.9,
+      "ivoryFrac": 0.5598,
+      "fine": 6.115,
+      "coarse": 0.998,
+      "uniqueColors": 28401,
+      "top8": 0.7047,
+      "patchXY": [
+        456,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a2_shopping_1.webp": {
+      "sha256": "1805eed2ae623d7bf65154d5c3ccabb4c6a9fd10f4bfeed74bd4c994ef62f2b3",
+      "kb": 94.9,
+      "ivoryFrac": 0.6352,
+      "fine": 5.807,
+      "coarse": 1.077,
+      "uniqueColors": 31052,
+      "top8": 0.7615,
+      "patchXY": [
+        448,
+        24
+      ]
+    },
+    "assets/illustrations/packs/a2_shopping_2.webp": {
+      "sha256": "0e2dc952e305e7a7c15ee1250ec3830d4daa00ef29e3409f75bdc563b6f3cb76",
+      "kb": 95.5,
+      "ivoryFrac": 0.6367,
+      "fine": 5.682,
+      "coarse": 1.031,
+      "uniqueColors": 30966,
+      "top8": 0.733,
+      "patchXY": [
+        368,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a2_transport.webp": {
+      "sha256": "6439e3abadc9cc9f1444b192321c882973011f411e638bf5bd59ac3a78e83fbb",
+      "kb": 102.8,
+      "ivoryFrac": 0.6229,
+      "fine": 6.034,
+      "coarse": 0.956,
+      "uniqueColors": 30923,
+      "top8": 0.7095,
+      "patchXY": [
+        136,
+        24
+      ]
+    },
+    "assets/illustrations/packs/a2_wearing_verbs_1.webp": {
+      "sha256": "36c50e31cb2e00127672296b216217aaf1e8447597a46da8f35eefdc1edfb508",
+      "kb": 98.0,
+      "ivoryFrac": 0.5789,
+      "fine": 5.978,
+      "coarse": 0.907,
+      "uniqueColors": 29708,
+      "top8": 0.7068,
+      "patchXY": [
+        432,
+        48
+      ]
+    },
+    "assets/illustrations/packs/a2_work.webp": {
+      "sha256": "baa4e3c4f3841f9cf1e0a30a622fc4cb9eb14cb671d9ee77feaddb29af8b44d9",
+      "kb": 99.8,
+      "ivoryFrac": 0.5817,
+      "fine": 5.83,
+      "coarse": 0.91,
+      "uniqueColors": 27696,
+      "top8": 0.7129,
+      "patchXY": [
+        432,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b1_character_feelings_1.webp": {
+      "sha256": "59c8780853860ade416dbcf4cf419c45e15c78bba5e3c353bca4ea9d69c53f14",
+      "kb": 96.1,
+      "ivoryFrac": 0.581,
+      "fine": 5.849,
+      "coarse": 0.884,
+      "uniqueColors": 29635,
+      "top8": 0.7195,
+      "patchXY": [
+        392,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b1_city_places_1.webp": {
+      "sha256": "6800fbfc6e6ecc434871d91a965fa9cf5fa15d2b7ade22bbe6e5badc99f16ea0",
+      "kb": 95.0,
+      "ivoryFrac": 0.6614,
+      "fine": 5.988,
+      "coarse": 1.111,
+      "uniqueColors": 22133,
+      "top8": 0.7729,
+      "patchXY": [
+        232,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b1_communication_lang_1.webp": {
+      "sha256": "908b7429a940c7085483887e6c88a247a2beca4f4ea05b5f3069fd393e859c8e",
+      "kb": 99.3,
+      "ivoryFrac": 0.6669,
+      "fine": 5.866,
+      "coarse": 1.174,
+      "uniqueColors": 26581,
+      "top8": 0.7602,
+      "patchXY": [
+        312,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b1_daily_1.webp": {
+      "sha256": "46d0af888b3aed13b0efd2ed96f6a91c762b12c85e9fef95c2439d4de0de17aa",
+      "kb": 101.9,
+      "ivoryFrac": 0.6482,
+      "fine": 6.043,
+      "coarse": 1.332,
+      "uniqueColors": 35058,
+      "top8": 0.7204,
+      "patchXY": [
+        352,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b1_daily_2.webp": {
+      "sha256": "a9a740457da4d2728ea209a84127c6bcc3a22e02a67e0e28ebb85a8493fc9a9a",
+      "kb": 98.1,
+      "ivoryFrac": 0.605,
+      "fine": 5.701,
+      "coarse": 1.071,
+      "uniqueColors": 33631,
+      "top8": 0.7302,
+      "patchXY": [
+        488,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b1_daily_3.webp": {
+      "sha256": "7bc984bc2a08e8760b5dff86bb0913c206ab9314544e440847a39cc565dc00a9",
+      "kb": 98.7,
+      "ivoryFrac": 0.6241,
+      "fine": 5.686,
+      "coarse": 1.035,
+      "uniqueColors": 35613,
+      "top8": 0.724,
+      "patchXY": [
+        640,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b1_descriptions_1.webp": {
+      "sha256": "aa5021d7309d402e89cd495d8d09f14ccab10aa55b5f8cc2ca20e1f2269b3f99",
+      "kb": 94.4,
+      "ivoryFrac": 0.6226,
+      "fine": 5.39,
+      "coarse": 1.027,
+      "uniqueColors": 30354,
+      "top8": 0.7033,
+      "patchXY": [
+        288,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b1_descriptions_2.webp": {
+      "sha256": "29e79e19583a2249c52517ee093e9474db3193f3428ea9fc6473d38dc48f2a80",
+      "kb": 102.8,
+      "ivoryFrac": 0.586,
+      "fine": 5.589,
+      "coarse": 1.002,
+      "uniqueColors": 31634,
+      "top8": 0.6901,
+      "patchXY": [
+        376,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b1_descriptions_adj_1.webp": {
+      "sha256": "a4b98a3dc56a513619e8ccaf38335422855c8dac3a686923ed4b47e67753fd4f",
+      "kb": 97.3,
+      "ivoryFrac": 0.6207,
+      "fine": 5.633,
+      "coarse": 0.882,
+      "uniqueColors": 25304,
+      "top8": 0.6984,
+      "patchXY": [
+        456,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b1_emotions_relations_1.webp": {
+      "sha256": "672326fa3378e954952d76c65e10cef0b01d60f16f67605d23bedaa2d712bb47",
+      "kb": 95.8,
+      "ivoryFrac": 0.6557,
+      "fine": 5.682,
+      "coarse": 0.91,
+      "uniqueColors": 27493,
+      "top8": 0.7669,
+      "patchXY": [
+        376,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b1_emotions_relations_2.webp": {
+      "sha256": "ed8ef42e2dd60d5ee76a3f37d5bf54b022e8d12fcdd7fa4455c58b4fc370e8f6",
+      "kb": 101.3,
+      "ivoryFrac": 0.5778,
+      "fine": 5.643,
+      "coarse": 0.935,
+      "uniqueColors": 35942,
+      "top8": 0.6727,
+      "patchXY": [
+        456,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b1_emotions_relations_3.webp": {
+      "sha256": "b4165feefd57093c8c85ac0a8bf53160491b5e34acef8056a331f2acb90ae9fa",
+      "kb": 96.3,
+      "ivoryFrac": 0.636,
+      "fine": 5.498,
+      "coarse": 0.91,
+      "uniqueColors": 28641,
+      "top8": 0.7711,
+      "patchXY": [
+        544,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b1_health_education.webp": {
+      "sha256": "f8cdc7527e63b97f96d283788497b1f4d6ec977a820172719e14334b326ecc3e",
+      "kb": 96.4,
+      "ivoryFrac": 0.5985,
+      "fine": 5.992,
+      "coarse": 1.015,
+      "uniqueColors": 33609,
+      "top8": 0.7562,
+      "patchXY": [
+        368,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b1_health_hospital_1.webp": {
+      "sha256": "ad77016493725fd58de4b21acafd2e4c047c6b0c872ea83870744e88b707b94f",
+      "kb": 93.2,
+      "ivoryFrac": 0.6387,
+      "fine": 5.547,
+      "coarse": 0.793,
+      "uniqueColors": 27689,
+      "top8": 0.7731,
+      "patchXY": [
+        144,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b1_housing_contract_1.webp": {
+      "sha256": "461bfbf6e4014913d6f62803a8e11f19213b89fc10356ffb619b5dcda6d8e960",
+      "kb": 97.0,
+      "ivoryFrac": 0.5436,
+      "fine": 5.75,
+      "coarse": 0.973,
+      "uniqueColors": 26485,
+      "top8": 0.7263,
+      "patchXY": [
+        312,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b1_insurance_claim_1.webp": {
+      "sha256": "698ef8b9c9d994c27dd4a2e51e387a1ddb1d0df45652a48d702b39d7cd340a02",
+      "kb": 101.2,
+      "ivoryFrac": 0.5621,
+      "fine": 6.044,
+      "coarse": 1.056,
+      "uniqueColors": 27616,
+      "top8": 0.6817,
+      "patchXY": [
+        144,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b1_media_culture_1.webp": {
+      "sha256": "f53131782ef531d840b35825b233f678dc083dbf5d51af1c2cba99fbb4705d27",
+      "kb": 97.5,
+      "ivoryFrac": 0.613,
+      "fine": 5.804,
+      "coarse": 0.968,
+      "uniqueColors": 33094,
+      "top8": 0.6983,
+      "patchXY": [
+        136,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b1_money_bank_1.webp": {
+      "sha256": "d4edb27745836d0d437c3779e49d36988519268e28c139047efeba4dd522238c",
+      "kb": 96.6,
+      "ivoryFrac": 0.6715,
+      "fine": 5.889,
+      "coarse": 0.959,
+      "uniqueColors": 24699,
+      "top8": 0.7361,
+      "patchXY": [
+        160,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b1_parent_school_1.webp": {
+      "sha256": "2a973dab2b41c0bf8ad8d01f0aa9a25189a89c55b2e9ffd6435b828a74e8e88a",
+      "kb": 97.4,
+      "ivoryFrac": 0.5913,
+      "fine": 5.642,
+      "coarse": 1.088,
+      "uniqueColors": 31478,
+      "top8": 0.7043,
+      "patchXY": [
+        352,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b1_partner_after_visit_1.webp": {
+      "sha256": "b8b48d79d040cfa48f24f222be87a2179b1e70e868802ea8a8146562220e929c",
+      "kb": 94.9,
+      "ivoryFrac": 0.5742,
+      "fine": 5.697,
+      "coarse": 0.931,
+      "uniqueColors": 28652,
+      "top8": 0.748,
+      "patchXY": [
+        552,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b1_partner_awkward_questions_1.webp": {
+      "sha256": "94d120637eed884f9068c2003780f7aacb39a65d85228467b0c0d47d949fcbb6",
+      "kb": 91.7,
+      "ivoryFrac": 0.6025,
+      "fine": 5.729,
+      "coarse": 0.79,
+      "uniqueColors": 27667,
+      "top8": 0.7468,
+      "patchXY": [
+        176,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b1_partner_drink_table_1.webp": {
+      "sha256": "877e1f99ab9095a622cd3f8d0efb4f35c5cd07a640c2ddd50198e71bfb9157a8",
+      "kb": 96.1,
+      "ivoryFrac": 0.657,
+      "fine": 5.455,
+      "coarse": 1.038,
+      "uniqueColors": 24416,
+      "top8": 0.7209,
+      "patchXY": [
+        568,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b1_partner_group_chat_1.webp": {
+      "sha256": "3424a3e31109c3ce9e5771622c8ff6170e47a8ea8064109091d848e9aeda1120",
+      "kb": 95.6,
+      "ivoryFrac": 0.6604,
+      "fine": 5.558,
+      "coarse": 1.06,
+      "uniqueColors": 25181,
+      "top8": 0.7382,
+      "patchXY": [
+        160,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b1_partner_holiday_plan_1.webp": {
+      "sha256": "282baea95476648a58bed7201b06d3a8d868178f4b9b036544421fc27dc13d58",
+      "kb": 103.4,
+      "ivoryFrac": 0.5885,
+      "fine": 6.038,
+      "coarse": 1.024,
+      "uniqueColors": 32395,
+      "top8": 0.7372,
+      "patchXY": [
+        480,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b1_partner_job_visa_1.webp": {
+      "sha256": "ab222734dd252a752cb619b2340a1205f9d2e057573928c864383d0f843a8a06",
+      "kb": 95.2,
+      "ivoryFrac": 0.6347,
+      "fine": 5.388,
+      "coarse": 1.152,
+      "uniqueColors": 27420,
+      "top8": 0.7558,
+      "patchXY": [
+        344,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b1_partner_sleep_room_1.webp": {
+      "sha256": "e7cb0fccbe7a8f9704a4001dc2c37841bc671f16035fa6e1326c791cc8700fa2",
+      "kb": 96.7,
+      "ivoryFrac": 0.5697,
+      "fine": 5.626,
+      "coarse": 0.952,
+      "uniqueColors": 25350,
+      "top8": 0.7084,
+      "patchXY": [
+        296,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b1_partner_translating_1.webp": {
+      "sha256": "36575fb10c2b404edea594ff51b12dfef04af9e6140018128d07fc5409fec44b",
+      "kb": 96.6,
+      "ivoryFrac": 0.6374,
+      "fine": 5.6,
+      "coarse": 0.875,
+      "uniqueColors": 24768,
+      "top8": 0.7768,
+      "patchXY": [
+        368,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b1_repair_words_1.webp": {
+      "sha256": "2d8d5f00852c9b4baae4100b304e0d63a9d4388305e20337f7febef2b1018a3e",
+      "kb": 97.2,
+      "ivoryFrac": 0.5999,
+      "fine": 5.918,
+      "coarse": 1.097,
+      "uniqueColors": 28377,
+      "top8": 0.7466,
+      "patchXY": [
+        144,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b1_roommate_talk_1.webp": {
+      "sha256": "f093ea0231e96b8fc7214e42a9d9062dbc164e7aca0be41d7d3a0d497d6b8201",
+      "kb": 91.7,
+      "ivoryFrac": 0.6391,
+      "fine": 5.747,
+      "coarse": 0.845,
+      "uniqueColors": 28481,
+      "top8": 0.7303,
+      "patchXY": [
+        160,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b1_social_events_1.webp": {
+      "sha256": "0096c272e72786853a71af3c75b6e93cb894c1fc9ba0f677a86bd3b98e2a00bd",
+      "kb": 96.4,
+      "ivoryFrac": 0.6225,
+      "fine": 5.855,
+      "coarse": 1.094,
+      "uniqueColors": 25021,
+      "top8": 0.7438,
+      "patchXY": [
+        352,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b1_tech_society_1.webp": {
+      "sha256": "e807ff1754eccba1940d12a1b850a25663d72db8f98a527e0d2b6b15ef035693",
+      "kb": 105.9,
+      "ivoryFrac": 0.6211,
+      "fine": 5.991,
+      "coarse": 1.124,
+      "uniqueColors": 25523,
+      "top8": 0.7593,
+      "patchXY": [
+        112,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b1_tech_society_2.webp": {
+      "sha256": "7e4a2cca46c7f86cc56107b6190d041e729f74ef8b91a788c2fba95b0ada5251",
+      "kb": 94.1,
+      "ivoryFrac": 0.6463,
+      "fine": 6.212,
+      "coarse": 1.026,
+      "uniqueColors": 24921,
+      "top8": 0.7542,
+      "patchXY": [
+        136,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b1_time_life_1.webp": {
+      "sha256": "e6cc9ba4bc1f94e2047042acfc520ac63b073d75a2df564cac31db7980e03e60",
+      "kb": 94.0,
+      "ivoryFrac": 0.6204,
+      "fine": 5.543,
+      "coarse": 0.951,
+      "uniqueColors": 29431,
+      "top8": 0.7395,
+      "patchXY": [
+        184,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b1_travel_change_1.webp": {
+      "sha256": "e969d07f042262229628a48dd92e7f7d523cb7200e3c266d23d9a29f909f1f95",
+      "kb": 95.3,
+      "ivoryFrac": 0.5892,
+      "fine": 5.66,
+      "coarse": 0.98,
+      "uniqueColors": 30867,
+      "top8": 0.7589,
+      "patchXY": [
+        368,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b1_travel_transport_1.webp": {
+      "sha256": "bde0f30471be4425fab33daf2df36319512b7c50bcacbc44b62f92256415834f",
+      "kb": 100.3,
+      "ivoryFrac": 0.5512,
+      "fine": 6.111,
+      "coarse": 1.228,
+      "uniqueColors": 37251,
+      "top8": 0.7411,
+      "patchXY": [
+        312,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b1_verbs_daily_1.webp": {
+      "sha256": "eb935b04ae97ca2f57d4c12e70435f6762bdb7efd938f95bb899ae69fccb2fcb",
+      "kb": 100.0,
+      "ivoryFrac": 0.5161,
+      "fine": 5.776,
+      "coarse": 1.0,
+      "uniqueColors": 33475,
+      "top8": 0.676,
+      "patchXY": [
+        440,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b1_volunteer_shift_1.webp": {
+      "sha256": "80b68fefa94429a2bf568b6807c6b5d09df11e256c1b648899215eadd5e5135a",
+      "kb": 104.8,
+      "ivoryFrac": 0.5735,
+      "fine": 6.078,
+      "coarse": 1.022,
+      "uniqueColors": 42128,
+      "top8": 0.7077,
+      "patchXY": [
+        440,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b1_work.webp": {
+      "sha256": "e55d4cac61325f285b39a3c26b510e6d120ec3292e4d348586faac260ac41ddf",
+      "kb": 104.2,
+      "ivoryFrac": 0.4793,
+      "fine": 6.106,
+      "coarse": 1.0,
+      "uniqueColors": 39437,
+      "top8": 0.7011,
+      "patchXY": [
+        352,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b1_work_career_1.webp": {
+      "sha256": "444d73712e1c0821d63a17385394a9143a365e6bcd961ec42f3420e416742e85",
+      "kb": 101.1,
+      "ivoryFrac": 0.6344,
+      "fine": 5.993,
+      "coarse": 1.022,
+      "uniqueColors": 25229,
+      "top8": 0.7622,
+      "patchXY": [
+        136,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b1_work_coordination_1.webp": {
+      "sha256": "c6daf65624bbab3df7807d9283dd181d7864426dd55ec7782b35e9049e98c417",
+      "kb": 98.7,
+      "ivoryFrac": 0.5611,
+      "fine": 5.479,
+      "coarse": 0.77,
+      "uniqueColors": 26573,
+      "top8": 0.758,
+      "patchXY": [
+        296,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b1_work_entry_2026_1.webp": {
+      "sha256": "17617cb5a497eff21a8cf9d437f057648a855731b50b6a82e14bdf5eb33d37dc",
+      "kb": 94.4,
+      "ivoryFrac": 0.6434,
+      "fine": 5.7,
+      "coarse": 1.053,
+      "uniqueColors": 23762,
+      "top8": 0.7655,
+      "patchXY": [
+        368,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b1_work_softening_1.webp": {
+      "sha256": "efcec53fddb1ed45a869d30db7d0ab5dcd05cd744d609528ca65c2246f6dd2e6",
+      "kb": 91.1,
+      "ivoryFrac": 0.6343,
+      "fine": 5.739,
+      "coarse": 0.865,
+      "uniqueColors": 26980,
+      "top8": 0.7321,
+      "patchXY": [
+        448,
+        48
+      ]
+    },
     "assets/illustrations/packs/bamboo.webp": {
       "sha256": "807afdbea0af9827d6a6c8acdcde4f27a4fbcbba6b80e0510a859826f40fe42e",
       "kb": 90.3,
@@ -1327,6 +2796,32 @@
       "top8": 0.7476,
       "patchXY": [
         120,
+        48
+      ]
+    },
+    "assets/illustrations/packs/bok.webp": {
+      "sha256": "d0526eebc2abd8410f4a37e628e0488250caa2cbb657f33480fa53152f3c5284",
+      "kb": 98.2,
+      "ivoryFrac": 0.5808,
+      "fine": 5.92,
+      "coarse": 1.343,
+      "uniqueColors": 25799,
+      "top8": 0.7129,
+      "patchXY": [
+        232,
+        24
+      ]
+    },
+    "assets/illustrations/packs/changsal.webp": {
+      "sha256": "fc8cee2ae4c8b2a31393c5fe2f3efe22db35f4835c064b5c2e9801c4b9345f03",
+      "kb": 99.3,
+      "ivoryFrac": 0.6357,
+      "fine": 5.869,
+      "coarse": 1.044,
+      "uniqueColors": 31922,
+      "top8": 0.7222,
+      "patchXY": [
+        368,
         48
       ]
     },
@@ -1369,6 +2864,19 @@
         0
       ]
     },
+    "assets/illustrations/packs/crane.webp": {
+      "sha256": "84fe89e8688f4e732ce2130ba536a77459cc7d16f65e7aa178dbf140f2ec7a20",
+      "kb": 99.3,
+      "ivoryFrac": 0.6585,
+      "fine": 6.069,
+      "coarse": 1.048,
+      "uniqueColors": 28554,
+      "top8": 0.7517,
+      "patchXY": [
+        448,
+        48
+      ]
+    },
     "assets/illustrations/packs/gwigap.webp": {
       "sha256": "f763dafde98dc35ab25c92f38f962a51183bdba53913811196351f8ae5a95817",
       "kb": 87.3,
@@ -1408,6 +2916,19 @@
         48
       ]
     },
+    "assets/illustrations/packs/moran.webp": {
+      "sha256": "e120500576dd0f8d540eec20855005f60d79007d827e4d89716ed0cd15a5dd42",
+      "kb": 100.7,
+      "ivoryFrac": 0.6259,
+      "fine": 5.776,
+      "coarse": 0.918,
+      "uniqueColors": 35871,
+      "top8": 0.697,
+      "patchXY": [
+        320,
+        0
+      ]
+    },
     "assets/illustrations/packs/mountain.webp": {
       "sha256": "6bfd3f78f41fb7c70e77349c1031095e12f26c90bf2e76ff8165b8fb6718bc53",
       "kb": 87.7,
@@ -1419,6 +2940,45 @@
       "patchXY": [
         376,
         0
+      ]
+    },
+    "assets/illustrations/packs/mugunghwa.webp": {
+      "sha256": "66daf239671c212876dbb3b081ed96749b69b5efeec39d7946c8adb429246441",
+      "kb": 93.7,
+      "ivoryFrac": 0.5611,
+      "fine": 5.491,
+      "coarse": 0.82,
+      "uniqueColors": 30183,
+      "top8": 0.6962,
+      "patchXY": [
+        448,
+        48
+      ]
+    },
+    "assets/illustrations/packs/munbangsau.webp": {
+      "sha256": "59baeed37d95bb06076ee54b6fe18440799fb69497c2777697347497a6317359",
+      "kb": 97.4,
+      "ivoryFrac": 0.6411,
+      "fine": 5.675,
+      "coarse": 0.998,
+      "uniqueColors": 33092,
+      "top8": 0.744,
+      "patchXY": [
+        144,
+        24
+      ]
+    },
+    "assets/illustrations/packs/noemun.webp": {
+      "sha256": "333bc816429674a1fa6b9926e181f433ed26002514cd959d5a38375eb41e8f66",
+      "kb": 96.4,
+      "ivoryFrac": 0.6505,
+      "fine": 5.761,
+      "coarse": 1.068,
+      "uniqueColors": 28287,
+      "top8": 0.7454,
+      "patchXY": [
+        272,
+        48
       ]
     },
     "assets/illustrations/packs/octagon.webp": {
@@ -1460,6 +3020,32 @@
         48
       ]
     },
+    "assets/illustrations/packs/soban.webp": {
+      "sha256": "398aa01eef38e79fbb8eb783ac407f48c1322f0dc934c07d3f03aaed695ffc94",
+      "kb": 98.8,
+      "ivoryFrac": 0.6289,
+      "fine": 5.764,
+      "coarse": 0.788,
+      "uniqueColors": 28184,
+      "top8": 0.7357,
+      "patchXY": [
+        312,
+        0
+      ]
+    },
+    "assets/illustrations/packs/suryeon.webp": {
+      "sha256": "b244eb1aaf88ea71fb35f684195696b36ee675ec1d57c6264ca4db8c2d9499f6",
+      "kb": 99.3,
+      "ivoryFrac": 0.604,
+      "fine": 5.726,
+      "coarse": 1.075,
+      "uniqueColors": 41315,
+      "top8": 0.7259,
+      "patchXY": [
+        440,
+        48
+      ]
+    },
     "assets/illustrations/packs/taegeuk.webp": {
       "sha256": "134b57e57d590f67a44a308718a801971bc96c6a9647ee859c42c3f279585091",
       "kb": 85.1,
@@ -1486,6 +3072,19 @@
         48
       ]
     },
+    "assets/illustrations/packs/wadang.webp": {
+      "sha256": "0bda35a1e137b01f78c651867c5dcac887854acd68454f506b2896c3ce4ff891",
+      "kb": 101.6,
+      "ivoryFrac": 0.6608,
+      "fine": 5.747,
+      "coarse": 0.839,
+      "uniqueColors": 34380,
+      "top8": 0.7412,
+      "patchXY": [
+        456,
+        0
+      ]
+    },
     "assets/illustrations/packs/wave.webp": {
       "sha256": "6a9cf0f7e3975eb538a85ddeda2d869b410139d516a02cd1c03305bee375340f",
       "kb": 82.5,
@@ -1497,6 +3096,19 @@
       "patchXY": [
         432,
         24
+      ]
+    },
+    "assets/illustrations/packs/yeopjeon.webp": {
+      "sha256": "639c822b01437b9f8a3a7dbe07b20de228cd4e471fa29a91181c2d81cd3495b7",
+      "kb": 97.1,
+      "ivoryFrac": 0.6492,
+      "fine": 5.867,
+      "coarse": 1.023,
+      "uniqueColors": 25746,
+      "top8": 0.7675,
+      "patchXY": [
+        312,
+        48
       ]
     }
   }
