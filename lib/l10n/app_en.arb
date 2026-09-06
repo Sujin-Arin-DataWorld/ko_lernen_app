@@ -2473,7 +2473,7 @@
   "@accountSwitchConfirm": {
     "description": "Confirm button label for the account-switch dialog."
   },
-  "accountSwitchDeferredTitle": "Signed in – merge pending",
+  "accountSwitchDeferredTitle": "Signed in, merge pending",
   "@accountSwitchDeferredTitle": {
     "description": "Title shown after the account switch signed in but the local-progress merge could not complete yet."
   },

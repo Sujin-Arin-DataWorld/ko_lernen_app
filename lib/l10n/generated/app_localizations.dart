@@ -8601,7 +8601,7 @@ abstract class AppL10n {
   /// Title shown after the account switch signed in but the local-progress merge could not complete yet.
   ///
   /// In de, this message translates to:
-  /// **'Angemeldet – Zusammenführung folgt'**
+  /// **'Angemeldet, Zusammenführung folgt'**
   String get accountSwitchDeferredTitle;
 
   /// Explains that the merge will resume automatically on next launch once connected.

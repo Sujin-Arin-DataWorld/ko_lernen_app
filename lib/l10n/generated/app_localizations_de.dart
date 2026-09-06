@@ -4980,7 +4980,7 @@ class AppL10nDe extends AppL10n {
   String get accountSwitchConfirm => 'Konto wechseln';
 
   @override
-  String get accountSwitchDeferredTitle => 'Angemeldet – Zusammenführung folgt';
+  String get accountSwitchDeferredTitle => 'Angemeldet, Zusammenführung folgt';
 
   @override
   String get accountSwitchDeferredBody =>

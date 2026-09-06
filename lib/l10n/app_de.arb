@@ -2602,7 +2602,7 @@
   "@accountSwitchConfirm": {
     "description": "Confirm button label for the account-switch dialog."
   },
-  "accountSwitchDeferredTitle": "Angemeldet – Zusammenführung folgt",
+  "accountSwitchDeferredTitle": "Angemeldet, Zusammenführung folgt",
   "@accountSwitchDeferredTitle": {
     "description": "Title shown after the account switch signed in but the local-progress merge could not complete yet."
   },

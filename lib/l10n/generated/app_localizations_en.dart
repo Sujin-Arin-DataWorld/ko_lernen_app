@@ -4956,7 +4956,7 @@ class AppL10nEn extends AppL10n {
   String get accountSwitchConfirm => 'Switch account';
 
   @override
-  String get accountSwitchDeferredTitle => 'Signed in – merge pending';
+  String get accountSwitchDeferredTitle => 'Signed in, merge pending';
 
   @override
   String get accountSwitchDeferredBody =>
