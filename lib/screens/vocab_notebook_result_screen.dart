@@ -321,34 +321,53 @@ class _VocabNotebookResultScreenState extends State<VocabNotebookResultScreen> {
           );
         }
 
-        return Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.fromLTRB(
-                resolvedPadding.left,
-                resolvedPadding.top,
-                resolvedPadding.right,
-                0,
-              ),
-              child: _buildResultHeader(context, t),
-            ),
-            Expanded(
-              child: ListView.builder(
-                key: const ValueKey('vocab-notebook-result-scroll'),
-                keyboardDismissBehavior:
-                    ScrollViewKeyboardDismissBehavior.onDrag,
-                padding: EdgeInsets.fromLTRB(
-                  resolvedPadding.left,
-                  0,
-                  resolvedPadding.right,
-                  resolvedPadding.bottom,
+        // W10 T-V3(2026-09-05, Jin D-4): 몇 쌍 안 되는 결과가 태블릿 세로
+        // 화면에서 위쪽에 뭉쳤다 — `Expanded(ListView.builder)` 는 목록이
+        // 짧아도 남는 공간을 그냥 빈 채로 둔다. LayoutBuilder 로 뷰포트
+        // 높이를 재서 ConstrainedBox(minHeight)+Column(center) 로 채우고,
+        // 카드 수가 많아 넘치면 그대로 스크롤한다.
+        return LayoutBuilder(
+          builder: (context, constraints) {
+            return SingleChildScrollView(
+              key: const ValueKey('vocab-notebook-result-scroll'),
+              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  minHeight: constraints.maxHeight.isFinite
+                      ? constraints.maxHeight
+                      : 0,
                 ),
-                itemCount: _pairs.length,
-                itemBuilder: (context, index) =>
-                    _buildPairCard(context, t, index),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(
+                        resolvedPadding.left,
+                        resolvedPadding.top,
+                        resolvedPadding.right,
+                        0,
+                      ),
+                      child: _buildResultHeader(context, t),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(
+                        resolvedPadding.left,
+                        0,
+                        resolvedPadding.right,
+                        resolvedPadding.bottom,
+                      ),
+                      child: Column(
+                        children: [
+                          for (var index = 0; index < _pairs.length; index++)
+                            _buildPairCard(context, t, index),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            );
+          },
         );
       },
       bottomNavigationBar: inlineActions

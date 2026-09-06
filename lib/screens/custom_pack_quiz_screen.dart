@@ -263,7 +263,13 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
       actions: const [TtsSpeedAction()],
       child: SoriAdaptiveStudyBody(
         minHeight: 420,
+        // W10 T-V3(2026-09-05, Jin D-4): 문제 하나가 420dp 남짓이라 태블릿
+        // 세로 화면에서 위쪽에 뭉쳤다 — 뷰포트 전체를 채우고 세로 중앙
+        // 정렬한다(mainAxisAlignment 없이는 채워진 높이가 그냥 아래쪽에
+        // 빈 채로 남는다).
+        fillViewport: true,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Wrap(

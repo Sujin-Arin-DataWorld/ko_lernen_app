@@ -6,17 +6,26 @@
 //
 // ⚠️ 파일명이 `_test.dart` 가 아니라 `flutter test` 가 테스트로 수집하지 않는다.
 
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/book_page.dart';
 import 'package:ko_lernen_app/models/personal_room.dart';
+import 'package:ko_lernen_app/models/pronunciation_phrase.dart';
+import 'package:ko_lernen_app/models/learner_level.dart';
 import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/character_selection_screen.dart';
 import 'package:ko_lernen_app/screens/cloze_game_screen.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
 import 'package:ko_lernen_app/screens/course_mission_screen.dart';
+import 'package:ko_lernen_app/screens/custom_pack_matching_screen.dart';
+import 'package:ko_lernen_app/screens/custom_pack_quiz_screen.dart';
+import 'package:ko_lernen_app/screens/custom_pack_typing_screen.dart';
 import 'package:ko_lernen_app/screens/daily_challenge_screen.dart';
+import 'package:ko_lernen_app/screens/daily_char_sheet.dart';
 import 'package:ko_lernen_app/screens/discover_screen.dart';
 import 'package:ko_lernen_app/screens/first_voice_success_screen.dart';
 import 'package:ko_lernen_app/screens/dojangcheop_screen.dart';
@@ -34,6 +43,7 @@ import 'package:ko_lernen_app/screens/paywall_screen.dart';
 import 'package:ko_lernen_app/screens/personal_room_furnish_screen.dart';
 import 'package:ko_lernen_app/screens/profile_screen.dart';
 import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
+import 'package:ko_lernen_app/screens/pronunciation_studio_screen.dart';
 import 'package:ko_lernen_app/screens/quests_screen.dart';
 import 'package:ko_lernen_app/screens/review_session_screen.dart';
 import 'package:ko_lernen_app/screens/sarangbang_furnish_screen.dart';
@@ -44,8 +54,12 @@ import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/screens/smalltalk_screen.dart';
 import 'package:ko_lernen_app/screens/speed_match_screen.dart';
 import 'package:ko_lernen_app/screens/stats_screen.dart';
+import 'package:ko_lernen_app/screens/vocab_notebook_practice_screen.dart';
+import 'package:ko_lernen_app/screens/vocab_notebook_result_screen.dart';
+import 'package:ko_lernen_app/screens/vocab_notebook_studio_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
 import 'package:ko_lernen_app/screens/silben_kreuz_screen.dart';
+import 'package:ko_lernen_app/services/pronunciation_recorder.dart';
 import 'package:ko_lernen_app/theme.dart';
 
 /// 반응형 회귀를 거는 화면들 — **무인자 생성자만**.
@@ -115,5 +129,94 @@ Widget wrapResponsive(Widget child, {double textScale = 1.0}) {
             child: child,
           ),
     onGenerateRoute: (settings) => null,
+  );
+}
+
+// ── W10 T-V4(2026-09-05): 세로 채움 가드 전용 추가 화면 ──────────────────────
+//
+// 아래 화면들은 인자·페이크(단어팩/발음 녹음기 등)가 필요해 무인자 생성자만
+// 받는 [responsiveScreens] 에 넣을 수 없다. append-only — 기존 목록은 절대
+// 건드리지 않는다. 호출부(test/vertical_fill_guard_test.dart)가 `setUp` 에서
+// [verticalFillGuardPackId] 팩을 `CustomPackService.save` 로 등록해 둔 뒤에만
+// 이 화면들을 pump 해야 한다(단어장/커스텀팩 화면이 packId 로 조회한다).
+
+/// 가드 전용 커스텀팩/단어장 화면이 조회하는 고정 팩 id.
+const verticalFillGuardPackId = 'w10-vertical-fill-guard-pack';
+
+/// 최소 4개 — 커스텀팩 퀴즈(4지선다)가 요구하는 하한을 만족한다.
+final List<ExtractedWord> verticalFillGuardWords = <ExtractedWord>[
+  ExtractedWord.manual(korean: '학교', translationDe: 'Schule'),
+  ExtractedWord.manual(korean: '학생', translationDe: 'Schüler'),
+  ExtractedWord.manual(korean: '친구', translationDe: 'Freund'),
+  ExtractedWord.manual(korean: '음식', translationDe: 'Essen'),
+];
+
+/// 녹음기 플랫폼 채널을 건드리지 않는 무동작 페이크 —
+/// `test/pronunciation_studio_screen_test.dart` 의 `_FakeRecorder` 와 같은
+/// 목적(권한/스트림을 실제로 요청하지 않음).
+class _NoopPronunciationRecorder implements PronunciationRecorder {
+  const _NoopPronunciationRecorder();
+
+  @override
+  Future<bool> requestPermission() async => false;
+
+  @override
+  Future<Stream<Uint8List>> startPcm16Stream() async =>
+      const Stream<Uint8List>.empty();
+
+  @override
+  Future<void> stop() async {}
+
+  @override
+  Future<void> dispose() async {}
+}
+
+const _verticalFillGuardPhrases = <PronunciationPhrase>[
+  PronunciationPhrase(
+    id: 'w10-guard-0001',
+    level: LearnerLevel.a1,
+    ko: '안녕하세요',
+    de: 'Guten Tag.',
+    en: 'Hello.',
+    focus: 'ㅎ 발음',
+  ),
+];
+
+/// [responsiveScreens] 에 얹는 추가 화면. `CustomPackService.save` 로
+/// [verticalFillGuardPackId] 팩을 미리 등록해 둔 뒤 호출할 것.
+Map<String, Widget> verticalFillGuardExtraScreens() => <String, Widget>{
+  'pronunciation studio': const PronunciationStudioScreen(
+    recorder: _NoopPronunciationRecorder(),
+    cloudAssessmentEnabled: false,
+    phrases: _verticalFillGuardPhrases,
+  ),
+  'calligraphy': const DailyCalligraphyRouteScreen(),
+  'vocab notebook practice': const VocabNotebookPracticeScreen(
+    packId: verticalFillGuardPackId,
+  ),
+  'vocab notebook studio': const VocabNotebookStudioScreen(
+    packId: verticalFillGuardPackId,
+  ),
+  'vocab notebook result': VocabNotebookResultScreen(
+    args: const <String, dynamic>{'text': '학교 - Schule\n학생 = Schüler'},
+  ),
+  'custom pack quiz': VocabNotebookGuardWidgets.quiz(),
+  'custom pack matching': VocabNotebookGuardWidgets.matching(),
+  'custom pack typing': VocabNotebookGuardWidgets.typing(),
+};
+
+/// 커스텀팩 게임 3종 — 별도 네임스페이스로 묶어 어떤 화면들이 짝인지 드러낸다.
+abstract final class VocabNotebookGuardWidgets {
+  static Widget quiz() => CustomPackQuizScreen(
+    packId: verticalFillGuardPackId,
+    words: verticalFillGuardWords,
+  );
+  static Widget matching() => CustomPackMatchingScreen(
+    packId: verticalFillGuardPackId,
+    words: verticalFillGuardWords,
+  );
+  static Widget typing() => CustomPackTypingScreen(
+    packId: verticalFillGuardPackId,
+    words: verticalFillGuardWords,
   );
 }
