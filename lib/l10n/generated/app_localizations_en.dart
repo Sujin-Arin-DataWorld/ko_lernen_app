@@ -7739,6 +7739,16 @@ class AppL10nEn extends AppL10n {
       'Open a Bojagi bundle to add your first room piece.';
 
   @override
+  String get personalRoomLockedTitle => 'This room is still being built';
+
+  @override
+  String get personalRoomLockedBody =>
+      'Continue the learning path to open this part of your Hanok.';
+
+  @override
+  String get personalRoomReturnToMap => 'Back to the Hanok map';
+
+  @override
   String get personalRoomAnbangStudy => 'Explore my collection';
 
   @override

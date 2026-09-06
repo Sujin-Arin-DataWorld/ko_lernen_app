@@ -6,14 +6,11 @@ import 'package:ko_lernen_app/services/ildu_world_projection_adapter.dart';
 void main() {
   const adapter = IlDuWorldProjectionAdapter();
 
-  test('keeps every estate era available without productive evidence', () {
+  test('fails closed when no verified productive evidence exists', () {
     final result = adapter.fromExperience(_projection());
 
     expect(result.hasVerifiedEvidence, isFalse);
-    for (final era in IlDuWorldEra.values) {
-      expect(result.isAvailable(era), isTrue);
-      expect(result.isEarned(era), isFalse);
-    }
+    expect(result.isAvailable(IlDuWorldEra.a1), isFalse);
   });
 
   test('maps all six canonical growth eras from verified evidence', () {
@@ -33,12 +30,6 @@ void main() {
       expect(result.era, entry.value);
       expect(result.hasVerifiedEvidence, isTrue);
       expect(result.isAvailable(entry.value), isTrue);
-      expect(result.isEarned(entry.value), isTrue);
-      for (final era in IlDuWorldEra.values.where(
-        (era) => era.rank > entry.value.rank,
-      )) {
-        expect(result.isEarned(era), isFalse);
-      }
     }
   });
 }

@@ -13380,6 +13380,24 @@ abstract class AppL10n {
   /// **'Öffne ein Bojagi-Bündel, um dein erstes Einrichtungsstück zu erhalten.'**
   String get personalRoomEmptyHint;
 
+  /// No description provided for @personalRoomLockedTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieser Raum wird noch gebaut'**
+  String get personalRoomLockedTitle;
+
+  /// No description provided for @personalRoomLockedBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Lerne auf deinem Lernweg weiter, um diesen Teil deiner Hanok zu öffnen.'**
+  String get personalRoomLockedBody;
+
+  /// No description provided for @personalRoomReturnToMap.
+  ///
+  /// In de, this message translates to:
+  /// **'Zurück zur Hanok-Karte'**
+  String get personalRoomReturnToMap;
+
   /// No description provided for @personalRoomAnbangStudy.
   ///
   /// In de, this message translates to:

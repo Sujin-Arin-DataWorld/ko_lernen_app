@@ -7782,6 +7782,16 @@ class AppL10nDe extends AppL10n {
       'Öffne ein Bojagi-Bündel, um dein erstes Einrichtungsstück zu erhalten.';
 
   @override
+  String get personalRoomLockedTitle => 'Dieser Raum wird noch gebaut';
+
+  @override
+  String get personalRoomLockedBody =>
+      'Lerne auf deinem Lernweg weiter, um diesen Teil deiner Hanok zu öffnen.';
+
+  @override
+  String get personalRoomReturnToMap => 'Zurück zur Hanok-Karte';
+
+  @override
   String get personalRoomAnbangStudy => 'Meine Sammlung entdecken';
 
   @override

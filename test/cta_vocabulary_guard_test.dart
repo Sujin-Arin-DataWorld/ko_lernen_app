@@ -129,7 +129,11 @@ const _allowedEn = <String>{
 /// 정말 다른 동작이면 설계 룰링을 받아 어휘를 확장한다).
 /// 실측 54(DE/EN 각각)에 붙여 둔다 — 여유 칸을 두지 않는다. 내려갈 수만
 /// 있다(2026-09-04 재실측: DE 54건, EN 54건 — 여유 없음, 이전 가정과 다름).
-const _exceptionCeiling = 54;
+/// 2026-09-07 재실측: 결제/레벨 해제 정리로 arb에서 사라진 onboarding CTA
+/// 2건을 고아 등재에서 제거하고 grammarBrowseAllCta(탐색 CTA, 기존 예외와
+/// 같은 부류)를 등재 — DE 53건, EN 53건. 상한 54 → 53 (하향).
+/// wordWebBrowseLevelCta 는 콘텐츠 전면 개방으로 문구가 바뀌어 등재값 갱신.
+const _exceptionCeiling = 53;
 
 /// DE 예외 맵 — 2026-09-04 PR4-T5 정정 후 실측값 그대로 등재.
 const _exceptionsDe = <String, String>{
@@ -151,6 +155,7 @@ const _exceptionsDe = <String, String>{
   'createWordbookCta': 'Eigene Wortliste',
   'dojangDecorHintCta': 'Sarangbang gestalten',
   'dojangEmptyCta': 'Vokabelpakete öffnen',
+  'grammarBrowseAllCta': 'Alle Grammatikmuster ansehen',
   'grammarChoiceCta': 'Mit Beispielen üben',
   'grammarPlanFinishedRestartCta': 'Neu starten',
   'gyeCreateCta': 'Erstellen',
@@ -167,8 +172,6 @@ const _exceptionsDe = <String, String>{
   'homeUnavailableCta': 'Gespeicherte Wörter wiederholen',
   'ilduWorldLockedCta': 'Passende Mission ansehen',
   'listeningReviewCta': 'Zeile für Zeile wiederholen',
-  'onboardingCompareCta': 'Unsicher? Level vergleichen',
-  'onboardingDiagnosticCta': 'Unsicher? 8 Fragen beantworten',
   'questsOpenGiftCta': 'Bündel öffnen',
   'scenarioNextRecommendedCta': 'Öffnen',
   'statsFirstEntryCta': 'Erstes Szenario starten',
@@ -184,7 +187,7 @@ const _exceptionsDe = <String, String>{
   'vocabPackResultRetryCta': 'Nochmal versuchen',
   'vocabPacksBrowseAllCta': 'Alle Vokabel-Pakete ansehen',
   'wbSearchCta': 'Meine Wörter durchsuchen',
-  'wordWebBrowseLevelCta': 'Wörter auf meinem Niveau ansehen',
+  'wordWebBrowseLevelCta': 'Alle Niveaus ansehen',
   'wordWebOpenVocabCta': 'Wortpakete öffnen',
   'wordWebQuizCta': 'Diese Wörter üben',
 };
@@ -213,6 +216,7 @@ const _exceptionsEn = <String, String>{
   'createWordbookCta': 'My word list',
   'dojangDecorHintCta': 'Decorate the Sarangbang',
   'dojangEmptyCta': 'Open vocabulary packs',
+  'grammarBrowseAllCta': 'Browse all grammar',
   'grammarChoiceCta': 'Practice with examples',
   'grammarPlanFinishedRestartCta': 'Start over',
   'gyeCreateCta': 'Create',
@@ -229,8 +233,6 @@ const _exceptionsEn = <String, String>{
   'homeUnavailableCta': 'Review saved words',
   'ilduWorldLockedCta': 'See the matching mission',
   'listeningReviewCta': 'Review line by line',
-  'onboardingCompareCta': 'Not sure? Compare the levels',
-  'onboardingDiagnosticCta': 'Not sure? Answer 8 questions',
   'questsOpenGiftCta': 'Open the bundle',
   'scenarioNextRecommendedCta': 'Open',
   'statsFirstEntryCta': 'Start your first scenario',
@@ -245,7 +247,7 @@ const _exceptionsEn = <String, String>{
   'vocabPackResultRecallCta': 'Recall in Korean',
   'vocabPacksBrowseAllCta': 'Browse all vocab packs',
   'wbSearchCta': 'Search my words',
-  'wordWebBrowseLevelCta': 'Browse words at my level',
+  'wordWebBrowseLevelCta': 'Browse all levels',
   'wordWebOpenVocabCta': 'Open vocabulary packs',
   'wordWebQuizCta': 'Practice these words',
 };
