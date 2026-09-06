@@ -91,6 +91,7 @@
 
 ### T6 통합 (Fable)
 - 전체 `flutter test`(≈7분) 1회, `flutter analyze`, functions `npm test`, diff 전문 직독, 인수인계 문서, 로컬 커밋(푸시·PR·배포는 Jin 승인 후).
+- **결과(2026-09-06)**: analyze 0; gye `npm test` 종료 0(442/1 todo); 전체 스위트 1차(46b5c0a4) 6,008/20/5 실패 → T7(e778fa2a: en dash·폐기 저널 전제 테스트·클라우드 저널 읽기 실패 fail-closed) → 2차 6,015/20/1(옛 리터럴 단언) → T8(8929c266) 파일 17/17. Fable이 T1~T8 diff 전부 직독·승인. 인수인계 `.claude/handoffs/2026-09-06-013000-account-link-delete-fix.md`.
 
 ## 3. Jin이 해야 하는 외부 작업 (코드로 불가)
 1. Apple Developer + Firebase 콘솔에서 Apple 제공자 활성 (T2 런북).
