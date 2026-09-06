@@ -727,7 +727,7 @@ void main() {
       );
       final preferences = await SharedPreferences.getInstance();
       await preferences.setString(
-        AccountTransitionJournal.storageKey,
+        AccountTransitionJournal.switchReconciliationStorageKey,
         jsonEncode(pendingJournal.toJson()),
       );
       BookImageService.setStoreForTesting(guarded);

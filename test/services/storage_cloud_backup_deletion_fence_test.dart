@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:ko_lernen_app/services/account/account_switch_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_transition_journal.dart';
 import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
@@ -71,12 +72,12 @@ void main() {
   });
 
   test(
-    'programmatic reset preserves a persisted replacement journal',
+    'programmatic reset preserves a persisted account-switch journal',
     () async {
       final preferences = await SharedPreferences.getInstance();
       await preferences.setString(
-        AccountTransitionJournal.storageKey,
-        'pending-replacement',
+        AccountSwitchJournal.storageKey,
+        'pending-switch',
       );
       await preferences.setString('kl_progress_for_reset_test', 'keep-me');
 
@@ -86,10 +87,58 @@ void main() {
       );
 
       expect(
-        preferences.getString(AccountTransitionJournal.storageKey),
-        'pending-replacement',
+        preferences.getString(AccountSwitchJournal.storageKey),
+        'pending-switch',
       );
       expect(preferences.getString('kl_progress_for_reset_test'), 'keep-me');
+    },
+  );
+
+  test(
+    'programmatic reset preserves a persisted switch-reconciliation journal',
+    () async {
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.setString(
+        AccountTransitionJournal.switchReconciliationStorageKey,
+        'merge-in-progress',
+      );
+      await preferences.setString('kl_progress_for_reset_test', 'keep-me');
+
+      await expectLater(
+        Storage.resetAll(),
+        throwsA(isA<CloudBackupDeletionResetBlockedException>()),
+      );
+
+      expect(
+        preferences.getString(
+          AccountTransitionJournal.switchReconciliationStorageKey,
+        ),
+        'merge-in-progress',
+      );
+      expect(preferences.getString('kl_progress_for_reset_test'), 'keep-me');
+    },
+  );
+
+  test(
+    'a leftover legacy replacement journal no longer fences a programmatic '
+    'reset and is wiped with the rest of the local data',
+    () async {
+      // The legacy key is never written since the 2026-09-05 redesign and is
+      // discarded at startup, so it must not block or survive a reset.
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.setString(
+        AccountTransitionJournal.storageKey,
+        'legacy-replacement',
+      );
+      await preferences.setString('kl_progress_for_reset_test', 'remove-me');
+
+      await Storage.resetAll();
+
+      expect(
+        preferences.containsKey(AccountTransitionJournal.storageKey),
+        isFalse,
+      );
+      expect(preferences.containsKey('kl_progress_for_reset_test'), isFalse);
     },
   );
 
@@ -243,12 +292,12 @@ void main() {
   );
 
   test(
-    'strict account-deletion cleanup blocks a replacement checkpoint',
+    'strict account-deletion cleanup blocks a pending account switch',
     () async {
       final preferences = await SharedPreferences.getInstance();
       await preferences.setString(
-        AccountTransitionJournal.storageKey,
-        'pending-replacement',
+        AccountSwitchJournal.storageKey,
+        'pending-switch',
       );
       await preferences.setString(
         Storage.accountDeletionCheckpointPreferenceKey,
@@ -264,8 +313,8 @@ void main() {
       );
 
       expect(
-        preferences.getString(AccountTransitionJournal.storageKey),
-        'pending-replacement',
+        preferences.getString(AccountSwitchJournal.storageKey),
+        'pending-switch',
       );
       expect(
         preferences.getString(Storage.accountDeletionCheckpointPreferenceKey),
@@ -334,21 +383,21 @@ void main() {
   );
 
   test(
-    'ordinary reset retains a replacement checkpoint written after admission',
+    'ordinary reset retains an account-switch journal written after admission',
     () async {
       final store = _InterleavingPreferenceRemovalStore(
-        insertedJournalKey: AccountTransitionJournal.storageKey,
+        insertedJournalKey: AccountSwitchJournal.storageKey,
       );
 
       await Storage.resetAll(preferences: store);
 
       expect(
-        store.durable.containsKey(AccountTransitionJournal.storageKey),
+        store.durable.containsKey(AccountSwitchJournal.storageKey),
         isTrue,
       );
       expect(
         store.removals,
-        isNot(contains(AccountTransitionJournal.storageKey)),
+        isNot(contains(AccountSwitchJournal.storageKey)),
       );
       expect(store.durable.containsKey('kl_progress'), isFalse);
     },

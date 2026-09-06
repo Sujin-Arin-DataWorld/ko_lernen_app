@@ -11,7 +11,10 @@ typedef AccountTransitionJournalReader =
 class SharedPreferencesAccountTransitionJournalReader {
   const SharedPreferencesAccountTransitionJournalReader();
 
-  static const key = AccountTransitionJournal.storageKey;
+  /// The switch-reconciliation journal: present only while an account switch
+  /// is merging local data into the target account, which is exactly when
+  /// irreversible media cleanup has to wait.
+  static const key = AccountTransitionJournal.switchReconciliationStorageKey;
 
   Future<AccountTransitionJournal?> call() async {
     final preferences = await SharedPreferences.getInstance();

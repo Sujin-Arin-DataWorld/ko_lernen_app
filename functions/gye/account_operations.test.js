@@ -174,6 +174,14 @@ test("requires Apple revocation before Auth deletion for Apple-linked accounts",
     }),
     { code: "invalid-operation-transition" },
   );
+  // A persisted early revocation (deletionProgress.appleRevocationComplete)
+  // lets the worker skip the appleRevocationPending hop.
+  const directAfterEarlyRevocation = transitionOperation(deleting, {
+    toPhase: "authDeleted",
+    expectedVersion: 2,
+    appleRevocationComplete: true,
+  });
+  assert.equal(directAfterEarlyRevocation.phase, "authDeleted");
   const revocationPending = transitionOperation(deleting, {
     toPhase: "appleRevocationPending",
     expectedVersion: 2,

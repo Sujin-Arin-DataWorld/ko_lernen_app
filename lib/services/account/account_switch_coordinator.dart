@@ -9,6 +9,7 @@ import '../pack_progress_service.dart';
 import 'account_failure_diagnostics.dart';
 import 'account_reconciliation.dart';
 import 'account_transition_coordinator.dart' show AccountLinkProvider;
+import 'account_transition_journal.dart';
 import 'cloud_write_session.dart';
 
 /// Outcome of an [AccountSwitchCoordinator] operation.
@@ -42,12 +43,13 @@ class AccountSwitchJournal {
   static const storageKey = 'kl_account_switch_journal_v1';
 
   /// Storage key for the [AccountReconciliationCoordinator]'s own journal
-  /// while it merges into the target account. Kept separate from
+  /// while it merges into the target account. Kept separate from the legacy
   /// [AccountTransitionJournal.storageKey] via
   /// `SharedPreferencesAccountTransitionJournalStore(storageKey: ...)` so an
-  /// account switch never collides with an unrelated in-flight transition.
+  /// account switch never collides with a leftover replacement journal.
+  /// `MediaCleanupGate` and `Storage`'s reset fence read the same key.
   static const reconciliationStorageKey =
-      'kl_account_switch_reconciliation_v1';
+      AccountTransitionJournal.switchReconciliationStorageKey;
 
   final int version;
   final String sourceUid;
