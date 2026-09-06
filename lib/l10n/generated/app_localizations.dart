@@ -415,12 +415,6 @@ abstract class AppL10n {
   /// **'Taego wartet schon. Zeit für Koreanisch! 🐯'**
   String get notificationBody;
 
-  /// No description provided for @homeCourseTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein Lernpfad heute'**
-  String get homeCourseTitle;
-
   /// No description provided for @homeCourseDesc.
   ///
   /// In de, this message translates to:
@@ -1957,12 +1951,6 @@ abstract class AppL10n {
   /// **'안녕하세요, Hallo\\n사과, Apfel'**
   String get customPackCsvHint;
 
-  /// No description provided for @packStateLocked.
-  ///
-  /// In de, this message translates to:
-  /// **'gesperrt'**
-  String get packStateLocked;
-
   /// No description provided for @packStateCleared.
   ///
   /// In de, this message translates to:
@@ -1980,12 +1968,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Paket {title}, {state}, {learned} von {total} gelernt'**
   String packSemantics(Object title, Object state, int learned, int total);
-
-  /// No description provided for @packLockedHintShort.
-  ///
-  /// In de, this message translates to:
-  /// **'Vorher freischalten'**
-  String get packLockedHintShort;
 
   /// No description provided for @smalltalkUseWith.
   ///
@@ -2322,18 +2304,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Für dieses Level sind noch keine Vokabeln vorbereitet.'**
   String get vocabPacksEmptyBody;
-
-  /// No description provided for @vocabPackLockedNoPrev.
-  ///
-  /// In de, this message translates to:
-  /// **'Dieses Paket ist noch gesperrt.'**
-  String get vocabPackLockedNoPrev;
-
-  /// No description provided for @vocabPackLockedHint.
-  ///
-  /// In de, this message translates to:
-  /// **'Schließe zuerst „{prev}“ mit ≥ 70 % ab.'**
-  String vocabPackLockedHint(Object prev);
 
   /// No description provided for @bookCaptureTitle.
   ///
@@ -4639,12 +4609,6 @@ abstract class AppL10n {
   /// **'5 bis 7 Minuten · +{xp} XP'**
   String scenariosCardMeta(int xp);
 
-  /// No description provided for @scenariosLocked.
-  ///
-  /// In de, this message translates to:
-  /// **'Erreiche {level}, um freizuschalten'**
-  String scenariosLocked(Object level);
-
   /// No description provided for @scenariosLevelBadge.
   ///
   /// In de, this message translates to:
@@ -6706,7 +6670,7 @@ abstract class AppL10n {
   /// No description provided for @scenariosPathProgress.
   ///
   /// In de, this message translates to:
-  /// **'{done}/{total} freigeschaltet'**
+  /// **'{done}/{total} verfügbar'**
   String scenariosPathProgress(int done, int total);
 
   /// No description provided for @scenariosPathNextLabel.
@@ -7866,12 +7830,6 @@ abstract class AppL10n {
   /// **'Jetzt'**
   String get pathNodeNow;
 
-  /// No description provided for @pathLockedHint.
-  ///
-  /// In de, this message translates to:
-  /// **'Schließe zuerst das vorherige Paket ab.'**
-  String get pathLockedHint;
-
   /// No description provided for @pathSeeAll.
   ///
   /// In de, this message translates to:
@@ -8865,7 +8823,7 @@ abstract class AppL10n {
   /// No description provided for @grammarPlanOnboardingBody.
   ///
   /// In de, this message translates to:
-  /// **'Du siehst jeden Tag nur diese Muster. Tempo und Niveau kannst du oben jederzeit ändern.'**
+  /// **'Wähle eine tägliche Empfehlung. Oben kannst du Tempo und Niveau ändern oder jederzeit alle Muster ansehen.'**
   String get grammarPlanOnboardingBody;
 
   /// No description provided for @grammarPlanItemsPerDayOption.
@@ -8927,6 +8885,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Neu starten'**
   String get grammarPlanFinishedRestartCta;
+
+  /// No description provided for @grammarBrowseAllCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Grammatikmuster ansehen'**
+  String get grammarBrowseAllCta;
 
   /// No description provided for @grammarChoiceTitle.
   ///
@@ -10605,7 +10569,7 @@ abstract class AppL10n {
   /// No description provided for @coachScenariosBody.
   ///
   /// In de, this message translates to:
-  /// **'Tippe auf ein Szenario und übe echte Alltagssituationen. Sie werden ab A2 freigeschaltet.'**
+  /// **'Tippe auf ein Szenario und übe echte Alltagssituationen. Alle Niveaus sind direkt verfügbar.'**
   String get coachScenariosBody;
 
   /// No description provided for @questSatzBauenInstruction.
@@ -13398,24 +13362,6 @@ abstract class AppL10n {
   /// **'Öffne ein Bojagi-Bündel, um dein erstes Einrichtungsstück zu erhalten.'**
   String get personalRoomEmptyHint;
 
-  /// No description provided for @personalRoomLockedTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Dieser Raum wird noch gebaut'**
-  String get personalRoomLockedTitle;
-
-  /// No description provided for @personalRoomLockedBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Lerne auf deinem Lernweg weiter, um diesen Teil deiner Hanok zu öffnen.'**
-  String get personalRoomLockedBody;
-
-  /// No description provided for @personalRoomReturnToMap.
-  ///
-  /// In de, this message translates to:
-  /// **'Zurück zur Hanok-Karte'**
-  String get personalRoomReturnToMap;
-
   /// No description provided for @personalRoomAnbangStudy.
   ///
   /// In de, this message translates to:
@@ -15555,7 +15501,7 @@ abstract class AppL10n {
   /// No description provided for @mediaPhraseDesc.
   ///
   /// In de, this message translates to:
-  /// **'Übe Originalzeilen aus Interview-, Podcast-, Doku- und Debattenregistern auf deinem Niveau.'**
+  /// **'Übe Originalzeilen aus Interviews, Podcasts, Dokus und Debatten aus allen Niveaustufen.'**
   String get mediaPhraseDesc;
 
   /// No description provided for @mediaPhraseContext.
@@ -15579,13 +15525,13 @@ abstract class AppL10n {
   /// No description provided for @mediaPhraseEmptyTitle.
   ///
   /// In de, this message translates to:
-  /// **'Noch kein Satz für dieses Niveau'**
+  /// **'Noch kein Medien-Satz verfügbar'**
   String get mediaPhraseEmptyTitle;
 
   /// No description provided for @mediaPhraseEmpty.
   ///
   /// In de, this message translates to:
-  /// **'Für dein Niveau sind gerade keine Medien-Sätze verfügbar.'**
+  /// **'Zurzeit sind keine Medien-Sätze verfügbar.'**
   String get mediaPhraseEmpty;
 
   /// No description provided for @mediaPhraseProgress.

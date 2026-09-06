@@ -50,8 +50,6 @@ void main() {
       );
       await tester.pump();
 
-      final t = AppL10n.of(tester.element(find.byType(PackCard)));
-      expect(find.text(t.packLockedHintShort), findsNothing);
       expect(find.byIcon(Icons.lock_outline_rounded), findsNothing);
 
       await tester.tap(find.byType(PackCard));

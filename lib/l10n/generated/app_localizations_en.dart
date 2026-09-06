@@ -222,9 +222,6 @@ class AppL10nEn extends AppL10n {
       'Taego is ready when you are. Time for Korean! 🐯';
 
   @override
-  String get homeCourseTitle => 'Your learning path today';
-
-  @override
   String get homeCourseDesc => 'Built around your weak spots and interests';
 
   @override
@@ -1098,9 +1095,6 @@ class AppL10nEn extends AppL10n {
   String get customPackCsvHint => '안녕하세요, hello\\n사과, apple';
 
   @override
-  String get packStateLocked => 'locked';
-
-  @override
   String get packStateCleared => 'cleared';
 
   @override
@@ -1110,9 +1104,6 @@ class AppL10nEn extends AppL10n {
   String packSemantics(Object title, Object state, int learned, int total) {
     return 'Pack $title, $state, $learned of $total learned';
   }
-
-  @override
-  String get packLockedHintShort => 'Unlock first';
 
   @override
   String smalltalkUseWith(Object context) {
@@ -1314,14 +1305,6 @@ class AppL10nEn extends AppL10n {
   @override
   String get vocabPacksEmptyBody =>
       'No vocabulary prepared for this level yet.';
-
-  @override
-  String get vocabPackLockedNoPrev => 'This pack is still locked.';
-
-  @override
-  String vocabPackLockedHint(Object prev) {
-    return 'Clear \"$prev\" first with ≥ 70% on bosses.';
-  }
 
   @override
   String get bookCaptureTitle => 'Snap a page';
@@ -2649,11 +2632,6 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String scenariosLocked(Object level) {
-    return 'Reach $level to unlock';
-  }
-
-  @override
   String scenariosLevelBadge(Object level) {
     return 'Level $level';
   }
@@ -3813,7 +3791,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String scenariosPathProgress(int done, int total) {
-    return '$done/$total unlocked';
+    return '$done/$total available';
   }
 
   @override
@@ -4518,9 +4496,6 @@ class AppL10nEn extends AppL10n {
   String get pathNodeNow => 'Now';
 
   @override
-  String get pathLockedHint => 'Clear the previous pack first.';
-
-  @override
   String get pathSeeAll => 'Full path';
 
   @override
@@ -5092,7 +5067,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get grammarPlanOnboardingBody =>
-      'You only see these patterns each day. You can change the pace and level at the top any time.';
+      'Choose a daily recommendation. You can change the pace and level at the top or browse every pattern at any time.';
 
   @override
   String grammarPlanItemsPerDayOption(int n) {
@@ -5130,6 +5105,9 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get grammarPlanFinishedRestartCta => 'Start over';
+
+  @override
+  String get grammarBrowseAllCta => 'Browse all grammar';
 
   @override
   String get grammarChoiceTitle => 'Grammar practice';
@@ -6127,7 +6105,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get coachScenariosBody =>
-      'Tap a scenario to practice real everyday situations. They unlock from A2 onwards.';
+      'Tap a scenario to practice real everyday situations. Every level is available right away.';
 
   @override
   String get questSatzBauenInstruction => 'Tap the words in the correct order';
@@ -7749,16 +7727,6 @@ class AppL10nEn extends AppL10n {
       'Open a Bojagi bundle to add your first room piece.';
 
   @override
-  String get personalRoomLockedTitle => 'This room is still being built';
-
-  @override
-  String get personalRoomLockedBody =>
-      'Continue the learning path to open this part of your Hanok.';
-
-  @override
-  String get personalRoomReturnToMap => 'Back to the Hanok map';
-
-  @override
   String get personalRoomAnbangStudy => 'Explore my collection';
 
   @override
@@ -9126,7 +9094,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get mediaPhraseDesc =>
-      'Practice original interview, podcast, documentary, and debate lines at your level.';
+      'Practice original interview, podcast, documentary, and debate lines across all levels.';
 
   @override
   String get mediaPhraseContext => 'Situation';
@@ -9139,10 +9107,11 @@ class AppL10nEn extends AppL10n {
       'The media lines could not be loaded. Please try again.';
 
   @override
-  String get mediaPhraseEmptyTitle => 'No line for this level yet';
+  String get mediaPhraseEmptyTitle => 'No media line available yet';
 
   @override
-  String get mediaPhraseEmpty => 'There are no media lines for your level yet.';
+  String get mediaPhraseEmpty =>
+      'There are no media lines available right now.';
 
   @override
   String mediaPhraseProgress(int current, int total) {

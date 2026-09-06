@@ -78,6 +78,24 @@ void main() {
   });
 
   group('PersonalHanokCatalog', () {
+    test(
+      'exposes every interactive place before any construction progress',
+      () {
+        final projection = PersonalHanokProjection.from(
+          const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
+        );
+
+        expect(
+          visiblePersonalHanokZones(projection).map((entry) => entry.zone),
+          unorderedEquals(
+            kPersonalHanokZones
+                .where((entry) => entry.isInteractive)
+                .map((entry) => entry.zone),
+          ),
+        );
+      },
+    );
+
     test('contains only the isolated personal-v2 art family', () {
       for (final layer in kPersonalHanokLayers) {
         expect(layer.assetPath, startsWith(kPersonalHanokAssetRoot));

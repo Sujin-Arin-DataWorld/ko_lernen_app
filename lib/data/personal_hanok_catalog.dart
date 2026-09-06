@@ -272,18 +272,13 @@ const kPersonalHanokZones = <PersonalHanokZoneDefinition>[
   ),
 ];
 
-/// Returns only the personal places that are built and can be opened now.
+/// Returns every interactive personal place.
 ///
-/// The map, accessible place list, and future focused viewport share this
-/// predicate so their affordances cannot drift apart.
+/// Construction milestones remain progress and reward metadata. They never
+/// hide a place or prevent its route from opening.
 Iterable<PersonalHanokZoneDefinition> visiblePersonalHanokZones(
-  PersonalHanokProjection projection,
-) => kPersonalHanokZones.where((definition) {
-  final required = definition.requires;
-  return definition.isInteractive &&
-      required != null &&
-      projection.isUnlocked(required);
-});
+  PersonalHanokProjection _,
+) => kPersonalHanokZones.where((definition) => definition.isInteractive);
 
 PersonalHanokMapLayer layerForMilestone(PersonalHanokMilestone milestone) {
   return kPersonalHanokLayers.firstWhere(
@@ -302,10 +297,7 @@ PersonalHanokZoneDefinition zoneFor(PersonalHanokZone zone) {
 /// Every layer shares the one master canvas, so a layer's decoded height is
 /// its decoded width scaled by the canvas aspect. `cacheWidth` null means the
 /// asset decodes at its native canvas width.
-int personalHanokResidentBytes({
-  required int layerCount,
-  int? cacheWidth,
-}) {
+int personalHanokResidentBytes({required int layerCount, int? cacheWidth}) {
   if (layerCount <= 0) {
     return 0;
   }
@@ -314,7 +306,9 @@ int personalHanokResidentBytes({
       : (cacheWidth < 1 ? 1 : cacheWidth);
   final height =
       (width * kPersonalHanokCanvasHeight / kPersonalHanokCanvasWidth).round();
-  return layerCount * width * (height < 1 ? 1 : height) *
+  return layerCount *
+      width *
+      (height < 1 ? 1 : height) *
       _kPersonalHanokBytesPerPixel;
 }
 

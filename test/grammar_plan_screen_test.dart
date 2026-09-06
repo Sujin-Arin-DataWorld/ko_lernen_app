@@ -146,12 +146,44 @@ void main() {
       expect(plan?.servedIdsByDate, isEmpty);
       expect(find.byKey(const Key('grammar-plan-day-header')), findsOneWidget);
       expect(find.byKey(const Key('grammar-filter-row')), findsNothing);
+      expect(
+        find.byKey(const Key('grammar-browse-all-button')),
+        findsOneWidget,
+      );
       expect(find.text(curated[0].pattern), findsWidgets);
       expect(find.text('1 / 3'), findsOneWidget);
 
       tester.widget<SoriContentFeed>(find.byType(SoriContentFeed)).onSkip!();
       await tester.pump();
       expect(find.text(curated[1].pattern), findsWidgets);
+    },
+  );
+
+  testWidgets(
+    'an active daily plan always exposes the complete grammar library',
+    (tester) async {
+      final allGrammar = await DataLoader.loadGrammar();
+      await _storePlans({
+        'a1': const GrammarStudyPlan(
+          level: 'a1',
+          itemsPerDay: 3,
+          servedIdsByDate: {},
+        ),
+      });
+      await _pumpGrammar(tester);
+
+      expect(find.text('1 / 3'), findsOneWidget);
+      await tester.tap(find.byKey(const Key('grammar-browse-all-button')));
+      await tester.pump(const Duration(milliseconds: 500));
+
+      expect(find.byKey(const Key('grammar-plan-day-header')), findsNothing);
+      expect(find.byKey(const Key('grammar-filter-row')), findsOneWidget);
+      expect(find.byType(FlipCard), findsOneWidget);
+      expect(find.text('1 / ${allGrammar.length}'), findsOneWidget);
+      final plan = GrammarPlanService.decodePlans(
+        Storage.grammarPlanRawJson,
+      )['a1'];
+      expect(plan?.servedIdsByDate, isEmpty);
     },
   );
 
@@ -229,13 +261,23 @@ void main() {
         findsOneWidget,
       );
       expect(find.byType(FlipCard), findsNothing);
+      expect(
+        find.byKey(const Key('grammar-browse-all-button')),
+        findsOneWidget,
+      );
 
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pump();
       await _pumpGrammar(tester);
       expect(
         find.byKey(const Key('grammar-plan-day-complete')),
         findsOneWidget,
       );
       expect(find.byType(FlipCard), findsNothing);
+      await tester.tap(find.byKey(const Key('grammar-browse-all-button')));
+      await tester.pump(const Duration(milliseconds: 500));
+      expect(find.byKey(const Key('grammar-filter-row')), findsOneWidget);
+      expect(find.byType(FlipCard), findsOneWidget);
     },
   );
 
@@ -308,6 +350,10 @@ void main() {
 
       expect(find.byKey(const Key('grammar-plan-finished')), findsOneWidget);
       expect(find.byKey(const Key('grammar-plan-day-header')), findsNothing);
+      expect(
+        find.byKey(const Key('grammar-browse-all-button')),
+        findsOneWidget,
+      );
       await tester.tap(find.text('Start over'));
       await tester.pump(const Duration(milliseconds: 500));
       expect(
@@ -571,31 +617,28 @@ void main() {
     );
     expect(
       find.text(
-        'You only see these patterns each day. '
-        'You can change the pace and level at the top any time.',
+        'Choose a daily recommendation. You can change the pace and level '
+        'at the top or browse every pattern at any time.',
       ),
       findsOneWidget,
     );
   });
 
-  testWidgets(
-    'the pace chip semantic label includes the per-day count '
-    '(a11y, W10 T-G2a)',
-    (tester) async {
-      final semantics = tester.ensureSemantics();
-      await _storePlans({
-        'a1': const GrammarStudyPlan(
-          level: 'a1',
-          itemsPerDay: 3,
-          servedIdsByDate: {},
-        ),
-      });
-      await _pumpGrammar(tester);
+  testWidgets('the pace chip semantic label includes the per-day count '
+      '(a11y, W10 T-G2a)', (tester) async {
+    final semantics = tester.ensureSemantics();
+    await _storePlans({
+      'a1': const GrammarStudyPlan(
+        level: 'a1',
+        itemsPerDay: 3,
+        servedIdsByDate: {},
+      ),
+    });
+    await _pumpGrammar(tester);
 
-      expect(find.bySemanticsLabel(RegExp('3 per day.*')), findsOneWidget);
-      semantics.dispose();
-    },
-  );
+    expect(find.bySemanticsLabel(RegExp('3 per day.*')), findsOneWidget);
+    semantics.dispose();
+  });
 }
 
 Future<void> _storePlans(Map<String, GrammarStudyPlan> plans) =>

@@ -47,7 +47,7 @@ void main() {
     await Storage.init();
   });
 
-  testWidgets('locked anbang never exposes a placement write surface', (
+  testWidgets('anbang stays directly accessible before its old milestone', (
     tester,
   ) async {
     await tester.pumpWidget(
@@ -62,8 +62,8 @@ void main() {
     );
     await tester.pump();
 
-    expect(find.byType(RoomLayer), findsNothing);
-    expect(find.text('This room is still being built'), findsOneWidget);
+    expect(find.byType(PersonalRoomScene), findsOneWidget);
+    expect(find.text('This room is still being built'), findsNothing);
   });
 
   testWidgets('keeps the unlocked room interactive through the shared scene', (

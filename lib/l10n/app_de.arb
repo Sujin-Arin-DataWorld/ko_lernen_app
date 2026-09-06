@@ -88,7 +88,6 @@
   "settingsNotifDenied": "Benachrichtigungen sind deaktiviert. Erlaube sie in den Systemeinstellungen.",
   "notificationTitle": "Hangul Sori",
   "notificationBody": "Taego wartet schon. Zeit für Koreanisch! 🐯",
-  "homeCourseTitle": "Dein Lernpfad heute",
   "homeCourseDesc": "Auf deine Schwächen & Interessen zugeschnitten",
   "settingsInterestsTitle": "Interessen",
   "settingsInterestsSubtitle": "Themen für deinen Lernpfad",
@@ -537,7 +536,6 @@
     }
   },
   "customPackCsvHint": "안녕하세요, Hallo\\n사과, Apfel",
-  "packStateLocked": "gesperrt",
   "packStateCleared": "geschafft",
   "packStateAvailable": "verfügbar",
   "packSemantics": "Paket {title}, {state}, {learned} von {total} gelernt",
@@ -553,7 +551,6 @@
       }
     }
   },
-  "packLockedHintShort": "Vorher freischalten",
   "smalltalkUseWith": "Passend für: {context}",
   "@smalltalkUseWith": {
     "placeholders": {
@@ -709,13 +706,6 @@
   },
   "vocabPacksEmptyTitle": "Noch keine Pakete",
   "vocabPacksEmptyBody": "Für dieses Level sind noch keine Vokabeln vorbereitet.",
-  "vocabPackLockedNoPrev": "Dieses Paket ist noch gesperrt.",
-  "vocabPackLockedHint": "Schließe zuerst „{prev}“ mit ≥ 70 % ab.",
-  "@vocabPackLockedHint": {
-    "placeholders": {
-      "prev": {}
-    }
-  },
   "@_phase5_book": {
     "description": "Phase 5 (stately-rising-jongga) — \"책 한 컷\" Snap-and-Learn."
   },
@@ -1334,12 +1324,6 @@
       }
     }
   },
-  "scenariosLocked": "Erreiche {level}, um freizuschalten",
-  "@scenariosLocked": {
-    "placeholders": {
-      "level": {}
-    }
-  },
   "scenariosLevelBadge": "Stufe {level}",
   "@scenariosLevelBadge": {
     "placeholders": {
@@ -1914,7 +1898,7 @@
   "vocabMasteryReviewDue": "Fällig",
   "vocabMasteryStrong": "Gefestigt",
   "scenariosPathTitle": "Dein Pfad",
-  "scenariosPathProgress": "{done}/{total} freigeschaltet",
+  "scenariosPathProgress": "{done}/{total} verfügbar",
   "@scenariosPathProgress": {
     "placeholders": {
       "done": {
@@ -2393,7 +2377,6 @@
     }
   },
   "pathNodeNow": "Jetzt",
-  "pathLockedHint": "Schließe zuerst das vorherige Paket ab.",
   "pathSeeAll": "Ganzer Pfad",
   "pathJumpToNow": "Zum aktuellen Schritt",
   "pathStoryEyebrow": "{level} · Alltag in Korea",
@@ -2632,7 +2615,7 @@
   "grammarPlanLevelLabel": "Niveau",
   "grammarPlanEditTooltip": "Niveau oder Tempo ändern",
   "grammarPlanOnboardingTitle": "Wie viele Muster pro Tag?",
-  "grammarPlanOnboardingBody": "Du siehst jeden Tag nur diese Muster. Tempo und Niveau kannst du oben jederzeit ändern.",
+  "grammarPlanOnboardingBody": "Wähle eine tägliche Empfehlung. Oben kannst du Tempo und Niveau ändern oder jederzeit alle Muster ansehen.",
   "grammarPlanItemsPerDayOption": "{n} pro Tag",
   "@grammarPlanItemsPerDayOption": {
     "placeholders": {
@@ -2670,6 +2653,7 @@
   "grammarPlanCompletionSkip": "Später",
   "grammarPlanFinishedTitle": "Alle Muster dieser Stufe geschafft!",
   "grammarPlanFinishedRestartCta": "Neu starten",
+  "grammarBrowseAllCta": "Alle Grammatikmuster ansehen",
   "grammarChoiceTitle": "Grammatik üben",
   "grammarChoiceEyebrow": "Satz erkennen",
   "grammarChoiceInstruction": "Welche koreanische Grammatik passt zum hervorgehobenen Teil?",
@@ -3089,7 +3073,7 @@
   "coachQuestsTitle": "Quests & Belohnungen",
   "coachQuestsBody": "Erledige Quests und erhalte Dekorationen für deine Hanok-Stuben",
   "coachScenariosTitle": "Situationsgespräche",
-  "coachScenariosBody": "Tippe auf ein Szenario und übe echte Alltagssituationen. Sie werden ab A2 freigeschaltet.",
+  "coachScenariosBody": "Tippe auf ein Szenario und übe echte Alltagssituationen. Alle Niveaus sind direkt verfügbar.",
   "questSatzBauenInstruction": "Tippe die Wörter in der richtigen Reihenfolge an",
   "questCheckAnswer": "Antwort prüfen",
   "questReplayAudio": "Erneut anhören",
@@ -3865,9 +3849,6 @@
   "personalRoomAnbangBody": "Ein ruhiger Innenraum für die Wörter und Momente, die du bewahrst.",
   "personalRoomDaecheongBody": "Eine offene Halle, in der dein Lernweg weitergeht.",
   "personalRoomEmptyHint": "Öffne ein Bojagi-Bündel, um dein erstes Einrichtungsstück zu erhalten.",
-  "personalRoomLockedTitle": "Dieser Raum wird noch gebaut",
-  "personalRoomLockedBody": "Lerne auf deinem Lernweg weiter, um diesen Teil deiner Hanok zu öffnen.",
-  "personalRoomReturnToMap": "Zurück zur Hanok-Karte",
   "personalRoomAnbangStudy": "Meine Sammlung entdecken",
   "personalRoomDaecheongStudy": "Lernweg fortsetzen",
   "personalRoomEditorHint": "Ziehe ein Stück frei durch den Raum. Mit zwei Fingern kannst du es drehen und vergrößern. Die Werkzeugleiste funktioniert auch ohne Gesten.",
@@ -4426,12 +4407,12 @@
   "ttsUnavailableOffline": "Aussprache nicht verfügbar. Bist du online?",
   "ttsUnavailableAudio": "Audio ist gerade nicht verfügbar. Bitte versuche es erneut.",
   "mediaPhraseTitle": "Medien-Sätze",
-  "mediaPhraseDesc": "Übe Originalzeilen aus Interview-, Podcast-, Doku- und Debattenregistern auf deinem Niveau.",
+  "mediaPhraseDesc": "Übe Originalzeilen aus Interviews, Podcasts, Dokus und Debatten aus allen Niveaustufen.",
   "mediaPhraseContext": "Situation",
   "mediaPhraseLoading": "Medien-Sätze werden geladen …",
   "mediaPhraseUnavailable": "Die Medien-Sätze konnten nicht geladen werden. Bitte versuche es erneut.",
-  "mediaPhraseEmptyTitle": "Noch kein Satz für dieses Niveau",
-  "mediaPhraseEmpty": "Für dein Niveau sind gerade keine Medien-Sätze verfügbar.",
+  "mediaPhraseEmptyTitle": "Noch kein Medien-Satz verfügbar",
+  "mediaPhraseEmpty": "Zurzeit sind keine Medien-Sätze verfügbar.",
   "mediaPhraseProgress": "{current} von {total}",
   "@mediaPhraseProgress": {
     "placeholders": {

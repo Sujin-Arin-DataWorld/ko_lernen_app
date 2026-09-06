@@ -223,9 +223,6 @@ class AppL10nDe extends AppL10n {
   String get notificationBody => 'Taego wartet schon. Zeit für Koreanisch! 🐯';
 
   @override
-  String get homeCourseTitle => 'Dein Lernpfad heute';
-
-  @override
   String get homeCourseDesc => 'Auf deine Schwächen & Interessen zugeschnitten';
 
   @override
@@ -1102,9 +1099,6 @@ class AppL10nDe extends AppL10n {
   String get customPackCsvHint => '안녕하세요, Hallo\\n사과, Apfel';
 
   @override
-  String get packStateLocked => 'gesperrt';
-
-  @override
   String get packStateCleared => 'geschafft';
 
   @override
@@ -1114,9 +1108,6 @@ class AppL10nDe extends AppL10n {
   String packSemantics(Object title, Object state, int learned, int total) {
     return 'Paket $title, $state, $learned von $total gelernt';
   }
-
-  @override
-  String get packLockedHintShort => 'Vorher freischalten';
 
   @override
   String smalltalkUseWith(Object context) {
@@ -1318,14 +1309,6 @@ class AppL10nDe extends AppL10n {
   @override
   String get vocabPacksEmptyBody =>
       'Für dieses Level sind noch keine Vokabeln vorbereitet.';
-
-  @override
-  String get vocabPackLockedNoPrev => 'Dieses Paket ist noch gesperrt.';
-
-  @override
-  String vocabPackLockedHint(Object prev) {
-    return 'Schließe zuerst „$prev“ mit ≥ 70 % ab.';
-  }
 
   @override
   String get bookCaptureTitle => 'Buchseite einlesen';
@@ -2664,11 +2647,6 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String scenariosLocked(Object level) {
-    return 'Erreiche $level, um freizuschalten';
-  }
-
-  @override
   String scenariosLevelBadge(Object level) {
     return 'Stufe $level';
   }
@@ -3832,7 +3810,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String scenariosPathProgress(int done, int total) {
-    return '$done/$total freigeschaltet';
+    return '$done/$total verfügbar';
   }
 
   @override
@@ -4538,9 +4516,6 @@ class AppL10nDe extends AppL10n {
   String get pathNodeNow => 'Jetzt';
 
   @override
-  String get pathLockedHint => 'Schließe zuerst das vorherige Paket ab.';
-
-  @override
   String get pathSeeAll => 'Ganzer Pfad';
 
   @override
@@ -5115,7 +5090,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get grammarPlanOnboardingBody =>
-      'Du siehst jeden Tag nur diese Muster. Tempo und Niveau kannst du oben jederzeit ändern.';
+      'Wähle eine tägliche Empfehlung. Oben kannst du Tempo und Niveau ändern oder jederzeit alle Muster ansehen.';
 
   @override
   String grammarPlanItemsPerDayOption(int n) {
@@ -5152,6 +5127,9 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get grammarPlanFinishedRestartCta => 'Neu starten';
+
+  @override
+  String get grammarBrowseAllCta => 'Alle Grammatikmuster ansehen';
 
   @override
   String get grammarChoiceTitle => 'Grammatik üben';
@@ -6152,7 +6130,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachScenariosBody =>
-      'Tippe auf ein Szenario und übe echte Alltagssituationen. Sie werden ab A2 freigeschaltet.';
+      'Tippe auf ein Szenario und übe echte Alltagssituationen. Alle Niveaus sind direkt verfügbar.';
 
   @override
   String get questSatzBauenInstruction =>
@@ -7792,16 +7770,6 @@ class AppL10nDe extends AppL10n {
       'Öffne ein Bojagi-Bündel, um dein erstes Einrichtungsstück zu erhalten.';
 
   @override
-  String get personalRoomLockedTitle => 'Dieser Raum wird noch gebaut';
-
-  @override
-  String get personalRoomLockedBody =>
-      'Lerne auf deinem Lernweg weiter, um diesen Teil deiner Hanok zu öffnen.';
-
-  @override
-  String get personalRoomReturnToMap => 'Zurück zur Hanok-Karte';
-
-  @override
   String get personalRoomAnbangStudy => 'Meine Sammlung entdecken';
 
   @override
@@ -9171,7 +9139,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get mediaPhraseDesc =>
-      'Übe Originalzeilen aus Interview-, Podcast-, Doku- und Debattenregistern auf deinem Niveau.';
+      'Übe Originalzeilen aus Interviews, Podcasts, Dokus und Debatten aus allen Niveaustufen.';
 
   @override
   String get mediaPhraseContext => 'Situation';
@@ -9184,11 +9152,10 @@ class AppL10nDe extends AppL10n {
       'Die Medien-Sätze konnten nicht geladen werden. Bitte versuche es erneut.';
 
   @override
-  String get mediaPhraseEmptyTitle => 'Noch kein Satz für dieses Niveau';
+  String get mediaPhraseEmptyTitle => 'Noch kein Medien-Satz verfügbar';
 
   @override
-  String get mediaPhraseEmpty =>
-      'Für dein Niveau sind gerade keine Medien-Sätze verfügbar.';
+  String get mediaPhraseEmpty => 'Zurzeit sind keine Medien-Sätze verfügbar.';
 
   @override
   String mediaPhraseProgress(int current, int total) {

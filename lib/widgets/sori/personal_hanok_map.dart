@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../../data/personal_hanok_catalog.dart';
 import '../../models/personal_hanok.dart';
-import 'madang_background.dart';
 import 'tokens.dart';
 
-/// Renders the user's personal Hanok as a pure projection of earned progress.
+/// Renders the complete personal Hanok while retaining earned-progress context.
 ///
 /// It owns no storage, rewards, or navigation policy. Callers supply localized
-/// zone labels and decide what a location opens. Before B1 25% it deliberately
-/// preserves the existing portrait [MadangBackground] experience.
+/// zone labels and decide what a location opens. Construction progress may
+/// still drive celebration copy, but never removes a layer or place target.
 class PersonalHanokMap extends StatelessWidget {
   final PersonalHanokProjection projection;
   final String Function(PersonalHanokZone zone) zoneLabel;
@@ -46,31 +45,12 @@ class PersonalHanokMap extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final onTap = this.onTap;
-    if (!projection.usesCompoundMap) {
-      // The legacy stage art is portrait, but this public map widget is also
-      // embedded in scrolling/zooming views. Give that fallback the same
-      // finite 4:3 viewport contract as the compound map so `Stack.expand`
-      // never receives an unbounded ListView height.
-      final early = AspectRatio(
-        aspectRatio: 4 / 3,
-        child: MadangBackground(stage: projection.structureStage),
-      );
-      return onTap == null
-          ? early
-          : GestureDetector(
-              onTap: onTap,
-              behavior: HitTestBehavior.opaque,
-              child: early,
-            );
-    }
-
     final layers =
         kPersonalHanokLayers
             .where(
               (layer) =>
                   layer.opaque ||
                   (layer.milestone != null &&
-                      projection.isUnlocked(layer.milestone!) &&
                       !suppressedMilestones.contains(layer.milestone!)),
             )
             .toList()

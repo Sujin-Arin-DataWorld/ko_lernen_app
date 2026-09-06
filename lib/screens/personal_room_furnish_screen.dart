@@ -22,7 +22,6 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/dancheong_stamp.dart';
-import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/free_room_layer.dart';
 import '../widgets/sori/personal_room_scene.dart';
 import '../widgets/sori/placed_decoration.dart';
@@ -35,15 +34,15 @@ import '../widgets/sori/window_class.dart';
 
 /// A collectible interior in the private Hanok estate.
 ///
-/// It only reads the already-earned Hanok projection to gate entry. Learning
-/// progress, reward ownership, and all community/Gye state remain outside this
-/// screen and its local placement service.
+/// Learning progress, reward ownership, and all community/Gye state remain
+/// outside this screen and its local placement service. Every room is directly
+/// accessible; the projection load is retained only as the shared readiness
+/// boundary for existing callers.
 class PersonalRoomFurnishScreen extends StatefulWidget {
   final PersonalRoomSurface surface;
   final Future<LevelRatios> Function()? loadRatios;
   final Future<PersonalHanokProjection> Function(LevelRatios ratios)?
   loadProjection;
-  final bool enforceUnlock;
   final Future<RoomLayoutMutation> Function(
     PersonalRoomSurface surface,
     RoomAssetKind kind,
@@ -61,7 +60,6 @@ class PersonalRoomFurnishScreen extends StatefulWidget {
     required this.surface,
     this.loadRatios,
     this.loadProjection,
-    this.enforceUnlock = true,
     this.addLayoutItem,
     this.updateLayoutItem,
   });
@@ -107,15 +105,8 @@ class _PersonalRoomFurnishScreenState extends State<PersonalRoomFurnishScreen> {
     }
     setState(() {
       _projection = projection;
-      // A direct route to a room still under construction must remain a pure
-      // progress view. In particular, it must not revive or normalize local
-      // placement state before its Hanok milestone is reached.
-      if (!widget.enforceUnlock || projection.isUnlocked(_room.requires)) {
-        _reloadLayouts();
-        unawaited(DecorationRewardService.maybeLogRewardUnused());
-      } else {
-        _layouts = const {};
-      }
+      _reloadLayouts();
+      unawaited(DecorationRewardService.maybeLogRewardUnused());
     });
   }
 
@@ -128,10 +119,6 @@ class _PersonalRoomFurnishScreenState extends State<PersonalRoomFurnishScreen> {
       _selectedId = null;
     }
   }
-
-  bool get _isUnlocked =>
-      !widget.enforceUnlock ||
-      (_projection?.isUnlocked(_room.requires) ?? false);
 
   RoomLayoutItem? get _selectedItem {
     final selectedId = _selectedId;
@@ -326,15 +313,6 @@ class _PersonalRoomFurnishScreenState extends State<PersonalRoomFurnishScreen> {
         child: SafeArea(
           child: projection == null
               ? const AppLoading()
-              : !_isUnlocked
-              ? SoriEmptyState(
-                  icon: Icons.construction_rounded,
-                  title: t.personalRoomLockedTitle,
-                  body: t.personalRoomLockedBody,
-                  ctaLabel: t.personalRoomReturnToMap,
-                  onCta: () =>
-                      Navigator.of(context).pushReplacementNamed('/hanok'),
-                )
               : SoriContentClamp(
                   maxWidth: SoriMaxWidth.prose,
                   base: const EdgeInsets.fromLTRB(

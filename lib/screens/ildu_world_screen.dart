@@ -540,7 +540,7 @@ class _WorldBody extends StatelessWidget {
     }
 
     final builtCount = manifest.buildings
-        .where((building) => projection.isAvailable(building.unlockEra))
+        .where((building) => projection.isEarned(building.unlockEra))
         .length;
     final selectedBuilding = manifest.buildings.firstWhere(
       (building) => building.id == selectedBuildingId,

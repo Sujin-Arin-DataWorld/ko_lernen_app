@@ -33,13 +33,13 @@ feedback button after a lesson.
 
 ---
 
-## What to Test — build 2.0.5
+## What to Test — build 2.0.8
 
-Thanks for testing Hangul Sori 2.0.5! Please focus on:
+Thanks for testing Hangul Sori 2.0.8! Please focus on:
 
 1. Onboarding — pick a starting level (A1–B2) and reach the home screen.
 2. Hanok map — check that it grows, and that today's recommended study opens from the Sarangbang.
-3. Vocabulary packs — learn → quiz → boss round; confirm the next pack unlocks after ~70%.
+3. Vocabulary packs — confirm every pack opens directly; run learn → quiz → boss and check the next-pack recommendation after ~70%.
 4. Quests & Bojagi rewards — complete a quest and furnish a room.
 5. Snap-and-Learn — camera/photo permission → capture → crop → OCR → analysis result.
 6. Mini-games — initial-consonant quiz, Hangul Wordle, Kkeunmari.

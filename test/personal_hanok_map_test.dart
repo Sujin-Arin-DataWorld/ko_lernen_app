@@ -3,11 +3,10 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/models/personal_hanok.dart';
 import 'package:ko_lernen_app/services/hanok_stage_service.dart';
-import 'package:ko_lernen_app/widgets/sori/madang_background.dart';
 import 'package:ko_lernen_app/widgets/sori/personal_hanok_map.dart';
 
 void main() {
-  testWidgets('uses the legacy courtyard before the compound boundary', (
+  testWidgets('shows the complete estate before the old compound boundary', (
     tester,
   ) async {
     await tester.pumpWidget(
@@ -21,8 +20,10 @@ void main() {
       ),
     );
 
-    expect(find.byType(MadangBackground), findsOneWidget);
-    expect(find.byKey(const ValueKey('personal-hanok-zone-sarangbang')), findsNothing);
+    expect(
+      find.byKey(const ValueKey('personal-hanok-zone-sarangbang')),
+      findsOneWidget,
+    );
   });
 
   testWidgets('shows final map targets at the full construction milestone', (
@@ -45,8 +46,14 @@ void main() {
       const ValueKey('personal-hanok-zone-sarangbang'),
     );
     expect(sarangbang, findsOneWidget);
-    expect(find.byKey(const ValueKey('personal-hanok-zone-huwon')), findsOneWidget);
-    expect(find.byKey(const ValueKey('personal-hanok-zone-gyeRoad')), findsNothing);
+    expect(
+      find.byKey(const ValueKey('personal-hanok-zone-huwon')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const ValueKey('personal-hanok-zone-gyeRoad')),
+      findsNothing,
+    );
     final size = tester.getSize(sarangbang);
     expect(size.width, greaterThanOrEqualTo(44));
     expect(size.height, greaterThanOrEqualTo(44));
@@ -55,7 +62,9 @@ void main() {
     expect(tapped, PersonalHanokZone.sarangbang);
   });
 
-  testWidgets('does not expose a building before its own milestone', (tester) async {
+  testWidgets('exposes every building before its old milestone', (
+    tester,
+  ) async {
     await tester.pumpWidget(
       _host(
         PersonalHanokMap(
@@ -67,10 +76,22 @@ void main() {
       ),
     );
 
-    expect(find.byKey(const ValueKey('personal-hanok-zone-sarangbang')), findsOneWidget);
-    expect(find.byKey(const ValueKey('personal-hanok-zone-anchae')), findsOneWidget);
-    expect(find.byKey(const ValueKey('personal-hanok-zone-daecheongmaru')), findsNothing);
-    expect(find.byKey(const ValueKey('personal-hanok-zone-sadang')), findsNothing);
+    expect(
+      find.byKey(const ValueKey('personal-hanok-zone-sarangbang')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const ValueKey('personal-hanok-zone-anchae')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const ValueKey('personal-hanok-zone-daecheongmaru')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const ValueKey('personal-hanok-zone-sadang')),
+      findsOneWidget,
+    );
   });
 
   testWidgets('opens the Daecheongmaru target without the Anchae stealing it', (

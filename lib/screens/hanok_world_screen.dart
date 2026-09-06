@@ -20,7 +20,6 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/hanok_build_narrative_line.dart';
-import '../widgets/sori/personal_hanok_map.dart';
 import '../widgets/sori/personal_hanok_unlock_reveal.dart';
 import '../widgets/sori/personal_hanok_venue_sheet.dart';
 import '../widgets/sori/progress.dart';
@@ -406,34 +405,34 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
     // padding already separates it from the place list, and the fold
     // budget (map restored to full size, §W-F2 §1) has no room to spare.
     return [
-      if (projection.usesCompoundMap) ...[
-        SliverToBoxAdapter(
-          child: padded(
-            _WorldPlaceList(
-              projection: projection,
-              onSelectZone: _selectZone,
-              showHeading: false,
-            ),
+      SliverToBoxAdapter(
+        child: padded(
+          _WorldPlaceList(
+            projection: projection,
+            onSelectZone: _selectZone,
+            showHeading: false,
           ),
         ),
-        const SliverToBoxAdapter(child: SizedBox(height: Spacing.lg)),
-        SliverToBoxAdapter(
-          child: padded(
-            HanokSelectedPlacePanel(
-              selectedZone: _selectedZone,
-              zoneLabel: (zone) => _zoneLabel(t, zone),
-              zonePurpose: (zone) => _zonePurpose(t, zone),
-              todayExpressionKo:
-                  _narrative?.receipt.nextExpressionKo ??
-                  _narrative?.receipt.latestSafeExpressionKo,
-              todaySceneMinutes: 4,
-              onOpen: _openSelectedZone,
-            ),
+      ),
+      const SliverToBoxAdapter(child: SizedBox(height: Spacing.lg)),
+      SliverToBoxAdapter(
+        child: padded(
+          HanokSelectedPlacePanel(
+            selectedZone: _selectedZone,
+            zoneLabel: (zone) => _zoneLabel(t, zone),
+            zonePurpose: (zone) => _zonePurpose(t, zone),
+            todayExpressionKo:
+                _narrative?.receipt.nextExpressionKo ??
+                _narrative?.receipt.latestSafeExpressionKo,
+            todaySceneMinutes: 4,
+            onOpen: _openSelectedZone,
           ),
         ),
+      ),
+      const SliverToBoxAdapter(child: SizedBox(height: Spacing.lg)),
+      SliverToBoxAdapter(child: padded(_GyeBridge(onOpen: _openGyeHub))),
+      if (!projection.usesCompoundMap) ...[
         const SliverToBoxAdapter(child: SizedBox(height: Spacing.lg)),
-        SliverToBoxAdapter(child: padded(_GyeBridge(onOpen: _openGyeHub))),
-      ] else
         SliverToBoxAdapter(
           child: padded(
             _EarlyBuildPlan(
@@ -445,6 +444,7 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
             ),
           ),
         ),
+      ],
       if (activeReveal != null)
         SliverToBoxAdapter(
           child: padded(
@@ -530,59 +530,43 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
                                 ),
                               ),
                               const SizedBox(height: Spacing.lg),
-                              if (projection.usesCompoundMap) ...[
-                                Semantics(
-                                  label: t.hanokWorldTitle,
-                                  child: WorldMapViewport(
-                                    projection: projection,
-                                    selectedZone: _selectedZone,
-                                    suppressedMilestones: activeReveal == null
-                                        ? const <PersonalHanokMilestone>{}
-                                        : <PersonalHanokMilestone>{
-                                            activeReveal,
-                                          },
-                                    onSelectZone: _selectZone,
-                                    onOpenSelectedZone: _openSelectedZone,
-                                    zoneLabel: (zone) => _zoneLabel(t, zone),
-                                    zonePurpose: (zone) =>
-                                        _zonePurpose(t, zone),
-                                    mapPlaceLabel: (zone) =>
-                                        _mapPlaceLabel(t, zone),
-                                    todayExpressionKo:
-                                        _narrative?.receipt.nextExpressionKo ??
-                                        _narrative
-                                            ?.receipt
-                                            .latestSafeExpressionKo,
-                                    contentPadding: sidePadding,
-                                  ),
+                              Semantics(
+                                key: _earlyMapKey,
+                                label: t.hanokWorldTitle,
+                                child: WorldMapViewport(
+                                  projection: projection,
+                                  selectedZone: _selectedZone,
+                                  suppressedMilestones: activeReveal == null
+                                      ? const <PersonalHanokMilestone>{}
+                                      : <PersonalHanokMilestone>{activeReveal},
+                                  onSelectZone: _selectZone,
+                                  onOpenSelectedZone: _openSelectedZone,
+                                  zoneLabel: (zone) => _zoneLabel(t, zone),
+                                  zonePurpose: (zone) => _zonePurpose(t, zone),
+                                  mapPlaceLabel: (zone) =>
+                                      _mapPlaceLabel(t, zone),
+                                  todayExpressionKo:
+                                      _narrative?.receipt.nextExpressionKo ??
+                                      _narrative
+                                          ?.receipt
+                                          .latestSafeExpressionKo,
+                                  contentPadding: sidePadding,
                                 ),
-                                const SizedBox(height: Spacing.lg),
-                                Padding(
-                                  padding: sidePadding,
-                                  child: _WorldPlaceList(
-                                    projection: projection,
-                                    onSelectZone: _selectZone,
-                                  ),
+                              ),
+                              const SizedBox(height: Spacing.lg),
+                              Padding(
+                                padding: sidePadding,
+                                child: _WorldPlaceList(
+                                  projection: projection,
+                                  onSelectZone: _selectZone,
                                 ),
-                                const SizedBox(height: Spacing.lg),
-                                Padding(
-                                  padding: sidePadding,
-                                  child: _GyeBridge(onOpen: _openGyeHub),
-                                ),
-                              ] else ...[
-                                Padding(
-                                  padding: sidePadding,
-                                  child: ConstrainedBox(
-                                    key: _earlyMapKey,
-                                    constraints: const BoxConstraints(
-                                      minHeight: 278,
-                                    ),
-                                    child: PersonalHanokMap(
-                                      projection: projection,
-                                      zoneLabel: (zone) => _zoneLabel(t, zone),
-                                    ),
-                                  ),
-                                ),
+                              ),
+                              const SizedBox(height: Spacing.lg),
+                              Padding(
+                                padding: sidePadding,
+                                child: _GyeBridge(onOpen: _openGyeHub),
+                              ),
+                              if (!projection.usesCompoundMap) ...[
                                 const SizedBox(height: Spacing.lg),
                                 Padding(
                                   padding: sidePadding,

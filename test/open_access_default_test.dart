@@ -35,6 +35,37 @@ void main() {
     expect(File('lib/screens/paywall_screen.dart').existsSync(), isFalse);
   });
 
+  test('level history cannot hide standalone activities or Hanok rooms', () {
+    final ildu = File(
+      'lib/services/ildu_world_projection_adapter.dart',
+    ).readAsStringSync();
+    final room = File(
+      'lib/screens/personal_room_furnish_screen.dart',
+    ).readAsStringSync();
+    final kkeunmari = File(
+      'lib/screens/kkeunmari_screen.dart',
+    ).readAsStringSync();
+    final hanokCatalog = File(
+      'lib/data/personal_hanok_catalog.dart',
+    ).readAsStringSync();
+    final hanokMap = File(
+      'lib/widgets/sori/personal_hanok_map.dart',
+    ).readAsStringSync();
+    final de = File('lib/l10n/app_de.arb').readAsStringSync();
+    final en = File('lib/l10n/app_en.arb').readAsStringSync();
+
+    expect(ildu, contains('bool isAvailable(IlDuWorldEra _) => true;'));
+    expect(room, isNot(contains('enforceUnlock')));
+    expect(room, isNot(contains('isUnlocked(_room.requires)')));
+    expect(kkeunmari, isNot(contains('learnerLevelForStoredCode')));
+    expect(kkeunmari, isNot(contains('maxLevel:')));
+    expect(hanokCatalog, isNot(contains('projection.isUnlocked')));
+    expect(hanokMap, isNot(contains('projection.usesCompoundMap')));
+    expect(hanokMap, isNot(contains('projection.isUnlocked')));
+    expect(de, isNot(contains('ab A2 freigeschaltet')));
+    expect(en, isNot(contains('unlock from A2')));
+  });
+
   test('every shipped vocabulary pack is directly accessible', () async {
     final packs = await VocabPackService.loadAll();
     expect(packs, isNotEmpty);

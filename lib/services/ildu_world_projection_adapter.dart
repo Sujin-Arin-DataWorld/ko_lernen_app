@@ -5,10 +5,8 @@ import '../models/personal_hanok.dart';
 /// Presentation-only state for the Ildu map.
 ///
 /// This adapter never writes course state and never treats onboarding level
-/// selection as ownership. The canonical path consumes verified productive
-/// evidence from [HanokExperienceProjection]. The legacy bridge is deliberately
-/// fail-closed and reads only completed, non-bypassed course units already
-/// exposed by [PersonalHanokProjection.competence].
+/// selection as ownership. Learning evidence still chooses the progress label,
+/// but it must never hide an estate building, gate, or decoration.
 class IlDuWorldProjection {
   final IlDuWorldEra era;
   final bool hasVerifiedEvidence;
@@ -20,7 +18,11 @@ class IlDuWorldProjection {
     this.earnedGrantIds = const <String>{},
   });
 
-  bool isAvailable(IlDuWorldEra requiredEra) =>
+  bool isAvailable(IlDuWorldEra _) => true;
+
+  /// Access is universal, while the progress header still reflects verified
+  /// learning evidence earned through the course.
+  bool isEarned(IlDuWorldEra requiredEra) =>
       hasVerifiedEvidence && era.rank >= requiredEra.rank;
 }
 
