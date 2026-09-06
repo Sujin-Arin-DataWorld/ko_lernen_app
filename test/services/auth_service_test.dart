@@ -1162,6 +1162,89 @@ void main() {
   });
 
   test(
+    'a rejected deletion request hands the session back so the same session '
+    'can retry without an app restart',
+    () async {
+      final events = <String>[];
+      final operations = _FakeDeletionOperations(events)
+        ..requestFailures.add(
+          const AccountOperationFailure(
+            AccountOperationFailureCode.unavailable,
+            retryable: true,
+          ),
+        )
+        ..requestResults.add(
+          _operation(AccountOperationPhase.deletionRequested),
+        );
+      final sessions = _readySessions();
+      final coordinator = AccountDeletionCoordinator(
+        operations: operations,
+        ownershipTransitions: _ownership(events, sessions),
+        sessions: sessions,
+        rebindPush: () async => events.add('push-rebind'),
+      );
+
+      await expectLater(
+        coordinator.deleteAccount(),
+        throwsA(
+          isA<AccountOperationFailure>().having(
+            (failure) => failure.code,
+            'code',
+            AccountOperationFailureCode.unavailable,
+          ),
+        ),
+      );
+
+      // The lost request left nothing on the server, so the source session
+      // is ready again (not parked in `blocked`) and push is re-bound.
+      expect(sessions.current?.uid, 'user-1');
+      expect(sessions.current?.mode, CloudWriteMode.ready);
+      expect(events, contains('push-rebind'));
+      expect(operations.deleteFirebaseUserCalls, 0);
+
+      await coordinator.deleteAccount();
+
+      expect(operations.requestCalls, 2);
+      expect(operations.deleteFirebaseUserCalls, 1);
+      expect(
+        operations.journal?.operation?.phase,
+        AccountOperationPhase.completed,
+      );
+      expect(sessions.current?.mode, CloudWriteMode.cleanupPending);
+    },
+  );
+
+  test(
+    'a failure after server acceptance keeps the session blocked',
+    () async {
+      final events = <String>[];
+      final operations = _FakeDeletionOperations(events)
+        ..requestResults.add(
+          _operation(AccountOperationPhase.deletionRequested),
+        );
+      final sessions = _readySessions();
+      var rebinds = 0;
+      final coordinator = AccountDeletionCoordinator(
+        operations: operations,
+        ownershipTransitions: _ownership(events, sessions),
+        sessions: sessions,
+        closeFeedback: () async => throw StateError('feedback close failed'),
+        rebindPush: () async => rebinds += 1,
+      );
+
+      await expectLater(
+        coordinator.deleteAccount(),
+        throwsA(isA<AccountOperationFailure>()),
+      );
+
+      // The server already owns the deletion: never hand the session back.
+      expect(sessions.current?.uid, 'user-1');
+      expect(sessions.current?.mode, CloudWriteMode.blocked);
+      expect(rebinds, 0);
+    },
+  );
+
+  test(
     'completed server deletion recovers identity before local cleanup',
     () async {
       final events = <String>[];

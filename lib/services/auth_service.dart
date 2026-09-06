@@ -326,6 +326,10 @@ typedef CompletedDeletionRecovery =
 typedef CompletedDeletionPreflight =
     void Function(AccountDeletionJournal checkpoint);
 typedef AccountDeletionFeedbackCloser = Future<void> Function();
+
+/// Re-binds the push token to the current user after a rejected deletion
+/// request handed the cloud-write session back to the source account.
+typedef AccountDeletionPushRebind = Future<void> Function();
 typedef AccountDeletionFeedbackActivator =
     Future<bool> Function(String deletedUid);
 typedef CompletedDeletionProviderCleanup = Future<void> Function();
@@ -584,6 +588,8 @@ class CompletedDeletionFeedbackFinalizer {
 
 Future<void> _noopAccountDeletionFeedbackCloser() async {}
 
+Future<void> _noopAccountDeletionPushRebind() async {}
+
 class AccountDeletionRemoteGate {
   const AccountDeletionRemoteGate({
     required this.readCheckpoint,
@@ -663,12 +669,14 @@ class AccountDeletionCoordinator {
     required this.ownershipTransitions,
     required this.sessions,
     this.closeFeedback = _noopAccountDeletionFeedbackCloser,
+    this.rebindPush = _noopAccountDeletionPushRebind,
   });
 
   final AccountDeletionOperations operations;
   final PushOwnershipTransitionCoordinator ownershipTransitions;
   final CloudWriteSessionController sessions;
   final AccountDeletionFeedbackCloser closeFeedback;
+  final AccountDeletionPushRebind rebindPush;
 
   Future<void> deleteAccount() async {
     try {
@@ -711,6 +719,11 @@ class AccountDeletionCoordinator {
     }
 
     AccountDeletionJournal? journal;
+    // Set once the server has durably accepted the request. A failure before
+    // that leaves nothing to resume server-side, so the source session is
+    // handed back (_reacquireSourceSessionAfterRejectedRequest) instead of
+    // staying `blocked` until the next app start.
+    var serverAccepted = false;
     try {
       final transitionResult = await ownershipTransitions.run(
         oldUid: operations.userId,
@@ -748,6 +761,7 @@ class AccountDeletionCoordinator {
                 )
               : await _readReceiptStatusOrRequest(journal!, receipt);
           _requireDeletionOperation(requested);
+          serverAccepted = true;
           receipt = await operations.bindDeletionStatusReceipt(
             expected: receipt,
             operationId: requested.operationId,
@@ -776,11 +790,38 @@ class AccountDeletionCoordinator {
         );
       }
     } catch (_) {
+      if (!serverAccepted) {
+        await _reacquireSourceSessionAfterRejectedRequest();
+      }
       await _persistCurrentOwnedSession(journal);
       rethrow;
     }
     await _persistCurrentOwnedSession(journal);
     await _recoverDeletedIdentity();
+  }
+
+  /// Hands the cloud-write session back to the source account after a
+  /// deletion request that never reached durable server acceptance.
+  ///
+  /// `PushOwnershipTransitionCoordinator.run` parks the session in `blocked`
+  /// whenever its transition throws. That is right once the server owns a
+  /// deletion, but a request lost to a network error (or refused outright)
+  /// leaves the account intact, and a blocked session would then reject
+  /// every retry until the app restarts. Mirrors the recovery in
+  /// `AccountSwitchCoordinator.switchToExisting`.
+  Future<void> _reacquireSourceSessionAfterRejectedRequest() async {
+    final current = sessions.current;
+    if (current == null ||
+        current.uid != operations.userId ||
+        current.mode != CloudWriteMode.blocked) {
+      return;
+    }
+    sessions.acquire(operations.userId);
+    try {
+      await rebindPush();
+    } catch (error) {
+      AccountFailureDiagnostics.log('deletion.rebindPush.failed', error);
+    }
   }
 
   /// Accepts an in-flight deletion request and finishes it on this device
@@ -2813,6 +2854,11 @@ class AuthService {
       ownershipTransitions: _pushOwnershipTransitions,
       sessions: cloudWriteSessionController,
       closeFeedback: closeFeedback,
+      rebindPush: () async {
+        if (Storage.notificationsEnabled) {
+          await pushService.bindCurrentUser();
+        }
+      },
     ).deleteAccount();
   }
 
@@ -3075,6 +3121,11 @@ class AuthService {
       ownershipTransitions: _pushOwnershipTransitions,
       sessions: cloudWriteSessionController,
       closeFeedback: closeFeedback,
+      rebindPush: () async {
+        if (Storage.notificationsEnabled) {
+          await pushService.bindCurrentUser();
+        }
+      },
     ).resumePendingDeletion();
   }
 

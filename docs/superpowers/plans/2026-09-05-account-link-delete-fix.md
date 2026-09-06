@@ -92,8 +92,18 @@
 ### T6 통합 (Fable)
 - 전체 `flutter test`(≈7분) 1회, `flutter analyze`, functions `npm test`, diff 전문 직독, 인수인계 문서, 로컬 커밋(푸시·PR·배포는 Jin 승인 후).
 - **결과(2026-09-06)**: analyze 0; gye `npm test` 종료 0(442/1 todo); 전체 스위트 1차(46b5c0a4) 6,008/20/5 실패 → T7(e778fa2a: en dash·폐기 저널 전제 테스트·클라우드 저널 읽기 실패 fail-closed) → 2차 6,015/20/1(옛 리터럴 단언) → T8(8929c266) 파일 17/17. Fable이 T1~T8 diff 전부 직독·승인. 인수인계 `.claude/handoffs/2026-09-06-013000-account-link-delete-fix.md`.
+- **병합·배포(2026-09-06)**: PR #275 squash 병합(`c3f5a71f`). Firestore rules + gye 함수 11종 배포(12:42 UTC, 신규 `deleteCloudBackup`·`appleOAuthCallback`·`requestDeletionByProof`). 비대화형 배포를 위해 RC_* 시크릿 3종을 값 `unset` placeholder로 생성하고 워크트리에 gitignored `functions/gye/.env.ko-lernen-app`(코드 기본값, APPLE_* 비어 있음)을 두었다.
+
+### T9 후속 3건 (2026-09-06, Fable 직접 구현 — Jin 지시 "후속작업 전부 fable5.1이 작업")
+- 브랜치 `claude/account-followups-20260906`(기준 origin/main `3ce134be` = #274 병합 직후). 워크트리 `C:/dev/hangulsori/ko_lernen_app_worktrees/account-followups-20260906`.
+- **(1) 거부·유실된 삭제 요청 뒤 세션 재획득** — `AccountDeletionCoordinator._deleteAccount`: 서버가 요청을 내구 수락(`_requireDeletionOperation` 통과, `serverAccepted`)하기 전에 실패하면 `_reacquireSourceSessionAfterRejectedRequest`가 `blocked` 세션을 `sessions.acquire(sourceUid)`로 되돌리고 `rebindPush`(알림 켜진 경우 `pushService.bindCurrentUser`)를 best-effort 호출. 수락 이후 실패는 종전처럼 `blocked` 유지(서버가 삭제를 소유). 생성자 `rebindPush` 주입(기본 no-op), 프로덕션 배선 2곳(`_startOrResumeRemoteAccountDeletion`·resume). 테스트 2건(`auth_service_test.dart`: 재시도 성공, 수락 후 실패는 blocked 유지).
+- **(2) 워커 `appleRevocationPending` 스킵** — `account_operations.js nextPhases(operation, {appleRevocationComplete})`: `userTreeDeleting`에서 진행 플래그가 있으면 `authDeleted` 직행 허용(hop도 계속 허용 → 구 워커 호환). `transitionOperation`이 플래그를 받고 `checkpointDeletionWork`가 병합된 `nextProgress.appleRevocationComplete`를 넘긴다. 워커 `userTreeDeleting` 분기는 플래그가 없을 때만 `appleRevocationPending`으로 이동. T3의 `test.todo`가 실테스트로 전환돼 통과(443/0 todo).
+- **(3) 레거시 replacement 저널 키 소비처 정리** — `MediaCleanupGate` 리더와 `Storage` 리셋 펜스가 더 이상 기록되지 않는 `kl_account_transition_journal_v1` 대신 전환 저널 키 2종(`AccountSwitchJournal.storageKey`, `AccountTransitionJournal.switchReconciliationStorageKey` = reconciliation 저널)을 본다. 전환 병합 중 미디어 정리·로컬 리셋 차단이 실제로 다시 동작. 레거시 키는 시작 시 폐기 경로에만 남고 리셋 시 보존 대상에서 제외(회귀 테스트: 리셋이 레거시 키를 지운다). `media_lifecycle_test`·펜스 테스트 재조준, 펜스 테스트 2건 추가.
+- 검증: analyze 0; gye 443/0; 대상 11파일 190 green; 전체 스위트는 인수인계 문서 참조. pubspec `2.0.8+36`(versionCode 자체는 `android/app/build.gradle.kts`의 `git rev-list --count`로 자동).
+- **하지 않은 것(판단)**: (a) Firebase "익명 사용자 자동 삭제(30일)"는 **권장 철회** — 활동 여부와 무관하게 30일 지난 익명 계정을 지우므로, 로그인 없이 쓰는 학습자의 클라우드 백업·커뮤니티 데이터가 고아가 된다. (b) 코드에서 제거된 구 replacement 콜러블 5종(`prepareAnonymousReplacement`·`attachReplacementTarget`·`commitReplacementReconciliation`·`startSourceCleanup`·`cancelAnonymousReplacement`, 08-12 배포본)은 배포 삭제 보류 — 구 버전 클라이언트가 남아 있을 수 있고 되돌리기 어려워 Jin 결정 사항. (c) `closeFeedback` 실패 시 아웃박스 잔존 1건은 유출 없는 무해 케이스라 그대로 둔다.
 
 ## 3. Jin이 해야 하는 외부 작업 (코드로 불가)
-1. Apple Developer + Firebase 콘솔에서 Apple 제공자 활성 (T2 런북).
-2. 서버 배포(승인 후 실행): `firebase deploy --only firestore:rules` → gye 코드베이스 함수 11종(계정 콜러블 6종 `requestAccountDeletion`·`getAccountDeletionStatusByReceipt`·`acknowledgeAccountDeletionStatusReceipt`·`completeAppleRevocation`·`getAccountOperation`·`issueDeletionProof` + `account_deletion_worker` + `deleteCloudBackup` + `appleOAuthCallback` + `submitTesterFeedback` + `requestDeletionByProof`). RC_* 시크릿이 없으므로 billing 함수는 제외 — 정확한 명령은 `docs/store/apple-sign-in-setup.md` §5.
-3. (권장) Firebase Auth "익명 사용자 자동 삭제(30일)" 활성 — 전환 후 버려진 익명 계정 정리.
+1. Apple Developer + Firebase 콘솔에서 Apple 제공자 활성 (T2 런북). **2026-09-06 REST 실측: 아직 미설정(`google.com`만 존재).** 설정 뒤 `functions/gye/.env.ko-lernen-app`의 `APPLE_SERVICES_ID`/`APPLE_REDIRECT_URI`와 GitHub variables를 채우고 `completeAppleRevocation`·`appleOAuthCallback` 재배포.
+2. 서버 배포 — **완료(2026-09-06)**. T9 병합 뒤 같은 11종을 재배포한다(인수인계 문서). 재배포는 워크트리의 gitignored `.env.ko-lernen-app`가 있어야 비대화형으로 통과한다. 정확한 명령은 `docs/store/apple-sign-in-setup.md` §5.
+3. ~~(권장) 익명 사용자 자동 삭제~~ → **권장 철회**(T9 참조). 켜려면 활동 중 익명 사용자 데이터 손실을 감수하는 결정이 필요하다.
+4. 구 replacement 함수 5종의 배포 삭제 여부 결정(T9 참조).

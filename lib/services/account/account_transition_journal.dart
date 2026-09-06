@@ -42,7 +42,18 @@ class AccountTransitionJournal {
   });
 
   static const currentVersion = 1;
+
+  /// Legacy replacement-flow journal key. Nothing writes it since the
+  /// 2026-09-05 account redesign removed the server replacement flow;
+  /// `AccountStartupJournalResolver` discards any leftover value at startup.
   static const storageKey = 'kl_account_transition_journal_v1';
+
+  /// Journal written by `AccountReconciliationCoordinator` while an account
+  /// switch merges the anonymous source into the existing target account
+  /// (`AccountSwitchJournal.reconciliationStorageKey` aliases it). Media
+  /// cleanup and local-reset fences read it as "merge in progress".
+  static const switchReconciliationStorageKey =
+      'kl_account_switch_reconciliation_v1';
   static const maxLocalCustomPackBaseIds = 512;
   static const maxLocalCustomPackBaseIdBytes = 256;
   static const maxLocalCustomPackBaseIdsBytes = 64 * 1024;
