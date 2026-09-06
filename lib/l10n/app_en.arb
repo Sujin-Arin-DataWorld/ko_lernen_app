@@ -135,10 +135,10 @@
   "settingsNotifDenied": "Notifications are disabled. Enable them in system settings.",
   "notificationTitle": "Hangul Sori",
   "notificationBody": "Taego is ready when you are. Time for Korean! 🐯",
-  "homeCourseTitle": "Your daily course",
+  "homeCourseTitle": "Your learning path today",
   "homeCourseDesc": "Built around your weak spots and interests",
   "settingsInterestsTitle": "Interests",
-  "settingsInterestsSubtitle": "Topics for your daily course",
+  "settingsInterestsSubtitle": "Topics for your learning path",
   "interestsSheetTitle": "What are you into?",
   "interestEveryday": "Everyday",
   "interestFoodShopping": "Food & shopping",
@@ -1460,7 +1460,7 @@
   "scenarioCanDoReviewTitle": "Not secure yet.",
   "scenarioCanDoReviewBody": "This checkpoint was saved, but it is below this mission's verified threshold. Practise the scene again.",
   "scenarioCanDoPracticeTitle": "Practice saved.",
-  "scenarioCanDoPracticeBody": "This scene is stored as practice and does not change your course step.",
+  "scenarioCanDoPracticeBody": "This scene is stored as practice and does not change your learning path step.",
   "scenarioXpEarned": "+{xp} XP",
   "@scenarioXpEarned": {
     "placeholders": {
@@ -2167,7 +2167,7 @@
     }
   },
   "wordWebEmptyTitle": "No web yet",
-  "wordWebEmptyBody": "Study words in a pack, the course, or a practice game. Then neighbors, opposites, and expressions for those exact words show up here.",
+  "wordWebEmptyBody": "Study words in a pack, the learning path, or a practice game. Then neighbors, opposites, and expressions for those exact words show up here.",
   "wordWebLoadErrorTitle": "Web did not load",
   "wordWebLoadErrorBody": "The nuances file could not be read. This is not an empty study history. Try again.",
   "wordWebBrowseLevelCta": "Browse words at my level",
@@ -2302,7 +2302,7 @@
       }
     }
   },
-  "pathTitle": "Your path",
+  "pathTitle": "Learning path",
   "pathHanokStage": "Hanok · Stage {n}/12",
   "@pathHanokStage": {
     "placeholders": {
@@ -2336,7 +2336,7 @@
   "pathStoryTitle": "You build from greetings to living.",
   "pathStoryBody": "Every section ends with a situation you can handle yourself.",
   "pathOpenCurrentMission": "Open current mission",
-  "pathCourseMissionsTitle": "Course missions",
+  "pathCourseMissionsTitle": "Learning path missions",
   "pathCourseMissionsBody": "One clear next step connects vocabulary, grammar, games, and scenarios.",
   "pathStatusCurrent": "continue",
   "pathStatusCompleted": "done",
@@ -2423,9 +2423,9 @@
   "profileLearningGoalNotSet": "Choose what brings you to Korean",
   "profileLearningStartPoint": "My starting point",
   "profileLearningStartPointConfirmTitle": "Change starting point?",
-  "profileLearningStartPointConfirmBody": "This resets your current course progress, completed units, practice evidence, and scene checks. Saved vocabulary and account data remain intact.",
+  "profileLearningStartPointConfirmBody": "This resets your current learning path progress, completed units, practice evidence, and scene checks. Saved vocabulary and account data remain intact.",
   "profileLearningStartPointConfirmCancel": "Cancel",
-  "profileLearningStartPointConfirmAction": "Change and reset course progress",
+  "profileLearningStartPointConfirmAction": "Change and reset learning path progress",
   "profileLearningStartPointChangeFailed": "The starting point could not be changed. Try again.",
   "profileLearningCompanion": "Learning companion",
   "profileSpaceSection": "My space",
@@ -2579,6 +2579,7 @@
   "grammarPlanLevelLabel": "Level",
   "grammarPlanEditTooltip": "Change level or pace",
   "grammarPlanOnboardingTitle": "How many patterns per day?",
+  "grammarPlanOnboardingBody": "You only see these patterns each day. You can change the pace and level at the top any time.",
   "grammarPlanItemsPerDayOption": "{n} per day",
   "@grammarPlanItemsPerDayOption": {
     "placeholders": {
@@ -2595,6 +2596,17 @@
         "type": "int"
       },
       "total": {
+        "type": "int"
+      }
+    }
+  },
+  "grammarPlanCardCounter": "Card {n} of {m}",
+  "@grammarPlanCardCounter": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "m": {
         "type": "int"
       }
     }
@@ -2644,7 +2656,7 @@
       }
     }
   },
-  "grammarChoicePracticeOnly": "This practice does not change your course progress.",
+  "grammarChoicePracticeOnly": "This practice does not change your learning path progress.",
   "grammarChoiceAgain": "New round",
   "grammarChoiceBack": "Back to grammar",
   "grammarChoiceUnavailableTitle": "No practice available yet",
@@ -2704,7 +2716,7 @@
   "gyePromiseDirectionsTitle": "Let three people practise asking for directions.",
   "gyePromiseSelfIntroductionTitle": "Let three people practise introducing themselves.",
   "gyePromiseBody": "Each person helps with one completed, matching learning action.",
-  "gyePromiseEligibility": "Only the matching course-linked scene completed at 70% counts as a contribution.",
+  "gyePromiseEligibility": "Only the matching learning path scene completed at 70% counts as a contribution.",
   "gyePromiseProgress": "{done} of {target} lanterns are lit",
   "@gyePromiseProgress": {
     "placeholders": {
@@ -2716,7 +2728,7 @@
       }
     }
   },
-  "gyePromiseRemaining": "{count} more course-linked scene {count, plural, =1{contribution} other{contributions}} this week",
+  "gyePromiseRemaining": "{count} more learning path scene {count, plural, =1{contribution} other{contributions}} this week",
   "@gyePromiseRemaining": {
     "placeholders": {
       "count": {
@@ -3207,8 +3219,8 @@
   "placementStartAt": "Start at {level}",
   "placementChooseYourself": "Or choose yourself",
   "courseMissionTitle": "Your next mission",
-  "courseMissionTitleShort": "Course mission",
-  "courseMissionLoadError": "The course data could not be loaded.",
+  "courseMissionTitleShort": "Learning path mission",
+  "courseMissionLoadError": "The learning path could not be loaded.",
   "courseMissionCompleteTitle": "Mission complete",
   "courseMissionCompleteBody": "You have completed every learning step in this mission.",
   "courseMissionNow": "now",
@@ -3358,7 +3370,7 @@
   "courseReassessmentOralUnavailableTitle": "Verified speaking is not available yet",
   "courseReassessmentOralUnavailableBody": "The current 10-second read-aloud exercise only practices pronunciation, so it cannot issue this ability seal. A separate unscripted assessment lasting 45 to 120 seconds will be enabled only after its consent, privacy, and scoring service passes review.",
   "courseReassessmentPrerequisiteTitle": "An earlier piece of evidence is still missing",
-  "courseReassessmentPrerequisiteBody": "Complete the linked evidence first. Your position in the course will not be rewound.",
+  "courseReassessmentPrerequisiteBody": "Complete the linked evidence first. Your position in the learning path will not be rewound.",
   "courseReassessmentOpenPrerequisite": "Open missing evidence",
   "courseReassessmentPassedTitle": "Evidence passed",
   "courseReassessmentPassedBody": "{score}%. Only the result and its exact task provenance were saved.",
@@ -3382,7 +3394,7 @@
   "courseReassessmentRetry": "Revise my answer",
   "courseReassessmentFinish": "Done",
   "courseReassessmentCompleteTitle": "Speaking and writing verified",
-  "courseReassessmentCompleteBody": "All required productive evidence for this ability has been checked. Your course position stayed unchanged.",
+  "courseReassessmentCompleteBody": "All required productive evidence for this ability has been checked. Your learning path position stayed unchanged.",
   "courseReassessmentModeGuidedProduction": "Guided original response",
   "courseReassessmentModeDictation": "Dictation",
   "courseReassessmentModeConnectedProduction": "Connected writing",
@@ -3532,7 +3544,7 @@
     }
   },
   "hanokNarrativeStarting": "Structure: {stage}. Begin with your first scene.",
-  "hanokNarrativeMaterialSource": "Course scenes shape the structure. Packs, reviews, and quests add materials and decor.",
+  "hanokNarrativeMaterialSource": "Learning path scenes shape the structure. Packs, reviews, and quests add materials and decor.",
   "@hanokNarrativeStarting": {
     "placeholders": {
       "stage": {
@@ -3688,7 +3700,7 @@
   "hanokZoneHuwon": "Tasks",
   "hanokZoneSadang": "Achievements",
   "hanokWorldPurposeSarangbang": "Return to today's scene and the expressions you have earned.",
-  "hanokWorldPurposeDaecheong": "View your course path and choose the next available mission.",
+  "hanokWorldPurposeDaecheong": "View your learning path and choose the next available mission.",
   "hanokWorldPurposeHaengrang": "Choose a focused practice or a short game.",
   "hanokWorldPurposeAnchae": "Open your saved words, books, and personal learning collection.",
   "hanokWorldPurposeHuwon": "Choose the letter of the day or a quest.",
@@ -4042,6 +4054,9 @@
   "soriStageNextQuests": "Up next",
   "soriStageLearnTitle": "Choose how you want to learn.",
   "soriStageLearnBody": "Every activity stays connected to your quests and Hanok.",
+  "soriStageLearnSectionToday": "Learn today",
+  "soriStageLearnSectionExplore": "Explore & practice",
+  "soriStageLearnSectionReview": "Review",
   "soriStageGamesTitle": "Play with a clear purpose.",
   "soriStageGamesBody": "See the XP, personal best, and related quest before you start.",
   "soriStageContinueEyebrow": "Continue with",
@@ -4079,6 +4094,8 @@
   "pronunciationTitle": "Pronunciation studio",
   "pronunciationEyebrow": "PRONUNCIATION PRACTICE",
   "pronunciationIntro": "Listen first. Record up to 10 seconds, then listen to your voice and compare.",
+  "pronunciationScoringSoonTitle": "Scoring coming soon",
+  "pronunciationScoringSoonBody": "Automatic pronunciation scoring is not switched on yet. Listening, recording and comparing already work.",
   "pronunciationPhrasesLoading": "Loading pronunciation practice …",
   "pronunciationPhrasesUnavailableTitle": "Pronunciation practice unavailable",
   "pronunciationPhrasesUnavailableBody": "The pronunciation practice could not be loaded. Please try again.",
@@ -4129,7 +4146,7 @@
   "soriStageActivityInProgress": "In progress",
   "soriStageActivityCompleted": "Completed",
   "soriStageActivityNew": "New",
-  "soriStageActivityTitle": "{activityId, select, course{Course} hangul{Hangul} calligraphy{Character of the day} pronunciation{Pronunciation} vocab_packs{Vocabulary packs} srs{Review} hard_words{Hard words} word_web{Nuances & opposites} grammar{Grammar} listening{Listening} scenarios{Real-life scenarios} smalltalk{Small Talk} book_capture{Scan a book} vocab_notebook{Vocab notebook} bookshelf{Bookshelf} word_search{Word search} my_words{My words} daily_game{Daily challenge} chosung{First-sound quiz} syllable_cross{Syllable puzzle} cloze{Fill the gap} speed_match{Speed pairs} sentence_arcade{Sentence arcade} kkeunmari{Kkeunmari} custom_quiz{Custom quiz} custom_matching{Custom matching} custom_typing{Custom typing} other{Learning activity}}}",
+  "soriStageActivityTitle": "{activityId, select, course{Learning path} hangul{Hangul} calligraphy{Character of the day} pronunciation{Pronunciation} vocab_packs{Vocabulary packs} srs{Review} hard_words{Hard words} word_web{Nuances & opposites} grammar{Grammar} listening{Listening} scenarios{Real-life scenarios} smalltalk{Small Talk} book_capture{Scan a book} vocab_notebook{Vocab notebook} bookshelf{Bookshelf} word_search{Word search} my_words{My words} daily_game{Daily challenge} chosung{First-sound quiz} syllable_cross{Syllable puzzle} cloze{Fill the gap} speed_match{Speed pairs} sentence_arcade{Sentence arcade} kkeunmari{Kkeunmari} custom_practice{Practice my words} other{Learning activity}}}",
   "@soriStageActivityTitle": {
     "placeholders": {
       "activityId": {
@@ -4137,7 +4154,7 @@
       }
     }
   },
-  "soriStageActivityDescription": "{activityId, select, course{Your guided path through real situations.} hangul{Build syllables and read with confidence.} calligraphy{Discover one character every day.} pronunciation{Listen, repeat, and optionally assess.} vocab_packs{Learn words by everyday topic.} srs{Refresh words at just the right moment.} hard_words{Focus on the words that trip you up.} word_web{Synonyms, opposites and expressions for your words.} grammar{Understand patterns and use them right away.} listening{Recognize short natural phrases.} scenarios{Practice cafés, transport, and conversations.} smalltalk{Connect short conversations naturally.} book_capture{Bring words in from your own material.} vocab_notebook{Photograph your notebook and practice those exact words.} bookshelf{Manage your pages and word lists.} word_search{Find a word and its learning paths.} my_words{Search, shelf, and difficult words in one place.} daily_game{A short mix for today.} chosung{Recognize words from their first sounds.} syllable_cross{Combine syllables and find words.} cloze{Recall the right word in a sentence.} speed_match{Match meanings quickly and accurately.} sentence_arcade{Build sentences under time pressure.} kkeunmari{Play a word chain against the tiger.} custom_quiz{Choose a word pack from your bookshelf.} custom_matching{Strengthen your words as pairs.} custom_typing{Actively recall your own words.} other{Continue learning.}}}",
+  "soriStageActivityDescription": "{activityId, select, course{Your guided path through real situations.} hangul{Build syllables and read with confidence.} calligraphy{Discover one character every day.} pronunciation{Listen, repeat, and optionally assess. Scoring comes later.} vocab_packs{Learn words by everyday topic.} srs{Refresh words at just the right moment.} hard_words{Focus on the words that trip you up.} word_web{Synonyms, opposites and expressions for your words.} grammar{Understand patterns and use them right away.} listening{Recognize short natural phrases.} scenarios{Practice cafés, transport, and conversations.} smalltalk{Connect short conversations naturally.} book_capture{Bring words in from your own material.} vocab_notebook{Photograph your notebook and practice those exact words.} bookshelf{Manage your pages and word lists.} word_search{Find a word and its learning paths.} my_words{Search, shelf, and difficult words in one place.} daily_game{A short mix for today.} chosung{Recognize words from their first sounds.} syllable_cross{Combine syllables and find words.} cloze{Recall the right word in a sentence.} speed_match{Match meanings quickly and accurately.} sentence_arcade{Build sentences under time pressure.} kkeunmari{Play a word chain against the tiger.} custom_practice{Quiz, matching and typing with your saved words.} other{Continue learning.}}}",
   "@soriStageActivityDescription": {
     "placeholders": {
       "activityId": {
@@ -4358,7 +4375,7 @@
   "onboardingV2Next": "Next",
   "onboardingV2Loading": "Preparing your guide…",
   "onboardingV2Saving": "Saving your choices…",
-  "onboardingV2CourseHistoryConflict": "This course start already has learning history. Keep its current level to finish setup; you can restart the course later in Settings.",
+  "onboardingV2CourseHistoryConflict": "This learning path start already has learning history. Keep its current level to finish setup; you can restart the learning path later in Settings.",
   "onboardingV2StoryFinish": "Choose my starting point",
   "onboardingV2StoryProgress": "Page {current} of {total}",
   "@onboardingV2StoryProgress": {
@@ -4534,7 +4551,7 @@
   "onboardingV2SetupLearnHereLabel": "What you start with here",
   "onboardingV2SetupCompareAction": "Compare levels",
   "onboardingV2SetupCompareTitle": "Which starting point fits?",
-  "onboardingV2SetupCompareBody": "Your choice is your learning start, not proof of mastery; course start and browsing level stay separately changeable later.",
+  "onboardingV2SetupCompareBody": "Your choice is your learning start, not proof of mastery; learning path start and browsing level stay separately changeable later.",
   "onboardingV2SetupCompareClose": "Close comparison",
   "onboardingV2SetupContinue": "Use these choices",
   "onboardingV2LevelA1ExampleKo": "안녕하세요.",
@@ -4567,10 +4584,10 @@
   "onboardingV2ConfirmationStart": "Start together",
   "onboardingV2ConfirmationChange": "Choose another study buddy",
   "settingsLearningLevelsSection": "Learning levels",
-  "settingsCourseStartTitle": "Course starting point",
-  "settingsCourseStartDescription": "Changes where your sequential course begins. Choosing again replaces the current sequential course path; it never marks earlier units as mastered or awards XP or rewards.",
+  "settingsCourseStartTitle": "Learning path starting point",
+  "settingsCourseStartDescription": "Changes where your sequential learning path begins. Choosing again replaces the current sequential learning path; it never marks earlier units as mastered or awards XP or rewards.",
   "settingsBrowseLevelTitle": "Browse content level",
-  "settingsBrowseLevelDescription": "Filters libraries and scenarios only. It does not move your course progress.",
+  "settingsBrowseLevelDescription": "Filters libraries and scenarios only. It does not move your learning path progress.",
   "settingsRecheckLevelTitle": "Recheck my level",
   "settingsRecheckLevelDescription": "Take an optional eight-question check. Its result is a recommendation; you still choose your starting point.",
   "settingsCompanionVisibleTitle": "Show study buddy",
@@ -4578,8 +4595,8 @@
   "settingsGuideSection": "App guide",
   "settingsGuideTitle": "Open the Hangul Sori guide",
   "settingsGuideDescription": "Review learning, games, saved items, rewards, your book, and important settings at any time.",
-  "settingsCourseStartConfirmTitle": "Change course starting point?",
-  "settingsCourseStartConfirmDescription": "Your sequential course will restart at {level}, replacing its current course progress. Other practice records, XP, rewards, and collections stay unchanged; earlier units are not marked complete.",
+  "settingsCourseStartConfirmTitle": "Change learning path starting point?",
+  "settingsCourseStartConfirmDescription": "Your sequential learning path will restart at {level}, replacing its current learning path progress. Other practice records, XP, rewards, and collections stay unchanged; earlier units are not marked complete.",
   "@settingsCourseStartConfirmDescription": {
     "placeholders": {
       "level": {
@@ -4617,7 +4634,7 @@
     }
   },
   "guideModulePersonalizedStartStep1": "Your learning goal changes the order of recommendations and this checklist. It does not change difficulty, XP, or rewards.",
-  "guideModulePersonalizedStartStep2": "Course starting point resets where your course begins after you confirm it. Browse level only filters libraries and scenarios.",
+  "guideModulePersonalizedStartStep2": "Learning path starting point resets where your learning path begins after you confirm it. Browse level only filters libraries and scenarios.",
   "guideModuleLearnStep1": "Hangeul overview, cards, and writing are separate tabs. Open only the practice you want.",
   "guideModuleLearnStep2": "Learn also brings together listening, pronunciation, and level-based scenarios. Categories come from the current catalog; this guide never guesses one.",
   "guideModuleLearnStep3": "A destination may show its own contextual tip. The guide never sends you through several routes in sequence or resets tips you already completed.",
@@ -4630,10 +4647,10 @@
   "guideModuleGamesStep1": "Hints help during a game, but using a hint is not recorded as independent recall or mastery.",
   "guideModuleGamesStep2": "XP, personal records, and quest progress come only from supported completed activities. Looking at this guide grants nothing.",
   "guideModuleGamesStep3": "Stamps can connect to bojagi and decorating items. Open the Hanok area to see the stamp book, inventory, and room tools that are currently available.",
-  "guideModuleSettingsStep1": "Course starting point and browse level are separate controls: one changes the course after confirmation, while the other changes content filters.",
+  "guideModuleSettingsStep1": "Learning path starting point and browse level are separate controls: one changes the learning path after confirmation, while the other changes content filters.",
   "guideModuleSettingsStep2": "Companion identity and companion visibility are separate. You can keep Taego or Joy selected and hide the on-screen companion.",
   "guideModuleSettingsStep3": "Set the default voice speed in Settings. Supported audio screens also offer a speed chip, and the App guide can be reopened from Settings at any time.",
-  "guideModuleActionCourseStart": "Course starting point",
+  "guideModuleActionCourseStart": "Learning path starting point",
   "guideModuleActionBrowseLevel": "Browse level",
   "guideModuleActionHangulOverview": "Hangeul overview",
   "guideModuleActionHangulCards": "Hangeul cards",
@@ -4647,7 +4664,7 @@
   "guideModuleActionVoiceSpeed": "Voice speed",
   "guideModuleActionGuideSettings": "App guide in Settings",
   "guideTopicPersonalizedStartTitle": "A start that fits me",
-  "guideTopicPersonalizedStartDescription": "See how your goal orders the starting checklist and recommendations, and how course starting point differs from browse level.",
+  "guideTopicPersonalizedStartDescription": "See how your goal orders the starting checklist and recommendations, and how learning path starting point differs from browse level.",
   "guideTopicLearnTitle": "Learn",
   "guideTopicLearnDescription": "Find Hangeul letters, writing, listening, pronunciation, and level-based scenarios and categories.",
   "guideTopicMyBookTitle": "My book",
@@ -4657,7 +4674,7 @@
   "guideTopicGamesAndRewardsTitle": "Play and rewards",
   "guideTopicGamesAndRewardsDescription": "See how hints, XP, personal records, quests, stamps, bojagi, accessories, and room decorating connect to real learning activity.",
   "guideTopicSettingsTitle": "My settings",
-  "guideTopicSettingsDescription": "Change course start, browse level, character, character visibility, and voice speed in Settings. You can also adjust speed with the speed chip on supported audio screens or reopen this guide.",
+  "guideTopicSettingsDescription": "Change learning path start, browse level, character, character visibility, and voice speed in Settings. You can also adjust speed with the speed chip on supported audio screens or reopen this guide.",
   "studyLibraryAppBarTitle": "Study library",
   "studyLibraryEyebrow": "FAVORITES & SAVED",
   "studyLibraryTitle": "Everything you want to keep",

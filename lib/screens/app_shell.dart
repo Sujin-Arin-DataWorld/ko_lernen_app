@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../features/onboarding_v2/first_run_coordinator.dart';
 import '../features/onboarding_v2/first_run_runtime.dart';
+import '../models/sori_stage_progression.dart';
 import '../services/analytics_service.dart';
 import '../services/privacy_consent_service.dart';
 import 'sori_stage/sori_stage_shell.dart';
@@ -13,10 +14,15 @@ import 'sori_stage/sori_stage_shell.dart';
 /// Phase 4 (2026-08-14): `SoriStageFeatureGate` 제거 — Sori Stage가 유일한 셸.
 /// 레거시 `LegacyAppShell`/`HomeScreen` 삭제 완료.
 class AppShell extends StatefulWidget {
-  const AppShell({super.key, this.firstRunCoordinator});
+  const AppShell({super.key, this.firstRunCoordinator, this.loadTodaySnapshot});
 
   /// Test seam. Production uses the shared serialized runtime coordinator.
   final FirstRunCoordinator? firstRunCoordinator;
+
+  /// W10 PR-D(2026-09-06): Today 탭(`SoriStageTodayScreen`)의 스냅샷 로더
+  /// 시험용 구멍 — [SoriStageShell.loadTodaySnapshot] 로 그대로 전달.
+  /// 프로덕션 기본값(`null`)은 실제 `compute()` 기반 로더를 쓴다.
+  final Future<SoriStageProgressionSnapshot> Function()? loadTodaySnapshot;
 
   /// 앱 재시작 없이 홈 투어를 다시 띄우는 신호.
   /// 설정 "튜토리얼 다시 보기"가 값을 올리면 → 홈 탭으로 전환 후 투어 재생.
@@ -88,5 +94,6 @@ class _AppShellState extends State<AppShell> {
   Widget build(BuildContext context) => SoriStageShell(
     replayHomeTour: AppShell.replayHomeTour,
     requestedTab: AppShell.requestedStageTab,
+    loadTodaySnapshot: widget.loadTodaySnapshot,
   );
 }

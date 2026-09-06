@@ -58,6 +58,8 @@ final _courseProjection = PersonalHanokProjection.from(
   ),
 );
 
+final AppL10n _l10n = lookupAppL10n(const Locale('en'));
+
 Widget _app(HanokBuildNarrative narrative) => MaterialApp(
   theme: AppTheme.light,
   locale: const Locale('en'),
@@ -87,9 +89,7 @@ void main() {
       findsOneWidget,
     );
     expect(
-      find.text(
-        'Course scenes shape the structure. Packs, reviews, and quests add materials and decor.',
-      ),
+      find.text(_l10n.hanokNarrativeMaterialSource),
       findsOneWidget,
     );
   });

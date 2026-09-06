@@ -29,6 +29,8 @@ const _narrativeUnit = CourseUnit(
   ),
 );
 
+final AppL10n _l10n = lookupAppL10n(const Locale('de'));
+
 void main() {
   test('canonical completed room zones open their own interiors', () {
     expect(hanokRouteForZone(PersonalHanokZone.anchae), '/hanok/anbang');
@@ -444,9 +446,9 @@ void main() {
       ),
     );
 
-    for (final label in const [
+    for (final label in [
       'Heute lernen',
-      'Dein Weg',
+      _l10n.hanokMapPlaceDaecheong,
       'Wörter',
       'Aufgaben',
     ]) {

@@ -489,8 +489,22 @@ class _GrammarScreenState extends State<GrammarScreen>
   }
 
   /// 평가 없이 넘기기(↓). 판정이 아니므로 플립 게이트와 무관하다.
+  ///
+  /// `_next()`(레거시 둘러보기 전용, 계속 순환)와 달리 플랜 모드에서는
+  /// 마지막 카드에서 순환하지 않는다 — 뒤집기 전 아래 플링이 곧 [onSkip]
+  /// 이라(content_feed.dart:230-232) 플립 없이도 하루치 안을 무한 반복할 수
+  /// 있었고, 그러면 "Tag geschafft!" 완료 시트를 영영 못 본다. `_judge()`
+  /// 가 마지막 카드에서 세션 종료로 넘어가는 것과 같은 계약을 스킵에도
+  /// 준다(지시서 1.11/1.12, W10 T-G1).
   void _skipCurrent() {
     if (!_canNavigateDeck) return;
+    if (_activePlan != null && _idx >= _filtered.length - 1) {
+      if (_flipped) {
+        setState(() => _flipped = false);
+      }
+      unawaited(_completePlanDayIfNeeded());
+      return;
+    }
     _next();
   }
 
@@ -567,7 +581,8 @@ class _GrammarScreenState extends State<GrammarScreen>
       final t = AppL10n.of(context);
       var planLevel = _planLevel ?? _userLevelForPlan;
       var itemsPerDay =
-          _plans[planLevel]?.itemsPerDay ?? GrammarPlanService.defaultItemsPerDay;
+          _plans[planLevel]?.itemsPerDay ??
+          GrammarPlanService.defaultItemsPerDay;
       var isStarting = false;
       await showSoriSheet<void>(
         context: context,
@@ -601,6 +616,11 @@ class _GrammarScreenState extends State<GrammarScreen>
                   Text(
                     t.grammarPlanOnboardingTitle,
                     style: SoriTextTheme.of(sheetContext).h3,
+                  ),
+                  const SizedBox(height: Spacing.xs),
+                  Text(
+                    t.grammarPlanOnboardingBody,
+                    style: SoriTextTheme.of(sheetContext).body,
                   ),
                   const SizedBox(height: Spacing.md),
                   SizedBox(
@@ -1237,6 +1257,15 @@ class _GrammarScreenState extends State<GrammarScreen>
                   key: const Key('grammar-plan-day-header'),
                   child: Column(
                     children: [
+                      // 1행: 하루치 안에서 지금 몇 번째 카드인지(지시서
+                      // 1.12) — 아래쪽 `${_idx + 1} / ${_filtered.length}`
+                      // 카운터는 레거시 둘러보기와 공유하는 계약이라 그대로
+                      // 두고, 플랜 모드에서만 이 상단 카운터를 더한다.
+                      Text(
+                        t.grammarPlanCardCounter(_idx + 1, _filtered.length),
+                        style: SoriTextTheme.of(context).h3,
+                      ),
+                      const SizedBox(height: Spacing.xs),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -1254,16 +1283,25 @@ class _GrammarScreenState extends State<GrammarScreen>
                           // 지시서 1.11 — 플랜이 이미 도는 중에도 레벨/페이스를
                           // 다시 고를 수 있는 유일한 진입점(그 외엔 '플랜
                           // 완료' 또는 '레벨 필터가 아직 없음'일 때만 시트가
-                          // 열린다).
+                          // 열린다). 아이콘 단독 버튼 대신 오늘의 페이스("N
+                          // pro Tag")를 보여주는 칩이 편집 진입점을 겸한다 —
+                          // 시맨틱 라벨만 "Niveau oder Tempo ändern"으로
+                          // 갈아 끼운다(SoriChip.semanticLabel).
                           SizedBox(
-                            width: 48,
-                            height: 48,
-                            child: IconButton(
+                            height: SoriLayout.chromeRowTouchHeight,
+                            child: SoriChip(
                               key: const Key('grammar-plan-edit-button'),
-                              iconSize: 20,
-                              icon: const Icon(Icons.tune_rounded),
-                              tooltip: t.grammarPlanEditTooltip,
-                              onPressed: _showPlanOnboardingSheet,
+                              label: t.grammarPlanItemsPerDayOption(
+                                plan.itemsPerDay,
+                              ),
+                              semanticLabel:
+                                  '${t.grammarPlanItemsPerDayOption(plan.itemsPerDay)}, ${t.grammarPlanEditTooltip}',
+                              icon: Icons.tune_rounded,
+                              accent: SoriColors.info,
+                              variant: SoriChipVariant.soft,
+                              minInteractiveHeight:
+                                  SoriLayout.chromeRowTouchHeight,
+                              onTap: _showPlanOnboardingSheet,
                             ),
                           ),
                         ],
@@ -1283,6 +1321,40 @@ class _GrammarScreenState extends State<GrammarScreen>
                             size: 6,
                             color: SoriColors.info,
                           ),
+                        ],
+                      ),
+                      const SizedBox(height: Spacing.xs),
+                      // 하루 안 세그먼트 — 오늘 슬라이스 안에서 몇 장을
+                      // 지났는지(지시서 1.12). `SoriProgressMeter.segments`
+                      // 는 칸이 처음 채워질 때 40ms/칸 계단식 페이드인을
+                      // `Future.delayed`로 예약한다 — reduce-motion 밖에서
+                      // 쓰는 기존 화면(Hanok 진행도)은 항상
+                      // `pumpAndSettle`류로 끝까지 기다리지만, 이 화면의
+                      // 동결 테스트들은 짧은 `pump()`만 쓰기 때문에 그
+                      // 타이머가 테스트 종료 시점까지 남아
+                      // "A Timer is still pending" 로 여러 개를 깨뜨렸다.
+                      // 그래서 지시서의 대체안(정적 Row+DecoratedBox)을
+                      // 쓴다 — 애니메이션도 타이머도 없다.
+                      Row(
+                        children: [
+                          for (var i = 0; i < _filtered.length; i++) ...[
+                            if (i > 0) const SizedBox(width: Spacing.xs),
+                            Expanded(
+                              child: SizedBox(
+                                height: 4,
+                                child: DecoratedBox(
+                                  decoration: BoxDecoration(
+                                    color: i <= _idx
+                                        ? SoriColors.info
+                                        : SoriColors.info.withValues(
+                                            alpha: 0.24,
+                                          ),
+                                    borderRadius: SoriRadius.brPill,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ],
                       ),
                     ],

@@ -15,10 +15,16 @@ class SoriStageShell extends StatefulWidget {
     super.key,
     required this.replayHomeTour,
     this.requestedTab,
+    this.loadTodaySnapshot,
   });
 
   final ValueListenable<int> replayHomeTour;
   final ValueNotifier<int>? requestedTab;
+
+  /// Test seam for the Today tab's snapshot loader — see
+  /// [SoriStageTodayScreen.loadSnapshot]. Production leaves this null (the
+  /// tab loads via its own default `compute()`-backed loader).
+  final Future<SoriStageProgressionSnapshot> Function()? loadTodaySnapshot;
 
   @override
   State<SoriStageShell> createState() => _SoriStageShellState();
@@ -130,6 +136,7 @@ class _SoriStageShellState extends State<SoriStageShell> {
       SoriStageTodayScreen(
         replayHomeTour: widget.replayHomeTour,
         active: _index == 0,
+        loadSnapshot: widget.loadTodaySnapshot,
       ),
       SoriStageCatalogScreen(tab: SoriStageTab.learn, active: _index == 1),
       SoriStageCatalogScreen(tab: SoriStageTab.games, active: _index == 2),

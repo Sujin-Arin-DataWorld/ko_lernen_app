@@ -26,6 +26,8 @@ void main() {
     'catalog_header_gap': 'test/sori_stage_catalog_header_gap_test.dart',
     'illustrated_card_overflow_guard':
         'test/illustrated_card_overflow_guard_test.dart',
+    // W10 T-L1: Learn tab's three labeled sections.
+    'learn_sections': 'test/sori_stage_learn_sections_test.dart',
   };
 
   const ceilings = <String, int>{
@@ -50,6 +52,7 @@ void main() {
     'ux_preview_app': 2,
     'catalog_header_gap': 0,
     'illustrated_card_overflow_guard': 0,
+    'learn_sections': 0,
   };
 
   test('tracked SoriStage screens keep pumpAndSettle() at or below their ceiling', () {

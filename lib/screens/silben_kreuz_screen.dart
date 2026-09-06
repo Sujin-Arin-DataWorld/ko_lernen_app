@@ -20,6 +20,7 @@ import '../widgets/sori/celebration.dart';
 import '../widgets/sori/chrome_row.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/level_filter_bar.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/speakable.dart';
 import '../widgets/sori/spotlight_coach.dart';
@@ -446,23 +447,37 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
               title: t.screenWordleTitle,
               body: t.silbenEmptyBody,
             )
-          : SingleChildScrollView(
-              padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  _levelChrome(t),
-                  const SizedBox(height: Spacing.md),
-                  // 섹션 간격 md→lg: 격자·타일풀·힌트가 "다닥다닥" 붙어
-                  // 무엇을 하는 화면인지 안 읽혔다(2026-08-12 Jin 실기기).
-                  KeyedSubtree(key: _gridKey, child: _grid(p, s)),
-                  const SizedBox(height: Spacing.lg),
-                  if (!_solved)
-                    KeyedSubtree(key: _poolKey, child: _tilePool(p, s)),
-                  if (_solved) _solvedCard(t),
-                  const SizedBox(height: Spacing.lg),
-                  KeyedSubtree(key: _cluesKey, child: _clues(p, s)),
-                ],
+          // W10 T-V3(2026-09-05, Jin D-4): 판+풀+힌트가 560dp 안팎이라
+          // 태블릿 세로 화면에서 위쪽에 뭉쳤다. `_grid()` 안에 격자 셀
+          // 크기를 재는 `LayoutBuilder` 가 있어 `SoriAdaptiveStudyBody`
+          // (fillViewport)의 IntrinsicHeight 측정과 함께 못 쓴다
+          // ("LayoutBuilder does not support returning intrinsic
+          // dimensions") — `SoriMinHeightScroll(intrinsic: false)` 로
+          // IntrinsicHeight 없이 채운다(W10 PR-D, 손레시피 공용화).
+          : SoriMinHeightScroll(
+              minHeight: 0,
+              fillViewport: true,
+              intrinsic: false,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    _levelChrome(t),
+                    const SizedBox(height: Spacing.md),
+                    // 섹션 간격 md→lg: 격자·타일풀·힌트가 "다닥다닥"
+                    // 붙어 무엇을 하는 화면인지 안 읽혔다(2026-08-12
+                    // Jin 실기기).
+                    KeyedSubtree(key: _gridKey, child: _grid(p, s)),
+                    const SizedBox(height: Spacing.lg),
+                    if (!_solved)
+                      KeyedSubtree(key: _poolKey, child: _tilePool(p, s)),
+                    if (_solved) _solvedCard(t),
+                    const SizedBox(height: Spacing.lg),
+                    KeyedSubtree(key: _cluesKey, child: _clues(p, s)),
+                  ],
+                ),
               ),
             ),
     );

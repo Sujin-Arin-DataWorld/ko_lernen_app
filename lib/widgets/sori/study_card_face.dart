@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'card.dart';
+import 'responsive.dart';
 import 'tokens.dart';
 
 /// **StudyCardFace** — 학습 카드(플래시카드)용 hero 카드 표면.
@@ -64,26 +65,19 @@ class StudyCardFace extends StatelessWidget {
       accent: accent,
       width: double.infinity,
       padding: padding,
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          // FlipCard/Expanded가 tight height를 주면 maxHeight는 유한.
-          // 혹시 무한(unbounded)이면 0으로 떨어뜨려 콘텐츠 높이에 맞춤.
-          final minH = constraints.maxHeight.isFinite
-              ? constraints.maxHeight
-              : 0.0;
-          return SingleChildScrollView(
-            child: ConstrainedBox(
-              constraints: BoxConstraints(minHeight: minH),
-              child: IntrinsicHeight(
-                child: Column(
-                  mainAxisAlignment: alignment,
-                  crossAxisAlignment: crossAxisAlignment,
-                  children: children,
-                ),
-              ),
-            ),
-          );
-        },
+      // W10 T-V1(2026-09-05): 이 레시피(LayoutBuilder + ConstrainedBox
+      // (minHeight) + IntrinsicHeight + Column(center))를 [SoriMinHeightScroll]
+      // 의 fillViewport 로 위임한다 — FlipCard/Expanded가 준 유한 높이를
+      // 그대로 채우고, 무한이면(부모가 이미 스크롤) 콘텐츠를 그대로 준다.
+      // 동작은 이전과 동일: 카드보다 콘텐츠가 길 때만 스크롤한다.
+      child: SoriMinHeightScroll(
+        minHeight: 0,
+        fillViewport: true,
+        child: Column(
+          mainAxisAlignment: alignment,
+          crossAxisAlignment: crossAxisAlignment,
+          children: children,
+        ),
       ),
     );
     if (heightFactor >= 1.0) {
