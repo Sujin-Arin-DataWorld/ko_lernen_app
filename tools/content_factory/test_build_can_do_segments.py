@@ -562,5 +562,41 @@ class SmalltalkCopyRevisionTest(unittest.TestCase):
         self.assertEqual(old["reviewRevision"], decision["reviewRevision"])
 
 
+class ABSpecScenarioReferencesLiveTest(unittest.TestCase):
+    """AB_SPECS/A1_PRACTICE의 시나리오 참조는 항상 살아 있는 코퍼스를 가리켜야 한다.
+
+    2026-09-01 canonical_120_v1 코퍼스 승격(ca00acad)이 264개 이상의
+    시나리오를 정리하면서 AB_SPECS/A1_PRACTICE에 박힌 여러 참조가 죽었지만,
+    이를 잡아야 할 CanDoSegmentGeneratorTest 전체가 위 skipIf로 꺼져 있어
+    아무 테스트도 잡지 못했다(`--check`를 수동 실행할 때만 KeyError로 드러남).
+    build_assets() 전체를 돌리지 않고 참조 존재만 싸게 검증해
+    canonical_120_v1 여부와 무관하게 항상 실행되게 한다.
+    """
+
+    # 콘텐츠 공백 — A2/B1 보강 웨이브에서 시나리오 집필 후 제거(LCP 2026-09-07)
+    KNOWN_MISSING_SCENARIO_SLOTS = {
+        ("a2_lost_phone", "lost_phone"),
+        ("b1_bank_soft_request", "bank_account"),
+    }
+
+    def test_every_ab_spec_scenario_ref_exists_in_live_shards(self) -> None:
+        live_ids = {row["id"] for row in scenario_store.load_root(DATA)["scenarios"]}
+        missing: list[tuple[str, str]] = []
+        for spec in builder.AB_SPECS:
+            for ref in spec.refs:
+                if ref.kind == "scenario" and ref.id not in live_ids:
+                    missing.append((spec.key, ref.id))
+        for unit_key, practice in builder.A1_PRACTICE.items():
+            kind, content_id = practice[0], practice[1]
+            if kind == "scenario" and content_id not in live_ids:
+                missing.append((unit_key, content_id))
+        missing = [pair for pair in missing if pair not in self.KNOWN_MISSING_SCENARIO_SLOTS]
+        self.assertEqual(
+            [],
+            missing,
+            f"dead scenario references (spec_key, scenario_id): {missing}",
+        )
+
+
 if __name__ == "__main__":
     unittest.main()
