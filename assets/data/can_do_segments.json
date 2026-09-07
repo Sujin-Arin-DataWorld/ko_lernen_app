@@ -73,7 +73,7 @@
     {
       "id": "cluster_a1_02_self_intro_identity_v1",
       "level": "a1",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_scenario_introduce_yourself_v1",
         "seed_vocab_pack_a1_self_intro_v1",
@@ -83,9 +83,7 @@
         "seed_scenario_a1_kpop_my_bias_v1",
         "seed_cloze_cloze_a1_0301_v1",
         "seed_cloze_cloze_a1_0302_v1",
-        "seed_cloze_cloze_a1_0305_v1",
-        "seed_grammar_grammar_a1_formal_statement_v1",
-        "seed_grammar_grammar_a1_formal_question_v1"
+        "seed_cloze_cloze_a1_0305_v1"
       ],
       "contentReferences": [
         {
@@ -123,14 +121,6 @@
         {
           "kind": "cloze",
           "id": "cloze_a1_0305"
-        },
-        {
-          "kind": "grammar",
-          "id": "grammar_a1_formal_statement"
-        },
-        {
-          "kind": "grammar",
-          "id": "grammar_a1_formal_question"
         }
       ]
     },
@@ -1432,7 +1422,7 @@
     {
       "id": "cluster_a1_13_register_switching_v1",
       "level": "a1",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
         "seed_cloze_cloze_a1_0076_v1",
         "seed_cloze_cloze_a1_0077_v1",
@@ -1441,7 +1431,9 @@
         "seed_grammar_grammar_a2_intention_guess_v1",
         "seed_grammar_grammar_b1_honorific_si_v1",
         "seed_grammar_grammar_b1_honorific_subject_kkeyseo_v1",
-        "seed_grammar_grammar_a1_formal_command_v1"
+        "seed_grammar_grammar_a1_formal_command_v1",
+        "seed_grammar_grammar_a1_formal_statement_v1",
+        "seed_grammar_grammar_a1_formal_question_v1"
       ],
       "contentReferences": [
         {
@@ -1475,6 +1467,14 @@
         {
           "kind": "grammar",
           "id": "grammar_a1_formal_command"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_a1_formal_statement"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_a1_formal_question"
         }
       ]
     },

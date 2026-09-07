@@ -1,14 +1,14 @@
 {
   "grammar_a1_formal_statement": {
-    "courseUnitId": "a1_02_self_intro_identity",
+    "courseUnitId": "a1_13_register_switching",
     "conceptIds": [
-      "concept_identity_formal"
+      "concept_action_formal"
     ]
   },
   "grammar_a1_formal_question": {
-    "courseUnitId": "a1_02_self_intro_identity",
+    "courseUnitId": "a1_13_register_switching",
     "conceptIds": [
-      "concept_identity_formal"
+      "concept_action_formal"
     ]
   },
   "grammar_a2_interrupted_action": {
