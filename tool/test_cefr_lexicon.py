@@ -20,13 +20,16 @@ Three layers:
   grammar-over-matching fixes).
 
 Known, documented deviation from an early draft of the brief's golden
-cases -- see `TestRealLexiconGoldenCases.test_cheunggan_soeum_is_unknown_not_a_fabricated_grade_3`
-below and the module docstring of `tool/cefr_lexicon.py`: layer-noise word
-(cheunggan soeum) is not a headword in either remaining NIKL source list
-(verified directly against both CSVs -- see the grep evidence in the T1.2
-report to Fable), so `word_grade()` on it correctly resolves to `unknown`,
-not the `(3, 'B1', 'kiiq')` an earlier brief draft assumed. This test
-asserts the real, data-backed behaviour instead of a fabricated grade.
+cases -- see `TestRealLexiconGoldenCases.test_cheunggan_soeum_now_resolves_via_r7_item8_compound_split`
+below and the module docstring of `tool/cefr_lexicon.py`: 층간소음
+("layer-noise") is not a headword in either remaining NIKL source list as
+a WHOLE word (verified directly against both CSVs -- see the grep
+evidence in the T1.2 report to Fable), so under R3 `word_grade()` on it
+resolved to `unknown`, not the `(3, 'B1', 'kiiq')` an earlier brief draft
+assumed. R7 item 8's generic compound split (added in this rework) now
+resolves it via its two independently-real parts instead -- still not the
+fabricated grade 3, but no longer a bare unknown either; see that test's
+own docstring for the current grade.
 
 Also documented for Fable (T1.2 report §open_questions), NOT a test
 failure: `word_grade('진지')` (the honorific/culture word for "meal")
@@ -189,13 +192,19 @@ class TestCefrLexiconSynthetic(unittest.TestCase):
         wg = self.lex.word_grade("가나다라마바")
         self.assertEqual((wg.grade, wg.cefr, wg.source), (None, None, None))
 
-    def test_unspaced_compound_of_two_known_parts_is_still_unknown(self):
-        # Mirrors the real-data finding: two real headwords concatenated
-        # with no space form a single token, which the multiword step
-        # (space-separated input only) never touches -- so it falls
-        # through to unknown even though the two PARTS exist separately.
+    def test_unspaced_compound_of_two_known_parts_now_resolves_via_compound_split(self):
+        # R7 item 8 SUPERSEDES the old R3-era behaviour this test used to
+        # lock in (word_grade("층간소음") returning unknown): the multiword
+        # step is still space-separated-only, but the NEW generic 2-way
+        # compound split (word_grade's last-resort tier) now explicitly
+        # handles exactly this "two real headwords concatenated with no
+        # space" shape. 층간 (basic2023 grade 5 -> C2/6) + 소음 (basic2023
+        # grade 1 -> A2/2) -> max is 6/C2, source='compound',
+        # confidence='medium' (two independently-correct parts don't
+        # guarantee the compound's actual meaning).
         wg = self.lex.word_grade("층간소음")
-        self.assertIsNone(wg.grade)
+        self.assertEqual((wg.grade, wg.cefr, wg.source, wg.confidence), (6, "C2", "compound", "medium"))
+        self.assertEqual(wg.matched, "층간+소음")
 
     def test_phrase_grade_takes_max_over_content_words(self):
         pg = self.lex.phrase_grade("접근성을 확보하다")
@@ -358,22 +367,26 @@ class TestRealLexiconGoldenCases(unittest.TestCase):
         wg = self.lex.word_grade("싸다")
         self.assertEqual((wg.grade, wg.cefr, wg.source), (1, "A1", "kiiq"))
 
-    def test_cheunggan_soeum_is_unknown_not_a_fabricated_grade_3(self):
-        """The compound is absent from both remaining lexicon CSVs (kiiq/
-        basic2023) -- confirmed by exact and substring search over every
-        headword in each file. Its parts don't combine to grade 3 either
-        (one part is basic2023 grade 5 -> C2; the other is kiiq grade 4 ->
-        B2 -- see the T1.2 report evidence). This test locks in the real,
-        honest 'unknown' result so a future change can't silently paper
-        over the gap with an invented lexicon row; the fix (alias vs.
-        accepting the gap) is Fable's ruling to make, per aliases.csv's
-        own README."""
-        wg = self.lex.word_grade("층간소음")  # 층간소음
-        self.assertIsNone(
-            wg.grade,
-            "if this now resolves, a lexicon/alias change made it so -- "
-            "confirm it was a deliberate, reviewed addition",
-        )
+    def test_cheunggan_soeum_now_resolves_via_r7_item8_compound_split(self):
+        """SUPERSEDES the R3-era 'stays unknown' lock this test used to
+        assert (see the module docstring's 'Known gap' section, written
+        when this was flagged for Fable's ruling: alias vs. accepted
+        gap). R7 item 8's generic compound split is Fable's ruling on
+        that exact question -- 층간소음 is absent from both lexicon CSVs
+        as a WHOLE word, but its two parts (층간: basic2023 grade 5 ->
+        C2/6; 소음: kiiq grade 4 -> B2/4 in the real data, confirmed
+        below) now combine automatically via the split, taking their max
+        (6/C2), source='compound', confidence='medium' -- not a
+        fabricated grade 3, and not silently invented lexicon data: it is
+        the documented, deliberate output of a general, tested mechanism
+        applied to two REAL, independently-verified headwords."""
+        wg = self.lex.word_grade("층간소음")
+        self.assertEqual(wg.matched, "층간+소음")
+        self.assertEqual(wg.source, "compound")
+        self.assertEqual(wg.confidence, "medium")
+        cheunggan = self.lex.word_grade("층간")
+        soeum = self.lex.word_grade("소음")
+        self.assertEqual(wg.grade, max(cheunggan.grade, soeum.grade))
 
     def test_phrase_grade_annyeonghaseyo(self):
         pg = self.lex.phrase_grade("안녕하세요")
@@ -384,7 +397,12 @@ class TestRealLexiconGoldenCases(unittest.TestCase):
         pg = self.lex.phrase_grade("접근성을 확보하다")
         known = [w.grade for w in pg.words if w.grade is not None]
         self.assertEqual(pg.grade, max(known))
-        self.assertIn("접근성을", pg.unknown)
+        # R7 item 8 SUPERSEDES this test's old "접근성을 stays unknown"
+        # assertion: 접근성 (a real compound noun, "accessibility") now
+        # resolves via the generic compound split instead of falling
+        # through -- a strict improvement (fewer unknowns), not a bug.
+        self.assertNotIn("접근성을", pg.unknown)
+        self.assertEqual(pg.unknown, ())
 
     def test_sentence_profile_jeoneun_haksaengieyo(self):
         sp = self.lex.sentence_profile("저는 학생이에요.", self.grammar)
@@ -559,6 +577,524 @@ class TestSentenceUnknownRatio(unittest.TestCase):
             print("  %s x%d" % (token, count))
         self.assertLessEqual(ratio, 0.12)
         self.assertGreater(len(self.sentences), 0)
+
+
+class TestR7WordGradeLemmaFallback(unittest.TestCase):
+    """R7 item 1: word_grade() called DIRECTLY on a bare (possibly
+    inflected/honorific) headword string -- as the vocab-list audit does,
+    unlike phrase_grade/sentence_profile which already lemmatize every
+    eojeol via _resolve_eojeol -- must now also try the lemma-candidate
+    fallback before giving up. Each case asserts both the resolved lemma
+    (`matched`) and the grade, against the real lexicon CSVs."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = cl.CefrLexicon.load()
+
+    CASES = [
+        ("고마워요", "고맙다", 1, "A1"),
+        ("괜찮아요", "괜찮다", 1, "A1"),
+        ("같은", "같다", 1, "A1"),
+        ("늦게", "늦다(h1,h2)", 1, "A1"),
+        ("감사합니다", "감사", 1, "A1"),
+        ("안녕하세요", "안녕", 1, "A1"),
+        ("죄송합니다", "죄송하다", 1, "A1"),
+        ("미안해요", "미안", 1, "A1"),
+        ("좋아요", "좋다", 1, "A1"),
+    ]
+
+    def test_all_golden_bare_headword_cases(self):
+        for surface, expected_matched, expected_grade, expected_cefr in self.CASES:
+            with self.subTest(surface=surface):
+                wg = self.lex.word_grade(surface)
+                self.assertEqual(
+                    (wg.matched, wg.grade, wg.cefr),
+                    (expected_matched, expected_grade, expected_cefr),
+                    "word_grade(%r) = %r" % (surface, wg),
+                )
+
+    def test_lemma_fallback_does_not_infinite_recurse_on_unresolvable_word(self):
+        # A word that resolves nowhere (no candidate, including the
+        # identity candidate, ever succeeds) must terminate cleanly.
+        wg = self.lex.word_grade("가나다라마바")
+        self.assertIsNone(wg.grade)
+
+
+class TestR7DerivedBasic2023MinReal(unittest.TestCase):
+    """R7 item 2, real data: 사양하다 (Fable's flagged wrong-sense case --
+    the kiiq root 사양 only carries the grade-6 "specification" (仕樣)
+    sense, unrelated to 사양하다's actual "decline/refuse politely"
+    meaning). basic2023 DOES have the full form 사양하다 at a much lower
+    grade; crossing the two must pull the reported grade down and mark it
+    no longer fully trusted."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = cl.CefrLexicon.load()
+
+    def test_sayanghada_grade_capped_and_not_high_confidence(self):
+        wg = self.lex.word_grade("사양하다")
+        self.assertLessEqual(wg.grade, 4, "word_grade(사양하다) = %r" % (wg,))
+        self.assertNotEqual(wg.confidence, "high", "word_grade(사양하다) = %r" % (wg,))
+        self.assertEqual(wg.source, "derived")
+
+
+class TestR7DerivedBasic2023MinSynthetic(unittest.TestCase):
+    """R7 item 2, synthetic: pin down the exact 'medium' vs 'high'
+    boundary (disagreement >=2 grades, OR an ambiguous/multi-homograph
+    root) against a tiny controlled fixture, independent of real-CSV
+    noise."""
+
+    @classmethod
+    def setUpClass(cls):
+        kiiq_rows = [
+            # Root with a single row, close to its basic2023 full-form
+            # grade (diff 1, < 2) -> stays 'high'.
+            _kiiq_row(2, "안정"),
+            # Root with a single row, far from its basic2023 full-form
+            # grade (diff 3, >= 2) -> 'medium'.
+            _kiiq_row(5, "왜곡"),
+            # Root with TWO rows (ambiguous), even though its (minimum)
+            # grade agrees exactly with basic2023 -> still 'medium'.
+            _kiiq_row(2, "혼동", homograph=1),
+            _kiiq_row(4, "혼동", homograph=2),
+        ]
+        basic_rows = [
+            _basic_row(2, "안정하다"),  # basic2023 grade2 -> CEFR B1 -> grade3
+            _basic_row(2, "왜곡하다"),  # basic2023 grade2 -> CEFR B1 -> grade3
+            _basic_row(1, "혼동하다"),  # basic2023 grade1 -> CEFR A2 -> grade2
+        ]
+        cls.lex = cl.CefrLexicon.from_rows(kiiq_rows, basic_rows, [])
+
+    def test_small_disagreement_unambiguous_root_stays_high(self):
+        wg = self.lex.word_grade("안정하다")
+        self.assertEqual((wg.grade, wg.source, wg.confidence, wg.matched), (2, "derived", "high", "안정"))
+
+    def test_large_disagreement_becomes_medium_and_takes_min(self):
+        wg = self.lex.word_grade("왜곡하다")
+        # kiiq root grade 5, basic2023-mapped grade 3 -> min is 3.
+        self.assertEqual((wg.grade, wg.source, wg.confidence, wg.matched), (3, "derived", "medium", "왜곡"))
+
+    def test_ambiguous_root_becomes_medium_even_when_grades_agree(self):
+        wg = self.lex.word_grade("혼동하다")
+        # kiiq root minimum grade 2, basic2023-mapped grade 2 -> min is 2,
+        # but the root has 2 kiiq rows -> 'medium' regardless.
+        self.assertEqual((wg.grade, wg.source, wg.confidence, wg.matched), (2, "derived", "medium", "혼동"))
+
+    def test_medium_confidence_capped_at_4_in_lexical_p90(self):
+        # Both sides agree at grade 6 (min is a no-op, still 6) but the
+        # root is ambiguous (2 rows) -> 'medium' -- and 6 > 4, so this is
+        # the case that actually exercises the p90 cap (unlike the two
+        # tests above, whose min() already lands <=4 on its own).
+        grammar = cl.GrammarIndex(())
+        lex2 = cl.CefrLexicon.from_rows(
+            [_kiiq_row(6, "과시", homograph=1), _kiiq_row(6, "과시", homograph=2)],
+            [_basic_row(5, "과시하다")],  # basic2023 grade5 -> CEFR C2 -> grade6
+            [],
+        )
+        wg = lex2.word_grade("과시하다")
+        self.assertEqual((wg.grade, wg.confidence), (6, "medium"))
+        sp = lex2.sentence_profile("과시하다", grammar)
+        self.assertEqual(sp.lexical_p90, 4.0)
+
+
+class TestR7VowelContractionGoldenCases(unittest.TestCase):
+    """R7 item 3: generic jamo-arithmetic past-tense vowel-fusion repair
+    (`_unfuse_tensed_vowel`), covering ㅕ->ㅣ, ㅝ->ㅜ, ㅘ->ㅗ, ㅙ/ㅚ->ㅚ and
+    the ㅐ-stays case, without adding a hand-table entry per verb."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = cl.CefrLexicon.load()
+
+    CASES = [
+        ("멈췄어요", "멈추다"),  # ㅝ -> ㅜ
+        ("나눴어요", "나누다"),  # ㅝ -> ㅜ
+        ("세웠어요", "세우다"),  # ㅝ -> ㅜ
+        ("냈어요", "내다"),      # ㅐ stays
+        ("다녔어요", "다니다"),  # ㅕ -> ㅣ
+        ("마셨어요", "마시다"),  # ㅕ -> ㅣ
+        ("기다렸어요", "기다리다"),  # ㅕ -> ㅣ
+        ("배웠어요", "배우다"),  # ㅝ -> ㅜ
+    ]
+
+    def test_all_golden_vowel_contraction_cases(self):
+        for surface, expected in self.CASES:
+            with self.subTest(surface=surface):
+                wg = self.lex._resolve_eojeol(cl._normalize_token(surface))
+                self.assertEqual(wg.matched, expected, "%r -> %r" % (surface, wg))
+                self.assertIsNotNone(wg.grade)
+
+    def test_unfuse_tensed_vowel_directly(self):
+        # Jamo-arithmetic unit checks, independent of lexicon coverage.
+        self.assertEqual(cl._unfuse_tensed_vowel("췄"), "추")   # ㅝ -> ㅜ
+        self.assertEqual(cl._unfuse_tensed_vowel("왔"), "오")   # ㅘ -> ㅗ (already CONTRACTION_MAP too)
+        self.assertEqual(cl._unfuse_tensed_vowel("됐"), "되")   # ㅙ -> ㅚ
+        self.assertEqual(cl._unfuse_tensed_vowel("냈"), "내")   # ㅐ stays
+        self.assertEqual(cl._unfuse_tensed_vowel("렸"), "리")   # ㅕ -> ㅣ
+        self.assertIsNone(cl._unfuse_tensed_vowel("받"))        # no ㅆ batchim -> None
+        self.assertIsNone(cl._unfuse_tensed_vowel(""))
+
+
+class TestR7RieulAndBieupIrregularGoldenCases(unittest.TestCase):
+    """R7 item 4: ㄹ-stem attributive/present-tense forms (만든/만들어요/
+    아는/사는) and ㅂ-irregular attributives (새로운/어려운/즐거운/더운/
+    가까운). Includes a regression lock for the collision this item's
+    implementation had to be guarded against (가는 must stay 가다, not
+    misresolve to 갈다 or 가늘다 -- see _rieul_stem_attributive_repair's
+    and RIEUL_NEUN_MAP's docstrings)."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = cl.CefrLexicon.load()
+
+    CASES = [
+        ("만든", "만들다"),
+        ("만들어요", "만들다"),
+        ("아는", "알다"),
+        ("사는", "살다"),
+        ("새로운", "새롭다"),
+        ("어려운", "어렵다"),
+        ("즐거운", "즐겁다"),
+        ("더운", "덥다"),
+        ("가까운", "가깝다"),
+    ]
+
+    def test_all_golden_rieul_bieup_cases(self):
+        for surface, expected in self.CASES:
+            with self.subTest(surface=surface):
+                wg = self.lex._resolve_eojeol(cl._normalize_token(surface))
+                self.assertEqual(wg.matched, expected, "%r -> %r" % (surface, wg))
+                self.assertIsNotNone(wg.grade)
+
+    def test_ganeun_stays_gada_not_hijacked_by_rieul_swap(self):
+        # 가다's extremely common attributive "가는" (cloze.json has
+        # several) must NOT resolve to 갈다 ("to replace/grind") or
+        # 가늘다 ("thin") just because their jamo shape coincides.
+        wg = self.lex._resolve_eojeol(cl._normalize_token("가는"))
+        self.assertEqual(wg.matched, "가다")
+
+    def test_deun_still_resolves_to_deutda_not_shadowed_by_the_new_fallback(self):
+        # The new "already-ㄹ-final-stem" fallback candidate added for
+        # 만들어요 must not push 듣다 (the correct ㄷ-irregular reading of
+        # the bare 1-syllable stem "들") out of first place.
+        wg = self.lex._resolve_eojeol(cl._normalize_token("들어요"))
+        self.assertEqual(wg.matched, "듣다")
+
+    def test_ordinary_batchim_nieun_nouns_are_not_hijacked(self):
+        for noun in ("돈", "문"):
+            with self.subTest(noun=noun):
+                wg = self.lex._resolve_eojeol(cl._normalize_token(noun))
+                self.assertEqual(wg.matched, noun)
+
+
+class TestR7NewEndingsGoldenCases(unittest.TestCase):
+    """R7 item 5: the new batch of connective/final endings (도록, 길래,
+    자, 자마자, (으)ㄹ지, (으)ㄹ게요, (으)시기, 나요, 어때요-style ㅎ-irregular
+    fusion, …), including the embedded-ㄹ-batchim "-(으)ㄹX" family that a
+    plain string suffix check can never match (see
+    _rieul_fused_ending_repair's docstring) and its 1-syllable collision
+    guard (RIEUL_FUSED_STRIP_PREFERRED_1SYL)."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = cl.CefrLexicon.load()
+
+    CASES = [
+        ("묻길래", "묻다"),
+        ("하시길래", "하다"),
+        ("않도록", "않다"),
+        ("주시기", "주다"),
+        ("둘지", "두다"),
+        ("갈게요", "가다"),
+        ("묻자", "묻다"),
+        ("있나요?", "있다"),
+        ("어때요?", "어떻다"),
+        ("줄어들어요", "줄어들다"),  # confirmed a real kiiq headword (grade 4)
+    ]
+
+    def test_all_golden_new_ending_cases(self):
+        for surface, expected in self.CASES:
+            with self.subTest(surface=surface):
+                wg = self.lex._resolve_eojeol(cl._normalize_token(surface))
+                self.assertEqual(wg.matched, expected, "%r -> %r" % (surface, wg))
+                self.assertIsNotNone(wg.grade)
+
+    def test_rieul_fused_ending_does_not_hijack_malda_or_salda(self):
+        # 말다/살다's own "-지" forms must stay correct (via the ordinary,
+        # pre-existing mechanism), not get shadowed by a wrong "마다"/
+        # "사다" guess from the new embedded-batchim repair.
+        for surface, expected in (("말지", "말다"), ("살지", "살다")):
+            with self.subTest(surface=surface):
+                wg = self.lex._resolve_eojeol(cl._normalize_token(surface))
+                self.assertEqual(wg.matched, expected)
+
+    def test_ramyeon_noun_not_treated_as_the_ramyeon_conditional_ending(self):
+        # "라면" (ramen, a bare headword) must not be stripped as the new
+        # "-라면" (if/when) connective ending -- the ending requires a
+        # strictly non-empty remaining stem.
+        wg = self.lex.word_grade("라면")
+        self.assertEqual(wg.matched, "라면")
+        self.assertEqual(wg.source, "kiiq")
+
+    def test_meogeulji_consonant_stem_still_works(self):
+        wg = self.lex._resolve_eojeol(cl._normalize_token("먹을지"))
+        self.assertEqual(wg.matched, "먹다")
+
+
+class TestR7ParticleStackAndPluralGoldenCases(unittest.TestCase):
+    """R7 item 6: plural 들 and stacked particles (에만/에서만/…). "사람들이"
+    resolves through TWO strips (이, then 들) -- the first (이) happens in
+    `_resolve_eojeol`'s own candidate loop, landing on the intermediate
+    candidate "사람들"; the second (들) happens INSIDE that candidate's own
+    `word_grade("사람들")` call, via the R7 item 1 lemma-fallback tier,
+    landing on "사람" (verified: "사람들" is NOT itself a kiiq headword).
+    `_resolve_eojeol` deliberately reports the shallower candidate it
+    tried ("사람들"), not the deeper match reached inside it (see
+    `_resolve_eojeol`'s own docstring/comment for why -- a pre-existing,
+    separately-tested convention this item does not change), so the
+    grade/CEFR outcome is what this test pins down, not the literal
+    "사람" surface form the brief's prose names."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = cl.CefrLexicon.load()
+
+    def test_saramdeuli_resolves_grade_1_via_two_particle_strips(self):
+        wg = self.lex._resolve_eojeol(cl._normalize_token("사람들이"))
+        self.assertEqual(wg.matched, "사람들")
+        self.assertEqual((wg.grade, wg.cefr), (1, "A1"))
+        # The deeper match, reachable via word_grade() directly (R7 item 1):
+        deep = self.lex.word_grade("사람들")
+        self.assertEqual((deep.matched, deep.grade), ("사람", 1))
+
+    def test_hanjjogeman_resolves_to_a_real_headword(self):
+        # "한쪽" IS itself a direct kiiq headword (grade 3) -- the golden
+        # accepts either 한쪽 or 쪽; this locks in which one this lexicon
+        # actually produces.
+        wg = self.lex._resolve_eojeol(cl._normalize_token("한쪽에만"))
+        self.assertEqual(wg.matched, "한쪽")
+        self.assertEqual((wg.grade, wg.cefr, wg.source), (3, "B1", "kiiq"))
+
+    def test_jibeseoman_resolves_to_jib(self):
+        wg = self.lex._resolve_eojeol(cl._normalize_token("집에서만"))
+        self.assertEqual(wg.matched, "집")
+        self.assertEqual((wg.grade, wg.cefr), (1, "A1"))
+
+
+class TestR7NumeralGoldenCases(unittest.TestCase):
+    """R7 item 7: sino/native numerals -> grade 1, 'high' confidence;
+    pure ASCII digits -> known-but-ungraded and excluded from `unknown`.
+    Includes the two collision regressions found and fixed while
+    implementing this: the numeral tier is checked AFTER kiiq/derived/
+    alias in `word_grade` (네 "yes" must not be shadowed by native
+    numeral 네 "four") and the sino character-class check requires >=2
+    characters (사과 "apple" must not particle-strip its "과" down to the
+    sino digit 사 "four" and get treated as a numeral -- though see this
+    test class's last case: kiiq ITSELF already lists 사 as a 수사/
+    관형사 headword, so this specific collision is a pre-existing,
+    out-of-scope architectural property of particle-stripping in general,
+    not something this item introduced or can fix within its own scope;
+    flagged for Fable rather than silently patched)."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = cl.CefrLexicon.load()
+        cls.grammar = cl.GrammarIndex(())
+
+    def test_sino_numeral_goldens_are_a1(self):
+        for word in ("십오", "이십", "백오십", "삼십"):
+            with self.subTest(word=word):
+                wg = self.lex.word_grade(word)
+                self.assertEqual((wg.grade, wg.cefr), (1, "A1"), "word_grade(%r) = %r" % (word, wg))
+                self.assertEqual(wg.confidence, "high")
+
+    def test_ascii_digits_are_not_unknown(self):
+        for digit in ("3", "10"):
+            with self.subTest(digit=digit):
+                wg = self.lex.word_grade(digit)
+                self.assertIsNone(wg.grade)
+                self.assertEqual(wg.source, "number")
+        sp = self.lex.sentence_profile("사탕 10 개를 샀어요.", self.grammar)
+        self.assertNotIn("10", sp.unknown)
+
+    def test_ne_yes_not_shadowed_by_native_numeral_ne_four(self):
+        wg = self.lex._resolve_eojeol(cl._normalize_token("네"))
+        self.assertEqual(wg.source, "kiiq")
+
+    def test_sagwa_apple_pre_existing_particle_collision_documented(self):
+        # NOT a numeral-specific bug (kiiq itself lists 사 as a 수사
+        # headword) -- this test documents the current, pre-existing
+        # behaviour rather than asserting it is correct, so a future fix
+        # is a deliberate, visible change rather than a silent one.
+        wg = self.lex._resolve_eojeol(cl._normalize_token("사과"))
+        self.assertEqual(wg.matched, "사")
+
+
+class TestR7CompoundPrefixNominaliserGoldenCases(unittest.TestCase):
+    """R7 item 8: compound-noun 2-way split, the 불/비/미/재/무/초/최/신/구
+    prefix table (+1 grade), and the -음/-ㅁ nominaliser. Also locks in
+    the collision guard this item needed (word_grade's compound-fallback
+    tier is skipped for any word ending in "다" -- see
+    `_compound_fallback_chain`'s docstring): without it, byproduct
+    candidates like "서늘다" (from "서늘해서"), "만듣다" (from
+    D_IRREGULAR_MAP's own documented 들/걸 collision on "만들어요"), and
+    "무다" (from an ordinary batchim-ㄴ noun repair on "문") started
+    spuriously resolving via the new compound/prefix machinery, breaking
+    real, previously-correct resolutions -- caught by this rework's own
+    regression run before being fixed."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = cl.CefrLexicon.load()
+
+    COMPOUND_CASES = [
+        "신용카드", "교통카드", "신입사원", "유통기한", "조회수", "합의서",
+    ]
+
+    def test_compound_goldens_resolve_via_compound_split(self):
+        for word in self.COMPOUND_CASES:
+            with self.subTest(word=word):
+                wg = self.lex.word_grade(word)
+                self.assertIsNotNone(wg.grade, "word_grade(%r) = %r" % (word, wg))
+                self.assertEqual(wg.source, "compound")
+                self.assertEqual(wg.confidence, "medium")
+
+    def test_bulhwaksilseong_prefix_plus_one(self):
+        # 불 + 확실성 -- bare 확실/확실성 are not headwords, but 확실하다 IS
+        # (kiiq grade 4) -- resolves via the root+하다 fallback, +1 = 5.
+        wg = self.lex.word_grade("불확실성")
+        root = self.lex.word_grade("확실하다")
+        self.assertEqual(wg.grade, min(root.grade + 1, 6))
+        self.assertEqual(wg.source, "compound")
+
+    def test_jaegeomto_prefix_plus_one(self):
+        wg = self.lex.word_grade("재검토")
+        root = self.lex.word_grade("검토")
+        self.assertEqual(wg.grade, min(root.grade + 1, 6))
+        self.assertEqual(wg.source, "compound")
+
+    def test_dolbom_nominaliser_resolves_to_dolboda(self):
+        wg = self.lex.word_grade("돌봄")
+        self.assertEqual(wg.matched, "돌보다")
+        self.assertIsNotNone(wg.grade)
+
+    def test_compound_fallback_does_not_hijack_verb_candidates(self):
+        # Regression lock for the collision found and fixed while
+        # implementing this item -- see class docstring.
+        cases = [
+            ("문", "문", "kiiq"),
+            ("서늘해서", "서늘하다", "kiiq"),
+            ("만들어요", "만들다", "kiiq"),
+        ]
+        for surface, expected_matched, expected_source in cases:
+            with self.subTest(surface=surface):
+                wg = self.lex._resolve_eojeol(cl._normalize_token(surface))
+                self.assertEqual(wg.matched, expected_matched)
+                self.assertEqual(wg.source, expected_source)
+
+    def test_compound_fallback_skips_words_ending_in_da(self):
+        # Direct unit check of the guard itself, independent of any
+        # particular collision example above.
+        self.assertIsNone(self.lex._compound_fallback_chain("아무렇게나다").grade)
+
+
+class TestR7AuxiliaryConstructionGoldenCases(unittest.TestCase):
+    """R7 item 9: X-아/어 + auxiliary (보다/주다/지다/있다/놓다/두다/버리다/
+    내다), and X-고 있다/싶다, grade the MAIN verb. The two-eojeol
+    (space-separated) cases already worked correctly with NO new code --
+    each eojeol lemmatizes independently -- verified and locked in here
+    alongside the single-fused-token cases that needed the new
+    _auxiliary_main_verb_repair/_auxiliary_tensed_repair mechanisms."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = cl.CefrLexicon.load()
+        cls.grammar = cl.GrammarIndex(())
+
+    def test_ibeoboda_resolves_to_ipda_via_word_grade(self):
+        # word_grade() called directly (as a vocab-headword audit would)
+        # now fully reduces in one pass to the exact golden lemma.
+        wg = self.lex.word_grade("입어보다")
+        self.assertEqual((wg.matched, wg.grade, wg.cefr), ("입다", 1, "A1"))
+
+    def test_ibeoboda_resolves_correctly_as_a_sentence_eojeol_too(self):
+        wg = self.lex._resolve_eojeol(cl._normalize_token("입어보다"))
+        self.assertEqual((wg.grade, wg.cefr), (1, "A1"))
+
+    def test_pyeonhaejyeosseoyo_resolves_to_pyeonhada_via_word_grade(self):
+        wg = self.lex.word_grade("편해졌어요")
+        self.assertEqual((wg.matched, wg.grade, wg.cefr), ("편하다", 2, "A2"))
+
+    def test_pyeonhaejyeosseoyo_grade_correct_as_a_sentence_eojeol_too(self):
+        # _resolve_eojeol reports the shallower candidate it tried
+        # ("편해지다", itself produced by the pre-existing R7 item 3
+        # generic tensed-vowel unfuse) rather than the further-reduced
+        # "편하다" reached inside that candidate's own word_grade() call
+        # -- same documented shallow-vs-deep convention as
+        # TestR7ParticleStackAndPluralGoldenCases's 사람들이 case. The
+        # grade/CEFR outcome (identical either way, since 편해지다 itself
+        # resolves to 편하다's own grade) is what this pins down.
+        wg = self.lex._resolve_eojeol(cl._normalize_token("편해졌어요"))
+        self.assertEqual((wg.grade, wg.cefr), (2, "A2"))
+
+    def test_meogeo_bwasseoyo_two_eojeols_main_verb_plus_aux(self):
+        sp = self.lex.sentence_profile("먹어 봤어요.", self.grammar)
+        matched = [(t.matched, t.grade) for t in sp.tokens]
+        self.assertEqual(matched, [("먹다", 1), ("보다", 1)])
+        self.assertEqual(sp.unknown, ())
+
+    def test_ilkgo_isseoyo_two_eojeols_main_verb_plus_progressive(self):
+        sp = self.lex.sentence_profile("읽고 있어요.", self.grammar)
+        matched = [(t.matched, t.grade) for t in sp.tokens]
+        self.assertEqual(matched, [("읽다", 1), ("있다", 1)])
+        self.assertEqual(sp.unknown, ())
+
+
+class TestR7AliasA1ExceptionsAndPriorityFix(unittest.TestCase):
+    """R7 item 10: three new empty-lexicon_form ("A1 exception") rows
+    appended to aliases.csv (진지, 약주, 드시다) -- 잡수시다 was checked
+    and NOT appended, since it already resolved to A1 via a direct kiiq
+    hit before this item. Also covers the `word_grade` priority fix this
+    item needed: 진지 is ALSO a direct kiiq headword (its only row is an
+    unrelated grade-5/C1 homograph -- see the module docstring), so an
+    empty-lexicon_form alias must be checked BEFORE kiiq, not after (R3's
+    original order), or the wrong-register kiiq hit silently shadows it
+    forever. Scoped narrowly to empty-lexicon_form aliases only -- the
+    two pre-existing 'redirect' aliases that ALSO collide with a direct
+    kiiq hit (엄마 -> 어머니, 아빠 -> 아버지) are confirmed UNCHANGED."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = cl.CefrLexicon.load()
+
+    def test_jinji_now_a1_via_alias_overriding_the_wrong_register_kiiq_hit(self):
+        wg = self.lex.word_grade("진지")
+        self.assertEqual((wg.grade, wg.cefr, wg.source), (1, "A1", "alias"))
+
+    def test_yakju_a1_via_alias(self):
+        wg = self.lex.word_grade("약주")
+        self.assertEqual((wg.grade, wg.cefr, wg.source), (1, "A1", "alias"))
+
+    def test_deusida_a1_via_alias(self):
+        wg = self.lex.word_grade("드시다")
+        self.assertEqual((wg.grade, wg.cefr, wg.source), (1, "A1", "alias"))
+
+    def test_japsusida_already_a1_via_kiiq_not_appended_as_alias(self):
+        wg = self.lex.word_grade("잡수시다")
+        self.assertEqual((wg.grade, wg.cefr, wg.source), (1, "A1", "kiiq"))
+        self.assertNotIn("잡수시다", self.lex._aliases)
+
+    def test_redirect_aliases_that_collide_with_direct_kiiq_hits_are_unchanged(self):
+        # 엄마/아빠 have NON-empty lexicon_form aliases (-> 어머니/아버지)
+        # that ALSO collide with a direct kiiq hit on the app_form itself
+        # -- confirming the priority fix above is scoped to empty-
+        # lexicon_form aliases only and did not touch these.
+        for word in ("엄마", "아빠"):
+            with self.subTest(word=word):
+                wg = self.lex.word_grade(word)
+                self.assertEqual(wg.source, "kiiq")
+                self.assertEqual(wg.matched, word)
 
 
 if __name__ == "__main__":
