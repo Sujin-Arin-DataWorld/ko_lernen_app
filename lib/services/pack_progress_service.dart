@@ -1,3 +1,5 @@
+import '../data/pack_progress_aliases.dart';
+import '../models/learner_level.dart';
 import '../models/pack_progress.dart';
 import '../models/vocab_pack.dart';
 import 'account/cloud_read_result.dart';
@@ -63,8 +65,19 @@ class PackProgressService {
     required Map<String, PackProgress> remote,
     required Map<String, PackCatalogEntry> catalog,
   }) {
+    // Normalize both sides first (plan §4.4): either side may still hold an
+    // old (pre-relevel) id, which the catalog no longer recognizes. Rewrite
+    // those to the id that owns them now — same rules as [getAll] — before
+    // validating, so a remote snapshot containing an old id can still be
+    // judged against (and merged with) today's catalog.
+    final normalizedLocal = _withAliasesResolved(local);
+    final normalizedRemote = _withAliasesResolved(remote);
+
     final invalid = <String>{};
-    for (final entry in [...local.entries, ...remote.entries]) {
+    for (final entry in [
+      ...normalizedLocal.entries,
+      ...normalizedRemote.entries,
+    ]) {
       final catalogEntry = catalog[entry.key];
       if (catalogEntry == null ||
           !_validForCatalog(entry.value, catalogEntry)) {
@@ -76,11 +89,12 @@ class PackProgressService {
       return PackProgressMergeResult.invalid(sorted);
     }
 
-    final ids = {...local.keys, ...remote.keys}.toList()..sort();
+    final ids = {...normalizedLocal.keys, ...normalizedRemote.keys}.toList()
+      ..sort();
     final merged = <String, PackProgress>{};
     for (final id in ids) {
-      final left = local[id];
-      final right = remote[id];
+      final left = normalizedLocal[id];
+      final right = normalizedRemote[id];
       if (left == null) {
         merged[id] = right!;
         continue;
@@ -158,20 +172,149 @@ class PackProgressService {
     return leftTime.isBefore(rightTime) ? left : right;
   }
 
+  // ── Alias migration (plan §4.4 / T2.6) ────────────────────────────────
+  //
+  // A relevel renames a vocab pack's id; `kPackProgressAliases` (new → old)
+  // records that. Progress stored under the old id must still surface
+  // under the new one, both for direct reads and for cloud reconciliation.
+  // The alias file is auto-appended and may contain chains (an old id that
+  // is itself some other pack's new id), so resolution below always walks
+  // the chain rather than assuming a single hop, with a cycle guard.
+
+  /// Reverse of [kPackProgressAliases]: old id → the id that superseded it.
+  /// Built once — [kPackProgressAliases] is a fixed `const` at runtime.
+  static final Map<String, String> _packProgressAliasSupersededBy = {
+    for (final entry in kPackProgressAliases.entries) entry.value: entry.key,
+  };
+
+  /// Walks [id] forward through [edges], collecting every id reached, in
+  /// order (nearest first). Stops before revisiting an id, so a cycle in
+  /// [edges] cannot loop forever — the real [kPackProgressAliases] should
+  /// never contain one, but this keeps that a guarantee rather than an
+  /// assumption.
+  ///
+  /// Pass [kPackProgressAliases] itself (the default) to walk from a new id
+  /// down to its ancestors ([get]'s direction); pass its reverse to walk a
+  /// stored id up to whichever id currently owns its progress ([getAll] /
+  /// [mergeForReconciliation]'s direction). Public so chain resolution is
+  /// unit-testable against a synthetic table — [kPackProgressAliases]
+  /// itself has no multi-hop chain today.
+  static List<String> resolveAliasChain(
+    String id, {
+    Map<String, String> edges = kPackProgressAliases,
+  }) {
+    final chain = <String>[];
+    final seen = <String>{id};
+    var current = id;
+    while (true) {
+      final next = edges[current];
+      if (next == null || !seen.add(next)) return chain;
+      chain.add(next);
+      current = next;
+    }
+  }
+
+  /// The id that currently owns whatever progress was stored under
+  /// [storedId] — itself, unless it has been superseded (possibly through a
+  /// chain of relevels).
+  static String _currentPackId(String storedId) {
+    final chain = resolveAliasChain(
+      storedId,
+      edges: _packProgressAliasSupersededBy,
+    );
+    return chain.isEmpty ? storedId : chain.last;
+  }
+
+  /// Copies [old] under [newPackId], updating only the id and level; every
+  /// other field (status, counts, boss accuracy, clearedAt) carries over
+  /// unchanged, per plan §4.4.
+  static PackProgress _migratedTo(PackProgress old, String newPackId) {
+    return PackProgress(
+      packId: newPackId,
+      level: _levelForPackId(newPackId) ?? old.level,
+      status: old.status,
+      wordsLearned: old.wordsLearned,
+      wordsTotal: old.wordsTotal,
+      bossAccuracy: old.bossAccuracy,
+      attempts: old.attempts,
+      clearedAtIso: old.clearedAtIso,
+    );
+  }
+
+  /// `a1_neighbors_hall_1` → `'A1'`, via the same CEFR parser the rest of
+  /// the app uses ([LearnerLevel.fromCode]). Null if the id has no
+  /// recognizable level prefix — shouldn't happen for a real pack id;
+  /// callers fall back to the pre-migration level rather than guess.
+  static String? _levelForPackId(String packId) {
+    final prefix = packId.split('_').first;
+    return LearnerLevel.fromCode(prefix)?.display;
+  }
+
+  /// Rewrites superseded ids to whichever id currently owns their progress.
+  /// A directly-stored current id always wins over a stale alias; an old id
+  /// with no current counterpart yet is migrated; an id that is neither a
+  /// known old nor new alias id passes through untouched. An old id is
+  /// never present in the result.
+  static Map<String, PackProgress> _withAliasesResolved(
+    Map<String, PackProgress> source,
+  ) {
+    final result = <String, PackProgress>{};
+    source.forEach((id, progress) {
+      if (!_packProgressAliasSupersededBy.containsKey(id)) {
+        result[id] = progress;
+      }
+    });
+    source.forEach((id, progress) {
+      if (!_packProgressAliasSupersededBy.containsKey(id)) return;
+      final currentId = _currentPackId(id);
+      result.putIfAbsent(currentId, () => _migratedTo(progress, currentId));
+    });
+    return result;
+  }
+
   // ── Reads ──────────────────────────────────────────────────────────
 
   /// Fortschritt eines Packs. Null = noch nie gespeichert.
   /// Aufrufer sollte ggf. mit `effectiveStatus()` initialisieren.
+  ///
+  /// Fällt auf einen Alias zurück, wenn der Pack relevelt wurde (plan
+  /// §4.4): nichts unter [packId] gespeichert, aber Fortschritt unter einer
+  /// älteren id in dessen Alias-Kette → migrierte Kopie (id + level
+  /// aktualisiert, Rest unverändert) wird einmalig unter [packId]
+  /// persistiert (write-through) und zurückgegeben. Der alte Datensatz
+  /// bleibt unangetastet liegen; sobald der neue Key existiert, wird er
+  /// nicht mehr gelesen (idempotent).
   static PackProgress? get(String packId) {
     final json = Storage.packProgressJson(packId);
-    if (json == null) return null;
-    return PackProgress.fromJson(packId, json);
+    if (json != null) return PackProgress.fromJson(packId, json);
+    for (final ancestorId in resolveAliasChain(packId)) {
+      final ancestorJson = Storage.packProgressJson(ancestorId);
+      if (ancestorJson == null) continue;
+      final migrated = _migratedTo(
+        PackProgress.fromJson(ancestorId, ancestorJson),
+        packId,
+      );
+      // Write-through so future reads skip alias resolution entirely.
+      // Fire-and-forget like the rest of this file's local writes: Storage
+      // updates its in-memory cache synchronously, so this is visible to
+      // the very next call even though the disk write itself is async.
+      // ignore: discarded_futures, unawaited_futures
+      Storage.setPackProgressJson(migrated.packId, migrated.toJson());
+      return migrated;
+    }
+    return null;
   }
 
   /// Alle gespeicherten Pack-Fortschritte. Schlüssel = packId.
+  /// Alte (relevelte) Keys werden auf ihre aktuelle id abgebildet — oder
+  /// verworfen, falls die aktuelle id bereits einen eigenen Eintrag hat.
+  /// Ein alter Key wird nie zurückgegeben.
   static Map<String, PackProgress> getAll() {
     final raw = Storage.allPackProgressJson();
-    return raw.map((k, v) => MapEntry(k, PackProgress.fromJson(k, v)));
+    final decoded = raw.map(
+      (k, v) => MapEntry(k, PackProgress.fromJson(k, v)),
+    );
+    return _withAliasesResolved(decoded);
   }
 
   /// Effektiver Status für die UI. Alle Packs sind direkt verfügbar; ein
