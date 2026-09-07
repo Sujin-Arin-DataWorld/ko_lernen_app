@@ -157,6 +157,9 @@ def _make_kiiq_fixture(path: Path) -> None:
         ["2", "2", "1급", "감사01", "명사", "감사 인사를 하다", "초급", "1급"],
         # no homograph suffix at all -> homograph 0.
         ["3", "3", "2급", "가게", "명사", "가게에 가다", "중급", "2급"],
+        # '∙'-joined headword AND pos (2017-list defect, Fable finding:
+        # ~262 rows incl. every Korean numeral used '∙' instead of '/').
+        ["4", "4", "1급", "마흔02∙마흔", "수사∙관형사", "마흔 살이다", "초급", "1급"],
     ]
     grammar_rows = [
         _GRAMMAR_HEADER,
@@ -205,9 +208,76 @@ class SplitKiiqVocabEntryTests(unittest.TestCase):
 
     def test_pos_slash_mismatched_arity_keeps_pos_whole(self) -> None:
         # Real 2017-list quirk (3 rows): pos is '/'-joined but headword is not.
+        # NB the pos field here also contains U+00B7 ('·' middle dot) — with
+        # the '·'-as-separator rule, the pos field itself now splits into 3
+        # parts ('수사','관형사','명사') by the combined separator class, so
+        # it still mismatches the 1-part headword and stays whole.
         rows = ingest_mod.split_kiiq_vocab_entry(3, "스무째00", "수사·관형사/명사", "", "고급")
         self.assertEqual(len(rows), 1)
         self.assertEqual(rows[0].pos, "수사·관형사/명사")
+
+    def test_bullet_operator_joined_headword_and_pos_pair_positionally(self) -> None:
+        # U+2219 BULLET OPERATOR ('∙') — the real 2017-list defect (262 rows,
+        # Fable finding): every Korean numeral (백·천·만·마흔...) used this
+        # separator instead of '/' and was previously left unsplit.
+        rows = ingest_mod.split_kiiq_vocab_entry(1, "마흔02∙마흔", "수사∙관형사", "", "고급")
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(
+            (rows[0].headword, rows[0].homograph, rows[0].pos), ("마흔", 2, "수사")
+        )
+        self.assertEqual(
+            (rows[1].headword, rows[1].homograph, rows[1].pos), ("마흔", 0, "관형사")
+        )
+
+    def test_bullet_operator_with_space_from_collapsed_newline(self) -> None:
+        # '독립적01∙\n독립적02' after _clean() collapses the embedded
+        # newline to a single space before the second homograph part; pos
+        # has no separator so it repeats whole for both parts.
+        rows = ingest_mod.split_kiiq_vocab_entry(3, "독립적01∙ 독립적02", "명사", "", "고급")
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(
+            (rows[0].headword, rows[0].homograph, rows[0].pos), ("독립적", 1, "명사")
+        )
+        self.assertEqual(
+            (rows[1].headword, rows[1].homograph, rows[1].pos), ("독립적", 2, "명사")
+        )
+
+    def test_bullet_operator_with_raw_embedded_newline(self) -> None:
+        # Same as above but with the raw (uncleaned) newline the real xlsx
+        # cell contains, to prove split_kiiq_vocab_entry's internal _clean()
+        # call handles it end-to-end.
+        rows = ingest_mod.split_kiiq_vocab_entry(3, "독립적01∙\n독립적02", "명사", "", "고급")
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(
+            (rows[0].headword, rows[0].homograph, rows[0].pos), ("독립적", 1, "명사")
+        )
+        self.assertEqual(
+            (rows[1].headword, rows[1].homograph, rows[1].pos), ("독립적", 2, "명사")
+        )
+
+    def test_middle_dot_separator_also_splits(self) -> None:
+        # U+00B7 MIDDLE DOT ('·') — not attested standalone in the real 2017
+        # list (it appears mixed with '/', see the mismatched-arity test
+        # above) but the fix treats it as a split point in its own right.
+        rows = ingest_mod.split_kiiq_vocab_entry(1, "백02·백", "수사·관형사", "", "초급")
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(
+            (rows[0].headword, rows[0].homograph, rows[0].pos), ("백", 2, "수사")
+        )
+        self.assertEqual(
+            (rows[1].headword, rows[1].homograph, rows[1].pos), ("백", 0, "관형사")
+        )
+
+    def test_bullet_separator_also_splits(self) -> None:
+        # U+2022 BULLET ('•').
+        rows = ingest_mod.split_kiiq_vocab_entry(1, "천02•천", "수사•관형사", "", "초급")
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(
+            (rows[0].headword, rows[0].homograph, rows[0].pos), ("천", 2, "수사")
+        )
+        self.assertEqual(
+            (rows[1].headword, rows[1].homograph, rows[1].pos), ("천", 0, "관형사")
+        )
 
 
 class GradeParsingTests(unittest.TestCase):
@@ -232,23 +302,30 @@ class IngestIntegrationTests(unittest.TestCase):
     def test_vocab_csv_is_split_deterministic_and_sorted(self) -> None:
         summary = ingest_mod.ingest(self.kiiq, self.basic, self.out_dir)
 
-        # pre-split: 3 raw rows; post-split: 4 (오늘02/오늘01 -> 2).
-        self.assertEqual(summary.counts_by_grade["kiiq_vocab_pre_split"], {1: 2, 2: 1})
-        self.assertEqual(summary.counts_by_grade["kiiq_vocab_post_split"], {1: 3, 2: 1})
+        # pre-split: 4 raw rows (3 in grade 1, 1 in grade 2); post-split: 6
+        # (오늘02/오늘01 -> 2, 마흔02∙마흔 -> 2).
+        self.assertEqual(summary.counts_by_grade["kiiq_vocab_pre_split"], {1: 3, 2: 1})
+        self.assertEqual(summary.counts_by_grade["kiiq_vocab_post_split"], {1: 5, 2: 1})
 
         text = (self.out_dir / "nikl_kiiq_2017_vocab.csv").read_text(encoding="utf-8")
         rows = list(csv.reader(io.StringIO(text)))
         self.assertEqual(rows[0], ["grade", "headword", "homograph", "pos", "guide", "band"])
-        # deterministic sort: (grade, headword, homograph) — 감사 < 오늘 (ㄱ < ㅇ).
+        # deterministic sort: (grade, headword, homograph) — 감사 < 마흔 < 오늘.
         self.assertEqual(
             rows[1:],
             [
                 ["1", "감사", "1", "명사", "감사 인사를 하다", "초급"],
+                ["1", "마흔", "0", "관형사", "마흔 살이다", "초급"],
+                ["1", "마흔", "2", "수사", "마흔 살이다", "초급"],
                 ["1", "오늘", "1", "명사", "오늘 날씨가 좋다", "초급"],
                 ["1", "오늘", "2", "부사", "오늘 날씨가 좋다", "초급"],
                 ["2", "가게", "0", "명사", "가게에 가다", "중급"],
             ],
         )
+        # No leftover '∙'/'·'/'•' separator characters in any headword.
+        for row in rows[1:]:
+            for sep in ingest_mod._MULTI_FORM_SEPARATORS:
+                self.assertNotIn(sep, row[1], f"headword {row[1]!r} still has {sep!r}")
         # LF line endings, no CRLF.
         raw = (self.out_dir / "nikl_kiiq_2017_vocab.csv").read_bytes()
         self.assertNotIn(b"\r\n", raw)

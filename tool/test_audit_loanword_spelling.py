@@ -172,17 +172,77 @@ class RomanizationTests(unittest.TestCase):
         self.assertIn("부산", korean_values)
         self.assertNotIn("학교", korean_values)
 
-    def test_classify_romanization_matches_case_insensitively(self) -> None:
-        response = {"resultCode": "success", "items": [{"korean_mark": "서울", "lang_nm": "Seoul"}]}
+    def test_classify_romanization_matches_via_srclang_mark(self) -> None:
+        # srclang_mark (원어 표기) is the documented field for the romanized
+        # spelling under langType=0004 — not lang_nm (언어명, e.g. '영어').
+        response = {
+            "resultCode": "success",
+            "items": [{"korean_mark": "서울", "srclang_mark": "Seoul", "lang_nm": "영어"}],
+        }
         self.assertEqual(m.classify_romanization("서울", "seoul", response), "match")
 
+    def test_classify_romanization_ignores_hyphen_and_whitespace_differences(self) -> None:
+        response = {
+            "resultCode": "success",
+            "items": [{"korean_mark": "경복궁", "srclang_mark": "Gyeongbok-gung"}],
+        }
+        self.assertEqual(
+            m.classify_romanization("경복궁", "gyeongbokgung", response), "match"
+        )
+
+    def test_classify_romanization_falls_back_to_latin_letter_field_when_srclang_mark_empty(
+        self,
+    ) -> None:
+        # srclang_mark absent entirely; guk_nm happens to hold the Latin
+        # spelling (data-entry edge case) — the fallback should pick it up
+        # and it is the first Latin-letter field after korean_mark/srclang_mark.
+        response = {
+            "resultCode": "success",
+            "items": [{"korean_mark": "서울", "guk_nm": "Seoul", "lang_nm": "영어"}],
+        }
+        self.assertEqual(m.classify_romanization("서울", "Seoul", response), "match")
+
     def test_classify_romanization_flags_mismatch(self) -> None:
-        response = {"resultCode": "success", "items": [{"korean_mark": "서울", "lang_nm": "Seoul"}]}
+        response = {
+            "resultCode": "success",
+            "items": [{"korean_mark": "서울", "srclang_mark": "Seoul"}],
+        }
         self.assertEqual(m.classify_romanization("서울", "Seoull", response), "mismatch")
 
     def test_classify_romanization_not_found(self) -> None:
         response = {"resultCode": "success", "items": []}
         self.assertEqual(m.classify_romanization("서울", "seoul", response), "not_found")
+
+    def test_classify_romanization_lang_nm_alone_never_matches(self) -> None:
+        # Regression guard for the bug: lang_nm is a language NAME
+        # ('영어' = 'English'), never a romanized spelling, and has no
+        # srclang_mark or other Latin-letter field to fall back to — this
+        # must never be classified as 'match' against any app_value.
+        response = {
+            "resultCode": "success",
+            "items": [{"korean_mark": "서울", "lang_nm": "영어"}],
+        }
+        status = m.classify_romanization("서울", "seoul", response)
+        self.assertNotEqual(status, "match")
+        self.assertEqual(status, "mismatch")
+
+
+class RomanizationFieldValueTests(unittest.TestCase):
+    def test_prefers_srclang_mark(self) -> None:
+        item = {"korean_mark": "서울", "srclang_mark": "Seoul", "lang_nm": "영어"}
+        self.assertEqual(m.romanization_field_value(item), ("Seoul", "srclang_mark"))
+
+    def test_falls_back_to_first_latin_letter_field_when_srclang_mark_missing(self) -> None:
+        item = {"korean_mark": "서울", "guk_nm": "Seoul", "lang_nm": "영어"}
+        self.assertEqual(m.romanization_field_value(item), ("Seoul", "guk_nm"))
+
+    def test_falls_back_when_srclang_mark_is_blank_string(self) -> None:
+        item = {"korean_mark": "서울", "srclang_mark": "  ", "mean": "Seoul"}
+        self.assertEqual(m.romanization_field_value(item), ("Seoul", "mean"))
+
+    def test_lang_nm_only_yields_no_value(self) -> None:
+        item = {"korean_mark": "서울", "lang_nm": "영어"}
+        self.assertEqual(m.romanization_field_value(item), ("", ""))
 
 
 class ReportTests(unittest.TestCase):
@@ -193,12 +253,32 @@ class ReportTests(unittest.TestCase):
             {"keyword": "웹사이트App", "status": "not_found"},
         ]
         romanization_results = [
-            {"korean": "서울", "app_value": "seoul", "api_value": "Seoul", "status": "match"},
+            {
+                "korean": "서울",
+                "app_value": "seoul",
+                "api_value": "Seoul",
+                "api_field": "srclang_mark",
+                "status": "match",
+            },
         ]
         report = m.build_report(loanword_results, romanization_results)
         self.assertNotIn(secret, report)
         self.assertIn("버스", report)
         self.assertIn("standard", report)
+
+    def test_build_report_shows_api_field_column(self) -> None:
+        romanization_results = [
+            {
+                "korean": "서울",
+                "app_value": "seoul",
+                "api_value": "Seoul",
+                "api_field": "srclang_mark",
+                "status": "match",
+            },
+        ]
+        report = m.build_report([], romanization_results)
+        self.assertIn("API 필드", report)
+        self.assertIn("srclang_mark", report)
 
 
 class MainKeyMissingTests(unittest.TestCase):

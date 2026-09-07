@@ -19,22 +19,22 @@ Normalisation rules (plan §3.C / §4.1):
 
 * Whitespace (including embedded newlines from wrapped spreadsheet cells)
   is stripped from every field.
-* A headword field joined with ``/`` (e.g. ``오늘02/오늘01``) is split into
-  one row per part. When the paired 품사(pos) field is also ``/``-joined
-  with the same number of parts, the parts are paired positionally;
+* A headword field joined with ``/``, ``∙`` (U+2219 bullet operator), ``·``
+  (U+00B7 middle dot), or ``•`` (U+2022 bullet) is split into one row per
+  part — all four are equivalent split points. ``/`` is the common case
+  (e.g. ``오늘02/오늘01``); the 2017 vocab sheet also uses ``∙`` (sometimes
+  with an embedded newline that ``_clean`` collapses to a space first) for
+  ~262 rows that join homograph/POS variants, e.g. ``마흔02∙마흔`` /
+  ``독립적01∙\n독립적02``. When the paired 품사(pos) field is also joined by
+  any of the same four separators into the same number of parts, the parts
+  are paired positionally (e.g. ``수사∙관형사`` → ``['수사', '관형사']``);
   otherwise the whole pos string is repeated for every headword part (this
   also covers the rare case — 3 rows in the 2017 list — where pos is
-  ``/``-joined but the headword is not, since positional pairing would be
-  meaningless there).
+  separator-joined but the headword is not, since positional pairing would
+  be meaningless there).
 * A trailing 2-digit homograph number is extracted from each headword part
   (``감사01`` → headword ``감사``, homograph ``1``); a headword with no
-  such suffix gets homograph ``0``. A known data quirk: ~30 entries in the
-  2017 vocab list join homograph variants with ``∙`` (and an embedded
-  newline) instead of ``/`` (e.g. ``독립적01∙\\n독립적02``) — since only
-  ``/`` is a documented split point, these are NOT split further; the
-  trailing-digit rule still strips the last homograph suffix it finds.
-  Flagged in the ingest report; see the module docstring's "known quirks"
-  note reproduced in the CLI's summary output.
+  such suffix gets homograph ``0``.
 * Grade is parsed as the leading integer before ``급``/``등급`` (``1급`` →
   ``1``, ``1등급`` → ``1``).
 * Output rows are sorted deterministically.
@@ -63,6 +63,13 @@ _DOC_REL_NS = "{http://schemas.openxmlformats.org/officeDocument/2006/relationsh
 _COL_LETTERS_RE = re.compile(r"^([A-Z]+)")
 _GRADE_RE = re.compile(r"(\d+)")
 _HOMOGRAPH_RE = re.compile(r"^(.*?)(\d{2})$")
+
+# Headword/pos "multi-form" separators (module docstring): '/' is the
+# documented split point; '∙' (U+2219), '·' (U+00B7) and '•' (U+2022) are
+# used interchangeably by ~262 rows of the 2017 kiiq vocab sheet to join
+# homograph/POS variants. All four are equivalent split points.
+_MULTI_FORM_SEPARATORS = "/∙·•"
+_MULTI_FORM_SPLIT_RE = re.compile("[" + re.escape(_MULTI_FORM_SEPARATORS) + "]")
 
 
 class XlsxFormatError(ValueError):
@@ -203,29 +210,33 @@ def split_kiiq_vocab_entry(
 ) -> list[VocabRow]:
     """Expand one 어휘 sheet row into one or more :class:`VocabRow`.
 
-    Implements the ``/``-split + positional-pos-pairing + trailing-homograph
-    rules documented in the module docstring.
+    Implements the separator-split (``/``, ``∙``, ``·``, ``•``) +
+    positional-pos-pairing + trailing-homograph rules documented in the
+    module docstring.
     """
     headword_field = _clean(headword_field)
     pos_field = _clean(pos_field)
     guide = _clean(guide_field)
     band = _clean(band_field)
 
-    headword_parts = [h for h in (p.strip() for p in headword_field.split("/")) if h]
+    headword_parts = [
+        h for h in (p.strip() for p in _MULTI_FORM_SPLIT_RE.split(headword_field)) if h
+    ]
     if not headword_parts:
         return []
 
-    if "/" in pos_field:
-        pos_parts = [p.strip() for p in pos_field.split("/")]
+    if _MULTI_FORM_SPLIT_RE.search(pos_field):
+        pos_parts = [p.strip() for p in _MULTI_FORM_SPLIT_RE.split(pos_field)]
     else:
         pos_parts = []
 
     if len(pos_parts) == len(headword_parts):
         pos_list = pos_parts
     else:
-        # Either pos has no '/', or it has a mismatched arity (3 rows in the
-        # real 2017 list: pos is '/'-joined but headword is a single token —
-        # positional pairing would be meaningless, so keep pos whole).
+        # Either pos has no separator, or it has a mismatched arity (3 rows
+        # in the real 2017 list: pos is separator-joined but headword is a
+        # single token — positional pairing would be meaningless, so keep
+        # pos whole).
         pos_list = [pos_field] * len(headword_parts)
 
     rows = []

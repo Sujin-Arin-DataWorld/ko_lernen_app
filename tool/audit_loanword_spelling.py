@@ -60,6 +60,13 @@ ROMANIZATION_LANG_TYPE = "0004"  # 로마자 표기법
 PLACE_NAME_WHITELIST = ("서울", "부산", "제주", "한강", "경복궁")
 
 _LATIN_LETTER_RE = re.compile(r"[A-Za-z]")
+_WHITESPACE_HYPHEN_RE = re.compile(r"[\s\-]+")
+
+# kornorms API 응답 항목의 필드 순서 (langType 무관 공통 스키마):
+# korean_mark(한글 표기), srclang_mark(원어 표기), guk_nm(국가명), lang_nm(언어명),
+# mean(뜻풀이), source(출처). langType=0004(로마자 표기법)에서 로마자 표기값은
+# srclang_mark에 담긴다 — lang_nm은 언어 "이름"(예: '영어')일 뿐 표기값이 아니다.
+_ROMANIZATION_PRIMARY_FIELD = "srclang_mark"
 
 Fetcher = Callable[[str, str, str, str], dict]
 
@@ -243,18 +250,49 @@ def classify_loanword(keyword: str, response: dict) -> str:
     return "not_found"
 
 
+def _normalize_romanization(value: str | None) -> str:
+    """대소문자·공백·하이픈을 무시하는 로마자 표기 비교용 정규화."""
+    return _WHITESPACE_HYPHEN_RE.sub("", (value or "").strip()).lower()
+
+
+def romanization_field_value(item: dict) -> tuple[str, str]:
+    """API 항목에서 로마자 표기값을 찾는다. 반환: (값, 매치된 필드명).
+
+    `srclang_mark`(원어 표기)를 우선 사용한다 — langType=0004 응답에서
+    로마자 표기값이 담기는 필드. 비어 있으면 라틴 문자를 포함하는 첫 문자열
+    필드로 대체한다(예: 데이터 누락으로 다른 필드에 표기가 들어간 경우).
+    `lang_nm`(언어명, 예: '영어')처럼 라틴 문자가 없는 필드는 이 대체
+    탐색에서 자연히 걸러진다. 아무 것도 없으면 `('', '')`.
+    """
+    srclang = (item.get(_ROMANIZATION_PRIMARY_FIELD) or "").strip()
+    if srclang:
+        return srclang, _ROMANIZATION_PRIMARY_FIELD
+    for field_name, value in item.items():
+        if field_name == _ROMANIZATION_PRIMARY_FIELD:
+            continue
+        if isinstance(value, str) and _LATIN_LETTER_RE.search(value):
+            return value.strip(), field_name
+    return "", ""
+
+
 def classify_romanization(korean: str, app_value: str, response: dict) -> str:
-    """'match' | 'mismatch' | 'not_found' | 'error'. 대소문자 무시 비교."""
+    """'match' | 'mismatch' | 'not_found' | 'error'.
+
+    `srclang_mark`(비어 있으면 라틴 문자가 있는 첫 필드)를 앱의 romanization
+    열과 대소문자·공백·하이픈 무시하고 비교한다. `lang_nm`(언어명)은 표기값이
+    아니므로 비교 대상이 아니다 — 값이 우연히 라틴 문자를 포함하지 않는 한
+    (예: '영어') 절대 'match'를 만들지 않는다.
+    """
     if response.get("error"):
         return "error"
     items = response.get("items") or []
     matches = [item for item in items if item.get("korean_mark") == korean]
     if not matches:
         return "not_found"
-    app_norm = (app_value or "").strip().lower()
+    app_norm = _normalize_romanization(app_value)
     for item in matches:
-        api_value = (item.get("lang_nm") or "").strip().lower()
-        if api_value and api_value == app_norm:
+        api_value, _field = romanization_field_value(item)
+        if api_value and _normalize_romanization(api_value) == app_norm:
             return "match"
     return "mismatch"
 
@@ -293,12 +331,12 @@ def build_report(loanword_results: list[dict], romanization_results: list[dict])
 
     lines.append("## 로마자 표기법 (langType 0004, 고유명사 화이트리스트)")
     lines.append("")
-    lines.append("| 표제어 | 앱 표기 | API 표기 | 판정 |")
-    lines.append("|---|---|---|---|")
+    lines.append("| 표제어 | 앱 표기 | API 표기 | API 필드 | 판정 |")
+    lines.append("|---|---|---|---|---|")
     for r in sorted(romanization_results, key=lambda x: x["korean"]):
         lines.append(
             f"| {r['korean']} | {r.get('app_value', '')} | {r.get('api_value', '')} "
-            f"| {r['status']} |"
+            f"| {r.get('api_field', '')} | {r['status']} |"
         )
     lines.append("")
     return "\n".join(lines)
@@ -362,6 +400,7 @@ def _run_audit(
         if response.get("offline_skip"):
             status = "offline_skip"
             api_value = ""
+            api_field = ""
         else:
             status = classify_romanization(korean, app_value, response)
             items = [
@@ -369,12 +408,13 @@ def _run_audit(
                 for item in (response.get("items") or [])
                 if item.get("korean_mark") == korean
             ]
-            api_value = items[0].get("lang_nm", "") if items else ""
+            api_value, api_field = romanization_field_value(items[0]) if items else ("", "")
         romanization_results.append(
             {
                 "korean": korean,
                 "app_value": app_value,
                 "api_value": api_value,
+                "api_field": api_field,
                 "status": status,
             }
         )
