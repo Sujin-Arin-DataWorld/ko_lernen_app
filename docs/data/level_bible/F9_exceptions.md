@@ -59,6 +59,132 @@
 또한 라틴 문자·숫자가 하나라도 섞인 토큰(예: `QR`)은 고정 목록이 아니라
 `cefr_lexicon._is_latin_or_digit_token`으로 일괄 판정 -- 이 표에는 열거하지 않음.
 
+## 레벨 예외표(등급 상한)
+
+> T2.5 추가, LCP PR-L2a(2026-09-07)부터 자동 생성 --
+> `tools/content_factory/lexicon/level_exceptions.csv`가 정본, 이 표는 그
+> 스냅샷. `tool/cefr_lexicon.py`의 `CefrLexicon._exception_lookup`이
+> word_grade/phrase_grade/sentence_profile 전 경로에서 해당 표제어의 등급을
+> `상한` 칸까지 낮춘다(카테고리별 사유는 plan §3.E/§14, Fable 룰링
+> 2026-09-07 참고).
+
+| 카테고리 | 표제어 | 상한 | 사유 |
+|---|---|---|---|
+| kinship | 장인어른 | A1 | 혼인 친족 호칭 · Fable 룰링 2026-09-07 · A1 유지 |
+| kinship | 장모님 | A1 | 혼인 친족 호칭 · Fable 룰링 2026-09-07 · A1 유지 |
+| kinship | 시아버지 | A1 | 혼인 친족 호칭 · Fable 룰링 2026-09-07 · A1 유지 |
+| kinship | 시어머니 | A1 | 혼인 친족 호칭 · Fable 룰링 2026-09-07 · A1 유지 |
+| kinship | 아버님 | A1 | 혼인 친족 호칭 · Fable 룰링 2026-09-07 · A1 유지 |
+| kinship | 어머님 | A1 | 혼인 친족 호칭 · Fable 룰링 2026-09-07 · A1 유지 |
+| kinship | 형님 | A1 | 혼인 친족 호칭 · Fable 룰링 2026-09-07 · A1 유지 |
+| kinship | 아주버님 | A1 | 혼인 친족 호칭 · Fable 룰링 2026-09-07 · A1 유지 |
+| kinship | 도련님 | A1 | 혼인 친족 호칭 · Fable 룰링 2026-09-07 · A1 유지 |
+| kinship | 처남 | A1 | 혼인 친족 호칭 · Fable 룰링 2026-09-07 · A1 유지 |
+| kinship | 처형 | A1 | 혼인 친족 호칭 · Fable 룰링 2026-09-07 · A1 유지 |
+| kinship | 처제 | A1 | 혼인 친족 호칭 · Fable 룰링 2026-09-07 · A1 유지 |
+| kinship | 올케 | A1 | 혼인 친족 호칭 · Fable 룰링 2026-09-07 · A1 유지 |
+| kinship | 며느리 | A1 | 혼인 친족 호칭 · Fable 룰링 2026-09-07 · A1 유지 |
+| kinship | 사위 | A1 | 혼인 친족 호칭 · Fable 룰링 2026-09-07 · A1 유지 |
+| kinship | 시댁 | A1 | 혼인 친족 호칭 · Fable 룰링 2026-09-07 · A1 유지 |
+| kinship | 처가 | A1 | 혼인 친족 호칭 · Fable 룰링 2026-09-07 · A1 유지 |
+| meta | 발음 | A1 | 학습 메타어 · Fable 룰링 2026-09-07 · A1 유지 |
+| meta | 예문 | A1 | 학습 메타어 · Fable 룰링 2026-09-07 · A1 유지 |
+| meta | 높임말 | A1 | 학습 메타어 · Fable 룰링 2026-09-07 · A1 유지 |
+| meta | 호칭 | A1 | 학습 메타어 · Fable 룰링 2026-09-07 · A1 유지 |
+| meta | 반말 | A1 | 학습 메타어 · Fable 룰링 2026-09-07 · A1 유지 |
+| meta | 존댓말 | A1 | 학습 메타어 · Fable 룰링 2026-09-07 · A1 유지 |
+| meta | 문법 | A1 | 학습 메타어 · Fable 룰링 2026-09-07 · A1 유지 |
+| meta | 단어 | A1 | 학습 메타어 · Fable 룰링 2026-09-07 · A1 유지 |
+| meta | 문장 | A1 | 학습 메타어 · Fable 룰링 2026-09-07 · A1 유지 |
+| meta | 뜻 | A1 | 학습 메타어 · Fable 룰링 2026-09-07 · A1 유지 |
+| meta | 표현 | A1 | 학습 메타어 · Fable 룰링 2026-09-07 · A1 유지 |
+| signage_a1 | 창구 | A1 | 표지판·거래 기초어 · Fable 룰링 2026-09-07 · A1 유지 |
+| signage_a1 | 계산대 | A1 | 표지판·거래 기초어 · Fable 룰링 2026-09-07 · A1 유지 |
+| signage_a1 | 출구 | A1 | 표지판·거래 기초어 · Fable 룰링 2026-09-07 · A1 유지 |
+| signage_a1 | 입구 | A1 | 표지판·거래 기초어 · Fable 룰링 2026-09-07 · A1 유지 |
+| signage_a1 | 영수증 | A1 | 표지판·거래 기초어 · Fable 룰링 2026-09-07 · A1 유지 |
+| signage_a1 | 현금 | A1 | 표지판·거래 기초어 · Fable 룰링 2026-09-07 · A1 유지 |
+| signage_a1 | 결제 | A1 | 표지판·거래 기초어 · Fable 룰링 2026-09-07 · A1 유지 |
+| signage_a1 | 결제하다 | A1 | 표지판·거래 기초어 · Fable 룰링 2026-09-07 · A1 유지 |
+| signage_a1 | 우편함 | A1 | 표지판·거래 기초어 · Fable 룰링 2026-09-07 · A1 유지 |
+| signage_a1 | 계산서 | A1 | 표지판·거래 기초어 · Fable 룰링 2026-09-07 · A1 유지 |
+| signage_a2 | 환승 | A2 | 안내문·기기 화면 어휘 · Fable 룰링 2026-09-07 · A2 상한 |
+| signage_a2 | 승강장 | A2 | 안내문·기기 화면 어휘 · Fable 룰링 2026-09-07 · A2 상한 |
+| signage_a2 | 개찰구 | A2 | 안내문·기기 화면 어휘 · Fable 룰링 2026-09-07 · A2 상한 |
+| signage_a2 | 잔액 | A2 | 안내문·기기 화면 어휘 · Fable 룰링 2026-09-07 · A2 상한 |
+| signage_a2 | 입금 | A2 | 안내문·기기 화면 어휘 · Fable 룰링 2026-09-07 · A2 상한 |
+| signage_a2 | 입금하다 | A2 | 안내문·기기 화면 어휘 · Fable 룰링 2026-09-07 · A2 상한 |
+| signage_a2 | 출금 | A2 | 안내문·기기 화면 어휘 · Fable 룰링 2026-09-07 · A2 상한 |
+| signage_a2 | 출금하다 | A2 | 안내문·기기 화면 어휘 · Fable 룰링 2026-09-07 · A2 상한 |
+| signage_a2 | 송금 | A2 | 안내문·기기 화면 어휘 · Fable 룰링 2026-09-07 · A2 상한 |
+| signage_a2 | 송금하다 | A2 | 안내문·기기 화면 어휘 · Fable 룰링 2026-09-07 · A2 상한 |
+| signage_a2 | 보관함 | A2 | 안내문·기기 화면 어휘 · Fable 룰링 2026-09-07 · A2 상한 |
+| signage_a2 | 안내데스크 | A2 | 안내문·기기 화면 어휘 · Fable 룰링 2026-09-07 · A2 상한 |
+| signage_a2 | 운영시간 | A2 | 안내문·기기 화면 어휘 · Fable 룰링 2026-09-07 · A2 상한 |
+| signage_a2 | 정기권 | A2 | 안내문·기기 화면 어휘 · Fable 룰링 2026-09-07 · A2 상한 |
+| signage_a2 | 미세먼지 | A2 | 안내문·기기 화면 어휘 · Fable 룰링 2026-09-07 · A2 상한 |
+| signage_a2 | 일교차 | A2 | 안내문·기기 화면 어휘 · Fable 룰링 2026-09-07 · A2 상한 |
+| signage_a2 | 교통카드 | A2 | 안내문·기기 화면 어휘 · Fable 룰링 2026-09-07 · A2 상한 |
+| signage_a2 | 휴게소 | A2 | 안내문·기기 화면 어휘 · Fable 룰링 2026-09-07 · A2 상한 |
+| loanword | 스트레칭 | A2 | 독일어·영어 화자에게 투명한 외래어 · Fable 룰링 2026-09-07 · A2 상한 |
+| loanword | 트레이너 | A2 | 독일어·영어 화자에게 투명한 외래어 · Fable 룰링 2026-09-07 · A2 상한 |
+| loanword | 헬스장 | A2 | 독일어·영어 화자에게 투명한 외래어 · Fable 룰링 2026-09-07 · A2 상한 |
+| loanword | 스탬프 | A2 | 독일어·영어 화자에게 투명한 외래어 · Fable 룰링 2026-09-07 · A2 상한 |
+| loanword | 라벨 | A2 | 독일어·영어 화자에게 투명한 외래어 · Fable 룰링 2026-09-07 · A2 상한 |
+| loanword | 커트 | A2 | 독일어·영어 화자에게 투명한 외래어 · Fable 룰링 2026-09-07 · A2 상한 |
+| loanword | 스타일리스트 | A2 | 독일어·영어 화자에게 투명한 외래어 · Fable 룰링 2026-09-07 · A2 상한 |
+| loanword | 이모티콘 | A2 | 독일어·영어 화자에게 투명한 외래어 · Fable 룰링 2026-09-07 · A2 상한 |
+| loanword | 밴드 | A2 | 독일어·영어 화자에게 투명한 외래어 · Fable 룰링 2026-09-07 · A2 상한 |
+| loanword | 파일 | A2 | 독일어·영어 화자에게 투명한 외래어 · Fable 룰링 2026-09-07 · A2 상한 |
+| loanword | 메일 | A2 | 독일어·영어 화자에게 투명한 외래어 · Fable 룰링 2026-09-07 · A2 상한 |
+| loanword | 이메일 | A2 | 독일어·영어 화자에게 투명한 외래어 · Fable 룰링 2026-09-07 · A2 상한 |
+| loanword | 코드 | A2 | 독일어·영어 화자에게 투명한 외래어 · Fable 룰링 2026-09-07 · A2 상한 |
+| loanword | 앱 | A2 | 독일어·영어 화자에게 투명한 외래어 · Fable 룰링 2026-09-07 · A2 상한 |
+| loanword | 카드 | A2 | 독일어·영어 화자에게 투명한 외래어 · Fable 룰링 2026-09-07 · A2 상한 |
+| loanword | 샴푸 | A2 | 독일어·영어 화자에게 투명한 외래어 · Fable 룰링 2026-09-07 · A2 상한 |
+| loanword | 린스 | A2 | 독일어·영어 화자에게 투명한 외래어 · Fable 룰링 2026-09-07 · A2 상한 |
+| loanword | 인터넷 | A2 | 독일어·영어 화자에게 투명한 외래어 · Fable 룰링 2026-09-07 · A2 상한 |
+| culture_basic | 송편 | A1 | 명절·음식 문화어 · Fable 룰링 2026-09-07 · A1 유지 |
+| culture_basic | 한가위 | A1 | 명절·음식 문화어 · Fable 룰링 2026-09-07 · A1 유지 |
+| culture_basic | 세배 | A1 | 명절·음식 문화어 · Fable 룰링 2026-09-07 · A1 유지 |
+| culture_basic | 세뱃돈 | A1 | 명절·음식 문화어 · Fable 룰링 2026-09-07 · A1 유지 |
+| culture_basic | 덕담 | A1 | 명절·음식 문화어 · Fable 룰링 2026-09-07 · A1 유지 |
+| culture_basic | 설빔 | A1 | 명절·음식 문화어 · Fable 룰링 2026-09-07 · A1 유지 |
+| culture_basic | 복주머니 | A1 | 명절·음식 문화어 · Fable 룰링 2026-09-07 · A1 유지 |
+| culture_basic | 한복 | A1 | 명절·음식 문화어 · Fable 룰링 2026-09-07 · A1 유지 |
+| culture_basic | 윷놀이 | A1 | 명절·음식 문화어 · Fable 룰링 2026-09-07 · A1 유지 |
+| culture_basic | 떡국 | A1 | 명절·음식 문화어 · Fable 룰링 2026-09-07 · A1 유지 |
+| culture_basic | 명절 | A1 | 명절·음식 문화어 · Fable 룰링 2026-09-07 · A1 유지 |
+| culture_basic | 추석 | A1 | 명절·음식 문화어 · Fable 룰링 2026-09-07 · A1 유지 |
+| culture_basic | 설날 | A1 | 명절·음식 문화어 · Fable 룰링 2026-09-07 · A1 유지 |
+| culture_basic | 밑반찬 | A1 | 명절·음식 문화어 · Fable 룰링 2026-09-07 · A1 유지 |
+| culture_basic | 반찬 | A1 | 명절·음식 문화어 · Fable 룰링 2026-09-07 · A1 유지 |
+| culture_basic | 국물 | A1 | 명절·음식 문화어 · Fable 룰링 2026-09-07 · A1 유지 |
+| culture_basic | 김치 | A1 | 명절·음식 문화어 · Fable 룰링 2026-09-07 · A1 유지 |
+| culture_basic | 떡볶이 | A1 | 명절·음식 문화어 · Fable 룰링 2026-09-07 · A1 유지 |
+| culture_basic | 김밥 | A1 | 명절·음식 문화어 · Fable 룰링 2026-09-07 · A1 유지 |
+| culture_basic | 삼겹살 | A1 | 명절·음식 문화어 · Fable 룰링 2026-09-07 · A1 유지 |
+| culture_basic | 치킨 | A1 | 명절·음식 문화어 · Fable 룰링 2026-09-07 · A1 유지 |
+| culture_advanced | 성묘 | A2 | 명절·제례 문화어 · Fable 룰링 2026-09-07 · A2 상한 |
+| culture_advanced | 벌초 | A2 | 명절·제례 문화어 · Fable 룰링 2026-09-07 · A2 상한 |
+| culture_advanced | 귀성 | A2 | 명절·제례 문화어 · Fable 룰링 2026-09-07 · A2 상한 |
+| culture_advanced | 귀성길 | A2 | 명절·제례 문화어 · Fable 룰링 2026-09-07 · A2 상한 |
+| culture_advanced | 차례 | A2 | 명절·제례 문화어 · Fable 룰링 2026-09-07 · A2 상한 |
+| culture_advanced | 제사 | A2 | 명절·제례 문화어 · Fable 룰링 2026-09-07 · A2 상한 |
+| culture_advanced | 햇과일 | A2 | 명절·제례 문화어 · Fable 룰링 2026-09-07 · A2 상한 |
+| culture_advanced | 솔잎 | A2 | 명절·제례 문화어 · Fable 룰링 2026-09-07 · A2 상한 |
+| culture_advanced | 보자기 | A2 | 명절·제례 문화어 · Fable 룰링 2026-09-07 · A2 상한 |
+| fixed_expression | 배고프다 | A1 | 기초 감각형용사·관용 표현 · Fable 룰링 2026-09-07 · A1 유지 |
+| fixed_expression | 배부르다 | A1 | 기초 감각형용사·관용 표현 · Fable 룰링 2026-09-07 · A1 유지 |
+| fixed_expression | 졸리다 | A1 | 기초 감각형용사·관용 표현 · Fable 룰링 2026-09-07 · A1 유지 |
+| fixed_expression | 새해 복 많이 받으세요 | A1 | 기초 감각형용사·관용 표현 · Fable 룰링 2026-09-07 · A1 유지 |
+| fixed_expression | 잘 먹었습니다 | A1 | 기초 감각형용사·관용 표현 · Fable 룰링 2026-09-07 · A1 유지 |
+| fixed_expression | 문제없어요 | A1 | 기초 감각형용사·관용 표현 · Fable 룰링 2026-09-07 · A1 유지 |
+| culture_advanced | 송편 빚다 | A2 | 송편 만들기 행위 관용구(추석 파트너 팩) — Fable 룰링 2026-09-07 |
+| culture_advanced | 빚다 | A2 | 송편·만두를 빚다 — 명절 조리 동사, Fable 룰링 2026-09-07 |
+| signage_a2 | 확인 | A2 | 확인/확인하다: 영수증·예약·문자 확인 등 생존 거래어 — Fable 룰링 2026-09-07 |
+| signage_a2 | 확인하다 | A2 | 확인/확인하다: 영수증·예약·문자 확인 등 생존 거래어 — Fable 룰링 2026-09-07 |
+
 ## 앱 고유 문법(F1 app_only, 92개) -- nikl 국제통용 목록에 대응 없음
 
 | app id | 사유(Fable) |

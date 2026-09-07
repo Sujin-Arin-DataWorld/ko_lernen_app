@@ -229,6 +229,11 @@ ID의 level segment는 생성 시점의 레벨이다. 레벨이 이동한 항목
 한해 세그먼트≠레벨을 허용한다. `pack_id`·`shelf` 접두사는 항상 현재 레벨과 같아야
 한다.
 
+문맥상 다른 팩으로 옮길 수 없는(예문·시나리오와 강하게 엮인) 과등급 단어는
+이동 대신 `tools/content_factory/relevel/replacement_backlog.json`에 등재해
+후속 backfill 웨이브(L3/L4)에서 레벨에 맞는 단어로 교체한다 — 자세한 내용은
+`docs/data/level_bible/F10_review_lessons.md` 참고.
+
 ### 3.2 ID 규칙
 
 | 유형 | 패턴 | 예 |

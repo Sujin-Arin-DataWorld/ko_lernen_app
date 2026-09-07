@@ -320,10 +320,10 @@
       "id": "cloze_a1_0170",
       "kind": "cloze",
       "from": "a1",
-      "to": "a2",
+      "to": "b2",
       "movedAt": "2026-09-07",
-      "batch": "L2a",
-      "reason": "median Δ=1, share=43%, n_hm=7"
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 6, Fable 룰링 2026-09-07"
     },
     {
       "id": "cloze_a1_0171",
@@ -599,10 +599,10 @@
       "id": "cloze_a1_0213",
       "kind": "cloze",
       "from": "a1",
-      "to": "a2",
+      "to": "b1",
       "movedAt": "2026-09-07",
-      "batch": "L2a",
-      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
     },
     {
       "id": "cloze_a1_0214",
@@ -657,6 +657,15 @@
       "movedAt": "2026-09-07",
       "batch": "L2a",
       "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0220",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 3, Fable 룰링 2026-09-07"
     },
     {
       "id": "cloze_a1_0232",
@@ -1091,6 +1100,69 @@
       "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
     },
     {
+      "id": "cloze_a1_0304",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "cloze_a1_0349",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 2, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "cloze_a1_0350",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 2, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "cloze_a2_0082",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "cloze_a2_0087",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "cloze_a2_0090",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 6, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "cloze_a2_0091",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
       "id": "cloze_a2_0112",
       "kind": "cloze",
       "from": "a2",
@@ -1197,6 +1269,123 @@
       "movedAt": "2026-09-07",
       "batch": "L2a",
       "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0136",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0137",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0138",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0139",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0140",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0141",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0142",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0143",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0144",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0145",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0146",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0147",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0151",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
     },
     {
       "id": "cloze_a2_0160",
@@ -1523,6 +1712,114 @@
       "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
     },
     {
+      "id": "cloze_a2_0220",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0221",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0222",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0223",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0224",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0225",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0226",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0227",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0228",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0229",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0230",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0231",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
       "id": "cloze_a2_0232",
       "kind": "cloze",
       "from": "a2",
@@ -1629,6 +1926,222 @@
       "movedAt": "2026-09-07",
       "batch": "L2a",
       "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0244",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0245",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0246",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0247",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0248",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0249",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0250",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0251",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0252",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0253",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0254",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0255",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0256",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0257",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0258",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0259",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0260",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0261",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0262",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0263",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0264",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0265",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0266",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0267",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
     },
     {
       "id": "cloze_a2_0278",
@@ -1791,6 +2304,15 @@
       "movedAt": "2026-09-07",
       "batch": "L2a",
       "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "satz_a1_0063",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 3, Fable 룰링 2026-09-07"
     },
     {
       "id": "satz_a1_0068",
@@ -2111,10 +2633,10 @@
       "id": "satz_a1_0134",
       "kind": "satz",
       "from": "a1",
-      "to": "a2",
+      "to": "b2",
       "movedAt": "2026-09-07",
-      "batch": "L2a",
-      "reason": "median Δ=1, share=43%, n_hm=7"
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 6, Fable 룰링 2026-09-07"
     },
     {
       "id": "satz_a1_0135",
@@ -2390,10 +2912,10 @@
       "id": "satz_a1_0177",
       "kind": "satz",
       "from": "a1",
-      "to": "a2",
+      "to": "b1",
       "movedAt": "2026-09-07",
-      "batch": "L2a",
-      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
     },
     {
       "id": "satz_a1_0178",
@@ -2448,6 +2970,15 @@
       "movedAt": "2026-09-07",
       "batch": "L2a",
       "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0184",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 3, Fable 룰링 2026-09-07"
     },
     {
       "id": "satz_a1_0196",
@@ -2882,6 +3413,69 @@
       "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
     },
     {
+      "id": "satz_a1_0307",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a1_0311",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a2_0016",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a2_0045",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a2_0050",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a2_0053",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 6, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a2_0054",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
       "id": "satz_a2_0075",
       "kind": "satz",
       "from": "a2",
@@ -2988,6 +3582,123 @@
       "movedAt": "2026-09-07",
       "batch": "L2a",
       "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0099",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0100",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0101",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0102",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0103",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0104",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0105",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0106",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0107",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0108",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0109",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0110",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0114",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
     },
     {
       "id": "satz_a2_0123",
@@ -3314,6 +4025,114 @@
       "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
     },
     {
+      "id": "satz_a2_0183",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0184",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0185",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0186",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0187",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0188",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0189",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0190",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0191",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0192",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0193",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0194",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
       "id": "satz_a2_0195",
       "kind": "satz",
       "from": "a2",
@@ -3420,6 +4239,258 @@
       "movedAt": "2026-09-07",
       "batch": "L2a",
       "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0207",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0208",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0209",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0210",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0211",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0212",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0213",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0214",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0215",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0216",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0217",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0218",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0219",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0220",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0221",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0222",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0223",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0224",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0225",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0226",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0227",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0228",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0229",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0230",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0328",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a2_0339",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a2_0412",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a2_0425",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
     },
     {
       "id": "satz_a2_0463",
@@ -3591,6 +4662,15 @@
       "movedAt": "2026-09-07",
       "batch": "L2a2",
       "reason": "Fable 직독 2026-09-07: 공유 문서·수정·복사 등 업무 어휘(3~5급)가 전 대사에 걸쳐 있어 A2 재집필 불가 — B1 업무 실수 수습 유닛으로 이동"
+    },
+    {
+      "id": "vocab_a1_0211",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 3, Fable 룰링 2026-09-07"
     },
     {
       "id": "vocab_a1_0216",
@@ -3911,10 +4991,10 @@
       "id": "vocab_a1_0282",
       "kind": "vocab",
       "from": "a1",
-      "to": "a2",
+      "to": "b2",
       "movedAt": "2026-09-07",
-      "batch": "L2a",
-      "reason": "median Δ=1, share=43%, n_hm=7"
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 6, Fable 룰링 2026-09-07"
     },
     {
       "id": "vocab_a1_0283",
@@ -4190,10 +5270,10 @@
       "id": "vocab_a1_0325",
       "kind": "vocab",
       "from": "a1",
-      "to": "a2",
+      "to": "b1",
       "movedAt": "2026-09-07",
-      "batch": "L2a",
-      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
     },
     {
       "id": "vocab_a1_0326",
@@ -4248,6 +5328,15 @@
       "movedAt": "2026-09-07",
       "batch": "L2a",
       "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0332",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 3, Fable 룰링 2026-09-07"
     },
     {
       "id": "vocab_a1_0344",
@@ -4682,6 +5771,123 @@
       "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
     },
     {
+      "id": "vocab_a1_0405",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a1_0420",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 2, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a1_0421",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 2, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a2_0109",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a2_0123",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a2_0149",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a2_0221",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a2_0222",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a2_0237",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a2_0275",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a2_0280",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a2_0283",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 6, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a2_0284",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
       "id": "vocab_a2_0305",
       "kind": "vocab",
       "from": "a2",
@@ -4788,6 +5994,123 @@
       "movedAt": "2026-09-07",
       "batch": "L2a",
       "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0329",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0330",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0331",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0332",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0333",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0334",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0335",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0336",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0337",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0338",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0339",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0340",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0344",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
     },
     {
       "id": "vocab_a2_0353",
@@ -5114,6 +6437,114 @@
       "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
     },
     {
+      "id": "vocab_a2_0413",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0414",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0415",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0416",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0417",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0418",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0419",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0420",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0421",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0422",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0423",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0424",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
       "id": "vocab_a2_0425",
       "kind": "vocab",
       "from": "a2",
@@ -5220,6 +6651,222 @@
       "movedAt": "2026-09-07",
       "batch": "L2a",
       "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0437",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0438",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0439",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0440",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0441",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0442",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0443",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0444",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0445",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0446",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0447",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0448",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0449",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0450",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0451",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0452",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0453",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0454",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0455",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0456",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0457",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0458",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0459",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0460",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
     },
     {
       "id": "vocab_a2_0465",

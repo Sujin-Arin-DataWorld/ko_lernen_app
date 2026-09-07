@@ -2452,7 +2452,6 @@
     "a2_partner_seollal_day": "a2_03_chat_relationships",
     "a2_partner_chuseok_day": "a2_03_chat_relationships",
     "a2_partner_overnight": "a2_03_chat_relationships",
-    "a2_partner_leftover_bags": "a2_03_chat_relationships",
     "a2_partner_hometown_trip": "a2_03_chat_relationships",
     "b1_partner_awkward_questions": "b1_04_relationships",
     "b1_partner_job_visa": "b1_04_relationships",
@@ -2479,9 +2478,6 @@
     "a1_sorry_thanks": "a1_13_register_switching",
     "a2_gym_class": "a2_04_feelings_health",
     "a2_salon_visit": "a2_05_delivery_services",
-    "a2_apt_rules": "a2_08_home_money",
-    "a2_lost_found": "a2_07_travel_repair",
-    "a2_festival_booth": "a2_03_chat_relationships",
     "b1_workplace_mail": "b1_03_work_softening",
     "b1_roommate_talk": "b1_04_relationships",
     "b1_insurance_claim": "b1_05_complaint_resolution",
@@ -2550,7 +2546,11 @@
     "b1_housing_search_2026": "b1_05_complaint_resolution",
     "b1_part_time": "b1_03_work_softening",
     "b1_phone_plan": "b1_05_complaint_resolution",
-    "b2_public_office": "b2_04_complaint_resolution"
+    "b2_public_office": "b2_04_complaint_resolution",
+    "b1_lost_found": "b1_05_complaint_resolution",
+    "b1_festival_booth": "b1_06_life_capstone",
+    "b1_apt_rules": "b1_06_life_capstone",
+    "b1_partner_leftover_bags": "b1_04_relationships"
   },
   "contentLinks": [
     {
@@ -6966,9 +6966,6 @@
     "a1:entschuldigung": "a1_13_register_switching",
     "a2:fitnesskurs": "a2_04_feelings_health",
     "a2:friseursalon": "a2_05_delivery_services",
-    "a2:hausordnung": "a2_08_home_money",
-    "a2:fundsachen": "a2_07_travel_repair",
-    "a2:feststand": "a2_03_chat_relationships",
     "b1:dienstmail": "b1_03_work_softening",
     "b1:wg-gespräch": "b1_04_relationships",
     "b1:versicherungsfall": "b1_05_complaint_resolution",
@@ -7032,7 +7029,14 @@
     "b1:집 구하기": "b1_05_complaint_resolution",
     "b1:nebenjob": "b1_03_work_softening",
     "b1:handytarif": "b1_05_complaint_resolution",
-    "b2:amtgang": "b2_04_complaint_resolution"
+    "b2:amtgang": "b2_04_complaint_resolution",
+    "b1:fundsachen": "b1_05_complaint_resolution",
+    "b1:feststand": "b1_06_life_capstone",
+    "b1:hausordnung": "b1_06_life_capstone",
+    "b1:apotheke": "b1_05_complaint_resolution",
+    "a2:도시 생활": "a2_07_travel_repair",
+    "a2:wochenendzusage": "a2_01_haeyo_transition",
+    "b1:자기소개": "b1_02_indirect_speech"
   },
   "scenarioCorpusGeneration": "canonical_120_v1",
   "scenarioCorpusSupplements": [

@@ -38,7 +38,6 @@ abstract final class PackArtworkCatalog {
     'a1_time_2',
     'a1_time_3',
     'a1_weekend_promise_1',
-    'a2_apt_rules_1',
     'a2_change_verbs_1',
     'a2_clothing_1',
     'a2_daily_1',
@@ -47,7 +46,6 @@ abstract final class PackArtworkCatalog {
     'a2_descriptions_2',
     'a2_feelings_1',
     'a2_feelings_2',
-    'a2_festival_booth_1',
     'a2_food_1',
     'a2_food_2',
     'a2_food_more_1',
@@ -55,11 +53,9 @@ abstract final class PackArtworkCatalog {
     'a2_health_misc_1',
     'a2_health_misc_2',
     'a2_household_1',
-    'a2_lost_found_1',
     'a2_partner_chuseok_day_1',
     'a2_partner_dinner_talk_1',
     'a2_partner_hometown_trip_1',
-    'a2_partner_leftover_bags_1',
     'a2_partner_overnight_1',
     'a2_partner_seollal_day_1',
     'a2_people_jobs_1',
@@ -126,6 +122,10 @@ abstract final class PackArtworkCatalog {
     'b1_housing_search_2026_1',
     'b1_part_time_1',
     'b1_phone_plan_1',
+    'b1_lost_found_1',
+    'b1_festival_booth_1',
+    'b1_apt_rules_1',
+    'b1_partner_leftover_bags_1',
   };
 
   static bool hasDedicatedArtwork(String packId) =>

@@ -96,6 +96,36 @@ resolved grade. Flagged then for Fable's ruling (alias vs. accepted gap);
 R7 item 8's generic compound split (§ below) is that ruling in code -- the
 word now resolves via its two independently-real parts (층간, 소음)
 instead, source='compound', confidence='medium'.
+
+Level exception table (T2.5, PR-L2a, plan §3.E/§14, bible F9 "레벨 예외표")
+----------------------------------------------------------------------------
+``tools/content_factory/lexicon/level_exceptions.csv`` (header
+``category,headword,allowed_level,note``, loaded by
+:func:`load_level_exceptions`) lists specific headwords -- kinship
+honorifics, learning-metalanguage nouns, signage/transaction vocabulary,
+transparent loanwords, and 명절/제사 culture words that keep skewing too
+high through kiiq's formal-register bias or basic2023's general-literacy
+grade-5 tail (see the R3 item 2 note on 장모님 above) -- whose grade is
+capped at a Fable-ruled ``allowed_level``, source='exception'. Checked as
+the FIRST tier inside :meth:`CefrLexicon._kiiq_derived_chain` (see that
+method's own docstring for why one hook point there reaches every
+consumer: word_grade, phrase_grade, sentence_profile, and every
+alias/multiword/compound path built on `_base_chain`), so it wins
+unconditionally over kiiq/basic2023/derived for its exact headword --
+the same override precedent as aliases.csv's empty-lexicon_form A1
+exception. A multi-word fixed_expression row (e.g. "새해 복 많이
+받으세요") additionally needs :meth:`CefrLexicon.phrase_grade`'s own
+whole-phrase pre-check, since Korean eojeol-tokenization never re-joins
+separate eojeols back into the original phrase for the per-token loop to
+match against a multi-word CSV key.
+
+The CSV also backs one general derivational rule, independent of any
+specific listed headword: `X없어요`/`X없다`/`X없는` grades as X's own grade
+when X (the noun with that suffix stripped) is itself a graded noun (예:
+문제없어요 -- separately ALSO a literal fixed_expression CSV row, so it
+resolves to A1 via the exception tier regardless -- decomposes as 문제's
+own grade if reached via this rule instead). See
+:meth:`CefrLexicon._negation_compound_lookup`.
 """
 
 from __future__ import annotations
@@ -115,6 +145,14 @@ KIIQ_VOCAB_CSV = LEXICON_DIR / "nikl_kiiq_2017_vocab.csv"
 KIIQ_GRAMMAR_CSV = LEXICON_DIR / "nikl_kiiq_2017_grammar.csv"
 BASIC2023_CSV = LEXICON_DIR / "nikl_basic_2023_vocab.csv"
 ALIASES_CSV = LEXICON_DIR / "aliases.csv"
+# T2.5 (PR-L2a, plan §3.E/§14, bible F9 "레벨 예외표"): a small table of
+# Fable-ruled grade CEILINGS for specific headwords, keyed by category
+# (kinship/meta/signage_a1/signage_a2/loanword/culture_basic/
+# culture_advanced/fixed_expression -- see the CSV's own rows). Unlike
+# aliases.csv's empty-lexicon_form A1 exception (a single fixed grade,
+# always 1), this table's `allowed_level` varies per row (A1 or A2) --
+# see `load_level_exceptions`/`CefrLexicon._exception_lookup`.
+LEVEL_EXCEPTIONS_CSV = LEXICON_DIR / "level_exceptions.csv"
 CHARACTER_PROFILES_JSON = (
     REPO / "tools" / "content_factory" / "canonical_scenarios" / "character_profiles.json"
 )
@@ -143,6 +181,10 @@ _CONFIDENCE_BY_SOURCE: Mapping[str, str] = {
     # has grade=None by design so never reaches this table (WordGrade.
     # confidence short-circuits to None whenever grade is None).
     "numeral": "high",
+    # T2.5: a curated Fable ruling is MORE authoritative than any
+    # automatic lookup tier, not less -- same 'high' treatment as
+    # kiiq/derived/alias.
+    "exception": "high",
 }
 
 # Sentence-length rule (plan §3.C.2 / brief): eojeol-count ceiling per grade;
@@ -473,6 +515,18 @@ H_IRREGULAR_MAP: Mapping[str, str] = {
 
 # Suffixes stripped for the "derived" word-grade step (longest first).
 DERIVED_SUFFIXES: Tuple[str, ...] = ("스럽다", "하다", "되다", "적", "히")
+
+# T2.5 (plan §3.E/§14, level_exceptions.csv's implicit lexicon rule): a
+# noun X compounded directly with 없다 ("to lack/not have X" -- 문제없다,
+# 상관없다, 걱정없다, ...) is graded as X's OWN grade, not X+없다's max --
+# harmless simplification since 없다 itself is kiiq grade 1 (the floor of
+# the whole scale), so max(X, 없다)==X always anyway. Longest-first so
+# "없어요" (which itself ends in "없다"'s "없" + the -어요 ending, NOT a
+# suffix of "없다" the literal 2-char string) is tried before the shorter
+# "없다"/"없는" -- see `CefrLexicon._negation_compound_lookup`.
+NEGATION_COMPOUND_SUFFIXES: Tuple[str, ...] = tuple(
+    sorted(("없어요", "없다", "없는"), key=len, reverse=True)
+)
 
 TRAILING_PUNCT = ".,!?…·\"'()[]{}:;""''"
 
@@ -1642,6 +1696,15 @@ def load_nikl_grammar_rows(root: Path = REPO) -> List[dict]:
     )
 
 
+def load_level_exceptions(root: Path = REPO) -> List[dict]:
+    """T2.5: read tools/content_factory/lexicon/level_exceptions.csv
+    (header ``category,headword,allowed_level,note``). Used both by
+    :meth:`CefrLexicon.load` and by ``tool/build_level_bible_tables.py``'s
+    F9 "레벨 예외표(등급 상한)" section, so both consumers stay in sync off
+    the one CSV."""
+    return _read_csv(root / "tools" / "content_factory" / "lexicon" / "level_exceptions.csv")
+
+
 # ---------------------------------------------------------------------------
 # CefrLexicon
 # ---------------------------------------------------------------------------
@@ -1657,11 +1720,15 @@ class CefrLexicon:
         basic_any: Mapping[str, Tuple[int, ...]],
         aliases: Mapping[str, Tuple[Optional[str], str]],
         proper_nouns: FrozenSet[str] = frozenset(),
+        exceptions: Mapping[str, Tuple[int, str, str]] = None,
     ) -> None:
         self._kiiq_any = kiiq_any
         self._basic_any = basic_any
         self._aliases = aliases
         self._proper_nouns = proper_nouns
+        # T2.5: headword (single- or multi-word, exactly as spelled in
+        # level_exceptions.csv) -> (allowed_grade, category, note).
+        self._exceptions: Mapping[str, Tuple[int, str, str]] = exceptions or {}
 
     # -- loading ------------------------------------------------------
 
@@ -1672,7 +1739,8 @@ class CefrLexicon:
         basic_rows = _read_csv(lex_dir / "nikl_basic_2023_vocab.csv")
         alias_rows = _read_csv(lex_dir / "aliases.csv")
         proper_nouns = load_character_names(root)
-        return cls.from_rows(kiiq_rows, basic_rows, alias_rows, proper_nouns)
+        exception_rows = load_level_exceptions(root)
+        return cls.from_rows(kiiq_rows, basic_rows, alias_rows, proper_nouns, exception_rows)
 
     @classmethod
     def from_rows(
@@ -1681,6 +1749,7 @@ class CefrLexicon:
         basic_rows: Iterable[Mapping[str, str]],
         alias_rows: Iterable[Mapping[str, str]],
         proper_nouns: Iterable[str] = (),
+        exception_rows: Iterable[Mapping[str, str]] = (),
     ) -> "CefrLexicon":
         # R3 item 1: a single map covering EVERY homograph row (including
         # homograph 0) for a headword, sorted ascending by grade so index 0
@@ -1711,7 +1780,20 @@ class CefrLexicon:
             note = (row.get("note") or "").strip()
             aliases[app_form] = (lexicon_form or None, note)
 
-        return cls(kiiq_any, basic_any, aliases, frozenset(proper_nouns))
+        # T2.5: headword -> (allowed_grade, category, note). `headword` is
+        # used verbatim as spelled in the CSV (single word or, for
+        # fixed_expression rows like "새해 복 많이 받으세요", a full
+        # space-joined phrase) -- see `_exception_lookup`/`phrase_grade`
+        # for where each shape is matched.
+        exceptions: dict = {}
+        for row in exception_rows:
+            headword = row["headword"].strip()
+            allowed_grade = CEFR_TO_GRADE[row["allowed_level"].strip()]
+            category = (row.get("category") or "").strip()
+            note = (row.get("note") or "").strip()
+            exceptions[headword] = (allowed_grade, category, note)
+
+        return cls(kiiq_any, basic_any, aliases, frozenset(proper_nouns), exceptions)
 
     # -- internal lookup tiers -----------------------------------------
 
@@ -1733,6 +1815,52 @@ class CefrLexicon:
             return None
         return BASIC2023_TO_GRADE[min(grades)]
 
+    def _exception_lookup(self, word: str) -> Optional[WordGrade]:
+        """T2.5: exact-string match against ``level_exceptions.csv``
+        (headword exactly as spelled there -- a single word already in its
+        dictionary/citation form, e.g. 환승, 결제하다, or a full
+        space-joined fixed expression, e.g. "새해 복 많이 받으세요"). This
+        is a Fable RULING, not merely a fallback signal -- it wins
+        unconditionally over kiiq/basic2023/derived for this exact
+        headword (same precedent as aliases.csv's empty-lexicon_form A1
+        exception, R7 item 10: "override whatever the grade lists say for
+        this EXACT surface form"), which is why it is checked FIRST in
+        `_kiiq_derived_chain` rather than computed as a min/ceiling against
+        whatever kiiq/basic2023 would otherwise have said. Returns None
+        (not a WordGrade) when `word` is not a listed headword, so callers
+        can tell "no ruling applies" apart from "ruling gives grade=None"
+        (the latter never actually occurs -- every CSV row has a real
+        allowed_level -- but the Optional keeps the contract honest)."""
+        entry = self._exceptions.get(word)
+        if entry is None:
+            return None
+        allowed_grade, _category, _note = entry
+        return WordGrade(allowed_grade, GRADE_TO_CEFR[allowed_grade], "exception", word)
+
+    def _negation_compound_lookup(self, word: str) -> WordGrade:
+        """T2.5 lexicon rule: `X없어요`/`X없다`/`X없는` -> X's own grade,
+        when X (the noun with the suffix stripped) independently resolves
+        via `_base_chain` (kiiq/derived, then basic2023 -- "graded noun"
+        means either source, not kiiq-only). Mirrors `_derived_lookup`'s
+        shape (strip a closed suffix, look up the root) but reuses
+        `_base_chain` rather than a bare kiiq dict hit, since X is
+        typically an ordinary noun that may only be basic2023-listed (see
+        NEGATION_COMPOUND_SUFFIXES' own comment for why 없다's OWN grade,
+        already the floor of the scale, never needs to be separately
+        consulted here). source='derived' -- the same tag `_derived_lookup`
+        uses for an identical "strip a productive suffix, grade the root"
+        shape, so it gets the same 'high'-confidence treatment. Returns a
+        grade=None WordGrade (never None itself) when no suffix matches or
+        the stripped root doesn't resolve, so callers can chain it the same
+        way as `_derived_lookup`'s sibling checks."""
+        for suf in NEGATION_COMPOUND_SUFFIXES:
+            if word.endswith(suf) and len(word) > len(suf):
+                root = word[: -len(suf)]
+                wg = self._base_chain(root)
+                if wg.grade is not None:
+                    return WordGrade(wg.grade, wg.cefr, "derived", root, wg.confidence_override)
+        return WordGrade(None, None, None, word)
+
     def _kiiq_derived_chain(self, word: str) -> WordGrade:
         """Steps 1-2 (plan §3.C.1, R3-revised): kiiq (homograph-insensitive,
         minimum grade across every row sharing the headword — R3 item 1),
@@ -1750,7 +1878,22 @@ class CefrLexicon:
         or the root itself is ambiguous (more than one kiiq row) -- either
         signal means the derived sense is not confidently the one meant.
         Scoped to 하다/되다 only (the brief's own scope; 스럽다/적/히 roots
-        are not cross-checked)."""
+        are not cross-checked).
+
+        T2.5: an exact `level_exceptions.csv` hit is checked FIRST (highest
+        priority -- see `_exception_lookup`), and the X없다 negation-
+        compound rule is tried LAST (after plain kiiq and DERIVED_SUFFIXES
+        derivation have both failed -- see `_negation_compound_lookup`).
+        This single method is called from `word_grade`, from
+        `_exact_headword_lookup` (the narrow chain `_resolve_eojeol` uses
+        first, i.e. what `phrase_grade`/`sentence_profile` actually reach
+        per eojeol), and from `_base_chain` (hence every alias/multiword/
+        prefix/compound-split consumer too) -- so hooking both new tiers
+        in here, rather than separately in each caller, gives every
+        consumer T2.5 coverage in one place."""
+        exception = self._exception_lookup(word)
+        if exception is not None:
+            return exception
         rows = self._kiiq_any.get(word)
         if rows:
             best = rows[0]  # sorted ascending by grade -> minimum/easiest
@@ -1776,6 +1919,9 @@ class CefrLexicon:
             return WordGrade(
                 grade, GRADE_TO_CEFR[grade], "derived", root, confidence_override
             )
+        negation = self._negation_compound_lookup(word)
+        if negation.grade is not None:
+            return negation
         return WordGrade(None, None, None, word)
 
     def _fallback_chain(self, word: str) -> WordGrade:
@@ -2167,7 +2313,32 @@ class CefrLexicon:
         """Grade every eojeol of `phrase` via the full lemmatizer + full
         word_grade chain (including aliases), returning max over content
         words (plan §4.1: '내용어별 WordGrade + max'). Proper-noun tokens
-        (R3 item 5) are excluded from `unknown`."""
+        (R3 item 5) are excluded from `unknown`.
+
+        T2.5: a MULTI-WORD level_exceptions.csv headword (fixed_expression
+        rows like "새해 복 많이 받으세요") can never be matched by the
+        per-eojeol loop below -- each eojeol is resolved independently
+        (Korean eojeol == space-separated unit already), so the loop never
+        re-joins them into the original phrase to check against a
+        multi-word CSV key. Whole-phrase-vs-exception-table is therefore
+        checked FIRST, short-circuiting the per-eojeol loop entirely when
+        `phrase` (eojeol-normalized and rejoined with single spaces, so
+        trailing punctuation/extra whitespace don't defeat the match) is
+        itself exactly one of those headwords. A single-word exception
+        headword passed as `phrase` also matches here (harmless -- the
+        per-eojeol loop below would reach the identical grade/source via
+        `_resolve_eojeol` -> `_kiiq_derived_chain` -> `_exception_lookup`
+        anyway), just without generating a `words` tuple with one entry
+        per eojeol -- see the synthetic single-WordGrade return below."""
+        eojeols = [t for t in (_normalize_token(r) for r in tokenize_eojeols(phrase)) if t]
+        whole_phrase_exception = self._exception_lookup(" ".join(eojeols))
+        if whole_phrase_exception is not None:
+            return PhraseGrade(
+                whole_phrase_exception.grade,
+                whole_phrase_exception.cefr,
+                (whole_phrase_exception,),
+                (),
+            )
         words: List[WordGrade] = []
         unknown: List[str] = []
         for raw in tokenize_eojeols(phrase):

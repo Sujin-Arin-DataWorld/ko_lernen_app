@@ -527,16 +527,34 @@ class TestR3ConfidenceAndProperNouns(unittest.TestCase):
         cls.grammar = cl.GrammarIndex.load()
 
     def test_low_confidence_capped_at_grade_3_for_lexical_p90_but_not_word_grade(self):
-        sentence = "장모님께 과일을 드렸어요."
+        # T2.5 SUPERSEDES this test's original 장모님 example: 장모님 was
+        # this module's own motivating case for basic2023's skewed-high
+        # grade-5 tail (see the module docstring's R3 item 2 note), and
+        # level_exceptions.csv now deliberately caps it at A1/'exception'
+        # (see test_word_grade_confidence_is_high_for_exception below) --
+        # so it can no longer demonstrate "low-confidence, uncapped
+        # word_grade" at all. 가공품 (basic2023 grade 5, NOT kiiq, NOT a
+        # level_exceptions.csv headword) replaces it as an unaffected real
+        # example of the same underlying mechanism.
+        sentence = "시장에서 가공품을 샀어요."
         sp = self.lex.sentence_profile(sentence, self.grammar)
         # Word-level lookup keeps the raw (uncapped) basic2023 grade.
-        wg = self.lex.word_grade("장모님")
+        wg = self.lex.word_grade("가공품")
         self.assertEqual(wg.grade, 6)
         self.assertEqual(wg.confidence, "low")
         # Sentence-level: flagged as low-confidence, and the sentence must
         # NOT be dragged to C2 by that single fallback-graded word.
-        self.assertIn("장모님께", sp.low_confidence)
+        self.assertIn("가공품을", sp.low_confidence)
         self.assertNotEqual(sp.level_estimate, "C2")
+
+    def test_word_grade_confidence_is_high_for_exception(self):
+        # T2.5: 장모님's own basic2023 grade WAS 6/low (see the test just
+        # above) -- level_exceptions.csv's kinship-category ruling now
+        # caps it at A1 with 'high' confidence (a deliberate Fable ruling
+        # outranks an uncertain general-literacy fallback grade).
+        wg = self.lex.word_grade("장모님")
+        self.assertEqual((wg.grade, wg.cefr, wg.source), (1, "A1", "exception"))
+        self.assertEqual(wg.confidence, "high")
 
     def test_character_names_loaded_from_profiles_json(self):
         names = cl.load_character_names()
@@ -987,8 +1005,12 @@ class TestR7CompoundPrefixNominaliserGoldenCases(unittest.TestCase):
     def setUpClass(cls):
         cls.lex = cl.CefrLexicon.load()
 
+    # T2.5 SUPERSEDES this list's original inclusion of 교통카드: it is now
+    # a level_exceptions.csv signage_a2 headword (capped A2/'exception'),
+    # so it no longer demonstrates the generic compound-split path -- see
+    # test_gyotongkadeu_now_resolves_via_t25_exception below instead.
     COMPOUND_CASES = [
-        "신용카드", "교통카드", "신입사원", "유통기한", "조회수", "합의서",
+        "신용카드", "신입사원", "유통기한", "조회수", "합의서",
     ]
 
     def test_compound_goldens_resolve_via_compound_split(self):
@@ -998,6 +1020,10 @@ class TestR7CompoundPrefixNominaliserGoldenCases(unittest.TestCase):
                 self.assertIsNotNone(wg.grade, "word_grade(%r) = %r" % (word, wg))
                 self.assertEqual(wg.source, "compound")
                 self.assertEqual(wg.confidence, "medium")
+
+    def test_gyotongkadeu_now_resolves_via_t25_exception(self):
+        wg = self.lex.word_grade("교통카드")
+        self.assertEqual((wg.grade, wg.cefr, wg.source), (2, "A2", "exception"))
 
     def test_bulhwaksilseong_prefix_plus_one(self):
         # 불 + 확실성 -- bare 확실/확실성 are not headwords, but 확실하다 IS
@@ -1490,6 +1516,89 @@ class TestT24aTokenizerFalsePositiveGoldenCases(unittest.TestCase):
         prof = self.lex.sentence_profile("카카오톡으로 QR 코드를 보냈어요.", self.gi)
         self.assertNotIn("카카오톡으로", prof.unknown)
         self.assertNotIn("QR", prof.unknown)
+
+
+class TestT25LevelExceptionsGoldenCases(unittest.TestCase):
+    """T2.5 (PR-L2a Part A): tools/content_factory/lexicon/level_exceptions.csv
+    caps specific headwords' grade at a Fable-ruled allowed_level, against
+    the real lexicon CSVs. Golden cases straight from the T2.5 brief."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = cl.CefrLexicon.load()
+        cls.gi = cl.GrammarIndex.load()
+
+    def test_kinship_jangineoreun_capped_a1_exception(self):
+        wg = self.lex.word_grade("장인어른")
+        self.assertEqual((wg.grade, wg.cefr, wg.source), (1, "A1", "exception"))
+
+    def test_signage_a2_hwanseung_capped_a2(self):
+        wg = self.lex.word_grade("환승")
+        self.assertEqual((wg.grade, wg.cefr), (2, "A2"))
+        self.assertEqual(wg.source, "exception")
+
+    def test_phrase_seongmyo_ot_takes_max_capped_at_a2(self):
+        # 성묘 (culture_advanced exception -> A2) + 옷 (ordinary kiiq A1
+        # word) -- the per-eojeol cap on 성묘 alone is enough for
+        # phrase_grade's existing max-over-tokens to land on A2.
+        pg = self.lex.phrase_grade("성묘 옷")
+        self.assertEqual((pg.grade, pg.cefr), (2, "A2"))
+        seongmyo = next(w for w in pg.words if w.matched == "성묘")
+        self.assertEqual(seongmyo.source, "exception")
+
+    def test_munjeeobseoyo_fixed_expression_a1(self):
+        wg = self.lex.word_grade("문제없어요")
+        self.assertEqual((wg.grade, wg.cefr), (1, "A1"))
+
+    def test_unlisted_word_unchanged(self):
+        # 공부하다 is not in level_exceptions.csv -- ordinary 'derived'
+        # resolution must be completely unaffected by this feature.
+        wg = self.lex.word_grade("공부하다")
+        self.assertEqual((wg.grade, wg.cefr, wg.source), (1, "A1", "derived"))
+
+    def test_every_csv_headword_resolves_at_or_below_its_allowed_level(self):
+        rows = cl.load_level_exceptions()
+        for row in rows:
+            headword = row["headword"].strip()
+            allowed_grade = cl.CEFR_TO_GRADE[row["allowed_level"].strip()]
+            with self.subTest(headword=headword):
+                if " " in headword:
+                    result_grade = self.lex.phrase_grade(headword).grade
+                else:
+                    result_grade = self.lex.word_grade(headword).grade
+                self.assertIsNotNone(result_grade, headword)
+                self.assertLessEqual(result_grade, allowed_grade, headword)
+
+    def test_multiword_fixed_expression_saehae_bok(self):
+        wg = self.lex.word_grade("새해 복 많이 받으세요")
+        self.assertEqual((wg.grade, wg.cefr, wg.source), (1, "A1", "exception"))
+        pg = self.lex.phrase_grade("새해 복 많이 받으세요")
+        self.assertEqual((pg.grade, pg.cefr), (1, "A1"))
+
+    def test_multiword_fixed_expression_jal_meogeotseumnida(self):
+        pg = self.lex.phrase_grade("잘 먹었습니다")
+        self.assertEqual((pg.grade, pg.cefr), (1, "A1"))
+
+    def test_negation_compound_rule_uses_root_grade_when_not_listed(self):
+        # X없어요/X없다/X없는 -> X's own grade, for an X NOT itself in
+        # level_exceptions.csv (시간 is an ordinary kiiq headword).
+        sigan = self.lex.word_grade("시간")
+        for surface in ("시간없어요", "시간없다", "시간없는"):
+            with self.subTest(surface=surface):
+                wg = self.lex.word_grade(surface)
+                self.assertEqual(wg.grade, sigan.grade)
+                self.assertEqual(wg.source, "derived")
+                self.assertEqual(wg.matched, "시간")
+
+    def test_exception_confidence_is_high(self):
+        wg = self.lex.word_grade("환승")
+        self.assertEqual(wg.confidence, "high")
+
+    def test_sentence_profile_carries_exception_source_for_listed_token(self):
+        prof = self.lex.sentence_profile("추석에 성묘를 갔어요.", self.gi)
+        seongmyo = next(t for t in prof.tokens if t.matched == "성묘")
+        self.assertEqual(seongmyo.source, "exception")
+        self.assertEqual(seongmyo.grade, 2)
 
 
 if __name__ == "__main__":

@@ -172,3 +172,25 @@ python functions/tts/build_canonical_manifest.py
 python functions/tts/build_canonical_manifest.py --check
 ```
 
+## 실행 결과 (L2a3)
+
+모드: --apply (실제 반영됨)
+
+| pack | words | cloze | satz | cando cluster (from -> to) | segment | note |
+|---|---|---|---|---|---|---|
+| `a2_lost_found_1`->`b1_lost_found_1` | 12 | 12 | 12 | `cluster_a2_subway_directions_v1` -> `cluster_b1_delivery_resolution_v1` | `segment_b1_delivery_resolution` | explicit (Fable ruling) |
+| `a2_festival_booth_1`->`b1_festival_booth_1` | 12 | 12 | 12 | `cluster_a2_running_late_v1` -> `cluster_b1_life_course_narrative_v1` | `segment_b1_life_course_narrative` | explicit (Fable ruling) |
+| `a2_apt_rules_1`->`b1_apt_rules_1` | 12 | 12 | 12 | `cluster_a2_rent_bank_transfer_v1` -> `cluster_b1_move_in_handover_v1` | `segment_b1_move_in_handover` | explicit (Fable ruling) |
+| `a2_partner_leftover_bags_1`->`b1_partner_leftover_bags_1` | 12 | 12 | 12 | `cluster_a2_running_late_v1` -> `cluster_b1_intimate_feelings_v1` | `segment_b1_intimate_feelings` | explicit (Fable ruling) |
+
+vocabPackUnitMap 개명 4건, clozeTopicUnitMap +3/-3, contentLinks 재작성 0건.
+
+Dart 편집:
+- `packDisplayMap` 개명: [('a2_lost_found', 'b1_lost_found'), ('a2_festival_booth', 'b1_festival_booth'), ('a2_apt_rules', 'b1_apt_rules'), ('a2_partner_leftover_bags', 'b1_partner_leftover_bags')]
+- `packOrderInLevel` 개명(새 순번): [('a2_lost_found', 'b1_lost_found', 48), ('a2_festival_booth', 'b1_festival_booth', 49), ('a2_apt_rules', 'b1_apt_rules', 50), ('a2_partner_leftover_bags', 'b1_partner_leftover_bags', 29)]
+- `dedicatedPackIds` 개명 + 아트워크 파일 rename: [('a2_lost_found_1', 'b1_lost_found_1'), ('a2_festival_booth_1', 'b1_festival_booth_1'), ('a2_apt_rules_1', 'b1_apt_rules_1'), ('a2_partner_leftover_bags_1', 'b1_partner_leftover_bags_1')]
+- `kPackProgressAliases` 추가: [('b1_lost_found_1', 'a2_lost_found_1'), ('b1_festival_booth_1', 'a2_festival_booth_1'), ('b1_apt_rules_1', 'a2_apt_rules_1'), ('b1_partner_leftover_bags_1', 'a2_partner_leftover_bags_1')]
+
+`test/`·`tools/content_factory/`에서 옛 pack id를 참조하는 파일 (Fable 확인 필요):
+- (없음)
+

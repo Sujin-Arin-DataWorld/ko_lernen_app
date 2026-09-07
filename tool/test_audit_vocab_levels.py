@@ -43,8 +43,13 @@ import audit_vocab_levels  # noqa: E402
 # relevel이 옮긴 a1_partner_* 팩 다수가 아래 "Partnerschaft & koreanische
 # Familie" 토픽 자체였으므로 topic-tie 캡도 함께 떨어졌다 (다음 상수 참고).
 # 내리는 것만 허용.
-KNOWN_SUSPECTS_CAP = 238
-KNOWN_BLOCKED_SUSPECTS_CAP = 209
+#
+# 2026-09-07 T2.5 실측 고정 (PR-L2a Part A/B/C: level_exceptions.csv +
+# relevel_bundle_L2a3.json 4개 팩 이동 + relevel_batch_003.csv 18단어
+# 이동). core_suspects/core_blocked 모두 더 낮은 실측치로 하향.
+# topic-tie 캡은 24로 변화 없음(이번 라운드는 이 토픽 팩을 옮기지 않음).
+KNOWN_SUSPECTS_CAP = 200
+KNOWN_BLOCKED_SUSPECTS_CAP = 171
 
 # "Partnerschaft & koreanische Familie" 토픽 최빈값 tie 붕괴로 발생한 신규
 # below_topic 오탐 65건 — 위 docstring 참고. 전부 blocked=satz_ref(기존

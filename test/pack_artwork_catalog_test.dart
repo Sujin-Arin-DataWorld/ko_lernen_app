@@ -21,14 +21,18 @@ void main() {
       );
     });
 
-    test('현재 승인 범위는 A1 25장, A2 38장, B1 50장이다', () {
+    test('현재 승인 범위는 A1 25장, A2 34장, B1 54장이다', () {
       int count(String level) => PackArtworkCatalog.dedicatedPackIds
           .where((id) => id.startsWith('${level}_'))
           .length;
 
+      // L2a3 relevel (2026-09-07): a2_lost_found_1, a2_festival_booth_1,
+      // a2_apt_rules_1, a2_partner_leftover_bags_1 moved a2->b1, taking
+      // their dedicated artwork with them (A2 38->34, B1 50->54, total
+      // unchanged at 113).
       expect(count('a1'), 25);
-      expect(count('a2'), 38);
-      expect(count('b1'), 50);
+      expect(count('a2'), 34);
+      expect(count('b1'), 54);
       expect(PackArtworkCatalog.dedicatedPackIds.length, 113);
     });
   });

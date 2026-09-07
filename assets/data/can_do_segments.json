@@ -2280,7 +2280,7 @@
     {
       "id": "cluster_a2_running_late_v1",
       "level": "a2",
-      "revision": 10,
+      "revision": 12,
       "sourceSeedIds": [
         "seed_scenario_running_late_v1",
         "seed_vocab_pack_a2_nature_1_v1",
@@ -2317,7 +2317,6 @@
         "seed_vocab_pack_a2_partner_chuseok_day_1_v1",
         "seed_vocab_pack_a2_partner_dinner_talk_1_v1",
         "seed_vocab_pack_a2_partner_hometown_trip_1_v1",
-        "seed_vocab_pack_a2_partner_leftover_bags_1_v1",
         "seed_vocab_pack_a2_partner_overnight_1_v1",
         "seed_vocab_pack_a2_partner_seollal_day_1_v1",
         "seed_grammar_grammar_a2_humble_give_v1",
@@ -2343,7 +2342,6 @@
         "seed_smalltalk_smalltalk_a2_0071_v1",
         "seed_smalltalk_smalltalk_a2_0072_v1",
         "seed_smalltalk_smalltalk_a2_0073_v1",
-        "seed_vocab_pack_a2_festival_booth_1_v1",
         "seed_smalltalk_smalltalk_a2_0074_v1",
         "seed_scenario_a2_youtube_send_the_link_v1",
         "seed_scenario_a2_theme_park_date_break_v1",
@@ -2504,10 +2502,6 @@
         },
         {
           "kind": "vocabPack",
-          "id": "a2_partner_leftover_bags_1"
-        },
-        {
-          "kind": "vocabPack",
           "id": "a2_partner_overnight_1"
         },
         {
@@ -2605,10 +2599,6 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_a2_0073"
-        },
-        {
-          "kind": "vocabPack",
-          "id": "a2_festival_booth_1"
         },
         {
           "kind": "smalltalk",
@@ -3211,7 +3201,7 @@
     {
       "id": "cluster_a2_subway_directions_v1",
       "level": "a2",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_scenario_subway_directions_v1",
         "seed_vocab_pack_a2_transport_v1",
@@ -3230,7 +3220,6 @@
         "seed_cloze_cloze_a2_0051_v1",
         "seed_cloze_cloze_a2_0052_v1",
         "seed_cloze_cloze_a2_0053_v1",
-        "seed_vocab_pack_a2_lost_found_1_v1",
         "seed_scenario_a2_airport_sim_v1",
         "seed_scenario_a2_apt_sticker_v1",
         "seed_scenario_a2_auto_debit_v1",
@@ -3346,10 +3335,6 @@
         {
           "kind": "cloze",
           "id": "cloze_a2_0053"
-        },
-        {
-          "kind": "vocabPack",
-          "id": "a2_lost_found_1"
         },
         {
           "kind": "scenario",
@@ -3588,7 +3573,7 @@
     {
       "id": "cluster_a2_rent_bank_transfer_v1",
       "level": "a2",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_scenario_rent_bank_transfer_v1",
         "seed_vocab_pack_a2_home_1_v1",
@@ -3611,7 +3596,6 @@
         "seed_cloze_cloze_a2_0073_v1",
         "seed_cloze_cloze_a2_0074_v1",
         "seed_cloze_cloze_a2_0075_v1",
-        "seed_vocab_pack_a2_apt_rules_1_v1",
         "seed_grammar_grammar_a2_permission_check_batch20_v1",
         "seed_grammar_grammar_a2_preference_soft_batch20_v1",
         "seed_smalltalk_smalltalk_a2_0078_v1",
@@ -3705,10 +3689,6 @@
         {
           "kind": "cloze",
           "id": "cloze_a2_0075"
-        },
-        {
-          "kind": "vocabPack",
-          "id": "a2_apt_rules_1"
         },
         {
           "kind": "grammar",
@@ -4693,7 +4673,7 @@
     {
       "id": "cluster_b1_intimate_feelings_v1",
       "level": "b1",
-      "revision": 9,
+      "revision": 10,
       "sourceSeedIds": [
         "seed_scenario_love_confession_v1",
         "seed_vocab_pack_b1_character_feelings_1_v1",
@@ -4756,7 +4736,8 @@
         "seed_vocab_pack_a1_partner_first_gift_1_v1",
         "seed_vocab_pack_a1_partner_siblings_hello_1_v1",
         "seed_vocab_pack_a2_partner_sibling_tease_1_v1",
-        "seed_vocab_pack_a2_partner_banmal_switch_1_v1"
+        "seed_vocab_pack_a2_partner_banmal_switch_1_v1",
+        "seed_vocab_pack_a2_partner_leftover_bags_1_v1"
       ],
       "contentReferences": [
         {
@@ -5006,6 +4987,10 @@
         {
           "kind": "vocabPack",
           "id": "b1_partner_banmal_switch_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b1_partner_leftover_bags_1"
         }
       ]
     },
@@ -5036,7 +5021,7 @@
     {
       "id": "cluster_b1_delivery_resolution_v1",
       "level": "b1",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
         "seed_scenario_food_delivery_v1",
         "seed_vocab_pack_b1_health_education_v1",
@@ -5089,7 +5074,8 @@
         "seed_scenario_b1_insurance_deductible_share_v1",
         "seed_scenario_b1_insurance_what_is_covered_v1",
         "seed_vocab_pack_a2_bank_counter_1_v1",
-        "seed_vocab_pack_a2_phone_plan_1_v1"
+        "seed_vocab_pack_a2_phone_plan_1_v1",
+        "seed_vocab_pack_a2_lost_found_1_v1"
       ],
       "contentReferences": [
         {
@@ -5299,6 +5285,10 @@
         {
           "kind": "vocabPack",
           "id": "b1_phone_plan_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b1_lost_found_1"
         }
       ]
     },
@@ -5476,11 +5466,12 @@
     {
       "id": "cluster_b1_move_in_handover_v1",
       "level": "b1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_scenario_b1_move_in_handover_v1",
         "seed_smalltalk_smalltalk_b1_0033_v1",
-        "seed_vocab_pack_a1_neighbors_hall_1_v1"
+        "seed_vocab_pack_a1_neighbors_hall_1_v1",
+        "seed_vocab_pack_a2_apt_rules_1_v1"
       ],
       "contentReferences": [
         {
@@ -5494,13 +5485,17 @@
         {
           "kind": "vocabPack",
           "id": "b1_neighbors_hall_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b1_apt_rules_1"
         }
       ]
     },
     {
       "id": "cluster_b1_life_course_narrative_v1",
       "level": "b1",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_vocab_pack_b1_time_life_1_v1",
         "seed_vocab_pack_b1_descriptions_adj_1_v1",
@@ -5512,7 +5507,8 @@
         "seed_grammar_grammar_b1_prepared_state_v1",
         "seed_grammar_grammar_b1_self_prompt_v1",
         "seed_vocab_pack_b1_volunteer_shift_1_v1",
-        "seed_scenario_b1_daily_cut_the_bills_v1"
+        "seed_scenario_b1_daily_cut_the_bills_v1",
+        "seed_vocab_pack_a2_festival_booth_1_v1"
       ],
       "contentReferences": [
         {
@@ -5558,6 +5554,10 @@
         {
           "kind": "scenario",
           "id": "b1_daily_cut_the_bills"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b1_festival_booth_1"
         }
       ]
     },

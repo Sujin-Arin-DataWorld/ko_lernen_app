@@ -23,4 +23,8 @@ const Map<String, String> kPackProgressAliases = {
   'b1_part_time_1': 'a2_part_time_1',
   'b1_phone_plan_1': 'a2_phone_plan_1',
   'b2_public_office_1': 'b1_public_office_1',
+  'b1_lost_found_1': 'a2_lost_found_1',
+  'b1_festival_booth_1': 'a2_festival_booth_1',
+  'b1_apt_rules_1': 'a2_apt_rules_1',
+  'b1_partner_leftover_bags_1': 'a2_partner_leftover_bags_1',
 };
