@@ -838,7 +838,12 @@ class TtsGeneratorContractTest(unittest.TestCase):
         run.assert_called_once()
         argv = run.call_args.args[0]
         self.assertEqual(argv[1:3], ["storage", "cp"])
-        self.assertEqual(argv[4], f"gs://{generate_tts.BUCKET}/{relative_path}")
+        # Batched upload (T1.6): a single-item chunk still targets the voice
+        # *directory*, not the object's own path — gcloud names the uploaded
+        # object after the local basename, which must equal the manifest's
+        # expected basename.
+        self.assertEqual(os.path.basename(argv[3]), os.path.basename(relative_path))
+        self.assertEqual(argv[4], f"gs://{generate_tts.BUCKET}/tts/v3/{voice}/")
         self.assertNotIn("rsync", argv)
 
     def test_download_first_line_bundle_dedupes_shared_storage_paths(self):
@@ -1117,6 +1122,158 @@ class TtsGeneratorContractTest(unittest.TestCase):
         remote.assert_called_once()
         synth.assert_not_called()
         run.assert_not_called()
+
+    def test_chunk_uploads_never_mixes_voices_and_preserves_order(self):
+        # T1.6/4.6: 120개(목소리 2종) at chunk_size=50 — 청크는 목소리를
+        # 섞지 않고, 각 청크는 <=50개이며, 그룹 내부 순서는 입력 순서를
+        # 그대로 유지해야 한다(다운로드/삭제 배치와 같은 계약).
+        items = [
+            generate_tts.UploadItem(
+                local_path=f"/tmp/{i:04d}.mp3",
+                relative_path=f"tts/v3/{'female' if i % 2 == 0 else 'male'}/{i:04d}.mp3",
+                voice="female" if i % 2 == 0 else "male",
+            )
+            for i in range(120)
+        ]
+
+        chunks = generate_tts.chunk_uploads(items, chunk_size=50)
+
+        self.assertEqual(sum(len(chunk) for chunk in chunks), 120)
+        for chunk in chunks:
+            self.assertLessEqual(len(chunk), 50)
+            voices = {item.voice for item in chunk}
+            self.assertEqual(len(voices), 1, "청크가 목소리를 섞었습니다")
+        female_order = [
+            item.local_path
+            for chunk in chunks
+            for item in chunk
+            if item.voice == "female"
+        ]
+        expected_female_order = [item.local_path for item in items if item.voice == "female"]
+        self.assertEqual(female_order, expected_female_order)
+        male_order = [
+            item.local_path for chunk in chunks for item in chunk if item.voice == "male"
+        ]
+        expected_male_order = [item.local_path for item in items if item.voice == "male"]
+        self.assertEqual(male_order, expected_male_order)
+
+    def test_chunk_uploads_empty_input_yields_no_chunks(self):
+        self.assertEqual(generate_tts.chunk_uploads([], chunk_size=50), [])
+
+    def test_build_upload_command_assembles_gcloud_argv_for_a_chunk(self):
+        chunk = [
+            generate_tts.UploadItem(f"/tmp/{name}.mp3", f"tts/v3/female/{name}.mp3", "female")
+            for name in ("aaa", "bbb", "ccc")
+        ]
+
+        command = generate_tts.build_upload_command(chunk, "my-bucket", "my-project")
+
+        self.assertEqual(
+            command,
+            [
+                "gcloud",
+                "storage",
+                "cp",
+                "/tmp/aaa.mp3",
+                "/tmp/bbb.mp3",
+                "/tmp/ccc.mp3",
+                "gs://my-bucket/tts/v3/female/",
+                "--project",
+                "my-project",
+            ],
+        )
+
+    def test_build_upload_command_rejects_basename_mismatch(self):
+        # 대상이 목소리 디렉터리 자체이므로 gcloud는 로컬 파일명을 그대로
+        # 원격 오브젝트명으로 쓴다 — 로컬/원격 파일명이 다르면 매니페스트가
+        # 기대하는 경로에 파일이 없게 되므로 조용히 넘어가면 안 된다.
+        chunk = [
+            generate_tts.UploadItem("/tmp/aaa.mp3", "tts/v3/female/aaa.mp3", "female"),
+            generate_tts.UploadItem("/tmp/wrong_name.mp3", "tts/v3/female/bbb.mp3", "female"),
+        ]
+
+        with self.assertRaises(ValueError):
+            generate_tts.build_upload_command(chunk, "my-bucket", "my-project")
+
+    def test_upload_chunks_retries_a_failing_chunk_before_succeeding(self):
+        chunk = [generate_tts.UploadItem("/tmp/aaa.mp3", "tts/v3/female/aaa.mp3", "female")]
+        calls = []
+
+        def fake_runner(argv, check=True):
+            calls.append(argv)
+            if len(calls) < 3:
+                raise subprocess.CalledProcessError(1, argv)
+            return subprocess.CompletedProcess(argv, 0)
+
+        with (
+            patch.object(generate_tts.shutil, "which", return_value="gcloud"),
+            patch.object(generate_tts.time, "sleep") as sleep,
+        ):
+            generate_tts.upload_chunks(
+                [chunk], runner=fake_runner, retries=2, backoff_seconds=(5, 15)
+            )
+
+        self.assertEqual(len(calls), 3, "두 번 실패 후 세 번째 시도에서 성공해야 합니다")
+        self.assertEqual([call.args[0] for call in sleep.call_args_list], [5, 15])
+
+    def test_upload_chunks_raises_after_exhausting_retries(self):
+        chunk = [
+            generate_tts.UploadItem("/tmp/first.mp3", "tts/v3/female/first.mp3", "female"),
+            generate_tts.UploadItem("/tmp/last.mp3", "tts/v3/female/last.mp3", "female"),
+        ]
+
+        def always_fails(argv, check=True):
+            raise subprocess.CalledProcessError(1, argv)
+
+        with (
+            patch.object(generate_tts.shutil, "which", return_value="gcloud"),
+            patch.object(generate_tts.time, "sleep"),
+        ):
+            with self.assertRaises(RuntimeError) as ctx:
+                generate_tts.upload_chunks(
+                    [chunk], runner=always_fails, retries=2, backoff_seconds=(5, 15)
+                )
+
+        message = str(ctx.exception)
+        self.assertIn("first.mp3", message)
+        self.assertIn("last.mp3", message)
+
+    def test_upload_chunks_empty_list_never_calls_runner(self):
+        with patch.object(generate_tts.shutil, "which", return_value="gcloud"):
+            generate_tts.upload_chunks([], runner=lambda argv, check=True: self.fail("called"))
+
+    def test_manifest_upload_batches_same_voice_items_into_one_call(self):
+        # T1.6: 같은 목소리의 여러 발화는 파일당 gcloud 프로세스가 아니라
+        # 청크당 한 번의 `gcloud storage cp <local...> <voice-dir>/`로
+        # 업로드돼야 한다.
+        voice = "female"
+        texts = ["안녕하세요", "감사합니다"]
+        pairs = [(voice, text) for text in texts]
+        with tempfile.TemporaryDirectory() as temp:
+            with (
+                patch.object(generate_tts, "OUT", temp),
+                patch.object(generate_tts, "collect", return_value=pairs),
+                patch.object(generate_tts, "_auth", return_value="token"),
+                patch.object(
+                    generate_tts, "synth", return_value=b"I" * 512
+                ),
+                patch.object(generate_tts, "mp3_duration", return_value=1.0),
+                patch.object(generate_tts.shutil, "which", return_value="gcloud"),
+                patch.object(generate_tts.subprocess, "run") as run,
+                patch("builtins.print"),
+            ):
+                result = generate_tts.main(["--synthesize", "--workers", "1"])
+
+        self.assertEqual(result, 0)
+        run.assert_called_once()
+        argv = run.call_args.args[0]
+        self.assertEqual(argv[1:3], ["storage", "cp"])
+        self.assertEqual(argv[-2], "--project")
+        self.assertEqual(argv[-1], generate_tts.PROJECT)
+        destination = argv[-3]
+        self.assertEqual(destination, f"gs://{generate_tts.BUCKET}/tts/v3/{voice}/")
+        sources = argv[3:-3]
+        self.assertEqual(len(sources), 2)
 
 
 if __name__ == "__main__":

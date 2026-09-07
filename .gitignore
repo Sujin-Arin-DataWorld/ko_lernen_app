@@ -175,3 +175,8 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# 레벨 바이블 사전 원본 xlsx(용량·저작권 — CSV 산출물만 커밋, tool/ingest_nikl_grade_lists.py로 재생성).
+tools/content_factory/lexicon/*.xlsx
+# kornorms 외래어 감사 캐시(tool/audit_loanword_spelling.py, T1.9).
+tool/.cache/

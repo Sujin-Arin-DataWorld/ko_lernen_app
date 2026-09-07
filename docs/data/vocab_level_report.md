@@ -3,6 +3,8 @@
 > 생성: `python3 tool/audit_vocab_levels.py` — 레벨 분류 검토용.
 > 직접 편집 금지. 재분류는 `tool/relevel/relevel_batch_*.csv` +
 > `python3 tool/relevel_vocab.py --apply` 로.
+> 국제통용 등급(국립국어원 2017 사전) 대조 매트릭스는
+> `python tool/audit_content_levels.py` → `docs/data/content_level_report.md` 참고.
 
 **총 단어**: 2420
 

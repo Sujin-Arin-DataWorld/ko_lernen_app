@@ -23,6 +23,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable
 
+import relevel_ledger
 import scenario_store
 from shelf_assignment import ALL_SHELVES
 
@@ -82,36 +83,13 @@ GRAMMAR_HEADER = [
     "quiz_distractor_ids",
 ]
 
-# These shipped rows predate the level-ID contract.  Keeping the exception
-# explicit means future generated rows cannot silently repeat the mistake.
-# relevel batch 002 (2026-09-05, #268): 시아버지 A1→B1
-LEGACY_VOCAB_LEVEL_EXCEPTIONS = frozenset(
-    (
-        "vocab_b1_0013",
-        "vocab_b1_0192",
-        "vocab_b1_0195",
-        "vocab_b2_0089",
-        "vocab_b2_0094",
-        "vocab_b2_0095",
-        "vocab_b2_0109",
-        "vocab_b2_0110",
-        "vocab_b2_0111",
-        "vocab_b2_0112",
-        "vocab_b2_0113",
-        "vocab_b2_0116",
-        "vocab_b2_0117",
-        "vocab_b2_0118",
-        "vocab_b2_0145",
-        "vocab_b2_0146",
-        "vocab_a1_0216",
-    )
-)
-
-# relevel batch 002 (2026-09-05, #268): 시아버지 A1→B1
-LEGACY_CLOZE_LEVEL_EXCEPTIONS = frozenset(("cloze_a1_0104",))
-
-# relevel batch 002 (2026-09-05, #268): 시아버지 A1→B1
-LEGACY_SATZ_LEVEL_EXCEPTIONS = frozenset(("satz_a1_0068",))
+# Rows whose id level segment disagrees with their current row level (e.g. a
+# vocab row that moved from A1 to B1 keeps its `vocab_a1_0216` id -- ids are
+# immutable, plan §Global Constraints "ID는 불변") used to be hard-coded here
+# as three `LEGACY_*_LEVEL_EXCEPTIONS` frozensets. They are now entries in
+# `tools/content_factory/relevel_ledger.json`, loaded via `relevel_ledger.py`
+# (plan §3.E, §4.3; T1.7) as `self.ledger` below -- see
+# `self.ledger.allows(kind, ident, level)` at each of the id/level checks.
 
 # Existing content was authored before the hearing-quest requirement.  Every
 # new scenario must have one; this baseline allowlist makes that ratchet real.
@@ -163,7 +141,13 @@ class Issue:
 
 
 class ContentValidator:
-    def __init__(self, root: Path = ROOT) -> None:
+    def __init__(
+        self,
+        root: Path = ROOT,
+        *,
+        ledger: relevel_ledger.Ledger | None = None,
+        ledger_path: Path | None = None,
+    ) -> None:
         self.root = root
         self.data = root / "assets" / "data"
         # F6 (2026-09-01): content_audit_manifest.json 은 폴더 단위 pubspec
@@ -172,6 +156,27 @@ class ContentValidator:
         # 검증/카탈로그 전용).
         self.content_audit_manifest_dir = root / "tools" / "content_factory"
         self.issues: list[Issue] = []
+        # Ledger resolution precedence: an already-built Ledger object wins
+        # (tests can hand in one built entirely in memory); otherwise an
+        # explicit `ledger_path` is loaded from disk (tests can point this
+        # at a temp copy without touching the real checkout's file);
+        # otherwise it falls back to relevel_ledger.DEFAULT_LEDGER_PATH,
+        # resolved relative to relevel_ledger.py itself, not to `root` --
+        # staging trees built by integrate_scenario_batch.py/
+        # integrate_review_batches.py only copy assets/data (plus a couple
+        # of explicit tools/content_factory files); the ledger is reference
+        # data, not staged content, so the default must always resolve to
+        # the real checkout. See relevel_ledger.py's module docstring.
+        if ledger is not None:
+            self.ledger = ledger
+        else:
+            self.ledger = relevel_ledger.load_ledger(
+                ledger_path if ledger_path is not None else relevel_ledger.DEFAULT_LEDGER_PATH
+            )
+        # Populated as each validate_* method walks its rows/items, then
+        # cross-checked against the ledger by validate_ledger_entries()
+        # below. Maps kind -> {id: level (lowercase)}.
+        self._live_levels: dict[str, dict[str, str]] = defaultdict(dict)
 
     def issue(self, source: str, message: str) -> None:
         self.issues.append(Issue(source, message))
@@ -231,7 +236,19 @@ class ContentValidator:
         self.validate_word_relations()
         self.validate_curriculum_graph()
         self.validate_audit_manifest(vocab, grammar, scenarios)
+        self.validate_ledger_entries()
         return self.issues
+
+    def validate_ledger_entries(self) -> None:
+        """Fail-closed cross-check of relevel_ledger.json against the live
+        content it claims to describe (plan §4.3): every ledgered id must
+        still exist at the level it says it moved *to*, and its own id
+        segment must still equal the level it says it moved *from*. This
+        runs after every other validate_* method so `self._live_levels` is
+        fully populated."""
+
+        for message in relevel_ledger.validate_ledger(self.ledger, self._live_levels):
+            self.issue("relevel_ledger.json", message)
 
     def validate_humanization_ledger(self) -> None:
         source = "content_humanization_20260821.json"
@@ -313,10 +330,12 @@ class ContentValidator:
             if level not in UPPER_LEVELS:
                 self.issue(name, f"{label} has invalid level {row.get('level')!r}")
             ident = (row.get("id") or "").strip()
+            if ident:
+                self._live_levels["vocab"][ident] = level.lower()
             if not re.fullmatch(r"vocab_(a1|a2|b1|b2|c1|c2)_\d+", ident):
                 self.issue(name, f"{label} has invalid vocab id {ident!r}")
-            elif ident.split("_")[1].upper() != level and ident not in LEGACY_VOCAB_LEVEL_EXCEPTIONS:
-                self.issue(name, f"{label} id level disagrees with row level: {ident} vs {level}")
+            elif ident.split("_")[1].upper() != level and not self.ledger.allows("vocab", ident, level.lower()):
+                self.issue(name, f"{label} id level disagrees with row level and is not in relevel ledger")
             if ident in by_id:
                 self.issue(name, f"duplicate id {ident!r} at {label} and {by_id[ident]}")
             else:
@@ -362,12 +381,14 @@ class ContentValidator:
                 self.issue(name, f"{label} has an empty required field")
             ident = (row.get("id") or "").strip()
             level = (row.get("level") or "").lower()
+            if ident:
+                self._live_levels["grammar"][ident] = level
             if not re.fullmatch(r"grammar_(a1|a2|b1|b2|c1|c2)_[a-z0-9_]+", ident):
                 self.issue(name, f"{label} has invalid grammar id {ident!r}")
-            elif ident.split("_")[1] != level:
+            elif ident.split("_")[1] != level and not self.ledger.allows("grammar", ident, level):
                 self.issue(
                     name,
-                    f"{label} id level disagrees with row level: {ident} vs {level}",
+                    f"{label} id level disagrees with row level and is not in relevel ledger",
                 )
             if ident in by_id:
                 self.issue(name, f"duplicate id {ident!r}")
@@ -601,12 +622,14 @@ class ContentValidator:
             seen.add(ident)
             raw_level = item.get("level")
             level = raw_level.lower() if isinstance(raw_level, str) else ""
+            if ident:
+                self._live_levels["satz"][ident] = level
             if level not in LOWER_LEVELS:
                 self.issue(name, f"{ident} level must be an A1-C2 string")
             if not re.fullmatch(r"satz_(a1|a2|b1|b2|c1|c2)_\d+", ident):
                 self.issue(name, f"{ident} has invalid satz id")
-            elif ident.split("_")[1] != level and ident not in LEGACY_SATZ_LEVEL_EXCEPTIONS:
-                self.issue(name, f"{ident} id level disagrees with {level}")
+            elif ident.split("_")[1] != level and not self.ledger.allows("satz", ident, level):
+                self.issue(name, f"{ident} id level disagrees with {level} and is not in relevel ledger")
             for field in ("targetKo", "promptDe", "promptEn", "vocabKo"):
                 if not self._is_nonempty_string(item.get(field)):
                     self.issue(name, f"{ident} {field} must be a nonempty string")
@@ -673,12 +696,14 @@ class ContentValidator:
             seen.add(ident)
             raw_level = item.get("level")
             level = raw_level.lower() if isinstance(raw_level, str) else ""
+            if ident:
+                self._live_levels["smalltalk"][ident] = level
             if level not in LOWER_LEVELS:
                 self.issue(name, f"{ident} level must be an A1-C2 string")
             if not re.fullmatch(r"smalltalk_(a1|a2|b1|b2|c1|c2)_\d+", ident):
                 self.issue(name, f"{ident} has invalid smalltalk id")
-            elif ident.split("_")[1] != level:
-                self.issue(name, f"{ident} id level disagrees with {level}")
+            elif ident.split("_")[1] != level and not self.ledger.allows("smalltalk", ident, level):
+                self.issue(name, f"{ident} id level disagrees with {level} and is not in relevel ledger")
             for field in ("category", "kind", "ko", "de", "en"):
                 if not self._is_nonempty_string(item.get(field)):
                     self.issue(name, f"{ident} {field} must be a nonempty string")
@@ -1022,10 +1047,16 @@ class ContentValidator:
             seen.add(ident)
             raw_level = item.get("level")
             level = raw_level.lower() if isinstance(raw_level, str) else ""
+            if ident:
+                self._live_levels["pronunciation"][ident] = level
             if level not in LOWER_LEVELS:
                 self.issue(name, f"{ident} level must be an A1-C2 string")
-            elif ident.startswith("pronunciation_") and ident.split("_")[1] != level:
-                self.issue(name, f"{ident} id level disagrees with {level}")
+            elif (
+                ident.startswith("pronunciation_")
+                and ident.split("_")[1] != level
+                and not self.ledger.allows("pronunciation", ident, level)
+            ):
+                self.issue(name, f"{ident} id level disagrees with {level} and is not in relevel ledger")
             for field in ("ko", "de", "en", "focus"):
                 if not self._is_nonempty_string(item.get(field)):
                     self.issue(name, f"{ident} {field} must be a nonempty string")
@@ -1667,12 +1698,14 @@ class ContentValidator:
             seen.add(ident)
             raw_level = item.get("level")
             level = raw_level.lower() if isinstance(raw_level, str) else ""
+            if ident and kind == "cloze":
+                self._live_levels["cloze"][ident] = level
             if level not in LOWER_LEVELS:
                 self.issue(name, f"{ident} level must be an A1-C2 string")
             if not re.fullmatch(r"cloze_(a1|a2|b1|b2|c1|c2)_\d+", ident):
                 self.issue(name, f"{ident} has invalid cloze id")
-            elif ident.split("_")[1] != level and ident not in LEGACY_CLOZE_LEVEL_EXCEPTIONS:
-                self.issue(name, f"{ident} id level disagrees with {level}")
+            elif ident.split("_")[1] != level and not self.ledger.allows("cloze", ident, level):
+                self.issue(name, f"{ident} id level disagrees with {level} and is not in relevel ledger")
             if kind == "cloze":
                 for field in ("sentenceKo", "answer", "fullKo", "de", "en", "topic"):
                     if not self._is_nonempty_string(item.get(field)):

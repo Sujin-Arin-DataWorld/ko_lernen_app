@@ -59,6 +59,7 @@ import shutil
 import subprocess
 import tempfile
 import time
+from typing import NamedTuple
 import urllib.error
 import urllib.request
 
@@ -670,6 +671,120 @@ def download_first_line_bundle(manifest_items, project_root=ROOT, chunk_size=50)
                 shutil.rmtree(scratch, ignore_errors=True)
 
     return downloaded
+
+
+class UploadItem(NamedTuple):
+    """One local MP3 staged for upload to its `voice` directory in Storage.
+
+    `relative_path` is the object's full Storage-relative path (as produced
+    by `cache_relative_path`), kept alongside `local_path` so a mismatched
+    basename between the two can be caught before it becomes a silently
+    missing object.
+    """
+
+    local_path: str
+    relative_path: str
+    voice: str
+
+
+def chunk_uploads(items, chunk_size=50):
+    """Group upload items by destination voice directory, then chunk.
+
+    Mirrors the download/delete batching contract: a chunk never mixes
+    voices (each `gcloud storage cp` targets exactly one destination
+    directory), every chunk holds at most `chunk_size` items, and the
+    relative order of same-voice items is preserved from `items` (stable
+    input order — no reordering beyond grouping by voice).
+    """
+    by_voice = {}
+    for item in items:
+        by_voice.setdefault(item.voice, []).append(item)
+    return [
+        group[i : i + chunk_size]
+        for group in by_voice.values()
+        for i in range(0, len(group), chunk_size)
+    ]
+
+
+def build_upload_command(chunk, bucket, project):
+    """Build one `gcloud storage cp <local...> <voice-dir>/` argument vector.
+
+    `chunk` must be non-empty and every item in it must share one `voice`
+    (the destination is that voice's directory, not a per-file object name,
+    so `chunk_uploads` must not be bypassed with a hand-mixed chunk). Because
+    the destination is a directory, gcloud names each uploaded object after
+    its local basename — so every `local_path` basename must equal its
+    `relative_path` basename, or the object callers expect at
+    `relative_path` would silently never exist after the copy. Either
+    violation raises `ValueError` rather than building a command that would
+    upload the wrong thing.
+    """
+    if not chunk:
+        raise ValueError("build_upload_command requires a non-empty chunk")
+    voice = chunk[0].voice
+    for item in chunk:
+        if item.voice != voice:
+            raise ValueError(
+                "build_upload_command received a chunk mixing voices "
+                f"{voice!r} and {item.voice!r}; chunk_uploads() must be used "
+                "to group items before building a command"
+            )
+        local_basename = os.path.basename(item.local_path)
+        remote_basename = item.relative_path.rsplit("/", 1)[-1]
+        if local_basename != remote_basename:
+            raise ValueError(
+                "local/remote basename mismatch for a batched upload "
+                f"(destination is a directory, not a file name): "
+                f"{item.local_path!r} would upload as {local_basename!r}, "
+                f"but the manifest expects {item.relative_path!r}"
+            )
+    sources = [item.local_path for item in chunk]
+    destination = f"gs://{bucket}/tts/{TTS_CACHE_REVISION}/{voice}/"
+    return ["gcloud", "storage", "cp", *sources, destination, "--project", project]
+
+
+def upload_chunks(
+    chunks,
+    runner=None,
+    retries=2,
+    backoff_seconds=(5, 15),
+    bucket=BUCKET,
+    project=PROJECT,
+):
+    """Upload each chunk with one batched `gcloud storage cp`, retrying failures.
+
+    Each chunk (as produced by `chunk_uploads`) is uploaded with one call to
+    `runner` (defaulting to `subprocess.run`, resolved at call time — like
+    every other gcloud invocation in this module — so tests that patch
+    `subprocess.run` still take effect) built by `build_upload_command`. A
+    chunk whose upload raises is retried up to `retries` more times —
+    sleeping `backoff_seconds[attempt]` between attempts (the last
+    configured backoff repeats if `retries` exceeds `len(backoff_seconds)`)
+    — before giving up. A chunk that still fails after `retries` retries
+    raises `RuntimeError` naming the first and last local basenames in that
+    chunk, so a failure is easy to locate without dumping the whole
+    (possibly 50-item) chunk.
+    """
+    run = runner if runner is not None else subprocess.run
+    for chunk in chunks:
+        command = build_upload_command(chunk, bucket, project)
+        argv = gcloud_argv(*command[1:])
+        attempt = 0
+        while True:
+            try:
+                run(argv, check=True)
+                break
+            except Exception:
+                if attempt >= retries:
+                    first = os.path.basename(chunk[0].local_path)
+                    last = os.path.basename(chunk[-1].local_path)
+                    raise RuntimeError(
+                        f"batched upload failed after {retries + 1} attempt(s) "
+                        f"for chunk {first}..{last}"
+                    )
+                delay = backoff_seconds[min(attempt, len(backoff_seconds) - 1)]
+                time.sleep(delay)
+                attempt += 1
 
 
 def collect():
@@ -1663,18 +1778,16 @@ def main(argv=None):
 
     # Upload only the exact selected object list. Prior and unrelated local
     # cache files remain untouched and cannot leak into this operation.
-    for path, relative_path in upload_items:
-        subprocess.run(
-            gcloud_argv(
-                "storage",
-                "cp",
-                path,
-                f"gs://{BUCKET}/{relative_path}",
-                "--project",
-                PROJECT,
-            ),
-            check=True,
-        )
+    # Batched by voice directory (chunk_uploads/upload_chunks) instead of one
+    # `gcloud storage cp` process per file — each process costs roughly
+    # 10-16s, so thousands of files individually would dominate a real run
+    # (same rationale as download_first_line_bundle's batching).
+    upload_targets = [
+        UploadItem(path, relative_path, relative_path.split("/")[-2])
+        for path, relative_path in upload_items
+    ]
+    upload_chunks(chunk_uploads(upload_targets))
+    print(f"업로드 {len(upload_targets)}개 완료")
     print("✅ 완료")
     return 0
 

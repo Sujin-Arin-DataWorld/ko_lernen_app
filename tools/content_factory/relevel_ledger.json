@@ -1,0 +1,176 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "cloze_a1_0104",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-05",
+      "batch": "relevel_002",
+      "reason": "legacy exception migrated from LEGACY_CLOZE_LEVEL_EXCEPTIONS (#268)"
+    },
+    {
+      "id": "satz_a1_0068",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-05",
+      "batch": "relevel_002",
+      "reason": "legacy exception migrated from LEGACY_SATZ_LEVEL_EXCEPTIONS (#268)"
+    },
+    {
+      "id": "vocab_a1_0216",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-05",
+      "batch": "relevel_002",
+      "reason": "legacy exception migrated from LEGACY_VOCAB_LEVEL_EXCEPTIONS (#268): 시아버지 A1→B1"
+    },
+    {
+      "id": "vocab_b1_0013",
+      "kind": "vocab",
+      "from": "b1",
+      "to": "a2",
+      "movedAt": "2026-09-05",
+      "batch": "relevel_002",
+      "reason": "legacy exception migrated from LEGACY_VOCAB_LEVEL_EXCEPTIONS (#268)"
+    },
+    {
+      "id": "vocab_b1_0192",
+      "kind": "vocab",
+      "from": "b1",
+      "to": "a2",
+      "movedAt": "2026-09-05",
+      "batch": "relevel_002",
+      "reason": "legacy exception migrated from LEGACY_VOCAB_LEVEL_EXCEPTIONS (#268)"
+    },
+    {
+      "id": "vocab_b1_0195",
+      "kind": "vocab",
+      "from": "b1",
+      "to": "a2",
+      "movedAt": "2026-09-05",
+      "batch": "relevel_002",
+      "reason": "legacy exception migrated from LEGACY_VOCAB_LEVEL_EXCEPTIONS (#268)"
+    },
+    {
+      "id": "vocab_b2_0089",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "b1",
+      "movedAt": "2026-09-05",
+      "batch": "relevel_002",
+      "reason": "legacy exception migrated from LEGACY_VOCAB_LEVEL_EXCEPTIONS (#268)"
+    },
+    {
+      "id": "vocab_b2_0094",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "b1",
+      "movedAt": "2026-09-05",
+      "batch": "relevel_002",
+      "reason": "legacy exception migrated from LEGACY_VOCAB_LEVEL_EXCEPTIONS (#268)"
+    },
+    {
+      "id": "vocab_b2_0095",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "b1",
+      "movedAt": "2026-09-05",
+      "batch": "relevel_002",
+      "reason": "legacy exception migrated from LEGACY_VOCAB_LEVEL_EXCEPTIONS (#268)"
+    },
+    {
+      "id": "vocab_b2_0109",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "b1",
+      "movedAt": "2026-09-05",
+      "batch": "relevel_002",
+      "reason": "legacy exception migrated from LEGACY_VOCAB_LEVEL_EXCEPTIONS (#268)"
+    },
+    {
+      "id": "vocab_b2_0110",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "b1",
+      "movedAt": "2026-09-05",
+      "batch": "relevel_002",
+      "reason": "legacy exception migrated from LEGACY_VOCAB_LEVEL_EXCEPTIONS (#268)"
+    },
+    {
+      "id": "vocab_b2_0111",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "b1",
+      "movedAt": "2026-09-05",
+      "batch": "relevel_002",
+      "reason": "legacy exception migrated from LEGACY_VOCAB_LEVEL_EXCEPTIONS (#268)"
+    },
+    {
+      "id": "vocab_b2_0112",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "b1",
+      "movedAt": "2026-09-05",
+      "batch": "relevel_002",
+      "reason": "legacy exception migrated from LEGACY_VOCAB_LEVEL_EXCEPTIONS (#268)"
+    },
+    {
+      "id": "vocab_b2_0113",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "b1",
+      "movedAt": "2026-09-05",
+      "batch": "relevel_002",
+      "reason": "legacy exception migrated from LEGACY_VOCAB_LEVEL_EXCEPTIONS (#268)"
+    },
+    {
+      "id": "vocab_b2_0116",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "b1",
+      "movedAt": "2026-09-05",
+      "batch": "relevel_002",
+      "reason": "legacy exception migrated from LEGACY_VOCAB_LEVEL_EXCEPTIONS (#268)"
+    },
+    {
+      "id": "vocab_b2_0117",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "b1",
+      "movedAt": "2026-09-05",
+      "batch": "relevel_002",
+      "reason": "legacy exception migrated from LEGACY_VOCAB_LEVEL_EXCEPTIONS (#268)"
+    },
+    {
+      "id": "vocab_b2_0118",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "b1",
+      "movedAt": "2026-09-05",
+      "batch": "relevel_002",
+      "reason": "legacy exception migrated from LEGACY_VOCAB_LEVEL_EXCEPTIONS (#268)"
+    },
+    {
+      "id": "vocab_b2_0145",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "b1",
+      "movedAt": "2026-09-05",
+      "batch": "relevel_002",
+      "reason": "legacy exception migrated from LEGACY_VOCAB_LEVEL_EXCEPTIONS (#268)"
+    },
+    {
+      "id": "vocab_b2_0146",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "b1",
+      "movedAt": "2026-09-05",
+      "batch": "relevel_002",
+      "reason": "legacy exception migrated from LEGACY_VOCAB_LEVEL_EXCEPTIONS (#268)"
+    }
+  ]
+}
