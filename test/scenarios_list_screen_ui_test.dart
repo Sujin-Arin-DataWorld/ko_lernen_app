@@ -171,7 +171,7 @@ void main() {
     },
   );
 
-  testWidgets('locked scenario is labeled and cannot open the player', (
+  testWidgets('scenario above the learner level directly opens the player', (
     tester,
   ) async {
     final semantics = tester.ensureSemantics();
@@ -180,16 +180,13 @@ void main() {
       size: const Size(390, 844),
       textScale: 1.0,
       scenarios: const [scenarioAirportArrivalFixture, _b1Scenario],
-      ignoreLevelLock: false,
     );
 
-    const label =
-        'Geschäftliches Treffen. 5 bis 7 Minuten · +180 XP. '
-        'Erreiche B1, um freizuschalten';
+    const label = 'Geschäftliches Treffen. 5 bis 7 Minuten · +180 XP';
     await _scrollTo(tester, find.text(_b1Scenario.title.de));
     final card = find.byWidgetPredicate(
       (widget) => widget is Semantics && widget.properties.label == label,
-      description: 'locked scenario semantics',
+      description: 'directly available scenario semantics',
     );
     expect(card, findsOneWidget);
     final data = tester.getSemantics(card).getSemanticsData();
@@ -199,8 +196,9 @@ void main() {
 
     await tester.tap(card);
     await tester.pump();
-    expect(find.byType(ScenarioPlayerScreen), findsNothing);
-    expect(find.text('Erreiche B1, um freizuschalten'), findsWidgets);
+    await tester.pump(const Duration(milliseconds: 500));
+    expect(find.byType(ScenarioPlayerScreen), findsOneWidget);
+    expect(find.text('Erreiche B1, um freizuschalten'), findsNothing);
     semantics.dispose();
   });
 
@@ -243,7 +241,6 @@ void main() {
         tester,
         size: const Size(390, 844),
         textScale: 1.0,
-        ignoreLevelLock: false,
         browseDestination: const ScenarioBrowseDestination(
           level: LearnerLevel.b1,
           shelfId: 'b1_team',
@@ -340,7 +337,6 @@ Future<void> _pumpScenarios(
   required double textScale,
   required List<Scenario> scenarios,
   Locale locale = const Locale('de'),
-  bool ignoreLevelLock = true,
   ScenarioBrowseDestination? browseDestination,
 }) async {
   tester.view.physicalSize = size;
@@ -365,7 +361,6 @@ Future<void> _pumpScenarios(
         );
       },
       home: ScenariosListScreen(
-        ignoreLevelLock: ignoreLevelLock,
         loadScenarios: () async => scenarios,
         browseDestination: browseDestination,
       ),

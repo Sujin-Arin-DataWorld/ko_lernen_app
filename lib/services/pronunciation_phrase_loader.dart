@@ -3,11 +3,9 @@ import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 
 import '../models/pronunciation_phrase.dart';
-import '../models/scenario.dart' show LearnerLevel;
 
-/// Loads the reviewed pronunciation corpus and exposes its cumulative CEFR
-/// selection rule. A broken asset fails closed: no empty string can reach TTS
-/// or the remote assessment request.
+/// Loads the reviewed pronunciation corpus. A broken asset fails closed: no
+/// empty string can reach TTS or the remote assessment request.
 class PronunciationPhraseLoader {
   PronunciationPhraseLoader._();
 
@@ -77,15 +75,6 @@ class PronunciationPhraseLoader {
     }
     return List<PronunciationPhrase>.unmodifiable(phrases);
   }
-
-  /// Returns all phrases unlocked at [userLevel], including lower levels.
-  /// This deliberately differs from games that use exact-level selection.
-  static List<PronunciationPhrase> forLearnerLevel(
-    Iterable<PronunciationPhrase> phrases,
-    LearnerLevel userLevel,
-  ) => List<PronunciationPhrase>.unmodifiable(
-    phrases.where((phrase) => phrase.level.rank <= userLevel.rank),
-  );
 
   /// Invalidates a failed or stale bundle before an explicit screen retry.
   static void reset() {

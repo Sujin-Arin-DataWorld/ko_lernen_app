@@ -103,6 +103,13 @@ void main() {
     setUp(KkeunmariEngine.reset);
     tearDown(KkeunmariEngine.reset);
 
+    test('the production default keeps every bundled level in play', () {
+      KkeunmariEngine.setPoolForTesting([_word('가방', 'A1'), _word('방울', 'C2')]);
+
+      expect(KkeunmariEngine.nextCountFor('방', {'가방'}), 1);
+      expect(KkeunmariEngine.pickTigerNext('방', {'가방'})?.word, '방울');
+    });
+
     test(
       'keeps starts inside the cumulative subset when it has a live chain',
       () {

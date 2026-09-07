@@ -54,6 +54,13 @@ class LearnSessionQueue<T> {
 
   bool get isDone => _queue.isEmpty;
 
+  /// 이번 팩의 모든 고유 카드를 최소 한 번 판정했는지 여부.
+  ///
+  /// 어휘팩 화면은 이 경계에서 Learn을 끝내고 Quiz로 넘어간다. `몰라요`로
+  /// 다시 큐에 들어간 단어는 SRS/오답 기록과 이어지는 평가 단계에서 다시
+  /// 다루며, 진행 표시가 `n / n`인데 Learn에 머무는 상태를 만들지 않는다.
+  bool get hasCompletedFirstPass => _servedIds.length >= uniqueTotal;
+
   /// 1-based 진행 분자. 다음 고유 카드가 처음 보이면 전진하고, 이미 본 카드가
   /// 재출제되면 유지한다. 완료 후에는 [uniqueTotal] 로 고정한다.
   int get servedPosition {

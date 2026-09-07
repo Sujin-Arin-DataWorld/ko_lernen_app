@@ -39,43 +39,44 @@ void main() {
       expect(providers.isGoogleLinked, isTrue);
     });
 
-    testWidgets('profile keeps Apple connected and offers the missing provider', (
-      tester,
-    ) async {
-      await tester.pumpWidget(
-        _wrap(
-          const ProfileScreen(
-            account: AuthAccountSnapshot(
-              providers: AuthProviderState(
-                isGoogleLinked: false,
-                isAppleLinked: true,
+    testWidgets(
+      'profile keeps Apple connected and offers the missing provider',
+      (tester) async {
+        await tester.pumpWidget(
+          _wrap(
+            const ProfileScreen(
+              account: AuthAccountSnapshot(
+                providers: AuthProviderState(
+                  isGoogleLinked: false,
+                  isAppleLinked: true,
+                ),
               ),
             ),
           ),
-        ),
-      );
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 300));
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 300));
 
-      await tester.scrollUntilVisible(
-        find.text('Mit Apple verbunden'),
-        600,
-        scrollable: find.byType(Scrollable).first,
-      );
-      expect(find.text('Mit Apple verbunden'), findsOneWidget);
-      await tester.scrollUntilVisible(
-        find.text('Angemeldet: Apple'),
-        240,
-        scrollable: find.byType(Scrollable).first,
-      );
-      await tester.pump();
-      expect(find.text('Angemeldet: Apple'), findsOneWidget);
-      expect(find.text('Mit Google sichern'), findsOneWidget);
-      expect(find.text('Mit Apple anmelden'), findsNothing);
+        await tester.scrollUntilVisible(
+          find.text('Mit Apple verbunden'),
+          600,
+          scrollable: find.byType(Scrollable).first,
+        );
+        expect(find.text('Mit Apple verbunden'), findsOneWidget);
+        await tester.scrollUntilVisible(
+          find.text('Angemeldet: Apple'),
+          240,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.pump();
+        expect(find.text('Angemeldet: Apple'), findsOneWidget);
+        expect(find.text('Mit Google sichern'), findsOneWidget);
+        expect(find.text('Mit Apple anmelden'), findsNothing);
 
-      await tester.pumpWidget(const SizedBox.shrink());
-      await tester.pump();
-    });
+        await tester.pumpWidget(const SizedBox.shrink());
+        await tester.pump();
+      },
+    );
 
     testWidgets('profile presents both linked providers deterministically', (
       tester,
@@ -620,101 +621,7 @@ void main() {
     });
   });
 
-  group('subscription management', () {
-    test('uses the App Store subscriptions route on Apple platforms', () {
-      expect(
-        subscriptionManagementUri(TargetPlatform.iOS),
-        Uri.parse('https://apps.apple.com/account/subscriptions'),
-      );
-    });
-
-    test('uses the Play Store subscriptions route on Android', () {
-      expect(
-        subscriptionManagementUri(TargetPlatform.android),
-        Uri.parse('https://play.google.com/store/account/subscriptions'),
-      );
-    });
-
-    test('unsupported and web platforms do not receive a store route', () {
-      expect(subscriptionManagementUri(TargetPlatform.windows), isNull);
-      expect(subscriptionManagementUri(TargetPlatform.linux), isNull);
-      expect(subscriptionManagementUri(TargetPlatform.fuchsia), isNull);
-      expect(
-        subscriptionManagementUri(TargetPlatform.iOS, isWeb: true),
-        isNull,
-      );
-    });
-
-    test('launcher false result is surfaced as a failure', () async {
-      final attempted = <Uri>[];
-      final manager = SubscriptionManagementLauncher(
-        platform: TargetPlatform.android,
-        isWeb: false,
-        launchExternal: (uri) async {
-          attempted.add(uri);
-          return false;
-        },
-      );
-
-      await expectLater(
-        manager.open(),
-        throwsA(isA<SubscriptionManagementException>()),
-      );
-
-      expect(attempted, <Uri>[
-        Uri.parse('https://play.google.com/store/account/subscriptions'),
-      ]);
-    });
-
-    testWidgets(
-      'account deletion warns about subscriptions and exposes management',
-      (tester) async {
-        tester.view.physicalSize = const Size(400, 1000);
-        tester.view.devicePixelRatio = 1;
-        addTearDown(tester.view.resetPhysicalSize);
-        addTearDown(tester.view.resetDevicePixelRatio);
-        SharedPreferences.setMockInitialValues({});
-        await Storage.init();
-        final workflow = AccountDeletionWorkflow(
-          _FakeAccountCleanupOperations(<String>[]),
-        );
-        final cloudJournalState = ValueNotifier(
-          CloudBackupDeletionJournalState.clear,
-        );
-        addTearDown(cloudJournalState.dispose);
-
-        await tester.pumpWidget(
-          _wrap(
-            SettingsScreen(
-              accountDeletionWorkflow: workflow,
-              accountOperations: const _AlwaysReadyAccountOperations(),
-              cloudDataDeletionJournalState: cloudJournalState,
-            ),
-          ),
-        );
-        await tester.pump();
-
-        final deleteTile = find.text('Konto und alle Daten löschen');
-        await tester.scrollUntilVisible(
-          deleteTile,
-          300,
-          scrollable: find.byType(Scrollable).first,
-        );
-        await tester.ensureVisible(deleteTile);
-        await tester.pumpAndSettle();
-        await tester.tap(deleteTile);
-        await tester.pumpAndSettle();
-
-        expect(
-          find.text(
-            'Ein App-Store- oder Play-Store-Abo wird dadurch nicht gekündigt.',
-          ),
-          findsOneWidget,
-        );
-        expect(find.text('Store-Abo verwalten'), findsOneWidget);
-      },
-    );
-
+  group('account deletion UI', () {
     testWidgets('local cleanup failure never shows account deletion success', (
       tester,
     ) async {
@@ -820,58 +727,6 @@ void main() {
 
       expect(
         find.byKey(const ValueKey('legal-first-run-gate')),
-        findsOneWidget,
-      );
-    });
-
-    testWidgets('launcher false result shows localized management failure', (
-      tester,
-    ) async {
-      tester.view.physicalSize = const Size(400, 1000);
-      tester.view.devicePixelRatio = 1;
-      addTearDown(tester.view.resetPhysicalSize);
-      addTearDown(tester.view.resetDevicePixelRatio);
-      SharedPreferences.setMockInitialValues({});
-      await Storage.init();
-      final manager = SubscriptionManagementLauncher(
-        platform: TargetPlatform.android,
-        isWeb: false,
-        launchExternal: (_) async => false,
-      );
-      final cloudJournalState = ValueNotifier(
-        CloudBackupDeletionJournalState.clear,
-      );
-      addTearDown(cloudJournalState.dispose);
-
-      await tester.pumpWidget(
-        _wrap(
-          SettingsScreen(
-            accountDeletionWorkflow: AccountDeletionWorkflow(
-              _FakeAccountCleanupOperations(<String>[]),
-            ),
-            subscriptionManager: manager,
-            accountOperations: const _AlwaysReadyAccountOperations(),
-            cloudDataDeletionJournalState: cloudJournalState,
-          ),
-        ),
-      );
-      await tester.pump();
-
-      final deleteTile = find.text('Konto und alle Daten löschen');
-      await tester.scrollUntilVisible(
-        deleteTile,
-        300,
-        scrollable: find.byType(Scrollable).first,
-      );
-      await tester.ensureVisible(deleteTile);
-      await tester.pumpAndSettle();
-      await tester.tap(deleteTile);
-      await tester.pumpAndSettle();
-      await tester.tap(find.text('Store-Abo verwalten'));
-      await tester.pump();
-
-      expect(
-        find.text('Die Aboverwaltung konnte nicht geöffnet werden.'),
         findsOneWidget,
       );
     });

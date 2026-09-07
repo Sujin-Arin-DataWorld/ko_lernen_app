@@ -42,12 +42,13 @@ void main() {
         'docs/store/app-store-connect-v2.0.5.md',
       ).readAsStringSync();
 
-      expect(handoff, contains('com.sujinarin.koLernenApp'));
+      expect(handoff, contains('com.hangulsori.app'));
       expect(handoff, contains('`2.0.5`'));
       expect(handoff, contains('`14`'));
       expect(handoff, contains('Education (recommended'));
       expect(handoff, contains('verify live hosting before submission'));
-      expect(handoff, contains('`https://hangul-sori.com/support.html`'));
+      expect(handoff, contains('`https://hangul-sori.com/support`'));
+      expect(handoff, contains('`https://hangul-sori.com/privacy`'));
       expect(handoff, contains('| Support URL |'));
       expect(handoff, contains('| Support contact |'));
       expect(handoff, isNot(contains('Support URL or contact')));

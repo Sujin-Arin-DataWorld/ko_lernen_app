@@ -1,6 +1,5 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../features/scenarios/scenario_browse_query.dart';
 import '../models/guide_contract.dart';
@@ -18,14 +17,14 @@ import '../widgets/sori/pressable.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
-import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 import '../l10n/generated/app_localizations.dart';
 import 'scenario_player_screen.dart';
 
 /// Szenarien-Hub. Listet alle Szenarien gruppiert nach CEFR-Level.
-/// Gesperrte Level (über `Storage.userLevelCode`) erscheinen ausgegraut.
+/// Every bundled level is directly playable; the learner level only informs
+/// the recommendation shown in the path header.
 class ScenariosListScreen extends StatefulWidget {
   /// `hanok_jongga.mp4` is 1280x720. Keep the viewport matched to the
   /// original media so [SoriPosterLoop]'s cover fit never crops the scene.
@@ -35,9 +34,6 @@ class ScenariosListScreen extends StatefulWidget {
   /// keeps the bundled [ScenarioLoader] by leaving this null.
   final Future<List<Scenario>> Function()? loadScenarios;
 
-  /// Notebook studio keeps matching scenes playable regardless of CEFR lock.
-  final bool ignoreLevelLock;
-
   /// Optional guide/library browse intent. Unlike course placement, this only
   /// narrows the catalog to one exact level + shelf and never changes learner
   /// progress.
@@ -46,7 +42,6 @@ class ScenariosListScreen extends StatefulWidget {
   const ScenariosListScreen({
     super.key,
     this.loadScenarios,
-    this.ignoreLevelLock = false,
     this.browseDestination,
   });
 
@@ -131,11 +126,6 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
 
   LearnerLevel get _userLevel =>
       LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
-
-  bool _isLocked(LearnerLevel level) =>
-      widget.browseDestination == null &&
-      !widget.ignoreLevelLock &&
-      level.rank > _userLevel.rank;
 
   /// Level별 accent 컬러 매핑
   Color _levelColor(LearnerLevel level) {
@@ -256,19 +246,10 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
           _LevelSection(
             level: level,
             accent: _levelColor(level),
-            locked: _isLocked(level),
             scenarios: _all.where((sc) => sc.level == level).toList(),
             lang: lang,
             stars: stars,
             onScenarioClosed: _refreshScenarioProgress,
-            onLockedTap: (sc) {
-              HapticFeedback.selectionClick();
-              soriNotice(
-                context,
-                t.scenariosLocked(sc.level.display),
-                duration: const Duration(seconds: 2),
-              );
-            },
           ),
           const SizedBox(height: Spacing.xl),
         ],
@@ -282,29 +263,24 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
 class _LevelSection extends StatelessWidget {
   final LearnerLevel level;
   final Color accent;
-  final bool locked;
   final List<Scenario> scenarios;
   final String lang;
   final Map<String, int> stars;
   final VoidCallback onScenarioClosed;
-  final void Function(Scenario) onLockedTap;
 
   const _LevelSection({
     required this.level,
     required this.accent,
-    required this.locked,
     required this.scenarios,
     required this.lang,
     required this.stars,
     required this.onScenarioClosed,
-    required this.onLockedTap,
   });
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
-    final effectiveAccent = locked ? s.textDim : accent;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -312,68 +288,34 @@ class _LevelSection extends StatelessWidget {
         // Section header
         Row(
           children: [
-            SoriBadge.level(
-              level.display,
-              color: locked ? s.surfaceAlt : accent,
-              size: 26,
-            ),
+            SoriBadge.level(level.display, color: accent, size: 26),
             const SizedBox(width: Spacing.sm),
             Expanded(
               child: Text(
                 t.scenariosLevelBadge(level.display),
-                style: SoriTextTheme.of(context).label.copyWith(
-                  color: locked ? s.textDim : s.textMuted,
-                  letterSpacing: 0.4,
-                ),
+                style: SoriTextTheme.of(
+                  context,
+                ).label.copyWith(color: s.textMuted, letterSpacing: 0.4),
               ),
             ),
           ],
         ),
-        if (locked) ...[
-          const SizedBox(height: Spacing.xs),
-          Text.rich(
-            TextSpan(
-              children: [
-                WidgetSpan(
-                  alignment: PlaceholderAlignment.middle,
-                  child: Icon(
-                    Icons.lock_outline_rounded,
-                    size: 13,
-                    color: s.textDim,
-                  ),
-                ),
-                const WidgetSpan(child: SizedBox(width: Spacing.xs)),
-                TextSpan(text: t.scenariosLocked(level.display)),
-              ],
-            ),
-            style: SoriTextTheme.of(context).meta.copyWith(color: s.textDim),
-          ),
-        ],
         const SizedBox(height: Spacing.sm),
 
         // Cards or empty placeholder (Faceted Minhwa empty card)
         if (scenarios.isEmpty)
-          _EmptyLevelCard(accent: accent, locked: locked)
+          _EmptyLevelCard(accent: accent)
         else
           ...scenarios.map(
             (sc) => Padding(
               padding: const EdgeInsets.only(bottom: Spacing.sm),
-              child: locked
-                  ? _ScenarioCardBody(
-                      scenario: sc,
-                      accent: effectiveAccent,
-                      stars: stars[sc.id] ?? 0,
-                      lang: lang,
-                      locked: true,
-                      onTap: () => onLockedTap(sc),
-                    )
-                  : _OpenScenarioCard(
-                      scenario: sc,
-                      accent: accent,
-                      stars: stars[sc.id] ?? 0,
-                      lang: lang,
-                      onScenarioClosed: onScenarioClosed,
-                    ),
+              child: _OpenScenarioCard(
+                scenario: sc,
+                accent: accent,
+                stars: stars[sc.id] ?? 0,
+                lang: lang,
+                onScenarioClosed: onScenarioClosed,
+              ),
             ),
           ),
       ],
@@ -415,7 +357,6 @@ class _OpenScenarioCard extends StatelessWidget {
         accent: accent,
         stars: stars,
         lang: lang,
-        locked: false,
         onTap: openContainer,
       ),
       openBuilder: (ctx, _) => ScenarioPlayerScreen(
@@ -434,7 +375,6 @@ class _ScenarioCardBody extends StatelessWidget {
   final Color accent;
   final int stars;
   final String lang;
-  final bool locked;
   final VoidCallback? onTap;
 
   const _ScenarioCardBody({
@@ -442,7 +382,6 @@ class _ScenarioCardBody extends StatelessWidget {
     required this.accent,
     required this.stars,
     required this.lang,
-    required this.locked,
     this.onTap,
   });
 
@@ -452,83 +391,62 @@ class _ScenarioCardBody extends StatelessWidget {
     final s = SoriSurfaces.of(context);
     final title = scenario.title.pick(lang);
     final metadata = t.scenariosCardMeta(scenario.xpReward);
-    final semanticLabel = locked
-        ? '$title. $metadata. ${t.scenariosLocked(scenario.level.display)}'
-        : '$title. $metadata';
+    final semanticLabel = '$title. $metadata';
 
-    final card = Opacity(
-      opacity: locked ? 0.5 : 1.0,
-      child: Container(
-        padding: const EdgeInsets.all(Spacing.lg),
-        decoration: BoxDecoration(
-          color: locked
-              ? s.surface
-              : Color.alphaBlend(accent.withValues(alpha: 0.07), s.surface),
-          borderRadius: SoriRadius.brMd,
-          border: Border.all(
-            color: locked ? s.border : accent.withValues(alpha: 0.28),
-            width: 1,
-          ),
-          boxShadow: locked ? null : SoriElevation.low,
-        ),
-        child: Row(
-          children: [
-            // Scene + sidekick thumbnail (Phase 5)
-            _ScenarioThumbnail(
-              scenario: scenario,
-              accent: accent,
-              locked: locked,
-              size: 56,
-            ),
-            const SizedBox(width: Spacing.md),
+    final card = Container(
+      padding: const EdgeInsets.all(Spacing.lg),
+      decoration: BoxDecoration(
+        color: Color.alphaBlend(accent.withValues(alpha: 0.07), s.surface),
+        borderRadius: SoriRadius.brMd,
+        border: Border.all(color: accent.withValues(alpha: 0.28), width: 1),
+        boxShadow: SoriElevation.low,
+      ),
+      child: Row(
+        children: [
+          // Scene + sidekick thumbnail (Phase 5)
+          _ScenarioThumbnail(scenario: scenario, accent: accent, size: 56),
+          const SizedBox(width: Spacing.md),
 
-            // Centre: title + badges + meta
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    title,
-                    style: SoriTextTheme.of(
-                      context,
-                    ).cardTitle.copyWith(color: locked ? s.textDim : s.text),
-                  ),
-                  const SizedBox(height: Spacing.xs),
-                  Row(
-                    children: [
-                      SoriBadge.level(
-                        scenario.level.display,
-                        color: locked ? s.textDim : accent,
-                        size: 20,
-                      ),
-                      const SizedBox(width: Spacing.xs),
-                      Expanded(
-                        child: Text(
-                          metadata,
-                          style: SoriTextTheme.of(context).meta.copyWith(
-                            color: s.textDim,
-                            fontWeight: FontWeight.w600,
-                          ),
+          // Centre: title + badges + meta
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(title, style: SoriTextTheme.of(context).cardTitle),
+                const SizedBox(height: Spacing.xs),
+                Row(
+                  children: [
+                    SoriBadge.level(
+                      scenario.level.display,
+                      color: accent,
+                      size: 20,
+                    ),
+                    const SizedBox(width: Spacing.xs),
+                    Expanded(
+                      child: Text(
+                        metadata,
+                        style: SoriTextTheme.of(context).meta.copyWith(
+                          color: s.textDim,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: Spacing.xs),
-                  SoriStars(filled: stars, total: 3, size: 16),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: Spacing.xs),
+                SoriStars(filled: stars, total: 3, size: 16),
+              ],
             ),
-            const SizedBox(width: Spacing.sm),
+          ),
+          const SizedBox(width: Spacing.sm),
 
-            // Trailing icon
-            Icon(
-              locked ? Icons.lock_outline_rounded : Icons.chevron_right_rounded,
-              color: locked ? s.textDim : accent.withValues(alpha: 0.7),
-              size: 20,
-            ),
-          ],
-        ),
+          Icon(
+            Icons.chevron_right_rounded,
+            color: accent.withValues(alpha: 0.7),
+            size: 20,
+          ),
+        ],
       ),
     );
 
@@ -555,8 +473,8 @@ class _ScenarioCardBody extends StatelessWidget {
 // Holistic "where am I in the path?" snapshot above the per-level sections:
 //   • per-level ★ progress chips (done / total)
 //   • next-recommended hero card with direct CTA
-// Picks the next scenario: first unlocked scenario at the user's level with
-// fewer than 3 stars, falling back to the first unlocked across all levels.
+// Picks the next unfinished scenario at the user's level, falling back across
+// the complete directly available catalog.
 
 class _LessonPathHeader extends StatelessWidget {
   final List<Scenario> all;
@@ -576,14 +494,11 @@ class _LessonPathHeader extends StatelessWidget {
   });
 
   Scenario? _pickNext() {
-    final unlocked = all
-        .where((sc) => sc.level.rank <= userLevel.rank)
-        .toList();
-    if (unlocked.isEmpty) return null;
+    if (all.isEmpty) return null;
 
     Scenario? bestAtUserLevel;
     Scenario? anyUnder3;
-    for (final sc in unlocked) {
+    for (final sc in all) {
       final st = stars[sc.id] ?? 0;
       if (st < 3) {
         anyUnder3 ??= sc;
@@ -601,9 +516,6 @@ class _LessonPathHeader extends StatelessWidget {
     final s = SoriSurfaces.of(context);
     final next = _pickNext();
 
-    final totalUnlocked = all
-        .where((sc) => sc.level.rank <= userLevel.rank)
-        .length;
     final totalAll = all.length;
 
     return SoriCard(
@@ -633,7 +545,7 @@ class _LessonPathHeader extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: Text(
-              t.scenariosPathProgress(totalUnlocked, totalAll),
+              t.scenariosPathProgress(totalAll, totalAll),
               textAlign: TextAlign.end,
               style: SoriTextTheme.of(
                 context,
@@ -656,7 +568,6 @@ class _LessonPathHeader extends StatelessWidget {
                   scenarios: all.where((sc) => sc.level == lvl).toList(),
                   stars: stars,
                   accent: levelColor(lvl),
-                  locked: lvl.rank > userLevel.rank,
                   label: t.scenariosPathLevelProgress(
                     lvl.display,
                     // 완료 여부는 별 개수(>0)가 아니라 키 존재로 셈 — 0성
@@ -719,7 +630,6 @@ class _LevelProgressChip extends StatelessWidget {
   final List<Scenario> scenarios;
   final Map<String, int> stars;
   final Color accent;
-  final bool locked;
   final String label;
 
   const _LevelProgressChip({
@@ -727,14 +637,12 @@ class _LevelProgressChip extends StatelessWidget {
     required this.scenarios,
     required this.stars,
     required this.accent,
-    required this.locked,
     required this.label,
   });
 
   @override
   Widget build(BuildContext context) {
-    final s = SoriSurfaces.of(context);
-    final tint = locked ? s.textDim : accent;
+    final tint = accent;
     return Semantics(
       label: label,
       child: Container(
@@ -752,10 +660,6 @@ class _LevelProgressChip extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              if (locked) ...[
-                Icon(Icons.lock_outline_rounded, size: 11, color: tint),
-                const SizedBox(width: 4),
-              ],
               Text(
                 label,
                 style: SoriTextTheme.of(context).meta.copyWith(
@@ -805,12 +709,7 @@ class _NextRecommended extends StatelessWidget {
     final details = Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _ScenarioThumbnail(
-          scenario: scenario,
-          accent: accent,
-          locked: false,
-          size: 44,
-        ),
+        _ScenarioThumbnail(scenario: scenario, accent: accent, size: 44),
         const SizedBox(width: Spacing.md),
         Expanded(
           child: Column(
@@ -913,15 +812,14 @@ class _NextRecommended extends StatelessWidget {
 
 class _EmptyLevelCard extends StatelessWidget {
   final Color accent;
-  final bool locked;
 
-  const _EmptyLevelCard({required this.accent, required this.locked});
+  const _EmptyLevelCard({required this.accent});
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
-    final mutedAccent = locked ? s.textDim : accent;
+    final mutedAccent = accent;
 
     return SoriCard(
       variant: SoriCardVariant.compact,
@@ -989,13 +887,11 @@ class _EmptyLevelCard extends StatelessWidget {
 class _ScenarioThumbnail extends StatelessWidget {
   final Scenario scenario;
   final Color accent;
-  final bool locked;
   final double size;
 
   const _ScenarioThumbnail({
     required this.scenario,
     required this.accent,
-    required this.locked,
     required this.size,
   });
 
@@ -1047,32 +943,7 @@ class _ScenarioThumbnail extends StatelessWidget {
       ),
     );
 
-    if (!locked) return base;
-    return ColorFiltered(
-      colorFilter: const ColorFilter.matrix(<double>[
-        0.2126,
-        0.7152,
-        0.0722,
-        0,
-        0,
-        0.2126,
-        0.7152,
-        0.0722,
-        0,
-        0,
-        0.2126,
-        0.7152,
-        0.0722,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-      ]),
-      child: base,
-    );
+    return base;
   }
 
   Widget _gradient(SoriSurfaces s) {

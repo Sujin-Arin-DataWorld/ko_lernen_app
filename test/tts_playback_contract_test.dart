@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/services/tts_service.dart';
 
-/// 2026-08-19 — **프리미엄 전용** 재생 경로 계약.
+/// 2026-08-19 — 서버 오디오 전용 재생 경로 계약.
 ///
-/// Jin: "기계음 안나오고 해당 텍스트에 맞는 정확한 프리미엄 음성 나오도록."
+/// Jin: "기계음 안나오고 해당 텍스트에 맞는 정확한 서버 음성 나오도록."
 ///
 /// 왜 폴백을 지웠는지: OS 음성 폴백은 안전망이 아니라 조용한 오답
 /// 생성기였다. 독일어 로케일 기기에서 `setLanguage('ko-KR')` 이 실패해도
@@ -95,7 +95,7 @@ void main() {
     },
   );
 
-  group('프리미엄이 없으면 — 무음이되 조용하지 않다', () {
+  group('오디오를 해결할 수 없으면 — 무음이되 조용하지 않다', () {
     test('해결 실패는 재생을 시작하지 않고 사유를 남긴다', () async {
       final platform = _RecordingPlatform();
       final errors = <String>[];
@@ -295,29 +295,26 @@ void main() {
     );
   });
 
-  test(
-    'markSpeechStarting() 은 phase를 resolving으로 되돌리고 '
-    'activeSpeechText를 지운다 (F1)',
-    () {
-      TestWidgetsFlutterBinding.ensureInitialized();
-      TtsService.phase.value = TtsSpeechPhase.speaking;
-      TtsService.activeSpeechText = '학교';
+  test('markSpeechStarting() 은 phase를 resolving으로 되돌리고 '
+      'activeSpeechText를 지운다 (F1)', () {
+    TestWidgetsFlutterBinding.ensureInitialized();
+    TtsService.phase.value = TtsSpeechPhase.speaking;
+    TtsService.activeSpeechText = '학교';
 
-      TtsService.markSpeechStarting();
+    TtsService.markSpeechStarting();
 
-      expect(TtsService.phase.value, TtsSpeechPhase.resolving);
-      expect(
-        TtsService.activeSpeechText,
-        isNull,
-        reason:
-            '직전 발화의 activeSpeechText를 남겨두면, 새 발화가 아직 자기 '
-            'activeSpeechText를 쓰기 전 우연히 같은 텍스트로 대조돼 잘못 '
-            '승격될 수 있다',
-      );
+    expect(TtsService.phase.value, TtsSpeechPhase.resolving);
+    expect(
+      TtsService.activeSpeechText,
+      isNull,
+      reason:
+          '직전 발화의 activeSpeechText를 남겨두면, 새 발화가 아직 자기 '
+          'activeSpeechText를 쓰기 전 우연히 같은 텍스트로 대조돼 잘못 '
+          '승격될 수 있다',
+    );
 
-      TtsService.phase.value = TtsSpeechPhase.idle;
-    },
-  );
+    TtsService.phase.value = TtsSpeechPhase.idle;
+  });
 
   test('TtsAudio 는 경로 또는 바이트 중 하나만 갖는다', () {
     const byPath = TtsAudio.path('/tmp/a.mp3');

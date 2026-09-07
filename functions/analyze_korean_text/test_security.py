@@ -34,7 +34,7 @@ from security import (  # noqa: E402
 
 
 ANDROID_APP_ID = "1:573567222361:android:38d26a50001ee64c356748"
-IOS_APP_ID = "1:573567222361:ios:0f8c0734410bb6cc356748"
+IOS_APP_ID = "1:573567222361:ios:e1847f3ea5dcbbc1356748"
 
 
 class _Request:

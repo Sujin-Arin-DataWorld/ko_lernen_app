@@ -142,7 +142,7 @@ flutter run --release -d <기기ID>   # 출시와 같은 코드 경로
 - [ ] 자산 누락 없음 (영상·PNG·CSV·JSON — errorBuilder 폴백이 뜨는 곳이 있는지)
 - [ ] Firebase 설정이 release 서명에 물려 있음
 - [ ] Google 로그인 동작 (release 서명 SHA-1/SHA-256 이 Firebase 콘솔에 등록돼 있어야 함)
-- [ ] 결제·구독 (RevenueCat + Play Billing / StoreKit)
+- [ ] Premium/paywall/결제·복원 화면 없이 모든 학습 콘텐츠 접근 가능
 - [ ] 알림 도달
 - [ ] deep link
 - [ ] 기존 설치 위에 업데이트해도 **학습 데이터 유지** (§8)
@@ -213,7 +213,7 @@ CI 는 1.3배까지 자동 검사한다. **최대 배율은 사람이 본다.**
 
 - [ ] 시스템 다크에서 상태바·내비게이션바 아이콘이 보이는지
 - [ ] 키보드가 앱 배경과 부딪히지 않는지
-- [ ] 시스템 다이얼로그(권한·공유·결제)가 읽히는지
+- [ ] 시스템 다이얼로그(권한·공유)가 읽히는지
 
 > **알려진 미결**: `CharacterClipPlayer` 에는 다크 게이트가 있지만 `TigerGreetClip`·`TigerStageVideo`
 > 에는 없다(AGENTS.md 2026-08-06). 다크 배경에서 `ColorFiltered`+`multiply` 매트는 밝은 배경 전용이라
@@ -256,9 +256,9 @@ CI 는 1.3배까지 자동 검사한다. **최대 배율은 사람이 본다.**
 > 계정 연동 3갈래(취소/불가/실패)는 2026-08-06 에 분리했고 CI가 고정한다. **나머지 비동기 작업은
 > 아직 감사되지 않았다** — 이번 라운드에서 화면별로 훑고 발견한 것을 여기 적는다.
 
-중요 작업(계정 삭제·결제)은 버튼 잠금만으로 부족하다. **서버가 같은 요청을 두 번 받아도 한 번만
+중요 작업(계정 삭제)은 버튼 잠금만으로 부족하다. **서버가 같은 요청을 두 번 받아도 한 번만
 처리되는 idempotent 구조**여야 한다. 확인 지점: 계정 삭제 journal(`kl_account_deletion_journal_v1`),
-클라우드 백업 삭제 journal, RevenueCat 복원.
+클라우드 백업 삭제 journal.
 
 ---
 
@@ -302,7 +302,7 @@ CI 는 1.3배까지 자동 검사한다. **최대 배율은 사람이 본다.**
 | 선택 UI | Material 계열 | 필요하면 Cupertino 계열 |
 | 공유 | 시스템 share sheet | 시스템 share sheet |
 | 설정 이동 | Android 설정 구조 | iOS 설정 구조 |
-| 결제·구독 | Google Play Billing | StoreKit |
+| 구매·구독 부재 | Play Billing 권한·SDK·상품 없음 | StoreKit 구매 SDK·상품 없음 |
 
 - [ ] Android 시스템 Back 이 모든 화면에서 기대대로 동작 (특히 다이얼로그·바텀시트·게임 중)
 - [ ] iOS 스와이프 백이 학습 진행을 날리지 않음
@@ -336,7 +336,7 @@ CI 는 lease 코디네이터의 **논리**를 검증한다. 실제 디코더는 
       **지연 가능**(Analytics·비필수 캐시·추천·preload·대용량 manifest)이 실제로 나뉘어 있는지
 - [ ] cold start 시간 측정 (`--profile` 빌드)
 
-> 현재 `main()` 은 Firebase·인증·결제·FCM 을 `unawaited(_startCloudServices())` 로 뒤로 미루고,
+> 현재 `main()` 은 Firebase·인증·접근 스냅샷·FCM 을 `unawaited(_startCloudServices())` 로 뒤로 미루고,
 > 로컬 스키마 점검만 동기로 한다. **Firebase 실패가 앱 시작을 막지 않되 실패 사실은
 > `DiagnosticKey.firebaseReady` 로 기록된다.**
 

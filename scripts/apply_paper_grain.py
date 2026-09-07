@@ -9,8 +9,8 @@ Jin 피드백("벡터같이 깨끗함 — 인쇄물 질감 원함")의 해법. �
     .grain-venv/bin/python scripts/apply_paper_grain.py foo.jpg bar.jpg
     → foo.grain.jpg ... 생성 후 `cwebp -q 84` 로 재인코딩해 규약 경로에 드롭.
 
-강도 튜닝: fine(기본 5.0)=입자 거칠기, coarse(4.0)=얼룩 대비. 2026-08-14 번들
-39장(activities 24 + packs 14 + paywall_hero)은 기본값으로 처리했다.
+강도 튜닝: fine(기본 5.0)=입자 거칠기, coarse(4.0)=얼룩 대비. 현재 번들
+38장(activities 24 + packs 14)은 기본값으로 처리했다.
 그레인은 엔트로피를 늘려 webp 가 커진다(≈60→87KB/장) — 의도적 트레이드오프.
 """
 

@@ -23,13 +23,15 @@ class CommercialSecurityContractTest(unittest.TestCase):
         auth_job = workflow.split("  auth-cleanup-functions-security:", 1)[1].split("  asset-gates:", 1)[0]
         self.assertIn("node-version: '22'", auth_job)
 
-    def test_storage_emulator_and_dependency_regressions_are_not_local_only(self):
+    def test_storage_dependency_gates_remain_and_billing_emulator_is_retired(self):
         package = json.loads((ROOT / "functions/gye/package.json").read_text(encoding="utf-8"))
         self.assertIn("dependency_security.test.js", package["scripts"]["test"])
         self.assertIn("--only storage", package["scripts"]["test:storage-rules"])
         workflow = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
         self.assertIn("run: npm run test:storage-rules", workflow)
-        self.assertIn("run: npm run test:billing-emulator", workflow)
+        self.assertNotIn("test:billing-emulator", package["scripts"])
+        self.assertNotIn("run: npm run test:billing-emulator", workflow)
+        self.assertFalse((ROOT / "functions/gye/billing_emulator.test.js").exists())
 
     def test_canonical_allowlist_is_checked_against_runtime_corpus_in_ci(self):
         workflow = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")

@@ -631,7 +631,7 @@ void main() {
 
     expect(
       await engine.speak(
-        text: 'no premium audio',
+        text: 'no server audio',
         voice: 'female',
         baseRate: 0.42,
       ),

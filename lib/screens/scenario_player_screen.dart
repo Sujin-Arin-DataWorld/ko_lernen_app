@@ -22,7 +22,6 @@ import '../services/course_mission_navigation.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/data_loader.dart';
 import '../services/hanok_stage_service.dart';
-import '../services/premium_service.dart';
 import '../services/analytics_service.dart';
 import '../services/quest_abandon_tracker.dart';
 import '../services/scenario_loader.dart';
@@ -667,14 +666,14 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   @override
   String get coachId => 'scenario';
 
-  /// 시나리오 로드됨 + 프리미엄 게이트 화면 아님(= 실제 콘텐츠 화면).
+  /// 시나리오가 로드되어 실제 콘텐츠 화면을 표시할 준비가 됐다.
   @override
   bool get coachReady => _scenario != null;
 
   @override
   List<SpotlightStep> buildCoachSteps(BuildContext context) {
     final t = AppL10n.of(context);
-    // 프리미엄 게이트를 통과한 시나리오만 코치 표시.
+    // 실제 시나리오가 준비된 경우에만 코치를 표시한다.
     if (_scenario == null) {
       return [];
     }
@@ -820,18 +819,6 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         : null;
     if (!mounted || !_loadLifecycle.canContinue) {
       return;
-    }
-    // Premium-Gate (M4): A1-Szenarien frei, A2/B1/B2 erfordern ein Abo.
-    // Deckt alle Einstiege ab (Home-CTA, Skill-Path, Szenarien-Liste).
-    if (s.level != LearnerLevel.a1 && !PremiumService.hasContentAccess) {
-      final ok = await PremiumService.gate(context);
-      if (!mounted || !_loadLifecycle.canContinue) {
-        return;
-      }
-      if (!ok) {
-        _popAfterLoadExit();
-        return;
-      }
     }
     if (!mounted || !_loadLifecycle.canContinue) {
       return;

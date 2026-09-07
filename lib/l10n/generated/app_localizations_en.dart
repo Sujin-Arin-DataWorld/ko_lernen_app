@@ -9,47 +9,6 @@ class AppL10nEn extends AppL10n {
   AppL10nEn([String locale = 'en']) : super(locale);
 
   @override
-  String get paywallSignInToContinue => 'Connect account';
-
-  @override
-  String get paywallSignInRequired =>
-      'Connect your Google or Apple account first. Purchases stay linked to this account.';
-
-  @override
-  String get paywallPending =>
-      'Confirmation is pending. Access updates after server verification.';
-
-  @override
-  String get paywallCancelled => 'Purchase cancelled. No access was unlocked.';
-
-  @override
-  String get paywallActive => 'Premium is already active';
-
-  @override
-  String get paywallTesterActive => 'Your approved tester access is active';
-
-  @override
-  String get paywallManage => 'Manage subscription in its original store';
-
-  @override
-  String get paywallManageUnavailable =>
-      'Open subscription management in the store where you subscribed.';
-
-  @override
-  String get paywallFreeLaunch =>
-      'All learning content is open for the free launch. Subscriptions are not available yet.';
-
-  @override
-  String paywallAiLimits(int book, int pronunciation) {
-    return 'Your current allowance: $book book analyses and $pronunciation pronunciation checks per UTC day.';
-  }
-
-  @override
-  String paywallNextReset(String time) {
-    return 'Next reset: $time UTC';
-  }
-
-  @override
   String get accountAdditionalProviderTitle => 'Connect another sign-in method';
 
   @override
@@ -67,66 +26,6 @@ class AppL10nEn extends AppL10n {
   @override
   String get accountAppleConfigurationBody =>
       'Apple sign-in has not been configured in this app version yet. Use your current sign-in method for now or contact support.';
-
-  @override
-  String get paywallTitle => 'Hangul Sori Premium';
-
-  @override
-  String get paywallSubtitle => 'Learn Korean whenever you want.';
-
-  @override
-  String get paywallBenefit1 => 'All vocabulary packs (A2 through C2)';
-
-  @override
-  String get paywallBenefit2 => 'All conversation scenarios';
-
-  @override
-  String get paywallBenefit3 => 'Unlimited reviews';
-
-  @override
-  String get paywallBenefit4 => '50 pronunciation checks per UTC day';
-
-  @override
-  String get paywallBenefit5 => '20 book analyses per UTC day';
-
-  @override
-  String get paywallPricePerMonth => '/ month';
-
-  @override
-  String get paywallEyebrow => 'Premium';
-
-  @override
-  String get paywallCtaStart => 'Unlock Premium';
-
-  @override
-  String get paywallCtaRestore => 'Restore purchases';
-
-  @override
-  String get paywallClose => 'Maybe later';
-
-  @override
-  String get paywallLegal =>
-      'Cancel anytime. The subscription renews automatically until you cancel.';
-
-  @override
-  String get paywallNotAvailable =>
-      'Subscriptions aren\'t available in this build yet.';
-
-  @override
-  String get paywallProcessing => 'One moment…';
-
-  @override
-  String get paywallSuccess => 'Premium is active. Enjoy!';
-
-  @override
-  String get paywallFailed => 'Purchase not completed.';
-
-  @override
-  String get paywallRestoreNone => 'No previous purchases found.';
-
-  @override
-  String get paywallRestoreFailed =>
-      'Purchases could not be restored. Try again.';
 
   @override
   String streakDisplay(int days) {
@@ -321,9 +220,6 @@ class AppL10nEn extends AppL10n {
   @override
   String get notificationBody =>
       'Taego is ready when you are. Time for Korean! 🐯';
-
-  @override
-  String get homeCourseTitle => 'Your learning path today';
 
   @override
   String get homeCourseDesc => 'Built around your weak spots and interests';
@@ -1199,12 +1095,6 @@ class AppL10nEn extends AppL10n {
   String get customPackCsvHint => '안녕하세요, hello\\n사과, apple';
 
   @override
-  String get packStateLocked => 'locked';
-
-  @override
-  String get packStatePremium => 'Premium';
-
-  @override
   String get packStateCleared => 'cleared';
 
   @override
@@ -1214,9 +1104,6 @@ class AppL10nEn extends AppL10n {
   String packSemantics(Object title, Object state, int learned, int total) {
     return 'Pack $title, $state, $learned of $total learned';
   }
-
-  @override
-  String get packLockedHintShort => 'Unlock first';
 
   @override
   String smalltalkUseWith(Object context) {
@@ -1418,14 +1305,6 @@ class AppL10nEn extends AppL10n {
   @override
   String get vocabPacksEmptyBody =>
       'No vocabulary prepared for this level yet.';
-
-  @override
-  String get vocabPackLockedNoPrev => 'This pack is still locked.';
-
-  @override
-  String vocabPackLockedHint(Object prev) {
-    return 'Clear \"$prev\" first with ≥ 70% on bosses.';
-  }
 
   @override
   String get bookCaptureTitle => 'Snap a page';
@@ -2168,17 +2047,6 @@ class AppL10nEn extends AppL10n {
   String get vocabPackLearnHint => 'Tap to flip';
 
   @override
-  String vocabPackLearnRepeatSuffix(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n repeats',
-      one: '1 repeat',
-    );
-    return ' · +$_temp0';
-  }
-
-  @override
   String get vocabPackDontKnow => 'Don\'t know';
 
   @override
@@ -2460,17 +2328,6 @@ class AppL10nEn extends AppL10n {
   @override
   String get settingsAccountDeleteConfirmBody =>
       'This deletes your Firebase account, Google and Apple links, Firestore cloud backup, and local learning data on this device. This cannot be undone. Google or Apple may ask you to sign in again to confirm.';
-
-  @override
-  String get settingsAccountDeleteSubscriptionWarning =>
-      'This does not cancel an App Store or Play Store subscription.';
-
-  @override
-  String get settingsManageSubscription => 'Manage store subscription';
-
-  @override
-  String get settingsManageSubscriptionFailed =>
-      'Subscription management could not be opened.';
 
   @override
   String get settingsAccountDeleteSuccess => 'Account and data deleted';
@@ -2772,11 +2629,6 @@ class AppL10nEn extends AppL10n {
   @override
   String scenariosCardMeta(int xp) {
     return '5 to 7 minutes · +$xp XP';
-  }
-
-  @override
-  String scenariosLocked(Object level) {
-    return 'Reach $level to unlock';
   }
 
   @override
@@ -3947,7 +3799,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String scenariosPathProgress(int done, int total) {
-    return '$done/$total unlocked';
+    return '$done/$total available';
   }
 
   @override
@@ -4417,7 +4269,7 @@ class AppL10nEn extends AppL10n {
       'The nuances file could not be read. This is not an empty study history. Try again.';
 
   @override
-  String get wordWebBrowseLevelCta => 'Browse words at my level';
+  String get wordWebBrowseLevelCta => 'Browse all levels';
 
   @override
   String get wordWebOpenVocabCta => 'Open vocabulary packs';
@@ -4429,7 +4281,7 @@ class AppL10nEn extends AppL10n {
   String get wordWebLearnedFilter => 'Learned';
 
   @override
-  String get wordWebLevelFilter => 'My level';
+  String get wordWebLevelFilter => 'All levels';
 
   @override
   String get wordWebSynonymSection => 'Similar words';
@@ -4650,9 +4502,6 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get pathNodeNow => 'Now';
-
-  @override
-  String get pathLockedHint => 'Clear the previous pack first.';
 
   @override
   String get pathSeeAll => 'Full path';
@@ -5230,7 +5079,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get grammarPlanOnboardingBody =>
-      'You only see these patterns each day. You can change the pace and level at the top any time.';
+      'Choose a daily recommendation. You can change the pace and level at the top or browse every pattern at any time.';
 
   @override
   String grammarPlanItemsPerDayOption(int n) {
@@ -5268,6 +5117,9 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get grammarPlanFinishedRestartCta => 'Start over';
+
+  @override
+  String get grammarBrowseAllCta => 'Browse all grammar';
 
   @override
   String get grammarChoiceTitle => 'Grammar practice';
@@ -6265,7 +6117,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get coachScenariosBody =>
-      'Tap a scenario to practice real everyday situations. They unlock from A2 onwards.';
+      'Tap a scenario to practice real everyday situations. Every level is available right away.';
 
   @override
   String get questSatzBauenInstruction => 'Tap the words in the correct order';
@@ -9269,7 +9121,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get mediaPhraseDesc =>
-      'Practice original interview, podcast, documentary, and debate lines at your level.';
+      'Practice original interview, podcast, documentary, and debate lines across all levels.';
 
   @override
   String get mediaPhraseContext => 'Situation';
@@ -9282,10 +9134,11 @@ class AppL10nEn extends AppL10n {
       'The media lines could not be loaded. Please try again.';
 
   @override
-  String get mediaPhraseEmptyTitle => 'No line for this level yet';
+  String get mediaPhraseEmptyTitle => 'No media line available yet';
 
   @override
-  String get mediaPhraseEmpty => 'There are no media lines for your level yet.';
+  String get mediaPhraseEmpty =>
+      'There are no media lines available right now.';
 
   @override
   String mediaPhraseProgress(int current, int total) {

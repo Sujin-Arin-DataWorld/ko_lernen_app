@@ -13,6 +13,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/vocab_pack.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
+import 'package:ko_lernen_app/services/learn_session_queue.dart';
 import 'package:ko_lernen_app/services/vocab_pack_service.dart';
 
 void main() {
@@ -131,6 +132,53 @@ void main() {
   });
 
   group('VocabPackService.displayLabel', () {
+    test(
+      'every shipped pack completes its first pass at its real card count',
+      () async {
+        final packs = await VocabPackService.loadAll();
+        expect(packs, isNotEmpty);
+
+        for (final pack in packs) {
+          final koreanIds = pack.words.map((word) => word.korean).toSet();
+          expect(
+            koreanIds,
+            hasLength(pack.total),
+            reason: '${pack.id} has duplicate Learn queue identifiers',
+          );
+          expect(
+            pack.normalWords,
+            isNotEmpty,
+            reason: '${pack.id} has no Quiz',
+          );
+          expect(pack.bossWords, isNotEmpty, reason: '${pack.id} has no Boss');
+
+          final queue = LearnSessionQueue<Vocab>(
+            pack.learnWords.toList(),
+            idOf: (word) => word.korean,
+          );
+          for (var index = 0; index < pack.total; index++) {
+            expect(
+              queue.hasCompletedFirstPass,
+              isFalse,
+              reason: '${pack.id} completed before card ${index + 1}',
+            );
+            if (index % 3 == 0) {
+              queue.markUnknown();
+            } else if (index % 3 == 1) {
+              queue.defer();
+            } else {
+              queue.markKnown();
+            }
+          }
+          expect(
+            queue.hasCompletedFirstPass,
+            isTrue,
+            reason: '${pack.id} did not trigger after ${pack.total} cards',
+          );
+        }
+      },
+    );
+
     test('every shipped pack has a localized DE and EN title', () async {
       final packIds = (await DataLoader.loadVocab())
           .map((word) => word.packId)

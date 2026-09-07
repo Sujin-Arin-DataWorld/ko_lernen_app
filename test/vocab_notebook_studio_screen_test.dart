@@ -711,7 +711,6 @@ void main() {
       label: 'Scenario · 1 scene',
       match: _corpusMatch,
     );
-    expect(scenarios.ignoreLevelLock, isTrue);
     expect(await scenarios.loadScenarios!(), <Scenario>[_scenario]);
 
     final wordWeb = await _openStudioDestination<WordWebScreen>(

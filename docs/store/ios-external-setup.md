@@ -6,7 +6,7 @@ archives. It does not contain the private signing or distribution credentials.
 Its production bundle identifier is exactly:
 
 ```text
-com.sujinarin.koLernenApp
+com.hangulsori.app
 ```
 
 Do not replace it with a lowercase variant. The current Apple team ID,
@@ -43,7 +43,7 @@ git ls-files --error-unmatch ios/Runner/GoogleService-Info.plist >/dev/null
 test -s ios/Runner/GoogleService-Info.plist
 plutil -lint ios/Runner/GoogleService-Info.plist
 test "$(plutil -extract PROJECT_ID raw ios/Runner/GoogleService-Info.plist)" = "ko-lernen-app"
-test "$(plutil -extract BUNDLE_ID raw ios/Runner/GoogleService-Info.plist)" = "com.sujinarin.koLernenApp"
+test "$(plutil -extract BUNDLE_ID raw ios/Runner/GoogleService-Info.plist)" = "com.hangulsori.app"
 export REVERSED_CLIENT_ID="$(plutil -extract REVERSED_CLIENT_ID raw ios/Runner/GoogleService-Info.plist)"
 test -n "$REVERSED_CLIENT_ID"
 ```
@@ -81,7 +81,7 @@ Official references: [add Firebase to an Apple project](https://firebase.google.
 
 In Apple Developer > Certificates, Identifiers & Profiles:
 
-1. Create or select the explicit App ID `com.sujinarin.koLernenApp`.
+1. Create or select the explicit App ID `com.hangulsori.app`.
 2. Enable Push Notifications.
 3. Enable Sign in with Apple and configure this App ID as the primary App ID unless it must join an existing Sign in with Apple group.
 4. Regenerate any profiles invalidated by the capability changes. Create/install an iOS App Development profile for Debug and an App Store distribution profile for Profile/Release, or let Xcode automatic signing regenerate them.
@@ -112,7 +112,7 @@ for configuration in Debug Profile Release; do
     -scheme Runner \
     -configuration "$configuration" \
     -showBuildSettings > "$settings"
-  grep -Fq "PRODUCT_BUNDLE_IDENTIFIER = com.sujinarin.koLernenApp" "$settings"
+  grep -Fq "PRODUCT_BUNDLE_IDENTIFIER = com.hangulsori.app" "$settings"
   grep -Fq "DEVELOPMENT_TEAM = $APPLE_TEAM_ID" "$settings"
   if [ "$configuration" = Debug ]; then
     grep -Fq "CODE_SIGN_ENTITLEMENTS = Runner/RunnerDebug.entitlements" "$settings"
@@ -129,7 +129,7 @@ Official references: [enable App ID capabilities](https://developer.apple.com/he
 
 In Apple Developer > Keys, create an Apple Push Notification service authentication key for the correct team and download its `.p8` file once. Record its Key ID and the Apple Team ID. Store the key outside the repository.
 
-In Firebase Console > Project settings > Cloud Messaging > the iOS configuration for `com.sujinarin.koLernenApp`, upload the `.p8` key and enter the matching Key ID and Team ID. Apple states an APNs signing key works with both development and production; Firebase may show separate upload slots.
+In Firebase Console > Project settings > Cloud Messaging > the iOS configuration for `com.hangulsori.app`, upload the `.p8` key and enter the matching Key ID and Team ID. Apple states an APNs signing key works with both development and production; Firebase may show separate upload slots.
 
 Before upload, fail fast on missing or mismatched local inputs:
 
@@ -148,51 +148,21 @@ grep -Fq 'BEGIN PRIVATE KEY' "$APNS_KEY_PATH"
 
 Never print the private key or add it to source control. See [Firebase Cloud Messaging for Apple platforms](https://firebase.google.com/docs/cloud-messaging/ios/get-started) and [Apple APNs token authentication](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
 
-## 4. Initial fully free Store release
+## 4. Store release without subscriptions
 
-For the first free release, do not create RevenueCat products or set
-`RC_IOS_KEY`. Build with `FREE_LAUNCH=1`; the app opens all learning gates and
-returns before RevenueCat initialization. The App Store listing and App Privacy
-answers for this build must not promise subscriptions or declare RevenueCat
-purchase processing.
+Do not create RevenueCat products or set purchase SDK keys. The app opens all
+learning content and contains no purchase or restore flow. Store listing and
+App Privacy answers must not promise subscriptions or declare current purchase
+processing.
 
 ```bash
 set -euo pipefail
 
 : "${APPLE_TEAM_ID:?Set APPLE_TEAM_ID to the Apple Team ID}"
-FREE_LAUNCH=1 bash scripts/build_ios_ipa.sh
+bash scripts/build_ios_ipa.sh
 ```
 
-When subscriptions are ready, remove `FREE_LAUNCH` and complete the next
-section before creating a monetized build.
-
-## 5. Configure RevenueCat for a future subscription release
-
-In App Store Connect, create the app with bundle ID `com.sujinarin.koLernenApp`, finish agreements/tax/banking, and create the subscription products. In RevenueCat:
-
-1. Create/select the project and add an Apple App Store app with the same bundle ID.
-2. Connect App Store Connect credentials.
-3. Import the products, create the `premium` entitlement, attach products, and create the current offering.
-4. Copy the app-specific **public Apple SDK key** from Project Settings > API keys. Never use a RevenueCat secret key in the app.
-
-The app expects the key through `RC_IOS_KEY`. Verify and pass it without committing it:
-
-```bash
-set -euo pipefail
-
-: "${RC_IOS_KEY:?Set RC_IOS_KEY to the RevenueCat public Apple SDK key}"
-case "$RC_IOS_KEY" in
-  appl_*) ;;
-  *) echo 'RC_IOS_KEY is not an Apple public SDK key (expected appl_ prefix)' >&2; exit 1 ;;
-esac
-
-flutter build ipa --release \
-  --dart-define="RC_IOS_KEY=$RC_IOS_KEY"
-```
-
-See RevenueCat's [SDK quickstart](https://www.revenuecat.com/docs/getting-started/quickstart) and [SDK configuration](https://www.revenuecat.com/docs/getting-started/configuring-sdk).
-
-## 6. macOS dependency and archive gate
+## 5. macOS dependency and archive gate
 
 Flutter 3.44 uses Swift Package Manager where supported and falls back to CocoaPods for plugins that do not support it. The locked `google_mlkit_text_recognition` 0.13.1 plugin needs `GoogleMLKit/TextRecognitionKorean ~> 6.0.0`, which is pinned in `ios/Podfile`.
 
@@ -216,12 +186,8 @@ grep -Fq 'GoogleMLKit/TextRecognitionKorean' ios/Podfile.lock
 
 flutter build ios --debug --no-codesign
 
-# Initial fully free App Store candidate.
-FREE_LAUNCH=1 bash scripts/build_ios_ipa.sh
-
-# Future subscription candidate only:
-# : "${RC_IOS_KEY:?Set RC_IOS_KEY}"
-# bash scripts/build_ios_ipa.sh
+# App Store candidate with all learning content open.
+bash scripts/build_ios_ipa.sh
 ```
 
 Open the generated archive in Xcode Organizer and inspect the signed app before upload:
@@ -232,9 +198,9 @@ set -euo pipefail
 : "${ARCHIVED_APP:?Set ARCHIVED_APP to the absolute path of Runner.app inside the archive}"
 test -d "$ARCHIVED_APP"
 codesign -d --entitlements :- "$ARCHIVED_APP" > /tmp/hangul-sori-entitlements.plist
-test "$(plutil -extract application-identifier raw /tmp/hangul-sori-entitlements.plist | sed 's/^[^.]*\.//')" = com.sujinarin.koLernenApp
+test "$(plutil -extract application-identifier raw /tmp/hangul-sori-entitlements.plist | sed 's/^[^.]*\.//')" = com.hangulsori.app
 test "$(plutil -extract aps-environment raw /tmp/hangul-sori-entitlements.plist)" = production
 test "$(/usr/libexec/PlistBuddy -c 'Print :com.apple.developer.applesignin:0' /tmp/hangul-sori-entitlements.plist)" = Default
 ```
 
-These build, signing, notification-delivery, Apple-authentication, Google-authentication, and purchase checks require macOS, Xcode, real credentials, and physical-device/sandbox testing. They cannot be completed on Windows.
+These build, signing, notification-delivery, Apple-authentication, Google-authentication, and no-purchase verification checks require macOS, Xcode, real credentials, the final signed archive, and physical-device testing. They cannot be completed on Windows.

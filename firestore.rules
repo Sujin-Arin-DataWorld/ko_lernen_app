@@ -621,8 +621,8 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
-    // Access and billing authority are available only through attested server
-    // endpoints. Even a document owner cannot mint or edit an entitlement.
+    // Historical access and billing collections remain server-only for account
+    // deletion cleanup. Clients cannot read, mint, or edit legacy authority.
     match /premium_grants/{document=**} {
       allow read, write: if false;
     }

@@ -12,7 +12,6 @@ import '../../models/hanok_stage.dart';
 import '../../models/quest.dart';
 import '../../models/sori_stage_progression.dart';
 import '../../services/decoration_reward_service.dart';
-import '../../services/pack_access.dart';
 import '../../services/palette_service.dart';
 import '../../services/sori_stage_progression_service.dart';
 import '../../services/sori_stage_reward_receipt_service.dart';
@@ -717,8 +716,6 @@ class _TodayMissionStage extends StatelessWidget {
                         }
                         await TodayLearningNavigation.open(
                           destination,
-                          ensurePackAccess: (level) =>
-                              ensurePackAccess(context, level: level),
                           openRoute: (route, arguments) async {
                             await Navigator.of(
                               context,
@@ -1015,7 +1012,10 @@ Widget _hanokStageTermLine(BuildContext context, AppL10n t, HanokStage stage) {
           style: style,
           surface: 'today_hanok_next_piece',
         );
-  return Padding(padding: const EdgeInsets.only(top: Spacing.xs), child: child);
+  return Padding(
+    padding: const EdgeInsets.only(top: Spacing.xs),
+    child: child,
+  );
 }
 
 class _HanokProgress extends StatelessWidget {

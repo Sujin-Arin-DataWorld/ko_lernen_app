@@ -12,9 +12,20 @@ abstract interface class AccessSnapshotStore {
 }
 
 class PreferencesAccessSnapshotStore implements AccessSnapshotStore {
-  PreferencesAccessSnapshotStore(this.preferences);
+  PreferencesAccessSnapshotStore._(this.preferences);
   final SharedPreferences preferences;
-  static const key = 'server_access_snapshot_v1';
+  static const key = 'server_access_snapshot_v2';
+  @visibleForTesting
+  static const legacyKey = 'server_access_snapshot_v1';
+
+  static Future<PreferencesAccessSnapshotStore> create(
+    SharedPreferences preferences,
+  ) async {
+    // Schema v1 encoded paid/offline authority and must never be rebound to
+    // the universal v2 contract.
+    await preferences.remove(legacyKey);
+    return PreferencesAccessSnapshotStore._(preferences);
+  }
 
   @override
   String? read() => preferences.getString(key);
@@ -38,8 +49,8 @@ class MemoryAccessSnapshotStore implements AccessSnapshotStore {
   Future<void> write(String? value) async => this.value = value;
 }
 
-/// The only client cache of server access. It never reads legacy premium_cached
-/// or modifies learning progress. UID, environment, schema, revision and session
+/// The only client cache of the server access snapshot. It never modifies
+/// learning progress. UID, environment, schema, revision and session
 /// epoch travel together, including on disk. Every response is fenced.
 class AccessSnapshotController extends ChangeNotifier {
   AccessSnapshotController({
@@ -87,8 +98,7 @@ class AccessSnapshotController extends ChangeNotifier {
     }
     _highWaterWall = wall;
     final age = wall - _receivedWall > elapsed ? wall - _receivedWall : elapsed;
-    // Free snapshots carry policy/display data but confer no paid offline lease.
-    if (value.hasPremium && !value.canUseOffline(Duration(milliseconds: age))) {
+    if (!value.canUseCached(Duration(milliseconds: age))) {
       _snapshot = null;
       _persist(null);
       return null;
@@ -126,7 +136,7 @@ class AccessSnapshotController extends ChangeNotifier {
       _receivedWall = received;
       _highWaterWall = highWater;
       _receivedElapsed = elapsedMillis() - (wallMillis() - received);
-      snapshot; // Validate the lease before exposing a restored value.
+      snapshot; // Validate cache lifetime before exposing a restored value.
     } on Object {
       _persist(null);
     }
@@ -159,7 +169,7 @@ class AccessSnapshotController extends ChangeNotifier {
     }
     final request = ++_request;
     // Start before transport: serverNow can precede response delivery. Charging
-    // the whole round trip is conservative and never extends the server lease.
+    // the whole round trip is conservative and never extends cache lifetime.
     final startedWall = wallMillis();
     final startedElapsed = elapsedMillis();
     try {
@@ -179,8 +189,7 @@ class AccessSnapshotController extends ChangeNotifier {
       final transitAge = wallAge > elapsedAge ? wallAge : elapsedAge;
       if (wallAge < 0 ||
           elapsedAge < 0 ||
-          (value.hasPremium &&
-              !value.canUseOffline(Duration(milliseconds: transitAge)))) {
+          !value.canUseCached(Duration(milliseconds: transitAge))) {
         _snapshot = null;
         _persist(null);
         notifyListeners();
@@ -196,7 +205,7 @@ class AccessSnapshotController extends ChangeNotifier {
       _save(value);
       notifyListeners();
     } on Object {
-      // Transport failure retains only a still-valid, same-account offline lease.
+      // Transport failure retains only a still-valid, same-account cache.
       snapshot;
       if (!_disposed && request == _request) {
         notifyListeners();

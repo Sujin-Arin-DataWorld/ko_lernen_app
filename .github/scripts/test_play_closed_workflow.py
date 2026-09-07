@@ -41,6 +41,11 @@ class PlayClosedWorkflowTest(unittest.TestCase):
             "--dart-define=APPLE_REDIRECT_URI=${{ vars.APPLE_REDIRECT_URI }}",
             workflow,
         )
+        self.assertIn(
+            "--dart-define=ENABLE_FREE_PRONUNCIATION_ASSESSMENT="
+            "${{ vars.ENABLE_FREE_PRONUNCIATION_ASSESSMENT }}",
+            workflow,
+        )
         self.assertNotIn("BETA_UNLOCK_ALL=true", workflow)
         self.assertIn("ANDROID_UPLOAD_KEYSTORE_BASE64", workflow)
         self.assertIn("GOOGLE_PLAY_SERVICE_ACCOUNT_JSON", workflow)
@@ -69,7 +74,10 @@ class PlayClosedWorkflowTest(unittest.TestCase):
 class CiWorkflowAppleConfigTest(unittest.TestCase):
     """ci.yml's release-internal appbundle build must pass the same public
     Apple web-flow dart-defines as play_closed.yml (unset repo vars expand to
-    empty strings, so this is a no-op until Jin configures Apple + Firebase).
+    empty strings, so this is a no-op until Jin configures Apple + Firebase),
+    plus the repo-variable-gated ENABLE_FREE_PRONUNCIATION_ASSESSMENT define
+    (unset repo var -> empty string -> Dart's bool.fromEnvironment defaults
+    to false; server-side gates remain authoritative either way).
     """
 
     @classmethod
@@ -87,6 +95,11 @@ class CiWorkflowAppleConfigTest(unittest.TestCase):
         )
         self.assertIn(
             "--dart-define=APPLE_REDIRECT_URI=${{ vars.APPLE_REDIRECT_URI }}",
+            workflow,
+        )
+        self.assertIn(
+            "--dart-define=ENABLE_FREE_PRONUNCIATION_ASSESSMENT="
+            "${{ vars.ENABLE_FREE_PRONUNCIATION_ASSESSMENT }}",
             workflow,
         )
 

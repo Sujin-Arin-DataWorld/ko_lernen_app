@@ -3,15 +3,11 @@
 #
 # 사용:
 #   export APPLE_TEAM_ID=ABCDE12345      # developer.apple.com → Membership details
-#   # 초기 완전 무료 출시:
-#   FREE_LAUNCH=1 bash scripts/build_ios_ipa.sh
-#
-#   # 내부테스터(TestFlight) — Android 내부테스트와 같은 계약:
-#   TESTER_BUILD=1 bash scripts/build_ios_ipa.sh
-#
-#   # 구독 출시:
-#   export RC_IOS_KEY=appl_xxxxxxxx      # RevenueCat 공개 Apple SDK 키
+#   # 무료 공개 출시:
 #   bash scripts/build_ios_ipa.sh
+#
+#   # 내부테스터(TestFlight) — 무료 전체 접근 + 피드백 도구:
+#   TESTER_BUILD=1 bash scripts/build_ios_ipa.sh
 #
 # 결과:  build/ios/ipa/*.ipa  (App Store Connect 에 올릴 그 파일)
 # 절차 전체(계정 등록~업로드~심사)는 docs/store/APPSTORE_UPLOAD_KO.md 참조.
@@ -21,11 +17,13 @@
 # teamID 는 커밋본을 고치지 않고 임시 복사본에만 주입한다.
 #
 # 옵션 환경변수:
-#   FREE_LAUNCH=1        모든 학습 접근을 열고 RevenueCat을 초기화하지 않는
-#                        초기 무료 출시 모드. RC_IOS_KEY 불필요.
 #   SKIP_POD_INSTALL=1   pod install 생략 (직전 빌드에서 Pods 그대로 재사용)
 #   SKIP_PUB_GET=1       flutter pub get 생략 (직전에 성공했고 lockfile을 재사용)
 #   SKIP_VERIFY=1        dart 검증 게이트 생략 (권장하지 않음 — 디버깅용)
+#   ENABLE_FREE_PRONUNCIATION_ASSESSMENT=true|false (기본 false)
+#                        발음 스튜디오의 무료 채점 평가 노출 여부 스위치.
+#                        서버 게이트가 항상 최종 권한을 가지며 이 값은 그
+#                        위의 UI 노출 스위치일 뿐이다.
 #   ASC_KEY_ID / ASC_ISSUER_ID / ASC_KEY_PATH
 #                        셋 다 있으면 빌드 후 App Store Connect 업로드까지 수행.
 #                        없으면 .ipa 만 만들고 멈춘다(Transporter.app 으로 수동 업로드).
@@ -72,39 +70,27 @@ xcrun --find xcodebuild >/dev/null 2>&1 ||
   die "APPLE_TEAM_ID 는 10자여야 한다 (지금 ${#APPLE_TEAM_ID}자)."
 ok "APPLE_TEAM_ID (10자)"
 
-# 내부테스터 빌드 — Android 내부테스트(.github/workflows/ci.yml 의
-# release-internal)와 **같은 dart-define 계약**을 쓴다. 이게 없으면 iOS 만
-# FREE_LAUNCH 로 굽게 되는데, 그건 프로덕션 무료 출시 모드라 RevenueCat 을
-# 아예 초기화하지 않는다 — 두 플랫폼 테스터가 서로 다른 코드 경로를 밟는다.
-# BETA_UNLOCK_ALL 은 테스터 오버라이드라 결제 게이팅 코드는 그대로 돈다.
+# 구독·결제는 제거되었고 모든 빌드가 같은 무료 전체 접근 정책을 쓴다.
+# TESTER_BUILD 는 접근권한이 아니라 피드백 도구만 추가한다.
 tester_build="${TESTER_BUILD:-0}"
+release_defines=()
 if [ "$tester_build" = "1" ]; then
-  [ "${FREE_LAUNCH:-0}" = "0" ] ||
-    die "TESTER_BUILD 와 FREE_LAUNCH 는 같이 못 쓴다 — 전자는 테스터 오버라이드, 후자는 프로덕션 무료 출시 모드다."
   release_defines=(
-    --dart-define=BETA_UNLOCK_ALL=true
     --dart-define=ENABLE_TESTER_FEEDBACK=true
   )
-  ok "TESTER_BUILD=1 (내부테스터 · Android release-internal 과 동일 계약)"
+  ok "TESTER_BUILD=1 (무료 전체 접근 · 내부테스터 피드백 활성화)"
 else
-
-free_launch="${FREE_LAUNCH:-0}"
-case "$free_launch" in
-1)
-  release_defines=(--dart-define=FREE_LAUNCH=true)
-  ok "FREE_LAUNCH=1 (초기 무료 출시 · 모든 학습 접근 열림 · RevenueCat 미초기화)"
-  ;;
-0)
-  : "${RC_IOS_KEY:?RC_IOS_KEY 미설정 — 초기 무료 출시는 FREE_LAUNCH=1, 구독 출시는 RevenueCat Project Settings → API keys 의 공개 Apple SDK 키를 설정}"
-  case "$RC_IOS_KEY" in
-  appl_*) ok "RC_IOS_KEY (appl_ 접두사)" ;;
-  *) die "RC_IOS_KEY 가 Apple 공개 SDK 키가 아니다 (appl_ 로 시작해야 함). secret 키를 앱에 넣지 말 것." ;;
-  esac
-  release_defines=(--dart-define=FREE_LAUNCH=false "--dart-define=RC_IOS_KEY=$RC_IOS_KEY")
-  ;;
-*) die "FREE_LAUNCH 는 0 또는 1만 가능하다 (초기 무료 출시는 FREE_LAUNCH=1)." ;;
-esac
+  ok "무료 전체 접근 공개 빌드"
 fi
+
+# 발음 스튜디오의 무료 채점 평가 노출 스위치. 서버 게이트가 항상 최종
+# 권한을 가지므로 이 값은 그 위의 UI 노출 스위치일 뿐이다.
+enable_free_pronunciation_assessment="${ENABLE_FREE_PRONUNCIATION_ASSESSMENT:-false}"
+case "$enable_free_pronunciation_assessment" in
+  true | false) ;;
+  *) die "ENABLE_FREE_PRONUNCIATION_ASSESSMENT 는 true 또는 false 여야 한다 (지금: $enable_free_pronunciation_assessment)." ;;
+esac
+ok "ENABLE_FREE_PRONUNCIATION_ASSESSMENT=$enable_free_pronunciation_assessment"
 
 [ -s ios/Runner/GoogleService-Info.plist ] ||
   die "추적된 ios/Runner/GoogleService-Info.plist 없음. clean checkout에서 복원하고 docs/store/ios-external-setup.md §1 검증을 실행할 것. 소유자 승인 없는 FlutterFire 재생성은 금지."
@@ -162,7 +148,8 @@ flutter build ipa \
   --release \
   --export-options-plist="$export_options" \
   "${release_defines[@]}" \
-  --dart-define="GIT_COMMIT=$git_commit"
+  --dart-define="GIT_COMMIT=$git_commit" \
+  --dart-define="ENABLE_FREE_PRONUNCIATION_ASSESSMENT=$enable_free_pronunciation_assessment"
 
 ipa="$(find build/ios/ipa -maxdepth 1 -name '*.ipa' -print -quit 2>/dev/null || true)"
 [ -n "$ipa" ] && [ -s "$ipa" ] ||
@@ -212,7 +199,7 @@ else
        export ASC_KEY_PATH=~/Downloads/AuthKey_XXXXXXXXXX.p8
        bash scripts/build_ios_ipa.sh
 
-⚠️ 업로드 전에 App Store Connect 에 앱 레코드(com.sujinarin.koLernenApp)가
+⚠️ 업로드 전에 App Store Connect 에 앱 레코드(com.hangulsori.app)가
    먼저 만들어져 있어야 한다. 없으면 업로드가 거부된다.
    전체 절차: docs/store/APPSTORE_UPLOAD_KO.md
 ──────────────────────────────────────────────────────────────

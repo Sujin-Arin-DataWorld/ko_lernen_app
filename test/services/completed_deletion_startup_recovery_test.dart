@@ -262,7 +262,7 @@ AppStartupCoordinator _startup({
     resumeBookshelfSync: () async {},
     resumeAccountOperation: resumePendingRemote,
     resumeCompletedFeedbackActivation: resumeFeedbackActivation ?? () async {},
-    initializePremium: () async {},
+    initializeAccessSnapshot: () async {},
     enablePush: () async {},
     notificationsEnabled: () => false,
   );

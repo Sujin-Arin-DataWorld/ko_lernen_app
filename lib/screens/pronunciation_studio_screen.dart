@@ -44,7 +44,7 @@ class PronunciationStudioScreen extends StatefulWidget {
   /// Test seam; production reads the versioned pronunciation asset.
   final Future<List<PronunciationPhrase>> Function()? phraseLoader;
 
-  /// Notebook studio subset. Skips the cumulative level filter.
+  /// Notebook studio subset.
   final List<PronunciationPhrase>? phrases;
 
   @override
@@ -166,18 +166,12 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
           ? () async => injected
           : (widget.phraseLoader ?? PronunciationPhraseLoader.load);
       final allPhrases = await source();
-      final visiblePhrases = injected != null
-          ? allPhrases
-          : PronunciationPhraseLoader.forLearnerLevel(
-              allPhrases,
-              learnerLevelForStoredCode(Storage.userLevelCode),
-            );
       final failed =
           usesBundledAsset && PronunciationPhraseLoader.lastError != null;
       if (!mounted) {
         return;
       }
-      if (visiblePhrases.isNotEmpty && !_learningStartRecorded) {
+      if (allPhrases.isNotEmpty && !_learningStartRecorded) {
         _learningStartRecorded = true;
         Analytics.lessonStarted(
           lessonType: 'pronunciation',
@@ -185,7 +179,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
         );
       }
       setState(() {
-        _phrases = visiblePhrases;
+        _phrases = List<PronunciationPhrase>.unmodifiable(allPhrases);
         _phraseIndex = 0;
         _loading = false;
         _loadFailed = failed;

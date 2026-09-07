@@ -1,57 +1,10 @@
 {
   "@@locale": "en",
-  "paywallSignInToContinue": "Connect account",
-  "paywallSignInRequired": "Connect your Google or Apple account first. Purchases stay linked to this account.",
-  "paywallPending": "Confirmation is pending. Access updates after server verification.",
-  "paywallCancelled": "Purchase cancelled. No access was unlocked.",
-  "paywallActive": "Premium is already active",
-  "paywallTesterActive": "Your approved tester access is active",
-  "paywallManage": "Manage subscription in its original store",
-  "paywallManageUnavailable": "Open subscription management in the store where you subscribed.",
-  "paywallFreeLaunch": "All learning content is open for the free launch. Subscriptions are not available yet.",
-  "paywallAiLimits": "Your current allowance: {book} book analyses and {pronunciation} pronunciation checks per UTC day.",
-  "paywallNextReset": "Next reset: {time} UTC",
-  "@paywallAiLimits": {
-    "placeholders": {
-      "book": {
-        "type": "int"
-      },
-      "pronunciation": {
-        "type": "int"
-      }
-    }
-  },
-  "@paywallNextReset": {
-    "placeholders": {
-      "time": {
-        "type": "String"
-      }
-    }
-  },
   "accountAdditionalProviderTitle": "Connect another sign-in method",
   "accountAdditionalProviderConsent": "First, verify your current account. Then Google or Apple will be connected to that same account. If Apple hides your email address, you also consent to associating your Apple identity with this account’s data. Your learning progress stays here.",
   "accountProviderCollisionTitle": "Already connected to another account",
   "accountProviderCollisionBody": "This sign-in method belongs to another account. Your current account and learning progress have not been replaced. Use a different sign-in method.",
   "accountAppleConfigurationBody": "Apple sign-in has not been configured in this app version yet. Use your current sign-in method for now or contact support.",
-  "paywallTitle": "Hangul Sori Premium",
-  "paywallSubtitle": "Learn Korean whenever you want.",
-  "paywallBenefit1": "All vocabulary packs (A2 through C2)",
-  "paywallBenefit2": "All conversation scenarios",
-  "paywallBenefit3": "Unlimited reviews",
-  "paywallBenefit4": "50 pronunciation checks per UTC day",
-  "paywallBenefit5": "20 book analyses per UTC day",
-  "paywallPricePerMonth": "/ month",
-  "paywallEyebrow": "Premium",
-  "paywallCtaStart": "Unlock Premium",
-  "paywallCtaRestore": "Restore purchases",
-  "paywallClose": "Maybe later",
-  "paywallLegal": "Cancel anytime. The subscription renews automatically until you cancel.",
-  "paywallNotAvailable": "Subscriptions aren't available in this build yet.",
-  "paywallProcessing": "One moment…",
-  "paywallSuccess": "Premium is active. Enjoy!",
-  "paywallFailed": "Purchase not completed.",
-  "paywallRestoreNone": "No previous purchases found.",
-  "paywallRestoreFailed": "Purchases could not be restored. Try again.",
   "streakDisplay": "{days, plural, one{1 day} other{{days} days}}",
   "@streakDisplay": {
     "placeholders": {
@@ -135,7 +88,6 @@
   "settingsNotifDenied": "Notifications are disabled. Enable them in system settings.",
   "notificationTitle": "Hangul Sori",
   "notificationBody": "Taego is ready when you are. Time for Korean! 🐯",
-  "homeCourseTitle": "Your learning path today",
   "homeCourseDesc": "Built around your weak spots and interests",
   "settingsInterestsTitle": "Interests",
   "settingsInterestsSubtitle": "Topics for your learning path",
@@ -584,8 +536,6 @@
     }
   },
   "customPackCsvHint": "안녕하세요, hello\\n사과, apple",
-  "packStateLocked": "locked",
-  "packStatePremium": "Premium",
   "packStateCleared": "cleared",
   "packStateAvailable": "available",
   "packSemantics": "Pack {title}, {state}, {learned} of {total} learned",
@@ -601,7 +551,6 @@
       }
     }
   },
-  "packLockedHintShort": "Unlock first",
   "smalltalkUseWith": "Use with: {context}",
   "@smalltalkUseWith": {
     "placeholders": {
@@ -757,13 +706,6 @@
   },
   "vocabPacksEmptyTitle": "No packs yet",
   "vocabPacksEmptyBody": "No vocabulary prepared for this level yet.",
-  "vocabPackLockedNoPrev": "This pack is still locked.",
-  "vocabPackLockedHint": "Clear \"{prev}\" first with ≥ 70% on bosses.",
-  "@vocabPackLockedHint": {
-    "placeholders": {
-      "prev": {}
-    }
-  },
   "@_phase5_book": {
     "description": "Phase 5 (stately-rising-jongga) — \"책 한 컷\" Snap-and-Learn."
   },
@@ -1121,15 +1063,6 @@
   "vocabPackPlayTitle": "Pack practice",
   "vocabPackFinishSaveError": "Your progress could not be saved. Please try again.",
   "vocabPackLearnHint": "Tap to flip",
-  "vocabPackLearnRepeatSuffix": " · +{n, plural, one{1 repeat} other{{n} repeats}}",
-  "@vocabPackLearnRepeatSuffix": {
-    "description": "Learn stage counter suffix for re-served (missed) cards",
-    "placeholders": {
-      "n": {
-        "type": "int"
-      }
-    }
-  },
   "vocabPackDontKnow": "Don't know",
   "vocabPackGotIt": "Got it",
   "deckActionSave": "Save",
@@ -1261,9 +1194,6 @@
   "settingsAccountDeleteDesc": "Deletes your Firebase account, cloud backup, and local progress.",
   "settingsAccountDeleteConfirmTitle": "Delete account permanently?",
   "settingsAccountDeleteConfirmBody": "This deletes your Firebase account, Google and Apple links, Firestore cloud backup, and local learning data on this device. This cannot be undone. Google or Apple may ask you to sign in again to confirm.",
-  "settingsAccountDeleteSubscriptionWarning": "This does not cancel an App Store or Play Store subscription.",
-  "settingsManageSubscription": "Manage store subscription",
-  "settingsManageSubscriptionFailed": "Subscription management could not be opened.",
   "settingsAccountDeleteSuccess": "Account and data deleted",
   "settingsAccountDeleteFailed": "Deletion failed: {error}",
   "@settingsAccountDeleteFailed": {
@@ -1385,12 +1315,6 @@
       "xp": {
         "type": "int"
       }
-    }
-  },
-  "scenariosLocked": "Reach {level} to unlock",
-  "@scenariosLocked": {
-    "placeholders": {
-      "level": {}
     }
   },
   "scenariosLevelBadge": "Level {level}",
@@ -1948,7 +1872,7 @@
   "vocabMasteryReviewDue": "Review due",
   "vocabMasteryStrong": "Strong",
   "scenariosPathTitle": "Your path",
-  "scenariosPathProgress": "{done}/{total} unlocked",
+  "scenariosPathProgress": "{done}/{total} available",
   "@scenariosPathProgress": {
     "placeholders": {
       "done": {
@@ -2185,11 +2109,11 @@
   "wordWebEmptyBody": "Study words in a pack, the learning path, or a practice game. Then neighbors, opposites, and expressions for those exact words show up here.",
   "wordWebLoadErrorTitle": "Web did not load",
   "wordWebLoadErrorBody": "The nuances file could not be read. This is not an empty study history. Try again.",
-  "wordWebBrowseLevelCta": "Browse words at my level",
+  "wordWebBrowseLevelCta": "Browse all levels",
   "wordWebOpenVocabCta": "Open vocabulary packs",
   "wordWebQuizCta": "Practice these words",
   "wordWebLearnedFilter": "Learned",
-  "wordWebLevelFilter": "My level",
+  "wordWebLevelFilter": "All levels",
   "wordWebSynonymSection": "Similar words",
   "wordWebAntonymSection": "Opposites",
   "wordWebRelatedSection": "Related words",
@@ -2339,7 +2263,6 @@
     }
   },
   "pathNodeNow": "Now",
-  "pathLockedHint": "Clear the previous pack first.",
   "pathSeeAll": "Full path",
   "pathJumpToNow": "To the current step",
   "pathStoryEyebrow": "{level} · Everyday life in Korea",
@@ -2594,7 +2517,7 @@
   "grammarPlanLevelLabel": "Level",
   "grammarPlanEditTooltip": "Change level or pace",
   "grammarPlanOnboardingTitle": "How many patterns per day?",
-  "grammarPlanOnboardingBody": "You only see these patterns each day. You can change the pace and level at the top any time.",
+  "grammarPlanOnboardingBody": "Choose a daily recommendation. You can change the pace and level at the top or browse every pattern at any time.",
   "grammarPlanItemsPerDayOption": "{n} per day",
   "@grammarPlanItemsPerDayOption": {
     "placeholders": {
@@ -2632,6 +2555,7 @@
   "grammarPlanCompletionSkip": "Later",
   "grammarPlanFinishedTitle": "You've finished every pattern in this level!",
   "grammarPlanFinishedRestartCta": "Start over",
+  "grammarBrowseAllCta": "Browse all grammar",
   "grammarChoiceTitle": "Grammar practice",
   "grammarChoiceEyebrow": "Recognize the sentence",
   "grammarChoiceInstruction": "Which Korean grammar pattern matches the highlighted part?",
@@ -3051,7 +2975,7 @@
   "coachQuestsTitle": "Quests & rewards",
   "coachQuestsBody": "Complete quests to earn decorations for your Hanok rooms",
   "coachScenariosTitle": "Situational dialogues",
-  "coachScenariosBody": "Tap a scenario to practice real everyday situations. They unlock from A2 onwards.",
+  "coachScenariosBody": "Tap a scenario to practice real everyday situations. Every level is available right away.",
   "questSatzBauenInstruction": "Tap the words in the correct order",
   "questCheckAnswer": "Check answer",
   "questReplayAudio": "Listen again",
@@ -4356,12 +4280,12 @@
   "ttsUnavailableOffline": "Pronunciation unavailable. Are you online?",
   "ttsUnavailableAudio": "Audio isn’t available right now. Please try again.",
   "mediaPhraseTitle": "Media lines",
-  "mediaPhraseDesc": "Practice original interview, podcast, documentary, and debate lines at your level.",
+  "mediaPhraseDesc": "Practice original interview, podcast, documentary, and debate lines across all levels.",
   "mediaPhraseContext": "Situation",
   "mediaPhraseLoading": "Loading media lines…",
   "mediaPhraseUnavailable": "The media lines could not be loaded. Please try again.",
-  "mediaPhraseEmptyTitle": "No line for this level yet",
-  "mediaPhraseEmpty": "There are no media lines for your level yet.",
+  "mediaPhraseEmptyTitle": "No media line available yet",
+  "mediaPhraseEmpty": "There are no media lines available right now.",
   "mediaPhraseProgress": "{current} of {total}",
   "@mediaPhraseProgress": {
     "placeholders": {

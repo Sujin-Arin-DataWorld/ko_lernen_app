@@ -45,10 +45,10 @@ class PackProgressMergeResult {
 ///  - Migration: `pullFromCloud()` lädt Firestore-Snapshot ins lokale
 ///    Storage (initial bei Login / nach App-Reinstall).
 ///
-/// **Unlock-Logik** (Plan §4.2):
-///  - Erster Pack jedes Levels: immer `available`.
-///  - Sonst: `available` gdw. vorheriger Pack im Level `cleared` ist.
-///  - Boss-Genauigkeit ≥ 0.70 → `cleared`.
+/// **Access and progress**:
+///  - Every vocabulary pack is directly available.
+///  - Stored legacy `locked` values are normalized at the read boundary.
+///  - Boss accuracy ≥ 0.70 records `cleared`; it does not gate another pack.
 class PackProgressService {
   /// Boss-Genauigkeit ab der ein Pack als geklärt gilt.
   static const double bossClearThreshold = 0.70;
@@ -174,24 +174,25 @@ class PackProgressService {
     return raw.map((k, v) => MapEntry(k, PackProgress.fromJson(k, v)));
   }
 
-  /// Effektiver Status — wenn lokal nichts gespeichert ist, wird
-  /// aus der Unlock-Logik abgeleitet (locked / available).
-  /// Verwendet [allPacksInLevel] zur Reihenfolge-Bestimmung.
+  /// Effektiver Status für die UI. Alle Packs sind direkt verfügbar; ein
+  /// gespeicherter Legacy-Status `locked` wird beim Lesen auf `available`
+  /// normalisiert, ohne den übrigen Lernfortschritt zu verlieren.
   static PackProgress effectiveStatus(
     VocabPack pack,
     List<VocabPack> allPacksInLevel,
     Map<String, PackProgress> existing,
   ) {
     final stored = existing[pack.id];
-    if (stored != null) return stored;
-    final status = _isUnlocked(pack, allPacksInLevel, existing)
-        ? PackStatus.available
-        : PackStatus.locked;
+    if (stored != null) {
+      return stored.status == PackStatus.locked
+          ? stored.copyWith(status: PackStatus.available)
+          : stored;
+    }
     return PackProgress.fresh(
       packId: pack.id,
       level: pack.level,
       wordsTotal: pack.total,
-      status: status,
+      status: PackStatus.available,
     );
   }
 
@@ -202,7 +203,7 @@ class PackProgressService {
     return pack.words.where((w) => seen.contains(w.korean)).length;
   }
 
-  // ── Unlock-Logik ───────────────────────────────────────────────────
+  // ── Direct-access compatibility ────────────────────────────────────
 
   /// Public unlock helper — wenn `existing` bereits geladen ist.
   static bool isUnlocked(
@@ -210,27 +211,7 @@ class PackProgressService {
     List<VocabPack> allPacksInLevel,
     Map<String, PackProgress> existing,
   ) {
-    final pack = allPacksInLevel.where((p) => p.id == packId).firstOrNull;
-    if (pack == null) return false;
-    return _isUnlocked(pack, allPacksInLevel, existing);
-  }
-
-  static bool _isUnlocked(
-    VocabPack pack,
-    List<VocabPack> allPacksInLevel,
-    Map<String, PackProgress> existing,
-  ) {
-    // Wenn bereits explizit gespeichert → respektieren.
-    final stored = existing[pack.id];
-    if (stored != null) return stored.status != PackStatus.locked;
-
-    // Reihenfolge: erstes Pack im Level immer unlocked.
-    final idx = allPacksInLevel.indexWhere((p) => p.id == pack.id);
-    if (idx <= 0) return idx == 0;
-
-    final prev = allPacksInLevel[idx - 1];
-    final prevProgress = existing[prev.id];
-    return prevProgress?.status == PackStatus.cleared;
+    return allPacksInLevel.any((pack) => pack.id == packId);
   }
 
   /// Nächster Pack im Level (UI: "Weiter mit nächstem Pack").
@@ -244,7 +225,7 @@ class PackProgressService {
     return allPacksInLevel[idx + 1];
   }
 
-  /// Vorheriger Pack im Level (Unlock-Bedingung anzeigen).
+  /// Vorheriger Pack im Level (navigation/order helper).
   static VocabPack? previousPackInLevel(
     String packId,
     List<VocabPack> allPacksInLevel,
@@ -338,7 +319,7 @@ class PackProgressService {
 
     VocabPack? unlockedNext;
     if (!wasCleared && nowCleared) {
-      // Nächsten Pack auf "available" setzen (sofern noch locked).
+      // Keep the existing next-pack CTA and normalize any legacy stored lock.
       final next = nextPackInLevel(pack.id, allPacksInLevel);
       if (next != null) {
         final nextExisting = get(next.id);
@@ -656,7 +637,7 @@ class PackProgressService {
   // ── Komfort-Wrapper für VocabPackService-Konsumenten ──────────────
 
   /// Lädt alle Packs eines Levels + deren Fortschritt-Status.
-  /// Liefert eine Liste in Pack-Reihenfolge mit korrektem locked/available.
+  /// Liefert eine Liste in Pack-Reihenfolge; Legacy-Locks werden geöffnet.
   static Future<List<({VocabPack pack, PackProgress progress})>> loadLevelView(
     String level,
   ) async {

@@ -75,12 +75,6 @@
 -dontwarn com.google.mlkit.vision.text.korean.KoreanTextRecognizerOptions$Builder
 -dontwarn com.google.mlkit.vision.text.korean.KoreanTextRecognizerOptions
 
-# ── RevenueCat (purchases_flutter) + Google Play Billing ───────────────────
--keep class com.revenuecat.purchases.**         { *; }
--dontwarn com.revenuecat.purchases.**
--keep class com.android.billingclient.**         { *; }
--dontwarn com.android.billingclient.**
-
 # ── image_picker / image_cropper (uCrop) ───────────────────────────────────
 -keep class io.flutter.plugins.imagepicker.**    { *; }
 -keep class com.yalantis.ucrop.**                { *; }
@@ -193,7 +187,7 @@
 -dontwarn kotlinx.**
 -dontwarn org.jetbrains.annotations.**
 
-# ── OkHttp / Okio (transitive via Firebase, ML Kit, RevenueCat) ────────────
+# ── OkHttp / Okio (transitive via Firebase and ML Kit) ─────────────────────
 -dontwarn okhttp3.**
 -dontwarn okio.**
 -dontwarn javax.annotation.**

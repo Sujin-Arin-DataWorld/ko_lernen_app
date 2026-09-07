@@ -71,12 +71,11 @@ versionCode를 확인하기 전에는 버전이나 출시일을 추측해 쓰지
   모델이나 migration을 추가하지 않는다.
 - Boss는 모든 Boss 단어를 Learn에서 본 뒤의 4지선다 **인식 평가**다. recall gate나
   장기 mastery 증거라고 부르지 않는다.
-- 선택형 타이핑 회상은 연습이다. 팩 clear, 다음 팩 unlock, XP, stamp, 코스 진행을
+- 선택형 타이핑 회상은 연습이다. 팩 clear, 다음 팩 추천, XP, stamp, 코스 진행을
   막거나 바꾸지 않는다.
-- 70% Boss clear, 영구 clear, 다음 팩 unlock, XP, stamp의 기존 동작을 유지한다.
-- BETA_UNLOCK_ALL=true는 **내부 테스트 전용** premium entitlement override다.
-  Closed Testing 후보에는 주입하지 않는다. 저장된 pack progress, 70% clear,
-  다음 팩 잠금 해제는 어느 빌드에서도 우회하지 않는다.
+- 70% Boss clear, 영구 clear, 다음 팩 추천 CTA, XP, stamp의 기존 동작을 유지한다.
+- 모든 후보는 별도 premium 플래그 없이 전체 콘텐츠에 접근한다. 저장된 pack progress,
+  70% clear와 무관하게 모든 팩은 처음부터 직접 열리고, 완료 뒤 다음 팩은 추천으로만 안내한다.
 - ENABLE_TESTER_FEEDBACK=true는 Android의 구조화된 tester feedback만 켠다. 학습
   흐름의 조건이나 새 telemetry가 아니다.
 
@@ -146,7 +145,7 @@ flutter test --concurrency=1 \
   test/learning_data_recovery_test.dart \
   test/data_migration_test.dart \
   test/arb_l10n_guard_test.dart
-flutter test --dart-define=BETA_UNLOCK_ALL=true test/pack_progress_service_test.dart
+flutter test test/pack_progress_service_test.dart
 flutter analyze
 flutter test
 git diff --exit-code
@@ -247,7 +246,7 @@ Play Console에서 처리·게시된 alpha release를 확인한 뒤 opt-in 링�
 
 | 그룹 | 최소 인원 | 맡은 확인 |
 |---|---:|---|
-| 새 계정 또는 새 앱 데이터 | 4 | 첫 팩의 전체 Learn, Quiz/Boss, 70% clear, 다음 팩 unlock |
+| 새 계정 또는 새 앱 데이터 | 4 | 첫 팩의 전체 Learn, Quiz/Boss, 70% clear, 다음 팩 추천 |
 | 기존 설치 위 업데이트 | 2 | 업데이트 전 데이터를 보존한 뒤 재실행과 pack progress 유지 |
 | 기기·접근성 매트릭스 | 나머지 | Android 버전·화면 크기·130–150% 글자·회전·분할 화면 |
 
@@ -263,8 +262,8 @@ device-matrix-complete** 상태만 최소한으로 기록한다. 이름, 이메�
 1. 첫 사용 가능한 pack에서 모든 Learn 카드의 앞·뒷면을 본다.
 2. Boss 단어도 assessment 전에 Learn에서 의도적으로 노출됐는지 확인한다.
 3. Quiz와 Boss가 Learn 순서를 그대로 반복하지 않는지 확인한다.
-4. Boss 70% clear, 결과 문구, 다음 pack unlock을 확인한다.
-5. 앱 재실행 후 완료와 unlock이 유지되는지 확인한다.
+4. Boss 70% clear, 결과 문구, 다음 pack 추천 CTA를 확인한다.
+5. 앱 재실행 후 완료가 유지되고 모든 pack이 계속 직접 열리는지 확인한다.
 
 ### 4.3 오답과 선택형 회상
 
@@ -273,7 +272,7 @@ device-matrix-complete** 상태만 최소한으로 기록한다. 이름, 이메�
   오답에서만 어려운 단어 연습 CTA가 자연스럽게 보일 수 있다.
 - raw SRS 전이는 공개 beta에서 보지 않는다. ledger regression tests가 정본이다.
 - 선택형 타이핑 회상은 사용 여부, 힌트/정답 보기의 이해도, 진도 압박이 없는지를
-  확인한다. 건너뛰어도 pack 결과와 unlock은 변하지 않아야 한다.
+  확인한다. 건너뛰어도 pack 결과와 다음 추천은 변하지 않아야 한다.
 
 ## 5. 관측, 피드백, 매일 트리아지
 
@@ -289,7 +288,7 @@ device-matrix-complete** 상태만 최소한으로 기록한다. 이름, 이메�
 
 | 등급 | 정의 | 조치 |
 |---|---|---|
-| P0 | 크래시, 데이터 손실/손상, 잘못된 SRS positive credit, clear/unlock 회귀, 진행 불가 | 즉시 rollout 중단, hotfix |
+| P0 | 크래시, 데이터 손실/손상, 잘못된 SRS positive credit, clear/직접 접근/다음 추천 회귀, 진행 불가 | 즉시 rollout 중단, hotfix |
 | P1 | 정상 학습 흐름 차단, 오도하는 결과 문구, 핵심 음성·입력·피드백 실패 | 수정 후 관련 학습 회귀와 전체 게이트 재실행 |
 | P2 | 비차단 UI, 카피, 선호도 문제 | 다음 Phase 후보로만 기록 |
 

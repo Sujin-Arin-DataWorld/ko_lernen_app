@@ -7,7 +7,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
-import 'package:ko_lernen_app/models/learner_level.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/word_relation.dart';
 import 'package:ko_lernen_app/screens/word_web_quiz_screen.dart';
@@ -78,7 +77,6 @@ final _deck = [
 Future<void> _pumpHub(
   WidgetTester tester, {
   required Set<String> seen,
-  LearnerLevel level = LearnerLevel.a1,
   List<WordRelationCluster>? deck,
   Future<List<WordRelationCluster>> Function()? clusterLoader,
 }) async {
@@ -95,7 +93,6 @@ Future<void> _pumpHub(
       home: WordWebScreen(
         clusterLoader: clusterLoader ?? () async => deck ?? _deck,
         seenLoader: () => seen,
-        levelLoader: () => level,
       ),
     ),
   );
@@ -161,10 +158,7 @@ void main() {
         locale: const Locale('de'),
         supportedLocales: AppL10n.supportedLocales,
         localizationsDelegates: AppL10n.localizationsDelegates,
-        home: WordWebScreen(
-          clusterLoader: () async => _deck,
-          levelLoader: () => LearnerLevel.a1,
-        ),
+        home: WordWebScreen(clusterLoader: () async => _deck),
       ),
     );
     await tester.pump();
@@ -175,7 +169,9 @@ void main() {
     expect(find.text('작다'), findsNothing);
   });
 
-  testWidgets('empty learned state can open level browse', (tester) async {
+  testWidgets('empty learned state can open the all-level catalog', (
+    tester,
+  ) async {
     await _pumpHub(tester, seen: {});
     final t = await AppL10n.delegate.load(const Locale('de'));
 

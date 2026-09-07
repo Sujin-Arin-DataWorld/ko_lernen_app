@@ -265,7 +265,7 @@ void main() {
   // 이 러너로 화면을 띄운 뒤 체크리스트로 확인한다
   // (`docs/store/RELEASE_QA_CHECKLIST.md`):
   // - Google 연동 / 계정 삭제 / 전체 초기화 — 실제 Firebase·App Check 필요
-  // - 결제·구독 복원 — 실제 Play Billing / StoreKit 필요
+  // - 모든 팩 직접 접근·접근 스냅샷 — 실제 Firebase·App Check 필요
   // - TTS 음성·캐릭터 영상 — 실제 오디오/디코더 필요
   // - 권한 6상태 (허용·거부·재요청·다시 묻지 않음·설정에서 회수·사용 중 회수)
 }

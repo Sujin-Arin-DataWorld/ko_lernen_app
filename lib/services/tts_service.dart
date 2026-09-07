@@ -24,7 +24,7 @@ import 'tts_private_playback.dart';
 
 export 'tts_cache_key.dart';
 
-/// 해결된 프리미엄 오디오 한 건.
+/// 해결된 서버 오디오 한 건.
 ///
 /// 정본은 기존 디스크/번들/웹 캐시를 유지한다. 개인 음성은 UID 세션을
 /// 끝까지 전달하며 메모리 전용 플레이어로만 재생한다.
@@ -59,7 +59,7 @@ typedef TtsAudioResolver =
 typedef TtsErrorReporter = void Function(String message);
 typedef TtsPlaybackStarted = void Function(String text, String voice);
 
-/// 프리미엄 오디오를 못 들려주는 이유. UI 가 사람 말로 옮겨 보여준다.
+/// 서버 오디오를 못 들려주는 이유. UI 가 사람 말로 옮겨 보여준다.
 ///
 /// 예전에는 실패가 전부 `lastError` 문자열 하나로 뭉개졌고 **그걸 읽는
 /// 위젯이 0개**였다 — 사용자에게는 그냥 "아무 소리도 안 남"이었다
@@ -80,7 +80,7 @@ enum TtsUnavailableReason {
   /// 응답이 시한 안에 오지 않았다.
   timeout,
 
-  /// 모든 해석 경로가 끝났지만 재생 가능한 프리미엄 오디오가 없었다.
+  /// 모든 해석 경로가 끝났지만 재생 가능한 서버 오디오가 없었다.
   audioUnavailable,
 
   /// 오디오는 있지만 기기에서 재생을 시작하거나 끝내지 못했다.
@@ -388,7 +388,7 @@ class TtsPlaybackEngine {
     }
     if (_disposed || generation != _generation) return false;
     final audio = resolved.audio;
-    // 프리미엄 오디오가 없으면 아무 소리도 내지 않는다. 예전에는 여기서
+    // 서버 오디오가 없으면 아무 소리도 내지 않는다. 예전에는 여기서
     // OS 음성으로 떨어졌는데, 독일어 엔진이 한국어를 읽어 "전부 das" 가
     // 됐다 (Jin 2026-08-19). 예외 해석 실패는 위에서 이미 보고됐고,
     // 정상 null(모든 티어 miss)도 여기서 반드시 사유를 남긴다.
@@ -512,7 +512,7 @@ class _ServicePlaybackPlatform implements TtsPlaybackPlatform {
   Future<void> stop() => TtsService._stopPlatforms();
 }
 
-/// 고품질 한국어 발음 TTS — **프리미엄 전용 4단**.
+/// 고품질 한국어 발음 TTS — 서버 오디오 4단 해석 경로.
 ///
 /// 1. 검증된 first-line manifest rootBundle mp3 → 즉시 재생 (오프라인·무료).
 /// 2. 로컬 캐시 mp3 → 즉시 재생. 웹은 메모리 캐시.
@@ -527,9 +527,9 @@ class _ServicePlaybackPlatform implements TtsPlaybackPlatform {
 /// 독일어 음성이 한국어를 읽었다 — Jin: "전부 das 이 지랄하고있네".
 /// 발음을 배우는 앱에서 틀린 발음은 무음보다 나쁘다.
 /// 그리고 실측상 그럴 필요도 없다: 2026-08-19 `--verify-storage` 기준
-/// 발화 11,438개 중 Storage 에 없는 건 **1개**다. 프리미엄이 사실상 전부다.
+/// 발화 11,438개 중 Storage 에 없는 건 **1개**다. 서버 오디오가 사실상 전부다.
 ///
-/// 프리미엄을 못 받으면 **무음 + 사유**다. 사유는 [unavailable] 로 나가고
+/// 서버 오디오를 못 받으면 **무음 + 사유**다. 사유는 [unavailable] 로 나가고
 /// 화면이 사람 말로 옮긴다. 조용히 실패하지 않는다.
 ///
 /// 공개 인터페이스(`speak`/`speakSlow`/`stop`/`setRate`/`rate`)는 그대로라
@@ -947,7 +947,7 @@ class TtsService {
 
     // 웹은 파일시스템이 없다. 예전에는 여기서 1~3단이 통째로 죽고 OS 음성만
     // 남아 브라우저 독일어 음성이 한국어를 읽었다. 이제 같은 Storage 객체를
-    // 메모리로 받아 재생한다 — 웹도 프리미엄이다.
+    // 메모리로 받아 재생한다 — 웹도 같은 서버 오디오 경로다.
     final Directory? dir = kIsWeb ? null : await _ensureCacheDir();
     if (!kIsWeb && dir == null) {
       _reportUnavailable(TtsUnavailableReason.offline);

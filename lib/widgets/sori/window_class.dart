@@ -43,7 +43,7 @@ import 'tokens.dart';
 /// ```
 ///
 /// `Platform.isAndroid` / `Platform.isIOS` 는 시스템 관례(뒤로가기·권한 안내·
-/// 공유 시트·결제)에만 쓴다. 레이아웃 분기에 쓰이면
+/// 공유 시트 등)에만 쓴다. 레이아웃 분기에 쓰이면
 /// `test/window_class_guard_test.dart` 가 실패한다.
 enum AppWindowClass {
   /// 일반 휴대폰. 폭 `< 600`.

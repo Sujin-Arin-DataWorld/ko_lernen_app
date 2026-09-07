@@ -35,7 +35,6 @@ void main() {
         const SarangbangStudyDestination(
           route: '/vocab/pack',
           arguments: 'a2_cafe',
-          packAccessLevel: 'A2',
         ),
       );
       expect(

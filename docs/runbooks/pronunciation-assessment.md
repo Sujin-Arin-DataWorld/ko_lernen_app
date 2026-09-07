@@ -8,8 +8,9 @@ checks only in their separately approved release step.
 ## Beta cost policy
 
 Beta builds default to local recording practice. The Dart define
-`ENABLE_FREE_PRONUNCIATION_ASSESSMENT` defaults to `false`, independently of
-`BETA_UNLOCK_ALL`. Stopping a recording does not upload it. Learners can replay
+`ENABLE_FREE_PRONUNCIATION_ASSESSMENT` defaults to `false`. It controls only
+whether scored assessment is offered; it does not change content access or the
+common server quota. Stopping a recording does not upload it. Learners can replay
 their recording on the device and continue without a scored result. Temporary
 recording playback files, where required by the platform, are separate from
 the model-voice cache and are removed when the recording is discarded.
@@ -18,9 +19,12 @@ Existing model-voice TTS is unchanged; it is the user's explicit cost exception.
 The callable also defaults to disabled. Unless
 `PRONUNCIATION_ASSESSMENT_MODE=azure_f0`, it rejects requests before accessing
 Auth, Firestore or a secret and before contacting Azure. It has no warm instances,
-at most one instance, and one concurrent request. Disabled deployments bind no
-secret, including at cold start. Redeploy when changing this server mode so
-the secret binding matches it. There is no paid fallback.
+at most one instance, and one concurrent request. The `AZURE_SPEECH_KEY`
+binding is declared unconditionally, because Firebase CLI code discovery runs
+without the deployment `.env` or shell environment and a conditional binding
+is never seen at deploy time; a disabled deployment binds the secret but
+rejects every request before reading it. Redeploy when changing this server
+mode. There is no paid fallback.
 
 Free assessment must remain disabled until all of the following are verified:
 
@@ -40,16 +44,59 @@ Free assessment must remain disabled until all of the following are verified:
    screenshots, or command output. The application mode is an activation
    switch, not a live Azure SKU check. Recheck the resource after any key,
    resource, or billing-tier change; an S0 resource is not approved for beta.
+   The resource owner creates the secret from Git Bash without echoing or
+   newline-terminating the value:
+
+   ```bash
+   read -rs AZURE_KEY   # type or paste the key, press Enter; nothing is echoed
+   printf '%s' "$AZURE_KEY" | gcloud secrets create AZURE_SPEECH_KEY \
+     --project=ko-lernen-app --replication-policy=automatic --data-file=-
+   unset AZURE_KEY
+   gcloud secrets versions access latest --secret=AZURE_SPEECH_KEY \
+     --project=ko-lernen-app | wc -c
+   ```
+
+   The last command prints only a byte count. It must equal the length of the
+   key you copied from the Azure portal (classic Speech keys are 32 characters,
+   newer Azure AI Foundry keys are 84); one extra byte means a newline slipped
+   in, and `index.js` sends the value unmodified as an HTTP header. In that case
+   add a new version with the same procedure and disable the bad one with
+   `gcloud secrets versions disable`. A later Firebase deploy grants the
+   function's service account accessor rights on this secret automatically.
 3. Verify the existing server-owned `service_cost_controls/ai_v1` approval
    and daily reservation budget. The F0 switch does not bypass the shared AI
-   cost gate, server entitlement validation, or per-user limits. Missing,
-   malformed, unapproved, or exhausted cost controls still block assessment.
+   cost gate or the same server-owned per-user quota applied to every
+   authenticated learner. Missing, malformed, unapproved, or exhausted cost
+   controls still block assessment.
    Do not create or raise this approval merely to make a smoke test pass.
 4. Only then set `PRONUNCIATION_ASSESSMENT_MODE=azure_f0` in the pronunciation
    codebase's deployment environment and build the approved client with
    `--dart-define=ENABLE_FREE_PRONUNCIATION_ASSESSMENT=true`. Missing or
    unverified settings stay disabled. The normal release approval, exact-SHA
    CI, consent, Auth, App Check, and signed-device gates still apply.
+
+   Concrete procedure: copy `functions/pronunciation/.env.example` to
+   `functions/pronunciation/.env` (git-ignored) and set the mode there, then
+   deploy only the pronunciation function:
+
+   ```powershell
+   $env:FUNCTIONS_DISCOVERY_TIMEOUT = "120"
+   firebase --config firebase.json deploy --only functions:pronunciation-firebase-functions --project ko-lernen-app
+   ```
+
+   Then confirm the secret binding is present on the deployed function:
+
+   ```powershell
+   gcloud functions describe assessPronunciation --project ko-lernen-app `
+     --region europe-west3 --v2 --format="value(serviceConfig.secretEnvironmentVariables)"
+   ```
+
+   An empty result means the secret is not bound; do not proceed to a device
+   check until it lists `AZURE_SPEECH_KEY`. Also confirm the runtime service
+   account can read it with
+   `gcloud secrets get-iam-policy AZURE_SPEECH_KEY --project=ko-lernen-app`
+   (expect `roles/secretmanager.secretAccessor` for the function's service
+   account; the Firebase deploy grants it when the secret is declared).
 
 The server reserves rounded-up audio seconds in the private document
 `service_usage/pronunciation_free_YYYY-MM` in the same Firestore transaction
@@ -69,12 +116,15 @@ audio allowance; an in-flight duplicate is not sent again.
 An enabled request validates Auth and an unused App Check token, then reads
 the current Auth user once outside the retryable Firestore transaction.
 Missing, disabled, or mismatched users are rejected. Server Auth creation
-time fences entitlement documents against reuse after account recreation.
+time fences service documents against reuse after account recreation.
 The `account_deletions` marker is checked on receipt claim and every
 transition, including completed-result retrieval. Client tier flags never
-grant authority. Free users receive five assessments per UTC day and server
-approved testers or verified subscribers receive fifty; all retain the
-five-per-minute limit. These limits are additional to the F0 monthly cap.
+grant authority. The universal access policy publishes fifty assessments per
+UTC day, but while `azure_f0` is the only provider the dispatcher caps each
+learner at eight scored assessments per UTC day (`FREE_TIER_DAILY_ASSESSMENTS`),
+keeping one learner under 2,480 audio seconds per month. The five-per-minute
+limit remains. Exceeding either returns `resource-exhausted` and local practice
+continues. These limits are additional to the F0 monthly cap.
 
 `service_idempotency` stores a UID-scoped request receipt with an audio/text
 fingerprint hash, owner token, state, quota reservations, a 60-second lease,
@@ -116,8 +166,10 @@ all existing Firebase or TTS services are free.
 - App Check enforcement and limited-use token consumption are enabled.
 - The client sends mono 16 kHz PCM16 and reuses one `assessmentId` when it
   retries the same captured recording.
-- The enabled callable secret binding is `AZURE_SPEECH_KEY`; disabled
-  deployments have an empty secret binding.
+- The callable always binds `AZURE_SPEECH_KEY`; `PRONUNCIATION_ASSESSMENT_MODE`
+  decides whether it is read.
+- Per-learner dispatch cap 8/day (`FREE_TIER_DAILY_ASSESSMENTS`) in addition
+  to the 18,000 s/month pool.
 
 The callable region and Azure provider region are different concepts. Do not
 change one to make it look like the other.
@@ -135,7 +187,7 @@ flutter test --no-pub test/pronunciation_studio_screen_test.dart test/pronunciat
 Also confirm the source contract before a release:
 
 ```powershell
-rg -n 'region: "europe-west3"|enforceAppCheck: true|consumeAppCheckToken: true|secrets: freeTierAssessmentEnabled' functions/pronunciation/index.js
+rg -n 'region: "europe-west3"|enforceAppCheck: true|consumeAppCheckToken: true|secrets: \[AZURE_SPEECH_KEY\]' functions/pronunciation/index.js
 rg -n 'limitedUseAppCheckToken: true|_functionRegion = .europe-west3.' lib/services/pronunciation_assessment_client.dart
 ```
 

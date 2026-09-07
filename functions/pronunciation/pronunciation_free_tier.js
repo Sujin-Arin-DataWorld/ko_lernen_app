@@ -2,6 +2,11 @@
 
 const FREE_MONTHLY_AUDIO_SECONDS = 5 * 60 * 60;
 const PCM_BYTES_PER_SECOND = 16000 * 2;
+// Per-learner dispatch cap while the shared F0 pool is the only provider; the
+// universal policy's 50/day remains the published ceiling. Worst case per
+// learner per month = 8 * 10 s * 31 days = 2,480 s, under 14% of
+// FREE_MONTHLY_AUDIO_SECONDS.
+const FREE_TIER_DAILY_ASSESSMENTS = 8;
 
 function freeTierAssessmentEnabled(environment) {
   // This is enabled only after the release preflight verifies a dedicated F0
@@ -22,4 +27,7 @@ function nextFreeTierUsage(previous, audioBytes) {
   return {audioSeconds: used + seconds};
 }
 
-module.exports = {FREE_MONTHLY_AUDIO_SECONDS, freeTierAssessmentEnabled, nextFreeTierUsage};
+module.exports = {
+  FREE_MONTHLY_AUDIO_SECONDS, FREE_TIER_DAILY_ASSESSMENTS, PCM_BYTES_PER_SECOND,
+  freeTierAssessmentEnabled, nextFreeTierUsage,
+};

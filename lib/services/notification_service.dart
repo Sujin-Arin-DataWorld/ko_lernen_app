@@ -6,7 +6,7 @@ import 'package:timezone/timezone.dart' as tz;
 
 /// **NotificationService (M3)** — tägliche lokale Lern-Erinnerung (Retention).
 ///
-/// Best-effort wie [AuthService]/[PremiumService]: initialisiert leise, wirft
+/// Best-effort wie [AuthService]: initialisiert leise, wirft
 /// nie. Plant eine täglich wiederkehrende Benachrichtigung (`zonedSchedule` +
 /// `matchDateTimeComponents.time`) — überlebt App-Neustarts; der Boot-Receiver
 /// (AndroidManifest) stellt sie nach einem Reboot wieder her.

@@ -55,7 +55,11 @@ function unavailable(state = "uncertain") {
 exports.assessPronunciation = onCall({
   region: "europe-west3", enforceAppCheck: true, consumeAppCheckToken: true,
   timeoutSeconds: 30, memory: "256MiB", minInstances: 0, maxInstances: 1, concurrency: 1,
-  secrets: freeTierAssessmentEnabled(process.env) ? [AZURE_SPEECH_KEY] : [],
+  // Bound unconditionally: Firebase CLI discovery runs this file without the
+  // deployment .env or shell env, so a conditional binding is never declared
+  // at deploy. The mode gate below still rejects every request before the
+  // secret is read, so a disabled deployment binds it but never reads it.
+  secrets: [AZURE_SPEECH_KEY],
 }, async (request) => {
   try {
     if (!freeTierAssessmentEnabled(process.env)) {

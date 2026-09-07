@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-/// A validated server assertion, not a client-side entitlement decision.
+/// A validated server snapshot of the universal content and AI quota contract.
 ///
 /// Elapsed cache age must be measured independently of these UTC timestamps.
 /// Nothing in this model authorizes server-side AI calls.
@@ -15,8 +15,6 @@ class AccessSnapshot {
     required this.bookDailyLimit,
     required this.pronunciationDailyLimit,
     required this.serverNow,
-    required this.accessUntil,
-    required this.offlineUntil,
     required this.nextResetAt,
   });
 
@@ -38,7 +36,7 @@ class AccessSnapshot {
       return value;
     }
 
-    if (json['schemaVersion'] != 1) {
+    if (json['schemaVersion'] != 2) {
       invalid();
     }
     final uid = string('ownerUid');
@@ -50,11 +48,7 @@ class AccessSnapshot {
     final book = integer('bookDailyLimit');
     final pronunciation = integer('pronunciationDailyLimit');
     final serverNow = integer('serverNow');
-    final offlineUntil = integer('offlineUntil');
     final nextReset = integer('nextResetAt');
-    final accessUntil = json['accessUntil'] == null
-        ? null
-        : integer('accessUntil');
     if (uid.isEmpty ||
         utf8.encode(uid).length > 128 ||
         uid == '.' ||
@@ -62,40 +56,12 @@ class AccessSnapshot {
         RegExp(r'[\x00-\x20\x7f/]').hasMatch(uid) ||
         !const {'PRODUCTION', 'SANDBOX'}.contains(environment) ||
         !RegExp(r'^[a-f0-9]{64}$').hasMatch(revision) ||
-        !const {
-          'free',
-          'free_launch',
-          'subscription',
-          'closed_tester_lifetime',
-        }.contains(source) ||
+        source != 'universal' ||
+        content != 'all' ||
+        policy != 'universal_v1' ||
+        book != 20 ||
+        pronunciation != 50 ||
         nextReset != (serverNow ~/ _dayMillis + 1) * _dayMillis) {
-      invalid();
-    }
-
-    final premium =
-        source == 'subscription' || source == 'closed_tester_lifetime';
-    if (policy != (premium ? 'premium_v1' : 'free_v1') ||
-        book != (premium ? 20 : 3) ||
-        pronunciation != (premium ? 50 : 5) ||
-        content != (source == 'free' ? 'a1' : 'all') ||
-        offlineUntil < serverNow) {
-      invalid();
-    }
-    if (source == 'subscription') {
-      if (accessUntil == null ||
-          accessUntil <= serverNow ||
-          offlineUntil <= serverNow ||
-          offlineUntil > accessUntil ||
-          offlineUntil - serverNow > 3 * _dayMillis) {
-        invalid();
-      }
-    } else if (source == 'closed_tester_lifetime') {
-      if (accessUntil != null ||
-          offlineUntil <= serverNow ||
-          offlineUntil - serverNow > 30 * _dayMillis) {
-        invalid();
-      }
-    } else if (accessUntil != null || offlineUntil != serverNow) {
       invalid();
     }
     return AccessSnapshot._(
@@ -108,8 +74,6 @@ class AccessSnapshot {
       bookDailyLimit: book,
       pronunciationDailyLimit: pronunciation,
       serverNow: serverNow,
-      accessUntil: accessUntil,
-      offlineUntil: offlineUntil,
       nextResetAt: nextReset,
     );
   }
@@ -124,19 +88,13 @@ class AccessSnapshot {
   final int bookDailyLimit;
   final int pronunciationDailyLimit;
   final int serverNow;
-  final int? accessUntil;
-  final int offlineUntil;
   final int nextResetAt;
 
-  bool get hasAllContent => contentAccess == 'all';
-  bool get hasPremium =>
-      source == 'subscription' || source == 'closed_tester_lifetime';
+  bool canUseCached(Duration age) =>
+      !age.isNegative && age.inMilliseconds < nextResetAt - serverNow;
 
-  bool canUseOffline(Duration age) =>
-      !age.isNegative && age.inMilliseconds < offlineUntil - serverNow;
-
-  Map<String, Object?> toJson() => {
-    'schemaVersion': 1,
+  Map<String, Object> toJson() => {
+    'schemaVersion': 2,
     'ownerUid': ownerUid,
     'environment': environment,
     'revision': revision,
@@ -146,8 +104,6 @@ class AccessSnapshot {
     'bookDailyLimit': bookDailyLimit,
     'pronunciationDailyLimit': pronunciationDailyLimit,
     'serverNow': serverNow,
-    'accessUntil': accessUntil,
-    'offlineUntil': offlineUntil,
     'nextResetAt': nextResetAt,
   };
 }

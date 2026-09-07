@@ -190,7 +190,7 @@ iOS 토큰으로 영어 계약을 별도 검사한다.
 export BOOK_ANALYSIS_ID_TOKEN='<iOS test account ID token>'
 export BOOK_ANALYSIS_APP_CHECK_TOKEN='<iOS App Check token>'
 python functions/analyze_korean_text/smoke_test.py '<deployed URL>' en \
-  --expected-app-id='1:573567222361:ios:0f8c0734410bb6cc356748'
+  --expected-app-id='1:573567222361:ios:e1847f3ea5dcbbc1356748'
 unset BOOK_ANALYSIS_ID_TOKEN BOOK_ANALYSIS_APP_CHECK_TOKEN
 ```
 

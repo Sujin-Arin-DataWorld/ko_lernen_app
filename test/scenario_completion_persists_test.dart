@@ -48,7 +48,10 @@ const _playableA1 = Scenario(
     en: 'Completion check',
   ),
   intro: LocalizedText(ko: '', de: 'Intro', en: 'Intro'),
-  vocab: [VocabRef(korean: _questWord), VocabRef(korean: _wrongWord)],
+  vocab: [
+    VocabRef(korean: _questWord),
+    VocabRef(korean: _wrongWord),
+  ],
   grammarIds: [],
   dialog: [],
   quests: [
@@ -109,11 +112,9 @@ void main() {
     // 코스 그래프(CurriculumCatalog/CourseMasterySnapshot)는 이 버그와 무관한
     // 별도 시스템이다 — 체크포인트 리포터를 끊어 결과 저장 경로만 격리한다
     // (test/scenario_srs_persistence_flow_test.dart와 동일 패턴).
-    CourseActivityReporter.recordScenarioCheckpointForTesting = (
-      _,
-      _,
-      _,
-    ) async => throw StateError('course graph skipped for this test');
+    CourseActivityReporter.recordScenarioCheckpointForTesting =
+        (_, _, _) async =>
+            throw StateError('course graph skipped for this test');
   });
 
   tearDown(() {
@@ -124,26 +125,21 @@ void main() {
     view.resetDevicePixelRatio();
   });
 
-  testWidgets(
-    '정상 완료: 퀘스트 과반 미만(0성)이어도 레벨 배지가 0/2→1/2로 갱신된다',
-    (tester) async {
-      await _expectLevelBadge(tester, 'A1: 0/2 ★');
+  testWidgets('정상 완료: 퀘스트 과반 미만(0성)이어도 레벨 배지가 0/2→1/2로 갱신된다', (tester) async {
+    await _expectLevelBadge(tester, 'A1: 0/2 ★');
 
-      await _warmUpCourseGraph(tester);
-      await _failTheOnlyQuest(tester, _playableA1);
+    await _warmUpCourseGraph(tester);
+    await _failTheOnlyQuest(tester, _playableA1);
 
-      // 쓰기 경로(스토리지)는 이미 올바르다 — T7 계약 그대로.
-      expect(Storage.scenarioStars[_playableA1.id], 0);
-      expect(Storage.completedScenarios, contains(_playableA1.id));
+    // 쓰기 경로(스토리지)는 이미 올바르다 — T7 계약 그대로.
+    expect(Storage.scenarioStars[_playableA1.id], 0);
+    expect(Storage.completedScenarios, contains(_playableA1.id));
 
-      // 읽기 경로(목록 배지)가 그 완료를 세는지가 이 버그의 핵심.
-      await _expectLevelBadge(tester, 'A1: 1/2 ★');
-    },
-  );
+    // 읽기 경로(목록 배지)가 그 완료를 세는지가 이 버그의 핵심.
+    await _expectLevelBadge(tester, 'A1: 1/2 ★');
+  });
 
-  testWidgets('중간 이탈 후 재진입해 완료해도 배지가 1/2로 반영된다', (
-    tester,
-  ) async {
+  testWidgets('중간 이탈 후 재진입해 완료해도 배지가 1/2로 반영된다', (tester) async {
     await _warmUpCourseGraph(tester);
     // 1) 진입 후 한 스테이지 진행하고(스테이지>0) 닫기 → 확인 시트에서
     //    "떠나기"를 골라 결과를 저장하지 않고 이탈한다. 이 화면이 테스트
@@ -276,7 +272,6 @@ Future<void> _expectLevelBadge(WidgetTester tester, String label) async {
       supportedLocales: AppL10n.supportedLocales,
       localizationsDelegates: AppL10n.localizationsDelegates,
       home: ScenariosListScreen(
-        ignoreLevelLock: true,
         loadScenarios: () async => const [_playableA1, _otherA1],
       ),
     ),

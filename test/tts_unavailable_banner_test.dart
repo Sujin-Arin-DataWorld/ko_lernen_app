@@ -4,7 +4,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/services/tts_service.dart';
 import 'package:ko_lernen_app/widgets/sori/tts_unavailable_banner.dart';
 
-/// 4단(OS 음성)을 지운 뒤로 프리미엄을 못 받으면 무음이다. 그건 의도지만
+/// 4단(OS 음성)을 지운 뒤로 서버 오디오를 못 받으면 무음이다. 그건 의도지만
 /// **이유 없는 무음은 고장과 구분이 안 된다** — Jin 이 "소리 안나와" 로
 /// 겪은 게 정확히 그 상태였다. 이 배너가 그 구분을 만든다.
 Future<void> _pump(WidgetTester tester) async {

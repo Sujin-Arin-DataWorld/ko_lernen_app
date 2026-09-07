@@ -1,57 +1,10 @@
 {
   "@@locale": "de",
-  "paywallSignInToContinue": "Konto verbinden",
-  "paywallSignInRequired": "Verbinde zuerst dein Google- oder Apple-Konto. Käufe bleiben an dieses Konto gebunden.",
-  "paywallPending": "Die Bestätigung steht noch aus. Dein Zugang wird nach der Serverprüfung aktualisiert.",
-  "paywallCancelled": "Kauf abgebrochen. Es wurde kein Zugang freigeschaltet.",
-  "paywallActive": "Premium ist bereits aktiv",
-  "paywallTesterActive": "Dein freigegebener Tester-Zugang ist aktiv",
-  "paywallManage": "Abo im ursprünglichen Store verwalten",
-  "paywallManageUnavailable": "Öffne die Aboverwaltung in dem Store, in dem du das Abo abgeschlossen hast.",
-  "paywallFreeLaunch": "Alle Lerninhalte sind zum kostenlosen Start offen. Ein Abo ist derzeit nicht verfügbar.",
-  "paywallAiLimits": "Dein aktuelles Kontingent: {book} Buchanalysen und {pronunciation} Ausspracheprüfungen pro UTC-Tag.",
-  "paywallNextReset": "Nächster Reset: {time} UTC",
-  "@paywallAiLimits": {
-    "placeholders": {
-      "book": {
-        "type": "int"
-      },
-      "pronunciation": {
-        "type": "int"
-      }
-    }
-  },
-  "@paywallNextReset": {
-    "placeholders": {
-      "time": {
-        "type": "String"
-      }
-    }
-  },
   "accountAdditionalProviderTitle": "Weitere Anmeldemethode verbinden",
   "accountAdditionalProviderConsent": "Du bestätigst zuerst dein aktuelles Konto. Danach wird Google oder Apple mit demselben Konto verbunden. Wenn Apple deine E-Mail-Adresse verbirgt, stimmst du damit auch der Verknüpfung deiner Apple-Identität mit den Daten dieses Kontos zu. Dein Lernfortschritt bleibt erhalten.",
   "accountProviderCollisionTitle": "Bereits mit einem anderen Konto verbunden",
   "accountProviderCollisionBody": "Diese Anmeldemethode gehört bereits zu einem anderen Konto. Dein aktuelles Konto und dein Lernfortschritt wurden nicht ersetzt. Verwende eine andere Anmeldemethode.",
   "accountAppleConfigurationBody": "Apple-Anmeldung ist in dieser App-Version noch nicht eingerichtet. Verwende vorerst deine bisherige Anmeldemethode oder kontaktiere den Support.",
-  "paywallTitle": "Hangul Sori Premium",
-  "paywallSubtitle": "Koreanisch lernen, wann du willst.",
-  "paywallBenefit1": "Alle Vokabel-Pakete (A2 bis C2)",
-  "paywallBenefit2": "Alle Gesprächs-Szenarien",
-  "paywallBenefit3": "Unbegrenzte Wiederholungen",
-  "paywallBenefit4": "50 Ausspracheprüfungen pro UTC-Tag",
-  "paywallBenefit5": "20 Buchanalysen pro UTC-Tag",
-  "paywallPricePerMonth": "/ Monat",
-  "paywallEyebrow": "Premium",
-  "paywallCtaStart": "Premium freischalten",
-  "paywallCtaRestore": "Käufe wiederherstellen",
-  "paywallClose": "Vielleicht später",
-  "paywallLegal": "Jederzeit kündbar. Das Abo verlängert sich automatisch, bis du kündigst.",
-  "paywallNotAvailable": "Abos sind in dieser Version noch nicht verfügbar.",
-  "paywallProcessing": "Einen Moment …",
-  "paywallSuccess": "Premium ist aktiv. Viel Spaß!",
-  "paywallFailed": "Kauf nicht abgeschlossen.",
-  "paywallRestoreNone": "Keine früheren Käufe gefunden.",
-  "paywallRestoreFailed": "Käufe konnten nicht wiederhergestellt werden. Versuche es erneut.",
   "streakDisplay": "{days, plural, one{1 Tag} other{{days} Tage}}",
   "@streakDisplay": {
     "placeholders": {
@@ -135,7 +88,6 @@
   "settingsNotifDenied": "Benachrichtigungen sind deaktiviert. Erlaube sie in den Systemeinstellungen.",
   "notificationTitle": "Hangul Sori",
   "notificationBody": "Taego wartet schon. Zeit für Koreanisch! 🐯",
-  "homeCourseTitle": "Dein Lernpfad heute",
   "homeCourseDesc": "Auf deine Schwächen & Interessen zugeschnitten",
   "settingsInterestsTitle": "Interessen",
   "settingsInterestsSubtitle": "Themen für deinen Lernpfad",
@@ -584,8 +536,6 @@
     }
   },
   "customPackCsvHint": "안녕하세요, Hallo\\n사과, Apfel",
-  "packStateLocked": "gesperrt",
-  "packStatePremium": "Premium",
   "packStateCleared": "geschafft",
   "packStateAvailable": "verfügbar",
   "packSemantics": "Paket {title}, {state}, {learned} von {total} gelernt",
@@ -601,7 +551,6 @@
       }
     }
   },
-  "packLockedHintShort": "Vorher freischalten",
   "smalltalkUseWith": "Passend für: {context}",
   "@smalltalkUseWith": {
     "placeholders": {
@@ -757,13 +706,6 @@
   },
   "vocabPacksEmptyTitle": "Noch keine Pakete",
   "vocabPacksEmptyBody": "Für dieses Level sind noch keine Vokabeln vorbereitet.",
-  "vocabPackLockedNoPrev": "Dieses Paket ist noch gesperrt.",
-  "vocabPackLockedHint": "Schließe zuerst „{prev}“ mit ≥ 70 % ab.",
-  "@vocabPackLockedHint": {
-    "placeholders": {
-      "prev": {}
-    }
-  },
   "@_phase5_book": {
     "description": "Phase 5 (stately-rising-jongga) — \"책 한 컷\" Snap-and-Learn."
   },
@@ -1128,15 +1070,6 @@
   "vocabPackPlayTitle": "Paket-Übung",
   "vocabPackFinishSaveError": "Dein Fortschritt konnte nicht gespeichert werden. Bitte versuche es erneut.",
   "vocabPackLearnHint": "Tippen zum Umdrehen",
-  "vocabPackLearnRepeatSuffix": " · +{n, plural, one{1 Wdh.} other{{n} Wdh.}}",
-  "@vocabPackLearnRepeatSuffix": {
-    "description": "Learn stage counter suffix for re-served (missed) cards",
-    "placeholders": {
-      "n": {
-        "type": "int"
-      }
-    }
-  },
   "vocabPackDontKnow": "Weiß ich nicht",
   "vocabPackGotIt": "Gewusst",
   "deckActionSave": "Merken",
@@ -1268,9 +1201,6 @@
   "settingsAccountDeleteDesc": "Löscht dein Firebase-Konto, Cloud-Backup und lokale Fortschritte.",
   "settingsAccountDeleteConfirmTitle": "Konto dauerhaft löschen?",
   "settingsAccountDeleteConfirmBody": "Dadurch werden dein Firebase-Konto, deine Google- und Apple-Verknüpfungen, das Firestore-Cloud-Backup und lokale Lerndaten auf diesem Gerät gelöscht. Das lässt sich nicht rückgängig machen. Google oder Apple bitten dich zur Bestätigung eventuell um eine erneute Anmeldung.",
-  "settingsAccountDeleteSubscriptionWarning": "Ein App-Store- oder Play-Store-Abo wird dadurch nicht gekündigt.",
-  "settingsManageSubscription": "Store-Abo verwalten",
-  "settingsManageSubscriptionFailed": "Die Aboverwaltung konnte nicht geöffnet werden.",
   "settingsAccountDeleteSuccess": "Konto und Daten gelöscht",
   "settingsAccountDeleteFailed": "Löschung fehlgeschlagen: {error}",
   "@settingsAccountDeleteFailed": {
@@ -1392,12 +1322,6 @@
       "xp": {
         "type": "int"
       }
-    }
-  },
-  "scenariosLocked": "Erreiche {level}, um freizuschalten",
-  "@scenariosLocked": {
-    "placeholders": {
-      "level": {}
     }
   },
   "scenariosLevelBadge": "Stufe {level}",
@@ -1989,7 +1913,7 @@
   "vocabMasteryReviewDue": "Fällig",
   "vocabMasteryStrong": "Gefestigt",
   "scenariosPathTitle": "Dein Pfad",
-  "scenariosPathProgress": "{done}/{total} freigeschaltet",
+  "scenariosPathProgress": "{done}/{total} verfügbar",
   "@scenariosPathProgress": {
     "placeholders": {
       "done": {
@@ -2314,11 +2238,11 @@
   "wordWebEmptyBody": "Lerne Wörter in einem Paket, im Lernpfad oder in einem Spiel. Dann erscheinen hier Nachbarn, Gegenteile und Wendungen zu genau diesen Wörtern.",
   "wordWebLoadErrorTitle": "Netz nicht geladen",
   "wordWebLoadErrorBody": "Die Nuancen-Datei konnte nicht gelesen werden. Das ist kein leerer Lernstand. Versuch es noch einmal.",
-  "wordWebBrowseLevelCta": "Wörter auf meinem Niveau ansehen",
+  "wordWebBrowseLevelCta": "Alle Niveaus ansehen",
   "wordWebOpenVocabCta": "Wortpakete öffnen",
   "wordWebQuizCta": "Diese Wörter üben",
   "wordWebLearnedFilter": "Gelernt",
-  "wordWebLevelFilter": "Mein Niveau",
+  "wordWebLevelFilter": "Alle Niveaus",
   "wordWebSynonymSection": "Ähnliche Wörter",
   "wordWebAntonymSection": "Gegenteile",
   "wordWebRelatedSection": "Verwandte Wörter",
@@ -2468,7 +2392,6 @@
     }
   },
   "pathNodeNow": "Jetzt",
-  "pathLockedHint": "Schließe zuerst das vorherige Paket ab.",
   "pathSeeAll": "Ganzer Pfad",
   "pathJumpToNow": "Zum aktuellen Schritt",
   "pathStoryEyebrow": "{level} · Alltag in Korea",
@@ -2723,7 +2646,7 @@
   "grammarPlanLevelLabel": "Niveau",
   "grammarPlanEditTooltip": "Niveau oder Tempo ändern",
   "grammarPlanOnboardingTitle": "Wie viele Muster pro Tag?",
-  "grammarPlanOnboardingBody": "Du siehst jeden Tag nur diese Muster. Tempo und Niveau kannst du oben jederzeit ändern.",
+  "grammarPlanOnboardingBody": "Wähle eine tägliche Empfehlung. Oben kannst du Tempo und Niveau ändern oder jederzeit alle Muster ansehen.",
   "grammarPlanItemsPerDayOption": "{n} pro Tag",
   "@grammarPlanItemsPerDayOption": {
     "placeholders": {
@@ -2761,6 +2684,7 @@
   "grammarPlanCompletionSkip": "Später",
   "grammarPlanFinishedTitle": "Alle Muster dieser Stufe geschafft!",
   "grammarPlanFinishedRestartCta": "Neu starten",
+  "grammarBrowseAllCta": "Alle Grammatikmuster ansehen",
   "grammarChoiceTitle": "Grammatik üben",
   "grammarChoiceEyebrow": "Satz erkennen",
   "grammarChoiceInstruction": "Welche koreanische Grammatik passt zum hervorgehobenen Teil?",
@@ -3180,7 +3104,7 @@
   "coachQuestsTitle": "Quests & Belohnungen",
   "coachQuestsBody": "Erledige Quests und erhalte Dekorationen für deine Hanok-Stuben",
   "coachScenariosTitle": "Situationsgespräche",
-  "coachScenariosBody": "Tippe auf ein Szenario und übe echte Alltagssituationen. Sie werden ab A2 freigeschaltet.",
+  "coachScenariosBody": "Tippe auf ein Szenario und übe echte Alltagssituationen. Alle Niveaus sind direkt verfügbar.",
   "questSatzBauenInstruction": "Tippe die Wörter in der richtigen Reihenfolge an",
   "questCheckAnswer": "Antwort prüfen",
   "questReplayAudio": "Erneut anhören",
@@ -4520,12 +4444,12 @@
   "ttsUnavailableOffline": "Aussprache nicht verfügbar. Bist du online?",
   "ttsUnavailableAudio": "Audio ist gerade nicht verfügbar. Bitte versuche es erneut.",
   "mediaPhraseTitle": "Medien-Sätze",
-  "mediaPhraseDesc": "Übe Originalzeilen aus Interview-, Podcast-, Doku- und Debattenregistern auf deinem Niveau.",
+  "mediaPhraseDesc": "Übe Originalzeilen aus Interviews, Podcasts, Dokus und Debatten aus allen Niveaustufen.",
   "mediaPhraseContext": "Situation",
   "mediaPhraseLoading": "Medien-Sätze werden geladen …",
   "mediaPhraseUnavailable": "Die Medien-Sätze konnten nicht geladen werden. Bitte versuche es erneut.",
-  "mediaPhraseEmptyTitle": "Noch kein Satz für dieses Niveau",
-  "mediaPhraseEmpty": "Für dein Niveau sind gerade keine Medien-Sätze verfügbar.",
+  "mediaPhraseEmptyTitle": "Noch kein Medien-Satz verfügbar",
+  "mediaPhraseEmpty": "Zurzeit sind keine Medien-Sätze verfügbar.",
   "mediaPhraseProgress": "{current} von {total}",
   "@mediaPhraseProgress": {
     "placeholders": {

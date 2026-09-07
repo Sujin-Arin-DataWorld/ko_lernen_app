@@ -4,9 +4,8 @@ import 'today_learning_snapshot.dart';
 ///
 /// This deliberately owns no recommendation inputs and writes no learner
 /// progress. Both Home and the Sarangbang use it so a direct Home CTA still
-/// passes through the established pack-access gate before opening the exact
-/// original route and arguments.
-typedef TodayLearningPackAccessGate = Future<bool> Function(String level);
+/// opens the exact original route and arguments. Pack access is universal and
+/// therefore has no deny-capable navigation seam.
 typedef TodayLearningRouteOpener =
     Future<void> Function(String route, Object? arguments);
 
@@ -15,15 +14,9 @@ class TodayLearningNavigation {
 
   static Future<bool> open(
     TodayLearningDestination? destination, {
-    required TodayLearningPackAccessGate ensurePackAccess,
     required TodayLearningRouteOpener openRoute,
   }) async {
     if (destination == null) {
-      return false;
-    }
-
-    final level = destination.packAccessLevel;
-    if (level != null && !await ensurePackAccess(level)) {
       return false;
     }
 

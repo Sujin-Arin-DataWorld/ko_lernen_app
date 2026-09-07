@@ -22,7 +22,7 @@ from ai_policy import resolve_book_policy, read_cost_control, prepare_cost_reser
 DEFAULT_ALLOWED_APP_IDS = frozenset(
     {
         "1:573567222361:android:38d26a50001ee64c356748",
-        "1:573567222361:ios:0f8c0734410bb6cc356748",
+        "1:573567222361:ios:e1847f3ea5dcbbc1356748",
     }
 )
 QUOTA_COLLECTION = "service_quotas"

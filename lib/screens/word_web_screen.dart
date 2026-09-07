@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
-import '../models/learner_level.dart';
 import '../models/word_relation.dart';
 import '../motion/transitions.dart';
-import '../services/learner_level_selection.dart';
-import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../services/word_relation_service.dart';
 import '../widgets/app_loading.dart';
@@ -27,18 +24,12 @@ import 'word_web_study_screen.dart';
 /// Study synonyms, antonyms, related words, and expressions for learned vocab.
 ///
 /// Default scope is words already marked seen. When that set is empty, the
-/// empty state can open a cumulative level browse so the seed stays reachable.
+/// empty state can open the complete A1-C2 catalog so every seed stays reachable.
 class WordWebScreen extends StatefulWidget {
-  const WordWebScreen({
-    super.key,
-    this.clusterLoader,
-    this.seenLoader,
-    this.levelLoader,
-  });
+  const WordWebScreen({super.key, this.clusterLoader, this.seenLoader});
 
   final Future<List<WordRelationCluster>> Function()? clusterLoader;
   final Set<String> Function()? seenLoader;
-  final LearnerLevel Function()? levelLoader;
 
   @override
   State<WordWebScreen> createState() => _WordWebScreenState();
@@ -125,15 +116,10 @@ class _WordWebScreenState extends State<WordWebScreen>
 
   Set<String> get _seen => widget.seenLoader?.call() ?? _seenKorean;
 
-  LearnerLevel get _level =>
-      widget.levelLoader?.call() ??
-      learnerLevelForStoredCode(Storage.userLevelCode);
-
   List<WordRelationCluster> _filter() {
     return WordRelationService.filterForLearner(
       clusters: _all,
       seenKorean: _seen,
-      level: _level,
       scope: _scope,
     );
   }
@@ -271,15 +257,15 @@ class _WordWebScreenState extends State<WordWebScreen>
                       SoriChip(
                         key: const ValueKey('word-web-filter-level'),
                         label: t.wordWebLevelFilter,
-                        selected: _scope == WordWebScope.level,
-                        icon: _scope == WordWebScope.level
+                        selected: _scope == WordWebScope.all,
+                        icon: _scope == WordWebScope.all
                             ? Icons.check_rounded
                             : null,
                         accent: SoriColors.accent,
                         variant: SoriChipVariant.outlined,
                         maxLines: null,
                         minInteractiveHeight: 48,
-                        onTap: () => _setScope(WordWebScope.level),
+                        onTap: () => _setScope(WordWebScope.all),
                       ),
                     ],
                   ),
@@ -308,7 +294,7 @@ class _WordWebScreenState extends State<WordWebScreen>
           }
         },
         secondaryLabel: t.wordWebBrowseLevelCta,
-        onSecondary: () => _setScope(WordWebScope.level),
+        onSecondary: () => _setScope(WordWebScope.all),
       ),
     );
   }

@@ -5,7 +5,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
-import 'package:ko_lernen_app/models/learner_level.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/word_relation.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
@@ -205,23 +204,20 @@ void main() {
     final learned = WordRelationService.filterForLearner(
       clusters: clusters,
       seenKorean: {'크다'},
-      level: LearnerLevel.a2,
       scope: WordWebScope.learned,
     );
     final level = WordRelationService.filterForLearner(
       clusters: clusters,
       seenKorean: const {},
-      level: LearnerLevel.a1,
-      scope: WordWebScope.level,
+      scope: WordWebScope.all,
     );
 
     expect(learned.map((c) => c.sourceKo), ['크다']);
-    expect(level.map((c) => c.sourceKo), ['크다', '작다']);
+    expect(level.map((c) => c.sourceKo), ['크다', '작다', '덥다', '춥다']);
     expect(
       WordRelationService.filterForLearner(
         clusters: clusters,
         seenKorean: const {},
-        level: LearnerLevel.a1,
         scope: WordWebScope.learned,
       ),
       isEmpty,

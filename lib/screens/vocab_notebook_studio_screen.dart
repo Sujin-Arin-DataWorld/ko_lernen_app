@@ -458,7 +458,6 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
                 : () => _openPage(
                     ScenariosListScreen(
                       loadScenarios: () async => match.scenarios,
-                      ignoreLevelLock: true,
                     ),
                   ),
           ),

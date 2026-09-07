@@ -41,7 +41,6 @@ import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
 import 'package:ko_lernen_app/screens/learning_path_screen.dart';
 import 'package:ko_lernen_app/screens/legacy_vocab_screen.dart';
 import 'package:ko_lernen_app/screens/listening_screen.dart';
-import 'package:ko_lernen_app/screens/paywall_screen.dart';
 import 'package:ko_lernen_app/screens/personal_room_furnish_screen.dart';
 import 'package:ko_lernen_app/screens/profile_screen.dart';
 import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
@@ -104,7 +103,6 @@ Map<String, Widget> responsiveScreens() => <String, Widget>{
   ),
   'companion selection': const CharacterSelectionScreen(optional: true),
   'course mission': const CourseMissionScreen(),
-  'paywall': const PaywallScreen(),
   'chosung': const ChosungQuizScreen(),
   'cloze': const ClozeGameScreen(),
   'speed match': const SpeedMatchScreen(),

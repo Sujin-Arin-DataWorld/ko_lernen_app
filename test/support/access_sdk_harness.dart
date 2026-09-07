@@ -9,7 +9,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_core_platform_interface/firebase_core_platform_interface.dart';
 
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
-import 'package:ko_lernen_app/services/premium_service.dart';
+import 'package:ko_lernen_app/services/access_snapshot_service.dart';
 
 class AccessSdkHarness {
   static const uid = 'verified-access-test';
@@ -22,7 +22,7 @@ class AccessSdkHarness {
     FirebaseFunctionsPlatform.instance = functions;
     cloudWriteSessionController.acquire(uid);
     await runZoned(
-      PremiumService.init,
+      AccessSnapshotService.init,
       zoneSpecification: ZoneSpecification(
         createPeriodicTimer: (self, parent, zone, period, callback) {
           final timer = parent.createPeriodicTimer(zone, period, callback);
@@ -31,11 +31,6 @@ class AccessSdkHarness {
         },
       ),
     );
-  }
-
-  Future<void> setPremium(bool premium) async {
-    functions.premium = premium;
-    await PremiumService.refreshAccess();
   }
 
   void dispose() {
@@ -101,7 +96,6 @@ class AccessFunctionsTransport extends FirebaseFunctionsPlatform {
   AccessFunctionsTransport() : super(null, 'europe-west3');
   final List<({String name, String region, bool limitedUse, Object? data})>
   calls = [];
-  bool premium = false;
   String? requestedRegion;
   @override
   FirebaseFunctionsPlatform delegateFor({
@@ -137,20 +131,17 @@ class _Callable extends HttpsCallablePlatform {
       data: parameters,
     ));
     final now = DateTime.now().millisecondsSinceEpoch;
-    final premium = transport.premium;
     return {
-      'schemaVersion': 1,
+      'schemaVersion': 2,
       'ownerUid': AccessSdkHarness.uid,
       'environment': 'PRODUCTION',
-      'revision': (premium ? 'b' : 'a') * 64,
-      'source': premium ? 'subscription' : 'free',
-      'contentAccess': premium ? 'all' : 'a1',
-      'aiPolicyId': premium ? 'premium_v1' : 'free_v1',
-      'bookDailyLimit': premium ? 20 : 3,
-      'pronunciationDailyLimit': premium ? 50 : 5,
+      'revision': 'a' * 64,
+      'source': 'universal',
+      'contentAccess': 'all',
+      'aiPolicyId': 'universal_v1',
+      'bookDailyLimit': 20,
+      'pronunciationDailyLimit': 50,
       'serverNow': now,
-      'accessUntil': premium ? now + 86400000 : null,
-      'offlineUntil': premium ? now + 86400000 : now,
       'nextResetAt': (now ~/ 86400000 + 1) * 86400000,
     };
   }

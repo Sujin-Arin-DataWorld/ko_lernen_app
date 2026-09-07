@@ -26,7 +26,7 @@ dependencies:
   # ── Audio / Sprache ─────────────────────────────────────
   # flutter_tts 는 2026-08-19 에 제거했다. OS 음성 폴백이 독일어 엔진으로
   # 한국어를 읽어("전부 das" — Jin) 발음 학습을 망가뜨렸고, Storage 실측상
-  # 발화 11,438개 중 프리미엄이 없는 건 1개뿐이라 폴백이 필요 없다.
+  # 발화 11,438개 중 서버 오디오가 없는 건 1개뿐이라 폴백이 필요 없다.
   # 자세한 이유는 TtsService 클래스 주석 참조.
   # SFX (정답/오답/콤보/레벨업) — assets/sfx/*.mp3. 에셋 없으면 SoundService가
   # 조용히 무음 처리(no-op). Jin이 mp3 5개 넣으면 자동 재생.
@@ -80,14 +80,6 @@ dependencies:
 
   # ── 공유 (Phase 5.2 — 커스텀팩 친구 공유) ───────────────────
   share_plus: ^13.3.0
-
-  # ── Abo / In-App-Kauf (RevenueCat) — €5/Monat Premium ───
-  # ⚠️ Nach dem Hinzufügen `flutter pub get` ausführen.
-  #    RevenueCat-Dashboard: Entitlement "premium" + Offering (Monatspaket)
-  #    anlegen und Store-Produkte verknüpfen. Public-SDK-Keys via
-  #    --dart-define=RC_ANDROID_KEY=goog_… / RC_IOS_KEY=appl_… injizieren.
-  #    Ohne Keys läuft PremiumService im "kostenlos"-Modus (kein Crash).
-  purchases_flutter: ^10.7.0
 
   # ── Lokale Benachrichtigungen (M3) — tägliche Lern-Erinnerung ───
   # Erfordert Android core library desugaring (siehe android/app/build.gradle.kts)

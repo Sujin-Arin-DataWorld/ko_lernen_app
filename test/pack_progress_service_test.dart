@@ -35,32 +35,66 @@ void main() {
       expect(progress.status, PackStatus.available);
     });
 
-    test('non-first pack → locked', () {
+    test('every pack in the level → available', () {
       final p2 = PackProgressService.effectiveStatus(pack2, allPacks, {});
       final p3 = PackProgressService.effectiveStatus(pack3, allPacks, {});
-      expect(p2.status, PackStatus.locked);
-      expect(p3.status, PackStatus.locked);
+      expect(p2.status, PackStatus.available);
+      expect(p3.status, PackStatus.available);
     });
 
     test('stored cleared → respects stored', () {
       final existing = {
         pack1.id: PackProgress.fresh(
-          packId: pack1.id, level: 'A1', wordsTotal: 6,
+          packId: pack1.id,
+          level: 'A1',
+          wordsTotal: 6,
           status: PackStatus.cleared,
         ),
       };
       final p1 = PackProgressService.effectiveStatus(pack1, allPacks, existing);
       expect(p1.status, PackStatus.cleared);
-      // Next pack should now be unlocked via stored status.
+      // Clearing another pack is unrelated to direct access.
       final p2 = PackProgressService.effectiveStatus(pack2, allPacks, existing);
       expect(p2.status, PackStatus.available);
+    });
+
+    test('stored legacy lock is normalized without losing progress fields', () {
+      const clearedAt = '2026-05-31T12:00:00Z';
+      final legacy = PackProgress(
+        packId: pack2.id,
+        level: pack2.level,
+        status: PackStatus.locked,
+        wordsLearned: 4,
+        wordsTotal: pack2.total,
+        bossAccuracy: 0.5,
+        attempts: 2,
+        clearedAtIso: clearedAt,
+      );
+
+      final normalized = PackProgressService.effectiveStatus(pack2, allPacks, {
+        pack2.id: legacy,
+      });
+
+      expect(normalized.status, PackStatus.available);
+      expect(normalized.wordsLearned, legacy.wordsLearned);
+      expect(normalized.wordsTotal, legacy.wordsTotal);
+      expect(normalized.bossAccuracy, legacy.bossAccuracy);
+      expect(normalized.attempts, legacy.attempts);
+      expect(normalized.clearedAtIso, clearedAt);
+      expect(normalized.isUnlocked, isTrue);
+      expect(
+        PackProgressService.isUnlocked(pack2.id, allPacks, {pack2.id: legacy}),
+        isTrue,
+      );
     });
   });
 
   group('recordBossAttempt', () {
     test('accuracy ≥ 0.70 → cleared + next pack unlocked', () async {
       final r = await PackProgressService.recordBossAttempt(
-        pack1, allPacks, bossAccuracy: 0.75,
+        pack1,
+        allPacks,
+        bossAccuracy: 0.75,
       );
       expect(r.progress.status, PackStatus.cleared);
       expect(r.justCleared, isTrue);
@@ -74,7 +108,9 @@ void main() {
 
     test('accuracy < 0.70 → inProgress, no next unlock', () async {
       final r = await PackProgressService.recordBossAttempt(
-        pack1, allPacks, bossAccuracy: 0.40,
+        pack1,
+        allPacks,
+        bossAccuracy: 0.40,
       );
       expect(r.progress.status, PackStatus.inProgress);
       expect(r.justCleared, isFalse);
@@ -84,25 +120,36 @@ void main() {
       expect(p2Stored, isNull);
     });
 
-    test('cleared once, second attempt below threshold → still cleared', () async {
-      await PackProgressService.recordBossAttempt(
-        pack1, allPacks, bossAccuracy: 0.90,
-      );
-      final r2 = await PackProgressService.recordBossAttempt(
-        pack1, allPacks, bossAccuracy: 0.30,
-      );
-      expect(r2.progress.status, PackStatus.cleared);
-      expect(r2.justCleared, isFalse);
-      // bestAccuracy preserved (0.90)
-      expect(r2.progress.bossAccuracy, 0.90);
-    });
+    test(
+      'cleared once, second attempt below threshold → still cleared',
+      () async {
+        await PackProgressService.recordBossAttempt(
+          pack1,
+          allPacks,
+          bossAccuracy: 0.90,
+        );
+        final r2 = await PackProgressService.recordBossAttempt(
+          pack1,
+          allPacks,
+          bossAccuracy: 0.30,
+        );
+        expect(r2.progress.status, PackStatus.cleared);
+        expect(r2.justCleared, isFalse);
+        // bestAccuracy preserved (0.90)
+        expect(r2.progress.bossAccuracy, 0.90);
+      },
+    );
 
     test('attempts counter increments', () async {
       await PackProgressService.recordBossAttempt(
-        pack1, allPacks, bossAccuracy: 0.50,
+        pack1,
+        allPacks,
+        bossAccuracy: 0.50,
       );
       await PackProgressService.recordBossAttempt(
-        pack1, allPacks, bossAccuracy: 0.60,
+        pack1,
+        allPacks,
+        bossAccuracy: 0.60,
       );
       final stored = PackProgressService.get(pack1.id)!;
       expect(stored.attempts, 2);
@@ -110,28 +157,39 @@ void main() {
 
     test('boundary: exactly 0.70 → cleared', () async {
       final r = await PackProgressService.recordBossAttempt(
-        pack1, allPacks, bossAccuracy: 0.70,
+        pack1,
+        allPacks,
+        bossAccuracy: 0.70,
       );
       expect(r.justCleared, isTrue);
       expect(r.progress.status, PackStatus.cleared);
     });
 
-    test('first time cleared sets clearedAt; subsequent clears preserve it', () async {
-      final r1 = await PackProgressService.recordBossAttempt(
-        pack1, allPacks, bossAccuracy: 0.80,
-      );
-      expect(r1.progress.clearedAtIso, isNotNull);
-      final firstClearedAt = r1.progress.clearedAtIso;
-      await Future<void>.delayed(const Duration(milliseconds: 10));
-      final r2 = await PackProgressService.recordBossAttempt(
-        pack1, allPacks, bossAccuracy: 0.95,
-      );
-      expect(r2.progress.clearedAtIso, firstClearedAt);
-    });
+    test(
+      'first time cleared sets clearedAt; subsequent clears preserve it',
+      () async {
+        final r1 = await PackProgressService.recordBossAttempt(
+          pack1,
+          allPacks,
+          bossAccuracy: 0.80,
+        );
+        expect(r1.progress.clearedAtIso, isNotNull);
+        final firstClearedAt = r1.progress.clearedAtIso;
+        await Future<void>.delayed(const Duration(milliseconds: 10));
+        final r2 = await PackProgressService.recordBossAttempt(
+          pack1,
+          allPacks,
+          bossAccuracy: 0.95,
+        );
+        expect(r2.progress.clearedAtIso, firstClearedAt);
+      },
+    );
 
     test('last pack in level → no next unlock', () async {
       final r = await PackProgressService.recordBossAttempt(
-        pack3, allPacks, bossAccuracy: 0.90,
+        pack3,
+        allPacks,
+        bossAccuracy: 0.90,
       );
       expect(r.justCleared, isTrue);
       expect(r.nextUnlocked, isNull);
@@ -151,10 +209,7 @@ void main() {
     });
 
     test('last pack: no next, has previous', () {
-      expect(
-        PackProgressService.nextPackInLevel(pack3.id, allPacks),
-        isNull,
-      );
+      expect(PackProgressService.nextPackInLevel(pack3.id, allPacks), isNull);
       expect(
         PackProgressService.previousPackInLevel(pack3.id, allPacks)?.id,
         pack2.id,
@@ -162,10 +217,7 @@ void main() {
     });
 
     test('unknown pack: both null', () {
-      expect(
-        PackProgressService.nextPackInLevel('not_real', allPacks),
-        isNull,
-      );
+      expect(PackProgressService.nextPackInLevel('not_real', allPacks), isNull);
       expect(
         PackProgressService.previousPackInLevel('not_real', allPacks),
         isNull,
@@ -184,30 +236,38 @@ void main() {
       expect(PackProgressService.wordsLearnedIn(pack2), 1);
     });
 
-    test('learning all current-pack words preserves Boss clear and unlock', () async {
-      for (final word in pack1.learnWords) {
-        await Storage.addVokSeen(word.korean);
-      }
-      await PackProgressService.recordWordLearned(pack1);
+    test(
+      'learning all current-pack words preserves Boss clear and unlock',
+      () async {
+        for (final word in pack1.learnWords) {
+          await Storage.addVokSeen(word.korean);
+        }
+        await PackProgressService.recordWordLearned(pack1);
 
-      final learned = PackProgressService.get(pack1.id)!;
-      expect(learned.wordsLearned, pack1.total);
+        final learned = PackProgressService.get(pack1.id)!;
+        expect(learned.wordsLearned, pack1.total);
 
-      final result = await PackProgressService.recordBossAttempt(
-        pack1,
-        allPacks,
-        bossAccuracy: PackProgressService.bossClearThreshold,
-      );
-      expect(result.progress.status, PackStatus.cleared);
-      expect(result.nextUnlocked?.id, pack2.id);
-    });
+        final result = await PackProgressService.recordBossAttempt(
+          pack1,
+          allPacks,
+          bossAccuracy: PackProgressService.bossClearThreshold,
+        );
+        expect(result.progress.status, PackStatus.cleared);
+        expect(result.nextUnlocked?.id, pack2.id);
+      },
+    );
   });
 
   group('Storage.packProgressJson round-trip', () {
     test('save → load yields same JSON', () async {
       final p = PackProgress(
-        packId: 'a1_x', level: 'A1', status: PackStatus.cleared,
-        wordsLearned: 5, wordsTotal: 8, bossAccuracy: 0.83, attempts: 1,
+        packId: 'a1_x',
+        level: 'A1',
+        status: PackStatus.cleared,
+        wordsLearned: 5,
+        wordsTotal: 8,
+        bossAccuracy: 0.83,
+        attempts: 1,
         clearedAtIso: '2026-05-31T12:00:00Z',
       );
       await Storage.setPackProgressJson(p.packId, p.toJson());
@@ -222,13 +282,21 @@ void main() {
 
     test('allPackProgressJson returns all', () async {
       await Storage.setPackProgressJson('a', {
-        'level': 'A1', 'status': 'cleared', 'wordsLearned': 5,
-        'wordsTotal': 5, 'bossAccuracy': 0.9, 'attempts': 1,
+        'level': 'A1',
+        'status': 'cleared',
+        'wordsLearned': 5,
+        'wordsTotal': 5,
+        'bossAccuracy': 0.9,
+        'attempts': 1,
         'clearedAt': null,
       });
       await Storage.setPackProgressJson('b', {
-        'level': 'A1', 'status': 'inProgress', 'wordsLearned': 2,
-        'wordsTotal': 6, 'bossAccuracy': 0.4, 'attempts': 1,
+        'level': 'A1',
+        'status': 'inProgress',
+        'wordsLearned': 2,
+        'wordsTotal': 6,
+        'bossAccuracy': 0.4,
+        'attempts': 1,
         'clearedAt': null,
       });
       final all = Storage.allPackProgressJson();

@@ -1,9 +1,10 @@
 // Learn 카운터 행 + Quiz/Boss 헤더 행 — 좁은 화면(320-360dp) 오버플로 회귀 가드.
 //
 // 두 리뷰가 같은 결함 클래스를 같은 파일에서 지적했다:
-//  - Learn 카운터 행(vocab_pack_screen.dart:957 부근) — Task 2 가 칩 라벨을
-//    최대 ~20자("20 / 20 · +11 Wdh.")로 늘렸는데 Row 에 Flexible/Expanded 가
-//    없어 320-360dp 에서 오버플로할 수 있었다.
+//  - Learn 카운터 행(vocab_pack_screen.dart:957 부근) — 칩 라벨이 길어졌는데
+//    Row 에 Flexible/Expanded 가 없어 320-360dp 에서 오버플로할 수 있었다.
+//    (재출제 "· +N Wdh." 접미사는 첫 패스를 마치면 평가로 넘어가도록 바뀌면서
+//     사라졌다 — 이제 최장 상태는 분자·분모가 모두 두 자리인 칩이다.)
 //  - Quiz/Boss 헤더 행(vocab_pack_screen.dart:1081 부근, task_a40bf2a2) —
 //    이전부터 있던 같은 모양의 결함(vocab_pack_quiz_save_test.dart 가 이미
 //    "지시서 범위 밖의 기존 결함"이라 주석으로 회피해 둔 바로 그 Row).
@@ -105,7 +106,7 @@ void main() {
   });
 
   for (final size in _narrowSizes) {
-    testWidgets('Learn 카운터 행 — 재출제 접미사가 붙어도 $size 에서 오버플로하지 않는다', (
+    testWidgets('Learn 카운터 행 — 분자·분모가 가장 길어도 $size 에서 오버플로하지 않는다', (
       tester,
     ) async {
       _setNarrowView(tester, size);
@@ -113,18 +114,18 @@ void main() {
       final pack = _pack(4);
       final t = await _pump(tester, pack);
 
-      // 1번째 카드 "몰라요" → 큐 끝에 재삽입.
+      // 1번째 카드 "몰라요" → 큐 끝에 재삽입(재출제 카드가 뒤에 남는다).
       await _revealAndTap(tester, t.vocabPackDontKnow);
-      // 2, 3, 4번째 카드 "알아요" → 큐를 소진해 재출제된 1번 카드가 다시
-      // 서빙된다 — 칩 라벨이 "4 / 4 · +1 Wdh." 로 가장 길어지는 상태.
-      await _revealAndTap(tester, t.vocabPackGotIt);
+      // 2, 3번째 "알아요" → 아직 처음 보는 4번 카드가 서빙되고 칩은
+      // "4 / 4" 로 가장 길어진다. 4번까지 판정하면 첫 패스가 끝나 Quiz 로
+      // 넘어가므로(재출제 대신 평가) Learn 카운터 행은 여기가 최장 상태다.
       await _revealAndTap(tester, t.vocabPackGotIt);
       await _revealAndTap(tester, t.vocabPackGotIt);
 
       expect(
-        find.textContaining('· +1'),
+        find.textContaining('4 / 4'),
         findsOneWidget,
-        reason: '$size: 재출제 접미사가 붙은 상태를 만들지 못했다',
+        reason: '$size: Learn 카운터 최장 상태를 만들지 못했다',
       );
       expect(
         tester.takeException(),

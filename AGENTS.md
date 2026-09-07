@@ -223,6 +223,7 @@ refactor-safely,review-changes}`, `.gitignore`에 `.code-review-graph/`(그래�
 - `lib/services/auth_service.dart` — Hybrid Auth. 항상 익명 로그인, Google 링크 선택. **주의**: web에서 Firebase 미설정 시 crash 방지를 위해 `_auth`가 nullable getter임.
 - `lib/services/palette_service.dart` — Remote Config `palette_variant` 키로 단청/teal 토글. `paletteVariantNotifier` (ValueNotifier) → main.dart ListenableBuilder에서 ThemeData 재빌드.
 - `lib/services/storage_service.dart` — SharedPreferences 래퍼 (레벨, streak, XP 등)
+- `lib/services/access_snapshot_service.dart` — 서버 소유 접근·AI 한도 스냅샷을 조회하고 계정·앱 수명주기에 맞춰 갱신. 결제나 콘텐츠 게이트를 담당하지 않음.
 - `lib/services/data_loader.dart` — CSV/JSON 에셋 로드
 - `lib/services/theme_service.dart` — 다크모드 toggle
 - `lib/services/locale_service.dart` — 언어 선택 (DE/EN)

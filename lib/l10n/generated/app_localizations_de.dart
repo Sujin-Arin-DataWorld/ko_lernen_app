@@ -9,49 +9,6 @@ class AppL10nDe extends AppL10n {
   AppL10nDe([String locale = 'de']) : super(locale);
 
   @override
-  String get paywallSignInToContinue => 'Konto verbinden';
-
-  @override
-  String get paywallSignInRequired =>
-      'Verbinde zuerst dein Google- oder Apple-Konto. Käufe bleiben an dieses Konto gebunden.';
-
-  @override
-  String get paywallPending =>
-      'Die Bestätigung steht noch aus. Dein Zugang wird nach der Serverprüfung aktualisiert.';
-
-  @override
-  String get paywallCancelled =>
-      'Kauf abgebrochen. Es wurde kein Zugang freigeschaltet.';
-
-  @override
-  String get paywallActive => 'Premium ist bereits aktiv';
-
-  @override
-  String get paywallTesterActive =>
-      'Dein freigegebener Tester-Zugang ist aktiv';
-
-  @override
-  String get paywallManage => 'Abo im ursprünglichen Store verwalten';
-
-  @override
-  String get paywallManageUnavailable =>
-      'Öffne die Aboverwaltung in dem Store, in dem du das Abo abgeschlossen hast.';
-
-  @override
-  String get paywallFreeLaunch =>
-      'Alle Lerninhalte sind zum kostenlosen Start offen. Ein Abo ist derzeit nicht verfügbar.';
-
-  @override
-  String paywallAiLimits(int book, int pronunciation) {
-    return 'Dein aktuelles Kontingent: $book Buchanalysen und $pronunciation Ausspracheprüfungen pro UTC-Tag.';
-  }
-
-  @override
-  String paywallNextReset(String time) {
-    return 'Nächster Reset: $time UTC';
-  }
-
-  @override
   String get accountAdditionalProviderTitle =>
       'Weitere Anmeldemethode verbinden';
 
@@ -70,66 +27,6 @@ class AppL10nDe extends AppL10n {
   @override
   String get accountAppleConfigurationBody =>
       'Apple-Anmeldung ist in dieser App-Version noch nicht eingerichtet. Verwende vorerst deine bisherige Anmeldemethode oder kontaktiere den Support.';
-
-  @override
-  String get paywallTitle => 'Hangul Sori Premium';
-
-  @override
-  String get paywallSubtitle => 'Koreanisch lernen, wann du willst.';
-
-  @override
-  String get paywallBenefit1 => 'Alle Vokabel-Pakete (A2 bis C2)';
-
-  @override
-  String get paywallBenefit2 => 'Alle Gesprächs-Szenarien';
-
-  @override
-  String get paywallBenefit3 => 'Unbegrenzte Wiederholungen';
-
-  @override
-  String get paywallBenefit4 => '50 Ausspracheprüfungen pro UTC-Tag';
-
-  @override
-  String get paywallBenefit5 => '20 Buchanalysen pro UTC-Tag';
-
-  @override
-  String get paywallPricePerMonth => '/ Monat';
-
-  @override
-  String get paywallEyebrow => 'Premium';
-
-  @override
-  String get paywallCtaStart => 'Premium freischalten';
-
-  @override
-  String get paywallCtaRestore => 'Käufe wiederherstellen';
-
-  @override
-  String get paywallClose => 'Vielleicht später';
-
-  @override
-  String get paywallLegal =>
-      'Jederzeit kündbar. Das Abo verlängert sich automatisch, bis du kündigst.';
-
-  @override
-  String get paywallNotAvailable =>
-      'Abos sind in dieser Version noch nicht verfügbar.';
-
-  @override
-  String get paywallProcessing => 'Einen Moment …';
-
-  @override
-  String get paywallSuccess => 'Premium ist aktiv. Viel Spaß!';
-
-  @override
-  String get paywallFailed => 'Kauf nicht abgeschlossen.';
-
-  @override
-  String get paywallRestoreNone => 'Keine früheren Käufe gefunden.';
-
-  @override
-  String get paywallRestoreFailed =>
-      'Käufe konnten nicht wiederhergestellt werden. Versuche es erneut.';
 
   @override
   String streakDisplay(int days) {
@@ -324,9 +221,6 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get notificationBody => 'Taego wartet schon. Zeit für Koreanisch! 🐯';
-
-  @override
-  String get homeCourseTitle => 'Dein Lernpfad heute';
 
   @override
   String get homeCourseDesc => 'Auf deine Schwächen & Interessen zugeschnitten';
@@ -1205,12 +1099,6 @@ class AppL10nDe extends AppL10n {
   String get customPackCsvHint => '안녕하세요, Hallo\\n사과, Apfel';
 
   @override
-  String get packStateLocked => 'gesperrt';
-
-  @override
-  String get packStatePremium => 'Premium';
-
-  @override
   String get packStateCleared => 'geschafft';
 
   @override
@@ -1220,9 +1108,6 @@ class AppL10nDe extends AppL10n {
   String packSemantics(Object title, Object state, int learned, int total) {
     return 'Paket $title, $state, $learned von $total gelernt';
   }
-
-  @override
-  String get packLockedHintShort => 'Vorher freischalten';
 
   @override
   String smalltalkUseWith(Object context) {
@@ -1424,14 +1309,6 @@ class AppL10nDe extends AppL10n {
   @override
   String get vocabPacksEmptyBody =>
       'Für dieses Level sind noch keine Vokabeln vorbereitet.';
-
-  @override
-  String get vocabPackLockedNoPrev => 'Dieses Paket ist noch gesperrt.';
-
-  @override
-  String vocabPackLockedHint(Object prev) {
-    return 'Schließe zuerst „$prev“ mit ≥ 70 % ab.';
-  }
 
   @override
   String get bookCaptureTitle => 'Buchseite einlesen';
@@ -2179,17 +2056,6 @@ class AppL10nDe extends AppL10n {
   String get vocabPackLearnHint => 'Tippen zum Umdrehen';
 
   @override
-  String vocabPackLearnRepeatSuffix(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n Wdh.',
-      one: '1 Wdh.',
-    );
-    return ' · +$_temp0';
-  }
-
-  @override
   String get vocabPackDontKnow => 'Weiß ich nicht';
 
   @override
@@ -2474,17 +2340,6 @@ class AppL10nDe extends AppL10n {
   @override
   String get settingsAccountDeleteConfirmBody =>
       'Dadurch werden dein Firebase-Konto, deine Google- und Apple-Verknüpfungen, das Firestore-Cloud-Backup und lokale Lerndaten auf diesem Gerät gelöscht. Das lässt sich nicht rückgängig machen. Google oder Apple bitten dich zur Bestätigung eventuell um eine erneute Anmeldung.';
-
-  @override
-  String get settingsAccountDeleteSubscriptionWarning =>
-      'Ein App-Store- oder Play-Store-Abo wird dadurch nicht gekündigt.';
-
-  @override
-  String get settingsManageSubscription => 'Store-Abo verwalten';
-
-  @override
-  String get settingsManageSubscriptionFailed =>
-      'Die Aboverwaltung konnte nicht geöffnet werden.';
 
   @override
   String get settingsAccountDeleteSuccess => 'Konto und Daten gelöscht';
@@ -2789,11 +2644,6 @@ class AppL10nDe extends AppL10n {
   @override
   String scenariosCardMeta(int xp) {
     return '5 bis 7 Minuten · +$xp XP';
-  }
-
-  @override
-  String scenariosLocked(Object level) {
-    return 'Erreiche $level, um freizuschalten';
   }
 
   @override
@@ -3968,7 +3818,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String scenariosPathProgress(int done, int total) {
-    return '$done/$total freigeschaltet';
+    return '$done/$total verfügbar';
   }
 
   @override
@@ -4439,7 +4289,7 @@ class AppL10nDe extends AppL10n {
       'Die Nuancen-Datei konnte nicht gelesen werden. Das ist kein leerer Lernstand. Versuch es noch einmal.';
 
   @override
-  String get wordWebBrowseLevelCta => 'Wörter auf meinem Niveau ansehen';
+  String get wordWebBrowseLevelCta => 'Alle Niveaus ansehen';
 
   @override
   String get wordWebOpenVocabCta => 'Wortpakete öffnen';
@@ -4451,7 +4301,7 @@ class AppL10nDe extends AppL10n {
   String get wordWebLearnedFilter => 'Gelernt';
 
   @override
-  String get wordWebLevelFilter => 'Mein Niveau';
+  String get wordWebLevelFilter => 'Alle Niveaus';
 
   @override
   String get wordWebSynonymSection => 'Ähnliche Wörter';
@@ -4672,9 +4522,6 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get pathNodeNow => 'Jetzt';
-
-  @override
-  String get pathLockedHint => 'Schließe zuerst das vorherige Paket ab.';
 
   @override
   String get pathSeeAll => 'Ganzer Pfad';
@@ -5255,7 +5102,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get grammarPlanOnboardingBody =>
-      'Du siehst jeden Tag nur diese Muster. Tempo und Niveau kannst du oben jederzeit ändern.';
+      'Wähle eine tägliche Empfehlung. Oben kannst du Tempo und Niveau ändern oder jederzeit alle Muster ansehen.';
 
   @override
   String grammarPlanItemsPerDayOption(int n) {
@@ -5292,6 +5139,9 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get grammarPlanFinishedRestartCta => 'Neu starten';
+
+  @override
+  String get grammarBrowseAllCta => 'Alle Grammatikmuster ansehen';
 
   @override
   String get grammarChoiceTitle => 'Grammatik üben';
@@ -6292,7 +6142,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachScenariosBody =>
-      'Tippe auf ein Szenario und übe echte Alltagssituationen. Sie werden ab A2 freigeschaltet.';
+      'Tippe auf ein Szenario und übe echte Alltagssituationen. Alle Niveaus sind direkt verfügbar.';
 
   @override
   String get questSatzBauenInstruction =>
@@ -9317,7 +9167,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get mediaPhraseDesc =>
-      'Übe Originalzeilen aus Interview-, Podcast-, Doku- und Debattenregistern auf deinem Niveau.';
+      'Übe Originalzeilen aus Interviews, Podcasts, Dokus und Debatten aus allen Niveaustufen.';
 
   @override
   String get mediaPhraseContext => 'Situation';
@@ -9330,11 +9180,10 @@ class AppL10nDe extends AppL10n {
       'Die Medien-Sätze konnten nicht geladen werden. Bitte versuche es erneut.';
 
   @override
-  String get mediaPhraseEmptyTitle => 'Noch kein Satz für dieses Niveau';
+  String get mediaPhraseEmptyTitle => 'Noch kein Medien-Satz verfügbar';
 
   @override
-  String get mediaPhraseEmpty =>
-      'Für dein Niveau sind gerade keine Medien-Sätze verfügbar.';
+  String get mediaPhraseEmpty => 'Zurzeit sind keine Medien-Sätze verfügbar.';
 
   @override
   String mediaPhraseProgress(int current, int total) {
