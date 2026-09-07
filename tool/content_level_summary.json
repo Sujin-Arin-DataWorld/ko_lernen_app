@@ -1,0 +1,215 @@
+{
+  "counts": {
+    "cloze": {
+      "fallback_over2": 39,
+      "over1": 319,
+      "over2": 221,
+      "total": 1805,
+      "under2": 212,
+      "unknown": 0
+    },
+    "grammar": {
+      "fallback_over2": 3,
+      "over1": 28,
+      "over2": 9,
+      "total": 244,
+      "under2": 24,
+      "unknown": 0
+    },
+    "media": {
+      "fallback_over2": 6,
+      "over1": 31,
+      "over2": 17,
+      "total": 136,
+      "under2": 4,
+      "unknown": 0
+    },
+    "pronunciation": {
+      "fallback_over2": 0,
+      "over1": 10,
+      "over2": 8,
+      "total": 84,
+      "under2": 10,
+      "unknown": 0
+    },
+    "satz": {
+      "fallback_over2": 36,
+      "over1": 394,
+      "over2": 253,
+      "total": 2333,
+      "under2": 272,
+      "unknown": 0
+    },
+    "scenario": {
+      "fallback_over2": 1,
+      "over1": 32,
+      "over2": 6,
+      "total": 178,
+      "under2": 10,
+      "unknown": 0
+    },
+    "smalltalk": {
+      "fallback_over2": 7,
+      "over1": 139,
+      "over2": 57,
+      "total": 582,
+      "under2": 58,
+      "unknown": 0
+    },
+    "vocab": {
+      "fallback_over2": 151,
+      "over1": 325,
+      "over2": 220,
+      "total": 2420,
+      "under2": 208,
+      "unknown": 58
+    }
+  },
+  "coverage": {
+    "grade1": {
+      "at_level": 168,
+      "missing": 418,
+      "present_in_app": 296,
+      "total_unique": 714
+    },
+    "grade2": {
+      "at_level": 87,
+      "missing": 818,
+      "present_in_app": 252,
+      "total_unique": 1070
+    }
+  },
+  "generatedFrom": "assets/data/* + tools/content_factory/lexicon/* (tool/audit_content_levels.py)",
+  "packs": {
+    "a1": {
+      "median_ge_plus2": 6,
+      "share_ge_plus2_top10": [
+        {
+          "median": 2,
+          "n_high": 5,
+          "pack_id": "a1_pharmacy_ask_1",
+          "share_ge_plus2": 1.0
+        },
+        {
+          "median": 2,
+          "n_high": 7,
+          "pack_id": "a1_partner_siblings_hello_1",
+          "share_ge_plus2": 0.7143
+        },
+        {
+          "median": 2.0,
+          "n_high": 8,
+          "pack_id": "a1_subway_card_1",
+          "share_ge_plus2": 0.625
+        },
+        {
+          "median": 2,
+          "n_high": 5,
+          "pack_id": "a1_neighbors_hall_1",
+          "share_ge_plus2": 0.6
+        },
+        {
+          "median": 2,
+          "n_high": 9,
+          "pack_id": "a1_partner_first_gift_1",
+          "share_ge_plus2": 0.5556
+        },
+        {
+          "median": 2,
+          "n_high": 9,
+          "pack_id": "a1_weather_layer_1",
+          "share_ge_plus2": 0.5556
+        },
+        {
+          "median": 1.5,
+          "n_high": 8,
+          "pack_id": "a1_partner_photo_thanks_1",
+          "share_ge_plus2": 0.5
+        },
+        {
+          "median": 1.5,
+          "n_high": 4,
+          "pack_id": "a1_repair_language_1",
+          "share_ge_plus2": 0.5
+        },
+        {
+          "median": 1,
+          "n_high": 9,
+          "pack_id": "a1_partner_house_entry_1",
+          "share_ge_plus2": 0.4444
+        },
+        {
+          "median": 1,
+          "n_high": 7,
+          "pack_id": "a1_partner_chuseok_basic_1",
+          "share_ge_plus2": 0.4286
+        }
+      ]
+    },
+    "a2": {
+      "median_ge_plus2": 6,
+      "share_ge_plus2_top10": [
+        {
+          "median": 3.5,
+          "n_high": 4,
+          "pack_id": "a2_bank_counter_1",
+          "share_ge_plus2": 1.0
+        },
+        {
+          "median": 2.0,
+          "n_high": 2,
+          "pack_id": "a2_part_time_1",
+          "share_ge_plus2": 1.0
+        },
+        {
+          "median": 3.0,
+          "n_high": 2,
+          "pack_id": "a2_phone_plan_1",
+          "share_ge_plus2": 1.0
+        },
+        {
+          "median": 3,
+          "n_high": 11,
+          "pack_id": "a2_partner_banmal_switch_1",
+          "share_ge_plus2": 0.7273
+        },
+        {
+          "median": 3.0,
+          "n_high": 8,
+          "pack_id": "a2_housing_search_2026_1",
+          "share_ge_plus2": 0.625
+        },
+        {
+          "median": 2,
+          "n_high": 11,
+          "pack_id": "a2_partner_sibling_tease_1",
+          "share_ge_plus2": 0.5455
+        },
+        {
+          "median": 1,
+          "n_high": 7,
+          "pack_id": "a2_salon_visit_1",
+          "share_ge_plus2": 0.4286
+        },
+        {
+          "median": 1,
+          "n_high": 3,
+          "pack_id": "a2_apt_rules_1",
+          "share_ge_plus2": 0.3333
+        },
+        {
+          "median": 0.5,
+          "n_high": 6,
+          "pack_id": "a2_lost_found_1",
+          "share_ge_plus2": 0.3333
+        },
+        {
+          "median": 1,
+          "n_high": 9,
+          "pack_id": "a2_partner_leftover_bags_1",
+          "share_ge_plus2": 0.3333
+        }
+      ]
+    }
+  }
+}

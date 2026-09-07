@@ -1,0 +1,478 @@
+# Content Level Report (auto-generated)
+
+> 생성: `python tool/audit_content_levels.py` — plan §4.2 / T1.3.
+> 직접 편집 금지. 판정 절차는 `tool/cefr_lexicon.py`(§3.C), 재분류는
+> `tools/content_factory/relevel_bundle.py`(PR-L2a)로.
+
+**참고:** 이 표의 수치는 `tool/cefr_lexicon.py`(T1.2, 정규화·별칭·파생·
+basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 재계산한 값이다.
+플랜 §0.2 '대조 결과' 표는 이 사전이 만들어지기 전 원시 대조(정규화 미적용)
+수치이므로 미검출 비율이 훨씬 높다 — 두 표를 같은 수치로 기대하지 말 것.
+
+## 표면별 레벨 매트릭스
+
+### vocab (korean_vocab.csv 표제어)
+
+| 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
+|---|---|---|---|---|---|---|---|---|
+| a1 | 231 | 79 | 42 | 18 | 30 | 16 | 10 | 426 |
+| a2 | 143 | 137 | 76 | 39 | 50 | 15 | 19 | 479 |
+| b1 | 38 | 140 | 149 | 74 | 54 | 26 | 9 | 490 |
+| b2 | 17 | 73 | 99 | 159 | 109 | 81 | 7 | 545 |
+| c1 | 1 | 6 | 25 | 78 | 55 | 72 | 3 | 240 |
+| c2 | 1 | 5 | 11 | 58 | 44 | 111 | 10 | 240 |
+
+### grammar (grammar.csv example_korean)
+
+| 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
+|---|---|---|---|---|---|---|---|---|
+| a1 | 26 | 7 | 6 | 1 | 1 | 0 | 0 | 41 |
+| a2 | 16 | 28 | 5 | 1 | 0 | 0 | 0 | 50 |
+| b1 | 10 | 17 | 13 | 8 | 1 | 1 | 0 | 50 |
+| b2 | 1 | 4 | 11 | 33 | 7 | 1 | 0 | 57 |
+| c1 | 0 | 0 | 3 | 9 | 9 | 2 | 0 | 23 |
+| c2 | 0 | 0 | 3 | 4 | 7 | 9 | 0 | 23 |
+
+### scenario (대사 75퍼센타일 · grammarIds 최고)
+
+| 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
+|---|---|---|---|---|---|---|---|---|
+| a1 | 5 | 19 | 4 | 1 | 0 | 0 | 0 | 29 |
+| a2 | 0 | 16 | 11 | 1 | 1 | 0 | 0 | 29 |
+| b1 | 0 | 1 | 20 | 9 | 0 | 0 | 0 | 30 |
+| b2 | 0 | 0 | 3 | 27 | 0 | 0 | 0 | 30 |
+| c1 | 0 | 0 | 1 | 16 | 13 | 0 | 0 | 30 |
+| c2 | 0 | 0 | 1 | 8 | 8 | 13 | 0 | 30 |
+
+### cloze (fullKo)
+
+| 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
+|---|---|---|---|---|---|---|---|---|
+| a1 | 114 | 107 | 79 | 41 | 8 | 0 | 0 | 349 |
+| a2 | 37 | 86 | 76 | 69 | 14 | 1 | 0 | 283 |
+| b1 | 6 | 51 | 97 | 107 | 19 | 2 | 0 | 282 |
+| b2 | 1 | 24 | 100 | 184 | 55 | 27 | 0 | 391 |
+| c1 | 0 | 4 | 41 | 133 | 62 | 10 | 0 | 250 |
+| c2 | 0 | 4 | 38 | 112 | 68 | 28 | 0 | 250 |
+
+### satz (targetKo)
+
+| 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
+|---|---|---|---|---|---|---|---|---|
+| a1 | 83 | 116 | 83 | 45 | 10 | 0 | 0 | 337 |
+| a2 | 54 | 191 | 125 | 80 | 17 | 1 | 0 | 468 |
+| b1 | 25 | 143 | 158 | 124 | 24 | 1 | 0 | 475 |
+| b2 | 9 | 57 | 157 | 231 | 67 | 28 | 0 | 549 |
+| c1 | 0 | 4 | 40 | 137 | 62 | 9 | 0 | 252 |
+| c2 | 0 | 4 | 38 | 113 | 69 | 28 | 0 | 252 |
+
+### smalltalk (ko · reply.ko · followUp.ko 최고)
+
+| 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
+|---|---|---|---|---|---|---|---|---|
+| a1 | 16 | 47 | 31 | 5 | 1 | 0 | 0 | 100 |
+| a2 | 2 | 45 | 29 | 11 | 6 | 0 | 0 | 93 |
+| b1 | 1 | 15 | 36 | 30 | 5 | 1 | 0 | 88 |
+| b2 | 0 | 7 | 22 | 56 | 39 | 4 | 0 | 128 |
+| c1 | 0 | 1 | 10 | 40 | 34 | 2 | 0 | 87 |
+| c2 | 0 | 1 | 2 | 39 | 35 | 9 | 0 | 86 |
+
+### pronunciation (ko)
+
+| 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
+|---|---|---|---|---|---|---|---|---|
+| a1 | 5 | 1 | 3 | 0 | 1 | 0 | 0 | 10 |
+| a2 | 2 | 5 | 2 | 1 | 0 | 0 | 0 | 10 |
+| b1 | 0 | 1 | 5 | 2 | 2 | 0 | 0 | 10 |
+| b2 | 0 | 1 | 1 | 12 | 3 | 1 | 0 | 18 |
+| c1 | 0 | 0 | 1 | 12 | 3 | 2 | 0 | 18 |
+| c2 | 0 | 0 | 1 | 8 | 7 | 2 | 0 | 18 |
+
+### media (korean)
+
+| 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
+|---|---|---|---|---|---|---|---|---|
+| a1 | 9 | 13 | 9 | 1 | 2 | 1 | 0 | 35 |
+| a2 | 8 | 20 | 17 | 6 | 2 | 0 | 0 | 53 |
+| b1 | 0 | 0 | 6 | 4 | 2 | 0 | 0 | 12 |
+| b2 | 0 | 0 | 1 | 9 | 2 | 0 | 0 | 12 |
+| c1 | 0 | 0 | 0 | 10 | 2 | 0 | 0 | 12 |
+| c2 | 0 | 0 | 1 | 3 | 5 | 3 | 0 | 12 |
+
+## A1/A2 팩 보강 우선순위
+
+### A1/A2 팩 순위 (2등급 이상 어려운 단어 비율, 고신뢰 단어 기준)
+
+| pack_id | level | n_words | n_high | share_ge_plus2 | median_delta | suggested_action |
+|---|---|---|---|---|---|---|
+| `a1_pharmacy_ask_1` | a1 | 12 | 5 | 100% | 2 | bundle_move |
+| `a2_bank_counter_1` | a2 | 12 | 4 | 100% | 3.5 | bundle_move |
+| `a2_part_time_1` | a2 | 12 | 2 | 100% | 2 | bundle_move |
+| `a2_phone_plan_1` | a2 | 12 | 2 | 100% | 3 | bundle_move |
+| `a2_partner_banmal_switch_1` | a2 | 12 | 11 | 73% | 3 | bundle_move |
+| `a1_partner_siblings_hello_1` | a1 | 12 | 7 | 71% | 2 | bundle_move |
+| `a1_subway_card_1` | a1 | 12 | 8 | 62% | 2 | bundle_move |
+| `a2_housing_search_2026_1` | a2 | 12 | 8 | 62% | 3 | bundle_move |
+| `a1_neighbors_hall_1` | a1 | 12 | 5 | 60% | 2 | bundle_move |
+| `a1_partner_first_gift_1` | a1 | 12 | 9 | 56% | 2 | bundle_move |
+| `a1_weather_layer_1` | a1 | 12 | 9 | 56% | 2 | bundle_move |
+| `a2_partner_sibling_tease_1` | a2 | 12 | 11 | 55% | 2 | bundle_move |
+| `a1_partner_photo_thanks_1` | a1 | 12 | 8 | 50% | 1.5 | keep |
+| `a1_repair_language_1` | a1 | 4 | 4 | 50% | 1.5 | keep |
+| `a1_partner_house_entry_1` | a1 | 12 | 9 | 44% | 1 | step_up_or_swap |
+| `a1_partner_chuseok_basic_1` | a1 | 12 | 7 | 43% | 1 | step_up_or_swap |
+| `a1_school_supplies_1` | a1 | 12 | 7 | 43% | 1 | step_up_or_swap |
+| `a2_salon_visit_1` | a2 | 12 | 7 | 43% | 1 | step_up_or_swap |
+| `a1_post_office_1` | a1 | 12 | 12 | 42% | 1 | step_up_or_swap |
+| `a1_partner_table_basic_1` | a1 | 12 | 8 | 38% | 1 | step_up_or_swap |
+| `a1_payment_delivery_1` | a1 | 4 | 3 | 33% | 1 | step_up_or_swap |
+| `a2_apt_rules_1` | a2 | 12 | 3 | 33% | 1 | step_up_or_swap |
+| `a2_lost_found_1` | a2 | 12 | 6 | 33% | 0.5 | keep |
+| `a2_partner_leftover_bags_1` | a2 | 12 | 9 | 33% | 1 | step_up_or_swap |
+| `a1_partner_meet_names_1` | a1 | 11 | 7 | 29% | 1 | step_up_or_swap |
+| `a1_particles_in_use_1` | a1 | 4 | 4 | 25% | 0.5 | keep |
+| `a2_festival_booth_1` | a2 | 12 | 4 | 25% | 1 | step_up_or_swap |
+| `a2_gym_class_1` | a2 | 12 | 4 | 25% | 1 | step_up_or_swap |
+| `a2_money_1` | a2 | 10 | 8 | 25% | 0.5 | keep |
+| `a1_city_services_2026_1` | a1 | 12 | 10 | 20% | 1 | step_up_or_swap |
+| `a2_partner_seollal_day_1` | a2 | 12 | 10 | 20% | 0 | keep |
+| `a2_partner_dinner_talk_1` | a2 | 12 | 11 | 18% | 1 | step_up_or_swap |
+| `a2_people_jobs_1` | a2 | 12 | 11 | 18% | 0 | keep |
+| `a1_partner_seollal_basic_1` | a1 | 12 | 6 | 17% | 1 | step_up_or_swap |
+| `a2_food_2` | a2 | 7 | 6 | 17% | -1 | keep |
+| `a2_nature_1` | a2 | 12 | 12 | 17% | 1 | step_up_or_swap |
+| `a1_daily_4` | a1 | 9 | 9 | 11% | 1 | step_up_or_swap |
+| `a1_sorry_thanks_1` | a1 | 12 | 9 | 11% | 0 | keep |
+| `a2_home_1` | a2 | 10 | 9 | 11% | 0 | keep |
+| `a2_partner_chuseok_day_1` | a2 | 12 | 9 | 11% | 0 | keep |
+
+## 1급·2급 결손 어휘
+
+### 1급 (A1 목표)
+
+- 고유 표제어: 714 · 앱 보유(레벨 무관): 296 · 목표 레벨 일치: 168 · 결손: 418
+
+- **감탄사** (7): 그래, 글쎄요, 아, 여보세요, 예, 와, 음
+- **관형사** (15): 두, 마흔, 무슨, 백만, 서른, 세, 십만, 아흔, 어느, 어떤, 억, 여든, 여러, 일흔, 한
+- **대명사** (15): 그, 그것, 그쪽, 내, 누구, 무엇, 뭐, 어디, 언제, 여러분, 이것, 이쪽, 저것, 저쪽, 제
+- **동사** (47): 가지다, 걸다, 고르다, 그리다, 기다리다, 끄다, 끝나다, 나다, 내리다, 넣다, 놀다, 늦다, 다녀오다, 다니다, 도와주다, 돌아가다, 돌아오다, 돕다, 되다, 들다, 들어가다, 들어오다, 말다, 맞다, 못하다, 묻다, 부르다, 불다, 빌리다, 살다, 시키다, 알리다, 올라가다, 울다, 웃다, 잘하다, 지나다, 지내다, 찍다, 찾아보다, 추다, 춤추다, 치다, 켜다, 타다, 팔다, 피우다
+- **명사** (256): 가게, 가격, 가방, 가요, 가운데, 갈비, 갈비탕, 감, 감기, 감사, 값, 개, 건너편, 건물, 게임, 계속, 계획, 고양이, 곳, 공부, 공항, 교통, 구경, 구월, 귤, 그림, 그저께, 극장, 근처, 글, 기분, 기숙사, 김밥, 김치찌개, 꽃, 나무, 나중, 날, 날짜, 남대문, 남산, 남자, 낮, 내년, 노래, 노래방, 농구, 다음, 단어, 달, 담배, 대답, 대사관, 대학, 도착, 독일, 돈, 동대문, 동생, 동안, 된장찌개, 드라마, 등산, 딸, 떡볶이, 러시아, 마음, 말, 말레이시아, 먼저, 메뉴, 며칠, 모두, 모레, 모자, 목, 목욕탕, 몽골, 물건, 미국, 미안, 밑, 바나나, 바다, 바지, 방학, 백화점, 번호, 베트남, 병, 볼펜, 부모님, 부산, 부탁, 불, 비, 사람, 사랑, 사무실, 사용, 사월, 사이다, 사전, 사진, 산, 산책, 삼계탕, 삼월, 생일, 생활, 샤워, 서울, 서점, 선물, 설명, 세수, 소개, 쇼핑, 수업, 수영, 수영장, 수첩, 술, 슈퍼마켓, 스키, 시월, 시작, 식사, 신문, 신발, 실례, 십이월, 십일월, 아기, 아르바이트, 아이, 아이스크림, 아파트, 안경, 안내, 야구, 약속, 얼굴, 에어컨, 여권, 여자, 여행사, 역, 연극, 연습, 연필, 영, 영국, 영어, 영화관, 영화배우, 오렌지, 오월, 오전, 오후, 올해, 외국, 외국어, 외국인, 요리, 요즘, 우유, 운동, 운동장, 운동화, 운전, 월, 유명, 유월, 음료수, 음식, 의사, 이번, 이야기, 이월, 인도네시아, 인사, 인천, 일본, 일월, 일주일, 자동차, 작년, 잔, 잘못, 잠, 잠시, 잡채, 장소, 전, 전화번호, 제일, 제주도, 졸업, 종업원, 주, 주부, 주스, 주일, 준비, 중국, 지난달, 지난주, 지난해, 직원, 참외, 책상, 처음, 천만, 청소, 초대, 초콜릿, 축구, 축하, 출발, 춤, 층, 친절, 칠월, 카메라, 캐나다, 커피숍, 케이크, 콘서트, 콜라, 키, 탁구, 태국, 태권도, 터미널, 테니스, 텔레비전, 퇴근, 티셔츠, 파티, 팔월, 편지, 포도, 표, 프랑스, 프로그램, 피곤, 피아노, 필요, 하루, 학생증, 한국, 할머니, 할아버지, 회사원, 후
+- **부사** (28): 가장, 그래서, 그러니까, 그러면, 그런데, 그럼, 그렇지만, 그리고, 꼭, 다, 다시, 못, 바로, 보통, 아주, 아직, 안녕히, 어서, 얼마나, 열심히, 왜, 이따가, 잘, 좀, 주로, 참, 하지만, 함께
+- **수사** (9): 구십, 사십, 삼십, 스물, 오십, 육십, 이십, 칠십, 팔십
+- **수사‧관형사** (1): 천만02‧천만
+- **의존명사** (14): 가지, 것, 권, 년, 때, 마리, 명, 번, 살, 씨, 원, 중, 쪽, 호
+- **형용사** (26): 같다, 고맙다, 고프다, 괜찮다, 그렇다, 깨끗하다, 나쁘다, 낮다, 높다, 다르다, 따뜻하다, 맑다, 멋있다, 반갑다, 시원하다, 싫다, 아니다, 아름답다, 어떻다, 재미없다, 적다, 친하다, 특별하다, 한가하다, 흐리다, 힘들다
+
+### 2급 (A2 목표)
+
+- 고유 표제어: 1070 · 앱 보유(레벨 무관): 252 · 목표 레벨 일치: 87 · 결손: 818
+
+- **감탄사** (5): 글쎄, 아니, 야, 어, 응
+- **관형사** (14): 그런, 넷째, 다섯째, 두세, 둘째, 서너, 쉰, 스무, 예순, 옛, 이런, 저런, 첫, 한두
+- **대명사** (9): 그곳, 그분, 너희, 아무, 이곳, 이분, 저곳, 저분, 저희
+- **동사** (142): 가리키다, 가져가다, 가져오다, 갈아입다, 감다, 갖다, 갚다, 건너가다, 건너다, 걸어가다, 걸어오다, 굽다, 귀여워하다, 그만두다, 그치다, 기르다, 기뻐하다, 기억나다, 깨다, 꺼내다, 꾸다, 끊다, 끓다, 끓이다, 끝내다, 나타나다, 날다, 남기다, 낫다, 내다, 내려가다, 내려오다, 넘다, 넘어지다, 놓다, 누르다, 눕다, 느끼다, 늘다, 늙다, 다하다, 닦다, 달리다, 데려가다, 데려오다, 돌다, 돌려주다, 돌리다, 두다, 들르다, 들리다, 떠나다, 떠들다, 뛰다, 뛰어가다, 뜨다, 마르다, 마치다, 막히다, 만지다, 맞추다, 멈추다, 모시다, 모자라다, 물어보다, 미끄러지다, 믿다, 밀다, 바뀌다, 바라다, 바라보다, 바르다, 받아쓰다, 버리다, 보이다, 볶다, 붙이다, 비다, 빠지다, 빨다, 뽑다, 생각나다, 생기다, 서두르다, 섞다, 슬퍼하다, 식다, 싣다, 심다, 싸우다, 쌓다, 썰다, 안다, 안되다, 알아보다, 얻다, 얼다, 여쭙다, 오르다, 올라오다, 올리다, 움직이다, 원하다, 이기다, 익다, 일어서다, 잃다, 잊다, 자라다, 자르다, 잘되다, 잘못되다, 잘못하다, 잠자다, 잡다, 접다, 졸다, 죽다, 줄다, 줄이다, 즐거워하다, 즐기다, 지나가다, 지다, 지르다, 지우다, 짓다, 찌다, 참다, 찾아오다, 쳐다보다, 튀기다, 틀다, 틀리다, 팔리다, 펴다, 풀다, 피다, 화내다, 흐르다, 흔들다, 흘리다
+- **명사** (538): 가슴, 각각, 간식, 간장, 간호사, 감자, 강, 강아지, 거리, 거의, 거절, 거짓말, 걱정, 걸음, 검사, 검정, 겉, 결석, 결심, 결정, 결혼, 경기, 경치, 계단, 계산, 고개, 고등학교, 고모, 고장, 고추장, 공, 공무원, 공장, 공짜, 과거, 과자, 관광객, 관광지, 광주, 교사, 교통비, 교통사고, 교회, 구름, 국, 국내, 국수, 국제, 규칙, 그날, 그동안, 그때, 글씨, 글자, 금지, 기름, 기억, 기온, 기자, 기차역, 기차표, 기침, 기타, 긴장, 길이, 김, 까만색, 껌, 꽃집, 꿈, 끝, 나머지, 나흘, 낚시, 남, 남녀, 남성, 남쪽, 남학생, 낮잠, 내과, 냄비, 노력, 노트, 녹색, 녹차, 놀이, 농담, 높이, 눈물, 능력, 다양, 다음날, 단순, 단추, 단풍, 달걀, 달리기, 닭, 닭고기, 답, 답장, 대구, 대부분, 대전, 대학원, 대회, 덕분, 데이트, 도로, 도시, 도움, 독서, 돈가스, 돌, 동물, 동시, 동쪽, 돼지, 된장, 두부, 두통, 뒤쪽, 등, 디자인, 땀, 땅, 떡, 라디오, 레스토랑, 마당, 마을, 마중, 마지막, 마트, 막걸리, 만두, 만약, 만일, 만화, 매년, 매달, 매주, 매표소, 맥주, 머리카락, 멋, 메모, 메시지, 메일, 명절, 모습, 모양, 목걸이, 목소리, 목욕, 목적, 무, 무궁화, 물론, 미역국, 바깥, 바깥쪽, 바닥, 바닷가, 바이올린, 박수, 반대, 반바지, 발가락, 발바닥, 방금, 방문, 방송국, 방향, 배드민턴, 배추, 배탈, 뱀, 버릇, 벽, 별, 병문안, 복습, 볶음밥, 부인, 부자, 부장, 부족, 북쪽, 분식, 분위기, 불안, 불편, 블라우스, 비교, 비디오, 비밀, 빌딩, 빨래, 빵집, 사거리, 사계절, 사실, 사업, 사탕, 사흘, 삼거리, 삼겹살, 삼촌, 상, 상자, 상처, 상추, 상품, 새벽, 새해, 색, 샌드위치, 서비스, 서양, 서쪽, 선배, 선수, 선택, 선풍기, 설렁탕, 설탕, 섬, 성공, 세탁, 세탁소, 센터, 셋째, 소, 소고기, 소리, 소설, 소식, 소주, 소파, 속, 속도, 속옷, 손가락, 손녀, 손바닥, 손수건, 수, 수고, 수술, 수영복, 순두부찌개, 술집, 숫자, 스웨터, 스카프, 스케이트, 스키장, 스타, 스파게티, 스포츠, 시간표, 시계, 시골, 시내, 시민, 식구, 식빵, 식초, 식탁, 식품, 신랑, 신부, 신청, 신호, 실수, 실패, 쌀, 쓰레기, 쓰레기통, 아가씨, 아까, 아나운서, 아들, 아래쪽, 아무것, 아버님, 아줌마, 악기, 안개, 안전, 안쪽, 앞쪽, 애, 앨범, 약간, 약사, 양식, 양식집, 양치질, 얘기, 어깨, 어린아이, 어린이, 어머님, 어젯밤, 언어, 얼음, 엉덩이, 엘리베이터, 여기저기, 여성, 여학생, 여행지, 역사, 연결, 연락처, 연말, 연예인, 열흘, 엽서, 영하, 옆집, 예매, 예술, 예습, 오래간만, 오랜만, 오랫동안, 오른손, 오이, 올림, 올림픽, 옷장, 와이셔츠, 외출, 왼손, 요금, 요리사, 우동, 우리나라, 운전사, 울산, 울음, 웃음, 위쪽, 위치, 유리, 유치원, 육교, 음료, 음식점, 음악가, 이날, 이때, 이마, 이모, 이사, 이상, 이용, 이웃, 이전, 이제, 이틀, 이해, 이후, 인삼, 인형, 일기, 일부, 일식, 일식집, 입술, 입원, 입학, 자동판매기, 자랑, 자리, 자신, 자연, 자장면, 자판기, 잔치, 잡지, 장난감, 장마, 장미, 재료, 재미, 재채기, 저금, 저번, 전기, 전부, 전철, 전화기, 점수, 점심시간, 접시, 정거장, 정리, 정문, 정원, 정확, 제목, 조심, 조카, 종이, 주머니, 주문, 주변, 주위, 주차, 주차장, 줄, 중간, 중국집, 중심, 중앙, 중요, 중학교, 지각, 지난번, 지도, 지방, 지하, 지하도, 직장, 직접, 짐, 집안일, 짜증, 짝, 짬뽕, 찌개, 찬물, 책장, 첫날, 첫째, 청년, 청바지, 청소년, 체육관, 초대장, 초등학교, 초등학생, 최고, 최근, 축구공, 출근, 출석, 출입국, 출퇴근, 취소, 취직, 치과, 치료, 치약, 치킨, 침실, 칭찬, 카레, 카페, 칼, 칼국수, 코끼리, 콧물, 콩, 크기, 크리스마스, 큰소리, 탕수육, 태극기, 태도, 태풍, 택배, 테니스장, 테이블, 토끼, 토마토, 퇴원, 튀김, 트럭, 팀, 편리, 편안, 풍경, 프라이팬, 피, 피자, 하늘, 하늘색, 하숙비, 하얀색, 학기, 학년, 학원, 한강, 한글, 한번, 한식, 한식집, 한옥, 한잔, 한턱, 항공, 항공권, 해, 해외, 해외여행, 햄버거, 햇빛, 행동, 행복, 행사, 허리, 헬스클럽, 혀, 현재, 형제, 호랑이, 호수, 홍차, 화, 화가, 화장품, 환영, 환전, 회원, 후배, 휴게실, 휴대폰, 휴일, 휴지, 휴지통, 희망, 힘
+- **부사** (46): 가까이, 가득, 간단히, 곧, 그냥, 그대로, 그러나, 그러므로, 그만, 금방, 깊이, 깜짝, 깨끗이, 늘, 더욱, 따로, 또는, 똑같이, 똑바로, 매우, 멀리, 무척, 미리, 벌써, 새로, 서로, 아마, 아무리, 언제나, 역시, 오래, 완전히, 왜냐하면, 우선, 이미, 자꾸, 자세히, 전혀, 점점, 조금씩, 조용히, 특별히, 푹, 해마다, 혹시, 훨씬
+- **수사‧관형사** (2): 셋째02‧셋째, 첫째02‧첫째
+- **의존명사** (12): 개월, 거, 대, 도, 미터, 번째, 센티미터, 장, 켤레, 킬로그램, 킬로미터, 회
+- **접사** (2): -되다, -하다
+- **형용사** (48): 가늘다, 간단하다, 강하다, 귀찮다, 급하다, 깊다, 까맣다, 노랗다, 더럽다, 두껍다, 똑똑하다, 뜨겁다, 못생기다, 부드럽다, 분명하다, 불쌍하다, 붉다, 빨갛다, 새롭다, 선선하다, 소중하다, 신선하다, 심심하다, 알맞다, 약하다, 얇다, 어떠하다, 어리다, 오래되다, 옳다, 이렇다, 이르다, 익숙하다, 저렇다, 적당하다, 젊다, 즐겁다, 진하다, 차갑다, 착하다, 충분하다, 튼튼하다, 파랗다, 편찮다, 편하다, 푸르다, 하얗다, 화려하다
+
+## 레벨 이탈 시나리오
+
+### 레벨 이탈 시나리오
+
+| id | level | estimate | delta | reason |
+|---|---|---|---|---|
+| `a1_theme_park_date_choices` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
+| `a1_w10_eat` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
+| `a1_w10_fandom` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
+| `a1_w10_numbers` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
+| `a1_w10_partner` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
+| `a1_w10_phone` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
+| `a1_w10_repeat` | a1 | b2 | 3 | over2 dialog_p75=4.0 |
+| `a1_w10_taxi_stay` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
+| `a1_w10_wayfinding` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
+| `a2_theme_park_date_break` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
+| `a2_w10_apt` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
+| `a2_w10_enrolment` | a2 | b1 | 1 | over1 dialog_p75=2.8 |
+| `a2_w10_friends` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
+| `a2_w10_money` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
+| `a2_w10_partner` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
+| `after_hours_messages` | c1 | b1 | -2 | under2 grammar_ids_max=3 |
+| `ai_summary_wrong_fact` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
+| `automated_benefit_denial` | c2 | b2 | -2 | under2 dialog_p75=4.2 |
+| `b1_w10_cancellation` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
+| `b1_w10_insurance` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
+| `bakery_payment_bag` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
+| `bakery_queue` | a1 | a2 | 1 | over1 dialog_p75=2.5 |
+| `break_glass_apology` | a1 | b1 | 2 | over2 dialog_p75=3.0 |
+| `bunshik_tteokbokki` | a1 | b1 | 2 | over2 dialog_p75=3.0 |
+| `causal_claim_headline` | c2 | b2 | -2 | under2 dialog_p75=4.0 |
+| `clarify_repeat` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
+| `climate_model_local_decision` | c2 | b2 | -2 | under2 dialog_p75=4.5 |
+| `community_festival_shift` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
+| `dance_class_register` | a1 | b1 | 2 | over2 dialog_p75=3.0 |
+| `diaspora_name_identity` | c2 | b2 | -2 | under2 dialog_p75=4.5 |
+| `email_attachment_twice` | a2 | b2 | 2 | over2 dialog_p75=3.5 |
+| `fact_check_label_power` | c2 | b2 | -2 | under2 dialog_p75=4.0 |
+| `favorite_korean_music` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
+| `first_class_meeting` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
+| `forgot_house_key` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
+| `forgot_presentation_cable` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
+| `group_chat_photo_permission` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
+| `jeju_bus_missed` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
+| `kakao_contact_after_class` | a1 | b1 | 2 | fallback_over2 fallback:compound dialog_p75=3.0 |
+| `mart_grocery` | a1 | a2 | 1 | over1 dialog_p75=2.5 |
+| `medical_uncertainty_consent` | c2 | b2 | -2 | under2 dialog_p75=4.0 |
+| `meeting_time` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
+| `passive_voice_accountability` | c2 | b2 | -2 | under2 dialog_p75=4.5 |
+| `pharmacy_cold_medicine` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
+| `reel_caption_misunderstanding` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
+| `relationship_story_reframing` | c2 | b1 | -3 | under2 grammar_ids_max=3 |
+| `running_injury_training_plan` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
+| `shared_cup_recycling` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
+| `shared_document_old_version` | a2 | c1 | 3 | over2 dialog_p75=5.0 |
+| `subscription_cancel_charge` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
+| `subway_step_apology` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
+| `survival_day_capstone` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
+| `taxi_kakao` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
+| `team_update_indirect_speech` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
+| `umbrella_weather` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
+| `welfare_fraud_presumption` | c2 | b2 | -2 | under2 grammar_ids_max=4 |
+
+## 표면별 미검출 토큰 비율
+
+### 표면별 미검출 토큰 비율
+
+| kind | 미검출 토큰 | 전체 토큰 | 비율 |
+|---|---|---|---|
+| vocab | 125 | 3504 | 3.6% |
+| grammar | 76 | 1302 | 5.8% |
+| scenario | 564 | 9212 | 6.1% |
+| cloze | 349 | 10844 | 3.2% |
+| satz | 445 | 13177 | 3.4% |
+| smalltalk | 439 | 9117 | 4.8% |
+| pronunciation | 7 | 594 | 1.2% |
+| media | 38 | 726 | 5.2% |
+
+## 요약 (tool/content_level_summary.json)
+
+```json
+{
+  "counts": {
+    "cloze": {
+      "fallback_over2": 39,
+      "over1": 319,
+      "over2": 221,
+      "total": 1805,
+      "under2": 212,
+      "unknown": 0
+    },
+    "grammar": {
+      "fallback_over2": 3,
+      "over1": 28,
+      "over2": 9,
+      "total": 244,
+      "under2": 24,
+      "unknown": 0
+    },
+    "media": {
+      "fallback_over2": 6,
+      "over1": 31,
+      "over2": 17,
+      "total": 136,
+      "under2": 4,
+      "unknown": 0
+    },
+    "pronunciation": {
+      "fallback_over2": 0,
+      "over1": 10,
+      "over2": 8,
+      "total": 84,
+      "under2": 10,
+      "unknown": 0
+    },
+    "satz": {
+      "fallback_over2": 36,
+      "over1": 394,
+      "over2": 253,
+      "total": 2333,
+      "under2": 272,
+      "unknown": 0
+    },
+    "scenario": {
+      "fallback_over2": 1,
+      "over1": 32,
+      "over2": 6,
+      "total": 178,
+      "under2": 10,
+      "unknown": 0
+    },
+    "smalltalk": {
+      "fallback_over2": 7,
+      "over1": 139,
+      "over2": 57,
+      "total": 582,
+      "under2": 58,
+      "unknown": 0
+    },
+    "vocab": {
+      "fallback_over2": 151,
+      "over1": 325,
+      "over2": 220,
+      "total": 2420,
+      "under2": 208,
+      "unknown": 58
+    }
+  },
+  "coverage": {
+    "grade1": {
+      "at_level": 168,
+      "missing": 418,
+      "present_in_app": 296,
+      "total_unique": 714
+    },
+    "grade2": {
+      "at_level": 87,
+      "missing": 818,
+      "present_in_app": 252,
+      "total_unique": 1070
+    }
+  },
+  "generatedFrom": "assets/data/* + tools/content_factory/lexicon/* (tool/audit_content_levels.py)",
+  "packs": {
+    "a1": {
+      "median_ge_plus2": 6,
+      "share_ge_plus2_top10": [
+        {
+          "median": 2,
+          "n_high": 5,
+          "pack_id": "a1_pharmacy_ask_1",
+          "share_ge_plus2": 1.0
+        },
+        {
+          "median": 2,
+          "n_high": 7,
+          "pack_id": "a1_partner_siblings_hello_1",
+          "share_ge_plus2": 0.7143
+        },
+        {
+          "median": 2.0,
+          "n_high": 8,
+          "pack_id": "a1_subway_card_1",
+          "share_ge_plus2": 0.625
+        },
+        {
+          "median": 2,
+          "n_high": 5,
+          "pack_id": "a1_neighbors_hall_1",
+          "share_ge_plus2": 0.6
+        },
+        {
+          "median": 2,
+          "n_high": 9,
+          "pack_id": "a1_partner_first_gift_1",
+          "share_ge_plus2": 0.5556
+        },
+        {
+          "median": 2,
+          "n_high": 9,
+          "pack_id": "a1_weather_layer_1",
+          "share_ge_plus2": 0.5556
+        },
+        {
+          "median": 1.5,
+          "n_high": 8,
+          "pack_id": "a1_partner_photo_thanks_1",
+          "share_ge_plus2": 0.5
+        },
+        {
+          "median": 1.5,
+          "n_high": 4,
+          "pack_id": "a1_repair_language_1",
+          "share_ge_plus2": 0.5
+        },
+        {
+          "median": 1,
+          "n_high": 9,
+          "pack_id": "a1_partner_house_entry_1",
+          "share_ge_plus2": 0.4444
+        },
+        {
+          "median": 1,
+          "n_high": 7,
+          "pack_id": "a1_partner_chuseok_basic_1",
+          "share_ge_plus2": 0.4286
+        }
+      ]
+    },
+    "a2": {
+      "median_ge_plus2": 6,
+      "share_ge_plus2_top10": [
+        {
+          "median": 3.5,
+          "n_high": 4,
+          "pack_id": "a2_bank_counter_1",
+          "share_ge_plus2": 1.0
+        },
+        {
+          "median": 2.0,
+          "n_high": 2,
+          "pack_id": "a2_part_time_1",
+          "share_ge_plus2": 1.0
+        },
+        {
+          "median": 3.0,
+          "n_high": 2,
+          "pack_id": "a2_phone_plan_1",
+          "share_ge_plus2": 1.0
+        },
+        {
+          "median": 3,
+          "n_high": 11,
+          "pack_id": "a2_partner_banmal_switch_1",
+          "share_ge_plus2": 0.7273
+        },
+        {
+          "median": 3.0,
+          "n_high": 8,
+          "pack_id": "a2_housing_search_2026_1",
+          "share_ge_plus2": 0.625
+        },
+        {
+          "median": 2,
+          "n_high": 11,
+          "pack_id": "a2_partner_sibling_tease_1",
+          "share_ge_plus2": 0.5455
+        },
+        {
+          "median": 1,
+          "n_high": 7,
+          "pack_id": "a2_salon_visit_1",
+          "share_ge_plus2": 0.4286
+        },
+        {
+          "median": 1,
+          "n_high": 3,
+          "pack_id": "a2_apt_rules_1",
+          "share_ge_plus2": 0.3333
+        },
+        {
+          "median": 0.5,
+          "n_high": 6,
+          "pack_id": "a2_lost_found_1",
+          "share_ge_plus2": 0.3333
+        },
+        {
+          "median": 1,
+          "n_high": 9,
+          "pack_id": "a2_partner_leftover_bags_1",
+          "share_ge_plus2": 0.3333
+        }
+      ]
+    }
+  }
+}
+```
+
