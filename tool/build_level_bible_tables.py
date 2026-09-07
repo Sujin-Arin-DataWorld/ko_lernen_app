@@ -3,11 +3,15 @@
 (plan §3.F / §6 T1.4).
 
 Deterministically produces F1, F2, F3, F5, F6, F7 and F9 from the lexicon
-(``tools/content_factory/lexicon/``), the live app assets
-(``assets/data/*``) and the two preserved 세종한국문화 CSVs. F4 (세종 익힘책
-1-1/1-2, hand-extracted from the PDF appendix), F8 (검수 체크리스트) and F10
-(빈 리뷰 원장) are static and hand-authored -- this script does not touch
-them.
+(``tools/content_factory/lexicon/``, which as of R9 includes the two
+세종한국문화 CSVs F5 needs -- see point 5 below) and the live app assets
+(``assets/data/*``). F6 additionally reads two OPTIONAL, not-yet-repo-cleared
+external sources (KERIS 사회 CSV, 전국초중등 표준데이터 JSON) from a
+caller-supplied ``--sources-dir``; a missing file there degrades that one F6
+section gracefully instead of failing the whole run (point 5). F4 (세종
+익힘책 1-1/1-2, hand-extracted from the PDF appendix), F8 (검수 체크리스트)
+and F10 (빈 리뷰 원장) are static and hand-authored -- this script does not
+touch them, and none of F1-F9 opens a PDF at generation time.
 
 Design notes (flagged for Fable's ruling, see the T1.4 report):
 
@@ -51,13 +55,40 @@ Design notes (flagged for Fable's ruling, see the T1.4 report):
    resolved for the term as a whole, which (via the lexicon's own
    tokenising) could land on the term's last word alone -- item 3 above is
    the fix.
+5. **R9 rework (2026-09-07 Fable rework, PR #283 CI fix):** every F-table
+   used to be built from ``REPO``/``ASSETS``/``LEXICON_DIR`` plus a single
+   hardcoded ``PRESERVATION_DIR`` constant
+   (``C:\\dev\\hangulsori\\preservation\\nikl_sejong_2026-09-07``) that only
+   ever existed on Jin's/Sonnet's own Windows machines -- so
+   ``DeterministicOutputTest`` (which calls ``generate_all()`` for real) was
+   an unconditional ``FileNotFoundError`` on Linux CI, which has no such
+   folder. The two sources behind this split cleanly by license status:
+   F5's two 세종한국문화 CSVs are already cleared for the repo (공공누리
+   제1유형, ref0041/ref0042 in
+   ``tools/content_factory/reference_intake/source_inventory.csv``), so they
+   are now committed under ``tools/content_factory/lexicon/`` and F5 has no
+   "optional" path at all -- a missing committed file is a real bug, not a
+   degraded-but-fine state. F6's two sources (KERIS 사회 CSV, 전국초중등
+   표준데이터 JSON) are NOT yet cleared for committing, so they stay
+   machine-local behind a ``--sources-dir``/``sources_dir`` argument
+   (resolution order: explicit argument -> ``$LCP_SOURCES_DIR`` -> the old
+   hardcoded path, preserved as the last-resort default so nothing changes
+   for a workstation that already has the folder) and each of F6's two
+   sub-sections independently degrades to a "원본 파일 미제공 — 생성 생략"
+   stand-in (see ``_f6_skip_section``) instead of raising when its file is
+   absent under that directory. Tests must therefore never call
+   ``generate_all``/``build_f6_md`` against the real machine-local
+   preservation folder -- see ``tool/test_build_level_bible_tables.py``'s
+   synthetic ``sources_dir`` fixture.
 """
 
 from __future__ import annotations
 
+import argparse
 import csv
 import importlib.util
 import json
+import os
 import re
 import sys
 from collections import Counter, defaultdict
@@ -77,12 +108,34 @@ REPO = Path(__file__).resolve().parent.parent
 ASSETS = REPO / "assets" / "data"
 LEXICON_DIR = REPO / "tools" / "content_factory" / "lexicon"
 OUT_DIR = REPO / "docs" / "data" / "level_bible"
-PRESERVATION_DIR = Path(r"C:\dev\hangulsori\preservation\nikl_sejong_2026-09-07")
 
-CULTURE1_CSV = PRESERVATION_DIR / "세종학당재단_교재_한국문화_세종한국문화1 주요 어휘_20260501.csv"
-CULTURE2_CSV = PRESERVATION_DIR / "세종학당재단_교재_한국문화_세종한국문화2 주요 어휘_20260507.csv"
-KERIS_CSV = PRESERVATION_DIR / "한국교육학술정보원_교과주제별 학습자료(사회)_20250331.csv"
-KERIS_JSON = PRESERVATION_DIR / "전국초중등교과주제별학습자료표준데이터.json"
+# F5's two 세종한국문화 CSVs are public-domain (공공누리 제1유형, ref0041/
+# ref0042 in tools/content_factory/reference_intake/source_inventory.csv)
+# and now live in the repo -- see tools/content_factory/lexicon/README.md.
+# R9 (2026-09-07 Fable rework): this used to point at the machine-local
+# preservation folder, which made F5 (and hence the whole DeterministicOutputTest
+# suite, which calls generate_all()) an unconditional FileNotFoundError on
+# any machine (CI included) that lacks that folder. Committing the two CSVs
+# removes the dependency outright rather than making it "optional" -- F5 has
+# no legitimate case for skipping (unlike F6 below, whose two sources are
+# genuinely external and not yet cleared for the repo).
+CULTURE1_CSV = LEXICON_DIR / "sejong_culture_vocab_1.csv"
+CULTURE2_CSV = LEXICON_DIR / "sejong_culture_vocab_2.csv"
+
+# F6's two sources (KERIS 사회 CSV, 전국초중등 표준데이터 JSON) are NOT yet
+# cleared for repo committing (license/size not settled) -- they stay
+# machine-local, read from a caller-supplied ``--sources-dir`` (CLI) /
+# ``sources_dir`` (function) argument instead of a hardcoded path. Default
+# resolution order: explicit argument -> $LCP_SOURCES_DIR -> this
+# machine-local fallback (unchanged from the pre-R9 hardcoded constant, so
+# a Jin/Sonnet workstation that already has the preservation folder needs no
+# new configuration). A file missing under the resolved directory is NOT an
+# error -- see build_f6_md's per-section "생성 생략" handling.
+DEFAULT_SOURCES_DIR = Path(
+    os.environ.get("LCP_SOURCES_DIR") or r"C:\dev\hangulsori\preservation\nikl_sejong_2026-09-07"
+)
+KERIS_CSV_NAME = "한국교육학술정보원_교과주제별 학습자료(사회)_20250331.csv"
+KERIS_JSON_NAME = "전국초중등교과주제별학습자료표준데이터.json"
 
 
 def _read_csv(path: Path, encoding: str = "utf-8") -> List[dict]:
@@ -669,7 +722,7 @@ def _load_culture_rows() -> List[Tuple[str, str, str, str, str]]:
     seen: set = set()
     rows: List[Tuple[str, str, str, str, str]] = []
     for source, path in (("세종한국문화1", CULTURE1_CSV), ("세종한국문화2", CULTURE2_CSV)):
-        for row in _read_csv(path, encoding="utf-8-sig"):
+        for row in _read_csv(path, encoding="utf-8"):
             headword = (row.get("주요 어휘") or "").strip()
             if not headword or headword in seen:
                 continue
@@ -736,70 +789,116 @@ def build_f5_md(root: Path = REPO) -> str:
 # ---------------------------------------------------------------------------
 
 
-def build_f6_md(root: Path = REPO) -> str:
-    keris_rows = _read_csv(KERIS_CSV, encoding="cp949")
-    by_topic: Dict[str, List[dict]] = defaultdict(list)
-    for row in keris_rows:
-        topic = (row.get("주제") or "").strip()
-        by_topic[topic].append(row)
+def _f6_skip_section(title: str, sources_dir: Path) -> List[str]:
+    """R9 (2026-09-07 Fable rework): a missing optional F6 source must not
+    raise (that is what made DeterministicOutputTest a hard FileNotFoundError
+    on any machine without the machine-local sources-dir, CI included) --
+    it renders this clearly-marked stand-in section instead, so F6 stays
+    deterministic and generate_all() always succeeds regardless of which
+    optional sources happen to be present."""
+    return [
+        "## {}".format(title),
+        "",
+        "원본 파일 미제공 — 생성 생략 (sources-dir: {})".format(sources_dir),
+        "",
+    ]
 
-    def _top_keywords(rows: List[dict], n: int = 5) -> List[str]:
-        counter: Counter = Counter()
-        for row in rows:
-            for kw in (row.get("키워드") or "").split(","):
-                kw = kw.strip()
-                if kw:
-                    counter[kw] += 1
-        return [kw for kw, _ in counter.most_common(n)]
 
-    topic_order = sorted(by_topic, key=lambda t: (-len(by_topic[t]), t))
+def build_f6_md(root: Path = REPO, sources_dir: Optional[Path] = None) -> str:
+    """F6: KERIS 사회 CSV + 전국초중등 표준데이터 JSON topic bank. Both
+    sources are OPTIONAL (not yet cleared for repo committing -- unlike F5's
+    두 세종한국문화 CSVs) and are looked up under ``sources_dir`` (defaults to
+    :data:`DEFAULT_SOURCES_DIR`, i.e. ``$LCP_SOURCES_DIR`` or the
+    machine-local preservation fallback). Each of the two sections is
+    generated independently: a missing file skips only that section (see
+    :func:`_f6_skip_section`) rather than raising, so F6 -- and therefore
+    :func:`generate_all` -- is deterministic and side-effect-free even on a
+    machine (e.g. CI) that has neither file."""
+    sources_dir = sources_dir if sources_dir is not None else DEFAULT_SOURCES_DIR
+    keris_csv_path = sources_dir / KERIS_CSV_NAME
+    keris_json_path = sources_dir / KERIS_JSON_NAME
 
     lines: List[str] = []
     lines.append("# F6 -- 주제 뱅크 (KERIS 사회 + 초중등 교과주제 표준데이터)")
     lines.append("")
     lines.append("> 생성: `python tool/build_level_bible_tables.py` (plan §3.F, T1.4). 직접 편집 금지.")
     lines.append(
-        "> KERIS 교과주제별 학습자료(사회) CSV {}행, 주제 {}종. B1~C2 신규 콘텐츠(§4.5 씨앗) 후보. "
-        "레벨대 칸은 비워 두고 Fable/Jin이 채운다.".format(len(keris_rows), len(by_topic))
+        "> 두 원본 모두 선택 입력이다(라이선스 미확정으로 저장소에 커밋하지 않음, F5의 두 "
+        "세종한국문화 CSV와 다름) -- `--sources-dir`(기본값: 환경변수 `LCP_SOURCES_DIR`, "
+        "미설정 시 보존 경로)에서 찾고, 없으면 해당 절만 생성을 생략한다(R9, 2026-09-07)."
     )
     lines.append("")
-    lines.append("## KERIS 사회 주제별 집계")
-    lines.append("")
-    lines.append("| 주제 | 건수 | 상위 키워드 | 제안 레벨대 |")
-    lines.append("|---|---|---|---|")
-    for topic in topic_order:
-        rows = by_topic[topic]
-        lines.append("| {t} | {n} | {kw} | |".format(t=topic.replace("|", "\\|"), n=len(rows), kw=", ".join(_top_keywords(rows))))
-    lines.append("")
 
-    keris_json = _read_json(KERIS_JSON)
-    records = keris_json.get("records", [])
-    by_lead: Counter = Counter()
-    for rec in records:
-        kw = (rec.get("키워드명") or "").strip()
-        if not kw:
-            continue
-        lead = kw.split(",")[0].strip()
-        if lead:
-            by_lead[lead] += 1
+    if keris_csv_path.exists():
+        keris_rows = _read_csv(keris_csv_path, encoding="cp949")
+        by_topic: Dict[str, List[dict]] = defaultdict(list)
+        for row in keris_rows:
+            topic = (row.get("주제") or "").strip()
+            by_topic[topic].append(row)
 
-    clustered = sorted(((lead, n) for lead, n in by_lead.items() if n >= 2), key=lambda x: (-x[1], x[0]))
-    singleton_leads = sum(1 for n in by_lead.values() if n == 1)
+        def _top_keywords(rows: List[dict], n: int = 5) -> List[str]:
+            counter: Counter = Counter()
+            for row in rows:
+                for kw in (row.get("키워드") or "").split(","):
+                    kw = kw.strip()
+                    if kw:
+                        counter[kw] += 1
+            return [kw for kw, _ in counter.most_common(n)]
 
-    lines.append("## 전국초중등교과주제별학습자료표준데이터 -- 대표 키워드 클러스터")
-    lines.append("")
-    lines.append(
-        "전체 {rec}건, 대표(첫) 키워드 고유값 {lead}개. 2건 이상 모인 클러스터 {cl}개(아래 표), "
-        "단일 등장 키워드 {single}개({single}건, 원본 JSON 참조).".format(
-            rec=len(records), lead=len(by_lead), cl=len(clustered), single=singleton_leads
+        topic_order = sorted(by_topic, key=lambda t: (-len(by_topic[t]), t))
+
+        lines.append("## KERIS 사회 주제별 집계")
+        lines.append("")
+        lines.append(
+            "> KERIS 교과주제별 학습자료(사회) CSV {}행, 주제 {}종. B1~C2 신규 콘텐츠(§4.5 씨앗) 후보. "
+            "레벨대 칸은 비워 두고 Fable/Jin이 채운다.".format(len(keris_rows), len(by_topic))
         )
-    )
-    lines.append("")
-    lines.append("| 대표 키워드 | 건수 | 제안 레벨대 |")
-    lines.append("|---|---|---|")
-    for lead, n in clustered:
-        lines.append("| {kw} | {n} | |".format(kw=lead.replace("|", "\\|"), n=n))
-    lines.append("")
+        lines.append("")
+        lines.append("| 주제 | 건수 | 상위 키워드 | 제안 레벨대 |")
+        lines.append("|---|---|---|---|")
+        for topic in topic_order:
+            rows = by_topic[topic]
+            lines.append(
+                "| {t} | {n} | {kw} | |".format(
+                    t=topic.replace("|", "\\|"), n=len(rows), kw=", ".join(_top_keywords(rows))
+                )
+            )
+        lines.append("")
+    else:
+        lines.extend(_f6_skip_section("KERIS 사회 주제별 집계", sources_dir))
+
+    if keris_json_path.exists():
+        keris_json = _read_json(keris_json_path)
+        records = keris_json.get("records", [])
+        by_lead: Counter = Counter()
+        for rec in records:
+            kw = (rec.get("키워드명") or "").strip()
+            if not kw:
+                continue
+            lead = kw.split(",")[0].strip()
+            if lead:
+                by_lead[lead] += 1
+
+        clustered = sorted(((lead, n) for lead, n in by_lead.items() if n >= 2), key=lambda x: (-x[1], x[0]))
+        singleton_leads = sum(1 for n in by_lead.values() if n == 1)
+
+        lines.append("## 전국초중등교과주제별학습자료표준데이터 -- 대표 키워드 클러스터")
+        lines.append("")
+        lines.append(
+            "전체 {rec}건, 대표(첫) 키워드 고유값 {lead}개. 2건 이상 모인 클러스터 {cl}개(아래 표), "
+            "단일 등장 키워드 {single}개({single}건, 원본 JSON 참조).".format(
+                rec=len(records), lead=len(by_lead), cl=len(clustered), single=singleton_leads
+            )
+        )
+        lines.append("")
+        lines.append("| 대표 키워드 | 건수 | 제안 레벨대 |")
+        lines.append("|---|---|---|")
+        for lead, n in clustered:
+            lines.append("| {kw} | {n} | |".format(kw=lead.replace("|", "\\|"), n=n))
+        lines.append("")
+    else:
+        lines.extend(_f6_skip_section("전국초중등교과주제별학습자료표준데이터 -- 대표 키워드 클러스터", sources_dir))
+
     return "\n".join(lines)
 
 
@@ -914,21 +1013,40 @@ def build_f9_md(root: Path, f1_result: F1Result) -> str:
 # ---------------------------------------------------------------------------
 
 
-def generate_all(root: Path = REPO) -> Dict[str, str]:
+def generate_all(root: Path = REPO, sources_dir: Optional[Path] = None) -> Dict[str, str]:
+    """Generate every appendix. ``sources_dir`` is forwarded to F6 only (see
+    :func:`build_f6_md`) -- F1/F2/F3/F5/F7/F9 read exclusively from files
+    already committed to the repo (``root``) and never need it. Defaults to
+    :data:`DEFAULT_SOURCES_DIR` when omitted, exactly like calling
+    ``build_f6_md(root)`` directly did before R9."""
     f1_md, f1_result = build_f1_md(root)
     return {
         "F1_grammar_map.md": f1_md,
         "F2_vocab_coverage.md": build_f2_md(root),
         "F3_units_packs_shelves.md": build_f3_md(root),
         "F5_culture_vocab.md": build_f5_md(root),
-        "F6_topic_bank.md": build_f6_md(root),
+        "F6_topic_bank.md": build_f6_md(root, sources_dir),
         "F7_pronunciation.md": build_f7_md(root),
         "F9_exceptions.md": build_f9_md(root, f1_result),
     }
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
-    files = generate_all(REPO)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--sources-dir",
+        type=Path,
+        default=DEFAULT_SOURCES_DIR,
+        help=(
+            "Directory holding F6's two OPTIONAL external sources (KERIS 사회 "
+            "CSV, 전국초중등 표준데이터 JSON). Defaults to $LCP_SOURCES_DIR if "
+            "set, else the machine-local preservation path. A missing file "
+            "under this directory does not fail the run -- F6 marks that "
+            "section as skipped instead (R9, 2026-09-07)."
+        ),
+    )
+    args = parser.parse_args(argv)
+    files = generate_all(REPO, args.sources_dir)
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     for name, content in files.items():
         path = OUT_DIR / name

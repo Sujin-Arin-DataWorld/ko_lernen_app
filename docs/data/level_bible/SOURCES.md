@@ -1,9 +1,15 @@
-# 레벨 바이블 사전 원본 — 출처·해시·라이선스 (T1.1)
+# 레벨 바이블 사전 원본 — 출처·해시·라이선스 (T1.1, R9 갱신)
 
-`tools/content_factory/lexicon/*.csv`를 만드는 2개 원본 파일의 출처 URL, sha256,
-다운로드 파라미터, 실측 라이선스 유형을 기록한다. 원본 xlsx는 저장소에
-커밋하지 않는다(`.gitignore`); 보존 사본은 저장소 밖
-`C:\dev\hangulsori\preservation\nikl_sejong_2026-09-07\`에 둔다.
+`tools/content_factory/lexicon/*.csv`를 만드는 2개 원본 xlsx(§1~2)와 F5(세종한국문화
+어휘 등급)가 쓰는 2개 CSV(§4)의 출처, sha256, 다운로드 파라미터, 실측
+라이선스 유형을 기록한다. 원본 xlsx(§1~2)는 저장소에 커밋하지 않는다
+(`.gitignore`); 보존 사본은 저장소 밖
+`C:\dev\hangulsori\preservation\nikl_sejong_2026-09-07\`에 둔다. **예외(§4,
+R9 2026-09-07):** 세종한국문화 1·2 주요 어휘 CSV는 이미 공공누리 제1유형으로
+재사용이 허용되어 있어, 이 규칙과 달리 저장소 사본을
+`tools/content_factory/lexicon/sejong_culture_vocab_{1,2}.csv`에 직접
+커밋했다 -- PR #283 CI 실패(F5가 이 preservation 폴더에 의존해 그 폴더가
+없는 CI에서 `FileNotFoundError`)를 근본적으로 없애기 위함.
 
 ## ⚠ 라이선스 불일치 — kcenter CSV는 제거됨 (Fable 룰링 2026-09-07)
 
@@ -71,6 +77,52 @@ review_status=blocked`로 갱신되었다. 2017 kiiq xlsx가 이미 같은 초/�
   `tool/ingest_nikl_grade_lists.py`의 `--kcenter`/`read_kcenter_csv()`/출력
   CSV 제거) 앱 어디에도 사용하지 않는다. 원본 CSV는
   `C:\dev\hangulsori\preservation\nikl_sejong_2026-09-07\`에만 보관한다.
+
+## 4. 세종한국문화 1·2 주요 어휘 CSV — F5 입력, 저장소에 커밋됨 (R9, 2026-09-07)
+
+`tool/build_level_bible_tables.py`의 F5(세종한국문화 어휘 등급)가 읽는 두 CSV.
+위 1~3번과 달리 `cefr_lexicon.py`(등급 판정 엔진)는 이 둘을 읽지 않고, F5
+전용이다. `tools/content_factory/reference_intake/source_inventory.csv`의
+ref0041/ref0042 행이 이미 `rights_status=licensed`(notes: "KOGL type1")로
+기록해 둔 것을 이번 세션에서 그대로 반영했다 -- **이 세션에서 data.go.kr 등
+발행 페이지를 직접 재확인하지는 않았다**(1~3번 항목과 달리 실측 라이선스
+배지 확인 절차를 거치지 않음; 페이지 URL 확인은 후속 과제로 남는다).
+
+### 4a. 세종한국문화1 주요 어휘
+
+- **발행:** 세종학당재단.
+- **파일명(원본):** `세종학당재단_교재_한국문화_세종한국문화1 주요 어휘_20260501.csv`
+- **sha256(원본, preservation 사본):**
+  `598fe80db17a70946e50de4ac91474062b91da7314d193858b5a4d5b035daf06`
+- **sha256(저장소 사본, UTF-8 BOM 제거·LF):**
+  `06f784e2ce48b229b437ba67f33fdc97693695dc7dcc584c4a9f56555fb2a714`
+- **행 수:** 헤더 포함 82줄 = 데이터 81행, 열 `연번,구분,교재명,단원 연번,단원명,주요 어휘,관련 페이지`.
+- **라이선스:** 공공누리 제1유형(출처표시) — source_inventory.csv ref0041.
+- **저장소 경로:** `tools/content_factory/lexicon/sejong_culture_vocab_1.csv`.
+
+### 4b. 세종한국문화2 주요 어휘
+
+- **발행:** 세종학당재단.
+- **파일명(원본):** `세종학당재단_교재_한국문화_세종한국문화2 주요 어휘_20260507.csv`
+- **sha256(원본, preservation 사본):**
+  `460b956578d1dfa3b4ad1f7ab3ece59d245a734fb27ed24d404b6fbb30868fa2`
+- **sha256(저장소 사본, UTF-8 BOM 제거·LF):**
+  `b78851acd9a39e90492679fc6c2ba2e05d4b1f0dc03546b035e9f9b50c4b4bee`
+- **행 수:** 헤더 포함 49줄 = 데이터 48행, 열은 4a와 동일.
+- **라이선스:** 공공누리 제1유형(출처표시) — source_inventory.csv ref0042.
+- **저장소 경로:** `tools/content_factory/lexicon/sejong_culture_vocab_2.csv`.
+
+### 변환 방법 (원본 -> 저장소 사본)
+
+원본은 BOM 포함 UTF-8·CRLF였다. 저장소 사본은 BOM 제거·LF로만 다시 인코딩했고
+(Python `str.read_text(encoding="utf-8-sig")` → `write_text(encoding="utf-8",
+newline="\n")`), 헤더·행 내용은 원본과 바이트 단위로 동일하다(csv 파싱 결과가
+행 단위로 완전히 일치함을 이 세션에서 직접 검증). PR #283이 CI에서 실패한
+원인은 F5가 이 두 CSV를 저장소 밖 preservation 폴더에서 직접 읽었기
+때문(그 폴더가 없는 CI에서 `FileNotFoundError`) -- 두 CSV가 이미 공공누리
+제1유형으로 재사용이 허용된 자료이므로, "선택 입력 + 생성 생략" 처리(F6이
+쓰는 방식) 대신 저장소에 직접 커밋해 의존성 자체를 없앴다. 자세한 내용은
+`tools/content_factory/lexicon/README.md`의 전용 절 참고.
 
 ## 재생성 명령
 

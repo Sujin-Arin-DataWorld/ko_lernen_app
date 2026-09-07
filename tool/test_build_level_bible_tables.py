@@ -2,19 +2,35 @@
 
 TDD per the brief: form normalisation matches, F1 status logic,
 culture-level rule (F5), deterministic output (run twice -> identical).
+
+R9 (2026-09-07 Fable rework, PR #283 CI fix): every test that drives the
+real generator (``generate_all``/``build_f6_md``) must supply an explicit
+synthetic ``sources_dir`` fixture (see ``_write_fixture_sources`` below)
+rather than relying on ``build_level_bible_tables.DEFAULT_SOURCES_DIR``, and
+none of these tests may read the machine-local preservation folder
+(``C:\\dev\\hangulsori\\preservation\\...``) -- that folder does not exist on
+CI (this was PR #283's failure) and, even on a machine where it does exist,
+letting a test fall through to it would make the test's output depend on
+whatever happens to be on that machine rather than being self-contained.
 """
 
 from __future__ import annotations
 
+import csv
+import json
 import sys
+import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from cefr_lexicon import CefrLexicon  # noqa: E402
 
 from build_level_bible_tables import (  # noqa: E402
+    KERIS_CSV_NAME,
+    KERIS_JSON_NAME,
     REPO,
     build_f1,
     build_f2_md,
@@ -25,6 +41,7 @@ from build_level_bible_tables import (  # noqa: E402
     build_f9_md,
     classify_culture_word,
     generate_all,
+    main,
     normalize_form_variants,
 )
 
@@ -32,6 +49,38 @@ from build_level_bible_tables import (  # noqa: E402
 def _lexicon(kiiq_rows):
     """Minimal CefrLexicon fixture: only kiiq rows matter for these tests."""
     return CefrLexicon.from_rows(kiiq_rows, [], [], [])
+
+
+def _write_fixture_sources(dest: Path) -> None:
+    """Write tiny, schema-matched but wholly synthetic KERIS 사회 CSV /
+    전국초중등 표준데이터 JSON fixtures into ``dest``, under the exact
+    filenames ``build_f6_md`` looks for (``KERIS_CSV_NAME``/
+    ``KERIS_JSON_NAME``, imported from the module under test so the two
+    never drift apart). 3 CSV rows across 2 topics and 3 JSON records
+    across 2 lead-keyword clusters -- enough to exercise the topic
+    grouping/sort, the top-keyword counter, the cluster-vs-singleton split,
+    and the level-bank table rendering, without depending on (or shipping
+    a copy of) either real preserved source."""
+    dest.mkdir(parents=True, exist_ok=True)
+
+    csv_path = dest / KERIS_CSV_NAME
+    with csv_path.open("w", encoding="cp949", newline="") as fh:
+        writer = csv.DictWriter(fh, fieldnames=["주제", "키워드"])
+        writer.writeheader()
+        writer.writerow({"주제": "가상 주제 A", "키워드": "키워드1, 키워드2"})
+        writer.writerow({"주제": "가상 주제 A", "키워드": "키워드1, 키워드3"})
+        writer.writerow({"주제": "가상 주제 B", "키워드": "키워드4"})
+
+    json_path = dest / KERIS_JSON_NAME
+    payload = {
+        "fields": ["키워드명"],
+        "records": [
+            {"키워드명": "가상클러스터, 부속키워드1"},
+            {"키워드명": "가상클러스터, 부속키워드2"},
+            {"키워드명": "단독키워드"},
+        ],
+    }
+    json_path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
 
 
 class NormalizeFormVariantsTest(unittest.TestCase):
@@ -315,15 +364,25 @@ class ClassifyCultureWordTest(unittest.TestCase):
 
 
 class DeterministicOutputTest(unittest.TestCase):
+    """Runs the real generator end-to-end (all of F1/F2/F3/F5/F6/F7/F9), so
+    F6 needs a sources-dir -- a synthetic fixture (R9, see module
+    docstring), never the real preservation folder."""
+
+    def setUp(self):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        self.sources_dir = Path(tmp.name)
+        _write_fixture_sources(self.sources_dir)
+
     def test_generate_all_is_byte_identical_across_runs(self):
-        first = generate_all(REPO)
-        second = generate_all(REPO)
+        first = generate_all(REPO, self.sources_dir)
+        second = generate_all(REPO, self.sources_dir)
         self.assertEqual(set(first), set(second))
         for name in first:
             self.assertEqual(first[name], second[name], name)
 
     def test_generate_all_covers_the_expected_filenames(self):
-        result = generate_all(REPO)
+        result = generate_all(REPO, self.sources_dir)
         self.assertEqual(
             set(result),
             {
@@ -336,6 +395,54 @@ class DeterministicOutputTest(unittest.TestCase):
                 "F9_exceptions.md",
             },
         )
+
+
+class F6MissingSourcesDirTest(unittest.TestCase):
+    """R9: F6's two sources are OPTIONAL -- an absent sources-dir (the
+    normal state on CI, which has no preservation folder at all) must
+    degrade gracefully rather than raise. Never touches the real
+    preservation folder; uses a deliberately non-existent path instead of a
+    fixture so both files are "missing" at once."""
+
+    def _missing_dir(self) -> Path:
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        missing = Path(tmp.name) / "does-not-exist"
+        self.assertFalse(missing.exists())
+        return missing
+
+    def test_build_f6_md_marks_both_sections_skipped(self):
+        missing_dir = self._missing_dir()
+        content = build_f6_md(REPO, missing_dir)
+        self.assertEqual(content.count("생성 생략"), 2)
+        self.assertIn(str(missing_dir), content)
+
+    def test_generate_all_does_not_raise_when_sources_dir_is_missing(self):
+        missing_dir = self._missing_dir()
+        result = generate_all(REPO, missing_dir)
+        self.assertIn("생성 생략", result["F6_topic_bank.md"])
+
+    def test_cli_exits_zero_and_writes_skip_marker_when_sources_dir_is_missing(self):
+        # Exercises the actual --sources-dir CLI flag (argparse wiring) and
+        # main()'s exit code, per the brief -- OUT_DIR is redirected to a
+        # temp directory for the duration of this test so it never writes
+        # into the real docs/data/level_bible/ (whose committed appendices
+        # must keep reflecting the real, non-empty sources-dir). The temp
+        # dir is created *under REPO* (not the system tempdir) because
+        # main()'s own progress-print does ``path.relative_to(REPO)`` --
+        # an OUT_DIR outside REPO would raise ValueError there, which is a
+        # pre-existing quirk of that unrelated print statement, not
+        # something this brief asked to change; staying under REPO exercises
+        # main() completely unmodified. Cleaned up via addCleanup either way.
+        missing_dir = self._missing_dir()
+        out_tmp = tempfile.TemporaryDirectory(dir=REPO)
+        self.addCleanup(out_tmp.cleanup)
+        with mock.patch("build_level_bible_tables.OUT_DIR", Path(out_tmp.name)):
+            exit_code = main(["--sources-dir", str(missing_dir)])
+        self.assertEqual(exit_code, 0)
+        f6_path = Path(out_tmp.name) / "F6_topic_bank.md"
+        self.assertTrue(f6_path.exists())
+        self.assertIn("생성 생략", f6_path.read_text(encoding="utf-8"))
 
 
 if __name__ == "__main__":

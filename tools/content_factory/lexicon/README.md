@@ -70,11 +70,40 @@ python tool\ingest_nikl_grade_lists.py --kiiq ... --basic ... --out tools\conten
 `tools/content_factory/lexicon/*.xlsx`). 보존 사본과 URL·sha256은
 `docs/data/level_bible/SOURCES.md` 참고.
 
+## `sejong_culture_vocab_1.csv` / `sejong_culture_vocab_2.csv` (F5 문화 어휘 입력)
+
+`tool/build_level_bible_tables.py`의 F5(세종한국문화 어휘 등급 -- `CULTURE1_CSV`/
+`CULTURE2_CSV`)가 읽는 입력. 위 "파일" 표의 4종(등급 판정용, `cefr_lexicon.py`가
+읽는 것)과는 별도이며 `cefr_lexicon.py`는 이 두 CSV를 읽지 않는다.
+
+- **제목:** 세종한국문화1 주요 어휘 / 세종한국문화2 주요 어휘.
+- **발행:** 세종학당재단.
+- **원본 파일명:** `세종학당재단_교재_한국문화_세종한국문화1 주요 어휘_20260501.csv`
+  (81행) / `세종학당재단_교재_한국문화_세종한국문화2 주요 어휘_20260507.csv`(48행).
+- **라이선스:** 공공누리 제1유형(출처표시) --
+  `tools/content_factory/reference_intake/source_inventory.csv`의 ref0041/
+  ref0042 행(`rights_status=licensed`, notes에 "KOGL type1" 명시).
+- **저장소 사본:** 원본(BOM 포함 UTF-8, CRLF)을 UTF-8(BOM 제거)·LF로만
+  변환했다 -- 헤더(`연번,구분,교재명,단원 연번,단원명,주요 어휘,관련 페이지`)와
+  각 행은 원본과 바이트 단위로 동일한 내용을 그대로 옮겼다(재인코딩 외 변경
+  없음). 원본 그대로의 보존 사본은 계속
+  `C:\dev\hangulsori\preservation\nikl_sejong_2026-09-07\`에도 남아 있다.
+- **F5가 preservation 폴더에 의존하지 않는 이유(R9, 2026-09-07):** 이전에는
+  `build_level_bible_tables.py`가 이 두 CSV를 저장소 밖 preservation
+  폴더에서 직접 읽어, 그 폴더가 없는 머신(CI 포함)에서 F5뿐 아니라
+  `generate_all()`을 호출하는 모든 테스트가 `FileNotFoundError`로
+  실패했다(PR #283 CI 실패 원인). 이미 공공누리 제1유형으로 재사용이 허용된
+  자료이므로 preservation 사본 대신 이 저장소 사본을 커밋해 의존성을 완전히
+  제거했다 -- F6(KERIS CSV·전국초중등 JSON, 아직 저장소 반입 미승인)처럼
+  "선택 입력 + 생성 생략" 처리로 남겨두지 않은 것은 이 때문이다.
+
 ## 라이선스 고지
 
 출처: 국립국어원 「2017년 국제 통용 한국어 표준 교육과정 적용 연구(4단계)」
 어휘·문법 등급 목록 / 「2023년 국어 기초 어휘 선정 및 어휘 등급화 연구」 —
-두 xlsx 모두 공공누리 제1유형(출처표시)이다. 한국어교수학습샘터 어휘기본정보
-CSV(공공누리 제4유형 — 출처표시·상업적 이용금지·변경금지)는 이 저장소에서
-제거되었고 사용하지 않는다. 자세한 근거는 `docs/data/level_bible/SOURCES.md`
-참고.
+두 xlsx 모두 공공누리 제1유형(출처표시)이다. `sejong_culture_vocab_1.csv`/
+`sejong_culture_vocab_2.csv`(세종학당재단 세종한국문화1·2 주요 어휘)도
+공공누리 제1유형(출처표시)이다 -- 자세한 내용은 위 전용 절 참고. 한국어교수학습샘터
+어휘기본정보 CSV(공공누리 제4유형 — 출처표시·상업적 이용금지·변경금지)는 이
+저장소에서 제거되었고 사용하지 않는다. 자세한 근거는
+`docs/data/level_bible/SOURCES.md` 참고.
