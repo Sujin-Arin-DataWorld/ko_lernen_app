@@ -21,8 +21,8 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 ## 샤드별 시나리오
 
 - scenarios_a1.json: 29개
-- scenarios_a2.json: 29개
-- scenarios_b1.json: 30개
+- scenarios_a2.json: 28개
+- scenarios_b1.json: 31개
 - scenarios_b2.json: 30개
 - scenarios_c1.json: 30개
 - scenarios_c2.json: 30개
@@ -57,9 +57,9 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 
 ## 생성 근거 SHA-256
 
-- `assets/data/scenarios_a1.json`: `34ac5a548855408e96638db6281a9f083455bbc1f0541f64fb0105df7ed6266e`
-- `assets/data/scenarios_a2.json`: `37644e042e0ca8f3893b8b15809cbab42a21e2230cc5b656c598e12d5ef3dfac`
-- `assets/data/scenarios_b1.json`: `71adb4450215737899892cda550231f169c717c12e3be55c77c7d0a1a03c7af2`
+- `assets/data/scenarios_a1.json`: `7d4645a27969f36695f7d7ec5beded6d1d50b199a3968219871aab5c03eaab6a`
+- `assets/data/scenarios_a2.json`: `ec11f493a130d99c954caa2907b71a49483471c4c2c31efee714b2ff1f810b25`
+- `assets/data/scenarios_b1.json`: `90dd78614b903d5bc75e3f0398f27d3750c8df2a0d2ee8bfacfe8604049d9364`
 - `assets/data/scenarios_b2.json`: `93ce4f6bfa4d66f87dd63904839c1ed0583176605d5d0830caab513a8ad6d409`
 - `assets/data/scenarios_c1.json`: `9b46888c14017bc19c06ca0d57101c1364bd92de43756a8485730554234c0a31`
 - `assets/data/scenarios_c2.json`: `764307bf0c6d740e62cfd0779a86a1737721a0e90aafebe71e584ddbb30f0144`
@@ -125,7 +125,6 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 | scenarios_a2.json | plans_with_friend | a2 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
 | scenarios_a2.json | running_late | a2 | station | fallback | assets/illustrations/scenes/station.png | 1536×1024 RGB | bbd8f5b72a1576dde83a000c2608e46b2e3623cdbc2daf426d495ed23a2e158f | true |
 | scenarios_a2.json | samgyeopsal_first_time | a2 | restaurant | fallback | assets/illustrations/scenes/restaurant.png | 1536×1024 RGB | 61e4aa4e94e01df9cb51e40438ce41c3a260e4b92437608d97a165bf208f61f8 | true |
-| scenarios_a2.json | shared_document_old_version | a2 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
 | scenarios_a2.json | taxi_slow_down | a2 | taxi | fallback | assets/illustrations/scenes/taxi.png | 1536×1024 RGB | 0267b90eb07bb40a3141023c21943e643e64295296462bf7736f3534105fe356 | true |
 | scenarios_a2.json | train_seat_swap | a2 | station | fallback | assets/illustrations/scenes/station.png | 1536×1024 RGB | bbd8f5b72a1576dde83a000c2608e46b2e3623cdbc2daf426d495ed23a2e158f | true |
 | scenarios_b1.json | ai_summary_wrong_fact | b1 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
@@ -154,6 +153,7 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 | scenarios_b1.json | running_injury_training_plan | b1 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
 | scenarios_b1.json | secondhand_hidden_defect | b1 | station | fallback | assets/illustrations/scenes/station.png | 1536×1024 RGB | bbd8f5b72a1576dde83a000c2608e46b2e3623cdbc2daf426d495ed23a2e158f | true |
 | scenarios_b1.json | shared_cup_recycling | b1 | office | fallback | assets/illustrations/scenes/office.png | 1536×1024 RGB | b51a3c6075841a871e6da2e18e57f352ec5861a124a8a3fc4701322e2c2943c4 | true |
+| scenarios_b1.json | shared_document_old_version | b1 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
 | scenarios_b1.json | speech_level_after_friendship | b1 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
 | scenarios_b1.json | subscription_cancel_charge | b1 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
 | scenarios_b1.json | team_update_indirect_speech | b1 | office | fallback | assets/illustrations/scenes/office.png | 1536×1024 RGB | b51a3c6075841a871e6da2e18e57f352ec5861a124a8a3fc4701322e2c2943c4 | true |

@@ -86,14 +86,14 @@ void main() {
     stubSoriSpeech();
   });
 
-  testWidgets('real Alltag 8-card pack opens Quiz after exactly eight cards', (
+  testWidgets('real Alltag 9-card pack opens Quiz after exactly nine cards', (
     tester,
   ) async {
     final pack = await tester.runAsync(
       () => VocabPackService.findById('a2_daily_1'),
     );
     expect(pack, isNotNull);
-    expect(pack!.total, 8);
+    expect(pack!.total, 9);
     final t = await _pump(tester, pack);
 
     for (var index = 0; index < pack.total; index++) {
