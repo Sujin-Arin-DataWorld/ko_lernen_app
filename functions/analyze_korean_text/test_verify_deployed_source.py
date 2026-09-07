@@ -8,13 +8,27 @@ import zipfile
 import verify_deployed_source as verifier
 
 
+DENYLIST_PATTERNS = (
+    "test_*.py",
+    "smoke_test.py",
+    "cleanup_translation_cache.py",
+    "verify_deployed_source.py",
+    "deploy.env.yaml",
+    ".env.example",
+    ".gitignore",
+    ".gcloudignore",
+    "__pycache__/",
+    "*.pyc",
+)
+
+
 class DeployedSourceVerificationTest(unittest.TestCase):
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
         self.source_dir = Path(self.temporary.name) / "source"
         self.source_dir.mkdir()
-        ignore = "*\n" + "".join(f"!{name}\n" for name in verifier.RUNTIME_FILES)
+        ignore = "".join(f"{pattern}\n" for pattern in DENYLIST_PATTERNS)
         (self.source_dir / ".gcloudignore").write_text(ignore, encoding="utf-8")
         for index, name in enumerate(verifier.RUNTIME_FILES):
             (self.source_dir / name).write_bytes(f"content-{index}".encode())
@@ -52,14 +66,41 @@ class DeployedSourceVerificationTest(unittest.TestCase):
         self.assertNotIn(".env", message)
         self.assertNotIn("secret-value", message)
 
-    def test_allowlist_drift_fails_before_packaging(self):
+    def test_denylist_rejects_reintroduced_allowlist_syntax(self):
+        with (self.source_dir / ".gcloudignore").open("a", encoding="utf-8") as ignore:
+            ignore.write("*\n")
+
+        with self.assertRaises(verifier.SourceVerificationError):
+            verifier.declared_denylist(self.source_dir / ".gcloudignore")
+
+    def test_denylist_rejects_negation_lines(self):
         with (self.source_dir / ".gcloudignore").open("a", encoding="utf-8") as ignore:
             ignore.write("!smoke_test.py\n")
 
         with self.assertRaises(verifier.SourceVerificationError):
+            verifier.declared_denylist(self.source_dir / ".gcloudignore")
+
+    def test_untracked_file_not_covered_by_denylist_fails_before_packaging(self):
+        # A denylist only excludes what it names, so a new local file that
+        # nobody added a pattern for would silently leak into the archive.
+        # validate_local_manifest must catch that drift offline, before any
+        # gcloud call.
+        (self.source_dir / "leaked_helper.py").write_text("x = 1\n", encoding="utf-8")
+
+        with self.assertRaises(verifier.SourceVerificationError):
             verifier.validate_local_manifest(self.source_dir)
 
-    def test_gcloud_upload_manifest_must_be_the_same_exact_seven_files(self):
+    def test_denylist_excludes_tests_and_tools_from_local_manifest(self):
+        for extra in ("test_main.py", "smoke_test.py", "cleanup_translation_cache.py"):
+            (self.source_dir / extra).write_text("x = 1\n", encoding="utf-8")
+        (self.source_dir / "__pycache__").mkdir()
+        (self.source_dir / "__pycache__" / "main.cpython-312.pyc").write_bytes(b"")
+
+        included = verifier.validate_local_manifest(self.source_dir)
+
+        self.assertEqual(set(included), set(verifier.RUNTIME_FILES))
+
+    def test_gcloud_upload_manifest_must_be_the_same_exact_runtime_files(self):
         output = "\n".join(reversed(verifier.RUNTIME_FILES)) + "\n"
 
         with mock.patch.object(verifier, "_run_gcloud", return_value=output) as run:

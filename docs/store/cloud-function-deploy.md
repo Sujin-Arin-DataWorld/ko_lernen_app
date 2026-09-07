@@ -28,30 +28,46 @@ preflight는 다음을 모두 강제하며 외부 상태를 변경하지 않는�
 - `test_*.py` 전체 discovery 성공 및 skip 0
 - runtime/operator 모듈 컴파일
 - Android+iOS App ID가 든 비밀 없는 `deploy.env.yaml`
-- `.gcloudignore`의 exact runtime allowlist와 파일 존재 여부
+- `.gcloudignore` deny-list가 정확한 런타임 import closure로 귀결되는지와 파일 존재 여부
 - Firestore `translation_cache` server-only rule과 TTL 계약
 
 저장소 전체 Gye/Firestore 정적 검사도 필요하면 `bash functions/preflight.sh all`을
 별도로 실행한다.
 
-## 2. 배포 ZIP exact allowlist
+## 2. 배포 ZIP exact 파일 집합 (deny-list)
 
-`functions/analyze_korean_text/.gcloudignore`는 모든 파일을 먼저 제외한 뒤 현재
-import closure에 필요한 다음 **7개만** 허용한다.
+`functions/analyze_korean_text/.gcloudignore`는 테스트·도구·비밀 파일 이름을
+나열해 제외하는 **deny-list**다. 이 디렉터리는 flat하므로 남는 파일이 곧 현재
+import closure에 필요한 다음 **9개**다.
 
-1. `main.py`
-2. `requirements.txt`
+1. `access_policy.py`
+2. `ai_policy.py`
 3. `dictionary_validation.py`
 4. `grammar_analysis.py`
 5. `grammar_patterns.json`
-6. `security.py`
-7. `text_quality.py`
+6. `main.py`
+7. `requirements.txt`
+8. `security.py`
+9. `text_quality.py`
 
-계획 단계의 8개는 추정치였다. 실제 import closure가 7개이므로 불필요한 8번째
-파일을 추가하지 않는다. `.env*`, `deploy.env.yaml`, 테스트, smoke 도구,
-`__pycache__`, `*.pyc`는 source ZIP에 들어갈 수 없다.
+`ai_policy.py`(`security.py`가 모듈 최상단에서 import)와 `access_policy.py`
+(`ai_policy.py`가 모듈 최상단에서, `security.py`의
+`FirestoreIdempotencyGate.claim`이 지연 import로 각각 참조)는 #277에서
+추가된 뒤 이 목록에서 빠져 있었다. 배포 컨테이너가 `security.py` import 단계에서
+바로 죽는 원인이었다(`functions_framework` `create_app` → `exec_module` 실패,
+revision `analyze-korean-text-00015-vib`). `.env*`, `deploy.env.yaml`, 테스트,
+smoke/정리 도구, `verify_deployed_source.py` 자신, `__pycache__`, `*.pyc`는
+source ZIP에 들어갈 수 없다.
 
-로컬 allowlist와 canonical SHA 확인:
+**주의:** 이전에는 `*` 전체 제외 후 `!파일명`으로 허용하는 allowlist 스타일이었다.
+gcloud SDK 578.0.0 + Windows 조합에서 이 스타일이 **빈 source archive**를 두 번
+만들었다(Cloud Build가 "Total files: 0"으로 fetch — `gcloud meta
+list-files-for-upload`는 7개를 정확히 나열했는데도). 그래서 지금은 위의
+명시적 deny-list를 쓴다. 정확성은 `.gcloudignore` 문법이 아니라
+`verify_deployed_source.py`가 실제 업로드 매니페스트를 `RUNTIME_FILES`와
+대조해서 보장한다.
+
+로컬 deny-list와 canonical SHA 확인:
 
 ```bash
 python functions/analyze_korean_text/verify_deployed_source.py \
@@ -131,6 +147,11 @@ Application Default Credentials가 없고 현재 `gcloud auth` 계정을 읽기 
 
 사전 승인과 preflight 통과 후 저장소 루트에서 실행한다.
 
+> 배포 전 `gcloud meta list-files-for-upload functions/analyze_korean_text`
+> 출력이 §2의 9개 파일과 정확히 같은지 먼저 확인한다. Windows + SDK 578.0.0에서
+> 과거 allowlist 스타일 `.gcloudignore`가 빈 archive를 만든 적이 있다(§2 참고) —
+> 지금의 deny-list로도 SDK가 바뀌면 재발할 수 있으니 매 배포 전에 확인한다.
+
 ```bash
 PROJECT_ID='ko-lernen-app'
 RUNTIME_SA='hangul-sori-book-analysis@ko-lernen-app.iam.gserviceaccount.com'
@@ -155,8 +176,9 @@ App Check를 모두 검증하며 하나라도 없거나 변조되면 401이다. 
 
 ## 6. 배포 source ZIP 동일성 검증
 
-배포 직후 Cloud Functions가 가리키는 storage generation을 내려받아 로컬 7개
-파일과 canonical SHA를 비교한다.
+배포 직후 Cloud Functions가 가리키는 storage generation을 내려받아 로컬 9개
+파일(`ai_policy.py`, `access_policy.py` 포함, §2 참고)과 canonical SHA를
+비교한다.
 
 ```bash
 python functions/analyze_korean_text/verify_deployed_source.py \
