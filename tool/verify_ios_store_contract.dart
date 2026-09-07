@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-const _bundleIdentifier = 'com.sujinarin.koLernenApp';
+const _bundleIdentifier = 'com.hangulsori.app';
 
 const _deCameraPurpose =
     'Hangul Sori verwendet die Kamera, um Lehrbuchseiten zu fotografieren und koreanische Wörter auf deinem Gerät zu erkennen.';

@@ -71,7 +71,7 @@ const _validProject = '''
     );
     name = Runner;
     buildSettings = {
-      PRODUCT_BUNDLE_IDENTIFIER = com.sujinarin.koLernenApp;
+      PRODUCT_BUNDLE_IDENTIFIER = com.hangulsori.app;
       IPHONEOS_DEPLOYMENT_TARGET = 13.0;
       TARGETED_DEVICE_FAMILY = "1,2";
     };
@@ -166,7 +166,7 @@ void main() {
   test('reports every missing native invariant', () {
     final result = _inspect(
       projectSource: _validProject
-          .replaceAll('com.sujinarin.koLernenApp', 'example.invalid')
+          .replaceAll('com.hangulsori.app', 'example.invalid')
           .replaceAll('IPHONEOS_DEPLOYMENT_TARGET = 13.0;', '')
           .replaceAll('TARGETED_DEVICE_FAMILY = "1,2";', '')
           .replaceFirst('      de,\n', '')

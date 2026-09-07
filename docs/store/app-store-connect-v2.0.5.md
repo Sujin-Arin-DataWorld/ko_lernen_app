@@ -8,7 +8,7 @@ TestFlight, hosting, or review have been completed.
 
 | Field | Value |
 |---|---|
-| Bundle ID | `com.sujinarin.koLernenApp` |
+| Bundle ID | `com.hangulsori.app` |
 | Version | `2.0.5` |
 | Build | `14` |
 | Primary category | Education (recommended; select in App Store Connect) |

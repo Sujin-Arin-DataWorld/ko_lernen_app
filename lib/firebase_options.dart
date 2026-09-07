@@ -59,14 +59,14 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDY76D-dbZeV_Kr8g2UydWoB10Wv7Jc2Qs',
-    appId: '1:573567222361:ios:0f8c0734410bb6cc356748',
+    appId: '1:573567222361:ios:e1847f3ea5dcbbc1356748',
     messagingSenderId: '573567222361',
     projectId: 'ko-lernen-app',
     storageBucket: 'ko-lernen-app.firebasestorage.app',
     androidClientId:
         '573567222361-clvvao1nbjue9a8seic223cue51pa5cp.apps.googleusercontent.com',
     iosClientId:
-        '573567222361-uphimptmn43da1snk4hc60rhgjd28ppq.apps.googleusercontent.com',
-    iosBundleId: 'com.sujinarin.koLernenApp',
+        '573567222361-7mfmkdlaokiblnj0oia78od6u8p2g6aa.apps.googleusercontent.com',
+    iosBundleId: 'com.hangulsori.app',
   );
 }

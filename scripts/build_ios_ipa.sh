@@ -199,7 +199,7 @@ else
        export ASC_KEY_PATH=~/Downloads/AuthKey_XXXXXXXXXX.p8
        bash scripts/build_ios_ipa.sh
 
-⚠️ 업로드 전에 App Store Connect 에 앱 레코드(com.sujinarin.koLernenApp)가
+⚠️ 업로드 전에 App Store Connect 에 앱 레코드(com.hangulsori.app)가
    먼저 만들어져 있어야 한다. 없으면 업로드가 거부된다.
    전체 절차: docs/store/APPSTORE_UPLOAD_KO.md
 ──────────────────────────────────────────────────────────────

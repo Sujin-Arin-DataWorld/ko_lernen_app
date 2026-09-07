@@ -13,7 +13,7 @@
   직접 만들 때는 xcodebuild archive 뒤 exportArchive 에 이 파일을 넘긴다.
   (명령 원문은 XML 주석에 이중 하이픈을 못 넣어 문서 쪽에 둔다.)
 
-  Bundle ID: com.sujinarin.koLernenApp   (ios/Runner.xcodeproj 기준)
+  Bundle ID: com.hangulsori.app   (ios/Runner.xcodeproj 기준)
   버전/빌드번호는 pubspec.yaml 의 version 이 FLUTTER_BUILD_NAME /
   FLUTTER_BUILD_NUMBER 로 주입된다 — Info.plist 를 직접 고치지 말 것.
 -->

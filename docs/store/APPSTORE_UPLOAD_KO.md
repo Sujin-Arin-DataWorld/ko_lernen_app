@@ -52,7 +52,7 @@ App Store Connect 의 앱 레코드는 **빌드 파일 없이** 먼저 만든다
 developer.apple.com → Certificates, Identifiers & Profiles → Identifiers → **+**
 
 - Type: **App IDs → App**
-- Bundle ID: **Explicit** → `com.sujinarin.koLernenApp`
+- Bundle ID: **Explicit** → `com.hangulsori.app`
   - ⚠️ **대소문자까지 정확히.** `koLernenApp` 의 대문자 L·A 가 살아 있어야 한다.
     소문자 변형으로 만들면 나중에 되돌릴 수 없다.
 - Capabilities 에서 체크:
@@ -68,7 +68,7 @@ appstoreconnect.apple.com → 나의 앱 → **+** → 신규 앱
 | 플랫폼 | iOS |
 | 이름 | `Hangul Sori` (스토어에 보이는 이름, 30자 제한) |
 | 기본 언어 | 독일어 또는 영어 (주 타깃이 독일어권) |
-| 번들 ID | 방금 만든 `com.sujinarin.koLernenApp` |
+| 번들 ID | 방금 만든 `com.hangulsori.app` |
 | SKU | 아무 내부 식별자 (예: `hangulsori-ios`) |
 | 사용자 액세스 | 전체 액세스 |
 
