@@ -279,6 +279,9 @@ refactor-safely,review-changes}`, `.gitignore`에 `.code-review-graph/`(그래�
 - `assets/data/grammar_patterns.json` — 문법 패턴 정규식 (책 한 컷 오프라인 stub용). **Cloud Function 쪽 `functions/analyze_korean_text/grammar_patterns.json`과 schema 동기 필요.**
 - 단어팩(117)은 별도 파일이 아니라 `korean_vocab.csv`의 `pack_id`/`pack_order`/`is_review_boss` 컬럼에서 파생.
 - ✅ **콘텐츠 언어 (2026-08-15 갱신)**: `korean_vocab.csv` `english`/`pos_en`/`example_english`(1,188/1,188)·`grammar.csv` `_en` 컬럼(176/176) 채움 — `meaning(lang)` 헬퍼로 EN UI 사용자도 영어 학습 콘텐츠 표시. (구 "독일어 전용" 메모는 stale.)
+- `docs/CONTENT_LEVEL_BIBLE.md` — 레벨 기준 정본, 콘텐츠 추가 전 필독.
+- `tools/content_factory/lexicon/` — 국립국어원 등급 사전(공공누리 1유형).
+- `tool/audit_content_levels.py` — 레벨 감사기, 리포트 `docs/data/content_level_report.md`.
 
 ### 에셋 (2026-05-26 복원 후 최종)
 - `assets/icons/HanLogo.png` — **현재 앱 아이콘 소스** (Gemini 생성, 1024×1024, 갓+한)
@@ -417,6 +420,8 @@ flutter run -d <android-id>   # 안드로이드
   그려 05~10 계보를 새로 만든다. BBANANA ledger는 이관하지 않음.
 - [ ] **다음 콘텐츠**: 다음 번호는 Batch 11. `docs/CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md`.
   review 승인 전에는 앱 데이터, TTS, Firebase에 쓰지 않는다. 4× 단어 목표(4752)까지 잔량.
+- [ ] **레벨 정본화 프로그램(LCP)**: PR-L1(바이블·사전·감사기·CI) → PR-L2(번들
+  재분류+배포) → A1/A2 보강 배치 23+. 진행은 `.claude/handoffs/` 최신 파일.
 - [ ] **TTS·Rules 배포 (Jin)**: 빈 캐시 거절·환급·12초 timeout·7초 deadline·
   fail-closed 선점은 `functions/tts` live에 아직 없다. indexes → rules →
   `functions:tts-firebase-functions`. 책 분석 Gen2는 별도 게이트. 서비스별 정확한

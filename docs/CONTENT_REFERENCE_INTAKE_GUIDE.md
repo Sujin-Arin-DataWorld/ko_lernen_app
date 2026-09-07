@@ -137,6 +137,15 @@ OCR 오류를 사람이 보정해 원문 복제본을 만드는 작업은 하지
 | `last_reviewed` | `YYYY-MM-DD` |
 | `notes` | 짧은 운영 메모, 원문 문장 금지 |
 
+`rights_status=licensed`와 `allowed_use=licensed_transform`는 이용 허락이 실제로
+확인된 자료에만 쓴다. 공공누리 제1유형(출처표시) 저작물이 이 조합의 가장 흔한 경우이며,
+이 경우 `notes`에 공공누리 유형(예: "KOGL type1")과 확인 날짜·근거(고시 페이지, 게시
+기관 등)를 반드시 적는다. `rights_status`가 `reference_only` 또는 `unknown`이면
+`allowed_use`는 `coverage_audit_only`만 쓸 수 있다(검증기가 강제). `licensed_transform`
+행의 원문을 실제로 draft에 옮길 때는 `CONTENT_SOURCE_POLICY.md`의 "공공누리 제1유형
+자료의 예외"에 따라 manifest `provenance.rights`·`provenance.sources`와 앱 출처 고지를
+함께 채운다.
+
 ### 5.2 `page_audit.csv`
 
 한 행은 연속된 표본 페이지 범위와 한 판독 방법이다. 같은 페이지를 Library와 로컬 렌더로
