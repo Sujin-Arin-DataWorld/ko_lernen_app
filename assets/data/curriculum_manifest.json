@@ -4571,9 +4571,9 @@
       ]
     },
     "grammar_a2_cause_nikka": {
-      "courseUnitId": "a2_03_chat_relationships",
+      "courseUnitId": "a1_09_home_daily_life",
       "conceptIds": [
-        "concept_a2_relationships"
+        "concept_a1_home_daily"
       ]
     },
     "grammar_a2_after_finishing": {
@@ -4595,13 +4595,13 @@
       ]
     },
     "grammar_a2_lets_formal": {
-      "courseUnitId": "a2_02_plans_proposals",
+      "courseUnitId": "a1_16_survival_capstone",
       "conceptIds": [
-        "concept_proposal_formal"
+        "concept_a1_survival"
       ]
     },
     "grammar_a2_intention_guess": {
-      "courseUnitId": "a2_01_haeyo_transition",
+      "courseUnitId": "a1_13_register_switching",
       "conceptIds": [
         "concept_action_polite"
       ]
@@ -4667,9 +4667,9 @@
       ]
     },
     "grammar_b1_since": {
-      "courseUnitId": "b1_01_experience_reasons",
+      "courseUnitId": "a2_06_study_work",
       "conceptIds": [
-        "concept_b1_reasons_experience"
+        "concept_a2_work_study"
       ]
     },
     "grammar_b1_wish": {
@@ -4685,9 +4685,9 @@
       ]
     },
     "grammar_b1_resultant_state": {
-      "courseUnitId": "b1_01_experience_reasons",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_b1_reasons_experience"
+        "concept_a2_home_money"
       ]
     },
     "grammar_b1_takes_time": {
@@ -4697,15 +4697,15 @@
       ]
     },
     "grammar_b1_honorific_si": {
-      "courseUnitId": "b1_03_work_softening",
+      "courseUnitId": "a1_13_register_switching",
       "conceptIds": [
-        "concept_b1_softening"
+        "concept_a1_register_switch"
       ]
     },
     "grammar_b1_nominalizer_gi": {
-      "courseUnitId": "b1_01_experience_reasons",
+      "courseUnitId": "a2_06_study_work",
       "conceptIds": [
-        "concept_b1_reasons_experience"
+        "concept_a2_work_study"
       ]
     },
     "grammar_b1_irregular_reu": {
@@ -4811,9 +4811,9 @@
       ]
     },
     "grammar_a1_polite_prohibition": {
-      "courseUnitId": "a1_10_health_safety",
+      "courseUnitId": "a2_04_feelings_health",
       "conceptIds": [
-        "concept_a1_health_safety"
+        "concept_a2_feelings"
       ]
     },
     "grammar_a1_sequence_connector": {
@@ -4865,33 +4865,33 @@
       ]
     },
     "grammar_a2_contrast": {
-      "courseUnitId": "a2_03_chat_relationships",
+      "courseUnitId": "a1_11_titles_relationships",
       "conceptIds": [
-        "concept_a2_relationships"
+        "concept_a1_titles_relationships"
       ]
     },
     "grammar_a2_cause_sequence": {
-      "courseUnitId": "a2_03_chat_relationships",
+      "courseUnitId": "a1_09_home_daily_life",
       "conceptIds": [
-        "concept_a2_relationships"
+        "concept_a1_home_daily"
       ]
     },
     "grammar_a2_progressive": {
-      "courseUnitId": "a2_03_chat_relationships",
+      "courseUnitId": "a1_09_home_daily_life",
       "conceptIds": [
-        "concept_a2_relationships"
+        "concept_a1_home_daily"
       ]
     },
     "grammar_a2_dative_person": {
-      "courseUnitId": "a2_03_chat_relationships",
+      "courseUnitId": "a1_07_contact_address",
       "conceptIds": [
-        "concept_a2_relationships"
+        "concept_a1_contact_address"
       ]
     },
     "grammar_a2_ability": {
-      "courseUnitId": "a2_06_study_work",
+      "courseUnitId": "a1_15_first_class_work",
       "conceptIds": [
-        "concept_a2_work_study"
+        "concept_a1_first_meeting"
       ]
     },
     "grammar_a2_try_experience": {
@@ -4901,9 +4901,9 @@
       ]
     },
     "grammar_a2_polite_proposal": {
-      "courseUnitId": "a2_02_plans_proposals",
+      "courseUnitId": "a1_16_survival_capstone",
       "conceptIds": [
-        "concept_proposal_formal"
+        "concept_a1_survival"
       ]
     },
     "grammar_a2_reason_because": {
@@ -4931,9 +4931,9 @@
       ]
     },
     "grammar_a2_inability": {
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a1_12_daily_negation",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a1_negation"
       ]
     },
     "grammar_a2_each": {
@@ -4949,45 +4949,45 @@
       ]
     },
     "grammar_b1_nominalization": {
-      "courseUnitId": "b1_01_experience_reasons",
+      "courseUnitId": "a2_06_study_work",
       "conceptIds": [
-        "concept_b1_reasons_experience"
+        "concept_a2_work_study"
       ]
     },
     "grammar_b1_after": {
-      "courseUnitId": "b1_01_experience_reasons",
+      "courseUnitId": "a1_05_numbers_time",
       "conceptIds": [
-        "concept_b1_reasons_experience"
+        "concept_a1_time_numbers"
       ]
     },
     "grammar_b1_before": {
-      "courseUnitId": "b1_01_experience_reasons",
+      "courseUnitId": "a1_05_numbers_time",
       "conceptIds": [
-        "concept_b1_reasons_experience"
+        "concept_a1_time_numbers"
       ]
     },
     "grammar_b1_intention": {
-      "courseUnitId": "b1_03_work_softening",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_b1_softening"
+        "concept_a1_directions"
       ]
     },
     "grammar_b1_obligation": {
-      "courseUnitId": "b1_03_work_softening",
+      "courseUnitId": "a1_10_health_safety",
       "conceptIds": [
-        "concept_b1_softening"
+        "concept_a1_health_safety"
       ]
     },
     "grammar_b1_background_contrast": {
-      "courseUnitId": "b1_03_work_softening",
+      "courseUnitId": "a2_03_chat_relationships",
       "conceptIds": [
-        "concept_b1_softening"
+        "concept_a2_relationships"
       ]
     },
     "grammar_b1_decision": {
-      "courseUnitId": "b1_06_life_capstone",
+      "courseUnitId": "a2_02_plans_proposals",
       "conceptIds": [
-        "concept_b1_life"
+        "concept_proposal_formal"
       ]
     },
     "grammar_b1_future_probability": {
@@ -5099,27 +5099,27 @@
       ]
     },
     "grammar_a1_past_modifier": {
-      "courseUnitId": "a1_09_home_daily_life",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a1_home_daily"
+        "concept_a2_home_money"
       ]
     },
     "grammar_a1_present_modifier": {
-      "courseUnitId": "a1_09_home_daily_life",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a1_home_daily"
+        "concept_a2_home_money"
       ]
     },
     "grammar_a1_future_modifier": {
-      "courseUnitId": "a1_12_daily_negation",
+      "courseUnitId": "a2_06_study_work",
       "conceptIds": [
-        "concept_a1_negation"
+        "concept_a2_work_study"
       ]
     },
     "grammar_a1_or_particle": {
-      "courseUnitId": "a1_04_order_request_object",
+      "courseUnitId": "a2_05_delivery_services",
       "conceptIds": [
-        "concept_request_polite"
+        "concept_a2_services"
       ]
     },
     "grammar_a1_please_particle": {
@@ -5171,21 +5171,21 @@
       ]
     },
     "grammar_a2_comparative": {
-      "courseUnitId": "a2_01_haeyo_transition",
+      "courseUnitId": "a1_11_titles_relationships",
       "conceptIds": [
-        "concept_action_polite"
+        "concept_a1_titles_relationships"
       ]
     },
     "grammar_b1_experience": {
-      "courseUnitId": "b1_01_experience_reasons",
+      "courseUnitId": "a2_07_travel_repair",
       "conceptIds": [
-        "concept_b1_reasons_experience"
+        "concept_a2_travel_repair"
       ]
     },
     "grammar_b1_duration": {
-      "courseUnitId": "b1_01_experience_reasons",
+      "courseUnitId": "a2_06_study_work",
       "conceptIds": [
-        "concept_b1_reasons_experience"
+        "concept_a2_work_study"
       ]
     },
     "grammar_b1_skill": {
@@ -5219,9 +5219,9 @@
       ]
     },
     "grammar_b1_realization": {
-      "courseUnitId": "b1_02_indirect_speech",
+      "courseUnitId": "a2_04_feelings_health",
       "conceptIds": [
-        "concept_b1_indirect_speech"
+        "concept_a2_feelings"
       ]
     },
     "grammar_b2_counterfactual_past": {
@@ -5579,9 +5579,9 @@
       ]
     },
     "grammar_a1_honorific_kke": {
-      "courseUnitId": "a1_13_register_switching",
+      "courseUnitId": "a2_04_feelings_health",
       "conceptIds": [
-        "concept_a1_register_switch"
+        "concept_a2_feelings"
       ]
     },
     "grammar_a2_humble_give": {
@@ -5591,9 +5591,9 @@
       ]
     },
     "grammar_b1_honorific_subject_kkeyseo": {
-      "courseUnitId": "b1_04_relationships",
+      "courseUnitId": "a1_13_register_switching",
       "conceptIds": [
-        "concept_b1_relationships"
+        "concept_a1_register_switch"
       ]
     },
     "grammar_b2_rather_than_direct": {
@@ -5984,6 +5984,54 @@
       "courseUnitId": "c2_01_interpretation_institutions",
       "conceptIds": [
         "concept_c2_discourse_institutions"
+      ]
+    },
+    "grammar_a1_formal_statement": {
+      "courseUnitId": "a1_02_self_intro_identity",
+      "conceptIds": [
+        "concept_identity_formal"
+      ]
+    },
+    "grammar_a1_formal_question": {
+      "courseUnitId": "a1_02_self_intro_identity",
+      "conceptIds": [
+        "concept_identity_formal"
+      ]
+    },
+    "grammar_a2_interrupted_action": {
+      "courseUnitId": "a2_06_study_work",
+      "conceptIds": [
+        "concept_a2_work_study"
+      ]
+    },
+    "grammar_a2_nominalizer_eum": {
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ]
+    },
+    "grammar_a2_from_person": {
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ]
+    },
+    "grammar_a2_no_choice_but": {
+      "courseUnitId": "a2_07_travel_repair",
+      "conceptIds": [
+        "concept_a2_travel_repair"
+      ]
+    },
+    "grammar_a2_tentative_intention": {
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_casual"
+      ]
+    },
+    "grammar_a1_formal_command": {
+      "courseUnitId": "a1_13_register_switching",
+      "conceptIds": [
+        "concept_action_formal"
       ]
     }
   },

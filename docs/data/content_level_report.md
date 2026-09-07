@@ -26,9 +26,9 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 
 | 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
 |---|---|---|---|---|---|---|---|---|
-| a1 | 35 | 5 | 1 | 0 | 0 | 0 | 0 | 41 |
-| a2 | 21 | 25 | 3 | 1 | 0 | 0 | 0 | 50 |
-| b1 | 15 | 16 | 14 | 4 | 0 | 1 | 0 | 50 |
+| a1 | 44 | 10 | 1 | 0 | 0 | 0 | 0 | 55 |
+| a2 | 24 | 29 | 5 | 1 | 0 | 0 | 0 | 59 |
+| b1 | 7 | 11 | 12 | 4 | 0 | 1 | 0 | 35 |
 | b2 | 5 | 10 | 5 | 35 | 2 | 0 | 0 | 57 |
 | c1 | 0 | 1 | 5 | 8 | 9 | 0 | 0 | 23 |
 | c2 | 0 | 2 | 2 | 9 | 3 | 7 | 0 | 23 |
@@ -37,19 +37,19 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 
 | 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
 |---|---|---|---|---|---|---|---|---|
-| a1 | 14 | 15 | 0 | 0 | 0 | 0 | 0 | 29 |
-| a2 | 2 | 26 | 0 | 0 | 0 | 0 | 0 | 28 |
-| b1 | 0 | 5 | 25 | 1 | 0 | 0 | 0 | 31 |
-| b2 | 0 | 1 | 7 | 22 | 0 | 0 | 0 | 30 |
+| a1 | 12 | 17 | 0 | 0 | 0 | 0 | 0 | 29 |
+| a2 | 4 | 24 | 0 | 0 | 0 | 0 | 0 | 28 |
+| b1 | 0 | 12 | 18 | 1 | 0 | 0 | 0 | 31 |
+| b2 | 0 | 3 | 5 | 22 | 0 | 0 | 0 | 30 |
 | c1 | 0 | 0 | 5 | 13 | 12 | 0 | 0 | 30 |
-| c2 | 0 | 0 | 3 | 12 | 4 | 11 | 0 | 30 |
+| c2 | 0 | 1 | 2 | 12 | 4 | 11 | 0 | 30 |
 
 ### cloze (fullKo)
 
 | 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
 |---|---|---|---|---|---|---|---|---|
-| a1 | 144 | 63 | 13 | 4 | 1 | 0 | 0 | 225 |
-| a2 | 79 | 125 | 34 | 9 | 2 | 0 | 0 | 249 |
+| a1 | 143 | 64 | 13 | 4 | 1 | 0 | 0 | 225 |
+| a2 | 82 | 122 | 34 | 9 | 2 | 0 | 0 | 249 |
 | b1 | 45 | 181 | 141 | 55 | 3 | 1 | 0 | 426 |
 | b2 | 13 | 88 | 153 | 125 | 19 | 7 | 0 | 405 |
 | c1 | 0 | 22 | 79 | 138 | 10 | 1 | 0 | 250 |
@@ -59,9 +59,9 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 
 | 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
 |---|---|---|---|---|---|---|---|---|
-| a1 | 143 | 57 | 7 | 6 | 0 | 0 | 0 | 213 |
-| a2 | 186 | 197 | 35 | 9 | 0 | 0 | 0 | 427 |
-| b1 | 150 | 266 | 152 | 53 | 4 | 0 | 0 | 625 |
+| a1 | 140 | 60 | 7 | 6 | 0 | 0 | 0 | 213 |
+| a2 | 190 | 193 | 35 | 9 | 0 | 0 | 0 | 427 |
+| b1 | 149 | 267 | 152 | 53 | 4 | 0 | 0 | 625 |
 | b2 | 53 | 153 | 205 | 130 | 20 | 3 | 0 | 564 |
 | c1 | 0 | 22 | 76 | 143 | 10 | 1 | 0 | 252 |
 | c2 | 0 | 19 | 70 | 138 | 18 | 7 | 0 | 252 |
@@ -70,9 +70,9 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 
 | 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
 |---|---|---|---|---|---|---|---|---|
-| a1 | 33 | 57 | 8 | 2 | 0 | 0 | 0 | 100 |
-| a2 | 9 | 64 | 12 | 5 | 3 | 0 | 0 | 93 |
-| b1 | 3 | 36 | 37 | 10 | 2 | 0 | 0 | 88 |
+| a1 | 27 | 63 | 8 | 2 | 0 | 0 | 0 | 100 |
+| a2 | 7 | 66 | 12 | 5 | 3 | 0 | 0 | 93 |
+| b1 | 1 | 39 | 36 | 10 | 2 | 0 | 0 | 88 |
 | b2 | 0 | 17 | 40 | 50 | 21 | 0 | 0 | 128 |
 | c1 | 0 | 5 | 18 | 58 | 6 | 0 | 0 | 87 |
 | c2 | 0 | 1 | 10 | 63 | 9 | 3 | 0 | 86 |
@@ -92,8 +92,8 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 
 | 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
 |---|---|---|---|---|---|---|---|---|
-| a1 | 19 | 12 | 3 | 1 | 0 | 0 | 0 | 35 |
-| a2 | 22 | 19 | 9 | 3 | 0 | 0 | 0 | 53 |
+| a1 | 17 | 14 | 3 | 1 | 0 | 0 | 0 | 35 |
+| a2 | 19 | 22 | 9 | 3 | 0 | 0 | 0 | 53 |
 | b1 | 0 | 3 | 7 | 2 | 0 | 0 | 0 | 12 |
 | b2 | 0 | 0 | 4 | 8 | 0 | 0 | 0 | 12 |
 | c1 | 0 | 0 | 2 | 10 | 0 | 0 | 0 | 12 |
@@ -191,35 +191,39 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 |---|---|---|---|---|
 | `a1_theme_park_date_choices` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
 | `a1_w10_eat` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
-| `a1_w10_partner` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
+| `a1_w10_fandom` | a1 | a2 | 1 | over1 grammar_ids_max=2 |
+| `a1_w10_partner` | a1 | a2 | 1 | over1 grammar_ids_max=2 |
 | `a1_w10_phone` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
 | `a1_w10_taxi_stay` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
 | `after_hours_messages` | c1 | b1 | -2 | under2 grammar_ids_max=3 |
 | `ai_hiring_appeal` | c2 | b2 | -2 | under2 dialog_p75=4.0 |
-| `ai_translation_voice_loss` | c1 | b1 | -2 | under2 grammar_ids_max=3 |
+| `ai_translation_voice_loss` | c1 | b1 | -2 | under2 dialog_p75=3.0 |
 | `automated_benefit_denial` | c2 | b2 | -2 | under2 dialog_p75=4.2 |
 | `bakery_payment_bag` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
 | `bakery_queue` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
 | `break_glass_apology` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
-| `bunshik_tteokbokki` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
+| `bunshik_tteokbokki` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
+| `cafe_dessert_sold_out` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
 | `causal_claim_headline` | c2 | b1 | -3 | under2 dialog_p75=3.0 |
 | `central_local_disaster_responsibility` | c2 | b2 | -2 | under2 dialog_p75=4.0 |
 | `climate_model_local_decision` | c2 | b2 | -2 | under2 dialog_p75=4.0 |
 | `dance_class_register` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
 | `diaspora_name_identity` | c2 | b2 | -2 | under2 dialog_p75=3.5 |
 | `fact_check_label_power` | c2 | b2 | -2 | under2 dialog_p75=4.0 |
+| `library_quiet_zone_conflict` | b2 | a2 | -2 | under2 grammar_ids_max=2 |
 | `mart_grocery` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
 | `medical_uncertainty_consent` | c2 | b2 | -2 | under2 dialog_p75=4.0 |
 | `meeting_opening_context` | b2 | a2 | -2 | under2 grammar_ids_max=2 |
+| `partner_family_titles` | b2 | a2 | -2 | under2 dialog_p75=2.0 |
 | `passive_voice_accountability` | c2 | b2 | -2 | under2 dialog_p75=4.0 |
 | `poll_question_framing` | c2 | b2 | -2 | under2 dialog_p75=4.5 |
 | `protest_order_and_rights` | c2 | b2 | -2 | under2 dialog_p75=4.2 |
-| `relationship_story_reframing` | c2 | b1 | -3 | under2 grammar_ids_max=3 |
+| `relationship_story_reframing` | c2 | a2 | -4 | under2 dialog_p75=2.0 |
 | `replication_failure_response` | c2 | b2 | -2 | under2 dialog_p75=4.0 |
 | `school_phone_rule` | c1 | b1 | -2 | under2 dialog_p75=3.0 |
 | `shared_document_old_version` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
 | `subway_step_apology` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
-| `survival_day_capstone` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
+| `survival_day_capstone` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
 | `taxi_kakao` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
 | `tradition_reinterpreted_stage` | c1 | b1 | -2 | under2 grammar_ids_max=3 |
 | `umbrella_weather` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
@@ -234,7 +238,7 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 | kind | 미검출 토큰 | 전체 토큰 | 비율 |
 |---|---|---|---|
 | vocab | 122 | 3499 | 3.5% |
-| grammar | 76 | 1302 | 5.8% |
+| grammar | 78 | 1330 | 5.9% |
 | scenario | 434 | 9213 | 4.7% |
 | cloze | 318 | 10844 | 2.9% |
 | satz | 401 | 13177 | 3.0% |
@@ -249,7 +253,7 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
   "counts": {
     "cloze": {
       "fallback_over2": 2,
-      "over1": 166,
+      "over1": 167,
       "over2": 38,
       "total": 1805,
       "under2": 449,
@@ -257,15 +261,15 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
     },
     "grammar": {
       "fallback_over2": 0,
-      "over1": 14,
+      "over1": 21,
       "over2": 3,
-      "total": 244,
-      "under2": 44,
+      "total": 252,
+      "under2": 36,
       "unknown": 0
     },
     "media": {
       "fallback_over2": 1,
-      "over1": 20,
+      "over1": 23,
       "over2": 6,
       "total": 136,
       "under2": 13,
@@ -281,26 +285,26 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
     },
     "satz": {
       "fallback_over2": 1,
-      "over1": 164,
+      "over1": 167,
       "over2": 28,
       "total": 2333,
-      "under2": 652,
+      "under2": 651,
       "unknown": 0
     },
     "scenario": {
       "fallback_over2": 0,
-      "over1": 15,
+      "over1": 17,
       "over2": 0,
       "total": 178,
-      "under2": 21,
+      "under2": 23,
       "unknown": 0
     },
     "smalltalk": {
       "fallback_over2": 1,
-      "over1": 95,
+      "over1": 102,
       "over2": 19,
       "total": 582,
-      "under2": 116,
+      "under2": 114,
       "unknown": 0
     },
     "vocab": {
