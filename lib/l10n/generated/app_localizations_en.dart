@@ -864,6 +864,7 @@ class AppL10nEn extends AppL10n {
   @override
   String get settingsUpdateUnavailable =>
       'Cannot check here. Look in the Play Store.';
+
   @override
   String get settingsPrivacyTitle => 'Privacy Policy';
 

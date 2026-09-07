@@ -866,6 +866,7 @@ class AppL10nDe extends AppL10n {
   @override
   String get settingsUpdateUnavailable =>
       'Hier nicht prüfbar. Im Play Store nachsehen.';
+
   @override
   String get settingsPrivacyTitle => 'Datenschutzerklärung';
 

@@ -1560,6 +1560,7 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Hier nicht prüfbar. Im Play Store nachsehen.'**
   String get settingsUpdateUnavailable;
+
   /// No description provided for @settingsPrivacyTitle.
   ///
   /// In de, this message translates to:
