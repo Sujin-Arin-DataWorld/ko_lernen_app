@@ -20,7 +20,7 @@ void main() {
       final earned = <String>{'lotus'};
       final progress = <String, PackProgress>{
         'a2_education': _cleared('a2_education'),
-        'a2_bank_counter': _cleared('a2_bank_counter'),
+        'b1_bank_counter': _cleared('b1_bank_counter'),
         'a1_food': _cleared('a1_food'),
       };
 

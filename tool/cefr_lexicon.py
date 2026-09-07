@@ -96,6 +96,36 @@ resolved grade. Flagged then for Fable's ruling (alias vs. accepted gap);
 R7 item 8's generic compound split (§ below) is that ruling in code -- the
 word now resolves via its two independently-real parts (층간, 소음)
 instead, source='compound', confidence='medium'.
+
+Level exception table (T2.5, PR-L2a, plan §3.E/§14, bible F9 "레벨 예외표")
+----------------------------------------------------------------------------
+``tools/content_factory/lexicon/level_exceptions.csv`` (header
+``category,headword,allowed_level,note``, loaded by
+:func:`load_level_exceptions`) lists specific headwords -- kinship
+honorifics, learning-metalanguage nouns, signage/transaction vocabulary,
+transparent loanwords, and 명절/제사 culture words that keep skewing too
+high through kiiq's formal-register bias or basic2023's general-literacy
+grade-5 tail (see the R3 item 2 note on 장모님 above) -- whose grade is
+capped at a Fable-ruled ``allowed_level``, source='exception'. Checked as
+the FIRST tier inside :meth:`CefrLexicon._kiiq_derived_chain` (see that
+method's own docstring for why one hook point there reaches every
+consumer: word_grade, phrase_grade, sentence_profile, and every
+alias/multiword/compound path built on `_base_chain`), so it wins
+unconditionally over kiiq/basic2023/derived for its exact headword --
+the same override precedent as aliases.csv's empty-lexicon_form A1
+exception. A multi-word fixed_expression row (e.g. "새해 복 많이
+받으세요") additionally needs :meth:`CefrLexicon.phrase_grade`'s own
+whole-phrase pre-check, since Korean eojeol-tokenization never re-joins
+separate eojeols back into the original phrase for the per-token loop to
+match against a multi-word CSV key.
+
+The CSV also backs one general derivational rule, independent of any
+specific listed headword: `X없어요`/`X없다`/`X없는` grades as X's own grade
+when X (the noun with that suffix stripped) is itself a graded noun (예:
+문제없어요 -- separately ALSO a literal fixed_expression CSV row, so it
+resolves to A1 via the exception tier regardless -- decomposes as 문제's
+own grade if reached via this rule instead). See
+:meth:`CefrLexicon._negation_compound_lookup`.
 """
 
 from __future__ import annotations
@@ -115,6 +145,14 @@ KIIQ_VOCAB_CSV = LEXICON_DIR / "nikl_kiiq_2017_vocab.csv"
 KIIQ_GRAMMAR_CSV = LEXICON_DIR / "nikl_kiiq_2017_grammar.csv"
 BASIC2023_CSV = LEXICON_DIR / "nikl_basic_2023_vocab.csv"
 ALIASES_CSV = LEXICON_DIR / "aliases.csv"
+# T2.5 (PR-L2a, plan §3.E/§14, bible F9 "레벨 예외표"): a small table of
+# Fable-ruled grade CEILINGS for specific headwords, keyed by category
+# (kinship/meta/signage_a1/signage_a2/loanword/culture_basic/
+# culture_advanced/fixed_expression -- see the CSV's own rows). Unlike
+# aliases.csv's empty-lexicon_form A1 exception (a single fixed grade,
+# always 1), this table's `allowed_level` varies per row (A1 or A2) --
+# see `load_level_exceptions`/`CefrLexicon._exception_lookup`.
+LEVEL_EXCEPTIONS_CSV = LEXICON_DIR / "level_exceptions.csv"
 CHARACTER_PROFILES_JSON = (
     REPO / "tools" / "content_factory" / "canonical_scenarios" / "character_profiles.json"
 )
@@ -143,6 +181,10 @@ _CONFIDENCE_BY_SOURCE: Mapping[str, str] = {
     # has grade=None by design so never reaches this table (WordGrade.
     # confidence short-circuits to None whenever grade is None).
     "numeral": "high",
+    # T2.5: a curated Fable ruling is MORE authoritative than any
+    # automatic lookup tier, not less -- same 'high' treatment as
+    # kiiq/derived/alias.
+    "exception": "high",
 }
 
 # Sentence-length rule (plan §3.C.2 / brief): eojeol-count ceiling per grade;
@@ -229,6 +271,13 @@ ENDINGS: Tuple[str, ...] = (
     "여야", "던", "더라고요", "네", "어도", "아도", "여도", "어서요",
     "는데요", "은데요", "습니다만", "다면", "라면", "려면", "면서도",
     "다가", "았다가", "었다가", "였다가",
+    # T2.4a (B4): politeness 요 stacked on a quotative ending (간다고요,
+    # 먹자고요, 뭐냐고요, 드시라고요) -- none of the bare quotative endings
+    # just below (다고/자고/냐고/라고/으라고) themselves account for a
+    # trailing 요, so a token like "간다고요" matched nothing here before
+    # and fell through unresolved. "는다고요" additionally covers a
+    # consonant-final stem's own quotative+요 (예: "먹는다고요").
+    "다고요", "자고요", "냐고요", "라고요", "으라고요", "는다고요",
 )
 
 # Copula endings: the stem is the noun itself (이다 "to be" attaches to a
@@ -237,6 +286,22 @@ ENDINGS: Tuple[str, ...] = (
 # them) but branched on separately in _lemma_candidates -- R3 item 4
 # ("자리예요." -> 자리, not the nonsense "자리다").
 _COPULA_ENDINGS: frozenset = frozenset({"예요", "이에요"})
+
+# T2.4a (B2, "약은" -> 약(1급)+은, not 약다 5급): "은" is BOTH a listed
+# particle (topic marker for a consonant-final noun) and a listed ending
+# (past-/general-attributive, e.g. 먹은) -- a genuine ambiguity with no
+# POS tagging available. The noun+particle reading must win the priority
+# race here specifically, but this is NOT safely generalizable to every
+# suffix that happens to share both roles: "는" is the identical kind of
+# dual-role suffix, yet 가다's extremely common attributive "가는" MUST
+# stay 가다, never regress to bare "가" (see `_RIEUL_ATTRIBUTIVE_
+# EXCLUDED_LAST_CHARS`'s docstring for that exact, already-guarded
+# collision -- confirmed by regression when this was first tried broadly:
+# "가는" -> "가" and "오라고" -> "오" both silently went wrong, since
+# "라고" is ALSO listed as both a particle and a quotative ending). A
+# small, closed, hand-verified set -- the same trade-off this file's
+# other collision tables already make -- rather than a blanket rule.
+_NOUN_PARTICLE_PRIORITY_SUFFIXES: frozenset = frozenset({"은"})
 
 # R3 item 4 ("따뜻해서" -> 따뜻하다, "서늘해서" -> 서늘하다): "해서" is
 # stripped as one opaque 2-char ENDING (see ENDINGS above), which loses the
@@ -341,6 +406,39 @@ IRREGULAR_STEM_MAP: Mapping[str, str] = {
     # needed, only these two new rows).
     "새로워": "새롭다", "즐거워": "즐겁다",
     "새로우": "새롭다", "즐거우": "즐겁다",
+    # T2.4a (B3, auditor false positives -- these nine ㅂ-irregular
+    # adjectives were simply missing from the table, same -워/-우 pattern
+    # as every entry above): 맵다 무겁다 가볍다 아름답다 반갑다 즐겁다
+    # (already present) 귀엽다 뜨겁다 차갑다 시끄럽다.
+    "매워": "맵다", "매우": "맵다",
+    # Past tense "매웠어요" tense-fuses the vowel onto the batchim-ㅆ
+    # syllable itself (매우+었 -> 매웠, not "매우어" -- `_unfuse_tensed_
+    # vowel`'s generic ㅝ->ㅜ un-fuse would wrongly restore this to the
+    # non-word "매우다"), so -- alone among this table's nine new B3
+    # entries (the only one Fable's brief tests in the past tense) --
+    # 매웠 needs its own direct fragment the same way 도왔 (below) does.
+    "매웠": "맵다",
+    "무거워": "무겁다", "무거우": "무겁다",
+    "가벼워": "가볍다", "가벼우": "가볍다",
+    "아름다워": "아름답다", "아름다우": "아름답다",
+    "반가워": "반갑다", "반가우": "반갑다",
+    "귀여워": "귀엽다", "귀여우": "귀엽다",
+    "뜨거워": "뜨겁다", "뜨거우": "뜨겁다",
+    "차가워": "차갑다", "차가우": "차갑다",
+    "시끄러워": "시끄럽다", "시끄러우": "시끄럽다",
+    # 돕다/곱다 are the two lexicalized ㅂ-irregulars that keep the
+    # archaic BRIGHT-vowel harmony (오+아 -> 와, not the 우+어 -> 워
+    # every other ㅂ-irregular above takes) -- 도와/도왔 do NOT fit the
+    # -워/-우 pattern this table otherwise uses, so they need their own
+    # literal fragments rather than falling out of that pattern. "도와주"
+    # additionally covers the "Verb-아 주다" benefactive-auxiliary shape
+    # (B3: "도와주세요" -> 돕다): `_auxiliary_main_verb_repair` only
+    # matches a BARE-CITATION auxiliary ("도와주다"), never a further-
+    # conjugated one like "도와주세요" (see that function's own
+    # docstring), so the fragment left after ordinary ENDING-stripping
+    # ("세요") needs this direct entry the same way every other irregular
+    # fragment in this file does.
+    "도와": "돕다", "도왔": "돕다", "도와주": "돕다",
 }
 
 # ㅡ-irregular ("으-탈락") restoration: fragment -> bare root ("다" appended
@@ -417,6 +515,18 @@ H_IRREGULAR_MAP: Mapping[str, str] = {
 
 # Suffixes stripped for the "derived" word-grade step (longest first).
 DERIVED_SUFFIXES: Tuple[str, ...] = ("스럽다", "하다", "되다", "적", "히")
+
+# T2.5 (plan §3.E/§14, level_exceptions.csv's implicit lexicon rule): a
+# noun X compounded directly with 없다 ("to lack/not have X" -- 문제없다,
+# 상관없다, 걱정없다, ...) is graded as X's OWN grade, not X+없다's max --
+# harmless simplification since 없다 itself is kiiq grade 1 (the floor of
+# the whole scale), so max(X, 없다)==X always anyway. Longest-first so
+# "없어요" (which itself ends in "없다"'s "없" + the -어요 ending, NOT a
+# suffix of "없다" the literal 2-char string) is tried before the shorter
+# "없다"/"없는" -- see `CefrLexicon._negation_compound_lookup`.
+NEGATION_COMPOUND_SUFFIXES: Tuple[str, ...] = tuple(
+    sorted(("없어요", "없다", "없는"), key=len, reverse=True)
+)
 
 TRAILING_PUNCT = ".,!?…·\"'()[]{}:;""''"
 
@@ -631,6 +741,12 @@ def _irregular_repair(stem: str) -> Optional[str]:
 # correct "말다" (caught in this rework's own sentence-unknown-ratio sweep).
 _QUOTATIVE_ENDINGS: frozenset = frozenset({
     "ㄴ다고", "는다고", "다고", "자고", "냐고", "으라고", "라고",
+    # T2.4a (B4): the +요 variants just added to ENDINGS get the SAME
+    # embedded-ㄴ-batchim post-processing (_jamo_attributive_repair /
+    # _rieul_stem_attributive_repair) as their bare counterparts above --
+    # e.g. "간다고요" strips "다고요" to stem "간" (된다고's own embedded-ㄴ
+    # shape), which still needs the jamo-strip repair to reach "가다".
+    "다고요", "자고요", "냐고요", "라고요", "으라고요", "는다고요",
 })
 
 # R7 item 9 ("입어보다" -> 입다, "먹어 봤어요" -> 먹다 [already correct --
@@ -742,6 +858,61 @@ RIEUL_NEUN_MAP: Mapping[str, str] = {
 }
 
 
+# T2.4a (B4): a sentence-final BARE single-syllable banmal imperative
+# ("레나, 여기 서.") carries no other suffix for `_lemma_candidates` to
+# strip, so it generates no candidate for the intended verb at all -- and
+# several of these syllables are ALSO real, unrelated, higher-grade kiiq
+# headwords in their own right (bare "서" resolves via kiiq to a grade-3
+# word before this fix) that would otherwise win outright. A small,
+# closed table, checked at the SAME top priority as the proper-noun check
+# in both `CefrLexicon.word_grade` and `_resolve_eojeol` (see their call
+# sites) -- the same accepted collision-table trade-off this file already
+# makes for every other closed, hand-verified table (D_IRREGULAR_MAP's
+# 들/걸, RIEUL_NEUN_MAP just above, ...).
+BANMAL_IMPERATIVE_MAP: Mapping[str, str] = {
+    "가": "가다", "와": "오다", "서": "서다", "봐": "보다",
+    "해": "하다", "자": "자다", "줘": "주다",
+}
+
+
+# 거/걸/걸로/이거/그거/저거/이게/그게/저게/뭘: colloquial contractions of
+# 것/이것/그것/저것/뭐, all 1급 pronouns (docs/CONTENT_LEVEL_BIBLE.md §B
+# "1급 밖 단어는 문화어·고유명사 하나까지만 허용", §D "문화어 1개 예외" -- a
+# sentence built entirely of 1급 grammar/vocab must not get bumped to a
+# higher level just because its speech is colloquial rather than written).
+# A plain aliases.csv redirect row would NOT fix these: every one of these
+# surface forms already resolves via its OWN (wrong-sense) kiiq/basic2023
+# entry BEFORE a non-empty alias is ever consulted (word_grade's redirect-
+# alias tier sits after kiiq/derived, unchanged since R3 -- see
+# `word_grade`'s docstring) -- 거/이거/그거/저거/뭘 each collide with an
+# unrelated, higher-grade kiiq headword of their own, 걸 collides with
+# D_IRREGULAR_MAP's 걷다 stem-repair (comment above), 걸로 with a
+# basic2023-only sense, and 이게 with 이다 (a grade-6 kiiq mis-hit). So this
+# is a small, closed, hand-verified table checked at the SAME top priority
+# as BANMAL_IMPERATIVE_MAP just above -- the accepted trade-off this file
+# already uses for every other closed collision table -- rather than a
+# aliases.csv row. 뭘 -> 뭐 (not 무엇): both grade 1급 already (checked
+# empirically), 뭐 keeps the same colloquial register as 뭘 itself. 걸로's
+# own contraction is 것 + 으로 (것 already contracted to 거/걸 before 로
+# attaches); the target is still bare 것 since the trailing particle plays
+# no role in grading (see `_strip_one_particle` elsewhere in this module).
+#
+# NOT named CONTRACTION_MAP: that name is already taken (module-level,
+# defined earlier) by the UNRELATED 았/었 tense-marker fragment->root table
+# ("갔"->"가" for 가다, etc.) that `_irregular_repair` and friends depend
+# on -- a same-name second `CONTRACTION_MAP = {...}` here would silently
+# shadow it at import time (Python module execution runs top to bottom;
+# every later top-level assignment to the same name wins), breaking every
+# past-tense verb this file resolves. Caught by test_all_golden_tokenizer_
+# cases going from 25/25 to a wall of failures during development.
+PRONOUN_CONTRACTION_MAP: Mapping[str, str] = {
+    "거": "것", "걸": "것", "걸로": "것",
+    "이거": "이것", "그거": "그것", "저거": "저것",
+    "이게": "이것", "그게": "그것", "저게": "저것",
+    "뭘": "뭐",
+}
+
+
 ## R7 item 4: `_rieul_stem_attributive_repair` must NOT fire when `token`'s
 # last character IS one of these -- both "는" (ㄴ+ㅡ+ㄴ) and "은" (ㅇ+ㅡ+ㄴ)
 # coincidentally carry batchim ㄴ as part of their OWN jamo composition,
@@ -795,7 +966,25 @@ def _rieul_stem_attributive_repair(token: str) -> Optional[str]:
 # "을게요" match) already worked. Matching instead requires stripping an
 # embedded ㄹ batchim from the syllable immediately before X.
 _RIEUL_FUSED_ENDING_TAILS: Tuple[str, ...] = tuple(
-    sorted({"게요", "까요", "래요", "지"}, key=len, reverse=True)
+    sorted(
+        {
+            "게요", "까요", "래요", "지",
+            # T2.4a (B4, banmal "-을게/-ㄹ게": "갈게" -> 가다, "옮길게" ->
+            # 옮기다): the bare (no politeness 요) future-intention
+            # ending has the identical embedded-ㄹ-batchim shape as
+            # "게요" just above, just without it. Safe to add unqualified
+            # even though bare "게" is ALSO the ordinary adverbial "-게"
+            # ending (짧게, 예쁘게, ...): for those, `before`'s last
+            # character never carries a ㄹ batchim, so
+            # `_strip_final_batchim` returns None and this function
+            # falls through to that ordinary reading untouched (see this
+            # function's own docstring for the len(before)==1 case,
+            # unaffected either way since "짧"/"예쁘" are not in
+            # `_RIEUL_FUSED_STRIP_PREFERRED_1SYL`).
+            "게",
+        },
+        key=len, reverse=True,
+    )
 )
 
 # For a 1-syllable `before` (the whole batchim-ㄹ syllable IS the entire
@@ -879,6 +1068,15 @@ _COPULA_ENDINGS_R8: Tuple[str, ...] = tuple(sorted({
     "이에요", "예요", "입니다", "이었어요", "였어요", "이라서", "이고",
     "이지만", "인데", "이니까", "이라고", "이야", "이죠", "이지요",
     "이네요", "입니까", "이었습니다",
+    # T2.4a (B2, "문서인지" -> 문서(4급)+인지): 이다's indirect-question
+    # ending -ㄴ지 ("whether/if it is") -- "문서인지" is 문서+이+ㄴ지, not
+    # a compound of the noun 문서 with the SEPARATE, unrelated noun 인지
+    # ("cognition"), which is what `_compound_split_lookup`'s generic
+    # 2-way split fell back to before this entry existed (max(문서,인지)
+    # instead of just 문서's own grade). A bare token "인지" (not longer
+    # than the ending itself, i.e. the standalone noun) is unaffected --
+    # `_copula_noun_stem` requires `len(token) > len(ending)`.
+    "인지",
 }, key=len, reverse=True))
 
 
@@ -1070,7 +1268,8 @@ def _lemma_candidates(token: str) -> List[str]:
             if repaired is not None:
                 candidates.append(repaired)
 
-    # PASS 2: generic suffix stripping (original behaviour, unchanged).
+    # PASS 2: generic suffix stripping (original behaviour, extended by
+    # T2.4a items B2/B4 -- see the two inline comments below).
     for source in sources:
         for suf in _ALL_SUFFIXES:
             if source.endswith(suf) and len(source) > len(suf):
@@ -1078,7 +1277,28 @@ def _lemma_candidates(token: str) -> List[str]:
                 if suf in _COPULA_ENDINGS:
                     candidates.append(stem)
                 elif suf in _ENDING_SET:
+                    # T2.4a (B2): for the small, closed set of suffixes
+                    # where the noun+particle reading must win -- see
+                    # `_NOUN_PARTICLE_PRIORITY_SUFFIXES`'s own docstring
+                    # for why this is NOT the same as "any suf in both
+                    # _PARTICLE_SET and _ENDING_SET" -- offer the bare
+                    # stem FIRST, ahead of the stem+다 guess.
+                    if suf in _NOUN_PARTICLE_PRIORITY_SUFFIXES:
+                        candidates.append(stem)
                     candidates.append(_restore_predicate(stem))
+                    if suf in _QUOTATIVE_ENDINGS:
+                        # T2.4a (B4, "뭐냐고요" -> 뭐, not 뭐다): a
+                        # quotative also commonly reports a COPULA
+                        # question ("뭐(이)냐고" = "asking what it is"),
+                        # not a verb -- offer the bare stem too, AFTER
+                        # the verb guess above, so it only wins when
+                        # stem+다 is not itself a real word (뭐다 isn't;
+                        # 가다/먹다 are, and their own jamo-repaired PASS 1
+                        # candidates already resolve first regardless --
+                        # see `_jamo_attributive_repair`'s call site
+                        # above in PASS 1 -- so this never shadows a real
+                        # verb reading).
+                        candidates.append(stem)
                 if suf in _PARTICLE_SET:
                     candidates.append(stem)
         # Fallback: bare trailing "요" not in the brief's ENDINGS list,
@@ -1086,6 +1306,27 @@ def _lemma_candidates(token: str) -> List[str]:
         # docstring / _FALLBACK_ENDING comment above).
         if source.endswith(_FALLBACK_ENDING) and len(source) > len(_FALLBACK_ENDING):
             stem = source[: -len(_FALLBACK_ENDING)]
+            # T2.4a (B2/B4, "여기요" -> 여기(1급)+요; "전에요"/"후에요" ->
+            # 전/후): politeness 요 also attaches directly to a bare noun
+            # (no verb/adjective underneath at all) or to a noun+particle
+            # ("전에" = 전 + locative 에). The bare-noun reading must be
+            # tried BEFORE the stem+다 guess here (not just as a fallback
+            # after it) -- "여기다" ("to regard/consider") is itself a
+            # REAL, resolvable kiiq verb, so stem+다 does not merely fail
+            # silently the way a made-up word would; it actively wins the
+            # priority race at the wrong (much higher) grade unless the
+            # noun reading is offered first. Try the stem AS-IS first
+            # (protects a real multi-syllable noun that merely ENDS in a
+            # particle-shaped syllable, e.g. "사과" ending in the
+            # comitative particle 과, from ever reaching the particle-
+            # strip below), then that SAME stem with one more trailing
+            # particle stripped (`_strip_one_particle` already returns
+            # its input unchanged when nothing matches, so this is a
+            # no-op for any stem that doesn't end in a particle at all).
+            candidates.append(stem)
+            particle_stripped = _strip_one_particle(stem)
+            if particle_stripped != stem:
+                candidates.append(particle_stripped)
             candidates.append(_restore_predicate(stem))
     candidates.append(token)
     # De-duplicate while preserving order (priority-first).
@@ -1118,10 +1359,30 @@ def _longest_connective_suffix(token: str) -> Optional[str]:
     return None
 
 
+_QUOTATION_MARKS: str = "‘’“”'\""
+
+
+def _strip_quotation_marks(text: str) -> str:
+    """T2.4a (B5): remove every quotation-mark character (curly ‘’“” and
+    straight '") from `text` globally, before eojeol-splitting. A
+    boundary-only `.strip()` (already applied per-token afterwards by
+    `_normalize_token` via TRAILING_PUNCT) can never catch a CLOSING quote
+    that lands mid-eojeol -- Korean attaches a particle directly with no
+    space, so `'여기 서'도 맞아?` splits on whitespace into "여기" and
+    "서'도" (the closing quote sits between the verb and its particle, not
+    at either end of that token). Removed outright, not replaced with a
+    space, since nothing else separates the quote from its neighbours
+    either."""
+    for mark in _QUOTATION_MARKS:
+        text = text.replace(mark, "")
+    return text
+
+
 def tokenize_eojeols(text: str) -> List[str]:
-    """Whitespace eojeol split (no normalization — callers strip
-    punctuation per-token as needed)."""
-    return text.split()
+    """Whitespace eojeol split (quotation marks stripped first -- see
+    `_strip_quotation_marks`; no other normalization -- callers strip
+    remaining punctuation per-token as needed)."""
+    return _strip_quotation_marks(text).split()
 
 
 # ---------------------------------------------------------------------------
@@ -1136,16 +1397,32 @@ EXTRA_PROPER_NOUNS: Tuple[str, ...] = (
     "다니엘", "제니", "이지윤",
 )
 
+# T2.4a (B6): brand/product names -- excluded from grading (`grade=None`,
+# `source='proper_noun'`) and from `SentenceProfile.unknown` the same way
+# a character display name is, via the SAME `_match_proper_noun` mechanism
+# (unioned into `load_character_names`'s returned set below). aliases.csv
+# has no "excluded, ungraded" shape (every row there resolves to SOME
+# grade -- see `_alias_lookup`: an empty `lexicon_form` means "A1
+# exception", not "unranked"), so this is a dedicated set instead, per
+# the brief's own fallback instruction. Documented in the F9 exception
+# table (docs/data/level_bible/F9_exceptions.md, "브랜드/고유명사" section)
+# alongside every other grade-list-independent exception category.
+PROPER_NOUN_EXCLUSIONS: FrozenSet[str] = frozenset({
+    "카카오톡", "카톡", "네이버", "인스타그램", "유튜브", "쿠팡", "배민",
+    "지도앱",
+})
+
 
 def load_character_names(root: Path = REPO) -> FrozenSet[str]:
     """Every `recurringCharacters[].displayNames.ko` name from
     tools/content_factory/canonical_scenarios/character_profiles.json,
-    unioned with EXTRA_PROPER_NOUNS (R3 item 5). Falls back to just
-    EXTRA_PROPER_NOUNS if the profiles file is missing or malformed --
-    proper-noun exclusion degrading gracefully is preferable to
-    CefrLexicon.load() failing outright over an unrelated content-factory
-    asset it does not otherwise depend on."""
-    names = set(EXTRA_PROPER_NOUNS)
+    unioned with EXTRA_PROPER_NOUNS (R3 item 5) and PROPER_NOUN_EXCLUSIONS
+    (T2.4a item B6 -- brand/product names). Falls back to just those two
+    fixed sets if the profiles file is missing or malformed -- proper-noun
+    exclusion degrading gracefully is preferable to CefrLexicon.load()
+    failing outright over an unrelated content-factory asset it does not
+    otherwise depend on."""
+    names = set(EXTRA_PROPER_NOUNS) | set(PROPER_NOUN_EXCLUSIONS)
     path = root / "tools" / "content_factory" / "canonical_scenarios" / "character_profiles.json"
     try:
         with path.open(encoding="utf-8") as fh:
@@ -1182,6 +1459,29 @@ NATIVE_NUMERAL_WORDS: FrozenSet[str] = frozenset({
 })
 
 _ASCII_DIGITS_RE = re.compile(r"^[0-9]+$")
+
+# T2.4a (B6): a token containing any Latin letter or ASCII digit (QR, 5G,
+# a stray "3층" mixed with a Korean counter, ...) is excluded from grading
+# the same way a proper noun or a bare-digit-string numeral is --
+# `grade=None`, never reported in `SentenceProfile.unknown`. This file's
+# grade lists are Korean-headword-only, so such a token was never going
+# to resolve either way; the point is keeping it out of `unknown`, not
+# finding it a grade. Broader than `_ASCII_DIGITS_RE` (which only matches
+# a token that is ENTIRELY digits) -- checked for containment, not a full
+# match, since "QR" itself has no digits at all.
+_LATIN_OR_DIGIT_RE = re.compile(r"[A-Za-z0-9]")
+
+
+def _is_latin_or_digit_token(token: str) -> bool:
+    # A token that is PURELY ASCII digits ("3", "10") is excluded via the
+    # pre-existing `_numeral_grade`/source='number' tier instead (checked
+    # later, after kiiq/alias) -- that distinction is load-bearing for
+    # `sentence_profile`'s "known-but-deliberately-ungraded" bookkeeping
+    # even though the OUTCOME (excluded, never `unknown`) is identical
+    # either way, so a pure-digit string must not be intercepted here.
+    if _ASCII_DIGITS_RE.match(token):
+        return False
+    return bool(_LATIN_OR_DIGIT_RE.search(token))
 
 
 def _numeral_grade(token: str) -> Optional["WordGrade"]:
@@ -1330,6 +1630,14 @@ class SentenceProfile:
     low_confidence: Tuple[str, ...]
     proper_nouns: Tuple[str, ...]
     level_estimate: Optional[str]
+    # Bible §B "1급 밖 단어는 문화어·고유명사 하나까지만 허용" / §D "문화어 1개
+    # 예외" (docs/CONTENT_LEVEL_BIBLE.md): the single highest-grade token,
+    # excluded from `lexical_p90` below when the sentence has >=3 graded
+    # content tokens -- (matched headword, its own grade), or None when the
+    # sentence is too short for the allowance to apply. Never touches
+    # grammar_max or any individual WordGrade/PhraseGrade -- see
+    # sentence_profile()'s docstring.
+    allowance: Optional[Tuple[str, int]] = None
 
 
 @dataclass(frozen=True)
@@ -1388,6 +1696,15 @@ def load_nikl_grammar_rows(root: Path = REPO) -> List[dict]:
     )
 
 
+def load_level_exceptions(root: Path = REPO) -> List[dict]:
+    """T2.5: read tools/content_factory/lexicon/level_exceptions.csv
+    (header ``category,headword,allowed_level,note``). Used both by
+    :meth:`CefrLexicon.load` and by ``tool/build_level_bible_tables.py``'s
+    F9 "레벨 예외표(등급 상한)" section, so both consumers stay in sync off
+    the one CSV."""
+    return _read_csv(root / "tools" / "content_factory" / "lexicon" / "level_exceptions.csv")
+
+
 # ---------------------------------------------------------------------------
 # CefrLexicon
 # ---------------------------------------------------------------------------
@@ -1403,11 +1720,15 @@ class CefrLexicon:
         basic_any: Mapping[str, Tuple[int, ...]],
         aliases: Mapping[str, Tuple[Optional[str], str]],
         proper_nouns: FrozenSet[str] = frozenset(),
+        exceptions: Mapping[str, Tuple[int, str, str]] = None,
     ) -> None:
         self._kiiq_any = kiiq_any
         self._basic_any = basic_any
         self._aliases = aliases
         self._proper_nouns = proper_nouns
+        # T2.5: headword (single- or multi-word, exactly as spelled in
+        # level_exceptions.csv) -> (allowed_grade, category, note).
+        self._exceptions: Mapping[str, Tuple[int, str, str]] = exceptions or {}
 
     # -- loading ------------------------------------------------------
 
@@ -1418,7 +1739,8 @@ class CefrLexicon:
         basic_rows = _read_csv(lex_dir / "nikl_basic_2023_vocab.csv")
         alias_rows = _read_csv(lex_dir / "aliases.csv")
         proper_nouns = load_character_names(root)
-        return cls.from_rows(kiiq_rows, basic_rows, alias_rows, proper_nouns)
+        exception_rows = load_level_exceptions(root)
+        return cls.from_rows(kiiq_rows, basic_rows, alias_rows, proper_nouns, exception_rows)
 
     @classmethod
     def from_rows(
@@ -1427,6 +1749,7 @@ class CefrLexicon:
         basic_rows: Iterable[Mapping[str, str]],
         alias_rows: Iterable[Mapping[str, str]],
         proper_nouns: Iterable[str] = (),
+        exception_rows: Iterable[Mapping[str, str]] = (),
     ) -> "CefrLexicon":
         # R3 item 1: a single map covering EVERY homograph row (including
         # homograph 0) for a headword, sorted ascending by grade so index 0
@@ -1457,7 +1780,20 @@ class CefrLexicon:
             note = (row.get("note") or "").strip()
             aliases[app_form] = (lexicon_form or None, note)
 
-        return cls(kiiq_any, basic_any, aliases, frozenset(proper_nouns))
+        # T2.5: headword -> (allowed_grade, category, note). `headword` is
+        # used verbatim as spelled in the CSV (single word or, for
+        # fixed_expression rows like "새해 복 많이 받으세요", a full
+        # space-joined phrase) -- see `_exception_lookup`/`phrase_grade`
+        # for where each shape is matched.
+        exceptions: dict = {}
+        for row in exception_rows:
+            headword = row["headword"].strip()
+            allowed_grade = CEFR_TO_GRADE[row["allowed_level"].strip()]
+            category = (row.get("category") or "").strip()
+            note = (row.get("note") or "").strip()
+            exceptions[headword] = (allowed_grade, category, note)
+
+        return cls(kiiq_any, basic_any, aliases, frozenset(proper_nouns), exceptions)
 
     # -- internal lookup tiers -----------------------------------------
 
@@ -1479,6 +1815,52 @@ class CefrLexicon:
             return None
         return BASIC2023_TO_GRADE[min(grades)]
 
+    def _exception_lookup(self, word: str) -> Optional[WordGrade]:
+        """T2.5: exact-string match against ``level_exceptions.csv``
+        (headword exactly as spelled there -- a single word already in its
+        dictionary/citation form, e.g. 환승, 결제하다, or a full
+        space-joined fixed expression, e.g. "새해 복 많이 받으세요"). This
+        is a Fable RULING, not merely a fallback signal -- it wins
+        unconditionally over kiiq/basic2023/derived for this exact
+        headword (same precedent as aliases.csv's empty-lexicon_form A1
+        exception, R7 item 10: "override whatever the grade lists say for
+        this EXACT surface form"), which is why it is checked FIRST in
+        `_kiiq_derived_chain` rather than computed as a min/ceiling against
+        whatever kiiq/basic2023 would otherwise have said. Returns None
+        (not a WordGrade) when `word` is not a listed headword, so callers
+        can tell "no ruling applies" apart from "ruling gives grade=None"
+        (the latter never actually occurs -- every CSV row has a real
+        allowed_level -- but the Optional keeps the contract honest)."""
+        entry = self._exceptions.get(word)
+        if entry is None:
+            return None
+        allowed_grade, _category, _note = entry
+        return WordGrade(allowed_grade, GRADE_TO_CEFR[allowed_grade], "exception", word)
+
+    def _negation_compound_lookup(self, word: str) -> WordGrade:
+        """T2.5 lexicon rule: `X없어요`/`X없다`/`X없는` -> X's own grade,
+        when X (the noun with the suffix stripped) independently resolves
+        via `_base_chain` (kiiq/derived, then basic2023 -- "graded noun"
+        means either source, not kiiq-only). Mirrors `_derived_lookup`'s
+        shape (strip a closed suffix, look up the root) but reuses
+        `_base_chain` rather than a bare kiiq dict hit, since X is
+        typically an ordinary noun that may only be basic2023-listed (see
+        NEGATION_COMPOUND_SUFFIXES' own comment for why 없다's OWN grade,
+        already the floor of the scale, never needs to be separately
+        consulted here). source='derived' -- the same tag `_derived_lookup`
+        uses for an identical "strip a productive suffix, grade the root"
+        shape, so it gets the same 'high'-confidence treatment. Returns a
+        grade=None WordGrade (never None itself) when no suffix matches or
+        the stripped root doesn't resolve, so callers can chain it the same
+        way as `_derived_lookup`'s sibling checks."""
+        for suf in NEGATION_COMPOUND_SUFFIXES:
+            if word.endswith(suf) and len(word) > len(suf):
+                root = word[: -len(suf)]
+                wg = self._base_chain(root)
+                if wg.grade is not None:
+                    return WordGrade(wg.grade, wg.cefr, "derived", root, wg.confidence_override)
+        return WordGrade(None, None, None, word)
+
     def _kiiq_derived_chain(self, word: str) -> WordGrade:
         """Steps 1-2 (plan §3.C.1, R3-revised): kiiq (homograph-insensitive,
         minimum grade across every row sharing the headword — R3 item 1),
@@ -1496,7 +1878,22 @@ class CefrLexicon:
         or the root itself is ambiguous (more than one kiiq row) -- either
         signal means the derived sense is not confidently the one meant.
         Scoped to 하다/되다 only (the brief's own scope; 스럽다/적/히 roots
-        are not cross-checked)."""
+        are not cross-checked).
+
+        T2.5: an exact `level_exceptions.csv` hit is checked FIRST (highest
+        priority -- see `_exception_lookup`), and the X없다 negation-
+        compound rule is tried LAST (after plain kiiq and DERIVED_SUFFIXES
+        derivation have both failed -- see `_negation_compound_lookup`).
+        This single method is called from `word_grade`, from
+        `_exact_headword_lookup` (the narrow chain `_resolve_eojeol` uses
+        first, i.e. what `phrase_grade`/`sentence_profile` actually reach
+        per eojeol), and from `_base_chain` (hence every alias/multiword/
+        prefix/compound-split consumer too) -- so hooking both new tiers
+        in here, rather than separately in each caller, gives every
+        consumer T2.5 coverage in one place."""
+        exception = self._exception_lookup(word)
+        if exception is not None:
+            return exception
         rows = self._kiiq_any.get(word)
         if rows:
             best = rows[0]  # sorted ascending by grade -> minimum/easiest
@@ -1522,6 +1919,9 @@ class CefrLexicon:
             return WordGrade(
                 grade, GRADE_TO_CEFR[grade], "derived", root, confidence_override
             )
+        negation = self._negation_compound_lookup(word)
+        if negation.grade is not None:
+            return negation
         return WordGrade(None, None, None, word)
 
     def _fallback_chain(self, word: str) -> WordGrade:
@@ -1603,6 +2003,21 @@ class CefrLexicon:
             wg = self._base_chain(candidate)
             if wg.grade is not None:
                 return wg
+            # T2.4a (B4, "드시라고요" -> 드시다): a lemma candidate can
+            # ITSELF only be resolvable via aliases.csv (e.g. "드시다",
+            # which is neither a kiiq nor a basic2023 headword -- see
+            # that alias row's own note) -- `_base_chain` alone never
+            # checks aliases (by design, to stay non-recursive; see this
+            # method's own docstring above), so check the alias table
+            # directly here too. Still non-recursive: this is the exact
+            # same lookup `_exact_headword_lookup`/`word_grade` already
+            # do for a bare alias hit, not a call back into the full
+            # `word_grade` chain -- `_alias_lookup` itself only ever
+            # recurses through the already-safe `_base_chain`.
+            if candidate in self._aliases:
+                alias_wg = self._alias_lookup(candidate)
+                if alias_wg.grade is not None:
+                    return alias_wg
         return WordGrade(None, None, None, word)
 
     def _prefix_lookup(self, word: str) -> WordGrade:
@@ -1817,6 +2232,26 @@ class CefrLexicon:
         proper = self._match_proper_noun(normalized)
         if proper is not None:
             return WordGrade(None, None, "proper_noun", proper)
+        # T2.4a (B6): checked at the same early, unconditional priority as
+        # the proper-noun check just above -- see `_is_latin_or_digit_token`.
+        if _is_latin_or_digit_token(normalized):
+            return WordGrade(None, None, "latin", normalized)
+        # T2.4a (B4): a bare sentence-final banmal imperative (가/와/서/
+        # 봐/해/자/줘) -- checked here too (not just in `_resolve_eojeol`)
+        # because this method is what the candidate-resolution loop in
+        # BOTH `_resolve_eojeol` and `_multiword_lookup`/`_lemma_fallback_
+        # chain actually calls for each reduced candidate (e.g. "서" once
+        # "서도" has had its "도" particle stripped) -- see
+        # `BANMAL_IMPERATIVE_MAP`'s own docstring for why this must win
+        # over several of these syllables' real, unrelated kiiq senses.
+        banmal = BANMAL_IMPERATIVE_MAP.get(normalized)
+        if banmal is not None:
+            return self.word_grade(banmal)
+        # Bible §B/§D contraction allowance -- see PRONOUN_CONTRACTION_MAP's
+        # own docstring for why this cannot be a plain aliases.csv redirect.
+        pronoun_contraction = PRONOUN_CONTRACTION_MAP.get(normalized)
+        if pronoun_contraction is not None:
+            return self.word_grade(pronoun_contraction)
         alias_entry = self._aliases.get(normalized)
         if alias_entry is not None and alias_entry[0] is None:
             # R7 item 10: an empty-lexicon_form alias ("A1 exception",
@@ -1878,7 +2313,32 @@ class CefrLexicon:
         """Grade every eojeol of `phrase` via the full lemmatizer + full
         word_grade chain (including aliases), returning max over content
         words (plan §4.1: '내용어별 WordGrade + max'). Proper-noun tokens
-        (R3 item 5) are excluded from `unknown`."""
+        (R3 item 5) are excluded from `unknown`.
+
+        T2.5: a MULTI-WORD level_exceptions.csv headword (fixed_expression
+        rows like "새해 복 많이 받으세요") can never be matched by the
+        per-eojeol loop below -- each eojeol is resolved independently
+        (Korean eojeol == space-separated unit already), so the loop never
+        re-joins them into the original phrase to check against a
+        multi-word CSV key. Whole-phrase-vs-exception-table is therefore
+        checked FIRST, short-circuiting the per-eojeol loop entirely when
+        `phrase` (eojeol-normalized and rejoined with single spaces, so
+        trailing punctuation/extra whitespace don't defeat the match) is
+        itself exactly one of those headwords. A single-word exception
+        headword passed as `phrase` also matches here (harmless -- the
+        per-eojeol loop below would reach the identical grade/source via
+        `_resolve_eojeol` -> `_kiiq_derived_chain` -> `_exception_lookup`
+        anyway), just without generating a `words` tuple with one entry
+        per eojeol -- see the synthetic single-WordGrade return below."""
+        eojeols = [t for t in (_normalize_token(r) for r in tokenize_eojeols(phrase)) if t]
+        whole_phrase_exception = self._exception_lookup(" ".join(eojeols))
+        if whole_phrase_exception is not None:
+            return PhraseGrade(
+                whole_phrase_exception.grade,
+                whole_phrase_exception.cefr,
+                (whole_phrase_exception,),
+                (),
+            )
         words: List[WordGrade] = []
         unknown: List[str] = []
         for raw in tokenize_eojeols(phrase):
@@ -1929,6 +2389,24 @@ class CefrLexicon:
         proper = self._match_proper_noun(token)
         if proper is not None:
             return WordGrade(None, None, "proper_noun", proper)
+        # T2.4a (B6): see `_is_latin_or_digit_token`'s docstring.
+        if _is_latin_or_digit_token(token):
+            return WordGrade(None, None, "latin", token)
+        # T2.4a (B4): checked here too, BEFORE `_exact_headword_lookup` --
+        # that method has its OWN narrow kiiq/derived/alias chain (it does
+        # not call `word_grade`), so a bare "서" would otherwise resolve
+        # to its real, unrelated, grade-3 kiiq sense right here, before
+        # ever reaching the `word_grade`-level check above. See
+        # `BANMAL_IMPERATIVE_MAP`'s docstring.
+        banmal = BANMAL_IMPERATIVE_MAP.get(token)
+        if banmal is not None:
+            wg = self.word_grade(banmal)
+            return WordGrade(wg.grade, wg.cefr, wg.source, token, wg.confidence_override)
+        # See PRONOUN_CONTRACTION_MAP's own docstring.
+        pronoun_contraction = PRONOUN_CONTRACTION_MAP.get(token)
+        if pronoun_contraction is not None:
+            wg = self.word_grade(pronoun_contraction)
+            return WordGrade(wg.grade, wg.cefr, wg.source, token, wg.confidence_override)
         exact = self._exact_headword_lookup(token)
         if exact.grade is not None:
             return WordGrade(exact.grade, exact.cefr, exact.source, token, exact.confidence_override)
@@ -1972,6 +2450,11 @@ class CefrLexicon:
                 # an unresolved vocabulary gap -- excluded from `unknown`
                 # the same way a proper noun is (grade=None by design).
                 pass
+            elif resolved.source == "latin":
+                # T2.4a (B6): a token containing a Latin letter/digit --
+                # same "known-but-deliberately-ungraded" treatment as a
+                # proper noun or a bare-digit numeral above.
+                pass
             elif resolved.grade is None:
                 unknown.append(raw)
             elif resolved.confidence == "low":
@@ -1988,13 +2471,37 @@ class CefrLexicon:
         # form) are capped at grade 4, one tier looser than 'low''s cap at
         # 3 -- they are less suspect than a basic2023-only guess (a real
         # kiiq root sense DID match), just not fully trusted.
-        capped_grades = [
-            min(t.grade, 3) if t.confidence == "low"
-            else min(t.grade, 4) if t.confidence == "medium"
-            else t.grade
+        capped_pairs = [
+            (
+                t,
+                min(t.grade, 3) if t.confidence == "low"
+                else min(t.grade, 4) if t.confidence == "medium"
+                else t.grade,
+            )
             for t in known_tokens
         ]
-        lexical_p90 = _percentile(capped_grades, 90)
+
+        # Bible §B/§D allowance: a sentence long enough to carry >=3 graded
+        # content tokens gets to excuse exactly one -- its single
+        # highest-(capped-)grade token -- from the percentile, mirroring
+        # "1급 밖 단어 하나까지만 허용" at every level (not just A1's literal
+        # wording). Ties break on first occurrence (stable `max`) -- a
+        # deterministic, always-applied exclusion, not a "only if it would
+        # otherwise fail" rescue: the Bible grants the allowance
+        # unconditionally, so this does too. Only `lexical_p90`'s *inputs*
+        # change here -- grammar_max/grammar_hits and every WordGrade in
+        # `tokens` (so word/phrase grading elsewhere) are untouched.
+        allowance: Optional[Tuple[str, int]] = None
+        percentile_pairs = capped_pairs
+        if len(capped_pairs) >= 3:
+            excused_token, excused_capped = max(capped_pairs, key=lambda pair: pair[1])
+            allowance = (excused_token.matched, excused_token.grade)
+            excused_index = next(
+                i for i, (t, _) in enumerate(capped_pairs) if t is excused_token
+            )
+            percentile_pairs = capped_pairs[:excused_index] + capped_pairs[excused_index + 1:]
+
+        lexical_p90 = _percentile([grade for _, grade in percentile_pairs], 90)
 
         grammar_hits = grammar_index.detect(expand_contractions(text))
         grammar_max = max((h.grade for h in grammar_hits), default=None)
@@ -2020,6 +2527,7 @@ class CefrLexicon:
             low_confidence=tuple(low_confidence),
             proper_nouns=tuple(proper_nouns),
             level_estimate=level_estimate,
+            allowance=allowance,
         )
 
 

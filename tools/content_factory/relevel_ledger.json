@@ -11,6 +11,2310 @@
       "reason": "legacy exception migrated from LEGACY_CLOZE_LEVEL_EXCEPTIONS (#268)"
     },
     {
+      "id": "cloze_a1_0112",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0113",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0114",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0115",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0116",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0117",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0118",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0119",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0120",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0121",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0122",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0123",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0124",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0125",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0126",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0127",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0128",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0129",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0130",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0131",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0132",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0133",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0134",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0135",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0160",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "cloze_a1_0161",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "cloze_a1_0162",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "cloze_a1_0163",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "cloze_a1_0164",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "cloze_a1_0165",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "cloze_a1_0166",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "cloze_a1_0167",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "cloze_a1_0168",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "cloze_a1_0169",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "cloze_a1_0170",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 6, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "cloze_a1_0171",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "cloze_a1_0172",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "cloze_a1_0173",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "cloze_a1_0174",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "cloze_a1_0175",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "cloze_a1_0176",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "cloze_a1_0177",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "cloze_a1_0178",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "cloze_a1_0179",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "cloze_a1_0180",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "cloze_a1_0181",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "cloze_a1_0182",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "cloze_a1_0183",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "cloze_a1_0184",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "cloze_a1_0185",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "cloze_a1_0186",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "cloze_a1_0187",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "cloze_a1_0188",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "cloze_a1_0189",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "cloze_a1_0190",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "cloze_a1_0191",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "cloze_a1_0192",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "cloze_a1_0193",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "cloze_a1_0194",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "cloze_a1_0195",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "cloze_a1_0208",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0209",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0210",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0211",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0212",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0213",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "cloze_a1_0214",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0215",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0216",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0217",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0218",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0219",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0220",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 3, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "cloze_a1_0232",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0233",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0234",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0235",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0236",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0237",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0238",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0239",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0240",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0241",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0242",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0243",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "cloze_a1_0244",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0245",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0246",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0247",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0248",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0249",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0250",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0251",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0252",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0253",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0254",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0255",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "cloze_a1_0256",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0257",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0258",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0259",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0260",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0261",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0262",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0263",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0264",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0265",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0266",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0267",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0268",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0269",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0270",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0271",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0272",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0273",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0274",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0275",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0276",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0277",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0278",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0279",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "cloze_a1_0304",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "cloze_a1_0349",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 2, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "cloze_a1_0350",
+      "kind": "cloze",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 2, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "cloze_a2_0082",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "cloze_a2_0087",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "cloze_a2_0090",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 6, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "cloze_a2_0091",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "cloze_a2_0112",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0113",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0114",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0115",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0116",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0117",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0118",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0119",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0120",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0121",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0122",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0123",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0136",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0137",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0138",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0139",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0140",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0141",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0142",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0143",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0144",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0145",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0146",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0147",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0151",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "cloze_a2_0160",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0161",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0162",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0163",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0164",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0165",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0166",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0167",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0168",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0169",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0170",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0171",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0172",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0173",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0174",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0175",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0176",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0177",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0178",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0179",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0180",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0181",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0182",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0183",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0184",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0185",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0186",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0187",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0188",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0189",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0190",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0191",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0192",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0193",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0194",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0195",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0220",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0221",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0222",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0223",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0224",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0225",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0226",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0227",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0228",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0229",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0230",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0231",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0232",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0233",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0234",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0235",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0236",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0237",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0238",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0239",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0240",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0241",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0242",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0243",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0244",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0245",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0246",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0247",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0248",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0249",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0250",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0251",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0252",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0253",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0254",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0255",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0256",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0257",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0258",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0259",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0260",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0261",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0262",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0263",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0264",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0265",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0266",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0267",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "cloze_a2_0278",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0279",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0280",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0281",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0282",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_a2_0283",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "cloze_b1_0216",
+      "kind": "cloze",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "cloze_b1_0217",
+      "kind": "cloze",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "cloze_b1_0218",
+      "kind": "cloze",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "cloze_b1_0219",
+      "kind": "cloze",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "cloze_b1_0220",
+      "kind": "cloze",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "cloze_b1_0221",
+      "kind": "cloze",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "cloze_b1_0222",
+      "kind": "cloze",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "cloze_b1_0223",
+      "kind": "cloze",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "cloze_b1_0224",
+      "kind": "cloze",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "cloze_b1_0225",
+      "kind": "cloze",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "cloze_b1_0226",
+      "kind": "cloze",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "cloze_b1_0227",
+      "kind": "cloze",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "satz_a1_0063",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 3, Fable 룰링 2026-09-07"
+    },
+    {
       "id": "satz_a1_0068",
       "kind": "satz",
       "from": "a1",
@@ -20,6 +2324,2355 @@
       "reason": "legacy exception migrated from LEGACY_SATZ_LEVEL_EXCEPTIONS (#268)"
     },
     {
+      "id": "satz_a1_0076",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0077",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0078",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0079",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0080",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0081",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0082",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0083",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0084",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0085",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0086",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0087",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0088",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0089",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0090",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0091",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0092",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0093",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0094",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0095",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0096",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0097",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0098",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0099",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0124",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "satz_a1_0125",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "satz_a1_0126",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "satz_a1_0127",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "satz_a1_0128",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "satz_a1_0129",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "satz_a1_0130",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "satz_a1_0131",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "satz_a1_0132",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "satz_a1_0133",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "satz_a1_0134",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 6, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a1_0135",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "satz_a1_0136",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "satz_a1_0137",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "satz_a1_0138",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "satz_a1_0139",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "satz_a1_0140",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "satz_a1_0141",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "satz_a1_0142",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "satz_a1_0143",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "satz_a1_0144",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "satz_a1_0145",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "satz_a1_0146",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "satz_a1_0147",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "satz_a1_0148",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "satz_a1_0149",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "satz_a1_0150",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "satz_a1_0151",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "satz_a1_0152",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "satz_a1_0153",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "satz_a1_0154",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "satz_a1_0155",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "satz_a1_0156",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "satz_a1_0157",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "satz_a1_0158",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "satz_a1_0159",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "satz_a1_0172",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0173",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0174",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0175",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0176",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0177",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a1_0178",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0179",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0180",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0181",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0182",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0183",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0184",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 3, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a1_0196",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0197",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0198",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0199",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0200",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0201",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0202",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0203",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0204",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0205",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0206",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0207",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "satz_a1_0208",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0209",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0210",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0211",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0212",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0213",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0214",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0215",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0216",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0217",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0218",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0219",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "satz_a1_0220",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0221",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0222",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0223",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0224",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0225",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0226",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0227",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0228",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0229",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0230",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0231",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0232",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0233",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0234",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0235",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0236",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0237",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0238",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0239",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0240",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0241",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0242",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0243",
+      "kind": "satz",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "satz_a1_0307",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a1_0311",
+      "kind": "satz",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a2_0016",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a2_0045",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a2_0050",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a2_0053",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 6, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a2_0054",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a2_0075",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0076",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0077",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0078",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0079",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0080",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0081",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0082",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0083",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0084",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0085",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0086",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0099",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0100",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0101",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0102",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0103",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0104",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0105",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0106",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0107",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0108",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0109",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0110",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0114",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a2_0123",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0124",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0125",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0126",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0127",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0128",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0129",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0130",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0131",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0132",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0133",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0134",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0135",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0136",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0137",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0138",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0139",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0140",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0141",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0142",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0143",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0144",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0145",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0146",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0147",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0148",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0149",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0150",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0151",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0152",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0153",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0154",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0155",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0156",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0157",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0158",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0183",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0184",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0185",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0186",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0187",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0188",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0189",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0190",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0191",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0192",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0193",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0194",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0195",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0196",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0197",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0198",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0199",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0200",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0201",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0202",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0203",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0204",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0205",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0206",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0207",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0208",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0209",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0210",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0211",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0212",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0213",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0214",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0215",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0216",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0217",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0218",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0219",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0220",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0221",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0222",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0223",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0224",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0225",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0226",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0227",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0228",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0229",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0230",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "satz_a2_0328",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a2_0339",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a2_0412",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a2_0425",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "satz_a2_0463",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0464",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0465",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0466",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0467",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_a2_0468",
+      "kind": "satz",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "satz_b1_0212",
+      "kind": "satz",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "satz_b1_0213",
+      "kind": "satz",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "satz_b1_0214",
+      "kind": "satz",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "satz_b1_0215",
+      "kind": "satz",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "satz_b1_0216",
+      "kind": "satz",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "satz_b1_0217",
+      "kind": "satz",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "satz_b1_0218",
+      "kind": "satz",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "satz_b1_0219",
+      "kind": "satz",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "satz_b1_0220",
+      "kind": "satz",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "satz_b1_0221",
+      "kind": "satz",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "satz_b1_0222",
+      "kind": "satz",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "satz_b1_0223",
+      "kind": "satz",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "shared_document_old_version",
+      "kind": "scenario",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a2",
+      "reason": "Fable 직독 2026-09-07: 공유 문서·수정·복사 등 업무 어휘(3~5급)가 전 대사에 걸쳐 있어 A2 재집필 불가 — B1 업무 실수 수습 유닛으로 이동"
+    },
+    {
+      "id": "vocab_a1_0211",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 3, Fable 룰링 2026-09-07"
+    },
+    {
       "id": "vocab_a1_0216",
       "kind": "vocab",
       "from": "a1",
@@ -27,6 +4680,2301 @@
       "movedAt": "2026-09-05",
       "batch": "relevel_002",
       "reason": "legacy exception migrated from LEGACY_VOCAB_LEVEL_EXCEPTIONS (#268): 시아버지 A1→B1"
+    },
+    {
+      "id": "vocab_a1_0224",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0225",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0226",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0227",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0228",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0229",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0230",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0231",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0232",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0233",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0234",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0235",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=60%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0236",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0237",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0238",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0239",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0240",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0241",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0242",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0243",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0244",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0245",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0246",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0247",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0272",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "vocab_a1_0273",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "vocab_a1_0274",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "vocab_a1_0275",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "vocab_a1_0276",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "vocab_a1_0277",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "vocab_a1_0278",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "vocab_a1_0279",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "vocab_a1_0280",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "vocab_a1_0281",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "vocab_a1_0282",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 6, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a1_0283",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=43%, n_hm=7"
+    },
+    {
+      "id": "vocab_a1_0284",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "vocab_a1_0285",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "vocab_a1_0286",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "vocab_a1_0287",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "vocab_a1_0288",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "vocab_a1_0289",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "vocab_a1_0290",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "vocab_a1_0291",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "vocab_a1_0292",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "vocab_a1_0293",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "vocab_a1_0294",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "vocab_a1_0295",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=71%, n_hm=7"
+    },
+    {
+      "id": "vocab_a1_0296",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "vocab_a1_0297",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "vocab_a1_0298",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "vocab_a1_0299",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "vocab_a1_0300",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "vocab_a1_0301",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "vocab_a1_0302",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "vocab_a1_0303",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "vocab_a1_0304",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "vocab_a1_0305",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "vocab_a1_0306",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "vocab_a1_0307",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1.5, share=50%, n_hm=8"
+    },
+    {
+      "id": "vocab_a1_0320",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0321",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0322",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0323",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0324",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0325",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a1_0326",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0327",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0328",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0329",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0330",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0331",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0332",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 3, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a1_0344",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0345",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0346",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0347",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0348",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0349",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0350",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0351",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0352",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0353",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0354",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0355",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=80%, n_hm=10"
+    },
+    {
+      "id": "vocab_a1_0356",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0357",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0358",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0359",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0360",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0361",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0362",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0363",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0364",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0365",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0366",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0367",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=1, share=44%, n_hm=9"
+    },
+    {
+      "id": "vocab_a1_0368",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0369",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0370",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0371",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0372",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0373",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0374",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0375",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0376",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0377",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0378",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0379",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0380",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0381",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0382",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0383",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0384",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0385",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0386",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0387",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0388",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0389",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0390",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0391",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)"
+    },
+    {
+      "id": "vocab_a1_0405",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a1_0420",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 2, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a1_0421",
+      "kind": "vocab",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 2, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a2_0109",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a2_0123",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a2_0149",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a2_0221",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a2_0222",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a2_0237",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a2_0275",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a2_0280",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a2_0283",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 6, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a2_0284",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 5, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a2_0305",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0306",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0307",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0308",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0309",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0310",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0311",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0312",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0313",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0314",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0315",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0316",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0329",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0330",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0331",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0332",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0333",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0334",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0335",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0336",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0337",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0338",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0339",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0340",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0344",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "relevel_batch_003",
+      "reason": "kiiq 4, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a2_0353",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0354",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0355",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0356",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0357",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0358",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0359",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0360",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0361",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0362",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0363",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0364",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0365",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0366",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0367",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0368",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0369",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0370",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0371",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0372",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0373",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0374",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0375",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0376",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0377",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0378",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0379",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0380",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0381",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0382",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0383",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0384",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0385",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0386",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0387",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0388",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0413",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0414",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0415",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0416",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0417",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0418",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0419",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0420",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0421",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0422",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0423",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0424",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0425",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0426",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0427",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0428",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0429",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0430",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0431",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0432",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0433",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0434",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0435",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0436",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0437",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0438",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0439",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0440",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0441",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0442",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0443",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0444",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0445",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0446",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0447",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0448",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0449",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0450",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0451",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0452",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0453",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0454",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0455",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0456",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0457",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0458",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0459",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0460",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a3",
+      "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
+    },
+    {
+      "id": "vocab_a2_0465",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0466",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0467",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0468",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0469",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0470",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0471",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0472",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0473",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0474",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0475",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
+    },
+    {
+      "id": "vocab_a2_0476",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)"
     },
     {
       "id": "vocab_b1_0013",
@@ -54,6 +7002,114 @@
       "movedAt": "2026-09-05",
       "batch": "relevel_002",
       "reason": "legacy exception migrated from LEGACY_VOCAB_LEVEL_EXCEPTIONS (#268)"
+    },
+    {
+      "id": "vocab_b1_0404",
+      "kind": "vocab",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "vocab_b1_0405",
+      "kind": "vocab",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "vocab_b1_0406",
+      "kind": "vocab",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "vocab_b1_0407",
+      "kind": "vocab",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "vocab_b1_0408",
+      "kind": "vocab",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "vocab_b1_0409",
+      "kind": "vocab",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "vocab_b1_0410",
+      "kind": "vocab",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "vocab_b1_0411",
+      "kind": "vocab",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "vocab_b1_0412",
+      "kind": "vocab",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "vocab_b1_0413",
+      "kind": "vocab",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "vocab_b1_0414",
+      "kind": "vocab",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
+    },
+    {
+      "id": "vocab_b1_0415",
+      "kind": "vocab",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-07",
+      "batch": "L2a",
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
     },
     {
       "id": "vocab_b2_0089",

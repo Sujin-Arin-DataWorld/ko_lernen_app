@@ -44,10 +44,19 @@ DEFAULT_LEDGER_PATH = SCRIPT_DIR / "relevel_ledger.json"
 
 LEVELS: frozenset[str] = frozenset(("a1", "a2", "b1", "b2", "c1", "c2"))
 KINDS: frozenset[str] = frozenset(
-    ("vocab", "cloze", "satz", "smalltalk", "pronunciation", "grammar")
+    ("vocab", "cloze", "satz", "smalltalk", "pronunciation", "grammar", "scenario")
 )
 
-_ID_PREFIX_BY_KIND = {kind: f"{kind}_" for kind in KINDS}
+# Every other kind's id embeds its own kind as a literal prefix
+# (``vocab_a1_0216``, ``grammar_a1_topic_particle``...), so the id/kind
+# agreement is checked by string prefix below. Scenario ids never did --
+# they are bare slugs (``bunshik_tteokbokki``, ``shared_document_old_
+# version``) with no kind or level segment at all (LCP PR-L2a2, T2.4b-1
+# plan step 6: "scenario ids do not embed a level so no ID/level exception
+# is needed") -- so "scenario" is deliberately absent from this map, and
+# both the prefix check below and validate_ledger()'s id-segment check
+# skip it explicitly rather than mis-deriving a fake prefix/segment.
+_ID_PREFIX_BY_KIND = {kind: f"{kind}_" for kind in KINDS if kind != "scenario"}
 
 
 class LedgerError(ValueError):
@@ -91,8 +100,8 @@ class LedgerEntry:
             raise LedgerError(
                 f"{self.id}: to level {self.to_level!r} is not one of {sorted(LEVELS)}"
             )
-        prefix = _ID_PREFIX_BY_KIND[self.kind]
-        if not self.id.startswith(prefix):
+        prefix = _ID_PREFIX_BY_KIND.get(self.kind)
+        if prefix is not None and not self.id.startswith(prefix):
             raise LedgerError(
                 f"{self.id}: id does not start with {prefix!r} for kind {self.kind!r}"
             )
@@ -201,10 +210,12 @@ class Ledger:
         target = path or self.path
         if target is None:
             raise LedgerError("Ledger.save() needs a path (none given, none stored on load)")
-        target.write_text(
-            json.dumps(self.to_dict(), ensure_ascii=False, indent=2) + "\n",
-            encoding="utf-8",
-        )
+        # write_bytes, not write_text: relevel_ledger.json is `eol=lf` in
+        # .gitattributes, but text-mode write_text() on Windows retranslates
+        # every "\n" in the payload back into "\r\n" regardless (T2.3-R2 --
+        # same class of bug as relevel_bundle.py's append_report_section).
+        content = json.dumps(self.to_dict(), ensure_ascii=False, indent=2) + "\n"
+        target.write_bytes(content.encode("utf-8"))
 
 
 def load_ledger(path: Path = DEFAULT_LEDGER_PATH) -> Ledger:
@@ -252,12 +263,15 @@ def validate_ledger(ledger: Ledger, live_levels: Mapping[str, Mapping[str, str]]
 
     issues: list[str] = []
     for entry in ledger.entries:
-        segment = entry.id.split("_")[1] if entry.id.count("_") >= 2 else None
-        if segment != entry.from_level:
-            issues.append(
-                f"{entry.id}: ledger from={entry.from_level!r} does not match "
-                f"id segment {segment!r}"
-            )
+        # Scenario ids carry no level segment at all (see the KINDS
+        # comment above) -- there is nothing to cross-check here for them.
+        if entry.kind != "scenario":
+            segment = entry.id.split("_")[1] if entry.id.count("_") >= 2 else None
+            if segment != entry.from_level:
+                issues.append(
+                    f"{entry.id}: ledger from={entry.from_level!r} does not match "
+                    f"id segment {segment!r}"
+                )
         kind_levels = live_levels.get(entry.kind, {})
         if entry.id not in kind_levels:
             issues.append(f"{entry.id}: not found in live {entry.kind} data")

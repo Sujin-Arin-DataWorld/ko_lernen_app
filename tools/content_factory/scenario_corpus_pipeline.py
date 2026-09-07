@@ -434,18 +434,30 @@ def validate_portfolio(root: Path = ROOT) -> ValidationReport:
     checkpoints_by_unit = Counter()
     for level in LEVELS:
         level_briefs = [brief for brief in sources.briefs if brief.level == level]
-        if len(level_briefs) != 20:
-            report.errors.append(f"{level.upper()} must contain exactly 20 briefs")
         profile = sources.level_profiles.get(level)
         if profile is None:
+            if len(level_briefs) != 20:
+                report.errors.append(f"{level.upper()} must contain exactly 20 briefs")
             continue
+        # A relevel_bundle.py scenario move can shift a brief to a
+        # different level after the corpus's original 20-per-level launch
+        # (task T2.9a report) -- the corpus's fixed *aggregate* size (120,
+        # checked once above) is what must never drift; a single level's
+        # own count is no longer a duplicated "always 20" literal here, so
+        # it cannot silently disagree with level_profiles.json (which a
+        # scenario move's canonical-source sync keeps current) the way two
+        # independently hard-coded "20"s could.
+        expected_total = sum(profile.portfolio.values())
+        if len(level_briefs) != expected_total:
+            report.errors.append(
+                f"{level.upper()} must contain exactly {expected_total} briefs "
+                f"(per level_profiles.json), found {len(level_briefs)}"
+            )
         actual_distribution = Counter(brief.portfolio_bucket for brief in level_briefs)
         if dict(actual_distribution) != dict(profile.portfolio):
             report.errors.append(
                 f"{level.upper()} portfolio distribution differs: {dict(actual_distribution)}"
             )
-        if sum(profile.portfolio.values()) != 20:
-            report.errors.append(f"{level.upper()} profile portfolio must total 20")
         for brief in level_briefs:
             if brief.course_unit_id not in current_units:
                 report.errors.append(f"{brief.scenario_id}: unknown course unit {brief.course_unit_id}")
@@ -1087,8 +1099,18 @@ def load_level_candidates(
             report.errors.append(f"{path}: candidate is not in {level.upper()}")
         report.require_ok()
         candidates.append(payload)
-    if len(candidates) != 20:
-        raise CorpusError(f"{level.upper()} approval requires exactly 20 valid candidates")
+    # Same single-source-of-truth reasoning as validate_portfolio/
+    # preflight_corpus's expected_counts (task T2.9a): level_profiles.
+    # json's own declared portfolio total, not a duplicated "20" literal,
+    # is this level's expected candidate count -- a relevel_bundle.py
+    # scenario move can shift it away from 20 for exactly the levels it
+    # touches.
+    expected = sum(sources.level_profiles[level.lower()].portfolio.values())
+    if len(candidates) != expected:
+        raise CorpusError(
+            f"{level.upper()} approval requires exactly {expected} valid candidates "
+            f"(per level_profiles.json), found {len(candidates)}"
+        )
     return candidates
 
 
@@ -1811,7 +1833,14 @@ def preflight_corpus(
         if errors:
             raise CorpusError(f"staged corpus validation failed: {errors[:10]}")
 
-    expected_counts = {level: 20 for level in LEVELS}
+    # Same single-source-of-truth reasoning as validate_portfolio (task
+    # T2.9a): a relevel_bundle.py scenario move can shift a brief's level
+    # after the corpus's original 20-per-level launch, so level_profiles.
+    # json's own declared portfolio total -- not a duplicated "20"
+    # literal -- is each level's expected count here too.
+    expected_counts = {
+        level: sum(sources.level_profiles[level].portfolio.values()) for level in LEVELS
+    }
     if counts != expected_counts:
         raise CorpusError(f"staged shard counts drifted: {counts} != {expected_counts}")
     return {

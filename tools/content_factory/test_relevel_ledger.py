@@ -19,6 +19,7 @@ if str(SCRIPT_DIR) not in sys.path:
 
 from relevel_ledger import (  # noqa: E402
     DEFAULT_LEDGER_PATH,
+    KINDS,
     Ledger,
     LedgerEntry,
     LedgerError,
@@ -139,12 +140,46 @@ class LedgerAppendTest(unittest.TestCase):
 
 
 class LoadLedgerTest(unittest.TestCase):
-    def test_default_ledger_file_loads_and_has_19_seed_entries(self) -> None:
+    # T1.7's original 19-row migration of the three hard-coded
+    # LEGACY_*_LEVEL_EXCEPTIONS frozensets (commit b233eccc). Every batch
+    # since (L2a's 17-pack apply, L2a2's scenario move, ...) only ever
+    # *appends* to the shipped ledger, so this checks the seed rows are
+    # still present rather than pinning the ever-growing exact total --
+    # a previous version of this test hard-coded 619/221/199/199 and broke
+    # on the very next legitimate batch (LCP PR-L2a2, T2.4b-1 plan step
+    # 2(d): "so future batches do not break it").
+    ORIGINAL_SEED_ENTRIES = frozenset({
+        ("cloze", "cloze_a1_0104"),
+        ("satz", "satz_a1_0068"),
+        ("vocab", "vocab_a1_0216"),
+        ("vocab", "vocab_b1_0013"),
+        ("vocab", "vocab_b1_0192"),
+        ("vocab", "vocab_b1_0195"),
+        ("vocab", "vocab_b2_0089"),
+        ("vocab", "vocab_b2_0094"),
+        ("vocab", "vocab_b2_0095"),
+        ("vocab", "vocab_b2_0109"),
+        ("vocab", "vocab_b2_0110"),
+        ("vocab", "vocab_b2_0111"),
+        ("vocab", "vocab_b2_0112"),
+        ("vocab", "vocab_b2_0113"),
+        ("vocab", "vocab_b2_0116"),
+        ("vocab", "vocab_b2_0117"),
+        ("vocab", "vocab_b2_0118"),
+        ("vocab", "vocab_b2_0145"),
+        ("vocab", "vocab_b2_0146"),
+    })
+
+    def test_default_ledger_file_loads_and_contains_the_original_seed_entries(self) -> None:
         ledger = load_ledger()
-        self.assertEqual(len(ledger.entries), 19)
-        self.assertEqual(len(ledger.ids_for("vocab")), 17)
-        self.assertEqual(len(ledger.ids_for("cloze")), 1)
-        self.assertEqual(len(ledger.ids_for("satz")), 1)
+        present = {(entry.kind, entry.id) for entry in ledger.entries}
+        self.assertTrue(
+            self.ORIGINAL_SEED_ENTRIES.issubset(present),
+            self.ORIGINAL_SEED_ENTRIES - present,
+        )
+        self.assertGreaterEqual(len(ledger.entries), len(self.ORIGINAL_SEED_ENTRIES))
+        for entry in ledger.entries:
+            self.assertIn(entry.kind, KINDS)
 
     def test_default_ledger_path_is_sibling_of_this_module(self) -> None:
         self.assertEqual(DEFAULT_LEDGER_PATH.name, "relevel_ledger.json")
@@ -194,6 +229,15 @@ class LoadLedgerTest(unittest.TestCase):
             reloaded = load_ledger(path)
             self.assertEqual(reloaded.entries, ledger.entries)
 
+    def test_save_writes_lf_only(self) -> None:
+        # T2.3-R2: relevel_ledger.json is `eol=lf`; save() must not let
+        # Windows text-mode writing turn it back into CRLF.
+        ledger = Ledger(version=1, entries=[make_entry(ident="vocab_a1_0001")])
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "lf_check.json"
+            ledger.save(path)
+            self.assertNotIn(b"\r", path.read_bytes())
+
 
 class ValidateLedgerTest(unittest.TestCase):
     def setUp(self) -> None:
@@ -242,26 +286,44 @@ class ValidateLedgerTest(unittest.TestCase):
         self.assertIn("not found", issues[0])
 
     def test_the_shipped_ledger_validates_clean_against_live_assets(self) -> None:
+        # Builds live_levels for whichever kinds the shipped ledger
+        # actually uses today (structural, not a fixed kind list) --
+        # kind="scenario" entries (LCP PR-L2a2) need scenario_store's
+        # merged-shard view rather than a single CSV/JSON file, same as
+        # every other kind here needs its own real source file.
         import csv
 
         repo_root = SCRIPT_DIR.parents[1]
         data_dir = repo_root / "assets" / "data"
         ledger = load_ledger()
 
-        with (data_dir / "korean_vocab.csv").open(encoding="utf-8", newline="") as handle:
-            vocab_levels = {
-                row["id"]: row["level"].lower() for row in csv.DictReader(handle)
-            }
-        cloze_root = json.loads((data_dir / "cloze.json").read_text(encoding="utf-8"))
-        cloze_levels = {
-            item["id"]: item["level"].lower() for item in cloze_root["items"]
-        }
-        satz_root = json.loads((data_dir / "satz_sentences.json").read_text(encoding="utf-8"))
-        satz_levels = {
-            item["id"]: item["level"].lower() for item in satz_root["items"]
-        }
+        def _csv_levels(name: str) -> dict[str, str]:
+            with (data_dir / name).open(encoding="utf-8", newline="") as handle:
+                return {row["id"]: row["level"].lower() for row in csv.DictReader(handle)}
 
-        live_levels = {"vocab": vocab_levels, "cloze": cloze_levels, "satz": satz_levels}
+        def _json_item_levels(name: str) -> dict[str, str]:
+            root = json.loads((data_dir / name).read_text(encoding="utf-8"))
+            return {item["id"]: str(item["level"]).lower() for item in root["items"]}
+
+        def _scenario_levels() -> dict[str, str]:
+            import scenario_store  # sys.path already primed at module import time
+
+            return {
+                str(item["id"]): str(item["level"]).lower()
+                for item in scenario_store.load_scenarios(data_dir)
+            }
+
+        builders = {
+            "vocab": lambda: _csv_levels("korean_vocab.csv"),
+            "grammar": lambda: _csv_levels("grammar.csv"),
+            "cloze": lambda: _json_item_levels("cloze.json"),
+            "satz": lambda: _json_item_levels("satz_sentences.json"),
+            "smalltalk": lambda: _json_item_levels("smalltalk.json"),
+            "pronunciation": lambda: _json_item_levels("pronunciation_phrases.json"),
+            "scenario": _scenario_levels,
+        }
+        used_kinds = {entry.kind for entry in ledger.entries}
+        live_levels = {kind: builders[kind]() for kind in used_kinds}
         self.assertEqual(validate_ledger(ledger, live_levels), [])
 
 

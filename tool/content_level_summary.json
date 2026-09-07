@@ -1,233 +1,235 @@
 {
   "counts": {
     "cloze": {
-      "fallback_over2": 19,
-      "over1": 319,
-      "over2": 241,
+      "fallback_over2": 2,
+      "over1": 166,
+      "over2": 38,
       "total": 1805,
-      "under2": 212,
+      "under2": 449,
       "unknown": 0
     },
     "grammar": {
-      "fallback_over2": 2,
-      "over1": 28,
-      "over2": 10,
+      "fallback_over2": 0,
+      "over1": 14,
+      "over2": 3,
       "total": 244,
-      "under2": 24,
+      "under2": 44,
       "unknown": 0
     },
     "media": {
-      "fallback_over2": 3,
-      "over1": 31,
-      "over2": 20,
+      "fallback_over2": 1,
+      "over1": 20,
+      "over2": 6,
       "total": 136,
-      "under2": 4,
+      "under2": 13,
       "unknown": 0
     },
     "pronunciation": {
       "fallback_over2": 0,
-      "over1": 10,
-      "over2": 8,
+      "over1": 7,
+      "over2": 1,
       "total": 84,
-      "under2": 10,
+      "under2": 17,
       "unknown": 0
     },
     "satz": {
-      "fallback_over2": 16,
-      "over1": 394,
-      "over2": 273,
+      "fallback_over2": 1,
+      "over1": 164,
+      "over2": 28,
       "total": 2333,
-      "under2": 272,
+      "under2": 652,
       "unknown": 0
     },
     "scenario": {
       "fallback_over2": 0,
-      "over1": 32,
-      "over2": 7,
+      "over1": 15,
+      "over2": 0,
       "total": 178,
-      "under2": 10,
+      "under2": 21,
       "unknown": 0
     },
     "smalltalk": {
-      "fallback_over2": 3,
-      "over1": 139,
-      "over2": 61,
+      "fallback_over2": 1,
+      "over1": 95,
+      "over2": 19,
       "total": 582,
-      "under2": 58,
+      "under2": 116,
       "unknown": 0
     },
     "vocab": {
-      "fallback_over2": 106,
-      "over1": 325,
-      "over2": 265,
+      "fallback_over2": 66,
+      "over1": 312,
+      "over2": 163,
       "total": 2420,
-      "under2": 208,
-      "unknown": 58
+      "under2": 245,
+      "unknown": 56
     }
   },
   "coverage": {
     "grade1": {
-      "at_level": 202,
-      "missing": 352,
-      "present_in_app": 362,
+      "at_level": 197,
+      "missing": 350,
+      "present_in_app": 364,
       "total_unique": 714
     },
     "grade2": {
-      "at_level": 122,
-      "missing": 730,
-      "present_in_app": 340,
+      "at_level": 125,
+      "missing": 726,
+      "present_in_app": 344,
       "total_unique": 1070
     }
   },
   "generatedFrom": "assets/data/* + tools/content_factory/lexicon/* (tool/audit_content_levels.py)",
   "packs": {
     "a1": {
-      "median_ge_plus2": 6,
+      "median_ge_plus2": 0,
+      "over2_unbacklogged": 0,
       "share_ge_plus2_top10": [
         {
-          "median": 2,
-          "n_hm": 7,
-          "n_low": 3,
-          "pack_id": "a1_pharmacy_ask_1",
-          "share_ge_plus2": 1.0
-        },
-        {
-          "median": 2.5,
-          "n_hm": 10,
-          "n_low": 2,
-          "pack_id": "a1_neighbors_hall_1",
-          "share_ge_plus2": 0.8
-        },
-        {
-          "median": 2,
-          "n_hm": 7,
-          "n_low": 5,
-          "pack_id": "a1_partner_siblings_hello_1",
-          "share_ge_plus2": 0.7143
-        },
-        {
-          "median": 2,
-          "n_hm": 9,
-          "n_low": 3,
-          "pack_id": "a1_subway_card_1",
-          "share_ge_plus2": 0.6667
-        },
-        {
-          "median": 2,
-          "n_hm": 11,
-          "n_low": 1,
-          "pack_id": "a1_weather_layer_1",
-          "share_ge_plus2": 0.6364
-        },
-        {
-          "median": 2.5,
-          "n_hm": 10,
-          "n_low": 2,
-          "pack_id": "a1_partner_first_gift_1",
-          "share_ge_plus2": 0.6
-        },
-        {
-          "median": 1.5,
-          "n_hm": 8,
-          "n_low": 1,
-          "pack_id": "a1_partner_photo_thanks_1",
-          "share_ge_plus2": 0.5
-        },
-        {
-          "median": 1.5,
-          "n_hm": 4,
+          "median": 0.5,
+          "n_hm": 12,
           "n_low": 0,
-          "pack_id": "a1_repair_language_1",
-          "share_ge_plus2": 0.5
+          "pack_id": "a1_post_office_1",
+          "share_ge_plus2": 0.25
         },
         {
-          "median": 1,
-          "n_hm": 9,
-          "n_low": 3,
-          "pack_id": "a1_partner_house_entry_1",
-          "share_ge_plus2": 0.4444
+          "median": 0.0,
+          "n_hm": 12,
+          "n_low": 0,
+          "pack_id": "a1_sorry_thanks_1",
+          "share_ge_plus2": 0.0833
         },
         {
-          "median": 1,
+          "median": 0.0,
+          "n_hm": 10,
+          "n_low": 0,
+          "pack_id": "a1_body",
+          "share_ge_plus2": 0.0
+        },
+        {
+          "median": 0.0,
+          "n_hm": 10,
+          "n_low": 0,
+          "pack_id": "a1_city_services_2026_1",
+          "share_ge_plus2": 0.0
+        },
+        {
+          "median": 1.0,
+          "n_hm": 6,
+          "n_low": 0,
+          "pack_id": "a1_colors",
+          "share_ge_plus2": 0.0
+        },
+        {
+          "median": 0,
           "n_hm": 9,
-          "n_low": 2,
-          "pack_id": "a1_school_supplies_1",
-          "share_ge_plus2": 0.4444
+          "n_low": 0,
+          "pack_id": "a1_daily_1",
+          "share_ge_plus2": 0.0
+        },
+        {
+          "median": 0,
+          "n_hm": 9,
+          "n_low": 0,
+          "pack_id": "a1_daily_2",
+          "share_ge_plus2": 0.0
+        },
+        {
+          "median": 0,
+          "n_hm": 9,
+          "n_low": 0,
+          "pack_id": "a1_daily_3",
+          "share_ge_plus2": 0.0
+        },
+        {
+          "median": 0.0,
+          "n_hm": 8,
+          "n_low": 0,
+          "pack_id": "a1_daily_4",
+          "share_ge_plus2": 0.0
+        },
+        {
+          "median": 0,
+          "n_hm": 13,
+          "n_low": 0,
+          "pack_id": "a1_descriptions",
+          "share_ge_plus2": 0.0
         }
       ]
     },
     "a2": {
-      "median_ge_plus2": 6,
+      "median_ge_plus2": 0,
+      "over2_unbacklogged": 0,
       "share_ge_plus2_top10": [
         {
-          "median": 2.5,
-          "n_hm": 6,
-          "n_low": 1,
-          "pack_id": "a2_part_time_1",
-          "share_ge_plus2": 0.8333
+          "median": 1,
+          "n_hm": 7,
+          "n_low": 2,
+          "pack_id": "a2_pharmacy_ask_1",
+          "share_ge_plus2": 0.2857
         },
         {
-          "median": 3.0,
-          "n_hm": 6,
-          "n_low": 4,
-          "pack_id": "a2_phone_plan_1",
-          "share_ge_plus2": 0.8333
-        },
-        {
-          "median": 2.0,
+          "median": 0.0,
           "n_hm": 10,
           "n_low": 0,
-          "pack_id": "a2_bank_counter_1",
-          "share_ge_plus2": 0.8
+          "pack_id": "a2_gym_class_1",
+          "share_ge_plus2": 0.2
         },
         {
-          "median": 3,
-          "n_hm": 11,
-          "n_low": 1,
-          "pack_id": "a2_partner_banmal_switch_1",
-          "share_ge_plus2": 0.7273
-        },
-        {
-          "median": 3.0,
-          "n_hm": 8,
-          "n_low": 3,
-          "pack_id": "a2_housing_search_2026_1",
-          "share_ge_plus2": 0.625
-        },
-        {
-          "median": 2,
-          "n_hm": 11,
-          "n_low": 0,
-          "pack_id": "a2_partner_sibling_tease_1",
-          "share_ge_plus2": 0.5455
-        },
-        {
-          "median": 1.5,
-          "n_hm": 8,
-          "n_low": 2,
-          "pack_id": "a2_festival_booth_1",
-          "share_ge_plus2": 0.5
-        },
-        {
-          "median": 1,
-          "n_hm": 9,
-          "n_low": 3,
-          "pack_id": "a2_lost_found_1",
-          "share_ge_plus2": 0.4444
-        },
-        {
-          "median": 1.0,
+          "median": 0.5,
           "n_hm": 10,
           "n_low": 0,
           "pack_id": "a2_salon_visit_1",
-          "share_ge_plus2": 0.4
+          "share_ge_plus2": 0.2
         },
         {
-          "median": 1,
+          "median": -1,
+          "n_hm": 7,
+          "n_low": 0,
+          "pack_id": "a2_food_2",
+          "share_ge_plus2": 0.1429
+        },
+        {
+          "median": 0,
+          "n_hm": 9,
+          "n_low": 0,
+          "pack_id": "a2_partner_photo_thanks_1",
+          "share_ge_plus2": 0.1111
+        },
+        {
+          "median": 0,
           "n_hm": 9,
           "n_low": 2,
-          "pack_id": "a2_apt_rules_1",
-          "share_ge_plus2": 0.3333
+          "pack_id": "a2_school_supplies_1",
+          "share_ge_plus2": 0.1111
+        },
+        {
+          "median": 0.0,
+          "n_hm": 10,
+          "n_low": 1,
+          "pack_id": "a2_people_jobs_1",
+          "share_ge_plus2": 0.1
+        },
+        {
+          "median": 0,
+          "n_hm": 11,
+          "n_low": 1,
+          "pack_id": "a2_weather_layer_1",
+          "share_ge_plus2": 0.0909
+        },
+        {
+          "median": -0.5,
+          "n_hm": 12,
+          "n_low": 0,
+          "pack_id": "a2_food_more_1",
+          "share_ge_plus2": 0.0833
+        },
+        {
+          "median": 0.0,
+          "n_hm": 12,
+          "n_low": 0,
+          "pack_id": "a2_change_verbs_1",
+          "share_ge_plus2": 0.0
         }
       ]
     }

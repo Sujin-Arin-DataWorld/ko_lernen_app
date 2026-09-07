@@ -235,6 +235,57 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
             )
         vocab_bases.update(later_bases)
 
+        # relevel_bundle.py pack-level moves (tools/content_factory/relevel/
+        # relevel_bundle_*.json) rename a pack -- often into a brand-new
+        # <to-level>_<topic>_N id -- entirely outside the batch_XX_manifest.
+        # json promotion pipeline the loop above replays. Chronologically
+        # every relevel in this repo happened long after Batch 1-3 were
+        # promoted, so a pack id a relevel only just created could not have
+        # existed yet in this "batch hasn't been promoted" simulation
+        # either -- but nothing above removes it. Left alone, its live
+        # korean_vocab.csv rows and its lib/services/vocab_pack_service.
+        # dart order-map entry inflate "next unused orderInLevel" (and, if
+        # a relevel later moved a lone word into an old batch's pack, keep
+        # that pack's base alive) well past what a frozen historical
+        # batch_01/02/03_manifest.json reservation still expects -- exactly
+        # the same "fixture lied about being pre-promotion" failure mode as
+        # the batch-manifest case, just sourced from a different pipeline.
+        # Fold every relevel bundle's newPackId bases into vocab_bases too,
+        # so both the CSV cleanup below and the existing Dart order-map/
+        # display-map stripping already keyed on vocab_bases treat them
+        # exactly like a later_bases pack.
+        relevel_dir = REPO_ROOT / "tools/content_factory/relevel"
+        for bundle_path in sorted(relevel_dir.glob("relevel_bundle_*.json")):
+            relevel_payload = json.loads(bundle_path.read_text(encoding="utf-8"))
+            vocab_bases.update(
+                integration._base_pack_id(move["newPackId"])
+                for move in relevel_payload.get("moves", [])
+            )
+
+        # A word can be relevel-moved (tool/relevel_vocab.py) into a pack
+        # owned by one of the batches rewound above *after* that batch was
+        # already live -- e.g. relevel_batch_003 moved vocab_a2_0149 into
+        # b1_housing_contract_1, a pack batch_01_manifest.json originally
+        # created. remove_artifacts() above only strips a batch's own
+        # original row ids, so that relevel-moved row survives untouched
+        # and keeps the pack's base alive in korean_vocab.csv -- making
+        # this fixture's "batch hasn't been promoted yet" simulation lie:
+        # a later predecessor-manifest test reserving the very same base
+        # then fails as though it were already live. Strip any leftover
+        # row for these bases too (also catches every relevel-renamed pack
+        # folded into vocab_bases just above), exactly like the Dart order
+        # map below already does for the same reason.
+        vocab_path = data / "korean_vocab.csv"
+        vocab_header, vocab_rows = batch._read_csv(vocab_path)
+        batch._write_csv(
+            vocab_path,
+            vocab_header,
+            [
+                row for row in vocab_rows
+                if integration._base_pack_id(row.get("pack_id") or "") not in vocab_bases
+            ],
+        )
+
         curriculum_path = data / "curriculum_manifest.json"
         curriculum = json.loads(curriculum_path.read_text(encoding="utf-8"))
         curriculum["courseUnits"] = [

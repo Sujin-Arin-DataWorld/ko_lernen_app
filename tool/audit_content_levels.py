@@ -150,7 +150,7 @@ import statistics
 import sys
 from dataclasses import dataclass, replace
 from pathlib import Path
-from typing import Dict, List, Optional, Sequence, Tuple
+from typing import Dict, FrozenSet, List, Optional, Sequence, Tuple
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
@@ -169,6 +169,17 @@ ASSETS_REL = Path("assets") / "data"
 REPORT_MD = REPO / "docs" / "data" / "content_level_report.md"
 SUSPECTS_CSV = REPO / "tool" / "content_level_suspects.csv"
 SUMMARY_JSON = REPO / "tool" / "content_level_summary.json"
+# T2.5 Part C "교체 예정" backlog -- see tool/relevel_vocab.py's own module
+# docstring and docs/data/level_bible/F10_review_lessons.md for how a
+# vocab id lands here: Fable ruled these words should be REPLACED by a
+# level-appropriate word in a later backfill wave, not relevel-moved (the
+# existing pack move machinery only relocates a word, it can't invent a
+# better one). Listed here so grade_vocab() can tag them blocked_by=
+# 'replacement_backlog' (keeping them visible in the suspects CSV, not
+# silently dropped) and build_summary() can exclude them from the
+# packs.a1/a2.over2_unbacklogged ratchet -- an over2 vocab suspect that IS
+# in this backlog is "triaged", not "unaddressed".
+REPLACEMENT_BACKLOG_JSON = REPO / "tools" / "content_factory" / "relevel" / "replacement_backlog.json"
 
 # R4 item 3: lowercase throughout -- both the matrix's grouping keys and
 # its printed row labels (a data value, unlike the fixed "A1".."C2" table
@@ -261,6 +272,7 @@ class Corpus:
     media_phrases: List[dict]
     can_do_refs: List[dict]
     kiiq_rows: List[dict]
+    replacement_backlog_ids: FrozenSet[str]
 
 
 @dataclass
@@ -282,6 +294,18 @@ def _read_csv(path: Path) -> List[dict]:
 
 def _read_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _load_replacement_backlog_ids(root: Path) -> FrozenSet[str]:
+    """T2.5 Part C: ids listed in replacement_backlog.json. Missing file ->
+    empty set (fail-open, not fail-closed here -- unlike relevel_ledger.py's
+    ledger, an absent/empty backlog is a legitimate "nothing triaged yet"
+    state for this audit, not data corruption)."""
+    path = root / REPLACEMENT_BACKLOG_JSON.relative_to(REPO)
+    if not path.exists():
+        return frozenset()
+    rows = json.loads(path.read_text(encoding="utf-8"))
+    return frozenset(row["id"] for row in rows if isinstance(row, dict) and row.get("id"))
 
 
 def load_corpus(root: Path = REPO) -> Corpus:
@@ -313,6 +337,7 @@ def load_corpus(root: Path = REPO) -> Corpus:
     )
 
     kiiq_rows = _read_csv(root / LEXICON_DIR_REL / "nikl_kiiq_2017_vocab.csv")
+    replacement_backlog_ids = _load_replacement_backlog_ids(root)
 
     return Corpus(
         root=root, lexicon=lexicon, grammar_index=grammar_index, vocab_rows=vocab_rows,
@@ -320,6 +345,7 @@ def load_corpus(root: Path = REPO) -> Corpus:
         satz_items=satz_items, smalltalk_phrases=smalltalk_phrases,
         pronunciation_phrases=pronunciation_phrases, media_phrases=media_phrases,
         can_do_refs=can_do_refs, kiiq_rows=kiiq_rows,
+        replacement_backlog_ids=replacement_backlog_ids,
     )
 
 
@@ -689,6 +715,13 @@ def grade_vocab(corpus: Corpus) -> List[Item]:
         pack_id = row.get("pack_id", "")
         if pack_id and pack_id in vocab_pack_ids:
             blocked.append("can_do_ref")
+        # T2.5 Part C: a word already triaged into replacement_backlog.json
+        # is "known and scheduled", not an unaddressed gap -- tagged here
+        # (kept alongside satz_ref/can_do_ref, not replacing them, since
+        # those structural facts are still true) so build_summary()'s
+        # over2_unbacklogged ratchet can exclude it.
+        if row.get("id", "") in corpus.replacement_backlog_ids:
+            blocked.append("replacement_backlog")
 
         # R4 item 7: number/proper-noun tokens are never a lexicon gap --
         # exclude them from unknown_count the same way sentence_profile()
@@ -1128,6 +1161,21 @@ def build_summary(result: AuditResult, generated_from: str) -> dict:
             if p.median_delta is not None and p.median_delta >= 2
         )
 
+    def _over2_unbacklogged(level: str) -> int:
+        # T2.5 Part C: count of vocab headwords at this level with
+        # delta>=2 (matches 'over2' AND 'fallback_over2' -- both mean the
+        # SAME thing, delta>=2, just split by confidence for the ratchet's
+        # own high-confidence-only ratchet elsewhere) whose blocked_by does
+        # NOT already list 'replacement_backlog' -- i.e. flagged but not
+        # yet triaged into a scheduled fix. DONE target (and ratchet CAP)
+        # is 0 for both a1/a2.
+        return sum(
+            1 for it in result.items_by_kind.get("vocab", [])
+            if it.level == level
+            and it.delta is not None and it.delta >= 2
+            and "replacement_backlog" not in it.blocked_by.split("+")
+        )
+
     def _top10(level: str) -> List[dict]:
         # R4 item 4: packs.a1/a2.share_ge_plus2_top10 -- top 10 A1/A2
         # packs by share_ge_plus2 (ties broken by pack_id, matching
@@ -1154,8 +1202,16 @@ def build_summary(result: AuditResult, generated_from: str) -> dict:
         "generatedFrom": generated_from,
         "counts": counts,
         "packs": {
-            "a1": {"median_ge_plus2": _median_ge_plus2("a1"), "share_ge_plus2_top10": _top10("a1")},
-            "a2": {"median_ge_plus2": _median_ge_plus2("a2"), "share_ge_plus2_top10": _top10("a2")},
+            "a1": {
+                "median_ge_plus2": _median_ge_plus2("a1"),
+                "share_ge_plus2_top10": _top10("a1"),
+                "over2_unbacklogged": _over2_unbacklogged("a1"),
+            },
+            "a2": {
+                "median_ge_plus2": _median_ge_plus2("a2"),
+                "share_ge_plus2_top10": _top10("a2"),
+                "over2_unbacklogged": _over2_unbacklogged("a2"),
+            },
         },
         "coverage": {
             "grade1": _cov(result.coverage["grade1"]),
@@ -1189,7 +1245,11 @@ def write_suspects_csv(path: Path, result: AuditResult) -> None:
 
 def write_summary_json(path: Path, summary: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    # write_bytes, not write_text: content_level_summary.json is `eol=lf`
+    # in .gitattributes, but text-mode write_text() on Windows retranslates
+    # every "\n" in the payload back into "\r\n" regardless (T2.3-R2).
+    content = json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+    path.write_bytes(content.encode("utf-8"))
 
 
 def _matrix_section(kind: str, kind_label: str, matrix: Dict[str, Dict[str, Dict[str, int]]]) -> List[str]:
@@ -1380,7 +1440,10 @@ def write_report_md(path: Path, result: AuditResult, summary: dict) -> None:
     lines.append("")
 
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    # write_bytes, not write_text: content_level_report.md is `eol=lf` in
+    # .gitattributes, but text-mode write_text() on Windows retranslates
+    # every "\n" in the payload back into "\r\n" regardless (T2.3-R2).
+    path.write_bytes(("\n".join(lines) + "\n").encode("utf-8"))
 
 
 # ---------------------------------------------------------------------------

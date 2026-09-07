@@ -120,6 +120,16 @@ def build_fixture(root: Path) -> None:
     # coverage rule; see _resolved_lemma_keys / vocab_a2_0003 below.
     _write_csv(lex_dir / "aliases.csv", ["app_form", "lexicon_form", "note"],
                [{"app_form": "남자친구", "lexicon_form": "남자 친구", "note": ""}])
+    # T2.5 Part A: CefrLexicon.load() now also reads level_exceptions.csv
+    # (tool/cefr_lexicon.py's load_level_exceptions) -- empty-but-present
+    # here since this fixture's own words aren't exception-table entries;
+    # an absent file would FileNotFoundError, not silently no-op (that
+    # loader intentionally has the same fail-closed shape as the other
+    # four lexicon CSVs above, unlike T2.5 Part C's replacement_backlog.json
+    # in audit_content_levels.py, which IS optional -- see this file's own
+    # docstring for why the two differ).
+    _write_csv(lex_dir / "level_exceptions.csv",
+               ["category", "headword", "allowed_level", "note"], [])
 
     # -- vocab: pack1 (a1_test_pack_1, level A1) ---------------------------
     vocab_header = [
@@ -284,7 +294,15 @@ def build_fixture(root: Path) -> None:
         "phrases": [
             {"id": "pronunciation_a1_0001", "level": "a1", "ko": "사과", "de": "", "en": "", "focus": ""},  # delta 0
             {"id": "pronunciation_a1_0002", "level": "a1", "ko": "정책", "de": "", "en": "", "focus": ""},  # delta+4 over2
-            {"id": "pronunciation_a1_0003", "level": "a1", "ko": "xyzxyz", "de": "", "en": "", "focus": ""},  # unknown
+            # T2.4a: was the Latin string "xyzxyz" -- since B6 now
+            # excludes (not "unknown"s) any token containing a Latin
+            # letter/digit, that string no longer exercises the "a
+            # genuinely unresolvable KOREAN word" path this fixture item
+            # is for (a sentence with nothing else in it fell through to
+            # sentence_profile's own "default to grade 1 when there are
+            # no known tokens at all" branch instead of grade=None).
+            # Nonsense-but-Hangul instead, still unresolvable.
+            {"id": "pronunciation_a1_0003", "level": "a1", "ko": "뷁뚧삟", "de": "", "en": "", "focus": ""},  # unknown
         ],
     }
     _write_json(assets / "pronunciation_phrases.json", pronunciation)
@@ -667,12 +685,18 @@ class FixtureAuditTest(unittest.TestCase):
                         {"pack_id": "a1_test_pack_3", "median": 4.0, "share_ge_plus2": 1.0, "n_hm": 1, "n_low": 1},
                         {"pack_id": "a1_test_pack_1", "median": 0.5, "share_ge_plus2": 0.25, "n_hm": 4, "n_low": 1},
                     ],
+                    # T2.5 Part C: no fixture row is in replacement_backlog.json
+                    # (the fixture doesn't create one -> Corpus.replacement_
+                    # backlog_ids is empty), so this equals every a1 vocab
+                    # item with delta>=2 (over2 + fallback_over2 buckets).
+                    "over2_unbacklogged": 5,
                 },
                 "a2": {
                     "median_ge_plus2": 1,
                     "share_ge_plus2_top10": [
                         {"pack_id": "a2_test_pack_1", "median": 2.0, "share_ge_plus2": 0.5, "n_hm": 2, "n_low": 0},
                     ],
+                    "over2_unbacklogged": 1,
                 },
             },
         )
@@ -766,6 +790,18 @@ class FixtureAuditTest(unittest.TestCase):
         acl.write_summary_json(out, summary)
         loaded = json.loads(out.read_text(encoding="utf-8"))
         self.assertEqual(loaded, summary)
+
+    def test_writers_write_lf_only(self):
+        # T2.3-R2: content_level_summary.json / content_level_report.md are
+        # both `eol=lf`; write_summary_json/write_report_md must not let
+        # Windows text-mode writing turn them back into CRLF.
+        summary = acl.build_summary(self.result, "fixture")
+        summary_out = self.root / "lf_check_summary.json"
+        acl.write_summary_json(summary_out, summary)
+        self.assertNotIn(b"\r", summary_out.read_bytes())
+        report_out = self.root / "lf_check_report.md"
+        acl.write_report_md(report_out, self.result, summary)
+        self.assertNotIn(b"\r", report_out.read_bytes())
 
     def test_write_report_md_contains_golden_layout_header(self):
         summary = acl.build_summary(self.result, "fixture")
@@ -921,6 +957,56 @@ class ApplyPackOverridesGuardTest(unittest.TestCase):
         self.assertEqual(new_items[0].suggested_action, "step_up_or_swap")  # untouched, own bucket action
 
 
+class ReplacementBacklogTest(unittest.TestCase):
+    """T2.5 Part C: tools/content_factory/relevel/replacement_backlog.json
+    tags a vocab suspect blocked_by='replacement_backlog' (kept listed, not
+    dropped) and build_summary()'s packs.a1/a2.over2_unbacklogged excludes
+    it. Builds its own fixture copy (rather than reusing FixtureAuditTest's
+    shared class-level one) so writing a backlog file here can't perturb
+    any other test's hand-computed expectations."""
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls._tmp = tempfile.TemporaryDirectory()
+        cls.root = Path(cls._tmp.name)
+        build_fixture(cls.root)
+        # vocab_a1_0003 is a real fixture row: a1, delta=2, bucket='over2'
+        # (see this file's own build_fixture / the a1_test_pack_1 rows).
+        backlog_path = (
+            cls.root / "tools" / "content_factory" / "relevel" / "replacement_backlog.json"
+        )
+        backlog_path.parent.mkdir(parents=True, exist_ok=True)
+        backlog_path.write_text(
+            json.dumps([{
+                "id": "vocab_a1_0003", "korean": "unused", "pack_id": "a1_test_pack_1",
+                "level": "A1", "estimate": "unused", "wave": "L3", "reason": "test",
+            }], ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        cls.result = acl.run_audit(cls.root)
+        cls.summary = acl.build_summary(cls.result, "test")
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        cls._tmp.cleanup()
+
+    def test_backlogged_item_is_tagged_and_still_listed(self) -> None:
+        item = next(it for it in self.result.items_by_kind["vocab"] if it.id == "vocab_a1_0003")
+        self.assertIn("replacement_backlog", item.blocked_by.split("+"))
+        # write_suspects_csv() keeps every row whose bucket is a
+        # REASON_BUCKETS member, REGARDLESS of blocked_by -- "kept listed"
+        # means this tagging must never itself cause exclusion.
+        self.assertIn(item.bucket, acl.REASON_BUCKETS)
+
+    def test_over2_unbacklogged_excludes_the_backlogged_item(self) -> None:
+        # Baseline (no backlog file at all) is 5 for a1 -- see
+        # FixtureAuditTest.test_summary_counts_and_packs_and_coverage's own
+        # over2_unbacklogged assertion built from the SAME fixture data.
+        # One a1 item now backlogged -> exactly one fewer.
+        self.assertEqual(self.summary["packs"]["a1"]["over2_unbacklogged"], 4)
+        self.assertEqual(self.summary["packs"]["a2"]["over2_unbacklogged"], 1)  # untouched
+
+
 class CliTest(unittest.TestCase):
     def test_draft_flag_raises_not_yet_supported(self):
         with self.assertRaises(NotImplementedError) as ctx:
@@ -938,34 +1024,86 @@ class LiveRatchetTest(unittest.TestCase):
     invariant across this rework for every single kind, e.g. vocab
     220+151=371 (R4) == 265+106=371 (R4b) -- this is a relabelling, not a
     net change in flagged items). Run `python tool/audit_content_levels.py`
-    first to regenerate the summary."""
+    first to regenerate the summary.
 
-    # 2026-09-07 R4b 실측 (`python tool/audit_content_levels.py --json` 출력).
-    # 하향 전용 — 상한은 내려갈 수만 있다, 절대 올리지 마라. over2 is now
-    # HIGH-or-MEDIUM-confidence by construction (R4b item 2) -- only a LOW
-    # >=+2 verdict counts under CAP_FALLBACK_OVER2 instead, see below.
+    2026-09-07 T2.3-R1 (PR-L2a relevel apply, 17 vocab-pack bundles moved)
+    lowered CAP_OVER2/CAP_FALLBACK_OVER2 for vocab/cloze/satz and both
+    CAP_PACK_*_MEDIAN_GE_PLUS2 to the new actuals -- the whole point of the
+    relevel was to move the worst-offending packs to a truer level, so
+    these were expected to fall, not just permitted to.
+
+    2026-09-07 T2.4a (cefr_lexicon.py tokenizer false-positive fixes,
+    Part B of the same PR-L2a session) lowered every cap again to the new
+    actuals. Three kinds (vocab/cloze/satz) show CAP_FALLBACK_OVER2 rise
+    by 1 alongside a LARGER fall in CAP_OVER2 for the same kind -- the
+    same "relabelling, not a net regression" pattern this class's own
+    docstring already documents for the R4/R4b transition (one item's
+    confidence tier shifted from high/medium to low, moving it from the
+    over2 bucket to fallback_over2, while several OTHER items resolved
+    correctly and left both buckets outright): vocab over2+fallback_over2
+    317->316, cloze 166->166 (unchanged), satz 198->196 -- every kind's
+    COMBINED total is flat or down, never up.
+
+    2026-09-07 LCP PR-L2a2 T2.4b-1(e) (cefr_lexicon.py Bible sentence
+    allowance -- docs/CONTENT_LEVEL_BIBLE.md §B/§D -- plus the pronoun-
+    contraction fix, 거/걸/걸로/이거/그거/저거/이게/그게/저게/뭘) lowered
+    every sentence-surface kind's caps again to the new actuals -- both
+    changes only ever touch `sentence_profile`'s lexical_p90 input, never
+    `word_grade`/`phrase_grade` directly, so vocab's own CAP_OVER2/
+    CAP_FALLBACK_OVER2/CAP_UNKNOWN_RATIO are unchanged by design (the plan
+    step's own "word/phrase grading (vocab headwords) unaffected"
+    requirement, verified here as an *observed* zero-delta, not just an
+    assumption). scenario's over2 caps to 0 -- every one of the 5
+    previously-over2 scenarios (including 2 of PR-L2a2's own audit
+    targets, bunshik_tteokbokki and kakao_contact_after_class) now clears
+    the ratchet outright.
+
+    2026-09-07 T2.5 (PR-L2a Part A/B/C -- level_exceptions.csv,
+    relevel_bundle_L2a3.json's 4 pack moves, relevel_batch_003.csv's 18
+    per-word moves, plus 21 words triaged into replacement_backlog.json)
+    lowered CAP_OVER2/CAP_FALLBACK_OVER2 for every kind that fell (vocab,
+    cloze, satz, smalltalk, pronunciation) to the new actuals; grammar/
+    scenario/media were already at their T2.4b-1(e) values and are
+    unchanged (not re-raised). CAP_UNKNOWN_RATIO is unchanged (0.0231,
+    same value to 4 decimals -- this rework only ever moves already-
+    resolved vocab between levels/packs, it never resolves a previously-
+    unknown headword). CAP_PACK_A1/A2_MEDIAN_GE_PLUS2 stay 0 (already the
+    floor). New this round: CAP_PACK_A1/A2_OVER2_UNBACKLOGGED, both 0 --
+    see that field's own comment below."""
+
+    # 2026-09-07 T2.5 실측 (`python tool/audit_content_levels.py` 후
+    # tool/content_level_summary.json 그대로). 하향 전용 — 상한은 내려갈
+    # 수만 있다, 절대 올리지 마라. grammar/scenario/media unchanged from
+    # T2.4b-1(e) (already at their actuals, this rework didn't touch
+    # anything that would move them).
     CAP_OVER2 = {
-        "vocab": 265, "grammar": 10, "scenario": 7, "cloze": 241,
-        "satz": 273, "smalltalk": 61, "pronunciation": 8, "media": 20,
+        "vocab": 165, "grammar": 3, "scenario": 0, "cloze": 38,
+        "satz": 29, "smalltalk": 19, "pronunciation": 1, "media": 6,
     }
-    # 실측 unknown/total: vocab .0240, 나머지 0 -- unchanged by R4b (items 1/2
-    # don't touch which tokens/items resolve to grade=None). +0.01 여유는
-    # 브리프 지시(래칫 조건) 그대로.
+    # 실측 unknown/total: vocab .0231(=56/2420, unchanged from T2.4a --
+    # the allowance/contraction fix only ever changes sentence_profile's
+    # lexical_p90 input, never word_grade's own resolution), 나머지 0.
+    # +0.01 여유는 브리프 지시(래칫 조건) 그대로.
     CAP_UNKNOWN_RATIO = {
-        "vocab": 0.0240, "grammar": 0.0, "scenario": 0.0, "cloze": 0.0,
+        "vocab": 0.0231, "grammar": 0.0, "scenario": 0.0, "cloze": 0.0,
         "satz": 0.0, "smalltalk": 0.0, "pronunciation": 0.0, "media": 0.0,
     }
-    # R4b item 2 guard (insufficient_sample) doesn't change HOW MANY a1/a2
-    # packs clear the median>=+2 threshold, only what suggested_action
-    # those packs get -- both caps happen to measure the same (6) as the
-    # pre-R4b baseline.
-    CAP_PACK_A1_MEDIAN_GE_PLUS2 = 6
-    CAP_PACK_A2_MEDIAN_GE_PLUS2 = 6
-    # R4b item 2 실측 2026-09-07 -- every kind's fallback_over2 falls by
-    # exactly its own over2 rise above (see class docstring).
+    # Unchanged from the T2.3-R1 baseline (still 0) -- neither this fix
+    # nor T2.4a moves any pack's median further below +2.
+    CAP_PACK_A1_MEDIAN_GE_PLUS2 = 0
+    CAP_PACK_A2_MEDIAN_GE_PLUS2 = 0
+    # T2.5 Part C 2026-09-07: every A1/A2 vocab headword with delta>=2 is
+    # now either relevel-moved (relevel_batch_003.csv) or triaged into
+    # replacement_backlog.json -- DONE target (and this ratchet's cap) is
+    # 0 for both. Lower-only like every other cap in this class.
+    CAP_PACK_A1_OVER2_UNBACKLOGGED = 0
+    CAP_PACK_A2_OVER2_UNBACKLOGGED = 0
+    # T2.5 실측 2026-09-07 -- vocab/cloze fall (fewer over-graded low/
+    # medium-confidence words left after the relevel + exception table);
+    # grammar/scenario/satz/smalltalk/pronunciation/media unchanged.
     CAP_FALLBACK_OVER2 = {
-        "vocab": 106, "grammar": 2, "scenario": 0, "cloze": 19,
-        "satz": 16, "smalltalk": 3, "pronunciation": 0, "media": 3,
+        "vocab": 66, "grammar": 0, "scenario": 0, "cloze": 2,
+        "satz": 1, "smalltalk": 1, "pronunciation": 0, "media": 1,
     }
 
     @classmethod
@@ -996,6 +1134,12 @@ class LiveRatchetTest(unittest.TestCase):
         a2 = self.summary["packs"]["a2"]["median_ge_plus2"]
         self.assertLessEqual(a1, self.CAP_PACK_A1_MEDIAN_GE_PLUS2)
         self.assertLessEqual(a2, self.CAP_PACK_A2_MEDIAN_GE_PLUS2)
+
+    def test_pack_over2_unbacklogged_does_not_regress(self):
+        a1 = self.summary["packs"]["a1"]["over2_unbacklogged"]
+        a2 = self.summary["packs"]["a2"]["over2_unbacklogged"]
+        self.assertLessEqual(a1, self.CAP_PACK_A1_OVER2_UNBACKLOGGED)
+        self.assertLessEqual(a2, self.CAP_PACK_A2_OVER2_UNBACKLOGGED)
 
     def test_fallback_over2_counts_do_not_regress(self):
         for kind, cap in self.CAP_FALLBACK_OVER2.items():

@@ -2,10 +2,10 @@
   "meta": {
     "total": 1805,
     "perLevel": {
-      "a1": 349,
-      "a2": 283,
-      "b1": 282,
-      "b2": 391,
+      "a1": 225,
+      "a2": 249,
+      "b1": 426,
+      "b2": 405,
       "c1": 250,
       "c2": 250
     },
@@ -8229,7 +8229,7 @@
     },
     {
       "id": "cloze_a1_0112",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿를 들고 초인종을 눌렀어요.",
       "answer": "과일 바구니",
       "fullKo": "과일 바구니를 들고 초인종을 눌렀어요.",
@@ -8244,7 +8244,7 @@
     },
     {
       "id": "cloze_a1_0113",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿은 약처럼 보일까 봐 고민했어요.",
       "answer": "건강식품",
       "fullKo": "건강식품은 약처럼 보일까 봐 고민했어요.",
@@ -8259,7 +8259,7 @@
     },
     {
       "id": "cloze_a1_0114",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿은 부담이 된다고 현우가 말했어요.",
       "answer": "과한 선물",
       "fullKo": "과한 선물은 부담이 된다고 현우가 말했어요.",
@@ -8274,7 +8274,7 @@
     },
     {
       "id": "cloze_a1_0115",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "큰돈 말고 ＿＿＿이면 충분해요.",
       "answer": "작은 정성",
       "fullKo": "큰돈 말고 작은 정성이면 충분해요.",
@@ -8289,7 +8289,7 @@
     },
     {
       "id": "cloze_a1_0116",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿이 예쁘면 인사가 쉬워져요.",
       "answer": "포장",
       "fullKo": "포장이 예쁘면 인사가 쉬워져요.",
@@ -8304,7 +8304,7 @@
     },
     {
       "id": "cloze_a1_0117",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "별건 아니지만 ＿＿＿.",
       "answer": "받아 주세요",
       "fullKo": "별건 아니지만 받아 주세요.",
@@ -8319,7 +8319,7 @@
     },
     {
       "id": "cloze_a1_0118",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "처음에는 ＿＿＿가 결국 받으셨어요.",
       "answer": "사양하다",
       "fullKo": "처음에는 사양하다가 결국 받으셨어요.",
@@ -8334,7 +8334,7 @@
     },
     {
       "id": "cloze_a1_0119",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿으로 가면 현우가 더 긴장해요.",
       "answer": "빈손",
       "fullKo": "빈손으로 가면 현우가 더 긴장해요.",
@@ -8349,7 +8349,7 @@
     },
     {
       "id": "cloze_a1_0120",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿은 편하지만 정이 없어 보일 수 있어요.",
       "answer": "백화점 상품권",
       "fullKo": "백화점 상품권은 편하지만 정이 없어 보일 수 있어요.",
@@ -8364,7 +8364,7 @@
     },
     {
       "id": "cloze_a1_0121",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿은 예쁘지만 버스에서 들고 가기 힘들어요.",
       "answer": "꽃다발",
       "fullKo": "꽃다발은 예쁘지만 버스에서 들고 가기 힘들어요.",
@@ -8379,7 +8379,7 @@
     },
     {
       "id": "cloze_a1_0122",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "돌아갈 때 ＿＿＿로 반찬을 싸 주셨어요.",
       "answer": "답례",
       "fullKo": "돌아갈 때 답례로 반찬을 싸 주셨어요.",
@@ -8394,7 +8394,7 @@
     },
     {
       "id": "cloze_a1_0123",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "선물을 받으면 짧게 ＿＿＿를 해요.",
       "answer": "감사 인사",
       "fullKo": "선물을 받으면 짧게 감사 인사를 해요.",
@@ -8409,7 +8409,7 @@
     },
     {
       "id": "cloze_a1_0124",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿에서 신발을 벗고 잠시 멈췄어요.",
       "answer": "현관",
       "fullKo": "현관에서 신발을 벗고 잠시 멈췄어요.",
@@ -8424,7 +8424,7 @@
     },
     {
       "id": "cloze_a1_0125",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿가 한 짝밖에 없었어요.",
       "answer": "손님 슬리퍼",
       "fullKo": "손님 슬리퍼가 한 짝밖에 없었어요.",
@@ -8439,7 +8439,7 @@
     },
     {
       "id": "cloze_a1_0126",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿ 하시는데 어디가 제 자리인지 몰랐어요.",
       "answer": "앉으세요",
       "fullKo": "앉으세요 하시는데 어디가 제 자리인지 몰랐어요.",
@@ -8454,7 +8454,7 @@
     },
     {
       "id": "cloze_a1_0127",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿이 서늘해서 아래로 오라고 하셨어요.",
       "answer": "윗목",
       "fullKo": "윗목이 서늘해서 아래로 오라고 하셨어요.",
@@ -8469,7 +8469,7 @@
     },
     {
       "id": "cloze_a1_0128",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿이 따뜻해서 할머니가 앉으시는 자리예요.",
       "answer": "아랫목",
       "fullKo": "아랫목이 따뜻해서 할머니가 앉으시는 자리예요.",
@@ -8484,7 +8484,7 @@
     },
     {
       "id": "cloze_a1_0129",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "바닥에 앉으니 ＿＿＿이 먼저 아팠어요.",
       "answer": "무릎",
       "fullKo": "바닥에 앉으니 무릎이 먼저 아팠어요.",
@@ -8499,7 +8499,7 @@
     },
     {
       "id": "cloze_a1_0130",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿을 밀어 주셔서 감사하다고 했어요.",
       "answer": "방석",
       "fullKo": "방석을 밀어 주셔서 감사하다고 했어요.",
@@ -8514,7 +8514,7 @@
     },
     {
       "id": "cloze_a1_0131",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿ 하셔서 컵을 두 손으로 받았어요.",
       "answer": "물 드세요",
       "fullKo": "물 드세요 하셔서 컵을 두 손으로 받았어요.",
@@ -8529,7 +8529,7 @@
     },
     {
       "id": "cloze_a1_0132",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿ 전에 화장실이 어디인지 물었어요.",
       "answer": "손 씻기",
       "fullKo": "손 씻기 전에 화장실이 어디인지 물었어요.",
@@ -8544,7 +8544,7 @@
     },
     {
       "id": "cloze_a1_0133",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿을 열고 슬리퍼를 또 찾았어요.",
       "answer": "화장실 문",
       "fullKo": "화장실 문을 열고 슬리퍼를 또 찾았어요.",
@@ -8559,7 +8559,7 @@
     },
     {
       "id": "cloze_a1_0134",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "할아버지가 주무셔서 ＿＿＿ 했어요.",
       "answer": "조용히",
       "fullKo": "할아버지가 주무셔서 조용히 했어요.",
@@ -8574,7 +8574,7 @@
     },
     {
       "id": "cloze_a1_0135",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿은 현우가 차에서 알려 줬어요.",
       "answer": "방문 예절",
       "fullKo": "방문 예절은 현우가 차에서 알려 줬어요.",
@@ -8949,7 +8949,7 @@
     },
     {
       "id": "cloze_a1_0160",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿에는 고속도로가 주차장이 돼요.",
       "answer": "추석",
       "fullKo": "추석에는 고속도로가 주차장이 돼요.",
@@ -8964,7 +8964,7 @@
     },
     {
       "id": "cloze_a1_0161",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿ 속이 달아서 하나 더 집었어요.",
       "answer": "송편",
       "fullKo": "송편 속이 달아서 하나 더 집었어요.",
@@ -8979,7 +8979,7 @@
     },
     {
       "id": "cloze_a1_0162",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿가 만두처럼 커졌어요.",
       "answer": "송편 빚다",
       "fullKo": "송편 빚다가 만두처럼 커졌어요.",
@@ -8994,7 +8994,7 @@
     },
     {
       "id": "cloze_a1_0163",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿ 기차표를 사려고 알람을 다섯 개 맞췄어요.",
       "answer": "귀성",
       "fullKo": "귀성 기차표를 사려고 알람을 다섯 개 맞췄어요.",
@@ -9009,7 +9009,7 @@
     },
     {
       "id": "cloze_a1_0164",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿ 갈 때는 편한 신발을 신으라고 하셨어요.",
       "answer": "성묘",
       "fullKo": "성묘 갈 때는 편한 신발을 신으라고 하셨어요.",
@@ -9024,7 +9024,7 @@
     },
     {
       "id": "cloze_a1_0165",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿는 산에 올라가서 무덤가 풀을 깎는 일이에요.",
       "answer": "벌초",
       "fullKo": "벌초는 산에 올라가서 무덤가 풀을 깎는 일이에요.",
@@ -9039,7 +9039,7 @@
     },
     {
       "id": "cloze_a1_0166",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿는 김이 올라서 부엌이 뿌예졌어요.",
       "answer": "송편 찌",
       "fullKo": "송편 찌는 김이 올라서 부엌이 뿌예졌어요.",
@@ -9054,7 +9054,7 @@
     },
     {
       "id": "cloze_a1_0167",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿을 차례상에 제일 먼저 올렸어요.",
       "answer": "햇과일",
       "fullKo": "햇과일을 차례상에 제일 먼저 올렸어요.",
@@ -9069,7 +9069,7 @@
     },
     {
       "id": "cloze_a1_0168",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿에는 보름달이 크다고 아이들이 말했어요.",
       "answer": "한가위",
       "fullKo": "한가위에는 보름달이 크다고 아이들이 말했어요.",
@@ -9084,7 +9084,7 @@
     },
     {
       "id": "cloze_a1_0169",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "이건 ＿＿＿ 떼고 먹어요.",
       "answer": "잎을",
       "fullKo": "이건 잎을 떼고 먹어요.",
@@ -9099,7 +9099,7 @@
     },
     {
       "id": "cloze_a1_0170",
-      "level": "a1",
+      "level": "b2",
       "sentenceKo": "＿＿＿은 차 안에서 이미 시작됐어요.",
       "answer": "명절 증후군",
       "fullKo": "명절 증후군은 차 안에서 이미 시작됐어요.",
@@ -9114,7 +9114,7 @@
     },
     {
       "id": "cloze_a1_0171",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿를 지내기 전에는 웃음소리를 줄였어요.",
       "answer": "차례",
       "fullKo": "차례를 지내기 전에는 웃음소리를 줄였어요.",
@@ -9129,7 +9129,7 @@
     },
     {
       "id": "cloze_a1_0172",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿이 엘리베이터에서 먼저 손을 흔들었어요.",
       "answer": "처남",
       "fullKo": "처남이 엘리베이터에서 먼저 손을 흔들었어요.",
@@ -9144,7 +9144,7 @@
     },
     {
       "id": "cloze_a1_0173",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿가 독일어를 한 마디 해서 분위기가 풀렸어요.",
       "answer": "처제",
       "fullKo": "처제가 독일어를 한 마디 해서 분위기가 풀렸어요.",
@@ -9159,7 +9159,7 @@
     },
     {
       "id": "cloze_a1_0174",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿가 옷걸이를 찾아 줬어요.",
       "answer": "시누이",
       "fullKo": "시누이가 옷걸이를 찾아 줬어요.",
@@ -9174,7 +9174,7 @@
     },
     {
       "id": "cloze_a1_0175",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿이 게임을 하자고 해서 현우가 말렸어요.",
       "answer": "시동생",
       "fullKo": "시동생이 게임을 하자고 해서 현우가 말렸어요.",
@@ -9189,7 +9189,7 @@
     },
     {
       "id": "cloze_a1_0176",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿가 맥주를 권해서 반만 받았어요.",
       "answer": "형부",
       "fullKo": "형부가 맥주를 권해서 반만 받았어요.",
@@ -9204,7 +9204,7 @@
     },
     {
       "id": "cloze_a1_0177",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿가 주방에서 눈짓으로 물컵을 가리켰어요.",
       "answer": "올케",
       "fullKo": "올케가 주방에서 눈짓으로 물컵을 가리켰어요.",
@@ -9219,7 +9219,7 @@
     },
     {
       "id": "cloze_a1_0178",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿가 사진을 찍어 주겠다고 뛰어왔어요.",
       "answer": "막내",
       "fullKo": "막내가 사진을 찍어 주겠다고 뛰어왔어요.",
@@ -9234,7 +9234,7 @@
     },
     {
       "id": "cloze_a1_0179",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿가 자리 배치를 조용히 정했어요.",
       "answer": "맏이",
       "fullKo": "맏이가 자리 배치를 조용히 정했어요.",
@@ -9249,7 +9249,7 @@
     },
     {
       "id": "cloze_a1_0180",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "남편이 ＿＿＿을 소개했어요. 악수를 해도 될까요?",
       "answer": "동생",
       "fullKo": "남편이 동생을 소개했어요. 악수를 해도 될까요?",
@@ -9264,7 +9264,7 @@
     },
     {
       "id": "cloze_a1_0181",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "게임 한 판 하니 금방 ＿＿＿졌어요.",
       "answer": "친해",
       "fullKo": "게임 한 판 하니 금방 친해졌어요.",
@@ -9279,7 +9279,7 @@
     },
     {
       "id": "cloze_a1_0182",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿으로 제 발음을 따라 해서 같이 웃었어요.",
       "answer": "장난",
       "fullKo": "장난으로 제 발음을 따라 해서 같이 웃었어요.",
@@ -9294,7 +9294,7 @@
     },
     {
       "id": "cloze_a1_0183",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿에서 제가 제일 뒤에 서 있어요.",
       "answer": "단체 사진",
       "fullKo": "단체 사진에서 제가 제일 뒤에 서 있어요.",
@@ -9309,7 +9309,7 @@
     },
     {
       "id": "cloze_a1_0184",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿은 올리지 말라고 현우가 먼저 말했어요.",
       "answer": "인증샷",
       "fullKo": "인증샷은 올리지 말라고 현우가 먼저 말했어요.",
@@ -9324,7 +9324,7 @@
     },
     {
       "id": "cloze_a1_0185",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿에서 현우 교복 사진을 봤어요.",
       "answer": "가족 앨범",
       "fullKo": "가족 앨범에서 현우 교복 사진을 봤어요.",
@@ -9339,7 +9339,7 @@
     },
     {
       "id": "cloze_a1_0186",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "차례상 앞에서는 ＿＿＿라고 작게 알려 주셨어요.",
       "answer": "촬영 금지",
       "fullKo": "차례상 앞에서는 촬영 금지라고 작게 알려 주셨어요.",
@@ -9354,7 +9354,7 @@
     },
     {
       "id": "cloze_a1_0187",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "나갈 때 ＿＿＿라고 했어요.",
       "answer": "잘 다녀오겠습니다",
       "fullKo": "나갈 때 잘 다녀오겠습니다라고 했어요.",
@@ -9369,7 +9369,7 @@
     },
     {
       "id": "cloze_a1_0188",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "상을 물릴 때 ＿＿＿ 하고 크게 인사했어요.",
       "answer": "잘 먹었습니다",
       "fullKo": "상을 물릴 때 잘 먹었습니다 하고 크게 인사했어요.",
@@ -9384,7 +9384,7 @@
     },
     {
       "id": "cloze_a1_0189",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿ 하셔서 신발을 거꾸로 신었어요.",
       "answer": "다음에 또 오세요",
       "fullKo": "다음에 또 오세요 하셔서 신발을 거꾸로 신었어요.",
@@ -9399,7 +9399,7 @@
     },
     {
       "id": "cloze_a1_0190",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "문 앞에서 ＿＿＿ 하고 손을 흔들었어요.",
       "answer": "연락드릴게요",
       "fullKo": "문 앞에서 연락드릴게요 하고 손을 흔들었어요.",
@@ -9414,7 +9414,7 @@
     },
     {
       "id": "cloze_a1_0191",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "차에서 ＿＿＿으로 감사 메시지를 보냈어요.",
       "answer": "카톡",
       "fullKo": "차에서 카톡으로 감사 메시지를 보냈어요.",
@@ -9429,7 +9429,7 @@
     },
     {
       "id": "cloze_a1_0192",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿은 절하는 토끼로 했어요.",
       "answer": "이모티콘",
       "fullKo": "이모티콘은 절하는 토끼로 했어요.",
@@ -9444,7 +9444,7 @@
     },
     {
       "id": "cloze_a1_0193",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "다음 날 ＿＿＿를 짧게 물었어요.",
       "answer": "안부",
       "fullKo": "다음 날 안부를 짧게 물었어요.",
@@ -9459,7 +9459,7 @@
     },
     {
       "id": "cloze_a1_0194",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿ 전에 현우에게 먼저 보여 줬어요.",
       "answer": "사진 전송",
       "fullKo": "사진 전송 전에 현우에게 먼저 보여 줬어요.",
@@ -9474,7 +9474,7 @@
     },
     {
       "id": "cloze_a1_0195",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿은 따뜻했다고만 적었어요.",
       "answer": "방문 소감",
       "fullKo": "방문 소감은 따뜻했다고만 적었어요.",
@@ -9579,7 +9579,7 @@
     },
     {
       "id": "cloze_a2_0082",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿ 않아도 천천히 말하면 통해요.",
       "answer": "유창하지",
       "fullKo": "유창하지 않아도 천천히 말하면 통해요.",
@@ -9654,7 +9654,7 @@
     },
     {
       "id": "cloze_a2_0087",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿이 안 되면 현우 얼굴을 봐요.",
       "answer": "분위기 파악",
       "fullKo": "분위기 파악이 안 되면 현우 얼굴을 봐요.",
@@ -9699,7 +9699,7 @@
     },
     {
       "id": "cloze_a2_0090",
-      "level": "a2",
+      "level": "b2",
       "sentenceKo": "어른인데 ＿＿＿을 두 번 하고 받았어요.",
       "answer": "세뱃돈 사양",
       "fullKo": "어른인데 세뱃돈 사양을 두 번 하고 받았어요.",
@@ -9714,7 +9714,7 @@
     },
     {
       "id": "cloze_a2_0091",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿ 가게가 명절 전날 문을 일찍 닫았어요.",
       "answer": "한복 대여",
       "fullKo": "한복 대여 가게가 명절 전날 문을 일찍 닫았어요.",
@@ -10029,7 +10029,7 @@
     },
     {
       "id": "cloze_a2_0112",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "누가 내 발음을 ＿＿＿ 그냥 웃어넘기면 돼요.",
       "answer": "놀려도",
       "fullKo": "누가 내 발음을 놀려도 그냥 웃어넘기면 돼요.",
@@ -10044,7 +10044,7 @@
     },
     {
       "id": "cloze_a2_0113",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "현우가 제 ＿＿＿ 들어 줘서 든든했어요.",
       "answer": "편을",
       "fullKo": "현우가 제 편을 들어 줘서 든든했어요.",
@@ -10059,7 +10059,7 @@
     },
     {
       "id": "cloze_a2_0114",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿이 생기기 전에 제가 먼저 하나를 정했어요.",
       "answer": "별명",
       "fullKo": "별명이 생기기 전에 제가 먼저 하나를 정했어요.",
@@ -10074,7 +10074,7 @@
     },
     {
       "id": "cloze_a2_0115",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿ 하니 존댓말이 반말로 넘어갔어요.",
       "answer": "게임 한 판",
       "fullKo": "게임 한 판 하니 존댓말이 반말로 넘어갔어요.",
@@ -10089,7 +10089,7 @@
     },
     {
       "id": "cloze_a2_0116",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "현우가 어릴 때 이야기는 아무에게도 ＿＿＿ 했어요.",
       "answer": "말하지 않기로",
       "fullKo": "현우가 어릴 때 이야기는 아무에게도 말하지 않기로 했어요.",
@@ -10104,7 +10104,7 @@
     },
     {
       "id": "cloze_a2_0117",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "현우의 이야기를 들으면서 계속 ＿＿＿를 쳤어요.",
       "answer": "맞장구",
       "fullKo": "현우의 이야기를 들으면서 계속 맞장구를 쳤어요.",
@@ -10119,7 +10119,7 @@
     },
     {
       "id": "cloze_a2_0118",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿을 현우가 못 보면 그냥 웃어요.",
       "answer": "통역 눈짓",
       "fullKo": "통역 눈짓을 현우가 못 보면 그냥 웃어요.",
@@ -10134,7 +10134,7 @@
     },
     {
       "id": "cloze_a2_0119",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿ 보면 존댓말 실수는 잊혀요.",
       "answer": "같이 웃다",
       "fullKo": "같이 웃다 보면 존댓말 실수는 잊혀요.",
@@ -10149,7 +10149,7 @@
     },
     {
       "id": "cloze_a2_0120",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿을 들면 현우가 눈을 흘겨요.",
       "answer": "동생 편",
       "fullKo": "동생 편을 들면 현우가 눈을 흘겨요.",
@@ -10164,7 +10164,7 @@
     },
     {
       "id": "cloze_a2_0121",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿에 입장하자마자 이모티콘이 쏟아졌어요.",
       "answer": "단톡방",
       "fullKo": "단톡방에 입장하자마자 이모티콘이 쏟아졌어요.",
@@ -10179,7 +10179,7 @@
     },
     {
       "id": "cloze_a2_0122",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿ 봉투가 두 개라서 양손에 들었어요.",
       "answer": "남은 반찬",
       "fullKo": "남은 반찬 봉투가 두 개라서 양손에 들었어요.",
@@ -10194,7 +10194,7 @@
     },
     {
       "id": "cloze_a2_0123",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿를 하자 동생이 더 좋아했어요.",
       "answer": "반말 실수",
       "fullKo": "반말 실수를 하자 동생이 더 좋아했어요.",
@@ -10389,7 +10389,7 @@
     },
     {
       "id": "cloze_a2_0136",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "가려는데 반찬을 ＿＿＿셔서 가방이 무거워졌어요.",
       "answer": "싸 주",
       "fullKo": "가려는데 반찬을 싸 주셔서 가방이 무거워졌어요.",
@@ -10404,7 +10404,7 @@
     },
     {
       "id": "cloze_a2_0137",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿가 세 개라 버스에서 조심했어요.",
       "answer": "밀폐 용기",
       "fullKo": "밀폐 용기가 세 개라 버스에서 조심했어요.",
@@ -10419,7 +10419,7 @@
     },
     {
       "id": "cloze_a2_0138",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿이 샐까 봐 봉지를 두 겹으로 했어요.",
       "answer": "김치 국물",
       "fullKo": "김치 국물이 샐까 봐 봉지를 두 겹으로 했어요.",
@@ -10434,7 +10434,7 @@
     },
     {
       "id": "cloze_a2_0139",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿에 넣으라고 스티커까지 붙여 주셨어요.",
       "answer": "냉동실",
       "fullKo": "냉동실에 넣으라고 스티커까지 붙여 주셨어요.",
@@ -10449,7 +10449,7 @@
     },
     {
       "id": "cloze_a2_0140",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿로 싼 그릇이 미끄러워서 양손으로 들었어요.",
       "answer": "보자기",
       "fullKo": "보자기로 싼 그릇이 미끄러워서 양손으로 들었어요.",
@@ -10464,7 +10464,7 @@
     },
     {
       "id": "cloze_a2_0141",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿가 얇아서 밑에 책을 받쳤어요.",
       "answer": "비닐봉지",
       "fullKo": "비닐봉지가 얇아서 밑에 책을 받쳤어요.",
@@ -10479,7 +10479,7 @@
     },
     {
       "id": "cloze_a2_0142",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿에 통이 있어서 엘리베이터 버튼을 팔꿈치로 눌렀어요.",
       "answer": "양손",
       "fullKo": "양손에 통이 있어서 엘리베이터 버튼을 팔꿈치로 눌렀어요.",
@@ -10494,7 +10494,7 @@
     },
     {
       "id": "cloze_a2_0143",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿이라고 쓴 메모를 뚜껑에 붙였어요.",
       "answer": "냉동 보관",
       "fullKo": "냉동 보관이라고 쓴 메모를 뚜껑에 붙였어요.",
@@ -10509,7 +10509,7 @@
     },
     {
       "id": "cloze_a2_0144",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿ 국물 냄새를 들고 가서 현우가 창문을 열었어요.",
       "answer": "집까지",
       "fullKo": "집까지 국물 냄새를 들고 가서 현우가 창문을 열었어요.",
@@ -10524,7 +10524,7 @@
     },
     {
       "id": "cloze_a2_0145",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿고 하자 아버지가 차까지 들어 주셨어요.",
       "answer": "가방이 무겁다",
       "fullKo": "가방이 무겁다고 하자 아버지가 차까지 들어 주셨어요.",
@@ -10539,7 +10539,7 @@
     },
     {
       "id": "cloze_a2_0146",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿ 샐까 봐 뚜껑을 두 번 확인했어요.",
       "answer": "국물",
       "fullKo": "국물 샐까 봐 뚜껑을 두 번 확인했어요.",
@@ -10554,7 +10554,7 @@
     },
     {
       "id": "cloze_a2_0147",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿가 두 개라서 현우와 나눠 들었어요.",
       "answer": "반찬 봉투",
       "fullKo": "반찬 봉투가 두 개라서 현우와 나눠 들었어요.",
@@ -10614,7 +10614,7 @@
     },
     {
       "id": "cloze_a2_0151",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿이 떨어져서 현우와 쪽지로 이야기했어요.",
       "answer": "좌석 배정",
       "fullKo": "좌석 배정이 떨어져서 현우와 쪽지로 이야기했어요.",
@@ -10749,7 +10749,7 @@
     },
     {
       "id": "cloze_a2_0160",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿은 동생이 먼저 하자고 했어요.",
       "answer": "반말 전환",
       "fullKo": "반말 전환은 동생이 먼저 하자고 했어요.",
@@ -10764,7 +10764,7 @@
     },
     {
       "id": "cloze_a2_0161",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "부모님 앞에서는 ＿＿＿를 약속했어요.",
       "answer": "존댓말 유지",
       "fullKo": "부모님 앞에서는 존댓말 유지를 약속했어요.",
@@ -10779,7 +10779,7 @@
     },
     {
       "id": "cloze_a2_0162",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿로 형이라고 불러서 현우 눈이 커졌어요.",
       "answer": "말실수",
       "fullKo": "말실수로 형이라고 불러서 현우 눈이 커졌어요.",
@@ -10794,7 +10794,7 @@
     },
     {
       "id": "cloze_a2_0163",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿을 차에 타기 전에 세 번 했어요.",
       "answer": "호칭 연습",
       "fullKo": "호칭 연습을 차에 타기 전에 세 번 했어요.",
@@ -10809,7 +10809,7 @@
     },
     {
       "id": "cloze_a2_0164",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿ 하셔도 처음엔 존댓말이 나왔어요.",
       "answer": "편하게 말해요",
       "fullKo": "편하게 말해요 하셔도 처음엔 존댓말이 나왔어요.",
@@ -10824,7 +10824,7 @@
     },
     {
       "id": "cloze_a2_0165",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿라고 하니 동생이 천천히 해 줬어요.",
       "answer": "아직 어색해요",
       "fullKo": "아직 어색해요라고 하니 동생이 천천히 해 줬어요.",
@@ -10839,7 +10839,7 @@
     },
     {
       "id": "cloze_a2_0166",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿이 남아서 게임에서도 요를 붙였어요.",
       "answer": "존댓말 버릇",
       "fullKo": "존댓말 버릇이 남아서 게임에서도 요를 붙였어요.",
@@ -10854,7 +10854,7 @@
     },
     {
       "id": "cloze_a2_0167",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿ 전에는 이름을 부르지 않았어요.",
       "answer": "나이 확인",
       "fullKo": "나이 확인 전에는 이름을 부르지 않았어요.",
@@ -10869,7 +10869,7 @@
     },
     {
       "id": "cloze_a2_0168",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "처음엔 ＿＿＿로 시작해 마음이 놓였어요.",
       "answer": "서로 존댓말",
       "fullKo": "처음엔 서로 존댓말로 시작해 마음이 놓였어요.",
@@ -10884,7 +10884,7 @@
     },
     {
       "id": "cloze_a2_0169",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿는 현우가 눈짓으로 도와줬어요.",
       "answer": "말투 맞추기",
       "fullKo": "말투 맞추기는 현우가 눈짓으로 도와줬어요.",
@@ -10899,7 +10899,7 @@
     },
     {
       "id": "cloze_a2_0170",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿를 사과하니 아버지가 괜찮다고 하셨어요.",
       "answer": "존댓말 실수",
       "fullKo": "존댓말 실수를 사과하니 아버지가 괜찮다고 하셨어요.",
@@ -10914,7 +10914,7 @@
     },
     {
       "id": "cloze_a2_0171",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿은 주차장에서만 하기로 했어요.",
       "answer": "반말 연습",
       "fullKo": "반말 연습은 주차장에서만 하기로 했어요.",
@@ -11443,8 +11443,8 @@
       "sentenceKo": "＿＿＿ 말라고 현우가 귓속말로 했어요.",
       "answer": "대충 하지",
       "fullKo": "대충 하지 말라고 현우가 귓속말로 했어요.",
-      "de": "Mach es nicht zu ungenau, flüsterte Hyunwoo.",
-      "en": "Hyunwoo whispered not to do it too roughly.",
+      "de": "Hyunwoo hat mir zugeflüstert, ich solle das nicht so schludrig machen.",
+      "en": "Hyunwoo whispered to me not to do it carelessly.",
       "distractors": [
         "웃고 넘기지",
         "이불 개지",
@@ -13783,8 +13783,8 @@
       "sentenceKo": "＿＿＿ 악수 타이밍이 맞았어요.",
       "answer": "관계부터 말하니",
       "fullKo": "관계부터 말하니 악수 타이밍이 맞았어요.",
-      "de": "Zuerst die Beziehung zu nennen traf den Moment zum Handschlag.",
-      "en": "Naming the relationship first hit the handshake timing.",
+      "de": "Weil ich zuerst gesagt habe, wie wir zueinander stehen, passte der Moment für den Handschlag.",
+      "en": "Because I said first how we were related, the handshake came at the right moment.",
       "distractors": [
         "예를 갖추니",
         "용돈 드리니",
@@ -14158,8 +14158,8 @@
       "sentenceKo": "＿＿＿ 감정이 아니라 표가 남았어요.",
       "answer": "공평을 설계하니",
       "fullKo": "공평을 설계하니 감정이 아니라 표가 남았어요.",
-      "de": "Fairness zu entwerfen ließ eine Tabelle statt nur Gefühle.",
-      "en": "Designing fairness left a chart, not only feelings.",
+      "de": "Als wir die Fairness bewusst geplant hatten, blieb am Ende eine Tabelle statt verletzter Gefühle.",
+      "en": "Once we had designed the fairness deliberately, what remained was a table, not hurt feelings.",
       "distractors": [
         "자리를 재협상하니",
         "프레임을 드러내니",
@@ -14308,8 +14308,8 @@
       "sentenceKo": "＿＿＿ 방이 잠시 조용해졌다가 다시 숨이 돌아왔어요.",
       "answer": "권력을 호명하니",
       "fullKo": "권력을 호명하니 방이 잠시 조용해졌다가 다시 숨이 돌아왔어요.",
-      "de": "Macht beim Namen zu nennen machte die Raumstille kurz, dann kam der Atem zurück.",
-      "en": "Naming the power quieted the room, then breath returned.",
+      "de": "Als ich die Macht beim Namen nannte, wurde es im Raum kurz still, dann kam der Atem zurück.",
+      "en": "When I named the power in the room, it went quiet for a moment, then everyone breathed again.",
       "distractors": [
         "이름을 되찾으니",
         "자리를 문서화하니",
@@ -14323,7 +14323,7 @@
       "sentenceKo": "기분이 아니라 ＿＿＿ 다음 결정이 투명해졌어요.",
       "answer": "절차를 요구하니",
       "fullKo": "기분이 아니라 절차를 요구하니 다음 결정이 투명해졌어요.",
-      "de": "Nicht Stimmung, ein Verfahren zu verlangen machte die nächste Entscheidung klarer.",
+      "de": "Nicht die Stimmung, sondern ein Verfahren zu verlangen machte die nächste Entscheidung transparent.",
       "en": "Demanding a procedure, not a mood, made the next decision clearer.",
       "distractors": [
         "기억을 재배치하니",
@@ -14503,8 +14503,8 @@
       "sentenceKo": "＿＿＿ 내가 손님만은 아니게 됐어요.",
       "answer": "기억을 재배치하자",
       "fullKo": "기억을 재배치하자 내가 손님만은 아니게 됐어요.",
-      "de": "Erinnerung neu zu ordnen machte mich zu mehr als nur Gast.",
-      "en": "Rearranging memory made me more than only a guest.",
+      "de": "Als wir die Erinnerungen neu geordnet hatten, war ich nicht mehr nur ein Gast.",
+      "en": "Once the memories were rearranged, I was no longer just a guest.",
       "distractors": [
         "서사를 공유하자",
         "이름을 되찾자",
@@ -14518,8 +14518,8 @@
       "sentenceKo": "＿＿＿ 한 사람의 농담이 모두의 역사가 되지 않았어요.",
       "answer": "서사를 공유하자",
       "fullKo": "서사를 공유하자 한 사람의 농담이 모두의 역사가 되지 않았어요.",
-      "de": "Die Erzählung zu teilen hinderte den Witz einer Person, aller Geschichte zu werden.",
-      "en": "Sharing authorship stopped one person's joke from becoming everyone's history.",
+      "de": "Weil wir die Erzählung gemeinsam trugen, wurde aus dem Scherz einer Person nicht die Geschichte aller.",
+      "en": "Because we shared the story, one person's joke did not become everyone's history.",
       "distractors": [
         "자리를 문서화하자",
         "절차를 요구하자",
@@ -14709,7 +14709,7 @@
     },
     {
       "id": "cloze_a1_0208",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "이 ＿＿＿를 하루에 두 번 발라요.",
       "answer": "연고",
       "fullKo": "이 연고를 하루에 두 번 발라요.",
@@ -14724,7 +14724,7 @@
     },
     {
       "id": "cloze_a1_0209",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "약국에서 ＿＿＿를 한 통 샀어요.",
       "answer": "마스크",
       "fullKo": "약국에서 마스크를 한 통 샀어요.",
@@ -14739,7 +14739,7 @@
     },
     {
       "id": "cloze_a1_0210",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿ 앞에서 카드를 꺼냈어요.",
       "answer": "계산대",
       "fullKo": "계산대 앞에서 카드를 꺼냈어요.",
@@ -14754,7 +14754,7 @@
     },
     {
       "id": "cloze_a1_0211",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿을 종이에 적어 주세요.",
       "answer": "복용 시간",
       "fullKo": "복용 시간을 종이에 적어 주세요.",
@@ -14769,7 +14769,7 @@
     },
     {
       "id": "cloze_a1_0212",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿를 작은 걸로 주세요.",
       "answer": "일회용 밴드",
       "fullKo": "일회용 밴드를 작은 걸로 주세요.",
@@ -14784,7 +14784,7 @@
     },
     {
       "id": "cloze_a1_0213",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿가 어디에 있어요?",
       "answer": "체온계",
       "fullKo": "체온계가 어디에 있어요?",
@@ -14799,7 +14799,7 @@
     },
     {
       "id": "cloze_a1_0214",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "목이 아파서 ＿＿＿을 찾고 있어요.",
       "answer": "가글액",
       "fullKo": "목이 아파서 가글액을 찾고 있어요.",
@@ -14814,7 +14814,7 @@
     },
     {
       "id": "cloze_a1_0215",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿를 식후에 먹어요.",
       "answer": "비타민제",
       "fullKo": "비타민제를 식후에 먹어요.",
@@ -14829,7 +14829,7 @@
     },
     {
       "id": "cloze_a1_0216",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "이 약에 ＿＿＿가 있는지 확인해요.",
       "answer": "알레르기",
       "fullKo": "이 약에 알레르기가 있는지 확인해요.",
@@ -14844,7 +14844,7 @@
     },
     {
       "id": "cloze_a1_0217",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "이 약은 ＿＿＿으로 살 수 있어요.",
       "answer": "무처방",
       "fullKo": "이 약은 무처방으로 살 수 있어요.",
@@ -14859,7 +14859,7 @@
     },
     {
       "id": "cloze_a1_0218",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "허리가 아파서 ＿＿＿를 붙였어요.",
       "answer": "파스",
       "fullKo": "허리가 아파서 파스를 붙였어요.",
@@ -14874,7 +14874,7 @@
     },
     {
       "id": "cloze_a1_0219",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "속이 쓰려서 ＿＿＿를 샀어요.",
       "answer": "제산제",
       "fullKo": "속이 쓰려서 제산제를 샀어요.",
@@ -14889,7 +14889,7 @@
     },
     {
       "id": "cloze_a1_0220",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "일요일에는 ＿＿＿을 자고 싶어요.",
       "answer": "늦잠",
       "fullKo": "일요일에는 늦잠을 자고 싶어요.",
@@ -15069,7 +15069,7 @@
     },
     {
       "id": "cloze_a1_0232",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿을 두 번 눌렀어요.",
       "answer": "초인종",
       "fullKo": "초인종을 두 번 눌렀어요.",
@@ -15084,7 +15084,7 @@
     },
     {
       "id": "cloze_a1_0233",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿에 신발을 두지 마세요.",
       "answer": "복도",
       "fullKo": "복도에 신발을 두지 마세요.",
@@ -15099,7 +15099,7 @@
     },
     {
       "id": "cloze_a1_0234",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿에 택배가 잘못 왔어요.",
       "answer": "이웃집",
       "fullKo": "이웃집에 택배가 잘못 왔어요.",
@@ -15114,7 +15114,7 @@
     },
     {
       "id": "cloze_a1_0235",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "저희 ＿＿＿는 다섯 층이에요.",
       "answer": "층수",
       "fullKo": "저희 층수는 다섯 층이에요.",
@@ -15129,7 +15129,7 @@
     },
     {
       "id": "cloze_a1_0236",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "플라스틱은 ＿＿＿하세요.",
       "answer": "분리배출",
       "fullKo": "플라스틱은 분리배출하세요.",
@@ -15144,7 +15144,7 @@
     },
     {
       "id": "cloze_a1_0237",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿에 이름을 새로 붙였어요.",
       "answer": "문패",
       "fullKo": "문패에 이름을 새로 붙였어요.",
@@ -15159,7 +15159,7 @@
     },
     {
       "id": "cloze_a1_0238",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿ 비밀번호가 바뀌었어요.",
       "answer": "공동현관",
       "fullKo": "공동현관 비밀번호가 바뀌었어요.",
@@ -15174,7 +15174,7 @@
     },
     {
       "id": "cloze_a1_0239",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "밤에는 ＿＿＿이 나지 않게 조심해야 돼요.",
       "answer": "층간소음",
       "fullKo": "밤에는 층간소음이 나지 않게 조심해야 돼요.",
@@ -15189,7 +15189,7 @@
     },
     {
       "id": "cloze_a1_0240",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "＿＿＿에 비밀번호를 넣어요.",
       "answer": "택배함",
       "fullKo": "택배함에 비밀번호를 넣어요.",
@@ -15204,7 +15204,7 @@
     },
     {
       "id": "cloze_a1_0241",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "엘리베이터에 ＿＿＿이 있어요.",
       "answer": "공지문",
       "fullKo": "엘리베이터에 공지문이 있어요.",
@@ -15219,7 +15219,7 @@
     },
     {
       "id": "cloze_a1_0242",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "입구 앞 ＿＿＿는 안 돼요.",
       "answer": "무단주차",
       "fullKo": "입구 앞 무단주차는 안 돼요.",
@@ -15234,7 +15234,7 @@
     },
     {
       "id": "cloze_a1_0243",
-      "level": "a1",
+      "level": "b1",
       "sentenceKo": "아침에 ＿＿＿를 했어요.",
       "answer": "이웃 인사",
       "fullKo": "아침에 이웃 인사를 했어요.",
@@ -15249,7 +15249,7 @@
     },
     {
       "id": "cloze_a1_0244",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿ 안에 펜이 세 자루 있어요.",
       "answer": "필통",
       "fullKo": "필통 안에 펜이 세 자루 있어요.",
@@ -15264,7 +15264,7 @@
     },
     {
       "id": "cloze_a1_0245",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "연필 실수를 ＿＿＿로 지워요.",
       "answer": "지우개",
       "fullKo": "연필 실수를 지우개로 지워요.",
@@ -15279,7 +15279,7 @@
     },
     {
       "id": "cloze_a1_0246",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "이 종이를 ＿＿＿로 잘라 주세요.",
       "answer": "가위",
       "fullKo": "이 종이를 가위로 잘라 주세요.",
@@ -15294,7 +15294,7 @@
     },
     {
       "id": "cloze_a1_0247",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "자로 선을 ＿＿＿ 그어요.",
       "answer": "반듯하게",
       "fullKo": "자로 선을 반듯하게 그어요.",
@@ -15309,7 +15309,7 @@
     },
     {
       "id": "cloze_a1_0248",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "지도를 ＿＿＿로 칠했어요.",
       "answer": "색연필",
       "fullKo": "지도를 색연필로 칠했어요.",
@@ -15324,7 +15324,7 @@
     },
     {
       "id": "cloze_a1_0249",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "한글을 ＿＿＿에 여러 번 썼어요.",
       "answer": "연습장",
       "fullKo": "한글을 연습장에 여러 번 썼어요.",
@@ -15339,7 +15339,7 @@
     },
     {
       "id": "cloze_a1_0250",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "내일 수업 ＿＿＿을 가방에 넣어요.",
       "answer": "준비물",
       "fullKo": "내일 수업 준비물을 가방에 넣어요.",
@@ -15354,7 +15354,7 @@
     },
     {
       "id": "cloze_a1_0251",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "숙제를 ＿＿＿ 전에 이름을 써요.",
       "answer": "제출하다",
       "fullKo": "숙제를 제출하다 전에 이름을 써요.",
@@ -15369,7 +15369,7 @@
     },
     {
       "id": "cloze_a1_0252",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "선생님이 ＿＿＿에 단어를 썼어요.",
       "answer": "화이트보드",
       "fullKo": "선생님이 화이트보드에 단어를 썼어요.",
@@ -15384,7 +15384,7 @@
     },
     {
       "id": "cloze_a1_0253",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "첫날에는 ＿＿＿ 이름을 확인해요.",
       "answer": "자리표",
       "fullKo": "첫날에는 자리표 이름을 확인해요.",
@@ -15399,7 +15399,7 @@
     },
     {
       "id": "cloze_a1_0254",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "중요한 문장은 빨리 ＿＿＿ 보면 손이 아파요.",
       "answer": "필기하다",
       "fullKo": "중요한 문장은 빨리 필기하다 보면 손이 아파요.",
@@ -15414,7 +15414,7 @@
     },
     {
       "id": "cloze_a1_0255",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "수업 시작 전에 ＿＿＿?",
       "answer": "준비됐나요",
       "fullKo": "수업 시작 전에 준비됐나요?",
@@ -15429,7 +15429,7 @@
     },
     {
       "id": "cloze_a1_0256",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "다음 역에서 ＿＿＿하세요.",
       "answer": "환승",
       "fullKo": "다음 역에서 환승하세요.",
@@ -15444,7 +15444,7 @@
     },
     {
       "id": "cloze_a1_0257",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "사 번 ＿＿＿로 나가면 은행이 있어요.",
       "answer": "출구",
       "fullKo": "사 번 출구로 나가면 은행이 있어요.",
@@ -15459,7 +15459,7 @@
     },
     {
       "id": "cloze_a1_0258",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿에서 노란 선 뒤에 서요.",
       "answer": "승강장",
       "fullKo": "승강장에서 노란 선 뒤에 서요.",
@@ -15474,7 +15474,7 @@
     },
     {
       "id": "cloze_a1_0259",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "오늘 ＿＿＿는 열두 시예요.",
       "answer": "막차",
       "fullKo": "오늘 막차는 열두 시예요.",
@@ -15489,7 +15489,7 @@
     },
     {
       "id": "cloze_a1_0260",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "시청역에서 ＿＿＿하면 됩니다.",
       "answer": "하차",
       "fullKo": "시청역에서 하차하면 됩니다.",
@@ -15504,7 +15504,7 @@
     },
     {
       "id": "cloze_a1_0261",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "문이 열리면 천천히 ＿＿＿하세요.",
       "answer": "승차",
       "fullKo": "문이 열리면 천천히 승차하세요.",
@@ -15519,7 +15519,7 @@
     },
     {
       "id": "cloze_a1_0262",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "한 달 ＿＿＿을 충전했어요.",
       "answer": "정기권",
       "fullKo": "한 달 정기권을 충전했어요.",
@@ -15534,7 +15534,7 @@
     },
     {
       "id": "cloze_a1_0263",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿에 카드를 찍고 들어가요.",
       "answer": "개찰구",
       "fullKo": "개찰구에 카드를 찍고 들어가요.",
@@ -15549,7 +15549,7 @@
     },
     {
       "id": "cloze_a1_0264",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿에서 빨간 선을 찾아요.",
       "answer": "노선도",
       "fullKo": "노선도에서 빨간 선을 찾아요.",
@@ -15564,7 +15564,7 @@
     },
     {
       "id": "cloze_a1_0265",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿가 나오면 일어나요.",
       "answer": "도착 안내",
       "fullKo": "도착 안내가 나오면 일어나요.",
@@ -15579,7 +15579,7 @@
     },
     {
       "id": "cloze_a1_0266",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿이 부족해서 충전이 필요해요.",
       "answer": "카드 잔액",
       "fullKo": "카드 잔액이 부족해서 충전이 필요해요.",
@@ -15594,7 +15594,7 @@
     },
     {
       "id": "cloze_a1_0267",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿은 오른쪽이에요.",
       "answer": "내리는 문",
       "fullKo": "내리는 문은 오른쪽이에요.",
@@ -15609,7 +15609,7 @@
     },
     {
       "id": "cloze_a1_0268",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "바람이 불어서 ＿＿＿을 입어요.",
       "answer": "겉옷",
       "fullKo": "바람이 불어서 겉옷을 입어요.",
@@ -15624,7 +15624,7 @@
     },
     {
       "id": "cloze_a1_0269",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "오늘 ＿＿＿가 많아서 마스크를 써요.",
       "answer": "미세먼지",
       "fullKo": "오늘 미세먼지가 많아서 마스크를 써요.",
@@ -15639,7 +15639,7 @@
     },
     {
       "id": "cloze_a1_0270",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿를 보고 옷을 골라요.",
       "answer": "일기예보",
       "fullKo": "일기예보를 보고 옷을 골라요.",
@@ -15654,7 +15654,7 @@
     },
     {
       "id": "cloze_a1_0271",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "소나기가 와서 ＿＿＿를 챙겼어요.",
       "answer": "우비",
       "fullKo": "소나기가 와서 우비를 챙겼어요.",
@@ -15669,7 +15669,7 @@
     },
     {
       "id": "cloze_a1_0272",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "낮에는 ＿＿＿이 편해요.",
       "answer": "얇은 옷",
       "fullKo": "낮에는 얇은 옷이 편해요.",
@@ -15684,7 +15684,7 @@
     },
     {
       "id": "cloze_a1_0273",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "밤에는 ＿＿＿이 필요해요.",
       "answer": "두꺼운 옷",
       "fullKo": "밤에는 두꺼운 옷이 필요해요.",
@@ -15699,7 +15699,7 @@
     },
     {
       "id": "cloze_a1_0274",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "봄에는 ＿＿＿가 커서 겉옷이 필요해요.",
       "answer": "일교차",
       "fullKo": "봄에는 일교차가 커서 겉옷이 필요해요.",
@@ -15714,7 +15714,7 @@
     },
     {
       "id": "cloze_a1_0275",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "오늘 공기가 ＿＿＿ 느껴져서 창문을 열어요.",
       "answer": "습하다",
       "fullKo": "오늘 공기가 습하다 느껴져서 창문을 열어요.",
@@ -15729,7 +15729,7 @@
     },
     {
       "id": "cloze_a1_0276",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "아침이 ＿＿＿ 해서 목을 가렸어요.",
       "answer": "쌀쌀하다",
       "fullKo": "아침이 쌀쌀하다 해서 목을 가렸어요.",
@@ -15744,7 +15744,7 @@
     },
     {
       "id": "cloze_a1_0277",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "오후 예보가 ＿＿＿이에요.",
       "answer": "맑음",
       "fullKo": "오후 예보가 맑음이에요.",
@@ -15759,7 +15759,7 @@
     },
     {
       "id": "cloze_a1_0278",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "＿＿＿가 금방 지나갈 거예요.",
       "answer": "소나기",
       "fullKo": "소나기가 금방 지나갈 거예요.",
@@ -15774,7 +15774,7 @@
     },
     {
       "id": "cloze_a1_0279",
-      "level": "a1",
+      "level": "a2",
       "sentenceKo": "일교차가 클 때는 옷을 ＿＿＿ 해요.",
       "answer": "겹쳐 입다",
       "fullKo": "일교차가 클 때는 옷을 겹쳐 입다 해요.",
@@ -15969,7 +15969,7 @@
     },
     {
       "id": "cloze_a2_0172",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "이 ＿＿＿가 데이터량이 더 많아요.",
       "answer": "요금제",
       "fullKo": "이 요금제가 데이터량이 더 많아요.",
@@ -15984,7 +15984,7 @@
     },
     {
       "id": "cloze_a2_0173",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "이번 달 ＿＿＿이 벌써 끝났어요.",
       "answer": "데이터량",
       "fullKo": "이번 달 데이터량이 벌써 끝났어요.",
@@ -15999,7 +15999,7 @@
     },
     {
       "id": "cloze_a2_0174",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "주말에는 데이터가 ＿＿＿이에요.",
       "answer": "무제한",
       "fullKo": "주말에는 데이터가 무제한이에요.",
@@ -16014,7 +16014,7 @@
     },
     {
       "id": "cloze_a2_0175",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿이 올해 십이월에 끝나요.",
       "answer": "약정",
       "fullKo": "약정이 올해 십이월에 끝나요.",
@@ -16029,7 +16029,7 @@
     },
     {
       "id": "cloze_a2_0176",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "지금 바꾸면 ＿＿＿이 나와요.",
       "answer": "위약금",
       "fullKo": "지금 바꾸면 위약금이 나와요.",
@@ -16044,7 +16044,7 @@
     },
     {
       "id": "cloze_a2_0177",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "독일 가기 전에 ＿＿＿을 신청해요.",
       "answer": "로밍",
       "fullKo": "독일 가기 전에 로밍을 신청해요.",
@@ -16059,7 +16059,7 @@
     },
     {
       "id": "cloze_a2_0178",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "필요 없는 ＿＿＿를 껐어요.",
       "answer": "부가서비스",
       "fullKo": "필요 없는 부가서비스를 껐어요.",
@@ -16074,7 +16074,7 @@
     },
     {
       "id": "cloze_a2_0179",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "이번 달 ＿＿＿가 평소보다 높아요.",
       "answer": "청구서",
       "fullKo": "이번 달 청구서가 평소보다 높아요.",
@@ -16089,7 +16089,7 @@
     },
     {
       "id": "cloze_a2_0180",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "요금은 ＿＿＿로 빠져요.",
       "answer": "자동이체",
       "fullKo": "요금은 자동이체로 빠져요.",
@@ -16104,7 +16104,7 @@
     },
     {
       "id": "cloze_a2_0181",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿에 오전에 전화했어요.",
       "answer": "고객센터",
       "fullKo": "고객센터에 오전에 전화했어요.",
@@ -16119,7 +16119,7 @@
     },
     {
       "id": "cloze_a2_0182",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "새 번호를 ＿＿＿ 전에 신분증이 필요해요.",
       "answer": "개통하다",
       "fullKo": "새 번호를 개통하다 전에 신분증이 필요해요.",
@@ -16134,7 +16134,7 @@
     },
     {
       "id": "cloze_a2_0183",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "부족하면 ＿＿＿을 추가로 사요.",
       "answer": "데이터 충전",
       "fullKo": "부족하면 데이터 충전을 추가로 사요.",
@@ -16149,7 +16149,7 @@
     },
     {
       "id": "cloze_a2_0184",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "월세를 오늘 ＿＿＿ 전에 잔고를 봐요.",
       "answer": "이체하다",
       "fullKo": "월세를 오늘 이체하다 전에 잔고를 봐요.",
@@ -16164,7 +16164,7 @@
     },
     {
       "id": "cloze_a2_0185",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "인터넷 뱅킹 ＿＿＿가 만료됐어요.",
       "answer": "인증서",
       "fullKo": "인터넷 뱅킹 인증서가 만료됐어요.",
@@ -16179,7 +16179,7 @@
     },
     {
       "id": "cloze_a2_0186",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿ 번호를 두 개 입력해요.",
       "answer": "보안카드",
       "fullKo": "보안카드 번호를 두 개 입력해요.",
@@ -16194,7 +16194,7 @@
     },
     {
       "id": "cloze_a2_0187",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿를 뽑고 앉아서 기다려요.",
       "answer": "대기번호",
       "fullKo": "대기번호를 뽑고 앉아서 기다려요.",
@@ -16209,7 +16209,7 @@
     },
     {
       "id": "cloze_a2_0188",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "하루 이체 ＿＿＿를 올렸어요.",
       "answer": "한도",
       "fullKo": "하루 이체 한도를 올렸어요.",
@@ -16224,7 +16224,7 @@
     },
     {
       "id": "cloze_a2_0189",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿이 서류를 천천히 설명해요.",
       "answer": "창구직원",
       "fullKo": "창구직원이 서류를 천천히 설명해요.",
@@ -16239,7 +16239,7 @@
     },
     {
       "id": "cloze_a2_0190",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "창구에서 ＿＿＿를 부탁했어요.",
       "answer": "통장정리",
       "fullKo": "창구에서 통장정리를 부탁했어요.",
@@ -16254,7 +16254,7 @@
     },
     {
       "id": "cloze_a2_0191",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "계좌를 만들 때 ＿＿＿이 필요해요.",
       "answer": "인감",
       "fullKo": "계좌를 만들 때 인감이 필요해요.",
@@ -16269,7 +16269,7 @@
     },
     {
       "id": "cloze_a2_0192",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿을 위해 신분증을 보여 줬어요.",
       "answer": "비밀번호 재설정",
       "fullKo": "비밀번호 재설정을 위해 신분증을 보여 줬어요.",
@@ -16284,7 +16284,7 @@
     },
     {
       "id": "cloze_a2_0193",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿이 네 시라서 서둘렀어요.",
       "answer": "창구 마감",
       "fullKo": "창구 마감이 네 시라서 서둘렀어요.",
@@ -16299,7 +16299,7 @@
     },
     {
       "id": "cloze_a2_0194",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿ 문자가 아직 안 왔어요.",
       "answer": "입금 확인",
       "fullKo": "입금 확인 문자가 아직 안 왔어요.",
@@ -16314,7 +16314,7 @@
     },
     {
       "id": "cloze_a2_0195",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿를 잠시 낮춰 두었어요.",
       "answer": "출금 한도",
       "fullKo": "출금 한도를 잠시 낮춰 두었어요.",
@@ -16689,7 +16689,7 @@
     },
     {
       "id": "cloze_a2_0220",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿에 주차 스티커를 받으러 가요.",
       "answer": "관리사무소",
       "fullKo": "관리사무소에 주차 스티커를 받으러 가요.",
@@ -16704,7 +16704,7 @@
     },
     {
       "id": "cloze_a2_0221",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿만 지하 주차장을 쓸 수 있어요.",
       "answer": "입주민",
       "fullKo": "입주민만 지하 주차장을 쓸 수 있어요.",
@@ -16719,7 +16719,7 @@
     },
     {
       "id": "cloze_a2_0222",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿를 앞 유리에 붙여요.",
       "answer": "주차스티커",
       "fullKo": "주차스티커를 앞 유리에 붙여요.",
@@ -16734,7 +16734,7 @@
     },
     {
       "id": "cloze_a2_0223",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿는 지정된 통에만 넣어요.",
       "answer": "음식물 봉투",
       "fullKo": "음식물 봉투는 지정된 통에만 넣어요.",
@@ -16749,7 +16749,7 @@
     },
     {
       "id": "cloze_a2_0224",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "열 시 이후에는 ＿＿＿을 피해요.",
       "answer": "야간소음",
       "fullKo": "열 시 이후에는 야간소음을 피해요.",
@@ -16764,7 +16764,7 @@
     },
     {
       "id": "cloze_a2_0225",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿이 세게 닫히지 않게 잡아요.",
       "answer": "현관문",
       "fullKo": "현관문이 세게 닫히지 않게 잡아요.",
@@ -16779,7 +16779,7 @@
     },
     {
       "id": "cloze_a2_0226",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "손님은 ＿＿＿을 받아 입장해요.",
       "answer": "방문증",
       "fullKo": "손님은 방문증을 받아 입장해요.",
@@ -16794,7 +16794,7 @@
     },
     {
       "id": "cloze_a2_0227",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "박스는 ＿＿＿에서 접어서 넣어요.",
       "answer": "재활용실",
       "fullKo": "박스는 재활용실에서 접어서 넣어요.",
@@ -16809,7 +16809,7 @@
     },
     {
       "id": "cloze_a2_0228",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "소파는 ＿＿＿로 신청해야 해요.",
       "answer": "대형폐기",
       "fullKo": "소파는 대형폐기로 신청해야 해요.",
@@ -16824,7 +16824,7 @@
     },
     {
       "id": "cloze_a2_0229",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "밤에 경비 ＿＿＿이 두 번 돌아요.",
       "answer": "순찰",
       "fullKo": "밤에 경비 순찰이 두 번 돌아요.",
@@ -16839,7 +16839,7 @@
     },
     {
       "id": "cloze_a2_0230",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "흡연 ＿＿＿이 반복되면 경고가 와요.",
       "answer": "위반",
       "fullKo": "흡연 위반이 반복되면 경고가 와요.",
@@ -16854,7 +16854,7 @@
     },
     {
       "id": "cloze_a2_0231",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿에서 엘리베이터 수리를 정했어요.",
       "answer": "입주자 회의",
       "fullKo": "입주자 회의에서 엘리베이터 수리를 정했어요.",
@@ -16869,7 +16869,7 @@
     },
     {
       "id": "cloze_a2_0232",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "이번 달부터 ＿＿＿이 올랐어요.",
       "answer": "시급",
       "fullKo": "이번 달부터 시급이 올랐어요.",
@@ -16884,7 +16884,7 @@
     },
     {
       "id": "cloze_a2_0233",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "다음 주 ＿＿＿가 오늘 올라와요.",
       "answer": "근무표",
       "fullKo": "다음 주 근무표가 오늘 올라와요.",
@@ -16899,7 +16899,7 @@
     },
     {
       "id": "cloze_a2_0234",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "열 시 이후에는 ＿＿＿이 붙어요.",
       "answer": "야간수당",
       "fullKo": "열 시 이후에는 야간수당이 붙어요.",
@@ -16914,7 +16914,7 @@
     },
     {
       "id": "cloze_a2_0235",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "네 시간마다 ＿＿＿이 십오 분이에요.",
       "answer": "휴게시간",
       "fullKo": "네 시간마다 휴게시간이 십오 분이에요.",
@@ -16929,7 +16929,7 @@
     },
     {
       "id": "cloze_a2_0236",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "마감 전에 ＿＿＿를 짧게 해요.",
       "answer": "인수인계",
       "fullKo": "마감 전에 인수인계를 짧게 해요.",
@@ -16944,7 +16944,7 @@
     },
     {
       "id": "cloze_a2_0237",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "새 ＿＿＿에게 커피 기계를 보여 줬어요.",
       "answer": "알바생",
       "fullKo": "새 알바생에게 커피 기계를 보여 줬어요.",
@@ -16959,7 +16959,7 @@
     },
     {
       "id": "cloze_a2_0238",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "일주일에 십오 시간을 일하면 ＿＿＿이 나와요.",
       "answer": "주휴수당",
       "fullKo": "일주일에 십오 시간을 일하면 주휴수당이 나와요.",
@@ -16974,7 +16974,7 @@
     },
     {
       "id": "cloze_a2_0239",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "첫날에 ＿＿＿을 읽고 서명해요.",
       "answer": "근로계약",
       "fullKo": "첫날에 근로계약을 읽고 서명해요.",
@@ -16989,7 +16989,7 @@
     },
     {
       "id": "cloze_a2_0240",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "여섯 시에 ＿＿＿가 있어서 조금 일찍 와요.",
       "answer": "교대",
       "fullKo": "여섯 시에 교대가 있어서 조금 일찍 와요.",
@@ -17004,7 +17004,7 @@
     },
     {
       "id": "cloze_a2_0241",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿에게 휴가를 미리 말했어요.",
       "answer": "점장",
       "fullKo": "점장에게 휴가를 미리 말했어요.",
@@ -17019,7 +17019,7 @@
     },
     {
       "id": "cloze_a2_0242",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "가게를 ＿＿＿ 전에 바닥을 닦아요.",
       "answer": "마감하다",
       "fullKo": "가게를 마감하다 전에 바닥을 닦아요.",
@@ -17034,7 +17034,7 @@
     },
     {
       "id": "cloze_a2_0243",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿를 문자로 받았어요.",
       "answer": "시급 명세서",
       "fullKo": "시급 명세서를 문자로 받았어요.",
@@ -17049,7 +17049,7 @@
     },
     {
       "id": "cloze_a2_0244",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "지하철 ＿＿＿을 역 사무실에 문의했어요.",
       "answer": "분실물",
       "fullKo": "지하철 분실물을 역 사무실에 문의했어요.",
@@ -17064,7 +17064,7 @@
     },
     {
       "id": "cloze_a2_0245",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "우산을 ＿＿＿ 바로 안내데스크에 맡겼어요.",
       "answer": "습득하다",
       "fullKo": "우산을 습득하다 바로 안내데스크에 맡겼어요.",
@@ -17079,7 +17079,7 @@
     },
     {
       "id": "cloze_a2_0246",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "지갑은 ＿＿＿에 삼 일 동안 있어요.",
       "answer": "보관함",
       "fullKo": "지갑은 보관함에 삼 일 동안 있어요.",
@@ -17094,7 +17094,7 @@
     },
     {
       "id": "cloze_a2_0247",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "찾을 때 ＿＿＿을 보여 주세요.",
       "answer": "신분증",
       "fullKo": "찾을 때 신분증을 보여 주세요.",
@@ -17109,7 +17109,7 @@
     },
     {
       "id": "cloze_a2_0248",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "우산을 ＿＿＿ 전에 전화로 확인해요.",
       "answer": "찾아가다",
       "fullKo": "우산을 찾아가다 전에 전화로 확인해요.",
@@ -17124,7 +17124,7 @@
     },
     {
       "id": "cloze_a2_0249",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "가방을 잃어버려서 바로 ＿＿＿ 했어요.",
       "answer": "신고하다",
       "fullKo": "가방을 잃어버려서 바로 신고하다 했어요.",
@@ -17139,7 +17139,7 @@
     },
     {
       "id": "cloze_a2_0250",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿에서 분실물 번호를 받았어요.",
       "answer": "안내데스크",
       "fullKo": "안내데스크에서 분실물 번호를 받았어요.",
@@ -17154,7 +17154,7 @@
     },
     {
       "id": "cloze_a2_0251",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿에 이름을 적어 두면 찾기 쉬워요.",
       "answer": "소지품",
       "fullKo": "소지품에 이름을 적어 두면 찾기 쉬워요.",
@@ -17169,7 +17169,7 @@
     },
     {
       "id": "cloze_a2_0252",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "가방 안쪽 ＿＿＿에 전화번호를 썼어요.",
       "answer": "라벨",
       "fullKo": "가방 안쪽 라벨에 전화번호를 썼어요.",
@@ -17184,7 +17184,7 @@
     },
     {
       "id": "cloze_a2_0253",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿ 이름을 정확히 말해 주세요.",
       "answer": "수령인",
       "fullKo": "수령인 이름을 정확히 말해 주세요.",
@@ -17199,7 +17199,7 @@
     },
     {
       "id": "cloze_a2_0254",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿이 지나면 물건을 옮긴대요.",
       "answer": "보관기간",
       "fullKo": "보관기간이 지나면 물건을 옮긴대요.",
@@ -17214,7 +17214,7 @@
     },
     {
       "id": "cloze_a2_0255",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "찾을 때 ＿＿＿를 받아서 서명해요.",
       "answer": "확인서",
       "fullKo": "찾을 때 확인서를 받아서 서명해요.",
@@ -17229,7 +17229,7 @@
     },
     {
       "id": "cloze_a2_0256",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "동네 ＿＿＿가 이번 주말에 열려요.",
       "answer": "축제",
       "fullKo": "동네 축제가 이번 주말에 열려요.",
@@ -17244,7 +17244,7 @@
     },
     {
       "id": "cloze_a2_0257",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "전통차 ＿＿＿가 입구 옆에 있어요.",
       "answer": "부스",
       "fullKo": "전통차 부스가 입구 옆에 있어요.",
@@ -17259,7 +17259,7 @@
     },
     {
       "id": "cloze_a2_0258",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "한지를 ＿＿＿ 전에 줄을 서요.",
       "answer": "체험하다",
       "fullKo": "한지를 체험하다 전에 줄을 서요.",
@@ -17274,7 +17274,7 @@
     },
     {
       "id": "cloze_a2_0259",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "인기 부스는 오전에 ＿＿＿ 시작해요.",
       "answer": "줄서다",
       "fullKo": "인기 부스는 오전에 줄서다 시작해요.",
@@ -17289,7 +17289,7 @@
     },
     {
       "id": "cloze_a2_0260",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿이 스탬프 위치를 알려 줘요.",
       "answer": "안내원",
       "fullKo": "안내원이 스탬프 위치를 알려 줘요.",
@@ -17304,7 +17304,7 @@
     },
     {
       "id": "cloze_a2_0261",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿은 한 사람당 한 개예요.",
       "answer": "무료시식",
       "fullKo": "무료시식은 한 사람당 한 개예요.",
@@ -17319,7 +17319,7 @@
     },
     {
       "id": "cloze_a2_0262",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿을 가방에 넣지 말고 다시 봐요.",
       "answer": "홍보물",
       "fullKo": "홍보물을 가방에 넣지 말고 다시 봐요.",
@@ -17334,7 +17334,7 @@
     },
     {
       "id": "cloze_a2_0263",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "다섯 개 ＿＿＿를 모으면 차를 받아요.",
       "answer": "스탬프",
       "fullKo": "다섯 개 스탬프를 모으면 차를 받아요.",
@@ -17349,7 +17349,7 @@
     },
     {
       "id": "cloze_a2_0264",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "부스 ＿＿＿은 여섯 시까지예요.",
       "answer": "운영시간",
       "fullKo": "부스 운영시간은 여섯 시까지예요.",
@@ -17364,7 +17364,7 @@
     },
     {
       "id": "cloze_a2_0265",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿는 열 명까지만 받아요.",
       "answer": "현장접수",
       "fullKo": "현장접수는 열 명까지만 받아요.",
@@ -17379,7 +17379,7 @@
     },
     {
       "id": "cloze_a2_0266",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿가 줄을 나눠 안내해요.",
       "answer": "자원봉사자",
       "fullKo": "자원봉사자가 줄을 나눠 안내해요.",
@@ -17394,7 +17394,7 @@
     },
     {
       "id": "cloze_a2_0267",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿을 보여 주면 재료를 받아요.",
       "answer": "체험권",
       "fullKo": "체험권을 보여 주면 재료를 받아요.",
@@ -17949,7 +17949,7 @@
     },
     {
       "id": "cloze_b1_0216",
-      "level": "b1",
+      "level": "b2",
       "sentenceKo": "＿＿＿에서 번호표를 뽑고 기다려요.",
       "answer": "민원실",
       "fullKo": "민원실에서 번호표를 뽑고 기다려요.",
@@ -17964,7 +17964,7 @@
     },
     {
       "id": "cloze_b1_0217",
-      "level": "b1",
+      "level": "b2",
       "sentenceKo": "＿＿＿ 목록을 홈페이지에서 인쇄했어요.",
       "answer": "구비 서류",
       "fullKo": "구비 서류 목록을 홈페이지에서 인쇄했어요.",
@@ -17979,7 +17979,7 @@
     },
     {
       "id": "cloze_b1_0218",
-      "level": "b1",
+      "level": "b2",
       "sentenceKo": "＿＿＿ 번호를 사진으로 남겨 두어요.",
       "answer": "접수증",
       "fullKo": "접수증 번호를 사진으로 남겨 두어요.",
@@ -17994,7 +17994,7 @@
     },
     {
       "id": "cloze_b1_0219",
-      "level": "b1",
+      "level": "b2",
       "sentenceKo": "＿＿＿이 이 주라고 안내받았어요.",
       "answer": "처리 기한",
       "fullKo": "처리 기한이 이 주라고 안내받았어요.",
@@ -18009,7 +18009,7 @@
     },
     {
       "id": "cloze_b1_0220",
-      "level": "b1",
+      "level": "b2",
       "sentenceKo": "전입 신고는 ＿＿＿가 따로 있어요.",
       "answer": "담당 창구",
       "fullKo": "전입 신고는 담당 창구가 따로 있어요.",
@@ -18024,7 +18024,7 @@
     },
     {
       "id": "cloze_b1_0221",
-      "level": "b1",
+      "level": "b2",
       "sentenceKo": "＿＿＿ 문자가 와서 사본을 추가했어요.",
       "answer": "보완 요청",
       "fullKo": "보완 요청 문자가 와서 사본을 추가했어요.",
@@ -18039,7 +18039,7 @@
     },
     {
       "id": "cloze_b1_0222",
-      "level": "b1",
+      "level": "b2",
       "sentenceKo": "본인만 서류 ＿＿＿이 가능해요.",
       "answer": "열람",
       "fullKo": "본인만 서류 열람이 가능해요.",
@@ -18054,7 +18054,7 @@
     },
     {
       "id": "cloze_b1_0223",
-      "level": "b1",
+      "level": "b2",
       "sentenceKo": "＿＿＿에는 위임장이 필요해요.",
       "answer": "대리 신청",
       "fullKo": "대리 신청에는 위임장이 필요해요.",
@@ -18069,7 +18069,7 @@
     },
     {
       "id": "cloze_b1_0224",
-      "level": "b1",
+      "level": "b2",
       "sentenceKo": "＿＿＿는 카드만 된다고 했어요.",
       "answer": "수수료 납부",
       "fullKo": "수수료 납부는 카드만 된다고 했어요.",
@@ -18084,7 +18084,7 @@
     },
     {
       "id": "cloze_b1_0225",
-      "level": "b1",
+      "level": "b2",
       "sentenceKo": "＿＿＿로 진행 상태를 조회해요.",
       "answer": "민원 번호",
       "fullKo": "민원 번호로 진행 상태를 조회해요.",
@@ -18099,7 +18099,7 @@
     },
     {
       "id": "cloze_b1_0226",
-      "level": "b1",
+      "level": "b2",
       "sentenceKo": "전화로 ＿＿＿을 두 번 요청했어요.",
       "answer": "담당자 연결",
       "fullKo": "전화로 담당자 연결을 두 번 요청했어요.",
@@ -18114,7 +18114,7 @@
     },
     {
       "id": "cloze_b1_0227",
-      "level": "b1",
+      "level": "b2",
       "sentenceKo": "＿＿＿ 알림이 오면 서류를 받으러 가요.",
       "answer": "처리 완료",
       "fullKo": "처리 완료 알림이 오면 서류를 받으러 가요.",
@@ -26289,7 +26289,7 @@
     },
     {
       "id": "cloze_a1_0304",
-      "level": "a1",
+      "level": "b1",
       "topic": "자기소개",
       "fullKo": "제 모국어는 독일어예요.",
       "answer": "모국어",
@@ -27224,7 +27224,7 @@
     },
     {
       "id": "cloze_a1_0349",
-      "level": "a1",
+      "level": "a2",
       "topic": "도시 생활",
       "fullKo": "앱에서 환승 안내를 확인해요.",
       "answer": "환승 안내",
@@ -27241,7 +27241,7 @@
     },
     {
       "id": "cloze_a1_0350",
-      "level": "a1",
+      "level": "a2",
       "topic": "도시 생활",
       "fullKo": "교통카드 잔액은 만 원이에요.",
       "answer": "교통카드 잔액",
@@ -27258,7 +27258,7 @@
     },
     {
       "id": "cloze_a2_0278",
-      "level": "a2",
+      "level": "b1",
       "topic": "집 구하기",
       "fullKo": "선납금이 필요한지 계약 전에 물어봤어요.",
       "answer": "선납금",
@@ -27275,7 +27275,7 @@
     },
     {
       "id": "cloze_a2_0279",
-      "level": "a2",
+      "level": "b1",
       "topic": "집 구하기",
       "fullKo": "월세 납부일은 매달 말이에요.",
       "answer": "납부일",
@@ -27292,7 +27292,7 @@
     },
     {
       "id": "cloze_a2_0280",
-      "level": "a2",
+      "level": "b1",
       "topic": "집 구하기",
       "fullKo": "관리비 내역에 인터넷이 포함돼요?",
       "answer": "관리비 내역",
@@ -27309,7 +27309,7 @@
     },
     {
       "id": "cloze_a2_0281",
-      "level": "a2",
+      "level": "b1",
       "topic": "집 구하기",
       "fullKo": "서명한 뒤에 계약서 사본을 받아요.",
       "answer": "계약서 사본",
@@ -27326,7 +27326,7 @@
     },
     {
       "id": "cloze_a2_0282",
-      "level": "a2",
+      "level": "b1",
       "topic": "집 구하기",
       "fullKo": "수리 문제를 임대인에게 알렸어요.",
       "answer": "임대인",
@@ -27343,7 +27343,7 @@
     },
     {
       "id": "cloze_a2_0283",
-      "level": "a2",
+      "level": "b1",
       "topic": "집 구하기",
       "fullKo": "부동산 중개를 통해 방 세 개를 봤어요.",
       "answer": "부동산 중개",

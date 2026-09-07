@@ -1,0 +1,173 @@
+[
+  {
+    "id": "vocab_a2_0350",
+    "korean": "밤참",
+    "pack_id": "a2_partner_hometown_trip_1",
+    "level": "A2",
+    "estimate": "C2",
+    "wave": "L4",
+    "reason": "audit_content_levels.py: fallback_over2 fallback:basic2023, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
+  },
+  {
+    "id": "vocab_a1_0239",
+    "korean": "윗목",
+    "pack_id": "a2_partner_house_entry_1",
+    "level": "A2",
+    "estimate": "C2",
+    "wave": "L4",
+    "reason": "audit_content_levels.py: fallback_over2 fallback:basic2023, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
+  },
+  {
+    "id": "vocab_a1_0240",
+    "korean": "아랫목",
+    "pack_id": "a2_partner_house_entry_1",
+    "level": "A2",
+    "estimate": "C2",
+    "wave": "L4",
+    "reason": "audit_content_levels.py: fallback_over2 fallback:basic2023, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
+  },
+  {
+    "id": "vocab_a1_0306",
+    "korean": "사진 전송",
+    "pack_id": "a2_partner_photo_thanks_1",
+    "level": "A2",
+    "estimate": "C1",
+    "wave": "L4",
+    "reason": "audit_content_levels.py: over2, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
+  },
+  {
+    "id": "vocab_a2_0399",
+    "korean": "근력",
+    "pack_id": "a2_gym_class_1",
+    "level": "A2",
+    "estimate": "C2",
+    "wave": "L4",
+    "reason": "audit_content_levels.py: over2, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
+  },
+  {
+    "id": "vocab_a2_0400",
+    "korean": "유산소",
+    "pack_id": "a2_gym_class_1",
+    "level": "A2",
+    "estimate": "B2",
+    "wave": "L4",
+    "reason": "audit_content_levels.py: over2 src=compound, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
+  },
+  {
+    "id": "vocab_a1_0324",
+    "korean": "일회용 밴드",
+    "pack_id": "a2_pharmacy_ask_1",
+    "level": "A2",
+    "estimate": "B2",
+    "wave": "L4",
+    "reason": "audit_content_levels.py: over2, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
+  },
+  {
+    "id": "vocab_a1_0329",
+    "korean": "무처방",
+    "pack_id": "a2_pharmacy_ask_1",
+    "level": "A2",
+    "estimate": "B2",
+    "wave": "L4",
+    "reason": "audit_content_levels.py: over2 src=compound, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
+  },
+  {
+    "id": "vocab_a2_0403",
+    "korean": "염색",
+    "pack_id": "a2_salon_visit_1",
+    "level": "A2",
+    "estimate": "B2",
+    "wave": "L4",
+    "reason": "audit_content_levels.py: over2, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
+  },
+  {
+    "id": "vocab_a2_0412",
+    "korean": "손질",
+    "pack_id": "a2_salon_visit_1",
+    "level": "A2",
+    "estimate": "B2",
+    "wave": "L4",
+    "reason": "audit_content_levels.py: over2, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
+  },
+  {
+    "id": "vocab_a1_0391",
+    "korean": "겹쳐 입다",
+    "pack_id": "a2_weather_layer_1",
+    "level": "A2",
+    "estimate": "B2",
+    "wave": "L4",
+    "reason": "audit_content_levels.py: over2, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
+  },
+  {
+    "id": "vocab_a1_0395",
+    "korean": "양해",
+    "pack_id": "a1_sorry_thanks_1",
+    "level": "A1",
+    "estimate": "C1",
+    "wave": "L3",
+    "reason": "audit_content_levels.py: over2, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
+  },
+  {
+    "id": "vocab_a1_0366",
+    "korean": "필기하다",
+    "pack_id": "a2_school_supplies_1",
+    "level": "A2",
+    "estimate": "B2",
+    "wave": "L4",
+    "reason": "audit_content_levels.py: over2 src=derived, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
+  },
+  {
+    "id": "vocab_a2_0096",
+    "korean": "매콤하다",
+    "pack_id": "a2_food_2",
+    "level": "A2",
+    "estimate": "C1",
+    "wave": "L4",
+    "reason": "audit_content_levels.py: over2, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
+  },
+  {
+    "id": "vocab_a2_0218",
+    "korean": "땅콩",
+    "pack_id": "a2_food_more_1",
+    "level": "A2",
+    "estimate": "B2",
+    "wave": "L4",
+    "reason": "audit_content_levels.py: over2, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
+  },
+  {
+    "id": "vocab_a2_0243",
+    "korean": "왕자",
+    "pack_id": "a2_people_jobs_1",
+    "level": "A2",
+    "estimate": "C1",
+    "wave": "L4",
+    "reason": "audit_content_levels.py: over2, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
+  },
+  {
+    "id": "vocab_a1_0310",
+    "korean": "등기",
+    "pack_id": "a1_post_office_1",
+    "level": "A1",
+    "estimate": "B2",
+    "wave": "L3",
+    "reason": "audit_content_levels.py: over2, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
+  },
+  {
+    "id": "vocab_a1_0317",
+    "korean": "도착 문자",
+    "pack_id": "a1_post_office_1",
+    "level": "A1",
+    "estimate": "B1",
+    "wave": "L3",
+    "reason": "audit_content_levels.py: over2, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
+  },
+  {
+    "id": "vocab_a1_0318",
+    "korean": "포장지",
+    "pack_id": "a1_post_office_1",
+    "level": "A1",
+    "estimate": "B2",
+    "wave": "L3",
+    "reason": "audit_content_levels.py: over2, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
+  }
+]

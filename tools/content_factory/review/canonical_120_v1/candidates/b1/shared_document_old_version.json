@@ -3,7 +3,7 @@
   "scenarioId": "shared_document_old_version",
   "scenario": {
     "id": "shared_document_old_version",
-    "level": "a2",
+    "level": "b1",
     "emoji": "🏠",
     "register": "casual",
     "speechStyle": "casual",
@@ -17,7 +17,7 @@
       "de": "Du hast versehentlich eine heruntergeladene alte Datei statt des gemeinsamen Dokuments bearbeitet.",
       "en": "You edited an old downloaded file instead of the shared document."
     },
-    "courseUnitId": "a2_06_study_work",
+    "courseUnitId": "b1_03_work_softening",
     "playerCharacterId": "christian",
     "participantIds": [
       "christian",
@@ -25,7 +25,7 @@
     ],
     "relationshipContext": "조별 과제 동료 크리스티안과 레나",
     "intent": "왜 변경 내용이 안 보이는지 설명하고 파일을 다시 올린다",
-    "shelf": "a2_work",
+    "shelf": "b1_team",
     "backdrop": "home",
     "vocab": [
       {
@@ -78,7 +78,7 @@
       }
     ],
     "conceptIds": [
-      "concept_a2_work_study"
+      "concept_b1_softening"
     ],
     "surfaceFormIds": [],
     "grammarIds": [
