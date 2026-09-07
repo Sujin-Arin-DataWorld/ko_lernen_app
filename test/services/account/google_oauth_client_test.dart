@@ -31,7 +31,7 @@ void main() {
     );
     expect(
       GoogleOAuthClient.iosReversedClientId,
-      'com.googleusercontent.apps.573567222361-uphimptmn43da1snk4hc60rhgjd28ppq',
+      'com.googleusercontent.apps.573567222361-7mfmkdlaokiblnj0oia78od6u8p2g6aa',
     );
   });
 

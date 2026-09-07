@@ -42,7 +42,7 @@ void main() {
         'docs/store/app-store-connect-v2.0.5.md',
       ).readAsStringSync();
 
-      expect(handoff, contains('com.sujinarin.koLernenApp'));
+      expect(handoff, contains('com.hangulsori.app'));
       expect(handoff, contains('`2.0.5`'));
       expect(handoff, contains('`14`'));
       expect(handoff, contains('Education (recommended'));

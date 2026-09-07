@@ -6,7 +6,7 @@ archives. It does not contain the private signing or distribution credentials.
 Its production bundle identifier is exactly:
 
 ```text
-com.sujinarin.koLernenApp
+com.hangulsori.app
 ```
 
 Do not replace it with a lowercase variant. The current Apple team ID,
@@ -43,7 +43,7 @@ git ls-files --error-unmatch ios/Runner/GoogleService-Info.plist >/dev/null
 test -s ios/Runner/GoogleService-Info.plist
 plutil -lint ios/Runner/GoogleService-Info.plist
 test "$(plutil -extract PROJECT_ID raw ios/Runner/GoogleService-Info.plist)" = "ko-lernen-app"
-test "$(plutil -extract BUNDLE_ID raw ios/Runner/GoogleService-Info.plist)" = "com.sujinarin.koLernenApp"
+test "$(plutil -extract BUNDLE_ID raw ios/Runner/GoogleService-Info.plist)" = "com.hangulsori.app"
 export REVERSED_CLIENT_ID="$(plutil -extract REVERSED_CLIENT_ID raw ios/Runner/GoogleService-Info.plist)"
 test -n "$REVERSED_CLIENT_ID"
 ```
@@ -81,7 +81,7 @@ Official references: [add Firebase to an Apple project](https://firebase.google.
 
 In Apple Developer > Certificates, Identifiers & Profiles:
 
-1. Create or select the explicit App ID `com.sujinarin.koLernenApp`.
+1. Create or select the explicit App ID `com.hangulsori.app`.
 2. Enable Push Notifications.
 3. Enable Sign in with Apple and configure this App ID as the primary App ID unless it must join an existing Sign in with Apple group.
 4. Regenerate any profiles invalidated by the capability changes. Create/install an iOS App Development profile for Debug and an App Store distribution profile for Profile/Release, or let Xcode automatic signing regenerate them.
@@ -112,7 +112,7 @@ for configuration in Debug Profile Release; do
     -scheme Runner \
     -configuration "$configuration" \
     -showBuildSettings > "$settings"
-  grep -Fq "PRODUCT_BUNDLE_IDENTIFIER = com.sujinarin.koLernenApp" "$settings"
+  grep -Fq "PRODUCT_BUNDLE_IDENTIFIER = com.hangulsori.app" "$settings"
   grep -Fq "DEVELOPMENT_TEAM = $APPLE_TEAM_ID" "$settings"
   if [ "$configuration" = Debug ]; then
     grep -Fq "CODE_SIGN_ENTITLEMENTS = Runner/RunnerDebug.entitlements" "$settings"
@@ -129,7 +129,7 @@ Official references: [enable App ID capabilities](https://developer.apple.com/he
 
 In Apple Developer > Keys, create an Apple Push Notification service authentication key for the correct team and download its `.p8` file once. Record its Key ID and the Apple Team ID. Store the key outside the repository.
 
-In Firebase Console > Project settings > Cloud Messaging > the iOS configuration for `com.sujinarin.koLernenApp`, upload the `.p8` key and enter the matching Key ID and Team ID. Apple states an APNs signing key works with both development and production; Firebase may show separate upload slots.
+In Firebase Console > Project settings > Cloud Messaging > the iOS configuration for `com.hangulsori.app`, upload the `.p8` key and enter the matching Key ID and Team ID. Apple states an APNs signing key works with both development and production; Firebase may show separate upload slots.
 
 Before upload, fail fast on missing or mismatched local inputs:
 
@@ -198,7 +198,7 @@ set -euo pipefail
 : "${ARCHIVED_APP:?Set ARCHIVED_APP to the absolute path of Runner.app inside the archive}"
 test -d "$ARCHIVED_APP"
 codesign -d --entitlements :- "$ARCHIVED_APP" > /tmp/hangul-sori-entitlements.plist
-test "$(plutil -extract application-identifier raw /tmp/hangul-sori-entitlements.plist | sed 's/^[^.]*\.//')" = com.sujinarin.koLernenApp
+test "$(plutil -extract application-identifier raw /tmp/hangul-sori-entitlements.plist | sed 's/^[^.]*\.//')" = com.hangulsori.app
 test "$(plutil -extract aps-environment raw /tmp/hangul-sori-entitlements.plist)" = production
 test "$(/usr/libexec/PlistBuddy -c 'Print :com.apple.developer.applesignin:0' /tmp/hangul-sori-entitlements.plist)" = Default
 ```

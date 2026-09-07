@@ -26,14 +26,14 @@
 전제: `developer.apple.com` Team 관리자 권한.
 
 1. **Certificates, Identifiers & Profiles → Identifiers** → 기존 App ID
-   `com.sujinarin.koLernenApp` (iOS 앱)을 연다. Capabilities에서
+   `com.hangulsori.app` (iOS 앱)을 연다. Capabilities에서
    **Sign in with Apple**을 켠다. 이미 Push Notifications가 켜져 있다면 함께
    유지한다.
 2. **Identifiers → +** → **Services IDs** → 새로 만든다.
-   - Identifier: `<SERVICES_ID>` (App ID와 **달라야** 함 — 예: `com.sujinarin.koLernenApp.signin`)
+   - Identifier: `<SERVICES_ID>` (App ID와 **달라야** 함 — 예: `com.hangulsori.app.signin`)
    - Description: 자유(예: `Hangul Sori Sign in with Apple`)
 3. 방금 만든 Services ID를 열고 **Sign in with Apple**을 켠 뒤 **Configure**:
-   - Primary App ID: `com.sujinarin.koLernenApp`
+   - Primary App ID: `com.hangulsori.app`
    - Domains and Subdomains: `ko-lernen-app.firebaseapp.com`,
      `europe-west3-ko-lernen-app.cloudfunctions.net`
    - Return URLs — **두 개 모두** 등록 (하나만 넣으면 Firebase 핸들러 또는
@@ -112,7 +112,7 @@ APPLE_REDIRECT_URI=https://europe-west3-ko-lernen-app.cloudfunctions.net/appleOA
 
 | Secret | 값 | 왜 |
 |---|---|---|
-| `APPLE_REVOKE_CLIENT_ID` | `com.sujinarin.koLernenApp` (iOS **App ID**, Services ID 아님) | **네이티브**(iOS 앱) 해지 요청은 `clientKind==='native'`일 때 이 값을 Apple OAuth `client_id`로 쓴다(어댑터 `getClientId()`) |
+| `APPLE_REVOKE_CLIENT_ID` | `com.hangulsori.app` (iOS **App ID**, Services ID 아님) | **네이티브**(iOS 앱) 해지 요청은 `clientKind==='native'`일 때 이 값을 Apple OAuth `client_id`로 쓴다(어댑터 `getClientId()`) |
 | `APPLE_REVOKE_TEAM_ID` | `<TEAM_ID>` | JWT client-secret의 `iss` |
 | `APPLE_REVOKE_KEY_ID` | `<KEY_ID>` | JWT 헤더 `kid` |
 | `APPLE_REVOKE_PRIVATE_KEY` | `.p8` 파일 내용 전체(PEM, EC prime256v1) | JWT 서명 키 |
