@@ -922,13 +922,18 @@ class TestR7NumeralGoldenCases(unittest.TestCase):
         wg = self.lex._resolve_eojeol(cl._normalize_token("네"))
         self.assertEqual(wg.source, "kiiq")
 
-    def test_sagwa_apple_pre_existing_particle_collision_documented(self):
-        # NOT a numeral-specific bug (kiiq itself lists 사 as a 수사
-        # headword) -- this test documents the current, pre-existing
-        # behaviour rather than asserting it is correct, so a future fix
-        # is a deliberate, visible change rather than a silent one.
+    def test_sagwa_apple_resolves_exact_headword_not_the_particle_collision(self):
+        # SUPERSEDES the pre-R8 "documents the current, pre-existing
+        # behaviour" version of this test: R8 item 1 (EXACT-FIRST) now
+        # tries the raw token itself as an exact lexicon headword before
+        # any particle/ending stripping, so 사과 ("apple", a real kiiq
+        # headword) no longer loses to the coincidental particle-stripped
+        # reading 사 (수사 "four", from treating 사과's trailing 과 as the
+        # comitative particle -- see TestR8ExactHeadwordFirstGoldenCases
+        # for the full regression suite this fix needed).
         wg = self.lex._resolve_eojeol(cl._normalize_token("사과"))
-        self.assertEqual(wg.matched, "사")
+        self.assertEqual(wg.matched, "사과")
+        self.assertEqual((wg.grade, wg.cefr, wg.source), (1, "A1", "kiiq"))
 
 
 class TestR7CompoundPrefixNominaliserGoldenCases(unittest.TestCase):
@@ -1095,6 +1100,205 @@ class TestR7AliasA1ExceptionsAndPriorityFix(unittest.TestCase):
                 wg = self.lex.word_grade(word)
                 self.assertEqual(wg.source, "kiiq")
                 self.assertEqual(wg.matched, word)
+
+
+class TestR8ExactHeadwordFirstGoldenCases(unittest.TestCase):
+    """R8 item 1 (Fable direct-read finding on live sentence_profile()
+    data): `_lemma_candidates` now puts the raw token itself (after
+    trailing-punctuation strip) FIRST, before any particle/ending-
+    stripped candidate -- so a bare noun that coincidentally ends in a
+    character that is ALSO a listed particle/ending (사과's trailing 과,
+    which is separately the comitative particle; 가게's trailing 게,
+    which is separately the "-게" adverbial ending) resolves to itself
+    instead of losing to the coincidental stripped reading. 학교에/
+    사과를 (a real particle boundary, where the raw token is NOT itself a
+    headword) confirm the ordinary particle-stripping path is untouched."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = cl.CefrLexicon.load()
+
+    CASES = [
+        ("사과", "사과"),
+        ("지도", "지도"),
+        ("도로", "도로"),
+        ("이유", "이유"),
+        ("가게", "가게"),
+        ("의사", "의사"),
+        ("학교에", "학교"),
+        ("사과를", "사과"),
+    ]
+
+    def test_all_golden_exact_headword_first_cases(self):
+        for surface, expected in self.CASES:
+            with self.subTest(surface=surface):
+                wg = self.lex._resolve_eojeol(cl._normalize_token(surface))
+                self.assertEqual(
+                    wg.matched, expected,
+                    "%r resolved to %r, expected %r (grade=%r source=%r)"
+                    % (surface, wg.matched, expected, wg.grade, wg.source),
+                )
+                self.assertIsNotNone(wg.grade)
+
+    def test_full_motivating_sentence_does_not_lose_sagwa(self):
+        # The exact sentence Fable flagged from live sentence_profile()
+        # output: 사과 must resolve as itself, not silently vanish into
+        # the wrong "사" (numeral "four") reading.
+        grammar = cl.GrammarIndex(())
+        sp = self.lex.sentence_profile("사과 두 개하고 오렌지 세 개 주세요.", grammar)
+        sagwa = [t for t in sp.tokens if t.matched == "사과"]
+        self.assertTrue(sagwa, "expected a token resolved to 사과: %r" % (sp.tokens,))
+        self.assertNotIn("사과", [u.rstrip(".") for u in sp.unknown])
+
+
+class TestR8CopulaNounPreferenceGoldenCases(unittest.TestCase):
+    """R8 item 2 (Fable direct-read finding): a token ending in a
+    conjugated copula form (이에요/예요/입니다/이었어요/였어요/이라서/이고/
+    이지만/인데/이니까/이라고/이야/이죠/이지요/이네요/입니까/이었습니다)
+    must offer the NOUN stem as a candidate before PASS 1's verb/
+    adjective-conjugation repairs run -- otherwise a stem that
+    coincidentally carries a batchim ㄹ (e.g. "길", stem of "길이에요")
+    gets hijacked by the pre-existing "already-ㄹ-final-stem" heuristic
+    (R7 item 4) into the wrong, but real, "길다" ("to be long") reading.
+    예뻐요/커요 lock in that ordinary EU-irregular adjective conjugation
+    (unrelated to the copula) is untouched."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = cl.CefrLexicon.load()
+
+    CASES = [
+        ("길이에요", "길"),
+        ("학생이에요", "학생"),
+        ("친구예요", "친구"),
+        ("선생님입니다", "선생님"),
+        ("의사였어요", "의사"),
+        ("집인데", "집"),
+    ]
+
+    def test_all_golden_copula_noun_cases(self):
+        for surface, expected in self.CASES:
+            with self.subTest(surface=surface):
+                wg = self.lex._resolve_eojeol(cl._normalize_token(surface))
+                self.assertEqual(
+                    wg.matched, expected,
+                    "%r resolved to %r, expected %r (grade=%r source=%r)"
+                    % (surface, wg.matched, expected, wg.grade, wg.source),
+                )
+                self.assertIsNotNone(wg.grade)
+
+    def test_regular_eu_irregular_adjectives_not_treated_as_copula(self):
+        # 예뻐요/커요 must keep resolving via the ordinary EU_IRREGULAR_MAP
+        # path -- neither is a copula construction, and both are short
+        # enough (len 2) that the >len-guard on every copula ending must
+        # hold regardless.
+        for surface, expected in (("예뻐요", "예쁘다"), ("커요", "크다")):
+            with self.subTest(surface=surface):
+                wg = self.lex._resolve_eojeol(cl._normalize_token(surface))
+                self.assertEqual(wg.matched, expected)
+
+
+class TestR8StackedEndingsGoldenCases(unittest.TestCase):
+    """R8 item 3 (Fable direct-read finding): up to three stacked pre-
+    final/final endings (으시/시, 았/었/였, 겠, 더, 았었/었었, plus the
+    already-fused honorific-past 으셨/셨, plus the final ending itself)
+    must be peelable in one candidate-generation pass -- 알겠습니다 was
+    previously unknown because only the FINAL ending (습니다) was ever
+    stripped, leaving the pre-final 겠 stuck on the stem (알겠), which is
+    not itself a headword and does not restore to one via any existing
+    irregular table."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = cl.CefrLexicon.load()
+
+    CASES = [
+        ("알겠습니다", "알다"),
+        ("가시겠어요", "가다"),
+        ("먹었겠네요", "먹다"),
+        ("오셨습니까", "오다"),
+        ("받으셨겠지요", "받다"),
+        ("했었어요", "하다"),
+    ]
+
+    def test_all_golden_stacked_ending_cases(self):
+        for surface, expected in self.CASES:
+            with self.subTest(surface=surface):
+                wg = self.lex._resolve_eojeol(cl._normalize_token(surface))
+                self.assertEqual(
+                    wg.matched, expected,
+                    "%r resolved to %r, expected %r (grade=%r source=%r)"
+                    % (surface, wg.matched, expected, wg.grade, wg.source),
+                )
+                self.assertIsNotNone(wg.grade)
+
+
+class TestR8HeadwordCopulaGoldenCases(unittest.TestCase):
+    """R8 item 4 (Fable direct-read finding): word_grade() called
+    DIRECTLY on a headword spelled in the copula's own citation form
+    (stem + 이다, e.g. a vocab-list entry for an X적이다-style adjective)
+    was unknown even though the stem is a real, resolvable headword --
+    이다 is compositional (it attaches to any noun) and is essentially
+    never itself a separate kiiq/basic2023 entry. Checked against the
+    real lexicon: 효율적/적극적/객관적/합리적 are direct kiiq headwords
+    (grade 4/B2 each), 추상적 is kiiq grade 6/C2, and 서정적ㅡ absent from
+    kiiq ㅡ is a basic2023 headword (grade 5 -> C2/6); all six resolve via
+    the same stem-is-a-headword check (no case here needed the second,
+    strip-적-again fallback -- see TestR8HeadwordCopulaSyntheticFixture
+    for a fixture that actually exercises that path)."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = cl.CefrLexicon.load()
+
+    CASES = [
+        ("효율적이다", "효율적", 4, "B2"),
+        ("적극적이다", "적극적", 4, "B2"),
+        ("객관적이다", "객관적", 4, "B2"),
+        ("추상적이다", "추상적", 6, "C2"),
+        ("합리적이다", "합리적", 4, "B2"),
+        ("서정적이다", "서정적", 6, "C2"),
+        ("학생이다", "학생", 1, "A1"),
+    ]
+
+    def test_all_golden_headword_copula_cases(self):
+        for surface, expected_matched, expected_grade, expected_cefr in self.CASES:
+            with self.subTest(surface=surface):
+                wg = self.lex.word_grade(surface)
+                self.assertEqual(
+                    (wg.matched, wg.grade, wg.cefr), (expected_matched, expected_grade, expected_cefr),
+                    "word_grade(%r) = %r" % (surface, wg),
+                )
+                self.assertEqual(wg.source, "derived")
+
+
+class TestR8HeadwordCopulaSyntheticFixture(unittest.TestCase):
+    """R8 item 4's second check (strip 적 further when the bare X적 stem
+    is not itself resolvable), against a tiny controlled fixture -- no
+    real-CSV word was found where X적 fails but X alone succeeds, so this
+    is exercised synthetically rather than left uncovered.
+
+    The root ("몽상") is placed in basic2023, NOT kiiq: `_base_chain`'s
+    kiiq tier (`_kiiq_derived_chain`) already strips DERIVED_SUFFIXES
+    (which includes "적") internally via `_derived_lookup` -- so a kiiq
+    root would make check 1 (`_base_chain(stem)`, stem="몽상적") succeed
+    on its own via that PRE-EXISTING mechanism, never actually reaching
+    this item's new check 2. basic2023 has no such suffix-stripping, so
+    only a root placed there isolates check 2 specifically."""
+
+    @classmethod
+    def setUpClass(cls):
+        basic_rows = [_basic_row(2, "몽상")]  # root only; NOT "몽상적"
+        cls.lex = cl.CefrLexicon.from_rows([], basic_rows, [])
+
+    def test_strip_jeok_fallback_grades_the_root_at_medium_confidence(self):
+        wg = self.lex.word_grade("몽상적이다")
+        self.assertEqual((wg.grade, wg.cefr, wg.source, wg.matched), (3, "B1", "derived", "몽상"))
+        self.assertEqual(wg.confidence, "medium")
+
+    def test_neither_stem_nor_root_resolvable_stays_unknown(self):
+        wg = self.lex.word_grade("가나다적이다")
+        self.assertIsNone(wg.grade)
 
 
 if __name__ == "__main__":

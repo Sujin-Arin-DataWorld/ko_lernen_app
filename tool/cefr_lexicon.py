@@ -858,10 +858,99 @@ def _restore_predicate(stem: str) -> str:
     return stem + "다"
 
 
+# R8 item 2 ("길이에요" -> 길, not 길다): a token ending in a CONJUGATED
+# copula form (이다 "to be" attached to a noun) must offer the bare noun
+# stem as a candidate BEFORE any of PASS 1's verb/adjective-conjugation
+# repairs below run for that same suffix -- otherwise a stem that
+# coincidentally carries a batchim ㄹ (e.g. "길" "road", stem of
+# "길이에요") gets hijacked by the EARLIER "already-ㄹ-final-stem"
+# heuristic (R7 item 4, added for "만들어요" -> "만들다") into the wrong,
+# but real and independently resolvable, "길다" ("to be long") guess
+# before the correct noun candidate is ever tried. A small, closed,
+# literal list -- deliberately NOT folded into the shared ENDINGS table,
+# which is also walked by mechanisms that have no business treating
+# these as generic verb/adjective endings (PARTICLE-stack matching,
+# clause counting via CONNECTIVE_ENDINGS, grammar-pattern compilation).
+# Bare "이다" itself (the copula's own dictionary/citation form, e.g. a
+# vocab-list entry "학생이다") is deliberately NOT in this list -- that is
+# a HEADWORD-level concern (R8 item 4, `CefrLexicon._copula_headword_lookup`),
+# not a sentence-eojeol tokenizer one.
+_COPULA_ENDINGS_R8: Tuple[str, ...] = tuple(sorted({
+    "이에요", "예요", "입니다", "이었어요", "였어요", "이라서", "이고",
+    "이지만", "인데", "이니까", "이라고", "이야", "이죠", "이지요",
+    "이네요", "입니까", "이었습니다",
+}, key=len, reverse=True))
+
+
+def _copula_noun_stem(token: str) -> Optional[str]:
+    """R8 item 2: the noun stem before the LONGEST matching copula ending
+    in `_COPULA_ENDINGS_R8`, or None if none matches. See that table's
+    docstring for why this is a dedicated check rather than a reuse of
+    the shared ENDINGS table."""
+    for ending in _COPULA_ENDINGS_R8:
+        if token.endswith(ending) and len(token) > len(ending):
+            return token[: -len(ending)]
+    return None
+
+
+# R8 item 3 ("알겠습니다" -> 알다): pre-final (선어말어미) markers that can
+# stack BEHIND the final ending this file already strips as one suffix
+# (습니다/네요/지요/어요/...), left stranded on the intermediate stem with
+# no existing repair -- "알겠습니다" strips its final "습니다" down to
+# "알겠", but "알겠" is not itself a headword and no irregular table
+# matches it (겠 is not a conjugation fragment any of those tables know).
+# 으셨/셨 (the already-fused honorific-시 + past-았/었, see the R3 item 4
+# ENDINGS entries of the same spelling) are included here too so a
+# further-stacked 겠/더/... behind THEM (e.g. "받으셨겠지요") also peels
+# correctly -- see `_peel_prefinal_markers`.
+_PREFINAL_MARKERS: Tuple[str, ...] = tuple(sorted({
+    "았었", "었었", "으셨", "셨", "으시", "았", "었", "였", "겠", "더", "시",
+}, key=len, reverse=True))
+
+
+def _peel_prefinal_markers(stem: str, max_peels: int = 2) -> str:
+    """R8 item 3: repeatedly strip the longest matching `_PREFINAL_MARKERS`
+    suffix from `stem`, up to `max_peels` times (order-agnostic -- no
+    fixed grammatical order is assumed, just "peel whatever matches, from
+    the end, until nothing more does or the cap is hit"). Combined with
+    the ONE final ending already stripped by the caller before `stem` is
+    computed, this peels "up to three stacked endings" total, matching
+    every golden case found (알겠습니다: 습니다+겠 = 2; 가시겠어요:
+    어요+겠+시 = 3; 받으셨겠지요: 지요+겠+으셨 = 3). Returns `stem`
+    unchanged (not a copy marker) if nothing matched, so callers can
+    cheaply check `result != stem` to know whether any peel happened."""
+    for _ in range(max_peels):
+        for marker in _PREFINAL_MARKERS:
+            if stem.endswith(marker) and len(stem) > len(marker):
+                stem = stem[: -len(marker)]
+                break
+        else:
+            break
+    return stem
+
+
 def _lemma_candidates(token: str) -> List[str]:
     """Return dictionary-form candidates for `token`, most-specific /
     highest-confidence first, ending with the token itself unchanged (last
     resort).
+
+    Note (R8 item 1): `token` staying LAST here is deliberate and
+    unchanged -- the "try the raw token as an exact headword first" fix
+    lives in `CefrLexicon._resolve_eojeol` (a narrow exact-tiers-only
+    check, run before this candidate list is even consulted), NOT here.
+    An earlier version of that fix prepended `token` to THIS list
+    instead, on the theory that `_resolve_eojeol`'s "first candidate
+    whose `word_grade()` resolves wins" loop would then naturally try it
+    first -- but `word_grade()` run on any string ALSO recurses through
+    the lemma-fallback/numeral/multiword/basic2023/compound tiers (R7
+    items 1/7/8), so the raw, least-reduced token would then almost
+    ALWAYS resolve via that deep recursion, on the FIRST loop iteration,
+    for essentially every conjugated word -- collapsing `_resolve_eojeol`
+    onto `matched=token` (the unreduced surface form) instead of the
+    properly-lemmatized candidate the rest of this file's tests depend on
+    (caught by this rework's own regression run: ~85 previously-passing
+    assertions on `.matched` broke instantly). See
+    `_resolve_eojeol._exact_headword_lookup` for the actual fix.
 
     R3 item 4 restructured this into two passes over the same suffix scan:
     PASS 1 collects only candidates that matched a hand-curated irregular
@@ -878,6 +967,12 @@ def _lemma_candidates(token: str) -> List[str]:
 
     # PASS 1: irregular-table repairs only (see docstring above).
     for source in sources:
+        # R8 item 2: checked FIRST, ahead of every other PASS 1 repair --
+        # see _COPULA_ENDINGS_R8's docstring for why this must win over
+        # e.g. the ㄹ-final-stem heuristic further down.
+        copula_stem = _copula_noun_stem(source)
+        if copula_stem is not None:
+            candidates.append(copula_stem)
         direct = _irregular_repair(source)
         if direct is not None:
             candidates.append(direct)
@@ -906,6 +1001,16 @@ def _lemma_candidates(token: str) -> List[str]:
                 repaired = _irregular_repair(stem)
                 if repaired is not None:
                     candidates.append(repaired)
+                # R8 item 3 ("알겠습니다" -> 알다): peel any stacked
+                # pre-final markers (겠/더/으시/았/었/였/...) left on
+                # `stem` behind the final ending `suf` already stripped
+                # above -- see `_peel_prefinal_markers`'s docstring.
+                stacked_stem = _peel_prefinal_markers(stem)
+                if stacked_stem != stem:
+                    stacked_repaired = _irregular_repair(stacked_stem)
+                    candidates.append(
+                        stacked_repaired if stacked_repaired is not None else stacked_stem + "다"
+                    )
                 # R7 item 9 ("편해졌어요" -> 편하다): see
                 # _auxiliary_tensed_repair's docstring.
                 aux_tensed = _auxiliary_tensed_repair(stem)
@@ -1606,6 +1711,83 @@ class CefrLexicon:
             return prefixed
         return self._compound_split_lookup(word)
 
+    def _copula_headword_lookup(self, word: str) -> WordGrade:
+        """R8 item 4 ("효율적이다" -> 효율적, B2; "학생이다" -> 학생, A1):
+        a headword spelled in the copula's OWN citation/dictionary form
+        (stem + 이다, e.g. a vocab-list entry for an X적이다-style formal
+        adjective) is compositional -- 이다 ("to be") attaches to ANY
+        noun, so it is essentially never itself a separate kiiq/
+        basic2023 headword, even though the stem almost always is. Two
+        checks, in order:
+
+        1. `word`'s stem (word[:-2], dropping the literal "이다") IS
+           itself a lexicon headword (kiiq/derived/basic2023, via
+           `_base_chain`) -> use it as-is: source='derived' (reusing the
+           existing X하다/X되다-derivation source tag -- same
+           'high'-confidence treatment via `_CONFIDENCE_BY_SOURCE`, since
+           this is the exact same "strip a compositional suffix, grade
+           the root" shape), SAME grade as the stem's own. Verified
+           against the real lexicon: 효율적/적극적/객관적/합리적 are direct
+           kiiq headwords (grade 4/B2), 추상적 is kiiq grade 6/C2, and
+           서정적 -- absent from kiiq -- is a basic2023 headword (grade 5 ->
+           C2/6) -- `_base_chain` covers both sources uniformly.
+        2. Only when (1) fails AND the stem itself ends in "적" (the
+           common formal-register X적 adjective/noun pattern -- 효율적,
+           객관적, 추상적, …): strip THAT "적" too and grade the further-
+           reduced root. This extends coverage beyond what (1) already
+           gets for free via `_kiiq_derived_chain`'s own internal
+           DERIVED_SUFFIXES stripping (which only ever checks kiiq for
+           the 적-stripped root, never basic2023) -- so this second check
+           additionally covers a root that is basic2023-only. Reported at
+           `confidence_override='medium'` (one compositional strip
+           deeper than (1), a strictly weaker signal) rather than the
+           'high' a direct stem hit gets.
+
+        Inserted in `word_grade` BEFORE the basic2023 fallback tier (the
+        brief's own ordering): a fused "...이다" spelling is unlikely to
+        be independently listed in the general-literacy basic2023 list,
+        so the stem's own grade is the meaningful signal to try first."""
+        if not word.endswith("이다") or len(word) <= 2:
+            return WordGrade(None, None, None, word)
+        stem = word[:-2]
+        stem_grade = self._base_chain(stem)
+        if stem_grade.grade is not None:
+            return WordGrade(stem_grade.grade, stem_grade.cefr, "derived", stem)
+        if stem.endswith("적") and len(stem) > 1:
+            root = stem[:-1]
+            root_grade = self._base_chain(root)
+            if root_grade.grade is not None:
+                return WordGrade(root_grade.grade, root_grade.cefr, "derived", root, "medium")
+        return WordGrade(None, None, None, word)
+
+    def _exact_headword_lookup(self, word: str) -> WordGrade:
+        """R8 item 1 (Fable direct-read finding): true EXACT-headword
+        tiers only -- kiiq exact/homograph-min, kiiq-derived-suffix, and
+        both alias forms (empty-lexicon_form A1 exception, and redirect) --
+        mirroring the first few steps of `word_grade` verbatim, but
+        DELIBERATELY STOPPING before its numeral/multiword/lemma-fallback/
+        basic2023/compound tiers (R7 items 1/7/8). Those later tiers all
+        do their OWN further lemmatization/guessing, so calling the FULL
+        `word_grade` here instead (as an earlier version of this fix did)
+        would make the raw, least-reduced token resolve via deep
+        recursion on almost every call -- see `_lemma_candidates`'s
+        docstring for the regression that caused. Used ONLY by
+        `_resolve_eojeol`, to answer "is `token` itself, verbatim, a real
+        dictionary headword" before any particle/ending stripping is even
+        attempted."""
+        normalized = _normalize_token(word)
+        if not normalized:
+            return WordGrade(None, None, None, word)
+        alias_entry = self._aliases.get(normalized)
+        if alias_entry is not None and alias_entry[0] is None:
+            return WordGrade(1, "A1", "alias", normalized)
+        kd = self._kiiq_derived_chain(normalized)
+        if kd.grade is not None:
+            return kd
+        if normalized in self._aliases:
+            return self._alias_lookup(normalized)
+        return WordGrade(None, None, None, normalized)
+
     def _match_proper_noun(self, token: str) -> Optional[str]:
         """R3 item 5: `token` itself, or `token` with one trailing particle
         stripped, matched against the loaded proper-noun set. Returns the
@@ -1674,6 +1856,12 @@ class CefrLexicon:
         lemma_fb = self._lemma_fallback_chain(normalized)
         if lemma_fb.grade is not None:
             return lemma_fb
+        # R8 item 4: X이다/X적이다 headword-level copula-stem resolution,
+        # inserted BEFORE basic2023 (the brief's own ordering) -- see
+        # `_copula_headword_lookup`'s docstring.
+        copula_headword = self._copula_headword_lookup(normalized)
+        if copula_headword.grade is not None:
+            return copula_headword
         fb = self._fallback_chain(normalized)
         if fb.grade is not None:
             return fb
@@ -1716,6 +1904,15 @@ class CefrLexicon:
         None (excluded from grading) and the loop's "first grade-not-None
         wins" logic would otherwise skip right past them.
 
+        R8 item 1 (Fable direct-read finding): `token` itself is checked
+        NEXT, via `_exact_headword_lookup` -- a narrow, exact-tiers-only
+        check (kiiq/derived/alias, NOT the full word_grade chain; see
+        that method's docstring for why) -- so a bare headword that
+        coincidentally ends in a character which is ALSO a listed
+        particle/ending (사과 "apple"'s trailing 과, separately the
+        comitative particle) resolves to itself before any particle/
+        ending-stripped candidate from the loop below is even generated.
+
         Numerals (R7 item 7) are DELIBERATELY NOT a similar up-front
         short-circuit: `token` itself may have a real, unrelated kiiq/
         alias meaning that must win first (네 "yes" over the native
@@ -1732,6 +1929,9 @@ class CefrLexicon:
         proper = self._match_proper_noun(token)
         if proper is not None:
             return WordGrade(None, None, "proper_noun", proper)
+        exact = self._exact_headword_lookup(token)
+        if exact.grade is not None:
+            return WordGrade(exact.grade, exact.cefr, exact.source, token, exact.confidence_override)
         for candidate in _lemma_candidates(token):
             wg = self.word_grade(candidate)
             if wg.grade is not None:
