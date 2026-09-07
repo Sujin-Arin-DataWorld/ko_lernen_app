@@ -98,6 +98,36 @@ DancheongMotif motifForPackId(String packId) {
 """
 
 
+# ---- card-style ledger fixtures (task T2.9b) -------------------------------
+# tool/check_card_style.py --all's two membership ledgers for the F-E-cards
+# WebP card family -- see edit_card_style_registry's docstring. These
+# builders always emit the exact json.dumps(indent=2, ensure_ascii=False)+"\n"
+# canonical shape edit_card_style_registry's round-trip guard requires.
+
+BASELINE_ENTRY_X = {
+    "sha256": "a" * 64, "kb": 88.2, "ivoryFrac": 0.6094, "fine": 4.86,
+    "coarse": 0.739, "uniqueColors": 40149, "top8": 0.7013, "patchXY": [80, 0],
+}
+BASELINE_ENTRY_UNTOUCHED = {
+    "sha256": "b" * 64, "kb": 70.3, "ivoryFrac": 0.789, "fine": 4.236,
+    "coarse": 0.694, "uniqueColors": 19253, "top8": 0.8993, "patchXY": [320, 48],
+}
+
+
+def _card_style_baseline_text(files: dict) -> str:
+    return json.dumps(
+        {"schema": 1, "measuredAt": "2026-01-01", "grainFormulaVersion": 1, "files": files},
+        ensure_ascii=False, indent=2,
+    ) + "\n"
+
+
+def _style_lock_text(members: list, known_deviations: dict | None = None) -> str:
+    family: dict = {"members": list(members)}
+    if known_deviations is not None:
+        family["knownDeviations"] = known_deviations
+    return json.dumps({"families": {"F-E-cards": family}}, ensure_ascii=False, indent=2) + "\n"
+
+
 class RelevelBundleFixture(unittest.TestCase):
     def setUp(self) -> None:
         self._tmp = tempfile.TemporaryDirectory(prefix="relevel-bundle-test-")
@@ -144,6 +174,26 @@ class RelevelBundleFixture(unittest.TestCase):
         artwork_dir = self.root / "assets" / "illustrations" / "packs"
         artwork_dir.mkdir(parents=True, exist_ok=True)
         (artwork_dir / "a1_relvtest_alpha_1.webp").write_bytes(b"fake-webp")
+
+        # Only "alpha" is registered in the card-style gate ledgers (task
+        # T2.9b) -- "beta" deliberately is not, exercising
+        # edit_card_style_registry's "not registered -- no-op" path the same
+        # way pack_artwork_catalog's dedicatedPackIds only lists alpha above
+        # (a pack absent from dedicatedPackIds has no packs/*.webp at all, so
+        # it can never be card-style-registered either).
+        docs_assets_dir = self.root / "docs" / "assets"
+        docs_assets_dir.mkdir(parents=True, exist_ok=True)
+        self.card_style_baseline_path = docs_assets_dir / "CARD_STYLE_BASELINE.json"
+        self.card_style_baseline_path.write_text(
+            _card_style_baseline_text({
+                "assets/illustrations/packs/a1_relvtest_alpha_1.webp": dict(BASELINE_ENTRY_X),
+            }),
+            encoding="utf-8",
+        )
+        self.style_lock_path = docs_assets_dir / "STYLE_LOCK.json"
+        self.style_lock_path.write_text(
+            _style_lock_text(["a1_relvtest_alpha_1"]), encoding="utf-8",
+        )
 
         # Only "alpha" gets an archived pack-authoring source (task T2.9a) --
         # "beta" deliberately has none, exercising sync_pack_source_files'
@@ -311,6 +361,8 @@ class RelevelBundleFixture(unittest.TestCase):
             self.root / "lib" / "data" / "pack_artwork_catalog.dart",
             self.root / "lib" / "widgets" / "sori" / "dancheong_stamp.dart",
             self.root / "assets" / "illustrations" / "packs" / "a1_relvtest_alpha_1.webp",
+            self.card_style_baseline_path,
+            self.style_lock_path,
             self.alpha_pack_source_path,
             self.root / "tools" / "content_factory" / "data" / "packs" / "b1_relvtest_alpha_1.json",
             self.ledger_path,
@@ -456,6 +508,24 @@ class ApplyTest(RelevelBundleFixture):
         self.assertFalse((self.root / "assets" / "illustrations" / "packs" / "a1_relvtest_alpha_1.webp").exists())
         self.assertTrue((self.root / "assets" / "illustrations" / "packs" / "b1_relvtest_alpha_1.webp").exists())
 
+        # Card-style ledger sync (task T2.9b): alpha is registered in both
+        # docs/assets/CARD_STYLE_BASELINE.json and STYLE_LOCK.json, renamed
+        # in lock-step with its .webp above; beta is registered in neither,
+        # a reported no-op.
+        card_style_baseline = json.loads(self.card_style_baseline_path.read_text(encoding="utf-8"))
+        self.assertNotIn("assets/illustrations/packs/a1_relvtest_alpha_1.webp", card_style_baseline["files"])
+        renamed_entry = card_style_baseline["files"]["assets/illustrations/packs/b1_relvtest_alpha_1.webp"]
+        self.assertEqual(BASELINE_ENTRY_X, renamed_entry)  # sha256/kb/... verbatim
+        style_lock = json.loads(self.style_lock_path.read_text(encoding="utf-8"))
+        self.assertEqual(["b1_relvtest_alpha_1"], style_lock["families"]["F-E-cards"]["members"])
+        self.assertEqual(
+            [
+                ("a1_relvtest_alpha_1", "b1_relvtest_alpha_1", "renamed"),
+                ("a1_relvtest_beta_1", "a2_relvtest_beta_1", "not registered in the card-style ledger -- no-op"),
+            ],
+            report.card_style_registry_renames,
+        )
+
         aliases_text = (self.root / "lib" / "data" / "pack_progress_aliases.dart").read_text(encoding="utf-8")
         self.assertIn("'b1_relvtest_alpha_1': 'a1_relvtest_alpha_1'", aliases_text)
         self.assertIn("'a2_relvtest_beta_1': 'a1_relvtest_beta_1'", aliases_text)
@@ -544,6 +614,8 @@ class LineEndingsTest(RelevelBundleFixture):
             self.root / "lib" / "data" / "pack_artwork_catalog.dart",
             self.root / "lib" / "widgets" / "sori" / "dancheong_stamp.dart",
             self.root / "lib" / "data" / "pack_progress_aliases.dart",
+            self.card_style_baseline_path,
+            self.style_lock_path,
         ]
         for path in written:
             content = path.read_bytes()
@@ -776,6 +848,191 @@ class SyncPackSourcesEntryPointTest(unittest.TestCase):
         again = rb.sync_pack_sources(self.bundle, root=self.root, apply=True)
         self.assertEqual([], again.pack_sources_synced)
         self.assertFalse(by_bundle_report(again, "a1_x_1").has_pack_source)
+
+
+def _card_style_test_move(**overrides) -> rb.Move:
+    base = {
+        "bundle": "a1_x_1", "from": "a1", "to": "b1", "newPackId": "b1_x_1",
+        "courseUnitId": "b1_04_relationships", "conceptIds": ["concept_b1_relationships"],
+        "scenarios": [], "cloze": "auto", "satz": "auto", "smalltalk": [], "reason": "r",
+    }
+    base.update(overrides)
+    return rb.Move.from_dict(base)
+
+
+class EditCardStyleRegistryTest(unittest.TestCase):
+    """Task T2.9b: docs/assets/CARD_STYLE_BASELINE.json path rename +
+    STYLE_LOCK.json families.F-E-cards.members stem rename, tested directly
+    against small in-memory JSON texts -- mirrors SyncPackSourceFilesTest's
+    reasoning above: ApplyTest/RollbackTest already cover migrate()'s
+    end-to-end wiring (including rollback) for the "alpha" pack, this covers
+    edit_card_style_registry's own field-preservation, no-op, and
+    already-registered-target contracts directly."""
+
+    def test_renames_baseline_entry_verbatim_and_leaves_untouched_entry_intact(self) -> None:
+        baseline_text = _card_style_baseline_text({
+            "assets/illustrations/packs/a1_x_1.webp": dict(BASELINE_ENTRY_X),
+            "assets/illustrations/packs/a1_untouched_1.webp": dict(BASELINE_ENTRY_UNTOUCHED),
+        })
+        lock_text = _style_lock_text(["a1_untouched_1", "a1_x_1"])
+        move = _card_style_test_move()
+        report = rb.MigrationReport(batch="TEST")
+
+        new_baseline_text, new_lock_text = rb.edit_card_style_registry(
+            baseline_text, lock_text, (move,), report,
+        )
+
+        new_baseline = json.loads(new_baseline_text)
+        self.assertNotIn("assets/illustrations/packs/a1_x_1.webp", new_baseline["files"])
+        renamed_entry = new_baseline["files"]["assets/illustrations/packs/b1_x_1.webp"]
+        self.assertEqual(BASELINE_ENTRY_X, renamed_entry)  # sha256 + every other field verbatim
+        untouched_entry = new_baseline["files"]["assets/illustrations/packs/a1_untouched_1.webp"]
+        self.assertEqual(BASELINE_ENTRY_UNTOUCHED, untouched_entry)  # byte-for-byte (as a dict) untouched
+        self.assertEqual(sorted(new_baseline["files"]), list(new_baseline["files"]))  # re-sorted by path
+
+        new_lock = json.loads(new_lock_text)
+        members = new_lock["families"]["F-E-cards"]["members"]
+        self.assertEqual(["a1_untouched_1", "b1_x_1"], members)  # renamed + re-sorted
+
+        self.assertEqual([("a1_x_1", "b1_x_1", "renamed")], report.card_style_registry_renames)
+
+    def test_pack_absent_from_both_ledgers_is_a_reported_no_op_and_bytes_unchanged(self) -> None:
+        baseline_text = _card_style_baseline_text({
+            "assets/illustrations/packs/a1_untouched_1.webp": dict(BASELINE_ENTRY_UNTOUCHED),
+        })
+        lock_text = _style_lock_text(["a1_untouched_1"])
+        move = _card_style_test_move()  # a1_x_1 -- not registered anywhere
+        report = rb.MigrationReport(batch="TEST")
+
+        new_baseline_text, new_lock_text = rb.edit_card_style_registry(
+            baseline_text, lock_text, (move,), report,
+        )
+
+        self.assertEqual(baseline_text, new_baseline_text)
+        self.assertEqual(lock_text, new_lock_text)
+        self.assertEqual(
+            [("a1_x_1", "b1_x_1", "not registered in the card-style ledger -- no-op")],
+            report.card_style_registry_renames,
+        )
+
+    def test_rename_target_already_registered_in_baseline_raises(self) -> None:
+        baseline_text = _card_style_baseline_text({
+            "assets/illustrations/packs/a1_x_1.webp": dict(BASELINE_ENTRY_X),
+            "assets/illustrations/packs/b1_x_1.webp": dict(BASELINE_ENTRY_UNTOUCHED),
+        })
+        lock_text = _style_lock_text(["a1_x_1", "b1_x_1"])
+        move = _card_style_test_move()
+        report = rb.MigrationReport(batch="TEST")
+
+        with self.assertRaisesRegex(rb.RelevelError, "already has an entry"):
+            rb.edit_card_style_registry(baseline_text, lock_text, (move,), report)
+
+    def test_known_deviation_member_list_is_also_renamed(self) -> None:
+        baseline_text = _card_style_baseline_text({
+            "assets/illustrations/packs/a1_x_1.webp": dict(BASELINE_ENTRY_X),
+        })
+        lock_text = _style_lock_text(
+            ["a1_x_1"],
+            known_deviations={"C1-source-original": {"members": ["a1_other_1", "a1_x_1"]}},
+        )
+        move = _card_style_test_move()
+        report = rb.MigrationReport(batch="TEST")
+
+        _, new_lock_text = rb.edit_card_style_registry(baseline_text, lock_text, (move,), report)
+
+        deviation_members = (
+            json.loads(new_lock_text)["families"]["F-E-cards"]["knownDeviations"]["C1-source-original"]["members"]
+        )
+        self.assertEqual(["a1_other_1", "b1_x_1"], deviation_members)
+
+    def test_idempotent_replay_after_already_renamed_is_a_no_op(self) -> None:
+        baseline_text = _card_style_baseline_text({
+            "assets/illustrations/packs/a1_x_1.webp": dict(BASELINE_ENTRY_X),
+        })
+        lock_text = _style_lock_text(["a1_x_1"])
+        move = _card_style_test_move()
+
+        once_baseline, once_lock = rb.edit_card_style_registry(
+            baseline_text, lock_text, (move,), rb.MigrationReport(batch="TEST"),
+        )
+        again_report = rb.MigrationReport(batch="TEST")
+        twice_baseline, twice_lock = rb.edit_card_style_registry(
+            once_baseline, once_lock, (move,), again_report,
+        )
+
+        self.assertEqual(once_baseline, twice_baseline)
+        self.assertEqual(once_lock, twice_lock)
+        self.assertEqual(
+            [("a1_x_1", "b1_x_1", "not registered in the card-style ledger -- no-op")],
+            again_report.card_style_registry_renames,
+        )
+
+
+class CardStyleRegistrySyncEntryPointTest(unittest.TestCase):
+    """The standalone --sync-artwork-registry retroactive entry point (task
+    T2.9b) -- idempotent replay of edit_card_style_registry against a
+    bundle whose dedicated pack artwork was already renamed on disk (LCP
+    PR-L2a's real L2a/L2a3 use case: 16 packs renamed by migrate() before
+    this sync step existed)."""
+
+    def setUp(self) -> None:
+        self._tmp = tempfile.TemporaryDirectory(prefix="sync-artwork-registry-entry-test-")
+        self.addCleanup(self._tmp.cleanup)
+        self.root = Path(self._tmp.name) / "repo"
+        assets_dir = self.root / "docs" / "assets"
+        assets_dir.mkdir(parents=True, exist_ok=True)
+        self.baseline_path = assets_dir / "CARD_STYLE_BASELINE.json"
+        self.baseline_path.write_text(
+            _card_style_baseline_text({
+                "assets/illustrations/packs/a1_x_1.webp": dict(BASELINE_ENTRY_X),
+            }),
+            encoding="utf-8",
+        )
+        self.lock_path = assets_dir / "STYLE_LOCK.json"
+        self.lock_path.write_text(_style_lock_text(["a1_x_1"]), encoding="utf-8")
+        self.bundle = rb.load_bundle_from_dict({
+            "batch": "L2a-TEST",
+            "moves": [{
+                "bundle": "a1_x_1", "from": "a1", "to": "b1", "newPackId": "b1_x_1",
+                "courseUnitId": "b1_04_relationships", "conceptIds": ["concept_b1_relationships"],
+                "scenarios": [], "cloze": "auto", "satz": "auto", "smalltalk": [], "reason": "r",
+            }],
+        })
+
+    def test_dry_run_previews_and_writes_nothing(self) -> None:
+        report = rb.sync_card_style_registry(self.bundle, root=self.root, apply=False)
+        self.assertEqual([("a1_x_1", "b1_x_1", "renamed")], report.card_style_registry_renames)
+        # dry run: nothing written -- the old stem is still on disk
+        self.assertIn("a1_x_1", self.baseline_path.read_text(encoding="utf-8"))
+        self.assertIn("a1_x_1", self.lock_path.read_text(encoding="utf-8"))
+
+    def test_apply_syncs_and_is_idempotent_on_replay(self) -> None:
+        report = rb.sync_card_style_registry(self.bundle, root=self.root, apply=True)
+        self.assertEqual([("a1_x_1", "b1_x_1", "renamed")], report.card_style_registry_renames)
+        baseline = json.loads(self.baseline_path.read_text(encoding="utf-8"))
+        self.assertIn("assets/illustrations/packs/b1_x_1.webp", baseline["files"])
+        self.assertNotIn("assets/illustrations/packs/a1_x_1.webp", baseline["files"])
+        lock = json.loads(self.lock_path.read_text(encoding="utf-8"))
+        self.assertEqual(["b1_x_1"], lock["families"]["F-E-cards"]["members"])
+
+        # Replaying against an already-synced bundle (the real LCP PR-L2a
+        # use case: this CLI mode runs once against relevel_bundle_L2a.json
+        # and once against relevel_bundle_L2a3.json, and must be safe to
+        # re-run) must be a clean no-op, not an error.
+        again = rb.sync_card_style_registry(self.bundle, root=self.root, apply=True)
+        self.assertEqual(
+            [("a1_x_1", "b1_x_1", "not registered in the card-style ledger -- no-op")],
+            again.card_style_registry_renames,
+        )
+
+    def test_missing_ledger_files_is_a_whole_bundle_no_op(self) -> None:
+        self.baseline_path.unlink()
+        self.lock_path.unlink()
+        report = rb.sync_card_style_registry(self.bundle, root=self.root, apply=True)
+        self.assertEqual(
+            [("a1_x_1", "b1_x_1", "no card-style ledger at this root -- no-op")],
+            report.card_style_registry_renames,
+        )
 
 
 def _scenario_test_move(**overrides) -> rb.ScenarioMove:

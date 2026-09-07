@@ -71,6 +71,16 @@ VOCAB_PACK_SERVICE_PATH = ROOT / "lib" / "services" / "vocab_pack_service.dart"
 PACK_ARTWORK_CATALOG_PATH = ROOT / "lib" / "data" / "pack_artwork_catalog.dart"
 DANCHEONG_STAMP_PATH = ROOT / "lib" / "widgets" / "sori" / "dancheong_stamp.dart"
 ARTWORK_ASSET_DIR = ROOT / "assets" / "illustrations" / "packs"
+# tool/check_card_style.py --all's membership ledger for the F-E-cards WebP
+# card family (docstring there) -- kept in lock-step with ARTWORK_ASSET_DIR's
+# physical renames by edit_card_style_registry() below (task T2.9b). The
+# string form (not a Path) is what both JSON ledgers use as a path prefix,
+# independent of whichever `root` a given migrate()/sync_card_style_registry
+# call is sandboxed under.
+CARD_STYLE_ARTWORK_DIR = ARTWORK_ASSET_DIR.relative_to(ROOT).as_posix()
+CARD_STYLE_FAMILY = "F-E-cards"
+CARD_STYLE_BASELINE_RELPATH = Path("docs") / "assets" / "CARD_STYLE_BASELINE.json"
+STYLE_LOCK_RELPATH = Path("docs") / "assets" / "STYLE_LOCK.json"
 PACK_SOURCE_DIR = ROOT / "tools" / "content_factory" / "data" / "packs"
 CANONICAL_SCENARIOS_DIR = ROOT / "tools" / "content_factory" / "canonical_scenarios"
 CANONICAL_AUTHORED_DIR = CANONICAL_SCENARIOS_DIR / "authored"
@@ -492,6 +502,13 @@ class MigrationReport:
     dart_artwork_renames: list[tuple[str, str]] = field(default_factory=list)
     artwork_files_renamed: list[tuple[str, str]] = field(default_factory=list)
     dancheong_motif_renames: list[tuple[str, str, str]] = field(default_factory=list)
+    # (old bundle id, new pack id, note) per move -- note is "renamed" when
+    # both docs/assets/CARD_STYLE_BASELINE.json and STYLE_LOCK.json's
+    # families.F-E-cards.members actually had this pack registered, or a
+    # "no-op"/partial-registration note otherwise (see
+    # edit_card_style_registry's docstring -- most packs never went through
+    # the card-style gate at all).
+    card_style_registry_renames: list[tuple[str, str, str]] = field(default_factory=list)
     pack_sources_synced: list[tuple[str, str]] = field(default_factory=list)
     # (scenario_id, from_level, to_level) for each review/canonical_120_v1/
     # candidates/<level>/<id>.json sync_review_candidate_scenarios actually
@@ -1718,6 +1735,143 @@ def rename_artwork_files(
         report.artwork_files_renamed.append((move.bundle, move.new_pack_id))
 
 
+def _round_trip_or_raise(path_label: str, text: str) -> None:
+    """Guard mirroring check_card_style.py's own run_register(): refuse to
+    touch a JSON file that would not survive a plain
+    ``json.dumps(json.loads(text), indent=2, ensure_ascii=False) + "\\n"``
+    round trip unchanged, since this module always writes that exact
+    canonical form and a pre-existing mismatch means some *other* byte in
+    the file (formatting, key order held some other way, ...) would get
+    silently rewritten as a side effect of this rename."""
+
+    rendered = json.dumps(json.loads(text), indent=2, ensure_ascii=False) + "\n"
+    if rendered != text:
+        raise RelevelError(
+            f"{path_label}: file does not round-trip through "
+            "json.dumps(indent=2, ensure_ascii=False) unchanged -- refusing to "
+            "risk rewriting unrelated bytes. Reformat it to that canonical shape "
+            "first (e.g. via tool/check_card_style.py --baseline for the BASELINE "
+            "sidecar), then retry."
+        )
+
+
+def edit_card_style_registry(
+    baseline_text: str,
+    lock_text: str,
+    moves: tuple[Move, ...],
+    report: MigrationReport,
+    *,
+    artwork_dir: str = CARD_STYLE_ARTWORK_DIR,
+    family: str = CARD_STYLE_FAMILY,
+) -> tuple[str, str]:
+    """Keep ``tool/check_card_style.py --all``'s two membership ledgers --
+    docs/assets/CARD_STYLE_BASELINE.json (path -> sha256 + measured stats)
+    and docs/assets/STYLE_LOCK.json ``families.F-E-cards.members`` (stems,
+    plus any ``knownDeviations`` profile's own members list) -- in
+    lock-step with ``rename_artwork_files()``. Both ledgers are keyed by
+    the pack id, which ``rename_artwork_files()`` also renames on disk:
+    leaving either stale makes ``--all`` fail *twice* for every renamed
+    pack -- the old path as "registered file is missing", the new path as
+    an unregistered import -- exactly the failure task T2.9b fixes.
+
+    Every field of a renamed BASELINE.json entry (sha256, kb, ivoryFrac,
+    fine, coarse, uniqueColors, top8, patchXY, profile) is carried over
+    verbatim -- only the dict key (the path) changes -- and both files'
+    "sorted by key/stem" ordering convention is preserved by re-sorting
+    after the rename (mirroring check_card_style.py's own
+    ``_stats_entry``/``run_register`` sort).
+
+    A pack absent from a ledger never went through the card-style gate
+    (the sidecar registers only WebPs that passed
+    scripts/finish_listening_card.sh, not every
+    assets/illustrations/packs/*.webp) -- graceful no-op for that ledger,
+    same as ``edit_pack_artwork_catalog`` skipping a pack absent from
+    ``dedicatedPackIds``. check_card_style.py's own docstring reserves
+    "STYLE_LOCK.json is never rewritten" for the numeric-*gate proposal*
+    flow (``--baseline``); renaming an existing member's stem is the
+    explicit, different operation this function performs -- the same one
+    ``--register`` already does, as an append, for a brand-new card.
+
+    Idempotent: replaying against an already-renamed pack (old path/stem
+    no longer present) is a no-op for that pack, not an error -- needed
+    for ``sync_card_style_registry``'s retroactive-replay CLI mode to be
+    safe to run twice.
+    """
+
+    baseline = json.loads(baseline_text)
+    files = baseline.get("files")
+    if not isinstance(files, dict):
+        raise RelevelError("CARD_STYLE_BASELINE.json: 'files' must be an object")
+
+    lock = json.loads(lock_text)
+    family_block = (lock.get("families") or {}).get(family)
+    if family_block is None:
+        raise RelevelError(f"STYLE_LOCK.json: family {family!r} not found")
+    member_arrays: list[list[str]] = []
+    if isinstance(family_block.get("members"), list):
+        member_arrays.append(family_block["members"])
+    for deviation in (family_block.get("knownDeviations") or {}).values():
+        if isinstance(deviation, dict) and isinstance(deviation.get("members"), list):
+            member_arrays.append(deviation["members"])
+
+    files_changed = False
+    members_changed = False
+    for move in moves:
+        old_rel = f"{artwork_dir}/{move.bundle}.webp"
+        new_rel = f"{artwork_dir}/{move.new_pack_id}.webp"
+        in_baseline = old_rel in files
+        in_members = any(move.bundle in arr for arr in member_arrays)
+
+        if not in_baseline and not in_members:
+            report.card_style_registry_renames.append(
+                (move.bundle, move.new_pack_id, "not registered in the card-style ledger -- no-op")
+            )
+            continue
+
+        if in_baseline:
+            if new_rel in files:
+                raise RelevelError(
+                    f"move {move.bundle!r}: CARD_STYLE_BASELINE.json already has an "
+                    f"entry for {new_rel} -- refusing to overwrite it"
+                )
+            files[new_rel] = files.pop(old_rel)
+            files_changed = True
+
+        if in_members:
+            for arr in member_arrays:
+                if move.bundle in arr:
+                    arr.remove(move.bundle)
+                    if move.new_pack_id not in arr:
+                        arr.append(move.new_pack_id)
+                    arr.sort()
+            members_changed = True
+
+        if in_baseline and in_members:
+            note = "renamed"
+        elif in_baseline:
+            note = "renamed in BASELINE only -- stem missing from STYLE_LOCK members"
+        else:
+            note = "renamed in STYLE_LOCK members only -- path missing from BASELINE"
+        report.card_style_registry_renames.append((move.bundle, move.new_pack_id, note))
+
+    if not files_changed and not members_changed:
+        return baseline_text, lock_text
+
+    if files_changed:
+        _round_trip_or_raise("CARD_STYLE_BASELINE.json", baseline_text)
+        baseline["files"] = dict(sorted(files.items()))
+    if members_changed:
+        _round_trip_or_raise("STYLE_LOCK.json", lock_text)
+
+    new_baseline_text = (
+        json.dumps(baseline, ensure_ascii=False, indent=2) + "\n" if files_changed else baseline_text
+    )
+    new_lock_text = (
+        json.dumps(lock, ensure_ascii=False, indent=2) + "\n" if members_changed else lock_text
+    )
+    return new_baseline_text, new_lock_text
+
+
 # ───────────────────────── pack authoring source sync (T2.9a) ─────────────
 #
 # tools/content_factory/data/packs/<packId>.json is the archived, per-pack
@@ -1829,6 +1983,56 @@ def sync_pack_sources(
         pack_report.has_pack_source = (pack_source_dir / f"{pack_report.bundle}.json").exists()
     if apply:
         sync_pack_source_files(bundle.moves, report, pack_source_dir)
+    return report
+
+
+def sync_card_style_registry(
+    bundle: BundleFile, *, root: Path = ROOT, apply: bool,
+) -> MigrationReport:
+    """Standalone entry point (task T2.9b): retroactively apply
+    ``edit_card_style_registry()`` to a bundle whose pack moves already
+    physically renamed their ``assets/illustrations/packs/*.webp`` via
+    ``migrate()`` before this sync step existed (LCP PR-L2a batches L2a,
+    L2a3) -- CLI: ``--sync-artwork-registry [--apply]``.
+
+    Touches only docs/assets/CARD_STYLE_BASELINE.json and
+    docs/assets/STYLE_LOCK.json -- never assets/data, the ledger, or any
+    Dart/pack-source file -- so replaying an already-migrated (or
+    already-synced) bundle here is safe: idempotent per
+    ``edit_card_style_registry``'s own "old path/stem no longer present"
+    no-op, and a dry run is a pure read/compute preview (the ``if apply``
+    branch below is the only place anything is written).
+
+    A ``root`` that provisions neither ledger file (most test fixtures --
+    the card-style gate is a real-repo-only concern) is a whole-bundle
+    no-op: every move is reported "not registered", nothing is read or
+    written.
+    """
+
+    baseline_path = root / CARD_STYLE_BASELINE_RELPATH
+    lock_path = root / STYLE_LOCK_RELPATH
+    report = MigrationReport(batch=f"{bundle.batch}-sync-artwork-registry")
+    for move in bundle.moves:
+        report.packs.append(PackMoveReport(
+            bundle=move.bundle, new_pack_id=move.new_pack_id,
+            from_level=move.from_level, to_level=move.to_level,
+            course_unit_id=move.course_unit_id,
+        ))
+    if not baseline_path.exists() or not lock_path.exists():
+        for move in bundle.moves:
+            report.card_style_registry_renames.append(
+                (move.bundle, move.new_pack_id, "no card-style ledger at this root -- no-op")
+            )
+        return report
+
+    new_baseline_text, new_lock_text = edit_card_style_registry(
+        _normalize_newlines(baseline_path.read_text(encoding="utf-8")),
+        _normalize_newlines(lock_path.read_text(encoding="utf-8")),
+        bundle.moves, report,
+    )
+    if apply:
+        baseline_path.write_bytes(new_baseline_text.encode("utf-8"))
+        lock_path.write_bytes(new_lock_text.encode("utf-8"))
     return report
 
 
@@ -2586,6 +2790,8 @@ def migrate(
     dancheong_stamp_path = root / "lib" / "widgets" / "sori" / "dancheong_stamp.dart"
     pack_progress_aliases_path = root / "lib" / "data" / "pack_progress_aliases.dart"
     artwork_asset_dir = root / "assets" / "illustrations" / "packs"
+    card_style_baseline_path = root / CARD_STYLE_BASELINE_RELPATH
+    style_lock_path = root / STYLE_LOCK_RELPATH
     # Root-relative, like the three Dart paths above (and for the same
     # reason -- a test must be able to sandbox its own throwaway copies of
     # these instead of ever touching this checkout's real .py sources).
@@ -2795,11 +3001,22 @@ def migrate(
                     path for move in bundle.scenario_moves
                     if (path := review_candidates_dir / move.from_level / f"{move.id}.json").exists()
                 )
+        # Card-style ledger sync (task T2.9b) -- like the three sets just
+        # above, optional (graceful no-op): most test roots (and, in
+        # principle, a real root with no F-E-cards-registered pack in this
+        # bundle) never provision either file. Both-or-neither, since the
+        # two ledgers are only ever meaningfully edited together.
+        card_style_paths = (
+            (card_style_baseline_path, style_lock_path)
+            if card_style_baseline_path.exists() and style_lock_path.exists()
+            else ()
+        )
         originals = {
             path: path.read_bytes()
             for path in (
                 *outputs, *dart_paths, *py_source_paths, *pack_source_paths,
                 *canonical_authored_paths, *scenario_briefs_paths, *review_candidate_source_paths,
+                *card_style_paths,
             )
         }
         ledger_existed = ledger_path.exists()
@@ -2864,6 +3081,14 @@ def migrate(
             )
             _atomic_write_bytes(pack_artwork_catalog_path, new_pac_text.encode("utf-8"))
             rename_artwork_files(bundle.moves, report, artwork_asset_dir)
+            if card_style_paths:
+                new_card_style_baseline_text, new_style_lock_text = edit_card_style_registry(
+                    _normalize_newlines(originals[card_style_baseline_path].decode("utf-8")),
+                    _normalize_newlines(originals[style_lock_path].decode("utf-8")),
+                    bundle.moves, report,
+                )
+                _atomic_write_bytes(card_style_baseline_path, new_card_style_baseline_text.encode("utf-8"))
+                _atomic_write_bytes(style_lock_path, new_style_lock_text.encode("utf-8"))
             sync_pack_source_files(bundle.moves, report, pack_source_dir)
 
             new_dancheong_text = edit_dancheong_motifs(
@@ -2968,6 +3193,7 @@ def format_plan(report: MigrationReport, *, apply: bool) -> str:
     lines.append(f"Dart packOrderInLevel renames: {report.dart_order_map_renames}")
     lines.append(f"Dart dedicatedPackIds renames: {report.dart_artwork_renames}")
     lines.append(f"artwork .webp files renamed: {report.artwork_files_renamed}")
+    lines.append(f"card-style registry renames: {report.card_style_registry_renames}")
     lines.append(f"pack authoring sources synced: {report.pack_sources_synced}")
     lines.append(f"Dancheong motif renames: {report.dancheong_motif_renames}")
     lines.append(f"pack_progress_aliases.dart entries added: {report.aliases_added}")
@@ -3040,6 +3266,9 @@ def append_report_section(path: Path, report: MigrationReport, *, apply: bool) -
         f"-{len(report.cloze_topic_keys_removed)}, contentLinks 재작성 "
         f"{report.content_links_rewritten}건."
     )
+    registered_renames = [n for n in report.card_style_registry_renames if n[2] == "renamed"]
+    if registered_renames:
+        lines.append(f"card-style 명부(BASELINE.json/STYLE_LOCK.json) 개명 {len(registered_renames)}건.")
     lines.append("")
     lines.append("Dart 편집:")
     lines.append(f"- `packDisplayMap` 개명: {report.dart_display_map_renames}")
@@ -3120,6 +3349,18 @@ def main(argv: list[str] | None = None) -> int:
             "existed (LCP PR-L2a batches L2a, L2a3)"
         ),
     )
+    parser.add_argument(
+        "--sync-artwork-registry", action="store_true",
+        help=(
+            "retroactive mode (task T2.9b): only rename this bundle's "
+            "docs/assets/CARD_STYLE_BASELINE.json entry + STYLE_LOCK.json "
+            "families.F-E-cards.members stem (tool/check_card_style.py --all's "
+            "membership ledgers) -- idempotent, does not touch assets/data/the "
+            "ledger/Dart sources/pack authoring sources -- for a bundle whose "
+            "dedicated artwork was already migrate()'d/renamed on disk before "
+            "this sync step existed (LCP PR-L2a batches L2a, L2a3)"
+        ),
+    )
     args = parser.parse_args(argv)
 
     try:
@@ -3139,6 +3380,15 @@ def main(argv: list[str] | None = None) -> int:
                 else:
                     status = "would sync (dry-run)"
                 print(f"  {pack.bundle} -> {pack.new_pack_id}: {status}")
+            return 0
+        if args.sync_artwork_registry:
+            sync_report = sync_card_style_registry(bundle, apply=args.apply)
+            print(
+                f"batch {sync_report.batch}: {len(sync_report.packs)} pack(s), "
+                f"{'APPLIED' if args.apply else 'dry-run (nothing written)'}"
+            )
+            for old_bundle, new_pack_id, note in sync_report.card_style_registry_renames:
+                print(f"  {old_bundle} -> {new_pack_id}: {note}")
             return 0
         report = migrate(bundle=bundle, apply=args.apply)
     except (RelevelError, NotImplementedError) as error:
