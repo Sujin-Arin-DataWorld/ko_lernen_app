@@ -284,7 +284,15 @@ def build_fixture(root: Path) -> None:
         "phrases": [
             {"id": "pronunciation_a1_0001", "level": "a1", "ko": "사과", "de": "", "en": "", "focus": ""},  # delta 0
             {"id": "pronunciation_a1_0002", "level": "a1", "ko": "정책", "de": "", "en": "", "focus": ""},  # delta+4 over2
-            {"id": "pronunciation_a1_0003", "level": "a1", "ko": "xyzxyz", "de": "", "en": "", "focus": ""},  # unknown
+            # T2.4a: was the Latin string "xyzxyz" -- since B6 now
+            # excludes (not "unknown"s) any token containing a Latin
+            # letter/digit, that string no longer exercises the "a
+            # genuinely unresolvable KOREAN word" path this fixture item
+            # is for (a sentence with nothing else in it fell through to
+            # sentence_profile's own "default to grade 1 when there are
+            # no known tokens at all" branch instead of grade=None).
+            # Nonsense-but-Hangul instead, still unresolvable.
+            {"id": "pronunciation_a1_0003", "level": "a1", "ko": "뷁뚧삟", "de": "", "en": "", "focus": ""},  # unknown
         ],
     }
     _write_json(assets / "pronunciation_phrases.json", pronunciation)
@@ -767,6 +775,18 @@ class FixtureAuditTest(unittest.TestCase):
         loaded = json.loads(out.read_text(encoding="utf-8"))
         self.assertEqual(loaded, summary)
 
+    def test_writers_write_lf_only(self):
+        # T2.3-R2: content_level_summary.json / content_level_report.md are
+        # both `eol=lf`; write_summary_json/write_report_md must not let
+        # Windows text-mode writing turn them back into CRLF.
+        summary = acl.build_summary(self.result, "fixture")
+        summary_out = self.root / "lf_check_summary.json"
+        acl.write_summary_json(summary_out, summary)
+        self.assertNotIn(b"\r", summary_out.read_bytes())
+        report_out = self.root / "lf_check_report.md"
+        acl.write_report_md(report_out, self.result, summary)
+        self.assertNotIn(b"\r", report_out.read_bytes())
+
     def test_write_report_md_contains_golden_layout_header(self):
         summary = acl.build_summary(self.result, "fixture")
         out = self.root / "content_level_report.md"
@@ -938,34 +958,53 @@ class LiveRatchetTest(unittest.TestCase):
     invariant across this rework for every single kind, e.g. vocab
     220+151=371 (R4) == 265+106=371 (R4b) -- this is a relabelling, not a
     net change in flagged items). Run `python tool/audit_content_levels.py`
-    first to regenerate the summary."""
+    first to regenerate the summary.
 
-    # 2026-09-07 R4b 실측 (`python tool/audit_content_levels.py --json` 출력).
-    # 하향 전용 — 상한은 내려갈 수만 있다, 절대 올리지 마라. over2 is now
-    # HIGH-or-MEDIUM-confidence by construction (R4b item 2) -- only a LOW
-    # >=+2 verdict counts under CAP_FALLBACK_OVER2 instead, see below.
+    2026-09-07 T2.3-R1 (PR-L2a relevel apply, 17 vocab-pack bundles moved)
+    lowered CAP_OVER2/CAP_FALLBACK_OVER2 for vocab/cloze/satz and both
+    CAP_PACK_*_MEDIAN_GE_PLUS2 to the new actuals -- the whole point of the
+    relevel was to move the worst-offending packs to a truer level, so
+    these were expected to fall, not just permitted to.
+
+    2026-09-07 T2.4a (cefr_lexicon.py tokenizer false-positive fixes,
+    Part B of the same PR-L2a session) lowered every cap again to the new
+    actuals. Three kinds (vocab/cloze/satz) show CAP_FALLBACK_OVER2 rise
+    by 1 alongside a LARGER fall in CAP_OVER2 for the same kind -- the
+    same "relabelling, not a net regression" pattern this class's own
+    docstring already documents for the R4/R4b transition (one item's
+    confidence tier shifted from high/medium to low, moving it from the
+    over2 bucket to fallback_over2, while several OTHER items resolved
+    correctly and left both buckets outright): vocab over2+fallback_over2
+    317->316, cloze 166->166 (unchanged), satz 198->196 -- every kind's
+    COMBINED total is flat or down, never up."""
+
+    # 2026-09-07 T2.4a 실측 (`python tool/audit_content_levels.py --json`
+    # 출력, PR-L2a Part A relevel + Part B tokenizer fix 반영 후). 하향
+    # 전용 — 상한은 내려갈 수만 있다, 절대 올리지 마라. over2 is HIGH-or-
+    # MEDIUM-confidence by construction (R4b item 2) -- only a LOW >=+2
+    # verdict counts under CAP_FALLBACK_OVER2 instead, see below.
     CAP_OVER2 = {
-        "vocab": 265, "grammar": 10, "scenario": 7, "cloze": 241,
-        "satz": 273, "smalltalk": 61, "pronunciation": 8, "media": 20,
+        "vocab": 216, "grammar": 9, "scenario": 5, "cloze": 157,
+        "satz": 190, "smalltalk": 57, "pronunciation": 8, "media": 15,
     }
-    # 실측 unknown/total: vocab .0240, 나머지 0 -- unchanged by R4b (items 1/2
-    # don't touch which tokens/items resolve to grade=None). +0.01 여유는
-    # 브리프 지시(래칫 조건) 그대로.
+    # 실측 unknown/total: vocab .0231(=56/2420), 나머지 0 -- the tokenizer
+    # fix resolves 12 more vocab headwords than the T2.3-R1 baseline
+    # (68->56 unknown; see docs/data/content_level_report.md). +0.01
+    # 여유는 브리프 지시(래칫 조건) 그대로.
     CAP_UNKNOWN_RATIO = {
-        "vocab": 0.0240, "grammar": 0.0, "scenario": 0.0, "cloze": 0.0,
+        "vocab": 0.0231, "grammar": 0.0, "scenario": 0.0, "cloze": 0.0,
         "satz": 0.0, "smalltalk": 0.0, "pronunciation": 0.0, "media": 0.0,
     }
-    # R4b item 2 guard (insufficient_sample) doesn't change HOW MANY a1/a2
-    # packs clear the median>=+2 threshold, only what suggested_action
-    # those packs get -- both caps happen to measure the same (6) as the
-    # pre-R4b baseline.
-    CAP_PACK_A1_MEDIAN_GE_PLUS2 = 6
-    CAP_PACK_A2_MEDIAN_GE_PLUS2 = 6
-    # R4b item 2 실측 2026-09-07 -- every kind's fallback_over2 falls by
-    # exactly its own over2 rise above (see class docstring).
+    # Unchanged from the T2.3-R1 baseline (still 0) -- the tokenizer fix
+    # does not itself move any pack's median further below +2.
+    CAP_PACK_A1_MEDIAN_GE_PLUS2 = 0
+    CAP_PACK_A2_MEDIAN_GE_PLUS2 = 0
+    # T2.4a 실측 2026-09-07 -- see class docstring for the vocab/cloze/satz
+    # relabelling note (each rises by exactly 1 here, more than offset by
+    # its own CAP_OVER2 fall above); every other kind is unchanged.
     CAP_FALLBACK_OVER2 = {
-        "vocab": 106, "grammar": 2, "scenario": 0, "cloze": 19,
-        "satz": 16, "smalltalk": 3, "pronunciation": 0, "media": 3,
+        "vocab": 100, "grammar": 2, "scenario": 0, "cloze": 9,
+        "satz": 6, "smalltalk": 3, "pronunciation": 0, "media": 3,
     }
 
     @classmethod

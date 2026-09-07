@@ -124,7 +124,11 @@ def main() -> int:
         out.append(line)
     if missing:
         raise SystemExit(f"missing ids: {sorted(set(missing))[:8]}")
-    AUTHORITY_PATH.write_text("".join(out), encoding="utf-8")
+    # write_bytes, not write_text: can_do_content_authorities.json is
+    # `eol=lf` in .gitattributes, but text-mode write_text() on Windows
+    # retranslates every "\n" already read from the (LF) input lines back
+    # into "\r\n" regardless (T2.3-R2).
+    AUTHORITY_PATH.write_bytes("".join(out).encode("utf-8"))
     print(
         f"updated {vocab_changed} of {vocab_scanned} inherited vocab fingerprints"
     )

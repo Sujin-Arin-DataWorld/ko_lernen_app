@@ -1189,7 +1189,11 @@ def write_suspects_csv(path: Path, result: AuditResult) -> None:
 
 def write_summary_json(path: Path, summary: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    # write_bytes, not write_text: content_level_summary.json is `eol=lf`
+    # in .gitattributes, but text-mode write_text() on Windows retranslates
+    # every "\n" in the payload back into "\r\n" regardless (T2.3-R2).
+    content = json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+    path.write_bytes(content.encode("utf-8"))
 
 
 def _matrix_section(kind: str, kind_label: str, matrix: Dict[str, Dict[str, Dict[str, int]]]) -> List[str]:
@@ -1380,7 +1384,10 @@ def write_report_md(path: Path, result: AuditResult, summary: dict) -> None:
     lines.append("")
 
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    # write_bytes, not write_text: content_level_report.md is `eol=lf` in
+    # .gitattributes, but text-mode write_text() on Windows retranslates
+    # every "\n" in the payload back into "\r\n" regardless (T2.3-R2).
+    path.write_bytes(("\n".join(lines) + "\n").encode("utf-8"))
 
 
 # ---------------------------------------------------------------------------

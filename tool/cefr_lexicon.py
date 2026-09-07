@@ -229,6 +229,13 @@ ENDINGS: Tuple[str, ...] = (
     "여야", "던", "더라고요", "네", "어도", "아도", "여도", "어서요",
     "는데요", "은데요", "습니다만", "다면", "라면", "려면", "면서도",
     "다가", "았다가", "었다가", "였다가",
+    # T2.4a (B4): politeness 요 stacked on a quotative ending (간다고요,
+    # 먹자고요, 뭐냐고요, 드시라고요) -- none of the bare quotative endings
+    # just below (다고/자고/냐고/라고/으라고) themselves account for a
+    # trailing 요, so a token like "간다고요" matched nothing here before
+    # and fell through unresolved. "는다고요" additionally covers a
+    # consonant-final stem's own quotative+요 (예: "먹는다고요").
+    "다고요", "자고요", "냐고요", "라고요", "으라고요", "는다고요",
 )
 
 # Copula endings: the stem is the noun itself (이다 "to be" attaches to a
@@ -237,6 +244,22 @@ ENDINGS: Tuple[str, ...] = (
 # them) but branched on separately in _lemma_candidates -- R3 item 4
 # ("자리예요." -> 자리, not the nonsense "자리다").
 _COPULA_ENDINGS: frozenset = frozenset({"예요", "이에요"})
+
+# T2.4a (B2, "약은" -> 약(1급)+은, not 약다 5급): "은" is BOTH a listed
+# particle (topic marker for a consonant-final noun) and a listed ending
+# (past-/general-attributive, e.g. 먹은) -- a genuine ambiguity with no
+# POS tagging available. The noun+particle reading must win the priority
+# race here specifically, but this is NOT safely generalizable to every
+# suffix that happens to share both roles: "는" is the identical kind of
+# dual-role suffix, yet 가다's extremely common attributive "가는" MUST
+# stay 가다, never regress to bare "가" (see `_RIEUL_ATTRIBUTIVE_
+# EXCLUDED_LAST_CHARS`'s docstring for that exact, already-guarded
+# collision -- confirmed by regression when this was first tried broadly:
+# "가는" -> "가" and "오라고" -> "오" both silently went wrong, since
+# "라고" is ALSO listed as both a particle and a quotative ending). A
+# small, closed, hand-verified set -- the same trade-off this file's
+# other collision tables already make -- rather than a blanket rule.
+_NOUN_PARTICLE_PRIORITY_SUFFIXES: frozenset = frozenset({"은"})
 
 # R3 item 4 ("따뜻해서" -> 따뜻하다, "서늘해서" -> 서늘하다): "해서" is
 # stripped as one opaque 2-char ENDING (see ENDINGS above), which loses the
@@ -341,6 +364,39 @@ IRREGULAR_STEM_MAP: Mapping[str, str] = {
     # needed, only these two new rows).
     "새로워": "새롭다", "즐거워": "즐겁다",
     "새로우": "새롭다", "즐거우": "즐겁다",
+    # T2.4a (B3, auditor false positives -- these nine ㅂ-irregular
+    # adjectives were simply missing from the table, same -워/-우 pattern
+    # as every entry above): 맵다 무겁다 가볍다 아름답다 반갑다 즐겁다
+    # (already present) 귀엽다 뜨겁다 차갑다 시끄럽다.
+    "매워": "맵다", "매우": "맵다",
+    # Past tense "매웠어요" tense-fuses the vowel onto the batchim-ㅆ
+    # syllable itself (매우+었 -> 매웠, not "매우어" -- `_unfuse_tensed_
+    # vowel`'s generic ㅝ->ㅜ un-fuse would wrongly restore this to the
+    # non-word "매우다"), so -- alone among this table's nine new B3
+    # entries (the only one Fable's brief tests in the past tense) --
+    # 매웠 needs its own direct fragment the same way 도왔 (below) does.
+    "매웠": "맵다",
+    "무거워": "무겁다", "무거우": "무겁다",
+    "가벼워": "가볍다", "가벼우": "가볍다",
+    "아름다워": "아름답다", "아름다우": "아름답다",
+    "반가워": "반갑다", "반가우": "반갑다",
+    "귀여워": "귀엽다", "귀여우": "귀엽다",
+    "뜨거워": "뜨겁다", "뜨거우": "뜨겁다",
+    "차가워": "차갑다", "차가우": "차갑다",
+    "시끄러워": "시끄럽다", "시끄러우": "시끄럽다",
+    # 돕다/곱다 are the two lexicalized ㅂ-irregulars that keep the
+    # archaic BRIGHT-vowel harmony (오+아 -> 와, not the 우+어 -> 워
+    # every other ㅂ-irregular above takes) -- 도와/도왔 do NOT fit the
+    # -워/-우 pattern this table otherwise uses, so they need their own
+    # literal fragments rather than falling out of that pattern. "도와주"
+    # additionally covers the "Verb-아 주다" benefactive-auxiliary shape
+    # (B3: "도와주세요" -> 돕다): `_auxiliary_main_verb_repair` only
+    # matches a BARE-CITATION auxiliary ("도와주다"), never a further-
+    # conjugated one like "도와주세요" (see that function's own
+    # docstring), so the fragment left after ordinary ENDING-stripping
+    # ("세요") needs this direct entry the same way every other irregular
+    # fragment in this file does.
+    "도와": "돕다", "도왔": "돕다", "도와주": "돕다",
 }
 
 # ㅡ-irregular ("으-탈락") restoration: fragment -> bare root ("다" appended
@@ -631,6 +687,12 @@ def _irregular_repair(stem: str) -> Optional[str]:
 # correct "말다" (caught in this rework's own sentence-unknown-ratio sweep).
 _QUOTATIVE_ENDINGS: frozenset = frozenset({
     "ㄴ다고", "는다고", "다고", "자고", "냐고", "으라고", "라고",
+    # T2.4a (B4): the +요 variants just added to ENDINGS get the SAME
+    # embedded-ㄴ-batchim post-processing (_jamo_attributive_repair /
+    # _rieul_stem_attributive_repair) as their bare counterparts above --
+    # e.g. "간다고요" strips "다고요" to stem "간" (된다고's own embedded-ㄴ
+    # shape), which still needs the jamo-strip repair to reach "가다".
+    "다고요", "자고요", "냐고요", "라고요", "으라고요", "는다고요",
 })
 
 # R7 item 9 ("입어보다" -> 입다, "먹어 봤어요" -> 먹다 [already correct --
@@ -742,6 +804,23 @@ RIEUL_NEUN_MAP: Mapping[str, str] = {
 }
 
 
+# T2.4a (B4): a sentence-final BARE single-syllable banmal imperative
+# ("레나, 여기 서.") carries no other suffix for `_lemma_candidates` to
+# strip, so it generates no candidate for the intended verb at all -- and
+# several of these syllables are ALSO real, unrelated, higher-grade kiiq
+# headwords in their own right (bare "서" resolves via kiiq to a grade-3
+# word before this fix) that would otherwise win outright. A small,
+# closed table, checked at the SAME top priority as the proper-noun check
+# in both `CefrLexicon.word_grade` and `_resolve_eojeol` (see their call
+# sites) -- the same accepted collision-table trade-off this file already
+# makes for every other closed, hand-verified table (D_IRREGULAR_MAP's
+# 들/걸, RIEUL_NEUN_MAP just above, ...).
+BANMAL_IMPERATIVE_MAP: Mapping[str, str] = {
+    "가": "가다", "와": "오다", "서": "서다", "봐": "보다",
+    "해": "하다", "자": "자다", "줘": "주다",
+}
+
+
 ## R7 item 4: `_rieul_stem_attributive_repair` must NOT fire when `token`'s
 # last character IS one of these -- both "는" (ㄴ+ㅡ+ㄴ) and "은" (ㅇ+ㅡ+ㄴ)
 # coincidentally carry batchim ㄴ as part of their OWN jamo composition,
@@ -795,7 +874,25 @@ def _rieul_stem_attributive_repair(token: str) -> Optional[str]:
 # "을게요" match) already worked. Matching instead requires stripping an
 # embedded ㄹ batchim from the syllable immediately before X.
 _RIEUL_FUSED_ENDING_TAILS: Tuple[str, ...] = tuple(
-    sorted({"게요", "까요", "래요", "지"}, key=len, reverse=True)
+    sorted(
+        {
+            "게요", "까요", "래요", "지",
+            # T2.4a (B4, banmal "-을게/-ㄹ게": "갈게" -> 가다, "옮길게" ->
+            # 옮기다): the bare (no politeness 요) future-intention
+            # ending has the identical embedded-ㄹ-batchim shape as
+            # "게요" just above, just without it. Safe to add unqualified
+            # even though bare "게" is ALSO the ordinary adverbial "-게"
+            # ending (짧게, 예쁘게, ...): for those, `before`'s last
+            # character never carries a ㄹ batchim, so
+            # `_strip_final_batchim` returns None and this function
+            # falls through to that ordinary reading untouched (see this
+            # function's own docstring for the len(before)==1 case,
+            # unaffected either way since "짧"/"예쁘" are not in
+            # `_RIEUL_FUSED_STRIP_PREFERRED_1SYL`).
+            "게",
+        },
+        key=len, reverse=True,
+    )
 )
 
 # For a 1-syllable `before` (the whole batchim-ㄹ syllable IS the entire
@@ -879,6 +976,15 @@ _COPULA_ENDINGS_R8: Tuple[str, ...] = tuple(sorted({
     "이에요", "예요", "입니다", "이었어요", "였어요", "이라서", "이고",
     "이지만", "인데", "이니까", "이라고", "이야", "이죠", "이지요",
     "이네요", "입니까", "이었습니다",
+    # T2.4a (B2, "문서인지" -> 문서(4급)+인지): 이다's indirect-question
+    # ending -ㄴ지 ("whether/if it is") -- "문서인지" is 문서+이+ㄴ지, not
+    # a compound of the noun 문서 with the SEPARATE, unrelated noun 인지
+    # ("cognition"), which is what `_compound_split_lookup`'s generic
+    # 2-way split fell back to before this entry existed (max(문서,인지)
+    # instead of just 문서's own grade). A bare token "인지" (not longer
+    # than the ending itself, i.e. the standalone noun) is unaffected --
+    # `_copula_noun_stem` requires `len(token) > len(ending)`.
+    "인지",
 }, key=len, reverse=True))
 
 
@@ -1070,7 +1176,8 @@ def _lemma_candidates(token: str) -> List[str]:
             if repaired is not None:
                 candidates.append(repaired)
 
-    # PASS 2: generic suffix stripping (original behaviour, unchanged).
+    # PASS 2: generic suffix stripping (original behaviour, extended by
+    # T2.4a items B2/B4 -- see the two inline comments below).
     for source in sources:
         for suf in _ALL_SUFFIXES:
             if source.endswith(suf) and len(source) > len(suf):
@@ -1078,7 +1185,28 @@ def _lemma_candidates(token: str) -> List[str]:
                 if suf in _COPULA_ENDINGS:
                     candidates.append(stem)
                 elif suf in _ENDING_SET:
+                    # T2.4a (B2): for the small, closed set of suffixes
+                    # where the noun+particle reading must win -- see
+                    # `_NOUN_PARTICLE_PRIORITY_SUFFIXES`'s own docstring
+                    # for why this is NOT the same as "any suf in both
+                    # _PARTICLE_SET and _ENDING_SET" -- offer the bare
+                    # stem FIRST, ahead of the stem+다 guess.
+                    if suf in _NOUN_PARTICLE_PRIORITY_SUFFIXES:
+                        candidates.append(stem)
                     candidates.append(_restore_predicate(stem))
+                    if suf in _QUOTATIVE_ENDINGS:
+                        # T2.4a (B4, "뭐냐고요" -> 뭐, not 뭐다): a
+                        # quotative also commonly reports a COPULA
+                        # question ("뭐(이)냐고" = "asking what it is"),
+                        # not a verb -- offer the bare stem too, AFTER
+                        # the verb guess above, so it only wins when
+                        # stem+다 is not itself a real word (뭐다 isn't;
+                        # 가다/먹다 are, and their own jamo-repaired PASS 1
+                        # candidates already resolve first regardless --
+                        # see `_jamo_attributive_repair`'s call site
+                        # above in PASS 1 -- so this never shadows a real
+                        # verb reading).
+                        candidates.append(stem)
                 if suf in _PARTICLE_SET:
                     candidates.append(stem)
         # Fallback: bare trailing "요" not in the brief's ENDINGS list,
@@ -1086,6 +1214,27 @@ def _lemma_candidates(token: str) -> List[str]:
         # docstring / _FALLBACK_ENDING comment above).
         if source.endswith(_FALLBACK_ENDING) and len(source) > len(_FALLBACK_ENDING):
             stem = source[: -len(_FALLBACK_ENDING)]
+            # T2.4a (B2/B4, "여기요" -> 여기(1급)+요; "전에요"/"후에요" ->
+            # 전/후): politeness 요 also attaches directly to a bare noun
+            # (no verb/adjective underneath at all) or to a noun+particle
+            # ("전에" = 전 + locative 에). The bare-noun reading must be
+            # tried BEFORE the stem+다 guess here (not just as a fallback
+            # after it) -- "여기다" ("to regard/consider") is itself a
+            # REAL, resolvable kiiq verb, so stem+다 does not merely fail
+            # silently the way a made-up word would; it actively wins the
+            # priority race at the wrong (much higher) grade unless the
+            # noun reading is offered first. Try the stem AS-IS first
+            # (protects a real multi-syllable noun that merely ENDS in a
+            # particle-shaped syllable, e.g. "사과" ending in the
+            # comitative particle 과, from ever reaching the particle-
+            # strip below), then that SAME stem with one more trailing
+            # particle stripped (`_strip_one_particle` already returns
+            # its input unchanged when nothing matches, so this is a
+            # no-op for any stem that doesn't end in a particle at all).
+            candidates.append(stem)
+            particle_stripped = _strip_one_particle(stem)
+            if particle_stripped != stem:
+                candidates.append(particle_stripped)
             candidates.append(_restore_predicate(stem))
     candidates.append(token)
     # De-duplicate while preserving order (priority-first).
@@ -1118,10 +1267,30 @@ def _longest_connective_suffix(token: str) -> Optional[str]:
     return None
 
 
+_QUOTATION_MARKS: str = "‘’“”'\""
+
+
+def _strip_quotation_marks(text: str) -> str:
+    """T2.4a (B5): remove every quotation-mark character (curly ‘’“” and
+    straight '") from `text` globally, before eojeol-splitting. A
+    boundary-only `.strip()` (already applied per-token afterwards by
+    `_normalize_token` via TRAILING_PUNCT) can never catch a CLOSING quote
+    that lands mid-eojeol -- Korean attaches a particle directly with no
+    space, so `'여기 서'도 맞아?` splits on whitespace into "여기" and
+    "서'도" (the closing quote sits between the verb and its particle, not
+    at either end of that token). Removed outright, not replaced with a
+    space, since nothing else separates the quote from its neighbours
+    either."""
+    for mark in _QUOTATION_MARKS:
+        text = text.replace(mark, "")
+    return text
+
+
 def tokenize_eojeols(text: str) -> List[str]:
-    """Whitespace eojeol split (no normalization — callers strip
-    punctuation per-token as needed)."""
-    return text.split()
+    """Whitespace eojeol split (quotation marks stripped first -- see
+    `_strip_quotation_marks`; no other normalization -- callers strip
+    remaining punctuation per-token as needed)."""
+    return _strip_quotation_marks(text).split()
 
 
 # ---------------------------------------------------------------------------
@@ -1136,16 +1305,32 @@ EXTRA_PROPER_NOUNS: Tuple[str, ...] = (
     "다니엘", "제니", "이지윤",
 )
 
+# T2.4a (B6): brand/product names -- excluded from grading (`grade=None`,
+# `source='proper_noun'`) and from `SentenceProfile.unknown` the same way
+# a character display name is, via the SAME `_match_proper_noun` mechanism
+# (unioned into `load_character_names`'s returned set below). aliases.csv
+# has no "excluded, ungraded" shape (every row there resolves to SOME
+# grade -- see `_alias_lookup`: an empty `lexicon_form` means "A1
+# exception", not "unranked"), so this is a dedicated set instead, per
+# the brief's own fallback instruction. Documented in the F9 exception
+# table (docs/data/level_bible/F9_exceptions.md, "브랜드/고유명사" section)
+# alongside every other grade-list-independent exception category.
+PROPER_NOUN_EXCLUSIONS: FrozenSet[str] = frozenset({
+    "카카오톡", "카톡", "네이버", "인스타그램", "유튜브", "쿠팡", "배민",
+    "지도앱",
+})
+
 
 def load_character_names(root: Path = REPO) -> FrozenSet[str]:
     """Every `recurringCharacters[].displayNames.ko` name from
     tools/content_factory/canonical_scenarios/character_profiles.json,
-    unioned with EXTRA_PROPER_NOUNS (R3 item 5). Falls back to just
-    EXTRA_PROPER_NOUNS if the profiles file is missing or malformed --
-    proper-noun exclusion degrading gracefully is preferable to
-    CefrLexicon.load() failing outright over an unrelated content-factory
-    asset it does not otherwise depend on."""
-    names = set(EXTRA_PROPER_NOUNS)
+    unioned with EXTRA_PROPER_NOUNS (R3 item 5) and PROPER_NOUN_EXCLUSIONS
+    (T2.4a item B6 -- brand/product names). Falls back to just those two
+    fixed sets if the profiles file is missing or malformed -- proper-noun
+    exclusion degrading gracefully is preferable to CefrLexicon.load()
+    failing outright over an unrelated content-factory asset it does not
+    otherwise depend on."""
+    names = set(EXTRA_PROPER_NOUNS) | set(PROPER_NOUN_EXCLUSIONS)
     path = root / "tools" / "content_factory" / "canonical_scenarios" / "character_profiles.json"
     try:
         with path.open(encoding="utf-8") as fh:
@@ -1182,6 +1367,29 @@ NATIVE_NUMERAL_WORDS: FrozenSet[str] = frozenset({
 })
 
 _ASCII_DIGITS_RE = re.compile(r"^[0-9]+$")
+
+# T2.4a (B6): a token containing any Latin letter or ASCII digit (QR, 5G,
+# a stray "3층" mixed with a Korean counter, ...) is excluded from grading
+# the same way a proper noun or a bare-digit-string numeral is --
+# `grade=None`, never reported in `SentenceProfile.unknown`. This file's
+# grade lists are Korean-headword-only, so such a token was never going
+# to resolve either way; the point is keeping it out of `unknown`, not
+# finding it a grade. Broader than `_ASCII_DIGITS_RE` (which only matches
+# a token that is ENTIRELY digits) -- checked for containment, not a full
+# match, since "QR" itself has no digits at all.
+_LATIN_OR_DIGIT_RE = re.compile(r"[A-Za-z0-9]")
+
+
+def _is_latin_or_digit_token(token: str) -> bool:
+    # A token that is PURELY ASCII digits ("3", "10") is excluded via the
+    # pre-existing `_numeral_grade`/source='number' tier instead (checked
+    # later, after kiiq/alias) -- that distinction is load-bearing for
+    # `sentence_profile`'s "known-but-deliberately-ungraded" bookkeeping
+    # even though the OUTCOME (excluded, never `unknown`) is identical
+    # either way, so a pure-digit string must not be intercepted here.
+    if _ASCII_DIGITS_RE.match(token):
+        return False
+    return bool(_LATIN_OR_DIGIT_RE.search(token))
 
 
 def _numeral_grade(token: str) -> Optional["WordGrade"]:
@@ -1603,6 +1811,21 @@ class CefrLexicon:
             wg = self._base_chain(candidate)
             if wg.grade is not None:
                 return wg
+            # T2.4a (B4, "드시라고요" -> 드시다): a lemma candidate can
+            # ITSELF only be resolvable via aliases.csv (e.g. "드시다",
+            # which is neither a kiiq nor a basic2023 headword -- see
+            # that alias row's own note) -- `_base_chain` alone never
+            # checks aliases (by design, to stay non-recursive; see this
+            # method's own docstring above), so check the alias table
+            # directly here too. Still non-recursive: this is the exact
+            # same lookup `_exact_headword_lookup`/`word_grade` already
+            # do for a bare alias hit, not a call back into the full
+            # `word_grade` chain -- `_alias_lookup` itself only ever
+            # recurses through the already-safe `_base_chain`.
+            if candidate in self._aliases:
+                alias_wg = self._alias_lookup(candidate)
+                if alias_wg.grade is not None:
+                    return alias_wg
         return WordGrade(None, None, None, word)
 
     def _prefix_lookup(self, word: str) -> WordGrade:
@@ -1817,6 +2040,21 @@ class CefrLexicon:
         proper = self._match_proper_noun(normalized)
         if proper is not None:
             return WordGrade(None, None, "proper_noun", proper)
+        # T2.4a (B6): checked at the same early, unconditional priority as
+        # the proper-noun check just above -- see `_is_latin_or_digit_token`.
+        if _is_latin_or_digit_token(normalized):
+            return WordGrade(None, None, "latin", normalized)
+        # T2.4a (B4): a bare sentence-final banmal imperative (가/와/서/
+        # 봐/해/자/줘) -- checked here too (not just in `_resolve_eojeol`)
+        # because this method is what the candidate-resolution loop in
+        # BOTH `_resolve_eojeol` and `_multiword_lookup`/`_lemma_fallback_
+        # chain actually calls for each reduced candidate (e.g. "서" once
+        # "서도" has had its "도" particle stripped) -- see
+        # `BANMAL_IMPERATIVE_MAP`'s own docstring for why this must win
+        # over several of these syllables' real, unrelated kiiq senses.
+        banmal = BANMAL_IMPERATIVE_MAP.get(normalized)
+        if banmal is not None:
+            return self.word_grade(banmal)
         alias_entry = self._aliases.get(normalized)
         if alias_entry is not None and alias_entry[0] is None:
             # R7 item 10: an empty-lexicon_form alias ("A1 exception",
@@ -1929,6 +2167,19 @@ class CefrLexicon:
         proper = self._match_proper_noun(token)
         if proper is not None:
             return WordGrade(None, None, "proper_noun", proper)
+        # T2.4a (B6): see `_is_latin_or_digit_token`'s docstring.
+        if _is_latin_or_digit_token(token):
+            return WordGrade(None, None, "latin", token)
+        # T2.4a (B4): checked here too, BEFORE `_exact_headword_lookup` --
+        # that method has its OWN narrow kiiq/derived/alias chain (it does
+        # not call `word_grade`), so a bare "서" would otherwise resolve
+        # to its real, unrelated, grade-3 kiiq sense right here, before
+        # ever reaching the `word_grade`-level check above. See
+        # `BANMAL_IMPERATIVE_MAP`'s docstring.
+        banmal = BANMAL_IMPERATIVE_MAP.get(token)
+        if banmal is not None:
+            wg = self.word_grade(banmal)
+            return WordGrade(wg.grade, wg.cefr, wg.source, token, wg.confidence_override)
         exact = self._exact_headword_lookup(token)
         if exact.grade is not None:
             return WordGrade(exact.grade, exact.cefr, exact.source, token, exact.confidence_override)
@@ -1971,6 +2222,11 @@ class CefrLexicon:
                 # R7 item 7: pure ASCII digits are known-but-ungraded, not
                 # an unresolved vocabulary gap -- excluded from `unknown`
                 # the same way a proper noun is (grade=None by design).
+                pass
+            elif resolved.source == "latin":
+                # T2.4a (B6): a token containing a Latin letter/digit --
+                # same "known-but-deliberately-ungraded" treatment as a
+                # proper noun or a bare-digit numeral above.
                 pass
             elif resolved.grade is None:
                 unknown.append(raw)

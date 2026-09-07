@@ -38,10 +38,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import audit_vocab_levels  # noqa: E402
 
-# 2026-09-05 실측 고정 (시아버지 A1→B1 재분류 반영, KNOWN_TOPIC_TIE_SUSPECT_IDS
-# 제외한 "core" 의심/차단 건수). 내리는 것만 허용.
-KNOWN_SUSPECTS_CAP = 293
-KNOWN_BLOCKED_SUSPECTS_CAP = 258
+# 2026-09-07 T2.3-R1 실측 고정 (PR-L2a relevel 17건 적용 후, 시아버지 A1→B1
+# 재분류 및 KNOWN_TOPIC_TIE_SUSPECT_IDS 제외한 "core" 의심/차단 건수). 이
+# relevel이 옮긴 a1_partner_* 팩 다수가 아래 "Partnerschaft & koreanische
+# Familie" 토픽 자체였으므로 topic-tie 캡도 함께 떨어졌다 (다음 상수 참고).
+# 내리는 것만 허용.
+KNOWN_SUSPECTS_CAP = 238
+KNOWN_BLOCKED_SUSPECTS_CAP = 209
 
 # "Partnerschaft & koreanische Familie" 토픽 최빈값 tie 붕괴로 발생한 신규
 # below_topic 오탐 65건 — 위 docstring 참고. 전부 blocked=satz_ref(기존
@@ -116,7 +119,8 @@ KNOWN_TOPIC_TIE_SUSPECT_IDS: frozenset[str] = frozenset(
         "vocab_a1_0307",
     }
 )
-KNOWN_TOPIC_TIE_SUSPECT_CAP = 65  # 2026-09-05 실측 고정. 내리는 것만 허용.
+KNOWN_TOPIC_TIE_SUSPECT_CAP = 24  # 2026-09-07 T2.3-R1 실측 고정 (relevel로 이
+# 토픽의 a1_partner_* 팩들이 옮겨가며 대부분 해소됨). 내리는 것만 허용.
 
 
 class VocabLevelAuditRatchetTest(unittest.TestCase):

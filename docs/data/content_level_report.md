@@ -15,10 +15,10 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 
 | 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
 |---|---|---|---|---|---|---|---|---|
-| a1 | 231 | 79 | 42 | 18 | 30 | 16 | 10 | 426 |
-| a2 | 143 | 137 | 76 | 39 | 50 | 15 | 19 | 479 |
-| b1 | 38 | 140 | 149 | 74 | 54 | 26 | 9 | 490 |
-| b2 | 17 | 73 | 99 | 159 | 109 | 81 | 7 | 545 |
+| a1 | 216 | 59 | 13 | 3 | 9 | 3 | 3 | 306 |
+| a2 | 156 | 149 | 89 | 36 | 37 | 10 | 14 | 491 |
+| b1 | 44 | 148 | 164 | 87 | 81 | 43 | 19 | 586 |
+| b2 | 17 | 73 | 99 | 163 | 116 | 81 | 8 | 557 |
 | c1 | 1 | 6 | 25 | 78 | 55 | 72 | 3 | 240 |
 | c2 | 1 | 5 | 11 | 58 | 44 | 111 | 10 | 240 |
 
@@ -26,10 +26,10 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 
 | 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
 |---|---|---|---|---|---|---|---|---|
-| a1 | 26 | 7 | 6 | 1 | 1 | 0 | 0 | 41 |
+| a1 | 26 | 8 | 6 | 1 | 0 | 0 | 0 | 41 |
 | a2 | 16 | 28 | 5 | 1 | 0 | 0 | 0 | 50 |
-| b1 | 10 | 17 | 13 | 8 | 1 | 1 | 0 | 50 |
-| b2 | 1 | 4 | 11 | 33 | 7 | 1 | 0 | 57 |
+| b1 | 9 | 18 | 13 | 8 | 1 | 1 | 0 | 50 |
+| b2 | 1 | 5 | 11 | 31 | 8 | 1 | 0 | 57 |
 | c1 | 0 | 0 | 3 | 9 | 9 | 2 | 0 | 23 |
 | c2 | 0 | 0 | 3 | 4 | 7 | 9 | 0 | 23 |
 
@@ -37,8 +37,8 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 
 | 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
 |---|---|---|---|---|---|---|---|---|
-| a1 | 5 | 19 | 4 | 1 | 0 | 0 | 0 | 29 |
-| a2 | 0 | 16 | 11 | 1 | 1 | 0 | 0 | 29 |
+| a1 | 6 | 20 | 3 | 0 | 0 | 0 | 0 | 29 |
+| a2 | 0 | 18 | 9 | 1 | 1 | 0 | 0 | 29 |
 | b1 | 0 | 1 | 20 | 9 | 0 | 0 | 0 | 30 |
 | b2 | 0 | 0 | 3 | 27 | 0 | 0 | 0 | 30 |
 | c1 | 0 | 0 | 1 | 16 | 13 | 0 | 0 | 30 |
@@ -48,41 +48,41 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 
 | 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
 |---|---|---|---|---|---|---|---|---|
-| a1 | 114 | 107 | 79 | 41 | 8 | 0 | 0 | 349 |
-| a2 | 37 | 86 | 76 | 69 | 14 | 1 | 0 | 283 |
-| b1 | 6 | 51 | 97 | 107 | 19 | 2 | 0 | 282 |
-| b2 | 1 | 24 | 100 | 184 | 55 | 27 | 0 | 391 |
+| a1 | 104 | 79 | 29 | 11 | 6 | 0 | 0 | 229 |
+| a2 | 42 | 101 | 93 | 57 | 8 | 0 | 0 | 301 |
+| b1 | 6 | 69 | 129 | 140 | 25 | 3 | 0 | 372 |
+| b2 | 1 | 27 | 101 | 192 | 55 | 27 | 0 | 403 |
 | c1 | 0 | 4 | 41 | 133 | 62 | 10 | 0 | 250 |
-| c2 | 0 | 4 | 38 | 112 | 68 | 28 | 0 | 250 |
+| c2 | 0 | 4 | 39 | 113 | 66 | 28 | 0 | 250 |
 
 ### satz (targetKo)
 
 | 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
 |---|---|---|---|---|---|---|---|---|
-| a1 | 83 | 116 | 83 | 45 | 10 | 0 | 0 | 337 |
-| a2 | 54 | 191 | 125 | 80 | 17 | 1 | 0 | 468 |
-| b1 | 25 | 143 | 158 | 124 | 24 | 1 | 0 | 475 |
-| b2 | 9 | 57 | 157 | 231 | 67 | 28 | 0 | 549 |
+| a1 | 73 | 88 | 34 | 14 | 8 | 0 | 0 | 217 |
+| a2 | 59 | 208 | 138 | 71 | 10 | 0 | 0 | 486 |
+| b1 | 27 | 166 | 186 | 155 | 29 | 2 | 0 | 565 |
+| b2 | 9 | 60 | 157 | 240 | 67 | 28 | 0 | 561 |
 | c1 | 0 | 4 | 40 | 137 | 62 | 9 | 0 | 252 |
-| c2 | 0 | 4 | 38 | 113 | 69 | 28 | 0 | 252 |
+| c2 | 0 | 4 | 39 | 114 | 67 | 28 | 0 | 252 |
 
 ### smalltalk (ko · reply.ko · followUp.ko 최고)
 
 | 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
 |---|---|---|---|---|---|---|---|---|
-| a1 | 16 | 47 | 31 | 5 | 1 | 0 | 0 | 100 |
+| a1 | 20 | 47 | 29 | 4 | 0 | 0 | 0 | 100 |
 | a2 | 2 | 45 | 29 | 11 | 6 | 0 | 0 | 93 |
-| b1 | 1 | 15 | 36 | 30 | 5 | 1 | 0 | 88 |
+| b1 | 1 | 15 | 37 | 29 | 5 | 1 | 0 | 88 |
 | b2 | 0 | 7 | 22 | 56 | 39 | 4 | 0 | 128 |
 | c1 | 0 | 1 | 10 | 40 | 34 | 2 | 0 | 87 |
-| c2 | 0 | 1 | 2 | 39 | 35 | 9 | 0 | 86 |
+| c2 | 0 | 1 | 2 | 39 | 33 | 11 | 0 | 86 |
 
 ### pronunciation (ko)
 
 | 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
 |---|---|---|---|---|---|---|---|---|
 | a1 | 5 | 1 | 3 | 0 | 1 | 0 | 0 | 10 |
-| a2 | 2 | 5 | 2 | 1 | 0 | 0 | 0 | 10 |
+| a2 | 2 | 6 | 1 | 1 | 0 | 0 | 0 | 10 |
 | b1 | 0 | 1 | 5 | 2 | 2 | 0 | 0 | 10 |
 | b2 | 0 | 1 | 1 | 12 | 3 | 1 | 0 | 18 |
 | c1 | 0 | 0 | 1 | 12 | 3 | 2 | 0 | 18 |
@@ -92,8 +92,8 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 
 | 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
 |---|---|---|---|---|---|---|---|---|
-| a1 | 9 | 13 | 9 | 1 | 2 | 1 | 0 | 35 |
-| a2 | 8 | 20 | 17 | 6 | 2 | 0 | 0 | 53 |
+| a1 | 12 | 14 | 7 | 1 | 1 | 0 | 0 | 35 |
+| a2 | 9 | 21 | 16 | 5 | 2 | 0 | 0 | 53 |
 | b1 | 0 | 0 | 6 | 4 | 2 | 0 | 0 | 12 |
 | b2 | 0 | 0 | 1 | 9 | 2 | 0 | 0 | 12 |
 | c1 | 0 | 0 | 0 | 10 | 2 | 0 | 0 | 12 |
@@ -105,35 +105,23 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 
 | pack_id | level | n_words | n_hm | n_low | share_ge_plus2 | median_delta | suggested_action |
 |---|---|---|---|---|---|---|---|
-| `a1_pharmacy_ask_1` | a1 | 12 | 7 | 3 | 100% | 2 | bundle_move |
-| `a2_part_time_1` | a2 | 12 | 6 | 1 | 83% | 2.5 | bundle_move |
-| `a2_phone_plan_1` | a2 | 12 | 6 | 4 | 83% | 3 | bundle_move |
-| `a1_neighbors_hall_1` | a1 | 12 | 10 | 2 | 80% | 2.5 | bundle_move |
-| `a2_bank_counter_1` | a2 | 12 | 10 | 0 | 80% | 2 | bundle_move |
-| `a2_partner_banmal_switch_1` | a2 | 12 | 11 | 1 | 73% | 3 | bundle_move |
-| `a1_partner_siblings_hello_1` | a1 | 12 | 7 | 5 | 71% | 2 | bundle_move |
-| `a1_subway_card_1` | a1 | 12 | 9 | 3 | 67% | 2 | bundle_move |
-| `a1_weather_layer_1` | a1 | 12 | 11 | 1 | 64% | 2 | bundle_move |
-| `a2_housing_search_2026_1` | a2 | 12 | 8 | 3 | 62% | 3 | bundle_move |
-| `a1_partner_first_gift_1` | a1 | 12 | 10 | 2 | 60% | 2.5 | bundle_move |
-| `a2_partner_sibling_tease_1` | a2 | 12 | 11 | 0 | 55% | 2 | bundle_move |
-| `a1_partner_photo_thanks_1` | a1 | 12 | 8 | 1 | 50% | 1.5 | keep |
 | `a1_repair_language_1` | a1 | 4 | 4 | 0 | 50% | 1.5 | keep |
 | `a2_festival_booth_1` | a2 | 12 | 8 | 2 | 50% | 1.5 | keep |
-| `a1_partner_house_entry_1` | a1 | 12 | 9 | 3 | 44% | 1 | step_up_or_swap |
-| `a1_school_supplies_1` | a1 | 12 | 9 | 2 | 44% | 1 | step_up_or_swap |
 | `a2_lost_found_1` | a2 | 12 | 9 | 3 | 44% | 1 | step_up_or_swap |
-| `a1_partner_chuseok_basic_1` | a1 | 12 | 7 | 5 | 43% | 1 | step_up_or_swap |
+| `a2_partner_chuseok_basic_1` | a2 | 12 | 7 | 5 | 43% | 0 | keep |
+| `a2_pharmacy_ask_1` | a2 | 12 | 7 | 3 | 43% | 1 | step_up_or_swap |
 | `a1_post_office_1` | a1 | 12 | 12 | 0 | 42% | 1 | step_up_or_swap |
 | `a2_salon_visit_1` | a2 | 12 | 10 | 0 | 40% | 1 | step_up_or_swap |
-| `a1_partner_table_basic_1` | a1 | 12 | 9 | 2 | 33% | 1 | step_up_or_swap |
 | `a2_apt_rules_1` | a2 | 12 | 9 | 2 | 33% | 1 | step_up_or_swap |
 | `a2_money_1` | a2 | 10 | 9 | 1 | 33% | 1 | step_up_or_swap |
 | `a2_partner_leftover_bags_1` | a2 | 12 | 9 | 3 | 33% | 1 | step_up_or_swap |
 | `a1_partner_meet_names_1` | a1 | 11 | 7 | 2 | 29% | 1 | step_up_or_swap |
 | `a2_gym_class_1` | a2 | 12 | 7 | 3 | 29% | 1 | step_up_or_swap |
+| `a2_weather_layer_1` | a2 | 12 | 11 | 1 | 27% | 1 | step_up_or_swap |
 | `a1_particles_in_use_1` | a1 | 4 | 4 | 0 | 25% | 0.5 | keep |
 | `a1_payment_delivery_1` | a1 | 4 | 4 | 0 | 25% | 1 | step_up_or_swap |
+| `a1_partner_table_basic_1` | a1 | 12 | 9 | 2 | 22% | 1 | step_up_or_swap |
+| `a2_subway_card_1` | a2 | 12 | 9 | 3 | 22% | 1 | step_up_or_swap |
 | `a1_city_services_2026_1` | a1 | 12 | 10 | 2 | 20% | 1 | step_up_or_swap |
 | `a2_partner_chuseok_day_1` | a2 | 12 | 11 | 1 | 18% | 0 | keep |
 | `a2_partner_seollal_day_1` | a2 | 12 | 11 | 1 | 18% | 0 | keep |
@@ -142,9 +130,21 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 | `a2_partner_dinner_talk_1` | a2 | 12 | 12 | 0 | 17% | 1 | step_up_or_swap |
 | `a2_food_2` | a2 | 7 | 7 | 0 | 14% | -1 | keep |
 | `a1_partner_seollal_basic_1` | a1 | 12 | 8 | 4 | 12% | 1 | step_up_or_swap |
+| `a2_partner_photo_thanks_1` | a2 | 12 | 8 | 1 | 12% | 0.5 | keep |
 | `a1_daily_4` | a1 | 9 | 9 | 0 | 11% | 1 | step_up_or_swap |
 | `a2_home_1` | a2 | 10 | 9 | 1 | 11% | 0 | keep |
+| `a2_school_supplies_1` | a2 | 12 | 9 | 2 | 11% | 0 | keep |
 | `a1_body` | a1 | 10 | 10 | 0 | 10% | 0 | keep |
+| `a2_partner_hometown_trip_1` | a2 | 12 | 10 | 2 | 10% | 0 | keep |
+| `a1_sorry_thanks_1` | a1 | 12 | 11 | 1 | 9% | 0 | keep |
+| `a2_restaurant_1` | a2 | 12 | 11 | 1 | 9% | 0 | keep |
+| `a1_weekend_promise_1` | a1 | 12 | 12 | 0 | 8% | 0 | keep |
+| `a2_food_more_1` | a2 | 12 | 12 | 0 | 8% | -0.5 | keep |
+| `a2_work` | a2 | 12 | 12 | 0 | 8% | 0 | keep |
+| `a1_colors` | a1 | 6 | 6 | 0 | 0% | 1 | step_up_or_swap |
+| `a1_daily_1` | a1 | 9 | 9 | 0 | 0% | 0 | keep |
+| `a1_daily_2` | a1 | 9 | 9 | 0 | 0% | 0 | keep |
+| `a1_daily_3` | a1 | 9 | 9 | 0 | 0% | 0 | keep |
 
 ### 표본 부족 팩 (고신뢰+중신뢰 단어 6개 미만 — bundle_move 보류)
 
@@ -155,7 +155,7 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 
 ### 1급 (A1 목표)
 
-- 고유 표제어: 714 · 앱 보유(레벨 무관): 362 · 목표 레벨 일치: 202 · 결손: 352
+- 고유 표제어: 714 · 앱 보유(레벨 무관): 362 · 목표 레벨 일치: 193 · 결손: 352
 
 - **감탄사** (6): 그래, 글쎄요, 여보세요, 예, 와, 음
 - **관형사** (15): 두, 마흔, 무슨, 백만, 서른, 세, 십만, 아흔, 어느, 어떤, 억, 여든, 여러, 일흔, 한
@@ -170,7 +170,7 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 
 ### 2급 (A2 목표)
 
-- 고유 표제어: 1070 · 앱 보유(레벨 무관): 340 · 목표 레벨 일치: 122 · 결손: 730
+- 고유 표제어: 1070 · 앱 보유(레벨 무관): 340 · 목표 레벨 일치: 127 · 결손: 730
 
 - **감탄사** (5): 글쎄, 아니, 야, 어, 응
 - **관형사** (14): 그런, 넷째, 다섯째, 두세, 둘째, 서너, 쉰, 스무, 예순, 옛, 이런, 저런, 첫, 한두
@@ -195,7 +195,6 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 | `a1_w10_numbers` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
 | `a1_w10_partner` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
 | `a1_w10_phone` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
-| `a1_w10_repeat` | a1 | b2 | 3 | over2 dialog_p75=4.0 |
 | `a1_w10_taxi_stay` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
 | `a1_w10_wayfinding` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
 | `a2_theme_park_date_break` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
@@ -210,29 +209,27 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 | `b1_w10_cancellation` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
 | `b1_w10_insurance` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
 | `bakery_payment_bag` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
-| `bakery_queue` | a1 | a2 | 1 | over1 dialog_p75=2.5 |
+| `bakery_queue` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
 | `break_glass_apology` | a1 | b1 | 2 | over2 dialog_p75=3.0 |
 | `bunshik_tteokbokki` | a1 | b1 | 2 | over2 dialog_p75=3.0 |
 | `causal_claim_headline` | c2 | b2 | -2 | under2 dialog_p75=4.0 |
 | `clarify_repeat` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
 | `climate_model_local_decision` | c2 | b2 | -2 | under2 dialog_p75=4.5 |
 | `community_festival_shift` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
-| `dance_class_register` | a1 | b1 | 2 | over2 dialog_p75=3.0 |
+| `dance_class_register` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
 | `diaspora_name_identity` | c2 | b2 | -2 | under2 dialog_p75=4.5 |
 | `email_attachment_twice` | a2 | b2 | 2 | over2 dialog_p75=3.5 |
-| `fact_check_label_power` | c2 | b2 | -2 | under2 dialog_p75=4.0 |
+| `fact_check_label_power` | c2 | b2 | -2 | under2 dialog_p75=4.5 |
 | `favorite_korean_music` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
 | `first_class_meeting` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
-| `forgot_house_key` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
 | `forgot_presentation_cable` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
 | `group_chat_photo_permission` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
 | `jeju_bus_missed` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
 | `kakao_contact_after_class` | a1 | b1 | 2 | over2 dialog_p75=3.0 |
-| `mart_grocery` | a1 | a2 | 1 | over1 dialog_p75=2.5 |
+| `mart_grocery` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
 | `medical_uncertainty_consent` | c2 | b2 | -2 | under2 dialog_p75=4.0 |
 | `meeting_time` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
 | `passive_voice_accountability` | c2 | b2 | -2 | under2 dialog_p75=4.5 |
-| `pharmacy_cold_medicine` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
 | `reel_caption_misunderstanding` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
 | `relationship_story_reframing` | c2 | b1 | -3 | under2 grammar_ids_max=3 |
 | `running_injury_training_plan` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
@@ -252,14 +249,14 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 
 | kind | 미검출 토큰 | 전체 토큰 | 비율 |
 |---|---|---|---|
-| vocab | 125 | 3504 | 3.6% |
+| vocab | 122 | 3504 | 3.5% |
 | grammar | 76 | 1302 | 5.8% |
-| scenario | 564 | 9212 | 6.1% |
-| cloze | 349 | 10844 | 3.2% |
-| satz | 445 | 13177 | 3.4% |
-| smalltalk | 439 | 9117 | 4.8% |
-| pronunciation | 7 | 594 | 1.2% |
-| media | 38 | 726 | 5.2% |
+| scenario | 449 | 9212 | 4.9% |
+| cloze | 321 | 10844 | 3.0% |
+| satz | 404 | 13177 | 3.1% |
+| smalltalk | 362 | 9117 | 4.0% |
+| pronunciation | 6 | 594 | 1.0% |
+| media | 36 | 726 | 5.0% |
 
 ## 요약 (tool/content_level_summary.json)
 
@@ -267,17 +264,17 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 {
   "counts": {
     "cloze": {
-      "fallback_over2": 19,
-      "over1": 319,
-      "over2": 241,
+      "fallback_over2": 9,
+      "over1": 330,
+      "over2": 157,
       "total": 1805,
-      "under2": 212,
+      "under2": 216,
       "unknown": 0
     },
     "grammar": {
       "fallback_over2": 2,
-      "over1": 28,
-      "over2": 10,
+      "over1": 30,
+      "over2": 9,
       "total": 244,
       "under2": 24,
       "unknown": 0
@@ -285,61 +282,61 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
     "media": {
       "fallback_over2": 3,
       "over1": 31,
-      "over2": 20,
+      "over2": 15,
       "total": 136,
       "under2": 4,
       "unknown": 0
     },
     "pronunciation": {
       "fallback_over2": 0,
-      "over1": 10,
+      "over1": 9,
       "over2": 8,
       "total": 84,
       "under2": 10,
       "unknown": 0
     },
     "satz": {
-      "fallback_over2": 16,
-      "over1": 394,
-      "over2": 273,
+      "fallback_over2": 6,
+      "over1": 404,
+      "over2": 190,
       "total": 2333,
-      "under2": 272,
+      "under2": 278,
       "unknown": 0
     },
     "scenario": {
       "fallback_over2": 0,
-      "over1": 32,
-      "over2": 7,
+      "over1": 33,
+      "over2": 5,
       "total": 178,
       "under2": 10,
       "unknown": 0
     },
     "smalltalk": {
       "fallback_over2": 3,
-      "over1": 139,
-      "over2": 61,
+      "over1": 136,
+      "over2": 57,
       "total": 582,
-      "under2": 58,
+      "under2": 60,
       "unknown": 0
     },
     "vocab": {
-      "fallback_over2": 106,
-      "over1": 325,
-      "over2": 265,
+      "fallback_over2": 100,
+      "over1": 330,
+      "over2": 216,
       "total": 2420,
-      "under2": 208,
-      "unknown": 58
+      "under2": 214,
+      "unknown": 56
     }
   },
   "coverage": {
     "grade1": {
-      "at_level": 202,
+      "at_level": 193,
       "missing": 352,
       "present_in_app": 362,
       "total_unique": 714
     },
     "grade2": {
-      "at_level": 122,
+      "at_level": 127,
       "missing": 730,
       "present_in_app": 340,
       "total_unique": 1070
@@ -348,57 +345,8 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
   "generatedFrom": "assets/data/* + tools/content_factory/lexicon/* (tool/audit_content_levels.py)",
   "packs": {
     "a1": {
-      "median_ge_plus2": 6,
+      "median_ge_plus2": 0,
       "share_ge_plus2_top10": [
-        {
-          "median": 2,
-          "n_hm": 7,
-          "n_low": 3,
-          "pack_id": "a1_pharmacy_ask_1",
-          "share_ge_plus2": 1.0
-        },
-        {
-          "median": 2.5,
-          "n_hm": 10,
-          "n_low": 2,
-          "pack_id": "a1_neighbors_hall_1",
-          "share_ge_plus2": 0.8
-        },
-        {
-          "median": 2,
-          "n_hm": 7,
-          "n_low": 5,
-          "pack_id": "a1_partner_siblings_hello_1",
-          "share_ge_plus2": 0.7143
-        },
-        {
-          "median": 2,
-          "n_hm": 9,
-          "n_low": 3,
-          "pack_id": "a1_subway_card_1",
-          "share_ge_plus2": 0.6667
-        },
-        {
-          "median": 2,
-          "n_hm": 11,
-          "n_low": 1,
-          "pack_id": "a1_weather_layer_1",
-          "share_ge_plus2": 0.6364
-        },
-        {
-          "median": 2.5,
-          "n_hm": 10,
-          "n_low": 2,
-          "pack_id": "a1_partner_first_gift_1",
-          "share_ge_plus2": 0.6
-        },
-        {
-          "median": 1.5,
-          "n_hm": 8,
-          "n_low": 1,
-          "pack_id": "a1_partner_photo_thanks_1",
-          "share_ge_plus2": 0.5
-        },
         {
           "median": 1.5,
           "n_hm": 4,
@@ -407,66 +355,73 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
           "share_ge_plus2": 0.5
         },
         {
+          "median": 1.0,
+          "n_hm": 12,
+          "n_low": 0,
+          "pack_id": "a1_post_office_1",
+          "share_ge_plus2": 0.4167
+        },
+        {
           "median": 1,
-          "n_hm": 9,
-          "n_low": 3,
-          "pack_id": "a1_partner_house_entry_1",
-          "share_ge_plus2": 0.4444
+          "n_hm": 7,
+          "n_low": 2,
+          "pack_id": "a1_partner_meet_names_1",
+          "share_ge_plus2": 0.2857
+        },
+        {
+          "median": 0.5,
+          "n_hm": 4,
+          "n_low": 0,
+          "pack_id": "a1_particles_in_use_1",
+          "share_ge_plus2": 0.25
+        },
+        {
+          "median": 1.0,
+          "n_hm": 4,
+          "n_low": 0,
+          "pack_id": "a1_payment_delivery_1",
+          "share_ge_plus2": 0.25
         },
         {
           "median": 1,
           "n_hm": 9,
           "n_low": 2,
-          "pack_id": "a1_school_supplies_1",
-          "share_ge_plus2": 0.4444
+          "pack_id": "a1_partner_table_basic_1",
+          "share_ge_plus2": 0.2222
+        },
+        {
+          "median": 1.0,
+          "n_hm": 10,
+          "n_low": 2,
+          "pack_id": "a1_city_services_2026_1",
+          "share_ge_plus2": 0.2
+        },
+        {
+          "median": 1.0,
+          "n_hm": 8,
+          "n_low": 4,
+          "pack_id": "a1_partner_seollal_basic_1",
+          "share_ge_plus2": 0.125
+        },
+        {
+          "median": 1,
+          "n_hm": 9,
+          "n_low": 0,
+          "pack_id": "a1_daily_4",
+          "share_ge_plus2": 0.1111
+        },
+        {
+          "median": 0.0,
+          "n_hm": 10,
+          "n_low": 0,
+          "pack_id": "a1_body",
+          "share_ge_plus2": 0.1
         }
       ]
     },
     "a2": {
-      "median_ge_plus2": 6,
+      "median_ge_plus2": 0,
       "share_ge_plus2_top10": [
-        {
-          "median": 2.5,
-          "n_hm": 6,
-          "n_low": 1,
-          "pack_id": "a2_part_time_1",
-          "share_ge_plus2": 0.8333
-        },
-        {
-          "median": 3.0,
-          "n_hm": 6,
-          "n_low": 4,
-          "pack_id": "a2_phone_plan_1",
-          "share_ge_plus2": 0.8333
-        },
-        {
-          "median": 2.0,
-          "n_hm": 10,
-          "n_low": 0,
-          "pack_id": "a2_bank_counter_1",
-          "share_ge_plus2": 0.8
-        },
-        {
-          "median": 3,
-          "n_hm": 11,
-          "n_low": 1,
-          "pack_id": "a2_partner_banmal_switch_1",
-          "share_ge_plus2": 0.7273
-        },
-        {
-          "median": 3.0,
-          "n_hm": 8,
-          "n_low": 3,
-          "pack_id": "a2_housing_search_2026_1",
-          "share_ge_plus2": 0.625
-        },
-        {
-          "median": 2,
-          "n_hm": 11,
-          "n_low": 0,
-          "pack_id": "a2_partner_sibling_tease_1",
-          "share_ge_plus2": 0.5455
-        },
         {
           "median": 1.5,
           "n_hm": 8,
@@ -482,6 +437,20 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
           "share_ge_plus2": 0.4444
         },
         {
+          "median": 0,
+          "n_hm": 7,
+          "n_low": 5,
+          "pack_id": "a2_partner_chuseok_basic_1",
+          "share_ge_plus2": 0.4286
+        },
+        {
+          "median": 1,
+          "n_hm": 7,
+          "n_low": 3,
+          "pack_id": "a2_pharmacy_ask_1",
+          "share_ge_plus2": 0.4286
+        },
+        {
           "median": 1.0,
           "n_hm": 10,
           "n_low": 0,
@@ -494,6 +463,34 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
           "n_low": 2,
           "pack_id": "a2_apt_rules_1",
           "share_ge_plus2": 0.3333
+        },
+        {
+          "median": 1,
+          "n_hm": 9,
+          "n_low": 1,
+          "pack_id": "a2_money_1",
+          "share_ge_plus2": 0.3333
+        },
+        {
+          "median": 1,
+          "n_hm": 9,
+          "n_low": 3,
+          "pack_id": "a2_partner_leftover_bags_1",
+          "share_ge_plus2": 0.3333
+        },
+        {
+          "median": 1,
+          "n_hm": 7,
+          "n_low": 3,
+          "pack_id": "a2_gym_class_1",
+          "share_ge_plus2": 0.2857
+        },
+        {
+          "median": 1,
+          "n_hm": 11,
+          "n_low": 1,
+          "pack_id": "a2_weather_layer_1",
+          "share_ge_plus2": 0.2727
         }
       ]
     }
