@@ -1,0 +1,50 @@
+{
+  "grammar_a1_formal_statement": {
+    "courseUnitId": "a1_02_self_intro_identity",
+    "conceptIds": [
+      "concept_identity_formal"
+    ]
+  },
+  "grammar_a1_formal_question": {
+    "courseUnitId": "a1_02_self_intro_identity",
+    "conceptIds": [
+      "concept_identity_formal"
+    ]
+  },
+  "grammar_a2_interrupted_action": {
+    "courseUnitId": "a2_06_study_work",
+    "conceptIds": [
+      "concept_a2_work_study"
+    ]
+  },
+  "grammar_a2_nominalizer_eum": {
+    "courseUnitId": "a2_03_chat_relationships",
+    "conceptIds": [
+      "concept_a2_relationships"
+    ]
+  },
+  "grammar_a2_from_person": {
+    "courseUnitId": "a2_03_chat_relationships",
+    "conceptIds": [
+      "concept_a2_relationships"
+    ]
+  },
+  "grammar_a2_no_choice_but": {
+    "courseUnitId": "a2_07_travel_repair",
+    "conceptIds": [
+      "concept_a2_travel_repair"
+    ]
+  },
+  "grammar_a2_tentative_intention": {
+    "courseUnitId": "a2_02_plans_proposals",
+    "conceptIds": [
+      "concept_proposal_casual"
+    ]
+  },
+  "grammar_a1_formal_command": {
+    "courseUnitId": "a1_13_register_switching",
+    "conceptIds": [
+      "concept_action_formal"
+    ]
+  }
+}
