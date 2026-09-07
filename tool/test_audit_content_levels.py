@@ -976,35 +976,52 @@ class LiveRatchetTest(unittest.TestCase):
     over2 bucket to fallback_over2, while several OTHER items resolved
     correctly and left both buckets outright): vocab over2+fallback_over2
     317->316, cloze 166->166 (unchanged), satz 198->196 -- every kind's
-    COMBINED total is flat or down, never up."""
+    COMBINED total is flat or down, never up.
 
-    # 2026-09-07 T2.4a 실측 (`python tool/audit_content_levels.py --json`
-    # 출력, PR-L2a Part A relevel + Part B tokenizer fix 반영 후). 하향
-    # 전용 — 상한은 내려갈 수만 있다, 절대 올리지 마라. over2 is HIGH-or-
-    # MEDIUM-confidence by construction (R4b item 2) -- only a LOW >=+2
-    # verdict counts under CAP_FALLBACK_OVER2 instead, see below.
+    2026-09-07 LCP PR-L2a2 T2.4b-1(e) (cefr_lexicon.py Bible sentence
+    allowance -- docs/CONTENT_LEVEL_BIBLE.md §B/§D -- plus the pronoun-
+    contraction fix, 거/걸/걸로/이거/그거/저거/이게/그게/저게/뭘) lowered
+    every sentence-surface kind's caps again to the new actuals -- both
+    changes only ever touch `sentence_profile`'s lexical_p90 input, never
+    `word_grade`/`phrase_grade` directly, so vocab's own CAP_OVER2/
+    CAP_FALLBACK_OVER2/CAP_UNKNOWN_RATIO are unchanged by design (the plan
+    step's own "word/phrase grading (vocab headwords) unaffected"
+    requirement, verified here as an *observed* zero-delta, not just an
+    assumption). scenario's over2 caps to 0 -- every one of the 5
+    previously-over2 scenarios (including 2 of PR-L2a2's own audit
+    targets, bunshik_tteokbokki and kakao_contact_after_class) now clears
+    the ratchet outright."""
+
+    # 2026-09-07 T2.4b-1(e) 실측 (`python tool/audit_content_levels.py`
+    # 후 tool/content_level_summary.json 그대로). 하향 전용 — 상한은
+    # 내려갈 수만 있다, 절대 올리지 마라. over2 is HIGH-or-MEDIUM-
+    # confidence by construction (R4b item 2) -- only a LOW >=+2 verdict
+    # counts under CAP_FALLBACK_OVER2 instead, see below. vocab/
+    # pronunciation are non-sentence-surface-driven enough here that this
+    # particular fix left them exactly where T2.4a did.
     CAP_OVER2 = {
-        "vocab": 216, "grammar": 9, "scenario": 5, "cloze": 157,
-        "satz": 190, "smalltalk": 57, "pronunciation": 8, "media": 15,
+        "vocab": 216, "grammar": 3, "scenario": 0, "cloze": 51,
+        "satz": 43, "smalltalk": 20, "pronunciation": 3, "media": 6,
     }
-    # 실측 unknown/total: vocab .0231(=56/2420), 나머지 0 -- the tokenizer
-    # fix resolves 12 more vocab headwords than the T2.3-R1 baseline
-    # (68->56 unknown; see docs/data/content_level_report.md). +0.01
-    # 여유는 브리프 지시(래칫 조건) 그대로.
+    # 실측 unknown/total: vocab .0231(=56/2420, unchanged from T2.4a --
+    # the allowance/contraction fix only ever changes sentence_profile's
+    # lexical_p90 input, never word_grade's own resolution), 나머지 0.
+    # +0.01 여유는 브리프 지시(래칫 조건) 그대로.
     CAP_UNKNOWN_RATIO = {
         "vocab": 0.0231, "grammar": 0.0, "scenario": 0.0, "cloze": 0.0,
         "satz": 0.0, "smalltalk": 0.0, "pronunciation": 0.0, "media": 0.0,
     }
-    # Unchanged from the T2.3-R1 baseline (still 0) -- the tokenizer fix
-    # does not itself move any pack's median further below +2.
+    # Unchanged from the T2.3-R1 baseline (still 0) -- neither this fix
+    # nor T2.4a moves any pack's median further below +2.
     CAP_PACK_A1_MEDIAN_GE_PLUS2 = 0
     CAP_PACK_A2_MEDIAN_GE_PLUS2 = 0
-    # T2.4a 실측 2026-09-07 -- see class docstring for the vocab/cloze/satz
-    # relabelling note (each rises by exactly 1 here, more than offset by
-    # its own CAP_OVER2 fall above); every other kind is unchanged.
+    # T2.4b-1(e) 실측 2026-09-07 -- grammar/satz/smalltalk/media each fall
+    # here too (no relabelling this time: the allowance/contraction fix
+    # resolves items outright rather than shifting their confidence
+    # tier), vocab/scenario/pronunciation unchanged.
     CAP_FALLBACK_OVER2 = {
-        "vocab": 100, "grammar": 2, "scenario": 0, "cloze": 9,
-        "satz": 6, "smalltalk": 3, "pronunciation": 0, "media": 3,
+        "vocab": 100, "grammar": 0, "scenario": 0, "cloze": 3,
+        "satz": 1, "smalltalk": 1, "pronunciation": 0, "media": 1,
     }
 
     @classmethod

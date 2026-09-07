@@ -144,3 +144,31 @@ Dart 편집:
 `test/`·`tools/content_factory/`에서 옛 pack id를 참조하는 파일 (Fable 확인 필요):
 - `a2_housing_search_2026_1`: ['tools/content_factory/test_relevel_bundle.py']
 
+## 실행 결과 (L2a2)
+
+모드: --apply (실제 반영됨)
+
+| scenario | from->to | unit | shelf | contentLinks | can-do | shelf_assignment.py | AB_SPECS |
+|---|---|---|---|---|---|---|---|
+| `shared_document_old_version` | a2->b1 | `b1_03_work_softening` | `b1_team` | 1 | no can-do references | not tracked in shelf_assignment.py ASSIGNMENT -- no update | removed key='a2_cafe_study' (from-level 'a2'); NOTE: 'a2_cafe_study' is still referenced elsewhere in this file (e.g. UNIT_DEFAULT_ROUTE/PACK_ROUTES) -- harmless while the generator is frozen, worth a look if it is ever unfrozen; added key='b1_shared_document_old_version' after anchor='b1_schedule_softening' |
+
+
+vocabPackUnitMap 개명 0건, clozeTopicUnitMap +0/-0, contentLinks 재작성 0건.
+
+Dart 편집:
+- `packDisplayMap` 개명: []
+- `packOrderInLevel` 개명(새 순번): []
+- `dedicatedPackIds` 개명 + 아트워크 파일 rename: []
+- `kPackProgressAliases` 추가: []
+
+`test/`·`tools/content_factory/`에서 옛 pack id를 참조하는 파일 (Fable 확인 필요):
+- (없음)
+
+시나리오 이동이 적용됨 -- 다음 후속 명령을 실행할 것:
+```
+python tool/generate_tts.py --write-first-line-manifest assets/data/tts_first_line_manifest.json
+python tool/generate_tts.py --check-first-line-manifest assets/data/tts_first_line_manifest.json
+python functions/tts/build_canonical_manifest.py
+python functions/tts/build_canonical_manifest.py --check
+```
+

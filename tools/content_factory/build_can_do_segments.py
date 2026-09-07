@@ -1299,7 +1299,6 @@ AB_SPECS: tuple[SegmentSpec, ...] = (
     _scenario_spec("a2_feeling_sick", "a2", "a2_04_feelings_health", "gym_class_cancel"),
     _scenario_spec("a2_cafe_starbucks_basic", "a2", "a2_05_delivery_services", "a2_w10_buy"),
     _scenario_spec("a2_myeongdong_shopping", "a2", "a2_05_delivery_services", "clothing_refund_size"),
-    _scenario_spec("a2_cafe_study", "a2", "a2_06_study_work", "shared_document_old_version"),
     _scenario_spec("a2_subway_transfer", "a2", "a2_07_travel_repair", "train_seat_swap"),
     _scenario_spec("a2_taxi_street", "a2", "a2_07_travel_repair", "taxi_slow_down"),
     _scenario_spec("a2_subway_directions", "a2", "a2_07_travel_repair", "jeju_bus_missed"),
@@ -1324,6 +1323,7 @@ AB_SPECS: tuple[SegmentSpec, ...] = (
     _scenario_spec("b1_team_role_coordination", "b1", "b1_03_work_softening", "work_message_too_direct"),
     _scenario_spec("b1_attendance_and_coverage", "b1", "b1_03_work_softening", "company_instagram_wrong_account"),
     _scenario_spec("b1_schedule_softening", "b1", "b1_03_work_softening", "community_festival_shift"),
+    _scenario_spec("b1_shared_document_old_version", "b1", "b1_03_work_softening", "shared_document_old_version"),
     _scenario_spec("b1_encouragement", "b1", "b1_04_relationships", "speech_level_after_friendship"),
     _scenario_spec("b1_intimate_feelings", "b1", "b1_04_relationships", "date_or_friendly_coffee"),
     _named_spec(

@@ -3584,6 +3584,15 @@
       "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
     },
     {
+      "id": "shared_document_old_version",
+      "kind": "scenario",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-09-07",
+      "batch": "L2a2",
+      "reason": "Fable 직독 2026-09-07: 공유 문서·수정·복사 등 업무 어휘(3~5급)가 전 대사에 걸쳐 있어 A2 재집필 불가 — B1 업무 실수 수습 유닛으로 이동"
+    },
+    {
       "id": "vocab_a1_0216",
       "kind": "vocab",
       "from": "a1",

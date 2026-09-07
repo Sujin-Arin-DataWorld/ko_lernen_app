@@ -93,10 +93,11 @@ void main() {
     // W10 Wave 1(2026-09-05)이 A1 8·A2 8·B1 9편을 추가로 통합했다.
     // W10 Wave 2(2026-09-06)가 B2 9·C1 9·C2 9편을 추가로 통합했다(책가도
     // 빈 칸 27→0).
+    // LCP PR-L2a2(2026-09-07): shared_document_old_version A2→B1
     const expectedCounts = <String, int>{
       'a1': 29,
-      'a2': 29,
-      'b1': 30,
+      'a2': 28,
+      'b1': 31,
       'b2': 30,
       'c1': 30,
       'c2': 30,

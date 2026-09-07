@@ -14,6 +14,8 @@ depend on which real packs happen to exist.
 
 from __future__ import annotations
 
+import ast
+import copy
 import csv
 import json
 import shutil
@@ -819,6 +821,660 @@ DancheongMotif motifForPackId(String packId) {
 
 def by_bundle_report(report: rb.MigrationReport, bundle: str) -> rb.PackMoveReport:
     return next(p for p in report.packs if p.bundle == bundle)
+
+
+# ───────────────────────── scenario moves (LCP PR-L2a2, T2.4b-1) ──────────
+
+
+def _scenario_move_dict(**overrides) -> dict:
+    base = {
+        "id": "a1_relvtest_scn_cando", "from": "a1", "to": "b1", "shelf": "b1_team",
+        "courseUnitId": "b1_04_relationships", "conceptIds": ["concept_b1_relationships"],
+        "reason": "test scenario move",
+    }
+    base.update(overrides)
+    return base
+
+
+class ScenarioMoveShapeTest(unittest.TestCase):
+    def test_valid_move_round_trips(self) -> None:
+        move = rb.ScenarioMove.from_dict(_scenario_move_dict())
+        self.assertEqual("a1_relvtest_scn_cando", move.id)
+        self.assertEqual("a1", move.from_level)
+        self.assertEqual("b1", move.to_level)
+        self.assertEqual("b1_team", move.shelf)
+        self.assertIsNone(move.backdrop)
+        self.assertIsNone(move.can_do_cluster_id)
+
+    def test_backdrop_and_can_do_cluster_id_are_optional_but_round_trip(self) -> None:
+        move = rb.ScenarioMove.from_dict(
+            _scenario_move_dict(backdrop="cafe", canDoClusterId="cluster_b1_intimate_feelings_v1")
+        )
+        self.assertEqual("cafe", move.backdrop)
+        self.assertEqual("cluster_b1_intimate_feelings_v1", move.can_do_cluster_id)
+
+    def test_same_from_and_to_is_rejected(self) -> None:
+        with self.assertRaises(rb.RelevelError):
+            rb.ScenarioMove.from_dict(_scenario_move_dict(to="a1"))
+
+    def test_shelf_not_matching_to_level_prefix_is_rejected(self) -> None:
+        with self.assertRaises(rb.RelevelError):
+            rb.ScenarioMove.from_dict(_scenario_move_dict(shelf="a1_eat"))  # to=b1
+
+    def test_shelf_slug_unknown_to_shelf_assignment_is_rejected(self) -> None:
+        with self.assertRaises(rb.RelevelError):
+            rb.ScenarioMove.from_dict(_scenario_move_dict(shelf="b1_not_a_real_slug"))
+
+    def test_empty_concept_ids_is_rejected(self) -> None:
+        with self.assertRaises(rb.RelevelError):
+            rb.ScenarioMove.from_dict(_scenario_move_dict(conceptIds=[]))
+
+    def test_missing_field_is_rejected(self) -> None:
+        raw = _scenario_move_dict()
+        del raw["reason"]
+        with self.assertRaises(rb.RelevelError):
+            rb.ScenarioMove.from_dict(raw)
+
+    def test_bundle_may_have_only_scenario_moves(self) -> None:
+        bundle = rb.load_bundle_from_dict({
+            "batch": "TEST", "moves": [], "scenarioMoves": [_scenario_move_dict()],
+        })
+        self.assertEqual((), bundle.moves)
+        self.assertEqual(1, len(bundle.scenario_moves))
+
+    def test_bundle_with_neither_moves_nor_scenario_moves_is_rejected(self) -> None:
+        with self.assertRaises(rb.RelevelError):
+            rb.load_bundle_from_dict({"batch": "TEST", "moves": [], "scenarioMoves": []})
+
+    def test_duplicate_scenario_move_id_is_rejected(self) -> None:
+        with self.assertRaises(rb.RelevelError):
+            rb.load_bundle_from_dict({
+                "batch": "TEST", "moves": [],
+                "scenarioMoves": [_scenario_move_dict(), _scenario_move_dict()],
+            })
+
+
+def _scenario_report(move: rb.ScenarioMove) -> rb.ScenarioMoveReport:
+    return rb.ScenarioMoveReport(
+        scenario_id=move.id, from_level=move.from_level, to_level=move.to_level,
+        course_unit_id=move.course_unit_id, shelf=move.shelf,
+    )
+
+
+class EditShelfAssignmentSourceTest(unittest.TestCase):
+    FIXTURE = """ASSIGNMENT: dict[str, tuple[str, ...]] = {
+    "a1_eat": (
+        "a1_existing_one", "a1_relvtest_scn_cando",
+        "a1_existing_two",
+    ),
+    "b1_team": (
+        "b1_existing_one",
+    ),
+}
+
+SHELF_BY_ID: dict[str, str] = {
+    scenario_id: shelf
+    for shelf, ids in ASSIGNMENT.items()
+    for scenario_id in ids
+}
+"""
+
+    def test_tracked_id_moves_between_shelf_tuples(self) -> None:
+        move = rb.ScenarioMove.from_dict(_scenario_move_dict())
+        report = rb.MigrationReport(batch="TEST")
+        report.scenarios.append(_scenario_report(move))
+
+        new_text = rb.edit_shelf_assignment_source(self.FIXTURE, (move,), report)
+        ast.parse(new_text)  # still syntactically valid
+        namespace: dict = {}
+        exec(new_text, namespace)  # noqa: S102 -- trusted, self-authored fixture text
+        self.assertNotIn("a1_relvtest_scn_cando", namespace["ASSIGNMENT"]["a1_eat"])
+        self.assertIn("a1_relvtest_scn_cando", namespace["ASSIGNMENT"]["b1_team"])
+        self.assertEqual(
+            ("a1_existing_one", "a1_existing_two"), namespace["ASSIGNMENT"]["a1_eat"],
+        )
+        self.assertEqual("b1_team", namespace["SHELF_BY_ID"]["a1_relvtest_scn_cando"])
+        self.assertEqual("moved 'a1_eat' -> 'b1_team'", report.scenarios[0].shelf_assignment_note)
+
+    def test_untracked_id_is_a_no_op_reported_either_way(self) -> None:
+        move = rb.ScenarioMove.from_dict(_scenario_move_dict(id="a1_never_tracked"))
+        report = rb.MigrationReport(batch="TEST")
+        report.scenarios.append(_scenario_report(move))
+
+        new_text = rb.edit_shelf_assignment_source(self.FIXTURE, (move,), report)
+        self.assertEqual(self.FIXTURE, new_text)
+        self.assertEqual(
+            "not tracked in shelf_assignment.py ASSIGNMENT -- no update",
+            report.scenarios[0].shelf_assignment_note,
+        )
+
+    def test_no_scenario_moves_is_a_no_op(self) -> None:
+        report = rb.MigrationReport(batch="TEST")
+        self.assertEqual(self.FIXTURE, rb.edit_shelf_assignment_source(self.FIXTURE, (), report))
+
+
+class EditBuildCanDoSegmentsSourceTest(unittest.TestCase):
+    # A self-executing stand-in for build_can_do_segments.py's own
+    # SegmentSpec/_scenario_spec machinery -- ast.parse() never needs
+    # these to resolve, but exec()ing the *edited* text to inspect real
+    # SegmentSpec objects (rather than string-matching source text) is a
+    # much stronger assertion.
+    FIXTURE = '''from dataclasses import dataclass
+
+
+@dataclass(frozen=True)
+class PracticeRef:
+    kind: str
+    id: str
+
+
+@dataclass(frozen=True)
+class SegmentSpec:
+    key: str
+    level: str
+    parent: str
+    refs: tuple
+    mode: str = "connectedProduction"
+
+
+def _ref(kind, content_id):
+    return PracticeRef(kind=kind, id=content_id)
+
+
+def _scenario_spec(key, level, parent, scenario_id, mode="connectedProduction"):
+    return SegmentSpec(key=key, level=level, parent=parent, refs=(_ref("scenario", scenario_id),), mode=mode)
+
+
+AB_SPECS: tuple[SegmentSpec, ...] = (
+    _scenario_spec("a1_relvtest_source_spec", "a1", "a1_04_order_request_object", "a1_relvtest_scn_cando"),
+    _scenario_spec("b1_relvtest_anchor", "b1", "b1_04_relationships", "b1_relvtest_existing", "dictation"),
+)
+'''
+
+    def _move(self, **overrides) -> rb.ScenarioMove:
+        return rb.ScenarioMove.from_dict(_scenario_move_dict(**overrides))
+
+    def test_removes_from_level_entry_and_adds_after_the_anchor(self) -> None:
+        move = self._move()  # id=a1_relvtest_scn_cando, a1->b1, unit=b1_04_relationships
+        report = rb.MigrationReport(batch="TEST")
+        report.scenarios.append(_scenario_report(move))
+
+        new_text = rb.edit_build_can_do_segments_source(self.FIXTURE, (move,), report)
+        ast.parse(new_text)
+        namespace: dict = {}
+        exec(new_text, namespace)  # noqa: S102 -- trusted, self-authored fixture text
+        specs = namespace["AB_SPECS"]
+
+        self.assertEqual(2, len(specs))
+        self.assertEqual("b1_relvtest_anchor", specs[0].key)  # anchor stays first
+        self.assertNotIn("a1_relvtest_source_spec", [s.key for s in specs])
+        new_spec = specs[1]
+        self.assertEqual("b1_a1_relvtest_scn_cando", new_spec.key)
+        self.assertEqual("b1", new_spec.level)
+        self.assertEqual("b1_04_relationships", new_spec.parent)
+        self.assertEqual("connectedProduction", new_spec.mode)  # old entry had no mode
+        self.assertEqual(("scenario", "a1_relvtest_scn_cando"), (new_spec.refs[0].kind, new_spec.refs[0].id))
+
+        note = report.scenarios[0].ab_specs_note
+        self.assertIn("removed key='a1_relvtest_source_spec'", note)
+        self.assertIn("added key='b1_a1_relvtest_scn_cando' after anchor='b1_relvtest_anchor'", note)
+        self.assertNotIn("WARNING", note)  # key referenced nowhere else in this fixture
+
+    def test_not_present_in_ab_specs_is_a_no_op_reported(self) -> None:
+        move = self._move(id="never_seen_in_ab_specs")
+        report = rb.MigrationReport(batch="TEST")
+        report.scenarios.append(_scenario_report(move))
+
+        new_text = rb.edit_build_can_do_segments_source(self.FIXTURE, (move,), report)
+        self.assertEqual(self.FIXTURE, new_text)
+        self.assertEqual("not present in AB_SPECS", report.scenarios[0].ab_specs_note)
+
+    def test_no_anchor_at_target_removes_only_and_reports_fallback(self) -> None:
+        # Target unit has no AB_SPECS entry at the to-level at all.
+        move = self._move(to="a2", courseUnitId="a2_99_no_anchor_unit", shelf="a2_work")
+        report = rb.MigrationReport(batch="TEST")
+        report.scenarios.append(_scenario_report(move))
+
+        new_text = rb.edit_build_can_do_segments_source(self.FIXTURE, (move,), report)
+        namespace: dict = {}
+        exec(new_text, namespace)  # noqa: S102
+        specs = namespace["AB_SPECS"]
+        self.assertEqual(1, len(specs))
+        self.assertEqual("b1_relvtest_anchor", specs[0].key)
+
+        note = report.scenarios[0].ab_specs_note
+        self.assertIn("removed key='a1_relvtest_source_spec'", note)
+        self.assertIn("no AB_SPECS anchor at 'a2'/'a2_99_no_anchor_unit'", note)
+
+    def test_no_scenario_moves_is_a_no_op(self) -> None:
+        report = rb.MigrationReport(batch="TEST")
+        self.assertEqual(self.FIXTURE, rb.edit_build_can_do_segments_source(self.FIXTURE, (), report))
+
+
+SCENARIO_SHELF_ASSIGNMENT_FIXTURE = """ASSIGNMENT: dict[str, tuple[str, ...]] = {
+    "a1_counter": (
+        "a1_relvtest_scn_cando",
+    ),
+    "b1_team": (
+        "b1_relvtest_existing",
+    ),
+    "a2_work": (
+        "a2_relvtest_existing",
+    ),
+}
+
+SHELF_BY_ID: dict[str, str] = {
+    scenario_id: shelf
+    for shelf, ids in ASSIGNMENT.items()
+    for scenario_id in ids
+}
+"""
+
+SCENARIO_BUILD_CAN_DO_SEGMENTS_FIXTURE = '''from dataclasses import dataclass
+
+
+@dataclass(frozen=True)
+class PracticeRef:
+    kind: str
+    id: str
+
+
+@dataclass(frozen=True)
+class SegmentSpec:
+    key: str
+    level: str
+    parent: str
+    refs: tuple
+    mode: str = "connectedProduction"
+
+
+def _ref(kind, content_id):
+    return PracticeRef(kind=kind, id=content_id)
+
+
+def _scenario_spec(key, level, parent, scenario_id, mode="connectedProduction"):
+    return SegmentSpec(key=key, level=level, parent=parent, refs=(_ref("scenario", scenario_id),), mode=mode)
+
+
+AB_SPECS: tuple[SegmentSpec, ...] = (
+    _scenario_spec("a1_relvtest_cando_home", "a1", "a1_04_order_request_object", "a1_relvtest_scn_cando"),
+    _scenario_spec("b1_relvtest_relationships_anchor", "b1", "b1_04_relationships", "b1_relvtest_existing"),
+)
+'''
+
+
+class ScenarioRelevelBundleFixture(unittest.TestCase):
+    """Mirrors RelevelBundleFixture's strategy (real assets/data copytree +
+    synthetic content on top) for scenario moves: clones two REAL,
+    already-schema-valid scenarios under fresh ids -- one with live can-do
+    references (bunshik_tteokbokki: direct reference + cluster + seed),
+    one without (bakery_payment_bag) -- so the clones' vocab/dialog/quests/
+    grammarIds shape needs no hand-authoring and is guaranteed to pass
+    ContentValidator on its own merits.
+    """
+
+    CANDO_SOURCE_ID = "bunshik_tteokbokki"
+    CANDO_NEW_ID = "a1_relvtest_scn_cando"
+    CANDO_SOURCE_CLUSTER = "cluster_a1_04_order_request_object_v1"
+    CANDO_TARGET_UNIT = "b1_04_relationships"
+    CANDO_TARGET_CLUSTER = "cluster_b1_intimate_feelings_v1"
+
+    PLAIN_SOURCE_ID = "bakery_payment_bag"
+    PLAIN_NEW_ID = "a1_relvtest_scn_plain"
+    PLAIN_TARGET_UNIT = "a2_06_study_work"
+
+    def setUp(self) -> None:
+        self._tmp = tempfile.TemporaryDirectory(prefix="relevel-bundle-scenario-test-")
+        self.addCleanup(self._tmp.cleanup)
+        self.root = Path(self._tmp.name) / "repo"
+        data = self.root / "assets" / "data"
+        shutil.copytree(REPO / "assets" / "data", data)
+
+        (self.root / "tools" / "content_factory").mkdir(parents=True, exist_ok=True)
+        (self.root / "functions" / "analyze_korean_text").mkdir(parents=True, exist_ok=True)
+        shutil.copy2(
+            REPO / "functions" / "analyze_korean_text" / "grammar_patterns.json",
+            self.root / "functions" / "analyze_korean_text" / "grammar_patterns.json",
+        )
+
+        # Small, self-authored, fully test-controlled stand-ins -- never
+        # the real 600-/3900-line checkout files (root-relative precisely
+        # so a test never has to touch those).
+        (self.root / "tools" / "content_factory" / "shelf_assignment.py").write_text(
+            SCENARIO_SHELF_ASSIGNMENT_FIXTURE, encoding="utf-8",
+        )
+        (self.root / "tools" / "content_factory" / "build_can_do_segments.py").write_text(
+            SCENARIO_BUILD_CAN_DO_SEGMENTS_FIXTURE, encoding="utf-8",
+        )
+
+        # migrate() unconditionally reads pack_artwork_catalog.dart (even
+        # in dry-run) for its report's artwork lookup, and --apply reads
+        # vocab_pack_service.dart/dancheong_stamp.dart too (edited as a
+        # no-op for a bundle with `moves: []`) -- all three must exist at
+        # `root` even though this fixture has zero pack moves, same as in
+        # production.
+        (self.root / "lib" / "data").mkdir(parents=True, exist_ok=True)
+        (self.root / "lib" / "data" / "pack_artwork_catalog.dart").write_text(
+            "abstract final class PackArtworkCatalog {\n"
+            "  static const dedicatedPackIds = <String>{\n"
+            "  };\n"
+            "}\n",
+            encoding="utf-8",
+        )
+        (self.root / "lib" / "services").mkdir(parents=True, exist_ok=True)
+        (self.root / "lib" / "services" / "vocab_pack_service.dart").write_text(
+            "class VocabPackService {\n"
+            "  static const Map<String, (String, String)> packDisplayMap = {\n"
+            "  };\n\n"
+            "  static const Map<String, int> packOrderInLevel = {\n"
+            "  };\n"
+            "}\n",
+            encoding="utf-8",
+        )
+        (self.root / "lib" / "widgets" / "sori").mkdir(parents=True, exist_ok=True)
+        (self.root / "lib" / "widgets" / "sori" / "dancheong_stamp.dart").write_text(
+            "DancheongMotif motifForPackId(String packId) {\n"
+            "  final base = _baseOf(packId);\n"
+            "  return switch (base) {\n"
+            "    _ => DancheongMotif.lotus,\n"
+            "  };\n"
+            "}\n",
+            encoding="utf-8",
+        )
+
+        self.ledger_path = Path(self._tmp.name) / "relevel_ledger.json"
+        shutil.copy2(REPO / "tools" / "content_factory" / "relevel_ledger.json", self.ledger_path)
+
+        self._inject_synthetic_scenarios(data)
+
+    def _inject_synthetic_scenarios(self, data: Path) -> None:
+        scenarios_path = data / "scenarios_a1.json"
+        root = json.loads(scenarios_path.read_text(encoding="utf-8"))
+        by_id = {s["id"]: s for s in root["scenarios"]}
+
+        cando = copy.deepcopy(by_id[self.CANDO_SOURCE_ID])
+        cando["id"] = self.CANDO_NEW_ID
+        root["scenarios"].append(cando)
+        plain = copy.deepcopy(by_id[self.PLAIN_SOURCE_ID])
+        plain["id"] = self.PLAIN_NEW_ID
+        root["scenarios"].append(plain)
+        scenarios_path.write_text(json.dumps(root, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+        # content_audit_manifest.json's declared scenario/scenarioQuest
+        # counts must agree with the live inventory (validate_audit_
+        # manifest()) -- bumped by exactly what the two clones added,
+        # computed here rather than hard-coded so a future change to
+        # either source scenario's own quest count can't silently
+        # desync this fixture from reality.
+        audit_manifest_path = self.root / "tools" / "content_factory" / "content_audit_manifest.json"
+        shutil.copy2(REPO / "tools" / "content_factory" / "content_audit_manifest.json", audit_manifest_path)
+        audit_manifest = json.loads(audit_manifest_path.read_text(encoding="utf-8"))
+        added_quests = len(cando.get("quests", [])) + len(plain.get("quests", []))
+        for source in audit_manifest["sources"]:
+            if source["kind"] == "scenario":
+                source["count"] += 2  # two synthetic scenarios injected above
+            elif source["kind"] == "scenarioQuest":
+                source["count"] += added_quests
+        audit_manifest_path.write_text(
+            json.dumps(audit_manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8",
+        )
+
+        curriculum_path = data / rb.CURRICULUM_JSON
+        curriculum = json.loads(curriculum_path.read_text(encoding="utf-8"))
+        links = curriculum["contentLinks"]
+        for source_id, new_id in ((self.CANDO_SOURCE_ID, self.CANDO_NEW_ID), (self.PLAIN_SOURCE_ID, self.PLAIN_NEW_ID)):
+            source_link = next(
+                l for l in links if l.get("contentKind") == "scenario" and l.get("contentId") == source_id
+            )
+            new_link = copy.deepcopy(source_link)
+            new_link["contentId"] = new_id
+            links.append(new_link)
+        curriculum_path.write_text(json.dumps(curriculum, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+        auth_path = data / rb.CAN_DO_AUTHORITIES_JSON
+        authorities = json.loads(auth_path.read_text(encoding="utf-8"))
+        source_ref = next(
+            r for r in authorities["contentReferences"]
+            if r.get("kind") == "scenario" and r.get("id") == self.CANDO_SOURCE_ID
+        )
+        self.new_seed_id = f"seed_scenario_{self.CANDO_NEW_ID}_v1"
+        new_ref = copy.deepcopy(source_ref)
+        new_ref["id"] = self.CANDO_NEW_ID
+        new_ref["sourceSeedId"] = self.new_seed_id
+        authorities["contentReferences"].append(new_ref)
+        authorities["sourceSeeds"].append({"id": self.new_seed_id, "level": "a1"})
+        authorities["coverage"]["directReferenceCounts"]["scenario"] += 1
+        auth_path.write_text(json.dumps(authorities, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+        segments_path = data / rb.CAN_DO_SEGMENTS_JSON
+        segments_doc = json.loads(segments_path.read_text(encoding="utf-8"))
+        cluster = next(c for c in segments_doc["contentClusters"] if c["id"] == self.CANDO_SOURCE_CLUSTER)
+        cluster["contentReferences"].append({"kind": "scenario", "id": self.CANDO_NEW_ID})
+        cluster["sourceSeedIds"].append(self.new_seed_id)
+        segments_path.write_text(json.dumps(segments_doc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    def _bundle(self, scenario_moves: list[dict]) -> rb.BundleFile:
+        return rb.load_bundle_from_dict({"batch": "TEST", "moves": [], "scenarioMoves": scenario_moves})
+
+    def _cando_move(self, **overrides) -> dict:
+        base = {
+            "id": self.CANDO_NEW_ID, "from": "a1", "to": "b1", "shelf": "b1_team",
+            "courseUnitId": self.CANDO_TARGET_UNIT, "conceptIds": ["concept_b1_relationships"],
+            "canDoClusterId": self.CANDO_TARGET_CLUSTER, "reason": "test cando scenario move",
+        }
+        base.update(overrides)
+        return base
+
+    def _plain_move(self, **overrides) -> dict:
+        base = {
+            "id": self.PLAIN_NEW_ID, "from": "a1", "to": "a2", "shelf": "a2_work",
+            "courseUnitId": self.PLAIN_TARGET_UNIT, "conceptIds": ["concept_a2_work_study"],
+            "reason": "test plain scenario move",
+        }
+        base.update(overrides)
+        return base
+
+    def _snapshot(self) -> dict[Path, bytes]:
+        paths = [self.root / "assets" / "data" / name for name in rb._STAGED_DATA_FILES] + [
+            self.root / "tools" / "content_factory" / "shelf_assignment.py",
+            self.root / "tools" / "content_factory" / "build_can_do_segments.py",
+            self.root / "lib" / "data" / "pack_artwork_catalog.dart",
+            self.root / "lib" / "services" / "vocab_pack_service.dart",
+            self.root / "lib" / "widgets" / "sori" / "dancheong_stamp.dart",
+            self.ledger_path,
+        ]
+        return {path: (path.read_bytes() if path.exists() else None) for path in paths}
+
+    def _assert_unchanged(self, snapshot: dict[Path, bytes]) -> None:
+        for path, content in snapshot.items():
+            current = path.read_bytes() if path.exists() else None
+            self.assertEqual(content, current, f"{path} changed unexpectedly")
+
+
+class ScenarioDryRunTest(ScenarioRelevelBundleFixture):
+    def test_dry_run_computes_plan_and_changes_nothing(self) -> None:
+        snapshot = self._snapshot()
+        bundle = self._bundle([self._cando_move(), self._plain_move()])
+        report = rb.migrate(root=self.root, bundle=bundle, ledger_path=self.ledger_path, apply=False)
+
+        self.assertEqual(2, len(report.scenarios))
+        by_id = {s.scenario_id: s for s in report.scenarios}
+        self.assertEqual("migrated (direct reference)", by_id[self.CANDO_NEW_ID].can_do_note)
+        self.assertEqual(self.CANDO_SOURCE_CLUSTER, by_id[self.CANDO_NEW_ID].source_cluster_id)
+        self.assertEqual(self.CANDO_TARGET_CLUSTER, by_id[self.CANDO_NEW_ID].target_cluster_id)
+        self.assertEqual("no can-do references", by_id[self.PLAIN_NEW_ID].can_do_note)
+        self.assertIsNone(by_id[self.PLAIN_NEW_ID].source_cluster_id)
+        self.assertIsNone(by_id[self.PLAIN_NEW_ID].target_cluster_id)
+
+        self._assert_unchanged(snapshot)
+
+
+class ScenarioApplyTest(ScenarioRelevelBundleFixture):
+    def test_apply_migrates_shard_contentlinks_ledger_can_do_and_side_files(self) -> None:
+        bundle = self._bundle([self._cando_move(), self._plain_move()])
+        report = rb.migrate(root=self.root, bundle=bundle, ledger_path=self.ledger_path, apply=True)
+        data = self.root / "assets" / "data"
+
+        # scenario shards: gone from a1, present at their new level with
+        # the right level/shelf/courseUnitId/conceptIds, everything else
+        # (title/dialog/quests/grammarIds/...) preserved from the clone.
+        a1 = json.loads((data / "scenarios_a1.json").read_text(encoding="utf-8"))["scenarios"]
+        a1_ids = {s["id"] for s in a1}
+        self.assertNotIn(self.CANDO_NEW_ID, a1_ids)
+        self.assertNotIn(self.PLAIN_NEW_ID, a1_ids)
+
+        b1 = json.loads((data / "scenarios_b1.json").read_text(encoding="utf-8"))["scenarios"]
+        cando = next(s for s in b1 if s["id"] == self.CANDO_NEW_ID)
+        self.assertEqual("b1", cando["level"])
+        self.assertEqual("b1_team", cando["shelf"])
+        self.assertEqual(self.CANDO_TARGET_UNIT, cando["courseUnitId"])
+        self.assertEqual(["concept_b1_relationships"], cando["conceptIds"])
+        original = json.loads(
+            (REPO / "assets" / "data" / "scenarios_a1.json").read_text(encoding="utf-8")
+        )["scenarios"]
+        original_bunshik = next(s for s in original if s["id"] == self.CANDO_SOURCE_ID)
+        self.assertEqual(original_bunshik["title"], cando["title"])
+        self.assertEqual(original_bunshik["dialog"], cando["dialog"])
+        self.assertEqual(original_bunshik["grammarIds"], cando["grammarIds"])
+
+        a2 = json.loads((data / "scenarios_a2.json").read_text(encoding="utf-8"))["scenarios"]
+        plain = next(s for s in a2 if s["id"] == self.PLAIN_NEW_ID)
+        self.assertEqual("a2", plain["level"])
+        self.assertEqual("a2_work", plain["shelf"])
+        self.assertEqual(self.PLAIN_TARGET_UNIT, plain["courseUnitId"])
+
+        # curriculum_manifest.json contentLinks
+        curriculum = json.loads((data / rb.CURRICULUM_JSON).read_text(encoding="utf-8"))
+        links_by_id = {
+            l["contentId"]: l for l in curriculum["contentLinks"] if l.get("contentKind") == "scenario"
+        }
+        self.assertEqual(self.CANDO_TARGET_UNIT, links_by_id[self.CANDO_NEW_ID]["courseUnitId"])
+        self.assertEqual(["concept_b1_relationships"], links_by_id[self.CANDO_NEW_ID]["conceptIds"])
+        self.assertEqual(self.PLAIN_TARGET_UNIT, links_by_id[self.PLAIN_NEW_ID]["courseUnitId"])
+
+        # ledger
+        ledger = rb.relevel_ledger.load_ledger(self.ledger_path)
+        cando_entry = ledger.get("scenario", self.CANDO_NEW_ID)
+        self.assertIsNotNone(cando_entry)
+        self.assertEqual("a1", cando_entry.from_level)
+        self.assertEqual("b1", cando_entry.to_level)
+        plain_entry = ledger.get("scenario", self.PLAIN_NEW_ID)
+        self.assertIsNotNone(plain_entry)
+        self.assertEqual("a2", plain_entry.to_level)
+
+        # can-do authorities + segments: direct ref moved, cluster
+        # membership relocated, seed level bumped, source cluster no
+        # longer references it.
+        authorities = json.loads((data / rb.CAN_DO_AUTHORITIES_JSON).read_text(encoding="utf-8"))
+        direct = {(r["kind"], r["id"]): r for r in authorities["contentReferences"]}
+        self.assertEqual("b1", direct[("scenario", self.CANDO_NEW_ID)]["level"])
+        self.assertEqual(self.CANDO_TARGET_UNIT, direct[("scenario", self.CANDO_NEW_ID)]["courseUnitId"])
+        seed = next(s for s in authorities["sourceSeeds"] if s["id"] == self.new_seed_id)
+        self.assertEqual("b1", seed["level"])
+
+        segments_doc = json.loads((data / rb.CAN_DO_SEGMENTS_JSON).read_text(encoding="utf-8"))
+        clusters_by_id = {c["id"]: c for c in segments_doc["contentClusters"]}
+        source_cluster = clusters_by_id[self.CANDO_SOURCE_CLUSTER]
+        source_refs = {(r["kind"], r["id"]) for r in source_cluster["contentReferences"]}
+        self.assertNotIn(("scenario", self.CANDO_NEW_ID), source_refs)
+        self.assertNotIn(self.new_seed_id, source_cluster["sourceSeedIds"])
+        target_cluster = clusters_by_id[self.CANDO_TARGET_CLUSTER]
+        target_refs = {(r["kind"], r["id"]) for r in target_cluster["contentReferences"]}
+        self.assertIn(("scenario", self.CANDO_NEW_ID), target_refs)
+        self.assertIn(self.new_seed_id, target_cluster["sourceSeedIds"])
+
+        # shelf_assignment.py: cando id relocated between tuples; plain id
+        # was never tracked, so ASSIGNMENT is untouched for it.
+        shelf_text = (
+            self.root / "tools" / "content_factory" / "shelf_assignment.py"
+        ).read_text(encoding="utf-8")
+        namespace: dict = {}
+        exec(shelf_text, namespace)  # noqa: S102
+        self.assertNotIn(self.CANDO_NEW_ID, namespace["ASSIGNMENT"]["a1_counter"])
+        self.assertIn(self.CANDO_NEW_ID, namespace["ASSIGNMENT"]["b1_team"])
+        self.assertNotIn(self.PLAIN_NEW_ID, namespace["SHELF_BY_ID"])
+
+        # build_can_do_segments.py AB_SPECS: cando's from-level entry
+        # removed and a new one added after the b1_04_relationships
+        # anchor; plain never had an AB_SPECS entry to begin with.
+        ab_specs_text = (
+            self.root / "tools" / "content_factory" / "build_can_do_segments.py"
+        ).read_text(encoding="utf-8")
+        namespace2: dict = {}
+        exec(ab_specs_text, namespace2)  # noqa: S102
+        spec_keys = [s.key for s in namespace2["AB_SPECS"]]
+        self.assertNotIn("a1_relvtest_cando_home", spec_keys)
+        new_spec = next(
+            s for s in namespace2["AB_SPECS"]
+            if s.refs and s.refs[0].kind == "scenario" and s.refs[0].id == self.CANDO_NEW_ID
+        )
+        self.assertEqual("b1", new_spec.level)
+        self.assertEqual(self.CANDO_TARGET_UNIT, new_spec.parent)
+
+        by_id = {s.scenario_id: s for s in report.scenarios}
+        self.assertIn("moved 'a1_counter' -> 'b1_team'", by_id[self.CANDO_NEW_ID].shelf_assignment_note)
+        self.assertIn("not tracked", by_id[self.PLAIN_NEW_ID].shelf_assignment_note)
+        self.assertIn("removed key='a1_relvtest_cando_home'", by_id[self.CANDO_NEW_ID].ab_specs_note)
+        self.assertEqual("not present in AB_SPECS", by_id[self.PLAIN_NEW_ID].ab_specs_note)
+
+        # Plan §4.3 step 4(7): never shells out -- the plan text and the
+        # markdown report both print the follow-up TTS/manifest commands
+        # instead, only when a scenario move actually applied.
+        plan_text = rb.format_plan(report, apply=True)
+        self.assertIn("scenario move(s) applied -- run these follow-ups next:", plan_text)
+        self.assertIn("--write-first-line-manifest assets/data/tts_first_line_manifest.json", plan_text)
+        self.assertIn("--check-first-line-manifest assets/data/tts_first_line_manifest.json", plan_text)
+        self.assertIn("functions/tts/build_canonical_manifest.py", plan_text)
+
+        report_path = self.root / "report.md"
+        rb.append_report_section(report_path, report, apply=True)
+        report_text = report_path.read_text(encoding="utf-8")
+        self.assertIn("시나리오 이동이 적용됨", report_text)
+        self.assertIn("build_canonical_manifest.py --check", report_text)
+
+    def test_dry_run_prints_no_follow_up_commands(self) -> None:
+        # The follow-ups are only real once something was actually
+        # written -- a dry run must not suggest running them.
+        bundle = self._bundle([self._cando_move()])
+        report = rb.migrate(root=self.root, bundle=bundle, ledger_path=self.ledger_path, apply=False)
+        plan_text = rb.format_plan(report, apply=False)
+        self.assertNotIn("run these follow-ups next", plan_text)
+
+
+class ScenarioRollbackTest(ScenarioRelevelBundleFixture):
+    def test_bad_shelf_fails_and_leaves_everything_untouched(self) -> None:
+        # Bypasses ScenarioMove.from_dict deliberately -- an invalid shelf
+        # is already rejected at that front door (ScenarioMoveShapeTest),
+        # so this instead proves the staged ContentValidator safety net
+        # inside migrate() itself also fails closed and rolls back
+        # completely, exactly like the pack-move RollbackTest does for a
+        # bad conceptIds value.
+        bad_move = rb.ScenarioMove(
+            id=self.CANDO_NEW_ID, from_level="a1", to_level="b1", shelf="not_a_real_shelf_at_all",
+            course_unit_id=self.CANDO_TARGET_UNIT, concept_ids=("concept_b1_relationships",),
+            reason="test bad shelf", backdrop=None, can_do_cluster_id=self.CANDO_TARGET_CLUSTER,
+        )
+        bundle = rb.BundleFile(batch="TEST", moves=(), scenario_moves=(bad_move,))
+        snapshot = self._snapshot()
+
+        with self.assertRaises(rb.RelevelError):
+            rb.migrate(root=self.root, bundle=bundle, ledger_path=self.ledger_path, apply=True)
+
+        self._assert_unchanged(snapshot)
+
+    def test_dry_run_also_rejects_bad_shelf(self) -> None:
+        bad_move = rb.ScenarioMove(
+            id=self.CANDO_NEW_ID, from_level="a1", to_level="b1", shelf="not_a_real_shelf_at_all",
+            course_unit_id=self.CANDO_TARGET_UNIT, concept_ids=("concept_b1_relationships",),
+            reason="test bad shelf", backdrop=None, can_do_cluster_id=self.CANDO_TARGET_CLUSTER,
+        )
+        bundle = rb.BundleFile(batch="TEST", moves=(), scenario_moves=(bad_move,))
+        snapshot = self._snapshot()
+
+        with self.assertRaises(rb.RelevelError):
+            rb.migrate(root=self.root, bundle=bundle, ledger_path=self.ledger_path, apply=False)
+
+        self._assert_unchanged(snapshot)
 
 
 if __name__ == "__main__":

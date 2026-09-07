@@ -1,0 +1,17 @@
+{
+  "batch": "L2a2",
+  "moves": [],
+  "scenarioMoves": [
+    {
+      "id": "shared_document_old_version",
+      "from": "a2",
+      "to": "b1",
+      "shelf": "b1_team",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "reason": "Fable 직독 2026-09-07: 공유 문서·수정·복사 등 업무 어휘(3~5급)가 전 대사에 걸쳐 있어 A2 재집필 불가 — B1 업무 실수 수습 유닛으로 이동"
+    }
+  ]
+}

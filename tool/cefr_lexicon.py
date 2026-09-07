@@ -821,6 +821,44 @@ BANMAL_IMPERATIVE_MAP: Mapping[str, str] = {
 }
 
 
+# 거/걸/걸로/이거/그거/저거/이게/그게/저게/뭘: colloquial contractions of
+# 것/이것/그것/저것/뭐, all 1급 pronouns (docs/CONTENT_LEVEL_BIBLE.md §B
+# "1급 밖 단어는 문화어·고유명사 하나까지만 허용", §D "문화어 1개 예외" -- a
+# sentence built entirely of 1급 grammar/vocab must not get bumped to a
+# higher level just because its speech is colloquial rather than written).
+# A plain aliases.csv redirect row would NOT fix these: every one of these
+# surface forms already resolves via its OWN (wrong-sense) kiiq/basic2023
+# entry BEFORE a non-empty alias is ever consulted (word_grade's redirect-
+# alias tier sits after kiiq/derived, unchanged since R3 -- see
+# `word_grade`'s docstring) -- 거/이거/그거/저거/뭘 each collide with an
+# unrelated, higher-grade kiiq headword of their own, 걸 collides with
+# D_IRREGULAR_MAP's 걷다 stem-repair (comment above), 걸로 with a
+# basic2023-only sense, and 이게 with 이다 (a grade-6 kiiq mis-hit). So this
+# is a small, closed, hand-verified table checked at the SAME top priority
+# as BANMAL_IMPERATIVE_MAP just above -- the accepted trade-off this file
+# already uses for every other closed collision table -- rather than a
+# aliases.csv row. 뭘 -> 뭐 (not 무엇): both grade 1급 already (checked
+# empirically), 뭐 keeps the same colloquial register as 뭘 itself. 걸로's
+# own contraction is 것 + 으로 (것 already contracted to 거/걸 before 로
+# attaches); the target is still bare 것 since the trailing particle plays
+# no role in grading (see `_strip_one_particle` elsewhere in this module).
+#
+# NOT named CONTRACTION_MAP: that name is already taken (module-level,
+# defined earlier) by the UNRELATED 았/었 tense-marker fragment->root table
+# ("갔"->"가" for 가다, etc.) that `_irregular_repair` and friends depend
+# on -- a same-name second `CONTRACTION_MAP = {...}` here would silently
+# shadow it at import time (Python module execution runs top to bottom;
+# every later top-level assignment to the same name wins), breaking every
+# past-tense verb this file resolves. Caught by test_all_golden_tokenizer_
+# cases going from 25/25 to a wall of failures during development.
+PRONOUN_CONTRACTION_MAP: Mapping[str, str] = {
+    "거": "것", "걸": "것", "걸로": "것",
+    "이거": "이것", "그거": "그것", "저거": "저것",
+    "이게": "이것", "그게": "그것", "저게": "저것",
+    "뭘": "뭐",
+}
+
+
 ## R7 item 4: `_rieul_stem_attributive_repair` must NOT fire when `token`'s
 # last character IS one of these -- both "는" (ㄴ+ㅡ+ㄴ) and "은" (ㅇ+ㅡ+ㄴ)
 # coincidentally carry batchim ㄴ as part of their OWN jamo composition,
@@ -1538,6 +1576,14 @@ class SentenceProfile:
     low_confidence: Tuple[str, ...]
     proper_nouns: Tuple[str, ...]
     level_estimate: Optional[str]
+    # Bible §B "1급 밖 단어는 문화어·고유명사 하나까지만 허용" / §D "문화어 1개
+    # 예외" (docs/CONTENT_LEVEL_BIBLE.md): the single highest-grade token,
+    # excluded from `lexical_p90` below when the sentence has >=3 graded
+    # content tokens -- (matched headword, its own grade), or None when the
+    # sentence is too short for the allowance to apply. Never touches
+    # grammar_max or any individual WordGrade/PhraseGrade -- see
+    # sentence_profile()'s docstring.
+    allowance: Optional[Tuple[str, int]] = None
 
 
 @dataclass(frozen=True)
@@ -2055,6 +2101,11 @@ class CefrLexicon:
         banmal = BANMAL_IMPERATIVE_MAP.get(normalized)
         if banmal is not None:
             return self.word_grade(banmal)
+        # Bible §B/§D contraction allowance -- see PRONOUN_CONTRACTION_MAP's
+        # own docstring for why this cannot be a plain aliases.csv redirect.
+        pronoun_contraction = PRONOUN_CONTRACTION_MAP.get(normalized)
+        if pronoun_contraction is not None:
+            return self.word_grade(pronoun_contraction)
         alias_entry = self._aliases.get(normalized)
         if alias_entry is not None and alias_entry[0] is None:
             # R7 item 10: an empty-lexicon_form alias ("A1 exception",
@@ -2180,6 +2231,11 @@ class CefrLexicon:
         if banmal is not None:
             wg = self.word_grade(banmal)
             return WordGrade(wg.grade, wg.cefr, wg.source, token, wg.confidence_override)
+        # See PRONOUN_CONTRACTION_MAP's own docstring.
+        pronoun_contraction = PRONOUN_CONTRACTION_MAP.get(token)
+        if pronoun_contraction is not None:
+            wg = self.word_grade(pronoun_contraction)
+            return WordGrade(wg.grade, wg.cefr, wg.source, token, wg.confidence_override)
         exact = self._exact_headword_lookup(token)
         if exact.grade is not None:
             return WordGrade(exact.grade, exact.cefr, exact.source, token, exact.confidence_override)
@@ -2244,13 +2300,37 @@ class CefrLexicon:
         # form) are capped at grade 4, one tier looser than 'low''s cap at
         # 3 -- they are less suspect than a basic2023-only guess (a real
         # kiiq root sense DID match), just not fully trusted.
-        capped_grades = [
-            min(t.grade, 3) if t.confidence == "low"
-            else min(t.grade, 4) if t.confidence == "medium"
-            else t.grade
+        capped_pairs = [
+            (
+                t,
+                min(t.grade, 3) if t.confidence == "low"
+                else min(t.grade, 4) if t.confidence == "medium"
+                else t.grade,
+            )
             for t in known_tokens
         ]
-        lexical_p90 = _percentile(capped_grades, 90)
+
+        # Bible §B/§D allowance: a sentence long enough to carry >=3 graded
+        # content tokens gets to excuse exactly one -- its single
+        # highest-(capped-)grade token -- from the percentile, mirroring
+        # "1급 밖 단어 하나까지만 허용" at every level (not just A1's literal
+        # wording). Ties break on first occurrence (stable `max`) -- a
+        # deterministic, always-applied exclusion, not a "only if it would
+        # otherwise fail" rescue: the Bible grants the allowance
+        # unconditionally, so this does too. Only `lexical_p90`'s *inputs*
+        # change here -- grammar_max/grammar_hits and every WordGrade in
+        # `tokens` (so word/phrase grading elsewhere) are untouched.
+        allowance: Optional[Tuple[str, int]] = None
+        percentile_pairs = capped_pairs
+        if len(capped_pairs) >= 3:
+            excused_token, excused_capped = max(capped_pairs, key=lambda pair: pair[1])
+            allowance = (excused_token.matched, excused_token.grade)
+            excused_index = next(
+                i for i, (t, _) in enumerate(capped_pairs) if t is excused_token
+            )
+            percentile_pairs = capped_pairs[:excused_index] + capped_pairs[excused_index + 1:]
+
+        lexical_p90 = _percentile([grade for _, grade in percentile_pairs], 90)
 
         grammar_hits = grammar_index.detect(expand_contractions(text))
         grammar_max = max((h.grade for h in grammar_hits), default=None)
@@ -2276,6 +2356,7 @@ class CefrLexicon:
             low_confidence=tuple(low_confidence),
             proper_nouns=tuple(proper_nouns),
             level_estimate=level_estimate,
+            allowance=allowance,
         )
 
 

@@ -31,6 +31,7 @@ back to the real repository, the ledger, or the Dart files).
 from __future__ import annotations
 
 import argparse
+import ast
 import csv
 import hashlib
 import json
@@ -50,8 +51,17 @@ if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
 import relevel_ledger
+import scenario_store
 from relevel_ledger import Ledger, LedgerEntry
+from shelf_assignment import SHELF_SLUGS
 from validate_content import ContentValidator, LOWER_LEVELS, VOCAB_HEADER
+
+# a1 < a2 < ... < c2, used only for the scenario-move grammarIds "not above
+# the target level" warning (plan §4.3 step 1) -- LOWER_LEVELS itself is an
+# unordered frozenset, so this is a separate, deliberately-ordered tuple.
+LEVEL_ORDER: dict[str, int] = {level: index for index, level in enumerate(
+    ("a1", "a2", "b1", "b2", "c1", "c2")
+)}
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_LEDGER_PATH = SCRIPT_DIR / "relevel_ledger.json"
@@ -198,9 +208,101 @@ class Move:
 
 
 @dataclass(frozen=True)
+class ScenarioMove:
+    """One scenario-level relevel (plan §4.3 step 4, LCP PR-L2a2 / T2.4b-1).
+
+    Unlike ``Move`` (a whole vocab-pack bundle plus its derived cloze/satz),
+    a scenario is a single leaf content object -- there is no ``newPackId``,
+    no ``cloze``/``satz``/``smalltalk`` match-by-content step, and the id
+    never changes (scenario ids already carry no level segment, so there is
+    nothing analogous to rename).
+    """
+
+    id: str
+    from_level: str
+    to_level: str
+    shelf: str
+    course_unit_id: str
+    concept_ids: tuple[str, ...]
+    reason: str
+    # Optional: keep the scenario's current backdrop when absent.
+    backdrop: str | None = None
+    # Required only when the scenario turns out to have a can-do reference
+    # (checked once the live can_do_content_authorities.json is read, not
+    # here at parse time -- see _migrate_can_do_scenarios).
+    can_do_cluster_id: str | None = None
+
+    @classmethod
+    def from_dict(cls, raw: Any) -> "ScenarioMove":
+        if not isinstance(raw, dict):
+            raise RelevelError(f"each scenarioMove must be an object, got {raw!r}")
+        required = ("id", "from", "to", "shelf", "courseUnitId", "conceptIds", "reason")
+        missing = [key for key in required if key not in raw]
+        if missing:
+            raise RelevelError(f"scenarioMove {raw.get('id')!r} missing field(s) {missing}")
+
+        ident = raw["id"]
+        from_level = raw["from"]
+        to_level = raw["to"]
+        shelf = raw["shelf"]
+        course_unit_id = raw["courseUnitId"]
+        concept_ids = raw["conceptIds"]
+        reason = raw["reason"]
+
+        for label, value in (("id", ident), ("shelf", shelf),
+                              ("courseUnitId", course_unit_id), ("reason", reason)):
+            if not isinstance(value, str) or not value.strip():
+                raise RelevelError(f"scenarioMove {ident!r}: {label} must be a nonempty string")
+        if from_level not in LOWER_LEVELS or to_level not in LOWER_LEVELS:
+            raise RelevelError(
+                f"scenarioMove {ident!r}: from/to must be one of {sorted(LOWER_LEVELS)}, "
+                f"got from={from_level!r} to={to_level!r}"
+            )
+        if from_level == to_level:
+            raise RelevelError(f"scenarioMove {ident!r}: from and to are both {from_level!r}")
+        if (not isinstance(concept_ids, list) or not concept_ids
+                or any(not isinstance(c, str) or not c.strip() for c in concept_ids)):
+            raise RelevelError(f"scenarioMove {ident!r}: conceptIds must be a nonempty list of strings")
+
+        if not shelf.startswith(f"{to_level}_"):
+            raise RelevelError(
+                f"scenarioMove {ident!r}: shelf {shelf!r} does not start with {to_level!r}_"
+            )
+        slug = shelf[len(to_level) + 1:]
+        if slug not in SHELF_SLUGS.get(to_level, ()):
+            raise RelevelError(
+                f"scenarioMove {ident!r}: shelf slug {slug!r} is not one of "
+                f"shelf_assignment.SHELF_SLUGS[{to_level!r}] {SHELF_SLUGS.get(to_level, ())}"
+            )
+
+        backdrop = raw.get("backdrop")
+        if backdrop is not None and (not isinstance(backdrop, str) or not backdrop.strip()):
+            raise RelevelError(f"scenarioMove {ident!r}: backdrop must be a nonempty string when present")
+
+        can_do_cluster_id = raw.get("canDoClusterId")
+        if can_do_cluster_id is not None and (
+            not isinstance(can_do_cluster_id, str) or not can_do_cluster_id.strip()
+        ):
+            raise RelevelError(f"scenarioMove {ident!r}: canDoClusterId must be a nonempty string when present")
+
+        return cls(
+            id=ident,
+            from_level=from_level,
+            to_level=to_level,
+            shelf=shelf,
+            course_unit_id=course_unit_id,
+            concept_ids=tuple(concept_ids),
+            reason=reason,
+            backdrop=backdrop,
+            can_do_cluster_id=can_do_cluster_id,
+        )
+
+
+@dataclass(frozen=True)
 class BundleFile:
     batch: str
     moves: tuple[Move, ...]
+    scenario_moves: tuple[ScenarioMove, ...] = ()
 
 
 def load_bundle_from_dict(raw: Any, *, source: str = "<bundle>") -> BundleFile:
@@ -209,9 +311,18 @@ def load_bundle_from_dict(raw: Any, *, source: str = "<bundle>") -> BundleFile:
     batch = raw.get("batch")
     if not isinstance(batch, str) or not batch.strip():
         raise RelevelError(f"{source}: batch must be a nonempty string")
-    raw_moves = raw.get("moves")
-    if not isinstance(raw_moves, list) or not raw_moves:
-        raise RelevelError(f"{source}: moves must be a nonempty list")
+
+    raw_moves = raw.get("moves", [])
+    if not isinstance(raw_moves, list):
+        raise RelevelError(f"{source}: moves must be a list")
+    raw_scenario_moves = raw.get("scenarioMoves", [])
+    if not isinstance(raw_scenario_moves, list):
+        raise RelevelError(f"{source}: scenarioMoves must be a list")
+    # A bundle may have `moves: []` and only `scenarioMoves` (PR-L2a2, plan
+    # §4.3 step 4) -- but never neither, or there is nothing to do.
+    if not raw_moves and not raw_scenario_moves:
+        raise RelevelError(f"{source}: at least one of moves/scenarioMoves must be nonempty")
+
     moves = tuple(Move.from_dict(item) for item in raw_moves)
     bundle_ids = [move.bundle for move in moves]
     if len(bundle_ids) != len(set(bundle_ids)):
@@ -219,7 +330,13 @@ def load_bundle_from_dict(raw: Any, *, source: str = "<bundle>") -> BundleFile:
     new_pack_ids = [move.new_pack_id for move in moves]
     if len(new_pack_ids) != len(set(new_pack_ids)):
         raise RelevelError(f"{source}: duplicate newPackId in moves")
-    return BundleFile(batch=batch, moves=moves)
+
+    scenario_moves = tuple(ScenarioMove.from_dict(item) for item in raw_scenario_moves)
+    scenario_ids = [move.id for move in scenario_moves]
+    if len(scenario_ids) != len(set(scenario_ids)):
+        raise RelevelError(f"{source}: duplicate id in scenarioMoves")
+
+    return BundleFile(batch=batch, moves=moves, scenario_moves=scenario_moves)
 
 
 def load_bundle(path: Path) -> BundleFile:
@@ -328,6 +445,22 @@ class PackMoveReport:
 
 
 @dataclass
+class ScenarioMoveReport:
+    scenario_id: str
+    from_level: str
+    to_level: str
+    course_unit_id: str
+    shelf: str
+    content_links_updated: int = 0
+    can_do_note: str = ""
+    source_cluster_id: str | None = None
+    target_cluster_id: str | None = None
+    shelf_assignment_note: str = ""
+    ab_specs_note: str = ""
+    grammar_level_warnings: list[str] = field(default_factory=list)
+
+
+@dataclass
 class MigrationReport:
     batch: str
     packs: list[PackMoveReport] = field(default_factory=list)
@@ -342,6 +475,7 @@ class MigrationReport:
     dancheong_motif_renames: list[tuple[str, str, str]] = field(default_factory=list)
     aliases_added: list[tuple[str, str]] = field(default_factory=list)
     test_references: dict[str, list[str]] = field(default_factory=dict)
+    scenarios: list[ScenarioMoveReport] = field(default_factory=list)
 
 
 # ───────────────────────── vocab / cloze / satz ───────────────────────────
@@ -525,6 +659,110 @@ def _migrate_curriculum_manifest(
         if new_unit is not None:
             link["courseUnitId"] = new_unit
             report.content_links_rewritten += 1
+
+
+# ───────────────────────── scenario moves (PR-L2a2, T2.4b-1) ──────────────
+
+
+def _migrate_scenario_object(
+    scenario: dict[str, Any], move: ScenarioMove, report: ScenarioMoveReport,
+) -> None:
+    """Mutate one scenario object in place (plan §4.3 step 4): only
+    level/shelf/courseUnitId/conceptIds(/backdrop when given) change --
+    title/intro/dialog/quests/vocab/grammarIds/... are all preserved."""
+
+    if str(scenario.get("level", "")).strip().lower() != move.from_level:
+        raise RelevelError(
+            f"scenarioMove {move.id!r}: scenario level {scenario.get('level')!r} "
+            f"disagrees with move.from={move.from_level!r}"
+        )
+    scenario["level"] = move.to_level
+    scenario["shelf"] = move.shelf
+    scenario["courseUnitId"] = move.course_unit_id
+    scenario["conceptIds"] = list(move.concept_ids)
+    if move.backdrop is not None:
+        scenario["backdrop"] = move.backdrop
+
+    # grammarIds levels <= to-level, warn only (plan §4.3 step 1) -- a
+    # scenario can legitimately keep using an *easier* grammar point after
+    # moving up a level; one above the new level is a content smell, not a
+    # blocking error, since Fable's judgment call may still be correct.
+    grammar_ids = scenario.get("grammarIds")
+    to_rank = LEVEL_ORDER[move.to_level]
+    for grammar_id in grammar_ids if isinstance(grammar_ids, list) else ():
+        if not isinstance(grammar_id, str):
+            continue
+        parts = grammar_id.split("_")
+        grammar_level = parts[1] if len(parts) >= 2 else None
+        grammar_rank = LEVEL_ORDER.get(grammar_level) if grammar_level else None
+        if grammar_rank is not None and grammar_rank > to_rank:
+            report.grammar_level_warnings.append(
+                f"grammarId {grammar_id!r} is level {grammar_level!r}, above "
+                f"the new level {move.to_level!r} (warn only)"
+            )
+
+
+def _migrate_curriculum_manifest_scenarios(
+    curriculum: dict[str, Any],
+    scenario_moves: tuple[ScenarioMove, ...],
+    report: MigrationReport,
+) -> None:
+    """Plan §4.3 step 4(2): every contentLinks entry with contentKind==
+    "scenario" and contentId==id gets courseUnitId/conceptIds updated; the
+    moved id must not appear anywhere else in the manifest this tool does
+    not handle (e.g. a courseUnit's checkpointContentIds)."""
+
+    units = {
+        unit["id"]: unit
+        for unit in curriculum.get("courseUnits", [])
+        if isinstance(unit, dict) and isinstance(unit.get("id"), str)
+    }
+    for move in scenario_moves:
+        unit = units.get(move.course_unit_id)
+        if unit is None:
+            raise RelevelError(f"scenarioMove {move.id!r}: unknown courseUnitId {move.course_unit_id!r}")
+        required = set(unit.get("requiredConceptIds") or [])
+        missing = [c for c in move.concept_ids if c not in required]
+        if missing:
+            raise RelevelError(
+                f"scenarioMove {move.id!r}: conceptIds {missing} are not in "
+                f"{move.course_unit_id!r}.requiredConceptIds {sorted(required)}"
+            )
+
+    links = curriculum.get("contentLinks")
+    if not isinstance(links, list):
+        raise RelevelError("curriculum_manifest.json: contentLinks must be an array")
+    by_id = {move.id: move for move in scenario_moves}
+    updated_by_id: dict[str, int] = {move.id: 0 for move in scenario_moves}
+    for link in links:
+        if not isinstance(link, dict) or link.get("contentKind") != "scenario":
+            continue
+        move = by_id.get(link.get("contentId"))
+        if move is None:
+            continue
+        link["courseUnitId"] = move.course_unit_id
+        link["conceptIds"] = list(move.concept_ids)
+        updated_by_id[move.id] += 1
+
+    reports_by_id = {r.scenario_id: r for r in report.scenarios}
+    for move in scenario_moves:
+        pack_report = reports_by_id.get(move.id)
+        if pack_report is not None:
+            pack_report.content_links_updated = updated_by_id[move.id]
+
+    # After the contentLinks rewrite above, the moved id must not appear
+    # anywhere else in the manifest -- this tool only knows how to rewrite
+    # contentLinks, so any other reference (a courseUnit's
+    # checkpointContentIds "scenario:<id>", etc.) must fail closed rather
+    # than silently go stale.
+    rest = {k: v for k, v in curriculum.items() if k != "contentLinks"}
+    text = json.dumps(rest, ensure_ascii=False)
+    for move in scenario_moves:
+        if move.id in text:
+            raise RelevelError(
+                f"scenarioMove {move.id!r}: appears elsewhere in curriculum_manifest.json "
+                "outside contentLinks (e.g. checkpointContentIds) -- not handled by this tool"
+            )
 
 
 # ───────────────────────── can-do cluster/segment choice ──────────────────
@@ -772,6 +1010,159 @@ def _migrate_can_do(
             pack_report.cluster_candidates = candidates
 
     # 6. recompute coverage counts exactly as the Dart loader counts them.
+    direct_counts = Counter(r.get("kind") for r in direct_refs if isinstance(r, dict))
+    recorded_direct = coverage.get("directReferenceCounts")
+    if isinstance(recorded_direct, dict):
+        coverage["directReferenceCounts"] = {
+            kind: direct_counts.get(kind, 0) for kind in recorded_direct
+        }
+    inherited_counts = Counter(r.get("kind") for r in inherited if isinstance(r, dict))
+    recorded_inherited = coverage.get("inheritedReferenceCounts")
+    if isinstance(recorded_inherited, dict):
+        coverage["inheritedReferenceCounts"] = {
+            kind: inherited_counts.get(kind, 0) for kind in recorded_inherited
+        }
+
+
+def _find_cluster_containing_seed(
+    clusters_by_id: dict[str, dict[str, Any]], seed_id: str
+) -> dict[str, Any] | None:
+    for cluster in clusters_by_id.values():
+        if seed_id in (cluster.get("sourceSeedIds") or []):
+            return cluster
+    return None
+
+
+def _migrate_can_do_scenarios(
+    authorities: dict[str, Any],
+    segments_doc: dict[str, Any],
+    scenario_moves: tuple[ScenarioMove, ...],
+    report: MigrationReport,
+) -> None:
+    """Plan §4.3 step 4(3): if can_do_content_authorities.json has a direct
+    ``{kind:"scenario", id}`` reference, or a ``sourceSeeds`` row whose id
+    *contains* the scenario id, migrate it like a vocabPack's direct
+    reference (id/level/courseUnitId, cluster contentReferences +
+    sourceSeedIds move to ``canDoClusterId`` with revision bumps, seed
+    level, coverage counts) -- ``canDoClusterId`` is REQUIRED once any such
+    reference exists (no heuristic fallback, unlike vocab-pack moves: a
+    scenario's can-do home cannot be guessed from a slug-overlap score).
+    A scenario with neither is a no-op here: "no can-do references" is
+    reported and nothing in these two documents is touched (the L2a2 case).
+    """
+
+    clusters = segments_doc.get("contentClusters")
+    segments = segments_doc.get("segments")
+    if not isinstance(clusters, list) or not isinstance(segments, list):
+        raise RelevelError("can_do_segments.json: contentClusters/segments must be arrays")
+    clusters_by_id = {c["id"]: c for c in clusters}
+
+    direct_refs = authorities.get("contentReferences")
+    if not isinstance(direct_refs, list):
+        raise RelevelError("can_do_content_authorities.json: contentReferences must be a list")
+    direct_by_key = {(r.get("kind"), r.get("id")): r for r in direct_refs if isinstance(r, dict)}
+
+    coverage = authorities.get("coverage")
+    if not isinstance(coverage, dict):
+        raise RelevelError("can_do_content_authorities.json: coverage must be an object")
+    inherited = coverage.get("inheritedContentReferences")
+    if not isinstance(inherited, list):
+        raise RelevelError("can_do_content_authorities.json: coverage.inheritedContentReferences must be a list")
+
+    seeds = authorities.get("sourceSeeds")
+    if not isinstance(seeds, list):
+        raise RelevelError("can_do_content_authorities.json: sourceSeeds must be a list")
+    seeds_by_id = {s.get("id"): s for s in seeds if isinstance(s, dict)}
+
+    reports_by_id = {r.scenario_id: r for r in report.scenarios}
+
+    for move in scenario_moves:
+        pack_report = reports_by_id.get(move.id)
+        direct = direct_by_key.get(("scenario", move.id))
+        seed_hits = [s for s in seeds if move.id in (s.get("id") or "")]
+        if direct is None and not seed_hits:
+            if pack_report is not None:
+                pack_report.can_do_note = "no can-do references"
+            continue
+
+        if move.can_do_cluster_id is None:
+            raise RelevelError(
+                f"scenarioMove {move.id!r}: has can-do references, canDoClusterId is required"
+            )
+        target_cluster_id, _candidates, _note = choose_target_cluster(
+            segments, clusters_by_id, move.course_unit_id, move.to_level,
+            move.can_do_cluster_id,
+        )
+        target_cluster = clusters_by_id[target_cluster_id]
+        target_segment = _segment_for_cluster(segments, target_cluster_id)
+        if target_segment is None:
+            raise RelevelError(f"scenarioMove {move.id!r}: cluster {target_cluster_id!r} is owned by no segment")
+
+        source_cluster = None
+        handled_seed_ids: set[str] = set()
+        if direct is not None:
+            source_cluster = _find_cluster_containing(clusters_by_id, "scenario", move.id)
+            if source_cluster is None:
+                raise RelevelError(
+                    f"scenarioMove {move.id!r}: has a direct scenario authority reference "
+                    "but no contentCluster references it"
+                )
+            seed_id = direct.get("sourceSeedId")
+
+            direct["level"] = move.to_level
+            direct["courseUnitId"] = move.course_unit_id
+
+            source_refs = source_cluster["contentReferences"]
+            moved_refs = [r for r in source_refs if r.get("kind") == "scenario" and r.get("id") == move.id]
+            if len(moved_refs) != 1:
+                raise RelevelError(
+                    f"scenarioMove {move.id!r}: expected exactly one scenario contentReference "
+                    f"in {source_cluster['id']!r}, found {len(moved_refs)}"
+                )
+            source_cluster["contentReferences"] = [r for r in source_refs if r is not moved_refs[0]]
+            target_cluster["contentReferences"].append(moved_refs[0])
+
+            if seed_id is not None and seed_id in source_cluster["sourceSeedIds"]:
+                source_cluster["sourceSeedIds"] = [s for s in source_cluster["sourceSeedIds"] if s != seed_id]
+                target_cluster["sourceSeedIds"].append(seed_id)
+            seed_authority = seeds_by_id.get(seed_id)
+            if seed_authority is not None:
+                seed_authority["level"] = move.to_level
+            handled_seed_ids.add(seed_id)
+
+        # A seed whose id merely *contains* the scenario id but is not the
+        # direct reference's own sourceSeedId: bump its own level, and if a
+        # cluster happens to list it, relocate that listing too. Orphaned,
+        # defensive data-hygiene path -- not exercised by any live scenario
+        # today (every direct reference's sourceSeedId already textually
+        # contains its scenario id).
+        for seed in seed_hits:
+            seed_id = seed.get("id")
+            if seed_id in handled_seed_ids:
+                continue
+            seed["level"] = move.to_level
+            owner = _find_cluster_containing_seed(clusters_by_id, seed_id)
+            if owner is not None:
+                owner["sourceSeedIds"] = [s for s in owner["sourceSeedIds"] if s != seed_id]
+                target_cluster["sourceSeedIds"].append(seed_id)
+                if owner is not target_cluster and owner is not source_cluster:
+                    owner["revision"] = int(owner["revision"]) + 1
+
+        if source_cluster is not None:
+            source_cluster["revision"] = int(source_cluster["revision"]) + 1
+        if target_cluster is not source_cluster:
+            target_cluster["revision"] = int(target_cluster["revision"]) + 1
+
+        if pack_report is not None:
+            pack_report.can_do_note = (
+                "migrated (direct reference)" if direct is not None else "migrated (orphaned seed only)"
+            )
+            pack_report.source_cluster_id = source_cluster["id"] if source_cluster is not None else None
+            pack_report.target_cluster_id = target_cluster["id"]
+
+    # Recompute coverage counts exactly as the Dart loader counts them --
+    # unconditionally, even when every move above was a no-op, so a
+    # scenario-only batch still leaves this document self-consistent.
     direct_counts = Counter(r.get("kind") for r in direct_refs if isinstance(r, dict))
     recorded_direct = coverage.get("directReferenceCounts")
     if isinstance(recorded_direct, dict):
@@ -1302,6 +1693,297 @@ def rename_artwork_files(
         report.artwork_files_renamed.append((move.bundle, move.new_pack_id))
 
 
+# ───────────────────────── shelf_assignment.py editing (PR-L2a2) ──────────
+#
+# ``shelf_assignment.ASSIGNMENT``'s shape is the same editing problem as the
+# Dart Map literals above -- a hand-maintained ``"key": (tuple, of, quoted,
+# strings),`` literal with embedded comments -- so this reuses the exact
+# same entry-parsing strategy, just with Python's double-quoted keys
+# instead of Dart's single-quoted ones (a fresh, tiny parser rather than
+# parameterizing ``_parse_dart_entries``/``_rebuild_dart_entries``, so nothing
+# about the already-proven Dart editing path changes).
+
+_PY_DOUBLE_QUOTE_KEY_START_RE = re.compile(r'(?m)^([ \t]*)"([a-z0-9_]+)"')
+
+
+def _parse_py_dict_entries(body: str) -> tuple[list[str], list[tuple[str, str, str]]]:
+    """Same contract as ``_parse_dart_entries``, for a double-quoted-key
+    Python dict literal body (``shelf_assignment.ASSIGNMENT``).
+
+    Unlike every Dart literal this module edits (each entry always sits on
+    one line: ``'key': (...)  ,`` or bare ``'key',``), ``ASSIGNMENT``'s
+    values are *multi-line* tuples whose own elements are themselves
+    quoted strings starting their own line (``"a1_bus_late",`` indented
+    under ``"a1_transit": (``) -- those element lines would themselves
+    false-match a naive "every regex hit is a new top-level key" scan
+    (``_parse_dart_entries``'s ``finditer``-then-slice approach). This
+    walks the body sequentially instead: each entry's own paren-depth scan
+    determines exactly where its value ends, and the *next* search starts
+    only from there, so an element line nested inside an still-open value
+    is consumed as part of that value and never independently matched.
+    """
+
+    entries: list[tuple[str, str, str]] = []
+    connectives: list[str] = []
+    cursor = 0
+    section_start = 0
+    while True:
+        match = _PY_DOUBLE_QUOTE_KEY_START_RE.search(body, cursor)
+        if match is None:
+            break
+        indent = match.group(1)
+        key = match.group(2)
+        value_end = match.end()
+        if value_end < len(body) and body[value_end] == ":":
+            value_end += 1
+            while value_end < len(body) and body[value_end] in " \t\n":
+                value_end += 1
+            if value_end < len(body) and body[value_end] == "(":
+                depth = 0
+                while value_end < len(body):
+                    char = body[value_end]
+                    if char == "(":
+                        depth += 1
+                        value_end += 1
+                    elif char == ")":
+                        depth -= 1
+                        value_end += 1
+                        if depth == 0:
+                            break
+                    else:
+                        value_end += 1
+            else:
+                while value_end < len(body) and body[value_end] != ",":
+                    value_end += 1
+        if value_end < len(body) and body[value_end] == ",":
+            value_end += 1
+        connectives.append(body[section_start: match.start()])
+        entries.append((key, indent, body[match.end(): value_end]))
+        section_start = value_end
+        cursor = value_end
+    connectives.append(body[section_start:])
+    return connectives, entries
+
+
+def _rebuild_py_dict_entries(connectives: list[str], entries: list[tuple[str, str, str]]) -> str:
+    out = [connectives[0]]
+    for (key, indent, value_text), connective in zip(entries, connectives[1:]):
+        out.append(f'{indent}"{key}"{value_text}')
+        out.append(connective)
+    return "".join(out)
+
+
+def _remove_string_from_py_tuple(value_text: str, item: str) -> str:
+    token = f'"{item}"'
+    if token not in value_text:
+        raise RelevelError(f"{item!r} not found in tuple text {value_text!r}")
+    index = value_text.index(token)
+    before, after = value_text[:index], value_text[index + len(token):]
+    after_stripped = after.lstrip(" \t")
+    if after_stripped.startswith(","):
+        after = after_stripped[1:]
+    else:
+        before = before.rstrip(" \t")
+        if before.endswith(","):
+            before = before[:-1]
+    return before + after
+
+
+def _add_string_to_py_tuple(value_text: str, item: str) -> str:
+    """Insert ``item`` right after the last existing element's trailing
+    comma (every element in this file's style, including the last, already
+    ends with one) -- avoids having to reproduce this tuple's own
+    per-shelf line-wrapping/indentation style to append cleanly."""
+
+    close_index = value_text.rindex(")")
+    cursor = close_index
+    while cursor > 0 and value_text[cursor - 1] in " \t\n":
+        cursor -= 1
+    return value_text[:cursor] + f' "{item}",' + value_text[cursor:]
+
+
+def edit_shelf_assignment_source(
+    text: str, scenario_moves: tuple[ScenarioMove, ...], report: MigrationReport,
+) -> str:
+    """Plan §4.3 step 4(4): if ``shelf_assignment.ASSIGNMENT`` (equivalently
+    ``SHELF_BY_ID``) already has an entry for a moved scenario id, relocate
+    it from its current shelf's tuple to the move's target shelf's tuple.
+    Reports either way, per the plan: most scenarios have never been
+    entered into this appendix table at all (``ContentValidator`` validates
+    each scenario's own ``shelf`` field, not this table -- see
+    ``shelf_assignment.py``'s own docstring, "SHELF_BY_ID 는 은퇴한 레거시
+    코퍼스의 불변 이관 지도"), so "not tracked, no update" is the common,
+    expected outcome, not a failure.
+    """
+
+    if not scenario_moves:
+        return text
+    before, body, after = _extract_dart_block(
+        text, "ASSIGNMENT: dict[str, tuple[str, ...]] = {", r"^\}",
+    )
+    connectives, entries = _parse_py_dict_entries(body)
+    entries_by_key = {key: index for index, (key, _, _) in enumerate(entries)}
+    reports_by_id = {r.scenario_id: r for r in report.scenarios}
+
+    for move in scenario_moves:
+        pack_report = reports_by_id.get(move.id)
+        token = f'"{move.id}"'
+        source_index = next(
+            (i for i, (_, _, value_text) in enumerate(entries) if token in value_text), None,
+        )
+        if source_index is None:
+            if pack_report is not None:
+                pack_report.shelf_assignment_note = "not tracked in shelf_assignment.py ASSIGNMENT -- no update"
+            continue
+        if move.shelf not in entries_by_key:
+            raise RelevelError(
+                f"scenarioMove {move.id!r}: shelf_assignment.py ASSIGNMENT has no "
+                f"entry for target shelf {move.shelf!r}"
+            )
+        source_key, source_indent, source_value = entries[source_index]
+        entries[source_index] = (source_key, source_indent, _remove_string_from_py_tuple(source_value, move.id))
+        target_index = entries_by_key[move.shelf]
+        target_key, target_indent, target_value = entries[target_index]
+        entries[target_index] = (target_key, target_indent, _add_string_to_py_tuple(target_value, move.id))
+        if pack_report is not None:
+            pack_report.shelf_assignment_note = f"moved {source_key!r} -> {move.shelf!r}"
+
+    return before + _rebuild_py_dict_entries(connectives, entries) + after
+
+
+# ───────────────────────── build_can_do_segments.py editing (PR-L2a2) ─────
+
+
+def edit_build_can_do_segments_source(
+    text: str, scenario_moves: tuple[ScenarioMove, ...], report: MigrationReport,
+) -> str:
+    """Plan §4.3 step 4(5): a ``_scenario_spec(...)`` entry in ``AB_SPECS``
+    at the FROM level that lists a moved scenario id is removed; if
+    ``AB_SPECS`` already anchors the TO-level target course unit (some spec
+    whose ``parent==courseUnitId`` and ``level==to``), a fresh
+    ``_scenario_spec`` entry for the moved id is inserted right after the
+    *last* such anchor (by source order). Otherwise the id is only removed
+    (report only) -- the moved scenario stays safely routed by
+    ``UNIT_DEFAULT_ROUTE`` fallback either way (``_expand_ab_practice``'s
+    scenario loop), it just has no *explicit* AB_SPECS anchor of its own.
+
+    ``build_can_do_segments.py``'s own generator (``build_assets()``) is
+    frozen post-``canonical_120_v1`` (``test_build_can_do_segments.py``'s
+    ``CanDoSegmentGeneratorTest`` is entirely ``skipIf``'d there) -- this
+    edit exists to keep ``AB_SPECS``/``A1_PRACTICE`` consistent with the
+    live scenario corpus for ``ABSpecScenarioReferencesLiveTest`` (which is
+    *not* skipped), not because the frozen generator runs day to day. A
+    removed key some *other* routing table (``UNIT_DEFAULT_ROUTE``/
+    ``PACK_ROUTES``/...) still points at by name is therefore only
+    reported, not repaired here.
+    """
+
+    if not scenario_moves:
+        return text
+    tree = ast.parse(text)
+    ab_specs_value = None
+    for node in ast.walk(tree):
+        if (
+            isinstance(node, ast.AnnAssign)
+            and isinstance(node.target, ast.Name)
+            and node.target.id == "AB_SPECS"
+            and isinstance(node.value, ast.Tuple)
+        ):
+            ab_specs_value = node.value
+            break
+    if ab_specs_value is None:
+        raise RelevelError("build_can_do_segments.py: cannot find `AB_SPECS: ... = (...)`")
+
+    def _spec_info(node: ast.expr) -> dict[str, Any] | None:
+        if (
+            not isinstance(node, ast.Call) or not isinstance(node.func, ast.Name)
+            or node.func.id not in ("_scenario_spec", "_named_spec")
+            or len(node.args) < 3
+            or not all(isinstance(node.args[i], ast.Constant) for i in (0, 1, 2))
+        ):
+            return None
+        return {
+            "call": node, "func": node.func.id, "key": node.args[0].value,
+            "level": node.args[1].value, "parent": node.args[2].value,
+        }
+
+    specs = [info for elt in ab_specs_value.elts for info in (_spec_info(elt),) if info is not None]
+    known_keys = {info["key"] for info in specs}
+
+    lines = text.split("\n")
+    deletions: list[tuple[int, int]] = []
+    insertions: list[tuple[int, str]] = []
+    reports_by_id = {r.scenario_id: r for r in report.scenarios}
+
+    for move in scenario_moves:
+        pack_report = reports_by_id.get(move.id)
+        removed = next(
+            (
+                info for info in specs
+                if info["func"] == "_scenario_spec" and info["level"] == move.from_level
+                and len(info["call"].args) >= 4 and isinstance(info["call"].args[3], ast.Constant)
+                and info["call"].args[3].value == move.id
+            ),
+            None,
+        )
+        note_parts: list[str] = []
+        if removed is None:
+            note_parts.append("not present in AB_SPECS")
+        else:
+            deletions.append((removed["call"].lineno, removed["call"].end_lineno))
+            note_parts.append(f"removed key={removed['key']!r} (from-level {move.from_level!r})")
+            if text.count(f'"{removed["key"]}"') > 1:
+                note_parts.append(
+                    f"NOTE: {removed['key']!r} is still referenced elsewhere in this file "
+                    "(e.g. UNIT_DEFAULT_ROUTE/PACK_ROUTES) -- harmless while the generator "
+                    "is frozen, worth a look if it is ever unfrozen"
+                )
+
+            anchor = None
+            for info in specs:
+                if info["parent"] == move.course_unit_id and info["level"] == move.to_level and (
+                    anchor is None or info["call"].lineno > anchor["call"].lineno
+                ):
+                    anchor = info
+            if anchor is None:
+                note_parts.append(
+                    f"no AB_SPECS anchor at {move.to_level!r}/{move.course_unit_id!r} "
+                    "-- relies on UNIT_DEFAULT_ROUTE fallback only"
+                )
+            else:
+                new_key = f"{move.to_level}_{move.id}"
+                suffix = 2
+                while new_key in known_keys:
+                    new_key = f"{move.to_level}_{move.id}_{suffix}"
+                    suffix += 1
+                known_keys.add(new_key)
+                mode_arg = (
+                    removed["call"].args[4].value
+                    if len(removed["call"].args) >= 5 and isinstance(removed["call"].args[4], ast.Constant)
+                    else None
+                )
+                indent = re.match(r"[ \t]*", lines[anchor["call"].lineno - 1]).group(0)
+                mode_text = f', "{mode_arg}"' if mode_arg is not None else ""
+                new_line = (
+                    f'{indent}_scenario_spec("{new_key}", "{move.to_level}", '
+                    f'"{move.course_unit_id}", "{move.id}"{mode_text}),'
+                )
+                insertions.append((anchor["call"].end_lineno, new_line))
+                note_parts.append(f"added key={new_key!r} after anchor={anchor['key']!r}")
+
+        if pack_report is not None:
+            pack_report.ab_specs_note = "; ".join(note_parts)
+
+    edits = [(start, "delete", end) for start, end in deletions]
+    edits += [(after_line, "insert", new_text) for after_line, new_text in insertions]
+    for anchor_line, kind, payload in sorted(edits, key=lambda e: e[0], reverse=True):
+        if kind == "delete":
+            del lines[anchor_line - 1: payload]
+        else:
+            lines.insert(anchor_line, payload)
+    return "\n".join(lines)
+
+
 # ───────────────────────── progress aliases (Dart) ─────────────────────────
 
 
@@ -1366,9 +2048,19 @@ def find_test_references(root: Path, old_ids: list[str]) -> dict[str, list[str]]
 # ───────────────────────── orchestration ───────────────────────────────────
 
 
+_SCENARIO_SHARD_NAMES = tuple(scenario_store.shard_name(level) for level in LOWER_LEVELS)
+
+# All six scenario shards are always listed here, not just the from/to
+# levels a given bundle's scenarioMoves touch: scenario_store.write_shards()
+# rewrites every shard from the merged in-memory list every time it runs
+# (it is the *only* writer this codebase allows -- see scenario_store.py's
+# own docstring), and for a `moves`-only bundle (no scenarioMoves,
+# write_shards() never called) the stage's shard bytes are simply an
+# untouched copy of the originals, so copying them "back" is a real write
+# of byte-identical content -- a no-op in effect, not a behavior change.
 _STAGED_DATA_FILES = (
     "korean_vocab.csv", CLOZE_JSON, SATZ_JSON, CURRICULUM_JSON,
-    CAN_DO_AUTHORITIES_JSON, CAN_DO_SEGMENTS_JSON,
+    CAN_DO_AUTHORITIES_JSON, CAN_DO_SEGMENTS_JSON, *_SCENARIO_SHARD_NAMES,
 )
 
 
@@ -1405,6 +2097,11 @@ def migrate(
     dancheong_stamp_path = root / "lib" / "widgets" / "sori" / "dancheong_stamp.dart"
     pack_progress_aliases_path = root / "lib" / "data" / "pack_progress_aliases.dart"
     artwork_asset_dir = root / "assets" / "illustrations" / "packs"
+    # Root-relative, like the three Dart paths above (and for the same
+    # reason -- a test must be able to sandbox its own throwaway copies of
+    # these instead of ever touching this checkout's real .py sources).
+    shelf_assignment_path = root / "tools" / "content_factory" / "shelf_assignment.py"
+    build_can_do_segments_path = root / "tools" / "content_factory" / "build_can_do_segments.py"
 
     ledger = relevel_ledger.load_ledger(ledger_path)
     report = MigrationReport(batch=bundle.batch)
@@ -1413,6 +2110,12 @@ def migrate(
             bundle=move.bundle, new_pack_id=move.new_pack_id,
             from_level=move.from_level, to_level=move.to_level,
             course_unit_id=move.course_unit_id,
+        ))
+    for scenario_move in bundle.scenario_moves:
+        report.scenarios.append(ScenarioMoveReport(
+            scenario_id=scenario_move.id, from_level=scenario_move.from_level,
+            to_level=scenario_move.to_level, course_unit_id=scenario_move.course_unit_id,
+            shelf=scenario_move.shelf,
         ))
 
     with tempfile.TemporaryDirectory(prefix="relevel-bundle-") as directory:
@@ -1465,9 +2168,36 @@ def migrate(
         _migrate_curriculum_manifest(
             curriculum, bundle.moves, moved_vocab_ids_by_move, moved_cloze_by_move, cloze_items, report,
         )
+        _migrate_curriculum_manifest_scenarios(curriculum, bundle.scenario_moves, report)
 
         vocab_by_id = {row["id"]: row for row in vocab_rows if row.get("id")}
         _migrate_can_do(authorities, segments_doc, bundle.moves, vocab_by_id, report)
+        _migrate_can_do_scenarios(authorities, segments_doc, bundle.scenario_moves, report)
+
+        scenarios_list: list[dict[str, Any]] | None = None
+        if bundle.scenario_moves:
+            scenarios_root = scenario_store.load_root(data)
+            scenarios_list = scenarios_root.get("scenarios")
+            if not isinstance(scenarios_list, list):
+                raise RelevelError("scenario shards: root must contain a scenarios array")
+            scenarios_by_id = {
+                s["id"]: s for s in scenarios_list
+                if isinstance(s, dict) and isinstance(s.get("id"), str)
+            }
+            scenario_reports_by_id = {r.scenario_id: r for r in report.scenarios}
+            for scenario_move in bundle.scenario_moves:
+                scenario = scenarios_by_id.get(scenario_move.id)
+                if scenario is None:
+                    raise RelevelError(
+                        f"scenarioMove {scenario_move.id!r}: no scenario with this id in the live shards"
+                    )
+                _migrate_scenario_object(scenario, scenario_move, scenario_reports_by_id[scenario_move.id])
+                ledger = ledger.append(LedgerEntry(
+                    id=scenario_move.id, kind="scenario", from_level=scenario_move.from_level,
+                    to_level=scenario_move.to_level, movedAt=date.today().isoformat(),
+                    batch=bundle.batch, reason=scenario_move.reason,
+                ))
+            scenario_store.write_shards(scenarios_list, data)
 
         _write_vocab_csv(data / "korean_vocab.csv", vocab_rows)
         _write_json(data / CLOZE_JSON, cloze_root)
@@ -1493,6 +2223,26 @@ def migrate(
         for pack_report in report.packs:
             pack_report.has_dedicated_artwork = dart_entry_exists(artwork_body, pack_report.bundle)
 
+        # Same read-only-preview reasoning as the artwork lookup above, for
+        # the two scenario-move side files: a dry run should show the same
+        # shelf_assignment.py/AB_SPECS notes --apply would produce, not
+        # leave them blank until the real write. (--apply repeats this
+        # same, deterministic computation once more just below when it
+        # actually writes the files -- a little redundant CPU, not a
+        # behavior difference, and far simpler than threading the
+        # computed text through to be reused there.)
+        if bundle.scenario_moves:
+            shelf_preview = edit_shelf_assignment_source(
+                _normalize_newlines(shelf_assignment_path.read_text(encoding="utf-8")),
+                bundle.scenario_moves, report,
+            )
+            del shelf_preview  # preview only -- never written outside --apply
+            ab_specs_preview = edit_build_can_do_segments_source(
+                _normalize_newlines(build_can_do_segments_path.read_text(encoding="utf-8")),
+                bundle.scenario_moves, report,
+            )
+            del ab_specs_preview
+
         if not apply:
             return report
 
@@ -1501,7 +2251,13 @@ def migrate(
             for name in _STAGED_DATA_FILES
         }
         dart_paths = (vocab_pack_service_path, pack_artwork_catalog_path, dancheong_stamp_path)
-        originals = {path: path.read_bytes() for path in (*outputs, *dart_paths)}
+        # Read/written only when there is a scenario move to act on -- a
+        # `moves`-only bundle (the existing PR-L2a shape, still exercised by
+        # test fixtures that never provision these two .py files at all)
+        # must not require shelf_assignment.py/build_can_do_segments.py to
+        # exist at `root` when it has no reason to touch either.
+        py_source_paths = (shelf_assignment_path, build_can_do_segments_path) if bundle.scenario_moves else ()
+        originals = {path: path.read_bytes() for path in (*outputs, *dart_paths, *py_source_paths)}
         ledger_existed = ledger_path.exists()
         ledger_original = ledger_path.read_bytes() if ledger_existed else None
         aliases_existed = pack_progress_aliases_path.exists()
@@ -1554,6 +2310,19 @@ def migrate(
             _atomic_write_bytes(dancheong_stamp_path, new_dancheong_text.encode("utf-8"))
 
             append_pack_progress_aliases(pack_progress_aliases_path, bundle.moves, report)
+
+            if bundle.scenario_moves:
+                new_shelf_text = edit_shelf_assignment_source(
+                    _normalize_newlines(originals[shelf_assignment_path].decode("utf-8")),
+                    bundle.scenario_moves, report,
+                )
+                _atomic_write_bytes(shelf_assignment_path, new_shelf_text.encode("utf-8"))
+
+                new_ab_specs_text = edit_build_can_do_segments_source(
+                    _normalize_newlines(originals[build_can_do_segments_path].decode("utf-8")),
+                    bundle.scenario_moves, report,
+                )
+                _atomic_write_bytes(build_can_do_segments_path, new_ab_specs_text.encode("utf-8"))
         except Exception as error:
             rollback_error = None
             try:
@@ -1572,10 +2341,27 @@ def migrate(
 
 def format_plan(report: MigrationReport, *, apply: bool) -> str:
     lines = [
-        f"batch {report.batch}: {len(report.packs)} move(s), "
+        f"batch {report.batch}: {len(report.packs)} move(s), {len(report.scenarios)} scenarioMove(s), "
         f"{'APPLIED' if apply else 'dry-run (nothing written)'}",
         "",
     ]
+    for scenario in report.scenarios:
+        lines.append(
+            f"  scenario {scenario.scenario_id}  ({scenario.from_level}->{scenario.to_level}, "
+            f"unit={scenario.course_unit_id}, shelf={scenario.shelf})"
+        )
+        lines.append(
+            f"    contentLinks updated={scenario.content_links_updated} can-do: {scenario.can_do_note} "
+            f"({scenario.source_cluster_id} -> {scenario.target_cluster_id})"
+        )
+        lines.append(
+            f"    shelf_assignment.py: {scenario.shelf_assignment_note} | "
+            f"AB_SPECS: {scenario.ab_specs_note}"
+        )
+        for warning in scenario.grammar_level_warnings:
+            lines.append(f"    WARNING: {warning}")
+    if report.scenarios:
+        lines.append("")
     for pack in report.packs:
         lines.append(
             f"  {pack.bundle} -> {pack.new_pack_id}  ({pack.from_level}->{pack.to_level}, "
@@ -1611,22 +2397,56 @@ def format_plan(report: MigrationReport, *, apply: bool) -> str:
         for ident, files in report.test_references.items():
             if files:
                 lines.append(f"  {ident}: {files}")
+    if report.scenarios and apply:
+        # Plan §4.3 step 4(7): a scenario move changes which shard a
+        # scenario's dialog lives in, which shifts that shard's own
+        # content hash -- every OTHER scenario in the same shard (not
+        # just the moved one) needs its tts_first_line_manifest.json
+        # `sourceSha256` refreshed, and the canonical manifest mirrors
+        # that same shard data. This tool never shells out to run them
+        # itself (a relevel apply and a TTS/manifest rebuild are separate,
+        # separately-reviewable operations) -- it only prints the exact
+        # commands the operator must run next.
+        lines.append("")
+        lines.append("scenario move(s) applied -- run these follow-ups next:")
+        lines.append("  python tool/generate_tts.py --write-first-line-manifest assets/data/tts_first_line_manifest.json")
+        lines.append("  python tool/generate_tts.py --check-first-line-manifest assets/data/tts_first_line_manifest.json")
+        lines.append("  python functions/tts/build_canonical_manifest.py")
+        lines.append("  python functions/tts/build_canonical_manifest.py --check")
     return "\n".join(lines)
 
 
 REPORT_SECTION_HEADER = "## 실행 결과"
-_REPORT_SECTION_RE = re.compile(r"(?m)^" + re.escape(REPORT_SECTION_HEADER) + r"\s*$")
 
 
 def append_report_section(path: Path, report: MigrationReport, *, apply: bool) -> None:
+    # Per-batch header (T2.4b-1 plan step 4: "the report tool must ADD a
+    # second section for batch L2a2 without destroying the L2a section") --
+    # each batch owns its own "## 실행 결과 (<batch>)" block, so re-running
+    # one batch never disturbs another's.
+    section_header = f"{REPORT_SECTION_HEADER} ({report.batch})"
     lines = [
-        REPORT_SECTION_HEADER,
+        section_header,
         "",
         f"모드: {'--apply (실제 반영됨)' if apply else 'dry-run (아무 파일도 바뀌지 않음)'}",
         "",
-        "| pack | words | cloze | satz | cando cluster (from -> to) | segment | note |",
-        "|---|---|---|---|---|---|---|",
     ]
+    if report.scenarios:
+        lines.append("| scenario | from->to | unit | shelf | contentLinks | can-do | shelf_assignment.py | AB_SPECS |")
+        lines.append("|---|---|---|---|---|---|---|---|")
+        for scenario in report.scenarios:
+            lines.append(
+                f"| `{scenario.scenario_id}` | {scenario.from_level}->{scenario.to_level} | "
+                f"`{scenario.course_unit_id}` | `{scenario.shelf}` | {scenario.content_links_updated} | "
+                f"{scenario.can_do_note} | {scenario.shelf_assignment_note} | {scenario.ab_specs_note} |"
+            )
+        for scenario in report.scenarios:
+            for warning in scenario.grammar_level_warnings:
+                lines.append(f"- WARNING `{scenario.scenario_id}`: {warning}")
+        lines.append("")
+    if report.packs:
+        lines.append("| pack | words | cloze | satz | cando cluster (from -> to) | segment | note |")
+        lines.append("|---|---|---|---|---|---|---|")
     for pack in report.packs:
         lines.append(
             f"| `{pack.bundle}`->`{pack.new_pack_id}` | {pack.n_words} | {pack.n_cloze} | "
@@ -1655,23 +2475,50 @@ def append_report_section(path: Path, report: MigrationReport, *, apply: bool) -
             lines.append(f"- `{ident}`: {files}")
     if not any_hits:
         lines.append("- (없음)")
+    if report.scenarios and apply:
+        lines.append("")
+        lines.append("시나리오 이동이 적용됨 -- 다음 후속 명령을 실행할 것:")
+        lines.append("```")
+        lines.append("python tool/generate_tts.py --write-first-line-manifest assets/data/tts_first_line_manifest.json")
+        lines.append("python tool/generate_tts.py --check-first-line-manifest assets/data/tts_first_line_manifest.json")
+        lines.append("python functions/tts/build_canonical_manifest.py")
+        lines.append("python functions/tts/build_canonical_manifest.py --check")
+        lines.append("```")
     lines.append("")
     section_text = "\n".join(lines) + "\n"
 
     # Read-modify-write, not open(path, "a"): (1) "a" text-mode still
     # translates "\n" -> "\r\n" on Windows (T2.3-R1 STEP 1a) and (2) a
-    # second run must *replace* a previous "## 실행 결과" section instead of
-    # appending a duplicate one below it (STEP 1f) -- re-running --apply
+    # second run must *replace only this batch's own* "## 실행 결과 (<batch>)"
+    # section, leaving every other batch's section in the same file alone
+    # (T2.4b-1 plan step 4: a second batch, e.g. L2a2, ADDS a section next
+    # to L2a's, it does not destroy it) -- re-running --apply for one batch
     # after a fix is the normal workflow here, not an edge case.
     if path.exists():
         existing = _normalize_newlines(path.read_bytes().decode("utf-8"))
     else:
         existing = ""
-    match = _REPORT_SECTION_RE.search(existing)
-    prefix = existing[: match.start()] if match is not None else existing
-    prefix = prefix.rstrip("\n")
-
-    new_content = f"{prefix}\n\n{section_text}" if prefix else section_text
+    this_batch_header_re = re.compile(r"(?m)^" + re.escape(section_header) + r"\s*$")
+    any_header_re = re.compile(r"(?m)^## ")
+    match = this_batch_header_re.search(existing)
+    if match is None:
+        # No section for this batch yet -- append after everything else.
+        prefix = existing.rstrip("\n")
+        new_content = f"{prefix}\n\n{section_text}" if prefix else section_text
+    else:
+        # Cut out just this batch's own block (its header through the next
+        # "## "-headed section, or EOF) and splice the fresh version back
+        # into that same spot, keeping every other batch's block exactly
+        # where it was. `section_text` is used byte-for-byte (never
+        # re-stripped/re-joined) so a same-batch rerun with an unchanged
+        # report reproduces the exact same bytes -- idempotency (plan
+        # T2.4b-1 step 4) needs this, not just "the right content".
+        next_header = any_header_re.search(existing, match.end())
+        block_end = next_header.start() if next_header is not None else len(existing)
+        before = existing[: match.start()].rstrip("\n")
+        after = existing[block_end:]  # untouched: starts right at "## " or is ""
+        tail = section_text + after
+        new_content = f"{before}\n\n{tail}" if before else tail
     path.write_bytes(new_content.encode("utf-8"))
 
 

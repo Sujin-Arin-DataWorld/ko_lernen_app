@@ -15,7 +15,7 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 
 | 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
 |---|---|---|---|---|---|---|---|---|
-| a1 | 216 | 59 | 13 | 3 | 9 | 3 | 3 | 306 |
+| a1 | 219 | 56 | 13 | 3 | 9 | 3 | 3 | 306 |
 | a2 | 156 | 149 | 89 | 36 | 37 | 10 | 14 | 491 |
 | b1 | 44 | 148 | 164 | 87 | 81 | 43 | 19 | 586 |
 | b2 | 17 | 73 | 99 | 163 | 116 | 81 | 8 | 557 |
@@ -26,78 +26,78 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 
 | 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
 |---|---|---|---|---|---|---|---|---|
-| a1 | 26 | 8 | 6 | 1 | 0 | 0 | 0 | 41 |
-| a2 | 16 | 28 | 5 | 1 | 0 | 0 | 0 | 50 |
-| b1 | 9 | 18 | 13 | 8 | 1 | 1 | 0 | 50 |
-| b2 | 1 | 5 | 11 | 31 | 8 | 1 | 0 | 57 |
-| c1 | 0 | 0 | 3 | 9 | 9 | 2 | 0 | 23 |
-| c2 | 0 | 0 | 3 | 4 | 7 | 9 | 0 | 23 |
+| a1 | 34 | 6 | 1 | 0 | 0 | 0 | 0 | 41 |
+| a2 | 21 | 25 | 3 | 1 | 0 | 0 | 0 | 50 |
+| b1 | 15 | 16 | 14 | 4 | 0 | 1 | 0 | 50 |
+| b2 | 5 | 10 | 5 | 35 | 2 | 0 | 0 | 57 |
+| c1 | 0 | 1 | 5 | 8 | 9 | 0 | 0 | 23 |
+| c2 | 0 | 2 | 2 | 9 | 3 | 7 | 0 | 23 |
 
 ### scenario (대사 75퍼센타일 · grammarIds 최고)
 
 | 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
 |---|---|---|---|---|---|---|---|---|
-| a1 | 6 | 20 | 3 | 0 | 0 | 0 | 0 | 29 |
-| a2 | 0 | 18 | 9 | 1 | 1 | 0 | 0 | 29 |
-| b1 | 0 | 1 | 20 | 9 | 0 | 0 | 0 | 30 |
-| b2 | 0 | 0 | 3 | 27 | 0 | 0 | 0 | 30 |
-| c1 | 0 | 0 | 1 | 16 | 13 | 0 | 0 | 30 |
-| c2 | 0 | 0 | 1 | 8 | 8 | 13 | 0 | 30 |
+| a1 | 12 | 17 | 0 | 0 | 0 | 0 | 0 | 29 |
+| a2 | 2 | 26 | 0 | 0 | 0 | 0 | 0 | 28 |
+| b1 | 0 | 5 | 25 | 1 | 0 | 0 | 0 | 31 |
+| b2 | 0 | 1 | 7 | 22 | 0 | 0 | 0 | 30 |
+| c1 | 0 | 0 | 5 | 13 | 12 | 0 | 0 | 30 |
+| c2 | 0 | 0 | 3 | 12 | 4 | 11 | 0 | 30 |
 
 ### cloze (fullKo)
 
 | 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
 |---|---|---|---|---|---|---|---|---|
-| a1 | 104 | 79 | 29 | 11 | 6 | 0 | 0 | 229 |
-| a2 | 42 | 101 | 93 | 57 | 8 | 0 | 0 | 301 |
-| b1 | 6 | 69 | 129 | 140 | 25 | 3 | 0 | 372 |
-| b2 | 1 | 27 | 101 | 192 | 55 | 27 | 0 | 403 |
-| c1 | 0 | 4 | 41 | 133 | 62 | 10 | 0 | 250 |
-| c2 | 0 | 4 | 39 | 113 | 66 | 28 | 0 | 250 |
+| a1 | 141 | 66 | 16 | 4 | 2 | 0 | 0 | 229 |
+| a2 | 80 | 142 | 59 | 18 | 2 | 0 | 0 | 301 |
+| b1 | 32 | 149 | 132 | 54 | 4 | 1 | 0 | 372 |
+| b2 | 12 | 78 | 157 | 129 | 20 | 7 | 0 | 403 |
+| c1 | 0 | 21 | 80 | 138 | 10 | 1 | 0 | 250 |
+| c2 | 0 | 18 | 73 | 134 | 18 | 7 | 0 | 250 |
 
 ### satz (targetKo)
 
 | 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
 |---|---|---|---|---|---|---|---|---|
-| a1 | 73 | 88 | 34 | 14 | 8 | 0 | 0 | 217 |
-| a2 | 59 | 208 | 138 | 71 | 10 | 0 | 0 | 486 |
-| b1 | 27 | 166 | 186 | 155 | 29 | 2 | 0 | 565 |
-| b2 | 9 | 60 | 157 | 240 | 67 | 28 | 0 | 561 |
-| c1 | 0 | 4 | 40 | 137 | 62 | 9 | 0 | 252 |
-| c2 | 0 | 4 | 39 | 114 | 67 | 28 | 0 | 252 |
+| a1 | 131 | 68 | 11 | 6 | 1 | 0 | 0 | 217 |
+| a2 | 189 | 218 | 61 | 18 | 0 | 0 | 0 | 486 |
+| b1 | 136 | 230 | 142 | 52 | 5 | 0 | 0 | 565 |
+| b2 | 48 | 143 | 212 | 134 | 21 | 3 | 0 | 561 |
+| c1 | 0 | 21 | 77 | 143 | 10 | 1 | 0 | 252 |
+| c2 | 0 | 18 | 71 | 137 | 19 | 7 | 0 | 252 |
 
 ### smalltalk (ko · reply.ko · followUp.ko 최고)
 
 | 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
 |---|---|---|---|---|---|---|---|---|
-| a1 | 20 | 47 | 29 | 4 | 0 | 0 | 0 | 100 |
-| a2 | 2 | 45 | 29 | 11 | 6 | 0 | 0 | 93 |
-| b1 | 1 | 15 | 37 | 29 | 5 | 1 | 0 | 88 |
-| b2 | 0 | 7 | 22 | 56 | 39 | 4 | 0 | 128 |
-| c1 | 0 | 1 | 10 | 40 | 34 | 2 | 0 | 87 |
-| c2 | 0 | 1 | 2 | 39 | 33 | 11 | 0 | 86 |
+| a1 | 32 | 57 | 9 | 2 | 0 | 0 | 0 | 100 |
+| a2 | 9 | 64 | 12 | 5 | 3 | 0 | 0 | 93 |
+| b1 | 3 | 36 | 37 | 10 | 2 | 0 | 0 | 88 |
+| b2 | 0 | 16 | 41 | 50 | 21 | 0 | 0 | 128 |
+| c1 | 0 | 5 | 18 | 58 | 6 | 0 | 0 | 87 |
+| c2 | 0 | 1 | 10 | 63 | 9 | 3 | 0 | 86 |
 
 ### pronunciation (ko)
 
 | 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
 |---|---|---|---|---|---|---|---|---|
-| a1 | 5 | 1 | 3 | 0 | 1 | 0 | 0 | 10 |
-| a2 | 2 | 6 | 1 | 1 | 0 | 0 | 0 | 10 |
-| b1 | 0 | 1 | 5 | 2 | 2 | 0 | 0 | 10 |
-| b2 | 0 | 1 | 1 | 12 | 3 | 1 | 0 | 18 |
-| c1 | 0 | 0 | 1 | 12 | 3 | 2 | 0 | 18 |
-| c2 | 0 | 0 | 1 | 8 | 7 | 2 | 0 | 18 |
+| a1 | 6 | 1 | 3 | 0 | 0 | 0 | 0 | 10 |
+| a2 | 6 | 2 | 2 | 0 | 0 | 0 | 0 | 10 |
+| b1 | 0 | 5 | 2 | 3 | 0 | 0 | 0 | 10 |
+| b2 | 0 | 3 | 4 | 10 | 1 | 0 | 0 | 18 |
+| c1 | 0 | 0 | 3 | 11 | 4 | 0 | 0 | 18 |
+| c2 | 0 | 0 | 5 | 8 | 4 | 1 | 0 | 18 |
 
 ### media (korean)
 
 | 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
 |---|---|---|---|---|---|---|---|---|
-| a1 | 12 | 14 | 7 | 1 | 1 | 0 | 0 | 35 |
-| a2 | 9 | 21 | 16 | 5 | 2 | 0 | 0 | 53 |
-| b1 | 0 | 0 | 6 | 4 | 2 | 0 | 0 | 12 |
-| b2 | 0 | 0 | 1 | 9 | 2 | 0 | 0 | 12 |
-| c1 | 0 | 0 | 0 | 10 | 2 | 0 | 0 | 12 |
-| c2 | 0 | 0 | 1 | 3 | 5 | 3 | 0 | 12 |
+| a1 | 17 | 14 | 3 | 1 | 0 | 0 | 0 | 35 |
+| a2 | 21 | 20 | 9 | 3 | 0 | 0 | 0 | 53 |
+| b1 | 0 | 3 | 7 | 2 | 0 | 0 | 0 | 12 |
+| b2 | 0 | 0 | 4 | 8 | 0 | 0 | 0 | 12 |
+| c1 | 0 | 0 | 2 | 10 | 0 | 0 | 0 | 12 |
+| c2 | 0 | 0 | 2 | 9 | 1 | 0 | 0 | 12 |
 
 ## A1/A2 팩 보강 우선순위
 
@@ -131,7 +131,7 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 | `a2_food_2` | a2 | 7 | 7 | 0 | 14% | -1 | keep |
 | `a1_partner_seollal_basic_1` | a1 | 12 | 8 | 4 | 12% | 1 | step_up_or_swap |
 | `a2_partner_photo_thanks_1` | a2 | 12 | 8 | 1 | 12% | 0.5 | keep |
-| `a1_daily_4` | a1 | 9 | 9 | 0 | 11% | 1 | step_up_or_swap |
+| `a1_daily_4` | a1 | 9 | 9 | 0 | 11% | 0 | keep |
 | `a2_home_1` | a2 | 10 | 9 | 1 | 11% | 0 | keep |
 | `a2_school_supplies_1` | a2 | 12 | 9 | 2 | 11% | 0 | keep |
 | `a1_body` | a1 | 10 | 10 | 0 | 10% | 0 | keep |
@@ -155,11 +155,11 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 
 ### 1급 (A1 목표)
 
-- 고유 표제어: 714 · 앱 보유(레벨 무관): 362 · 목표 레벨 일치: 193 · 결손: 352
+- 고유 표제어: 714 · 앱 보유(레벨 무관): 365 · 목표 레벨 일치: 196 · 결손: 349
 
 - **감탄사** (6): 그래, 글쎄요, 여보세요, 예, 와, 음
 - **관형사** (15): 두, 마흔, 무슨, 백만, 서른, 세, 십만, 아흔, 어느, 어떤, 억, 여든, 여러, 일흔, 한
-- **대명사** (13): 그, 그것, 그쪽, 내, 누구, 무엇, 뭐, 어디, 여러분, 이것, 이쪽, 저것, 저쪽
+- **대명사** (10): 그, 그쪽, 내, 누구, 무엇, 뭐, 어디, 여러분, 이쪽, 저쪽
 - **동사** (42): 가지다, 걸다, 고르다, 그리다, 기다리다, 끄다, 끝나다, 나다, 내리다, 넣다, 놀다, 다녀오다, 다니다, 도와주다, 돌아가다, 돌아오다, 돕다, 되다, 들어가다, 들어오다, 말다, 맞다, 못하다, 묻다, 불다, 빌리다, 살다, 시키다, 알리다, 올라가다, 울다, 잘하다, 지나다, 지내다, 찍다, 찾아보다, 추다, 춤추다, 치다, 타다, 팔다, 피우다
 - **명사** (210): 가게, 가격, 가요, 가운데, 갈비, 갈비탕, 감, 감기, 값, 개, 건너편, 건물, 게임, 계속, 계획, 고양이, 곳, 공항, 구경, 구월, 귤, 그림, 그저께, 극장, 근처, 글, 기분, 기숙사, 김밥, 김치찌개, 꽃, 나무, 나중, 날, 날짜, 남대문, 남산, 낮, 내년, 노래, 노래방, 농구, 단어, 달, 담배, 대사관, 대학, 독일, 돈, 동대문, 동안, 된장찌개, 드라마, 등산, 딸, 떡볶이, 러시아, 말레이시아, 메뉴, 며칠, 모두, 모레, 모자, 목, 목욕탕, 몽골, 물건, 미국, 밑, 바나나, 바다, 바지, 방학, 백화점, 베트남, 병, 볼펜, 부모님, 부산, 사무실, 사월, 사이다, 사전, 산, 산책, 삼계탕, 삼월, 생일, 생활, 샤워, 서울, 서점, 세수, 쇼핑, 수업, 수영, 수영장, 수첩, 술, 슈퍼마켓, 스키, 시월, 시작, 식사, 신문, 신발, 십이월, 십일월, 아기, 아르바이트, 아이, 아이스크림, 아파트, 안경, 야구, 얼굴, 에어컨, 여권, 여행사, 역, 연극, 연습, 연필, 영, 영국, 영어, 영화관, 영화배우, 오렌지, 오월, 오전, 오후, 외국, 외국어, 외국인, 요즘, 우유, 운동장, 운동화, 운전, 월, 유명, 유월, 음료수, 이번, 이야기, 이월, 인도네시아, 인사, 인천, 일본, 일월, 일주일, 자동차, 작년, 잘못, 잠, 잡채, 장소, 전화번호, 제일, 제주도, 종업원, 주, 주부, 주스, 주일, 중국, 지난달, 지난주, 지난해, 참외, 책상, 처음, 천만, 초콜릿, 축구, 축하, 출발, 춤, 층, 칠월, 카메라, 캐나다, 커피숍, 케이크, 콘서트, 콜라, 키, 탁구, 태국, 태권도, 터미널, 테니스, 텔레비전, 티셔츠, 파티, 팔월, 편지, 포도, 프랑스, 프로그램, 피아노, 필요, 학생증, 한국, 할머니, 할아버지, 회사원, 후
 - **부사** (24): 가장, 그래서, 그러니까, 그러면, 그런데, 그럼, 그렇지만, 그리고, 꼭, 다, 못, 바로, 보통, 아주, 어서, 얼마나, 열심히, 왜, 이따가, 좀, 주로, 참, 하지만, 함께
@@ -191,57 +191,43 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 |---|---|---|---|---|
 | `a1_theme_park_date_choices` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
 | `a1_w10_eat` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
-| `a1_w10_fandom` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
-| `a1_w10_numbers` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
 | `a1_w10_partner` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
-| `a1_w10_phone` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
+| `a1_w10_phone` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
 | `a1_w10_taxi_stay` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
-| `a1_w10_wayfinding` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
-| `a2_theme_park_date_break` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
-| `a2_w10_apt` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
-| `a2_w10_enrolment` | a2 | b1 | 1 | over1 dialog_p75=2.8 |
-| `a2_w10_friends` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
-| `a2_w10_money` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
-| `a2_w10_partner` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
 | `after_hours_messages` | c1 | b1 | -2 | under2 grammar_ids_max=3 |
-| `ai_summary_wrong_fact` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
+| `ai_hiring_appeal` | c2 | b2 | -2 | under2 dialog_p75=4.0 |
+| `ai_translation_voice_loss` | c1 | b1 | -2 | under2 grammar_ids_max=3 |
 | `automated_benefit_denial` | c2 | b2 | -2 | under2 dialog_p75=4.2 |
-| `b1_w10_cancellation` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
-| `b1_w10_insurance` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
 | `bakery_payment_bag` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
 | `bakery_queue` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
-| `break_glass_apology` | a1 | b1 | 2 | over2 dialog_p75=3.0 |
-| `bunshik_tteokbokki` | a1 | b1 | 2 | over2 dialog_p75=3.0 |
-| `causal_claim_headline` | c2 | b2 | -2 | under2 dialog_p75=4.0 |
-| `clarify_repeat` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
-| `climate_model_local_decision` | c2 | b2 | -2 | under2 dialog_p75=4.5 |
-| `community_festival_shift` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
+| `break_glass_apology` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
+| `bunshik_tteokbokki` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
+| `causal_claim_headline` | c2 | b1 | -3 | under2 dialog_p75=3.0 |
+| `central_local_disaster_responsibility` | c2 | b2 | -2 | under2 dialog_p75=4.0 |
+| `clarify_repeat` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
+| `climate_model_local_decision` | c2 | b2 | -2 | under2 dialog_p75=4.0 |
 | `dance_class_register` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
-| `diaspora_name_identity` | c2 | b2 | -2 | under2 dialog_p75=4.5 |
-| `email_attachment_twice` | a2 | b2 | 2 | over2 dialog_p75=3.5 |
-| `fact_check_label_power` | c2 | b2 | -2 | under2 dialog_p75=4.5 |
-| `favorite_korean_music` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
-| `first_class_meeting` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
-| `forgot_presentation_cable` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
-| `group_chat_photo_permission` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
-| `jeju_bus_missed` | a2 | b1 | 1 | over1 dialog_p75=3.0 |
-| `kakao_contact_after_class` | a1 | b1 | 2 | over2 dialog_p75=3.0 |
+| `diaspora_name_identity` | c2 | b2 | -2 | under2 dialog_p75=3.5 |
+| `fact_check_label_power` | c2 | b2 | -2 | under2 dialog_p75=4.0 |
+| `kakao_contact_after_class` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
 | `mart_grocery` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
 | `medical_uncertainty_consent` | c2 | b2 | -2 | under2 dialog_p75=4.0 |
-| `meeting_time` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
-| `passive_voice_accountability` | c2 | b2 | -2 | under2 dialog_p75=4.5 |
-| `reel_caption_misunderstanding` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
+| `meeting_opening_context` | b2 | a2 | -2 | under2 grammar_ids_max=2 |
+| `passive_voice_accountability` | c2 | b2 | -2 | under2 dialog_p75=4.0 |
+| `poll_question_framing` | c2 | b2 | -2 | under2 dialog_p75=4.5 |
+| `protest_order_and_rights` | c2 | b2 | -2 | under2 dialog_p75=4.2 |
 | `relationship_story_reframing` | c2 | b1 | -3 | under2 grammar_ids_max=3 |
-| `running_injury_training_plan` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
-| `shared_cup_recycling` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
-| `shared_document_old_version` | a2 | c1 | 3 | over2 dialog_p75=5.0 |
-| `subscription_cancel_charge` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
-| `subway_step_apology` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
-| `survival_day_capstone` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
-| `taxi_kakao` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
-| `team_update_indirect_speech` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
+| `replication_failure_response` | c2 | b2 | -2 | under2 dialog_p75=4.0 |
+| `school_phone_rule` | c1 | b1 | -2 | under2 dialog_p75=3.0 |
+| `shared_document_old_version` | b1 | b2 | 1 | over1 dialog_p75=4.0 |
+| `subway_step_apology` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
+| `survival_day_capstone` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
+| `taxi_kakao` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
+| `tradition_reinterpreted_stage` | c1 | b1 | -2 | under2 grammar_ids_max=3 |
 | `umbrella_weather` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
+| `we_translation_identity` | c2 | b1 | -3 | under2 dialog_p75=3.0 |
 | `welfare_fraud_presumption` | c2 | b2 | -2 | under2 grammar_ids_max=4 |
+| `youth_housing_plain_language` | c1 | b1 | -2 | under2 dialog_p75=3.0 |
 
 ## 표면별 미검출 토큰 비율
 
@@ -251,10 +237,10 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 |---|---|---|---|
 | vocab | 122 | 3504 | 3.5% |
 | grammar | 76 | 1302 | 5.8% |
-| scenario | 449 | 9212 | 4.9% |
+| scenario | 443 | 9212 | 4.8% |
 | cloze | 321 | 10844 | 3.0% |
 | satz | 404 | 13177 | 3.1% |
-| smalltalk | 362 | 9117 | 4.0% |
+| smalltalk | 359 | 9117 | 3.9% |
 | pronunciation | 6 | 594 | 1.0% |
 | media | 36 | 726 | 5.0% |
 
@@ -264,64 +250,64 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 {
   "counts": {
     "cloze": {
-      "fallback_over2": 9,
-      "over1": 330,
-      "over2": 157,
+      "fallback_over2": 3,
+      "over1": 189,
+      "over2": 51,
       "total": 1805,
-      "under2": 216,
+      "under2": 425,
       "unknown": 0
     },
     "grammar": {
-      "fallback_over2": 2,
-      "over1": 30,
-      "over2": 9,
+      "fallback_over2": 0,
+      "over1": 15,
+      "over2": 3,
       "total": 244,
-      "under2": 24,
+      "under2": 44,
       "unknown": 0
     },
     "media": {
-      "fallback_over2": 3,
-      "over1": 31,
-      "over2": 15,
+      "fallback_over2": 1,
+      "over1": 21,
+      "over2": 6,
       "total": 136,
-      "under2": 4,
+      "under2": 13,
       "unknown": 0
     },
     "pronunciation": {
       "fallback_over2": 0,
-      "over1": 9,
-      "over2": 8,
+      "over1": 7,
+      "over2": 3,
       "total": 84,
-      "under2": 10,
+      "under2": 17,
       "unknown": 0
     },
     "satz": {
-      "fallback_over2": 6,
-      "over1": 404,
-      "over2": 190,
+      "fallback_over2": 1,
+      "over1": 197,
+      "over2": 43,
       "total": 2333,
-      "under2": 278,
+      "under2": 623,
       "unknown": 0
     },
     "scenario": {
       "fallback_over2": 0,
-      "over1": 33,
-      "over2": 5,
+      "over1": 17,
+      "over2": 0,
       "total": 178,
-      "under2": 10,
+      "under2": 21,
       "unknown": 0
     },
     "smalltalk": {
-      "fallback_over2": 3,
-      "over1": 136,
-      "over2": 57,
+      "fallback_over2": 1,
+      "over1": 94,
+      "over2": 20,
       "total": 582,
-      "under2": 60,
+      "under2": 115,
       "unknown": 0
     },
     "vocab": {
       "fallback_over2": 100,
-      "over1": 330,
+      "over1": 327,
       "over2": 216,
       "total": 2420,
       "under2": 214,
@@ -330,9 +316,9 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
   },
   "coverage": {
     "grade1": {
-      "at_level": 193,
-      "missing": 352,
-      "present_in_app": 362,
+      "at_level": 196,
+      "missing": 349,
+      "present_in_app": 365,
       "total_unique": 714
     },
     "grade2": {
@@ -404,7 +390,7 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
           "share_ge_plus2": 0.125
         },
         {
-          "median": 1,
+          "median": 0,
           "n_hm": 9,
           "n_low": 0,
           "pack_id": "a1_daily_4",

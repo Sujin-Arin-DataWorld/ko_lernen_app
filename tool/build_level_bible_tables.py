@@ -102,6 +102,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from cefr_lexicon import (  # noqa: E402
     GRADE_TO_CEFR,
     CefrLexicon,
+    PROPER_NOUN_EXCLUSIONS,
 )
 
 REPO = Path(__file__).resolve().parent.parent
@@ -997,6 +998,24 @@ def build_f9_md(root: Path, f1_result: F1Result) -> str:
     lines.append("|---|---|---|")
     for w in INTERJECTION_EXCEPTIONS:
         lines.append("| {} | A1 유지 | 감탄·인사 표현은 사전 등급과 무관하게 A1(plan §3.E) |".format(w))
+    lines.append("")
+    lines.append("## 브랜드/고유명사 -- 등급 제외 (grade=None, 미검출로도 안 잡힘)")
+    lines.append("")
+    lines.append("> T2.4a(B6) 추가, LCP PR-L2a2(2026-09-07)부터 자동 생성 --")
+    lines.append("> `tool/cefr_lexicon.py`의 `PROPER_NOUN_EXCLUSIONS`가 정본. 인물명")
+    lines.append("> (`EXTRA_PROPER_NOUNS`)과 동일한 `_match_proper_noun` 메커니즘.")
+    lines.append("")
+    lines.append("| 항목 | 결정 | 사유 |")
+    lines.append("|---|---|---|")
+    # PROPER_NOUN_EXCLUSIONS is a frozenset (hash-order, not reproducible
+    # run to run -- Python's per-process string hash randomization means
+    # even `list(the_same_literal_set)` differs between runs); sorted()
+    # is what makes this idempotent, not insertion order.
+    for w in sorted(PROPER_NOUN_EXCLUSIONS):
+        lines.append("| {} | 등급 제외 | 브랜드/제품명은 국립국어원 등급표 대상이 아님(plan §3.E 준용) |".format(w))
+    lines.append("")
+    lines.append("또한 라틴 문자·숫자가 하나라도 섞인 토큰(예: `QR`)은 고정 목록이 아니라")
+    lines.append("`cefr_lexicon._is_latin_or_digit_token`으로 일괄 판정 -- 이 표에는 열거하지 않음.")
     lines.append("")
     lines.append("## 앱 고유 문법(F1 app_only, {}개) -- nikl 국제통용 목록에 대응 없음".format(len(f1_result.app_only_ids)))
     lines.append("")

@@ -3243,9 +3243,9 @@
     {
       "contentKind": "scenario",
       "contentId": "shared_document_old_version",
-      "courseUnitId": "a2_06_study_work",
+      "courseUnitId": "b1_03_work_softening",
       "conceptIds": [
-        "concept_a2_work_study"
+        "concept_b1_softening"
       ],
       "role": "practice"
     },

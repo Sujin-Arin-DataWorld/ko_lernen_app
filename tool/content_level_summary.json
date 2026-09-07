@@ -1,64 +1,64 @@
 {
   "counts": {
     "cloze": {
-      "fallback_over2": 9,
-      "over1": 330,
-      "over2": 157,
+      "fallback_over2": 3,
+      "over1": 189,
+      "over2": 51,
       "total": 1805,
-      "under2": 216,
+      "under2": 425,
       "unknown": 0
     },
     "grammar": {
-      "fallback_over2": 2,
-      "over1": 30,
-      "over2": 9,
+      "fallback_over2": 0,
+      "over1": 15,
+      "over2": 3,
       "total": 244,
-      "under2": 24,
+      "under2": 44,
       "unknown": 0
     },
     "media": {
-      "fallback_over2": 3,
-      "over1": 31,
-      "over2": 15,
+      "fallback_over2": 1,
+      "over1": 21,
+      "over2": 6,
       "total": 136,
-      "under2": 4,
+      "under2": 13,
       "unknown": 0
     },
     "pronunciation": {
       "fallback_over2": 0,
-      "over1": 9,
-      "over2": 8,
+      "over1": 7,
+      "over2": 3,
       "total": 84,
-      "under2": 10,
+      "under2": 17,
       "unknown": 0
     },
     "satz": {
-      "fallback_over2": 6,
-      "over1": 404,
-      "over2": 190,
+      "fallback_over2": 1,
+      "over1": 197,
+      "over2": 43,
       "total": 2333,
-      "under2": 278,
+      "under2": 623,
       "unknown": 0
     },
     "scenario": {
       "fallback_over2": 0,
-      "over1": 33,
-      "over2": 5,
+      "over1": 17,
+      "over2": 0,
       "total": 178,
-      "under2": 10,
+      "under2": 21,
       "unknown": 0
     },
     "smalltalk": {
-      "fallback_over2": 3,
-      "over1": 136,
-      "over2": 57,
+      "fallback_over2": 1,
+      "over1": 94,
+      "over2": 20,
       "total": 582,
-      "under2": 60,
+      "under2": 115,
       "unknown": 0
     },
     "vocab": {
       "fallback_over2": 100,
-      "over1": 330,
+      "over1": 327,
       "over2": 216,
       "total": 2420,
       "under2": 214,
@@ -67,9 +67,9 @@
   },
   "coverage": {
     "grade1": {
-      "at_level": 193,
-      "missing": 352,
-      "present_in_app": 362,
+      "at_level": 196,
+      "missing": 349,
+      "present_in_app": 365,
       "total_unique": 714
     },
     "grade2": {
@@ -141,7 +141,7 @@
           "share_ge_plus2": 0.125
         },
         {
-          "median": 1,
+          "median": 0,
           "n_hm": 9,
           "n_low": 0,
           "pack_id": "a1_daily_4",

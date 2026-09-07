@@ -410,6 +410,40 @@ class TestRealLexiconGoldenCases(unittest.TestCase):
         self.assertEqual(sp.grammar_max, 1)
         self.assertEqual(sp.level_estimate, "A1")
 
+    def test_sentence_allowance_excuses_one_high_grade_content_word(self):
+        # Bible §B "1급 밖 단어는 문화어·고유명사 하나까지만 허용" / §D "문화어
+        # 1개 예외": 5 known tokens (>=3), 순하다 is the one outlier -- with
+        # it excused from the percentile the sentence reads at A1/A2, not
+        # wherever 순하다's own B2 grade would otherwise drag it.
+        sp = self.lex.sentence_profile("조금 매워요. 순한 맛도 있어요.", self.grammar)
+        self.assertGreaterEqual(len([t for t in sp.tokens if t.grade is not None]), 3)
+        self.assertEqual(sp.allowance, ("순하다", 4))
+        self.assertIn(sp.level_estimate, ("A1", "A2"))
+        self.assertLessEqual(cl.CEFR_TO_GRADE[sp.level_estimate], cl.CEFR_TO_GRADE["A2"])
+        # grammar_max/word grading are untouched by the allowance.
+        self.assertEqual(self.lex.word_grade("순하다").grade, 4)
+
+    def test_sentence_allowance_needs_at_least_three_graded_tokens(self):
+        # "저는 학생이에요." above has exactly 2 known tokens (저, 학생) --
+        # too short for the allowance to apply at all.
+        sp = self.lex.sentence_profile("저는 학생이에요.", self.grammar)
+        self.assertEqual(len([t for t in sp.tokens if t.grade is not None]), 2)
+        self.assertIsNone(sp.allowance)
+
+    def test_geollo_contraction_fully_graded(self) -> None:
+        # 걸로 (것으로's contraction) used to resolve via a wrong basic2023
+        # sense at B2 -- PRONOUN_CONTRACTION_MAP redirects it to 것 (A1).
+        sp = self.lex.sentence_profile("안 매운 걸로 주세요.", self.grammar)
+        self.assertEqual(sp.unknown, ())
+        self.assertEqual(self.lex.word_grade("걸로").grade, 1)
+
+    def test_ige_mwo_contraction_fully_graded(self) -> None:
+        # 이게 (이것이's contraction) used to resolve via 이다 at C2; 뭐 is
+        # already A1 on its own. Both PRONOUN_CONTRACTION_MAP redirects.
+        sp = self.lex.sentence_profile("이게 뭐예요?", self.grammar)
+        self.assertEqual(sp.unknown, ())
+        self.assertEqual(self.lex.word_grade("이게").grade, 1)
+
     def test_sentence_profile_gamgie_geollyeoseo(self):
         sentence = "감기에 걸려서 축제에 못 갔어요."
         sp = self.lex.sentence_profile(sentence, self.grammar)

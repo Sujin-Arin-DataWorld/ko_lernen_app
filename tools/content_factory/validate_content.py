@@ -462,6 +462,15 @@ class ContentValidator:
             level = scenario.get("level")
             if not isinstance(level, str) or level.lower() not in LOWER_LEVELS:
                 self.issue(name, f"{ident} level must be an A1-C2 string")
+            elif ident:
+                # Scenario ids embed no level segment (unlike vocab/grammar/
+                # satz/smalltalk/pronunciation), so there is no id-vs-level
+                # drift to tolerate via the relevel ledger here -- this is
+                # populated only so relevel_ledger.validate_ledger() (run by
+                # validate_ledger_entries() below) has live data to check a
+                # kind="scenario" ledger entry's `to` level against
+                # (LCP PR-L2a2, T2.4b-1 plan step 6).
+                self._live_levels["scenario"][ident] = level.lower()
             shelf = scenario.get("shelf")
             if not isinstance(shelf, str) or shelf not in ALL_SHELVES:
                 self.issue(
