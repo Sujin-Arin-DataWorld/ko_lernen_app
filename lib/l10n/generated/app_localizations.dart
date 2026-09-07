@@ -1489,6 +1489,77 @@ abstract class AppL10n {
   /// **'Versionsinfo kopiert'**
   String get settingsVersionCopied;
 
+  /// Settings > About row that asks Google Play for the newest build of the track this device is on (in-app update).
+  ///
+  /// In de, this message translates to:
+  /// **'Nach Updates suchen'**
+  String get settingsUpdateTitle;
+
+  /// No description provided for @settingsUpdateSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Neueste Version aus Google Play holen'**
+  String get settingsUpdateSubtitle;
+
+  /// No description provided for @settingsUpdateChecking.
+  ///
+  /// In de, this message translates to:
+  /// **'Wird geprüft'**
+  String get settingsUpdateChecking;
+
+  /// No description provided for @settingsUpdateUpToDate.
+  ///
+  /// In de, this message translates to:
+  /// **'Du hast schon die neueste Version.'**
+  String get settingsUpdateUpToDate;
+
+  /// Row subtitle after a check found a newer build. {v} is the Play versionCode of that build.
+  ///
+  /// In de, this message translates to:
+  /// **'Neue Version {v} ist da.'**
+  String settingsUpdateAvailable(Object v);
+
+  /// No description provided for @settingsUpdateDialogTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Update verfügbar'**
+  String get settingsUpdateDialogTitle;
+
+  /// Confirmation dialog body before handing the download to Play. {v} is the Play versionCode of the new build.
+  ///
+  /// In de, this message translates to:
+  /// **'Version {v} wird jetzt über Google Play geladen und installiert.'**
+  String settingsUpdateDialogBody(Object v);
+
+  /// No description provided for @settingsUpdateStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt aktualisieren'**
+  String get settingsUpdateStart;
+
+  /// No description provided for @settingsUpdateLater.
+  ///
+  /// In de, this message translates to:
+  /// **'Später'**
+  String get settingsUpdateLater;
+
+  /// No description provided for @settingsUpdateDeclined.
+  ///
+  /// In de, this message translates to:
+  /// **'Update abgebrochen.'**
+  String get settingsUpdateDeclined;
+
+  /// No description provided for @settingsUpdateFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Update hat nicht geklappt. Weiter im Play Store.'**
+  String get settingsUpdateFailed;
+
+  /// Shown where Play cannot answer (debug or sideloaded install, iOS, web). Never claim the build is current in that case.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier nicht prüfbar. Im Play Store nachsehen.'**
+  String get settingsUpdateUnavailable;
   /// No description provided for @settingsPrivacyTitle.
   ///
   /// In de, this message translates to:

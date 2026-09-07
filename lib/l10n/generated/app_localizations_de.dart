@@ -826,6 +826,47 @@ class AppL10nDe extends AppL10n {
   String get settingsVersionCopied => 'Versionsinfo kopiert';
 
   @override
+  String get settingsUpdateTitle => 'Nach Updates suchen';
+
+  @override
+  String get settingsUpdateSubtitle => 'Neueste Version aus Google Play holen';
+
+  @override
+  String get settingsUpdateChecking => 'Wird geprüft';
+
+  @override
+  String get settingsUpdateUpToDate => 'Du hast schon die neueste Version.';
+
+  @override
+  String settingsUpdateAvailable(Object v) {
+    return 'Neue Version $v ist da.';
+  }
+
+  @override
+  String get settingsUpdateDialogTitle => 'Update verfügbar';
+
+  @override
+  String settingsUpdateDialogBody(Object v) {
+    return 'Version $v wird jetzt über Google Play geladen und installiert.';
+  }
+
+  @override
+  String get settingsUpdateStart => 'Jetzt aktualisieren';
+
+  @override
+  String get settingsUpdateLater => 'Später';
+
+  @override
+  String get settingsUpdateDeclined => 'Update abgebrochen.';
+
+  @override
+  String get settingsUpdateFailed =>
+      'Update hat nicht geklappt. Weiter im Play Store.';
+
+  @override
+  String get settingsUpdateUnavailable =>
+      'Hier nicht prüfbar. Im Play Store nachsehen.';
+  @override
   String get settingsPrivacyTitle => 'Datenschutzerklärung';
 
   @override

@@ -434,6 +434,9 @@ flutter run -d <android-id>   # 안드로이드
   만 opt-out), Closed 업로드는 `play_closed.yml`의 exact-main-SHA `workflow_dispatch`다.
   versionCode는 트랙마다 칸이 갈린다 — internal = 커밋 수 × 2, closed = ×2+1
   (`android/app/build.gradle.kts`). 트랙을 멈추거나 변수를 껐다 켜는 릴리스 절차는 없다.
+  기기에 깔린 빌드가 최신인지는 앱 **설정 → "Nach Updates suchen"** 이 Play에 직접
+  물어 답한다(`lib/services/app_update_service.dart`, in_app_update) — 최신 버전
+  번호를 어디에도 수기로 적지 않는다.
   Play Console 처리·테스터 설치·승격은 수동이다.
 
 ## 세션 기록 — graphify 북엔드 (수기 handoff 폐지)

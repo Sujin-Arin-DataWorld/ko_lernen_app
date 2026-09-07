@@ -12,6 +12,8 @@ docs/store/closed-testing-checklist-v2.md의 실행 기록에서 확인한다.
 1. 초대받은 Google 계정으로 Play Console opt-in 링크를 연다.
 2. **Tester werden**을 선택한 뒤 Google Play에서 Hangul Sori를 설치하거나 업데이트한다.
 3. Play Store의 앱 정보에서 beta 트랙과 새 버전이 보이는지 확인한다.
+   앱 안에서도 확인할 수 있다 — **설정 → Über die App → "Nach Updates suchen"**
+   이 Play에 직접 물어, 새 빌드가 있으면 그 자리에서 내려받아 설치한다.
 4. 문제가 있으면 앱을 삭제하거나 데이터를 초기화하기 전에 Tiger Pulse 피드백을 남긴다.
    기존 설치 위 업데이트 보존은 별도 검증 항목이다.
 

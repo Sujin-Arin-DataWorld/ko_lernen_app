@@ -229,6 +229,12 @@ Play Console에서 처리·게시된 alpha release를 확인한 뒤 opt-in 링�
 불일치하면 구버전이 설치된 것이니 재설치 후 다시 확인한다. About 행을 길게
 눌러 정보가 클립보드에 복사되고 확인 알림이 뜨는지도 함께 본다.
 
+**Nach Updates suchen**: 설정 → Über die App → "Nach Updates suchen"를 탭한다.
+Play가 이 기기의 트랙에서 더 새 빌드를 갖고 있으면 확인 창이 뜨고, 없으면
+"Du hast schon die neueste Version."이 나온다. 디버그·사이드로드 설치에서는 Play가
+답할 수 없어 "Hier nicht prüfbar."와 함께 스토어 페이지가 열리는 게 정상이다
+(이 경로는 Play로 설치한 빌드에서만 실제 동작을 확인할 수 있다).
+
 **Kulturhinweise zurücksetzen**: 설정 → "Kulturhinweise zurücksetzen"을 탭한다.
 
 **표면 8+3** (각 화면·위젯·termId로 고정 — 행 번호가 아니라 이 목록으로

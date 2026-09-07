@@ -18,6 +18,7 @@ import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/audio_policy.dart';
 import 'package:ko_lernen_app/services/cloud_sync.dart';
+import 'package:ko_lernen_app/services/app_update_service.dart';
 import 'package:ko_lernen_app/services/app_version_service.dart';
 import 'package:ko_lernen_app/services/course_progress_service.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
@@ -73,6 +74,39 @@ void main() {
     final rect = tester.getRect(deletion);
     expect(rect.top, greaterThan(0));
     expect(rect.bottom, lessThan(700));
+  });
+
+  testWidgets('업데이트 확인 행은 Play 응답을 그 자리에서 말한다', (tester) async {
+    tester.view.physicalSize = const Size(400, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      _wrap(
+        SettingsScreen(
+          account: _guest,
+          accountOperations: _SettingsAccountOperations(),
+          cloudDataDeletionJournalState: cloudJournalState,
+          appVersionReader: const _FixedAppVersionReader('2.0.5 (11)'),
+          appUpdateChecker: const _FakeAppUpdateChecker(
+            AppUpdateStatus.upToDate,
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final row = find.text(_l10n.settingsUpdateTitle);
+    await _scrollSettingsUntilBuilt(tester, row);
+    expect(find.text(_l10n.settingsUpdateSubtitle), findsOneWidget);
+
+    await tester.tap(row);
+    for (var frame = 0; frame < 5; frame++) {
+      await tester.pump(const Duration(milliseconds: 100));
+    }
+
+    expect(find.text(_l10n.settingsUpdateUpToDate), findsWidgets);
   });
 
   testWidgets('typed guide destinations scroll and move keyboard focus', (
@@ -1478,6 +1512,19 @@ class _FixedAppVersionReader implements AppVersionReader {
 
   @override
   Future<String> readVersion() async => version;
+}
+
+class _FakeAppUpdateChecker implements AppUpdateChecker {
+  const _FakeAppUpdateChecker(this.status);
+
+  final AppUpdateStatus status;
+
+  @override
+  Future<AppUpdateStatus> check() async => status;
+
+  @override
+  Future<AppUpdateStartResult> start(AppUpdateStatus status) async =>
+      AppUpdateStartResult.started;
 }
 
 class _ThrowingAppVersionReader implements AppVersionReader {
