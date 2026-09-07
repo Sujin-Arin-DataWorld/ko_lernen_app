@@ -1,11 +1,23 @@
-# Exact allowlist for the analyze_korean_text Gen2 source archive.
-# Keep this list in sync with verify_deployed_source.py. Everything else,
-# including local secrets, tests, smoke tools, and bytecode, is excluded.
-*
-!main.py
-!requirements.txt
-!dictionary_validation.py
-!grammar_analysis.py
-!grammar_patterns.json
-!security.py
-!text_quality.py
+# Deny-list for the analyze_korean_text Gen2 source archive.
+# Keep this list in sync with verify_deployed_source.py RUNTIME_FILES. Only
+# files that match a pattern below are excluded from the uploaded archive;
+# every other file under this directory ships as function source.
+#
+# WARNING: gcloud SDK 578.0.0 on Windows produced an EMPTY source archive
+# (Cloud Build "Total files: 0") from the previous `*` + `!allowlist` style
+# .gcloudignore, even though `gcloud meta list-files-for-upload` correctly
+# listed the runtime files — that style is unreliable with this SDK/OS
+# combination, so this directory uses an explicit denylist instead.
+# Exactness is enforced independently by verify_deployed_source.py, which
+# compares the real upload manifest against RUNTIME_FILES, not by this
+# file's syntax.
+.gcloudignore
+.gitignore
+.env.example
+deploy.env.yaml
+test_*.py
+smoke_test.py
+cleanup_translation_cache.py
+verify_deployed_source.py
+__pycache__/
+*.pyc

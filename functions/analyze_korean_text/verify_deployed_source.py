@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 """Verify the exact Gen2 source archive against the local runtime source.
 
-The default mode is offline and validates the local `.gcloudignore` exact
-allowlist. Pass `--archive` to compare an already downloaded Cloud Functions
-source ZIP. Pass `--function` to describe and download a deployed generation
-with gcloud before comparing it. Source contents and environment values are
-never printed.
+The default mode is offline and validates that the local `.gcloudignore`
+deny-list resolves to the exact runtime import closure. Pass `--archive` to
+compare an already downloaded Cloud Functions source ZIP. Pass `--function`
+to describe and download a deployed generation with gcloud before comparing
+it. Source contents and environment values are never printed.
 """
 
 from __future__ import annotations
 
 import argparse
+import fnmatch
 import hashlib
 import json
 import os
@@ -24,12 +25,26 @@ from typing import Iterable
 import zipfile
 
 
+# The audited local-import closure of main.py, plus its two non-code runtime
+# dependencies (requirements.txt for pip install, grammar_patterns.json as
+# data read by grammar_analysis.py). Sorted for a deterministic diff.
+#
+#   main.py -> dictionary_validation, grammar_analysis, security, text_quality
+#   security.py -> ai_policy (module-level) and access_policy (lazy, in
+#                  FirestoreIdempotencyGate.claim)
+#   ai_policy.py -> access_policy (module-level)
+#
+# cleanup_translation_cache.py, smoke_test.py, and verify_deployed_source.py
+# itself are operator tools, not runtime dependencies of the deployed
+# function, and must stay out of this tuple.
 RUNTIME_FILES = (
-    "main.py",
-    "requirements.txt",
+    "access_policy.py",
+    "ai_policy.py",
     "dictionary_validation.py",
     "grammar_analysis.py",
     "grammar_patterns.json",
+    "main.py",
+    "requirements.txt",
     "security.py",
     "text_quality.py",
 )
@@ -125,34 +140,61 @@ def _normalized_archive_name(raw_name: str) -> str:
     return normalized
 
 
-def declared_allowlist(ignore_path: Path) -> tuple[str, ...]:
-    """Return root file negations from the exact-allowlist .gcloudignore."""
+def declared_denylist(ignore_path: Path) -> tuple[str, ...]:
+    """Return the exclusion patterns from the runtime deny-list .gcloudignore.
+
+    gcloud SDK 578.0.0 on Windows produced an EMPTY source archive from a
+    `*` + `!allowlist` style .gcloudignore (Cloud Build reported "Total
+    files: 0"), even though `gcloud meta list-files-for-upload` correctly
+    listed the runtime files. This directory therefore uses an explicit
+    deny-list instead, so a bare `*` line or `!` negation here would be a
+    regression back to the unreliable style.
+    """
     lines = ignore_path.read_text(encoding="utf-8").splitlines()
-    active = [line.strip() for line in lines if line.strip() and not line.lstrip().startswith("#")]
-    if not active or active[0] != "*":
-        raise SourceVerificationError(".gcloudignore must start by ignoring everything")
-    if any(not line.startswith("!") for line in active[1:]):
-        raise SourceVerificationError(".gcloudignore may contain only allowlist negations after '*'")
-    allowed = tuple(line[1:] for line in active[1:])
-    if any(not item or "/" in item or "\\" in item for item in allowed):
-        raise SourceVerificationError("runtime allowlist must contain root files only")
-    if len(set(allowed)) != len(allowed):
-        raise SourceVerificationError("runtime allowlist contains duplicates")
-    return allowed
+    patterns = tuple(
+        line.strip() for line in lines if line.strip() and not line.lstrip().startswith("#")
+    )
+    if not patterns:
+        raise SourceVerificationError(".gcloudignore must declare at least one exclusion pattern")
+    if any(pattern == "*" or pattern.startswith("!") for pattern in patterns):
+        raise SourceVerificationError(
+            ".gcloudignore must be an explicit deny-list, not an allowlist ('*'/'!' are not allowed)"
+        )
+    if len(set(patterns)) != len(patterns):
+        raise SourceVerificationError("runtime denylist contains duplicate patterns")
+    return patterns
+
+
+def _is_denied(name: str, patterns: tuple[str, ...]) -> bool:
+    for pattern in patterns:
+        if pattern.endswith("/"):
+            if name == pattern[:-1]:
+                return True
+            continue
+        if fnmatch.fnmatch(name, pattern):
+            return True
+    return False
 
 
 def validate_local_manifest(source_dir: Path) -> tuple[str, ...]:
-    declared = declared_allowlist(source_dir / ".gcloudignore")
-    if set(declared) != set(RUNTIME_FILES):
+    patterns = declared_denylist(source_dir / ".gcloudignore")
+    included = tuple(
+        sorted(
+            entry.name
+            for entry in source_dir.iterdir()
+            if entry.is_file() and not _is_denied(entry.name, patterns)
+        )
+    )
+    if set(included) != set(RUNTIME_FILES):
         raise SourceVerificationError(
-            "runtime allowlist does not match the audited import closure"
+            "runtime denylist does not resolve to the audited import closure"
         )
     missing = [name for name in RUNTIME_FILES if not (source_dir / name).is_file()]
     if missing:
         raise SourceVerificationError(
             "local runtime source is missing required files: " + ", ".join(missing)
         )
-    return declared
+    return included
 
 
 def validate_gcloud_upload_manifest(source_dir: Path) -> tuple[str, ...]:
@@ -171,7 +213,7 @@ def validate_gcloud_upload_manifest(source_dir: Path) -> tuple[str, ...]:
         missing = sorted(expected - names)
         detail = f"; missing known runtime files: {', '.join(missing)}" if missing else ""
         raise SourceVerificationError(
-            f"gcloud upload manifest is not the exact {len(RUNTIME_FILES)}-file allowlist"
+            f"gcloud upload manifest is not the exact {len(RUNTIME_FILES)}-file runtime set"
             f" (unexpected file count: {len(names - expected)}){detail}"
         )
     return uploaded
@@ -217,7 +259,7 @@ def archive_source_digest(archive_path: Path) -> str:
         missing = sorted(expected - names)
         detail = f"; missing known runtime files: {', '.join(missing)}" if missing else ""
         raise SourceVerificationError(
-            f"source archive manifest is not the exact {len(RUNTIME_FILES)}-file allowlist"
+            f"source archive manifest is not the exact {len(RUNTIME_FILES)}-file runtime set"
             f" (unexpected file count: {len(names - expected)}){detail}"
         )
     return _digest_entries(files.items())
@@ -345,7 +387,7 @@ def main(argv: list[str] | None = None) -> int:
             checks.append("mobile App IDs")
         suffix = f" + {' + '.join(checks)}" if checks else ""
         print(
-            f"PASS local source allowlist{suffix}: "
+            f"PASS local source denylist{suffix}: "
             f"{len(RUNTIME_FILES)} files, sha256={digest}"
         )
         return 0
