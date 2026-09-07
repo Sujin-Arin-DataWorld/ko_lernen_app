@@ -20,6 +20,10 @@
 #   SKIP_POD_INSTALL=1   pod install 생략 (직전 빌드에서 Pods 그대로 재사용)
 #   SKIP_PUB_GET=1       flutter pub get 생략 (직전에 성공했고 lockfile을 재사용)
 #   SKIP_VERIFY=1        dart 검증 게이트 생략 (권장하지 않음 — 디버깅용)
+#   ENABLE_FREE_PRONUNCIATION_ASSESSMENT=true|false (기본 false)
+#                        발음 스튜디오의 무료 채점 평가 노출 여부 스위치.
+#                        서버 게이트가 항상 최종 권한을 가지며 이 값은 그
+#                        위의 UI 노출 스위치일 뿐이다.
 #   ASC_KEY_ID / ASC_ISSUER_ID / ASC_KEY_PATH
 #                        셋 다 있으면 빌드 후 App Store Connect 업로드까지 수행.
 #                        없으면 .ipa 만 만들고 멈춘다(Transporter.app 으로 수동 업로드).
@@ -79,6 +83,15 @@ else
   ok "무료 전체 접근 공개 빌드"
 fi
 
+# 발음 스튜디오의 무료 채점 평가 노출 스위치. 서버 게이트가 항상 최종
+# 권한을 가지므로 이 값은 그 위의 UI 노출 스위치일 뿐이다.
+enable_free_pronunciation_assessment="${ENABLE_FREE_PRONUNCIATION_ASSESSMENT:-false}"
+case "$enable_free_pronunciation_assessment" in
+  true | false) ;;
+  *) die "ENABLE_FREE_PRONUNCIATION_ASSESSMENT 는 true 또는 false 여야 한다 (지금: $enable_free_pronunciation_assessment)." ;;
+esac
+ok "ENABLE_FREE_PRONUNCIATION_ASSESSMENT=$enable_free_pronunciation_assessment"
+
 [ -s ios/Runner/GoogleService-Info.plist ] ||
   die "추적된 ios/Runner/GoogleService-Info.plist 없음. clean checkout에서 복원하고 docs/store/ios-external-setup.md §1 검증을 실행할 것. 소유자 승인 없는 FlutterFire 재생성은 금지."
 plutil -lint ios/Runner/GoogleService-Info.plist >/dev/null ||
@@ -135,7 +148,8 @@ flutter build ipa \
   --release \
   --export-options-plist="$export_options" \
   "${release_defines[@]}" \
-  --dart-define="GIT_COMMIT=$git_commit"
+  --dart-define="GIT_COMMIT=$git_commit" \
+  --dart-define="ENABLE_FREE_PRONUNCIATION_ASSESSMENT=$enable_free_pronunciation_assessment"
 
 ipa="$(find build/ios/ipa -maxdepth 1 -name '*.ipa' -print -quit 2>/dev/null || true)"
 [ -n "$ipa" ] && [ -s "$ipa" ] ||

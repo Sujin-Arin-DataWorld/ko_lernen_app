@@ -544,12 +544,17 @@ jobs:
           flutter pub get
           flutter gen-l10n
 
+      # ENABLE_FREE_PRONUNCIATION_ASSESSMENT is a repo variable so it can be
+      # flipped without a commit. Unset → empty string → Dart's
+      # bool.fromEnvironment falls back to its own defaultValue (false).
+      # Server-side gates remain authoritative either way.
       - name: Build signed internal-testing bundle
         run: >-
           flutter build appbundle --release --obfuscate
           --split-debug-info=build/app/outputs/symbols
           --dart-define=ENABLE_TESTER_FEEDBACK=true
           --dart-define=GIT_COMMIT=${{ github.sha }}
+          --dart-define=ENABLE_FREE_PRONUNCIATION_ASSESSMENT=${{ vars.ENABLE_FREE_PRONUNCIATION_ASSESSMENT }}
           --dart-define=APPLE_SERVICES_ID=${{ vars.APPLE_SERVICES_ID }}
           --dart-define=APPLE_REDIRECT_URI=${{ vars.APPLE_REDIRECT_URI }}
 

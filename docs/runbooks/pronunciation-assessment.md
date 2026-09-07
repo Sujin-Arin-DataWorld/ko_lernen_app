@@ -41,6 +41,25 @@ Free assessment must remain disabled until all of the following are verified:
    screenshots, or command output. The application mode is an activation
    switch, not a live Azure SKU check. Recheck the resource after any key,
    resource, or billing-tier change; an S0 resource is not approved for beta.
+   The resource owner creates the secret from Git Bash without echoing or
+   newline-terminating the value:
+
+   ```bash
+   read -rs AZURE_KEY   # type or paste the key, press Enter; nothing is echoed
+   printf '%s' "$AZURE_KEY" | gcloud secrets create AZURE_SPEECH_KEY \
+     --project=ko-lernen-app --replication-policy=automatic --data-file=-
+   unset AZURE_KEY
+   gcloud secrets versions access latest --secret=AZURE_SPEECH_KEY \
+     --project=ko-lernen-app | wc -c
+   ```
+
+   The last command prints only a byte count. It must equal the length of the
+   key you copied from the Azure portal (classic Speech keys are 32 characters,
+   newer Azure AI Foundry keys are 84); one extra byte means a newline slipped
+   in, and `index.js` sends the value unmodified as an HTTP header. In that case
+   add a new version with the same procedure and disable the bad one with
+   `gcloud secrets versions disable`. A later Firebase deploy grants the
+   function's service account accessor rights on this secret automatically.
 3. Verify the existing server-owned `service_cost_controls/ai_v1` approval
    and daily reservation budget. The F0 switch does not bypass the shared AI
    cost gate or the same server-owned per-user quota applied to every
@@ -52,6 +71,24 @@ Free assessment must remain disabled until all of the following are verified:
    `--dart-define=ENABLE_FREE_PRONUNCIATION_ASSESSMENT=true`. Missing or
    unverified settings stay disabled. The normal release approval, exact-SHA
    CI, consent, Auth, App Check, and signed-device gates still apply.
+
+   Concrete procedure: copy `functions/pronunciation/.env.example` to
+   `functions/pronunciation/.env` (git-ignored) and set the mode there, then
+   deploy only the pronunciation function:
+
+   ```powershell
+   firebase --config firebase.json deploy --only functions:pronunciation-firebase-functions --project ko-lernen-app
+   ```
+
+   Then confirm the secret binding is present on the deployed function:
+
+   ```powershell
+   gcloud functions describe assessPronunciation --project ko-lernen-app `
+     --region europe-west3 --v2 --format="value(serviceConfig.secretEnvironmentVariables)"
+   ```
+
+   An empty result means the secret is not bound; do not proceed to a device
+   check until it lists `AZURE_SPEECH_KEY`.
 
 The server reserves rounded-up audio seconds in the private document
 `service_usage/pronunciation_free_YYYY-MM` in the same Firestore transaction
@@ -74,9 +111,12 @@ Missing, disabled, or mismatched users are rejected. Server Auth creation
 time fences service documents against reuse after account recreation.
 The `account_deletions` marker is checked on receipt claim and every
 transition, including completed-result retrieval. Client tier flags never
-grant authority. Every authenticated user receives fifty assessments per UTC
-day and retains the five-per-minute limit. These limits are additional to the
-F0 monthly cap.
+grant authority. The universal access policy publishes fifty assessments per
+UTC day, but while `azure_f0` is the only provider the dispatcher caps each
+learner at eight scored assessments per UTC day (`FREE_TIER_DAILY_ASSESSMENTS`),
+keeping one learner under 2,480 audio seconds per month. The five-per-minute
+limit remains. Exceeding either returns `resource-exhausted` and local practice
+continues. These limits are additional to the F0 monthly cap.
 
 `service_idempotency` stores a UID-scoped request receipt with an audio/text
 fingerprint hash, owner token, state, quota reservations, a 60-second lease,
@@ -120,6 +160,8 @@ all existing Firebase or TTS services are free.
   retries the same captured recording.
 - The enabled callable secret binding is `AZURE_SPEECH_KEY`; disabled
   deployments have an empty secret binding.
+- Per-learner dispatch cap 8/day (`FREE_TIER_DAILY_ASSESSMENTS`) in addition
+  to the 18,000 s/month pool.
 
 The callable region and Azure provider region are different concepts. Do not
 change one to make it look like the other.
