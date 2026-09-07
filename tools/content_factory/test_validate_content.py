@@ -10,6 +10,7 @@ from __future__ import annotations
 import copy
 import csv
 import json
+import tempfile
 from pathlib import Path
 import sys
 import unittest
@@ -20,6 +21,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
+import relevel_ledger
 import scenario_store
 from validate_content import ContentValidator
 
@@ -350,24 +352,53 @@ class ContentValidatorTest(unittest.TestCase):
         messages = self._messages(validator)
         self.assertTrue(
             any(
-                "id level disagrees with row level: vocab_a1_9999 vs B1" in m
+                "id level disagrees with row level and is not in relevel ledger" in m
                 for m in messages
             ),
         )
 
-        # relevel batch 002 (2026-09-05, #268): 시아버지 A1→B1 — registered
-        # exception must not trip the id/level check.
+        # relevel_ledger.json (T1.7, plan §4.3) entry for vocab_a1_0216 —
+        # ledgered id must not trip the id/level check. Built as two
+        # in-memory ledgers (with/without the entry) and injected through
+        # the constructor's `ledger` kwarg, rather than relying on
+        # whatever relevel_ledger.json happens to contain on disk.
         registered_row = dict(by_id["vocab_a1_0216"])
         self.assertEqual(registered_row["level"].upper(), "B1")
 
-        validator2 = ContentValidator()
+        entry = relevel_ledger.LedgerEntry(
+            id="vocab_a1_0216",
+            kind="vocab",
+            from_level="a1",
+            to_level="b1",
+            movedAt="2026-09-05",
+            batch="relevel_002",
+            reason="test fixture",
+        )
+        ledger_without_entry = relevel_ledger.Ledger(version=1, entries=[])
+        ledger_with_entry = ledger_without_entry.append(entry)
 
-        def load_csv2(name: str):
+        # Without the entry the ledger still tolerates nothing -- same
+        # violation as the unregistered case above.
+        validator_without = ContentValidator(ledger=ledger_without_entry)
+
+        def load_csv_registered(name: str):
             if name == "korean_vocab.csv":
                 return header, [registered_row]
             return original_load_csv(name)
 
-        validator2.load_csv = load_csv2  # type: ignore[method-assign]
+        validator_without.load_csv = load_csv_registered  # type: ignore[method-assign]
+        validator_without.validate_vocab()
+        messages_without = self._messages(validator_without)
+        self.assertTrue(
+            any(
+                "id level disagrees with row level and is not in relevel ledger" in m
+                for m in messages_without
+            ),
+        )
+
+        # With the entry present, the same row is tolerated.
+        validator2 = ContentValidator(ledger=ledger_with_entry)
+        validator2.load_csv = load_csv_registered  # type: ignore[method-assign]
         validator2.validate_vocab()
         messages2 = self._messages(validator2)
         self.assertFalse(any("id level disagrees" in m for m in messages2))
@@ -400,11 +431,14 @@ class ContentValidatorTest(unittest.TestCase):
         validator.validate_cloze()
         messages = self._messages(validator)
         self.assertTrue(
-            any("cloze_a1_9999 id level disagrees with b1" in m for m in messages),
+            any(
+                "cloze_a1_9999 id level disagrees with b1 and is not in relevel ledger" in m
+                for m in messages
+            ),
         )
 
-        # relevel batch 002 (2026-09-05, #268): 시아버지 A1→B1 — registered
-        # exception must not trip the id/level check.
+        # relevel_ledger.json (T1.7, plan §4.3) entry for cloze_a1_0104 —
+        # ledgered id must not trip the id/level check.
         registered = items_by_id["cloze_a1_0104"]
         self.assertEqual(registered["level"], "b1")
 
@@ -444,11 +478,14 @@ class ContentValidatorTest(unittest.TestCase):
         validator.validate_satz(vocab_levels)
         messages = self._messages(validator)
         self.assertTrue(
-            any("satz_a1_9999 id level disagrees with b1" in m for m in messages),
+            any(
+                "satz_a1_9999 id level disagrees with b1 and is not in relevel ledger" in m
+                for m in messages
+            ),
         )
 
-        # relevel batch 002 (2026-09-05, #268): 시아버지 A1→B1 — registered
-        # exception must not trip the id/level check.
+        # relevel_ledger.json (T1.7, plan §4.3) entry for satz_a1_0068 —
+        # ledgered id must not trip the id/level check.
         registered = items_by_id["satz_a1_0068"]
         self.assertEqual(registered["level"], "b1")
 
@@ -456,6 +493,125 @@ class ContentValidatorTest(unittest.TestCase):
             **{"satz_sentences.json": single_item_payload(registered)},
         )
         validator2.validate_satz(vocab_levels)
+        messages2 = self._messages(validator2)
+        self.assertFalse(any("id level disagrees" in m for m in messages2))
+
+    def test_removing_a_ledgered_id_from_a_temp_copied_ledger_reports_that_id(
+        self,
+    ) -> None:
+        """T1.7 (b): trim `vocab_a1_0216` out of a temp copy of
+        relevel_ledger.json, load that copy from disk, and confirm the
+        validator regains the exact violation the ledger used to
+        suppress -- proving the ledger is load-bearing, not decorative."""
+
+        # Read the real, on-disk relevel_ledger.json (the copy this
+        # checkout ships) rather than going through
+        # relevel_ledger.load_ledger()'s own module-relative default, so
+        # this test does not depend on ContentValidator's default
+        # resolution behaviour -- only on the constructor's `ledger_path`
+        # kwarg, which is exactly what this test is proving works.
+        live_ledger_path = relevel_ledger.DEFAULT_LEDGER_PATH
+        live_dict = json.loads(live_ledger_path.read_text(encoding="utf-8"))
+        trimmed_dict = copy.deepcopy(live_dict)
+        trimmed_dict["entries"] = [
+            entry for entry in trimmed_dict["entries"] if entry["id"] != "vocab_a1_0216"
+        ]
+        assert len(trimmed_dict["entries"]) == len(live_dict["entries"]) - 1
+
+        with (Path("assets/data") / "korean_vocab.csv").open(
+            encoding="utf-8-sig",
+            newline="",
+        ) as handle:
+            reader = csv.DictReader(handle)
+            header = list(reader.fieldnames or [])
+            rows = list(reader)
+        by_id = {row["id"]: row for row in rows}
+        target_row = by_id["vocab_a1_0216"]
+        self.assertEqual(target_row["level"].upper(), "B1")
+
+        def load_csv_factory(original_load_csv):
+            def load_csv(name: str):
+                if name == "korean_vocab.csv":
+                    return header, [target_row]
+                return original_load_csv(name)
+
+            return load_csv
+
+        with tempfile.TemporaryDirectory() as tmp:
+            trimmed_path = Path(tmp) / "relevel_ledger.trimmed.json"
+            trimmed_path.write_text(json.dumps(trimmed_dict), encoding="utf-8")
+
+            # Constructor-injected temp ledger with the id removed: the
+            # violation the ledger used to suppress must come back.
+            validator = ContentValidator(ledger_path=trimmed_path)
+            validator.load_csv = load_csv_factory(validator.load_csv)  # type: ignore[method-assign]
+            validator.validate_vocab()
+
+        messages = self._messages(validator)
+        self.assertEqual(
+            sum(
+                1
+                for m in messages
+                if "id level disagrees with row level and is not in relevel ledger" in m
+            ),
+            1,
+        )
+
+        # Sanity check: pointing ledger_path at the *untouched* copy
+        # tolerates the same row -- proving the failure above is caused by
+        # the missing id, not by some other side effect of the injection.
+        with tempfile.TemporaryDirectory() as tmp:
+            full_path = Path(tmp) / "relevel_ledger.full.json"
+            full_path.write_text(json.dumps(live_dict), encoding="utf-8")
+
+            validator_control = ContentValidator(ledger_path=full_path)
+            validator_control.load_csv = load_csv_factory(validator_control.load_csv)  # type: ignore[method-assign]
+            validator_control.validate_vocab()
+        self.assertFalse(
+            any("id level disagrees" in m for m in self._messages(validator_control)),
+        )
+
+    def test_smalltalk_level_id_mismatch_is_rejected_unless_registered_in_the_ledger(
+        self,
+    ) -> None:
+        """T1.7 (c): smalltalk had no legacy-exception tolerance at all
+        before this task; it must accept a ledger entry the same way
+        vocab/cloze/satz do."""
+
+        smalltalk = self._asset_json("smalltalk.json")
+        base_item = next(
+            item for item in smalltalk["phrases"] if item["id"] == "smalltalk_a1_0001"
+        )
+        mismatched = copy.deepcopy(base_item)
+        mismatched["id"] = "smalltalk_a1_9999"
+        mismatched["level"] = "b1"
+        payload = copy.deepcopy(smalltalk)
+        payload["phrases"] = [mismatched]
+
+        validator = self._with_json_override(**{"smalltalk.json": payload})
+        validator.validate_smalltalk()
+        messages = self._messages(validator)
+        self.assertTrue(
+            any(
+                "smalltalk_a1_9999 id level disagrees with b1 and is not in relevel ledger" in m
+                for m in messages
+            ),
+        )
+
+        entry = relevel_ledger.LedgerEntry(
+            id="smalltalk_a1_9999",
+            kind="smalltalk",
+            from_level="a1",
+            to_level="b1",
+            movedAt="2026-09-07",
+            batch="test_fixture",
+            reason="unit test: smalltalk ledger tolerance",
+        )
+        ledger_with_entry = relevel_ledger.load_ledger().append(entry)
+
+        validator2 = self._with_json_override(**{"smalltalk.json": payload})
+        validator2.ledger = ledger_with_entry
+        validator2.validate_smalltalk()
         messages2 = self._messages(validator2)
         self.assertFalse(any("id level disagrees" in m for m in messages2))
 
