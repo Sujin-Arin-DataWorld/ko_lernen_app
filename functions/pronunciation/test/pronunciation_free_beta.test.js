@@ -6,6 +6,8 @@ const fs = require("node:fs");
 const path = require("node:path");
 const vm = require("node:vm");
 const guard = require("../pronunciation_request_guard");
+const {resolvePronunciationPolicy} = require("../ai_policy");
+const {FREE_TIER_DAILY_ASSESSMENTS, FREE_MONTHLY_AUDIO_SECONDS, PCM_BYTES_PER_SECOND} = require("../pronunciation_free_tier");
 
 const MONTHLY_LIMIT = 5 * 60 * 60;
 const usagePath = "service_usage/pronunciation_free_2026-09";
@@ -221,4 +223,14 @@ test("malformed or already exhausted usage fails closed", async () => {
     const receipt = [...app.records].find(([key]) => key.startsWith("service_idempotency/"))[1];
     assert.equal(receipt.state, "claimed", "failed reservation must not commit a dispatch marker");
   }
+});
+
+test("free beta caps each learner at eight scored assessments per UTC day", async () => {
+  const policy = await resolvePronunciationPolicy(null, "learner-1", null, new Date("2026-09-03T12:00:00Z"));
+  assert.deepEqual(policy, {minuteLimit: 5, dayLimit: 8});
+});
+
+test("one learner cannot consume more than a fifth of the shared monthly audio pool", () => {
+  const worstCaseSecondsPerLearner = FREE_TIER_DAILY_ASSESSMENTS * Math.ceil(guard.MAX_PCM_BYTES / PCM_BYTES_PER_SECOND) * 31;
+  assert.ok(worstCaseSecondsPerLearner <= FREE_MONTHLY_AUDIO_SECONDS / 5);
 });

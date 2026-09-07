@@ -270,6 +270,7 @@ W7의 TTS 로딩/프리패치, Living의 스타일 변경, W9의 배포 소유�
   중단하고 새 UID 기준으로 조사한다. 정상 앱 삭제의 marker/cleanup 절차는 계속 적용한다.
 - 모든 인증 사용자는 결제·테스터 문서와 무관하게 동일한 콘텐츠 접근과 책20회/발음50회
   일일 한도를 받는다. 클라이언트가 보낸 tier, Premium, grant, passport 값은 한도를 바꾸지 않는다.
+  발음은 `azure_f0` 모드에서 학습자당 하루 8회(`FREE_TIER_DAILY_ASSESSMENTS`)로 디스패치가 추가 제한된다.
 - 새 앱은 `getUniversalAccessSnapshot`의 schema v2(`source: universal`,
   `aiPolicyId: universal_v1`)만 사용한다. 이미 설치된 구버전이 업데이트 전 다시 잠기지 않도록
   `getAccessSnapshot`은 같은 공통 정책을 구버전 파서가 이해하는 schema v1 모양으로만 변환한다.
