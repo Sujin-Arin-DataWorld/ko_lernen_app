@@ -66,7 +66,7 @@ void main() {
 
     test('weather → cloud (2026-08-25: 건강은 suryeon 으로 분리)', () {
       expect(motifForPackId('a2_weather'), DancheongMotif.cloud);
-      expect(motifForPackId('a1_weather_layer'), DancheongMotif.cloud);
+      expect(motifForPackId('a2_weather_layer'), DancheongMotif.cloud);
     });
 
     test('food → soban, shopping → octagon', () {
@@ -94,18 +94,18 @@ void main() {
       expect(motifForPackId('a2_household'), DancheongMotif.wadang);
       expect(motifForPackId('b1_housing_contract'), DancheongMotif.changsal);
       expect(motifForPackId('b2_housing_dispute'), DancheongMotif.changsal);
-      expect(motifForPackId('a2_housing_search_2026'), DancheongMotif.changsal);
+      expect(motifForPackId('b1_housing_search_2026'), DancheongMotif.changsal);
     });
 
     test('몸·건강·돌봄 → crane', () {
       expect(motifForPackId('a2_health_misc'), DancheongMotif.crane);
       expect(motifForPackId('b1_health_education'), DancheongMotif.crane);
       expect(motifForPackId('b1_health_hospital'), DancheongMotif.crane);
-      expect(motifForPackId('a1_pharmacy_ask'), DancheongMotif.crane);
+      expect(motifForPackId('a2_pharmacy_ask'), DancheongMotif.crane);
     });
 
     test('제도·행정·공공 절차 → noemun', () {
-      expect(motifForPackId('b1_public_office'), DancheongMotif.noemun);
+      expect(motifForPackId('b2_public_office'), DancheongMotif.noemun);
       expect(motifForPackId('a1_post_office'), DancheongMotif.noemun);
       expect(motifForPackId('a1_city_services_2026'), DancheongMotif.noemun);
       expect(motifForPackId('b2_civic_meeting'), DancheongMotif.noemun);

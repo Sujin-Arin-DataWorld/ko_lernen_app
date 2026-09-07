@@ -1,0 +1,284 @@
+{
+  "batch": "L2a",
+  "moves": [
+    {
+      "bundle": "a1_neighbors_hall_1",
+      "from": "a1",
+      "to": "b1",
+      "newPackId": "b1_neighbors_hall_1",
+      "courseUnitId": "b1_06_life_capstone",
+      "conceptIds": [
+        "concept_b1_life"
+      ],
+      "scenarios": [],
+      "cloze": "auto",
+      "satz": "auto",
+      "smalltalk": [],
+      "reason": "median Δ=2.5, share=80%, n_hm=10",
+      "canDoClusterId": "cluster_b1_move_in_handover_v1"
+    },
+    {
+      "bundle": "a1_partner_house_entry_1",
+      "from": "a1",
+      "to": "a2",
+      "newPackId": "a2_partner_house_entry_1",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "scenarios": [],
+      "cloze": "auto",
+      "satz": "auto",
+      "smalltalk": [],
+      "reason": "median Δ=1, share=44%, n_hm=9",
+      "canDoClusterId": "cluster_a2_running_late_v1",
+      "packOrder": 33
+    },
+    {
+      "bundle": "a1_partner_chuseok_basic_1",
+      "from": "a1",
+      "to": "a2",
+      "newPackId": "a2_partner_chuseok_basic_1",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "scenarios": [],
+      "cloze": "auto",
+      "satz": "auto",
+      "smalltalk": [],
+      "reason": "median Δ=1, share=43%, n_hm=7",
+      "canDoClusterId": "cluster_a2_running_late_v1",
+      "packOrder": 36
+    },
+    {
+      "bundle": "a1_partner_photo_thanks_1",
+      "from": "a1",
+      "to": "a2",
+      "newPackId": "a2_partner_photo_thanks_1",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "scenarios": [],
+      "cloze": "auto",
+      "satz": "auto",
+      "smalltalk": [],
+      "reason": "median Δ=1.5, share=50%, n_hm=8",
+      "canDoClusterId": "cluster_a2_running_late_v1",
+      "packOrder": 38
+    },
+    {
+      "bundle": "a1_partner_first_gift_1",
+      "from": "a1",
+      "to": "b1",
+      "newPackId": "b1_partner_first_gift_1",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "scenarios": [],
+      "cloze": "auto",
+      "satz": "auto",
+      "smalltalk": [],
+      "reason": "median Δ=2.5, share=60%, n_hm=10",
+      "canDoClusterId": "cluster_b1_intimate_feelings_v1",
+      "packOrder": 21
+    },
+    {
+      "bundle": "a1_partner_siblings_hello_1",
+      "from": "a1",
+      "to": "b1",
+      "newPackId": "b1_partner_siblings_hello_1",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "scenarios": [],
+      "cloze": "auto",
+      "satz": "auto",
+      "smalltalk": [],
+      "reason": "median Δ=2, share=71%, n_hm=7",
+      "canDoClusterId": "cluster_b1_intimate_feelings_v1",
+      "packOrder": 22
+    },
+    {
+      "bundle": "a2_partner_sibling_tease_1",
+      "from": "a2",
+      "to": "b1",
+      "newPackId": "b1_partner_sibling_tease_1",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "scenarios": [],
+      "cloze": "auto",
+      "satz": "auto",
+      "smalltalk": [],
+      "reason": "median Δ=2, share=55%, n_hm=11 (raw target b2 capped to b1)",
+      "canDoClusterId": "cluster_b1_intimate_feelings_v1",
+      "packOrder": 31
+    },
+    {
+      "bundle": "a2_partner_banmal_switch_1",
+      "from": "a2",
+      "to": "b1",
+      "newPackId": "b1_partner_banmal_switch_1",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "scenarios": [],
+      "cloze": "auto",
+      "satz": "auto",
+      "smalltalk": [],
+      "reason": "median Δ=3, share=73%, n_hm=11 (raw target c1 capped to b1)",
+      "canDoClusterId": "cluster_b1_intimate_feelings_v1",
+      "packOrder": 32
+    },
+    {
+      "bundle": "a1_pharmacy_ask_1",
+      "from": "a1",
+      "to": "a2",
+      "newPackId": "a2_pharmacy_ask_1",
+      "courseUnitId": "a2_04_feelings_health",
+      "conceptIds": [
+        "concept_a2_feelings"
+      ],
+      "scenarios": [],
+      "cloze": "auto",
+      "satz": "auto",
+      "smalltalk": [],
+      "reason": "median Δ=2, share=100%, n_hm=7 (raw target b1 capped to a2)",
+      "canDoClusterId": "cluster_a2_pharmacy_headache_v1"
+    },
+    {
+      "bundle": "a1_school_supplies_1",
+      "from": "a1",
+      "to": "a2",
+      "newPackId": "a2_school_supplies_1",
+      "courseUnitId": "a2_06_study_work",
+      "conceptIds": [
+        "concept_a2_work_study"
+      ],
+      "scenarios": [],
+      "cloze": "auto",
+      "satz": "auto",
+      "smalltalk": [],
+      "reason": "median Δ=1, share=44%, n_hm=9",
+      "canDoClusterId": "cluster_a2_cafe_study_v1"
+    },
+    {
+      "bundle": "a1_subway_card_1",
+      "from": "a1",
+      "to": "a2",
+      "newPackId": "a2_subway_card_1",
+      "courseUnitId": "a2_07_travel_repair",
+      "conceptIds": [
+        "concept_a2_travel_repair"
+      ],
+      "scenarios": [],
+      "cloze": "auto",
+      "satz": "auto",
+      "smalltalk": [],
+      "reason": "median Δ=2, share=67%, n_hm=9 (raw target b1 capped to a2)",
+      "canDoClusterId": "cluster_a2_subway_transfer_v1"
+    },
+    {
+      "bundle": "a1_weather_layer_1",
+      "from": "a1",
+      "to": "a2",
+      "newPackId": "a2_weather_layer_1",
+      "courseUnitId": "a2_04_feelings_health",
+      "conceptIds": [
+        "concept_a2_feelings"
+      ],
+      "scenarios": [],
+      "cloze": "auto",
+      "satz": "auto",
+      "smalltalk": [],
+      "reason": "median Δ=2, share=64%, n_hm=11 (raw target b1 capped to a2)",
+      "canDoClusterId": "cluster_a2_feeling_sick_v1"
+    },
+    {
+      "bundle": "a2_bank_counter_1",
+      "from": "a2",
+      "to": "b1",
+      "newPackId": "b1_bank_counter_1",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "scenarios": [],
+      "cloze": "auto",
+      "satz": "auto",
+      "smalltalk": [],
+      "reason": "median Δ=2, share=80%, n_hm=10 (raw target b2 capped to b1)",
+      "canDoClusterId": "cluster_b1_delivery_resolution_v1"
+    },
+    {
+      "bundle": "a2_housing_search_2026_1",
+      "from": "a2",
+      "to": "b1",
+      "newPackId": "b1_housing_search_2026_1",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "scenarios": [],
+      "cloze": "auto",
+      "satz": "auto",
+      "smalltalk": [],
+      "reason": "median Δ=3, share=62%, n_hm=8 (raw target c1 capped to b1)",
+      "canDoClusterId": "cluster_b1_housing_contract_v1"
+    },
+    {
+      "bundle": "a2_part_time_1",
+      "from": "a2",
+      "to": "b1",
+      "newPackId": "b1_part_time_1",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "scenarios": [],
+      "cloze": "auto",
+      "satz": "auto",
+      "smalltalk": [],
+      "reason": "median Δ=2.5, share=83%, n_hm=6 (raw target b2 capped to b1)",
+      "canDoClusterId": "cluster_b1_team_role_coordination_v1"
+    },
+    {
+      "bundle": "a2_phone_plan_1",
+      "from": "a2",
+      "to": "b1",
+      "newPackId": "b1_phone_plan_1",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "scenarios": [],
+      "cloze": "auto",
+      "satz": "auto",
+      "smalltalk": [],
+      "reason": "median Δ=3, share=83%, n_hm=6 (raw target c1 capped to b1)",
+      "canDoClusterId": "cluster_b1_delivery_resolution_v1"
+    },
+    {
+      "bundle": "b1_public_office_1",
+      "from": "b1",
+      "to": "b2",
+      "newPackId": "b2_public_office_1",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": [
+        "concept_b2_complaint"
+      ],
+      "scenarios": [],
+      "cloze": "auto",
+      "satz": "auto",
+      "smalltalk": [],
+      "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review",
+      "canDoClusterId": "cluster_b2_remedy_and_appeal_v1"
+    }
+  ]
+}

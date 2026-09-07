@@ -1,0 +1,1703 @@
+#!/usr/bin/env python3
+"""Atomic bundle-level relevel transaction (plan §4.3, §3.E; task T2.3).
+
+Moves a *bundle* (a vocab pack plus every cloze/satz/smalltalk/scenario item
+tied to it) from one CEFR level to another in one all-or-nothing transaction:
+CSV/JSON edits happen in a staged copy of ``assets/data``, the staged copy is
+checked by ``ContentValidator`` and by ``check_can_do_consistency`` (a Python
+re-implementation of ``CanonicalCourseSegmentLoader``'s Dart checks -- see
+that class's ``_requireExactContentCoverage``/``_validateCoverageAudit`` in
+``lib/services/canonical_course_segment_loader.dart``), and only a clean
+stage is copied back over the real repository. IDs never change (plan
+"ID는 불변") -- only ``level``/``pack_id``/course-unit routing move, recorded
+in ``tools/content_factory/relevel_ledger.json``.
+
+L2a is vocab-pack-only: every move's ``scenarios`` and ``smalltalk`` lists
+must be empty (scenario/smalltalk bundle moves are PR-L2b, not implemented
+here), and ``cloze``/``satz`` must be the literal string ``"auto"`` (match by
+content, not by explicit id list -- also not implemented here).
+
+Usage::
+
+    python tools/content_factory/relevel_bundle.py \\
+        tools/content_factory/relevel/relevel_bundle_L2a.json [--apply] \\
+        [--report docs/data/relevel_L2a_report.md]
+
+Default is a dry run: the plan is computed and printed (the stage is built
+and validated, so a dry run proves the move is safe -- it just never writes
+back to the real repository, the ledger, or the Dart files).
+"""
+
+from __future__ import annotations
+
+import argparse
+import csv
+import hashlib
+import json
+import os
+import re
+import shutil
+import sys
+import tempfile
+from collections import Counter
+from dataclasses import dataclass, field
+from datetime import date
+from pathlib import Path
+from typing import Any
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
+
+import relevel_ledger
+from relevel_ledger import Ledger, LedgerEntry
+from validate_content import ContentValidator, LOWER_LEVELS, VOCAB_HEADER
+
+ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_LEDGER_PATH = SCRIPT_DIR / "relevel_ledger.json"
+PACK_PROGRESS_ALIASES_PATH = ROOT / "lib" / "data" / "pack_progress_aliases.dart"
+VOCAB_PACK_SERVICE_PATH = ROOT / "lib" / "services" / "vocab_pack_service.dart"
+PACK_ARTWORK_CATALOG_PATH = ROOT / "lib" / "data" / "pack_artwork_catalog.dart"
+DANCHEONG_STAMP_PATH = ROOT / "lib" / "widgets" / "sori" / "dancheong_stamp.dart"
+ARTWORK_ASSET_DIR = ROOT / "assets" / "illustrations" / "packs"
+
+CLOZE_JSON = "cloze.json"
+SATZ_JSON = "satz_sentences.json"
+CURRICULUM_JSON = "curriculum_manifest.json"
+CAN_DO_SEGMENTS_JSON = "can_do_segments.json"
+CAN_DO_AUTHORITIES_JSON = "can_do_content_authorities.json"
+
+
+class RelevelError(ValueError):
+    """A malformed bundle file, or a staged transaction that fails validation.
+
+    Fail-closed: raised *before* anything in the real repository is touched.
+    """
+
+
+# ───────────────────────── bundle JSON shape ──────────────────────────────
+
+
+@dataclass(frozen=True)
+class Move:
+    bundle: str
+    from_level: str
+    to_level: str
+    new_pack_id: str
+    course_unit_id: str
+    concept_ids: tuple[str, ...]
+    scenarios: tuple[Any, ...]
+    cloze: str
+    satz: str
+    smalltalk: tuple[str, ...]
+    reason: str
+    # Optional (T2.3-R1 STEP 1b/1c, Fable rulings): when given, canDoClusterId
+    # pins the exact contentCluster instead of running the slug-overlap
+    # heuristic, and packOrder pins the exact packOrderInLevel slot instead
+    # of appending at max+1 for the target level (see choose_target_cluster
+    # and edit_vocab_pack_service/_bump_order_entries).
+    can_do_cluster_id: str | None = None
+    pack_order: int | None = None
+
+    @classmethod
+    def from_dict(cls, raw: Any) -> "Move":
+        if not isinstance(raw, dict):
+            raise RelevelError(f"each move must be an object, got {raw!r}")
+        required = (
+            "bundle", "from", "to", "newPackId", "courseUnitId", "conceptIds",
+            "scenarios", "cloze", "satz", "smalltalk", "reason",
+        )
+        missing = [key for key in required if key not in raw]
+        if missing:
+            raise RelevelError(f"move {raw.get('bundle')!r} missing field(s) {missing}")
+
+        bundle = raw["bundle"]
+        from_level = raw["from"]
+        to_level = raw["to"]
+        new_pack_id = raw["newPackId"]
+        course_unit_id = raw["courseUnitId"]
+        concept_ids = raw["conceptIds"]
+        scenarios = raw["scenarios"]
+        cloze = raw["cloze"]
+        satz = raw["satz"]
+        smalltalk = raw["smalltalk"]
+        reason = raw["reason"]
+
+        for label, value in (("bundle", bundle), ("newPackId", new_pack_id),
+                              ("courseUnitId", course_unit_id), ("reason", reason)):
+            if not isinstance(value, str) or not value.strip():
+                raise RelevelError(f"move {bundle!r}: {label} must be a nonempty string")
+        if from_level not in LOWER_LEVELS or to_level not in LOWER_LEVELS:
+            raise RelevelError(
+                f"move {bundle!r}: from/to must be one of {sorted(LOWER_LEVELS)}, "
+                f"got from={from_level!r} to={to_level!r}"
+            )
+        if from_level == to_level:
+            raise RelevelError(f"move {bundle!r}: from and to are both {from_level!r}")
+        if not bundle.startswith(f"{from_level}_"):
+            raise RelevelError(f"move {bundle!r}: bundle id does not start with {from_level!r}_")
+        if not new_pack_id.startswith(f"{to_level}_"):
+            raise RelevelError(f"move {bundle!r}: newPackId {new_pack_id!r} does not start with {to_level!r}_")
+        if (not isinstance(concept_ids, list) or not concept_ids
+                or any(not isinstance(c, str) or not c.strip() for c in concept_ids)):
+            raise RelevelError(f"move {bundle!r}: conceptIds must be a nonempty list of strings")
+        if not isinstance(scenarios, list):
+            raise RelevelError(f"move {bundle!r}: scenarios must be a list")
+        if not isinstance(smalltalk, list):
+            raise RelevelError(f"move {bundle!r}: smalltalk must be a list")
+        if scenarios:
+            raise NotImplementedError(
+                f"move {bundle!r} has {len(scenarios)} scenario(s) -- scenario bundle "
+                "moves are PR-L2b, not implemented by relevel_bundle.py yet. L2a "
+                "requires every move's `scenarios` to be []."
+            )
+        if smalltalk:
+            raise NotImplementedError(
+                f"move {bundle!r} has {len(smalltalk)} smalltalk id(s) -- smalltalk "
+                "bundle moves are PR-L2b, not implemented by relevel_bundle.py yet. "
+                "L2a requires every move's `smalltalk` to be []."
+            )
+        if cloze != "auto":
+            raise NotImplementedError(
+                f"move {bundle!r}: cloze={cloze!r} -- only the literal \"auto\" "
+                "matching mode is implemented."
+            )
+        if satz != "auto":
+            raise NotImplementedError(
+                f"move {bundle!r}: satz={satz!r} -- only the literal \"auto\" "
+                "matching mode is implemented."
+            )
+
+        can_do_cluster_id = raw.get("canDoClusterId")
+        if can_do_cluster_id is not None and (
+            not isinstance(can_do_cluster_id, str) or not can_do_cluster_id.strip()
+        ):
+            raise RelevelError(f"move {bundle!r}: canDoClusterId must be a nonempty string when present")
+
+        pack_order = raw.get("packOrder")
+        if pack_order is not None and (
+            not isinstance(pack_order, int) or isinstance(pack_order, bool) or pack_order < 1
+        ):
+            raise RelevelError(f"move {bundle!r}: packOrder must be a positive integer when present")
+
+        return cls(
+            bundle=bundle,
+            from_level=from_level,
+            to_level=to_level,
+            new_pack_id=new_pack_id,
+            course_unit_id=course_unit_id,
+            concept_ids=tuple(concept_ids),
+            scenarios=tuple(scenarios),
+            cloze=cloze,
+            satz=satz,
+            smalltalk=tuple(smalltalk),
+            reason=reason,
+            can_do_cluster_id=can_do_cluster_id,
+            pack_order=pack_order,
+        )
+
+
+@dataclass(frozen=True)
+class BundleFile:
+    batch: str
+    moves: tuple[Move, ...]
+
+
+def load_bundle_from_dict(raw: Any, *, source: str = "<bundle>") -> BundleFile:
+    if not isinstance(raw, dict):
+        raise RelevelError(f"{source}: root must be an object")
+    batch = raw.get("batch")
+    if not isinstance(batch, str) or not batch.strip():
+        raise RelevelError(f"{source}: batch must be a nonempty string")
+    raw_moves = raw.get("moves")
+    if not isinstance(raw_moves, list) or not raw_moves:
+        raise RelevelError(f"{source}: moves must be a nonempty list")
+    moves = tuple(Move.from_dict(item) for item in raw_moves)
+    bundle_ids = [move.bundle for move in moves]
+    if len(bundle_ids) != len(set(bundle_ids)):
+        raise RelevelError(f"{source}: duplicate bundle id in moves")
+    new_pack_ids = [move.new_pack_id for move in moves]
+    if len(new_pack_ids) != len(set(new_pack_ids)):
+        raise RelevelError(f"{source}: duplicate newPackId in moves")
+    return BundleFile(batch=batch, moves=moves)
+
+
+def load_bundle(path: Path) -> BundleFile:
+    try:
+        raw = json.loads(path.read_text(encoding="utf-8"))
+    except OSError as error:
+        raise RelevelError(f"cannot read {path}: {error}") from error
+    except json.JSONDecodeError as error:
+        raise RelevelError(f"cannot parse {path}: {error}") from error
+    return load_bundle_from_dict(raw, source=str(path))
+
+
+# ───────────────────────── generic file IO ────────────────────────────────
+
+
+def _read_json(path: Path) -> Any:
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        raise RelevelError(f"cannot read {path}: {error}") from error
+
+
+def _write_json(path: Path, value: Any) -> None:
+    # write_bytes, not write_text: on Windows, Path.write_text (text mode)
+    # translates every "\n" to os.linesep ("\r\n"), which is exactly how a
+    # previous run produced CRLF JSON output (T2.3-R1 STEP 1a).
+    content = json.dumps(value, ensure_ascii=False, indent=2) + "\n"
+    path.write_bytes(content.encode("utf-8"))
+
+
+def _normalize_newlines(text: str) -> str:
+    """Collapse any CRLF/CR the source file may already have on disk (e.g. a
+    Windows checkout with autocrlf) to bare LF, *before* any Dart-literal
+    parsing or splicing touches it. Without this, bytes read via
+    ``Path.read_bytes().decode(...)`` (no universal-newline translation)
+    keep the original file's CRLF for untouched lines while every newly
+    spliced-in entry is LF-only -- the "mixed" line-ending defect T2.3-R1
+    STEP 1a fixes. Safe to call on already-LF text (no-op)."""
+
+    return text.replace("\r\n", "\n").replace("\r", "\n")
+
+
+def _load_vocab_csv(path: Path) -> list[dict[str, str]]:
+    with path.open(encoding="utf-8", newline="") as handle:
+        reader = csv.reader(handle)
+        header = next(reader)
+        if header != VOCAB_HEADER:
+            raise RelevelError(f"{path}: unexpected CSV header {header!r}")
+        return [dict(zip(header, row)) for row in reader if row]
+
+
+def _write_vocab_csv(path: Path, rows: list[dict[str, str]]) -> None:
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.writer(handle, quoting=csv.QUOTE_MINIMAL, lineterminator="\n")
+        writer.writerow(VOCAB_HEADER)
+        for row in rows:
+            writer.writerow([row[column] for column in VOCAB_HEADER])
+
+
+def pack_base(pack_id: str) -> str:
+    """Base pack id (drop a trailing numeric ``_N`` segment).
+
+    Exact mirror of ``ContentValidator._pack_base`` / ``VocabPackService.
+    _baseId`` (Dart) -- the same string both maps' keys and both validators'
+    cross-checks use, so this must not drift from either.
+    """
+
+    parts = pack_id.strip().lower().split("_")
+    if len(parts) > 1 and parts[-1].isdigit():
+        parts.pop()
+    return "_".join(parts)
+
+
+def _fingerprint(value: object) -> str:
+    """sha256 of the canonical (sorted-key, compact) JSON form of ``value``.
+
+    Exact mirror of ``tool/refresh_can_do_vocab_fingerprints.py``'s
+    ``_fingerprint`` and ``lib/services/canonical_course_segment_loader.
+    dart``'s ``_jsonFingerprint``/``_canonicalizeJson`` -- all three must
+    agree since the Dart loader is the ultimate consumer.
+    """
+
+    canonical = json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+
+
+# ───────────────────────── per-move plan report ───────────────────────────
+
+
+@dataclass
+class PackMoveReport:
+    bundle: str
+    new_pack_id: str
+    from_level: str
+    to_level: str
+    course_unit_id: str
+    n_words: int = 0
+    n_cloze: int = 0
+    n_satz: int = 0
+    source_cluster_id: str | None = None
+    target_cluster_id: str | None = None
+    target_segment_id: str | None = None
+    cluster_choice_note: str = ""
+    cluster_candidates: tuple[str, ...] = ()
+    has_dedicated_artwork: bool = False
+
+
+@dataclass
+class MigrationReport:
+    batch: str
+    packs: list[PackMoveReport] = field(default_factory=list)
+    cloze_topic_keys_added: list[str] = field(default_factory=list)
+    cloze_topic_keys_removed: list[str] = field(default_factory=list)
+    content_links_rewritten: int = 0
+    vocab_pack_unit_map_renames: list[tuple[str, str]] = field(default_factory=list)
+    dart_display_map_renames: list[tuple[str, str]] = field(default_factory=list)
+    dart_order_map_renames: list[tuple[str, str, int]] = field(default_factory=list)
+    dart_artwork_renames: list[tuple[str, str]] = field(default_factory=list)
+    artwork_files_renamed: list[tuple[str, str]] = field(default_factory=list)
+    dancheong_motif_renames: list[tuple[str, str, str]] = field(default_factory=list)
+    aliases_added: list[tuple[str, str]] = field(default_factory=list)
+    test_references: dict[str, list[str]] = field(default_factory=dict)
+
+
+# ───────────────────────── vocab / cloze / satz ───────────────────────────
+
+
+def _migrate_vocab(
+    vocab_rows: list[dict[str, str]],
+    move: Move,
+    ledger: Ledger,
+    batch: str,
+) -> tuple[list[dict[str, str]], set[str], set[str], Ledger]:
+    """Rename ``move.bundle``'s rows in place; return (matched rows, their
+    example_korean set, their korean set, ledger with vocab entries added).
+
+    Row position, ``id``, ``pack_order`` and ``is_review_boss`` are untouched
+    -- only ``level``/``pack_id`` move (plan §4.3 step 1)."""
+
+    matched = [row for row in vocab_rows if row["pack_id"] == move.bundle]
+    if not matched:
+        raise RelevelError(f"move {move.bundle!r}: no korean_vocab.csv rows have pack_id={move.bundle!r}")
+    example_ko = {row["example_korean"] for row in matched}
+    korean = {row["korean"] for row in matched}
+    for row in matched:
+        if row["level"].strip().upper() != move.from_level.upper():
+            raise RelevelError(
+                f"move {move.bundle!r}: row {row['id']} level {row['level']!r} "
+                f"disagrees with move.from={move.from_level!r}"
+            )
+        row["level"] = move.to_level.upper()
+        row["pack_id"] = move.new_pack_id
+        ledger = ledger.append(LedgerEntry(
+            id=row["id"], kind="vocab", from_level=move.from_level, to_level=move.to_level,
+            movedAt=date.today().isoformat(), batch=batch, reason=move.reason,
+        ))
+    return matched, example_ko, korean, ledger
+
+
+def _migrate_cloze(
+    cloze_items: list[dict[str, Any]],
+    move: Move,
+    example_ko: set[str],
+    ledger: Ledger,
+    batch: str,
+) -> tuple[list[dict[str, Any]], Ledger]:
+    matched = [
+        item for item in cloze_items
+        if item.get("level") == move.from_level and item.get("fullKo") in example_ko
+    ]
+    for item in matched:
+        item["level"] = move.to_level
+        ledger = ledger.append(LedgerEntry(
+            id=item["id"], kind="cloze", from_level=move.from_level, to_level=move.to_level,
+            movedAt=date.today().isoformat(), batch=batch, reason=move.reason,
+        ))
+    return matched, ledger
+
+
+def _migrate_satz(
+    satz_items: list[dict[str, Any]],
+    move: Move,
+    korean: set[str],
+    ledger: Ledger,
+    batch: str,
+) -> tuple[list[dict[str, Any]], Ledger]:
+    matched = [
+        item for item in satz_items
+        if item.get("level") == move.from_level and item.get("vocabKo") in korean
+    ]
+    for item in matched:
+        item["level"] = move.to_level
+        ledger = ledger.append(LedgerEntry(
+            id=item["id"], kind="satz", from_level=move.from_level, to_level=move.to_level,
+            movedAt=date.today().isoformat(), batch=batch, reason=move.reason,
+        ))
+    return matched, ledger
+
+
+def _refresh_game_meta(root: dict[str, Any], collection: str) -> None:
+    meta = root.get("meta")
+    items = root.get(collection)
+    if not isinstance(meta, dict) or not isinstance(items, list):
+        return
+    per_level = {level: 0 for level in LOWER_LEVELS}
+    for item in items:
+        if isinstance(item, dict) and item.get("level") in per_level:
+            per_level[str(item["level"])] += 1
+    meta["total"] = len(items)
+    meta["perLevel"] = {level: per_level[level] for level in ("a1", "a2", "b1", "b2", "c1", "c2")}
+
+
+# ───────────────────────── curriculum_manifest.json ───────────────────────
+
+
+def _migrate_curriculum_manifest(
+    manifest: dict[str, Any],
+    moves: tuple[Move, ...],
+    moved_vocab_ids_by_move: dict[str, set[str]],
+    moved_cloze_by_move: dict[str, list[dict[str, Any]]],
+    all_cloze_items: list[dict[str, Any]],
+    report: MigrationReport,
+) -> None:
+    """Plan §4.3 step 5: vocabPackUnitMap key rename, clozeTopicUnitMap
+    add/prune, contentLinks rewrite for any moved vocab id, and a
+    conceptIds-vs-requiredConceptIds sanity check for every move."""
+
+    units = {
+        unit["id"]: unit
+        for unit in manifest.get("courseUnits", [])
+        if isinstance(unit, dict) and isinstance(unit.get("id"), str)
+    }
+    for move in moves:
+        unit = units.get(move.course_unit_id)
+        if unit is None:
+            raise RelevelError(f"move {move.bundle!r}: unknown courseUnitId {move.course_unit_id!r}")
+        required = set(unit.get("requiredConceptIds") or [])
+        missing = [c for c in move.concept_ids if c not in required]
+        if missing:
+            raise RelevelError(
+                f"move {move.bundle!r}: conceptIds {missing} are not in "
+                f"{move.course_unit_id!r}.requiredConceptIds {sorted(required)}"
+            )
+
+    vocab_map = manifest.get("vocabPackUnitMap")
+    if not isinstance(vocab_map, dict):
+        raise RelevelError("curriculum_manifest.json: vocabPackUnitMap must be an object")
+    for move in moves:
+        old_key = pack_base(move.bundle)
+        new_key = pack_base(move.new_pack_id)
+        if old_key not in vocab_map:
+            raise RelevelError(f"move {move.bundle!r}: vocabPackUnitMap has no key {old_key!r}")
+        if new_key in vocab_map:
+            raise RelevelError(f"move {move.bundle!r}: vocabPackUnitMap already has key {new_key!r}")
+        del vocab_map[old_key]
+        vocab_map[new_key] = move.course_unit_id
+        report.vocab_pack_unit_map_renames.append((old_key, new_key))
+
+    cloze_map = manifest.get("clozeTopicUnitMap")
+    if not isinstance(cloze_map, dict):
+        raise RelevelError("curriculum_manifest.json: clozeTopicUnitMap must be an object")
+    for move in moves:
+        topics = sorted({item["topic"] for item in moved_cloze_by_move[move.bundle]})
+        for topic in topics:
+            key = f"{move.to_level}:{topic.lower()}"
+            if key not in cloze_map:
+                cloze_map[key] = move.course_unit_id
+                report.cloze_topic_keys_added.append(key)
+    # Prune every (from-level, topic) key that has zero remaining live cloze
+    # items -- other packs may still share the same topic word, so this is a
+    # per-key recount over the *final* cloze corpus, not a per-move delete.
+    stale_candidates = set()
+    for move in moves:
+        for item in moved_cloze_by_move[move.bundle]:
+            stale_candidates.add((move.from_level, item["topic"]))
+    for from_level, topic in sorted(stale_candidates):
+        remaining = any(
+            item.get("level") == from_level and item.get("topic") == topic
+            for item in all_cloze_items
+        )
+        key = f"{from_level}:{topic.lower()}"
+        if not remaining and key in cloze_map:
+            del cloze_map[key]
+            report.cloze_topic_keys_removed.append(key)
+
+    links = manifest.get("contentLinks")
+    if not isinstance(links, list):
+        raise RelevelError("curriculum_manifest.json: contentLinks must be an array")
+    # No vocab-kind contentLinks exist in the live corpus today (verified
+    # during T2.2/T2.3 research -- vocab ids are never contentLinks targets),
+    # but plan §4.3 step 5 asks for this rewrite to be implemented in case a
+    # future batch adds one. courseUnitId is the only field a relevel can
+    # invalidate; contentId is immutable and contentKind/role do not change.
+    unit_by_vocab_id = {
+        vocab_id: move.course_unit_id
+        for move in moves
+        for vocab_id in moved_vocab_ids_by_move[move.bundle]
+    }
+    for link in links:
+        if not isinstance(link, dict) or link.get("contentKind") != "vocab":
+            continue
+        new_unit = unit_by_vocab_id.get(link.get("contentId"))
+        if new_unit is not None:
+            link["courseUnitId"] = new_unit
+            report.content_links_rewritten += 1
+
+
+# ───────────────────────── can-do cluster/segment choice ──────────────────
+
+
+def _unit_slug(course_unit_id: str) -> str:
+    """``b1_06_life_capstone`` -> ``life_capstone`` (drop level + 2-digit order)."""
+
+    return "_".join(course_unit_id.split("_")[2:])
+
+
+def _cluster_slug(cluster_id: str) -> str:
+    """``cluster_b1_life_course_narrative_v1`` -> ``life_course_narrative``
+    (drop the ``cluster_`` prefix, the level token, and the ``_vN`` suffix)."""
+
+    body = re.sub(r"^cluster_", "", cluster_id)
+    body = re.sub(r"_v\d+$", "", body)
+    return "_".join(body.split("_")[1:])
+
+
+def _find_cluster_containing(
+    clusters_by_id: dict[str, dict[str, Any]], kind: str, ident: str
+) -> dict[str, Any] | None:
+    for cluster in clusters_by_id.values():
+        for ref in cluster.get("contentReferences", []):
+            if isinstance(ref, dict) and ref.get("kind") == kind and ref.get("id") == ident:
+                return cluster
+    return None
+
+
+def _segment_for_cluster(
+    segments: list[dict[str, Any]], cluster_id: str
+) -> dict[str, Any] | None:
+    for segment in segments:
+        if cluster_id in (segment.get("contentClusterIds") or []):
+            return segment
+    return None
+
+
+def choose_target_cluster(
+    segments: list[dict[str, Any]],
+    clusters_by_id: dict[str, dict[str, Any]],
+    target_unit: str,
+    to_level: str,
+    explicit_cluster_id: str | None = None,
+) -> tuple[str, tuple[str, ...], str]:
+    """Pick the contentCluster a moved vocabPack should join (plan §4.3 step
+    6a): "find the contentCluster with level==to and the unit's concept/
+    seed; if several, choose the one whose id contains the unit slug; report
+    the choice."
+
+    Candidates are every level==``to_level`` cluster owned (via
+    ``segment.contentClusterIds``) by a level==``to_level`` segment whose
+    ``parentCourseUnitId == target_unit``.
+
+    When ``explicit_cluster_id`` is given (the bundle's ``canDoClusterId``,
+    T2.3-R1 STEP 1b -- a Fable ruling), it must be one of these candidates
+    (``RelevelError`` naming them otherwise); the note records this as an
+    explicit ruling, not a guess.
+
+    Otherwise a course unit routinely owns several segments/clusters (A2+
+    segment ids are named after a scenario, not the unit -- see
+    ``build_can_do_segments.py``'s ``AB_SPECS``), so "contains the unit
+    slug" is implemented as a heuristic: most unit-slug tokens (``_``-split)
+    shared with the candidate cluster's own slug wins; ties (including an
+    all-zero-overlap tie) break by highest ``revision`` then lexicographic
+    cluster id, both deterministic. Every heuristic choice's ``note`` starts
+    with ``"HEURISTIC:"`` and, when non-unique, lists the candidates --
+    this is a guess over genuinely ambiguous, unlabelled data, not a
+    certainty, and Fable should confirm or supply an explicit ruling.
+    """
+
+    candidate_ids: list[str] = []
+    for segment in segments:
+        if segment.get("parentCourseUnitId") != target_unit or segment.get("level") != to_level:
+            continue
+        for cluster_id in segment.get("contentClusterIds") or []:
+            cluster = clusters_by_id.get(cluster_id)
+            if cluster is not None and cluster.get("level") == to_level:
+                candidate_ids.append(cluster_id)
+    if not candidate_ids:
+        raise RelevelError(
+            f"no level={to_level!r} contentCluster is owned by a segment with "
+            f"parentCourseUnitId={target_unit!r}"
+        )
+
+    if explicit_cluster_id is not None:
+        if explicit_cluster_id not in candidate_ids:
+            raise RelevelError(
+                f"canDoClusterId {explicit_cluster_id!r} is not one of the candidate "
+                f"contentClusters for courseUnitId={target_unit!r} to={to_level!r}: "
+                f"{candidate_ids}"
+            )
+        return explicit_cluster_id, tuple(candidate_ids), "explicit (Fable ruling)"
+
+    if len(candidate_ids) == 1:
+        return candidate_ids[0], tuple(candidate_ids), "HEURISTIC: unique candidate"
+
+    unit_tokens = set(_unit_slug(target_unit).split("_"))
+
+    def sort_key(cluster_id: str) -> tuple[int, int, str]:
+        overlap = len(unit_tokens & set(_cluster_slug(cluster_id).split("_")))
+        revision = int(clusters_by_id[cluster_id]["revision"])
+        return (-overlap, -revision, cluster_id)
+
+    ranked = sorted(candidate_ids, key=sort_key)
+    best = ranked[0]
+    best_overlap = len(unit_tokens & set(_cluster_slug(best).split("_")))
+    note = (
+        f"HEURISTIC: {len(candidate_ids)} candidates for unit slug tokens {sorted(unit_tokens)}; "
+        f"chose {best!r} by slug-token overlap={best_overlap}, then revision desc, then id asc "
+        "-- Fable should confirm this is the right canDo home"
+    )
+    return best, tuple(candidate_ids), note
+
+
+# ───────────────────────── can-do JSON migration ───────────────────────────
+
+
+def _migrate_can_do(
+    authorities: dict[str, Any],
+    segments_doc: dict[str, Any],
+    moves: tuple[Move, ...],
+    vocab_by_id: dict[str, dict[str, str]],
+    report: MigrationReport,
+) -> None:
+    """Plan §4.3 step 6a/6b/6c inside the stage. ``vocab_by_id`` must already
+    reflect the post-move level/pack_id (it is read from the CSV *after*
+    ``_migrate_vocab`` has run) since the recomputed fingerprint has to match
+    what ``check_can_do_consistency``/the Dart loader will see."""
+
+    clusters = segments_doc.get("contentClusters")
+    segments = segments_doc.get("segments")
+    if not isinstance(clusters, list) or not isinstance(segments, list):
+        raise RelevelError("can_do_segments.json: contentClusters/segments must be arrays")
+    clusters_by_id = {c["id"]: c for c in clusters}
+
+    direct_refs = authorities.get("contentReferences")
+    if not isinstance(direct_refs, list):
+        raise RelevelError("can_do_content_authorities.json: contentReferences must be a list")
+    direct_by_key = {(r.get("kind"), r.get("id")): r for r in direct_refs if isinstance(r, dict)}
+
+    coverage = authorities.get("coverage")
+    if not isinstance(coverage, dict):
+        raise RelevelError("can_do_content_authorities.json: coverage must be an object")
+    inherited = coverage.get("inheritedContentReferences")
+    if not isinstance(inherited, list):
+        raise RelevelError("can_do_content_authorities.json: coverage.inheritedContentReferences must be a list")
+
+    seeds = authorities.get("sourceSeeds")
+    if not isinstance(seeds, list):
+        raise RelevelError("can_do_content_authorities.json: sourceSeeds must be a list")
+    seeds_by_id = {s.get("id"): s for s in seeds if isinstance(s, dict)}
+
+    reports_by_bundle = {r.bundle: r for r in report.packs}
+
+    for move in moves:
+        direct = direct_by_key.get(("vocabPack", move.bundle))
+        if direct is None:
+            raise RelevelError(f"move {move.bundle!r}: no direct vocabPack authority reference")
+        source_cluster = _find_cluster_containing(clusters_by_id, "vocabPack", move.bundle)
+        if source_cluster is None:
+            raise RelevelError(f"move {move.bundle!r}: no contentCluster references vocabPack {move.bundle!r}")
+
+        target_cluster_id, candidates, note = choose_target_cluster(
+            segments, clusters_by_id, move.course_unit_id, move.to_level,
+            move.can_do_cluster_id,
+        )
+        target_cluster = clusters_by_id[target_cluster_id]
+        target_segment = _segment_for_cluster(segments, target_cluster_id)
+        if target_segment is None:
+            raise RelevelError(f"move {move.bundle!r}: cluster {target_cluster_id!r} is owned by no segment")
+
+        seed_id = direct.get("sourceSeedId")
+
+        # 1. direct vocabPack authority row: id/level/courseUnitId only
+        # (sourceSeedId is untouched -- plan §4.3 step 6a).
+        direct["id"] = move.new_pack_id
+        direct["level"] = move.to_level
+        direct["courseUnitId"] = move.course_unit_id
+        del direct_by_key[("vocabPack", move.bundle)]
+        direct_by_key[("vocabPack", move.new_pack_id)] = direct
+
+        # 2. cluster.contentReferences: move the one {kind, id} entry.
+        source_refs = source_cluster["contentReferences"]
+        moved = [r for r in source_refs if r.get("kind") == "vocabPack" and r.get("id") == move.bundle]
+        if len(moved) != 1:
+            raise RelevelError(
+                f"move {move.bundle!r}: expected exactly one vocabPack contentReference "
+                f"in {source_cluster['id']!r}, found {len(moved)}"
+            )
+        source_cluster["contentReferences"] = [r for r in source_refs if r is not moved[0]]
+        moved[0]["id"] = move.new_pack_id
+        target_cluster["contentReferences"].append(moved[0])
+
+        # 3. cluster.sourceSeedIds: move the seed id string (its own text is
+        # untouched -- it still spells the *old* pack id, matching plan
+        # §4.3 step 6a's literal scope for the direct reference's
+        # sourceSeedId field). Its *authority row*'s level must move to
+        # to_level though: course_segment_catalog.dart's
+        # _validateContentClusters requires every seed a cluster lists to
+        # have exactly that cluster's own level ("source seed ... has level
+        # X, expected Y" FormatException otherwise).
+        source_seed_ids = source_cluster["sourceSeedIds"]
+        if seed_id not in source_seed_ids:
+            raise RelevelError(
+                f"move {move.bundle!r}: seed {seed_id!r} not found in "
+                f"{source_cluster['id']!r}.sourceSeedIds"
+            )
+        source_cluster["sourceSeedIds"] = [s for s in source_seed_ids if s != seed_id]
+        target_cluster["sourceSeedIds"].append(seed_id)
+        seed_authority = seeds_by_id.get(seed_id)
+        if seed_authority is None:
+            raise RelevelError(f"move {move.bundle!r}: seed {seed_id!r} has no sourceSeeds authority row")
+        seed_authority["level"] = move.to_level
+
+        # 4. bump both clusters' revision.
+        source_cluster["revision"] = int(source_cluster["revision"]) + 1
+        if target_cluster is not source_cluster:
+            target_cluster["revision"] = int(target_cluster["revision"]) + 1
+
+        # 5. inherited cloze/satz rows for this pack.
+        pack_inherited = [r for r in inherited if r.get("sourceId") == move.bundle]
+        if not pack_inherited:
+            raise RelevelError(f"move {move.bundle!r}: no inherited coverage rows have sourceId={move.bundle!r}")
+        for row in pack_inherited:
+            row["sourceId"] = move.new_pack_id
+            row["level"] = move.to_level
+            row["courseUnitId"] = move.course_unit_id
+            row["canDoSegmentId"] = target_segment["id"]
+            vocab_row = vocab_by_id.get(row.get("sourceVocabId"))
+            if vocab_row is None:
+                raise RelevelError(
+                    f"move {move.bundle!r}: inherited row {row.get('id')!r} references "
+                    f"unknown vocab id {row.get('sourceVocabId')!r}"
+                )
+            row["sourceVocabFingerprintSha256"] = _fingerprint(vocab_row)
+
+        pack_report = reports_by_bundle.get(move.bundle)
+        if pack_report is not None:
+            pack_report.source_cluster_id = source_cluster["id"]
+            pack_report.target_cluster_id = target_cluster["id"]
+            pack_report.target_segment_id = target_segment["id"]
+            pack_report.cluster_choice_note = note
+            pack_report.cluster_candidates = candidates
+
+    # 6. recompute coverage counts exactly as the Dart loader counts them.
+    direct_counts = Counter(r.get("kind") for r in direct_refs if isinstance(r, dict))
+    recorded_direct = coverage.get("directReferenceCounts")
+    if isinstance(recorded_direct, dict):
+        coverage["directReferenceCounts"] = {
+            kind: direct_counts.get(kind, 0) for kind in recorded_direct
+        }
+    inherited_counts = Counter(r.get("kind") for r in inherited if isinstance(r, dict))
+    recorded_inherited = coverage.get("inheritedReferenceCounts")
+    if isinstance(recorded_inherited, dict):
+        coverage["inheritedReferenceCounts"] = {
+            kind: inherited_counts.get(kind, 0) for kind in recorded_inherited
+        }
+
+
+# ───────────────────────── can-do consistency check ───────────────────────
+
+
+def check_can_do_consistency(stage_root: Path) -> list[str]:
+    """Python re-implementation of the checks
+    ``CanonicalCourseSegmentLoader`` (lib/services/
+    canonical_course_segment_loader.dart:122-363) performs at app startup --
+    run against the *stage*, before anything is copied back to the real
+    repository, so a broken can-do graph fails ``relevel_bundle.py`` instead
+    of failing at runtime in the app (plan §8 risk: "can-do 권한 파일 런타임
+    FormatException").
+
+    Returns an empty list iff the loader would accept
+    ``can_do_segments.json``/``can_do_content_authorities.json`` as-is:
+      1. union(cluster.sourceSeedIds) == set(sourceSeeds ids)
+      2. union(cluster.contentReferences as "kind:id") == set(direct
+         contentReferences as "kind:id")
+      3. coverage.directReferenceCounts == counted contentReferences per kind
+      4. for every inherited row: its child key is not also a direct key;
+         its source is a direct vocabPack authority with the same level/
+         courseUnitId recorded on the row; the live CSV row's fingerprint
+         equals the row's sourceVocabFingerprintSha256; canDoSegmentId names
+         a segment whose level/parentCourseUnitId match the row; that
+         segment's own cluster(s) contain the source vocabPack reference
+      5. coverage.inheritedReferenceCounts == actual inherited row counts
+    """
+
+    issues: list[str] = []
+    data = stage_root / "assets" / "data"
+    try:
+        authorities = _read_json(data / CAN_DO_AUTHORITIES_JSON)
+        segments_doc = _read_json(data / CAN_DO_SEGMENTS_JSON)
+        vocab_rows = _load_vocab_csv(data / "korean_vocab.csv")
+    except RelevelError as error:
+        return [str(error)]
+
+    vocab_by_id = {row["id"]: row for row in vocab_rows if row.get("id")}
+    clusters = segments_doc.get("contentClusters")
+    segments = segments_doc.get("segments")
+    if not isinstance(clusters, list) or not isinstance(segments, list):
+        return ["can_do_segments.json: contentClusters/segments must be arrays"]
+    clusters_by_id = {
+        c["id"]: c for c in clusters if isinstance(c, dict) and isinstance(c.get("id"), str)
+    }
+    segments_by_id = {
+        s["id"]: s for s in segments if isinstance(s, dict) and isinstance(s.get("id"), str)
+    }
+
+    def ref_key(kind: Any, ident: Any) -> str:
+        return f"{kind}:{ident}"
+
+    # 1. seed coverage.
+    expected_seed_ids = {
+        seed_id for cluster in clusters for seed_id in cluster.get("sourceSeedIds", [])
+    }
+    seeds = authorities.get("sourceSeeds")
+    if not isinstance(seeds, list):
+        issues.append("can_do_content_authorities.json: sourceSeeds must be a list")
+        seeds = []
+    authority_seed_ids = {s.get("id") for s in seeds if isinstance(s, dict)}
+    if expected_seed_ids != authority_seed_ids:
+        issues.append(
+            "seed coverage mismatch: only-in-clusters="
+            f"{sorted(expected_seed_ids - authority_seed_ids)[:5]} only-in-authorities="
+            f"{sorted(authority_seed_ids - expected_seed_ids)[:5]}"
+        )
+    seeds_by_id = {s.get("id"): s for s in seeds if isinstance(s, dict)}
+    for cluster in clusters:
+        cluster_level = cluster.get("level")
+        for seed_id in cluster.get("sourceSeedIds", []):
+            seed_authority = seeds_by_id.get(seed_id)
+            if seed_authority is not None and seed_authority.get("level") != cluster_level:
+                issues.append(
+                    f"cluster {cluster.get('id')!r}: source seed {seed_id!r} has level "
+                    f"{seed_authority.get('level')!r}, expected {cluster_level!r} "
+                    "(course_segment_catalog.dart _validateContentClusters)"
+                )
+
+    # 2. reference-key coverage.
+    expected_keys = {
+        ref_key(ref.get("kind"), ref.get("id"))
+        for cluster in clusters
+        for ref in cluster.get("contentReferences", [])
+        if isinstance(ref, dict)
+    }
+    direct_refs = authorities.get("contentReferences")
+    if not isinstance(direct_refs, list):
+        issues.append("can_do_content_authorities.json: contentReferences must be a list")
+        direct_refs = []
+    direct_by_key = {
+        ref_key(r.get("kind"), r.get("id")): r for r in direct_refs if isinstance(r, dict)
+    }
+    if expected_keys != set(direct_by_key):
+        issues.append(
+            "content reference coverage mismatch: only-in-clusters="
+            f"{sorted(expected_keys - set(direct_by_key))[:5]} only-in-authorities="
+            f"{sorted(set(direct_by_key) - expected_keys)[:5]}"
+        )
+
+    # 3. directReferenceCounts.
+    direct_counts = Counter(r.get("kind") for r in direct_refs if isinstance(r, dict))
+    coverage = authorities.get("coverage")
+    if not isinstance(coverage, dict):
+        issues.append("can_do_content_authorities.json: coverage must be an object")
+        coverage = {}
+    recorded_direct = coverage.get("directReferenceCounts")
+    actual_direct = {kind: direct_counts.get(kind, 0) for kind in (recorded_direct or {})}
+    if recorded_direct != actual_direct:
+        issues.append(
+            f"coverage.directReferenceCounts mismatch: recorded={recorded_direct} actual={actual_direct}"
+        )
+
+    # 4. per inherited row, plus 5. inheritedReferenceCounts.
+    inherited = coverage.get("inheritedContentReferences")
+    if not isinstance(inherited, list):
+        issues.append("can_do_content_authorities.json: coverage.inheritedContentReferences must be a list")
+        inherited = []
+    inherited_counts: Counter[Any] = Counter()
+    for row in inherited:
+        if not isinstance(row, dict):
+            issues.append(f"inheritedContentReferences: non-object row {row!r}")
+            continue
+        row_id = row.get("id")
+        child_key = ref_key(row.get("kind"), row_id)
+        if child_key in direct_by_key:
+            issues.append(f"inherited child {child_key!r} is also a direct reference")
+            continue
+        inherited_counts[row.get("kind")] += 1
+
+        source = direct_by_key.get(ref_key("vocabPack", row.get("sourceId")))
+        if source is None:
+            issues.append(f"inherited row {row_id!r}: unknown vocabPack source {row.get('sourceId')!r}")
+            continue
+        if source.get("level") != row.get("level") or source.get("courseUnitId") != row.get("courseUnitId"):
+            issues.append(
+                f"inherited row {row_id!r}: source authority mismatch (source level="
+                f"{source.get('level')!r} courseUnitId={source.get('courseUnitId')!r}, row level="
+                f"{row.get('level')!r} courseUnitId={row.get('courseUnitId')!r})"
+            )
+
+        vocab_row = vocab_by_id.get(row.get("sourceVocabId"))
+        if vocab_row is None or _fingerprint(vocab_row) != row.get("sourceVocabFingerprintSha256"):
+            issues.append(
+                f"inherited row {row_id!r}: sourceVocabFingerprintSha256 does not match "
+                f"the live korean_vocab.csv row for {row.get('sourceVocabId')!r}"
+            )
+
+        segment = segments_by_id.get(row.get("canDoSegmentId"))
+        if (
+            segment is None
+            or segment.get("level") != row.get("level")
+            or segment.get("parentCourseUnitId") != row.get("courseUnitId")
+        ):
+            issues.append(
+                f"inherited row {row_id!r}: canDoSegmentId {row.get('canDoSegmentId')!r} "
+                "does not own this row's level/courseUnitId"
+            )
+            continue
+        owns_source = any(
+            any(
+                ref.get("kind") == "vocabPack" and ref.get("id") == row.get("sourceId")
+                for ref in clusters_by_id.get(cluster_id, {}).get("contentReferences", [])
+            )
+            for cluster_id in segment.get("contentClusterIds") or []
+        )
+        if not owns_source:
+            issues.append(
+                f"inherited row {row_id!r}: segment {segment['id']!r} does not own "
+                f"source {row.get('sourceId')!r}"
+            )
+
+    recorded_inherited = coverage.get("inheritedReferenceCounts")
+    actual_inherited = {kind: inherited_counts.get(kind, 0) for kind in (recorded_inherited or {})}
+    if recorded_inherited != actual_inherited:
+        issues.append(
+            f"coverage.inheritedReferenceCounts mismatch: recorded={recorded_inherited} actual={actual_inherited}"
+        )
+
+    return issues
+
+
+# ───────────────────────── Dart Map/Set literal editing ───────────────────
+#
+# vocab_pack_service.dart's packDisplayMap/packOrderInLevel and pack_artwork_
+# catalog.dart's dedicatedPackIds are hand-maintained `const` literals, not
+# generated files -- editing them means a *targeted* text transform that
+# leaves every other byte alone, not a full Dart-source rewrite. Every entry
+# in all three literals starts a line with `'<lowercase_snake_key>'`
+# (verified against the real files during T2.3 research), so entries are
+# found by that leading pattern and their value is captured by paren-depth
+# scanning -- this handles single-line (`'key': ('DE', 'EN'),`), multi-line
+# record, bare-int (`'key': 1,`), and bare-set (`'key',`) entries uniformly
+# without needing to know which literal shape is in play.
+
+_DART_KEY_START_RE = re.compile(r"(?m)^([ \t]*)'([a-z0-9_]+)'")
+
+
+def _parse_dart_entries(body: str) -> tuple[list[str], list[tuple[str, str, str]]]:
+    """Split a Dart Map/Set literal body into (connectives, entries).
+
+    ``entries`` is ``(key, indent, value_text)`` in source order, where
+    ``value_text`` is everything from right after the key's closing quote
+    through the entry's own terminating comma (inclusive) -- ``: (...)  ,``
+    for a record map entry, ``: 1,`` for an int map entry, or just ``,`` for
+    a bare set entry. ``len(connectives) == len(entries) + 1``; the original
+    ``body`` is
+    ``connectives[0] + entries[0].value_text-joined-raw + connectives[1] + ...``
+    i.e. ``"".join(indent+"'"+key+"'"+value for ... ) `` interleaved with
+    ``connectives`` reconstructs it exactly (see ``_rebuild_dart_entries``).
+    A comment or blank line between two entries lives in the connective
+    *before* the later entry, so removing an entry can never drag a
+    following section-header comment along with it, and inserting an entry
+    right after an existing one can never push it past that comment either.
+    """
+
+    matches = list(_DART_KEY_START_RE.finditer(body))
+    if not matches:
+        return [body], []
+    starts = [m.start() for m in matches]
+    entries: list[tuple[str, str, str]] = []
+    ends: list[int] = []
+    for index, match in enumerate(matches):
+        indent = match.group(1)
+        key = match.group(2)
+        limit = starts[index + 1] if index + 1 < len(starts) else len(body)
+        cursor = match.end()
+        if cursor < limit and body[cursor] == ":":
+            cursor += 1
+            while cursor < limit and body[cursor] in " \t\n":
+                cursor += 1
+            if cursor < limit and body[cursor] == "(":
+                depth = 0
+                while cursor < limit:
+                    char = body[cursor]
+                    if char == "(":
+                        depth += 1
+                        cursor += 1
+                    elif char == ")":
+                        depth -= 1
+                        cursor += 1
+                        if depth == 0:
+                            break
+                    else:
+                        cursor += 1
+            else:
+                while cursor < limit and body[cursor] != ",":
+                    cursor += 1
+        if cursor < limit and body[cursor] == ",":
+            cursor += 1
+        entries.append((key, indent, body[match.end():cursor]))
+        ends.append(cursor)
+    connectives = [body[: starts[0]]]
+    for index in range(len(starts)):
+        next_start = starts[index + 1] if index + 1 < len(starts) else len(body)
+        connectives.append(body[ends[index]: next_start])
+    return connectives, entries
+
+
+def _rebuild_dart_entries(connectives: list[str], entries: list[tuple[str, str, str]]) -> str:
+    out = [connectives[0]]
+    for (key, indent, value_text), connective in zip(entries, connectives[1:]):
+        out.append(f"{indent}'{key}'{value_text}")
+        out.append(connective)
+    return "".join(out)
+
+
+def dart_entry_exists(body: str, key: str) -> bool:
+    _, entries = _parse_dart_entries(body)
+    return any(existing_key == key for existing_key, _, _ in entries)
+
+
+def dart_rename_entry(
+    body: str,
+    old_key: str,
+    new_key: str,
+    target_level: str,
+    *,
+    new_value_text: str | None = None,
+) -> tuple[str, str]:
+    """Rename ``old_key`` to ``new_key`` in a Dart Map/Set literal body,
+    relocating the entry to just after the last existing entry whose key
+    starts with ``{target_level}_`` (or to the very end if the target level
+    has no entries yet). The value text is carried over byte-for-byte unless
+    ``new_value_text`` overrides it (``packOrderInLevel`` needs a fresh
+    ``: <int>,`` -- the old order number belongs to a different level's
+    1..N sequence and would collide).
+
+    Returns ``(new_body, old_value_text)`` -- the caller may want the old
+    value (e.g. the ``(DE, EN)`` label, or the old order number) for its own
+    report. Raises ``RelevelError`` if ``old_key`` is absent or ``new_key``
+    is already present.
+    """
+
+    connectives, entries = _parse_dart_entries(body)
+    old_index = next((i for i, (k, _, _) in enumerate(entries) if k == old_key), None)
+    if old_index is None:
+        raise RelevelError(f"Dart literal has no entry for key {old_key!r}")
+    if any(k == new_key for k, _, _ in entries):
+        raise RelevelError(f"Dart literal already has an entry for key {new_key!r}")
+    _, indent, old_value_text = entries[old_index]
+    value_text = old_value_text if new_value_text is None else new_value_text
+
+    remaining_entries = entries[:old_index] + entries[old_index + 1:]
+    remaining_connectives = connectives[:old_index] + connectives[old_index + 1:]
+
+    anchor = None
+    for index, (key, _, _) in enumerate(remaining_entries):
+        if key.startswith(f"{target_level}_"):
+            anchor = index
+    new_entry = (new_key, indent, value_text)
+    if anchor is None:
+        new_entries = remaining_entries + [new_entry]
+        new_connectives = remaining_connectives[:-1] + ["\n"] + [remaining_connectives[-1]]
+    else:
+        new_entries = remaining_entries[: anchor + 1] + [new_entry] + remaining_entries[anchor + 1:]
+        new_connectives = (
+            remaining_connectives[: anchor + 1] + ["\n"] + remaining_connectives[anchor + 1:]
+        )
+    return _rebuild_dart_entries(new_connectives, new_entries), old_value_text
+
+
+def _max_order_for_level(order_body: str, level: str) -> int:
+    _, entries = _parse_dart_entries(order_body)
+    values = [
+        int(match.group(1))
+        for key, _, value_text in entries
+        if key.startswith(f"{level}_")
+        for match in (re.match(r":\s*(\d+)\s*,", value_text),)
+        if match is not None
+    ]
+    return max(values) if values else 0
+
+
+def _bump_order_entries(order_body: str, level: str, threshold: int) -> str:
+    """+1 every ``packOrderInLevel`` entry whose key starts with
+    ``{level}_`` and whose current order is ``>= threshold`` (T2.3-R1 STEP
+    1c: an explicit ``packOrder`` move field is an insert-and-shift, not an
+    append -- the caller inserts its own new entry at exactly ``threshold``
+    right after calling this, so no other same-level entry may keep that
+    value). Scans the whole map body (every level's entries live in one
+    flat Dart map, interleaved), same as ``_max_order_for_level``."""
+
+    connectives, entries = _parse_dart_entries(order_body)
+    bumped_entries = []
+    for key, indent, value_text in entries:
+        if key.startswith(f"{level}_"):
+            match = re.match(r":\s*(\d+)\s*,", value_text)
+            if match is not None and int(match.group(1)) >= threshold:
+                value_text = f": {int(match.group(1)) + 1},"
+        bumped_entries.append((key, indent, value_text))
+    return _rebuild_dart_entries(connectives, bumped_entries)
+
+
+def _extract_dart_block(text: str, open_marker: str, close_pattern: str) -> tuple[str, str, str]:
+    """(prefix-through-open-marker, block body, close-marker-through-suffix)."""
+
+    if open_marker not in text:
+        raise RelevelError(f"Dart source is missing the literal {open_marker!r}")
+    start = text.index(open_marker) + len(open_marker)
+    match = re.search(close_pattern, text[start:], re.M)
+    if match is None:
+        raise RelevelError(f"Dart source: no {close_pattern!r} found after {open_marker!r}")
+    end = start + match.start()
+    return text[:start], text[start:end], text[end:]
+
+
+DISPLAY_MAP_OPEN = "static const Map<String, (String, String)> packDisplayMap = {"
+ORDER_MAP_OPEN = "static const Map<String, int> packOrderInLevel = {"
+ARTWORK_SET_OPEN = "static const dedicatedPackIds = <String>{"
+_CLOSE_BRACE_RE = r"^  \};"
+
+
+def edit_vocab_pack_service(text: str, moves: tuple[Move, ...], report: MigrationReport) -> str:
+    """plan §4.3 step 7: rename ``packDisplayMap``/``packOrderInLevel`` base
+    keys, preserving the (DE, EN) label and moving each renamed order entry
+    to ``max(existing order for the target level) + 1``."""
+
+    before, display_body, middle = _extract_dart_block(text, DISPLAY_MAP_OPEN, _CLOSE_BRACE_RE)
+    for move in moves:
+        old_key, new_key = pack_base(move.bundle), pack_base(move.new_pack_id)
+        display_body, _ = dart_rename_entry(display_body, old_key, new_key, move.to_level)
+        report.dart_display_map_renames.append((old_key, new_key))
+    text = before + display_body + middle
+
+    before2, order_body, after2 = _extract_dart_block(text, ORDER_MAP_OPEN, _CLOSE_BRACE_RE)
+    new_keys_in_order: list[tuple[str, str]] = []
+    for move in moves:
+        old_key, new_key = pack_base(move.bundle), pack_base(move.new_pack_id)
+        if move.pack_order is not None:
+            order_body = _bump_order_entries(order_body, move.to_level, move.pack_order)
+            new_order = move.pack_order
+        else:
+            new_order = _max_order_for_level(order_body, move.to_level) + 1
+        order_body, _ = dart_rename_entry(
+            order_body, old_key, new_key, move.to_level, new_value_text=f": {new_order},",
+        )
+        new_keys_in_order.append((old_key, new_key))
+
+    # T2.3-R2: a later move's explicit `packOrder` insert can `_bump_order_
+    # entries` an *earlier* move's already-inserted entry right back out of
+    # the slot this loop just recorded for it (two same-level inserts where
+    # the second one's target is <= the first one's) -- so the report must
+    # re-read each renamed key's FINAL value from the fully-edited map,
+    # never the value that was only true at the moment its own move ran.
+    _, final_entries = _parse_dart_entries(order_body)
+    final_order_by_key = {
+        key: int(match.group(1))
+        for key, _, value_text in final_entries
+        for match in (re.match(r":\s*(\d+)\s*,", value_text),)
+        if match is not None
+    }
+    for old_key, new_key in new_keys_in_order:
+        report.dart_order_map_renames.append((old_key, new_key, final_order_by_key[new_key]))
+    return before2 + order_body + after2
+
+
+def edit_pack_artwork_catalog(
+    text: str, moves: tuple[Move, ...], report: MigrationReport
+) -> str:
+    """plan §4.3 step 7: rename exact ids present in ``dedicatedPackIds``.
+
+    A pack absent from the set has no dedicated artwork -- nothing to edit
+    for it (``PackArtworkCatalog.assetFor`` falls back to the Dancheong
+    motif stamp, unaffected by a pack-id rename)."""
+
+    before, body, after = _extract_dart_block(text, ARTWORK_SET_OPEN, _CLOSE_BRACE_RE)
+    for move in moves:
+        if not dart_entry_exists(body, move.bundle):
+            for pack_report in report.packs:
+                if pack_report.bundle == move.bundle:
+                    pack_report.has_dedicated_artwork = False
+            continue
+        body, _ = dart_rename_entry(body, move.bundle, move.new_pack_id, move.to_level)
+        report.dart_artwork_renames.append((move.bundle, move.new_pack_id))
+        for pack_report in report.packs:
+            if pack_report.bundle == move.bundle:
+                pack_report.has_dedicated_artwork = True
+    return before + body + after
+
+
+MOTIF_SWITCH_OPEN = "return switch (base) {"
+
+
+def edit_dancheong_motifs(text: str, moves: tuple[Move, ...], report: MigrationReport) -> str:
+    """T2.3-R1/R2 STEP 1d: rename base-id string literals inside
+    ``motifForPackId``'s switch (lib/widgets/sori/dancheong_stamp.dart) so a
+    moved pack keeps its dedicated Dancheong motif instead of silently
+    falling back to a different one when its base id no longer matches any
+    case.
+
+    Patterns are a single literal (``'<base>' => <motif>,``) or an
+    OR-joined list (``'<base>' || '<other>' => <motif>,``, possibly split
+    across lines) -- only the exact quoted old base id is swapped for the
+    new one, byte-for-byte everywhere else (including any other side of an
+    OR pattern), since a plain substring match on the quoted token can never
+    collide with a *longer* base id that merely starts with the same text
+    (its closing quote sits in a different place: the quote that closes
+    ``'a2_housing_search'`` never lines up with the ``_`` that follows the
+    same prefix inside ``'a2_housing_search_2026'``). A base id absent from
+    the switch is not an error -- that pack has no dedicated motif entry
+    and already falls through to ``_``; this is recorded, not raised.
+
+    Dart's ``_baseOf`` strips only ONE trailing all-digit segment, so a
+    base id that itself ends in one (a "_2026" revision year, most often)
+    is ambiguous: a sibling live pack id with no further numeric suffix
+    bases to ``pack_base(old_base)`` instead of ``old_base`` itself. The
+    switch already pairs both shapes in one OR-group (e.g.
+    ``'a2_housing_search' || 'a2_housing_search_2026' => ...``) wherever
+    this applies, so once the primary literal is renamed, also rename its
+    generic sibling -- ``pack_base(old_base)`` to ``pack_base(new_base)``
+    -- inside this same switch body, but only when that stripped form
+    actually differs from ``old_base`` (most base ids do not end in a
+    digit segment at all) and is actually present."""
+
+    before, body, after = _extract_dart_block(text, MOTIF_SWITCH_OPEN, _CLOSE_BRACE_RE)
+    for move in moves:
+        old_base, new_base = pack_base(move.bundle), pack_base(move.new_pack_id)
+        old_literal = f"'{old_base}'"
+        if old_literal not in body:
+            report.dancheong_motif_renames.append((old_base, new_base, "no motif entry"))
+            continue
+        body = body.replace(old_literal, f"'{new_base}'", 1)
+        report.dancheong_motif_renames.append((old_base, new_base, "renamed"))
+
+        generic_old, generic_new = pack_base(old_base), pack_base(new_base)
+        if generic_old == old_base:
+            continue  # old_base doesn't end in a digit segment -- no ambiguity to cover
+        generic_literal = f"'{generic_old}'"
+        if generic_literal not in body:
+            continue  # this family has no paired generic-form entry -- nothing to rename
+        body = body.replace(generic_literal, f"'{generic_new}'", 1)
+        report.dancheong_motif_renames.append((generic_old, generic_new, "renamed (generic sibling)"))
+    return before + body + after
+
+
+def rename_artwork_files(
+    moves: tuple[Move, ...], report: MigrationReport, artwork_asset_dir: Path = ARTWORK_ASSET_DIR
+) -> None:
+    """Physically rename the WebP each renamed ``dedicatedPackIds`` entry
+    points to (``PackArtworkCatalog.assetFor`` derives ``<packId>.webp``
+    from the id -- the id and the filename must move together)."""
+
+    renamed_ids = {old for old, _ in report.dart_artwork_renames}
+    for move in moves:
+        if move.bundle not in renamed_ids:
+            continue
+        source = artwork_asset_dir / f"{move.bundle}.webp"
+        target = artwork_asset_dir / f"{move.new_pack_id}.webp"
+        if not source.exists():
+            raise RelevelError(f"move {move.bundle!r}: dedicated artwork {source} is missing on disk")
+        if target.exists():
+            raise RelevelError(f"move {move.bundle!r}: artwork target {target} already exists")
+        os.rename(source, target)
+        report.artwork_files_renamed.append((move.bundle, move.new_pack_id))
+
+
+# ───────────────────────── progress aliases (Dart) ─────────────────────────
+
+
+ALIASES_HEADER = (
+    "// Auto-appended by tools/content_factory/relevel_bundle.py -- do not hand-edit.\n"
+    "//\n"
+    "// A relevel changes a vocab pack's `pack_id` (plan §3.E), so a learner's\n"
+    "// stored PackProgress under the *old* id would otherwise look unrelated\n"
+    "// to the pack under its *new* id. `{new: old}` lets\n"
+    "// lib/services/pack_progress_service.dart carry that progress forward\n"
+    "// once (T2.6 wires the actual lookup; this file only holds the data).\n"
+    "const Map<String, String> kPackProgressAliases = {\n"
+    "};\n"
+)
+
+
+def append_pack_progress_aliases(path: Path, moves: tuple[Move, ...], report: MigrationReport) -> None:
+    # write_bytes throughout (never write_text/open(path, "a")): on Windows
+    # both translate "\n" -> "\r\n" (T2.3-R1 STEP 1a).
+    if not path.exists():
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(ALIASES_HEADER.encode("utf-8"))
+    text = _normalize_newlines(path.read_bytes().decode("utf-8"))
+    before, body, after = _extract_dart_block(text, "kPackProgressAliases = {", r"^\};")
+    for move in moves:
+        if dart_entry_exists(body, move.new_pack_id):
+            raise RelevelError(f"pack_progress_aliases.dart already has an entry for {move.new_pack_id!r}")
+        stripped = body.rstrip("\n")
+        body = stripped + f"\n  '{move.new_pack_id}': '{move.bundle}',\n"
+        report.aliases_added.append((move.new_pack_id, move.bundle))
+    path.write_bytes((before + body + after).encode("utf-8"))
+
+
+# ───────────────────────── test-reference grep ─────────────────────────────
+
+
+def find_test_references(root: Path, old_ids: list[str]) -> dict[str, list[str]]:
+    """For every old pack id, every ``test/`` or ``tools/`` file (source
+    only) that mentions it literally -- plan §4.3 step 8/9: Fable must
+    review these by hand since a pack-id rename does not auto-update a
+    hard-coded string literal in a test."""
+
+    hits: dict[str, list[str]] = {ident: [] for ident in old_ids}
+    search_dirs = [root / "test", root / "tools" / "content_factory"]
+    for base in search_dirs:
+        if not base.exists():
+            continue
+        for path in sorted(base.rglob("*")):
+            if not path.is_file() or path.suffix not in (".dart", ".py"):
+                continue
+            try:
+                text = path.read_text(encoding="utf-8")
+            except (OSError, UnicodeDecodeError):
+                continue
+            relative = path.relative_to(root).as_posix()
+            for ident in old_ids:
+                if ident in text:
+                    hits[ident].append(relative)
+    return hits
+
+
+# ───────────────────────── orchestration ───────────────────────────────────
+
+
+_STAGED_DATA_FILES = (
+    "korean_vocab.csv", CLOZE_JSON, SATZ_JSON, CURRICULUM_JSON,
+    CAN_DO_AUTHORITIES_JSON, CAN_DO_SEGMENTS_JSON,
+)
+
+
+def _atomic_write_bytes(path: Path, content: bytes) -> None:
+    temporary = path.with_name(f".{path.name}.relevel-bundle.tmp")
+    try:
+        temporary.write_bytes(content)
+        os.replace(temporary, path)
+    finally:
+        if temporary.exists():
+            temporary.unlink()
+
+
+def migrate(
+    *,
+    root: Path = ROOT,
+    bundle: BundleFile,
+    ledger_path: Path = DEFAULT_LEDGER_PATH,
+    apply: bool,
+) -> MigrationReport:
+    """Run every move in ``bundle`` as one staged, all-or-nothing transaction
+    (plan §4.3). Always builds and validates the stage (so a dry run proves
+    the moves are safe); only writes back to ``root``/``ledger_path``/the
+    Dart files when ``apply`` is true and the stage is clean.
+
+    Every real-repository path this function writes to (the Dart files, the
+    artwork directory) is derived from ``root`` rather than the module-level
+    ``ROOT``-anchored constants, so a test can pass a temp-directory ``root``
+    without ever touching this checkout's actual Dart sources.
+    """
+
+    vocab_pack_service_path = root / "lib" / "services" / "vocab_pack_service.dart"
+    pack_artwork_catalog_path = root / "lib" / "data" / "pack_artwork_catalog.dart"
+    dancheong_stamp_path = root / "lib" / "widgets" / "sori" / "dancheong_stamp.dart"
+    pack_progress_aliases_path = root / "lib" / "data" / "pack_progress_aliases.dart"
+    artwork_asset_dir = root / "assets" / "illustrations" / "packs"
+
+    ledger = relevel_ledger.load_ledger(ledger_path)
+    report = MigrationReport(batch=bundle.batch)
+    for move in bundle.moves:
+        report.packs.append(PackMoveReport(
+            bundle=move.bundle, new_pack_id=move.new_pack_id,
+            from_level=move.from_level, to_level=move.to_level,
+            course_unit_id=move.course_unit_id,
+        ))
+
+    with tempfile.TemporaryDirectory(prefix="relevel-bundle-") as directory:
+        stage = Path(directory) / "repo"
+        shutil.copytree(root / "assets" / "data", stage / "assets" / "data")
+        stage_manifest_dir = stage / "tools" / "content_factory"
+        stage_manifest_dir.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(
+            root / "tools" / "content_factory" / "content_audit_manifest.json",
+            stage_manifest_dir / "content_audit_manifest.json",
+        )
+        grammar_mirror_target = stage / "functions" / "analyze_korean_text" / "grammar_patterns.json"
+        grammar_mirror_target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(
+            root / "functions" / "analyze_korean_text" / "grammar_patterns.json",
+            grammar_mirror_target,
+        )
+        data = stage / "assets" / "data"
+
+        vocab_rows = _load_vocab_csv(data / "korean_vocab.csv")
+        cloze_root = _read_json(data / CLOZE_JSON)
+        satz_root = _read_json(data / SATZ_JSON)
+        curriculum = _read_json(data / CURRICULUM_JSON)
+        authorities = _read_json(data / CAN_DO_AUTHORITIES_JSON)
+        segments_doc = _read_json(data / CAN_DO_SEGMENTS_JSON)
+
+        cloze_items = cloze_root.get("items") if isinstance(cloze_root, dict) else None
+        satz_items = satz_root.get("items") if isinstance(satz_root, dict) else None
+        if not isinstance(cloze_items, list) or not isinstance(satz_items, list):
+            raise RelevelError("cloze.json/satz_sentences.json must contain an items array")
+
+        moved_vocab_ids_by_move: dict[str, set[str]] = {}
+        moved_cloze_by_move: dict[str, list[dict[str, Any]]] = {}
+
+        for move in bundle.moves:
+            matched_vocab, example_ko, korean, ledger = _migrate_vocab(vocab_rows, move, ledger, bundle.batch)
+            moved_vocab_ids_by_move[move.bundle] = {row["id"] for row in matched_vocab}
+            matched_cloze, ledger = _migrate_cloze(cloze_items, move, example_ko, ledger, bundle.batch)
+            matched_satz, ledger = _migrate_satz(satz_items, move, korean, ledger, bundle.batch)
+            moved_cloze_by_move[move.bundle] = matched_cloze
+
+            pack_report = next(p for p in report.packs if p.bundle == move.bundle)
+            pack_report.n_words = len(matched_vocab)
+            pack_report.n_cloze = len(matched_cloze)
+            pack_report.n_satz = len(matched_satz)
+
+        _refresh_game_meta(cloze_root, "items")
+        _refresh_game_meta(satz_root, "items")
+
+        _migrate_curriculum_manifest(
+            curriculum, bundle.moves, moved_vocab_ids_by_move, moved_cloze_by_move, cloze_items, report,
+        )
+
+        vocab_by_id = {row["id"]: row for row in vocab_rows if row.get("id")}
+        _migrate_can_do(authorities, segments_doc, bundle.moves, vocab_by_id, report)
+
+        _write_vocab_csv(data / "korean_vocab.csv", vocab_rows)
+        _write_json(data / CLOZE_JSON, cloze_root)
+        _write_json(data / SATZ_JSON, satz_root)
+        _write_json(data / CURRICULUM_JSON, curriculum)
+        _write_json(data / CAN_DO_AUTHORITIES_JSON, authorities)
+        _write_json(data / CAN_DO_SEGMENTS_JSON, segments_doc)
+
+        cando_issues = check_can_do_consistency(stage)
+        content_issues = ContentValidator(stage, ledger=ledger).validate()
+        if cando_issues or content_issues:
+            detail = "\n".join(
+                [f"can-do: {issue}" for issue in cando_issues]
+                + [f"{issue.source}: {issue.message}" for issue in content_issues]
+            )
+            raise RelevelError(f"staged relevel failed validation:\n{detail}")
+
+        # Read-only artwork lookup (this Dart source lives outside assets/data,
+        # so it is not part of the staged/validated content tree) -- computed
+        # in both dry-run and apply so the printed plan is accurate either way.
+        artwork_text = pack_artwork_catalog_path.read_text(encoding="utf-8")
+        _, artwork_body, _ = _extract_dart_block(artwork_text, ARTWORK_SET_OPEN, _CLOSE_BRACE_RE)
+        for pack_report in report.packs:
+            pack_report.has_dedicated_artwork = dart_entry_exists(artwork_body, pack_report.bundle)
+
+        if not apply:
+            return report
+
+        outputs = {
+            root / "assets" / "data" / name: (data / name).read_bytes()
+            for name in _STAGED_DATA_FILES
+        }
+        dart_paths = (vocab_pack_service_path, pack_artwork_catalog_path, dancheong_stamp_path)
+        originals = {path: path.read_bytes() for path in (*outputs, *dart_paths)}
+        ledger_existed = ledger_path.exists()
+        ledger_original = ledger_path.read_bytes() if ledger_existed else None
+        aliases_existed = pack_progress_aliases_path.exists()
+        aliases_original = pack_progress_aliases_path.read_bytes() if aliases_existed else None
+
+        def _rollback() -> None:
+            for path, content in originals.items():
+                _atomic_write_bytes(path, content)
+            if ledger_original is not None:
+                _atomic_write_bytes(ledger_path, ledger_original)
+            elif ledger_path.exists():
+                ledger_path.unlink()
+            if aliases_original is not None:
+                _atomic_write_bytes(pack_progress_aliases_path, aliases_original)
+            elif pack_progress_aliases_path.exists():
+                pack_progress_aliases_path.unlink()
+            for old_id, new_id in report.artwork_files_renamed:
+                new_path = artwork_asset_dir / f"{new_id}.webp"
+                old_path = artwork_asset_dir / f"{old_id}.webp"
+                if new_path.exists() and not old_path.exists():
+                    os.rename(new_path, old_path)
+
+        try:
+            for path, content in outputs.items():
+                _atomic_write_bytes(path, content)
+            final_issues = ContentValidator(root, ledger=ledger).validate()
+            if final_issues:
+                detail = "\n".join(f"{issue.source}: {issue.message}" for issue in final_issues)
+                raise RelevelError(f"post-write content validation failed:\n{detail}")
+
+            ledger.save(ledger_path)
+
+            new_vps_text = edit_vocab_pack_service(
+                _normalize_newlines(originals[vocab_pack_service_path].decode("utf-8")),
+                bundle.moves, report,
+            )
+            _atomic_write_bytes(vocab_pack_service_path, new_vps_text.encode("utf-8"))
+
+            new_pac_text = edit_pack_artwork_catalog(
+                _normalize_newlines(originals[pack_artwork_catalog_path].decode("utf-8")),
+                bundle.moves, report,
+            )
+            _atomic_write_bytes(pack_artwork_catalog_path, new_pac_text.encode("utf-8"))
+            rename_artwork_files(bundle.moves, report, artwork_asset_dir)
+
+            new_dancheong_text = edit_dancheong_motifs(
+                _normalize_newlines(originals[dancheong_stamp_path].decode("utf-8")),
+                bundle.moves, report,
+            )
+            _atomic_write_bytes(dancheong_stamp_path, new_dancheong_text.encode("utf-8"))
+
+            append_pack_progress_aliases(pack_progress_aliases_path, bundle.moves, report)
+        except Exception as error:
+            rollback_error = None
+            try:
+                _rollback()
+            except OSError as failure:
+                rollback_error = failure
+            suffix = f"; ROLLBACK ALSO FAILED: {rollback_error}" if rollback_error else " (rolled back)"
+            raise RelevelError(f"relevel --apply failed: {error}{suffix}") from error
+
+        report.test_references = find_test_references(root, [move.bundle for move in bundle.moves])
+        return report
+
+
+# ───────────────────────── plan / report rendering ─────────────────────────
+
+
+def format_plan(report: MigrationReport, *, apply: bool) -> str:
+    lines = [
+        f"batch {report.batch}: {len(report.packs)} move(s), "
+        f"{'APPLIED' if apply else 'dry-run (nothing written)'}",
+        "",
+    ]
+    for pack in report.packs:
+        lines.append(
+            f"  {pack.bundle} -> {pack.new_pack_id}  ({pack.from_level}->{pack.to_level}, "
+            f"unit={pack.course_unit_id})"
+        )
+        lines.append(
+            f"    words={pack.n_words} cloze={pack.n_cloze} satz={pack.n_satz} "
+            f"artwork={'yes' if pack.has_dedicated_artwork else 'no'}"
+        )
+        lines.append(
+            f"    cando cluster: {pack.source_cluster_id} -> {pack.target_cluster_id} "
+            f"(segment {pack.target_segment_id}; {pack.cluster_choice_note})"
+        )
+        if len(pack.cluster_candidates) > 1:
+            lines.append(f"    cando candidates were: {list(pack.cluster_candidates)}")
+    lines.append("")
+    lines.append(f"vocabPackUnitMap renames: {len(report.vocab_pack_unit_map_renames)}")
+    lines.append(
+        f"clozeTopicUnitMap: +{len(report.cloze_topic_keys_added)} added "
+        f"{report.cloze_topic_keys_added}, -{len(report.cloze_topic_keys_removed)} removed "
+        f"{report.cloze_topic_keys_removed}"
+    )
+    lines.append(f"contentLinks rewritten: {report.content_links_rewritten}")
+    lines.append(f"Dart packDisplayMap renames: {report.dart_display_map_renames}")
+    lines.append(f"Dart packOrderInLevel renames: {report.dart_order_map_renames}")
+    lines.append(f"Dart dedicatedPackIds renames: {report.dart_artwork_renames}")
+    lines.append(f"artwork .webp files renamed: {report.artwork_files_renamed}")
+    lines.append(f"Dancheong motif renames: {report.dancheong_motif_renames}")
+    lines.append(f"pack_progress_aliases.dart entries added: {report.aliases_added}")
+    if report.test_references:
+        lines.append("")
+        lines.append("old pack ids referenced by test/ or tools/content_factory/ (Fable must review):")
+        for ident, files in report.test_references.items():
+            if files:
+                lines.append(f"  {ident}: {files}")
+    return "\n".join(lines)
+
+
+REPORT_SECTION_HEADER = "## 실행 결과"
+_REPORT_SECTION_RE = re.compile(r"(?m)^" + re.escape(REPORT_SECTION_HEADER) + r"\s*$")
+
+
+def append_report_section(path: Path, report: MigrationReport, *, apply: bool) -> None:
+    lines = [
+        REPORT_SECTION_HEADER,
+        "",
+        f"모드: {'--apply (실제 반영됨)' if apply else 'dry-run (아무 파일도 바뀌지 않음)'}",
+        "",
+        "| pack | words | cloze | satz | cando cluster (from -> to) | segment | note |",
+        "|---|---|---|---|---|---|---|",
+    ]
+    for pack in report.packs:
+        lines.append(
+            f"| `{pack.bundle}`->`{pack.new_pack_id}` | {pack.n_words} | {pack.n_cloze} | "
+            f"{pack.n_satz} | `{pack.source_cluster_id}` -> `{pack.target_cluster_id}` | "
+            f"`{pack.target_segment_id}` | {pack.cluster_choice_note} |"
+        )
+    lines.append("")
+    lines.append(
+        f"vocabPackUnitMap 개명 {len(report.vocab_pack_unit_map_renames)}건, "
+        f"clozeTopicUnitMap +{len(report.cloze_topic_keys_added)}/"
+        f"-{len(report.cloze_topic_keys_removed)}, contentLinks 재작성 "
+        f"{report.content_links_rewritten}건."
+    )
+    lines.append("")
+    lines.append("Dart 편집:")
+    lines.append(f"- `packDisplayMap` 개명: {report.dart_display_map_renames}")
+    lines.append(f"- `packOrderInLevel` 개명(새 순번): {report.dart_order_map_renames}")
+    lines.append(f"- `dedicatedPackIds` 개명 + 아트워크 파일 rename: {report.dart_artwork_renames}")
+    lines.append(f"- `kPackProgressAliases` 추가: {report.aliases_added}")
+    lines.append("")
+    lines.append("`test/`·`tools/content_factory/`에서 옛 pack id를 참조하는 파일 (Fable 확인 필요):")
+    any_hits = False
+    for ident, files in report.test_references.items():
+        if files:
+            any_hits = True
+            lines.append(f"- `{ident}`: {files}")
+    if not any_hits:
+        lines.append("- (없음)")
+    lines.append("")
+    section_text = "\n".join(lines) + "\n"
+
+    # Read-modify-write, not open(path, "a"): (1) "a" text-mode still
+    # translates "\n" -> "\r\n" on Windows (T2.3-R1 STEP 1a) and (2) a
+    # second run must *replace* a previous "## 실행 결과" section instead of
+    # appending a duplicate one below it (STEP 1f) -- re-running --apply
+    # after a fix is the normal workflow here, not an edge case.
+    if path.exists():
+        existing = _normalize_newlines(path.read_bytes().decode("utf-8"))
+    else:
+        existing = ""
+    match = _REPORT_SECTION_RE.search(existing)
+    prefix = existing[: match.start()] if match is not None else existing
+    prefix = prefix.rstrip("\n")
+
+    new_content = f"{prefix}\n\n{section_text}" if prefix else section_text
+    path.write_bytes(new_content.encode("utf-8"))
+
+
+# ───────────────────────── CLI ──────────────────────────────────────────────
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("bundle_path", type=Path, help="tools/content_factory/relevel/relevel_bundle_<batch>.json")
+    parser.add_argument("--apply", action="store_true", help="write the staged relevel (default: dry run)")
+    parser.add_argument("--report", type=Path, default=None, help="markdown file to append a 실행 결과 section to")
+    args = parser.parse_args(argv)
+
+    try:
+        bundle = load_bundle(args.bundle_path)
+        report = migrate(bundle=bundle, apply=args.apply)
+    except (RelevelError, NotImplementedError) as error:
+        print(f"ERROR: {error}")
+        return 1
+
+    print(format_plan(report, apply=args.apply))
+    if args.report is not None:
+        append_report_section(args.report, report, apply=args.apply)
+        print(f"\nappended 실행 결과 to {args.report}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

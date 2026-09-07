@@ -2,10 +2,10 @@
   "meta": {
     "total": 2333,
     "perLevel": {
-      "a1": 337,
-      "a2": 468,
-      "b1": 475,
-      "b2": 549,
+      "a1": 217,
+      "a2": 486,
+      "b1": 565,
+      "b2": 561,
       "c1": 252,
       "c2": 252
     },
@@ -5599,7 +5599,7 @@
     },
     {
       "id": "satz_a1_0076",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "과일 바구니를 들고 초인종을 눌렀어요.",
       "promptDe": "Mit einem Obstkorb in der Hand habe ich geklingelt.",
       "promptEn": "I rang the doorbell with a fruit basket in my hands.",
@@ -5611,7 +5611,7 @@
     },
     {
       "id": "satz_a1_0077",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "건강식품은 약처럼 보일까 봐 고민했어요.",
       "promptDe": "Ich zögerte, weil ein Gesundheitsprodukt schnell wie Medizin aussieht.",
       "promptEn": "I hesitated because a health supplement can look like medicine.",
@@ -5623,7 +5623,7 @@
     },
     {
       "id": "satz_a1_0078",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "과한 선물은 부담이 된다고 현우가 말했어요.",
       "promptDe": "Hyunwoo sagte, ein zu großes Geschenk setzt die anderen unter Druck.",
       "promptEn": "Hyunwoo said too big a gift puts people under pressure.",
@@ -5635,7 +5635,7 @@
     },
     {
       "id": "satz_a1_0079",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "큰돈 말고 작은 정성이면 충분해요.",
       "promptDe": "Kein teures Geschenk, eine kleine Aufmerksamkeit reicht.",
       "promptEn": "Not something expensive; a small gesture is enough.",
@@ -5647,7 +5647,7 @@
     },
     {
       "id": "satz_a1_0080",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "포장이 예쁘면 인사가 쉬워져요.",
       "promptDe": "Wenn die Verpackung schön ist, fällt der Gruß leichter.",
       "promptEn": "Nice wrapping makes the greeting easier.",
@@ -5659,7 +5659,7 @@
     },
     {
       "id": "satz_a1_0081",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "별건 아니지만 받아 주세요.",
       "promptDe": "Es ist nichts Besonderes, aber bitte nehmen Sie es.",
       "promptEn": "It's nothing special, but please take it.",
@@ -5671,7 +5671,7 @@
     },
     {
       "id": "satz_a1_0082",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "처음에는 사양하다가 결국 받으셨어요.",
       "promptDe": "Zuerst lehnten sie höflich ab und nahmen es dann doch an.",
       "promptEn": "They declined at first and then accepted after all.",
@@ -5683,7 +5683,7 @@
     },
     {
       "id": "satz_a1_0083",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "빈손으로 가면 현우가 더 긴장해요.",
       "promptDe": "Wenn ich mit leeren Händen komme, ist Hyunwoo noch nervöser.",
       "promptEn": "If I arrive empty-handed, Hyunwoo gets even more nervous.",
@@ -5695,7 +5695,7 @@
     },
     {
       "id": "satz_a1_0084",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "백화점 상품권은 편하지만 정이 없어 보일 수 있어요.",
       "promptDe": "Ein Kaufhausgutschein ist praktisch, wirkt aber schnell unpersönlich.",
       "promptEn": "A department-store voucher is practical but can come across as impersonal.",
@@ -5707,7 +5707,7 @@
     },
     {
       "id": "satz_a1_0085",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "꽃다발은 예쁘지만 버스에서 들고 가기 힘들어요.",
       "promptDe": "Ein Blumenstrauß ist schön, aber im Bus schwer zu tragen.",
       "promptEn": "A bouquet is pretty but hard to carry on the bus.",
@@ -5719,7 +5719,7 @@
     },
     {
       "id": "satz_a1_0086",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "돌아갈 때 답례로 반찬을 싸 주셨어요.",
       "promptDe": "Beim Gehen packten sie mir als Gegengabe Beilagen ein.",
       "promptEn": "As I left they packed side dishes for me in return.",
@@ -5731,7 +5731,7 @@
     },
     {
       "id": "satz_a1_0087",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "선물을 받으면 짧게 감사 인사를 해요.",
       "promptDe": "Wenn ich ein Geschenk bekomme, bedanke ich mich kurz.",
       "promptEn": "When I get a gift, I say a short thank-you.",
@@ -5743,7 +5743,7 @@
     },
     {
       "id": "satz_a1_0088",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "현관에서 신발을 벗고 잠시 멈췄어요.",
       "promptDe": "Im Eingang zog ich die Schuhe aus und blieb kurz stehen.",
       "promptEn": "I took off my shoes in the entryway and paused.",
@@ -5755,7 +5755,7 @@
     },
     {
       "id": "satz_a1_0089",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "손님 슬리퍼가 한 짝밖에 없었어요.",
       "promptDe": "Von den Gästeslippern war nur einer da.",
       "promptEn": "There was only one guest slipper.",
@@ -5767,7 +5767,7 @@
     },
     {
       "id": "satz_a1_0090",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "앉으세요 하시는데 어디가 제 자리인지 몰랐어요.",
       "promptDe": "Sie sagten, ich solle mich setzen, aber ich wusste nicht, welcher Platz meiner war.",
       "promptEn": "They told me to sit, but I didn't know which seat was mine.",
@@ -5779,7 +5779,7 @@
     },
     {
       "id": "satz_a1_0091",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "윗목이 서늘해서 아래로 오라고 하셨어요.",
       "promptDe": "Der obere Teil des Zimmers war kühl, also sollte ich weiter nach unten rücken.",
       "promptEn": "The upper part of the room was cool, so they told me to move down.",
@@ -5791,7 +5791,7 @@
     },
     {
       "id": "satz_a1_0092",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "아랫목이 따뜻해서 할머니가 앉으시는 자리예요.",
       "promptDe": "Der warme Platz am Boden gehört der Großmutter.",
       "promptEn": "The warm spot on the floor is where grandmother sits.",
@@ -5803,7 +5803,7 @@
     },
     {
       "id": "satz_a1_0093",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "바닥에 앉으니 무릎이 먼저 아팠어요.",
       "promptDe": "Als ich auf dem Boden saß, taten zuerst die Knie weh.",
       "promptEn": "When I sat on the floor, my knees hurt first.",
@@ -5815,7 +5815,7 @@
     },
     {
       "id": "satz_a1_0094",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "방석을 밀어 주셔서 감사하다고 했어요.",
       "promptDe": "Sie schoben mir ein Sitzkissen zu, und ich bedankte mich.",
       "promptEn": "They pushed a floor cushion over, and I said thank you.",
@@ -5827,7 +5827,7 @@
     },
     {
       "id": "satz_a1_0095",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "물 드세요 하셔서 컵을 두 손으로 받았어요.",
       "promptDe": "Als sie mir Wasser anboten, nahm ich das Glas mit beiden Händen.",
       "promptEn": "When they offered me water, I took the glass with both hands.",
@@ -5839,7 +5839,7 @@
     },
     {
       "id": "satz_a1_0096",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "손 씻기 전에 화장실이 어디인지 물었어요.",
       "promptDe": "Bevor ich mir die Hände wusch, fragte ich, wo das Bad ist.",
       "promptEn": "Before washing my hands, I asked where the bathroom was.",
@@ -5851,7 +5851,7 @@
     },
     {
       "id": "satz_a1_0097",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "화장실 문을 열고 슬리퍼를 또 찾았어요.",
       "promptDe": "Ich öffnete die Badtür und suchte wieder nach Slippern.",
       "promptEn": "I opened the bathroom door and looked for slippers again.",
@@ -5863,7 +5863,7 @@
     },
     {
       "id": "satz_a1_0098",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "할아버지가 주무셔서 조용히 했어요.",
       "promptDe": "Der Großvater schlief, also war ich leise.",
       "promptEn": "Grandfather was asleep, so I kept quiet.",
@@ -5875,7 +5875,7 @@
     },
     {
       "id": "satz_a1_0099",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "방문 예절은 현우가 차에서 알려 줬어요.",
       "promptDe": "Die Benimmregeln für den Besuch hat Hyunwoo mir im Auto erklärt.",
       "promptEn": "Hyunwoo explained the visiting manners to me in the car.",
@@ -6175,7 +6175,7 @@
     },
     {
       "id": "satz_a1_0124",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "추석에는 고속도로가 주차장이 돼요.",
       "promptDe": "An Chuseok wird die Autobahn zum Parkplatz.",
       "promptEn": "At Chuseok the highway turns into a parking lot.",
@@ -6187,7 +6187,7 @@
     },
     {
       "id": "satz_a1_0125",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "송편 속이 달아서 하나 더 집었어요.",
       "promptDe": "Die Füllung der Songpyeon war süß, also nahm ich noch eines.",
       "promptEn": "The songpyeon filling was sweet, so I took another one.",
@@ -6199,7 +6199,7 @@
     },
     {
       "id": "satz_a1_0126",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "송편 빚다가 만두처럼 커졌어요.",
       "promptDe": "Beim Formen wurden meine Songpyeon so groß wie Teigtaschen.",
       "promptEn": "As I shaped the songpyeon, mine got as big as dumplings.",
@@ -6211,7 +6211,7 @@
     },
     {
       "id": "satz_a1_0127",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "귀성 기차표를 사려고 알람을 다섯 개 맞췄어요.",
       "promptDe": "Für die Zugtickets nach Hause stellte ich fünf Wecker.",
       "promptEn": "I set five alarms to get train tickets home for the holiday.",
@@ -6223,7 +6223,7 @@
     },
     {
       "id": "satz_a1_0128",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "성묘 갈 때는 편한 신발을 신으라고 하셨어요.",
       "promptDe": "Für den Grabbesuch sollte ich bequeme Schuhe anziehen.",
       "promptEn": "They told me to wear comfortable shoes for the grave visit.",
@@ -6235,7 +6235,7 @@
     },
     {
       "id": "satz_a1_0129",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "벌초는 산에 올라가서 무덤가 풀을 깎는 일이에요.",
       "promptDe": "Grabpflege heißt, den Hügel hinaufzugehen und das Gras am Grab zu schneiden.",
       "promptEn": "Tending the grave means going up the hill and cutting the grass around it.",
@@ -6247,7 +6247,7 @@
     },
     {
       "id": "satz_a1_0130",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "송편 찌는 김이 올라서 부엌이 뿌예졌어요.",
       "promptDe": "Der Dampf der Songpyeon machte die Küche ganz neblig.",
       "promptEn": "Steam from the songpyeon left the kitchen hazy.",
@@ -6259,7 +6259,7 @@
     },
     {
       "id": "satz_a1_0131",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "햇과일을 차례상에 제일 먼저 올렸어요.",
       "promptDe": "Das Obst der neuen Ernte kam zuerst auf den Ahnentisch.",
       "promptEn": "The first fruit of the season went on the ancestral table first.",
@@ -6271,7 +6271,7 @@
     },
     {
       "id": "satz_a1_0132",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "한가위에는 보름달이 크다고 아이들이 말했어요.",
       "promptDe": "An Hangawi sagten die Kinder, der Vollmond sei besonders groß.",
       "promptEn": "At Hangawi the children said the full moon was especially big.",
@@ -6283,7 +6283,7 @@
     },
     {
       "id": "satz_a1_0133",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "이건 잎을 떼고 먹어요.",
       "promptDe": "Bei diesem hier zieht man das Blatt ab, bevor man es isst.",
       "promptEn": "With this one, you pull off the leaf before eating it.",
@@ -6295,7 +6295,7 @@
     },
     {
       "id": "satz_a1_0134",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "명절 증후군은 차 안에서 이미 시작됐어요.",
       "promptDe": "Der Feiertagsstress fing schon im Auto an.",
       "promptEn": "The holiday burnout had already started in the car.",
@@ -6307,7 +6307,7 @@
     },
     {
       "id": "satz_a1_0135",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "차례를 지내기 전에는 웃음소리를 줄였어요.",
       "promptDe": "Vor dem Ahnenritual wurde es deutlich leiser.",
       "promptEn": "Before the rite everyone got noticeably quieter.",
@@ -6319,7 +6319,7 @@
     },
     {
       "id": "satz_a1_0136",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "처남이 엘리베이터에서 먼저 손을 흔들었어요.",
       "promptDe": "Der Schwager winkte zuerst im Aufzug.",
       "promptEn": "My wife's brother waved first in the elevator.",
@@ -6331,7 +6331,7 @@
     },
     {
       "id": "satz_a1_0137",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "처제가 독일어를 한 마디 해서 분위기가 풀렸어요.",
       "promptDe": "Die jüngere Schwägerin sagte ein deutsches Wort, und die Stimmung lockerte sich.",
       "promptEn": "My wife's younger sister said a word in German, and the mood eased.",
@@ -6343,7 +6343,7 @@
     },
     {
       "id": "satz_a1_0138",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "시누이가 옷걸이를 찾아 줬어요.",
       "promptDe": "Die Schwägerin fand den Kleiderbügel für mich.",
       "promptEn": "My husband's sister found a hanger for me.",
@@ -6355,7 +6355,7 @@
     },
     {
       "id": "satz_a1_0139",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "시동생이 게임을 하자고 해서 현우가 말렸어요.",
       "promptDe": "Der jüngere Schwager wollte spielen, aber Hyunwoo hielt ihn zurück.",
       "promptEn": "The younger brother wanted to play a game, but Hyunwoo stopped him.",
@@ -6367,7 +6367,7 @@
     },
     {
       "id": "satz_a1_0140",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "형부가 맥주를 권해서 반만 받았어요.",
       "promptDe": "Der Mann meiner älteren Schwester bot Bier an, ich nahm nur die Hälfte.",
       "promptEn": "My older sister's husband offered beer, and I took only half.",
@@ -6379,7 +6379,7 @@
     },
     {
       "id": "satz_a1_0141",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "올케가 주방에서 눈짓으로 물컵을 가리켰어요.",
       "promptDe": "Die Schwägerin zeigte in der Küche mit den Augen auf das Wasserglas.",
       "promptEn": "My brother's wife pointed at the water glass with her eyes.",
@@ -6391,7 +6391,7 @@
     },
     {
       "id": "satz_a1_0142",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "막내가 사진을 찍어 주겠다고 뛰어왔어요.",
       "promptDe": "Das Nesthäkchen rannte her und wollte ein Foto machen.",
       "promptEn": "The youngest ran over and offered to take a photo.",
@@ -6403,7 +6403,7 @@
     },
     {
       "id": "satz_a1_0143",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "맏이가 자리 배치를 조용히 정했어요.",
       "promptDe": "Das älteste Kind regelte leise die Sitzordnung.",
       "promptEn": "The eldest quietly set the seating.",
@@ -6415,7 +6415,7 @@
     },
     {
       "id": "satz_a1_0144",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "남편이 동생을 소개했어요. 악수를 해도 될까요?",
       "promptDe": "Mein Mann hat mir seinen jüngeren Bruder vorgestellt. Darf ich ihm die Hand geben?",
       "promptEn": "My husband introduced me to his younger brother. Is it okay to shake his hand?",
@@ -6427,7 +6427,7 @@
     },
     {
       "id": "satz_a1_0145",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "게임 한 판 하니 금방 친해졌어요.",
       "promptDe": "Nach einer Spielrunde wurden wir schnell vertrauter.",
       "promptEn": "After one game we got closer quickly.",
@@ -6439,7 +6439,7 @@
     },
     {
       "id": "satz_a1_0146",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "장난으로 제 발음을 따라 해서 같이 웃었어요.",
       "promptDe": "Im Scherz ahmten sie meine Aussprache nach, und wir lachten.",
       "promptEn": "They teased my pronunciation, and we laughed together.",
@@ -6451,7 +6451,7 @@
     },
     {
       "id": "satz_a1_0147",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "단체 사진에서 제가 제일 뒤에 서 있어요.",
       "promptDe": "Auf dem Gruppenfoto stehe ich ganz hinten.",
       "promptEn": "In the group photo I am standing at the very back.",
@@ -6463,7 +6463,7 @@
     },
     {
       "id": "satz_a1_0148",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "인증샷은 올리지 말라고 현우가 먼저 말했어요.",
       "promptDe": "Hyunwoo sagte zuerst, das Foto nicht hochzuladen.",
       "promptEn": "Hyunwoo said first not to post the pic.",
@@ -6475,7 +6475,7 @@
     },
     {
       "id": "satz_a1_0149",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "가족 앨범에서 현우 교복 사진을 봤어요.",
       "promptDe": "Im Familienalbum sah ich Hyunwoos Schuluniform.",
       "promptEn": "I saw Hyunwoo's school uniform in the family album.",
@@ -6487,7 +6487,7 @@
     },
     {
       "id": "satz_a1_0150",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "차례상 앞에서는 촬영 금지라고 작게 알려 주셨어요.",
       "promptDe": "Vor dem Ahnentisch sagten sie leise, dass man nicht fotografieren darf.",
       "promptEn": "In front of the ancestral table they quietly told me photos were not allowed.",
@@ -6499,7 +6499,7 @@
     },
     {
       "id": "satz_a1_0151",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "나갈 때 잘 다녀오겠습니다라고 했어요.",
       "promptDe": "Ich mache mich dann auf den Weg. Danke für heute.",
       "promptEn": "I'll be heading out now. Thanks for having me.",
@@ -6511,7 +6511,7 @@
     },
     {
       "id": "satz_a1_0152",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "상을 물릴 때 잘 먹었습니다 하고 크게 인사했어요.",
       "promptDe": "Beim Abräumen bedankte ich mich laut für das Essen.",
       "promptEn": "As the table was cleared, I said thank you for the meal out loud.",
@@ -6523,7 +6523,7 @@
     },
     {
       "id": "satz_a1_0153",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "다음에 또 오세요 하셔서 신발을 거꾸로 신었어요.",
       "promptDe": "Als sie sagten, ich solle wiederkommen, zog ich die Schuhe verkehrt herum an.",
       "promptEn": "When they told me to come again, I put my shoes on backwards.",
@@ -6535,7 +6535,7 @@
     },
     {
       "id": "satz_a1_0154",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "문 앞에서 연락드릴게요 하고 손을 흔들었어요.",
       "promptDe": "An der Tür sagte ich, ich melde mich, und winkte.",
       "promptEn": "At the door I said I'd be in touch and waved.",
@@ -6547,7 +6547,7 @@
     },
     {
       "id": "satz_a1_0155",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "차에서 카톡으로 감사 메시지를 보냈어요.",
       "promptDe": "Im Auto schickte ich die Danke-Nachricht per KakaoTalk.",
       "promptEn": "In the car I sent a thank-you message on KakaoTalk.",
@@ -6559,7 +6559,7 @@
     },
     {
       "id": "satz_a1_0156",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "이모티콘은 절하는 토끼로 했어요.",
       "promptDe": "Als Sticker habe ich das verbeugende Häschen genommen.",
       "promptEn": "For the sticker, I went with the bowing rabbit.",
@@ -6571,7 +6571,7 @@
     },
     {
       "id": "satz_a1_0157",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "다음 날 안부를 짧게 물었어요.",
       "promptDe": "Am nächsten Tag fragte ich kurz nach ihrem Befinden.",
       "promptEn": "The next day I asked briefly how they were doing.",
@@ -6583,7 +6583,7 @@
     },
     {
       "id": "satz_a1_0158",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "사진 전송 전에 현우에게 먼저 보여 줬어요.",
       "promptDe": "Vor dem Senden zeigte ich die Fotos zuerst Hyunwoo.",
       "promptEn": "Before sending I showed the photos to Hyunwoo first.",
@@ -6595,7 +6595,7 @@
     },
     {
       "id": "satz_a1_0159",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "방문 소감은 따뜻했다고만 적었어요.",
       "promptDe": "Als Eindruck schrieb ich nur, es sei warm gewesen.",
       "promptEn": "For my impression of the visit I only wrote that it felt warm.",
@@ -7039,7 +7039,7 @@
     },
     {
       "id": "satz_a2_0075",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "누가 내 발음을 놀려도 그냥 웃어넘기면 돼요.",
       "promptDe": "Auch wenn sich jemand über meine Aussprache lustig macht, kann ich einfach darüber lachen.",
       "promptEn": "Even if someone makes fun of my pronunciation, I can just laugh it off.",
@@ -7051,7 +7051,7 @@
     },
     {
       "id": "satz_a2_0076",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "현우가 제 편을 들어 줘서 든든했어요.",
       "promptDe": "Hyunwoo hat zu mir gehalten, und das hat mir Sicherheit gegeben.",
       "promptEn": "Hyunwoo took my side, and that made me feel supported.",
@@ -7063,7 +7063,7 @@
     },
     {
       "id": "satz_a2_0077",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "별명이 생기기 전에 제가 먼저 하나를 정했어요.",
       "promptDe": "Bevor ein Spitzname entstand, wählte ich selbst einen.",
       "promptEn": "Before a nickname appeared, I chose one first.",
@@ -7075,7 +7075,7 @@
     },
     {
       "id": "satz_a2_0078",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "게임 한 판 하니 존댓말이 반말로 넘어갔어요.",
       "promptDe": "Nach einer Runde rutschte die Höflichkeit ins Vertraute.",
       "promptEn": "After one game, honorifics slipped into casual speech.",
@@ -7087,7 +7087,7 @@
     },
     {
       "id": "satz_a2_0079",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "현우가 어릴 때 이야기는 아무에게도 말하지 않기로 했어요.",
       "promptDe": "Ich habe beschlossen, niemandem von Hyunwoos Kindheit zu erzählen.",
       "promptEn": "I decided not to tell anyone about Hyunwoo's childhood.",
@@ -7099,7 +7099,7 @@
     },
     {
       "id": "satz_a2_0080",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "현우의 이야기를 들으면서 계속 맞장구를 쳤어요.",
       "promptDe": "Während ich Hyunwoos Geschichte zuhörte, reagierte ich immer wieder zustimmend.",
       "promptEn": "While listening to Hyunwoo's story, I kept responding in agreement.",
@@ -7111,7 +7111,7 @@
     },
     {
       "id": "satz_a2_0081",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "통역 눈짓을 현우가 못 보면 그냥 웃어요.",
       "promptDe": "Versteht Hyunwoo meinen Blick nicht, lache ich einfach.",
       "promptEn": "If Hyunwoo doesn't get the look, I just laugh.",
@@ -7123,7 +7123,7 @@
     },
     {
       "id": "satz_a2_0082",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "같이 웃다 보면 존댓말 실수는 잊혀요.",
       "promptDe": "Wenn man zusammen lacht, vergisst man Höflichkeitsfehler.",
       "promptEn": "If you laugh together, honorific mistakes are forgotten.",
@@ -7135,7 +7135,7 @@
     },
     {
       "id": "satz_a2_0083",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "동생 편을 들면 현우가 눈을 흘겨요.",
       "promptDe": "Halte ich zum jüngeren Geschwister, schielt Hyunwoo.",
       "promptEn": "If I take the younger sibling side, Hyunwoo side-eyes me.",
@@ -7147,7 +7147,7 @@
     },
     {
       "id": "satz_a2_0084",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "단톡방에 입장하자마자 이모티콘이 쏟아졌어요.",
       "promptDe": "Kaum war ich im Familienchat, regnete es Sticker.",
       "promptEn": "As soon as I joined the family group chat, stickers poured in.",
@@ -7159,7 +7159,7 @@
     },
     {
       "id": "satz_a2_0085",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "남은 반찬 봉투가 두 개라서 양손에 들었어요.",
       "promptDe": "Ich trug zwei Tüten Reste in beiden Händen.",
       "promptEn": "I carried two leftover bags, one in each hand.",
@@ -7171,7 +7171,7 @@
     },
     {
       "id": "satz_a2_0086",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "반말 실수를 하자 동생이 더 좋아했어요.",
       "promptDe": "Nach einem Rutscher ins Du mochte mich das jüngere Geschwister noch mehr.",
       "promptEn": "After I slipped into casual speech, the younger sibling liked me even more.",
@@ -7615,7 +7615,7 @@
     },
     {
       "id": "satz_a2_0123",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "반말 전환은 동생이 먼저 하자고 했어요.",
       "promptDe": "Den Wechsel ins Vertraute schlug das jüngere Geschwister zuerst vor.",
       "promptEn": "The younger sibling suggested the switch to casual speech first.",
@@ -7627,7 +7627,7 @@
     },
     {
       "id": "satz_a2_0124",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "부모님 앞에서는 존댓말 유지를 약속했어요.",
       "promptDe": "Vor den Eltern versprach ich, die Höflichkeit beizubehalten.",
       "promptEn": "In front of the parents I promised to keep honorifics.",
@@ -7639,7 +7639,7 @@
     },
     {
       "id": "satz_a2_0125",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "말실수로 형이라고 불러서 현우 눈이 커졌어요.",
       "promptDe": "Aus Versehen sagte ich hyeong, und Hyunwoo riss die Augen auf.",
       "promptEn": "I slipped and called him hyeong, and Hyunwoo's eyes went wide.",
@@ -7651,7 +7651,7 @@
     },
     {
       "id": "satz_a2_0126",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "호칭 연습을 차에 타기 전에 세 번 했어요.",
       "promptDe": "Die Anrede übte ich dreimal vor der Autofahrt.",
       "promptEn": "I practiced the address terms three times before the car ride.",
@@ -7663,7 +7663,7 @@
     },
     {
       "id": "satz_a2_0127",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "편하게 말해요 하셔도 처음엔 존댓말이 나왔어요.",
       "promptDe": "Auch als sie sagten, ich solle locker sprechen, kam zuerst die Höflichkeitsform.",
       "promptEn": "Even after they told me to speak comfortably, honorifics came out first.",
@@ -7675,7 +7675,7 @@
     },
     {
       "id": "satz_a2_0128",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "아직 어색해요라고 하니 동생이 천천히 해 줬어요.",
       "promptDe": "Als ich sagte, es sei noch ungewohnt, wurde das Tempo langsamer.",
       "promptEn": "When I said it still feels awkward, the younger sibling slowed down.",
@@ -7687,7 +7687,7 @@
     },
     {
       "id": "satz_a2_0129",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "존댓말 버릇이 남아서 게임에서도 요를 붙였어요.",
       "promptDe": "Die Höflichkeitsgewohnheit blieb, also hängte ich sogar im Spiel ein yo an.",
       "promptEn": "The honorific habit stuck, so I even tacked yo onto everything in the game.",
@@ -7699,7 +7699,7 @@
     },
     {
       "id": "satz_a2_0130",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "나이 확인 전에는 이름을 부르지 않았어요.",
       "promptDe": "Vor dem Altersabgleich benutzte ich keinen Vornamen.",
       "promptEn": "I did not use a first name before checking ages.",
@@ -7711,7 +7711,7 @@
     },
     {
       "id": "satz_a2_0131",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "처음엔 서로 존댓말로 시작해 마음이 놓였어요.",
       "promptDe": "Am Anfang half gegenseitige Höflichkeit, ich war erleichtert.",
       "promptEn": "Starting with mutual honorifics made me feel safer.",
@@ -7723,7 +7723,7 @@
     },
     {
       "id": "satz_a2_0132",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "말투 맞추기는 현우가 눈짓으로 도와줬어요.",
       "promptDe": "Hyunwoo half mit einem Blick, den Ton anzupassen.",
       "promptEn": "Hyunwoo helped me match the speech style with a look.",
@@ -7735,7 +7735,7 @@
     },
     {
       "id": "satz_a2_0133",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "존댓말 실수를 사과하니 아버지가 괜찮다고 하셨어요.",
       "promptDe": "Nach der Entschuldigung für den Höflichkeitsfehler sagte der Vater, es sei in Ordnung.",
       "promptEn": "When I apologized for the honorific mistake, father said it was fine.",
@@ -7747,7 +7747,7 @@
     },
     {
       "id": "satz_a2_0134",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "반말 연습은 주차장에서만 하기로 했어요.",
       "promptDe": "Banmal übten wir nur auf dem Parkplatz.",
       "promptEn": "We agreed to practice casual speech only in the parking lot.",
@@ -10783,7 +10783,7 @@
     },
     {
       "id": "satz_a1_0172",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "이 연고를 하루에 두 번 발라요.",
       "promptDe": "Ich trage diese Salbe zweimal am Tag auf.",
       "promptEn": "I apply this ointment twice a day.",
@@ -10795,7 +10795,7 @@
     },
     {
       "id": "satz_a1_0173",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "약국에서 마스크를 한 통 샀어요.",
       "promptDe": "In der Apotheke habe ich eine Packung Masken gekauft.",
       "promptEn": "I bought a pack of masks at the pharmacy.",
@@ -10807,7 +10807,7 @@
     },
     {
       "id": "satz_a1_0174",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "계산대 앞에서 카드를 꺼냈어요.",
       "promptDe": "Vor der Kasse habe ich meine Karte herausgenommen.",
       "promptEn": "I took out my card in front of the checkout.",
@@ -10819,7 +10819,7 @@
     },
     {
       "id": "satz_a1_0175",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "복용 시간을 종이에 적어 주세요.",
       "promptDe": "Bitte schreiben Sie die Einnahmezeiten auf Papier.",
       "promptEn": "Please write the dose times on paper.",
@@ -10831,7 +10831,7 @@
     },
     {
       "id": "satz_a1_0176",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "일회용 밴드를 작은 걸로 주세요.",
       "promptDe": "Bitte geben Sie mir ein kleines Pflaster.",
       "promptEn": "Please give me a small adhesive bandage.",
@@ -10843,7 +10843,7 @@
     },
     {
       "id": "satz_a1_0177",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "체온계가 어디에 있어요?",
       "promptDe": "Wo ist das Fieberthermometer?",
       "promptEn": "Where is the thermometer?",
@@ -10855,7 +10855,7 @@
     },
     {
       "id": "satz_a1_0178",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "목이 아파서 가글액을 찾고 있어요.",
       "promptDe": "Mein Hals tut weh, deshalb suche ich Mundspülung.",
       "promptEn": "My throat hurts, so I am looking for mouthwash.",
@@ -10867,7 +10867,7 @@
     },
     {
       "id": "satz_a1_0179",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "비타민제를 식후에 먹어요.",
       "promptDe": "Ich nehme das Vitaminpräparat nach dem Essen.",
       "promptEn": "I take the vitamin supplement after meals.",
@@ -10879,7 +10879,7 @@
     },
     {
       "id": "satz_a1_0180",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "이 약에 알레르기가 있는지 확인해요.",
       "promptDe": "Ich prüfe, ob ich gegen dieses Mittel eine Allergie habe.",
       "promptEn": "I check whether I have an allergy to this medicine.",
@@ -10891,7 +10891,7 @@
     },
     {
       "id": "satz_a1_0181",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "이 약은 무처방으로 살 수 있어요.",
       "promptDe": "Dieses Mittel gibt es rezeptfrei.",
       "promptEn": "You can buy this medicine over the counter.",
@@ -10903,7 +10903,7 @@
     },
     {
       "id": "satz_a1_0182",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "허리가 아파서 파스를 붙였어요.",
       "promptDe": "Mein Rücken tut weh, deshalb habe ich ein Schmerzpflaster aufgeklebt.",
       "promptEn": "My back hurts, so I put on a pain relief patch.",
@@ -10915,7 +10915,7 @@
     },
     {
       "id": "satz_a1_0183",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "속이 쓰려서 제산제를 샀어요.",
       "promptDe": "Mir ist übel, deshalb habe ich ein Antazidum gekauft.",
       "promptEn": "I have heartburn, so I bought an antacid.",
@@ -11071,7 +11071,7 @@
     },
     {
       "id": "satz_a1_0196",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "초인종을 두 번 눌렀어요.",
       "promptDe": "Ich habe zweimal an der Klingel gedrückt.",
       "promptEn": "I pressed the doorbell twice.",
@@ -11083,7 +11083,7 @@
     },
     {
       "id": "satz_a1_0197",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "복도에 신발을 두지 마세요.",
       "promptDe": "Bitte stellen Sie keine Schuhe in den Flur.",
       "promptEn": "Please do not leave shoes in the hallway.",
@@ -11095,7 +11095,7 @@
     },
     {
       "id": "satz_a1_0198",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "이웃집에 택배가 잘못 왔어요.",
       "promptDe": "Ein Paket wurde falsch an die Nachbarwohnung geliefert.",
       "promptEn": "A parcel was delivered to the neighbor's place by mistake.",
@@ -11107,7 +11107,7 @@
     },
     {
       "id": "satz_a1_0199",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "저희 층수는 다섯 층이에요.",
       "promptDe": "Wir wohnen im fünften Stock.",
       "promptEn": "We're on the fifth floor.",
@@ -11119,7 +11119,7 @@
     },
     {
       "id": "satz_a1_0200",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "플라스틱은 꼭 분리배출하세요.",
       "promptDe": "Bitte entsorgen Sie Plastik getrennt.",
       "promptEn": "Please use sorted disposal for plastic.",
@@ -11131,7 +11131,7 @@
     },
     {
       "id": "satz_a1_0201",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "문패에 이름을 새로 붙였어요.",
       "promptDe": "Ich habe ein neues Namensschild an die Tür geklebt.",
       "promptEn": "I put a new nameplate on the door.",
@@ -11143,7 +11143,7 @@
     },
     {
       "id": "satz_a1_0202",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "공동현관 비밀번호가 바뀌었어요.",
       "promptDe": "Das Passwort am Hauseingang hat sich geändert.",
       "promptEn": "The shared entrance password changed.",
@@ -11155,7 +11155,7 @@
     },
     {
       "id": "satz_a1_0203",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "밤에는 층간소음이 나지 않게 조심해야 돼요.",
       "promptDe": "Nachts sind wir leise, damit die Nachbarn unten nichts hören.",
       "promptEn": "At night we keep quiet so the neighbors below don't hear us.",
@@ -11167,7 +11167,7 @@
     },
     {
       "id": "satz_a1_0204",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "택배함에 비밀번호를 넣어요.",
       "promptDe": "Ich gebe das Passwort in den Paketkasten ein.",
       "promptEn": "I enter the password on the parcel locker.",
@@ -11179,7 +11179,7 @@
     },
     {
       "id": "satz_a1_0205",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "엘리베이터에 공지문이 있어요.",
       "promptDe": "Am Aufzug hängt ein Aushang.",
       "promptEn": "There is a notice on the elevator.",
@@ -11191,7 +11191,7 @@
     },
     {
       "id": "satz_a1_0206",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "입구 앞 무단주차는 안 돼요.",
       "promptDe": "Vor der Einfahrt darf man nicht parken.",
       "promptEn": "You can't park in front of the entrance.",
@@ -11203,7 +11203,7 @@
     },
     {
       "id": "satz_a1_0207",
-      "level": "a1",
+      "level": "b1",
       "targetKo": "아침에 이웃 인사를 했어요.",
       "promptDe": "Heute Morgen habe ich die Nachbarn gegrüßt.",
       "promptEn": "This morning I said hi to the neighbors.",
@@ -11215,7 +11215,7 @@
     },
     {
       "id": "satz_a1_0208",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "필통 안에 펜이 세 자루 있어요.",
       "promptDe": "Im Federmäppchen sind drei Stifte.",
       "promptEn": "There are three pens in the pencil case.",
@@ -11227,7 +11227,7 @@
     },
     {
       "id": "satz_a1_0209",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "연필 실수를 지우개로 지워요.",
       "promptDe": "Ich radiere den Bleistiftfehler mit dem Radiergummi weg.",
       "promptEn": "I erase the pencil mistake with an eraser.",
@@ -11239,7 +11239,7 @@
     },
     {
       "id": "satz_a1_0210",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "이 종이를 가위로 잘라 주세요.",
       "promptDe": "Bitte schneiden Sie dieses Papier mit der Schere.",
       "promptEn": "Please cut this paper with scissors.",
@@ -11251,7 +11251,7 @@
     },
     {
       "id": "satz_a1_0211",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "자로 선을 반듯하게 그어요.",
       "promptDe": "Mit dem Lineal ziehe ich eine gerade Linie.",
       "promptEn": "I draw a straight line with a ruler.",
@@ -11263,7 +11263,7 @@
     },
     {
       "id": "satz_a1_0212",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "지도를 색연필로 칠했어요.",
       "promptDe": "Ich habe die Karte mit Buntstiften ausgemalt.",
       "promptEn": "I colored the map with colored pencils.",
@@ -11275,7 +11275,7 @@
     },
     {
       "id": "satz_a1_0213",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "한글을 연습장에 여러 번 썼어요.",
       "promptDe": "Ich habe Hangul mehrmals ins Schreibheft geschrieben.",
       "promptEn": "I wrote Hangul several times in the practice notebook.",
@@ -11287,7 +11287,7 @@
     },
     {
       "id": "satz_a1_0214",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "내일 수업 준비물을 가방에 넣어요.",
       "promptDe": "Ich packe die Sachen für den Unterricht in die Tasche.",
       "promptEn": "I'm putting what I need for class in my bag.",
@@ -11299,7 +11299,7 @@
     },
     {
       "id": "satz_a1_0215",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "숙제를 제출하다 전에 이름을 써요.",
       "promptDe": "Bevor ich die Hausaufgaben abgebe, schreibe ich meinen Namen.",
       "promptEn": "Before I submit the homework, I write my name.",
@@ -11311,7 +11311,7 @@
     },
     {
       "id": "satz_a1_0216",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "선생님이 화이트보드에 단어를 썼어요.",
       "promptDe": "Die Lehrkraft hat das Wort auf das Whiteboard geschrieben.",
       "promptEn": "The teacher wrote the word on the whiteboard.",
@@ -11323,7 +11323,7 @@
     },
     {
       "id": "satz_a1_0217",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "첫날에는 자리표 이름을 확인해요.",
       "promptDe": "Am ersten Tag prüfe ich den Namen auf der Platzkarte.",
       "promptEn": "On the first day I check the name on the seat card.",
@@ -11335,7 +11335,7 @@
     },
     {
       "id": "satz_a1_0218",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "중요한 문장은 빨리 필기하다 보면 손이 아파요.",
       "promptDe": "Wenn ich wichtige Sätze schnell mitschreibe, tun die Hände weh.",
       "promptEn": "If I take notes on important sentences quickly, my hands hurt.",
@@ -11347,7 +11347,7 @@
     },
     {
       "id": "satz_a1_0219",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "수업 시작 전에 준비됐나요?",
       "promptDe": "Bist du vor der Stunde soweit?",
       "promptEn": "Are you ready before class starts?",
@@ -11359,7 +11359,7 @@
     },
     {
       "id": "satz_a1_0220",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "다음 역에서 환승하세요.",
       "promptDe": "Steigen Sie an der nächsten Station um.",
       "promptEn": "Transfer at the next station.",
@@ -11371,7 +11371,7 @@
     },
     {
       "id": "satz_a1_0221",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "사 번 출구로 나가면 은행이 있어요.",
       "promptDe": "Wenn Sie Ausgang vier nehmen, ist dort eine Bank.",
       "promptEn": "If you take exit four, there is a bank.",
@@ -11383,7 +11383,7 @@
     },
     {
       "id": "satz_a1_0222",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "승강장에서 노란 선 뒤에 서요.",
       "promptDe": "Auf dem Bahnsteig stehe ich hinter der gelben Linie.",
       "promptEn": "On the platform I stand behind the yellow line.",
@@ -11395,7 +11395,7 @@
     },
     {
       "id": "satz_a1_0223",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "오늘 막차는 열두 시예요.",
       "promptDe": "Der letzte Zug ist heute um zwölf Uhr.",
       "promptEn": "The last train today is at twelve.",
@@ -11407,7 +11407,7 @@
     },
     {
       "id": "satz_a1_0224",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "시청역에서 하차하면 됩니다.",
       "promptDe": "Sie können am Rathaus aussteigen.",
       "promptEn": "You can get off at City Hall station.",
@@ -11419,7 +11419,7 @@
     },
     {
       "id": "satz_a1_0225",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "문이 열리면 천천히 승차하세요.",
       "promptDe": "Wenn die Tür aufgeht, steigen Sie bitte langsam ein.",
       "promptEn": "When the door opens, please board slowly.",
@@ -11431,7 +11431,7 @@
     },
     {
       "id": "satz_a1_0226",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "한 달 정기권을 충전했어요.",
       "promptDe": "Ich habe eine Monatskarte aufgeladen.",
       "promptEn": "I loaded a one-month pass.",
@@ -11443,7 +11443,7 @@
     },
     {
       "id": "satz_a1_0227",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "개찰구에 카드를 찍고 들어가요.",
       "promptDe": "Ich halte die Karte an die Sperre und gehe hinein.",
       "promptEn": "I tap the card at the ticket gate and go in.",
@@ -11455,7 +11455,7 @@
     },
     {
       "id": "satz_a1_0228",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "노선도에서 빨간 선을 찾아요.",
       "promptDe": "Auf dem Linienplan suche ich die rote Linie.",
       "promptEn": "I look for the red line on the map.",
@@ -11467,7 +11467,7 @@
     },
     {
       "id": "satz_a1_0229",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "도착 안내가 나오면 일어나요.",
       "promptDe": "Wenn die Ansage kommt, stehe ich auf.",
       "promptEn": "When the arrival announcement comes, I stand up.",
@@ -11479,7 +11479,7 @@
     },
     {
       "id": "satz_a1_0230",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "카드 잔액이 부족해서 충전이 필요해요.",
       "promptDe": "Das Kartenguthaben reicht nicht, ich muss aufladen.",
       "promptEn": "The card balance is low, so I need to top up.",
@@ -11491,7 +11491,7 @@
     },
     {
       "id": "satz_a1_0231",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "내리는 문은 오른쪽이에요.",
       "promptDe": "Die Ausstiegstür ist rechts.",
       "promptEn": "The exit door is on the right.",
@@ -11503,7 +11503,7 @@
     },
     {
       "id": "satz_a1_0232",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "바람이 불어서 겉옷을 입어요.",
       "promptDe": "Es ist windig, deshalb ziehe ich einen Überzieher an.",
       "promptEn": "It is windy, so I put on an outer layer.",
@@ -11515,7 +11515,7 @@
     },
     {
       "id": "satz_a1_0233",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "오늘 미세먼지가 많아서 마스크를 써요.",
       "promptDe": "Heute gibt es viel Feinstaub, deshalb trage ich eine Maske.",
       "promptEn": "There is a lot of fine dust today, so I wear a mask.",
@@ -11527,7 +11527,7 @@
     },
     {
       "id": "satz_a1_0234",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "일기예보를 보고 옷을 골라요.",
       "promptDe": "Ich schaue den Wetterbericht und wähle die Kleidung.",
       "promptEn": "I check the forecast and choose clothes.",
@@ -11539,7 +11539,7 @@
     },
     {
       "id": "satz_a1_0235",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "소나기가 와서 우비를 챙겼어요.",
       "promptDe": "Ein Schauer kommt, deshalb habe ich die Regenjacke eingepackt.",
       "promptEn": "A shower is coming, so I packed a rain jacket.",
@@ -11551,7 +11551,7 @@
     },
     {
       "id": "satz_a1_0236",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "낮에는 얇은 옷이 편해요.",
       "promptDe": "Tagsüber ist leichte Kleidung angenehm.",
       "promptEn": "Light clothes are comfortable during the day.",
@@ -11563,7 +11563,7 @@
     },
     {
       "id": "satz_a1_0237",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "밤에는 두꺼운 옷이 필요해요.",
       "promptDe": "Nachts brauche ich dicke Kleidung.",
       "promptEn": "At night I need thick clothes.",
@@ -11575,7 +11575,7 @@
     },
     {
       "id": "satz_a1_0238",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "봄에는 일교차가 커서 겉옷이 필요해요.",
       "promptDe": "Im Frühling ist der Temperaturunterschied groß, deshalb brauche ich eine Jacke.",
       "promptEn": "In spring the day-to-night swing is big, so I need a jacket.",
@@ -11587,7 +11587,7 @@
     },
     {
       "id": "satz_a1_0239",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "오늘 공기가 습하다 느껴져서 창문을 열어요.",
       "promptDe": "Die Luft fühlt sich heute schwül an, deshalb öffne ich das Fenster.",
       "promptEn": "The air feels humid today, so I open the window.",
@@ -11599,7 +11599,7 @@
     },
     {
       "id": "satz_a1_0240",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "아침이 쌀쌀하다 해서 목을 가렸어요.",
       "promptDe": "Weil der Morgen kühl ist, habe ich den Hals bedeckt.",
       "promptEn": "Because the morning is chilly, I covered my neck.",
@@ -11611,7 +11611,7 @@
     },
     {
       "id": "satz_a1_0241",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "오후 예보가 맑음이에요.",
       "promptDe": "Die Nachmittagsvorhersage ist heiter.",
       "promptEn": "The afternoon forecast is clear skies.",
@@ -11623,7 +11623,7 @@
     },
     {
       "id": "satz_a1_0242",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "소나기가 금방 지나갈 거예요.",
       "promptDe": "Der Schauer wird bald vorübergehen.",
       "promptEn": "The shower will pass soon.",
@@ -11635,7 +11635,7 @@
     },
     {
       "id": "satz_a1_0243",
-      "level": "a1",
+      "level": "a2",
       "targetKo": "일교차가 클 때는 옷을 겹쳐 입다 해요.",
       "promptDe": "Bei großem Temperaturunterschied trage ich Kleidung in Lagen.",
       "promptEn": "When the temperature gap is large, I layer clothes.",
@@ -11791,7 +11791,7 @@
     },
     {
       "id": "satz_a2_0135",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "이 요금제가 데이터량이 더 많아요.",
       "promptDe": "Dieser Tarif hat mehr Datenvolumen.",
       "promptEn": "This rate plan has more data.",
@@ -11803,7 +11803,7 @@
     },
     {
       "id": "satz_a2_0136",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "이번 달 데이터량이 벌써 끝났어요.",
       "promptDe": "Das Datenvolumen für diesen Monat ist schon aufgebraucht.",
       "promptEn": "This month's data allowance is already gone.",
@@ -11815,7 +11815,7 @@
     },
     {
       "id": "satz_a2_0137",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "주말에는 데이터가 무제한이에요.",
       "promptDe": "Am Wochenende ist das Datenvolumen unbegrenzt.",
       "promptEn": "On weekends the data is unlimited.",
@@ -11827,7 +11827,7 @@
     },
     {
       "id": "satz_a2_0138",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "약정이 올해 십이월에 끝나요.",
       "promptDe": "Die Vertragslaufzeit endet im Dezember dieses Jahres.",
       "promptEn": "The contract term ends this December.",
@@ -11839,7 +11839,7 @@
     },
     {
       "id": "satz_a2_0139",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "지금 바꾸면 위약금이 나와요.",
       "promptDe": "Wenn ich jetzt wechsle, fällt eine Vertragsstrafe an.",
       "promptEn": "If I switch now, there is an early-termination fee.",
@@ -11851,7 +11851,7 @@
     },
     {
       "id": "satz_a2_0140",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "독일 가기 전에 로밍을 신청해요.",
       "promptDe": "Vor der Reise nach Deutschland beantrage ich Roaming.",
       "promptEn": "I apply for roaming before going to Germany.",
@@ -11863,7 +11863,7 @@
     },
     {
       "id": "satz_a2_0141",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "필요 없는 부가서비스를 껐어요.",
       "promptDe": "Ich habe unnötige Zusatzdienste ausgeschaltet.",
       "promptEn": "I turned off add-on services I do not need.",
@@ -11875,7 +11875,7 @@
     },
     {
       "id": "satz_a2_0142",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "이번 달 청구서가 평소보다 높아요.",
       "promptDe": "Die Rechnung diesen Monat ist höher als sonst.",
       "promptEn": "This month's bill is higher than usual.",
@@ -11887,7 +11887,7 @@
     },
     {
       "id": "satz_a2_0143",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "요금은 자동이체로 빠져요.",
       "promptDe": "Die Gebühr wird per Lastschrift abgebucht.",
       "promptEn": "The fee is taken by auto debit.",
@@ -11899,7 +11899,7 @@
     },
     {
       "id": "satz_a2_0144",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "고객센터에 오전에 전화했어요.",
       "promptDe": "Ich habe das Kundencenter am Vormittag angerufen.",
       "promptEn": "I called the customer center in the morning.",
@@ -11911,7 +11911,7 @@
     },
     {
       "id": "satz_a2_0145",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "새 번호를 개통하다 전에 신분증이 필요해요.",
       "promptDe": "Bevor ich eine neue Nummer freischalte, brauche ich den Ausweis.",
       "promptEn": "Before I activate a new number, I need ID.",
@@ -11923,7 +11923,7 @@
     },
     {
       "id": "satz_a2_0146",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "부족하면 데이터 충전을 추가로 사요.",
       "promptDe": "Wenn es nicht reicht, kaufe ich eine Datenaufladung dazu.",
       "promptEn": "If it is not enough, I buy a data top-up.",
@@ -11935,7 +11935,7 @@
     },
     {
       "id": "satz_a2_0147",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "월세를 오늘 이체하다 전에 잔고를 봐요.",
       "promptDe": "Bevor ich die Miete überweise, schaue ich auf den Kontostand.",
       "promptEn": "Before I transfer the rent, I check the balance.",
@@ -11947,7 +11947,7 @@
     },
     {
       "id": "satz_a2_0148",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "인터넷 뱅킹 인증서가 만료됐어요.",
       "promptDe": "Das Onlinebanking-Zertifikat ist abgelaufen.",
       "promptEn": "The online banking certificate expired.",
@@ -11959,7 +11959,7 @@
     },
     {
       "id": "satz_a2_0149",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "보안카드 번호를 두 개 입력해요.",
       "promptDe": "Ich gebe zwei Nummern der Sicherheitskarte ein.",
       "promptEn": "I enter two numbers from the security card.",
@@ -11971,7 +11971,7 @@
     },
     {
       "id": "satz_a2_0150",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "대기번호를 뽑고 앉아서 기다려요.",
       "promptDe": "Ich ziehe eine Wartenummer und warte im Sitzen.",
       "promptEn": "I take a queue number and wait seated.",
@@ -11983,7 +11983,7 @@
     },
     {
       "id": "satz_a2_0151",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "하루 이체 한도를 올렸어요.",
       "promptDe": "Ich habe das tägliche Überweisungslimit erhöht.",
       "promptEn": "I raised the daily transfer limit.",
@@ -11995,7 +11995,7 @@
     },
     {
       "id": "satz_a2_0152",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "창구직원이 서류를 천천히 설명해요.",
       "promptDe": "Die Schalterkraft erklärt die Unterlagen langsam.",
       "promptEn": "The counter staff explains the papers slowly.",
@@ -12007,7 +12007,7 @@
     },
     {
       "id": "satz_a2_0153",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "창구에서 통장정리를 부탁했어요.",
       "promptDe": "Am Schalter habe ich um einen Kontoauszug gebeten.",
       "promptEn": "I asked for a passbook update at the counter.",
@@ -12019,7 +12019,7 @@
     },
     {
       "id": "satz_a2_0154",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "계좌를 만들 때 인감이 필요해요.",
       "promptDe": "Zum Kontoeröffnen brauche ich den Namensstempel.",
       "promptEn": "I need a name seal to open an account.",
@@ -12031,7 +12031,7 @@
     },
     {
       "id": "satz_a2_0155",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "비밀번호 재설정을 위해 신분증을 보여 줬어요.",
       "promptDe": "Zum Passwort zurücksetzen habe ich den Ausweis gezeigt.",
       "promptEn": "I showed my ID for a password reset.",
@@ -12043,7 +12043,7 @@
     },
     {
       "id": "satz_a2_0156",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "창구 마감이 네 시라서 서둘렀어요.",
       "promptDe": "Der Schalterschluss ist um vier, deshalb habe ich mich beeilt.",
       "promptEn": "Counter closing is at four, so I hurried.",
@@ -12055,7 +12055,7 @@
     },
     {
       "id": "satz_a2_0157",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "입금 확인 문자가 아직 안 왔어요.",
       "promptDe": "Die Eingangsbestätigung ist noch nicht gekommen.",
       "promptEn": "The deposit confirmation text has not arrived yet.",
@@ -12067,7 +12067,7 @@
     },
     {
       "id": "satz_a2_0158",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "출금 한도를 잠시 낮춰 두었어요.",
       "promptDe": "Ich habe das Abhebungslimit vorübergehend gesenkt.",
       "promptEn": "I temporarily lowered the withdrawal limit.",
@@ -12511,7 +12511,7 @@
     },
     {
       "id": "satz_a2_0195",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "이번 달부터 시급이 올랐어요.",
       "promptDe": "Ab diesem Monat ist der Stundenlohn gestiegen.",
       "promptEn": "The hourly wage went up this month.",
@@ -12523,7 +12523,7 @@
     },
     {
       "id": "satz_a2_0196",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "다음 주 근무표가 오늘 올라와요.",
       "promptDe": "Der Dienstplan für nächste Woche kommt heute.",
       "promptEn": "Next week's shift schedule is posted today.",
@@ -12535,7 +12535,7 @@
     },
     {
       "id": "satz_a2_0197",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "열 시 이후에는 야간수당이 붙어요.",
       "promptDe": "Nach zehn Uhr gibt es einen Nachtzuschlag.",
       "promptEn": "After ten there is a night bonus.",
@@ -12547,7 +12547,7 @@
     },
     {
       "id": "satz_a2_0198",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "네 시간마다 휴게시간이 십오 분이에요.",
       "promptDe": "Alle vier Stunden gibt es fünfzehn Minuten Pause.",
       "promptEn": "Every four hours there is a fifteen-minute break.",
@@ -12559,7 +12559,7 @@
     },
     {
       "id": "satz_a2_0199",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "마감 전에 인수인계를 짧게 해요.",
       "promptDe": "Vor Feierabend machen wir eine kurze Übergabe.",
       "promptEn": "Before closing we do a short handover.",
@@ -12571,7 +12571,7 @@
     },
     {
       "id": "satz_a2_0200",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "새 알바생에게 커피 기계를 보여 줬어요.",
       "promptDe": "Ich habe der neuen Aushilfe die Kaffeemaschine gezeigt.",
       "promptEn": "I showed the new part-timer the coffee machine.",
@@ -12583,7 +12583,7 @@
     },
     {
       "id": "satz_a2_0201",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "일주일에 십오 시간을 일하면 주휴수당이 나와요.",
       "promptDe": "Bei fünfzehn Stunden pro Woche gibt es Wochenruhegeld.",
       "promptEn": "If you work fifteen hours a week, you get weekly rest pay.",
@@ -12595,7 +12595,7 @@
     },
     {
       "id": "satz_a2_0202",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "첫날에 근로계약을 읽고 서명해요.",
       "promptDe": "Am ersten Tag lese ich den Arbeitsvertrag und unterschreibe.",
       "promptEn": "On the first day I read and sign the work contract.",
@@ -12607,7 +12607,7 @@
     },
     {
       "id": "satz_a2_0203",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "여섯 시에 교대가 있어서 조금 일찍 와요.",
       "promptDe": "Um sechs ist Schichtwechsel, deshalb komme ich etwas früher.",
       "promptEn": "Shift change is at six, so I come a bit early.",
@@ -12619,7 +12619,7 @@
     },
     {
       "id": "satz_a2_0204",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "점장에게 휴가를 미리 말했어요.",
       "promptDe": "Ich habe der Filialleitung den Urlaub vorher gesagt.",
       "promptEn": "I told the store manager about the leave in advance.",
@@ -12631,7 +12631,7 @@
     },
     {
       "id": "satz_a2_0205",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "가게를 마감하다 전에 바닥을 닦아요.",
       "promptDe": "Bevor ich den Laden abschließe, wische ich den Boden.",
       "promptEn": "Before I close up the shop, I mop the floor.",
@@ -12643,7 +12643,7 @@
     },
     {
       "id": "satz_a2_0206",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "시급 명세서를 문자로 받았어요.",
       "promptDe": "Ich habe den Lohnzettel per Nachricht bekommen.",
       "promptEn": "I received the wage slip by text.",
@@ -13375,7 +13375,7 @@
     },
     {
       "id": "satz_b1_0212",
-      "level": "b1",
+      "level": "b2",
       "targetKo": "민원실에서 번호표를 뽑고 기다려요.",
       "promptDe": "Im Bürgerbüro ziehe ich eine Nummer und warte.",
       "promptEn": "I take a number at the civil affairs desk and wait.",
@@ -13387,7 +13387,7 @@
     },
     {
       "id": "satz_b1_0213",
-      "level": "b1",
+      "level": "b2",
       "targetKo": "구비 서류 목록을 홈페이지에서 인쇄했어요.",
       "promptDe": "Die Liste der erforderlichen Unterlagen habe ich von der Website gedruckt.",
       "promptEn": "I printed the required-papers list from the website.",
@@ -13399,7 +13399,7 @@
     },
     {
       "id": "satz_b1_0214",
-      "level": "b1",
+      "level": "b2",
       "targetKo": "접수증 번호를 사진으로 남겨 두어요.",
       "promptDe": "Die Nummer auf dem Eingangsbeleg fotografiere ich.",
       "promptEn": "I photograph the number on the intake slip.",
@@ -13411,7 +13411,7 @@
     },
     {
       "id": "satz_b1_0215",
-      "level": "b1",
+      "level": "b2",
       "targetKo": "처리 기한이 이 주라고 안내받았어요.",
       "promptDe": "Mir wurde eine Bearbeitungsfrist von zwei Wochen genannt.",
       "promptEn": "I was told the processing time is two weeks.",
@@ -13423,7 +13423,7 @@
     },
     {
       "id": "satz_b1_0216",
-      "level": "b1",
+      "level": "b2",
       "targetKo": "전입 신고는 담당 창구가 따로 있어요.",
       "promptDe": "Für die Ummeldung gibt es einen zuständigen Schalter.",
       "promptEn": "Change-of-address has its own responsible counter.",
@@ -13435,7 +13435,7 @@
     },
     {
       "id": "satz_b1_0217",
-      "level": "b1",
+      "level": "b2",
       "targetKo": "보완 요청 문자가 와서 사본을 추가했어요.",
       "promptDe": "Wegen einer Nachforderung habe ich eine Kopie nachgereicht.",
       "promptEn": "A supplement request text came, so I added a copy.",
@@ -13447,7 +13447,7 @@
     },
     {
       "id": "satz_b1_0218",
-      "level": "b1",
+      "level": "b2",
       "targetKo": "본인만 서류 열람이 가능해요.",
       "promptDe": "Nur die Person selbst darf Einsicht in die Unterlagen nehmen.",
       "promptEn": "Only the person themselves can inspect the documents.",
@@ -13459,7 +13459,7 @@
     },
     {
       "id": "satz_b1_0219",
-      "level": "b1",
+      "level": "b2",
       "targetKo": "대리 신청에는 위임장이 필요해요.",
       "promptDe": "Für einen Antrag durch Vertretung braucht man eine Vollmacht.",
       "promptEn": "A proxy application needs a letter of authorization.",
@@ -13471,7 +13471,7 @@
     },
     {
       "id": "satz_b1_0220",
-      "level": "b1",
+      "level": "b2",
       "targetKo": "수수료 납부는 카드만 된다고 했어요.",
       "promptDe": "Die Gebührenzahlung sei nur mit Karte möglich.",
       "promptEn": "They said fee payment is card only.",
@@ -13483,7 +13483,7 @@
     },
     {
       "id": "satz_b1_0221",
-      "level": "b1",
+      "level": "b2",
       "targetKo": "민원 번호로 진행 상태를 조회해요.",
       "promptDe": "Mit der Vorgangsnummer prüfe ich den Stand.",
       "promptEn": "I check the status with the case number.",
@@ -13495,7 +13495,7 @@
     },
     {
       "id": "satz_b1_0222",
-      "level": "b1",
+      "level": "b2",
       "targetKo": "전화로 담당자 연결을 두 번 요청했어요.",
       "promptDe": "Am Telefon habe ich zweimal um Durchstellung gebeten.",
       "promptEn": "I asked twice on the phone for a transfer to an officer.",
@@ -13507,7 +13507,7 @@
     },
     {
       "id": "satz_b1_0223",
-      "level": "b1",
+      "level": "b2",
       "targetKo": "처리 완료 알림이 오면 서류를 받으러 가요.",
       "promptDe": "Wenn die Meldung über den Abschluss der Bearbeitung kommt, hole ich die Unterlagen.",
       "promptEn": "When the processing-complete notice arrives, I pick up the papers.",
@@ -28259,7 +28259,7 @@
     },
     {
       "id": "satz_a2_0463",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "공과금 내역에서 전기와 가스 요금을 확인해요.",
       "promptDe": "In der Kostenaufstellung prüfe ich Strom und Gas.",
       "promptEn": "I check electricity and gas in the utility-bill breakdown.",
@@ -28273,7 +28273,7 @@
     },
     {
       "id": "satz_a2_0464",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "이사 날짜를 다음 토요일로 정했어요.",
       "promptDe": "Wir haben den Umzug auf nächsten Samstag gelegt.",
       "promptEn": "We set the moving date for next Saturday.",
@@ -28287,7 +28287,7 @@
     },
     {
       "id": "satz_a2_0465",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "회사 근처에서 방을 구하고 있어요.",
       "promptDe": "Ich suche ein Zimmer in der Nähe der Firma.",
       "promptEn": "I'm looking for a room near work.",
@@ -28301,7 +28301,7 @@
     },
     {
       "id": "satz_a2_0466",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "오늘 저녁에 방을 보러 가요.",
       "promptDe": "Heute Abend besichtige ich ein Zimmer.",
       "promptEn": "I'm going to view a room this evening.",
@@ -28315,7 +28315,7 @@
     },
     {
       "id": "satz_a2_0467",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "이 방에는 세탁기 옵션이 있어요.",
       "promptDe": "In diesem Zimmer ist eine Waschmaschine vorhanden.",
       "promptEn": "This room includes a washing machine.",
@@ -28329,7 +28329,7 @@
     },
     {
       "id": "satz_a2_0468",
-      "level": "a2",
+      "level": "b1",
       "targetKo": "계약 전에 반려동물이 가능한지 물어봤어요.",
       "promptDe": "Vor dem Vertrag habe ich gefragt, ob Haustiere erlaubt sind.",
       "promptEn": "I asked whether pets were allowed before signing.",

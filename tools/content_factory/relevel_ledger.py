@@ -201,10 +201,12 @@ class Ledger:
         target = path or self.path
         if target is None:
             raise LedgerError("Ledger.save() needs a path (none given, none stored on load)")
-        target.write_text(
-            json.dumps(self.to_dict(), ensure_ascii=False, indent=2) + "\n",
-            encoding="utf-8",
-        )
+        # write_bytes, not write_text: relevel_ledger.json is `eol=lf` in
+        # .gitattributes, but text-mode write_text() on Windows retranslates
+        # every "\n" in the payload back into "\r\n" regardless (T2.3-R2 --
+        # same class of bug as relevel_bundle.py's append_report_section).
+        content = json.dumps(self.to_dict(), ensure_ascii=False, indent=2) + "\n"
+        target.write_bytes(content.encode("utf-8"))
 
 
 def load_ledger(path: Path = DEFAULT_LEDGER_PATH) -> Ledger:

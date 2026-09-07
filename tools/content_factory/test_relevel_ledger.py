@@ -140,11 +140,20 @@ class LedgerAppendTest(unittest.TestCase):
 
 class LoadLedgerTest(unittest.TestCase):
     def test_default_ledger_file_loads_and_has_19_seed_entries(self) -> None:
+        # 2026-09-07 PR-L2a T2.3-R2: the file's own name ("19 seed
+        # entries") is now historical -- `relevel_bundle.py --apply`
+        # legitimately appends one ledger entry per moved vocab/cloze/
+        # satz item every time the L2a bundle is (re-)applied (T2.3-R2's
+        # rollback+re-apply rework), so the shipped file now carries the
+        # 19 original seed rows PLUS every entry from that real 17-bundle
+        # apply. Counts re-measured directly against the committed
+        # relevel_ledger.json after that re-apply; update together with
+        # any future re-apply of this exact bundle.
         ledger = load_ledger()
-        self.assertEqual(len(ledger.entries), 19)
-        self.assertEqual(len(ledger.ids_for("vocab")), 17)
-        self.assertEqual(len(ledger.ids_for("cloze")), 1)
-        self.assertEqual(len(ledger.ids_for("satz")), 1)
+        self.assertEqual(len(ledger.entries), 619)
+        self.assertEqual(len(ledger.ids_for("vocab")), 221)
+        self.assertEqual(len(ledger.ids_for("cloze")), 199)
+        self.assertEqual(len(ledger.ids_for("satz")), 199)
 
     def test_default_ledger_path_is_sibling_of_this_module(self) -> None:
         self.assertEqual(DEFAULT_LEDGER_PATH.name, "relevel_ledger.json")
@@ -193,6 +202,15 @@ class LoadLedgerTest(unittest.TestCase):
             ledger.save(path)
             reloaded = load_ledger(path)
             self.assertEqual(reloaded.entries, ledger.entries)
+
+    def test_save_writes_lf_only(self) -> None:
+        # T2.3-R2: relevel_ledger.json is `eol=lf`; save() must not let
+        # Windows text-mode writing turn it back into CRLF.
+        ledger = Ledger(version=1, entries=[make_entry(ident="vocab_a1_0001")])
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "lf_check.json"
+            ledger.save(path)
+            self.assertNotIn(b"\r", path.read_bytes())
 
 
 class ValidateLedgerTest(unittest.TestCase):
