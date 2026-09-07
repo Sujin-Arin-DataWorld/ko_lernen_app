@@ -23,6 +23,7 @@ if str(SCRIPT_DIR / "data") not in sys.path:
 
 import build_level_content_4x as builder
 from integrate_scenario_batch import integrate
+import relevel_ledger
 from rr_romanize import romanize_korean
 from validate_promoted_batch import validate as validate_promoted_batch
 import scenario_store
@@ -69,16 +70,39 @@ class PackSourceTest(unittest.TestCase):
         self.assertEqual(len(packs), 48)
         vocab, live_korean, _by_level_words, _used_satz, _live_scenarios = builder.load_live()
         authored_pack_ids = {pack["packId"] for pack in packs}
+        # tools/content_factory/data/packs/<packId>.json is a frozen record
+        # of what a pack was *authored* with (task T2.9a report; relevel_
+        # bundle.py's pack-level moves keep it in sync via
+        # sync_pack_source_files, but it never tracks a *word*-level
+        # tool/relevel_vocab.py move -- that would mean editorially
+        # replacing one of a pack's 12 authored headwords, which is a
+        # content decision this tool must not make on its own). A word the
+        # ledger records as relevel-moved may now live under a pack_id
+        # outside authored_pack_ids without that being a genuine headword
+        # collision -- it is the same single live row its origin pack still
+        # (correctly, archivally) lists, just relocated. Excluding only
+        # ledgered ids' own korean text leaves every other pack_id's words
+        # -- the actual "some other still-live pack teaches this same
+        # headword" signal this check exists for -- fully intact.
+        ledger = relevel_ledger.load_ledger()
         other_live_korean = {
             row["korean"]
             for row in vocab
             if (row.get("pack_id") or "") not in authored_pack_ids
+            and ledger.get("vocab", row.get("id") or "") is None
         }
         headwords: list[str] = []
         by_level: dict[str, int] = {}
         for pack in packs:
             words = pack["words"]
             self.assertEqual(len(words), 12, pack["packId"])
+            # A relevel_bundle.py pack move keeps packId/level in lockstep
+            # (sync_pack_source_files writes both together) -- a mismatch
+            # here would mean a source was hand-edited (or synced) wrong.
+            self.assertTrue(
+                pack["packId"].startswith(f"{pack['level']}_"),
+                f"{pack['packId']}: packId does not start with its own level {pack['level']!r}_",
+            )
             by_level[pack["level"]] = by_level.get(pack["level"], 0) + 1
             for row in words:
                 korean, _german, _english, _pos_de, _pos_en, example_ko, _de, _en = row
@@ -88,7 +112,13 @@ class PackSourceTest(unittest.TestCase):
                 headwords.append(korean)
         self.assertEqual(len(headwords), 576)
         self.assertEqual(len(set(headwords)), 576)
-        self.assertEqual(by_level, {level: 8 for level in builder.LEVELS})
+        # Batch 09/10 originally authored exactly 8 packs per level, but a
+        # relevel_bundle.py pack move can since shift any of these 48
+        # across levels (12 have, as of this ledger) -- the count that
+        # stays true regardless of which level each pack now lives at is
+        # the total, not a hard-coded even split (task T2.9a report).
+        self.assertEqual(sum(by_level.values()), 48)
+        self.assertEqual(set(by_level), set(builder.LEVELS))
 
     def test_grammar_quiz_focus_occurs_once_in_examples(self) -> None:
         rows = builder.grammar_records()

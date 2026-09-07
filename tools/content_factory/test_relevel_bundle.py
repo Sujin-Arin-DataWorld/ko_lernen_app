@@ -145,6 +145,35 @@ class RelevelBundleFixture(unittest.TestCase):
         artwork_dir.mkdir(parents=True, exist_ok=True)
         (artwork_dir / "a1_relvtest_alpha_1.webp").write_bytes(b"fake-webp")
 
+        # Only "alpha" gets an archived pack-authoring source (task T2.9a) --
+        # "beta" deliberately has none, exercising sync_pack_source_files'
+        # "no source file" no-op path the same way pack_artwork_catalog's
+        # dedicatedPackIds only lists alpha above.
+        pack_source_dir = self.root / "tools" / "content_factory" / "data" / "packs"
+        pack_source_dir.mkdir(parents=True, exist_ok=True)
+        self.alpha_pack_source_path = pack_source_dir / "a1_relvtest_alpha_1.json"
+        self.alpha_pack_source_path.write_text(
+            json.dumps(
+                {
+                    "packId": "a1_relvtest_alpha_1",
+                    "level": "a1",
+                    "orderInLevel": 1,
+                    "topic": "Relvtestalpha",
+                    "unit": SOURCE_UNIT,
+                    "concept": "concept_a1_relvtest_source",
+                    "motif": "cloud",
+                    "labels": {"ko": "렐브테스트 알파", "de": "Relvtest Alpha", "en": "Relvtest alpha"},
+                    "words": [
+                        [korean, german, english, "Nomen", "Noun",
+                         f"{korean} 예문입니다.", f"{german} Beispielsatz.", f"{english} example sentence."]
+                        for _vocab_id, korean, _rom, german, english in ALPHA_WORDS
+                    ],
+                },
+                ensure_ascii=False, indent=2,
+            ) + "\n",
+            encoding="utf-8",
+        )
+
         self.ledger_path = Path(self._tmp.name) / "relevel_ledger.json"
         shutil.copy2(REPO / "tools" / "content_factory" / "relevel_ledger.json", self.ledger_path)
 
@@ -282,6 +311,8 @@ class RelevelBundleFixture(unittest.TestCase):
             self.root / "lib" / "data" / "pack_artwork_catalog.dart",
             self.root / "lib" / "widgets" / "sori" / "dancheong_stamp.dart",
             self.root / "assets" / "illustrations" / "packs" / "a1_relvtest_alpha_1.webp",
+            self.alpha_pack_source_path,
+            self.root / "tools" / "content_factory" / "data" / "packs" / "b1_relvtest_alpha_1.json",
             self.ledger_path,
         ]
         snapshot = {}
@@ -429,6 +460,29 @@ class ApplyTest(RelevelBundleFixture):
         self.assertIn("'b1_relvtest_alpha_1': 'a1_relvtest_alpha_1'", aliases_text)
         self.assertIn("'a2_relvtest_beta_1': 'a1_relvtest_beta_1'", aliases_text)
 
+        # Pack authoring source sync (task T2.9a): alpha has one, renamed
+        # in place with packId/level/unit/concept rewritten; beta has none,
+        # a reported no-op that creates no file.
+        pack_source_dir = self.root / "tools" / "content_factory" / "data" / "packs"
+        self.assertFalse(self.alpha_pack_source_path.exists())
+        new_alpha_source = json.loads(
+            (pack_source_dir / "b1_relvtest_alpha_1.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual("b1_relvtest_alpha_1", new_alpha_source["packId"])
+        self.assertEqual("b1", new_alpha_source["level"])
+        self.assertEqual(TARGET_UNIT_B1, new_alpha_source["unit"])
+        self.assertEqual("concept_b1_relationships", new_alpha_source["concept"])
+        self.assertEqual(1, new_alpha_source["orderInLevel"])  # untouched -- archival only
+        self.assertEqual(3, len(new_alpha_source["words"]))
+        self.assertFalse((pack_source_dir / "a1_relvtest_beta_1.json").exists())
+        self.assertFalse((pack_source_dir / "a2_relvtest_beta_1.json").exists())
+        self.assertEqual(
+            [("a1_relvtest_alpha_1", "b1_relvtest_alpha_1")], report.pack_sources_synced,
+        )
+        beta_pack = by_bundle_report(report, "a1_relvtest_beta_1")
+        self.assertTrue(alpha_pack.has_pack_source)
+        self.assertFalse(beta_pack.has_pack_source)
+
         # Dancheong motif switch: plain-pattern base id renamed, OR-pattern's
         # matching side renamed, sibling alternative untouched.
         dancheong_text = (
@@ -546,6 +600,486 @@ class CanDoClusterIdTest(RelevelBundleFixture):
         self.assertIn("cluster_b1_encouragement_v1", message)
         self.assertIn("cluster_b1_intimate_feelings_v1", message)
         self.assertIn("cluster_b1_social_invitation_v1", message)
+
+
+class SyncPackSourceFilesTest(unittest.TestCase):
+    """Task T2.9a: tools/content_factory/data/packs/<packId>.json sync,
+    tested directly against a small temp directory rather than the full
+    RelevelBundleFixture -- ApplyTest/DryRunTest/RollbackTest above already
+    cover the happy path and migrate()'s rollback wiring end to end; this
+    covers sync_pack_source_files' own error-handling contract, which is
+    what makes that generic rollback safe: a raise here must never delete
+    or half-write anything migrate()'s `originals` dict does not already
+    know how to restore."""
+
+    def setUp(self) -> None:
+        self._tmp = tempfile.TemporaryDirectory(prefix="sync-pack-source-test-")
+        self.addCleanup(self._tmp.cleanup)
+        self.pack_dir = Path(self._tmp.name)
+
+    def _write_source(self, path: Path, **overrides) -> None:
+        payload = {
+            "packId": "a1_x_1", "level": "a1", "orderInLevel": 1, "topic": "X",
+            "unit": "a1_01_greetings_hangul", "concept": "concept_a1_x", "motif": "cloud",
+            "labels": {"ko": "엑스", "de": "X", "en": "X"},
+            "words": [["가", "a", "a", "Nomen", "Noun", "가 예문.", "a Satz.", "a example."]],
+        }
+        payload.update(overrides)
+        path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    def _move(self, **overrides) -> rb.Move:
+        base = {
+            "bundle": "a1_x_1", "from": "a1", "to": "b1", "newPackId": "b1_x_1",
+            "courseUnitId": "b1_04_relationships", "conceptIds": ["concept_b1_relationships"],
+            "scenarios": [], "cloze": "auto", "satz": "auto", "smalltalk": [], "reason": "r",
+        }
+        base.update(overrides)
+        return rb.Move.from_dict(base)
+
+    def _report(self, *moves: rb.Move) -> rb.MigrationReport:
+        report = rb.MigrationReport(batch="TEST")
+        for move in moves:
+            report.packs.append(rb.PackMoveReport(
+                bundle=move.bundle, new_pack_id=move.new_pack_id,
+                from_level=move.from_level, to_level=move.to_level,
+                course_unit_id=move.course_unit_id,
+            ))
+        return report
+
+    def test_missing_source_is_a_reported_no_op(self) -> None:
+        move = self._move()
+        report = self._report(move)
+        rb.sync_pack_source_files((move,), report, self.pack_dir)
+        self.assertEqual([], report.pack_sources_synced)
+        self.assertFalse(by_bundle_report(report, "a1_x_1").has_pack_source)
+
+    def test_renames_and_rewrites_identity_fields_only(self) -> None:
+        self._write_source(self.pack_dir / "a1_x_1.json")
+        move = self._move()
+        report = self._report(move)
+        rb.sync_pack_source_files((move,), report, self.pack_dir)
+
+        self.assertEqual([("a1_x_1", "b1_x_1")], report.pack_sources_synced)
+        self.assertTrue(by_bundle_report(report, "a1_x_1").has_pack_source)
+        self.assertFalse((self.pack_dir / "a1_x_1.json").exists())
+        synced = json.loads((self.pack_dir / "b1_x_1.json").read_text(encoding="utf-8"))
+        self.assertEqual("b1_x_1", synced["packId"])
+        self.assertEqual("b1", synced["level"])
+        self.assertEqual("b1_04_relationships", synced["unit"])
+        self.assertEqual("concept_b1_relationships", synced["concept"])
+        # untouched
+        self.assertEqual(1, synced["orderInLevel"])
+        self.assertEqual([["가", "a", "a", "Nomen", "Noun", "가 예문.", "a Satz.", "a example."]], synced["words"])
+
+    def test_target_already_existing_raises_and_leaves_source_untouched(self) -> None:
+        source_path = self.pack_dir / "a1_x_1.json"
+        self._write_source(source_path)
+        self._write_source(self.pack_dir / "b1_x_1.json", packId="b1_x_1", level="b1")
+        move = self._move()
+        report = self._report(move)
+
+        with self.assertRaisesRegex(rb.RelevelError, "already exists"):
+            rb.sync_pack_source_files((move,), report, self.pack_dir)
+        self.assertTrue(source_path.exists(), "a raise must never delete the source before finishing")
+        self.assertEqual([], report.pack_sources_synced)
+
+    def test_pack_id_mismatch_raises(self) -> None:
+        self._write_source(self.pack_dir / "a1_x_1.json", packId="a1_wrong_id")
+        move = self._move()
+        report = self._report(move)
+        with self.assertRaisesRegex(rb.RelevelError, "packId"):
+            rb.sync_pack_source_files((move,), report, self.pack_dir)
+
+    def test_level_mismatch_raises(self) -> None:
+        self._write_source(self.pack_dir / "a1_x_1.json", level="a2")
+        move = self._move()
+        report = self._report(move)
+        with self.assertRaisesRegex(rb.RelevelError, "level"):
+            rb.sync_pack_source_files((move,), report, self.pack_dir)
+
+    def test_multiple_concept_ids_raises_unambiguous_error(self) -> None:
+        self._write_source(self.pack_dir / "a1_x_1.json")
+        move = self._move(conceptIds=["concept_b1_relationships", "concept_b1_extra"])
+        report = self._report(move)
+        with self.assertRaisesRegex(rb.RelevelError, "single 'concept' field"):
+            rb.sync_pack_source_files((move,), report, self.pack_dir)
+
+    def test_second_move_failure_leaves_first_moves_rename_in_place(self) -> None:
+        # Documents exactly why migrate() needs its own rollback around this
+        # function: sync_pack_source_files does not undo earlier moves in
+        # the same call when a later one fails -- the caller (migrate())
+        # owns that, via its `originals` dict + report.pack_sources_synced.
+        self._write_source(self.pack_dir / "a1_x_1.json")
+        self._write_source(
+            self.pack_dir / "a1_y_1.json", packId="a1_y_1", topic="Y", concept="concept_a1_y",
+        )
+        self._write_source(self.pack_dir / "b1_y_1.json", packId="b1_y_1", level="b1")  # pre-existing conflict
+        move_x = self._move()
+        move_y = self._move(bundle="a1_y_1", newPackId="b1_y_1")
+        report = self._report(move_x, move_y)
+
+        with self.assertRaisesRegex(rb.RelevelError, "already exists"):
+            rb.sync_pack_source_files((move_x, move_y), report, self.pack_dir)
+
+        self.assertEqual([("a1_x_1", "b1_x_1")], report.pack_sources_synced)
+        self.assertFalse((self.pack_dir / "a1_x_1.json").exists())
+        self.assertTrue((self.pack_dir / "b1_x_1.json").exists())
+        self.assertTrue((self.pack_dir / "a1_y_1.json").exists(), "the failed move must not delete its own source")
+
+
+class SyncPackSourcesEntryPointTest(unittest.TestCase):
+    """The standalone --sync-pack-sources retroactive entry point (task
+    T2.9a part (b)) -- idempotent replay of sync_pack_source_files against
+    a bundle whose pack moves already landed in assets/data."""
+
+    def setUp(self) -> None:
+        self._tmp = tempfile.TemporaryDirectory(prefix="sync-pack-sources-entry-test-")
+        self.addCleanup(self._tmp.cleanup)
+        self.root = Path(self._tmp.name) / "repo"
+        self.pack_dir = self.root / "tools" / "content_factory" / "data" / "packs"
+        self.pack_dir.mkdir(parents=True, exist_ok=True)
+        self.pack_dir.joinpath("a1_x_1.json").write_text(
+            json.dumps(
+                {
+                    "packId": "a1_x_1", "level": "a1", "orderInLevel": 1, "topic": "X",
+                    "unit": "a1_01_greetings_hangul", "concept": "concept_a1_x", "motif": "cloud",
+                    "labels": {"ko": "엑스", "de": "X", "en": "X"},
+                    "words": [["가", "a", "a", "Nomen", "Noun", "가 예문.", "a Satz.", "a example."]],
+                },
+                ensure_ascii=False, indent=2,
+            ) + "\n",
+            encoding="utf-8",
+        )
+        self.bundle = rb.load_bundle_from_dict({
+            "batch": "L2a-TEST",
+            "moves": [{
+                "bundle": "a1_x_1", "from": "a1", "to": "b1", "newPackId": "b1_x_1",
+                "courseUnitId": "b1_04_relationships", "conceptIds": ["concept_b1_relationships"],
+                "scenarios": [], "cloze": "auto", "satz": "auto", "smalltalk": [], "reason": "r",
+            }],
+        })
+
+    def test_dry_run_previews_and_writes_nothing(self) -> None:
+        report = rb.sync_pack_sources(self.bundle, root=self.root, apply=False)
+        self.assertEqual([], report.pack_sources_synced)
+        self.assertTrue(by_bundle_report(report, "a1_x_1").has_pack_source)
+        self.assertTrue((self.pack_dir / "a1_x_1.json").exists())
+
+    def test_apply_syncs_and_is_idempotent_on_replay(self) -> None:
+        report = rb.sync_pack_sources(self.bundle, root=self.root, apply=True)
+        self.assertEqual([("a1_x_1", "b1_x_1")], report.pack_sources_synced)
+        self.assertFalse((self.pack_dir / "a1_x_1.json").exists())
+        self.assertTrue((self.pack_dir / "b1_x_1.json").exists())
+
+        # Replaying against an already-synced bundle (LCP PR-L2a's real
+        # L2a/L2a3 use case) must be a clean no-op, not an error.
+        again = rb.sync_pack_sources(self.bundle, root=self.root, apply=True)
+        self.assertEqual([], again.pack_sources_synced)
+        self.assertFalse(by_bundle_report(again, "a1_x_1").has_pack_source)
+
+
+def _scenario_test_move(**overrides) -> rb.ScenarioMove:
+    base = {
+        "id": "move_me", "from": "a1", "to": "b1", "shelf": "b1_team",
+        "courseUnitId": "b1_04_relationships", "conceptIds": ["concept_b1_relationships"],
+        "reason": "test",
+    }
+    base.update(overrides)
+    return rb.ScenarioMove.from_dict(base)
+
+
+def _scenario_test_report(*moves: rb.ScenarioMove) -> rb.MigrationReport:
+    report = rb.MigrationReport(batch="TEST")
+    for move in moves:
+        report.scenarios.append(rb.ScenarioMoveReport(
+            scenario_id=move.id, from_level=move.from_level, to_level=move.to_level,
+            course_unit_id=move.course_unit_id, shelf=move.shelf,
+        ))
+    return report
+
+
+class BucketForShelfTest(unittest.TestCase):
+    def test_unique_match_resolves(self) -> None:
+        self.assertEqual("study_work_digital_communication", rb._bucket_for_shelf("b1", "b1_team"))
+
+    def test_regression_catch_all_is_excluded_from_ambiguity(self) -> None:
+        # materialize_canonical_scenarios.SHELF_BY_BUCKET["a2"] maps BOTH
+        # "study_work_digital_media" and "regression" to "a2_work" -- a
+        # real, current collision in that table, not a hypothetical.
+        self.assertEqual("study_work_digital_media", rb._bucket_for_shelf("a2", "a2_work"))
+
+    def test_unknown_level_raises(self) -> None:
+        with self.assertRaisesRegex(rb.RelevelError, "no level"):
+            rb._bucket_for_shelf("a0", "a0_x")
+
+    def test_shelf_with_no_match_raises(self) -> None:
+        with self.assertRaisesRegex(rb.RelevelError, "cannot uniquely resolve"):
+            rb._bucket_for_shelf("b1", "b1_not_a_real_shelf")
+
+
+class SyncCanonicalAuthoredScenariosTest(unittest.TestCase):
+    """Uses the *real* tools/content_factory/canonical_scenarios/authored/
+    <level>.json format directly (raw text, not json.dumps(indent=2)): the
+    outer document is pretty-printed, but each entry's title/intro objects
+    and dialog turns are hand-collapsed onto one line apiece. A fixture
+    built via json.dumps like build_level_content_4x's own tests use would
+    not have caught the bug this class exists to pin down -- sync_
+    canonical_authored_scenarios must edit this file's *text* directly, or
+    a full parse+rewrite silently reformats every untouched scenario too.
+    """
+
+    A1_TEXT = (
+        '{\n'
+        '  "schemaVersion": 1,\n'
+        '  "generationId": "test",\n'
+        '  "level": "a1",\n'
+        '  "scenarios": [\n'
+        '    {\n'
+        '      "id": "keep_a1",\n'
+        '      "title": {"de": "D1", "en": "E1"},\n'
+        '      "intro": {"ko": "K1", "de": "D1", "en": "E1"},\n'
+        '      "dialog": [\n'
+        '        {"speaker": "user", "ko": "안녕하세요", "de": "Hallo", "en": "Hello"}\n'
+        '      ]\n'
+        '    },\n'
+        '    {\n'
+        '      "id": "move_me",\n'
+        '      "title": {"de": "D2", "en": "E2"},\n'
+        '      "intro": {"ko": "K2", "de": "D2", "en": "E2"},\n'
+        '      "dialog": [\n'
+        '        {"speaker": "user", "ko": "안녕, 반가워요", "de": "Hallo, freut mich", "en": "Hi, nice to meet you"}\n'
+        '      ]\n'
+        '    },\n'
+        '    {\n'
+        '      "id": "keep_a1_after",\n'
+        '      "title": {"de": "D3", "en": "E3"},\n'
+        '      "intro": {"ko": "K3", "de": "D3", "en": "E3"},\n'
+        '      "dialog": [\n'
+        '        {"speaker": "user", "ko": "잘 가요", "de": "Tsch\\u00fcss", "en": "Bye"}\n'
+        '      ]\n'
+        '    }\n'
+        '  ]\n'
+        '}\n'
+    )
+    B1_TEXT = (
+        '{\n'
+        '  "schemaVersion": 1,\n'
+        '  "generationId": "test",\n'
+        '  "level": "b1",\n'
+        '  "scenarios": [\n'
+        '    {\n'
+        '      "id": "already_here",\n'
+        '      "title": {"de": "D4", "en": "E4"},\n'
+        '      "intro": {"ko": "K4", "de": "D4", "en": "E4"},\n'
+        '      "dialog": [\n'
+        '        {"speaker": "user", "ko": "네, 알겠습니다", "de": "Ja, verstanden", "en": "Yes, understood"}\n'
+        '      ]\n'
+        '    }\n'
+        '  ]\n'
+        '}\n'
+    )
+
+    def setUp(self) -> None:
+        self._tmp = tempfile.TemporaryDirectory(prefix="sync-canonical-authored-test-")
+        self.addCleanup(self._tmp.cleanup)
+        self.authored_dir = Path(self._tmp.name)
+        (self.authored_dir / "a1.json").write_bytes(self.A1_TEXT.encode("utf-8"))
+        (self.authored_dir / "b1.json").write_bytes(self.B1_TEXT.encode("utf-8"))
+
+    def test_missing_directory_is_a_silent_no_op(self) -> None:
+        move = _scenario_test_move()
+        report = _scenario_test_report(move)
+        rb.sync_canonical_authored_scenarios((move,), report, self.authored_dir / "does_not_exist")
+        self.assertFalse((self.authored_dir / "does_not_exist").exists())
+
+    def test_moves_entry_unedited_and_preserves_every_other_bytes(self) -> None:
+        move = _scenario_test_move()
+        report = _scenario_test_report(move)
+        rb.sync_canonical_authored_scenarios((move,), report, self.authored_dir)
+
+        a1_text = (self.authored_dir / "a1.json").read_text(encoding="utf-8")
+        a1 = json.loads(a1_text)
+        self.assertEqual(["keep_a1", "keep_a1_after"], [s["id"] for s in a1["scenarios"]])
+        # the two untouched entries' exact hand-collapsed lines survive
+        # byte-for-byte -- proving this is a text edit, not a reformat.
+        self.assertIn('      "title": {"de": "D1", "en": "E1"},\n', a1_text)
+        self.assertIn(
+            '        {"speaker": "user", "ko": "잘 가요", "de": "Tsch\\u00fcss", "en": "Bye"}\n', a1_text,
+        )
+        self.assertTrue(a1_text.startswith('{\n  "schemaVersion": 1,\n'))
+
+        b1_text = (self.authored_dir / "b1.json").read_text(encoding="utf-8")
+        b1 = json.loads(b1_text)
+        self.assertEqual(["already_here", "move_me"], [s["id"] for s in b1["scenarios"]])
+        moved = next(s for s in b1["scenarios"] if s["id"] == "move_me")
+        self.assertEqual(
+            [{"speaker": "user", "ko": "안녕, 반가워요", "de": "Hallo, freut mich", "en": "Hi, nice to meet you"}],
+            moved["dialog"],
+        )
+        # the moved entry's own hand-collapsed dialog line is untouched too
+        self.assertIn(
+            '        {"speaker": "user", "ko": "안녕, 반가워요", "de": "Hallo, freut mich", '
+            '"en": "Hi, nice to meet you"}\n',
+            b1_text,
+        )
+        # the pre-existing "already_here" entry (now no longer last) gained
+        # exactly the trailing comma a valid array needs and nothing else.
+        self.assertIn('      ]\n    },\n    {\n      "id": "move_me"', b1_text)
+        self.assertEqual(
+            "authored/a1.json -> authored/b1.json", report.scenarios[0].canonical_authored_note,
+        )
+        for path in (self.authored_dir / "a1.json", self.authored_dir / "b1.json"):
+            self.assertNotIn(b"\r\n", path.read_bytes())
+
+    def test_moving_the_only_remaining_entry_leaves_valid_json(self) -> None:
+        # Removing "move_me" from a1 when it sits *between* two kept
+        # entries must not leave a dangling/missing comma at the splice
+        # point -- covered structurally by the previous test's JSON parse,
+        # this one drives the harder edge: b1 has a single entry, so
+        # inserting after it must add the separator itself.
+        move = _scenario_test_move(
+            id="already_here", **{"from": "b1"}, to="a1", shelf="a1_friends",
+            courseUnitId="a1_16_survival_capstone", conceptIds=["concept_a1_survival"],
+        )
+        report = _scenario_test_report(move)
+        rb.sync_canonical_authored_scenarios((move,), report, self.authored_dir)
+        b1 = json.loads((self.authored_dir / "b1.json").read_text(encoding="utf-8"))
+        self.assertEqual([], b1["scenarios"])
+        a1 = json.loads((self.authored_dir / "a1.json").read_text(encoding="utf-8"))
+        self.assertEqual(
+            ["keep_a1", "move_me", "keep_a1_after", "already_here"],
+            [s["id"] for s in a1["scenarios"]],
+        )
+
+    def test_id_not_found_raises(self) -> None:
+        move = _scenario_test_move(id="ghost_scenario")
+        report = _scenario_test_report(move)
+        with self.assertRaisesRegex(rb.RelevelError, "not found in canonical authored source"):
+            rb.sync_canonical_authored_scenarios((move,), report, self.authored_dir)
+        # the source file must be untouched by a failed move
+        self.assertEqual(self.A1_TEXT, (self.authored_dir / "a1.json").read_text(encoding="utf-8"))
+
+
+class EditScenarioBriefsSourceTest(unittest.TestCase):
+    FIXTURE = (
+        '{\n'
+        '  "scenarios": [\n'
+        '    {"id":"keep_a1","level":"a1","portfolioBucket":"identity_relationships","titleKo":"x"},\n'
+        '    {"id":"move_me","level":"a1","portfolioBucket":"school_leisure","titleKo":"y",'
+        '"courseUnitId":"a1_16_survival_capstone"},\n'
+        '    {"id":"last_no_comma","level":"c2","portfolioBucket":"academic_science_professional","titleKo":"z"}\n'
+        '  ]\n'
+        '}\n'
+    )
+
+    def test_rewrites_level_bucket_and_unit_leaves_other_fields_untouched(self) -> None:
+        move = _scenario_test_move()
+        report = _scenario_test_report(move)
+        new_text = rb.edit_scenario_briefs_source(self.FIXTURE, (move,), report)
+
+        lines = new_text.split("\n")
+        untouched = [line for line in lines if '"keep_a1"' in line or '"last_no_comma"' in line]
+        self.assertEqual(2, len(untouched))
+        for line in untouched:
+            self.assertIn(line, self.FIXTURE)
+
+        moved_line = next(line for line in lines if '"move_me"' in line)
+        entry = json.loads(moved_line.strip().rstrip(","))
+        self.assertEqual("b1", entry["level"])
+        self.assertEqual("study_work_digital_communication", entry["portfolioBucket"])
+        self.assertEqual("b1_04_relationships", entry["courseUnitId"])
+        self.assertEqual("y", entry["titleKo"])  # untouched field survives
+        self.assertEqual(
+            "level='b1' portfolioBucket='study_work_digital_communication'",
+            report.scenarios[0].scenario_brief_note,
+        )
+        # the file's own JSON structure (indentation, key ordering outside
+        # the rewritten line) survives -- proving this is a line edit, not
+        # a full json.loads()/dumps() round trip of the whole file.
+        self.assertTrue(new_text.startswith('{\n  "scenarios": [\n'))
+
+    def test_level_mismatch_raises(self) -> None:
+        # FIXTURE's "move_me" entry says level "a1"; claim it moved from
+        # "a2" instead, to trigger the from-level cross-check.
+        move = _scenario_test_move(**{"from": "a2"})
+        report = _scenario_test_report(move)
+        with self.assertRaisesRegex(rb.RelevelError, "disagrees with move.from"):
+            rb.edit_scenario_briefs_source(self.FIXTURE, (move,), report)
+
+    def test_id_not_found_raises(self) -> None:
+        move = _scenario_test_move(id="ghost_scenario")
+        report = _scenario_test_report(move)
+        with self.assertRaisesRegex(rb.RelevelError, "scenario id.s. not found"):
+            rb.edit_scenario_briefs_source(self.FIXTURE, (move,), report)
+
+    def test_no_scenario_moves_is_a_no_op(self) -> None:
+        report = rb.MigrationReport(batch="TEST")
+        self.assertEqual(self.FIXTURE, rb.edit_scenario_briefs_source(self.FIXTURE, (), report))
+
+
+class SyncReviewCandidateScenariosTest(unittest.TestCase):
+    def setUp(self) -> None:
+        self._tmp = tempfile.TemporaryDirectory(prefix="sync-review-candidate-test-")
+        self.addCleanup(self._tmp.cleanup)
+        self.candidates_dir = Path(self._tmp.name)
+        (self.candidates_dir / "a1").mkdir(parents=True, exist_ok=True)
+        self._write_candidate("a1", "move_me")
+
+    def _write_candidate(self, level: str, scenario_id: str, **scenario_overrides) -> None:
+        scenario = {
+            "id": scenario_id, "level": level, "shelf": "a1_friends",
+            "courseUnitId": "a1_16_survival_capstone", "conceptIds": ["concept_a1_survival"],
+            "title": {"ko": "K", "de": "D", "en": "E"}, "dialog": [], "quests": [], "xpReward": 100,
+        }
+        scenario.update(scenario_overrides)
+        (self.candidates_dir / level).mkdir(parents=True, exist_ok=True)
+        (self.candidates_dir / level / f"{scenario_id}.json").write_text(
+            json.dumps(
+                {"kind": "scenario_candidate", "scenarioId": scenario_id, "scenario": scenario,
+                 "editorialSource": "canonical_scenarios/authored"},
+                ensure_ascii=False, indent=2,
+            ) + "\n",
+            encoding="utf-8",
+        )
+
+    def test_missing_directory_is_a_silent_no_op(self) -> None:
+        move = _scenario_test_move()
+        report = _scenario_test_report(move)
+        rb.sync_review_candidate_scenarios((move,), report, self.candidates_dir / "does_not_exist")
+        self.assertFalse((self.candidates_dir / "does_not_exist").exists())
+
+    def test_missing_candidate_for_this_id_is_a_per_move_no_op(self) -> None:
+        move = _scenario_test_move(id="no_candidate_for_this_one")
+        report = _scenario_test_report(move)
+        rb.sync_review_candidate_scenarios((move,), report, self.candidates_dir)
+        self.assertEqual([], report.review_candidates_synced)
+
+    def test_moves_and_patches_routing_fields_only(self) -> None:
+        move = _scenario_test_move()
+        report = _scenario_test_report(move)
+        rb.sync_review_candidate_scenarios((move,), report, self.candidates_dir)
+
+        self.assertFalse((self.candidates_dir / "a1" / "move_me.json").exists())
+        payload = json.loads((self.candidates_dir / "b1" / "move_me.json").read_text(encoding="utf-8"))
+        scenario = payload["scenario"]
+        self.assertEqual("b1", scenario["level"])
+        self.assertEqual("b1_team", scenario["shelf"])
+        self.assertEqual("b1_04_relationships", scenario["courseUnitId"])
+        self.assertEqual(["concept_b1_relationships"], scenario["conceptIds"])
+        # untouched
+        self.assertEqual(100, scenario["xpReward"])
+        self.assertEqual("canonical_scenarios/authored", payload["editorialSource"])
+        self.assertEqual([("move_me", "a1", "b1")], report.review_candidates_synced)
+        self.assertEqual("a1/ -> b1/move_me.json", report.scenarios[0].review_candidate_note)
+
+    def test_target_already_existing_raises_and_leaves_source_untouched(self) -> None:
+        self._write_candidate("b1", "move_me")
+        move = _scenario_test_move()
+        report = _scenario_test_report(move)
+        with self.assertRaisesRegex(rb.RelevelError, "already exists"):
+            rb.sync_review_candidate_scenarios((move,), report, self.candidates_dir)
+        self.assertTrue((self.candidates_dir / "a1" / "move_me.json").exists())
+        self.assertEqual([], report.review_candidates_synced)
 
 
 class MoveShapeTest(unittest.TestCase):

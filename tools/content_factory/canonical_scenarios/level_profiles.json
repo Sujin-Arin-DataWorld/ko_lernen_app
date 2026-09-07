@@ -28,7 +28,7 @@
         "maxKoCharsWarning": 42,
         "forbid": ["여러 이해관계 비교", "제도적 책임", "프레이밍 분석"]
       },
-      "portfolio": {"relationships_emotions_plans": 4, "daily_home_food": 3, "consumer_delivery_public_services": 4, "transport_travel": 3, "study_work_digital_media": 4, "health_leisure": 2}
+      "portfolio": {"relationships_emotions_plans": 4, "daily_home_food": 3, "consumer_delivery_public_services": 4, "transport_travel": 3, "study_work_digital_media": 3, "health_leisure": 2}
     },
     {
       "code": "b1",
@@ -42,7 +42,7 @@
         "maxKoCharsWarning": 62,
         "forbid": ["전문 제도 분석", "고도의 함축 해석"]
       },
-      "portfolio": {"relationships_romance_cultural_difference": 4, "study_work_digital_communication": 4, "consumer_housing_complaint_resolution": 4, "travel_food_sport_media": 4, "familiar_community_environment": 4}
+      "portfolio": {"relationships_romance_cultural_difference": 4, "study_work_digital_communication": 5, "consumer_housing_complaint_resolution": 4, "travel_food_sport_media": 4, "familiar_community_environment": 4}
     },
     {
       "code": "b2",

@@ -16,6 +16,7 @@ import json
 from pathlib import Path
 from typing import Any
 
+import relevel_ledger
 import scenario_store
 from validate_content import ContentValidator
 
@@ -35,6 +36,26 @@ TARGETS = {
 # Shelf/backdrop are assigned by the live scenario graph during promotion.
 # Frozen review drafts intentionally do not duplicate that global metadata.
 SCENARIO_PROMOTION_FIELDS = frozenset(("shelf", "backdrop"))
+# A relevel (relevel_bundle.py / tool/relevel_vocab.py) moves a row's level
+# (and, for vocab, its pack_id -- plus pack_order, since tool/relevel_vocab.
+# py appends a word-level move to the end of its new pack, see that
+# module's docstring) *after* a batch's draft/review snapshot was frozen --
+# that snapshot still shows the pre-relevel value on purpose (plan "ID는
+# 불변"; only level/pack_id/pack_order route, the reviewed content itself
+# does not change). For an id the ledger records as relevel-moved,
+# _relevel_normalized_live() below resets exactly these fields back to the
+# draft's value before any comparison; any other field differing still
+# fails (via a copy revision's stale-fingerprint check, or _require_equal).
+# Scenario ids carry no level segment and already have their own
+# unconditional promotion-field allowance above, so "scenario" is left out
+# of LEDGER_TOLERANT_KINDS. "grammar" *is* a valid relevel_ledger.py kind
+# (see its KINDS constant), but neither relevel_bundle.py nor tool/
+# relevel_vocab.py currently moves a grammar row -- grammar.csv is never
+# touched by either -- so it is left out too, matching what the tooling
+# actually does today rather than a hypothetical.
+VOCAB_RELEVEL_TOLERATED_FIELDS = frozenset(("level", "pack_id", "pack_order"))
+GENERIC_RELEVEL_TOLERATED_FIELDS = frozenset(("level",))
+LEDGER_TOLERANT_KINDS = frozenset(("vocab", "cloze", "satz", "smalltalk", "pronunciation"))
 COPY_REVISION_LEDGER = Path(
     "tools/content_factory/review/promoted_copy_revisions_20260822.json"
 )
@@ -189,8 +210,56 @@ def _promotion_projection(kind: str, row: dict[str, Any]) -> dict[str, Any]:
     return {key: value for key, value in row.items() if key not in SCENARIO_PROMOTION_FIELDS}
 
 
-def validate(manifest_path: Path, *, root: Path = ROOT) -> tuple[int, dict[str, int]]:
+def _relevel_normalized_live(
+    kind: str,
+    ident: str,
+    live: dict[str, Any],
+    draft: dict[str, Any],
+    ledger: relevel_ledger.Ledger,
+) -> dict[str, Any]:
+    """Return `live` (already run through `_promotion_projection`) with any
+    field this ledger's relevel record for (kind, ident) explains --
+    level/pack_id/pack_order for vocab, level alone for cloze/satz/
+    smalltalk/pronunciation -- reset to `draft`'s value for that field.
+
+    Resets values rather than deleting keys on purpose: a copy revision's
+    stored beforeSha256/afterSha256 (COPY_REVISION_LEDGER) was
+    fingerprinted against the *full* row shape from before this id ever
+    relevelled (every relevel_ledger.json entry postdates every entry in
+    that copy-revision ledger), when live and draft still agreed on level/
+    pack_id/pack_order. Deleting those keys would change the fingerprinted
+    shape and break that stored hash for an id that is both relevel-moved
+    and copy-revision-covered; resetting their *values* instead reproduces
+    exactly the pre-relevel row _require_reviewed_copy_revision already
+    validates against. An id relevel-moved alone now compares fully equal
+    to its draft (nothing left to differ) instead of raising."""
+
+    if kind not in LEDGER_TOLERANT_KINDS or ledger.get(kind, ident) is None:
+        return live
+    tolerated = VOCAB_RELEVEL_TOLERATED_FIELDS if kind == "vocab" else GENERIC_RELEVEL_TOLERATED_FIELDS
+    return {
+        key: (draft[key] if key in tolerated and key in draft else value)
+        for key, value in live.items()
+    }
+
+
+def validate(
+    manifest_path: Path,
+    *,
+    root: Path = ROOT,
+    ledger: relevel_ledger.Ledger | None = None,
+    ledger_path: Path | None = None,
+) -> tuple[int, dict[str, int]]:
     manifest_path = manifest_path.resolve()
+    # Same precedence as ContentValidator.__init__ (see relevel_ledger.py's
+    # module docstring): an in-memory Ledger wins, else an explicit path is
+    # loaded, else the default -- resolved relative to relevel_ledger.py
+    # itself, not to `root`, so it still finds the real ledger when `root`
+    # is a test's temp copy of assets/data.
+    if ledger is None:
+        ledger = relevel_ledger.load_ledger(
+            ledger_path if ledger_path is not None else relevel_ledger.DEFAULT_LEDGER_PATH
+        )
     manifest = _json(manifest_path)
     if not isinstance(manifest, dict) or manifest.get("status") != "merged":
         raise PromotedBatchError(f"{manifest_path}: status must be merged")
@@ -206,6 +275,18 @@ def validate(manifest_path: Path, *, root: Path = ROOT) -> tuple[int, dict[str, 
     used_revisions: set[tuple[str, str]] = set()
     routing_revisions = _routing_revisions(root=root, manifest_path=manifest_path)
     used_routing_revisions: set[tuple[str, str]] = set()
+    # vocabPacks[].packId bases whose rows moved to a different live pack_id
+    # via a relevel this ledger records -- a whole-pack relevel_bundle.py
+    # move re-routes every word to a brand-new packId/courseUnitId, so the
+    # vocabPackUnitMap check below has nothing left of batch NN's frozen
+    # routing to compare (see that loop for why it skips these).
+    relevel_touched_vocab_bases: set[str] = set()
+    # Same idea, one set per "level:topic"/"level:category" routing map a
+    # relevel-moved cloze/smalltalk row can make stale (its map key embeds
+    # the row's *level*, so a level move renames the key exactly like a
+    # vocab pack move renames vocabPackUnitMap's).
+    relevel_touched_cloze_topic_keys: set[str] = set()
+    relevel_touched_smalltalk_category_keys: set[str] = set()
     for index, artifact in enumerate(artifacts):
         if not isinstance(artifact, dict):
             raise PromotedBatchError(f"{manifest_path}: artifacts[{index}] must be an object")
@@ -266,8 +347,33 @@ def validate(manifest_path: Path, *, root: Path = ROOT) -> tuple[int, dict[str, 
             ident = str(row.get("id") or "").strip()
             if not ident or ident not in live_by_id:
                 raise PromotedBatchError(f"{kind}: {ident!r} is missing from live assets")
+            if (
+                kind == "vocab"
+                and ledger.get("vocab", ident) is not None
+                and row.get("pack_id") != live_by_id[ident].get("pack_id")
+            ):
+                relevel_touched_vocab_bases.add(_base_pack(str(row.get("pack_id") or "")))
+            elif (
+                kind in ("cloze", "smalltalk")
+                and ledger.get(kind, ident) is not None
+                and str(row.get("level") or "").lower()
+                != str(live_by_id[ident].get("level") or "").lower()
+            ):
+                bucket = (
+                    relevel_touched_cloze_topic_keys
+                    if kind == "cloze"
+                    else relevel_touched_smalltalk_category_keys
+                )
+                topic_field = "topic" if kind == "cloze" else "category"
+                bucket.add(
+                    f"{str(row.get('level') or '').lower()}:"
+                    f"{str(row.get(topic_field) or '').lower()}"
+                )
             live_projection = _promotion_projection(kind, live_by_id[ident])
             draft_projection = _promotion_projection(kind, row)
+            live_projection = _relevel_normalized_live(
+                kind, ident, live_projection, draft_projection, ledger
+            )
             if live_projection != draft_projection:
                 if not _require_reviewed_copy_revision(
                     kind=kind,
@@ -353,8 +459,16 @@ def validate(manifest_path: Path, *, root: Path = ROOT) -> tuple[int, dict[str, 
 
     for pack in manifest.get("vocabPacks", []):
         base = _base_pack(str(pack.get("packId") or ""))
+        actual = curriculum["vocabPackUnitMap"].get(base)
+        if actual is None and base in relevel_touched_vocab_bases:
+            # A relevel_bundle.py pack move renamed this base's own
+            # vocabPackUnitMap key (and re-routed its courseUnitId) --
+            # batch NN's frozen `pack.curriculum.courseUnitId` describes a
+            # routing this relevel deliberately superseded, so there is
+            # nothing left here for it to still match.
+            continue
         expected = (pack.get("curriculum") or {}).get("courseUnitId")
-        _require_equal(curriculum["vocabPackUnitMap"].get(base), expected, f"vocab map:{base}")
+        _require_equal(actual, expected, f"vocab map:{base}")
     for rule in manifest.get("grammarIntents", []):
         ident = str(rule.get("id") or "")
         expected = {
@@ -374,11 +488,15 @@ def validate(manifest_path: Path, *, root: Path = ROOT) -> tuple[int, dict[str, 
             used_routing_revisions.add(("grammarRuleMap", ident))
     for rule in manifest.get("smalltalkCategoryMappings", []):
         key = f"{str(rule.get('level') or '').lower()}:{str(rule.get('category') or '').lower()}"
+        actual = curriculum["smalltalkCategoryUnitMap"].get(key)
+        if actual is None and key in relevel_touched_smalltalk_category_keys:
+            # A relevel moved every phrase this key used to route -- see
+            # relevel_touched_smalltalk_category_keys above.
+            continue
         expected = {
             "courseUnitId": rule.get("courseUnitId"),
             "conceptIds": rule.get("conceptIds"),
         }
-        actual = curriculum["smalltalkCategoryUnitMap"].get(key)
         if actual != expected:
             if not _require_reviewed_routing_revision(
                 map_name="smalltalkCategoryUnitMap",
@@ -391,8 +509,12 @@ def validate(manifest_path: Path, *, root: Path = ROOT) -> tuple[int, dict[str, 
             used_routing_revisions.add(("smalltalkCategoryUnitMap", key))
     for rule in manifest.get("clozeTopicMappings", []):
         key = f"{str(rule.get('level') or '').lower()}:{str(rule.get('topic') or '').lower()}"
-        expected = rule.get("courseUnitId")
         actual = curriculum["clozeTopicUnitMap"].get(key)
+        if actual is None and key in relevel_touched_cloze_topic_keys:
+            # A relevel moved every cloze item this key used to route --
+            # see relevel_touched_cloze_topic_keys above.
+            continue
+        expected = rule.get("courseUnitId")
         if actual != expected:
             if not _require_reviewed_routing_revision(
                 map_name="clozeTopicUnitMap",

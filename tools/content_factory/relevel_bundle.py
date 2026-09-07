@@ -50,6 +50,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
+import materialize_canonical_scenarios as materializer
 import relevel_ledger
 import scenario_store
 from relevel_ledger import Ledger, LedgerEntry
@@ -70,6 +71,11 @@ VOCAB_PACK_SERVICE_PATH = ROOT / "lib" / "services" / "vocab_pack_service.dart"
 PACK_ARTWORK_CATALOG_PATH = ROOT / "lib" / "data" / "pack_artwork_catalog.dart"
 DANCHEONG_STAMP_PATH = ROOT / "lib" / "widgets" / "sori" / "dancheong_stamp.dart"
 ARTWORK_ASSET_DIR = ROOT / "assets" / "illustrations" / "packs"
+PACK_SOURCE_DIR = ROOT / "tools" / "content_factory" / "data" / "packs"
+CANONICAL_SCENARIOS_DIR = ROOT / "tools" / "content_factory" / "canonical_scenarios"
+CANONICAL_AUTHORED_DIR = CANONICAL_SCENARIOS_DIR / "authored"
+SCENARIO_BRIEFS_PATH = CANONICAL_SCENARIOS_DIR / "scenario_briefs.json"
+REVIEW_CANDIDATES_DIR = ROOT / "tools" / "content_factory" / "review" / "canonical_120_v1" / "candidates"
 
 CLOZE_JSON = "cloze.json"
 SATZ_JSON = "satz_sentences.json"
@@ -442,6 +448,10 @@ class PackMoveReport:
     cluster_choice_note: str = ""
     cluster_candidates: tuple[str, ...] = ()
     has_dedicated_artwork: bool = False
+    # tools/content_factory/data/packs/<bundle>.json -- the Batch 09/10 4x-
+    # expansion archival authoring source build_level_content_4x.load_packs()
+    # reads (task T2.9a). Not every pack has one (see sync_pack_source_files).
+    has_pack_source: bool = False
 
 
 @dataclass
@@ -458,6 +468,15 @@ class ScenarioMoveReport:
     shelf_assignment_note: str = ""
     ab_specs_note: str = ""
     grammar_level_warnings: list[str] = field(default_factory=list)
+    # task T2.9a: canonical_scenarios/ + review/canonical_120_v1/candidates/
+    # sync notes (see sync_canonical_authored_scenarios/edit_scenario_briefs_
+    # source/sync_review_candidate_scenarios below) -- all default to a
+    # "not present, no-op" note since not every scenarioMove necessarily has
+    # a canonical_120_v1-pipeline source to sync (e.g. a test fixture that
+    # never provisions canonical_scenarios/ at all).
+    canonical_authored_note: str = "canonical_scenarios/authored/ not found -- no-op"
+    scenario_brief_note: str = "scenario_briefs.json not found -- no-op"
+    review_candidate_note: str = "review candidate not found -- no-op"
 
 
 @dataclass
@@ -473,6 +492,12 @@ class MigrationReport:
     dart_artwork_renames: list[tuple[str, str]] = field(default_factory=list)
     artwork_files_renamed: list[tuple[str, str]] = field(default_factory=list)
     dancheong_motif_renames: list[tuple[str, str, str]] = field(default_factory=list)
+    pack_sources_synced: list[tuple[str, str]] = field(default_factory=list)
+    # (scenario_id, from_level, to_level) for each review/canonical_120_v1/
+    # candidates/<level>/<id>.json sync_review_candidate_scenarios actually
+    # moved -- new-file bookkeeping for migrate()'s rollback, same role as
+    # pack_sources_synced above.
+    review_candidates_synced: list[tuple[str, str, str]] = field(default_factory=list)
     aliases_added: list[tuple[str, str]] = field(default_factory=list)
     test_references: dict[str, list[str]] = field(default_factory=dict)
     scenarios: list[ScenarioMoveReport] = field(default_factory=list)
@@ -1693,6 +1718,470 @@ def rename_artwork_files(
         report.artwork_files_renamed.append((move.bundle, move.new_pack_id))
 
 
+# ───────────────────────── pack authoring source sync (T2.9a) ─────────────
+#
+# tools/content_factory/data/packs/<packId>.json is the archived, per-pack
+# authoring source build_level_content_4x.load_packs() reads (Batch 09/10's
+# 4x vocab-pack expansion only -- not every bundle move has one of these;
+# most packs, e.g. the partner-family ones, were authored some other way
+# and simply have no file here). Before this task, a pack-level relevel
+# left this file's packId/level/unit/concept pointing at the pack's OLD
+# identity forever -- load_packs()'s own cross-check against live
+# korean_vocab.csv (test_level_content_4x.PackSourceTest.
+# test_authored_packs_are_unique_korea_level_sets) then saw the pack's
+# words as if they belonged to some *other*, untracked live pack_id (the
+# new one), and flagged them as a headword collision against themselves.
+
+
+def sync_pack_source_files(
+    moves: tuple[Move, ...], report: MigrationReport, pack_source_dir: Path = PACK_SOURCE_DIR,
+) -> None:
+    """Rename+update each moved pack's archived authoring source (if any):
+    ``<bundle>.json`` -> ``<newPackId>.json``, with ``packId``/``level``/
+    ``unit``/``concept`` rewritten to the pack's new identity. ``unit``/
+    ``concept`` are this schema's (singular) names for what a Move's
+    ``courseUnitId``/``conceptIds`` are elsewhere in this module.
+
+    Deliberately narrow, mirroring _migrate_scenario_object's "only routing
+    fields change" policy: the 12 authored ``words`` rows themselves (and
+    ``orderInLevel``, a purely archival "the Nth pack authored at its
+    *original* level" note with no live-content role -- nothing reads it
+    outside this file's own internal sort) are left untouched, even for a
+    word tool/relevel_vocab.py later relevel-moves out of or into this
+    exact pack; that per-word ledger is not replayed against this frozen
+    authoring snapshot (see task T2.9a's report for the reasoning).
+
+    A bundle whose ``<bundle>.json`` does not exist here is a silent no-op
+    -- exactly like rename_artwork_files() skips a pack with no dedicated
+    artwork. Idempotent: a bundle already synced (its old-named file
+    already renamed away) is a no-op too, on either call site below --
+    ``migrate()``'s own apply step, or a retroactive `--sync-pack-sources`
+    replay of a bundle that already went through ``migrate()`` once, with
+    or without this step existing yet.
+    """
+
+    reports_by_bundle = {pack.bundle: pack for pack in report.packs}
+    for move in moves:
+        source_path = pack_source_dir / f"{move.bundle}.json"
+        pack_report = reports_by_bundle.get(move.bundle)
+        if not source_path.exists():
+            continue
+        if pack_report is not None:
+            pack_report.has_pack_source = True
+        payload = _read_json(source_path)
+        if not isinstance(payload, dict):
+            raise RelevelError(f"pack source {source_path}: root must be an object")
+        if payload.get("packId") != move.bundle:
+            raise RelevelError(
+                f"pack source {source_path}: packId {payload.get('packId')!r} != "
+                f"move bundle {move.bundle!r}"
+            )
+        if payload.get("level") != move.from_level:
+            raise RelevelError(
+                f"pack source {source_path}: level {payload.get('level')!r} != "
+                f"move from={move.from_level!r}"
+            )
+        if len(move.concept_ids) != 1:
+            raise RelevelError(
+                f"move {move.bundle!r}: pack source {source_path} has a single 'concept' "
+                f"field, but this move's conceptIds has {len(move.concept_ids)} entries "
+                f"{list(move.concept_ids)!r} -- cannot sync it unambiguously"
+            )
+        target_path = pack_source_dir / f"{move.new_pack_id}.json"
+        if target_path.exists():
+            raise RelevelError(
+                f"move {move.bundle!r}: pack source sync target {target_path} already exists"
+            )
+        payload["packId"] = move.new_pack_id
+        payload["level"] = move.to_level
+        payload["unit"] = move.course_unit_id
+        payload["concept"] = move.concept_ids[0]
+        _write_json(target_path, payload)
+        source_path.unlink()
+        report.pack_sources_synced.append((move.bundle, move.new_pack_id))
+
+
+def sync_pack_sources(
+    bundle: BundleFile, *, root: Path = ROOT, apply: bool,
+) -> MigrationReport:
+    """Standalone entry point (task T2.9a part (b)): retroactively apply
+    sync_pack_source_files() to a bundle whose pack moves already landed in
+    assets/data via migrate() before this sync step existed (LCP PR-L2a
+    batches L2a, L2a3) -- CLI: ``--sync-pack-sources [--apply]``.
+
+    Touches only tools/content_factory/data/packs/ -- never assets/data,
+    the ledger, or any Dart/``.py`` source -- so replaying an
+    already-migrated bundle here is safe (idempotent per
+    sync_pack_source_files's own docstring), and a dry run is a pure
+    read-only preview (``has_pack_source`` alone; nothing under apply-only
+    branches runs).
+    """
+
+    pack_source_dir = root / "tools" / "content_factory" / "data" / "packs"
+    report = MigrationReport(batch=f"{bundle.batch}-sync-pack-sources")
+    for move in bundle.moves:
+        report.packs.append(PackMoveReport(
+            bundle=move.bundle, new_pack_id=move.new_pack_id,
+            from_level=move.from_level, to_level=move.to_level,
+            course_unit_id=move.course_unit_id,
+        ))
+    for pack_report in report.packs:
+        pack_report.has_pack_source = (pack_source_dir / f"{pack_report.bundle}.json").exists()
+    if apply:
+        sync_pack_source_files(bundle.moves, report, pack_source_dir)
+    return report
+
+
+# ───────────────────────── canonical scenario source sync (T2.9a) ─────────
+#
+# A scenario move (ScenarioMove) previously patched only the *live*
+# scenario object (_migrate_scenario_object above). The canonical_120_v1
+# pipeline's own upstream sources -- canonical_scenarios/authored/<level>.
+# json (raw ko/de/en dialog; materialize_canonical_scenarios.py's "sole
+# semantic source"), canonical_scenarios/scenario_briefs.json (level/
+# portfolioBucket/courseUnitId routing brief), and the materialized
+# review/canonical_120_v1/candidates/<level>/<id>.json candidate itself --
+# were left describing the scenario's *old* level. scenario_corpus_pipeline
+# .preflight_corpus() stages a fresh corpus from exactly that candidates
+# directory and cross-checks it against relevel_ledger.json, so a stale
+# candidate there fails with "ledger to=X does not match live scenario
+# level Y" even though the *live* scenario (assets/data/scenarios_*.json)
+# was already correctly moved. Worse: a future `materialize_canonical_
+# scenarios.py` re-run from the stale authored/briefs sources would
+# regenerate the *same* wrong-level candidate again.
+#
+# All three sync functions below are graceful no-ops when their target
+# directory/file does not exist at all -- not every scenarioMove
+# necessarily has a canonical_120_v1-pipeline source (a test fixture that
+# never provisions canonical_scenarios/, or a scenario moved before that
+# pipeline existed), matching sync_pack_source_files' same philosophy for
+# a bundle move with no data/packs/ source.
+
+
+def _balanced_object_spans(text: str, start: int = 0, end: int | None = None) -> list[tuple[int, int]]:
+    """Every top-level ``{...}`` object's ``(start, end)`` span within
+    ``text[start:end]``, in source order, tracked with a string-aware
+    brace depth counter -- a ``{``/``}``/``,`` inside a quoted string
+    (Korean dialogue, an escaped quote) never miscounts."""
+
+    if end is None:
+        end = len(text)
+    spans: list[tuple[int, int]] = []
+    index = start
+    while index < end:
+        if text[index] != "{":
+            index += 1
+            continue
+        span_start = index
+        depth = 0
+        in_string = False
+        escape = False
+        while index < end:
+            ch = text[index]
+            if in_string:
+                if escape:
+                    escape = False
+                elif ch == "\\":
+                    escape = True
+                elif ch == '"':
+                    in_string = False
+            else:
+                if ch == '"':
+                    in_string = True
+                elif ch == "{":
+                    depth += 1
+                elif ch == "}":
+                    depth -= 1
+                    if depth == 0:
+                        index += 1
+                        spans.append((span_start, index))
+                        break
+            index += 1
+        else:
+            raise RelevelError(f"unbalanced braces scanning a JSON object starting at {span_start}")
+    return spans
+
+
+def _locate_scenarios_array(text: str, path: Path) -> tuple[int, int]:
+    """Return the ``(start, end)`` span of a canonical_scenarios/authored/
+    <level>.json file's top-level ``"scenarios": [...]`` array *body*
+    (just inside its own brackets, not including ``[``/``]`` themselves),
+    with a string-aware bracket-depth scan (same reasoning as
+    ``_balanced_object_spans``)."""
+
+    marker = '"scenarios": ['
+    marker_pos = text.find(marker)
+    if marker_pos == -1:
+        raise RelevelError(f'{path}: could not find a "scenarios": [ array')
+    open_pos = marker_pos + len(marker) - 1
+    depth = 0
+    in_string = False
+    escape = False
+    index = open_pos
+    while index < len(text):
+        ch = text[index]
+        if in_string:
+            if escape:
+                escape = False
+            elif ch == "\\":
+                escape = True
+            elif ch == '"':
+                in_string = False
+        else:
+            if ch == '"':
+                in_string = True
+            elif ch == "[":
+                depth += 1
+            elif ch == "]":
+                depth -= 1
+                if depth == 0:
+                    return open_pos + 1, index
+        index += 1
+    raise RelevelError(f'{path}: unbalanced brackets in "scenarios" array')
+
+
+def _remove_json_array_entry(array_body: str, ident: str) -> tuple[str, str, str]:
+    """Remove one ``{"id": "<ident>", ...}`` top-level object from a JSON
+    array's body text, returning ``(new_body, entry_text, indent)`` --
+    ``entry_text`` is that object's exact original text (byte-for-byte,
+    starting at its own ``{``, no leading indentation) for re-insertion
+    elsewhere via ``_append_json_array_entry``, and ``indent`` is the
+    exact leading whitespace that preceded it on its own line (so the
+    caller can reproduce it there too). Every *other* entry's formatting
+    is fully preserved -- unlike a ``json.loads()``/``json.dumps()`` round
+    trip, which would collapse this file's hand-formatted single-line
+    title/intro/dialog-turn objects into full multi-line ``indent=2``
+    blocks (T2.9a: the bug this function exists to avoid)."""
+
+    anchor = f'"id": "{ident}"'
+    for start, stop in _balanced_object_spans(array_body):
+        if anchor not in array_body[start:stop]:
+            continue
+        entry_text = array_body[start:stop]
+        line_start = array_body.rfind("\n", 0, start) + 1
+        indent = array_body[line_start:start]
+        after = array_body[stop:]
+        after_lstripped = after.lstrip()
+        if after_lstripped.startswith(","):
+            # Not the array's last entry: drop this whole line (back to its
+            # own leading indentation) through the trailing comma that
+            # follows its closing brace, plus that comma's own trailing
+            # newline, so no blank line is left behind.
+            comma_pos = stop + (len(after) - len(after_lstripped))
+            rest = array_body[comma_pos + 1:]
+            newline_pos = rest.find("\n")
+            remainder = rest[newline_pos + 1:] if newline_pos != -1 else ""
+            new_body = array_body[:line_start] + remainder
+        else:
+            # The array's last entry (no trailing comma of its own): strip
+            # the *previous* entry's now-dangling trailing comma instead.
+            prefix = array_body[:line_start]
+            prefix_rstripped = prefix.rstrip()
+            if prefix_rstripped.endswith(","):
+                prefix = prefix_rstripped[:-1] + prefix[len(prefix_rstripped):]
+            new_body = prefix + after
+        return new_body, entry_text, indent
+    raise RelevelError(f"id {ident!r} not found in canonical authored source")
+
+
+def _append_json_array_entry(array_body: str, entry_text: str, indent: str) -> str:
+    """Insert ``entry_text`` (an exact span from ``_remove_json_array_entry``)
+    as the new last element of a JSON array's body text, reproducing the
+    same ``,\\n<indent>`` separator every other entry already uses."""
+
+    spans = _balanced_object_spans(array_body)
+    if not spans:
+        raise RelevelError("cannot append to a canonical authored source with zero scenarios")
+    _, last_end = spans[-1]
+    return array_body[:last_end] + ",\n" + indent + entry_text + array_body[last_end:]
+
+
+def sync_canonical_authored_scenarios(
+    scenario_moves: tuple[ScenarioMove, ...],
+    report: MigrationReport,
+    authored_dir: Path = CANONICAL_AUTHORED_DIR,
+) -> None:
+    """Move each relocated scenario's raw ko/de/en dialog entry between
+    canonical_scenarios/authored/<level>.json's ``scenarios`` arrays,
+    unedited (id/title/intro/dialog only -- this file carries no level/
+    shelf/courseUnitId/conceptIds fields of its own to route; those are
+    scenario_briefs.json's/the candidate's job, below). Edits the array's
+    source text directly (``_remove_json_array_entry``/
+    ``_append_json_array_entry``) rather than a full JSON parse+rewrite,
+    so every untouched scenario's hand-collapsed formatting survives
+    byte-for-byte -- the same reasoning as ``edit_scenario_briefs_source``.
+    """
+
+    if not authored_dir.exists():
+        return
+    reports_by_id = {r.scenario_id: r for r in report.scenarios}
+    by_from_level: dict[str, list[ScenarioMove]] = {}
+    for move in scenario_moves:
+        by_from_level.setdefault(move.from_level, []).append(move)
+
+    removed_entries: dict[str, tuple[str, str]] = {}
+    for from_level, moves in by_from_level.items():
+        path = authored_dir / f"{from_level}.json"
+        text = _normalize_newlines(path.read_text(encoding="utf-8"))
+        array_start, array_end = _locate_scenarios_array(text, path)
+        body = text[array_start:array_end]
+        for move in moves:
+            body, entry_text, indent = _remove_json_array_entry(body, move.id)
+            removed_entries[move.id] = (entry_text, indent)
+            pack_report = reports_by_id.get(move.id)
+            if pack_report is not None:
+                pack_report.canonical_authored_note = (
+                    f"authored/{from_level}.json -> authored/{move.to_level}.json"
+                )
+        text = text[:array_start] + body + text[array_end:]
+        path.write_bytes(text.encode("utf-8"))
+
+    entries_by_to_level: dict[str, list[tuple[str, str]]] = {}
+    for move in scenario_moves:
+        entries_by_to_level.setdefault(move.to_level, []).append(removed_entries[move.id])
+
+    for to_level, entries in entries_by_to_level.items():
+        path = authored_dir / f"{to_level}.json"
+        text = _normalize_newlines(path.read_text(encoding="utf-8"))
+        array_start, array_end = _locate_scenarios_array(text, path)
+        body = text[array_start:array_end]
+        for entry_text, indent in entries:
+            body = _append_json_array_entry(body, entry_text, indent)
+        text = text[:array_start] + body + text[array_end:]
+        path.write_bytes(text.encode("utf-8"))
+
+
+def _bucket_for_shelf(level: str, shelf: str) -> str:
+    """Reverse-lookup materialize_canonical_scenarios.SHELF_BY_BUCKET[level]
+    for the (single, unambiguous) portfolioBucket that derives ``shelf`` --
+    excluding that table's catch-all "regression" bucket, which no real
+    relevel targets and which can otherwise collide with a real bucket for
+    the same shelf slug (e.g. a2's "study_work_digital_media" and
+    "regression" both derive "a2_work")."""
+
+    table = materializer.SHELF_BY_BUCKET.get(level)
+    if table is None:
+        raise RelevelError(
+            f"materialize_canonical_scenarios.SHELF_BY_BUCKET has no level {level!r}"
+        )
+    candidates = [bucket for bucket, value in table.items() if value == shelf and bucket != "regression"]
+    if len(candidates) != 1:
+        raise RelevelError(
+            f"cannot uniquely resolve a portfolioBucket for level={level!r} shelf={shelf!r} "
+            f"in materialize_canonical_scenarios.SHELF_BY_BUCKET (candidates={candidates!r})"
+        )
+    return candidates[0]
+
+
+_SCENARIO_BRIEF_LINE_RE = re.compile(r'^(\s*)(\{"id":"([^"]+)".*\})(,?)\s*$')
+
+
+def edit_scenario_briefs_source(
+    text: str, scenario_moves: tuple[ScenarioMove, ...], report: MigrationReport,
+) -> str:
+    """Rewrite each moved scenario's one-line brief entry in
+    canonical_scenarios/scenario_briefs.json's hand-authored, one-compact-
+    JSON-object-per-line format: level/portfolioBucket/courseUnitId only --
+    titleKo/setting/relationship/mustIncludeKo/... untouched (the same
+    "only routing fields change" policy as _migrate_scenario_object).
+    Line-based, not a full json.loads()/json.dumps() round trip of the
+    whole (7000+ line) file, so every untouched entry's exact formatting
+    survives byte-for-byte -- the same approach this module already uses
+    for shelf_assignment.py/build_can_do_segments.py.
+
+    portfolioBucket is *derived*, not authored here: see
+    _bucket_for_shelf -- so the materializer, re-run later, reproduces the
+    exact shelf this move already committed the live scenario to.
+    """
+
+    if not scenario_moves:
+        return text
+    by_id = {move.id: move for move in scenario_moves}
+    reports_by_id = {r.scenario_id: r for r in report.scenarios}
+    found: set[str] = set()
+    lines = text.split("\n")
+    for index, line in enumerate(lines):
+        match = _SCENARIO_BRIEF_LINE_RE.match(line)
+        if match is None:
+            continue
+        indent, obj_text, scenario_id, trailing_comma = match.groups()
+        move = by_id.get(scenario_id)
+        if move is None:
+            continue
+        entry = json.loads(obj_text)
+        if entry.get("level") != move.from_level:
+            raise RelevelError(
+                f"scenarioMove {move.id!r}: scenario_briefs.json level "
+                f"{entry.get('level')!r} disagrees with move.from={move.from_level!r}"
+            )
+        bucket = _bucket_for_shelf(move.to_level, move.shelf)
+        entry["level"] = move.to_level
+        entry["portfolioBucket"] = bucket
+        entry["courseUnitId"] = move.course_unit_id
+        rebuilt = json.dumps(entry, ensure_ascii=False, separators=(",", ":"))
+        lines[index] = f"{indent}{rebuilt}{trailing_comma}"
+        found.add(scenario_id)
+        pack_report = reports_by_id.get(scenario_id)
+        if pack_report is not None:
+            pack_report.scenario_brief_note = f"level={move.to_level!r} portfolioBucket={bucket!r}"
+    missing = sorted(set(by_id) - found)
+    if missing:
+        raise RelevelError(f"scenario_briefs.json: scenario id(s) not found: {missing}")
+    return "\n".join(lines)
+
+
+def sync_review_candidate_scenarios(
+    scenario_moves: tuple[ScenarioMove, ...],
+    report: MigrationReport,
+    candidates_dir: Path = REVIEW_CANDIDATES_DIR,
+) -> None:
+    """Move+patch each relocated scenario's materialized review candidate
+    (review/canonical_120_v1/candidates/<level>/<id>.json) exactly the way
+    _migrate_scenario_object() patches the live scenario object: its
+    ``scenario`` sub-object's level/shelf/courseUnitId/conceptIds only --
+    title/intro/dialog/quests/vocab/grammarIds/xpReward/emoji/... all stay
+    untouched, so a later materialize_canonical_scenarios.py re-run from
+    the now-synced canonical_scenarios/ source reproduces this exact file.
+
+    A missing candidate for one particular scenario (not every
+    scenarioMove's id necessarily has one) is its own graceful per-move
+    no-op, distinct from `candidates_dir` not existing at all.
+    """
+
+    if not candidates_dir.exists():
+        return
+    reports_by_id = {r.scenario_id: r for r in report.scenarios}
+    for move in scenario_moves:
+        source_path = candidates_dir / move.from_level / f"{move.id}.json"
+        if not source_path.exists():
+            continue
+        payload = _read_json(source_path)
+        scenario = payload.get("scenario")
+        if not isinstance(scenario, dict):
+            raise RelevelError(f"{source_path}: scenario must be an object")
+        if str(scenario.get("level", "")).strip().lower() != move.from_level:
+            raise RelevelError(
+                f"scenarioMove {move.id!r}: candidate level {scenario.get('level')!r} "
+                f"disagrees with move.from={move.from_level!r}"
+            )
+        scenario["level"] = move.to_level
+        scenario["shelf"] = move.shelf
+        scenario["courseUnitId"] = move.course_unit_id
+        scenario["conceptIds"] = list(move.concept_ids)
+        target_path = candidates_dir / move.to_level / f"{move.id}.json"
+        if target_path.exists():
+            raise RelevelError(
+                f"scenarioMove {move.id!r}: review candidate target {target_path} already exists"
+            )
+        target_path.parent.mkdir(parents=True, exist_ok=True)
+        _write_json(target_path, payload)
+        source_path.unlink()
+        report.review_candidates_synced.append((move.id, move.from_level, move.to_level))
+        pack_report = reports_by_id.get(move.id)
+        if pack_report is not None:
+            pack_report.review_candidate_note = f"{move.from_level}/ -> {move.to_level}/{move.id}.json"
+
+
 # ───────────────────────── shelf_assignment.py editing (PR-L2a2) ──────────
 #
 # ``shelf_assignment.ASSIGNMENT``'s shape is the same editing problem as the
@@ -2102,6 +2591,10 @@ def migrate(
     # these instead of ever touching this checkout's real .py sources).
     shelf_assignment_path = root / "tools" / "content_factory" / "shelf_assignment.py"
     build_can_do_segments_path = root / "tools" / "content_factory" / "build_can_do_segments.py"
+    pack_source_dir = root / "tools" / "content_factory" / "data" / "packs"
+    canonical_authored_dir = root / "tools" / "content_factory" / "canonical_scenarios" / "authored"
+    scenario_briefs_path = root / "tools" / "content_factory" / "canonical_scenarios" / "scenario_briefs.json"
+    review_candidates_dir = root / "tools" / "content_factory" / "review" / "canonical_120_v1" / "candidates"
 
     ledger = relevel_ledger.load_ledger(ledger_path)
     report = MigrationReport(batch=bundle.batch)
@@ -2222,6 +2715,7 @@ def migrate(
         _, artwork_body, _ = _extract_dart_block(artwork_text, ARTWORK_SET_OPEN, _CLOSE_BRACE_RE)
         for pack_report in report.packs:
             pack_report.has_dedicated_artwork = dart_entry_exists(artwork_body, pack_report.bundle)
+            pack_report.has_pack_source = (pack_source_dir / f"{pack_report.bundle}.json").exists()
 
         # Same read-only-preview reasoning as the artwork lookup above, for
         # the two scenario-move side files: a dry run should show the same
@@ -2242,6 +2736,20 @@ def migrate(
                 bundle.scenario_moves, report,
             )
             del ab_specs_preview
+            # Unlike the two .py sources above, scenario_briefs.json is
+            # optional here (task T2.9a): not every root provisioning
+            # scenario moves also provisions canonical_scenarios/ (e.g. the
+            # existing ScenarioRelevelBundleFixture test root does not), so
+            # this preview -- like sync_canonical_authored_scenarios/
+            # sync_review_candidate_scenarios' own apply-time calls below --
+            # is a graceful no-op when the file is absent, not a hard
+            # requirement.
+            if scenario_briefs_path.exists():
+                briefs_preview = edit_scenario_briefs_source(
+                    _normalize_newlines(scenario_briefs_path.read_text(encoding="utf-8")),
+                    bundle.scenario_moves, report,
+                )
+                del briefs_preview
 
         if not apply:
             return report
@@ -2257,7 +2765,43 @@ def migrate(
         # must not require shelf_assignment.py/build_can_do_segments.py to
         # exist at `root` when it has no reason to touch either.
         py_source_paths = (shelf_assignment_path, build_can_do_segments_path) if bundle.scenario_moves else ()
-        originals = {path: path.read_bytes() for path in (*outputs, *dart_paths, *py_source_paths)}
+        # Only the moved bundles that actually have one of these (most do
+        # not -- see sync_pack_source_files) are captured, so a bundle with
+        # zero pack sources touches nothing extra here, same as py_source_paths.
+        pack_source_paths = tuple(
+            path for move in bundle.moves
+            if (path := pack_source_dir / f"{move.bundle}.json").exists()
+        )
+        # Canonical scenario source sync (task T2.9a) -- see the "canonical
+        # scenario source sync" section above for what each syncs and why
+        # every one of these three is optional (graceful no-op) rather
+        # than a hard requirement like py_source_paths' two files.
+        canonical_authored_paths = ()
+        scenario_briefs_paths = ()
+        review_candidate_source_paths = ()
+        if bundle.scenario_moves:
+            if canonical_authored_dir.exists():
+                touched_levels = {
+                    level for move in bundle.scenario_moves for level in (move.from_level, move.to_level)
+                }
+                canonical_authored_paths = tuple(
+                    path for level in touched_levels
+                    if (path := canonical_authored_dir / f"{level}.json").exists()
+                )
+            if scenario_briefs_path.exists():
+                scenario_briefs_paths = (scenario_briefs_path,)
+            if review_candidates_dir.exists():
+                review_candidate_source_paths = tuple(
+                    path for move in bundle.scenario_moves
+                    if (path := review_candidates_dir / move.from_level / f"{move.id}.json").exists()
+                )
+        originals = {
+            path: path.read_bytes()
+            for path in (
+                *outputs, *dart_paths, *py_source_paths, *pack_source_paths,
+                *canonical_authored_paths, *scenario_briefs_paths, *review_candidate_source_paths,
+            )
+        }
         ledger_existed = ledger_path.exists()
         ledger_original = ledger_path.read_bytes() if ledger_existed else None
         aliases_existed = pack_progress_aliases_path.exists()
@@ -2279,6 +2823,24 @@ def migrate(
                 old_path = artwork_asset_dir / f"{old_id}.webp"
                 if new_path.exists() and not old_path.exists():
                     os.rename(new_path, old_path)
+            # The `originals` loop above already restores each synced pack
+            # source's *old*-named file from its captured pre-mutation
+            # bytes; it never touches the *new*-named file sync_pack_source_
+            # files() created, which did not exist before this transaction.
+            for _old_bundle, new_pack_id in report.pack_sources_synced:
+                new_path = pack_source_dir / f"{new_pack_id}.json"
+                if new_path.exists():
+                    new_path.unlink()
+            # Same reasoning as the pack-source cleanup just above:
+            # canonical_authored_paths/scenario_briefs_paths are restored by
+            # the generic `originals` loop (existing files edited in
+            # place), but sync_review_candidate_scenarios() writes a *new*
+            # <to_level>/<id>.json that never existed before this
+            # transaction -- delete it too.
+            for scenario_id, _from_level, to_level in report.review_candidates_synced:
+                new_path = review_candidates_dir / to_level / f"{scenario_id}.json"
+                if new_path.exists():
+                    new_path.unlink()
 
         try:
             for path, content in outputs.items():
@@ -2302,6 +2864,7 @@ def migrate(
             )
             _atomic_write_bytes(pack_artwork_catalog_path, new_pac_text.encode("utf-8"))
             rename_artwork_files(bundle.moves, report, artwork_asset_dir)
+            sync_pack_source_files(bundle.moves, report, pack_source_dir)
 
             new_dancheong_text = edit_dancheong_motifs(
                 _normalize_newlines(originals[dancheong_stamp_path].decode("utf-8")),
@@ -2323,6 +2886,21 @@ def migrate(
                     bundle.scenario_moves, report,
                 )
                 _atomic_write_bytes(build_can_do_segments_path, new_ab_specs_text.encode("utf-8"))
+
+                # Canonical scenario source sync (task T2.9a). Each is its
+                # own graceful no-op when its target is absent at `root`
+                # (see the "canonical scenario source sync" section above),
+                # so this never requires canonical_scenarios/ or the
+                # review candidates directory to exist, unlike the two .py
+                # sources just above.
+                sync_canonical_authored_scenarios(bundle.scenario_moves, report, canonical_authored_dir)
+                if scenario_briefs_path.exists():
+                    new_briefs_text = edit_scenario_briefs_source(
+                        _normalize_newlines(originals[scenario_briefs_path].decode("utf-8")),
+                        bundle.scenario_moves, report,
+                    )
+                    _atomic_write_bytes(scenario_briefs_path, new_briefs_text.encode("utf-8"))
+                sync_review_candidate_scenarios(bundle.scenario_moves, report, review_candidates_dir)
         except Exception as error:
             rollback_error = None
             try:
@@ -2369,7 +2947,8 @@ def format_plan(report: MigrationReport, *, apply: bool) -> str:
         )
         lines.append(
             f"    words={pack.n_words} cloze={pack.n_cloze} satz={pack.n_satz} "
-            f"artwork={'yes' if pack.has_dedicated_artwork else 'no'}"
+            f"artwork={'yes' if pack.has_dedicated_artwork else 'no'} "
+            f"pack_source={'yes' if pack.has_pack_source else 'no'}"
         )
         lines.append(
             f"    cando cluster: {pack.source_cluster_id} -> {pack.target_cluster_id} "
@@ -2389,6 +2968,7 @@ def format_plan(report: MigrationReport, *, apply: bool) -> str:
     lines.append(f"Dart packOrderInLevel renames: {report.dart_order_map_renames}")
     lines.append(f"Dart dedicatedPackIds renames: {report.dart_artwork_renames}")
     lines.append(f"artwork .webp files renamed: {report.artwork_files_renamed}")
+    lines.append(f"pack authoring sources synced: {report.pack_sources_synced}")
     lines.append(f"Dancheong motif renames: {report.dancheong_motif_renames}")
     lines.append(f"pack_progress_aliases.dart entries added: {report.aliases_added}")
     if report.test_references:
@@ -2530,10 +3110,36 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("bundle_path", type=Path, help="tools/content_factory/relevel/relevel_bundle_<batch>.json")
     parser.add_argument("--apply", action="store_true", help="write the staged relevel (default: dry run)")
     parser.add_argument("--report", type=Path, default=None, help="markdown file to append a 실행 결과 section to")
+    parser.add_argument(
+        "--sync-pack-sources", action="store_true",
+        help=(
+            "retroactive mode (task T2.9a): only rename+update this bundle's "
+            "tools/content_factory/data/packs/<id>.json archival sources -- "
+            "idempotent, does not touch assets/data/the ledger/Dart sources -- "
+            "for a bundle that was already migrate()'d before this sync step "
+            "existed (LCP PR-L2a batches L2a, L2a3)"
+        ),
+    )
     args = parser.parse_args(argv)
 
     try:
         bundle = load_bundle(args.bundle_path)
+        if args.sync_pack_sources:
+            sync_report = sync_pack_sources(bundle, apply=args.apply)
+            print(
+                f"batch {sync_report.batch}: {len(sync_report.packs)} pack(s), "
+                f"{'APPLIED' if args.apply else 'dry-run (nothing written)'}"
+            )
+            synced = dict(sync_report.pack_sources_synced)
+            for pack in sync_report.packs:
+                if pack.bundle in synced:
+                    status = f"synced -> {synced[pack.bundle]}.json"
+                elif not pack.has_pack_source:
+                    status = "no pack source file -- no-op"
+                else:
+                    status = "would sync (dry-run)"
+                print(f"  {pack.bundle} -> {pack.new_pack_id}: {status}")
+            return 0
         report = migrate(bundle=bundle, apply=args.apply)
     except (RelevelError, NotImplementedError) as error:
         print(f"ERROR: {error}")

@@ -20,6 +20,7 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
+import relevel_ledger
 import validate_batch_01 as review_batch
 import validate_promoted_batch as promoted
 import scenario_store
@@ -113,6 +114,86 @@ class PromotedBatchValidationTest(unittest.TestCase):
             root / "tools" / "content_factory" / "review",
         )
         return root
+
+
+class RelevelNormalizedLiveTest(unittest.TestCase):
+    """Task T2.9a: validate_promoted_batch must tolerate a live/draft
+    difference confined to level/pack_id (vocab) or level (cloze/satz/
+    smalltalk/pronunciation) for an id relevel_ledger.json records as
+    relevel-moved -- any other field differing must still fail. Exercises
+    `_relevel_normalized_live` directly against small, hand-built fixture
+    ledgers rather than the real (7000+ line) relevel_ledger.json, per the
+    ledger/ledger_path injection `validate()` itself now accepts."""
+
+    @staticmethod
+    def _ledger(*entries: relevel_ledger.LedgerEntry) -> relevel_ledger.Ledger:
+        return relevel_ledger.Ledger(version=1, entries=list(entries))
+
+    @staticmethod
+    def _entry(ident: str, kind: str, *, from_level: str = "a1", to_level: str = "a2") -> relevel_ledger.LedgerEntry:
+        return relevel_ledger.LedgerEntry(
+            id=ident, kind=kind, from_level=from_level, to_level=to_level,
+            movedAt="2026-09-07", batch="TEST", reason="fixture",
+        )
+
+    def test_vocab_pure_relevel_diff_normalizes_to_equal_draft(self) -> None:
+        ledger = self._ledger(self._entry("vocab_a1_0001", "vocab"))
+        draft = {"id": "vocab_a1_0001", "level": "A1", "pack_id": "a1_old_1", "pack_order": "3", "korean": "가다"}
+        live = {"id": "vocab_a1_0001", "level": "A2", "pack_id": "a2_new_1", "pack_order": "9", "korean": "가다"}
+        normalized = promoted._relevel_normalized_live("vocab", "vocab_a1_0001", live, draft, ledger)
+        self.assertEqual(normalized, draft)
+
+    def test_vocab_relevel_plus_unrelated_diff_only_normalizes_tolerated_fields(self) -> None:
+        ledger = self._ledger(self._entry("vocab_a1_0002", "vocab"))
+        draft = {
+            "id": "vocab_a1_0002", "level": "A1", "pack_id": "a1_old_1", "pack_order": "3",
+            "example_german": "alt",
+        }
+        live = {
+            "id": "vocab_a1_0002", "level": "A2", "pack_id": "a2_new_1", "pack_order": "9",
+            "example_german": "neu",
+        }
+        normalized = promoted._relevel_normalized_live("vocab", "vocab_a1_0002", live, draft, ledger)
+        self.assertEqual(normalized["level"], draft["level"])
+        self.assertEqual(normalized["pack_id"], draft["pack_id"])
+        self.assertEqual(normalized["pack_order"], draft["pack_order"])
+        self.assertEqual(normalized["example_german"], "neu", "a non-tolerated field must stay live's value")
+        self.assertNotEqual(normalized, draft, "the unrelated diff must still be visible to the caller")
+
+    def test_non_ledgered_id_is_untouched(self) -> None:
+        ledger = self._ledger(self._entry("vocab_a1_0001", "vocab"))
+        draft = {"id": "vocab_a1_0099", "level": "A1", "pack_id": "a1_old_1"}
+        live = {"id": "vocab_a1_0099", "level": "A2", "pack_id": "a2_new_1"}
+        normalized = promoted._relevel_normalized_live("vocab", "vocab_a1_0099", live, draft, ledger)
+        self.assertEqual(normalized, live, "an id absent from the ledger must be a no-op")
+
+    def test_cloze_kind_tolerates_level_only(self) -> None:
+        ledger = self._ledger(self._entry("cloze_a1_0001", "cloze"))
+        draft = {"id": "cloze_a1_0001", "level": "a1", "topic": "x"}
+        live = {"id": "cloze_a1_0001", "level": "a2", "topic": "x"}
+        normalized = promoted._relevel_normalized_live("cloze", "cloze_a1_0001", live, draft, ledger)
+        self.assertEqual(normalized, draft)
+
+    def test_cloze_kind_never_tolerates_a_non_level_field(self) -> None:
+        ledger = self._ledger(self._entry("cloze_a1_0002", "cloze"))
+        draft = {"id": "cloze_a1_0002", "level": "a1", "topic": "x"}
+        live = {"id": "cloze_a1_0002", "level": "a2", "topic": "y"}
+        normalized = promoted._relevel_normalized_live("cloze", "cloze_a1_0002", live, draft, ledger)
+        self.assertEqual(normalized["level"], "a1", "level is tolerated")
+        self.assertEqual(normalized["topic"], "y", "topic is not tolerated -- must stay live's value")
+
+    def test_grammar_kind_is_never_ledger_tolerant(self) -> None:
+        # "grammar" is a valid relevel_ledger.py kind (its KINDS constant
+        # includes it), so this ledger entry is itself well-formed -- but
+        # neither relevel_bundle.py nor tool/relevel_vocab.py ever moves a
+        # grammar row, and LEDGER_TOLERANT_KINDS deliberately omits it
+        # (matches current tooling, not a hypothetical). Even a real,
+        # well-formed grammar ledger entry must not grant tolerance.
+        ledger = self._ledger(self._entry("grammar_a1_topic", "grammar", from_level="a1", to_level="a2"))
+        draft = {"id": "grammar_a1_topic", "level": "a1"}
+        live = {"id": "grammar_a1_topic", "level": "a2"}
+        normalized = promoted._relevel_normalized_live("grammar", "grammar_a1_topic", live, draft, ledger)
+        self.assertEqual(normalized, live)
 
 
 if __name__ == "__main__":

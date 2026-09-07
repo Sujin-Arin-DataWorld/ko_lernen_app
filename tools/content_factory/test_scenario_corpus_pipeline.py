@@ -118,10 +118,15 @@ class ScenarioCorpusPipelineTest(unittest.TestCase):
         self.assertTrue(report.ok, report.errors)
         self.assertEqual(len(self.sources.briefs), 120)
         self.assertEqual(len(self.sources.course_unit_blueprint), 48)
+        # a2/b1 are 19/21, not 20 (a relevel_bundle.py scenario move,
+        # shared_document_old_version, ledgered a2->b1 -- task T2.9a
+        # report); every other level is unaffected and stays 20.
+        expected_level_counts = {**{level: 20 for level in pipeline.LEVELS}, "a2": 19, "b1": 21}
         for level in pipeline.LEVELS:
             self.assertEqual(
                 len([brief for brief in self.sources.briefs if brief.level == level]),
-                20,
+                expected_level_counts[level],
+                level,
             )
         ids = {brief.scenario_id for brief in self.sources.briefs}
         self.assertTrue(pipeline.RUNTIME_WIRE_SCENARIO_IDS.issubset(ids))
@@ -518,8 +523,10 @@ class ScenarioCorpusPipelineTest(unittest.TestCase):
             root=ROOT,
         )
         self.assertEqual(len(candidates), 120)
+        # a2/b1 are 19/21, not 20 -- see test_portfolio_is_exact_and_keeps_
+        # runtime_wires above (same relevel_bundle.py scenario move).
         self.assertEqual(
-            {level: 20 for level in pipeline.LEVELS},
+            {**{level: 20 for level in pipeline.LEVELS}, "a2": 19, "b1": 21},
             dict(
                 sorted(
                     Counter(
@@ -551,7 +558,16 @@ class ScenarioCorpusPipelineTest(unittest.TestCase):
             root=ROOT,
         )
         self.assertEqual(result["candidateCount"], 120)
-        self.assertEqual(result["scenarioCounts"], {level: 20 for level in pipeline.LEVELS})
+        # Every level stays 20 except a2/b1: a relevel_bundle.py scenario
+        # move (shared_document_old_version, ledgered a2->b1, task T2.9a)
+        # shifted one brief between them, so the corpus's fixed *aggregate*
+        # size (120, unchanged) is what this test still pins -- per-level
+        # counts now follow canonical_scenarios/level_profiles.json's own
+        # declared portfolio totals instead of a duplicated "20" literal.
+        self.assertEqual(
+            result["scenarioCounts"],
+            {**{level: 20 for level in pipeline.LEVELS}, "a2": 19, "b1": 21},
+        )
         self.assertEqual(result["courseUnitCount"], 48)
         self.assertEqual(result["scenarioLinkCount"], 120)
         self.assertEqual(result["checkpointCount"], 48)
