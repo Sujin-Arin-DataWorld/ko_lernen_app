@@ -38,7 +38,6 @@ App Store Connect 의 앱 레코드는 **빌드 파일 없이** 먼저 만든다
 | Flutter SDK | 프로젝트 핀: **3.44.0** (`.github/workflows/ci.yml` 기준) | 버전 차이로 빌드 흔들림 |
 | Apple Team ID (10자) | 저장소의 Xcode 프로젝트 값과 developer.apple.com Membership details가 일치하는지 확인 | 팀 소유권·서명 불가 |
 | `ios/Runner/GoogleService-Info.plist` | Xcode Cloud clean clone용 **추적 파일** — Firebase 프로젝트·Bundle ID 일치 확인 | 검증 게이트에서 중단 |
-| RevenueCat 공개 Apple 키 (`appl_...`) | RevenueCat → Project Settings → API keys | 구독 출시 때만 필요 |
 
 > `GoogleService-Info.plist`와 Team ID는 Xcode Cloud가 새 clone에서도 archive할 수
 > 있도록 비밀이 아닌 식별자로 의도적으로 추적한다(`6c49eeb1`). 소유자 승인 없이
@@ -75,10 +74,6 @@ appstoreconnect.apple.com → 나의 앱 → **+** → 신규 앱
 
 여기까지 하면 앱 레코드가 생긴다. **아직 아무 파일도 필요 없다.**
 
-추가로 미리 처리해 두면 좋은 것:
-- 계약/세금/금융 정보 (유료 구독을 붙일 거면 **필수** — 안 하면 구독 상품이 활성화 안 됨)
-- 구독 상품 생성 → RevenueCat 에 연결 (`subscription-setup-runbook.md`)
-
 ## 4. ③ 맥에서 빌드
 
 Xcode 에서 서명 팀을 한 번 지정해 준다:
@@ -90,18 +85,10 @@ Runner 타깃 → **Signing & Capabilities** → Debug/Profile/Release 각각 **
 **Automatically manage signing** 체크. Push Notifications 와 Sign in with Apple 이
 목록에 보이는지 확인.
 
-초기 완전 무료 출시라면 RevenueCat 키 없이 아래 명령을 쓴다. 이 빌드는 모든 학습
-콘텐츠를 열고 결제를 초기화하지 않는다.
+현재 빌드는 모든 학습 콘텐츠를 열고 결제를 초기화하지 않는다.
 
 ```bash
 export APPLE_TEAM_ID=ABCDE12345          # 본인 10자 Team ID
-FREE_LAUNCH=1 bash scripts/build_ios_ipa.sh
-```
-
-구독을 시작하는 나중의 출시에서만 `FREE_LAUNCH`을 빼고 아래 키를 설정한다.
-
-```bash
-export RC_IOS_KEY=appl_xxxxxxxxxxxx       # RevenueCat 공개 Apple 키
 bash scripts/build_ios_ipa.sh
 ```
 
@@ -110,7 +97,7 @@ bash scripts/build_ios_ipa.sh
 2. `flutter pub get` + `pod install`  (한국어 OCR Pod 존재 검사 포함)
 3. 검증 게이트 2종 (`verify_ios_firebase_config` · `verify_ios_store_contract`)
 4. `ExportOptions.plist` 임시 복사본에 Team ID 주입 — **커밋본은 안 건드린다**
-5. `flutter build ipa --release` (무료 출시 플래그 또는 RevenueCat 키·커밋 SHA 주입)
+5. `flutter build ipa --release` (커밋 SHA 주입, 전체 콘텐츠 접근)
 6. 결과 경로 출력 → `build/ios/ipa/*.ipa`
 
 ## 5. ④ 업로드
@@ -142,7 +129,8 @@ Organizer → Distribute App으로도 올릴 수 있다.
 ## 6. ⑤ TestFlight → 심사 제출
 
 1. TestFlight 탭에서 빌드 확인 → **수출 규정 준수** 질문에 답 (아래 참고)
-2. 실기기에서 최소 한 번 설치해 확인 — 특히 Google 로그인·Apple 로그인·구독 복원·푸시
+2. 실기기에서 최소 한 번 설치해 확인 — 특히 Google 로그인·Apple 로그인·모든 학습 콘텐츠
+   직접 접근·접근 스냅샷·푸시(구매·복원·paywall 화면이 없어야 함)
 3. 스토어 등재 정보 채우기: [`listing-de.md`](listing-de.md) / [`listing-en.md`](listing-en.md)
 4. 스크린샷 업로드: [`screenshot-shotlist.md`](screenshot-shotlist.md) · `tool/check_app_store_screenshots.py` 로 규격 검사
 5. 개인정보 설문: [`data-safety.md`](data-safety.md) — Google Play 것과 별도 문서다

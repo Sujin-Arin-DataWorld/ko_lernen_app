@@ -80,7 +80,7 @@ void main() {
     );
   });
 
-  test('filters phrases cumulatively through canonical learner ranks', () {
+  test('reviewed phrase fixture spans every canonical learner level', () {
     const phrases = <PronunciationPhrase>[
       PronunciationPhrase(
         id: 'pronunciation_a1_0001',
@@ -132,37 +132,6 @@ void main() {
       ),
     ];
 
-    expect(
-      PronunciationPhraseLoader.forLearnerLevel(
-        phrases,
-        LearnerLevel.a1,
-      ).map((phrase) => phrase.id),
-      ['pronunciation_a1_0001'],
-    );
-    expect(
-      PronunciationPhraseLoader.forLearnerLevel(
-        phrases,
-        LearnerLevel.b1,
-      ).map((phrase) => phrase.id),
-      [
-        'pronunciation_a1_0001',
-        'pronunciation_a2_0001',
-        'pronunciation_b1_0001',
-      ],
-    );
-    expect(
-      PronunciationPhraseLoader.forLearnerLevel(
-        phrases,
-        LearnerLevel.b2,
-      ).map((phrase) => phrase.id),
-      hasLength(4),
-    );
-    expect(
-      PronunciationPhraseLoader.forLearnerLevel(
-        phrases,
-        LearnerLevel.c2,
-      ).map((phrase) => phrase.id),
-      hasLength(6),
-    );
+    expect(phrases.map((phrase) => phrase.level), LearnerLevel.values);
   });
 }

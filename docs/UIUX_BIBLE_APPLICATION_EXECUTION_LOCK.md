@@ -195,7 +195,7 @@ current ratchet:
 
 | Measure | Current state | Locked interpretation |
 |---|---:|---|
-| Registered route cases | 75 | Every case is inventoried below |
+| Registered route cases | 74 | Every case is inventoried below |
 | `lib/screens` Dart files | 97 | Includes route, embedded, preview, and quest surfaces |
 | `lib/widgets/sori` Dart files | 128 | Existing system; no parallel system permitted |
 | Test files | 470 | Includes the permanent full-closeout inventory guard |
@@ -268,7 +268,6 @@ listed dependency.
 | `/study-library` | `StudyLibraryScreen` / Std | Keep hearts separate from saved review items and preserve word/grammar/sentence types | liked content, bookmarks, review queue | R/S/D study library | H / 5C |
 | `/stats` | `StatsScreen` / Std | Standardize cards, empty state, chart semantics | progress/stat aggregation | R/S/D stats | M / 4A |
 | `/profile` | `ProfileScreen` / Std | Standardize identity/action hierarchy | auth, sync, account linking | R/D profile | H / 4A |
-| `/paywall` | `PaywallScreen` / Custom | Keep branded offer; normalize action/error/accessibility states | RevenueCat and entitlement | R/D purchase contracts | H / 4A |
 | `/review` | `ReviewSessionScreen` / Study | Preserve approved Deck and SRS evidence | SRS order/ledger/flip gate | R/D deck battery | H / 3A |
 | `/review/hub` | `ReviewHubScreen` / Std | Keep the review launch, due count, and Today summary coherent | daily-ledger selection and handoff to `/review`; review-session SRS/XP/completion | R/S/D review hub | H / 3A |
 | `/smalltalk` | `SmalltalkScreen` / Study | Shared prompt/feedback hierarchy | course evidence and speech/content | R/D smalltalk | H / 3C |

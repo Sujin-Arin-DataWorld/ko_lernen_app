@@ -6,7 +6,7 @@ import 'package:ko_lernen_app/models/media_phrase.dart';
 import 'package:ko_lernen_app/screens/media_phrase_screen.dart';
 
 void main() {
-  test('exact-level selector never sends an A1 greeting to a C learner', () {
+  test('open catalog preserves phrases from every CEFR level', () {
     const a1 = MediaPhrase(
       id: 'a1',
       level: 'A1',
@@ -28,8 +28,7 @@ void main() {
       sourceStyle: 'debate',
     );
 
-    expect(mediaPhrasesForLevel([a1, c1], 'C1'), [c1]);
-    expect(mediaPhrasesForLevel([a1, c1], 'C2'), isEmpty);
+    expect(openMediaPhraseCatalog([a1, c1]), [a1, c1]);
   });
 
   test('the live media asset has exact-level practice for A1 through C2', () {

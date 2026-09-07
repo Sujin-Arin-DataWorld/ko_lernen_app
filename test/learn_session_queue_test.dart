@@ -24,6 +24,19 @@ void main() {
     expect(q.isDone, isTrue);
     expect(q.current, isNull);
     expect(q.servedPosition, 3); // 완료 후에도 분모를 넘지 않는다
+    expect(q.hasCompletedFirstPass, isTrue);
+  });
+
+  test('first pass completes after every unique card was answered once', () {
+    final q = _q(List.generate(8, (i) => 'w${i + 1}'));
+
+    for (var i = 0; i < 8; i++) {
+      expect(q.hasCompletedFirstPass, isFalse);
+      q.markUnknown();
+    }
+
+    expect(q.isDone, isFalse, reason: 'unknown cards remain queued for reuse');
+    expect(q.hasCompletedFirstPass, isTrue);
   });
 
   test('markUnknown reinserts after every currently queued card', () {

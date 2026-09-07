@@ -14,7 +14,6 @@ import '../services/course_progress_service.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/hanok_stage_service.dart';
 import '../services/hanok_structure_projection_service.dart';
-import '../services/pack_access.dart';
 import '../services/pack_progress_service.dart';
 import '../services/storage_service.dart';
 import '../services/vocab_pack_service.dart';
@@ -31,7 +30,6 @@ import '../widgets/sori/progress.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
-import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
@@ -295,8 +293,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
         continue;
       }
       for (final e in g.packs) {
-        if (e.progress.status != PackStatus.cleared &&
-            e.progress.status != PackStatus.locked) {
+        if (e.progress.status != PackStatus.cleared) {
           now = e.pack.id;
           break;
         }
@@ -352,15 +349,8 @@ class _LearningPathScreenState extends State<LearningPathScreen>
     WidgetsBinding.instance.addPostFrameCallback((_) => _autoScrollToTarget());
   }
 
-  Future<void> _openPack(VocabPack pack, PackStatus status) async {
-    final t = AppL10n.of(context);
-    if (status == PackStatus.locked) {
-      soriNotice(context, t.pathLockedHint);
-      return;
-    }
-    // Premium-Gate 단일화 — ensurePackAccess (A1 frei, A2/B1/B2 Abo).
-    final ok = await ensurePackAccess(context, level: pack.level);
-    if (!ok || !mounted) return;
+  Future<void> _openPack(VocabPack pack) async {
+    if (!mounted) return;
     await Navigator.pushNamed(context, '/vocab/pack', arguments: pack.id);
     if (mounted) {
       await _load();
@@ -541,7 +531,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
               nodeKey: e.pack.id == _nowPackId
                   ? _nowNodeKey
                   : (e.pack.id == _focusPackId ? _focusNodeKey : null),
-              onTap: () => _openPack(e.pack, e.progress.status),
+              onTap: () => _openPack(e.pack),
             ),
         ],
       ),

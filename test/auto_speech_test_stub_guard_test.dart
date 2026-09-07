@@ -201,13 +201,11 @@ const List<String> knownUnstubbedTestFiles = <String>[
   'test/vocab_pack_flipgate_test.dart',
   'test/vocab_pack_mission_context_test.dart',
   'test/vocab_pack_quiz_save_test.dart',
-  'test/vocab_pack_requeue_test.dart',
   'test/vocab_pack_same_pack_choices_test.dart',
   'test/vocab_pack_screen_overflow_guard_test.dart',
-  'test/vocab_pack_screen_repeat_counter_test.dart',
   'test/vocab_pack_srs_ledger_integration_test.dart',
   'test/vocab_pack_typography_test.dart',
   'test/vocab_pack_uniform_card_test.dart',
   'test/wordbook_spotlight_coach_test.dart',
 ];
-const int knownUnstubbedCap = 59; // 2026-09-05 standalone_games_uiux_test.dart 스텁 도입으로 하향
+const int knownUnstubbedCap = 57; // 2026-09-06 무료 접근 병합: requeue 테스트 스텁 도입 + repeat_counter 테스트 삭제로 하향

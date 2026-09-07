@@ -1245,17 +1245,6 @@ class Storage {
   static bool _b(String k, [bool dflt = false]) => _prefs?.getBool(k) ?? dflt;
   static Future<void> _sb(String k, bool v) async => _prefs?.setBool(k, v);
 
-  // ───────── Legacy Premium migration keys (not access authority) ─────────
-  // PremiumService deliberately ignores premiumCached: it has no UID, epoch,
-  // environment or expiry. Access uses the validated server snapshot instead.
-  // devPremiumOverride affects debug content only, never billing or server AI.
-  static bool get premiumCached => _b('kl_premium_cached');
-  static Future<void> setPremiumCached(bool v) => _sb('kl_premium_cached', v);
-
-  static bool get devPremiumOverride => _b('kl_premium_dev_override');
-  static Future<void> setDevPremiumOverride(bool v) =>
-      _sb('kl_premium_dev_override', v);
-
   // ───────── Benachrichtigungen (M3) — tägliche Lern-Erinnerung ─────────
   static bool get notificationsEnabled => _b('kl_notif_enabled');
   static Future<void> setNotificationsEnabled(bool v) =>
@@ -1400,10 +1389,7 @@ class Storage {
       await _prefs?.remove(grammarPlanLevelPreferenceKey);
       return;
     }
-    await _ss(
-      grammarPlanLevelPreferenceKey,
-      _requiredLearnerLevelCode(level),
-    );
+    await _ss(grammarPlanLevelPreferenceKey, _requiredLearnerLevelCode(level));
   }
 
   /// Strict cloud-restore-only writer. A fresh local value wins after the
@@ -3872,7 +3858,7 @@ class Storage {
 
   /// Clears only scenario completion and stars when a new approved corpus
   /// generation becomes active. The immutable XP ledger, SRS, notes,
-  /// purchases, account data, and Hanok placement are deliberately untouched.
+  /// account data, and Hanok placement are deliberately untouched.
   /// The generation marker is written last, making an interrupted migration
   /// safely repeatable.
   static Future<bool> migrateScenarioProgressGeneration(

@@ -10,6 +10,10 @@ const _validProject = '''
     isa = PBXBuildFile;
     fileRef = INFO_STRINGS_GROUP /* InfoPlist.strings */;
   };
+  PRIVACY_MANIFEST_BUILD /* PrivacyInfo.xcprivacy in Resources */ = {
+    isa = PBXBuildFile;
+    fileRef = PRIVACY_MANIFEST /* PrivacyInfo.xcprivacy */;
+  };
 /* End PBXBuildFile section */
 /* Begin PBXFileReference section */
   DE_STRINGS /* de */ = {
@@ -22,6 +26,11 @@ const _validProject = '''
     isa = PBXFileReference;
     name = en;
     path = en.lproj/InfoPlist.strings;
+    sourceTree = "<group>";
+  };
+  PRIVACY_MANIFEST /* PrivacyInfo.xcprivacy */ = {
+    isa = PBXFileReference;
+    path = PrivacyInfo.xcprivacy;
     sourceTree = "<group>";
   };
 /* End PBXFileReference section */
@@ -37,6 +46,7 @@ const _validProject = '''
     isa = PBXGroup;
     children = (
       INFO_STRINGS_GROUP /* InfoPlist.strings */,
+      PRIVACY_MANIFEST /* PrivacyInfo.xcprivacy */,
     );
     path = Runner;
     sourceTree = "<group>";
@@ -72,6 +82,7 @@ const _validProject = '''
     isa = PBXResourcesBuildPhase;
     files = (
       INFO_STRINGS_BUILD /* InfoPlist.strings in Resources */,
+      PRIVACY_MANIFEST_BUILD /* PrivacyInfo.xcprivacy in Resources */,
     );
   };
 /* End PBXResourcesBuildPhase section */
@@ -102,6 +113,13 @@ const _validInfoPlist = '''
 </dict></plist>
 ''';
 
+const _validPrivacyManifest = '''
+<plist><dict>
+<key>NSPrivacyAccessedAPITypes</key><array/>
+<key>NSPrivacyCollectedDataTypes</key><array/>
+</dict></plist>
+''';
+
 const _validAppIcon = '''
 {"images":[
   {"size":"83.5x83.5","idiom":"ipad","scale":"2x"},
@@ -122,6 +140,7 @@ const _validEnStrings = '''
 IosStoreContractResult _inspect({
   String projectSource = _validProject,
   String infoPlistSource = _validInfoPlist,
+  String privacyManifestSource = _validPrivacyManifest,
   String appIconSource = _validAppIcon,
   String deStringsSource = _validDeStrings,
   String enStringsSource = _validEnStrings,
@@ -129,6 +148,7 @@ IosStoreContractResult _inspect({
   return inspectIosStoreContract(
     projectSource: projectSource,
     infoPlistSource: infoPlistSource,
+    privacyManifestSource: privacyManifestSource,
     appIconSource: appIconSource,
     deStringsSource: deStringsSource,
     enStringsSource: enStringsSource,
@@ -157,8 +177,17 @@ void main() {
           .replaceFirst(
             '      INFO_STRINGS_BUILD /* InfoPlist.strings in Resources */,\n',
             '',
+          )
+          .replaceFirst(
+            '      PRIVACY_MANIFEST /* PrivacyInfo.xcprivacy */,\n',
+            '',
+          )
+          .replaceFirst(
+            '      PRIVACY_MANIFEST_BUILD /* PrivacyInfo.xcprivacy in Resources */,\n',
+            '',
           ),
       infoPlistSource: '<plist><dict/></plist>',
+      privacyManifestSource: '',
       appIconSource: '{"images":[]}',
       deStringsSource: '',
       enStringsSource: '',
@@ -178,6 +207,9 @@ void main() {
         'English InfoPlist.strings content is incomplete',
         'InfoPlist.strings is not registered in the Runner group exactly once',
         'InfoPlist.strings is not registered in Runner Resources exactly once',
+        'PrivacyInfo.xcprivacy content is incomplete',
+        'PrivacyInfo.xcprivacy is not registered in the Runner group exactly once',
+        'PrivacyInfo.xcprivacy is not registered in Runner Resources exactly once',
         'German is missing from Xcode knownRegions',
         '83.5x83.5 iPad icon is missing',
         '1024x1024 iOS marketing icon is missing',
@@ -210,6 +242,25 @@ void main() {
       );
     },
   );
+
+  test('requires the privacy manifest source and exact resource membership', () {
+    final duplicateResource = _validProject.replaceFirst(
+      '      PRIVACY_MANIFEST_BUILD /* PrivacyInfo.xcprivacy in Resources */,\n',
+      '      PRIVACY_MANIFEST_BUILD /* PrivacyInfo.xcprivacy in Resources */,\n'
+          '      PRIVACY_MANIFEST_BUILD /* PrivacyInfo.xcprivacy in Resources */,\n',
+    );
+
+    expect(
+      _inspect(privacyManifestSource: '').violations,
+      contains('PrivacyInfo.xcprivacy content is incomplete'),
+    );
+    expect(
+      _inspect(projectSource: duplicateResource).violations,
+      contains(
+        'PrivacyInfo.xcprivacy is not registered in Runner Resources exactly once',
+      ),
+    );
+  });
 
   test('requires each localized permission statement', () {
     expect(

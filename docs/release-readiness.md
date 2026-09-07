@@ -1,6 +1,6 @@
 # Account transition and deletion release readiness
 
-Last repository review: **2026-07-30**
+Last repository review: **2026-09-06**
 
 This is an evidence checklist, not a deployment record. No function, hosting
 configuration, rule, mobile build, DNS record, or store-console answer is live
@@ -190,25 +190,30 @@ until the release owner attaches dated evidence from the production system.
 ## Privacy publication and store evidence
 
 - [ ] Publish and visually review the exact English, German, and Korean versions
-  of `privacy.html` and `account-deletion.html` at:
-  `https://hangul-sori.com/privacy.html` and
-  `https://hangul-sori.com/account-deletion.html`.
+  sourced from `privacy.html` and `account-deletion.html` at:
+  `https://hangul-sori.com/privacy` and
+  `https://hangul-sori.com/account-deletion`.
 - [ ] Confirm the published controller identity, postal address, contact,
-  processor list, data categories, locations, retention statements, billing
-  limitation, RevenueCat route, and account-deletion scope with legal/owner
-  review. Do not infer live settings from repository defaults.
+  processor list, data categories, locations, retention statements, the
+  free-access/no-purchase-SDK contract, historical store/provider retention
+  limits, and account-deletion scope with legal/owner review. Do not infer live
+  settings from repository defaults.
 - [ ] Reconcile `docs/store/data-safety.md` with the signed Android manifest,
-  iOS privacy report, SDK data disclosures, Firebase consoles, RevenueCat
-  project, DeepL configuration, and actual app behavior.
+  iOS privacy report, SDK data disclosures, Firebase consoles, DeepL
+  configuration, and actual app behavior. Verify that the signed artifacts
+  contain no purchase SDK or billing-provider integration.
 - [ ] Save dated screenshots/exports of Google Play Data Safety, account
   deletion URL, app access, target audience, content rating, closed-test
-  eligibility/tester continuity, and the exact uploaded Android artifact.
+  eligibility/tester continuity, absence of a current in-app product or
+  subscription offer, and the exact uploaded Android artifact.
 - [ ] Save dated screenshots/exports of Apple App Privacy, account deletion,
-  support/privacy URLs, age rating, Sign in with Apple, subscriptions, and the
-  exact uploaded iOS archive/privacy manifest.
-- [ ] Confirm account deletion is never described as cancelling a Google Play
-  or App Store subscription and never promises erasure of legally retained
-  store/provider records.
+  support/privacy URLs, age rating, Sign in with Apple, absence of a current
+  in-app product or subscription offer, and the exact uploaded iOS
+  archive/privacy manifest.
+- [ ] Confirm public copy says that all learning content is free and that the
+  current app has no purchase SDK, subscription product, paywall, paid gate, or
+  billing-processing path. Any store/provider record limitation must be
+  explicitly conditional on a transaction created by an older app version.
 
 ## Redaction and static audit
 
@@ -249,17 +254,22 @@ until the release owner attaches dated evidence from the production system.
 - [ ] Run the signed Android candidate on at least one supported physical phone
   over the actual USB/debug path and as a Play closed-test install. Record
   device/OS, install source, Play Integrity/App Check result, login providers,
-  process death, offline recovery, deletion resume, and subscription sandbox.
+  process death, offline recovery, deletion resume, and a free-access smoke test
+  proving representative learning content opens without a purchase,
+  subscription state, or access override.
 - [ ] Run the signed iOS candidate on a physical device and TestFlight. Record
   device/OS, App Attest/DeviceCheck, Sign in with Apple reauthentication and
-  revocation, process death, offline recovery, deletion resume, and StoreKit
-  sandbox.
-- [ ] Test guest-to-durable replacement, collision handling, reconciliation,
-  writer fences, push ownership, RevenueCat custom UID binding, restore
-  behavior, and rejection of durable-to-durable switching on both platforms.
-- [ ] Inventory active legacy app versions and every old direct-deletion,
-  direct-Firestore, account-switch, proof, and RevenueCat identity path. Define
-  minimum supported version and backend compatibility before rollout.
+  revocation, process death, offline recovery, deletion resume, and the same
+  free-access smoke test without a purchase or subscription state.
+- [ ] Treat the purchase stack as retired. Scan both signed candidates and
+  runtime network traffic for a RevenueCat/purchase SDK, Play Billing or
+  StoreKit purchase/restore route, customer-UID binding, subscription state,
+  paywall, or entitlement-dependent learning gate. Any active hit blocks the
+  release; do not run a subscription sandbox as if it were a supported feature.
+- [ ] Inventory active legacy app versions and every historical old
+  direct-deletion, direct-Firestore, account-switch, proof, and RevenueCat
+  identity path. Define the minimum supported version and compatibility for
+  any historical transaction record before rollout.
 - [ ] Stage backend/rules first with old-client safety, then canary mobile
   cohorts, then broader release. Confirm old clients cannot bypass new
   server-owned authorization or corrupt in-progress operations.

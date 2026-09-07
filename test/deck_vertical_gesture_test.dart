@@ -14,6 +14,7 @@ import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 
 import 'helpers/deck_actions.dart';
 
@@ -139,7 +140,9 @@ void main() {
       expect(Storage.wrongCountOf('둘째'), 0);
     });
 
-    testWidgets('↓ 연속 스킵: 8개 고유 카드를 모두 본 뒤에만 첫 카드 재출제', (tester) async {
+    testWidgets('↓ 연속 스킵: 8개 고유 카드를 모두 본 뒤 재출제 없이 평가로 전환', (
+      tester,
+    ) async {
       fixViewport(tester);
       final eightWordPack = VocabPack(
         id: 'a1_vg_2',
@@ -158,8 +161,20 @@ void main() {
         await tester.pump(const Duration(milliseconds: 100));
       }
 
-      expect(find.text('단어1'), findsOneWidget);
-      expect(find.textContaining('8 / 8'), findsOneWidget);
+      await settle(tester);
+
+      // 위 루프가 "모든 고유 카드를 보기 전에는 재출제하지 않는다"를 이미 확인한다.
+      // 8개를 모두 본 순간 Learn 은 끝나고 평가로 넘어간다. 예전에는 첫 카드를
+      // 다시 서빙해서 8 / 8 인데도 연습문제가 열리지 않는 것처럼 보였다.
+      // 평가 단계의 문제 순서는 시드 없는 RNG로 섞이므로 첫 문제가 우연히
+      // '단어1'일 수 있다(1/8). 단어 텍스트 대신 Learn 전용 카운터("n / m"은
+      // Learn 카드 헤더에만 있다)가 사라졌는지로 전환을 단언한다.
+      expect(
+        find.text('8 / 8'),
+        findsNothing,
+        reason: '첫 패스를 마치면 재출제 대신 평가로 넘어간다',
+      );
+      expect(find.byType(QuizChoice), findsWidgets);
       expect(Storage.vokSeenIds, isEmpty, reason: '스킵은 학습 완료로 저장하지 않는다');
     });
 

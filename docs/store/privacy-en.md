@@ -25,13 +25,9 @@ The anonymous identity may also support optional authenticated features such as
 study groups, sharing, and push-token ownership; it does not enable
 learning-progress or bookshelf backup by itself.
 
-**RevenueCat and purchases.** If a platform RevenueCat public SDK key is present
-in the build, the app configures RevenueCat with the Firebase UID as its custom
-app user ID and obtains customer/entitlement information. RevenueCat can
-therefore process the Firebase UID, customer/entitlement information, and
-purchase or transaction state. The identifier and purchase history are treated
-as linked to the user. If no platform SDK key is present, RevenueCat is not
-configured.
+**Purchases.** The current app contains no purchase SDK, subscription product,
+paywall, or paid learning gate. All learning content is available without a
+purchase or subscription.
 
 ## 3. Local data and optional cloud backup
 
@@ -73,7 +69,6 @@ account does not upload book or word photos.
 |---|---|
 | Google Firebase / Google Cloud | Authentication UID; Remote Config; optional Firestore backup, tester feedback, Gye, sharing, FCM, Analytics, Crashlytics, Storage, analysis, and TTS functions. |
 | Google / Apple sign-in | Optional durable account link; provider association and any email/display name supplied. |
-| RevenueCat | Subscription/customer management using Firebase UID, customer/entitlement info, and purchase state when configured. |
 | DeepL | Translation of user-requested OCR/text content through the analysis backend. |
 
 The app has no advertising SDK, does not request advertising identifiers, and
@@ -94,8 +89,10 @@ where they are not proven.
 - Withdraw Analytics, Crashlytics, or notification opt-ins in Settings.
 - Reset local learning data, delete cloud backup while keeping the account, or
   delete the full account in the app.
-- Request access, correction, export, or RevenueCat-side erasure help at
-  hello@hangul-sori.com.
+- Request access, correction, or export help at hello@hangul-sori.com.
+- If an older app release created historical store or billing-provider records,
+  request provider-side erasure help at hello@hangul-sori.com. Legally required
+  transaction records may need to be retained.
 
 ## 8. Changes
 

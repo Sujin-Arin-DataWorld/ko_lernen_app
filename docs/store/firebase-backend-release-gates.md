@@ -254,25 +254,35 @@ W7의 TTS 로딩/프리패치, Living의 스타일 변경, W9의 배포 소유�
   관측에 따른 유한한 다음 검증 예산이다. 완료 시간 예측이나 테스트 통과 면제가 아니다.
 - `service_idempotency_results.expiresAt` TTL은15분 결과 보관, `service_idempotency.expiresAt`은
   책/발음24시간 hash-only 중복 방지다. API 접근 만료와 Firestore TTL 실제 삭제는 별개다.
-- `premium_grants`, `customer_entitlements`, `billing_customers`, billing receipts, access rate
-  documents는 서버 전용이며 계정 삭제 어댑터가 소유자 해시로 제거한다. late completion이
-  삭제 계정을 다시 만드는지 계정 삭제 worker와 합동 검증한다.
+- `premium_grants`, `customer_entitlements`, `billing_customers`, billing receipts는 폐기된
+  결제 구조의 과거 레코드다. 새 접근 판정이나 신규 쓰기에 사용하지 않으며 서버 전용 상태로
+  둔 채 계정 삭제 어댑터가 소유자 해시로 제거한다. 늦게 도착한 과거 작업이 삭제 계정이나
+  결제 권한을 다시 만드는지도 계정 삭제 worker와 합동 검증한다.
 
-### 테스터 권한과 비용 중단 장치
+### 공통 AI 비용 중단 장치와 과거 결제 데이터 정리
 
-- 명시적으로 Jin이 승인한 최대100UID 명단만 `functions/gye/manage_premium_grants.js`에 입력한다.
-  형식은 `schemaVersion:1`, `approvedBy:"Jin"`, `approvalRef`, `environment`,
-  `action:"grant"|"revoke"`, `uids`다. 이 메타데이터는 사람 승인 자체의 암호학적 증명이 아니다.
-  명단 검토와 제한된 ADC/IAM을 운영자가 책임지며 파일은 저장소/로그에 올리지 않는다.
-- 구독·테스터 권한의 `accountCreatedAt`은 서버 Auth 생성 시각과 일치해야 한다.
-  누락·불일치 문서는 Premium으로 인정하지 않는다. 구독은 검증된 provider 재조회와
-  reconciliation으로 발급하고, 테스터 재부여는 새 명단 승인을 거친다. 값을 추측해 채우지 않는다.
-  Admin Node 공개 metadata는 초 단위이므로 Python도 같은 정밀도를 쓴다. 관리자가 같은 UID를
-  같은 초 안에 삭제·재생성한 경우는 이 필드로 구별하지 못한다. 운영 복구에 UID 재사용을
-  금지하고 새 UID·새 승인을 사용한다. 정상 앱 삭제의 marker/cleanup 절차는 계속 적용한다.
-- 기본은 read-only dry-run이다. `--project ko-lernen-app --approved-roster <검증된 파일>`로
-  건수만 확인하고 명시적 승인 뒤에만 `--apply`한다. 이 작업에서 실제 권한 부여는 하지 않았다.
-  feedback passport나 `BETA_UNLOCK_ALL`로 생성하지 않는다. 재생성 UID는 새 승인이 필요하다.
+- 신규 Premium grant, 구독 entitlement, billing customer/receipt를 만들거나 복원하지 않는다.
+  폐기된 `functions/gye/manage_premium_grants.js` 경로와 권한 발급 도구는 현재 소스에 다시
+  추가하지 않는다. 과거 레코드 조사가 필요하면 먼저 read-only inventory를 만들고, 별도
+  승인된 정리 작업에서는 삭제 대상만 명시한다. UID 명단과 계정 정보는 저장소나 로그에 올리지 않는다.
+- 과거 레코드의 `accountCreatedAt`은 삭제 대상의 소유권을 확인하기 위한 방어 필드일 뿐,
+  콘텐츠나 AI 한도를 올리는 권한이 아니다. 같은 UID 재생성 여부가 불명확하면 삭제를
+  중단하고 새 UID 기준으로 조사한다. 정상 앱 삭제의 marker/cleanup 절차는 계속 적용한다.
+- 모든 인증 사용자는 결제·테스터 문서와 무관하게 동일한 콘텐츠 접근과 책20회/발음50회
+  일일 한도를 받는다. 클라이언트가 보낸 tier, Premium, grant, passport 값은 한도를 바꾸지 않는다.
+- 새 앱은 `getUniversalAccessSnapshot`의 schema v2(`source: universal`,
+  `aiPolicyId: universal_v1`)만 사용한다. 이미 설치된 구버전이 업데이트 전 다시 잠기지 않도록
+  `getAccessSnapshot`은 같은 공통 정책을 구버전 파서가 이해하는 schema v1 모양으로만 변환한다.
+  이 호환 함수도 grant·entitlement 문서를 읽지 않으며 두 함수는 같은 Auth, App Check,
+  계정 삭제 fence와 rate-limit 문서를 공유한다. 둘 중 하나만 단독 배포하지 않는다.
+- 배포 직전에 `firebase functions:list --project ko-lernen-app`으로 운영 함수를 새로
+  조회해 결과를 release receipt에 남긴다. `getAccessSnapshot`,
+  `getUniversalAccessSnapshot`, `revenueCatWebhook`, `processRevenueCatEvent`,
+  `refreshRevenueCatAccess`의 실제 존재 여부를 이름별로 확인한다. 과거 결제 함수가 있으면
+  이름과 region을 다시 대조한 뒤에만 명시적으로 삭제하고, 없다는 이전 조회를 재사용하지 않는다.
+- Gye 전체 codebase 대신 두 접근 함수만 정확히 배포한다:
+  `firebase --config firebase.json deploy --only functions:gye-firebase-functions:getAccessSnapshot,functions:gye-firebase-functions:getUniversalAccessSnapshot --project ko-lernen-app`.
+  배포 뒤 두 함수의 update time과 서명 앱 요청을 각각 검증한다.
 - `service_cost_controls/ai_v1`은 `schemaVersion:1`, `approvedBy:"Jin"`, `approvalRef`,
   `approvedAt`, `dailyUnitLimit`, `bookReservationUnits`, `pronunciationReservationUnits`,
   `ttsReservationUnits`를 요구한다. 모든 요청 가중치는 양수, 하루 한도는0이상 정수다.
@@ -282,24 +292,39 @@ W7의 TTS 로딩/프리패치, Living의 스타일 변경, W9의 배포 소유�
   가중치는 **설정된 보수적 예약 단위**이지 실제 유로 비용 측정값이 아니다.
 - 최대 허용 입력의 provider 비용, 중복/실패/재시도, TTS, Firestore·함수·Storage 비용을 측정한다.
   원문/음성 대신 비식별 비용 표본의 n/평균/p95/max와 산출 근거를 남긴다. 무료 사용자 비용도 포함한다.
-- 스토어 실제 정산 순수입과 무료/구독 사용자 사용 분포를 대조해 €5/월·20/50 정책을 승인한다.
-  비용이 맞지 않거나 측정 증거가 없으면 유료 전환을 중단한다. 가격/한도를 자동으로 바꾸지 않는다.
+- 모든 사용자에게 공개된 책20회/발음50회 사용 분포와 provider·인프라 비용을 대조한다.
+  비용이 맞지 않거나 측정 증거가 없으면 해당 외부 처리의 운영 한도를 보수적으로 중단하고
+  다시 승인한다. 결제벽이나 구독 등급을 자동으로 되살리지 않는다.
   거절된 트래픽도 Auth/Firestore/인프라 비용이 있으므로 앱 한도는 계정 농장 방어의 완전한 증명이 아니다.
 
-### 결제 운영과 출시 판정
+### 결제 폐기 이후 출시 판정
 
-- [구독 런북](subscription-setup-runbook.md)의 신규 구매/갱신/취소/만료/환불/복원/보류/유예
-  매트릭스를 두 스토어에서 실제 후보 빌드로 수행한다. TestFlight는 sandbox다.
-- Billing 기본 비활성, server environment 분리, Keep original App User ID 콘솔 설정, worker
-  retry/scheduler 배포와 Secret 최소 바인딩을 검증한다. 새 Secret이 필요한 결제 함수까지 포함한
-  전체 Gye deploy는 설정이 준비될 때까지 실행하지 않는다. 임의 Secret placeholder로 통과시키지 않는다.
-- 미완료 결제 작업은 TTL로 버리지 않는다.7일 이상 지연되면 hourly 재시도와 aggregate review
-  경고를 발생시킨다. 일반 pending/실패율도 운영 알림을 설정하고7일 전에 고객 지원이 개입한다.
-  완료 receipt는 UID를 제거한 최소 hash-only metadata를30일 TTL로 보관한다.
-- 실제 무료 공개 후 최소14일의 crash-free/ANR, 로그인 성공률, 삭제 큐, pending결제, AI 비용을
+- [구독 런북](subscription-setup-runbook.md)은 폐기 기록과 제거 검증만 설명한다. 후보 빌드에서
+  구매 SDK, paywall, 결제 라우트, RevenueCat webhook·worker·scheduler, 결제 Secret 요구가 모두
+  없는지 정적 계약과 스토어 콘솔에서 확인한다. 과거 판매가 있었다면 고객 통지·환불·회계 의무는
+  별도 운영 기록으로 처리하되 앱 접근 게이트를 되살리지 않는다.
+- Firebase는 변경된 함수를 이름까지 좁혀 배포한다. 전체 Gye codebase 배포로 폐기된 결제 함수나
+  운영에 없던 함수를 새로 만들지 않는다. 과거 결제 함수가 발견되면 live inventory와 명시적
+  삭제 대상을 다시 확인한 뒤 별도 삭제한다.
+- 과거 결제 레코드와 미완료 작업은 신규 처리를 재개하지 않는다. 법적 보존 기간과 계정 삭제
+  계약을 함께 확인해 서버 전용으로 정리하며, 자동 TTL이나 임의 placeholder로 증거를 없애지 않는다.
+- 실제 무료 공개 후 최소14일의 crash-free/ANR, 로그인 성공률, 삭제 큐, AI 비용을
   관찰한다. 테스트나 시간이 적힌 문서로 실제 관찰 기간을 대체하지 않는다.
-- 마이크/Azure 발음 평가, 개인 TTS 수명, 서버 권한/결제 처리에 맞게 공개 개인정보 문서와
-  스토어 Data Safety/App Privacy 답변을 W9 소유자가 검토한다. 기존 "음성 녹음 없음" 문구는
+- 마이크/Azure 발음 평가, 개인 TTS 수명, 과거 결제 데이터 정리에 맞게 공개 개인정보 문서와
+  스토어 Data Safety/App Privacy 답변을 W9 소유자가 검토한다. 신규 결제 처리나 구독 판매를
+  한다는 문구를 남기지 않는다. 기존 "음성 녹음 없음" 문구는
   발음 평가가 포함된 후보의 제출 문구로 재사용하면 안 된다.
 - fullSHA source→CI→배포revision→스토어업로드→설치기기→운영관찰의 각 증거가 없으면
   "상용화100%"로 표기하지 않는다. 코드를 main에 병합하는 것은 판매 활성화가 아니다.
+
+### Firebase Hosting 공개 묶음
+
+- `docs/` 전체를 Hosting root로 쓰지 않는다. 이 폴더에는 내부 계획·감사 자료·검토 문서가
+  함께 있으므로 `node scripts/prepare_firebase_hosting.cjs`가 만드는
+  `build/firebase-hosting`의 명시적 11개 파일만 배포한다.
+- 배포 전 `.github/scripts/test_firebase_hosting_contract.py`를 실행하고 산출물에 `.md`나
+  `.json`이 없으며 원본과 byte-for-byte로 같은지 확인한다. 그 다음에만
+  `firebase --config firebase.json deploy --only hosting --project ko-lernen-app`을 실행한다.
+- 이 명령은 Firebase 기본 사이트만 갱신한다. `hangul-sori.com`은 별도 Cloudflare 공개
+  경로이므로 이 배포의 성공을 해당 도메인 갱신 증거로 쓰지 않고, 스토어 URL은 실제 도메인에서
+  각각 다시 확인한다.

@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/pack_progress.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/pack_card.dart';
-import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
 void main() {
   testWidgets(
-    'locked hint uses the caption floor and remains complete at 200%',
+    'legacy locked progress renders as a directly tappable available card',
     (tester) async {
+      var taps = 0;
       await tester.binding.setSurfaceSize(const Size(320, 640));
       addTearDown(() => tester.binding.setSurfaceSize(null));
 
@@ -41,6 +40,7 @@ void main() {
                       wordsTotal: 10,
                       status: PackStatus.locked,
                     ),
+                    onTap: () => taps++,
                   ),
                 ),
               ),
@@ -50,17 +50,11 @@ void main() {
       );
       await tester.pump();
 
-      final t = AppL10n.of(tester.element(find.byType(PackCard)));
-      final hint = find.text(t.packLockedHintShort);
-      expect(hint, findsOneWidget);
+      expect(find.byIcon(Icons.lock_outline_rounded), findsNothing);
 
-      final hintText = tester.widget<Text>(hint);
-      final caption = SoriTextTheme.of(tester.element(hint)).caption;
-      expect(hintText.style?.fontSize, caption.fontSize);
-      expect(
-        tester.renderObject<RenderParagraph>(hint).didExceedMaxLines,
-        isFalse,
-      );
+      await tester.tap(find.byType(PackCard));
+      await tester.pump();
+      expect(taps, 1);
       expect(tester.takeException(), isNull);
     },
   );

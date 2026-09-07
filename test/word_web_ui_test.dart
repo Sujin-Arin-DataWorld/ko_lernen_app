@@ -6,7 +6,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
-import 'package:ko_lernen_app/models/learner_level.dart';
 import 'package:ko_lernen_app/models/word_relation.dart';
 import 'package:ko_lernen_app/screens/word_web_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/word_web_screen.dart';
@@ -110,7 +109,7 @@ void main() {
   });
 
   testWidgets(
-    'DE and EN hub and study content reflow across the locked matrix',
+    'DE and EN hub and study content reflow across the viewport matrix',
     (tester) async {
       for (final locale in const [Locale('de'), Locale('en')]) {
         for (final testCase in _viewports) {
@@ -312,7 +311,6 @@ WordWebScreen _hub({Key? key}) => WordWebScreen(
   key: key,
   clusterLoader: () async => const [_cluster],
   seenLoader: () => const {'크다'},
-  levelLoader: () => LearnerLevel.a1,
 );
 
 const _quizItem = WordRelationQuizItem(

@@ -47,7 +47,8 @@ void main() {
       expect(handoff, contains('`14`'));
       expect(handoff, contains('Education (recommended'));
       expect(handoff, contains('verify live hosting before submission'));
-      expect(handoff, contains('`https://hangul-sori.com/support.html`'));
+      expect(handoff, contains('`https://hangul-sori.com/support`'));
+      expect(handoff, contains('`https://hangul-sori.com/privacy`'));
       expect(handoff, contains('| Support URL |'));
       expect(handoff, contains('| Support contact |'));
       expect(handoff, isNot(contains('Support URL or contact')));

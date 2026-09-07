@@ -31,7 +31,7 @@ and TestFlight. It sequences the documents below rather than replacing them.
 | File | Owner action |
 |---|---|
 | [data-safety.md](data-safety.md) | Complete the separate Apple App Privacy worksheet from the final archive and live services |
-| [ios-external-setup.md](ios-external-setup.md) | Configure Apple signing, Firebase, APNs, URL scheme, and any approved purchase configuration on macOS |
+| [ios-external-setup.md](ios-external-setup.md) | Configure Apple signing, Firebase, APNs, and the URL scheme, then verify on macOS that purchase configuration remains absent |
 | [screenshot-shotlist.md](screenshot-shotlist.md) | Capture real iPhone and iPad screenshots; no web or AI substitutes |
 
 Privacy, support, deletion, signing, device testing, TestFlight, and App

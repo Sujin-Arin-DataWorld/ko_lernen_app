@@ -59,7 +59,6 @@ void main() {
     'practice hub': PracticeHubScreen.new,
     'vocab packs': VocabPacksScreen.new,
     'scenarios list': () => ScenariosListScreen(
-      ignoreLevelLock: true,
       loadScenarios: () async => const [scenarioAirportArrivalFixture],
     ),
     'scenario player vocabulary': () => ScenarioPlayerScreen.preview(

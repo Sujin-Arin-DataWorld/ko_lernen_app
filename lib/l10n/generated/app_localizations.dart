@@ -97,72 +97,6 @@ abstract class AppL10n {
     Locale('en'),
   ];
 
-  /// No description provided for @paywallSignInToContinue.
-  ///
-  /// In de, this message translates to:
-  /// **'Konto verbinden'**
-  String get paywallSignInToContinue;
-
-  /// No description provided for @paywallSignInRequired.
-  ///
-  /// In de, this message translates to:
-  /// **'Verbinde zuerst dein Google- oder Apple-Konto. Käufe bleiben an dieses Konto gebunden.'**
-  String get paywallSignInRequired;
-
-  /// No description provided for @paywallPending.
-  ///
-  /// In de, this message translates to:
-  /// **'Die Bestätigung steht noch aus. Dein Zugang wird nach der Serverprüfung aktualisiert.'**
-  String get paywallPending;
-
-  /// No description provided for @paywallCancelled.
-  ///
-  /// In de, this message translates to:
-  /// **'Kauf abgebrochen. Es wurde kein Zugang freigeschaltet.'**
-  String get paywallCancelled;
-
-  /// No description provided for @paywallActive.
-  ///
-  /// In de, this message translates to:
-  /// **'Premium ist bereits aktiv'**
-  String get paywallActive;
-
-  /// No description provided for @paywallTesterActive.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein freigegebener Tester-Zugang ist aktiv'**
-  String get paywallTesterActive;
-
-  /// No description provided for @paywallManage.
-  ///
-  /// In de, this message translates to:
-  /// **'Abo im ursprünglichen Store verwalten'**
-  String get paywallManage;
-
-  /// No description provided for @paywallManageUnavailable.
-  ///
-  /// In de, this message translates to:
-  /// **'Öffne die Aboverwaltung in dem Store, in dem du das Abo abgeschlossen hast.'**
-  String get paywallManageUnavailable;
-
-  /// No description provided for @paywallFreeLaunch.
-  ///
-  /// In de, this message translates to:
-  /// **'Alle Lerninhalte sind zum kostenlosen Start offen. Ein Abo ist derzeit nicht verfügbar.'**
-  String get paywallFreeLaunch;
-
-  /// No description provided for @paywallAiLimits.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein aktuelles Kontingent: {book} Buchanalysen und {pronunciation} Ausspracheprüfungen pro UTC-Tag.'**
-  String paywallAiLimits(int book, int pronunciation);
-
-  /// No description provided for @paywallNextReset.
-  ///
-  /// In de, this message translates to:
-  /// **'Nächster Reset: {time} UTC'**
-  String paywallNextReset(String time);
-
   /// No description provided for @accountAdditionalProviderTitle.
   ///
   /// In de, this message translates to:
@@ -192,120 +126,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Apple-Anmeldung ist in dieser App-Version noch nicht eingerichtet. Verwende vorerst deine bisherige Anmeldemethode oder kontaktiere den Support.'**
   String get accountAppleConfigurationBody;
-
-  /// No description provided for @paywallTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Hangul Sori Premium'**
-  String get paywallTitle;
-
-  /// No description provided for @paywallSubtitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Koreanisch lernen, wann du willst.'**
-  String get paywallSubtitle;
-
-  /// No description provided for @paywallBenefit1.
-  ///
-  /// In de, this message translates to:
-  /// **'Alle Vokabel-Pakete (A2 bis C2)'**
-  String get paywallBenefit1;
-
-  /// No description provided for @paywallBenefit2.
-  ///
-  /// In de, this message translates to:
-  /// **'Alle Gesprächs-Szenarien'**
-  String get paywallBenefit2;
-
-  /// No description provided for @paywallBenefit3.
-  ///
-  /// In de, this message translates to:
-  /// **'Unbegrenzte Wiederholungen'**
-  String get paywallBenefit3;
-
-  /// No description provided for @paywallBenefit4.
-  ///
-  /// In de, this message translates to:
-  /// **'50 Ausspracheprüfungen pro UTC-Tag'**
-  String get paywallBenefit4;
-
-  /// No description provided for @paywallBenefit5.
-  ///
-  /// In de, this message translates to:
-  /// **'20 Buchanalysen pro UTC-Tag'**
-  String get paywallBenefit5;
-
-  /// No description provided for @paywallPricePerMonth.
-  ///
-  /// In de, this message translates to:
-  /// **'/ Monat'**
-  String get paywallPricePerMonth;
-
-  /// No description provided for @paywallEyebrow.
-  ///
-  /// In de, this message translates to:
-  /// **'Premium'**
-  String get paywallEyebrow;
-
-  /// No description provided for @paywallCtaStart.
-  ///
-  /// In de, this message translates to:
-  /// **'Premium freischalten'**
-  String get paywallCtaStart;
-
-  /// No description provided for @paywallCtaRestore.
-  ///
-  /// In de, this message translates to:
-  /// **'Käufe wiederherstellen'**
-  String get paywallCtaRestore;
-
-  /// No description provided for @paywallClose.
-  ///
-  /// In de, this message translates to:
-  /// **'Vielleicht später'**
-  String get paywallClose;
-
-  /// No description provided for @paywallLegal.
-  ///
-  /// In de, this message translates to:
-  /// **'Jederzeit kündbar. Das Abo verlängert sich automatisch, bis du kündigst.'**
-  String get paywallLegal;
-
-  /// No description provided for @paywallNotAvailable.
-  ///
-  /// In de, this message translates to:
-  /// **'Abos sind in dieser Version noch nicht verfügbar.'**
-  String get paywallNotAvailable;
-
-  /// No description provided for @paywallProcessing.
-  ///
-  /// In de, this message translates to:
-  /// **'Einen Moment …'**
-  String get paywallProcessing;
-
-  /// No description provided for @paywallSuccess.
-  ///
-  /// In de, this message translates to:
-  /// **'Premium ist aktiv. Viel Spaß!'**
-  String get paywallSuccess;
-
-  /// No description provided for @paywallFailed.
-  ///
-  /// In de, this message translates to:
-  /// **'Kauf nicht abgeschlossen.'**
-  String get paywallFailed;
-
-  /// No description provided for @paywallRestoreNone.
-  ///
-  /// In de, this message translates to:
-  /// **'Keine früheren Käufe gefunden.'**
-  String get paywallRestoreNone;
-
-  /// No description provided for @paywallRestoreFailed.
-  ///
-  /// In de, this message translates to:
-  /// **'Käufe konnten nicht wiederhergestellt werden. Versuche es erneut.'**
-  String get paywallRestoreFailed;
 
   /// No description provided for @streakDisplay.
   ///
@@ -594,12 +414,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Taego wartet schon. Zeit für Koreanisch! 🐯'**
   String get notificationBody;
-
-  /// No description provided for @homeCourseTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein Lernpfad heute'**
-  String get homeCourseTitle;
 
   /// No description provided for @homeCourseDesc.
   ///
@@ -2137,18 +1951,6 @@ abstract class AppL10n {
   /// **'안녕하세요, Hallo\\n사과, Apfel'**
   String get customPackCsvHint;
 
-  /// No description provided for @packStateLocked.
-  ///
-  /// In de, this message translates to:
-  /// **'gesperrt'**
-  String get packStateLocked;
-
-  /// No description provided for @packStatePremium.
-  ///
-  /// In de, this message translates to:
-  /// **'Premium'**
-  String get packStatePremium;
-
   /// No description provided for @packStateCleared.
   ///
   /// In de, this message translates to:
@@ -2166,12 +1968,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Paket {title}, {state}, {learned} von {total} gelernt'**
   String packSemantics(Object title, Object state, int learned, int total);
-
-  /// No description provided for @packLockedHintShort.
-  ///
-  /// In de, this message translates to:
-  /// **'Vorher freischalten'**
-  String get packLockedHintShort;
 
   /// No description provided for @smalltalkUseWith.
   ///
@@ -2508,18 +2304,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Für dieses Level sind noch keine Vokabeln vorbereitet.'**
   String get vocabPacksEmptyBody;
-
-  /// No description provided for @vocabPackLockedNoPrev.
-  ///
-  /// In de, this message translates to:
-  /// **'Dieses Paket ist noch gesperrt.'**
-  String get vocabPackLockedNoPrev;
-
-  /// No description provided for @vocabPackLockedHint.
-  ///
-  /// In de, this message translates to:
-  /// **'Schließe zuerst „{prev}“ mit ≥ 70 % ab.'**
-  String vocabPackLockedHint(Object prev);
 
   /// No description provided for @bookCaptureTitle.
   ///
@@ -3763,12 +3547,6 @@ abstract class AppL10n {
   /// **'Tippen zum Umdrehen'**
   String get vocabPackLearnHint;
 
-  /// Learn stage counter suffix for re-served (missed) cards
-  ///
-  /// In de, this message translates to:
-  /// **' · +{n, plural, one{1 Wdh.} other{{n} Wdh.}}'**
-  String vocabPackLearnRepeatSuffix(int n);
-
   /// No description provided for @vocabPackDontKnow.
   ///
   /// In de, this message translates to:
@@ -4284,24 +4062,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Dadurch werden dein Firebase-Konto, deine Google- und Apple-Verknüpfungen, das Firestore-Cloud-Backup und lokale Lerndaten auf diesem Gerät gelöscht. Das lässt sich nicht rückgängig machen. Google oder Apple bitten dich zur Bestätigung eventuell um eine erneute Anmeldung.'**
   String get settingsAccountDeleteConfirmBody;
-
-  /// No description provided for @settingsAccountDeleteSubscriptionWarning.
-  ///
-  /// In de, this message translates to:
-  /// **'Ein App-Store- oder Play-Store-Abo wird dadurch nicht gekündigt.'**
-  String get settingsAccountDeleteSubscriptionWarning;
-
-  /// No description provided for @settingsManageSubscription.
-  ///
-  /// In de, this message translates to:
-  /// **'Store-Abo verwalten'**
-  String get settingsManageSubscription;
-
-  /// No description provided for @settingsManageSubscriptionFailed.
-  ///
-  /// In de, this message translates to:
-  /// **'Die Aboverwaltung konnte nicht geöffnet werden.'**
-  String get settingsManageSubscriptionFailed;
 
   /// No description provided for @settingsAccountDeleteSuccess.
   ///
@@ -4848,12 +4608,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'5 bis 7 Minuten · +{xp} XP'**
   String scenariosCardMeta(int xp);
-
-  /// No description provided for @scenariosLocked.
-  ///
-  /// In de, this message translates to:
-  /// **'Erreiche {level}, um freizuschalten'**
-  String scenariosLocked(Object level);
 
   /// No description provided for @scenariosLevelBadge.
   ///
@@ -6928,7 +6682,7 @@ abstract class AppL10n {
   /// No description provided for @scenariosPathProgress.
   ///
   /// In de, this message translates to:
-  /// **'{done}/{total} freigeschaltet'**
+  /// **'{done}/{total} verfügbar'**
   String scenariosPathProgress(int done, int total);
 
   /// No description provided for @scenariosPathNextLabel.
@@ -7696,7 +7450,7 @@ abstract class AppL10n {
   /// No description provided for @wordWebBrowseLevelCta.
   ///
   /// In de, this message translates to:
-  /// **'Wörter auf meinem Niveau ansehen'**
+  /// **'Alle Niveaus ansehen'**
   String get wordWebBrowseLevelCta;
 
   /// No description provided for @wordWebOpenVocabCta.
@@ -7720,7 +7474,7 @@ abstract class AppL10n {
   /// No description provided for @wordWebLevelFilter.
   ///
   /// In de, this message translates to:
-  /// **'Mein Niveau'**
+  /// **'Alle Niveaus'**
   String get wordWebLevelFilter;
 
   /// No description provided for @wordWebSynonymSection.
@@ -8087,12 +7841,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Jetzt'**
   String get pathNodeNow;
-
-  /// No description provided for @pathLockedHint.
-  ///
-  /// In de, this message translates to:
-  /// **'Schließe zuerst das vorherige Paket ab.'**
-  String get pathLockedHint;
 
   /// No description provided for @pathSeeAll.
   ///
@@ -9093,7 +8841,7 @@ abstract class AppL10n {
   /// No description provided for @grammarPlanOnboardingBody.
   ///
   /// In de, this message translates to:
-  /// **'Du siehst jeden Tag nur diese Muster. Tempo und Niveau kannst du oben jederzeit ändern.'**
+  /// **'Wähle eine tägliche Empfehlung. Oben kannst du Tempo und Niveau ändern oder jederzeit alle Muster ansehen.'**
   String get grammarPlanOnboardingBody;
 
   /// No description provided for @grammarPlanItemsPerDayOption.
@@ -9155,6 +8903,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Neu starten'**
   String get grammarPlanFinishedRestartCta;
+
+  /// No description provided for @grammarBrowseAllCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Grammatikmuster ansehen'**
+  String get grammarBrowseAllCta;
 
   /// No description provided for @grammarChoiceTitle.
   ///
@@ -10833,7 +10587,7 @@ abstract class AppL10n {
   /// No description provided for @coachScenariosBody.
   ///
   /// In de, this message translates to:
-  /// **'Tippe auf ein Szenario und übe echte Alltagssituationen. Sie werden ab A2 freigeschaltet.'**
+  /// **'Tippe auf ein Szenario und übe echte Alltagssituationen. Alle Niveaus sind direkt verfügbar.'**
   String get coachScenariosBody;
 
   /// No description provided for @questSatzBauenInstruction.
@@ -15801,7 +15555,7 @@ abstract class AppL10n {
   /// No description provided for @mediaPhraseDesc.
   ///
   /// In de, this message translates to:
-  /// **'Übe Originalzeilen aus Interview-, Podcast-, Doku- und Debattenregistern auf deinem Niveau.'**
+  /// **'Übe Originalzeilen aus Interviews, Podcasts, Dokus und Debatten aus allen Niveaustufen.'**
   String get mediaPhraseDesc;
 
   /// No description provided for @mediaPhraseContext.
@@ -15825,13 +15579,13 @@ abstract class AppL10n {
   /// No description provided for @mediaPhraseEmptyTitle.
   ///
   /// In de, this message translates to:
-  /// **'Noch kein Satz für dieses Niveau'**
+  /// **'Noch kein Medien-Satz verfügbar'**
   String get mediaPhraseEmptyTitle;
 
   /// No description provided for @mediaPhraseEmpty.
   ///
   /// In de, this message translates to:
-  /// **'Für dein Niveau sind gerade keine Medien-Sätze verfügbar.'**
+  /// **'Zurzeit sind keine Medien-Sätze verfügbar.'**
   String get mediaPhraseEmpty;
 
   /// No description provided for @mediaPhraseProgress.

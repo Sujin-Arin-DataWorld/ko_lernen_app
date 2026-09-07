@@ -108,7 +108,6 @@ void main() {
       const TodayLearningDestination(
         route: '/vocab/pack',
         arguments: 'a2_cafe',
-        packAccessLevel: 'A2',
       ),
     );
   });

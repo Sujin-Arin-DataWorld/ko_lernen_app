@@ -1,0 +1,44 @@
+{
+  "cases": [
+    {
+      "name": "production-account",
+      "uid": "user-1",
+      "environment": "PRODUCTION",
+      "now": 1788436800000
+    },
+    {
+      "name": "sandbox-account",
+      "uid": "사용자-2",
+      "environment": "SANDBOX",
+      "now": 1788479999999
+    }
+  ],
+  "expectedSnapshots": {
+    "production-account": {
+      "schemaVersion": 2,
+      "ownerUid": "user-1",
+      "environment": "PRODUCTION",
+      "revision": "413d311a5ea09e36131f262e5c0c07dbbbcf0c35cd4f73f168af8ee90e44681e",
+      "source": "universal",
+      "contentAccess": "all",
+      "aiPolicyId": "universal_v1",
+      "bookDailyLimit": 20,
+      "pronunciationDailyLimit": 50,
+      "serverNow": 1788436800000,
+      "nextResetAt": 1788480000000
+    },
+    "sandbox-account": {
+      "schemaVersion": 2,
+      "ownerUid": "사용자-2",
+      "environment": "SANDBOX",
+      "revision": "797a8f590f08a043a3f1c06d7bc7738990e41cc8f4be9c30c89dcd9c06715c0d",
+      "source": "universal",
+      "contentAccess": "all",
+      "aiPolicyId": "universal_v1",
+      "bookDailyLimit": 20,
+      "pronunciationDailyLimit": 50,
+      "serverNow": 1788479999999,
+      "nextResetAt": 1788480000000
+    }
+  }
+}

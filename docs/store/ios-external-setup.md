@@ -148,51 +148,21 @@ grep -Fq 'BEGIN PRIVATE KEY' "$APNS_KEY_PATH"
 
 Never print the private key or add it to source control. See [Firebase Cloud Messaging for Apple platforms](https://firebase.google.com/docs/cloud-messaging/ios/get-started) and [Apple APNs token authentication](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
 
-## 4. Initial fully free Store release
+## 4. Store release without subscriptions
 
-For the first free release, do not create RevenueCat products or set
-`RC_IOS_KEY`. Build with `FREE_LAUNCH=1`; the app opens all learning gates and
-returns before RevenueCat initialization. The App Store listing and App Privacy
-answers for this build must not promise subscriptions or declare RevenueCat
-purchase processing.
+Do not create RevenueCat products or set purchase SDK keys. The app opens all
+learning content and contains no purchase or restore flow. Store listing and
+App Privacy answers must not promise subscriptions or declare current purchase
+processing.
 
 ```bash
 set -euo pipefail
 
 : "${APPLE_TEAM_ID:?Set APPLE_TEAM_ID to the Apple Team ID}"
-FREE_LAUNCH=1 bash scripts/build_ios_ipa.sh
+bash scripts/build_ios_ipa.sh
 ```
 
-When subscriptions are ready, remove `FREE_LAUNCH` and complete the next
-section before creating a monetized build.
-
-## 5. Configure RevenueCat for a future subscription release
-
-In App Store Connect, create the app with bundle ID `com.sujinarin.koLernenApp`, finish agreements/tax/banking, and create the subscription products. In RevenueCat:
-
-1. Create/select the project and add an Apple App Store app with the same bundle ID.
-2. Connect App Store Connect credentials.
-3. Import the products, create the `premium` entitlement, attach products, and create the current offering.
-4. Copy the app-specific **public Apple SDK key** from Project Settings > API keys. Never use a RevenueCat secret key in the app.
-
-The app expects the key through `RC_IOS_KEY`. Verify and pass it without committing it:
-
-```bash
-set -euo pipefail
-
-: "${RC_IOS_KEY:?Set RC_IOS_KEY to the RevenueCat public Apple SDK key}"
-case "$RC_IOS_KEY" in
-  appl_*) ;;
-  *) echo 'RC_IOS_KEY is not an Apple public SDK key (expected appl_ prefix)' >&2; exit 1 ;;
-esac
-
-flutter build ipa --release \
-  --dart-define="RC_IOS_KEY=$RC_IOS_KEY"
-```
-
-See RevenueCat's [SDK quickstart](https://www.revenuecat.com/docs/getting-started/quickstart) and [SDK configuration](https://www.revenuecat.com/docs/getting-started/configuring-sdk).
-
-## 6. macOS dependency and archive gate
+## 5. macOS dependency and archive gate
 
 Flutter 3.44 uses Swift Package Manager where supported and falls back to CocoaPods for plugins that do not support it. The locked `google_mlkit_text_recognition` 0.13.1 plugin needs `GoogleMLKit/TextRecognitionKorean ~> 6.0.0`, which is pinned in `ios/Podfile`.
 
@@ -216,12 +186,8 @@ grep -Fq 'GoogleMLKit/TextRecognitionKorean' ios/Podfile.lock
 
 flutter build ios --debug --no-codesign
 
-# Initial fully free App Store candidate.
-FREE_LAUNCH=1 bash scripts/build_ios_ipa.sh
-
-# Future subscription candidate only:
-# : "${RC_IOS_KEY:?Set RC_IOS_KEY}"
-# bash scripts/build_ios_ipa.sh
+# App Store candidate with all learning content open.
+bash scripts/build_ios_ipa.sh
 ```
 
 Open the generated archive in Xcode Organizer and inspect the signed app before upload:
@@ -237,4 +203,4 @@ test "$(plutil -extract aps-environment raw /tmp/hangul-sori-entitlements.plist)
 test "$(/usr/libexec/PlistBuddy -c 'Print :com.apple.developer.applesignin:0' /tmp/hangul-sori-entitlements.plist)" = Default
 ```
 
-These build, signing, notification-delivery, Apple-authentication, Google-authentication, and purchase checks require macOS, Xcode, real credentials, and physical-device/sandbox testing. They cannot be completed on Windows.
+These build, signing, notification-delivery, Apple-authentication, Google-authentication, and no-purchase verification checks require macOS, Xcode, real credentials, the final signed archive, and physical-device testing. They cannot be completed on Windows.

@@ -4,7 +4,6 @@ const appOrigin = 'http://127.0.0.1:4173';
 const expectedBlockedHosts = new Set([
   'accounts.google.com',
   'analytics.google.com',
-  'api.revenuecat.com',
   'app-measurement.com',
   'firebase.googleapis.com',
   'firestore.googleapis.com',

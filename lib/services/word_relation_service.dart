@@ -6,7 +6,6 @@ import 'package:flutter/services.dart' show rootBundle;
 
 import '../models/course_mastery.dart';
 import '../models/curriculum.dart';
-import '../models/learner_level.dart';
 import '../models/vocab.dart';
 import '../models/word_relation.dart';
 import 'curriculum_catalog.dart';
@@ -79,30 +78,24 @@ class WordRelationService {
   static List<WordRelationCluster> filterForLearner({
     required List<WordRelationCluster> clusters,
     required Set<String> seenKorean,
-    required LearnerLevel level,
     required WordWebScope scope,
   }) {
     final seen = {for (final word in seenKorean) word.trim()}.difference({''});
     return [
       for (final cluster in clusters)
-        if (_matchesScope(cluster, seen, level, scope)) cluster,
+        if (_matchesScope(cluster, seen, scope)) cluster,
     ];
   }
 
   static bool _matchesScope(
     WordRelationCluster cluster,
     Set<String> seen,
-    LearnerLevel level,
     WordWebScope scope,
   ) {
     if (scope == WordWebScope.learned) {
       return seen.contains(cluster.sourceKo);
     }
-    final clusterLevel = LearnerLevel.fromCode(cluster.level);
-    if (clusterLevel == null) {
-      return false;
-    }
-    return clusterLevel.rank <= level.rank;
+    return true;
   }
 
   static List<WordRelationQuizItem> buildQuiz({

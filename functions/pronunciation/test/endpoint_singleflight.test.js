@@ -159,9 +159,9 @@ function testerGrant(overrides = {}) {
     approvalRef: "local-test-roster", grantId: "local-test-grant", ...overrides};
 }
 
-test("actual pronunciation callable rejects stale premium authority after same UID recreation", async () => {
+test("retired premium authority cannot change the open fifty-request quota", async () => {
   for (const kind of ["tester", "subscription"]) {
-    const h = harness(); seedDaily(h, 5);
+    const h = harness(); seedDaily(h, 49);
     const key = kind === "tester" ? "premium_grants/user-1" :
       `customer_entitlements/PRODUCTION_${require("node:crypto").createHash("sha256").update("user-1").digest("hex")}`;
     h.db.store.set(key, {...testerGrant(), accountCreatedAt: 0,
@@ -171,7 +171,7 @@ test("actual pronunciation callable rejects stale premium authority after same U
     await assert.rejects(h.run(request({assessmentId: "after-recreation", accountCreatedAt: 0})),
       {code: "resource-exhausted"});
     assert.equal(h.calls.length, 1);
-    assert.equal(h.db.store.get("users/user-1/pronunciation_rate_limits/current").dayCount, 6);
+    assert.equal(h.db.store.get("users/user-1/pronunciation_rate_limits/current").dayCount, 50);
   }
 });
 
@@ -184,11 +184,12 @@ test("pronunciation Auth absence, disability and UID mismatch fail before provid
   }
 });
 
-test("free launch full content never elevates actual AI quota from five", async () => {
-  const h = harness(); seedDaily(h, 5);
-  await assert.rejects(h.run(request({tier: "premium", isPremium: true, FREE_LAUNCH: true,
-    premiumGrant: testerGrant(), feedbackPassport: true, uid: "tester"})), {code: "resource-exhausted"});
-  assert.equal(h.calls.length, 0);
+test("all authenticated users receive the universal fifty-request quota", async () => {
+  const h = harness(); seedDaily(h, 49);
+  await h.run(request({tier: "premium", isPremium: true, FREE_LAUNCH: true,
+    premiumGrant: testerGrant(), feedbackPassport: true, uid: "tester"}));
+  await assert.rejects(h.run(request({assessmentId: "request-51"})), {code: "resource-exhausted"});
+  assert.equal(h.calls.length, 1);
 });
 
 test("consumed App Check token is rejected before authority IO or provider", async () => {
@@ -198,7 +199,7 @@ test("consumed App Check token is rejected before authority IO or provider", asy
   assert.equal(h.db.store.size, 1);
 });
 
-test("server approved tester and verified subscription allow fifty, preserving usage", async () => {
+test("retired tester and subscription documents do not alter the open quota", async () => {
   for (const source of ["tester", "subscription"]) {
     const h = harness(); seedDaily(h, 49);
     if (source === "tester") h.db.store.set("premium_grants/user-1", testerGrant());
@@ -214,30 +215,33 @@ test("server approved tester and verified subscription allow fifty, preserving u
   }
 });
 
-test("forged or mismatched server grant and stale subscription do not raise quota", async () => {
+test("forged and stale legacy authority still receive only the common quota", async () => {
   for (const grant of [testerGrant({ownerUid: "another"}), testerGrant({environment: "SANDBOX"}),
     testerGrant({schemaVersion: 2}), testerGrant({status: "revoked"}), testerGrant({approvedAt: Date.now() + 100000})]) {
-    const h = harness(); seedDaily(h, 5); h.db.store.set("premium_grants/user-1", grant);
-    await assert.rejects(h.run(request()), {code: "resource-exhausted"});
-    assert.equal(h.calls.length, 0);
+    const h = harness(); seedDaily(h, 49); h.db.store.set("premium_grants/user-1", grant);
+    await h.run(request());
+    await assert.rejects(h.run(request({assessmentId: "request-51"})), {code: "resource-exhausted"});
+    assert.equal(h.calls.length, 1);
   }
-  const h = harness(); seedDaily(h, 5);
+  const h = harness(); seedDaily(h, 49);
   h.db.store.set(`customer_entitlements/PRODUCTION_${require("node:crypto").createHash("sha256").update("user-1").digest("hex")}`, {
     schemaVersion: 1, ownerUid: "user-1", environment: "PRODUCTION", revision: 1, status: "active",
     accountCreatedAt: 0,
     providerCheckedAt: Date.now() - 4 * 86400000, accessUntil: Date.now() + 60000,
   });
-  await assert.rejects(h.run(request()), {code: "resource-exhausted"});
-  assert.equal(h.calls.length, 0);
+  await h.run(request());
+  await assert.rejects(h.run(request({assessmentId: "request-51"})), {code: "resource-exhausted"});
+  assert.equal(h.calls.length, 1);
 });
 
-test("tier transitions keep original same-UID UTC counts", async () => {
-  const h = harness(); seedDaily(h, 5);
+test("removing a retired grant does not change the shared UTC count", async () => {
+  const h = harness(); seedDaily(h, 48);
   h.db.store.set("premium_grants/user-1", testerGrant());
   await h.run(request());
   h.db.store.delete("premium_grants/user-1");
-  await assert.rejects(h.run(request({assessmentId: "downgraded-request"})), {code: "resource-exhausted"});
-  assert.equal(h.db.store.get("users/user-1/pronunciation_rate_limits/current").dayCount, 6);
+  await h.run(request({assessmentId: "second-open-request"}));
+  await assert.rejects(h.run(request({assessmentId: "request-51"})), {code: "resource-exhausted"});
+  assert.equal(h.db.store.get("users/user-1/pronunciation_rate_limits/current").dayCount, 50);
 });
 
 test("missing, unapproved or zero service cap denies provider without quota writes", async () => {

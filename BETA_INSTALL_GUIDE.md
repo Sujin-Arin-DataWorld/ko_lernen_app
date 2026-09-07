@@ -24,9 +24,9 @@ Bitte öffne den Einladungslink mit deinem Google-Konto, tritt dem Test bei und
 installiere oder aktualisiere die App über Google Play. Bitte installiere keine
 APK-Datei aus einem Chat oder einer Cloud.
 
-Probiere im ersten verfügbaren Vokabel-Pack jede Lernkarte aus, beantworte Quiz
-und Boss und prüfe danach, ob der nächste Pack bei mindestens 70 % freigeschaltet
-wird. Du kannst Wörter freiwillig eintippen. Das blockiert deinen Fortschritt nicht.
+Probiere in einem Vokabel-Pack jede Lernkarte aus, beantworte Quiz und Boss und
+prüfe danach Ergebnis, XP sowie die Empfehlung für den nächsten Pack. Alle Packs
+sind von Anfang an direkt wählbar. Du kannst Wörter freiwillig eintippen.
 
 Melde Probleme über Tiger Pulse. Bitte schreibe dort keine Kontaktdaten,
 persönlichen Informationen oder koreanischen Lernantworten hinein.
@@ -38,8 +38,8 @@ persönlichen Informationen oder koreanischen Lernantworten hinein.
 
 1. Learn에서 **모든 카드의 앞면과 뒷면**을 본다. Boss 단어도 Learn에서 먼저 보인다.
 2. Learn 뒤 Quiz와 Boss의 문제 순서가 Learn 순서를 그대로 반복하지 않는다.
-3. Boss에서 70% 이상을 맞히면 팩은 clear되고 다음 팩이 열린다.
-4. 앱을 종료해 다시 열어도 팩 완료와 다음 팩 잠금 해제 상태가 유지된다.
+3. Boss에서 70% 이상을 맞히면 팩은 clear되고 다음 팩 추천으로 이어진다.
+4. 앱을 종료해 다시 열어도 팩 완료 상태가 유지되고, 모든 팩은 계속 직접 열린다.
 5. Boss는 4지선다 인식 평가다. 장기 숙달이나 독립 회상 평가로 해석하지 않는다.
 
 의도적으로 틀린 뒤 다시 맞혀도 완료, XP, 재시도 흐름은 정상이어야 한다. 단발 오답은
@@ -47,7 +47,7 @@ Hard Words 안내를 만들지 않는다. 기존 기준에 닿을 만큼 반복�
 어려운 단어 연습 안내가 보일 수 있다.
 
 결과 화면의 선택형 타이핑 회상은 사용해도 되고 건너뛰어도 된다. 힌트와 정답 보기의
-의미가 분명한지, 그리고 이 연습이 팩 완료나 다음 팩 해금을 막지 않는지를 알려 달라.
+의미가 분명한지, 그리고 이 연습이 팩 완료나 다음 팩 추천을 막지 않는지를 알려 달라.
 
 ## 담당별 추가 확인
 
@@ -82,7 +82,6 @@ flutter build appbundle --release --obfuscate \
   --dart-define=GIT_COMMIT="$release_sha"
 ```
 
-Closed Testing 후보에는 내부 테스터 전용 premium entitlement override인
-BETA_UNLOCK_ALL을 주입하지 않는다. 저장된 팩 진행도, 70% clear, 다음 팩 잠금 해제도
-우회하지 않는다. 전체 후보 절차와 14일 종료 기준은
-docs/store/closed-testing-checklist-v2.md를 따른다.
+모든 빌드는 결제·구독 플래그 없이 전체 학습 콘텐츠를 연다. 저장된 팩 진행도와
+70% clear는 유지하되, 다음 팩 표시는 접근 해제가 아니라 학습 추천이다. 전체 후보 절차와
+14일 종료 기준은 docs/store/closed-testing-checklist-v2.md를 따른다.

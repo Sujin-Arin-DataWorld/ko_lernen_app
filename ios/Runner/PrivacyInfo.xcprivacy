@@ -10,7 +10,7 @@
   ⚠️ macOS 담당자 필수 확인 (Windows 에서는 검증 불가):
    1. Xcode 에서 이 파일이 Runner 타깃 "Copy Bundle Resources" 에 들어가 있는지.
       파일을 만들어 두기만 하면 번들에 안 들어간다.
-   2. 서드파티 SDK(Firebase·RevenueCat·ML Kit·Flutter 플러그인)는 각자
+   2. 서드파티 SDK(Firebase·ML Kit·Flutter 플러그인)는 각자
       PrivacyInfo.xcprivacy 를 함께 배포한다. 아래 목록은 **앱 자체 코드**의
       선언이며, Xcode Organizer 의 "Generate Privacy Report" 로 최종 합본을
       뽑아 App Store Connect 답변과 대조할 것.
@@ -90,16 +90,6 @@
     <dict>
       <key>NSPrivacyCollectedDataType</key>
       <string>NSPrivacyCollectedDataTypeUserID</string>
-      <key>NSPrivacyCollectedDataTypeLinked</key><true/>
-      <key>NSPrivacyCollectedDataTypeTracking</key><false/>
-      <key>NSPrivacyCollectedDataTypePurposes</key>
-      <array><string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string></array>
-    </dict>
-
-    <!-- 구독 구매/복원 상태 (RevenueCat + App Store) -->
-    <dict>
-      <key>NSPrivacyCollectedDataType</key>
-      <string>NSPrivacyCollectedDataTypePurchaseHistory</string>
       <key>NSPrivacyCollectedDataTypeLinked</key><true/>
       <key>NSPrivacyCollectedDataTypeTracking</key><false/>
       <key>NSPrivacyCollectedDataTypePurposes</key>

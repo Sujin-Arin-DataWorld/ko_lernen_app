@@ -82,7 +82,7 @@ class CiScopeTest(unittest.TestCase):
         self.assert_enabled(["storage.rules"], "app", "gye", "tts")
 
     def test_canonical_access_policy_selects_all_contract_consumers(self):
-        for path in ["functions/gye/access_policy.js", "test/fixtures/access_policy/v1.json"]:
+        for path in ["functions/gye/access_policy.js", "test/fixtures/access_policy/v2.json"]:
             self.assert_enabled([path], "app", "book", "gye", "pronunciation")
 
     def test_cost_contract_selects_deployment_local_mirrors(self):
@@ -110,7 +110,16 @@ class CiScopeTest(unittest.TestCase):
 
     def test_product_docs_consumed_by_flutter_tests_are_not_skipped(self):
         self.assert_enabled(["docs/store/listing-de.md"], "app")
-        self.assert_enabled(["docs/privacy.html"], "app")
+        for path in [
+            "docs/account-deletion-page.js",
+            "docs/account-deletion.html",
+            "docs/impressum.html",
+            "docs/index.html",
+            "docs/privacy.html",
+            "docs/support.html",
+            "docs/terms.html",
+        ]:
+            self.assert_enabled([path], "app")
         self.assert_enabled(["docs/screenshots/sori-stage-today-390.png"], "app")
 
     def test_hanok_provenance_docs_are_not_skipped(self):

@@ -1,6 +1,5 @@
-// Learn 단계 재출제 통합 — "몰라요" 단어는 같은 세션에서 다시 나오고,
-// 진행 칩 분모는 고정이며, 3회 실패는 졸업 후 퀴즈로 넘어간다
-// (2026-08-13 테스터 피드백 ②).
+// Learn → Quiz 전환 통합. 모든 팩 카드를 한 번씩 확인하면 `몰라요`가
+// 재삽입한 카드가 있더라도 n / n에서 멈추지 않고 평가로 넘어간다.
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -11,10 +10,13 @@ import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/vocab_pack.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/vocab_pack_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
+import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 
 import 'helpers/deck_actions.dart';
+import 'support/sori_speech_stubs.dart';
 
 Vocab _word(int n, {bool boss = false}) => Vocab(
   id: 'rq_v$n',
@@ -81,11 +83,34 @@ void main() {
     await Storage.setTutVocabPackSeen();
     await Storage.setTutPackQuizSeen();
     await Storage.setTutPackBossSeen();
+    stubSoriSpeech();
   });
 
-  testWidgets('unknown word is re-served and Boss words are learned first', (
+  testWidgets('real Alltag 8-card pack opens Quiz after exactly eight cards', (
     tester,
   ) async {
+    final pack = await tester.runAsync(
+      () => VocabPackService.findById('a2_daily_1'),
+    );
+    expect(pack, isNotNull);
+    expect(pack!.total, 8);
+    final t = await _pump(tester, pack);
+
+    for (var index = 0; index < pack.total; index++) {
+      await _revealAndTapButton(
+        tester,
+        index == 0 ? t.vocabPackDontKnow : t.vocabPackGotIt,
+      );
+      await _settle(tester);
+    }
+
+    expect(find.text(t.vocabPackDontKnow), findsNothing);
+    expect(find.text(t.vocabPackQuizHint), findsOneWidget);
+    expect(find.byType(QuizChoice), findsWidgets);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('unknown word does not hold the screen at n / n', (tester) async {
     final pack = VocabPack(
       id: 'a1_rq_1',
       level: 'A1',
@@ -128,15 +153,9 @@ void main() {
 
     await _revealAndTapButton(tester, t.vocabPackGotIt);
     await _settle(tester);
-    expect(find.text('재단어1'), findsOneWidget);
-    // 재단어1은 세션 초반 "몰라요"로 이미 한 번 서빙된 재출제 카드라
-    // "+1 Wdh." 접미사가 병기된다 (지시서 1.1 / T2 카운터).
-    expect(find.text('4 / 4 · +1 Wdh.'), findsOneWidget);
-
-    // 재출제에서 알아요 → Learn 종료, 퀴즈 진입 (Learn 버튼 소멸).
-    await _revealAndTapButton(tester, t.vocabPackGotIt);
-    await _settle(tester);
+    // 네 고유 카드를 모두 한 번 확인한 즉시 Learn 종료, 퀴즈 진입.
     expect(find.text(t.vocabPackDontKnow), findsNothing);
+    expect(find.text(t.vocabPackQuizHint), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 
@@ -167,7 +186,7 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('3rd miss graduates the word and the stage still finishes', (
+  testWidgets('single-card pack enters assessment after its first answer', (
     tester,
   ) async {
     final pack = VocabPack(
@@ -177,15 +196,13 @@ void main() {
     );
     final t = await _pump(tester, pack);
 
-    for (var i = 0; i < 3; i++) {
-      expect(find.text('재단어1'), findsOneWidget);
-      await _revealAndTapButton(tester, t.vocabPackDontKnow);
-      await _settle(tester);
-    }
+    expect(find.text('재단어1'), findsOneWidget);
+    await _revealAndTapButton(tester, t.vocabPackDontKnow);
+    await _settle(tester);
 
-    // 졸업 → Learn 종료 (퀴즈 스테이지로 전환).
+    // 첫 패스 완료 → Learn 종료 (Boss 평가로 전환).
     expect(find.text(t.vocabPackDontKnow), findsNothing);
-    expect(Storage.wrongCountOf('재단어1'), 3);
+    expect(Storage.wrongCountOf('재단어1'), 1);
     expect(tester.takeException(), isNull);
   });
 }

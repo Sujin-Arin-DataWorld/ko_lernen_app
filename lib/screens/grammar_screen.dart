@@ -146,6 +146,11 @@ class _GrammarScreenState extends State<GrammarScreen>
   GrammarStudyPlan? get _activePlan =>
       _isCoursePractice ? null : _plans[_planLevel ?? _userLevelForPlan];
 
+  /// The daily plan is a recommendation, never an access boundary. Once the
+  /// learner chooses the complete library for this visit, plan-only completion
+  /// and progress handling must no longer run against that larger deck.
+  bool get _isFollowingPlan => _activePlan != null && !_legacyBrowseForVisit;
+
   List<Grammar> _curatedRowsForPlan(GrammarStudyPlan plan) =>
       GrammarPlanService.curatedRowsForLevel(_all, plan.level);
 
@@ -180,7 +185,7 @@ class _GrammarScreenState extends State<GrammarScreen>
         icon: Icons.flip_rounded,
       ),
     ];
-    if (!_isCoursePractice && _activePlan == null) {
+    if (!_isCoursePractice && !_isFollowingPlan) {
       steps.add(
         SpotlightStep(
           targetKey: _filterRowKey,
@@ -269,7 +274,8 @@ class _GrammarScreenState extends State<GrammarScreen>
           : plans[_planLevel ?? _userLevelForPlan];
       final planCompletedToday =
           activePlan?.servedIdsByDate.containsKey(Storage.todayIso()) ?? false;
-      final initialSlice = activePlan == null || planCompletedToday
+      final followingPlan = activePlan != null && !_legacyBrowseForVisit;
+      final initialSlice = !followingPlan || planCompletedToday
           ? const <Grammar>[]
           : GrammarPlanService.todaysSlice(
               curatedRows: GrammarPlanService.curatedRowsForLevel(
@@ -281,13 +287,13 @@ class _GrammarScreenState extends State<GrammarScreen>
       setState(() {
         _all = g;
         _plans = plans;
-        _planDayCompletedForVisit = planCompletedToday;
+        _planDayCompletedForVisit = followingPlan && planCompletedToday;
         _courseContentIds = courseContentIds;
         _courseAssessmentLinks = courseAssessmentLinks;
         _missionStep = missionStep;
         _missionTitle = missionTitle;
         _level = useLevel;
-        _filtered = activePlan == null
+        _filtered = !followingPlan
             ? (useLevel == 'Alle'
                   ? available
                   : available.where((x) => x.level == useLevel).toList())
@@ -385,7 +391,8 @@ class _GrammarScreenState extends State<GrammarScreen>
     _applyFilters();
   }
 
-  Grammar? get _current => _planDayCompletedForVisit || _filtered.isEmpty
+  Grammar? get _current =>
+      (_isFollowingPlan && _planDayCompletedForVisit) || _filtered.isEmpty
       ? null
       : _filtered[_idx % _filtered.length];
 
@@ -478,7 +485,7 @@ class _GrammarScreenState extends State<GrammarScreen>
     // 넘어가는 것과 같은 흐름이라 별도 "Grammatikübung abschließen" 버튼이
     // 필요 없다. 한 장짜리 덱도 이 경로로 정상 종료된다.
     if (_idx >= _filtered.length - 1) {
-      if (_activePlan != null) {
+      if (_isFollowingPlan) {
         await _completePlanDayIfNeeded();
         return;
       }
@@ -498,7 +505,7 @@ class _GrammarScreenState extends State<GrammarScreen>
   /// 준다(지시서 1.11/1.12, W10 T-G1).
   void _skipCurrent() {
     if (!_canNavigateDeck) return;
-    if (_activePlan != null && _idx >= _filtered.length - 1) {
+    if (_isFollowingPlan && _idx >= _filtered.length - 1) {
       if (_flipped) {
         setState(() => _flipped = false);
       }
@@ -726,6 +733,7 @@ class _GrammarScreenState extends State<GrammarScreen>
   }
 
   void _applyPlanSlice(GrammarStudyPlan plan) {
+    _legacyBrowseForVisit = false;
     _filtered = GrammarPlanService.todaysSlice(
       curatedRows: _curatedRowsForPlan(plan),
       plan: plan,
@@ -736,6 +744,25 @@ class _GrammarScreenState extends State<GrammarScreen>
     _feedbackCompletion.reset();
     _planCompletionShown = false;
     _planDayCompletedForVisit = false;
+  }
+
+  void _browseAllGrammar() {
+    setState(() {
+      _legacyBrowseForVisit = true;
+      _planDayCompletedForVisit = false;
+      _level = 'Alle';
+      _type = 'Alle';
+      _difficulty = 'Alle';
+      _filtered = _computeFiltered(
+        level: _level,
+        type: _type,
+        difficulty: _difficulty,
+      );
+      _idx = 0;
+      _flipped = false;
+      _sessionSeen.clear();
+      _feedbackCompletion.reset();
+    });
   }
 
   Future<void> _showCheckpoint(
@@ -936,7 +963,7 @@ class _GrammarScreenState extends State<GrammarScreen>
 
   Future<void> _completePlanDayIfNeeded() async {
     if (_planCompletionInFlight || _planCompletionShown) return;
-    final plan = _activePlan;
+    final plan = _isFollowingPlan ? _activePlan : null;
     if (plan == null || _filtered.isEmpty) return;
     final today = Storage.todayIso();
     if (plan.servedIdsByDate.containsKey(today)) {
@@ -1115,6 +1142,7 @@ class _GrammarScreenState extends State<GrammarScreen>
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final activeDailyPlan = _isFollowingPlan ? _activePlan : null;
     if (_loading) {
       return SoriStudyFrame(
         title: t.screenGrammarTitle,
@@ -1136,7 +1164,7 @@ class _GrammarScreenState extends State<GrammarScreen>
     }
     final g = _current;
     if (g == null) {
-      if (_planDayCompletedForVisit && _activePlan != null && !_planFinished) {
+      if (_planDayCompletedForVisit && _isFollowingPlan && !_planFinished) {
         return SoriStudyFrame(
           title: t.screenGrammarTitle,
           actions: const [TtsSpeedAction()],
@@ -1149,6 +1177,12 @@ class _GrammarScreenState extends State<GrammarScreen>
                   t.grammarPlanCompletionTitle,
                   textAlign: TextAlign.center,
                   style: SoriTextTheme.of(context).h3,
+                ),
+                const SizedBox(height: Spacing.lg),
+                SoriButton.outlined(
+                  key: const Key('grammar-browse-all-button'),
+                  label: t.grammarBrowseAllCta,
+                  onTap: _browseAllGrammar,
                 ),
               ],
             ),
@@ -1173,6 +1207,12 @@ class _GrammarScreenState extends State<GrammarScreen>
                 SoriButton.outlined(
                   label: t.grammarPlanFinishedRestartCta,
                   onTap: _showPlanOnboardingSheet,
+                ),
+                const SizedBox(height: Spacing.sm),
+                SoriButton.outlined(
+                  key: const Key('grammar-browse-all-button'),
+                  label: t.grammarBrowseAllCta,
+                  onTap: _browseAllGrammar,
                 ),
               ],
             ),
@@ -1252,7 +1292,7 @@ class _GrammarScreenState extends State<GrammarScreen>
                 const SizedBox(height: Spacing.sm),
               ],
 
-              if (_activePlan case final plan?) ...[
+              if (activeDailyPlan case final plan?) ...[
                 KeyedSubtree(
                   key: const Key('grammar-plan-day-header'),
                   child: Column(
@@ -1305,6 +1345,13 @@ class _GrammarScreenState extends State<GrammarScreen>
                             ),
                           ),
                         ],
+                      ),
+                      const SizedBox(height: Spacing.xs),
+                      SoriButton.outlined(
+                        key: const Key('grammar-browse-all-button'),
+                        label: t.grammarBrowseAllCta,
+                        size: SoriButtonSize.sm,
+                        onTap: _browseAllGrammar,
                       ),
                       const SizedBox(height: Spacing.xs),
                       Wrap(

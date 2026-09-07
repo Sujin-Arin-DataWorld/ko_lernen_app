@@ -5,7 +5,7 @@ import 'package:ko_lernen_app/services/app_startup_coordinator.dart';
 
 void main() {
   test(
-    'waits for Firebase and auth before starting Premium and Push',
+    'waits for Firebase and auth before starting the access snapshot and Push',
     () async {
       final events = <String>[];
       final firebaseGate = Completer<void>();
@@ -42,8 +42,8 @@ void main() {
         resumeAccountOperation: () async {
           events.add('resume');
         },
-        initializePremium: () async {
-          events.add('premium');
+        initializeAccessSnapshot: () async {
+          events.add('access-snapshot');
         },
         enablePush: () async {
           events.add('push');
@@ -76,7 +76,7 @@ void main() {
         'ready:uid-live',
         'media-resume',
         'bookshelf-resume',
-        'premium',
+        'access-snapshot',
         'push',
       ]);
     },
@@ -109,8 +109,8 @@ void main() {
       resumeAccountOperation: () async {
         events.add('resume');
       },
-      initializePremium: () async {
-        events.add('premium');
+      initializeAccessSnapshot: () async {
+        events.add('access-snapshot');
       },
       enablePush: () async {
         events.add('push');
@@ -126,7 +126,7 @@ void main() {
       'ready:uid-live',
       'media-resume',
       'bookshelf-resume',
-      'premium',
+      'access-snapshot',
     ]);
   });
 
@@ -157,8 +157,8 @@ void main() {
         resumeAccountOperation: () async {
           events.add('resume');
         },
-        initializePremium: () async {
-          events.add('premium');
+        initializeAccessSnapshot: () async {
+          events.add('access-snapshot');
         },
         enablePush: () async {
           events.add('push');

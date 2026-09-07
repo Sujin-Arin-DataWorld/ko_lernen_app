@@ -301,7 +301,6 @@ void main() {
     await tester.pumpWidget(
       _host(
         ScenariosListScreen(
-          ignoreLevelLock: true,
           loadScenarios: () async => const [_scenarioFixture],
         ),
       ),

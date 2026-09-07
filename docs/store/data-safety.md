@@ -4,8 +4,8 @@ Last repository review: **2026-08-15**
 
 This is a release-owner worksheet for Google Play Data Safety and Apple App
 Privacy. It is not a console export and is not a substitute for reviewing the
-signed Android/iOS build, current SDK disclosures, live Firebase/Google/
-RevenueCat configuration, contracts, and the answers already saved in each
+signed Android/iOS build, current SDK disclosures, live Firebase/Google
+configuration, contracts, and the answers already saved in each
 store console.
 
 Authoritative form guidance:
@@ -14,10 +14,6 @@ Authoritative form guidance:
 - [Google Play account deletion](https://support.google.com/googleplay/android-developer/answer/13327111?hl=en)
 - [Apple App Privacy](https://developer.apple.com/app-store/app-privacy-details/)
 - [Apple in-app account deletion](https://developer.apple.com/support/offering-account-deletion-in-your-app/)
-- [RevenueCat — Google Play Data Safety](https://www.revenuecat.com/docs/platform-resources/google-platform-resources/google-plays-data-safety)
-- [RevenueCat — Apple App Privacy](https://www.revenuecat.com/docs/platform-resources/apple-platform-resources/apple-app-privacy)
-- [RevenueCat customer profiles](https://www.revenuecat.com/docs/dashboard-and-metrics/customer-profile)
-- [RevenueCat customer identity](https://www.revenuecat.com/docs/customers/identifying-customers)
 
 ## Repository-backed release-candidate behavior summary
 
@@ -36,15 +32,9 @@ and production consoles.
   Firestore only after the user deliberately links a durable Google or Apple
   provider to a non-empty Firebase UID.
 - Local storage remains the learning source of truth.
-- When a platform RevenueCat public SDK key is present, the release-candidate
-  app waits for a ready matching Firebase session and configures RevenueCat
-  with that UID as its custom app user ID. It returns customer/entitlement
-  information and processes purchase/transaction state. It is not contacted
-  only after a purchase. Verify the exact signed build and live project.
-- An initial fully free build sets `FREE_LAUNCH=true`. In that variant the app
-  opens all learning gates and returns before RevenueCat initialization. Do not
-  carry forward RevenueCat identifiers or purchase-history declarations unless
-  the submitted archive actually includes a RevenueCat key and paid products.
+- The release-candidate app contains no purchase SDK, subscription product,
+  paywall, or paid learning gate. All learning content is open without a build
+  flag. Reconfirm this against the exact signed build.
 - Firebase Analytics and Crashlytics are independent optional opt-ins and are
   disabled by default in Android/iOS native configuration.
 - FCM auto-init is disabled. Permission and a registration token are requested
@@ -79,8 +69,8 @@ provider exception or a configured integration must be checked.
 |---|---:|---|---:|---|---|
 | Personal info — Email address | Yes, when supplied by Google/Apple sign-in | Optional account link; required within cloud-account feature | No | Account management; cloud backup | Provisional No for provider/service processing; verify live provider configuration and contracts |
 | Personal info — Name / display name | Yes, when supplied by Google/Apple sign-in | Optional account link | No | Account profile/UI | Provisional No; verify provider configuration |
-| User IDs — Firebase UID and provider association | Yes | Anonymous UID is automatic after cloud startup; durable provider link is optional | No | Authentication; account management; Gye/sharing/push ownership; durable cloud-backup key; RevenueCat identity | RevenueCat receives UID when configured. Verify whether any configured RevenueCat integration changes the console “shared” answer |
-| Financial info — Purchase history / transaction state | Yes, through stores and RevenueCat when purchase/restore/customer state exists | Optional purchase feature; required within purchase/restore | No | App functionality (entitlement and restore); analytics as described by RevenueCat | **Console blocker:** verify RevenueCat project integrations and use current RevenueCat Play guidance before answering “shared” |
+| User IDs — Firebase UID and provider association | Yes | Anonymous UID is automatic after cloud startup; durable provider link is optional | No | Authentication; account management; Gye/sharing/push ownership; durable cloud-backup key | Provisional No for provider/service processing; verify live provider configuration and contracts |
+| Financial info — Purchase history / transaction state | No in the current app | — | — | No purchase or subscription flow | Do not carry forward this declaration solely because an older release or retired provider project may retain historical transaction records |
 | App activity — Learning progress, game/SRS/streak data | Yes only after Google/Apple durable link | Optional cloud-backup feature; required within backup/sync | No | App functionality; account sync/restore | Provisional No; Firebase service-provider/configuration review required |
 | App activity / User-generated content — Gye group data | Yes only when Gye is used | Optional 16+ self-attested feature; required within Gye | No | Community app functionality; fraud/abuse prevention; moderation; notifications | Includes UID, nickname, membership/role, contributions, fixed feed events, reactions/stickers/cheers, reports/optional report notes, blocks, moderation/cleanup markers, and notification-outbox data |
 | User-generated content / Other info — Shared-pack payload | Yes only when the user shares | Optional sharing feature; required within sharing | No | App functionality | Portable payload strips local image references; creator Firebase UID can be retained |
@@ -107,20 +97,18 @@ provider exception or a configured integration must be checked.
 - **Deletion scope:** After the protected backend and signed app are deployed
   and verified, the designed in-app flow covers known Firestore account data,
   Firebase Authentication, local app data/media/cache, push transition, and a
-  retryable Gye cleanup workflow. It does not itself cancel subscriptions or
-  delete the RevenueCat customer profile. Do not submit this scope as live
-  behavior before the release gates pass.
+  retryable Gye cleanup workflow. Do not submit this scope as live behavior
+  before the release gates pass.
 - **Independent security review:** No repository evidence. Do not answer Yes
   without a completed external review.
 - **Data sharing:** Do not copy “No” blindly. Confirm processor contracts and
-  actual RevenueCat/Google/DeepL integrations using Play’s current definitions.
+  actual Google/DeepL integrations using Play’s current definitions.
 
 ## Apple App Privacy worksheet
 
 Apple categories and “linked to the user” are separate from Google Play’s form.
-Because the release candidate passes the Firebase UID to RevenueCat when
-configured, the RevenueCat user identifier and purchase history must be treated
-as linked to the user if that integration is present in the signed build.
+The current release candidate does not pass the Firebase UID or purchase data
+to a billing provider because no purchase SDK is present.
 
 ### Data linked to the user — provisional
 
@@ -128,8 +116,7 @@ as linked to the user if that integration is present in the signed build.
 |---|---|---|
 | Contact Info — Email Address | Google/Apple sign-in when supplied | App functionality; account management |
 | Contact Info — Name | Provider display name when supplied | App functionality |
-| Identifiers — User ID | Firebase UID, provider association, RevenueCat app user identity | App functionality; account management; developer analytics as applicable |
-| Purchases — Purchase History | Store/RevenueCat customer, entitlement, purchase and transaction state | App functionality; developer analytics |
+| Identifiers — User ID | Firebase UID and provider association | App functionality; account management; developer analytics as applicable |
 | User Content — Other User Content | Durable cloud-backup text/custom learning content; Gye UGC; shared packs; requested OCR/text processing | App functionality; moderation |
 | Usage Data — Product Interaction | Learning backup when linked; Analytics only after opt-in | App functionality; analytics |
 
@@ -166,10 +153,10 @@ signed iOS binary and all live SDK integrations before submission.
   deletion creates a fresh unlinked anonymous Firebase identity for continued
   local use. It is not restoration of the deleted UID.
 - Uninstalling removes local installation data but does not prove deletion of
-  the old Firebase or RevenueCat identity.
-- Google Play/App Store subscriptions must be cancelled separately.
-- The mobile flow does not delete the RevenueCat customer profile. Processor-
-  side requests go through `hello@hangul-sori.com`; do not promise deletion of
+  the old Firebase identity.
+- Historical store transactions or billing-provider records created by an
+  older release are outside the current app's deletion flow. Processor-side
+  requests go through `hello@hangul-sori.com`; do not promise deletion of
   legally required transaction records.
 - Already transmitted Analytics/Crashlytics records and other provider logs are
   governed by verified live retention controls. Crashlytics opt-out only asks
@@ -200,9 +187,9 @@ systems:
   those functions, but source code does not prove live deployment state.
 - [ ] Verify DeepL account/contract/settings and how the Play “shared” exception
   applies.
-- [ ] Verify RevenueCat project, app user ID behavior, integrations, customer
-  deletion route, data locations, and retention. Reconcile both store forms
-  with RevenueCat’s current platform guidance.
+- [ ] If historical billing-provider records still exist from an older build,
+  verify their retention and deletion process separately; do not describe that
+  retired integration as current release behavior.
 - [ ] Verify Google/Apple sign-in console scopes and which email/name fields are
   actually supplied.
 - [ ] Verify the exact signed Android manifest and iOS privacy/SDK reports after
@@ -221,5 +208,5 @@ or fixed provider retention periods.
   [Google closed-testing guidance](https://support.google.com/googleplay/android-developer/answer/14151465?hl=en);
   account eligibility and tester-day status are console facts, not repository
   facts.
-- Public policy: `https://hangul-sori.com/privacy.html`
+- Public policy: `https://hangul-sori.com/privacy`
 - Public deletion page: `https://hangul-sori.com/account-deletion`

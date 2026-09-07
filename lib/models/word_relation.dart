@@ -152,7 +152,7 @@ class WordRelationCluster {
       (lang == 'en' && sourceEn.isNotEmpty) ? sourceEn : sourceDe;
 }
 
-enum WordWebScope { learned, level }
+enum WordWebScope { learned, all }
 
 enum WordRelationKind { synonym, antonym, related, expression }
 

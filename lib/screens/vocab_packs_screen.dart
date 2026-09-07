@@ -10,7 +10,6 @@ import '../services/course_mission_navigation.dart';
 import '../models/pack_progress.dart';
 import '../models/vocab_pack.dart';
 import '../services/pack_progress_service.dart';
-import '../services/premium_service.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/storage_service.dart';
 import '../services/vocab_pack_service.dart';
@@ -26,15 +25,14 @@ import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/pack_card.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
-import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
 /// **Vocab Packs Screen** — Phase 2 의 새 vocab 진입 화면.
 ///
-/// 사용자 레벨의 모든 팩을 2-Spalten Grid 로 보여준다. 잠금 상태는
-/// `PackProgressService.effectiveStatus()` 로 계산. 첫 팩만 처음에 열려있고,
-/// 이전 팩 클리어 시 다음 팩 unlock.
+/// 사용자 레벨의 모든 팩을 2-Spalten Grid 로 보여주며 처음부터 직접 연다.
+/// 이전 앱이 저장한 순차 잠금도 `PackProgressService.effectiveStatus()`가
+/// 읽을 때 available로 정규화한다.
 ///
 /// 상단에는 진행 요약 ("A1: 3 / 24 클리어 — 기둥 세우는 중") +
 /// HanokHeader 이미지.
@@ -72,21 +70,7 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
     // and the sequential course mission.
     final code = Storage.browseLevelCode ?? Storage.placementLevelCode;
     _level = _normalizeLevel(code);
-    // §H 프리미엄 티저: 구매/복원 직후 골드 왕관 칩이 즉시 사라지게.
-    premiumNotifier.addListener(_onPremiumChanged);
     _load();
-  }
-
-  void _onPremiumChanged() {
-    if (mounted) {
-      setState(() {});
-    }
-  }
-
-  @override
-  void dispose() {
-    premiumNotifier.removeListener(_onPremiumChanged);
-    super.dispose();
   }
 
   String _normalizeLevel(String? code) {
@@ -207,15 +191,6 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
   }
 
   void _onPackTap(VocabPack pack) {
-    // Premium-Gate: A1 ist kostenlos, A2/B1/B2 erfordern ein Abo.
-    // Freie Nutzer dürfen alle Level durchstöbern (Verkaufsfläche); erst das
-    // Lernen eines A2/B1/B2-Packs öffnet die Paywall.
-    if (_level != 'A1' && !PremiumService.hasContentAccess) {
-      PremiumService.gate(context).then((ok) {
-        if (ok && mounted) _openPack(pack);
-      });
-      return;
-    }
     _openPack(pack);
   }
 
@@ -233,26 +208,9 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
           ),
         )
         .then((_) {
-          // 복귀 시 진행도 새로고침 — 보스 클리어 후 다음 팩 unlock 반영.
+          // 복귀 시 진행도 새로고침 — 학습/보스 진행 반영.
           if (mounted) _load();
         });
-  }
-
-  void _onLockedTap(VocabPack pack) {
-    final prev = PackProgressService.previousPackInLevel(
-      pack.id,
-      _packs.map((e) => e.pack).toList(),
-    );
-    final t = AppL10n.of(context);
-    final msg = prev == null
-        ? t.vocabPackLockedNoPrev
-        : t.vocabPackLockedHint(
-            VocabPackService.displayLabel(
-              prev.id,
-              lang: Localizations.localeOf(context).languageCode,
-            ),
-          );
-    soriNotice(context, msg, duration: const Duration(seconds: 2));
   }
 
   /// 미션 경로로 진입해 팩이 미션 그래프 링크로 좁혀진 상태인지.
@@ -422,7 +380,6 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
                                     context,
                                     cellWidth: cellWidth,
                                     titles: labels,
-                                    lockedHint: t.packLockedHintShort,
                                   ),
                                 ),
                             delegate: SliverChildBuilderDelegate((context, i) {
@@ -434,12 +391,7 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
                                   lang: languageCode,
                                 ),
                                 progress: e.progress,
-                                // §H 티저: A2+ 비프리미엄이면 카드에서 미리 알린다
-                                // — 탭은 기존 _onPackTap 의 게이트가 그대로 받는다.
-                                premium:
-                                    _level != 'A1' && !PremiumService.hasContentAccess,
                                 onTap: () => _onPackTap(e.pack),
-                                onLockedTap: () => _onLockedTap(e.pack),
                               );
                             }, childCount: _packs.length),
                           );
@@ -476,7 +428,6 @@ double _packCardMainAxisExtent(
   BuildContext context, {
   required double cellWidth,
   required Iterable<String> titles,
-  required String lockedHint,
 }) {
   final textScaler = MediaQuery.textScalerOf(context);
   final textDirection = Directionality.of(context);
@@ -496,7 +447,10 @@ double _packCardMainAxisExtent(
     painter.dispose();
   }
   final footerPainter = TextPainter(
-    text: TextSpan(text: lockedHint, style: textTheme.caption),
+    text: const TextSpan(
+      text: '999 / 999',
+      style: TextStyle(fontSize: 13.5, fontWeight: FontWeight.w600),
+    ),
     textDirection: textDirection,
     textScaler: textScaler,
     locale: locale,
