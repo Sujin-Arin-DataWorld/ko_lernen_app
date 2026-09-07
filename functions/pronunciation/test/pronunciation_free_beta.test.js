@@ -131,7 +131,8 @@ function harness({mode, seed = [], provider, now = "2026-09-03T12:00:00Z"} = {})
 test("default and paid modes perform no auth, database, secret, or provider work", async () => {
   for (const mode of [undefined, "disabled", "azure_s0", "true", "AZURE_F0"]) {
     const app = harness({mode});
-    assert.equal(app.assess.options.secrets.length, 0);
+    // Bound in every mode (CLI discovery cannot see the mode); calls.secret proves it is never read.
+    assert.equal(app.assess.options.secrets.length, 1);
     await assert.rejects(app.assess(request()), (error) => error.code === "unavailable");
     assert.deepEqual(app.calls, {auth: 0, database: 0, reads: 0, writes: 0, provider: 0, secret: 0});
   }

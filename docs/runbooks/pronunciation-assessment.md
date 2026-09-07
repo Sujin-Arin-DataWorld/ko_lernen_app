@@ -19,9 +19,12 @@ Existing model-voice TTS is unchanged; it is the user's explicit cost exception.
 The callable also defaults to disabled. Unless
 `PRONUNCIATION_ASSESSMENT_MODE=azure_f0`, it rejects requests before accessing
 Auth, Firestore or a secret and before contacting Azure. It has no warm instances,
-at most one instance, and one concurrent request. Disabled deployments bind no
-secret, including at cold start. Redeploy when changing this server mode so
-the secret binding matches it. There is no paid fallback.
+at most one instance, and one concurrent request. The `AZURE_SPEECH_KEY`
+binding is declared unconditionally, because Firebase CLI code discovery runs
+without the deployment `.env` or shell environment and a conditional binding
+is never seen at deploy time; a disabled deployment binds the secret but
+rejects every request before reading it. Redeploy when changing this server
+mode. There is no paid fallback.
 
 Free assessment must remain disabled until all of the following are verified:
 
@@ -77,6 +80,7 @@ Free assessment must remain disabled until all of the following are verified:
    deploy only the pronunciation function:
 
    ```powershell
+   $env:FUNCTIONS_DISCOVERY_TIMEOUT = "120"
    firebase --config firebase.json deploy --only functions:pronunciation-firebase-functions --project ko-lernen-app
    ```
 
@@ -88,7 +92,11 @@ Free assessment must remain disabled until all of the following are verified:
    ```
 
    An empty result means the secret is not bound; do not proceed to a device
-   check until it lists `AZURE_SPEECH_KEY`.
+   check until it lists `AZURE_SPEECH_KEY`. Also confirm the runtime service
+   account can read it with
+   `gcloud secrets get-iam-policy AZURE_SPEECH_KEY --project=ko-lernen-app`
+   (expect `roles/secretmanager.secretAccessor` for the function's service
+   account; the Firebase deploy grants it when the secret is declared).
 
 The server reserves rounded-up audio seconds in the private document
 `service_usage/pronunciation_free_YYYY-MM` in the same Firestore transaction
@@ -158,8 +166,8 @@ all existing Firebase or TTS services are free.
 - App Check enforcement and limited-use token consumption are enabled.
 - The client sends mono 16 kHz PCM16 and reuses one `assessmentId` when it
   retries the same captured recording.
-- The enabled callable secret binding is `AZURE_SPEECH_KEY`; disabled
-  deployments have an empty secret binding.
+- The callable always binds `AZURE_SPEECH_KEY`; `PRONUNCIATION_ASSESSMENT_MODE`
+  decides whether it is read.
 - Per-learner dispatch cap 8/day (`FREE_TIER_DAILY_ASSESSMENTS`) in addition
   to the 18,000 s/month pool.
 
@@ -179,7 +187,7 @@ flutter test --no-pub test/pronunciation_studio_screen_test.dart test/pronunciat
 Also confirm the source contract before a release:
 
 ```powershell
-rg -n 'region: "europe-west3"|enforceAppCheck: true|consumeAppCheckToken: true|secrets: freeTierAssessmentEnabled' functions/pronunciation/index.js
+rg -n 'region: "europe-west3"|enforceAppCheck: true|consumeAppCheckToken: true|secrets: \[AZURE_SPEECH_KEY\]' functions/pronunciation/index.js
 rg -n 'limitedUseAppCheckToken: true|_functionRegion = .europe-west3.' lib/services/pronunciation_assessment_client.dart
 ```
 
