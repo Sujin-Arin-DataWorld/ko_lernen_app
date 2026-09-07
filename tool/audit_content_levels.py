@@ -99,6 +99,44 @@ Rework R4 (this revision)
 7. The report additionally prints each surface's unknown-TOKEN ratio
    (``tokens unknown / tokens total``, distinct from the item-level
    ``counts[kind].unknown`` bucket) — see ``_unknown_ratio_section``.
+
+Rework R4b (this revision)
+---------------------------
+1. **Coverage present_in_app by resolved lemma.** A kiiq grade-1/grade-2
+   headword now also counts as ``present_in_app`` when it equals the
+   RESOLVED lemma of some app vocab row — ``CefrLexicon.word_grade(row
+   ['korean']).matched``, with any trailing ``'(hN,hM,...)'`` homograph
+   suffix stripped, then split on ``'+'`` (a last-resort compound-split
+   match, e.g. ``'좌+우'``) or ``' '`` (a multiword-alias match whose
+   ``lexicon_form`` is itself a phrase, e.g. ``'남자 친구'``) so each PART
+   is checked individually — not just the row's raw literal spelling. See
+   ``_resolved_lemma_keys`` / ``compute_coverage``. ``at_level`` stays
+   scoped to rows whose OWN level equals the grade's target CEFR — a
+   headword can be ``present_in_app`` via a resolved-lemma match from an
+   off-level row without being ``at_level`` (the two are genuinely
+   different sets under this rule, not two names for the same count).
+2. **Confidence policy loosened: medium is usable evidence, not
+   fallback.** Only LOW-confidence (basic2023-only) evidence still
+   triggers ``fallback_over2``/``review_fallback`` — a MEDIUM-confidence
+   (compound-split, or derived X하다/X되다-sense-disagreement) ``over2``
+   verdict now gets its ORDINARY bucket/action (``word_move`` for vocab,
+   ``bundle_move`` for a sentence surface — same as a high-confidence
+   ``over2`` would), not ``review_fallback``. A vocab ``reason`` still
+   names the source when confidence is medium (``'over2 src=compound'``)
+   so a reviewer can see the evidence isn't a bare kiiq hit even though
+   the action is now the normal one; sentence-surface capping is
+   unchanged (medium capped at grade 4, low at 3 — see
+   ``cefr_lexicon.sentence_profile``) and its reason format is likewise
+   unchanged beyond the fallback-label criterion narrowing to low-only.
+   Pack statistics (``apply_pack_overrides``) now compute
+   ``median_delta``/``share_ge_plus2`` over HIGH+MEDIUM word grades
+   (``PackStat.n_hm``, renamed from ``n_high``; ``PackStat.n_low`` added
+   for visibility). A pack whose median would otherwise trigger
+   ``bundle_move`` (>= +2) but has fewer than 6 usable (high+medium)
+   words gets ``suggested_action='insufficient_sample'`` instead — too
+   small a sample to trust the median — and is listed separately in the
+   report (``_insufficient_sample_section``) rather than silently folded
+   into the bundle_move set.
 """
 
 from __future__ import annotations
@@ -107,6 +145,7 @@ import argparse
 import csv
 import json
 import math
+import re
 import statistics
 import sys
 from dataclasses import dataclass, replace
@@ -187,7 +226,11 @@ class PackStat:
     pack_id: str
     level: str  # R4 item 3: normalized lowercase
     n_words: int  # every word in the pack, any confidence
-    n_high: int   # R4 item 4: HIGH-confidence words only -- median_delta/share_ge_plus2 are computed over these
+    # R4b item 2a: renamed from n_high -- HIGH+MEDIUM-confidence words
+    # (medium is usable evidence now, not fallback noise to exclude);
+    # median_delta/share_ge_plus2 are computed over these.
+    n_hm: int
+    n_low: int    # R4b item 2a: LOW-confidence (basic2023-only) words, for visibility
     median_delta: Optional[float]
     share_ge_plus2: float
 
@@ -360,33 +403,45 @@ def _classify_with_confidence(
     *, sentence_level: bool,
 ) -> Tuple[str, str]:
     """(bucket, reason) for one item — R4 items 4 (fallback_over2) + 5
-    (sentence-surface driving-factor reason text).
+    (sentence-surface driving-factor reason text), revised by R4b item 2
+    (medium confidence is usable evidence now, not a fallback signal).
 
     `bucket` drives `suggested_action` / `counts[kind]` / suspects-CSV
     inclusion: '' | 'over2' | 'over1' | 'under2' | 'unknown' |
     'fallback_over2'.
 
     `reason` is the CSV/report text:
-      - a >=+2 ("over2") verdict whose `confidence` is not 'high' becomes
-        bucket='fallback_over2', reason containing 'fallback:<source>'
-        (item 4's literal requirement) — for EVERY kind, vocab included,
-        since this is the one fallback signal item 4 asks for regardless
-        of surface.
+      - a >=+2 ("over2") verdict resting on LOW confidence (basic2023-
+        only evidence) becomes bucket='fallback_over2', reason containing
+        'fallback:<source>' — for EVERY kind, vocab included. R4b item 2:
+        MEDIUM no longer qualifies here (a compound-split or derived-
+        sense-disagreement word/token is usable evidence now, not
+        fallback noise) — only LOW does.
       - otherwise, a SENTENCE-level flagged row (over1/over2/under2; not
-        'unknown', which has no driving factor to report) additionally
-        splices in `factor` (item 5) so a reviewer can audit the verdict
-        without re-running the audit.
-      - vocab (sentence_level=False) keeps a bare bucket name outside the
-        fallback case — item 5 is sentence-surfaces-only.
+        'unknown', which has no driving factor to report) splices in
+        `factor` (item 5) so a reviewer can audit the verdict without
+        re-running the audit — unchanged by R4b item 2 beyond the
+        fallback criterion above (a medium-confidence sentence verdict
+        gets this same factor-only reason, no source annotation).
+      - a VOCAB (sentence_level=False) flagged row additionally names
+        `source` (R4b item 2b, e.g. 'over2 src=compound') when confidence
+        is 'medium', so a reviewer can still see the evidence isn't a
+        bare kiiq hit even though the action is now the ordinary one. A
+        HIGH-confidence (or unflagged) vocab row keeps the bare bucket
+        name, unchanged from before.
     """
     bucket = _classify(delta)
-    if bucket == "over2" and confidence != "high":
+    if bucket == "over2" and confidence == "low":
         reason = f"fallback_over2 fallback:{source}"
         if sentence_level:
             reason += f" {factor}"
         return "fallback_over2", reason
-    if sentence_level and bucket not in ("", "unknown"):
-        return bucket, f"{bucket} {factor}"
+    if sentence_level:
+        if bucket not in ("", "unknown"):
+            return bucket, f"{bucket} {factor}"
+        return bucket, bucket
+    if bucket not in ("", "unknown") and confidence == "medium":
+        return bucket, f"{bucket} src={source}"
     return bucket, bucket
 
 
@@ -542,6 +597,65 @@ def _vocab_example_bundle_map(vocab_rows: Sequence[dict]) -> Dict[Tuple[str, str
     return out
 
 
+# R4b item 1: strips the trailing '(hN,hM,...)' homograph-list suffix a
+# same-headword multi-homograph kiiq match appends to WordGrade.matched
+# (see CefrLexicon._kiiq_derived_chain) -- e.g. "친구(h0,h1)" -> "친구".
+_HOMOGRAPH_SUFFIX_RE = re.compile(r"\(h\d+(?:,h\d+)*\)$")
+
+
+def _resolved_lemma_keys(lexicon: CefrLexicon, korean: str) -> List[str]:
+    """R4b item 1: candidate coverage-`present_in_app` match keys derived
+    from ``CefrLexicon.word_grade(korean).matched`` — the lemma/root the
+    lexicon actually resolved this headword AS (kiiq exact/derived root,
+    copula stem, alias redirect, last-resort compound split, ...), not
+    just its raw surface spelling. Deliberately calls `word_grade`
+    directly (a single-string lookup), NOT `phrase_grade`/the sentence
+    tokenizer — coverage cares what the lexicon resolves `korean` to as a
+    whole, independent of how an ITEM's own grade is computed elsewhere
+    in this module.
+
+    A trailing '(hN,hM,...)' homograph-list suffix is stripped first
+    (`_HOMOGRAPH_SUFFIX_RE`); the remainder is then split on '+' (a
+    compound-split match, e.g. '좌+우') or ' ' (a multiword-alias match
+    whose `lexicon_form` is itself a phrase, e.g. '남자 친구') so each PART
+    is checked individually against a kiiq headword — a joined compound/
+    multiword string can never itself equal one single-word headword.
+    Returns `[]` when `word_grade` can't resolve `korean` at all (its own
+    `matched` would just echo the input back, which carries no
+    information beyond the raw literal check the caller already does)."""
+    wg = lexicon.word_grade(korean)
+    if wg.grade is None:
+        return []
+    matched = _HOMOGRAPH_SUFFIX_RE.sub("", (wg.matched or "").strip()).strip()
+    if not matched:
+        return []
+    if "+" in matched:
+        return [p for p in matched.split("+") if p]
+    if " " in matched:
+        return [p for p in matched.split(" ") if p]
+    return [matched]
+
+
+def _vocab_coverage_keys(
+    lexicon: CefrLexicon, vocab_rows: Sequence[dict],
+) -> List[Tuple[str, str, set]]:
+    """R4b item 1: one (korean, level_upper, match_keys) tuple per
+    non-blank vocab row — `match_keys` is `{korean}` unioned with the
+    row's resolved-lemma coverage keys (`_resolved_lemma_keys`), computed
+    ONCE so `compute_coverage`'s grade1/grade2 passes (called from
+    `run_audit`) don't each re-run `CefrLexicon.word_grade` over every
+    vocab row."""
+    out: List[Tuple[str, str, set]] = []
+    for row in vocab_rows:
+        korean = (row.get("korean") or "").strip()
+        if not korean:
+            continue
+        keys = {korean}
+        keys.update(_resolved_lemma_keys(lexicon, korean))
+        out.append((korean, (row.get("level") or "").strip().upper(), keys))
+    return out
+
+
 # ---------------------------------------------------------------------------
 # Per-surface grading
 # ---------------------------------------------------------------------------
@@ -598,14 +712,23 @@ def apply_pack_overrides(
     items: List[Item], vocab_rows: Sequence[dict],
 ) -> Tuple[List[Item], Dict[str, PackStat]]:
     """Compute per-pack median delta / share>=+2 (plan §3.C.3) from
-    HIGH-CONFIDENCE word grades only (R4 item 4), and force ``bundle_move``
-    onto every already-flagged word of a pack whose median delta is >= +2
-    (module docstring point 2) — EXCEPT a ``fallback_over2`` row, which is
-    deliberately exempt: it already carries an explicit "our own
-    confidence is shaky, a human must look" signal
-    (``suggested_action='review_fallback'``), and silently overwriting
-    that with a blanket ``bundle_move`` would defeat the whole point of
-    flagging it separately (R4 item 4 design decision)."""
+    HIGH+MEDIUM-confidence word grades (R4 item 4, revised R4b item 2a:
+    medium is usable evidence, not fallback noise to exclude), and force
+    an override action onto every already-flagged word of a pack whose
+    median delta is >= +2 (module docstring point 2) — EXCEPT a
+    ``fallback_over2`` row, which is deliberately exempt: it already
+    carries an explicit "our own confidence is shaky, a human must look"
+    signal (``suggested_action='review_fallback'``), and silently
+    overwriting that would defeat the whole point of flagging it
+    separately (R4 item 4 design decision).
+
+    R4b item 2 guard: the override action is ``'bundle_move'`` only when
+    the pack has at least 6 usable (high+medium) words (``n_hm``);
+    otherwise it is ``'insufficient_sample'`` — a median computed from
+    under 6 words isn't trustworthy enough to move an entire pack, but is
+    still worth a human's attention (surfaced in its own report table,
+    see ``_insufficient_sample_section``, rather than silently folded
+    into the bundle_move set)."""
     pack_level: Dict[str, str] = {}
     for row in vocab_rows:
         pid = row.get("pack_id", "")
@@ -616,33 +739,38 @@ def apply_pack_overrides(
         by_pack.setdefault(it.bundle_id, []).append(it)
 
     pack_stats: Dict[str, PackStat] = {}
-    override_packs: set = set()
+    pack_action: Dict[str, str] = {}  # pack_id -> 'bundle_move' | 'insufficient_sample'
     for pack_id, pack_items in by_pack.items():
         if not pack_id:
             continue
-        high_items = [it for it in pack_items if it.grade is not None and it.confidence == "high"]
-        known = [it.grade for it in high_items]
+        usable_items = [
+            it for it in pack_items
+            if it.grade is not None and it.confidence in ("high", "medium")
+        ]
+        low_items = [it for it in pack_items if it.confidence == "low"]
+        known = [it.grade for it in usable_items]
         rank = level_rank(pack_level.get(pack_id, ""))
         median_grade = statistics.median(known) if known else None
         delta_pack = (
             median_grade - rank if (median_grade is not None and rank is not None) else None
         )
-        n_high = len(high_items)
+        n_hm = len(usable_items)
+        n_low = len(low_items)
         share = (
-            sum(1 for it in high_items if it.delta is not None and it.delta >= 2) / n_high
-            if n_high
+            sum(1 for it in usable_items if it.delta is not None and it.delta >= 2) / n_hm
+            if n_hm
             else 0.0
         )
         pack_stats[pack_id] = PackStat(
             pack_id=pack_id, level=pack_level.get(pack_id, ""), n_words=len(pack_items),
-            n_high=n_high, median_delta=delta_pack, share_ge_plus2=share,
+            n_hm=n_hm, n_low=n_low, median_delta=delta_pack, share_ge_plus2=share,
         )
         if delta_pack is not None and delta_pack >= 2:
-            override_packs.add(pack_id)
+            pack_action[pack_id] = "bundle_move" if n_hm >= 6 else "insufficient_sample"
 
     new_items = [
-        replace(it, suggested_action="bundle_move")
-        if it.bundle_id in override_packs and it.bucket and it.bucket != "fallback_over2"
+        replace(it, suggested_action=pack_action[it.bundle_id])
+        if it.bundle_id in pack_action and it.bucket and it.bucket != "fallback_over2"
         else it
         for it in items
     ]
@@ -866,16 +994,29 @@ def _kiiq_headword_min_grade(kiiq_rows: Sequence[dict]) -> Dict[str, Tuple[int, 
     return best
 
 
-def compute_coverage(corpus: Corpus, grade: int, target_cefr: str) -> CoverageStat:
+def compute_coverage(
+    corpus: Corpus, grade: int, target_cefr: str,
+    _row_keys: Optional[List[Tuple[str, str, set]]] = None,
+) -> CoverageStat:
+    """`_row_keys` (from `_vocab_coverage_keys`) is an optional
+    precomputed-once-per-corpus argument — `run_audit` passes it so its
+    two grade1/grade2 calls don't each redo the ``word_grade`` pass over
+    every vocab row; a direct call (e.g. from a test) omits it and pays
+    that cost itself, correctly but less efficiently."""
+    row_keys = _row_keys if _row_keys is not None else _vocab_coverage_keys(
+        corpus.lexicon, corpus.vocab_rows,
+    )
+    # R4b item 1: `app_words`/`app_at_level` each union in every row's
+    # RESOLVED-lemma keys (not just its raw literal `korean`) -- a
+    # headword counts as present when it equals a row's literal spelling
+    # OR its resolved lemma (see _resolved_lemma_keys). `app_at_level`
+    # only draws from rows whose OWN level equals `target_cefr`.
     app_words: set = set()
     app_at_level: set = set()
-    for row in corpus.vocab_rows:
-        korean = (row.get("korean") or "").strip()
-        if not korean:
-            continue
-        app_words.add(korean)
-        if (row.get("level") or "").strip().upper() == target_cefr:
-            app_at_level.add(korean)
+    for _korean, level_upper, keys in row_keys:
+        app_words.update(keys)
+        if level_upper == target_cefr:
+            app_at_level.update(keys)
 
     total = present = at_level = 0
     missing_by_pos: Dict[str, List[str]] = {}
@@ -921,9 +1062,13 @@ def run_audit(root: Path = REPO) -> AuditResult:
         "pronunciation": grade_pronunciation(corpus),
         "media": grade_media(corpus),
     }
+    # R4b item 1: computed once and shared by both compute_coverage()
+    # calls below, so the word_grade pass over every vocab row doesn't run
+    # twice.
+    vocab_coverage_keys = _vocab_coverage_keys(corpus.lexicon, corpus.vocab_rows)
     coverage = {
-        "grade1": compute_coverage(corpus, 1, "A1"),
-        "grade2": compute_coverage(corpus, 2, "A2"),
+        "grade1": compute_coverage(corpus, 1, "A1", vocab_coverage_keys),
+        "grade2": compute_coverage(corpus, 2, "A2", vocab_coverage_keys),
     }
     return AuditResult(items_by_kind=items_by_kind, pack_stats=pack_stats, coverage=coverage)
 
@@ -956,15 +1101,18 @@ def build_summary(result: AuditResult, generated_from: str) -> dict:
         bucket_counts = {b: 0 for b in REASON_BUCKETS}
         bucket_counts["total"] = len(items)
         for it in items:
-            # R4 item 4: over1/under2 only count as HIGH-confidence
-            # verdicts. over2 needs no such check here -- a non-high-
-            # confidence over2 verdict was ALREADY reclassified to
+            # R4 item 4 (revised R4b item 2): over1/under2 only count as
+            # HIGH-confidence verdicts. over2 needs no such check here --
+            # LOW-confidence over2 was ALREADY reclassified to
             # bucket='fallback_over2' at Item-construction time (see
-            # _classify_with_confidence), so every remaining bucket=='over2'
-            # item is high-confidence by construction. 'unknown' and
-            # 'fallback_over2' are unaffected (grade=None has no
-            # confidence to check; fallback_over2's whole point IS the
-            # non-high-confidence signal).
+            # _classify_with_confidence; R4b item 2 narrowed this
+            # reclassification to LOW only), so every remaining
+            # bucket=='over2' item is HIGH or MEDIUM confidence by
+            # construction -- both count, since R4b item 2's whole point
+            # is that medium is usable evidence, not noise to exclude.
+            # 'unknown' and 'fallback_over2' are unaffected (grade=None
+            # has no confidence to check; fallback_over2's whole point IS
+            # the low-confidence signal).
             if it.bucket in ("over1", "under2") and it.confidence != "high":
                 continue
             if it.bucket in bucket_counts:
@@ -983,13 +1131,15 @@ def build_summary(result: AuditResult, generated_from: str) -> dict:
     def _top10(level: str) -> List[dict]:
         # R4 item 4: packs.a1/a2.share_ge_plus2_top10 -- top 10 A1/A2
         # packs by share_ge_plus2 (ties broken by pack_id, matching
-        # _top_packs_section's own sort), each carrying n_high so the
-        # share's denominator is auditable at a glance.
+        # _top_packs_section's own sort), each carrying n_hm (R4b item 2a:
+        # renamed from n_high, now high+medium) and n_low so the share's
+        # denominator and excluded-low count are both auditable at a
+        # glance.
         ranked = sorted(_level_packs(level), key=lambda p: (-p.share_ge_plus2, p.pack_id))
         return [
             {
                 "pack_id": p.pack_id, "median": p.median_delta,
-                "share_ge_plus2": round(p.share_ge_plus2, 4), "n_high": p.n_high,
+                "share_ge_plus2": round(p.share_ge_plus2, 4), "n_hm": p.n_hm, "n_low": p.n_low,
             }
             for p in ranked[:10]
         ]
@@ -1059,34 +1209,65 @@ def _matrix_section(kind: str, kind_label: str, matrix: Dict[str, Dict[str, Dict
     return lines
 
 
-def _pack_action(median_delta: Optional[float]) -> str:
-    if median_delta is None:
+def _pack_action(p: PackStat) -> str:
+    """Display-only mirror of the override decision `apply_pack_overrides`
+    already applied to individual items — R4b item 2 guard: a pack whose
+    median clears the >=2 threshold only gets 'bundle_move' when it also
+    has >=6 usable (high+medium) words (`n_hm`); otherwise
+    'insufficient_sample' (see `_insufficient_sample_section`)."""
+    if p.median_delta is None:
         return "keep"
-    if median_delta >= 2:
-        return "bundle_move"
-    if median_delta == 1:
+    if p.median_delta >= 2:
+        return "bundle_move" if p.n_hm >= 6 else "insufficient_sample"
+    if p.median_delta == 1:
         return "step_up_or_swap"
-    if median_delta <= -2:
+    if p.median_delta <= -2:
         return "downgrade_candidate"
     return "keep"
 
 
 def _top_packs_section(pack_stats: Dict[str, PackStat], top_n: int = 40) -> List[str]:
-    # R4 item 4: n_high (high-confidence word count) alongside n_words
-    # (every word) -- median_delta/share_ge_plus2 are computed over n_high
+    # R4 item 4 / R4b item 2a: n_hm (renamed from n_high, now high+medium
+    # word count) and n_low (low-confidence word count) alongside n_words
+    # (every word) -- median_delta/share_ge_plus2 are computed over n_hm
     # words only, so this makes the denominator auditable at a glance.
     candidates = [p for p in pack_stats.values() if p.level.strip().lower() in ("a1", "a2")]
     candidates.sort(key=lambda p: (-p.share_ge_plus2, p.pack_id))
     lines = [
-        "### A1/A2 팩 순위 (2등급 이상 어려운 단어 비율, 고신뢰 단어 기준)", "",
-        "| pack_id | level | n_words | n_high | share_ge_plus2 | median_delta | suggested_action |",
-        "|---|---|---|---|---|---|---|",
+        "### A1/A2 팩 순위 (2등급 이상 어려운 단어 비율, 고신뢰+중신뢰 단어 기준)", "",
+        "| pack_id | level | n_words | n_hm | n_low | share_ge_plus2 | median_delta | suggested_action |",
+        "|---|---|---|---|---|---|---|---|",
     ]
     for p in candidates[:top_n]:
         median_disp = "—" if p.median_delta is None else f"{p.median_delta:g}"
         lines.append(
-            f"| `{p.pack_id}` | {p.level} | {p.n_words} | {p.n_high} | {p.share_ge_plus2:.0%} | "
-            f"{median_disp} | {_pack_action(p.median_delta)} |"
+            f"| `{p.pack_id}` | {p.level} | {p.n_words} | {p.n_hm} | {p.n_low} | "
+            f"{p.share_ge_plus2:.0%} | {median_disp} | {_pack_action(p)} |"
+        )
+    lines.append("")
+    return lines
+
+
+def _insufficient_sample_section(pack_stats: Dict[str, PackStat]) -> List[str]:
+    """R4b item 2 guard: packs whose median delta would otherwise trigger
+    bundle_move (>= +2) but that lack the 6 usable (high+medium-
+    confidence) words needed to trust that median — surfaced separately so
+    a reviewer doesn't mistake their absence from the bundle_move rows
+    above for "this pack is fine" (see `apply_pack_overrides`)."""
+    flagged = [
+        p for p in pack_stats.values()
+        if p.level.strip().lower() in ("a1", "a2")
+        and p.median_delta is not None and p.median_delta >= 2 and p.n_hm < 6
+    ]
+    flagged.sort(key=lambda p: (-p.median_delta, p.pack_id))
+    lines = [
+        "### 표본 부족 팩 (고신뢰+중신뢰 단어 6개 미만 — bundle_move 보류)", "",
+        "| pack_id | level | n_words | n_hm | n_low | median_delta |",
+        "|---|---|---|---|---|---|",
+    ]
+    for p in flagged:
+        lines.append(
+            f"| `{p.pack_id}` | {p.level} | {p.n_words} | {p.n_hm} | {p.n_low} | {p.median_delta:g} |"
         )
     lines.append("")
     return lines
@@ -1176,6 +1357,7 @@ def write_report_md(path: Path, result: AuditResult, summary: dict) -> None:
     lines.append("## A1/A2 팩 보강 우선순위")
     lines.append("")
     lines.extend(_top_packs_section(result.pack_stats))
+    lines.extend(_insufficient_sample_section(result.pack_stats))
 
     lines.append("## 1급·2급 결손 어휘")
     lines.append("")
