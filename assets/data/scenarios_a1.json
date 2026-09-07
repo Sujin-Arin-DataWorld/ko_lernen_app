@@ -666,11 +666,11 @@
           }
         },
         {
-          "korean": "괜찮아요. 손대지 마세요.",
+          "korean": "괜찮아요. 잠깐만요, 위험해요.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Schon gut. Fass die Scherben nicht an.",
-            "en": "It's okay. Don't touch the glass."
+            "de": "Schon gut. Moment, das ist gefährlich.",
+            "en": "It's okay. Hold on, that's dangerous."
           }
         },
         {
@@ -690,19 +690,19 @@
           }
         },
         {
-          "korean": "빗자루 어디 있어요? 같이 치울게요.",
+          "korean": "빗자루 어디 있어요? 같이 치워요.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Wo ist der Besen? Ich helfe beim Aufräumen.",
-            "en": "Where's the broom? I'll help clean up."
+            "de": "Wo ist der Besen? Räumen wir zusammen auf.",
+            "en": "Where's the broom? Let's clean up together."
           }
         },
         {
-          "korean": "그럼 빗자루로 큰 조각만 모아 주세요.",
+          "korean": "그럼 큰 것만 모아 주세요.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Dann kehr bitte nur die großen Stücke zusammen.",
-            "en": "Then please sweep up just the large pieces."
+            "de": "Dann sammle bitte nur die großen Stücke ein.",
+            "en": "Then please just gather the big pieces."
           }
         }
       ],
@@ -734,9 +734,9 @@
         },
         {
           "speaker": "sujin",
-          "ko": "괜찮아요. 손대지 마세요.",
-          "de": "Schon gut. Fass die Scherben nicht an.",
-          "en": "It's okay. Don't touch the glass."
+          "ko": "괜찮아요. 잠깐만요, 위험해요.",
+          "de": "Schon gut. Moment, das ist gefährlich.",
+          "en": "It's okay. Hold on, that's dangerous."
         },
         {
           "speaker": "user",
@@ -752,15 +752,15 @@
         },
         {
           "speaker": "user",
-          "ko": "빗자루 어디 있어요? 같이 치울게요.",
-          "de": "Wo ist der Besen? Ich helfe beim Aufräumen.",
-          "en": "Where's the broom? I'll help clean up."
+          "ko": "빗자루 어디 있어요? 같이 치워요.",
+          "de": "Wo ist der Besen? Räumen wir zusammen auf.",
+          "en": "Where's the broom? Let's clean up together."
         },
         {
           "speaker": "sujin",
-          "ko": "그럼 빗자루로 큰 조각만 모아 주세요.",
-          "de": "Dann kehr bitte nur die großen Stücke zusammen.",
-          "en": "Then please sweep up just the large pieces."
+          "ko": "그럼 큰 것만 모아 주세요.",
+          "de": "Dann sammle bitte nur die großen Stücke ein.",
+          "en": "Then please just gather the big pieces."
         }
       ],
       "quests": [
@@ -768,11 +768,11 @@
           "id": "quest_break_glass_apology_01",
           "type": "hoerverstehen",
           "data": {
-            "audioKo": "괜찮아요. 손대지 마세요.",
+            "audioKo": "괜찮아요. 잠깐만요, 위험해요.",
             "options": [
               {
-                "de": "Schon gut. Fass die Scherben nicht an.",
-                "en": "It's okay. Don't touch the glass."
+                "de": "Schon gut. Moment, das ist gefährlich.",
+                "en": "It's okay. Hold on, that's dangerous."
               },
               {
                 "de": "Tut mir leid. Ich habe ein Glas zerbrochen.",
@@ -801,7 +801,7 @@
                 "ko": "죄송해요. 잔을 깼어요."
               },
               {
-                "ko": "괜찮아요. 손대지 마세요."
+                "ko": "괜찮아요. 잠깐만요, 위험해요."
               },
               {
                 "ko": "괜찮아요? 안 다쳤어요?"
@@ -820,13 +820,13 @@
           ],
           "type": "satzBauen",
           "data": {
-            "targetKo": "빗자루 어디 있어요? 같이 치울게요.",
-            "audioKo": "빗자루 어디 있어요? 같이 치울게요.",
-            "promptDe": "Wo ist der Besen? Ich helfe beim Aufräumen.",
-            "promptEn": "Where's the broom? I'll help clean up.",
+            "targetKo": "빗자루 어디 있어요? 같이 치워요.",
+            "audioKo": "빗자루 어디 있어요? 같이 치워요.",
+            "promptDe": "Wo ist der Besen? Räumen wir zusammen auf.",
+            "promptEn": "Where's the broom? Let's clean up together.",
             "distractors": [
               "죄송해요. 잔을 깼어요.",
-              "괜찮아요. 손대지 마세요.",
+              "괜찮아요. 잠깐만요, 위험해요.",
               "괜찮아요? 안 다쳤어요?"
             ]
           }
@@ -887,7 +887,7 @@
           }
         },
         {
-          "korean": "조금 매워요. 순한 맛도 있어요.",
+          "korean": "조금 매워요. 안 매운 것도 있어요.",
           "note": {
             "ko": "장면 핵심 표현",
             "de": "Ein bisschen. Es gibt auch eine milde Variante.",
@@ -895,7 +895,7 @@
           }
         },
         {
-          "korean": "그럼 순한 맛으로 주세요.",
+          "korean": "그럼 안 매운 걸로 주세요.",
           "note": {
             "ko": "장면 핵심 표현",
             "de": "Dann bitte die milde Variante.",
@@ -903,7 +903,7 @@
           }
         },
         {
-          "korean": "네, 순한 맛으로 드릴게요.",
+          "korean": "네, 안 매운 걸로 드릴게요.",
           "note": {
             "ko": "장면 핵심 표현",
             "de": "Gern, dann die milde Variante.",
@@ -952,19 +952,19 @@
         },
         {
           "speaker": "server",
-          "ko": "조금 매워요. 순한 맛도 있어요.",
+          "ko": "조금 매워요. 안 매운 것도 있어요.",
           "de": "Ein bisschen. Es gibt auch eine milde Variante.",
           "en": "A little. We also have a mild version."
         },
         {
           "speaker": "user",
-          "ko": "그럼 순한 맛으로 주세요.",
+          "ko": "그럼 안 매운 걸로 주세요.",
           "de": "Dann bitte die milde Variante.",
           "en": "Then I'll have the mild version, please."
         },
         {
           "speaker": "server",
-          "ko": "네, 순한 맛으로 드릴게요.",
+          "ko": "네, 안 매운 걸로 드릴게요.",
           "de": "Gern, dann die milde Variante.",
           "en": "Sure, I'll make it mild."
         }
@@ -1013,7 +1013,7 @@
                 "ko": "많이 매워요?"
               },
               {
-                "ko": "조금 매워요. 순한 맛도 있어요."
+                "ko": "조금 매워요. 안 매운 것도 있어요."
               }
             ],
             "correctIndex": 0
@@ -1027,8 +1027,8 @@
           ],
           "type": "satzBauen",
           "data": {
-            "targetKo": "그럼 순한 맛으로 주세요.",
-            "audioKo": "그럼 순한 맛으로 주세요.",
+            "targetKo": "그럼 안 매운 걸로 주세요.",
+            "audioKo": "그럼 안 매운 걸로 주세요.",
             "promptDe": "Dann bitte die milde Variante.",
             "promptEn": "Then I'll have the mild version, please.",
             "distractors": [
@@ -2523,9 +2523,9 @@
         "en": "Messaging on KakaoTalk after class"
       },
       "intro": {
-        "ko": "마야와 같이 과제를 하기로 해요.",
-        "de": "Du und Maya wollt die Aufgabe gemeinsam machen.",
-        "en": "You and Maya are going to work on the assignment together."
+        "ko": "마야와 같이 숙제를 해요.",
+        "de": "Du und Maya macht die Hausaufgaben zusammen.",
+        "en": "You and Maya are doing the homework together."
       },
       "courseUnitId": "a1_07_contact_address",
       "playerCharacterId": "lena",
@@ -2539,11 +2539,11 @@
       "backdrop": "home",
       "vocab": [
         {
-          "korean": "우리 과제 같이 해요.",
+          "korean": "우리 숙제 같이 해요.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Lass uns die Aufgabe zusammen machen.",
-            "en": "Let's work on the assignment together."
+            "de": "Lass uns die Hausaufgaben zusammen machen.",
+            "en": "Let's do the homework together."
           }
         },
         {
@@ -2571,19 +2571,19 @@
           }
         },
         {
-          "korean": "이거 찍으면 돼요?",
+          "korean": "이거 찍어요?",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Soll ich den hier scannen?",
+            "de": "Scanne ich das hier?",
             "en": "Do I scan this?"
           }
         },
         {
-          "korean": "네. 여기 눌러 보세요.",
+          "korean": "네. 여기 누르세요.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Ja. Tippe dann hier.",
-            "en": "Yes. Then tap here."
+            "de": "Ja. Drück hier.",
+            "en": "Yes. Press here."
           }
         }
       ],
@@ -2609,9 +2609,9 @@
       "dialog": [
         {
           "speaker": "maya",
-          "ko": "우리 과제 같이 해요.",
-          "de": "Lass uns die Aufgabe zusammen machen.",
-          "en": "Let's work on the assignment together."
+          "ko": "우리 숙제 같이 해요.",
+          "de": "Lass uns die Hausaufgaben zusammen machen.",
+          "en": "Let's do the homework together."
         },
         {
           "speaker": "maya",
@@ -2633,21 +2633,21 @@
         },
         {
           "speaker": "user",
-          "ko": "이거 찍으면 돼요?",
-          "de": "Soll ich den hier scannen?",
+          "ko": "이거 찍어요?",
+          "de": "Scanne ich das hier?",
           "en": "Do I scan this?"
         },
         {
           "speaker": "maya",
-          "ko": "네. 여기 눌러 보세요.",
-          "de": "Ja. Tippe dann hier.",
-          "en": "Yes. Then tap here."
+          "ko": "네. 여기 누르세요.",
+          "de": "Ja. Drück hier.",
+          "en": "Yes. Press here."
         },
         {
           "speaker": "user",
-          "ko": "아, 친구로 추가됐어요.",
-          "de": "Ah, jetzt sind wir verbunden.",
-          "en": "Oh, you're added now."
+          "ko": "아, 됐어요. 이제 친구예요.",
+          "de": "Ah, geschafft. Jetzt sind wir verbunden.",
+          "en": "Oh, it worked. We're connected now."
         }
       ],
       "quests": [
@@ -2655,11 +2655,11 @@
           "id": "quest_kakao_contact_after_class_01",
           "type": "hoerverstehen",
           "data": {
-            "audioKo": "우리 과제 같이 해요.",
+            "audioKo": "우리 숙제 같이 해요.",
             "options": [
               {
-                "de": "Lass uns die Aufgabe zusammen machen.",
-                "en": "Let's work on the assignment together."
+                "de": "Lass uns die Hausaufgaben zusammen machen.",
+                "en": "Let's do the homework together."
               },
               {
                 "de": "Wollen wir über KakaoTalk schreiben?",
@@ -2688,7 +2688,7 @@
                 "ko": "네, 좋아요."
               },
               {
-                "ko": "우리 과제 같이 해요."
+                "ko": "우리 숙제 같이 해요."
               },
               {
                 "ko": "카카오톡으로 연락할까요?"
@@ -2707,12 +2707,12 @@
           ],
           "type": "satzBauen",
           "data": {
-            "targetKo": "아, 친구로 추가됐어요.",
-            "audioKo": "아, 친구로 추가됐어요.",
-            "promptDe": "Ah, jetzt sind wir verbunden.",
-            "promptEn": "Oh, you're added now.",
+            "targetKo": "아, 됐어요. 이제 친구예요.",
+            "audioKo": "아, 됐어요. 이제 친구예요.",
+            "promptDe": "Ah, geschafft. Jetzt sind wir verbunden.",
+            "promptEn": "Oh, it worked. We're connected now.",
             "distractors": [
-              "우리 과제 같이 해요.",
+              "우리 숙제 같이 해요.",
               "카카오톡으로 연락할까요?",
               "네, 좋아요."
             ]
