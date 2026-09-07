@@ -13,9 +13,17 @@ stage is copied back over the real repository. IDs never change (plan
 in ``tools/content_factory/relevel_ledger.json``.
 
 L2a is vocab-pack-only: every move's ``scenarios`` and ``smalltalk`` lists
-must be empty (scenario/smalltalk bundle moves are PR-L2b, not implemented
-here), and ``cloze``/``satz`` must be the literal string ``"auto"`` (match by
-content, not by explicit id list -- also not implemented here).
+must be empty (smalltalk bundle moves are not implemented here), and
+``cloze``/``satz`` must be the literal string ``"auto"`` (match by content,
+not by explicit id list -- also not implemented here). ``scenarioMoves``
+(single-scenario relevels) and top-level ``grammarMoves`` (grammar.csv row
+relevels, LCP PR-L2b phase 1) are separate top-level bundle keys, each
+optional, each independent of ``moves`` -- a bundle needs at least one of
+the three nonempty. A ``grammarMove`` is ``{id, to, courseUnitId,
+conceptIds, canDoClusterId?, reason}`` (``from`` is derived from the live
+grammar.csv row, not declared); see ``GrammarMove``/``_migrate_grammar_csv``/
+``_migrate_grammar_curriculum``/``_migrate_grammar_can_do``/
+``_repair_grammar_quiz_distractors``/``_check_scenario_grammar_regressions``.
 
 Usage::
 
@@ -55,7 +63,7 @@ import relevel_ledger
 import scenario_store
 from relevel_ledger import Ledger, LedgerEntry
 from shelf_assignment import SHELF_SLUGS
-from validate_content import ContentValidator, LOWER_LEVELS, VOCAB_HEADER
+from validate_content import ContentValidator, GRAMMAR_HEADER, LOWER_LEVELS, VOCAB_HEADER
 
 # a1 < a2 < ... < c2, used only for the scenario-move grammarIds "not above
 # the target level" warning (plan §4.3 step 1) -- LOWER_LEVELS itself is an
@@ -315,10 +323,86 @@ class ScenarioMove:
 
 
 @dataclass(frozen=True)
+class GrammarMove:
+    """One grammar.csv row relevel (LCP PR-L2b phase 1, T2.3-grammar).
+
+    Unlike ``Move``, a grammar row never renames -- ``id`` is immutable
+    (plan "ID는 불변") and carries no pack/cloze/satz/artwork machinery, so
+    this is the leanest of the three move shapes: a level-cell flip in
+    ``grammar.csv``, a ledger entry, a ``curriculum_manifest.json``
+    ``grammarRuleMap`` entry, and (when one exists) a can-do direct
+    reference + contentCluster move. ``from`` is deliberately *not* part of
+    the required JSON shape (the brief's ``{id, to, courseUnitId,
+    conceptIds, canDoClusterId?, reason}``) -- the live ``grammar.csv`` row
+    is the source of truth for where a row is moving *from*; an optional
+    ``from`` field is still accepted as a defensive cross-check (fail-closed
+    if it disagrees with the live row) rather than a second source of
+    truth.
+    """
+
+    id: str
+    to_level: str
+    course_unit_id: str
+    concept_ids: tuple[str, ...]
+    reason: str
+    can_do_cluster_id: str | None = None
+    from_level: str | None = None
+
+    @classmethod
+    def from_dict(cls, raw: Any) -> "GrammarMove":
+        if not isinstance(raw, dict):
+            raise RelevelError(f"each grammarMove must be an object, got {raw!r}")
+        required = ("id", "to", "courseUnitId", "conceptIds", "reason")
+        missing = [key for key in required if key not in raw]
+        if missing:
+            raise RelevelError(f"grammarMove {raw.get('id')!r} missing field(s) {missing}")
+
+        ident = raw["id"]
+        to_level = raw["to"]
+        course_unit_id = raw["courseUnitId"]
+        concept_ids = raw["conceptIds"]
+        reason = raw["reason"]
+
+        for label, value in (("id", ident), ("courseUnitId", course_unit_id), ("reason", reason)):
+            if not isinstance(value, str) or not value.strip():
+                raise RelevelError(f"grammarMove {ident!r}: {label} must be a nonempty string")
+        if not ident.startswith("grammar_"):
+            raise RelevelError(f"grammarMove {ident!r}: id must start with 'grammar_'")
+        if to_level not in LOWER_LEVELS:
+            raise RelevelError(f"grammarMove {ident!r}: to must be one of {sorted(LOWER_LEVELS)}, got {to_level!r}")
+        if (not isinstance(concept_ids, list) or not concept_ids
+                or any(not isinstance(c, str) or not c.strip() for c in concept_ids)):
+            raise RelevelError(f"grammarMove {ident!r}: conceptIds must be a nonempty list of strings")
+
+        can_do_cluster_id = raw.get("canDoClusterId")
+        if can_do_cluster_id is not None and (
+            not isinstance(can_do_cluster_id, str) or not can_do_cluster_id.strip()
+        ):
+            raise RelevelError(f"grammarMove {ident!r}: canDoClusterId must be a nonempty string when present")
+
+        from_level = raw.get("from")
+        if from_level is not None and from_level not in LOWER_LEVELS:
+            raise RelevelError(f"grammarMove {ident!r}: from must be one of {sorted(LOWER_LEVELS)}, got {from_level!r}")
+        if from_level is not None and from_level == to_level:
+            raise RelevelError(f"grammarMove {ident!r}: from and to are both {from_level!r}")
+
+        return cls(
+            id=ident,
+            to_level=to_level,
+            course_unit_id=course_unit_id,
+            concept_ids=tuple(concept_ids),
+            reason=reason,
+            can_do_cluster_id=can_do_cluster_id,
+            from_level=from_level,
+        )
+
+
+@dataclass(frozen=True)
 class BundleFile:
     batch: str
     moves: tuple[Move, ...]
     scenario_moves: tuple[ScenarioMove, ...] = ()
+    grammar_moves: tuple[GrammarMove, ...] = ()
 
 
 def load_bundle_from_dict(raw: Any, *, source: str = "<bundle>") -> BundleFile:
@@ -334,10 +418,14 @@ def load_bundle_from_dict(raw: Any, *, source: str = "<bundle>") -> BundleFile:
     raw_scenario_moves = raw.get("scenarioMoves", [])
     if not isinstance(raw_scenario_moves, list):
         raise RelevelError(f"{source}: scenarioMoves must be a list")
-    # A bundle may have `moves: []` and only `scenarioMoves` (PR-L2a2, plan
-    # §4.3 step 4) -- but never neither, or there is nothing to do.
-    if not raw_moves and not raw_scenario_moves:
-        raise RelevelError(f"{source}: at least one of moves/scenarioMoves must be nonempty")
+    raw_grammar_moves = raw.get("grammarMoves", [])
+    if not isinstance(raw_grammar_moves, list):
+        raise RelevelError(f"{source}: grammarMoves must be a list")
+    # A bundle may have `moves: []` and only `scenarioMoves`/`grammarMoves`
+    # (PR-L2a2 plan §4.3 step 4; PR-L2b grammarMoves) -- but never all three
+    # empty, or there is nothing to do.
+    if not raw_moves and not raw_scenario_moves and not raw_grammar_moves:
+        raise RelevelError(f"{source}: at least one of moves/scenarioMoves/grammarMoves must be nonempty")
 
     moves = tuple(Move.from_dict(item) for item in raw_moves)
     bundle_ids = [move.bundle for move in moves]
@@ -352,7 +440,14 @@ def load_bundle_from_dict(raw: Any, *, source: str = "<bundle>") -> BundleFile:
     if len(scenario_ids) != len(set(scenario_ids)):
         raise RelevelError(f"{source}: duplicate id in scenarioMoves")
 
-    return BundleFile(batch=batch, moves=moves, scenario_moves=scenario_moves)
+    grammar_moves = tuple(GrammarMove.from_dict(item) for item in raw_grammar_moves)
+    grammar_move_ids = [move.id for move in grammar_moves]
+    if len(grammar_move_ids) != len(set(grammar_move_ids)):
+        raise RelevelError(f"{source}: duplicate id in grammarMoves")
+
+    return BundleFile(
+        batch=batch, moves=moves, scenario_moves=scenario_moves, grammar_moves=grammar_moves,
+    )
 
 
 def load_bundle(path: Path) -> BundleFile:
@@ -410,6 +505,23 @@ def _write_vocab_csv(path: Path, rows: list[dict[str, str]]) -> None:
         writer.writerow(VOCAB_HEADER)
         for row in rows:
             writer.writerow([row[column] for column in VOCAB_HEADER])
+
+
+def _load_grammar_csv(path: Path) -> list[dict[str, str]]:
+    with path.open(encoding="utf-8", newline="") as handle:
+        reader = csv.reader(handle)
+        header = next(reader)
+        if header != GRAMMAR_HEADER:
+            raise RelevelError(f"{path}: unexpected CSV header {header!r}")
+        return [dict(zip(header, row)) for row in reader if row]
+
+
+def _write_grammar_csv(path: Path, rows: list[dict[str, str]]) -> None:
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.writer(handle, quoting=csv.QUOTE_MINIMAL, lineterminator="\n")
+        writer.writerow(GRAMMAR_HEADER)
+        for row in rows:
+            writer.writerow([row[column] for column in GRAMMAR_HEADER])
 
 
 def pack_base(pack_id: str) -> str:
@@ -490,6 +602,28 @@ class ScenarioMoveReport:
 
 
 @dataclass
+class GrammarMoveReport:
+    grammar_id: str
+    from_level: str
+    to_level: str
+    course_unit_id: str
+    curriculum_note: str = ""
+    can_do_note: str = ""
+    source_cluster_id: str | None = None
+    target_cluster_id: str | None = None
+    target_segment_id: str | None = None
+    cluster_choice_note: str = ""
+    cluster_candidates: tuple[str, ...] = ()
+
+
+@dataclass
+class DistractorRepair:
+    grammar_id: str
+    old_distractor_ids: tuple[str, ...]
+    new_distractor_ids: tuple[str, ...]
+
+
+@dataclass
 class MigrationReport:
     batch: str
     packs: list[PackMoveReport] = field(default_factory=list)
@@ -518,6 +652,10 @@ class MigrationReport:
     aliases_added: list[tuple[str, str]] = field(default_factory=list)
     test_references: dict[str, list[str]] = field(default_factory=dict)
     scenarios: list[ScenarioMoveReport] = field(default_factory=list)
+    grammar: list[GrammarMoveReport] = field(default_factory=list)
+    distractor_repairs: list[DistractorRepair] = field(default_factory=list)
+    scenario_grammar_regressions: list[str] = field(default_factory=list)
+    grammar_patterns_note: str = ""
 
 
 # ───────────────────────── vocab / cloze / satz ───────────────────────────
@@ -1064,6 +1202,337 @@ def _migrate_can_do(
         coverage["inheritedReferenceCounts"] = {
             kind: inherited_counts.get(kind, 0) for kind in recorded_inherited
         }
+
+
+# ───────────────────────── grammar.csv migration (LCP PR-L2b) ─────────────
+
+
+def _migrate_grammar_csv(
+    grammar_rows: list[dict[str, str]],
+    grammar_moves: tuple[GrammarMove, ...],
+    ledger: Ledger,
+    batch: str,
+) -> Ledger:
+    """Flip each moved row's ``level`` cell (uppercase) and record a ledger
+    entry (kind=grammar). Grammar ids never rename (plan "ID는 불변") -- only
+    the level cell and the ledger record the move. Mutates ``grammar_rows``
+    row dicts in place; returns the ledger with one new entry per move."""
+
+    by_id = {row["id"]: row for row in grammar_rows if row.get("id")}
+    for move in grammar_moves:
+        row = by_id.get(move.id)
+        if row is None:
+            raise RelevelError(f"grammarMove {move.id!r}: no grammar.csv row with this id")
+        live_level = (row.get("level") or "").lower()
+        if live_level not in LOWER_LEVELS:
+            raise RelevelError(
+                f"grammarMove {move.id!r}: live grammar.csv level {row.get('level')!r} is invalid"
+            )
+        if move.from_level is not None and move.from_level != live_level:
+            raise RelevelError(
+                f"grammarMove {move.id!r}: declared from={move.from_level!r} disagrees with "
+                f"live grammar.csv level {live_level!r}"
+            )
+        if live_level == move.to_level:
+            raise RelevelError(f"grammarMove {move.id!r}: already at level {move.to_level!r}")
+        row["level"] = move.to_level.upper()
+        ledger = ledger.append(LedgerEntry(
+            id=move.id, kind="grammar", from_level=live_level, to_level=move.to_level,
+            movedAt=date.today().isoformat(), batch=batch, reason=move.reason,
+        ))
+    return ledger
+
+
+def _migrate_grammar_curriculum(
+    curriculum: dict[str, Any],
+    grammar_moves: tuple[GrammarMove, ...],
+    report: MigrationReport,
+) -> None:
+    """``curriculum_manifest.json`` ``grammarRuleMap[id]`` -> {courseUnitId,
+    conceptIds}. Grammar ids already own a direct 1:1 rule-map entry (unlike
+    vocab's pack-level ``vocabPackUnitMap``), so this is a plain upsert --
+    ``_validate_curriculum_rule_map`` (validate_content.py) is what actually
+    checks conceptIds are each a member of the target courseUnitId's concept
+    set, exactly as it does today for every existing grammarRuleMap entry."""
+
+    rule_map = curriculum.get("grammarRuleMap")
+    if not isinstance(rule_map, dict):
+        raise RelevelError("curriculum_manifest.json: grammarRuleMap must be an object")
+
+    reports_by_id = {r.grammar_id: r for r in report.grammar}
+    for move in grammar_moves:
+        existed = move.id in rule_map
+        rule_map[move.id] = {
+            "courseUnitId": move.course_unit_id,
+            "conceptIds": list(move.concept_ids),
+        }
+        grammar_report = reports_by_id.get(move.id)
+        if grammar_report is not None:
+            grammar_report.curriculum_note = (
+                f"grammarRuleMap {'updated' if existed else 'added'} -> "
+                f"{move.course_unit_id} {list(move.concept_ids)}"
+            )
+
+
+def _migrate_grammar_can_do(
+    authorities: dict[str, Any],
+    segments_doc: dict[str, Any],
+    grammar_moves: tuple[GrammarMove, ...],
+    report: MigrationReport,
+) -> None:
+    """Plan-analogous to ``_migrate_can_do`` (vocab) step 6a/6b for a
+    ``kind: "grammar"`` direct reference -- no id rename, no inherited-row
+    step (grammar authority rows have no inherited cloze/satz children).
+    A grammar id with *no* direct authority reference is legal (an
+    incompletely-wired row): this function then only computes and reports
+    the candidate contentCluster(s) for the target unit/level, mutating
+    nothing -- brief T2: can-do direct reference "required when a reference
+    exists; report candidates otherwise"."""
+
+    clusters = segments_doc.get("contentClusters")
+    segments = segments_doc.get("segments")
+    if not isinstance(clusters, list) or not isinstance(segments, list):
+        raise RelevelError("can_do_segments.json: contentClusters/segments must be arrays")
+    clusters_by_id = {c["id"]: c for c in clusters}
+
+    direct_refs = authorities.get("contentReferences")
+    if not isinstance(direct_refs, list):
+        raise RelevelError("can_do_content_authorities.json: contentReferences must be a list")
+    direct_by_key = {(r.get("kind"), r.get("id")): r for r in direct_refs if isinstance(r, dict)}
+
+    seeds = authorities.get("sourceSeeds")
+    if not isinstance(seeds, list):
+        raise RelevelError("can_do_content_authorities.json: sourceSeeds must be a list")
+    seeds_by_id = {s.get("id"): s for s in seeds if isinstance(s, dict)}
+
+    reports_by_id = {r.grammar_id: r for r in report.grammar}
+
+    for move in grammar_moves:
+        grammar_report = reports_by_id.get(move.id)
+        direct = direct_by_key.get(("grammar", move.id))
+
+        if direct is None:
+            try:
+                target_cluster_id, candidates, note = choose_target_cluster(
+                    segments, clusters_by_id, move.course_unit_id, move.to_level,
+                    move.can_do_cluster_id,
+                )
+                candidate_note = (
+                    f"no direct can-do reference for {move.id!r}; candidate cluster(s) "
+                    f"{list(candidates)} (would choose {target_cluster_id!r}: {note})"
+                )
+            except RelevelError as error:
+                candidate_note = (
+                    f"no direct can-do reference for {move.id!r}; no candidate cluster "
+                    f"found either: {error}"
+                )
+            if grammar_report is not None:
+                grammar_report.can_do_note = candidate_note
+            continue
+
+        source_cluster = _find_cluster_containing(clusters_by_id, "grammar", move.id)
+        if source_cluster is None:
+            raise RelevelError(
+                f"grammarMove {move.id!r}: has a direct can-do reference but no contentCluster "
+                "references it"
+            )
+
+        target_cluster_id, candidates, note = choose_target_cluster(
+            segments, clusters_by_id, move.course_unit_id, move.to_level,
+            move.can_do_cluster_id,
+        )
+        target_cluster = clusters_by_id[target_cluster_id]
+        target_segment = _segment_for_cluster(segments, target_cluster_id)
+        if target_segment is None:
+            raise RelevelError(f"grammarMove {move.id!r}: cluster {target_cluster_id!r} is owned by no segment")
+
+        seed_id = direct.get("sourceSeedId")
+
+        # 1. direct grammar authority row: level/courseUnitId only (id and
+        # sourceSeedId untouched -- grammar ids never rename).
+        direct["level"] = move.to_level
+        direct["courseUnitId"] = move.course_unit_id
+
+        # 2. cluster.contentReferences: move the one {kind, id} entry.
+        source_refs = source_cluster["contentReferences"]
+        moved = [r for r in source_refs if r.get("kind") == "grammar" and r.get("id") == move.id]
+        if len(moved) != 1:
+            raise RelevelError(
+                f"grammarMove {move.id!r}: expected exactly one grammar contentReference in "
+                f"{source_cluster['id']!r}, found {len(moved)}"
+            )
+        source_cluster["contentReferences"] = [r for r in source_refs if r is not moved[0]]
+        target_cluster["contentReferences"].append(moved[0])
+
+        # 3. cluster.sourceSeedIds: move the seed id string; bump its own
+        # authority row's level to to_level (course_segment_catalog.dart's
+        # _validateContentClusters requires every seed a cluster lists to
+        # match that cluster's own level).
+        source_seed_ids = source_cluster["sourceSeedIds"]
+        if seed_id not in source_seed_ids:
+            raise RelevelError(
+                f"grammarMove {move.id!r}: seed {seed_id!r} not found in "
+                f"{source_cluster['id']!r}.sourceSeedIds"
+            )
+        source_cluster["sourceSeedIds"] = [s for s in source_seed_ids if s != seed_id]
+        target_cluster["sourceSeedIds"].append(seed_id)
+        seed_authority = seeds_by_id.get(seed_id)
+        if seed_authority is None:
+            raise RelevelError(f"grammarMove {move.id!r}: seed {seed_id!r} has no sourceSeeds authority row")
+        seed_authority["level"] = move.to_level
+
+        # 4. bump both clusters' revision.
+        source_cluster["revision"] = int(source_cluster["revision"]) + 1
+        if target_cluster is not source_cluster:
+            target_cluster["revision"] = int(target_cluster["revision"]) + 1
+
+        if grammar_report is not None:
+            grammar_report.source_cluster_id = source_cluster["id"]
+            grammar_report.target_cluster_id = target_cluster["id"]
+            grammar_report.target_segment_id = target_segment["id"]
+            grammar_report.cluster_choice_note = note
+            grammar_report.cluster_candidates = candidates
+            grammar_report.can_do_note = f"moved {source_cluster['id']} -> {target_cluster['id']}"
+
+    # 5. recompute directReferenceCounts (a same-kind move never actually
+    # changes the count, but this stays exact regardless).
+    coverage = authorities.get("coverage")
+    if isinstance(coverage, dict):
+        direct_counts = Counter(r.get("kind") for r in direct_refs if isinstance(r, dict))
+        recorded_direct = coverage.get("directReferenceCounts")
+        if isinstance(recorded_direct, dict):
+            coverage["directReferenceCounts"] = {
+                kind: direct_counts.get(kind, 0) for kind in recorded_direct
+            }
+
+
+_ID_SEPARATOR = "|"
+
+
+def _split_grammar_ids(raw: str) -> list[str]:
+    return [item for item in raw.split(_ID_SEPARATOR) if item]
+
+
+def _repair_grammar_quiz_distractors(
+    grammar_rows: list[dict[str, str]],
+    report: MigrationReport,
+) -> None:
+    """Brief T2 "quiz_distractor_ids repair": run *after* every grammarMove's
+    level flip, over the *whole* grammar.csv (not just moved rows -- another
+    row's distractor set can go stale just because one of ITS distractors
+    moved elsewhere). For every quiz-enabled row whose 3 distractors are no
+    longer exactly 3 unique, non-self, same-level, quiz-enabled ids, pick 3
+    deterministic replacements from the same (new) level: same ``type_en``
+    family first, then id-order closeness, ties broken by id string.
+    Mutates ``grammar_rows`` in place and appends one ``DistractorRepair``
+    per changed row to ``report``."""
+
+    by_id = {row["id"]: row for row in grammar_rows if row.get("id")}
+
+    def is_valid(row: dict[str, str]) -> bool:
+        ids = _split_grammar_ids(row.get("quiz_distractor_ids", ""))
+        if len(ids) != 3 or len(set(ids)) != 3 or row["id"] in ids:
+            return False
+        for distractor_id in ids:
+            candidate = by_id.get(distractor_id)
+            if candidate is None or candidate.get("level") != row.get("level"):
+                return False
+            if (candidate.get("quiz_enabled") or "").lower() != "true":
+                return False
+        return True
+
+    for row in grammar_rows:
+        if (row.get("quiz_enabled") or "").lower() != "true":
+            continue
+        if is_valid(row):
+            continue
+
+        old_ids = tuple(_split_grammar_ids(row.get("quiz_distractor_ids", "")))
+        level = row["level"]
+        same_level_ids = sorted(
+            r["id"] for r in grammar_rows
+            if r["id"] != row["id"] and r.get("level") == level
+            and (r.get("quiz_enabled") or "").lower() == "true"
+        )
+        if len(same_level_ids) < 3:
+            raise RelevelError(
+                f"{row['id']}: cannot repair quiz_distractor_ids -- only "
+                f"{len(same_level_ids)} other quiz-enabled {level} row(s) exist"
+            )
+        ranked_ids = sorted([row["id"], *same_level_ids])
+        self_index = ranked_ids.index(row["id"])
+
+        def distance(candidate_id: str, _ranked=ranked_ids, _self=self_index) -> int:
+            return abs(_ranked.index(candidate_id) - _self)
+
+        same_family = [i for i in same_level_ids if by_id[i].get("type_en") == row.get("type_en")]
+        other_family = [i for i in same_level_ids if i not in same_family]
+        same_family.sort(key=lambda i: (distance(i), i))
+        other_family.sort(key=lambda i: (distance(i), i))
+        chosen = (same_family + other_family)[:3]
+
+        new_ids = tuple(chosen)
+        row["quiz_distractor_ids"] = _ID_SEPARATOR.join(new_ids)
+        if new_ids != old_ids:
+            report.distractor_repairs.append(DistractorRepair(
+                grammar_id=row["id"], old_distractor_ids=old_ids, new_distractor_ids=new_ids,
+            ))
+
+
+def _check_scenario_grammar_regressions(
+    scenarios: list[dict[str, Any]],
+    grammar_rows: list[dict[str, str]],
+    report: MigrationReport,
+) -> None:
+    """Brief T2: "report any scenario whose level is now below a referenced
+    grammar's level" -- read-only (scenarios' ``grammarIds`` lists are never
+    rewritten by a grammarMove; brief: "scenarios' grammarIds untouched").
+    Checked against the *live post-move* grammar.csv levels, not the id's
+    own (now possibly stale) level segment."""
+
+    level_by_id = {row["id"]: (row.get("level") or "").lower() for row in grammar_rows if row.get("id")}
+    for scenario in scenarios:
+        if not isinstance(scenario, dict):
+            continue
+        scenario_id = scenario.get("id")
+        scenario_level = scenario.get("level")
+        scenario_rank = LEVEL_ORDER.get(scenario_level) if isinstance(scenario_level, str) else None
+        grammar_ids = scenario.get("grammarIds")
+        if scenario_rank is None or not isinstance(grammar_ids, list):
+            continue
+        for grammar_id in grammar_ids:
+            if not isinstance(grammar_id, str):
+                continue
+            grammar_level = level_by_id.get(grammar_id)
+            grammar_rank = LEVEL_ORDER.get(grammar_level) if grammar_level else None
+            if grammar_rank is not None and grammar_rank > scenario_rank:
+                report.scenario_grammar_regressions.append(
+                    f"scenario {scenario_id!r} is level {scenario_level!r}, references "
+                    f"grammarId {grammar_id!r} now at {grammar_level!r}"
+                )
+
+
+def _grammar_patterns_mirror_note(root: Path) -> str:
+    """Brief T2: "grammar_patterns.json mirror regenerated if a generator
+    exists (else report)". No generator script produces
+    ``functions/analyze_korean_text/grammar_patterns.json`` from
+    ``assets/data/grammar.csv`` anywhere in this repository (searched):
+    the two files are independently governed -- ``g_*``-prefixed ids, each
+    with its own hand-authored ``level`` field, byte-mirrored between the
+    two paths and cross-checked by
+    ``ContentValidator.validate_grammar_patterns`` (validate_content.py).
+    A grammarMove therefore never touches either copy; this only reports
+    that fact so it reads as "checked, not forgotten" rather than a silent
+    gap."""
+
+    del root  # not needed today; kept for signature symmetry / future use
+    return (
+        "no generator found for grammar_patterns.json (own g_* id namespace, "
+        "own hand-authored level field, byte-mirrored assets/data <-> "
+        "functions/analyze_korean_text and cross-checked by "
+        "ContentValidator.validate_grammar_patterns) -- grammarMoves do not "
+        "touch it"
+    )
 
 
 def _find_cluster_containing_seed(
@@ -2752,7 +3221,7 @@ _SCENARIO_SHARD_NAMES = tuple(scenario_store.shard_name(level) for level in LOWE
 # untouched copy of the originals, so copying them "back" is a real write
 # of byte-identical content -- a no-op in effect, not a behavior change.
 _STAGED_DATA_FILES = (
-    "korean_vocab.csv", CLOZE_JSON, SATZ_JSON, CURRICULUM_JSON,
+    "korean_vocab.csv", "grammar.csv", CLOZE_JSON, SATZ_JSON, CURRICULUM_JSON,
     CAN_DO_AUTHORITIES_JSON, CAN_DO_SEGMENTS_JSON, *_SCENARIO_SHARD_NAMES,
 )
 
@@ -2816,6 +3285,11 @@ def migrate(
             to_level=scenario_move.to_level, course_unit_id=scenario_move.course_unit_id,
             shelf=scenario_move.shelf,
         ))
+    for grammar_move in bundle.grammar_moves:
+        report.grammar.append(GrammarMoveReport(
+            grammar_id=grammar_move.id, from_level=grammar_move.from_level or "?",
+            to_level=grammar_move.to_level, course_unit_id=grammar_move.course_unit_id,
+        ))
 
     with tempfile.TemporaryDirectory(prefix="relevel-bundle-") as directory:
         stage = Path(directory) / "repo"
@@ -2835,6 +3309,7 @@ def migrate(
         data = stage / "assets" / "data"
 
         vocab_rows = _load_vocab_csv(data / "korean_vocab.csv")
+        grammar_rows = _load_grammar_csv(data / "grammar.csv")
         cloze_root = _read_json(data / CLOZE_JSON)
         satz_root = _read_json(data / SATZ_JSON)
         curriculum = _read_json(data / CURRICULUM_JSON)
@@ -2873,12 +3348,37 @@ def migrate(
         _migrate_can_do(authorities, segments_doc, bundle.moves, vocab_by_id, report)
         _migrate_can_do_scenarios(authorities, segments_doc, bundle.scenario_moves, report)
 
+        # grammar.csv level flip + ledger, then curriculum/can-do wiring and
+        # quiz-integrity repair (LCP PR-L2b). Runs before the scenario-shard
+        # regression check below, which needs the *post-move* levels.
+        ledger = _migrate_grammar_csv(grammar_rows, bundle.grammar_moves, ledger, bundle.batch)
+        grammar_reports_by_id = {r.grammar_id: r for r in report.grammar}
+        for grammar_move in bundle.grammar_moves:
+            grammar_report = grammar_reports_by_id.get(grammar_move.id)
+            if grammar_report is not None:
+                # The ledger entry above is the single source of truth for
+                # from_level (derived from the live row, cross-checked
+                # against an optional declared `from`) -- read it back so
+                # the report/plan never has to guess.
+                entry = ledger.get("grammar", grammar_move.id)
+                if entry is not None:
+                    grammar_report.from_level = entry.from_level
+        _migrate_grammar_curriculum(curriculum, bundle.grammar_moves, report)
+        _migrate_grammar_can_do(authorities, segments_doc, bundle.grammar_moves, report)
+        if bundle.grammar_moves:
+            _repair_grammar_quiz_distractors(grammar_rows, report)
+            report.grammar_patterns_note = _grammar_patterns_mirror_note(root)
+
         scenarios_list: list[dict[str, Any]] | None = None
-        if bundle.scenario_moves:
+        if bundle.scenario_moves or bundle.grammar_moves:
             scenarios_root = scenario_store.load_root(data)
             scenarios_list = scenarios_root.get("scenarios")
             if not isinstance(scenarios_list, list):
                 raise RelevelError("scenario shards: root must contain a scenarios array")
+        if bundle.grammar_moves and scenarios_list is not None:
+            _check_scenario_grammar_regressions(scenarios_list, grammar_rows, report)
+        if bundle.scenario_moves:
+            assert scenarios_list is not None
             scenarios_by_id = {
                 s["id"]: s for s in scenarios_list
                 if isinstance(s, dict) and isinstance(s.get("id"), str)
@@ -2899,6 +3399,7 @@ def migrate(
             scenario_store.write_shards(scenarios_list, data)
 
         _write_vocab_csv(data / "korean_vocab.csv", vocab_rows)
+        _write_grammar_csv(data / "grammar.csv", grammar_rows)
         _write_json(data / CLOZE_JSON, cloze_root)
         _write_json(data / SATZ_JSON, satz_root)
         _write_json(data / CURRICULUM_JSON, curriculum)
@@ -3145,6 +3646,7 @@ def migrate(
 def format_plan(report: MigrationReport, *, apply: bool) -> str:
     lines = [
         f"batch {report.batch}: {len(report.packs)} move(s), {len(report.scenarios)} scenarioMove(s), "
+        f"{len(report.grammar)} grammarMove(s), "
         f"{'APPLIED' if apply else 'dry-run (nothing written)'}",
         "",
     ]
@@ -3181,7 +3683,35 @@ def format_plan(report: MigrationReport, *, apply: bool) -> str:
         )
         if len(pack.cluster_candidates) > 1:
             lines.append(f"    cando candidates were: {list(pack.cluster_candidates)}")
-    lines.append("")
+    if report.packs:
+        lines.append("")
+    for grammar in report.grammar:
+        lines.append(
+            f"  grammar {grammar.grammar_id}  ({grammar.from_level}->{grammar.to_level}, "
+            f"unit={grammar.course_unit_id})"
+        )
+        lines.append(f"    curriculum: {grammar.curriculum_note}")
+        lines.append(f"    can-do: {grammar.can_do_note}")
+        if len(grammar.cluster_candidates) > 1:
+            lines.append(f"    cando candidates were: {list(grammar.cluster_candidates)}")
+    if report.distractor_repairs:
+        lines.append("")
+        lines.append(f"quiz_distractor_ids repaired ({len(report.distractor_repairs)}):")
+        for repair in report.distractor_repairs:
+            lines.append(
+                f"  {repair.grammar_id}: {list(repair.old_distractor_ids)} -> "
+                f"{list(repair.new_distractor_ids)}"
+            )
+    if report.scenario_grammar_regressions:
+        lines.append("")
+        lines.append("scenario/grammar level regressions:")
+        for warning in report.scenario_grammar_regressions:
+            lines.append(f"  WARNING: {warning}")
+    if report.grammar_patterns_note:
+        lines.append("")
+        lines.append(f"grammar_patterns.json: {report.grammar_patterns_note}")
+    if report.grammar:
+        lines.append("")
     lines.append(f"vocabPackUnitMap renames: {len(report.vocab_pack_unit_map_renames)}")
     lines.append(
         f"clozeTopicUnitMap: +{len(report.cloze_topic_keys_added)} added "
@@ -3259,7 +3789,36 @@ def append_report_section(path: Path, report: MigrationReport, *, apply: bool) -
             f"{pack.n_satz} | `{pack.source_cluster_id}` -> `{pack.target_cluster_id}` | "
             f"`{pack.target_segment_id}` | {pack.cluster_choice_note} |"
         )
-    lines.append("")
+    if report.packs:
+        lines.append("")
+    if report.grammar:
+        lines.append("| grammar id | from->to | unit | curriculum | can-do |")
+        lines.append("|---|---|---|---|---|")
+        for grammar in report.grammar:
+            lines.append(
+                f"| `{grammar.grammar_id}` | {grammar.from_level}->{grammar.to_level} | "
+                f"`{grammar.course_unit_id}` | {grammar.curriculum_note} | {grammar.can_do_note} |"
+            )
+        lines.append("")
+    if report.distractor_repairs:
+        lines.append(f"quiz_distractor_ids 보정 {len(report.distractor_repairs)}건:")
+        lines.append("")
+        lines.append("| grammar id | 기존 distractor | 신규 distractor |")
+        lines.append("|---|---|---|")
+        for repair in report.distractor_repairs:
+            lines.append(
+                f"| `{repair.grammar_id}` | {list(repair.old_distractor_ids)} | "
+                f"{list(repair.new_distractor_ids)} |"
+            )
+        lines.append("")
+    if report.scenario_grammar_regressions:
+        lines.append("시나리오/문법 레벨 역행 경고:")
+        for warning in report.scenario_grammar_regressions:
+            lines.append(f"- WARNING: {warning}")
+        lines.append("")
+    if report.grammar_patterns_note:
+        lines.append(f"`grammar_patterns.json`: {report.grammar_patterns_note}")
+        lines.append("")
     lines.append(
         f"vocabPackUnitMap 개명 {len(report.vocab_pack_unit_map_renames)}건, "
         f"clozeTopicUnitMap +{len(report.cloze_topic_keys_added)}/"

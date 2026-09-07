@@ -359,11 +359,11 @@
     },
     {
       "id": "seed_grammar_grammar_a1_future_modifier_v1",
-      "level": "a1"
+      "level": "a2"
     },
     {
       "id": "seed_grammar_grammar_a1_honorific_kke_v1",
-      "level": "a1"
+      "level": "a2"
     },
     {
       "id": "seed_grammar_grammar_a1_in_front_v1",
@@ -387,11 +387,11 @@
     },
     {
       "id": "seed_grammar_grammar_a1_or_particle_v1",
-      "level": "a1"
+      "level": "a2"
     },
     {
       "id": "seed_grammar_grammar_a1_past_modifier_v1",
-      "level": "a1"
+      "level": "a2"
     },
     {
       "id": "seed_grammar_grammar_a1_please_particle_v1",
@@ -407,7 +407,7 @@
     },
     {
       "id": "seed_grammar_grammar_a1_polite_prohibition_v1",
-      "level": "a1"
+      "level": "a2"
     },
     {
       "id": "seed_grammar_grammar_a1_polite_request_v1",
@@ -419,7 +419,7 @@
     },
     {
       "id": "seed_grammar_grammar_a1_present_modifier_v1",
-      "level": "a1"
+      "level": "a2"
     },
     {
       "id": "seed_grammar_grammar_a1_sequence_connector_v1",
@@ -1715,7 +1715,7 @@
     },
     {
       "id": "seed_grammar_grammar_a2_ability_v1",
-      "level": "a2"
+      "level": "a1"
     },
     {
       "id": "seed_grammar_grammar_a2_adverbial_v1",
@@ -1743,11 +1743,11 @@
     },
     {
       "id": "seed_grammar_grammar_a2_cause_nikka_v1",
-      "level": "a2"
+      "level": "a1"
     },
     {
       "id": "seed_grammar_grammar_a2_cause_sequence_v1",
-      "level": "a2"
+      "level": "a1"
     },
     {
       "id": "seed_grammar_grammar_a2_change_v1",
@@ -1755,7 +1755,7 @@
     },
     {
       "id": "seed_grammar_grammar_a2_comparative_v1",
-      "level": "a2"
+      "level": "a1"
     },
     {
       "id": "seed_grammar_grammar_a2_conditional_v1",
@@ -1763,11 +1763,11 @@
     },
     {
       "id": "seed_grammar_grammar_a2_contrast_v1",
-      "level": "a2"
+      "level": "a1"
     },
     {
       "id": "seed_grammar_grammar_a2_dative_person_v1",
-      "level": "a2"
+      "level": "a1"
     },
     {
       "id": "seed_grammar_grammar_a2_each_v1",
@@ -1799,11 +1799,11 @@
     },
     {
       "id": "seed_grammar_grammar_a2_inability_v1",
-      "level": "a2"
+      "level": "a1"
     },
     {
       "id": "seed_grammar_grammar_a2_intention_guess_v1",
-      "level": "a2"
+      "level": "a1"
     },
     {
       "id": "seed_grammar_grammar_a2_irregular_bieup_v1",
@@ -1823,7 +1823,7 @@
     },
     {
       "id": "seed_grammar_grammar_a2_lets_formal_v1",
-      "level": "a2"
+      "level": "a1"
     },
     {
       "id": "seed_grammar_grammar_a2_like_v1",
@@ -1851,7 +1851,7 @@
     },
     {
       "id": "seed_grammar_grammar_a2_polite_proposal_v1",
-      "level": "a2"
+      "level": "a1"
     },
     {
       "id": "seed_grammar_grammar_a2_preference_question_v1",
@@ -1867,7 +1867,7 @@
     },
     {
       "id": "seed_grammar_grammar_a2_progressive_v1",
-      "level": "a2"
+      "level": "a1"
     },
     {
       "id": "seed_grammar_grammar_a2_prohibition_v1",
@@ -3043,7 +3043,7 @@
     },
     {
       "id": "seed_grammar_grammar_b1_after_v1",
-      "level": "b1"
+      "level": "a1"
     },
     {
       "id": "seed_grammar_grammar_b1_as_kept_doing_v1",
@@ -3055,11 +3055,11 @@
     },
     {
       "id": "seed_grammar_grammar_b1_background_contrast_v1",
-      "level": "b1"
+      "level": "a2"
     },
     {
       "id": "seed_grammar_grammar_b1_before_v1",
-      "level": "b1"
+      "level": "a1"
     },
     {
       "id": "seed_grammar_grammar_b1_concede_but_v1",
@@ -3075,11 +3075,11 @@
     },
     {
       "id": "seed_grammar_grammar_b1_decision_v1",
-      "level": "b1"
+      "level": "a2"
     },
     {
       "id": "seed_grammar_grammar_b1_duration_v1",
-      "level": "b1"
+      "level": "a2"
     },
     {
       "id": "seed_grammar_grammar_b1_even_if_light_v1",
@@ -3091,7 +3091,7 @@
     },
     {
       "id": "seed_grammar_grammar_b1_experience_v1",
-      "level": "b1"
+      "level": "a2"
     },
     {
       "id": "seed_grammar_grammar_b1_explanatory_reason_v1",
@@ -3103,11 +3103,11 @@
     },
     {
       "id": "seed_grammar_grammar_b1_honorific_si_v1",
-      "level": "b1"
+      "level": "a1"
     },
     {
       "id": "seed_grammar_grammar_b1_honorific_subject_kkeyseo_v1",
-      "level": "b1"
+      "level": "a1"
     },
     {
       "id": "seed_grammar_grammar_b1_immediate_sequence_v1",
@@ -3119,7 +3119,7 @@
     },
     {
       "id": "seed_grammar_grammar_b1_intention_v1",
-      "level": "b1"
+      "level": "a1"
     },
     {
       "id": "seed_grammar_grammar_b1_irregular_hieut_v1",
@@ -3147,15 +3147,15 @@
     },
     {
       "id": "seed_grammar_grammar_b1_nominalization_v1",
-      "level": "b1"
+      "level": "a2"
     },
     {
       "id": "seed_grammar_grammar_b1_nominalizer_gi_v1",
-      "level": "b1"
+      "level": "a2"
     },
     {
       "id": "seed_grammar_grammar_b1_obligation_v1",
-      "level": "b1"
+      "level": "a1"
     },
     {
       "id": "seed_grammar_grammar_b1_planned_future_v1",
@@ -3167,7 +3167,7 @@
     },
     {
       "id": "seed_grammar_grammar_b1_realization_v1",
-      "level": "b1"
+      "level": "a2"
     },
     {
       "id": "seed_grammar_grammar_b1_reason_context_v1",
@@ -3179,7 +3179,7 @@
     },
     {
       "id": "seed_grammar_grammar_b1_resultant_state_v1",
-      "level": "b1"
+      "level": "a2"
     },
     {
       "id": "seed_grammar_grammar_b1_scheduled_arrangement_v1",
@@ -3195,7 +3195,7 @@
     },
     {
       "id": "seed_grammar_grammar_b1_since_v1",
-      "level": "b1"
+      "level": "a2"
     },
     {
       "id": "seed_grammar_grammar_b1_skill_v1",
@@ -10156,6 +10156,38 @@
     {
       "id": "seed_vocab_pack_c2_withdrawal_right_1_v1",
       "level": "c2"
+    },
+    {
+      "id": "seed_grammar_grammar_a1_formal_statement_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_grammar_grammar_a1_formal_question_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_grammar_grammar_a2_interrupted_action_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_grammar_grammar_a2_nominalizer_eum_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_grammar_grammar_a2_from_person_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_grammar_grammar_a2_no_choice_but_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_grammar_grammar_a2_tentative_intention_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_grammar_grammar_a1_formal_command_v1",
+      "level": "a1"
     }
   ],
   "contentReferences": [
@@ -10785,16 +10817,16 @@
     {
       "kind": "grammar",
       "id": "grammar_a1_future_modifier",
-      "level": "a1",
+      "level": "a2",
       "sourceSeedId": "seed_grammar_grammar_a1_future_modifier_v1",
-      "courseUnitId": "a1_12_daily_negation"
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "kind": "grammar",
       "id": "grammar_a1_honorific_kke",
-      "level": "a1",
+      "level": "a2",
       "sourceSeedId": "seed_grammar_grammar_a1_honorific_kke_v1",
-      "courseUnitId": "a1_11_titles_relationships"
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "kind": "grammar",
@@ -10834,16 +10866,16 @@
     {
       "kind": "grammar",
       "id": "grammar_a1_or_particle",
-      "level": "a1",
+      "level": "a2",
       "sourceSeedId": "seed_grammar_grammar_a1_or_particle_v1",
-      "courseUnitId": "a1_04_order_request_object"
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "kind": "grammar",
       "id": "grammar_a1_past_modifier",
-      "level": "a1",
+      "level": "a2",
       "sourceSeedId": "seed_grammar_grammar_a1_past_modifier_v1",
-      "courseUnitId": "a1_09_home_daily_life"
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "kind": "grammar",
@@ -10869,9 +10901,9 @@
     {
       "kind": "grammar",
       "id": "grammar_a1_polite_prohibition",
-      "level": "a1",
+      "level": "a2",
       "sourceSeedId": "seed_grammar_grammar_a1_polite_prohibition_v1",
-      "courseUnitId": "a1_10_health_safety"
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "kind": "grammar",
@@ -10890,9 +10922,9 @@
     {
       "kind": "grammar",
       "id": "grammar_a1_present_modifier",
-      "level": "a1",
+      "level": "a2",
       "sourceSeedId": "seed_grammar_grammar_a1_present_modifier_v1",
-      "courseUnitId": "a1_09_home_daily_life"
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "kind": "grammar",
@@ -13158,9 +13190,9 @@
     {
       "kind": "grammar",
       "id": "grammar_a2_ability",
-      "level": "a2",
+      "level": "a1",
       "sourceSeedId": "seed_grammar_grammar_a2_ability_v1",
-      "courseUnitId": "a2_06_study_work"
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "kind": "grammar",
@@ -13207,16 +13239,16 @@
     {
       "kind": "grammar",
       "id": "grammar_a2_cause_nikka",
-      "level": "a2",
+      "level": "a1",
       "sourceSeedId": "seed_grammar_grammar_a2_cause_nikka_v1",
-      "courseUnitId": "a2_03_chat_relationships"
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "kind": "grammar",
       "id": "grammar_a2_cause_sequence",
-      "level": "a2",
+      "level": "a1",
       "sourceSeedId": "seed_grammar_grammar_a2_cause_sequence_v1",
-      "courseUnitId": "a2_03_chat_relationships"
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "kind": "grammar",
@@ -13228,9 +13260,9 @@
     {
       "kind": "grammar",
       "id": "grammar_a2_comparative",
-      "level": "a2",
+      "level": "a1",
       "sourceSeedId": "seed_grammar_grammar_a2_comparative_v1",
-      "courseUnitId": "a2_01_haeyo_transition"
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "kind": "grammar",
@@ -13242,16 +13274,16 @@
     {
       "kind": "grammar",
       "id": "grammar_a2_contrast",
-      "level": "a2",
+      "level": "a1",
       "sourceSeedId": "seed_grammar_grammar_a2_contrast_v1",
-      "courseUnitId": "a2_03_chat_relationships"
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "kind": "grammar",
       "id": "grammar_a2_dative_person",
-      "level": "a2",
+      "level": "a1",
       "sourceSeedId": "seed_grammar_grammar_a2_dative_person_v1",
-      "courseUnitId": "a2_03_chat_relationships"
+      "courseUnitId": "a1_07_contact_address"
     },
     {
       "kind": "grammar",
@@ -13305,16 +13337,16 @@
     {
       "kind": "grammar",
       "id": "grammar_a2_inability",
-      "level": "a2",
+      "level": "a1",
       "sourceSeedId": "seed_grammar_grammar_a2_inability_v1",
-      "courseUnitId": "a2_07_travel_repair"
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "kind": "grammar",
       "id": "grammar_a2_intention_guess",
-      "level": "a2",
+      "level": "a1",
       "sourceSeedId": "seed_grammar_grammar_a2_intention_guess_v1",
-      "courseUnitId": "a2_01_haeyo_transition"
+      "courseUnitId": "a1_13_register_switching"
     },
     {
       "kind": "grammar",
@@ -13347,9 +13379,9 @@
     {
       "kind": "grammar",
       "id": "grammar_a2_lets_formal",
-      "level": "a2",
+      "level": "a1",
       "sourceSeedId": "seed_grammar_grammar_a2_lets_formal_v1",
-      "courseUnitId": "a2_02_plans_proposals"
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "kind": "grammar",
@@ -13396,9 +13428,9 @@
     {
       "kind": "grammar",
       "id": "grammar_a2_polite_proposal",
-      "level": "a2",
+      "level": "a1",
       "sourceSeedId": "seed_grammar_grammar_a2_polite_proposal_v1",
-      "courseUnitId": "a2_02_plans_proposals"
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "kind": "grammar",
@@ -13424,9 +13456,9 @@
     {
       "kind": "grammar",
       "id": "grammar_a2_progressive",
-      "level": "a2",
+      "level": "a1",
       "sourceSeedId": "seed_grammar_grammar_a2_progressive_v1",
-      "courseUnitId": "a2_03_chat_relationships"
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "kind": "grammar",
@@ -15482,9 +15514,9 @@
     {
       "kind": "grammar",
       "id": "grammar_b1_after",
-      "level": "b1",
+      "level": "a1",
       "sourceSeedId": "seed_grammar_grammar_b1_after_v1",
-      "courseUnitId": "b1_01_experience_reasons"
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "kind": "grammar",
@@ -15503,16 +15535,16 @@
     {
       "kind": "grammar",
       "id": "grammar_b1_background_contrast",
-      "level": "b1",
+      "level": "a2",
       "sourceSeedId": "seed_grammar_grammar_b1_background_contrast_v1",
-      "courseUnitId": "b1_03_work_softening"
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "kind": "grammar",
       "id": "grammar_b1_before",
-      "level": "b1",
+      "level": "a1",
       "sourceSeedId": "seed_grammar_grammar_b1_before_v1",
-      "courseUnitId": "b1_01_experience_reasons"
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "kind": "grammar",
@@ -15538,16 +15570,16 @@
     {
       "kind": "grammar",
       "id": "grammar_b1_decision",
-      "level": "b1",
+      "level": "a2",
       "sourceSeedId": "seed_grammar_grammar_b1_decision_v1",
-      "courseUnitId": "b1_06_life_capstone"
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "kind": "grammar",
       "id": "grammar_b1_duration",
-      "level": "b1",
+      "level": "a2",
       "sourceSeedId": "seed_grammar_grammar_b1_duration_v1",
-      "courseUnitId": "b1_01_experience_reasons"
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "kind": "grammar",
@@ -15566,9 +15598,9 @@
     {
       "kind": "grammar",
       "id": "grammar_b1_experience",
-      "level": "b1",
+      "level": "a2",
       "sourceSeedId": "seed_grammar_grammar_b1_experience_v1",
-      "courseUnitId": "b1_01_experience_reasons"
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "kind": "grammar",
@@ -15587,16 +15619,16 @@
     {
       "kind": "grammar",
       "id": "grammar_b1_honorific_si",
-      "level": "b1",
+      "level": "a1",
       "sourceSeedId": "seed_grammar_grammar_b1_honorific_si_v1",
-      "courseUnitId": "b1_03_work_softening"
+      "courseUnitId": "a1_13_register_switching"
     },
     {
       "kind": "grammar",
       "id": "grammar_b1_honorific_subject_kkeyseo",
-      "level": "b1",
+      "level": "a1",
       "sourceSeedId": "seed_grammar_grammar_b1_honorific_subject_kkeyseo_v1",
-      "courseUnitId": "b1_04_relationships"
+      "courseUnitId": "a1_13_register_switching"
     },
     {
       "kind": "grammar",
@@ -15615,9 +15647,9 @@
     {
       "kind": "grammar",
       "id": "grammar_b1_intention",
-      "level": "b1",
+      "level": "a1",
       "sourceSeedId": "seed_grammar_grammar_b1_intention_v1",
-      "courseUnitId": "b1_03_work_softening"
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "kind": "grammar",
@@ -15664,23 +15696,23 @@
     {
       "kind": "grammar",
       "id": "grammar_b1_nominalization",
-      "level": "b1",
+      "level": "a2",
       "sourceSeedId": "seed_grammar_grammar_b1_nominalization_v1",
-      "courseUnitId": "b1_01_experience_reasons"
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "kind": "grammar",
       "id": "grammar_b1_nominalizer_gi",
-      "level": "b1",
+      "level": "a2",
       "sourceSeedId": "seed_grammar_grammar_b1_nominalizer_gi_v1",
-      "courseUnitId": "b1_01_experience_reasons"
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "kind": "grammar",
       "id": "grammar_b1_obligation",
-      "level": "b1",
+      "level": "a1",
       "sourceSeedId": "seed_grammar_grammar_b1_obligation_v1",
-      "courseUnitId": "b1_03_work_softening"
+      "courseUnitId": "a1_10_health_safety"
     },
     {
       "kind": "grammar",
@@ -15699,9 +15731,9 @@
     {
       "kind": "grammar",
       "id": "grammar_b1_realization",
-      "level": "b1",
+      "level": "a2",
       "sourceSeedId": "seed_grammar_grammar_b1_realization_v1",
-      "courseUnitId": "b1_02_indirect_speech"
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "kind": "grammar",
@@ -15720,9 +15752,9 @@
     {
       "kind": "grammar",
       "id": "grammar_b1_resultant_state",
-      "level": "b1",
+      "level": "a2",
       "sourceSeedId": "seed_grammar_grammar_b1_resultant_state_v1",
-      "courseUnitId": "b1_01_experience_reasons"
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "kind": "grammar",
@@ -15748,9 +15780,9 @@
     {
       "kind": "grammar",
       "id": "grammar_b1_since",
-      "level": "b1",
+      "level": "a2",
       "sourceSeedId": "seed_grammar_grammar_b1_since_v1",
-      "courseUnitId": "b1_01_experience_reasons"
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "kind": "grammar",
@@ -26750,6 +26782,62 @@
       "courseUnitId": "c2_01_interpretation_institutions"
     },
     {
+      "kind": "grammar",
+      "id": "grammar_a1_formal_command",
+      "level": "a1",
+      "sourceSeedId": "seed_grammar_grammar_a1_formal_command_v1",
+      "courseUnitId": "a1_13_register_switching"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_a1_formal_question",
+      "level": "a1",
+      "sourceSeedId": "seed_grammar_grammar_a1_formal_question_v1",
+      "courseUnitId": "a1_13_register_switching"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_a1_formal_statement",
+      "level": "a1",
+      "sourceSeedId": "seed_grammar_grammar_a1_formal_statement_v1",
+      "courseUnitId": "a1_13_register_switching"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_a2_from_person",
+      "level": "a2",
+      "sourceSeedId": "seed_grammar_grammar_a2_from_person_v1",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_a2_interrupted_action",
+      "level": "a2",
+      "sourceSeedId": "seed_grammar_grammar_a2_interrupted_action_v1",
+      "courseUnitId": "a2_06_study_work"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_a2_no_choice_but",
+      "level": "a2",
+      "sourceSeedId": "seed_grammar_grammar_a2_no_choice_but_v1",
+      "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_a2_nominalizer_eum",
+      "level": "a2",
+      "sourceSeedId": "seed_grammar_grammar_a2_nominalizer_eum_v1",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_a2_tentative_intention",
+      "level": "a2",
+      "sourceSeedId": "seed_grammar_grammar_a2_tentative_intention_v1",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
       "kind": "project",
       "id": "project_c2_framing_v1",
       "level": "c2",
@@ -29616,7 +29704,7 @@
   "coverage": {
     "directReferenceCounts": {
       "vocabPack": 223,
-      "grammar": 244,
+      "grammar": 252,
       "smalltalk": 582,
       "scenario": 419,
       "cloze": 787,

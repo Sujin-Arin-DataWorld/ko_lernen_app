@@ -30,7 +30,7 @@ if str(SCRIPT_DIR) not in sys.path:
 
 import relevel_bundle as rb
 import relevel_ledger
-from validate_content import ContentValidator, VOCAB_HEADER
+from validate_content import ContentValidator, GRAMMAR_HEADER, VOCAB_HEADER
 
 REPO = SCRIPT_DIR.parents[1]
 
@@ -2264,6 +2264,535 @@ class ScenarioRollbackTest(ScenarioRelevelBundleFixture):
 
         with self.assertRaises(rb.RelevelError):
             rb.migrate(root=self.root, bundle=bundle, ledger_path=self.ledger_path, apply=False)
+
+        self._assert_unchanged(snapshot)
+
+
+# ───────────────────────── grammarMoves (LCP PR-L2b phase 1) ──────────────
+
+
+def _grammar_move_dict(**overrides) -> dict:
+    base = {
+        "id": "grammar_a1_relvtest_alpha",
+        "to": "a2",
+        "courseUnitId": "a2_06_study_work",
+        "conceptIds": ["concept_a2_work_study"],
+        "reason": "test grammar move",
+    }
+    base.update(overrides)
+    return base
+
+
+class GrammarMoveShapeTest(unittest.TestCase):
+    def test_valid_move_round_trips(self) -> None:
+        move = rb.GrammarMove.from_dict(_grammar_move_dict())
+        self.assertEqual(move.id, "grammar_a1_relvtest_alpha")
+        self.assertEqual(move.to_level, "a2")
+        self.assertEqual(move.course_unit_id, "a2_06_study_work")
+        self.assertEqual(move.concept_ids, ("concept_a2_work_study",))
+        self.assertIsNone(move.can_do_cluster_id)
+        self.assertIsNone(move.from_level)
+
+    def test_optional_from_and_can_do_cluster_id_round_trip(self) -> None:
+        move = rb.GrammarMove.from_dict(
+            _grammar_move_dict(**{"from": "a1", "canDoClusterId": "cluster_a2_x_v1"})
+        )
+        self.assertEqual(move.from_level, "a1")
+        self.assertEqual(move.can_do_cluster_id, "cluster_a2_x_v1")
+
+    def test_missing_field_is_rejected(self) -> None:
+        for key in ("id", "to", "courseUnitId", "conceptIds", "reason"):
+            raw = _grammar_move_dict()
+            del raw[key]
+            with self.assertRaises(rb.RelevelError):
+                rb.GrammarMove.from_dict(raw)
+
+    def test_bad_id_prefix_is_rejected(self) -> None:
+        with self.assertRaises(rb.RelevelError):
+            rb.GrammarMove.from_dict(_grammar_move_dict(id="vocab_a1_0001"))
+
+    def test_bad_to_level_is_rejected(self) -> None:
+        with self.assertRaises(rb.RelevelError):
+            rb.GrammarMove.from_dict(_grammar_move_dict(to="a9"))
+
+    def test_empty_concept_ids_is_rejected(self) -> None:
+        with self.assertRaises(rb.RelevelError):
+            rb.GrammarMove.from_dict(_grammar_move_dict(conceptIds=[]))
+
+    def test_declared_from_equal_to_is_rejected(self) -> None:
+        with self.assertRaises(rb.RelevelError):
+            rb.GrammarMove.from_dict(_grammar_move_dict(**{"from": "a2"}))  # to is already "a2"
+
+    def test_blank_can_do_cluster_id_rejected(self) -> None:
+        with self.assertRaises(rb.RelevelError):
+            rb.GrammarMove.from_dict(_grammar_move_dict(canDoClusterId="   "))
+
+    def test_bundle_may_have_only_grammar_moves(self) -> None:
+        bundle = rb.load_bundle_from_dict({"batch": "TEST", "grammarMoves": [_grammar_move_dict()]})
+        self.assertEqual(len(bundle.grammar_moves), 1)
+        self.assertEqual(bundle.moves, ())
+        self.assertEqual(bundle.scenario_moves, ())
+
+    def test_bundle_with_nothing_at_all_is_rejected(self) -> None:
+        with self.assertRaises(rb.RelevelError):
+            rb.load_bundle_from_dict({"batch": "TEST"})
+
+    def test_duplicate_grammar_move_id_is_rejected(self) -> None:
+        with self.assertRaises(rb.RelevelError):
+            rb.load_bundle_from_dict({
+                "batch": "TEST",
+                "grammarMoves": [_grammar_move_dict(), _grammar_move_dict()],
+            })
+
+
+class DistractorRepairUnitTest(unittest.TestCase):
+    """Direct unit tests of ``_repair_grammar_quiz_distractors`` against a
+    small, fully self-contained synthetic ``grammar_rows`` list (no fixture,
+    no real corpus) so the exact chosen replacement ids can be hand-verified
+    (see the derivation of the expected tuple below)."""
+
+    @staticmethod
+    def _row(ident: str, level: str, type_en: str, *, enabled: str = "true",
+              distractors: tuple[str, ...] = ()) -> dict[str, str]:
+        return {
+            "id": ident, "level": level, "type_en": type_en, "quiz_enabled": enabled,
+            "quiz_distractor_ids": "|".join(distractors),
+        }
+
+    def _rows(self) -> list[dict[str, str]]:
+        return [
+            self._row("grammar_a1_aaa", "A1", "Family1",
+                      distractors=("grammar_a1_bbb", "grammar_a1_ccc", "grammar_a1_zzz")),
+            self._row("grammar_a1_bbb", "A1", "Family1",
+                      distractors=("grammar_a1_aaa", "grammar_a1_ccc", "grammar_a1_ddd")),
+            self._row("grammar_a1_ccc", "A1", "Family2",
+                      distractors=("grammar_a1_aaa", "grammar_a1_bbb", "grammar_a1_ddd")),
+            self._row("grammar_a1_ddd", "A1", "Family1",
+                      distractors=("grammar_a1_bbb", "grammar_a1_ccc", "grammar_a1_eee")),
+            self._row("grammar_a1_eee", "A1", "Family2",
+                      distractors=("grammar_a1_aaa", "grammar_a1_bbb", "grammar_a1_ccc")),
+            # Simulates a row that already moved away to A2 (its own quiz
+            # disabled here purely so this fixture doesn't also need 3
+            # OTHER A2 rows just to make grammar_a1_zzz's own repair
+            # possible -- that path is covered by
+            # test_too_few_candidates_raises below instead).
+            self._row("grammar_a1_zzz", "A2", "Family1", enabled="false"),
+        ]
+
+    def test_only_the_row_whose_distractor_moved_away_is_repaired(self) -> None:
+        rows = self._rows()
+        report = rb.MigrationReport(batch="TEST")
+        rb._repair_grammar_quiz_distractors(rows, report)
+
+        repaired_ids = {r.grammar_id for r in report.distractor_repairs}
+        self.assertEqual(repaired_ids, {"grammar_a1_aaa"})
+
+    def test_replacement_prefers_same_type_en_family_then_id_distance(self) -> None:
+        # By hand: aaa's valid A1 quiz-enabled siblings are {bbb, ccc, ddd,
+        # eee}. Same family (Family1, matching aaa) = {bbb, ddd}; other
+        # family = {ccc, eee}. Sorted id list [aaa,bbb,ccc,ddd,eee] puts aaa
+        # at index 0, so distances are bbb=1, ccc=2, ddd=3, eee=4. Family
+        # tier sorted by distance: [bbb, ddd]; other tier: [ccc, eee].
+        # First 3 of family+other = [bbb, ddd, ccc].
+        rows = self._rows()
+        report = rb.MigrationReport(batch="TEST")
+        rb._repair_grammar_quiz_distractors(rows, report)
+
+        by_id = {row["id"]: row for row in rows}
+        self.assertEqual(
+            by_id["grammar_a1_aaa"]["quiz_distractor_ids"],
+            "grammar_a1_bbb|grammar_a1_ddd|grammar_a1_ccc",
+        )
+        [repair] = report.distractor_repairs
+        self.assertEqual(repair.grammar_id, "grammar_a1_aaa")
+        self.assertEqual(repair.old_distractor_ids, ("grammar_a1_bbb", "grammar_a1_ccc", "grammar_a1_zzz"))
+        self.assertEqual(repair.new_distractor_ids, ("grammar_a1_bbb", "grammar_a1_ddd", "grammar_a1_ccc"))
+
+    def test_unaffected_rows_are_untouched(self) -> None:
+        rows = self._rows()
+        before = {row["id"]: dict(row) for row in rows if row["id"] != "grammar_a1_aaa"}
+        report = rb.MigrationReport(batch="TEST")
+        rb._repair_grammar_quiz_distractors(rows, report)
+        after = {row["id"]: row for row in rows if row["id"] != "grammar_a1_aaa"}
+        self.assertEqual(before, after)
+
+    def test_too_few_candidates_raises(self) -> None:
+        rows = [
+            self._row("grammar_c2_solo", "C2", "Lonely",
+                      distractors=("grammar_c2_ghost1", "grammar_c2_ghost2", "grammar_c2_ghost3")),
+        ]
+        report = rb.MigrationReport(batch="TEST")
+        with self.assertRaises(rb.RelevelError):
+            rb._repair_grammar_quiz_distractors(rows, report)
+
+
+class ScenarioGrammarRegressionUnitTest(unittest.TestCase):
+    def test_flags_only_the_scenario_now_below_the_referenced_grammar(self) -> None:
+        scenarios = [
+            {"id": "s_ok_higher_level", "level": "b1", "grammarIds": ["grammar_a1_x"]},
+            {"id": "s_now_below", "level": "a1", "grammarIds": ["grammar_a1_x"]},
+            {"id": "s_no_grammar_ids", "level": "a1", "grammarIds": []},
+            {"id": "s_unknown_level", "level": "not_a_level", "grammarIds": ["grammar_a1_x"]},
+        ]
+        # grammar_a1_x has since moved to a2 (post-move live level).
+        grammar_rows = [{"id": "grammar_a1_x", "level": "A2"}]
+        report = rb.MigrationReport(batch="TEST")
+
+        rb._check_scenario_grammar_regressions(scenarios, grammar_rows, report)
+
+        self.assertEqual(len(report.scenario_grammar_regressions), 1)
+        self.assertIn("s_now_below", report.scenario_grammar_regressions[0])
+        self.assertIn("grammar_a1_x", report.scenario_grammar_regressions[0])
+
+    def test_no_move_means_no_warnings(self) -> None:
+        scenarios = [{"id": "s1", "level": "a1", "grammarIds": ["grammar_a1_x"]}]
+        grammar_rows = [{"id": "grammar_a1_x", "level": "A1"}]
+        report = rb.MigrationReport(batch="TEST")
+        rb._check_scenario_grammar_regressions(scenarios, grammar_rows, report)
+        self.assertEqual(report.scenario_grammar_regressions, [])
+
+
+GRAMMAR_SOURCE_UNIT = "a1_01_greetings_hangul"
+GRAMMAR_SOURCE_CLUSTER_ID = "cluster_a1_01_greetings_hangul_v1"
+GRAMMAR_SOURCE_CONCEPT = "concept_greeting_politeness"
+GRAMMAR_TARGET_UNIT_A2 = "a2_06_study_work"
+GRAMMAR_TARGET_CONCEPT_A2 = "concept_a2_work_study"
+
+# 4 synthetic A1 rows: alpha/beta/gamma get full can-do wiring, delta gets
+# none (exercises the "report candidates otherwise" path). Each row's
+# quiz_distractor_ids lists the *other 3* synthetic ids, so moving one row
+# away invalidates every other row's distractor set -- a real cross-row
+# repair, not just a self-repair.
+GRAMMAR_SYNTHETIC_IDS = (
+    "grammar_a1_relvtest_alpha",
+    "grammar_a1_relvtest_beta",
+    "grammar_a1_relvtest_gamma",
+    "grammar_a1_relvtest_delta",
+)
+
+
+def _synthetic_grammar_row(ident: str) -> dict[str, str]:
+    others = tuple(i for i in GRAMMAR_SYNTHETIC_IDS if i != ident)
+    return {
+        "pattern": f"TEST-{ident}", "level": "A1", "type_de": "Testtyp",
+        "explanation_de": "Testerklärung.", "example_korean": f"{ident} 테스트예요.",
+        "example_german": f"Das ist {ident} Test.", "note": "Testnotiz.",
+        "type_en": "Test type", "explanation_en": "Test explanation.",
+        "example_en": f"This is {ident} test.", "note_en": "Test note.", "id": ident,
+        "quiz_focus_de": ident, "quiz_focus_en": ident, "quiz_enabled": "true",
+        "quiz_distractor_ids": "|".join(others),
+    }
+
+
+class GrammarRelevelBundleFixture(unittest.TestCase):
+    """Copies the real, already-valid ``assets/data`` (same strategy as
+    ``RelevelBundleFixture``) and injects 4 synthetic A1 grammar.csv rows
+    this suite owns completely, so assertions never depend on which real
+    grammar ids happen to exist or what NIKL-canon moves Fable has ruled on
+    yet."""
+
+    def setUp(self) -> None:
+        self._tmp = tempfile.TemporaryDirectory(prefix="relevel-grammar-test-")
+        self.addCleanup(self._tmp.cleanup)
+        self.root = Path(self._tmp.name) / "repo"
+        data = self.root / "assets" / "data"
+        shutil.copytree(REPO / "assets" / "data", data)
+
+        (self.root / "tools" / "content_factory").mkdir(parents=True, exist_ok=True)
+        audit_manifest_path = self.root / "tools" / "content_factory" / "content_audit_manifest.json"
+        shutil.copy2(
+            REPO / "tools" / "content_factory" / "content_audit_manifest.json",
+            audit_manifest_path,
+        )
+        audit_manifest = json.loads(audit_manifest_path.read_text(encoding="utf-8"))
+        for source in audit_manifest["sources"]:
+            if source["kind"] == "grammar":
+                source["count"] += len(GRAMMAR_SYNTHETIC_IDS)
+        audit_manifest_path.write_text(
+            json.dumps(audit_manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8",
+        )
+        (self.root / "functions" / "analyze_korean_text").mkdir(parents=True, exist_ok=True)
+        shutil.copy2(
+            REPO / "functions" / "analyze_korean_text" / "grammar_patterns.json",
+            self.root / "functions" / "analyze_korean_text" / "grammar_patterns.json",
+        )
+
+        # migrate() unconditionally previews/edits these 3 Dart sources when
+        # `bundle.moves` (vocab) is nonempty; a grammar-only bundle leaves
+        # `bundle.moves` empty, so these stubs are read but never meaningfully
+        # touched (0 vocab moves = a no-op edit) -- provisioned anyway so the
+        # unconditional read never raises FileNotFoundError.
+        (self.root / "lib" / "services").mkdir(parents=True, exist_ok=True)
+        (self.root / "lib" / "services" / "vocab_pack_service.dart").write_text(
+            "class VocabPackService {\n"
+            "  static const Map<String, (String, String)> packDisplayMap = {\n  };\n"
+            "  static const Map<String, int> packOrderInLevel = {\n  };\n}\n", encoding="utf-8",
+        )
+        (self.root / "lib" / "data").mkdir(parents=True, exist_ok=True)
+        (self.root / "lib" / "data" / "pack_artwork_catalog.dart").write_text(
+            "abstract final class PackArtworkCatalog {\n"
+            "  static const dedicatedPackIds = <String>{\n  };\n}\n",
+            encoding="utf-8",
+        )
+        (self.root / "lib" / "widgets" / "sori").mkdir(parents=True, exist_ok=True)
+        (self.root / "lib" / "widgets" / "sori" / "dancheong_stamp.dart").write_text(
+            "DancheongMotif motifForPackId(String packId) {\n"
+            "  final base = _baseOf(packId);\n"
+            "  return switch (base) {\n    _ => DancheongMotif.lotus,\n  };\n}\n", encoding="utf-8",
+        )
+        (self.root / "assets" / "illustrations" / "packs").mkdir(parents=True, exist_ok=True)
+
+        self.ledger_path = Path(self._tmp.name) / "relevel_ledger.json"
+        shutil.copy2(REPO / "tools" / "content_factory" / "relevel_ledger.json", self.ledger_path)
+
+        self._inject_synthetic_grammar_rows(data)
+
+    def _inject_synthetic_grammar_rows(self, data: Path) -> None:
+        grammar_path = data / "grammar.csv"
+        with grammar_path.open(encoding="utf-8", newline="") as handle:
+            reader = csv.reader(handle)
+            header = next(reader)
+            assert header == GRAMMAR_HEADER, header
+            rows = [dict(zip(header, row)) for row in reader if row]
+        rows.extend(_synthetic_grammar_row(ident) for ident in GRAMMAR_SYNTHETIC_IDS)
+        with grammar_path.open("w", encoding="utf-8", newline="") as handle:
+            writer = csv.writer(handle, quoting=csv.QUOTE_MINIMAL, lineterminator="\n")
+            writer.writerow(GRAMMAR_HEADER)
+            for row in rows:
+                writer.writerow([row[column] for column in GRAMMAR_HEADER])
+
+        curriculum_path = data / "curriculum_manifest.json"
+        curriculum = json.loads(curriculum_path.read_text(encoding="utf-8"))
+        for ident in GRAMMAR_SYNTHETIC_IDS:
+            curriculum["grammarRuleMap"][ident] = {
+                "courseUnitId": GRAMMAR_SOURCE_UNIT, "conceptIds": [GRAMMAR_SOURCE_CONCEPT],
+            }
+        curriculum_path.write_text(
+            json.dumps(curriculum, ensure_ascii=False, indent=2) + "\n", encoding="utf-8",
+        )
+
+        # alpha/beta/gamma get full can-do wiring; delta deliberately does
+        # not (exercises the no-direct-reference "report candidates" path).
+        auth_path = data / rb.CAN_DO_AUTHORITIES_JSON
+        authorities = json.loads(auth_path.read_text(encoding="utf-8"))
+        segments_path = data / rb.CAN_DO_SEGMENTS_JSON
+        segments_doc = json.loads(segments_path.read_text(encoding="utf-8"))
+        cluster = next(c for c in segments_doc["contentClusters"] if c["id"] == GRAMMAR_SOURCE_CLUSTER_ID)
+        for ident in GRAMMAR_SYNTHETIC_IDS[:3]:
+            seed_id = f"seed_grammar_{ident}_v1"
+            authorities["sourceSeeds"].append({"id": seed_id, "level": "a1"})
+            authorities["contentReferences"].append({
+                "kind": "grammar", "id": ident, "level": "a1",
+                "sourceSeedId": seed_id, "courseUnitId": GRAMMAR_SOURCE_UNIT,
+            })
+            authorities["coverage"]["directReferenceCounts"]["grammar"] += 1
+            cluster["contentReferences"].append({"kind": "grammar", "id": ident})
+            cluster["sourceSeedIds"].append(seed_id)
+        auth_path.write_text(json.dumps(authorities, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        segments_path.write_text(json.dumps(segments_doc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    # ---- helpers ----------------------------------------------------------
+
+    def _snapshot(self) -> dict[Path, bytes]:
+        paths = [self.root / "assets" / "data" / name for name in rb._STAGED_DATA_FILES] + [self.ledger_path]
+        return {path: (path.read_bytes() if path.exists() else None) for path in paths}
+
+    def _assert_unchanged(self, snapshot: dict[Path, bytes]) -> None:
+        for path, content in snapshot.items():
+            current = path.read_bytes() if path.exists() else None
+            self.assertEqual(content, current, f"{path} changed unexpectedly")
+
+    def _bundle(self, grammar_moves: list[dict]) -> rb.BundleFile:
+        return rb.load_bundle_from_dict({"batch": "TEST", "grammarMoves": grammar_moves})
+
+    def _read_grammar_rows(self) -> dict[str, dict[str, str]]:
+        with (self.root / "assets" / "data" / "grammar.csv").open(encoding="utf-8", newline="") as handle:
+            reader = csv.reader(handle)
+            header = next(reader)
+            self.assertEqual(header, GRAMMAR_HEADER)
+            return {row["id"]: row for row in (dict(zip(header, r)) for r in reader if r)}
+
+
+class GrammarDryRunTest(GrammarRelevelBundleFixture):
+    def test_dry_run_computes_plan_and_changes_nothing(self) -> None:
+        move = _grammar_move_dict(
+            id="grammar_a1_relvtest_beta", to="a2",
+            courseUnitId=GRAMMAR_TARGET_UNIT_A2, conceptIds=[GRAMMAR_TARGET_CONCEPT_A2],
+        )
+        bundle = self._bundle([move])
+        snapshot = self._snapshot()
+
+        report = rb.migrate(root=self.root, bundle=bundle, ledger_path=self.ledger_path, apply=False)
+
+        self.assertEqual(len(report.grammar), 1)
+        grammar_report = report.grammar[0]
+        self.assertEqual(grammar_report.grammar_id, "grammar_a1_relvtest_beta")
+        self.assertEqual(grammar_report.from_level, "a1")
+        self.assertEqual(grammar_report.to_level, "a2")
+        self.assertIn("moved", grammar_report.can_do_note)
+        # alpha/beta/gamma/delta all referenced beta as a distractor (and
+        # beta itself needs new A2 distractors) -- exactly these 4, nothing
+        # from the real corpus (which cannot reference a synthetic id).
+        self.assertEqual(
+            {r.grammar_id for r in report.distractor_repairs},
+            set(GRAMMAR_SYNTHETIC_IDS),
+        )
+        self.assertTrue(report.grammar_patterns_note)
+        plan = rb.format_plan(report, apply=False)
+        self.assertIn("grammar_a1_relvtest_beta", plan)
+        self.assertIn("dry-run", plan)
+
+        self._assert_unchanged(snapshot)
+
+
+class GrammarApplyTest(GrammarRelevelBundleFixture):
+    def test_apply_moves_level_curriculum_can_do_and_repairs_distractors(self) -> None:
+        move = _grammar_move_dict(
+            id="grammar_a1_relvtest_beta", to="a2",
+            courseUnitId=GRAMMAR_TARGET_UNIT_A2, conceptIds=[GRAMMAR_TARGET_CONCEPT_A2],
+        )
+        bundle = self._bundle([move])
+
+        report = rb.migrate(root=self.root, bundle=bundle, ledger_path=self.ledger_path, apply=True)
+
+        rows = self._read_grammar_rows()
+        self.assertEqual(rows["grammar_a1_relvtest_beta"]["level"], "A2")
+        for ident in ("grammar_a1_relvtest_alpha", "grammar_a1_relvtest_gamma", "grammar_a1_relvtest_delta"):
+            self.assertEqual(rows[ident]["level"], "A1")
+
+        # Every quiz-enabled row's distractors are now internally valid
+        # (same level, unique, non-self, quiz-enabled) -- including beta's
+        # own freshly repaired A2 set.
+        for ident in GRAMMAR_SYNTHETIC_IDS:
+            distractor_ids = rows[ident]["quiz_distractor_ids"].split("|")
+            self.assertEqual(len(distractor_ids), 3)
+            self.assertEqual(len(set(distractor_ids)), 3)
+            self.assertNotIn(ident, distractor_ids)
+            for distractor_id in distractor_ids:
+                self.assertEqual(rows[distractor_id]["level"], rows[ident]["level"])
+
+        ledger = relevel_ledger.load_ledger(self.ledger_path)
+        entry = ledger.get("grammar", "grammar_a1_relvtest_beta")
+        self.assertIsNotNone(entry)
+        self.assertEqual((entry.from_level, entry.to_level), ("a1", "a2"))
+
+        curriculum = json.loads(
+            (self.root / "assets" / "data" / "curriculum_manifest.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            curriculum["grammarRuleMap"]["grammar_a1_relvtest_beta"],
+            {"courseUnitId": GRAMMAR_TARGET_UNIT_A2, "conceptIds": [GRAMMAR_TARGET_CONCEPT_A2]},
+        )
+
+        authorities = json.loads(
+            (self.root / "assets" / "data" / rb.CAN_DO_AUTHORITIES_JSON).read_text(encoding="utf-8")
+        )
+        direct = next(
+            r for r in authorities["contentReferences"]
+            if r.get("kind") == "grammar" and r.get("id") == "grammar_a1_relvtest_beta"
+        )
+        self.assertEqual(direct["level"], "a2")
+        self.assertEqual(direct["courseUnitId"], GRAMMAR_TARGET_UNIT_A2)
+
+        segments_doc = json.loads(
+            (self.root / "assets" / "data" / rb.CAN_DO_SEGMENTS_JSON).read_text(encoding="utf-8")
+        )
+        clusters_by_id = {c["id"]: c for c in segments_doc["contentClusters"]}
+        source_cluster = clusters_by_id[GRAMMAR_SOURCE_CLUSTER_ID]
+        self.assertNotIn(
+            {"kind": "grammar", "id": "grammar_a1_relvtest_beta"}, source_cluster["contentReferences"],
+        )
+        target_cluster_id = report.grammar[0].target_cluster_id
+        self.assertIn(
+            {"kind": "grammar", "id": "grammar_a1_relvtest_beta"},
+            clusters_by_id[target_cluster_id]["contentReferences"],
+        )
+
+        # A final post-write ContentValidator pass (migrate() already ran
+        # one internally before returning) proves the whole staged/applied
+        # tree -- grammar.csv, curriculum, can-do, quiz distractors -- is
+        # self-consistent end to end, not just "didn't crash".
+        issues = ContentValidator(self.root, ledger=relevel_ledger.load_ledger(self.ledger_path)).validate()
+        self.assertEqual(issues, [], [f"{i.source}: {i.message}" for i in issues])
+
+
+class GrammarNoDirectCanDoReferenceTest(GrammarRelevelBundleFixture):
+    def test_move_without_can_do_reference_reports_candidates_and_still_succeeds(self) -> None:
+        move = _grammar_move_dict(
+            id="grammar_a1_relvtest_delta", to="a2",
+            courseUnitId=GRAMMAR_TARGET_UNIT_A2, conceptIds=[GRAMMAR_TARGET_CONCEPT_A2],
+        )
+        bundle = self._bundle([move])
+
+        report = rb.migrate(root=self.root, bundle=bundle, ledger_path=self.ledger_path, apply=True)
+
+        grammar_report = report.grammar[0]
+        self.assertIn("no direct can-do reference", grammar_report.can_do_note)
+        self.assertIsNone(grammar_report.target_cluster_id)
+
+        rows = self._read_grammar_rows()
+        self.assertEqual(rows["grammar_a1_relvtest_delta"]["level"], "A2")
+        # delta was never wired into can_do_content_authorities.json, so
+        # applying its move must not have invented a reference for it.
+        authorities = json.loads(
+            (self.root / "assets" / "data" / rb.CAN_DO_AUTHORITIES_JSON).read_text(encoding="utf-8")
+        )
+        self.assertFalse(any(
+            r.get("kind") == "grammar" and r.get("id") == "grammar_a1_relvtest_delta"
+            for r in authorities["contentReferences"]
+        ))
+
+
+class GrammarRollbackTest(GrammarRelevelBundleFixture):
+    def test_bad_concept_id_fails_and_leaves_everything_untouched(self) -> None:
+        move = _grammar_move_dict(
+            id="grammar_a1_relvtest_beta", to="a2",
+            courseUnitId=GRAMMAR_TARGET_UNIT_A2, conceptIds=["concept_does_not_exist"],
+        )
+        bundle = self._bundle([move])
+        snapshot = self._snapshot()
+
+        with self.assertRaises(rb.RelevelError):
+            rb.migrate(root=self.root, bundle=bundle, ledger_path=self.ledger_path, apply=True)
+
+        self._assert_unchanged(snapshot)
+
+    def test_dry_run_also_rejects_bad_concept_id(self) -> None:
+        move = _grammar_move_dict(
+            id="grammar_a1_relvtest_beta", to="a2",
+            courseUnitId=GRAMMAR_TARGET_UNIT_A2, conceptIds=["concept_does_not_exist"],
+        )
+        bundle = self._bundle([move])
+        snapshot = self._snapshot()
+
+        with self.assertRaises(rb.RelevelError):
+            rb.migrate(root=self.root, bundle=bundle, ledger_path=self.ledger_path, apply=False)
+
+        self._assert_unchanged(snapshot)
+
+    def test_already_at_target_level_fails_and_leaves_everything_untouched(self) -> None:
+        move = _grammar_move_dict(
+            id="grammar_a1_relvtest_beta", to="a1",  # already a1 -- no-op move is rejected
+            courseUnitId=GRAMMAR_SOURCE_UNIT, conceptIds=[GRAMMAR_SOURCE_CONCEPT],
+        )
+        bundle = self._bundle([move])
+        snapshot = self._snapshot()
+
+        with self.assertRaises(rb.RelevelError):
+            rb.migrate(root=self.root, bundle=bundle, ledger_path=self.ledger_path, apply=True)
+
+        self._assert_unchanged(snapshot)
+
+    def test_declared_from_disagreeing_with_live_row_fails(self) -> None:
+        move = _grammar_move_dict(
+            id="grammar_a1_relvtest_beta", to="a2", **{"from": "b1"},  # live row is actually a1
+            courseUnitId=GRAMMAR_TARGET_UNIT_A2, conceptIds=[GRAMMAR_TARGET_CONCEPT_A2],
+        )
+        bundle = self._bundle([move])
+        snapshot = self._snapshot()
+
+        with self.assertRaises(rb.RelevelError):
+            rb.migrate(root=self.root, bundle=bundle, ledger_path=self.ledger_path, apply=True)
 
         self._assert_unchanged(snapshot)
 

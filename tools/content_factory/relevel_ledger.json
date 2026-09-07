@@ -2306,6 +2306,294 @@
       "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
     },
     {
+      "id": "grammar_a1_future_modifier",
+      "kind": "grammar",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "MOVE-UP: NIKL 2급 전성어미 -을2 (F1b.md 2.2, brief-flagged). No A1 scenario references this id."
+    },
+    {
+      "id": "grammar_a1_honorific_kke",
+      "kind": "grammar",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "MOVE-UP: NIKL 2급 조사 께 (F1b.md 2.3, brief-flagged). WARNING: referenced by A1 scenario a1_w10_partner (F1b.md S3) -- Fable must resolve before applying (co-move the scenario, hold this move, or drop the scenario's grammarIds reference)."
+    },
+    {
+      "id": "grammar_a1_or_particle",
+      "kind": "grammar",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "MOVE-UP: NIKL 2급 조사 이나 (F1b.md 2.3, brief-flagged). WARNING: referenced by A1 scenario a1_w10_fandom (F1b.md S3) -- same resolution as grammar_a1_honorific_kke above."
+    },
+    {
+      "id": "grammar_a1_past_modifier",
+      "kind": "grammar",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "MOVE-UP: NIKL 2급 전성어미 -은2/-은3 (both map to this one app row, F1b.md 2.2, brief-flagged). No A1 scenario references this id."
+    },
+    {
+      "id": "grammar_a1_polite_prohibition",
+      "kind": "grammar",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "MOVE-UP: NIKL 2급 표현 -지 말다 (=-지 마세요, brief-confirmed equivalence, F1b.md 2.5). No A1 scenario references this id (F1b.md S3) -- safe to move without a scenario decision."
+    },
+    {
+      "id": "grammar_a1_present_modifier",
+      "kind": "grammar",
+      "from": "a1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "MOVE-UP: NIKL 2급 전성어미 -는2 (F1b.md 2.2, brief-flagged). No A1 scenario references this id (F1b.md S3) -- safe to move without a scenario decision."
+    },
+    {
+      "id": "grammar_a2_ability",
+      "kind": "grammar",
+      "from": "a2",
+      "to": "a1",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 1급 표현 -을 수 있다 (F1b.md 1.5)."
+    },
+    {
+      "id": "grammar_a2_cause_nikka",
+      "kind": "grammar",
+      "from": "a2",
+      "to": "a1",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 1급 연결어미 -으니까 (F1b.md 1.2)."
+    },
+    {
+      "id": "grammar_a2_cause_sequence",
+      "kind": "grammar",
+      "from": "a2",
+      "to": "a1",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 1급 연결어미 -어서 (F1b.md 1.2) -- bible SB.1(5) 'goldene paragraph' names -고/-지만/-어서 as the A1 connector ceiling."
+    },
+    {
+      "id": "grammar_a2_comparative",
+      "kind": "grammar",
+      "from": "a2",
+      "to": "a1",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 1급 조사 보다 (F1b.md 1.3). Fable flag: comparison-sentence complexity may be borderline for A1, reconsider before applying."
+    },
+    {
+      "id": "grammar_a2_contrast",
+      "kind": "grammar",
+      "from": "a2",
+      "to": "a1",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 1급 연결어미 -지만 (F1b.md 1.2) -- bible SB.1(5) golden-paragraph connector."
+    },
+    {
+      "id": "grammar_a2_dative_person",
+      "kind": "grammar",
+      "from": "a2",
+      "to": "a1",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 1급 조사 에게 (F1b.md 1.3) -- also carries 한테 (duplicate of grammar_a1_spoken_dative, already A1); note the redundancy for Fable."
+    },
+    {
+      "id": "grammar_a2_inability",
+      "kind": "grammar",
+      "from": "a2",
+      "to": "a1",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 1급 표현 -지 못하다 (F1b.md 1.5) -- pairs with grammar_a1_cannot_short (못+V) already in this negation unit."
+    },
+    {
+      "id": "grammar_a2_intention_guess",
+      "kind": "grammar",
+      "from": "a2",
+      "to": "a1",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 1급 선어말어미 -겠- (F1b.md 1.1) -- app V-겠어요 realizes it at A2. Fable flag: intention/conjecture function may be too heavy for A1, reconsider before applying."
+    },
+    {
+      "id": "grammar_a2_lets_formal",
+      "kind": "grammar",
+      "from": "a2",
+      "to": "a1",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 1급 종결어미 -읍시다 (=-ㅂ시다, brief-confirmed equivalence, F1b.md 1.4)."
+    },
+    {
+      "id": "grammar_a2_polite_proposal",
+      "kind": "grammar",
+      "from": "a2",
+      "to": "a1",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 1급 종결어미 -을까 (=-을까요, brief-confirmed equivalence, F1b.md 1.4). grammar_a2_shall_we_time is a duplicate of the same form (F1b.md table4) -- Fable should decide whether to move it too."
+    },
+    {
+      "id": "grammar_a2_progressive",
+      "kind": "grammar",
+      "from": "a2",
+      "to": "a1",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 1급 표현 -고 있다 (F1b.md 1.5)."
+    },
+    {
+      "id": "grammar_b1_after",
+      "kind": "grammar",
+      "from": "b1",
+      "to": "a1",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 1급 표현 -은 후에 (F1b.md 1.5) -- pairs with grammar_b1_before."
+    },
+    {
+      "id": "grammar_b1_background_contrast",
+      "kind": "grammar",
+      "from": "b1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 2급 연결어미 -는데1 + 종결어미 -는데2 (both map to this one app row, F1b.md 2.1/2.4) -- one move resolves both nikl items."
+    },
+    {
+      "id": "grammar_b1_before",
+      "kind": "grammar",
+      "from": "b1",
+      "to": "a1",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 1급 표현 -기 전에 (F1b.md 1.5) -- pairs with grammar_b1_after in the same time-sequence unit."
+    },
+    {
+      "id": "grammar_b1_decision",
+      "kind": "grammar",
+      "from": "b1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 2급 표현 -기로 하다 (F1b.md 2.5)."
+    },
+    {
+      "id": "grammar_b1_duration",
+      "kind": "grammar",
+      "from": "b1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 2급 표현 -는 동안에 (F1b.md 2.5)."
+    },
+    {
+      "id": "grammar_b1_experience",
+      "kind": "grammar",
+      "from": "b1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 2급 표현 -은 적이 있다 (F1b.md 2.5)."
+    },
+    {
+      "id": "grammar_b1_honorific_si",
+      "kind": "grammar",
+      "from": "b1",
+      "to": "a1",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 1급 선어말어미 -으시- (F1b.md 1.1) -- bible SB.1(1) can-do names -으시-/께서 as A1 recognize+produce. Pairs with grammar_b1_honorific_subject_kkeyseo below."
+    },
+    {
+      "id": "grammar_b1_honorific_subject_kkeyseo",
+      "kind": "grammar",
+      "from": "b1",
+      "to": "a1",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 1급 조사 께서 (F1b.md 1.3) -- bible SB.1(1) can-do, paired with grammar_b1_honorific_si."
+    },
+    {
+      "id": "grammar_b1_intention",
+      "kind": "grammar",
+      "from": "b1",
+      "to": "a1",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 1급 연결어미 -으려고1 (F1b.md 1.2) -- pairs topically with grammar_a1_motion_purpose (-으러) already in this unit."
+    },
+    {
+      "id": "grammar_b1_nominalization",
+      "kind": "grammar",
+      "from": "b1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 2급 표현 -는 것 (F1b.md 2.5)."
+    },
+    {
+      "id": "grammar_b1_nominalizer_gi",
+      "kind": "grammar",
+      "from": "b1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 2급 전성어미 -기 (F1b.md 2.2)."
+    },
+    {
+      "id": "grammar_b1_obligation",
+      "kind": "grammar",
+      "from": "b1",
+      "to": "a1",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 1급 표현 -어야 되다 (유의어 -어야 하다, app row realizes the 유의어 form) (F1b.md 1.5)."
+    },
+    {
+      "id": "grammar_b1_realization",
+      "kind": "grammar",
+      "from": "b1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 2급 종결어미 -는군 (F1b.md 2.4)."
+    },
+    {
+      "id": "grammar_b1_resultant_state",
+      "kind": "grammar",
+      "from": "b1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 2급 표현 -어 있다 (F1b.md 2.5)."
+    },
+    {
+      "id": "grammar_b1_since",
+      "kind": "grammar",
+      "from": "b1",
+      "to": "a2",
+      "movedAt": "2026-09-07",
+      "batch": "L2b",
+      "reason": "NIKL 2급 표현 -은 지2 (F1b.md 2.5)."
+    },
+    {
       "id": "satz_a1_0063",
       "kind": "satz",
       "from": "a1",

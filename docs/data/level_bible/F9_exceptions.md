@@ -185,7 +185,13 @@
 | signage_a2 | 확인 | A2 | 확인/확인하다: 영수증·예약·문자 확인 등 생존 거래어 — Fable 룰링 2026-09-07 |
 | signage_a2 | 확인하다 | A2 | 확인/확인하다: 영수증·예약·문자 확인 등 생존 거래어 — Fable 룰링 2026-09-07 |
 
-## 앱 고유 문법(F1 app_only, 92개) -- nikl 국제통용 목록에 대응 없음
+## 앱 고유 문법(F1 app_only, 95개) -- nikl 국제통용 목록에 대응 없음
+
+> `grammar_a1_service_request`행은 F1 자동 매처가 "을1"(조사) 매칭으로
+> `match` 판정하지만, 실질 근거는 2급 `-어 주다`(§4 참고)라 이 표에는
+> 손으로 추가했다 -- `tool/build_level_bible_tables.py` 재실행 시
+> app_only 헤더 수·목록이 자동 계산값(94개)으로 되돌아가므로 그때마다
+> 이 행을 다시 채워 넣어야 한다(Fable 룰링 2026-09-07, F1b §4/§6).
 
 | app id | 사유(Fable) |
 |---|---|
@@ -195,10 +201,12 @@
 | grammar_a1_copula_polite | |
 | grammar_a1_degree_question | |
 | grammar_a1_duration_span | |
+| grammar_a1_formal_question | |
 | grammar_a1_in_front | |
 | grammar_a1_long_negation | |
 | grammar_a1_please_particle | |
 | grammar_a1_polite_prohibition | |
+| grammar_a1_service_request | 세종 1 '주세요' 요청 관용구 — A1 유지, Fable 룰링 2026-09-07 |
 | grammar_a1_short_negation | |
 | grammar_a1_which_question | |
 | grammar_a2_after_finishing | |
@@ -211,6 +219,7 @@
 | grammar_a2_irregular_digeut | |
 | grammar_a2_irregular_eu | |
 | grammar_a2_irregular_rieul | |
+| grammar_a2_nominalizer_eum | |
 | grammar_a2_noun_cause | |
 | grammar_a2_permission_check_batch20 | |
 | grammar_a2_preference_soft_batch20 | |
