@@ -430,8 +430,11 @@ flutter run -d <android-id>   # 안드로이드
 - [ ] **책 한 컷 운영 게이트 (Jin)**: live Gen2는 구버전. Secret/Rules+TTL, Python Gen2,
   실기기 촬영 뒤에만 legacy cache 삭제.
 - [ ] **릴리스 운영 (Jin)**: TestFlight 실기기, Android Internal 설치·App Check.
-  Internal 업로드는 main CI의 명시적 opt-in, Closed 업로드는 `play_closed.yml`의
-  exact-main-SHA `workflow_dispatch`다. Play Console 처리·테스터 설치·승격은 수동이다.
+  Internal 업로드는 main push CI가 자동으로 한다(kill switch `PLAY_INTERNAL_RELEASE_DISABLED`
+  만 opt-out), Closed 업로드는 `play_closed.yml`의 exact-main-SHA `workflow_dispatch`다.
+  versionCode는 트랙마다 칸이 갈린다 — internal = 커밋 수 × 2, closed = ×2+1
+  (`android/app/build.gradle.kts`). 트랙을 멈추거나 변수를 껐다 켜는 릴리스 절차는 없다.
+  Play Console 처리·테스터 설치·승격은 수동이다.
 
 ## 세션 기록 — graphify 북엔드 (수기 handoff 폐지)
 
