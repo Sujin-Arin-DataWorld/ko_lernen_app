@@ -1,10 +1,10 @@
 {
   "meta": {
-    "total": 2333,
+    "total": 2341,
     "perLevel": {
-      "a1": 213,
+      "a1": 224,
       "a2": 427,
-      "b1": 625,
+      "b1": 622,
       "b2": 564,
       "c1": 252,
       "c2": 252
@@ -10645,7 +10645,7 @@
       "promptEn": "Please give me three stamps.",
       "distractors": [
         "소포",
-        "등기"
+        "편지"
       ],
       "vocabKo": "우표"
     },
@@ -10657,21 +10657,21 @@
       "promptEn": "I want to send this parcel to Germany.",
       "distractors": [
         "우표",
-        "등기"
+        "편지"
       ],
       "vocabKo": "소포"
     },
     {
       "id": "satz_a1_0162",
       "level": "a1",
-      "targetKo": "중요한 서류는 등기로 보내요.",
-      "promptDe": "Wichtige Unterlagen schicke ich per Einschreiben.",
-      "promptEn": "I send important papers by registered mail.",
+      "targetKo": "이 편지를 독일로 보내 주세요.",
+      "promptDe": "Bitte schicken Sie diesen Brief nach Deutschland.",
+      "promptEn": "Please send this letter to Germany.",
       "distractors": [
-        "우표",
-        "소포"
+        "어제",
+        "마셔요"
       ],
-      "vocabKo": "등기"
+      "vocabKo": "편지"
     },
     {
       "id": "satz_a1_0163",
@@ -10693,7 +10693,7 @@
       "promptEn": "Before I mail the parcel, I check the address.",
       "distractors": [
         "우표",
-        "등기"
+        "편지"
       ],
       "vocabKo": "부치다"
     },
@@ -10748,26 +10748,26 @@
     {
       "id": "satz_a1_0169",
       "level": "a1",
-      "targetKo": "도착 문자가 오면 알려 주세요.",
-      "promptDe": "Sagen Sie mir Bescheid, wenn die Zustellnachricht kommt.",
-      "promptEn": "Tell me when the delivery text arrives.",
+      "targetKo": "독일까지 며칠 걸려요?",
+      "promptDe": "Wie viele Tage dauert es bis Deutschland?",
+      "promptEn": "How many days does it take to Germany?",
       "distractors": [
-        "우표",
-        "소포"
+        "학교",
+        "어제"
       ],
-      "vocabKo": "도착 문자"
+      "vocabKo": "며칠"
     },
     {
       "id": "satz_a1_0170",
       "level": "a1",
-      "targetKo": "깨지기 쉬운 컵은 포장지로 감싸요.",
-      "promptDe": "Zerbrechliche Tassen wickle ich in Packpapier.",
-      "promptEn": "I wrap fragile cups in wrapping paper.",
+      "targetKo": "우표 값이 얼마예요?",
+      "promptDe": "Was kostet die Briefmarke?",
+      "promptEn": "How much is the stamp?",
       "distractors": [
-        "우표",
-        "소포"
+        "김치",
+        "갑자기"
       ],
-      "vocabKo": "포장지"
+      "vocabKo": "값"
     },
     {
       "id": "satz_a1_0171",
@@ -11684,14 +11684,14 @@
     {
       "id": "satz_a1_0247",
       "level": "a1",
-      "targetKo": "소음에 양해를 구했어요.",
-      "promptDe": "Ich habe um Verständnis für den Lärm gebeten.",
-      "promptEn": "I asked for understanding about the noise.",
+      "targetKo": "죄송해요, 제 잘못이에요.",
+      "promptDe": "Entschuldigung, das war mein Fehler.",
+      "promptEn": "Sorry, that was my mistake.",
       "distractors": [
-        "죄송하다",
-        "감사하다"
+        "커피",
+        "갑자기"
       ],
-      "vocabKo": "양해"
+      "vocabKo": "잘못"
     },
     {
       "id": "satz_a1_0248",
@@ -21607,7 +21607,7 @@
     },
     {
       "id": "satz_b1_0401",
-      "level": "b1",
+      "level": "a1",
       "targetKo": "이 표현은 자주 써요.",
       "promptDe": "Diesen Ausdruck benutzt man oft.",
       "promptEn": "This expression is used often.",
@@ -21631,7 +21631,7 @@
     },
     {
       "id": "satz_b1_0403",
-      "level": "b1",
+      "level": "a1",
       "targetKo": "이 문장은 조금 어려워요.",
       "promptDe": "Dieser Satz ist etwas schwierig.",
       "promptEn": "This sentence is a bit difficult.",
@@ -21703,7 +21703,7 @@
     },
     {
       "id": "satz_b1_0407",
-      "level": "b1",
+      "level": "a1",
       "targetKo": "질문에 대답해 주세요.",
       "promptDe": "Antworten Sie bitte auf die Frage.",
       "promptEn": "Please answer the question.",
@@ -28676,6 +28676,110 @@
       ],
       "courseUnitId": "c2_01_interpretation_institutions",
       "sourceSeedId": "seed_batch20_c2_demography_accountability_2026"
+    },
+    {
+      "id": "satz_a1_0339",
+      "level": "a1",
+      "targetKo": "한국은 지금 가을이에요.",
+      "promptDe": "In Korea ist jetzt Herbst.",
+      "promptEn": "It's autumn in Korea now.",
+      "vocabKo": "한국",
+      "distractors": [
+        "어제",
+        "마셔요"
+      ],
+      "courseUnitId": "a1_03_topic_subject_particles"
+    },
+    {
+      "id": "satz_a1_0340",
+      "level": "a1",
+      "targetKo": "독일에서 한국까지 비행기로 열 시간 걸려요.",
+      "promptDe": "Von Deutschland nach Korea dauert es zehn Stunden mit dem Flugzeug.",
+      "promptEn": "From Germany to Korea it takes ten hours by plane.",
+      "vocabKo": "독일",
+      "distractors": [
+        "커피",
+        "갑자기"
+      ],
+      "courseUnitId": "a1_03_topic_subject_particles"
+    },
+    {
+      "id": "satz_a1_0341",
+      "level": "a1",
+      "targetKo": "한국 사람이 정말 친절해요.",
+      "promptDe": "Die Menschen in Korea sind wirklich freundlich.",
+      "promptEn": "People in Korea are really friendly.",
+      "vocabKo": "사람",
+      "distractors": [
+        "학교",
+        "마셔요"
+      ],
+      "courseUnitId": "a1_03_topic_subject_particles"
+    },
+    {
+      "id": "satz_a1_0342",
+      "level": "a1",
+      "targetKo": "이 학교에는 외국인이 많아요.",
+      "promptDe": "An dieser Schule gibt es viele Ausländer.",
+      "promptEn": "There are many foreigners at this school.",
+      "vocabKo": "외국인",
+      "distractors": [
+        "김치",
+        "갑자기"
+      ],
+      "courseUnitId": "a1_03_topic_subject_particles"
+    },
+    {
+      "id": "satz_a1_0343",
+      "level": "a1",
+      "targetKo": "한국어는 어렵지만 재미있어요.",
+      "promptDe": "Koreanisch ist schwer, aber es macht Spaß.",
+      "promptEn": "Korean is hard, but it's fun.",
+      "vocabKo": "한국어",
+      "distractors": [
+        "커피",
+        "어제"
+      ],
+      "courseUnitId": "a1_03_topic_subject_particles"
+    },
+    {
+      "id": "satz_a1_0344",
+      "level": "a1",
+      "targetKo": "선생님도 독일어를 하세요?",
+      "promptDe": "Sprechen Sie auch Deutsch?",
+      "promptEn": "Do you speak German too?",
+      "vocabKo": "독일어",
+      "distractors": [
+        "김치를",
+        "어제"
+      ],
+      "courseUnitId": "a1_03_topic_subject_particles"
+    },
+    {
+      "id": "satz_a1_0345",
+      "level": "a1",
+      "targetKo": "영어는 조금만 해요.",
+      "promptDe": "Englisch spreche ich nur ein bisschen.",
+      "promptEn": "I only speak a little English.",
+      "vocabKo": "영어",
+      "distractors": [
+        "학교",
+        "마셔요"
+      ],
+      "courseUnitId": "a1_03_topic_subject_particles"
+    },
+    {
+      "id": "satz_a1_0346",
+      "level": "a1",
+      "targetKo": "부모님은 독일에 사세요.",
+      "promptDe": "Meine Eltern leben in Deutschland.",
+      "promptEn": "My parents live in Germany.",
+      "vocabKo": "살다",
+      "distractors": [
+        "어제",
+        "커피"
+      ],
+      "courseUnitId": "a1_03_topic_subject_particles"
     }
   ]
 }

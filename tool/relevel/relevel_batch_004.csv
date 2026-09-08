@@ -1,0 +1,4 @@
+id,korean,old_level,new_level,target_pack,reason
+vocab_b1_0190,문장,B1,A1,a1_repair_language_1,"kiiq 1(학습 메타어 예외) · 예문 A1 판정 · a1_repair_language_1(4단어) 보강 · Fable 룰링 2026-09-08 PR-L3a Batch 23"
+vocab_b1_0188,표현,B1,A1,a1_repair_language_1,"kiiq 1(학습 메타어 예외) · 예문 A1 판정 · a1_repair_language_1(4단어) 보강 · Fable 룰링 2026-09-08 PR-L3a Batch 23"
+vocab_b1_0196,대답하다,B1,A1,a1_repair_language_1,"kiiq 1(파생 대답) · 예문 A1 판정 · a1_repair_language_1(4단어) 보강 · Fable 룰링 2026-09-08 PR-L3a Batch 23"

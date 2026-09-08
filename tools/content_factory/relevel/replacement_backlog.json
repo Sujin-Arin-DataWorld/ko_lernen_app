@@ -99,15 +99,6 @@
     "reason": "audit_content_levels.py: over2, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
   },
   {
-    "id": "vocab_a1_0395",
-    "korean": "양해",
-    "pack_id": "a1_sorry_thanks_1",
-    "level": "A1",
-    "estimate": "C1",
-    "wave": "L3",
-    "reason": "audit_content_levels.py: over2, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
-  },
-  {
     "id": "vocab_a1_0366",
     "korean": "필기하다",
     "pack_id": "a2_school_supplies_1",
@@ -141,33 +132,6 @@
     "level": "A2",
     "estimate": "C1",
     "wave": "L4",
-    "reason": "audit_content_levels.py: over2, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
-  },
-  {
-    "id": "vocab_a1_0310",
-    "korean": "등기",
-    "pack_id": "a1_post_office_1",
-    "level": "A1",
-    "estimate": "B2",
-    "wave": "L3",
-    "reason": "audit_content_levels.py: over2, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
-  },
-  {
-    "id": "vocab_a1_0317",
-    "korean": "도착 문자",
-    "pack_id": "a1_post_office_1",
-    "level": "A1",
-    "estimate": "B1",
-    "wave": "L3",
-    "reason": "audit_content_levels.py: over2, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
-  },
-  {
-    "id": "vocab_a1_0318",
-    "korean": "포장지",
-    "pack_id": "a1_post_office_1",
-    "level": "A1",
-    "estimate": "B2",
-    "wave": "L3",
     "reason": "audit_content_levels.py: over2, blocked_by=satz_ref+can_do_ref -- 이동 대신 backfill 교체 예정 (Fable 룰링 2026-09-07)"
   }
 ]

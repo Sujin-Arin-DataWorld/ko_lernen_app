@@ -1341,6 +1341,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   /// CC BY-SA 2.0 KR 라이선스 준수 — NIKL 우리말샘 등 데이터 출처 표시.
+  /// 공공누리 제1유형(국립국어원 등급 목록·세종학당 자료) 출처 고지 포함(T3.0).
   void _showDataSources() {
     final t = AppL10n.of(context);
     showSoriSheet<void>(
@@ -1397,6 +1398,48 @@ class _SettingsScreenState extends State<SettingsScreen> {
               url: 'https://www.deepl.com',
               attribution: 'DeepL SE',
             ),
+            // 공공누리 제1유형(출처표시) 자료 — 레벨 정본화 프로그램(T3.0).
+            // 출처·해시·라이선스 실측: docs/data/level_bible/SOURCES.md.
+            const _DataSourceCard(
+              name: '국립국어원 국제 통용 한국어 표준 교육과정 어휘·문법 등급 목록 (2017)',
+              role:
+                  'Vocabulary (10,635) and grammar (336) grade lists: primary '
+                  'reference for A1 to C2 level grading',
+              license: 'KOGL Type 1',
+              url:
+                  'https://www.korean.go.kr/front/reportData/reportDataView.do?report_seq=932',
+              attribution:
+                  '국립국어원 (National Institute of Korean Language), 2017, '
+                  '연구책임자 김중섭',
+            ),
+            const _DataSourceCard(
+              name: '국립국어원 국어 기초 어휘 선정 및 어휘 등급화 목록 (2023)',
+              role:
+                  'Basic vocabulary grade list (40,000 entries): fallback '
+                  'reference for level grading',
+              license: 'KOGL Type 1',
+              url:
+                  'https://www.korean.go.kr/front/reportData/reportDataView.do?report_seq=1160',
+              attribution:
+                  '국립국어원 (National Institute of Korean Language), 2023, '
+                  '연구책임자 김한샘 외',
+            ),
+            const _DataSourceCard(
+              name: '세종한국어 회화 익힘책 1-1 · 1-2 (한국어판)',
+              role:
+                  'Topic, grammar and vocabulary scope of the A1 units (seed '
+                  'only; every sentence in this app is original writing)',
+              license: 'KOGL Type 1',
+              url: 'https://www.ksif.or.kr',
+              attribution: '세종학당재단 (King Sejong Institute Foundation), 2020',
+            ),
+            const _DataSourceCard(
+              name: '세종한국문화 1 · 2 주요 어휘',
+              role: 'Culture vocabulary lists used to grade culture words',
+              license: 'KOGL Type 1',
+              url: 'https://www.ksif.or.kr',
+              attribution: '세종학당재단 (King Sejong Institute Foundation)',
+            ),
             const SizedBox(height: 18),
             Container(
               padding: const EdgeInsets.all(14),
@@ -1429,6 +1472,48 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   const SizedBox(height: 8),
                   Text(
                     t.settingsDataLicenseBody,
+                    style: SoriTextTheme.of(ctx).caption.copyWith(
+                      height: 1.5,
+                      color: Theme.of(
+                        ctx,
+                      ).colorScheme.onSurface.withValues(alpha: 0.85),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 12),
+            Container(
+              padding: const EdgeInsets.all(14),
+              decoration: BoxDecoration(
+                color: SoriColors.primary.withValues(alpha: 0.08),
+                borderRadius: SoriRadius.brSm,
+                border: Border.all(
+                  color: SoriColors.primary.withValues(alpha: 0.30),
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.public_outlined,
+                        size: 18,
+                        color: SoriColors.primary,
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          t.settingsKoglNote,
+                          style: SoriTextTheme.of(ctx).label,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    t.settingsKoglBody,
                     style: SoriTextTheme.of(ctx).caption.copyWith(
                       height: 1.5,
                       color: Theme.of(

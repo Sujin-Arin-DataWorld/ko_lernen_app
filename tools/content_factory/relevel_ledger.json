@@ -4943,6 +4943,33 @@
       "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
     },
     {
+      "id": "satz_b1_0401",
+      "kind": "satz",
+      "from": "b1",
+      "to": "a1",
+      "movedAt": "2026-09-08",
+      "batch": "relevel_batch_004",
+      "reason": "kiiq 1(학습 메타어 예외) · 예문 A1 판정 · a1_repair_language_1(4단어) 보강 · Fable 룰링 2026-09-08 PR-L3a Batch 23"
+    },
+    {
+      "id": "satz_b1_0403",
+      "kind": "satz",
+      "from": "b1",
+      "to": "a1",
+      "movedAt": "2026-09-08",
+      "batch": "relevel_batch_004",
+      "reason": "kiiq 1(학습 메타어 예외) · 예문 A1 판정 · a1_repair_language_1(4단어) 보강 · Fable 룰링 2026-09-08 PR-L3a Batch 23"
+    },
+    {
+      "id": "satz_b1_0407",
+      "kind": "satz",
+      "from": "b1",
+      "to": "a1",
+      "movedAt": "2026-09-08",
+      "batch": "relevel_batch_004",
+      "reason": "kiiq 1(파생 대답) · 예문 A1 판정 · a1_repair_language_1(4단어) 보강 · Fable 룰링 2026-09-08 PR-L3a Batch 23"
+    },
+    {
       "id": "shared_document_old_version",
       "kind": "scenario",
       "from": "a2",
@@ -7274,6 +7301,24 @@
       "reason": "legacy exception migrated from LEGACY_VOCAB_LEVEL_EXCEPTIONS (#268)"
     },
     {
+      "id": "vocab_b1_0188",
+      "kind": "vocab",
+      "from": "b1",
+      "to": "a1",
+      "movedAt": "2026-09-08",
+      "batch": "relevel_batch_004",
+      "reason": "kiiq 1(학습 메타어 예외) · 예문 A1 판정 · a1_repair_language_1(4단어) 보강 · Fable 룰링 2026-09-08 PR-L3a Batch 23"
+    },
+    {
+      "id": "vocab_b1_0190",
+      "kind": "vocab",
+      "from": "b1",
+      "to": "a1",
+      "movedAt": "2026-09-08",
+      "batch": "relevel_batch_004",
+      "reason": "kiiq 1(학습 메타어 예외) · 예문 A1 판정 · a1_repair_language_1(4단어) 보강 · Fable 룰링 2026-09-08 PR-L3a Batch 23"
+    },
+    {
       "id": "vocab_b1_0192",
       "kind": "vocab",
       "from": "b1",
@@ -7290,6 +7335,15 @@
       "movedAt": "2026-09-05",
       "batch": "relevel_002",
       "reason": "legacy exception migrated from LEGACY_VOCAB_LEVEL_EXCEPTIONS (#268)"
+    },
+    {
+      "id": "vocab_b1_0196",
+      "kind": "vocab",
+      "from": "b1",
+      "to": "a1",
+      "movedAt": "2026-09-08",
+      "batch": "relevel_batch_004",
+      "reason": "kiiq 1(파생 대답) · 예문 A1 판정 · a1_repair_language_1(4단어) 보강 · Fable 룰링 2026-09-08 PR-L3a Batch 23"
     },
     {
       "id": "vocab_b1_0404",

@@ -1,0 +1,132 @@
+{
+  "items": [
+    {
+      "id": "cloze_a1_0351",
+      "level": "a1",
+      "topic": "자기소개",
+      "fullKo": "한국은 지금 가을이에요.",
+      "answer": "한국",
+      "sentenceKo": "＿＿＿은 지금 가을이에요.",
+      "de": "In Korea ist jetzt Herbst.",
+      "en": "It's autumn in Korea now.",
+      "distractors": [
+        "국적",
+        "이름",
+        "성"
+      ],
+      "courseUnitId": "a1_02_self_intro_identity"
+    },
+    {
+      "id": "cloze_a1_0352",
+      "level": "a1",
+      "topic": "자기소개",
+      "fullKo": "독일에서 한국까지 비행기로 열 시간 걸려요.",
+      "answer": "독일",
+      "sentenceKo": "＿＿＿에서 한국까지 비행기로 열 시간 걸려요.",
+      "de": "Von Deutschland nach Korea dauert es zehn Stunden mit dem Flugzeug.",
+      "en": "From Germany to Korea it takes ten hours by plane.",
+      "distractors": [
+        "한국",
+        "서울",
+        "부산"
+      ],
+      "courseUnitId": "a1_02_self_intro_identity"
+    },
+    {
+      "id": "cloze_a1_0353",
+      "level": "a1",
+      "topic": "자기소개",
+      "fullKo": "한국 사람이 정말 친절해요.",
+      "answer": "사람",
+      "sentenceKo": "한국 ＿＿＿이 정말 친절해요.",
+      "de": "Die Menschen in Korea sind wirklich freundlich.",
+      "en": "People in Korea are really friendly.",
+      "distractors": [
+        "음식",
+        "말",
+        "책"
+      ],
+      "courseUnitId": "a1_02_self_intro_identity"
+    },
+    {
+      "id": "cloze_a1_0354",
+      "level": "a1",
+      "topic": "자기소개",
+      "fullKo": "이 학교에는 외국인이 많아요.",
+      "answer": "외국인",
+      "sentenceKo": "이 학교에는 ＿＿＿이 많아요.",
+      "de": "An dieser Schule gibt es viele Ausländer.",
+      "en": "There are many foreigners at this school.",
+      "distractors": [
+        "고향",
+        "이름",
+        "성"
+      ],
+      "courseUnitId": "a1_02_self_intro_identity"
+    },
+    {
+      "id": "cloze_a1_0355",
+      "level": "a1",
+      "topic": "자기소개",
+      "fullKo": "한국어는 어렵지만 재미있어요.",
+      "answer": "한국어",
+      "sentenceKo": "＿＿＿는 어렵지만 재미있어요.",
+      "de": "Koreanisch ist schwer, aber es macht Spaß.",
+      "en": "Korean is hard, but it's fun.",
+      "distractors": [
+        "나이",
+        "나라",
+        "커피"
+      ],
+      "courseUnitId": "a1_02_self_intro_identity"
+    },
+    {
+      "id": "cloze_a1_0356",
+      "level": "a1",
+      "topic": "자기소개",
+      "fullKo": "선생님도 독일어를 하세요?",
+      "answer": "독일어",
+      "sentenceKo": "선생님도 ＿＿＿를 하세요?",
+      "de": "Sprechen Sie auch Deutsch?",
+      "en": "Do you speak German too?",
+      "distractors": [
+        "회사",
+        "학교",
+        "커피"
+      ],
+      "courseUnitId": "a1_02_self_intro_identity"
+    },
+    {
+      "id": "cloze_a1_0357",
+      "level": "a1",
+      "topic": "자기소개",
+      "fullKo": "영어는 조금만 해요.",
+      "answer": "영어",
+      "sentenceKo": "＿＿＿는 조금만 해요.",
+      "de": "Englisch spreche ich nur ein bisschen.",
+      "en": "I only speak a little English.",
+      "distractors": [
+        "나이",
+        "나라",
+        "우표"
+      ],
+      "courseUnitId": "a1_02_self_intro_identity"
+    },
+    {
+      "id": "cloze_a1_0358",
+      "level": "a1",
+      "topic": "자기소개",
+      "fullKo": "부모님은 독일에 사세요.",
+      "answer": "사세요",
+      "sentenceKo": "부모님은 독일에 ＿＿＿.",
+      "de": "Meine Eltern leben in Deutschland.",
+      "en": "My parents live in Germany.",
+      "distractors": [
+        "배워요",
+        "일해요",
+        "읽어요"
+      ],
+      "courseUnitId": "a1_02_self_intro_identity"
+    }
+  ]
+}

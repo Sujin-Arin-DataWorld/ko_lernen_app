@@ -158,7 +158,7 @@ void main() {
   final canonicalTopics = items.map((item) => item.topic).toSet();
 
   test('accepted canonical baseline is exactly 1,805 items and 125 topics', () {
-    expect(items, hasLength(1805));
+    expect(items, hasLength(1813));
     expect(canonicalTopics, hasLength(125));
     expect(items.every((item) => item.topic.trim().isNotEmpty), isTrue);
     expect(items.every((item) => item.hasExplicitId), isTrue);

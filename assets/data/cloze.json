@@ -1,8 +1,8 @@
 {
   "meta": {
-    "total": 1805,
+    "total": 1813,
     "perLevel": {
-      "a1": 225,
+      "a1": 233,
       "a2": 249,
       "b1": 426,
       "b2": 405,
@@ -14537,7 +14537,7 @@
       "en": "Please give me three stamps.",
       "distractors": [
         "소포",
-        "등기",
+        "편지",
         "우편함"
       ],
       "topic": "Postamt"
@@ -14552,7 +14552,7 @@
       "en": "I want to send this parcel to Germany.",
       "distractors": [
         "우표",
-        "등기",
+        "편지",
         "우편함"
       ],
       "topic": "Postamt"
@@ -14560,15 +14560,15 @@
     {
       "id": "cloze_a1_0198",
       "level": "a1",
-      "sentenceKo": "중요한 서류는 ＿＿＿로 보내요.",
-      "answer": "등기",
-      "fullKo": "중요한 서류는 등기로 보내요.",
-      "de": "Wichtige Unterlagen schicke ich per Einschreiben.",
-      "en": "I send important papers by registered mail.",
+      "sentenceKo": "이 ＿＿＿를 독일로 보내 주세요.",
+      "answer": "편지",
+      "fullKo": "이 편지를 독일로 보내 주세요.",
+      "de": "Bitte schicken Sie diesen Brief nach Deutschland.",
+      "en": "Please send this letter to Germany.",
       "distractors": [
         "우표",
         "소포",
-        "우편함"
+        "주소"
       ],
       "topic": "Postamt"
     },
@@ -14583,7 +14583,7 @@
       "distractors": [
         "우표",
         "소포",
-        "등기"
+        "편지"
       ],
       "topic": "Postamt"
     },
@@ -14598,7 +14598,7 @@
       "distractors": [
         "우표",
         "소포",
-        "등기"
+        "편지"
       ],
       "topic": "Postamt"
     },
@@ -14613,7 +14613,7 @@
       "distractors": [
         "우표",
         "소포",
-        "등기"
+        "편지"
       ],
       "topic": "Postamt"
     },
@@ -14628,7 +14628,7 @@
       "distractors": [
         "우표",
         "소포",
-        "등기"
+        "편지"
       ],
       "topic": "Postamt"
     },
@@ -14643,7 +14643,7 @@
       "distractors": [
         "우표",
         "소포",
-        "등기"
+        "편지"
       ],
       "topic": "Postamt"
     },
@@ -14658,37 +14658,37 @@
       "distractors": [
         "우표",
         "소포",
-        "등기"
+        "편지"
       ],
       "topic": "Postamt"
     },
     {
       "id": "cloze_a1_0205",
       "level": "a1",
-      "sentenceKo": "＿＿＿가 오면 알려 주세요.",
-      "answer": "도착 문자",
-      "fullKo": "도착 문자가 오면 알려 주세요.",
-      "de": "Sagen Sie mir Bescheid, wenn die Zustellnachricht kommt.",
-      "en": "Tell me when the delivery text arrives.",
+      "sentenceKo": "독일까지 ＿＿＿ 걸려요?",
+      "answer": "며칠",
+      "fullKo": "독일까지 며칠 걸려요?",
+      "de": "Wie viele Tage dauert es bis Deutschland?",
+      "en": "How many days does it take to Germany?",
       "distractors": [
-        "우표",
-        "소포",
-        "등기"
+        "언제",
+        "어디",
+        "무엇"
       ],
       "topic": "Postamt"
     },
     {
       "id": "cloze_a1_0206",
       "level": "a1",
-      "sentenceKo": "깨지기 쉬운 컵은 ＿＿＿로 감싸요.",
-      "answer": "포장지",
-      "fullKo": "깨지기 쉬운 컵은 포장지로 감싸요.",
-      "de": "Zerbrechliche Tassen wickle ich in Packpapier.",
-      "en": "I wrap fragile cups in wrapping paper.",
+      "sentenceKo": "우표 ＿＿＿이 얼마예요?",
+      "answer": "값",
+      "fullKo": "우표 값이 얼마예요?",
+      "de": "Was kostet die Briefmarke?",
+      "en": "How much is the stamp?",
       "distractors": [
-        "우표",
-        "소포",
-        "등기"
+        "우편함",
+        "이름",
+        "책"
       ],
       "topic": "Postamt"
     },
@@ -14703,7 +14703,7 @@
       "distractors": [
         "우표",
         "소포",
-        "등기"
+        "편지"
       ],
       "topic": "Postamt"
     },
@@ -15798,7 +15798,7 @@
       "distractors": [
         "감사하다",
         "실례하다",
-        "양해"
+        "잘못"
       ],
       "topic": "Entschuldigung"
     },
@@ -15813,7 +15813,7 @@
       "distractors": [
         "죄송하다",
         "실례하다",
-        "양해"
+        "잘못"
       ],
       "topic": "Entschuldigung"
     },
@@ -15828,22 +15828,22 @@
       "distractors": [
         "죄송하다",
         "감사하다",
-        "양해"
+        "잘못"
       ],
       "topic": "Entschuldigung"
     },
     {
       "id": "cloze_a1_0283",
       "level": "a1",
-      "sentenceKo": "소음에 ＿＿＿를 구했어요.",
-      "answer": "양해",
-      "fullKo": "소음에 양해를 구했어요.",
-      "de": "Ich habe um Verständnis für den Lärm gebeten.",
-      "en": "I asked for understanding about the noise.",
+      "sentenceKo": "죄송해요, 제 ＿＿＿이에요.",
+      "answer": "잘못",
+      "fullKo": "죄송해요, 제 잘못이에요.",
+      "de": "Entschuldigung, das war mein Fehler.",
+      "en": "Sorry, that was my mistake.",
       "distractors": [
-        "죄송하다",
-        "감사하다",
-        "실례하다"
+        "부탁",
+        "질문",
+        "이름"
       ],
       "topic": "Entschuldigung"
     },
@@ -27765,6 +27765,134 @@
       ],
       "courseUnitId": "c2_01_interpretation_institutions",
       "sourceSeedId": "seed_batch20_c2_demography_accountability_2026"
+    },
+    {
+      "id": "cloze_a1_0351",
+      "level": "a1",
+      "topic": "자기소개",
+      "fullKo": "한국은 지금 가을이에요.",
+      "answer": "한국",
+      "sentenceKo": "＿＿＿은 지금 가을이에요.",
+      "de": "In Korea ist jetzt Herbst.",
+      "en": "It's autumn in Korea now.",
+      "distractors": [
+        "국적",
+        "이름",
+        "성"
+      ],
+      "courseUnitId": "a1_02_self_intro_identity"
+    },
+    {
+      "id": "cloze_a1_0352",
+      "level": "a1",
+      "topic": "자기소개",
+      "fullKo": "독일에서 한국까지 비행기로 열 시간 걸려요.",
+      "answer": "독일",
+      "sentenceKo": "＿＿＿에서 한국까지 비행기로 열 시간 걸려요.",
+      "de": "Von Deutschland nach Korea dauert es zehn Stunden mit dem Flugzeug.",
+      "en": "From Germany to Korea it takes ten hours by plane.",
+      "distractors": [
+        "한국",
+        "서울",
+        "부산"
+      ],
+      "courseUnitId": "a1_02_self_intro_identity"
+    },
+    {
+      "id": "cloze_a1_0353",
+      "level": "a1",
+      "topic": "자기소개",
+      "fullKo": "한국 사람이 정말 친절해요.",
+      "answer": "사람",
+      "sentenceKo": "한국 ＿＿＿이 정말 친절해요.",
+      "de": "Die Menschen in Korea sind wirklich freundlich.",
+      "en": "People in Korea are really friendly.",
+      "distractors": [
+        "음식",
+        "말",
+        "책"
+      ],
+      "courseUnitId": "a1_02_self_intro_identity"
+    },
+    {
+      "id": "cloze_a1_0354",
+      "level": "a1",
+      "topic": "자기소개",
+      "fullKo": "이 학교에는 외국인이 많아요.",
+      "answer": "외국인",
+      "sentenceKo": "이 학교에는 ＿＿＿이 많아요.",
+      "de": "An dieser Schule gibt es viele Ausländer.",
+      "en": "There are many foreigners at this school.",
+      "distractors": [
+        "고향",
+        "이름",
+        "성"
+      ],
+      "courseUnitId": "a1_02_self_intro_identity"
+    },
+    {
+      "id": "cloze_a1_0355",
+      "level": "a1",
+      "topic": "자기소개",
+      "fullKo": "한국어는 어렵지만 재미있어요.",
+      "answer": "한국어",
+      "sentenceKo": "＿＿＿는 어렵지만 재미있어요.",
+      "de": "Koreanisch ist schwer, aber es macht Spaß.",
+      "en": "Korean is hard, but it's fun.",
+      "distractors": [
+        "나이",
+        "나라",
+        "커피"
+      ],
+      "courseUnitId": "a1_02_self_intro_identity"
+    },
+    {
+      "id": "cloze_a1_0356",
+      "level": "a1",
+      "topic": "자기소개",
+      "fullKo": "선생님도 독일어를 하세요?",
+      "answer": "독일어",
+      "sentenceKo": "선생님도 ＿＿＿를 하세요?",
+      "de": "Sprechen Sie auch Deutsch?",
+      "en": "Do you speak German too?",
+      "distractors": [
+        "회사",
+        "학교",
+        "커피"
+      ],
+      "courseUnitId": "a1_02_self_intro_identity"
+    },
+    {
+      "id": "cloze_a1_0357",
+      "level": "a1",
+      "topic": "자기소개",
+      "fullKo": "영어는 조금만 해요.",
+      "answer": "영어",
+      "sentenceKo": "＿＿＿는 조금만 해요.",
+      "de": "Englisch spreche ich nur ein bisschen.",
+      "en": "I only speak a little English.",
+      "distractors": [
+        "나이",
+        "나라",
+        "우표"
+      ],
+      "courseUnitId": "a1_02_self_intro_identity"
+    },
+    {
+      "id": "cloze_a1_0358",
+      "level": "a1",
+      "topic": "자기소개",
+      "fullKo": "부모님은 독일에 사세요.",
+      "answer": "사세요",
+      "sentenceKo": "부모님은 독일에 ＿＿＿.",
+      "de": "Meine Eltern leben in Deutschland.",
+      "en": "My parents live in Germany.",
+      "distractors": [
+        "배워요",
+        "일해요",
+        "읽어요"
+      ],
+      "courseUnitId": "a1_02_self_intro_identity"
     }
   ]
 }

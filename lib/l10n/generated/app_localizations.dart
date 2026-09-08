@@ -1591,6 +1591,18 @@ abstract class AppL10n {
   /// **'Korea-Wörterbuchdaten (Definitionen, Übersetzungen) stammen aus 우리말샘 (National Institute of Korean Language) und stehen unter CC BY-SA 2.0 KR. Abgeleitete Inhalte (z. B. die in dieser App enthaltenen JSON-Dateien) werden unter derselben Lizenz weitergegeben.'**
   String get settingsDataLicenseBody;
 
+  /// No description provided for @settingsKoglNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Hinweis zu KOGL Typ 1'**
+  String get settingsKoglNote;
+
+  /// No description provided for @settingsKoglBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Einstufung der Lerninhalte von A1 bis C2 stützt sich auf die Wortschatz- und Grammatiklisten des National Institute of Korean Language (2017 und 2023) sowie auf Lehrwerke und Wortlisten der King Sejong Institute Foundation. Diese Werke stehen unter der Korea Open Government License Typ 1 (Quellenangabe). Die Lernsätze in dieser App sind eigene Texte; wo Originaltext übernommen wird, ist die Quelle beim jeweiligen Inhalt vermerkt.'**
+  String get settingsKoglBody;
+
   /// No description provided for @statsHeader.
   ///
   /// In de, this message translates to:

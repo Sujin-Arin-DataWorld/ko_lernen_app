@@ -389,6 +389,8 @@
   "settingsDataSourcesIntro": "This app's content is built on publicly available language data. Each source is listed below with its license and attribution.",
   "settingsDataLicenseNote": "CC BY-SA 2.0 KR Notice",
   "settingsDataLicenseBody": "Korean dictionary data (definitions, translations) is sourced from 우리말샘 (National Institute of Korean Language) under CC BY-SA 2.0 KR. Derivative content (such as the JSON files bundled with this app) is shared under the same license.",
+  "settingsKoglNote": "KOGL Type 1 notice",
+  "settingsKoglBody": "The A1 to C2 grading of the learning content relies on the vocabulary and grammar lists of the National Institute of Korean Language (2017 and 2023) and on textbooks and word lists from the King Sejong Institute Foundation. These works are provided under the Korea Open Government License Type 1 (attribution). The learning sentences in this app are original writing; where original text is reused, the source is noted with that content.",
   "statsHeader": "Your progress",
   "statsCardsLearned": "Cards learned",
   "statsAccuracy": "Accuracy",
