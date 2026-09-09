@@ -8592,9 +8592,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1788991064.4726343,
-    "seen": 1788991477.6495144,
-    "ast_hash": "eada83071ab5652e3057130d3723e203",
+    "mtime": 1788991588.0967243,
+    "seen": 1788991959.345629,
+    "ast_hash": "8a54fceaa458237947f9d243e51bbdea",
     "semantic_hash": ""
   },
   "BETA_INSTALL_GUIDE.md": {
@@ -13644,9 +13644,9 @@
     "semantic_hash": ""
   },
   "test/asset_catalog_bidirectional_test.dart": {
-    "mtime": 1788701768.058687,
-    "seen": 1788754768.1943748,
-    "ast_hash": "68888703ed60c3c1f9530ef231599b6d",
+    "mtime": 1788991674.2979653,
+    "seen": 1788991959.0083952,
+    "ast_hash": "9b1927c06d24052eb23a9a063ed50a04",
     "semantic_hash": ""
   },
   "test/onboarding_v2_story_milestone_test.dart": {
@@ -14820,9 +14820,9 @@
     "semantic_hash": ""
   },
   "lib/data/pack_artwork_catalog.dart": {
-    "mtime": 1788989437.8454876,
-    "seen": 1788991477.1893132,
-    "ast_hash": "3cae52fb4b8241ec57303271c19a117d",
+    "mtime": 1788991674.2954564,
+    "seen": 1788991958.8899748,
+    "ast_hash": "08667260de07fcdc4557153bb9dab2bf",
     "semantic_hash": ""
   },
   "lib/screens/listening_shelf_screen.dart": {
@@ -14886,9 +14886,9 @@
     "semantic_hash": ""
   },
   "test/pack_artwork_catalog_test.dart": {
-    "mtime": 1788989437.9318628,
-    "seen": 1788991477.401319,
-    "ast_hash": "f1dbb80f7d4b4ab332f3a86b5cbaa9e2",
+    "mtime": 1788991674.300965,
+    "seen": 1788991959.0749266,
+    "ast_hash": "7a0e0befa465f8b6d506640468931529",
     "semantic_hash": ""
   },
   "test/pronunciation_scoring_notice_test.dart": {
@@ -15066,9 +15066,9 @@
     "semantic_hash": ""
   },
   "tool/audit_loanword_spelling.py": {
-    "mtime": 1788779929.1964157,
-    "seen": 1788988543.7292516,
-    "ast_hash": "5edf19599b203094d21984135ff98023",
+    "mtime": 1788991674.3059645,
+    "seen": 1788991959.1464996,
+    "ast_hash": "8a7af2b26375d6e44f65b63d6c4bd267",
     "semantic_hash": ""
   },
   "tool/build_level_bible_tables.py": {
@@ -15102,9 +15102,9 @@
     "semantic_hash": ""
   },
   "tool/test_audit_loanword_spelling.py": {
-    "mtime": 1788779929.2134726,
-    "seen": 1788988543.7559004,
-    "ast_hash": "bc2f75332fa56af68a1e41acc1e80941",
+    "mtime": 1788991674.312964,
+    "seen": 1788991959.1650631,
+    "ast_hash": "00d735274a4c719c10319558aadcaeab",
     "semantic_hash": ""
   },
   "tool/test_build_level_bible_tables.py": {
@@ -15477,6 +15477,30 @@
     "mtime": 1788989437.8099647,
     "seen": 1788991477.6880124,
     "ast_hash": "168657226bceed61c42d09194e14f7f5",
+    "semantic_hash": ""
+  },
+  "tool/build_vocab_pack_card_manifest.py": {
+    "mtime": 1788991674.3079648,
+    "seen": 1788991959.1481698,
+    "ast_hash": "79044c5c7b6da7cc205e2c4bda913c14",
+    "semantic_hash": ""
+  },
+  "tool/build_vocab_pack_contact_sheets.py": {
+    "mtime": 1788991674.3109677,
+    "seen": 1788991959.148173,
+    "ast_hash": "401758f76e0f8c767f6d94b6c9798c97",
+    "semantic_hash": ""
+  },
+  "docs/review/vocab_packs/b2_contact_sheet_16x10_100px.png": {
+    "mtime": 1788991674.121572,
+    "seen": 1788991959.4139807,
+    "ast_hash": "3bbde15a468a59fe6f480ce97f908cf0",
+    "semantic_hash": ""
+  },
+  "docs/review/vocab_packs/b2_contact_sheet_4x3_100px.png": {
+    "mtime": 1788991674.1281042,
+    "seen": 1788991959.4139853,
+    "ast_hash": "11c53e2728104b245294967d52662d86",
     "semantic_hash": ""
   }
 }
