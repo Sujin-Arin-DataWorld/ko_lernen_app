@@ -2760,6 +2760,643 @@
         48
       ]
     },
+    "assets/illustrations/packs/b2_2026_social_topics_1.webp": {
+      "sha256": "a3176ae14e26cb15b4ba247fcd5023b3e3d273464dbfbb3ae592368761a0c428",
+      "kb": 95.3,
+      "ivoryFrac": 0.5012,
+      "fine": 5.283,
+      "coarse": 0.673,
+      "uniqueColors": 27927,
+      "top8": 0.6797,
+      "patchXY": [
+        344,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b2_abstract_concepts_1.webp": {
+      "sha256": "e35220e1f49c4c093eb7f74307f1dd9328622969930564568aa71f75de1b1ee5",
+      "kb": 95.5,
+      "ivoryFrac": 0.4785,
+      "fine": 5.576,
+      "coarse": 1.022,
+      "uniqueColors": 26407,
+      "top8": 0.6441,
+      "patchXY": [
+        136,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b2_civic_meeting_1.webp": {
+      "sha256": "509944059b12eac6ed4a04aed81adf7c190059ca5ddfb08667acec8d73d7933a",
+      "kb": 93.2,
+      "ivoryFrac": 0.5624,
+      "fine": 5.337,
+      "coarse": 0.927,
+      "uniqueColors": 18859,
+      "top8": 0.7994,
+      "patchXY": [
+        368,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b2_collaborative_feedback_1.webp": {
+      "sha256": "e44bb83a8a608a8a8518d9ce6a5affd671fc3c57aa6b525a39c290a6bc96d12c",
+      "kb": 88.5,
+      "ivoryFrac": 0.6057,
+      "fine": 5.31,
+      "coarse": 0.756,
+      "uniqueColors": 19404,
+      "top8": 0.7933,
+      "patchXY": [
+        160,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b2_communication.webp": {
+      "sha256": "287cc203a5626fa11d6b6f001c7c712b677d0e3404aef03bfcd6b85efa0c8489",
+      "kb": 96.7,
+      "ivoryFrac": 0.5511,
+      "fine": 5.27,
+      "coarse": 0.954,
+      "uniqueColors": 25461,
+      "top8": 0.6512,
+      "patchXY": [
+        248,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b2_customer_escalation_1.webp": {
+      "sha256": "082400b2c1f924ab40bd68f18fafb678169a58b305acd5176e1cee298c9ae2e6",
+      "kb": 97.1,
+      "ivoryFrac": 0.4639,
+      "fine": 5.266,
+      "coarse": 0.866,
+      "uniqueColors": 29515,
+      "top8": 0.604,
+      "patchXY": [
+        376,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b2_decisions_perspectives_1.webp": {
+      "sha256": "a0eae66147d8819fc04aaeb0fe50141e2bbe0316ac07d340ddc1772936ff909f",
+      "kb": 95.0,
+      "ivoryFrac": 0.4867,
+      "fine": 5.333,
+      "coarse": 0.818,
+      "uniqueColors": 35307,
+      "top8": 0.705,
+      "patchXY": [
+        352,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b2_digital_judgment_1.webp": {
+      "sha256": "a1c256b300c6413717861de1b965222cb79acf02058218a096dc8b964de052a5",
+      "kb": 88.3,
+      "ivoryFrac": 0.4533,
+      "fine": 4.773,
+      "coarse": 0.831,
+      "uniqueColors": 22820,
+      "top8": 0.7762,
+      "patchXY": [
+        240,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b2_education.webp": {
+      "sha256": "68e0dbfc6b1b9fa15ff19baf5fe38948058fb2ce4535a6784c819bdd7571e061",
+      "kb": 98.7,
+      "ivoryFrac": 0.4054,
+      "fine": 5.337,
+      "coarse": 0.718,
+      "uniqueColors": 27108,
+      "top8": 0.5991,
+      "patchXY": [
+        400,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b2_environment_1.webp": {
+      "sha256": "f6efe1d5af9bbd0762375a835b1d1c338b37e3726fba11f709d285df2ab3f24e",
+      "kb": 93.6,
+      "ivoryFrac": 0.5168,
+      "fine": 5.466,
+      "coarse": 0.901,
+      "uniqueColors": 31138,
+      "top8": 0.6774,
+      "patchXY": [
+        416,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b2_events_culture_1.webp": {
+      "sha256": "fdb5bbe99a105e63b8f2aa25482e32c77f67795da944bc4ae6100bb8708973c9",
+      "kb": 95.1,
+      "ivoryFrac": 0.5385,
+      "fine": 5.228,
+      "coarse": 0.865,
+      "uniqueColors": 29352,
+      "top8": 0.6565,
+      "patchXY": [
+        488,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b2_formal_agreement_1.webp": {
+      "sha256": "2cde97f3e39cf34a58f680a71b066508d08cb19e81bd2c40bc030ed9bd209b9e",
+      "kb": 93.0,
+      "ivoryFrac": 0.5038,
+      "fine": 5.525,
+      "coarse": 0.718,
+      "uniqueColors": 19156,
+      "top8": 0.7875,
+      "patchXY": [
+        352,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b2_formal_complaint_1.webp": {
+      "sha256": "2aa1008749d72fc5d2c8fc021be84d2b88ba46d76a29f343dd149a32862a5397",
+      "kb": 92.0,
+      "ivoryFrac": 0.4818,
+      "fine": 5.501,
+      "coarse": 0.918,
+      "uniqueColors": 24227,
+      "top8": 0.674,
+      "patchXY": [
+        320,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b2_honorifics_1.webp": {
+      "sha256": "bc39b5d055bdeff0b2ba36034943073dda756099da1d3638280c1dade3c742f8",
+      "kb": 92.0,
+      "ivoryFrac": 0.5258,
+      "fine": 5.392,
+      "coarse": 0.951,
+      "uniqueColors": 20510,
+      "top8": 0.7573,
+      "patchXY": [
+        80,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b2_household_practical_1.webp": {
+      "sha256": "33d01ecafeaf003f0dbebde45e16af906c871adc20a1b94605f7a535db664777",
+      "kb": 92.2,
+      "ivoryFrac": 0.5296,
+      "fine": 5.505,
+      "coarse": 0.864,
+      "uniqueColors": 15506,
+      "top8": 0.7419,
+      "patchXY": [
+        552,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b2_housing_dispute_1.webp": {
+      "sha256": "4ade87676fa5ecf0d88ad3a74845850b0d68a036c5585f6e485d4b168759b79c",
+      "kb": 98.6,
+      "ivoryFrac": 0.5485,
+      "fine": 5.512,
+      "coarse": 0.95,
+      "uniqueColors": 22470,
+      "top8": 0.6632,
+      "patchXY": [
+        104,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b2_housing_migration_2026_1.webp": {
+      "sha256": "16f010f482517fb628c73d1b8b91df8e8f5fadf428e8b853a0aa3ea31230e882",
+      "kb": 94.8,
+      "ivoryFrac": 0.5247,
+      "fine": 5.145,
+      "coarse": 0.747,
+      "uniqueColors": 27987,
+      "top8": 0.6288,
+      "patchXY": [
+        288,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b2_language_change.webp": {
+      "sha256": "b71cf89a7ab3a0687157ef1f4ba0cd336bf1056d3d634418642328d84af7ecf3",
+      "kb": 94.8,
+      "ivoryFrac": 0.5229,
+      "fine": 5.195,
+      "coarse": 0.76,
+      "uniqueColors": 21594,
+      "top8": 0.7297,
+      "patchXY": [
+        488,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b2_language_grammar_1.webp": {
+      "sha256": "1f867e0800ebcb58936a991d197a3c0e6f1b1900acfe9a36dec3f03ade5bc618",
+      "kb": 92.5,
+      "ivoryFrac": 0.5272,
+      "fine": 5.0,
+      "coarse": 0.909,
+      "uniqueColors": 30374,
+      "top8": 0.6749,
+      "patchXY": [
+        544,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b2_language_society_1.webp": {
+      "sha256": "b087896862a855d4baa63cc765333b72edd31644fd4ec9358f777fb0bf081d26",
+      "kb": 97.6,
+      "ivoryFrac": 0.5908,
+      "fine": 5.316,
+      "coarse": 0.76,
+      "uniqueColors": 26661,
+      "top8": 0.7097,
+      "patchXY": [
+        264,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b2_life_values.webp": {
+      "sha256": "f4a66039b02866ec861a817076f7e3fdc1ff5f288c13a223d0d646f57fde8467",
+      "kb": 99.8,
+      "ivoryFrac": 0.4568,
+      "fine": 5.292,
+      "coarse": 0.777,
+      "uniqueColors": 29067,
+      "top8": 0.6665,
+      "patchXY": [
+        512,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b2_literature_emotion.webp": {
+      "sha256": "58b0ffc896852ae0f2b2d51774110f566b55564238d987f020c64eac27809aba",
+      "kb": 99.0,
+      "ivoryFrac": 0.403,
+      "fine": 5.546,
+      "coarse": 0.951,
+      "uniqueColors": 26948,
+      "top8": 0.6738,
+      "patchXY": [
+        72,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b2_manners_society_1.webp": {
+      "sha256": "8f123deac0b10c64693df8bcdcc6d485c6f7d837cd6ac0a1113696db907da3fc",
+      "kb": 94.5,
+      "ivoryFrac": 0.5141,
+      "fine": 5.641,
+      "coarse": 0.899,
+      "uniqueColors": 27115,
+      "top8": 0.6318,
+      "patchXY": [
+        192,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b2_media_literacy_1.webp": {
+      "sha256": "963c688406c5a1f48ae82d3a8529ef47b0a362ed0b66959eb9db12d97e53f8ef",
+      "kb": 94.2,
+      "ivoryFrac": 0.4461,
+      "fine": 5.525,
+      "coarse": 0.837,
+      "uniqueColors": 21968,
+      "top8": 0.6827,
+      "patchXY": [
+        264,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b2_misc.webp": {
+      "sha256": "66b05d1d432de024d71dc3d5666c94a96fd3ad33db1c6b712b47458e7e8842f6",
+      "kb": 90.6,
+      "ivoryFrac": 0.5908,
+      "fine": 5.06,
+      "coarse": 0.919,
+      "uniqueColors": 21234,
+      "top8": 0.7104,
+      "patchXY": [
+        264,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b2_modern_life_1.webp": {
+      "sha256": "08fb1eb522205690f2a3bf8d5f3c5f5dbc18c562f43bbb00d89112a983159890",
+      "kb": 96.6,
+      "ivoryFrac": 0.4182,
+      "fine": 5.438,
+      "coarse": 0.818,
+      "uniqueColors": 23509,
+      "top8": 0.6612,
+      "patchXY": [
+        376,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b2_partner_ancestral_rite_1.webp": {
+      "sha256": "4241987d8e0578ee633c3bfdb10859e6d1d1ca218cc16a4fe467412680e04ed5",
+      "kb": 92.8,
+      "ivoryFrac": 0.5824,
+      "fine": 5.513,
+      "coarse": 0.718,
+      "uniqueColors": 23908,
+      "top8": 0.6703,
+      "patchXY": [
+        96,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b2_partner_boundary_1.webp": {
+      "sha256": "c066d59a575a27750f9b41b48ec0ec16ce9784c8e01fdc3a28e7e18c345d42e3",
+      "kb": 93.3,
+      "ivoryFrac": 0.4959,
+      "fine": 5.129,
+      "coarse": 0.838,
+      "uniqueColors": 26601,
+      "top8": 0.6417,
+      "patchXY": [
+        64,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b2_partner_family_money_1.webp": {
+      "sha256": "202d18df85280674270461518c3ab32ba0102d29de12c6c984768ef590756cb6",
+      "kb": 95.6,
+      "ivoryFrac": 0.4192,
+      "fine": 5.339,
+      "coarse": 0.824,
+      "uniqueColors": 29867,
+      "top8": 0.6262,
+      "patchXY": [
+        72,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b2_partner_holiday_duty_1.webp": {
+      "sha256": "87aab593d5dcd0cd446632a93cd43820fa0d25b60b142c5fce080cb732c1841b",
+      "kb": 104.6,
+      "ivoryFrac": 0.4339,
+      "fine": 5.45,
+      "coarse": 1.044,
+      "uniqueColors": 40348,
+      "top8": 0.5993,
+      "patchXY": [
+        480,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b2_partner_honorific_trap_1.webp": {
+      "sha256": "1e6a08e58f35d1a55022d17c58607dc068703c4dbc434e6219cdf95f17bab81b",
+      "kb": 87.7,
+      "ivoryFrac": 0.5745,
+      "fine": 5.334,
+      "coarse": 0.838,
+      "uniqueColors": 23296,
+      "top8": 0.6936,
+      "patchXY": [
+        504,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b2_partner_inlaws_1.webp": {
+      "sha256": "e8fee56b6f6df64572a6217b1287f82f0da5de114e6022d0f977960da4c12edd",
+      "kb": 93.8,
+      "ivoryFrac": 0.5847,
+      "fine": 5.193,
+      "coarse": 0.658,
+      "uniqueColors": 25038,
+      "top8": 0.7282,
+      "patchXY": [
+        312,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b2_partner_marriage_talk_1.webp": {
+      "sha256": "c80f6e59009faaab2b6da90d6fedbd1939cd661260cb26d05d2efe0d88693948",
+      "kb": 95.4,
+      "ivoryFrac": 0.5626,
+      "fine": 5.43,
+      "coarse": 0.77,
+      "uniqueColors": 27973,
+      "top8": 0.6477,
+      "patchXY": [
+        464,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b2_partner_public_intro_1.webp": {
+      "sha256": "a2cbf6f9067d311dab38b7fcfe60c292767993bb576452a6b6905b4fde6ec475",
+      "kb": 90.0,
+      "ivoryFrac": 0.5669,
+      "fine": 5.421,
+      "coarse": 0.777,
+      "uniqueColors": 18899,
+      "top8": 0.7061,
+      "patchXY": [
+        512,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b2_performance_review_1.webp": {
+      "sha256": "843c524f1b08f88252fe1448687b61d3bba8158ad8515b42bb8d9135453ee0db",
+      "kb": 98.6,
+      "ivoryFrac": 0.4792,
+      "fine": 5.504,
+      "coarse": 1.011,
+      "uniqueColors": 30328,
+      "top8": 0.6219,
+      "patchXY": [
+        208,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b2_personal_boundaries_1.webp": {
+      "sha256": "5a420d49b9af06f6fe11863cc77ed326f2fc4ffa08fb2ce9711bb32269177697",
+      "kb": 95.0,
+      "ivoryFrac": 0.3761,
+      "fine": 4.885,
+      "coarse": 0.687,
+      "uniqueColors": 24051,
+      "top8": 0.6812,
+      "patchXY": [
+        72,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b2_policy_brief_1.webp": {
+      "sha256": "691923e4153cedb86d36a13c5f63395eee4f4f3a6d2aea399b21224034004e83",
+      "kb": 95.2,
+      "ivoryFrac": 0.5284,
+      "fine": 5.177,
+      "coarse": 0.779,
+      "uniqueColors": 24301,
+      "top8": 0.6531,
+      "patchXY": [
+        272,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b2_reading_response_1.webp": {
+      "sha256": "33aa96f3bf4b37d6cabb7ea67bc7991415ddc80c13db03c4a7a8bb3998e707f7",
+      "kb": 92.8,
+      "ivoryFrac": 0.4921,
+      "fine": 5.77,
+      "coarse": 0.94,
+      "uniqueColors": 26293,
+      "top8": 0.7039,
+      "patchXY": [
+        88,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b2_relationships_people_1.webp": {
+      "sha256": "f2a00af2c1d3973e874935bcaf3111775c05fd34e68c0d8269f3fcad96eca889",
+      "kb": 98.1,
+      "ivoryFrac": 0.6197,
+      "fine": 5.459,
+      "coarse": 0.696,
+      "uniqueColors": 26365,
+      "top8": 0.7282,
+      "patchXY": [
+        176,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b2_research_summary_1.webp": {
+      "sha256": "f0a501b70afe020e5b778be4cc58f803dc3fef30d1202be4ff1e8ce496eca6fe",
+      "kb": 96.0,
+      "ivoryFrac": 0.5944,
+      "fine": 5.303,
+      "coarse": 0.78,
+      "uniqueColors": 27982,
+      "top8": 0.6975,
+      "patchXY": [
+        304,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b2_safety_rules_1.webp": {
+      "sha256": "92424470b26dcf6453f2017d3f1291099120ba7a0a49be87fa6265e192251feb",
+      "kb": 93.6,
+      "ivoryFrac": 0.4755,
+      "fine": 5.355,
+      "coarse": 0.91,
+      "uniqueColors": 27818,
+      "top8": 0.7008,
+      "patchXY": [
+        472,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b2_shared_space_coordination_1.webp": {
+      "sha256": "748bedc148351861fa2eefdbf8f15fa745e015911c0aa73d11d68b0b6871b310",
+      "kb": 91.5,
+      "ivoryFrac": 0.4962,
+      "fine": 5.3,
+      "coarse": 0.77,
+      "uniqueColors": 28013,
+      "top8": 0.6505,
+      "patchXY": [
+        176,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b2_society_1.webp": {
+      "sha256": "3a1f475ace8671d7f9f571e2c179a4e06ff40be7ab67ca569cda355e903e275b",
+      "kb": 98.5,
+      "ivoryFrac": 0.5013,
+      "fine": 5.523,
+      "coarse": 0.883,
+      "uniqueColors": 24739,
+      "top8": 0.6449,
+      "patchXY": [
+        448,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b2_society_2.webp": {
+      "sha256": "b81bd20dd1cd06a2782033c00a587f3deb23f11431dd72d2a8876b3bc3a5d56a",
+      "kb": 96.8,
+      "ivoryFrac": 0.542,
+      "fine": 5.413,
+      "coarse": 0.714,
+      "uniqueColors": 26589,
+      "top8": 0.6557,
+      "patchXY": [
+        328,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b2_team_negotiation_1.webp": {
+      "sha256": "05b6f1b7863cb0179654e1ec0e3f4b5c89ee8dbf68e158f1875e83fa0a1668dc",
+      "kb": 86.8,
+      "ivoryFrac": 0.456,
+      "fine": 4.932,
+      "coarse": 0.692,
+      "uniqueColors": 24280,
+      "top8": 0.7099,
+      "patchXY": [
+        168,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b2_thinking_1.webp": {
+      "sha256": "09c9c2609841deaf038f738ad4a7ed5d501f44fa3473f082115f5a2c90ab7e5c",
+      "kb": 90.0,
+      "ivoryFrac": 0.5918,
+      "fine": 5.146,
+      "coarse": 0.741,
+      "uniqueColors": 23581,
+      "top8": 0.7661,
+      "patchXY": [
+        200,
+        0
+      ]
+    },
+    "assets/illustrations/packs/b2_thinking_2.webp": {
+      "sha256": "b8da2648b465c3e36749aeb3db7675218a20280678f6e2c552cc506b15b7bab7",
+      "kb": 88.7,
+      "ivoryFrac": 0.4063,
+      "fine": 5.032,
+      "coarse": 0.664,
+      "uniqueColors": 25185,
+      "top8": 0.7476,
+      "patchXY": [
+        376,
+        48
+      ]
+    },
+    "assets/illustrations/packs/b2_thinking_verbs_1.webp": {
+      "sha256": "45928cca32c6ff882c02bb83e39f596821cecf227f4e00eacc805fdea31f2861",
+      "kb": 85.4,
+      "ivoryFrac": 0.602,
+      "fine": 5.795,
+      "coarse": 0.723,
+      "uniqueColors": 16784,
+      "top8": 0.7596,
+      "patchXY": [
+        400,
+        24
+      ]
+    },
+    "assets/illustrations/packs/b2_work.webp": {
+      "sha256": "2ca6328b4f0042a2b7bb8aaf1af479b621ea874ccf26aa6064b4140bf57ebd8f",
+      "kb": 90.0,
+      "ivoryFrac": 0.5325,
+      "fine": 5.477,
+      "coarse": 0.594,
+      "uniqueColors": 19258,
+      "top8": 0.7407,
+      "patchXY": [
+        328,
+        0
+      ]
+    },
     "assets/illustrations/packs/bamboo.webp": {
       "sha256": "807afdbea0af9827d6a6c8acdcde4f27a4fbcbba6b80e0510a859826f40fe42e",
       "kb": 90.3,
