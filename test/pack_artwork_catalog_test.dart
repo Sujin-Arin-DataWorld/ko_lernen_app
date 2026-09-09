@@ -11,17 +11,27 @@ void main() {
       );
     });
 
-    test('미완성 팩은 기존 보상 모티프 이미지를 유지한다', () {
+    test('B2 완료 팩도 팩 ID 전용 이미지를 선택한다', () {
       expect(
         PackArtworkCatalog.assetFor(
           'b2_media_literacy_1',
           DancheongMotif.chilbo,
         ),
-        'assets/illustrations/packs/chilbo.webp',
+        'assets/illustrations/packs/b2_media_literacy_1.webp',
       );
     });
 
-    test('현재 승인 범위는 A1 25장, A2 34장, B1 54장이다', () {
+    test('아직 전용 이미지가 없는 팩은 보상 모티프 이미지를 유지한다', () {
+      expect(
+        PackArtworkCatalog.assetFor(
+          'b2_public_office_1',
+          DancheongMotif.noemun,
+        ),
+        'assets/illustrations/packs/noemun.webp',
+      );
+    });
+
+    test('현재 승인 범위는 A1 25장, A2 34장, B1 54장, B2 49장이다', () {
       int count(String level) => PackArtworkCatalog.dedicatedPackIds
           .where((id) => id.startsWith('${level}_'))
           .length;
@@ -33,7 +43,8 @@ void main() {
       expect(count('a1'), 25);
       expect(count('a2'), 34);
       expect(count('b1'), 54);
-      expect(PackArtworkCatalog.dedicatedPackIds.length, 113);
+      expect(count('b2'), 49);
+      expect(PackArtworkCatalog.dedicatedPackIds.length, 162);
     });
   });
 }

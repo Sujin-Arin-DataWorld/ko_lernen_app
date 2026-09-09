@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:crypto/crypto.dart';
 import 'package:csv/csv.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/data/pack_artwork_catalog.dart';
@@ -318,7 +319,92 @@ void main() {
 
       expect(unknown, isEmpty, reason: 'CSV에 없는 전용 팩 ID: $unknown');
       expect(missingFiles, isEmpty, reason: '전용 WebP가 없는 팩 ID: $missingFiles');
-      expect(PackArtworkCatalog.dedicatedPackIds.length, 113);
+      expect(PackArtworkCatalog.dedicatedPackIds.length, 162);
+    });
+
+    test('PACKS 제작 원장이 CSV·런타임 경로·SHA-256과 일치한다', () {
+      final manifest = Map<String, dynamic>.from(
+        jsonDecode(
+              File(
+                'docs/assets/VOCAB_PACK_CARD_MANIFEST.json',
+              ).readAsStringSync(),
+            )
+            as Map,
+      );
+      final entries = (manifest['packs'] as List)
+          .map((raw) => Map<String, dynamic>.from(raw as Map))
+          .toList();
+      final manifestIds = entries
+          .map((entry) => entry['packId'] as String)
+          .toSet();
+
+      final rows = const CsvToListConverter(
+        eol: '\n',
+        shouldParseNumbers: false,
+      ).convert(File('assets/data/korean_vocab.csv').readAsStringSync());
+      final header = rows.first.map((cell) => cell.toString()).toList();
+      final packIdColumn = header.indexOf('pack_id');
+      final csvPackIds = rows
+          .skip(1)
+          .map((row) => row[packIdColumn].toString())
+          .where((id) => id.isNotEmpty)
+          .toSet();
+
+      expect(entries.length, manifestIds.length, reason: '제작 원장 packId 중복');
+      expect(manifest['packCount'], entries.length);
+      expect(manifestIds, csvPackIds);
+
+      final dedicatedHashes = <String>{};
+      var dedicatedCount = 0;
+      var dedicatedB2Count = 0;
+      for (final entry in entries) {
+        final packId = entry['packId'] as String;
+        final motif = motifForPackId(packId);
+        final primaryAsset = entry['primaryAsset'] as String;
+        final file = File(primaryAsset);
+        expect(entry['rewardMotif'], motif.name, reason: packId);
+        expect(
+          primaryAsset,
+          PackArtworkCatalog.assetFor(packId, motif),
+          reason: packId,
+        );
+        expect(file.existsSync(), isTrue, reason: primaryAsset);
+        expect(
+          entry['sha256'],
+          sha256.convert(file.readAsBytesSync()).toString(),
+          reason: primaryAsset,
+        );
+        final qa = Map<String, dynamic>.from(entry['qa'] as Map);
+        final fourThree = Map<String, dynamic>.from(qa['fourThree'] as Map);
+        expect(fourThree['status'], 'pass', reason: primaryAsset);
+
+        if (entry['status'] == 'approved_dedicated') {
+          dedicatedCount += 1;
+          if (packId.startsWith('b2_')) {
+            dedicatedB2Count += 1;
+            expect(
+              Map<String, dynamic>.from(
+                qa['sixteenTenCenterCrop'] as Map,
+              )['status'],
+              'pass',
+              reason: primaryAsset,
+            );
+            expect(
+              Map<String, dynamic>.from(qa['hundredPx'] as Map)['status'],
+              'pass',
+              reason: primaryAsset,
+            );
+          }
+          expect(
+            dedicatedHashes.add(entry['sha256'] as String),
+            isTrue,
+            reason: '전용 이미지 바이트 중복: $primaryAsset',
+          );
+        }
+      }
+
+      expect(dedicatedCount, PackArtworkCatalog.dedicatedPackIds.length);
+      expect(dedicatedB2Count, 49);
     });
   });
 
