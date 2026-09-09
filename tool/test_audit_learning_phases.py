@@ -181,10 +181,24 @@ class SchemaTest(unittest.TestCase):
                 self.assertIn(r["evidence"], alp.EVIDENCE_TAGS, r.get("id"))
                 for key in ("korean", "english", "german"):
                     self.assertTrue(str(r.get(key, "")).strip(), f"{lv} {r.get('id')} {key}")
-                if "article" in str(r.get("id", "")).lower() or "관사" in str(r.get("concept", {}).get("ko", "")):
+                if alp._is_article_row(r):
                     found_article = True
                     self.assertEqual(r["relation"], "zero_correspondence", r.get("id"))
         self.assertTrue(found_article, "관사·한정성 무대응 행이 어느 레벨에도 없다")
+
+    def test_particle_rows_are_not_mistaken_for_article_rows(self):
+        """조사(particles) 행이 관사 행으로 잡히면 안 된다.
+
+        부분 문자열로 "article" 을 찾으면 "p-article-s" 에 걸려 조사 행을 관사 행으로 오판하고,
+        그러면 조사를 "한국어에 무대응" 으로 적으라고 강요하게 된다 — 정반대 결론이다.
+        실데이터에 조사 행이 실제로 있으므로 그것으로 검증한다.
+        """
+        particle_rows = [r for lv in LEVELS for r in self.cm[lv]["rows"]
+                         if "particle" in str(r.get("id", "")).lower()]
+        self.assertTrue(particle_rows, "조사 행이 없어 이 회귀를 검증할 수 없다")
+        for r in particle_rows:
+            if alp._is_article_row(r):
+                self.fail(f"조사 행을 관사 행으로 판정했다: {r.get('id')}")
 
     def test_c1_c2_are_not_thinner_than_a1_a2(self):
         def counts(p):
@@ -504,6 +518,18 @@ class FixtureTest(unittest.TestCase):
         (self.root / alp.CROSSMAP_REL).write_text(json.dumps(cm, ensure_ascii=False), encoding="utf-8")
         _, _, f = self._run()
         self.assertTrue(self._errors(f, "C14_crossmap"))
+
+    def test_particle_row_is_not_forced_to_zero_correspondence(self):
+        """픽스처에 조사 행을 심는다. 관사 규칙이 여기 걸리면 회귀다."""
+        cm = json.loads((self.root / alp.CROSSMAP_REL).read_text(encoding="utf-8"))
+        row = dict(cm["A1"]["rows"][0])
+        row.update({"id": "grammar_case_role_particles", "relation": "partial",
+                    "concept": {"ko": "문장 성분 표시: 조사 vs 격변화", "en": "case-role particles vs declension"}})
+        cm["A1"]["rows"].append(row)
+        (self.root / alp.CROSSMAP_REL).write_text(json.dumps(cm, ensure_ascii=False), encoding="utf-8")
+        _, _, f = self._run()
+        bad = [r for r in self._errors(f, "C14_crossmap") if "particles" in r["subject"]]
+        self.assertEqual(bad, [], f"조사 행을 관사 행으로 오판했다: {bad}")
 
     def test_structural_gap_text_type_is_reported(self):
         for p in self.phases:

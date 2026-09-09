@@ -31,6 +31,7 @@ import csv
 import io
 import json
 import pathlib
+import re
 import sys
 from collections import Counter, OrderedDict, defaultdict
 from typing import Any, Dict, Iterable, List, Mapping, Optional, Sequence, Tuple
@@ -720,9 +721,13 @@ def check_crossmap(mx: Matrix, ps: PhaseSystem, f: Findings) -> Dict[str, Any]:
                 f.warn("C14_crossmap", f"{lv} · {axis}", "이 축의 교차 매핑 행이 하나도 없다", "축을 채운다", lv)
         stats[lv] = {"rows": len(rows), "axes": dict(axes), "relations": dict(rel),
                      "disagreements": len(pack.get("disagreements") or [])}
-    # 관사/한정성은 한국어에 무대응이어야 한다 — 강제 매핑 방지 게이트
+    # 관사/한정성은 한국어에 무대응이어야 한다 — 강제 매핑 방지 게이트.
+    #
+    # 단어 경계로 본다. 부분 문자열로 잡으면 "particles"(조사) 안의 "article" 에 걸려
+    # grammar_case_role_particles 같은 조사 행을 관사 행으로 오판하고, 그러면 조사를
+    # "한국어에 무대응"으로 적으라고 밀어붙이게 된다 — 한국어에 조사가 없다는 말이 되어 정반대다.
     article_rows = [r for lv in LEVELS for r in (ps.crossmap.get(lv, {}).get("rows") or [])
-                    if "article" in str(r.get("id", "")).lower() or "관사" in str((r.get("concept") or {}).get("ko", ""))]
+                    if _is_article_row(r)]
     if not article_rows:
         f.warn("C14_crossmap", "관사·한정성", "관사/한정성 행이 전 레벨에 하나도 없다",
                "영어 the·독일어 der/die/das 의 한국어 무대응을 명시하는 행을 넣는다")
@@ -731,6 +736,18 @@ def check_crossmap(mx: Matrix, ps: PhaseSystem, f: Findings) -> Dict[str, Any]:
             f.error("C14_crossmap", f"{r.get('id')}", "관사·한정성 행의 관계가 zero_correspondence 가 아니다",
                     "은/는(화제)·이/그/저(지시)·어순·-도/-만 과 구분해 무대응으로 적는다")
     return stats
+
+
+def _is_article_row(row: Mapping[str, Any]) -> bool:
+    """관사·한정성 행인가 — 조사(particles) 행과 혼동하지 않는다."""
+    concept = row.get("concept") or {}
+    tokens: set = set()
+    for text in (row.get("id"), concept.get("en")):
+        tokens |= set(re.split(r"[^a-z]+", str(text or "").lower()))
+    if tokens & {"article", "articles", "definiteness", "artikel"}:
+        return True
+    ko = str(concept.get("ko") or "")
+    return any(x in ko for x in ("관사", "한정성", "정관사", "부정관사"))
 
 
 def check_depth_floor(ps: PhaseSystem, f: Findings) -> Dict[str, Any]:
