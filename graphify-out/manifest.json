@@ -6,9 +6,9 @@
     "semantic_hash": "5fa903abb80c58a713d07330dad6db4b"
   },
   ".claude/settings.json": {
-    "mtime": 1788991003.3053677,
-    "seen": 1788991477.1297846,
-    "ast_hash": "58bf55a071281a2f9629a0e664041180",
+    "mtime": 1788992268.5786986,
+    "seen": 1788992663.1781764,
+    "ast_hash": "5a5bd4c0768daeded2fd809bc15e60f1",
     "semantic_hash": ""
   },
   ".github/scripts/ci_scope.py": {
@@ -8592,9 +8592,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1788991588.0967243,
-    "seen": 1788991959.345629,
-    "ast_hash": "8a54fceaa458237947f9d243e51bbdea",
+    "mtime": 1788992268.5877,
+    "seen": 1788992663.7069468,
+    "ast_hash": "b55e3a9ab9ceee7df8ddff606ca12116",
     "semantic_hash": ""
   },
   "BETA_INSTALL_GUIDE.md": {
@@ -8604,9 +8604,9 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1788991085.1758008,
-    "seen": 1788991477.6498759,
-    "ast_hash": "a9507c68211bb9616870dd0618774cbe",
+    "mtime": 1788992268.5896976,
+    "seen": 1788992663.7072635,
+    "ast_hash": "ef743c3125602aad17fd8180c5779bf7",
     "semantic_hash": ""
   },
   "FIREBASE_GUIDE.md": {
@@ -15246,8 +15246,8 @@
     "semantic_hash": ""
   },
   "tool/graphify_prune.sh": {
-    "mtime": 1788990908.7062106,
-    "seen": 1788991477.506081,
+    "mtime": 1788992268.6082523,
+    "seen": 1788992663.5299392,
     "ast_hash": "c5d659d9a412dc4360a13112d5b6d350",
     "semantic_hash": ""
   },
