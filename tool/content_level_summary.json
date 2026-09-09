@@ -2,23 +2,23 @@
   "counts": {
     "cloze": {
       "fallback_over2": 2,
-      "over1": 167,
-      "over2": 38,
-      "total": 1805,
-      "under2": 449,
+      "over1": 157,
+      "over2": 35,
+      "total": 1895,
+      "under2": 455,
       "unknown": 0
     },
     "grammar": {
       "fallback_over2": 0,
-      "over1": 21,
+      "over1": 14,
       "over2": 3,
       "total": 252,
-      "under2": 36,
+      "under2": 39,
       "unknown": 0
     },
     "media": {
       "fallback_over2": 1,
-      "over1": 23,
+      "over1": 22,
       "over2": 6,
       "total": 136,
       "under2": 13,
@@ -27,17 +27,17 @@
     "pronunciation": {
       "fallback_over2": 0,
       "over1": 7,
-      "over2": 1,
+      "over2": 0,
       "total": 84,
       "under2": 17,
       "unknown": 0
     },
     "satz": {
       "fallback_over2": 1,
-      "over1": 167,
-      "over2": 28,
-      "total": 2333,
-      "under2": 651,
+      "over1": 156,
+      "over2": 26,
+      "total": 2416,
+      "under2": 654,
       "unknown": 0
     },
     "scenario": {
@@ -50,32 +50,32 @@
     },
     "smalltalk": {
       "fallback_over2": 1,
-      "over1": 102,
+      "over1": 101,
       "over2": 19,
       "total": 582,
-      "under2": 114,
+      "under2": 112,
       "unknown": 0
     },
     "vocab": {
       "fallback_over2": 66,
       "over1": 312,
-      "over2": 163,
-      "total": 2420,
-      "under2": 245,
+      "over2": 159,
+      "total": 2499,
+      "under2": 240,
       "unknown": 56
     }
   },
   "coverage": {
     "grade1": {
-      "at_level": 197,
-      "missing": 350,
-      "present_in_app": 364,
+      "at_level": 231,
+      "missing": 321,
+      "present_in_app": 393,
       "total_unique": 714
     },
     "grade2": {
-      "at_level": 125,
-      "missing": 726,
-      "present_in_app": 344,
+      "at_level": 149,
+      "missing": 703,
+      "present_in_app": 367,
       "total_unique": 1070
     }
   },
@@ -85,20 +85,6 @@
       "median_ge_plus2": 0,
       "over2_unbacklogged": 0,
       "share_ge_plus2_top10": [
-        {
-          "median": 0.5,
-          "n_hm": 12,
-          "n_low": 0,
-          "pack_id": "a1_post_office_1",
-          "share_ge_plus2": 0.25
-        },
-        {
-          "median": 0.0,
-          "n_hm": 12,
-          "n_low": 0,
-          "pack_id": "a1_sorry_thanks_1",
-          "share_ge_plus2": 0.0833
-        },
         {
           "median": 0.0,
           "n_hm": 10,
@@ -154,6 +140,20 @@
           "n_low": 0,
           "pack_id": "a1_descriptions",
           "share_ge_plus2": 0.0
+        },
+        {
+          "median": 0,
+          "n_hm": 9,
+          "n_low": 0,
+          "pack_id": "a1_family_1",
+          "share_ge_plus2": 0.0
+        },
+        {
+          "median": 0,
+          "n_hm": 9,
+          "n_low": 0,
+          "pack_id": "a1_family_2",
+          "share_ge_plus2": 0.0
         }
       ]
     },
@@ -183,13 +183,6 @@
           "share_ge_plus2": 0.2
         },
         {
-          "median": -1,
-          "n_hm": 7,
-          "n_low": 0,
-          "pack_id": "a2_food_2",
-          "share_ge_plus2": 0.1429
-        },
-        {
           "median": 0,
           "n_hm": 9,
           "n_low": 0,
@@ -202,6 +195,13 @@
           "n_low": 2,
           "pack_id": "a2_school_supplies_1",
           "share_ge_plus2": 0.1111
+        },
+        {
+          "median": 0.0,
+          "n_hm": 10,
+          "n_low": 0,
+          "pack_id": "a2_food_2",
+          "share_ge_plus2": 0.1
         },
         {
           "median": 0.0,

@@ -26,6 +26,7 @@ from __future__ import annotations
 import csv
 import json
 from collections import Counter, OrderedDict
+import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -36,6 +37,39 @@ REPORT_MD = REPO / "docs/data/vocab_level_report.md"
 SUSPECTS_CSV = REPO / "tool/vocab_level_suspects.csv"
 
 LEVEL_RANK = {"A1": 0, "A2": 1, "B1": 2, "B2": 3, "C1": 4, "C2": 5}
+
+# PR-L3a (2026-09-08): `sino3_low` is a 2026-08-13 proxy heuristic ("3+
+# syllable noun at A1/A2 is probably an abstract Sino-Korean word") that
+# predates the NIKL grade lists. Since PR-L1 the lists (tool/cefr_lexicon.py,
+# bible §C) are the primary level judge, so a headword the lists themselves
+# grade at or below its app level (선생님·지하철·비행기·외국인 are all 1급) is
+# not a suspect -- the heuristic only keeps words the lists grade higher or
+# do not know. The lexicon is loaded lazily and only when available, so the
+# audit still runs (with the old behaviour) in a checkout without it.
+_LEXICON = None
+
+
+def _lexicon():
+    global _LEXICON
+    if _LEXICON is None:
+        try:
+            sys.path.insert(0, str(Path(__file__).resolve().parent))
+            from cefr_lexicon import CefrLexicon  # noqa: WPS433
+
+            _LEXICON = CefrLexicon.load(REPO)
+        except Exception:  # pragma: no cover - lexicon optional
+            _LEXICON = False
+    return _LEXICON or None
+
+
+def nikl_grade_at_or_below(word: str, rank: int) -> bool:
+    """True when the NIKL lists grade `word` at or below the app level with
+    LEVEL_RANK `rank` (grade 1 == A1). Unknown words return False."""
+    lexicon = _lexicon()
+    if lexicon is None:
+        return False
+    grade = lexicon.word_grade(word.strip()).grade
+    return grade is not None and grade - 1 <= rank
 HIGH_TOPICS = {
     "Gesellschaft",
     "Politik",
@@ -103,7 +137,12 @@ def find_suspects(rows: list[dict[str, str]]) -> list[dict[str, str]]:
             continue
         reasons = []
         pos = row["pos_de"].strip()
-        if rank <= 1 and pos == "Nomen" and hangul_len(row["korean"]) >= 3:
+        if (
+            rank <= 1
+            and pos == "Nomen"
+            and hangul_len(row["korean"]) >= 3
+            and not nikl_grade_at_or_below(row["korean"], rank)
+        ):
             reasons.append("sino3_low")
         if rank < 2 and row["topic"].strip() in HIGH_TOPICS:
             reasons.append("topic_low")

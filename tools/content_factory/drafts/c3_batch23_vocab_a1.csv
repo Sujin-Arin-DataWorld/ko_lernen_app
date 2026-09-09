@@ -1,0 +1,9 @@
+korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack_id,pack_order,is_review_boss,english,pos_en,example_english,id
+한국,hanguk,Korea,A1,Nomen,한국은 지금 가을이에요.,In Korea ist jetzt Herbst.,자기소개,a1_particles_in_use_1,2,false,Korea,Noun,It's autumn in Korea now.,vocab_a1_0428
+독일,dogil,Deutschland,A1,Nomen,독일에서 한국까지 비행기로 열 시간 걸려요.,Von Deutschland nach Korea dauert es zehn Stunden mit dem Flugzeug.,자기소개,a1_particles_in_use_1,5,false,Germany,Noun,From Germany to Korea it takes ten hours by plane.,vocab_a1_0429
+사람,saram,"Mensch, Person",A1,Nomen,한국 사람이 정말 친절해요.,Die Menschen in Korea sind wirklich freundlich.,자기소개,a1_particles_in_use_1,6,false,person,Noun,People in Korea are really friendly.,vocab_a1_0430
+외국인,oegugin,Ausländer/in,A1,Nomen,이 학교에는 외국인이 많아요.,An dieser Schule gibt es viele Ausländer.,자기소개,a1_particles_in_use_1,7,false,foreigner,Noun,There are many foreigners at this school.,vocab_a1_0431
+한국어,hangugeo,Koreanisch,A1,Nomen,한국어는 어렵지만 재미있어요.,"Koreanisch ist schwer, aber es macht Spaß.",자기소개,a1_particles_in_use_1,8,false,Korean (language),Noun,"Korean is hard, but it's fun.",vocab_a1_0432
+독일어,dogireo,Deutsch,A1,Nomen,선생님도 독일어를 하세요?,Sprechen Sie auch Deutsch?,자기소개,a1_particles_in_use_1,9,false,German (language),Noun,Do you speak German too?,vocab_a1_0433
+영어,yeongeo,Englisch,A1,Nomen,영어는 조금만 해요.,Englisch spreche ich nur ein bisschen.,자기소개,a1_particles_in_use_1,10,false,English (language),Noun,I only speak a little English.,vocab_a1_0434
+살다,salda,"wohnen, leben",A1,Verb,부모님은 독일에 사세요.,Meine Eltern leben in Deutschland.,자기소개,a1_particles_in_use_1,11,false,to live,Verb,My parents live in Germany.,vocab_a1_0435

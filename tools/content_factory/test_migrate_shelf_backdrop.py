@@ -34,7 +34,9 @@ class MigrationPlanTest(unittest.TestCase):
         self.assertEqual(report["unknown_shelf"], [])
         self.assertEqual(report["missing_backdrop"], [])
         self.assertEqual(report["unknown_backdrop"], [])
-        self.assertEqual(len(migrated), 126)
+        # Every live scenario migrates; the corpus size itself is pinned by
+        # test_scenario_store against content_audit_manifest.json.
+        self.assertEqual(len(migrated), len(self.scenarios))
 
     def test_every_scenario_gets_both_fields(self) -> None:
         migrated, _ = migrate.plan_migration(self.scenarios, self.baseline)

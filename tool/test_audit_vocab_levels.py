@@ -48,8 +48,14 @@ import audit_vocab_levels  # noqa: E402
 # relevel_bundle_L2a3.json 4개 팩 이동 + relevel_batch_003.csv 18단어
 # 이동). core_suspects/core_blocked 모두 더 낮은 실측치로 하향.
 # topic-tie 캡은 24로 변화 없음(이번 라운드는 이 토픽 팩을 옮기지 않음).
-KNOWN_SUSPECTS_CAP = 200
-KNOWN_BLOCKED_SUSPECTS_CAP = 171
+#
+# 2026-09-08 PR-L3a 실측 고정 (Batch 23): `find_suspects()`의 sino3_low가
+# 이제 NIKL 등급표(tool/cefr_lexicon.py)를 먼저 본다 -- 목록이 앱 레벨
+# 이하로 매기는 표제어(선생님·지하철·비행기·외국인 등 1급 3음절 명사)는
+# 더 이상 의심이 아니다(127건 해소). core 205→81, blocked 171→68 로 하향.
+# topic-tie 캡 24 변화 없음.
+KNOWN_SUSPECTS_CAP = 81
+KNOWN_BLOCKED_SUSPECTS_CAP = 68
 
 # "Partnerschaft & koreanische Familie" 토픽 최빈값 tie 붕괴로 발생한 신규
 # below_topic 오탐 65건 — 위 docstring 참고. 전부 blocked=satz_ref(기존

@@ -233,7 +233,8 @@ class TestCefrLexiconSynthetic(unittest.TestCase):
 class TestGrammarIndexTableDriven(unittest.TestCase):
     """The 10 required patterns, each with a positive and a negative
     sentence, compiled from grammar_rows shaped exactly like
-    assets/data/grammar.csv (id, level, pattern)."""
+    assets/data/grammar.csv (id, level, pattern) -- plus two PR-L3a
+    regressions for patterns that end in sentence punctuation."""
 
     PATTERNS = [
         ("gr_geot_gatda", "B1", "V-(으)ㄹ 것 같다", 3,
@@ -256,6 +257,12 @@ class TestGrammarIndexTableDriven(unittest.TestCase):
          "비가 오기 때문에 우산을 가져왔다.", "비가 와서 좋다."),
         ("gr_jeogi_itda", "B1", "V-(으)ㄴ 적이 있다/없다", 3,
          "저는 그 음식을 먹은 적이 있다.", "저는 그 음식을 안 먹어요."),
+        # PR-L3a: "?" is punctuation, not an optional quantifier -- before the
+        # fix "지요?" compiled to bare "지" and hit 편지/까지 in A1 sentences.
+        ("gr_jiyo", "A2", "V-지요?", 2,
+         "날씨가 좋지요?", "이 편지를 독일로 보내 주세요."),
+        ("gr_nayo", "A2", "V-나요?", 2,
+         "지금 가나요?", "사과 하나 주세요."),
     ]
 
     @classmethod
@@ -285,6 +292,17 @@ class TestGrammarIndexTableDriven(unittest.TestCase):
     def test_compile_pattern_regex_drops_trailing_da_for_known_predicate(self):
         regex = cl.compile_pattern_regex("V-고 싶다")
         self.assertTrue(regex.search("가고 싶어요"))  # conjugated, not bare form
+
+    def test_compile_pattern_regex_strips_sentence_punctuation(self):
+        # PR-L3a (2026-09-08): trailing ?/!/. are sentence punctuation in
+        # pattern strings, never regex syntax.
+        self.assertEqual(cl.compile_pattern_regex("V-지요?").pattern, "지요")
+        self.assertEqual(cl.compile_pattern_regex("V-나요?").pattern, "나요")
+        self.assertEqual(
+            cl.compile_pattern_regex("-세요.", strip_slot_prefix=False).pattern, "세요"
+        )
+        self.assertIsNone(cl.compile_pattern_regex("V-지요?").search("독일까지 며칠 걸려요?"))
+        self.assertTrue(cl.compile_pattern_regex("V-지요?").search("날씨가 좋지요?"))
 
     def test_compile_pattern_regex_keeps_non_predicate_trailing_da(self):
         # An allomorph ending in a bare "다" that is NOT a real predicate
@@ -571,7 +589,7 @@ class TestR3ConfidenceAndProperNouns(unittest.TestCase):
 
 
 class TestVocabUnknownRatio(unittest.TestCase):
-    """Measures word_grade() unknown-ratio over all 2,420 live headwords
+    """Measures word_grade() unknown-ratio over all 2,499 live headwords
     (Section 6/T1.2 R3 target: <= 10%, tightened from the original 25%)."""
 
     @classmethod
@@ -593,7 +611,7 @@ class TestVocabUnknownRatio(unittest.TestCase):
         for word, count in top[:30]:
             print("  %s x%d" % (word, count))
         self.assertLessEqual(ratio, 0.10)
-        self.assertEqual(len(self.rows), 2420)
+        self.assertEqual(len(self.rows), 2499)
 
 
 class TestSentenceUnknownRatio(unittest.TestCase):

@@ -148,6 +148,8 @@ class VocabPackService {
       'Asking for Clarification',
     ),
     'a1_payment_delivery': ('Bezahlen & Lieferung', 'Payment & Delivery'),
+    // A1 2026-09-09 (PR-L3a Batch 23 2차): a1_15 첫 수업 유닛 로더 커버리지.
+    'a1_first_class': ('Erster Kurstag', 'First Day of Class'),
     // A2
     'a2_daily': ('Alltag (A2)', 'Daily Life (A2)'),
     'a2_feelings': ('Gefühle', 'Feelings'),
@@ -733,6 +735,7 @@ class VocabPackService {
     'c1_2026_social_topics': 19,
     'c2_2026_social_topics': 19,
     'a1_city_services_2026': 42,
+    'a1_first_class': 43,
     'a2_partner_house_entry': 33,
     'a2_partner_chuseok_basic': 36,
     'a2_partner_photo_thanks': 38,
