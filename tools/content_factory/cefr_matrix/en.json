@@ -63,6 +63,17 @@
       "note": "500 grammatical items; 170 carry a CEFR-J level and an EGP cross-level. Cited below as cefrj:<ID>."
     },
     {
+      "id": "cefrj_vocabulary_profile",
+      "title": "CEFR-J Vocabulary Profile (ver 1.5) via Open Language Profiles",
+      "publisher": "Tono Laboratory, TUFS (openlanguageprofiles/olp-en-cefrj)",
+      "year": 2020,
+      "url": "https://github.com/openlanguageprofiles/olp-en-cefrj",
+      "license": "free for research and commercial use with citation (copyright Tono Lab, TUFS)",
+      "provenance": "verified_repo",
+      "repoPath": "tools/content_factory/cefr_matrix/reference/cefrj-vocabulary-profile-1.5.csv",
+      "note": "7,799 headwords with CEFR levels — A1 1,164 · A2 1,411 · B1 2,446 · B2 2,778. Covers A1–B2 only; C1/C2 are supplied by the Octanove Vocabulary Profile C1/C2 v1.0 (C1 1,111 · C2 1,025, CC BY-SA 4.0), which is cited but not vendored."
+    },
+    {
       "id": "cambridge_a2_key",
       "title": "A2 Key / A2 Key for Schools Handbook for teachers (exams from 2020)",
       "publisher": "Cambridge University Press & Assessment",
@@ -412,7 +423,8 @@
       "scale": {
         "cambridge": "Pre A1 Starters → A1 Movers/Flyers; A2 Key covers A1–B1 bands",
         "evpHeadwords": "≈1,000 (EVP A1 senses)",
-        "note": "Breakthrough (Trim 2001) specification"
+        "note": "Breakthrough (Trim 2001) specification",
+        "cefrjVocabulary": "1,164 headwords (CEFR-J Vocabulary Profile v1.5, repo copy — verified_repo)"
       },
       "canDo": {
         "ko": "나와 바로 주변의 생존 영어 — be, have got, 관사, 지시사, there is/are, 현재 단순·진행, 기초 과거, can, 명령문, would like.",
@@ -866,7 +878,8 @@
       "scale": {
         "cambridge": "A2 Key (KET)",
         "evpHeadwords": "≈1,500–2,000",
-        "note": "Waystage 1990"
+        "note": "Waystage 1990",
+        "cefrjVocabulary": "1,411 headwords (CEFR-J Vocabulary Profile v1.5, repo copy — verified_repo)"
       },
       "canDo": {
         "ko": "여행·숙박·건강·직업·교육·휴가·기술·경험·계획 — 과거(단순·진행), 기초 현재완료(경험), going to/will, 비교·최상급, 조동사(should/must/have to), 1형 조건문, 관계절 who/which/that.",
@@ -1303,7 +1316,8 @@
       "scale": {
         "cambridge": "B1 Preliminary (PET)",
         "evpHeadwords": "≈2,500–3,000",
-        "note": "Threshold 1990"
+        "note": "Threshold 1990",
+        "cefrjVocabulary": "2,446 headwords (CEFR-J Vocabulary Profile v1.5, repo copy — verified_repo)"
       },
       "canDo": {
         "ko": "직장·교육·환경·관계·미디어·기술·여행·건강·문화·사회 문제 — 완료 시제 대비, 과거완료, 미래 형태, 1·2형 조건문, 수동태, 간접화법, used to, 추측 조동사, 동명사/부정사, 구동사, 연결어 → connected discourse.",
@@ -1719,7 +1733,8 @@
       "scale": {
         "cambridge": "B2 First (FCE)",
         "evpHeadwords": "≈4,000–5,000",
-        "note": "Vantage 2001"
+        "note": "Vantage 2001",
+        "cefrjVocabulary": "2,778 headwords (CEFR-J Vocabulary Profile v1.5, repo copy — verified_repo)"
       },
       "canDo": {
         "ko": "사회·과학·환경·경제·고용·교육·미디어·세계화·윤리 — 2·3형·혼합 조건문, 고급 수동(It is believed that), 사역(have sth done), 고급 간접화법, modal perfect, 분사구문, wish/if only, 담화 표지(nevertheless/whereas/despite), 분열문.",
@@ -2078,7 +2093,8 @@
       "scale": {
         "cambridge": "C1 Advanced (CAE)",
         "evpHeadwords": "≈6,000+",
-        "note": "no closed inventory"
+        "note": "no closed inventory",
+        "cefrjVocabulary": "CEFR-J Vocabulary Profile covers A1–B2 only. C1/C2 counts come from the Octanove Vocabulary Profile C1/C2 v1.0 (C1 1,111 · C2 1,025, CC BY-SA 4.0) — cited, not vendored (copyleft)."
       },
       "canDo": {
         "ko": "정치·경제·과학·윤리·전문·학술 — 도치(Rarely have I…), 분열문(What matters most is…), 고급 조건(Had I known), needn't have/ought to have, 생략·대용, 분사절, 명사화, hedging(appears to/tends to/arguably), 고급 결속 장치.",
@@ -2360,7 +2376,8 @@
       "scale": {
         "cambridge": "C2 Proficiency (CPE)",
         "evpHeadwords": "open (EVP C2 ≈ 7,000 headwords total)",
-        "note": "no closed inventory"
+        "note": "no closed inventory",
+        "cefrjVocabulary": "CEFR-J Vocabulary Profile covers A1–B2 only. C1/C2 counts come from the Octanove Vocabulary Profile C1/C2 v1.0 (C1 1,111 · C2 1,025, CC BY-SA 4.0) — cited, not vendored (copyleft)."
       },
       "canDo": {
         "ko": "새 시제가 아니라 register control, idiom, collocation, subtle modality, rhetorical structures, pragmatic meaning, ellipsis, fronting, inversion, information structure, metaphor, irony, understatement, hedging, stance, genre conventions.",

@@ -18,3 +18,43 @@
   `EGP` 열이 English Grammar Profile 레벨을 교차 표기한다. 일본어 주석(`Notes`)은 원본 그대로.
 - **용도:** `../en.json` 의 영어 문법 항목이 `cefrj:<ID>` 로 인용한다. 앱 런타임은 읽지 않는다.
 - **변경:** 줄끝 CRLF→LF 정규화만(git 속성). 재다운로드 시 원본 sha256 을 대조한다.
+
+## `cefrj-vocabulary-profile-1.5.csv`
+
+- **제목:** The CEFR-J Vocabulary Profile, Version 1.5
+- **저작권:** Tono Laboratory, Tokyo University of Foreign Studies (TUFS)
+- **배포:** https://raw.githubusercontent.com/openlanguageprofiles/olp-en-cefrj/master/cefrj-vocabulary-profile-1.5.csv
+  (2026-09-09 다운로드)
+- **sha256(원본, CRLF):** `b0dd3c635f1c9a4fdf1490c7e5b7c48e8bbe55b652ad0c9860a95f98e10ae498`
+- **sha256(저장소 사본, LF):** `be1a5f4e17fcaa5bb3e31643f5844645a496dbdfbdace3b4278a179853f2317e`
+- **라이선스:** 문법 프로파일과 동일 — 인용하면 연구·상업 목적 무료 사용. 인용 문구:
+  *The CEFR-J Vocabulary Profile Version 1.5. Compiled by Yukio Tono, Tokyo University of Foreign
+  Studies. Retrieved from http://www.cefr-j.org/download.html.*
+- **열:** `headword, pos, CEFR, CoreInventory 1, CoreInventory 2, Threshold` — 7,799행.
+  레벨 분포 A1 1,164 · A2 1,411 · B1 2,446 · B2 2,778. **A1–B2 만 다룬다(C1·C2 없음).**
+- **용도:** `../en.json` 의 레벨별 `scale.cefrjVocabulary` 가 이 수치를 인용한다 — 영어 어휘 규모는
+  이제 재구성이 아니라 저장소 대조 가능한 값이다. 앱 런타임은 읽지 않는다.
+
+## 받아오지 못한 것 / 받았지만 넣지 않은 것 (2026-09-09 재확인)
+
+이 세션의 이그레스는 좁은 허용 목록이다. `raw.githubusercontent.com` 만 curl 로 문서를 준다
+(`example.com` 조차 차단된다). 두 경로(curl · WebFetch)를 각각 시험한 결과:
+
+- **차단(원문 확보 불가):** korean.go.kr · kcenter.korean.go.kr · topik.go.kr · data.go.kr ·
+  api.odcloud.kr · nl.go.kr · riss.kr · mcst.go.kr · korea.kr · moe.go.kr · ncic.re.kr ·
+  rm.coe.int · coe.int · englishprofile.org · cambridgeenglish.org · goethe.de · bamf.de ·
+  telc.net · wikipedia · huggingface.co · zenodo.org · archive.org · web.archive.org.
+  따라서 국제통용 고시 별책 · TOPIK 등급 기술 · CEFR CV 2020 · Goethe Prüfungsziele · DTZ ·
+  BAMF · telc · Cambridge 핸드북은 계속 `[DERIVED]`(재구성) 이다.
+- **확정된 부재:** `openlanguageprofiles` 조직은 저장소가 정확히 3개다(`olp-en-cefrj`,
+  `olp-zh-zerotohero`, 웹사이트). **English Grammar Profile · English Vocabulary Profile 데이터셋은
+  이 조직에 없다** — 이 경로로는 EGP/EVP 원본을 얻을 수 없다. `en.json` 의 `egp:` 인용은 레벨
+  라벨 참조이며 원본 대조가 아니다(CEFR-J 문법 CSV 의 `EGP` 열이 유일한 교차 표기다).
+- **받았지만 저장소에 넣지 않음:**
+  - *Octanove Vocabulary Profile C1/C2 v1.0* — C1 1,111 · C2 1,025, CC BY-SA 4.0,
+    sha256 `18c33a407f2f89f7b8de9671c6d45fe3ea0bce45e7d2d7dcaab48d73e0f7b380`,
+    `…/olp-en-cefrj/master/octanove-vocabulary-profile-c1c2-1.0.csv`. CEFR-J 가 비워 둔 C1·C2 를
+    메우지만 copyleft 라이선스라 이 저장소에 벤더링할지는 사람이 판단할 일이다 — 수치만 인용한다.
+  - *haydarkadioglu/goethe-vocab* — Goethe A1/A2/B1 Wortliste 를 제3자가 추출한 JSON
+    (737 · 1,409 · 3,645 = 5,791항목, 원본 PDF 쪽번호 포함). 라이선스 없음, 단독 저자, 검증 없음.
+    Goethe 어휘를 `[OFFICIAL]` 로 올리는 근거가 되지 못한다(기껏해야 "제3자 추출과 교차 확인").

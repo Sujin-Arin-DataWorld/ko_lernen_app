@@ -22,6 +22,37 @@ CEFR 자체는 A1~C2 별 필수 문법 목록을 정하지 않는다(언어 비�
 | `en.json` / `de.json` | 영어·독일어 — 같은 구조. 문법은 항목 목록(`grammar.items`, 출처 인용 포함). 갭 판정에는 쓰지 않고 삼언어 정렬표에만 쓴다 |
 | `reference/cefrj-grammar-profile-20180315.csv` | CEFR-J 문법 프로파일 500항목(170항목 CEFR-J 레벨 + EGP 교차 레벨). `en.json` 이 `cefrj:<ID>` 로 인용 |
 
+## Learning Phase 체계 (A1–C2 한국어 학습 단계)
+
+매트릭스가 "레벨별로 무엇이 있어야 하는가" 를 정의하면, Learning Phase 는 "그것을 어떤 순서로
+가르치는가" 를 정의한다. 대상 학습자는 **영어권·독일어권**이며, 각 Phase 는 16개 필드를 모두 채운다.
+
+| 파일 | 내용 |
+|---|---|
+| `phases.json` | Phase 정본 — 레벨당 3–6개, 누적 번호 `KP01…`. 각 Phase: 주제 · 한국어 문법(실제 형태) · 기능 · 어휘 영역 · 텍스트 유형 · 듣기/말하기/읽기/쓰기 · 발음 · 화용·문체 · 선수 조건 · EN→KO 브리지 · DE→KO 브리지 · 전이 경고 · 숙달 점검. 하단에 문법 의존 지도(`dependencyMap`: 선수 → 목표 → 상위 재활용) |
+| `cross_mapping.json` | 레벨별 KO/EN/DE 개념 교차 매핑(PART 3) + 출처 간 불일치 기록 |
+| `transfer.json` | EN→KO · DE→KO 전이 분석(PART 4) — 판정 `positive` / `partial` / `negative_risk` / `new_concept` |
+| `phase_review.json` | 배열 검증(PART 6)·10항목 갭 분석(PART 7) 검토 소견 |
+
+핵심 불변식: **국제통용 336 형태가 정확히 한 Phase 에서 한 번만 새로 도입된다.** 누락·중복·급 불일치가
+있으면 `tool/audit_learning_phases.py` 가 error 를 내고 테스트가 빨개진다. 이전 레벨 형태를 더 깊은
+기능으로 다시 쓰는 것은 `role: "spiral"` 로 표시하며 도입으로 세지 않는다.
+
+근거 등급은 축과 함께 정한다. 2017 고시의 *문법 목록* 은 저장소에 CSV 로 있어 `[OFFICIAL]` 이지만
+*주제 목록* 은 저장소에 없어 같은 출처라도 `[DERIVED]` 다. 전이 분석은 원문 대조가 불가능한 동안
+`[OFFICIAL]` 이 될 수 없다(테스트가 막는다).
+
+```bash
+python tool/audit_learning_phases.py          # 검증 + PART 1~8 문서 재생성
+python tool/audit_learning_phases.py --check  # error 나 낡은 생성물이 있으면 exit 2
+python -m unittest tool.test_audit_learning_phases -v
+```
+
+산출물: `docs/data/korean_learning_phases_part1_2_sources.md`(언어별 레벨 기술 + 근거 등급),
+`…part3_4_crossmap_transfer.md`, `…part5_phases.md`(Phase 전문), `…part6_7_review.md`(배열·갭),
+`…part8_master_matrix.md`(마스터 매트릭스 + 의존 지도), `tool/learning_phase_master_matrix.csv`,
+`tool/learning_phase_findings.csv`(소견 한 줄 한 행), `tool/learning_phase_summary.json`.
+
 ## 근거 등급 (`provenance`)
 
 | 값 | 뜻 |
