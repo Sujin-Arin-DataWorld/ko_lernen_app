@@ -18,7 +18,7 @@
     ["보내는 사람", "Absender", "sender", "Nomen", "Noun", "보내는 사람 이름을 크게 썼어요.", "Ich habe den Absendernamen groß geschrieben.", "I wrote the sender name in large letters."],
     ["받는 사람", "Empfänger", "recipient", "Nomen", "Noun", "받는 사람 전화번호를 적어 주세요.", "Bitte notieren Sie die Telefonnummer des Empfängers.", "Please write the recipient's phone number."],
     ["며칠", "wie viele Tage", "how many days", "Nomen", "Noun", "독일까지 며칠 걸려요?", "Wie viele Tage dauert es bis Deutschland?", "How many days does it take to Germany?"],
-    ["값", "Preis", "price", "Nomen", "Noun", "우표 값이 얼마예요?", "Was kostet die Briefmarke?", "How much is the stamp?"],
+    ["가격", "Preis", "price", "Nomen", "Noun", "우표 가격이 얼마예요?", "Was kostet die Briefmarke?", "How much is the stamp?"],
     ["창구", "Schalter", "counter", "Nomen", "Noun", "세 번 창구에서 기다리세요.", "Bitte warten Sie am Schalter drei.", "Please wait at counter number three."]
   ]
 }

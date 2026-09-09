@@ -131,7 +131,9 @@ String dancheongMotifName(AppL10n t, DancheongMotif motif) =>
 DancheongMotif motifForPackId(String packId) {
   final base = _baseOf(packId);
   return switch (base) {
-    'a1_greetings' || 'a1_self_intro' => DancheongMotif.lotus,
+    'a1_greetings' ||
+    'a1_self_intro' ||
+    'a1_first_class' => DancheongMotif.lotus,
     'a1_family' => DancheongMotif.bok,
     'a1_time' || 'a1_numbers' => DancheongMotif.chrysanthemum,
     'a1_descriptions' ||

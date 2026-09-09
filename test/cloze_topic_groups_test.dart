@@ -57,6 +57,7 @@ const _expectedTopics = <ClozeTopicGroupId, Set<String>>{
     'Versicherungsfall',
   },
   ClozeTopicGroupId.workEducation: {
+    '첫 수업',
     '취업과 근무 조건',
     'Arbeitskoordination & Termine',
     'Beruf',
@@ -157,9 +158,9 @@ void main() {
   final items = sourceRows.map(ClozeItem.fromJson).toList(growable: false);
   final canonicalTopics = items.map((item) => item.topic).toSet();
 
-  test('accepted canonical baseline is exactly 1,805 items and 125 topics', () {
-    expect(items, hasLength(1813));
-    expect(canonicalTopics, hasLength(125));
+  test('accepted canonical baseline is exactly 1,833 items and 126 topics', () {
+    expect(items, hasLength(1833));
+    expect(canonicalTopics, hasLength(126));
     expect(items.every((item) => item.topic.trim().isNotEmpty), isTrue);
     expect(items.every((item) => item.hasExplicitId), isTrue);
     expect(items.map((item) => item.id).toSet(), hasLength(items.length));
@@ -185,7 +186,7 @@ void main() {
     );
   });
 
-  test('all 125 exact topics map once with no missing or dangling key', () {
+  test('all 126 exact topics map once with no missing or dangling key', () {
     expect(_expectedTopics.keys.toList(), ClozeTopicGroups.ordered);
     final expectedUnion = <String>{};
     for (final entry in _expectedTopics.entries) {
@@ -198,7 +199,7 @@ void main() {
         expect(ClozeTopicGroups.groupForTopic(topic), entry.key, reason: topic);
       }
     }
-    expect(expectedUnion, hasLength(125));
+    expect(expectedUnion, hasLength(126));
     expect(expectedUnion, canonicalTopics);
     expect(ClozeTopicGroups.groupForTopic('not-a-canonical-topic'), isNull);
   });

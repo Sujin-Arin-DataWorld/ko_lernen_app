@@ -1035,7 +1035,7 @@
         "romanization"
       ],
       "beforeSha256": "7e2af9a52d5565959c2cdc9a2126ab45fb2f28f873564d0770c20f04c558f350",
-      "afterSha256": "0299b024aa3cfb3f9c7bd1044cfdc0417b2acc197d19cc2f309bee336431a0b7"
+      "afterSha256": "51ca2d17077289cd5491ab0ad642cc634aa114a4b893249a972dcf08591616ff"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -1101,7 +1101,7 @@
         "distractors"
       ],
       "beforeSha256": "22ee5b2773be8489618b6f4c923bcffa6adfbd33d5fa10a3421f216b760ec2de",
-      "afterSha256": "222a28feb11f621caa983dc146874f08e2d9be9402a6865d33d8022d9e292528"
+      "afterSha256": "b6c008747c85d2aff176d1de0a14333863990878a4b6689451292643b3ad6693"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -1188,7 +1188,7 @@
         "sentenceKo"
       ],
       "beforeSha256": "3e052d628e2b3aa775dec0143318c4b41ce36bbff39c3655e547f0dcd6b8337c",
-      "afterSha256": "6f30922f02ee6eaa014efe651440104f4a6118f027a0a22876b3c8224fb47566"
+      "afterSha256": "1d52cb5fbb32a29cdce8659dfecd5b3468fbf00d87d9076753d7029c9fb678ea"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -1326,7 +1326,7 @@
         "vocabKo"
       ],
       "beforeSha256": "b17804dded7562df25602827cb50d12e74e96dbdafd91d0e470ba4337e8d21ef",
-      "afterSha256": "4d4593adf2030edddc98ff1eff8fa34f37021d738ee3c56e7e3928c7c816797b"
+      "afterSha256": "29c7d3ecae5158fef6bf8f95b8c7ac6860b904b83b6a585eda28acb4f0a065f3"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -1367,6 +1367,13 @@
       "method": "replacement_backlog wave L3 (F10 2026-09-07 policy): 4 A1 headwords replaced in place with new examples/DE/EN, plus the cloze/satz distractor references that named the replaced words; entries computed with validate_promoted_batch projection/fingerprint helpers",
       "added": 27,
       "replaced": 0
+    },
+    {
+      "date": "2026-09-09",
+      "scope": "PR-L3a Batch 23 2차",
+      "method": "vocab_a1_0318 headword 값→가격 (test/cloze_test.dart: single-syllable answer is unfair) with the same example/DE/EN meaning; cloze_a1_0206/satz_a1_0170 follow the new headword; cloze_a1_0199 distractor 편지→주소 (cloze_content_guard_test: distractor exposed in the sentence remainder); entries re-fingerprinted with the validate_promoted_batch projection/normalization",
+      "added": 0,
+      "replaced": 4
     }
   ]
 }

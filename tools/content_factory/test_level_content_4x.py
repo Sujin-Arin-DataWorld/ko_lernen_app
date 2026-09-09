@@ -154,8 +154,9 @@ class Batch09ReviewDraftTest(unittest.TestCase):
         promoted_count, inventory = validate_promoted_batch(BATCH_09_MANIFEST)
         self.assertEqual(promoted_count, 1764)
         # Batch 12 이후 Batch 20까지 추가된 live 어휘 2420 + PR-L3a Batch 23
-        # (a1_particles_in_use_1 보충 8행, 2026-09-08)을 함께 센다.
-        self.assertEqual(inventory["vocab"], 2428)
+        # (a1_particles_in_use_1 보충 8행, 2026-09-08) + Batch 23 2차
+        # (a1_first_class_1 신규 9행, 2026-09-09)를 함께 센다.
+        self.assertEqual(inventory["vocab"], 2437)
         self.assertEqual(len(manifest["vocabPacks"]), 48)
 
     def test_review_ledgers_are_original_drafts(self) -> None:

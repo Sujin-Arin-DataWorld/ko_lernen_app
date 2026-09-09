@@ -1369,6 +1369,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             const SizedBox(height: 18),
+            _SectionEyebrow(t.settingsDataSourcesSectionOpen),
             const _DataSourceCard(
               name: '우리말샘 (National Institute of Korean Language)',
               role: 'Korean definitions, English translations, vocabulary',
@@ -1398,6 +1399,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
               url: 'https://www.deepl.com',
               attribution: 'DeepL SE',
             ),
+            const SizedBox(height: 6),
+            _SectionEyebrow(t.settingsDataSourcesSectionKogl),
             // 공공누리 제1유형(출처표시) 자료 — 레벨 정본화 프로그램(T3.0).
             // 출처·해시·라이선스 실측: docs/data/level_bible/SOURCES.md.
             const _DataSourceCard(
@@ -1441,88 +1444,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
               attribution: '세종학당재단 (King Sejong Institute Foundation)',
             ),
             const SizedBox(height: 18),
-            Container(
-              padding: const EdgeInsets.all(14),
-              decoration: BoxDecoration(
-                color: SoriColors.warning.withValues(alpha: 0.10),
-                borderRadius: SoriRadius.brSm,
-                border: Border.all(
-                  color: SoriColors.warning.withValues(alpha: 0.30),
-                ),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.info_outline,
-                        size: 18,
-                        color: SoriColors.warning,
-                      ),
-                      const SizedBox(width: 8),
-                      Expanded(
-                        child: Text(
-                          t.settingsDataLicenseNote,
-                          style: SoriTextTheme.of(ctx).label,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    t.settingsDataLicenseBody,
-                    style: SoriTextTheme.of(ctx).caption.copyWith(
-                      height: 1.5,
-                      color: Theme.of(
-                        ctx,
-                      ).colorScheme.onSurface.withValues(alpha: 0.85),
-                    ),
-                  ),
-                ],
-              ),
+            _NoticeBox(
+              icon: Icons.info_outline,
+              color: SoriColors.warning,
+              title: t.settingsDataLicenseNote,
+              body: t.settingsDataLicenseBody,
             ),
             const SizedBox(height: 12),
-            Container(
-              padding: const EdgeInsets.all(14),
-              decoration: BoxDecoration(
-                color: SoriColors.primary.withValues(alpha: 0.08),
-                borderRadius: SoriRadius.brSm,
-                border: Border.all(
-                  color: SoriColors.primary.withValues(alpha: 0.30),
-                ),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.public_outlined,
-                        size: 18,
-                        color: SoriColors.primary,
-                      ),
-                      const SizedBox(width: 8),
-                      Expanded(
-                        child: Text(
-                          t.settingsKoglNote,
-                          style: SoriTextTheme.of(ctx).label,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    t.settingsKoglBody,
-                    style: SoriTextTheme.of(ctx).caption.copyWith(
-                      height: 1.5,
-                      color: Theme.of(
-                        ctx,
-                      ).colorScheme.onSurface.withValues(alpha: 0.85),
-                    ),
-                  ),
-                ],
-              ),
+            _NoticeBox(
+              icon: Icons.public_outlined,
+              color: SoriColors.primary,
+              title: t.settingsKoglNote,
+              body: t.settingsKoglBody,
             ),
             const SizedBox(height: 16),
             Center(
@@ -2557,6 +2490,79 @@ class _SoundVolumeSlider extends StatelessWidget {
           onChanged: onChanged,
           onChangeEnd: (_) => onChangeEnd?.call(),
         ),
+      ),
+    );
+  }
+}
+
+/// 데이터 출처 시트의 구간 표제(eyebrow) — 공개 데이터/공공누리 그룹 구분.
+class _SectionEyebrow extends StatelessWidget {
+  final String label;
+
+  const _SectionEyebrow(this.label);
+
+  @override
+  Widget build(BuildContext context) {
+    final onSurface = Theme.of(context).colorScheme.onSurface;
+    return Padding(
+      padding: const EdgeInsets.only(top: 2, bottom: 10),
+      child: Text(
+        label,
+        style: SoriTextTheme.of(context).eyebrow.copyWith(
+          color: onSurface.withValues(alpha: 0.62),
+          letterSpacing: 0.6,
+        ),
+      ),
+    );
+  }
+}
+
+/// 데이터 출처 시트의 고지 상자(CC BY-SA 안내, 공공누리 안내) — 색·여백·
+/// 타이포를 한 곳에서 관리한다 (T3.0, 2026-09-09).
+class _NoticeBox extends StatelessWidget {
+  final IconData icon;
+  final Color color;
+  final String title;
+  final String body;
+
+  const _NoticeBox({
+    required this.icon,
+    required this.color,
+    required this.title,
+    required this.body,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final onSurface = Theme.of(context).colorScheme.onSurface;
+    return Container(
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: 0.10),
+        borderRadius: SoriRadius.brSm,
+        border: Border.all(color: color.withValues(alpha: 0.30)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(icon, size: 18, color: color),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(title, style: SoriTextTheme.of(context).label),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Text(
+            body,
+            style: SoriTextTheme.of(context).caption.copyWith(
+              height: 1.5,
+              color: onSurface.withValues(alpha: 0.85),
+            ),
+          ),
+        ],
       ),
     );
   }

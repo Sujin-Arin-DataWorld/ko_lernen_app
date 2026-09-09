@@ -3,13 +3,33 @@
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 import unittest
 
 from audit_game_loader_coverage import LoaderCoverageAudit, ROOT
+import scenario_store
 
 
 BATCH_06 = Path("tools/content_factory/drafts/batch_06_manifest.json")
+
+# The live inventory is pinned to tools/content_factory/content_audit_manifest.json
+# (the same denominator test/content_id_contract_test.dart enforces) instead of
+# the Batch 20 snapshot literals, which went stale when the scenario corpus
+# grew from 126 to its current size (T2.9a, 2026-09-09).
+_MANIFEST = json.loads(
+    (ROOT / "tools/content_factory/content_audit_manifest.json").read_text(encoding="utf-8")
+)
+COUNTS = {item["kind"]: int(item["count"]) for item in _MANIFEST["sources"]}
+LEVELS = ("a1", "a2", "b1", "b2", "c1", "c2")
+
+
+def _scenario_counts_per_level() -> dict[str, int]:
+    scenarios = scenario_store.load_scenarios(ROOT / "assets" / "data")
+    return {
+        level: sum(1 for item in scenarios if str(item.get("level", "")).lower() == level)
+        for level in LEVELS
+    }
 
 
 class LoaderCoverageAuditTest(unittest.TestCase):
@@ -17,15 +37,17 @@ class LoaderCoverageAuditTest(unittest.TestCase):
         report = LoaderCoverageAudit(ROOT).build()
 
         self.assertEqual(report["state"], "live")
-        self.assertEqual(report["inventory"]["scenario"]["total"], 126)
+        self.assertEqual(report["inventory"]["scenario"]["total"], COUNTS["scenario"])
         self.assertEqual(
             report["inventory"]["scenario"]["exactPerLevel"],
-            {level: 21 for level in ("a1", "a2", "b1", "b2", "c1", "c2")},
+            _scenario_counts_per_level(),
         )
-        self.assertEqual(report["inventory"]["pronunciation"]["total"], 84)
+        self.assertEqual(
+            report["inventory"]["pronunciation"]["total"], COUNTS["pronunciation"]
+        )
         self.assertEqual(
             report["libraryLoader"]["pronunciationVisiblePerLearnerLevel"]["c2"],
-            84,
+            COUNTS["pronunciation"],
         )
         self.assertEqual(
             report["libraryLoader"]["listeningInitial"]["c2"]["effectiveSourceLevel"],
@@ -71,15 +93,20 @@ class LoaderCoverageAuditTest(unittest.TestCase):
 
         self.assertEqual(report["state"], "preview")
         self.assertEqual(report["inventory"], live["inventory"])
-        self.assertEqual(report["inventory"]["scenario"]["total"], 126)
-        self.assertEqual(report["inventory"]["smalltalk"]["total"], 582)
-        self.assertEqual(report["inventory"]["cloze"]["total"], 1805)
-        self.assertEqual(report["inventory"]["satz"]["total"], 2333)
-        self.assertEqual(report["inventory"]["pronunciation"]["total"], 84)
-        self.assertEqual(report["inventory"]["scenario"]["exactPerLevel"]["c1"], 21)
+        self.assertEqual(report["inventory"]["scenario"]["total"], COUNTS["scenario"])
+        self.assertEqual(report["inventory"]["smalltalk"]["total"], COUNTS["smalltalk"])
+        self.assertEqual(report["inventory"]["cloze"]["total"], COUNTS["cloze"])
+        self.assertEqual(report["inventory"]["satz"]["total"], COUNTS["satz"])
+        self.assertEqual(
+            report["inventory"]["pronunciation"]["total"], COUNTS["pronunciation"]
+        )
+        self.assertEqual(
+            report["inventory"]["scenario"]["exactPerLevel"],
+            _scenario_counts_per_level(),
+        )
         self.assertEqual(
             report["libraryLoader"]["pronunciationVisiblePerLearnerLevel"]["c2"],
-            84,
+            COUNTS["pronunciation"],
         )
         self.assertEqual(
             report["libraryLoader"]["listeningInitial"]["c2"]["effectiveSourceLevel"],

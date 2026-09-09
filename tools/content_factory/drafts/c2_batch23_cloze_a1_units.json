@@ -1,0 +1,324 @@
+{
+  "items": [
+    {
+      "id": "cloze_a1_0359",
+      "level": "a1",
+      "topic": "Körper",
+      "fullKo": "코가 아파요.",
+      "answer": "아파요",
+      "sentenceKo": "코가 ＿＿＿.",
+      "de": "Meine Nase tut weh.",
+      "en": "My nose hurts.",
+      "distractors": [
+        "먹어요",
+        "읽어요",
+        "자요"
+      ],
+      "courseUnitId": "a1_10_health_safety"
+    },
+    {
+      "id": "cloze_a1_0360",
+      "level": "a1",
+      "topic": "Körper",
+      "fullKo": "입을 열어요.",
+      "answer": "열어요",
+      "sentenceKo": "입을 ＿＿＿.",
+      "de": "Öffne den Mund.",
+      "en": "Open your mouth.",
+      "distractors": [
+        "먹어요",
+        "읽어요",
+        "사요"
+      ],
+      "courseUnitId": "a1_10_health_safety"
+    },
+    {
+      "id": "cloze_a1_0361",
+      "level": "a1",
+      "topic": "Körper",
+      "fullKo": "손을 씻어요.",
+      "answer": "씻어요",
+      "sentenceKo": "손을 ＿＿＿.",
+      "de": "Ich wasche meine Hände.",
+      "en": "I wash my hands.",
+      "distractors": [
+        "읽어요",
+        "마셔요",
+        "자요"
+      ],
+      "courseUnitId": "a1_10_health_safety"
+    },
+    {
+      "id": "cloze_a1_0362",
+      "level": "a1",
+      "topic": "Körper",
+      "fullKo": "발이 아파요.",
+      "answer": "아파요",
+      "sentenceKo": "발이 ＿＿＿.",
+      "de": "Mein Fuß tut weh.",
+      "en": "My foot hurts.",
+      "distractors": [
+        "읽어요",
+        "먹어요",
+        "와요"
+      ],
+      "courseUnitId": "a1_10_health_safety"
+    },
+    {
+      "id": "cloze_a1_0363",
+      "level": "a1",
+      "topic": "Körper",
+      "fullKo": "몸이 좀 안 좋아요.",
+      "answer": "좋아요",
+      "sentenceKo": "몸이 좀 안 ＿＿＿.",
+      "de": "Ich fühle mich nicht so wohl.",
+      "en": "I'm not feeling so well.",
+      "distractors": [
+        "먹어요",
+        "읽어요",
+        "가요"
+      ],
+      "courseUnitId": "a1_10_health_safety"
+    },
+    {
+      "id": "cloze_a1_0364",
+      "level": "a1",
+      "topic": "Körper",
+      "fullKo": "아, 진짜 배고파요.",
+      "answer": "배고파요",
+      "sentenceKo": "아, 진짜 ＿＿＿.",
+      "de": "Ah, ich habe echt Hunger.",
+      "en": "Ah, I'm really hungry.",
+      "distractors": [
+        "읽어요",
+        "입어요",
+        "사요"
+      ],
+      "courseUnitId": "a1_10_health_safety"
+    },
+    {
+      "id": "cloze_a1_0365",
+      "level": "a1",
+      "topic": "첫 수업",
+      "fullKo": "한국어 수업은 월요일에 있어요.",
+      "answer": "수업",
+      "sentenceKo": "한국어 ＿＿＿은 월요일에 있어요.",
+      "de": "Der Koreanischunterricht ist am Montag.",
+      "en": "Korean class is on Monday.",
+      "distractors": [
+        "책상",
+        "연필",
+        "집"
+      ],
+      "courseUnitId": "a1_15_first_class_work"
+    },
+    {
+      "id": "cloze_a1_0366",
+      "level": "a1",
+      "topic": "첫 수업",
+      "fullKo": "한국어 수업은 처음이에요.",
+      "answer": "처음",
+      "sentenceKo": "한국어 수업은 ＿＿＿이에요.",
+      "de": "Koreanischunterricht habe ich zum ersten Mal.",
+      "en": "It's my first time taking a Korean class.",
+      "distractors": [
+        "책상",
+        "연필",
+        "지하철"
+      ],
+      "courseUnitId": "a1_15_first_class_work"
+    },
+    {
+      "id": "cloze_a1_0367",
+      "level": "a1",
+      "topic": "첫 수업",
+      "fullKo": "전화번호를 알려 주세요.",
+      "answer": "전화번호",
+      "sentenceKo": "＿＿＿를 알려 주세요.",
+      "de": "Sagen Sie mir bitte Ihre Telefonnummer.",
+      "en": "Please tell me your phone number.",
+      "distractors": [
+        "의자",
+        "사과",
+        "커피"
+      ],
+      "courseUnitId": "a1_15_first_class_work"
+    },
+    {
+      "id": "cloze_a1_0368",
+      "level": "a1",
+      "topic": "첫 수업",
+      "fullKo": "무슨 대학에 다녀요?",
+      "answer": "대학",
+      "sentenceKo": "무슨 ＿＿＿에 다녀요?",
+      "de": "An welcher Universität studieren Sie?",
+      "en": "Which university do you go to?",
+      "distractors": [
+        "사과",
+        "커피",
+        "주말"
+      ],
+      "courseUnitId": "a1_15_first_class_work"
+    },
+    {
+      "id": "cloze_a1_0369",
+      "level": "a1",
+      "topic": "첫 수업",
+      "fullKo": "책상 위에 책이 있어요.",
+      "answer": "책상",
+      "sentenceKo": "＿＿＿ 위에 책이 있어요.",
+      "de": "Auf dem Schreibtisch liegt ein Buch.",
+      "en": "There is a book on the desk.",
+      "distractors": [
+        "주말",
+        "월요일",
+        "어제"
+      ],
+      "courseUnitId": "a1_15_first_class_work"
+    },
+    {
+      "id": "cloze_a1_0370",
+      "level": "a1",
+      "topic": "첫 수업",
+      "fullKo": "연필로 이름을 써요.",
+      "answer": "연필",
+      "sentenceKo": "＿＿＿로 이름을 써요.",
+      "de": "Ich schreibe meinen Namen mit Bleistift.",
+      "en": "I write my name with a pencil.",
+      "distractors": [
+        "사과",
+        "지하철",
+        "커피"
+      ],
+      "courseUnitId": "a1_15_first_class_work"
+    },
+    {
+      "id": "cloze_a1_0371",
+      "level": "a1",
+      "topic": "첫 수업",
+      "fullKo": "저는 매일 한국어 공부를 해요.",
+      "answer": "공부",
+      "sentenceKo": "저는 매일 한국어 ＿＿＿를 해요.",
+      "de": "Ich lerne jeden Tag Koreanisch.",
+      "en": "I study Korean every day.",
+      "distractors": [
+        "사과",
+        "의자",
+        "커피"
+      ],
+      "courseUnitId": "a1_15_first_class_work"
+    },
+    {
+      "id": "cloze_a1_0372",
+      "level": "a1",
+      "topic": "첫 수업",
+      "fullKo": "매일 발음 연습을 해요.",
+      "answer": "연습",
+      "sentenceKo": "매일 발음 ＿＿＿을 해요.",
+      "de": "Ich übe jeden Tag die Aussprache.",
+      "en": "I practice pronunciation every day.",
+      "distractors": [
+        "책상",
+        "월요일",
+        "집"
+      ],
+      "courseUnitId": "a1_15_first_class_work"
+    },
+    {
+      "id": "cloze_a1_0373",
+      "level": "a1",
+      "topic": "첫 수업",
+      "fullKo": "수업은 아홉 시에 시작해요.",
+      "answer": "시작해요",
+      "sentenceKo": "수업은 아홉 시에 ＿＿＿.",
+      "de": "Der Unterricht beginnt um neun Uhr.",
+      "en": "Class starts at nine o'clock.",
+      "distractors": [
+        "먹어요",
+        "읽어요",
+        "자요"
+      ],
+      "courseUnitId": "a1_15_first_class_work"
+    },
+    {
+      "id": "cloze_a1_0374",
+      "level": "a1",
+      "topic": "첫 수업",
+      "fullKo": "제 전공은 음악이에요.",
+      "answer": "전공",
+      "sentenceKo": "제 ＿＿＿은 음악이에요.",
+      "de": "Mein Studienfach ist Musik.",
+      "en": "My major is music.",
+      "distractors": [
+        "이름",
+        "고향",
+        "주말"
+      ],
+      "courseUnitId": "a1_15_first_class_work"
+    },
+    {
+      "id": "cloze_a1_0375",
+      "level": "a1",
+      "topic": "첫 수업",
+      "fullKo": "한국 친구를 많이 사귀었어요.",
+      "answer": "사귀었어요",
+      "sentenceKo": "한국 친구를 많이 ＿＿＿.",
+      "de": "Ich habe viele koreanische Freunde gefunden.",
+      "en": "I made many Korean friends.",
+      "distractors": [
+        "먹었어요",
+        "읽었어요",
+        "샀어요"
+      ],
+      "courseUnitId": "a1_15_first_class_work"
+    },
+    {
+      "id": "cloze_a1_0376",
+      "level": "a1",
+      "topic": "첫 수업",
+      "fullKo": "내년에 대학교를 졸업해요.",
+      "answer": "졸업해요",
+      "sentenceKo": "내년에 대학교를 ＿＿＿.",
+      "de": "Nächstes Jahr mache ich meinen Uni-Abschluss.",
+      "en": "I graduate from university next year.",
+      "distractors": [
+        "먹어요",
+        "마셔요",
+        "입어요"
+      ],
+      "courseUnitId": "a1_15_first_class_work"
+    },
+    {
+      "id": "cloze_a1_0377",
+      "level": "a1",
+      "topic": "Körper",
+      "fullKo": "귀가 좀 아파요.",
+      "answer": "아파요",
+      "sentenceKo": "귀가 좀 ＿＿＿.",
+      "de": "Mein Ohr tut ein bisschen weh.",
+      "en": "My ear hurts a bit.",
+      "distractors": [
+        "마셔요",
+        "읽어요",
+        "사요"
+      ],
+      "courseUnitId": "a1_10_health_safety"
+    },
+    {
+      "id": "cloze_a1_0378",
+      "level": "a1",
+      "topic": "Körper",
+      "fullKo": "오늘 눈이 좀 피곤하네요.",
+      "answer": "피곤하네요",
+      "sentenceKo": "오늘 눈이 좀 ＿＿＿.",
+      "de": "Meine Augen sind heute etwas müde.",
+      "en": "My eyes are a bit tired today.",
+      "distractors": [
+        "먹어요",
+        "읽어요",
+        "가요"
+      ],
+      "courseUnitId": "a1_10_health_safety"
+    }
+  ]
+}

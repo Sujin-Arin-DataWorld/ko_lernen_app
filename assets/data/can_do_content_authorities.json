@@ -10188,6 +10188,10 @@
     {
       "id": "seed_grammar_grammar_a1_formal_command_v1",
       "level": "a1"
+    },
+    {
+      "id": "seed_vocab_pack_a1_first_class_1_v1",
+      "level": "a1"
     }
   ],
   "contentReferences": [
@@ -29699,11 +29703,18 @@
       "level": "c2",
       "sourceSeedId": "seed_vocab_pack_c2_withdrawal_right_1_v1",
       "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "a1_first_class_1",
+      "level": "a1",
+      "sourceSeedId": "seed_vocab_pack_a1_first_class_1_v1",
+      "courseUnitId": "a1_15_first_class_work"
     }
   ],
   "coverage": {
     "directReferenceCounts": {
-      "vocabPack": 223,
+      "vocabPack": 224,
       "grammar": 252,
       "smalltalk": 582,
       "scenario": 419,
@@ -29712,8 +29723,8 @@
       "project": 8
     },
     "inheritedReferenceCounts": {
-      "cloze": 1026,
-      "satz": 1825
+      "cloze": 1046,
+      "satz": 1838
     },
     "inheritedContentReferences": [
       {
@@ -31658,7 +31669,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_post_office_1",
         "sourceVocabId": "vocab_a1_0318",
-        "sourceVocabFingerprintSha256": "0299b024aa3cfb3f9c7bd1044cfdc0417b2acc197d19cc2f309bee336431a0b7",
+        "sourceVocabFingerprintSha256": "51ca2d17077289cd5491ab0ad642cc634aa114a4b893249a972dcf08591616ff",
         "level": "a1",
         "canDoSegmentId": "segment_a1_07_contact_address",
         "courseUnitId": "a1_07_contact_address"
@@ -34595,7 +34606,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_post_office_1",
         "sourceVocabId": "vocab_a1_0318",
-        "sourceVocabFingerprintSha256": "0299b024aa3cfb3f9c7bd1044cfdc0417b2acc197d19cc2f309bee336431a0b7",
+        "sourceVocabFingerprintSha256": "51ca2d17077289cd5491ab0ad642cc634aa114a4b893249a972dcf08591616ff",
         "level": "a1",
         "canDoSegmentId": "segment_a1_07_contact_address",
         "courseUnitId": "a1_07_contact_address"
@@ -51060,12 +51071,12 @@
         "kind": "satz",
         "id": "satz_b1_0425",
         "sourceKind": "vocabPack",
-        "sourceId": "b1_verbs_daily_1",
+        "sourceId": "a1_first_class_1",
         "sourceVocabId": "vocab_b1_0214",
-        "sourceVocabFingerprintSha256": "7f62d40a29555202b89caa74f888703d431c87e9a115b4754c8bbcc906841aa1",
-        "level": "b1",
-        "canDoSegmentId": "segment_b1_life_course_narrative",
-        "courseUnitId": "b1_06_life_capstone"
+        "sourceVocabFingerprintSha256": "05d8fba8611ad0cc668a2b36b5538b3f66aafe747b0ccdfaf8fb7c6202e4d775",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
       },
       {
         "kind": "satz",
@@ -51335,12 +51346,12 @@
         "kind": "satz",
         "id": "satz_b1_0450",
         "sourceKind": "vocabPack",
-        "sourceId": "b1_time_life_1",
+        "sourceId": "a1_first_class_1",
         "sourceVocabId": "vocab_b1_0242",
-        "sourceVocabFingerprintSha256": "76e603f5a440c2b42fecea425a9439da2f794c268ccefbd3cea359f373e0070b",
-        "level": "b1",
-        "canDoSegmentId": "segment_b1_life_course_narrative",
-        "courseUnitId": "b1_06_life_capstone"
+        "sourceVocabFingerprintSha256": "4777dee0de2ef35619bd6a7ed0f113a7b9f064a96ecefa5dd521e6776dea83c3",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
       },
       {
         "kind": "satz",
@@ -59244,12 +59255,12 @@
         "kind": "satz",
         "id": "satz_b2_0383",
         "sourceKind": "vocabPack",
-        "sourceId": "b2_education",
+        "sourceId": "a1_first_class_1",
         "sourceVocabId": "vocab_b2_0060",
-        "sourceVocabFingerprintSha256": "3ecfad118a690cbfe3b1345cb53f0944ace2514b5db394fb820372d67bebea00",
-        "level": "b2",
-        "canDoSegmentId": "segment_b2_decision_criteria",
-        "courseUnitId": "b2_02_professional_opinion"
+        "sourceVocabFingerprintSha256": "45f97cdd33f724b96e83830cf4804e4e422dcbcd65ff7f82b0acaabf928b245b",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
       },
       {
         "kind": "satz",
@@ -61076,6 +61087,369 @@
         "level": "b2",
         "canDoSegmentId": "segment_b2_decision_criteria",
         "courseUnitId": "b2_02_professional_opinion"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0359",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_body",
+        "sourceVocabId": "vocab_a1_0046",
+        "sourceVocabFingerprintSha256": "e1b3431ed14cbe90267b39b49bee4637eb0ab6f40e536d50552532ebd9dd824b",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_10_health_safety",
+        "courseUnitId": "a1_10_health_safety"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0360",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_body",
+        "sourceVocabId": "vocab_a1_0047",
+        "sourceVocabFingerprintSha256": "5598a5e8cb5078e4cb5872702809a88cf3f21b436bb73eaf5931f8bed6ebb4e2",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_10_health_safety",
+        "courseUnitId": "a1_10_health_safety"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0361",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_body",
+        "sourceVocabId": "vocab_a1_0049",
+        "sourceVocabFingerprintSha256": "614fcc70747ab12b5e17d11ac747240c1b5e8c360543fd5f8809459329b89f17",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_10_health_safety",
+        "courseUnitId": "a1_10_health_safety"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0362",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_body",
+        "sourceVocabId": "vocab_a1_0050",
+        "sourceVocabFingerprintSha256": "46543fdb078a9b2c3a4fc6388d21523b700a3b22cb25eb61cff729892ec25e15",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_10_health_safety",
+        "courseUnitId": "a1_10_health_safety"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0363",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_body",
+        "sourceVocabId": "vocab_a1_0052",
+        "sourceVocabFingerprintSha256": "e22b26bcd04d0dc08825e3df404e8a669f89fad176718329e35a3c0e1e9f5001",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_10_health_safety",
+        "courseUnitId": "a1_10_health_safety"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0364",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_body",
+        "sourceVocabId": "vocab_a1_0127",
+        "sourceVocabFingerprintSha256": "843f8176faddc8d3a05599109673135578f790941ec4900d8ea3af2f42ef0cb6",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_10_health_safety",
+        "courseUnitId": "a1_10_health_safety"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0347",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_body",
+        "sourceVocabId": "vocab_a1_0044",
+        "sourceVocabFingerprintSha256": "d41379e358c327e9d1c85f02053fce14d4a4365207dc4349cb8559ea8dc35dc4",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_10_health_safety",
+        "courseUnitId": "a1_10_health_safety"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0348",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_body",
+        "sourceVocabId": "vocab_a1_0046",
+        "sourceVocabFingerprintSha256": "e1b3431ed14cbe90267b39b49bee4637eb0ab6f40e536d50552532ebd9dd824b",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_10_health_safety",
+        "courseUnitId": "a1_10_health_safety"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0349",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_body",
+        "sourceVocabId": "vocab_a1_0049",
+        "sourceVocabFingerprintSha256": "614fcc70747ab12b5e17d11ac747240c1b5e8c360543fd5f8809459329b89f17",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_10_health_safety",
+        "courseUnitId": "a1_10_health_safety"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0350",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_body",
+        "sourceVocabId": "vocab_a1_0050",
+        "sourceVocabFingerprintSha256": "46543fdb078a9b2c3a4fc6388d21523b700a3b22cb25eb61cff729892ec25e15",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_10_health_safety",
+        "courseUnitId": "a1_10_health_safety"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0365",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_first_class_1",
+        "sourceVocabId": "vocab_a1_0436",
+        "sourceVocabFingerprintSha256": "52d3e312b57673ada8083219cccb20a47e46f3d171179bac31dd435c9de65163",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0366",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_first_class_1",
+        "sourceVocabId": "vocab_a1_0437",
+        "sourceVocabFingerprintSha256": "5f60a145086d3c55c09e5ccb38d1f7d597b5c2e3fc1fb1020db52589b60f43ff",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0367",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_first_class_1",
+        "sourceVocabId": "vocab_a1_0438",
+        "sourceVocabFingerprintSha256": "3b8779a5db4beb1de2c7f2d00cdfe480fef352f74842b3e9a00be2eb75d02e41",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0368",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_first_class_1",
+        "sourceVocabId": "vocab_a1_0439",
+        "sourceVocabFingerprintSha256": "4d1a41045cd67dc9ed65d4a36638173ba8bb209fde280e089bcda2e7d58111c8",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0369",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_first_class_1",
+        "sourceVocabId": "vocab_a1_0440",
+        "sourceVocabFingerprintSha256": "b7fcdb20ec14b34c71137d01a26d7f818ad2fb5992594c3a812a394157f27bbc",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0370",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_first_class_1",
+        "sourceVocabId": "vocab_a1_0441",
+        "sourceVocabFingerprintSha256": "7e255eb65db7c8e94dc22a1ee48bbf149475bc8a93396b6b85add897a847bf35",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0371",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_first_class_1",
+        "sourceVocabId": "vocab_a1_0442",
+        "sourceVocabFingerprintSha256": "d4fe3b185639f6f9b023ad388ce0f27cb315457b940e1d21724bd11ec52f97fc",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0372",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_first_class_1",
+        "sourceVocabId": "vocab_a1_0443",
+        "sourceVocabFingerprintSha256": "f624b6aa7d4d4aa2ad8162fea7e165414c306b08c64595d580c18459497a0916",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0373",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_first_class_1",
+        "sourceVocabId": "vocab_a1_0444",
+        "sourceVocabFingerprintSha256": "f0eb8279f4ff8023c1fb1f25ebb1807f420f7f4178f031e7188782dab734f381",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0374",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_first_class_1",
+        "sourceVocabId": "vocab_b2_0060",
+        "sourceVocabFingerprintSha256": "45f97cdd33f724b96e83830cf4804e4e422dcbcd65ff7f82b0acaabf928b245b",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0375",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_first_class_1",
+        "sourceVocabId": "vocab_b1_0214",
+        "sourceVocabFingerprintSha256": "05d8fba8611ad0cc668a2b36b5538b3f66aafe747b0ccdfaf8fb7c6202e4d775",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0376",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_first_class_1",
+        "sourceVocabId": "vocab_b1_0242",
+        "sourceVocabFingerprintSha256": "4777dee0de2ef35619bd6a7ed0f113a7b9f064a96ecefa5dd521e6776dea83c3",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0351",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_first_class_1",
+        "sourceVocabId": "vocab_a1_0436",
+        "sourceVocabFingerprintSha256": "52d3e312b57673ada8083219cccb20a47e46f3d171179bac31dd435c9de65163",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0352",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_first_class_1",
+        "sourceVocabId": "vocab_a1_0437",
+        "sourceVocabFingerprintSha256": "5f60a145086d3c55c09e5ccb38d1f7d597b5c2e3fc1fb1020db52589b60f43ff",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0353",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_first_class_1",
+        "sourceVocabId": "vocab_a1_0438",
+        "sourceVocabFingerprintSha256": "3b8779a5db4beb1de2c7f2d00cdfe480fef352f74842b3e9a00be2eb75d02e41",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0354",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_first_class_1",
+        "sourceVocabId": "vocab_a1_0439",
+        "sourceVocabFingerprintSha256": "4d1a41045cd67dc9ed65d4a36638173ba8bb209fde280e089bcda2e7d58111c8",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0355",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_first_class_1",
+        "sourceVocabId": "vocab_a1_0440",
+        "sourceVocabFingerprintSha256": "b7fcdb20ec14b34c71137d01a26d7f818ad2fb5992594c3a812a394157f27bbc",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0356",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_first_class_1",
+        "sourceVocabId": "vocab_a1_0441",
+        "sourceVocabFingerprintSha256": "7e255eb65db7c8e94dc22a1ee48bbf149475bc8a93396b6b85add897a847bf35",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0357",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_first_class_1",
+        "sourceVocabId": "vocab_a1_0442",
+        "sourceVocabFingerprintSha256": "d4fe3b185639f6f9b023ad388ce0f27cb315457b940e1d21724bd11ec52f97fc",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0358",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_first_class_1",
+        "sourceVocabId": "vocab_a1_0443",
+        "sourceVocabFingerprintSha256": "f624b6aa7d4d4aa2ad8162fea7e165414c306b08c64595d580c18459497a0916",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0359",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_first_class_1",
+        "sourceVocabId": "vocab_a1_0444",
+        "sourceVocabFingerprintSha256": "f0eb8279f4ff8023c1fb1f25ebb1807f420f7f4178f031e7188782dab734f381",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_15_first_class_work",
+        "courseUnitId": "a1_15_first_class_work"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0377",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_body",
+        "sourceVocabId": "vocab_a1_0048",
+        "sourceVocabFingerprintSha256": "f00a4d6c9719cf24a443c947473bc5de818aae30737d36d12061c2893956f473",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_10_health_safety",
+        "courseUnitId": "a1_10_health_safety"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0378",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_body",
+        "sourceVocabId": "vocab_a1_0045",
+        "sourceVocabFingerprintSha256": "dde2aba35c827275dffa66bdfb3e0d60e05e0af32a2cea1f45a655627a95c5f4",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_10_health_safety",
+        "courseUnitId": "a1_10_health_safety"
       }
     ],
     "inheritanceRules": [

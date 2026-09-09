@@ -887,6 +887,12 @@ class AppL10nEn extends AppL10n {
       'The A1 to C2 grading of the learning content relies on the vocabulary and grammar lists of the National Institute of Korean Language (2017 and 2023) and on textbooks and word lists from the King Sejong Institute Foundation. These works are provided under the Korea Open Government License Type 1 (attribution). The learning sentences in this app are original writing; where original text is reused, the source is noted with that content.';
 
   @override
+  String get settingsDataSourcesSectionOpen => 'Open data & licences';
+
+  @override
+  String get settingsDataSourcesSectionKogl => 'Public data (KOGL Type 1)';
+
+  @override
   String get statsHeader => 'Your progress';
 
   @override

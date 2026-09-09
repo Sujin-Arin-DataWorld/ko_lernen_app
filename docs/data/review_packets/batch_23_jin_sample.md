@@ -11,7 +11,7 @@
 |  | 교체(동일 ID, 새 문안) | `vocab_a1_0395` | 양해 → 잘못 | `a1_sorry_thanks_1` | 죄송해요, 제 잘못이에요. | Entschuldigung, das war mein Fehler. | Sorry, that was my mistake. |  |
 | **표본** | 교체(동일 ID, 새 문안) | `vocab_a1_0310` | 등기 → 편지 | `a1_post_office_1` | 이 편지를 독일로 보내 주세요. | Bitte schicken Sie diesen Brief nach Deutschland. | Please send this letter to Germany. |  |
 |  | 교체(동일 ID, 새 문안) | `vocab_a1_0317` | 도착 문자 → 며칠 | `a1_post_office_1` | 독일까지 며칠 걸려요? | Wie viele Tage dauert es bis Deutschland? | How many days does it take to Germany? |  |
-|  | 교체(동일 ID, 새 문안) | `vocab_a1_0318` | 포장지 → 값 | `a1_post_office_1` | 우표 값이 얼마예요? | Was kostet die Briefmarke? | How much is the stamp? |  |
+|  | 교체(동일 ID, 새 문안) | `vocab_a1_0318` | 포장지 → 가격 | `a1_post_office_1` | 우표 가격이 얼마예요? | Was kostet die Briefmarke? | How much is the stamp? |  |
 | **표본** | 신규(새 문안) | `vocab_a1_0428` | 한국 | `a1_particles_in_use_1` | 한국은 지금 가을이에요. | In Korea ist jetzt Herbst. | It's autumn in Korea now. |  |
 |  | 신규(새 문안) | `vocab_a1_0429` | 독일 | `a1_particles_in_use_1` | 독일에서 한국까지 비행기로 열 시간 걸려요. | Von Deutschland nach Korea dauert es zehn Stunden mit dem Flugzeug. | From Germany to Korea it takes ten hours by plane. |  |
 |  | 신규(새 문안) | `vocab_a1_0430` | 사람 | `a1_particles_in_use_1` | 한국 사람이 정말 친절해요. | Die Menschen in Korea sind wirklich freundlich. | People in Korea are really friendly. |  |
@@ -34,3 +34,28 @@
 ## TTS
 
 - 새 발화 키 18건(표제어·예문)은 맥에서 `python3 tool/generate_tts.py --missing-from-storage --workers 8` 로 합성·업로드 후 `--verify-storage` missing 0 확인(이 컨테이너에는 GCP 자격 증명 없음).
+
+## 2차 (2026-09-09) — a1_10·a1_15 로더 커버리지 보강 + 결함 수정
+
+> 대상: 새 문안 14건(신규 팩 `a1_first_class_1` 예문 9 + 전공 예문 교체 1 + `a1_body` satz 새 문장 4). **표본** 2건(무작위, seed 24). 이동 2건(사귀다·졸업하다)은 문안 불변, 값→가격 교체(`vocab_a1_0318`)는 1차 표에 반영했다.
+
+| 표본 | 구분 | ID | 표제어/vocabKo | 팩 | KO | DE | EN | Jin 판정 |
+|---|---|---|---|---|---|---|---|---|
+|  | 신규(새 문안) | `vocab_a1_0436` | 수업 | `a1_first_class_1` | 한국어 수업은 월요일에 있어요. | Der Koreanischunterricht ist am Montag. | Korean class is on Monday. |  |
+|  | 신규(새 문안) | `vocab_a1_0437` | 처음 | `a1_first_class_1` | 한국어 수업은 처음이에요. | Koreanischunterricht habe ich zum ersten Mal. | It's my first time taking a Korean class. |  |
+|  | 신규(새 문안) | `vocab_a1_0438` | 전화번호 | `a1_first_class_1` | 전화번호를 알려 주세요. | Sagen Sie mir bitte Ihre Telefonnummer. | Please tell me your phone number. |  |
+|  | 신규(새 문안) | `vocab_a1_0439` | 대학 | `a1_first_class_1` | 무슨 대학에 다녀요? | An welcher Universität studieren Sie? | Which university do you go to? |  |
+|  | 신규(새 문안) | `vocab_a1_0440` | 책상 | `a1_first_class_1` | 책상 위에 책이 있어요. | Auf dem Schreibtisch liegt ein Buch. | There is a book on the desk. |  |
+|  | 신규(새 문안) | `vocab_a1_0441` | 연필 | `a1_first_class_1` | 연필로 이름을 써요. | Ich schreibe meinen Namen mit Bleistift. | I write my name with a pencil. |  |
+| **표본** | 신규(새 문안) | `vocab_a1_0442` | 공부 | `a1_first_class_1` | 저는 매일 한국어 공부를 해요. | Ich lerne jeden Tag Koreanisch. | I study Korean every day. |  |
+|  | 신규(새 문안) | `vocab_a1_0443` | 연습 | `a1_first_class_1` | 매일 발음 연습을 해요. | Ich übe jeden Tag die Aussprache. | I practice pronunciation every day. |  |
+|  | 신규(새 문안) | `vocab_a1_0444` | 시작하다 | `a1_first_class_1` | 수업은 아홉 시에 시작해요. | Der Unterricht beginnt um neun Uhr. | Class starts at nine o'clock. |  |
+|  | 하향 이동 B2→A1(예문 교체) | `vocab_b2_0060` | 전공 | `a1_first_class_1` | 제 전공은 음악이에요. | Mein Studienfach ist Musik. | My major is music. |  |
+|  | 신규 satz(새 문장) | `satz_a1_0347` | 머리 | `a1_body` | 어제부터 머리가 아파요. | Seit gestern habe ich Kopfschmerzen. | I've had a headache since yesterday. |  |
+| **표본** | 신규 satz(새 문장) | `satz_a1_0348` | 코 | `a1_body` | 코가 많이 아파요. | Meine Nase tut sehr weh. | My nose hurts a lot. |  |
+|  | 신규 satz(새 문장) | `satz_a1_0349` | 손 | `a1_body` | 먼저 손을 씻으세요. | Waschen Sie sich zuerst die Hände. | Please wash your hands first. |  |
+|  | 신규 satz(새 문장) | `satz_a1_0350` | 발 | `a1_body` | 많이 걸어서 발이 아파요. | Ich bin viel gelaufen, deshalb tun mir die Füße weh. | My feet hurt because I walked a lot. |  |
+
+- cloze 20건(`cloze_a1_0359`~`0378`)·satz 9건(`satz_a1_0351`~`0359`)은 위 예문 재사용(TTS 키 공유). 이동 satz 3건(`satz_b2_0383` 문안 교체, `satz_b1_0425`·`0450` 불변)은 레벨만 a1.
+- 1차 결함 수정: `vocab_a1_0318` 값→**가격**("우표 가격이 얼마예요?", cloze 1음절 정답 금지 규칙), `cloze_a1_0199`·`0352`·`0353` 배분어 교체(문장 잔여부 노출 금지 규칙). 전부 Flutter `cloze_test`/`cloze_content_guard_test` 통과.
+- TTS: main 대비 새 발화 키 34건 — 맥에서 `python3 tool/generate_tts.py --missing-from-storage --workers 8` → `--verify-storage` missing 0.

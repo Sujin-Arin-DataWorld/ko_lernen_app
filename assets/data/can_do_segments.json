@@ -1550,7 +1550,7 @@
     {
       "id": "cluster_a1_15_first_class_work_v1",
       "level": "a1",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_scenario_first_class_meeting_v1",
         "seed_smalltalk_smalltalk_a1_0011_v1",
@@ -1560,7 +1560,8 @@
         "seed_smalltalk_smalltalk_a1_0032_v1",
         "seed_smalltalk_smalltalk_a1_0033_v1",
         "seed_scenario_a1_friends_major_and_number_v1",
-        "seed_grammar_grammar_a2_ability_v1"
+        "seed_grammar_grammar_a2_ability_v1",
+        "seed_vocab_pack_a1_first_class_1_v1"
       ],
       "contentReferences": [
         {
@@ -1598,6 +1599,10 @@
         {
           "kind": "grammar",
           "id": "grammar_a2_ability"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_first_class_1"
         }
       ]
     },

@@ -11,10 +11,10 @@ void main() {
     () async {
       final vocab = await DataLoader.loadVocab();
 
-      expect(vocab, hasLength(2428));
+      expect(vocab, hasLength(2437));
       expect(
         vocab.map((entry) => entry.packId).where((id) => id.isNotEmpty).toSet(),
-        hasLength(223),
+        hasLength(224),
       );
 
       expect(

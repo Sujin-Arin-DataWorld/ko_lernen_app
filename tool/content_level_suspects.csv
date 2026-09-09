@@ -92,6 +92,7 @@ cloze,cloze_a1_0328,a1,a2,1,over1 lex_p90=1.9,can_do_ref,,step_up_or_swap
 cloze,cloze_a1_0329,a1,a2,1,over1 lex_p90=1.8,,a1_payment_delivery_1,step_up_or_swap
 cloze,cloze_a1_0333,a1,a2,1,over1 lex_p90=1.7,can_do_ref,,step_up_or_swap
 cloze,cloze_a1_0342,a1,a2,1,over1 lex_p90=1.9,can_do_ref,,step_up_or_swap
+cloze,cloze_a1_0378,a1,a2,1,over1 grammar=grammar_a2_exclamation:2,,a1_body,step_up_or_swap
 cloze,cloze_a2_0014,a2,b1,1,over1 lex_p90=2.8,can_do_ref,,step_up_or_swap
 cloze,cloze_a2_0015,a2,b1,1,over1 lex_p90=2.8,can_do_ref,,step_up_or_swap
 cloze,cloze_a2_0023,a2,b1,1,over1 lex_p90=2.8,can_do_ref,,step_up_or_swap
@@ -1100,7 +1101,6 @@ satz,satz_b1_0410,b1,a1,-2,under2 grammar=grammar_a1_topic_particle:1,,b1_commun
 satz,satz_b1_0417,b1,a1,-2,under2 grammar=grammar_a1_object_particle:1,,b1_character_feelings_1,downgrade_candidate
 satz,satz_b1_0423,b1,a1,-2,under2 grammar=grammar_a1_object_particle:1,,b1_verbs_daily_1,downgrade_candidate
 satz,satz_b1_0424,b1,a1,-2,under2 grammar=grammar_a1_object_particle:1,,b1_verbs_daily_1,downgrade_candidate
-satz,satz_b1_0425,b1,a1,-2,under2 grammar=grammar_a1_object_particle:1,,b1_verbs_daily_1,downgrade_candidate
 satz,satz_b1_0426,b1,a1,-2,under2 grammar=grammar_a1_action_location_particle:1,,b1_verbs_daily_1,downgrade_candidate
 satz,satz_b1_0427,b1,a1,-2,under2 grammar=grammar_a1_topic_particle:1,,b1_verbs_daily_1,downgrade_candidate
 satz,satz_b1_0428,b1,a1,-2,under2 grammar=grammar_a1_direction_means:1,,b1_verbs_daily_1,downgrade_candidate
@@ -1117,7 +1117,6 @@ satz,satz_b1_0446,b1,a1,-2,under2 grammar=grammar_a1_topic_particle:1,,b1_time_l
 satz,satz_b1_0447,b1,a1,-2,under2 grammar=grammar_a1_polite_present:1,,b1_time_life_1,downgrade_candidate
 satz,satz_b1_0448,b1,a1,-2,under2 grammar=grammar_a1_subject_particle:1,,b1_time_life_1,downgrade_candidate
 satz,satz_b1_0449,b1,a1,-2,under2 grammar=grammar_a1_topic_particle:1,,b1_time_life_1,downgrade_candidate
-satz,satz_b1_0450,b1,a1,-2,under2 grammar=grammar_a1_object_particle:1,,b1_time_life_1,downgrade_candidate
 satz,satz_b1_0452,b1,a1,-2,under2 grammar=grammar_a2_dative_person:1,,b1_time_life_1,downgrade_candidate
 satz,satz_b1_0455,b1,a1,-2,under2 grammar=grammar_a1_topic_particle:1,,b1_time_life_1,downgrade_candidate
 satz,satz_b1_0458,b1,a1,-2,under2 grammar=grammar_a1_subject_particle:1,,b1_descriptions_1,downgrade_candidate
@@ -1260,7 +1259,6 @@ satz,satz_b2_0372,b2,a2,-2,under2 lex_p90=2.0,,b2_work,downgrade_candidate
 satz,satz_b2_0374,b2,a2,-2,under2 lex_p90=1.8,,b2_society_1,downgrade_candidate
 satz,satz_b2_0378,b2,a2,-2,under2 lex_p90=2.0,,b2_society_2,downgrade_candidate
 satz,satz_b2_0380,b2,a2,-2,under2 lex_p90=2.0,,b2_misc,downgrade_candidate
-satz,satz_b2_0383,b2,a1,-3,under2 grammar=grammar_a1_which_question:1,,b2_education,downgrade_candidate
 satz,satz_b2_0386,b2,a2,-2,under2 lex_p90=2.0,,b2_thinking_2,downgrade_candidate
 satz,satz_b2_0390,b2,a2,-2,under2 lex_p90=1.9,,b2_thinking_2,downgrade_candidate
 satz,satz_b2_0392,b2,a2,-2,under2 lex_p90=1.9,,b2_modern_life_1,downgrade_candidate
@@ -2292,9 +2290,7 @@ vocab,vocab_b1_0197,b1,a1,-2,under2,satz_ref+can_do_ref,b1_communication_lang_1,
 vocab,vocab_b1_0198,b1,a1,-2,under2,satz_ref+can_do_ref,b1_communication_lang_1,downgrade_candidate
 vocab,vocab_b1_0199,b1,a1,-2,under2,satz_ref+can_do_ref,b1_communication_lang_1,downgrade_candidate
 vocab,vocab_b1_0204,b1,b2,1,over1,satz_ref+can_do_ref,b1_character_feelings_1,step_up_or_swap
-vocab,vocab_b1_0214,b1,a1,-2,under2,satz_ref+can_do_ref,b1_verbs_daily_1,downgrade_candidate
 vocab,vocab_b1_0236,b1,a1,-2,under2,satz_ref+can_do_ref,b1_time_life_1,downgrade_candidate
-vocab,vocab_b1_0242,b1,a1,-2,under2,satz_ref+can_do_ref,b1_time_life_1,downgrade_candidate
 vocab,vocab_b1_0248,b1,b2,1,over1,satz_ref+can_do_ref,b1_housing_contract_1,step_up_or_swap
 vocab,vocab_b1_0249,b1,b2,1,over1,satz_ref+can_do_ref,b1_housing_contract_1,step_up_or_swap
 vocab,vocab_b1_0250,b1,c2,3,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_housing_contract_1,review_fallback
@@ -2448,7 +2444,6 @@ vocab,vocab_b2_0050,b2,c1,1,over1 src=compound,satz_ref+can_do_ref,b2_society_2,
 vocab,vocab_b2_0051,b2,c2,2,over2,satz_ref+can_do_ref,b2_work,word_move
 vocab,vocab_b2_0056,b2,c1,1,over1,satz_ref+can_do_ref,b2_misc,step_up_or_swap
 vocab,vocab_b2_0057,b2,c2,2,over2,satz_ref+can_do_ref,b2_misc,word_move
-vocab,vocab_b2_0060,b2,a1,-3,under2,satz_ref+can_do_ref,b2_education,downgrade_candidate
 vocab,vocab_b2_0061,b2,c1,1,over1,satz_ref+can_do_ref,b2_education,step_up_or_swap
 vocab,vocab_b2_0062,b2,c1,1,over1,satz_ref+can_do_ref,b2_education,step_up_or_swap
 vocab,vocab_b2_0063,b2,a2,-2,under2,satz_ref+can_do_ref,b2_communication,downgrade_candidate

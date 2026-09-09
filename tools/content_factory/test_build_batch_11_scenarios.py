@@ -129,7 +129,15 @@ class SceneContractTest(unittest.TestCase):
             self.assertTrue(scene["grammarIds"], f"{scene['id']} needs a grammar id")
             for gid in scene["grammarIds"]:
                 self.assertIn(gid, live, f"{gid} missing from grammar.csv")
-                self.assertEqual(live[gid], scene["level"], f"{gid} level mismatch")
+                # PR-L2b (2026-09-07) re-graded grammar rows to the NIKL
+                # 국제통용 1·2급 lists (e.g. grammar_a2_ability → A1), so a
+                # scene may cite a grammar at or below its own level, never
+                # above it.
+                self.assertLessEqual(
+                    builder.LEVEL_ORDER.index(live[gid]),
+                    builder.LEVEL_ORDER.index(scene["level"]),
+                    f"{gid} level {live[gid]} above scene level {scene['level']}",
+                )
                 self.assertIn(gid, builder.LEVEL_GRAMMAR_ALLOWLIST[scene["level"]],
                               f"{gid} outside {scene['level']} allowlist")
 

@@ -79,6 +79,7 @@ final class ClozeTopicGroups {
     'U-Bahnkarte': ClozeTopicGroupId.travelServices,
     'Verkehr': ClozeTopicGroupId.travelServices,
     'Versicherungsfall': ClozeTopicGroupId.travelServices,
+    '첫 수업': ClozeTopicGroupId.workEducation,
     '취업과 근무 조건': ClozeTopicGroupId.workEducation,
     'Arbeitskoordination & Termine': ClozeTopicGroupId.workEducation,
     'Beruf': ClozeTopicGroupId.workEducation,

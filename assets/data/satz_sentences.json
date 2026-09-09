@@ -1,11 +1,11 @@
 {
   "meta": {
-    "total": 2341,
+    "total": 2354,
     "perLevel": {
-      "a1": 224,
+      "a1": 240,
       "a2": 427,
-      "b1": 622,
-      "b2": 564,
+      "b1": 620,
+      "b2": 563,
       "c1": 252,
       "c2": 252
     },
@@ -10760,14 +10760,14 @@
     {
       "id": "satz_a1_0170",
       "level": "a1",
-      "targetKo": "우표 값이 얼마예요?",
+      "targetKo": "우표 가격이 얼마예요?",
       "promptDe": "Was kostet die Briefmarke?",
       "promptEn": "How much is the stamp?",
       "distractors": [
         "김치",
         "갑자기"
       ],
-      "vocabKo": "값"
+      "vocabKo": "가격"
     },
     {
       "id": "satz_a1_0171",
@@ -20395,13 +20395,13 @@
     },
     {
       "id": "satz_b2_0383",
-      "level": "b2",
-      "targetKo": "대학교 때 무슨 전공이셨어요?",
-      "promptDe": "Was haben Sie an der Uni studiert?",
-      "promptEn": "What was your major in college?",
+      "level": "a1",
+      "targetKo": "제 전공은 음악이에요.",
+      "promptDe": "Mein Studienfach ist Musik.",
+      "promptEn": "My major is music.",
       "distractors": [
-        "갈등",
-        "관점"
+        "학교",
+        "커피"
       ],
       "vocabKo": "전공"
     },
@@ -21919,13 +21919,13 @@
     },
     {
       "id": "satz_b1_0425",
-      "level": "b1",
+      "level": "a1",
       "targetKo": "한국 친구를 많이 사귀었어요.",
       "promptDe": "Ich habe viele koreanische Freunde gefunden.",
       "promptEn": "I made many Korean friends.",
       "distractors": [
-        "경험",
-        "문화"
+        "학교",
+        "커피"
       ],
       "vocabKo": "사귀다"
     },
@@ -22219,13 +22219,13 @@
     },
     {
       "id": "satz_b1_0450",
-      "level": "b1",
+      "level": "a1",
       "targetKo": "내년에 대학교를 졸업해요.",
       "promptDe": "Nächstes Jahr mache ich meinen Uni-Abschluss.",
       "promptEn": "I graduate from university next year.",
       "distractors": [
-        "경험",
-        "문화"
+        "어제",
+        "커피"
       ],
       "vocabKo": "졸업하다"
     },
@@ -28780,6 +28780,175 @@
         "커피"
       ],
       "courseUnitId": "a1_03_topic_subject_particles"
+    },
+    {
+      "id": "satz_a1_0347",
+      "level": "a1",
+      "targetKo": "어제부터 머리가 아파요.",
+      "promptDe": "Seit gestern habe ich Kopfschmerzen.",
+      "promptEn": "I've had a headache since yesterday.",
+      "vocabKo": "머리",
+      "distractors": [
+        "학교",
+        "커피"
+      ],
+      "courseUnitId": "a1_10_health_safety"
+    },
+    {
+      "id": "satz_a1_0348",
+      "level": "a1",
+      "targetKo": "코가 많이 아파요.",
+      "promptDe": "Meine Nase tut sehr weh.",
+      "promptEn": "My nose hurts a lot.",
+      "vocabKo": "코",
+      "distractors": [
+        "어제",
+        "친구"
+      ],
+      "courseUnitId": "a1_10_health_safety"
+    },
+    {
+      "id": "satz_a1_0349",
+      "level": "a1",
+      "targetKo": "먼저 손을 씻으세요.",
+      "promptDe": "Waschen Sie sich zuerst die Hände.",
+      "promptEn": "Please wash your hands first.",
+      "vocabKo": "손",
+      "distractors": [
+        "커피",
+        "주말"
+      ],
+      "courseUnitId": "a1_10_health_safety"
+    },
+    {
+      "id": "satz_a1_0350",
+      "level": "a1",
+      "targetKo": "많이 걸어서 발이 아파요.",
+      "promptDe": "Ich bin viel gelaufen, deshalb tun mir die Füße weh.",
+      "promptEn": "My feet hurt because I walked a lot.",
+      "vocabKo": "발",
+      "distractors": [
+        "학교",
+        "오늘"
+      ],
+      "courseUnitId": "a1_10_health_safety"
+    },
+    {
+      "id": "satz_a1_0351",
+      "level": "a1",
+      "targetKo": "한국어 수업은 월요일에 있어요.",
+      "promptDe": "Der Koreanischunterricht ist am Montag.",
+      "promptEn": "Korean class is on Monday.",
+      "vocabKo": "수업",
+      "distractors": [
+        "어제",
+        "커피"
+      ],
+      "courseUnitId": "a1_15_first_class_work"
+    },
+    {
+      "id": "satz_a1_0352",
+      "level": "a1",
+      "targetKo": "한국어 수업은 처음이에요.",
+      "promptDe": "Koreanischunterricht habe ich zum ersten Mal.",
+      "promptEn": "It's my first time taking a Korean class.",
+      "vocabKo": "처음",
+      "distractors": [
+        "학교",
+        "커피"
+      ],
+      "courseUnitId": "a1_15_first_class_work"
+    },
+    {
+      "id": "satz_a1_0353",
+      "level": "a1",
+      "targetKo": "전화번호를 알려 주세요.",
+      "promptDe": "Sagen Sie mir bitte Ihre Telefonnummer.",
+      "promptEn": "Please tell me your phone number.",
+      "vocabKo": "전화번호",
+      "distractors": [
+        "학교",
+        "오늘"
+      ],
+      "courseUnitId": "a1_15_first_class_work"
+    },
+    {
+      "id": "satz_a1_0354",
+      "level": "a1",
+      "targetKo": "무슨 대학에 다녀요?",
+      "promptDe": "An welcher Universität studieren Sie?",
+      "promptEn": "Which university do you go to?",
+      "vocabKo": "대학",
+      "distractors": [
+        "커피",
+        "어제"
+      ],
+      "courseUnitId": "a1_15_first_class_work"
+    },
+    {
+      "id": "satz_a1_0355",
+      "level": "a1",
+      "targetKo": "책상 위에 책이 있어요.",
+      "promptDe": "Auf dem Schreibtisch liegt ein Buch.",
+      "promptEn": "There is a book on the desk.",
+      "vocabKo": "책상",
+      "distractors": [
+        "학교",
+        "오늘"
+      ],
+      "courseUnitId": "a1_15_first_class_work"
+    },
+    {
+      "id": "satz_a1_0356",
+      "level": "a1",
+      "targetKo": "연필로 이름을 써요.",
+      "promptDe": "Ich schreibe meinen Namen mit Bleistift.",
+      "promptEn": "I write my name with a pencil.",
+      "vocabKo": "연필",
+      "distractors": [
+        "커피",
+        "주말"
+      ],
+      "courseUnitId": "a1_15_first_class_work"
+    },
+    {
+      "id": "satz_a1_0357",
+      "level": "a1",
+      "targetKo": "저는 매일 한국어 공부를 해요.",
+      "promptDe": "Ich lerne jeden Tag Koreanisch.",
+      "promptEn": "I study Korean every day.",
+      "vocabKo": "공부",
+      "distractors": [
+        "의자",
+        "어제"
+      ],
+      "courseUnitId": "a1_15_first_class_work"
+    },
+    {
+      "id": "satz_a1_0358",
+      "level": "a1",
+      "targetKo": "매일 발음 연습을 해요.",
+      "promptDe": "Ich übe jeden Tag die Aussprache.",
+      "promptEn": "I practice pronunciation every day.",
+      "vocabKo": "연습",
+      "distractors": [
+        "학교",
+        "커피"
+      ],
+      "courseUnitId": "a1_15_first_class_work"
+    },
+    {
+      "id": "satz_a1_0359",
+      "level": "a1",
+      "targetKo": "수업은 아홉 시에 시작해요.",
+      "promptDe": "Der Unterricht beginnt um neun Uhr.",
+      "promptEn": "Class starts at nine o'clock.",
+      "vocabKo": "시작하다",
+      "distractors": [
+        "어제",
+        "친구"
+      ],
+      "courseUnitId": "a1_15_first_class_work"
     }
   ]
 }

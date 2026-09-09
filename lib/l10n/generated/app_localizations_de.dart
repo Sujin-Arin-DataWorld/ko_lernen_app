@@ -891,6 +891,12 @@ class AppL10nDe extends AppL10n {
       'Die Einstufung der Lerninhalte von A1 bis C2 stützt sich auf die Wortschatz- und Grammatiklisten des National Institute of Korean Language (2017 und 2023) sowie auf Lehrwerke und Wortlisten der King Sejong Institute Foundation. Diese Werke stehen unter der Korea Open Government License Typ 1 (Quellenangabe). Die Lernsätze in dieser App sind eigene Texte; wo Originaltext übernommen wird, ist die Quelle beim jeweiligen Inhalt vermerkt.';
 
   @override
+  String get settingsDataSourcesSectionOpen => 'Offene Daten & Lizenzen';
+
+  @override
+  String get settingsDataSourcesSectionKogl => 'Öffentliche Daten (KOGL Typ 1)';
+
+  @override
   String get statsHeader => 'Dein Fortschritt';
 
   @override
