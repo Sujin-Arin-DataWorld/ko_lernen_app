@@ -149,6 +149,59 @@ const _chainWords = <KkeunmariWord>[
   ),
 ];
 
+const _openAccessChainWords = <KkeunmariWord>[
+  KkeunmariWord(
+    word: '가나',
+    first: '가',
+    last: '나',
+    level: 'A1',
+    german: 'A1 start',
+    topic: 'test',
+    nextCount: 1,
+    isDeadEnd: false,
+  ),
+  KkeunmariWord(
+    word: '나다',
+    first: '나',
+    last: '다',
+    level: 'A1',
+    german: 'A1 reply',
+    topic: 'test',
+    nextCount: 0,
+    isDeadEnd: true,
+  ),
+  KkeunmariWord(
+    word: '라바',
+    first: '라',
+    last: '바',
+    level: 'C2',
+    german: 'C2 start',
+    topic: 'test',
+    nextCount: 2,
+    isDeadEnd: false,
+  ),
+  KkeunmariWord(
+    word: '바사',
+    first: '바',
+    last: '사',
+    level: 'C2',
+    german: 'C2 reply one',
+    topic: 'test',
+    nextCount: 0,
+    isDeadEnd: true,
+  ),
+  KkeunmariWord(
+    word: '바자',
+    first: '바',
+    last: '자',
+    level: 'C2',
+    german: 'C2 reply two',
+    topic: 'test',
+    nextCount: 0,
+    isDeadEnd: true,
+  ),
+];
+
 const _puzzle = SilbenPuzzle(
   id: 'uiux-a1',
   rows: 1,
@@ -216,6 +269,29 @@ void main() {
     DataLoader.reset();
     KkeunmariEngine.reset();
     SilbenPuzzleLoader.reset();
+  });
+
+  testWidgets('Kkeunmari keeps the full A1-C2 pool open for an A1 learner', (
+    tester,
+  ) async {
+    await Storage.setUserLevelCode('a1');
+
+    await _pumpPhone(
+      tester,
+      KkeunmariScreen(poolLoader: () async => _openAccessChainWords),
+      locale: const Locale('en'),
+      textScale: 1,
+    );
+    await _pumpUntil(tester, find.byType(SoriTextField));
+
+    // The A1-only subset has a playable 가나→나다 chain. The full pool has
+    // a uniquely safer C2 opening (라바→바사/바자), so seeing 라바 proves
+    // the screen did not narrow engine selection to the stored learner level.
+    expect(find.text('라바'), findsOneWidget);
+    expect(find.text('가나'), findsNothing);
+
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump(const Duration(milliseconds: 250));
   });
 
   testWidgets('timed games protect home escape only while the round is live', (
