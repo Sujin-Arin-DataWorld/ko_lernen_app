@@ -300,9 +300,9 @@ refactor-safely,review-changes}`, `.gitignore`에 `.code-review-graph/`(그래�
   `transfer.json`(EN→KO·DE→KO 전이), `phase_review.json`(배열·갭 소견).
   **불변식: 국제통용 336 형태가 정확히 한 Phase 에서 한 번 도입된다** — 어기면 감사기가 error.
 - `tool/audit_learning_phases.py` — Phase 검증·문서 생성기. PART 1~8 문서를
-  `docs/data/korean_learning_phases_part*.md` 로, 마스터 매트릭스를
+  `docs/data/korean_learning_phases_part*.md`(PART 5 는 레벨별 파일) 로, 마스터 매트릭스를
   `tool/learning_phase_master_matrix.csv` 로, 소견을 `tool/learning_phase_findings.csv` 로 낸다.
-  `--check` 가 신선도·error 게이트(`test_audit_learning_phases.py` 19+ 테스트).
+  `--check` 가 신선도·error 게이트(`test_audit_learning_phases.py`).
 
 ### 에셋 (2026-05-26 복원 후 최종)
 - `assets/icons/HanLogo.png` — **현재 앱 아이콘 소스** (Gemini 생성, 1024×1024, 갓+한)

@@ -48,9 +48,10 @@ python tool/audit_learning_phases.py --check  # error 나 낡은 생성물이 �
 python -m unittest tool.test_audit_learning_phases -v
 ```
 
-산출물: `docs/data/korean_learning_phases_part1_2_sources.md`(언어별 레벨 기술 + 근거 등급),
-`…part3_4_crossmap_transfer.md`, `…part5_phases.md`(Phase 전문), `…part6_7_review.md`(배열·갭),
-`…part8_master_matrix.md`(마스터 매트릭스 + 의존 지도), `tool/learning_phase_master_matrix.csv`,
+산출물(`docs/data/korean_learning_phases_*`): `part1_2_sources`(언어별 레벨 기술 + 근거 등급),
+`part3_crossmap`(삼언어 교차 매핑), `part4_transfer`(EN·DE 전이 분석), `part5_phases`(색인) +
+`part5_A1`…`part5_C2`(Phase 전문, 레벨별 파일), `part6_7_review`(배열 검증·갭 분석),
+`part8_master_matrix`(마스터 매트릭스 + 문법 의존 지도). 기계 판독용: `tool/learning_phase_master_matrix.csv`,
 `tool/learning_phase_findings.csv`(소견 한 줄 한 행), `tool/learning_phase_summary.json`.
 
 ## 근거 등급 (`provenance`)
