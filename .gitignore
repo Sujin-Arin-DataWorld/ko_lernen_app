@@ -180,3 +180,12 @@ node_modules/
 tools/content_factory/lexicon/*.xlsx
 # kornorms 외래어 감사 캐시(tool/audit_loanword_spelling.py, T1.9).
 tool/.cache/
+
+# graphify 파생 산출물 — 커밋하지 않는다 (2026-09-09, Jin).
+# AST 캐시는 파일명이 콘텐츠 해시라 append-only(옛 해시가 안 지워짐)이고,
+# 날짜 디렉터리는 40MB짜리 graph.json 전체 사본이라 git 히스토리와 역할이 겹친다.
+# 둘 다 `graphify update .`(AST-only, 무료)로 언제든 재생성된다.
+# 계속 커밋하는 것: graph.json / GRAPH_REPORT.md / wiki / manifest.json.
+graphify-out/cache/
+graphify-out/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
+graphify-out/graph.json.bak-*
