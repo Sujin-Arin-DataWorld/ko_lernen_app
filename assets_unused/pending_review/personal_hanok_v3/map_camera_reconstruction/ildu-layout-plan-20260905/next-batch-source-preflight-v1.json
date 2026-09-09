@@ -1,0 +1,328 @@
+{
+  "status": "prepared_waiting_for_sarangchae_map_scale_approval",
+  "generationPerformed": false,
+  "order": [
+    "jungmunchae",
+    "changgo",
+    "G02",
+    "G04"
+  ],
+  "sources": {
+    "jungmunchae": {
+      "status": "user-approved V05 byte-locked source archive",
+      "files": {
+        "canonical": {
+          "path": "assets_unused/pending_review/personal_hanok_v3/turnaround_2d/ildu_jungmunganchae_v05_final_byte_locked/00_front_source_exact.png",
+          "size": [
+            2935,
+            1433
+          ],
+          "mode": "RGBA",
+          "alphaBounds": [
+            54,
+            104,
+            2879,
+            1345
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "sha256": "6b1d0bde0e0f9dee72f9e313f10ffd294a6799a5d281ee10143ff8187e44ec0d"
+        },
+        "front": {
+          "path": "assets_unused/pending_review/personal_hanok_v3/turnaround_2d/ildu_jungmunganchae_v05_final_byte_locked/transparent_28deg/00_front_000.png",
+          "size": [
+            1792,
+            878
+          ],
+          "mode": "RGBA",
+          "alphaBounds": [
+            157,
+            98,
+            1621,
+            786
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "sha256": "bc7021ef7ba05f5c21746626e1b3ddec2e82609db40d55171c65860256d17909"
+        },
+        "frontRight": {
+          "path": "assets_unused/pending_review/personal_hanok_v3/turnaround_2d/ildu_jungmunganchae_v05_final_byte_locked/transparent_28deg/01_front_right_045.png",
+          "size": [
+            1454,
+            1082
+          ],
+          "mode": "RGBA",
+          "alphaBounds": [
+            39,
+            58,
+            1434,
+            1050
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "sha256": "386b0d951d5264f83f7a304f58ed7382f42c952deffaeb9199979d5470efe1a8"
+        },
+        "reviewSheet": {
+          "path": "assets_unused/pending_review/personal_hanok_v3/turnaround_2d/ildu_jungmunganchae_v05_final_byte_locked/ildu_jungmunganchae_v05_8view_review_sheet.png",
+          "size": [
+            3840,
+            2160
+          ],
+          "mode": "RGBA",
+          "alphaBounds": [
+            0,
+            0,
+            3840,
+            2160
+          ],
+          "cornerAlpha": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "sha256": "1ca7cdc4bde38f8c7c78982065ffb601f84bf8c50860f260abbfdd8a0c8f51b1"
+        }
+      }
+    },
+    "changgo": {
+      "status": "runtime-promoted 2026-08-29 review archive",
+      "files": {
+        "canonical": {
+          "path": "assets_unused/pending_review/personal_hanok_v3/changgo_final.png",
+          "size": [
+            2736,
+            1536
+          ],
+          "mode": "RGBA",
+          "alphaBounds": [
+            16,
+            379,
+            2736,
+            1268
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "sha256": "867495181c3507a29bca0efc43778bf6a958018b05992caba3fa40a01a3d9488"
+        },
+        "front": {
+          "path": "assets_unused/pending_review/personal_hanok_v3/turnaround_2d/ildu_changgo_blueprint200_28deg_v01/transparent_28deg/00_front_000.png",
+          "size": [
+            2048,
+            1536
+          ],
+          "mode": "RGBA",
+          "alphaBounds": [
+            164,
+            832,
+            1884,
+            1470
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "sha256": "f308ea48fd27fb3872201df68dc5ee535a028a583801ad568ff5108ccb7fb127"
+        },
+        "frontRight": {
+          "path": "assets_unused/pending_review/personal_hanok_v3/turnaround_2d/ildu_changgo_blueprint200_28deg_v01/transparent_28deg/01_front_right_045.png",
+          "size": [
+            2048,
+            1536
+          ],
+          "mode": "RGBA",
+          "alphaBounds": [
+            136,
+            526,
+            1912,
+            1470
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "sha256": "a2d14fc0cc09e6dd4460d972eb08f619d0823562f79702c01b8c0717cec2e668"
+        },
+        "reviewSheet": {
+          "path": "assets_unused/pending_review/personal_hanok_v3/turnaround_2d/ildu_changgo_blueprint200_28deg_v01/ildu_changgo_8view_review_sheet.png",
+          "size": [
+            4096,
+            1536
+          ],
+          "mode": "RGBA",
+          "alphaBounds": [
+            0,
+            0,
+            4096,
+            1536
+          ],
+          "cornerAlpha": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "sha256": "7456955d8a65039b746a32b29df7411e455c4de40b4b871203640c2fec4f2679"
+        }
+      }
+    },
+    "hyeopmun": {
+      "status": "runtime-source-promoted 2026-08-29 review archive",
+      "files": {
+        "canonical": {
+          "path": "assets_unused/pending_review/personal_hanok_v3/turnaround_2d/ildu_sadang_hyeopmun_v01/references/source_hyeopmun_try03_cut.png",
+          "size": [
+            1568,
+            2021
+          ],
+          "mode": "RGBA",
+          "alphaBounds": [
+            0,
+            0,
+            1568,
+            2021
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "sha256": "3a6e3141f0f9c763067d40a867cf94082df04f119ba275c037b6e67645153884"
+        },
+        "front": {
+          "path": "assets_unused/pending_review/personal_hanok_v3/turnaround_2d/ildu_sadang_hyeopmun_v01/transparent_views/ildu_sadang_hyeopmun_000_front.png",
+          "size": [
+            384,
+            512
+          ],
+          "mode": "RGBA",
+          "alphaBounds": [
+            37,
+            57,
+            347,
+            488
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "sha256": "543e56560973537fb4d7a00c2015b31acc8a6a4b7006df9bfa88397c1708e2e6"
+        },
+        "frontRight": {
+          "path": "assets_unused/pending_review/personal_hanok_v3/turnaround_2d/ildu_sadang_hyeopmun_v01/transparent_views/ildu_sadang_hyeopmun_045_front_right.png",
+          "size": [
+            384,
+            512
+          ],
+          "mode": "RGBA",
+          "alphaBounds": [
+            33,
+            40,
+            350,
+            488
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "sha256": "18d578c01eaad4673308840e51624ec6e08a4a5caa59843093c5c2abe6615de4"
+        },
+        "reviewSheet": {
+          "path": "assets_unused/pending_review/personal_hanok_v3/turnaround_2d/ildu_sadang_hyeopmun_v01/ildu_sadang_hyeopmun_turnaround_sheet.png",
+          "size": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alphaBounds": [
+            37,
+            40,
+            1501,
+            1000
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "sha256": "f7a6d1a62ec6d3c3d912386521349b59aef21fcbbe17a2995f0fca006fbf0454"
+        }
+      }
+    }
+  },
+  "orientation": {
+    "jungmunchae": {
+      "longAxisHeadingDegrees": 93.80077806508997,
+      "frontNormalHeadingDegrees": 3.800778065089972,
+      "frontDirectionEvidence": "central courtyard side in the approved layout",
+      "relativeFrontToNumericCameraDegrees": 18.800778065089972,
+      "recommendedDirectionInputs": [
+        "front",
+        "frontRight"
+      ]
+    },
+    "changgo": {
+      "longAxisHeadingDegrees": 92.63445076440163,
+      "frontNormalHeadingDegrees": 2.6344507644016346,
+      "frontDirectionEvidence": "central courtyard side in the approved layout",
+      "relativeFrontToNumericCameraDegrees": 17.634450764401635,
+      "recommendedDirectionInputs": [
+        "front",
+        "frontRight"
+      ]
+    },
+    "G02": {
+      "doorPlaneHeadingDegrees": 4.763641690726178,
+      "frontDirection": "Resolve visually from the target context; do not infer a 180-degree choice from the polygon alone.",
+      "recommendedDirectionInputs": [
+        "front",
+        "frontRight"
+      ],
+      "role": "Sarangchae left hyeopmun"
+    },
+    "G04": {
+      "doorPlaneHeadingDegrees": 4.969740728110304,
+      "frontDirection": "Resolve visually from the target context; do not infer a 180-degree choice from the polygon alone.",
+      "recommendedDirectionInputs": [
+        "front",
+        "frontRight"
+      ],
+      "role": "Sarangchae right hyeopmun"
+    }
+  },
+  "cameraUse": "Numeric 34/-15/1.25 camera is an orientation aid. The later user-selected natural map remains the placement authority.",
+  "rules": [
+    "Use each building's own canonical and adjacent direction views; never use another building as a visual source.",
+    "Do not paste or distort the 28-degree frame; redraw the visible faces for the target map view.",
+    "The user selected Sarangchae candidate 05. Do not generate the next item until the 78.33% map-scale registration is explicitly approved.",
+    "Preserve every already-approved map layer outside the next item's authorized mask."
+  ],
+  "layoutPlanSha256": "14c873a78ccdad01dbe3033f02cd39e19fa826d66c21400c3865927e5e082084",
+  "cameraSelectionSha256": "d79aba3942ab577aca1d0b53afdb575189d76ef2edc47cc042f6c9f050b65b69"
+}

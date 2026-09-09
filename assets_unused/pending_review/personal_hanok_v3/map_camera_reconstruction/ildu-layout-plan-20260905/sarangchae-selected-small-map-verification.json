@@ -1,0 +1,74 @@
+{
+  "operation": "user-selected candidate 05; map display scale and origin only",
+  "base": "map-transfer-02-map.png",
+  "output": "map-transfer-selected-small-map.png",
+  "mapSize": [
+    1202,
+    1308
+  ],
+  "fixedMapCrop": [
+    270,
+    625,
+    480,
+    240
+  ],
+  "spriteSource": "sarangchae-candidate05-transparent.png",
+  "selectedRgbSource": "sarangchae-user-selected-source.png",
+  "sourceRgbPixelIdentical": true,
+  "selectedSourceSha256": "dddd93668f8ad799c03d90aa058855848d59323937a1a03260e7169dd468bfe9",
+  "sourceMasterSha256": "e3485cd1e9270abb8cdf31404e16d3155eaf382c954f5a1882cd73f93a2a5d38",
+  "previousSpriteCanvasSizeOnMap": [
+    360,
+    240
+  ],
+  "spriteCanvasSizeOnMap": [
+    282,
+    188
+  ],
+  "linearScaleVersusPreviousPercent": 78.33,
+  "spriteOriginOnMap": [
+    358,
+    686
+  ],
+  "spriteVisibleBoundsWithinCanvas": [
+    0,
+    6,
+    281,
+    173
+  ],
+  "spriteVisibleBoundsOnMap": [
+    358,
+    692,
+    639,
+    859
+  ],
+  "spriteFoundationReferenceYOnMap": 859,
+  "spriteOpaquePixelsOnMap": 28691,
+  "spritePartialAlphaPixelsOnMap": 3137,
+  "gateVisibilityAfterBuilding": {
+    "left": {
+      "gateAlphaPixels": 4642,
+      "coveredByBuildingPixels": 0,
+      "visibleAfterBuildingPixels": 4642,
+      "visiblePercent": 100.0
+    },
+    "right": {
+      "gateAlphaPixels": 7389,
+      "coveredByBuildingPixels": 0,
+      "visibleAfterBuildingPixels": 7389,
+      "visiblePercent": 100.0
+    }
+  },
+  "changedRgbPixels": 66396,
+  "changedRgbPixelsOutsideAuthorizedLayers": 0,
+  "layoutPlanSha256": "14c873a78ccdad01dbe3033f02cd39e19fa826d66c21400c3865927e5e082084",
+  "cameraSelectionSha256": "d79aba3942ab577aca1d0b53afdb575189d76ef2edc47cc042f6c9f050b65b69",
+  "layoutImageSha256": "69034ead69f5cdbd5f2193c04487843ccf431361eb2aa245cdfe18a3947a6cbe",
+  "layerFiles": {
+    "ground": "sarangchae-selected-small-ground-layer.png",
+    "shadow": "sarangchae-selected-small-shadow-layer.png",
+    "building": "sarangchae-selected-small-map-layer.png",
+    "leftGate": "gates-02-left-layer.png",
+    "rightGate": "gates-02-right-layer.png"
+  }
+}

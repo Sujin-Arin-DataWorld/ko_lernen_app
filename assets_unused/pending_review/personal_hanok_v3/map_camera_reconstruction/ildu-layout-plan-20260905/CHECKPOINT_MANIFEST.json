@@ -1,0 +1,404 @@
+{
+  "schemaVersion": 2,
+  "purpose": "Review-only reproducible checkpoint for the user-selected V3 Sarangchae and fixed map camera.",
+  "runtimeIntegrated": false,
+  "sourceWorkingSet": {
+    "inventory": "SOURCE_WORKING_SET_MANIFEST.json",
+    "inventorySha256": "7b2cf84a13f2cc1cca9f0e96279cf7d1c0af019d2a15a9ed36f36b4a9ac28403",
+    "sourceRootName": "ildu-layout-plan-20260905",
+    "fileCountAtCheckpoint": 337,
+    "bytesAtCheckpoint": 278678307
+  },
+  "selection": {
+    "asset": "sarangchae-user-selected-source.png",
+    "assetSha256": "dddd93668f8ad799c03d90aa058855848d59323937a1a03260e7169dd468bfe9",
+    "transparentMaster": "sarangchae-candidate05-transparent.png",
+    "transparentMasterSha256": "e3485cd1e9270abb8cdf31404e16d3155eaf382c954f5a1882cd73f93a2a5d38",
+    "mapReview": "map-transfer-selected-small-map.png",
+    "mapScaleVersusPreviousPercent": 78.33,
+    "mapScaleApprovalConfirmed": false,
+    "nextGenerationAllowed": false
+  },
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 112,
+      "checkpointSha256": "e4cc25485d9233a7725b80bcd5eb8219bf0e1b64760a551fe113f341f64de722",
+      "createdForCheckpoint": true
+    },
+    {
+      "path": "build-next-batch-target-guides.py",
+      "bytes": 4820,
+      "checkpointSha256": "4b6522f187d8c047340c5b142a6fa6c7df1617d13ab87b82aa7d7040626cb980",
+      "sourceSha256": "8c4d46f90e2b99bb3aeedf816270aee027e71c30784e131e19278926614b2644",
+      "byteIdenticalToSource": false
+    },
+    {
+      "path": "building_identifications.json",
+      "bytes": 3065,
+      "checkpointSha256": "efa0b44389e75a66437fe3e464f452e8202d9e1280b4bcbfe01592f068554e4b",
+      "sourceSha256": "67225601482e719dfe0bf6df89b192e04b76523446ece96063589b742b61d181",
+      "byteIdenticalToSource": false
+    },
+    {
+      "path": "camera-selection.json",
+      "bytes": 502,
+      "checkpointSha256": "d79aba3942ab577aca1d0b53afdb575189d76ef2edc47cc042f6c9f050b65b69",
+      "sourceSha256": "1e10483a32408ef23ab7046afed803a9c49a55b928180d428e9dc71f2bf30b5b",
+      "byteIdenticalToSource": false
+    },
+    {
+      "path": "changgo-target-context-v1.png",
+      "bytes": 761304,
+      "checkpointSha256": "ca9ed3b7d7d0266eaafc4dd10bc42f1961e38244ecdb3e63afcf204b0f6d41b2",
+      "sourceSha256": "3393be3d17349e541504b94b22caf5779fcf920d2f8a19206be921aef68b98ec",
+      "byteIdenticalToSource": false
+    },
+    {
+      "path": "compose-sarangchae-candidate05.py",
+      "bytes": 5412,
+      "checkpointSha256": "b1d89a5ab5696f07f523ae93163296d019270ed12907d345d02248097819aeb6",
+      "sourceSha256": "fc050af3452867c15f3d93f9e992e53dc33e47808787cfff27d99ac6cabe0868",
+      "byteIdenticalToSource": false
+    },
+    {
+      "path": "compose-sarangchae-selected-small.py",
+      "bytes": 7125,
+      "checkpointSha256": "ba4874967fba1b463a5e3794862381ef3260ee459a74a90deb4d428115d57925",
+      "sourceSha256": "efbf9f1c80f878d90a4b6196a6aa24e4cf07a4e820234cdd17cf59c70cf30151",
+      "byteIdenticalToSource": false
+    },
+    {
+      "path": "G02-hyeopmun-left-target-context-v1.png",
+      "bytes": 807589,
+      "checkpointSha256": "069bdbde2ab7403ff94abc4ee32cee0ff80eb32c653838b2d5895d9ff992027c",
+      "sourceSha256": "16efa8acb7f37e69bd00d28f39d349f44a8d04f17084e10e72d46db926b561ee",
+      "byteIdenticalToSource": false
+    },
+    {
+      "path": "G04-hyeopmun-right-target-context-v1.png",
+      "bytes": 747593,
+      "checkpointSha256": "1464dd67cc9631020b5e36f9ddc40598c839e87df213bab39b95413a5a06c5fa",
+      "sourceSha256": "bb66d4d3e331c51b532d9b7ac9450e749a7a3d199bb663c572b2b1cab1915345",
+      "byteIdenticalToSource": false
+    },
+    {
+      "path": "gate-asset-hyeopmun.png",
+      "bytes": 1184634,
+      "checkpointSha256": "2655d4bafc0a7388e3727206a9a1bbf6536c65a5f38da8998e35579edac3daa1",
+      "sourceSha256": "2655d4bafc0a7388e3727206a9a1bbf6536c65a5f38da8998e35579edac3daa1",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "gate-asset-sadang-gate.png",
+      "bytes": 1638992,
+      "checkpointSha256": "8faa7b5b322b042e0ecbab472383825cbb0e17cf8942ea8670db1517f1adcc59",
+      "sourceSha256": "8faa7b5b322b042e0ecbab472383825cbb0e17cf8942ea8670db1517f1adcc59",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "gates-02-left-layer.png",
+      "bytes": 53314,
+      "checkpointSha256": "c46c5e66a951e79faecb6a76a7fee96d0391ebfd4f67afd127b00145723579b9",
+      "sourceSha256": "c46c5e66a951e79faecb6a76a7fee96d0391ebfd4f67afd127b00145723579b9",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "gates-02-right-layer.png",
+      "bytes": 62516,
+      "checkpointSha256": "bcf935cc84128b4e3f20bbe47a759190f1d127c4c53ebd7e4175eaba31790d0b",
+      "sourceSha256": "bcf935cc84128b4e3f20bbe47a759190f1d127c4c53ebd7e4175eaba31790d0b",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "ildu-layout-plan-v3.png",
+      "bytes": 1260257,
+      "checkpointSha256": "69034ead69f5cdbd5f2193c04487843ccf431361eb2aa245cdfe18a3947a6cbe",
+      "sourceSha256": "69034ead69f5cdbd5f2193c04487843ccf431361eb2aa245cdfe18a3947a6cbe",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "jungmunchae-target-context-v1.png",
+      "bytes": 763597,
+      "checkpointSha256": "f0e1509a67ade081139490bc43a91e426ba8fb0fe286f9126470e7e5fc6d6b40",
+      "sourceSha256": "e8668ec24d3d1216b0277be00a51d609d82e8637c8035ab3146bf5034d361c46",
+      "byteIdenticalToSource": false
+    },
+    {
+      "path": "layout-plan.json",
+      "bytes": 23095,
+      "checkpointSha256": "14c873a78ccdad01dbe3033f02cd39e19fa826d66c21400c3865927e5e082084",
+      "sourceSha256": "dd7fd434470898595d07a4a6f1811434000fe8b9896311f3dac20f542613b4c7",
+      "byteIdenticalToSource": false
+    },
+    {
+      "path": "make-checkpoint-manifest.py",
+      "bytes": 3504,
+      "checkpointSha256": "ef2c4e5982ba2cf6be12d8058348cd1749becb64be6f4cf47ea7348359928fc7",
+      "createdForCheckpoint": true
+    },
+    {
+      "path": "make-sarangchae-candidate05-alpha.py",
+      "bytes": 4089,
+      "checkpointSha256": "075b1111caf7faacd2048d369796dc9d01d9bdf4dd63155cdf5aced0f80148dd",
+      "sourceSha256": "48580ffe0e00d7c494b29fdc3ce3febc9b45d618ca2c16ce05b87269dffc4a3d",
+      "byteIdenticalToSource": false
+    },
+    {
+      "path": "map-transfer-02-map.png",
+      "bytes": 4325645,
+      "checkpointSha256": "6976ef3135def1adc8acef51c500d3015603350e19fe5be2d2aecf0396c921d9",
+      "sourceSha256": "6976ef3135def1adc8acef51c500d3015603350e19fe5be2d2aecf0396c921d9",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "map-transfer-05-map.png",
+      "bytes": 3778661,
+      "checkpointSha256": "46546361b7587a2be0f3e223206eae16f8777beab9a95a00e8bee958bd588384",
+      "sourceSha256": "46546361b7587a2be0f3e223206eae16f8777beab9a95a00e8bee958bd588384",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "map-transfer-review.html",
+      "bytes": 6476,
+      "checkpointSha256": "63f3a240d510e5af97e7f28e69c0ea1782bcee62ecf7bae0db2ee230ac8d1273",
+      "sourceSha256": "8e5a2a21beb168afcb8d8c929bf930cf9c4b8c740ab824c73a9eb5aa21a06686",
+      "byteIdenticalToSource": false
+    },
+    {
+      "path": "map-transfer-selected-small-map.png",
+      "bytes": 3774679,
+      "checkpointSha256": "aa0b02b2f07382134be9264001bb794588aa1c4cb76fbc02d38ab5e701503bca",
+      "sourceSha256": "aa0b02b2f07382134be9264001bb794588aa1c4cb76fbc02d38ab5e701503bca",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "map1_landuse_corrected_review_v1.png",
+      "bytes": 2380060,
+      "checkpointSha256": "cefdb583cf60ef24c22c0665d2c202c52ef9ba08de23035bb39c6cb284cb57e0",
+      "createdForCheckpoint": true
+    },
+    {
+      "path": "natural-map-registration-overlay-v1.png",
+      "bytes": 3763888,
+      "checkpointSha256": "4d840bd0b9daea93ac81b825525602c22ae40f77dbc7e97ebdf5d26e7ac467f6",
+      "sourceSha256": "4d840bd0b9daea93ac81b825525602c22ae40f77dbc7e97ebdf5d26e7ac467f6",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "natural-map-registration-v1.json",
+      "bytes": 6204,
+      "checkpointSha256": "b9d591a51900c3c8f51310329b3bdb651989e75c632061ee1704dd6179523050",
+      "sourceSha256": "756a91e97443d65a4db9b5638f1050f8b62637b626fd2741614218b85e93f25f",
+      "byteIdenticalToSource": false
+    },
+    {
+      "path": "next-batch-generation-spec-v1.json",
+      "bytes": 5575,
+      "checkpointSha256": "754eb9d7ad1ba28504e0f8e630af5cce6d861c777b78b60291b61407f072b486",
+      "sourceSha256": "64c3f940b6663840a6dd4bb351531f573153624c35490b5f83665501b67c50ed",
+      "byteIdenticalToSource": false
+    },
+    {
+      "path": "next-batch-source-preflight-v1.json",
+      "bytes": 9601,
+      "checkpointSha256": "5ab50fde92efd511b74cfeb35cdcde531a1e8479a2a92e6e8577959e6a6d4606",
+      "sourceSha256": "ae3d287baa5c3704a7bdd1b6db95d27fc889c14bbbf3e23ffa6ae3d0a3954227",
+      "byteIdenticalToSource": false
+    },
+    {
+      "path": "next-batch-target-guides-v1.json",
+      "bytes": 3282,
+      "checkpointSha256": "202e022a2de7234085b04a309db23d033a16ac78db80e21872b7c9e277c94818",
+      "sourceSha256": "a99b2516fb816778ebb1db3a2906e2b88fea069143e7cf8bc3d80672c25f1ae4",
+      "byteIdenticalToSource": false
+    },
+    {
+      "path": "pilot-sarang-canonical.png",
+      "bytes": 4832461,
+      "checkpointSha256": "f2c01142f465b9353e0b9546a00f167891753039d9c910620d83cd924a077212",
+      "sourceSha256": "f2c01142f465b9353e0b9546a00f167891753039d9c910620d83cd924a077212",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "preflight-next-batch.py",
+      "bytes": 5786,
+      "checkpointSha256": "57e769a53fc23b6348fbcba348411d89c80c7d1d39748d9419ca3f4e9c06d401",
+      "sourceSha256": "f743179d13e866158811b30af10cd6552b8a96d8052f37d67efa43b121ca374f",
+      "byteIdenticalToSource": false
+    },
+    {
+      "path": "README.md",
+      "bytes": 3813,
+      "checkpointSha256": "9d0bff919b3809fcd8a9afbb9634235592fc603b42c614ebe2777131e038cfcf",
+      "sourceSha256": "5ba6d7133698e99a6935c1e1d5aaa36a709aca9ce4564d5a742a8d4a03a3fafc",
+      "byteIdenticalToSource": false
+    },
+    {
+      "path": "sarangchae-candidate05-alpha-verification.json",
+      "bytes": 687,
+      "checkpointSha256": "6d07c94944df1f24d66b934020de94defe66e32582bb758cfd60099de9486bcf",
+      "sourceSha256": "df5e584df60ef53eea9f2e8a199fafb4d1880dffcc6492ee3d0da22354f79ec9",
+      "byteIdenticalToSource": false
+    },
+    {
+      "path": "sarangchae-candidate05-alpha.png",
+      "bytes": 12153,
+      "checkpointSha256": "bc0f81bf41af00764799f11ee88ec7df1c131ab01aff9fe305eff262ba8531c4",
+      "sourceSha256": "bc0f81bf41af00764799f11ee88ec7df1c131ab01aff9fe305eff262ba8531c4",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "sarangchae-candidate05-dark-preview.png",
+      "bytes": 1490866,
+      "checkpointSha256": "29db59f01f5cfb9d28e3521fc38ff09045d3ac5e2d5f58798082b5d55b4856f7",
+      "sourceSha256": "29db59f01f5cfb9d28e3521fc38ff09045d3ac5e2d5f58798082b5d55b4856f7",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "sarangchae-candidate05-light-preview.png",
+      "bytes": 1487527,
+      "checkpointSha256": "d25b6942dfa7004d4344f7af359746e045f9f07275aa0d22c09ac791c396dec5",
+      "sourceSha256": "d25b6942dfa7004d4344f7af359746e045f9f07275aa0d22c09ac791c396dec5",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "sarangchae-candidate05-map-detail.png",
+      "bytes": 1721433,
+      "checkpointSha256": "780a4cbef1eea22719e227de5d97541788103eec01fee41f39ffa5fb4ad32b09",
+      "sourceSha256": "780a4cbef1eea22719e227de5d97541788103eec01fee41f39ffa5fb4ad32b09",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "sarangchae-candidate05-map-layer.png",
+      "bytes": 147943,
+      "checkpointSha256": "803356f0a9e4a8d7812a6c7fa67d38629fc5acd986424649e229b25d2e72cbfe",
+      "sourceSha256": "803356f0a9e4a8d7812a6c7fa67d38629fc5acd986424649e229b25d2e72cbfe",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "sarangchae-candidate05-map-verification.json",
+      "bytes": 1262,
+      "checkpointSha256": "6d2ecc19333884b44ac5496629948cbe6e404faef325f3f7bbceaa5ad32ab06a",
+      "sourceSha256": "ccd44f9d0b262e5aa297e17b0ebea41630fd9ebf56b0e8862118f5696051bbff",
+      "byteIdenticalToSource": false
+    },
+    {
+      "path": "sarangchae-candidate05-shadow-layer.png",
+      "bytes": 15232,
+      "checkpointSha256": "8d85b8568ae40b7e9a5dcb1ed6b30cc7cb975a26e10963e438a559bb87842f88",
+      "sourceSha256": "8d85b8568ae40b7e9a5dcb1ed6b30cc7cb975a26e10963e438a559bb87842f88",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "sarangchae-candidate05-signage-corrected-rgb.png",
+      "bytes": 2433428,
+      "checkpointSha256": "5ee866cea9d734cf8a88454323f2402938281d280043ef4603cd8d13601c5613",
+      "sourceSha256": "5ee866cea9d734cf8a88454323f2402938281d280043ef4603cd8d13601c5613",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "sarangchae-candidate05-transparent.png",
+      "bytes": 2413170,
+      "checkpointSha256": "e3485cd1e9270abb8cdf31404e16d3155eaf382c954f5a1882cd73f93a2a5d38",
+      "sourceSha256": "e3485cd1e9270abb8cdf31404e16d3155eaf382c954f5a1882cd73f93a2a5d38",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "sarangchae-empty-courtyard-v1.png",
+      "bytes": 2692031,
+      "checkpointSha256": "0413dea3ef851ab44a8155ec45969aeb4e985da2235cfb70ab70aabcf8238f4b",
+      "sourceSha256": "0413dea3ef851ab44a8155ec45969aeb4e985da2235cfb70ab70aabcf8238f4b",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "sarangchae-empty-ground-layer-v1.png",
+      "bytes": 178710,
+      "checkpointSha256": "a4e8e0f170be6193e5d915c142ccd845d21196019b6695c6dd9024d73b559bf2",
+      "sourceSha256": "a4e8e0f170be6193e5d915c142ccd845d21196019b6695c6dd9024d73b559bf2",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "sarangchae-reference-calligraphy-chunghyojeolui.png",
+      "bytes": 1117424,
+      "checkpointSha256": "ae5b017709d048673156fe686f52a28cb7b42eadd1657173121b61ffeee948b9",
+      "sourceSha256": "ae5b017709d048673156fe686f52a28cb7b42eadd1657173121b61ffeee948b9",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "sarangchae-reference-plaque-munheonsega.png",
+      "bytes": 997373,
+      "checkpointSha256": "1e22b80cac410601484b5859c3fddafb70d7af9316e415b4a32e7b9274c1a6d9",
+      "sourceSha256": "1e22b80cac410601484b5859c3fddafb70d7af9316e415b4a32e7b9274c1a6d9",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "sarangchae-reference-toenmaru-scale.png",
+      "bytes": 1138772,
+      "checkpointSha256": "787726fe5a8d3c45d89714a2392e596bdbc9a54689fa0072c80d3912305b1ffa",
+      "sourceSha256": "787726fe5a8d3c45d89714a2392e596bdbc9a54689fa0072c80d3912305b1ffa",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "sarangchae-selected-small-ground-layer.png",
+      "bytes": 178710,
+      "checkpointSha256": "a4e8e0f170be6193e5d915c142ccd845d21196019b6695c6dd9024d73b559bf2",
+      "sourceSha256": "a4e8e0f170be6193e5d915c142ccd845d21196019b6695c6dd9024d73b559bf2",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "sarangchae-selected-small-map-detail.png",
+      "bytes": 1692251,
+      "checkpointSha256": "499039876b23e181d076cdb4b5007e04ce47484564df220903cdf0998da1b537",
+      "sourceSha256": "499039876b23e181d076cdb4b5007e04ce47484564df220903cdf0998da1b537",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "sarangchae-selected-small-map-layer.png",
+      "bytes": 99148,
+      "checkpointSha256": "806ffbe3d5e2b70fed5650cb01147ede08fd2afff07a372b3db97fe4e5ebd0fa",
+      "sourceSha256": "806ffbe3d5e2b70fed5650cb01147ede08fd2afff07a372b3db97fe4e5ebd0fa",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "sarangchae-selected-small-map-verification.json",
+      "bytes": 2083,
+      "checkpointSha256": "5de32f81b4ae9806056bc38fe76778be97d3b35557ca0adca9e07deeb96c8ca7",
+      "sourceSha256": "7f37c2aaf2fb8a56caabd254d748214a1d2b0226feeb62f46c0dc75f8d9d8ac0",
+      "byteIdenticalToSource": false
+    },
+    {
+      "path": "sarangchae-selected-small-shadow-layer.png",
+      "bytes": 13442,
+      "checkpointSha256": "b0451f2e7f21cf2d4c2564890dc47a8f4f29038afd0b3dac8d13971f0ecb8b26",
+      "sourceSha256": "b0451f2e7f21cf2d4c2564890dc47a8f4f29038afd0b3dac8d13971f0ecb8b26",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "sarangchae-selection-registration-v1.json",
+      "bytes": 2305,
+      "checkpointSha256": "25bba9e8257b37bd49f9cf19ab733abf68780a09721141afb5f68f8373f09722",
+      "sourceSha256": "25bba9e8257b37bd49f9cf19ab733abf68780a09721141afb5f68f8373f09722",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "sarangchae-user-selected-source.png",
+      "bytes": 2816758,
+      "checkpointSha256": "dddd93668f8ad799c03d90aa058855848d59323937a1a03260e7169dd468bfe9",
+      "sourceSha256": "dddd93668f8ad799c03d90aa058855848d59323937a1a03260e7169dd468bfe9",
+      "byteIdenticalToSource": true
+    },
+    {
+      "path": "SOURCE_WORKING_SET_MANIFEST.json",
+      "bytes": 56765,
+      "checkpointSha256": "7b2cf84a13f2cc1cca9f0e96279cf7d1c0af019d2a15a9ed36f36b4a9ac28403",
+      "createdForCheckpoint": true
+    },
+    {
+      "path": "verify_checkpoint.py",
+      "bytes": 10146,
+      "checkpointSha256": "448842574544327aa64b54e36ecc911354b0d7f24292afb093fcedf071fce42e",
+      "createdForCheckpoint": true
+    }
+  ]
+}

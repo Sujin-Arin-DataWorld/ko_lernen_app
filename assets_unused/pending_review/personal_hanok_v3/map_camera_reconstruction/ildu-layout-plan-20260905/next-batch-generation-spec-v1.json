@@ -1,0 +1,61 @@
+{
+  "status": "prepared_not_generated_waiting_for_sarangchae_map_scale_approval",
+  "sarangchaeGate": {
+    "designSelection": "candidate05_user_selected",
+    "mapScale": 0.7833,
+    "registration": "sarangchae-selection-registration-v1.json",
+    "mapScaleApprovalConfirmed": false,
+    "nextGenerationAllowed": false
+  },
+  "globalRules": [
+    "한 번에 한 건물만 생성한다.",
+    "V3 정본이 외형·지붕·기와·목재·회벽·창호·석재·색감의 유일한 화풍 기준이다.",
+    "지도 문맥 이미지는 배치·보이는 면·접지 방향만 설명한다. 지도 속 다른 건물의 모양이나 화풍을 복제하지 않는다.",
+    "기존 28도 PNG를 비틀거나 두 이미지를 붙이지 말고, 목표 지도 시점에서 보일 면을 새로 그린다.",
+    "건물 전체와 모든 기둥·지붕 끝·계단·기단을 화면 안에 남긴다.",
+    "사람·글자·간판·조경·담장·다른 건물·바닥 무늬를 추가하지 않는다.",
+    "단색의 밝은 중립 배경에 독립 원화로 출력한다. 생성 후 건물 RGB를 바꾸지 않는 알파 분리 검사를 거친다."
+  ],
+  "jobs": [
+    {
+      "id": "jungmunchae",
+      "name": "중문채",
+      "order": 1,
+      "inputs": [
+        "assets_unused/pending_review/personal_hanok_v3/turnaround_2d/ildu_jungmunganchae_v05_final_byte_locked/00_front_source_exact.png",
+        "assets_unused/pending_review/personal_hanok_v3/turnaround_2d/ildu_jungmunganchae_v05_final_byte_locked/transparent_28deg/00_front_000.png",
+        "assets_unused/pending_review/personal_hanok_v3/turnaround_2d/ildu_jungmunganchae_v05_final_byte_locked/transparent_28deg/01_front_right_045.png",
+        "assets_unused/pending_review/personal_hanok_v3/map_camera_reconstruction/ildu-layout-plan-20260905/jungmunchae-target-context-v1.png",
+        "assets_unused/pending_review/personal_hanok_v3/turnaround_2d/ildu_jungmunganchae_v05_final_byte_locked/references/blueprint_plan.jpg"
+      ],
+      "prompt": "V3 중문채 정본의 형태와 화풍을 그대로 유지하면서 목표 지도 자리에서 자연스럽게 보이는 새 사선 시점을 그린다. 긴 一자 몸체와 단일 맞배지붕, 용마루 하나, 원본의 두 돌계단과 석축을 유지한다. 물리적 정면은 왼쪽부터 닫힌 세로판문 쌍문, 큰 쌍창호, 작은 가로 격자창, 오른쪽 열린 마루칸 순서다. 이 순서와 상대 크기를 바꾸지 않는다. 목표 자리에서 긴 축은 세로에 가깝고 정면은 중앙 마당 쪽을 향한다. 정면과 오른쪽 면이 자연스럽게 보이게 새로 그리되 전체 기둥과 처마 끝을 자르지 않는다."
+    },
+    {
+      "id": "changgo",
+      "name": "창고",
+      "order": 2,
+      "inputs": [
+        "assets_unused/pending_review/personal_hanok_v3/changgo_final.png",
+        "assets_unused/pending_review/personal_hanok_v3/turnaround_2d/ildu_changgo_blueprint200_28deg_v01/transparent_28deg/00_front_000.png",
+        "assets_unused/pending_review/personal_hanok_v3/turnaround_2d/ildu_changgo_blueprint200_28deg_v01/transparent_28deg/01_front_right_045.png",
+        "assets_unused/pending_review/personal_hanok_v3/map_camera_reconstruction/ildu-layout-plan-20260905/changgo-target-context-v1.png",
+        "assets_unused/pending_review/personal_hanok_v3/ildu_Blueprint/도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_창고_평면도.jpg"
+      ],
+      "prompt": "V3 창고 정본의 형태와 화풍을 그대로 유지하면서 목표 지도 자리에서 자연스럽게 보이는 새 사선 시점을 그린다. 장방형 평면, 전면 6칸과 7개 기둥선, 장축 방향의 단일 맞배지붕, 전면 6개 판문, 닫힌 후면과 양 측면, 석재 기단을 유지한다. 목표 자리에서 긴 축은 세로에 가깝고 전면은 중앙 통로 쪽을 향한다. 정면과 오른쪽 면이 자연스럽게 보이게 새로 그리며 문·손잡이를 후면이나 측면에 새로 만들지 않는다."
+    },
+    {
+      "id": "hyeopmun_G02_G04",
+      "name": "사랑채 양쪽 협문",
+      "order": 3,
+      "inputs": [
+        "assets_unused/pending_review/personal_hanok_v3/turnaround_2d/ildu_sadang_hyeopmun_v01/references/source_hyeopmun_try03_cut.png",
+        "assets_unused/pending_review/personal_hanok_v3/turnaround_2d/ildu_sadang_hyeopmun_v01/transparent_views/ildu_sadang_hyeopmun_000_front.png",
+        "assets_unused/pending_review/personal_hanok_v3/turnaround_2d/ildu_sadang_hyeopmun_v01/transparent_views/ildu_sadang_hyeopmun_045_front_right.png",
+        "assets_unused/pending_review/personal_hanok_v3/map_camera_reconstruction/ildu-layout-plan-20260905/G02-hyeopmun-left-target-context-v1.png",
+        "assets_unused/pending_review/personal_hanok_v3/map_camera_reconstruction/ildu-layout-plan-20260905/G04-hyeopmun-right-target-context-v1.png"
+      ],
+      "prompt": "V3 협문 정본의 단칸 맞배지붕, 무채색 회갈색 목재, 정면 수직 판문, 외부 버팀대, 3단 자연석 계단을 유지한다. 사랑채 왼쪽 G02와 오른쪽 G04는 같은 협문 종류이며 각 목표 자리에서 사랑채 연결 담장과 문지방이 끊김 없이 이어져야 한다. 두 문은 목표 문맥에서 보이는 방향을 따르고 임의로 좌우 반전하지 않는다. 우선 한 개의 독립 협문 원화를 전체가 보이도록 생성하고, 지도 배치 단계에서 두 위치의 가림과 담장 연결을 각각 처리한다."
+    }
+  ],
+  "pathBase": "repository-root"
+}

@@ -1,0 +1,1694 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Content-addressed inventory of the retained IlDu map working set.",
+  "sourceRootName": "ildu-layout-plan-20260905",
+  "fileCount": 337,
+  "bytes": 278678307,
+  "files": [
+    {
+      "path": "a11y-result.json",
+      "bytes": 4020,
+      "sha256": "b1864467d2f55f075a91417806fc77b3dbed481c43e5575b5cdccc69682d69fa"
+    },
+    {
+      "path": "add-front-direction.mjs",
+      "bytes": 1026,
+      "sha256": "35eafb9c1f23f634d5b88f3985026f75cb9ab1ec66deaa7570a78124b2049290"
+    },
+    {
+      "path": "asset-ildu_anchae_00_front.png",
+      "bytes": 100839,
+      "sha256": "fd84f655758236fde46f4c1716115675f9b403e08f5e4b977a6bafee9474c376"
+    },
+    {
+      "path": "asset-ildu_anchae_01_front_right.png",
+      "bytes": 115814,
+      "sha256": "5c9732088e7b238a47ccf8727e71bc31248c4447e757ff5328e2ec1a3da2f3d9"
+    },
+    {
+      "path": "asset-ildu_anchae_02_right.png",
+      "bytes": 72466,
+      "sha256": "929d5936199f983465042e5286b982e0b84255c5cf4da54b8a6a5257546db0fe"
+    },
+    {
+      "path": "asset-ildu_anchae_03_rear_right.png",
+      "bytes": 113731,
+      "sha256": "2bad5d3c560ba37f429b61b74538dbac6174125dbbea7f7b6c62d95b950dd1de"
+    },
+    {
+      "path": "asset-ildu_anchae_04_rear.png",
+      "bytes": 99139,
+      "sha256": "e58fd4604dde33c580a8f29e3d4f739765ab39a8210440f2ef7974f8bae85349"
+    },
+    {
+      "path": "asset-ildu_anchae_05_rear_left.png",
+      "bytes": 109670,
+      "sha256": "c7ba3fe595a774fc67f8ccd17e2f98457e66617c33dd93c8ab11db0403e97ac5"
+    },
+    {
+      "path": "asset-ildu_anchae_06_left.png",
+      "bytes": 70618,
+      "sha256": "c549a6259a090b4e4de141fc46638202d25501b800d640a2e360be3eb6c77154"
+    },
+    {
+      "path": "asset-ildu_anchae_07_front_left.png",
+      "bytes": 115516,
+      "sha256": "53a54bf0b4459a9411e4e3dfae8367b489a3402ec09b55b3ad6ea92470c7a390"
+    },
+    {
+      "path": "asset-ildu_anchae_store_00_front.png",
+      "bytes": 75963,
+      "sha256": "5be1a8b7f08c2a0ddde81dad2656628dd5557267c7ac0a9583f7727b9486e8ad"
+    },
+    {
+      "path": "asset-ildu_anchae_store_01_front_right.png",
+      "bytes": 59935,
+      "sha256": "f18339a7e9f4fcc9a51fdb3513c3af6593f0b77a115208c162218b46926b9160"
+    },
+    {
+      "path": "asset-ildu_anchae_store_02_right.png",
+      "bytes": 27479,
+      "sha256": "85a19815c4a748f485c57156794d1a0a34c94361605cbe9e5757b1bde1ad5d30"
+    },
+    {
+      "path": "asset-ildu_anchae_store_03_rear_right.png",
+      "bytes": 40637,
+      "sha256": "2850bf3e9b4710ace9c94239aefff72f56df4b391def7c66372a727fa3ab8169"
+    },
+    {
+      "path": "asset-ildu_anchae_store_04_rear.png",
+      "bytes": 79028,
+      "sha256": "c7523ae6f8fdc02962c04d628c1427753eb9fede921196e13f229a3cb50b7799"
+    },
+    {
+      "path": "asset-ildu_anchae_store_05_rear_left.png",
+      "bytes": 57787,
+      "sha256": "21d9c47fa47062987a031fd7a0d5199fd1b9167139f8fd90b69bc33585259eca"
+    },
+    {
+      "path": "asset-ildu_anchae_store_06_left.png",
+      "bytes": 22916,
+      "sha256": "94d42078882e1a5811acbbd3dde2ab26000ec7f11061867b7e59797d2756015e"
+    },
+    {
+      "path": "asset-ildu_anchae_store_07_front_left.png",
+      "bytes": 54587,
+      "sha256": "653d8e39cfa826c30d39ad10115e43170525816b6704b1c27d25977dc94e86a2"
+    },
+    {
+      "path": "asset-ildu_ansarangchae_00_front.png",
+      "bytes": 164704,
+      "sha256": "4872a6f8ac99d970997656d487d2abc7d597170fa52e1a7b871773b6cd95fdc1"
+    },
+    {
+      "path": "asset-ildu_ansarangchae_01_front_right.png",
+      "bytes": 192504,
+      "sha256": "11f13de705a326f6c5433e03cd094895b148b45658da52c723fc2cd1c17cbf2d"
+    },
+    {
+      "path": "asset-ildu_ansarangchae_02_right.png",
+      "bytes": 140605,
+      "sha256": "8fbd70b70f9c056a98b0845dc77e374bf4ac015ce2e8474257b56dbe50efb060"
+    },
+    {
+      "path": "asset-ildu_ansarangchae_03_rear_right.png",
+      "bytes": 164437,
+      "sha256": "013f0474b4b91edfbb8498f2584153e9f24076d0162b6b8f5e9856a8d75d358c"
+    },
+    {
+      "path": "asset-ildu_ansarangchae_04_rear.png",
+      "bytes": 165991,
+      "sha256": "8fdde45e2e7ec4e43f904c1075e46472e407c43a30d9e031ba92630f6a8aadd1"
+    },
+    {
+      "path": "asset-ildu_ansarangchae_05_rear_left.png",
+      "bytes": 195772,
+      "sha256": "4605e0487edb2adaef1dcba6179b7ba01f58228503168813d8705ea86ef64954"
+    },
+    {
+      "path": "asset-ildu_ansarangchae_06_left.png",
+      "bytes": 151954,
+      "sha256": "1c069fe58d11628024a4bc2563a20d1ba7d2d2abd8ace5f00e44e1acdf7553f5"
+    },
+    {
+      "path": "asset-ildu_ansarangchae_07_front_left.png",
+      "bytes": 204416,
+      "sha256": "0e20233619209fc7a3d1e1748b385266a1e6cf262eb4a05248d51b32ecf65cc7"
+    },
+    {
+      "path": "asset-ildu_araechae_00_front.png",
+      "bytes": 1855690,
+      "sha256": "7dca50e664e5973effe7f994f041c2c4ae7b5c00fc57303f86eb16effa3f703e"
+    },
+    {
+      "path": "asset-ildu_araechae_01_front_right.png",
+      "bytes": 2415839,
+      "sha256": "c16be02cd3f920084b645d951e3d575946f2bef04897f5531065669ce8879475"
+    },
+    {
+      "path": "asset-ildu_araechae_02_right.png",
+      "bytes": 1242652,
+      "sha256": "4887fcd5b9aea5e56dbd396bc6ed94db103abb75756f2f5b609ccbfd4d931122"
+    },
+    {
+      "path": "asset-ildu_araechae_03_rear_right.png",
+      "bytes": 2085182,
+      "sha256": "93e34824c3c4b504f78bf4b2d3e13697cef9c2ffbbb80f9ad21fde2dcb07dbfc"
+    },
+    {
+      "path": "asset-ildu_araechae_04_rear.png",
+      "bytes": 1736445,
+      "sha256": "01c4bad6057dc786b8944bddc03357f98ef8d91063ce37c13aa4006b4aa5c066"
+    },
+    {
+      "path": "asset-ildu_araechae_05_rear_left.png",
+      "bytes": 2183347,
+      "sha256": "59a77b9feb79fb3a4bdfc906e44d474a9f5c495bf2fde58f57e03d045bb3572b"
+    },
+    {
+      "path": "asset-ildu_araechae_06_left.png",
+      "bytes": 1094136,
+      "sha256": "f4c070e43785d7f83d3aaabb7401d1a1c4616a3ecbbab6401a57aadf9dc2ae97"
+    },
+    {
+      "path": "asset-ildu_araechae_07_front_left.png",
+      "bytes": 2186278,
+      "sha256": "8eb86188d8a3ca393d969eb451b1e9119b0ca06152d25cb67d2f066aa1e1bd0d"
+    },
+    {
+      "path": "asset-ildu_changgo_00_front.png",
+      "bytes": 89752,
+      "sha256": "64b6b04c0f1ae3e70bae7e8619d890737c48cafb33ff866ee10deead316a6cf9"
+    },
+    {
+      "path": "asset-ildu_changgo_01_front_right.png",
+      "bytes": 111675,
+      "sha256": "a40f0527aa9bd171a1771db04ccb6f06900d8f42899d2665cf6a843b2f6515cb"
+    },
+    {
+      "path": "asset-ildu_changgo_02_right.png",
+      "bytes": 87532,
+      "sha256": "af10f0be98171d9b06572bc4666f6d3ac350bd5d00e7502420f8dbc50f56a485"
+    },
+    {
+      "path": "asset-ildu_changgo_03_rear_right.png",
+      "bytes": 103984,
+      "sha256": "23206f797c2252bf6e3930c00eb137a34afe71b6d186280ff14a23a14a0c6ad7"
+    },
+    {
+      "path": "asset-ildu_changgo_04_rear.png",
+      "bytes": 83686,
+      "sha256": "9c4e7489982b1ec251b5a3926a4405799be187eaccc47b7b8cdeec3f55278adb"
+    },
+    {
+      "path": "asset-ildu_changgo_05_rear_left.png",
+      "bytes": 100034,
+      "sha256": "bab71b1f1dd18035eb405214fa9e386b06adb9a0a7af34139b4ff9347a83750b"
+    },
+    {
+      "path": "asset-ildu_changgo_06_left.png",
+      "bytes": 91805,
+      "sha256": "5e8008afd74f602afae20a7b8cdb3f491a94d4a5c467031e38df7271f3303eaf"
+    },
+    {
+      "path": "asset-ildu_changgo_07_front_left.png",
+      "bytes": 111906,
+      "sha256": "71c75b1a7adaf3823d71020e1159d4e85f8d71d8bfc415355bf3c85af8054a7c"
+    },
+    {
+      "path": "asset-ildu_gokgan_00_front.png",
+      "bytes": 110812,
+      "sha256": "4c2096f71df12d743d93ac15389f6fd055ee8b84acc2b7bb1afbcc365f5d8fe4"
+    },
+    {
+      "path": "asset-ildu_gokgan_01_front_right.png",
+      "bytes": 106983,
+      "sha256": "ede230a9ab95054dc580aa5e1ade59e96bd223fe38b7bf5cfbedae4dfb9d2b64"
+    },
+    {
+      "path": "asset-ildu_gokgan_02_right.png",
+      "bytes": 74995,
+      "sha256": "c2ad44683007d6a8c2b3122d44302114481aca4a952241b178196d2bd5838978"
+    },
+    {
+      "path": "asset-ildu_gokgan_03_rear_right.png",
+      "bytes": 102370,
+      "sha256": "9bba452b7ef5e869a7932b94fb1bca3639e6601292393adefff6f02d2acd90c2"
+    },
+    {
+      "path": "asset-ildu_gokgan_04_rear.png",
+      "bytes": 114650,
+      "sha256": "5255855e5e7ddac637f94d5f706ebff9147a8d3f1c627571482c36b5e3b56f1f"
+    },
+    {
+      "path": "asset-ildu_gokgan_05_rear_left.png",
+      "bytes": 96553,
+      "sha256": "2009bf3a0f52344caf5fd8c99bbc97063d5c0ccb207d6d475e348eb2061574be"
+    },
+    {
+      "path": "asset-ildu_gokgan_06_left.png",
+      "bytes": 83298,
+      "sha256": "d1ec1f6251084f79a6318e90935418e940565b8dd60de5dcab8a9702eb4f61d9"
+    },
+    {
+      "path": "asset-ildu_gokgan_07_front_left.png",
+      "bytes": 94865,
+      "sha256": "e1c70a75d50493a3a16554e4fc42f54b9cebc9d49bd6a41fa8c8dde13966698a"
+    },
+    {
+      "path": "asset-ildu_jungmunganchae_00_front.png",
+      "bytes": 2112122,
+      "sha256": "bc7021ef7ba05f5c21746626e1b3ddec2e82609db40d55171c65860256d17909"
+    },
+    {
+      "path": "asset-ildu_jungmunganchae_01_front_right.png",
+      "bytes": 2451637,
+      "sha256": "386b0d951d5264f83f7a304f58ed7382f42c952deffaeb9199979d5470efe1a8"
+    },
+    {
+      "path": "asset-ildu_jungmunganchae_02_right.png",
+      "bytes": 1983361,
+      "sha256": "14c5704c581487d7a4230922065964a1742fe909a0bc28455bfb1cd42fbbc51f"
+    },
+    {
+      "path": "asset-ildu_jungmunganchae_03_rear_right.png",
+      "bytes": 2382300,
+      "sha256": "81156fade5c8905ca2978b16c71e1c98d99fe9775b6b0eaccf0c243677e75df9"
+    },
+    {
+      "path": "asset-ildu_jungmunganchae_04_rear.png",
+      "bytes": 2259300,
+      "sha256": "025e66cb5a7139cf7c5e26f09dab845a6afb546999677a2ad75f3a790edd48e7"
+    },
+    {
+      "path": "asset-ildu_jungmunganchae_05_rear_left.png",
+      "bytes": 2408810,
+      "sha256": "3821497538dcc8fdb13c54121feb09f952ace8ebae34c073dfbcef812fb29611"
+    },
+    {
+      "path": "asset-ildu_jungmunganchae_06_left.png",
+      "bytes": 1725875,
+      "sha256": "b19bf5169fa449af885938938ec6fc113ceeac81559095190fe8905ef55dd0ae"
+    },
+    {
+      "path": "asset-ildu_jungmunganchae_07_front_left.png",
+      "bytes": 2314380,
+      "sha256": "174c41fc54d5d40c4d094ff2006ac7a8f6b5f9eb128612317cae61e723d710bc"
+    },
+    {
+      "path": "asset-ildu_sadang_00_front.png",
+      "bytes": 205372,
+      "sha256": "6b62ea15d6458652914225391b7fc5df2de4c2a6dffe38ade73d83c9c3976a94"
+    },
+    {
+      "path": "asset-ildu_sadang_01_front_right.png",
+      "bytes": 186969,
+      "sha256": "851d2b956379d83094303df28516874f1e84d8c06ff0e6dafddd7cba71b8c912"
+    },
+    {
+      "path": "asset-ildu_sadang_02_right.png",
+      "bytes": 126332,
+      "sha256": "ed5c204a603ee84cdfbd2801d3be7015aea4b992a312a24816d7a9de85115934"
+    },
+    {
+      "path": "asset-ildu_sadang_03_rear_right.png",
+      "bytes": 174819,
+      "sha256": "2ad19621a754dcfa4909a3f366225b22eb7e7c64edf144d1f8f836567a7e984c"
+    },
+    {
+      "path": "asset-ildu_sadang_04_rear.png",
+      "bytes": 197401,
+      "sha256": "f2c11eb7142d09adf76e4adec498ebfcc931134d0521be6dbad01555c92464a1"
+    },
+    {
+      "path": "asset-ildu_sadang_05_rear_left.png",
+      "bytes": 163542,
+      "sha256": "6d97172e47c075f46e0bb72d7ff19e14370ec9a33824e00d3266777b3f84301c"
+    },
+    {
+      "path": "asset-ildu_sadang_06_left.png",
+      "bytes": 138649,
+      "sha256": "3ee5bed121b209605353cc601e76e1461a4188ab13d586d7d90b082f975e170f"
+    },
+    {
+      "path": "asset-ildu_sadang_07_front_left.png",
+      "bytes": 184552,
+      "sha256": "4265699751d65c2ba150b6165019ad9b2434ecc2e64c3aaa22e069a990cc3e91"
+    },
+    {
+      "path": "asset-ildu_sadang_hyeopmun_00_front.png",
+      "bytes": 216133,
+      "sha256": "543e56560973537fb4d7a00c2015b31acc8a6a4b7006df9bfa88397c1708e2e6"
+    },
+    {
+      "path": "asset-ildu_sadang_hyeopmun_01_front_right.png",
+      "bytes": 224086,
+      "sha256": "18d578c01eaad4673308840e51624ec6e08a4a5caa59843093c5c2abe6615de4"
+    },
+    {
+      "path": "asset-ildu_sadang_hyeopmun_02_right.png",
+      "bytes": 107915,
+      "sha256": "e01f5fd88e52c0050cf5ed32bb62e8690d3916b555dce9afc9560a00f1800198"
+    },
+    {
+      "path": "asset-ildu_sadang_hyeopmun_03_rear_right.png",
+      "bytes": 214124,
+      "sha256": "c294776037c8be6f3316e41845cd5ceb717d76d88dec5405c022ecdd60c60810"
+    },
+    {
+      "path": "asset-ildu_sadang_hyeopmun_04_rear.png",
+      "bytes": 200847,
+      "sha256": "1d59e413683d9ebc795e2cffd158e08f9a67be75eccad77e1d7f4cc67b0c229d"
+    },
+    {
+      "path": "asset-ildu_sadang_hyeopmun_05_rear_left.png",
+      "bytes": 203837,
+      "sha256": "41d4f19b54778a8a58344746edf6f324395148548999ae4d7a507dcd481d9870"
+    },
+    {
+      "path": "asset-ildu_sadang_hyeopmun_06_left.png",
+      "bytes": 103242,
+      "sha256": "2e72d5e3dc89cca5d2fa30512c48efe6b5688aaa9e0b4f34970d1f2a2006abbe"
+    },
+    {
+      "path": "asset-ildu_sadang_hyeopmun_07_front_left.png",
+      "bytes": 221682,
+      "sha256": "17b580192c280fe1e1edfc705324bfed1078dbf9484c004449d8656444191e35"
+    },
+    {
+      "path": "asset-ildu_sadangmun_00_front.png",
+      "bytes": 236090,
+      "sha256": "95becb2b49571d34faa3b3c39709378b755bb6b40d39eefde41c060e3b7a430d"
+    },
+    {
+      "path": "asset-ildu_sadangmun_01_front_right.png",
+      "bytes": 208178,
+      "sha256": "c650feff48405bbbb10d7aa51413c8d2ccc2a926609ff316199e8bf2b3fe6490"
+    },
+    {
+      "path": "asset-ildu_sadangmun_02_right.png",
+      "bytes": 93024,
+      "sha256": "aaa4ffe4ba52adc98dd68d949f30f51df824508de87b906b7290a888ec5bf83a"
+    },
+    {
+      "path": "asset-ildu_sadangmun_03_rear_right.png",
+      "bytes": 183060,
+      "sha256": "20e8ff7a512af28a68db3e00abe1c9e7d33d75575268f9acd99634a4fad357c9"
+    },
+    {
+      "path": "asset-ildu_sadangmun_04_rear.png",
+      "bytes": 226733,
+      "sha256": "6c0e615b4d9ab1de886118577b88bf5da6a0fa304d51fd09a04c49ca8f9b626a"
+    },
+    {
+      "path": "asset-ildu_sadangmun_05_rear_left.png",
+      "bytes": 193167,
+      "sha256": "8a7da1002e3532c1feea1387fcdaabb0da31a515a00e93a1b478da75c8398abb"
+    },
+    {
+      "path": "asset-ildu_sadangmun_06_left.png",
+      "bytes": 95625,
+      "sha256": "c8e6968ea247d9ece7bb9774a42489323942b4db586912e13ea77b39c1c7a42c"
+    },
+    {
+      "path": "asset-ildu_sadangmun_07_front_left.png",
+      "bytes": 189980,
+      "sha256": "5c6854d370a3e425ac320a2255ce02465049e79486d2319c1c7d608dff06841b"
+    },
+    {
+      "path": "asset-ildu_sarangchae_00_front.png",
+      "bytes": 136478,
+      "sha256": "493682c55ead02518347a9a2073a195befe0650e6bc5a9a27d935daa6ef33fec"
+    },
+    {
+      "path": "asset-ildu_sarangchae_01_front_right.png",
+      "bytes": 139953,
+      "sha256": "6b918966457d7b957912c3ddbe9adca3397205b261acb9e3b425b1c2bf2836fa"
+    },
+    {
+      "path": "asset-ildu_sarangchae_02_right.png",
+      "bytes": 128599,
+      "sha256": "0b44813601e646ec0d3289a7bf0f14ae648fa372077cec3b49430068efacfd68"
+    },
+    {
+      "path": "asset-ildu_sarangchae_03_rear_right.png",
+      "bytes": 126291,
+      "sha256": "bae0c6ee4e3ee9adc93b88563450958f1250bb8bd68c4ba0f2a0b88d8a194762"
+    },
+    {
+      "path": "asset-ildu_sarangchae_04_rear.png",
+      "bytes": 128213,
+      "sha256": "6d28cc8d6c6ce83ef6599a6548bc7c33679c9bfe92d703f2a780ad04492fda90"
+    },
+    {
+      "path": "asset-ildu_sarangchae_05_rear_left.png",
+      "bytes": 138269,
+      "sha256": "2c223186ecffb5bd4bf79445a3ddad9fca6c45503210408fc5ab6ba0da4aa374"
+    },
+    {
+      "path": "asset-ildu_sarangchae_06_left.png",
+      "bytes": 141070,
+      "sha256": "20818d3fe664ddc8fa2896dec96466fd7dbfda9061d9b8e7e4efcb0a421ff033"
+    },
+    {
+      "path": "asset-ildu_sarangchae_07_front_left.png",
+      "bytes": 130226,
+      "sha256": "c81230f0595b57e95b566eca16b6b1616eaaaedf68b2b81935b116b630cc24df"
+    },
+    {
+      "path": "asset-ildu_sotdaeulmun_00_front.png",
+      "bytes": 151473,
+      "sha256": "6e295fbe18502ffd38521c7dd0dc7688eb46b79a8e5b28b7c06c19482b254b2a"
+    },
+    {
+      "path": "asset-ildu_sotdaeulmun_01_front_right.png",
+      "bytes": 167932,
+      "sha256": "44a3f480a203547a002818d395a36d5385a93e42d1a816e231a3cb7240a8d346"
+    },
+    {
+      "path": "asset-ildu_sotdaeulmun_02_right.png",
+      "bytes": 146916,
+      "sha256": "30a62e2903b4f994267b5b997a1459e5083501676e8a0ae382c027b97a193bf3"
+    },
+    {
+      "path": "asset-ildu_sotdaeulmun_03_rear_right.png",
+      "bytes": 158224,
+      "sha256": "38a1d06d5869e9f7ea25c5df6891184b1ffc382d4222c646e10a4a626cb33b16"
+    },
+    {
+      "path": "asset-ildu_sotdaeulmun_04_rear.png",
+      "bytes": 146356,
+      "sha256": "cdcdd6adb00c22115128edb10f78066e1b37ce5df75bf4994b6f92875dacd71e"
+    },
+    {
+      "path": "asset-ildu_sotdaeulmun_05_rear_left.png",
+      "bytes": 160189,
+      "sha256": "aa64da5b940f27e932cfe336a2a5755d744b3b540457a03198993df5d882075e"
+    },
+    {
+      "path": "asset-ildu_sotdaeulmun_06_left.png",
+      "bytes": 138901,
+      "sha256": "842d2d6be0bbe1f525e6f5cdb6cfbb49539394a57bbe9d68bf16af31b137f8b1"
+    },
+    {
+      "path": "asset-ildu_sotdaeulmun_07_front_left.png",
+      "bytes": 153870,
+      "sha256": "5ab57c104b54a4f70b06048b4a61dbf7e7c7e65631b057211add7761c6697c30"
+    },
+    {
+      "path": "asset-ildu_toilet_00_front.png",
+      "bytes": 195522,
+      "sha256": "b8c5a704aebd92121ff248ea3d0dac6c7bdc05aadfb370b4d1c766b01b012898"
+    },
+    {
+      "path": "asset-ildu_toilet_01_front_right.png",
+      "bytes": 190384,
+      "sha256": "5ec3a9168873f5517f7612038ed4864d718d2b0117924f224c3310012c3ef9a5"
+    },
+    {
+      "path": "asset-ildu_toilet_02_right.png",
+      "bytes": 135742,
+      "sha256": "b75839478ca4d6f30fbe2666d41053cac2dcefcf3cd2c46465baab605272b6a7"
+    },
+    {
+      "path": "asset-ildu_toilet_03_rear_right.png",
+      "bytes": 147118,
+      "sha256": "e44f231ff3a53e70be66d6bc1f1a45f840ddb582e27b5ea8bef10b78c2842c13"
+    },
+    {
+      "path": "asset-ildu_toilet_04_rear.png",
+      "bytes": 188116,
+      "sha256": "f941452eaf2c4a3bb3d7483937cc28eee274c537b38ff73de03cbd885d5e0580"
+    },
+    {
+      "path": "asset-ildu_toilet_05_rear_left.png",
+      "bytes": 156255,
+      "sha256": "94151447be39c7361b4b8b1a626307aeb3bfd618da90acc91651e664f70d0754"
+    },
+    {
+      "path": "asset-ildu_toilet_06_left.png",
+      "bytes": 132234,
+      "sha256": "3245cc6b98f78431af17ba9e9b3479f88962a28867ce9a0c8614c63697f994d2"
+    },
+    {
+      "path": "asset-ildu_toilet_07_front_left.png",
+      "bytes": 170460,
+      "sha256": "ba953f72f835b66a0ac4cf11310f2321a4be5e7d80384984e67f25072e284dcf"
+    },
+    {
+      "path": "audit-sarangchae-candidate04.py",
+      "bytes": 6803,
+      "sha256": "645ae8c9b721d6a099092c76c382d2eeb5e4cde0f6a5d74750555265c0cfcbed"
+    },
+    {
+      "path": "browser-verification-v2.json",
+      "bytes": 1095,
+      "sha256": "2df0ff0b730d82f8b74f5438a62824f95f72a53bcdb8b5b80aca9943ae0961d0"
+    },
+    {
+      "path": "browser-verification.json",
+      "bytes": 653,
+      "sha256": "0de67f6a68cda9df350f8751a3d5ecd6866a06e7579d735a81a6019357c7c105"
+    },
+    {
+      "path": "build-camera-locked-art-input.mjs",
+      "bytes": 2803,
+      "sha256": "172572cd01d02c1d0c01f6881cbb9666704d6ef89c2a2e9e9c5b451e1b5de5ac"
+    },
+    {
+      "path": "build-camera-study.mjs",
+      "bytes": 6297,
+      "sha256": "ef0192d2048bd8757d646e1366d9190add6929fe390c4d3bf635ca47b4ccd366"
+    },
+    {
+      "path": "build-generation-reference-boards.mjs",
+      "bytes": 2050,
+      "sha256": "f5720f0346fad0c8bdcc1710ade5cf9cb0abcff6e1e0181cca102ff3c94703cb"
+    },
+    {
+      "path": "build-next-batch-target-guides.py",
+      "bytes": 4673,
+      "sha256": "8c4d46f90e2b99bb3aeedf816270aee027e71c30784e131e19278926614b2644"
+    },
+    {
+      "path": "build-plan.mjs",
+      "bytes": 32649,
+      "sha256": "a10099491e5f92b7ba9ceac285bad9102bff3340da5aa01b7a7305879651fbef"
+    },
+    {
+      "path": "build-roofed-camera-base.mjs",
+      "bytes": 14546,
+      "sha256": "de1f88438b59a5261b31b9149a41c31b29a6fa1c86df92a67ac9e984e59aceef"
+    },
+    {
+      "path": "build-sprite-fit.mjs",
+      "bytes": 4100,
+      "sha256": "fed7cd00d171558e51017b0b1fd144eb57350167c2459c839aade3c69d7d43f9"
+    },
+    {
+      "path": "building_identifications.json",
+      "bytes": 2779,
+      "sha256": "67225601482e719dfe0bf6df89b192e04b76523446ece96063589b742b61d181"
+    },
+    {
+      "path": "camera-browser-verification.json",
+      "bytes": 996,
+      "sha256": "d4f3ca395ec99508e4daee912ef861bfdedee3f7550e16ec54e3c05dd558b49f"
+    },
+    {
+      "path": "camera-locked-art-input-proof.json",
+      "bytes": 1187,
+      "sha256": "71d535913f497f26a66d237b60fab42088889b59a9109c70070333ac4195abe6"
+    },
+    {
+      "path": "camera-locked-art-input.html",
+      "bytes": 62844,
+      "sha256": "5d1443197791f20c5d66b98098b2485fb55b88f2955008051eb7743d644be1b9"
+    },
+    {
+      "path": "camera-locked-art-input.png",
+      "bytes": 280873,
+      "sha256": "9ea247d3f627b63d694a737b81658abb78bd5a6617f154aed511452e12c57919"
+    },
+    {
+      "path": "camera-selection.json",
+      "bytes": 540,
+      "sha256": "1e10483a32408ef23ab7046afed803a9c49a55b928180d428e9dc71f2bf30b5b"
+    },
+    {
+      "path": "camera-study-data.json",
+      "bytes": 62155,
+      "sha256": "697cb9ceb09e9dfbdcf26a08b020758bea0e982f6df56534134a4fb1f693f794"
+    },
+    {
+      "path": "camera-study-mobile-v1.png",
+      "bytes": 58756,
+      "sha256": "3c0dfb10ff67ba297d2174f2454331b735a056c5d56e46d288e01e43e5c5a134"
+    },
+    {
+      "path": "camera-study-v1.png",
+      "bytes": 1085865,
+      "sha256": "df5fc8699853be247b2f835e5cf9e858d1b9a546b60856b0df5903d8994f967c"
+    },
+    {
+      "path": "camera-study.html",
+      "bytes": 77370,
+      "sha256": "bca91dc47f26b5066ad9b9fe756322526445111d366e0461b669d638254361e4"
+    },
+    {
+      "path": "camera-study.template.html",
+      "bytes": 21139,
+      "sha256": "c211a03f28f1a7343890387e0b03fed8dc70b526fd8549f6d4f06545d7052cf1"
+    },
+    {
+      "path": "changgo-target-context-v1.png",
+      "bytes": 759180,
+      "sha256": "3393be3d17349e541504b94b22caf5779fcf920d2f8a19206be921aef68b98ec"
+    },
+    {
+      "path": "completed-scene-generation-record.json",
+      "bytes": 19086,
+      "sha256": "ce61587742d9c567f15cf0dd6023ce96e06eb1099da130e61dd3d9cac087e981"
+    },
+    {
+      "path": "completed-scene-prompt-v1.txt",
+      "bytes": 7559,
+      "sha256": "76fa565af709ee25c42e58ab6e709d7b13db9dc787e0e73a2aae5414b5c2af80"
+    },
+    {
+      "path": "completed-scene-prompt-v2.txt",
+      "bytes": 4504,
+      "sha256": "1dffeec65ff0923222df7c5b6054e889b7daf03985c63d86a3679ccc10da3acb"
+    },
+    {
+      "path": "completed-scene-prompt-v3.txt",
+      "bytes": 2902,
+      "sha256": "95016e44ac78f47d260851b23c5993a9a19b15e079ebbd1a6b99cb9d3ef90684"
+    },
+    {
+      "path": "completed-scene-prompt-v4.txt",
+      "bytes": 1148,
+      "sha256": "c4a1c63595fa4c3c28e521ea4acb44266d9dcef2fc1f1a6ab07dcdb469fb92f6"
+    },
+    {
+      "path": "completed-scene-request-v1.json",
+      "bytes": 753,
+      "sha256": "9959661e82f944e79a794f3807c79f4ee4de0c4deadc459d0b62fb913e15477d"
+    },
+    {
+      "path": "completed-scene-v1.png",
+      "bytes": 3258625,
+      "sha256": "521f4918355937b8f0276d3f562d9d5d9e0d291c9e6de03aa14b7a157a7768c6"
+    },
+    {
+      "path": "completed-scene-v2.png",
+      "bytes": 3202859,
+      "sha256": "560a29ecf3130e7bb9d38c766959a10a0f5fc63115ed32280abd761c927ae6d2"
+    },
+    {
+      "path": "completed-scene-v3.png",
+      "bytes": 3117656,
+      "sha256": "9bccb3ccf9f815fbfa8eb297b7deb83a4d9dff027b1389e994ec3909faf8b23d"
+    },
+    {
+      "path": "completed-scene-v4.png",
+      "bytes": 3188759,
+      "sha256": "ba919a2a6bb9d2d61eadf61d01221ac9c4ed3ae10147e9fbfc5858cc44a26629"
+    },
+    {
+      "path": "compose-sarangchae-candidate05.py",
+      "bytes": 5393,
+      "sha256": "fc050af3452867c15f3d93f9e992e53dc33e47808787cfff27d99ac6cabe0868"
+    },
+    {
+      "path": "compose-sarangchae-isolated-v3.py",
+      "bytes": 5391,
+      "sha256": "551adea6708aea1fd3e9ec9f7bed0d76df548962111b2430591e6909515d7490"
+    },
+    {
+      "path": "compose-sarangchae-selected-small.py",
+      "bytes": 7104,
+      "sha256": "efbf9f1c80f878d90a4b6196a6aa24e4cf07a4e820234cdd17cf59c70cf30151"
+    },
+    {
+      "path": "compose-sarangchae-toenmaru-v1.py",
+      "bytes": 4101,
+      "sha256": "6afc87e1c0d8707caa163d11d040a7bfcec68b9be5f11d07ba0f7a69702c43cb"
+    },
+    {
+      "path": "data-validation.json",
+      "bytes": 559,
+      "sha256": "be298fffe6fe2d75e566063d6c1d8f9a81d6c58839791b1898ec8a267736fe0f"
+    },
+    {
+      "path": "estimate-natural-map-registration.py",
+      "bytes": 4892,
+      "sha256": "7df3053a45b7623e161b5247fdc807e85c118a4134f36eb382b8227277260625"
+    },
+    {
+      "path": "final-canvas-framing-conflict-v1.json",
+      "bytes": 1234,
+      "sha256": "82707b0d68b33945324bd5338e089747c3d3e8bdf65a96c99f95a6305250905d"
+    },
+    {
+      "path": "final-canvas-framing-conflict-v1.png",
+      "bytes": 796239,
+      "sha256": "56a239eea54c79a338e873920a3d69a24d2d607a9cd464c05a0e986d96b8abb0"
+    },
+    {
+      "path": "fixed-camera-scene-prompt-v1.txt",
+      "bytes": 4319,
+      "sha256": "491bb4e8be4de4e8a50ef4c266124086745c4153ce36ec12202d2f1ca6cf3c6b"
+    },
+    {
+      "path": "fixed-camera-scene-v1-rejected.png",
+      "bytes": 3276979,
+      "sha256": "73697a5ee2111d9179a5404c202a8531f0cf08d11a28599a5aeb20caa00114f2"
+    },
+    {
+      "path": "front-and-camera-validation.json",
+      "bytes": 574,
+      "sha256": "f585756f4efe208d8c67a4f03fd18c124182d8b4bf25910d6013cd66ebe14aa9"
+    },
+    {
+      "path": "G02-hyeopmun-left-target-context-v1.png",
+      "bytes": 804841,
+      "sha256": "16efa8acb7f37e69bd00d28f39d349f44a8d04f17084e10e72d46db926b561ee"
+    },
+    {
+      "path": "G04-hyeopmun-right-target-context-v1.png",
+      "bytes": 744691,
+      "sha256": "bb66d4d3e331c51b532d9b7ac9450e749a7a3d199bb663c572b2b1cab1915345"
+    },
+    {
+      "path": "gate-asset-hyeopmun.png",
+      "bytes": 1184634,
+      "sha256": "2655d4bafc0a7388e3727206a9a1bbf6536c65a5f38da8998e35579edac3daa1"
+    },
+    {
+      "path": "gate-asset-sadang-gate.png",
+      "bytes": 1638992,
+      "sha256": "8faa7b5b322b042e0ecbab472383825cbb0e17cf8942ea8670db1517f1adcc59"
+    },
+    {
+      "path": "gates-02-detail.png",
+      "bytes": 2072313,
+      "sha256": "16f8b44fc602c0d3d65adcb366208a250b2d59b26f7f2a2e15f3b3a6f2a28583"
+    },
+    {
+      "path": "gates-02-left-layer.png",
+      "bytes": 53314,
+      "sha256": "c46c5e66a951e79faecb6a76a7fee96d0391ebfd4f67afd127b00145723579b9"
+    },
+    {
+      "path": "gates-02-right-layer.png",
+      "bytes": 62516,
+      "sha256": "bcf935cc84128b4e3f20bbe47a759190f1d127c4c53ebd7e4175eaba31790d0b"
+    },
+    {
+      "path": "gates-browser-verification.json",
+      "bytes": 650,
+      "sha256": "a804c2a1a72ce98adc632f3d1cedd26e49030f7c7d6923e9be9923b8cf986b1b"
+    },
+    {
+      "path": "gates-compose-exports.json",
+      "bytes": 8685543,
+      "sha256": "9f0484cdf3ae92aae77914deb3e8f553ed22a75a024d6be9020515d6eb6ea581"
+    },
+    {
+      "path": "gates-compose.html",
+      "bytes": 2599,
+      "sha256": "b26e6c78540feaa43c5e90b49e54de1505c15fb546c6b227c1996c44f07519a1"
+    },
+    {
+      "path": "gates-current-context.png",
+      "bytes": 3057944,
+      "sha256": "8b39e9069f1d5263039d7b20ac03133fbadedd55a58d60f0a7a50c1b367b3424"
+    },
+    {
+      "path": "gates-generated-context-v1.png",
+      "bytes": 3335955,
+      "sha256": "b3ac882ce51622c1e2fb2325c104e3f960c55a15910b1a7302a08c2eafbdd74e"
+    },
+    {
+      "path": "gates-job.json",
+      "bytes": 2203,
+      "sha256": "73986e8496df74631a31eff7edd2c2bd49ce00c6e89be0ca041191c76f92f39d"
+    },
+    {
+      "path": "gates-prep-exports.json",
+      "bytes": 8149546,
+      "sha256": "44d7345b042e34be46698a9772d41c85c989285385c7341842b999f880f37067"
+    },
+    {
+      "path": "gates-prep.html",
+      "bytes": 1308,
+      "sha256": "ba90973996ea62e7c882e0e1cfba15e6248f35a92dbdbfc623b22687df20f23b"
+    },
+    {
+      "path": "gates-prompt-v1.txt",
+      "bytes": 3123,
+      "sha256": "f8fb84d3ce33b8e0f7ff9fb47bd20c46354f44357ca8579c269b9d0ce607b219"
+    },
+    {
+      "path": "gates-review-desktop.png",
+      "bytes": 2671041,
+      "sha256": "47ef9643cc3bf48ca9dae62ae69c1dedfba9146ea129f936acc50308c336595e"
+    },
+    {
+      "path": "gates-target-guide.png",
+      "bytes": 3053896,
+      "sha256": "86d3f9bc8d4740a5174dbb69d527ba435595688bfbb20bf32ce4536317ef0fcf"
+    },
+    {
+      "path": "gates-update-review.mjs",
+      "bytes": 4898,
+      "sha256": "5ff45f613f300d1caa0aa66ce1a92ff711b5c6e02e99648368d7875e81d11c88"
+    },
+    {
+      "path": "gates-v3-canonical.png",
+      "bytes": 4333517,
+      "sha256": "3a6e3141f0f9c763067d40a867cf94082df04f119ba275c037b6e67645153884"
+    },
+    {
+      "path": "gates-v3-wall-material.png",
+      "bytes": 2508084,
+      "sha256": "3f04a85dad2fe6350cbdd1e3431672a80bc4b5c88d551d9c7d831dd40a391e9b"
+    },
+    {
+      "path": "gates-verification.json",
+      "bytes": 1298,
+      "sha256": "85473ce8b4a04e51521dd87cfd87ac284d13772c17cda4a8d001e5027ac44e13"
+    },
+    {
+      "path": "gates-verify.py",
+      "bytes": 2354,
+      "sha256": "8e3bcaf002438ea4e7eb2321d8bba9df08600a95566a4609a4966ae9c52417a7"
+    },
+    {
+      "path": "generation-refs-A.html",
+      "bytes": 1497,
+      "sha256": "cba2e103d2b59815e2e73671a23ad5c0bc33018210ed2d323812a20ebafdb361"
+    },
+    {
+      "path": "generation-refs-A.png",
+      "bytes": 1222364,
+      "sha256": "401b0fc4240fb788513677f703f3f32c43d930c9f4ddff8c1be6f6eef8dd8767"
+    },
+    {
+      "path": "generation-refs-B.html",
+      "bytes": 1681,
+      "sha256": "ca57851ce8f014a36273d7a081b26f75295a20b45553e979f10051c5813f13ed"
+    },
+    {
+      "path": "generation-refs-B.png",
+      "bytes": 1716430,
+      "sha256": "040648d2f81ced79c3a38168ae6b227dfe4e0d68ea9f098dc7bd052f7452852e"
+    },
+    {
+      "path": "generation-refs-C.html",
+      "bytes": 1538,
+      "sha256": "7aad051c28ae2a57d5e0feecc0528334e49fde6353652d0fef23f0ca2380a3fd"
+    },
+    {
+      "path": "generation-refs-C.png",
+      "bytes": 1028590,
+      "sha256": "45c86acb624b129b2e7c37ac51349353860385cab93b561dd3329552546cd644"
+    },
+    {
+      "path": "HANDOFF-sarangchae-20260909.md",
+      "bytes": 5731,
+      "sha256": "c9cff882d0c685d36d4ed09abc9af00978ba1212385150247eb2d22e09798df4"
+    },
+    {
+      "path": "ildu-layout-plan-v1.png",
+      "bytes": 1236753,
+      "sha256": "a8d9a6160e16c441d5b3d00c8844c281ff2ec6b53bfc7a4ee03c581b5aeebbeb"
+    },
+    {
+      "path": "ildu-layout-plan-v2.png",
+      "bytes": 1257889,
+      "sha256": "203196d5014a0123269ffabe4cf42464df365e01b8b8548b1d7a9c770db10269"
+    },
+    {
+      "path": "ildu-layout-plan-v3.png",
+      "bytes": 1260257,
+      "sha256": "69034ead69f5cdbd5f2193c04487843ccf431361eb2aa245cdfe18a3947a6cbe"
+    },
+    {
+      "path": "index.html",
+      "bytes": 3219224,
+      "sha256": "48da2e319bbb273a7ef83e0324a903d15e56298d982b739c9ecdbbc7181b0d2a"
+    },
+    {
+      "path": "jungmunchae-target-context-v1.png",
+      "bytes": 761344,
+      "sha256": "e8668ec24d3d1216b0277be00a51d609d82e8637c8035ab3146bf5034d361c46"
+    },
+    {
+      "path": "layout-lines.svg",
+      "bytes": 3188086,
+      "sha256": "a5a51e83f0582ed106e1369c1e5fff2ecd90870a050cad896486a7f7b5b303c7"
+    },
+    {
+      "path": "layout-overlay.svg",
+      "bytes": 3188088,
+      "sha256": "363f9a80ab53c2f61f94c62ae55e89ddfb48b6f4b8086341e54443c8fb82f575"
+    },
+    {
+      "path": "layout-plan-before-gates.json",
+      "bytes": 18628,
+      "sha256": "82842df3ba69a7d721ee20f6a7366656ff29a298d1d63abdae3bbfcf9d46057b"
+    },
+    {
+      "path": "layout-plan-v2-before-front-fix.json",
+      "bytes": 23475,
+      "sha256": "4f219293d309fd57e0d1bf30be256c901bf5f5ed6a842d278d5769158cac51da"
+    },
+    {
+      "path": "layout-plan.json",
+      "bytes": 23881,
+      "sha256": "dd7fd434470898595d07a4a6f1811434000fe8b9896311f3dac20f542613b4c7"
+    },
+    {
+      "path": "layout-sheet.html",
+      "bytes": 3201921,
+      "sha256": "c6952642d8395ee2966e6b0a368737ffa6d97ae7efd9407a8d3b7b214087c9d9"
+    },
+    {
+      "path": "make-sarangchae-alpha-v1.py",
+      "bytes": 4835,
+      "sha256": "b31877840420ba2d304316e5e4d561dc995f5beab661e5fd53b4a854cec5d435"
+    },
+    {
+      "path": "make-sarangchae-candidate05-alpha.py",
+      "bytes": 4068,
+      "sha256": "48580ffe0e00d7c494b29fdc3ce3febc9b45d618ca2c16ce05b87269dffc4a3d"
+    },
+    {
+      "path": "make-sarangchae-candidate06-alpha.py",
+      "bytes": 3065,
+      "sha256": "124d2ed8845c88cef5cb33d9a28a8e2eb051b96ee03f1d16075782db9de73676"
+    },
+    {
+      "path": "make-sarangchae-isolated-alpha-v3.py",
+      "bytes": 3700,
+      "sha256": "cf075c29e6df36e4dc4d9c2583264d3e65a99b68d0e8d25a693de14a8814ad3e"
+    },
+    {
+      "path": "map-transfer-00-base.png",
+      "bytes": 3391193,
+      "sha256": "4be804064858d54e89ede0ab570f402dfbd68f42abf1d617fbef52a92b129a84"
+    },
+    {
+      "path": "map-transfer-01-map.png",
+      "bytes": 4325329,
+      "sha256": "fb56b32791aa1edfe26175f90c320c83a35691b6291aa864e5cf628a2f9fc40f"
+    },
+    {
+      "path": "map-transfer-01-sarang-patch.png",
+      "bytes": 3485635,
+      "sha256": "9431b363d624c02cc585f960280a01f22444494d9ea4b595b45c9288ea98dbc4"
+    },
+    {
+      "path": "map-transfer-01-sarang-transparent.png",
+      "bytes": 3424342,
+      "sha256": "fbf507aed3cc4b0ba3fe697e34eef42fae2be702a95a991bad98a386831203b7"
+    },
+    {
+      "path": "map-transfer-01-sarang-workarea.png",
+      "bytes": 3397982,
+      "sha256": "9c9a4fc11d2502ec1c8295672c1564903802881d784e852adaa2f94554be5e75"
+    },
+    {
+      "path": "map-transfer-02-map.png",
+      "bytes": 4325645,
+      "sha256": "6976ef3135def1adc8acef51c500d3015603350e19fe5be2d2aecf0396c921d9"
+    },
+    {
+      "path": "map-transfer-03-map.png",
+      "bytes": 3770349,
+      "sha256": "d827353ef59d9c19fad015b8a96bcc5564f934c8a07c4f46b8d7344359e8b9af"
+    },
+    {
+      "path": "map-transfer-04-map.png",
+      "bytes": 3777817,
+      "sha256": "5af3dc7239a331a4f1e61a0a617addf528570400892a03b35f4a02b3130e53d0"
+    },
+    {
+      "path": "map-transfer-05-map.png",
+      "bytes": 3778661,
+      "sha256": "46546361b7587a2be0f3e223206eae16f8777beab9a95a00e8bee958bd588384"
+    },
+    {
+      "path": "map-transfer-alpha-only.py",
+      "bytes": 3501,
+      "sha256": "af3fa9e9241a253439c4390e5fdec3b77d9120f7d04703983b4afde35fea352c"
+    },
+    {
+      "path": "map-transfer-alpha-verification.json",
+      "bytes": 885,
+      "sha256": "7a2baf185a0344b12f90b18cd0c035e98d244bb319b75f15e3a0f7c6ded26afd"
+    },
+    {
+      "path": "map-transfer-dark-proof.png",
+      "bytes": 2040590,
+      "sha256": "445fa042a33f509bbedbca22a69fd039842a9783a9ccec690f217fc77af29fef"
+    },
+    {
+      "path": "map-transfer-job.json",
+      "bytes": 2217,
+      "sha256": "28b5b2f4afdfd52aed9cfbae6f30c1e400df42457382282bdd9799308ae4b3cd"
+    },
+    {
+      "path": "map-transfer-map-export.json",
+      "bytes": 5767496,
+      "sha256": "a4f7269d964097cec837e1943e13ef61dfd312d0ed45d5e46a88274df8be13e6"
+    },
+    {
+      "path": "map-transfer-plate-export.json",
+      "bytes": 2174370,
+      "sha256": "a4da133766e3588ab212ca856bc46f306bda5d3aead4764bd48959f6a7058024"
+    },
+    {
+      "path": "map-transfer-prep.html",
+      "bytes": 436,
+      "sha256": "ee4fa43b8253ca45a3497cb54ea8cd564fa3094996cf8c27763a9adf55c6c44c"
+    },
+    {
+      "path": "map-transfer-review-desktop.png",
+      "bytes": 2812331,
+      "sha256": "f23f0ef0ca924c130667b1cbecddf9f36dfa6df6a3adc9c7b2fac60e950e7ec3"
+    },
+    {
+      "path": "map-transfer-review-gates02.html",
+      "bytes": 6392,
+      "sha256": "5724da6f77e287ba5593a1f158ccf2cb9dc690530c79b2da8865299250311992"
+    },
+    {
+      "path": "map-transfer-review-sarang01.html",
+      "bytes": 6598,
+      "sha256": "81d2d0d516d2233f6e1aa5e338addf08a70a267edb4a01159fb4033eba48c59c"
+    },
+    {
+      "path": "map-transfer-review-sarang03.html",
+      "bytes": 5631,
+      "sha256": "03195e68d6d5d14fc5707052865187ef864eeed70842223418fb512a76c1baa0"
+    },
+    {
+      "path": "map-transfer-review-sarang04.html",
+      "bytes": 6355,
+      "sha256": "7b6a164d2c36d74d61a0692d49a3169e792cd69daf04e897b751e4bd0799172c"
+    },
+    {
+      "path": "map-transfer-review.html",
+      "bytes": 6574,
+      "sha256": "8e5a2a21beb168afcb8d8c929bf930cf9c4b8c740ab824c73a9eb5aa21a06686"
+    },
+    {
+      "path": "map-transfer-sarang-context.png",
+      "bytes": 1630486,
+      "sha256": "d33ef9eeb17fb465082610648f9822bb80aec9fecb2e6db61870abc6fab6d7ef"
+    },
+    {
+      "path": "map-transfer-sarang-prompt.txt",
+      "bytes": 2639,
+      "sha256": "3cc029c9ee64964034da004143820f9c3c7d052ea723b5e8093f2940f6445623"
+    },
+    {
+      "path": "map-transfer-selected-small-map.png",
+      "bytes": 3774679,
+      "sha256": "aa0b02b2f07382134be9264001bb794588aa1c4cb76fbc02d38ab5e701503bca"
+    },
+    {
+      "path": "map-transfer-verification.json",
+      "bytes": 1145,
+      "sha256": "8b1045e6303419d72c0d0e59b518a5b2c362b806e13a20f8e6a68fa230d01e8d"
+    },
+    {
+      "path": "map-transfer-verify.py",
+      "bytes": 1854,
+      "sha256": "18943535215ea4a819809eb9ce1c38a8d633cbd98fed323ade967eccbdca697d"
+    },
+    {
+      "path": "natural-map-registration-overlay-v1.png",
+      "bytes": 3763888,
+      "sha256": "4d840bd0b9daea93ac81b825525602c22ae40f77dbc7e97ebdf5d26e7ac467f6"
+    },
+    {
+      "path": "natural-map-registration-v1.json",
+      "bytes": 6664,
+      "sha256": "756a91e97443d65a4db9b5638f1050f8b62637b626fd2741614218b85e93f25f"
+    },
+    {
+      "path": "next-batch-generation-spec-v1.json",
+      "bytes": 5742,
+      "sha256": "64c3f940b6663840a6dd4bb351531f573153624c35490b5f83665501b67c50ed"
+    },
+    {
+      "path": "next-batch-source-preflight-v1.json",
+      "bytes": 10424,
+      "sha256": "ae3d287baa5c3704a7bdd1b6db95d27fc889c14bbbf3e23ffa6ae3d0a3954227"
+    },
+    {
+      "path": "next-batch-target-guides-v1.json",
+      "bytes": 3416,
+      "sha256": "a99b2516fb816778ebb1db3a2906e2b88fea069143e7cf8bc3d80672c25f1ae4"
+    },
+    {
+      "path": "pilot-alpha-attempt-v2.json",
+      "bytes": 899,
+      "sha256": "5ef6a49968bed27516763f5023663d60b6a026177dedd19084ffa2aa92796b76"
+    },
+    {
+      "path": "pilot-camera-guide.py",
+      "bytes": 4098,
+      "sha256": "cd5dc23e5646115fa9928b442b37704252f6993446ca3f2b34a1dd5d24298c31"
+    },
+    {
+      "path": "pilot-camera-registration.json",
+      "bytes": 2097,
+      "sha256": "d7df19db11e3eb23ca5d684cd422a6cb09edf0a3b280d54def427ec1354e8415"
+    },
+    {
+      "path": "pilot-generation-v1.json",
+      "bytes": 2966,
+      "sha256": "57e17e77b81e6c8cb5f75ffba90de5c2e9b4c9f49fbaa7415cda20a6acf9bf06"
+    },
+    {
+      "path": "pilot-generation-v3-rejected.json",
+      "bytes": 2109,
+      "sha256": "72eee035f8569534d6b13e487cd16c4380f8d322b7ddce3ec77869ea52d0cc1a"
+    },
+    {
+      "path": "pilot-inspect-scene.py",
+      "bytes": 874,
+      "sha256": "e094cbb5ec51fcdab29a3b2efcc73d0a135ab6811ca410ab7bd03afeb80b0a7b"
+    },
+    {
+      "path": "pilot-model-inspection.json",
+      "bytes": 21993,
+      "sha256": "b7aa7304e432934b06c0a6b03a93d46c921cdf0571c32d1d4056bb68a7d9799d"
+    },
+    {
+      "path": "pilot-pillar-repair-prompt.txt",
+      "bytes": 1848,
+      "sha256": "908314fd15ccee39231517ef20010c8a559fce65a5e70bdeed382ace09c37faa"
+    },
+    {
+      "path": "pilot-pillar-repair2-prompt.txt",
+      "bytes": 1763,
+      "sha256": "d4897ba6073faf6088ea178457efdccc5fffa8c363d2e3f0d3e2f6707492d68f"
+    },
+    {
+      "path": "pilot-progress.json",
+      "bytes": 3570,
+      "sha256": "4334c895f4ebeaea39db7518c28c8568ff418c35d66d9cb7b9491d85307b0167"
+    },
+    {
+      "path": "pilot-sarang-alpha-attempt-v2.png",
+      "bytes": 2403367,
+      "sha256": "04980f0dd370269117e645002fc1f67561c9f976f527f77563259217c5f2ae4d"
+    },
+    {
+      "path": "pilot-sarang-camera-guide.png",
+      "bytes": 1234576,
+      "sha256": "1af05778d2ba67dcc673de89f4b70db0275670428b5f05fb447e053d7e89feb4"
+    },
+    {
+      "path": "pilot-sarang-camera-v1.png",
+      "bytes": 2269778,
+      "sha256": "2b7789ce7b5532f4207faba8a9439a3557a88ae85c1a320ec26771fade84a8f1"
+    },
+    {
+      "path": "pilot-sarang-camera-v3-rejected.png",
+      "bytes": 2327240,
+      "sha256": "fb5ebb056802d8708e16bf69744beb1d7833c2f10de823614b5dcacebdb80e1e"
+    },
+    {
+      "path": "pilot-sarang-canonical.png",
+      "bytes": 4832461,
+      "sha256": "f2c01142f465b9353e0b9546a00f167891753039d9c910620d83cd924a077212"
+    },
+    {
+      "path": "pilot-sarang-prompt-v1.txt",
+      "bytes": 2612,
+      "sha256": "9ad7c7aa0384e10c60af0bb4a7846e831b5f5a9d169d69383c559b9b5ae6d2a5"
+    },
+    {
+      "path": "preflight-next-batch.py",
+      "bytes": 5766,
+      "sha256": "f743179d13e866158811b30af10cd6552b8a96d8052f37d67efa43b121ca374f"
+    },
+    {
+      "path": "README.md",
+      "bytes": 9555,
+      "sha256": "5ba6d7133698e99a6935c1e1d5aaa36a709aca9ce4564d5a742a8d4a03a3fafc"
+    },
+    {
+      "path": "reference.png",
+      "bytes": 2380060,
+      "sha256": "cefdb583cf60ef24c22c0665d2c202c52ef9ba08de23035bb39c6cb284cb57e0"
+    },
+    {
+      "path": "render-sarangchae-camera-guide.py",
+      "bytes": 3895,
+      "sha256": "d5cf05e15c95046bf704658b0b1b9fdda6933a79117d215bcec2778594a8e30f"
+    },
+    {
+      "path": "roofed-camera-base-proof.json",
+      "bytes": 10741,
+      "sha256": "cb0525ca01d75d6fd12de4756b3cd010ba4a436bc19e516bccec7e1dd3133069"
+    },
+    {
+      "path": "roofed-camera-base.html",
+      "bytes": 2266900,
+      "sha256": "fea90342bf510720b1795e271b1bbfec79e3ba90063b2d68a51daae3a62c7912"
+    },
+    {
+      "path": "roofed-camera-base.png",
+      "bytes": 1348283,
+      "sha256": "a21f7a2a9903a8275bcd38e742e5f7595ef481f42c4f5bd8b83e395d11456b88"
+    },
+    {
+      "path": "roofed-camera-base.svg",
+      "bytes": 2266699,
+      "sha256": "6751d610e72cb331bba9b9276da0950abdd8191f3eb06be11092b85a4b370da9"
+    },
+    {
+      "path": "run-sprite-verification.ps1",
+      "bytes": 1179,
+      "sha256": "107cdee317936ce7e17ff4bedf2523a4e9327c82c9e3f98a09b5ca00faa68570"
+    },
+    {
+      "path": "sarangchae-alpha-imagegen-rejected-v1.json",
+      "bytes": 504,
+      "sha256": "3305cfca706332cfc908fb1ba4c35dddf5d791fa980da88e3ea5cee217b10cfa"
+    },
+    {
+      "path": "sarangchae-alpha-imagegen-rejected-v1.png",
+      "bytes": 1892175,
+      "sha256": "44acaf0b5a0e17fd573e51095190f305c94c948909ee3f481aad1bd8c6ca5c9b"
+    },
+    {
+      "path": "sarangchae-candidate04-structure-audit-v1.json",
+      "bytes": 2256,
+      "sha256": "786813018e9ccab21f239a1566c3e6bbf569663e3993a62ac3dfbe786928d916"
+    },
+    {
+      "path": "sarangchae-candidate04-structure-audit-v1.png",
+      "bytes": 1214731,
+      "sha256": "3660a31f142318b384bf4a2dbf28800068b16a3b5c7435b1736e480824d376db"
+    },
+    {
+      "path": "sarangchae-candidate05-alpha-verification.json",
+      "bytes": 712,
+      "sha256": "df5e584df60ef53eea9f2e8a199fafb4d1880dffcc6492ee3d0da22354f79ec9"
+    },
+    {
+      "path": "sarangchae-candidate05-alpha.png",
+      "bytes": 12153,
+      "sha256": "bc0f81bf41af00764799f11ee88ec7df1c131ab01aff9fe305eff262ba8531c4"
+    },
+    {
+      "path": "sarangchae-candidate05-dark-preview.png",
+      "bytes": 1490866,
+      "sha256": "29db59f01f5cfb9d28e3521fc38ff09045d3ac5e2d5f58798082b5d55b4856f7"
+    },
+    {
+      "path": "sarangchae-candidate05-ledgerail-signage-generated.png",
+      "bytes": 2786838,
+      "sha256": "8346871d086baca245cbf4e4c7ffbba1bc1316aa25dddab056eb78cb63214abd"
+    },
+    {
+      "path": "sarangchae-candidate05-light-preview.png",
+      "bytes": 1487527,
+      "sha256": "d25b6942dfa7004d4344f7af359746e045f9f07275aa0d22c09ac791c396dec5"
+    },
+    {
+      "path": "sarangchae-candidate05-map-detail.png",
+      "bytes": 1721433,
+      "sha256": "780a4cbef1eea22719e227de5d97541788103eec01fee41f39ffa5fb4ad32b09"
+    },
+    {
+      "path": "sarangchae-candidate05-map-layer.png",
+      "bytes": 147943,
+      "sha256": "803356f0a9e4a8d7812a6c7fa67d38629fc5acd986424649e229b25d2e72cbfe"
+    },
+    {
+      "path": "sarangchae-candidate05-map-verification.json",
+      "bytes": 1305,
+      "sha256": "ccd44f9d0b262e5aa297e17b0ebea41630fd9ebf56b0e8862118f5696051bbff"
+    },
+    {
+      "path": "sarangchae-candidate05-shadow-layer.png",
+      "bytes": 15232,
+      "sha256": "8d85b8568ae40b7e9a5dcb1ed6b30cc7cb975a26e10963e438a559bb87842f88"
+    },
+    {
+      "path": "sarangchae-candidate05-signage-corrected-rgb.png",
+      "bytes": 2433428,
+      "sha256": "5ee866cea9d734cf8a88454323f2402938281d280043ef4603cd8d13601c5613"
+    },
+    {
+      "path": "sarangchae-candidate05-transparent.png",
+      "bytes": 2413170,
+      "sha256": "e3485cd1e9270abb8cdf31404e16d3155eaf382c954f5a1882cd73f93a2a5d38"
+    },
+    {
+      "path": "sarangchae-candidate06-fixed-camera-rgb.png",
+      "bytes": 2541136,
+      "sha256": "3eb0621d99baf71585487c058d431321ff327abb805517c57c162a20c349b91d"
+    },
+    {
+      "path": "sarangchae-candidate06-rejected.json",
+      "bytes": 880,
+      "sha256": "9a79d6f240bd07dd679ca6ccbbc755dc5747e025dececfbab5fdf98042fae53e"
+    },
+    {
+      "path": "sarangchae-empty-courtyard-v1.png",
+      "bytes": 2692031,
+      "sha256": "0413dea3ef851ab44a8155ec45969aeb4e985da2235cfb70ab70aabcf8238f4b"
+    },
+    {
+      "path": "sarangchae-empty-ground-layer-v1.png",
+      "bytes": 178710,
+      "sha256": "a4e8e0f170be6193e5d915c142ccd845d21196019b6695c6dd9024d73b559bf2"
+    },
+    {
+      "path": "sarangchae-fixed-camera-structure-guide.png",
+      "bytes": 2642291,
+      "sha256": "0e37b0f0f8ec8dabace1648cfdeac1f4401b049d3569b04aeda362571e289101"
+    },
+    {
+      "path": "sarangchae-isolated-alpha-v3.png",
+      "bytes": 7644,
+      "sha256": "d736e6d9f3930fcecd6b2a59c322a49ca3145e57b2cb30528bc59bca72f6aa49"
+    },
+    {
+      "path": "sarangchae-isolated-alpha-verification-v3.json",
+      "bytes": 829,
+      "sha256": "ecc97c525cd38acd7a1bb4449978469450dbffe1066d8de4e58153f47fed4286"
+    },
+    {
+      "path": "sarangchae-isolated-dark-preview-v3.png",
+      "bytes": 1629724,
+      "sha256": "7c674629f6ac6738ec635277b54b4be0b147a6b05fafd5b2dce87bab0c86ba33"
+    },
+    {
+      "path": "sarangchae-isolated-light-preview-v3.png",
+      "bytes": 1627454,
+      "sha256": "ee4d25b14b75513c89f9c5cda9d3347c831d1ae70fb38750a799487ddddeca22"
+    },
+    {
+      "path": "sarangchae-isolated-map-detail-v3.png",
+      "bytes": 1715748,
+      "sha256": "ef9b1fd9a5222c02cfb9edbfd0573f46a8b157e3c4bd56e745d681c38125c160"
+    },
+    {
+      "path": "sarangchae-isolated-map-layer-v3.png",
+      "bytes": 133560,
+      "sha256": "5b1491d01a2a400181bcbc3c78d0ff43843a1667ca029a720ea61a6cfda9e5c1"
+    },
+    {
+      "path": "sarangchae-isolated-map-verification-v3.json",
+      "bytes": 1307,
+      "sha256": "eedf96773d34f80110afa45969a785ae2639286fb8d873151dd090d2ee039def"
+    },
+    {
+      "path": "sarangchae-isolated-shadow-layer-v3.png",
+      "bytes": 14782,
+      "sha256": "1214ddbcd6f46ae3228535471320d710994c539bd289ad241a6dd7a271dfb63c"
+    },
+    {
+      "path": "sarangchae-isolated-transparent-v3.png",
+      "bytes": 2208343,
+      "sha256": "9320d58a613a46851f7fc366156513f527623e67f5a20fe21a3b42b2527a3bb8"
+    },
+    {
+      "path": "sarangchae-isolated-v2-camera-low.png",
+      "bytes": 2248377,
+      "sha256": "f2df6bcd2be2ecec5738b355ea5c78c3dec15e32883e2928deac73105970506a"
+    },
+    {
+      "path": "sarangchae-isolated-v2-review.json",
+      "bytes": 905,
+      "sha256": "5f705fcdc882fdf5c55e81b460f42cf22e8dda6228fafb4e87ca34820c599e83"
+    },
+    {
+      "path": "sarangchae-isolated-v3.png",
+      "bytes": 2279642,
+      "sha256": "93deb9dd0a744802a467d271f8428bebb1dfa850c8600cdbf0bf8171cc7c08fa"
+    },
+    {
+      "path": "sarangchae-pilot-manifest-v3.json",
+      "bytes": 2658,
+      "sha256": "4c26ded5d477a607e560accab3a933bfb6a4c7120d8fe5017ff994eba411a2a2"
+    },
+    {
+      "path": "sarangchae-reference-calligraphy-chunghyojeolui.png",
+      "bytes": 1117424,
+      "sha256": "ae5b017709d048673156fe686f52a28cb7b42eadd1657173121b61ffeee948b9"
+    },
+    {
+      "path": "sarangchae-reference-front-elevation.jpg",
+      "bytes": 716085,
+      "sha256": "8ccf349e089d88ee4a0a259ad8a91151f2684b04fd51bdbbfc480ac2df5e6ba2"
+    },
+    {
+      "path": "sarangchae-reference-front-elevation.png",
+      "bytes": 5081799,
+      "sha256": "7aa2220454f9c6a0be258d44045513516c3721a76b9eadbd9895f4a05928fd83"
+    },
+    {
+      "path": "sarangchae-reference-oblique.jpg",
+      "bytes": 303731,
+      "sha256": "0982dcefaf3410782eb06f2b0d1e3489db48af7c856abda049cc4c3715d5b646"
+    },
+    {
+      "path": "sarangchae-reference-oblique.png",
+      "bytes": 873316,
+      "sha256": "0613973c945f593bffa242f31118e2f6e8144f483e39ddf553e90a16aa332d20"
+    },
+    {
+      "path": "sarangchae-reference-plaque-munheonsega.png",
+      "bytes": 997373,
+      "sha256": "1e22b80cac410601484b5859c3fddafb70d7af9316e415b4a32e7b9274c1a6d9"
+    },
+    {
+      "path": "sarangchae-reference-roof-plan.png",
+      "bytes": 5745264,
+      "sha256": "792a090ef23fd48fad0cbf190678358383522a1a023a6c85717158b2fe66e323"
+    },
+    {
+      "path": "sarangchae-reference-toenmaru-scale.png",
+      "bytes": 1138772,
+      "sha256": "787726fe5a8d3c45d89714a2392e596bdbc9a54689fa0072c80d3912305b1ffa"
+    },
+    {
+      "path": "sarangchae-selected-small-ground-layer.png",
+      "bytes": 178710,
+      "sha256": "a4e8e0f170be6193e5d915c142ccd845d21196019b6695c6dd9024d73b559bf2"
+    },
+    {
+      "path": "sarangchae-selected-small-map-detail.png",
+      "bytes": 1692251,
+      "sha256": "499039876b23e181d076cdb4b5007e04ce47484564df220903cdf0998da1b537"
+    },
+    {
+      "path": "sarangchae-selected-small-map-layer.png",
+      "bytes": 99148,
+      "sha256": "806ffbe3d5e2b70fed5650cb01147ede08fd2afff07a372b3db97fe4e5ebd0fa"
+    },
+    {
+      "path": "sarangchae-selected-small-map-verification.json",
+      "bytes": 2155,
+      "sha256": "7f37c2aaf2fb8a56caabd254d748214a1d2b0226feeb62f46c0dc75f8d9d8ac0"
+    },
+    {
+      "path": "sarangchae-selected-small-shadow-layer.png",
+      "bytes": 13442,
+      "sha256": "b0451f2e7f21cf2d4c2564890dc47a8f4f29038afd0b3dac8d13971f0ecb8b26"
+    },
+    {
+      "path": "sarangchae-selection-registration-v1.json",
+      "bytes": 2305,
+      "sha256": "25bba9e8257b37bd49f9cf19ab733abf68780a09721141afb5f68f8373f09722"
+    },
+    {
+      "path": "sarangchae-structure-correction-v1.html",
+      "bytes": 2062,
+      "sha256": "4877a30d343970e0be84be0450d6ca7e58cb65f241941278d3a7a2f35e81a298"
+    },
+    {
+      "path": "sarangchae-structure-correction-v1.md",
+      "bytes": 2374,
+      "sha256": "2d12e5a4c9e1c7478490794460209daddc91042c3635cab9a349c17a933a23d0"
+    },
+    {
+      "path": "sarangchae-structure-correction-v1.txt",
+      "bytes": 2374,
+      "sha256": "2d12e5a4c9e1c7478490794460209daddc91042c3635cab9a349c17a933a23d0"
+    },
+    {
+      "path": "sarangchae-structure-prompt-v1.txt",
+      "bytes": 2491,
+      "sha256": "74e9e285a286000bd84dc15cf2e4104c4e628c8a55f925569ccf1743bc62c97c"
+    },
+    {
+      "path": "sarangchae-style-pass-v4-rejected.json",
+      "bytes": 660,
+      "sha256": "157b3a9c991b7aa9fe95deac4f745aa94d22e3ffa9599ce7e024eee523eadf70"
+    },
+    {
+      "path": "sarangchae-style-pass-v4-rejected.png",
+      "bytes": 2375441,
+      "sha256": "12adb9487ed83ed3ffba787ec193b24e266c5841114d9fc9867652563b6a9dc8"
+    },
+    {
+      "path": "sarangchae-toenmaru-alpha-mask-v1.png",
+      "bytes": 24315,
+      "sha256": "023733611afc1c95721cfbd437d7d112a449e2db8fc93da0d4ca0f0e5d1917af"
+    },
+    {
+      "path": "sarangchae-toenmaru-alpha-verification-v1.json",
+      "bytes": 704,
+      "sha256": "41932545f3e70831c17b91f1b75372f36369da8015b638e5d391b59038f74ec6"
+    },
+    {
+      "path": "sarangchae-toenmaru-detail-v1.png",
+      "bytes": 1657307,
+      "sha256": "f9a309d4655b8f35864b97d7a682db7568d0248d61a93e245994473fefe9bba4"
+    },
+    {
+      "path": "sarangchae-toenmaru-generated-v1.png",
+      "bytes": 2972551,
+      "sha256": "cd0ab6f273074a1465a2adfbac57f70817162e4e31a6c6b958abe2fa4007e6a2"
+    },
+    {
+      "path": "sarangchae-toenmaru-grid-v1.png",
+      "bytes": 2921369,
+      "sha256": "acdd8aa4f8596caaaeeb28dd0fe3dbe629dc89f26be5fcee89430e8c0d49e215"
+    },
+    {
+      "path": "sarangchae-toenmaru-layer-v1.png",
+      "bytes": 186368,
+      "sha256": "723a8d6b0a0079e9d64e5f9b8d1e00ca33ef67d99e597a45293a4c5f117aea3e"
+    },
+    {
+      "path": "sarangchae-toenmaru-review.html",
+      "bytes": 6248,
+      "sha256": "cba675d8a1a32fb935fbae22ffcaf1e97e4490c41d20ad6331b6785cae72de1a"
+    },
+    {
+      "path": "sarangchae-toenmaru-transparent-preview-v1.png",
+      "bytes": 937855,
+      "sha256": "8d022c81860a693f733e142a26f0b227c3ebccd3e6e4d38054ced6c09d37fdf7"
+    },
+    {
+      "path": "sarangchae-toenmaru-transparent-v1.png",
+      "bytes": 3312596,
+      "sha256": "67807009150c4cbc3f253c300fab392a4b4f1c45ccfaff98399f90529036249e"
+    },
+    {
+      "path": "sarangchae-toenmaru-verification-v1.json",
+      "bytes": 801,
+      "sha256": "96d131904c6dede0b45e9db33c7e219dd0d0397f0e33bb0fdaf0cf342853cfb5"
+    },
+    {
+      "path": "sarangchae-user-selected-source.png",
+      "bytes": 2816758,
+      "sha256": "dddd93668f8ad799c03d90aa058855848d59323937a1a03260e7169dd468bfe9"
+    },
+    {
+      "path": "server-error.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "server-state.json",
+      "bytes": 58,
+      "sha256": "44892798bdbe3cb3a6abc5e1cad025b751f7defba3be1814c7ca6e90d3b4e6be"
+    },
+    {
+      "path": "server.log",
+      "bytes": 24,
+      "sha256": "468f82b47797d5fe28b3602dbc0fee2f6d911dda4bef0e6c8cf546601b5519a7"
+    },
+    {
+      "path": "server.mjs",
+      "bytes": 1095,
+      "sha256": "d5408b9aa6372444e7e592b1c7da3bf4e96b957c4e4692efdbf1108733fd8e7a"
+    },
+    {
+      "path": "sprite-fit-828.png",
+      "bytes": 365885,
+      "sha256": "ee08c459df46786a3a6a7b524bd344294fe0fd57db0342101f2ecc7894f0a902"
+    },
+    {
+      "path": "sprite-fit-data.json",
+      "bytes": 63507,
+      "sha256": "b7adcf5c52347af7ee10671a2a2cab5fea7990a21c6348c2145642deb6a1d24c"
+    },
+    {
+      "path": "sprite-fit-initial.png",
+      "bytes": 445314,
+      "sha256": "d05fab6e2699b52c20ece7f06ff9a6161226f2de61102247e69378abb29c43f4"
+    },
+    {
+      "path": "sprite-fit-mobile.png",
+      "bytes": 91365,
+      "sha256": "3cc667822e1c2a4fffcd1ecac896f5d53882b89a2d0687abdbc9cfc3ace45d40"
+    },
+    {
+      "path": "sprite-fit-report.json",
+      "bytes": 43123,
+      "sha256": "54b0d08ac78f41465c744c8928f1d18745adf21ec75a627406c08e63d9db1b3d"
+    },
+    {
+      "path": "sprite-fit-verification.json",
+      "bytes": 53972,
+      "sha256": "92d8bd9559f883d0cda75bd8697d2b331c014a1de2c58daa91cba0c9804da682"
+    },
+    {
+      "path": "sprite-fit.html",
+      "bytes": 81802,
+      "sha256": "e648fd7cfdd2fd1cc5752b21525be44ea663e8b6bd7f8b43c1c47b3a7a33d68e"
+    },
+    {
+      "path": "sprite-fit.template.html",
+      "bytes": 24418,
+      "sha256": "d7b56ad162cfe18592387e373a0ddfdaafab75511453bda80383b88a20d73bee"
+    },
+    {
+      "path": "SPRITE_FIT_REVIEW.md",
+      "bytes": 4612,
+      "sha256": "c5bd4a4a009cd970e489f9c066d1fc7b85772de312f20f20ccca24201caf77db"
+    },
+    {
+      "path": "update-camera-framing.mjs",
+      "bytes": 4577,
+      "sha256": "c2cf9089b726bf3dccbb5621698ded7831640540c73a7dc9869e8346f1b079b6"
+    },
+    {
+      "path": "update-gate-view.mjs",
+      "bytes": 6725,
+      "sha256": "9e3d9d8d292d33b2f35119374258601109cc0485855ec30883d51c984fde664b"
+    },
+    {
+      "path": "verify-final-canvas-framing.py",
+      "bytes": 4786,
+      "sha256": "fa083505629d1fcd575603177eb612535be3e8ca5a50ebc3ac38ea23c27e69c9"
+    },
+    {
+      "path": "verify-front-and-camera.mjs",
+      "bytes": 3080,
+      "sha256": "dd485c401f62a76d06b0ba705dda961ec8981982417b94f2a31b3d43e2bfe7a0"
+    },
+    {
+      "path": "verify-sprite-fit.browser.js",
+      "bytes": 4259,
+      "sha256": "fe27543558ba04ac2d348855fad6e3de8e7391ad7f4b031c41a58309d06514f0"
+    },
+    {
+      "path": "viewer-desktop.png",
+      "bytes": 1111822,
+      "sha256": "d25427e939cdb6f763ee622422de96b885bd531add0eb4a2493335bf245c5df8"
+    },
+    {
+      "path": "viewer-gates-v2.png",
+      "bytes": 381302,
+      "sha256": "c1e8aa70d93097636e04ac663dc5ec182d1aed78dfa52c91d31d5a475ee2ffc9"
+    },
+    {
+      "path": "viewer-mobile-v2.png",
+      "bytes": 253898,
+      "sha256": "bb0669f6dd067af876f9bed441cf5839c1c1f8914fc7ff13ed71b7d4f05e2572"
+    },
+    {
+      "path": "viewer-mobile.png",
+      "bytes": 229493,
+      "sha256": "4207e7714a15a8be3b0d6be4c39f18360b84eae098934b53b46daa17b10103d4"
+    }
+  ]
+}
