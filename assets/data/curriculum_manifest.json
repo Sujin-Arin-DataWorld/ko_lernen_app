@@ -7086,7 +7086,11 @@
     "a2:도시 생활": "a2_07_travel_repair",
     "a2:wochenendzusage": "a2_01_haeyo_transition",
     "b1:자기소개": "b1_02_indirect_speech",
-    "a1:첫 수업": "a1_15_first_class_work"
+    "a1:첫 수업": "a1_15_first_class_work",
+    "a2:gefühle": "a2_04_feelings_health",
+    "a2:beschreibung": "a2_01_haeyo_transition",
+    "b1:직장 소통": "b1_03_work_softening",
+    "b2:abstrakte begriffe": "b2_02_professional_opinion"
   },
   "scenarioCorpusGeneration": "canonical_120_v1",
   "scenarioCorpusSupplements": [

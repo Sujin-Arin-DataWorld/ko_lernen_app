@@ -227,6 +227,7 @@ cloze,cloze_b1_0268,b1,b2,1,over1 grammar=grammar_b2_quoted_contractions:4,,b1_t
 cloze,cloze_b1_0275,b1,b2,1,over1 lex_p90=4.0,,b1_travel_change_1,step_up_or_swap
 cloze,cloze_b1_0276,b1,b2,1,over1 lex_p90=4.2,,b1_work_entry_2026_1,step_up_or_swap
 cloze,cloze_b1_0278,b1,b2,1,over1 lex_p90=3.7,,b1_work_entry_2026_1,step_up_or_swap
+cloze,cloze_b1_0285,b1,a1,-2,under2 grammar=grammar_a1_object_particle:1,,b1_work_softening_1,downgrade_candidate
 cloze,cloze_b2_0001,b2,a2,-2,under2 lex_p90=1.9,can_do_ref,,downgrade_candidate
 cloze,cloze_b2_0002,b2,a2,-2,under2 lex_p90=1.9,can_do_ref,,downgrade_candidate
 cloze,cloze_b2_0003,b2,a2,-2,under2 lex_p90=1.8,can_do_ref,,downgrade_candidate
@@ -351,6 +352,9 @@ cloze,cloze_b2_0356,b2,a2,-2,under2 lex_p90=2.0,,b2_research_summary_1,downgrade
 cloze,cloze_b2_0358,b2,a1,-3,under2 grammar=grammar_a1_object_particle:1,,b2_research_summary_1,downgrade_candidate
 cloze,cloze_b2_0368,b2,a2,-2,under2 lex_p90=2.5,can_do_ref,,downgrade_candidate
 cloze,cloze_b2_0375,b2,c1,1,over1 lex_p90=4.8,,b2_2026_social_topics_1,step_up_or_swap
+cloze,cloze_b2_0397,b2,a2,-2,under2 lex_p90=2.5,,b2_abstract_concepts_1,downgrade_candidate
+cloze,cloze_b2_0398,b2,a2,-2,under2 grammar=grammar_b1_nominalization:2,,b2_education,downgrade_candidate
+cloze,cloze_b2_0400,b2,a2,-2,under2 lex_p90=2.0,,b2_education,downgrade_candidate
 cloze,cloze_c1_0002,c1,b1,-2,under2 lex_p90=3.2,can_do_ref,c1_accessible_participation_1,downgrade_candidate
 cloze,cloze_c1_0008,c1,b1,-2,under2 lex_p90=3.0,can_do_ref,c1_accessible_participation_1,downgrade_candidate
 cloze,cloze_c1_0011,c1,b1,-2,under2 lex_p90=3.2,can_do_ref,c1_accessible_participation_1,downgrade_candidate
@@ -1127,6 +1131,7 @@ satz,satz_b1_0465,b1,a1,-2,under2 grammar=grammar_a1_subject_particle:1,,b1_dail
 satz,satz_b1_0466,b1,a1,-2,under2 grammar=grammar_a1_subject_particle:1,,b1_daily_3,downgrade_candidate
 satz,satz_b1_0469,b1,b2,1,over1 lex_p90=3.6,,b1_work_entry_2026_1,step_up_or_swap
 satz,satz_b1_0472,b1,b2,1,over1 lex_p90=3.5,,b1_work_entry_2026_1,step_up_or_swap
+satz,satz_b1_0478,b1,a1,-2,under2 grammar=grammar_a1_object_particle:1,,b1_work_softening_1,downgrade_candidate
 satz,satz_b2_0001,b2,a2,-2,under2 lex_p90=1.9,,,downgrade_candidate
 satz,satz_b2_0002,b2,a2,-2,under2 lex_p90=1.9,,,downgrade_candidate
 satz,satz_b2_0003,b2,a2,-2,under2 lex_p90=1.8,,,downgrade_candidate
@@ -1353,6 +1358,9 @@ satz,satz_b2_0516,b2,a2,-2,under2 grammar=grammar_a2_conditional:2,,b2_language_
 satz,satz_b2_0519,b2,a1,-3,under2 grammar=grammar_a1_object_particle:1,,b2_language_change,downgrade_candidate
 satz,satz_b2_0526,b2,a2,-2,under2 lex_p90=2.5,,,downgrade_candidate
 satz,satz_b2_0533,b2,c1,1,over1 lex_p90=4.8,,b2_2026_social_topics_1,step_up_or_swap
+satz,satz_b2_0555,b2,a2,-2,under2 lex_p90=2.5,,b2_abstract_concepts_1,downgrade_candidate
+satz,satz_b2_0556,b2,a2,-2,under2 grammar=grammar_b1_nominalization:2,,b2_education,downgrade_candidate
+satz,satz_b2_0558,b2,a2,-2,under2 lex_p90=2.0,,b2_education,downgrade_candidate
 satz,satz_c1_0002,c1,b1,-2,under2 lex_p90=3.2,can_do_ref,c1_accessible_participation_1,downgrade_candidate
 satz,satz_c1_0008,c1,b1,-2,under2 lex_p90=3.0,can_do_ref,c1_accessible_participation_1,downgrade_candidate
 satz,satz_c1_0011,c1,b1,-2,under2 lex_p90=3.2,can_do_ref,c1_accessible_participation_1,downgrade_candidate
@@ -2429,6 +2437,8 @@ vocab,vocab_b1_0470,b1,b2,1,over1,can_do_ref,b1_work_entry_2026_1,step_up_or_swa
 vocab,vocab_b1_0473,b1,c1,2,fallback_over2 fallback:basic2023,can_do_ref,b1_work_entry_2026_1,review_fallback
 vocab,vocab_b1_0474,b1,c1,2,over2,satz_ref+can_do_ref,b1_work_entry_2026_1,word_move
 vocab,vocab_b1_0477,b1,c2,3,over2 src=compound,satz_ref+can_do_ref,b1_work_entry_2026_1,word_move
+vocab,vocab_b1_0481,b1,b2,1,over1,satz_ref+can_do_ref,b1_work_softening_1,step_up_or_swap
+vocab,vocab_b1_0483,b1,a1,-2,under2,satz_ref+can_do_ref,b1_work_softening_1,downgrade_candidate
 vocab,vocab_b2_0011,b2,c2,2,over2,satz_ref+can_do_ref,b2_thinking_1,word_move
 vocab,vocab_b2_0012,b2,c1,1,over1,satz_ref+can_do_ref,b2_society_1,step_up_or_swap
 vocab,vocab_b2_0014,b2,a2,-2,under2,satz_ref+can_do_ref,b2_society_1,downgrade_candidate

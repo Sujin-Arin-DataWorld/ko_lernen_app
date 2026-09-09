@@ -589,7 +589,7 @@ class TestR3ConfidenceAndProperNouns(unittest.TestCase):
 
 
 class TestVocabUnknownRatio(unittest.TestCase):
-    """Measures word_grade() unknown-ratio over all 2,437 live headwords
+    """Measures word_grade() unknown-ratio over all 2,499 live headwords
     (Section 6/T1.2 R3 target: <= 10%, tightened from the original 25%)."""
 
     @classmethod
@@ -611,7 +611,7 @@ class TestVocabUnknownRatio(unittest.TestCase):
         for word, count in top[:30]:
             print("  %s x%d" % (word, count))
         self.assertLessEqual(ratio, 0.10)
-        self.assertEqual(len(self.rows), 2437)
+        self.assertEqual(len(self.rows), 2499)
 
 
 class TestSentenceUnknownRatio(unittest.TestCase):

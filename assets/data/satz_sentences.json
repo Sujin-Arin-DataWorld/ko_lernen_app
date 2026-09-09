@@ -1,11 +1,11 @@
 {
   "meta": {
-    "total": 2354,
+    "total": 2416,
     "perLevel": {
-      "a1": 240,
-      "a2": 427,
-      "b1": 620,
-      "b2": 563,
+      "a1": 254,
+      "a2": 454,
+      "b1": 630,
+      "b2": 574,
       "c1": 252,
       "c2": 252
     },
@@ -28949,6 +28949,812 @@
         "친구"
       ],
       "courseUnitId": "a1_15_first_class_work"
+    },
+    {
+      "id": "satz_a1_0360",
+      "level": "a1",
+      "targetKo": "저는 자동차로 회사에 가요.",
+      "promptDe": "Ich fahre mit dem Auto zur Arbeit.",
+      "promptEn": "I go to work by car.",
+      "vocabKo": "자동차",
+      "distractors": [
+        "다섯",
+        "가격"
+      ],
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "id": "satz_a1_0361",
+      "level": "a1",
+      "targetKo": "역 앞에서 만나요.",
+      "promptDe": "Wir treffen uns vor dem Bahnhof.",
+      "promptEn": "Let's meet in front of the station.",
+      "vocabKo": "역",
+      "distractors": [
+        "아빠",
+        "한국어"
+      ],
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "id": "satz_a1_0362",
+      "level": "a1",
+      "targetKo": "공항까지 버스로 가요.",
+      "promptDe": "Zum Flughafen fahre ich mit dem Bus.",
+      "promptEn": "I take the bus to the airport.",
+      "vocabKo": "공항",
+      "distractors": [
+        "파란색",
+        "호칭"
+      ],
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "id": "satz_a1_0363",
+      "level": "a1",
+      "targetKo": "출발 시간이 몇 시예요?",
+      "promptDe": "Um wie viel Uhr ist die Abfahrt?",
+      "promptEn": "What time is the departure?",
+      "vocabKo": "출발",
+      "distractors": [
+        "약국",
+        "여섯"
+      ],
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "id": "satz_a1_0364",
+      "level": "a1",
+      "targetKo": "서울에 도착 후에 전화해요.",
+      "promptDe": "Nach der Ankunft in Seoul rufe ich an.",
+      "promptEn": "After arriving in Seoul, I'll call.",
+      "vocabKo": "도착",
+      "distractors": [
+        "아홉",
+        "우편함"
+      ],
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "id": "satz_a1_0365",
+      "level": "a1",
+      "targetKo": "버스를 타고 학교에 가요.",
+      "promptDe": "Ich fahre mit dem Bus zur Schule.",
+      "promptEn": "I take the bus to school.",
+      "vocabKo": "타다",
+      "distractors": [
+        "여섯",
+        "오빠"
+      ],
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "id": "satz_a1_0366",
+      "level": "a1",
+      "targetKo": "다음 역에서 내려요.",
+      "promptDe": "Ich steige an der nächsten Station aus.",
+      "promptEn": "I get off at the next station.",
+      "vocabKo": "내리다",
+      "distractors": [
+        "편의점",
+        "빨간색"
+      ],
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "id": "satz_a1_0367",
+      "level": "a1",
+      "targetKo": "지금 돈이 없어요.",
+      "promptDe": "Ich habe gerade kein Geld.",
+      "promptEn": "I don't have money right now.",
+      "vocabKo": "돈",
+      "distractors": [
+        "소포",
+        "순서"
+      ],
+      "courseUnitId": "a1_14_payment_delivery"
+    },
+    {
+      "id": "satz_a1_0368",
+      "level": "a1",
+      "targetKo": "커피는 사천 원이에요.",
+      "promptDe": "Der Kaffee kostet viertausend Won.",
+      "promptEn": "The coffee is four thousand won.",
+      "vocabKo": "원",
+      "distractors": [
+        "책상",
+        "다리"
+      ],
+      "courseUnitId": "a1_14_payment_delivery"
+    },
+    {
+      "id": "satz_a1_0369",
+      "level": "a1",
+      "targetKo": "제 번호는 십오 번이에요.",
+      "promptDe": "Meine Nummer ist die Fünfzehn.",
+      "promptEn": "My number is fifteen.",
+      "vocabKo": "번호",
+      "distractors": [
+        "버스",
+        "세배"
+      ],
+      "courseUnitId": "a1_14_payment_delivery"
+    },
+    {
+      "id": "satz_a1_0370",
+      "level": "a1",
+      "targetKo": "문 앞에서 기다려요.",
+      "promptDe": "Ich warte vor der Tür.",
+      "promptEn": "I'm waiting in front of the door.",
+      "vocabKo": "기다리다",
+      "distractors": [
+        "독일어",
+        "창구"
+      ],
+      "courseUnitId": "a1_14_payment_delivery"
+    },
+    {
+      "id": "satz_a1_0371",
+      "level": "a1",
+      "targetKo": "다시 한번 말해 주세요.",
+      "promptDe": "Bitte sagen Sie es noch einmal.",
+      "promptEn": "Please say it once more.",
+      "vocabKo": "다시",
+      "distractors": [
+        "수저",
+        "흰색"
+      ],
+      "courseUnitId": "a1_08_clarify_repair"
+    },
+    {
+      "id": "satz_a1_0372",
+      "level": "a1",
+      "targetKo": "이 단어는 무슨 뜻이에요?",
+      "promptDe": "Was bedeutet dieses Wort?",
+      "promptEn": "What does this word mean?",
+      "vocabKo": "단어",
+      "distractors": [
+        "한국어",
+        "장모님"
+      ],
+      "courseUnitId": "a1_08_clarify_repair"
+    },
+    {
+      "id": "satz_a1_0373",
+      "level": "a1",
+      "targetKo": "사전에서 단어를 찾아요.",
+      "promptDe": "Ich schlage das Wort im Wörterbuch nach.",
+      "promptEn": "I look the word up in the dictionary.",
+      "vocabKo": "사전",
+      "distractors": [
+        "학교",
+        "여덟"
+      ],
+      "courseUnitId": "a1_08_clarify_repair"
+    },
+    {
+      "id": "satz_a2_0469",
+      "level": "a2",
+      "targetKo": "저는 지금 대학교 이 학년이에요.",
+      "promptDe": "Ich bin jetzt im zweiten Studienjahr.",
+      "promptEn": "I'm in my second year of university now.",
+      "vocabKo": "학년",
+      "distractors": [
+        "락커",
+        "인분"
+      ],
+      "courseUnitId": "a2_06_study_work"
+    },
+    {
+      "id": "satz_a2_0470",
+      "level": "a2",
+      "targetKo": "수업 후에 꼭 복습을 해요.",
+      "promptDe": "Nach dem Unterricht wiederhole ich den Stoff auf jeden Fall.",
+      "promptEn": "I always review after class.",
+      "vocabKo": "복습",
+      "distractors": [
+        "부엌",
+        "러닝머신"
+      ],
+      "courseUnitId": "a2_06_study_work"
+    },
+    {
+      "id": "satz_a2_0471",
+      "level": "a2",
+      "targetKo": "내일 수업 예습은 벌써 끝냈어요.",
+      "promptDe": "Die Vorbereitung für den Unterricht morgen habe ich schon fertig.",
+      "promptEn": "I've already finished preparing for tomorrow's class.",
+      "vocabKo": "예습",
+      "distractors": [
+        "중학생",
+        "인증샷"
+      ],
+      "courseUnitId": "a2_06_study_work"
+    },
+    {
+      "id": "satz_a2_0472",
+      "level": "a2",
+      "targetKo": "국이 좀 식었네요.",
+      "promptDe": "Die Suppe ist etwas kalt geworden.",
+      "promptEn": "The soup has gotten a bit cold.",
+      "vocabKo": "국",
+      "distractors": [
+        "미용실",
+        "벨트"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0473",
+      "level": "a2",
+      "targetKo": "접시 하나만 더 주세요.",
+      "promptDe": "Bitte noch einen Teller.",
+      "promptEn": "One more plate, please.",
+      "vocabKo": "접시",
+      "distractors": [
+        "횡단보도",
+        "샌들"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0474",
+      "level": "a2",
+      "targetKo": "커피에 설탕은 안 넣어요.",
+      "promptDe": "In den Kaffee tue ich keinen Zucker.",
+      "promptEn": "I don't put sugar in my coffee.",
+      "vocabKo": "설탕",
+      "distractors": [
+        "공주",
+        "동료"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0475",
+      "level": "a2",
+      "targetKo": "물을 끓여서 차를 마셔요.",
+      "promptDe": "Ich koche Wasser und trinke Tee.",
+      "promptEn": "I boil water and drink tea.",
+      "vocabKo": "끓이다",
+      "distractors": [
+        "송편",
+        "햇과일"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0476",
+      "level": "a2",
+      "targetKo": "고기를 먼저 볶으세요.",
+      "promptDe": "Braten Sie zuerst das Fleisch an.",
+      "promptEn": "Stir-fry the meat first.",
+      "vocabKo": "볶다",
+      "distractors": [
+        "딸기",
+        "비타민제"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0477",
+      "level": "a2",
+      "targetKo": "생선은 굽는 게 제일 맛있어요.",
+      "promptDe": "Fisch schmeckt gegrillt am besten.",
+      "promptEn": "Fish tastes best grilled.",
+      "vocabKo": "굽다",
+      "distractors": [
+        "자전거",
+        "시장"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0478",
+      "level": "a2",
+      "targetKo": "퇴근하고 마트에 들를게요.",
+      "promptDe": "Nach der Arbeit gehe ich noch kurz in den Supermarkt.",
+      "promptEn": "I'll stop by the supermarket after work.",
+      "vocabKo": "마트",
+      "distractors": [
+        "쇠고기",
+        "교실"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0479",
+      "level": "a2",
+      "targetKo": "이 상자에 다 넣어 주세요.",
+      "promptDe": "Bitte legen Sie alles in diesen Karton.",
+      "promptEn": "Please put everything in this box.",
+      "vocabKo": "상자",
+      "distractors": [
+        "마스크",
+        "벨트"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0480",
+      "level": "a2",
+      "targetKo": "디자인은 예쁘지만 좀 비싸요.",
+      "promptDe": "Das Design ist schön, aber etwas teuer.",
+      "promptEn": "The design is pretty, but it's a bit pricey.",
+      "vocabKo": "디자인",
+      "distractors": [
+        "꽃병",
+        "겨울"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0481",
+      "level": "a2",
+      "targetKo": "여름이라서 반바지를 샀어요.",
+      "promptDe": "Weil Sommer ist, habe ich eine kurze Hose gekauft.",
+      "promptEn": "Since it's summer, I bought shorts.",
+      "vocabKo": "반바지",
+      "distractors": [
+        "딸기",
+        "비빔밥"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0482",
+      "level": "a2",
+      "targetKo": "단추가 하나 떨어졌어요.",
+      "promptDe": "Ein Knopf ist abgegangen.",
+      "promptEn": "A button has come off.",
+      "vocabKo": "단추",
+      "distractors": [
+        "변호사",
+        "귀성"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0483",
+      "level": "a2",
+      "targetKo": "모양은 마음에 들지만 색이 별로예요.",
+      "promptDe": "Die Form gefällt mir, aber die Farbe nicht so.",
+      "promptEn": "I like the shape, but the color isn't great.",
+      "vocabKo": "모양",
+      "distractors": [
+        "가수",
+        "딸기"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0484",
+      "level": "a2",
+      "targetKo": "주말에 혼자 있으니까 심심해요.",
+      "promptDe": "Am Wochenende bin ich allein, deshalb ist mir langweilig.",
+      "promptEn": "I'm alone on the weekend, so I'm bored.",
+      "vocabKo": "심심하다",
+      "distractors": [
+        "준비물",
+        "메뉴판"
+      ],
+      "courseUnitId": "a2_04_feelings_health"
+    },
+    {
+      "id": "satz_a2_0485",
+      "level": "a2",
+      "targetKo": "이 신발은 정말 편해요.",
+      "promptDe": "Diese Schuhe sind wirklich bequem.",
+      "promptEn": "These shoes are really comfortable.",
+      "vocabKo": "편하다",
+      "distractors": [
+        "예약금",
+        "샌들"
+      ],
+      "courseUnitId": "a2_04_feelings_health"
+    },
+    {
+      "id": "satz_a2_0486",
+      "level": "a2",
+      "targetKo": "오늘 하루가 정말 즐거워요.",
+      "promptDe": "Der Tag heute ist wirklich schön.",
+      "promptEn": "Today is really enjoyable.",
+      "vocabKo": "즐겁다",
+      "distractors": [
+        "대학교",
+        "미세먼지"
+      ],
+      "courseUnitId": "a2_04_feelings_health"
+    },
+    {
+      "id": "satz_a2_0487",
+      "level": "a2",
+      "targetKo": "이번 주말에 약속 있어요?",
+      "promptDe": "Hast du am Wochenende schon etwas vor?",
+      "promptEn": "Do you have plans this weekend?",
+      "vocabKo": "약속",
+      "distractors": [
+        "손님방",
+        "갈색"
+      ],
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "satz_a2_0488",
+      "level": "a2",
+      "targetKo": "방학 계획은 세웠어요?",
+      "promptDe": "Hast du schon Pläne für die Ferien gemacht?",
+      "promptEn": "Have you made plans for the vacation?",
+      "vocabKo": "계획",
+      "distractors": [
+        "수건",
+        "한가위"
+      ],
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "satz_a2_0489",
+      "level": "a2",
+      "targetKo": "시간표를 보고 시간을 정해요.",
+      "promptDe": "Wir schauen auf den Stundenplan und legen die Zeit fest.",
+      "promptEn": "Let's check the timetable and set a time.",
+      "vocabKo": "시간표",
+      "distractors": [
+        "동료",
+        "가을"
+      ],
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "satz_a2_0490",
+      "level": "a2",
+      "targetKo": "목요일 오후는 시간이 비어요.",
+      "promptDe": "Donnerstagnachmittag habe ich Zeit.",
+      "promptEn": "Thursday afternoon I'm free.",
+      "vocabKo": "비다",
+      "distractors": [
+        "반지",
+        "화이트보드"
+      ],
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "satz_a2_0491",
+      "level": "a2",
+      "targetKo": "다음 주로 바꾸는 것도 가능해요.",
+      "promptDe": "Man kann es auch auf nächste Woche verschieben.",
+      "promptEn": "Changing it to next week is also possible.",
+      "vocabKo": "가능하다",
+      "distractors": [
+        "준비운동",
+        "미용실"
+      ],
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "satz_a2_0492",
+      "level": "a2",
+      "targetKo": "휴일에는 보통 늦게 일어나요.",
+      "promptDe": "An freien Tagen stehe ich meistens spät auf.",
+      "promptEn": "On days off I usually get up late.",
+      "vocabKo": "휴일",
+      "distractors": [
+        "인분",
+        "달력"
+      ],
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "satz_a2_0493",
+      "level": "a2",
+      "targetKo": "하늘색 셔츠가 잘 어울려요.",
+      "promptDe": "Das hellblaue Hemd steht dir gut.",
+      "promptEn": "The light blue shirt suits you.",
+      "vocabKo": "하늘색",
+      "distractors": [
+        "팔찌",
+        "동료"
+      ],
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_a2_0494",
+      "level": "a2",
+      "targetKo": "커피가 너무 진해요.",
+      "promptDe": "Der Kaffee ist zu stark.",
+      "promptEn": "The coffee is too strong.",
+      "vocabKo": "진하다",
+      "distractors": [
+        "겉옷",
+        "칫솔"
+      ],
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_a2_0495",
+      "level": "a2",
+      "targetKo": "코트가 두껍고 따뜻해요.",
+      "promptDe": "Der Mantel ist dick und warm.",
+      "promptEn": "The coat is thick and warm.",
+      "vocabKo": "두껍다",
+      "distractors": [
+        "현금",
+        "벨트"
+      ],
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_b1_0475",
+      "level": "b1",
+      "targetKo": "부담 갖지 말고 편하게 말씀해 주세요.",
+      "promptDe": "Fühlen Sie sich nicht unter Druck gesetzt, sprechen Sie ganz offen.",
+      "promptEn": "Please don't feel pressured; speak freely.",
+      "vocabKo": "부담",
+      "distractors": [
+        "오역",
+        "동물원"
+      ],
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "id": "satz_b1_0476",
+      "level": "b1",
+      "targetKo": "일정 조정에 협조해 주셔서 감사합니다.",
+      "promptDe": "Danke, dass Sie bei der Terminabstimmung mitgeholfen haben.",
+      "promptEn": "Thank you for cooperating with the schedule change.",
+      "vocabKo": "협조",
+      "distractors": [
+        "보험금",
+        "지폐"
+      ],
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "id": "satz_b1_0477",
+      "level": "b1",
+      "targetKo": "내일은 출근이 조금 늦을 것 같아요.",
+      "promptDe": "Morgen komme ich wahrscheinlich etwas später zur Arbeit.",
+      "promptEn": "I'll probably be a little late to work tomorrow.",
+      "vocabKo": "출근",
+      "distractors": [
+        "계약서",
+        "양손"
+      ],
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "id": "satz_b1_0478",
+      "level": "b1",
+      "targetKo": "퇴근 전에 보고서를 보낼게요.",
+      "promptDe": "Vor Feierabend schicke ich den Bericht.",
+      "promptEn": "I'll send the report before I leave work.",
+      "vocabKo": "퇴근",
+      "distractors": [
+        "현관문",
+        "노인"
+      ],
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "id": "satz_b1_0479",
+      "level": "b1",
+      "targetKo": "힘들 때마다 친구가 저를 격려해 줬어요.",
+      "promptDe": "Immer wenn es schwer war, hat mich meine Freundin ermutigt.",
+      "promptEn": "Whenever things were hard, my friend encouraged me.",
+      "vocabKo": "격려하다",
+      "distractors": [
+        "창구직원",
+        "의견"
+      ],
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "satz_b1_0480",
+      "level": "b1",
+      "targetKo": "슬퍼하는 친구를 위로했어요.",
+      "promptDe": "Ich habe meinen traurigen Freund getröstet.",
+      "promptEn": "I comforted my sad friend.",
+      "vocabKo": "위로하다",
+      "distractors": [
+        "납부일",
+        "자동이체"
+      ],
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "satz_b1_0481",
+      "level": "b1",
+      "targetKo": "서로의 의견을 존중하는 게 중요해요.",
+      "promptDe": "Es ist wichtig, die Meinung des anderen zu respektieren.",
+      "promptEn": "It's important to respect each other's opinions.",
+      "vocabKo": "존중하다",
+      "distractors": [
+        "친척",
+        "처제"
+      ],
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "satz_b1_0482",
+      "level": "b1",
+      "targetKo": "제 감정을 말로 표현하기가 어려워요.",
+      "promptDe": "Es fällt mir schwer, meine Gefühle in Worte zu fassen.",
+      "promptEn": "It's hard for me to put my feelings into words.",
+      "vocabKo": "감정",
+      "distractors": [
+        "미래",
+        "모국어"
+      ],
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "satz_b1_0483",
+      "level": "b1",
+      "targetKo": "서로 오해가 있었던 것 같아요.",
+      "promptDe": "Ich glaube, wir hatten ein Missverständnis.",
+      "promptEn": "I think there was a misunderstanding between us.",
+      "vocabKo": "오해",
+      "distractors": [
+        "취향",
+        "자원봉사자"
+      ],
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "satz_b1_0484",
+      "level": "b1",
+      "targetKo": "싸운 다음 날 바로 화해했어요.",
+      "promptDe": "Am Tag nach dem Streit haben wir uns gleich versöhnt.",
+      "promptEn": "We made up the day right after the fight.",
+      "vocabKo": "화해하다",
+      "distractors": [
+        "체온계",
+        "홍보물"
+      ],
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "satz_b2_0550",
+      "level": "b2",
+      "targetKo": "이 개념은 예를 들어 설명하는 편이 이해하기 쉬워요.",
+      "promptDe": "Diesen Begriff versteht man leichter, wenn man ihn mit Beispielen erklärt.",
+      "promptEn": "This concept is easier to understand when explained with examples.",
+      "vocabKo": "개념",
+      "distractors": [
+        "태양광",
+        "통계"
+      ],
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "id": "satz_b2_0551",
+      "level": "b2",
+      "targetKo": "성공에는 운도 중요한 요소예요.",
+      "promptDe": "Auch Glück ist ein wichtiger Faktor für den Erfolg.",
+      "promptEn": "Luck is also an important factor in success.",
+      "vocabKo": "요소",
+      "distractors": [
+        "명사",
+        "인권"
+      ],
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "id": "satz_b2_0552",
+      "level": "b2",
+      "targetKo": "원리를 알면 응용은 어렵지 않아요.",
+      "promptDe": "Wenn man das Prinzip versteht, ist die Anwendung nicht schwer.",
+      "promptEn": "Once you know the principle, applying it isn't hard.",
+      "vocabKo": "원리",
+      "distractors": [
+        "현지화",
+        "편견"
+      ],
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "id": "satz_b2_0553",
+      "level": "b2",
+      "targetKo": "이 일의 가치는 돈으로 따질 수 없어요.",
+      "promptDe": "Der Wert dieser Arbeit lässt sich nicht in Geld messen.",
+      "promptEn": "The value of this work can't be measured in money.",
+      "vocabKo": "가치",
+      "distractors": [
+        "가치관",
+        "생산성"
+      ],
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "id": "satz_b2_0554",
+      "level": "b2",
+      "targetKo": "문제의 본질을 먼저 파악해야 해요.",
+      "promptDe": "Man muss zuerst den Kern des Problems erfassen.",
+      "promptEn": "You have to grasp the essence of the problem first.",
+      "vocabKo": "본질",
+      "distractors": [
+        "생태계",
+        "잠재력"
+      ],
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "id": "satz_b2_0555",
+      "level": "b2",
+      "targetKo": "이 제품의 가장 큰 특징은 가벼운 무게예요.",
+      "promptDe": "Das größte Merkmal dieses Produkts ist sein geringes Gewicht.",
+      "promptEn": "This product's biggest feature is its light weight.",
+      "vocabKo": "특징",
+      "distractors": [
+        "투자",
+        "봉투"
+      ],
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "id": "satz_b2_0556",
+      "level": "b2",
+      "targetKo": "학문의 길은 끝이 없는 것 같아요.",
+      "promptDe": "Der Weg der Wissenschaft scheint kein Ende zu haben.",
+      "promptEn": "The path of scholarship seems to have no end.",
+      "vocabKo": "학문",
+      "distractors": [
+        "공휴일",
+        "민주주의"
+      ],
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "id": "satz_b2_0557",
+      "level": "b2",
+      "targetKo": "그 교수님 강의는 항상 자리가 없어요.",
+      "promptDe": "In der Vorlesung von diesem Professor sind die Plätze immer voll.",
+      "promptEn": "That professor's lectures are always full.",
+      "vocabKo": "강의",
+      "distractors": [
+        "제도",
+        "온난화"
+      ],
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "id": "satz_b2_0558",
+      "level": "b2",
+      "targetKo": "지식보다 경험이 더 중요할 때도 있어요.",
+      "promptDe": "Manchmal ist Erfahrung wichtiger als Wissen.",
+      "promptEn": "Sometimes experience matters more than knowledge.",
+      "vocabKo": "지식",
+      "distractors": [
+        "조상님",
+        "조치"
+      ],
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "id": "satz_b2_0559",
+      "level": "b2",
+      "targetKo": "이번 학기 과제는 팀으로 진행해요.",
+      "promptDe": "Die Hausarbeit in diesem Semester machen wir im Team.",
+      "promptEn": "This semester's assignment is done in teams.",
+      "vocabKo": "과제",
+      "distractors": [
+        "제사",
+        "서랍"
+      ],
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "id": "satz_b2_0560",
+      "level": "b2",
+      "targetKo": "일 년 동안의 연구 성과를 발표했어요.",
+      "promptDe": "Ich habe die Forschungsergebnisse eines Jahres vorgestellt.",
+      "promptEn": "I presented the results of a year's research.",
+      "vocabKo": "성과",
+      "distractors": [
+        "자신감",
+        "야경"
+      ],
+      "courseUnitId": "b2_02_professional_opinion"
     }
   ]
 }
