@@ -1370,32 +1370,31 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             const SizedBox(height: 18),
             _SectionEyebrow(t.settingsDataSourcesSectionOpen),
-            const _DataSourceCard(
+            _DataSourceCard(
               name: '우리말샘 (National Institute of Korean Language)',
-              role: 'Korean definitions, English translations, vocabulary',
+              role: t.settingsDataSourceRoleUrimalsaem,
               license: 'CC BY-SA 2.0 KR',
               url: 'https://opendict.korean.go.kr',
               attribution: '국립국어원 우리말샘 (opendict.korean.go.kr)',
             ),
-            const _DataSourceCard(
+            _DataSourceCard(
               name: 'open-korean-text',
-              role: 'Verified Korean noun dictionary (~140k entries)',
+              role: t.settingsDataSourceRoleOpenKoreanText,
               license: 'Apache 2.0',
               url: 'https://github.com/open-korean-text/open-korean-text',
               attribution: 'open-korean-text contributors',
             ),
-            const _DataSourceCard(
+            _DataSourceCard(
               name: 'hermitdave/FrequencyWords',
-              role: 'Korean word frequency ranking (OpenSubtitles)',
+              role: t.settingsDataSourceRoleFrequencyWords,
               license: 'CC BY-SA 4.0',
               url: 'https://github.com/hermitdave/FrequencyWords',
               attribution: 'Hermit Dave & OpenSubtitles community',
             ),
-            const _DataSourceCard(
+            _DataSourceCard(
               name: 'DeepL',
-              role: 'Korean → German translation',
-              license:
-                  'Translation output: factual data, attribution voluntary',
+              role: t.settingsDataSourceRoleDeepL,
+              license: t.settingsDataSourceLicenseDeepL,
               url: 'https://www.deepl.com',
               attribution: 'DeepL SE',
             ),
@@ -1403,11 +1402,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             _SectionEyebrow(t.settingsDataSourcesSectionKogl),
             // 공공누리 제1유형(출처표시) 자료 — 레벨 정본화 프로그램(T3.0).
             // 출처·해시·라이선스 실측: docs/data/level_bible/SOURCES.md.
-            const _DataSourceCard(
+            _DataSourceCard(
               name: '국립국어원 국제 통용 한국어 표준 교육과정 어휘·문법 등급 목록 (2017)',
-              role:
-                  'Vocabulary (10,635) and grammar (336) grade lists: primary '
-                  'reference for A1 to C2 level grading',
+              role: t.settingsDataSourceRoleNikl2017,
               license: 'KOGL Type 1',
               url:
                   'https://www.korean.go.kr/front/reportData/reportDataView.do?report_seq=932',
@@ -1415,11 +1412,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   '국립국어원 (National Institute of Korean Language), 2017, '
                   '연구책임자 김중섭',
             ),
-            const _DataSourceCard(
+            _DataSourceCard(
               name: '국립국어원 국어 기초 어휘 선정 및 어휘 등급화 목록 (2023)',
-              role:
-                  'Basic vocabulary grade list (40,000 entries): fallback '
-                  'reference for level grading',
+              role: t.settingsDataSourceRoleNikl2023,
               license: 'KOGL Type 1',
               url:
                   'https://www.korean.go.kr/front/reportData/reportDataView.do?report_seq=1160',
@@ -1427,18 +1422,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   '국립국어원 (National Institute of Korean Language), 2023, '
                   '연구책임자 김한샘 외',
             ),
-            const _DataSourceCard(
+            _DataSourceCard(
               name: '세종한국어 회화 익힘책 1-1 · 1-2 (한국어판)',
-              role:
-                  'Topic, grammar and vocabulary scope of the A1 units (seed '
-                  'only; every sentence in this app is original writing)',
+              role: t.settingsDataSourceRoleSejongConversation,
               license: 'KOGL Type 1',
               url: 'https://www.ksif.or.kr',
               attribution: '세종학당재단 (King Sejong Institute Foundation), 2020',
             ),
-            const _DataSourceCard(
+            _DataSourceCard(
               name: '세종한국문화 1 · 2 주요 어휘',
-              role: 'Culture vocabulary lists used to grade culture words',
+              role: t.settingsDataSourceRoleSejongCulture,
               license: 'KOGL Type 1',
               url: 'https://www.ksif.or.kr',
               attribution: '세종학당재단 (King Sejong Institute Foundation)',

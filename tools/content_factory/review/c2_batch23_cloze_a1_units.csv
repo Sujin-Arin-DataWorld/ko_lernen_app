@@ -1,6 +1,6 @@
 id,level,ko,de,en,field_notes,상태,jin_memo
 cloze_a1_0359,a1,코가 아파요.,Meine Nase tut weh.,My nose hurts.,answer=아파요; topic=Körper; unit=a1_10_health_safety; derived from vocab_a1_0046,approved,Fable 직독 승인 2026-09-09 (PR-L3a Batch 23 2차); Jin 10% 표본 대기
-cloze_a1_0360,a1,입을 열어요.,Öffne den Mund.,Open your mouth.,answer=열어요; topic=Körper; unit=a1_10_health_safety; derived from vocab_a1_0047,approved,Fable 직독 승인 2026-09-09 (PR-L3a Batch 23 2차); Jin 10% 표본 대기
+cloze_a1_0360,a1,입을 여세요.,Öffne den Mund.,Open your mouth.,answer=여세요; topic=Körper; unit=a1_10_health_safety; derived from vocab_a1_0047,approved,Fable 직독 승인 2026-09-09 (PR-L3a Batch 23 2차); Jin 10% 표본 대기
 cloze_a1_0361,a1,손을 씻어요.,Ich wasche meine Hände.,I wash my hands.,answer=씻어요; topic=Körper; unit=a1_10_health_safety; derived from vocab_a1_0049,approved,Fable 직독 승인 2026-09-09 (PR-L3a Batch 23 2차); Jin 10% 표본 대기
 cloze_a1_0362,a1,발이 아파요.,Mein Fuß tut weh.,My foot hurts.,answer=아파요; topic=Körper; unit=a1_10_health_safety; derived from vocab_a1_0050,approved,Fable 직독 승인 2026-09-09 (PR-L3a Batch 23 2차); Jin 10% 표본 대기
 cloze_a1_0363,a1,몸이 좀 안 좋아요.,Ich fühle mich nicht so wohl.,I'm not feeling so well.,answer=좋아요; topic=Körper; unit=a1_10_health_safety; derived from vocab_a1_0052,approved,Fable 직독 승인 2026-09-09 (PR-L3a Batch 23 2차); Jin 10% 표본 대기

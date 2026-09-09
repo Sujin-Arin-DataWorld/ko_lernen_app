@@ -897,6 +897,41 @@ class AppL10nDe extends AppL10n {
   String get settingsDataSourcesSectionKogl => 'Öffentliche Daten (KOGL Typ 1)';
 
   @override
+  String get settingsDataSourceRoleUrimalsaem =>
+      'Koreanische Definitionen, englische Übersetzungen, Wortschatz';
+
+  @override
+  String get settingsDataSourceRoleOpenKoreanText =>
+      'Geprüftes koreanisches Nomen-Wörterbuch (ca. 140.000 Einträge)';
+
+  @override
+  String get settingsDataSourceRoleFrequencyWords =>
+      'Häufigkeitsranking koreanischer Wörter (OpenSubtitles)';
+
+  @override
+  String get settingsDataSourceRoleDeepL => 'Übersetzung Koreanisch → Deutsch';
+
+  @override
+  String get settingsDataSourceLicenseDeepL =>
+      'Übersetzungsausgabe: Sachdaten, Quellenangabe freiwillig';
+
+  @override
+  String get settingsDataSourceRoleNikl2017 =>
+      'Wortschatz- (10.635) und Grammatikliste (336) nach Stufen: Hauptreferenz für die Einstufung A1 bis C2';
+
+  @override
+  String get settingsDataSourceRoleNikl2023 =>
+      'Grundwortschatzliste mit Stufen (40.000 Einträge): Ersatzreferenz für die Einstufung';
+
+  @override
+  String get settingsDataSourceRoleSejongConversation =>
+      'Themen-, Grammatik- und Wortschatzrahmen der A1-Einheiten (nur als Vorlage; jeder Satz in dieser App ist eigener Text)';
+
+  @override
+  String get settingsDataSourceRoleSejongCulture =>
+      'Kulturwortlisten zur Einstufung von Kulturwörtern';
+
+  @override
   String get statsHeader => 'Dein Fortschritt';
 
   @override

@@ -893,6 +893,41 @@ class AppL10nEn extends AppL10n {
   String get settingsDataSourcesSectionKogl => 'Public data (KOGL Type 1)';
 
   @override
+  String get settingsDataSourceRoleUrimalsaem =>
+      'Korean definitions, English translations, vocabulary';
+
+  @override
+  String get settingsDataSourceRoleOpenKoreanText =>
+      'Verified Korean noun dictionary (~140k entries)';
+
+  @override
+  String get settingsDataSourceRoleFrequencyWords =>
+      'Korean word frequency ranking (OpenSubtitles)';
+
+  @override
+  String get settingsDataSourceRoleDeepL => 'Korean → German translation';
+
+  @override
+  String get settingsDataSourceLicenseDeepL =>
+      'Translation output: factual data, attribution voluntary';
+
+  @override
+  String get settingsDataSourceRoleNikl2017 =>
+      'Vocabulary (10,635) and grammar (336) grade lists: primary reference for A1 to C2 level grading';
+
+  @override
+  String get settingsDataSourceRoleNikl2023 =>
+      'Basic vocabulary grade list (40,000 entries): fallback reference for level grading';
+
+  @override
+  String get settingsDataSourceRoleSejongConversation =>
+      'Topic, grammar and vocabulary scope of the A1 units (seed only; every sentence in this app is original writing)';
+
+  @override
+  String get settingsDataSourceRoleSejongCulture =>
+      'Culture vocabulary lists used to grade culture words';
+
+  @override
   String get statsHeader => 'Your progress';
 
   @override

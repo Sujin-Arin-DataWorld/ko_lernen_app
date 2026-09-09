@@ -20,15 +20,15 @@
       "id": "cloze_a1_0360",
       "level": "a1",
       "topic": "Körper",
-      "fullKo": "입을 열어요.",
-      "answer": "열어요",
+      "fullKo": "입을 여세요.",
+      "answer": "여세요",
       "sentenceKo": "입을 ＿＿＿.",
       "de": "Öffne den Mund.",
       "en": "Open your mouth.",
       "distractors": [
-        "먹어요",
-        "읽어요",
-        "사요"
+        "읽으세요",
+        "앉으세요",
+        "가세요"
       ],
       "courseUnitId": "a1_10_health_safety"
     },

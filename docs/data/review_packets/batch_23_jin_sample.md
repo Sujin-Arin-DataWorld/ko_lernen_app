@@ -33,7 +33,7 @@
 
 ## TTS
 
-- 새 발화 키 18건(표제어·예문)은 로컬(Windows 랩탑)에서 `python3 tool/generate_tts.py --missing-from-storage --workers 8` 로 합성·업로드 후 `--verify-storage` missing 0 확인(이 컨테이너에는 GCP 자격 증명 없음).
+- 새 발화 키 18건(표제어·예문)은 Jin 로컬에서 `python3 tool/generate_tts.py --missing-from-storage --workers 8` 로 합성·업로드 후 `--verify-storage` missing 0 확인(이 컨테이너에는 GCP 자격 증명 없음).
 
 ## 2차 (2026-09-09) — a1_10·a1_15 로더 커버리지 보강 + 결함 수정
 
@@ -58,7 +58,7 @@
 
 - cloze 20건(`cloze_a1_0359`~`0378`)·satz 9건(`satz_a1_0351`~`0359`)은 위 예문 재사용(TTS 키 공유). 이동 satz 3건(`satz_b2_0383` 문안 교체, `satz_b1_0425`·`0450` 불변)은 레벨만 a1.
 - 1차 결함 수정: `vocab_a1_0318` 값→**가격**("우표 가격이 얼마예요?", cloze 1음절 정답 금지 규칙), `cloze_a1_0199`·`0352`·`0353` 배분어 교체(문장 잔여부 노출 금지 규칙). 전부 Flutter `cloze_test`/`cloze_content_guard_test` 통과.
-- TTS: main 대비 새 발화 키 34건 — 로컬(Windows 랩탑)에서 `python3 tool/generate_tts.py --missing-from-storage --workers 8` → `--verify-storage` missing 0.
+- TTS: main 대비 새 발화 키 34건 — Jin 로컬에서 `python3 tool/generate_tts.py --missing-from-storage --workers 8` → `--verify-storage` missing 0.
 
 ## Batch 24 (2026-09-09) — 레벨별 소형 팩 보충 62단어 + cloze 배분어 위생
 
@@ -129,5 +129,5 @@
 |  | `vocab_b2_0656` | 과제 | `b2_education` | 이번 학기 과제는 팀으로 진행해요. | Die Hausarbeit in diesem Semester machen wir im Team. | This semester's assignment is done in teams. |  |
 |  | `vocab_b2_0657` | 성과 | `b2_education` | 일 년 동안의 연구 성과를 발표했어요. | Ich habe die Forschungsergebnisse eines Jahres vorgestellt. | I presented the results of a year's research. |  |
 
-- cloze 배분어 위생(P1): 조사 앞 받침 불일치·문장 잔여부 노출 배분어 1,456칸(834항목)을 같은 레벨·같은 품사·다른 주제의 표제어로 결정적 교체. 정답·문장·DE/EN 불변. `audit_content_naturalness` 후보 897→73(particle_mismatch 824→0), `cloze_content_guard_test` allowlist 0. batch_09 항목 342건은 copy-revision 원장에 기록. 표본은 `git diff 0c67d19..HEAD -- assets/data/cloze.json`에서 무작위로 보면 된다(정답이 아닌 오답 후보만 바뀜).
-- TTS: main 대비 새 발화 키 133건 — Jin 로컬(Windows 랩탑)에서 `python3 tool/generate_tts.py --missing-from-storage --workers 8` → `--verify-storage` missing 0.
+- cloze 배분어 위생(P1, Codex 리뷰 반영 후): 정답이 같은 레벨 명사 표제어인 528항목만 조사 앞 받침 불일치·문장 잔여부 노출 배분어를 같은 레벨·같은 품사·다른 주제의 표제어로 결정적 교체. 표현·동사·다어절 정답 300항목은 원래(eea1c60) 배분어로 복원, 노출 슬롯 6칸만 같은 팩 단어로 교체. 정답·문장·DE/EN 불변. `audit_content_naturalness` 후보 897→375(particle_mismatch 824→302 — 잔여는 명사구 정답에 동사구 배분어가 붙은 main 기존 항목, L3b 큐레이션), `cloze_content_guard_test` allowlist 0. copy-revision 원장은 batch_09/10 cloze +80건·7건 갱신. 표본은 `git diff 0c67d19..HEAD -- assets/data/cloze.json`에서 무작위로 보면 된다(정답이 아닌 오답 후보만 바뀜).
+- TTS: main 대비 새 발화 키 133건 — Jin 로컬에서 `python3 tool/generate_tts.py --missing-from-storage --workers 8` → `--verify-storage` missing 0.

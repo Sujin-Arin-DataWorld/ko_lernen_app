@@ -1615,6 +1615,60 @@ abstract class AppL10n {
   /// **'Öffentliche Daten (KOGL Typ 1)'**
   String get settingsDataSourcesSectionKogl;
 
+  /// No description provided for @settingsDataSourceRoleUrimalsaem.
+  ///
+  /// In de, this message translates to:
+  /// **'Koreanische Definitionen, englische Übersetzungen, Wortschatz'**
+  String get settingsDataSourceRoleUrimalsaem;
+
+  /// No description provided for @settingsDataSourceRoleOpenKoreanText.
+  ///
+  /// In de, this message translates to:
+  /// **'Geprüftes koreanisches Nomen-Wörterbuch (ca. 140.000 Einträge)'**
+  String get settingsDataSourceRoleOpenKoreanText;
+
+  /// No description provided for @settingsDataSourceRoleFrequencyWords.
+  ///
+  /// In de, this message translates to:
+  /// **'Häufigkeitsranking koreanischer Wörter (OpenSubtitles)'**
+  String get settingsDataSourceRoleFrequencyWords;
+
+  /// No description provided for @settingsDataSourceRoleDeepL.
+  ///
+  /// In de, this message translates to:
+  /// **'Übersetzung Koreanisch → Deutsch'**
+  String get settingsDataSourceRoleDeepL;
+
+  /// No description provided for @settingsDataSourceLicenseDeepL.
+  ///
+  /// In de, this message translates to:
+  /// **'Übersetzungsausgabe: Sachdaten, Quellenangabe freiwillig'**
+  String get settingsDataSourceLicenseDeepL;
+
+  /// No description provided for @settingsDataSourceRoleNikl2017.
+  ///
+  /// In de, this message translates to:
+  /// **'Wortschatz- (10.635) und Grammatikliste (336) nach Stufen: Hauptreferenz für die Einstufung A1 bis C2'**
+  String get settingsDataSourceRoleNikl2017;
+
+  /// No description provided for @settingsDataSourceRoleNikl2023.
+  ///
+  /// In de, this message translates to:
+  /// **'Grundwortschatzliste mit Stufen (40.000 Einträge): Ersatzreferenz für die Einstufung'**
+  String get settingsDataSourceRoleNikl2023;
+
+  /// No description provided for @settingsDataSourceRoleSejongConversation.
+  ///
+  /// In de, this message translates to:
+  /// **'Themen-, Grammatik- und Wortschatzrahmen der A1-Einheiten (nur als Vorlage; jeder Satz in dieser App ist eigener Text)'**
+  String get settingsDataSourceRoleSejongConversation;
+
+  /// No description provided for @settingsDataSourceRoleSejongCulture.
+  ///
+  /// In de, this message translates to:
+  /// **'Kulturwortlisten zur Einstufung von Kulturwörtern'**
+  String get settingsDataSourceRoleSejongCulture;
+
   /// No description provided for @statsHeader.
   ///
   /// In de, this message translates to:

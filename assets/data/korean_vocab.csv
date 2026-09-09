@@ -45,7 +45,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 머리,meori,Kopf / Haare,A1,Nomen,머리가 아파요.,Mein Kopf tut weh.,Körper,a1_body,1,false,head / hair,Noun,My head hurts.,vocab_a1_0044
 눈,nun,Auge,A1,Nomen,오늘 눈이 좀 피곤하네요.,Meine Augen sind heute etwas müde.,Körper,a1_body,2,false,eye,Noun,My eyes are a bit tired today.,vocab_a1_0045
 코,ko,Nase,A1,Nomen,코가 아파요.,Meine Nase tut weh.,Körper,a1_body,3,false,nose,Noun,My nose hurts.,vocab_a1_0046
-입,ip,Mund,A1,Nomen,입을 열어요.,Öffne den Mund.,Körper,a1_body,4,false,mouth,Noun,Open your mouth.,vocab_a1_0047
+입,ip,Mund,A1,Nomen,입을 여세요.,Öffne den Mund.,Körper,a1_body,4,false,mouth,Noun,Open your mouth.,vocab_a1_0047
 귀,gwi,Ohr,A1,Nomen,귀가 좀 아파요.,Mein Ohr tut ein bisschen weh.,Körper,a1_body,5,false,ear,Noun,My ear hurts a bit.,vocab_a1_0048
 손,son,Hand,A1,Nomen,손을 씻어요.,Ich wasche meine Hände.,Körper,a1_body,6,false,hand,Noun,I wash my hands.,vocab_a1_0049
 발,bal,Fuß,A1,Nomen,발이 아파요.,Mein Fuß tut weh.,Körper,a1_body,7,false,foot,Noun,My foot hurts.,vocab_a1_0050

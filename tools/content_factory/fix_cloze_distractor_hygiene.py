@@ -7,11 +7,16 @@ particle_mismatch and test/cloze_content_guard_test.dart distractor guard):
     batchim class as the particle demands;
   * no distractor may be a substring of sentenceKo (exposed in the remainder);
   * distractors stay 3, distinct, != answer.
-Only offending distractors are replaced.  Replacement pool = headwords of the
-same level from korean_vocab.csv with the answer's part of speech (nouns for
-nouns …), a different topic than the answer's pack topic, 2+ syllables, single
-token, not in the sentence, not already used.  Selection is deterministic
-(seeded by item id) so reruns are stable.
+Only offending distractors are replaced, and only for items whose answer is
+a *noun headword of the same level* in korean_vocab.csv (pos_de == Nomen).
+Expression, verb, inflected-stem and multiword answers are skipped: the
+vocabulary has no same-class pool for them, so a rule-based swap would put an
+unrelated noun into a verb slot (PR #288 review, cloze_b2_0204 "다시 여쭤보").
+Those items are curated by hand per pack (see F10 2026-09-09, Batch 24).
+Replacement pool = noun headwords of the same level, a different topic than
+the answer's pack topic, 2+ syllables, single token, not in the sentence, not
+already used.  Selection is deterministic (seeded by item id) so reruns are
+stable.
 """
 from __future__ import annotations
 import csv, json, random, sys, hashlib
@@ -42,7 +47,7 @@ def main(apply: bool) -> None:
             continue
         by_level_pos[(lv, r["pos_de"])].append(r)
     data = json.loads(CLOZE.read_text(encoding="utf-8"))
-    changed = 0; slots = 0; unresolved = []
+    changed = 0; slots = 0; unresolved = []; skipped_non_noun = 0
     for it in data["items"]:
         lv = it["level"]; s = it["sentenceKo"]; a = it["answer"]
         particle = find_particle_after_blank(s)
@@ -57,10 +62,13 @@ def main(apply: bool) -> None:
         if not bad:
             continue
         arow = info.get((lv, a))
-        pos = arow["pos_de"] if arow else "Nomen"
-        pool_keys = [(lv, pos)] if pos in ("Nomen", "Verb", "Adjektiv", "Adverb") else [(lv, "Nomen"), (lv, "Ausdruck")]
-        pool = [r for k in pool_keys for r in by_level_pos.get(k, [])]
-        atopic = arow["topic"] if arow else None
+        if arow is None or arow["pos_de"] != "Nomen":
+            # Not a same-level noun headword: no same-class pool exists, so
+            # leave the reviewed distractors alone (hand curation only).
+            skipped_non_noun += 1
+            continue
+        pool = by_level_pos.get((lv, "Nomen"), [])
+        atopic = arow["topic"]
         keep = [d for d in it["distractors"] if d not in bad]
         rng = random.Random(int(hashlib.sha1(it["id"].encode()).hexdigest(), 16))
         cands = [r["korean"] for r in pool
@@ -79,7 +87,7 @@ def main(apply: bool) -> None:
             continue
         slots += len(bad); changed += 1
         it["distractors"] = new
-    print(f"items changed: {changed}, distractor slots replaced: {slots}, unresolved: {len(unresolved)}")
+    print(f"items changed: {changed}, distractor slots replaced: {slots}, unresolved: {len(unresolved)}, skipped (non-noun-headword answer): {skipped_non_noun}")
     for u in unresolved[:10]:
         print("  unresolved", u)
     if apply:
