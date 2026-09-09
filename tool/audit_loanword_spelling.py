@@ -64,9 +64,9 @@ _WHITESPACE_HYPHEN_RE = re.compile(r"[\s\-]+")
 
 # kornorms API 응답 항목의 필드 순서 (langType 무관 공통 스키마):
 # korean_mark(한글 표기), srclang_mark(원어 표기), guk_nm(국가명), lang_nm(언어명),
-# mean(뜻풀이), source(출처). langType=0004(로마자 표기법)에서 로마자 표기값은
-# srclang_mark에 담긴다 — lang_nm은 언어 "이름"(예: '영어')일 뿐 표기값이 아니다.
-_ROMANIZATION_PRIMARY_FIELD = "srclang_mark"
+# mean(뜻풀이), source(출처). langType=0004의 로마자 표기는 roman_mark다.
+# srclang_mark는 예전 응답/캐시의 호환 필드이며 lang_nm은 언어 이름이다.
+_ROMANIZATION_PRIMARY_FIELD = "roman_mark"
 
 Fetcher = Callable[[str, str, str, str], dict]
 
@@ -168,6 +168,68 @@ def _save_cache(cache_dir: Path, lang_type: str, keyword: str, response: dict) -
     path.write_text(json.dumps(response, ensure_ascii=False, sort_keys=True), encoding="utf-8")
 
 
+def _normalize_api_response(response: dict, api_key: str) -> dict:
+    """Unwrap the live response and discard echoed credentials before caching."""
+    # Success and failure responses use different envelopes/casing.
+    payload = response.get("response", response.get("exampleOpenApiVO", response))
+    if not isinstance(payload, dict):
+        return {"error": True, "items": [], "error_message": "Unexpected API response"}
+
+    credential_fields = {"servicekey", "apikey", "api_key"}
+    secrets = {api_key} if api_key else set()
+
+    def collect_credentials(value):
+        if isinstance(value, dict):
+            for name, item in value.items():
+                if name.lower() in credential_fields and isinstance(item, str) and item:
+                    secrets.add(item)
+                collect_credentials(item)
+        elif isinstance(value, list):
+            for item in value:
+                collect_credentials(item)
+
+    collect_credentials(response)
+    variants = {
+        variant for secret in secrets
+        for variant in (secret, urllib.parse.quote(secret, safe=""), urllib.parse.quote_plus(secret))
+    }
+    secret_pattern = (
+        re.compile(
+            "|".join(re.escape(value) for value in sorted(variants, key=len, reverse=True)),
+            re.IGNORECASE,
+        )
+        if variants else None
+    )
+
+    def redact(value):
+        if isinstance(value, dict):
+            return {
+                key: redact(item) for key, item in value.items()
+                if key.lower() not in credential_fields
+            }
+        if isinstance(value, list):
+            return [redact(item) for item in value]
+        if isinstance(value, str) and secret_pattern:
+            return secret_pattern.sub("[REDACTED]", value)
+        return value
+
+    # Request parameters/statistics are not needed by the audit or its cache.
+    public_fields = {
+        name.lower(): name for name in (
+            "resultCode", "resultMsg", "pageNo", "numOfRows", "totalCount",
+            "items", "error", "error_message",
+        )
+    }
+    result = redact({
+        public_fields[name.lower()]: value for name, value in payload.items()
+        if name.lower() in public_fields
+    })
+    if "resultCode" in result and str(result["resultCode"]) not in {"0", "00"}:
+        result["error"] = True
+    result["items"] = result.get("items") or []
+    return result
+
+
 def http_fetcher(api_key: str, lang_type: str, keyword: str, search_equals: str) -> dict:
     """실제 kornorms API 호출. 테스트에서는 이 함수 대신 mock fetcher를 주입한다."""
     params = {
@@ -181,10 +243,17 @@ def http_fetcher(api_key: str, lang_type: str, keyword: str, search_equals: str)
         "searchEquals": search_equals,
     }
     url = f"{API_URL}?{urllib.parse.urlencode(params)}"
-    req = urllib.request.Request(url, headers={"Accept": "application/json"})
+    # The service rejects urllib's default User-Agent with HTTP 403.
+    req = urllib.request.Request(
+        url,
+        headers={
+            "Accept": "application/json",
+            "User-Agent": "HangulSori/1.0 (content-audit)",
+        },
+    )
     with urllib.request.urlopen(req, timeout=15) as resp:
         body = resp.read()
-    return json.loads(body.decode("utf-8"))
+    return _normalize_api_response(json.loads(body.decode("utf-8")), api_key)
 
 
 def query_kornorms(
@@ -208,7 +277,15 @@ def query_kornorms(
     """
     cached = _load_cache(cache_dir, lang_type, keyword)
     if cached is not None:
-        return cached
+        normalized = _normalize_api_response(cached, api_key)
+        if normalized != cached:
+            _save_cache(cache_dir, lang_type, keyword, normalized)
+        if not normalized.get("error"):
+            return normalized
+        # Old caches may contain a failed authentication response. Recheck it
+        # online so replacing the key can recover without manual cache removal.
+        if offline:
+            return normalized
 
     if offline:
         return {"offline_skip": True, "items": []}
@@ -217,7 +294,9 @@ def query_kornorms(
     last_error: Exception | None = None
     for _attempt in range(2):
         try:
-            response = fetcher(api_key, lang_type, keyword, search_equals)
+            response = _normalize_api_response(
+                fetcher(api_key, lang_type, keyword, search_equals), api_key
+            )
             last_error = None
             break
         except Exception as exc:  # noqa: BLE001 — 네트워크/파싱 오류 전부 재시도 대상
@@ -228,9 +307,13 @@ def query_kornorms(
         time.sleep(rate_limit_seconds)
 
     if response is None:
-        return {"error": True, "items": [], "error_message": str(last_error)}
+        message = str(last_error)
+        if api_key:
+            message = message.replace(api_key, "[REDACTED]")
+        return {"error": True, "items": [], "error_message": message}
 
-    _save_cache(cache_dir, lang_type, keyword, response)
+    if not response.get("error"):
+        _save_cache(cache_dir, lang_type, keyword, response)
     return response
 
 
@@ -258,15 +341,16 @@ def _normalize_romanization(value: str | None) -> str:
 def romanization_field_value(item: dict) -> tuple[str, str]:
     """API 항목에서 로마자 표기값을 찾는다. 반환: (값, 매치된 필드명).
 
-    `srclang_mark`(원어 표기)를 우선 사용한다 — langType=0004 응답에서
-    로마자 표기값이 담기는 필드. 비어 있으면 라틴 문자를 포함하는 첫 문자열
+    `roman_mark`(로마자 표기)를 우선 사용하고 예전 `srclang_mark`도 지원한다.
+    둘 다 비어 있으면 라틴 문자를 포함하는 첫 문자열
     필드로 대체한다(예: 데이터 누락으로 다른 필드에 표기가 들어간 경우).
     `lang_nm`(언어명, 예: '영어')처럼 라틴 문자가 없는 필드는 이 대체
     탐색에서 자연히 걸러진다. 아무 것도 없으면 `('', '')`.
     """
-    srclang = (item.get(_ROMANIZATION_PRIMARY_FIELD) or "").strip()
-    if srclang:
-        return srclang, _ROMANIZATION_PRIMARY_FIELD
+    for field_name in (_ROMANIZATION_PRIMARY_FIELD, "srclang_mark"):
+        value = (item.get(field_name) or "").strip()
+        if value:
+            return value, field_name
     for field_name, value in item.items():
         if field_name == _ROMANIZATION_PRIMARY_FIELD:
             continue
@@ -278,7 +362,7 @@ def romanization_field_value(item: dict) -> tuple[str, str]:
 def classify_romanization(korean: str, app_value: str, response: dict) -> str:
     """'match' | 'mismatch' | 'not_found' | 'error'.
 
-    `srclang_mark`(비어 있으면 라틴 문자가 있는 첫 필드)를 앱의 romanization
+    `roman_mark`(예전 응답은 `srclang_mark`)를 앱의 romanization
     열과 대소문자·공백·하이픈 무시하고 비교한다. `lang_nm`(언어명)은 표기값이
     아니므로 비교 대상이 아니다 — 값이 우연히 라틴 문자를 포함하지 않는 한
     (예: '영어') 절대 'match'를 만들지 않는다.
@@ -358,7 +442,7 @@ def _run_audit(
     offline: bool,
     limit: int | None,
     rate_limit_seconds: float,
-) -> None:
+) -> int:
     vocab_rows = load_vocab_rows(vocab_csv)
     origin_map = load_lexicon_origin(lexicon_csv)
 
@@ -423,6 +507,7 @@ def _run_audit(
     report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(report, encoding="utf-8")
     print(f"Report written to {report_path}")
+    return int(any(row["status"] == "error" for row in loanword_results + romanization_results))
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -444,7 +529,7 @@ def main(argv: list[str] | None = None) -> int:
         print("KORNORMS_API_KEY not set — skipping")
         return 0
 
-    _run_audit(
+    return _run_audit(
         api_key,
         vocab_csv=args.vocab_csv,
         lexicon_csv=args.lexicon_csv,
@@ -455,7 +540,6 @@ def main(argv: list[str] | None = None) -> int:
         limit=args.limit,
         rate_limit_seconds=0.3,
     )
-    return 0
 
 
 if __name__ == "__main__":
