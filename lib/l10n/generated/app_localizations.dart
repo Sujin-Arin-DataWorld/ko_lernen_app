@@ -1591,6 +1591,84 @@ abstract class AppL10n {
   /// **'Korea-Wörterbuchdaten (Definitionen, Übersetzungen) stammen aus 우리말샘 (National Institute of Korean Language) und stehen unter CC BY-SA 2.0 KR. Abgeleitete Inhalte (z. B. die in dieser App enthaltenen JSON-Dateien) werden unter derselben Lizenz weitergegeben.'**
   String get settingsDataLicenseBody;
 
+  /// No description provided for @settingsKoglNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Hinweis zu KOGL Typ 1'**
+  String get settingsKoglNote;
+
+  /// No description provided for @settingsKoglBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Einstufung der Lerninhalte von A1 bis C2 stützt sich auf die Wortschatz- und Grammatiklisten des National Institute of Korean Language (2017 und 2023) sowie auf Lehrwerke und Wortlisten der King Sejong Institute Foundation. Diese Werke stehen unter der Korea Open Government License Typ 1 (Quellenangabe). Die Lernsätze in dieser App sind eigene Texte; wo Originaltext übernommen wird, ist die Quelle beim jeweiligen Inhalt vermerkt.'**
+  String get settingsKoglBody;
+
+  /// No description provided for @settingsDataSourcesSectionOpen.
+  ///
+  /// In de, this message translates to:
+  /// **'Offene Daten & Lizenzen'**
+  String get settingsDataSourcesSectionOpen;
+
+  /// No description provided for @settingsDataSourcesSectionKogl.
+  ///
+  /// In de, this message translates to:
+  /// **'Öffentliche Daten (KOGL Typ 1)'**
+  String get settingsDataSourcesSectionKogl;
+
+  /// No description provided for @settingsDataSourceRoleUrimalsaem.
+  ///
+  /// In de, this message translates to:
+  /// **'Koreanische Definitionen, englische Übersetzungen, Wortschatz'**
+  String get settingsDataSourceRoleUrimalsaem;
+
+  /// No description provided for @settingsDataSourceRoleOpenKoreanText.
+  ///
+  /// In de, this message translates to:
+  /// **'Geprüftes koreanisches Nomen-Wörterbuch (ca. 140.000 Einträge)'**
+  String get settingsDataSourceRoleOpenKoreanText;
+
+  /// No description provided for @settingsDataSourceRoleFrequencyWords.
+  ///
+  /// In de, this message translates to:
+  /// **'Häufigkeitsranking koreanischer Wörter (OpenSubtitles)'**
+  String get settingsDataSourceRoleFrequencyWords;
+
+  /// No description provided for @settingsDataSourceRoleDeepL.
+  ///
+  /// In de, this message translates to:
+  /// **'Übersetzung Koreanisch → Deutsch'**
+  String get settingsDataSourceRoleDeepL;
+
+  /// No description provided for @settingsDataSourceLicenseDeepL.
+  ///
+  /// In de, this message translates to:
+  /// **'Übersetzungsausgabe: Sachdaten, Quellenangabe freiwillig'**
+  String get settingsDataSourceLicenseDeepL;
+
+  /// No description provided for @settingsDataSourceRoleNikl2017.
+  ///
+  /// In de, this message translates to:
+  /// **'Wortschatz- (10.635) und Grammatikliste (336) nach Stufen: Hauptreferenz für die Einstufung A1 bis C2'**
+  String get settingsDataSourceRoleNikl2017;
+
+  /// No description provided for @settingsDataSourceRoleNikl2023.
+  ///
+  /// In de, this message translates to:
+  /// **'Grundwortschatzliste mit Stufen (40.000 Einträge): Ersatzreferenz für die Einstufung'**
+  String get settingsDataSourceRoleNikl2023;
+
+  /// No description provided for @settingsDataSourceRoleSejongConversation.
+  ///
+  /// In de, this message translates to:
+  /// **'Themen-, Grammatik- und Wortschatzrahmen der A1-Einheiten (nur als Vorlage; jeder Satz in dieser App ist eigener Text)'**
+  String get settingsDataSourceRoleSejongConversation;
+
+  /// No description provided for @settingsDataSourceRoleSejongCulture.
+  ///
+  /// In de, this message translates to:
+  /// **'Kulturwortlisten zur Einstufung von Kulturwörtern'**
+  String get settingsDataSourceRoleSejongCulture;
+
   /// No description provided for @statsHeader.
   ///
   /// In de, this message translates to:

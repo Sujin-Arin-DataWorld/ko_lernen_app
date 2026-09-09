@@ -1069,16 +1069,30 @@ class LiveRatchetTest(unittest.TestCase):
     resolved vocab between levels/packs, it never resolves a previously-
     unknown headword). CAP_PACK_A1/A2_MEDIAN_GE_PLUS2 stay 0 (already the
     floor). New this round: CAP_PACK_A1/A2_OVER2_UNBACKLOGGED, both 0 --
-    see that field's own comment below."""
+    see that field's own comment below.
+
+    2026-09-08 PR-L3a (Batch 23 -- replacement_backlog wave L3: 4 A1
+    headwords replaced in place, a1_particles_in_use_1 +8 rows,
+    relevel_batch_004.csv 3 per-word moves into a1_repair_language_1,
+    level_exceptions.csv +2 meta rows, and the compile_pattern_regex fix
+    that stops "V-지요?"/"V-나요?" from compiling to bare 지/나) lowered
+    CAP_OVER2 for vocab (165→159), cloze (38→35), satz (29→26) and
+    pronunciation (1→0) to the new actuals. CAP_FALLBACK_OVER2 is unchanged
+    for every kind (the replacements and new rows are all kiiq grade-1 or
+    F9-exception headwords, so nothing new lands in the fallback bucket).
+    CAP_UNKNOWN_RATIO unchanged (56/2428 = 0.0231 to 4 decimals). Pack caps
+    stay 0."""
 
     # 2026-09-07 T2.5 실측 (`python tool/audit_content_levels.py` 후
     # tool/content_level_summary.json 그대로). 하향 전용 — 상한은 내려갈
     # 수만 있다, 절대 올리지 마라. grammar/scenario/media unchanged from
     # T2.4b-1(e) (already at their actuals, this rework didn't touch
     # anything that would move them).
+    # 2026-09-08 PR-L3a 실측: vocab 159 · cloze 35 · satz 26 · pronunciation 0
+    # (하향), 나머지 불변.
     CAP_OVER2 = {
-        "vocab": 165, "grammar": 3, "scenario": 0, "cloze": 38,
-        "satz": 29, "smalltalk": 19, "pronunciation": 1, "media": 6,
+        "vocab": 159, "grammar": 3, "scenario": 0, "cloze": 35,
+        "satz": 26, "smalltalk": 19, "pronunciation": 0, "media": 6,
     }
     # 실측 unknown/total: vocab .0231(=56/2420, unchanged from T2.4a --
     # the allowance/contraction fix only ever changes sentence_profile's

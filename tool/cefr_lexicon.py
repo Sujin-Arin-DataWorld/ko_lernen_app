@@ -2606,6 +2606,9 @@ def _compile_segment(seg: str) -> str:
     return _drop_trailing_da(seg)
 
 
+_SENTENCE_PUNCT_TAIL = "?!.…"
+
+
 def compile_pattern_regex(raw_pattern: str, strip_slot_prefix: bool = True) -> re.Pattern:
     """Compile one grammar `pattern`/`form` string into a search regex
     per the brief's transformation rules: drop V-/A-/A/V-/N slot markers,
@@ -2617,7 +2620,13 @@ def compile_pattern_regex(raw_pattern: str, strip_slot_prefix: bool = True) -> r
     else:
         pattern = pattern.lstrip("-")
         pattern = _TRAILING_DIGITS_RE.sub("", pattern)
-    tokens = [t for t in pattern.split(" ") if t]
+    # PR-L3a (2026-09-08): a trailing "?"/"!"/"." in a pattern string is
+    # sentence punctuation ("V-지요?", "V-나요?", NIKL variant "-세요."), not
+    # regex syntax. Left in place, "?" made the last syllable optional
+    # ("지요?" -> bare "지", matching 편지/까지) and "." became a wildcard, so
+    # every A1 sentence with 까지/편지/하나 picked up a spurious A2 hit.
+    tokens = [t.rstrip(_SENTENCE_PUNCT_TAIL) for t in pattern.split(" ")]
+    tokens = [t for t in tokens if t]
     compiled = [_compile_segment(t) for t in tokens]
     body = r"\s*".join(c for c in compiled if c)
     return re.compile(body)

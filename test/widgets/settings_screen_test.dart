@@ -1367,12 +1367,16 @@ void main() {
           title: 'Einstellungen',
           dataSources: 'Datenquellen',
           close: 'Schließen',
+          longLicense:
+              'Übersetzungsausgabe: Sachdaten, Quellenangabe freiwillig',
         ),
         (
           locale: Locale('en'),
           title: 'Settings',
           dataSources: 'Data sources',
           close: 'Close',
+          longLicense:
+              'Translation output: factual data, attribution voluntary',
         ),
       ];
       const viewports = [
@@ -1419,9 +1423,7 @@ void main() {
           final sheetScrollable = find
               .descendant(of: sheet, matching: find.byType(Scrollable))
               .first;
-          final longLicense = find.text(
-            'Translation output: factual data, attribution voluntary',
-          );
+          final longLicense = find.text(locale.longLicense);
           await _scrollUntilBuilt(tester, longLicense, sheetScrollable);
           expect(longLicense, findsOneWidget);
           expect(tester.takeException(), isNull);

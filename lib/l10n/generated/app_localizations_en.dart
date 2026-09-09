@@ -880,6 +880,54 @@ class AppL10nEn extends AppL10n {
       'Korean dictionary data (definitions, translations) is sourced from 우리말샘 (National Institute of Korean Language) under CC BY-SA 2.0 KR. Derivative content (such as the JSON files bundled with this app) is shared under the same license.';
 
   @override
+  String get settingsKoglNote => 'KOGL Type 1 notice';
+
+  @override
+  String get settingsKoglBody =>
+      'The A1 to C2 grading of the learning content relies on the vocabulary and grammar lists of the National Institute of Korean Language (2017 and 2023) and on textbooks and word lists from the King Sejong Institute Foundation. These works are provided under the Korea Open Government License Type 1 (attribution). The learning sentences in this app are original writing; where original text is reused, the source is noted with that content.';
+
+  @override
+  String get settingsDataSourcesSectionOpen => 'Open data & licences';
+
+  @override
+  String get settingsDataSourcesSectionKogl => 'Public data (KOGL Type 1)';
+
+  @override
+  String get settingsDataSourceRoleUrimalsaem =>
+      'Korean definitions, English translations, vocabulary';
+
+  @override
+  String get settingsDataSourceRoleOpenKoreanText =>
+      'Verified Korean noun dictionary (~140k entries)';
+
+  @override
+  String get settingsDataSourceRoleFrequencyWords =>
+      'Korean word frequency ranking (OpenSubtitles)';
+
+  @override
+  String get settingsDataSourceRoleDeepL => 'Korean → German translation';
+
+  @override
+  String get settingsDataSourceLicenseDeepL =>
+      'Translation output: factual data, attribution voluntary';
+
+  @override
+  String get settingsDataSourceRoleNikl2017 =>
+      'Vocabulary (10,635) and grammar (336) grade lists: primary reference for A1 to C2 level grading';
+
+  @override
+  String get settingsDataSourceRoleNikl2023 =>
+      'Basic vocabulary grade list (40,000 entries): fallback reference for level grading';
+
+  @override
+  String get settingsDataSourceRoleSejongConversation =>
+      'Topic, grammar and vocabulary scope of the A1 units (seed only; every sentence in this app is original writing)';
+
+  @override
+  String get settingsDataSourceRoleSejongCulture =>
+      'Culture vocabulary lists used to grade culture words';
+
+  @override
   String get statsHeader => 'Your progress';
 
   @override

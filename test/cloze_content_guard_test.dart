@@ -337,25 +337,8 @@ const int knownUnsyncedCap = 318; // 2026-08-26 실측 고정
 // (sentenceKo, 빈칸 채워지기 전) 부분 문자열로 그대로 노출됨(EXPOSED_IN_SENTENCE).
 // cloze_a1_0104(현관)는 Task 2 시드 5건 중 하나로, Task 2에서 distractor를
 // 교체(현관→장모님)해 이 allowlist 에서 제거하고 캡을 16으로 낮췄다.
-const Set<String> knownDistractorIds = {
-  'cloze_a1_0159',
-  'cloze_a1_0200',
-  'cloze_a1_0244',
-  'cloze_a1_0274',
-  'cloze_a2_0122',
-  'cloze_a2_0172',
-  'cloze_a2_0213',
-  'cloze_a2_0250',
-  'cloze_a2_0259',
-  'cloze_a2_0264',
-  'cloze_b1_0272',
-  'cloze_b2_0067',
-  'cloze_b2_0080',
-  'cloze_c1_0113',
-  'cloze_c2_0135',
-  'cloze_c2_0159',
-};
-const int knownDistractorCap = 16; // 2026-08-26 실측 고정 (Task 2: cloze_a1_0104 제거)
+const Set<String> knownDistractorIds = {};
+const int knownDistractorCap = 0; // 2026-09-09 PR-L3a Batch 24 P1: 노출 배분어 전량 교체, allowlist 비움
 
 List<List<String>> parseCsv(String text) {
   final rows = <List<String>>[];

@@ -85,12 +85,24 @@ class ScenarioStoreTest(unittest.TestCase):
 
     def test_live_corpus_is_readable_and_complete(self) -> None:
         scenarios = scenario_store.load_scenarios()
-        self.assertEqual(len(scenarios), 126)
+        # Denominator: tools/content_factory/content_audit_manifest.json (the
+        # count test/content_id_contract_test.dart enforces). The Batch 06
+        # literal (126 = 21 per level) went stale as batches 11-20 landed.
+        manifest = json.loads(
+            (SCRIPT_DIR / "content_audit_manifest.json").read_text(encoding="utf-8")
+        )
+        expected_total = next(
+            int(item["count"]) for item in manifest["sources"] if item["kind"] == "scenario"
+        )
+        self.assertEqual(len(scenarios), expected_total)
         counts = {
             level: sum(1 for item in scenarios if item.get("level") == level)
             for level in scenario_store.LEVELS
         }
-        self.assertEqual(counts, {level: 21 for level in scenario_store.LEVELS})
+        self.assertEqual(sum(counts.values()), expected_total)
+        for level, count in counts.items():
+            # Batch 06 shipped 21 scenarios per level; later batches only add.
+            self.assertGreaterEqual(count, 21, level)
 
 
 if __name__ == "__main__":

@@ -208,6 +208,16 @@ SURFACES: tuple[ContentSurface, ...] = (
         ("items",),
         "generated Korean cache identity and storage paths; no independent copy",
     ),
+    # 2026-09-09 (PR-L3a): canonical Storage key manifest written by
+    # functions/tts/build_canonical_manifest.py. Voice-keyed SHA-1 lists only;
+    # it carries no learner copy, so it is classified as a derived artifact.
+    ContentSurface(
+        "tts_canonical_manifest.json",
+        "derived TTS canonical key manifest",
+        "TtsCanonicalManifest / TtsService",
+        (),
+        "generated per-voice utterance keys; no independent copy",
+    ),
     ContentSurface(
         "word_relations.json",
         "word-web activity",
@@ -262,6 +272,7 @@ MULTILINGUAL_EXEMPT_FILES = frozenset({
     "kkeunmari_pool.json",
     "silben_puzzles.json",
     "tts_first_line_manifest.json",
+    "tts_canonical_manifest.json",
 })
 RECORD_ID_KEYS = ("id", "scenarioId", "unitId", "conceptId", "word", "pattern")
 

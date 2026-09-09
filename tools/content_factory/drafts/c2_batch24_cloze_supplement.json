@@ -1,0 +1,996 @@
+{
+  "items": [
+    {
+      "id": "cloze_a1_0379",
+      "level": "a1",
+      "topic": "Verkehr",
+      "fullKo": "저는 자동차로 회사에 가요.",
+      "answer": "자동차",
+      "sentenceKo": "저는 ＿＿＿로 회사에 가요.",
+      "de": "Ich fahre mit dem Auto zur Arbeit.",
+      "en": "I go to work by car.",
+      "distractors": [
+        "과일",
+        "정류장",
+        "떡국"
+      ],
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "id": "cloze_a1_0380",
+      "level": "a1",
+      "topic": "Verkehr",
+      "fullKo": "역 앞에서 만나요.",
+      "answer": "만나요",
+      "sentenceKo": "역 앞에서 ＿＿＿.",
+      "de": "Wir treffen uns vor dem Bahnhof.",
+      "en": "Let's meet in front of the station.",
+      "distractors": [
+        "바로 갈게요",
+        "확인해 주세요",
+        "안녕하세요"
+      ],
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "id": "cloze_a1_0381",
+      "level": "a1",
+      "topic": "Verkehr",
+      "fullKo": "공항까지 버스로 가요.",
+      "answer": "공항",
+      "sentenceKo": "＿＿＿까지 버스로 가요.",
+      "de": "Zum Flughafen fahre ich mit dem Bus.",
+      "en": "I take the bus to the airport.",
+      "distractors": [
+        "여기",
+        "세배",
+        "세뱃돈"
+      ],
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "id": "cloze_a1_0382",
+      "level": "a1",
+      "topic": "Verkehr",
+      "fullKo": "출발 시간이 몇 시예요?",
+      "answer": "출발",
+      "sentenceKo": "＿＿＿ 시간이 몇 시예요?",
+      "de": "Um wie viel Uhr ist die Abfahrt?",
+      "en": "What time is the departure?",
+      "distractors": [
+        "약국",
+        "나이",
+        "이름"
+      ],
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "id": "cloze_a1_0383",
+      "level": "a1",
+      "topic": "Verkehr",
+      "fullKo": "서울에 도착 후에 전화해요.",
+      "answer": "도착",
+      "sentenceKo": "서울에 ＿＿＿ 후에 전화해요.",
+      "de": "Nach der Ankunft in Seoul rufe ich an.",
+      "en": "After arriving in Seoul, I'll call.",
+      "distractors": [
+        "여기",
+        "집밥",
+        "언니"
+      ],
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "id": "cloze_a1_0384",
+      "level": "a1",
+      "topic": "Verkehr",
+      "fullKo": "버스를 타고 학교에 가요.",
+      "answer": "타고",
+      "sentenceKo": "버스를 ＿＿＿ 학교에 가요.",
+      "de": "Ich fahre mit dem Bus zur Schule.",
+      "en": "I take the bus to school.",
+      "distractors": [
+        "보고",
+        "일하고",
+        "시끄럽고"
+      ],
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "id": "cloze_a1_0385",
+      "level": "a1",
+      "topic": "Verkehr",
+      "fullKo": "다음 역에서 내려요.",
+      "answer": "내려요",
+      "sentenceKo": "다음 역에서 ＿＿＿.",
+      "de": "Ich steige an der nächsten Station aus.",
+      "en": "I get off at the next station.",
+      "distractors": [
+        "씻어요",
+        "일해요",
+        "결제할게요"
+      ],
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "id": "cloze_a1_0386",
+      "level": "a1",
+      "topic": "결제와 배달",
+      "fullKo": "지금 돈이 없어요.",
+      "answer": "없어요",
+      "sentenceKo": "지금 돈이 ＿＿＿.",
+      "de": "Ich habe gerade kein Geld.",
+      "en": "I don't have money right now.",
+      "distractors": [
+        "들어요",
+        "문제없어요",
+        "열어요"
+      ],
+      "courseUnitId": "a1_14_payment_delivery"
+    },
+    {
+      "id": "cloze_a1_0387",
+      "level": "a1",
+      "topic": "결제와 배달",
+      "fullKo": "커피는 사천 원이에요.",
+      "answer": "커피",
+      "sentenceKo": "＿＿＿는 사천 원이에요.",
+      "de": "Der Kaffee kostet viertausend Won.",
+      "en": "The coffee is four thousand won.",
+      "distractors": [
+        "무게",
+        "아버지",
+        "누나"
+      ],
+      "courseUnitId": "a1_14_payment_delivery"
+    },
+    {
+      "id": "cloze_a1_0388",
+      "level": "a1",
+      "topic": "결제와 배달",
+      "fullKo": "제 번호는 십오 번이에요.",
+      "answer": "번호",
+      "sentenceKo": "제 ＿＿＿는 십오 번이에요.",
+      "de": "Meine Nummer ist die Fünfzehn.",
+      "en": "My number is fifteen.",
+      "distractors": [
+        "머리",
+        "엄마",
+        "친구"
+      ],
+      "courseUnitId": "a1_14_payment_delivery"
+    },
+    {
+      "id": "cloze_a1_0389",
+      "level": "a1",
+      "topic": "결제와 배달",
+      "fullKo": "문 앞에서 기다려요.",
+      "answer": "기다려요",
+      "sentenceKo": "문 앞에서 ＿＿＿.",
+      "de": "Ich warte vor der Tür.",
+      "en": "I'm waiting in front of the door.",
+      "distractors": [
+        "피곤하네요",
+        "안녕히 계세요",
+        "잠깐만요"
+      ],
+      "courseUnitId": "a1_14_payment_delivery"
+    },
+    {
+      "id": "cloze_a1_0390",
+      "level": "a1",
+      "topic": "다시 묻기",
+      "fullKo": "다시 한번 말해 주세요.",
+      "answer": "다시",
+      "sentenceKo": "＿＿＿ 한번 말해 주세요.",
+      "de": "Bitte sagen Sie es noch einmal.",
+      "en": "Please say it once more.",
+      "distractors": [
+        "매일",
+        "일찍",
+        "지금"
+      ],
+      "courseUnitId": "a1_08_clarify_repair"
+    },
+    {
+      "id": "cloze_a1_0391",
+      "level": "a1",
+      "topic": "다시 묻기",
+      "fullKo": "이 단어는 무슨 뜻이에요?",
+      "answer": "단어",
+      "sentenceKo": "이 ＿＿＿는 무슨 뜻이에요?",
+      "de": "Was bedeutet dieses Wort?",
+      "en": "What does this word mean?",
+      "distractors": [
+        "나이",
+        "저기",
+        "수저"
+      ],
+      "courseUnitId": "a1_08_clarify_repair"
+    },
+    {
+      "id": "cloze_a1_0392",
+      "level": "a1",
+      "topic": "다시 묻기",
+      "fullKo": "사전에서 단어를 찾아요.",
+      "answer": "사전",
+      "sentenceKo": "＿＿＿에서 단어를 찾아요.",
+      "de": "Ich schlage das Wort im Wörterbuch nach.",
+      "en": "I look the word up in the dictionary.",
+      "distractors": [
+        "영어",
+        "우표",
+        "장인어른"
+      ],
+      "courseUnitId": "a1_08_clarify_repair"
+    },
+    {
+      "id": "cloze_a2_0284",
+      "level": "a2",
+      "topic": "Bildung",
+      "fullKo": "저는 지금 대학교 이 학년이에요.",
+      "answer": "학년",
+      "sentenceKo": "저는 지금 대학교 이 ＿＿＿이에요.",
+      "de": "Ich bin jetzt im zweiten Studienjahr.",
+      "en": "I'm in my second year of university now.",
+      "distractors": [
+        "손님방",
+        "면접",
+        "연습장"
+      ],
+      "courseUnitId": "a2_06_study_work"
+    },
+    {
+      "id": "cloze_a2_0285",
+      "level": "a2",
+      "topic": "Bildung",
+      "fullKo": "수업 후에 꼭 복습을 해요.",
+      "answer": "복습",
+      "sentenceKo": "수업 후에 꼭 ＿＿＿을 해요.",
+      "de": "Nach dem Unterricht wiederhole ich den Stoff auf jeden Fall.",
+      "en": "I always review after class.",
+      "distractors": [
+        "이불",
+        "양복",
+        "색연필"
+      ],
+      "courseUnitId": "a2_06_study_work"
+    },
+    {
+      "id": "cloze_a2_0286",
+      "level": "a2",
+      "topic": "Bildung",
+      "fullKo": "내일 수업 예습은 벌써 끝냈어요.",
+      "answer": "예습",
+      "sentenceKo": "내일 수업 ＿＿＿은 벌써 끝냈어요.",
+      "de": "Die Vorbereitung für den Unterricht morgen habe ich schon fertig.",
+      "en": "I've already finished preparing for tomorrow's class.",
+      "distractors": [
+        "주황색",
+        "지갑",
+        "후식"
+      ],
+      "courseUnitId": "a2_06_study_work"
+    },
+    {
+      "id": "cloze_a2_0287",
+      "level": "a2",
+      "topic": "Essen & Trinken",
+      "fullKo": "국이 좀 식었네요.",
+      "answer": "식었네요",
+      "sentenceKo": "국이 좀 ＿＿＿.",
+      "de": "Die Suppe ist etwas kalt geworden.",
+      "en": "The soup has gotten a bit cold.",
+      "distractors": [
+        "앉으세요",
+        "잘 주무셨어요",
+        "일정을 바꿨어요"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "cloze_a2_0288",
+      "level": "a2",
+      "topic": "Essen & Trinken",
+      "fullKo": "접시 하나만 더 주세요.",
+      "answer": "접시",
+      "sentenceKo": "＿＿＿ 하나만 더 주세요.",
+      "de": "Bitte noch einen Teller.",
+      "en": "One more plate, please.",
+      "distractors": [
+        "직업",
+        "배낭",
+        "트레이너"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "cloze_a2_0289",
+      "level": "a2",
+      "topic": "Essen & Trinken",
+      "fullKo": "커피에 설탕은 안 넣어요.",
+      "answer": "설탕",
+      "sentenceKo": "커피에 ＿＿＿은 안 넣어요.",
+      "de": "In den Kaffee tue ich keinen Zucker.",
+      "en": "I don't put sugar in my coffee.",
+      "distractors": [
+        "양말",
+        "러닝머신",
+        "방석"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "cloze_a2_0290",
+      "level": "a2",
+      "topic": "Essen & Trinken",
+      "fullKo": "물을 끓여서 차를 마셔요.",
+      "answer": "끓여서",
+      "sentenceKo": "물을 ＿＿＿ 차를 마셔요.",
+      "de": "Ich koche Wasser und trinke Tee.",
+      "en": "I boil water and drink tea.",
+      "distractors": [
+        "답답해서",
+        "화장해서",
+        "저축해서"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "cloze_a2_0291",
+      "level": "a2",
+      "topic": "Essen & Trinken",
+      "fullKo": "고기를 먼저 볶으세요.",
+      "answer": "볶으세요",
+      "sentenceKo": "고기를 먼저 ＿＿＿.",
+      "de": "Braten Sie zuerst das Fleisch an.",
+      "en": "Stir-fry the meat first.",
+      "distractors": [
+        "한국어 잘하시네요",
+        "연락드릴게요",
+        "시간이 돼요"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "cloze_a2_0292",
+      "level": "a2",
+      "topic": "Essen & Trinken",
+      "fullKo": "생선은 굽는 게 제일 맛있어요.",
+      "answer": "굽는",
+      "sentenceKo": "생선은 ＿＿＿ 게 제일 맛있어요.",
+      "de": "Fisch schmeckt gegrillt am besten.",
+      "en": "Fish tastes best grilled.",
+      "distractors": [
+        "피곤하는",
+        "끼는",
+        "나가는"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "cloze_a2_0293",
+      "level": "a2",
+      "topic": "Einkaufen",
+      "fullKo": "퇴근하고 마트에 들를게요.",
+      "answer": "마트",
+      "sentenceKo": "퇴근하고 ＿＿＿에 들를게요.",
+      "de": "Nach der Arbeit gehe ich noch kurz in den Supermarkt.",
+      "en": "I'll stop by the supermarket after work.",
+      "distractors": [
+        "근력",
+        "변호사",
+        "배달"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "cloze_a2_0294",
+      "level": "a2",
+      "topic": "Einkaufen",
+      "fullKo": "이 상자에 다 넣어 주세요.",
+      "answer": "상자",
+      "sentenceKo": "이 ＿＿＿에 다 넣어 주세요.",
+      "de": "Bitte legen Sie alles in diesen Karton.",
+      "en": "Please put everything in this box.",
+      "distractors": [
+        "바람",
+        "음악",
+        "냉장고"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "cloze_a2_0295",
+      "level": "a2",
+      "topic": "Einkaufen",
+      "fullKo": "디자인은 예쁘지만 좀 비싸요.",
+      "answer": "디자인",
+      "sentenceKo": "＿＿＿은 예쁘지만 좀 비싸요.",
+      "de": "Das Design ist schön, aber etwas teuer.",
+      "en": "The design is pretty, but it's a bit pricey.",
+      "distractors": [
+        "병원",
+        "현관",
+        "달력"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "cloze_a2_0296",
+      "level": "a2",
+      "topic": "Einkaufen",
+      "fullKo": "여름이라서 반바지를 샀어요.",
+      "answer": "반바지",
+      "sentenceKo": "여름이라서 ＿＿＿를 샀어요.",
+      "de": "Weil Sommer ist, habe ich eine kurze Hose gekauft.",
+      "en": "Since it's summer, I bought shorts.",
+      "distractors": [
+        "차례",
+        "교수",
+        "쇠고기"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "cloze_a2_0297",
+      "level": "a2",
+      "topic": "Einkaufen",
+      "fullKo": "단추가 하나 떨어졌어요.",
+      "answer": "단추",
+      "sentenceKo": "＿＿＿가 하나 떨어졌어요.",
+      "de": "Ein Knopf ist abgegangen.",
+      "en": "A button has come off.",
+      "distractors": [
+        "컴퓨터",
+        "알레르기",
+        "치마"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "cloze_a2_0298",
+      "level": "a2",
+      "topic": "Einkaufen",
+      "fullKo": "모양은 마음에 들지만 색이 별로예요.",
+      "answer": "모양",
+      "sentenceKo": "＿＿＿은 마음에 들지만 색이 별로예요.",
+      "de": "Die Form gefällt mir, aber die Farbe nicht so.",
+      "en": "I like the shape, but the color isn't great.",
+      "distractors": [
+        "잔액",
+        "정기권",
+        "중학생"
+      ],
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "cloze_a2_0299",
+      "level": "a2",
+      "topic": "Gefühle",
+      "fullKo": "주말에 혼자 있으니까 심심해요.",
+      "answer": "심심해요",
+      "sentenceKo": "주말에 혼자 있으니까 ＿＿＿.",
+      "de": "Am Wochenende bin ich allein, deshalb ist mir langweilig.",
+      "en": "I'm alone on the weekend, so I'm bored.",
+      "distractors": [
+        "야근해요",
+        "입금해요",
+        "필기해요"
+      ],
+      "courseUnitId": "a2_04_feelings_health"
+    },
+    {
+      "id": "cloze_a2_0300",
+      "level": "a2",
+      "topic": "Gefühle",
+      "fullKo": "이 신발은 정말 편해요.",
+      "answer": "편해요",
+      "sentenceKo": "이 신발은 정말 ＿＿＿.",
+      "de": "Diese Schuhe sind wirklich bequem.",
+      "en": "These shoes are really comfortable.",
+      "distractors": [
+        "긴장해요",
+        "입금해요",
+        "지루해요"
+      ],
+      "courseUnitId": "a2_04_feelings_health"
+    },
+    {
+      "id": "cloze_a2_0301",
+      "level": "a2",
+      "topic": "Gefühle",
+      "fullKo": "오늘 하루가 정말 즐거워요.",
+      "answer": "즐거워요",
+      "sentenceKo": "오늘 하루가 정말 ＿＿＿.",
+      "de": "Der Tag heute ist wirklich schön.",
+      "en": "Today is really enjoyable.",
+      "distractors": [
+        "만날까요",
+        "직업이 뭐예요",
+        "잘 주무셨어요"
+      ],
+      "courseUnitId": "a2_04_feelings_health"
+    },
+    {
+      "id": "cloze_a2_0302",
+      "level": "a2",
+      "topic": "약속과 일정",
+      "fullKo": "이번 주말에 약속 있어요?",
+      "answer": "약속",
+      "sentenceKo": "이번 주말에 ＿＿＿ 있어요?",
+      "de": "Hast du am Wochenende schon etwas vor?",
+      "en": "Do you have plans this weekend?",
+      "distractors": [
+        "월급",
+        "러닝머신",
+        "벌초"
+      ],
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "cloze_a2_0303",
+      "level": "a2",
+      "topic": "약속과 일정",
+      "fullKo": "방학 계획은 세웠어요?",
+      "answer": "계획",
+      "sentenceKo": "방학 ＿＿＿은 세웠어요?",
+      "de": "Hast du schon Pläne für die Ferien gemacht?",
+      "en": "Have you made plans for the vacation?",
+      "distractors": [
+        "소개팅",
+        "성적",
+        "송편"
+      ],
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "cloze_a2_0304",
+      "level": "a2",
+      "topic": "약속과 일정",
+      "fullKo": "시간표를 보고 시간을 정해요.",
+      "answer": "시간표",
+      "sentenceKo": "＿＿＿를 보고 시간을 정해요.",
+      "de": "Wir schauen auf den Stundenplan und legen die Zeit fest.",
+      "en": "Let's check the timetable and set a time.",
+      "distractors": [
+        "영화",
+        "교과서",
+        "왕자"
+      ],
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "cloze_a2_0305",
+      "level": "a2",
+      "topic": "약속과 일정",
+      "fullKo": "목요일 오후는 시간이 비어요.",
+      "answer": "비어요",
+      "sentenceKo": "목요일 오후는 시간이 ＿＿＿.",
+      "de": "Donnerstagnachmittag habe ich Zeit.",
+      "en": "Thursday afternoon I'm free.",
+      "distractors": [
+        "잘 주무셨어요",
+        "얼마나 됐어요",
+        "일정을 바꿨어요"
+      ],
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "cloze_a2_0306",
+      "level": "a2",
+      "topic": "약속과 일정",
+      "fullKo": "다음 주로 바꾸는 것도 가능해요.",
+      "answer": "가능해요",
+      "sentenceKo": "다음 주로 바꾸는 것도 ＿＿＿.",
+      "de": "Man kann es auch auf nächste Woche verschieben.",
+      "en": "Changing it to next week is also possible.",
+      "distractors": [
+        "야근해요",
+        "빨래해요",
+        "답답해요"
+      ],
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "cloze_a2_0307",
+      "level": "a2",
+      "topic": "약속과 일정",
+      "fullKo": "휴일에는 보통 늦게 일어나요.",
+      "answer": "휴일",
+      "sentenceKo": "＿＿＿에는 보통 늦게 일어나요.",
+      "de": "An freien Tagen stehe ich meistens spät auf.",
+      "en": "On days off I usually get up late.",
+      "distractors": [
+        "하차",
+        "숟가락",
+        "겨울"
+      ],
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "cloze_a2_0308",
+      "level": "a2",
+      "topic": "Beschreibung",
+      "fullKo": "하늘색 셔츠가 잘 어울려요.",
+      "answer": "하늘색",
+      "sentenceKo": "＿＿＿ 셔츠가 잘 어울려요.",
+      "de": "Das hellblaue Hemd steht dir gut.",
+      "en": "The light blue shirt suits you.",
+      "distractors": [
+        "통장",
+        "차례",
+        "드라이"
+      ],
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "cloze_a2_0309",
+      "level": "a2",
+      "topic": "Beschreibung",
+      "fullKo": "커피가 너무 진해요.",
+      "answer": "진해요",
+      "sentenceKo": "커피가 너무 ＿＿＿.",
+      "de": "Der Kaffee ist zu stark.",
+      "en": "The coffee is too strong.",
+      "distractors": [
+        "빨래해요",
+        "요리해요",
+        "계산해요"
+      ],
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "cloze_a2_0310",
+      "level": "a2",
+      "topic": "Beschreibung",
+      "fullKo": "코트가 두껍고 따뜻해요.",
+      "answer": "두껍고",
+      "sentenceKo": "코트가 ＿＿＿ 따뜻해요.",
+      "de": "Der Mantel ist dick und warm.",
+      "en": "The coat is thick and warm.",
+      "distractors": [
+        "퇴근하고",
+        "씹고",
+        "쌀쌀하고"
+      ],
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "cloze_b1_0282",
+      "level": "b1",
+      "topic": "직장 소통",
+      "fullKo": "부담 갖지 말고 편하게 말씀해 주세요.",
+      "answer": "부담",
+      "sentenceKo": "＿＿＿ 갖지 말고 편하게 말씀해 주세요.",
+      "de": "Fühlen Sie sich nicht unter Druck gesetzt, sprechen Sie ganz offen.",
+      "en": "Please don't feel pressured; speak freely.",
+      "distractors": [
+        "환율",
+        "분리배출",
+        "인수인계"
+      ],
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "id": "cloze_b1_0283",
+      "level": "b1",
+      "topic": "직장 소통",
+      "fullKo": "일정 조정에 협조해 주셔서 감사합니다.",
+      "answer": "협조",
+      "sentenceKo": "일정 조정에 ＿＿＿해 주셔서 감사합니다.",
+      "de": "Danke, dass Sie bei der Terminabstimmung mitgeholfen haben.",
+      "en": "Thank you for cooperating with the schedule change.",
+      "distractors": [
+        "건강식품",
+        "좌회전",
+        "과정"
+      ],
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "id": "cloze_b1_0284",
+      "level": "b1",
+      "topic": "직장 소통",
+      "fullKo": "내일은 출근이 조금 늦을 것 같아요.",
+      "answer": "출근",
+      "sentenceKo": "내일은 ＿＿＿이 조금 늦을 것 같아요.",
+      "de": "Morgen komme ich wahrscheinlich etwas später zur Arbeit.",
+      "en": "I'll probably be a little late to work tomorrow.",
+      "distractors": [
+        "하숙집",
+        "결혼식",
+        "재방문"
+      ],
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "id": "cloze_b1_0285",
+      "level": "b1",
+      "topic": "직장 소통",
+      "fullKo": "퇴근 전에 보고서를 보낼게요.",
+      "answer": "퇴근",
+      "sentenceKo": "＿＿＿ 전에 보고서를 보낼게요.",
+      "de": "Vor Feierabend schicke ich den Bericht.",
+      "en": "I'll send the report before I leave work.",
+      "distractors": [
+        "공동현관",
+        "모임",
+        "부동산"
+      ],
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "id": "cloze_b1_0286",
+      "level": "b1",
+      "topic": "Beziehungen",
+      "fullKo": "힘들 때마다 친구가 저를 격려해 줬어요.",
+      "answer": "격려해",
+      "sentenceKo": "힘들 때마다 친구가 저를 ＿＿＿ 줬어요.",
+      "de": "Immer wenn es schwer war, hat mich meine Freundin ermutigt.",
+      "en": "Whenever things were hard, my friend encouraged me.",
+      "distractors": [
+        "협력해",
+        "조율해",
+        "제안해"
+      ],
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "cloze_b1_0287",
+      "level": "b1",
+      "topic": "Beziehungen",
+      "fullKo": "슬퍼하는 친구를 위로했어요.",
+      "answer": "위로했어요",
+      "sentenceKo": "슬퍼하는 친구를 ＿＿＿.",
+      "de": "Ich habe meinen traurigen Freund getröstet.",
+      "en": "I comforted my sad friend.",
+      "distractors": [
+        "다양했어요",
+        "참석했어요",
+        "포기했어요"
+      ],
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "cloze_b1_0288",
+      "level": "b1",
+      "topic": "Beziehungen",
+      "fullKo": "서로의 의견을 존중하는 게 중요해요.",
+      "answer": "존중하는",
+      "sentenceKo": "서로의 의견을 ＿＿＿ 게 중요해요.",
+      "de": "Es ist wichtig, die Meinung des anderen zu respektieren.",
+      "en": "It's important to respect each other's opinions.",
+      "distractors": [
+        "맡기는",
+        "친해지는",
+        "사양하는"
+      ],
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "cloze_b1_0289",
+      "level": "b1",
+      "topic": "Beziehungen",
+      "fullKo": "제 감정을 말로 표현하기가 어려워요.",
+      "answer": "감정",
+      "sentenceKo": "제 ＿＿＿을 말로 표현하기가 어려워요.",
+      "de": "Es fällt mir schwer, meine Gefühle in Worte zu fassen.",
+      "en": "It's hard for me to put my feelings into words.",
+      "distractors": [
+        "사원",
+        "중개인",
+        "시급"
+      ],
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "cloze_b1_0290",
+      "level": "b1",
+      "topic": "Beziehungen",
+      "fullKo": "서로 오해가 있었던 것 같아요.",
+      "answer": "오해",
+      "sentenceKo": "서로 ＿＿＿가 있었던 것 같아요.",
+      "de": "Ich glaube, wir hatten ein Missverständnis.",
+      "en": "I think there was a misunderstanding between us.",
+      "distractors": [
+        "경제",
+        "비상구",
+        "경찰서"
+      ],
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "cloze_b1_0291",
+      "level": "b1",
+      "topic": "Beziehungen",
+      "fullKo": "싸운 다음 날 바로 화해했어요.",
+      "answer": "화해했어요",
+      "sentenceKo": "싸운 다음 날 바로 ＿＿＿.",
+      "de": "Am Tag nach dem Streit haben wir uns gleich versöhnt.",
+      "en": "We made up the day right after the fight.",
+      "distractors": [
+        "사양했어요",
+        "노력했어요",
+        "복잡했어요"
+      ],
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "cloze_b2_0392",
+      "level": "b2",
+      "topic": "Abstrakte Begriffe",
+      "fullKo": "이 개념은 예를 들어 설명하는 편이 이해하기 쉬워요.",
+      "answer": "개념",
+      "sentenceKo": "이 ＿＿＿은 예를 들어 설명하는 편이 이해하기 쉬워요.",
+      "de": "Diesen Begriff versteht man leichter, wenn man ihn mit Beispielen erklärt.",
+      "en": "This concept is easier to understand when explained with examples.",
+      "distractors": [
+        "이론",
+        "생신",
+        "성찰"
+      ],
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "id": "cloze_b2_0393",
+      "level": "b2",
+      "topic": "Abstrakte Begriffe",
+      "fullKo": "성공에는 운도 중요한 요소예요.",
+      "answer": "요소",
+      "sentenceKo": "성공에는 운도 중요한 ＿＿＿예요.",
+      "de": "Auch Glück ist ein wichtiger Faktor für den Erfolg.",
+      "en": "Luck is also an important factor in success.",
+      "distractors": [
+        "애인",
+        "타협안",
+        "형광등"
+      ],
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "id": "cloze_b2_0394",
+      "level": "b2",
+      "topic": "Abstrakte Begriffe",
+      "fullKo": "원리를 알면 응용은 어렵지 않아요.",
+      "answer": "원리",
+      "sentenceKo": "＿＿＿를 알면 응용은 어렵지 않아요.",
+      "de": "Wenn man das Prinzip versteht, ist die Anwendung nicht schwer.",
+      "en": "Once you know the principle, applying it isn't hard.",
+      "distractors": [
+        "사고",
+        "주의",
+        "현지화"
+      ],
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "id": "cloze_b2_0395",
+      "level": "b2",
+      "topic": "Abstrakte Begriffe",
+      "fullKo": "이 일의 가치는 돈으로 따질 수 없어요.",
+      "answer": "가치",
+      "sentenceKo": "이 일의 ＿＿＿는 돈으로 따질 수 없어요.",
+      "de": "Der Wert dieser Arbeit lässt sich nicht in Geld messen.",
+      "en": "The value of this work can't be measured in money.",
+      "distractors": [
+        "재배",
+        "기계",
+        "주거비"
+      ],
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "id": "cloze_b2_0396",
+      "level": "b2",
+      "topic": "Abstrakte Begriffe",
+      "fullKo": "문제의 본질을 먼저 파악해야 해요.",
+      "answer": "본질",
+      "sentenceKo": "문제의 ＿＿＿을 먼저 파악해야 해요.",
+      "de": "Man muss zuerst den Kern des Problems erfassen.",
+      "en": "You have to grasp the essence of the problem first.",
+      "distractors": [
+        "현대인",
+        "애인",
+        "생신"
+      ],
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "id": "cloze_b2_0397",
+      "level": "b2",
+      "topic": "Abstrakte Begriffe",
+      "fullKo": "이 제품의 가장 큰 특징은 가벼운 무게예요.",
+      "answer": "특징",
+      "sentenceKo": "이 제품의 가장 큰 ＿＿＿은 가벼운 무게예요.",
+      "de": "Das größte Merkmal dieses Produkts ist sein geringes Gewicht.",
+      "en": "This product's biggest feature is its light weight.",
+      "distractors": [
+        "사생활",
+        "수익",
+        "현상"
+      ],
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "id": "cloze_b2_0398",
+      "level": "b2",
+      "topic": "Bildung",
+      "fullKo": "학문의 길은 끝이 없는 것 같아요.",
+      "answer": "학문",
+      "sentenceKo": "＿＿＿의 길은 끝이 없는 것 같아요.",
+      "de": "Der Weg der Wissenschaft scheint kein Ende zu haben.",
+      "en": "The path of scholarship seems to have no end.",
+      "distractors": [
+        "효력",
+        "비용",
+        "현대인"
+      ],
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "id": "cloze_b2_0399",
+      "level": "b2",
+      "topic": "Bildung",
+      "fullKo": "그 교수님 강의는 항상 자리가 없어요.",
+      "answer": "강의",
+      "sentenceKo": "그 교수님 ＿＿＿는 항상 자리가 없어요.",
+      "de": "In der Vorlesung von diesem Professor sind die Plätze immer voll.",
+      "en": "That professor's lectures are always full.",
+      "distractors": [
+        "몸매",
+        "온도",
+        "당사자"
+      ],
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "id": "cloze_b2_0400",
+      "level": "b2",
+      "topic": "Bildung",
+      "fullKo": "지식보다 경험이 더 중요할 때도 있어요.",
+      "answer": "지식",
+      "sentenceKo": "＿＿＿보다 경험이 더 중요할 때도 있어요.",
+      "de": "Manchmal ist Erfahrung wichtiger als Wissen.",
+      "en": "Sometimes experience matters more than knowledge.",
+      "distractors": [
+        "함축",
+        "평등",
+        "결단"
+      ],
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "id": "cloze_b2_0401",
+      "level": "b2",
+      "topic": "Bildung",
+      "fullKo": "이번 학기 과제는 팀으로 진행해요.",
+      "answer": "과제",
+      "sentenceKo": "이번 학기 ＿＿＿는 팀으로 진행해요.",
+      "de": "Die Hausarbeit in diesem Semester machen wir im Team.",
+      "en": "This semester's assignment is done in teams.",
+      "distractors": [
+        "이해관계",
+        "생태계",
+        "투자"
+      ],
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "id": "cloze_b2_0402",
+      "level": "b2",
+      "topic": "Bildung",
+      "fullKo": "일 년 동안의 연구 성과를 발표했어요.",
+      "answer": "성과",
+      "sentenceKo": "일 년 동안의 연구 ＿＿＿를 발표했어요.",
+      "de": "Ich habe die Forschungsergebnisse eines Jahres vorgestellt.",
+      "en": "I presented the results of a year's research.",
+      "distractors": [
+        "논리",
+        "세계",
+        "총주거비"
+      ],
+      "courseUnitId": "b2_02_professional_opinion"
+    }
+  ]
+}

@@ -57,7 +57,7 @@
 | c2_05_relationship_narratives | c2 | 5 | 기억·관점·관계 서사 조정하기 | Negotiating memory, perspective, and relationship narratives |
 | c2_06_fandom_discourse_power | c2 | 6 | 미디어 프레이밍과 지역 영향 논증하기 | Arguing media framing and local impact |
 
-## 팩 base id -> 코스유닛 매핑 (197개)
+## 팩 base id -> 코스유닛 매핑 (198개)
 
 | pack base id | courseUnitId |
 |---|---|
@@ -67,6 +67,7 @@
 | a1_daily | a1_12_daily_negation |
 | a1_descriptions | a1_09_home_daily_life |
 | a1_family | a1_11_titles_relationships |
+| a1_first_class | a1_15_first_class_work |
 | a1_food | a1_04_order_request_object |
 | a1_greetings | a1_01_greetings_hangul |
 | a1_misc | a1_16_survival_capstone |

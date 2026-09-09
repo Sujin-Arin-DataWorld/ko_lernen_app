@@ -1341,6 +1341,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   /// CC BY-SA 2.0 KR 라이선스 준수 — NIKL 우리말샘 등 데이터 출처 표시.
+  /// 공공누리 제1유형(국립국어원 등급 목록·세종학당 자료) 출처 고지 포함(T3.0).
   void _showDataSources() {
     final t = AppL10n.of(context);
     showSoriSheet<void>(
@@ -1368,76 +1369,86 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             const SizedBox(height: 18),
-            const _DataSourceCard(
+            _SectionEyebrow(t.settingsDataSourcesSectionOpen),
+            _DataSourceCard(
               name: '우리말샘 (National Institute of Korean Language)',
-              role: 'Korean definitions, English translations, vocabulary',
+              role: t.settingsDataSourceRoleUrimalsaem,
               license: 'CC BY-SA 2.0 KR',
               url: 'https://opendict.korean.go.kr',
               attribution: '국립국어원 우리말샘 (opendict.korean.go.kr)',
             ),
-            const _DataSourceCard(
+            _DataSourceCard(
               name: 'open-korean-text',
-              role: 'Verified Korean noun dictionary (~140k entries)',
+              role: t.settingsDataSourceRoleOpenKoreanText,
               license: 'Apache 2.0',
               url: 'https://github.com/open-korean-text/open-korean-text',
               attribution: 'open-korean-text contributors',
             ),
-            const _DataSourceCard(
+            _DataSourceCard(
               name: 'hermitdave/FrequencyWords',
-              role: 'Korean word frequency ranking (OpenSubtitles)',
+              role: t.settingsDataSourceRoleFrequencyWords,
               license: 'CC BY-SA 4.0',
               url: 'https://github.com/hermitdave/FrequencyWords',
               attribution: 'Hermit Dave & OpenSubtitles community',
             ),
-            const _DataSourceCard(
+            _DataSourceCard(
               name: 'DeepL',
-              role: 'Korean → German translation',
-              license:
-                  'Translation output: factual data, attribution voluntary',
+              role: t.settingsDataSourceRoleDeepL,
+              license: t.settingsDataSourceLicenseDeepL,
               url: 'https://www.deepl.com',
               attribution: 'DeepL SE',
             ),
+            const SizedBox(height: 6),
+            _SectionEyebrow(t.settingsDataSourcesSectionKogl),
+            // 공공누리 제1유형(출처표시) 자료 — 레벨 정본화 프로그램(T3.0).
+            // 출처·해시·라이선스 실측: docs/data/level_bible/SOURCES.md.
+            _DataSourceCard(
+              name: '국립국어원 국제 통용 한국어 표준 교육과정 어휘·문법 등급 목록 (2017)',
+              role: t.settingsDataSourceRoleNikl2017,
+              license: 'KOGL Type 1',
+              url:
+                  'https://www.korean.go.kr/front/reportData/reportDataView.do?report_seq=932',
+              attribution:
+                  '국립국어원 (National Institute of Korean Language), 2017, '
+                  '연구책임자 김중섭',
+            ),
+            _DataSourceCard(
+              name: '국립국어원 국어 기초 어휘 선정 및 어휘 등급화 목록 (2023)',
+              role: t.settingsDataSourceRoleNikl2023,
+              license: 'KOGL Type 1',
+              url:
+                  'https://www.korean.go.kr/front/reportData/reportDataView.do?report_seq=1160',
+              attribution:
+                  '국립국어원 (National Institute of Korean Language), 2023, '
+                  '연구책임자 김한샘 외',
+            ),
+            _DataSourceCard(
+              name: '세종한국어 회화 익힘책 1-1 · 1-2 (한국어판)',
+              role: t.settingsDataSourceRoleSejongConversation,
+              license: 'KOGL Type 1',
+              url: 'https://www.ksif.or.kr',
+              attribution: '세종학당재단 (King Sejong Institute Foundation), 2020',
+            ),
+            _DataSourceCard(
+              name: '세종한국문화 1 · 2 주요 어휘',
+              role: t.settingsDataSourceRoleSejongCulture,
+              license: 'KOGL Type 1',
+              url: 'https://www.ksif.or.kr',
+              attribution: '세종학당재단 (King Sejong Institute Foundation)',
+            ),
             const SizedBox(height: 18),
-            Container(
-              padding: const EdgeInsets.all(14),
-              decoration: BoxDecoration(
-                color: SoriColors.warning.withValues(alpha: 0.10),
-                borderRadius: SoriRadius.brSm,
-                border: Border.all(
-                  color: SoriColors.warning.withValues(alpha: 0.30),
-                ),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.info_outline,
-                        size: 18,
-                        color: SoriColors.warning,
-                      ),
-                      const SizedBox(width: 8),
-                      Expanded(
-                        child: Text(
-                          t.settingsDataLicenseNote,
-                          style: SoriTextTheme.of(ctx).label,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    t.settingsDataLicenseBody,
-                    style: SoriTextTheme.of(ctx).caption.copyWith(
-                      height: 1.5,
-                      color: Theme.of(
-                        ctx,
-                      ).colorScheme.onSurface.withValues(alpha: 0.85),
-                    ),
-                  ),
-                ],
-              ),
+            _NoticeBox(
+              icon: Icons.info_outline,
+              color: SoriColors.warning,
+              title: t.settingsDataLicenseNote,
+              body: t.settingsDataLicenseBody,
+            ),
+            const SizedBox(height: 12),
+            _NoticeBox(
+              icon: Icons.public_outlined,
+              color: SoriColors.primary,
+              title: t.settingsKoglNote,
+              body: t.settingsKoglBody,
             ),
             const SizedBox(height: 16),
             Center(
@@ -2472,6 +2483,79 @@ class _SoundVolumeSlider extends StatelessWidget {
           onChanged: onChanged,
           onChangeEnd: (_) => onChangeEnd?.call(),
         ),
+      ),
+    );
+  }
+}
+
+/// 데이터 출처 시트의 구간 표제(eyebrow) — 공개 데이터/공공누리 그룹 구분.
+class _SectionEyebrow extends StatelessWidget {
+  final String label;
+
+  const _SectionEyebrow(this.label);
+
+  @override
+  Widget build(BuildContext context) {
+    final onSurface = Theme.of(context).colorScheme.onSurface;
+    return Padding(
+      padding: const EdgeInsets.only(top: 2, bottom: 10),
+      child: Text(
+        label,
+        style: SoriTextTheme.of(context).eyebrow.copyWith(
+          color: onSurface.withValues(alpha: 0.62),
+          letterSpacing: 0.6,
+        ),
+      ),
+    );
+  }
+}
+
+/// 데이터 출처 시트의 고지 상자(CC BY-SA 안내, 공공누리 안내) — 색·여백·
+/// 타이포를 한 곳에서 관리한다 (T3.0, 2026-09-09).
+class _NoticeBox extends StatelessWidget {
+  final IconData icon;
+  final Color color;
+  final String title;
+  final String body;
+
+  const _NoticeBox({
+    required this.icon,
+    required this.color,
+    required this.title,
+    required this.body,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final onSurface = Theme.of(context).colorScheme.onSurface;
+    return Container(
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: 0.10),
+        borderRadius: SoriRadius.brSm,
+        border: Border.all(color: color.withValues(alpha: 0.30)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(icon, size: 18, color: color),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(title, style: SoriTextTheme.of(context).label),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Text(
+            body,
+            style: SoriTextTheme.of(context).caption.copyWith(
+              height: 1.5,
+              color: onSurface.withValues(alpha: 0.85),
+            ),
+          ),
+        ],
       ),
     );
   }

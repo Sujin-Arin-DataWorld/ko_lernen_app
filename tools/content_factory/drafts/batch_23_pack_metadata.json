@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "batch": "23",
+  "note": "PR-L3a Batch 23 2차 (2026-09-09): a1_15_first_class_work 로더 커버리지 결손(cloze 2·satz 0 → 목표 8) 해소용 신규 A1 팩. plan_pack_assignments.validate_plan 프리플라이트 통과 후 적용.",
+  "vocabPacks": [
+    {
+      "packId": "a1_first_class_1",
+      "level": "a1",
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "첫 수업",
+        "de": "Erster Kurstag",
+        "en": "First Day of Class"
+      },
+      "motif": "lotus",
+      "curriculum": {
+        "courseUnitId": "a1_15_first_class_work",
+        "conceptIds": [
+          "concept_a1_first_meeting"
+        ]
+      }
+    }
+  ]
+}
