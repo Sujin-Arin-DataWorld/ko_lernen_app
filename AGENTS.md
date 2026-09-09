@@ -598,6 +598,7 @@ graphify 산출물은 크기와 가치가 반대다. 큰 것은 전부 `graphify
 | **무시** | `graph.json`, `graph.html` | 43 MB | AST 파생물. 소스가 있으면 무료 복원 |
 | | `cache/ast/` | 278 MB | 콘텐츠 해시 캐시. 미스는 재추출로 무해 |
 | | `YYYY-MM-DD/` 스냅샷 | ~40 MB/개 | `graph.json` 전체 사본. git 히스토리와 중복 |
+| | `.graphify_root` | 0 KB | 로컬 절대경로. 머신·워크트리마다 달라 충돌원 |
 | **삭제** | `graph.json.bak-*`, 구버전 `cache/ast/v*` | — | 잔해 |
 
 **진짜 축적은 ~7MB 짜리 "커밋" 계층에 있다.** 라벨과 semantic 캐시가 남아 있으면
@@ -647,5 +648,10 @@ tool/graphify_prune.sh --apply    # 실제 삭제 (Stop 훅이 이걸 부른다)
 graphify-out 전체가 추적 중이었고 `.gitignore` 항목이 없었으며 graphify CLI 에 prune 이 없었다.
 정리 주체가 아예 없어 세션마다 순증만 했다 — **950MB, 추적 4,433개, 상시 변경 372개, `.git` 3.7GB.**
 캐시가 콘텐츠 해시 이름이라 append-only 인 것, 날짜 스냅샷이 40MB 사본인 것이 증가원이었다.
-정리 후 로컬 ~60MB, 상시 변경 0~2개, `.git` 증가 0. 히스토리에 이미 박힌 3.7GB 는 남아 있고,
+정리 후 로컬 437MB, 추적 4,433 → 1,105개, `.git` 증가 세션당 40MB → 0.
+로컬이 0 에 가까워지지는 않는다 — `cache/ast` 278MB 는 update 를 가속하는 실사용 캐시라
+30일 미접근분부터 순차 삭제된다. `update` 마다 커밋 계층 4개(`.graphify_labels.json`(.sig),
+`GRAPH_REPORT.md`, `manifest.json`, 합계 ~1MB)가 dirty 해지는데 이건 정상이고 실제 작업
+커밋에 얹어 함께 커밋한다. 이전의 세션당 40MB 대비 1/40 이다.
+히스토리에 이미 박힌 3.7GB 는 남아 있고,
 줄이려면 `filter-repo` + force-push 가 필요하다 (원격 `origin`·`ci`·`archive` 3개가 걸려 별건).

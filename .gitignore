@@ -196,3 +196,6 @@ graphify-out/cache/stat-index.json
 graphify-out/cache/last_query_stamp
 graphify-out/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
 graphify-out/graph.json.bak-*
+# .graphify_root 는 로컬 절대경로만 담는다 — 머신·워크트리마다 달라 충돌원이다.
+graphify-out/.graphify_root
+
