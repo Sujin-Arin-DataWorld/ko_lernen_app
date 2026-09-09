@@ -210,15 +210,27 @@ class Matrix:
         self.registers = {r["id"]: r for r in self.taxonomy["registers"]}
         self.skills = {s["id"]: s for s in self.taxonomy["skills"]}
         # 국제통용 문법: 레벨별 형태 집합과 형태 → 급
+        #
+        # 336 행은 (급, 형태) 쌍이고 고유 형태는 333개다 — 세 형태가 두 급에 서로 다른 기능으로
+        # 등재되어 있다: -고4(1급 "덧붙여 서술" · 4급 "덧붙여 질문"), -는다고1(3급 "이유" ·
+        # 6급 "의도"), -다니1(4급 · 5급 "감탄"). 그래서 형태 → 급은 단일 값이 아니라 집합이다.
+        # form_grade(최소 급)는 spiral 이 선행 레벨에서 왔는지 볼 때만 쓰고, 급 불일치를 보고할
+        # 때는 form_grades 전체를 보여 준다 — 최초 급만 말하면 반쪽 사실이 된다.
         self.nikl_forms: Dict[str, List[Dict[str, str]]] = {}
-        self.form_grade: Dict[str, int] = {}
+        self.form_grades: Dict[str, set] = defaultdict(set)
+        self.form_meaning: Dict[Tuple[str, int], str] = {}
         for lv in LEVELS:
             forms = self.ko["levels"][lv]["grammar"]["forms"]
             self.nikl_forms[lv] = forms
             for f in forms:
-                self.form_grade.setdefault(f["form"], GRADE_OF_LEVEL[lv])
+                self.form_grades[f["form"]].add(GRADE_OF_LEVEL[lv])
+                self.form_meaning[(f["form"], GRADE_OF_LEVEL[lv])] = (f.get("meaning") or "").strip()
+        self.form_grades = dict(self.form_grades)
+        self.form_grade: Dict[str, int] = {k: min(v) for k, v in self.form_grades.items()}
+        self.multi_grade_forms: Dict[str, List[int]] = {
+            k: sorted(v) for k, v in self.form_grades.items() if len(v) > 1}
         self.form_set: Dict[str, set] = {lv: {f["form"] for f in self.nikl_forms[lv]} for lv in LEVELS}
-        self.all_forms: set = set(self.form_grade)
+        self.all_forms: set = set(self.form_grades)
         self.en_grammar_ids = {g["id"] for lv in LEVELS for g in self.en["levels"][lv]["grammar"]["items"]}
         self.de_grammar_ids = {g["id"] for lv in LEVELS for g in self.de["levels"][lv]["grammar"]["items"]}
         self.en_grammar = {g["id"]: dict(g, level=lv) for lv in LEVELS for g in self.en["levels"][lv]["grammar"]["items"]}
@@ -415,8 +427,9 @@ def check_grammar_partition(mx: Matrix, ps: PhaseSystem, f: Findings) -> Dict[st
                                    "국제통용 목록 밖의 보조 형태(교수 판단으로 추가)",
                                    "의도한 추가라면 그대로 둔다", lv, pid)
                     else:
+                        grades = _j([f"{g}급" for g in sorted(mx.form_grades[form])], "·")
                         f.error("C3_grammar", f"{pid} · {form}",
-                                f"{lv}(={GRADE_OF_LEVEL[lv]}급) 의 new 항목인데 국제통용은 {grade}급에 둔다",
+                                f"{lv}(={GRADE_OF_LEVEL[lv]}급) 의 new 항목인데 국제통용은 {grades}에 둔다",
                                 "해당 급의 Phase 로 옮기거나 role 을 spiral 로 바꾼다", lv, pid)
             else:  # spiral
                 grade = mx.form_grade.get(form)
@@ -439,6 +452,23 @@ def check_grammar_partition(mx: Matrix, ps: PhaseSystem, f: Findings) -> Dict[st
             if len(pids) > 1 and form in want:
                 f.error("C3_grammar", f"{lv} · {form}", f"두 Phase 에 new 로 중복 배정: {', '.join(pids)}",
                         "한 Phase 에서만 new 로 도입한다(재등장은 spiral)", lv)
+    # 두 급에 등재된 형태(-고4 · -는다고1 · -다니1)는 급마다 기능이 다르다. 두 번째 도입이
+    # 첫 번째의 복사가 되면 국제통용이 급을 나눈 이유가 사라지므로, 기능 진술이 실제로 다른지 본다.
+    for form, grades in sorted(mx.multi_grade_forms.items()):
+        uses: Dict[str, str] = {}
+        for p in ps.phases:
+            lv = p.get("level", "")
+            if lv not in LEVELS or GRADE_OF_LEVEL[lv] not in grades:
+                continue
+            for g in p.get("koreanGrammar") or []:
+                if (g.get("form") or "").strip() == form and g.get("role") == "new":
+                    uses[p.get("id", "?")] = _ko(g.get("functionUse")).strip()
+        if len(uses) > 1 and len(set(uses.values())) < len(uses):
+            f.error("C3_grammar", form,
+                    f"국제통용이 {_j([str(x) + '급' for x in grades], '·')} 에 다른 기능으로 올린 형태인데 "
+                    f"도입 기능 진술이 같다: {_j(sorted(uses), ', ')}",
+                    "급마다의 기능 차이를 기능 진술에 드러낸다"
+                    "(-고4 = 덧붙여 서술 vs 덧붙여 질문 처럼)")
     return {lv: dict(assigned[lv]) for lv in LEVELS}
 
 

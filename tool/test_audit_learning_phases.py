@@ -422,6 +422,42 @@ class FixtureTest(unittest.TestCase):
         _, _, f = self._run()
         self.assertTrue(any("중복" in r["detail"] for r in self._errors(f, "C3_grammar")))
 
+    def test_multi_grade_form_needs_distinct_function(self):
+        """국제통용이 두 급에 다른 기능으로 올린 형태(-고4·-는다고1·-다니1)의 재현.
+
+        같은 형태를 두 급에서 새로 도입하되 기능 진술이 같으면 급을 나눈 이유가 사라진다.
+        기능이 다르면 통과해야 한다 — 그렇지 않으면 이 검사가 정당한 데이터를 막는다.
+        """
+        ko_path = self.root / alp.MATRIX_DIR / "ko.json"
+        ko = json.loads(ko_path.read_text(encoding="utf-8"))
+        b2 = ko["levels"]["B2"]["grammar"]
+        b2["forms"].append({"form": "-고", "category": "종결어미", "variants": "", "meaning": "덧붙여 질문"})
+        b2["expectedCount"] = len(b2["forms"])
+        b2["categoryCounts"] = {"종결어미": len(b2["forms"])}
+        ko_path.write_text(json.dumps(ko, ensure_ascii=False), encoding="utf-8")
+
+        def put(function_use):
+            for ph in self.phases:
+                ph["koreanGrammar"] = [g for g in ph["koreanGrammar"] if g["form"] != "-고" or ph["level"] == "A1"]
+                if ph["id"] == "KP10":  # B2 의 첫 Phase
+                    ph["koreanGrammar"].append({
+                        "form": "-고", "niklGrade": 4, "category": "종결어미", "role": "new",
+                        "functionUse": function_use, "example": {"ko": "예", "en": "ex", "de": "Bsp"},
+                        "functionalGrammarId": None, "appGrammarIds": ["g_a1_copula"], "evidence": "OFFICIAL"})
+            _phase_docs(self.root, self.phases)
+
+        put({"ko": "기능", "en": "use"})  # A1 도입과 똑같은 기능 진술
+        _, _, f = self._run()
+        same = [r for r in self._errors(f, "C3_grammar")
+                if "-고" in r["subject"] and "기능 진술이 같다" in r["detail"]]
+        self.assertTrue(same, "두 급 도입의 기능 진술이 같은데 걸리지 않았다")
+
+        put({"ko": "덧붙여 질문", "en": "adding a question"})  # 급마다 다른 기능
+        _, _, f = self._run()
+        still = [r for r in self._errors(f, "C3_grammar")
+                 if "-고" in r["subject"] and "기능 진술이 같다" in r["detail"]]
+        self.assertEqual(still, [], "기능이 다른 정당한 두 급 도입을 막고 있다")
+
     def test_forward_prerequisite_is_an_error(self):
         self.phases[0]["prerequisites"]["phaseIds"] = ["KP05"]
         _phase_docs(self.root, self.phases)
