@@ -1,0 +1,295 @@
+{
+  "generated_from": "assets/data + tools/content_factory/cefr_matrix + tools/content_factory/lexicon/nikl_kiiq_2017_grammar.csv",
+  "levels": {
+    "A1": {
+      "topics": {
+        "beyond_matrix": 2,
+        "covered": 17,
+        "optional_covered": 6
+      },
+      "grammar": {
+        "nikl_rows": 45,
+        "match": 40,
+        "level_mismatch": 0,
+        "missing_in_app": 5,
+        "brief_highlights": {
+          "level_mismatch": 2,
+          "match": 24,
+          "missing": 1
+        },
+        "discourse_features": {
+          "covered": 2
+        },
+        "no_scenario_anchor": 31,
+        "app_grammar_count": 55
+      },
+      "speechActs": {
+        "covered": 11,
+        "recognition_covered": 2,
+        "recognition_missing": 1,
+        "thin": 4
+      },
+      "textTypes": {
+        "covered": 4,
+        "structural_gap": 5,
+        "thin": 1
+      },
+      "vocabDomains": {
+        "beyond_matrix": 6,
+        "covered": 10,
+        "missing": 1,
+        "thin": 3
+      },
+      "registers": {
+        "absent": 1,
+        "present": 2
+      }
+    },
+    "A2": {
+      "topics": {
+        "beyond_matrix": 5,
+        "covered": 17,
+        "optional_covered": 2,
+        "optional_missing": 2,
+        "optional_thin": 1
+      },
+      "grammar": {
+        "nikl_rows": 45,
+        "match": 37,
+        "level_mismatch": 0,
+        "missing_in_app": 8,
+        "brief_highlights": {
+          "level_mismatch": 8,
+          "match": 16
+        },
+        "discourse_features": {
+          "covered": 1,
+          "missing": 1
+        },
+        "no_scenario_anchor": 43,
+        "app_grammar_count": 59
+      },
+      "speechActs": {
+        "covered": 7,
+        "missing": 2,
+        "recognition_missing": 1,
+        "recognition_thin": 1,
+        "thin": 6
+      },
+      "textTypes": {
+        "covered": 2,
+        "missing": 1,
+        "structural_gap": 5,
+        "thin": 2
+      },
+      "vocabDomains": {
+        "beyond_matrix": 8,
+        "covered": 10,
+        "thin": 1
+      },
+      "registers": {
+        "absent": 1,
+        "present": 3
+      }
+    },
+    "B1": {
+      "topics": {
+        "beyond_matrix": 5,
+        "covered": 18,
+        "optional_covered": 5
+      },
+      "grammar": {
+        "nikl_rows": 67,
+        "match": 8,
+        "level_mismatch": 10,
+        "missing_in_app": 49,
+        "brief_highlights": {
+          "level_mismatch": 12,
+          "match": 5,
+          "missing": 4
+        },
+        "discourse_features": {
+          "covered": 4
+        },
+        "no_scenario_anchor": 25,
+        "app_grammar_count": 35
+      },
+      "speechActs": {
+        "covered": 11,
+        "missing": 1,
+        "recognition_missing": 1,
+        "thin": 3
+      },
+      "textTypes": {
+        "covered": 2,
+        "missing": 1,
+        "structural_gap": 6
+      },
+      "vocabDomains": {
+        "beyond_matrix": 10,
+        "covered": 9
+      },
+      "registers": {
+        "present": 4
+      }
+    },
+    "B2": {
+      "topics": {
+        "beyond_matrix": 11,
+        "covered": 17,
+        "optional_covered": 3
+      },
+      "grammar": {
+        "nikl_rows": 67,
+        "match": 12,
+        "level_mismatch": 11,
+        "missing_in_app": 44,
+        "brief_highlights": {
+          "level_mismatch": 2,
+          "match": 5,
+          "missing": 10
+        },
+        "discourse_features": {
+          "covered": 3,
+          "missing": 1
+        },
+        "no_scenario_anchor": 39,
+        "app_grammar_count": 57
+      },
+      "speechActs": {
+        "covered": 12,
+        "missing": 1,
+        "recognition_missing": 1,
+        "thin": 1
+      },
+      "textTypes": {
+        "covered": 1,
+        "missing": 1,
+        "structural_gap": 7
+      },
+      "vocabDomains": {
+        "beyond_matrix": 12,
+        "covered": 7
+      },
+      "registers": {
+        "present": 4
+      }
+    },
+    "C1": {
+      "topics": {
+        "beyond_matrix": 15,
+        "covered": 12,
+        "optional_covered": 4
+      },
+      "grammar": {
+        "nikl_rows": 56,
+        "match": 1,
+        "level_mismatch": 9,
+        "missing_in_app": 46,
+        "brief_highlights": {
+          "level_mismatch": 8,
+          "match": 1,
+          "missing": 5
+        },
+        "discourse_features": {
+          "covered": 3,
+          "missing": 1
+        },
+        "no_scenario_anchor": 5,
+        "app_grammar_count": 23
+      },
+      "speechActs": {
+        "covered": 9,
+        "missing": 1,
+        "thin": 2
+      },
+      "textTypes": {
+        "covered": 2,
+        "structural_gap": 7
+      },
+      "vocabDomains": {
+        "beyond_matrix": 6,
+        "covered": 4,
+        "missing": 2
+      },
+      "registers": {
+        "absent": 1,
+        "present": 3
+      }
+    },
+    "C2": {
+      "topics": {
+        "beyond_matrix": 14,
+        "covered": 12,
+        "optional_covered": 2,
+        "optional_thin": 1
+      },
+      "grammar": {
+        "nikl_rows": 56,
+        "match": 2,
+        "level_mismatch": 9,
+        "missing_in_app": 45,
+        "brief_highlights": {
+          "match": 2,
+          "missing": 6
+        },
+        "discourse_features": {
+          "covered": 3
+        },
+        "no_scenario_anchor": 9,
+        "app_grammar_count": 23
+      },
+      "speechActs": {
+        "covered": 9,
+        "missing": 2,
+        "thin": 1
+      },
+      "textTypes": {
+        "covered": 1,
+        "missing": 1,
+        "structural_gap": 8
+      },
+      "vocabDomains": {
+        "beyond_matrix": 6,
+        "covered": 5,
+        "missing": 1
+      },
+      "registers": {
+        "absent": 1,
+        "present": 3
+      }
+    }
+  },
+  "functional_alignment": {
+    "aligned": 29,
+    "app_earlier": 3,
+    "missing": 2
+  },
+  "gap_total": 536,
+  "gap_counts": {
+    "functional_grammar:missing": 2,
+    "grammar_anchor:no_scenario_anchor": 152,
+    "grammar_brief:level_mismatch": 32,
+    "grammar_brief:missing": 26,
+    "grammar_discourse:missing": 3,
+    "grammar_nikl:level_mismatch": 39,
+    "grammar_nikl:missing_in_app": 197,
+    "register:absent": 4,
+    "speech_act:missing": 7,
+    "speech_act:recognition_missing": 4,
+    "speech_act:thin": 17,
+    "text_type:missing": 4,
+    "text_type:structural_gap": 38,
+    "text_type:thin": 3,
+    "vocab_domain:missing": 4,
+    "vocab_domain:thin": 4
+  },
+  "diagnostics": {
+    "unmapped_vocab_or_cloze_labels": 0,
+    "unmapped_pack_ids": 0,
+    "unmapped_scenarios_topic": 0,
+    "unmapped_units_topic": 8,
+    "unmatched_scenarios_speech_act": 7,
+    "unmatched_units_speech_act": 1
+  }
+}

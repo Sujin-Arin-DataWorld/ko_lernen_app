@@ -283,6 +283,16 @@ refactor-safely,review-changes}`, `.gitignore`에 `.code-review-graph/`(그래�
 - `docs/CONTENT_LEVEL_BIBLE.md` — 레벨 기준 정본, 콘텐츠 추가 전 필독.
 - `tools/content_factory/lexicon/` — 국립국어원 등급 사전(공공누리 1유형).
 - `tool/audit_content_levels.py` — 레벨 감사기, 리포트 `docs/data/content_level_report.md`.
+- `tools/content_factory/cefr_matrix/` — **CEFR 커리큘럼 매트릭스 정본**(2026-09-09): KO/EN/DE
+  A1–C2 × 주제·문법·기능(Sprachhandlungen)·텍스트 유형(Textsorten)·어휘 영역·문체.
+  `taxonomy.json`(언어 독립 id + 앱 라벨 alias) + `ko.json`(국제통용 문법 336 전수·앱 grammar id
+  앵커) + `en.json`(CEFR-J/EGP 인용) + `de.json`(Profile deutsch·Goethe·DTZ). README 가 근거
+  등급(`provenance`)과 편집 규칙을 갖는다.
+- `tool/audit_curriculum_matrix.py` — 매트릭스 갭 감사기(8개 표면 대조). 리포트
+  `docs/data/curriculum_matrix_report.md`, 매트릭스 전문 `docs/data/cefr_curriculum_matrix.md`
+  (`--write-matrix`), 갭 CSV `tool/curriculum_matrix_gaps.csv`, 카운트
+  `tool/curriculum_matrix_summary.json`. 콘텐츠 배치를 추가하면 다시 돌려 산출물을 함께 커밋한다
+  (`test_audit_curriculum_matrix.py` 가 신선도·하향 래칫을 지킨다).
 
 ### 에셋 (2026-05-26 복원 후 최종)
 - `assets/icons/HanLogo.png` — **현재 앱 아이콘 소스** (Gemini 생성, 1024×1024, 갓+한)
