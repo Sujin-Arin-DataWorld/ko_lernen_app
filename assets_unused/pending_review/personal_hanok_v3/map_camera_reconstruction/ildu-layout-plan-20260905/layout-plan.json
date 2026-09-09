@@ -1,0 +1,1190 @@
+{
+  "schemaVersion": 3,
+  "revision": "2026-09-05-v3-front-facing-sadangmun",
+  "title": "일두고택 · 배치 검토도",
+  "authority": {
+    "layout": "맵구조1.jpg + 사용자 확인 사항",
+    "names": "building_identifications.json",
+    "cameraAndStyle": "맵구조4.webp는 다음 단계의 시점·화풍 참고만 허용"
+  },
+  "coordinateSystem": {
+    "kind": "reference_image_pixels",
+    "width": 1008,
+    "height": 1065,
+    "origin": "top-left",
+    "axes": "x right, y down",
+    "physicalScale": null,
+    "georeferenced": false,
+    "cameraElevation": null
+  },
+  "source": {
+    "path": "map1_landuse_corrected_review_v1.png",
+    "sha256": "cefdb583cf60ef24c22c0665d2c202c52ef9ba08de23035bb39c6cb284cb57e0"
+  },
+  "scope": "사용자가 확정한 12곳의 건물 표시 영역, 눈에 보이는 주요 담장, 출입구와 수정한 토지 이용을 원본 좌표에서 표시한 검토도.",
+  "limitations": [
+    "건물 표시 영역은 그림에서 읽은 외곽이며 지붕 아래 실제 기초선이나 실측 치수가 아니다.",
+    "건물에 가려진 담장 연결, 정면 방향, 미터 단위 위치는 확정하지 않는다.",
+    "원본 도면과 현재 지도는 시대·표기·시점이 달라 자동으로 같은 좌표로 취급하지 않는다."
+  ],
+  "buildings": [
+    {
+      "id": "sadang",
+      "polygon": [
+        [
+          609,
+          408
+        ],
+        [
+          681,
+          421
+        ],
+        [
+          669,
+          516
+        ],
+        [
+          596,
+          508
+        ]
+      ],
+      "label": [
+        641,
+        464
+      ],
+      "detail": "",
+      "name": "사당",
+      "number": "1",
+      "originalLabel": "1",
+      "geometryKind": "reference_image_building_envelope",
+      "geometryStatus": "visually_traced_not_surveyed_footprint",
+      "frontDirection": null,
+      "frontDirectionStatus": "not_verified",
+      "worldCoordinates": null
+    },
+    {
+      "id": "gokganchae",
+      "polygon": [
+        [
+          602.75,
+          545.25
+        ],
+        [
+          669.35,
+          556.05
+        ],
+        [
+          653.15,
+          676.65
+        ],
+        [
+          584.75,
+          664.05
+        ]
+      ],
+      "label": [
+        627,
+        611
+      ],
+      "detail": "중심 유지 · 가로·세로 90%로 축소. 앞쪽에 담장과 문을 추가하지 않음",
+      "name": "곳간채",
+      "number": "2",
+      "originalLabel": "2",
+      "geometryKind": "reference_image_building_envelope",
+      "geometryStatus": "visually_traced_not_surveyed_footprint",
+      "frontDirection": null,
+      "frontDirectionStatus": "not_verified",
+      "worldCoordinates": null
+    },
+    {
+      "id": "ansarangchae",
+      "polygon": [
+        [
+          560,
+          779
+        ],
+        [
+          636,
+          791
+        ],
+        [
+          618,
+          942
+        ],
+        [
+          541,
+          930
+        ]
+      ],
+      "label": [
+        590,
+        861
+      ],
+      "detail": "원본의 중복 숫자보다 사용자 지정 이름을 우선",
+      "name": "안사랑채",
+      "number": "3",
+      "originalLabel": "3",
+      "geometryKind": "reference_image_building_envelope",
+      "geometryStatus": "visually_traced_not_surveyed_footprint",
+      "frontDirection": null,
+      "frontDirectionStatus": "not_verified",
+      "worldCoordinates": null
+    },
+    {
+      "id": "anchae",
+      "polygon": [
+        [
+          440,
+          374
+        ],
+        [
+          525,
+          387
+        ],
+        [
+          506,
+          604
+        ],
+        [
+          420,
+          591
+        ]
+      ],
+      "label": [
+        473,
+        489
+      ],
+      "detail": "",
+      "name": "안채",
+      "number": "4",
+      "originalLabel": "4",
+      "geometryKind": "reference_image_building_envelope",
+      "geometryStatus": "visually_traced_not_surveyed_footprint",
+      "frontDirection": null,
+      "frontDirectionStatus": "not_verified",
+      "worldCoordinates": null
+    },
+    {
+      "id": "araechae",
+      "polygon": [
+        [
+          334,
+          344
+        ],
+        [
+          437,
+          351
+        ],
+        [
+          432,
+          419
+        ],
+        [
+          330,
+          411
+        ]
+      ],
+      "label": [
+        383,
+        379
+      ],
+      "detail": "",
+      "name": "아래채",
+      "number": "5",
+      "originalLabel": "5",
+      "geometryKind": "reference_image_building_envelope",
+      "geometryStatus": "visually_traced_not_surveyed_footprint",
+      "frontDirection": null,
+      "frontDirectionStatus": "not_verified",
+      "worldCoordinates": null
+    },
+    {
+      "id": "angokganchae",
+      "polygon": [
+        [
+          268,
+          382
+        ],
+        [
+          324,
+          384
+        ],
+        [
+          322,
+          497
+        ],
+        [
+          263,
+          495
+        ]
+      ],
+      "label": [
+        293,
+        437
+      ],
+      "detail": "",
+      "name": "안곳간채",
+      "number": "7",
+      "originalLabel": "7",
+      "geometryKind": "reference_image_building_envelope",
+      "geometryStatus": "visually_traced_not_surveyed_footprint",
+      "frontDirection": null,
+      "frontDirectionStatus": "not_verified",
+      "worldCoordinates": null
+    },
+    {
+      "id": "jungmunchae",
+      "polygon": [
+        [
+          305,
+          502
+        ],
+        [
+          368,
+          515
+        ],
+        [
+          356,
+          652
+        ],
+        [
+          298,
+          651
+        ]
+      ],
+      "label": [
+        334,
+        579
+      ],
+      "detail": "",
+      "name": "중문채",
+      "number": "8",
+      "originalLabel": "8",
+      "geometryKind": "reference_image_building_envelope",
+      "geometryStatus": "visually_traced_not_surveyed_footprint",
+      "frontDirection": null,
+      "frontDirectionStatus": "not_verified",
+      "worldCoordinates": null
+    },
+    {
+      "id": "sarangchae",
+      "polygon": [
+        [
+          299,
+          648
+        ],
+        [
+          507,
+          655
+        ],
+        [
+          498,
+          766
+        ],
+        [
+          433,
+          758
+        ],
+        [
+          429,
+          726
+        ],
+        [
+          297,
+          721
+        ]
+      ],
+      "label": [
+        393,
+        686
+      ],
+      "detail": "중문채 아래의 잘못된 4번을 사랑채로 식별",
+      "name": "사랑채",
+      "number": null,
+      "originalLabel": "4",
+      "geometryKind": "reference_image_building_envelope",
+      "geometryStatus": "visually_traced_not_surveyed_footprint",
+      "frontDirection": null,
+      "frontDirectionStatus": "not_verified",
+      "worldCoordinates": null
+    },
+    {
+      "id": "changgo",
+      "polygon": [
+        [
+          201,
+          568
+        ],
+        [
+          246,
+          577
+        ],
+        [
+          243,
+          740
+        ],
+        [
+          189,
+          731
+        ]
+      ],
+      "label": [
+        218,
+        628
+      ],
+      "detail": "",
+      "name": "창고",
+      "number": "9",
+      "originalLabel": "9",
+      "geometryKind": "reference_image_building_envelope",
+      "geometryStatus": "visually_traced_not_surveyed_footprint",
+      "frontDirection": null,
+      "frontDirectionStatus": "not_verified",
+      "worldCoordinates": null
+    },
+    {
+      "id": "sotdaeulmun",
+      "polygon": [
+        [
+          147,
+          807
+        ],
+        [
+          196,
+          823
+        ],
+        [
+          207,
+          815
+        ],
+        [
+          243,
+          835
+        ],
+        [
+          244,
+          846
+        ],
+        [
+          289,
+          853
+        ],
+        [
+          290,
+          897
+        ],
+        [
+          241,
+          884
+        ],
+        [
+          219,
+          876
+        ],
+        [
+          136,
+          846
+        ]
+      ],
+      "label": [
+        214,
+        848
+      ],
+      "detail": "",
+      "name": "솟을대문",
+      "number": "10",
+      "originalLabel": "10",
+      "geometryKind": "reference_image_building_envelope",
+      "geometryStatus": "visually_traced_not_surveyed_footprint",
+      "frontDirection": null,
+      "frontDirectionStatus": "not_verified",
+      "worldCoordinates": null
+    },
+    {
+      "id": "toilet_lower_left",
+      "polygon": [
+        [
+          59,
+          743
+        ],
+        [
+          102,
+          755
+        ],
+        [
+          94,
+          792
+        ],
+        [
+          52,
+          784
+        ]
+      ],
+      "label": [
+        77,
+        769
+      ],
+      "detail": "왼쪽 아래 화장실",
+      "name": "화장실",
+      "number": "11",
+      "originalLabel": "11",
+      "geometryKind": "reference_image_building_envelope",
+      "geometryStatus": "visually_traced_not_surveyed_footprint",
+      "frontDirection": null,
+      "frontDirectionStatus": "not_verified",
+      "worldCoordinates": null
+    },
+    {
+      "id": "toilet_left_of_7",
+      "polygon": [
+        [
+          182,
+          354
+        ],
+        [
+          222,
+          360
+        ],
+        [
+          220,
+          390
+        ],
+        [
+          178,
+          386
+        ]
+      ],
+      "label": [
+        200,
+        372
+      ],
+      "detail": "안곳간채 왼쪽 화장실",
+      "name": "화장실",
+      "number": "11",
+      "originalLabel": "11",
+      "geometryKind": "reference_image_building_envelope",
+      "geometryStatus": "visually_traced_not_surveyed_footprint",
+      "frontDirection": null,
+      "frontDirectionStatus": "not_verified",
+      "worldCoordinates": null
+    }
+  ],
+  "walls": [
+    {
+      "id": "W01",
+      "name": "왼쪽 외곽 담장",
+      "points": [
+        [
+          398,
+          301
+        ],
+        [
+          37,
+          293
+        ],
+        [
+          24,
+          721
+        ],
+        [
+          7,
+          794
+        ],
+        [
+          136,
+          841
+        ]
+      ],
+      "status": "visible_reference_trace",
+      "height": null
+    },
+    {
+      "id": "W02",
+      "name": "위쪽 넓은 터의 외곽 담장",
+      "points": [
+        [
+          398,
+          301
+        ],
+        [
+          411,
+          172
+        ],
+        [
+          871,
+          62
+        ],
+        [
+          895,
+          146
+        ],
+        [
+          895,
+          175
+        ],
+        [
+          862,
+          405
+        ]
+      ],
+      "status": "visible_reference_trace",
+      "height": null
+    },
+    {
+      "id": "W03",
+      "name": "위쪽 터와 건물 영역 사이 담장",
+      "points": [
+        [
+          444,
+          354
+        ],
+        [
+          580,
+          376
+        ],
+        [
+          711,
+          397
+        ],
+        [
+          862,
+          405
+        ]
+      ],
+      "status": "visible_reference_trace",
+      "height": null
+    },
+    {
+      "id": "W04",
+      "name": "오른쪽 뒤편 담장",
+      "points": [
+        [
+          712,
+          397
+        ],
+        [
+          651,
+          1005
+        ]
+      ],
+      "status": "visible_reference_trace",
+      "height": null
+    },
+    {
+      "id": "W05",
+      "name": "대문 오른쪽 하단 외곽 담장",
+      "points": [
+        [
+          291,
+          888
+        ],
+        [
+          281,
+          905
+        ],
+        [
+          270,
+          924
+        ],
+        [
+          253,
+          980
+        ],
+        [
+          651,
+          1005
+        ]
+      ],
+      "status": "visible_reference_trace",
+      "height": null
+    },
+    {
+      "id": "W06",
+      "name": "두 밭 사이 담장",
+      "points": [
+        [
+          30,
+          524
+        ],
+        [
+          139,
+          527
+        ],
+        [
+          201,
+          521
+        ],
+        [
+          303,
+          506
+        ]
+      ],
+      "status": "visible_reference_trace",
+      "height": null
+    },
+    {
+      "id": "W07",
+      "name": "아래 밭의 하단 담장",
+      "points": [
+        [
+          23,
+          726
+        ],
+        [
+          188,
+          745
+        ]
+      ],
+      "status": "visible_reference_trace",
+      "height": null
+    },
+    {
+      "id": "W08",
+      "name": "아래 밭 오른쪽 짧은 담장",
+      "points": [
+        [
+          196,
+          523
+        ],
+        [
+          196,
+          553
+        ]
+      ],
+      "status": "visible_reference_trace",
+      "height": null
+    },
+    {
+      "id": "W09",
+      "name": "위쪽 화장실 주변 담장",
+      "points": [
+        [
+          173,
+          301
+        ],
+        [
+          174,
+          399
+        ],
+        [
+          235,
+          402
+        ],
+        [
+          235,
+          354
+        ],
+        [
+          220,
+          353
+        ]
+      ],
+      "status": "visible_reference_trace",
+      "height": null
+    },
+    {
+      "id": "W10",
+      "name": "사당 구역 왼쪽 담장",
+      "points": [
+        [
+          579,
+          376
+        ],
+        [
+          562,
+          526
+        ],
+        [
+          558,
+          533.87
+        ]
+      ],
+      "status": "visible_reference_trace",
+      "height": null
+    },
+    {
+      "id": "W11",
+      "name": "사당 구역 하단 담장",
+      "points": [
+        [
+          584,
+          536.13
+        ],
+        [
+          581,
+          540
+        ],
+        [
+          687,
+          553
+        ]
+      ],
+      "status": "visible_reference_trace",
+      "height": null
+    },
+    {
+      "id": "W12",
+      "name": "안채 뒤쪽 짧은 담장",
+      "points": [
+        [
+          561,
+          535
+        ],
+        [
+          558,
+          563
+        ],
+        [
+          516,
+          563
+        ]
+      ],
+      "status": "visible_reference_trace",
+      "height": null
+    },
+    {
+      "id": "W13",
+      "name": "사랑채 오른쪽 짧은 연결 담장",
+      "points": [
+        [
+          503,
+          733
+        ],
+        [
+          527,
+          736
+        ]
+      ],
+      "status": "visible_reference_trace",
+      "height": null
+    },
+    {
+      "id": "W14",
+      "name": "오른쪽 가로 담장",
+      "points": [
+        [
+          552,
+          738
+        ],
+        [
+          893,
+          741
+        ]
+      ],
+      "status": "visible_reference_trace",
+      "height": null
+    },
+    {
+      "id": "W15",
+      "name": "창고 옆 출입구 연결 담장",
+      "points": [
+        [
+          244,
+          657
+        ],
+        [
+          265,
+          659
+        ]
+      ],
+      "status": "visible_reference_trace",
+      "height": null
+    },
+    {
+      "id": "W16",
+      "name": "창고 옆 출입구와 중문채 연결",
+      "points": [
+        [
+          291,
+          661
+        ],
+        [
+          299,
+          662
+        ]
+      ],
+      "status": "visible_reference_trace",
+      "height": null
+    }
+  ],
+  "boundaries": [
+    {
+      "id": "Q01",
+      "name": "사랑채 옆 식재 띠 경계",
+      "points": [
+        [
+          489,
+          746
+        ],
+        [
+          472,
+          939
+        ],
+        [
+          475,
+          993
+        ]
+      ],
+      "status": "boundary_type_unverified",
+      "note": "낮은 식재 경계인지 담장인지 도면 대조 필요. 높은 담장으로 만들지 않음."
+    }
+  ],
+  "gates": [
+    {
+      "status": "independent_gate_facility",
+      "openingWidthMeters": null,
+      "worldCoordinates": null,
+      "frontDirection": null,
+      "id": "G01",
+      "name": "솟을대문",
+      "location": "정문",
+      "kind": "main_gate",
+      "identificationStatus": "user_confirmed",
+      "center": [
+        213,
+        873
+      ],
+      "span": [
+        [
+          200,
+          864
+        ],
+        [
+          225,
+          881
+        ]
+      ],
+      "buildingId": "sotdaeulmun"
+    },
+    {
+      "status": "independent_gate_facility",
+      "openingWidthMeters": null,
+      "worldCoordinates": null,
+      "frontDirection": null,
+      "id": "G02",
+      "name": "협문",
+      "location": "사랑채 왼쪽 · 창고 옆",
+      "kind": "hyeopmun",
+      "identificationStatus": "user_confirmed",
+      "center": [
+        278,
+        660
+      ],
+      "span": [
+        [
+          266,
+          659
+        ],
+        [
+          290,
+          661
+        ]
+      ],
+      "polygon": [
+        [
+          262,
+          648
+        ],
+        [
+          293,
+          651
+        ],
+        [
+          291,
+          670
+        ],
+        [
+          261,
+          666
+        ]
+      ],
+      "label": [
+        273,
+        638
+      ],
+      "assetKey": "hyeopmun"
+    },
+    {
+      "status": "independent_gate_facility",
+      "openingWidthMeters": null,
+      "worldCoordinates": null,
+      "frontDirection": {
+        "kind": "reference_image_vector",
+        "vector": [
+          -0.08663,
+          0.99624
+        ],
+        "reference": "G04",
+        "status": "user_requested_front_facing"
+      },
+      "id": "G03",
+      "name": "사당문",
+      "location": "사당과 곳간채 사이 연결부",
+      "kind": "sadangmun",
+      "identificationStatus": "user_confirmed",
+      "center": [
+        571,
+        535
+      ],
+      "span": [
+        [
+          558,
+          533.87
+        ],
+        [
+          584,
+          536.13
+        ]
+      ],
+      "polygon": [
+        [
+          557.75,
+          525.82
+        ],
+        [
+          585.64,
+          528.24
+        ],
+        [
+          584.25,
+          544.18
+        ],
+        [
+          556.36,
+          541.76
+        ]
+      ],
+      "label": [
+        618,
+        526
+      ],
+      "assetKey": "sadangmun"
+    },
+    {
+      "status": "independent_gate_facility",
+      "openingWidthMeters": null,
+      "worldCoordinates": null,
+      "frontDirection": null,
+      "id": "G04",
+      "name": "협문",
+      "location": "사랑채 오른쪽",
+      "kind": "hyeopmun",
+      "identificationStatus": "user_confirmed",
+      "center": [
+        539,
+        737
+      ],
+      "span": [
+        [
+          528,
+          736
+        ],
+        [
+          551,
+          738
+        ]
+      ],
+      "polygon": [
+        [
+          526,
+          724
+        ],
+        [
+          553,
+          727
+        ],
+        [
+          551,
+          746
+        ],
+        [
+          524,
+          742
+        ]
+      ],
+      "label": [
+        595,
+        758
+      ],
+      "assetKey": "hyeopmun"
+    }
+  ],
+  "gateAssets": {
+    "hyeopmun": {
+      "sourcePath": "assets/illustrations/personal_hanok_v3/world/hyeopmun.png",
+      "previewFile": "gate-asset-hyeopmun.png",
+      "sha256": "2655d4bafc0a7388e3727206a9a1bbf6536c65a5f38da8998e35579edac3daa1",
+      "bytes": 1184634,
+      "turnaroundFiles": [
+        "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_hyeopmun_00_front.png",
+        "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_hyeopmun_01_front_right.png",
+        "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_hyeopmun_02_right.png",
+        "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_hyeopmun_03_rear_right.png",
+        "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_hyeopmun_04_rear.png",
+        "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_hyeopmun_05_rear_left.png",
+        "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_hyeopmun_06_left.png",
+        "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_hyeopmun_07_front_left.png"
+      ],
+      "cameraFrameChosen": false,
+      "previewRole": "existing_v3_identity_reference_not_camera_matched_map_sprite"
+    },
+    "sadangmun": {
+      "sourcePath": "assets/illustrations/personal_hanok_v3/world/sadang-gate.png",
+      "previewFile": "gate-asset-sadang-gate.png",
+      "sha256": "8faa7b5b322b042e0ecbab472383825cbb0e17cf8942ea8670db1517f1adcc59",
+      "bytes": 1638992,
+      "turnaroundFiles": [
+        "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadangmun_00_front.png",
+        "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadangmun_01_front_right.png",
+        "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadangmun_02_right.png",
+        "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadangmun_03_rear_right.png",
+        "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadangmun_04_rear.png",
+        "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadangmun_05_rear_left.png",
+        "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadangmun_06_left.png",
+        "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadangmun_07_front_left.png"
+      ],
+      "cameraFrameChosen": false,
+      "previewRole": "existing_v3_identity_reference_not_camera_matched_map_sprite"
+    }
+  },
+  "land": [
+    {
+      "id": "L01",
+      "name": "밭",
+      "kind": "field",
+      "polygon": [
+        [
+          43,
+          309
+        ],
+        [
+          162,
+          310
+        ],
+        [
+          165,
+          403
+        ],
+        [
+          249,
+          408
+        ],
+        [
+          253,
+          499
+        ],
+        [
+          181,
+          518
+        ],
+        [
+          35,
+          518
+        ]
+      ],
+      "label": [
+        113,
+        439
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "밭",
+      "kind": "field",
+      "polygon": [
+        [
+          34,
+          540
+        ],
+        [
+          180,
+          537
+        ],
+        [
+          187,
+          720
+        ],
+        [
+          173,
+          733
+        ],
+        [
+          29,
+          718
+        ]
+      ],
+      "label": [
+        109,
+        627
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "나무가 자라는 땅",
+      "kind": "trees",
+      "polygon": [
+        [
+          281,
+          914
+        ],
+        [
+          310,
+          925
+        ],
+        [
+          446,
+          935
+        ],
+        [
+          474,
+          944
+        ],
+        [
+          472,
+          990
+        ],
+        [
+          260,
+          980
+        ]
+      ],
+      "label": [
+        365,
+        960
+      ]
+    }
+  ],
+  "noWallZone": {
+    "id": "N01",
+    "name": "곳간채 앞쪽은 열어 둠",
+    "polygon": [
+      [
+        553,
+        563
+      ],
+      [
+        580,
+        558
+      ],
+      [
+        561,
+        689
+      ],
+      [
+        534,
+        683
+      ]
+    ],
+    "anchor": [
+      558,
+      618
+    ],
+    "note": "사용자 확인: 뒤쪽 담장 유지, 앞쪽 추가 담장과 문 없음. 사당 구역의 기존 출입구와 구분."
+  },
+  "counts": {
+    "buildingRegions": 12,
+    "gateFacilities": 4,
+    "additionalGateRegions": 3,
+    "totalDistinctPlacementRegions": 15
+  }
+}

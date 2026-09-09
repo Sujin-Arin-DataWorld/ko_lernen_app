@@ -1,0 +1,136 @@
+{
+  "status": "guides_ready_generation_not_started",
+  "base": "map-transfer-selected-small-map.png",
+  "baseSha256": "aa0b02b2f07382134be9264001bb794588aa1c4cb76fbc02d38ab5e701503bca",
+  "registration": "natural-map-registration-v1.json",
+  "sarangchaeRegistration": "sarangchae-selection-registration-v1.json",
+  "sarangchaeRegistrationSha256": "25bba9e8257b37bd49f9cf19ab733abf68780a09721141afb5f68f8373f09722",
+  "guides": {
+    "jungmunchae": {
+      "file": "jungmunchae-target-context-v1.png",
+      "mapCrop": [
+        302,
+        451,
+        522,
+        773
+      ],
+      "targetPolygonMap": [
+        [
+          372.03,
+          521.73
+        ],
+        [
+          451.63,
+          540.68
+        ],
+        [
+          449.16,
+          702.31
+        ],
+        [
+          378.36,
+          698.66
+        ]
+      ],
+      "foundationReferenceYMap": 702.31,
+      "guideScale": 2.7950310559006213,
+      "role": "Placement, facing and local occlusion guide only; surrounding buildings are not style references."
+    },
+    "changgo": {
+      "file": "changgo-target-context-v1.png",
+      "mapCrop": [
+        179,
+        526,
+        391,
+        869
+      ],
+      "targetPolygonMap": [
+        [
+          249.57,
+          596.19
+        ],
+        [
+          306.58,
+          609.09
+        ],
+        [
+          320.53,
+          798.96
+        ],
+        [
+          253.89,
+          786.6
+        ]
+      ],
+      "foundationReferenceYMap": 798.96,
+      "guideScale": 2.623906705539359,
+      "role": "Placement, facing and local occlusion guide only; surrounding buildings are not style references."
+    },
+    "G02": {
+      "file": "G02-hyeopmun-left-target-context-v1.png",
+      "mapCrop": [
+        283,
+        643,
+        423,
+        771
+      ],
+      "targetPolygonMap": [
+        [
+          333.98,
+          693.61
+        ],
+        [
+          372.24,
+          698.45
+        ],
+        [
+          371.7,
+          720.45
+        ],
+        [
+          334.64,
+          714.54
+        ]
+      ],
+      "foundationReferenceYMap": 720.45,
+      "guideScale": 7.03125,
+      "role": "Placement, facing and local occlusion guide only; surrounding buildings are not style references."
+    },
+    "G04": {
+      "file": "G04-hyeopmun-right-target-context-v1.png",
+      "mapCrop": [
+        607,
+        741,
+        741,
+        868
+      ],
+      "targetPolygonMap": [
+        [
+          658.67,
+          791.66
+        ],
+        [
+          690.84,
+          796.07
+        ],
+        [
+          689.5,
+          817.36
+        ],
+        [
+          657.35,
+          811.86
+        ]
+      ],
+      "foundationReferenceYMap": 817.36,
+      "guideScale": 7.086614173228346,
+      "role": "Placement, facing and local occlusion guide only; surrounding buildings are not style references."
+    }
+  },
+  "constraints": [
+    "Keep the user-selected Sarangchae candidate 05 at its reviewed 78.33% registration and preserve all current wall pixels.",
+    "The colored polygon is a placement envelope, not a drawable part of the building.",
+    "Use each item's V3 canonical source and adjacent direction views for appearance.",
+    "Generate isolated artwork only after the Sarangchae map-scale registration is approved."
+  ]
+}

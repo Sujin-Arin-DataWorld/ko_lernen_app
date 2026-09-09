@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>일두고택 사랑채 · 사용자 선택본 축소 배치</title>
+<style>
+:root{--paper:#f5f1e7;--ink:#21170d;--line:#d7cbb8;--accent:#9b4d18;--green:#24584d}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans KR","Malgun Gothic",sans-serif}
+header{padding:28px 32px 22px;border-bottom:1px solid var(--line);background:#faf7f0}header small{letter-spacing:.2em;color:var(--green);font-weight:700}h1{margin:8px 0 6px;font-size:30px}header p{margin:0;color:#695a49}
+main{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:22px;padding:22px;max-width:1600px;margin:auto}.panel{background:#fffdf8;border:1px solid var(--line);border-radius:14px;overflow:hidden}.bar{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-bottom:1px solid var(--line)}.bar h2{font-size:17px;margin:0}.buttons{display:flex;gap:8px}button,a.button{border:1px solid #bdad97;background:#fffaf0;color:var(--ink);border-radius:8px;padding:8px 12px;font-weight:700;text-decoration:none;cursor:pointer}button.active{background:var(--green);color:white;border-color:var(--green)}
+#map{display:block;width:100%;height:auto;background:#e7dfcf}.zoom{padding:14px}.zoom img{display:block;width:100%;border-radius:9px}.caption{padding:0 16px 16px;color:#5e5041;line-height:1.55}.side{display:flex;flex-direction:column;gap:16px}.side .panel{padding-bottom:12px}.side h3{font-size:16px;margin:14px 16px 8px}.side p,.side li{font-size:14px;line-height:1.55}.side ul{padding:0 34px 0 36px}.proof{margin:10px 16px;padding:12px;border-left:4px solid var(--accent);background:#f7eee3}.refs{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px}.refs img{width:100%;height:130px;object-fit:cover;border-radius:8px;border:1px solid var(--line)}.files{display:flex;flex-wrap:wrap;gap:8px;padding:8px 16px}.status{color:var(--accent);font-weight:800}
+@media(max-width:980px){main{grid-template-columns:1fr;padding:12px}header{padding:20px 16px}.side{order:-1}.refs img{height:110px}}
+</style>
+</head>
+<body>
+<header><small>HANGUL SORI / SARANGCHAE SELECTED ASSET</small><h1>사랑채 사용자 선택본 · 축소 배치</h1><p>사용자가 지정한 사랑채 이미지는 그대로 두고, 양쪽 협문이 보이도록 지도 표시 크기와 기준점만 조정했습니다.</p></header>
+<main>
+<section>
+  <div class="panel">
+    <div class="bar"><h2>지도 표시 크기 비교</h2><div class="buttons"><button id="after" class="active">선택본 · 축소</button><button id="before">이전 크기</button></div></div>
+    <canvas id="map" width="1202" height="1308"></canvas>
+    <p class="caption">건물 디자인과 투명 원화는 그대로입니다. 지도 표시 크기를 이전의 78.33%로 줄이고 기단 기준점을 다시 맞춰 양쪽 협문을 모두 드러냈습니다.</p>
+  </div>
+  <div class="panel" style="margin-top:18px">
+    <div class="bar"><h2>축소 배치 확대</h2><span class="status">크기 확인</span></div>
+    <div class="zoom"><img id="detail" src="sarangchae-selected-small-map-detail.png" alt="양쪽 협문이 보이도록 지도 표시 크기만 줄인 사랑채 선택본"></div>
+  </div>
+</section>
+<aside class="side">
+  <div class="panel"><h3>이번 변경 범위</h3><ul><li>사용자 지정 사랑채 선택본 고정</li><li>건물 표시 폭 360px → 282px</li><li>선형 표시 크기 78.33%</li><li>기단 하단을 같은 마당 위치에 맞춤</li><li>왼쪽·오른쪽 협문 가림 0픽셀</li></ul><div class="proof">지붕·기둥·난간·창호·색상·편액·묵서는 수정하지 않았습니다.</div></div>
+  <div class="panel"><h3>고증 근거</h3><div class="refs"><img src="sarangchae-reference-toenmaru-scale.png" alt="사람이 앉은 툇마루"><img src="sarangchae-reference-plaque-munheonsega.png" alt="문헌세가 편액"><img src="sarangchae-reference-calligraphy-chunghyojeolui.png" alt="충효절의 묵서"><img src="pilot-sarang-canonical.png" alt="V3 스타일 기준"></div><p class="caption">실사진은 빠진 건축 요소와 글자의 기준, V3 원본은 지붕·재질·색감의 기준입니다.</p></div>
+  <div class="panel"><h3>투명 원화 확인</h3><div style="padding:0 12px"><img src="sarangchae-candidate05-dark-preview.png" alt="어두운 배경 위 투명 사랑채 사용자 선택본 검증" style="display:block;width:100%;border-radius:8px"></div><p class="caption">선택 이미지와 투명 정본의 RGB는 픽셀 단위로 같습니다. 지도에서는 이 파일을 한 번 축소해 표시했습니다.</p></div>
+  <div class="panel"><h3>보존 확인</h3><ul><li>지도 1202×1308 및 카메라 유지</li><li>선택 원화 RGB 변경 0픽셀</li><li>양쪽 협문·연결 담장 레이어 유지</li><li>왼쪽 협문 표시율 100%</li><li>오른쪽 협문 표시율 100%</li><li>허용한 작업 레이어 밖 변경 0픽셀</li></ul><div class="files"><a class="button" href="map-transfer-selected-small-map.png" download>축소 배치 지도</a><a class="button" href="sarangchae-user-selected-source.png" download>지정 원본</a><a class="button" href="sarangchae-candidate05-transparent.png" download>투명 원화</a><a class="button" href="sarangchae-candidate05-alpha-verification.json" target="_blank">알파 검증</a><a class="button" href="sarangchae-selected-small-map-verification.json" target="_blank">배치 검증</a><a class="button" href="sarangchae-selection-registration-v1.json" target="_blank">선택 등록</a></div></div>
+</aside>
+</main>
+<script>
+const load=src=>new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=no;i.src=src});
+const c=document.getElementById('map'),x=c.getContext('2d');let before,after;let current='after';
+function paint(){x.clearRect(0,0,c.width,c.height);x.drawImage(current==='after'?after:before,0,0);document.getElementById('after').classList.toggle('active',current==='after');document.getElementById('before').classList.toggle('active',current==='before')}
+document.getElementById('after').onclick=()=>{current='after';paint()};document.getElementById('before').onclick=()=>{current='before';paint()};
+Promise.all([load('map-transfer-05-map.png'),load('map-transfer-selected-small-map.png')]).then(v=>{[before,after]=v;paint();window.ready=true});
+</script>
+</body></html>

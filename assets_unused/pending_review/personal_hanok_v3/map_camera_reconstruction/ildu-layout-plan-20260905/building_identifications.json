@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "status": "user_identified_layout_reference",
+  "authority": "Jin's building identifications in this conversation, 2026-09-05",
+  "layout_source": "assets_unused/pending_review/personal_hanok_v3/맵구조1.jpg",
+  "layout_source_sha256": "DA8D68DEB47EB12E06EEB1DD012CE4B782913CC83F52F22A29EDDD05FBEA4F82",
+  "rules": [
+    "User-supplied names and spatial identifications take priority over duplicated or incorrect numerals painted in the map.",
+    "No new numbering has been assigned; the repeated 4 below 8 is identified by location.",
+    "Two toilet instances are separate placements. Sharing the same asset or orientation has not yet been decided.",
+    "This file identifies the user's twelve named building placements; it does not inventory every small gate, wall segment, or landscape object.",
+    "The user's 사랑해 at the position below 8 is interpreted contextually as 사랑채; the verbatim phrase is retained in that record.",
+    "Runtime asset matching, measured coordinates, building orientation and a unified map camera remain to be verified."
+  ],
+  "buildings": [
+    {
+      "instance_id": "sadang",
+      "user_number": "1",
+      "name_ko": "사당"
+    },
+    {
+      "instance_id": "gokganchae",
+      "user_number": "2",
+      "name_ko": "곳간채"
+    },
+    {
+      "instance_id": "ansarangchae",
+      "user_number": "3",
+      "name_ko": "안사랑채"
+    },
+    {
+      "instance_id": "anchae",
+      "user_number": "4",
+      "name_ko": "안채",
+      "location_ko": "지도 상단 중앙의 긴 건물; 중문채 아래의 잘못된 4번과 구분"
+    },
+    {
+      "instance_id": "araechae",
+      "user_number": "5",
+      "name_ko": "아래채"
+    },
+    {
+      "instance_id": "angokganchae",
+      "user_number": "7",
+      "name_ko": "안곳간채"
+    },
+    {
+      "instance_id": "jungmunchae",
+      "user_number": "8",
+      "name_ko": "중문채"
+    },
+    {
+      "instance_id": "sarangchae",
+      "user_number": null,
+      "incorrect_map_label": "4",
+      "name_ko": "사랑채",
+      "location_ko": "8번 중문채 바로 아래",
+      "user_verbatim": "8번밑에 4번은 잘못된건데 거기는 사랑해",
+      "name_interpretation": "contextual typo normalization: 사랑해 -> 사랑채"
+    },
+    {
+      "instance_id": "changgo",
+      "user_number": "9",
+      "name_ko": "창고",
+      "location_ko": "왼쪽 중간 밭의 오른쪽에 있는 긴 건물; 인접한 작은 문의 중복 숫자와 구분"
+    },
+    {
+      "instance_id": "sotdaeulmun",
+      "user_number": "10",
+      "name_ko": "솟을대문"
+    },
+    {
+      "instance_id": "toilet_lower_left",
+      "user_number": "11",
+      "name_ko": "화장실",
+      "location_ko": "지도 왼쪽 아래의 11번 작은 건물"
+    },
+    {
+      "instance_id": "toilet_left_of_7",
+      "user_number": "11",
+      "name_ko": "화장실",
+      "location_ko": "7번 안곳간채 왼쪽의 작은 건물",
+      "user_verbatim": "7번 왼쪽에 작은 건물도 11번 화장실이야"
+    }
+  ]
+}
