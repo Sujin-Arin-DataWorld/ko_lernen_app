@@ -51,8 +51,6 @@ A1,text_type,personal_note_postcard,메모·엽서·짧은 쪽지,structural_gap
 A1,text_type,public_announcement_spoken,안내 방송,structural_gap,mode=R;count=0;surfaces=none,new_content_surface_needed
 A1,text_type,sign_notice_short,표지판·짧은 안내문,structural_gap,mode=R;count=0;surfaces=none,new_content_surface_needed
 A1,vocab_domain,professions_workplace,직업·직장 어휘,thin,words=1,add_pack_in_domain
-A1,vocab_domain,school_study_terms,학교·학습 어휘,thin,words=5,add_pack_in_domain
-A1,vocab_domain,transport_travel_vocab,교통·여행 어휘,thin,words=2,add_pack_in_domain
 A1,vocab_domain,weather_nature,날씨·자연 어휘,missing,words=0,add_pack_in_domain
 A2,grammar_anchor,grammar_a1_future_modifier,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a1_past_modifier,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
@@ -245,6 +243,7 @@ B1,text_type,narrative_story_diary,이야기·일기·서사문,structural_gap,m
 B1,text_type,news_article_report,신문 기사·보도문,structural_gap,mode=R;count=0;surfaces=none,new_content_surface_needed
 B1,text_type,presentation_briefing_talk,발표·브리핑,missing,mode=P;count=0;surfaces=scenario,add_items_of_this_genre
 B1,text_type,review_critique_text,리뷰·비평문,structural_gap,mode=P;count=0;surfaces=none,new_content_surface_needed
+B1,vocab_domain,language_metalanguage,언어·문법·화법 메타언어,thin,words=7,add_pack_in_domain
 B2,grammar_anchor,grammar_b2_according_to,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_addition_even,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_as_if,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds

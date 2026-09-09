@@ -36,9 +36,9 @@
       },
       "vocabDomains": {
         "beyond_matrix": 6,
-        "covered": 10,
+        "covered": 12,
         "missing": 1,
-        "thin": 3
+        "thin": 1
       },
       "registers": {
         "absent": 1,
@@ -127,7 +127,8 @@
       },
       "vocabDomains": {
         "beyond_matrix": 10,
-        "covered": 9
+        "covered": 8,
+        "thin": 1
       },
       "registers": {
         "present": 4
@@ -265,7 +266,7 @@
     "app_earlier": 3,
     "missing": 2
   },
-  "gap_total": 536,
+  "gap_total": 535,
   "gap_counts": {
     "functional_grammar:missing": 2,
     "grammar_anchor:no_scenario_anchor": 152,
@@ -282,7 +283,7 @@
     "text_type:structural_gap": 38,
     "text_type:thin": 3,
     "vocab_domain:missing": 4,
-    "vocab_domain:thin": 4
+    "vocab_domain:thin": 3
   },
   "diagnostics": {
     "unmapped_vocab_or_cloze_labels": 0,
