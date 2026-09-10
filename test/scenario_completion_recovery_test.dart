@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/course_mastery.dart';
@@ -17,6 +18,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 
 import 'support/sori_speech_stubs.dart';
+import 'support/reward_preferences_platform.dart';
 
 const _scenario = Scenario(
   id: 'completion-recovery-fixture',
@@ -51,15 +53,24 @@ const _context = CoursePracticeContext(
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  final originalPlatform = SharedPreferencesStorePlatform.instance;
+  late RewardPreferencesPlatform platform;
 
   setUp(() async {
     stubSoriSpeech();
     Storage.resetForTesting();
-    SharedPreferences.setMockInitialValues({'kl_tut_scenario': true});
+    SharedPreferences.setMockInitialValues({});
+    platform = RewardPreferencesPlatform();
+    SharedPreferencesStorePlatform.instance = platform;
     await Storage.init();
   });
 
-  tearDown(CourseActivityReporter.resetOverridesForTesting);
+  tearDown(() {
+    CourseActivityReporter.resetOverridesForTesting();
+    Storage.resetForTesting();
+    SharedPreferences.setMockInitialValues({});
+    SharedPreferencesStorePlatform.instance = originalPlatform;
+  });
 
   testWidgets('course checkpoint failure keeps completion retryable', (
     tester,
@@ -136,6 +147,72 @@ void main() {
     expect(completions, 1);
     expect(Storage.xp, _scenario.xpReward);
   });
+  for (final key in [
+    'kl_scenario_stars',
+    'kl_completed_scenarios',
+    'kl_earned_badges',
+  ]) {
+    testWidgets('rejected $key keeps the real player retryable before XP', (
+      tester,
+    ) async {
+      var completions = 0;
+      platform.rejectKey = key;
+      CourseActivityReporter.recordScenarioCheckpointForTesting =
+          (_, _, _) async => throw StateError('unlinked practice');
+      await _finish(tester, onCompleted: () => completions++);
+      expect(completions, 0);
+      expect(Storage.xp, 0);
+      final t = await AppL10n.delegate.load(const Locale('en'));
+      expect(find.text(t.scenarioResultSaveRetry), findsOneWidget);
+      platform.rejectKey = null;
+      await tester.ensureVisible(find.text(t.scenarioResultSaveRetry));
+      await tester.tap(find.text(t.scenarioResultSaveRetry));
+      await tester.pump();
+      await tester.pump(const Duration(seconds: 2));
+      expect(completions, 1);
+      expect(Storage.xp, _scenario.xpReward);
+      expect(Storage.scenarioStars[_scenario.id], 3);
+      expect(Storage.earnedBadges, contains('cafe_starter'));
+      expect(Storage.completedScenarios, contains(_scenario.id));
+    });
+  }
+
+  for (final committed in [false, true]) {
+    testWidgets(
+      'real player recovers an unknown XP write once; committed=$committed',
+      (tester) async {
+        var completions = 0;
+        platform
+          ..rejectKey = Storage.listeningRewardLedgerPreferenceKey
+          ..commitBeforeFailure = committed
+          ..throwReply = true
+          ..failReloadAfterWrite = true;
+        CourseActivityReporter.recordScenarioCheckpointForTesting =
+            (_, _, _) async => throw StateError('unlinked practice');
+        await _finish(tester, onCompleted: () => completions++);
+        expect(completions, 0);
+        expect(Storage.xp, 0);
+        platform
+          ..rejectKey = null
+          ..unavailable = false;
+        final t = await AppL10n.delegate.load(const Locale('en'));
+        await tester.ensureVisible(find.text(t.scenarioResultSaveRetry));
+        await tester.tap(find.text(t.scenarioResultSaveRetry));
+        await tester.pump();
+        await tester.pump(const Duration(seconds: 2));
+        expect(completions, 1);
+        expect(Storage.xp, _scenario.xpReward);
+        expect(Storage.xpToday, _scenario.xpReward);
+        expect(
+          platform.writes[Storage.listeningRewardLedgerPreferenceKey],
+          committed ? 1 : 2,
+        );
+        expect(platform.writes['kl_scenario_stars'], 1);
+        expect(platform.writes['kl_completed_scenarios'], 1);
+        expect(platform.writes['kl_earned_badges'], 1);
+      },
+    );
+  }
 }
 
 Future<void> _finish(

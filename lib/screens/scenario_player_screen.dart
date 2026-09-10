@@ -4,6 +4,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:uuid/uuid.dart';
 
 import '../features/study_library/study_library_models.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -23,6 +24,7 @@ import '../services/course_mission_navigation.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/data_loader.dart';
 import '../services/hanok_stage_service.dart';
+import '../services/local_data_lifetime.dart';
 import '../services/analytics_service.dart';
 import '../services/quest_abandon_tracker.dart';
 import '../services/scenario_loader.dart';
@@ -267,6 +269,7 @@ Future<void> runScenarioResultAction({
 Future<void> recordScenarioFailedQuestSrs({
   required Scenario scenario,
   required Iterable<int> failedQuestIndices,
+  Set<String>? recordedKeys,
 }) async {
   final missedKeys = <String>{};
   for (final index in failedQuestIndices) {
@@ -275,7 +278,17 @@ Future<void> recordScenarioFailedQuestSrs({
     }
   }
   for (final missed in missedKeys) {
-    await Storage.srsReview(missed, gotIt: false, recordToStudyLog: false);
+    if (recordedKeys?.contains(missed) == true) {
+      continue;
+    }
+    final recorded = await Storage.srsReview(
+      missed,
+      gotIt: false,
+      recordToStudyLog: false,
+    );
+    if (recorded) {
+      recordedKeys?.add(missed);
+    }
   }
 }
 
@@ -635,6 +648,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   // konsumiert, um deren Ziel-Vokabeln SRS-mäßig herabzustufen (error-aware
   // review).
   final Set<int> _failedQuestIndices = <int>{};
+  final Set<String> _recordedFailedQuestSrs = <String>{};
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
   final FirstCorrectAttemptGate _firstCorrectGate = FirstCorrectAttemptGate();
   final ScenarioLoadLifecycleGate _loadLifecycle = ScenarioLoadLifecycleGate();
@@ -644,6 +658,8 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   bool _resultPersisted = false;
   ScenarioCanDoResult? _canDoResult;
   ScenarioResultPreparation? _resultPreparation;
+  final String _rewardAttemptId = const Uuid().v4();
+  final LocalDataLifetimeLease _resultLifetime = LocalDataLifetime.capture();
   Object? _loadFailure;
   bool _introAudioPrefetchStarted = false;
 
@@ -1105,6 +1121,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   // ─── Complete (Ergebnis speichern) ─────────────────────────────────────────
 
   Future<ScenarioCanDoResult?> _persistResult(int stars, int earnedXp) async {
+    _resultLifetime.assertCurrent();
     final s = _scenario;
     if (s == null) return null;
     final providedResultPersister = widget.resultPersister;
@@ -1127,22 +1144,30 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       buildResult: (update) => _buildCanDoResult(s, update),
     );
     final canDoResult = await preparation.prepare();
-
-    await Future.wait([
-      Storage.addXp(earnedXp),
-      Storage.setScenarioStars(s.id, stars),
-      Storage.addCompletedScenario(s.id),
-    ]);
+    _resultLifetime.assertCurrent();
+    await Storage.setScenarioStars(s.id, stars);
+    _resultLifetime.assertCurrent();
+    await Storage.addCompletedScenario(s.id);
+    _resultLifetime.assertCurrent();
 
     // Erster Abschluss → Badge
     if (!Storage.earnedBadges.contains('cafe_starter')) {
       await Storage.earnBadge('cafe_starter');
     }
+    _resultLifetime.assertCurrent();
 
     await recordScenarioFailedQuestSrs(
       scenario: s,
       failedQuestIndices: _failedQuestIndices,
+      recordedKeys: _recordedFailedQuestSrs,
     );
+    _resultLifetime.assertCurrent();
+    await Storage.claimScenarioCompletionReward(
+      attemptId: _rewardAttemptId,
+      scenarioId: s.id,
+      earnedXp: earnedXp,
+    );
+    _resultLifetime.assertCurrent();
 
     return canDoResult;
   }

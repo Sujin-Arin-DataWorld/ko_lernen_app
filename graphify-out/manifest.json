@@ -1644,9 +1644,9 @@
     "semantic_hash": ""
   },
   "lib/screens/scenario_player_screen.dart": {
-    "mtime": 1789077729.0346346,
-    "seen": 1789078262.7761834,
-    "ast_hash": "7bef30c69688bf2a17ab0e902a269d56",
+    "mtime": 1789078927.0660388,
+    "seen": 1789080016.8968642,
+    "ast_hash": "597346eba1ac055f50e45292b7d0b9c6",
     "semantic_hash": ""
   },
   "lib/screens/scenarios_list_screen.dart": {
@@ -2586,9 +2586,9 @@
     "semantic_hash": ""
   },
   "lib/services/storage_service.dart": {
-    "mtime": 1789075189.3521721,
-    "seen": 1789075846.9577758,
-    "ast_hash": "6fcd84608302be74f37993283f8c8ac4",
+    "mtime": 1789079656.1351056,
+    "seen": 1789080016.9320762,
+    "ast_hash": "a25747fa099b4e4737955959c8621956",
     "semantic_hash": ""
   },
   "lib/services/stroke_matcher.dart": {
@@ -5424,9 +5424,9 @@
     "semantic_hash": ""
   },
   "test/scenario_srs_persistence_flow_test.dart": {
-    "mtime": 1788987817.9758906,
-    "seen": 1788995056.9192696,
-    "ast_hash": "167b5d787369d18814f9f09fbf923d58",
+    "mtime": 1789079706.9338007,
+    "seen": 1789080017.0655408,
+    "ast_hash": "77bf653ccf4cacedc9474ec368b62328",
     "semantic_hash": ""
   },
   "test/scenario_stage_plan_test.dart": {
@@ -11040,9 +11040,9 @@
     "semantic_hash": ""
   },
   "test/storage_scenario_cache_test.dart": {
-    "mtime": 1788987818.077221,
-    "seen": 1788995056.9196086,
-    "ast_hash": "048363473300ea23d5b51185bb2216e5",
+    "mtime": 1789079656.1505604,
+    "seen": 1789080017.093336,
+    "ast_hash": "907bbdafa7370afed44876a09c308eb9",
     "semantic_hash": ""
   },
   "tool/pad_android12_splash_icon.py": {
@@ -15516,9 +15516,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-09-global-launch-readiness.md": {
-    "mtime": 1789078010.751612,
-    "seen": 1789078263.2653015,
-    "ast_hash": "52e53ec647e26b9f7873f60d5f3eaf5f",
+    "mtime": 1789079819.8829598,
+    "seen": 1789080017.3058913,
+    "ast_hash": "4ad3ffde6848ffea0c662a1063f421a0",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-09-global-launch-readiness-design.md": {
@@ -16008,15 +16008,33 @@
     "semantic_hash": ""
   },
   "test/scenario_completion_recovery_test.dart": {
-    "mtime": 1789077878.1675358,
-    "seen": 1789078262.9784513,
-    "ast_hash": "308e02a493c107cd3c79f45ae157d39d",
+    "mtime": 1789079106.212278,
+    "seen": 1789080017.0626235,
+    "ast_hash": "99a42fd69bc509b8603a18a3182d4824",
     "semantic_hash": ""
   },
   "test/scenario_result_preparation_test.dart": {
     "mtime": 1789077729.047724,
     "seen": 1789078262.9823406,
     "ast_hash": "4ff412853ce43e3c2e3b71d5e0855372",
+    "semantic_hash": ""
+  },
+  "test/scenario_progress_durability_test.dart": {
+    "mtime": 1789079591.9438088,
+    "seen": 1789080017.0644941,
+    "ast_hash": "66b1625252957446c89159c22e788b51",
+    "semantic_hash": ""
+  },
+  "test/scenario_reward_claim_test.dart": {
+    "mtime": 1789079656.1464043,
+    "seen": 1789080017.065337,
+    "ast_hash": "064f6e0c7a84164ff6aae079bda01dd5",
+    "semantic_hash": ""
+  },
+  "test/support/reward_preferences_platform.dart": {
+    "mtime": 1789079591.942788,
+    "seen": 1789080017.0962682,
+    "ast_hash": "d6a24bee66661e9e231fcb920352db5d",
     "semantic_hash": ""
   }
 }

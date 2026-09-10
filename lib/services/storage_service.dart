@@ -55,16 +55,45 @@ class _ListeningRewardClaim {
   Map<String, Object> toJson() => {'xp': earnedXp, 'earnedOn': earnedOn};
 }
 
+class _ScenarioRewardClaim {
+  const _ScenarioRewardClaim({required this.scenarioId, required this.reward});
+
+  final String scenarioId;
+  final _ListeningRewardClaim reward;
+
+  factory _ScenarioRewardClaim.fromJson(Object? value) {
+    if (value is! Map<String, dynamic> ||
+        value['scenarioId'] is! String ||
+        (value['scenarioId'] as String).trim().isEmpty) {
+      throw const FormatException('Scenario reward claim is invalid.');
+    }
+    return _ScenarioRewardClaim(
+      scenarioId: value['scenarioId'] as String,
+      reward: _ListeningRewardClaim.fromJson(value),
+    );
+  }
+
+  Map<String, Object> toJson() => {
+    'scenarioId': scenarioId,
+    ...reward.toJson(),
+  };
+}
+
 /// One durable value is both the listening-claim record and the XP authority.
 /// A crash can therefore never leave "XP written, claim missing" or the
 /// inverse. `kl_xp` remains a best-effort compatibility mirror for old builds.
 class _XpRewardLedger {
-  const _XpRewardLedger({required this.totalXp, required this.claims});
+  const _XpRewardLedger({
+    required this.totalXp,
+    required this.claims,
+    this.scenarioClaims = const {},
+  });
 
   static const int schemaVersion = 1;
 
   final int totalXp;
   final Map<String, _ListeningRewardClaim> claims;
+  final Map<String, _ScenarioRewardClaim> scenarioClaims;
 
   factory _XpRewardLedger.decode(String raw) {
     final value = jsonDecode(raw);
@@ -83,14 +112,30 @@ class _XpRewardLedger {
       }
       claims[entry.key] = _ListeningRewardClaim.fromJson(entry.value);
     }
+    final rawScenarios = value.containsKey('scenarioClaims')
+        ? value['scenarioClaims']
+        : <String, dynamic>{};
+    if (rawScenarios is! Map<String, dynamic>) {
+      throw const FormatException('Scenario reward claims are invalid.');
+    }
+    final scenarios = <String, _ScenarioRewardClaim>{};
+    for (final entry in rawScenarios.entries) {
+      if (entry.key.trim().isEmpty) {
+        throw const FormatException('Scenario attempt ID is empty.');
+      }
+      scenarios[entry.key] = _ScenarioRewardClaim.fromJson(entry.value);
+    }
     return _XpRewardLedger(
       totalXp: value['totalXp'] as int,
       claims: Map.unmodifiable(claims),
+      scenarioClaims: Map.unmodifiable(scenarios),
     );
   }
 
   String encode() {
     final orderedClaims = claims.entries.toList()
+      ..sort((a, b) => a.key.compareTo(b.key));
+    final orderedScenarios = scenarioClaims.entries.toList()
       ..sort((a, b) => a.key.compareTo(b.key));
     return jsonEncode({
       'version': schemaVersion,
@@ -98,15 +143,20 @@ class _XpRewardLedger {
       'listeningClaims': {
         for (final entry in orderedClaims) entry.key: entry.value.toJson(),
       },
+      'scenarioClaims': {
+        for (final entry in orderedScenarios) entry.key: entry.value.toJson(),
+      },
     });
   }
 
   _XpRewardLedger copyWith({
     int? totalXp,
     Map<String, _ListeningRewardClaim>? claims,
+    Map<String, _ScenarioRewardClaim>? scenarioClaims,
   }) => _XpRewardLedger(
     totalXp: totalXp ?? this.totalXp,
     claims: Map.unmodifiable(claims ?? this.claims),
+    scenarioClaims: Map.unmodifiable(scenarioClaims ?? this.scenarioClaims),
   );
 }
 
@@ -572,6 +622,12 @@ class Storage {
   static Future<void> _consentedFirstLearningActionClaimMutation =
       Future<void>.value();
   static int _xpRewardMutationCount = 0;
+  static int _xpRewardMutationGeneration = 0;
+  static int _rewardResetCount = 0;
+  static bool _xpRewardWritePending = false;
+  static _XpRewardLedger? _confirmedXpRewardLedger;
+  static final Map<String, List<String>> _confirmedRewardLists = {};
+  static final Set<String> _pendingRewardListKeys = {};
   static int _srsReviewMutationCount = 0;
   static int _srsReviewMutationGeneration = 0;
   // `resetForTesting()` remains synchronous for its many callers, but a new
@@ -618,6 +674,9 @@ class Storage {
         ),
       );
     }
+    if (_xpRewardMutationCount > 0) {
+      drains.add(_xpRewardMutation);
+    }
     if (drains.isEmpty) {
       // Do not carry even a completed Future into the next widget-test
       // fake-async zone. With no old SRS work, init must enter the new
@@ -653,6 +712,12 @@ class Storage {
     _srsReviewMutation = Future<void>.value();
     _consentedFirstLearningActionClaimMutation = Future<void>.value();
     _xpRewardMutationCount = 0;
+    _xpRewardMutationGeneration++;
+    _rewardResetCount = 0;
+    _xpRewardWritePending = false;
+    _confirmedXpRewardLedger = null;
+    _confirmedRewardLists.clear();
+    _pendingRewardListKeys.clear();
     _srsReviewMutationCount = 0;
     _srsReviewMutationGeneration++;
     _pendingListeningRewardClaims.clear();
@@ -673,6 +738,8 @@ class Storage {
   /// 마이그레이션 롤백처럼 저장소를 밖에서 되돌린 경우에 쓴다. [resetForTesting]
   /// 과 달리 `_prefs` 핸들은 유지하므로 재초기화가 필요 없다.
   static void resetCachesAfterExternalWrite() {
+    _confirmedXpRewardLedger = null;
+    _confirmedRewardLists.clear();
     _invalidateSrsCache();
     _invalidatePackCache();
     _courseMasteryCache = null;
@@ -691,6 +758,10 @@ class Storage {
   static Future<void> _ss(String k, String v) async => _prefs?.setString(k, v);
 
   static Future<T> _enqueueXpRewardMutation<T>(Future<T> Function() mutation) {
+    if (_rewardResetCount > 0) {
+      return Future<T>.error(const StaleLocalDataLifetimeException());
+    }
+    final generation = _xpRewardMutationGeneration;
     // SharedPreferences updates its in-memory cache when a setter is invoked,
     // before its returned Future completes. Existing game screens rely on that
     // visibility because several legacy XP calls are intentionally
@@ -714,8 +785,16 @@ class Storage {
       onError: (Object _, StackTrace __) {},
     );
     result.then<void>(
-      (_) => _xpRewardMutationCount--,
-      onError: (Object _, StackTrace __) => _xpRewardMutationCount--,
+      (_) {
+        if (generation == _xpRewardMutationGeneration) {
+          _xpRewardMutationCount--;
+        }
+      },
+      onError: (Object _, StackTrace __) {
+        if (generation == _xpRewardMutationGeneration) {
+          _xpRewardMutationCount--;
+        }
+      },
     );
     return result;
   }
@@ -768,12 +847,24 @@ class Storage {
   }
 
   static _XpRewardLedger? _readXpRewardLedger({required bool strict}) {
+    if (_xpRewardWritePending ||
+        _unknownStrictKeys.contains(listeningRewardLedgerPreferenceKey)) {
+      if (strict) {
+        throw const PreferenceOutcomeUnknownException(
+          listeningRewardLedgerPreferenceKey,
+        );
+      }
+      return _confirmedXpRewardLedger;
+    }
     final raw = _s(listeningRewardLedgerPreferenceKey);
     if (raw.isEmpty) {
+      _confirmedXpRewardLedger = null;
       return null;
     }
     try {
-      return _XpRewardLedger.decode(raw);
+      final ledger = _XpRewardLedger.decode(raw);
+      _confirmedXpRewardLedger = ledger;
+      return ledger;
     } on Object catch (error) {
       if (strict) {
         throw PreferenceWriteException(
@@ -793,19 +884,34 @@ class Storage {
   }
 
   static Future<void> _persistXpRewardLedger(_XpRewardLedger ledger) async {
-    await _ssStrict(listeningRewardLedgerPreferenceKey, ledger.encode());
-    // The ledger above is the commit point. This mirror is only for an older
-    // app build that does not understand the ledger yet.
+    _readXpRewardLedger(strict: true);
+    _xpRewardWritePending = true;
     try {
-      await _si('kl_xp', ledger.totalXp);
-    } on Object catch (error) {
-      debugPrint('Storage: XP compatibility mirror failed: $error');
+      await _ssStrict(listeningRewardLedgerPreferenceKey, ledger.encode());
+      _confirmedXpRewardLedger = ledger;
+      // The ledger is the commit point; this older-build mirror is auxiliary.
+      try {
+        await _si('kl_xp', ledger.totalXp);
+      } on Object catch (error) {
+        debugPrint('Storage: XP compatibility mirror failed: $error');
+      }
+    } finally {
+      _xpRewardWritePending = false;
+    }
+  }
+
+  static Future<void> _recoverUnknownXpRewardState() async {
+    if (_unknownStrictKeys.contains(listeningRewardLedgerPreferenceKey)) {
+      await _refreshUnknownStringKeys(_stringStore(), [
+        listeningRewardLedgerPreferenceKey,
+      ]);
     }
   }
 
   static Future<void> _mirrorListeningCompletion(String id) async {
     try {
-      await addCompletedScenario(id);
+      // The listening claim already owns the reward mutation queue.
+      await _writeRewardListEntry('kl_completed_scenarios', id);
     } on Object catch (error) {
       // The canonical ledger claim still makes completedScenarios contain the
       // ID. A later completion can repair this old-format mirror.
@@ -3619,6 +3725,9 @@ class Storage {
       throw ArgumentError.value(value, 'value', 'XP cannot be negative.');
     }
     return _enqueueXpRewardMutation(() async {
+      if (_unknownStrictKeys.contains(listeningRewardLedgerPreferenceKey)) {
+        await _recoverUnknownXpRewardState();
+      }
       final ledger = _readXpRewardLedger(strict: true);
       if (ledger == null) {
         await _si('kl_xp', value);
@@ -3630,6 +3739,9 @@ class Storage {
 
   static Future<void> addXp(int amount) {
     return _enqueueXpRewardMutation(() async {
+      if (_unknownStrictKeys.contains(listeningRewardLedgerPreferenceKey)) {
+        await _recoverUnknownXpRewardState();
+      }
       final ledger = _readXpRewardLedger(strict: true);
       if (ledger == null) {
         final updated = _i('kl_xp') + amount;
@@ -3678,6 +3790,14 @@ class Storage {
 
     _pendingListeningRewardClaims.add(id);
     final result = _enqueueXpRewardMutation(() async {
+      await _recoverUnknownXpRewardState();
+      if (_unknownStrictKeys.contains('kl_completed_scenarios')) {
+        await _prepareStringListMutation(
+          _SharedPreferenceStringListStore(_prefs!),
+          'kl_completed_scenarios',
+        );
+        _completedScenariosCache = null;
+      }
       final persistedCompleted = _l('kl_completed_scenarios');
       if (persistedCompleted.contains(id)) {
         return ListeningRewardClaimResult.alreadyClaimed;
@@ -3718,6 +3838,54 @@ class Storage {
     });
   }
 
+  /// A single durable value couples one scenario attempt's reward and XP.
+  /// Retrying the same attempt cannot pay twice, even after a lost native reply.
+  /// A genuine replay uses a new attempt ID and retains the existing XP policy.
+  static Future<void> claimScenarioCompletionReward({
+    required String attemptId,
+    required String scenarioId,
+    required int earnedXp,
+    DateTime? now,
+  }) {
+    if (attemptId.trim().isEmpty || scenarioId.trim().isEmpty || earnedXp < 0) {
+      throw ArgumentError(
+        'A scenario reward needs valid IDs and non-negative XP.',
+      );
+    }
+    if (earnedXp == 0) {
+      return Future<void>.value();
+    }
+    return _enqueueXpRewardMutation(() async {
+      await _recoverUnknownXpRewardState();
+      final current =
+          _readXpRewardLedger(strict: true) ??
+          _XpRewardLedger(totalXp: _i('kl_xp'), claims: const {});
+      final existing = current.scenarioClaims[attemptId];
+      if (existing != null) {
+        if (existing.scenarioId != scenarioId ||
+            existing.reward.earnedXp != earnedXp) {
+          throw ArgumentError('A scenario attempt cannot change its reward.');
+        }
+        return;
+      }
+      final claims =
+          Map<String, _ScenarioRewardClaim>.from(current.scenarioClaims)
+            ..[attemptId] = _ScenarioRewardClaim(
+              scenarioId: scenarioId,
+              reward: _ListeningRewardClaim(
+                earnedXp: earnedXp,
+                earnedOn: _isoOf(now ?? DateTime.now()),
+              ),
+            );
+      await _persistXpRewardLedger(
+        current.copyWith(
+          totalXp: _effectiveXpTotal(current) + earnedXp,
+          scenarioClaims: claims,
+        ),
+      );
+    });
+  }
+
   // ───────── Tagesziel (일일 목표 진행 — 리텐션 모멘텀) ─────────
   /// 오늘 획득한 XP(자정 리셋). 저장 날짜가 오늘이 아니면 0.
   static int get xpToday {
@@ -3727,10 +3895,14 @@ class Storage {
       _i('kl_xp_today_raw'),
       today,
     );
-    final listeningXp = _readXpRewardLedger(strict: false)?.claims.values
+    final ledger = _readXpRewardLedger(strict: false);
+    final listeningXp = ledger?.claims.values
         .where((claim) => claim.earnedOn == today)
         .fold<int>(0, (total, claim) => total + claim.earnedXp);
-    return ordinaryXp + (listeningXp ?? 0);
+    final scenarioXp = ledger?.scenarioClaims.values
+        .where((claim) => claim.reward.earnedOn == today)
+        .fold<int>(0, (total, claim) => total + claim.reward.earnedXp);
+    return ordinaryXp + (listeningXp ?? 0) + (scenarioXp ?? 0);
   }
 
   /// 순수 함수(테스트 대상) — 저장 날짜가 오늘이면 raw, 아니면 0(자정 리셋).
@@ -3830,6 +4002,9 @@ class Storage {
     if (cached != null) {
       return cached;
     }
+    if (_unknownStrictKeys.contains('kl_scenario_stars')) {
+      return const {};
+    }
     final raw = _s('kl_scenario_stars');
     Map<String, int> parsed;
     if (raw.isEmpty) {
@@ -3847,17 +4022,36 @@ class Storage {
     return unmodifiable;
   }
 
-  static Future<void> setScenarioStars(String id, int stars) async {
-    final current = scenarioStars;
-    final alreadyRecorded = current.containsKey(id);
-    // 0성 최초 완료도 반드시 기록돼야 한다 — 완료 여부(=키 존재) 자체가
-    // 코스 체크포인트 "0/2→1/2" 판정의 입력이다(지시서 4.15). 이후 재도전은
-    // 여전히 단조 증가만 허용(더 낮은 점수로 덮어쓰지 않음).
-    if (!alreadyRecorded || (current[id] ?? 0) < stars) {
-      final updated = Map<String, int>.of(current)..[id] = stars;
-      _scenarioStarsCache = Map<String, int>.unmodifiable(updated);
-      await _ss('kl_scenario_stars', jsonEncode(updated));
+  static Future<void> setScenarioStars(String id, int stars) {
+    if (id.trim().isEmpty || stars < 0 || stars > 3) {
+      throw ArgumentError(
+        'Scenario stars need an ID and a value from zero to three.',
+      );
     }
+    return _enqueueXpRewardMutation(() async {
+      const key = 'kl_scenario_stars';
+      final store = _stringStore();
+      await _refreshUnknownStringKeys(store, [key]);
+      final before = await _prepareStringMutation(store, key);
+      final raw = before.value ?? '';
+      final current = raw.isEmpty
+          ? <String, int>{}
+          : (jsonDecode(raw) as Map<String, dynamic>).map(
+              (key, value) => MapEntry(key, (value as num).toInt()),
+            );
+      _scenarioStarsCache = Map.unmodifiable(current);
+      // Zero-star completion remains recorded; replays can only improve it.
+      if (!current.containsKey(id) || current[id]! < stars) {
+        final updated = Map<String, int>.of(current)..[id] = stars;
+        await _ssStrict(
+          key,
+          jsonEncode(updated),
+          preferences: store,
+          beforeState: before,
+        );
+        _scenarioStarsCache = Map.unmodifiable(updated);
+      }
+    });
   }
 
   /// §W2-Task4: `completedScenarios` 는 로컬 리스트 + XP 보상 원장의 클레임
@@ -3873,7 +4067,7 @@ class Storage {
     if (cached != null) {
       return cached;
     }
-    final completed = _l('kl_completed_scenarios');
+    final completed = List<String>.of(_rewardList('kl_completed_scenarios'));
     // XP claims are permanent financial/reward history. After a scenario
     // corpus migration they must not resurrect old completion progress.
     if (scenarioCorpusGeneration != ScenarioCorpusGeneration.legacy) {
@@ -3892,12 +4086,40 @@ class Storage {
     return unmodifiable;
   }
 
-  static Future<void> addCompletedScenario(String id) async {
-    final list = _l('kl_completed_scenarios');
-    if (!list.contains(id)) {
-      list.add(id);
-      await _sl('kl_completed_scenarios', list);
-      _completedScenariosCache = null;
+  static Future<void> addCompletedScenario(String id) =>
+      _enqueueXpRewardMutation(
+        () => _writeRewardListEntry('kl_completed_scenarios', id),
+      );
+
+  static List<String> _rewardList(String key) =>
+      _unknownStrictKeys.contains(key) || _pendingRewardListKeys.contains(key)
+      ? (_confirmedRewardLists[key] ?? const [])
+      : _l(key);
+
+  static Future<void> _writeRewardListEntry(String key, String id) async {
+    if (id.trim().isEmpty) {
+      throw ArgumentError.value(id, 'id', 'Reward ID is empty.');
+    }
+    final prefs = _prefs;
+    if (prefs == null) {
+      throw PreferenceWriteException(key);
+    }
+    final store = _SharedPreferenceStringListStore(prefs);
+    final before = await _prepareStringListMutation(store, key);
+    final current = List<String>.of(before.value ?? const []);
+    _confirmedRewardLists[key] = List.unmodifiable(current);
+    _pendingRewardListKeys.add(key);
+    try {
+      if (!current.contains(id)) {
+        final updated = [...current, id];
+        await _slStrict(key, updated, preferences: store, beforeState: before);
+        _confirmedRewardLists[key] = List.unmodifiable(updated);
+      }
+    } finally {
+      _pendingRewardListKeys.remove(key);
+      if (key == 'kl_completed_scenarios') {
+        _completedScenariosCache = null;
+      }
     }
   }
 
@@ -3940,14 +4162,11 @@ class Storage {
     return true;
   }
 
-  static List<String> get earnedBadges => _l('kl_earned_badges');
-  static Future<void> earnBadge(String id) async {
-    final list = earnedBadges;
-    if (!list.contains(id)) {
-      list.add(id);
-      await _sl('kl_earned_badges', list);
-    }
-  }
+  static List<String> get earnedBadges =>
+      List.unmodifiable(_rewardList('kl_earned_badges'));
+  static Future<void> earnBadge(String id) => _enqueueXpRewardMutation(
+    () => _writeRewardListEntry('kl_earned_badges', id),
+  );
 
   // ── Phase 2 (stately-rising-jongga) ── Pack-Fortschritt (lokal) ──────
   //
@@ -4594,26 +4813,28 @@ class Storage {
         preferences ??
         (_prefs == null ? null : _SharedPreferenceRemovalStore(_prefs!));
     if (store == null) return;
-    await _assertDurableAccountResetAllowed(
-      store,
-      allowJournalPreservingReset: true,
-    );
-    // Invalidate admitted remote restores before the first deletion. A late
-    // remote response must belong to the old data lifetime and fail closed.
-    LocalDataLifetime.invalidate();
-    try {
-      final keys = store.getKeys();
-      for (final k in keys) {
-        if (k.startsWith('kl_') &&
-            !_durableAccountJournalPreferenceKeys.contains(k)) {
-          await store.remove(k);
+    await _withRewardReset(() async {
+      // Reload after admitted native writes settle, so their new keys remain
+      // visible to deletion even if they were absent before their reply.
+      await _assertDurableAccountResetAllowed(
+        store,
+        allowJournalPreservingReset: true,
+      );
+      LocalDataLifetime.invalidate();
+      try {
+        final keys = store.getKeys();
+        for (final k in keys) {
+          if (k.startsWith('kl_') &&
+              !_durableAccountJournalPreferenceKeys.contains(k)) {
+            await store.remove(k);
+          }
         }
+      } finally {
+        // Account/local deletion must never leave a removed course graph or
+        // wrong-answer history reachable through optimistic in-memory mirrors.
+        resetCachesAfterExternalWrite();
       }
-    } finally {
-      // Account/local deletion must never leave a removed course graph or
-      // wrong-answer history reachable through optimistic in-memory mirrors.
-      resetCachesAfterExternalWrite();
-    }
+    });
   }
 
   /// Account-deletion reset that verifies every app-owned preference removal.
@@ -4627,81 +4848,100 @@ class Storage {
     canonicalizeAccountDeletionCheckpoint,
   }) async {
     final store = preferences ?? _preferenceRemovalStore();
-    await _assertDurableAccountResetAllowed(
-      store,
-      allowAccountDeletionCheckpoint:
-          canonicalizeAccountDeletionCheckpoint != null,
-    );
-    // This is deliberately synchronous and precedes checkpoint
-    // canonicalization as well as preference removal. Even a partially
-    // failing strict reset must never leave an old restore lease writable.
-    LocalDataLifetime.invalidate();
-    final failedKeys = <String>[];
-    final causes = <Object>[];
-    final canonicalCheckpointKeys = <String>[];
-    if (canonicalizeAccountDeletionCheckpoint case final canonicalize?) {
-      canonicalCheckpointKeys.addAll(
-        <String>[
-          accountDeletionCheckpointPreferenceKey,
-          accountDeletionFeedbackActivationCheckpointPreferenceKey,
-        ].where(store.containsKey),
+    await _withRewardReset(() async {
+      await _assertDurableAccountResetAllowed(
+        store,
+        allowAccountDeletionCheckpoint:
+            canonicalizeAccountDeletionCheckpoint != null,
       );
-      if (canonicalCheckpointKeys.isEmpty) {
-        throw const FormatException('Missing account deletion checkpoint.');
-      }
-      for (final checkpointKey in canonicalCheckpointKeys) {
-        String canonicalCheckpoint;
-        try {
-          final raw = store.getValue(checkpointKey);
-          if (raw is! String || raw.isEmpty) {
-            throw const FormatException('Missing account deletion checkpoint.');
-          }
-          canonicalCheckpoint = canonicalize(raw);
-          if (canonicalCheckpoint.isEmpty) {
-            throw const FormatException('Empty account deletion checkpoint.');
-          }
-        } catch (error, stackTrace) {
+      // Invalidate before checkpoint canonicalization and preference removal.
+      LocalDataLifetime.invalidate();
+      final failedKeys = <String>[];
+      final causes = <Object>[];
+      final canonicalCheckpointKeys = <String>[];
+      if (canonicalizeAccountDeletionCheckpoint case final canonicalize?) {
+        canonicalCheckpointKeys.addAll(
+          <String>[
+            accountDeletionCheckpointPreferenceKey,
+            accountDeletionFeedbackActivationCheckpointPreferenceKey,
+          ].where(store.containsKey),
+        );
+        if (canonicalCheckpointKeys.isEmpty) {
+          throw const FormatException('Missing account deletion checkpoint.');
+        }
+        for (final checkpointKey in canonicalCheckpointKeys) {
+          String canonicalCheckpoint;
           try {
-            await _removeValueStrict(store, checkpointKey);
-          } catch (removalError) {
-            throw PreferenceResetException(
-              failedKeys: <String>[checkpointKey],
-              causes: <Object>[error, removalError],
-            );
+            final raw = store.getValue(checkpointKey);
+            if (raw is! String || raw.isEmpty) {
+              throw const FormatException(
+                'Missing account deletion checkpoint.',
+              );
+            }
+            canonicalCheckpoint = canonicalize(raw);
+            if (canonicalCheckpoint.isEmpty) {
+              throw const FormatException('Empty account deletion checkpoint.');
+            }
+          } catch (error, stackTrace) {
+            try {
+              await _removeValueStrict(store, checkpointKey);
+            } catch (removalError) {
+              throw PreferenceResetException(
+                failedKeys: <String>[checkpointKey],
+                causes: <Object>[error, removalError],
+              );
+            }
+            Error.throwWithStackTrace(error, stackTrace);
           }
-          Error.throwWithStackTrace(error, stackTrace);
+          await _writeValueStrict(store, checkpointKey, canonicalCheckpoint);
         }
-        await _writeValueStrict(store, checkpointKey, canonicalCheckpoint);
       }
-    }
-    final keys =
-        {...store.getKeys(), ..._unknownStrictKeys}
-            .where(
-              (key) =>
-                  key.startsWith('kl_') &&
-                  !_durableAccountJournalPreferenceKeys.contains(key),
-            )
-            .toList()
-          ..sort();
+      final keys =
+          {...store.getKeys(), ..._unknownStrictKeys}
+              .where(
+                (key) =>
+                    key.startsWith('kl_') &&
+                    !_durableAccountJournalPreferenceKeys.contains(key),
+              )
+              .toList()
+            ..sort();
 
+      try {
+        for (final key in keys) {
+          try {
+            await _removeValueStrict(store, key);
+          } catch (error) {
+            failedKeys.add(key);
+            causes.add(error);
+          }
+        }
+      } finally {
+        resetCachesAfterExternalWrite();
+      }
+
+      if (failedKeys.isNotEmpty) {
+        throw PreferenceResetException(
+          failedKeys: List.unmodifiable(failedKeys),
+          causes: List.unmodifiable(causes),
+        );
+      }
+    });
+  }
+
+  /// Drain admitted reward writes before deletion and reject new admissions.
+  /// This prevents a delayed native completion from restoring erased progress.
+  static Future<void> _withRewardReset(Future<void> Function() reset) async {
+    final generation = _xpRewardMutationGeneration;
+    _rewardResetCount++;
     try {
-      for (final key in keys) {
-        try {
-          await _removeValueStrict(store, key);
-        } catch (error) {
-          failedKeys.add(key);
-          causes.add(error);
-        }
+      if (_xpRewardMutationCount > 0) {
+        await _xpRewardMutation;
       }
+      await reset();
     } finally {
-      resetCachesAfterExternalWrite();
-    }
-
-    if (failedKeys.isNotEmpty) {
-      throw PreferenceResetException(
-        failedKeys: List.unmodifiable(failedKeys),
-        causes: List.unmodifiable(causes),
-      );
+      if (generation == _xpRewardMutationGeneration) {
+        _rewardResetCount--;
+      }
     }
   }
 

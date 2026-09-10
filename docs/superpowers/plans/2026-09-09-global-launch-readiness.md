@@ -1190,3 +1190,55 @@ clean-worktree proof are recorded externally in
 scenario-completion-recovery-20260910/verification.json after the commit.
 No push, remote CI, release build, upload, paid call or device retry.
 Remaining reward-write durability and signed-device/operational gates stay open.
+
+### Task 27: Recover rejected and unknown scenario reward writes
+
+**Baseline:** `57c7f120650af371188fda13a4bccdfb795204c8` in the isolated
+worktree. Native preferences can reject a write after the plugin updates its
+optimistic cache. Baseline tests reproduced stars, completion and badges
+returning success despite native rejection.
+
+- [x] Preserve baseline source, assets and paid Graphify records and reproduce
+  native rejection through the real preferences platform boundary.
+- [x] Serialize and strictly confirm stars, completed-scenario and badge writes.
+  Add an optional scenario-attempt receipt map to the existing XP ledger so
+  retrying the same result pays once. Preserve genuine replay rewards, zero XP,
+  older ledger compatibility, listening claims and daily XP accounting.
+- [x] Keep unknown writes unpublished until reload confirms their outcome.
+  Fence reset against admitted and newly arriving reward writes. Reuse the
+  player attempt identity on retry, check local-data lifetime between stages,
+  and avoid repeating successful failed-quest SRS updates within that attempt.
+- [x] Verify rejected/unknown outcomes, concurrency, reset and real-player retry;
+  run related storage, deletion, migration, scenario and course regression tests,
+  changed Dart analysis and independent Standards and Spec reviews.
+- [x] Finish free Graphify update/prune and an authorized local commit, verify
+  parent/tree and preservation, and update the existing local readiness artifact.
+  No push, remote CI, build, upload, paid call, secret operation or device retry.
+
+**Limits:** This is sequential recovery, not whole-result atomicity. Scenario
+attempt IDs live with the player; process-death resumption is not introduced.
+Existing best-effort SRS false/unknown outcomes and ordinary addXp daily-counter
+atomicity remain separate audit work. Learning stays free and cloud scoring off.
+
+**Ownership:** Root owns storage_service.dart, scenario_player_screen.dart,
+five regression tests, the test preferences platform and this plan.
+Reviewers read frozen source only. Evidence: scenario-reward-durability-20260911/.
+
+**Task 27 local verification (2026-09-11):** Native rejection initially
+returned success for stars, completed scenarios and badges (three failures).
+Review regressions reproduced pending list publication, delayed successful
+writes surviving reset, and unknown completion suppressing listening reward
+(five failures). All were fixed. The first broad run also caught two cache
+tests resetting Storage without reinitializing it; their setup was corrected.
+Initial evidence remains in revision1/ and review-regressions-red.log.
+
+Final scoped verification passed 803 Flutter tests
+in 86 files; 8 changed
+Dart files analyzed without issues. Both independent review axes approved the
+frozen files. All 2,473 frozen source files, 1014
+assets and 1,095 paid Graphify records were checked.
+Free Graphify update/prune completed. Exact commit/parent/tree and clean-state
+proof are external in scenario-reward-durability-20260911/verification.json.
+No push, remote CI, build, upload, paid call or device retry. Best-effort SRS
+unknown outcomes, ordinary XP daily-counter atomicity and signed-device and
+operational launch gates remain open.

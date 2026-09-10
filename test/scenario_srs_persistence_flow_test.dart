@@ -91,6 +91,32 @@ void main() {
     view.resetDevicePixelRatio();
   });
 
+  test(
+    'retry remembers successful failed-quest SRS within an attempt',
+    () async {
+      final recorded = <String>{};
+      await recordScenarioFailedQuestSrs(
+        scenario: _scenario,
+        failedQuestIndices: [0],
+        recordedKeys: recorded,
+      );
+      final firstCount = Storage.srsCard(_failedTarget)!.reviewCount;
+      expect(recorded, contains(_failedTarget));
+      await recordScenarioFailedQuestSrs(
+        scenario: _scenario,
+        failedQuestIndices: [0],
+        recordedKeys: recorded,
+      );
+      expect(Storage.srsCard(_failedTarget)!.reviewCount, firstCount);
+      await recordScenarioFailedQuestSrs(
+        scenario: _scenario,
+        failedQuestIndices: [0],
+        recordedKeys: <String>{},
+      );
+      expect(Storage.srsCard(_failedTarget)!.reviewCount, firstCount + 1);
+    },
+  );
+
   testWidgets(
     'completion only records negative SRS for the failed direct quest target',
     (tester) async {
