@@ -8,7 +8,23 @@ const { cacheKey } = require("./tts_contract");
 
 const AUDIO = Buffer.concat([Buffer.from("ID3"), Buffer.alloc(80, 7)]);
 const PERSONAL = "개인용 비공개 예문 7193";
-function harness({ duringSynthesis, duringSave, duringMetadata, duringAccountRead } = {}) {
+
+function assertSafeDiagnostic(logs, stage, code) {
+  assert.equal(logs.length, 1);
+  assert.equal(logs[0].length, 2);
+  assert.equal(logs[0][0], "synthesize_tts error");
+  assert.equal(logs[0][1].stage, stage);
+  assert.equal(logs[0][1].code, code);
+  assert.deepEqual(Object.keys(logs[0][1]).sort(), ["code", "stage"]);
+}
+
+function harness({
+  duringSynthesis,
+  duringSave,
+  duringMetadata,
+  duringAccountRead,
+  duringStorageRead,
+} = {}) {
   const documents = new Map([["service_cost_controls/ai_v1", {
     schemaVersion: 1, approvedBy: "Jin", approvalRef: "local-test-only", approvedAt: new Date(0),
     dailyUnitLimit: 10000, bookReservationUnits: 10, pronunciationReservationUnits: 2, ttsReservationUnits: 3,
@@ -40,7 +56,10 @@ function harness({ duringSynthesis, duringSave, duringMetadata, duringAccountRea
       return pending;
     } };
   const bucket = { file: (p) => ({
-    exists: async () => [objects.has(p)],
+    exists: async () => {
+      if (duringStorageRead) await duringStorageRead({ documents, objects });
+      return [objects.has(p)];
+    },
     getMetadata: async () => {
       if (duringMetadata) await duringMetadata({ documents, objects });
       return [objects.get(p)?.metadata || {}];
@@ -188,7 +207,69 @@ test("uncertain TTS retains cost reservation and cannot retry past whole service
   await assert.rejects(h.invoke());
   await assert.rejects(h.invoke(), {code: "resource-exhausted"});
   assert.equal(h.syntheses(), 1);
-  assert.deepEqual(h.logs, [["synthesize_tts error", "internal"]]);
+  assertSafeDiagnostic(h.logs, "provider", "internal");
+});
+
+test("unexpected provider failure logs only its fixed stage and allowlisted code", async () => {
+  const h = harness({duringSynthesis: async () => {
+    throw Object.assign(new Error("PRIVATE_CANARY_7193"), {code: 7});
+  }});
+
+  await assert.rejects(h.invoke(), {code: "internal"});
+
+  const serialized = JSON.stringify(h.logs);
+  assert.equal(serialized.includes("PRIVATE_CANARY_7193"), false);
+  assert.equal(serialized.includes(PERSONAL), false);
+  assertSafeDiagnostic(h.logs, "provider", "permission-denied");
+});
+
+test("unexpected account, cache-read, and cache-save failures have distinct safe stages", async () => {
+  const account = harness({duringAccountRead: async () => {
+    throw Object.assign(new Error("ACCOUNT_PRIVATE_CANARY"), {code: 14});
+  }});
+  await assert.rejects(account.invoke(), {code: "internal"});
+  assertSafeDiagnostic(account.logs, "account", "unavailable");
+
+  const cacheRead = harness({duringStorageRead: async () => {
+    throw Object.assign(new Error("CACHE_READ_PRIVATE_CANARY"), {code: 13});
+  }});
+  await assert.rejects(cacheRead.invoke(), {code: "internal"});
+  assertSafeDiagnostic(cacheRead.logs, "cache_read", "internal");
+
+  const cacheMetadata = harness({duringMetadata: async () => {
+    throw Object.assign(new Error("CACHE_METADATA_PRIVATE_CANARY"), {code: 14});
+  }});
+  await assert.rejects(cacheMetadata.invoke(), {code: "internal"});
+  assertSafeDiagnostic(cacheMetadata.logs, "cache_read", "unavailable");
+
+  const cacheSave = harness({duringSave: async () => {
+    throw Object.assign(new Error("CACHE_SAVE_PRIVATE_CANARY"), {code: 8});
+  }});
+  await assert.rejects(cacheSave.invoke(), {code: "internal"});
+  assertSafeDiagnostic(cacheSave.logs, "cache_save", "resource-exhausted");
+
+  const serialized = JSON.stringify([
+    account.logs,
+    cacheRead.logs,
+    cacheMetadata.logs,
+    cacheSave.logs,
+  ]);
+  assert.equal(serialized.includes("PRIVATE_CANARY"), false);
+  assert.equal(serialized.includes(PERSONAL), false);
+});
+
+test("success and expected callable errors do not emit unexpected-error diagnostics", async () => {
+  const success = harness();
+  await success.invoke();
+  assert.deepEqual(success.logs, []);
+
+  const expected = harness();
+  expected.documents.get("service_cost_controls/ai_v1").dailyUnitLimit = 0;
+  await assert.rejects(expected.invoke(), {code: "resource-exhausted"});
+  assert.equal(
+    expected.logs.some(([message]) => message === "synthesize_tts error"),
+    false,
+  );
 });
 
 test("TTS cached private response remains available while service spending is paused", async () => {

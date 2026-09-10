@@ -27,31 +27,56 @@ fails the job, so the Play upload step never runs on unverified symbols.
   Crashlytics admin/write on this project), scoped to the `google-play-internal`
   environment. Do not reuse the Play upload service account.
 
-## Harvest procedure (one-time, fills the sha256 placeholders)
+## Verified tool pins
 
-1. `tool/android_release_tools.json` already pins the `version`/`url` for
-   bundletool and firebase-tools (real values) and for java/node (choose the
-   exact versions to install). Every `sha256` starts as
-   `"<fill from harvest step>"`.
-2. With the gate variable still unset, run `play_closed.yml` once (or a
-   manual dry run of just the setup steps). The always-on "Symbol evidence
-   gate status" step prints the gate state and, if disabled, the SHA-256 of
-   the runner's already-installed `java` and `node` binaries — this never
-   downloads anything.
-3. Separately obtain the SHA-256 of `bundletool-all-<version>.jar` (from the
-   GitHub release's published checksum, not a fresh download you trust) and
-   of `firebase-tools@<version>`'s `lib/bin/firebase.js` (from the npm
-   package's published integrity metadata).
-4. Fill all four `sha256` fields in `tool/android_release_tools.json` with
-   the verified values, commit, and run `tool/test_android_release_tools_config.py`
-   locally to confirm the schema (still requires every non-sha256 field to be
-   a real value).
+`tool/android_release_tools.json` contains verified executable SHA-256 values
+for the four pinned versions. The public verification chain is recorded in
+`docs/runbooks/android-release-tools-provenance.json`: exact publisher artifact
+URL, publisher digest metadata, archive SHA-256 or npm integrity, exact archive
+member, platform, and the executable SHA-256 consumed by the gate.
+
+Java and Node hashes are for the **Linux x64** binaries installed by the gated
+`setup-java` and `setup-node` steps. They are not hashes of a Windows developer
+runtime. The disabled gate's status step reports the runner's preinstalled
+`java` and `node` only as harvest diagnostics. A baseline runner may contain a
+different Node version, so its hash cannot be reused for pinned Node 24.20.0.
+Binary hashes also vary by version, platform, architecture, and publisher
+packaging even when the command name is the same.
+
+## Refreshing a pin
+
+1. Keep `ANDROID_SYMBOL_EVIDENCE_GATE` disabled while choosing the new exact
+   tool version. Do not copy a baseline runner hash into the pin.
+2. Obtain the artifact from the exact publisher URL and verify its archive
+   SHA-256 against independent publisher metadata. For an npm package, verify
+   the tarball against the version metadata's `dist.integrity` value.
+3. Extract the exact member used by CI and compute its SHA-256. For bundletool,
+   the downloaded JAR is itself the verified executable artifact.
+4. Update both `tool/android_release_tools.json` and
+   `docs/runbooks/android-release-tools-provenance.json`, then run:
+
+   ```text
+   python -m unittest tool.test_release_integrity tool.test_android_release_evidence tool.test_android_release_tools_config
+   ```
+
+5. Review the publisher URLs, versions, archive verification, member names,
+   platforms, and executable hashes before enabling a release candidate.
 
 ## Enabling and rolling back
 
-- Enable: after both secrets/variables above exist and the harvest is
-  complete, set the `ANDROID_SYMBOL_EVIDENCE_GATE` variable to `true`.
+- Enable only after `FIREBASE_SYMBOLS_SA_JSON` is provisioned as a dedicated
+  symbol-upload credential, `FIREBASE_ANDROID_APP_ID` is set, the verified
+  pins above are complete, and `ANDROID_SYMBOL_EVIDENCE_GATE` is set to `true`.
+  Activation is complete only when an enabled CI run for the exact source SHA
+  verifies the pinned tools and the upload/verification receipt before Play
+  upload.
 - Roll back: set `ANDROID_SYMBOL_EVIDENCE_GATE` back to `false` (or delete
   it). The gated steps are skipped again and the release path returns to
   exactly its current, unverified-by-this-gate behavior. No code revert
   needed.
+
+Repository and environment metadata checks did not expose the required app ID,
+gate variable, or symbol-only credential. No setting was created or changed.
+That metadata result does not prove that any actual Crashlytics symbol upload
+failed; it only means there is no enabled, exact-SHA gate evidence yet. This
+configuration and documentation update does not activate the gate.

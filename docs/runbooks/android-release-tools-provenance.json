@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "scope": "Android Crashlytics symbol-evidence gate release tools",
+  "tools": {
+    "bundletool": {
+      "version": "1.18.3",
+      "platform": "java-jar",
+      "publisher_url": "https://github.com/google/bundletool/releases/download/1.18.3/bundletool-all-1.18.3.jar",
+      "publisher_metadata_url": "https://api.github.com/repos/google/bundletool/releases/tags/1.18.3",
+      "archive_verification": {
+        "type": "sha256",
+        "value": "a099cfa1543f55593bc2ed16a70a7c67fe54b1747bb7301f37fdfd6d91028e29"
+      },
+      "archive_member": "bundletool-all-1.18.3.jar",
+      "archive_member_kind": "downloaded-artifact",
+      "executable_sha256": "a099cfa1543f55593bc2ed16a70a7c67fe54b1747bb7301f37fdfd6d91028e29"
+    },
+    "firebase-tools": {
+      "version": "15.29.0",
+      "platform": "npm-package",
+      "publisher_url": "https://registry.npmjs.org/firebase-tools/-/firebase-tools-15.29.0.tgz",
+      "publisher_metadata_url": "https://registry.npmjs.org/firebase-tools/15.29.0",
+      "archive_verification": {
+        "type": "npm-integrity",
+        "value": "sha512-9v59oeU7seYNjMUykhQqodXl2J08QVVxVsxgJ0SycnX41xSA7nM4BboAdAK85z0tLSm6PsHjoNqop3cKAe4uaA=="
+      },
+      "archive_member": "package/lib/bin/firebase.js",
+      "executable_sha256": "1e05ff8373e5a5c7222475a0d90d4db58c85c2f281d44d4884bc96062288b864"
+    },
+    "java": {
+      "version": "17.0.20.1+1",
+      "platform": "linux-x64",
+      "publisher_url": "https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.20.1%2B1/OpenJDK17U-jdk_x64_linux_hotspot_17.0.20.1_1.tar.gz",
+      "publisher_metadata_url": "https://api.github.com/repos/adoptium/temurin17-binaries/releases/tags/jdk-17.0.20.1%2B1",
+      "archive_verification": {
+        "type": "sha256",
+        "value": "3808d1d15e3ec6bd5b84057fb5d84c33d8a1536a258146bcea2e603fc726e08e"
+      },
+      "archive_member": "jdk-17.0.20.1+1/bin/java",
+      "executable_sha256": "f5aed21d3a0b0f4b05d3a3f9fe71263916d5bc0d47b53aa52a3340b90f0b4805"
+    },
+    "node": {
+      "version": "24.20.0",
+      "platform": "linux-x64",
+      "publisher_url": "https://nodejs.org/dist/v24.20.0/node-v24.20.0-linux-x64.tar.xz",
+      "publisher_metadata_url": "https://nodejs.org/dist/v24.20.0/SHASUMS256.txt",
+      "archive_verification": {
+        "type": "sha256",
+        "value": "2f2c0da162318f0de47665410c7c8c2ed3d36c8f3105de4bbc61176c70a7cbf2"
+      },
+      "archive_member": "node-v24.20.0-linux-x64/bin/node",
+      "executable_sha256": "89af8424dd53e560b1933f87ba650d8bf57c83ca5a04600eefb31f416aabbae7"
+    }
+  }
+}

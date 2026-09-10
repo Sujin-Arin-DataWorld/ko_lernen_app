@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../l10n/generated/app_localizations.dart';
 import 'sori/tokens.dart';
 
 /// 브랜드 톤 로딩 인디케이터 — 앱 로고가 부드럽게 숨 쉰다.
@@ -37,7 +38,7 @@ class _AppLoadingState extends State<AppLoading>
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final enabled = !MediaQuery.maybeOf(context)!.disableAnimations;
+    final enabled = !(MediaQuery.maybeOf(context)?.disableAnimations ?? false);
     if (_motionEnabled == enabled) {
       return;
     }
@@ -60,16 +61,23 @@ class _AppLoadingState extends State<AppLoading>
     final s = SoriSurfaces.of(context);
     final reduceMotion =
         MediaQuery.maybeOf(context)?.disableAnimations ?? false;
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SizedBox(
-            width: widget.asset != null ? widget.assetSize : 58,
-            height: widget.asset != null ? widget.assetSize : 58,
+    final statusLabel =
+        widget.message ??
+        Localizations.of<AppL10n>(context, AppL10n)?.speechIndicatorResolving ??
+        '';
+    final visualSize = widget.asset != null ? widget.assetSize : 58.0;
+    final visualContent = Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Padding(
+          padding: EdgeInsets.all(visualSize * 0.015),
+          child: SizedBox(
+            width: visualSize,
+            height: visualSize,
             child: reduceMotion
                 ? _visual(0)
                 : AnimatedBuilder(
+                    key: const Key('app-loading-pulse'),
                     animation: _ctrl,
                     builder: (_, __) {
                       final wave = _ctrl.value < 0.5
@@ -81,16 +89,25 @@ class _AppLoadingState extends State<AppLoading>
                     },
                   ),
           ),
-          if (widget.message != null) ...[
-            const SizedBox(height: 16),
-            Text(
-              widget.message!,
-              style: TextStyle(color: s.textMuted, fontSize: 13),
-            ),
-          ],
+        ),
+        if (widget.message != null) ...[
+          const SizedBox(height: 16),
+          Text(
+            widget.message!,
+            style: TextStyle(color: s.textMuted, fontSize: 13),
+          ),
         ],
-      ),
+      ],
     );
+    final content = Semantics(
+      liveRegion: true,
+      label: statusLabel,
+      child: ExcludeSemantics(child: visualContent),
+    );
+    if (Scrollable.maybeOf(context, axis: Axis.vertical) != null) {
+      return Center(child: content);
+    }
+    return Center(child: SingleChildScrollView(child: content));
   }
 
   Widget _visual(double pulse) {
