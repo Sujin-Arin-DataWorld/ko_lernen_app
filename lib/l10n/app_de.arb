@@ -373,7 +373,7 @@
     "description": "Snackbar shown after long-pressing the About row to copy the version+build+commit string (§RELEASE-2 J13)."
   },
   "settingsPrivacyTitle": "Datenschutzerklärung",
-  "settingsPrivacySubtitle": "Link kopieren",
+  "settingsPrivacySubtitle": "Datenschutzerklärung öffnen",
   "settingsPrivacyCopied": "Link kopiert: {url}",
   "@settingsPrivacyCopied": {
     "placeholders": {
@@ -1229,7 +1229,7 @@
     }
   },
   "settingsAccountDeletionTitle": "Konto- und Datenlöschung",
-  "settingsAccountDeletionSubtitle": "Link zur Kontolöschung kopieren",
+  "settingsAccountDeletionSubtitle": "Seite zur Kontolöschung öffnen",
   "statsGotIt": "Gewusst",
   "statsNotGotIt": "Nicht gewusst",
   "statsSkipped": "Übersprungen",

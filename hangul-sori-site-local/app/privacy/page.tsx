@@ -137,7 +137,7 @@ function EnglishPrivacy() {
       <h2>6. Privacy in the app</h2>
       <p>Learning progress, SRS state, game results, settings, your own learning packs, notes, and managed book or word photos normally stay on your device. The app may create a random Firebase UID and fetch Remote Config. Cloud backup, Analytics, Crashlytics, notifications, and sharing features are used only to the extent of the feature you enable.</p>
       <p>Selected images are cropped and recognized on the device with ML Kit. Image files are not sent to text analysis or a portable backup. If you expressly request analysis or translation, extracted text and the target language may be sent by HTTPS to the named providers, including DeepL. Gye learning circles are for people aged 16 and older.</p>
-      <p><a className="text-link" href="/account-deletion">Delete account and data</a></p>
+      <p><a className="text-link" href="/account-deletion?lang=en">Delete account and data</a></p>
     </div>
 
     <div className="legal-card">
@@ -186,7 +186,7 @@ function KoreanPrivacy() {
       <h2>6. 앱 안의 데이터</h2>
       <p>학습 진도, SRS 상태, 게임 결과, 설정, 개인 학습팩, 메모, 관리 중인 책·단어 사진은 원칙적으로 기기에 저장됩니다. 앱은 임의의 Firebase UID를 만들고 Remote Config를 불러올 수 있습니다. 클라우드 백업, Analytics, Crashlytics, 알림과 공유는 사용자가 활성화한 기능 범위에서만 사용합니다.</p>
       <p>선택 이미지는 기기에서 자르고 ML Kit으로 인식합니다. 이미지 파일은 텍스트 분석이나 이동식 백업으로 전송하지 않습니다. 사용자가 분석이나 번역을 요청하면 추출 텍스트와 대상 언어가 DeepL 등 고지된 제공자에게 HTTPS로 전송될 수 있습니다. Gye 학습 모임은 만 16세 이상을 위한 기능입니다.</p>
-      <p><a className="text-link" href="/account-deletion">계정 및 데이터 삭제</a></p>
+      <p><a className="text-link" href="/account-deletion?lang=ko">계정 및 데이터 삭제</a></p>
     </div>
 
     <div className="legal-card">

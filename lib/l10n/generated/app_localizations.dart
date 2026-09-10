@@ -1528,7 +1528,7 @@ abstract class AppL10n {
   /// No description provided for @settingsPrivacySubtitle.
   ///
   /// In de, this message translates to:
-  /// **'Link kopieren'**
+  /// **'Datenschutzerklärung öffnen'**
   String get settingsPrivacySubtitle;
 
   /// No description provided for @settingsPrivacyCopied.
@@ -4204,7 +4204,7 @@ abstract class AppL10n {
   /// No description provided for @settingsAccountDeletionSubtitle.
   ///
   /// In de, this message translates to:
-  /// **'Link zur Kontolöschung kopieren'**
+  /// **'Seite zur Kontolöschung öffnen'**
   String get settingsAccountDeletionSubtitle;
 
   /// No description provided for @statsGotIt.

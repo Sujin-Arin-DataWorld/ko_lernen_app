@@ -790,6 +790,89 @@ accidental default test run was stopped at +0 and is not passing evidence.
 Current main's existing CI/Playwright observations are stored separately;
 they do not prove remote CI for this unpushed merge candidate.
 
+### Task 22: Make the active public deletion path understandable and testable
+
+**Trigger:** At `f78b24acf99eb1c25ca9fdb9c77013f27ea76439`, Settings says
+"Copy link" while opening the browser, English users reach German deletion
+instructions, and release checks protect a heading rather than the actual
+email request action. The current website is the Cloudflare source under
+`hangul-sori-site-local/`; the proof HTML/Firebase Hosting path is retained
+legacy code with no current Flutter issuance reference.
+
+**Contract:** Keep `/account-deletion` and the existing
+`hello@hangul-sori.com` email request path. Google's checked
+[account-deletion FAQ](https://support.google.com/googleplay/android-developer/answer/13327111?hl=en)
+explicitly permits a customer-service email. Users must be able to initiate
+the request without reinstalling the app. A source change cannot prove live
+mail receipt, account ownership, cleanup completion, retention, or crawler
+accessibility. Add no automated proof wiring, backend service, secret, email
+sender or new dependency.
+
+- [x] **App:** Reuse the existing external-link helper and clipboard fallback.
+  Make privacy/deletion row icons, DE/EN subtitles and private callback names
+  describe opening a page. German keeps the canonical path; English opens
+  `?lang=en` for these two already-localized legal resources. Keep deletion
+  confirmation/workflow untouched. Prove real Settings taps deliver the
+  correct external URL and preserve the clipboard fallback, at 320dp/200%
+  with real fonts where layout is affected. Regenerate localization.
+- [x] **Website:** Reuse `LegalShell`'s existing DE/EN/KO selection pattern,
+  including invalid-language fallback to German. Put a clear email deletion
+  request action and readable mailbox in the first content card; opening the
+  page sends nothing. Give app-independent instructions with minimal account
+  identification, then describe in-app deletion and local-reset/cloud-backup/
+  uninstall differences accurately. Preserve asynchronous-cleanup wording and
+  avoid invented completion promises, SLA, retention periods or support
+  results. Keep DE default URL and existing visual language. Preserve the
+  locale in English/Korean privacy-page deletion links.
+- [x] **Release checks:** Exercise current source rendering for DE/EN/KO and
+  invalid-language fallback without a full site build. Protect the request
+  action's real mailto destination, meaningful subject, visible mailbox,
+  language and app identification. Include negative fixtures proving missing
+  or wrong request actions fail. Reuse the same small contract in existing
+  built-route tests and the live verifier; do not invoke live verification.
+  Include new tests in the existing unit-test command; change no dependencies.
+- [x] **Documentation:** Make the current Cloudflare/email path authoritative
+  in `docs/release-readiness.md`; remove the absent-CNAME claim, label retained
+  proof/Hosting checks as conditional legacy gates, and keep current live URL,
+  mailbox/handling, signed client, provider and retention checks open.
+- [x] **Verify and record:** Run focused Flutter tests/analyze, source-rendered
+  website and related release contract tests, no-emit TypeScript and scoped
+  lint using already-installed matching dependencies. Obtain independent
+  Standards/Spec reviews, preserve existing source/assets/paid Graphify,
+  update/prune Graphify and commit locally. No push, remote CI dispatch, app
+  or site release build, email, live deletion request, device retry or deploy.
+
+**Ownership/consistency:** App worker owns Settings, DE/EN ARBs/generated files
+and its widget test. Website worker owns the deletion page, two privacy links,
+small route contract/tests and unit-test script. Root owns readiness docs,
+this plan and external evidence. Their shared interface is the fixed
+`/account-deletion?lang=en` URL with the same language whitelist as LegalShell.
+Docs distinguish local source from live service. No worker edits another
+worker's files or runs root's Flutter suite. Evidence lives in external
+`public-deletion-guidance-20260910/`.
+
+**Task 22 local verification (2026-09-10):** Flutter 7 files / **78 tests**
+passed, including real-font Settings taps at 320dp/200% and the failed-browser
+clipboard path. Changed Dart analysis: **5 files, no issues**. Website source
+and release contracts: **16 tests passed**; after the test loader's local
+variable was renamed for ESLint, the affected **8 tests passed again**.
+TypeScript checked all **26 candidate files with zero diagnostics**, without
+emitting a build. The first external typecheck configuration could not resolve
+dependencies; the corrected compiler host exposes the matching installed
+modules read-only and uses the current candidate's tsconfig and sources.
+Scoped ESLint is clean after the one helper naming correction. Both independent
+Standards and Spec reviews approved the final diff.
+
+The source-render test uses the real page and LegalShell, with unrelated
+Header/Footer and next/link stubs; it does not establish full-router or browser
+behavior. Existing **2,383 files**, **962 assets**, and **1,095 paid Graphify
+records** were preserved. Free Graphify update/prune completed. The local
+commit's exact parent/tree and clean-worktree checks are recorded in external
+`public-deletion-guidance-20260910/verification.json` after committing. No push,
+remote CI dispatch, new app/site build, store upload, email, paid API call or
+device retry was performed. Current public routing, mailbox handling, store
+checker access and signed-candidate device acceptance remain open.
+
 ### Verification evidence
 
 2026-09-10 로컬 후보의 검증 결과다. 서로 겹치는 실행 횟수는 더하지 않는다.

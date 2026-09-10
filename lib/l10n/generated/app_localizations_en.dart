@@ -844,7 +844,7 @@ class AppL10nEn extends AppL10n {
   String get settingsPrivacyTitle => 'Privacy Policy';
 
   @override
-  String get settingsPrivacySubtitle => 'Copy link';
+  String get settingsPrivacySubtitle => 'Open privacy policy';
 
   @override
   String settingsPrivacyCopied(Object url) {
@@ -2415,7 +2415,7 @@ class AppL10nEn extends AppL10n {
   String get settingsAccountDeletionTitle => 'Account & data deletion';
 
   @override
-  String get settingsAccountDeletionSubtitle => 'Copy account-deletion link';
+  String get settingsAccountDeletionSubtitle => 'Open account deletion page';
 
   @override
   String get statsGotIt => 'Got it';

@@ -1,6 +1,6 @@
 # Account transition and deletion release readiness
 
-Last repository review: **2026-09-06**
+Last repository review: **2026-09-10**
 
 This is an evidence checklist, not a deployment record. No function, hosting
 configuration, rule, mobile build, DNS record, or store-console answer is live
@@ -9,8 +9,37 @@ until the release owner attaches dated evidence from the production system.
 
 ## Current repository evidence
 
-- [x] The public page consumes a one-time proof from a URL fragment, removes
-  the fragment with `history.replaceState` before the network call, and sends
+- [x] The current public website source is `hangul-sori-site-local/`, with
+  Cloudflare Custom Domains declared in its `wrangler.jsonc`. Its
+  `/account-deletion` page offers a deletion request through
+  `hello@hangul-sori.com`. Opening the page does not submit a request or prove
+  that an account has been deleted.
+- [x] Settings uses `https://hangul-sori.com/account-deletion`; the public
+  privacy resource is `https://hangul-sori.com/privacy`. The website's
+  `LegalShell` supports DE/EN/KO language selection. Source support and
+  publication of the exact candidate are separate evidence.
+- [x] The retained `docs/account-deletion.html` proof implementation and
+  `firebase.json` Hosting rewrite are separate from the current Cloudflare
+  route. The inspected Cloudflare Worker does not forward
+  `/api/request-deletion-by-proof`, and current Flutter source has no
+  `issueDeletionProof` invocation. This does not prove old clients or a
+  directly reachable deployed function are inactive.
+
+The current launch path uses the existing support email. Google's
+[account-deletion FAQ](https://support.google.com/googleplay/android-developer/answer/13327111?hl=en)
+allows a customer-service email as the external request pathway, provided
+users can find and use it without reinstalling the app. Do not wire a new
+proof service merely to satisfy this requirement. Its actual availability
+and the ability to handle requests still need the operational evidence below.
+
+### Retained proof implementation evidence
+
+These entries describe the legacy source, not the current public page. Apply
+the conditional proof gates before introducing that pathway or relying on an
+already-deployed legacy endpoint; do not infer that it has been disabled.
+
+- [x] The retained proof page consumes a one-time proof from a URL fragment,
+  removes the fragment with `history.replaceState` before the network call, and sends
   JSON only to
   `https://hangul-sori.com/api/request-deletion-by-proof`.
 - [x] The browser code uses a fixed first-party endpoint, `POST`,
@@ -24,6 +53,9 @@ until the release owner attaches dated evidence from the production system.
   `node --test docs/account-deletion-page.test.js`.
 - [x] `firebase.json` stages a same-path Firebase Hosting rewrite to the
   `requestDeletionByProof` function in `europe-west3`.
+
+### App and server implementation evidence
+
 - [x] The Apple adapter follows Apple's documented two-step protocol: it sends
   the fresh native authorization code only to
   `https://appleid.apple.com/auth/token` with
@@ -42,13 +74,42 @@ until the release owner attaches dated evidence from the production system.
   option, tracked `GoogleService-Info.plist`, exact bundle/project identifiers,
   URL scheme, and Runner target membership. The accompanying fixture-only
   Flutter test covers the absent-option failure path.
-- [ ] Production route evidence exists. `docs/CNAME` indicates that the public
-  domain may currently be served by GitHub Pages, which does not apply the
-  Firebase Hosting rewrite. Before release, prove either that the domain is
-  served by Firebase Hosting or that an audited first-party proxy routes this
-  exact path to the function. A static GitHub Pages 404 is not a deployment.
+- [ ] Attach current responses from the canonical deletion URL and its English
+  and Korean language selections, including the visible request action,
+  mailbox, app identity and release revision. Source configuration cannot
+  establish live routing. `docs/CNAME` is absent and is not hosting evidence.
 
-## Public page and HTTP security
+## Current public email request path
+
+- [ ] Verify `/account-deletion`, `?lang=en` and `?lang=ko` load directly and
+  show usable localized instructions, a meaningful email request action and
+  the readable `hello@hangul-sori.com` address. Opening the page or email
+  composer must not be described as a completed request or deletion.
+- [ ] Verify keyboard, screen-reader and small-screen use, including language
+  selection and initiating an email without installing the app. If no mail
+  application is configured, users must still be able to read/copy the address.
+- [ ] Confirm inbound mailbox receipt, the responsible handler, minimum
+  account-identification and ownership checks, the actual deletion procedure,
+  and completion communication with a controlled authorized request. Do not
+  invent a response deadline, retention period or prior successful handling.
+  Do not ask users to email passwords, sign-in codes, session tokens or proof
+  links.
+- [ ] Verify final-edge `no-store`, `Referrer-Policy: no-referrer`, CSP,
+  `nosniff`, permissions policy, clickjacking protection and HTTPS behavior
+  against the current Cloudflare Worker. Review consent-dependent third-party
+  requests and ensure no account identifiers or deletion material enter
+  analytics, page URLs or logs.
+- [ ] Verify the exact deletion URL registered in Google Play and App Store
+  Connect. Record Play Console's own URL-check result as well as ordinary
+  browser access; a normal HTTP 200 alone does not prove checker access.
+  The 2026-09-05 checker failure is historical and must not be reported as a
+  current failure without a new observation.
+
+## Conditional legacy proof page and HTTP security
+
+This section and the following proof-boundary section apply to the retained
+proof pathway if it is activated or already exposed. They do not require a
+new proof deployment for the current email request path.
 
 - [ ] Serve both `account-deletion.html` and the proof endpoint with
   `Cache-Control: no-store`; verify the final browser response after every CDN
@@ -72,7 +133,7 @@ until the release owner attaches dated evidence from the production system.
   rendered text, page title, local/session storage, cookie, clipboard,
   analytics event, crash report, screenshot, or support email.
 
-## Endpoint boundary and abuse controls
+## Conditional legacy proof endpoint boundary and abuse controls
 
 - [ ] Keep the browser URL and server CORS allowlist at the exact production
   origin `https://hangul-sori.com`; reject wildcard, reflected, `null`,
@@ -109,14 +170,16 @@ until the release owner attaches dated evidence from the production system.
   App Attest/DeviceCheck for protected callables. Record production metrics
   before enforcement and test valid, missing, expired, replayed, debug, and
   wrong-project tokens.
-- [ ] Keep the public proof endpoint outside the authenticated callable path;
-  protect it with proof entropy, hard expiry, exact-origin checks, size limits,
+- [ ] If exposing or retaining the public proof endpoint, keep it outside the
+  authenticated callable path; protect it with proof entropy, hard expiry,
+  exact-origin checks, size limits,
   rate limits, and generic responses. Do not require users to expose an ID
   token on the public page.
-- [ ] Provision the deletion-proof HMAC secret from a production secret
-  manager with least-privilege access, rotation/recovery procedure, and no
+- [ ] Provision the deletion-proof/status-receipt HMAC secret from a production
+  secret manager with least-privilege access, rotation/recovery procedure, and no
   value in source, build artifacts, CI output, function environment dumps, or
-  logs.
+  logs. The terminal-status receipt callables also bind this
+  key, so using the email web path does not remove this server release gate.
 - [ ] Provision the Apple authorization-revocation configuration as four
   distinct Firebase Secret Manager secrets:
   `APPLE_REVOKE_CLIENT_ID`, `APPLE_REVOKE_TEAM_ID`,
@@ -198,7 +261,8 @@ until the release owner attaches dated evidence from the production system.
 ## Privacy publication and store evidence
 
 - [ ] Publish and visually review the exact English, German, and Korean versions
-  sourced from `privacy.html` and `account-deletion.html` at:
+  sourced from `hangul-sori-site-local/app/privacy/page.tsx` and
+  `hangul-sori-site-local/app/account-deletion/page.tsx` at:
   `https://hangul-sori.com/privacy` and
   `https://hangul-sori.com/account-deletion`.
 - [ ] Confirm the published controller identity, postal address, contact,
@@ -229,8 +293,8 @@ until the release owner attaches dated evidence from the production system.
   CI logs, release notes, screenshots, and support templates for private keys,
   HMAC values, service-account JSON, authorization codes, ID tokens, raw
   deletion proofs, UIDs, operation IDs, and provider errors.
-- [ ] Confirm the proof page has no proof-bearing query URL, third-party script,
-  external form target, raw error interpolation, debug console output, or
+- [ ] If using a retained proof page, confirm it has no proof-bearing query URL,
+  third-party script, external form target, raw error interpolation, debug console output, or
   analytics hook.
 - [ ] Review Cloud Logging, CDN/proxy access logs, Crashlytics, Analytics,
   support mailbox routing, and alert payloads with a controlled synthetic
@@ -238,7 +302,10 @@ until the release owner attaches dated evidence from the production system.
 - [ ] Disable or protect source maps and diagnostic endpoints that expose
   deployment configuration beyond what the public browser needs.
 
-## Manual proof-page acceptance
+## Conditional legacy proof-page acceptance
+
+Run these checks for an activated or already-exposed proof path. Current
+email-path acceptance is recorded in its own section above.
 
 - [ ] In a clean browser profile, open a valid app-generated first-party link
   and record that the address bar is cleaned before the POST appears.
@@ -296,5 +363,8 @@ until the release owner attaches dated evidence from the production system.
 - [ ] The release owner records commit, Android artifact hash/version code, iOS
   archive/build number, Firebase revisions, rules revisions, published-page
   checksums, console evidence links, open risks, approver, and timestamp.
-- [ ] Only after every applicable gate above is evidenced may public copy call
-  the protected proof route and server deletion workflow live.
+- [ ] Call the public email request path operational only after its URL,
+  mailbox and handling evidence is attached. Claim server cleanup or provider
+  revocation only when the corresponding deployed-client/server gates are
+  evidenced. Any future or retained proof-path claim also requires its
+  conditional gates; local source tests cannot substitute for those results.

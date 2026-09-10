@@ -49,6 +49,169 @@ void main() {
   tearDown(() => cloudJournalState.dispose());
 
   for (final language in ['de', 'en']) {
+    testWidgets(
+      'public legal settings rows open the $language localized pages at 320dp and 200% text',
+      (tester) async {
+        tester.view.physicalSize = const Size(320, 640);
+        tester.view.devicePixelRatio = 1;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+
+        final openedUrls = <String>[];
+        const launcher = MethodChannel('plugins.flutter.io/url_launcher');
+        tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+          launcher,
+          (call) async {
+            if (call.method == 'launch') {
+              openedUrls.add((call.arguments as Map)['url'] as String);
+            }
+            return true;
+          },
+        );
+        addTearDown(
+          () => tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+            launcher,
+            null,
+          ),
+        );
+
+        final locale = Locale(language);
+        final t = lookupAppL10n(locale);
+        final privacyUrl = language == 'de'
+            ? 'https://hangul-sori.com/privacy'
+            : 'https://hangul-sori.com/privacy?lang=en';
+        final deletionUrl = language == 'de'
+            ? 'https://hangul-sori.com/account-deletion'
+            : 'https://hangul-sori.com/account-deletion?lang=en';
+        final privacySubtitle = language == 'de'
+            ? 'Datenschutzerklärung öffnen'
+            : 'Open privacy policy';
+        final deletionSubtitle = language == 'de'
+            ? 'Seite zur Kontolöschung öffnen'
+            : 'Open account deletion page';
+
+        await tester.pumpWidget(
+          _wrapForLocale(
+            SettingsScreen(
+              account: _guest,
+              accountOperations: _SettingsAccountOperations(),
+              cloudDataDeletionJournalState: cloudJournalState,
+              appVersionReader: const _FixedAppVersionReader('2.0.5 (11)'),
+            ),
+            locale: locale,
+            textScaler: const TextScaler.linear(2),
+          ),
+        );
+        await tester.pump();
+
+        final privacy = find.text(t.settingsPrivacyTitle);
+        await _ensureSettingsActionVisible(tester, privacy);
+        final privacyTile = find.ancestor(
+          of: privacy,
+          matching: find.byType(ListTile),
+        );
+        expect(find.text(privacySubtitle), findsOneWidget);
+        expect(
+          find.descendant(
+            of: privacyTile,
+            matching: find.byIcon(Icons.open_in_new_rounded),
+          ),
+          findsOneWidget,
+        );
+        await tester.tap(privacy);
+        await tester.pump();
+
+        final deletion = find.text(t.settingsAccountDeletionTitle);
+        await _ensureSettingsActionVisible(tester, deletion);
+        final deletionTile = find.ancestor(
+          of: deletion,
+          matching: find.byType(ListTile),
+        );
+        expect(find.text(deletionSubtitle), findsOneWidget);
+        expect(
+          find.descendant(
+            of: deletionTile,
+            matching: find.byIcon(Icons.open_in_new_rounded),
+          ),
+          findsOneWidget,
+        );
+        await tester.tap(deletion);
+        await tester.pump();
+
+        expect(openedUrls, [privacyUrl, deletionUrl]);
+        expect(tester.takeException(), isNull);
+      },
+    );
+  }
+
+  testWidgets(
+    'failed public legal page launches copy the localized URLs from their rows',
+    (tester) async {
+      tester.view.physicalSize = const Size(320, 640);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      final clipboardCalls = <String>[];
+      const launcher = MethodChannel('plugins.flutter.io/url_launcher');
+      tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+        launcher,
+        (call) async => false,
+      );
+      tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+        SystemChannels.platform,
+        (call) async {
+          if (call.method == 'Clipboard.setData') {
+            clipboardCalls.add((call.arguments as Map)['text'] as String);
+          }
+          return null;
+        },
+      );
+      addTearDown(() {
+        tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+          launcher,
+          null,
+        );
+        tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+          SystemChannels.platform,
+          null,
+        );
+      });
+
+      await tester.pumpWidget(
+        _wrapForLocale(
+          SettingsScreen(
+            account: _guest,
+            accountOperations: _SettingsAccountOperations(),
+            cloudDataDeletionJournalState: cloudJournalState,
+            appVersionReader: const _FixedAppVersionReader('2.0.5 (11)'),
+          ),
+          locale: const Locale('en'),
+          textScaler: const TextScaler.linear(2),
+        ),
+      );
+      await tester.pump();
+
+      final t = lookupAppL10n(const Locale('en'));
+      final privacy = find.text(t.settingsPrivacyTitle);
+      await _ensureSettingsActionVisible(tester, privacy);
+      await tester.tap(privacy);
+      await tester.pump();
+
+      final deletion = find.text(t.settingsAccountDeletionTitle);
+      await _ensureSettingsActionVisible(tester, deletion);
+      await tester.tap(deletion);
+      await tester.pump();
+
+      expect(clipboardCalls, [
+        'https://hangul-sori.com/privacy?lang=en',
+        'https://hangul-sori.com/account-deletion?lang=en',
+      ]);
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  for (final language in ['de', 'en']) {
     for (final google in [false, true]) {
       testWidgets(
         'Apple deletion guidance $language mixed=$google at 320dp 200%',
@@ -472,9 +635,7 @@ void main() {
         SystemChannels.platform,
         (call) async {
           if (call.method == 'Clipboard.setData') {
-            clipboardCalls.add(
-              (call.arguments as Map)['text'] as String,
-            );
+            clipboardCalls.add((call.arguments as Map)['text'] as String);
           }
           return null;
         },

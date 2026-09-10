@@ -1258,15 +1258,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
           leading: const Icon(Icons.privacy_tip_outlined),
           title: Text(t.settingsPrivacyTitle),
           subtitle: Text(t.settingsPrivacySubtitle),
-          trailing: const Icon(Icons.copy_rounded, size: 18),
-          onTap: _copyPrivacyUrl,
+          trailing: const Icon(Icons.open_in_new_rounded, size: 18),
+          onTap: _openPrivacyPolicy,
         ),
         ListTile(
           leading: const Icon(Icons.manage_accounts_outlined),
           title: Text(t.settingsAccountDeletionTitle),
           subtitle: Text(t.settingsAccountDeletionSubtitle),
-          trailing: const Icon(Icons.copy_rounded, size: 18),
-          onTap: _copyDeletionUrl,
+          trailing: const Icon(Icons.open_in_new_rounded, size: 18),
+          onTap: _openAccountDeletionPage,
         ),
         ListTile(
           leading: const Icon(Icons.gavel_outlined),
@@ -1468,15 +1468,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
   static const String _impressumUrl = 'https://hangul-sori.com/impressum';
   static const String _deletionUrl = 'https://hangul-sori.com/account-deletion';
 
-  Future<void> _copyPrivacyUrl() async {
-    await _copyUrl(_privacyUrl);
+  Future<void> _openPrivacyPolicy() async {
+    await _openPublicPage(_localizedLegalUrl(_privacyUrl));
   }
 
-  Future<void> _copyDeletionUrl() async {
-    await _copyUrl(_deletionUrl);
+  Future<void> _openAccountDeletionPage() async {
+    await _openPublicPage(_localizedLegalUrl(_deletionUrl));
   }
 
-  Future<void> _copyUrl(String url) async {
+  String _localizedLegalUrl(String canonicalUrl) {
+    return Localizations.localeOf(context).languageCode == 'en'
+        ? '$canonicalUrl?lang=en'
+        : canonicalUrl;
+  }
+
+  Future<void> _openPublicPage(String url) async {
     // Im Browser öffnen; bei Fehler (kein Browser/Web-Sandbox) Fallback auf
     // Zwischenablage + Snackbar (in [openExternalUrl]).
     HapticFeedback.selectionClick();
