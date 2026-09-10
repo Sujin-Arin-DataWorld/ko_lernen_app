@@ -1644,9 +1644,9 @@
     "semantic_hash": ""
   },
   "lib/screens/scenario_player_screen.dart": {
-    "mtime": 1789054725.7772212,
-    "seen": 1789055614.2149174,
-    "ast_hash": "ba8944227544a7ee61df28db1beab01c",
+    "mtime": 1789077729.0346346,
+    "seen": 1789078262.7761834,
+    "ast_hash": "7bef30c69688bf2a17ab0e902a269d56",
     "semantic_hash": ""
   },
   "lib/screens/scenarios_list_screen.dart": {
@@ -15516,9 +15516,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-09-global-launch-readiness.md": {
-    "mtime": 1789076536.4660206,
-    "seen": 1789077220.3528388,
-    "ast_hash": "dfd67aa98d6cd60e8ef759a60f42ef7f",
+    "mtime": 1789078010.751612,
+    "seen": 1789078263.2653015,
+    "ast_hash": "52e53ec647e26b9f7873f60d5f3eaf5f",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-09-global-launch-readiness-design.md": {
@@ -15816,15 +15816,15 @@
     "semantic_hash": ""
   },
   "test/custom_pack_corpus_loader_recovery_test.dart": {
-    "mtime": 1789061322.8483965,
-    "seen": 1789061853.9891727,
-    "ast_hash": "03782f00885e0540aaa3ed65d596895d",
+    "mtime": 1789078010.7486115,
+    "seen": 1789078262.8983538,
+    "ast_hash": "c42646a2ecfa0ad384ea6c32f2e5f988",
     "semantic_hash": ""
   },
   "test/visible_asset_retry_recovery_test.dart": {
-    "mtime": 1789061366.698964,
-    "seen": 1789061854.1271346,
-    "ast_hash": "d0a7bdbb19fc6e8e1ad78df6c3fbea49",
+    "mtime": 1789078010.7496116,
+    "seen": 1789078263.0278983,
+    "ast_hash": "73b80b3474f1b5d3b65f6f3e8ac576e1",
     "semantic_hash": ""
   },
   "test/app_loading_image_failure_test.dart": {
@@ -15999,6 +15999,24 @@
     "mtime": 1789076538.187068,
     "seen": 1789077220.3745975,
     "ast_hash": "d2a4a35ee6432d5194c4354b007a9ca2",
+    "semantic_hash": ""
+  },
+  "lib/services/scenario_result_preparation.dart": {
+    "mtime": 1789077728.1374483,
+    "seen": 1789078262.8178327,
+    "ast_hash": "d0a633c7e45d39205c140032d47ec725",
+    "semantic_hash": ""
+  },
+  "test/scenario_completion_recovery_test.dart": {
+    "mtime": 1789077878.1675358,
+    "seen": 1789078262.9784513,
+    "ast_hash": "308e02a493c107cd3c79f45ae157d39d",
+    "semantic_hash": ""
+  },
+  "test/scenario_result_preparation_test.dart": {
+    "mtime": 1789077729.047724,
+    "seen": 1789078262.9823406,
+    "ast_hash": "4ff412853ce43e3c2e3b71d5e0855372",
     "semantic_hash": ""
   }
 }

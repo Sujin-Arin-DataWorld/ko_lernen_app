@@ -23,6 +23,8 @@ import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'support/sori_speech_stubs.dart';
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -39,6 +41,7 @@ void main() {
   }
 
   setUp(() async {
+    stubSoriSpeech();
     resetLoaders();
     SharedPreferences.setMockInitialValues({
       'existing-progress': 'keep',

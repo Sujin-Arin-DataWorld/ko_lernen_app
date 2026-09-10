@@ -1124,3 +1124,69 @@ Exact merge parents, clean-tree proof and checks are recorded externally
 in phase-artwork-integration-20260910/verification.json after the local commit.
 No push, remote CI dispatch, new release build, upload, paid call, image
 generation or device retry. Signed-device and operational gates remain open.
+
+
+### Task 26: Keep failed course scenario completion retryable
+
+**Baseline:** `c144bcf1be70faced1047beb8f79023223cf1606`, clean isolated
+worktree after Task25. The production player called the best-effort course
+reporter after reward writes and accepted its null failure as a saved result.
+A real player test reproduced a completion callback after a failed typed
+course checkpoint; unlinked free practice is the passing control.
+
+- [x] Preserve the baseline, source/asset and paid Graphify hashes. Reproduce
+  the failed course checkpoint in the real player with no result-persister
+  replacement; keep free browsing functional without a course graph.
+- [x] Prepare course evidence and the result projection before writing XP,
+  stars or completion. Require a saved update when an explicit or inferred
+  course context exists. Retain a successful checkpoint if result projection
+  fails, share concurrent preparation, and retry failed preparation. Mark
+  lesson tracking complete and give success haptics only after persistence.
+- [x] Verify failed completion exposes retry without success callback/reward;
+  recovering the course write completes once. Verify projection retry does
+  not duplicate the saved checkpoint, and preserve free practice, scoring,
+  onboarding callbacks and course eligibility rules.
+- [x] Run focused and related scenario/course/onboarding tests and changed
+  Dart analysis; obtain independent Standards and Spec reviews of frozen
+  source and address actionable findings. Do not call scoped tests full CI.
+- [x] Finish free Graphify update/prune and an authorized local commit;
+  verify the exact parent/tree, preservation hashes and clean worktree, then
+  update the local readiness artifact. No push, remote CI, new app/site build,
+  upload, paid API, image generation, secret operation or device retry.
+
+**Remaining launch scope:** This fixes the course/result preparation boundary.
+The legacy reward writes still use separate XP, stars, badge and SRS writes;
+rejected or indeterminate writes inside those operations require a separate
+durability audit. This task does not claim whole-result atomicity or device
+validation, and does not change reward policy or storage schema.
+
+**Validation follow-up:** The expanded speech-stub guard exposed two existing
+loader-recovery tests missing complete speech stubs. Add the standard speech
+stub to their setup and include both files in the regression run; preserve
+the guard and its existing allowlist.
+
+**Ownership:** Root owns the two production files, four regression files and
+plan. Independent reviewers read frozen source. External evidence is under
+`scenario-completion-recovery-20260910/`. Primary-checkout work remains untouched.
+
+**Task 26 local verification (2026-09-11):** The baseline real-player
+test called completion after a failed typed course checkpoint (actual 1,
+expected 0); the unlinked free-practice control passed. The final player
+keeps failed course completion retryable and recovery grants the result
+once. Preparation tests cover failed checkpoint retry, projection retry
+without a second checkpoint, concurrent calls and free practice.
+
+The scoped suite passed 446 Flutter tests in
+57 files. Analysis of 6
+changed Dart files reported no issues. Standards and Spec approved all six
+frozen Dart files. The initial wider run caught missing speech stubs in two
+earlier loader-recovery tests; the standard helper was added and the guard
+passed unchanged on rerun. Initial failure evidence is preserved in revision1/.
+
+All 2,470 frozen source files, 1014 existing assets,
+and 1,095 paid Graphify records were verified.
+Free Graphify update/prune completed. Exact local commit/parent/tree and
+clean-worktree proof are recorded externally in
+scenario-completion-recovery-20260910/verification.json after the commit.
+No push, remote CI, release build, upload, paid call or device retry.
+Remaining reward-write durability and signed-device/operational gates stay open.

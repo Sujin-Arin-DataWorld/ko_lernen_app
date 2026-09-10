@@ -1,0 +1,178 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/course_mastery.dart';
+import 'package:ko_lernen_app/models/course_practice_context.dart';
+import 'package:ko_lernen_app/models/curriculum.dart';
+import 'package:ko_lernen_app/models/scenario.dart';
+import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
+import 'package:ko_lernen_app/services/course_activity_reporter.dart';
+import 'package:ko_lernen_app/services/course_mastery_service.dart';
+import 'package:ko_lernen_app/services/course_progress_service.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
+import 'package:ko_lernen_app/services/hanok_stage_service.dart';
+import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/theme.dart';
+
+import 'support/sori_speech_stubs.dart';
+
+const _scenario = Scenario(
+  id: 'completion-recovery-fixture',
+  level: LearnerLevel.a1,
+  emoji: '✈️',
+  register: Register.polite,
+  title: LocalizedText(ko: '인사', de: 'Gruß', en: 'Greeting'),
+  intro: LocalizedText(ko: '', de: '', en: ''),
+  vocab: [],
+  grammarIds: [],
+  dialog: [],
+  quests: [
+    QuestSpec(
+      type: QuestType.hoerverstehen,
+      data: {
+        'audioKo': '안녕하세요.',
+        'correctIndex': 0,
+        'options': [
+          {'de': 'Hallo', 'en': 'Hello'},
+        ],
+      },
+    ),
+  ],
+);
+
+const _context = CoursePracticeContext(
+  courseUnitId: 'a1_01_greetings_hangul',
+  contentKind: CurriculumContentKind.scenario,
+  initialContentId: 'completion-recovery-fixture',
+  contentLinkId: 'recovery-checkpoint',
+);
+
+void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  setUp(() async {
+    stubSoriSpeech();
+    Storage.resetForTesting();
+    SharedPreferences.setMockInitialValues({'kl_tut_scenario': true});
+    await Storage.init();
+  });
+
+  tearDown(CourseActivityReporter.resetOverridesForTesting);
+
+  testWidgets('course checkpoint failure keeps completion retryable', (
+    tester,
+  ) async {
+    var completions = 0;
+    CourseActivityReporter.recordScenarioCheckpointForTesting =
+        (_, _, _) async => throw StateError('course persistence unavailable');
+    await _finish(
+      tester,
+      courseContext: _context,
+      onCompleted: () => completions++,
+    );
+
+    final t = await AppL10n.delegate.load(const Locale('en'));
+    expect(
+      completions,
+      0,
+      reason: 'A failed course write is not a saved result.',
+    );
+    expect(find.text(t.scenarioResultSaveRetry), findsOneWidget);
+    expect(Storage.xp, 0, reason: 'Course persistence precedes reward writes.');
+    expect(Storage.completedScenarios, isNot(contains(_scenario.id)));
+  });
+
+  testWidgets('unlinked free practice can finish without course graph', (
+    tester,
+  ) async {
+    var completions = 0;
+    CourseActivityReporter.recordScenarioCheckpointForTesting =
+        (_, _, context) async {
+          expect(context, isNull);
+          throw StateError('unlinked free practice');
+        };
+    await _finish(tester, onCompleted: () => completions++);
+    expect(completions, 1);
+    expect(Storage.completedScenarios, contains(_scenario.id));
+  });
+
+  testWidgets('retry after course recovery grants the result and reward once', (
+    tester,
+  ) async {
+    var completions = 0;
+    var checkpointCalls = 0;
+    var available = false;
+    CourseActivityReporter
+        .recordScenarioCheckpointForTesting = (_, _, _) async {
+      checkpointCalls++;
+      if (!available) {
+        throw StateError('course persistence unavailable');
+      }
+      return CourseUpdate(snapshot: CourseMasterySnapshot(), currentUnit: null);
+    };
+    await _finish(
+      tester,
+      courseContext: _context,
+      onCompleted: () => completions++,
+    );
+    expect(completions, 0);
+    expect(Storage.xp, 0);
+
+    available = true;
+    final t = await AppL10n.delegate.load(const Locale('en'));
+    await tester.ensureVisible(find.text(t.scenarioResultSaveRetry));
+    await tester.tap(find.text(t.scenarioResultSaveRetry));
+    await tester.pump();
+    await tester.pump(const Duration(seconds: 2));
+    expect(completions, 1);
+    expect(checkpointCalls, 2);
+    expect(Storage.xp, _scenario.xpReward);
+    expect(Storage.scenarioStars[_scenario.id], 3);
+    expect(Storage.completedScenarios, contains(_scenario.id));
+    expect(find.text(t.scenarioResultSaveRetry), findsNothing);
+    await tester.pump(const Duration(seconds: 1));
+    expect(completions, 1);
+    expect(Storage.xp, _scenario.xpReward);
+  });
+}
+
+Future<void> _finish(
+  WidgetTester tester, {
+  CoursePracticeContext? courseContext,
+  required VoidCallback onCompleted,
+}) async {
+  tester.view.physicalSize = const Size(480, 900);
+  tester.view.devicePixelRatio = 1;
+  addTearDown(tester.view.resetPhysicalSize);
+  addTearDown(tester.view.resetDevicePixelRatio);
+  CourseProgressService.shared.resetForTesting();
+  await tester.runAsync(() async {
+    await CurriculumCatalog.load();
+    await HanokStageService.levelRatios();
+  });
+  await tester.pumpWidget(
+    MaterialApp(
+      theme: AppTheme.light,
+      locale: const Locale('en'),
+      supportedLocales: AppL10n.supportedLocales,
+      localizationsDelegates: AppL10n.localizationsDelegates,
+      home: ScenarioPlayerScreen(
+        scenarioId: _scenario.id,
+        scenarioLoader: (_) async => _scenario,
+        courseContext: courseContext,
+        mode: ScenarioPlayerMode.onboardingFirstScene,
+        onCompleted: (_) => onCompleted(),
+      ),
+    ),
+  );
+  await tester.pump();
+  await tester.pump(const Duration(milliseconds: 500));
+  await tester.tap(find.byKey(const ValueKey('answer-0')));
+  await tester.pump();
+  await tester.tap(find.byKey(const ValueKey('quest-continue')));
+  await tester.pump();
+  await tester.pump(const Duration(seconds: 2));
+  await tester.pump(const Duration(milliseconds: 500));
+}

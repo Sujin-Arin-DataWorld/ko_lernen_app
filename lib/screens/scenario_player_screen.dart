@@ -18,6 +18,7 @@ import '../models/personal_hanok.dart';
 import '../models/scenario.dart';
 import '../models/scenario_can_do_result.dart';
 import '../services/course_activity_reporter.dart';
+import '../services/course_mastery_service.dart';
 import '../services/course_mission_navigation.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/data_loader.dart';
@@ -25,6 +26,7 @@ import '../services/hanok_stage_service.dart';
 import '../services/analytics_service.dart';
 import '../services/quest_abandon_tracker.dart';
 import '../services/scenario_loader.dart';
+import '../services/scenario_result_preparation.dart';
 import '../services/scene_asset_resolver.dart';
 import '../services/scenario_writing_check_service.dart';
 import '../services/storage_service.dart';
@@ -641,6 +643,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   bool _resultSaving = false;
   bool _resultPersisted = false;
   ScenarioCanDoResult? _canDoResult;
+  ScenarioResultPreparation? _resultPreparation;
   Object? _loadFailure;
   bool _introAudioPrefetchStarted = false;
 
@@ -1109,24 +1112,27 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       return providedResultPersister(s, stars, earnedXp);
     }
 
-    HapticFeedback.heavyImpact();
+    // Scenario completion is a checkpoint alongside, not a replacement for,
+    // the concept-level evidence collected by vocabulary and game activities.
+    // A replayed future scenario is retained by the engine as browse history
+    // and never unlocks the current mission retroactively.
+    final preparation = _resultPreparation ??= ScenarioResultPreparation(
+      requiresCheckpoint: _effectiveCourseContext != null,
+      recordCheckpoint: () => CourseActivityReporter.recordScenarioCheckpoint(
+        s.id,
+        passed: _passedCount,
+        total: s.quests.length,
+        courseContext: _effectiveCourseContext,
+      ),
+      buildResult: (update) => _buildCanDoResult(s, update),
+    );
+    final canDoResult = await preparation.prepare();
 
     await Future.wait([
       Storage.addXp(earnedXp),
       Storage.setScenarioStars(s.id, stars),
       Storage.addCompletedScenario(s.id),
     ]);
-
-    // Scenario completion is a checkpoint alongside, not a replacement for,
-    // the concept-level evidence collected by vocabulary and game activities.
-    // A replayed future scenario is retained by the engine as browse history
-    // and never unlocks the current mission retroactively.
-    final courseUpdate = await CourseActivityReporter.recordScenarioCheckpoint(
-      s.id,
-      passed: _passedCount,
-      total: s.quests.length,
-      courseContext: _effectiveCourseContext,
-    );
 
     // Erster Abschluss → Badge
     if (!Storage.earnedBadges.contains('cafe_starter')) {
@@ -1138,7 +1144,13 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       failedQuestIndices: _failedQuestIndices,
     );
 
-    if (courseUpdate == null) return null;
+    return canDoResult;
+  }
+
+  Future<ScenarioCanDoResult?> _buildCanDoResult(
+    Scenario scenario,
+    CourseUpdate courseUpdate,
+  ) async {
     final catalog = await CurriculumCatalog.load();
     final ratios = await HanokStageService.levelRatios();
     final beforeSnapshot =
@@ -1155,7 +1167,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 
     return ScenarioCanDoResult.fromSnapshot(
       snapshot: courseUpdate.snapshot,
-      scenarioId: s.id,
+      scenarioId: scenario.id,
       courseUnits: catalog.courseUnits,
       contentLinks: catalog.contentLinks,
       structureStageBefore: project(beforeSnapshot).structureStage,
@@ -1180,18 +1192,19 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     }
 
     final done = _scenario;
-    if (done != null) {
-      Analytics.lessonCompleted(
-        lessonType: 'scenario',
-        lessonId: done.id,
-        level: done.level.display,
-      );
-      _abandonTracker?.markCompleted();
-    }
     setState(() => _resultSaving = true);
     try {
       final canDoResult = await _persistResult(stars, earnedXp);
       if (!mounted) return;
+      if (done != null) {
+        Analytics.lessonCompleted(
+          lessonType: 'scenario',
+          lessonId: done.id,
+          level: done.level.display,
+        );
+        _abandonTracker?.markCompleted();
+      }
+      HapticFeedback.heavyImpact();
       setState(() {
         _resultSaving = false;
         _resultPersisted = true;

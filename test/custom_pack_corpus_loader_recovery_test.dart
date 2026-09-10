@@ -25,6 +25,8 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 
+import 'support/sori_speech_stubs.dart';
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   const selected = ['학교', '안녕하세요', '시간', '감사합니다'];
@@ -51,6 +53,7 @@ void main() {
   }
 
   setUp(() async {
+    stubSoriSpeech();
     resetLoaders();
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({
@@ -66,7 +69,6 @@ void main() {
           reads.update(path, (n) => n + 1, ifAbsent: () => 1);
           return read(path);
         });
-    SoriSpeech.stopImpl = () async {};
   });
 
   tearDown(() {
