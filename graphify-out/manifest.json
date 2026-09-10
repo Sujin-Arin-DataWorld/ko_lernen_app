@@ -13644,9 +13644,9 @@
     "semantic_hash": ""
   },
   "test/asset_catalog_bidirectional_test.dart": {
-    "mtime": 1789061950.7416046,
-    "seen": 1789066034.439103,
-    "ast_hash": "9b1927c06d24052eb23a9a063ed50a04",
+    "mtime": 1789067814.2689824,
+    "seen": 1789068041.5278325,
+    "ast_hash": "af74c7289fda730088975970c2519711",
     "semantic_hash": ""
   },
   "test/onboarding_v2_story_milestone_test.dart": {
