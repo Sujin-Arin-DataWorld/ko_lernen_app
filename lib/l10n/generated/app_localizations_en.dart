@@ -9256,21 +9256,21 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get onboardingV2Story1Eyebrow => 'Your learning path';
+  String get onboardingV2Story1Eyebrow => 'Your growing Hanok';
 
   @override
-  String get onboardingV2Story1Title => 'From letters\nto conversation';
+  String get onboardingV2Story1Title => 'Your Hanok grows with your Korean.';
 
   @override
-  String get onboardingV2Story1Body =>
-      'Hangeul Sori connects writing, sound, and real situations into one clear learning path.';
+  String get onboardingV2Story1Body => 'Learn one word and see what changes.';
 
   @override
-  String get onboardingV2Story1Status => 'Does not choose your level yet.';
+  String get onboardingV2Story1Status =>
+      'Preview only. Real building pieces come from verified learning.';
 
   @override
   String get onboardingV2Story1HeroSemantics =>
-      'Preview: the learning path from first letters to conversations at C2.';
+      'Preview of a Hanok that grows through verified learning.';
 
   @override
   String get onboardingV2Story1Item1Title => 'A1 to C2 learning path';
@@ -9347,15 +9347,15 @@ class AppL10nEn extends AppL10n {
   String get onboardingV2Story2Eyebrow => 'Sound and writing';
 
   @override
-  String get onboardingV2Story2Title => 'Korean becomes visible.';
+  String get onboardingV2Story2Title => 'Build your first word: 문.';
 
   @override
   String get onboardingV2Story2Body =>
-      'Build syllables, hear their pronunciation, and use them directly in short sentences.';
+      'Combine ㅁ, ㅜ, and ㄴ into 문, then listen to the word.';
 
   @override
   String get onboardingV2Story2HeroSemantics =>
-      'Interactive preview: Giyeok and A combine into the syllable ga.';
+      'Interactive preview: Mieum, U, and Nieun combine into the word 문.';
 
   @override
   String get onboardingV2Story2Item1Title => 'Hangeul';
@@ -9389,15 +9389,14 @@ class AppL10nEn extends AppL10n {
   String get onboardingV2Story3Eyebrow => 'Review';
 
   @override
-  String get onboardingV2Story3Title => 'What you learn stays with you.';
+  String get onboardingV2Story3Title => 'What does 문 mean?';
 
   @override
-  String get onboardingV2Story3Body =>
-      'Short reviews come exactly when your memory needs them.';
+  String get onboardingV2Story3Body => 'Flip the card: 문 means door.';
 
   @override
   String get onboardingV2Story3HeroSemantics =>
-      'Preview of card controls, favorites, content, and today\'s word review.';
+      'Word card for 문. Tap to reveal the English meaning, door.';
 
   @override
   String get onboardingV2Story3Item1Title => 'Turn a card over';
@@ -9431,22 +9430,22 @@ class AppL10nEn extends AppL10n {
       'Available now: favorites, saved items, and words due today are separate views in the study library. The current review engine supports words only; other saved content stays without a fake review action.';
 
   @override
-  String get onboardingV2Story4Eyebrow => 'Motivation';
+  String get onboardingV2Story4Eyebrow => 'Demo';
 
   @override
-  String get onboardingV2Story4Title => 'Practice can feel rewarding.';
+  String get onboardingV2Story4Title => 'Demo: Recognize 문. Grow your Hanok.';
 
   @override
   String get onboardingV2Story4Body =>
-      'Quests and personal bests make progress visible without controlling how you learn.';
+      'Choose 문, see the new door, then unwrap the Bojagi.';
 
   @override
   String get onboardingV2Story4HeroSemantics =>
-      'Preview of games, hints, XP, personal bests, quests, and collection rewards.';
+      'Learning demo: recognize 문, see the Hanok grow, then unwrap a Bojagi.';
 
   @override
   String get onboardingV2Story4Status =>
-      'Reward examples: nothing is granted here';
+      'Demo only. No progress or rewards are granted here.';
 
   @override
   String get onboardingV2Story4CatalogTitle =>
@@ -9463,10 +9462,10 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get onboardingV2Story4Item1Title => 'Example quest';
+  String get onboardingV2Story4Item1Title => 'Recognize 문';
 
   @override
-  String get onboardingV2Story4Item1Body => 'Read three syllables';
+  String get onboardingV2Story4Item1Body => 'Choose the word 문.';
 
   @override
   String get onboardingV2Story4Item2Title => 'XP & personal bests';
@@ -9493,15 +9492,14 @@ class AppL10nEn extends AppL10n {
   String get onboardingV2Story5Eyebrow => 'Heritage journey';
 
   @override
-  String get onboardingV2Story5Title => 'Your hanok grows with every chapter.';
+  String get onboardingV2Story5Title => '문 leads you to the great gate.';
 
   @override
-  String get onboardingV2Story5Body =>
-      'Stamps, bojagi, and rooms connect your learning progress to a heritage journey.';
+  String get onboardingV2Story5Body => 'Discover Ildu Gotaek\'s 솟을대문.';
 
   @override
   String get onboardingV2Story5HeroSemantics =>
-      'Preview of the heritage journey: stamp book, bojagi, decorations, and the first chapter, Ildu Gotaek.';
+      'Preview of Ildu Gotaek\'s 솟을대문, connected to the word 문.';
 
   @override
   String get onboardingV2Story5Status =>
@@ -9535,7 +9533,7 @@ class AppL10nEn extends AppL10n {
       'Number and order are not decided yet.';
 
   @override
-  String get onboardingV2Story5PreviewLabel => 'Preview';
+  String get onboardingV2Story5PreviewLabel => 'See the gate with 문';
 
   @override
   String get onboardingV2Story5InPreparationLabel => 'In preparation';
@@ -9711,11 +9709,11 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2CompanionBody =>
-      'Choose Taego or Joy. Both follow the same learning path; only tone and rhythm differ, and you can switch later.';
+      'Choose the learning companion whose rhythm suits you.';
 
   @override
   String get onboardingV2CompanionEqualNote =>
-      'Content, answers, hint strength, XP, progress, and rewards are identical for both.';
+      'Both follow the same learning path, with the same content and rewards. You can switch later.';
 
   @override
   String get onboardingV2CompanionContinue => 'Confirm my choice';
@@ -9725,7 +9723,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2CompanionTaegoBody =>
-      'Puts the same guidance in clear order and shows the next step.';
+      'Clear guidance, one step at a time.';
 
   @override
   String get onboardingV2CompanionTaegoSelected => 'Taego has been selected.';
@@ -9736,7 +9734,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2CompanionJoyBody =>
-      'Gives the same guidance as short prompts and celebrates every attempt.';
+      'Quick prompts to get you trying things out.';
 
   @override
   String get onboardingV2CompanionJoySelected => 'Joy has been selected.';
@@ -9746,7 +9744,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2ConfirmationBody =>
-      'The welcome video is only an introduction; you can continue anytime, even if it does not load.';
+      'Your companion is ready. Let’s start your first learning moment.';
 
   @override
   String get onboardingV2ConfirmationStart => 'Start together';
@@ -10310,4 +10308,80 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get flashcardRomanization => 'Romanization';
+
+  @override
+  String get onboardingV2ComposeGa => 'Combine';
+
+  @override
+  String get onboardingV2PlayGa => 'Listen to 문';
+
+  @override
+  String get onboardingV2AudioPlaying => 'Playing …';
+
+  @override
+  String get onboardingV2AudioUnavailable =>
+      'Audio is unavailable. Try again or continue.';
+
+  @override
+  String get onboardingV2RecognitionPrompt => 'Which word means “door”?';
+
+  @override
+  String get onboardingV2RecognitionRetry =>
+      'Almost! Find ㅁ + ㅜ + ㄴ. Try again.';
+
+  @override
+  String get onboardingV2RecognitionCorrect =>
+      'Correct! Watch your Hanok grow.';
+
+  @override
+  String get onboardingV2UnwrapGift => 'Unwrap the bojagi';
+
+  @override
+  String get onboardingV2GiftOpened => 'Bojagi unwrapped';
+
+  @override
+  String get onboardingV2RewardDemoNote =>
+      'Preview only. No XP, items, or Hanok pieces are awarded.';
+
+  @override
+  String get onboardingV2RewardDetails => 'About rewards';
+
+  @override
+  String get onboardingV2CurriculumDetails => 'Curriculum and sources';
+
+  @override
+  String get onboardingV2DetailsAction => 'Details';
+
+  @override
+  String get onboardingV2ReviewDetails => 'What you can save and review';
+
+  @override
+  String get onboardingV2GatePreviewTitle => '솟을대문 · the great entrance gate';
+
+  @override
+  String get onboardingV2GatePreviewBody =>
+      '문 can mean door or gate. Here is Ildu Gotaek\'s 솟을대문; the journey is still in preparation.';
+
+  @override
+  String get onboardingV2GatePreviewClose => 'Back to the journey';
+
+  @override
+  String get onboardingV2GiftOpening => 'Unwrapping …';
+
+  @override
+  String get onboardingV2DoorMeaning => 'door';
+
+  @override
+  String get onboardingV2HanokGrowthBeforeSemantics =>
+      'Hanok before its Changho windows and doors are installed.';
+
+  @override
+  String get onboardingV2HanokGrowthAfterSemantics =>
+      'Hanok with its new Changho windows and doors installed.';
+
+  @override
+  String get onboardingV2DiscoverGift => 'Discover your gift';
+
+  @override
+  String get onboardingV2ReplayDemo => 'Replay demo';
 }

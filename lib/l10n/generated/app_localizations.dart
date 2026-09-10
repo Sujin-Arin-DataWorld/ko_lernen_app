@@ -15783,31 +15783,31 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story1Eyebrow.
   ///
   /// In de, this message translates to:
-  /// **'Dein Lernweg'**
+  /// **'Dein wachsendes Hanok'**
   String get onboardingV2Story1Eyebrow;
 
   /// No description provided for @onboardingV2Story1Title.
   ///
   /// In de, this message translates to:
-  /// **'Vom Buchstaben\nbis zum Gespräch'**
+  /// **'Mit deinem Koreanisch wächst dein Hanok.'**
   String get onboardingV2Story1Title;
 
   /// No description provided for @onboardingV2Story1Body.
   ///
   /// In de, this message translates to:
-  /// **'Hangeul Sori verbindet Schrift, Klang und echte Situationen zu einem klaren Lernweg.'**
+  /// **'Lerne ein Wort und sieh, was sich verändert.'**
   String get onboardingV2Story1Body;
 
   /// No description provided for @onboardingV2Story1Status.
   ///
   /// In de, this message translates to:
-  /// **'Legt dein Level noch nicht fest.'**
+  /// **'Vorschau: Echte Bauteile entstehen nur durch bestätigte Lernleistungen.'**
   String get onboardingV2Story1Status;
 
   /// No description provided for @onboardingV2Story1HeroSemantics.
   ///
   /// In de, this message translates to:
-  /// **'Vorschau: Lernweg von den ersten Buchstaben bis zu Gesprächen auf Stufe C2.'**
+  /// **'Vorschau eines Hanok, das mit bestätigten Lernleistungen wächst.'**
   String get onboardingV2Story1HeroSemantics;
 
   /// No description provided for @onboardingV2Story1Item1Title.
@@ -15939,19 +15939,19 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story2Title.
   ///
   /// In de, this message translates to:
-  /// **'Koreanisch wird sichtbar.'**
+  /// **'Baue dein erstes Wort: 문.'**
   String get onboardingV2Story2Title;
 
   /// No description provided for @onboardingV2Story2Body.
   ///
   /// In de, this message translates to:
-  /// **'Baue Silben, höre ihre Aussprache und verwende sie direkt in kurzen Sätzen.'**
+  /// **'Setze ㅁ, ㅜ und ㄴ zu 문 zusammen. Hör dir das Wort danach an.'**
   String get onboardingV2Story2Body;
 
   /// No description provided for @onboardingV2Story2HeroSemantics.
   ///
   /// In de, this message translates to:
-  /// **'Interaktive Vorschau: Giyeok und A werden zur Silbe ga zusammengesetzt.'**
+  /// **'Interaktive Vorschau: Mieum, U und Nieun werden zum Wort 문 zusammengesetzt.'**
   String get onboardingV2Story2HeroSemantics;
 
   /// No description provided for @onboardingV2Story2Item1Title.
@@ -16011,19 +16011,19 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story3Title.
   ///
   /// In de, this message translates to:
-  /// **'Was du lernst, bleibt.'**
+  /// **'Was bedeutet 문?'**
   String get onboardingV2Story3Title;
 
   /// No description provided for @onboardingV2Story3Body.
   ///
   /// In de, this message translates to:
-  /// **'Kurze Wiederholungen kommen genau dann, wenn dein Gedächtnis sie braucht.'**
+  /// **'Dreh die Karte um: 문 bedeutet Tür.'**
   String get onboardingV2Story3Body;
 
   /// No description provided for @onboardingV2Story3HeroSemantics.
   ///
   /// In de, this message translates to:
-  /// **'Vorschau auf Kartensteuerung, Favoriten, Inhalte und die heutige Wortwiederholung.'**
+  /// **'Wortkarte für 문. Antippen zeigt die deutsche Bedeutung Tür.'**
   String get onboardingV2Story3HeroSemantics;
 
   /// No description provided for @onboardingV2Story3Item1Title.
@@ -16083,31 +16083,31 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story4Eyebrow.
   ///
   /// In de, this message translates to:
-  /// **'Motivation'**
+  /// **'Demo'**
   String get onboardingV2Story4Eyebrow;
 
   /// No description provided for @onboardingV2Story4Title.
   ///
   /// In de, this message translates to:
-  /// **'Üben darf sich gut anfühlen.'**
+  /// **'Demo: Erkenne 문. Lass dein Hanok wachsen.'**
   String get onboardingV2Story4Title;
 
   /// No description provided for @onboardingV2Story4Body.
   ///
   /// In de, this message translates to:
-  /// **'Quests und persönliche Bestwerte machen Fortschritt sichtbar, ohne dein Lernen zu bestimmen.'**
+  /// **'Wähle 문, sieh die neue Tür und öffne dann das Bojagi.'**
   String get onboardingV2Story4Body;
 
   /// No description provided for @onboardingV2Story4HeroSemantics.
   ///
   /// In de, this message translates to:
-  /// **'Vorschau auf Spiele, Hinweise, XP, Bestwerte, Quests und mögliche Sammelbelohnungen.'**
+  /// **'Lerndemo: 문 erkennen, den sichtbaren Hanok-Ausbau ansehen und danach ein Bojagi öffnen.'**
   String get onboardingV2Story4HeroSemantics;
 
   /// No description provided for @onboardingV2Story4Status.
   ///
   /// In de, this message translates to:
-  /// **'Belohnungsbeispiele: Hier wird nichts gutgeschrieben'**
+  /// **'Demo: Hier werden weder Fortschritt noch Belohnungen gutgeschrieben.'**
   String get onboardingV2Story4Status;
 
   /// No description provided for @onboardingV2Story4CatalogTitle.
@@ -16131,13 +16131,13 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story4Item1Title.
   ///
   /// In de, this message translates to:
-  /// **'Beispiel-Quest'**
+  /// **'문 erkennen'**
   String get onboardingV2Story4Item1Title;
 
   /// No description provided for @onboardingV2Story4Item1Body.
   ///
   /// In de, this message translates to:
-  /// **'Drei Silben lesen'**
+  /// **'Wähle das Wort 문.'**
   String get onboardingV2Story4Item1Body;
 
   /// No description provided for @onboardingV2Story4Item2Title.
@@ -16185,19 +16185,19 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story5Title.
   ///
   /// In de, this message translates to:
-  /// **'Mit jedem Kapitel wächst dein Hanok.'**
+  /// **'문 führt dich zum großen Tor.'**
   String get onboardingV2Story5Title;
 
   /// No description provided for @onboardingV2Story5Body.
   ///
   /// In de, this message translates to:
-  /// **'Stempel, Bojagi und Räume verbinden deinen Lernfortschritt mit einer Kulturerbe-Reise.'**
+  /// **'Entdecke das 솟을대문 von Ildu Gotaek.'**
   String get onboardingV2Story5Body;
 
   /// No description provided for @onboardingV2Story5HeroSemantics.
   ///
   /// In de, this message translates to:
-  /// **'Vorschau der Kulturerbe-Reise: Stempelbuch, Bojagi, Dekorationen und das erste Kapitel Ildu Gotaek.'**
+  /// **'Vorschau des 솟을대문 von Ildu Gotaek, verbunden mit dem gelernten Wort 문.'**
   String get onboardingV2Story5HeroSemantics;
 
   /// No description provided for @onboardingV2Story5Status.
@@ -16257,7 +16257,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story5PreviewLabel.
   ///
   /// In de, this message translates to:
-  /// **'Vorschau'**
+  /// **'Das Tor mit 문 ansehen'**
   String get onboardingV2Story5PreviewLabel;
 
   /// No description provided for @onboardingV2Story5InPreparationLabel.
@@ -16569,13 +16569,13 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2CompanionBody.
   ///
   /// In de, this message translates to:
-  /// **'Wähle Taego oder Joy. Beide begleiten denselben Lernweg, nur Ton und Rhythmus der Hinweise unterscheiden sich; später wechselbar.'**
+  /// **'Wähle den Lernfreund, dessen Rhythmus zu dir passt.'**
   String get onboardingV2CompanionBody;
 
   /// No description provided for @onboardingV2CompanionEqualNote.
   ///
   /// In de, this message translates to:
-  /// **'Inhalte, Antworten, Hinweisstärke, XP, Fortschritt und Belohnungen sind bei beiden gleich.'**
+  /// **'Beide begleiten denselben Lernweg. Inhalte und Belohnungen sind gleich; du kannst später wechseln.'**
   String get onboardingV2CompanionEqualNote;
 
   /// No description provided for @onboardingV2CompanionContinue.
@@ -16593,7 +16593,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2CompanionTaegoBody.
   ///
   /// In de, this message translates to:
-  /// **'Ordnet dieselben Hinweise klar und zeigt dir den nächsten Schritt.'**
+  /// **'Klare Hinweise, ein Schritt nach dem anderen.'**
   String get onboardingV2CompanionTaegoBody;
 
   /// No description provided for @onboardingV2CompanionTaegoSelected.
@@ -16611,7 +16611,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2CompanionJoyBody.
   ///
   /// In de, this message translates to:
-  /// **'Gibt dieselben Hinweise als kurze Anstöße und feiert jeden Versuch.'**
+  /// **'Kurze Impulse, direkt ins Ausprobieren.'**
   String get onboardingV2CompanionJoyBody;
 
   /// No description provided for @onboardingV2CompanionJoySelected.
@@ -16629,7 +16629,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2ConfirmationBody.
   ///
   /// In de, this message translates to:
-  /// **'Das Begrüßungsvideo ist nur eine Vorstellung; du kannst jederzeit weiter, auch wenn es nicht lädt.'**
+  /// **'Dein Lernfreund ist bereit. Beginnen wir mit deinem ersten Lernmoment.'**
   String get onboardingV2ConfirmationBody;
 
   /// No description provided for @onboardingV2ConfirmationStart.
@@ -17567,6 +17567,144 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Umschrift'**
   String get flashcardRomanization;
+
+  /// No description provided for @onboardingV2ComposeGa.
+  ///
+  /// In de, this message translates to:
+  /// **'Verbinden'**
+  String get onboardingV2ComposeGa;
+
+  /// No description provided for @onboardingV2PlayGa.
+  ///
+  /// In de, this message translates to:
+  /// **'문 anhören'**
+  String get onboardingV2PlayGa;
+
+  /// No description provided for @onboardingV2AudioPlaying.
+  ///
+  /// In de, this message translates to:
+  /// **'Wird abgespielt …'**
+  String get onboardingV2AudioPlaying;
+
+  /// No description provided for @onboardingV2AudioUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Ton gerade nicht verfügbar. Du kannst es erneut versuchen oder weitergehen.'**
+  String get onboardingV2AudioUnavailable;
+
+  /// No description provided for @onboardingV2RecognitionPrompt.
+  ///
+  /// In de, this message translates to:
+  /// **'Welches Wort bedeutet „Tür“?'**
+  String get onboardingV2RecognitionPrompt;
+
+  /// No description provided for @onboardingV2RecognitionRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Fast! Suche ㅁ + ㅜ + ㄴ. Versuch es noch einmal.'**
+  String get onboardingV2RecognitionRetry;
+
+  /// No description provided for @onboardingV2RecognitionCorrect.
+  ///
+  /// In de, this message translates to:
+  /// **'Richtig! Sieh, wie dein Hanok wächst.'**
+  String get onboardingV2RecognitionCorrect;
+
+  /// No description provided for @onboardingV2UnwrapGift.
+  ///
+  /// In de, this message translates to:
+  /// **'Bojagi öffnen'**
+  String get onboardingV2UnwrapGift;
+
+  /// No description provided for @onboardingV2GiftOpened.
+  ///
+  /// In de, this message translates to:
+  /// **'Bojagi geöffnet'**
+  String get onboardingV2GiftOpened;
+
+  /// No description provided for @onboardingV2RewardDemoNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Nur eine Vorschau. Keine XP, Gegenstände oder Hanok-Bauteile.'**
+  String get onboardingV2RewardDemoNote;
+
+  /// No description provided for @onboardingV2RewardDetails.
+  ///
+  /// In de, this message translates to:
+  /// **'Mehr über Belohnungen'**
+  String get onboardingV2RewardDetails;
+
+  /// No description provided for @onboardingV2CurriculumDetails.
+  ///
+  /// In de, this message translates to:
+  /// **'Lehrplan und Quellen'**
+  String get onboardingV2CurriculumDetails;
+
+  /// No description provided for @onboardingV2DetailsAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Details'**
+  String get onboardingV2DetailsAction;
+
+  /// No description provided for @onboardingV2ReviewDetails.
+  ///
+  /// In de, this message translates to:
+  /// **'Was du speichern und wiederholen kannst'**
+  String get onboardingV2ReviewDetails;
+
+  /// No description provided for @onboardingV2GatePreviewTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'솟을대문 · das große Eingangstor'**
+  String get onboardingV2GatePreviewTitle;
+
+  /// No description provided for @onboardingV2GatePreviewBody.
+  ///
+  /// In de, this message translates to:
+  /// **'문 bedeutet Tür oder Tor. Hier siehst du das 솟을대문 von Ildu Gotaek; die Reise ist noch in Vorbereitung.'**
+  String get onboardingV2GatePreviewBody;
+
+  /// No description provided for @onboardingV2GatePreviewClose.
+  ///
+  /// In de, this message translates to:
+  /// **'Zurück zur Reise'**
+  String get onboardingV2GatePreviewClose;
+
+  /// No description provided for @onboardingV2GiftOpening.
+  ///
+  /// In de, this message translates to:
+  /// **'Das Bojagi öffnet sich …'**
+  String get onboardingV2GiftOpening;
+
+  /// No description provided for @onboardingV2DoorMeaning.
+  ///
+  /// In de, this message translates to:
+  /// **'Tür'**
+  String get onboardingV2DoorMeaning;
+
+  /// No description provided for @onboardingV2HanokGrowthBeforeSemantics.
+  ///
+  /// In de, this message translates to:
+  /// **'Hanok vor dem Einbau der Changho-Fenster und -Türen.'**
+  String get onboardingV2HanokGrowthBeforeSemantics;
+
+  /// No description provided for @onboardingV2HanokGrowthAfterSemantics.
+  ///
+  /// In de, this message translates to:
+  /// **'Hanok mit neu eingesetzten Changho-Fenstern und -Türen.'**
+  String get onboardingV2HanokGrowthAfterSemantics;
+
+  /// No description provided for @onboardingV2DiscoverGift.
+  ///
+  /// In de, this message translates to:
+  /// **'Geschenk entdecken'**
+  String get onboardingV2DiscoverGift;
+
+  /// No description provided for @onboardingV2ReplayDemo.
+  ///
+  /// In de, this message translates to:
+  /// **'Demo wiederholen'**
+  String get onboardingV2ReplayDemo;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

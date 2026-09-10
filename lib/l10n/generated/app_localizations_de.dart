@@ -9300,21 +9300,23 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String get onboardingV2Story1Eyebrow => 'Dein Lernweg';
+  String get onboardingV2Story1Eyebrow => 'Dein wachsendes Hanok';
 
   @override
-  String get onboardingV2Story1Title => 'Vom Buchstaben\nbis zum Gespräch';
+  String get onboardingV2Story1Title =>
+      'Mit deinem Koreanisch wächst dein Hanok.';
 
   @override
   String get onboardingV2Story1Body =>
-      'Hangeul Sori verbindet Schrift, Klang und echte Situationen zu einem klaren Lernweg.';
+      'Lerne ein Wort und sieh, was sich verändert.';
 
   @override
-  String get onboardingV2Story1Status => 'Legt dein Level noch nicht fest.';
+  String get onboardingV2Story1Status =>
+      'Vorschau: Echte Bauteile entstehen nur durch bestätigte Lernleistungen.';
 
   @override
   String get onboardingV2Story1HeroSemantics =>
-      'Vorschau: Lernweg von den ersten Buchstaben bis zu Gesprächen auf Stufe C2.';
+      'Vorschau eines Hanok, das mit bestätigten Lernleistungen wächst.';
 
   @override
   String get onboardingV2Story1Item1Title => 'Stufenweg A1 bis C2';
@@ -9390,15 +9392,15 @@ class AppL10nDe extends AppL10n {
   String get onboardingV2Story2Eyebrow => 'Klang und Schrift';
 
   @override
-  String get onboardingV2Story2Title => 'Koreanisch wird sichtbar.';
+  String get onboardingV2Story2Title => 'Baue dein erstes Wort: 문.';
 
   @override
   String get onboardingV2Story2Body =>
-      'Baue Silben, höre ihre Aussprache und verwende sie direkt in kurzen Sätzen.';
+      'Setze ㅁ, ㅜ und ㄴ zu 문 zusammen. Hör dir das Wort danach an.';
 
   @override
   String get onboardingV2Story2HeroSemantics =>
-      'Interaktive Vorschau: Giyeok und A werden zur Silbe ga zusammengesetzt.';
+      'Interaktive Vorschau: Mieum, U und Nieun werden zum Wort 문 zusammengesetzt.';
 
   @override
   String get onboardingV2Story2Item1Title => 'Hangeul';
@@ -9432,15 +9434,14 @@ class AppL10nDe extends AppL10n {
   String get onboardingV2Story3Eyebrow => 'Wiederholen';
 
   @override
-  String get onboardingV2Story3Title => 'Was du lernst, bleibt.';
+  String get onboardingV2Story3Title => 'Was bedeutet 문?';
 
   @override
-  String get onboardingV2Story3Body =>
-      'Kurze Wiederholungen kommen genau dann, wenn dein Gedächtnis sie braucht.';
+  String get onboardingV2Story3Body => 'Dreh die Karte um: 문 bedeutet Tür.';
 
   @override
   String get onboardingV2Story3HeroSemantics =>
-      'Vorschau auf Kartensteuerung, Favoriten, Inhalte und die heutige Wortwiederholung.';
+      'Wortkarte für 문. Antippen zeigt die deutsche Bedeutung Tür.';
 
   @override
   String get onboardingV2Story3Item1Title => 'Karte wenden';
@@ -9476,22 +9477,23 @@ class AppL10nDe extends AppL10n {
       'Jetzt verfügbar: Favoriten, gespeicherte Inhalte und fällige Wörter sind getrennte Ansichten in der Lernsammlung. Die aktuelle Wiederholung unterstützt nur Wörter; andere Inhalte bleiben ohne vorgetäuschte Wiederholungsaktion gespeichert.';
 
   @override
-  String get onboardingV2Story4Eyebrow => 'Motivation';
+  String get onboardingV2Story4Eyebrow => 'Demo';
 
   @override
-  String get onboardingV2Story4Title => 'Üben darf sich gut anfühlen.';
+  String get onboardingV2Story4Title =>
+      'Demo: Erkenne 문. Lass dein Hanok wachsen.';
 
   @override
   String get onboardingV2Story4Body =>
-      'Quests und persönliche Bestwerte machen Fortschritt sichtbar, ohne dein Lernen zu bestimmen.';
+      'Wähle 문, sieh die neue Tür und öffne dann das Bojagi.';
 
   @override
   String get onboardingV2Story4HeroSemantics =>
-      'Vorschau auf Spiele, Hinweise, XP, Bestwerte, Quests und mögliche Sammelbelohnungen.';
+      'Lerndemo: 문 erkennen, den sichtbaren Hanok-Ausbau ansehen und danach ein Bojagi öffnen.';
 
   @override
   String get onboardingV2Story4Status =>
-      'Belohnungsbeispiele: Hier wird nichts gutgeschrieben';
+      'Demo: Hier werden weder Fortschritt noch Belohnungen gutgeschrieben.';
 
   @override
   String get onboardingV2Story4CatalogTitle =>
@@ -9508,10 +9510,10 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String get onboardingV2Story4Item1Title => 'Beispiel-Quest';
+  String get onboardingV2Story4Item1Title => '문 erkennen';
 
   @override
-  String get onboardingV2Story4Item1Body => 'Drei Silben lesen';
+  String get onboardingV2Story4Item1Body => 'Wähle das Wort 문.';
 
   @override
   String get onboardingV2Story4Item2Title => 'XP & persönliche Bestwerte';
@@ -9538,15 +9540,14 @@ class AppL10nDe extends AppL10n {
   String get onboardingV2Story5Eyebrow => 'Kulturerbe-Reise';
 
   @override
-  String get onboardingV2Story5Title => 'Mit jedem Kapitel wächst dein Hanok.';
+  String get onboardingV2Story5Title => '문 führt dich zum großen Tor.';
 
   @override
-  String get onboardingV2Story5Body =>
-      'Stempel, Bojagi und Räume verbinden deinen Lernfortschritt mit einer Kulturerbe-Reise.';
+  String get onboardingV2Story5Body => 'Entdecke das 솟을대문 von Ildu Gotaek.';
 
   @override
   String get onboardingV2Story5HeroSemantics =>
-      'Vorschau der Kulturerbe-Reise: Stempelbuch, Bojagi, Dekorationen und das erste Kapitel Ildu Gotaek.';
+      'Vorschau des 솟을대문 von Ildu Gotaek, verbunden mit dem gelernten Wort 문.';
 
   @override
   String get onboardingV2Story5Status =>
@@ -9581,7 +9582,7 @@ class AppL10nDe extends AppL10n {
       'Zahl und Reihenfolge stehen noch nicht fest.';
 
   @override
-  String get onboardingV2Story5PreviewLabel => 'Vorschau';
+  String get onboardingV2Story5PreviewLabel => 'Das Tor mit 문 ansehen';
 
   @override
   String get onboardingV2Story5InPreparationLabel => 'In Vorbereitung';
@@ -9757,11 +9758,11 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingV2CompanionBody =>
-      'Wähle Taego oder Joy. Beide begleiten denselben Lernweg, nur Ton und Rhythmus der Hinweise unterscheiden sich; später wechselbar.';
+      'Wähle den Lernfreund, dessen Rhythmus zu dir passt.';
 
   @override
   String get onboardingV2CompanionEqualNote =>
-      'Inhalte, Antworten, Hinweisstärke, XP, Fortschritt und Belohnungen sind bei beiden gleich.';
+      'Beide begleiten denselben Lernweg. Inhalte und Belohnungen sind gleich; du kannst später wechseln.';
 
   @override
   String get onboardingV2CompanionContinue => 'Auswahl bestätigen';
@@ -9772,7 +9773,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingV2CompanionTaegoBody =>
-      'Ordnet dieselben Hinweise klar und zeigt dir den nächsten Schritt.';
+      'Klare Hinweise, ein Schritt nach dem anderen.';
 
   @override
   String get onboardingV2CompanionTaegoSelected => 'Taego wurde ausgewählt.';
@@ -9782,7 +9783,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingV2CompanionJoyBody =>
-      'Gibt dieselben Hinweise als kurze Anstöße und feiert jeden Versuch.';
+      'Kurze Impulse, direkt ins Ausprobieren.';
 
   @override
   String get onboardingV2CompanionJoySelected => 'Joy wurde ausgewählt.';
@@ -9792,7 +9793,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingV2ConfirmationBody =>
-      'Das Begrüßungsvideo ist nur eine Vorstellung; du kannst jederzeit weiter, auch wenn es nicht lädt.';
+      'Dein Lernfreund ist bereit. Beginnen wir mit deinem ersten Lernmoment.';
 
   @override
   String get onboardingV2ConfirmationStart => 'Gemeinsam starten';
@@ -10359,4 +10360,81 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get flashcardRomanization => 'Umschrift';
+
+  @override
+  String get onboardingV2ComposeGa => 'Verbinden';
+
+  @override
+  String get onboardingV2PlayGa => '문 anhören';
+
+  @override
+  String get onboardingV2AudioPlaying => 'Wird abgespielt …';
+
+  @override
+  String get onboardingV2AudioUnavailable =>
+      'Ton gerade nicht verfügbar. Du kannst es erneut versuchen oder weitergehen.';
+
+  @override
+  String get onboardingV2RecognitionPrompt => 'Welches Wort bedeutet „Tür“?';
+
+  @override
+  String get onboardingV2RecognitionRetry =>
+      'Fast! Suche ㅁ + ㅜ + ㄴ. Versuch es noch einmal.';
+
+  @override
+  String get onboardingV2RecognitionCorrect =>
+      'Richtig! Sieh, wie dein Hanok wächst.';
+
+  @override
+  String get onboardingV2UnwrapGift => 'Bojagi öffnen';
+
+  @override
+  String get onboardingV2GiftOpened => 'Bojagi geöffnet';
+
+  @override
+  String get onboardingV2RewardDemoNote =>
+      'Nur eine Vorschau. Keine XP, Gegenstände oder Hanok-Bauteile.';
+
+  @override
+  String get onboardingV2RewardDetails => 'Mehr über Belohnungen';
+
+  @override
+  String get onboardingV2CurriculumDetails => 'Lehrplan und Quellen';
+
+  @override
+  String get onboardingV2DetailsAction => 'Details';
+
+  @override
+  String get onboardingV2ReviewDetails =>
+      'Was du speichern und wiederholen kannst';
+
+  @override
+  String get onboardingV2GatePreviewTitle => '솟을대문 · das große Eingangstor';
+
+  @override
+  String get onboardingV2GatePreviewBody =>
+      '문 bedeutet Tür oder Tor. Hier siehst du das 솟을대문 von Ildu Gotaek; die Reise ist noch in Vorbereitung.';
+
+  @override
+  String get onboardingV2GatePreviewClose => 'Zurück zur Reise';
+
+  @override
+  String get onboardingV2GiftOpening => 'Das Bojagi öffnet sich …';
+
+  @override
+  String get onboardingV2DoorMeaning => 'Tür';
+
+  @override
+  String get onboardingV2HanokGrowthBeforeSemantics =>
+      'Hanok vor dem Einbau der Changho-Fenster und -Türen.';
+
+  @override
+  String get onboardingV2HanokGrowthAfterSemantics =>
+      'Hanok mit neu eingesetzten Changho-Fenstern und -Türen.';
+
+  @override
+  String get onboardingV2DiscoverGift => 'Geschenk entdecken';
+
+  @override
+  String get onboardingV2ReplayDemo => 'Demo wiederholen';
 }

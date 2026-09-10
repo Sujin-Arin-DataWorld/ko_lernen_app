@@ -142,6 +142,12 @@ abstract final class SoriMaxWidth {
 /// 창 전체의 size class가 아니라 padding과 clamp를 지난 실제 내부 폭에 쓴다.
 /// 화면 파일에 숫자 비교가 흩어지지 않도록 이곳에서만 관리한다.
 abstract final class SoriAdaptiveWidth {
+  /// A companion's German and Korean names fit together inside its choice tile.
+  static const double companionNameRow = 160;
+
+  /// Full Back and primary-action labels fit together in the onboarding footer.
+  static const double footerActionRow = 320;
+
   /// 긴 핵심 CTA의 문구와 행동을 나란히 둘 수 있는 최소 내부 폭.
   static const double criticalActionRow = 280;
 
