@@ -1,0 +1,40 @@
+{
+  "sourcePullRequest": 293,
+  "sourceMerge": "7e844d1b7d751a31f3a666769224da68989523be",
+  "scope": "Onboarding illustration and read-only Ildu preview only; not world-map registration or construction-stage data.",
+  "byteIdenticalCopies": true,
+  "mapScaleApprovalConfirmed": false,
+  "nextGenerationAllowed": false,
+  "assets": [
+    {
+      "source": "assets_unused/pending_review/personal_hanok_v3/map_camera_reconstruction/ildu-layout-plan-20260905/sarangchae-candidate05-transparent.png",
+      "asset": "assets/illustrations/onboarding/ildu_v3_sarangchae.png",
+      "sha256": "e3485cd1e9270abb8cdf31404e16d3155eaf382c954f5a1882cd73f93a2a5d38",
+      "bytes": 2413170,
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "source": "assets_unused/pending_review/personal_hanok_v3/map_camera_reconstruction/ildu-layout-plan-20260905/sarangchae-empty-courtyard-v1.png",
+      "asset": "assets/illustrations/onboarding/ildu_v3_courtyard.png",
+      "sha256": "0413dea3ef851ab44a8155ec45969aeb4e985da2235cfb70ab70aabcf8238f4b",
+      "bytes": 2692031,
+      "size": [
+        1774,
+        887
+      ]
+    },
+    {
+      "source": "assets_unused/pending_review/personal_hanok_v3/map_camera_reconstruction/ildu-layout-plan-20260905/map-transfer-selected-small-map.png",
+      "asset": "assets/illustrations/onboarding/ildu_v3_map_preview.png",
+      "sha256": "aa0b02b2f07382134be9264001bb794588aa1c4cb76fbc02d38ab5e701503bca",
+      "bytes": 3774679,
+      "size": [
+        1202,
+        1308
+      ]
+    }
+  ]
+}

@@ -16095,7 +16095,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story4Body.
   ///
   /// In de, this message translates to:
-  /// **'Wähle 문, sieh die neue Tür und öffne dann das Bojagi.'**
+  /// **'Wähle 문, sieh dein Hanok wachsen und öffne dann das Bojagi.'**
   String get onboardingV2Story4Body;
 
   /// No description provided for @onboardingV2Story4HeroSemantics.
@@ -17685,14 +17685,26 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2HanokGrowthBeforeSemantics.
   ///
   /// In de, this message translates to:
-  /// **'Hanok vor dem Einbau der Changho-Fenster und -Türen.'**
+  /// **'Ein Hof mit Platz für dein Hanok.'**
   String get onboardingV2HanokGrowthBeforeSemantics;
 
   /// No description provided for @onboardingV2HanokGrowthAfterSemantics.
   ///
   /// In de, this message translates to:
-  /// **'Hanok mit neu eingesetzten Changho-Fenstern und -Türen.'**
+  /// **'Die Sarangchae von Ildu Gotaek.'**
   String get onboardingV2HanokGrowthAfterSemantics;
+
+  /// No description provided for @onboardingV3MapPreviewTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ildu Gotaek entdecken'**
+  String get onboardingV3MapPreviewTitle;
+
+  /// No description provided for @onboardingV3MapPreviewBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Vom Eingangstor zur Sarangchae: Entdecke den Hof, der mit deinem Lernen wächst. Ein erster Einblick in die geplante Reise.'**
+  String get onboardingV3MapPreviewBody;
 
   /// No description provided for @onboardingV2DiscoverGift.
   ///

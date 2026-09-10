@@ -9485,7 +9485,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingV2Story4Body =>
-      'Wähle 문, sieh die neue Tür und öffne dann das Bojagi.';
+      'Wähle 문, sieh dein Hanok wachsen und öffne dann das Bojagi.';
 
   @override
   String get onboardingV2Story4HeroSemantics =>
@@ -10426,11 +10426,18 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingV2HanokGrowthBeforeSemantics =>
-      'Hanok vor dem Einbau der Changho-Fenster und -Türen.';
+      'Ein Hof mit Platz für dein Hanok.';
 
   @override
   String get onboardingV2HanokGrowthAfterSemantics =>
-      'Hanok mit neu eingesetzten Changho-Fenstern und -Türen.';
+      'Die Sarangchae von Ildu Gotaek.';
+
+  @override
+  String get onboardingV3MapPreviewTitle => 'Ildu Gotaek entdecken';
+
+  @override
+  String get onboardingV3MapPreviewBody =>
+      'Vom Eingangstor zur Sarangchae: Entdecke den Hof, der mit deinem Lernen wächst. Ein erster Einblick in die geplante Reise.';
 
   @override
   String get onboardingV2DiscoverGift => 'Geschenk entdecken';

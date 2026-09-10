@@ -25,14 +25,14 @@ void main() {
         );
         expect(preview, findsOneWidget);
         final previewSize = tester.getSize(preview);
-        expect(previewSize.width / previewSize.height, closeTo(4 / 3, .01));
+        expect(previewSize.width / previewSize.height, closeTo(3 / 2, .01));
         final image = tester.widget<Image>(
           find.descendant(of: preview, matching: find.byType(Image)),
         );
         expect(image.fit, BoxFit.contain);
         expect(
           (image.image as AssetImage).assetName,
-          endsWith('14_ondol_maru.webp'),
+          endsWith('ildu_v3_sarangchae.png'),
         );
 
         final details = find.text('Lehrplan und Quellen');

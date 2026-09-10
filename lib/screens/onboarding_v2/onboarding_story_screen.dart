@@ -273,7 +273,7 @@ class _LearningPathPreview extends StatelessWidget {
                 container: true,
                 label: page.heroSemanticLabel,
                 child: const ExcludeSemantics(
-                  child: OnboardingHanokGrowthPreview(),
+                  child: OnboardingHanokGrowthPreview(showDestination: true),
                 ),
               ),
             ),
@@ -1136,6 +1136,27 @@ Future<void> _showGatePreview(
               style: text.cardTitle,
             ),
             Text(copy.assetReviewNote, style: text.bodySmall),
+            const SizedBox(height: Spacing.md),
+            OnboardingV2DetailsButton(
+              label: t.onboardingV3MapPreviewTitle,
+              child: Column(
+                children: [
+                  Text(t.onboardingV3MapPreviewBody, style: text.bodySmall),
+                  const SizedBox(height: Spacing.sm),
+                  Center(
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(maxWidth: 1202 / dpr),
+                      child: Image.asset(
+                        'assets/illustrations/onboarding/ildu_v3_map_preview.png',
+                        key: const ValueKey('onboarding-v3-map-preview-image'),
+                        fit: BoxFit.contain,
+                        semanticLabel: t.onboardingV3MapPreviewTitle,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
             const SizedBox(height: Spacing.md),
             _StoryDetails(
               title: copy.sourcesAction,

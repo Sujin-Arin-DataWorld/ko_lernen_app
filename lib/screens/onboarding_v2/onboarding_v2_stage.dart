@@ -23,7 +23,7 @@ class OnboardingStoryStage extends StatelessWidget {
   Widget build(BuildContext context) {
     final asset = switch (page.visualKind) {
       OnboardingStoryVisualKind.personalCurriculum =>
-        'assets/illustrations/hanok/gate_final.png',
+        'assets/illustrations/onboarding/ildu_v3_sarangchae.png',
       OnboardingStoryVisualKind.learn =>
         'assets/illustrations/hanok/study_scholar.png',
       OnboardingStoryVisualKind.saveAndReview =>
@@ -75,7 +75,7 @@ class OnboardingSetupStage extends StatelessWidget {
   final String? selectedPurposeTitle;
   @override
   Widget build(BuildContext context) => Image.asset(
-    'assets/illustrations/hanok/madang(light).png',
+    'assets/illustrations/onboarding/ildu_v3_map_preview.png',
     fit: BoxFit.contain,
     semanticLabel: choosingLevel ? copy.levelHeading : copy.purposeHeading,
   );

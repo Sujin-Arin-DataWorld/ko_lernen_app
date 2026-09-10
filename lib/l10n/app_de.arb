@@ -4569,7 +4569,7 @@
   "onboardingV2Story3Status": "Jetzt verfügbar: Favoriten, gespeicherte Inhalte und fällige Wörter sind getrennte Ansichten in der Lernsammlung. Die aktuelle Wiederholung unterstützt nur Wörter; andere Inhalte bleiben ohne vorgetäuschte Wiederholungsaktion gespeichert.",
   "onboardingV2Story4Eyebrow": "Demo",
   "onboardingV2Story4Title": "Demo: Erkenne 문. Lass dein Hanok wachsen.",
-  "onboardingV2Story4Body": "Wähle 문, sieh die neue Tür und öffne dann das Bojagi.",
+  "onboardingV2Story4Body": "Wähle 문, sieh dein Hanok wachsen und öffne dann das Bojagi.",
   "onboardingV2Story4HeroSemantics": "Lerndemo: 문 erkennen, den sichtbaren Hanok-Ausbau ansehen und danach ein Bojagi öffnen.",
   "onboardingV2Story4Status": "Demo: Hier werden weder Fortschritt noch Belohnungen gutgeschrieben.",
   "onboardingV2Story4CatalogTitle": "Mögliche Belohnungen aktueller Aktivitäten",
@@ -4942,8 +4942,10 @@
   "onboardingV2GatePreviewClose": "Zurück zur Reise",
   "onboardingV2GiftOpening": "Das Bojagi öffnet sich …",
   "onboardingV2DoorMeaning": "Tür",
-  "onboardingV2HanokGrowthBeforeSemantics": "Hanok vor dem Einbau der Changho-Fenster und -Türen.",
-  "onboardingV2HanokGrowthAfterSemantics": "Hanok mit neu eingesetzten Changho-Fenstern und -Türen.",
+  "onboardingV2HanokGrowthBeforeSemantics": "Ein Hof mit Platz für dein Hanok.",
+  "onboardingV2HanokGrowthAfterSemantics": "Die Sarangchae von Ildu Gotaek.",
+  "onboardingV3MapPreviewTitle": "Ildu Gotaek entdecken",
+  "onboardingV3MapPreviewBody": "Vom Eingangstor zur Sarangchae: Entdecke den Hof, der mit deinem Lernen wächst. Ein erster Einblick in die geplante Reise.",
   "onboardingV2DiscoverGift": "Geschenk entdecken",
   "onboardingV2ReplayDemo": "Demo wiederholen"
 }

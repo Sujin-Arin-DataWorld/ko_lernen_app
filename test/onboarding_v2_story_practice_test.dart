@@ -154,7 +154,7 @@ void main() {
     });
   }
 
-  testWidgets('Hanok preview preserves 4:3 assets inside a bounded stage', (
+  testWidgets('Hanok preview preserves the courtyard and V3 building ratios', (
     tester,
   ) async {
     await tester.pumpWidget(
@@ -170,15 +170,15 @@ void main() {
     final preview = find.byKey(
       const ValueKey('onboarding-v2-hanok-growth-preview'),
     );
-    expect(tester.getSize(preview), const Size(360, 270));
-    final image = tester.widget<Image>(
+    expect(tester.getSize(preview), const Size(500, 250));
+    final images = tester.widgetList<Image>(
       find.descendant(of: preview, matching: find.byType(Image)),
     );
-    expect(image.fit, BoxFit.contain);
-    expect(
-      (image.image as AssetImage).assetName,
-      endsWith('14_ondol_maru.webp'),
-    );
+    expect(images.every((image) => image.fit == BoxFit.contain), isTrue);
+    expect(images.map((image) => (image.image as AssetImage).assetName), [
+      'assets/illustrations/onboarding/ildu_v3_courtyard.png',
+      'assets/illustrations/onboarding/ildu_v3_sarangchae.png',
+    ]);
   });
 
   testWidgets('gift unwrap stages anticipation, opening and gift burst once', (
@@ -434,6 +434,28 @@ void main() {
         expect(
           (image.image as AssetImage).assetName,
           'assets/illustrations/personal_hanok_v3/world/main-gate.png',
+        );
+        final mapTitle = find.text(
+          locale == 'de' ? 'Ildu Gotaek entdecken' : 'Explore Ildu Gotaek',
+        );
+        await tester.ensureVisible(mapTitle);
+        await tester.tap(mapTitle);
+        await tester.pumpAndSettle();
+        final map = tester.widget<Image>(
+          find.byKey(const ValueKey('onboarding-v3-map-preview-image')),
+        );
+        expect(map.fit, BoxFit.contain);
+        expect(
+          (map.image as AssetImage).assetName,
+          'assets/illustrations/onboarding/ildu_v3_map_preview.png',
+        );
+        final mapClose = find.text(locale == 'de' ? 'Schließen' : 'Close');
+        await tester.ensureVisible(mapClose);
+        await tester.tap(mapClose);
+        await tester.pumpAndSettle();
+        expect(
+          find.byKey(const ValueKey('onboarding-v3-map-preview-image')),
+          findsNothing,
         );
         final close = find.byKey(
           const ValueKey('onboarding-v2-gate-preview-close'),
