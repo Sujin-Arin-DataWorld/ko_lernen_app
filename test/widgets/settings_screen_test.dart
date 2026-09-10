@@ -28,10 +28,13 @@ import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 
+import '../support/real_fonts.dart';
+
 final AppL10n _l10n = lookupAppL10n(const Locale('de'));
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(loadSoriRealFonts);
   late ValueNotifier<CloudBackupDeletionJournalState> cloudJournalState;
 
   setUp(() async {
@@ -44,6 +47,145 @@ void main() {
   });
 
   tearDown(() => cloudJournalState.dispose());
+
+  for (final language in ['de', 'en']) {
+    for (final google in [false, true]) {
+      testWidgets(
+        'Apple deletion guidance $language mixed=$google at 320dp 200%',
+        (tester) async {
+          tester.view.physicalSize = const Size(320, 640);
+          tester.view.devicePixelRatio = 1;
+          addTearDown(tester.view.resetPhysicalSize);
+          addTearDown(tester.view.resetDevicePixelRatio);
+          final locale = Locale(language);
+          final t = lookupAppL10n(locale);
+          final help = language == 'de'
+              ? 'Apple-Anleitung öffnen'
+              : 'Open Apple instructions';
+          final cleanup = _DeletionCleanup();
+          String? openedHelpUrl;
+          const launcher = MethodChannel('plugins.flutter.io/url_launcher');
+          tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+            launcher,
+            (call) async {
+              if (call.method == 'launch') {
+                openedHelpUrl = (call.arguments as Map)['url'] as String;
+                expect((call.arguments as Map)['useWebView'], isFalse);
+                expect((call.arguments as Map)['useSafariVC'], isFalse);
+              }
+              return true;
+            },
+          );
+          addTearDown(
+            () => tester.binding.defaultBinaryMessenger
+                .setMockMethodCallHandler(launcher, null),
+          );
+          await tester.pumpWidget(
+            _wrapForLocale(
+              SettingsScreen(
+                account: AuthAccountSnapshot(
+                  providers: AuthProviderState(
+                    isGoogleLinked: google,
+                    isAppleLinked: true,
+                  ),
+                ),
+                accountOperations: _SettingsAccountOperations(),
+                accountDeletionWorkflow: AccountDeletionWorkflow(cleanup),
+                cloudDataDeletionJournalState: cloudJournalState,
+                appVersionReader: const _FixedAppVersionReader('2.0.5 (11)'),
+                initialFocus: SettingsInitialFocus.accountDeletion,
+              ),
+              locale: locale,
+              textScaler: TextScaler.linear(2),
+            ),
+          );
+          for (var frame = 0; frame < 40; frame++) {
+            await tester.pump(const Duration(milliseconds: 100));
+          }
+          final delete = find.text(t.settingsAccountDelete);
+          await tester.ensureVisible(delete);
+          await tester.tap(delete);
+          await tester.pumpAndSettle();
+          expect(find.text(help), findsOneWidget);
+          expect(
+            find.textContaining(
+              language == 'de'
+                  ? 'Anmeldung und Sicherheit'
+                  : 'Sign-In & Security',
+            ),
+            findsOneWidget,
+          );
+          expect(tester.takeException(), isNull);
+          await tester.ensureVisible(find.text(help));
+          await tester.tap(find.text(help));
+          await tester.pumpAndSettle();
+          // The mocked external browser receives the official URL while the
+          // confirmation stays open. Help and cancel never invoke deletion.
+          expect(cleanup.deleteCalls, 0);
+          expect(
+            openedHelpUrl,
+            'https://support.apple.com/${language == 'de' ? 'de-de' : 'en-us'}/102571',
+          );
+          expect(
+            find.text(t.settingsAccountDeleteConfirmTitle),
+            findsOneWidget,
+          );
+          await tester.ensureVisible(find.text(t.btnCancel));
+          await tester.tap(find.text(t.btnCancel));
+          await tester.pumpAndSettle();
+          expect(cleanup.deleteCalls, 0);
+          expect(find.text(t.settingsAccountDeleteConfirmTitle), findsNothing);
+          await tester.tap(delete);
+          await tester.pumpAndSettle();
+          await tester.ensureVisible(find.text(t.btnDelete).last);
+          await tester.tap(find.text(t.btnDelete).last);
+          await tester.pumpAndSettle();
+          expect(cleanup.deleteCalls, 1);
+          expect(find.text('consent-restart-test'), findsOneWidget);
+          expect(tester.takeException(), isNull);
+        },
+      );
+    }
+  }
+
+  for (final google in [false, true]) {
+    testWidgets('non-Apple deletion has no Apple guidance: google=$google', (
+      tester,
+    ) async {
+      final cleanup = _DeletionCleanup();
+      await tester.pumpWidget(
+        _wrap(
+          SettingsScreen(
+            account: AuthAccountSnapshot(
+              providers: AuthProviderState(
+                isGoogleLinked: google,
+                isAppleLinked: false,
+              ),
+            ),
+            accountOperations: _SettingsAccountOperations(),
+            accountDeletionWorkflow: AccountDeletionWorkflow(cleanup),
+            cloudDataDeletionJournalState: cloudJournalState,
+            initialFocus: SettingsInitialFocus.accountDeletion,
+          ),
+        ),
+      );
+      for (var frame = 0; frame < 40; frame++) {
+        await tester.pump(const Duration(milliseconds: 100));
+      }
+      await tester.tap(find.text(_l10n.settingsAccountDelete));
+      await tester.pumpAndSettle();
+      expect(find.text(_l10n.settingsAccountDeleteAppleHelp), findsNothing);
+      expect(
+        find.textContaining(_l10n.settingsAccountDeleteAppleGuidance),
+        findsNothing,
+      );
+      expect(find.text(_l10n.settingsAccountDeleteConfirmBody), findsOneWidget);
+      await tester.tap(find.text(_l10n.btnDelete).last);
+      await tester.pumpAndSettle();
+      expect(cleanup.deleteCalls, 1);
+      expect(find.text('consent-restart-test'), findsOneWidget);
+    });
+  }
 
   testWidgets('typed deletion entry scrolls to the protected Settings row', (
     tester,
@@ -1638,6 +1780,9 @@ Widget _wrapForLocale(
       ).copyWith(textScaler: textScaler, disableAnimations: disableAnimations),
       child: appChild!,
     ),
+    routes: {
+      '/splash': (_) => const Scaffold(body: Text('consent-restart-test')),
+    },
     home: child,
   );
 }

@@ -2393,10 +2393,18 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get settingsAccountDeleteConfirmBody =>
-      'This deletes your Firebase account, Google and Apple links, Firestore cloud backup, and local learning data on this device. This cannot be undone. Google or Apple may ask you to sign in again to confirm.';
+      'This permanently deletes your Firebase account, cloud backup, and local learning data on this device. Google or Apple may ask you to sign in again to confirm.';
 
   @override
-  String get settingsAccountDeleteSuccess => 'Account and data deleted';
+  String get settingsAccountDeleteSuccess =>
+      'Deletion accepted. Local data cleared; server cleanup continues in the background.';
+
+  @override
+  String get settingsAccountDeleteAppleGuidance =>
+      'After deleting your account here, check your Apple Account under Sign-In & Security > Sign in with Apple. If Hangul Sori is still listed, select it and stop using Sign in with Apple. You can delete your account here without opening these instructions.';
+
+  @override
+  String get settingsAccountDeleteAppleHelp => 'Open Apple instructions';
 
   @override
   String settingsAccountDeleteFailed(Object error) {

@@ -4168,14 +4168,26 @@ abstract class AppL10n {
   /// No description provided for @settingsAccountDeleteConfirmBody.
   ///
   /// In de, this message translates to:
-  /// **'Dadurch werden dein Firebase-Konto, deine Google- und Apple-Verknüpfungen, das Firestore-Cloud-Backup und lokale Lerndaten auf diesem Gerät gelöscht. Das lässt sich nicht rückgängig machen. Google oder Apple bitten dich zur Bestätigung eventuell um eine erneute Anmeldung.'**
+  /// **'Dein Firebase-Konto, dein Cloud-Backup und die lokalen Lerndaten auf diesem Gerät werden dauerhaft gelöscht. Google oder Apple bitten dich möglicherweise zur Bestätigung, dich erneut anzumelden.'**
   String get settingsAccountDeleteConfirmBody;
 
   /// No description provided for @settingsAccountDeleteSuccess.
   ///
   /// In de, this message translates to:
-  /// **'Konto und Daten gelöscht'**
+  /// **'Löschung angenommen. Lokale Daten entfernt; die Bereinigung auf dem Server läuft im Hintergrund weiter.'**
   String get settingsAccountDeleteSuccess;
+
+  /// No description provided for @settingsAccountDeleteAppleGuidance.
+  ///
+  /// In de, this message translates to:
+  /// **'Prüfe nach der Kontolöschung hier deinen Apple Account unter Anmeldung und Sicherheit > Mit Apple anmelden. Falls Hangul Sori dort noch aufgeführt ist, wähle die App und beende die Nutzung von „Mit Apple anmelden“. Du kannst dein Konto hier löschen, ohne diese Anleitung zu öffnen.'**
+  String get settingsAccountDeleteAppleGuidance;
+
+  /// No description provided for @settingsAccountDeleteAppleHelp.
+  ///
+  /// In de, this message translates to:
+  /// **'Apple-Anleitung öffnen'**
+  String get settingsAccountDeleteAppleHelp;
 
   /// No description provided for @settingsAccountDeleteFailed.
   ///

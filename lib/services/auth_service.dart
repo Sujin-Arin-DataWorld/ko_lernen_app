@@ -98,8 +98,8 @@ abstract interface class AccountDeletionOperations {
   /// Never throws: `user-not-found`, `requires-recent-login`,
   /// `network-request-failed` and any other failure are logged via
   /// `AccountFailureDiagnostics.log('deletion.deleteUser', e)` and
-  /// swallowed — the scheduled worker deletes the Auth user within ≤2 ticks
-  /// anyway, so a client-side failure here must never block completion.
+  /// swallowed — the scheduled worker retries Auth removal independently,
+  /// so a client-side failure here must never block local completion.
   Future<void> deleteFirebaseUser();
   String createRequestKey();
   Future<AccountDeletionJournal?> readDeletionJournal();
@@ -711,9 +711,8 @@ class AccountDeletionCoordinator {
     final providers = operations.providerState;
     String? appleAuthorizationCode;
     if (providers.isAppleLinked) {
-      appleAuthorizationCode = _requireAppleAuthorizationCode(
-        await operations.reauthenticateWithApple(),
-      );
+      final code = (await operations.reauthenticateWithApple())?.trim();
+      appleAuthorizationCode = code == null || code.isEmpty ? null : code;
     } else if (providers.isGoogleLinked) {
       await operations.reauthenticateWithGoogle();
     }
@@ -833,10 +832,10 @@ class AccountDeletionCoordinator {
   /// other phase (`deletionRequested`, `userTreeDeleting`,
   /// `appleRevocationPending`, or an already-`completed` fast path) means the
   /// server has durably accepted the request, so this device may finish
-  /// immediately: attempt Apple revocation early (best-effort — the worker
-  /// still completes it if this fails or the server task is not deployed
-  /// yet), delete the local Firebase Auth user (best-effort — the worker
-  /// deletes it within ≤2 ticks regardless), and mark the journal completed.
+  /// immediately: attempt Apple revocation with the transient code, delete
+  /// the local Firebase Auth user best-effort, and mark the journal completed.
+  /// The worker retries account-data deletion independently; without revocation
+  /// input it records that the Apple connection needs manual removal.
   Future<AccountDeletionJournal> _acceptAndFinishDeletion(
     AccountDeletionJournal journal,
     AccountOperationResult requested, {
@@ -916,8 +915,8 @@ class AccountDeletionCoordinator {
       // A legacy journal (from a build before this workflow existed, or a
       // crash between the initial journal write and its completion). No
       // fresh Apple authorization code is available without an interactive
-      // prompt, so revocation is skipped — the server-side worker still
-      // completes it independently.
+      // prompt, so revocation is skipped. The worker continues account-data
+      // deletion and records that the Apple connection needs manual removal.
       _requireExactSession(pending.session);
       await operations.deleteFirebaseUser();
       var expectedSession = pending.session;
@@ -1073,17 +1072,6 @@ class AccountDeletionCoordinator {
         retryable: false,
       );
     }
-  }
-
-  String _requireAppleAuthorizationCode(String? authorizationCode) {
-    final code = authorizationCode?.trim();
-    if (code == null || code.isEmpty) {
-      throw const AccountOperationFailure(
-        AccountOperationFailureCode.recentAuthenticationRequired,
-        retryable: false,
-      );
-    }
-    return code;
   }
 }
 

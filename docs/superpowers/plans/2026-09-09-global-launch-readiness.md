@@ -660,6 +660,92 @@ native device performance evidence. Final source/Graphify preservation
 and the local commit are recorded in external
 `loading-image-fallback-20260910/verification.json`.
 
+### Task 20: Finish accepted Apple deletions when no revocation token remains
+
+**Trigger:** At local base `c0cd721653cbcb4d9c1ce951428530a038a9f4e7`,
+the client catches early Apple revocation errors, deletes Firebase Auth, and
+finishes locally. The scheduled query and lease admission exclude unresolved
+`appleRevocationPending` operations. The Auth deletion bridge deletes the user
+tree but cannot resume the server-owned community/processor operation.
+
+**Contract:** Apple's TN3194 requires account-data deletion even without an
+access/refresh token or authorization code, with directions to revoke the
+Apple connection manually. Keep successful transient revocation before Auth
+deletion, without storing tokens or introducing a new user gate. A cancelled
+or failed reauthentication must still prevent a new deletion request; a
+successful reauthentication returning no authorization code must not.
+
+**Files:** `functions/gye/account_operations_runtime.js` and related focused
+tests; `lib/services/auth_service.dart`, `lib/screens/settings_screen.dart`,
+DE/EN ARB and generated localization files, related service/widget tests;
+`docs/release-readiness.md` for the remaining live verification boundary.
+Change other production files only if the verified contract requires it.
+
+- [x] **Step 1: Prove the full failure path locally.** Reproduce early
+  provider failure, Firebase Auth removal, server-owned Auth bridge behavior,
+  excluded scheduled work, and a still-pending receipt with the real repository
+  and worker fakes. Also cover an accepted request whose client exits before
+  supplying the code. Preserve the failed expectations before fixing.
+- [x] **Step 2: Complete server cleanup truthfully.** Include pending Apple
+  work in the existing separate/fair scheduled queue and admit its lease.
+  Reuse the existing `kind, phase, nextAttemptAtMillis, updatedAtMillis`
+  composite index by selecting deletion kind; avoid a new deployed index.
+  On unavailable revocation input, persist a safe manual-revocation-required
+  disposition and continue Auth, community, and processor deletion to the
+  terminal receipt. `appleRevocationComplete` means actual successful
+  provider revocation only, including the existing config-invalid branch.
+  Preserve lease/version checks, bounded work, retry scheduling, idempotent
+  Auth removal, successful early revocation, fair queues and tombstones.
+  No account authorization, App Check policy, token persistence or public
+  endpoint access changes. Current App Check enforcement remains a separate
+  open release gate; do not describe advisory checks as enforcement.
+- [x] **Step 3: Align client acceptance and user guidance.** Keep successful
+  Apple/Firebase reauthentication mandatory, but allow its null/blank code
+  result to reach the durable deletion request. Preserve cancellation,
+  wrong-owner, blocked/cancelled results, journals, secure receipts and local
+  cleanup/consent restart. Correct comments claiming the worker independently
+  revokes tokens. In the existing account-delete confirmation, show Apple
+  users (including Google+Apple) localized instructions to remove Hangul Sori
+  under Apple Account > Sign-In & Security > Sign in with Apple if it remains
+  listed, with the existing external-link helper opening Apple's official
+  instructions. The help action must not delete, confirm, or block deletion.
+  Reuse existing Sori dialog patterns and make guidance/confirmation usable
+  at 320dp, 200% text, DE/EN. The success message must distinguish an accepted
+  deletion/local cleanup from still-running server cleanup; do not claim
+  that Apple's external authorization was revoked when it was not.
+- [x] **Step 4: Verify the coherent candidate.** Test missing-code acceptance
+  versus cancelled/failed reauth; early success/failure and abandoned request;
+  scheduler selection and fairness; lease race/retry/idempotency; terminal
+  receipt and cleanup completion; old pending records; guidance for Apple and
+  mixed providers, help-only and cancel actions, and normal non-Apple flows.
+  Run changed-file analysis plus relevant existing account/startup tests,
+  independent Standards/Spec reviews, and Graphify update/prune with retained
+  paid records. Record only a local commit. No pushes, remote CI, builds,
+  device retries, secrets, live account mutations or deployment.
+
+**Local implementation verification (2026-09-10):** Three independent
+characterizations reproduced the inherited stalled-deletion/false-revocation
+behavior. Meaningful regression runs failed before the fixes: server 0/3,
+missing-code client 0/3, Apple guidance 0/4, and legacy disposition 1/2.
+The final Node 22.23.2 run passed 109/109. One broader Flutter run passed
+465/465 across 33 files; narrower runs overlap and are not added to that
+total. Apple-only and mixed-provider guidance was checked in DE/EN at 320dp
+and 200% text with real fonts. Changed-file analysis found no issues.
+Independent Standards and Spec reviewers approved the frozen candidate with
+no actionable findings, and all 12 reviewed source hashes matched the tested
+bytes. Final source/asset/paid-Graphify preservation and the local commit are
+recorded in external `apple-deletion-recovery-20260910/verification.json`.
+These results do not prove real Apple revocation, deployed cleanup, existing
+installed-client guidance delivery or device behavior.
+
+**Sources checked 2026-09-10:**
+[Apple TN3194](https://developer.apple.com/documentation/technotes/tn3194-handling-account-deletions-and-revoking-tokens-for-sign-in-with-apple),
+[Apple connection management](https://support.apple.com/en-us/102571),
+[Firebase Flutter reauthentication/revocation](https://firebase.google.com/docs/auth/flutter/federated-auth#apple).
+Local tests cannot close the real Apple/provider, deployed worker, App Check,
+privacy-retention or device verification gates. Older installed clients have
+not necessarily displayed the new manual instructions.
+
 ### Verification evidence
 
 2026-09-10 로컬 후보의 검증 결과다. 서로 겹치는 실행 횟수는 더하지 않는다.

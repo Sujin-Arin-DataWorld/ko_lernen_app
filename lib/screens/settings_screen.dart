@@ -2003,9 +2003,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   void _confirmAccountDelete() {
     final t = AppL10n.of(context);
+    final account = widget.account ?? AuthService.accountSnapshot;
+    final hasApple = account.providers.isAppleLinked;
     _showDangerConfirm(
       title: t.settingsAccountDeleteConfirmTitle,
-      body: t.settingsAccountDeleteConfirmBody,
+      body: hasApple
+          ? '${t.settingsAccountDeleteConfirmBody}\n\n${t.settingsAccountDeleteAppleGuidance}'
+          : t.settingsAccountDeleteConfirmBody,
+      secondaryActionLabel: hasApple ? t.settingsAccountDeleteAppleHelp : null,
+      onSecondaryAction: hasApple
+          ? () => openExternalUrl(
+              context,
+              Localizations.localeOf(context).languageCode == 'de'
+                  ? 'https://support.apple.com/de-de/102571'
+                  : 'https://support.apple.com/en-us/102571',
+            )
+          : null,
       confirmLabel: t.btnDelete,
       onConfirm: _onDeleteAccount,
     );

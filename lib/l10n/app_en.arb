@@ -1211,8 +1211,10 @@
   "settingsAccountDelete": "Delete account and all data",
   "settingsAccountDeleteDesc": "Deletes your Firebase account, cloud backup, and local progress.",
   "settingsAccountDeleteConfirmTitle": "Delete account permanently?",
-  "settingsAccountDeleteConfirmBody": "This deletes your Firebase account, Google and Apple links, Firestore cloud backup, and local learning data on this device. This cannot be undone. Google or Apple may ask you to sign in again to confirm.",
-  "settingsAccountDeleteSuccess": "Account and data deleted",
+  "settingsAccountDeleteConfirmBody": "This permanently deletes your Firebase account, cloud backup, and local learning data on this device. Google or Apple may ask you to sign in again to confirm.",
+  "settingsAccountDeleteSuccess": "Deletion accepted. Local data cleared; server cleanup continues in the background.",
+  "settingsAccountDeleteAppleGuidance": "After deleting your account here, check your Apple Account under Sign-In & Security > Sign in with Apple. If Hangul Sori is still listed, select it and stop using Sign in with Apple. You can delete your account here without opening these instructions.",
+  "settingsAccountDeleteAppleHelp": "Open Apple instructions",
   "settingsAccountDeleteFailed": "Deletion failed: {error}",
   "@settingsAccountDeleteFailed": {
     "placeholders": {

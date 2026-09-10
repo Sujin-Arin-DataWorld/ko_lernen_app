@@ -148,8 +148,9 @@ until the release owner attaches dated evidence from the production system.
   Confirm in the deployed function configuration that all four Apple secrets
   are bound to that callable and are not bound to
   `account_deletion_worker` or unrelated functions. The scheduled worker
-  deliberately has no authorization code and only resumes after the callable
-  has persisted the safe `appleRevocationComplete` checkpoint.
+  deliberately has no authorization code. The local Task 20 candidate resumes
+  after successful revocation or a durable `appleManualRevocationRequired`
+  disposition; only actual provider success sets `appleRevocationComplete`.
 - [ ] In a production-equivalent Apple/Firebase staging environment, obtain a
   fresh transient authorization code through Sign in with Apple
   reauthentication and invoke the protected callable with valid, limited-use
@@ -161,13 +162,20 @@ until the release owner attaches dated evidence from the production system.
   secret JWT, refresh/access token, private key, request form, response body,
   header, or raw exception was captured. Source tests do not satisfy this
   external gate.
-- [ ] Resolve and test the no-token fallback before release. Apple's
+- [ ] Verify the locally implemented no-token fallback in the deployed worker
+  and on real Apple/Firebase devices before release. Apple's
   [account-deletion guidance](https://developer.apple.com/documentation/technotes/tn3194-handling-account-deletions-and-revoking-tokens-for-sign-in-with-apple)
   says that when no refresh token, access token, or authorization code is
   available, the service must still delete the account data and direct the
-  user to revoke the Apple authorization manually. The current app retries the
-  protected exchange/revoke flow and has no reviewed manual-fallback state or
-  user handoff; source success for the normal path does not close this gate.
+  user to revoke the Apple authorization manually. Task 20 locally adds a fair
+  pending queue, durable manual disposition, accepted deletion after successful
+  reauthentication without a code, and DE/EN Settings instructions linking to
+  Apple. Locally recognizable old config-invalid checkpoints are corrected;
+  historical dispositions whose status code was already overwritten cannot be
+  reconstructed from source. Older installed clients may never have shown this
+  guidance. Local tests do not establish deployed behavior, real provider
+  revocation, App Check enforcement (account callables remain advisory),
+  privacy-retention compliance, or the production web deletion route.
 - [ ] Verify Firebase project IDs, Android/iOS app IDs, signing fingerprints,
   Apple provider setup, OAuth clients, function regions, IAM invoker policy,
   service accounts, quotas, billing, scheduler, and alerting against the

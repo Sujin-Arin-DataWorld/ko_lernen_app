@@ -294,15 +294,15 @@
     "semantic_hash": ""
   },
   "functions/gye/account_operations_runtime.js": {
-    "mtime": 1788987807.3509886,
-    "seen": 1788995056.9163811,
-    "ast_hash": "f034e92d9e0225267dbaf80e5c9aa871",
+    "mtime": 1789064572.4821043,
+    "seen": 1789065875.0386794,
+    "ast_hash": "0eaa9af2360c55f25b3a23cd75ae7b39",
     "semantic_hash": ""
   },
   "functions/gye/account_operations_runtime.test.js": {
-    "mtime": 1788987807.3529887,
-    "seen": 1788995056.9163857,
-    "ast_hash": "a11f545009db43a10e839895f3aff879",
+    "mtime": 1789064757.124359,
+    "seen": 1789065875.0386877,
+    "ast_hash": "7afe643d2d5047fd6c798ccb93c2f8cc",
     "semantic_hash": ""
   },
   "functions/gye/apple_revocation_adapter.js": {
@@ -966,21 +966,21 @@
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations.dart": {
-    "mtime": 1789058839.1643388,
-    "seen": 1789060099.197009,
-    "ast_hash": "2abec3464b9c2abe8a66e76d02e38d62",
+    "mtime": 1789064345.6510656,
+    "seen": 1789065875.1022232,
+    "ast_hash": "f4808914da23480821319bb65d255dd0",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_de.dart": {
-    "mtime": 1789058839.1688137,
-    "seen": 1789060099.197013,
-    "ast_hash": "d79977c0731228209db0b22d2044067b",
+    "mtime": 1789064345.4549117,
+    "seen": 1789065875.1022284,
+    "ast_hash": "1b6fa57974151460e40944e4068974a4",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_en.dart": {
-    "mtime": 1789058839.1733272,
-    "seen": 1789060099.1970158,
-    "ast_hash": "10e71e124e6487be8c481adf7e8e9ae6",
+    "mtime": 1789064345.5456767,
+    "seen": 1789065875.1022332,
+    "ast_hash": "c37e75cdc8b89960dcc51bffa3f7ed54",
     "semantic_hash": ""
   },
   "lib/l10n/gye_error_text.dart": {
@@ -1656,9 +1656,9 @@
     "semantic_hash": ""
   },
   "lib/screens/settings_screen.dart": {
-    "mtime": 1788987817.175938,
-    "seen": 1788995056.9173446,
-    "ast_hash": "24d0d5456028fc1c919058c97b0544e5",
+    "mtime": 1789064422.3886442,
+    "seen": 1789065875.1612515,
+    "ast_hash": "402e6767299d9b9931ed241ec1e4d8c3",
     "semantic_hash": ""
   },
   "lib/screens/silben_kreuz_screen.dart": {
@@ -1980,9 +1980,9 @@
     "semantic_hash": ""
   },
   "lib/services/auth_service.dart": {
-    "mtime": 1788987817.2319267,
-    "seen": 1788995056.9175267,
-    "ast_hash": "dd1d279dfcd60f94ac0731f4f7464385",
+    "mtime": 1789064697.4925566,
+    "seen": 1789065875.1848874,
+    "ast_hash": "9c8bb41527bb41a7b1b7f714529ec146",
     "semantic_hash": ""
   },
   "lib/services/book_analysis_service.dart": {
@@ -5628,9 +5628,9 @@
     "semantic_hash": ""
   },
   "test/services/auth_service_test.dart": {
-    "mtime": 1788987818.013641,
-    "seen": 1788995056.9193728,
-    "ast_hash": "358095ce1987c741ed451db70dbdea8a",
+    "mtime": 1789064697.5428748,
+    "seen": 1789065875.4963086,
+    "ast_hash": "22ca6fb6ec79820af73f61d11404ca2a",
     "semantic_hash": ""
   },
   "test/services/bookshelf_service_test.dart": {
@@ -6288,9 +6288,9 @@
     "semantic_hash": ""
   },
   "test/widgets/settings_screen_test.dart": {
-    "mtime": 1788987818.1468885,
-    "seen": 1788995056.919838,
-    "ast_hash": "d74b84cd8a4c19f86577fb67372c94ab",
+    "mtime": 1789064869.872936,
+    "seen": 1789065875.563843,
+    "ast_hash": "ef3d0e3ef66291d19744a7253664961d",
     "semantic_hash": ""
   },
   "test/window_class_guard_test.dart": {
@@ -9396,9 +9396,9 @@
     "semantic_hash": ""
   },
   "docs/release-readiness.md": {
-    "mtime": 1788987806.9849012,
-    "seen": 1788995056.921939,
-    "ast_hash": "7739fbe17b4df699cb711f7ae53901db",
+    "mtime": 1789064572.4841044,
+    "seen": 1789065875.9348512,
+    "ast_hash": "d8152262ce894c45918bc1253b847692",
     "semantic_hash": ""
   },
   "docs/release-verification-2026-07-29.md": {
@@ -15516,9 +15516,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-09-global-launch-readiness.md": {
-    "mtime": 1789063063.6456814,
-    "seen": 1789063281.1918855,
-    "ast_hash": "9eab49bc6e28b730673d0333738fff41",
+    "mtime": 1789065655.3710654,
+    "seen": 1789065875.9521844,
+    "ast_hash": "4be621d55394a4c6e6ade0ff3d3ac482",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-09-global-launch-readiness-design.md": {

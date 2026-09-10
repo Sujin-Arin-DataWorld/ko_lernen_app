@@ -2404,10 +2404,18 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get settingsAccountDeleteConfirmBody =>
-      'Dadurch werden dein Firebase-Konto, deine Google- und Apple-Verknüpfungen, das Firestore-Cloud-Backup und lokale Lerndaten auf diesem Gerät gelöscht. Das lässt sich nicht rückgängig machen. Google oder Apple bitten dich zur Bestätigung eventuell um eine erneute Anmeldung.';
+      'Dein Firebase-Konto, dein Cloud-Backup und die lokalen Lerndaten auf diesem Gerät werden dauerhaft gelöscht. Google oder Apple bitten dich möglicherweise zur Bestätigung, dich erneut anzumelden.';
 
   @override
-  String get settingsAccountDeleteSuccess => 'Konto und Daten gelöscht';
+  String get settingsAccountDeleteSuccess =>
+      'Löschung angenommen. Lokale Daten entfernt; die Bereinigung auf dem Server läuft im Hintergrund weiter.';
+
+  @override
+  String get settingsAccountDeleteAppleGuidance =>
+      'Prüfe nach der Kontolöschung hier deinen Apple Account unter Anmeldung und Sicherheit > Mit Apple anmelden. Falls Hangul Sori dort noch aufgeführt ist, wähle die App und beende die Nutzung von „Mit Apple anmelden“. Du kannst dein Konto hier löschen, ohne diese Anleitung zu öffnen.';
+
+  @override
+  String get settingsAccountDeleteAppleHelp => 'Apple-Anleitung öffnen';
 
   @override
   String settingsAccountDeleteFailed(Object error) {
