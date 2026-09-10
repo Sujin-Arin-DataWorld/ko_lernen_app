@@ -9241,11 +9241,11 @@ class AppL10nEn extends AppL10n {
   String get onboardingV2Story1Eyebrow => 'Your learning path';
 
   @override
-  String get onboardingV2Story1Title => 'From letters\nto conversation';
+  String get onboardingV2Story1Title => 'Your path through Korean.';
 
   @override
   String get onboardingV2Story1Body =>
-      'Hangeul Sori connects writing, sound, and real situations into one clear learning path.';
+      'Start at your level and learn step by step.';
 
   @override
   String get onboardingV2Story1Status => 'Does not choose your level yet.';
@@ -9329,11 +9329,11 @@ class AppL10nEn extends AppL10n {
   String get onboardingV2Story2Eyebrow => 'Sound and writing';
 
   @override
-  String get onboardingV2Story2Title => 'Korean becomes visible.';
+  String get onboardingV2Story2Title => 'Two letters make 가.';
 
   @override
   String get onboardingV2Story2Body =>
-      'Build syllables, hear their pronunciation, and use them directly in short sentences.';
+      'Put ㄱ and ㅏ together, then listen to the syllable.';
 
   @override
   String get onboardingV2Story2HeroSemantics =>
@@ -9371,11 +9371,11 @@ class AppL10nEn extends AppL10n {
   String get onboardingV2Story3Eyebrow => 'Review';
 
   @override
-  String get onboardingV2Story3Title => 'What you learn stays with you.';
+  String get onboardingV2Story3Title => 'Tap. Understand. Review.';
 
   @override
   String get onboardingV2Story3Body =>
-      'Short reviews come exactly when your memory needs them.';
+      'Flip the card. Review saved words later.';
 
   @override
   String get onboardingV2Story3HeroSemantics =>
@@ -9416,11 +9416,10 @@ class AppL10nEn extends AppL10n {
   String get onboardingV2Story4Eyebrow => 'Motivation';
 
   @override
-  String get onboardingV2Story4Title => 'Practice can feel rewarding.';
+  String get onboardingV2Story4Title => 'Try a quick challenge.';
 
   @override
-  String get onboardingV2Story4Body =>
-      'Quests and personal bests make progress visible without controlling how you learn.';
+  String get onboardingV2Story4Body => 'Recognize 가, then unwrap a bojagi.';
 
   @override
   String get onboardingV2Story4HeroSemantics =>
@@ -9475,11 +9474,11 @@ class AppL10nEn extends AppL10n {
   String get onboardingV2Story5Eyebrow => 'Heritage journey';
 
   @override
-  String get onboardingV2Story5Title => 'Your hanok grows with every chapter.';
+  String get onboardingV2Story5Title => 'Your journey starts at the gate.';
 
   @override
   String get onboardingV2Story5Body =>
-      'Stamps, bojagi, and rooms connect your learning progress to a heritage journey.';
+      'Take a look at the first chapter: Ildu Gotaek.';
 
   @override
   String get onboardingV2Story5HeroSemantics =>
@@ -9693,11 +9692,11 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2CompanionBody =>
-      'Choose Taego or Joy. Both follow the same learning path; only tone and rhythm differ, and you can switch later.';
+      'Choose the learning companion whose rhythm suits you.';
 
   @override
   String get onboardingV2CompanionEqualNote =>
-      'Content, answers, hint strength, XP, progress, and rewards are identical for both.';
+      'Both follow the same learning path, with the same content and rewards. You can switch later.';
 
   @override
   String get onboardingV2CompanionContinue => 'Confirm my choice';
@@ -9707,7 +9706,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2CompanionTaegoBody =>
-      'Puts the same guidance in clear order and shows the next step.';
+      'Clear guidance, one step at a time.';
 
   @override
   String get onboardingV2CompanionTaegoSelected => 'Taego has been selected.';
@@ -9718,7 +9717,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2CompanionJoyBody =>
-      'Gives the same guidance as short prompts and celebrates every attempt.';
+      'Quick prompts to get you trying things out.';
 
   @override
   String get onboardingV2CompanionJoySelected => 'Joy has been selected.';
@@ -9728,7 +9727,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2ConfirmationBody =>
-      'The welcome video is only an introduction; you can continue anytime, even if it does not load.';
+      'Your companion is ready. Let’s start your first learning moment.';
 
   @override
   String get onboardingV2ConfirmationStart => 'Start together';
@@ -10292,4 +10291,63 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get flashcardRomanization => 'Romanization';
+
+  @override
+  String get onboardingV2ComposeGa => 'Combine';
+
+  @override
+  String get onboardingV2PlayGa => 'Listen to 가';
+
+  @override
+  String get onboardingV2AudioPlaying => 'Playing …';
+
+  @override
+  String get onboardingV2AudioUnavailable =>
+      'Audio is unavailable. Try again or continue.';
+
+  @override
+  String get onboardingV2RecognitionPrompt => 'Which syllable reads “ga”?';
+
+  @override
+  String get onboardingV2RecognitionRetry =>
+      'Almost! Look for ㄱ with ㅏ. Try again.';
+
+  @override
+  String get onboardingV2RecognitionCorrect =>
+      'Correct, 가! Now you can unwrap the bojagi.';
+
+  @override
+  String get onboardingV2UnwrapGift => 'Unwrap the bojagi';
+
+  @override
+  String get onboardingV2GiftOpened => 'Bojagi unwrapped';
+
+  @override
+  String get onboardingV2RewardDemoNote =>
+      'Just a demo. No XP or items are awarded here.';
+
+  @override
+  String get onboardingV2RewardDetails => 'About rewards';
+
+  @override
+  String get onboardingV2CurriculumDetails => 'Curriculum and sources';
+
+  @override
+  String get onboardingV2DetailsAction => 'Details';
+
+  @override
+  String get onboardingV2ReviewDetails => 'What you can save and review';
+
+  @override
+  String get onboardingV2GatePreviewTitle => 'The entrance gate';
+
+  @override
+  String get onboardingV2GatePreviewBody =>
+      'A first look at Ildu Gotaek. The journey is still in preparation.';
+
+  @override
+  String get onboardingV2GatePreviewClose => 'Back to the journey';
+
+  @override
+  String get onboardingV2GiftOpening => 'Unwrapping …';
 }

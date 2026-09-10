@@ -12,12 +12,17 @@ import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_setup_screen.dart
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_presentation.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_shell.dart';
 import 'package:ko_lernen_app/screens/study_library_screen.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/sheet.dart';
 import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
+
+import 'support/real_fonts.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(loadSoriRealFonts);
 
   group('Onboarding V2 compact accessibility gate', () {
     final surfaces =
@@ -52,10 +57,11 @@ void main() {
             ),
           (
             name: 'setup empty',
-            footerActionKeys: const [ValueKey('onboarding-v2-setup-continue')],
-            deepContentKey: const ValueKey(
-              'onboarding-v2-purpose-${OnboardingV2Ids.purposeKContent}',
-            ),
+            footerActionKeys: const [
+              ValueKey('onboarding-v2-setup-continue'),
+              ValueKey('onboarding-v2-setup-back'),
+            ],
+            deepContentKey: const ValueKey('onboarding-v2-purpose-details'),
             build: (copy) => OnboardingSetupScreen(
               copy: copy,
               selectedPurposeId: null,
@@ -66,8 +72,27 @@ void main() {
             ),
           ),
           (
+            name: 'setup level unselected',
+            footerActionKeys: const [
+              ValueKey('onboarding-v2-setup-continue'),
+              ValueKey('onboarding-v2-setup-back'),
+            ],
+            deepContentKey: const ValueKey('onboarding-v2-level-compare'),
+            build: (copy) => OnboardingSetupScreen(
+              copy: copy,
+              selectedPurposeId: OnboardingV2Ids.purposeKContent,
+              selectedLevelCode: null,
+              onPurposeChanged: (_) {},
+              onLevelChanged: (_) {},
+              onContinue: (_) {},
+            ),
+          ),
+          (
             name: 'setup selected',
-            footerActionKeys: const [ValueKey('onboarding-v2-setup-continue')],
+            footerActionKeys: const [
+              ValueKey('onboarding-v2-setup-continue'),
+              ValueKey('onboarding-v2-setup-back'),
+            ],
             deepContentKey: const ValueKey('onboarding-v2-selected-level'),
             build: (copy) => OnboardingSetupScreen(
               copy: copy,
@@ -82,6 +107,7 @@ void main() {
             name: 'companion choice empty',
             footerActionKeys: const [
               ValueKey('onboarding-v2-companion-continue'),
+              ValueKey('onboarding-v2-companion-back'),
             ],
             deepContentKey: const ValueKey(
               'onboarding-v2-companion-equal-learning-note',
@@ -97,6 +123,7 @@ void main() {
             name: 'companion choice selected',
             footerActionKeys: const [
               ValueKey('onboarding-v2-companion-continue'),
+              ValueKey('onboarding-v2-companion-back'),
             ],
             deepContentKey: const ValueKey(
               'onboarding-v2-companion-equal-learning-note',
@@ -142,12 +169,15 @@ void main() {
           ),
         ];
 
-    const viewportMatrix = <({Size size, double textScale})>[
-      (size: Size(320, 640), textScale: 2),
-      (size: Size(360, 800), textScale: 1),
-      (size: Size(360, 800), textScale: 1.3),
-      (size: Size(360, 800), textScale: 2),
-    ];
+    const viewportMatrix =
+        <({Size size, double devicePixelRatio, double textScale})>[
+          (size: Size(320, 640), devicePixelRatio: 1, textScale: 2),
+          (size: Size(360, 800), devicePixelRatio: 1, textScale: 1),
+          (size: Size(360, 800), devicePixelRatio: 1, textScale: 1.3),
+          (size: Size(360, 800), devicePixelRatio: 1, textScale: 2),
+          (size: Size(720, 1152), devicePixelRatio: 2.5, textScale: 1),
+          (size: Size(1152, 720), devicePixelRatio: 1, textScale: 1),
+        ];
 
     for (final surface in surfaces) {
       testWidgets(
@@ -158,7 +188,11 @@ void main() {
 
           for (final locale in const [Locale('de'), Locale('en')]) {
             for (final viewport in viewportMatrix) {
-              _setViewport(tester, viewport.size);
+              _setViewport(
+                tester,
+                viewport.size,
+                devicePixelRatio: viewport.devicePixelRatio,
+              );
               await tester.pumpWidget(
                 _localizedApp(
                   locale: locale,
@@ -175,8 +209,13 @@ void main() {
               expect(tester.takeException(), isNull, reason: evidence);
               expect(
                 find.byType(SingleChildScrollView),
-                findsOneWidget,
-                reason: evidence,
+                findsNothing,
+                reason: '$evidence primary journey must not scroll',
+              );
+              expect(
+                find.byType(Scrollable),
+                findsNothing,
+                reason: '$evidence primary journey must fit one viewport',
               );
               final footerActions = surface.footerActionKeys
                   .map(find.byKey)
@@ -212,59 +251,35 @@ void main() {
                   );
                 }
               }
-              final scrollRect = tester.getRect(
-                find.byType(SingleChildScrollView),
-              );
-              final footerTop = footerRectsBeforeScroll
-                  .map((rect) => rect.top)
-                  .reduce((left, right) => left < right ? left : right);
-              expect(
-                scrollRect.bottom,
-                lessThanOrEqualTo(footerTop),
-                reason: evidence,
-              );
-
-              final deepContent = find.byKey(surface.deepContentKey);
-              expect(deepContent, findsOneWidget, reason: evidence);
-              final bodyScrollable = find.descendant(
-                of: find.byType(SingleChildScrollView),
-                matching: find.byType(Scrollable),
-              );
-              expect(bodyScrollable, findsOneWidget, reason: evidence);
-              final position = tester
-                  .state<ScrollableState>(bodyScrollable)
-                  .position;
-              final isCompactMaximumScale =
-                  viewport.size == const Size(320, 640) &&
-                  viewport.textScale == 2;
-              if (isCompactMaximumScale) {
+              final details = find.byType(OnboardingV2DetailsButton);
+              if (details.evaluate().isNotEmpty) {
+                _expectLabeled48DpButton(tester, details.first);
+                _expectInsideSafeViewport(
+                  tester,
+                  details.first,
+                  viewport.size,
+                  reason: evidence,
+                );
+                await tester.tap(details.first);
+                await _pumpFinite(tester);
                 expect(
-                  position.maxScrollExtent,
-                  greaterThan(0),
-                  reason: '$evidence body must reflow into a scrollable region',
+                  find.byType(SoriSheetShell),
+                  findsOneWidget,
+                  reason: '$evidence details did not open a reading sheet',
                 );
               }
-              if (position.maxScrollExtent > 0) {
-                position.jumpTo(position.maxScrollExtent);
-              }
-              await tester.pump();
+              final deepContent = find.byKey(surface.deepContentKey);
+              expect(
+                deepContent,
+                findsOneWidget,
+                reason: '$evidence secondary details content is unreachable',
+              );
               expect(tester.takeException(), isNull, reason: evidence);
-              final deepContentRect = tester.getRect(deepContent);
-              expect(
-                deepContentRect.bottom,
-                lessThanOrEqualTo(scrollRect.bottom + 0.5),
-                reason: '$evidence final body content is hidden by the footer',
-              );
-              expect(
-                deepContentRect.bottom,
-                greaterThan(scrollRect.top),
-                reason: '$evidence final body content is not reachable',
-              );
               for (var index = 0; index < footerActions.length; index++) {
                 expect(
                   tester.getRect(footerActions[index]),
                   footerRectsBeforeScroll[index],
-                  reason: '$evidence fixed footer moved while body scrolled',
+                  reason: '$evidence footer moved before details opened',
                 );
               }
 
@@ -298,9 +313,14 @@ void main() {
         final compareAction = find.byKey(
           const ValueKey('onboarding-v2-level-compare'),
         );
-        await tester.scrollUntilVisible(compareAction, 180);
+        _expectInsideSafeViewport(
+          tester,
+          compareAction,
+          const Size(320, 640),
+          reason: 'comparison action must fit the single-screen level step',
+        );
         await tester.tap(compareAction);
-        await tester.pumpAndSettle();
+        await _pumpFinite(tester);
 
         expect(tester.takeException(), isNull);
         final sheet = find.byType(DraggableScrollableSheet);
@@ -352,7 +372,7 @@ void main() {
           attempt++
         ) {
           await tester.drag(list, const Offset(0, -300));
-          await tester.pumpAndSettle();
+          await _pumpFinite(tester);
         }
 
         expect(tester.takeException(), isNull);
@@ -364,7 +384,7 @@ void main() {
     );
 
     testWidgets(
-      'reduced motion removes story transition and decorative preview',
+      'reduced motion removes story transition and keeps confirmation usable',
       (tester) async {
         _setCompactViewport(tester);
 
@@ -391,24 +411,29 @@ void main() {
           find.byKey(const ValueKey('onboarding-v2-story-title')),
         );
 
-        var previewBuilds = 0;
         await tester.pumpWidget(
           _germanApp(
             (context) => OnboardingCompanionConfirmationScreen(
               copy: onboardingV2Copy(AppL10n.of(context)),
               companionId: OnboardingV2Ids.companionJoy,
-              previewBuilder: (context, companionId) {
-                previewBuilds += 1;
-                return const ColoredBox(color: Colors.black);
-              },
               onStart: () {},
               onChange: () {},
             ),
           ),
         );
-        await tester.pump();
+        await _pumpFinite(tester);
 
-        expect(previewBuilds, 0);
+        expect(
+          find.descendant(
+            of: find.byKey(const ValueKey('onboarding-v2-confirmation-hero')),
+            matching: find.byType(RawImage),
+          ),
+          findsNothing,
+        );
+        expect(
+          find.byKey(const ValueKey('onboarding-character-neutral-fallback')),
+          findsOneWidget,
+        );
         final liveHeading = tester
             .getSemantics(
               find.byKey(
@@ -579,7 +604,7 @@ void main() {
         ),
       ),
     );
-    await tester.pumpAndSettle();
+    await _pumpFinite(tester);
 
     expect(find.byType(SoriStandardPage), findsOneWidget);
     expect(tester.takeException(), isNull);
@@ -611,7 +636,7 @@ void main() {
     await tester.ensureVisible(filterIcon);
     await tester.pump();
     await tester.tap(filterIcon);
-    await tester.pumpAndSettle();
+    await _pumpFinite(tester);
     for (final entry in viewLabels.entries) {
       final control = find.byKey(
         ValueKey('study-library-view-${entry.key.name}'),
@@ -626,7 +651,7 @@ void main() {
     final dueControl = find.byKey(const ValueKey('study-library-view-due'));
     await tester.ensureVisible(dueControl);
     await tester.tap(dueControl);
-    await tester.pump();
+    await _pumpFinite(tester);
 
     final viewStatusFinder = find.byKey(
       const ValueKey('study-library-view-status'),
@@ -700,9 +725,22 @@ void _setCompactViewport(WidgetTester tester) {
   addTearDown(tester.view.resetDevicePixelRatio);
 }
 
-void _setViewport(WidgetTester tester, Size size) {
-  tester.view.physicalSize = size;
-  tester.view.devicePixelRatio = 1;
+void _setViewport(
+  WidgetTester tester,
+  Size size, {
+  double devicePixelRatio = 1,
+}) {
+  tester.view.physicalSize = Size(
+    size.width * devicePixelRatio,
+    size.height * devicePixelRatio,
+  );
+  tester.view.devicePixelRatio = devicePixelRatio;
+}
+
+Future<void> _pumpFinite(WidgetTester tester) async {
+  for (var frame = 0; frame < 20; frame++) {
+    await tester.pump(const Duration(milliseconds: 20));
+  }
 }
 
 void _expectInsideSafeViewport(
@@ -731,7 +769,15 @@ void _expectHeader(WidgetTester tester, Finder finder) {
 void _expectLabeled48DpButton(WidgetTester tester, Finder finder) {
   final data = tester.getSemantics(finder).getSemanticsData();
   expect(data.flagsCollection.isButton, isTrue);
-  expect(data.label.trim(), isNotEmpty);
+  if (data.label.trim().isEmpty) {
+    final tooltip = find.descendant(of: finder, matching: find.byType(Tooltip));
+    expect(
+      tooltip,
+      findsOneWidget,
+      reason: 'An icon-only action needs a non-empty tooltip label.',
+    );
+    expect(tester.widget<Tooltip>(tooltip).message?.trim(), isNotEmpty);
+  }
   _expect48DpButton(tester, finder);
 }
 

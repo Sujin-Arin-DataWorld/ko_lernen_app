@@ -1,18 +1,25 @@
+import 'dart:ui' show Tristate;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart' show LocaleStringAttribute;
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_character_media.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_companion_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_setup_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_presentation.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_shell.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 
+import 'support/real_fonts.dart';
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(loadSoriRealFonts);
 
   testWidgets('story is coordinator-driven, mandatory, and resume-ready', (
     tester,
@@ -43,7 +50,6 @@ void main() {
           .label,
       'Page 4 of 7',
     );
-    expect(find.text('Reward examples — nothing is granted here'), findsOne);
     expect(find.textContaining('Skip'), findsNothing);
     expect(find.byKey(const ValueKey('onboarding-v2-story-hero')), findsOne);
     final heading = tester
@@ -55,18 +61,22 @@ void main() {
       FocusManager.instance.primaryFocus?.debugLabel,
       'onboarding-v2-heading',
     );
-    final statusSemantics = tester
-        .getSemantics(find.byKey(const ValueKey('onboarding-v2-story-status')))
-        .getSemanticsData();
+    expect(find.text('Which syllable reads “ga”?'), findsOneWidget);
     expect(
-      statusSemantics.label,
-      contains('Reward examples — nothing is granted here'),
+      find.text('Just a demo. No XP or items are awarded here.'),
+      findsOneWidget,
     );
-    final highlightSemantics = tester
-        .getSemantics(find.text('Game hints'))
+    final answerSemantics = tester
+        .getSemantics(find.byKey(const ValueKey('onboarding-v2-answer-가')))
         .getSemanticsData();
-    expect(highlightSemantics.label, contains('Play and rewards preview'));
-    expect(highlightSemantics.flagsCollection.isButton, isTrue);
+    expect(answerSemantics.label, contains('가'));
+    expect(answerSemantics.flagsCollection.isButton, isTrue);
+    final giftSemantics = tester
+        .getSemantics(find.byKey(const ValueKey('onboarding-v2-gift-action')))
+        .getSemanticsData();
+    expect(giftSemantics.label, 'Unwrap the bojagi');
+    expect(giftSemantics.flagsCollection.isButton, isTrue);
+    expect(giftSemantics.flagsCollection.isEnabled, Tristate.isFalse);
 
     await tester.tap(find.byKey(const ValueKey('onboarding-v2-story-back')));
     expect(previousPage, OnboardingV2Ids.storyGamesAndRewards);
@@ -90,6 +100,14 @@ void main() {
       ),
     );
 
+    expect(find.text('Heart = favorite'), findsNothing);
+    expect(find.text('Bookmark = save for learning'), findsNothing);
+    final details = find.byType(OnboardingV2DetailsButton);
+    expect(details, findsOneWidget);
+    await tester.tap(details);
+    for (var frame = 0; frame < 20; frame++) {
+      await tester.pump(const Duration(milliseconds: 20));
+    }
     expect(find.text('Heart = favorite'), findsOneWidget);
     expect(find.text('Bookmark = save for learning'), findsOneWidget);
     expect(find.textContaining('without adding a review task'), findsOneWidget);
@@ -97,7 +115,51 @@ void main() {
     expect(find.textContaining('AI-generated'), findsNothing);
   });
 
-  testWidgets('each mandatory story page starts at the top', (tester) async {
+  testWidgets('flipped review card remains usable in the compact viewport', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(320, 640);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final semantics = tester.ensureSemantics();
+
+    await tester.pumpWidget(
+      _host(
+        OnboardingStoryScreen(
+          copy: _copy(),
+          pageIndex: 2,
+          onContinue: (_) {},
+          onPrevious: (_) {},
+        ),
+        textScale: 2,
+      ),
+    );
+    await tester.pump();
+
+    final card = find.byKey(const ValueKey('onboarding-v2-story-hero'));
+    expect(
+      tester.getSemantics(card).getSemanticsData().flagsCollection.isButton,
+      isTrue,
+    );
+    expect(find.text('안녕하세요.'), findsOneWidget);
+    await tester.tap(card);
+    await _pumpFinite(tester);
+
+    expect(find.text('Hello.'), findsOneWidget);
+    expect(find.text('안녕하세요.'), findsOneWidget);
+    expect(find.byType(SingleChildScrollView), findsNothing);
+    _expectMinimumTarget(
+      tester,
+      find.byKey(const ValueKey('onboarding-v2-story-next')),
+    );
+    expect(tester.takeException(), isNull);
+    semantics.dispose();
+  });
+
+  testWidgets('mandatory story pages switch without vertical page movement', (
+    tester,
+  ) async {
     tester.view.physicalSize = const Size(320, 640);
     tester.view.devicePixelRatio = 1;
     addTearDown(() {
@@ -109,23 +171,37 @@ void main() {
       _host(_StoryPagingHarness(copy: _copy(), initialPage: 3), textScale: 2),
     );
 
-    final pageFourScroll = find.byKey(
+    final pageFourBody = find.byKey(
       const ValueKey(
         'onboarding-v2-story-scroll-${OnboardingV2Ids.storyGamesAndRewards}',
       ),
     );
-    await tester.drag(pageFourScroll, const Offset(0, -700));
+    expect(find.byType(SingleChildScrollView), findsNothing);
+    expect(
+      find.descendant(of: pageFourBody, matching: find.byType(Scrollable)),
+      findsNothing,
+    );
+    final visibleHeading = find.byKey(
+      const ValueKey('onboarding-v2-story-title'),
+    );
+    expect(
+      find.bySemanticsLabel('Page 4 of 7. Play and rewards'),
+      findsOneWidget,
+    );
+    final titleBeforeDrag = tester.getRect(visibleHeading);
+    await tester.drag(pageFourBody, const Offset(0, -700));
     await tester.pump();
-    expect(tester.getTopLeft(find.text('Play and rewards')).dy, lessThan(0));
+    expect(tester.getRect(visibleHeading), titleBeforeDrag);
 
     await tester.tap(find.byKey(const ValueKey('onboarding-v2-story-next')));
     await tester.pump();
 
-    expect(find.text('Your stamp book, bojagi, and hanok'), findsOneWidget);
     expect(
-      tester.getTopLeft(find.text('Your stamp book, bojagi, and hanok')).dy,
-      greaterThanOrEqualTo(0),
+      find.bySemanticsLabel('Page 5 of 7. Your stamp book, bojagi, and hanok'),
+      findsOneWidget,
     );
+    expect(tester.getTopLeft(visibleHeading).dy, greaterThanOrEqualTo(0));
+    expect(find.byType(SingleChildScrollView), findsNothing);
   });
 
   testWidgets('setup requires both goal and level before emitting a draft', (
@@ -144,14 +220,7 @@ void main() {
 
     expect(_button(tester, 'onboarding-v2-setup-continue').onTap, isNull);
 
-    final purpose = find.byKey(
-      const ValueKey(
-        'onboarding-v2-purpose-${OnboardingV2Ids.purposeKContent}',
-      ),
-    );
-    await tester.ensureVisible(purpose);
-    await tester.tap(purpose);
-    await tester.pump();
+    await _choosePurpose(tester, OnboardingV2Ids.purposeKContent);
     await tester.tap(
       find.byKey(const ValueKey('onboarding-v2-setup-continue')),
     );
@@ -162,6 +231,15 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('onboarding-v2-level-B2')));
     await tester.pump();
 
+    expect(find.text('The meeting is running long.'), findsNothing);
+    final exampleAction = find.byKey(
+      const ValueKey('onboarding-v2-level-example-action'),
+    );
+    expect(exampleAction, findsOneWidget);
+    await tester.tap(exampleAction);
+    for (var frame = 0; frame < 20; frame++) {
+      await tester.pump(const Duration(milliseconds: 20));
+    }
     expect(find.text('The meeting is running long.'), findsOneWidget);
     final koreanExample = tester
         .getSemantics(
@@ -174,6 +252,8 @@ void main() {
           .map((attribute) => attribute.locale.languageCode),
       contains('ko'),
     );
+    await tester.tap(find.widgetWithText(SoriButton, 'Close'));
+    await _pumpFinite(tester);
     expect(_button(tester, 'onboarding-v2-setup-continue').onTap, isNotNull);
 
     await tester.tap(
@@ -191,14 +271,7 @@ void main() {
       _host(_SetupHarness(copy: _copy(), onSubmitted: (_) {}), textScale: 2),
     );
 
-    final purpose = find.byKey(
-      const ValueKey(
-        'onboarding-v2-purpose-${OnboardingV2Ids.purposeLifeTravel}',
-      ),
-    );
-    await tester.ensureVisible(purpose);
-    await tester.tap(purpose);
-    await tester.pump();
+    await _choosePurpose(tester, OnboardingV2Ids.purposeLifeTravel);
     await tester.tap(
       find.byKey(const ValueKey('onboarding-v2-setup-continue')),
     );
@@ -325,7 +398,10 @@ void main() {
       FocusManager.instance.primaryFocus?.debugLabel,
       'onboarding-v2-companion-confirmation-heading',
     );
-    expect(find.bySemanticsLabel('Taego has been selected.'), findsOneWidget);
+    expect(
+      find.bySemanticsLabel('Page 7 of 7. Taego has been selected.'),
+      findsOneWidget,
+    );
 
     await tester.tap(
       find.byKey(const ValueKey('onboarding-v2-confirmation-start')),
@@ -334,28 +410,40 @@ void main() {
     semantics.dispose();
   });
 
-  testWidgets('reduce motion skips preview but keeps static confirmation CTA', (
+  testWidgets('reduce motion keeps the confirmation poster and CTA', (
     tester,
   ) async {
-    var previewBuilds = 0;
     var starts = 0;
     await tester.pumpWidget(
       _host(
         OnboardingCompanionConfirmationScreen(
           copy: _copy(),
           companionId: OnboardingV2Ids.companionJoy,
-          previewBuilder: (context, id) {
-            previewBuilds += 1;
-            return const ColoredBox(color: Colors.black);
-          },
           onStart: () => starts += 1,
           onChange: () {},
         ),
       ),
     );
-    await tester.pump();
+    for (var frame = 0; frame < 8; frame++) {
+      await tester.pump(const Duration(milliseconds: 10));
+    }
 
-    expect(previewBuilds, 0);
+    final media = tester.widget<OnboardingCharacterMedia>(
+      find.byType(OnboardingCharacterMedia),
+    );
+    expect(media.characterId, 'magpie');
+    expect(media.motion, OnboardingCharacterMotion.confirm);
+    expect(
+      find.descendant(
+        of: find.byType(OnboardingCharacterMedia),
+        matching: find.byType(RawImage),
+      ),
+      findsNothing,
+    );
+    expect(
+      find.byKey(const ValueKey('onboarding-character-neutral-fallback')),
+      findsOneWidget,
+    );
     expect(find.text('Joy has been selected.'), findsOneWidget);
     await tester.tap(
       find.byKey(const ValueKey('onboarding-v2-confirmation-start')),
@@ -364,7 +452,7 @@ void main() {
   });
 
   testWidgets(
-    '320x640 at 200 percent text keeps body scrollable and CTA fixed',
+    '320x640 at 200 percent text keeps the primary journey scroll-free',
     (tester) async {
       tester.view.physicalSize = const Size(320, 640);
       tester.view.devicePixelRatio = 1;
@@ -389,7 +477,7 @@ void main() {
         tester,
         find.byKey(const ValueKey('onboarding-v2-story-next')),
       );
-      expect(find.byType(SingleChildScrollView), findsOneWidget);
+      expect(find.byType(SingleChildScrollView), findsNothing);
 
       await tester.pumpWidget(
         _host(
@@ -442,7 +530,7 @@ void main() {
     await tester.pump();
 
     expect(tester.takeException(), isNull);
-    expect(find.byType(SingleChildScrollView), findsOneWidget);
+    expect(find.byType(SingleChildScrollView), findsNothing);
     _expectMinimumTarget(
       tester,
       find.byKey(const ValueKey('onboarding-v2-story-next')),
@@ -475,7 +563,7 @@ void main() {
     );
     await tester.pump();
     expect(tester.takeException(), isNull);
-    expect(find.byType(SingleChildScrollView), findsOneWidget);
+    expect(find.byType(SingleChildScrollView), findsNothing);
     _expectMinimumTarget(
       tester,
       find.byKey(const ValueKey('onboarding-v2-setup-continue')),
@@ -506,12 +594,31 @@ void main() {
     );
     await tester.pump();
     expect(tester.takeException(), isNull);
-    expect(find.byType(SingleChildScrollView), findsOneWidget);
+    expect(find.byType(SingleChildScrollView), findsNothing);
     _expectMinimumTarget(
       tester,
       find.byKey(const ValueKey('onboarding-v2-confirmation-start')),
     );
   });
+}
+
+Future<void> _choosePurpose(WidgetTester tester, String purposeId) async {
+  final purpose = find.byKey(ValueKey('onboarding-v2-purpose-$purposeId'));
+  if (purpose.evaluate().isEmpty) {
+    await tester.tap(
+      find.byKey(const ValueKey('onboarding-v2-purpose-picker')),
+    );
+    await _pumpFinite(tester);
+  }
+  expect(purpose, findsOneWidget);
+  await tester.tap(purpose);
+  await _pumpFinite(tester);
+}
+
+Future<void> _pumpFinite(WidgetTester tester) async {
+  for (var frame = 0; frame < 20; frame++) {
+    await tester.pump(const Duration(milliseconds: 20));
+  }
 }
 
 Future<void> _focusWithKeyboard(WidgetTester tester, Finder target) async {
@@ -552,6 +659,9 @@ Widget _host(
   bool disableAnimations = true,
 }) => MaterialApp(
   theme: AppTheme.light,
+  locale: const Locale('en'),
+  supportedLocales: AppL10n.supportedLocales,
+  localizationsDelegates: AppL10n.localizationsDelegates,
   home: child,
   builder: (context, child) => MediaQuery(
     data: MediaQuery.of(context).copyWith(

@@ -1,4 +1,5 @@
-import 'dart:io';
+import 'dart:async';
+import 'dart:ui' show Tristate;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -9,123 +10,100 @@ import 'package:ko_lernen_app/features/onboarding_v2/onboarding_journey_reposito
 import 'package:ko_lernen_app/features/onboarding_v2/onboarding_journey_state.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/learner_level.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_character_media.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_companion_screen.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_journey_screen.dart';
-import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_stage.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_presentation.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
-import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 
+import 'support/real_fonts.dart';
+
 void main() {
-  group('onboarding V2 companion confirmation media contract', () {
-    test('uses the dedicated choose clip for each companion', () {
-      expect(
-        CharacterClips.chooseFor(MascotKind.tiger),
-        'assets/video/character/tiger_choose.mp4',
-      );
-      expect(
-        CharacterClips.chooseFor(MascotKind.magpie),
-        'assets/video/character/magpie_choose.mp4',
-      );
-    });
+  TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(loadSoriRealFonts);
 
-    test('choose clips do not derive a separate companion SFX', () {
-      expect(
-        CharacterClips.sfxFor(CharacterClips.chooseFor(MascotKind.tiger)),
-        isNull,
-      );
-      expect(
-        CharacterClips.sfxFor(CharacterClips.chooseFor(MascotKind.magpie)),
-        isNull,
-      );
-    });
-  });
+  testWidgets('companion choices wire Taego to tiger and Joy to magpie media', (
+    tester,
+  ) async {
+    await _pump(tester, const _CompanionHarness(selectedCompanionId: null));
+    await _pumpFinite(tester);
 
-  // 2026-08-31 실기기: 확정 화면에서 비디오 뒤로 크림 사각형 매트가 보이고
-  // 그 위에 정적 마스코트가 원형으로 겹쳐 보였다. 원인은 (1) blendColor가
-  // 확정 스테이지의 실제 배경(그라디언트)과 다른 값이었고 (2) staticFallback이
-  // 무조건 true라 초기화 중에도 정적 PNG가 떴기 때문. 아래는 그 배선 계약을
-  // 소스 레벨에서 고정한다 — `character_clip_matte_test.dart`의 바이너리
-  // 클립 대비 소스 검사(§'CharacterClips ↔ 번들 클립이 양방향으로 일치한다')와
-  // 같은 기법이다: 이 화면은 videoReady=false 로만 안전하게 위젯 테스트할 수
-  // 있어(플랫폼 채널 미모킹) 필드값만으로는 "무조건 true로 되돌아감"을 잡아낼
-  // 수 없다. 소스 스캔으로 그 회귀를 직접 막는다.
-  group('onboarding V2 confirmation preview source wiring', () {
-    late String source;
-
-    setUpAll(() {
-      // Normalize CRLF → LF: on Windows checkouts the file is read with `\r\n`
-      // line endings, which would silently break every `\n  }\n` search below.
-      source = File(
-        'lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart',
-      ).readAsStringSync().replaceAll('\r\n', '\n');
-    });
-
-    String previewBuilderBody() {
-      final start = source.indexOf('Widget _buildCompanionPreview(');
-      expect(start, greaterThanOrEqualTo(0));
-      final end = source.indexOf('\n  }\n', start);
-      expect(end, greaterThan(start));
-      return source.substring(start, end);
-    }
-
-    test(
-      'staticFallback tracks device video availability, never hardcoded',
-      () {
-        final body = previewBuilderBody();
-        expect(
-          body,
-          contains('staticFallback: CharacterClipPlayer.videoUnavailable('),
-          reason:
-              'Hard-coding staticFallback:true redraws the static mascot even '
-              'while the clip plays, reproducing the circular-overlay bug.',
-        );
-        expect(body, isNot(contains('staticFallback: true')));
-      },
+    final media = tester
+        .widgetList<OnboardingCharacterMedia>(
+          find.byType(OnboardingCharacterMedia),
+        )
+        .toList(growable: false);
+    expect(media, hasLength(2));
+    expect(media.map((item) => item.characterId), ['tiger', 'magpie']);
+    expect(
+      media.map((item) => item.motion),
+      everyElement(OnboardingCharacterMotion.idle),
     );
-
-    test('blendColor is wired to the shared stage matte, not a bare token', () {
-      final body = previewBuilderBody();
-      expect(
-        body,
-        contains('OnboardingConfirmationStage.matteFor(context, isJoy:'),
-        reason:
-            'The matte must come from the same function the stage backdrop '
-            'uses so the two colors can never drift apart.',
-      );
-    });
-
-    test('playback speed is set to the deliberate slower welcome pace', () {
-      final body = previewBuilderBody();
-      expect(body, contains('playbackSpeed: 0.85'));
-    });
+    expect(media.map((item) => item.active), everyElement(isFalse));
+    expect(media.map((item) => item.resolvedPosterAsset), [
+      'assets/illustrations/onboarding/companions/taego_idle.png',
+      'assets/illustrations/onboarding/companions/joy_idle.png',
+    ]);
+    expect(
+      find.byKey(const ValueKey('onboarding-character-neutral-fallback')),
+      findsNWidgets(2),
+      reason:
+          'Unapproved companion originals are intentionally absent; the '
+          'screen must show the neutral fallback instead of old artwork.',
+    );
+    _expectNoLegacyMediaOrTint();
+    expect(tester.takeException(), isNull);
   });
 
-  group('onboarding V2 confirmation preview widget contract', () {
-    setUp(() async {
-      TigerStageVideo.videoReady = false;
+  testWidgets('selected companion alone receives select motion', (
+    tester,
+  ) async {
+    await _pump(
+      tester,
+      const _CompanionHarness(
+        selectedCompanionId: OnboardingV2Ids.companionJoy,
+      ),
+    );
+    await _pumpFinite(tester);
+
+    final media = tester
+        .widgetList<OnboardingCharacterMedia>(
+          find.byType(OnboardingCharacterMedia),
+        )
+        .toList(growable: false);
+    expect(media, hasLength(2));
+    expect(media[0].characterId, 'tiger');
+    expect(media[0].motion, OnboardingCharacterMotion.idle);
+    expect(media[0].active, isFalse);
+    expect(media[1].characterId, 'magpie');
+    expect(media[1].motion, OnboardingCharacterMotion.select);
+    expect(media[1].active, isTrue);
+    _expectNoLegacyMediaOrTint();
+  });
+
+  testWidgets(
+    'journey keeps the 30th rapid choice while delayed saves serialize',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
       Storage.resetForTesting();
       SharedPreferences.setMockInitialValues({'kl_consent_accepted': true});
       await Storage.init();
-    });
-
-    Future<CharacterClipPlayer> pumpConfirmation(
-      WidgetTester tester,
-      OnboardingCompanion companion,
-    ) async {
-      final state =
+      final initialState =
           OnboardingJourneyState.initial(
-            DateTime.utc(2026, 8, 31, 12),
+            DateTime.utc(2026, 9, 10, 12),
           ).copyWith(
-            phase: OnboardingPhase.confirmation,
+            phase: OnboardingPhase.companion,
             storyPage: StoryPageId.heritageJourney,
             purposeDraft: OnboardingPurpose.dailyTravel,
             levelDraft: LearnerLevel.a1,
-            companionDraft: companion,
           );
+      final repository = _DelayedJourneyRepository(initialState);
       final coordinator = FirstRunCoordinator(
-        repository: _MemoryJourneyRepository(state),
+        repository: repository,
         legacyStateReader: _LegacyReader(
           const LegacyOnboardingSnapshot(
             consentAccepted: true,
@@ -133,112 +111,317 @@ void main() {
           ),
         ),
         commitGateway: _CommitGateway(),
-        clock: () => DateTime.utc(2026, 8, 31, 12),
+        clock: () => DateTime.utc(2026, 9, 10, 12),
       );
 
-      await tester.pumpWidget(
-        MaterialApp(
-          // A fresh key forces a full teardown/rebuild on every call within
-          // the same test — without it, Flutter treats the second call as an
-          // update to the same element and reuses OnboardingV2JourneyScreen's
-          // State, so it never re-runs _load() for the new companion.
-          key: UniqueKey(),
-          theme: AppTheme.light,
-          locale: const Locale('en'),
-          supportedLocales: AppL10n.supportedLocales,
-          localizationsDelegates: AppL10n.localizationsDelegates,
-          home: OnboardingV2JourneyScreen(
-            firstRunCoordinator: coordinator,
-            initialResolution: FirstRunResolution(
-              entry: FirstRunEntry.confirmation,
-              state: state,
-              migratedLegacyState: false,
-            ),
+      await _pump(
+        tester,
+        OnboardingV2JourneyScreen(
+          firstRunCoordinator: coordinator,
+          initialResolution: FirstRunResolution(
+            entry: FirstRunEntry.companion,
+            state: initialState,
+            migratedLegacyState: false,
           ),
         ),
       );
-      for (
-        var attempt = 0;
-        attempt < 50 && find.byType(CharacterClipPlayer).evaluate().isEmpty;
-        attempt++
-      ) {
-        await tester.pump(const Duration(milliseconds: 50));
+      await tester.pump();
+
+      final taego = find.byKey(const ValueKey('onboarding-v2-companion-taego'));
+      final joy = find.byKey(const ValueKey('onboarding-v2-companion-joy'));
+      for (var index = 0; index < 30; index++) {
+        await tester.tap(index.isEven ? joy : taego);
       }
-      expect(find.byType(CharacterClipPlayer), findsOneWidget);
-      return tester.widget<CharacterClipPlayer>(
-        find.byType(CharacterClipPlayer),
+      await tester.pump();
+
+      expect(
+        tester
+            .getSemantics(
+              find.byKey(
+                const ValueKey('onboarding-v2-companion-semantics-taego'),
+              ),
+            )
+            .getSemanticsData()
+            .flagsCollection
+            .isSelected,
+        Tristate.isTrue,
       );
-    }
+      final media = tester
+          .widgetList<OnboardingCharacterMedia>(
+            find.byType(OnboardingCharacterMedia),
+          )
+          .toList(growable: false);
+      expect(
+        media.singleWhere((item) => item.characterId == 'tiger').motion,
+        OnboardingCharacterMotion.select,
+      );
 
-    testWidgets('confirmation preview plays at the deliberate slower pace', (
-      tester,
-    ) async {
-      final player = await pumpConfirmation(tester, OnboardingCompanion.taego);
-      expect(player.playbackSpeed, 0.85);
+      await _releaseSaves(tester, repository, count: 29, failAt: 9);
+      expect(
+        repository.attemptedStates,
+        hasLength(29),
+        reason:
+            'The choice immediately after the failed Taego write is Joy, '
+            'which still matches durable state and needs no duplicate write.',
+      );
+      expect(repository.state?.companionDraft, OnboardingCompanion.taego);
+      expect(tester.takeException(), isNull);
+
+      await tester.tap(
+        find.byKey(const ValueKey('onboarding-v2-companion-continue')),
+      );
+      await tester.pump();
+      await _releaseSaves(tester, repository, count: 1);
+      await tester.pump();
+
+      expect(repository.state?.phase, OnboardingPhase.confirmation);
+      expect(repository.state?.companionDraft, OnboardingCompanion.taego);
+      expect(
+        find.byType(OnboardingCompanionConfirmationScreen),
+        findsOneWidget,
+      );
+      expect(tester.takeException(), isNull);
+      semantics.dispose();
+    },
+  );
+
+  testWidgets(
+    'latest failed choice restores durable companion and retry continues',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      Storage.resetForTesting();
+      SharedPreferences.setMockInitialValues({'kl_consent_accepted': true});
+      await Storage.init();
+      final initialState =
+          OnboardingJourneyState.initial(
+            DateTime.utc(2026, 9, 10, 12),
+          ).copyWith(
+            phase: OnboardingPhase.companion,
+            storyPage: StoryPageId.heritageJourney,
+            purposeDraft: OnboardingPurpose.dailyTravel,
+            levelDraft: LearnerLevel.a1,
+          );
+      final repository = _DelayedJourneyRepository(initialState);
+      final coordinator = FirstRunCoordinator(
+        repository: repository,
+        legacyStateReader: _LegacyReader(
+          const LegacyOnboardingSnapshot(
+            consentAccepted: true,
+            hasCompletedOnboarding: false,
+          ),
+        ),
+        commitGateway: _CommitGateway(),
+        clock: () => DateTime.utc(2026, 9, 10, 12),
+      );
+
+      await _pump(
+        tester,
+        OnboardingV2JourneyScreen(
+          firstRunCoordinator: coordinator,
+          initialResolution: FirstRunResolution(
+            entry: FirstRunEntry.companion,
+            state: initialState,
+            migratedLegacyState: false,
+          ),
+        ),
+      );
+      await tester.pump();
+
+      final taego = find.byKey(const ValueKey('onboarding-v2-companion-taego'));
+      final joy = find.byKey(const ValueKey('onboarding-v2-companion-joy'));
+      final continueButton = find.byKey(
+        const ValueKey('onboarding-v2-companion-continue'),
+      );
+
+      await tester.tap(taego);
+      await tester.pump();
+      await _releaseSaves(tester, repository, count: 1);
+      expect(repository.state?.companionDraft, OnboardingCompanion.taego);
+
+      await tester.tap(joy);
+      await tester.pump();
+      expect(_isSelected(tester, OnboardingV2Ids.companionJoy), isTrue);
+      await tester.tap(continueButton);
+      await tester.pump();
+      await _releaseSaves(tester, repository, count: 1, failAt: 1);
+      await _pumpFinite(tester);
+
+      expect(repository.state?.phase, OnboardingPhase.companion);
+      expect(repository.state?.companionDraft, OnboardingCompanion.taego);
+      expect(_isSelected(tester, OnboardingV2Ids.companionTaego), isTrue);
+      expect(
+        find.byType(OnboardingCompanionConfirmationScreen),
+        findsNothing,
+        reason: 'Continue must not confirm an unpersisted failed choice.',
+      );
+      expect(tester.takeException(), isNull);
+
+      await tester.tap(continueButton);
+      await tester.pump();
+      await _releaseSaves(tester, repository, count: 1);
+      await tester.pump();
+
+      expect(repository.state?.phase, OnboardingPhase.confirmation);
+      expect(repository.state?.companionDraft, OnboardingCompanion.taego);
+      expect(
+        find.byType(OnboardingCompanionConfirmationScreen),
+        findsOneWidget,
+      );
+      expect(tester.takeException(), isNull);
+      semantics.dispose();
+    },
+  );
+
+  for (final testCase in const <({String companionId, String characterId})>[
+    (companionId: OnboardingV2Ids.companionTaego, characterId: 'tiger'),
+    (companionId: OnboardingV2Ids.companionJoy, characterId: 'magpie'),
+  ]) {
+    testWidgets('${testCase.companionId} confirmation uses one-shot '
+        '${testCase.characterId} media', (tester) async {
+      await _pump(
+        tester,
+        Builder(
+          builder: (context) => OnboardingCompanionConfirmationScreen(
+            copy: onboardingV2Copy(AppL10n.of(context)),
+            companionId: testCase.companionId,
+            onStart: () {},
+            onChange: () {},
+          ),
+        ),
+      );
+      await _pumpFinite(tester);
+
+      final media = tester.widget<OnboardingCharacterMedia>(
+        find.byType(OnboardingCharacterMedia),
+      );
+      expect(media.characterId, testCase.characterId);
+      expect(media.motion, OnboardingCharacterMotion.confirm);
+      expect(media.active, isTrue);
+      expect(media.resolvedAnimationAsset, contains('_confirm.webp'));
+      expect(media.resolvedAnimationAsset, isNot(contains('/video/')));
+      expect(
+        find.byKey(const ValueKey('onboarding-character-neutral-fallback')),
+        findsOneWidget,
+      );
+      _expectNoLegacyMediaOrTint();
+      expect(tester.takeException(), isNull);
     });
-
-    testWidgets(
-      'confirmation preview matte exactly matches the stage backdrop for both companions',
-      (tester) async {
-        for (final companion in OnboardingCompanion.values) {
-          final player = await pumpConfirmation(tester, companion);
-          final stageContext = tester.element(
-            find.byType(OnboardingConfirmationStage),
-          );
-          final expectedMatte = OnboardingConfirmationStage.matteFor(
-            stageContext,
-            isJoy: companion == OnboardingCompanion.joy,
-          );
-          expect(
-            player.blendColor,
-            expectedMatte,
-            reason:
-                'BlendMode.multiply only absorbs the clip\'s white mat when '
-                'blendColor equals the color painted immediately behind it.',
-          );
-
-          final stageDecoration =
-              tester
-                      .widget<DecoratedBox>(
-                        find
-                            .descendant(
-                              of: find.byType(OnboardingConfirmationStage),
-                              matching: find.byType(DecoratedBox),
-                            )
-                            .first,
-                      )
-                      .decoration
-                  as BoxDecoration;
-          expect(
-            stageDecoration.gradient,
-            isNull,
-            reason:
-                'A gradient backdrop cannot equal a single blendColor at '
-                'every pixel behind the video.',
-          );
-          expect(stageDecoration.color, expectedMatte);
-        }
-      },
-    );
-
-    testWidgets(
-      'confirmation preview staticFallback matches live video availability',
-      (tester) async {
-        final player = await pumpConfirmation(tester, OnboardingCompanion.joy);
-        final playerContext = tester.element(find.byType(CharacterClipPlayer));
-        expect(
-          player.staticFallback,
-          CharacterClipPlayer.videoUnavailable(playerContext),
-        );
-      },
-    );
-  });
+  }
 }
 
-class _MemoryJourneyRepository implements OnboardingJourneyRepository {
-  _MemoryJourneyRepository([this.state]);
+void _expectNoLegacyMediaOrTint() {
+  expect(find.byType(CharacterClipPlayer), findsNothing);
+  expect(find.byType(TigerStageVideo), findsNothing);
+  expect(find.byType(ColorFiltered), findsNothing);
+}
+
+bool _isSelected(WidgetTester tester, String companionId) =>
+    tester
+        .getSemantics(
+          find.byKey(
+            ValueKey('onboarding-v2-companion-semantics-$companionId'),
+          ),
+        )
+        .getSemanticsData()
+        .flagsCollection
+        .isSelected ==
+    Tristate.isTrue;
+
+Future<void> _pump(WidgetTester tester, Widget home) async {
+  tester.view.physicalSize = const Size(720, 1152);
+  tester.view.devicePixelRatio = 1;
+  addTearDown(tester.view.resetPhysicalSize);
+  addTearDown(tester.view.resetDevicePixelRatio);
+
+  await tester.pumpWidget(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.light,
+      locale: const Locale('en'),
+      supportedLocales: AppL10n.supportedLocales,
+      localizationsDelegates: AppL10n.localizationsDelegates,
+      builder: (context, child) => MediaQuery(
+        data: MediaQuery.of(context).copyWith(disableAnimations: true),
+        child: child ?? const SizedBox.shrink(),
+      ),
+      home: home,
+    ),
+  );
+}
+
+Future<void> _pumpFinite(WidgetTester tester) async {
+  for (var attempt = 0; attempt < 8; attempt++) {
+    await tester.pump(const Duration(milliseconds: 10));
+  }
+}
+
+Future<void> _releaseSaves(
+  WidgetTester tester,
+  _DelayedJourneyRepository repository, {
+  required int count,
+  int? failAt,
+}) async {
+  final target = repository.completedSaves + count;
+  final maxPumps = 100 + count * 32;
+  for (
+    var attempt = 0;
+    attempt < maxPumps && repository.completedSaves < target;
+    attempt++
+  ) {
+    await tester.pump();
+    if (repository.hasPendingSave) {
+      final next = repository.completedSaves;
+      repository.completeNext(fail: failAt == next);
+    }
+  }
+  expect(repository.completedSaves, target);
+  await tester.pump();
+}
+
+class _CompanionHarness extends StatefulWidget {
+  const _CompanionHarness({required this.selectedCompanionId});
+
+  final String? selectedCompanionId;
+
+  @override
+  State<_CompanionHarness> createState() => _CompanionHarnessState();
+}
+
+class _CompanionHarnessState extends State<_CompanionHarness> {
+  late String? selectedCompanionId = widget.selectedCompanionId;
+
+  @override
+  Widget build(BuildContext context) => OnboardingCompanionScreen(
+    copy: onboardingV2Copy(AppL10n.of(context)),
+    selectedCompanionId: selectedCompanionId,
+    onCompanionChanged: (value) {
+      setState(() => selectedCompanionId = value);
+    },
+    onContinue: (_) {},
+  );
+}
+
+class _DelayedJourneyRepository implements OnboardingJourneyRepository {
+  _DelayedJourneyRepository(this.state);
 
   OnboardingJourneyState? state;
+  final List<OnboardingJourneyState> attemptedStates = [];
+  final List<Completer<void>> _gates = [];
+  int completedSaves = 0;
+
+  bool get hasPendingSave =>
+      _gates.length > completedSaves && !_gates[completedSaves].isCompleted;
+
+  void completeNext({bool fail = false}) {
+    final gate = _gates[completedSaves];
+    if (fail) {
+      gate.completeError(StateError('synthetic delayed-save failure'));
+    } else {
+      state = attemptedStates[completedSaves];
+      gate.complete();
+    }
+    completedSaves += 1;
+  }
 
   @override
   Future<void> clear() async {
@@ -250,16 +433,19 @@ class _MemoryJourneyRepository implements OnboardingJourneyRepository {
 
   @override
   Future<void> save(
-    OnboardingJourneyState state, {
+    OnboardingJourneyState next, {
     void Function()? assertCurrentWrite,
   }) async {
     assertCurrentWrite?.call();
-    this.state = state;
+    attemptedStates.add(next);
+    final gate = Completer<void>();
+    _gates.add(gate);
+    await gate.future;
   }
 }
 
 class _LegacyReader implements LegacyOnboardingStateReader {
-  _LegacyReader(this.snapshot);
+  const _LegacyReader(this.snapshot);
 
   final LegacyOnboardingSnapshot snapshot;
 

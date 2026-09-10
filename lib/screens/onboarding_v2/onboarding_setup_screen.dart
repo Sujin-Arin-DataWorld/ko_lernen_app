@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/generated/app_localizations.dart';
+
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/pressable.dart';
@@ -8,7 +10,6 @@ import '../../widgets/sori/sheet.dart';
 import '../../widgets/sori/tokens.dart';
 import 'onboarding_v2_presentation.dart';
 import 'onboarding_v2_shell.dart';
-import 'onboarding_v2_stage.dart';
 
 /// Combined motivation and CEFR starting-point selection.
 ///
@@ -57,15 +58,6 @@ class _OnboardingSetupScreenState extends State<OnboardingSetupScreen> {
 
   bool get _canContinue =>
       selectedPurposeId != null && selectedLevelCode != null;
-
-  String? get _selectedPurposeTitle {
-    for (final purpose in copy.setup.purposes) {
-      if (purpose.id == selectedPurposeId) {
-        return purpose.title;
-      }
-    }
-    return null;
-  }
 
   @override
   void initState() {
@@ -123,55 +115,132 @@ class _OnboardingSetupScreenState extends State<OnboardingSetupScreen> {
       currentStep: 6,
       totalSteps: 7,
       progressLabel: progress,
-      stageKey: ValueKey('onboarding-v2-setup-stage-$_choosingLevel'),
-      stage: OnboardingSetupStage(
-        copy: setup,
-        choosingLevel: _choosingLevel,
-        selectedPurposeTitle: _selectedPurposeTitle,
+      showStage: false,
+      heading: OnboardingV2Heading(
+        eyebrow: setup.eyebrow,
+        title: _choosingLevel ? setup.levelHeading : setup.purposeHeading,
+        body: _choosingLevel ? setup.levelHelp : setup.body,
+        showBody: false,
+        announcementLabel:
+            '$progress. ${_choosingLevel ? setup.levelHeading : setup.purposeHeading}',
       ),
       bodyKey: const ValueKey('onboarding-v2-setup-scroll'),
       bodyScrollController: _scrollController,
-      body: AnimatedSwitcher(
-        duration: SoriMotion.respect(
-          context,
-          const Duration(milliseconds: 260),
-        ),
-        child: _choosingLevel
-            ? Column(
-                key: const ValueKey('onboarding-v2-setup-level-stage'),
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  OnboardingV2Heading(
-                    eyebrow: setup.eyebrow,
-                    title: setup.levelHeading,
-                    body: setup.levelHelp,
-                    announcementLabel: '$progress. ${setup.levelHeading}',
-                  ),
-                  const SizedBox(height: Spacing.lg),
-                  LayoutBuilder(
-                    builder: (context, constraints) {
-                      final tileWidth = (constraints.maxWidth - Spacing.sm) / 2;
-                      return Wrap(
-                        spacing: Spacing.sm,
-                        runSpacing: Spacing.sm,
-                        children: [
-                          for (final level in setup.levels)
-                            SizedBox(
-                              width: tileWidth,
-                              child: _LevelTile(
-                                level: level,
-                                selected: level.code == selectedLevelCode,
-                                onTap: () => widget.onLevelChanged(level.code),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          final largeText = MediaQuery.textScalerOf(context).scale(16) > 24;
+          final levelBudget = constraints.maxWidth >= 600 ? 330 : 460;
+          final compactChoice =
+              largeText ||
+              constraints.maxHeight < (_choosingLevel ? levelBudget : 300);
+          final generous = constraints.maxHeight >= 600 && !largeText;
+          return AnimatedSwitcher(
+            duration: SoriMotion.respect(
+              context,
+              const Duration(milliseconds: 260),
+            ),
+            child: Column(
+              key: ValueKey(
+                _choosingLevel
+                    ? 'onboarding-v2-setup-level-stage'
+                    : 'onboarding-v2-setup-purpose-stage',
+              ),
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                if (_choosingLevel) ...[
+                  if (compactChoice)
+                    SoriButton.outlined(
+                      key: const ValueKey('onboarding-v2-level-picker'),
+                      label: selectedLevel == null
+                          ? setup.levelHeading
+                          : '${selectedLevel.code} · ${selectedLevel.name}',
+                      semanticLabel: selectedLevel == null
+                          ? setup.selectLevelPrompt
+                          : null,
+                      fullWidth: true,
+                      onTap: () => _showLevelPicker(context),
+                    )
+                  else
+                    LayoutBuilder(
+                      builder: (context, tileConstraints) {
+                        final columns = tileConstraints.maxWidth >= 600 ? 3 : 2;
+                        final tileWidth =
+                            (tileConstraints.maxWidth -
+                                Spacing.sm * (columns - 1)) /
+                            columns;
+                        return Wrap(
+                          alignment: WrapAlignment.center,
+                          spacing: Spacing.sm,
+                          runSpacing: Spacing.sm,
+                          children: [
+                            for (final level in setup.levels)
+                              SizedBox(
+                                width: tileWidth,
+                                child: _LevelTile(
+                                  level: level,
+                                  selected: level.code == selectedLevelCode,
+                                  onTap: () =>
+                                      widget.onLevelChanged(level.code),
+                                ),
+                              ),
+                          ],
+                        );
+                      },
+                    ),
+                  if (generous) ...[
+                    const SizedBox(height: Spacing.md),
+                    Text(
+                      setup.levelHelp,
+                      textAlign: TextAlign.center,
+                      style: text.body,
+                    ),
+                  ],
+                  const SizedBox(height: Spacing.sm),
+                  if (compactChoice && largeText)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        if (selectedLevel != null)
+                          Expanded(
+                            child: OnboardingV2DetailsButton(
+                              key: const ValueKey(
+                                'onboarding-v2-level-example-action',
+                              ),
+                              label: AppL10n.of(
+                                context,
+                              ).onboardingV2DetailsAction,
+                              sheetTitle: setup.exampleLabel,
+                              child: _SelectedLevelCard(
+                                level: selectedLevel,
+                                copy: setup,
                               ),
                             ),
-                        ],
-                      );
-                    },
-                  ),
-                  const SizedBox(height: Spacing.sm),
-                  Align(
-                    alignment: Alignment.center,
-                    child: TextButton.icon(
+                          ),
+                        IconButton(
+                          key: const ValueKey('onboarding-v2-level-compare'),
+                          tooltip: setup.compareAction,
+                          style: IconButton.styleFrom(
+                            minimumSize: const Size(48, 48),
+                          ),
+                          onPressed: () => _showLevelComparison(context),
+                          icon: const Icon(Icons.compare_arrows_rounded),
+                        ),
+                      ],
+                    )
+                  else ...[
+                    if (selectedLevel != null)
+                      OnboardingV2DetailsButton(
+                        key: const ValueKey(
+                          'onboarding-v2-level-example-action',
+                        ),
+                        label: setup.exampleLabel,
+                        child: _SelectedLevelCard(
+                          level: selectedLevel,
+                          copy: setup,
+                        ),
+                      ),
+                    TextButton.icon(
                       key: const ValueKey('onboarding-v2-level-compare'),
                       style: TextButton.styleFrom(
                         minimumSize: const Size(48, 48),
@@ -179,113 +248,192 @@ class _OnboardingSetupScreenState extends State<OnboardingSetupScreen> {
                       ),
                       onPressed: () => _showLevelComparison(context),
                       icon: const Icon(Icons.compare_arrows_rounded),
-                      label: Text(setup.compareAction),
-                    ),
-                  ),
-                  const SizedBox(height: Spacing.sm),
-                  if (selectedLevel == null)
-                    SoriCard(
-                      key: const ValueKey('onboarding-v2-level-prompt'),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Icon(
-                            Icons.touch_app_outlined,
-                            color: SoriColors.primary,
-                          ),
-                          const SizedBox(width: Spacing.md),
-                          Expanded(
-                            child: Text(
-                              setup.selectLevelPrompt,
-                              style: text.body,
-                            ),
-                          ),
-                        ],
+                      label: Text(
+                        setup.compareAction,
+                        textAlign: TextAlign.center,
                       ),
+                    ),
+                  ],
+                ] else ...[
+                  if (compactChoice)
+                    SoriButton.outlined(
+                      key: const ValueKey('onboarding-v2-purpose-picker'),
+                      label: selectedPurposeId == null
+                          ? setup.purposeHeading
+                          : setup.purposes
+                                .firstWhere((p) => p.id == selectedPurposeId)
+                                .title,
+                      fullWidth: true,
+                      onTap: () => _showPurposePicker(context),
                     )
                   else
-                    _SelectedLevelCard(level: selectedLevel, copy: setup),
-                ],
-              )
-            : Column(
-                key: const ValueKey('onboarding-v2-setup-purpose-stage'),
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  OnboardingV2Heading(
-                    eyebrow: setup.eyebrow,
-                    title: setup.purposeHeading,
-                    body: setup.body,
-                    announcementLabel: '$progress. ${setup.purposeHeading}',
-                  ),
-                  const SizedBox(height: Spacing.lg),
-                  DecoratedBox(
-                    decoration: BoxDecoration(
-                      border: Border(
-                        top: BorderSide(color: SoriSurfaces.of(context).border),
+                    for (final purpose in setup.purposes)
+                      _PurposeTile(
+                        purpose: purpose,
+                        selected: purpose.id == selectedPurposeId,
+                        showBody: generous,
+                        onTap: () => widget.onPurposeChanged(purpose.id),
                       ),
+                  if (generous) ...[
+                    const SizedBox(height: Spacing.md),
+                    Text(
+                      setup.body,
+                      textAlign: TextAlign.center,
+                      style: text.body,
                     ),
+                  ],
+                  OnboardingV2DetailsButton(
+                    key: const ValueKey('onboarding-v2-purpose-details'),
+                    label: AppL10n.of(context).onboardingV2DetailsAction,
+                    sheetTitle: setup.purposeHeading,
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        for (final purpose in setup.purposes)
-                          _PurposeTile(
-                            purpose: purpose,
-                            selected: purpose.id == selectedPurposeId,
-                            onTap: () => widget.onPurposeChanged(purpose.id),
+                        Text(
+                          setup.body,
+                          textAlign: TextAlign.center,
+                          style: text.body,
+                        ),
+                        const SizedBox(height: Spacing.md),
+                        for (final purpose in setup.purposes) ...[
+                          Text(
+                            purpose.title,
+                            textAlign: TextAlign.center,
+                            style: text.cardTitle,
                           ),
+                          Text(
+                            purpose.body,
+                            textAlign: TextAlign.center,
+                            style: text.body,
+                          ),
+                          const SizedBox(height: Spacing.md),
+                        ],
                       ],
                     ),
                   ),
                 ],
-              ),
-      ),
-      footer: LayoutBuilder(
-        builder: (context, constraints) {
-          final back = SoriButton.outlined(
-            key: const ValueKey('onboarding-v2-setup-back'),
-            label: copy.navigation.back,
-            fullWidth: true,
-            maxLines: 1,
-            onTap: _choosingLevel ? _showPurpose : widget.onBack,
-          );
-          final next = SoriButton.filled(
-            key: const ValueKey('onboarding-v2-setup-continue'),
-            label: _choosingLevel ? setup.continueAction : copy.navigation.next,
-            trailingIcon: Icons.arrow_forward_rounded,
-            fullWidth: true,
-            maxLines: 1,
-            onTap: _choosingLevel
-                ? !_canContinue
-                      ? null
-                      : () => widget.onContinue(
-                          OnboardingSetupSelection(
-                            purposeId: selectedPurposeId!,
-                            levelCode: selectedLevelCode!,
-                          ),
-                        )
-                : selectedPurposeId == null
-                ? null
-                : _showLevel,
-          );
-          if (constraints.maxWidth < SoriBreakpoints.contentActionStack) {
-            return Column(
-              children: [
-                next,
-                const SizedBox(height: Spacing.sm),
-                back,
               ],
-            );
-          }
-          return Row(
-            children: [
-              Expanded(flex: 4, child: back),
-              const SizedBox(width: Spacing.md),
-              Expanded(flex: 6, child: next),
-            ],
+            ),
           );
         },
       ),
+      footer: OnboardingV2FooterActions(
+        backKey: const ValueKey('onboarding-v2-setup-back'),
+        backLabel: copy.navigation.back,
+        onBack: _choosingLevel ? _showPurpose : widget.onBack,
+        primaryAction: SoriButton.filled(
+          key: const ValueKey('onboarding-v2-setup-continue'),
+          label: _choosingLevel ? setup.continueAction : copy.navigation.next,
+          trailingIcon: MediaQuery.textScalerOf(context).scale(16) > 24
+              ? null
+              : Icons.arrow_forward_rounded,
+          fullWidth: true,
+          size: SoriButtonSize.md,
+          onTap: _choosingLevel
+              ? !_canContinue
+                    ? null
+                    : () => widget.onContinue(
+                        OnboardingSetupSelection(
+                          purposeId: selectedPurposeId!,
+                          levelCode: selectedLevelCode!,
+                        ),
+                      )
+              : selectedPurposeId == null
+              ? null
+              : _showLevel,
+        ),
+      ),
     );
   }
+
+  Future<void> _showPurposePicker(BuildContext context) =>
+      showOnboardingV2ModalWithFocusRestore(
+        () => showSoriSheet<void>(
+          context: context,
+          maxTextScaleFactor: 2,
+          builder: (sheetContext) => Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Focus(
+                autofocus: true,
+                child: Semantics(
+                  header: true,
+                  child: Text(
+                    copy.setup.purposeHeading,
+                    textAlign: TextAlign.center,
+                    style: SoriTextTheme.of(sheetContext).h2,
+                  ),
+                ),
+              ),
+              const SizedBox(height: Spacing.md),
+              for (final purpose in copy.setup.purposes)
+                _PurposeTile(
+                  purpose: purpose,
+                  selected: purpose.id == selectedPurposeId,
+                  onTap: () {
+                    widget.onPurposeChanged(purpose.id);
+                    Navigator.of(sheetContext).pop();
+                  },
+                ),
+              const SizedBox(height: Spacing.md),
+              SoriButton.outlined(
+                label: AppL10n.of(sheetContext).btnClose,
+                fullWidth: true,
+                onTap: () => Navigator.of(sheetContext).pop(),
+              ),
+            ],
+          ),
+        ),
+      );
+
+  Future<void> _showLevelPicker(BuildContext context) =>
+      showOnboardingV2ModalWithFocusRestore(
+        () => showSoriSheet<void>(
+          context: context,
+          maxTextScaleFactor: 2,
+          builder: (sheetContext) => Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Focus(
+                autofocus: true,
+                child: Semantics(
+                  header: true,
+                  child: Text(
+                    copy.setup.levelHeading,
+                    textAlign: TextAlign.center,
+                    style: SoriTextTheme.of(sheetContext).h2,
+                  ),
+                ),
+              ),
+              Text(
+                copy.setup.levelHelp,
+                textAlign: TextAlign.center,
+                style: SoriTextTheme.of(sheetContext).body,
+              ),
+              const SizedBox(height: Spacing.md),
+              for (final level in copy.setup.levels) ...[
+                _LevelTile(
+                  level: level,
+                  selected: level.code == selectedLevelCode,
+                  onTap: () {
+                    widget.onLevelChanged(level.code);
+                    Navigator.of(sheetContext).pop();
+                  },
+                ),
+                const SizedBox(height: Spacing.sm),
+              ],
+              const SizedBox(height: Spacing.md),
+              SoriButton.outlined(
+                label: AppL10n.of(sheetContext).btnClose,
+                fullWidth: true,
+                onTap: () => Navigator.of(sheetContext).pop(),
+              ),
+            ],
+          ),
+        ),
+      );
 
   Future<void> _showLevelComparison(BuildContext context) =>
       showOnboardingV2ModalWithFocusRestore(
@@ -304,9 +452,11 @@ class _PurposeTile extends StatelessWidget {
     required this.purpose,
     required this.selected,
     required this.onTap,
+    this.showBody = true,
   });
 
   final OnboardingPurposeSpec purpose;
+  final bool showBody;
   final bool selected;
   final VoidCallback onTap;
 
@@ -326,7 +476,7 @@ class _PurposeTile extends StatelessWidget {
           key: ValueKey('onboarding-v2-purpose-${purpose.id}'),
           onTap: onTap,
           child: Container(
-            constraints: const BoxConstraints(minHeight: 68),
+            constraints: const BoxConstraints(minHeight: 56),
             padding: const EdgeInsets.symmetric(
               horizontal: Spacing.xs,
               vertical: Spacing.sm,
@@ -347,11 +497,21 @@ class _PurposeTile extends StatelessWidget {
                 Expanded(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Text(purpose.title, style: text.cardTitle),
-                      const SizedBox(height: Spacing.xs),
-                      Text(purpose.body, style: text.cardSubtitle),
+                      Text(
+                        purpose.title,
+                        textAlign: TextAlign.center,
+                        style: text.cardTitle,
+                      ),
+                      if (showBody) ...[
+                        const SizedBox(height: Spacing.xs),
+                        Text(
+                          purpose.body,
+                          textAlign: TextAlign.center,
+                          style: text.cardSubtitle,
+                        ),
+                      ],
                     ],
                   ),
                 ),
@@ -388,6 +548,7 @@ class _LevelTile extends StatelessWidget {
     return SoriCard(
       key: ValueKey('onboarding-v2-level-${level.code}'),
       variant: SoriCardVariant.compact,
+      padding: const EdgeInsets.all(Spacing.sm),
       selectable: true,
       selected: selected,
       onTap: onTap,
@@ -395,40 +556,38 @@ class _LevelTile extends StatelessWidget {
       child: ExcludeSemantics(
         child: ConstrainedBox(
           constraints: const BoxConstraints(minHeight: 48),
-          child: Row(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                level.code,
-                style: text.h3.copyWith(
-                  color: selected ? SoriColors.primary : null,
-                ),
-              ),
-              const SizedBox(width: Spacing.sm),
-              // 라벨은 **한 줄 고정**이다. 2열 타일 폭(~90dp)에 독일어 합성어
-              // "Grundkenntnisse"/"Expertenniveau" 는 줄바꿈 기회가 없어서
-              // Flutter 가 글자 사이를 끊었다(2026-08-31 실기기: "Grundkenntniss/e").
-              // `lib/widgets/sori/adaptive_navigation.dart` 와 같은 관용구 —
-              // 줄바꿈/말줄임 대신 `FittedBox` 가 전체 단어를 축소한다.
-              Expanded(
-                child: FittedBox(
-                  fit: BoxFit.scaleDown,
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    level.name,
-                    style: text.cardSubtitle,
-                    maxLines: 1,
-                    softWrap: false,
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      level.code,
+                      textAlign: TextAlign.center,
+                      style: text.h3.copyWith(
+                        color: selected ? SoriColors.primary : null,
+                      ),
+                    ),
                   ),
-                ),
+                  Icon(
+                    selected
+                        ? Icons.check_circle_rounded
+                        : Icons.radio_button_unchecked_rounded,
+                    size: 22,
+                    color: selected
+                        ? SoriColors.primary
+                        : SoriSurfaces.of(context).textDim,
+                  ),
+                ],
               ),
-              Icon(
-                selected
-                    ? Icons.check_circle_rounded
-                    : Icons.radio_button_unchecked_rounded,
-                size: 22,
-                color: selected
-                    ? SoriColors.primary
-                    : SoriSurfaces.of(context).textDim,
+              const SizedBox(height: Spacing.xs),
+              Text(
+                level.name,
+                textAlign: TextAlign.center,
+                style: text.bodySmall,
+                softWrap: true,
               ),
             ],
           ),
@@ -563,7 +722,7 @@ class _LevelComparisonSheet extends StatelessWidget {
                   key: const ValueKey('onboarding-v2-level-compare-close'),
                   label: copy.compareClose,
                   fullWidth: true,
-                  maxLines: 1,
+                  size: SoriButtonSize.md,
                   onTap: () => Navigator.of(context).pop(),
                 ),
               ),

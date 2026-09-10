@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/generated/app_localizations.dart';
+import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
+import '../../widgets/sori/sheet.dart';
 import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/window_class.dart';
@@ -20,10 +23,8 @@ Future<T?> showOnboardingV2ModalWithFocusRestore<T>(
 
 /// Shared first-run frame for the seven-step guided journey.
 ///
-/// On phones the visual stage sits above a rounded, independently scrollable
-/// content sheet. Tablets and desktop-sized previews place the same two
-/// regions side by side. The footer always remains reachable above the system
-/// inset, including at 200% text scale.
+/// A measured, single-screen canvas keeps the learning action and footer in
+/// view. Secondary explanations open in a focused reading sheet.
 class OnboardingV2PageShell extends StatelessWidget {
   const OnboardingV2PageShell({
     super.key,
@@ -35,6 +36,8 @@ class OnboardingV2PageShell extends StatelessWidget {
     this.bodyScrollController,
     this.stage,
     this.stageKey,
+    this.heading,
+    this.showStage = true,
     this.currentStep,
     this.totalSteps = 7,
     this.progressLabel,
@@ -42,6 +45,8 @@ class OnboardingV2PageShell extends StatelessWidget {
        assert(totalSteps > 0),
        assert(currentStep == null || currentStep <= totalSteps);
 
+  final Widget? heading;
+  final bool showStage;
   final Widget body;
   final Widget footer;
   final String brandLatin;
@@ -54,7 +59,7 @@ class OnboardingV2PageShell extends StatelessWidget {
   final int totalSteps;
   final String? progressLabel;
 
-  bool get _showsJourneyChrome => stage != null && currentStep != null;
+  bool get _showsJourneyChrome => currentStep != null;
 
   @override
   Widget build(BuildContext context) {
@@ -107,24 +112,15 @@ class OnboardingV2PageShell extends StatelessWidget {
                             semanticLabel: progressLabel,
                           ),
                           Expanded(
-                            child:
-                                constraints.maxWidth >= SoriBreakpoints.tablet
-                                ? _WideJourneyViewport(
-                                    body: body,
-                                    footer: footer,
-                                    bodyKey: bodyKey,
-                                    bodyScrollController: bodyScrollController,
-                                    stage: stage!,
-                                    stageKey: stageKey,
-                                  )
-                                : _CompactJourneyViewport(
-                                    body: body,
-                                    footer: footer,
-                                    bodyKey: bodyKey,
-                                    bodyScrollController: bodyScrollController,
-                                    stage: stage!,
-                                    stageKey: stageKey,
-                                  ),
+                            child: _JourneyViewport(
+                              heading: heading,
+                              body: body,
+                              footer: footer,
+                              bodyKey: bodyKey,
+                              bodyScrollController: bodyScrollController,
+                              stage: showStage ? stage : null,
+                              stageKey: stageKey,
+                            ),
                           ),
                         ],
                       ),
@@ -343,8 +339,12 @@ class _ProgressRail extends StatelessWidget {
   }
 }
 
-class _CompactJourneyViewport extends StatelessWidget {
-  const _CompactJourneyViewport({
+/// The footer and heading take their natural height. Artwork and the learning
+/// activity receive the actual remaining viewport, rather than a screen-width
+/// based image height that forces the page to scroll.
+class _JourneyViewport extends StatelessWidget {
+  const _JourneyViewport({
+    required this.heading,
     required this.body,
     required this.footer,
     required this.bodyKey,
@@ -353,201 +353,211 @@ class _CompactJourneyViewport extends StatelessWidget {
     required this.stageKey,
   });
 
+  final Widget? heading;
   final Widget body;
   final Widget footer;
   final Key? bodyKey;
   final ScrollController? bodyScrollController;
-  final Widget stage;
+  final Widget? stage;
   final Key? stageKey;
 
   @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final stageHeight = (constraints.maxHeight * 0.38)
-            .clamp(168.0, 340.0)
-            .toDouble();
-        final sheetTop = (stageHeight - Spacing.xl)
-            .clamp(144.0, double.infinity)
-            .toDouble();
-        return Stack(
-          fit: StackFit.expand,
+  Widget build(BuildContext context) => Column(
+    children: [
+      Expanded(
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final window = MediaQuery.sizeOf(context);
+            final wide =
+                constraints.maxWidth >= SoriBreakpoints.wideTablet &&
+                window.width >= window.height * 1.2;
+            final compact = constraints.maxHeight < 560;
+            final largeText = MediaQuery.textScalerOf(context).scale(16) > 24;
+            final gap = compact ? Spacing.sm : Spacing.lg;
+            final horizontal = constraints.maxWidth < SoriBreakpoints.content
+                ? Spacing.lg
+                : Spacing.xxl;
+            final visual = stage == null
+                ? null
+                : Center(
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(
+                        maxWidth: 576,
+                        maxHeight: 360,
+                      ),
+                      child: AspectRatio(
+                        aspectRatio: 16 / 10,
+                        child: KeyedSubtree(key: stageKey, child: stage!),
+                      ),
+                    ),
+                  );
+            return Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: horizontal,
+                vertical: gap,
+              ),
+              child: Center(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(maxWidth: wide ? 1040 : 768),
+                  child: Column(
+                    key: bodyKey,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      if (heading != null) ...[heading!, SizedBox(height: gap)],
+                      Expanded(
+                        child: visual == null
+                            ? body
+                            : Flex(
+                                direction: wide
+                                    ? Axis.horizontal
+                                    : Axis.vertical,
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  Expanded(
+                                    flex: wide ? 1 : (largeText ? 1 : 4),
+                                    child: visual,
+                                  ),
+                                  SizedBox(
+                                    width: wide ? gap : 0,
+                                    height: wide ? 0 : gap,
+                                  ),
+                                  Expanded(
+                                    flex: wide ? 1 : (largeText ? 4 : 5),
+                                    child: body,
+                                  ),
+                                ],
+                              ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+      _JourneyFooter(footer: footer),
+    ],
+  );
+}
+
+/// Full copy stays available without making the mandatory step itself scroll.
+class OnboardingV2DetailsButton extends StatelessWidget {
+  const OnboardingV2DetailsButton({
+    super.key,
+    required this.label,
+    required this.child,
+    this.sheetTitle,
+  });
+  final String label;
+  final String? sheetTitle;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) => TextButton.icon(
+    style: TextButton.styleFrom(
+      minimumSize: const Size(48, 48),
+      foregroundColor: SoriColors.primaryOnLight,
+      padding: const EdgeInsets.symmetric(horizontal: Spacing.sm),
+    ),
+    icon: const Icon(Icons.info_outline_rounded, size: 20),
+    label: Text(
+      label,
+      textAlign: TextAlign.center,
+      style: SoriTextTheme.of(context).bodySmall,
+    ),
+    onPressed: () => showOnboardingV2ModalWithFocusRestore(
+      () => showSoriSheet<void>(
+        context: context,
+        maxTextScaleFactor: 2,
+        builder: (sheetContext) => Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              height: stageHeight,
-              child: _AnimatedStage(stage: stage, stageKey: stageKey),
-            ),
-            Positioned(
-              top: sheetTop,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              child: _ContentSheet(
-                body: body,
-                footer: footer,
-                bodyKey: bodyKey,
-                bodyScrollController: bodyScrollController,
-                compact: true,
+            Focus(
+              autofocus: true,
+              child: Semantics(
+                header: true,
+                focusable: true,
+                child: Text(
+                  sheetTitle ?? label,
+                  textAlign: TextAlign.center,
+                  style: SoriTextTheme.of(sheetContext).h2,
+                ),
               ),
             ),
+            const SizedBox(height: Spacing.md),
+            child,
+            const SizedBox(height: Spacing.lg),
+            SoriButton.filled(
+              label: AppL10n.of(sheetContext).btnClose,
+              fullWidth: true,
+              onTap: () => Navigator.of(sheetContext).pop(),
+            ),
           ],
-        );
-      },
-    );
-  }
-}
-
-class _WideJourneyViewport extends StatelessWidget {
-  const _WideJourneyViewport({
-    required this.body,
-    required this.footer,
-    required this.bodyKey,
-    required this.bodyScrollController,
-    required this.stage,
-    required this.stageKey,
-  });
-
-  final Widget body;
-  final Widget footer;
-  final Key? bodyKey;
-  final ScrollController? bodyScrollController;
-  final Widget stage;
-  final Key? stageKey;
-
-  @override
-  Widget build(BuildContext context) {
-    final surfaces = SoriSurfaces.of(context);
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Expanded(
-          flex: 48,
-          child: _AnimatedStage(stage: stage, stageKey: stageKey),
         ),
-        Expanded(
-          flex: 52,
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              border: Border(left: BorderSide(color: surfaces.border)),
-            ),
-            child: _ContentSheet(
-              body: body,
-              footer: footer,
-              bodyKey: bodyKey,
-              bodyScrollController: bodyScrollController,
-              compact: false,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class _AnimatedStage extends StatelessWidget {
-  const _AnimatedStage({required this.stage, required this.stageKey});
-
-  final Widget stage;
-  final Key? stageKey;
-
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedSwitcher(
-      duration: SoriMotion.respect(context, const Duration(milliseconds: 420)),
-      switchInCurve: Curves.easeOutCubic,
-      switchOutCurve: Curves.easeInCubic,
-      child: KeyedSubtree(key: stageKey, child: stage),
-    );
-  }
-}
-
-class _ContentSheet extends StatelessWidget {
-  const _ContentSheet({
-    required this.body,
-    required this.footer,
-    required this.bodyKey,
-    required this.bodyScrollController,
-    required this.compact,
-  });
-
-  final Widget body;
-  final Widget footer;
-  final Key? bodyKey;
-  final ScrollController? bodyScrollController;
-  final bool compact;
-
-  @override
-  Widget build(BuildContext context) {
-    final surfaces = SoriSurfaces.of(context);
-    final radius = compact
-        ? const BorderRadius.vertical(top: Radius.circular(28))
-        : BorderRadius.zero;
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: SoriCard.resolvedBackground(context),
-        borderRadius: radius,
-        boxShadow: compact
-            ? const [
-                BoxShadow(
-                  color: Color(0x1F27302A),
-                  offset: Offset(0, -10),
-                  blurRadius: 30,
-                ),
-              ]
-            : null,
       ),
-      child: ClipRRect(
-        borderRadius: radius,
-        child: Column(
-          children: [
+    ),
+  );
+}
+
+/// A narrow layout gives the primary action its natural label width while
+/// preserving a full-size, named Back control.
+class OnboardingV2FooterActions extends StatelessWidget {
+  const OnboardingV2FooterActions({
+    super.key,
+    required this.backKey,
+    required this.backLabel,
+    required this.onBack,
+    required this.primaryAction,
+    this.backSemanticLabel,
+  });
+
+  final Key backKey;
+  final String backLabel;
+  final String? backSemanticLabel;
+  final VoidCallback? onBack;
+  final Widget primaryAction;
+
+  @override
+  Widget build(BuildContext context) => LayoutBuilder(
+    builder: (context, constraints) {
+      final compact =
+          constraints.maxWidth < 320 ||
+          (constraints.maxWidth < 480 &&
+              MediaQuery.textScalerOf(context).scale(16) > 24);
+      return Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          if (compact)
+            IconButton.outlined(
+              key: backKey,
+              tooltip: backSemanticLabel ?? backLabel,
+              style: IconButton.styleFrom(
+                minimumSize: const Size(48, 48),
+                foregroundColor: SoriColors.primaryOnLight,
+              ),
+              icon: const Icon(Icons.arrow_back_rounded),
+              onPressed: onBack,
+            )
+          else
             Expanded(
-              child: SoriContentClamp(
-                maxWidth: 620,
-                // §W-A2: 320dp @2x 텍스트 배율에서 스크롤 맨 아래 콘텐츠가
-                // 여전히 뷰포트 밖으로 밀려나던 자리 — 컴팩트 하단 여백을
-                // xxxl(48)에서 lg(16)로 줄여 실제 콘텐츠가 다시 닿게 한다.
-                base: EdgeInsets.fromLTRB(
-                  compact ? Spacing.xl : Spacing.xxl,
-                  compact ? 30 : Spacing.xxxl,
-                  compact ? Spacing.xl : Spacing.xxl,
-                  compact ? Spacing.lg : Spacing.xxxl,
-                ),
-                builder: (context, padding) => SingleChildScrollView(
-                  key: bodyKey,
-                  controller: bodyScrollController,
-                  padding: padding,
-                  child: body,
-                ),
+              flex: 4,
+              child: SoriButton.outlined(
+                key: backKey,
+                label: backLabel,
+                semanticLabel: backSemanticLabel,
+                fullWidth: true,
+                size: SoriButtonSize.md,
+                onTap: onBack,
               ),
             ),
-            DecoratedBox(
-              decoration: BoxDecoration(
-                color: SoriCard.resolvedBackground(context),
-                border: Border(top: BorderSide(color: surfaces.border)),
-              ),
-              child: SoriContentClamp(
-                maxWidth: 620,
-                // §W-A2: compact(320dp) 계약이 1px 세로 오버플로였다 —
-                // 컴팩트에서만 md(12)→sm(8)로 좁혀 여유를 만든다(비압축 폭은
-                // 그대로).
-                base: EdgeInsets.fromLTRB(
-                  Spacing.lg,
-                  compact ? Spacing.sm : Spacing.md,
-                  Spacing.lg,
-                  compact ? Spacing.sm : Spacing.md,
-                ),
-                builder: (context, padding) =>
-                    Padding(padding: padding, child: footer),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+          const SizedBox(width: Spacing.md),
+          Expanded(flex: 6, child: primaryAction),
+        ],
+      );
+    },
+  );
 }
 
 class _JourneyFooter extends StatelessWidget {
@@ -564,11 +574,12 @@ class _JourneyFooter extends StatelessWidget {
         border: Border(top: BorderSide(color: surfaces.border)),
       ),
       child: SoriContentClamp(
+        maxWidth: 864,
         base: const EdgeInsets.fromLTRB(
-          Spacing.xl,
-          Spacing.md,
-          Spacing.xl,
-          Spacing.md,
+          Spacing.lg,
+          Spacing.sm,
+          Spacing.lg,
+          Spacing.sm,
         ),
         builder: (context, padding) => Padding(padding: padding, child: footer),
       ),
@@ -584,6 +595,7 @@ class OnboardingV2Heading extends StatelessWidget {
     required this.body,
     this.titleKey,
     this.announcementLabel,
+    this.showBody = true,
   });
 
   final String eyebrow;
@@ -591,19 +603,15 @@ class OnboardingV2Heading extends StatelessWidget {
   final String body;
   final Key? titleKey;
   final String? announcementLabel;
+  final bool showBody;
 
   @override
   Widget build(BuildContext context) {
     final text = SoriTextTheme.of(context);
     final surfaces = SoriSurfaces.of(context);
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(
-          eyebrow.toUpperCase(),
-          style: text.eyebrow.copyWith(color: SoriColors.accent),
-        ),
-        const SizedBox(height: Spacing.sm),
         Focus(
           debugLabel: 'onboarding-v2-heading',
           autofocus: true,
@@ -615,12 +623,19 @@ class OnboardingV2Heading extends StatelessWidget {
             child: Text(
               key: titleKey,
               title,
-              style: text.h1.copyWith(color: surfaces.text, height: 1.12),
+              textAlign: TextAlign.center,
+              style: text.h1.copyWith(color: surfaces.text, height: 1.22),
             ),
           ),
         ),
-        const SizedBox(height: Spacing.md),
-        Text(body, style: text.body.copyWith(color: surfaces.textMuted)),
+        if (showBody) ...[
+          const SizedBox(height: Spacing.md),
+          Text(
+            body,
+            textAlign: TextAlign.center,
+            style: text.body.copyWith(color: surfaces.textMuted),
+          ),
+        ],
       ],
     );
   }

@@ -14,9 +14,11 @@ import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'support/real_fonts.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(() => loadSoriRealFonts(materialIcons: true));
 
   testWidgets('page 1 renders validated CEFR and NIKL evidence from registry', (
     tester,
@@ -25,6 +27,9 @@ void main() {
     final projection = OnboardingCurriculumEvidenceProjector.project()!;
     await tester.pumpWidget(_host(locale: const Locale('en'), pageIndex: 0));
 
+    await tester.ensureVisible(find.text('Curriculum and sources'));
+    await tester.tap(find.text('Curriculum and sources'));
+    await tester.pumpAndSettle();
     expect(find.textContaining('CEFR performance goals'), findsOneWidget);
     expect(find.textContaining('Korean Standard Curriculum'), findsOneWidget);
     final sources = find.byKey(
@@ -123,6 +128,9 @@ void main() {
       ),
     );
 
+    await tester.ensureVisible(find.text('About rewards'));
+    await tester.tap(find.text('About rewards'));
+    await tester.pumpAndSettle();
     expect(
       find.text(
         'Examples from ${soriActivityCatalog.length} current '
@@ -220,10 +228,7 @@ void main() {
         .toList(growable: false);
     expect(
       imageAssets,
-      contains(
-        'assets/illustrations/personal_hanok_v2/a1/states/'
-        '16_landscape_move_in.webp',
-      ),
+      contains('assets/illustrations/personal_hanok_v3/world/main-gate.png'),
     );
     expect(
       imageAssets,
@@ -235,7 +240,9 @@ void main() {
     );
     expect(
       imageAssets.where((asset) => asset.contains('personal_hanok_v3')),
-      isEmpty,
+      everyElement(
+        'assets/illustrations/personal_hanok_v3/world/main-gate.png',
+      ),
     );
 
     final sources = find.byKey(

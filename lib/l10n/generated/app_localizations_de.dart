@@ -9286,11 +9286,11 @@ class AppL10nDe extends AppL10n {
   String get onboardingV2Story1Eyebrow => 'Dein Lernweg';
 
   @override
-  String get onboardingV2Story1Title => 'Vom Buchstaben\nbis zum Gespräch';
+  String get onboardingV2Story1Title => 'Dein Weg durch Koreanisch.';
 
   @override
   String get onboardingV2Story1Body =>
-      'Hangeul Sori verbindet Schrift, Klang und echte Situationen zu einem klaren Lernweg.';
+      'Starte auf deinem Niveau und lerne Schritt für Schritt weiter.';
 
   @override
   String get onboardingV2Story1Status => 'Legt dein Level noch nicht fest.';
@@ -9373,11 +9373,11 @@ class AppL10nDe extends AppL10n {
   String get onboardingV2Story2Eyebrow => 'Klang und Schrift';
 
   @override
-  String get onboardingV2Story2Title => 'Koreanisch wird sichtbar.';
+  String get onboardingV2Story2Title => 'Aus zwei Zeichen wird 가.';
 
   @override
   String get onboardingV2Story2Body =>
-      'Baue Silben, höre ihre Aussprache und verwende sie direkt in kurzen Sätzen.';
+      'Setze ㄱ und ㅏ zusammen. Höre dir danach die Silbe an.';
 
   @override
   String get onboardingV2Story2HeroSemantics =>
@@ -9415,11 +9415,11 @@ class AppL10nDe extends AppL10n {
   String get onboardingV2Story3Eyebrow => 'Wiederholen';
 
   @override
-  String get onboardingV2Story3Title => 'Was du lernst, bleibt.';
+  String get onboardingV2Story3Title => 'Antippen. Verstehen. Wiederholen.';
 
   @override
   String get onboardingV2Story3Body =>
-      'Kurze Wiederholungen kommen genau dann, wenn dein Gedächtnis sie braucht.';
+      'Dreh die Karte um. Gespeicherte Wörter kannst du später wiederholen.';
 
   @override
   String get onboardingV2Story3HeroSemantics =>
@@ -9462,11 +9462,10 @@ class AppL10nDe extends AppL10n {
   String get onboardingV2Story4Eyebrow => 'Motivation';
 
   @override
-  String get onboardingV2Story4Title => 'Üben darf sich gut anfühlen.';
+  String get onboardingV2Story4Title => 'Probier eine kleine Aufgabe.';
 
   @override
-  String get onboardingV2Story4Body =>
-      'Quests und persönliche Bestwerte machen Fortschritt sichtbar, ohne dein Lernen zu bestimmen.';
+  String get onboardingV2Story4Body => 'Erkenne 가 und öffne danach ein Bojagi.';
 
   @override
   String get onboardingV2Story4HeroSemantics =>
@@ -9521,11 +9520,11 @@ class AppL10nDe extends AppL10n {
   String get onboardingV2Story5Eyebrow => 'Kulturerbe-Reise';
 
   @override
-  String get onboardingV2Story5Title => 'Mit jedem Kapitel wächst dein Hanok.';
+  String get onboardingV2Story5Title => 'Deine Reise beginnt am Tor.';
 
   @override
   String get onboardingV2Story5Body =>
-      'Stempel, Bojagi und Räume verbinden deinen Lernfortschritt mit einer Kulturerbe-Reise.';
+      'Wirf einen Blick auf das erste Kapitel: Ildu Gotaek.';
 
   @override
   String get onboardingV2Story5HeroSemantics =>
@@ -9740,11 +9739,11 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingV2CompanionBody =>
-      'Wähle Taego oder Joy. Beide begleiten denselben Lernweg, nur Ton und Rhythmus der Hinweise unterscheiden sich; später wechselbar.';
+      'Wähle den Lernfreund, dessen Rhythmus zu dir passt.';
 
   @override
   String get onboardingV2CompanionEqualNote =>
-      'Inhalte, Antworten, Hinweisstärke, XP, Fortschritt und Belohnungen sind bei beiden gleich.';
+      'Beide begleiten denselben Lernweg. Inhalte und Belohnungen sind gleich; du kannst später wechseln.';
 
   @override
   String get onboardingV2CompanionContinue => 'Auswahl bestätigen';
@@ -9755,7 +9754,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingV2CompanionTaegoBody =>
-      'Ordnet dieselben Hinweise klar und zeigt dir den nächsten Schritt.';
+      'Klare Hinweise, ein Schritt nach dem anderen.';
 
   @override
   String get onboardingV2CompanionTaegoSelected => 'Taego wurde ausgewählt.';
@@ -9765,7 +9764,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingV2CompanionJoyBody =>
-      'Gibt dieselben Hinweise als kurze Anstöße und feiert jeden Versuch.';
+      'Kurze Impulse, direkt ins Ausprobieren.';
 
   @override
   String get onboardingV2CompanionJoySelected => 'Joy wurde ausgewählt.';
@@ -9775,7 +9774,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingV2ConfirmationBody =>
-      'Das Begrüßungsvideo ist nur eine Vorstellung; du kannst jederzeit weiter, auch wenn es nicht lädt.';
+      'Dein Lernfreund ist bereit. Beginnen wir mit deinem ersten Lernmoment.';
 
   @override
   String get onboardingV2ConfirmationStart => 'Gemeinsam starten';
@@ -10342,4 +10341,64 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get flashcardRomanization => 'Umschrift';
+
+  @override
+  String get onboardingV2ComposeGa => 'Verbinden';
+
+  @override
+  String get onboardingV2PlayGa => '가 anhören';
+
+  @override
+  String get onboardingV2AudioPlaying => 'Wird abgespielt …';
+
+  @override
+  String get onboardingV2AudioUnavailable =>
+      'Ton gerade nicht verfügbar. Du kannst es erneut versuchen oder weitergehen.';
+
+  @override
+  String get onboardingV2RecognitionPrompt => 'Welche Silbe liest du als „ga“?';
+
+  @override
+  String get onboardingV2RecognitionRetry =>
+      'Fast! Suche ㄱ mit ㅏ. Versuch es noch einmal.';
+
+  @override
+  String get onboardingV2RecognitionCorrect =>
+      'Richtig, 가! Jetzt kannst du das Bojagi öffnen.';
+
+  @override
+  String get onboardingV2UnwrapGift => 'Bojagi öffnen';
+
+  @override
+  String get onboardingV2GiftOpened => 'Bojagi geöffnet';
+
+  @override
+  String get onboardingV2RewardDemoNote =>
+      'Nur zum Ausprobieren – hier erhältst du keine XP oder Gegenstände.';
+
+  @override
+  String get onboardingV2RewardDetails => 'Mehr über Belohnungen';
+
+  @override
+  String get onboardingV2CurriculumDetails => 'Lehrplan und Quellen';
+
+  @override
+  String get onboardingV2DetailsAction => 'Details';
+
+  @override
+  String get onboardingV2ReviewDetails =>
+      'Was du speichern und wiederholen kannst';
+
+  @override
+  String get onboardingV2GatePreviewTitle => 'Das Eingangstor';
+
+  @override
+  String get onboardingV2GatePreviewBody =>
+      'Ein erster Blick auf Ildu Gotaek. Die Reise ist noch in Vorbereitung.';
+
+  @override
+  String get onboardingV2GatePreviewClose => 'Zurück zur Reise';
+
+  @override
+  String get onboardingV2GiftOpening => 'Das Bojagi öffnet sich …';
 }
