@@ -63,7 +63,16 @@ void main() {
         loaded.expand((p) => p.practiceUnits).map((u) => u.id).toSet(),
         units.map((u) => u.id).toSet(),
       );
-      expect(loaded.every((p) => p.illustrationAsset == null), isTrue);
+      for (final phase in loaded) {
+        expect(
+          phase.illustrationAsset,
+          'assets/illustrations/phases/${phase.id.toLowerCase()}.webp',
+        );
+        final bytes = await rootBundle.load(phase.illustrationAsset!);
+        final image = await decodeImageFromList(bytes.buffer.asUint8List());
+        expect([image.width, image.height], [800, 600]);
+        image.dispose();
+      }
       expect({for (final key in prefs.getKeys()) key: prefs.get(key)}, before);
     },
   );
@@ -75,6 +84,8 @@ void main() {
       (row) => row['title']['de'] = '',
       (row) => row['practiceUnitIds'] = [],
       (row) => row['id'] = 'KP02',
+      (row) =>
+          row['illustrationAsset'] = 'assets/illustrations/phases/kp30.webp',
     ]) {
       final copy = jsonDecode(jsonEncode(raw)) as Map<String, dynamic>;
       mutation(copy['phases'][0] as Map<String, dynamic>);
@@ -117,7 +128,17 @@ void main() {
             scrollable: find.byType(Scrollable).first,
           );
           expect(find.byType(SoriIllustratedCard), findsNWidgets(6));
-          expect(find.byType(Image), findsNothing);
+          expect(
+            find.byWidgetPredicate(
+              (widget) =>
+                  widget is Image &&
+                  widget.image is AssetImage &&
+                  (widget.image as AssetImage).assetName.startsWith(
+                    LearningPhaseCatalog.illustrationRoot,
+                  ),
+            ),
+            findsNWidgets(6),
+          );
           await tester.ensureVisible(last);
           await tester.pumpAndSettle();
           await tester.tap(last);

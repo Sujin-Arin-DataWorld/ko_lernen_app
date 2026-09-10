@@ -49,6 +49,11 @@ FAMILY = "F-E-cards"
 # 아이보리 지면·합성 그레인을 쓰지 않는 원본충실(full-bleed) 카드 프로파일.
 # 밴드를 넓히는 대신 이 계보를 따로 재는 것이 F-E-cards 의 편차 처리 방식이다.
 SOURCE_ORIGINAL_PROFILE = "C1-source-original"
+PACKS_PREMIUM_PROFILE = "PACKS-premium-v1"
+LEGACY_TEXTURE_CHECKS = (
+    "ivoryFrac ", "no flat ivory patch ", "ivory patch ",
+    "fine grain SD ", "coarse grain SD ",
+)
 BASELINE_PATH = ROOT / "docs" / "assets" / "CARD_STYLE_BASELINE.json"
 
 # ---- 측정 공식 상수 (grainFormulaVersion=1) --------------------------------
@@ -325,20 +330,82 @@ def check_source_original(path: Path, lock: dict) -> dict:
     added-grain requirements from the legacy generation recipe.
     """
     result = check(path, lock)
-    ignored_prefixes = (
-        "ivoryFrac ",
-        "no flat ivory patch ",
-        "ivory patch ",
-        "fine grain SD ",
-        "coarse grain SD ",
-    )
     result["failures"] = [
         failure
         for failure in result["failures"]
-        if not failure.startswith(ignored_prefixes)
+        if not failure.startswith(LEGACY_TEXTURE_CHECKS)
     ]
     result["ok"] = not result["failures"]
     return result
+
+
+def check_packs_premium(path: Path, lock: dict) -> dict:
+    """Check the user-selected PACKS bible and its hash-bound visual review.
+
+    The PACKS bible requires q90+ and native fine dry-print texture. Its
+    approved C1Access reference itself fails the older synthetic-grain and
+    ivory-patch bands. Those measurements remain diagnostic for this profile;
+    the legacy recipe, its thresholds and C1-source-original stay unchanged.
+    Semantic recognition, crop, texture and text absence require actual visual
+    review of these exact bytes, recorded in the production ledger.
+    """
+    result = check(path, lock)
+    legacy_recipe_checks = ("fileKB ",) + LEGACY_TEXTURE_CHECKS
+    result["failures"] = [
+        failure for failure in result["failures"]
+        if not failure.startswith(legacy_recipe_checks)
+    ]
+    result["warnings"] = [
+        warning for warning in result["warnings"]
+        if not warning.startswith("fileKB ")
+    ]
+    profile = _family(lock).get("knownDeviations", {}).get(PACKS_PREMIUM_PROFILE)
+    if not profile:
+        result["failures"].append("PACKS premium profile is not declared")
+    else:
+        ledger = json.loads((ROOT / profile["reviewLedger"]).read_text(encoding="utf-8"))
+        entries = [entry for entry in ledger["assets"] if entry["id"] == path.stem]
+        if len(entries) != 1:
+            result["failures"].append("PACKS premium asset is not in the production plan")
+        else:
+            entry = entries[0]
+            try:
+                runtime_path = path.resolve().relative_to(ROOT).as_posix()
+            except ValueError:
+                runtime_path = None
+            if runtime_path is not None and runtime_path != entry["asset"]:
+                result["failures"].append("PACKS premium asset path does not match its plan")
+            review = entry.get("qa", {})
+            required = (
+                "fullSize", "crop16x10", "thumbnail100px",
+                "textFree", "materials", "nativeTexture", "familyShell",
+            )
+            if entry.get("status") not in ("reviewed", "bundled") or any(
+                review.get(key) != "pass" for key in required
+            ):
+                result["failures"].append("PACKS premium visual review is incomplete")
+            if not path.is_file() or entry.get("sha256") != sha256_of(path):
+                result["failures"].append("PACKS premium visual review sha256 mismatch")
+            minimum_quality = profile["minWebpQuality"]
+            if entry.get("normalization", {}).get("quality", 0) < minimum_quality:
+                result["failures"].append(
+                    f"PACKS premium requires WebP quality >= {minimum_quality}"
+                )
+        reference = ROOT / ledger["reference"]
+        if not reference.is_file() or sha256_of(reference) != ledger.get("referenceSha256"):
+            result["failures"].append("PACKS premium reference sha256 mismatch")
+    result["ok"] = not result["failures"]
+    return result
+
+
+def checker_for_profile(profile: str | None):
+    if profile == PACKS_PREMIUM_PROFILE:
+        return check_packs_premium
+    if profile == SOURCE_ORIGINAL_PROFILE:
+        return check_source_original
+    if profile is not None:
+        raise ValueError(f"Unknown card profile: {profile}")
+    return check
 
 
 # ---- 사이드카(정본 명부) ----------------------------------------------------
@@ -467,11 +534,7 @@ def run_all(lock: dict) -> tuple[list[dict], int]:
             result = {"path": rel, "failures": ["registered file is missing"],
                       "warnings": [], "ok": False}
         else:
-            checker = (
-                check_source_original
-                if entry.get("profile") == SOURCE_ORIGINAL_PROFILE
-                else check
-            )
+            checker = checker_for_profile(entry.get("profile"))
             result = checker(path, lock)
             if sha256_of(path) != entry["sha256"]:
                 result["failures"].append(
@@ -500,7 +563,7 @@ def run_all(lock: dict) -> tuple[list[dict], int]:
 def run_register(
     lock: dict, target: Path, profile: str | None = None
 ) -> tuple[list[dict], int]:
-    checker = check_source_original if profile else check
+    checker = checker_for_profile(profile)
     result = checker(target, lock)
     if not result["ok"]:
         print(f"[fail] {result['path']}: 게이트 실패 — 등록 거부")
@@ -594,9 +657,8 @@ def main(argv: list[str] | None = None) -> int:
                         help="전량 실측 -> 사이드카 작성 + 제안 게이트 출력")
     parser.add_argument("--register", type=Path, metavar="FILE",
                         help="후보 검사 통과 시 사이드카+members 에 등록")
-    parser.add_argument("--profile", choices=[SOURCE_ORIGINAL_PROFILE],
-                        help="원본충실 카드로 등록 — 아이보리 패치·합성 그레인 "
-                             "요구를 빼고 판정하고 편차 명부에도 올린다")
+    parser.add_argument("--profile", choices=[SOURCE_ORIGINAL_PROFILE, PACKS_PREMIUM_PROFILE],
+                        help="Use the declared source-original or PACKS-bible profile")
     parser.add_argument("--report", type=Path, help="전체 JSON 결과를 여기에 쓴다")
     args = parser.parse_args(argv)
 
@@ -615,7 +677,8 @@ def main(argv: list[str] | None = None) -> int:
     else:
         if not args.targets:
             parser.error("pass FILE targets, --all, --baseline or --register FILE")
-        results = [check(ROOT / t if not Path(t).is_absolute() else Path(t), lock)
+        checker = checker_for_profile(args.profile)
+        results = [checker(ROOT / t if not Path(t).is_absolute() else Path(t), lock)
                    for t in args.targets]
         failures = sum(1 for r in results if not r.get("ok"))
 

@@ -23,15 +23,12 @@ void main() {
 
     test('아직 전용 이미지가 없는 팩은 보상 모티프 이미지를 유지한다', () {
       expect(
-        PackArtworkCatalog.assetFor(
-          'b2_public_office_1',
-          DancheongMotif.noemun,
-        ),
-        'assets/illustrations/packs/noemun.webp',
+        PackArtworkCatalog.assetFor('a1_greetings_1', DancheongMotif.lotus),
+        'assets/illustrations/packs/lotus.webp',
       );
     });
 
-    test('현재 승인 범위는 A1 25장, A2 34장, B1 54장, B2 49장이다', () {
+    test('승인된 전용 팩 184개가 여섯 레벨에 연결된다', () {
       int count(String level) => PackArtworkCatalog.dedicatedPackIds
           .where((id) => id.startsWith('${level}_'))
           .length;
@@ -40,11 +37,13 @@ void main() {
       // a2_apt_rules_1, a2_partner_leftover_bags_1 moved a2->b1, taking
       // their dedicated artwork with them (A2 38->34, B1 50->54, total
       // unchanged at 113).
-      expect(count('a1'), 25);
-      expect(count('a2'), 34);
-      expect(count('b1'), 54);
-      expect(count('b2'), 49);
-      expect(PackArtworkCatalog.dedicatedPackIds.length, 162);
+      expect(count('a1'), 28);
+      expect(count('a2'), 35);
+      expect(count('b1'), 55);
+      expect(count('b2'), 50);
+      expect(count('c1'), 8);
+      expect(count('c2'), 8);
+      expect(PackArtworkCatalog.dedicatedPackIds.length, 184);
     });
   });
 }
