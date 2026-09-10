@@ -50,6 +50,7 @@ class SoriUpdatingScene extends StatelessWidget {
     return Semantics(
       label: message,
       image: true,
+      excludeSemantics: true,
       child: Stack(
         fit: StackFit.expand,
         children: [

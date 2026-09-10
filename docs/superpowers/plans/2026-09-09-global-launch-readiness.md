@@ -294,6 +294,21 @@ harvest placeholder였다. GitHub 저장소/릴리스 환경에서 심볼 전용
   리뷰 모두 승인, 행동 가능한 지적 0건이다. 같은 PR에 추가할 수정본이며 이후 원격 head의
   CI 결과와 서명 후보·기기 결과는 PR 및 외부 검증 영수증에 정확한 SHA로 연결한다.
 
+### Task 8: Remove duplicate Hanok/Gye maintenance semantics
+
+**Trigger:** 연결된 Redmi의 기존 Play 2265에서 한옥 안내 문장이 하나의 접근성 label에
+두 번 들어가는 것을 UI hierarchy로 확인했다. 현재 `SoriUpdatingScene`도 외부 label과
+내부 Text의 의미 정보가 합쳐지는 구조였다. 실제 TalkBack 음성을 들었다는 뜻은 아니다.
+9월 3일 승인된 시각 재작업 플래그와 기존 그림·안내 문구·레이아웃은 유지한다.
+
+- [x] **Step 1: Reproduce the effective semantics.** 기존 위젯 속성 검사 대신 실제
+  SemanticsNode의 전체 label과 image 역할을 검증한다. DE/EN 모두 중복 label로 실패했다.
+- [x] **Step 2: Keep one accessible message.** 외부 Semantics가 안내 문장을 소유하고
+  내부 장식과 Text의 의미 정보를 제외한다. 보이는 Text는 그대로 검사한다.
+- [ ] **Step 3: Verify and integrate.** 한옥·계 소비 화면 회귀, 분석·형식 검사와 독립
+  Standards/Spec 리뷰 후 같은 PR #294에 반영한다. 기존 서명 후보 2280(`2373b1d3`)에는
+  이 후속 수정이 없으므로 새 커밋의 CI와 서명 후보를 구분해 확인한다.
+
 ### Verification evidence
 
 2026-09-10 로컬 후보의 검증 결과다. 서로 겹치는 실행 횟수는 더하지 않는다.

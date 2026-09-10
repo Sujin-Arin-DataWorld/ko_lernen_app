@@ -966,20 +966,20 @@
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations.dart": {
-    "mtime": 1788993062.202527,
-    "seen": 1788995056.9169521,
+    "mtime": 1789020721.8793972,
+    "seen": 1789042512.4969816,
     "ast_hash": "f41055f311595997648a88b0b2328851",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_de.dart": {
-    "mtime": 1788993061.974691,
-    "seen": 1788995056.9169545,
+    "mtime": 1789020721.666608,
+    "seen": 1789042512.4969845,
     "ast_hash": "6b0ad0cf7f7d4d2744ed681640d92eb4",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_en.dart": {
-    "mtime": 1788993062.0681453,
-    "seen": 1788995056.9169574,
+    "mtime": 1789020721.7628684,
+    "seen": 1789042512.496987,
     "ast_hash": "e6531e98946edb6882f24abd9970c05e",
     "semantic_hash": ""
   },
@@ -14580,9 +14580,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/updating_scene.dart": {
-    "mtime": 1788987817.4731452,
-    "seen": 1788995056.9181812,
-    "ast_hash": "346d1851eb09b33e0822e21805c7fe3e",
+    "mtime": 1789042174.088113,
+    "seen": 1789042512.6262193,
+    "ast_hash": "90a4cf8ac81c4c583fcdbfe2f74ea4eb",
     "semantic_hash": ""
   },
   "test/sori_gaps_usage_guard_test.dart": {
@@ -14592,9 +14592,9 @@
     "semantic_hash": ""
   },
   "test/sori_updating_scene_test.dart": {
-    "mtime": 1788987818.0624585,
-    "seen": 1788995056.9195547,
-    "ast_hash": "51b6afb0ecb183d7ed01c08607cf0e65",
+    "mtime": 1789042264.9179971,
+    "seen": 1789042512.768707,
+    "ast_hash": "5b79e800c57b7117763d1e21f0bab13c",
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-09-03-w7-pr2-quest/progress.md": {
@@ -15516,9 +15516,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-09-global-launch-readiness.md": {
-    "mtime": 1789019453.3254693,
-    "seen": 1789019606.6724648,
-    "ast_hash": "54be9308de2a6e78b58c55211bdbf8cf",
+    "mtime": 1789042248.5290606,
+    "seen": 1789042513.0716832,
+    "ast_hash": "62c9bac9a17e209167977af30e6cf92b",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-09-global-launch-readiness-design.md": {

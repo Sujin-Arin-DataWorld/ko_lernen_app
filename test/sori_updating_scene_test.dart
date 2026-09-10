@@ -56,21 +56,28 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('exposes the message as an image Semantics label', (
-    tester,
-  ) async {
-    const message = 'Your hanok is being rebuilt. Back soon.';
-    await tester.pumpWidget(harness(message: message));
-    final semantics = tester.widget<Semantics>(
-      find
-          .byWidgetPredicate(
-            (w) => w is Semantics && w.properties.label == message,
-          )
-          .first,
-    );
-    expect(semantics.properties.image, isTrue);
-    expect(tester.takeException(), isNull);
-  });
+  for (final message in [
+    'Dein Hanok wird gerade erneuert. Bald wieder da.',
+    'Your hanok is being rebuilt. Back soon.',
+  ]) {
+    testWidgets('exposes the maintenance message exactly once: $message', (
+      tester,
+    ) async {
+      final semantics = tester.ensureSemantics();
+      try {
+        await tester.pumpWidget(harness(message: message));
+
+        expect(
+          tester.getSemantics(find.byType(SoriUpdatingScene)),
+          matchesSemantics(label: message, isImage: true),
+        );
+        expect(find.text(message), findsOneWidget);
+        expect(tester.takeException(), isNull);
+      } finally {
+        semantics.dispose();
+      }
+    });
+  }
 
   testWidgets('honors a custom messageAlignment (Gye card avoids the '
       'progress ring)', (tester) async {
