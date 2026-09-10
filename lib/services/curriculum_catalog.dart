@@ -94,7 +94,6 @@ class CurriculumCatalog {
       }
       if (SmalltalkLoader.lastError != null) {
         SmalltalkLoader.reset();
-        rootBundle.evict('assets/data/smalltalk.json');
       }
       // Attach error handlers to every input immediately. Sequential awaits
       // can leave an early cloze/sentence failure unhandled during other I/O.

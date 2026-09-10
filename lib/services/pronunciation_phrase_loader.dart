@@ -80,5 +80,6 @@ class PronunciationPhraseLoader {
   static void reset() {
     _cache = null;
     lastError = null;
+    rootBundle.evict(assetPath);
   }
 }

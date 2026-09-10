@@ -577,6 +577,51 @@ new build, store upload, or device installation retry is part of this task.
   The exact local commit, source hashes, Graphify preservation, and clean-tree
   verification are recorded in external `phase-integration-20260910/verification.json`.
 
+### Task 18: Make visible pronunciation, smalltalk, and word-web retries recover
+
+**Trigger:** Following the Phase failure, inspect remaining visible retry paths.
+Pronunciation and smalltalk reset their own decoded state without evicting the
+bundle string; word-web retries the same cached bundle read after an exception.
+Reproduce those paths against the real asset channel before changing behavior.
+Kkeunmari, syllable puzzles, DataLoader, and ScenarioLoader already evict their
+assets on explicit reset; retain those implementations.
+
+- [x] **Step 1: Reproduce and fix pronunciation retry.** A transient missing read
+  and malformed metadata must fail closed, then a screen retry must reload the
+  bundled phrases and restore practice controls. Preserve normal successful
+  caching, phrases, local recording, consent, and disabled cloud assessment.
+- [x] **Step 2: Reproduce and fix smalltalk and word-web retries.** Put bundle
+  invalidation at each owning service boundary so all actual callers recover;
+  remove redundant caller-only invalidation if the service now owns it. Keep
+  course progress, filtering, translations and existing injected loaders intact.
+  No global bundle clearing or new retry abstraction.
+- [x] **Step 2b: Verify the dependent notebook retry.** Its visible retry calls
+  `CustomPackCorpusResolver.forWords` again, but failed pronunciation, smalltalk,
+  vocabulary, and scenario snapshots remain cached. Reproduce with the real
+  asset channel, then reset only failed sources at that consumer boundary.
+  Use source-specific vocabulary/scenario errors so an unrelated catalog error
+  cannot mislabel healthy notebook content. Preserve successful corpora, the
+  learner's selected rows, saved pack, and practice progress. Verify the actual
+  notebook retry opens the recovered pronunciation subset.
+- [x] **Step 3: Verify together and preserve evidence.** Check real load failures,
+  malformed text, successful retry, unaffected success caching, visible screen
+  retry, and related curriculum/custom-pack consumers. Run appropriate tests,
+  changed-file analysis, two-axis independent review, and Graphify preservation.
+  Record the verified local commit. No push, CI dispatch, new build, deployment,
+  device retry, content changes, paid API fallback, or production call.
+
+Verified locally: the three direct loader regressions failed for both missing
+and malformed responses before their fixes. Nine notebook regressions also
+failed before its consumer fix, including an unrelated grammar error and
+the actual visible retry. After improving the generated-manifest and real
+async widget fixtures, the final combined 28-file suite passed 207/207
+(22 new recovery/cache tests). Changed-file analysis passed for seven Dart
+files; formatting changed zero files. Both independent review axes approved
+the implementation and final test additions. These are widget/service tests
+with real bundled content and simulated platform failures, not native phone
+or production-server evidence. Final source/Graphify preservation and the
+local commit are recorded in external `visible-retry-20260910/verification.json`.
+
 ### Verification evidence
 
 2026-09-10 로컬 후보의 검증 결과다. 서로 겹치는 실행 횟수는 더하지 않는다.
