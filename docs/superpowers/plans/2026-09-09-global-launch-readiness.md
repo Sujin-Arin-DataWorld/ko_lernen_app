@@ -952,6 +952,91 @@ remote CI dispatch, app/site release build, store upload, paid API call,
 email or device retry was performed. Signed-device and operational release
 gates remain open.
 
+### Task 24: Publish only confirmed course progress after a failed write
+
+**Trigger at `e467e21d29b4d4692c53b5cc2bac609d5bfb2b43`:** A real catalog,
+the existing PreferenceStringStore boundary, and CourseProgressService's
+serialized public API reproduced two failures: a rejected vocabulary write
+remains visible in CourseMasteryService.snapshot; the next successful queued
+write persists that rejected evidence too. Storage's strict rollback protects
+its own values, but several CourseMasteryService paths assign `_snapshot`
+before validation/persistence. The baseline's two tests failed behaviorally,
+not during setup (`course-write-recovery-20260910/baseline-red.log`).
+
+**Contract:** A failed write is not confirmed mastery. Keep the published
+snapshot, current unit, completion and remediation state consistent with
+confirmed durable evidence. A later learner action must not silently carry a
+rejected answer into storage. Preserve the established course semantics and
+strict persistence boundary; do not introduce a new storage format or journal.
+
+- [x] **Reproduce and audit:** Retain the real two-case baseline and add
+  focused service/queue tests for rejected/throwing writes, pending writes,
+  normal recovery, and failures around validation. Inspect all mutating entry
+  points: content attempts, scenario checkpoints/unlocks, course selection,
+  productive evidence/project steps, empty initialization and migrations.
+  Cover affected paths with meaningful public behavior assertions.
+- [x] **Confirmed publication:** Validate and persist a candidate before
+  publishing its snapshot or derived progress. A refused write must leave
+  prior confirmed evidence/current unit/completed units/remediation intact.
+  Successful writes still publish exactly the intended candidate. Failed
+  initialization/migration must not leave a falsely loaded in-memory state.
+- [x] **Recovery and ownership:** Keep the serialized queue usable after an
+  error. Do not overwrite or treat an uncertain storage result as confirmed;
+  exercise unknown-outcome/reload failure and recovery at the existing strict
+  storage boundary. Require confirmation before later mutation when needed.
+  Preserve account/wipe barriers and canonical-generation fences. A small
+  storage recovery helper is allowed if existing APIs cannot establish the
+  confirmed value; do not use test-only reset methods in production code.
+- [x] **Existing contracts:** Keep typed mission eligibility, thresholds,
+  evidence identity/caps, reconciliation rules, productive-proof non-unlock
+  semantics, course/browse separation, read-only display and free learning.
+  Do not change vocabulary SRS, XP, awards, user assets or content. Preserve
+  the original error for callers; do not replace a failed write with success
+  or silently retry a learner action as new evidence.
+- [x] **Verify and record:** Run relevant mastery, progress, productive,
+  reconciliation, storage, wipe and consumer tests with changed Dart analysis.
+  Read the final diff and obtain independent Standards/Spec reviews. Preserve
+  prior sources/assets/paid graph records, run free Graphify update/prune, and
+  commit only this local optimization. No push, remote CI, build, paid API,
+  email, device retry or deployment. Operational/device gates remain open.
+
+**Ownership/consistency:** One implementer owns CourseMasteryService and
+focused tests. CourseProgressService/Storage may change only where the
+confirmed-recovery contract requires them; report the need before editing.
+Root owns this plan, external evidence and final integration. Existing
+strict storage rollback, generation guards and the Task14 service-loader
+recovery remain authoritative. No concurrent edits to these source files.
+Evidence is external under `course-write-recovery-20260910/`.
+
+**Review ruling:** The first candidate passed 550 scoped tests, but independent
+Spec review and a new real onboarding-gateway test showed that a synchronous
+unknown-state assertion blocked read-before-write retries even after durable
+reads recovered. Confirm through the owning service within serialized capture
+and repair before reading; preserve read-only behavior and the normal empty
+capture fast path. First-candidate source, tests and reviews are retained in
+external `course-write-recovery-20260910/revision1/`; fix and re-review this
+recovery requirement before committing.
+
+**Task 24 local verification (2026-09-10):** The original two public
+queue tests failed on the unchanged `e467e21d` baseline and passed with the
+final source. The related Flutter run passed **556 tests
+across 60 files**; changed Dart analysis checked
+**6 files with no issues**. Candidate publication,
+strict write failure/recovery, uncertain durable state, course advancement,
+productive non-unlock, read-only capture, reconciliation and wipe boundaries
+are covered by the recorded scoped regression suite. This is not full CI or
+signed-device evidence. Independent Standards and Spec reviews approved the
+final diff. Exact tests and source hashes are recorded externally under
+`course-write-recovery-20260910/`.
+
+Existing **2,397 files**, **962 assets**,
+and **1,095 paid Graphify records** were preserved.
+Free Graphify update/prune completed. The local commit's parent/tree and
+clean-worktree checks are in `course-write-recovery-20260910/verification.json`.
+No push, remote CI dispatch, app/site release build, store upload, paid API
+call, email or device retry was performed. Operational and signed-device
+release gates remain open.
+
 ### Verification evidence
 
 2026-09-10 로컬 후보의 검증 결과다. 서로 겹치는 실행 횟수는 더하지 않는다.

@@ -131,7 +131,10 @@ class CourseProgressService {
   /// Read-only screen load. Unlike [refresh], this never synthesizes or
   /// persists a canonical snapshot when the learner has not started a course.
   Future<CourseMasterySnapshot?> readForDisplay() =>
-      _serialized((service) async => service.readForDisplay());
+      _serialized((service) async {
+        await service.confirmDurableState();
+        return service.readForDisplay();
+      });
 
   /// Serializes capture with learner actions so a backup or account
   /// reconciliation sees either the preexisting validated v2 state or the
@@ -157,6 +160,10 @@ class CourseProgressService {
     CourseMasteryService? loadedService;
     Future<CourseMasteryService> service() async =>
         loadedService ??= await _service();
+
+    if (Storage.hasUnconfirmedCourseMasteryState) {
+      await (await service()).confirmDurableState();
+    }
 
     if (Storage.courseMasterySnapshotRawJson.trim().isEmpty &&
         Storage.legacyCourseMasteryRawJson.trim().isNotEmpty) {
@@ -201,6 +208,7 @@ class CourseProgressService {
     bool preserveHistory = false,
     String? expectedGeneration,
   }) => _serialized((service) async {
+    await service.confirmDurableState();
     final normalizedLevel = levelCode.trim().toLowerCase();
     final canonicalGeneration = Storage.courseMasterySnapshotRawJson;
     if (expectedGeneration != null &&

@@ -3311,6 +3311,56 @@ class Storage {
   static String get courseMasterySnapshotRawJson =>
       _courseMasteryCache ?? _s(courseMasterySnapshotPreferenceKey);
 
+  static const _courseMasteryStateKeys = <String>{
+    courseMasterySnapshotPreferenceKey,
+    placementLevelPreferenceKey,
+    courseUnitPreferenceKey,
+    browseLevelPreferenceKey,
+    'kl_user_level',
+  };
+
+  /// Allows an empty placement capture to avoid loading the course catalog
+  /// unless its preference boundary actually needs recovery.
+  static bool get hasUnconfirmedCourseMasteryState =>
+      _courseMasteryStateKeys.any(_unknownStrictKeys.contains);
+
+  /// Synchronous course readers cannot resolve an uncertain platform cache.
+  /// Keep them closed until the course owner confirms the durable state.
+  static void assertCourseMasteryStateConfirmed() {
+    for (final key in _courseMasteryStateKeys) {
+      if (_unknownStrictKeys.contains(key)) {
+        throw PreferenceOutcomeUnknownException(key);
+      }
+    }
+  }
+
+  /// Confirms an uncertain course transaction before a new candidate is built.
+  /// Returns whether the caller must discard its loaded graph and read again.
+  /// This only reads durable state; it never replays or rolls back an action.
+  static Future<bool> confirmCourseMasteryState({
+    PreferenceStringStore? preferences,
+  }) async {
+    if (!hasUnconfirmedCourseMasteryState) {
+      return false;
+    }
+    final store = _stringStore(preferences);
+    await _refreshUnknownStringKeys(store, _courseMasteryStateKeys);
+    try {
+      final canonical = _StringPreferenceState.read(
+        store,
+        courseMasterySnapshotPreferenceKey,
+      );
+      _courseMasteryCache = canonical.value ?? '';
+    } on Object catch (error) {
+      _unknownStrictKeys.add(courseMasterySnapshotPreferenceKey);
+      throw PreferenceOutcomeUnknownException(
+        courseMasterySnapshotPreferenceKey,
+        cause: error,
+      );
+    }
+    return true;
+  }
+
   /// Retained as a read-only migration source. No production code writes it.
   static String get legacyCourseMasteryRawJson =>
       _s(legacyCourseMasteryPreferenceKey);

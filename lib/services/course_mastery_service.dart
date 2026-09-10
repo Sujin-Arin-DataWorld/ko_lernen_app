@@ -289,6 +289,7 @@ class CourseMasteryService {
     String? expectedGeneration,
   }) async {
     _ensureCatalogUsable();
+    await confirmDurableState();
     if (expectedGeneration != null &&
         Storage.courseMasterySnapshotRawJson != expectedGeneration) {
       throw const LocalReconciliationGenerationConflict();
@@ -300,7 +301,7 @@ class CourseMasteryService {
     // Placement may reset active course history, but archived productive proof
     // is durable reward authority and must survive independently of that flag.
     final previous = hasDurableSnapshot
-        ? readForDisplay() ?? const CourseMasterySnapshot.empty()
+        ? readForReconciliation() ?? const CourseMasterySnapshot.empty()
         : const CourseMasterySnapshot.empty();
     final targetRank = _levelRank(level);
     final completed = preserveHistory
@@ -376,22 +377,24 @@ class CourseMasteryService {
   /// evidence is rejected before it can be aggregated into mastery/unlocks.
   Future<CourseMasterySnapshot> refresh() async {
     _ensureCatalogUsable();
+    _loaded = false;
+    await confirmDurableState();
     final canonicalRaw = Storage.courseMasterySnapshotRawJson.trim();
     final raw = canonicalRaw.isNotEmpty
         ? canonicalRaw
         : Storage.legacyCourseMasteryRawJson.trim();
     if (raw.isEmpty) {
-      _snapshot = CourseMasterySnapshot(
+      final candidate = CourseMasterySnapshot(
         curriculumGeneration: catalog.scenarioCorpusGeneration,
         placementLevel: Storage.placementLevelCode,
         currentCourseUnitId: Storage.courseUnitId,
       );
-      _validateSnapshot(_snapshot);
-      _loaded = true;
-      await _persist();
+      await _persistSnapshot(candidate, mirrorLegacyUserLevel: true);
       await Storage.migrateScenarioProgressGeneration(
         catalog.scenarioCorpusGeneration,
       );
+      _snapshot = candidate;
+      _loaded = true;
       return _snapshot;
     }
     final decoded = jsonDecode(raw);
@@ -404,19 +407,20 @@ class CourseMasteryService {
     final decodedSnapshot = CourseMasterySnapshot.decodeAndMigrate(
       snapshotJson,
     );
-    _snapshot = _migrateForCatalogGeneration(decodedSnapshot);
-    _validateSnapshot(_snapshot);
-    _loaded = true;
+    final candidate = _migrateForCatalogGeneration(decodedSnapshot);
+    _validateSnapshot(candidate);
     if (canonicalRaw.isEmpty ||
         CourseMasterySnapshot.sourceVersionFor(snapshotJson) !=
             CourseMasterySnapshot.currentVersion ||
         decodedSnapshot.curriculumGeneration !=
-            _snapshot.curriculumGeneration) {
-      await _persist();
+            candidate.curriculumGeneration) {
+      await _persistSnapshot(candidate, mirrorLegacyUserLevel: true);
     }
     await Storage.migrateScenarioProgressGeneration(
       catalog.scenarioCorpusGeneration,
     );
+    _snapshot = candidate;
+    _loaded = true;
     return _snapshot;
   }
 
@@ -439,6 +443,7 @@ class CourseMasteryService {
   /// particular, the unrelated legacy user-level fallback is not course state.
   CourseMasterySnapshot? readForReconciliation() {
     _ensureCatalogUsable();
+    Storage.assertCourseMasteryStateConfirmed();
     final canonicalRaw = Storage.courseMasterySnapshotRawJson.trim();
     final legacyRaw = Storage.legacyCourseMasteryRawJson.trim();
     final raw = canonicalRaw.isNotEmpty ? canonicalRaw : legacyRaw;
@@ -476,6 +481,7 @@ class CourseMasteryService {
   /// them. Browse and legacy account-level state are never inputs here.
   Future<CourseMasterySnapshot?> migrateForCloudCapture() async {
     _ensureCatalogUsable();
+    await confirmDurableState();
     final canonicalRaw = Storage.courseMasterySnapshotRawJson.trim();
     if (canonicalRaw.isNotEmpty) {
       final snapshotJson = _decodeStoredSnapshotJson(canonicalRaw);
@@ -541,6 +547,7 @@ class CourseMasteryService {
     void Function()? assertCurrentWrite,
   }) async {
     _ensureCatalogUsable();
+    await confirmDurableState();
     if (expectedGeneration != null &&
         Storage.courseMasterySnapshotRawJson != expectedGeneration) {
       throw const LocalReconciliationGenerationConflict();
@@ -573,8 +580,9 @@ class CourseMasteryService {
     if (!_canActivate(target)) {
       throw StateError('Course unit ${target.id} is not unlocked.');
     }
-    _snapshot = _snapshot.copyWith(currentCourseUnitId: target.id);
-    await _persist();
+    final candidate = _snapshot.copyWith(currentCourseUnitId: target.id);
+    await _persistSnapshot(candidate, mirrorLegacyUserLevel: true);
+    _snapshot = candidate;
     return _snapshot;
   }
 
@@ -736,8 +744,8 @@ class CourseMasteryService {
         ),
       );
     }
-    _snapshot = _snapshot.copyWith(evidence: _boundedEvidence(entries));
-    return _commitUpdate(previousSnapshot: previousSnapshot);
+    final candidate = _snapshot.copyWith(evidence: _boundedEvidence(entries));
+    return _commitUpdate(candidate, previousSnapshot: previousSnapshot);
   }
 
   /// Records a scenario's aggregate checkpoint score. Only a score completed
@@ -788,7 +796,7 @@ class CourseMasteryService {
               .cast<ContentLink?>()
               .firstWhere((link) => link != null, orElse: () => null);
     final sourceLink = activeCheckpoint ?? _preferredLink(links);
-    _snapshot = _snapshot.copyWith(
+    final candidate = _snapshot.copyWith(
       scenarioCheckpoints: _boundedCheckpoints([
         ..._snapshot.scenarioCheckpoints,
         ScenarioCheckpointEvidence(
@@ -801,7 +809,7 @@ class CourseMasteryService {
         ),
       ]),
     );
-    return _commitUpdate(previousSnapshot: previousSnapshot);
+    return _commitUpdate(candidate, previousSnapshot: previousSnapshot);
   }
 
   /// Records a deterministic receipt for source-review step 1 or 3 without
@@ -891,13 +899,13 @@ class CourseMasteryService {
         entry.id: entry,
       accepted.id: accepted,
     }.values.toList()..sort(_compareProductiveProjectStepEvidence);
-    _snapshot = _snapshot.copyWith(productiveProjectStepEvidence: merged);
-    _validateSnapshot(_snapshot);
-    await _persist();
-    if (_snapshot.currentCourseUnitId != beforeCurrent ||
-        !_sameOrderedStrings(_snapshot.completedUnitIds, beforeCompleted)) {
+    final candidate = _snapshot.copyWith(productiveProjectStepEvidence: merged);
+    if (candidate.currentCourseUnitId != beforeCurrent ||
+        !_sameOrderedStrings(candidate.completedUnitIds, beforeCompleted)) {
       throw StateError('Project source review mutated course progression.');
     }
+    await _persistSnapshot(candidate, mirrorLegacyUserLevel: true);
+    _snapshot = candidate;
     return ProductiveProjectStepUpdate(
       snapshot: _snapshot,
       acceptedEvidence: accepted,
@@ -1055,13 +1063,13 @@ class CourseMasteryService {
               entry.rubricVersion == definition.rubricVersion,
         ),
     ];
-    _snapshot = _snapshot.copyWith(productiveEvidence: merged);
-    _validateSnapshot(_snapshot);
-    await _persist();
-    if (_snapshot.currentCourseUnitId != beforeCurrent ||
-        !_sameOrderedStrings(_snapshot.completedUnitIds, beforeCompleted)) {
+    final candidate = _snapshot.copyWith(productiveEvidence: merged);
+    if (candidate.currentCourseUnitId != beforeCurrent ||
+        !_sameOrderedStrings(candidate.completedUnitIds, beforeCompleted)) {
       throw StateError('Productive evidence mutated course progression.');
     }
+    await _persistSnapshot(candidate, mirrorLegacyUserLevel: true);
+    _snapshot = candidate;
     return ProductiveCourseUpdate(
       snapshot: _snapshot,
       acceptedEvidence: List.unmodifiable(selected),
@@ -1113,20 +1121,40 @@ class CourseMasteryService {
   }
 
   Future<void> _ensureLoaded() async {
-    if (!_loaded) await refresh();
+    await confirmDurableState();
+    if (!_loaded) {
+      await refresh();
+    }
   }
 
-  Future<CourseUpdate> _commitUpdate({
+  /// Resolves unknown persistence through this service's preference boundary.
+  /// It only reads and invalidates stale loaded state; it does not initialize,
+  /// migrate, or persist a course. Synchronous readers still validate the graph.
+  Future<void> confirmDurableState() async {
+    if (await Storage.confirmCourseMasteryState(
+      preferences: snapshotPreferences,
+    )) {
+      _loaded = false;
+    }
+  }
+
+  Future<CourseUpdate> _commitUpdate(
+    CourseMasterySnapshot candidate, {
     CourseMasterySnapshot? previousSnapshot,
   }) async {
     // Compact legacy oversized snapshots before the next durable write too,
     // not only when the corresponding list was appended in this call.
-    _snapshot = _snapshot.copyWith(
-      evidence: _boundedEvidence(_snapshot.evidence),
-      scenarioCheckpoints: _boundedCheckpoints(_snapshot.scenarioCheckpoints),
+    candidate = candidate.copyWith(
+      evidence: _boundedEvidence(candidate.evidence),
+      scenarioCheckpoints: _boundedCheckpoints(candidate.scenarioCheckpoints),
     );
-    final newlyUnlocked = _advanceIfPassed();
-    await _persist();
+    final advanced = _advanceIfPassed(candidate);
+    await _persistSnapshot(advanced, mirrorLegacyUserLevel: true);
+    _snapshot = advanced;
+    final newlyUnlocked =
+        advanced.currentCourseUnitId != candidate.currentCourseUnitId
+        ? currentUnit
+        : null;
     final queue = reviewQueue;
     return CourseUpdate(
       snapshot: _snapshot,
@@ -1137,14 +1165,16 @@ class CourseMasteryService {
     );
   }
 
-  CourseUnit? _advanceIfPassed() {
+  CourseMasterySnapshot _advanceIfPassed(CourseMasterySnapshot snapshot) {
     final unit = currentUnit;
-    if (unit == null || !_unitPassed(unit)) return null;
-    final completed = <String>{..._snapshot.completedUnitIds, unit.id}.toList()
+    if (unit == null || !_unitPassed(unit, snapshot)) {
+      return snapshot;
+    }
+    final completed = <String>{...snapshot.completedUnitIds, unit.id}.toList()
       ..sort(_compareUnitIds);
     final resolved = <String>{
       ...completed,
-      ..._snapshot.bypassedPrerequisiteUnitIds,
+      ...snapshot.bypassedPrerequisiteUnitIds,
     };
     CourseUnit? next;
     for (final candidate in _orderedUnits) {
@@ -1155,19 +1185,18 @@ class CourseMasteryService {
         break;
       }
     }
-    _snapshot = _snapshot.copyWith(
+    return snapshot.copyWith(
       completedUnitIds: completed,
       currentCourseUnitId: next?.id,
       clearCurrentCourseUnitId: next == null,
     );
-    return next;
   }
 
-  bool _unitPassed(CourseUnit unit) {
+  bool _unitPassed(CourseUnit unit, CourseMasterySnapshot snapshot) {
     final threshold = unit.passThreshold;
     final latestScenarioEvidenceAt = <String, DateTime>{};
     for (final conceptId in unit.requiredConceptIds) {
-      final evidence = _snapshot.evidence
+      final evidence = snapshot.evidence
           .where(
             (item) =>
                 _isVerifiedCourseEligibleEvidence(item) &&
@@ -1199,7 +1228,7 @@ class CourseMasteryService {
       }
 
       if (kind == CurriculumContentKind.scenario) {
-        final verifiedMatching = _snapshot.scenarioCheckpoints
+        final verifiedMatching = snapshot.scenarioCheckpoints
             .where(
               (item) =>
                   item.courseEligible &&
@@ -1227,7 +1256,7 @@ class CourseMasteryService {
           kind != CurriculumContentKind.smalltalk) {
         return false;
       }
-      final verifiedMatching = _snapshot.evidence
+      final verifiedMatching = snapshot.evidence
           .where(
             (item) =>
                 item.courseUnitId == unit.id &&
@@ -1531,15 +1560,6 @@ class CourseMasteryService {
     return List.unmodifiable([for (final index in ordered) entries[index]]);
   }
 
-  Future<void> _persist({
-    bool mirrorLegacyUserLevel = true,
-    void Function()? assertCurrentWrite,
-  }) => _persistSnapshot(
-    _snapshot,
-    mirrorLegacyUserLevel: mirrorLegacyUserLevel,
-    assertCurrentWrite: assertCurrentWrite,
-  );
-
   Future<void> _persistSnapshot(
     CourseMasterySnapshot snapshot, {
     required bool mirrorLegacyUserLevel,
@@ -1548,15 +1568,22 @@ class CourseMasteryService {
   }) async {
     _ensureCatalogUsable();
     _validateSnapshot(snapshot);
-    await Storage.setCourseMasteryStateAtomically(
-      canonicalSnapshotJson: jsonEncode(snapshot.toJson()),
-      placementLevelCode: snapshot.placementLevel,
-      browseLevelCode: browseLevelCode,
-      currentCourseUnitId: snapshot.currentCourseUnitId,
-      mirrorLegacyUserLevel: mirrorLegacyUserLevel,
-      preferences: snapshotPreferences,
-      assertCurrentWrite: assertCurrentWrite,
-    );
+    try {
+      await Storage.setCourseMasteryStateAtomically(
+        canonicalSnapshotJson: jsonEncode(snapshot.toJson()),
+        placementLevelCode: snapshot.placementLevel,
+        browseLevelCode: browseLevelCode,
+        currentCourseUnitId: snapshot.currentCourseUnitId,
+        mirrorLegacyUserLevel: mirrorLegacyUserLevel,
+        preferences: snapshotPreferences,
+        assertCurrentWrite: assertCurrentWrite,
+      );
+    } on PreferenceOutcomeUnknownException {
+      // The old snapshot remains the last confirmed publication, but no new
+      // mutation may derive from it until durable recovery has completed.
+      _loaded = false;
+      rethrow;
+    }
   }
 
   void _ensureCatalogUsable() {

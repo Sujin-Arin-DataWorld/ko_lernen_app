@@ -132,6 +132,105 @@ void main() {
     await Storage.init();
   });
 
+  for (final rejectedKey in [
+    Storage.courseUnitPreferenceKey,
+    Storage.courseMasterySnapshotPreferenceKey,
+  ]) {
+    test(
+      'failed checkpoint write at $rejectedKey cannot publish completion',
+      () async {
+        final store = _RejectableCourseStateWriteStore();
+        final service = CourseMasteryService(
+          _catalog(),
+          snapshotPreferences: store,
+        );
+        final progress = CourseProgressService(() async => service);
+        await service.initializeForPlacement('a1');
+        final grammar = _assessContext(
+          service.catalog,
+          CurriculumContentKind.grammar,
+          'grammar_greetings',
+        );
+        final scenario = _assessContext(
+          service.catalog,
+          CurriculumContentKind.scenario,
+          'airport_arrival',
+        );
+        await service.recordContentAttempt(
+          CurriculumContentKind.grammar,
+          'grammar_greetings',
+          true,
+          courseContext: grammar,
+          conceptId: 'concept_greeting_politeness',
+          occurredAt: _time(1),
+        );
+        final before = service.snapshot;
+        final durable = Map<String, String>.of(store.values);
+        store.rejectedKey = rejectedKey;
+        await expectLater(
+          progress.recordScenarioCheckpoint(
+            'airport_arrival',
+            .7,
+            courseContext: scenario,
+            occurredAt: _time(2),
+          ),
+          throwsA(isA<PreferenceWriteException>()),
+        );
+        expect(service.snapshot, same(before));
+        expect(service.currentUnit?.id, 'a1_01_greetings_hangul');
+        expect(service.snapshot.completedUnitIds, isEmpty);
+        expect(store.values, durable);
+        store.rejectedKey = null;
+        final update = await progress.recordScenarioCheckpoint(
+          'airport_arrival',
+          .7,
+          courseContext: scenario,
+          occurredAt: _time(3),
+        );
+        expect(update.snapshot.scenarioCheckpoints, hasLength(1));
+        expect(update.currentUnit?.id, 'a1_02_self_intro_identity');
+      },
+    );
+  }
+
+  test('failed corrective answer preserves confirmed remediation', () async {
+    final store = _RejectableCourseStateWriteStore();
+    final service = CourseMasteryService(
+      _catalog(),
+      snapshotPreferences: store,
+    );
+    await service.initializeForPlacement('a1');
+    final context = _assessContext(
+      service.catalog,
+      CurriculumContentKind.grammar,
+      'grammar_greetings',
+    );
+    await service.recordContentAttempt(
+      CurriculumContentKind.grammar,
+      'grammar_greetings',
+      false,
+      courseContext: context,
+      conceptId: 'concept_greeting_politeness',
+      errorReason: MasteryErrorReason.speechStyle,
+      occurredAt: _time(1),
+    );
+    expect(service.reviewQueue, hasLength(1));
+    store.rejectedKey = Storage.courseMasterySnapshotPreferenceKey;
+    await expectLater(
+      service.recordContentAttempt(
+        CurriculumContentKind.grammar,
+        'grammar_greetings',
+        true,
+        courseContext: context,
+        conceptId: 'concept_greeting_politeness',
+        occurredAt: _time(2),
+      ),
+      throwsA(isA<PreferenceWriteException>()),
+    );
+    expect(service.reviewQueue.single.conceptId, 'concept_greeting_politeness');
+    expect(service.snapshot.evidence, hasLength(1));
+  });
+
   test(
     'placement, browse, course location, and legacy level stay separate',
     () async {

@@ -2100,9 +2100,9 @@
     "semantic_hash": ""
   },
   "lib/services/course_mastery_service.dart": {
-    "mtime": 1788987817.248267,
-    "seen": 1788995056.91758,
-    "ast_hash": "677fea97b08f6f74bc59a5e64ac17337",
+    "mtime": 1789075189.2756464,
+    "seen": 1789075846.9225368,
+    "ast_hash": "3449b696e46c14aa644d8182379a7243",
     "semantic_hash": ""
   },
   "lib/services/course_mission_navigation.dart": {
@@ -2112,9 +2112,9 @@
     "semantic_hash": ""
   },
   "lib/services/course_progress_service.dart": {
-    "mtime": 1789054703.2787092,
-    "seen": 1789055614.2507308,
-    "ast_hash": "37a25136ca313bee32508324e6930c6f",
+    "mtime": 1789075189.2843509,
+    "seen": 1789075846.922991,
+    "ast_hash": "254b929932f4217a68174a6311000c70",
     "semantic_hash": ""
   },
   "lib/services/course_segment_catalog.dart": {
@@ -2586,9 +2586,9 @@
     "semantic_hash": ""
   },
   "lib/services/storage_service.dart": {
-    "mtime": 1788987817.3219912,
-    "seen": 1788995056.9178085,
-    "ast_hash": "cac5772a5a8a5688f6861cbe74b8ffaa",
+    "mtime": 1789075189.3521721,
+    "seen": 1789075846.9577758,
+    "ast_hash": "6fcd84608302be74f37993283f8c8ac4",
     "semantic_hash": ""
   },
   "lib/services/stroke_matcher.dart": {
@@ -3972,9 +3972,9 @@
     "semantic_hash": ""
   },
   "test/course_mastery_test.dart": {
-    "mtime": 1789054703.2851331,
-    "seen": 1789055614.4052458,
-    "ast_hash": "a6d101954fc76e38b5ac550ff13e58ec",
+    "mtime": 1789074057.5455656,
+    "seen": 1789075847.05888,
+    "ast_hash": "00375b8484a8f5c8b2dcffd286b88956",
     "semantic_hash": ""
   },
   "test/course_mission_brief_production_test.dart": {
@@ -15516,9 +15516,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-09-global-launch-readiness.md": {
-    "mtime": 1789070778.9882956,
-    "seen": 1789072771.676373,
-    "ast_hash": "0bd71332f8517c4e632d0e9bde2bf191",
+    "mtime": 1789074987.16501,
+    "seen": 1789075847.7103379,
+    "ast_hash": "e01fe582676773027a43f65217dd9c59",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-09-global-launch-readiness-design.md": {
@@ -15963,6 +15963,18 @@
     "mtime": 1789071482.7340183,
     "seen": 1789072771.3882413,
     "ast_hash": "9592381c2d2a6401b2222e4e24697d22",
+    "semantic_hash": ""
+  },
+  "test/course_placement_retry_test.dart": {
+    "mtime": 1789075189.359683,
+    "seen": 1789075847.0610766,
+    "ast_hash": "9a9fb50811c2055df575d2c298cd484f",
+    "semantic_hash": ""
+  },
+  "test/course_write_recovery_test.dart": {
+    "mtime": 1789075248.1616046,
+    "seen": 1789075847.0631387,
+    "ast_hash": "9b13e4de5c60cd67a4d505dd62dd2baa",
     "semantic_hash": ""
   }
 }
