@@ -1,0 +1,2601 @@
+{
+  "schemaVersion": 1,
+  "language": "de",
+  "languageLabel": {
+    "ko": "독일어",
+    "en": "German",
+    "de": "Deutsch"
+  },
+  "role": "reference_language — 한글소리 주 사용자(독일어 모국어)의 L1 기대치. 앱 콘텐츠 감사에는 쓰지 않고, 기능 문법·주제 도입 시점의 삼언어 정렬표에만 쓴다. 독일어는 Akkusativ/Dativ → Wechselpräpositionen → Nebensatz → Relativsatz → Passiv/Konjunktiv → Nominalisierung → Register 라는 누적 구조를 축으로 둔다.",
+  "scaleMapping": "CEFR ↔ Goethe-Zertifikat A1–C2 / telc Deutsch A1–C2 / DTZ (A2–B1) ↔ Profile deutsch",
+  "provenanceLegend": {
+    "url_verified_search": "URL 존재 확인만으로 항목 내용을 검증하지 않는다. 현재 열람한 특정 주장·쪽은 source_access.json에 기록하며 원 항목의 model_knowledge 상태와 구별한다.",
+    "verified_user": "사용자가 제공한 연구 요구·작업 로그임을 확인했다는 뜻이며 그 안의 모델 생성 내용이 공식 검증되었다는 뜻은 아니다.",
+    "model_knowledge": "aus Modellwissen — EVIDENCE_REQUIRED bis zum Abgleich mit der Quelle"
+  },
+  "sources": [
+    {
+      "id": "profile_deutsch",
+      "title": "Profile deutsch — Lernzielbestimmungen, Kannbeschreibungen und kommunikative Mittel für die Niveaustufen A1–C2 (Glaboniat, Müller, Rusch, Schmitz, Wertenschlag)",
+      "publisher": "Langenscheidt / Klett",
+      "year": 2005,
+      "isbn": "978-3-12-606518-4",
+      "url": "https://www.kulturkaufhaus.de/en/detail/ISBN-9783126065184/Glaboniat-Manuela/Profile-deutsch",
+      "provenance": "url_verified_search",
+      "note": "Kannbeschreibungen, Sprachhandlungen, allgemeine Begriffe, thematischer Wortschatz, Grammatik (systematisch/funktional), Textsorten, Strategien — Datenbank auf CD-ROM. 목록 원문은 이 세션에서 열지 못함."
+    },
+    {
+      "id": "goethe_a1_pruefungsziele",
+      "title": "Goethe-Zertifikat A1: Start Deutsch 1 — Prüfungsziele, Testbeschreibung",
+      "publisher": "Goethe-Institut",
+      "year": 2013,
+      "url": "https://www.goethe.de/pro/relaunch/prf/sr/Pruefungsziele_Testbeschreibung_A1_SD1.pdf",
+      "provenance": "url_verified_search",
+      "note": "2026-09-10 인쇄 54–56쪽의 인벤토리 성격·과제 연결을 확인했다. 개별 A1 항목과 A2–C2 목록 전체의 검증으로 확대하지 않는다."
+    },
+    {
+      "id": "goethe_a1_wortliste",
+      "title": "Goethe-Zertifikat A1: Start Deutsch 1 — Wortliste",
+      "publisher": "Goethe-Institut",
+      "year": 2016,
+      "url": "https://www.goethe.de/pro/relaunch/prf/de/A1_SD1_Wortliste_02.pdf",
+      "provenance": "url_verified_search",
+      "note": "alphabetische Liste + thematische Inventare."
+    },
+    {
+      "id": "goethe_a2_pruefungsziele",
+      "title": "Goethe-Zertifikat A2 / Fit in Deutsch 2 — Prüfungsziele, Testbeschreibung",
+      "publisher": "Goethe-Institut / Hueber",
+      "year": 2015,
+      "url": "https://www.goethe.de/pro/relaunch/prf/zh/Pruefungsziele_Testbeschreibung_A2_Fit2.pdf",
+      "provenance": "url_verified_search",
+      "note": "Sprachhandlungen, Strategien, Allgemeine Begriffe, Themen, Wortschatz, 'Morphologische und syntaktische Strukturen'."
+    },
+    {
+      "id": "goethe_b1_pruefungsziele",
+      "title": "Zertifikat B1 — Prüfungsziele, Testbeschreibung (Glaboniat, Perlmann-Balme, Studer)",
+      "publisher": "Goethe-Institut / ÖSD / Hueber",
+      "year": 2013,
+      "isbn": "978-3-19-031868-1",
+      "url": "https://shop.hueber.de/media/hueber_dateien/Internet_Muster/Red1/9783190318681_Muster.pdf",
+      "provenance": "url_verified_search",
+      "note": "Wortschatz- und Strukturenkompilation, Themen, Textsorten."
+    },
+    {
+      "id": "goethe_b2_pruefungsziele",
+      "title": "Goethe-Zertifikat B2 — Prüfungsziele, Testbeschreibung",
+      "publisher": "Goethe-Institut",
+      "year": 2019,
+      "url": "https://www.goethe.de/pro/relaunch/prf/de/Pruefungsziele_Testbeschreibung_B2.pdf",
+      "provenance": "url_verified_search"
+    },
+    {
+      "id": "goethe_c1_pruefungsziele",
+      "title": "Goethe-Zertifikat C1 — Prüfungsziele, Testbeschreibung",
+      "publisher": "Goethe-Institut",
+      "year": 2024,
+      "url": "https://www.goethe.de/pro/relaunch/prf/en/Handbuch_Pruefungsziele_Testbeschreibung_C1.pdf",
+      "provenance": "url_verified_search",
+      "note": "기존 항목은 저자 재구성이며 이 문서의 개별 인벤토리와 원문 대조가 필요하다. 사용자 브리프가 공식 목록을 제공했다고 표시하지 않는다."
+    },
+    {
+      "id": "goethe_c2_pruefungsziele",
+      "title": "Goethe-Zertifikat C2: Großes Deutsches Sprachdiplom — Prüfungsziele, Testbeschreibung",
+      "publisher": "Goethe-Institut",
+      "year": 2012,
+      "url": "https://www.goethe.de/pro/relaunch/prf/de/Pruefungsziele_Testbeschreibung_C2.pdf",
+      "provenance": "url_verified_search"
+    },
+    {
+      "id": "dtz_handbuch",
+      "title": "Deutsch-Test für Zuwanderer A2–B1 — Prüfungsziele, Testbeschreibung (Strukturen-Inventar)",
+      "publisher": "BAMF / Goethe-Institut / telc",
+      "year": 2009,
+      "url": "https://www.bamf.de/SharedDocs/Anlagen/DE/Integration/Integrationskurse/Kurstraeger/Modellsaetze/dtz-handbuch_pdf.pdf?__blob=publicationFile&v=8",
+      "provenance": "url_verified_search",
+      "note": "기존 항목은 저자 재구성이며 이 문서의 개별 인벤토리와 원문 대조가 필요하다. 사용자 브리프가 공식 목록을 제공했다고 표시하지 않는다."
+    },
+    {
+      "id": "bamf_rahmencurriculum",
+      "title": "Rahmencurriculum für Integrationskurse Deutsch als Zweitsprache",
+      "publisher": "BAMF / Goethe-Institut",
+      "year": 2016,
+      "url": "https://www.bamf.de/DE/Themen/Integration/TraegerLehrFachkraefte/TraegerIntegrationskurse/Paedagogisches/Abschusspruefung/abschlusspruefung.html",
+      "provenance": "url_verified_search",
+      "note": "Handlungsfelder (Ämter und Behörden, Arbeit, Arbeitssuche, Aus- und Weiterbildung, Banken und Versicherungen, Betreuung und Ausbildung der Kinder, Einkaufen/Handel/Konsum, Gesundheit, Mediennutzung, Mobilität, Unterricht, Wohnen) — 목록은 model_knowledge."
+    },
+    {
+      "id": "telc_lernziele",
+      "title": "Zertifikat Deutsch — Lernziele und Testformat (1999) · telc Deutsch B1+ Beruf Handbuch",
+      "publisher": "telc GmbH",
+      "year": 1999,
+      "url": "https://www.telc.net/fileadmin/user_upload/pdfs/Handbuch_und_Tipps_fuer_Pruefungsvorbereitung/Deutsch_B1_plus_Beruf_Handbuch.pdf",
+      "provenance": "url_verified_search",
+      "note": "Themenlisten und Katalog grammatischer Phänomene für B1; berufsbezogene Lernziele A2–C1."
+    },
+    {
+      "id": "cefr_cv_2020",
+      "title": "CEFR Companion Volume with new descriptors",
+      "publisher": "Council of Europe",
+      "year": 2020,
+      "url": "https://rm.coe.int/cefr-companion-volume-with-new-descriptors-2020/16809ea0d4",
+      "provenance": "url_verified_search",
+      "note": "2026-09-10 전체 쓰기 산출과 중개 척도의 지정 부분을 직접 읽었다. source_access.json의 쪽·주장에만 적용하며 개별 목록과 Phase 레벨의 공식성을 뜻하지 않는다."
+    },
+    {
+      "id": "user_brief_2026_09_09",
+      "title": "Jin 연구 지시 및 제공 작업 로그",
+      "publisher": "Jin (세션 입력)",
+      "year": 2026,
+      "provenance": "verified_user",
+      "note": "연구 범위·요구와 남아 있는 작성 로그의 출처이다. 모델이 작성한 언어 인벤토리의 공식성이나 원문 일치성을 보증하지 않는다."
+    }
+  ],
+  "functionalGrammar": [
+    {
+      "id": "copula_identity",
+      "level": "A1",
+      "forms": [
+        "sein"
+      ],
+      "note": ""
+    },
+    {
+      "id": "present_habitual",
+      "level": "A1",
+      "forms": [
+        "Präsens"
+      ],
+      "note": ""
+    },
+    {
+      "id": "past_narration",
+      "level": "A2",
+      "forms": [
+        "Perfekt",
+        "Präteritum (sein/haben/Modalverben)",
+        "Präteritum schriftlich (B1)"
+      ],
+      "note": "A1 nur Basis-Perfekt"
+    },
+    {
+      "id": "future_intention",
+      "level": "A1",
+      "forms": [
+        "Präsens + Zeitangabe",
+        "wollen/möchten",
+        "Futur I (B2)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "negation",
+      "level": "A1",
+      "forms": [
+        "nicht",
+        "kein"
+      ],
+      "note": ""
+    },
+    {
+      "id": "questions_wh_yesno",
+      "level": "A1",
+      "forms": [
+        "W-Fragen",
+        "Ja/Nein-Fragen (V1)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "case_roles_particles",
+      "level": "A1",
+      "forms": [
+        "Nominativ/Akkusativ (A1)",
+        "Dativ (A2)",
+        "Genitiv (B1)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "location_direction_time_markers",
+      "level": "A1",
+      "forms": [
+        "aus/in/bei/mit/nach/von/zu",
+        "am/um/im",
+        "Wechselpräpositionen (A2)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "possession",
+      "level": "A1",
+      "forms": [
+        "Possessivartikel",
+        "haben",
+        "Genitiv (B1)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "desire_want",
+      "level": "A1",
+      "forms": [
+        "möchten",
+        "wollen"
+      ],
+      "note": ""
+    },
+    {
+      "id": "ability_possibility",
+      "level": "A1",
+      "forms": [
+        "können"
+      ],
+      "note": ""
+    },
+    {
+      "id": "obligation_necessity",
+      "level": "A1",
+      "forms": [
+        "müssen",
+        "sollen (A2)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "permission_prohibition",
+      "level": "A1",
+      "forms": [
+        "dürfen",
+        "nicht dürfen"
+      ],
+      "note": ""
+    },
+    {
+      "id": "requests_commands_polite",
+      "level": "A1",
+      "forms": [
+        "Imperativ",
+        "Könnten Sie …? (B1 Konjunktiv II)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "suggestions_proposals",
+      "level": "A2",
+      "forms": [
+        "Wollen wir …?",
+        "Wie wäre es mit …? (B1)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "coordination_basic_connectives",
+      "level": "A1",
+      "forms": [
+        "und/aber/oder/denn",
+        "weil/dass/wenn (A2)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "progressive_aspect",
+      "level": "B2",
+      "forms": [
+        "gerade / am + Infinitiv (Rheinische Verlaufsform)"
+      ],
+      "note": "kein grammatischer Progressiv"
+    },
+    {
+      "id": "experience_perfect",
+      "level": "A2",
+      "forms": [
+        "Perfekt (schon einmal)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "conditional_real",
+      "level": "A2",
+      "forms": [
+        "wenn-Satz"
+      ],
+      "note": ""
+    },
+    {
+      "id": "conditional_unreal_counterfactual",
+      "level": "B1",
+      "forms": [
+        "Konjunktiv II (B1)",
+        "Konjunktiv II Vergangenheit (B2)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "comparison",
+      "level": "A2",
+      "forms": [
+        "Komparativ/Superlativ",
+        "so … wie",
+        "je … desto (B2)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "attributive_relative_clauses",
+      "level": "B1",
+      "forms": [
+        "Relativsätze",
+        "Partizipialattribute (B2/C1)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "nominalisation_clausal",
+      "level": "A2",
+      "forms": [
+        "dass-Satz",
+        "zu + Infinitiv",
+        "Nominalisierung (B2)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "reported_speech",
+      "level": "B2",
+      "forms": [
+        "Konjunktiv I (B2 Basis, C1 vollständig)",
+        "dass + Indikativ (B1)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "passive_causative",
+      "level": "B1",
+      "forms": [
+        "Passiv (B1)",
+        "Passiversatz (B2)",
+        "lassen (B2)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "inference_evidentiality",
+      "level": "B2",
+      "forms": [
+        "Futur I Vermutung",
+        "Modalverben subjektiv (müssen/dürfte/soll) (C1)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "concession_contrast_advanced",
+      "level": "B1",
+      "forms": [
+        "obwohl/trotzdem (B1)",
+        "wohingegen/dennoch/gleichwohl (B2–C1)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "cause_purpose_formal",
+      "level": "B2",
+      "forms": [
+        "aufgrund",
+        "infolge (C1)",
+        "um … zu / damit (B1)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "honorifics_register_marking",
+      "level": "A1",
+      "forms": [
+        "du/Sie",
+        "Konjunktiv II Höflichkeit (B1)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "hedging_stance_modality_advanced",
+      "level": "C1",
+      "forms": [
+        "dürfte",
+        "wohl",
+        "scheinen zu",
+        "es gilt zu"
+      ],
+      "note": ""
+    },
+    {
+      "id": "nominal_style_academic",
+      "level": "C1",
+      "forms": [
+        "Nominalstil",
+        "erweiterte Attribute"
+      ],
+      "note": ""
+    },
+    {
+      "id": "information_structure_focus",
+      "level": "B2",
+      "forms": [
+        "TeKaMoLo",
+        "Vorfeldbesetzung",
+        "Nachfeld (C2)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "discourse_connectives_formal",
+      "level": "B2",
+      "forms": [
+        "folglich/daher (B2)",
+        "insofern/demnach/zumal (C1)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "pragmatic_particles_implicature",
+      "level": "C2",
+      "forms": [
+        "Modalpartikeln (doch/ja/eben/halt/wohl/schon/bloß/denn/etwa)"
+      ],
+      "note": "rezeptiv ab B1"
+    }
+  ],
+  "levels": {
+    "A1": {
+      "scale": {
+        "exam": "Goethe-Zertifikat A1: Start Deutsch 1 · telc Deutsch A1",
+        "wortschatz": "≈650 Einträge (etwa die Hälfte aktiv)",
+        "note": "Goethe A1 Prüfungsziele: geschlossenes Inventar"
+      },
+      "canDo": {
+        "ko": "생존 독일어: 즉각적 일상(자기소개·가족·사람과 장소·쇼핑·일/학교·주거)에서 간단한 질문·대답·요청. 독일어 문장의 뼈대(V2·Satzklammer·Nominativ/Akkusativ)를 세운다.",
+        "en": "Survival German in immediate everyday situations; builds the skeleton of the German sentence (V2, Satzklammer, Nominativ/Akkusativ).",
+        "de": "Überlebensdeutsch in unmittelbaren Alltagssituationen; baut das Gerüst des deutschen Satzes (V2, Satzklammer, Nominativ/Akkusativ)."
+      },
+      "topics": [
+        {
+          "id": "personal_identification",
+          "focus": "Person & Identität",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "family_relationships",
+          "focus": "Familie; persönliche Beziehungen/Kontakte",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "house_home",
+          "focus": "Wohnen",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "food_drink",
+          "focus": "Essen & Trinken (Verpflegung)",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "shopping_consumption",
+          "focus": "Einkaufen",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "daily_life_routines",
+          "focus": "Tagesablauf",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "free_time_hobbies_sport",
+          "focus": "Freizeit",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "numbers_time_dates",
+          "focus": "Uhrzeit, Termine, Zahlen, Datum",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "transport_wayfinding",
+          "focus": "Verkehr; Orte",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "travel_accommodation",
+          "focus": "Reisen (Basis)",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "work_career",
+          "focus": "Arbeit (Basis)",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "education_study",
+          "focus": "Schule (Basis)",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "weather_nature_climate",
+          "focus": "Wetter",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "health_body",
+          "focus": "Gesundheit (Basis: Körper, krank sein)",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "language_learning_communication_repair",
+          "focus": "Fremdsprache; Verständigung (bitte langsamer)",
+          "required": false,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "services_public_admin",
+          "focus": "Dienstleistungen (Basis: Post, Amt)",
+          "required": false,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        }
+      ],
+      "grammar": {
+        "items": [
+          {
+            "id": "de_a1_aussagesatz_v2",
+            "form": "Aussagesatz: Verbposition 2 (Ich wohne in Köln.)",
+            "category": "Satzbau",
+            "sources": [
+              "user_brief_2026_09_09",
+              "goethe_a1_pruefungsziele"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a1_w_fragen",
+            "form": "W-Fragen: wer, was, wo, woher, wohin, wann, wie, warum",
+            "category": "Satzbau",
+            "sources": [
+              "user_brief_2026_09_09",
+              "goethe_a1_pruefungsziele"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a1_ja_nein_fragen",
+            "form": "Ja/Nein-Fragen (Verbposition 1)",
+            "category": "Satzbau",
+            "sources": [
+              "user_brief_2026_09_09",
+              "goethe_a1_pruefungsziele"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a1_satzklammer",
+            "form": "Satzklammer (Basis: trennbare Verben, Modalverb + Infinitiv)",
+            "category": "Satzbau",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a1_praesens",
+            "form": "Präsens: regelmäßige/unregelmäßige Verben",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a1_sein_haben",
+            "form": "sein / haben",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a1_trennbare_verben",
+            "form": "trennbare Verben",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a1_modalverben",
+            "form": "Modalverben: können, müssen, wollen, dürfen, möchten",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a1_imperativ",
+            "form": "Imperativ (Basis: Sie-Form, du-Form)",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a1_perfekt_basis",
+            "form": "Perfekt (Basis: haben + Partizip II)",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": "Goethe A1: rezeptiv/Basis; produktiv ab A2"
+          },
+          {
+            "id": "de_a1_artikel",
+            "form": "Artikel: der/die/das, ein/eine, kein",
+            "category": "Nomen/Artikel",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a1_plural",
+            "form": "Plural",
+            "category": "Nomen/Artikel",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a1_nominativ_akkusativ",
+            "form": "Nominativ, Akkusativ",
+            "category": "Kasus",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a1_personalpronomen",
+            "form": "Personalpronomen",
+            "category": "Pronomen",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a1_possessivartikel",
+            "form": "Possessivartikel: mein, dein, sein, ihr …",
+            "category": "Pronomen",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a1_man",
+            "form": "man (Basis)",
+            "category": "Pronomen",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a1_praepositionen",
+            "form": "Präpositionen: aus, in, bei, mit, nach, von, zu; für, ohne; Zeit: am, um, im, von … bis",
+            "category": "Präposition",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a1_negation",
+            "form": "Negation: nicht vs kein",
+            "category": "Negation",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a1_zahlen_datum_uhrzeit",
+            "form": "Zahlen / Datum / Uhrzeit",
+            "category": "Notionen",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a1_gern_lieber",
+            "form": "gern / lieber",
+            "category": "Adverb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a1_konjunktionen",
+            "form": "Konjunktionen: und, aber, oder, denn",
+            "category": "Satzbau",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          }
+        ],
+        "count": 21
+      },
+      "speechActs": {
+        "production": [
+          "greet_introduce_self",
+          "ask_give_personal_information",
+          "ask_for_information_confirm",
+          "identify_locate_things",
+          "express_preference_taste",
+          "order_buy_pay",
+          "request_ask_someone_to_do",
+          "thank_apologise_respond",
+          "make_change_cancel_appointments",
+          "clarify_repair_ask_to_repeat",
+          "express_intention_plan_wish",
+          "describe_people_things_places",
+          "suggest_propose"
+        ],
+        "recognition": [
+          "give_follow_instructions_directions"
+        ]
+      },
+      "textTypes": {
+        "R": [
+          "sign_notice_short",
+          "menu_pricelist_timetable",
+          "written_notice_announcement",
+          "public_announcement_spoken",
+          "dialogue_face_to_face",
+          "instant_message_chat"
+        ],
+        "P": [
+          "form_application",
+          "personal_note_postcard",
+          "email_informal",
+          "dialogue_face_to_face",
+          "service_encounter_counter"
+        ]
+      },
+      "vocabDomains": [
+        "numbers_quantity_units",
+        "time_calendar",
+        "family_kinship_address_terms",
+        "food_cooking",
+        "home_objects_furniture",
+        "places_buildings_city",
+        "transport_travel_vocab",
+        "body_health_symptoms",
+        "weather_nature",
+        "professions_workplace",
+        "school_study_terms",
+        "colours_shapes_description",
+        "fixed_expressions_collocations"
+      ],
+      "registers": {
+        "production": [
+          "haeyo_polite",
+          "banmal_casual"
+        ],
+        "recognition": [],
+        "note": "du/Sie von Anfang an (service/coworker/teacher → Sie, peer/friend/family → du; du-sie-check)"
+      }
+    },
+    "A2": {
+      "scale": {
+        "exam": "Goethe-Zertifikat A2 · telc Deutsch A2 · DTZ (A2)",
+        "wortschatz": "≈1,300",
+        "note": "Goethe A2 Prüfungsziele: Themen + morphologisch-syntaktische Strukturen"
+      },
+      "canDo": {
+        "ko": "자주 쓰이는 표현을 이해하고 출신·교육·주변환경·직접적 필요에 관한 일상 정보를 교환한다. Dativ·Wechselpräpositionen·Perfekt·Nebensatz(weil/dass/wenn)로 독일어다운 구조가 시작된다.",
+        "en": "Exchanges routine information on familiar matters; Dativ, Wechselpräpositionen, Perfekt and first Nebensätze make the language recognisably German.",
+        "de": "Tauscht routinemäßig Informationen zu vertrauten Themen aus; Dativ, Wechselpräpositionen, Perfekt und erste Nebensätze."
+      },
+      "topics": [
+        {
+          "id": "house_home",
+          "focus": "Wohnen; Wohnungssuche",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "travel_accommodation",
+          "focus": "Reisen & Urlaub",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "work_career",
+          "focus": "Arbeit & Beruf; Ausbildung",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "education_study",
+          "focus": "Ausbildung; Kurse",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "health_body",
+          "focus": "Gesundheit/Arzt",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "services_public_admin",
+          "focus": "Behörden; Bank/Post; Dienstleistungen",
+          "required": true,
+          "sources": [
+            "bamf_rahmencurriculum",
+            "goethe_a2_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "transport_wayfinding",
+          "focus": "Verkehr; Mobilität",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "shopping_consumption",
+          "focus": "Einkaufen; Kleidung; Probleme & Beschwerden",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "free_time_hobbies_sport",
+          "focus": "Freizeit; Feste",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "media_entertainment_culture_pop",
+          "focus": "Medien",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "family_relationships",
+          "focus": "Familie; Beziehungen; persönliche Erfahrungen",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "neighbourhood_environment",
+          "focus": "Nachbarschaft",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "money_finance_contracts",
+          "focus": "Bank; Rechnungen (Basis)",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "social_etiquette_customs",
+          "focus": "Feste; Einladungen",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "feelings_character",
+          "focus": "Gefühle; Erfahrungen",
+          "required": false,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "communication_phone_digital",
+          "focus": "Telefon; E-Mail; Nachrichten",
+          "required": false,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "daily_life_routines",
+          "focus": "Alltag; Termine",
+          "required": false,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        }
+      ],
+      "grammar": {
+        "items": [
+          {
+            "id": "de_a2_dativ",
+            "form": "Dativ; Verben mit Dativ; Verben mit Akkusativ + Dativ (Ich gebe meiner Freundin das Buch.)",
+            "category": "Kasus",
+            "sources": [
+              "user_brief_2026_09_09",
+              "goethe_a2_pruefungsziele",
+              "dtz_handbuch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a2_wechselpraepositionen",
+            "form": "Wechselpräpositionen: an, auf, hinter, in, neben, über, unter, vor, zwischen (Wo? Dativ / Wohin? Akkusativ)",
+            "category": "Präposition",
+            "sources": [
+              "user_brief_2026_09_09",
+              "goethe_a2_pruefungsziele",
+              "dtz_handbuch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a2_perfekt",
+            "form": "Perfekt: haben/sein + Partizip II",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a2_praeteritum_basis",
+            "form": "Präteritum: sein, haben, Modalverben (war, hatte, konnte, musste)",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a2_nebensatz_weil_dass_wenn",
+            "form": "Nebensatz: weil, dass, wenn, als (Basis) — Verb am Satzende",
+            "category": "Satzbau",
+            "sources": [
+              "user_brief_2026_09_09",
+              "goethe_a2_pruefungsziele",
+              "dtz_handbuch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a2_reflexive_verben",
+            "form": "reflexive Verben",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a2_modalverben_erweitert",
+            "form": "Modalverben erweitert (sollen; Präteritum)",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a2_verben_mit_praepositionen_basis",
+            "form": "Verben mit Präpositionen (Basis)",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a2_komparativ_superlativ",
+            "form": "Komparativ / Superlativ",
+            "category": "Adjektiv",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a2_adjektivdeklination_basis",
+            "form": "Adjektivdeklination (Basis)",
+            "category": "Adjektiv",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a2_dativpronomen",
+            "form": "Dativpronomen; Indefinitpronomen (jemand, niemand, etwas); welch-",
+            "category": "Pronomen",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a2_konnektoren_deshalb_trotzdem",
+            "form": "deshalb / deswegen, trotzdem; zuerst, dann, danach, später",
+            "category": "Satzbau",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a2_zu_infinitiv_basis",
+            "form": "zu + Infinitiv (Basis: Ich versuche, früher aufzustehen.)",
+            "category": "Satzbau",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_a2_imperativ",
+            "form": "Imperativ (alle Formen)",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          }
+        ],
+        "count": 14
+      },
+      "speechActs": {
+        "production": [
+          "narrate_experience_events",
+          "explain_reason_cause_effect",
+          "express_feelings_emotions",
+          "express_obligation_permission",
+          "advise_recommend_warn",
+          "invite_accept_decline",
+          "compare_contrast_alternatives",
+          "express_opinion_agree_disagree",
+          "small_talk_maintain_relationships",
+          "give_follow_instructions_directions",
+          "complain_object_appeal",
+          "report_relay_information",
+          "congratulate_sympathise_comfort"
+        ],
+        "recognition": []
+      },
+      "textTypes": {
+        "R": [
+          "email_informal",
+          "advertisement_leaflet",
+          "written_notice_announcement",
+          "explanatory_informational_text",
+          "instructions_manual_recipe",
+          "phone_call",
+          "news_article_report"
+        ],
+        "P": [
+          "email_informal",
+          "instant_message_chat",
+          "personal_note_postcard",
+          "phone_call",
+          "narrative_story_diary"
+        ]
+      },
+      "vocabDomains": [
+        "clothing_accessories",
+        "feelings_emotions_character",
+        "money_prices_banking",
+        "public_services_admin_vocab",
+        "leisure_sport_hobbies_vocab",
+        "technology_devices_internet",
+        "media_pop_culture_vocab",
+        "fixed_expressions_collocations"
+      ],
+      "registers": {
+        "production": [
+          "haeyo_polite",
+          "banmal_casual"
+        ],
+        "recognition": [
+          "hapsyo_formal_business"
+        ],
+        "note": "formelle E-Mail rezeptiv"
+      }
+    },
+    "B1": {
+      "scale": {
+        "exam": "Goethe-Zertifikat B1 / ÖSD · telc Deutsch B1 · DTZ (B1)",
+        "wortschatz": "≈2,400",
+        "note": "Zertifikat B1 Wortschatz-/Strukturenkompilation; DTZ Strukturen-Inventar"
+      },
+      "canDo": {
+        "ko": "일상·직장·여행에서 연결된 의사소통, 경험 서술, 목표 설명, 의견에 이유 제시. Relativsätze·Genitiv·Passiv·Konjunktiv II·Infinitivkonstruktionen·Temporal/Kausal/Konzessivsätze·Adjektivdeklination 완성.",
+        "en": "Independent user: connected communication at home, work and travel; relative clauses, Genitiv, Passiv, Konjunktiv II, infinitive constructions, subordinate clauses, full adjective declension.",
+        "de": "Selbstständige Sprachverwendung: Relativsätze, Genitiv, Passiv, Konjunktiv II, Infinitivkonstruktionen, Nebensätze, Adjektivdeklination."
+      },
+      "topics": [
+        {
+          "id": "work_career",
+          "focus": "Arbeitswelt; Bewerbung",
+          "required": true,
+          "sources": [
+            "telc_lernziele",
+            "bamf_rahmencurriculum",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "education_study",
+          "focus": "Bildung; Aus- und Weiterbildung",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "services_public_admin",
+          "focus": "Behörden; Ämter",
+          "required": true,
+          "sources": [
+            "bamf_rahmencurriculum",
+            "dtz_handbuch",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "society_current_affairs",
+          "focus": "gesellschaftliches Leben",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "environment_sustainability",
+          "focus": "Umwelt",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "shopping_consumption",
+          "focus": "Konsum",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "media_entertainment_culture_pop",
+          "focus": "Medien",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "technology_digital_ai",
+          "focus": "Technologie",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "family_relationships",
+          "focus": "Beziehungen; Konflikte",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "health_body",
+          "focus": "Gesundheit",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "travel_accommodation",
+          "focus": "Reisen",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "arts_literature_history",
+          "focus": "Kultur (Basis)",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "intercultural_globalisation_migration",
+          "focus": "Migration/Integration; interkulturelle Erfahrungen",
+          "required": true,
+          "sources": [
+            "bamf_rahmencurriculum",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "money_finance_contracts",
+          "focus": "Versicherungen; Verträge",
+          "required": true,
+          "sources": [
+            "bamf_rahmencurriculum",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "ethics_philosophy_abstract",
+          "focus": "Zukunftspläne; Werte (Basis)",
+          "required": false,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "house_home",
+          "focus": "Wohnen (Mietvertrag, Nachbarn)",
+          "required": false,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "feelings_character",
+          "focus": "Konflikte; Gefühle",
+          "required": false,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        }
+      ],
+      "grammar": {
+        "items": [
+          {
+            "id": "de_b1_relativsaetze",
+            "form": "Relativsätze: der/die/das, den/dem/deren …, Relativpronomen + Präposition",
+            "category": "Satzbau",
+            "sources": [
+              "user_brief_2026_09_09",
+              "dtz_handbuch",
+              "goethe_b1_pruefungsziele"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b1_genitiv",
+            "form": "Genitiv: Genitivartikel; Genitivpräpositionen (Basis)",
+            "category": "Kasus",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b1_passiv",
+            "form": "Passiv: Präsens, Präteritum; von / durch (Das Produkt wird hergestellt.)",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b1_konjunktiv_ii",
+            "form": "Konjunktiv II: würde + Infinitiv, hätte/wäre, könnte/sollte/müsste — Bitten, Ratschläge, Hypothesen",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b1_infinitivkonstruktionen",
+            "form": "Infinitivkonstruktionen: zu + Infinitiv, um … zu, ohne … zu, statt … zu",
+            "category": "Satzbau",
+            "sources": [
+              "user_brief_2026_09_09",
+              "dtz_handbuch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b1_temporalsaetze",
+            "form": "Temporalsätze: als/wenn, bevor, nachdem, während, seitdem, bis",
+            "category": "Satzbau",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b1_kausal_konzessiv",
+            "form": "Kausale/konzessive Sätze: weil/da, obwohl, trotzdem",
+            "category": "Satzbau",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b1_konditional_final",
+            "form": "Konditional: wenn/falls; Final: damit, um … zu",
+            "category": "Satzbau",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b1_adjektivdeklination",
+            "form": "Adjektivdeklination vollständig (bestimmter/unbestimmter/Nullartikel)",
+            "category": "Adjektiv",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b1_verben_mit_praepositionen",
+            "form": "Verben mit Präpositionen (warten auf, teilnehmen an, sich interessieren für, abhängen von); da-/wo-Komposita",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b1_n_deklination",
+            "form": "N-Deklination (der Kunde → mit dem Kunden)",
+            "category": "Nomen/Artikel",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b1_plusquamperfekt",
+            "form": "Plusquamperfekt (Basis)",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b1_doppelkonnektoren",
+            "form": "Doppelkonnektoren: entweder … oder, weder … noch, sowohl … als auch, nicht nur … sondern auch",
+            "category": "Satzbau",
+            "sources": [
+              "user_brief_2026_09_09",
+              "dtz_handbuch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b1_praeteritum",
+            "form": "Präteritum (Erzähltempus, schriftlich)",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b1_wortbildung",
+            "form": "Wortbildung (Basis: Komposita, -ung, -keit, un-)",
+            "category": "Wortbildung",
+            "sources": [
+              "dtz_handbuch"
+            ],
+            "note": ""
+          }
+        ],
+        "count": 15
+      },
+      "speechActs": {
+        "production": [
+          "report_relay_information",
+          "summarise_reconstruct",
+          "express_certainty_doubt_hedging",
+          "evaluate_assess_critique",
+          "negotiate_compromise_conditions",
+          "persuade_argue_justify",
+          "reformulate_paraphrase_rewrite",
+          "refuse_set_boundaries",
+          "adjust_register_speech_style"
+        ],
+        "recognition": [
+          "structure_discourse_open_close_scope"
+        ]
+      },
+      "textTypes": {
+        "R": [
+          "news_article_report",
+          "social_media_post_comment",
+          "explanatory_informational_text",
+          "email_letter_formal",
+          "lecture_speech_monologue",
+          "advertisement_leaflet"
+        ],
+        "P": [
+          "email_letter_formal",
+          "social_media_post_comment",
+          "presentation_briefing_talk",
+          "job_interview",
+          "form_application",
+          "narrative_story_diary"
+        ]
+      },
+      "vocabDomains": [
+        "professions_workplace",
+        "public_services_admin_vocab",
+        "society_economy_abstract_nouns",
+        "money_prices_banking",
+        "language_metalanguage",
+        "fixed_expressions_collocations"
+      ],
+      "registers": {
+        "production": [
+          "haeyo_polite",
+          "banmal_casual",
+          "hapsyo_formal_business"
+        ],
+        "recognition": [],
+        "note": "Konjunktiv II Höflichkeit; Bewerbung"
+      }
+    },
+    "B2": {
+      "scale": {
+        "exam": "Goethe-Zertifikat B2 · telc Deutsch B2 (+Beruf)",
+        "wortschatz": "kein geschlossenes Inventar",
+        "note": "berufsbezogene Lernziele (BAMF/telc)"
+      },
+      "canDo": {
+        "ko": "복잡한 의견과 업무 독일어. 새 문법 몇 개가 아니라 배운 구조를 결합해 정확하고 복잡한 문장을 만든다: Passiversatzformen, Konjunktiv II Vergangenheit, Konjunktiv I 기초, Partizipien als Adjektiv, Nominalisierung, Nomen-Verb-Verbindungen, komplexe Konnektoren, TeKaMoLo.",
+        "en": "Complex opinions and professional German: combining structures accurately — Passiversatz, Konjunktiv II past, basic Konjunktiv I, participles as adjectives, nominalisation, Funktionsverbgefüge, complex connectors, Mittelfeld order.",
+        "de": "Komplexe Meinungen und Berufsdeutsch: Passiversatz, Konjunktiv II Vergangenheit, Konjunktiv I, Partizipialattribute, Nominalisierung, Nomen-Verb-Verbindungen, komplexe Konnektoren, TeKaMoLo."
+      },
+      "topics": [
+        {
+          "id": "economy_business_labour",
+          "focus": "Arbeitsmarkt; Wirtschaft; Arbeitsbedingungen; Karriere",
+          "required": true,
+          "sources": [
+            "goethe_b2_pruefungsziele",
+            "telc_lernziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "technology_digital_ai",
+          "focus": "Digitalisierung; Datenschutz; soziale Medien",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "science_research_evidence",
+          "focus": "Wissenschaft",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "environment_sustainability",
+          "focus": "Umwelt/Klimawandel",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "politics_law_institutions",
+          "focus": "Politik/gesellschaftliche Themen",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "education_study",
+          "focus": "Bildungssystem",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "media_entertainment_culture_pop",
+          "focus": "soziale Medien; Medien",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "intercultural_globalisation_migration",
+          "focus": "Globalisierung; interkulturelle Kommunikation",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "shopping_consumption",
+          "focus": "Konsum",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "transport_wayfinding",
+          "focus": "Mobilität",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "health_body",
+          "focus": "Gesundheitssystem",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "work_career",
+          "focus": "Arbeitsbedingungen; Karriere; berufsbezogene Kommunikation",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "society_current_affairs",
+          "focus": "gesellschaftliche Themen",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "ethics_philosophy_abstract",
+          "focus": "Werte; Debatten",
+          "required": false,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "arts_literature_history",
+          "focus": "Kultur",
+          "required": false,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        }
+      ],
+      "grammar": {
+        "items": [
+          {
+            "id": "de_b2_vorgangs_zustandspassiv",
+            "form": "Vorgangspassiv vs Zustandspassiv (Die Tür wird geschlossen. / Die Tür ist geschlossen.)",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "goethe_b2_pruefungsziele"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b2_passiversatz",
+            "form": "Passiversatzformen: man, sich lassen, sein + zu + Infinitiv (Das Problem lässt sich lösen.)",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b2_konjunktiv_ii_erweitert",
+            "form": "Konjunktiv II erweitert: irreale Bedingungen, irreale Wünsche, höfliche Distanz, Vergangenheit (Wenn ich das gewusst hätte, wäre ich nicht gekommen.)",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b2_konjunktiv_i_basis",
+            "form": "Konjunktiv I (Basis) / indirekte Rede (Er sagt, er sei krank.)",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b2_partizip_als_adjektiv",
+            "form": "Partizip I / II als Adjektiv (die steigenden Preise, die abgeschlossene Ausbildung)",
+            "category": "Adjektiv",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b2_nominalisierung",
+            "form": "Nominalisierung (weil die Preise steigen → wegen des Preisanstiegs)",
+            "category": "Wortbildung",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b2_nomen_verb_verbindungen",
+            "form": "Nomen-Verb-Verbindungen / Funktionsverbgefüge (eine Entscheidung treffen, zur Verfügung stehen, in Betracht ziehen, Maßnahmen ergreifen, Einfluss nehmen auf, Kritik üben an)",
+            "category": "Lexik/Grammatik",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b2_komplexe_konnektoren",
+            "form": "komplexe Konnektoren: sofern, soweit, während, wohingegen, dennoch, allerdings, hingegen, daher, folglich",
+            "category": "Satzbau",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b2_praepositionen_erweitert",
+            "form": "Präpositionen: aufgrund, hinsichtlich, bezüglich, trotz, während, innerhalb/außerhalb",
+            "category": "Präposition",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b2_relativsaetze_erweitert",
+            "form": "Relativsätze erweitert: was, wo(r)+Präposition, Relativsätze mit Präposition",
+            "category": "Satzbau",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b2_tekamolo",
+            "form": "Wortstellung im Mittelfeld: TeKaMoLo, Pronomenfolge, Informationsstruktur",
+            "category": "Satzbau",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_b2_futur",
+            "form": "Futur I (Vermutung, Vorhaben); Futur II (Basis)",
+            "category": "Verb",
+            "sources": [
+              "profile_deutsch"
+            ],
+            "note": ""
+          }
+        ],
+        "count": 12
+      },
+      "speechActs": {
+        "production": [
+          "persuade_argue_justify",
+          "negotiate_compromise_conditions",
+          "complain_object_appeal",
+          "structure_discourse_open_close_scope",
+          "manage_turns_interrupt_hold_floor",
+          "evaluate_assess_critique",
+          "define_distinguish_terms",
+          "mediate_between_parties"
+        ],
+        "recognition": [
+          "analyse_framing_implicature_presupposition"
+        ]
+      },
+      "textTypes": {
+        "R": [
+          "essay_opinion_argumentative",
+          "report_proposal_official",
+          "news_article_report",
+          "literary_text",
+          "meeting_formal_discussion",
+          "contract_terms_legal_text"
+        ],
+        "P": [
+          "essay_opinion_argumentative",
+          "social_media_post_comment",
+          "email_letter_formal",
+          "meeting_formal_discussion",
+          "presentation_briefing_talk",
+          "report_proposal_official"
+        ]
+      },
+      "vocabDomains": [
+        "argumentation_evaluation_lexis",
+        "society_economy_abstract_nouns",
+        "institutional_legal_lexis",
+        "professions_workplace",
+        "fixed_expressions_collocations"
+      ],
+      "registers": {
+        "production": [
+          "hapsyo_formal_business",
+          "haeyo_polite",
+          "banmal_casual"
+        ],
+        "recognition": [
+          "intimate"
+        ],
+        "note": "berufsbezogene Register"
+      }
+    },
+    "C1": {
+      "scale": {
+        "exam": "Goethe-Zertifikat C1 · telc Deutsch C1 (Hochschule)",
+        "wortschatz": "kein geschlossenes Inventar",
+        "note": "Wortbildung + Kontext zur Erschließung"
+      },
+      "canDo": {
+        "ko": "학술·전문 독일어. 제한된 Wortschatz-/Grammatikinventar 없이 중요한 구조를 안정적으로 구사: Konjunktiv I 완성, Nominalstil, erweiterte Partizipialattribute, Modalitätsalternativen(sein+zu/sich lassen/es gilt zu), komplexe Präpositionen, 논증 연결, Textkohäsion, Wortbildung, Register.",
+        "en": "Academic and professional German with no closed inventory: full Konjunktiv I, Nominalstil, extended participial attributes, modality alternatives, complex prepositions, argumentative connectors, cohesion, word formation, register.",
+        "de": "Wissenschafts- und Fachdeutsch ohne geschlossenes Inventar: Konjunktiv I, Nominalstil, erweiterte Partizipialattribute, Modalitätsalternativen, komplexe Präpositionen, Argumentationskonnektoren, Kohäsion, Wortbildung, Register."
+      },
+      "topics": [
+        {
+          "id": "society_current_affairs",
+          "focus": "Gesellschaft; soziale Ungleichheit; Demografie",
+          "required": true,
+          "sources": [
+            "goethe_c1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "science_research_evidence",
+          "focus": "Wissenschaft; Forschung",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "economy_business_labour",
+          "focus": "Wirtschaft; Arbeitswelt",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "politics_law_institutions",
+          "focus": "Politik; Bildungspolitik",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "ethics_philosophy_abstract",
+          "focus": "Ethik; psychologische/gesellschaftliche Phänomene",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "arts_literature_history",
+          "focus": "Kultur; Medienkritik",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "media_entertainment_culture_pop",
+          "focus": "Medienkritik",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "technology_digital_ai",
+          "focus": "Digitalisierung/KI",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "environment_sustainability",
+          "focus": "Nachhaltigkeit",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "intercultural_globalisation_migration",
+          "focus": "Globalisierung",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "professional_specialised_fields",
+          "focus": "Fach- und Hochschulsprache (telc C1 Hochschule)",
+          "required": false,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        }
+      ],
+      "grammar": {
+        "items": [
+          {
+            "id": "de_c1_konjunktiv_i",
+            "form": "Konjunktiv I vollständig: indirekte Rede (Die Regierung erklärte, die Maßnahmen seien notwendig.)",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "goethe_c1_pruefungsziele"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_c1_konjunktiv_ii_sophisticated",
+            "form": "Konjunktiv II: hypothetische Vergangenheit, Distanzierung, vorsichtige Behauptungen",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_c1_nominalstil",
+            "form": "Nominalstil (Nachdem das Unternehmen die Daten ausgewertet hatte → Nach Auswertung der Daten)",
+            "category": "Stil",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_c1_partizipialattribute",
+            "form": "komplexe Partizipialattribute / erweiterte Attribute (die von der Bundesregierung angekündigten Maßnahmen; die seit Jahren kontrovers diskutierte Reform)",
+            "category": "Satzbau",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_c1_modalitaetsalternativen",
+            "form": "Modalitätsalternativen: müssen → sein + zu, sich lassen, es gilt zu, bedürfen",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_c1_komplexe_praepositionen",
+            "form": "komplexe Präpositionen: angesichts, anhand, infolge, mangels, mittels, zwecks, ungeachtet",
+            "category": "Präposition",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_c1_argumentationskonnektoren",
+            "form": "Argumentationskonnektoren: insofern, demnach, folglich, nichtsdestotrotz, gleichwohl, zumal, insofern als, geschweige denn",
+            "category": "Satzbau",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_c1_textkohaesion",
+            "form": "Textkohäsion: Pronominaladverbien, Wiederaufnahme, Referenzketten, Ellipsen, Informationsstruktur",
+            "category": "Text",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_c1_wortbildung",
+            "form": "Wortbildung: Präfix/Suffix, Komposita, Nominalisierung, Ableitung",
+            "category": "Wortbildung",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_c1_register",
+            "form": "Register: Umgangssprache, Standardsprache, formelle Sprache, Fachsprache, akademischer Stil",
+            "category": "Register",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          }
+        ],
+        "count": 10
+      },
+      "speechActs": {
+        "production": [
+          "analyse_framing_implicature_presupposition",
+          "mediate_between_parties",
+          "define_distinguish_terms",
+          "reformulate_paraphrase_rewrite",
+          "express_certainty_doubt_hedging",
+          "evaluate_assess_critique",
+          "summarise_reconstruct"
+        ],
+        "recognition": []
+      },
+      "textTypes": {
+        "R": [
+          "academic_specialised_text",
+          "lecture_speech_monologue",
+          "literary_text",
+          "report_proposal_official",
+          "news_article_report"
+        ],
+        "P": [
+          "essay_opinion_argumentative",
+          "report_proposal_official",
+          "presentation_briefing_talk",
+          "academic_specialised_text",
+          "email_letter_formal"
+        ]
+      },
+      "vocabDomains": [
+        "argumentation_evaluation_lexis",
+        "institutional_legal_lexis",
+        "arts_history_memory_lexis",
+        "language_metalanguage",
+        "fixed_expressions_collocations"
+      ],
+      "registers": {
+        "production": [
+          "hapsyo_formal_business",
+          "haeyo_polite",
+          "banmal_casual",
+          "intimate"
+        ],
+        "recognition": [],
+        "note": "Umgangs-/Standard-/Fach-/akademische Sprache"
+      }
+    },
+    "C2": {
+      "scale": {
+        "exam": "Goethe-Zertifikat C2: GDS · telc Deutsch C2",
+        "wortschatz": "offen",
+        "note": "Registerwechsel, Idiomatik, Implikatur"
+      },
+      "canDo": {
+        "ko": "의미·문체·뉘앙스의 통제: 이미 존재하는 문법 전체를 의도에 따라 선택. Registerwechsel(locker/neutral/formell/wissenschaftlich/diplomatisch/ironisch), Modalpartikeln, 고급 간접화법과 거리두기, 문체적 어순(Vorfeld/Mittelfeld/Nachfeld), Kollokationen·Funktionsverbgefüge, implizite Bedeutung, Texttransformation.",
+        "en": "Mastery of meaning, style and nuance: register shifting, Modalpartikeln, distancing reported speech, stylistic word order, collocations, implicit meaning, text transformation.",
+        "de": "Beherrschung von Bedeutung, Stil und Nuance: Registerwechsel, Modalpartikeln, distanzierende Redewiedergabe, stilistische Wortstellung, Kollokationen, implizite Bedeutung, Texttransformation."
+      },
+      "topics": [
+        {
+          "id": "politics_law_institutions",
+          "focus": "Politik; Recht",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "ethics_philosophy_abstract",
+          "focus": "Philosophie; abstrakte Debatten",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "arts_literature_history",
+          "focus": "Literatur; Kulturkritik; Geschichte",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "science_research_evidence",
+          "focus": "Wissenschaft",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "economy_business_labour",
+          "focus": "Wirtschaft",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "society_current_affairs",
+          "focus": "Gesellschaft",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "technology_digital_ai",
+          "focus": "Technologie",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "professional_specialised_fields",
+          "focus": "Fachthemen; unbekannte Gebiete",
+          "required": true,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "media_entertainment_culture_pop",
+          "focus": "Ironie; Satire; Medien",
+          "required": false,
+          "sources": [
+            "profile_deutsch",
+            "goethe_a1_pruefungsziele",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        }
+      ],
+      "grammar": {
+        "items": [
+          {
+            "id": "de_c2_registerwechsel",
+            "form": "Registerwechsel: locker / neutral / formell / wissenschaftlich / diplomatisch / ironisch",
+            "category": "Register",
+            "sources": [
+              "user_brief_2026_09_09",
+              "goethe_c2_pruefungsziele"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_c2_modalpartikeln",
+            "form": "Modalpartikeln: doch, ja, eben, halt, wohl, schon, bloß, denn, etwa (Das dürfte so wohl nicht ganz stimmen.)",
+            "category": "Pragmatik",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_c2_indirekte_rede_distanz",
+            "form": "höhere indirekte Rede und Distanzierung (Er will davon nichts gewusst haben.)",
+            "category": "Verb",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_c2_stilistische_wortstellung",
+            "form": "stilistische Wortstellung: Vorfeld/Mittelfeld/Nachfeld zur Informationsgewichtung",
+            "category": "Satzbau",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_c2_idiomatik_kollokationen",
+            "form": "gehobene Idiomatik / Kollokationen / Funktionsverbgefüge",
+            "category": "Lexik/Grammatik",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_c2_implizite_bedeutung",
+            "form": "implizite Bedeutung: Ironie, Euphemismus, Untertreibung, Anspielung, Skepsis, Höflichkeitsdistanz, persuasive Sprache",
+            "category": "Pragmatik",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          },
+          {
+            "id": "de_c2_texttransformation",
+            "form": "Texttransformation: Nominalstil ↔ Verbalstil, direkt ↔ diplomatisch, alltagssprachlich ↔ akademisch, neutral ↔ wertend",
+            "category": "Stil",
+            "sources": [
+              "user_brief_2026_09_09",
+              "profile_deutsch"
+            ],
+            "note": ""
+          }
+        ],
+        "count": 7
+      },
+      "speechActs": {
+        "production": [
+          "analyse_framing_implicature_presupposition",
+          "adjust_register_speech_style",
+          "reformulate_paraphrase_rewrite",
+          "mediate_between_parties",
+          "evaluate_assess_critique",
+          "persuade_argue_justify",
+          "manage_turns_interrupt_hold_floor"
+        ],
+        "recognition": []
+      },
+      "textTypes": {
+        "R": [
+          "academic_specialised_text",
+          "literary_text",
+          "lecture_speech_monologue",
+          "news_article_report",
+          "contract_terms_legal_text"
+        ],
+        "P": [
+          "essay_opinion_argumentative",
+          "report_proposal_official",
+          "review_critique_text",
+          "academic_specialised_text",
+          "presentation_briefing_talk"
+        ]
+      },
+      "vocabDomains": [
+        "argumentation_evaluation_lexis",
+        "arts_history_memory_lexis",
+        "institutional_legal_lexis",
+        "language_metalanguage",
+        "fixed_expressions_collocations"
+      ],
+      "registers": {
+        "production": [
+          "hapsyo_formal_business",
+          "haeyo_polite",
+          "banmal_casual",
+          "intimate"
+        ],
+        "recognition": [],
+        "note": "Registerwechsel inkl. ironisch/diplomatisch"
+      }
+    }
+  },
+  "authoringProvenance": {
+    "status": "mixed_inventory_and_authored_reconstruction",
+    "policy": "보유 원 인벤토리의 항목·급 사실만 verified_repo이다. 주제·화행·장르·그룹화·교수 순서의 저자 재구성과 항목 단위 대조가 없는 설명은 model_knowledge이다.",
+    "primaryAccessRegistry": "source_access.json",
+    "reviewStatus": "model_reviewed_human_review_pending"
+  }
+}

@@ -165,7 +165,7 @@ def _load_module(path: Path, name: str):
 # F1 -- normalisation + grammar mapping
 # ---------------------------------------------------------------------------
 
-_SLOT_PREFIX_RE = re.compile(r"^(A/V-|V-|A-|N)")
+_SLOT_PREFIX_RE = re.compile(r"^(A/V-|V/A-|V-|A-|N)")
 _TRAILING_DIGITS_RE = re.compile(r"\d+$")
 _TOP_LEVEL_ALT_RE = re.compile(r"\s/\s")
 _BARE_N_TOKEN_RE = re.compile(r"^N")
@@ -208,10 +208,17 @@ def _expand_token(token: str) -> List[str]:
 
     final: List[str] = []
     for v in variants:
-        if "/" in v:
-            final.extend(p for p in v.split("/") if p)
-        else:
+        if not v:
+            # An omitted slot or optional particle remains a valid branch.
             final.append(v)
+            continue
+        for alternative in v.split("/"):
+            # Each branch may repeat slot/ending notation and punctuation,
+            # e.g. V-습니까?/-ㅂ니까?. Strip syntax, never infer conjugation.
+            literal = _SLOT_PREFIX_RE.sub("", alternative, count=1)
+            literal = literal.rstrip("?").strip("-")
+            if literal:
+                final.append(literal)
     return final
 
 
@@ -438,8 +445,8 @@ def build_f1(grammar_rows: Iterable[Mapping[str, str]], nikl_rows: Iterable[Mapp
 
 
 def build_f1_md(root: Path = REPO) -> Tuple[str, F1Result]:
-    grammar_rows = _read_csv(ASSETS / "grammar.csv")
-    nikl_rows = _read_csv(LEXICON_DIR / "nikl_kiiq_2017_grammar.csv")
+    grammar_rows = _read_csv(root / "assets" / "data" / "grammar.csv")
+    nikl_rows = _read_csv(root / "tools" / "content_factory" / "lexicon" / "nikl_kiiq_2017_grammar.csv")
     result = build_f1(grammar_rows, nikl_rows)
 
     counts = Counter(r.status for r in result.rows)

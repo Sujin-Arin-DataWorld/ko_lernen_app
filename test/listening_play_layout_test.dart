@@ -212,19 +212,21 @@ void main() {
       );
       await tester.pump();
       final t = AppL10n.of(tester.element(find.byType(ListeningPlayScreen)));
-      expect(find.textContaining('수진 (나)'), findsOneWidget);
+      expect(find.textContaining('Du'), findsOneWidget);
+      expect(find.text(t.scenarioAssignedRole), findsOneWidget);
+      expect(find.text('수진'), findsOneWidget);
       expect(find.textContaining('다니엘'), findsOneWidget);
 
       await tester.tap(find.text(t.listeningDialogueStart));
       await tester.pump();
       expect(voices, ['female']);
-      expect(find.text('수진 (나)'), findsOneWidget);
+      expect(find.text('Du'), findsOneWidget);
 
       pending.first.complete(true);
       await tester.pump();
 
       expect(voices, ['female', 'male']);
-      expect(find.text('수진 (나)'), findsOneWidget);
+      expect(find.text('Du'), findsOneWidget);
       expect(find.text('다니엘'), findsOneWidget);
       pending.last.complete(false);
       await tester.pump();

@@ -82,8 +82,19 @@ class CourseProgressService {
     _tail = Future<void>.value();
   }
 
-  Future<CourseMasteryService> _service() =>
-      _serviceFuture ??= _serviceLoader();
+  Future<CourseMasteryService> _service() async {
+    final pending = _serviceFuture ??= _serviceLoader();
+    try {
+      return await pending;
+    } catch (_) {
+      // A later learner action may retry initialization; this action still
+      // receives the original failure and is never replayed automatically.
+      if (identical(_serviceFuture, pending)) {
+        _serviceFuture = null;
+      }
+      rethrow;
+    }
+  }
 
   /// Waits for every admitted course mutation, performs a destructive local
   /// storage wipe, then drops the in-memory graph before later callers run.

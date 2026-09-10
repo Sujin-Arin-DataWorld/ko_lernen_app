@@ -631,6 +631,48 @@ void main() {
   );
 
   test(
+    'a failed service load does not block later evidence or stored progress',
+    () async {
+      final catalog = _catalog();
+      final seed = CourseMasteryService(catalog);
+      await seed.initializeForPlacement('a1');
+      final beforeFailure = Storage.courseMasterySnapshotRawJson;
+      final failure = StateError('temporary curriculum read failure');
+      var serviceLoads = 0;
+      final progress = CourseProgressService(() async {
+        serviceLoads++;
+        if (serviceLoads == 1) {
+          throw failure;
+        }
+        return CourseMasteryService(catalog);
+      });
+
+      await expectLater(progress.readForDisplay(), throwsA(same(failure)));
+      expect(Storage.courseMasterySnapshotRawJson, beforeFailure);
+
+      await progress.recordContentAttempt(
+        CurriculumContentKind.grammar,
+        'grammar_greetings',
+        true,
+        courseContext: _assessContext(
+          catalog,
+          CurriculumContentKind.grammar,
+          'grammar_greetings',
+        ),
+        conceptId: 'concept_greeting_politeness',
+        occurredAt: _time(1),
+      );
+      final snapshot = await progress.refresh();
+      expect(serviceLoads, 2);
+      expect(snapshot.evidence, hasLength(1));
+      expect(snapshot.evidence.single.courseEligible, isTrue);
+      expect(snapshot.currentCourseUnitId, 'a1_01_greetings_hangul');
+      final restarted = await CourseMasteryService(catalog).refresh();
+      expect(restarted.toJson(), snapshot.toJson());
+    },
+  );
+
+  test(
     'app-scoped progress service serializes concurrent activity writes',
     () async {
       final catalog = _catalog();

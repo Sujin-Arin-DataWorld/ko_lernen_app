@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "mode": "AUTHOR+AUDIT",
+  "status": "EVIDENCE_REQUIRED",
+  "reviewedOn": "2026-09-10",
+  "scope": "새로 작성한 Phase 과제·최소 예문·전이·문서의 의미 보존과 선언된 구조·참조 계약. 앱 출하 콘텐츠 또는 336 항목의 인간 전문 검수 승인이 아니다.",
+  "semanticSource": "ko",
+  "targetLocales": [
+    "en",
+    "de-DE"
+  ],
+  "sourceHashes": {
+    "phases.json": "b61c70b52e7f773c76336c5ab65638ca4c1af2d39fcf2f26f6793d06333a64d9",
+    "transfer.json": "766a6745d71c1a5f16fee7a9544e25a6cd49c4d76c9383a3d4e0b274f73ab31f",
+    "cross_mapping.json": "43f210bd3a2d100b6aac8de8c1efeb3b3f139a5d543b7a48b3affe28fafc05f8",
+    "phase_review.json": "276e142ee913847fbf511e0df1464ed9b7acb3509a1ef1106412a0571afd3b53",
+    "source_access.json": "e6a6a2bf3642f36b792089464274503dcd3e2b429ff9d2b8e775660910fce1d5"
+  },
+  "checks": [
+    {
+      "codes": [
+        "ACC",
+        "TAM",
+        "EVID",
+        "FORCE"
+      ],
+      "result": "reviewed_and_corrected",
+      "detail": "같은 표기의 급별 의미를 분리했다. 후회 -을걸, 인용된 권유 조건 -자면2, 회고 질문·질책·드문 종결형의 최소 예문과 설명을 수정했다."
+    },
+    {
+      "codes": [
+        "REL",
+        "REF",
+        "INDEX",
+        "DEIX"
+      ],
+      "result": "reviewed_with_context_boundaries",
+      "detail": "기본 Phase 관계와 별도 장르 연습의 역할을 명시했다. 주체 높임·청자 대우·호칭을 분리하며 주체·시간·출처가 없으면 새로 만들지 않는다."
+    },
+    {
+      "codes": [
+        "PRESUP",
+        "CULT",
+        "INT"
+      ],
+      "result": "reviewed_with_limits",
+      "detail": "관사·du/Sie·양태·인용을 한국어에 일대일로 투사하지 않는다. 공유 배경·감정·문화 규범을 문법 형태만으로 확정하지 않도록 지침을 남겼다."
+    },
+    {
+      "codes": [
+        "ITEM",
+        "DATA"
+      ],
+      "result": "machine_contracts_checked",
+      "detail": "문법 336개 급·형태와 선수 순서, R/P 장르 목표, 모어별 전이 대상, 인벤토리 근거와 집필 근거의 구분을 감사기가 검사한다. JSON 중복 키를 거부한다."
+    },
+    {
+      "codes": [
+        "ACC",
+        "ITEM"
+      ],
+      "result": "two_axis_model_review_closed",
+      "detail": "스펙과 표준 두 축의 재검토에서 발견한 주요 오류를 수정한 뒤 해당 검토 범위의 남은 P1/P2 없음 판정을 받았다. 전체 언어 내용의 정확성을 보증하는 판정은 아니다."
+    }
+  ],
+  "remainingEvidence": [
+    "각 언어의 주제·화행·텍스트·어휘 영역 전 항목 원문 대조",
+    "EN/DE 전이 sourceLevel의 항목별 1차 근거",
+    "현행 TOPIK 시험 기준의 독립 매핑",
+    "한국어·영어·독일어 원어민 및 교육자의 전체 설계 검토",
+    "실제 학습자 수행·문항·녹음 및 앱 장르 콘텐츠 검증"
+  ],
+  "humanReview": "pending",
+  "releaseApproval": "not_granted"
+}

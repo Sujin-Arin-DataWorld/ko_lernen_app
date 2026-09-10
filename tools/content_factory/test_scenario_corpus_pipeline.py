@@ -141,6 +141,13 @@ class ScenarioCorpusPipelineTest(unittest.TestCase):
         self.assertIn("내가 다 민망", awkward)
         self.assertIn("보는 내가 다 부끄러", awkward)
 
+    def test_level_review_separates_learner_label_from_assigned_role(self) -> None:
+        review = pipeline.render_level_review([_candidate()], root=ROOT)
+
+        self.assertIn("- 학습자 배역: 크리스티안", review)
+        self.assertIn("**학습자**", review)
+        self.assertNotIn("크리스티안 (나)", review)
+
     def test_grammar_extraction_prefers_the_nearest_attested_level(self) -> None:
         patterns = [
             {

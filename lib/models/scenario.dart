@@ -399,30 +399,39 @@ class Scenario {
     return speaker.trim().toLowerCase() == 'user' ? 'female' : 'male';
   }
 
+  /// Returns the label shown above a dialogue line.
+  ///
+  /// The learner is always identified as themselves in the UI. The recurring
+  /// character assigned to the scene remains a role for dialogue context and
+  /// voice selection, and is presented separately in the scene introduction.
   String speakerDisplayName(
     String speaker, {
-    required String languageCode,
     required String fallbackYou,
     required String fallbackNarrator,
-    required String playerSelfSuffix,
   }) {
     final normalized = speaker.trim().toLowerCase();
     if (normalized == 'narrator' || normalized.isEmpty) {
       return fallbackNarrator;
     }
-    final resolved = resolvedCharacterIdForSpeaker(normalized);
-    final profile = ScenarioCharacterCatalog.profileFor(resolved);
+    if (normalized == 'user') {
+      return fallbackYou;
+    }
+    final profile = ScenarioCharacterCatalog.profileFor(normalized);
     if (profile != null) {
       // Character names are Korean learning-world labels even when the app
       // chrome is German or English. This also prevents honorifics such as
       // `수진 씨` from becoming a fixed UI identity.
-      final name = profile.nameKo;
-      return normalized == 'user' ? '$name $playerSelfSuffix' : name;
+      return profile.nameKo;
     }
-    if (normalized == 'user') {
-      return fallbackYou;
-    }
-    return '${resolved[0].toUpperCase()}${resolved.substring(1)}';
+    return '${normalized[0].toUpperCase()}${normalized.substring(1)}';
+  }
+
+  /// Returns the recurring character whose part the learner plays in this
+  /// scene, without presenting that character as the learner's identity.
+  String playerRoleDisplayName({required String fallbackYou}) {
+    final roleId = playerCharacterId.trim().toLowerCase();
+    if (roleId.isEmpty) return fallbackYou;
+    return ScenarioCharacterCatalog.profileFor(roleId)?.nameKo ?? roleId;
   }
 }
 

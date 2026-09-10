@@ -114,10 +114,18 @@ ref0041/ref0042 행이 이미 `rights_status=licensed`(notes: "KOGL type1")로
 
 ### 변환 방법 (원본 -> 저장소 사본)
 
-원본은 BOM 포함 UTF-8·CRLF였다. 저장소 사본은 BOM 제거·LF로만 다시 인코딩했고
+원본은 BOM 포함 UTF-8·CRLF였다. 저장소 사본은 BOM 제거·LF로 다시 인코딩했고
 (Python `str.read_text(encoding="utf-8-sig")` → `write_text(encoding="utf-8",
-newline="\n")`), 헤더·행 내용은 원본과 바이트 단위로 동일하다(csv 파싱 결과가
-행 단위로 완전히 일치함을 이 세션에서 직접 검증). PR #283이 CI에서 실패한
+newline="\n")`), 어휘 CSV는 헤더·행 내용이 원본과 바이트 단위로 동일하다.
+
+**문법 CSV는 예외가 두 행 있다(2026-09-10).** 원본 xlsx 문법 시트의 `form`·`variants`
+칸에 형태가 아닌 문자가 섞여 있어 `tool/ingest_nikl_grade_lists.py` 의 `_clean_form()`
+이 정규화한다 — 5급 종결어미 `-으려고2`는 붙임표 자리에 보이지 않는 soft hyphen
+(U+00AD)이 들어 있었고, 6급 연결어미 `-을망정`은 형태 끝에 쉼표가 붙어 있었다.
+`form` 은 저장소 전체에서 조인 키이므로(`cefr_matrix/ko.json` 의 `grammar.forms`,
+Phase 의 `formsUsed`, 전이 분석의 `relevantKoreanForms`) 이 문자가 남으면 그 두
+형태만 조용히 매칭에 실패한다. 행수·등급 분포는 그대로다(336행, 45/45/67/67/56/56).
+그 밖의 칸은 손대지 않는다. PR #283이 CI에서 실패한
 원인은 F5가 이 두 CSV를 저장소 밖 preservation 폴더에서 직접 읽었기
 때문(그 폴더가 없는 CI에서 `FileNotFoundError`) -- 두 CSV가 이미 공공누리
 제1유형으로 재사용이 허용된 자료이므로, "선택 입력 + 생성 생략" 처리(F6이

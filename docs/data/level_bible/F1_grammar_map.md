@@ -6,7 +6,7 @@
 > `(으)ㄹ/(으)ㄴ/(이)/(으)` 전개) 후 리터럴 문자열 교집합. nikl 조사(category)는 
 > `particle_token_variants`(앱 패턴의 `N`-접두 토큰을 개별 후보로 추가)로도 매칭.
 
-**요약:** match 100 · level_mismatch 39 · missing_in_app 197 (nikl 문법 336행) · app_only 94(앱 문법 252개 중)
+**요약:** match 102 · level_mismatch 40 · missing_in_app 194 (nikl 문법 336행) · app_only 92(앱 문법 252개 중)
 
 ## 국제통용 -> 앱 매핑
 
@@ -41,7 +41,7 @@
 | 1(A1) | 조사 | 하고 |  | grammar_a1_with_connector | A1 | match |
 | 1(A1) | 조사 | 한테 |  | grammar_a1_spoken_dative, grammar_a2_dative_person | A1, A1 | match |
 | 1(A1) | 종결어미 | -고4 | -고요 | grammar_a1_sequence_connector | A1 | match |
-| 1(A1) | 종결어미 | -습니까 | -ㅂ니까 | -- | -- | missing_in_app |
+| 1(A1) | 종결어미 | -습니까 | -ㅂ니까 | grammar_a1_formal_question | A1 | match |
 | 1(A1) | 종결어미 | -습니다 | -ㅂ니다 | grammar_a1_formal_statement | A1 | match |
 | 1(A1) | 종결어미 | -어2 | -아2, -여2, -야3, -어요, -아요, -여요, -에요 | grammar_a1_polite_present | A1 | match |
 | 1(A1) | 종결어미 | -으세요 | -세요. -으셔요, -셔요, -으시어요, -시어요 | grammar_a1_polite_request | A1 | match |
@@ -68,7 +68,7 @@
 | 2(A2) | 전성어미 | -은2 | -ㄴ4 | grammar_a1_past_modifier, grammar_a1_topic_particle, grammar_b1_whether | A2, A1, B1 | match |
 | 2(A2) | 전성어미 | -은3 |  | grammar_a1_past_modifier, grammar_a1_topic_particle, grammar_b1_whether | A2, A1, B1 | match |
 | 2(A2) | 전성어미 | -을2 | -ㄹ2 | grammar_a1_future_modifier, grammar_a1_object_particle | A2, A1 | match |
-| 2(A2) | 전성어미 | -음 | -ㅁ | -- | -- | missing_in_app |
+| 2(A2) | 전성어미 | -음 | -ㅁ | grammar_a2_nominalizer_eum | A2 | match |
 | 2(A2) | 조사 | 께 |  | grammar_a1_honorific_kke | A2 | match |
 | 2(A2) | 조사 | 마다 |  | grammar_a2_each | A2 | match |
 | 2(A2) | 조사 | 밖에 |  | grammar_a2_only_negative | A2 | match |
@@ -255,7 +255,7 @@
 | 5(C1) | 종결어미 | -다니1 | -다니요, -라니1, -라니요1, 으라니1, -으라니요 | -- | -- | missing_in_app |
 | 5(C1) | 종결어미 | -더라고 | -더라고요 | -- | -- | missing_in_app |
 | 5(C1) | 종결어미 | -데 | -데요 | -- | -- | missing_in_app |
-| 5(C1) | 종결어미 | ­으려고2 | ­려고2, ­려고요, ­으려고요 | -- | -- | missing_in_app |
+| 5(C1) | 종결어미 | -으려고2 | -려고2, -려고요, -으려고요 | grammar_b1_intention | A1 | level_mismatch |
 | 5(C1) | 표현 | -게 마련이다 | -기 마련이다 | grammar_b2_inevitability | B2 | level_mismatch |
 | 5(C1) | 표현 | -게 생겼다 |  | -- | -- | missing_in_app |
 | 5(C1) | 표현 | -기 나름이다 | -을 나름이다 | grammar_b2_method_dependent | B2 | level_mismatch |
@@ -304,7 +304,7 @@
 | 6(C2) | 연결어미 | -으련마는 | -련마는, -으련만, -련만 | -- | -- | missing_in_app |
 | 6(C2) | 연결어미 | -은들 | -ㄴ들2, 인들 | -- | -- | missing_in_app |
 | 6(C2) | 연결어미 | -을라치면 | -ㄹ라치면 | -- | -- | missing_in_app |
-| 6(C2) | 연결어미 | -을망정, | -ㄹ망정 <유의> -ㄹ지언정, -을지언정 | grammar_c2_even_if_concession | C2 | match |
+| 6(C2) | 연결어미 | -을망정 | -ㄹ망정 <유의> -ㄹ지언정, -을지언정 | grammar_c2_even_if_concession | C2 | match |
 | 6(C2) | 연결어미 | -이라야 | -라야, -이라야만, -라야만 | -- | -- | missing_in_app |
 | 6(C2) | 연결어미 | -자니3 | -자2,-자니까3 | -- | -- | missing_in_app |
 | 6(C2) | 연결어미 | -자면1 |  | -- | -- | missing_in_app |
@@ -361,7 +361,6 @@ F9(예외표)에 사유란과 함께 이관된다.
 | grammar_a1_copula_polite |
 | grammar_a1_degree_question |
 | grammar_a1_duration_span |
-| grammar_a1_formal_question |
 | grammar_a1_in_front |
 | grammar_a1_long_negation |
 | grammar_a1_please_particle |
@@ -378,7 +377,6 @@ F9(예외표)에 사유란과 함께 이관된다.
 | grammar_a2_irregular_digeut |
 | grammar_a2_irregular_eu |
 | grammar_a2_irregular_rieul |
-| grammar_a2_nominalizer_eum |
 | grammar_a2_noun_cause |
 | grammar_a2_permission_check_batch20 |
 | grammar_a2_preference_soft_batch20 |

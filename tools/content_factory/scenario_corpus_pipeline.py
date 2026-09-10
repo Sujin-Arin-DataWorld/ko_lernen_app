@@ -1336,6 +1336,7 @@ def render_level_review(
     for index, payload in enumerate(candidates, start=1):
         scenario_id = _nonempty(payload.get("scenarioId"), "candidate.scenarioId")
         brief = _brief_for(sources, scenario_id)
+        player_name = sources.characters[brief.player_character_id].display_name_ko
         scenario = _map(payload.get("scenario"), "candidate.scenario")
         title = _map(scenario.get("title"), f"{scenario_id}.title").get("ko", brief.raw.get("titleKo"))
         lines.extend(
@@ -1345,6 +1346,7 @@ def render_level_review(
                 f"- 수행 목표: {brief.raw.get('canDoKo', '')}",
                 f"- 관계·사건: {brief.raw.get('relationship', '')} / {brief.raw.get('event', '')}",
                 f"- 단원: `{brief.course_unit_id}`",
+                f"- 학습자 배역: {player_name}",
                 "",
             ]
         )
@@ -1353,14 +1355,14 @@ def render_level_review(
             speaker = str(line.get("speaker", ""))
             resolved = brief.player_character_id if speaker == "user" else speaker
             if speaker == "user":
-                name = f"{sources.characters[resolved].display_name_ko} (나)"
+                name = "학습자"
             elif resolved in sources.characters:
                 name = sources.characters[resolved].display_name_ko
             else:
                 name = sources.role_names_ko.get(resolved, resolved)
             lines.extend(
                 [
-                    f"**{name}**  ",
+                    f"**{name}**<br>" if speaker == "user" else f"**{name}**  ",
                     f"KO: {line.get('ko', '')}  ",
                     f"DE: {line.get('de', '')}  ",
                     f"EN: {line.get('en', '')}",

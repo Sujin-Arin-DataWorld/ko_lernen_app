@@ -85,8 +85,11 @@ python tool\ingest_nikl_grade_lists.py --kiiq ... --basic ... --out tools\conten
   ref0042 행(`rights_status=licensed`, notes에 "KOGL type1" 명시).
 - **저장소 사본:** 원본(BOM 포함 UTF-8, CRLF)을 UTF-8(BOM 제거)·LF로만
   변환했다 -- 헤더(`연번,구분,교재명,단원 연번,단원명,주요 어휘,관련 페이지`)와
-  각 행은 원본과 바이트 단위로 동일한 내용을 그대로 옮겼다(재인코딩 외 변경
-  없음). 원본 그대로의 보존 사본은 계속
+  어휘 CSV의 각 행은 원본과 바이트 단위로 동일한 내용을 그대로 옮겼다(재인코딩 외
+  변경 없음). 문법 CSV는 두 행만 예외로, `ingest_nikl_grade_lists._clean_form()` 이
+  `form`·`variants` 칸의 soft hyphen(U+00AD)을 붙임표로 되돌리고 형태 끝 문장부호를
+  걷어 낸다 — 5급 `-으려고2`, 6급 `-을망정`. 근거와 이유는
+  `docs/data/level_bible/SOURCES.md` 의 변환 방법 절 참고. 원본 그대로의 보존 사본은 계속
   `C:\dev\hangulsori\preservation\nikl_sejong_2026-09-07\`에도 남아 있다.
 - **F5가 preservation 폴더에 의존하지 않는 이유(R9, 2026-09-07):** 이전에는
   `build_level_bible_tables.py`가 이 두 CSV를 저장소 밖 preservation

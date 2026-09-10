@@ -1,0 +1,2625 @@
+{
+  "schemaVersion": 1,
+  "language": "en",
+  "languageLabel": {
+    "ko": "영어",
+    "en": "English",
+    "de": "Englisch"
+  },
+  "role": "reference_language — 한글소리 EN UI 사용자의 L1/L2 기대치. 앱 콘텐츠 감사에는 쓰지 않고, 기능 문법·주제 도입 시점의 삼언어 정렬표에만 쓴다.",
+  "scaleMapping": "CEFR ↔ Cambridge English Qualifications (A2 Key, B1 Preliminary, B2 First, C1 Advanced, C2 Proficiency) ↔ EVP/EGP",
+  "provenanceLegend": {
+    "verified_repo": "repo-held dataset (CEFR-J grammar profile CSV)",
+    "url_verified_search": "URL 존재 확인만으로 항목 내용을 검증하지 않는다. 현재 열람한 특정 주장·쪽은 source_access.json에 기록하며 원 항목의 model_knowledge 상태와 구별한다.",
+    "verified_user": "사용자가 제공한 연구 요구·작업 로그임을 확인했다는 뜻이며 그 안의 모델 생성 내용이 공식 검증되었다는 뜻은 아니다.",
+    "model_knowledge": "filled from model knowledge — EVIDENCE_REQUIRED until checked against the source"
+  },
+  "sources": [
+    {
+      "id": "cefr_cv_2020",
+      "title": "CEFR Companion Volume with new descriptors",
+      "publisher": "Council of Europe",
+      "year": 2020,
+      "url": "https://rm.coe.int/cefr-companion-volume-with-new-descriptors-2020/16809ea0d4",
+      "provenance": "url_verified_search",
+      "note": "2026-09-10 전체 쓰기 산출과 중개 척도의 지정 부분을 직접 읽었다. source_access.json의 쪽·주장에만 적용하며 개별 목록과 Phase 레벨의 공식성을 뜻하지 않는다."
+    },
+    {
+      "id": "threshold_1990",
+      "title": "Threshold 1990 (van Ek & Trim)",
+      "publisher": "Council of Europe / Cambridge University Press",
+      "year": 1990,
+      "url": "https://ealta.eu/documents/resources/Threshold-Level_CUP.pdf",
+      "provenance": "url_verified_search",
+      "note": "Language functions (imparting/seeking information, attitudes, suasion, socialising, discourse), general notions, specific-notion topic themes. Waystage (A2) and Vantage (B2) use the same topic frame."
+    },
+    {
+      "id": "egp",
+      "title": "English Grammar Profile (English Profile programme)",
+      "publisher": "Cambridge University Press & Assessment / UCLES",
+      "year": 2015,
+      "url": "https://www.englishprofile.org/english-grammar-profile",
+      "provenance": "url_verified_search",
+      "note": "≈1,200 criterial-feature statements from the Cambridge Learner Corpus, each with a CEFR level. The EGP column of the CEFR-J CSV below carries EGP levels per item."
+    },
+    {
+      "id": "evp",
+      "title": "English Vocabulary Profile",
+      "publisher": "Cambridge University Press & Assessment",
+      "year": 2012,
+      "url": "https://www.englishprofile.org/wordlists",
+      "provenance": "url_verified_search",
+      "note": "≈7,000 headwords with CEFR levels per sense; A1–C2 vocabulary sizing reference."
+    },
+    {
+      "id": "cefrj_grammar_profile",
+      "title": "CEFR-J Grammar Profile (ver 20180315) via Open Language Profiles",
+      "publisher": "Tono Laboratory, TUFS (openlanguageprofiles/olp-en-cefrj)",
+      "year": 2018,
+      "url": "https://github.com/openlanguageprofiles/olp-en-cefrj",
+      "license": "free for research and commercial use with citation (copyright Tono Lab, TUFS)",
+      "provenance": "verified_repo",
+      "repoPath": "tools/content_factory/cefr_matrix/reference/cefrj-grammar-profile-20180315.csv",
+      "note": "500 grammatical items; 170 carry a CEFR-J level and an EGP cross-level. Cited below as cefrj:<ID>."
+    },
+    {
+      "id": "cefrj_vocabulary_profile",
+      "title": "CEFR-J Vocabulary Profile (ver 1.5) via Open Language Profiles",
+      "publisher": "Tono Laboratory, TUFS (openlanguageprofiles/olp-en-cefrj)",
+      "year": 2020,
+      "url": "https://github.com/openlanguageprofiles/olp-en-cefrj",
+      "license": "free for research and commercial use with citation (copyright Tono Lab, TUFS)",
+      "provenance": "verified_repo",
+      "repoPath": "tools/content_factory/cefr_matrix/reference/cefrj-vocabulary-profile-1.5.csv",
+      "note": "7,799 headwords with CEFR levels — A1 1,164 · A2 1,411 · B1 2,446 · B2 2,778. Covers A1–B2 only; C1/C2 are supplied by the Octanove Vocabulary Profile C1/C2 v1.0 (C1 1,111 · C2 1,025, CC BY-SA 4.0), which is cited but not vendored."
+    },
+    {
+      "id": "cambridge_a2_key",
+      "title": "A2 Key / A2 Key for Schools Handbook for teachers (exams from 2020)",
+      "publisher": "Cambridge University Press & Assessment",
+      "year": 2020,
+      "url": "https://www.cambridgeenglish.org/images/504506-a2-key-for-schools-handbook-2020.pdf",
+      "provenance": "url_verified_search",
+      "note": "Topic list, language specifications (grammar), functions, text types per paper."
+    },
+    {
+      "id": "cambridge_b1_preliminary",
+      "title": "B1 Preliminary Handbook for teachers (exams from 2020) + Vocabulary List (2025)",
+      "publisher": "Cambridge University Press & Assessment",
+      "year": 2020,
+      "url": "https://www.cambridgeenglish.org/Images/506887-b1-preliminary-vocabulary-list.pdf",
+      "provenance": "url_verified_search",
+      "note": "Language specifications (p. 66 in the 2020 handbook), topic list, writing genres (email, article, story)."
+    },
+    {
+      "id": "cambridge_b2_c1_c2",
+      "title": "B2 First / C1 Advanced / C2 Proficiency handbooks",
+      "publisher": "Cambridge University Press & Assessment",
+      "year": 2020,
+      "url": "https://www.cambridgeenglish.org/exams-and-tests/",
+      "provenance": "url_verified_search",
+      "note": "2026-09-10 C1 Advanced 핸드북 인쇄 28쪽의 쓰기 장르·과제 조건을 확인했다. B2·C2 또는 영어 문법 목록 전체는 별도 대조 대상이다. source_access.json 참조."
+    },
+    {
+      "id": "user_brief_2026_09_09",
+      "title": "Jin 연구 지시 및 제공 작업 로그",
+      "publisher": "Jin (세션 입력)",
+      "year": 2026,
+      "provenance": "verified_user",
+      "note": "연구 범위·요구와 남아 있는 작성 로그의 출처이다. 모델이 작성한 언어 인벤토리의 공식성이나 원문 일치성을 보증하지 않는다."
+    }
+  ],
+  "functionalGrammar": [
+    {
+      "id": "copula_identity",
+      "level": "A1",
+      "forms": [
+        "be"
+      ],
+      "note": ""
+    },
+    {
+      "id": "present_habitual",
+      "level": "A1",
+      "forms": [
+        "present simple"
+      ],
+      "note": ""
+    },
+    {
+      "id": "past_narration",
+      "level": "A1",
+      "forms": [
+        "past simple (basic) → A2 full"
+      ],
+      "note": ""
+    },
+    {
+      "id": "future_intention",
+      "level": "A2",
+      "forms": [
+        "going to",
+        "will",
+        "present continuous (arrangements)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "negation",
+      "level": "A1",
+      "forms": [
+        "don't/doesn't",
+        "isn't",
+        "can't"
+      ],
+      "note": ""
+    },
+    {
+      "id": "questions_wh_yesno",
+      "level": "A1",
+      "forms": [
+        "do-support",
+        "wh-questions"
+      ],
+      "note": ""
+    },
+    {
+      "id": "case_roles_particles",
+      "level": "A1",
+      "forms": [
+        "word order SVO",
+        "articles",
+        "object pronouns"
+      ],
+      "note": "English marks roles by order, not case"
+    },
+    {
+      "id": "location_direction_time_markers",
+      "level": "A1",
+      "forms": [
+        "in/on/at",
+        "to/from"
+      ],
+      "note": ""
+    },
+    {
+      "id": "possession",
+      "level": "A1",
+      "forms": [
+        "'s",
+        "have got",
+        "possessive adjectives"
+      ],
+      "note": ""
+    },
+    {
+      "id": "desire_want",
+      "level": "A1",
+      "forms": [
+        "want to",
+        "would like"
+      ],
+      "note": ""
+    },
+    {
+      "id": "ability_possibility",
+      "level": "A1",
+      "forms": [
+        "can/can't"
+      ],
+      "note": ""
+    },
+    {
+      "id": "obligation_necessity",
+      "level": "A2",
+      "forms": [
+        "must",
+        "have to",
+        "should"
+      ],
+      "note": ""
+    },
+    {
+      "id": "permission_prohibition",
+      "level": "A2",
+      "forms": [
+        "can/may",
+        "mustn't"
+      ],
+      "note": ""
+    },
+    {
+      "id": "requests_commands_polite",
+      "level": "A1",
+      "forms": [
+        "imperatives",
+        "Can you…?",
+        "Could you…? (A2)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "suggestions_proposals",
+      "level": "A1",
+      "forms": [
+        "let's",
+        "shall we (A2)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "coordination_basic_connectives",
+      "level": "A1",
+      "forms": [
+        "and/but/or/because"
+      ],
+      "note": ""
+    },
+    {
+      "id": "progressive_aspect",
+      "level": "A1",
+      "forms": [
+        "present continuous"
+      ],
+      "note": ""
+    },
+    {
+      "id": "experience_perfect",
+      "level": "A2",
+      "forms": [
+        "present perfect (experience)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "conditional_real",
+      "level": "A2",
+      "forms": [
+        "first conditional"
+      ],
+      "note": ""
+    },
+    {
+      "id": "conditional_unreal_counterfactual",
+      "level": "B1",
+      "forms": [
+        "second conditional (B1)",
+        "third/mixed (B2)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "comparison",
+      "level": "A1",
+      "forms": [
+        "-er (A1)",
+        "more/most (A2)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "attributive_relative_clauses",
+      "level": "A2",
+      "forms": [
+        "who/which/that"
+      ],
+      "note": ""
+    },
+    {
+      "id": "nominalisation_clausal",
+      "level": "A2",
+      "forms": [
+        "-ing forms",
+        "to-infinitive",
+        "that-clauses"
+      ],
+      "note": ""
+    },
+    {
+      "id": "reported_speech",
+      "level": "B1",
+      "forms": [
+        "said (that)",
+        "told me to"
+      ],
+      "note": ""
+    },
+    {
+      "id": "passive_causative",
+      "level": "B1",
+      "forms": [
+        "be + past participle",
+        "have sth done (B2)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "inference_evidentiality",
+      "level": "B1",
+      "forms": [
+        "must/might/can't be",
+        "seem/appear"
+      ],
+      "note": ""
+    },
+    {
+      "id": "concession_contrast_advanced",
+      "level": "B2",
+      "forms": [
+        "although/even though/despite",
+        "whereas"
+      ],
+      "note": ""
+    },
+    {
+      "id": "cause_purpose_formal",
+      "level": "B2",
+      "forms": [
+        "due to",
+        "so that",
+        "in order to",
+        "owing to (C1)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "honorifics_register_marking",
+      "level": "B2",
+      "forms": [
+        "politeness via modals/indirectness; no grammatical honorifics"
+      ],
+      "note": "no T/V distinction — register is lexical and syntactic"
+    },
+    {
+      "id": "hedging_stance_modality_advanced",
+      "level": "C1",
+      "forms": [
+        "appear to",
+        "tend to",
+        "arguably",
+        "be likely to"
+      ],
+      "note": ""
+    },
+    {
+      "id": "nominal_style_academic",
+      "level": "C1",
+      "forms": [
+        "nominalisation",
+        "complex noun phrases"
+      ],
+      "note": ""
+    },
+    {
+      "id": "information_structure_focus",
+      "level": "B2",
+      "forms": [
+        "cleft (B2/C1)",
+        "inversion (C1)",
+        "fronting (C2)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "discourse_connectives_formal",
+      "level": "B2",
+      "forms": [
+        "nevertheless/whereas (B2)",
+        "notwithstanding (C1)"
+      ],
+      "note": ""
+    },
+    {
+      "id": "pragmatic_particles_implicature",
+      "level": "C1",
+      "forms": [
+        "discourse markers (well, actually)",
+        "understatement/irony (C2)"
+      ],
+      "note": ""
+    }
+  ],
+  "levels": {
+    "A1": {
+      "scale": {
+        "cambridge": "Pre A1 Starters → A1 Movers/Flyers; A2 Key covers A1–B1 bands",
+        "evpHeadwords": "≈1,000 (EVP A1 senses)",
+        "note": "Breakthrough (Trim 2001) specification",
+        "cefrjVocabulary": "1,164 headwords (CEFR-J Vocabulary Profile v1.5, repo copy — verified_repo)"
+      },
+      "canDo": {
+        "ko": "나와 바로 주변의 생존 영어 — be, have got, 관사, 지시사, there is/are, 현재 단순·진행, 기초 과거, can, 명령문, would like.",
+        "en": "Survival English about self and immediate surroundings: be, have got, articles, demonstratives, there is/are, present simple/continuous, basic past simple, can, imperatives, would like.",
+        "de": "Überlebens-Englisch über sich und das Umfeld."
+      },
+      "topics": [
+        {
+          "id": "personal_identification",
+          "focus": "Personal identification; personal information",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "family_relationships",
+          "focus": "Family; people",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "house_home",
+          "focus": "House and home",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "food_drink",
+          "focus": "Food and drink",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "shopping_consumption",
+          "focus": "Shopping; clothes",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "numbers_time_dates",
+          "focus": "Numbers; time; dates; prices",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "daily_life_routines",
+          "focus": "Daily life; daily routines",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "free_time_hobbies_sport",
+          "focus": "Hobbies and leisure; sport",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "weather_nature_climate",
+          "focus": "Weather",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "transport_wayfinding",
+          "focus": "Transport; places and buildings",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "work_career",
+          "focus": "Basic work and jobs",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "education_study",
+          "focus": "Basic school and study",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "health_body",
+          "focus": "Body and basic health",
+          "required": false,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "language_learning_communication_repair",
+          "focus": "Language (asking to repeat, spelling)",
+          "required": false,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "social_etiquette_customs",
+          "focus": "Social interaction (greetings, thanks)",
+          "required": false,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        }
+      ],
+      "grammar": {
+        "items": [
+          {
+            "id": "en_a1_be",
+            "form": "be (am/is/are; questions and negatives)",
+            "category": "verbs",
+            "sources": [
+              "cefrj:1",
+              "cefrj:3",
+              "cefrj:4",
+              "cefrj:58",
+              "egp:A1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a1_have_got",
+            "form": "have got / have",
+            "category": "verbs",
+            "sources": [
+              "egp:A1",
+              "user_brief_2026_09_09"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a1_pronouns",
+            "form": "subject/object pronouns",
+            "category": "pronouns",
+            "sources": [
+              "cefrj:6",
+              "cefrj:7",
+              "egp:A1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a1_possessives",
+            "form": "possessive adjectives and 's",
+            "category": "determiners",
+            "sources": [
+              "cefrj:6",
+              "egp:A1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a1_articles",
+            "form": "articles a/an/the",
+            "category": "determiners",
+            "sources": [
+              "cefrj:13",
+              "cefrj:14",
+              "egp:A1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a1_plural",
+            "form": "singular/plural nouns",
+            "category": "nouns",
+            "sources": [
+              "egp:A1",
+              "user_brief_2026_09_09"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a1_demonstratives",
+            "form": "this/that/these/those",
+            "category": "determiners",
+            "sources": [
+              "cefrj:8",
+              "cefrj:11",
+              "egp:A1-A2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a1_there_is",
+            "form": "there is/are",
+            "category": "clauses",
+            "sources": [
+              "cefrj:146",
+              "egp:A1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a1_present_simple",
+            "form": "present simple (incl. 3rd person -s)",
+            "category": "present",
+            "sources": [
+              "cefrj:59",
+              "cefrj:60",
+              "egp:A1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a1_present_continuous",
+            "form": "present continuous",
+            "category": "present",
+            "sources": [
+              "cefrj:61",
+              "egp:A1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a1_past_simple_basic",
+            "form": "basic past simple (was/were; regular verbs)",
+            "category": "past",
+            "sources": [
+              "cefrj:64",
+              "cefrj:65",
+              "egp:A1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a1_can",
+            "form": "can / can't (ability, requests)",
+            "category": "modality",
+            "sources": [
+              "cefrj:123",
+              "cefrj:249",
+              "egp:A1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a1_imperatives",
+            "form": "imperatives",
+            "category": "clauses",
+            "sources": [
+              "cefrj:117",
+              "egp:A1-A2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a1_would_like",
+            "form": "would like",
+            "category": "modality",
+            "sources": [
+              "cefrj:142",
+              "egp:A1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a1_some_any",
+            "form": "some/any",
+            "category": "determiners",
+            "sources": [
+              "cefrj:15",
+              "egp:A1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a1_prepositions_basic",
+            "form": "basic prepositions of place and time",
+            "category": "prepositions",
+            "sources": [
+              "cefrj:21",
+              "egp:A1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a1_comparatives_basic",
+            "form": "basic comparatives (-er)",
+            "category": "adjectives",
+            "sources": [
+              "cefrj:38",
+              "egp:A2"
+            ],
+            "note": "CEFR-J A1.3; EGP A2 — boundary item"
+          },
+          {
+            "id": "en_a1_question_forms",
+            "form": "question forms (wh-/yes-no, do-support)",
+            "category": "questions",
+            "sources": [
+              "cefrj:239",
+              "cefrj:245",
+              "cefrj:246",
+              "egp:A1-A2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a1_frequency_adverbs",
+            "form": "adverbs of frequency",
+            "category": "adverbs",
+            "sources": [
+              "cefrj:32",
+              "egp:A1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a1_coordination",
+            "form": "and / but / or / because",
+            "category": "conjunctions",
+            "sources": [
+              "cefrj:150",
+              "egp:A1"
+            ],
+            "note": ""
+          }
+        ],
+        "count": 20
+      },
+      "speechActs": {
+        "production": [
+          "greet_introduce_self",
+          "ask_give_personal_information",
+          "ask_for_information_confirm",
+          "identify_locate_things",
+          "express_preference_taste",
+          "order_buy_pay",
+          "request_ask_someone_to_do",
+          "thank_apologise_respond",
+          "make_change_cancel_appointments",
+          "clarify_repair_ask_to_repeat",
+          "express_intention_plan_wish",
+          "describe_people_things_places",
+          "suggest_propose"
+        ],
+        "recognition": [
+          "give_follow_instructions_directions"
+        ]
+      },
+      "textTypes": {
+        "R": [
+          "sign_notice_short",
+          "menu_pricelist_timetable",
+          "personal_note_postcard",
+          "instant_message_chat",
+          "dialogue_face_to_face",
+          "public_announcement_spoken"
+        ],
+        "P": [
+          "form_application",
+          "personal_note_postcard",
+          "instant_message_chat",
+          "dialogue_face_to_face",
+          "service_encounter_counter"
+        ]
+      },
+      "vocabDomains": [
+        "numbers_quantity_units",
+        "time_calendar",
+        "colours_shapes_description",
+        "family_kinship_address_terms",
+        "food_cooking",
+        "home_objects_furniture",
+        "places_buildings_city",
+        "transport_travel_vocab",
+        "body_health_symptoms",
+        "weather_nature",
+        "school_study_terms",
+        "professions_workplace",
+        "fixed_expressions_collocations"
+      ],
+      "registers": {
+        "production": [
+          "haeyo_polite"
+        ],
+        "recognition": [],
+        "note": "neutral politeness only (please/thank you)"
+      }
+    },
+    "A2": {
+      "scale": {
+        "cambridge": "A2 Key (KET)",
+        "evpHeadwords": "≈1,500–2,000",
+        "note": "Waystage 1990",
+        "cefrjVocabulary": "1,411 headwords (CEFR-J Vocabulary Profile v1.5, repo copy — verified_repo)"
+      },
+      "canDo": {
+        "ko": "여행·숙박·건강·직업·교육·휴가·기술·경험·계획 — 과거(단순·진행), 기초 현재완료(경험), going to/will, 비교·최상급, 조동사(should/must/have to), 1형 조건문, 관계절 who/which/that.",
+        "en": "Everyday transactions and experiences: past simple/continuous, basic present perfect, going to/will, comparatives/superlatives, should/must/have to, first conditional, relative clauses.",
+        "de": "Alltagsabläufe und Erfahrungen."
+      },
+      "topics": [
+        {
+          "id": "travel_accommodation",
+          "focus": "Travel and holidays; accommodation",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "health_body",
+          "focus": "Health, medicine and exercise",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "work_career",
+          "focus": "Work and jobs",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "education_study",
+          "focus": "School and study; education",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "free_time_hobbies_sport",
+          "focus": "Holidays; entertainment; sport",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "media_entertainment_culture_pop",
+          "focus": "Entertainment and media",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "family_relationships",
+          "focus": "Relationships; people",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "transport_wayfinding",
+          "focus": "Transport",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "shopping_consumption",
+          "focus": "Shopping; services",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "technology_digital_ai",
+          "focus": "Technology (everyday devices)",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "feelings_character",
+          "focus": "Personal feelings, opinions and experiences",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "weather_nature_climate",
+          "focus": "The natural world; weather",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "services_public_admin",
+          "focus": "Services",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "house_home",
+          "focus": "House and home; places and buildings",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "daily_life_routines",
+          "focus": "Daily life; plans and experiences",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "communication_phone_digital",
+          "focus": "Phone; messages",
+          "required": false,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "neighbourhood_environment",
+          "focus": "Places and buildings; environment (local)",
+          "required": false,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        }
+      ],
+      "grammar": {
+        "items": [
+          {
+            "id": "en_a2_past_simple",
+            "form": "past simple (irregular verbs, questions/negatives)",
+            "category": "past",
+            "sources": [
+              "cefrj:65-1",
+              "egp:A2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a2_past_continuous",
+            "form": "past continuous",
+            "category": "past",
+            "sources": [
+              "cefrj:66",
+              "egp:A2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a2_present_perfect_basic",
+            "form": "present perfect — basic experience (I've been to London)",
+            "category": "present",
+            "sources": [
+              "cefrj:62",
+              "egp:B1"
+            ],
+            "note": "CEFR-J A2.1; EGP B1 — boundary item"
+          },
+          {
+            "id": "en_a2_going_to",
+            "form": "going to (plans)",
+            "category": "future",
+            "sources": [
+              "cefrj:122",
+              "egp:A2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a2_will",
+            "form": "will — predictions/decisions",
+            "category": "future",
+            "sources": [
+              "cefrj:141",
+              "egp:A2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a2_present_continuous_future",
+            "form": "present continuous for arrangements",
+            "category": "future",
+            "sources": [
+              "egp:A2",
+              "user_brief_2026_09_09"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a2_comparatives_superlatives",
+            "form": "comparatives/superlatives (more/most, -est)",
+            "category": "adjectives",
+            "sources": [
+              "cefrj:39",
+              "cefrj:40",
+              "cefrj:41",
+              "egp:A2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a2_countable_uncountable",
+            "form": "countable/uncountable; much/many/a lot of",
+            "category": "nouns",
+            "sources": [
+              "cefrj:18",
+              "egp:A2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a2_too_enough",
+            "form": "too / enough",
+            "category": "adverbs",
+            "sources": [
+              "cefrj:43",
+              "egp:B1"
+            ],
+            "note": "CEFR-J B2.1; EGP B1; brief A2 — three-way discrepancy, keep as A2 target"
+          },
+          {
+            "id": "en_a2_should_must_have_to",
+            "form": "should / must / have to",
+            "category": "modality",
+            "sources": [
+              "cefrj:139",
+              "cefrj:135",
+              "cefrj:127",
+              "egp:A2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a2_first_conditional",
+            "form": "first conditional (if + present, will)",
+            "category": "clauses",
+            "sources": [
+              "cefrj:156",
+              "egp:A2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a2_infinitive_gerund_basics",
+            "form": "infinitive/gerund basics (want to, like -ing)",
+            "category": "verbs",
+            "sources": [
+              "cefrj:101",
+              "cefrj:105",
+              "egp:A1-B1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a2_relative_clauses_basic",
+            "form": "relative clauses who/which/that",
+            "category": "clauses",
+            "sources": [
+              "cefrj:172",
+              "cefrj:174",
+              "egp:A2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a2_when_clauses",
+            "form": "adverbial clauses: when",
+            "category": "clauses",
+            "sources": [
+              "cefrj:155",
+              "egp:A2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a2_that_clauses",
+            "form": "verb + that-clause (think/know that)",
+            "category": "clauses",
+            "sources": [
+              "cefrj:152",
+              "cefrj:162",
+              "egp:A2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_a2_passive_basic",
+            "form": "passive: present/past simple (be + past participle)",
+            "category": "passives",
+            "sources": [
+              "cefrj:73",
+              "cefrj:76",
+              "egp:A2-B2"
+            ],
+            "note": "receptive at A2, productive B1"
+          },
+          {
+            "id": "en_a2_phrasal_verbs_basic",
+            "form": "common phrasal verbs",
+            "category": "verbs",
+            "sources": [
+              "cefrj:56",
+              "egp:A2"
+            ],
+            "note": ""
+          }
+        ],
+        "count": 17
+      },
+      "speechActs": {
+        "production": [
+          "narrate_experience_events",
+          "explain_reason_cause_effect",
+          "express_feelings_emotions",
+          "express_obligation_permission",
+          "advise_recommend_warn",
+          "invite_accept_decline",
+          "compare_contrast_alternatives",
+          "express_opinion_agree_disagree",
+          "small_talk_maintain_relationships",
+          "give_follow_instructions_directions",
+          "complain_object_appeal",
+          "report_relay_information"
+        ],
+        "recognition": []
+      },
+      "textTypes": {
+        "R": [
+          "email_informal",
+          "advertisement_leaflet",
+          "written_notice_announcement",
+          "explanatory_informational_text",
+          "narrative_story_diary",
+          "instructions_manual_recipe",
+          "phone_call"
+        ],
+        "P": [
+          "email_informal",
+          "narrative_story_diary",
+          "personal_note_postcard",
+          "phone_call",
+          "social_media_post_comment"
+        ]
+      },
+      "vocabDomains": [
+        "clothing_accessories",
+        "feelings_emotions_character",
+        "money_prices_banking",
+        "leisure_sport_hobbies_vocab",
+        "technology_devices_internet",
+        "media_pop_culture_vocab",
+        "public_services_admin_vocab",
+        "fixed_expressions_collocations"
+      ],
+      "registers": {
+        "production": [
+          "haeyo_polite",
+          "banmal_casual"
+        ],
+        "recognition": [],
+        "note": "contractions and informal chat"
+      }
+    },
+    "B1": {
+      "scale": {
+        "cambridge": "B1 Preliminary (PET)",
+        "evpHeadwords": "≈2,500–3,000",
+        "note": "Threshold 1990",
+        "cefrjVocabulary": "2,446 headwords (CEFR-J Vocabulary Profile v1.5, repo copy — verified_repo)"
+      },
+      "canDo": {
+        "ko": "직장·교육·환경·관계·미디어·기술·여행·건강·문화·사회 문제 — 완료 시제 대비, 과거완료, 미래 형태, 1·2형 조건문, 수동태, 간접화법, used to, 추측 조동사, 동명사/부정사, 구동사, 연결어 → connected discourse.",
+        "en": "Connected discourse: present perfect vs past simple, past perfect, future forms, first/second conditional, passive, reported speech, used to, modals of possibility/deduction, gerund vs infinitive, phrasal verbs, linking devices.",
+        "de": "Zusammenhängender Diskurs."
+      },
+      "topics": [
+        {
+          "id": "work_career",
+          "focus": "Work",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "education_study",
+          "focus": "Education",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "environment_sustainability",
+          "focus": "Environment",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "family_relationships",
+          "focus": "Relationships; relations with other people",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "media_entertainment_culture_pop",
+          "focus": "Media; entertainment",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "technology_digital_ai",
+          "focus": "Technology",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "travel_accommodation",
+          "focus": "Travel",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "health_body",
+          "focus": "Health",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "social_etiquette_customs",
+          "focus": "Culture; customs",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "daily_life_routines",
+          "focus": "Lifestyle",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "society_current_affairs",
+          "focus": "Social issues",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "free_time_hobbies_sport",
+          "focus": "Free time; hobbies",
+          "required": false,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "money_finance_contracts",
+          "focus": "Money; services",
+          "required": false,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "feelings_character",
+          "focus": "Personal feelings and opinions",
+          "required": false,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "intercultural_globalisation_migration",
+          "focus": "Culture and travel abroad",
+          "required": false,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        }
+      ],
+      "grammar": {
+        "items": [
+          {
+            "id": "en_b1_present_perfect_vs_past",
+            "form": "present perfect vs past simple",
+            "category": "present",
+            "sources": [
+              "cefrj:62-1",
+              "egp:B1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b1_present_perfect_continuous",
+            "form": "present perfect continuous",
+            "category": "present",
+            "sources": [
+              "cefrj:63",
+              "egp:B1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b1_past_perfect",
+            "form": "past perfect",
+            "category": "past",
+            "sources": [
+              "cefrj:67",
+              "egp:B1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b1_future_forms",
+            "form": "future forms (will/going to/present continuous/future continuous)",
+            "category": "future",
+            "sources": [
+              "cefrj:69-1",
+              "cefrj:70",
+              "egp:B1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b1_first_second_conditional",
+            "form": "first / second conditional",
+            "category": "clauses",
+            "sources": [
+              "cefrj:215",
+              "egp:B1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b1_passive",
+            "form": "passive voice (present, past, present perfect)",
+            "category": "passives",
+            "sources": [
+              "cefrj:73-1",
+              "cefrj:75",
+              "egp:B1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b1_reported_speech",
+            "form": "reported speech (say/tell + tense shift)",
+            "category": "reported speech",
+            "sources": [
+              "cefrj:200",
+              "cefrj:201",
+              "cefrj:203",
+              "egp:B1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b1_relative_clauses",
+            "form": "relative clauses (defining/non-defining)",
+            "category": "clauses",
+            "sources": [
+              "cefrj:181",
+              "egp:B1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b1_used_to",
+            "form": "used to",
+            "category": "past",
+            "sources": [
+              "cefrj:140",
+              "egp:B1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b1_modals_possibility",
+            "form": "might / may / could (possibility)",
+            "category": "modality",
+            "sources": [
+              "cefrj:132",
+              "cefrj:129",
+              "cefrj:124",
+              "egp:B1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b1_modals_deduction",
+            "form": "must / might / can't (deduction)",
+            "category": "modality",
+            "sources": [
+              "egp:B1-B2",
+              "user_brief_2026_09_09"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b1_gerund_vs_infinitive",
+            "form": "gerund vs infinitive (verb patterns)",
+            "category": "verbs",
+            "sources": [
+              "cefrj:103",
+              "cefrj:112",
+              "cefrj:114",
+              "egp:B1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b1_phrasal_verbs",
+            "form": "phrasal verbs (separable/inseparable)",
+            "category": "verbs",
+            "sources": [
+              "cefrj:55",
+              "cefrj:57",
+              "egp:B1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b1_linking_devices",
+            "form": "although / however / therefore / while",
+            "category": "discourse markers",
+            "sources": [
+              "egp:B1",
+              "user_brief_2026_09_09"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b1_indirect_questions",
+            "form": "indirect questions (Do you know where…?)",
+            "category": "questions",
+            "sources": [
+              "cefrj:202",
+              "cefrj:203",
+              "egp:B1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b1_reflexive_reciprocal",
+            "form": "reflexive and reciprocal pronouns",
+            "category": "pronouns",
+            "sources": [
+              "cefrj:23",
+              "cefrj:27",
+              "egp:B1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b1_be_able_to",
+            "form": "be able to; have to (past/future)",
+            "category": "modality",
+            "sources": [
+              "cefrj:121",
+              "egp:B1"
+            ],
+            "note": ""
+          }
+        ],
+        "count": 17
+      },
+      "speechActs": {
+        "production": [
+          "report_relay_information",
+          "summarise_reconstruct",
+          "express_certainty_doubt_hedging",
+          "evaluate_assess_critique",
+          "negotiate_compromise_conditions",
+          "persuade_argue_justify",
+          "reformulate_paraphrase_rewrite",
+          "congratulate_sympathise_comfort",
+          "refuse_set_boundaries"
+        ],
+        "recognition": [
+          "structure_discourse_open_close_scope"
+        ]
+      },
+      "textTypes": {
+        "R": [
+          "news_article_report",
+          "explanatory_informational_text",
+          "social_media_post_comment",
+          "email_letter_formal",
+          "lecture_speech_monologue",
+          "literary_text"
+        ],
+        "P": [
+          "email_letter_formal",
+          "narrative_story_diary",
+          "review_critique_text",
+          "presentation_briefing_talk",
+          "job_interview",
+          "explanatory_informational_text"
+        ]
+      },
+      "vocabDomains": [
+        "professions_workplace",
+        "society_economy_abstract_nouns",
+        "media_pop_culture_vocab",
+        "language_metalanguage",
+        "money_prices_banking",
+        "fixed_expressions_collocations"
+      ],
+      "registers": {
+        "production": [
+          "haeyo_polite",
+          "banmal_casual",
+          "hapsyo_formal_business"
+        ],
+        "recognition": [],
+        "note": "semi-formal email"
+      }
+    },
+    "B2": {
+      "scale": {
+        "cambridge": "B2 First (FCE)",
+        "evpHeadwords": "≈4,000–5,000",
+        "note": "Vantage 2001",
+        "cefrjVocabulary": "2,778 headwords (CEFR-J Vocabulary Profile v1.5, repo copy — verified_repo)"
+      },
+      "canDo": {
+        "ko": "사회·과학·환경·경제·고용·교육·미디어·세계화·윤리 — 2·3형·혼합 조건문, 고급 수동(It is believed that), 사역(have sth done), 고급 간접화법, modal perfect, 분사구문, wish/if only, 담화 표지(nevertheless/whereas/despite), 분열문.",
+        "en": "Argued social discourse: second/third/mixed conditionals, advanced passive, causative, advanced reported speech, modal perfects, participle clauses, wish/if only, discourse markers, cleft structures.",
+        "de": "Argumentierender Diskurs."
+      },
+      "topics": [
+        {
+          "id": "society_current_affairs",
+          "focus": "Society",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "science_research_evidence",
+          "focus": "Science",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "environment_sustainability",
+          "focus": "Environment",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "economy_business_labour",
+          "focus": "Economy; employment",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "work_career",
+          "focus": "Employment; careers",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "education_study",
+          "focus": "Education",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "media_entertainment_culture_pop",
+          "focus": "Media",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "arts_literature_history",
+          "focus": "Culture; the arts",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "intercultural_globalisation_migration",
+          "focus": "Globalisation",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "technology_digital_ai",
+          "focus": "Technology",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "ethics_philosophy_abstract",
+          "focus": "Ethical issues",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "politics_law_institutions",
+          "focus": "Law and institutions (everyday civic)",
+          "required": false,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "health_body",
+          "focus": "Health and lifestyle",
+          "required": false,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        }
+      ],
+      "grammar": {
+        "items": [
+          {
+            "id": "en_b2_second_third_conditional",
+            "form": "second / third conditional",
+            "category": "clauses",
+            "sources": [
+              "cefrj:215",
+              "egp:B2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b2_mixed_conditionals",
+            "form": "mixed conditionals (initial)",
+            "category": "clauses",
+            "sources": [
+              "egp:B2",
+              "user_brief_2026_09_09"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b2_advanced_passive",
+            "form": "advanced passive (It is believed that…, He is thought to…, future/perfect passive)",
+            "category": "passives",
+            "sources": [
+              "cefrj:79",
+              "cefrj:85",
+              "cefrj:91",
+              "cefrj:108",
+              "egp:B2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b2_causative",
+            "form": "causative have/get something done",
+            "category": "verbs",
+            "sources": [
+              "cefrj:207",
+              "egp:B2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b2_advanced_reported_speech",
+            "form": "advanced reported speech (reporting verbs + patterns)",
+            "category": "reported speech",
+            "sources": [
+              "cefrj:209",
+              "egp:B2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b2_modal_perfect",
+            "form": "modal perfect: should/might/must/can't have",
+            "category": "modality",
+            "sources": [
+              "cefrj:145",
+              "cefrj:145-1",
+              "egp:B2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b2_advanced_relative",
+            "form": "advanced relative clauses (prep + which/whom; whoever)",
+            "category": "clauses",
+            "sources": [
+              "cefrj:184",
+              "cefrj:188",
+              "egp:B2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b2_participle_clauses",
+            "form": "participial clauses (People living in cities…)",
+            "category": "clauses",
+            "sources": [
+              "cefrj:213",
+              "cefrj:169",
+              "egp:B2-C1"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b2_wish_if_only",
+            "form": "wish / if only",
+            "category": "modality",
+            "sources": [
+              "egp:B2",
+              "user_brief_2026_09_09"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b2_advanced_verb_patterns",
+            "form": "advanced gerund/infinitive patterns",
+            "category": "verbs",
+            "sources": [
+              "cefrj:93",
+              "cefrj:95",
+              "egp:B2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b2_discourse_markers",
+            "form": "nevertheless / whereas / despite / in spite of",
+            "category": "discourse markers",
+            "sources": [
+              "egp:B2",
+              "user_brief_2026_09_09"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b2_cleft_initial",
+            "form": "cleft structures (It was … who; What I need is …)",
+            "category": "focus",
+            "sources": [
+              "egp:B2-C1",
+              "user_brief_2026_09_09"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b2_comparison_advanced",
+            "form": "as … as; intensified comparatives (far/much)",
+            "category": "adjectives",
+            "sources": [
+              "cefrj:37",
+              "cefrj:51",
+              "egp:B1-B2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_b2_so_that_purpose",
+            "form": "so that / in order to (purpose)",
+            "category": "clauses",
+            "sources": [
+              "cefrj:160",
+              "cefrj:95",
+              "egp:B1-B2"
+            ],
+            "note": ""
+          }
+        ],
+        "count": 14
+      },
+      "speechActs": {
+        "production": [
+          "persuade_argue_justify",
+          "negotiate_compromise_conditions",
+          "complain_object_appeal",
+          "structure_discourse_open_close_scope",
+          "manage_turns_interrupt_hold_floor",
+          "evaluate_assess_critique",
+          "define_distinguish_terms",
+          "mediate_between_parties",
+          "adjust_register_speech_style"
+        ],
+        "recognition": [
+          "analyse_framing_implicature_presupposition"
+        ]
+      },
+      "textTypes": {
+        "R": [
+          "essay_opinion_argumentative",
+          "report_proposal_official",
+          "news_article_report",
+          "literary_text",
+          "meeting_formal_discussion"
+        ],
+        "P": [
+          "essay_opinion_argumentative",
+          "review_critique_text",
+          "report_proposal_official",
+          "email_letter_formal",
+          "meeting_formal_discussion",
+          "presentation_briefing_talk"
+        ]
+      },
+      "vocabDomains": [
+        "argumentation_evaluation_lexis",
+        "society_economy_abstract_nouns",
+        "institutional_legal_lexis",
+        "fixed_expressions_collocations"
+      ],
+      "registers": {
+        "production": [
+          "hapsyo_formal_business",
+          "haeyo_polite",
+          "banmal_casual"
+        ],
+        "recognition": [],
+        "note": "formal letters, essays"
+      }
+    },
+    "C1": {
+      "scale": {
+        "cambridge": "C1 Advanced (CAE)",
+        "evpHeadwords": "≈6,000+",
+        "note": "no closed inventory",
+        "cefrjVocabulary": "CEFR-J Vocabulary Profile covers A1–B2 only. C1/C2 counts come from the Octanove Vocabulary Profile C1/C2 v1.0 (C1 1,111 · C2 1,025, CC BY-SA 4.0) — cited, not vendored (copyleft)."
+      },
+      "canDo": {
+        "ko": "정치·경제·과학·윤리·전문·학술 — 도치(Rarely have I…), 분열문(What matters most is…), 고급 조건(Had I known), needn't have/ought to have, 생략·대용, 분사절, 명사화, hedging(appears to/tends to/arguably), 고급 결속 장치.",
+        "en": "Abstract and professional discourse: inversion, cleft sentences, advanced conditionals, needn't/ought to have, ellipsis and substitution, participle clauses, nominalisation, hedging, advanced cohesion.",
+        "de": "Abstrakter und professioneller Diskurs."
+      },
+      "topics": [
+        {
+          "id": "politics_law_institutions",
+          "focus": "Politics",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "economy_business_labour",
+          "focus": "Economics",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "science_research_evidence",
+          "focus": "Science",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "ethics_philosophy_abstract",
+          "focus": "Ethics; abstract debates; psychology",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "arts_literature_history",
+          "focus": "Culture; history",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "professional_specialised_fields",
+          "focus": "Professional life; academic issues",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "society_current_affairs",
+          "focus": "Social policy",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "media_entertainment_culture_pop",
+          "focus": "Media discourse",
+          "required": false,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "technology_digital_ai",
+          "focus": "Technology and society",
+          "required": false,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "environment_sustainability",
+          "focus": "Sustainability",
+          "required": false,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        }
+      ],
+      "grammar": {
+        "items": [
+          {
+            "id": "en_c1_inversion",
+            "form": "inversion after negative adverbials (Rarely have I seen…)",
+            "category": "focus",
+            "sources": [
+              "egp:C1",
+              "user_brief_2026_09_09"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_c1_cleft",
+            "form": "cleft sentences (What matters most is…)",
+            "category": "focus",
+            "sources": [
+              "egp:C1",
+              "user_brief_2026_09_09"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_c1_advanced_conditionals",
+            "form": "advanced conditionals (Had I known…; were … to; unless/provided)",
+            "category": "clauses",
+            "sources": [
+              "egp:C1",
+              "user_brief_2026_09_09"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_c1_advanced_modality",
+            "form": "needn't have / ought to have / dare / be bound to",
+            "category": "modality",
+            "sources": [
+              "egp:C1",
+              "user_brief_2026_09_09"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_c1_ellipsis_substitution",
+            "form": "ellipsis and substitution",
+            "category": "discourse",
+            "sources": [
+              "egp:C1",
+              "cambridge_b2_c1_c2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_c1_participle_clauses_advanced",
+            "form": "participle clauses (perfect/passive participles)",
+            "category": "clauses",
+            "sources": [
+              "egp:C1",
+              "user_brief_2026_09_09"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_c1_nominalisation",
+            "form": "nominalisation (The government's decision…)",
+            "category": "nouns",
+            "sources": [
+              "egp:C1",
+              "user_brief_2026_09_09"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_c1_hedging",
+            "form": "hedging: appears to / tends to / arguably / is likely to",
+            "category": "stance",
+            "sources": [
+              "egp:C1",
+              "user_brief_2026_09_09"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_c1_cohesive_devices",
+            "form": "advanced cohesive devices (reference chains, linking adverbials)",
+            "category": "discourse",
+            "sources": [
+              "egp:C1",
+              "cambridge_b2_c1_c2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_c1_word_formation",
+            "form": "word formation (prefix/suffix, conversion)",
+            "category": "lexis",
+            "sources": [
+              "cambridge_b2_c1_c2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_c1_formal_register",
+            "form": "formal register (cover letter, proposal language)",
+            "category": "register",
+            "sources": [
+              "cambridge_b2_c1_c2"
+            ],
+            "note": ""
+          }
+        ],
+        "count": 11
+      },
+      "speechActs": {
+        "production": [
+          "analyse_framing_implicature_presupposition",
+          "mediate_between_parties",
+          "define_distinguish_terms",
+          "reformulate_paraphrase_rewrite",
+          "express_certainty_doubt_hedging",
+          "evaluate_assess_critique",
+          "summarise_reconstruct"
+        ],
+        "recognition": []
+      },
+      "textTypes": {
+        "R": [
+          "academic_specialised_text",
+          "lecture_speech_monologue",
+          "literary_text",
+          "report_proposal_official",
+          "contract_terms_legal_text"
+        ],
+        "P": [
+          "essay_opinion_argumentative",
+          "report_proposal_official",
+          "review_critique_text",
+          "email_letter_formal",
+          "presentation_briefing_talk"
+        ]
+      },
+      "vocabDomains": [
+        "argumentation_evaluation_lexis",
+        "institutional_legal_lexis",
+        "arts_history_memory_lexis",
+        "language_metalanguage",
+        "fixed_expressions_collocations"
+      ],
+      "registers": {
+        "production": [
+          "hapsyo_formal_business",
+          "haeyo_polite",
+          "banmal_casual",
+          "intimate"
+        ],
+        "recognition": [],
+        "note": "register switching"
+      }
+    },
+    "C2": {
+      "scale": {
+        "cambridge": "C2 Proficiency (CPE)",
+        "evpHeadwords": "open (EVP C2 ≈ 7,000 headwords total)",
+        "note": "no closed inventory",
+        "cefrjVocabulary": "CEFR-J Vocabulary Profile covers A1–B2 only. C1/C2 counts come from the Octanove Vocabulary Profile C1/C2 v1.0 (C1 1,111 · C2 1,025, CC BY-SA 4.0) — cited, not vendored (copyleft)."
+      },
+      "canDo": {
+        "ko": "새 시제가 아니라 register control, idiom, collocation, subtle modality, rhetorical structures, pragmatic meaning, ellipsis, fronting, inversion, information structure, metaphor, irony, understatement, hedging, stance, genre conventions.",
+        "en": "Full control of register, idiom, collocation, subtle modality, rhetoric, pragmatics, information structure, metaphor, irony, understatement, stance and genre conventions.",
+        "de": "Volle Kontrolle über Register, Idiomatik, Modalität, Rhetorik und Pragmatik."
+      },
+      "topics": [
+        {
+          "id": "ethics_philosophy_abstract",
+          "focus": "Any topic — no restriction (abstract, philosophical)",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "politics_law_institutions",
+          "focus": "Any topic — political and legal",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "science_research_evidence",
+          "focus": "Any topic — scientific",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "arts_literature_history",
+          "focus": "Any topic — literary, historical, artistic",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "professional_specialised_fields",
+          "focus": "Any topic — professional and specialised",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "economy_business_labour",
+          "focus": "Any topic — economic",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "society_current_affairs",
+          "focus": "Any topic — social",
+          "required": true,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "media_entertainment_culture_pop",
+          "focus": "Satire, irony, media critique",
+          "required": false,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        },
+        {
+          "id": "technology_digital_ai",
+          "focus": "Technology ethics",
+          "required": false,
+          "sources": [
+            "cambridge_a2_key",
+            "threshold_1990",
+            "user_brief_2026_09_09"
+          ],
+          "provenance": "model_knowledge"
+        }
+      ],
+      "grammar": {
+        "items": [
+          {
+            "id": "en_c2_register_control",
+            "form": "register control across genres",
+            "category": "register",
+            "sources": [
+              "egp:C2",
+              "user_brief_2026_09_09"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_c2_idiom_collocation",
+            "form": "idiomatic language and collocation",
+            "category": "lexis",
+            "sources": [
+              "egp:C2",
+              "evp"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_c2_subtle_modality",
+            "form": "subtle modality and stance",
+            "category": "modality",
+            "sources": [
+              "egp:C2",
+              "user_brief_2026_09_09"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_c2_rhetorical_structures",
+            "form": "rhetorical structures; genre conventions",
+            "category": "discourse",
+            "sources": [
+              "cambridge_b2_c1_c2",
+              "user_brief_2026_09_09"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_c2_pragmatic_meaning",
+            "form": "pragmatic meaning: irony, understatement, metaphor",
+            "category": "pragmatics",
+            "sources": [
+              "cefr_cv_2020",
+              "user_brief_2026_09_09"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_c2_information_structure",
+            "form": "fronting, inversion, information structure",
+            "category": "focus",
+            "sources": [
+              "egp:C2",
+              "user_brief_2026_09_09"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_c2_ellipsis_advanced",
+            "form": "ellipsis in spoken and written text",
+            "category": "discourse",
+            "sources": [
+              "egp:C2"
+            ],
+            "note": ""
+          },
+          {
+            "id": "en_c2_hedging_advanced",
+            "form": "hedging and stance in academic/professional writing",
+            "category": "stance",
+            "sources": [
+              "cefr_cv_2020",
+              "user_brief_2026_09_09"
+            ],
+            "note": ""
+          }
+        ],
+        "count": 8
+      },
+      "speechActs": {
+        "production": [
+          "analyse_framing_implicature_presupposition",
+          "adjust_register_speech_style",
+          "reformulate_paraphrase_rewrite",
+          "mediate_between_parties",
+          "evaluate_assess_critique",
+          "persuade_argue_justify",
+          "manage_turns_interrupt_hold_floor"
+        ],
+        "recognition": []
+      },
+      "textTypes": {
+        "R": [
+          "academic_specialised_text",
+          "literary_text",
+          "news_article_report",
+          "lecture_speech_monologue",
+          "contract_terms_legal_text"
+        ],
+        "P": [
+          "essay_opinion_argumentative",
+          "report_proposal_official",
+          "review_critique_text",
+          "academic_specialised_text",
+          "presentation_briefing_talk"
+        ]
+      },
+      "vocabDomains": [
+        "argumentation_evaluation_lexis",
+        "arts_history_memory_lexis",
+        "institutional_legal_lexis",
+        "fixed_expressions_collocations"
+      ],
+      "registers": {
+        "production": [
+          "hapsyo_formal_business",
+          "haeyo_polite",
+          "banmal_casual",
+          "intimate"
+        ],
+        "recognition": [],
+        "note": "full register control"
+      }
+    }
+  },
+  "authoringProvenance": {
+    "status": "mixed_inventory_and_authored_reconstruction",
+    "policy": "보유 원 인벤토리의 항목·급 사실만 verified_repo이다. 주제·화행·장르·그룹화·교수 순서의 저자 재구성과 항목 단위 대조가 없는 설명은 model_knowledge이다.",
+    "primaryAccessRegistry": "source_access.json",
+    "reviewStatus": "model_reviewed_human_review_pending"
+  }
+}

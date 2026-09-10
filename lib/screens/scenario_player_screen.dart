@@ -1291,6 +1291,24 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
             ).gloss.copyWith(color: ss.textMuted, height: 1.7),
             textAlign: TextAlign.center,
           ),
+          if (s.playerCharacterId.isNotEmpty) ...[
+            const SizedBox(height: Spacing.md),
+            Text.rich(
+              TextSpan(
+                children: [
+                  TextSpan(text: '${t.scenarioAssignedRole}: '),
+                  TextSpan(
+                    text: s.playerRoleDisplayName(
+                      fallbackYou: t.listeningSpeakerYou,
+                    ),
+                    style: const TextStyle(fontWeight: FontWeight.w700),
+                  ),
+                ],
+              ),
+              style: SoriTextTheme.of(context).meta.copyWith(color: ss.text),
+              textAlign: TextAlign.center,
+            ),
+          ],
           const SizedBox(height: Spacing.lg),
           SoriBadge.level(s.level.display, size: 28),
         ],
@@ -1547,11 +1565,8 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                                       Text(
                                         sc.speakerDisplayName(
                                           line.speaker,
-                                          languageCode: lang,
                                           fallbackYou: t.listeningSpeakerYou,
                                           fallbackNarrator: t.listeningNarrator,
-                                          playerSelfSuffix:
-                                              t.scenarioPlayerSelfSuffix,
                                         ),
                                         style: SoriTextTheme.of(context).meta
                                             .copyWith(
