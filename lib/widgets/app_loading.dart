@@ -65,26 +65,30 @@ class _AppLoadingState extends State<AppLoading>
         widget.message ??
         Localizations.of<AppL10n>(context, AppL10n)?.speechIndicatorResolving ??
         '';
+    final visualSize = widget.asset != null ? widget.assetSize : 58.0;
     final visualContent = Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        SizedBox(
-          width: widget.asset != null ? widget.assetSize : 58,
-          height: widget.asset != null ? widget.assetSize : 58,
-          child: reduceMotion
-              ? _visual(0)
-              : AnimatedBuilder(
-                  key: const Key('app-loading-pulse'),
-                  animation: _ctrl,
-                  builder: (_, __) {
-                    final wave = _ctrl.value < 0.5
-                        ? _ctrl.value * 2
-                        : (1 - _ctrl.value) * 2;
-                    return _visual(
-                      Curves.easeInOut.transform(wave.clamp(0.0, 1.0)),
-                    );
-                  },
-                ),
+        Padding(
+          padding: EdgeInsets.all(visualSize * 0.015),
+          child: SizedBox(
+            width: visualSize,
+            height: visualSize,
+            child: reduceMotion
+                ? _visual(0)
+                : AnimatedBuilder(
+                    key: const Key('app-loading-pulse'),
+                    animation: _ctrl,
+                    builder: (_, __) {
+                      final wave = _ctrl.value < 0.5
+                          ? _ctrl.value * 2
+                          : (1 - _ctrl.value) * 2;
+                      return _visual(
+                        Curves.easeInOut.transform(wave.clamp(0.0, 1.0)),
+                      );
+                    },
+                  ),
+          ),
         ),
         if (widget.message != null) ...[
           const SizedBox(height: 16),
@@ -95,26 +99,15 @@ class _AppLoadingState extends State<AppLoading>
         ],
       ],
     );
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final content = Center(
-          child: Semantics(
-            liveRegion: true,
-            label: statusLabel,
-            child: ExcludeSemantics(child: visualContent),
-          ),
-        );
-        if (!constraints.hasBoundedHeight) {
-          return content;
-        }
-        return SingleChildScrollView(
-          child: ConstrainedBox(
-            constraints: BoxConstraints(minHeight: constraints.maxHeight),
-            child: content,
-          ),
-        );
-      },
+    final content = Semantics(
+      liveRegion: true,
+      label: statusLabel,
+      child: ExcludeSemantics(child: visualContent),
     );
+    if (Scrollable.maybeOf(context, axis: Axis.vertical) != null) {
+      return Center(child: content);
+    }
+    return Center(child: SingleChildScrollView(child: content));
   }
 
   Widget _visual(double pulse) {

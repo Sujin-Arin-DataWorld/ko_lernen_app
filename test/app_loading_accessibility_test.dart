@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/widgets/app_loading.dart';
+import 'package:ko_lernen_app/widgets/sori/responsive.dart';
 
 import 'support/real_fonts.dart';
 
@@ -77,6 +78,27 @@ void main() {
     await tester.pump();
 
     expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('supports a viewport-filling intrinsic scroll parent', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _localizedHost(
+        const SoriMinHeightScroll(
+          minHeight: 320,
+          fillViewport: true,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [AppLoading(message: 'Wird geladen')],
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    expect(tester.takeException(), isNull);
+    _expectOneLiveStatus(tester, 'Wird geladen');
   });
 
   testWidgets('does not require MediaQuery or localization delegates', (

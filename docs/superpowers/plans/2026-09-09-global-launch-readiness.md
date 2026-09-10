@@ -272,13 +272,36 @@ harvest placeholder였다. GitHub 저장소/릴리스 환경에서 심볼 전용
   Android evidence 및 tool config 검사 실행. 리뷰에서 버전·플랫폼·archive 검증·member 해시를
   대조하고, 사용 준비와 실제 gate 활성화/서버 업로드를 구분한다. 앱 코드 12파일은 유지한다.
 
+### Task 7: Repair loading regressions found by PR CI
+
+**Trigger:** PR #294의 첫 head `24a77f79`에서 선택된 Flutter 225파일은
+2686 성공·13 실패·7 skip이었다. Playwright 6개와 나머지 선택된 CI gate는 성공했다.
+실패한 네 파일의 로컬 재현도 103 성공·13 실패로 일치했다. 단어장의 `SoriMinHeightScroll`
+내부 `IntrinsicHeight`가 `AppLoading`의 `LayoutBuilder`에 내재 높이를 요청했고,
+온보딩은 소비 화면과 공통 위젯 양쪽에 동일한 Semantics label이 선언되어 있었다.
+이는 두 번의 실제 TalkBack 발화를 관측했다는 뜻은 아니다.
+
+**Files:** `lib/widgets/app_loading.dart`, 실제 온보딩·단어장 소비 화면,
+`test/app_loading_accessibility_test.dart`.
+
+- [x] **Step 1: Reproduce the CI failures and intrinsic-layout regression.** 실패 화면을
+  그대로 재현하고 공통 로딩의 `SoriMinHeightScroll` 회귀 검사를 먼저 실패시킨다.
+- [x] **Step 2: Preserve single-owner semantics and intrinsic-compatible loading.** 기존
+  세로 스크롤을 재사용하고 독립 로딩은 짧은 화면에서 스크롤한다. 애니메이션의 자연 높이,
+  reduced motion, DE/EN 큰 글자, Today의 중첩 스크롤 계약을 보존한다.
+- [x] **Step 3: Verify and independently review the delta.** 실패 화면과 관련 로딩·반응형·Today
+  13파일 830개 검사와 수정 4파일 분석·형식 검사를 통과했다. Standards/Spec 및 correctness
+  리뷰 모두 승인, 행동 가능한 지적 0건이다. 같은 PR에 추가할 수정본이며 이후 원격 head의
+  CI 결과와 서명 후보·기기 결과는 PR 및 외부 검증 영수증에 정확한 SHA로 연결한다.
+
 ### Verification evidence
 
 2026-09-10 로컬 후보의 검증 결과다. 서로 겹치는 실행 횟수는 더하지 않는다.
 
 | 검사 | 결과 | 범위와 한계 |
 | --- | --- | --- |
-| Flutter 최종 회귀 | 24파일 207/207 | 모든 발견된 TTS 테스트와 로딩·소비 화면·시작·동의 보호 검사 |
+| PR 이전 Flutter 회귀 | 24파일 207/207 | TTS와 일부 로딩·소비 화면·시작·동의 보호 검사. PR의 더 넓은 225파일 검사에서 발견된 13개 회귀는 Task 7에서 수정 |
+| Task 7 로딩 회귀 | 13파일 830/830, 수정 4파일 분석 무문제·형식 변경 0건 | 실제 intrinsic-parent 검사 RED 0/-1 후 GREEN 1/1. 후속 수정은 두 축 및 correctness 독립 리뷰 승인. 새 PR head의 원격 검사는 별도 |
 | 정적 분석·형식 | 전체 analyze 무문제, 후속 로딩 수정 3파일 재분석 성공, 수정 Dart 8파일 형식 일치, diff 공백 검사 성공 | 로컬 Flutter 3.44.8 / Dart 3.12.2. CI는 Flutter 3.44.0 |
 | 서버 TTS | Node 22.23.2 전체 64/64 | handler 오류 주입과 개인정보 canary, quota·재실행·계정 경계 포함 |
 | 릴리스 웹 | 빌드 성공, Playwright 6/6 | Chromium·Firefox·WebKit 각각 390×844 / 1440×960의 동의 화면 시작·그리기. production 요청 차단 |
@@ -293,4 +316,5 @@ harvest placeholder였다. GitHub 저장소/릴리스 환경에서 심볼 전용
 검증 로그·빌드 지문·시각 보고서는
 `C:/dev/hangulsori/_codex_artifacts/global-launch-readiness-20260909/`에 보존했다.
 기존 릴리스 계약 로그는 상위 `_codex_artifacts/global-launch-release-contracts-20260909.log`다.
-현재 후보는 미커밋이므로 원격 main의 성공한 CI 및 다른 작업의 스토어 업로드와 구별한다.
+PR #294의 첫 커밋은 `24a77f79`다. Task 7 이후 최신 head의 원격 CI와 서명·기기 검증 결과는
+해당 PR 및 외부 검증 영수증을 확인한다. 기존 main CI와 2278 업로드는 이 후보의 증거가 아니다.

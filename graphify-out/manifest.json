@@ -1764,9 +1764,9 @@
     "semantic_hash": ""
   },
   "lib/screens/vocab_notebook_studio_screen.dart": {
-    "mtime": 1788987817.1969512,
-    "seen": 1788995056.9173975,
-    "ast_hash": "2963f14579218227443bb36948d68174",
+    "mtime": 1789018896.2664447,
+    "seen": 1789019606.2167468,
+    "ast_hash": "f62ce28714c37833d0ba90e4a11abb5b",
     "semantic_hash": ""
   },
   "lib/screens/vocab_nuance_screen.dart": {
@@ -2670,9 +2670,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/app_loading.dart": {
-    "mtime": 1788992755.2040217,
-    "seen": 1788995056.9178576,
-    "ast_hash": "8ec6d8eeb7f6ee95eba31a46a9caee40",
+    "mtime": 1789018861.958031,
+    "seen": 1789019606.2577803,
+    "ast_hash": "005478af9ee9b45b6b7004a715e5677a",
     "semantic_hash": ""
   },
   "lib/widgets/flip_card.dart": {
@@ -11262,9 +11262,9 @@
     "semantic_hash": ""
   },
   "lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart": {
-    "mtime": 1788987817.1498487,
-    "seen": 1788995056.9172773,
-    "ast_hash": "af2c42f31e51174a56b9593bc8c447f9",
+    "mtime": 1789018896.250964,
+    "seen": 1789019606.204678,
+    "ast_hash": "cc90fdef878a7952182a7da939191435",
     "semantic_hash": ""
   },
   "lib/screens/onboarding_v2/onboarding_v2_presentation.dart": {
@@ -15504,9 +15504,9 @@
     "semantic_hash": ""
   },
   "test/app_loading_accessibility_test.dart": {
-    "mtime": 1788992755.215181,
-    "seen": 1788995056.918278,
-    "ast_hash": "ad0108d3716725ac6eae1a75bbc8e68f",
+    "mtime": 1789018697.455894,
+    "seen": 1789019606.2970011,
+    "ast_hash": "5306afb2117031d025f94fc96f813fd0",
     "semantic_hash": ""
   },
   "test/tts_cache_recovery_test.dart": {
@@ -15516,15 +15516,15 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-09-global-launch-readiness.md": {
-    "mtime": 1789017172.727987,
-    "seen": 1789017326.317126,
-    "ast_hash": "3029d5155b4c4ad46706fe706d5d0be6",
+    "mtime": 1789019453.3254693,
+    "seen": 1789019606.6724648,
+    "ast_hash": "54be9308de2a6e78b58c55211bdbf8cf",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-09-global-launch-readiness-design.md": {
-    "mtime": 1789017172.728994,
-    "seen": 1789017326.319998,
-    "ast_hash": "9ab850ca328b8bb83580153e12848995",
+    "mtime": 1789019088.5587032,
+    "seen": 1789019606.6755655,
+    "ast_hash": "9a7dbaedcf9ff581db78728c13356c1c",
     "semantic_hash": ""
   },
   "docs/runbooks/android-release-tools-provenance.json": {

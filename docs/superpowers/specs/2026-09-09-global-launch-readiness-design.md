@@ -12,8 +12,10 @@ Git 객체와 수정 파일 해시가 동일하므로 앱 빌드 입력과 검�
 현재 판단은 **정식 출시 보류, 검증된 수정 후 출시 후보 검수 진행**이다. 시작 기준의 CI와
 브라우저 검사는 성공했고 #290 병합 메인의 CI와 브라우저 검사도 모두 성공했다.
 #291 병합 메인의 CI와 브라우저 검사도 모두 성공했다. `92353147`의 CI는 취소되었고 브라우저
-검사는 성공했다. 현재 `7e844d1b`의 CI와 브라우저 검사는 모두 성공했다. 이 작업의
-미커밋 수정은 해당 CI에 아직 포함되지 않는다.
+검사는 성공했다. 현재 `7e844d1b`의 CI와 브라우저 검사는 모두 성공했다. 이 작업은
+`24a77f79`로 커밋·푸시해 PR #294를 만들었다. 첫 PR CI의 Flutter 선택 검사에서
+2686 성공·13 실패·7 skip을 확인했고, 로딩 위젯의 내재 높이 호환성과 소비 화면의 중복
+Semantics 선언을 Task 7에서 수정한다. Playwright 6개와 나머지 선택된 gate는 성공했다.
 이 기록은 최신 코드의 스토어 배포·실기기 안정성·운영 설정까지 증명하지는
 않는다. 기능 수를 늘리기보다 학습 완료까지의 신뢰성을 먼저 확보한다.
 
@@ -35,7 +37,7 @@ Standards/Spec 리뷰를 통과했고, correctness/security 검토의 행동 가
 | 영역 | 현재 직접 확인 | 아직 필요한 근거 |
 | --- | --- | --- |
 | 기준 코드 | `7e844d1b`, 전용 작업 공간. 기본 main은 사용자 소유이며 이번 작업에서 수정하지 않음 | 통합 후 새 main SHA 검증 |
-| 자동 검증 | 7e844d1b CI [34412918695](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/34412918695)·Playwright [34412918702](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/34412918702) 모두 성공. 미커밋 후보는 로컬 검증 후 별도 CI 필요 | 수정 후보 및 통합 SHA 검사 |
+| 자동 검증 | PR #294 첫 head 24a77f79의 CI [34440487223](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/34440487223)는 로딩 회귀 13개로 실패. Playwright [34440487213](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/34440487213)는 6/6 성공 | Task 7 수정 이후 정확한 PR head의 필수 검사. 최신 결과는 PR 및 외부 영수증 확인 |
 | 로컬 후보 검증 | Flutter 관련 24파일 207/207, Node 22 TTS 64/64, 전체 분석 무문제 및 후속 수정 3파일 재분석 성공. release 웹 빌드와 기존 6브라우저 시작·그리기 검사 성공(3.4분). 선언된 에셋·글꼴 887개가 웹 산출물에 모두 존재 | 수정 후보의 원격 CI, 실기기 음성·계정·진척 저장 검증 |
 | 수동 웹 화면 | DE 동의 화면·Today·미션 데모를 1280×720 / 320×640에서 직접 확인. 좁은 화면의 본문·CTA가 표시되고 데모 뒤로 가기·닫기가 동작함. 임시 viewport 복원 | fixture 데이터의 무동작 학습 콜백은 실제 사용자 전체 학습 여정·음성 출력·진척 저장 검수를 대신하지 않음 |
 | Android 배포 | Play Console 직접 확인: Alpha는 `16 · closed · 43769596`, versionCode 2266 / 2.0.9, 9월 7일 테스터에게 전체 출시, 177/177개 국가. CI [34155908835](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/34155908835)와 SHA 일치 | 새 후보 AAB의 versionCode, 트랙 처리·설치 증거. 로컬 pubspec의 +37은 스토어 versionCode가 아님 |
@@ -51,7 +53,7 @@ Standards/Spec 리뷰를 통과했고, correctness/security 검토의 행동 가
 | 시작·동의 | 시작·계정 저널·동의 관련 기존 테스트 성공 | 실제 계정 연결·삭제·재설치 복구 시나리오 |
 | 병행 작업 | PR #289 CEFR 내용 감사 OPEN (`03437a6f`), #290 끝말잇기·#291 표기 감사·#292 B2 카드·#293 한옥 보관 MERGED; #285 배포/업데이트 알림은 별개의 과거 OPEN PR | #289 작업과 충돌 여부, #285 필요 변경의 별도 검토. 이번 심볼 pin·runbook·provenance는 #285 파일과 겹치지 않음 |
 | 기기 | `adb devices` 연결 기기 없음. emulator 실행 파일은 있으나 AVD와 system image 없음 | 실기기 설치, cold start, 음성·녹음·권한·백그라운드 전환 |
-| 로컬 빌드 환경 | Flutter 3.44.8/Dart 3.12.2, Android SDK 36, JDK 21 확인. 이 작업 공간에 Android 서명 설정 없음, 일부 SDK 라이선스 미수락 | CI 고정 Flutter 3.44.0의 최종 SHA 검사, 승인된 서명 빌드와 기기 설치. 로컬 결과를 서명 AAB/IPA로 표시하지 않음 |
+| 로컬 빌드 환경 | Flutter 3.44.8/Dart 3.12.2, Android SDK 36, NDK 28.2, JDK 21 확인. 기존 로컬 release key의 unlock과 2278 업로드 인증서 일치를 확인했으며 원본 설정·키는 수정하지 않음. 일부 SDK 라이선스는 미수락 | CI 고정 Flutter 3.44.0의 최종 SHA 검사 후 임시 ignored 설정으로 서명 빌드·검증. 업로드 인증서와 Play 설치 인증서는 구별하며 실제 설치·업데이트는 기기에서 확인 |
 | 운영 함수 | 9월 9일 조회에서 Gen2 33개 ACTIVE 확인. 9월 8일 15:46–15:47 UTC에 `synthesize-tts` HTTP 500 5건 | 해당 500의 원인과 수정/배포 후 정상 호출. 현재 로그는 `internal`만 남아 원인 구별 불가 |
 | 설치 용량 | #292 반영 후 pubspec 직접 선언 에셋·글꼴 887개, 원본 280,386,448 bytes. 회전 이미지 44.5MB, 장면 배경 38.8MB, 캐릭터 영상 23.3MB | 생성된 asset manifest와 AAB/IPA의 실제 압축 다운로드·설치 크기, 화면별 이미지 decode 메모리 |
 

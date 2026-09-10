@@ -487,14 +487,7 @@ class _OnboardingLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Semantics(
-          container: true,
-          liveRegion: true,
-          label: message,
-          child: ExcludeSemantics(child: AppLoading(message: message)),
-        ),
-      ),
+      body: SafeArea(child: AppLoading(message: message)),
     );
   }
 }
