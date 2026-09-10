@@ -15783,7 +15783,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story1Eyebrow.
   ///
   /// In de, this message translates to:
-  /// **'Dein wachsendes Hanok'**
+  /// **'Bauziel: 12 Schritte'**
   String get onboardingV2Story1Eyebrow;
 
   /// No description provided for @onboardingV2Story1Title.
@@ -15795,7 +15795,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story1Body.
   ///
   /// In de, this message translates to:
-  /// **'문 heißt Tür. Erlebe, wie Lernen diesem Hanok Gestalt gibt.'**
+  /// **'Dein Hanok entsteht Schritt für Schritt. Allein die Sarangchae umfasst 12 Bauabschnitte.'**
   String get onboardingV2Story1Body;
 
   /// No description provided for @onboardingV2Story1Status.
@@ -15807,7 +15807,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story1HeroSemantics.
   ///
   /// In de, this message translates to:
-  /// **'Vorschau eines Hanok, das mit bestätigten Lernleistungen wächst.'**
+  /// **'Bauziel: die fertige Sarangchae nach zwölf Bauabschnitten, keine bereits verdiente Belohnung.'**
   String get onboardingV2Story1HeroSemantics;
 
   /// No description provided for @onboardingV2Story1Item1Title.
@@ -16083,25 +16083,25 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story4Eyebrow.
   ///
   /// In de, this message translates to:
-  /// **'Demo'**
+  /// **'Bauziel: 12 Schritte'**
   String get onboardingV2Story4Eyebrow;
 
   /// No description provided for @onboardingV2Story4Title.
   ///
   /// In de, this message translates to:
-  /// **'Dein Wort. Dein wachsender Hanok.'**
+  /// **'Bauziel: Sarangchae in 12 Schritten'**
   String get onboardingV2Story4Title;
 
   /// No description provided for @onboardingV2Story4Body.
   ///
   /// In de, this message translates to:
-  /// **'Wähle 문, sieh dein Hanok wachsen und öffne dann das Bojagi.'**
+  /// **'Erreichte Lernziele begleiten den schrittweisen Ausbau. Eine einzelne richtige Antwort vollendet keinen Bauabschnitt. Hier kannst du ein Wort wiedererkennen und das Bojagi ausprobieren.'**
   String get onboardingV2Story4Body;
 
   /// No description provided for @onboardingV2Story4HeroSemantics.
   ///
   /// In de, this message translates to:
-  /// **'Lerndemo: 문 erkennen, den sichtbaren Hanok-Ausbau ansehen und danach ein Bojagi öffnen.'**
+  /// **'Lerndemo mit unverändertem Bauziel: 문 erkennen und ein Bojagi ausprobieren. Kein Bauabschnitt wird abgeschlossen.'**
   String get onboardingV2Story4HeroSemantics;
 
   /// No description provided for @onboardingV2Story4Status.
@@ -17607,7 +17607,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2RecognitionCorrect.
   ///
   /// In de, this message translates to:
-  /// **'Richtig! Dein Hanok wächst.'**
+  /// **'문 = Tür'**
   String get onboardingV2RecognitionCorrect;
 
   /// No description provided for @onboardingV2UnwrapGift.
@@ -17706,16 +17706,10 @@ abstract class AppL10n {
   /// **'Umdrehen'**
   String get onboardingV3FlipCard;
 
-  /// No description provided for @onboardingV2HanokGrowthBeforeSemantics.
-  ///
-  /// In de, this message translates to:
-  /// **'Ein Hof mit Platz für dein Hanok.'**
-  String get onboardingV2HanokGrowthBeforeSemantics;
-
   /// No description provided for @onboardingV2HanokGrowthAfterSemantics.
   ///
   /// In de, this message translates to:
-  /// **'Die Sarangchae von Ildu Gotaek.'**
+  /// **'Bauziel: Sarangchae nach zwölf Bauabschnitten. Diese Vorschau zeigt keinen Lernfortschritt.'**
   String get onboardingV2HanokGrowthAfterSemantics;
 
   /// No description provided for @onboardingV3MapPreviewTitle.
@@ -17733,7 +17727,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2DiscoverGift.
   ///
   /// In de, this message translates to:
-  /// **'Geschenk entdecken'**
+  /// **'Bojagi ausprobieren'**
   String get onboardingV2DiscoverGift;
 
   /// No description provided for @onboardingV2ReplayDemo.

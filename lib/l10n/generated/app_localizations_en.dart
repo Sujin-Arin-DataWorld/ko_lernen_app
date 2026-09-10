@@ -9256,14 +9256,14 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get onboardingV2Story1Eyebrow => 'Your growing Hanok';
+  String get onboardingV2Story1Eyebrow => 'Goal: 12 stages';
 
   @override
   String get onboardingV2Story1Title => 'Your Hanok grows with your Korean.';
 
   @override
   String get onboardingV2Story1Body =>
-      '문 means door. See how learning gives this Hanok its shape.';
+      'Your Hanok takes shape step by step. The Sarangchae alone has 12 construction stages.';
 
   @override
   String get onboardingV2Story1Status =>
@@ -9271,7 +9271,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2Story1HeroSemantics =>
-      'Preview of a Hanok that grows through verified learning.';
+      'Construction goal: the finished Sarangchae after twelve stages, not an earned reward.';
 
   @override
   String get onboardingV2Story1Item1Title => 'A1 to C2 learning path';
@@ -9432,18 +9432,18 @@ class AppL10nEn extends AppL10n {
       'Available now: favorites, saved items, and words due today are separate views in the study library. The current review engine supports words only; other saved content stays without a fake review action.';
 
   @override
-  String get onboardingV2Story4Eyebrow => 'Demo';
+  String get onboardingV2Story4Eyebrow => 'Goal: 12 stages';
 
   @override
-  String get onboardingV2Story4Title => 'Your word. Your growing Hanok.';
+  String get onboardingV2Story4Title => 'Goal: Sarangchae in 12 stages';
 
   @override
   String get onboardingV2Story4Body =>
-      'Choose 문, watch your Hanok grow, then unwrap the Bojagi.';
+      'Achieved learning goals support construction over time. One correct answer does not complete a construction stage. Here you can recognise a word and try opening the Bojagi.';
 
   @override
   String get onboardingV2Story4HeroSemantics =>
-      'Learning demo: recognize 문, see the Hanok grow, then unwrap a Bojagi.';
+      'Learning demo with an unchanged construction goal: recognise 문 and try opening a Bojagi. No construction stage is completed.';
 
   @override
   String get onboardingV2Story4Status =>
@@ -10331,7 +10331,7 @@ class AppL10nEn extends AppL10n {
   String get onboardingV2RecognitionRetry => 'Hint: ㅁ + ㅜ + ㄴ.';
 
   @override
-  String get onboardingV2RecognitionCorrect => 'Correct! Your Hanok grows.';
+  String get onboardingV2RecognitionCorrect => '문 = door';
 
   @override
   String get onboardingV2UnwrapGift => 'Unwrap the bojagi';
@@ -10383,12 +10383,8 @@ class AppL10nEn extends AppL10n {
   String get onboardingV3FlipCard => 'Turn over';
 
   @override
-  String get onboardingV2HanokGrowthBeforeSemantics =>
-      'A courtyard with room for your Hanok.';
-
-  @override
   String get onboardingV2HanokGrowthAfterSemantics =>
-      'The Sarangchae of Ildu Gotaek.';
+      'Construction goal: Sarangchae after twelve stages. This preview does not show learning progress.';
 
   @override
   String get onboardingV3MapPreviewTitle => 'Explore Ildu Gotaek';
@@ -10398,7 +10394,7 @@ class AppL10nEn extends AppL10n {
       'From the entrance gate to the Sarangchae: discover the courtyard that grows with your learning. A first look at the planned journey.';
 
   @override
-  String get onboardingV2DiscoverGift => 'Discover your gift';
+  String get onboardingV2DiscoverGift => 'Try the Bojagi';
 
   @override
   String get onboardingV2ReplayDemo => 'Replay demo';

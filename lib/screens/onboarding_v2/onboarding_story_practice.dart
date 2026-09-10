@@ -16,7 +16,6 @@ const learnedWord = '문';
 const learnedExample = '문을 열어요.';
 const composition = 'ㅁ + ㅜ + ㄴ → 문';
 const _jamoParts = 'ㅁ + ㅜ + ㄴ';
-const _growthDuration = Duration(milliseconds: 420);
 
 /// Ephemeral learning demonstration. Leaving the page discards its state.
 class OnboardingJamoPractice extends StatefulWidget {
@@ -171,13 +170,10 @@ class _OnboardingRewardPracticeState extends State<OnboardingRewardPractice>
     if (_opened && MediaQuery.disableAnimationsOf(context)) {
       _reveal.value = 1;
     }
-    if (_correct && MediaQuery.disableAnimationsOf(context)) {
-      _growthReady = true;
-    }
   }
 
   void _unwrap() {
-    if (!_correct || !_growthReady || !_giftDiscovered || _opened) {
+    if (!_correct || !_giftDiscovered || _opened) {
       return;
     }
     setState(() => _opened = true);
@@ -190,55 +186,37 @@ class _OnboardingRewardPracticeState extends State<OnboardingRewardPractice>
 
   @override
   void dispose() {
-    _growthTimer?.cancel();
     _reveal.dispose();
     super.dispose();
   }
 
   bool _correct = false;
   bool _wrong = false;
-  bool _growthComplete = false;
-  bool _growthReady = false;
   bool _giftDiscovered = false;
   bool _opened = false;
-  Timer? _growthTimer;
 
   void _answer(String answer) {
-    _growthTimer?.cancel();
     final correct = answer == learnedWord;
-    final reduceMotion = MediaQuery.disableAnimationsOf(context);
     setState(() {
       _correct = correct;
       _wrong = !correct;
-      _growthComplete = correct;
-      _growthReady = correct && reduceMotion;
       _giftDiscovered = false;
     });
-    if (correct && !reduceMotion) {
-      _growthTimer = Timer(_growthDuration, () {
-        if (mounted) {
-          setState(() => _growthReady = true);
-        }
-      });
-    }
   }
 
   void _discoverGift() {
-    if (!_correct || !_growthReady || _giftDiscovered) {
+    if (!_correct || _giftDiscovered) {
       return;
     }
     setState(() => _giftDiscovered = true);
   }
 
   void _replay() {
-    _growthTimer?.cancel();
     _reveal.stop();
     _reveal.value = 0;
     setState(() {
       _correct = false;
       _wrong = false;
-      _growthComplete = false;
-      _growthReady = false;
       _giftDiscovered = false;
       _opened = false;
     });
@@ -260,9 +238,8 @@ class _OnboardingRewardPracticeState extends State<OnboardingRewardPractice>
           builder: (context, sceneConstraints) => Stack(
             fit: StackFit.expand,
             children: [
-              OnboardingHanokGrowthPreview(
-                key: const ValueKey('onboarding-v2-growth-scene'),
-                complete: _growthComplete,
+              const OnboardingHanokGrowthPreview(
+                key: ValueKey('onboarding-v2-growth-scene'),
               ),
               if (_giftDiscovered)
                 Align(
@@ -364,7 +341,7 @@ class _OnboardingRewardPracticeState extends State<OnboardingRewardPractice>
                 label: t.onboardingV2DiscoverGift,
                 size: SoriButtonSize.md,
                 fullWidth: true,
-                onTap: _growthReady ? _discoverGift : null,
+                onTap: _discoverGift,
               )
             else if (_opened && _reveal.isCompleted)
               SoriButton.outlined(

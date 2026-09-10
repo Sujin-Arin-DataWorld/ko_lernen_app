@@ -21,7 +21,7 @@ void main() {
 
   for (final locale in ['de', 'en']) {
     testWidgets(
-      '$locale keeps 문, Hanok growth, gift discovery, and unwrap in order at 200%',
+      '$locale keeps the twelve-stage construction goal unchanged through quiz and gift at 200%',
       (tester) async {
         tester.view.physicalSize = const Size(360, 800);
         tester.view.devicePixelRatio = 1;
@@ -40,8 +40,25 @@ void main() {
           const ValueKey('onboarding-v2-discover-gift'),
         );
         expect(discover, findsNothing);
+        final goal = find.byType(OnboardingHanokGrowthPreview);
         expect(
-          find.byKey(const ValueKey('onboarding-v2-hanok-growth-before')),
+          find.descendant(of: goal, matching: find.byType(AnimatedOpacity)),
+          findsNothing,
+        );
+        final goalSemantics = tester
+            .widget<Semantics>(
+              find.byKey(const ValueKey('onboarding-v3-hanok-destination')),
+            )
+            .properties
+            .label;
+        final goalImages = tester
+            .widgetList<Image>(
+              find.descendant(of: goal, matching: find.byType(Image)),
+            )
+            .map((image) => image.image)
+            .toList();
+        expect(
+          find.byKey(const ValueKey('onboarding-v3-hanok-destination')),
           findsOneWidget,
         );
         expect(
@@ -75,7 +92,7 @@ void main() {
           findsOneWidget,
         );
         expect(
-          find.byKey(const ValueKey('onboarding-v2-hanok-growth-after')),
+          find.byKey(const ValueKey('onboarding-v3-hanok-destination')),
           findsOneWidget,
         );
         expect(
@@ -83,13 +100,33 @@ void main() {
           findsNothing,
         );
         expect(discover, findsOneWidget);
-        expect(tester.widget<SoriButton>(discover).onTap, isNull);
-        await tester.pump(const Duration(milliseconds: 420));
+        expect(
+          tester
+              .widget<Semantics>(
+                find.byKey(const ValueKey('onboarding-v3-hanok-destination')),
+              )
+              .properties
+              .label,
+          goalSemantics,
+        );
+        expect(
+          tester
+              .widgetList<Image>(
+                find.descendant(of: goal, matching: find.byType(Image)),
+              )
+              .map((image) => image.image)
+              .toList(),
+          goalImages,
+        );
+        expect(
+          find.descendant(of: goal, matching: find.byType(AnimatedOpacity)),
+          findsNothing,
+        );
         expect(tester.widget<SoriButton>(discover).onTap, isNotNull);
         await tester.tap(discover);
         await tester.pumpAndSettle();
         expect(
-          find.byKey(const ValueKey('onboarding-v2-hanok-growth-after')),
+          find.byKey(const ValueKey('onboarding-v3-hanok-destination')),
           findsOneWidget,
         );
         expect(
@@ -113,7 +150,7 @@ void main() {
         );
         await tester.pumpAndSettle();
         expect(
-          find.byKey(const ValueKey('onboarding-v2-hanok-growth-before')),
+          find.byKey(const ValueKey('onboarding-v3-hanok-destination')),
           findsOneWidget,
         );
         expect(

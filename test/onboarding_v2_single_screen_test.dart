@@ -99,6 +99,16 @@ void main() {
               await tester.pump(const Duration(milliseconds: 40));
               final evidence = '$language $size scale=$scale screen=$index';
               _expectScreenFits(tester, size, evidence);
+              if ((index == 0 || index == 3) && scale == 2.0) {
+                final heading = tester.widget<Text>(
+                  find.byKey(const ValueKey('onboarding-v2-story-title')),
+                );
+                expect(heading.data, contains('12'));
+                expect(
+                  heading.data,
+                  contains(language == 'de' ? 'Bauziel' : 'Goal'),
+                );
+              }
               if (index == 3) {
                 final demo = lookupAppL10n(
                   Locale(language),

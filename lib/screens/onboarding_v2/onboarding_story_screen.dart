@@ -281,7 +281,7 @@ class _LearningPathPreview extends StatelessWidget {
                 container: true,
                 label: page.heroSemanticLabel,
                 child: const ExcludeSemantics(
-                  child: OnboardingHanokGrowthPreview(complete: true),
+                  child: OnboardingHanokGrowthPreview(),
                 ),
               ),
             ),
