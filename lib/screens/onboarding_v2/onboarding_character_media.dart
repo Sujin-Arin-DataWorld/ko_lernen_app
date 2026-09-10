@@ -43,21 +43,28 @@ class OnboardingCharacterMedia extends StatefulWidget {
   final OnboardingCharacterMediaFailure? onFailure;
 
   String get resolvedPosterAsset {
-    final stem = _characterStem(characterId);
-    return posterAsset ??
-        'assets/illustrations/onboarding/companions/${stem}_idle.png';
+    final assets = _characterAssets(characterId);
+    return posterAsset ?? assets.poster;
   }
 
   String get resolvedAnimationAsset {
-    final stem = _characterStem(characterId);
-    return animationAsset ??
-        'assets/illustrations/onboarding/companions/${stem}_choose.webp';
+    final assets = _characterAssets(characterId);
+    return animationAsset ?? assets.animation;
   }
 
-  static String _characterStem(String characterId) {
+  static ({String poster, String animation}) _characterAssets(
+    String characterId,
+  ) {
     return switch (characterId) {
-      'tiger' => 'taego',
-      'magpie' => 'joy',
+      'tiger' => (
+        poster: 'assets/illustrations/onboarding/companions/taego_idle.png',
+        animation:
+            'assets/illustrations/onboarding/companions/taego_choose.webp',
+      ),
+      'magpie' => (
+        poster: 'assets/illustrations/onboarding/companions/joy_idle.png',
+        animation: 'assets/illustrations/onboarding/companions/joy_choose.webp',
+      ),
       _ => throw ArgumentError.value(
         characterId,
         'characterId',

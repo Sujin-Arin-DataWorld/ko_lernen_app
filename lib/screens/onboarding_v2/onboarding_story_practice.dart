@@ -103,11 +103,6 @@ class _OnboardingJamoPracticeState extends State<OnboardingJamoPractice> {
                           ? t.onboardingV2AudioPlaying
                           : t.onboardingV2PlayGa)
                     : t.onboardingV2ComposeGa,
-                icon: _failed
-                    ? Icons.volume_off_rounded
-                    : _composed
-                    ? Icons.volume_up_rounded
-                    : Icons.add_rounded,
                 size: SoriButtonSize.md,
                 fullWidth: true,
                 onTap: _playing
@@ -356,7 +351,6 @@ class _OnboardingRewardPracticeState extends State<OnboardingRewardPractice>
               SoriButton.filled(
                 key: const ValueKey('onboarding-v2-discover-gift'),
                 label: t.onboardingV2DiscoverGift,
-                icon: Icons.card_giftcard_rounded,
                 size: SoriButtonSize.md,
                 fullWidth: true,
                 onTap: _growthReady ? _discoverGift : null,
@@ -365,7 +359,6 @@ class _OnboardingRewardPracticeState extends State<OnboardingRewardPractice>
               SoriButton.outlined(
                 key: const ValueKey('onboarding-v2-replay-demo'),
                 label: t.onboardingV2ReplayDemo,
-                icon: Icons.replay_rounded,
                 size: SoriButtonSize.md,
                 fullWidth: true,
                 onTap: _replay,

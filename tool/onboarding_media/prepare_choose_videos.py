@@ -181,7 +181,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     destination = args.root / "assets/illustrations/onboarding/companions"
     result = [prepare(args.root, destination, args.review_dir, name) for name in PROFILES]
-    (destination / "choose_manifest.json").write_text(
+    (args.root / "tool/onboarding_media/choose_manifest.json").write_text(
         json.dumps({"version": 1, "assets": result}, indent=2) + "\n", encoding="utf-8"
     )
     print(json.dumps([{k: row[k] for k in ["character", "canvas", "frame_count", "duration_ms", "animation_bytes"]} for row in result]))

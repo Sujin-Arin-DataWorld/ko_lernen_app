@@ -18,7 +18,7 @@ This command requires NumPy, SciPy, Pillow, and ffmpeg. The output directory is
 `assets/illustrations/onboarding/companions`. Both clips use a fixed 640px square
 canvas at 15 fps, preserving framing across all frames. Taego's clip lasts about
 4.9 seconds and Joy's about 7.1 seconds. Each animation must stay below 3 MB;
-`choose_manifest.json` records source/output hashes, dimensions, duration, alpha
+`tool/onboarding_media/choose_manifest.json` records source/output hashes, dimensions, duration, alpha
 ranges for every frame, and memory estimates. The idle PNGs are extracted from
 these same prepared gestures. Selection and confirmation each play the choose
 gesture once; idle, reduced motion, background state, and media errors display

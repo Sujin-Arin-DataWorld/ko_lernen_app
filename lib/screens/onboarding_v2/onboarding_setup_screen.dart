@@ -8,6 +8,7 @@ import '../../widgets/sori/pressable.dart';
 import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/sheet.dart';
 import '../../widgets/sori/tokens.dart';
+import '../../widgets/sori/window_class.dart';
 import 'onboarding_v2_presentation.dart';
 import 'onboarding_v2_shell.dart';
 
@@ -129,7 +130,10 @@ class _OnboardingSetupScreenState extends State<OnboardingSetupScreen> {
       body: LayoutBuilder(
         builder: (context, constraints) {
           final largeText = MediaQuery.textScalerOf(context).scale(16) > 24;
-          final levelBudget = constraints.maxWidth >= 600 ? 330 : 460;
+          final levelBudget =
+              windowClassFor(constraints.maxWidth) == AppWindowClass.compact
+              ? 460
+              : 330;
           final compactChoice =
               largeText ||
               constraints.maxHeight < (_choosingLevel ? levelBudget : 300);
@@ -164,7 +168,11 @@ class _OnboardingSetupScreenState extends State<OnboardingSetupScreen> {
                   else
                     LayoutBuilder(
                       builder: (context, tileConstraints) {
-                        final columns = tileConstraints.maxWidth >= 600 ? 3 : 2;
+                        final columns =
+                            windowClassFor(tileConstraints.maxWidth) ==
+                                AppWindowClass.compact
+                            ? 2
+                            : 3;
                         final tileWidth =
                             (tileConstraints.maxWidth -
                                 Spacing.sm * (columns - 1)) /

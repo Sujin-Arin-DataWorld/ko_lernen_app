@@ -4,6 +4,7 @@ import 'package:flutter/semantics.dart'
 
 import '../../widgets/sori/pressable.dart';
 import '../../widgets/sori/tokens.dart';
+import '../../widgets/sori/window_class.dart';
 import 'onboarding_character_media.dart';
 import 'onboarding_v2_presentation.dart';
 
@@ -179,7 +180,7 @@ class _CompanionStageChoice extends StatelessWidget {
             child: LayoutBuilder(
               builder: (context, constraints) {
                 final compactNames =
-                    constraints.maxWidth < 160 &&
+                    constraints.maxWidth < SoriAdaptiveWidth.companionNameRow &&
                     MediaQuery.textScalerOf(context).scale(16) > 24;
                 final artwork = Stack(
                   fit: StackFit.expand,

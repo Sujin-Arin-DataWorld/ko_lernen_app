@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'dart:ui' as ui;
 
 import 'package:flutter/services.dart';
@@ -11,7 +12,9 @@ void main() {
     const directory = 'assets/illustrations/onboarding/companions';
     final manifest =
         jsonDecode(
-              await rootBundle.loadString('$directory/choose_manifest.json'),
+              await File(
+                'tool/onboarding_media/choose_manifest.json',
+              ).readAsString(),
             )
             as Map<String, dynamic>;
     final assets = manifest['assets'] as List<dynamic>;

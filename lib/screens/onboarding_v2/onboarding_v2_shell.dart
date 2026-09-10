@@ -523,8 +523,8 @@ class OnboardingV2FooterActions extends StatelessWidget {
   Widget build(BuildContext context) => LayoutBuilder(
     builder: (context, constraints) {
       final compact =
-          constraints.maxWidth < 320 ||
-          (constraints.maxWidth < 480 &&
+          constraints.maxWidth < SoriAdaptiveWidth.footerActionRow ||
+          (constraints.maxWidth < SoriBreakpoints.content &&
               MediaQuery.textScalerOf(context).scale(16) > 24);
       return Row(
         crossAxisAlignment: CrossAxisAlignment.center,

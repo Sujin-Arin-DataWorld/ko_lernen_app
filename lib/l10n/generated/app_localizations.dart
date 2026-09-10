@@ -17625,7 +17625,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2RewardDemoNote.
   ///
   /// In de, this message translates to:
-  /// **'Nur eine Vorschau – keine XP, Gegenstände oder Hanok-Bauteile.'**
+  /// **'Nur eine Vorschau. Keine XP, Gegenstände oder Hanok-Bauteile.'**
   String get onboardingV2RewardDemoNote;
 
   /// No description provided for @onboardingV2RewardDetails.

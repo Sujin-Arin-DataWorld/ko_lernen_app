@@ -10393,7 +10393,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingV2RewardDemoNote =>
-      'Nur eine Vorschau – keine XP, Gegenstände oder Hanok-Bauteile.';
+      'Nur eine Vorschau. Keine XP, Gegenstände oder Hanok-Bauteile.';
 
   @override
   String get onboardingV2RewardDetails => 'Mehr über Belohnungen';
