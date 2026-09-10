@@ -74,6 +74,9 @@ OFFICIAL_AXIS_SOURCES = {
     ("vocabulary", "cefrj_vocabulary_profile"),
     ("vocabDomain", "cefrj_vocabulary_profile"),
 }
+# 교차 매핑 행에는 sources 키가 없어 evidence_for() 로 재도출할 수 없다. 그래서
+# "OFFICIAL 이 붙을 수 있는 축" 만 따로 뽑아 축 단위로 검사한다.
+OFFICIAL_AXES = {axis for axis, _ in OFFICIAL_AXIS_SOURCES}
 DERIVED_SOURCES = {
     "nikl_std_curriculum_2020", "nikl_kiiq_summary", "topik_levels", "cefr_cv_2020",
     "threshold_1990", "egp", "evp", "cambridge_a2_key", "cambridge_b1_preliminary",
@@ -414,6 +417,19 @@ def check_grammar_partition(mx: Matrix, ps: PhaseSystem, f: Findings) -> Dict[st
             if role not in ("new", "spiral"):
                 f.error("C3_grammar", f"{pid} · {form}", f"role 은 new|spiral 이어야 한다(현재 {role!r})",
                         "role 을 고친다", lv, pid)
+            # Phase 가 스스로 적은 급이 국제통용의 실제 급인가.
+            #
+            # 아래의 new/spiral 검사는 급을 언제나 ko.json 에서 다시 읽으므로 Phase 의
+            # niklGrade 필드는 지금껏 어느 검사도 읽지 않았다 — 1급 조사를 6급이라 적어도
+            # 통과했고, evidence 가 OFFICIAL 이면 그 거짓 급이 공식 인용처럼 보인다.
+            # 급은 CSV 가 정하는 사실이므로 여기서 대조한다(목록 밖 형태는 급이 없으니 건너뛴다).
+            official_grades = mx.form_grades.get(form)
+            declared = g.get("niklGrade")
+            if official_grades and declared not in official_grades:
+                f.error("C3_grammar", f"{pid} · {form}",
+                        f"niklGrade 를 {declared!r} 로 적었으나 국제통용은 이 형태를 "
+                        f"{_j([str(x) + '급' for x in sorted(official_grades)], '·')} 에 둔다",
+                        "국제통용 336 의 실제 급으로 고친다", lv, pid)
             if role == "new":
                 assigned[lv][form].append(pid)
                 if form not in mx.form_set.get(lv, set()):
@@ -673,7 +689,13 @@ def check_transfer_links(ps: PhaseSystem, f: Findings) -> Dict[str, Any]:
                 continue
             langs.add(sl)
             tid = w.get("transferItemId")
-            if tid and f"{sl}:{tid}" not in ids:
+            if not tid:
+                # dangling 검사는 tid 가 참일 때만 돌기 때문에 null 은 조용히 통과했다.
+                # 연결이 없으면 Phase 의 경고와 전이 분석이 서로 어긋나도 드러나지 않는다.
+                f.warn("C15_warning", f"{pid} · {sl}",
+                       "transferItemId 가 비어 있어 이 경고가 전이 분석의 어느 항목에도 이어지지 않는다",
+                       "transfer.json 의 대응 항목 id 를 채운다(정말 대응 항목이 없으면 항목을 만든다)", lv, pid)
+            elif f"{sl}:{tid}" not in ids:
                 f.warn("C15_warning", f"{pid} · {sl}:{tid}", "transfer.json 에 없는 전이 항목 id 를 가리킨다",
                        "id 를 맞추거나 transfer.json 에 항목을 추가한다", lv, pid)
             if w.get("verdict") not in TRANSFER_VERDICTS:
@@ -702,6 +724,14 @@ def check_crossmap(mx: Matrix, ps: PhaseSystem, f: Findings) -> Dict[str, Any]:
                 f.error("C14_crossmap", f"{lv} · {rid}", f"알 수 없는 관계 {r.get('relation')!r}", "관계를 고친다", lv)
             if r.get("evidence") not in EVIDENCE_TAGS:
                 f.error("C14_crossmap", f"{lv} · {rid}", f"알 수 없는 근거 등급 {r.get('evidence')!r}", "등급을 고친다", lv)
+            # 등급의 참·거짓은 축이 정한다(PART 2). 교차 매핑 행에는 sources 키가 없으므로
+            # evidence_for() 를 돌릴 수 없고, 대신 "이 축에 저장소가 원본 인벤토리를 갖고
+            # 있는가" 만 본다 — 화용·문체·담화 축에는 원본 목록이 없으므로 OFFICIAL 이 설 수 없다.
+            elif r.get("evidence") == "OFFICIAL" and r.get("axis") not in OFFICIAL_AXES:
+                f.error("C14_crossmap", f"{lv} · {rid}",
+                        f"{r.get('axis')!r} 축에는 저장소가 원본 인벤토리를 갖고 있지 않은데 OFFICIAL 을 붙였다"
+                        f"(OFFICIAL 가능 축: {_j(sorted(OFFICIAL_AXES), '·')})",
+                        "DERIVED 또는 PEDAGOGICAL 로 내린다", lv)
             for key in ("koreanLevel", "englishLevel", "germanLevel"):
                 if r.get(key) not in CEFR_OR_NONE:
                     f.error("C14_crossmap", f"{lv} · {rid} · {key}", f"CEFR 값이 아니다({r.get(key)!r})", "고친다", lv)

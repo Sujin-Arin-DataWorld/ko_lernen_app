@@ -3738,6 +3738,33 @@
       "appRegisters": [
         "intimate"
       ]
+    },
+    {
+      "id": "hage_familiar",
+      "label": {
+        "ko": "하게체(손아랫사람·오랜 동년배를 향해 아래로 예의를 갖추는 말 — -네1·-나2·-게3·-는가1)",
+        "en": "하게체 (familiar level: downward courtesy to a junior or a long-known peer — -네1, -나2, -게3, -는가1)",
+        "de": "하게체 (vertraute Ebene: Höflichkeit nach unten gegenüber Jüngeren oder lang bekannten Gleichaltrigen — -네1, -나2, -게3, -는가1)"
+      },
+      "appRegisters": []
+    },
+    {
+      "id": "hao_semiformal",
+      "label": {
+        "ko": "하오체(상대를 대접하되 가까이 가지 않는 말 — -소·-으오·-구려2)",
+        "en": "하오체 (semi-formal level: deference held at a distance — -소, -으오, -구려2)",
+        "de": "하오체 (halbformelle Ebene: Achtung auf Abstand — -소, -으오, -구려2)"
+      },
+      "appRegisters": []
+    },
+    {
+      "id": "written_plain_haeche",
+      "label": {
+        "ko": "문어 하다체(해라체의 문어 용법 — -는다·-다4·-라2. 읽는 사람이 정해져 있지 않아 청자 대우 등급이 비어 있고, 사람을 높이는 일은 -으시-와 겸양 어휘가 맡는다)",
+        "en": "Written plain style (the written use of 해라체 — -는다, -다4, -라2: with no determinate addressee the politeness slot is empty, and raising a person is done by -으시- and humbling lexis instead)",
+        "de": "Schriftliche Grundform (schriftlicher Gebrauch des 해라체 — -는다, -다4, -라2: ohne bestimmten Adressaten bleibt die Höflichkeitsstufe leer; das Anheben einer Person übernehmen -으시- und Demutslexik)"
+      },
+      "appRegisters": []
     }
   ],
   "skills": [

@@ -510,6 +510,60 @@ class FixtureTest(unittest.TestCase):
         _, _, f = self._run()
         self.assertTrue(self._errors(f, "C15_warning"))
 
+    def test_wrong_nikl_grade_on_a_phase_form_is_an_error(self):
+        """Phase 가 적은 niklGrade 가 국제통용의 실제 급과 다르면 error.
+
+        급을 ko.json 에서 다시 읽는 검사만 있으면 Phase 의 niklGrade 필드는 아무도
+        읽지 않는다 — 1급 형태를 6급이라 적고 OFFICIAL 을 붙여도 통과했다.
+        """
+        for p in self.phases:
+            if p["id"] == "KP01":
+                p["koreanGrammar"][0]["niklGrade"] = 6   # A1(1급) 형태를 6급이라 적는다
+        _phase_docs(self.root, self.phases)
+        _, _, f = self._run()
+        rows = [r for r in self._errors(f, "C3_grammar") if "niklGrade" in r["detail"]]
+        self.assertTrue(rows, "거짓 급을 잡지 못했다")
+
+    def test_correct_nikl_grade_on_a_spiral_form_passes(self):
+        """선행 레벨 형태를 spiral 로 쓸 때 그 형태의 실제 급을 적으면 통과해야 한다."""
+        for p in self.phases:
+            if p["id"] == "KP04":  # A2 의 첫 Phase
+                p["koreanGrammar"].append(dict(p["koreanGrammar"][0], form="-어요",
+                                               niklGrade=1, role="spiral"))
+        _phase_docs(self.root, self.phases)
+        _, _, f = self._run()
+        rows = [r for r in self._errors(f, "C3_grammar") if "niklGrade" in r["detail"]]
+        self.assertEqual(rows, [], f"정당한 spiral 급 표기를 막고 있다: {rows}")
+
+    def test_empty_transfer_item_id_is_warned(self):
+        """transferItemId 가 null 이면 dangling 검사가 돌지 않으므로 따로 경고한다."""
+        self.phases[0]["transferWarnings"][0]["transferItemId"] = None
+        _phase_docs(self.root, self.phases)
+        _, _, f = self._run()
+        rows = [r for r in f.rows if r["check"] == "C15_warning" and "비어 있어" in r["detail"]]
+        self.assertTrue(rows, "빈 transferItemId 를 조용히 통과시켰다")
+
+    def test_official_evidence_outside_grammar_axis_is_an_error(self):
+        """화용·문체 축에는 저장소가 원본 인벤토리를 갖고 있지 않다(PART 2)."""
+        cm = json.loads((self.root / alp.CROSSMAP_REL).read_text(encoding="utf-8"))
+        for r in cm["C2"]["rows"]:
+            if r["axis"] == "pragmatics":
+                r["evidence"] = "OFFICIAL"
+        (self.root / alp.CROSSMAP_REL).write_text(json.dumps(cm, ensure_ascii=False), encoding="utf-8")
+        _, _, f = self._run()
+        rows = [r for r in self._errors(f, "C14_crossmap") if "OFFICIAL" in r["detail"]]
+        self.assertTrue(rows, "pragmatics 축의 OFFICIAL 을 통과시켰다")
+
+    def test_official_evidence_on_grammar_axis_still_passes(self):
+        cm = json.loads((self.root / alp.CROSSMAP_REL).read_text(encoding="utf-8"))
+        for r in cm["C2"]["rows"]:
+            if r["axis"] in ("grammar", "vocabDomain"):
+                r["evidence"] = "OFFICIAL"
+        (self.root / alp.CROSSMAP_REL).write_text(json.dumps(cm, ensure_ascii=False), encoding="utf-8")
+        _, _, f = self._run()
+        rows = [r for r in self._errors(f, "C14_crossmap") if "OFFICIAL" in r["detail"]]
+        self.assertEqual(rows, [], f"문법·어휘 영역 축의 정당한 OFFICIAL 을 막고 있다: {rows}")
+
     def test_article_row_must_be_zero_correspondence(self):
         cm = json.loads((self.root / alp.CROSSMAP_REL).read_text(encoding="utf-8"))
         for r in cm["A1"]["rows"]:

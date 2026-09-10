@@ -3770,9 +3770,9 @@
             "meaning": ""
           },
           {
-            "form": "­으려고2",
+            "form": "-으려고2",
             "category": "종결어미",
-            "variants": "­려고2, ­려고요, ­으려고요",
+            "variants": "-려고2, -려고요, -으려고요",
             "meaning": "의심"
           },
           {
@@ -4368,7 +4368,7 @@
             "meaning": ""
           },
           {
-            "form": "-을망정,",
+            "form": "-을망정",
             "category": "연결어미",
             "variants": "-ㄹ망정 <유의> -ㄹ지언정, -을지언정",
             "meaning": ""
@@ -4736,10 +4736,14 @@
           "hapsyo_formal_business",
           "haeyo_polite",
           "banmal_casual",
-          "intimate"
+          "intimate",
+          "written_plain_haeche"
         ],
-        "recognition": [],
-        "note": "문체 전환 사다리 전체를 의도에 따라 선택."
+        "recognition": [
+          "hage_familiar",
+          "hao_semiformal"
+        ],
+        "note": "문체 전환 사다리 전체를 의도에 따라 선택한다. 산출은 다섯 층 — 합쇼체·해요체·반말·친밀체에 '대우 등급을 비운 문어 하다체'(-는다·-다4·-라2)가 더해진다. 규정문·논설문·문학 서술이 청자 높임을 지우는 것은 무례가 아니라 장르 관습이므로 해요체와 겨루지 않는다. 하게체·하오체는 인식 전용이다 — 옛 규정·사규 인용, 옛 사설, 노년 화자와 시대극에서 만나고 KP30 에서 '고를 수 있게 된 선택지'로 다루되 일상 산출 목표로 올리지 않는다."
       },
       "pronunciationFocus": "인용어와 비판적 거리 두기, 제도 용어 연쇄와 전제·책임 구분 억양",
       "cultureFocus": "관념어·제도 항목, 국제사회와 국제정치 류 심화 주제",

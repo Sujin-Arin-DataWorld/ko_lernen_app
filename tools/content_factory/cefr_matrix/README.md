@@ -17,7 +17,7 @@ CEFR 자체는 A1~C2 별 필수 문법 목록을 정하지 않는다(언어 비�
 
 | 파일 | 내용 |
 |---|---|
-| `taxonomy.json` | 언어 독립 id: `topics`(32) · `speechActs`(39) · `textTypes`(31) · `vocabDomains`(26) · `functionalGrammar`(34) · `registers`(4) · `skills`(5). 각 항목에 `label{ko,en,de}` 와 **앱 표면 alias**(`appAliases.vocabTopics/shelfSlugs/smalltalkCategories/packKeywords/titleKeywords`, 기능 `matchers.ko/en`, 텍스트 유형 `matchers`) |
+| `taxonomy.json` | 언어 독립 id: `topics`(32) · `speechActs`(39) · `textTypes`(31) · `vocabDomains`(26) · `functionalGrammar`(34) · `registers`(7) · `skills`(5). 각 항목에 `label{ko,en,de}` 와 **앱 표면 alias**(`appAliases.vocabTopics/shelfSlugs/smalltalkCategories/packKeywords/titleKeywords`, 기능 `matchers.ko/en`, 텍스트 유형 `matchers`) |
 | `ko.json` | 한국어 — 레벨별 `scale`·`canDo`·`topics`(required/optional + focus)·`grammar`(국제통용 형태 전수 + `briefHighlights` + `discourseFeatures`)·`speechActs`·`textTypes`(R/P)·`vocabDomains`·`registers`·발음·문화·문장 규칙; `functionalGrammar`(앱 grammar.csv id 앵커) |
 | `en.json` / `de.json` | 영어·독일어 — 같은 구조. 문법은 항목 목록(`grammar.items`, 출처 인용 포함). 갭 판정에는 쓰지 않고 삼언어 정렬표에만 쓴다 |
 | `reference/cefrj-grammar-profile-20180315.csv` | CEFR-J 문법 프로파일 500항목(170항목 CEFR-J 레벨 + EGP 교차 레벨). `en.json` 이 `cefrj:<ID>` 로 인용 |
