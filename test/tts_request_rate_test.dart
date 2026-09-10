@@ -578,6 +578,98 @@ void main() {
     },
   );
 
+  test('stopped request does not publish a late resolution failure', () async {
+    final pending = Completer<TtsAudio?>();
+    final failures = <String>[];
+    final platform = _FakePlatform();
+    final engine = TtsPlaybackEngine(
+      resolveAudio: (_, __) => pending.future,
+      platform: platform,
+      errorReporter: failures.add,
+      onResolutionFailed: failures.add,
+    );
+    final result = engine.speak(text: '안녕하세요', voice: 'female', baseRate: 0.42);
+    await Future<void>.delayed(Duration.zero);
+
+    await engine.stop();
+    pending.completeError(StateError('late failure'));
+
+    expect(await result, isFalse);
+    await Future<void>.delayed(Duration.zero);
+    expect(failures, isEmpty);
+    await engine.dispose();
+  });
+
+  test('disposed engine does not publish a late resolution failure', () async {
+    final pending = Completer<TtsAudio?>();
+    final failures = <String>[];
+    final engine = TtsPlaybackEngine(
+      resolveAudio: (_, __) => pending.future,
+      platform: _FakePlatform(),
+      errorReporter: failures.add,
+      onResolutionFailed: failures.add,
+    );
+    final result = engine.speak(text: '안녕하세요', voice: 'female', baseRate: 0.42);
+    await Future<void>.delayed(Duration.zero);
+
+    await engine.dispose();
+    pending.completeError(StateError('late failure'));
+
+    expect(await result, isFalse);
+    await Future<void>.delayed(Duration.zero);
+    expect(failures, isEmpty);
+  });
+
+  test(
+    'older request failure cannot overwrite a successful newer request',
+    () async {
+      final oldResolution = Completer<TtsAudio?>();
+      final failures = <String>[];
+      final platform = _FakePlatform();
+      final engine = TtsPlaybackEngine(
+        resolveAudio: (text, _) => text == 'old'
+            ? oldResolution.future
+            : Future.value(const TtsAudio.path('new.mp3')),
+        platform: platform,
+        errorReporter: failures.add,
+        onResolutionFailed: failures.add,
+      );
+      final old = engine.speak(text: 'old', voice: 'female', baseRate: 0.42);
+      final newer = engine.speak(text: 'new', voice: 'female', baseRate: 0.42);
+      await Future<void>.delayed(Duration.zero);
+      platform.fileSessions['new.mp3']!.complete(true);
+      expect(await newer, isTrue);
+
+      oldResolution.completeError(StateError('late failure'));
+
+      expect(await old, isFalse);
+      await Future<void>.delayed(Duration.zero);
+      expect(failures, isEmpty);
+      await engine.dispose();
+    },
+  );
+
+  test('active request resolution failure is still diagnosed', () async {
+    final failures = <String>[];
+    final engine = TtsPlaybackEngine(
+      resolveAudio: (_, __) async => throw StateError('active failure'),
+      platform: _FakePlatform(),
+      errorReporter: failures.add,
+      onResolutionFailed: failures.add,
+    );
+
+    expect(
+      await engine.speak(text: '안녕하세요', voice: 'female', baseRate: 0.42),
+      isFalse,
+    );
+    expect(failures, hasLength(2));
+    expect(
+      failures.every((message) => message.contains('active failure')),
+      isTrue,
+    );
+    await engine.dispose();
+  });
+
   test('early stop errors stay handled while resolver is blocked', () async {
     final uncaught = <Object>[];
     await runZonedGuarded(() async {

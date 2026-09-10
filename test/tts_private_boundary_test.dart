@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -68,12 +69,14 @@ void main() {
       elapsed: () => elapsed,
       preparePlayback: () => prepare(),
     );
+    TtsService.clearUnavailable();
   });
   tearDown(() async {
     await TtsService.clearCacheStrict(
       cacheDirectory: () async => Directory('${base.path}/tts_cache'),
     );
     TtsService.configurePrivateForTesting();
+    TtsService.clearUnavailable();
     messenger.setMockMethodCallHandler(playbackChannel, null);
     messenger.setMockMethodCallHandler(pathChannel, null);
     await base.delete(recursive: true);
@@ -160,6 +163,44 @@ void main() {
   test('private responses without server timing fail closed', () async {
     response = () async => payload()..remove('serverNowMillis');
     expect(await resolve(), isNull);
+  });
+
+  test(
+    'stopped private resolution cannot publish a late unavailable reason',
+    () async {
+      final invoked = Completer<void>();
+      final pending = Completer<Map<String, dynamic>>();
+      response = () {
+        invoked.complete();
+        return pending.future;
+      };
+      TtsService.lastError = 'new request remains healthy';
+      final result = TtsService.speak(personal, voice: 'female');
+      await invoked.future.timeout(const Duration(seconds: 1));
+
+      await TtsService.stop();
+      pending.completeError(
+        const TtsCallableProbe(
+          code: 'resource-exhausted',
+          message: 'late quota failure',
+        ),
+      );
+
+      expect(await result, isFalse);
+      await Future<void>.delayed(Duration.zero);
+      expect(TtsService.unavailable.value, isNull);
+      expect(TtsService.lastError, 'new request remains healthy');
+    },
+  );
+
+  test('active private quota failure keeps the quota diagnosis', () async {
+    response = () async => throw const TtsCallableProbe(
+      code: 'resource-exhausted',
+      message: 'quota reached',
+    );
+
+    expect(await TtsService.speak(personal, voice: 'female'), isFalse);
+    expect(TtsService.unavailable.value, TtsUnavailableReason.quota);
   });
 
   for (final transition in ['uid', 'epoch', 'mode']) {

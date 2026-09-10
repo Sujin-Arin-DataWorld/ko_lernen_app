@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../l10n/generated/app_localizations.dart';
 import 'sori/tokens.dart';
 
 /// 브랜드 톤 로딩 인디케이터 — 앱 로고가 부드럽게 숨 쉰다.
@@ -37,7 +38,7 @@ class _AppLoadingState extends State<AppLoading>
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final enabled = !MediaQuery.maybeOf(context)!.disableAnimations;
+    final enabled = !(MediaQuery.maybeOf(context)?.disableAnimations ?? false);
     if (_motionEnabled == enabled) {
       return;
     }
@@ -60,36 +61,59 @@ class _AppLoadingState extends State<AppLoading>
     final s = SoriSurfaces.of(context);
     final reduceMotion =
         MediaQuery.maybeOf(context)?.disableAnimations ?? false;
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SizedBox(
-            width: widget.asset != null ? widget.assetSize : 58,
-            height: widget.asset != null ? widget.assetSize : 58,
-            child: reduceMotion
-                ? _visual(0)
-                : AnimatedBuilder(
-                    animation: _ctrl,
-                    builder: (_, __) {
-                      final wave = _ctrl.value < 0.5
-                          ? _ctrl.value * 2
-                          : (1 - _ctrl.value) * 2;
-                      return _visual(
-                        Curves.easeInOut.transform(wave.clamp(0.0, 1.0)),
-                      );
-                    },
-                  ),
+    final statusLabel =
+        widget.message ??
+        Localizations.of<AppL10n>(context, AppL10n)?.speechIndicatorResolving ??
+        '';
+    final visualContent = Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SizedBox(
+          width: widget.asset != null ? widget.assetSize : 58,
+          height: widget.asset != null ? widget.assetSize : 58,
+          child: reduceMotion
+              ? _visual(0)
+              : AnimatedBuilder(
+                  key: const Key('app-loading-pulse'),
+                  animation: _ctrl,
+                  builder: (_, __) {
+                    final wave = _ctrl.value < 0.5
+                        ? _ctrl.value * 2
+                        : (1 - _ctrl.value) * 2;
+                    return _visual(
+                      Curves.easeInOut.transform(wave.clamp(0.0, 1.0)),
+                    );
+                  },
+                ),
+        ),
+        if (widget.message != null) ...[
+          const SizedBox(height: 16),
+          Text(
+            widget.message!,
+            style: TextStyle(color: s.textMuted, fontSize: 13),
           ),
-          if (widget.message != null) ...[
-            const SizedBox(height: 16),
-            Text(
-              widget.message!,
-              style: TextStyle(color: s.textMuted, fontSize: 13),
-            ),
-          ],
         ],
-      ),
+      ],
+    );
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final content = Center(
+          child: Semantics(
+            liveRegion: true,
+            label: statusLabel,
+            child: ExcludeSemantics(child: visualContent),
+          ),
+        );
+        if (!constraints.hasBoundedHeight) {
+          return content;
+        }
+        return SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(minHeight: constraints.maxHeight),
+            child: content,
+          ),
+        );
+      },
     );
   }
 
