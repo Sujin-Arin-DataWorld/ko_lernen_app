@@ -12,7 +12,7 @@
 
 ## Global Constraints
 
-- 초기 통합 기준 SHA는 `7e844d1b7d751a31f3a666769224da68989523be` (#293 포함), 시작 기준은 `aa0d932f`다. Task 15에서 main `cf1599eec9241a0b97474d2fb5918ef8cc2726f3` (#289·#295 포함)을 이 작업 브랜치에 통합해 검증했다. 이전 웹/Flutter 증거와 현재 통합 검증의 기준을 구분한다. 전용 `global-launch-readiness-20260909` 작업 공간만 수정.
+- 초기 통합 기준 SHA는 `7e844d1b7d751a31f3a666769224da68989523be` (#293 포함), 시작 기준은 `aa0d932f`다. Task 15에서 main `cf1599ee` (#289·#295)를 통합했고, Task 17에서 `f2cd156837a57e745ef81c6903d8d3747eb0428a` (#296)까지 통합해 검증했다. 이전 웹/Flutter 증거와 현재 통합 검증의 기준을 구분한다. 전용 `global-launch-readiness-20260909` 작업 공간만 수정.
 - 커밋/푸시는 Jin이 명시적으로 요청할 때만. 구현자는 커밋하지 않고 diff와 테스트 증거를 남긴다.
 - Jin이 앞서 승인한 커밋 범위로 누적 최적화와 main 통합을 로컬에 기록한다. 이후 배포 보류 지시에 따라 푸시·원격 CI·스토어 작업은 보류한다. 커밋 직전 해시 대조와 커밋 후 트리·부모·작업 공간 검증 결과는 외부 `local-commit-20260910/verification.json`이 정본이다. 아래 각 Task의 HEAD·미커밋 표기는 해당 검증 시점의 기록이다.
 - 무료 학습 정책, 계정 삭제/전환 fencing, 개인 음성 캐시 격리, `allowSynthesis: false` prefetch 유지.
@@ -533,6 +533,49 @@ Redmi M2101K6G(Android API 31)에 로컬 profile 통합 테스트를 실행한�
   종료했고 앱은 미설치 상태다. **실제 실행된 테스트 0개, 성능 수치 없음**으로 기록한다.
   휴대폰의 USB 설치 허용과 사용자 재시도 응답을 기다린다. 같은 APK를 보존했으므로
   재개 시 `--use-application-binary`로 빌드 없이 실행한다. 스토어 업로드·원격 CI는 없다.
+
+### Task 17: Integrate the live 30 Phase entry and verify real loader recovery
+
+**Trigger:** main `f2cd1568` (#296) adds Phase goals and links to existing practice.
+Integrate it with local optimization commit `6b085929`, then verify the combined
+learning path, catalog, progress boundaries, and new routes. No push, remote CI,
+new build, store upload, or device installation retry is part of this task.
+
+- [x] **Step 1: Preserve and integrate.** Compare both sides of merge-base
+  `cf1599ee`; only the four Graphify metadata files overlap. Preserve both sets
+  and all 1,095 wiki/semantic hashes. After local merge, verify 45 owned files
+  byte-for-byte and 19 incoming files against #296. Resolve only generated graph
+  conflicts and rebuild the graph after source verification.
+- [x] **Step 2: Exercise real Phase loader failure and retry.** The incoming
+  screen retry test injects a loader and cannot prove recovery of its actual
+  bundle read. Reproduce a transient missing asset through `flutter/assets`,
+  retry without clearing application caches, and fix a demonstrated failure
+  at the existing read boundary. Preserve all 30 goals, existing practice
+  routing, translations, and saved progress. No new completion authority.
+  Both transient missing reads and malformed JSON remained cached in the
+  incoming loader (RED 0/2). `cache: false` at this read boundary makes the next
+  call recover without clearing caches. The two new tests and eleven existing
+  Phase tests passed. This rereads 35,077 bytes of packaged metadata per opening;
+  the validated curriculum graph remains shared.
+- [x] **Step 3: Verify the integrated paths.** Run Phase, learning path, catalog,
+  progress, shell/navigation, and affected UI contract tests plus whole-project
+  analysis. Check Phase generation and curriculum/Phase audit freshness. Review
+  standards/correctness and spec independently, then commit the verified local
+  integration and preserve its exact source evidence.
+  The 33-file run passed 260 tests; only the new route fixture failed. Its real
+  catalog compute work must finish outside the widget fake clock, and its
+  scroll finder must distinguish the vertical list from horizontal level chips.
+  After those test-only corrections, that final test passed 1/1. The other 260
+  tests are unchanged. Whole-project analysis passed; the corrected test is
+  reanalyzed separately with no issues. Python generation/matrix/Phase tests passed 87/87 and
+  generation/audit freshness checks passed. This proves warmed app routes with
+  mock preferences, not native cold-start, audio, or durable storage.
+  The earlier profile APK does not contain #296 or this recovery fix; preserve
+  it as historical baseline evidence. A current device candidate requires a
+  later build after the source is fixed and device installation is permitted.
+  Standards/Correctness and Spec approved the final fixture and implementation.
+  The exact local commit, source hashes, Graphify preservation, and clean-tree
+  verification are recorded in external `phase-integration-20260910/verification.json`.
 
 ### Verification evidence
 

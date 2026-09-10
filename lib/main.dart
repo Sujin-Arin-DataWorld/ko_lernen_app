@@ -78,6 +78,8 @@ import 'screens/gye_members_screen.dart';
 import 'screens/gye_screen.dart';
 import 'screens/gye_tab_screen.dart';
 import 'screens/learning_path_screen.dart';
+import 'screens/learning_phases_screen.dart';
+import 'services/learning_phase_catalog.dart';
 import 'screens/legacy_vocab_screen.dart';
 import 'screens/quests_screen.dart';
 import 'screens/vocab_pack_result_screen.dart';
@@ -1159,6 +1161,21 @@ class _KoLernenAppState extends State<KoLernenApp> {
             case '/path':
               return SoriTransitions.page(
                 (_) => const LearningPathScreen(),
+                settings: settings,
+              );
+            case '/course/phases':
+              return SoriTransitions.page(
+                (_) => LearningPhasesScreen(
+                  initialLevel: settings.arguments as String? ?? 'A1',
+                ),
+                settings: settings,
+              );
+            case '/course/phase':
+              final phase = settings.arguments;
+              return SoriTransitions.page(
+                (_) => phase is LearningPhase
+                    ? LearningPhaseDetailScreen(phase: phase)
+                    : const LearningPhasesScreen(),
                 settings: settings,
               );
             case '/course/mission':

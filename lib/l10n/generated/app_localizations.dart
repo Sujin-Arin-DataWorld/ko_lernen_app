@@ -97,6 +97,36 @@ abstract class AppL10n {
     Locale('en'),
   ];
 
+  /// No description provided for @learningPhasesTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'30 Lernphasen'**
+  String get learningPhasesTitle;
+
+  /// No description provided for @learningPhasesIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Entdecke die Lernziele von A1 bis C2 und übe dazu passende Gespräche. Dein bisheriger Lernfortschritt bleibt erhalten.'**
+  String get learningPhasesIntro;
+
+  /// No description provided for @learningPhasePracticeTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Verwandte Gespräche frei üben'**
+  String get learningPhasePracticeTitle;
+
+  /// No description provided for @learningPhasePracticeScope.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier übst du verwandte Themen. Die eigenen Aufgaben für dieses Phasenziel sind noch in Vorbereitung. Für deinen Lernfortschritt gelten weiterhin die bisherigen Missionsprüfungen.'**
+  String get learningPhasePracticeScope;
+
+  /// No description provided for @learningPhaseImagePreparing.
+  ///
+  /// In de, this message translates to:
+  /// **'Bild in Vorbereitung'**
+  String get learningPhaseImagePreparing;
+
   /// No description provided for @accountAdditionalProviderTitle.
   ///
   /// In de, this message translates to:

@@ -948,9 +948,9 @@
     "semantic_hash": ""
   },
   "lib/data/sori_activity_catalog.dart": {
-    "mtime": 1788987817.0287392,
-    "seen": 1788995056.9168665,
-    "ast_hash": "287363be450513ce0e05344e700401dd",
+    "mtime": 1789058839.1510427,
+    "seen": 1789060099.1883163,
+    "ast_hash": "a2f213c75cdf2f82dd535b640a590444",
     "semantic_hash": ""
   },
   "lib/data/sticker_catalog.dart": {
@@ -966,21 +966,21 @@
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations.dart": {
-    "mtime": 1789056228.157877,
-    "seen": 1789057500.361681,
-    "ast_hash": "74b4e719421bc0237b4ef71858129f6d",
+    "mtime": 1789058839.1643388,
+    "seen": 1789060099.197009,
+    "ast_hash": "2abec3464b9c2abe8a66e76d02e38d62",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_de.dart": {
-    "mtime": 1789056227.9180832,
-    "seen": 1789057500.3616843,
-    "ast_hash": "eaa32877567f497899717392b1a37a06",
+    "mtime": 1789058839.1688137,
+    "seen": 1789060099.197013,
+    "ast_hash": "d79977c0731228209db0b22d2044067b",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_en.dart": {
-    "mtime": 1789056228.0373871,
-    "seen": 1789057500.3616872,
-    "ast_hash": "ef445b37741629fe8df58b913fa603a1",
+    "mtime": 1789058839.1733272,
+    "seen": 1789060099.1970158,
+    "ast_hash": "10e71e124e6487be8c481adf7e8e9ae6",
     "semantic_hash": ""
   },
   "lib/l10n/gye_error_text.dart": {
@@ -996,9 +996,9 @@
     "semantic_hash": ""
   },
   "lib/main.dart": {
-    "mtime": 1788987817.0651288,
-    "seen": 1788995056.9169655,
-    "ast_hash": "46563cbe0cadf4f7fa0f4515d4a057c4",
+    "mtime": 1789058839.1754916,
+    "seen": 1789060099.19775,
+    "ast_hash": "a01582e1a223763bc7fc812f0d42026b",
     "semantic_hash": ""
   },
   "lib/models/book_page.dart": {
@@ -1488,9 +1488,9 @@
     "semantic_hash": ""
   },
   "lib/screens/learning_path_screen.dart": {
-    "mtime": 1788987817.1388516,
-    "seen": 1788995056.9172375,
-    "ast_hash": "b9a8f0a9826919116c3693fcbdb6065b",
+    "mtime": 1789058839.1779065,
+    "seen": 1789060099.225397,
+    "ast_hash": "b33a69766edb27af663369b5fced51bf",
     "semantic_hash": ""
   },
   "lib/screens/legacy_vocab_screen.dart": {
@@ -4794,9 +4794,9 @@
     "semantic_hash": ""
   },
   "test/learning_path_level_test.dart": {
-    "mtime": 1788987817.8614333,
-    "seen": 1788995056.9189022,
-    "ast_hash": "0a5115b57c3260ef02c17ddc121dd2a4",
+    "mtime": 1789059083.824283,
+    "seen": 1789060099.460445,
+    "ast_hash": "a16a2e88d4909483c2604e758eae99f5",
     "semantic_hash": ""
   },
   "test/learning_path_screen_ui_test.dart": {
@@ -6090,9 +6090,9 @@
     "semantic_hash": ""
   },
   "test/uiux_bible_closeout_inventory_test.dart": {
-    "mtime": 1788987818.1124008,
-    "seen": 1788995056.9197319,
-    "ast_hash": "7f2d1ff9ee1a7f1d8588b72648e3daca",
+    "mtime": 1789058839.1870277,
+    "seen": 1789060099.5896683,
+    "ast_hash": "ec645861ab9d802b61adadbd33b220ad",
     "semantic_hash": ""
   },
   "test/ux_gallery_no_write_test.dart": {
@@ -9228,9 +9228,9 @@
     "semantic_hash": ""
   },
   "docs/UIUX_BIBLE_APPLICATION_EXECUTION_LOCK.md": {
-    "mtime": 1788987806.7028673,
-    "seen": 1788995056.921773,
-    "ast_hash": "16f93e238f349fcb21172bf7c74cae1e",
+    "mtime": 1789058839.1271586,
+    "seen": 1789060099.9994085,
+    "ast_hash": "cb00aa0832bfc8d3563865e50b7b8f6b",
     "semantic_hash": ""
   },
   "docs/UIUX_DUOLINGO_GAP_AND_PLAN.md": {
@@ -15516,9 +15516,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-09-global-launch-readiness.md": {
-    "mtime": 1789058144.1993523,
-    "seen": 1789058451.4830134,
-    "ast_hash": "cd16f6c77cd7e58b6b7a3e822978c719",
+    "mtime": 1789059826.8839118,
+    "seen": 1789060100.0914838,
+    "ast_hash": "90f43ebc8ba49c5a7818a195779fb623",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-09-global-launch-readiness-design.md": {
@@ -15759,6 +15759,60 @@
     "mtime": 1789055958.220167,
     "seen": 1789057500.9912755,
     "ast_hash": "76bdbf6f1b08c668c3e9d84174e3b96a",
+    "semantic_hash": ""
+  },
+  "lib/screens/learning_phases_screen.dart": {
+    "mtime": 1789058839.1799445,
+    "seen": 1789060099.2254002,
+    "ast_hash": "d64ca1c1ecaafd5337d882ab3fdccd15",
+    "semantic_hash": ""
+  },
+  "lib/services/learning_phase_catalog.dart": {
+    "mtime": 1789059126.4241958,
+    "seen": 1789060099.2819233,
+    "ast_hash": "d49a3983293a8c80680d91998b96459d",
+    "semantic_hash": ""
+  },
+  "test/learning_phase_catalog_loader_test.dart": {
+    "mtime": 1789059033.8124278,
+    "seen": 1789060099.460717,
+    "ast_hash": "f2c4a7d6a710694fa0ec97441e59a09c",
+    "semantic_hash": ""
+  },
+  "test/learning_phase_navigation_test.dart": {
+    "mtime": 1789059580.8987188,
+    "seen": 1789060099.4607196,
+    "ast_hash": "8a68879345823e58e4c05606f0a06e1e",
+    "semantic_hash": ""
+  },
+  "test/learning_phases_test.dart": {
+    "mtime": 1789058839.1840203,
+    "seen": 1789060099.460722,
+    "ast_hash": "43603c7bddb61151f01b1c3d6906e29d",
+    "semantic_hash": ""
+  },
+  "tool/build_learning_phase_catalog.py": {
+    "mtime": 1789058839.1881895,
+    "seen": 1789060099.6210017,
+    "ast_hash": "9b12115377cc5de581c7cccda74dc871",
+    "semantic_hash": ""
+  },
+  "tool/test_build_learning_phase_catalog.py": {
+    "mtime": 1789058839.1905868,
+    "seen": 1789060099.6500828,
+    "ast_hash": "32a99ecb0b92bc10407959d80a82cb44",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/cefr_matrix/runtime_bindings.json": {
+    "mtime": 1789058839.1919124,
+    "seen": 1789060099.686588,
+    "ast_hash": "727b0a4967cdc2d6805588c8e7905153",
+    "semantic_hash": ""
+  },
+  "docs/LEARNING_PHASE_ARTWORK_PLAN.md": {
+    "mtime": 1789058839.1241617,
+    "seen": 1789060099.97494,
+    "ast_hash": "6b0d2ba89d5ab58666015ac5fdc38483",
     "semantic_hash": ""
   }
 }

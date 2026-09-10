@@ -1,0 +1,760 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "b61c70b52e7f773c76336c5ab65638ca4c1af2d39fcf2f26f6793d06333a64d9",
+  "coverage": "related_practice_only",
+  "phases": [
+    {
+      "id": "KP01",
+      "level": "A1",
+      "levelPhase": "A1.1",
+      "title": {
+        "ko": "처음 만나 나와 주변 소개하기",
+        "en": "Introduce yourself and people around you",
+        "de": "Sich und andere vorstellen"
+      },
+      "goal": {
+        "ko": "처음 만난 상대에게 이름·관계·소속을 묻고 답하며 말끝을 공손하게 유지한다.",
+        "en": "Exchange names, relationships and affiliations with a new acquaintance using polite endings.",
+        "de": "Mit einer neuen Bekanntschaft Namen, Beziehungen und Zugehörigkeiten austauschen und höfliche Endungen verwenden."
+      },
+      "practiceFocus": {
+        "ko": "인사·소개·취향 말하기",
+        "en": "Greetings, introductions and preferences",
+        "de": "Begrüßungen, Vorstellungen und Vorlieben"
+      },
+      "practiceUnitIds": [
+        "a1_01_greetings_hangul",
+        "a1_02_self_intro_identity",
+        "a1_11_titles_relationships",
+        "a1_15_first_class_work"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP02",
+      "level": "A1",
+      "levelPhase": "A1.2",
+      "title": {
+        "ko": "하루의 시간·장소·이동 말하기",
+        "en": "Describe a day, places and movement",
+        "de": "Tagesablauf, Orte und Wege beschreiben"
+      },
+      "goal": {
+        "ko": "간단한 일정과 이동 경로를 이해하고 한 일·하지 않은 일·할 수 없었던 일을 구분해 말한다.",
+        "en": "Understand a simple schedule and route, and distinguish completed actions, choices not to act and inability.",
+        "de": "Einen einfachen Tagesplan und Weg verstehen und zwischen Vergangenem, freiwilligem Nichttun und Unvermögen unterscheiden."
+      },
+      "practiceFocus": {
+        "ko": "시간·교통·집 안 위치 확인하기",
+        "en": "Checking times, transport and locations at home",
+        "de": "Uhrzeiten, Verkehr und Orte zu Hause klären"
+      },
+      "practiceUnitIds": [
+        "a1_05_numbers_time",
+        "a1_06_transport_directions",
+        "a1_09_home_daily_life"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP03",
+      "level": "A1",
+      "levelPhase": "A1.3",
+      "title": {
+        "ko": "생활 서비스를 이용하고 약속 잡기",
+        "en": "Use everyday services and make arrangements",
+        "de": "Alltagsdienste nutzen und sich verabreden"
+      },
+      "goal": {
+        "ko": "가게·교통·여가 장면에서 원하는 것과 가능한 일을 말하고 요청·제안을 주고받는다.",
+        "en": "Express wants and abilities and exchange requests and proposals in shops, transport and leisure settings.",
+        "de": "Beim Einkaufen, unterwegs und in der Freizeit Wünsche und Möglichkeiten ausdrücken sowie Bitten und Vorschläge austauschen."
+      },
+      "practiceFocus": {
+        "ko": "물건·음식 주문과 연락·계획 말하기",
+        "en": "Ordering, keeping in touch and making plans",
+        "de": "Bestellen, Kontakt halten und Pläne machen"
+      },
+      "practiceUnitIds": [
+        "a1_03_topic_subject_particles",
+        "a1_04_order_request_object",
+        "a1_07_contact_address",
+        "a1_12_daily_negation",
+        "a1_14_payment_delivery",
+        "a1_16_survival_capstone"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP04",
+      "level": "A1",
+      "levelPhase": "A1.4",
+      "title": {
+        "ko": "이유를 설명하고 예의를 갖춰 조정하기",
+        "en": "Explain reasons and adjust plans politely",
+        "de": "Gründe nennen und Pläne höflich ändern"
+      },
+      "goal": {
+        "ko": "날씨·건강·상대 사정을 이유로 일정을 바꾸고 제3자를 높이며 간단한 의무와 순서를 설명한다.",
+        "en": "Change plans because of weather, health or another person's circumstances and explain simple duties and sequences with appropriate respect.",
+        "de": "Wegen Wetter, Gesundheit oder der Situation anderer Pläne ändern und einfache Pflichten und Abläufe respektvoll erläutern."
+      },
+      "practiceFocus": {
+        "ko": "다시 묻기·사과하기·말투 구별하기",
+        "en": "Asking again, apologising and recognising speech styles",
+        "de": "Nachfragen, sich entschuldigen und Sprechweisen unterscheiden"
+      },
+      "practiceUnitIds": [
+        "a1_08_clarify_repair",
+        "a1_10_health_safety",
+        "a1_13_register_switching"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP05",
+      "level": "A2",
+      "levelPhase": "A2.1",
+      "title": {
+        "ko": "조건·선택·허용을 확인하기",
+        "en": "Check conditions, choices and permission",
+        "de": "Bedingungen, Alternativen und Erlaubnis klären"
+      },
+      "goal": {
+        "ko": "서비스 이용 조건을 확인하고 대안을 고르며 부탁·허용·금지를 서로 구별한다.",
+        "en": "Check conditions for a service, select alternatives and distinguish requests, permission and prohibition.",
+        "de": "Nutzungsbedingungen klären, Alternativen auswählen und Bitten, Erlaubnis und Verbote unterscheiden."
+      },
+      "practiceFocus": {
+        "ko": "교환·이동·집 문제에 필요한 요청하기",
+        "en": "Requests about exchanges, travel and household problems",
+        "de": "Bitten bei Umtausch, Reisen und Problemen zu Hause"
+      },
+      "practiceUnitIds": [
+        "a2_05_delivery_services",
+        "a2_07_travel_repair",
+        "a2_08_home_money"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP06",
+      "level": "A2",
+      "levelPhase": "A2.2",
+      "title": {
+        "ko": "사람·경험·기간을 구체적으로 설명하기",
+        "en": "Describe people, experiences and duration",
+        "de": "Personen, Erfahrungen und Zeiträume genauer beschreiben"
+      },
+      "goal": {
+        "ko": "명사 앞 수식과 명사화를 써서 대상과 경험을 특정하고 사건의 시간 관계를 설명한다.",
+        "en": "Identify people and experiences with noun modifiers and nominalisation, and explain temporal relations between events.",
+        "de": "Mit Attributen vor dem Nomen und Nominalisierungen Personen und Erfahrungen bestimmen und zeitliche Zusammenhänge erläutern."
+      },
+      "practiceFocus": {
+        "ko": "취향의 이유와 증상·느낌 설명하기",
+        "en": "Explaining preferences, symptoms and feelings",
+        "de": "Vorlieben begründen, Beschwerden und Gefühle beschreiben"
+      },
+      "practiceUnitIds": [
+        "a2_01_haeyo_transition",
+        "a2_04_feelings_health"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP07",
+      "level": "A2",
+      "levelPhase": "A2.3",
+      "title": {
+        "ko": "배경을 말하고 의도·결정을 조정하기",
+        "en": "Give background and negotiate intentions",
+        "de": "Hintergründe erklären und Vorhaben abstimmen"
+      },
+      "goal": {
+        "ko": "상황의 배경과 원인을 설명한 뒤 의도·약속·잠정적 판단을 구분해 다음 행동을 정한다.",
+        "en": "Explain background and causes, then distinguish intentions, commitments and tentative judgements when deciding what to do.",
+        "de": "Hintergründe und Gründe erklären und bei der Planung Absichten, Zusagen und vorläufige Einschätzungen unterscheiden."
+      },
+      "practiceFocus": {
+        "ko": "약속 바꾸기와 실수 수습하기",
+        "en": "Changing plans and putting mistakes right",
+        "de": "Verabredungen ändern und Fehler beheben"
+      },
+      "practiceUnitIds": [
+        "a2_02_plans_proposals",
+        "a2_06_study_work"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP08",
+      "level": "A2",
+      "levelPhase": "A2.4",
+      "title": {
+        "ko": "공지·전달·말투 전환 다루기",
+        "en": "Handle notices, relayed information and speech styles",
+        "de": "Mitteilungen, Weitergabe und Sprechstile handhaben"
+      },
+      "goal": {
+        "ko": "공지의 축약 지시를 읽고 수혜자·출처·결과 상태를 설명하며 친한 사이와 공적 상황의 말투를 바꾼다.",
+        "en": "Read compressed instructions, explain recipients, sources and resulting states, and adjust speech between familiar and public contexts.",
+        "de": "Verkürzte Anweisungen lesen, Empfänger, Herkunft und Ergebniszustände erklären und zwischen vertrauten und öffentlichen Situationen den Sprechstil wechseln."
+      },
+      "practiceFocus": {
+        "ko": "메신저로 현재 상황 알리기",
+        "en": "Explaining the current situation in messages",
+        "de": "Die aktuelle Situation in Nachrichten erklären"
+      },
+      "practiceUnitIds": [
+        "a2_03_chat_relationships"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP09",
+      "level": "B1",
+      "levelPhase": "B1.1",
+      "title": {
+        "ko": "친밀한 대화에서 경험 회상하기",
+        "en": "Recall experiences in familiar conversation",
+        "de": "In vertrauten Gesprächen Erfahrungen erinnern"
+      },
+      "goal": {
+        "ko": "친밀도에 맞는 반말로 과거 경험과 현재 진행을 구분하고 상대의 기억·감정을 확인한다.",
+        "en": "Use relationship-appropriate familiar speech to distinguish remembered experience from current activity and check another person's memory or feelings.",
+        "de": "In angemessener vertrauter Rede Erinnerungen und laufende Tätigkeiten unterscheiden und Erinnerungen oder Gefühle des Gegenübers erfragen."
+      },
+      "practiceFocus": {
+        "ko": "경험의 이유와 관계·감정 확인하기",
+        "en": "Explaining experiences and checking feelings in relationships",
+        "de": "Erlebnisse erklären und Gefühle in Beziehungen klären"
+      },
+      "practiceUnitIds": [
+        "b1_01_experience_reasons",
+        "b1_04_relationships"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP10",
+      "level": "B1",
+      "levelPhase": "B1.2",
+      "title": {
+        "ko": "사건의 경위와 결과 설명하기",
+        "en": "Explain how events unfolded and what resulted",
+        "de": "Abläufe und Folgen von Ereignissen erklären"
+      },
+      "goal": {
+        "ko": "중단·발견·완료·상태 변화를 연결해 문제의 경위를 설명하고 결과를 남겨 둔 행동을 구분한다.",
+        "en": "Explain a problem through interruption, discovery, completion and change of state, distinguishing actions with maintained results.",
+        "de": "Den Verlauf eines Problems mit Unterbrechung, Entdeckung, Abschluss und Zustandsänderung erklären und bleibende Ergebnisse unterscheiden."
+      },
+      "practiceFocus": {
+        "ko": "문제의 경위와 원하는 해결 말하기",
+        "en": "Explaining a problem and the resolution you want",
+        "de": "Ein Problem und die gewünschte Lösung schildern"
+      },
+      "practiceUnitIds": [
+        "b1_01_experience_reasons",
+        "b1_05_complaint_resolution"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP11",
+      "level": "B1",
+      "levelPhase": "B1.3",
+      "title": {
+        "ko": "비교·평가·대안을 근거와 함께 말하기",
+        "en": "Compare and evaluate alternatives with reasons",
+        "de": "Alternativen begründet vergleichen und bewerten"
+      },
+      "goal": {
+        "ko": "주거·문화·소비 선택에서 장단점과 예외를 비교하고 균형 잡힌 평가와 대안을 제시한다.",
+        "en": "Compare benefits, drawbacks and exceptions in housing, culture and consumption, giving balanced evaluations and alternatives.",
+        "de": "Bei Wohnen, Kultur und Konsum Vorzüge, Nachteile und Ausnahmen vergleichen sowie abgewogene Bewertungen und Alternativen formulieren."
+      },
+      "practiceFocus": {
+        "ko": "생활 갈등에서 서로의 사정 조정하기",
+        "en": "Working through conflicting needs in daily life",
+        "de": "Unterschiedliche Bedürfnisse im Alltag abstimmen"
+      },
+      "practiceUnitIds": [
+        "b1_06_life_capstone"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP12",
+      "level": "B1",
+      "levelPhase": "B1.4",
+      "title": {
+        "ko": "조건·의무·도움을 협의하기",
+        "en": "Negotiate conditions, duties and assistance",
+        "de": "Bedingungen, Pflichten und Hilfe aushandeln"
+      },
+      "goal": {
+        "ko": "공동 과제에서 목적과 필수 조건을 분명히 하고 도움·약속·금지의 책임 범위를 협의한다.",
+        "en": "Clarify purposes and necessary conditions in a shared task and negotiate responsibility for help, commitments and restrictions.",
+        "de": "Bei gemeinsamen Aufgaben Ziele und notwendige Bedingungen klären und Verantwortung für Hilfe, Zusagen und Einschränkungen abstimmen."
+      },
+      "practiceFocus": {
+        "ko": "업무·생활 갈등의 해결 협의하기",
+        "en": "Negotiating solutions to work and daily-life conflicts",
+        "de": "Lösungen für Konflikte im Beruf und Alltag aushandeln"
+      },
+      "practiceUnitIds": [
+        "b1_03_work_softening",
+        "b1_06_life_capstone"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP13",
+      "level": "B1",
+      "levelPhase": "B1.5",
+      "title": {
+        "ko": "정보를 인용하고 근거를 구분하기",
+        "en": "Report information and distinguish evidence",
+        "de": "Informationen wiedergeben und Belege unterscheiden"
+      },
+      "goal": {
+        "ko": "발언의 출처를 밝혀 전달하고 관찰·추측·상대와의 공유 지식을 구분해 설명한다.",
+        "en": "Relay statements with their sources and distinguish observation, inference and shared knowledge.",
+        "de": "Äußerungen mit Herkunftsangabe weitergeben und Beobachtung, Schlussfolgerung und gemeinsames Wissen auseinanderhalten."
+      },
+      "practiceFocus": {
+        "ko": "들은 정보와 확정된 정보 구분하기",
+        "en": "Separating reported information from confirmed facts",
+        "de": "Gehörte Informationen von bestätigten Angaben unterscheiden"
+      },
+      "practiceUnitIds": [
+        "b1_02_indirect_speech"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP14",
+      "level": "B2",
+      "levelPhase": "B2.1",
+      "title": {
+        "ko": "자료·정의·역할을 설명하기",
+        "en": "Explain data, definitions and roles",
+        "de": "Daten, Begriffe und Rollen erklären"
+      },
+      "goal": {
+        "ko": "자료의 기준·비교·정의를 설명하고 행위자의 자격과 사용한 수단을 구별한다.",
+        "en": "Explain the basis, comparisons and definitions in information and distinguish an actor's capacity from the means used.",
+        "de": "Grundlagen, Vergleiche und Definitionen in Materialien erläutern und Rolle und eingesetztes Mittel unterscheiden."
+      },
+      "practiceFocus": {
+        "ko": "공식 대화의 범위와 의견의 근거 확인하기",
+        "en": "Clarifying scope and evidence in formal discussions",
+        "de": "Umfang und Belege in formellen Gesprächen klären"
+      },
+      "practiceUnitIds": [
+        "b2_01_formal_opening",
+        "b2_02_professional_opinion"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP15",
+      "level": "B2",
+      "levelPhase": "B2.2",
+      "title": {
+        "ko": "원인과 영향을 평가해 보고하기",
+        "en": "Assess and report causes and consequences",
+        "de": "Ursachen und Folgen bewerten und darstellen"
+      },
+      "goal": {
+        "ko": "사건의 연속과 우연한 결과를 재구성하고 원인 표현이 담는 책임·평가를 구분한다.",
+        "en": "Reconstruct sequences and unintended outcomes and distinguish responsibility and evaluation encoded in causal expressions.",
+        "de": "Abläufe und unbeabsichtigte Folgen rekonstruieren und Verantwortung und Wertung in Kausalausdrücken unterscheiden."
+      },
+      "practiceFocus": {
+        "ko": "책임 범위와 경력의 한계 설명하기",
+        "en": "Explaining responsibilities and the limits of experience",
+        "de": "Verantwortungsbereiche und Grenzen der eigenen Erfahrung erklären"
+      },
+      "practiceUnitIds": [
+        "b2_04_complaint_resolution",
+        "b2_05_interview"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP16",
+      "level": "B2",
+      "levelPhase": "B2.3",
+      "title": {
+        "ko": "가정·양보·선택 범위를 논의하기",
+        "en": "Discuss hypotheses, concessions and options",
+        "de": "Annahmen, Zugeständnisse und Spielräume diskutieren"
+      },
+      "goal": {
+        "ko": "조건을 바꿔 대안을 검토하고 양보가 성립해도 유지되는 결론과 제한된 선택의 의미를 설명한다.",
+        "en": "Explore alternatives under changed conditions and explain conclusions maintained despite concessions and constrained choices.",
+        "de": "Alternativen unter veränderten Bedingungen prüfen und trotz Zugeständnissen geltende Schlüsse sowie eingeschränkte Wahlmöglichkeiten erklären."
+      },
+      "practiceFocus": {
+        "ko": "요청 조건과 공동체 갈등의 절충 협의하기",
+        "en": "Negotiating request conditions and community compromises",
+        "de": "Bedingungen für Bitten und Kompromisse in der Gemeinschaft aushandeln"
+      },
+      "practiceUnitIds": [
+        "b2_03_precise_requests",
+        "b2_06_advanced_capstone"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP17",
+      "level": "B2",
+      "levelPhase": "B2.4",
+      "title": {
+        "ko": "인용을 확인하고 오해를 바로잡기",
+        "en": "Check reported speech and repair misunderstandings",
+        "de": "Wiedergegebene Aussagen prüfen und Missverständnisse klären"
+      },
+      "goal": {
+        "ko": "축약 인용·되묻기·목격 근거를 이용해 발언의 내용과 태도를 확인하고 오해를 수정한다.",
+        "en": "Use contracted reported speech, checking questions and witnessed evidence to clarify content, stance and misunderstandings.",
+        "de": "Mit verkürzter Redewiedergabe, Rückfragen und Beobachtungsbelegen Inhalt und Haltung klären und Missverständnisse beheben."
+      },
+      "practiceFocus": {
+        "ko": "발언의 범위와 책임을 확인하기",
+        "en": "Clarifying the scope of statements and responsibilities",
+        "de": "Die Reichweite von Aussagen und Verantwortlichkeiten klären"
+      },
+      "practiceUnitIds": [
+        "b2_01_formal_opening",
+        "b2_04_complaint_resolution"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP18",
+      "level": "B2",
+      "levelPhase": "B2.5",
+      "title": {
+        "ko": "논거를 종합하고 결론의 강도를 조절하기",
+        "en": "Synthesize arguments and calibrate conclusions",
+        "de": "Argumente bündeln und Schlussfolgerungen abstufen"
+      },
+      "goal": {
+        "ko": "격식적 근거와 일상적 유보를 구별해 논거를 종합하고 강조·반박·후회의 강도를 조정한다.",
+        "en": "Synthesize arguments across formal evidence and conversational reservation, calibrating emphasis, rebuttal and regret.",
+        "de": "Argumente mit formellen Belegen und alltäglichen Vorbehalten verbinden und Nachdruck, Widerspruch und Bedauern abstufen."
+      },
+      "practiceFocus": {
+        "ko": "근거를 바탕으로 의견과 절충안 조정하기",
+        "en": "Adjusting opinions and compromises using evidence",
+        "de": "Meinungen und Kompromisse anhand von Belegen anpassen"
+      },
+      "practiceUnitIds": [
+        "b2_02_professional_opinion",
+        "b2_06_advanced_capstone"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP19",
+      "level": "C1",
+      "levelPhase": "C1.1",
+      "title": {
+        "ko": "전문 내용을 문어로 조직하기",
+        "en": "Organise specialised content in writing",
+        "de": "Fachliche Inhalte schriftlich ordnen"
+      },
+      "goal": {
+        "ko": "전문 자료에서 시간·동시성·상태 유지를 구분해 핵심 과정과 성과를 독자가 따라갈 수 있게 조직한다.",
+        "en": "Organise specialised processes and outcomes by distinguishing timing, simultaneity and maintained states for the reader.",
+        "de": "Fachliche Abläufe und Ergebnisse für Lesende ordnen und dabei Zeitfolge, Gleichzeitigkeit und fortbestehende Zustände unterscheiden."
+      },
+      "practiceFocus": {
+        "ko": "공공 근거의 범위와 대표성 설명하기",
+        "en": "Explaining the scope and representativeness of public evidence",
+        "de": "Die Reichweite und Repräsentativität öffentlicher Belege erklären"
+      },
+      "practiceUnitIds": [
+        "c1_01_evidence_public_reasoning"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP20",
+      "level": "C1",
+      "levelPhase": "C1.2",
+      "title": {
+        "ko": "불확실성과 일반화의 한계를 표현하기",
+        "en": "Express uncertainty and limits of generalisation",
+        "de": "Unsicherheit und Grenzen von Verallgemeinerungen ausdrücken"
+      },
+      "goal": {
+        "ko": "근거의 강도에 맞춰 개연성·경향·일반화를 구분하고 전문 주장과 일상적 추정을 완곡하게 제시한다.",
+        "en": "Distinguish plausibility, tendencies and generalisations according to evidence, hedging both specialised claims and everyday inferences.",
+        "de": "Plausibilität, Tendenzen und Verallgemeinerungen nach Beleglage unterscheiden und fachliche wie alltägliche Vermutungen angemessen abschwächen."
+      },
+      "practiceFocus": {
+        "ko": "자료의 대표성·출처·확정 수준 판단하기",
+        "en": "Assessing representativeness, sources and certainty",
+        "de": "Repräsentativität, Quellen und Gewissheit einschätzen"
+      },
+      "practiceUnitIds": [
+        "c1_01_evidence_public_reasoning",
+        "c1_03_media_evidence_literacy"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP21",
+      "level": "C1",
+      "levelPhase": "C1.3",
+      "title": {
+        "ko": "반론을 수용하고 논증을 정교화하기",
+        "en": "Accommodate objections and refine arguments",
+        "de": "Einwände aufgreifen und Argumentationen präzisieren"
+      },
+      "goal": {
+        "ko": "상대의 근거를 인정하면서 결론을 유지·수정하고 양보·척도·비교의 함축을 활용해 반론을 구성한다.",
+        "en": "Acknowledge another person's evidence while maintaining or revising conclusions and use concessive, scalar and comparative implications in rebuttal.",
+        "de": "Belege anderer anerkennen, Schlüsse beibehalten oder ändern und mit konzessiven, skalaren und vergleichenden Implikationen erwidern."
+      },
+      "practiceFocus": {
+        "ko": "자원 제약과 문화 참여의 공로 협의하기",
+        "en": "Discussing resource limits and contributions to cultural participation",
+        "de": "Ressourcengrenzen und Beiträge zur kulturellen Teilhabe besprechen"
+      },
+      "practiceUnitIds": [
+        "c1_02_inclusive_sustainable_systems",
+        "c1_05_fan_labor_sustainability"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP22",
+      "level": "C1",
+      "levelPhase": "C1.4",
+      "title": {
+        "ko": "정책·선택의 조건과 책임 검토하기",
+        "en": "Examine conditions and responsibility in policy choices",
+        "de": "Bedingungen und Verantwortung bei Entscheidungen prüfen"
+      },
+      "goal": {
+        "ko": "제도·계획의 조건과 예외를 검토하고 실행 의지·예측·부작용을 분리해 조건부 권고를 제시한다.",
+        "en": "Examine conditions and exceptions in institutions and plans, separating commitment, prediction and side effects in conditional recommendations.",
+        "de": "Bedingungen und Ausnahmen bei Regeln und Plänen prüfen und in bedingten Empfehlungen Absicht, Prognose und Nebenfolgen trennen."
+      },
+      "practiceFocus": {
+        "ko": "규제의 목적·예외와 자원 제약 검토하기",
+        "en": "Examining regulatory purposes, exceptions and resource limits",
+        "de": "Regelungsziele, Ausnahmen und Ressourcengrenzen prüfen"
+      },
+      "practiceUnitIds": [
+        "c1_04_play_time_policy",
+        "c1_02_inclusive_sustainable_systems"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP23",
+      "level": "C1",
+      "levelPhase": "C1.5",
+      "title": {
+        "ko": "여러 출처의 말과 의도를 중개하기",
+        "en": "Mediate statements and intentions from several sources",
+        "de": "Aussagen und Absichten mehrerer Quellen vermitteln"
+      },
+      "goal": {
+        "ko": "출처마다 다른 주장·권유·명령을 구분해 전달하고 인용의 범위와 전달자의 평가를 투명하게 드러낸다.",
+        "en": "Mediate differing claims, proposals and instructions, making quotation scope and the reporter's evaluation explicit.",
+        "de": "Unterschiedliche Behauptungen, Vorschläge und Anweisungen vermitteln und Zitatumfang und eigene Bewertung kenntlich machen."
+      },
+      "practiceFocus": {
+        "ko": "미디어 출처와 문화 참여자의 공로 구분하기",
+        "en": "Distinguishing media sources and participants’ contributions",
+        "de": "Medienquellen und Beiträge Beteiligter unterscheiden"
+      },
+      "practiceUnitIds": [
+        "c1_03_media_evidence_literacy",
+        "c1_05_fan_labor_sustainability"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP24",
+      "level": "C1",
+      "levelPhase": "C1.6",
+      "title": {
+        "ko": "관계와 장르에 맞춰 말투를 재구성하기",
+        "en": "Recast speech for relationships and genres",
+        "de": "Äußerungen an Beziehung und Textsorte anpassen"
+      },
+      "goal": {
+        "ko": "같은 내용을 친구 대화·공적 발언·비평으로 바꾸며 겉뜻·속뜻과 공손성의 차이를 설명한다.",
+        "en": "Recast the same content as friendly conversation, public speech and criticism, explaining literal meaning, implication and politeness.",
+        "de": "Dieselben Inhalte als Gespräch unter Freunden, öffentliche Äußerung und Kritik gestalten und Wortlaut, Implikation und Höflichkeit erläutern."
+      },
+      "practiceFocus": {
+        "ko": "관계 속 기대와 경계를 조심스럽게 협의하기",
+        "en": "Negotiating expectations and boundaries in relationships",
+        "de": "Erwartungen und Grenzen in Beziehungen behutsam aushandeln"
+      },
+      "practiceUnitIds": [
+        "c1_06_intimacy_safety_design"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP25",
+      "level": "C2",
+      "levelPhase": "C2.1",
+      "title": {
+        "ko": "제도 문어의 범위·정의·전제를 해석하기",
+        "en": "Interpret scope, definitions and premises in institutional texts",
+        "de": "Geltungsbereiche, Definitionen und Prämissen institutioneller Texte deuten"
+      },
+      "goal": {
+        "ko": "규정·정책·전문 논증의 인용 관형절과 범위 제한을 해석하고 조건의 변화가 적용 대상에 미치는 영향을 설명한다.",
+        "en": "Interpret quoted noun modifiers and scope restrictions in regulations and specialised arguments, explaining how changed conditions affect applicability.",
+        "de": "Zitierende Attribute und Einschränkungen in Regelungen und Fachdiskursen deuten und Auswirkungen geänderter Bedingungen auf den Geltungsbereich erklären."
+      },
+      "practiceFocus": {
+        "ko": "제도·권리 충돌과 이의 제기 절차 논의하기",
+        "en": "Discussing institutional conflicts, rights and appeals",
+        "de": "Institutionelle Konflikte, Rechte und Einspruchsverfahren besprechen"
+      },
+      "practiceUnitIds": [
+        "c2_01_interpretation_institutions",
+        "c2_03_automation_redress"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP26",
+      "level": "C2",
+      "levelPhase": "C2.2",
+      "title": {
+        "ko": "서사의 평가와 관점을 비판적으로 읽기",
+        "en": "Read narrative evaluation and perspective critically",
+        "de": "Wertung und Perspektive in Erzählungen kritisch lesen"
+      },
+      "goal": {
+        "ko": "문학·회고·비평의 상반 관계와 반복·완료 표현에서 화자의 관점을 추론하고 중립적 보고와 대비한다.",
+        "en": "Infer perspective from contrast, repetition and completion in literature, reminiscence and criticism, comparing it with neutral reporting.",
+        "de": "Aus Gegensatz, Wiederholung und Abschluss in Literatur, Erinnerungen und Kritik die Perspektive erschließen und mit neutraler Darstellung vergleichen."
+      },
+      "practiceFocus": {
+        "ko": "같은 경험을 서로 다른 기억·관점으로 설명하기",
+        "en": "Explaining an experience through different memories and perspectives",
+        "de": "Ein Erlebnis aus verschiedenen Erinnerungen und Perspektiven schildern"
+      },
+      "practiceUnitIds": [
+        "c2_05_relationship_narratives"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP27",
+      "level": "C2",
+      "levelPhase": "C2.3",
+      "title": {
+        "ko": "극단적 조건에서도 태도와 선택을 정교화하기",
+        "en": "Refine stance and choices under extreme conditions",
+        "de": "Haltung und Entscheidungen unter extremen Bedingungen präzisieren"
+      },
+      "goal": {
+        "ko": "양보·질책·의도·좌절을 구별하고 선택의 대가를 인정하면서도 유지하는 결론을 정확한 강도로 표현한다.",
+        "en": "Distinguish concession, reproach, intention and frustration and calibrate conclusions maintained despite the costs of a choice.",
+        "de": "Zugeständnis, Vorwurf, Absicht und Scheitern unterscheiden und trotz der Kosten einer Wahl aufrechterhaltene Schlüsse genau abstufen."
+      },
+      "practiceFocus": {
+        "ko": "자동화의 공공 책임·재심·책임 범위 협의하기",
+        "en": "Discussing public accountability, review and responsibility in automation",
+        "de": "Öffentliche Rechenschaft, Überprüfung und Verantwortung bei Automatisierung besprechen"
+      },
+      "practiceUnitIds": [
+        "c2_02_technology_public_ethics",
+        "c2_03_automation_redress",
+        "c2_04_sanction_accountability"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP28",
+      "level": "C2",
+      "levelPhase": "C2.4",
+      "title": {
+        "ko": "아이러니·축소·인용 확인을 해석하기",
+        "en": "Interpret irony, understatement and checks on quotation",
+        "de": "Ironie, Herabsetzung und Zitatrückfragen deuten"
+      },
+      "goal": {
+        "ko": "짧은 구어 표현의 함축과 인용 출처를 추적하고 비꼼·축소가 관계에 미치는 효과를 설명해 중립적으로 다시 말한다.",
+        "en": "Trace implications and quotation sources in compressed speech, explaining relational effects of irony or belittlement and rephrasing neutrally.",
+        "de": "Implikationen und Zitatherkunft in verdichteter Rede verfolgen, Beziehungswirkungen von Ironie oder Herabsetzung erklären und neutral umformulieren."
+      },
+      "practiceFocus": {
+        "ko": "미디어 프레이밍과 관계 서사의 관점 비교하기",
+        "en": "Comparing perspectives in media framing and relationship narratives",
+        "de": "Perspektiven in Medien und Beziehungserzählungen vergleichen"
+      },
+      "practiceUnitIds": [
+        "c2_06_fandom_discourse_power",
+        "c2_05_relationship_narratives"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP29",
+      "level": "C2",
+      "levelPhase": "C2.5",
+      "title": {
+        "ko": "수사적·문학적 목소리를 조절하기",
+        "en": "Control rhetorical and literary voices",
+        "de": "Rhetorische und literarische Stimmen gestalten"
+      },
+      "goal": {
+        "ko": "수사적 질문·예측·인용의 화자 위치를 구별하고 문학적 어조를 현대적 격식·구어로 바꾸며 의미 손실을 설명한다.",
+        "en": "Distinguish speaker positions in rhetorical questions, prediction and quotation, adapting literary tone to modern formal or conversational styles.",
+        "de": "Sprecherpositionen in rhetorischen Fragen, Prognosen und Zitaten unterscheiden und literarischen Ton in moderne formelle oder mündliche Formen übertragen."
+      },
+      "practiceFocus": {
+        "ko": "관계 서사와 미디어 담론의 관점 조정하기",
+        "en": "Adjusting perspectives in relationship narratives and media discourse",
+        "de": "Perspektiven in Beziehungserzählungen und Mediendiskursen abstimmen"
+      },
+      "practiceUnitIds": [
+        "c2_05_relationship_narratives",
+        "c2_06_fandom_discourse_power"
+      ],
+      "illustrationAsset": null
+    },
+    {
+      "id": "KP30",
+      "level": "C2",
+      "levelPhase": "C2.6",
+      "title": {
+        "ko": "대우법·세대·상황에 따라 문체를 전환하기",
+        "en": "Shift styles across status, generation and situation",
+        "de": "Sprechstile nach Beziehung, Generation und Situation wechseln"
+      },
+      "goal": {
+        "ko": "하게체·하오체·현대 일상체의 관계적 의미를 해석하고 상황에 맞는 현대 표현으로 바꾸거나 제한된 역할극에서 의도적으로 사용한다.",
+        "en": "Interpret the relational meanings of hage, hao and modern everyday styles, adapting them to modern contexts or using them deliberately in bounded role-play.",
+        "de": "Die Beziehungsbedeutung von Hage-, Hao- und heutigen Alltagsstilen deuten und sie zeitgemäß umformulieren oder in begrenzten Rollenspielen gezielt einsetzen."
+      },
+      "practiceFocus": {
+        "ko": "서로 다른 기억과 관계의 관점을 조정하기",
+        "en": "Reconciling different memories and relationship perspectives",
+        "de": "Unterschiedliche Erinnerungen und Beziehungsperspektiven abstimmen"
+      },
+      "practiceUnitIds": [
+        "c2_05_relationship_narratives"
+      ],
+      "illustrationAsset": null
+    }
+  ]
+}

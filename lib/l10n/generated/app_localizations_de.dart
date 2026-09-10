@@ -9,6 +9,23 @@ class AppL10nDe extends AppL10n {
   AppL10nDe([String locale = 'de']) : super(locale);
 
   @override
+  String get learningPhasesTitle => '30 Lernphasen';
+
+  @override
+  String get learningPhasesIntro =>
+      'Entdecke die Lernziele von A1 bis C2 und übe dazu passende Gespräche. Dein bisheriger Lernfortschritt bleibt erhalten.';
+
+  @override
+  String get learningPhasePracticeTitle => 'Verwandte Gespräche frei üben';
+
+  @override
+  String get learningPhasePracticeScope =>
+      'Hier übst du verwandte Themen. Die eigenen Aufgaben für dieses Phasenziel sind noch in Vorbereitung. Für deinen Lernfortschritt gelten weiterhin die bisherigen Missionsprüfungen.';
+
+  @override
+  String get learningPhaseImagePreparing => 'Bild in Vorbereitung';
+
+  @override
   String get accountAdditionalProviderTitle =>
       'Weitere Anmeldemethode verbinden';
 
