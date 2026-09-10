@@ -66,8 +66,8 @@
 ## Task 4: Review, checks and authorized integration
 
 - [x] Review all Flutter changes against the spec and code quality. Fix load-bearing findings before integration.
-- [ ] Run app regression tests, analyzer, media checks and an Android profile build. Record unavailable device gates honestly and do not bypass installation controls.
-- [ ] Update/prune Graphify, check whitespace and stage only owned changes. Incorporate current origin/main while preserving unrelated changes.
+- [x] Run app regression tests, analyzer, media checks and an Android profile build. Record unavailable device gates honestly and do not bypass installation controls.
+- [x] Update/prune Graphify, check whitespace and stage only owned changes. Incorporate current origin/main while preserving unrelated changes.
 - [ ] Push the branch, open/update a clear PR, pass required CI and Playwright at the exact PR SHA, and merge.
 - [ ] Verify required main checks at the merge SHA. Audit the worktree's unique, ignored, hidden and active-process state; remove it only if the approved cleanup gate passes.
 
