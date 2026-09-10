@@ -99,11 +99,21 @@ void main() {
               await tester.pump(const Duration(milliseconds: 40));
               final evidence = '$language $size scale=$scale screen=$index';
               _expectScreenFits(tester, size, evidence);
-              if (index == 3) {
-                final title = tester.widget<Text>(
+              if ((index == 0 || index == 3) && scale == 2.0) {
+                final heading = tester.widget<Text>(
                   find.byKey(const ValueKey('onboarding-v2-story-title')),
                 );
-                expect(title.data!.toLowerCase(), contains('demo'));
+                expect(heading.data, contains('12'));
+                expect(
+                  heading.data,
+                  contains(language == 'de' ? 'Bauziel' : 'Goal'),
+                );
+              }
+              if (index == 3) {
+                final demo = lookupAppL10n(
+                  Locale(language),
+                ).onboardingV2RewardDemoNote;
+                expect(find.text(demo), findsOneWidget);
               }
               if (index == 1) {
                 await tester.tap(
@@ -111,6 +121,13 @@ void main() {
                 );
                 await tester.pump();
                 _expectScreenFits(tester, size, '$evidence composed');
+              }
+              if (index == 2) {
+                await tester.tap(
+                  find.byKey(const ValueKey('onboarding-v3-card-flip')),
+                );
+                await tester.pump();
+                _expectScreenFits(tester, size, '$evidence example and audio');
               }
               if (index == 3) {
                 await tester.tap(

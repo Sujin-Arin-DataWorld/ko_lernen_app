@@ -21,6 +21,69 @@ Future<T?> showOnboardingV2ModalWithFocusRestore<T>(
   return result;
 }
 
+/// Short reading stays near the centre on a wider window. Compact windows use
+/// the familiar bottom sheet; both keep long copy inside the modal surface.
+Future<T?> showOnboardingV2ReadingModal<T>({
+  required BuildContext context,
+  required WidgetBuilder builder,
+  bool scrollable = true,
+  double maxHeightFactor = .88,
+}) {
+  if (appWindowClassOf(context).isCompact) {
+    return showSoriSheet<T>(
+      context: context,
+      maxTextScaleFactor: 2,
+      maxHeightFactor: maxHeightFactor,
+      scrollable: scrollable,
+      builder: builder,
+    );
+  }
+  return showDialog<T>(
+    context: context,
+    builder: (dialogContext) => Dialog(
+      key: const ValueKey('onboarding-v2-reading-dialog'),
+      backgroundColor: SoriSurfaces.of(dialogContext).surface,
+      insetPadding: const EdgeInsets.all(Spacing.xl),
+      shape: RoundedRectangleBorder(borderRadius: SoriRadius.brLg),
+      child: ConstrainedBox(
+        key: const ValueKey('onboarding-v2-reading-surface'),
+        constraints: BoxConstraints(
+          maxWidth: 640,
+          maxHeight: MediaQuery.sizeOf(dialogContext).height * maxHeightFactor,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Align(
+              alignment: Alignment.centerRight,
+              child: IconButton(
+                tooltip: AppL10n.of(dialogContext).btnClose,
+                constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+                onPressed: () => Navigator.of(dialogContext).pop(),
+                icon: const Icon(Icons.close_rounded),
+              ),
+            ),
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(
+                  Spacing.xl,
+                  0,
+                  Spacing.xl,
+                  Spacing.xl,
+                ),
+                child: scrollable
+                    ? SingleChildScrollView(child: Builder(builder: builder))
+                    : Builder(builder: builder),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+}
+
 /// Shared first-run frame for the seven-step guided journey.
 ///
 /// A measured, single-screen canvas keeps the learning action and footer in
@@ -37,6 +100,7 @@ class OnboardingV2PageShell extends StatelessWidget {
     this.stage,
     this.stageKey,
     this.heading,
+    this.maxContentHeight = 820,
     this.showStage = true,
     this.currentStep,
     this.totalSteps = 7,
@@ -46,6 +110,7 @@ class OnboardingV2PageShell extends StatelessWidget {
        assert(currentStep == null || currentStep <= totalSteps);
 
   final Widget? heading;
+  final double maxContentHeight;
   final bool showStage;
   final Widget body;
   final Widget footer;
@@ -113,6 +178,7 @@ class OnboardingV2PageShell extends StatelessWidget {
                           ),
                           Expanded(
                             child: _JourneyViewport(
+                              maxContentHeight: maxContentHeight,
                               heading: heading,
                               body: body,
                               footer: footer,
@@ -344,6 +410,7 @@ class _ProgressRail extends StatelessWidget {
 /// based image height that forces the page to scroll.
 class _JourneyViewport extends StatelessWidget {
   const _JourneyViewport({
+    required this.maxContentHeight,
     required this.heading,
     required this.body,
     required this.footer,
@@ -354,6 +421,7 @@ class _JourneyViewport extends StatelessWidget {
   });
 
   final Widget? heading;
+  final double maxContentHeight;
   final Widget body;
   final Widget footer;
   final Key? bodyKey;
@@ -398,7 +466,10 @@ class _JourneyViewport extends StatelessWidget {
               ),
               child: Center(
                 child: ConstrainedBox(
-                  constraints: BoxConstraints(maxWidth: wide ? 1040 : 768),
+                  constraints: BoxConstraints(
+                    maxWidth: wide ? 1040 : 768,
+                    maxHeight: maxContentHeight,
+                  ),
                   child: Column(
                     key: bodyKey,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -467,9 +538,8 @@ class OnboardingV2DetailsButton extends StatelessWidget {
       style: SoriTextTheme.of(context).bodySmall,
     ),
     onPressed: () => showOnboardingV2ModalWithFocusRestore(
-      () => showSoriSheet<void>(
+      () => showOnboardingV2ReadingModal<void>(
         context: context,
-        maxTextScaleFactor: 2,
         builder: (sheetContext) => Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisSize: MainAxisSize.min,

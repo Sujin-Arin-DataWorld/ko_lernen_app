@@ -6,7 +6,6 @@ import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/pressable.dart';
 import '../../widgets/sori/responsive.dart';
-import '../../widgets/sori/sheet.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/window_class.dart';
 import 'onboarding_v2_presentation.dart';
@@ -356,9 +355,8 @@ class _OnboardingSetupScreenState extends State<OnboardingSetupScreen> {
 
   Future<void> _showPurposePicker(BuildContext context) =>
       showOnboardingV2ModalWithFocusRestore(
-        () => showSoriSheet<void>(
+        () => showOnboardingV2ReadingModal<void>(
           context: context,
-          maxTextScaleFactor: 2,
           builder: (sheetContext) => Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -397,9 +395,8 @@ class _OnboardingSetupScreenState extends State<OnboardingSetupScreen> {
 
   Future<void> _showLevelPicker(BuildContext context) =>
       showOnboardingV2ModalWithFocusRestore(
-        () => showSoriSheet<void>(
+        () => showOnboardingV2ReadingModal<void>(
           context: context,
-          maxTextScaleFactor: 2,
           builder: (sheetContext) => Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -445,11 +442,10 @@ class _OnboardingSetupScreenState extends State<OnboardingSetupScreen> {
 
   Future<void> _showLevelComparison(BuildContext context) =>
       showOnboardingV2ModalWithFocusRestore(
-        () => showSoriSheet<void>(
+        () => showOnboardingV2ReadingModal<void>(
           context: context,
           scrollable: false,
           maxHeightFactor: 0.95,
-          maxTextScaleFactor: 2.0,
           builder: (context) => _LevelComparisonSheet(copy: copy.setup),
         ),
       );

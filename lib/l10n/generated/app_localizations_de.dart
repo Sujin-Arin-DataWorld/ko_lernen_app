@@ -9300,7 +9300,7 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String get onboardingV2Story1Eyebrow => 'Dein wachsendes Hanok';
+  String get onboardingV2Story1Eyebrow => 'Bauziel: 12 Schritte';
 
   @override
   String get onboardingV2Story1Title =>
@@ -9308,7 +9308,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingV2Story1Body =>
-      'Lerne ein Wort und sieh, was sich verändert.';
+      'Dein Hanok entsteht Schritt für Schritt. Allein die Sarangchae umfasst 12 Bauabschnitte.';
 
   @override
   String get onboardingV2Story1Status =>
@@ -9316,7 +9316,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingV2Story1HeroSemantics =>
-      'Vorschau eines Hanok, das mit bestätigten Lernleistungen wächst.';
+      'Bauziel: die fertige Sarangchae nach zwölf Bauabschnitten, keine bereits verdiente Belohnung.';
 
   @override
   String get onboardingV2Story1Item1Title => 'Stufenweg A1 bis C2';
@@ -9434,10 +9434,11 @@ class AppL10nDe extends AppL10n {
   String get onboardingV2Story3Eyebrow => 'Wiederholen';
 
   @override
-  String get onboardingV2Story3Title => 'Was bedeutet 문?';
+  String get onboardingV2Story3Title => 'Hören. Verstehen. Wiedererkennen.';
 
   @override
-  String get onboardingV2Story3Body => 'Dreh die Karte um: 문 bedeutet Tür.';
+  String get onboardingV2Story3Body =>
+      'Dreh die Karte um. Hör das Wort und verwende es in einem Satz.';
 
   @override
   String get onboardingV2Story3HeroSemantics =>
@@ -9477,19 +9478,18 @@ class AppL10nDe extends AppL10n {
       'Jetzt verfügbar: Favoriten, gespeicherte Inhalte und fällige Wörter sind getrennte Ansichten in der Lernsammlung. Die aktuelle Wiederholung unterstützt nur Wörter; andere Inhalte bleiben ohne vorgetäuschte Wiederholungsaktion gespeichert.';
 
   @override
-  String get onboardingV2Story4Eyebrow => 'Demo';
+  String get onboardingV2Story4Eyebrow => 'Bauziel: 12 Schritte';
 
   @override
-  String get onboardingV2Story4Title =>
-      'Demo: Erkenne 문. Lass dein Hanok wachsen.';
+  String get onboardingV2Story4Title => 'Bauziel: Sarangchae in 12 Schritten';
 
   @override
   String get onboardingV2Story4Body =>
-      'Wähle 문, sieh die neue Tür und öffne dann das Bojagi.';
+      'Erreichte Lernziele begleiten den schrittweisen Ausbau. Eine einzelne richtige Antwort vollendet keinen Bauabschnitt. Hier kannst du ein Wort wiedererkennen und das Bojagi ausprobieren.';
 
   @override
   String get onboardingV2Story4HeroSemantics =>
-      'Lerndemo: 문 erkennen, den sichtbaren Hanok-Ausbau ansehen und danach ein Bojagi öffnen.';
+      'Lerndemo mit unverändertem Bauziel: 문 erkennen und ein Bojagi ausprobieren. Kein Bauabschnitt wird abgeschlossen.';
 
   @override
   String get onboardingV2Story4Status =>
@@ -10378,12 +10378,10 @@ class AppL10nDe extends AppL10n {
   String get onboardingV2RecognitionPrompt => 'Welches Wort bedeutet „Tür“?';
 
   @override
-  String get onboardingV2RecognitionRetry =>
-      'Fast! Suche ㅁ + ㅜ + ㄴ. Versuch es noch einmal.';
+  String get onboardingV2RecognitionRetry => 'Tipp: ㅁ + ㅜ + ㄴ.';
 
   @override
-  String get onboardingV2RecognitionCorrect =>
-      'Richtig! Sieh, wie dein Hanok wächst.';
+  String get onboardingV2RecognitionCorrect => '문 = Tür';
 
   @override
   String get onboardingV2UnwrapGift => 'Bojagi öffnen';
@@ -10392,8 +10390,7 @@ class AppL10nDe extends AppL10n {
   String get onboardingV2GiftOpened => 'Bojagi geöffnet';
 
   @override
-  String get onboardingV2RewardDemoNote =>
-      'Nur eine Vorschau. Keine XP, Gegenstände oder Hanok-Bauteile.';
+  String get onboardingV2RewardDemoNote => 'Demo · keine XP';
 
   @override
   String get onboardingV2RewardDetails => 'Mehr über Belohnungen';
@@ -10425,15 +10422,30 @@ class AppL10nDe extends AppL10n {
   String get onboardingV2DoorMeaning => 'Tür';
 
   @override
-  String get onboardingV2HanokGrowthBeforeSemantics =>
-      'Hanok vor dem Einbau der Changho-Fenster und -Türen.';
+  String get onboardingV3DoorExampleTranslation => 'Ich öffne die Tür.';
+
+  @override
+  String get onboardingV3ListenSlow => 'Langsam';
+
+  @override
+  String get onboardingV3ListenWord => 'Anhören';
+
+  @override
+  String get onboardingV3FlipCard => 'Umdrehen';
 
   @override
   String get onboardingV2HanokGrowthAfterSemantics =>
-      'Hanok mit neu eingesetzten Changho-Fenstern und -Türen.';
+      'Bauziel: Sarangchae nach zwölf Bauabschnitten. Diese Vorschau zeigt keinen Lernfortschritt.';
 
   @override
-  String get onboardingV2DiscoverGift => 'Geschenk entdecken';
+  String get onboardingV3MapPreviewTitle => 'Ildu Gotaek entdecken';
+
+  @override
+  String get onboardingV3MapPreviewBody =>
+      'Vom Eingangstor zur Sarangchae: Entdecke den Hof, der mit deinem Lernen wächst. Ein erster Einblick in die geplante Reise.';
+
+  @override
+  String get onboardingV2DiscoverGift => 'Bojagi ausprobieren';
 
   @override
   String get onboardingV2ReplayDemo => 'Demo wiederholen';
