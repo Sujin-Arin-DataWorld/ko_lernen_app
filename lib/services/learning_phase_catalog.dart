@@ -44,6 +44,7 @@ class LearningPhase {
 
 class LearningPhaseCatalog {
   static const assetPath = 'assets/data/learning_phases.json';
+  static const illustrationRoot = 'assets/illustrations/phases/';
   static final List<String> levels = List.unmodifiable(
     LearnerLevel.values.map((level) => level.display),
   );
@@ -73,6 +74,11 @@ class LearningPhaseCatalog {
     for (final raw in json['phases'] as List<dynamic>) {
       final row = raw as Map<String, dynamic>;
       final id = row['id'] as String;
+      final illustrationAsset = row['illustrationAsset'] as String?;
+      if (illustrationAsset != null &&
+          illustrationAsset != '$illustrationRoot${id.toLowerCase()}.webp') {
+        throw FormatException('Artwork does not belong to $id');
+      }
       final level = row['level'] as String;
       final ids = (row['practiceUnitIds'] as List<dynamic>).cast<String>();
       if (!seen.add(id) ||
@@ -103,7 +109,7 @@ class LearningPhaseCatalog {
           goal: text('goal'),
           practiceFocus: text('practiceFocus'),
           practiceUnits: List.unmodifiable(ids.map((uid) => byId[uid]!)),
-          illustrationAsset: row['illustrationAsset'] as String?,
+          illustrationAsset: illustrationAsset,
         ),
       );
     }

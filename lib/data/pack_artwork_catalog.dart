@@ -11,7 +11,7 @@ abstract final class PackArtworkCatalog {
 
   /// Exact pack IDs with an approved, dedicated WebP in [_assetRoot].
   ///
-  /// Current release scope: A1 (25), A2 (34), B1 (54), B2 (49).
+  /// Approved dedicated artwork across A1 through C2; see the production ledger.
   static const dedicatedPackIds = <String>{
     'a1_body',
     'a1_city_services_2026_1',
@@ -175,6 +175,28 @@ abstract final class PackArtworkCatalog {
     'b2_thinking_2',
     'b2_thinking_verbs_1',
     'b2_work',
+    'a1_transport',
+    'b1_workplace_mail_1',
+    'c1_accessible_participation_1',
+    'c1_fan_labor_1',
+    'c1_media_evidence_1',
+    'c1_play_time_policy_1',
+    'c1_public_briefing_1',
+    'c2_appeal_path_1',
+    'c2_automated_harm_1',
+    'c2_automation_redress_1',
+    'c2_framing_analysis_1',
+    'c2_sanction_accountability_1',
+    'a1_first_class_1',
+    'a1_time_1',
+    'a2_pharmacy_ask_1',
+    'b2_public_office_1',
+    'c1_evidence_reasoning_1',
+    'c1_participation_design_1',
+    'c1_risk_wording_1',
+    'c2_institutional_mediation_1',
+    'c2_memory_narrative_1',
+    'c2_withdrawal_right_1',
   };
 
   static bool hasDedicatedArtwork(String packId) =>

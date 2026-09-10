@@ -16,6 +16,10 @@ class LearningPhaseProjectionTests(unittest.TestCase):
         for phase, original in zip(actual["phases"], source["phases"]):
             self.assertEqual(phase["title"], original["title"])
             self.assertEqual(phase["goal"], original["coreGoal"])
+            self.assertEqual(
+                phase["illustrationAsset"],
+                f"assets/illustrations/phases/{phase['id'].lower()}.webp",
+            )
         self.assertEqual(actual["coverage"], "related_practice_only")
         units = json.loads((catalog.ROOT / "assets/data/curriculum_manifest.json").read_text(encoding="utf-8"))["courseUnits"]
         self.assertEqual({u["id"] for u in units}, {u for p in actual["phases"] for u in p["practiceUnitIds"]})
@@ -29,6 +33,8 @@ class LearningPhaseProjectionTests(unittest.TestCase):
                 path.write_bytes((catalog.ROOT / rel).read_bytes())
             path = root / catalog.BINDINGS
             data = json.loads(path.read_text(encoding="utf-8"))
+            for phase in data["phases"]:
+                phase["artwork"] = {"status": "pending", "asset": None}
             mutate(data["phases"])
             path.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
             with self.assertRaises(ValueError):
@@ -61,6 +67,8 @@ class LearningPhaseProjectionTests(unittest.TestCase):
                 (root / rel).write_bytes((catalog.ROOT / rel).read_bytes())
             path = root / catalog.BINDINGS
             data = json.loads(path.read_text(encoding="utf-8"))
+            for phase in data["phases"]:
+                phase["artwork"] = {"status": "pending", "asset": None}
             data["phases"][0]["artwork"] = {"status":"approved", "asset":"assets/illustrations/unbundled/phase.webp"}
             path.write_text(json.dumps(data), encoding="utf-8")
             art = root / "assets/illustrations/unbundled/phase.webp"

@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/korean_vocab.csv",
-  "snapshotDate": "2026-09-09",
+  "snapshotDate": "2026-09-10",
   "packCount": 224,
-  "dedicatedAssetCount": 162,
+  "dedicatedAssetCount": 184,
   "notes": [
     "The approved plan snapshot contained 223 packs; the live CSV now contains 224.",
-    "B2 contains 50 packs: 49 approved dedicated assets and b2_public_office_1 on noemun.webp fallback.",
+    "The 2026-09-10 production batch adds 22 dedicated pack assets; 40 shared pack images remain.",
     "Korean vocabulary is the semantic source; subjectPromptEn is generation-only guidance."
   ],
   "packs": [
@@ -224,7 +224,7 @@
       "packId": "a1_transport",
       "level": "A1",
       "rewardMotif": "mountain",
-      "primaryAsset": "assets/illustrations/packs/mountain.webp",
+      "primaryAsset": "assets/illustrations/packs/a1_transport.webp",
       "subjectKo": "버스 · 지하철 · 가다 · 오다",
       "subjectPromptEn": "a modern still life expressing bus, subway, to go, to come",
       "evidenceWordIds": [
@@ -240,20 +240,20 @@
         "vocab_a1_0450",
         "vocab_a1_0451"
       ],
-      "status": "approved_motif_fallback",
-      "sha256": "6bfd3f78f41fb7c70e77349c1031095e12f26c90bf2e76ff8165b8fb6718bc53",
+      "status": "approved_dedicated",
+      "sha256": "6da7b648110a6417fd93db553ff1cfae09d7f1c4ec4df16019994dc58b52c268",
       "qa": {
         "fourThree": {
           "status": "pass",
           "detail": "800x600"
         },
         "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         },
         "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         }
       }
     },
@@ -261,7 +261,7 @@
       "packId": "a1_time_1",
       "level": "A1",
       "rewardMotif": "chrysanthemum",
-      "primaryAsset": "assets/illustrations/packs/chrysanthemum.webp",
+      "primaryAsset": "assets/illustrations/packs/a1_time_1.webp",
       "subjectKo": "오늘 · 내일 · 어제 · 지금",
       "subjectPromptEn": "a modern still life expressing today, tomorrow, yesterday, now / right now",
       "evidenceWordIds": [
@@ -275,20 +275,20 @@
         "vocab_a1_0081",
         "vocab_a1_0082"
       ],
-      "status": "approved_motif_fallback",
-      "sha256": "2ccc6d924a6ead04fc4766535c9531df1837fd1f8ccd5a4ac82f413200804d72",
+      "status": "approved_dedicated",
+      "sha256": "0f08cdffe6df5d70f539086ac562178e754d5d5c8e1735fc3e80f30a77a0114b",
       "qa": {
         "fourThree": {
           "status": "pass",
           "detail": "800x600"
         },
         "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         },
         "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         }
       }
     },
@@ -2219,7 +2219,7 @@
       "packId": "a1_first_class_1",
       "level": "A1",
       "rewardMotif": "lotus",
-      "primaryAsset": "assets/illustrations/packs/lotus.webp",
+      "primaryAsset": "assets/illustrations/packs/a1_first_class_1.webp",
       "subjectKo": "전공 · 사귀다 · 졸업하다 · 수업",
       "subjectPromptEn": "a modern still life expressing major / field of study, to make friends, to graduate, class, lesson",
       "evidenceWordIds": [
@@ -2236,20 +2236,20 @@
         "vocab_a1_0443",
         "vocab_a1_0444"
       ],
-      "status": "approved_motif_fallback",
-      "sha256": "ae3ff1034e46489c56fbef0dd831473b8be3db4397ab7315bfaefa4383e3ab2e",
+      "status": "approved_dedicated",
+      "sha256": "a6933e8528a5126f2169a329a46f55e00345ee5bffde46377bc2bec5ae248629",
       "qa": {
         "fourThree": {
           "status": "pass",
           "detail": "800x600"
         },
         "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         },
         "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         }
       }
     },
@@ -3980,7 +3980,7 @@
       "packId": "c1_accessible_participation_1",
       "level": "C1",
       "rewardMotif": "noemun",
-      "primaryAsset": "assets/illustrations/packs/noemun.webp",
+      "primaryAsset": "assets/illustrations/packs/c1_accessible_participation_1.webp",
       "subjectKo": "접근성을 확보하다 · 동선을 가로막다 · 선택지를 마련하다 · 당사자의 의견을 듣다",
       "subjectPromptEn": "a modern still life expressing to ensure accessibility, to block a route, to provide alternatives, to listen to those affected",
       "evidenceWordIds": [
@@ -3997,20 +3997,20 @@
         "vocab_c1_0011",
         "vocab_c1_0012"
       ],
-      "status": "approved_motif_fallback",
-      "sha256": "333bc816429674a1fa6b9926e181f433ed26002514cd959d5a38375eb41e8f66",
+      "status": "approved_dedicated",
+      "sha256": "6de8c672ebf663a2ad71baeffa5bcbab2530a2b17ce0b1834d99cce83b3ee03c",
       "qa": {
         "fourThree": {
           "status": "pass",
           "detail": "800x600"
         },
         "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         },
         "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         }
       }
     },
@@ -4018,7 +4018,7 @@
       "packId": "c1_evidence_reasoning_1",
       "level": "C1",
       "rewardMotif": "munbangsau",
-      "primaryAsset": "assets/illustrations/packs/munbangsau.webp",
+      "primaryAsset": "assets/illustrations/packs/c1_evidence_reasoning_1.webp",
       "subjectKo": "표본이 치우치다 · 변수를 통제하다 · 결과를 재현하다 · 상관관계를 인과로 해석하다",
       "subjectPromptEn": "a modern still life expressing to have a biased sample, to control variables, to reproduce a result, to interpret correlation as causation",
       "evidenceWordIds": [
@@ -4035,20 +4035,20 @@
         "vocab_c1_0023",
         "vocab_c1_0024"
       ],
-      "status": "approved_motif_fallback",
-      "sha256": "59baeed37d95bb06076ee54b6fe18440799fb69497c2777697347497a6317359",
+      "status": "approved_dedicated",
+      "sha256": "f34a37dfd00e3d041b702092e4e8ee40e365c0d58f5e07cc3c262b23b7110d89",
       "qa": {
         "fourThree": {
           "status": "pass",
           "detail": "800x600"
         },
         "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         },
         "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         }
       }
     },
@@ -4056,7 +4056,7 @@
       "packId": "c2_institutional_mediation_1",
       "level": "C2",
       "rewardMotif": "noemun",
-      "primaryAsset": "assets/illustrations/packs/noemun.webp",
+      "primaryAsset": "assets/illustrations/packs/c2_institutional_mediation_1.webp",
       "subjectKo": "이해관계가 얽히다 · 권한을 위임하다 · 절차적 정당성 · 책임 소재를 가리다",
       "subjectPromptEn": "a modern still life expressing to involve intertwined interests, to delegate authority, procedural legitimacy, to determine responsibility",
       "evidenceWordIds": [
@@ -4073,20 +4073,20 @@
         "vocab_c2_0011",
         "vocab_c2_0012"
       ],
-      "status": "approved_motif_fallback",
-      "sha256": "333bc816429674a1fa6b9926e181f433ed26002514cd959d5a38375eb41e8f66",
+      "status": "approved_dedicated",
+      "sha256": "d25cdc261dfd585a1e4d190d3b4c25289a2cdae1741dc61e3a375612dda1f624",
       "qa": {
         "fourThree": {
           "status": "pass",
           "detail": "800x600"
         },
         "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         },
         "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         }
       }
     },
@@ -5804,7 +5804,7 @@
       "packId": "a2_pharmacy_ask_1",
       "level": "A2",
       "rewardMotif": "crane",
-      "primaryAsset": "assets/illustrations/packs/crane.webp",
+      "primaryAsset": "assets/illustrations/packs/a2_pharmacy_ask_1.webp",
       "subjectKo": "연고 · 마스크 · 계산대 · 복용 시간",
       "subjectPromptEn": "a modern still life expressing ointment, mask, checkout, dose time",
       "evidenceWordIds": [
@@ -5820,20 +5820,20 @@
         "vocab_a1_0330",
         "vocab_a1_0331"
       ],
-      "status": "approved_motif_fallback",
-      "sha256": "84fe89e8688f4e732ce2130ba536a77459cc7d16f65e7aa178dbf140f2ec7a20",
+      "status": "approved_dedicated",
+      "sha256": "bf128250e2982321568ce2173d8496fb27f41992106cb80ec2dd9ef90de4d03f",
       "qa": {
         "fourThree": {
           "status": "pass",
           "detail": "800x600"
         },
         "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         },
         "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         }
       }
     },
@@ -6374,7 +6374,7 @@
       "packId": "b1_workplace_mail_1",
       "level": "B1",
       "rewardMotif": "bamboo",
-      "primaryAsset": "assets/illustrations/packs/bamboo.webp",
+      "primaryAsset": "assets/illustrations/packs/b1_workplace_mail_1.webp",
       "subjectKo": "참조 · 숨은참조 · 회신 기한 · 첨부 누락",
       "subjectPromptEn": "a modern still life expressing cc, bcc, reply deadline, missing attachment",
       "evidenceWordIds": [
@@ -6391,20 +6391,20 @@
         "vocab_b1_0378",
         "vocab_b1_0379"
       ],
-      "status": "approved_motif_fallback",
-      "sha256": "807afdbea0af9827d6a6c8acdcde4f27a4fbcbba6b80e0510a859826f40fe42e",
+      "status": "approved_dedicated",
+      "sha256": "a7ee7d0a997a6078d215b7f792e7db5b8ad8bc52ea10dda142c2ad9956c7e40c",
       "qa": {
         "fourThree": {
           "status": "pass",
           "detail": "800x600"
         },
         "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         },
         "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         }
       }
     },
@@ -6488,7 +6488,7 @@
       "packId": "b2_public_office_1",
       "level": "B2",
       "rewardMotif": "noemun",
-      "primaryAsset": "assets/illustrations/packs/noemun.webp",
+      "primaryAsset": "assets/illustrations/packs/b2_public_office_1.webp",
       "subjectKo": "민원실 · 구비 서류 · 접수증 · 처리 기한",
       "subjectPromptEn": "a modern still life expressing civil affairs desk, required papers, intake slip, processing time",
       "evidenceWordIds": [
@@ -6505,20 +6505,20 @@
         "vocab_b1_0414",
         "vocab_b1_0415"
       ],
-      "status": "approved_motif_fallback",
-      "sha256": "333bc816429674a1fa6b9926e181f433ed26002514cd959d5a38375eb41e8f66",
+      "status": "approved_dedicated",
+      "sha256": "4a4a3cb9e21ec8787df80687a7088ba1e1f08c3aaa4c0a91215b4a4b70147fd9",
       "qa": {
         "fourThree": {
           "status": "pass",
           "detail": "800x600"
         },
         "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         },
         "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         }
       }
     },
@@ -6982,7 +6982,7 @@
       "packId": "c1_public_briefing_1",
       "level": "C1",
       "rewardMotif": "noemun",
-      "primaryAsset": "assets/illustrations/packs/noemun.webp",
+      "primaryAsset": "assets/illustrations/packs/c1_public_briefing_1.webp",
       "subjectKo": "브리핑 문안 · 위험 등급 · 비전문가 설명 · 질의 시간",
       "subjectPromptEn": "a modern still life expressing briefing wording, risk grade, plain-language explainer, question window",
       "evidenceWordIds": [
@@ -6999,20 +6999,20 @@
         "vocab_c1_0095",
         "vocab_c1_0096"
       ],
-      "status": "approved_motif_fallback",
-      "sha256": "333bc816429674a1fa6b9926e181f433ed26002514cd959d5a38375eb41e8f66",
+      "status": "approved_dedicated",
+      "sha256": "d34b6b61c33f1e742e66da872b3281939ca7cc1101a7030d0882449f0fdd08ce",
       "qa": {
         "fourThree": {
           "status": "pass",
           "detail": "800x600"
         },
         "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         },
         "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         }
       }
     },
@@ -7058,7 +7058,7 @@
       "packId": "c1_risk_wording_1",
       "level": "C1",
       "rewardMotif": "cloud",
-      "primaryAsset": "assets/illustrations/packs/cloud.webp",
+      "primaryAsset": "assets/illustrations/packs/c1_risk_wording_1.webp",
       "subjectKo": "상대 위험 · 절대 건수 · 잔여 위험 · 조기 경보",
       "subjectPromptEn": "a modern still life expressing relative risk, absolute count, residual risk, early warning",
       "evidenceWordIds": [
@@ -7075,20 +7075,20 @@
         "vocab_c1_0119",
         "vocab_c1_0120"
       ],
-      "status": "approved_motif_fallback",
-      "sha256": "e6457666fd5c389d61d4a90b097638f6202d66ca18af4dbe3817d8fef8f280e3",
+      "status": "approved_dedicated",
+      "sha256": "418e9556a539667724daf73838028d8f4f1ad1b7a42f8d3adc5b9af9e19e70e5",
       "qa": {
         "fourThree": {
           "status": "pass",
           "detail": "800x600"
         },
         "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         },
         "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         }
       }
     },
@@ -7134,7 +7134,7 @@
       "packId": "c1_participation_design_1",
       "level": "C1",
       "rewardMotif": "lotus",
-      "primaryAsset": "assets/illustrations/packs/lotus.webp",
+      "primaryAsset": "assets/illustrations/packs/c1_participation_design_1.webp",
       "subjectKo": "참여 장벽 · 발언 할당 · 대리 참여 · 피드백 순환",
       "subjectPromptEn": "a modern still life expressing participation barrier, speaking allotment, proxy participation, feedback loop",
       "evidenceWordIds": [
@@ -7151,20 +7151,20 @@
         "vocab_c1_0143",
         "vocab_c1_0144"
       ],
-      "status": "approved_motif_fallback",
-      "sha256": "ae3ff1034e46489c56fbef0dd831473b8be3db4397ab7315bfaefa4383e3ab2e",
+      "status": "approved_dedicated",
+      "sha256": "b82b1b51c0928a7b2cf874b723bbb6ac1a3bd6a3ae3993e27a2f75d5934c9845",
       "qa": {
         "fourThree": {
           "status": "pass",
           "detail": "800x600"
         },
         "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         },
         "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         }
       }
     },
@@ -7248,7 +7248,7 @@
       "packId": "c2_framing_analysis_1",
       "level": "C2",
       "rewardMotif": "chilbo",
-      "primaryAsset": "assets/illustrations/packs/chilbo.webp",
+      "primaryAsset": "assets/illustrations/packs/c2_framing_analysis_1.webp",
       "subjectKo": "담론 전제 · 은유 체계 · 주어 선택 · 수동 은폐",
       "subjectPromptEn": "a modern still life expressing discourse premise, metaphor system, choice of subject, passive concealment",
       "evidenceWordIds": [
@@ -7265,20 +7265,20 @@
         "vocab_c2_0083",
         "vocab_c2_0084"
       ],
-      "status": "approved_motif_fallback",
-      "sha256": "0175f487466403589dc4fe5a09e968716453fa9ee30bdcf9c543eec6a2e08b0c",
+      "status": "approved_dedicated",
+      "sha256": "e8bf0b5a18e259dd5687150052f5bcd71f17727a00995ebc25c95a1bdf42e808",
       "qa": {
         "fourThree": {
           "status": "pass",
           "detail": "800x600"
         },
         "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         },
         "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         }
       }
     },
@@ -7324,7 +7324,7 @@
       "packId": "c2_memory_narrative_1",
       "level": "C2",
       "rewardMotif": "chrysanthemum",
-      "primaryAsset": "assets/illustrations/packs/chrysanthemum.webp",
+      "primaryAsset": "assets/illustrations/packs/c2_memory_narrative_1.webp",
       "subjectKo": "서술 시점 · 선택적 기억 · 증언 위치 · 연대기 절단",
       "subjectPromptEn": "a modern still life expressing narrative standpoint, selective memory, where testimony sits, cut in the timeline",
       "evidenceWordIds": [
@@ -7341,20 +7341,20 @@
         "vocab_c2_0107",
         "vocab_c2_0108"
       ],
-      "status": "approved_motif_fallback",
-      "sha256": "2ccc6d924a6ead04fc4766535c9531df1837fd1f8ccd5a4ac82f413200804d72",
+      "status": "approved_dedicated",
+      "sha256": "47c93099a5a8f7a37cf600d1d96562cbd50b751ee79355d7fea2dd023c13f085",
       "qa": {
         "fourThree": {
           "status": "pass",
           "detail": "800x600"
         },
         "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         },
         "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         }
       }
     },
@@ -7400,7 +7400,7 @@
       "packId": "c2_appeal_path_1",
       "level": "C2",
       "rewardMotif": "noemun",
-      "primaryAsset": "assets/illustrations/packs/noemun.webp",
+      "primaryAsset": "assets/illustrations/packs/c2_appeal_path_1.webp",
       "subjectKo": "이의 경로 · 자동 결정 · 인간 재심 · 기한 안내",
       "subjectPromptEn": "a modern still life expressing appeal path, automated decision, human review, deadline notice",
       "evidenceWordIds": [
@@ -7417,20 +7417,20 @@
         "vocab_c2_0131",
         "vocab_c2_0132"
       ],
-      "status": "approved_motif_fallback",
-      "sha256": "333bc816429674a1fa6b9926e181f433ed26002514cd959d5a38375eb41e8f66",
+      "status": "approved_dedicated",
+      "sha256": "69a308348886ccd3ab17e6ab9fa5536f093a9082a4a6144deb987c6bcaf63964",
       "qa": {
         "fourThree": {
           "status": "pass",
           "detail": "800x600"
         },
         "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         },
         "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         }
       }
     },
@@ -7476,7 +7476,7 @@
       "packId": "c2_withdrawal_right_1",
       "level": "C2",
       "rewardMotif": "plum",
-      "primaryAsset": "assets/illustrations/packs/plum.webp",
+      "primaryAsset": "assets/illustrations/packs/c2_withdrawal_right_1.webp",
       "subjectKo": "철회권 · 동의 철회 · 파생 데이터 · 복원 금지",
       "subjectPromptEn": "a modern still life expressing right to withdraw, consent withdrawal, derived data, no restore",
       "evidenceWordIds": [
@@ -7493,20 +7493,20 @@
         "vocab_c2_0155",
         "vocab_c2_0156"
       ],
-      "status": "approved_motif_fallback",
-      "sha256": "2cfed8051d3b32b24cc3ea33315620a9e18d66fd1b136a993b2388d9c7c3033c",
+      "status": "approved_dedicated",
+      "sha256": "e110d533e1e55a767fe0fa3c9efe168d9541e11764b915a8842f080eb4f18760",
       "qa": {
         "fourThree": {
           "status": "pass",
           "detail": "800x600"
         },
         "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         },
         "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         }
       }
     },
@@ -7514,7 +7514,7 @@
       "packId": "c2_automated_harm_1",
       "level": "C2",
       "rewardMotif": "mountain",
-      "primaryAsset": "assets/illustrations/packs/mountain.webp",
+      "primaryAsset": "assets/illustrations/packs/c2_automated_harm_1.webp",
       "subjectKo": "차등 영향 · 오류 비용 · 피드백 왜곡 · 대리 변수",
       "subjectPromptEn": "a modern still life expressing uneven impact, cost of being wrong, feedback warp, proxy feature",
       "evidenceWordIds": [
@@ -7531,20 +7531,20 @@
         "vocab_c2_0167",
         "vocab_c2_0168"
       ],
-      "status": "approved_motif_fallback",
-      "sha256": "6bfd3f78f41fb7c70e77349c1031095e12f26c90bf2e76ff8165b8fb6718bc53",
+      "status": "approved_dedicated",
+      "sha256": "4f0aef432873cd816c12e4aa95c30b86cbedae9626f3097e6ee5b053bb31b58f",
       "qa": {
         "fourThree": {
           "status": "pass",
           "detail": "800x600"
         },
         "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         },
         "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         }
       }
     },
@@ -7552,7 +7552,7 @@
       "packId": "c1_media_evidence_1",
       "level": "C1",
       "rewardMotif": "gwigap",
-      "primaryAsset": "assets/illustrations/packs/gwigap.webp",
+      "primaryAsset": "assets/illustrations/packs/c1_media_evidence_1.webp",
       "subjectKo": "표본 · 일반화 · 상관관계 · 인과",
       "subjectPromptEn": "a modern still life expressing sample, generalisation, correlation, causation",
       "evidenceWordIds": [
@@ -7569,20 +7569,20 @@
         "vocab_c1_0179",
         "vocab_c1_0180"
       ],
-      "status": "approved_motif_fallback",
-      "sha256": "f763dafde98dc35ab25c92f38f962a51183bdba53913811196351f8ae5a95817",
+      "status": "approved_dedicated",
+      "sha256": "55d100cafa986e3b7b9a36a88d56a238569e22aa264f2f83c623eeb1388d85b3",
       "qa": {
         "fourThree": {
           "status": "pass",
           "detail": "800x600"
         },
         "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         },
         "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         }
       }
     },
@@ -7590,7 +7590,7 @@
       "packId": "c1_play_time_policy_1",
       "level": "C1",
       "rewardMotif": "gwigap",
-      "primaryAsset": "assets/illustrations/packs/gwigap.webp",
+      "primaryAsset": "assets/illustrations/packs/c1_play_time_policy_1.webp",
       "subjectKo": "규제 · 시행 · 부작용 · 실효성",
       "subjectPromptEn": "a modern still life expressing regulation, enforcement, side effect, effectiveness",
       "evidenceWordIds": [
@@ -7607,20 +7607,20 @@
         "vocab_c1_0191",
         "vocab_c1_0192"
       ],
-      "status": "approved_motif_fallback",
-      "sha256": "f763dafde98dc35ab25c92f38f962a51183bdba53913811196351f8ae5a95817",
+      "status": "approved_dedicated",
+      "sha256": "36b19bae6e64b6dd104d61060988a85218668d3d367e0adf6f4ebe1b71b44607",
       "qa": {
         "fourThree": {
           "status": "pass",
           "detail": "800x600"
         },
         "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         },
         "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         }
       }
     },
@@ -7628,7 +7628,7 @@
       "packId": "c1_fan_labor_1",
       "level": "C1",
       "rewardMotif": "gwigap",
-      "primaryAsset": "assets/illustrations/packs/gwigap.webp",
+      "primaryAsset": "assets/illustrations/packs/c1_fan_labor_1.webp",
       "subjectKo": "무보수 · 자발성 · 소진 · 헌신",
       "subjectPromptEn": "a modern still life expressing unpaid work, voluntariness, burnout, devotion",
       "evidenceWordIds": [
@@ -7645,20 +7645,20 @@
         "vocab_c1_0203",
         "vocab_c1_0204"
       ],
-      "status": "approved_motif_fallback",
-      "sha256": "f763dafde98dc35ab25c92f38f962a51183bdba53913811196351f8ae5a95817",
+      "status": "approved_dedicated",
+      "sha256": "1e787357d8f8496af3a5cef53b0275c60689abf55c28fd1285930895365b9fdf",
       "qa": {
         "fourThree": {
           "status": "pass",
           "detail": "800x600"
         },
         "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         },
         "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         }
       }
     },
@@ -7704,7 +7704,7 @@
       "packId": "c2_automation_redress_1",
       "level": "C2",
       "rewardMotif": "noemun",
-      "primaryAsset": "assets/illustrations/packs/noemun.webp",
+      "primaryAsset": "assets/illustrations/packs/c2_automation_redress_1.webp",
       "subjectKo": "오작동 · 구제 · 소명 · 유예",
       "subjectPromptEn": "a modern still life expressing malfunction, remedy, statement of grounds, deferral",
       "evidenceWordIds": [
@@ -7721,20 +7721,20 @@
         "vocab_c2_0179",
         "vocab_c2_0180"
       ],
-      "status": "approved_motif_fallback",
-      "sha256": "333bc816429674a1fa6b9926e181f433ed26002514cd959d5a38375eb41e8f66",
+      "status": "approved_dedicated",
+      "sha256": "262a2c11069552e274d5fda31ea198b888ae71fd1435ba77d9936aef5ee190d1",
       "qa": {
         "fourThree": {
           "status": "pass",
           "detail": "800x600"
         },
         "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         },
         "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         }
       }
     },
@@ -7742,7 +7742,7 @@
       "packId": "c2_sanction_accountability_1",
       "level": "C2",
       "rewardMotif": "noemun",
-      "primaryAsset": "assets/illustrations/packs/noemun.webp",
+      "primaryAsset": "assets/illustrations/packs/c2_sanction_accountability_1.webp",
       "subjectKo": "제재 · 적발 · 누적 · 해제",
       "subjectPromptEn": "a modern still life expressing sanction, detection, accumulation, lifting",
       "evidenceWordIds": [
@@ -7759,20 +7759,20 @@
         "vocab_c2_0191",
         "vocab_c2_0192"
       ],
-      "status": "approved_motif_fallback",
-      "sha256": "333bc816429674a1fa6b9926e181f433ed26002514cd959d5a38375eb41e8f66",
+      "status": "approved_dedicated",
+      "sha256": "dfc31ae8e80528fd7b0ec9fcc70cd57de956b51d8b77d5d9ecad856ba7685741",
       "qa": {
         "fourThree": {
           "status": "pass",
           "detail": "800x600"
         },
         "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         },
         "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
+          "status": "pass",
+          "detail": "Phase artwork production review"
         }
       }
     },

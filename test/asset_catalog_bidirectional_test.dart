@@ -319,7 +319,7 @@ void main() {
 
       expect(unknown, isEmpty, reason: 'CSV에 없는 전용 팩 ID: $unknown');
       expect(missingFiles, isEmpty, reason: '전용 WebP가 없는 팩 ID: $missingFiles');
-      expect(PackArtworkCatalog.dedicatedPackIds.length, 162);
+      expect(PackArtworkCatalog.dedicatedPackIds.length, 184);
     });
 
     test('PACKS 제작 원장이 CSV·런타임 경로·SHA-256과 일치한다', () {
@@ -404,7 +404,7 @@ void main() {
       }
 
       expect(dedicatedCount, PackArtworkCatalog.dedicatedPackIds.length);
-      expect(dedicatedB2Count, 49);
+      expect(dedicatedB2Count, 50);
     });
   });
 

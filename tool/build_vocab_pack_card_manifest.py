@@ -82,6 +82,13 @@ def main() -> None:
     packs = _load_packs()
     dedicated = _parse_dedicated_pack_ids()
     motif_map = _parse_motif_map()
+    production_path = ROOT / "docs/assets/PHASE_ARTWORK_PRODUCTION.json"
+    production = json.loads(production_path.read_text(encoding="utf-8"))
+    production_ids = {entry["id"] for entry in production["assets"]}
+    reviewed = {
+        entry["id"]: entry for entry in production["assets"]
+        if entry["kind"] == "pack" and entry["status"] == "bundled"
+    }
     entries = []
 
     for pack_id, rows in packs.items():
@@ -97,7 +104,18 @@ def main() -> None:
         with Image.open(asset_path) as image:
             width, height = image.size
         four_three_pass = width == 800 and height == 600
-        is_current_b2_batch = is_dedicated and pack_id.startswith("b2_")
+        is_legacy_b2_review = (
+            is_dedicated and pack_id.startswith("b2_")
+            and pack_id not in production_ids
+        )
+        review = reviewed.get(pack_id)
+        if review:
+            _validate_review(review, relative_asset, _sha256(asset_path))
+        visual_status = "pass" if review or is_legacy_b2_review else "not_rechecked"
+        visual_detail = (
+            "Phase artwork production review" if review else
+            "B2 hidden-label contact sheet" if is_legacy_b2_review else None
+        )
         korean_terms = [row["korean"].strip() for row in rows if row["korean"].strip()]
         english_terms = [row["english"].strip() for row in rows if row["english"].strip()]
 
@@ -122,12 +140,12 @@ def main() -> None:
                         "detail": f"{width}x{height}",
                     },
                     "sixteenTenCenterCrop": {
-                        "status": "pass" if is_current_b2_batch else "not_rechecked",
-                        "detail": "B2 hidden-label contact sheet" if is_current_b2_batch else None,
+                        "status": visual_status,
+                        "detail": visual_detail,
                     },
                     "hundredPx": {
-                        "status": "pass" if is_current_b2_batch else "not_rechecked",
-                        "detail": "B2 hidden-label contact sheet" if is_current_b2_batch else None,
+                        "status": visual_status,
+                        "detail": visual_detail,
                     },
                 },
             }
@@ -140,12 +158,12 @@ def main() -> None:
     payload = {
         "schemaVersion": 1,
         "generatedFrom": "assets/data/korean_vocab.csv",
-        "snapshotDate": "2026-09-09",
+        "snapshotDate": "2026-09-10",
         "packCount": len(entries),
         "dedicatedAssetCount": len(dedicated),
         "notes": [
             "The approved plan snapshot contained 223 packs; the live CSV now contains 224.",
-            "B2 contains 50 packs: 49 approved dedicated assets and b2_public_office_1 on noemun.webp fallback.",
+            "The 2026-09-10 production batch adds 22 dedicated pack assets; 40 shared pack images remain.",
             "Korean vocabulary is the semantic source; subjectPromptEn is generation-only guidance.",
         ],
         "packs": entries,
@@ -157,6 +175,16 @@ def main() -> None:
         f"wrote {OUTPUT_PATH.relative_to(ROOT)} "
         f"packs={len(entries)} dedicated={len(dedicated)}"
     )
+
+
+def _validate_review(review: dict, relative_asset: str, current_sha: str) -> None:
+    if review.get("asset") != relative_asset or review.get("sha256") != current_sha:
+        raise ValueError(f"Stale visual review for {review['id']}")
+    if any(review.get("qa", {}).get(key) != "pass" for key in (
+        "fullSize", "crop16x10", "thumbnail100px", "textFree",
+        "materials", "nativeTexture", "familyShell",
+    )):
+        raise ValueError(f"Incomplete visual review for {review['id']}")
 
 
 if __name__ == "__main__":

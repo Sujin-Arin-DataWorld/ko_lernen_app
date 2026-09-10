@@ -3660,9 +3660,9 @@
     "semantic_hash": ""
   },
   "test/asset_orphan_guard_test.dart": {
-    "mtime": 1788987817.5859811,
-    "seen": 1788995056.9182944,
-    "ast_hash": "839bcfb7d667295fc1ea6496b3de0472",
+    "mtime": 1789076538.2155695,
+    "seen": 1789077219.9998703,
+    "ast_hash": "5075c8b198d5590cd185f4e6c81bdda0",
     "semantic_hash": ""
   },
   "test/audio_policy_guard_test.dart": {
@@ -9696,9 +9696,9 @@
     "semantic_hash": ""
   },
   "pubspec.yaml": {
-    "mtime": 1789066208.37693,
-    "seen": 1789067117.859769,
-    "ast_hash": "2099b1680d85888d8bbcc940a77083b2",
+    "mtime": 1789076538.2134118,
+    "seen": 1789077220.3600094,
+    "ast_hash": "e061a2710f8b5281ef65b8b2b9e471c0",
     "semantic_hash": ""
   },
   "scripts/cache/README.md": {
@@ -13488,9 +13488,9 @@
     "semantic_hash": ""
   },
   "tool/check_card_style.py": {
-    "mtime": 1788987818.1857781,
-    "seen": 1788995056.919938,
-    "ast_hash": "cc9d19ede4dbf83bfc722b0c87f510b0",
+    "mtime": 1789076538.2200558,
+    "seen": 1789077220.1453474,
+    "ast_hash": "558dda4aea1707339686f651c85ffb43",
     "semantic_hash": ""
   },
   "tool/test_check_card_style.py": {
@@ -13644,9 +13644,9 @@
     "semantic_hash": ""
   },
   "test/asset_catalog_bidirectional_test.dart": {
-    "mtime": 1788992231.828014,
-    "seen": 1788995056.918293,
-    "ast_hash": "9b1927c06d24052eb23a9a063ed50a04",
+    "mtime": 1789076538.2155695,
+    "seen": 1789077219.9998674,
+    "ast_hash": "de05115d8aef9d42cc3555afd3259157",
     "semantic_hash": ""
   },
   "test/onboarding_v2_story_milestone_test.dart": {
@@ -14820,9 +14820,9 @@
     "semantic_hash": ""
   },
   "lib/data/pack_artwork_catalog.dart": {
-    "mtime": 1788992231.8260145,
-    "seen": 1788995056.916846,
-    "ast_hash": "08667260de07fcdc4557153bb9dab2bf",
+    "mtime": 1789076538.2110322,
+    "seen": 1789077219.885608,
+    "ast_hash": "ae2fa91136d4c024340e746daf3885fb",
     "semantic_hash": ""
   },
   "lib/screens/listening_shelf_screen.dart": {
@@ -14886,9 +14886,9 @@
     "semantic_hash": ""
   },
   "test/pack_artwork_catalog_test.dart": {
-    "mtime": 1788992231.8290148,
-    "seen": 1788995056.9190352,
-    "ast_hash": "7a0e0befa465f8b6d506640468931529",
+    "mtime": 1789076538.218055,
+    "seen": 1789077220.0664499,
+    "ast_hash": "4b9ba048ecf136822845ba4d4b78ff5c",
     "semantic_hash": ""
   },
   "test/pronunciation_scoring_notice_test.dart": {
@@ -15480,27 +15480,27 @@
     "semantic_hash": ""
   },
   "tool/build_vocab_pack_card_manifest.py": {
-    "mtime": 1788992231.830014,
-    "seen": 1788995056.9199224,
-    "ast_hash": "79044c5c7b6da7cc205e2c4bda913c14",
+    "mtime": 1789076538.2190545,
+    "seen": 1789077220.1442952,
+    "ast_hash": "d67e4b5b55f09cc8ac2001c69a4568a2",
     "semantic_hash": ""
   },
   "tool/build_vocab_pack_contact_sheets.py": {
-    "mtime": 1788992231.8310144,
-    "seen": 1788995056.9199252,
-    "ast_hash": "401758f76e0f8c767f6d94b6c9798c97",
+    "mtime": 1789076538.2190545,
+    "seen": 1789077220.1442986,
+    "ast_hash": "81b848a5759e5e3d187f5a3fb20dd210",
     "semantic_hash": ""
   },
   "docs/review/vocab_packs/b2_contact_sheet_16x10_100px.png": {
-    "mtime": 1788992231.8073819,
-    "seen": 1788995056.922277,
-    "ast_hash": "3bbde15a468a59fe6f480ce97f908cf0",
+    "mtime": 1789076538.1910772,
+    "seen": 1789077220.375002,
+    "ast_hash": "6292990593c9c483a78e4b991e1ce1c7",
     "semantic_hash": ""
   },
   "docs/review/vocab_packs/b2_contact_sheet_4x3_100px.png": {
-    "mtime": 1788992231.8140066,
-    "seen": 1788995056.922279,
-    "ast_hash": "11c53e2728104b245294967d52662d86",
+    "mtime": 1789076538.194441,
+    "seen": 1789077220.3750045,
+    "ast_hash": "7b87353f6d287de96ea7b4e41710171d",
     "semantic_hash": ""
   },
   "test/app_loading_accessibility_test.dart": {
@@ -15516,9 +15516,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-09-global-launch-readiness.md": {
-    "mtime": 1789074987.16501,
-    "seen": 1789075847.7103379,
-    "ast_hash": "e01fe582676773027a43f65217dd9c59",
+    "mtime": 1789076536.4660206,
+    "seen": 1789077220.3528388,
+    "ast_hash": "dfd67aa98d6cd60e8ef759a60f42ef7f",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-09-global-launch-readiness-design.md": {
@@ -15768,9 +15768,9 @@
     "semantic_hash": ""
   },
   "lib/services/learning_phase_catalog.dart": {
-    "mtime": 1789059126.4241958,
-    "seen": 1789060099.2819233,
-    "ast_hash": "d49a3983293a8c80680d91998b96459d",
+    "mtime": 1789076538.2134118,
+    "seen": 1789077219.9476235,
+    "ast_hash": "c24675203fd7b06b5d78f385c1e062a0",
     "semantic_hash": ""
   },
   "test/learning_phase_catalog_loader_test.dart": {
@@ -15786,9 +15786,9 @@
     "semantic_hash": ""
   },
   "test/learning_phases_test.dart": {
-    "mtime": 1789058839.1840203,
-    "seen": 1789060099.460722,
-    "ast_hash": "43603c7bddb61151f01b1c3d6906e29d",
+    "mtime": 1789076538.2170548,
+    "seen": 1789077220.055087,
+    "ast_hash": "b5d020cc638ec78169880d96cb5a5fef",
     "semantic_hash": ""
   },
   "tool/build_learning_phase_catalog.py": {
@@ -15798,21 +15798,21 @@
     "semantic_hash": ""
   },
   "tool/test_build_learning_phase_catalog.py": {
-    "mtime": 1789058839.1905868,
-    "seen": 1789060099.6500828,
-    "ast_hash": "32a99ecb0b92bc10407959d80a82cb44",
+    "mtime": 1789076538.2212307,
+    "seen": 1789077220.1651835,
+    "ast_hash": "2c2ead5dd05f25b5262c3d943933cd3c",
     "semantic_hash": ""
   },
   "tools/content_factory/cefr_matrix/runtime_bindings.json": {
-    "mtime": 1789058839.1919124,
-    "seen": 1789060099.686588,
-    "ast_hash": "727b0a4967cdc2d6805588c8e7905153",
+    "mtime": 1789076538.2242773,
+    "seen": 1789077220.1883478,
+    "ast_hash": "af30522198c97005a3aec691202e0f86",
     "semantic_hash": ""
   },
   "docs/LEARNING_PHASE_ARTWORK_PLAN.md": {
-    "mtime": 1789058839.1241617,
-    "seen": 1789060099.97494,
-    "ast_hash": "6b0d2ba89d5ab58666015ac5fdc38483",
+    "mtime": 1789076538.1730452,
+    "seen": 1789077220.3209279,
+    "ast_hash": "f48284db1dac2b9803c52070c889a5cd",
     "semantic_hash": ""
   },
   "test/custom_pack_corpus_loader_recovery_test.dart": {
@@ -15975,6 +15975,30 @@
     "mtime": 1789075248.1616046,
     "seen": 1789075847.0631387,
     "ast_hash": "9b13e4de5c60cd67a4d505dd62dd2baa",
+    "semantic_hash": ""
+  },
+  "tool/test_packs_premium_review.py": {
+    "mtime": 1789076538.2222404,
+    "seen": 1789077220.1700516,
+    "ast_hash": "c2bc02271c137377032a2706a3dca643",
+    "semantic_hash": ""
+  },
+  "tool/test_vocab_pack_visual_review.py": {
+    "mtime": 1789076538.2222404,
+    "seen": 1789077220.1725843,
+    "ast_hash": "c31aa15e51fcbe47053b4a76a237f09d",
+    "semantic_hash": ""
+  },
+  "docs/review/phase_artwork/contact-16x10.png": {
+    "mtime": 1789076538.183563,
+    "seen": 1789077220.3745952,
+    "ast_hash": "365eeb82f93ec475691d1095c40eda03",
+    "semantic_hash": ""
+  },
+  "docs/review/phase_artwork/contact-4x3.png": {
+    "mtime": 1789076538.187068,
+    "seen": 1789077220.3745975,
+    "ast_hash": "d2a4a35ee6432d5194c4354b007a9ca2",
     "semantic_hash": ""
   }
 }

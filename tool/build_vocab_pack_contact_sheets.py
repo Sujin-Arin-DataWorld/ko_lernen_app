@@ -61,8 +61,8 @@ def _render(pack_ids: list[str], *, crop_16_10: bool, output: Path) -> None:
 
 def main() -> None:
     pack_ids = _b2_pack_ids()
-    if len(pack_ids) != 49:
-        raise RuntimeError(f"Expected 49 dedicated B2 assets, found {len(pack_ids)}")
+    if not pack_ids:
+        raise RuntimeError("No dedicated B2 assets found")
     _render(
         pack_ids,
         crop_16_10=False,

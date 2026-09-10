@@ -1037,6 +1037,48 @@ No push, remote CI dispatch, app/site release build, store upload, paid API
 call, email or device retry was performed. Operational and signed-device
 release gates remain open.
 
+### Task 25: Integrate approved Phase and pack artwork with local recovery fixes
+
+**Fixed inputs:** Local `e8b12cd7bd350e0e84ea57246414c8d1681aa008`
+contains verified course and onboarding write recovery through Task24.
+Incoming main `7af0c01e8b5532cc17d8da63a01c9ac735778eca` is merged PR #298;
+the common ancestor is `8185cca7334348e52edac8464ddac6de49b97b81`.
+The primary checkout has concurrent artwork cleanup and other user work.
+Integrate only the committed incoming state in this isolated worktree.
+
+- [x] **Pin and preserve:** Capture both parents and their Graphify records,
+  prior source/asset hashes and paid graph records. Confirm PR #298 merge and
+  the existing exact-main CI/Playwright results without starting any workflow.
+  Preserve primary-checkout work and earlier local commits.
+- [x] **Compose the changes:** Merge the 30 dedicated Phase and 22 dedicated
+  pack images, mappings, manifests and validators from #298. Keep incoming
+  files byte-identical except the shared LearningPhaseCatalog, which must also
+  retain the local `cache: false` failed-read recovery. Preserve course storage,
+  onboarding retry, free learning and all unrelated local stabilization.
+  Rebuild only free Graphify metadata after preserving both parent versions.
+- [x] **Verify the image contract:** Confirm all 52 runtime image hashes,
+  dimensions and declared paths against the incoming production records.
+  Verify Phase metadata changes only its artwork paths, pack mappings retain
+  existing coverage, and new assets are registered. Inspect the existing
+  contact sheets and representative runtime files without generating or editing
+  images; distinguish inherited design approval from this integration check.
+- [x] **Verify behavior and integration:** Run relevant asset/Phase/pack,
+  learning-path, cache recovery and course/onboarding recovery tests, the
+  incoming Python content/visual-contract checks, and changed Dart analysis.
+  Obtain independent Standards and Spec reviews of the composition and fix
+  actionable findings before committing. Do not call a scoped suite full CI.
+- [x] **Record the exact local result:** Finish free Graphify update/prune,
+  verify the two-parent merge and clean worktree, and update the local readiness
+  artifact. No push, remote CI dispatch, new app/site release build, store
+  upload, provider/paid API call, image generation, email or device retry.
+  Signed-device and operational readiness gates remain open.
+
+**Ownership:** Root owns the local merge, composition checks, plan and evidence.
+Reviewers read frozen files independently. Evidence is external under
+`phase-artwork-integration-20260910/`. Existing source and image approvals are
+preserved; this task does not authorize unrelated asset promotion or cleanup.
+
+
 ### Verification evidence
 
 2026-09-10 로컬 후보의 검증 결과다. 서로 겹치는 실행 횟수는 더하지 않는다.
@@ -1061,3 +1103,24 @@ release gates remain open.
 기존 릴리스 계약 로그는 상위 `_codex_artifacts/global-launch-release-contracts-20260909.log`다.
 PR #294의 첫 커밋은 `24a77f79`다. Task 7 이후 최신 head의 원격 CI와 서명·기기 검증 결과는
 해당 PR 및 외부 검증 영수증을 확인한다. 기존 main CI와 2278 업로드는 이 후보의 증거가 아니다.
+
+**Task 25 local verification (2026-09-10):** Approved incoming bytes for
+all 30 Phase and 22 pack images match their production records (RGB WebP,
+800x600). Phase semantics are unchanged except artwork paths; dedicated
+pack coverage is 184 of 224, with 40 shared images remaining. Existing
+contact sheets and two runtime samples were inspected; this does not
+re-certify inherited semantic design approval or original source archives.
+
+The combined local candidate passed 351 Flutter tests
+in 37 files, 15 Python contract tests,
+the card-style gate, and analysis of 6 changed Dart files.
+Independent Standards and Spec reviews approved the frozen source. The
+sole shared-file composition retains cache:false recovery. All 2,467 frozen
+source files and 1,095 paid Graphify records were verified; both parent
+Graphify records were preserved before free update/prune. Existing upstream
+#298/main CI success is separate from this scoped local verification.
+
+Exact merge parents, clean-tree proof and checks are recorded externally
+in phase-artwork-integration-20260910/verification.json after the local commit.
+No push, remote CI dispatch, new release build, upload, paid call, image
+generation or device retry. Signed-device and operational gates remain open.
